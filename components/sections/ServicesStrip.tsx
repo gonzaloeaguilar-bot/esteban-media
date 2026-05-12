@@ -1,55 +1,12 @@
 import Link from "next/link";
-import {
-  Plane,
-  Camera,
-  Video,
-  Film,
-  Image as ImageIcon,
-  type LucideIcon,
-} from "lucide-react";
 
-type Service = {
-  slug: string;
-  name: string;
-  blurb: string;
-  Icon: LucideIcon;
-};
+import { SERVICES } from "@/lib/services";
 
-// Order matches Esteban's positioning: drone is *one* tool in a deep toolkit,
-// not the lead. Photography → Videography → Aerial → Edit → Edit.
-const SERVICES: Service[] = [
-  {
-    slug: "aerial",
-    name: "Aerial / Drone",
-    blurb: "Licensed drone capture for venues, properties, and brand films.",
-    Icon: Plane,
-  },
-  {
-    slug: "photography",
-    name: "Photography",
-    blurb: "Portraits, events, commercial, and lifestyle — studio or on-location.",
-    Icon: Camera,
-  },
-  {
-    slug: "videography",
-    name: "Videography",
-    blurb: "Brand films, promos, and social cutdowns scoped to your shoot.",
-    Icon: Video,
-  },
-  {
-    slug: "video-editing",
-    name: "Video Editing",
-    blurb: "Story-first editing with professional color grading.",
-    Icon: Film,
-  },
-  {
-    slug: "photo-editing",
-    name: "Photo Editing",
-    blurb: "Retouching, color, and culling — bring your RAWs.",
-    Icon: ImageIcon,
-  },
-];
-
+/**
+ * Five-up strip rendered on the homepage. Data lives in `lib/services.ts` so
+ * the overview page and detail routes stay in sync with whatever copy/icon
+ * tweaks land here.
+ */
 export function ServicesStrip() {
   return (
     <section
