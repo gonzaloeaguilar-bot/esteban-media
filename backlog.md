@@ -16,7 +16,7 @@
 
 - [ ] `P1` **Build About Esteban page** — `app/about/page.tsx`: placeholder bio (mark with `<!-- TODO: real bio from Esteban -->`), professional headshot placeholder, brand statement, list of equipment. Bilingual structure ready (use placeholder ES content). `about`
 
-- [ ] `P1` **Build Contact page with working form** — `app/contact/page.tsx` + `app/api/contact/route.ts`. Form fields: name, email, project type (dropdown of 5 services), budget range, message. Submits via Resend or Formspree to `gagui010@icloud.com`. Include honeypot field for spam. Confirm on submit. `contact`
+- [x] `P1` **Build Contact page with working form** — `app/contact/page.tsx` + `app/api/contact/route.ts`. Form fields: name, email, project type (dropdown of 5 services), budget range, message. Submits via Resend or Formspree to `gagui010@icloud.com`. Include honeypot field for spam. Confirm on submit. `contact` — Done 2026-05-13
 
 - [ ] `P1` **Wire next-intl bilingual EN/ES** — Add next-intl, locale routing at `/en/*` and `/es/*`, default to EN, language switcher in header. Translate all current copy to ES (flag `<!-- TRANSLATION REVIEW NEEDED -->` on each block). `i18n`
 
