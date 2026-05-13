@@ -9,3 +9,5 @@ dist
 *.log
 .vercel
 context-snapshot.md
+# TypeScript incremental build cache
+*.tsbuildinfo

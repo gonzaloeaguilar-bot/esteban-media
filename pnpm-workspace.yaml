@@ -1,0 +1,4 @@
+# Single-package repo. pnpm needs an explicit policy for native-build
+# scripts (sharp, unrs-resolver). Empty list = no scripts run — safer
+# default for an autonomous overnight pipeline. Re-add only if needed.
+onlyBuiltDependencies: []
