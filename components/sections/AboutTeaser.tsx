@@ -1,7 +1,11 @@
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
+
+import { Link } from "@/i18n/navigation";
 
 export function AboutTeaser() {
+  const t = useTranslations("AboutTeaser");
+
   return (
     <section
       aria-labelledby="about-heading"
@@ -14,36 +18,34 @@ export function AboutTeaser() {
           {/* TODO: real asset from Esteban — professional portrait, 4:5 ratio. */}
           <div className="absolute inset-0 flex items-center justify-center">
             <span className="text-xs font-medium uppercase tracking-[0.25em] text-zinc-500/80 dark:text-zinc-400/80">
-              Portrait placeholder
+              {t("portraitPlaceholder")}
             </span>
           </div>
         </div>
 
         <div className="md:order-1">
           <p className="text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground sm:text-sm">
-            About Esteban
+            {t("eyebrow")}
           </p>
           <h2
             id="about-heading"
             className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl"
           >
-            A visual storyteller, not a drone guy.
+            {t("headline")}
           </h2>
           {/* TODO: real bio from Esteban — keep cinematic, calm, confident.
               No corporate jargon, no superlatives without proof. */}
           <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
-            South-Florida-based and bilingual (EN/ES). Esteban shoots and edits
-            across formats — drone, camera, post — so your story stays in one
-            pair of hands from the first frame to the final cut.
+            {t("paragraph1")}
           </p>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
-            We make things feel like a film.
+            {t("paragraph2")}
           </p>
           <Link
             href="/about"
             className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-foreground underline-offset-4 transition hover:underline sm:text-base"
           >
-            More about Esteban
+            {t("cta")}
             <ArrowRight className="size-4" aria-hidden />
           </Link>
         </div>

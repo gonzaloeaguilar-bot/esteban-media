@@ -1,0 +1,146 @@
+{
+  "_review": "TRANSLATION REVIEW NEEDED — every block in this file was generated without a native ES speaker. Gonzalo (native ES) must pass on each block before this file ships to a real domain. Per CLAUDE.md: never AI-translate without flagging for review.",
+  "Metadata": {
+    "_review": "TRANSLATION REVIEW NEEDED",
+    "siteName": "Esteban Media",
+    "defaultTitle": "Esteban Media — Narrador visual, sur de Florida",
+    "titleTemplate": "{title} · Esteban Media",
+    "defaultDescription": "Aérea, fotografía, videografía y postproducción para marcas y personas en el sur de Florida. Hacemos que las cosas se sientan como una película.",
+    "services": {
+      "title": "Servicios",
+      "description": "Fotografía, videografía, aérea/drone, edición de video y edición de fotos — narrativa visual integral en todo el sur de Florida."
+    },
+    "contact": {
+      "title": "Contacto",
+      "description": "Inicia un proyecto con Esteban Media — fotografía, videografía, drone y postproducción en el sur de Florida. Cuéntanos sobre tu rodaje."
+    }
+  },
+  "Nav": {
+    "_review": "TRANSLATION REVIEW NEEDED",
+    "primaryAriaLabel": "Principal",
+    "wordmark": "Esteban Media",
+    "services": "Servicios",
+    "about": "Acerca",
+    "contact": "Contacto",
+    "languageSwitcher": {
+      "ariaLabel": "Cambiar idioma",
+      "en": "EN",
+      "es": "ES",
+      "enLong": "English",
+      "esLong": "Español"
+    }
+  },
+  "Hero": {
+    "_review": "TRANSLATION REVIEW NEEDED",
+    "eyebrow": "Esteban Media · Sur de Florida",
+    "headlineLine1": "Historias visuales,",
+    "headlineLine2": "desde el aire y en tierra.",
+    "lede": "Aérea, fotografía, videografía y postproducción — captura integral para marcas, bodas, bienes raíces y creadores en todo el sur de Florida.",
+    "ctaPrimary": "Iniciar un proyecto",
+    "ctaSecondary": "Ver el trabajo"
+  },
+  "Services": {
+    "_review": "TRANSLATION REVIEW NEEDED",
+    "eyebrowStrip": "Qué hacemos",
+    "headlineStrip": "Un solo estudio. Captura y postproducción, de principio a fin.",
+    "eyebrow": "Servicios",
+    "headline": "Un solo estudio. Captura y postproducción, de principio a fin.",
+    "introBefore": "Esteban filma y edita en todos los formatos para que tu historia quede en un solo par de manos, del primer fotograma al corte final. Elige un servicio para saber más, o ",
+    "introLink": "inicia un proyecto",
+    "introAfter": ".",
+    "cardCta": "Saber más",
+    "detail": {
+      "back": "Todos los servicios",
+      "eyebrow": "Servicio",
+      "comingSoonEyebrow": "Próximamente",
+      "comingSoonBody": "La página completa de {name} — trabajos de muestra, entregables y rangos de precios — llega cuando Esteban entregue los assets de referencia. Mientras tanto, escríbenos y te guiamos por el proceso.",
+      "ctaPrimary": "Iniciar un proyecto",
+      "ctaSecondary": "Ver otros servicios"
+    },
+    "items": {
+      "_review": "TRANSLATION REVIEW NEEDED — service names and copy",
+      "photography": {
+        "name": "Fotografía",
+        "blurb": "Retratos, eventos, comercial y lifestyle — en estudio o en locación.",
+        "longBlurb": "Retratos, eventos, fotografía comercial y de lifestyle en todo el sur de Florida. Sesiones de estudio, cobertura en locación y dirección bilingüe (EN/ES) en set."
+      },
+      "videography": {
+        "name": "Videografía",
+        "blurb": "Brand films, promos y cortes para redes a la medida de tu rodaje.",
+        "longBlurb": "Brand films, promos, cobertura de eventos y cortes para redes. Dirección con foco en la historia durante el rodaje, para que la edición fluya rápido después."
+      },
+      "aerial": {
+        "name": "Aérea / Drone",
+        "blurb": "Captura con drone licenciada para venues, propiedades y brand films.",
+        "longBlurb": "Captura con drone licencia Part 107 para venues, bienes raíces, bodas y brand films. Movimientos cinematográficos, no simples sobrevuelos inmobiliarios."
+      },
+      "video-editing": {
+        "name": "Edición de Video",
+        "blurb": "Edición con foco en la historia y color profesional.",
+        "longBlurb": "Edición con foco en la historia y color profesional. Trae tu propio material o combínalo con un rodaje — entrega en cualquier proporción para cualquier plataforma."
+      },
+      "photo-editing": {
+        "name": "Edición de Fotos",
+        "blurb": "Retoque, color y selección — manda tus RAWs.",
+        "longBlurb": "Retoque, color y selección. Envía tus RAWs y recibe una edición pulida lista para web, impresión o redes."
+      }
+    }
+  },
+  "AboutTeaser": {
+    "_review": "TRANSLATION REVIEW NEEDED",
+    "portraitPlaceholder": "Retrato de marcador",
+    "eyebrow": "Acerca de Esteban",
+    "headline": "Un narrador visual, no un piloto de drone.",
+    "paragraph1": "Basado en el sur de Florida y bilingüe (EN/ES). Esteban filma y edita en todos los formatos — drone, cámara, postproducción — para que tu historia quede en un solo par de manos, del primer fotograma al corte final.",
+    "paragraph2": "Hacemos que las cosas se sientan como una película.",
+    "cta": "Más sobre Esteban"
+  },
+  "ContactCTA": {
+    "_review": "TRANSLATION REVIEW NEEDED",
+    "eyebrow": "Hagamos algo cinematográfico",
+    "headline": "¿Tienes una historia que contar? Cuéntanosla.",
+    "body": "Brand films, bodas, bienes raíces, eventos — cuéntanos del proyecto y la fecha. Te respondemos con un alcance y una cotización.",
+    "ctaPrimary": "Iniciar un proyecto",
+    "ctaSecondary": "Escribir directo"
+  },
+  "Contact": {
+    "_review": "TRANSLATION REVIEW NEEDED",
+    "eyebrow": "Contacto",
+    "headline": "Cuéntanos sobre el proyecto.",
+    "lede": "Comparte la fecha, el formato y lo que quieres hacer sentir a la gente. Te respondemos con un alcance, un cronograma y una cotización — normalmente en dos días hábiles.",
+    "details": {
+      "emailLabel": "Correo",
+      "basedInLabel": "Basado en",
+      "basedInValue": "Sur de Florida — disponible para viajar a cualquier parte de EE. UU.",
+      "notSureLabel": "¿No sabes qué necesitas?",
+      "notSureBefore": "Echa un vistazo a la ",
+      "notSureLink": "lista completa de servicios",
+      "notSureAfter": " o simplemente describe el proyecto — te recomendamos el setup adecuado."
+    },
+    "form": {
+      "_review": "TRANSLATION REVIEW NEEDED — form copy + error messages",
+      "ariaLabel": "Formulario de contacto",
+      "honeypotLabel": "Sitio web (dejar en blanco)",
+      "nameLabel": "Nombre",
+      "emailLabel": "Correo",
+      "projectTypeLabel": "Tipo de proyecto",
+      "projectTypePlaceholder": "Elige un servicio",
+      "budgetLabel": "Rango de presupuesto",
+      "budgetPlaceholder": "Elige un rango",
+      "messageLabel": "Cuéntanos sobre el proyecto",
+      "messagePlaceholder": "Fechas, ubicación, vibe, referencias — cualquier cosa que nos ayude a definir el alcance.",
+      "footnote": "Nunca compartimos tus datos. Las respuestas suelen llegar en dos días hábiles.",
+      "submit": "Enviar mensaje",
+      "submitting": "Enviando…",
+      "successHeading": "Mensaje enviado.",
+      "successBodyBefore": "Gracias por escribir — revisaremos los detalles y respondemos en dos días hábiles, normalmente antes. Si es urgente, escribe a ",
+      "successBodyAfter": " directamente.",
+      "sendAnother": "Enviar otro mensaje",
+      "errors": {
+        "generic": "Hubo un problema al enviar tu mensaje. Inténtalo de nuevo.",
+        "network": "Error de red. Inténtalo de nuevo o escribe a gagui010@icloud.com directamente.",
+        "success": "Mensaje enviado — te respondemos pronto."
+      }
+    }
+  }
+}

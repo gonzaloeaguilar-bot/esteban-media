@@ -6,7 +6,10 @@ import {
   contactSchema,
   type BudgetRange,
 } from "@/lib/contact-schema";
-import { getService } from "@/lib/services";
+import {
+  CANONICAL_SERVICE_NAMES,
+  type ServiceSlug,
+} from "@/lib/services";
 
 /**
  * Contact form submission handler.
@@ -80,8 +83,8 @@ export async function POST(request: Request) {
     );
   }
 
-  const service = getService(projectType);
-  const projectLabel = service?.name ?? projectType;
+  const projectLabel =
+    CANONICAL_SERVICE_NAMES[projectType as ServiceSlug] ?? projectType;
   const budgetLabel = BUDGET_LABELS[budget as BudgetRange] ?? budget;
 
   const subject = `New inquiry — ${projectLabel} (${name})`;

@@ -1,13 +1,17 @@
-import Link from "next/link";
+import { useTranslations } from "next-intl";
 
+import { Link } from "@/i18n/navigation";
 import { SERVICES } from "@/lib/services";
 
 /**
  * Five-up strip rendered on the homepage. Data lives in `lib/services.ts` so
  * the overview page and detail routes stay in sync with whatever copy/icon
- * tweaks land here.
+ * tweaks land here. Names + blurbs are pulled from `messages/{locale}.json`
+ * under `Services.items.<slug>`.
  */
 export function ServicesStrip() {
+  const t = useTranslations("Services");
+
   return (
     <section
       aria-labelledby="services-heading"
@@ -16,18 +20,18 @@ export function ServicesStrip() {
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
           <p className="text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground sm:text-sm">
-            What we do
+            {t("eyebrowStrip")}
           </p>
           <h2
             id="services-heading"
             className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl"
           >
-            One studio. Capture and post, end to end.
+            {t("headlineStrip")}
           </h2>
         </div>
 
         <ul className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
-          {SERVICES.map(({ slug, name, blurb, Icon }) => (
+          {SERVICES.map(({ slug, Icon }) => (
             <li key={slug}>
               <Link
                 href={`/services/${slug}`}
@@ -38,10 +42,10 @@ export function ServicesStrip() {
                   aria-hidden
                 />
                 <h3 className="mt-5 text-base font-semibold tracking-tight">
-                  {name}
+                  {t(`items.${slug}.name`)}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {blurb}
+                  {t(`items.${slug}.blurb`)}
                 </p>
               </Link>
             </li>

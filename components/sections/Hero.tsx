@@ -1,5 +1,7 @@
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
+
+import { Link } from "@/i18n/navigation";
 
 /**
  * Cinematic full-bleed hero with a background video (placeholder sample) and
@@ -9,6 +11,8 @@ import { ArrowRight } from "lucide-react";
  * when delivered. Keep dimensions ≥1080p, ≤8s loop, muted/silent.
  */
 export function Hero() {
+  const t = useTranslations("Hero");
+
   return (
     <section
       aria-labelledby="hero-heading"
@@ -36,33 +40,32 @@ export function Hero() {
 
       <div className="mx-auto w-full max-w-5xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
         <p className="text-xs font-medium uppercase tracking-[0.25em] text-white/70 sm:text-sm">
-          Esteban Media · South Florida
+          {t("eyebrow")}
         </p>
         <h1
           id="hero-heading"
           className="mt-5 max-w-3xl text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
         >
-          Visual stories,
+          {t("headlineLine1")}
           <br />
-          <span className="text-white/70">from above and on the ground.</span>
+          <span className="text-white/70">{t("headlineLine2")}</span>
         </h1>
         <p className="mt-6 max-w-xl text-base text-white/80 sm:text-lg">
-          Aerial, photography, videography, and post — full-service capture for
-          brands, weddings, real estate, and creators across South Florida.
+          {t("lede")}
         </p>
         <div className="mt-9 flex flex-wrap items-center gap-3">
           <Link
             href="/contact"
             className="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-medium text-black transition hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black sm:text-base"
           >
-            Start a project
+            {t("ctaPrimary")}
             <ArrowRight className="size-4" aria-hidden />
           </Link>
           <Link
             href="/services"
             className="inline-flex items-center gap-2 rounded-lg border border-white/30 bg-white/0 px-5 py-3 text-sm font-medium text-white transition hover:border-white/60 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black sm:text-base"
           >
-            See the work
+            {t("ctaSecondary")}
           </Link>
         </div>
       </div>

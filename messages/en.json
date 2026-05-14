@@ -1,0 +1,136 @@
+{
+  "Metadata": {
+    "siteName": "Esteban Media",
+    "defaultTitle": "Esteban Media — Visual Storyteller, South Florida",
+    "titleTemplate": "{title} · Esteban Media",
+    "defaultDescription": "Aerial, photography, videography, and post-production for brands and people in South Florida. We make things feel like a film.",
+    "services": {
+      "title": "Services",
+      "description": "Photography, videography, aerial/drone, video editing, and photo editing — full-service visual storytelling across South Florida."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Start a project with Esteban Media — photography, videography, drone, and post-production across South Florida. Tell us about your shoot."
+    }
+  },
+  "Nav": {
+    "primaryAriaLabel": "Primary",
+    "wordmark": "Esteban Media",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact",
+    "languageSwitcher": {
+      "ariaLabel": "Switch language",
+      "en": "EN",
+      "es": "ES",
+      "enLong": "English",
+      "esLong": "Español"
+    }
+  },
+  "Hero": {
+    "eyebrow": "Esteban Media · South Florida",
+    "headlineLine1": "Visual stories,",
+    "headlineLine2": "from above and on the ground.",
+    "lede": "Aerial, photography, videography, and post — full-service capture for brands, weddings, real estate, and creators across South Florida.",
+    "ctaPrimary": "Start a project",
+    "ctaSecondary": "See the work"
+  },
+  "Services": {
+    "eyebrowStrip": "What we do",
+    "headlineStrip": "One studio. Capture and post, end to end.",
+    "eyebrow": "Services",
+    "headline": "One studio. Capture and post, end to end.",
+    "introBefore": "Esteban shoots and edits across formats so your story stays in one pair of hands from the first frame to the final cut. Pick a service to learn more, or ",
+    "introLink": "start a project",
+    "introAfter": ".",
+    "cardCta": "Learn more",
+    "detail": {
+      "back": "All services",
+      "eyebrow": "Service",
+      "comingSoonEyebrow": "Coming soon",
+      "comingSoonBody": "The full {name} page — sample work, deliverables, and pricing tiers — lands once Esteban delivers reference assets. In the meantime, get in touch and we'll walk you through it.",
+      "ctaPrimary": "Start a project",
+      "ctaSecondary": "See other services"
+    },
+    "items": {
+      "photography": {
+        "name": "Photography",
+        "blurb": "Portraits, events, commercial, and lifestyle — studio or on-location.",
+        "longBlurb": "Portraits, events, commercial, and lifestyle photography across South Florida. Studio sessions, on-location coverage, and bilingual direction (EN/ES) on set."
+      },
+      "videography": {
+        "name": "Videography",
+        "blurb": "Brand films, promos, and social cutdowns scoped to your shoot.",
+        "longBlurb": "Brand films, promos, event coverage, and social cutdowns. Story-first directing on the day so the edit comes together quickly afterward."
+      },
+      "aerial": {
+        "name": "Aerial / Drone",
+        "blurb": "Licensed drone capture for venues, properties, and brand films.",
+        "longBlurb": "Licensed Part 107 drone capture for venues, real estate, weddings, and brand films. Cinematic moves, not just real-estate flyovers."
+      },
+      "video-editing": {
+        "name": "Video Editing",
+        "blurb": "Story-first editing with professional color grading.",
+        "longBlurb": "Story-first editing and professional color grading. Bring your own footage or pair it with a shoot — delivery in any aspect ratio for any platform."
+      },
+      "photo-editing": {
+        "name": "Photo Editing",
+        "blurb": "Retouching, color, and culling — bring your RAWs.",
+        "longBlurb": "Retouching, color, and culling. Send your RAWs; receive a polished edit ready for web, print, or social."
+      }
+    }
+  },
+  "AboutTeaser": {
+    "portraitPlaceholder": "Portrait placeholder",
+    "eyebrow": "About Esteban",
+    "headline": "A visual storyteller, not a drone guy.",
+    "paragraph1": "South-Florida-based and bilingual (EN/ES). Esteban shoots and edits across formats — drone, camera, post — so your story stays in one pair of hands from the first frame to the final cut.",
+    "paragraph2": "We make things feel like a film.",
+    "cta": "More about Esteban"
+  },
+  "ContactCTA": {
+    "eyebrow": "Let's build something cinematic",
+    "headline": "Got a story to tell? Tell us about it.",
+    "body": "Brand films, weddings, real estate, events — share the project and the date. We'll come back with a scope and a quote.",
+    "ctaPrimary": "Start a project",
+    "ctaSecondary": "Email directly"
+  },
+  "Contact": {
+    "eyebrow": "Contact",
+    "headline": "Tell us about the project.",
+    "lede": "Share the date, the format, and what you're trying to make people feel. We'll come back with a scope, a timeline, and a quote — usually within two business days.",
+    "details": {
+      "emailLabel": "Email",
+      "basedInLabel": "Based in",
+      "basedInValue": "South Florida — available for travel anywhere in the U.S.",
+      "notSureLabel": "Not sure what you need?",
+      "notSureBefore": "Take a look at the ",
+      "notSureLink": "full service list",
+      "notSureAfter": " or just describe the project — we'll recommend the right setup."
+    },
+    "form": {
+      "ariaLabel": "Contact form",
+      "honeypotLabel": "Website (leave blank)",
+      "nameLabel": "Name",
+      "emailLabel": "Email",
+      "projectTypeLabel": "Project type",
+      "projectTypePlaceholder": "Pick a service",
+      "budgetLabel": "Budget range",
+      "budgetPlaceholder": "Pick a range",
+      "messageLabel": "Tell us about the project",
+      "messagePlaceholder": "Dates, location, vibe, references — anything that helps us scope it.",
+      "footnote": "We'll never share your details. Replies usually come within two business days.",
+      "submit": "Send message",
+      "submitting": "Sending…",
+      "successHeading": "Message sent.",
+      "successBodyBefore": "Thanks for reaching out — we'll review the details and reply within two business days, usually sooner. If it's urgent, feel free to email ",
+      "successBodyAfter": " directly.",
+      "sendAnother": "Send another message",
+      "errors": {
+        "generic": "Something went wrong sending your message. Please try again.",
+        "network": "Network error. Please try again, or email gagui010@icloud.com directly.",
+        "success": "Message sent — we'll be in touch shortly."
+      }
+    }
+  }
+}

@@ -1,16 +1,30 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
+import { Link } from "@/i18n/navigation";
 import { SERVICES } from "@/lib/services";
 
-export const metadata: Metadata = {
-  title: "Services",
-  description:
-    "Photography, videography, aerial/drone, video editing, and photo editing — full-service visual storytelling across South Florida.",
+type PageProps = {
+  params: Promise<{ locale: string }>;
 };
 
-export default function ServicesPage() {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata.services" });
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
+
+export default async function ServicesPage({ params }: PageProps) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "Services" });
+
   return (
     <main className="min-h-screen bg-background text-foreground">
       <section
@@ -20,30 +34,28 @@ export default function ServicesPage() {
         <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground sm:text-sm">
-              Services
+              {t("eyebrow")}
             </p>
             <h1
               id="services-overview-heading"
               className="mt-3 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl"
             >
-              One studio. Capture and post, end to end.
+              {t("headline")}
             </h1>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Esteban shoots and edits across formats so your story stays in one
-              pair of hands from the first frame to the final cut. Pick a
-              service to learn more, or{" "}
+              {t("introBefore")}
               <Link
                 href="/contact"
                 className="font-medium text-foreground underline underline-offset-4 transition hover:opacity-80"
               >
-                start a project
+                {t("introLink")}
               </Link>
-              .
+              {t("introAfter")}
             </p>
           </div>
 
           <ul className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {SERVICES.map(({ slug, name, longBlurb, Icon }) => (
+            {SERVICES.map(({ slug, Icon }) => (
               <li key={slug} className="h-full">
                 <Link
                   href={`/services/${slug}`}
@@ -54,13 +66,13 @@ export default function ServicesPage() {
                     aria-hidden
                   />
                   <h2 className="mt-6 text-xl font-semibold tracking-tight">
-                    {name}
+                    {t(`items.${slug}.name`)}
                   </h2>
                   <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
-                    {longBlurb}
+                    {t(`items.${slug}.longBlurb`)}
                   </p>
                   <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground">
-                    Learn more
+                    {t("cardCta")}
                     <ArrowRight
                       className="size-4 transition group-hover:translate-x-0.5"
                       aria-hidden

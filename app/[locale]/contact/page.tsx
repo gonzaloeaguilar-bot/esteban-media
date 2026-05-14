@@ -1,15 +1,30 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+
+import { Link } from "@/i18n/navigation";
 
 import { ContactForm } from "./contact-form";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description:
-    "Start a project with Esteban Media — photography, videography, drone, and post-production across South Florida. Tell us about your shoot.",
+type PageProps = {
+  params: Promise<{ locale: string }>;
 };
 
-export default function ContactPage() {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata.contact" });
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
+
+export default async function ContactPage({ params }: PageProps) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "Contact" });
+
   return (
     <main className="min-h-screen bg-background text-foreground">
       <section
@@ -19,23 +34,23 @@ export default function ContactPage() {
         <div className="mx-auto grid w-full max-w-6xl gap-14 px-4 sm:px-6 lg:grid-cols-[1fr_1.2fr] lg:gap-20 lg:px-8">
           <div className="max-w-xl">
             <p className="text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground sm:text-sm">
-              Contact
+              {t("eyebrow")}
             </p>
             <h1
               id="contact-heading"
               className="mt-3 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl"
             >
-              Tell us about the project.
+              {t("headline")}
             </h1>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Share the date, the format, and what you&rsquo;re trying to make
-              people feel. We&rsquo;ll come back with a scope, a timeline, and
-              a quote — usually within two business days.
+              {t("lede")}
             </p>
 
             <dl className="mt-10 space-y-6 text-sm">
               <div>
-                <dt className="font-medium text-foreground">Email</dt>
+                <dt className="font-medium text-foreground">
+                  {t("details.emailLabel")}
+                </dt>
                 <dd className="mt-1 text-muted-foreground">
                   <a
                     href="mailto:gagui010@icloud.com"
@@ -46,25 +61,26 @@ export default function ContactPage() {
                 </dd>
               </div>
               <div>
-                <dt className="font-medium text-foreground">Based in</dt>
+                <dt className="font-medium text-foreground">
+                  {t("details.basedInLabel")}
+                </dt>
                 <dd className="mt-1 text-muted-foreground">
-                  South Florida — available for travel anywhere in the U.S.
+                  {t("details.basedInValue")}
                 </dd>
               </div>
               <div>
                 <dt className="font-medium text-foreground">
-                  Not sure what you need?
+                  {t("details.notSureLabel")}
                 </dt>
                 <dd className="mt-1 text-muted-foreground">
-                  Take a look at the{" "}
+                  {t("details.notSureBefore")}
                   <Link
                     href="/services"
                     className="font-medium text-foreground underline underline-offset-4 transition hover:opacity-80"
                   >
-                    full service list
-                  </Link>{" "}
-                  or just describe the project — we&rsquo;ll recommend the
-                  right setup.
+                    {t("details.notSureLink")}
+                  </Link>
+                  {t("details.notSureAfter")}
                 </dd>
               </div>
             </dl>
