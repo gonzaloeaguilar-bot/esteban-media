@@ -1,0 +1,25 @@
+<!-- TODO: real asset from Esteban — aerial / drone hero -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Aerial / drone hero placeholder">
+  <defs>
+    <linearGradient id="aerialBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0b1220" />
+      <stop offset="55%" stop-color="#101a2c" />
+      <stop offset="100%" stop-color="#1a2742" />
+    </linearGradient>
+    <radialGradient id="aerialGlow" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#aerialBg)" />
+  <rect width="1600" height="900" fill="url(#aerialGlow)" />
+  <g stroke="#1f2a44" stroke-width="1" opacity="0.6">
+    <line x1="0" y1="720" x2="1600" y2="720" />
+    <line x1="0" y1="780" x2="1600" y2="780" />
+    <line x1="0" y1="840" x2="1600" y2="840" />
+  </g>
+  <g fill="#e2e8f0" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Helvetica, Arial" text-anchor="middle">
+    <text x="800" y="430" font-size="56" font-weight="600" letter-spacing="0.04em">AERIAL / DRONE</text>
+    <text x="800" y="490" font-size="22" opacity="0.65">Placeholder · real reel from Esteban TBD</text>
+  </g>
+</svg>

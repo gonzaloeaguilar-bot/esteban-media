@@ -1,0 +1,26 @@
+<!-- TODO: real asset from Esteban — video editing hero -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Video editing hero placeholder">
+  <defs>
+    <linearGradient id="vedBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f0f12" />
+      <stop offset="100%" stop-color="#1a1a20" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#vedBg)" />
+  <g fill="#1d4ed8" opacity="0.18">
+    <rect x="120" y="620" width="320" height="80" rx="6" />
+    <rect x="460" y="620" width="180" height="80" rx="6" />
+    <rect x="660" y="620" width="420" height="80" rx="6" />
+    <rect x="1100" y="620" width="240" height="80" rx="6" />
+    <rect x="1360" y="620" width="120" height="80" rx="6" />
+  </g>
+  <g fill="#22c55e" opacity="0.2">
+    <rect x="120" y="720" width="540" height="80" rx="6" />
+    <rect x="680" y="720" width="280" height="80" rx="6" />
+    <rect x="980" y="720" width="500" height="80" rx="6" />
+  </g>
+  <g fill="#e5e7eb" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Helvetica, Arial" text-anchor="middle">
+    <text x="800" y="380" font-size="56" font-weight="600" letter-spacing="0.04em">VIDEO EDITING</text>
+    <text x="800" y="440" font-size="22" opacity="0.65">Placeholder · real reel from Esteban TBD</text>
+  </g>
+</svg>

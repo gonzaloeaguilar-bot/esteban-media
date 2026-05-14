@@ -1,0 +1,20 @@
+<!-- TODO: real asset from Esteban — photography hero -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Photography hero placeholder">
+  <defs>
+    <linearGradient id="photoBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1f1611" />
+      <stop offset="60%" stop-color="#2a1f17" />
+      <stop offset="100%" stop-color="#3a2a1d" />
+    </linearGradient>
+    <radialGradient id="photoGlow" cx="35%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#photoBg)" />
+  <rect width="1600" height="900" fill="url(#photoGlow)" />
+  <g fill="#f5e9d8" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Helvetica, Arial" text-anchor="middle">
+    <text x="800" y="430" font-size="56" font-weight="600" letter-spacing="0.04em">PHOTOGRAPHY</text>
+    <text x="800" y="490" font-size="22" opacity="0.65">Placeholder · real frame from Esteban TBD</text>
+  </g>
+</svg>
