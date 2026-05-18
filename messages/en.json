@@ -50,33 +50,95 @@
       "comingSoonEyebrow": "Coming soon",
       "comingSoonBody": "The full {name} page — sample work, deliverables, and pricing tiers — lands once Esteban delivers reference assets. In the meantime, get in touch and we'll walk you through it.",
       "ctaPrimary": "Start a project",
-      "ctaSecondary": "See other services"
+      "ctaSecondary": "See other services",
+      "included": {
+        "eyebrow": "What's included",
+        "heading": "Every {name} engagement ships with:"
+      },
+      "gallery": {
+        "eyebrow": "Sample work",
+        "heading": "Recent {name} frames",
+        "note": "Placeholder tiles — Esteban's real {name} portfolio drops in here as projects wrap.",
+        "ariaLabel": "{name} sample work gallery",
+        "tileLabel": "{name} sample"
+      },
+      "inquiry": {
+        "eyebrow": "Start a {name} project",
+        "heading": "Got a {name} shoot in mind?",
+        "body": "Share the date, the format, and what you want it to feel like. We'll come back with a scope and a quote — usually within two business days.",
+        "ctaPrimary": "Start a project",
+        "ctaSecondary": "See all services"
+      },
+      "related": {
+        "eyebrow": "Other services",
+        "heading": "One studio, end to end."
+      }
     },
     "items": {
       "photography": {
         "name": "Photography",
+        "tagline": "Portraits, events, commercial, lifestyle — directed and delivered in one pair of hands.",
         "blurb": "Portraits, events, commercial, and lifestyle — studio or on-location.",
-        "longBlurb": "Portraits, events, commercial, and lifestyle photography across South Florida. Studio sessions, on-location coverage, and bilingual direction (EN/ES) on set."
+        "longBlurb": "Portraits, events, commercial, and lifestyle photography across South Florida. Studio sessions, on-location coverage, and bilingual direction (EN/ES) on set.",
+        "included": {
+          "0": "Pre-shoot creative call to align on look, location, and shot list",
+          "1": "On-location or studio capture with pro lighting and bilingual direction",
+          "2": "Same-day proofs gallery within 48 hours of the shoot",
+          "3": "Selected, retouched, color-graded final images delivered in web + print resolutions",
+          "4": "Usage rights for the agreed scope (personal, commercial, or extended)"
+        }
       },
       "videography": {
         "name": "Videography",
+        "tagline": "Brand films, promos, and event coverage shot with the edit already in mind.",
         "blurb": "Brand films, promos, and social cutdowns scoped to your shoot.",
-        "longBlurb": "Brand films, promos, event coverage, and social cutdowns. Story-first directing on the day so the edit comes together quickly afterward."
+        "longBlurb": "Brand films, promos, event coverage, and social cutdowns. Story-first directing on the day so the edit comes together quickly afterward.",
+        "included": {
+          "0": "Pre-production: treatment, shot list, and call sheet aligned to your story",
+          "1": "Cinema-grade capture (4K min., 10-bit color) with audio recorded on a dedicated channel",
+          "2": "Optional drone B-roll plug-in from the in-house aerial service",
+          "3": "Hero film plus platform-native cutdowns (16:9, 9:16, 1:1) at no extra charge",
+          "4": "Two rounds of revisions and a delivered master with project archive"
+        }
       },
       "aerial": {
         "name": "Aerial / Drone",
+        "tagline": "Part 107 licensed, cinematic-first — drone as a storytelling lens, not a real-estate flyover.",
         "blurb": "Licensed drone capture for venues, properties, and brand films.",
-        "longBlurb": "Licensed Part 107 drone capture for venues, real estate, weddings, and brand films. Cinematic moves, not just real-estate flyovers."
+        "longBlurb": "Licensed Part 107 drone capture for venues, real estate, weddings, and brand films. Cinematic moves, not just real-estate flyovers.",
+        "included": {
+          "0": "FAA Part 107 certified pilot and full liability insurance on every flight",
+          "1": "Airspace clearance, LAANC authorization, and on-site safety brief",
+          "2": "4K HDR aerial capture with cinematic move planning (reveals, parallax, top-downs)",
+          "3": "Color-graded aerial selects and raw footage handed back on a shared drive",
+          "4": "Optional pairing with ground photography or videography for a complete package"
+        }
       },
       "video-editing": {
         "name": "Video Editing",
+        "tagline": "Story-first cuts and pro color — bring your own footage or pair it with a shoot.",
         "blurb": "Story-first editing with professional color grading.",
-        "longBlurb": "Story-first editing and professional color grading. Bring your own footage or pair it with a shoot — delivery in any aspect ratio for any platform."
+        "longBlurb": "Story-first editing and professional color grading. Bring your own footage or pair it with a shoot — delivery in any aspect ratio for any platform.",
+        "included": {
+          "0": "Editorial pass: structure, pacing, and story shape before any polish work",
+          "1": "Sound design and music licensing or supervision",
+          "2": "Professional color grading with show LUT applied across all clips",
+          "3": "Platform-native deliverables (16:9, 9:16, 1:1) cut from the same master",
+          "4": "Two revision rounds plus archived project files for future re-cuts"
+        }
       },
       "photo-editing": {
         "name": "Photo Editing",
+        "tagline": "Retouching, color, and culling — send your RAWs, receive a delivery-ready set.",
         "blurb": "Retouching, color, and culling — bring your RAWs.",
-        "longBlurb": "Retouching, color, and culling. Send your RAWs; receive a polished edit ready for web, print, or social."
+        "longBlurb": "Retouching, color, and culling. Send your RAWs; receive a polished edit ready for web, print, or social.",
+        "included": {
+          "0": "Cull and select the keepers from your full RAW set",
+          "1": "Color grading and consistent tone across the delivered set",
+          "2": "Skin, sky, and detail retouching tuned to the use case",
+          "3": "Export presets for web, print, and social in one delivery",
+          "4": "Original RAWs returned alongside the edited masters"
+        }
       }
     }
   },

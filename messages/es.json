@@ -50,39 +50,102 @@
     "introAfter": ".",
     "cardCta": "Saber más",
     "detail": {
+      "_review": "TRANSLATION REVIEW NEEDED — detail-page chrome (included/gallery/inquiry/related)",
       "back": "Todos los servicios",
       "eyebrow": "Servicio",
       "comingSoonEyebrow": "Próximamente",
       "comingSoonBody": "La página completa de {name} — trabajos de muestra, entregables y rangos de precios — llega cuando Esteban entregue los assets de referencia. Mientras tanto, escríbenos y te guiamos por el proceso.",
       "ctaPrimary": "Iniciar un proyecto",
-      "ctaSecondary": "Ver otros servicios"
+      "ctaSecondary": "Ver otros servicios",
+      "included": {
+        "eyebrow": "Qué incluye",
+        "heading": "Cada proyecto de {name} incluye:"
+      },
+      "gallery": {
+        "eyebrow": "Trabajo de muestra",
+        "heading": "Frames recientes de {name}",
+        "note": "Espacios provisionales — el portafolio real de {name} aparece aquí a medida que cerramos proyectos.",
+        "ariaLabel": "Galería de muestra de {name}",
+        "tileLabel": "Muestra {name}"
+      },
+      "inquiry": {
+        "eyebrow": "Iniciar un proyecto de {name}",
+        "heading": "¿Tienes un rodaje de {name} en mente?",
+        "body": "Cuéntanos la fecha, el formato y qué quieres hacer sentir. Te respondemos con un alcance y una cotización — normalmente en dos días hábiles.",
+        "ctaPrimary": "Iniciar un proyecto",
+        "ctaSecondary": "Ver todos los servicios"
+      },
+      "related": {
+        "eyebrow": "Otros servicios",
+        "heading": "Un solo estudio, de principio a fin."
+      }
     },
     "items": {
-      "_review": "TRANSLATION REVIEW NEEDED — service names and copy",
+      "_review": "TRANSLATION REVIEW NEEDED — service names, taglines, blurbs, and included lists",
       "photography": {
         "name": "Fotografía",
+        "tagline": "Retratos, eventos, comercial, lifestyle — dirigidos y entregados en un solo par de manos.",
         "blurb": "Retratos, eventos, comercial y lifestyle — en estudio o en locación.",
-        "longBlurb": "Retratos, eventos, fotografía comercial y de lifestyle en todo el sur de Florida. Sesiones de estudio, cobertura en locación y dirección bilingüe (EN/ES) en set."
+        "longBlurb": "Retratos, eventos, fotografía comercial y de lifestyle en todo el sur de Florida. Sesiones de estudio, cobertura en locación y dirección bilingüe (EN/ES) en set.",
+        "included": {
+          "0": "Llamada creativa previa para alinear estilo, locación y shot list",
+          "1": "Captura en locación o estudio con iluminación profesional y dirección bilingüe",
+          "2": "Galería de proofs el mismo día, dentro de las 48 horas posteriores al rodaje",
+          "3": "Imágenes finales seleccionadas, retocadas y con color, entregadas en resolución web e impresión",
+          "4": "Derechos de uso para el alcance acordado (personal, comercial o extendido)"
+        }
       },
       "videography": {
         "name": "Videografía",
+        "tagline": "Brand films, promos y cobertura de eventos rodados pensando ya en la edición.",
         "blurb": "Brand films, promos y cortes para redes a la medida de tu rodaje.",
-        "longBlurb": "Brand films, promos, cobertura de eventos y cortes para redes. Dirección con foco en la historia durante el rodaje, para que la edición fluya rápido después."
+        "longBlurb": "Brand films, promos, cobertura de eventos y cortes para redes. Dirección con foco en la historia durante el rodaje, para que la edición fluya rápido después.",
+        "included": {
+          "0": "Preproducción: tratamiento, shot list y call sheet alineados a tu historia",
+          "1": "Captura cinematográfica (4K mín., color 10-bit) con audio grabado en canal dedicado",
+          "2": "B-roll aéreo opcional sumado desde el servicio interno de drone",
+          "3": "Hero film más cortes nativos por plataforma (16:9, 9:16, 1:1) sin costo extra",
+          "4": "Dos rondas de revisiones y entrega del master con archivo del proyecto"
+        }
       },
       "aerial": {
         "name": "Aérea / Drone",
+        "tagline": "Licencia Part 107, mirada cinematográfica — el drone como lente narrativo, no como sobrevuelo inmobiliario.",
         "blurb": "Captura con drone licenciada para venues, propiedades y brand films.",
-        "longBlurb": "Captura con drone licencia Part 107 para venues, bienes raíces, bodas y brand films. Movimientos cinematográficos, no simples sobrevuelos inmobiliarios."
+        "longBlurb": "Captura con drone licencia Part 107 para venues, bienes raíces, bodas y brand films. Movimientos cinematográficos, no simples sobrevuelos inmobiliarios.",
+        "included": {
+          "0": "Piloto certificado FAA Part 107 y seguro de responsabilidad civil en cada vuelo",
+          "1": "Coordinación de espacio aéreo, autorización LAANC y brief de seguridad en sitio",
+          "2": "Captura aérea 4K HDR con movimientos cinematográficos planeados (reveals, parallax, top-downs)",
+          "3": "Selects aéreos con color y material crudo entregados en un drive compartido",
+          "4": "Posibilidad de combinar con fotografía o videografía en tierra para un paquete completo"
+        }
       },
       "video-editing": {
         "name": "Edición de Video",
+        "tagline": "Cortes con foco en la historia y color profesional — trae tu material o combínalo con un rodaje.",
         "blurb": "Edición con foco en la historia y color profesional.",
-        "longBlurb": "Edición con foco en la historia y color profesional. Trae tu propio material o combínalo con un rodaje — entrega en cualquier proporción para cualquier plataforma."
+        "longBlurb": "Edición con foco en la historia y color profesional. Trae tu propio material o combínalo con un rodaje — entrega en cualquier proporción para cualquier plataforma.",
+        "included": {
+          "0": "Pase editorial: estructura, ritmo y forma de la historia antes del trabajo de pulido",
+          "1": "Diseño de sonido y licenciamiento o supervisión musical",
+          "2": "Color grading profesional con LUT del proyecto aplicado a todo el material",
+          "3": "Entregables nativos por plataforma (16:9, 9:16, 1:1) cortados desde el mismo master",
+          "4": "Dos rondas de revisión y archivo del proyecto para futuros re-cortes"
+        }
       },
       "photo-editing": {
         "name": "Edición de Fotos",
+        "tagline": "Retoque, color y selección — manda tus RAWs, recibe un set listo para entregar.",
         "blurb": "Retoque, color y selección — manda tus RAWs.",
-        "longBlurb": "Retoque, color y selección. Envía tus RAWs y recibe una edición pulida lista para web, impresión o redes."
+        "longBlurb": "Retoque, color y selección. Envía tus RAWs y recibe una edición pulida lista para web, impresión o redes.",
+        "included": {
+          "0": "Selección de las mejores tomas de tu set completo de RAWs",
+          "1": "Color grading y tono consistente en todo el set entregado",
+          "2": "Retoque de piel, cielo y detalle ajustado al uso final",
+          "3": "Exportaciones para web, impresión y redes en una sola entrega",
+          "4": "RAWs originales devueltos junto con los masters editados"
+        }
       }
     }
   },
