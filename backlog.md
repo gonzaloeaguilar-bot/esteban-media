@@ -22,7 +22,7 @@
 
 ## P2
 
-- [ ] `P2` **Add LocalBusiness + Service + Person schema JSON-LD** — Inject in `app/layout.tsx` (LocalBusiness for the org, Person for Esteban) and on each service page (Service schema with provider ref). Use real social handles when known; placeholder until then. `seo`
+- [x] `P2` **Add LocalBusiness + Service + Person schema JSON-LD** — Inject in `app/layout.tsx` (LocalBusiness for the org, Person for Esteban) and on each service page (Service schema with provider ref). Use real social handles when known; placeholder until then. `seo` — Done 2026-05-18
 
 - [ ] `P2` **SEO meta + OG image defaults** — `app/layout.tsx` metadata with title template, description, OG image (placeholder), Twitter card. Per-page metadata exports on home/services/about/contact. `seo`
 

@@ -6,8 +6,10 @@ import { Geist, Geist_Mono } from "next/font/google";
 
 import "../globals.css";
 import { SiteHeader } from "@/components/layout/SiteHeader";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { Toaster } from "@/components/ui/sonner";
 import { routing } from "@/i18n/routing";
+import { buildSiteGraph } from "@/lib/seo/schema";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -62,11 +64,17 @@ export default async function LocaleLayout({
   // Required for static rendering to pick up the right locale per request.
   setRequestLocale(locale);
 
+  // Site-wide structured data: LocalBusiness + Person, linked via @id refs.
+  // Rendered once on every page so crawlers can resolve the org/person on
+  // any URL without depending on the homepage being the entry point.
+  const siteGraph = buildSiteGraph();
+
   return (
     <html lang={locale}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <JsonLd id="site-graph" data={siteGraph} />
         <NextIntlClientProvider>
           <SiteHeader />
           {children}

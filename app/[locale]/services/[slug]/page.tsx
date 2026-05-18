@@ -11,6 +11,8 @@ import {
   getService,
 } from "@/lib/services";
 import { ServiceGalleryPlaceholder } from "@/components/sections/ServiceGalleryPlaceholder";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { buildServiceSchema } from "@/lib/seo/schema";
 
 type Params = { locale: string; slug: string };
 
@@ -95,8 +97,23 @@ export default async function ServicePage({ params }: PageProps) {
   // doesn't need a follow-up sweep across these five pages.
   const contactHref = `/contact?service=${service.slug}` as const;
 
+  // Service JSON-LD. `provider.@id` refers back to the LocalBusiness emitted
+  // by the root layout's @graph — that link is what tells crawlers "this
+  // service is offered by that org" without duplicating the org payload.
+  const serviceSchema = buildServiceSchema({
+    slug: service.slug,
+    name,
+    // Hero `tagline` is the cleanest one-liner we have per service; `longBlurb`
+    // is paragraph-length and gets noisy when crawlers truncate it for AI
+    // surfaces. If/when product copy provides an explicit `seoDescription`,
+    // swap this to read that key instead.
+    description: tagline,
+    locale,
+  });
+
   return (
     <main className="min-h-screen bg-background text-foreground">
+      <JsonLd id={`service-schema-${service.slug}`} data={serviceSchema} />
       {/* ───────────────────── 1. Hero ───────────────────── */}
       <section
         aria-labelledby="service-heading"
