@@ -11,6 +11,10 @@
     "contact": {
       "title": "Contact",
       "description": "Start a project with Esteban Media — photography, videography, drone, and post-production across South Florida. Tell us about your shoot."
+    },
+    "about": {
+      "title": "About",
+      "description": "Meet Esteban — bilingual visual storyteller based in South Florida. Aerial, photography, videography, and post-production in one pair of hands."
     }
   },
   "Nav": {
@@ -94,6 +98,87 @@
     "body": "Brand films, weddings, real estate, events — share the project and the date. We'll come back with a scope and a quote.",
     "ctaPrimary": "Start a project",
     "ctaSecondary": "Email directly"
+  },
+  "About": {
+    "hero": {
+      "eyebrow": "About Esteban",
+      "title": "A visual storyteller, not a drone guy.",
+      "subtitle": "Bilingual (EN/ES) and based in South Florida. One pair of hands across aerial, photography, videography, and post — so your story stays consistent from the first frame to the final cut."
+    },
+    "portrait": {
+      "placeholder": "Portrait placeholder",
+      "caption": "Esteban — South Florida"
+    },
+    "bio": {
+      "heading": "The short version",
+      "bodyTodoNote": "TODO: real bio from Esteban — keep cinematic, calm, confident. No corporate jargon, no superlatives without proof.",
+      "paragraph1": "Esteban is a South-Florida-based visual storyteller working across aerial, photography, videography, and post-production. He directs his own shoots and edits his own footage, which means clients get one creative point of view from the first frame to the final cut.",
+      "paragraph2": "Before going full-time behind the camera, Esteban spent years building a documentary-style eye for weddings, brand films, and lifestyle shoots — the kind of work where you have to read a room, move quietly, and still come away with the frame that makes the cut.",
+      "paragraph3": "He's licensed Part 107 for drone work, fluent in English and Spanish on set, and based out of South Florida with regular travel across the U.S. for brand and destination shoots."
+    },
+    "brand": {
+      "heading": "How we think about the work",
+      "body": "We make things feel like a film. That means quiet directing on set, story-first editing in post, and color that doesn't shout. It also means picking the right tool — drone, camera, or edit suite — instead of leaning on the one we like best. Confident, cinematic, calm. No corporate jargon. No superlatives without proof."
+    },
+    "equipment": {
+      "heading": "Equipment",
+      "lede": "A working kit, not a brag sheet. Gear is listed so producers and ADs can scope a shoot without a back-and-forth.",
+      "todoNote": "TODO: real gear list from Esteban — every line below is a placeholder until he sends his actual kit. Do not invent specifics.",
+      "placeholderBadge": "Placeholder",
+      "groups": {
+        "cameras": {
+          "label": "Cameras",
+          "items": {
+            "0": "Primary mirrorless body — full-frame, 4K/60",
+            "1": "B-camera body — matched colour science",
+            "2": "Compact run-and-gun body for events"
+          }
+        },
+        "lenses": {
+          "label": "Lenses",
+          "items": {
+            "0": "Wide prime (24mm-ish equivalent)",
+            "1": "Standard prime (35mm) for portraits + lifestyle",
+            "2": "Portrait prime (85mm) for tight coverage",
+            "3": "Versatile zoom (24–70mm) for events"
+          }
+        },
+        "drones": {
+          "label": "Drones",
+          "items": {
+            "0": "Cinema drone — Part 107 licensed, ND filters",
+            "1": "Compact drone for tight spaces + travel"
+          }
+        },
+        "audio": {
+          "label": "Audio",
+          "items": {
+            "0": "Wireless lavalier kit (dual transmitters)",
+            "1": "Shotgun mic on boom for interviews"
+          }
+        },
+        "lighting": {
+          "label": "Lighting",
+          "items": {
+            "0": "Continuous LED panels with diffusion",
+            "1": "Portable strobe + modifier kit"
+          }
+        },
+        "edit": {
+          "label": "Edit Suite",
+          "items": {
+            "0": "Davinci Resolve Studio — colour + grade",
+            "1": "Adobe Creative Cloud — Premiere, Lightroom, Photoshop"
+          }
+        }
+      }
+    },
+    "cta": {
+      "heading": "Have a project in mind?",
+      "body": "Tell us the dates, the format, and what you want people to feel. We'll come back with a scope and a quote.",
+      "ctaPrimary": "Start a project",
+      "ctaSecondary": "See services"
+    }
   },
   "Contact": {
     "eyebrow": "Contact",
