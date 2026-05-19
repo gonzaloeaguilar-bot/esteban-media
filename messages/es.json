@@ -13,6 +13,10 @@
     "contact": {
       "title": "Contacto",
       "description": "Inicia un proyecto con Esteban Media — fotografía, videografía, drone y postproducción en el sur de Florida. Cuéntanos sobre tu rodaje."
+    },
+    "about": {
+      "title": "Acerca",
+      "description": "Conoce a Esteban — narrador visual bilingüe basado en el sur de Florida. Aérea, fotografía, videografía y postproducción en un solo par de manos."
     }
   },
   "Nav": {
@@ -165,6 +169,88 @@
     "body": "Brand films, bodas, bienes raíces, eventos — cuéntanos del proyecto y la fecha. Te respondemos con un alcance y una cotización.",
     "ctaPrimary": "Iniciar un proyecto",
     "ctaSecondary": "Escribir directo"
+  },
+  "About": {
+    "_review": "TRANSLATION REVIEW NEEDED — every block in this namespace was generated without a native ES speaker. Gonzalo (native ES) must validate before this file ships to a real domain.",
+    "hero": {
+      "eyebrow": "Acerca de Esteban",
+      "title": "Un narrador visual, no un piloto de drone.",
+      "subtitle": "Bilingüe (EN/ES) y basado en el sur de Florida. Un solo par de manos para aérea, fotografía, videografía y postproducción — para que tu historia se mantenga consistente del primer fotograma al corte final."
+    },
+    "portrait": {
+      "placeholder": "Retrato de marcador",
+      "caption": "Esteban — Sur de Florida"
+    },
+    "bio": {
+      "heading": "La versión corta",
+      "bodyTodoNote": "TODO: biografía real de Esteban — tono cinematográfico, sereno y seguro. Sin jerga corporativa, sin superlativos sin respaldo.",
+      "paragraph1": "Esteban es un narrador visual basado en el sur de Florida que trabaja en aérea, fotografía, videografía y postproducción. Dirige sus propios rodajes y edita su propio material, así los clientes reciben un único punto de vista creativo, del primer fotograma al corte final.",
+      "paragraph2": "Antes de dedicarse de tiempo completo a la cámara, Esteban pasó años desarrollando una mirada estilo documental para bodas, brand films y rodajes de lifestyle — el tipo de trabajo donde hay que leer la sala, moverse en silencio y aun así llevarte el cuadro que entra al corte.",
+      "paragraph3": "Tiene licencia Part 107 para vuelo de drone, dirección bilingüe (EN/ES) en set y opera desde el sur de Florida con viajes regulares por todo EE. UU. para rodajes de marca y de destino."
+    },
+    "brand": {
+      "heading": "Cómo pensamos el trabajo",
+      "body": "Hacemos que las cosas se sientan como una película. Eso significa dirección serena en set, edición con foco en la historia y un color que no grita. También significa elegir la herramienta correcta — drone, cámara o sala de edición — en vez de apoyarse en la favorita. Seguro, cinematográfico, sereno. Sin jerga corporativa. Sin superlativos sin respaldo."
+    },
+    "equipment": {
+      "heading": "Equipo",
+      "lede": "Un kit de trabajo, no una lista de presunción. El equipo se lista para que productores y ADs puedan dimensionar el rodaje sin idas y vueltas.",
+      "todoNote": "TODO: lista real de equipo de Esteban — cada línea es un marcador hasta que envíe su kit real. No inventar especificaciones.",
+      "placeholderBadge": "Marcador",
+      "groups": {
+        "cameras": {
+          "label": "Cámaras",
+          "items": {
+            "0": "Cuerpo mirrorless principal — full-frame, 4K/60",
+            "1": "Cuerpo de cámara B — colorimetría emparejada",
+            "2": "Cuerpo compacto run-and-gun para eventos"
+          }
+        },
+        "lenses": {
+          "label": "Lentes",
+          "items": {
+            "0": "Prime gran angular (equivalente ~24mm)",
+            "1": "Prime estándar (35mm) para retrato + lifestyle",
+            "2": "Prime de retrato (85mm) para cobertura cerrada",
+            "3": "Zoom versátil (24–70mm) para eventos"
+          }
+        },
+        "drones": {
+          "label": "Drones",
+          "items": {
+            "0": "Drone cinematográfico — licencia Part 107, filtros ND",
+            "1": "Drone compacto para espacios cerrados + viajes"
+          }
+        },
+        "audio": {
+          "label": "Audio",
+          "items": {
+            "0": "Kit de lavalier inalámbrico (transmisores duales)",
+            "1": "Micrófono shotgun en boom para entrevistas"
+          }
+        },
+        "lighting": {
+          "label": "Iluminación",
+          "items": {
+            "0": "Paneles LED continuos con difusión",
+            "1": "Flash portátil + kit de modificadores"
+          }
+        },
+        "edit": {
+          "label": "Sala de Edición",
+          "items": {
+            "0": "DaVinci Resolve Studio — color y grading",
+            "1": "Adobe Creative Cloud — Premiere, Lightroom, Photoshop"
+          }
+        }
+      }
+    },
+    "cta": {
+      "heading": "¿Tienes un proyecto en mente?",
+      "body": "Cuéntanos las fechas, el formato y lo que quieres hacer sentir a la gente. Te respondemos con un alcance y una cotización.",
+      "ctaPrimary": "Iniciar un proyecto",
+      "ctaSecondary": "Ver servicios"
+    }
   },
   "Contact": {
     "_review": "TRANSLATION REVIEW NEEDED",
