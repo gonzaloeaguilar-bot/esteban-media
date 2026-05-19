@@ -26,7 +26,7 @@
 
 - [x] `P2` **SEO meta + OG image defaults** — `app/layout.tsx` metadata with title template, description, OG image (placeholder), Twitter card. Per-page metadata exports on home/services/about/contact. `seo` — Done 2026-05-19
 
-- [ ] `P2` **Add robots.txt + dynamic sitemap.xml** — `app/robots.ts` allowing all, `app/sitemap.ts` listing all routes. Reference sitemap from robots. `seo`
+- [x] `P2` **Add robots.txt + dynamic sitemap.xml** — `app/robots.ts` allowing all, `app/sitemap.ts` listing all routes. Reference sitemap from robots. `seo` — Done 2026-05-19
 
 - [ ] `P2` **Lighthouse perf pass — hit 95+ on Performance/SEO/Accessibility** — Run Lighthouse against local build, fix flagged issues (next/image, font swap, prefers-reduced-motion, alt text, heading order). `perf`
 
