@@ -4,7 +4,7 @@ import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { Link } from "@/i18n/navigation";
-import { routing } from "@/i18n/routing";
+import { routing, type Locale } from "@/i18n/routing";
 import {
   SERVICE_SLUGS,
   getRelatedServices,
@@ -12,6 +12,7 @@ import {
 } from "@/lib/services";
 import { ServiceGalleryPlaceholder } from "@/components/sections/ServiceGalleryPlaceholder";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 import { buildServiceSchema } from "@/lib/seo/schema";
 
 type Params = { locale: string; slug: string };
@@ -45,9 +46,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale, slug } = await params;
-  if (!routing.locales.includes(locale as (typeof routing.locales)[number])) {
-    return {};
-  }
+  if (!routing.locales.includes(locale as Locale)) return {};
   const service = getService(slug);
   if (!service) return {};
 
@@ -55,10 +54,12 @@ export async function generateMetadata({
     locale,
     namespace: `Services.items.${service.slug}`,
   });
-  return {
+  return buildPageMetadata({
+    locale: locale as Locale,
     title: t("name"),
     description: t("longBlurb"),
-  };
+    path: `/services/${service.slug}`,
+  });
 }
 
 export default async function ServicePage({ params }: PageProps) {

@@ -8,7 +8,9 @@ import "../globals.css";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Toaster } from "@/components/ui/sonner";
-import { routing } from "@/i18n/routing";
+import { routing, type Locale } from "@/i18n/routing";
+import { SITE_URL } from "@/lib/seo/business-info";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 import { buildSiteGraph } from "@/lib/seo/schema";
 
 const geistSans = Geist({
@@ -37,6 +39,17 @@ type LocaleLayoutProps = {
   params: Promise<{ locale: string }>;
 };
 
+/**
+ * Layout-level metadata. Anything set here is the *default* — child pages
+ * that export their own `generateMetadata` can override per field, but note
+ * that `openGraph` and `twitter` blocks are not deep-merged: a child that
+ * sets `openGraph` replaces this one wholesale. That's why every page calls
+ * `buildPageMetadata` from `lib/seo/metadata.ts` to emit the complete block.
+ *
+ * `metadataBase` resolves relative URLs (used by the auto-attached
+ * `opengraph-image.tsx`) to absolute URLs. Reading from `SITE_URL` keeps
+ * preview-vs-prod swappable via the `NEXT_PUBLIC_SITE_URL` env.
+ */
 export async function generateMetadata({
   params,
 }: {
@@ -45,12 +58,27 @@ export async function generateMetadata({
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) return {};
   const t = await getTranslations({ locale, namespace: "Metadata" });
+
+  // Build the full page-level block (openGraph/twitter/alternates) as the
+  // default for any descendant route that doesn't export its own metadata.
+  const base = await buildPageMetadata({
+    locale: locale as Locale,
+    title: t("defaultTitle"),
+    description: t("defaultDescription"),
+    path: "",
+    absoluteTitle: true,
+  });
+
   return {
+    ...base,
+    metadataBase: new URL(SITE_URL),
+    // Layout owns the title template so child pages can export a simple
+    // string title and get the brand suffix applied automatically. `default`
+    // is used when a child page doesn't export its own title.
     title: {
       default: t("defaultTitle"),
       template: t("titleTemplate", { title: "%s" }),
     },
-    description: t("defaultDescription"),
   };
 }
 

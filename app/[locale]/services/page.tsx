@@ -3,6 +3,8 @@ import { ArrowRight } from "lucide-react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { Link } from "@/i18n/navigation";
+import { routing, type Locale } from "@/i18n/routing";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 import { SERVICES } from "@/lib/services";
 
 type PageProps = {
@@ -13,11 +15,14 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
+  if (!routing.locales.includes(locale as Locale)) return {};
   const t = await getTranslations({ locale, namespace: "Metadata.services" });
-  return {
+  return buildPageMetadata({
+    locale: locale as Locale,
     title: t("title"),
     description: t("description"),
-  };
+    path: "/services",
+  });
 }
 
 export default async function ServicesPage({ params }: PageProps) {

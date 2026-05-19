@@ -24,7 +24,7 @@
 
 - [x] `P2` **Add LocalBusiness + Service + Person schema JSON-LD** — Inject in `app/layout.tsx` (LocalBusiness for the org, Person for Esteban) and on each service page (Service schema with provider ref). Use real social handles when known; placeholder until then. `seo` — Done 2026-05-18
 
-- [ ] `P2` **SEO meta + OG image defaults** — `app/layout.tsx` metadata with title template, description, OG image (placeholder), Twitter card. Per-page metadata exports on home/services/about/contact. `seo`
+- [x] `P2` **SEO meta + OG image defaults** — `app/layout.tsx` metadata with title template, description, OG image (placeholder), Twitter card. Per-page metadata exports on home/services/about/contact. `seo` — Done 2026-05-19
 
 - [ ] `P2` **Add robots.txt + dynamic sitemap.xml** — `app/robots.ts` allowing all, `app/sitemap.ts` listing all routes. Reference sitemap from robots. `seo`
 
