@@ -30,7 +30,12 @@ export function ServicesStrip() {
           </h2>
         </div>
 
-        <ul className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        {/* Explicit role="list" keeps Safari from dropping the implicit list
+            role when Tailwind's reset removes the bullet markers. */}
+        <ul
+          role="list"
+          className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5"
+        >
           {SERVICES.map(({ slug, Icon }) => (
             <li key={slug}>
               <Link

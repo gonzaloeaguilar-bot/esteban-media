@@ -28,7 +28,7 @@
 
 - [x] `P2` **Add robots.txt + dynamic sitemap.xml** — `app/robots.ts` allowing all, `app/sitemap.ts` listing all routes. Reference sitemap from robots. `seo` — Done 2026-05-19
 
-- [ ] `P2` **Lighthouse perf pass — hit 95+ on Performance/SEO/Accessibility** — Run Lighthouse against local build, fix flagged issues (next/image, font swap, prefers-reduced-motion, alt text, heading order). `perf`
+- [x] `P2` **Lighthouse perf pass — hit 95+ on Performance/SEO/Accessibility** — Run Lighthouse against local build, fix flagged issues (next/image, font swap, prefers-reduced-motion, alt text, heading order). `perf` — Done 2026-05-20
 
 - [ ] `P2` **GitHub repo + Vercel deploy** `needs-human` — Create GitHub repo `esteban-media` under gonzaloeaguilar-bot, push, link to Vercel, get preview URL. Drafts a proposal because requires GH/Vercel auth interactions. `infra`
 

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -33,6 +33,28 @@ export function generateStaticParams() {
 }
 
 export const dynamicParams = false;
+
+/**
+ * Viewport + theme color. In Next 15 these MUST be exported separately from
+ * `generateMetadata` — putting them in the Metadata object emits a build-time
+ * warning and won't render the `<meta name="theme-color">` tag, which knocks
+ * Lighthouse SEO + PWA points.
+ *
+ * `themeColor` ships both light/dark variants so the browser chrome on iOS
+ * Safari / Android Chrome matches the visitor's OS preference. Values mirror
+ * the `--background` token set in `globals.css` (oklch white / near-black).
+ */
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  // Don't lock zoom — accessibility regression and a Lighthouse a11y fail.
+  maximumScale: 5,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
+  ],
+  colorScheme: "light dark",
+};
 
 type LocaleLayoutProps = {
   children: React.ReactNode;

@@ -284,7 +284,10 @@ export default async function ServicePage({ params }: PageProps) {
             </h2>
           </div>
 
-          <ul className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <ul
+            role="list"
+            className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4"
+          >
             {related.map(({ slug: relatedSlug, Icon: RelatedIcon }) => (
               <li key={relatedSlug}>
                 <Link

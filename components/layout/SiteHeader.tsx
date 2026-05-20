@@ -39,7 +39,7 @@ export function SiteHeader() {
           aria-label={t("primaryAriaLabel")}
           className="flex items-center gap-1 sm:gap-2"
         >
-          <ul className="flex items-center gap-1 sm:gap-2">
+          <ul role="list" className="flex items-center gap-1 sm:gap-2">
             {NAV_LINKS.map(({ href, labelKey }) => (
               <li key={href}>
                 <Link

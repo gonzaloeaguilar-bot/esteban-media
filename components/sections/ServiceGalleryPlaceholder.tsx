@@ -45,6 +45,9 @@ export function ServiceGalleryPlaceholder({
   const safeCount = Math.max(1, count);
 
   return (
+    // `role="list"` is intentionally redundant on `<ul>` — Safari strips the
+    // implicit list role from any UL with `list-style: none`, so without this
+    // VoiceOver loses the "list of N items" announcement. Keep it.
     <ul
       role="list"
       aria-label={ariaLabel}

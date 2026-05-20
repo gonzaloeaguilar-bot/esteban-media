@@ -89,3 +89,29 @@
     font-family: var(--font-sans), Arial, Helvetica, sans-serif;
   }
 }
+
+/*
+ * Global prefers-reduced-motion guard.
+ *
+ * Tailwind ships per-utility `motion-reduce:` variants, but a defense-in-depth
+ * media query catches third-party CSS (lucide hover transitions, shadcn radix
+ * primitives, tw-animate-css) that wasn't authored against our utility class.
+ *
+ * The pattern (animation-duration 0.01ms, iteration-count 1) is the WCAG 2.3.3
+ * "reduce motion" recommended floor — animations still complete a single tick
+ * so JS that listens for `animationend` events doesn't dead-lock, but the
+ * visual motion is imperceptible.
+ *
+ * `scroll-behavior: auto` flips smooth-scroll off (Safari/Chrome can ignore
+ * the user's OS preference for in-page anchor scrolls without this).
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
