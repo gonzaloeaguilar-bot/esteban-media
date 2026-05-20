@@ -40,11 +40,12 @@ type StaticPath = {
  * Static (non-parameterised) routes that exist under `app/[locale]/`. Keep
  * this list aligned with the filesystem — if a route is added/removed in
  * `app/[locale]/`, mirror it here. Routes that don't yet have a built page
- * (e.g. `/about`) are deliberately omitted to avoid sitemap-listed 404s.
+ * are deliberately omitted to avoid sitemap-listed 404s.
  */
 const STATIC_PATHS: readonly StaticPath[] = [
   { path: "", changeFrequency: "weekly", priority: 1.0 },
   { path: "/services", changeFrequency: "monthly", priority: 0.9 },
+  { path: "/about", changeFrequency: "monthly", priority: 0.7 },
   { path: "/contact", changeFrequency: "yearly", priority: 0.7 },
 ] as const;
 

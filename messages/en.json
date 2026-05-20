@@ -11,6 +11,10 @@
     "contact": {
       "title": "Contact",
       "description": "Start a project with Esteban Media — photography, videography, drone, and post-production across South Florida. Tell us about your shoot."
+    },
+    "about": {
+      "title": "About Esteban",
+      "description": "Meet Esteban — bilingual visual storyteller based in South Florida. Aerial, photography, videography, and post in one pair of hands."
     }
   },
   "Nav": {
@@ -156,6 +160,93 @@
     "body": "Brand films, weddings, real estate, events — share the project and the date. We'll come back with a scope and a quote.",
     "ctaPrimary": "Start a project",
     "ctaSecondary": "Email directly"
+  },
+  "About": {
+    "eyebrow": "About Esteban",
+    "headline": "A visual storyteller, not a drone guy.",
+    "lede": "South-Florida-based and bilingual (EN/ES). Esteban shoots and edits across formats so your story stays in one pair of hands — from the first frame to the final cut.",
+    "portrait": {
+      "ariaLabel": "Portrait of Esteban — placeholder until real headshot is delivered",
+      "placeholder": "Portrait placeholder",
+      "caption": "Real headshot drops in here once Esteban delivers the asset."
+    },
+    "bio": {
+      "eyebrow": "Bio",
+      "heading": "From the first frame to the final cut.",
+      "paragraph1": "Esteban is a South-Florida-based visual storyteller working across aerial cinematography, portrait and event photography, brand-film videography, and post-production. He directs the shoot and finishes the edit, so the look, pacing, and feel stay coherent end to end.",
+      "paragraph2": "Most clients come in asking for one piece — a drone reveal, a brand film, a campaign portrait set — and end up working with him across formats because the through-line stays consistent. Bilingual direction (EN/ES) on set keeps talent comfortable and the day moving.",
+      "paragraph3": "Off-set, he is a relentless image-nerd: studying color, watching films frame by frame, and rebuilding shots in the edit until they feel inevitable. The goal is never the gear — it's the feeling on the other side of the screen."
+    },
+    "brand": {
+      "eyebrow": "How we work",
+      "heading": "We make things feel like a film.",
+      "body": "Cinematic, calm, confident. No corporate jargon, no superlatives without proof. Story-first directing on the day, story-first cutting in the edit. One studio, one pair of hands — capture and post under the same roof."
+    },
+    "equipment": {
+      "eyebrow": "Kit",
+      "heading": "The gear we shoot with.",
+      "body": "A working list of what shows up to the shoot. Pieces swap in and out by job — this is the baseline rig.",
+      "footnote": "Placeholder gear list — Esteban will refine the exact bodies, glass, and accessories once we finalize the kit photo for this page.",
+      "categories": {
+        "cameras": {
+          "label": "Camera bodies",
+          "items": {
+            "0": "Full-frame mirrorless hybrid — primary stills + video body",
+            "1": "Second full-frame body — backup + B-cam for multi-angle coverage",
+            "2": "Compact crop-sensor body — run-and-gun + behind-the-scenes"
+          }
+        },
+        "lenses": {
+          "label": "Lenses",
+          "items": {
+            "0": "24–70mm f/2.8 zoom — workhorse for events and portraits",
+            "1": "70–200mm f/2.8 telephoto — compression for ceremonies and product",
+            "2": "35mm f/1.4 prime — environmental portraits and low light",
+            "3": "85mm f/1.4 prime — beauty and editorial portraits",
+            "4": "16–35mm f/2.8 wide — interiors, venues, and architectural"
+          }
+        },
+        "drone": {
+          "label": "Drone & aerial",
+          "items": {
+            "0": "Cinematic-class drone with 4K HDR camera and ND filter kit",
+            "1": "FAA Part 107 certification — commercial flight authorized",
+            "2": "Liability insurance carried per flight; LAANC authorization on file"
+          }
+        },
+        "audio": {
+          "label": "Audio",
+          "items": {
+            "0": "Dual-channel wireless lavalier system for interviews",
+            "1": "Shotgun mic with boom + windshield for on-camera dialogue",
+            "2": "Portable field recorder for redundant safety track"
+          }
+        },
+        "lighting": {
+          "label": "Lighting",
+          "items": {
+            "0": "Bi-color LED panel kit — key, fill, and rim for interviews and portraits",
+            "1": "Battery-powered strobe with modifiers for on-location stills",
+            "2": "Practical accent lights and gel kit for cinematic color"
+          }
+        },
+        "post": {
+          "label": "Post-production",
+          "items": {
+            "0": "Color-calibrated edit suite with reference monitor",
+            "1": "DaVinci Resolve for grading; Adobe Premiere / Lightroom / Photoshop for edit and retouch",
+            "2": "Backed-up project archive — raw footage retained for 12 months minimum"
+          }
+        }
+      }
+    },
+    "cta": {
+      "eyebrow": "Work with Esteban",
+      "heading": "Got a story to tell?",
+      "body": "Share the project and the date. We'll come back with a scope and a quote — usually within two business days.",
+      "primary": "Start a project",
+      "secondary": "See the work"
+    }
   },
   "Contact": {
     "eyebrow": "Contact",

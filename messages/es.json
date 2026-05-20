@@ -13,6 +13,10 @@
     "contact": {
       "title": "Contacto",
       "description": "Inicia un proyecto con Esteban Media — fotografía, videografía, drone y postproducción en el sur de Florida. Cuéntanos sobre tu rodaje."
+    },
+    "about": {
+      "title": "Acerca de Esteban",
+      "description": "Conoce a Esteban — narrador visual bilingüe basado en el sur de Florida. Aérea, fotografía, videografía y postproducción en un solo par de manos."
     }
   },
   "Nav": {
@@ -165,6 +169,98 @@
     "body": "Brand films, bodas, bienes raíces, eventos — cuéntanos del proyecto y la fecha. Te respondemos con un alcance y una cotización.",
     "ctaPrimary": "Iniciar un proyecto",
     "ctaSecondary": "Escribir directo"
+  },
+  "About": {
+    "_review": "TRANSLATION REVIEW NEEDED — full About page copy: hero, bio paragraphs, brand statement, equipment list, CTA",
+    "eyebrow": "Acerca de Esteban",
+    "headline": "Un narrador visual, no un piloto de drone.",
+    "lede": "Basado en el sur de Florida y bilingüe (EN/ES). Esteban filma y edita en todos los formatos para que tu historia quede en un solo par de manos — del primer fotograma al corte final.",
+    "portrait": {
+      "ariaLabel": "Retrato de Esteban — marcador hasta que se entregue la foto real",
+      "placeholder": "Retrato de marcador",
+      "caption": "El retrato real se coloca aquí cuando Esteban entregue el archivo."
+    },
+    "bio": {
+      "_review": "TRANSLATION REVIEW NEEDED",
+      "eyebrow": "Biografía",
+      "heading": "Del primer fotograma al corte final.",
+      "paragraph1": "Esteban es un narrador visual basado en el sur de Florida, que trabaja en cinematografía aérea, fotografía de retratos y eventos, brand films y postproducción. Dirige el rodaje y termina la edición, así el look, el ritmo y la sensación se mantienen coherentes de principio a fin.",
+      "paragraph2": "La mayoría de los clientes llegan pidiendo una sola pieza — un reveal con drone, un brand film, un set de retratos para campaña — y terminan trabajando con él en varios formatos porque el hilo narrativo se sostiene. La dirección bilingüe (EN/ES) en set mantiene cómodo al talento y al día en movimiento.",
+      "paragraph3": "Fuera del set, es un obsesivo de la imagen: estudia color, ve películas fotograma a fotograma y reconstruye tomas en la edición hasta que se sienten inevitables. La meta nunca es el equipo — es la sensación al otro lado de la pantalla."
+    },
+    "brand": {
+      "_review": "TRANSLATION REVIEW NEEDED",
+      "eyebrow": "Cómo trabajamos",
+      "heading": "Hacemos que las cosas se sientan como una película.",
+      "body": "Cinematográfico, calmo, seguro. Sin jerga corporativa, sin superlativos sin pruebas. Dirección con foco en la historia durante el rodaje, edición con foco en la historia en la postproducción. Un solo estudio, un par de manos — captura y postproducción bajo el mismo techo."
+    },
+    "equipment": {
+      "_review": "TRANSLATION REVIEW NEEDED — placeholder gear list",
+      "eyebrow": "Equipo",
+      "heading": "Con qué filmamos.",
+      "body": "Una lista de trabajo de lo que llega al rodaje. Las piezas entran y salen según el trabajo — este es el rig base.",
+      "footnote": "Lista de equipo provisional — Esteban afinará los cuerpos, lentes y accesorios exactos cuando cerremos la foto del kit para esta página.",
+      "categories": {
+        "cameras": {
+          "label": "Cuerpos de cámara",
+          "items": {
+            "0": "Cuerpo híbrido mirrorless full-frame — principal para foto y video",
+            "1": "Segundo cuerpo full-frame — respaldo + cámara B para cobertura multi-ángulo",
+            "2": "Cuerpo compacto APS-C — run-and-gun y making-of"
+          }
+        },
+        "lenses": {
+          "label": "Lentes",
+          "items": {
+            "0": "Zoom 24–70mm f/2.8 — caballito de batalla para eventos y retratos",
+            "1": "Teleobjetivo 70–200mm f/2.8 — compresión para ceremonias y producto",
+            "2": "Fijo 35mm f/1.4 — retratos ambientales y baja luz",
+            "3": "Fijo 85mm f/1.4 — beauty y retratos editoriales",
+            "4": "Gran angular 16–35mm f/2.8 — interiores, venues y arquitectura"
+          }
+        },
+        "drone": {
+          "label": "Drone y aérea",
+          "items": {
+            "0": "Drone de clase cinematográfica con cámara 4K HDR y kit de filtros ND",
+            "1": "Certificación FAA Part 107 — vuelo comercial autorizado",
+            "2": "Seguro de responsabilidad civil por vuelo; autorización LAANC en archivo"
+          }
+        },
+        "audio": {
+          "label": "Audio",
+          "items": {
+            "0": "Sistema inalámbrico de dos canales con lavaliers para entrevistas",
+            "1": "Micrófono shotgun con boom y deadcat para diálogo a cámara",
+            "2": "Grabadora de campo portátil para track de seguridad redundante"
+          }
+        },
+        "lighting": {
+          "label": "Iluminación",
+          "items": {
+            "0": "Kit de paneles LED bi-color — key, fill y rim para entrevistas y retratos",
+            "1": "Flash con batería y modificadores para foto fija en locación",
+            "2": "Luces de práctico y kit de gels para color cinematográfico"
+          }
+        },
+        "post": {
+          "label": "Postproducción",
+          "items": {
+            "0": "Suite de edición calibrada en color con monitor de referencia",
+            "1": "DaVinci Resolve para grading; Adobe Premiere / Lightroom / Photoshop para edición y retoque",
+            "2": "Archivo del proyecto respaldado — material crudo guardado mínimo 12 meses"
+          }
+        }
+      }
+    },
+    "cta": {
+      "_review": "TRANSLATION REVIEW NEEDED",
+      "eyebrow": "Trabaja con Esteban",
+      "heading": "¿Tienes una historia que contar?",
+      "body": "Cuéntanos del proyecto y la fecha. Te respondemos con un alcance y una cotización — normalmente en dos días hábiles.",
+      "primary": "Iniciar un proyecto",
+      "secondary": "Ver el trabajo"
+    }
   },
   "Contact": {
     "_review": "TRANSLATION REVIEW NEEDED",

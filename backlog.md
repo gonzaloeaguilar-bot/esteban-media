@@ -14,7 +14,7 @@
 
 - [x] `P1` **Build individual service pages (5 routes)** — `app/services/aerial`, `/photography`, `/videography`, `/video-editing`, `/photo-editing`. Each: hero, "what's included" list, sample work gallery (placeholders), inquiry CTA. Same layout, parameterized via JSON or MDX. `services` — Done 2026-05-18
 
-- [ ] `P1` **Build About Esteban page** — `app/about/page.tsx`: placeholder bio (mark with `<!-- TODO: real bio from Esteban -->`), professional headshot placeholder, brand statement, list of equipment. Bilingual structure ready (use placeholder ES content). `about`
+- [x] `P1` **Build About Esteban page** — `app/about/page.tsx`: placeholder bio (mark with `<!-- TODO: real bio from Esteban -->`), professional headshot placeholder, brand statement, list of equipment. Bilingual structure ready (use placeholder ES content). `about` — Done 2026-05-20
 
 - [x] `P1` **Build Contact page with working form** — `app/contact/page.tsx` + `app/api/contact/route.ts`. Form fields: name, email, project type (dropdown of 5 services), budget range, message. Submits via Resend or Formspree to `gagui010@icloud.com`. Include honeypot field for spam. Confirm on submit. `contact` — Done 2026-05-13
 
