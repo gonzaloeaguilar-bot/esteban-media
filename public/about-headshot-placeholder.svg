@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  TODO: real headshot from Esteban — replace with a 4:5 portrait JPG/WebP.
+  This SVG is a neutral grayscale placeholder so the layout has correct
+  intrinsic dimensions before the real asset lands. No AI-generated faces.
+-->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 800 1000"
+  preserveAspectRatio="xMidYMid slice"
+  role="img"
+  aria-label="Portrait placeholder"
+>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e7e5e4" />
+      <stop offset="100%" stop-color="#a8a29e" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#bg)" />
+  <!-- Simple geometric portrait silhouette — head + shoulders, no face details. -->
+  <g fill="#78716c" opacity="0.55">
+    <circle cx="400" cy="380" r="120" />
+    <path d="M 200 1000 C 200 740 280 600 400 600 C 520 600 600 740 600 1000 Z" />
+  </g>
+  <text
+    x="400"
+    y="940"
+    text-anchor="middle"
+    font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif"
+    font-size="22"
+    font-weight="500"
+    letter-spacing="6"
+    fill="#44403c"
+    opacity="0.7"
+  >PORTRAIT PLACEHOLDER</text>
+</svg>

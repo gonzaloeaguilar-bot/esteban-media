@@ -11,6 +11,10 @@
     "contact": {
       "title": "Contact",
       "description": "Start a project with Esteban Media — photography, videography, drone, and post-production across South Florida. Tell us about your shoot."
+    },
+    "about": {
+      "title": "About Esteban",
+      "description": "Meet Esteban — a South Florida visual storyteller working across photography, videography, aerial, and post. Bilingual EN/ES, cinema-grade kit."
     }
   },
   "Nav": {
@@ -140,6 +144,62 @@
           "4": "Original RAWs returned alongside the edited masters"
         }
       }
+    }
+  },
+  "About": {
+    "eyebrow": "About Esteban",
+    "headline": "A visual storyteller, not a drone guy.",
+    "bio": {
+      "paragraph1": "Esteban is a South Florida-based visual storyteller. He shoots and edits across formats — drone, camera, and post — so a project stays in one pair of hands from the first frame to the final cut.",
+      "paragraph2": "He works in English and Spanish, on set and in the edit. That bilingual range matters in South Florida, where the best shoots usually move between languages without breaking the flow.",
+      "paragraph3": "The throughline across every project — brand films, weddings, real estate, portraits, commercial — is the same: the work has to feel like a film, not a deliverable."
+    },
+    "headshot": {
+      "alt": "Portrait placeholder for Esteban — a neutral grayscale silhouette standing in for the final headshot.",
+      "caption": "Headshot placeholder — real portrait coming soon."
+    },
+    "brandStatement": {
+      "eyebrow": "Brand statement",
+      "statement": "We make things feel like a film.",
+      "support": "One studio for capture and post — calm, cinematic, and built around your story. No corporate jargon, no flashy gimmicks, no superlatives we can't back up with the work."
+    },
+    "equipment": {
+      "eyebrow": "Kit",
+      "headline": "The gear behind the work.",
+      "lede": "A pro hybrid setup tuned for both stills and motion, paired with cinema-grade drones and a calibrated post-production suite. The kit serves the story — it isn't the point.",
+      "footnote": "Kit list updated as Esteban's gear evolves. Specific bodies, glass, and drones swap based on the shoot's requirements.",
+      "groups": {
+        "cameras": { "label": "Cameras" },
+        "lenses": { "label": "Lenses" },
+        "drones": { "label": "Drones" },
+        "audio-lighting": { "label": "Audio & lighting" },
+        "post": { "label": "Post-production" }
+      },
+      "items": {
+        "primary-hybrid": "Pro full-frame hybrid body (stills + 4K/10-bit motion)",
+        "secondary-hybrid": "Second full-frame hybrid for multi-cam coverage",
+        "backup-mirrorless": "Compact mirrorless backup body",
+        "wide-zoom": "Wide-angle zoom (16–35mm equivalent)",
+        "standard-zoom": "Standard zoom (24–70mm equivalent)",
+        "telephoto-zoom": "Telephoto zoom (70–200mm equivalent)",
+        "portrait-prime": "Fast portrait prime (85mm f/1.4)",
+        "macro-prime": "Macro prime for product + detail work",
+        "cinema-drone": "Cinema drone with 4K HDR camera (Part 107 certified)",
+        "compact-drone": "Compact drone for tight locations + travel kit",
+        "shotgun-mic": "Shotgun microphone for on-camera dialogue",
+        "wireless-lav": "Dual-channel wireless lavalier system",
+        "field-recorder": "Field recorder with timecode sync",
+        "led-panels": "Bi-color LED panels for portable lighting",
+        "color-grading-suite": "DaVinci Resolve color-grading suite",
+        "edit-workstation": "Edit workstation with proxy + RAW workflow",
+        "calibrated-display": "Calibrated reference display for color-critical post"
+      }
+    },
+    "cta": {
+      "headline": "Got a story to tell?",
+      "body": "Share the dates, the format, and what you want it to feel like. We'll come back with a scope and a quote — usually within two business days.",
+      "primary": "Start a project",
+      "secondary": "See all services"
     }
   },
   "AboutTeaser": {

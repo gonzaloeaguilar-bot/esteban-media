@@ -13,6 +13,11 @@
     "contact": {
       "title": "Contacto",
       "description": "Inicia un proyecto con Esteban Media — fotografía, videografía, drone y postproducción en el sur de Florida. Cuéntanos sobre tu rodaje."
+    },
+    "about": {
+      "_review": "TRANSLATION REVIEW NEEDED",
+      "title": "Acerca de Esteban",
+      "description": "Conoce a Esteban — narrador visual del sur de Florida, trabajando en fotografía, videografía, aérea y postproducción. Bilingüe EN/ES, equipo cinematográfico."
     }
   },
   "Nav": {
@@ -147,6 +152,63 @@
           "4": "RAWs originales devueltos junto con los masters editados"
         }
       }
+    }
+  },
+  "About": {
+    "_review": "TRANSLATION REVIEW NEEDED — bio, brand statement, equipment labels",
+    "eyebrow": "Acerca de Esteban",
+    "headline": "Un narrador visual, no un piloto de drone.",
+    "bio": {
+      "paragraph1": "Esteban es un narrador visual basado en el sur de Florida. Filma y edita en todos los formatos — drone, cámara y postproducción — para que un proyecto quede en un solo par de manos, del primer fotograma al corte final.",
+      "paragraph2": "Trabaja en inglés y español, en set y en la edición. Esa capacidad bilingüe importa en el sur de Florida, donde los mejores rodajes suelen moverse entre idiomas sin romper el ritmo.",
+      "paragraph3": "El hilo común en cada proyecto — brand films, bodas, bienes raíces, retratos, comercial — es el mismo: el trabajo tiene que sentirse como una película, no como un entregable."
+    },
+    "headshot": {
+      "alt": "Retrato provisional de Esteban — silueta neutral en escala de grises que reemplaza el retrato final.",
+      "caption": "Retrato provisional — el retrato real llega pronto."
+    },
+    "brandStatement": {
+      "eyebrow": "Declaración de marca",
+      "statement": "Hacemos que las cosas se sientan como una película.",
+      "support": "Un solo estudio para captura y postproducción — calmado, cinematográfico y construido alrededor de tu historia. Sin jerga corporativa, sin trucos llamativos, sin superlativos que no podamos respaldar con el trabajo."
+    },
+    "equipment": {
+      "eyebrow": "Equipo",
+      "headline": "El equipo detrás del trabajo.",
+      "lede": "Un setup híbrido profesional ajustado tanto para foto como para video, combinado con drones de nivel cinematográfico y una suite de postproducción calibrada. El equipo sirve a la historia — no es el protagonista.",
+      "footnote": "La lista de equipo se actualiza a medida que evoluciona el kit de Esteban. Cuerpos, ópticas y drones específicos cambian según los requerimientos del rodaje.",
+      "groups": {
+        "cameras": { "label": "Cámaras" },
+        "lenses": { "label": "Ópticas" },
+        "drones": { "label": "Drones" },
+        "audio-lighting": { "label": "Audio e iluminación" },
+        "post": { "label": "Postproducción" }
+      },
+      "items": {
+        "primary-hybrid": "Cuerpo híbrido full-frame profesional (foto + video 4K/10-bit)",
+        "secondary-hybrid": "Segundo cuerpo híbrido full-frame para cobertura multi-cámara",
+        "backup-mirrorless": "Cuerpo mirrorless compacto de respaldo",
+        "wide-zoom": "Zoom gran angular (equivalente 16–35mm)",
+        "standard-zoom": "Zoom estándar (equivalente 24–70mm)",
+        "telephoto-zoom": "Zoom telefoto (equivalente 70–200mm)",
+        "portrait-prime": "Fijo de retrato luminoso (85mm f/1.4)",
+        "macro-prime": "Fijo macro para producto y detalle",
+        "cinema-drone": "Drone cinematográfico con cámara 4K HDR (Part 107 certificado)",
+        "compact-drone": "Drone compacto para locaciones cerradas y kit de viaje",
+        "shotgun-mic": "Micrófono shotgun para diálogo en cámara",
+        "wireless-lav": "Sistema de lavalier inalámbrico de dos canales",
+        "field-recorder": "Grabador de campo con timecode sincronizado",
+        "led-panels": "Paneles LED bicolor para iluminación portátil",
+        "color-grading-suite": "Suite de color grading DaVinci Resolve",
+        "edit-workstation": "Estación de edición con flujo proxy + RAW",
+        "calibrated-display": "Pantalla de referencia calibrada para post crítico en color"
+      }
+    },
+    "cta": {
+      "headline": "¿Tienes una historia que contar?",
+      "body": "Comparte las fechas, el formato y qué quieres hacer sentir. Te respondemos con un alcance y una cotización — normalmente en dos días hábiles.",
+      "primary": "Iniciar un proyecto",
+      "secondary": "Ver todos los servicios"
     }
   },
   "AboutTeaser": {
