@@ -1,10 +1,10 @@
 # esteban-media
 
-Marketing site for Esteban — visual storyteller (aerial/drone, photography, videography, video editing, photo editing). South Florida.
+Marketing site for Esteban Moreno — video-first audiovisual editor and videographer serving Fort Lauderdale, Broward, Miami, and South Florida.
 
 Built overnight by the cortex orchestrator on the **max autonomy** lane. See `CLAUDE.md` for stack + brand + auto-merge policy. See `backlog.md` for what's next.
 
-**Domain:** TBD — using Vercel preview URLs until purchased.
+**Domain target:** `estebanmorenomedia.com` — buy and point to Vercel before launch.
 **Owner:** Gonzalo (Esteban's husband). Decisions route through Gonzalo.
 
 ## Status

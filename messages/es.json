@@ -2,28 +2,28 @@
   "_review": "TRANSLATION REVIEW NEEDED — every block in this file was generated without a native ES speaker. Gonzalo (native ES) must pass on each block before this file ships to a real domain. Per CLAUDE.md: never AI-translate without flagging for review.",
   "Metadata": {
     "_review": "TRANSLATION REVIEW NEEDED",
-    "siteName": "Esteban Media",
-    "defaultTitle": "Esteban Media — Narrador visual, sur de Florida",
-    "titleTemplate": "{title} · Esteban Media",
-    "defaultDescription": "Aérea, fotografía, videografía y postproducción para marcas y personas en el sur de Florida. Hacemos que las cosas se sientan como una película.",
+    "siteName": "Esteban Moreno Media",
+    "defaultTitle": "Esteban Moreno Media — Editor de video en Fort Lauderdale",
+    "titleTemplate": "{title} · Esteban Moreno Media",
+    "defaultDescription": "Edición de video, videografía, tomas aéreas y fotografía de apoyo para marcas en Broward, Fort Lauderdale, Miami y South Florida.",
     "services": {
       "title": "Servicios",
-      "description": "Fotografía, videografía, aérea/drone, edición de video y edición de fotos — narrativa visual integral en todo el sur de Florida."
+      "description": "Edición de video, videografía, Reels, tomas aéreas y fotografía de apoyo para marcas en South Florida."
     },
     "contact": {
       "title": "Contacto",
-      "description": "Inicia un proyecto con Esteban Media — fotografía, videografía, drone y postproducción en el sur de Florida. Cuéntanos sobre tu rodaje."
+      "description": "Inicia un proyecto de edición de video, videografía, tomas aéreas o contenido con Esteban Moreno Media en South Florida."
     },
     "about": {
       "_review": "TRANSLATION REVIEW NEEDED",
       "title": "Acerca de Esteban",
-      "description": "Conoce a Esteban — narrador visual del sur de Florida, trabajando en fotografía, videografía, aérea y postproducción. Bilingüe EN/ES, equipo cinematográfico."
+      "description": "Conoce a Esteban Moreno, editor audiovisual en Fort Lauderdale enfocado en edición de video, videografía, tomas aéreas y postproducción."
     }
   },
   "Nav": {
     "_review": "TRANSLATION REVIEW NEEDED",
     "primaryAriaLabel": "Principal",
-    "wordmark": "Esteban Media",
+    "wordmark": "Esteban Moreno Media",
     "services": "Servicios",
     "about": "Acerca",
     "contact": "Contacto",
@@ -37,20 +37,20 @@
   },
   "Hero": {
     "_review": "TRANSLATION REVIEW NEEDED",
-    "eyebrow": "Esteban Media · Sur de Florida",
-    "headlineLine1": "Historias visuales,",
-    "headlineLine2": "desde el aire y en tierra.",
-    "lede": "Aérea, fotografía, videografía y postproducción — captura integral para marcas, bodas, bienes raíces y creadores en todo el sur de Florida.",
+    "eyebrow": "Esteban Moreno Media · Fort Lauderdale",
+    "headlineLine1": "Historias en video,",
+    "headlineLine2": "editadas para South Florida.",
+    "lede": "Esteban Moreno es un editor audiovisual en Fort Lauderdale enfocado en edición de video, videografía, Reels y tomas aéreas para Broward y Miami. La fotografía apoya la historia cuando el proyecto necesita fotos.",
     "ctaPrimary": "Iniciar un proyecto",
     "ctaSecondary": "Ver el trabajo"
   },
   "Services": {
     "_review": "TRANSLATION REVIEW NEEDED",
-    "eyebrowStrip": "Qué hacemos",
-    "headlineStrip": "Un solo estudio. Captura y postproducción, de principio a fin.",
+    "eyebrowStrip": "Servicios con video primero",
+    "headlineStrip": "Edición, rodajes, Reels y tomas aéreas.",
     "eyebrow": "Servicios",
-    "headline": "Un solo estudio. Captura y postproducción, de principio a fin.",
-    "introBefore": "Esteban filma y edita en todos los formatos para que tu historia quede en un solo par de manos, del primer fotograma al corte final. Elige un servicio para saber más, o ",
+    "headline": "Producción y postproducción con video primero.",
+    "introBefore": "Esteban empieza por la edición: ritmo, historia, sonido, color y entregas listas para publicar. Rodaje, tomas aéreas y fotografía entran cuando el proyecto necesita material original. Elige un servicio para saber más, o ",
     "introLink": "inicia un proyecto",
     "introAfter": ".",
     "cardCta": "Saber más",
@@ -89,61 +89,61 @@
       "_review": "TRANSLATION REVIEW NEEDED — service names, taglines, blurbs, and included lists",
       "photography": {
         "name": "Fotografía",
-        "tagline": "Retratos, eventos, comercial, lifestyle — dirigidos y entregados en un solo par de manos.",
-        "blurb": "Retratos, eventos, comercial y lifestyle — en estudio o en locación.",
-        "longBlurb": "Retratos, eventos, fotografía comercial y de lifestyle en todo el sur de Florida. Sesiones de estudio, cobertura en locación y dirección bilingüe (EN/ES) en set.",
+        "tagline": "Fotos de apoyo para marcas, eventos, propiedades y campañas sociales.",
+        "blurb": "Fotos que apoyan campañas de video, eventos y propiedades.",
+        "longBlurb": "La fotografía está disponible como servicio de apoyo para proyectos liderados por video, eventos, propiedades, productos, restaurantes y campañas sociales en Broward, Fort Lauderdale, Miami y South Florida.",
         "included": {
-          "0": "Llamada creativa previa para alinear estilo, locación y shot list",
-          "1": "Captura en locación o estudio con iluminación profesional y dirección bilingüe",
-          "2": "Galería de proofs el mismo día, dentro de las 48 horas posteriores al rodaje",
-          "3": "Imágenes finales seleccionadas, retocadas y con color, entregadas en resolución web e impresión",
+          "0": "Llamada creativa previa para alinear las fotos con el objetivo del video o campaña",
+          "1": "Captura en locación para productos, espacios, eventos, retratos o contenido social",
+          "2": "Galería de prueba para elegir fotos sin frenar el proyecto",
+          "3": "Imágenes finales seleccionadas, retocadas y con color, listas para web y redes",
           "4": "Derechos de uso para el alcance acordado (personal, comercial o extendido)"
         }
       },
       "videography": {
         "name": "Videografía",
-        "tagline": "Brand films, promos y cobertura de eventos rodados pensando ya en la edición.",
-        "blurb": "Brand films, promos y cortes para redes a la medida de tu rodaje.",
-        "longBlurb": "Brand films, promos, cobertura de eventos y cortes para redes. Dirección con foco en la historia durante el rodaje, para que la edición fluya rápido después.",
+        "tagline": "Videos de marca, promos y cobertura de eventos grabados pensando en la edición final.",
+        "blurb": "Grabación para promos, eventos, días de contenido y videos de marca.",
+        "longBlurb": "Videografía para negocios, eventos, creadores, restaurantes, real estate y campañas de marca en South Florida. El rodaje se planifica alrededor de la edición, para que cada clip tenga un propósito.",
         "included": {
-          "0": "Preproducción: tratamiento, shot list y call sheet alineados a tu historia",
-          "1": "Captura cinematográfica (4K mín., color 10-bit) con audio grabado en canal dedicado",
-          "2": "B-roll aéreo opcional sumado desde el servicio interno de drone",
-          "3": "Hero film más cortes nativos por plataforma (16:9, 9:16, 1:1) sin costo extra",
-          "4": "Dos rondas de revisiones y entrega del master con archivo del proyecto"
+          "0": "Preproducción: concepto, shot list, referencias y plan de entrega",
+          "1": "Grabación en locación con encuadre limpio, movimiento y audio usable cuando haga falta",
+          "2": "B-roll aéreo opcional cuando la locación, el tiempo y las condiciones de vuelo lo permitan",
+          "3": "Edición principal más cortes para Reels, TikTok, Shorts o web",
+          "4": "Dos rondas de revisión y exportaciones finales para cada plataforma"
         }
       },
       "aerial": {
         "name": "Aérea / Drone",
-        "tagline": "Licencia Part 107, mirada cinematográfica — el drone como lente narrativo, no como sobrevuelo inmobiliario.",
-        "blurb": "Captura con drone licenciada para venues, propiedades y brand films.",
-        "longBlurb": "Captura con drone licencia Part 107 para venues, bienes raíces, bodas y brand films. Movimientos cinematográficos, no simples sobrevuelos inmobiliarios.",
+        "tagline": "Tomas aéreas como parte de la historia, no como relleno genérico.",
+        "blurb": "Tomas aéreas para propiedades, venues, eventos y videos de marca.",
+        "longBlurb": "Tomas aéreas para real estate, venues, barcos, eventos y videos de marca en South Florida. Cada vuelo se define según reglas de locación, seguridad, clima y edición final.",
         "included": {
-          "0": "Piloto certificado FAA Part 107 y seguro de responsabilidad civil en cada vuelo",
-          "1": "Coordinación de espacio aéreo, autorización LAANC y brief de seguridad en sitio",
-          "2": "Captura aérea 4K HDR con movimientos cinematográficos planeados (reveals, parallax, top-downs)",
-          "3": "Selects aéreos con color y material crudo entregados en un drive compartido",
-          "4": "Posibilidad de combinar con fotografía o videografía en tierra para un paquete completo"
+          "0": "Planificación previa según locación, clima, espacio aéreo y objetivo del proyecto",
+          "1": "Plan de rodaje seguro para locaciones elegibles y ventanas de vuelo útiles",
+          "2": "Movimientos aéreos planeados: reveals, parallax, top-downs y tomas de contexto",
+          "3": "Tomas aéreas con color integrado al edit final",
+          "4": "Opción de combinar con videografía en tierra o fotografía de apoyo"
         }
       },
       "video-editing": {
         "name": "Edición de Video",
-        "tagline": "Cortes con foco en la historia y color profesional — trae tu material o combínalo con un rodaje.",
-        "blurb": "Edición con foco en la historia y color profesional.",
-        "longBlurb": "Edición con foco en la historia y color profesional. Trae tu propio material o combínalo con un rodaje — entrega en cualquier proporción para cualquier plataforma.",
+        "tagline": "Cortes con historia, ritmo, captions, color y sonido para videos que tienen que funcionar.",
+        "blurb": "Reels, promos, recaps, color, sonido, captions y cortes para redes.",
+        "longBlurb": "La edición de video es el servicio principal: Reels, promos, recaps, cortes para redes, color, sonido, captions y exportaciones por plataforma desde tu material o desde un rodaje nuevo.",
         "included": {
-          "0": "Pase editorial: estructura, ritmo y forma de la historia antes del trabajo de pulido",
-          "1": "Diseño de sonido y licenciamiento o supervisión musical",
-          "2": "Color grading profesional con LUT del proyecto aplicado a todo el material",
+          "0": "Pase editorial: hook, estructura, ritmo e historia antes del pulido",
+          "1": "Captions, diseño de sonido, dirección musical y ritmo pensado para redes",
+          "2": "Corrección de color y look consistente en todos los clips seleccionados",
           "3": "Entregables nativos por plataforma (16:9, 9:16, 1:1) cortados desde el mismo master",
           "4": "Dos rondas de revisión y archivo del proyecto para futuros re-cortes"
         }
       },
       "photo-editing": {
         "name": "Edición de Fotos",
-        "tagline": "Retoque, color y selección — manda tus RAWs, recibe un set listo para entregar.",
-        "blurb": "Retoque, color y selección — manda tus RAWs.",
-        "longBlurb": "Retoque, color y selección. Envía tus RAWs y recibe una edición pulida lista para web, impresión o redes.",
+        "tagline": "Retoque, color y selección para fotos que apoyan la campaña.",
+        "blurb": "Selección, retoque, color y exportaciones listas para redes.",
+        "longBlurb": "Edición de fotos para imágenes de apoyo: selección, retoque, color, limpieza de detalles y exportaciones para web, impresión, listings y campañas sociales.",
         "included": {
           "0": "Selección de las mejores tomas de tu set completo de RAWs",
           "1": "Color grading y tono consistente en todo el set entregado",
@@ -157,11 +157,11 @@
   "About": {
     "_review": "TRANSLATION REVIEW NEEDED — bio, brand statement, equipment labels",
     "eyebrow": "Acerca de Esteban",
-    "headline": "Un narrador visual, no un piloto de drone.",
+    "headline": "Un editor audiovisual en Fort Lauderdale con video primero.",
     "bio": {
-      "paragraph1": "Esteban es un narrador visual basado en el sur de Florida. Filma y edita en todos los formatos — drone, cámara y postproducción — para que un proyecto quede en un solo par de manos, del primer fotograma al corte final.",
-      "paragraph2": "Trabaja en inglés y español, en set y en la edición. Esa capacidad bilingüe importa en el sur de Florida, donde los mejores rodajes suelen moverse entre idiomas sin romper el ritmo.",
-      "paragraph3": "El hilo común en cada proyecto — brand films, bodas, bienes raíces, retratos, comercial — es el mismo: el trabajo tiene que sentirse como una película, no como un entregable."
+      "paragraph1": "Esteban Moreno es un editor audiovisual basado en Fort Lauderdale que lidera con video: ritmo, historia, color, sonido, captions y el corte final que la gente realmente ve.",
+      "paragraph2": "Trabaja en inglés y español, en set y en la edición. Esa capacidad bilingüe importa en Broward y Miami, donde los rodajes y audiencias suelen moverse entre idiomas.",
+      "paragraph3": "El enfoque es video primero — Reels, promos, recaps, tomas aéreas y contenido para negocios. La fotografía está disponible cuando el proyecto necesita fotos de apoyo."
     },
     "headshot": {
       "alt": "Retrato provisional de Esteban — silueta neutral en escala de grises que reemplaza el retrato final.",
@@ -169,14 +169,14 @@
     },
     "brandStatement": {
       "eyebrow": "Declaración de marca",
-      "statement": "Hacemos que las cosas se sientan como una película.",
-      "support": "Un solo estudio para captura y postproducción — calmado, cinematográfico y construido alrededor de tu historia. Sin jerga corporativa, sin trucos llamativos, sin superlativos que no podamos respaldar con el trabajo."
+      "statement": "Ediciones de video con intención.",
+      "support": "Un solo flujo para captura y postproducción — historia clara, buen ritmo, color pulido, audio usable y entregas pensadas para donde va a vivir el video."
     },
     "equipment": {
       "eyebrow": "Equipo",
       "headline": "El equipo detrás del trabajo.",
-      "lede": "Un setup híbrido profesional ajustado tanto para foto como para video, combinado con drones de nivel cinematográfico y una suite de postproducción calibrada. El equipo sirve a la historia — no es el protagonista.",
-      "footnote": "La lista de equipo se actualiza a medida que evoluciona el kit de Esteban. Cuerpos, ópticas y drones específicos cambian según los requerimientos del rodaje.",
+      "lede": "Un setup con video primero, ajustado para edición, captura, audio, tomas aéreas y fotos de apoyo. El equipo sirve a la edición — no es el protagonista.",
+      "footnote": "La lista de equipo se actualiza a medida que evoluciona el kit de Esteban. Cuerpos, ópticas, drones, audio y herramientas de edición cambian según los requerimientos del proyecto.",
       "groups": {
         "cameras": { "label": "Cámaras" },
         "lenses": { "label": "Ópticas" },
@@ -193,7 +193,7 @@
         "telephoto-zoom": "Zoom telefoto (equivalente 70–200mm)",
         "portrait-prime": "Fijo de retrato luminoso (85mm f/1.4)",
         "macro-prime": "Fijo macro para producto y detalle",
-        "cinema-drone": "Drone cinematográfico con cámara 4K HDR (Part 107 certificado)",
+        "cinema-drone": "Drone de estilo cinematográfico con cámara 4K HDR",
         "compact-drone": "Drone compacto para locaciones cerradas y kit de viaje",
         "shotgun-mic": "Micrófono shotgun para diálogo en cámara",
         "wireless-lav": "Sistema de lavalier inalámbrico de dos canales",
@@ -205,8 +205,8 @@
       }
     },
     "cta": {
-      "headline": "¿Tienes una historia que contar?",
-      "body": "Comparte las fechas, el formato y qué quieres hacer sentir. Te respondemos con un alcance y una cotización — normalmente en dos días hábiles.",
+      "headline": "¿Tienes material, un rodaje o una idea de contenido?",
+      "body": "Comparte las fechas, locación, estado del material y dónde va a vivir el video. Te respondemos con un alcance y una cotización — normalmente en dos días hábiles.",
       "primary": "Iniciar un proyecto",
       "secondary": "Ver todos los servicios"
     }
@@ -215,28 +215,29 @@
     "_review": "TRANSLATION REVIEW NEEDED",
     "portraitPlaceholder": "Retrato de marcador",
     "eyebrow": "Acerca de Esteban",
-    "headline": "Un narrador visual, no un piloto de drone.",
-    "paragraph1": "Basado en el sur de Florida y bilingüe (EN/ES). Esteban filma y edita en todos los formatos — drone, cámara, postproducción — para que tu historia quede en un solo par de manos, del primer fotograma al corte final.",
-    "paragraph2": "Hacemos que las cosas se sientan como una película.",
+    "headline": "Un editor audiovisual con video primero.",
+    "paragraph1": "Basado en Fort Lauderdale y bilingüe (EN/ES). Esteban edita y graba video, tomas aéreas, Reels y fotos de apoyo para proyectos en Broward y Miami.",
+    "paragraph2": "Ediciones de video con intención.",
     "cta": "Más sobre Esteban"
   },
   "ContactCTA": {
     "_review": "TRANSLATION REVIEW NEEDED",
-    "eyebrow": "Hagamos algo cinematográfico",
-    "headline": "¿Tienes una historia que contar? Cuéntanosla.",
-    "body": "Brand films, bodas, bienes raíces, eventos — cuéntanos del proyecto y la fecha. Te respondemos con un alcance y una cotización.",
+    "eyebrow": "Empieza con la edición",
+    "headline": "¿Tienes material, un rodaje o una idea de contenido?",
+    "body": "Reels, promos, recaps de eventos, real estate, tomas aéreas y contenido para negocios — cuéntanos del proyecto y la fecha. Te respondemos con un alcance y una cotización.",
     "ctaPrimary": "Iniciar un proyecto",
     "ctaSecondary": "Escribir directo"
   },
   "Contact": {
     "_review": "TRANSLATION REVIEW NEEDED",
     "eyebrow": "Contacto",
-    "headline": "Cuéntanos sobre el proyecto.",
-    "lede": "Comparte la fecha, el formato y lo que quieres hacer sentir a la gente. Te respondemos con un alcance, un cronograma y una cotización — normalmente en dos días hábiles.",
+    "headline": "Cuéntanos qué necesita lograr el video.",
+    "lede": "Comparte la fecha, locación, estado del material, plataforma y resultado que buscas. Te respondemos con un alcance, cronograma y cotización — normalmente en dos días hábiles.",
     "details": {
       "emailLabel": "Correo",
       "basedInLabel": "Basado en",
-      "basedInValue": "Sur de Florida — disponible para viajar a cualquier parte de EE. UU.",
+      "basedInValue": "Fort Lauderdale — sirviendo Broward, Miami y South Florida.",
+      "instagramLabel": "Instagram",
       "notSureLabel": "¿No sabes qué necesitas?",
       "notSureBefore": "Echa un vistazo a la ",
       "notSureLink": "lista completa de servicios",

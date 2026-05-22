@@ -1,5 +1,5 @@
 /**
- * Page-level `Metadata` builder for Esteban Media.
+ * Page-level `Metadata` builder for Esteban Moreno Media.
  *
  * Why this exists:
  *  - Next.js does NOT deeply-merge `openGraph` / `twitter` blocks across
@@ -45,7 +45,7 @@ const ALL_LOCALES = routing.locales as readonly Locale[];
 export type PageMetadataInput = {
   locale: Locale;
   /**
-   * Human-readable page title. The template (`"{title} · Esteban Media"`)
+   * Human-readable page title. The template (`"{title} · Esteban Moreno Media"`)
    * wraps this for the OG/Twitter card title automatically. If `absoluteTitle`
    * is true, the title is emitted as-is (used for the homepage, which already
    * carries the brand name in its default title).

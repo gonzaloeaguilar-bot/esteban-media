@@ -28,7 +28,7 @@ export const contentType = "image/png";
 // `alt` falls back to a stable English string — Next requires a literal here
 // because the value lands in the static metadata at build time and cannot be
 // awaited.
-export const alt = "Esteban Media — Visual Storyteller, South Florida";
+export const alt = "Esteban Moreno Media — Fort Lauderdale Video Editor";
 
 /**
  * Pre-render one image per locale at build time. Without this, Next would
@@ -89,7 +89,7 @@ export default async function Opengraph({
             color: "rgba(255,255,255,0.65)",
           }}
         >
-          <span>Esteban Media</span>
+          <span>Esteban Moreno Media</span>
           <span>{locale.toUpperCase()}</span>
         </div>
 
@@ -140,7 +140,7 @@ export default async function Opengraph({
               background: "rgba(255,255,255,0.55)",
             }}
           />
-          <span>Aerial · Photo · Video · Post</span>
+          <span>Video Editing · Videography · Aerial · Photo</span>
         </div>
       </div>
     ),

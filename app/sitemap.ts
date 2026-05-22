@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 
 import { routing, type Locale } from "@/i18n/routing";
+import { LOCAL_SEO_PAGE_SLUGS } from "@/lib/local-seo-pages";
 import { SITE_URL } from "@/lib/seo/business-info";
 import { SERVICE_SLUGS } from "@/lib/services";
 
@@ -56,6 +57,15 @@ const SERVICE_PATHS: readonly StaticPath[] = SERVICE_SLUGS.map((slug) => ({
   priority: 0.8,
 }));
 
+/** Local SEO landing pages for launch markets. */
+const LOCAL_SEO_PATHS: readonly StaticPath[] = LOCAL_SEO_PAGE_SLUGS.map(
+  (slug) => ({
+    path: `/${slug}`,
+    changeFrequency: "monthly" as const,
+    priority: 0.85,
+  }),
+);
+
 const LOCALES = routing.locales as readonly Locale[];
 const DEFAULT_LOCALE = routing.defaultLocale;
 
@@ -80,7 +90,11 @@ function alternatesFor(path: string): Record<string, string> {
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
-  const allPaths: readonly StaticPath[] = [...STATIC_PATHS, ...SERVICE_PATHS];
+  const allPaths: readonly StaticPath[] = [
+    ...STATIC_PATHS,
+    ...SERVICE_PATHS,
+    ...LOCAL_SEO_PATHS,
+  ];
 
   // Cartesian product: every path × every locale. Emitting one entry per
   // locale (rather than collapsing locales into a single entry via alternates

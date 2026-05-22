@@ -35,7 +35,7 @@ const CONTACT_TO_EMAIL =
   process.env.CONTACT_TO_EMAIL ?? "gagui010@icloud.com";
 
 // Resend's sandbox sender. Swap to a verified domain once DNS is live.
-const FROM_ADDRESS = "Esteban Media <onboarding@resend.dev>";
+const FROM_ADDRESS = "Esteban Moreno Media <onboarding@resend.dev>";
 
 export async function POST(request: Request) {
   let payload: unknown;
@@ -89,7 +89,7 @@ export async function POST(request: Request) {
 
   const subject = `New inquiry — ${projectLabel} (${name})`;
   const text = [
-    `New contact form submission from estebanmedia.com`,
+    `New contact form submission from estebanmorenomedia.com`,
     ``,
     `Name:         ${name}`,
     `Email:        ${email}`,

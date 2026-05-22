@@ -75,6 +75,21 @@ export default async function ContactPage({ params }: PageProps) {
               </div>
               <div>
                 <dt className="font-medium text-foreground">
+                  {t("details.instagramLabel")}
+                </dt>
+                <dd className="mt-1 text-muted-foreground">
+                  <a
+                    href="https://www.instagram.com/steeban1/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="underline underline-offset-4 transition hover:opacity-80"
+                  >
+                    @steeban1
+                  </a>
+                </dd>
+              </div>
+              <div>
+                <dt className="font-medium text-foreground">
                   {t("details.notSureLabel")}
                 </dt>
                 <dd className="mt-1 text-muted-foreground">

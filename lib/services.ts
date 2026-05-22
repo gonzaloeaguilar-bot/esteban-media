@@ -16,9 +16,9 @@ import {
  *  - app/[locale]/services/[slug]/page.tsx (per-service detail)
  *  - app/[locale]/contact/contact-form.tsx (project-type select)
  *
- * Order is intentional: photography → videography → aerial → edits.
- * Positioning is "visual storyteller, not drone guy" — drone is one tool in a
- * deep toolkit, not the lead.
+ * Order is intentional: video editing → videography → aerial → photography →
+ * photo editing. Esteban is video-first; photography supports the story when
+ * the project needs stills, but it is not the lead offer.
  *
  * Translated names + blurbs live in `messages/{locale}.json` under
  * `Services.items.<slug>`. The lookup helper below pulls structural data
@@ -79,13 +79,13 @@ export type Service = {
 
 export const SERVICES: readonly Service[] = [
   {
-    slug: "photography",
-    Icon: Camera,
+    slug: "video-editing",
+    Icon: Film,
     includedCount: 5,
     gallerySlots: 6,
     accent: {
-      gradient: "from-stone-100 to-stone-300 dark:from-stone-800 dark:to-stone-950",
-      ring: "ring-stone-300/60 dark:ring-stone-700/60",
+      gradient: "from-zinc-100 to-zinc-300 dark:from-zinc-800 dark:to-zinc-950",
+      ring: "ring-zinc-300/60 dark:ring-zinc-700/60",
     },
   },
   {
@@ -109,13 +109,13 @@ export const SERVICES: readonly Service[] = [
     },
   },
   {
-    slug: "video-editing",
-    Icon: Film,
+    slug: "photography",
+    Icon: Camera,
     includedCount: 5,
     gallerySlots: 6,
     accent: {
-      gradient: "from-zinc-100 to-zinc-300 dark:from-zinc-800 dark:to-zinc-950",
-      ring: "ring-zinc-300/60 dark:ring-zinc-700/60",
+      gradient: "from-stone-100 to-stone-300 dark:from-stone-800 dark:to-stone-950",
+      ring: "ring-stone-300/60 dark:ring-stone-700/60",
     },
   },
   {

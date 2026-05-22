@@ -1,5 +1,5 @@
 /**
- * About-page structural content for Esteban Media.
+ * About-page structural content for Esteban Moreno Media.
  *
  * Why this file exists:
  *  - The About page mixes typed structured data (equipment list grouped by

@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { Hero } from "@/components/sections/Hero";
 import { ServicesStrip } from "@/components/sections/ServicesStrip";
+import { LocalMarketStrip } from "@/components/sections/LocalMarketStrip";
 import { AboutTeaser } from "@/components/sections/AboutTeaser";
 import { ContactCTA } from "@/components/sections/ContactCTA";
 import { routing, type Locale } from "@/i18n/routing";
@@ -14,7 +15,7 @@ type PageProps = {
 
 /**
  * Homepage metadata. Uses `defaultTitle` as the absolute document title (no
- * "X · Esteban Media" template wrap — the default already carries the brand
+ * "X · Esteban Moreno Media" template wrap — the default already carries the brand
  * name + tagline) and the default site description.
  */
 export async function generateMetadata({
@@ -42,6 +43,7 @@ export default async function Home({ params }: PageProps) {
     <main className="min-h-screen bg-background text-foreground">
       <Hero />
       <ServicesStrip />
+      <LocalMarketStrip locale={locale as Locale} />
       <AboutTeaser />
       <ContactCTA />
     </main>

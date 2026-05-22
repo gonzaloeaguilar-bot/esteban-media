@@ -35,5 +35,5 @@
 ## Notes
 
 - Esteban hasn't delivered real photos/videos yet — use placeholders, mark with `<!-- TODO: real asset from Esteban -->`. Don't generate AI images.
-- Domain TBD. All `metadataBase` should use Vercel preview URL until set.
+- Domain target is `estebanmorenomedia.com`. Current code defaults `metadataBase` and schema URLs to that domain; set `NEXT_PUBLIC_SITE_URL` in Vercel once DNS is live.
 - Bilingual: EN copy first, ES second. ES translation must be flagged for native-speaker review.

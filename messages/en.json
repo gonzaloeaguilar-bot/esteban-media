@@ -1,25 +1,25 @@
 {
   "Metadata": {
-    "siteName": "Esteban Media",
-    "defaultTitle": "Esteban Media — Visual Storyteller, South Florida",
-    "titleTemplate": "{title} · Esteban Media",
-    "defaultDescription": "Aerial, photography, videography, and post-production for brands and people in South Florida. We make things feel like a film.",
+    "siteName": "Esteban Moreno Media",
+    "defaultTitle": "Esteban Moreno Media — Fort Lauderdale Video Editor",
+    "titleTemplate": "{title} · Esteban Moreno Media",
+    "defaultDescription": "Video editing, videography, aerial visuals, and supporting photography for Broward, Fort Lauderdale, Miami, and South Florida brands.",
     "services": {
       "title": "Services",
-      "description": "Photography, videography, aerial/drone, video editing, and photo editing — full-service visual storytelling across South Florida."
+      "description": "Video editing, videography, short-form reels, aerial visuals, and supporting photography for South Florida brands."
     },
     "contact": {
       "title": "Contact",
-      "description": "Start a project with Esteban Media — photography, videography, drone, and post-production across South Florida. Tell us about your shoot."
+      "description": "Start a video editing, videography, aerial, or content project with Esteban Moreno Media in South Florida."
     },
     "about": {
       "title": "About Esteban",
-      "description": "Meet Esteban — a South Florida visual storyteller working across photography, videography, aerial, and post. Bilingual EN/ES, cinema-grade kit."
+      "description": "Meet Esteban Moreno, a Fort Lauderdale audiovisual editor focused on video editing, videography, aerial visuals, and post-production."
     }
   },
   "Nav": {
     "primaryAriaLabel": "Primary",
-    "wordmark": "Esteban Media",
+    "wordmark": "Esteban Moreno Media",
     "services": "Services",
     "about": "About",
     "contact": "Contact",
@@ -32,19 +32,19 @@
     }
   },
   "Hero": {
-    "eyebrow": "Esteban Media · South Florida",
-    "headlineLine1": "Visual stories,",
-    "headlineLine2": "from above and on the ground.",
-    "lede": "Aerial, photography, videography, and post — full-service capture for brands, weddings, real estate, and creators across South Florida.",
+    "eyebrow": "Esteban Moreno Media · Fort Lauderdale",
+    "headlineLine1": "Video-first stories,",
+    "headlineLine2": "cut for South Florida.",
+    "lede": "Esteban Moreno is a Fort Lauderdale audiovisual editor focused on video editing, videography, short-form reels, and aerial visuals for Broward and Miami. Photography supports the story when a project needs stills.",
     "ctaPrimary": "Start a project",
     "ctaSecondary": "See the work"
   },
   "Services": {
-    "eyebrowStrip": "What we do",
-    "headlineStrip": "One studio. Capture and post, end to end.",
+    "eyebrowStrip": "Video-first services",
+    "headlineStrip": "Editing, shoots, reels, and aerial visuals.",
     "eyebrow": "Services",
-    "headline": "One studio. Capture and post, end to end.",
-    "introBefore": "Esteban shoots and edits across formats so your story stays in one pair of hands from the first frame to the final cut. Pick a service to learn more, or ",
+    "headline": "Video-first production and post.",
+    "introBefore": "Esteban leads with the edit: pacing, story, sound, color, and platform-ready delivery. Shooting, aerials, and photography plug in when the project needs original footage. Pick a service to learn more, or ",
     "introLink": "start a project",
     "introAfter": ".",
     "cardCta": "Learn more",
@@ -81,61 +81,61 @@
     "items": {
       "photography": {
         "name": "Photography",
-        "tagline": "Portraits, events, commercial, lifestyle — directed and delivered in one pair of hands.",
-        "blurb": "Portraits, events, commercial, and lifestyle — studio or on-location.",
-        "longBlurb": "Portraits, events, commercial, and lifestyle photography across South Florida. Studio sessions, on-location coverage, and bilingual direction (EN/ES) on set.",
+        "tagline": "Supporting stills for brands, events, listings, and social campaigns.",
+        "blurb": "Photo sets that support video campaigns, events, and listings.",
+        "longBlurb": "Photography is available as a supporting service for video-led projects, events, listings, products, restaurants, and social campaigns across Broward, Fort Lauderdale, Miami, and South Florida.",
         "included": {
-          "0": "Pre-shoot creative call to align on look, location, and shot list",
-          "1": "On-location or studio capture with pro lighting and bilingual direction",
-          "2": "Same-day proofs gallery within 48 hours of the shoot",
-          "3": "Selected, retouched, color-graded final images delivered in web + print resolutions",
+          "0": "Pre-shoot creative call to align the stills with the video or campaign goal",
+          "1": "On-location capture for products, spaces, events, portraits, or social assets",
+          "2": "Proof gallery so selects can be made without slowing down the project",
+          "3": "Selected, retouched, color-matched final images delivered for web and social",
           "4": "Usage rights for the agreed scope (personal, commercial, or extended)"
         }
       },
       "videography": {
         "name": "Videography",
-        "tagline": "Brand films, promos, and event coverage shot with the edit already in mind.",
-        "blurb": "Brand films, promos, and social cutdowns scoped to your shoot.",
-        "longBlurb": "Brand films, promos, event coverage, and social cutdowns. Story-first directing on the day so the edit comes together quickly afterward.",
+        "tagline": "Brand videos, promos, and event coverage shot with the final edit in mind.",
+        "blurb": "Footage capture for promos, events, content days, and brand videos.",
+        "longBlurb": "Videography for businesses, events, creators, restaurants, real estate, and brand campaigns across South Florida. The shoot is planned around the edit, so every clip has a job.",
         "included": {
-          "0": "Pre-production: treatment, shot list, and call sheet aligned to your story",
-          "1": "Cinema-grade capture (4K min., 10-bit color) with audio recorded on a dedicated channel",
-          "2": "Optional drone B-roll plug-in from the in-house aerial service",
-          "3": "Hero film plus platform-native cutdowns (16:9, 9:16, 1:1) at no extra charge",
-          "4": "Two rounds of revisions and a delivered master with project archive"
+          "0": "Pre-production: concept, shot list, references, and delivery plan",
+          "1": "On-location video capture with clean framing, movement, and usable audio when needed",
+          "2": "Optional aerial B-roll when location, timing, and flight conditions allow",
+          "3": "Hero edit plus platform-native cutdowns for Reels, TikTok, Shorts, or web",
+          "4": "Two rounds of revisions and final exports sized for each platform"
         }
       },
       "aerial": {
         "name": "Aerial / Drone",
-        "tagline": "Part 107 licensed, cinematic-first — drone as a storytelling lens, not a real-estate flyover.",
-        "blurb": "Licensed drone capture for venues, properties, and brand films.",
-        "longBlurb": "Licensed Part 107 drone capture for venues, real estate, weddings, and brand films. Cinematic moves, not just real-estate flyovers.",
+        "tagline": "Aerial visuals used as story footage, not generic flyover filler.",
+        "blurb": "Aerial footage for properties, venues, events, and brand videos.",
+        "longBlurb": "Aerial footage for real estate, venues, boats, events, and brand videos across South Florida. Every flight is scoped around location rules, safety, weather, and the final edit.",
         "included": {
-          "0": "FAA Part 107 certified pilot and full liability insurance on every flight",
-          "1": "Airspace clearance, LAANC authorization, and on-site safety brief",
-          "2": "4K HDR aerial capture with cinematic move planning (reveals, parallax, top-downs)",
-          "3": "Color-graded aerial selects and raw footage handed back on a shared drive",
-          "4": "Optional pairing with ground photography or videography for a complete package"
+          "0": "Pre-flight planning around location, weather, airspace, and project goals",
+          "1": "Safety-first shoot plan for eligible locations and usable flight windows",
+          "2": "Aerial movement planning for reveals, parallax, top-downs, and establishing shots",
+          "3": "Color-matched aerial selects integrated into the final video edit",
+          "4": "Optional pairing with ground videography or supporting photography"
         }
       },
       "video-editing": {
         "name": "Video Editing",
-        "tagline": "Story-first cuts and pro color — bring your own footage or pair it with a shoot.",
-        "blurb": "Story-first editing with professional color grading.",
-        "longBlurb": "Story-first editing and professional color grading. Bring your own footage or pair it with a shoot — delivery in any aspect ratio for any platform.",
+        "tagline": "Story-first cuts, pacing, captions, color, and sound for footage that needs to perform.",
+        "blurb": "Reels, promos, recap videos, color, sound, captions, and cutdowns.",
+        "longBlurb": "Video editing is the lead offer: short-form reels, promo edits, recap videos, social cutdowns, color, sound, captions, and platform-specific exports from your footage or a new shoot.",
         "included": {
-          "0": "Editorial pass: structure, pacing, and story shape before any polish work",
-          "1": "Sound design and music licensing or supervision",
-          "2": "Professional color grading with show LUT applied across all clips",
+          "0": "Editorial pass: hook, structure, pacing, and story before polish work",
+          "1": "Captions, sound design, music direction, and social-friendly rhythm",
+          "2": "Color correction and grade matched across all selected clips",
           "3": "Platform-native deliverables (16:9, 9:16, 1:1) cut from the same master",
           "4": "Two revision rounds plus archived project files for future re-cuts"
         }
       },
       "photo-editing": {
         "name": "Photo Editing",
-        "tagline": "Retouching, color, and culling — send your RAWs, receive a delivery-ready set.",
-        "blurb": "Retouching, color, and culling — bring your RAWs.",
-        "longBlurb": "Retouching, color, and culling. Send your RAWs; receive a polished edit ready for web, print, or social.",
+        "tagline": "Retouching, color, and culling for stills that support the campaign.",
+        "blurb": "Photo culling, retouching, color, and social-ready exports.",
+        "longBlurb": "Photo editing for supporting stills: culling, retouching, color, detail cleanup, and export sets for web, print, listings, and social campaigns.",
         "included": {
           "0": "Cull and select the keepers from your full RAW set",
           "1": "Color grading and consistent tone across the delivered set",
@@ -148,11 +148,11 @@
   },
   "About": {
     "eyebrow": "About Esteban",
-    "headline": "A visual storyteller, not a drone guy.",
+    "headline": "A video-first audiovisual editor in Fort Lauderdale.",
     "bio": {
-      "paragraph1": "Esteban is a South Florida-based visual storyteller. He shoots and edits across formats — drone, camera, and post — so a project stays in one pair of hands from the first frame to the final cut.",
-      "paragraph2": "He works in English and Spanish, on set and in the edit. That bilingual range matters in South Florida, where the best shoots usually move between languages without breaking the flow.",
-      "paragraph3": "The throughline across every project — brand films, weddings, real estate, portraits, commercial — is the same: the work has to feel like a film, not a deliverable."
+      "paragraph1": "Esteban Moreno is a Fort Lauderdale-based audiovisual editor who leads with video: pacing, story, color, sound, captions, and the final cut people actually watch.",
+      "paragraph2": "He works in English and Spanish, on set and in the edit. That bilingual range matters across Broward and Miami, where shoots and audiences often move between languages.",
+      "paragraph3": "The focus is video first — reels, promos, recap edits, aerial visuals, and content for businesses. Photography is available when the project needs supporting stills."
     },
     "headshot": {
       "alt": "Portrait placeholder for Esteban — a neutral grayscale silhouette standing in for the final headshot.",
@@ -160,14 +160,14 @@
     },
     "brandStatement": {
       "eyebrow": "Brand statement",
-      "statement": "We make things feel like a film.",
-      "support": "One studio for capture and post — calm, cinematic, and built around your story. No corporate jargon, no flashy gimmicks, no superlatives we can't back up with the work."
+      "statement": "Video edits that feel intentional.",
+      "support": "One workflow for capture and post — clear story, clean pacing, polished color, usable audio, and deliverables built for where the video will live."
     },
     "equipment": {
       "eyebrow": "Kit",
       "headline": "The gear behind the work.",
-      "lede": "A pro hybrid setup tuned for both stills and motion, paired with cinema-grade drones and a calibrated post-production suite. The kit serves the story — it isn't the point.",
-      "footnote": "Kit list updated as Esteban's gear evolves. Specific bodies, glass, and drones swap based on the shoot's requirements.",
+      "lede": "A video-first setup tuned for editing, capture, audio, aerial visuals, and supporting stills. The kit serves the edit — it is not the point.",
+      "footnote": "Kit list updated as Esteban's gear evolves. Specific bodies, glass, drones, audio, and editing tools swap based on the project's requirements.",
       "groups": {
         "cameras": { "label": "Cameras" },
         "lenses": { "label": "Lenses" },
@@ -184,7 +184,7 @@
         "telephoto-zoom": "Telephoto zoom (70–200mm equivalent)",
         "portrait-prime": "Fast portrait prime (85mm f/1.4)",
         "macro-prime": "Macro prime for product + detail work",
-        "cinema-drone": "Cinema drone with 4K HDR camera (Part 107 certified)",
+        "cinema-drone": "Cinema-style drone with 4K HDR camera",
         "compact-drone": "Compact drone for tight locations + travel kit",
         "shotgun-mic": "Shotgun microphone for on-camera dialogue",
         "wireless-lav": "Dual-channel wireless lavalier system",
@@ -196,8 +196,8 @@
       }
     },
     "cta": {
-      "headline": "Got a story to tell?",
-      "body": "Share the dates, the format, and what you want it to feel like. We'll come back with a scope and a quote — usually within two business days.",
+      "headline": "Got footage, a shoot, or a content idea?",
+      "body": "Share the dates, location, footage status, and where the video will live. We'll come back with a scope and a quote — usually within two business days.",
       "primary": "Start a project",
       "secondary": "See all services"
     }
@@ -205,26 +205,27 @@
   "AboutTeaser": {
     "portraitPlaceholder": "Portrait placeholder",
     "eyebrow": "About Esteban",
-    "headline": "A visual storyteller, not a drone guy.",
-    "paragraph1": "South-Florida-based and bilingual (EN/ES). Esteban shoots and edits across formats — drone, camera, post — so your story stays in one pair of hands from the first frame to the final cut.",
-    "paragraph2": "We make things feel like a film.",
+    "headline": "A video-first audiovisual editor.",
+    "paragraph1": "Fort Lauderdale-based and bilingual (EN/ES). Esteban edits and shoots across video, aerials, reels, and supporting stills for Broward and Miami projects.",
+    "paragraph2": "Video edits that feel intentional.",
     "cta": "More about Esteban"
   },
   "ContactCTA": {
-    "eyebrow": "Let's build something cinematic",
-    "headline": "Got a story to tell? Tell us about it.",
-    "body": "Brand films, weddings, real estate, events — share the project and the date. We'll come back with a scope and a quote.",
+    "eyebrow": "Start with the edit",
+    "headline": "Got footage, a shoot, or a content idea?",
+    "body": "Reels, promos, event recaps, real estate, aerials, and business content — share the project and the date. We'll come back with a scope and a quote.",
     "ctaPrimary": "Start a project",
     "ctaSecondary": "Email directly"
   },
   "Contact": {
     "eyebrow": "Contact",
-    "headline": "Tell us about the project.",
-    "lede": "Share the date, the format, and what you're trying to make people feel. We'll come back with a scope, a timeline, and a quote — usually within two business days.",
+    "headline": "Tell us what the video needs to do.",
+    "lede": "Share the date, location, footage status, platform, and the outcome you want. We'll come back with a scope, a timeline, and a quote — usually within two business days.",
     "details": {
       "emailLabel": "Email",
       "basedInLabel": "Based in",
-      "basedInValue": "South Florida — available for travel anywhere in the U.S.",
+      "basedInValue": "Fort Lauderdale — serving Broward, Miami, and South Florida.",
+      "instagramLabel": "Instagram",
       "notSureLabel": "Not sure what you need?",
       "notSureBefore": "Take a look at the ",
       "notSureLink": "full service list",

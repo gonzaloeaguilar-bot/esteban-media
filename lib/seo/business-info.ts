@@ -1,5 +1,5 @@
 /**
- * Single source of truth for Esteban Media's business identity in
+ * Single source of truth for Esteban Moreno Media's business identity in
  * structured-data + future canonical-URL contexts. Everything else (JSON-LD
  * builders, OG defaults, sitemap, robots) reads from here so that swapping
  * placeholders for real data is one edit, not a grep-and-replace.
@@ -21,7 +21,7 @@
 export const SITE_URL: string =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
   // TODO: replace with real production origin once domain is purchased.
-  "https://esteban-media.vercel.app";
+  "https://estebanmorenomedia.com";
 
 /**
  * Stable JSON-LD `@id` values. We use a hash-fragmented URL so multiple nodes
@@ -43,7 +43,7 @@ export const SCHEMA_IDS = {
  * "click to email" CTAs share the same string. The actual recipient on the
  * API route is gated by `CONTACT_TO_EMAIL` — see `app/api/contact/route.ts`.
  */
-export const CONTACT_EMAIL = "gagui010@icloud.com"; // TODO: swap when Esteban's biz email is live.
+export const CONTACT_EMAIL = "gagui010@icloud.com"; // TODO: swap to hello@estebanmorenomedia.com after domain/email setup.
 
 /**
  * Service-area centroid for LocalBusiness. South Florida-wide service area
@@ -67,17 +67,15 @@ export const SERVICE_AREA = {
  * and is safer than shipping fake URLs.
  */
 export const ESTEBAN = {
-  name: "Esteban", // TODO: full legal/credited name once confirmed.
-  jobTitle: "Visual Storyteller", // Aerial cinematography + photo/video + post.
-  // TODO: short, real bio. Until then we keep the description aligned with
-  // the brand positioning in CLAUDE.md ("we make things feel like a film").
+  name: "Esteban Moreno",
+  jobTitle: "Audiovisual Editor and Videographer",
   description:
-    "South Florida visual storyteller specialising in aerial cinematography, photography, videography, and post-production.",
+    "Fort Lauderdale audiovisual editor and videographer specialising in video editing, short-form content, aerial visuals, and supporting photography.",
   /**
    * Authoritative social/profile URLs. Empty array is intentional — never
    * fabricate a profile URL. Add entries as Esteban confirms them.
    */
-  sameAs: [] as readonly string[], // TODO: Instagram, Vimeo, YouTube, LinkedIn.
+  sameAs: ["https://www.instagram.com/steeban1/"] as readonly string[], // TODO: add YouTube/Vimeo/LinkedIn if confirmed.
 } as const;
 
 /**
@@ -87,14 +85,14 @@ export const ESTEBAN = {
  */
 export const BUSINESS = {
   /**
-   * Legal/marketing name. We treat the brand "Esteban Media" as both the
+   * Legal/marketing name. We treat the brand "Esteban Moreno Media" as both the
    * `name` and the `legalName` placeholder until Esteban registers a formal
    * entity (LLC etc.).
    */
-  name: "Esteban Media",
-  legalName: "Esteban Media", // TODO: real legal entity name (LLC).
+  name: "Esteban Moreno Media",
+  legalName: "Esteban Moreno Media", // TODO: real legal entity name (LLC).
   description:
-    "Full-service visual storytelling for South Florida brands and people — aerial cinematography, photography, videography, and post-production.",
+    "Video-first audiovisual editing and production for South Florida brands — video editing, videography, short-form reels, aerial visuals, and supporting photography.",
   email: CONTACT_EMAIL,
   /**
    * Phone in E.164 format once known. Empty string = omit from schema (the
@@ -123,7 +121,7 @@ export const BUSINESS = {
    * Authoritative org-level profile URLs (Google Business, Yelp, etc.).
    * Empty until confirmed — never fabricate.
    */
-  sameAs: [] as readonly string[], // TODO: GBP, Yelp, Behance, IMDb, etc.
+  sameAs: ["https://www.instagram.com/steeban1/"] as readonly string[], // TODO: add GBP, Yelp, Behance, IMDb, etc.
   /**
    * Price tier. `$$` is a safe "approachable professional" placeholder; the
    * builders will emit `priceRange` only when this is non-empty.

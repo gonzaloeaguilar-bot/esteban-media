@@ -1,19 +1,19 @@
-# Esteban Media — Project Context
+# Esteban Moreno Media — Project Context
 
 > **For Claude Code (or any AI assistant):** read this first before working on the codebase.
 
 ## What This Is
 
-Marketing site for **Esteban** — full-service visual storyteller based in South Florida. Built to attract clients across his service mix; the orchestrator (cortex) builds this overnight on max autonomy because there are no real users yet.
+Marketing site for **Esteban Moreno** — video-first audiovisual editor and videographer based in Fort Lauderdale, serving Broward, Miami, and South Florida. Built to attract clients across his video-led service mix; the orchestrator (cortex) builds this overnight on max autonomy because there are no real users yet.
 
 **Esteban's services:**
-- Aerial / drone cinematography
-- Photography — portraits, events, commercial, lifestyle
-- Videography
 - Video editing + color grading
-- Photo editing
+- Videography
+- Short-form reels and social cutdowns
+- Aerial / drone visuals
+- Photography and photo editing as supporting services
 
-Positioning is **visual storyteller**, not "drone guy." Drone is one capability in a deep toolkit.
+Positioning is **video-first audiovisual editor**, not photographer-first and not "drone guy." Drone and photography are capabilities in the toolkit, but the lead offer is video editing and video production.
 
 ## Stack (decided — don't relitigate)
 
@@ -24,17 +24,17 @@ Positioning is **visual storyteller**, not "drone guy." Drone is one capability 
 - **Forms:** Resend or Formspree for contact (whichever is faster to wire) → routes to `gagui010@icloud.com` until Esteban's email is set up
 - **i18n:** next-intl, bilingual EN/ES (South Florida market)
 - **Analytics:** Vercel Analytics (free tier) — defer GA4 until domain is live
-- **Media hosting:** Vercel Blob for placeholder assets; swap to Cloudinary or Mux when Esteban delivers real reels
+- **Media hosting:** Vercel Blob for placeholder assets; swap to Cloudinary or Mux when Esteban delivers real reels and portfolio stills
 
 ## Brand Voice (placeholder until refined)
 
-- **Tone:** confident, cinematic, calm. "We make things feel like a film."
+- **Tone:** confident, cinematic, calm. "Video edits that feel intentional."
 - **Avoid:** corporate jargon, "premium," "world-class," superlatives without proof
 - **Bilingual rule:** EN copy first, then ES translation reviewed by a native speaker (Gonzalo). Never AI-translate without flagging for review.
 
 ## Domain
 
-**TBD.** Use Vercel preview URLs for now. When domain is bought, update `next.config.ts` metadata base + canonical tags.
+Target domain: `estebanmorenomedia.com`. If the typo `estebammorenomedia.com` is purchased too, use it only as a redirect to the correct spelling. When DNS is live, set `NEXT_PUBLIC_SITE_URL=https://estebanmorenomedia.com` in Vercel.
 
 ## Auto-Merge Policy (max autonomy lane)
 

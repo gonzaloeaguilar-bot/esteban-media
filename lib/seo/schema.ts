@@ -1,5 +1,5 @@
 /**
- * JSON-LD schema builders for Esteban Media.
+ * JSON-LD schema builders for Esteban Moreno Media.
  *
  * Design:
  *  - All schemas live in this module (no inline schema in pages) so the shape
