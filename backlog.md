@@ -32,6 +32,8 @@
 
 - [ ] `P2` **GitHub repo + Vercel deploy** `needs-human` — Create GitHub repo `esteban-media` under gonzaloeaguilar-bot, push, link to Vercel, get preview URL. Drafts a proposal because requires GH/Vercel auth interactions. `infra`
 
+- [x] `P2` **Research-driven local SEO architecture** — Add competitor research notes, typed keyword clusters, seven launch local/niche landing pages, local Service schema, FAQ schema, and sitemap coverage. Keep UI swappable by rendering from `lib/local-seo-pages.ts`. `seo` — Done 2026-05-22
+
 ## Notes
 
 - Esteban hasn't delivered real photos/videos yet — use placeholders, mark with `<!-- TODO: real asset from Esteban -->`. Don't generate AI images.

@@ -6,6 +6,7 @@ Built overnight by the cortex orchestrator on the **max autonomy** lane. See `CL
 
 **Domain target:** `estebanmorenomedia.com` — buy and point to Vercel before launch.
 **Owner:** Gonzalo (Esteban's husband). Decisions route through Gonzalo.
+**SEO research:** see `docs/local-seo-research.md` for competitor signals, keyword clusters, and the data-driven landing-page architecture.
 
 ## Status
 

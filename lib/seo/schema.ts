@@ -25,6 +25,7 @@ import {
   SITE_URL,
 } from "./business-info";
 import { CANONICAL_SERVICE_NAMES, type ServiceSlug } from "@/lib/services";
+import type { LocalSeoPageCopy } from "@/lib/local-seo-pages";
 
 /** Shared JSON-LD scalar/value union. Keeps builder return types ergonomic. */
 type JsonLdValue =
@@ -169,5 +170,73 @@ export function buildServiceSchema({
     // Light pointer back to the org so a crawler reading just this node can
     // still discover the brand without resolving the @id ref.
     brand: { "@id": SCHEMA_IDS.organization },
+  });
+}
+
+/** Build a local/niche Service node for one city or county landing page. */
+export function buildLocalSeoServiceSchema({
+  page,
+  locale,
+}: {
+  page: LocalSeoPageCopy;
+  locale: string;
+}): JsonLdNode {
+  const url = `${SITE_URL}/${locale}/${page.slug}`;
+  return compact({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${url}#local-service`,
+    name: page.title,
+    alternateName: page.primaryKeyword,
+    description: page.description,
+    url,
+    inLanguage: locale,
+    provider: { "@id": SCHEMA_IDS.organization },
+    brand: { "@id": SCHEMA_IDS.organization },
+    serviceType: page.primaryKeyword,
+    areaServed: {
+      "@type": page.market === "broward" ? "AdministrativeArea" : "City",
+      name: page.cityLabel,
+      addressRegion: "FL",
+      addressCountry: "US",
+    },
+    audience: page.audienceSegments.map((segment) => ({
+      "@type": "Audience",
+      audienceType: segment,
+    })),
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: `${page.cityLabel} ${page.niche} services`,
+      itemListElement: page.services.map((service) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: service,
+        },
+      })),
+    },
+  });
+}
+
+/** FAQPage schema for visible local landing-page FAQs. */
+export function buildFaqSchema({
+  id,
+  faqs,
+}: {
+  id: string;
+  faqs: LocalSeoPageCopy["faqs"];
+}): JsonLdNode {
+  return compact({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": id,
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
   });
 }

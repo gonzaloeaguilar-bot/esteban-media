@@ -2,17 +2,14 @@ import { ArrowRight } from "lucide-react";
 
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
-import {
-  LOCAL_SEO_PAGE_SLUGS,
-  LOCAL_SEO_PAGES,
-} from "@/lib/local-seo-pages";
+import { getPublishedLocalSeoPages } from "@/lib/local-seo-pages";
 
 type LocalMarketStripProps = {
   locale: Locale;
 };
 
 export function LocalMarketStrip({ locale }: LocalMarketStripProps) {
-  const pages = LOCAL_SEO_PAGE_SLUGS.map((slug) => LOCAL_SEO_PAGES[locale][slug]);
+  const pages = getPublishedLocalSeoPages(locale);
   const isSpanish = locale === "es";
 
   return (
@@ -48,7 +45,7 @@ export function LocalMarketStrip({ locale }: LocalMarketStripProps) {
             <li key={page.slug}>
               <Link
                 href={`/${page.slug}`}
-                className="group flex h-full flex-col rounded-2xl border border-border bg-card p-6 transition hover:-translate-y-0.5 hover:border-foreground/30 hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                className="group flex h-full flex-col rounded-lg border border-border bg-card p-6 transition hover:-translate-y-0.5 hover:border-foreground/30 hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
               >
                 <span className="text-xs font-medium uppercase tracking-[0.22em] text-muted-foreground">
                   {page.cityLabel}
