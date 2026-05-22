@@ -34,6 +34,14 @@
 
 - [x] `P2` **Research-driven local SEO architecture** — Add competitor research notes, typed keyword clusters, seven launch local/niche landing pages, local Service schema, FAQ schema, and sitemap coverage. Keep UI swappable by rendering from `lib/local-seo-pages.ts`. `seo` — Done 2026-05-22
 
+- [x] `P2` **Storefront monetization audit** — Research comparable South Florida video/content storefronts and document package, booking, proof, portfolio, and conversion recommendations in `docs/storefront-monetization-audit.md`. `strategy` — Done 2026-05-22
+
+- [ ] `P2` **Packages page + offer data** — Create typed launch offers (`Edit-Only Starter`, `Content Day Mini`, `Local Business Monthly`) with starting-at ranges, deliverables, caveats, and CTAs. Render `/[locale]/packages`, link from homepage/services/local pages, and add package FAQ/schema. `monetization`
+
+- [ ] `P2` **Contact form conversion fields** — Add deadline, city, final platform, footage status, and shoot-needed fields to the shared zod schema, client form, and email body so leads arrive pre-qualified. `monetization`
+
+- [ ] `P2` **Portfolio/proof data model** — Add a typed portfolio source that can support Instagram embeds now and self-hosted video posters later. Group by Reels, real estate, restaurants, aerial, events, and business promos. `proof`
+
 ## Notes
 
 - Esteban hasn't delivered real photos/videos yet — use placeholders, mark with `<!-- TODO: real asset from Esteban -->`. Don't generate AI images.
