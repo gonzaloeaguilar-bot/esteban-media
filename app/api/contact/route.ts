@@ -3,8 +3,16 @@ import { Resend } from "resend";
 
 import {
   BUDGET_LABELS,
+  DEADLINE_LABELS,
+  FINAL_PLATFORM_LABELS,
+  FOOTAGE_STATUS_LABELS,
+  SHOOT_NEEDED_LABELS,
   contactSchema,
   type BudgetRange,
+  type DeadlineOption,
+  type FinalPlatformOption,
+  type FootageStatusOption,
+  type ShootNeededOption,
 } from "@/lib/contact-schema";
 import {
   CANONICAL_SERVICE_NAMES,
@@ -60,7 +68,19 @@ export async function POST(request: Request) {
     );
   }
 
-  const { name, email, projectType, budget, message, website } = parsed.data;
+  const {
+    name,
+    email,
+    projectType,
+    budget,
+    deadline,
+    city,
+    finalPlatform,
+    footageStatus,
+    shootNeeded,
+    message,
+    website,
+  } = parsed.data;
 
   // Honeypot trip: pretend everything is fine.
   if (website && website.length > 0) {
@@ -86,15 +106,44 @@ export async function POST(request: Request) {
   const projectLabel =
     CANONICAL_SERVICE_NAMES[projectType as ServiceSlug] ?? projectType;
   const budgetLabel = BUDGET_LABELS[budget as BudgetRange] ?? budget;
+  const deadlineLabel =
+    DEADLINE_LABELS[deadline as DeadlineOption] ?? deadline;
+  const footageStatusLabel =
+    FOOTAGE_STATUS_LABELS[footageStatus as FootageStatusOption] ??
+    footageStatus;
+  const finalPlatformLabel = finalPlatform
+    .map(
+      (slug) =>
+        FINAL_PLATFORM_LABELS[slug as FinalPlatformOption] ?? slug,
+    )
+    .join(", ");
+  // shootNeeded is optional; infer a sensible default from footageStatus so
+  // Esteban always has a yes/no/unsure line in the email even when the
+  // visitor didn't pick one explicitly.
+  const inferredShootNeeded: ShootNeededOption =
+    shootNeeded ??
+    (footageStatus === "all-captured"
+      ? "no"
+      : footageStatus === "needs-capture" || footageStatus === "have-some"
+        ? "yes"
+        : "unsure");
+  const shootNeededLabel = `${SHOOT_NEEDED_LABELS[inferredShootNeeded]}${
+    shootNeeded ? "" : " (inferred from footage status)"
+  }`;
 
-  const subject = `New inquiry — ${projectLabel} (${name})`;
+  const subject = `New inquiry — ${projectLabel} · ${deadlineLabel} · ${city} (${name})`;
   const text = [
     `New contact form submission from estebanmorenomedia.com`,
     ``,
-    `Name:         ${name}`,
-    `Email:        ${email}`,
-    `Project type: ${projectLabel}`,
-    `Budget:       ${budgetLabel}`,
+    `Name:           ${name}`,
+    `Email:          ${email}`,
+    `City:           ${city}`,
+    `Project type:   ${projectLabel}`,
+    `Budget:         ${budgetLabel}`,
+    `Deadline:       ${deadlineLabel}`,
+    `Final platform: ${finalPlatformLabel}`,
+    `Footage status: ${footageStatusLabel}`,
+    `Shoot needed:   ${shootNeededLabel}`,
     ``,
     `Message:`,
     message,

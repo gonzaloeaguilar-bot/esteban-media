@@ -38,7 +38,7 @@
 
 - [x] `P2` **Packages page + offer data** — Create typed launch offers (`Edit-Only Starter`, `Content Day Mini`, `Local Business Monthly`) with starting-at ranges, deliverables, caveats, and CTAs. Render `/[locale]/packages`, link from homepage/services/local pages, and add package FAQ/schema. `monetization` — Done 2026-05-23
 
-- [ ] `P2` **Contact form conversion fields** — Add deadline, city, final platform, footage status, and shoot-needed fields to the shared zod schema, client form, and email body so leads arrive pre-qualified. `monetization`
+- [x] `P2` **Contact form conversion fields** — Add deadline, city, final platform, footage status, and shoot-needed fields to the shared zod schema, client form, and email body so leads arrive pre-qualified. `monetization` — Done 2026-05-23
 
 - [ ] `P2` **Portfolio/proof data model** — Add a typed portfolio source that can support Instagram embeds now and self-hosted video posters later. Group by Reels, real estate, restaurants, aerial, events, and business promos. `proof`
 

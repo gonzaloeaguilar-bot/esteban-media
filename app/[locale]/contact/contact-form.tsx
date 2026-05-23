@@ -22,8 +22,13 @@ import { SERVICES } from "@/lib/services";
 import {
   BUDGET_LABELS,
   BUDGET_RANGES,
+  DEADLINE_OPTIONS,
+  FINAL_PLATFORM_OPTIONS,
+  FOOTAGE_STATUS_OPTIONS,
+  SHOOT_NEEDED_OPTIONS,
   contactSchema,
   type ContactInput,
+  type FinalPlatformOption,
 } from "@/lib/contact-schema";
 
 /**
@@ -40,6 +45,8 @@ import {
  *   validation messages stay in English for now — translating them needs an
  *   error-map wired through `zodResolver`, which is a follow-up (see
  *   `lib/contact-schema.ts`). Marked as a known limitation in messages/es.
+ * - Conversion fields (deadline, city, finalPlatform, footageStatus,
+ *   shootNeeded) pre-qualify the lead so Esteban can triage in one read.
  */
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -70,6 +77,11 @@ export function ContactForm() {
       email: "",
       projectType: undefined,
       budget: undefined,
+      deadline: undefined,
+      city: "",
+      finalPlatform: [],
+      footageStatus: undefined,
+      shootNeeded: undefined,
       message: "",
       website: "",
     },
@@ -242,6 +254,179 @@ export function ContactForm() {
           />
         </Field>
       </div>
+
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+        <Field
+          id="deadline"
+          label={t("deadlineLabel")}
+          error={errors.deadline?.message}
+        >
+          <Controller
+            control={control}
+            name="deadline"
+            render={({ field }) => (
+              <Select
+                value={field.value ?? ""}
+                onValueChange={field.onChange}
+              >
+                <SelectTrigger
+                  id="deadline"
+                  className="w-full"
+                  aria-invalid={Boolean(errors.deadline) || undefined}
+                >
+                  <SelectValue placeholder={t("deadlinePlaceholder")} />
+                </SelectTrigger>
+                <SelectContent>
+                  {DEADLINE_OPTIONS.map((value) => (
+                    <SelectItem key={value} value={value}>
+                      {t(`deadlineOptions.${value}`)}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            )}
+          />
+        </Field>
+
+        <Field id="city" label={t("cityLabel")} error={errors.city?.message}>
+          <Input
+            id="city"
+            autoComplete="address-level2"
+            placeholder={t("cityPlaceholder")}
+            aria-invalid={Boolean(errors.city) || undefined}
+            {...register("city")}
+          />
+        </Field>
+      </div>
+
+      <Field
+        id="footageStatus"
+        label={t("footageStatusLabel")}
+        error={errors.footageStatus?.message}
+      >
+        <Controller
+          control={control}
+          name="footageStatus"
+          render={({ field }) => (
+            <Select
+              value={field.value ?? ""}
+              onValueChange={field.onChange}
+            >
+              <SelectTrigger
+                id="footageStatus"
+                className="w-full"
+                aria-invalid={Boolean(errors.footageStatus) || undefined}
+              >
+                <SelectValue placeholder={t("footageStatusPlaceholder")} />
+              </SelectTrigger>
+              <SelectContent>
+                {FOOTAGE_STATUS_OPTIONS.map((value) => (
+                  <SelectItem key={value} value={value}>
+                    {t(`footageStatusOptions.${value}`)}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          )}
+        />
+      </Field>
+
+      <Field
+        id="shootNeeded"
+        label={t("shootNeededLabel")}
+        error={errors.shootNeeded?.message}
+      >
+        <Controller
+          control={control}
+          name="shootNeeded"
+          render={({ field }) => (
+            <Select
+              value={field.value ?? ""}
+              onValueChange={field.onChange}
+            >
+              <SelectTrigger
+                id="shootNeeded"
+                className="w-full"
+                aria-invalid={Boolean(errors.shootNeeded) || undefined}
+              >
+                <SelectValue placeholder={t("shootNeededPlaceholder")} />
+              </SelectTrigger>
+              <SelectContent>
+                {SHOOT_NEEDED_OPTIONS.map((value) => (
+                  <SelectItem key={value} value={value}>
+                    {t(`shootNeededOptions.${value}`)}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          )}
+        />
+      </Field>
+
+      <fieldset
+        className="flex flex-col gap-3"
+        aria-describedby={
+          errors.finalPlatform ? "finalPlatform-error" : undefined
+        }
+      >
+        <legend className="text-sm font-medium leading-none">
+          {t("finalPlatformLabel")}
+        </legend>
+        <p className="text-xs text-muted-foreground">
+          {t("finalPlatformHelp")}
+        </p>
+        <Controller
+          control={control}
+          name="finalPlatform"
+          render={({ field }) => {
+            const selected = (field.value ?? []) as FinalPlatformOption[];
+            const toggle = (value: FinalPlatformOption) => {
+              const next = selected.includes(value)
+                ? selected.filter((slug) => slug !== value)
+                : [...selected, value];
+              field.onChange(next);
+            };
+            return (
+              <div
+                className="grid grid-cols-1 gap-2 sm:grid-cols-2"
+                role="group"
+              >
+                {FINAL_PLATFORM_OPTIONS.map((value) => {
+                  const id = `finalPlatform-${value}`;
+                  const checked = selected.includes(value);
+                  return (
+                    <label
+                      key={value}
+                      htmlFor={id}
+                      className="flex cursor-pointer items-center gap-2 rounded-md border border-input bg-background px-3 py-2 text-sm transition hover:border-foreground/40 has-[:checked]:border-foreground has-[:checked]:bg-foreground/5"
+                    >
+                      <input
+                        id={id}
+                        type="checkbox"
+                        className="size-4 accent-foreground"
+                        checked={checked}
+                        onChange={() => toggle(value)}
+                        onBlur={field.onBlur}
+                        name={field.name}
+                      />
+                      <span>{t(`finalPlatformOptions.${value}`)}</span>
+                    </label>
+                  );
+                })}
+              </div>
+            );
+          }}
+        />
+        {errors.finalPlatform ? (
+          <p
+            id="finalPlatform-error"
+            role="alert"
+            className="text-xs font-medium text-destructive"
+          >
+            {errors.finalPlatform.message}
+          </p>
+        ) : null}
+      </fieldset>
 
       <Field
         id="message"

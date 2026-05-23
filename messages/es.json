@@ -397,6 +397,43 @@
       "projectTypePlaceholder": "Elige un servicio",
       "budgetLabel": "Rango de presupuesto",
       "budgetPlaceholder": "Elige un rango",
+      "deadlineLabel": "¿Para cuándo lo necesitas?",
+      "deadlinePlaceholder": "Elige una ventana",
+      "deadlineOptions": {
+        "this-week": "Esta semana",
+        "this-month": "Este mes",
+        "1-3-months": "En 1–3 meses",
+        "flexible": "Flexible",
+        "unsure": "Aún no estoy seguro"
+      },
+      "cityLabel": "Ciudad del proyecto",
+      "cityPlaceholder": "Fort Lauderdale, Miami, Doral, remoto, etc.",
+      "finalPlatformLabel": "¿Dónde va a vivir el video?",
+      "finalPlatformHelp": "Elige todas las que apliquen — selección múltiple.",
+      "finalPlatformOptions": {
+        "instagram": "Instagram (Reels / Stories)",
+        "tiktok": "TikTok",
+        "youtube": "YouTube (Shorts o long-form)",
+        "website": "Sitio web / landing",
+        "broadcast-tv": "Broadcast / TV",
+        "internal-corp": "Interno / corporativo",
+        "other": "Otro"
+      },
+      "footageStatusLabel": "¿Ya tienes el material grabado?",
+      "footageStatusPlaceholder": "Elige la opción más cercana",
+      "footageStatusOptions": {
+        "needs-capture": "Hay que grabar — todavía no hay material",
+        "have-some": "Tengo algo de material, pero falta grabar más",
+        "all-captured": "Todo el material está grabado — solo edición",
+        "unsure": "Aún no estoy seguro"
+      },
+      "shootNeededLabel": "¿Necesitas a Esteban en un rodaje? (opcional)",
+      "shootNeededPlaceholder": "Lo inferimos del material si lo dejas en blanco",
+      "shootNeededOptions": {
+        "yes": "Sí — hace falta rodaje",
+        "no": "No — solo edición",
+        "unsure": "Aún no estoy seguro"
+      },
       "messageLabel": "Cuéntanos sobre el proyecto",
       "messagePlaceholder": "Fechas, ubicación, vibe, referencias — cualquier cosa que nos ayude a definir el alcance.",
       "footnote": "Nunca compartimos tus datos. Las respuestas suelen llegar en dos días hábiles.",

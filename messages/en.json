@@ -381,6 +381,43 @@
       "projectTypePlaceholder": "Pick a service",
       "budgetLabel": "Budget range",
       "budgetPlaceholder": "Pick a range",
+      "deadlineLabel": "When do you need it?",
+      "deadlinePlaceholder": "Pick a deadline window",
+      "deadlineOptions": {
+        "this-week": "This week",
+        "this-month": "This month",
+        "1-3-months": "1–3 months out",
+        "flexible": "Flexible",
+        "unsure": "Not sure yet"
+      },
+      "cityLabel": "Project city",
+      "cityPlaceholder": "Fort Lauderdale, Miami, Doral, remote, etc.",
+      "finalPlatformLabel": "Where will the video live?",
+      "finalPlatformHelp": "Pick everything that applies — multi-select.",
+      "finalPlatformOptions": {
+        "instagram": "Instagram (Reels / Stories)",
+        "tiktok": "TikTok",
+        "youtube": "YouTube (Shorts or long-form)",
+        "website": "Website / landing page",
+        "broadcast-tv": "Broadcast / TV",
+        "internal-corp": "Internal / corporate",
+        "other": "Other"
+      },
+      "footageStatusLabel": "Do you already have footage?",
+      "footageStatusPlaceholder": "Pick the closest fit",
+      "footageStatusOptions": {
+        "needs-capture": "Need to shoot — no footage yet",
+        "have-some": "Have some footage, need more capture",
+        "all-captured": "All footage captured — edit only",
+        "unsure": "Not sure yet"
+      },
+      "shootNeededLabel": "Need Esteban on a shoot? (optional)",
+      "shootNeededPlaceholder": "We'll infer from footage status if you skip",
+      "shootNeededOptions": {
+        "yes": "Yes — need a shoot",
+        "no": "No — edit only",
+        "unsure": "Not sure yet"
+      },
       "messageLabel": "Tell us about the project",
       "messagePlaceholder": "Dates, location, vibe, references — anything that helps us scope it.",
       "footnote": "We'll never share your details. Replies usually come within two business days.",
