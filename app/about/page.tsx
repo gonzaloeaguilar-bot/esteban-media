@@ -4,6 +4,7 @@ import { ArrowRight, ShieldCheck } from "lucide-react";
 
 import { ReelPreview } from "@/components/reel-preview";
 import { Container } from "@/components/ui/container";
+import { languageAlternates } from "@/lib/spanish-site";
 
 export const metadata: Metadata = {
   title: "About Esteban Moreno",
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
     "About Esteban Moreno, a Fort Lauderdale visual storyteller working across video, photography, drone, and post-production.",
   alternates: {
     canonical: "/about",
+    languages: languageAlternates["/about"],
   },
 };
 

@@ -349,7 +349,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     slug: "drone-real-estate-miami",
     title: "Drone para real estate en Miami",
     metadataTitle:
-      "Drone para Real Estate en Miami | Foto, Video y Tomas Aereas",
+      "Drone para Real Estate en Miami | Foto, Video y Tomas Aéreas",
     description:
       "Drone para real estate en Miami y Broward: tomas aéreas, video de propiedad, contenido para agentes, listings y desarrollos.",
     eyebrow: "Real estate / propiedades / listings",
@@ -392,7 +392,76 @@ export const spanishCoreRoutes = [
   "/es",
   "/es/servicios",
   "/es/areas",
+  "/es/sobre-esteban",
   "/es/contacto",
+];
+
+export const languageAlternates: Record<string, Record<string, string>> = {
+  "/": {
+    "en-US": "/",
+    "es-US": "/es",
+  },
+  "/services": {
+    "en-US": "/services",
+    "es-US": "/es/servicios",
+  },
+  "/areas": {
+    "en-US": "/areas",
+    "es-US": "/es/areas",
+  },
+  "/about": {
+    "en-US": "/about",
+    "es-US": "/es/sobre-esteban",
+  },
+  "/contact": {
+    "en-US": "/contact",
+    "es-US": "/es/contacto",
+  },
+  "/es": {
+    "en-US": "/",
+    "es-US": "/es",
+  },
+  "/es/servicios": {
+    "en-US": "/services",
+    "es-US": "/es/servicios",
+  },
+  "/es/areas": {
+    "en-US": "/areas",
+    "es-US": "/es/areas",
+  },
+  "/es/sobre-esteban": {
+    "en-US": "/about",
+    "es-US": "/es/sobre-esteban",
+  },
+  "/es/contacto": {
+    "en-US": "/contact",
+    "es-US": "/es/contacto",
+  },
+};
+
+export const spanishProofPrinciples = [
+  "Esteban trabaja en español o inglés, desde el brief hasta los cambios finales.",
+  "La página publica solo prueba real: trabajos reales, enlaces reales y testimonios reales cuando existan.",
+  "Foto, video, drone y edición se planean como un solo sistema visual, no como piezas sueltas.",
+  "El scope queda claro antes de grabar: entregables, formatos, fecha y uso final.",
+];
+
+export const spanishTrustQuestions = [
+  {
+    question: "¿Por qué una página en español?",
+    answer:
+      "Porque muchos dueños, agentes, restaurantes y creadores en Miami y Broward prefieren explicar el proyecto en español. Eso reduce fricción y evita malos entendidos en el scope.",
+  },
+  {
+    question: "¿Hay prueba real publicada?",
+    answer:
+      "La política del sitio es no inventar logos, reviews ni números. Los placeholders están marcados hasta que se agreguen reels, fotos, enlaces de Instagram o testimonios reales.",
+  },
+  {
+    question: "¿Qué hace diferente a Esteban?",
+    answer:
+      "No se posiciona solo como operador de drone o fotógrafo. El valor está en conectar captura, edición y entrega para que el negocio tenga contenido útil.",
+  },
 ];
 
 export const spanishRoutes = [
@@ -425,7 +494,7 @@ export const spanishOpportunitySignals = [
   {
     label: "Mercado hispano",
     value: "Miami-Dade",
-    detail: "Mayor oportunidad para paginas y CTAs en español.",
+    detail: "Mayor oportunidad para páginas y CTAs en español.",
     icon: Store,
   },
   {

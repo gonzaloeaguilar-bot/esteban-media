@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowRight, MapPin } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { spanishAreas } from "@/lib/spanish-site";
+import { languageAlternates, spanishAreas } from "@/lib/spanish-site";
 
 export const metadata: Metadata = {
   title: "Áreas de Servicio en Español",
@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     "Fotografía, video, drone y reels en Fort Lauderdale, Broward County y Miami-Dade para negocios y creadores que prefieren trabajar en español.",
   alternates: {
     canonical: "/es/areas",
+    languages: languageAlternates["/es/areas"],
   },
 };
 

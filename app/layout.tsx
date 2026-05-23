@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Newsreader } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { languageAlternates } from "@/lib/spanish-site";
 import { absoluteUrl, serviceAreas, services, site, siteUrl } from "@/lib/site";
 import "./globals.css";
 
@@ -31,10 +32,7 @@ export const metadata: Metadata = {
     "Fort Lauderdale visual storyteller for short-form video, photography, drone, editing, and local business content across Broward and Miami-Dade.",
   alternates: {
     canonical: "/",
-    languages: {
-      "en-US": "/",
-      "es-US": "/es",
-    },
+    languages: languageAlternates["/"],
   },
   openGraph: {
     type: "website",
@@ -76,12 +74,28 @@ const localBusinessJsonLd = {
   })),
   sameAs: [site.instagram],
   availableLanguage: ["English", "Spanish"],
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "project inquiries",
+    email: site.email,
+    availableLanguage: ["English", "Spanish"],
+  },
   founder: {
     "@type": "Person",
     "@id": absoluteUrl("/#esteban"),
     name: "Esteban Moreno",
     jobTitle: "Visual storyteller, videographer, photographer, and editor",
     url: absoluteUrl("/about"),
+    sameAs: [site.instagram],
+    knowsLanguage: ["English", "Spanish"],
+    knowsAbout: [
+      "videography",
+      "photography",
+      "drone visuals",
+      "short-form video",
+      "video editing",
+      "South Florida local business content",
+    ],
   },
   hasOfferCatalog: {
     "@type": "OfferCatalog",
@@ -96,6 +110,23 @@ const localBusinessJsonLd = {
         areaServed: ["Fort Lauderdale", "Broward County", "Miami-Dade"],
       },
     })),
+  },
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": absoluteUrl("/#website"),
+  name: site.name,
+  url: absoluteUrl("/"),
+  inLanguage: ["en-US", "es-US"],
+  publisher: {
+    "@id": absoluteUrl("/#business"),
+  },
+  potentialAction: {
+    "@type": "ContactAction",
+    target: absoluteUrl("/contact"),
+    name: "Start a creative project",
   },
 };
 
@@ -114,6 +145,13 @@ export default function RootLayout({
           suppressHydrationWarning
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(localBusinessJsonLd),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteJsonLd),
           }}
         />
         <SiteHeader />

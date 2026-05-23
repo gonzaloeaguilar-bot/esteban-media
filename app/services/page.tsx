@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { languageAlternates } from "@/lib/spanish-site";
 import { absoluteUrl, services, site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
     "Video, photography, drone, reels, and post-production services from Esteban Moreno Media in Fort Lauderdale.",
   alternates: {
     canonical: "/services",
+    languages: languageAlternates["/services"],
   },
 };
 

@@ -153,7 +153,7 @@ export default async function SpanishNichePage({ params }: PageProps) {
             Servicios relacionados
           </p>
           <h2 className="mt-4 max-w-3xl font-serif text-4xl leading-tight">
-            Combina la pagina de nicho con una entrega concreta.
+            Combina la página de nicho con una entrega concreta.
           </h2>
           <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
             {spanishServices.map((service) => (

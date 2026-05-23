@@ -10,6 +10,7 @@ import {
   spanishPackages,
   spanishServices,
   spanishSite,
+  languageAlternates,
 } from "@/lib/spanish-site";
 import { site } from "@/lib/site";
 
@@ -18,10 +19,7 @@ export const metadata: Metadata = {
   description: spanishSite.description,
   alternates: {
     canonical: "/es",
-    languages: {
-      "en-US": "/",
-      "es-US": "/es",
-    },
+    languages: languageAlternates["/es"],
   },
   openGraph: {
     title: "Esteban Moreno Media en Español",
@@ -129,7 +127,7 @@ export default function SpanishHomePage() {
         <Container size="xl">
           <SectionIntro
             eyebrow="Páginas por búsqueda"
-            title="Nuevas paginas para capturar demanda en español."
+            title="Nuevas páginas para capturar demanda en español."
             lead="Estas rutas atacan búsquedas con intención local: alguien ya sabe que necesita video, foto, reels o drone y quiere hablar con una persona en español."
             inverted
           />
@@ -148,7 +146,7 @@ export default function SpanishHomePage() {
                     {page.description}
                   </p>
                   <span className="mt-5 inline-flex items-center gap-2 text-sm text-[#ffb49e]">
-                    Abrir pagina
+                    Abrir página
                     <ArrowRight className="size-4" aria-hidden="true" />
                   </span>
                 </Link>
@@ -200,6 +198,12 @@ export default function SpanishHomePage() {
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
+                <Link
+                  href="/es/sobre-esteban"
+                  className="inline-flex min-h-11 items-center justify-center rounded-full border border-[#101214] px-5 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"
+                >
+                  Sobre Esteban
+                </Link>
                 <a
                   href={`mailto:${site.email}`}
                   className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#e85d3e] px-5 text-sm font-medium text-white hover:bg-[#c84a2c]"

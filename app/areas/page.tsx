@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, MapPin } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { languageAlternates } from "@/lib/spanish-site";
 import { absoluteUrl, serviceAreas, site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
     "Esteban Moreno Media serves Fort Lauderdale, Broward County, and Miami-Dade for video, photography, drone, and editing work.",
   alternates: {
     canonical: "/areas",
+    languages: languageAlternates["/areas"],
   },
 };
 

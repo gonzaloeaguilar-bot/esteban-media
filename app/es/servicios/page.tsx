@@ -3,7 +3,12 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { spanishNichePages, spanishServices, spanishSite } from "@/lib/spanish-site";
+import {
+  languageAlternates,
+  spanishNichePages,
+  spanishServices,
+  spanishSite,
+} from "@/lib/spanish-site";
 
 export const metadata: Metadata = {
   title: "Servicios en Español",
@@ -11,6 +16,7 @@ export const metadata: Metadata = {
     "Servicios de fotografía, video, drone, reels y edición en español para negocios, restaurantes, propiedades y eventos en South Florida.",
   alternates: {
     canonical: "/es/servicios",
+    languages: languageAlternates["/es/servicios"],
   },
 };
 

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Mail, MessageSquareText, Send } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { languageAlternates } from "@/lib/spanish-site";
 import { services, site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -10,6 +11,7 @@ export const metadata: Metadata = {
     "Contact Esteban Moreno Media for video, photography, drone, editing, and local business content in Fort Lauderdale and South Florida.",
   alternates: {
     canonical: "/contact",
+    languages: languageAlternates["/contact"],
   },
 };
 

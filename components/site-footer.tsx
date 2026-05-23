@@ -55,6 +55,7 @@ export function SiteFooter() {
             { href: "/about", label: "About" },
             { href: "/contact", label: "Contact" },
             { href: "/es", label: "Español" },
+            { href: "/es/sobre-esteban", label: "Sobre Esteban" },
           ]}
         />
       </div>
