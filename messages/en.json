@@ -15,12 +15,17 @@
     "about": {
       "title": "About Esteban",
       "description": "Meet Esteban Moreno, a Fort Lauderdale audiovisual editor focused on video editing, videography, aerial visuals, and post-production."
+    },
+    "packages": {
+      "title": "Packages",
+      "description": "Starting-at packages for South Florida brands: edit-only starter cuts, single content days, and monthly local-business retainers."
     }
   },
   "Nav": {
     "primaryAriaLabel": "Primary",
     "wordmark": "Esteban Moreno Media",
     "services": "Services",
+    "packages": "Packages",
     "about": "About",
     "contact": "Contact",
     "languageSwitcher": {
@@ -216,6 +221,142 @@
     "body": "Reels, promos, event recaps, real estate, aerials, and business content — share the project and the date. We'll come back with a scope and a quote.",
     "ctaPrimary": "Start a project",
     "ctaSecondary": "Email directly"
+  },
+  "Packages": {
+    "eyebrow": "Packages",
+    "headline": "Three starting-at packages built for South Florida brands.",
+    "lede": "Self-qualify before the call. These offers anchor what the most common video projects cost — edit-only cutdowns, single content days, and a monthly retainer for local businesses that need repeat content. Every package is a starting point: the final quote follows a short call once we understand the deadline, platform, and what the footage has to do.",
+    "indexEyebrow": "Launch offers",
+    "indexHeading": "Pick the simplest place to start.",
+    "indexBody": "Each card shows the typical range, what is included, and the caveats we will not bury at the bottom of a quote. Numbers are starting points — final pricing follows a short scoping call.",
+    "startingAt": "Starting at",
+    "perMonth": "/ month",
+    "perProject": "per project",
+    "cardCta": "See package details",
+    "deliverablesHeading": "What's included",
+    "caveatsEyebrow": "Read this before booking",
+    "caveatsHeading": "Honest caveats",
+    "relatedServicesHeading": "Services this package leans on",
+    "relatedLocalHeading": "Best fit for these markets",
+    "ctaHeading": "Ready to scope a video project?",
+    "ctaBody": "Send the deadline, footage status, platform, and city. We will recommend the simplest package or a custom scope — usually within two business days.",
+    "ctaPrimary": "Start a project",
+    "ctaSecondary": "See all services",
+    "faqEyebrow": "Package FAQ",
+    "faqHeading": "Common questions before booking.",
+    "stripEyebrow": "Packages",
+    "stripHeading": "Anchored offers for South Florida video.",
+    "stripBody": "Edit-only starter, single content day, and monthly retainer — pick the closest fit or ask for a custom scope.",
+    "stripCta": "See all packages",
+    "items": {
+      "edit-only-starter": {
+        "name": "Edit-Only Starter",
+        "tagline": "For clients who already have footage and need one clean short-form cut.",
+        "blurb": "Send footage. Get back one polished Reel, Short, or TikTok with captions, music direction, pacing, and a color pass.",
+        "audience": "Founders, creators, real estate teams, and local businesses with phone, camera, or drone footage that needs a sharper cut.",
+        "deliverables": {
+          "0": "One Reel, Short, TikTok, or promo cut from your supplied footage",
+          "1": "Captions, music direction, pacing, and a color pass",
+          "2": "One round of revisions on the edit",
+          "3": "Platform-native export (9:16 vertical by default; 1:1 or 16:9 on request)"
+        },
+        "caveats": {
+          "0": "Starting-at price assumes usable footage and a clear reference — heavy salvage edits scope up",
+          "1": "48–72 hour turnaround is a target, not a guarantee — confirmed only after a capacity check",
+          "2": "Edit-only does not include shooting, drone capture, or stock licensing"
+        },
+        "faqs": {
+          "0": {
+            "question": "What footage works for this package?",
+            "answer": "Phone, mirrorless camera, GoPro, or drone footage all work. Send a folder link with the clips, a reference Reel or TikTok, and the platform you plan to publish on."
+          },
+          "1": {
+            "question": "Do I get the project file?",
+            "answer": "You get the final export plus one revision pass. The project file stays archived on Esteban's side so future re-cuts and platform resizes are easy to scope."
+          },
+          "2": {
+            "question": "Can captions be in Spanish?",
+            "answer": "Yes. Captions, on-screen text, and music direction can be EN, ES, or bilingual — pick what fits the audience."
+          },
+          "3": {
+            "question": "Can this scale into more clips?",
+            "answer": "Yes. The Edit-Only Starter is the entry point. Multi-clip batches and recurring edits scope into a Content Day Mini or the Local Business Monthly retainer."
+          }
+        }
+      },
+      "content-day-mini": {
+        "name": "Content Day Mini",
+        "tagline": "A focused half-day shoot plus a hero edit and short vertical cutdowns.",
+        "blurb": "One short on-location session that becomes a hero promo plus three to five vertical clips — built for local businesses launching or refreshing their feed.",
+        "audience": "Restaurants, gyms, salons, med spas, founders, and event leads who need fresh footage and several clips out of a single content session.",
+        "deliverables": {
+          "0": "Two-hour local shoot at one location with clear shot plan",
+          "1": "One hero edit (vertical or horizontal, your call)",
+          "2": "Three to five vertical short-form cutdowns from the same session",
+          "3": "Thumbnail and still selects for stories, posts, and listing use",
+          "4": "Optional supporting photos when the shoot allows time for stills"
+        },
+        "caveats": {
+          "0": "Price assumes one location, one half-day window, and South Florida travel — extended locations scope up",
+          "1": "Drone capture is included only when location, weather, airspace, and legal requirements allow",
+          "2": "Talent direction, props, makeup, and food styling are not included unless explicitly scoped"
+        },
+        "faqs": {
+          "0": {
+            "question": "Where can the shoot happen?",
+            "answer": "Fort Lauderdale, Broward, and Miami at the starting range. Trips outside the immediate metro add a travel fee — included in the quote, never surprise-billed."
+          },
+          "1": {
+            "question": "How many posts can I get out of one Content Day?",
+            "answer": "A typical session yields one hero edit and three to five vertical clips. Heavier batches (eight to ten clips) scope into the Local Business Monthly retainer."
+          },
+          "2": {
+            "question": "Do you bring lighting and audio?",
+            "answer": "Yes when the shoot needs it. The kit list lives on the About page and adapts to the project — a quick chef portrait does not need the same setup as a founder interview."
+          },
+          "3": {
+            "question": "Can the same content day also produce stills?",
+            "answer": "Yes, when the shot list leaves room for stills. Supporting photos are part of the deliverable, but the day is planned video-first."
+          }
+        }
+      },
+      "local-business-monthly": {
+        "name": "Local Business Monthly",
+        "tagline": "A monthly content rhythm for local brands that need eight to twelve clips a month.",
+        "blurb": "One monthly shoot or footage drop becomes eight to twelve platform-ready clips with captions, a shared delivery folder, and a simple posting plan.",
+        "audience": "Restaurants, gyms, salons, med spas, creators, and local brands committed to repeat short-form posting on Instagram, TikTok, or YouTube Shorts.",
+        "deliverables": {
+          "0": "One monthly shoot or footage drop (your choice)",
+          "1": "Eight to twelve vertical Reels, Shorts, or TikTok edits",
+          "2": "Captions, music direction, and platform-ready exports",
+          "3": "Shared delivery folder organised by platform and post date",
+          "4": "Simple posting plan and reuse map — what to publish, when, and where"
+        },
+        "caveats": {
+          "0": "Minimum three-month commitment recommended for ranking and posting consistency — month-to-month is available but priced higher",
+          "1": "Travel beyond South Florida and additional shoot days scope up the retainer for that month",
+          "2": "Paid media buying, comment moderation, and account management live outside this package"
+        },
+        "faqs": {
+          "0": {
+            "question": "How does the monthly content session work?",
+            "answer": "Either Esteban shoots one focused session each month, or you send a footage drop from phone, camera, or drone. Either path produces the same delivery rhythm."
+          },
+          "1": {
+            "question": "Can the retainer pause for slow months?",
+            "answer": "Yes — pause one month with two weeks' notice and the retainer picks back up the following month. Long pauses re-quote against the latest scope."
+          },
+          "2": {
+            "question": "Who posts the clips to Instagram or TikTok?",
+            "answer": "You or your team posts. Esteban delivers the clips, captions, and a simple post plan — handing publishing access keeps the brand voice yours."
+          },
+          "3": {
+            "question": "Can this include drone or aerial footage?",
+            "answer": "Yes when the location, weather, airspace, and legal requirements allow. Aerial selects integrate into the monthly batch instead of shipping as standalone flyovers."
+          }
+        }
+      }
+    }
   },
   "Contact": {
     "eyebrow": "Contact",

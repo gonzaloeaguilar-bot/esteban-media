@@ -46,6 +46,9 @@ type StaticPath = {
 const STATIC_PATHS: readonly StaticPath[] = [
   { path: "", changeFrequency: "weekly", priority: 1.0 },
   { path: "/services", changeFrequency: "monthly", priority: 0.9 },
+  // Packages anchors the launch monetization funnel — high relative priority
+  // because it converts buyers who already know what they need.
+  { path: "/packages", changeFrequency: "monthly", priority: 0.9 },
   { path: "/about", changeFrequency: "monthly", priority: 0.7 },
   { path: "/contact", changeFrequency: "yearly", priority: 0.7 },
 ] as const;

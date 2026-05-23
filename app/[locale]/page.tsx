@@ -4,6 +4,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Hero } from "@/components/sections/Hero";
 import { ServicesStrip } from "@/components/sections/ServicesStrip";
 import { LocalMarketStrip } from "@/components/sections/LocalMarketStrip";
+import { PackagesStrip } from "@/components/sections/PackagesStrip";
 import { AboutTeaser } from "@/components/sections/AboutTeaser";
 import { ContactCTA } from "@/components/sections/ContactCTA";
 import { routing, type Locale } from "@/i18n/routing";
@@ -43,6 +44,7 @@ export default async function Home({ params }: PageProps) {
     <main className="min-h-screen bg-background text-foreground">
       <Hero />
       <ServicesStrip />
+      <PackagesStrip locale={locale as Locale} />
       <LocalMarketStrip locale={locale as Locale} />
       <AboutTeaser />
       <ContactCTA />

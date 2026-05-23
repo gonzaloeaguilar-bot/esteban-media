@@ -18,6 +18,11 @@
       "_review": "TRANSLATION REVIEW NEEDED",
       "title": "Acerca de Esteban",
       "description": "Conoce a Esteban Moreno, editor audiovisual en Fort Lauderdale enfocado en edición de video, videografía, tomas aéreas y postproducción."
+    },
+    "packages": {
+      "_review": "TRANSLATION REVIEW NEEDED",
+      "title": "Paquetes",
+      "description": "Paquetes con precio de inicio para marcas en South Florida: ediciones de un solo corte, días de contenido y retainers mensuales para negocios locales."
     }
   },
   "Nav": {
@@ -25,6 +30,7 @@
     "primaryAriaLabel": "Principal",
     "wordmark": "Esteban Moreno Media",
     "services": "Servicios",
+    "packages": "Paquetes",
     "about": "Acerca",
     "contact": "Contacto",
     "languageSwitcher": {
@@ -227,6 +233,144 @@
     "body": "Reels, promos, recaps de eventos, real estate, tomas aéreas y contenido para negocios — cuéntanos del proyecto y la fecha. Te respondemos con un alcance y una cotización.",
     "ctaPrimary": "Iniciar un proyecto",
     "ctaSecondary": "Escribir directo"
+  },
+  "Packages": {
+    "_review": "TRANSLATION REVIEW NEEDED — package names, taglines, deliverables, caveats, FAQs",
+    "eyebrow": "Paquetes",
+    "headline": "Tres paquetes con precio de inicio para marcas en South Florida.",
+    "lede": "Empieza por aquí antes de la llamada. Estos paquetes anclan lo que cuestan los proyectos de video más comunes — cortes a partir de tu material, días de contenido y un retainer mensual para negocios locales que publican seguido. Cada paquete es un punto de partida: la cotización final llega tras una llamada corta para entender fecha, plataforma y qué tiene que lograr el video.",
+    "indexEyebrow": "Ofertas de lanzamiento",
+    "indexHeading": "Elige el camino más simple para empezar.",
+    "indexBody": "Cada tarjeta muestra el rango típico, qué incluye y los avisos honestos que no escondemos al final de la cotización. Los números son puntos de partida — el precio final sale de una llamada corta para definir el alcance.",
+    "startingAt": "Desde",
+    "perMonth": "/ mes",
+    "perProject": "por proyecto",
+    "cardCta": "Ver detalle del paquete",
+    "deliverablesHeading": "Qué incluye",
+    "caveatsEyebrow": "Léelo antes de reservar",
+    "caveatsHeading": "Avisos honestos",
+    "relatedServicesHeading": "Servicios en los que se apoya este paquete",
+    "relatedLocalHeading": "Mejor fit para estos mercados",
+    "ctaHeading": "¿Listos para definir un proyecto de video?",
+    "ctaBody": "Envía la fecha, estado del material, plataforma y ciudad. Recomendamos el paquete más simple o un alcance a medida — normalmente en dos días hábiles.",
+    "ctaPrimary": "Iniciar un proyecto",
+    "ctaSecondary": "Ver todos los servicios",
+    "faqEyebrow": "Preguntas frecuentes sobre paquetes",
+    "faqHeading": "Lo que la gente pregunta antes de reservar.",
+    "stripEyebrow": "Paquetes",
+    "stripHeading": "Ofertas con precio de inicio para video en South Florida.",
+    "stripBody": "Edición a partir de tu material, día de contenido y retainer mensual — elige el más cercano o pide un alcance a medida.",
+    "stripCta": "Ver todos los paquetes",
+    "items": {
+      "_review": "TRANSLATION REVIEW NEEDED — package items",
+      "edit-only-starter": {
+        "name": "Edit Starter",
+        "tagline": "Para clientes que ya tienen material y necesitan un corte limpio para redes.",
+        "blurb": "Envía el material. Recibes un Reel, Short o TikTok pulido con captions, dirección musical, ritmo y un pase de color.",
+        "audience": "Founders, creadores, equipos de real estate y negocios locales con material de celular, cámara o drone que necesita un corte más afilado.",
+        "deliverables": {
+          "0": "Un Reel, Short, TikTok o promo a partir de tu material",
+          "1": "Captions, dirección musical, ritmo y un pase de color",
+          "2": "Una ronda de revisiones sobre la edición",
+          "3": "Exportación lista para plataforma (9:16 vertical por defecto; 1:1 o 16:9 a pedido)"
+        },
+        "caveats": {
+          "0": "El precio de inicio asume material usable y una referencia clara — ediciones de rescate pesadas suben de alcance",
+          "1": "48–72 horas es una meta, no una garantía — se confirma sólo tras un chequeo de capacidad",
+          "2": "Edit-only no incluye rodaje, captura con drone ni licencias de stock"
+        },
+        "faqs": {
+          "0": {
+            "question": "¿Qué material funciona para este paquete?",
+            "answer": "Material de celular, cámara mirrorless, GoPro o drone. Envía un link con los clips, una referencia de Reel o TikTok y la plataforma donde piensas publicar."
+          },
+          "1": {
+            "question": "¿Me entregan el archivo del proyecto?",
+            "answer": "Recibes el export final y una ronda de revisiones. El proyecto queda archivado del lado de Esteban para que los re-cortes y los reformateos sean fáciles de cotizar."
+          },
+          "2": {
+            "question": "¿Los captions pueden ir en español?",
+            "answer": "Sí. Captions, textos en pantalla y dirección musical pueden ser EN, ES o bilingües — elige lo que le sirva a la audiencia."
+          },
+          "3": {
+            "question": "¿Esto puede escalar a más clips?",
+            "answer": "Sí. El Edit Starter es la puerta de entrada. Para batches y edición recurrente pasamos a Día de Contenido o al retainer Local Business Monthly."
+          }
+        }
+      },
+      "content-day-mini": {
+        "name": "Día de Contenido Mini",
+        "tagline": "Un rodaje enfocado de medio día con una edición principal y varios cortes verticales.",
+        "blurb": "Una sesión corta en locación que produce una promo principal y de tres a cinco clips verticales — pensada para negocios locales que lanzan o refrescan su feed.",
+        "audience": "Restaurantes, gimnasios, salones, med spas, founders y eventos que necesitan material fresco y varios clips a partir de una sola sesión.",
+        "deliverables": {
+          "0": "Rodaje de dos horas en una sola locación con shot plan claro",
+          "1": "Una edición principal (vertical u horizontal, tú decides)",
+          "2": "Tres a cinco cortes verticales para redes a partir de la misma sesión",
+          "3": "Selecciones de thumbnail y stills para stories, posts y listings",
+          "4": "Fotos de apoyo opcionales cuando el rodaje deja tiempo para stills"
+        },
+        "caveats": {
+          "0": "El precio asume una locación, una ventana de medio día y viajes dentro de South Florida — locaciones extendidas suben de alcance",
+          "1": "El drone se incluye sólo cuando la locación, clima, espacio aéreo y requisitos legales lo permitan",
+          "2": "Dirección de talento, props, maquillaje y food styling no están incluidos a menos que se cotice explícito"
+        },
+        "faqs": {
+          "0": {
+            "question": "¿Dónde se puede hacer el rodaje?",
+            "answer": "Fort Lauderdale, Broward y Miami dentro del rango inicial. Viajes fuera del metro inmediato suman un fee de traslado — incluido en la cotización, nunca facturado por sorpresa."
+          },
+          "1": {
+            "question": "¿Cuántos posts saco de un Día de Contenido?",
+            "answer": "Una sesión típica entrega una edición principal y de tres a cinco clips verticales. Batches más grandes (ocho a diez clips) pasan al retainer mensual."
+          },
+          "2": {
+            "question": "¿Traen iluminación y audio?",
+            "answer": "Sí cuando el rodaje lo necesita. La lista de equipo vive en la página de Acerca y se adapta — un retrato rápido de chef no requiere el mismo setup que una entrevista de founder."
+          },
+          "3": {
+            "question": "¿El mismo Día de Contenido puede producir fotos?",
+            "answer": "Sí, cuando el shot list deja espacio. Las fotos de apoyo son parte del entregable, pero el día se planea con video primero."
+          }
+        }
+      },
+      "local-business-monthly": {
+        "name": "Negocio Local Mensual",
+        "tagline": "Un ritmo mensual de contenido para marcas locales que necesitan de ocho a doce clips al mes.",
+        "blurb": "Un rodaje o footage drop mensual se convierte en ocho a doce clips listos para plataforma con captions, carpeta compartida y un plan simple de publicación.",
+        "audience": "Restaurantes, gimnasios, salones, med spas, creadores y marcas locales comprometidos con publicar contenido corto en Instagram, TikTok o YouTube Shorts.",
+        "deliverables": {
+          "0": "Un rodaje mensual o footage drop (tú eliges)",
+          "1": "Ocho a doce ediciones verticales para Reels, Shorts o TikTok",
+          "2": "Captions, dirección musical y exportaciones listas para plataforma",
+          "3": "Carpeta de entrega compartida organizada por plataforma y fecha",
+          "4": "Plan simple de publicación y mapa de reutilización — qué publicar, cuándo y dónde"
+        },
+        "caveats": {
+          "0": "Se recomienda un compromiso mínimo de tres meses para ranking y consistencia — mes a mes está disponible pero con precio más alto",
+          "1": "Viajes fuera de South Florida y días extra de rodaje suben el retainer de ese mes",
+          "2": "Compra de pauta, moderación de comentarios y manejo de cuentas viven fuera de este paquete"
+        },
+        "faqs": {
+          "0": {
+            "question": "¿Cómo funciona la sesión mensual de contenido?",
+            "answer": "Esteban graba una sesión enfocada cada mes, o tú envías un footage drop desde celular, cámara o drone. Ambos caminos producen el mismo ritmo de entrega."
+          },
+          "1": {
+            "question": "¿El retainer puede pausarse en meses lentos?",
+            "answer": "Sí — pausas un mes con dos semanas de aviso y el retainer continúa el siguiente. Pausas largas se re-cotizan según el alcance actual."
+          },
+          "2": {
+            "question": "¿Quién publica los clips en Instagram o TikTok?",
+            "answer": "Tú o tu equipo. Esteban entrega los clips, captions y un plan simple de publicación — mantener el acceso al posteo asegura que la voz siga siendo tuya."
+          },
+          "3": {
+            "question": "¿Puede incluir drone o tomas aéreas?",
+            "answer": "Sí cuando locación, clima, espacio aéreo y requisitos legales lo permitan. Las tomas aéreas se integran al batch mensual en vez de entregarse como flyovers sueltos."
+          }
+        }
+      }
+    }
   },
   "Contact": {
     "_review": "TRANSLATION REVIEW NEEDED",

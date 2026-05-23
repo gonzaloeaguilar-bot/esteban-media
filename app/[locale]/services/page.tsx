@@ -6,6 +6,7 @@ import { Link } from "@/i18n/navigation";
 import { routing, type Locale } from "@/i18n/routing";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 import { SERVICES } from "@/lib/services";
+import { PackagesStrip } from "@/components/sections/PackagesStrip";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -93,6 +94,8 @@ export default async function ServicesPage({ params }: PageProps) {
           </ul>
         </div>
       </section>
+
+      <PackagesStrip locale={locale as Locale} />
     </main>
   );
 }

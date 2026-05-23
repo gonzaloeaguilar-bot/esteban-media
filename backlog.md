@@ -36,7 +36,7 @@
 
 - [x] `P2` **Storefront monetization audit** — Research comparable South Florida video/content storefronts and document package, booking, proof, portfolio, and conversion recommendations in `docs/storefront-monetization-audit.md`. `strategy` — Done 2026-05-22
 
-- [ ] `P2` **Packages page + offer data** — Create typed launch offers (`Edit-Only Starter`, `Content Day Mini`, `Local Business Monthly`) with starting-at ranges, deliverables, caveats, and CTAs. Render `/[locale]/packages`, link from homepage/services/local pages, and add package FAQ/schema. `monetization`
+- [x] `P2` **Packages page + offer data** — Create typed launch offers (`Edit-Only Starter`, `Content Day Mini`, `Local Business Monthly`) with starting-at ranges, deliverables, caveats, and CTAs. Render `/[locale]/packages`, link from homepage/services/local pages, and add package FAQ/schema. `monetization` — Done 2026-05-23
 
 - [ ] `P2` **Contact form conversion fields** — Add deadline, city, final platform, footage status, and shoot-needed fields to the shared zod schema, client form, and email body so leads arrive pre-qualified. `monetization`
 

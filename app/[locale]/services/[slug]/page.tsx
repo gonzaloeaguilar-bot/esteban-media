@@ -11,9 +11,11 @@ import {
   getService,
 } from "@/lib/services";
 import { ServiceGalleryPlaceholder } from "@/components/sections/ServiceGalleryPlaceholder";
+import { PackagesStrip } from "@/components/sections/PackagesStrip";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 import { buildServiceSchema } from "@/lib/seo/schema";
+import { getPackagesForServiceSlug } from "@/lib/packages";
 
 type Params = { locale: string; slug: string };
 
@@ -111,6 +113,11 @@ export default async function ServicePage({ params }: PageProps) {
     description: tagline,
     locale,
   });
+
+  // Packages that mention this service slug. The PackagesStrip falls back to
+  // the full list if no package mentions the slug — better to show three
+  // anchored offers than nothing on a niche service page.
+  const packagesForService = getPackagesForServiceSlug(service.slug);
 
   return (
     <main className="min-h-screen bg-background text-foreground">
@@ -265,6 +272,12 @@ export default async function ServicePage({ params }: PageProps) {
           </div>
         </div>
       </section>
+
+      {/* ─────────────── 4b. Packages for this service ─────────────── */}
+      <PackagesStrip
+        locale={locale as Locale}
+        packages={packagesForService}
+      />
 
       {/* ─────────────── 5. Related services ─────────────── */}
       <section

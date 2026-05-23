@@ -18,6 +18,7 @@ import { LanguageSwitcher } from "./LanguageSwitcher";
  */
 const NAV_LINKS = [
   { href: "/services", labelKey: "services" },
+  { href: "/packages", labelKey: "packages" },
   { href: "/about", labelKey: "about" },
   { href: "/contact", labelKey: "contact" },
 ] as const;

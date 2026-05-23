@@ -10,6 +10,8 @@ import {
   LOCAL_SEO_PAGE_SLUGS,
   getLocalSeoPage,
 } from "@/lib/local-seo-pages";
+import { getPackagesForLocalSlug } from "@/lib/packages";
+import { PackagesStrip } from "@/components/sections/PackagesStrip";
 import { SITE_URL } from "@/lib/seo/business-info";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 import {
@@ -54,6 +56,7 @@ export default async function LocalSeoPage({ params }: PageProps) {
   const page = getLocalSeoPage(locale as Locale, localSlug);
   if (!page) notFound();
   const isSpanish = locale === "es";
+  const packagesForLocal = getPackagesForLocalSlug(page.slug);
   const localServiceSchema = buildLocalSeoServiceSchema({ page, locale });
   const faqSchema = buildFaqSchema({
     id: `${SITE_URL}/${locale}/${page.slug}#faq`,
@@ -204,6 +207,11 @@ export default async function LocalSeoPage({ params }: PageProps) {
           </aside>
         </div>
       </section>
+
+      <PackagesStrip
+        locale={locale as Locale}
+        packages={packagesForLocal}
+      />
 
       <section
         id="faq"
