@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 
+import { spanishRoutes } from "@/lib/spanish-site";
 import { absoluteUrl } from "@/lib/site";
 
 const routes = [
@@ -13,10 +14,18 @@ const routes = [
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date("2026-05-23");
 
-  return routes.map((route) => ({
-    url: absoluteUrl(route.path),
-    lastModified,
-    changeFrequency: "weekly",
-    priority: route.priority,
-  }));
+  return [
+    ...routes.map((route) => ({
+      url: absoluteUrl(route.path),
+      lastModified,
+      changeFrequency: "weekly" as const,
+      priority: route.priority,
+    })),
+    ...spanishRoutes.map((path) => ({
+      url: absoluteUrl(path),
+      lastModified,
+      changeFrequency: "weekly" as const,
+      priority: path === "/es" ? 0.95 : 0.75,
+    })),
+  ];
 }

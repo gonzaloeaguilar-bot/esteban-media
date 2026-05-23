@@ -54,6 +54,7 @@ export function SiteFooter() {
             { href: "/areas", label: "Areas" },
             { href: "/about", label: "About" },
             { href: "/contact", label: "Contact" },
+            { href: "/es", label: "Español" },
           ]}
         />
       </div>

@@ -31,6 +31,10 @@ export const metadata: Metadata = {
     "Fort Lauderdale visual storyteller for short-form video, photography, drone, editing, and local business content across Broward and Miami-Dade.",
   alternates: {
     canonical: "/",
+    languages: {
+      "en-US": "/",
+      "es-US": "/es",
+    },
   },
   openGraph: {
     type: "website",
@@ -71,6 +75,7 @@ const localBusinessJsonLd = {
     name: area.name,
   })),
   sameAs: [site.instagram],
+  availableLanguage: ["English", "Spanish"],
   founder: {
     "@type": "Person",
     "@id": absoluteUrl("/#esteban"),

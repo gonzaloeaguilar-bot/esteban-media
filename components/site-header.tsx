@@ -7,6 +7,7 @@ const nav = [
   { href: "/services", label: "Services" },
   { href: "/areas", label: "Areas" },
   { href: "/about", label: "About" },
+  { href: "/es", label: "Español" },
   { href: "/contact", label: "Contact" },
 ];
 
