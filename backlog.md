@@ -32,6 +32,12 @@
 
 - [ ] `P2` **GitHub repo + Vercel deploy** `needs-human` — Create GitHub repo `esteban-media` under gonzaloeaguilar-bot, push, link to Vercel, get preview URL. Drafts a proposal because requires GH/Vercel auth interactions. `infra`
 
+- [x] `P2` **Portfolio/proof data model** — Add a typed portfolio source that can support Instagram embeds now and self-hosted video posters later. Group by Reels, real estate, restaurants, aerial, events, and business promos. `proof` — Done 2026-05-23
+
+- [ ] `P2` **Build /portfolio page + PortfolioStrip component** — Consume `lib/portfolio.ts` data model. Category index page at `/portfolio` with cards per `PORTFOLIO_CATEGORIES`, dynamic `/portfolio/[slug]` per-category page, and a homepage `<PortfolioStrip />` that reads `getFeaturedPortfolioItems()`. Render Instagram embeds via oEmbed when `media.kind === "instagram"`; render dimmed "Coming soon" tile when `media.kind === "placeholder"`. Depends on P0 scaffold + P1 i18n. `proof`
+
+- [ ] `P2` **Source real Instagram permalinks from Esteban** `needs-human` — Replace placeholder portfolio items in `lib/portfolio.ts` with real IG permalinks (≥1 live item per category). Flip `status` from `placeholder` → `live`. `proof`
+
 ## Notes
 
 - Esteban hasn't delivered real photos/videos yet — use placeholders, mark with `<!-- TODO: real asset from Esteban -->`. Don't generate AI images.
