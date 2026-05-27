@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
+import { HeroVideo } from "./HeroVideo";
+
 /**
  * Cinematic full-bleed hero with a background video (placeholder sample) and
  * dark overlay for legibility. Mobile-first sizing scales up at md/lg.
@@ -14,14 +16,9 @@ export function Hero() {
       aria-labelledby="hero-heading"
       className="relative isolate flex min-h-[88vh] w-full items-center overflow-hidden bg-black text-white"
     >
-      {/* Background video — placeholder sample. */}
-      <video
+      {/* Background video — respects prefers-reduced-motion (autoplay skipped). */}
+      <HeroVideo
         className="absolute inset-0 -z-10 h-full w-full object-cover opacity-70"
-        autoPlay
-        loop
-        muted
-        playsInline
-        // Visible while the video is loading or if it fails (e.g. reduced data mode).
         poster="/vercel.svg"
         // Public sample from Google's GTV bucket — Vercel-friendly, HTTPS, no auth.
         // TODO: real asset from Esteban — replace with hosted showreel.
