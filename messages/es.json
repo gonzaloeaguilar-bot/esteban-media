@@ -1,0 +1,62 @@
+{
+  "_TRANSLATION_REVIEW_NEEDED": "All Spanish strings in this file were drafted by an AI assistant and have NOT been reviewed by a native Spanish speaker. Gonzalo (native ES) must review every block flagged with `_TRANSLATION_REVIEW_NEEDED: true` below before this ships to a real audience. Tone target: neutral Latin American Spanish (works for South Florida Hispanic market — Cuban, Colombian, Venezuelan, Mexican). Avoid Spain-specific vocabulary (e.g. 'vosotros', 'ordenador'). Brand voice mirror: confident, cinematic, calm — same as EN.",
+  "Meta": {
+    "_TRANSLATION_REVIEW_NEEDED": true,
+    "title": "Esteban — Narrador Visual",
+    "description": "Cinematografía aérea, fotografía, video y postproducción desde el sur de la Florida. Hacemos que cada proyecto se sienta como una película."
+  },
+  "Nav": {
+    "_TRANSLATION_REVIEW_NEEDED": true,
+    "home": "Inicio",
+    "services": "Servicios",
+    "about": "Acerca",
+    "contact": "Contacto",
+    "skipToContent": "Saltar al contenido",
+    "languageLabel": "Idioma",
+    "switchToEnglish": "English",
+    "switchToSpanish": "Español"
+  },
+  "Home": {
+    "_TRANSLATION_REVIEW_NEEDED": true,
+    "heroEyebrow": "Narrativa visual, sur de la Florida",
+    "heroTitle": "Hacemos que se sienta como una película.",
+    "heroSubtitle": "Aéreo, fotografía, video y postproducción — un solo narrador, toda la caja de herramientas.",
+    "heroCta": "Comencemos un proyecto",
+    "servicesTitle": "Qué grabamos",
+    "servicesSubtitle": "Cinco capacidades. Una sola mirada cinematográfica.",
+    "aboutTeaserTitle": "Acerca de Esteban",
+    "aboutTeaserBody": "Esteban es un narrador visual radicado en el sur de la Florida. El dron es solo una herramienta más dentro de un equipo amplio que también cubre retratos, eventos, rodajes comerciales y la colorización que une todo el material.",
+    "aboutTeaserCta": "Lee la historia",
+    "contactCtaTitle": "¿Tienes un proyecto en mente?",
+    "contactCtaBody": "Cuéntanos qué estás creando. Respondemos en un día hábil.",
+    "contactCtaButton": "Escríbenos"
+  },
+  "Services": {
+    "_TRANSLATION_REVIEW_NEEDED": true,
+    "aerial": {
+      "name": "Aéreo / Dron",
+      "tagline": "Piloto licenciado. Altura cinematográfica."
+    },
+    "photography": {
+      "name": "Fotografía",
+      "tagline": "Retratos, eventos, comercial, lifestyle."
+    },
+    "videography": {
+      "name": "Videografía",
+      "tagline": "Brand films, bodas y cortes para redes."
+    },
+    "videoEditing": {
+      "name": "Edición de Video",
+      "tagline": "Montaje, color y sonido — terminado a especificación."
+    },
+    "photoEditing": {
+      "name": "Edición de Foto",
+      "tagline": "Retoque y color que respetan la luz original."
+    }
+  },
+  "Footer": {
+    "_TRANSLATION_REVIEW_NEEDED": true,
+    "tagline": "Narrativa visual desde el sur de la Florida.",
+    "rights": "Todos los derechos reservados."
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "Meta": {
+    "title": "Esteban — Visual Storyteller",
+    "description": "Aerial cinematography, photography, video and post-production based in South Florida. We make things feel like a film."
+  },
+  "Nav": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact",
+    "skipToContent": "Skip to content",
+    "languageLabel": "Language",
+    "switchToEnglish": "English",
+    "switchToSpanish": "Español"
+  },
+  "Home": {
+    "heroEyebrow": "Visual storytelling, South Florida",
+    "heroTitle": "We make things feel like a film.",
+    "heroSubtitle": "Aerial, photography, video, and post-production — one storyteller, the full toolkit.",
+    "heroCta": "Start a project",
+    "servicesTitle": "What we shoot",
+    "servicesSubtitle": "Five capabilities. One cinematic point of view.",
+    "aboutTeaserTitle": "About Esteban",
+    "aboutTeaserBody": "Esteban is a South Florida–based visual storyteller. Drone is one tool in a deep kit that also covers portraits, events, commercial shoots, and the color grade that ties it all together.",
+    "aboutTeaserCta": "Read the story",
+    "contactCtaTitle": "Have a project in mind?",
+    "contactCtaBody": "Tell us what you're building. We'll reply within one business day.",
+    "contactCtaButton": "Get in touch"
+  },
+  "Services": {
+    "aerial": {
+      "name": "Aerial / Drone",
+      "tagline": "Licensed pilot. Cinematic altitude."
+    },
+    "photography": {
+      "name": "Photography",
+      "tagline": "Portraits, events, commercial, lifestyle."
+    },
+    "videography": {
+      "name": "Videography",
+      "tagline": "Brand films, weddings, social cutdowns."
+    },
+    "videoEditing": {
+      "name": "Video Editing",
+      "tagline": "Cuts, color, sound — finished to spec."
+    },
+    "photoEditing": {
+      "name": "Photo Editing",
+      "tagline": "Retouching and color that respect the original light."
+    }
+  },
+  "Footer": {
+    "tagline": "Visual storytelling from South Florida.",
+    "rights": "All rights reserved."
+  }
+}
