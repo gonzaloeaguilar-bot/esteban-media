@@ -12,7 +12,7 @@
 
 ## P1
 
-- [x] `P1` **Build individual service pages (5 routes)** — `app/services/aerial`, `/photography`, `/videography`, `/video-editing`, `/photo-editing`. Each: hero, "what's included" list, sample work gallery (placeholders), inquiry CTA. Same layout, parameterized via JSON or MDX. `services` — Done 2026-05-25
+- [x] `P1` **Build individual service pages (5 routes)** — `app/services/aerial`, `/photography`, `/videography`, `/video-editing`, `/photo-editing`. Each: hero, "what's included" list, sample work gallery (placeholders), inquiry CTA. Same layout, parameterized via JSON or MDX. `services` — Done 2026-05-28
 
 - [ ] `P1` **Build About Esteban page** — `app/about/page.tsx`: placeholder bio (mark with `<!-- TODO: real bio from Esteban -->`), professional headshot placeholder, brand statement, list of equipment. Bilingual structure ready (use placeholder ES content). `about`
 

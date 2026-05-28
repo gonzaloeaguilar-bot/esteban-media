@@ -1,46 +1,21 @@
-import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import { ServiceGalleryPlaceholder } from "@/components/services/service-gallery-placeholder";
 import { ServiceIncludedList } from "@/components/services/service-included-list";
 import { buttonVariants } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
-import {
-  SERVICES,
-  getRelatedServices,
-  getServiceBySlug,
-} from "@/lib/services";
+import { getRelatedServices, type Service } from "@/lib/services";
 
-type Params = { slug: string };
-
-export function generateStaticParams(): Params[] {
-  return SERVICES.map((service) => ({ slug: service.slug }));
-}
-
-export async function generateMetadata(props: {
-  params: Promise<Params>;
-}): Promise<Metadata> {
-  const { slug } = await props.params;
-  const service = getServiceBySlug(slug);
-  if (!service) return { title: "Service not found" };
-  return {
-    title: service.title,
-    description: service.shortDescription,
-  };
-}
-
-export default async function ServiceDetailPage(props: {
-  params: Promise<Params>;
-}) {
-  const { slug } = await props.params;
-  const service = getServiceBySlug(slug);
-
-  if (!service) {
-    notFound();
-  }
-
+/**
+ * Shared template for every `/services/<slug>` detail page.
+ *
+ * Each of the 5 literal routes (app/services/aerial, /photography, /videography,
+ * /video-editing, /photo-editing) is a thin page.tsx that imports this component
+ * and passes the matching record from lib/services.ts. That keeps the URL
+ * structure literal (per backlog spec) while staying DRY.
+ */
+export function ServiceDetail({ service }: { service: Service }) {
   const Icon = service.icon;
   const related = getRelatedServices(service.slug);
 
@@ -229,7 +204,10 @@ export default async function ServiceDetailPage(props: {
       </section>
 
       {/* RELATED SERVICES */}
-      <section aria-labelledby="related-heading" className="border-t border-foreground/10">
+      <section
+        aria-labelledby="related-heading"
+        className="border-t border-foreground/10"
+      >
         <Container className="py-16 sm:py-20">
           <div className="flex items-end justify-between gap-4">
             <h2
