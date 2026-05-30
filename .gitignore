@@ -9,3 +9,5 @@ dist
 *.log
 .vercel
 context-snapshot.md
+*.tsbuildinfo
+next-env.d.ts
