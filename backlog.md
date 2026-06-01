@@ -4,7 +4,7 @@
 
 ## P0
 
-- [ ] `P0` **Scaffold Next.js 15 App Router + TypeScript + Tailwind v4 + shadcn/ui** — Create package.json (pnpm), tsconfig.json (strict), tailwind.config.ts, app/ directory with layout.tsx + page.tsx, components/ui/ shadcn primitives (button, card, container). Verify `pnpm dev` boots clean on localhost:3000. Commit. `scaffold`
+- [x] `P0` **Scaffold Next.js 15 App Router + TypeScript + Tailwind v4 + shadcn/ui** — Create package.json (pnpm), tsconfig.json (strict), tailwind.config.ts, app/ directory with layout.tsx + page.tsx, components/ui/ shadcn primitives (button, card, container). Verify `pnpm dev` boots clean on localhost:3000. Commit. `scaffold` — Done 2026-06-01 (package.json, tsconfig.json, next.config.ts, postcss.config.mjs, eslint.config.mjs, app/layout.tsx, app/globals.css. `next build` passes; tsc + lint clean. Homepage + shadcn primitives still TODO.)
 
 - [ ] `P0` **Build homepage with hero + services strip + CTA** — `app/page.tsx`: cinematic hero (placeholder video bg from Vercel public sample), 5-service strip (drone, photo, video, video edit, photo edit) with icons + 1-liner each, About teaser, Contact CTA. Tailwind only, no shadcn dialogs yet. Mobile-first. `home`
 
