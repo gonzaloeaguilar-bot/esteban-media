@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Mail, Send } from "lucide-react";
+import { ArrowRight, Mail, Phone, Send } from "lucide-react";
 
 import { ReelPreview } from "@/components/reel-preview";
 import { Container } from "@/components/ui/container";
@@ -36,15 +36,16 @@ export default function SpanishHomePage() {
           <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_.95fr] lg:gap-16">
             <div className="max-w-3xl">
               <p className="text-xs font-medium uppercase text-[#5a6066]">
-                En español / Fort Lauderdale / Miami
+                En español / Broward / Miami-Dade / Palm Beach
               </p>
               <h1 className="mt-5 max-w-[12ch] font-serif text-5xl leading-none sm:text-6xl lg:text-7xl">
-                Foto, video y reels para negocios latinos en South Florida.
+                Edición, contenido con IA y estrategia para negocios que quieren publicar mejor.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-                Esteban Moreno graba y edita contenido para restaurantes,
-                propiedades, eventos, creadores y marcas locales. Puedes hacer
-                el brief, los cambios y la entrega en español o inglés.
+                Esteban Moreno trabaja con emprendedores, agencias,
+                restaurantes, real estate y marcas locales. El español es su
+                idioma principal; también puede comunicarse en inglés a nivel
+                intermedio.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
@@ -86,7 +87,7 @@ export default function SpanishHomePage() {
 
             <ReelPreview
               title="Reel para negocio local"
-              location="Miami / Broward"
+              location="Broward / Miami / Palm Beach"
               label="Entrega en español"
             />
           </div>
@@ -97,8 +98,8 @@ export default function SpanishHomePage() {
         <Container size="xl">
           <SectionIntro
             eyebrow="Servicios"
-            title="Contenido visual sin lenguaje de agencia."
-            lead="La meta es simple: grabar bien, editar limpio y entregar archivos que sirvan para Instagram, Google, websites, listings o anuncios."
+            title="Contenido conectado con una meta de negocio."
+            lead="La meta es simple: editar con intención, organizar qué publicar y definir con claridad cuándo hace falta producir material nuevo."
           />
           <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
             {spanishServices.map((service) => {
@@ -126,9 +127,9 @@ export default function SpanishHomePage() {
       <section className="border-y border-[#ddd4c8] bg-[#101214] py-12 text-[#f6f1ea] sm:py-16">
         <Container size="xl">
           <SectionIntro
-            eyebrow="Páginas por búsqueda"
-            title="Nuevas páginas para capturar demanda en español."
-            lead="Estas rutas atacan búsquedas con intención local: alguien ya sabe que necesita video, foto, reels o drone y quiere hablar con una persona en español."
+            eyebrow="Servicios y ubicaciones"
+            title="Encuentra el servicio que encaja con tu proyecto."
+            lead="Explora opciones por tipo de proyecto y zona. Los servicios en locación y cualquier opción aérea se confirman antes de cotizar."
             inverted
           />
           <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -160,8 +161,8 @@ export default function SpanishHomePage() {
         <Container size="xl">
           <SectionIntro
             eyebrow="Paquetes"
-            title="Punto de entrada simple para empezar."
-            lead="Los precios finales dependen de locación, fecha, cantidad de entregables y velocidad de entrega."
+            title="Tres formas sencillas de empezar."
+            lead="Cada opción se cotiza según material, locación, cantidad de entregables, uso de IA y fecha límite."
           />
           <div className="mt-8 grid gap-4 md:grid-cols-3">
             {spanishPackages.map((item) => (
@@ -210,6 +211,13 @@ export default function SpanishHomePage() {
                 >
                   <Mail className="size-4" aria-hidden="true" />
                   Email
+                </a>
+                <a
+                  href={site.phone.href}
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-[#101214] px-5 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"
+                >
+                  <Phone className="size-4" aria-hidden="true" />
+                  Llamar
                 </a>
                 <a
                   href={site.instagram}

@@ -21,7 +21,7 @@ export function ServicesStrip() {
               id="services-heading"
               className="mt-3 font-serif text-4xl leading-tight sm:text-5xl"
             >
-              Five services. One operator. Clean delivery.
+              Editing first. Strategy connected. Production when needed.
             </h2>
           </div>
           <Link

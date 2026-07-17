@@ -8,7 +8,7 @@ import { languageAlternates, spanishAreas } from "@/lib/spanish-site";
 export const metadata: Metadata = {
   title: "Áreas de Servicio en Español",
   description:
-    "Fotografía, video, drone y reels en Fort Lauderdale, Broward County y Miami-Dade para negocios y creadores que prefieren trabajar en español.",
+    "Esteban Moreno Media tiene base en Fort Lauderdale, trabaja normalmente en Broward y Miami, y considera proyectos en Palm Beach County por cotización.",
   alternates: {
     canonical: "/es/areas",
     languages: languageAlternates["/es/areas"],
@@ -24,14 +24,17 @@ export default function SpanishAreasPage() {
             Áreas de servicio
           </p>
           <h1 className="mt-4 max-w-4xl font-serif text-5xl leading-none sm:text-6xl">
-            Fort Lauderdale como base, Miami y Broward como mercado.
+            Fort Lauderdale como base, tres condados como área de servicio.
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-            Esteban cubre proyectos seleccionados en South Florida para clientes
-            que necesitan una comunicación clara en español o inglés.
+            Esteban trabaja normalmente en Broward y Miami. Palm Beach County
+            es un área de expansión; Boca Raton y otras ciudades se consideran
+            por cotización. Puede aplicarse un cargo de traslado después de 20
+            millas desde Fort Lauderdale y el estacionamiento se agrega a la
+            cotización.
           </p>
 
-          <div className="mt-10 grid gap-4 md:grid-cols-3">
+          <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {spanishAreas.map((area) => (
               <article
                 key={area.name}
@@ -55,6 +58,15 @@ export default function SpanishAreasPage() {
                     </span>
                   ))}
                 </div>
+                {area.href !== "/es/areas" ? (
+                  <Link
+                    href={area.href}
+                    className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#c84a2c] hover:text-[#9f351f]"
+                  >
+                    Ver cobertura en {area.name}
+                    <ArrowRight className="size-4" aria-hidden="true" />
+                  </Link>
+                ) : null}
               </article>
             ))}
           </div>

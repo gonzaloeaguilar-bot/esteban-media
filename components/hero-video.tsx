@@ -1,14 +1,8 @@
 import Link from "next/link";
-import { ArrowRight, PlayCircle } from "lucide-react";
+import { ArrowRight, MapPin } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import { site, trustSignals } from "@/lib/site";
-
-// TODO: real reel from Esteban — swap this src with a self-hosted reel
-// when Esteban delivers footage. Until then we point at a stable, public
-// sample so the hero renders cinematically out of the box.
-const PLACEHOLDER_VIDEO_SRC =
-  "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4";
 
 export function HeroVideo() {
   return (
@@ -16,34 +10,20 @@ export function HeroVideo() {
       aria-labelledby="hero-heading"
       className="relative isolate overflow-hidden bg-[#101214] text-[#f6f1ea]"
     >
-      {/* Placeholder video background. Muted, autoplay, loop, playsInline for
-          mobile-safari autoplay. prefers-reduced-motion respected via CSS. */}
-      <video
-        className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover opacity-60 motion-reduce:hidden"
-        src={PLACEHOLDER_VIDEO_SRC}
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        aria-hidden="true"
-      />
-      {/* Fallback / reduced-motion still: gradient that reads as cinematic */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_60%_40%,#cf6a2c_0%,#2d140d_55%,#080404_100%)]"
+        className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_72%_32%,#cf6a2c_0%,#2d140d_46%,#080404_100%)]"
       />
-      {/* Tint for legibility over moving footage */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-gradient-to-b from-black/60 via-black/40 to-black/80"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(120deg,rgba(0,0,0,.15),rgba(0,0,0,.72))]"
       />
 
       <Container size="xl" className="relative">
         <div className="flex min-h-[78svh] flex-col justify-center py-20 sm:min-h-[82svh] sm:py-24 lg:min-h-[88svh] lg:py-28">
           <div className="inline-flex items-center gap-2 self-start rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs uppercase tracking-wide backdrop-blur">
-            <PlayCircle className="size-3.5" aria-hidden="true" />
-            Fort Lauderdale · Broward · Miami-Dade
+            <MapPin className="size-3.5" aria-hidden="true" />
+            Fort Lauderdale · Broward · Miami-Dade · Palm Beach
           </div>
 
           <h1
@@ -54,10 +34,10 @@ export function HeroVideo() {
           </h1>
 
           <p className="mt-6 max-w-2xl text-base leading-7 text-[#e8e2d8] sm:text-lg sm:leading-8">
-            {site.shortName} is a South Florida visual storyteller — drone,
-            photography, video, and post — for restaurants, properties,
-            events, and local brands that want their work to look like it
-            matters.
+            {site.shortName} edits video, develops AI-assisted creative, and
+            plans social content for entrepreneurs, agencies, restaurants,
+            real estate, and growing brands — remotely or on location in South
+            Florida.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">

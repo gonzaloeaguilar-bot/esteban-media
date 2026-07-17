@@ -47,3 +47,7 @@ next-env.d.ts
 
 # project-specific
 context-snapshot.md
+
+# local code-intelligence indexes (may include private interview context)
+/graphify-out/
+/.codegraph/

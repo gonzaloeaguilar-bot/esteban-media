@@ -3,5 +3,5 @@ export default function SpanishLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <div lang="es">{children}</div>;
+  return <div lang="es-US">{children}</div>;
 }

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Camera, MapPin, Plane } from "lucide-react";
+import { ArrowRight, BriefcaseBusiness, Languages, MapPin } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import { site } from "@/lib/site";
@@ -9,19 +9,19 @@ const highlights = [
     icon: MapPin,
     label: "Local",
     detail:
-      "Based in Fort Lauderdale, working across Broward and Miami-Dade weekly.",
+      "Based in Fort Lauderdale, serving Broward, Miami-Dade, and Palm Beach County.",
   },
   {
-    icon: Camera,
-    label: "Full toolkit",
+    icon: BriefcaseBusiness,
+    label: "Business-minded",
     detail:
-      "Photo, video, drone, and post — one operator, no agency handoffs.",
+      "Five years running an online brand informs the strategy behind each asset.",
   },
   {
-    icon: Plane,
-    label: "FAA-aware",
+    icon: Languages,
+    label: "Spanish-first",
     detail:
-      "Drone work planned around airspace, weather, and what the shot actually needs.",
+      "Native Spanish service with practical English communication available.",
   },
 ];
 
@@ -41,13 +41,13 @@ export function AboutTeaser() {
               id="about-heading"
               className="mt-3 font-serif text-4xl leading-tight sm:text-5xl"
             >
-              Visual storyteller, not just &ldquo;the drone guy.&rdquo;
+              An editor who understands the business behind the content.
             </h2>
             <p className="mt-5 text-base leading-7 text-[#252a2d] sm:text-lg sm:leading-8">
-              {site.shortName} shoots and edits across photo, video, drone, and
-              post for South Florida businesses. The work is calm, scoped, and
-              built to ship — no agency theater, no inflated decks, no fake
-              testimonials.
+              Trained in audiovisual communication, {site.shortName} brings
+              editing, AI-assisted creative, social planning, and lightweight
+              production into one direct relationship. The process is personal,
+              detailed, and built around what the client needs to publish.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Link
@@ -61,7 +61,7 @@ export function AboutTeaser() {
                 href="/services"
                 className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#101214] px-6 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"
               >
-                What he can shoot
+                Explore services
               </Link>
             </div>
           </div>

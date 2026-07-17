@@ -13,7 +13,7 @@ import {
 export const metadata: Metadata = {
   title: "Servicios en Español",
   description:
-    "Servicios de fotografía, video, drone, reels y edición en español para negocios, restaurantes, propiedades y eventos en South Florida.",
+    "Edición de video, contenido con IA, planificación para redes y producción por proyecto en español desde Fort Lauderdale.",
   alternates: {
     canonical: "/es/servicios",
     languages: languageAlternates["/es/servicios"],
@@ -29,7 +29,7 @@ export default function SpanishServicesPage() {
             Servicios en español
           </p>
           <h1 className="mt-4 max-w-4xl font-serif text-5xl leading-none sm:text-6xl">
-            Foto, video, drone, reels y edición para negocios locales.
+            Edición, contenido con IA, planificación y producción según el proyecto.
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
             {spanishSite.description}
@@ -72,10 +72,10 @@ export default function SpanishServicesPage() {
       <section className="border-t border-[#ddd4c8] py-12 sm:py-16">
         <Container size="xl">
           <p className="text-xs font-medium uppercase text-[#5a6066]">
-            Paginas de nicho
+            Guías por tipo de proyecto
           </p>
           <h2 className="mt-4 max-w-3xl font-serif text-4xl leading-tight">
-            Rutas creadas para búsquedas con intención comercial.
+            Encuentra el servicio y la zona que más se parecen a tu proyecto.
           </h2>
           <div className="mt-8 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
             {spanishNichePages.map((page) => (
@@ -87,7 +87,7 @@ export default function SpanishServicesPage() {
                 <span>
                   <span className="block font-serif text-xl">{page.title}</span>
                   <span className="mt-1 block text-xs uppercase text-[#5a6066]">
-                    {page.keyword}
+                    {page.location}
                   </span>
                 </span>
                 <ArrowRight className="size-4 shrink-0 text-[#e85d3e]" />

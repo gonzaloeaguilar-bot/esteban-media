@@ -4,12 +4,12 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import { languageAlternates } from "@/lib/spanish-site";
-import { absoluteUrl, services, site } from "@/lib/site";
+import { absoluteUrl, serviceAreas, services, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Creative Services",
   description:
-    "Video, photography, drone, reels, and post-production services from Esteban Moreno Media in Fort Lauderdale.",
+    "Video editing, AI-assisted content, social media planning, and scoped production from Fort Lauderdale for remote clients and South Florida businesses.",
   alternates: {
     canonical: "/services",
     languages: languageAlternates["/services"],
@@ -34,7 +34,7 @@ export default function ServicesPage() {
           name: site.name,
           url: absoluteUrl("/"),
         },
-        areaServed: ["Fort Lauderdale", "Broward County", "Miami-Dade"],
+        areaServed: serviceAreas.map((area) => area.name),
       },
     })),
   };
@@ -52,12 +52,12 @@ export default function ServicesPage() {
             Services
           </p>
           <h1 className="mt-4 max-w-3xl font-serif text-5xl leading-none sm:text-6xl">
-            Photo, video, aerial, and post-production under one eye.
+            Editing, AI-assisted creative, social planning, and scoped production.
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-            Esteban is positioned as a visual storyteller, not a single-service
-            vendor. The service menu stays simple so clients can pick the
-            closest fit and ask for the rest.
+            Start with the outcome you need. Esteban can work remotely with
+            footage you already have or define a focused local project with
+            clear deliverables, timing, and review points.
           </p>
 
           <div className="mt-10 grid gap-5 lg:grid-cols-2">

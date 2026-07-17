@@ -25,11 +25,11 @@ const newsreader = Newsreader({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Esteban Moreno Media | Video, Photo, Drone in Fort Lauderdale",
+    default: "Esteban Moreno Media | Video Editing & Content in South Florida",
     template: "%s | Esteban Moreno Media",
   },
   description:
-    "Fort Lauderdale visual storyteller for short-form video, photography, drone, editing, and local business content across Broward and Miami-Dade.",
+    "Fort Lauderdale video editor and content partner for AI-assisted creative, social media planning, and scoped production across Broward, Miami-Dade, Palm Beach County, and remote projects.",
   alternates: {
     canonical: "/",
     languages: languageAlternates["/"],
@@ -38,13 +38,13 @@ export const metadata: Metadata = {
     type: "website",
     url: absoluteUrl("/"),
     siteName: site.name,
-    title: "Esteban Moreno Media | Fort Lauderdale Visual Storyteller",
+    title: "Esteban Moreno Media | Video Editor & Content Partner",
     description: site.description,
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Esteban Moreno Media | Fort Lauderdale Visual Storyteller",
+    title: "Esteban Moreno Media | Video Editor & Content Partner",
     description: site.description,
   },
   robots: {
@@ -60,38 +60,34 @@ const localBusinessJsonLd = {
   name: site.name,
   url: absoluteUrl("/"),
   email: site.email,
+  telephone: site.phone.e164,
   description: site.description,
-  priceRange: "$$",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Fort Lauderdale",
-    addressRegion: "FL",
-    addressCountry: "US",
-  },
   areaServed: serviceAreas.map((area) => ({
-    "@type": "Place",
+    "@type": area.schemaType,
     name: area.name,
   })),
   sameAs: [site.instagram],
-  availableLanguage: ["English", "Spanish"],
+  availableLanguage: ["Spanish", "English"],
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "project inquiries",
     email: site.email,
-    availableLanguage: ["English", "Spanish"],
+    telephone: site.phone.e164,
+    availableLanguage: ["Spanish", "English"],
   },
   founder: {
     "@type": "Person",
     "@id": absoluteUrl("/#esteban"),
     name: "Esteban Moreno",
-    jobTitle: "Visual storyteller, videographer, photographer, and editor",
+    jobTitle: "Audiovisual communicator, video editor, and content creator",
     url: absoluteUrl("/about"),
     sameAs: [site.instagram],
-    knowsLanguage: ["English", "Spanish"],
+    knowsLanguage: ["Spanish", "English"],
     knowsAbout: [
-      "videography",
-      "photography",
-      "drone visuals",
+      "AI-assisted content",
+      "social media planning",
+      "mobile video capture",
+      "product photography",
       "short-form video",
       "video editing",
       "South Florida local business content",
@@ -107,7 +103,7 @@ const localBusinessJsonLd = {
         name: service.name,
         description: service.description,
         provider: { "@id": absoluteUrl("/#business") },
-        areaServed: ["Fort Lauderdale", "Broward County", "Miami-Dade"],
+        areaServed: serviceAreas.map((area) => area.name),
       },
     })),
   },
@@ -136,7 +132,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en-US">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${newsreader.variable} antialiased`}
       >

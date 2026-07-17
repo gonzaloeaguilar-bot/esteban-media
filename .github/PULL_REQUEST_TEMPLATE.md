@@ -1,5 +1,11 @@
 ## Summary
 
+## Production and business impact
+
+- [ ] No production behavior changes
+- [ ] Production behavior changes are described above
+- [ ] Any public claims, client proof, pricing, turnaround, credentials, locations, or contact changes are verified
+
 ## Cortex Quality Enforcement
 
 Run `quality-enforce` locally before requesting review, then paste the resulting JSON here.
@@ -20,6 +26,10 @@ Run `quality-enforce` locally before requesting review, then paste the resulting
 
 ## Validation
 
-- [ ] Tests/build/smoke commands are listed.
+- [ ] `pnpm lint`
+- [ ] `pnpm typecheck`
+- [ ] `pnpm test`
+- [ ] `pnpm build`
+- [ ] Relevant local/live smoke checks are listed above
 - [ ] Obsidian handoff is recorded.
 - [ ] No hard stop was bypassed.

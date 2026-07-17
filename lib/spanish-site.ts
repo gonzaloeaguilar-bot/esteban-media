@@ -1,23 +1,24 @@
 import type { LucideIcon } from "lucide-react";
 import {
   Building2,
+  CalendarRange,
   Camera,
-  Film,
   Home,
+  Languages,
+  Laptop,
   MapPin,
-  Plane,
   Scissors,
-  Store,
   UtensilsCrossed,
   Video,
+  WandSparkles,
 } from "lucide-react";
 
 export const spanishSite = {
   title: "Esteban Moreno Media en Español",
   description:
-    "Fotografía, video, drone, reels y edición para negocios, restaurantes, propiedades, eventos y creadores en Fort Lauderdale, Broward y Miami.",
+    "Edición de video, contenido con IA, planificación para redes y producción por proyecto desde Fort Lauderdale para Broward, Miami-Dade, Palm Beach County y clientes remotos.",
   contactLead:
-    "Cuéntame la fecha, ciudad, tipo de proyecto y dónde se van a usar los videos o fotos. Esteban responde en español o inglés.",
+    "Cuéntame la meta, fecha, ciudad, entregables y dónde se publicará el contenido. La atención es principalmente en español y también hay comunicación disponible en inglés.",
 };
 
 export type SpanishService = {
@@ -32,59 +33,59 @@ export type SpanishService = {
 
 export const spanishServices: SpanishService[] = [
   {
-    id: "reels",
-    name: "Reels y videos cortos",
-    shortName: "Reels",
+    id: "edicion",
+    name: "Edición de video y reels",
+    shortName: "Edición",
     description:
-      "Videos verticales para Instagram, TikTok, YouTube Shorts, anuncios y contenido orgánico.",
+      "Edición remota para emprendedores, negocios, agencias y equipos que ya tienen material grabado.",
     detail:
-      "Grabación, ritmo, captions, música, color y exportes listos para publicar.",
+      "Ritmo, captions, color, música y exportes se definen según la pieza y el canal.",
     icon: Scissors,
-    tags: ["Instagram", "TikTok", "Captions"],
+    tags: ["Remoto", "Reels", "Postproducción"],
+  },
+  {
+    id: "contenido-ia",
+    name: "Contenido con IA",
+    shortName: "Contenido IA",
+    description:
+      "Imágenes, movimiento y variaciones creativas asistidas por IA para contenido social y productos.",
+    detail:
+      "El proceso y el nivel de generación se explican antes de comenzar, con revisión humana.",
+    icon: WandSparkles,
+    tags: ["Imágenes", "Animación", "Variaciones"],
+  },
+  {
+    id: "planificacion-social",
+    name: "Planificación para redes",
+    shortName: "Plan social",
+    description:
+      "Un plan práctico para marcas que necesitan publicar con consistencia y una intención clara.",
+    detail:
+      "Temas, formatos, frecuencia y necesidades de producción se pueden organizar por mes.",
+    icon: CalendarRange,
+    tags: ["Estrategia", "Frecuencia", "Mensual"],
   },
   {
     id: "videografia",
-    name: "Videografía",
-    shortName: "Video",
+    name: "Contenido en locación",
+    shortName: "Grabación",
     description:
-      "Cobertura en locación para negocios, restaurantes, eventos, propiedades, productos y marcas locales.",
+      "Producción ligera para restaurantes, real estate, productos, emprendedores y marcas locales.",
     detail:
-      "Tomas principales, b-roll, audio cuando aplica y edición limpia para web o redes.",
+      "La cotización define locación, método de captura, entregables, traslado y plazo.",
     icon: Video,
-    tags: ["B-roll", "Eventos", "Marcas"],
+    tags: ["South Florida", "Social", "Real estate"],
   },
   {
     id: "fotografia",
-    name: "Fotografía",
-    shortName: "Foto",
+    name: "Producto y opciones aéreas",
+    shortName: "Foto + aéreo",
     description:
-      "Fotos para perfiles, equipos, productos, comida, espacios, eventos, listings y campañas.",
+      "Fotografía de producto y, cuando el proyecto lo permite, tomas aéreas para dar contexto a una propiedad o marca.",
     detail:
-      "Sets útiles para Google Business, menús, websites, redes sociales y materiales de venta.",
+      "El drone se ofrece solo al confirmar espacio aéreo, clima, permiso de la propiedad y disponibilidad de piloto acreditado.",
     icon: Camera,
-    tags: ["Producto", "Retrato", "Eventos"],
-  },
-  {
-    id: "drone",
-    name: "Drone y tomas aéreas",
-    shortName: "Drone",
-    description:
-      "Tomas aéreas para propiedades, negocios, eventos, botes y contexto de marca cuando clima y reglas lo permitan.",
-    detail:
-      "Planificación de locación, clima, restricciones y tomas pensadas para vender el espacio.",
-    icon: Plane,
-    tags: ["Real estate", "Aereo", "Contexto"],
-  },
-  {
-    id: "edicion",
-    name: "Edición y color",
-    shortName: "Edición",
-    description:
-      "Edición de video, selección de fotos, color, retoque y formatos finales para piezas grabadas por Esteban o por tu equipo.",
-    detail:
-      "Ideal si ya tienes material grabado y necesitas convertirlo en contenido publicable.",
-    icon: Film,
-    tags: ["Color", "Retoque", "Entrega"],
+    tags: ["Producto", "Propiedad", "Aéreo cotizado"],
   },
 ];
 
@@ -92,8 +93,9 @@ export const spanishAreas = [
   {
     name: "Fort Lauderdale",
     county: "Broward County",
+    href: "/es/areas",
     description:
-      "Base principal para negocios locales, restaurantes, eventos, propiedades, creadores y contenido de marca.",
+      "Base principal para emprendedores, restaurantes, real estate y contenido para negocios locales.",
     neighborhoods: [
       "Las Olas",
       "Flagler Village",
@@ -105,8 +107,9 @@ export const spanishAreas = [
   {
     name: "Broward County",
     county: "Broward County",
+    href: "/es/areas",
     description:
-      "Cobertura en Hollywood, Pompano Beach, Davie, Plantation, Sunrise, Weston, Coral Springs y áreas cercanas.",
+      "Disponible por cotización en Hollywood, Pompano Beach, Davie, Plantation, Sunrise, Weston, Coral Springs y áreas cercanas.",
     neighborhoods: [
       "Hollywood",
       "Pompano Beach",
@@ -118,9 +121,26 @@ export const spanishAreas = [
   {
     name: "Miami-Dade",
     county: "Miami-Dade County",
+    href: "/es/areas",
     description:
-      "Proyectos seleccionados en Miami, Brickell, Wynwood, Doral, Coral Gables, Miami Beach y zonas comerciales.",
+      "Proyectos seleccionados para emprendedores, restaurantes, marcas y real estate en Miami-Dade.",
     neighborhoods: ["Miami", "Brickell", "Wynwood", "Doral", "Coral Gables"],
+  },
+  {
+    name: "Palm Beach County",
+    county: "Palm Beach County",
+    href: "/es/areas/palm-beach-county",
+    description:
+      "Disponible por cotización para proyectos seleccionados desde Boca Raton y Delray Beach hasta West Palm Beach, Palm Beach Gardens, Jupiter y Wellington.",
+    neighborhoods: [
+      "Boca Raton",
+      "Delray Beach",
+      "Boynton Beach",
+      "West Palm Beach",
+      "Palm Beach Gardens",
+      "Jupiter",
+      "Wellington",
+    ],
   },
 ];
 
@@ -137,7 +157,7 @@ export type SpanishNichePage = {
   icon: LucideIcon;
   bestFor: string[];
   deliverables: string[];
-  searchIntent: string;
+  projectFit: string;
   faqs: { question: string; answer: string }[];
 };
 
@@ -145,9 +165,9 @@ export const spanishNichePages: SpanishNichePage[] = [
   {
     slug: "videografo-en-miami",
     title: "Videógrafo en Miami",
-    metadataTitle: "Videógrafo en Miami | Video, Reels y Drone en Español",
+    metadataTitle: "Videógrafo en Miami | Video y Reels en Español",
     description:
-      "Videógrafo en Miami para negocios, restaurantes, eventos, propiedades y creadores que necesitan video profesional en español o inglés.",
+      "Edición y producción de video por proyecto en Miami para emprendedores, restaurantes, propiedades y marcas que prefieren trabajar en español.",
     eyebrow: "Miami / Doral / Brickell / Wynwood",
     h1: "Videógrafo en Miami para contenido que se siente local.",
     lead:
@@ -157,9 +177,9 @@ export const spanishNichePages: SpanishNichePage[] = [
     icon: Video,
     bestFor: [
       "Restaurantes que necesitan reels, menú visual o contenido mensual.",
-      "Agentes de real estate que quieren video, drone y cortes verticales.",
-      "Marcas locales que necesitan contenido bilingüe para Instagram.",
-      "Eventos privados o comerciales con entrega rápida para redes.",
+      "Agentes de real estate que quieren video y cortes verticales.",
+      "Marcas locales que prefieren planificar el contenido en español.",
+      "Emprendedores que necesitan edición o contenido continuo para redes.",
     ],
     deliverables: [
       "Video vertical para Reels/TikTok/Shorts.",
@@ -167,13 +187,13 @@ export const spanishNichePages: SpanishNichePage[] = [
       "B-roll para reutilizar en futuras publicaciones.",
       "Versiones para website, anuncios o Google Business cuando aplica.",
     ],
-    searchIntent:
-      "Captura búsquedas transaccionales en español de clientes que ya saben que necesitan video local, pero no quieren una agencia grande.",
+    projectFit:
+      "Una opción directa para negocios, restaurantes y propiedades que necesitan video local sin una producción de agencia innecesariamente grande.",
     faqs: [
       {
         question: "¿Esteban trabaja en español?",
         answer:
-          "Sí. La conversación, el brief y los cambios pueden manejarse en español o inglés.",
+          "Sí. El español es su idioma principal. También puede mantener comunicación de trabajo en inglés.",
       },
       {
         question: "¿Cubre todo Miami-Dade?",
@@ -188,7 +208,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     metadataTitle:
       "Videógrafo en Fort Lauderdale | Video y Reels en Español",
     description:
-      "Videógrafo en Fort Lauderdale para negocios, eventos, restaurantes, propiedades y contenido social en Broward County.",
+      "Edición y producción de video por proyecto en Fort Lauderdale para negocios, restaurantes, propiedades y contenido social en Broward County.",
     eyebrow: "Fort Lauderdale / Broward County",
     h1: "Videógrafo en Fort Lauderdale para negocios que necesitan contenido claro.",
     lead:
@@ -198,8 +218,8 @@ export const spanishNichePages: SpanishNichePage[] = [
     icon: MapPin,
     bestFor: [
       "Negocios cerca de Las Olas, Flagler Village y Wilton Manors.",
-      "Eventos y activaciones que necesitan recap rápido.",
-      "Propiedades, botes, restaurantes y espacios comerciales.",
+      "Emprendedores que necesitan reels o edición continua.",
+      "Propiedades, restaurantes y espacios comerciales.",
       "Creadores o profesionales que necesitan contenido constante.",
     ],
     deliverables: [
@@ -208,18 +228,18 @@ export const spanishNichePages: SpanishNichePage[] = [
       "Fotos o clips adicionales cuando el scope lo incluye.",
       "Entrega en formatos verticales y horizontales.",
     ],
-    searchIntent:
-      "Apunta a compradores hispanos en Broward que buscan un profesional local, no una lista genérica de agencias de Miami.",
+    projectFit:
+      "Ideal para proyectos en Broward que necesitan un profesional basado en Fort Lauderdale, comunicación clara y un alcance definido desde el principio.",
     faqs: [
       {
         question: "¿Fort Lauderdale es la base principal?",
         answer:
-          "Sí. Fort Lauderdale y Broward son la base principal, con cobertura adicional hacia Miami-Dade.",
+          "Sí. Fort Lauderdale y Broward son la base principal, con proyectos seleccionados en Miami-Dade y Palm Beach County.",
       },
       {
         question: "¿Se puede hacer un shoot pequeño?",
         answer:
-          "Sí. Muchos proyectos empiezan con un shoot enfocado de 60 a 90 minutos y una entrega clara.",
+          "Sí. El alcance, la duración y los entregables se confirman en la cotización antes de reservar.",
       },
     ],
   },
@@ -229,18 +249,18 @@ export const spanishNichePages: SpanishNichePage[] = [
     metadataTitle:
       "Fotógrafo en Fort Lauderdale | Fotos Comerciales y Contenido",
     description:
-      "Fotógrafo en Fort Lauderdale para retratos, restaurantes, productos, eventos, propiedades y contenido de marca.",
-    eyebrow: "Foto comercial / retratos / espacios",
+      "Fotografía de producto y contenido comercial por proyecto en Fort Lauderdale para restaurantes, propiedades y marcas.",
+    eyebrow: "Producto / comida / espacios",
     h1: "Fotógrafo en Fort Lauderdale para fotos que tu negocio sí puede usar.",
     lead:
-      "Fotos limpias para perfiles, websites, menús, Google Business, listings y publicaciones. Esteban también puede combinar foto y video en el mismo proyecto.",
+      "Fotos útiles para productos, menús, Google Business, listings y publicaciones. La cotización confirma el método de captura y la cantidad de imágenes finales.",
     keyword: "fotógrafo en Fort Lauderdale",
     location: "Fort Lauderdale",
     icon: Camera,
     bestFor: [
       "Negocios que necesitan actualizar Google Business o su website.",
       "Restaurantes con fotos de platos, equipo y ambiente.",
-      "Profesionales que necesitan retratos naturales.",
+      "Marcas que necesitan fotografía de producto.",
       "Propiedades o espacios que necesitan verse mejor en línea.",
     ],
     deliverables: [
@@ -249,13 +269,13 @@ export const spanishNichePages: SpanishNichePage[] = [
       "Uso para web, redes, menús y anuncios.",
       "Opción de combinar con reels o clips cortos.",
     ],
-    searchIntent:
-      "Captura búsquedas locales de fotografía en español donde el resultado actual suele ser bodas, directorios o turismo.",
+    projectFit:
+      "Una sesión enfocada para negocios, restaurantes, productos o propiedades que necesitan imágenes editadas y listas para usar.",
     faqs: [
       {
         question: "¿Hace solo fotografía?",
         answer:
-          "Sí. También se puede combinar fotografía con video si necesitas una entrega completa.",
+          "La fotografía de producto puede cotizarse sola o combinarse con video cuando el proyecto lo requiere.",
       },
       {
         question: "¿Sirve para negocios pequeños?",
@@ -280,8 +300,8 @@ export const spanishNichePages: SpanishNichePage[] = [
     bestFor: [
       "Restaurantes y cafeterías que necesitan mostrar platos y ambiente.",
       "Tiendas, salones, entrenadores y marcas personales.",
-      "Negocios latinos que quieren contenido en español e inglés.",
-      "Campañas pequenas para Meta Ads o contenido organico.",
+      "Negocios latinos que prefieren planificar el contenido en español.",
+      "Campañas pequeñas para Meta Ads o contenido orgánico.",
     ],
     deliverables: [
       "Reel principal de 15 a 45 segundos.",
@@ -289,8 +309,8 @@ export const spanishNichePages: SpanishNichePage[] = [
       "Captions, musica y formato vertical.",
       "Banco de clips para reutilizar.",
     ],
-    searchIntent:
-      "Ataca un intent comercial emergente: dueños que no buscan 'productora audiovisual', sino alguien que haga reels concretos para vender o mostrar el negocio.",
+    projectFit:
+      "Pensado para dueños que necesitan reels concretos para explicar, vender o mostrar el negocio con una entrega sencilla y publicable.",
     faqs: [
       {
         question: "¿Puedo pedir solo edición de reels?",
@@ -300,7 +320,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         question: "¿Los reels pueden ser bilingues?",
         answer:
-          "Sí. Se pueden preparar captions o versiones en español e inglés según la audiencia.",
+          "Se pueden cotizar captions o versiones en español e inglés según la audiencia y el material.",
       },
     ],
   },
@@ -330,8 +350,8 @@ export const spanishNichePages: SpanishNichePage[] = [
       "Clips del equipo, cocina o proceso.",
       "Entrega organizada por uso: menu, web, redes y anuncios.",
     ],
-    searchIntent:
-      "Construye una página de nicho para dueños hispanos de restaurantes que buscan resultados prácticos, no lenguaje de agencia.",
+    projectFit:
+      "Funciona para restaurantes que necesitan mostrar platos, ambiente y equipo en una misma visita, con piezas organizadas por canal y uso.",
     faqs: [
       {
         question: "¿Se puede grabar durante servicio?",
@@ -355,7 +375,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Real estate / propiedades / listings",
     h1: "Drone para real estate en Miami cuando la propiedad necesita contexto.",
     lead:
-      "Las tomas aéreas ayudan a explicar ubicación, escala, exterior, acceso y estilo de vida. Esteban combina drone, video en tierra y cortes verticales para agentes y propiedades.",
+      "Las tomas aéreas ayudan a explicar ubicación, escala, exterior y acceso. Se cotizan solo cuando puede confirmarse un piloto acreditado y las condiciones legales y operativas del vuelo.",
     keyword: "drone real estate Miami",
     location: "Miami / Broward",
     icon: Home,
@@ -366,23 +386,23 @@ export const spanishNichePages: SpanishNichePage[] = [
       "Contenido para Instagram, YouTube Shorts, websites y anuncios.",
     ],
     deliverables: [
-      "Tomas aéreas exteriores cuando clima y reglas lo permitan.",
+      "Tomas aéreas exteriores cuando se confirme piloto acreditado, clima, permisos y espacio aéreo.",
       "Video de recorrido con tomas en tierra.",
       "Fotos o stills seleccionados.",
       "Versiones para listing, redes y presentacion.",
     ],
-    searchIntent:
-      "Captura el cruce entre búsqueda hispana, real estate visual y necesidad concreta de drone/video en South Florida.",
+    projectFit:
+      "Ayuda a agentes y propietarios a mostrar ubicación, escala y contexto con una mezcla de tomas aéreas y cobertura desde tierra.",
     faqs: [
       {
         question: "¿Siempre se puede volar drone?",
         answer:
-          "No siempre. Depende de clima, locación, restricciones de espacio aéreo y seguridad del área.",
+          "No. Depende de piloto acreditado disponible, clima, permiso de la propiedad, espacio aéreo y seguridad del área.",
       },
       {
         question: "¿Sirve para agentes bilingues?",
         answer:
-          "Sí. La planificación y entrega pueden considerar audiencias en español e inglés.",
+          "Sí. La planificación puede hacerse en español y la entrega puede considerar audiencias en español e inglés.",
       },
     ],
   },
@@ -392,6 +412,7 @@ export const spanishCoreRoutes = [
   "/es",
   "/es/servicios",
   "/es/areas",
+  "/es/areas/palm-beach-county",
   "/es/sobre-esteban",
   "/es/contacto",
 ];
@@ -400,49 +421,69 @@ export const languageAlternates: Record<string, Record<string, string>> = {
   "/": {
     "en-US": "/",
     "es-US": "/es",
+    "x-default": "/",
   },
   "/services": {
     "en-US": "/services",
     "es-US": "/es/servicios",
+    "x-default": "/services",
   },
   "/areas": {
     "en-US": "/areas",
     "es-US": "/es/areas",
+    "x-default": "/areas",
+  },
+  "/areas/palm-beach-county": {
+    "en-US": "/areas/palm-beach-county",
+    "es-US": "/es/areas/palm-beach-county",
+    "x-default": "/areas/palm-beach-county",
   },
   "/about": {
     "en-US": "/about",
     "es-US": "/es/sobre-esteban",
+    "x-default": "/about",
   },
   "/contact": {
     "en-US": "/contact",
     "es-US": "/es/contacto",
+    "x-default": "/contact",
   },
   "/es": {
     "en-US": "/",
     "es-US": "/es",
+    "x-default": "/",
   },
   "/es/servicios": {
     "en-US": "/services",
     "es-US": "/es/servicios",
+    "x-default": "/services",
   },
   "/es/areas": {
     "en-US": "/areas",
     "es-US": "/es/areas",
+    "x-default": "/areas",
+  },
+  "/es/areas/palm-beach-county": {
+    "en-US": "/areas/palm-beach-county",
+    "es-US": "/es/areas/palm-beach-county",
+    "x-default": "/areas/palm-beach-county",
   },
   "/es/sobre-esteban": {
     "en-US": "/about",
     "es-US": "/es/sobre-esteban",
+    "x-default": "/about",
   },
   "/es/contacto": {
     "en-US": "/contact",
     "es-US": "/es/contacto",
+    "x-default": "/contact",
   },
 };
 
 export const spanishProofPrinciples = [
-  "Esteban trabaja en español o inglés, desde el brief hasta los cambios finales.",
+  "El español es el idioma principal de Esteban; también hay comunicación de trabajo disponible en inglés.",
   "La página publica solo prueba real: trabajos reales, enlaces reales y testimonios reales cuando existan.",
-  "Foto, video, drone y edición se planean como un solo sistema visual, no como piezas sueltas.",
+  "La edición, el contenido con IA, la planificación y la captura se conectan a una meta comercial.",
   "El scope queda claro antes de grabar: entregables, formatos, fecha y uso final.",
 ];
 
@@ -450,7 +491,7 @@ export const spanishTrustQuestions = [
   {
     question: "¿Por qué una página en español?",
     answer:
-      "Porque muchos dueños, agentes, restaurantes y creadores en Miami y Broward prefieren explicar el proyecto en español. Eso reduce fricción y evita malos entendidos en el scope.",
+      "Porque muchos dueños, agentes, restaurantes y creadores en Broward, Miami-Dade y Palm Beach prefieren explicar el proyecto en español. Eso reduce fricción y evita malos entendidos en el scope.",
   },
   {
     question: "¿Hay prueba real publicada?",
@@ -460,7 +501,7 @@ export const spanishTrustQuestions = [
   {
     question: "¿Qué hace diferente a Esteban?",
     answer:
-      "No se posiciona solo como operador de drone o fotógrafo. El valor está en conectar captura, edición y entrega para que el negocio tenga contenido útil.",
+      "Ofrece atención directa y personalizada, hace preguntas antes de producir y aporta la perspectiva de haber administrado su propia marca en línea durante cinco años.",
   },
 ];
 
@@ -471,31 +512,31 @@ export const spanishRoutes = [
 
 export const spanishPackages = [
   {
-    name: "Edicion de reel",
-    price: "Desde $75",
+    name: "Edición remota",
+    price: "Cotización",
     description:
-      "Para material ya grabado que necesita ritmo, captions, color y exporte final.",
+      "Para material ya grabado que necesita un reel o un lote de piezas con alcance definido.",
   },
   {
-    name: "Shoot local",
-    price: "Desde $150",
+    name: "Plan mensual",
+    price: "Cotización",
     description:
-      "Una visita enfocada para un negocio, restaurante, propiedad o creador local.",
+      "Estrategia, frecuencia y mezcla de formatos definidas según las necesidades del negocio.",
   },
   {
-    name: "Dia de contenido",
-    price: "Cotizado",
+    name: "Proyecto en locación",
+    price: "Cotización",
     description:
-      "Media jornada o jornada completa para varios entregables de foto, video y redes.",
+      "Producción local con traslado, método de captura, entregables y plazo confirmados antes de reservar.",
   },
 ];
 
 export const spanishOpportunitySignals = [
   {
-    label: "Mercado hispano",
-    value: "Miami-Dade",
-    detail: "Mayor oportunidad para páginas y CTAs en español.",
-    icon: Store,
+    label: "Atención",
+    value: "Español primero",
+    detail: "Brief, preguntas y cambios con comunicación directa.",
+    icon: Languages,
   },
   {
     label: "Base local",
@@ -504,10 +545,10 @@ export const spanishOpportunitySignals = [
     icon: Building2,
   },
   {
-    label: "Oferta",
-    value: "Foto + video + drone",
-    detail: "Mejor que competir solo por fotografía de bodas o directorios.",
-    icon: Plane,
+    label: "Trabajo remoto",
+    value: "Edición + estrategia",
+    detail: "Proyectos sin depender de una grabación presencial.",
+    icon: Laptop,
   },
 ];
 

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Mail, Send } from "lucide-react";
+import { ArrowRight, Mail, Phone, Send } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import { site } from "@/lib/site";
@@ -20,11 +20,11 @@ export function ContactCta() {
               id="contact-heading"
               className="mt-3 font-serif text-4xl leading-tight sm:text-5xl"
             >
-              Send the date, the location, and what success looks like.
+              Send the goal, deadline, and what you already have.
             </h2>
             <p className="mt-5 text-base leading-7 text-[#d8d0c7] sm:text-lg sm:leading-8">
-              A few lines is enough. Esteban replies with a quote, a question,
-              or a calendar link — whichever moves the project forward fastest.
+              A few lines is enough. Esteban follows up with the questions needed
+              to define the deliverables, timeline, and project-specific quote.
             </p>
             <div className="mt-7">
               <Link
@@ -54,6 +54,28 @@ export function ContactCta() {
                     </span>
                     <span className="block font-serif text-lg">
                       {site.email}
+                    </span>
+                  </span>
+                </span>
+                <ArrowRight className="size-4" aria-hidden="true" />
+              </a>
+            </li>
+            <li>
+              <a
+                href={site.phone.href}
+                className="flex min-h-16 items-center justify-between gap-4 rounded-lg border border-white/15 bg-white/5 p-4 transition hover:border-[#e85d3e] hover:bg-white/10"
+              >
+                <span className="flex items-center gap-3">
+                  <Phone
+                    className="size-5 text-[#f0b384]"
+                    aria-hidden="true"
+                  />
+                  <span>
+                    <span className="block text-[0.65rem] uppercase tracking-wide text-[#d8d0c7]">
+                      Phone
+                    </span>
+                    <span className="block font-serif text-lg">
+                      {site.phone.display}
                     </span>
                   </span>
                 </span>

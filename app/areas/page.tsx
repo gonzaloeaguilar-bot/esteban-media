@@ -4,12 +4,12 @@ import { ArrowRight, MapPin } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import { languageAlternates } from "@/lib/spanish-site";
-import { absoluteUrl, serviceAreas, site } from "@/lib/site";
+import { absoluteUrl, serviceAreas } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Service Areas",
   description:
-    "Esteban Moreno Media serves Fort Lauderdale, Broward County, and Miami-Dade for video, photography, drone, and editing work.",
+    "Esteban Moreno Media is based in Fort Lauderdale, normally works in Broward and Miami, and considers Palm Beach County projects by quote.",
   alternates: {
     canonical: "/areas",
     languages: languageAlternates["/areas"],
@@ -26,15 +26,17 @@ export default function AreasPage() {
       "@type": "ListItem",
       position: index + 1,
       item: {
-        "@type": "Place",
+        "@type": area.schemaType,
         name: area.name,
         description: area.description,
-        containedInPlace: area.county,
-        subjectOf: {
-          "@type": "LocalBusiness",
-          name: site.name,
-          url: absoluteUrl("/"),
-        },
+        ...(area.schemaType === "City"
+          ? {
+              containedInPlace: {
+                "@type": "AdministrativeArea",
+                name: area.county,
+              },
+            }
+          : {}),
       },
     })),
   };
@@ -55,11 +57,13 @@ export default function AreasPage() {
             Fort Lauderdale-based, South Florida practical.
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-            Most work starts near Fort Lauderdale. Broward is regular territory,
-            and Miami-Dade gets quoted with realistic travel and timing.
+            Esteban normally works in Broward and Miami. Palm Beach County is an
+            expansion area, with Boca Raton and other locations considered by
+            quote. A travel fee may apply beyond 20 miles from Fort Lauderdale,
+            and required parking is added to the quote.
           </p>
 
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
+          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {serviceAreas.map((area) => (
               <article
                 key={area.name}
@@ -83,6 +87,15 @@ export default function AreasPage() {
                     </span>
                   ))}
                 </div>
+                {area.href !== "/areas" ? (
+                  <Link
+                    href={area.href}
+                    className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#c84a2c] hover:text-[#9f351f]"
+                  >
+                    Explore {area.name}
+                    <ArrowRight className="size-4" aria-hidden="true" />
+                  </Link>
+                ) : null}
               </article>
             ))}
           </div>

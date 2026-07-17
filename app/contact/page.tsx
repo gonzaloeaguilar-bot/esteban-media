@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Mail, MessageSquareText, Send } from "lucide-react";
+import { Mail, MessageSquareText, Phone, Send } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import { languageAlternates } from "@/lib/spanish-site";
@@ -8,7 +8,7 @@ import { services, site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contact Esteban Moreno Media for video, photography, drone, editing, and local business content in Fort Lauderdale and South Florida.",
+    "Contact Esteban Moreno Media for video editing, AI-assisted content, social planning, and scoped South Florida production.",
   alternates: {
     canonical: "/contact",
     languages: languageAlternates["/contact"],
@@ -26,12 +26,17 @@ export default function ContactPage() {
                 Contact
               </p>
               <h1 className="mt-4 max-w-3xl font-serif text-5xl leading-none sm:text-6xl">
-                Tell Esteban what you are shooting.
+                Tell Esteban what you need to publish.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
                 Send a short brief with the date, location, service type, and
                 where the finished assets will be used. A few specific details
                 are better than a long creative deck.
+              </p>
+              <p className="mt-4 max-w-2xl text-sm leading-6 text-[#5a6066]">
+                Esteban Moreno Media is a remote-first service-area business.
+                There is no client-facing studio; consultations happen by phone
+                or video call, and local work is quoted by location.
               </p>
 
               <div className="mt-8 grid gap-3">
@@ -45,6 +50,18 @@ export default function ContactPage() {
                       Email
                     </span>
                     <span>{site.email}</span>
+                  </span>
+                </a>
+                <a
+                  href={site.phone.href}
+                  className="flex min-h-16 items-center gap-4 rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-4 hover:border-[#e85d3e]"
+                >
+                  <Phone className="size-5 text-[#e85d3e]" aria-hidden="true" />
+                  <span>
+                    <span className="block text-xs uppercase text-[#5a6066]">
+                      Phone
+                    </span>
+                    <span>{site.phone.display}</span>
                   </span>
                 </a>
                 <a
@@ -78,11 +95,13 @@ export default function ContactPage() {
                 </li>
                 <li>
                   <strong className="text-[#101214]">Location:</strong> city,
-                  venue, property, or address if available.
+                  venue, property, or address if available. A travel fee may
+                  apply beyond 20 miles from Fort Lauderdale; required parking
+                  is added to the quote.
                 </li>
                 <li>
-                  <strong className="text-[#101214]">Timeline:</strong> shoot
-                  date, launch date, and whether rush delivery matters.
+                  <strong className="text-[#101214]">Timeline:</strong> shoot or
+                  handoff date, launch date, and whether urgent delivery matters.
                 </li>
                 <li>
                   <strong className="text-[#101214]">Outcome:</strong> where the

@@ -9,7 +9,7 @@ import { languageAlternates } from "@/lib/spanish-site";
 export const metadata: Metadata = {
   title: "About Esteban Moreno",
   description:
-    "About Esteban Moreno, a Fort Lauderdale visual storyteller working across video, photography, drone, and post-production.",
+    "About Esteban Moreno, a Fort Lauderdale video editor and content partner focused on editing, AI-assisted creative, social planning, and scoped production.",
   alternates: {
     canonical: "/about",
     languages: languageAlternates["/about"],
@@ -17,10 +17,10 @@ export const metadata: Metadata = {
 };
 
 const principles = [
-  "Visual storyteller first. Drone is one tool, not the whole identity.",
+  "Personal, direct communication from the first questions through final delivery.",
   "Real proof only. No invented logos, testimonials, or view-count promises.",
-  "Bilingual-friendly for South Florida clients and deliverables.",
-  "Scope stays visible so the client knows what happens next.",
+  "Spanish-first service with practical English communication available.",
+  "A typical project includes two review rounds; the exact scope is confirmed up front.",
 ];
 
 export default function AboutPage() {
@@ -34,14 +34,14 @@ export default function AboutPage() {
                 About
               </p>
               <h1 className="mt-4 max-w-3xl font-serif text-5xl leading-none sm:text-6xl">
-                Camera-first, edit-led, local by design.
+                Edit-led, business-minded, personal by design.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-                Esteban Moreno is a Fort Lauderdale visual storyteller working
-                across video, photography, aerial visuals, and post-production.
-                His work is built for local businesses and people who need
-                clean capture, clean edits, and a simple path from idea to final
-                files.
+                Esteban studied Audiovisual Communication at Universidad de
+                Medellín and has worked across e-commerce, fitness, restaurants,
+                sports, real estate, and local business content. Running his own
+                online brand for five years taught him to connect every creative
+                decision to the business behind it.
               </p>
               <div className="mt-8 grid gap-3">
                 {principles.map((principle) => (

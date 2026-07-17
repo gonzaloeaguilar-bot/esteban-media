@@ -1,45 +1,39 @@
-# esteban-media — Backlog
+# Esteban Moreno Media — Backlog
 
-> **Cortex protocol:** items tagged `P0`/`P1`/`P2` get picked up nightly. Mark `- [x]` + append ` — Done YYYY-MM-DD` when complete. Auto-merge policy in `CLAUDE.md` + `context-snapshot.md`.
+Production is live. This file tracks repository implementation; account/access work is also tracked in Obsidian.
 
-## P0
+## P0 — Search establishment
 
-- [x] `P0` **Scaffold Next.js 15 App Router + TypeScript + Tailwind v4 + shadcn/ui** — Create package.json (pnpm), tsconfig.json (strict), tailwind.config.ts, app/ directory with layout.tsx + page.tsx, components/ui/ shadcn primitives (button, card, container). Verify `pnpm dev` boots clean on localhost:3000. Commit. `scaffold` — Done 2026-05-12
+- [ ] Verify Google Search Console and submit `/sitemap.xml`
+- [ ] Request indexing for the primary English/Spanish, service, and area pages
+- [ ] Create or claim one legitimate hidden-address service-area Google Business Profile
 
-- [x] `P0` **Build homepage with hero + services strip + CTA** — `app/page.tsx`: cinematic hero (placeholder video bg from Vercel public sample), 5-service strip (drone, photo, video, video edit, photo edit) with icons + 1-liner each, About teaser, Contact CTA. Tailwind only, no shadcn dialogs yet. Mobile-first. `home` — Done 2026-05-25
+## P0 — Real proof
 
-- [ ] `P0` **Build services overview page** — `app/services/page.tsx`: grid of 5 service cards linking to individual pages (those pages don't exist yet — link to `/services/[slug]` with placeholder content for missing slugs). Add to top nav. `services`
+- [ ] Add Esteban's approved logo, headshot, and reel
+- [ ] Replace all proof placeholders with 6–12 approved work samples
+- [ ] Publish 4–6 case studies with truthful location, deliverables, process, and outcome
+- [ ] Add genuine reviews/testimonials after permission
 
-## P1
+## P1 — Technical SEO / GEO / ALOHA
 
-- [ ] `P1` **Build individual service pages (5 routes)** — `app/services/aerial`, `/photography`, `/videography`, `/video-editing`, `/photo-editing`. Each: hero, "what's included" list, sample work gallery (placeholders), inquiry CTA. Same layout, parameterized via JSON or MDX. `services`
+- [ ] Render Spanish pages with document-level `lang="es-US"`
+- [ ] Add a branded 1200×630 Open Graph image and logo/image schema
+- [ ] Tighten long titles and homepage descriptions
+- [ ] Add one direct entity/service/location sentence above the homepage fold
+- [ ] Add `VideoObject`, `ImageObject`, and `CreativeWork` schema with real published media
+- [ ] Add English priority-service pages when distinct, verified content is ready
 
-- [ ] `P1` **Build About Esteban page** — `app/about/page.tsx`: placeholder bio (mark with `<!-- TODO: real bio from Esteban -->`), professional headshot placeholder, brand statement, list of equipment. Bilingual structure ready (use placeholder ES content). `about`
+## P1 — Product and measurement
 
-- [ ] `P1` **Build Contact page with working form** — `app/contact/page.tsx` + `app/api/contact/route.ts`. Form fields: name, email, project type (dropdown of 5 services), budget range, message. Submits via Resend or Formspree to `gagui010@icloud.com`. Include honeypot field for spam. Confirm on submit. `contact`
+- [ ] Add an accessible portfolio/case-study experience backed by real assets
+- [ ] Connect analytics and define organic/local/AI referral reporting
+- [ ] Add a minimal route/metadata/sitemap smoke suite
 
-- [ ] `P1` **Wire next-intl bilingual EN/ES** — Add next-intl, locale routing at `/en/*` and `/es/*`, default to EN, language switcher in header. Translate all current copy to ES (flag `<!-- TRANSLATION REVIEW NEEDED -->` on each block). `i18n`
+## Completed foundation
 
-## P2
-
-- [ ] `P2` **Add LocalBusiness + Service + Person schema JSON-LD** — Inject in `app/layout.tsx` (LocalBusiness for the org, Person for Esteban) and on each service page (Service schema with provider ref). Use real social handles when known; placeholder until then. `seo`
-
-- [ ] `P2` **SEO meta + OG image defaults** — `app/layout.tsx` metadata with title template, description, OG image (placeholder), Twitter card. Per-page metadata exports on home/services/about/contact. `seo`
-
-- [ ] `P2` **Add robots.txt + dynamic sitemap.xml** — `app/robots.ts` allowing all, `app/sitemap.ts` listing all routes. Reference sitemap from robots. `seo`
-
-- [ ] `P2` **Lighthouse perf pass — hit 95+ on Performance/SEO/Accessibility** — Run Lighthouse against local build, fix flagged issues (next/image, font swap, prefers-reduced-motion, alt text, heading order). `perf`
-
-- [ ] `P2` **GitHub repo + Vercel deploy** `needs-human` — Create GitHub repo `esteban-media` under gonzaloeaguilar-bot, push, link to Vercel, get preview URL. Drafts a proposal because requires GH/Vercel auth interactions. `infra`
-
-- [x] `P2` **Portfolio/proof data model** — Add a typed portfolio source that can support Instagram embeds now and self-hosted video posters later. Group by Reels, real estate, restaurants, aerial, events, and business promos. `proof` — Done 2026-05-23
-
-- [ ] `P2` **Build /portfolio page + PortfolioStrip component** — Consume `lib/portfolio.ts` data model. Category index page at `/portfolio` with cards per `PORTFOLIO_CATEGORIES`, dynamic `/portfolio/[slug]` per-category page, and a homepage `<PortfolioStrip />` that reads `getFeaturedPortfolioItems()`. Render Instagram embeds via oEmbed when `media.kind === "instagram"`; render dimmed "Coming soon" tile when `media.kind === "placeholder"`. Depends on P0 scaffold + P1 i18n. `proof`
-
-- [ ] `P2` **Source real Instagram permalinks from Esteban** `needs-human` — Replace placeholder portfolio items in `lib/portfolio.ts` with real IG permalinks (≥1 live item per category). Flip `status` from `placeholder` → `live`. `proof`
-
-## Notes
-
-- Esteban hasn't delivered real photos/videos yet — use placeholders, mark with `<!-- TODO: real asset from Esteban -->`. Don't generate AI images.
-- Domain TBD. All `metadataBase` should use Vercel preview URL until set.
-- Bilingual: EN copy first, ES second. ES translation must be flagged for native-speaker review.
+- [x] Next.js 15 App Router, TypeScript, Tailwind, and Vitest
+- [x] Bilingual English/Spanish core site and Spanish local-intent pages
+- [x] Services, areas, About, contact, Palm Beach expansion, schema, sitemap, robots, and `llms.txt`
+- [x] Canonical custom domain and Vercel production deployment
+- [x] Dedicated Obsidian project module and repository governance

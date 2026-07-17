@@ -14,15 +14,15 @@ import { absoluteUrl, site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Sobre Esteban Moreno",
   description:
-    "Conoce a Esteban Moreno, creador visual en Fort Lauderdale que trabaja en español e inglés para video, fotografía, drone, reels y edición.",
+    "Conoce a Esteban Moreno, comunicador audiovisual en Fort Lauderdale enfocado en edición, contenido con IA, estrategia para redes y producción por proyecto.",
   alternates: {
     canonical: "/es/sobre-esteban",
     languages: languageAlternates["/es/sobre-esteban"],
   },
   openGraph: {
-    title: "Sobre Esteban Moreno | Creador visual en South Florida",
+    title: "Sobre Esteban Moreno | Editor y creador de contenido",
     description:
-      "Fotografía, video, drone, reels y edición para negocios latinos en Miami, Broward y Fort Lauderdale.",
+      "Edición, contenido con IA, estrategia para redes y producción por proyecto para negocios en South Florida.",
     url: absoluteUrl("/es/sobre-esteban"),
     locale: "es_US",
     siteName: site.name,
@@ -36,17 +36,19 @@ const personJsonLd = {
   "@id": absoluteUrl("/#esteban"),
   name: "Esteban Moreno",
   url: absoluteUrl("/es/sobre-esteban"),
-  jobTitle: "Creador visual, videógrafo, fotógrafo y editor",
+  jobTitle: "Comunicador audiovisual, editor de video y creador de contenido",
   worksFor: {
     "@type": "LocalBusiness",
     "@id": absoluteUrl("/#business"),
     name: site.name,
   },
   knowsLanguage: ["Spanish", "English"],
-  workLocation: {
-    "@type": "Place",
-    name: "Fort Lauderdale, Broward County, Miami-Dade",
-  },
+  workLocation: [
+    { "@type": "City", name: "Fort Lauderdale, Florida" },
+    { "@type": "AdministrativeArea", name: "Broward County, Florida" },
+    { "@type": "AdministrativeArea", name: "Miami-Dade County, Florida" },
+    { "@type": "AdministrativeArea", name: "Palm Beach County, Florida" },
+  ],
   sameAs: [site.instagram],
 };
 
@@ -68,14 +70,14 @@ export default function SpanishAboutPage() {
                 Sobre Esteban
               </p>
               <h1 className="mt-4 max-w-3xl font-serif text-5xl leading-none sm:text-6xl">
-                Un creador visual bilingüe para negocios de South Florida.
+                Atención directa en español, con mirada creativa y de negocio.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-                Esteban Moreno está basado en Fort Lauderdale y trabaja con
-                video, fotografía, drone, reels y postproducción. La ventaja
-                para clientes latinos es simple: puedes explicar el proyecto,
-                revisar cambios y cerrar entregables en español sin perder
-                claridad técnica.
+                Esteban estudió Comunicación Audiovisual en la Universidad de
+                Medellín. Su experiencia incluye edición, contenido para redes,
+                real estate, restaurantes, deportes y fotografía de producto.
+                Además, lideró durante cinco años una marca en línea, experiencia
+                que hoy aporta a su forma de entender las metas del cliente.
               </p>
               <div className="mt-8 grid gap-3">
                 {spanishProofPrinciples.map((principle) => (
@@ -121,9 +123,9 @@ export default function SpanishAboutPage() {
                 Lo que falta publicar también queda claro.
               </h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                Esta capa ayuda a SEO y GEO, pero también protege la credibilidad:
-                no usamos prueba inventada. Cuando haya media real, esta página
-                debe apuntar a los reels, fotos, testimonios y ejemplos.
+                La credibilidad empieza con hechos verificables: no usamos prueba
+                inventada. Cuando haya material real, esta página mostrará los
+                reels, fotos, testimonios y ejemplos correspondientes.
               </p>
             </div>
             <div className="grid gap-3">

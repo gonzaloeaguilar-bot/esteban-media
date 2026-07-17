@@ -1,31 +1,23 @@
-# Autonomy Policy — esteban-media
+# Autonomy Policy — Esteban Moreno Media
 
-> **MAX AUTONOMY LANE.** No real users yet. Domain TBD. Cost of a bad ship ≈ $0. This is the cortex stress test for full-auto pipelines.
+The website is production-live. Safe, reversible work remains highly autonomous, but release gates and business-claim boundaries now apply.
 
-## L0 — Auto-merge to main after CI green
+## Safe after validation
 
-Everything not in L3:
+- Components, styles, accessibility, performance, and tests
+- Factual copy corrections and approved bilingual content
+- Metadata, sitemap, robots, schema, internal links, and `llms.txt`
+- Documentation, handoffs, and project-system maintenance
+- Production deployment after CI/local gates pass and the diff contains no hard-stop item
 
-- `**/*` (all paths default to L0 here)
+## Explicit approval required
 
-## L1 — Not used on this project
+- DNS/domain transfer, destructive Vercel changes, rollback, or force-push
+- Credentials, secrets, CAPTCHA, 2FA, identity/address verification, or account ownership changes
+- Paid services, purchases, ads, or new recurring costs
+- Public client names, logos, footage, reviews, results, prices, turnaround, credentials, or other unverified claims
+- External outreach, review requests, contracts, invoices, or customer commitments
 
-## L2 — Not used on this project
+## Required gates
 
-## L3 — NEVER auto-merge
-
-Only the things that have real-world cost or are hard to reverse:
-
-- `package.json` — only major version bumps (any `^X` → `^Y` where X != Y on next/react/typescript)
-- `package-lock.json` / `pnpm-lock.yaml` — only when accompanying an L3 package.json change
-- `next.config.{js,ts,mjs}` — domain config, redirects, headers (anything DNS-adjacent)
-- `vercel.json` — deploy target, env, redirects
-- `.github/workflows/**` — CI/CD
-- Anything that adds a paid service dependency without budget approval (e.g., Resend paid plan, Cloudinary paid plan, Mux)
-
-## Rules
-
-- L0 = the everything lane. Tailwind tweaks, component refactors, copy changes, schema additions, sitemap, robots — all auto-merge.
-- Patch/minor dep bumps on dependencies that aren't framework-level → L0.
-- ES translations always L0 (flagged `<!-- TRANSLATION REVIEW NEEDED -->` so Gonzalo reviews on natural cadence, but they ship).
-- When in doubt about whether something is L0 or L3, downgrade to L3 (PR and wait).
+Use a pull request, pass `pnpm check`, review production/business-claim impact, merge to `main`, and smoke-test the canonical site. Record material decisions in `.ai/handoff.md` and the Esteban Media Obsidian module.

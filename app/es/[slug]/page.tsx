@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowRight, CheckCircle2, Mail, Send } from "lucide-react";
+import { ArrowRight, CheckCircle2, Mail, Phone, Send } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import {
@@ -70,6 +70,7 @@ export default async function SpanishNichePage({ params }: PageProps) {
       name: site.name,
       url: absoluteUrl("/"),
       email: site.email,
+      telephone: site.phone.e164,
     },
     areaServed: page.location,
     availableLanguage: ["Spanish", "English"],
@@ -117,14 +118,14 @@ export default async function SpanishNichePage({ params }: PageProps) {
 
             <aside className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
               <Icon className="size-7 text-[#e85d3e]" aria-hidden="true" />
-              <h2 className="mt-5 font-serif text-3xl">Intent de búsqueda</h2>
+              <h2 className="mt-5 font-serif text-3xl">¿Para qué proyecto encaja?</h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                {page.searchIntent}
+                {page.projectFit}
               </p>
               <dl className="mt-6 grid gap-3">
                 <div className="rounded-md border border-[#ddd4c8] p-3">
                   <dt className="text-xs uppercase text-[#5a6066]">
-                    Keyword principal
+                    Servicio
                   </dt>
                   <dd className="mt-1 font-serif text-xl">{page.keyword}</dd>
                 </div>
@@ -223,6 +224,13 @@ export default async function SpanishNichePage({ params }: PageProps) {
                 >
                   <Mail className="size-4" aria-hidden="true" />
                   Email
+                </a>
+                <a
+                  href={site.phone.href}
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-[#101214] px-5 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"
+                >
+                  <Phone className="size-4" aria-hidden="true" />
+                  Llamar
                 </a>
                 <a
                   href={site.instagram}
