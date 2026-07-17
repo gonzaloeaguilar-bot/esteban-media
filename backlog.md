@@ -11,7 +11,7 @@ Production is live. This file tracks repository implementation; account/access w
 ## P0 — Real proof
 
 - [ ] Add Esteban's approved logo, headshot, and reel
-- [ ] Replace all proof placeholders with 6–12 approved work samples
+- [x] Publish eight approved, public work samples in English and Spanish
 - [ ] Publish 4–6 case studies with truthful location, deliverables, process, and outcome
 - [ ] Add genuine reviews/testimonials after permission
 
@@ -21,14 +21,21 @@ Production is live. This file tracks repository implementation; account/access w
 - [ ] Add a branded 1200×630 Open Graph image and logo/image schema
 - [ ] Tighten long titles and homepage descriptions
 - [ ] Add one direct entity/service/location sentence above the homepage fold
-- [ ] Add `VideoObject`, `ImageObject`, and `CreativeWork` schema with real published media
+- [x] Add `VideoObject` collection schema for all eight published videos
+- [ ] Add `ImageObject`/logo schema when approved brand photography and logo files are available
 - [ ] Add English priority-service pages when distinct, verified content is ready
 
 ## P1 — Product and measurement
 
-- [ ] Add an accessible portfolio/case-study experience backed by real assets
+- [x] Add an accessible bilingual portfolio backed by real public work
 - [ ] Connect analytics and define organic/local/AI referral reporting
-- [ ] Add a minimal route/metadata/sitemap smoke suite
+- [x] Add route metadata, sitemap, portfolio schema, and data tests
+
+## P2 — Portfolio refinement
+
+- [ ] Replace the 480×360 `La Huelga` poster with an approved 16:9 high-resolution source
+- [ ] Complete Esteban/native-speaker voice review of the Spanish portfolio copy
+- [ ] Add dedicated watch/case-study pages after project roles, locations, deliverables, and outcomes are verified
 
 ## Completed foundation
 

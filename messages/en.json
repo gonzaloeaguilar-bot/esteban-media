@@ -1,41 +1,87 @@
 {
   "Portfolio": {
     "eyebrow": "Selected work",
-    "title": "Stories shot, edited, and delivered.",
-    "subtitle": "Reels, real estate, restaurants, aerial, events, and business promos — six lanes, one visual storyteller.",
-    "emptyState": "Sample work coming soon — Esteban is uploading fresh references.",
+    "title": "Eight projects. One evolving visual practice.",
+    "subtitle": "Selected animation, promotional video, social content, event, editing, and narrative work from Esteban's portfolio.",
+    "emptyState": "No projects match this filter.",
     "viewAllCta": "See the full portfolio",
+    "watchCta": "Watch on YouTube",
+    "creditsLabel": "Credits",
+    "yearLabel": "Year",
+    "locationLabel": "Location",
     "filterAll": "All",
     "categories": {
-      "reels": {
-        "title": "Reels",
-        "description": "Short-form vertical video built for Instagram + TikTok feeds.",
-        "shortLabel": "Reels"
-      },
-      "real-estate": {
-        "title": "Real Estate",
-        "description": "Listing walkthroughs and aerial property tours that move properties faster.",
-        "shortLabel": "Real estate"
-      },
-      "restaurants": {
-        "title": "Restaurants",
-        "description": "Food, atmosphere, and brand films that make a venue look hungry-good.",
-        "shortLabel": "Restaurants"
-      },
-      "aerial": {
-        "title": "Aerial",
-        "description": "Drone cinematography — coastlines, properties, events, and skyline reveals.",
-        "shortLabel": "Aerial"
-      },
-      "events": {
-        "title": "Events",
-        "description": "Recaps and same-day edits for weddings, launches, and brand activations.",
-        "shortLabel": "Events"
+      "animation": {
+        "title": "Animation",
+        "description": "3D motion, key visuals, and product imagery developed for brand storytelling.",
+        "shortLabel": "Animation"
       },
       "business-promos": {
         "title": "Business Promos",
-        "description": "Local-business spots that turn a service into a story worth sharing.",
+        "description": "Selected promotional videos created for brands and local businesses.",
         "shortLabel": "Promos"
+      },
+      "social-content": {
+        "title": "Social Content",
+        "description": "Video and visual work created for social-media publishing.",
+        "shortLabel": "Social"
+      },
+      "events": {
+        "title": "Events",
+        "description": "Wedding-film and event-focused work from the selected portfolio.",
+        "shortLabel": "Events"
+      },
+      "editing": {
+        "title": "Editing",
+        "description": "Scripted pieces and video edits shaped into a finished story.",
+        "shortLabel": "Editing"
+      },
+      "narrative": {
+        "title": "Narrative",
+        "description": "Short-film and narrative work centered on direction and cinematography.",
+        "shortLabel": "Narrative"
+      }
+    },
+    "items": {
+      "my-dler": {
+        "title": "My D'ler",
+        "summary": "A brand package spanning key visuals, social designs, a 3D video, and product mockups.",
+        "credits": "Brand key visuals, social designs, 3D video, and product mockups."
+      },
+      "banacol": {
+        "title": "Banacol",
+        "summary": "A Banacol project selected from Esteban's earlier portfolio.",
+        "credits": "Collaboration with Jungelbox agency in Medellín, Colombia."
+      },
+      "bar-door-monkey": {
+        "title": "Bar Door Monkey Miami",
+        "summary": "A Miami promotional video developed from pre-production through the final edit.",
+        "credits": "Pre-production, models, location, videography, and editing."
+      },
+      "healthy-smile": {
+        "title": "Healthy Smile Miami",
+        "summary": "A Miami promotional video shaped from sketch and script through filming and editing.",
+        "credits": "Sketch/script, videography, and editing."
+      },
+      "homeowners": {
+        "title": "Homeowners",
+        "summary": "A scripted video selected from Esteban's earlier portfolio.",
+        "credits": "Script and video editing."
+      },
+      "diana-jack": {
+        "title": "Diana & Jack",
+        "summary": "A wedding film selected from Esteban's earlier portfolio.",
+        "credits": "Wedding film selected for the portfolio; individual role not specified."
+      },
+      "la-huelga": {
+        "title": "La Huelga",
+        "summary": "Trailer for the short film La Huelga.",
+        "credits": "Direction and cinematography."
+      },
+      "ml-colombia": {
+        "title": "ML Colombia",
+        "summary": "A social-media video selected from Esteban's earlier portfolio.",
+        "credits": "Social-media portfolio work; individual role not specified."
       }
     },
     "status": {
