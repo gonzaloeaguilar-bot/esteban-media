@@ -10,9 +10,12 @@ Keep the production site reproducible, governed, private, and ready for the next
 - Vercel project: `esteban-media`
 - GitHub: `https://github.com/gonzaloeaguilar-bot/esteban-media` (private)
 - Canonical production branch: `main`; changes land through pull requests and CI.
+- Production baseline merged through PR #21; legacy automation PRs are closed and their branches remain available for selective recovery.
 - The former iCloud `origin` is preserved as the archival `icloud` remote and must not be used with `git fetch --all` while it remains invalid.
 - Repository contains internal interview/source documents and must remain private.
 - Local Graphify map: 271 nodes, 433 built edges, 22 labeled communities; generated output is ignored.
+- Vercel's GitHub integration is verified: `main` automatically produced Ready production deployment `dpl_kJs67KAr7ryxeHngcDQS8XrERki8` and all canonical aliases point to it.
+- GitHub branch protection is unavailable for this private repository on the current plan; PR/CI discipline is therefore enforced by repository policy rather than a server-side rule.
 
 ## Validation baseline
 
@@ -30,7 +33,7 @@ Keep the production site reproducible, governed, private, and ready for the next
 
 ## Next safe work
 
-1. Verify Vercel's GitHub production-branch connection.
-2. Begin Search Console/GBP setup.
-3. Replace proof placeholders with approved real assets and case studies.
-4. Correct Spanish document language and add the branded Open Graph asset.
+1. Begin Search Console/GBP setup.
+2. Replace proof placeholders with approved real assets and case studies.
+3. Correct Spanish document language and add the branded Open Graph asset.
+4. Add reviews, citations, and local links only as legitimate evidence becomes available.
