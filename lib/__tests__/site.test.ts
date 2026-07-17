@@ -23,6 +23,12 @@ describe("site contact details", () => {
       "https://www.youtube.com/@estebanmorenolopez3811",
     );
   });
+
+  it("keeps the Google Search Console verification token available", () => {
+    expect(site.googleSiteVerification).toBe(
+      "I70vr7LMsVyZc_VO4grb6fDxQXPTbhB7LIIFjJUlvUs",
+    );
+  });
 });
 
 describe("portfolio language routes", () => {

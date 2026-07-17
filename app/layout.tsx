@@ -51,6 +51,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  verification: {
+    google: site.googleSiteVerification,
+  },
 };
 
 const localBusinessJsonLd = {
