@@ -26,6 +26,7 @@ export const site = {
   },
   instagram: "https://www.instagram.com/steeban1/",
   youtube: "https://www.youtube.com/@estebanmorenolopez3811",
+  googleSiteVerification: "I70vr7LMsVyZc_VO4grb6fDxQXPTbhB7LIIFjJUlvUs",
   location: "Fort Lauderdale, FL",
   description:
     "Fort Lauderdale-based video editor and content partner for AI-assisted creative, social media planning, and scoped production across Broward, Miami-Dade, Palm Beach County, and remote projects.",
