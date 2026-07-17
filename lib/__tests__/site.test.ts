@@ -1,0 +1,57 @@
+import { describe, expect, it } from "vitest";
+
+import { languageAlternates, spanishAreas } from "../spanish-site";
+import { serviceAreas, site } from "../site";
+
+describe("site contact details", () => {
+  it("publishes Esteban's current email and phone number", () => {
+    expect(site.email).toBe("esmolopez@gmail.com");
+    expect(site.phone).toEqual({
+      display: "(305) 497-4478",
+      e164: "+13054974478",
+      href: "tel:+13054974478",
+    });
+    expect(site.phone.e164).toMatch(/^\+1\d{10}$/);
+  });
+});
+
+describe("Palm Beach County coverage", () => {
+  it("publishes the county in both language area lists", () => {
+    const englishArea = serviceAreas.find(
+      (area) => area.name === "Palm Beach County",
+    );
+    const spanishArea = spanishAreas.find(
+      (area) => area.name === "Palm Beach County",
+    );
+
+    expect(englishArea).toMatchObject({
+      county: "Palm Beach County, FL",
+      schemaType: "AdministrativeArea",
+      href: "/areas/palm-beach-county",
+    });
+    expect(englishArea?.neighborhoods).toEqual(
+      expect.arrayContaining(["Boca Raton", "West Palm Beach", "Jupiter"]),
+    );
+
+    expect(spanishArea).toMatchObject({
+      county: "Palm Beach County",
+      href: "/es/areas/palm-beach-county",
+    });
+    expect(spanishArea?.neighborhoods).toEqual(
+      expect.arrayContaining(["Boca Raton", "West Palm Beach", "Jupiter"]),
+    );
+  });
+
+  it("keeps reciprocal English, Spanish, and default language URLs", () => {
+    const englishPath = "/areas/palm-beach-county";
+    const spanishPath = "/es/areas/palm-beach-county";
+    const expectedAlternates = {
+      "en-US": englishPath,
+      "es-US": spanishPath,
+      "x-default": englishPath,
+    };
+
+    expect(languageAlternates[englishPath]).toEqual(expectedAlternates);
+    expect(languageAlternates[spanishPath]).toEqual(expectedAlternates);
+  });
+});

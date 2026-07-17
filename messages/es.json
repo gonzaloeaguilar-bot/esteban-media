@@ -1,0 +1,49 @@
+{
+  "_meta": {
+    "TRANSLATION_REVIEW_NEEDED": "ES copy below is AI-drafted from EN and must be reviewed by a native Spanish speaker (South Florida market) before going live. See CLAUDE.md bilingual rule."
+  },
+  "Portfolio": {
+    "eyebrow": "Trabajos seleccionados",
+    "title": "Historias filmadas, editadas y entregadas.",
+    "subtitle": "Reels, bienes raíces, restaurantes, tomas aéreas, eventos y promos de negocios — seis carriles, un narrador visual.",
+    "emptyState": "Pronto subimos muestras — Esteban está cargando referencias frescas.",
+    "viewAllCta": "Ver el portafolio completo",
+    "filterAll": "Todo",
+    "categories": {
+      "reels": {
+        "title": "Reels",
+        "description": "Video vertical de formato corto, hecho para feeds de Instagram y TikTok.",
+        "shortLabel": "Reels"
+      },
+      "real-estate": {
+        "title": "Bienes Raíces",
+        "description": "Recorridos de propiedades y tomas aéreas que mueven listings más rápido.",
+        "shortLabel": "Bienes raíces"
+      },
+      "restaurants": {
+        "title": "Restaurantes",
+        "description": "Comida, ambiente y películas de marca que hacen ver al local irresistible.",
+        "shortLabel": "Restaurantes"
+      },
+      "aerial": {
+        "title": "Aéreo",
+        "description": "Cinematografía con drone — costas, propiedades, eventos y panorámicas urbanas.",
+        "shortLabel": "Aéreo"
+      },
+      "events": {
+        "title": "Eventos",
+        "description": "Resúmenes y ediciones del mismo día para bodas, lanzamientos y activaciones de marca.",
+        "shortLabel": "Eventos"
+      },
+      "business-promos": {
+        "title": "Promos de Negocio",
+        "description": "Spots para negocios locales que convierten un servicio en una historia para compartir.",
+        "shortLabel": "Promos"
+      }
+    },
+    "status": {
+      "live": "En vivo",
+      "placeholder": "Próximamente"
+    }
+  }
+}

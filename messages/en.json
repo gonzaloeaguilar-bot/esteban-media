@@ -1,0 +1,46 @@
+{
+  "Portfolio": {
+    "eyebrow": "Selected work",
+    "title": "Stories shot, edited, and delivered.",
+    "subtitle": "Reels, real estate, restaurants, aerial, events, and business promos — six lanes, one visual storyteller.",
+    "emptyState": "Sample work coming soon — Esteban is uploading fresh references.",
+    "viewAllCta": "See the full portfolio",
+    "filterAll": "All",
+    "categories": {
+      "reels": {
+        "title": "Reels",
+        "description": "Short-form vertical video built for Instagram + TikTok feeds.",
+        "shortLabel": "Reels"
+      },
+      "real-estate": {
+        "title": "Real Estate",
+        "description": "Listing walkthroughs and aerial property tours that move properties faster.",
+        "shortLabel": "Real estate"
+      },
+      "restaurants": {
+        "title": "Restaurants",
+        "description": "Food, atmosphere, and brand films that make a venue look hungry-good.",
+        "shortLabel": "Restaurants"
+      },
+      "aerial": {
+        "title": "Aerial",
+        "description": "Drone cinematography — coastlines, properties, events, and skyline reveals.",
+        "shortLabel": "Aerial"
+      },
+      "events": {
+        "title": "Events",
+        "description": "Recaps and same-day edits for weddings, launches, and brand activations.",
+        "shortLabel": "Events"
+      },
+      "business-promos": {
+        "title": "Business Promos",
+        "description": "Local-business spots that turn a service into a story worth sharing.",
+        "shortLabel": "Promos"
+      }
+    },
+    "status": {
+      "live": "Live",
+      "placeholder": "Coming soon"
+    }
+  }
+}
