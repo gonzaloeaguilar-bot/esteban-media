@@ -1,6 +1,10 @@
 import { describe, expect, it } from "vitest";
 
-import { languageAlternates, spanishAreas } from "../spanish-site";
+import {
+  languageAlternates,
+  spanishAreas,
+  spanishRoutes,
+} from "../spanish-site";
 import { serviceAreas, site } from "../site";
 
 describe("site contact details", () => {
@@ -12,6 +16,28 @@ describe("site contact details", () => {
       href: "tel:+13054974478",
     });
     expect(site.phone.e164).toMatch(/^\+1\d{10}$/);
+  });
+
+  it("publishes Esteban's canonical YouTube channel", () => {
+    expect(site.youtube).toBe(
+      "https://www.youtube.com/@estebanmorenolopez3811",
+    );
+  });
+});
+
+describe("portfolio language routes", () => {
+  it("keeps reciprocal English, Spanish, and default portfolio URLs", () => {
+    const englishPath = "/portfolio";
+    const spanishPath = "/es/portafolio";
+    const expectedAlternates = {
+      "en-US": englishPath,
+      "es-US": spanishPath,
+      "x-default": englishPath,
+    };
+
+    expect(languageAlternates[englishPath]).toEqual(expectedAlternates);
+    expect(languageAlternates[spanishPath]).toEqual(expectedAlternates);
+    expect(spanishRoutes).toContain(spanishPath);
   });
 });
 

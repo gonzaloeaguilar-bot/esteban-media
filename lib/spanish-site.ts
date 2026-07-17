@@ -411,6 +411,7 @@ export const spanishNichePages: SpanishNichePage[] = [
 export const spanishCoreRoutes = [
   "/es",
   "/es/servicios",
+  "/es/portafolio",
   "/es/areas",
   "/es/areas/palm-beach-county",
   "/es/sobre-esteban",
@@ -427,6 +428,11 @@ export const languageAlternates: Record<string, Record<string, string>> = {
     "en-US": "/services",
     "es-US": "/es/servicios",
     "x-default": "/services",
+  },
+  "/portfolio": {
+    "en-US": "/portfolio",
+    "es-US": "/es/portafolio",
+    "x-default": "/portfolio",
   },
   "/areas": {
     "en-US": "/areas",
@@ -457,6 +463,11 @@ export const languageAlternates: Record<string, Record<string, string>> = {
     "en-US": "/services",
     "es-US": "/es/servicios",
     "x-default": "/services",
+  },
+  "/es/portafolio": {
+    "en-US": "/portfolio",
+    "es-US": "/es/portafolio",
+    "x-default": "/portfolio",
   },
   "/es/areas": {
     "en-US": "/areas",
@@ -496,7 +507,7 @@ export const spanishTrustQuestions = [
   {
     question: "¿Hay prueba real publicada?",
     answer:
-      "La política del sitio es no inventar logos, reviews ni números. Los placeholders están marcados hasta que se agreguen reels, fotos, enlaces de Instagram o testimonios reales.",
+      "Sí. El portafolio publica ocho proyectos reales con videos públicos del canal de YouTube de Esteban y los créditos disponibles. El sitio no inventa logos, reseñas, cifras ni resultados.",
   },
   {
     question: "¿Qué hace diferente a Esteban?",

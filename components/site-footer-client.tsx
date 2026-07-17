@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Mail, Phone, Send } from "lucide-react";
+import { Mail, Phone, PlaySquare, Send } from "lucide-react";
 
 type FooterProps = {
   description: string;
@@ -11,6 +11,7 @@ type FooterProps = {
   phoneDisplay: string;
   phoneHref: string;
   instagram: string;
+  youtube: string;
   domain: string;
   location: string;
   name: string;
@@ -41,6 +42,7 @@ const englishGroups = [
     items: [
       { href: "/", label: "Home" },
       { href: "/services", label: "Services" },
+      { href: "/portfolio", label: "Portfolio" },
       { href: "/areas", label: "Areas" },
       { href: "/about", label: "About" },
       { href: "/contact", label: "Contact" },
@@ -74,6 +76,7 @@ const spanishGroups = [
     items: [
       { href: "/es", label: "Inicio" },
       { href: "/es/servicios", label: "Servicios" },
+      { href: "/es/portafolio", label: "Portafolio" },
       { href: "/es/areas", label: "Áreas" },
       { href: "/es/sobre-esteban", label: "Sobre Esteban" },
       { href: "/es/contacto", label: "Contacto" },
@@ -120,6 +123,13 @@ export function SiteFooterClient(props: FooterProps) {
             >
               <Send className="size-4" aria-hidden="true" />
               Instagram
+            </a>
+            <a
+              href={props.youtube}
+              className="inline-flex items-center gap-2 rounded-full border border-[#f6f1ea]/20 px-4 py-2 text-sm hover:bg-white/10"
+            >
+              <PlaySquare className="size-4" aria-hidden="true" />
+              YouTube
             </a>
           </div>
         </div>

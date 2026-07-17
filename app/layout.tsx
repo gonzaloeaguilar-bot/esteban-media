@@ -66,7 +66,7 @@ const localBusinessJsonLd = {
     "@type": area.schemaType,
     name: area.name,
   })),
-  sameAs: [site.instagram],
+  sameAs: [site.instagram, site.youtube],
   availableLanguage: ["Spanish", "English"],
   contactPoint: {
     "@type": "ContactPoint",
@@ -81,7 +81,7 @@ const localBusinessJsonLd = {
     name: "Esteban Moreno",
     jobTitle: "Audiovisual communicator, video editor, and content creator",
     url: absoluteUrl("/about"),
-    sameAs: [site.instagram],
+    sameAs: [site.instagram, site.youtube],
     knowsLanguage: ["Spanish", "English"],
     knowsAbout: [
       "AI-assisted content",
@@ -150,8 +150,16 @@ export default function RootLayout({
             __html: JSON.stringify(websiteJsonLd),
           }}
         />
+        <a
+          href="#main-content"
+          className="sr-only z-50 rounded-full bg-[#101214] px-5 py-3 text-sm font-medium text-white focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+        >
+          Skip to content / Saltar al contenido
+        </a>
         <SiteHeader />
-        {children}
+        <div id="main-content" tabIndex={-1} className="outline-none">
+          {children}
+        </div>
         <SiteFooter />
       </body>
     </html>

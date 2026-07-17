@@ -11,6 +11,7 @@ export function SiteFooter() {
       phoneDisplay={site.phone.display}
       phoneHref={site.phone.href}
       instagram={site.instagram}
+      youtube={site.youtube}
       domain={site.domain}
       location={site.location}
       name={site.name}

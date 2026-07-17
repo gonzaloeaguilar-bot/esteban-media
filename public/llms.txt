@@ -4,7 +4,7 @@
 
 Canonical site: https://estebanmorenomedia.com/
 Owner / creator: Esteban Moreno
-Primary market: Fort Lauderdale, Broward County, Miami-Dade County, Palm Beach County, South Florida
+Primary market: Fort Lauderdale, Broward County, and Miami-Dade County; Palm Beach County is an expansion/service area
 Languages: Spanish-first service; intermediate English communication available
 Last updated: 2026-07-16
 
@@ -12,6 +12,7 @@ Last updated: 2026-07-16
 
 - Home: https://estebanmorenomedia.com/
 - Services: https://estebanmorenomedia.com/services
+- Portfolio: https://estebanmorenomedia.com/portfolio
 - Areas: https://estebanmorenomedia.com/areas
 - Palm Beach County: https://estebanmorenomedia.com/areas/palm-beach-county
 - About: https://estebanmorenomedia.com/about
@@ -21,6 +22,7 @@ Last updated: 2026-07-16
 
 - Spanish home: https://estebanmorenomedia.com/es
 - Servicios en español: https://estebanmorenomedia.com/es/servicios
+- Portafolio en español: https://estebanmorenomedia.com/es/portafolio
 - Áreas de servicio en español: https://estebanmorenomedia.com/es/areas
 - Palm Beach County en español: https://estebanmorenomedia.com/es/areas/palm-beach-county
 - Sobre Esteban: https://estebanmorenomedia.com/es/sobre-esteban
@@ -58,10 +60,11 @@ Last updated: 2026-07-16
 
 ## Proof Policy
 
-The site should only publish real Esteban work, real Instagram permalinks, real testimonials, and real client examples. Placeholders are labeled until real media is available. No fake testimonials, borrowed client logos, or guaranteed views/rankings.
+The bilingual portfolio presents a curated selection of Esteban's published work with public YouTube sources and project credits when available. The site should only publish real Esteban work, real public media links, real testimonials, and real client examples. No fake testimonials, borrowed client logos, or guaranteed views/rankings.
 
 ## Contact
 
 - Email: esmolopez@gmail.com
 - Phone: (305) 497-4478
 - Instagram: https://www.instagram.com/steeban1/
+- YouTube: https://www.youtube.com/@estebanmorenolopez3811

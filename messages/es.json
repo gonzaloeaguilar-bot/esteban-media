@@ -4,41 +4,87 @@
   },
   "Portfolio": {
     "eyebrow": "Trabajos seleccionados",
-    "title": "Historias filmadas, editadas y entregadas.",
-    "subtitle": "Reels, bienes raíces, restaurantes, tomas aéreas, eventos y promos de negocios — seis carriles, un narrador visual.",
-    "emptyState": "Pronto subimos muestras — Esteban está cargando referencias frescas.",
+    "title": "Ocho proyectos. Una práctica visual en evolución.",
+    "subtitle": "Una selección del portafolio de Esteban con animación, videos promocionales, contenido social, eventos, edición y narrativa.",
+    "emptyState": "No hay proyectos que coincidan con este filtro.",
     "viewAllCta": "Ver el portafolio completo",
+    "watchCta": "Ver en YouTube",
+    "creditsLabel": "Créditos",
+    "yearLabel": "Año",
+    "locationLabel": "Ubicación",
     "filterAll": "Todo",
     "categories": {
-      "reels": {
-        "title": "Reels",
-        "description": "Video vertical de formato corto, hecho para feeds de Instagram y TikTok.",
-        "shortLabel": "Reels"
+      "animation": {
+        "title": "Animación",
+        "description": "Movimiento 3D, piezas visuales clave e imágenes de producto desarrolladas para contar historias de marca.",
+        "shortLabel": "Animación"
       },
-      "real-estate": {
-        "title": "Bienes Raíces",
-        "description": "Recorridos de propiedades y tomas aéreas que mueven listings más rápido.",
-        "shortLabel": "Bienes raíces"
+      "business-promos": {
+        "title": "Videos Promocionales",
+        "description": "Una selección de videos promocionales creados para marcas y negocios locales.",
+        "shortLabel": "Promos"
       },
-      "restaurants": {
-        "title": "Restaurantes",
-        "description": "Comida, ambiente y películas de marca que hacen ver al local irresistible.",
-        "shortLabel": "Restaurantes"
-      },
-      "aerial": {
-        "title": "Aéreo",
-        "description": "Cinematografía con drone — costas, propiedades, eventos y panorámicas urbanas.",
-        "shortLabel": "Aéreo"
+      "social-content": {
+        "title": "Contenido Social",
+        "description": "Trabajo audiovisual y gráfico creado para publicaciones en redes sociales.",
+        "shortLabel": "Social"
       },
       "events": {
         "title": "Eventos",
-        "description": "Resúmenes y ediciones del mismo día para bodas, lanzamientos y activaciones de marca.",
+        "description": "Películas de boda y trabajos enfocados en eventos dentro del portafolio seleccionado.",
         "shortLabel": "Eventos"
       },
-      "business-promos": {
-        "title": "Promos de Negocio",
-        "description": "Spots para negocios locales que convierten un servicio en una historia para compartir.",
-        "shortLabel": "Promos"
+      "editing": {
+        "title": "Edición",
+        "description": "Piezas con guion y ediciones de video convertidas en una historia terminada.",
+        "shortLabel": "Edición"
+      },
+      "narrative": {
+        "title": "Narrativa",
+        "description": "Cortometrajes y trabajos narrativos centrados en dirección y cinematografía.",
+        "shortLabel": "Narrativa"
+      }
+    },
+    "items": {
+      "my-dler": {
+        "title": "My D'ler",
+        "summary": "Un paquete de marca con piezas visuales clave, diseños sociales, un video 3D y mockups de producto.",
+        "credits": "Piezas visuales clave de marca, diseños sociales, video 3D y mockups de producto."
+      },
+      "banacol": {
+        "title": "Banacol",
+        "summary": "Un proyecto de Banacol seleccionado del portafolio anterior de Esteban.",
+        "credits": "Colaboración con la agencia Jungelbox en Medellín, Colombia."
+      },
+      "bar-door-monkey": {
+        "title": "Bar Door Monkey Miami",
+        "summary": "Un video promocional en Miami desarrollado desde la preproducción hasta la edición final.",
+        "credits": "Preproducción, modelos, locación, videografía y edición."
+      },
+      "healthy-smile": {
+        "title": "Healthy Smile Miami",
+        "summary": "Un video promocional en Miami desarrollado desde la creación de un guion tipo sketch hasta la grabación y edición.",
+        "credits": "Guion tipo sketch, videografía y edición."
+      },
+      "homeowners": {
+        "title": "Homeowners",
+        "summary": "Un video con guion seleccionado del portafolio anterior de Esteban.",
+        "credits": "Guion y edición de video."
+      },
+      "diana-jack": {
+        "title": "Diana & Jack",
+        "summary": "Una película de boda seleccionada del portafolio anterior de Esteban.",
+        "credits": "Película de boda seleccionada para el portafolio; rol individual no especificado."
+      },
+      "la-huelga": {
+        "title": "La Huelga",
+        "summary": "Tráiler del cortometraje La Huelga.",
+        "credits": "Dirección y cinematografía."
+      },
+      "ml-colombia": {
+        "title": "ML Colombia",
+        "summary": "Un video para redes sociales seleccionado del portafolio anterior de Esteban.",
+        "credits": "Trabajo para redes sociales; rol individual no especificado."
       }
     },
     "status": {
