@@ -17,10 +17,10 @@ Production is live. This file tracks repository implementation; account/access w
 
 ## P1 — Technical SEO / GEO / ALOHA
 
-- [ ] Render Spanish pages with document-level `lang="es-US"`
-- [ ] Add a branded 1200×630 Open Graph image and logo/image schema
-- [ ] Tighten long titles and homepage descriptions
-- [ ] Add one direct entity/service/location sentence above the homepage fold
+- [x] Render Spanish pages with initial document-level `lang="es"`
+- [x] Add a branded 1200×630 Open Graph image
+- [x] Tighten long titles and homepage descriptions
+- [x] Add one direct entity/service/location sentence above the homepage fold
 - [ ] Run mobile and desktop Lighthouse baselines on `/`, `/es`, `/portfolio`, and `/es/portafolio`; record scores and remediate material performance, accessibility, and SEO findings
 - [x] Add `VideoObject` collection schema for all eight published videos
 - [ ] Add `ImageObject`/logo schema when approved brand photography and logo files are available
@@ -29,7 +29,8 @@ Production is live. This file tracks repository implementation; account/access w
 ## P1 — Product and measurement
 
 - [x] Add an accessible bilingual portfolio backed by real public work
-- [ ] Connect analytics and define organic/local/AI referral reporting
+- [x] Connect a production-scoped GA4 stream with page-change measurement and a bilingual privacy disclosure
+- [ ] Define organic/local/AI referral reporting
 - [x] Add route metadata, sitemap, portfolio schema, and data tests
 
 ## P2 — Portfolio refinement
