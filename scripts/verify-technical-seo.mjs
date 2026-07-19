@@ -5,7 +5,8 @@ const baseUrl = normalizeOrigin(
 );
 const canonicalOrigin = "https://estebanmorenomedia.com";
 const measurementId = "G-W9CM4CE2MQ";
-const expectedIndexablePages = 20;
+const expectedIndexablePages = 46;
+const expectedWatchPages = 16;
 const htmlCache = new Map();
 
 function normalizeOrigin(value) {
@@ -119,6 +120,25 @@ function pngDimensions(buffer) {
   };
 }
 
+function normalizedEmbeddedSource(html) {
+  return html.replaceAll("&quot;", '"').replace(/\\+"/g, '"');
+}
+
+function requireStructuredType(html, type, pathname) {
+  const structuredDataBlocks = [
+    ...html.matchAll(
+      /<script\b(?=[^>]*\btype="application\/ld\+json")[^>]*>([\s\S]*?)<\/script>/gi,
+    ),
+  ].map((match) => normalizedEmbeddedSource(match[1]));
+  if (
+    !structuredDataBlocks.some((block) =>
+      block.includes(`"@type":"${type}"`),
+    )
+  ) {
+    throw new Error(`${pathname} is missing ${type} structured data`);
+  }
+}
+
 async function verifyPage(pathname) {
   const { status, html } = await fetchHtml(pathname);
   if (status !== 200) {
@@ -208,16 +228,23 @@ async function verifyPage(pathname) {
   if (!html.includes(loader)) {
     throw new Error(`${pathname} is missing GA4 loader ${loader}`);
   }
-  const normalizedScriptSource = html.replace(/\\+"/g, '"');
+  const normalizedScriptSource = normalizedEmbeddedSource(html);
   if (
+    !new RegExp(
+      `(?:window\\.)?gtag\\(['\"]config['\"]\\s*,\\s*${JSON.stringify(measurementId)}`,
+    ).test(normalizedScriptSource) ||
     !normalizedScriptSource.includes(
-      `gtag('config', ${JSON.stringify(measurementId)}`,
+      `window.location.hostname !== ${JSON.stringify(new URL(canonicalOrigin).hostname)}`,
     ) ||
+    !normalizedScriptSource.includes("send_page_view: false") ||
     !normalizedScriptSource.includes(
-      `window.location.hostname === ${JSON.stringify(new URL(canonicalOrigin).hostname)}`,
-    )
+      "page_location: canonicalOrigin + safePagePath(window.location.pathname)",
+    ) ||
+    !normalizedScriptSource.includes("page_referrer: currentPageReferrer")
   ) {
-    throw new Error(`${pathname} is missing the production-scoped GA4 config`);
+    throw new Error(
+      `${pathname} is missing the production-scoped, query-safe GA4 config`,
+    );
   }
 
   const alternates = Object.fromEntries(
@@ -302,14 +329,141 @@ try {
   const pathnames = canonicalUrls.map((url) => new URL(url).pathname);
   const uniquePathnames = [...new Set(pathnames)];
 
-  if (uniquePathnames.length !== expectedIndexablePages) {
+  if (
+    canonicalUrls.some((url) => new URL(url).origin !== canonicalOrigin)
+  ) {
+    throw new Error(`sitemap contains a URL outside ${canonicalOrigin}`);
+  }
+
+  if (
+    canonicalUrls.length !== expectedIndexablePages ||
+    uniquePathnames.length !== expectedIndexablePages
+  ) {
     throw new Error(
-      `sitemap has ${uniquePathnames.length} unique pages; expected ${expectedIndexablePages}`,
+      `sitemap has ${canonicalUrls.length} entries and ${uniquePathnames.length} unique pages; expected exactly ${expectedIndexablePages}`,
     );
   }
 
   const pages = await Promise.all(uniquePathnames.map(verifyPage));
   verifyReciprocalAlternates(pages);
+
+  const sitemapPathSet = new Set(uniquePathnames);
+  const watchUrls = canonicalUrls.filter((url) => {
+    const pathname = new URL(url).pathname;
+    return (
+      /^\/portfolio\/[^/]+$/.test(pathname) ||
+      /^\/es\/portafolio\/[^/]+$/.test(pathname)
+    );
+  });
+  const watchPathnames = watchUrls.map((url) => new URL(url).pathname);
+  if (
+    watchPathnames.length !== expectedWatchPages ||
+    watchPathnames.filter((pathname) => pathname.startsWith("/portfolio/"))
+      .length !== expectedWatchPages / 2 ||
+    watchPathnames.filter((pathname) =>
+      pathname.startsWith("/es/portafolio/"),
+    ).length !== expectedWatchPages / 2
+  ) {
+    throw new Error(
+      `regular sitemap has ${watchPathnames.length} localized watch pages; expected ${expectedWatchPages}`,
+    );
+  }
+
+  const robotsText = await (await fetchOk("/robots.txt")).text();
+  for (const sitemapUrl of [
+    `${canonicalOrigin}/sitemap.xml`,
+    `${canonicalOrigin}/video-sitemap.xml`,
+  ]) {
+    if (!robotsText.split(/\r?\n/).includes(`Sitemap: ${sitemapUrl}`)) {
+      throw new Error(`/robots.txt does not advertise ${sitemapUrl}`);
+    }
+  }
+
+  const videoSitemapResponse = await fetchOk("/video-sitemap.xml");
+  if (
+    !videoSitemapResponse.headers
+      .get("content-type")
+      ?.toLowerCase()
+      .includes("xml")
+  ) {
+    throw new Error("/video-sitemap.xml content type is not XML");
+  }
+  const videoSitemapXml = await videoSitemapResponse.text();
+  const videoEntries = [
+    ...videoSitemapXml.matchAll(/<url\b[^>]*>([\s\S]*?)<\/url>/gi),
+  ].map((match) => match[1]);
+  if (videoEntries.length !== expectedWatchPages) {
+    throw new Error(
+      `/video-sitemap.xml has ${videoEntries.length} entries; expected ${expectedWatchPages}`,
+    );
+  }
+  const videoUrls = videoEntries.map((entry, index) => {
+    if (!/<video:video\b/i.test(entry)) {
+      throw new Error(
+        `/video-sitemap.xml entry ${index + 1} is missing video metadata`,
+      );
+    }
+    const location = requireMatch(
+      entry,
+      /<loc>([^<]+)<\/loc>/i,
+      "page location",
+      "/video-sitemap.xml",
+    );
+    return new URL(decodeXml(location)).toString();
+  });
+  const videoUrlSet = new Set(videoUrls);
+  const watchUrlSet = new Set(watchUrls.map((url) => new URL(url).toString()));
+  if (
+    videoUrlSet.size !== expectedWatchPages ||
+    videoUrlSet.size !== watchUrlSet.size ||
+    [...watchUrlSet].some((url) => !videoUrlSet.has(url)) ||
+    videoUrls.some((url) => !sitemapPathSet.has(new URL(url).pathname))
+  ) {
+    throw new Error(
+      "/video-sitemap.xml does not exactly match the localized watch pages in /sitemap.xml",
+    );
+  }
+
+  await Promise.all(
+    watchPathnames.map(async (pathname) => {
+      const { html } = await fetchHtml(pathname);
+      if (
+        !/<iframe\b[^>]*\bsrc="https:\/\/www\.youtube-nocookie\.com\/embed\//i.test(
+          html,
+        )
+      ) {
+        throw new Error(`${pathname} is missing its rendered YouTube iframe`);
+      }
+      requireStructuredType(html, "VideoObject", pathname);
+      requireStructuredType(html, "BreadcrumbList", pathname);
+    }),
+  );
+
+  for (const pathname of ["/portfolio", "/es/portafolio"]) {
+    const { html } = await fetchHtml(pathname);
+    if (/<iframe\b[^>]*(?:youtube\.com|youtube-nocookie\.com|youtu\.be)/i.test(html)) {
+      throw new Error(`${pathname} eagerly renders a YouTube iframe`);
+    }
+  }
+
+  const guidePathnames = uniquePathnames.filter(
+    (pathname) =>
+      pathname === "/guides" ||
+      pathname.startsWith("/guides/") ||
+      pathname === "/es/guias" ||
+      pathname.startsWith("/es/guias/"),
+  );
+  if (guidePathnames.length !== 10) {
+    throw new Error(
+      `regular sitemap has ${guidePathnames.length} guide pages; expected 10`,
+    );
+  }
+  await Promise.all(
+    guidePathnames.map(async (pathname) => {
+      const { html } = await fetchHtml(pathname);
+      requireStructuredType(html, "BreadcrumbList", pathname);
+    }),
+  );
 
   const englishHome = (await fetchHtml("/")).html;
   const spanishHome = (await fetchHtml("/es")).html;
@@ -364,6 +518,8 @@ try {
       {
         baseUrl,
         indexablePages: pages.length,
+        videoSitemapPages: videoUrlSet.size,
+        guidePages: guidePathnames.length,
         privacyPages: privacyPages.length,
         verifiedNotFoundRoutes: 3,
         languages: {

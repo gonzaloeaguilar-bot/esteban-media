@@ -5,6 +5,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowRight, Menu, X } from "lucide-react";
 
+import { getPairedLanguageRoute } from "@/lib/language-routes";
+
 const englishNav = [
   { href: "/services", label: "Services" },
   { href: "/portfolio", label: "Portfolio" },
@@ -19,30 +21,12 @@ const spanishNav = [
   { href: "/es/sobre-esteban", label: "Sobre Esteban" },
 ];
 
-const pairedLanguageRoutes: Record<string, string> = {
-  "/": "/es",
-  "/services": "/es/servicios",
-  "/portfolio": "/es/portafolio",
-  "/areas": "/es/areas",
-  "/areas/palm-beach-county": "/es/areas/palm-beach-county",
-  "/about": "/es/sobre-esteban",
-  "/contact": "/es/contacto",
-  "/es": "/",
-  "/es/servicios": "/services",
-  "/es/portafolio": "/portfolio",
-  "/es/areas": "/areas",
-  "/es/areas/palm-beach-county": "/areas/palm-beach-county",
-  "/es/sobre-esteban": "/about",
-  "/es/contacto": "/contact",
-};
-
 export function SiteHeaderClient({ shortName }: { shortName: string }) {
   const pathname = usePathname();
   const isSpanish = pathname === "/es" || pathname.startsWith("/es/");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
-  const languageHref =
-    pairedLanguageRoutes[pathname] ?? (isSpanish ? "/" : "/es");
+  const languageHref = getPairedLanguageRoute(pathname);
   const nav = [
     ...(isSpanish ? spanishNav : englishNav),
     { href: languageHref, label: isSpanish ? "English" : "Español" },
@@ -72,7 +56,7 @@ export function SiteHeaderClient({ shortName }: { shortName: string }) {
     <header className="sticky top-0 z-40 border-b border-[#ddd4c8] bg-[#f6f1ea]/92 backdrop-blur">
       <div className="mx-auto flex min-h-16 w-full max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <Link href={isSpanish ? "/es" : "/"} className="flex min-w-0 items-center gap-3">
-          <span className="grid size-8 shrink-0 place-items-center rounded-md bg-[#e85d3e] font-serif text-lg italic text-white">
+          <span className="grid size-8 shrink-0 place-items-center rounded-md bg-[#c84a2c] font-serif text-lg italic text-white">
             e
           </span>
           <span className="min-w-0">
@@ -101,9 +85,9 @@ export function SiteHeaderClient({ shortName }: { shortName: string }) {
         <div className="flex shrink-0 items-center gap-2">
           <Link
             href={isSpanish ? "/es/contacto" : "/contact"}
-            className="hidden items-center justify-center gap-2 rounded-full bg-[#e85d3e] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#c84a2c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e85d3e] sm:inline-flex"
+            className="hidden items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#a93e29] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c84a2c] sm:inline-flex"
           >
-            {isSpanish ? "Empezar" : "Start"}
+            {isSpanish ? "Consultar proyecto de video" : "Start a video project"}
             <ArrowRight className="size-4" aria-hidden="true" />
           </Link>
           <button
@@ -144,9 +128,9 @@ export function SiteHeaderClient({ shortName }: { shortName: string }) {
             <Link
               href={isSpanish ? "/es/contacto" : "/contact"}
               onClick={() => setIsMenuOpen(false)}
-              className="mt-2 inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#e85d3e] px-5 text-sm font-medium text-white sm:col-span-2"
+              className="mt-2 inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-5 text-sm font-medium text-white hover:bg-[#a93e29] sm:col-span-2"
             >
-              {isSpanish ? "Cotizar un proyecto" : "Start a project"}
+              {isSpanish ? "Consultar un proyecto" : "Start a project"}
               <ArrowRight className="size-4" aria-hidden="true" />
             </Link>
           </div>

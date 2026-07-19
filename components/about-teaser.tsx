@@ -9,19 +9,19 @@ const highlights = [
     icon: MapPin,
     label: "Local",
     detail:
-      "Based in Fort Lauderdale, serving Broward, Miami-Dade, and Palm Beach County.",
+      "Based in Fort Lauderdale, with local work in Broward and selected Miami-Dade projects; Palm Beach is considered by project.",
   },
   {
     icon: BriefcaseBusiness,
-    label: "Business-minded",
+    label: "Published proof",
     detail:
-      "Five years running an online brand informs the strategy behind each asset.",
+      "The portfolio names only the projects, roles, and public video sources that can be verified.",
   },
   {
     icon: Languages,
     label: "Spanish-first",
     detail:
-      "Native Spanish service with practical English communication available.",
+      "Native Spanish service with intermediate English communication available.",
   },
 ];
 
@@ -44,10 +44,10 @@ export function AboutTeaser() {
               An editor who understands the business behind the content.
             </h2>
             <p className="mt-5 text-base leading-7 text-[#252a2d] sm:text-lg sm:leading-8">
-              Trained in audiovisual communication, {site.shortName} brings
-              editing, AI-assisted creative, social planning, and lightweight
-              production into one direct relationship. The process is personal,
-              detailed, and built around what the client needs to publish.
+              {site.shortName} brings editing, AI-assisted creative, social
+              planning, and scoped production into one direct relationship. The
+              conversation focuses on what the client needs to communicate and
+              where the content would be published.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Link

@@ -29,11 +29,11 @@ const categoryLabels = {
 
 function getPoster(item: PortfolioItem) {
   if ("poster" in item.media) {
-    return { src: item.media.poster, alt: item.title };
+    return item.media.poster;
   }
 
   if (item.media.kind === "image") {
-    return { src: item.media.src, alt: item.media.alt };
+    return item.media.src;
   }
 
   return undefined;
@@ -91,22 +91,24 @@ export function PortfolioTeaser({ locale }: PortfolioTeaserProps) {
             return (
               <Link
                 key={item.id}
-                href={`${href}#${item.id}`}
+                href={`${href}/${item.id}`}
                 className="group overflow-hidden rounded-lg border border-white/10 bg-white/[0.04] transition-colors hover:bg-white/[0.08]"
-                aria-label={`${isSpanish ? "Ver" : "View"} ${item.title}`}
               >
+                <span className="sr-only">
+                  {isSpanish ? "Ver " : "Watch "}
+                </span>
                 <div className="relative aspect-video overflow-hidden bg-[#252a2d]">
                   {poster ? (
                     <Image
-                      src={poster.src}
-                      alt={poster.alt}
+                      src={poster}
+                      alt=""
                       fill
-                      sizes="(min-width: 768px) 33vw, 100vw"
+                      sizes="(min-width: 1280px) 405px, (min-width: 768px) calc(33vw - 24px), calc(100vw - 32px)"
                       className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                     />
                   ) : null}
                   <span className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
-                  <span className="absolute bottom-3 right-3 grid size-10 place-items-center rounded-full bg-[#e85d3e] text-white">
+                  <span className="absolute bottom-3 right-3 grid size-10 place-items-center rounded-full bg-[#c84a2c] text-white">
                     <Play className="size-4 fill-current" aria-hidden="true" />
                   </span>
                 </div>
@@ -118,7 +120,10 @@ export function PortfolioTeaser({ locale }: PortfolioTeaserProps) {
                     {item.title}
                   </h3>
                   {item.location ? (
-                    <p className="mt-2 text-sm text-[#c9c1b8]">
+                    <p
+                      aria-hidden="true"
+                      className="mt-2 text-sm text-[#c9c1b8]"
+                    >
                       {item.location}
                     </p>
                   ) : null}

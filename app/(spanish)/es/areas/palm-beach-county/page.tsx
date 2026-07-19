@@ -1,7 +1,7 @@
 import Link from "next/link";
 import {
   ArrowRight,
-  Camera,
+  CalendarRange,
   Languages,
   MapPin,
   Scissors,
@@ -13,42 +13,30 @@ import { Container } from "@/components/ui/container";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl } from "@/lib/site";
 
-const cities = [
-  "Boca Raton",
-  "Delray Beach",
-  "Boynton Beach",
-  "West Palm Beach",
-  "Palm Beach",
-  "Palm Beach Gardens",
-  "Jupiter",
-  "Wellington",
-  "Lake Worth Beach",
-];
-
 const palmBeachServices = [
   {
     name: "Edición remota",
     description:
-      "Reels, captions, color y exportes listos para plataforma a partir de material ya grabado.",
+      "Una prioridad confirmada para proyectos que parten de material existente y una meta de publicación.",
     icon: Scissors,
   },
   {
-    name: "IA y planificación social",
+    name: "Contenido asistido por IA",
     description:
-      "Contenido asistido por IA y un plan práctico basado en los formatos que necesita el negocio.",
+      "El contenido asistido por IA es una prioridad confirmada, definida según la meta y el uso previsto.",
     icon: WandSparkles,
   },
   {
-    name: "Grabación móvil",
+    name: "Planificación para redes",
     description:
-      "Grabación con teléfono para redes sociales, restaurantes, real estate, productos y proyectos locales pequeños.",
-    icon: Video,
+      "Una prioridad confirmada para conversar sobre audiencia, canales, metas de publicación y necesidades de contenido.",
+    icon: CalendarRange,
   },
   {
-    name: "Producto y opciones aéreas",
+    name: "Captura de contenido en locación",
     description:
-      "Fotografía de producto y tomas aéreas cotizadas solo después de confirmar requisitos de captura y piloto autorizado disponible.",
-    icon: Camera,
+      "La producción local de video se considera de forma selectiva después de conocer la locación, la meta y las necesidades de captura.",
+    icon: Video,
   },
 ];
 
@@ -56,44 +44,44 @@ const questions = [
   {
     question: "¿Esteban Moreno Media trabaja en Palm Beach County?",
     answer:
-      "Palm Beach County es un área de expansión. Esteban está basado en Fort Lauderdale y considera proyectos seleccionados por cotización, confirmando traslado, horario, estacionamiento, acceso, equipo y entregables antes de reservar.",
+      "Palm Beach County es un área de expansión. Esteban está basado en Fort Lauderdale y considera proyectos seleccionados después de conocer la zona, la meta y las necesidades generales.",
   },
   {
-    question: "¿Qué ciudades de Palm Beach County cubre?",
+    question: "¿Se publica cobertura por ciudad en Palm Beach County?",
     answer:
-      "Boca Raton es un mercado prioritario para la expansión. Delray Beach, Boynton Beach, West Palm Beach, Palm Beach, Palm Beach Gardens, Jupiter, Wellington, Lake Worth Beach y zonas cercanas se consideran por cotización.",
+      "No. Palm Beach County se publica solo como área de expansión a nivel de condado hasta que Esteban confirme la disponibilidad en ciudades específicas.",
   },
   {
-    question: "¿Cómo se manejan los costos de traslado?",
+    question: "¿Un cliente en Palm Beach County puede trabajar de forma remota?",
     answer:
-      "Puede aplicarse un cargo de traslado después de 20 millas desde Fort Lauderdale. El estacionamiento requerido se agrega a la cotización y los viajes más largos se confirman antes de reservar.",
+      "Sí. La edición de video, el contenido con IA y la planificación para redes pueden comenzar con archivos y referencias sin una visita en locación.",
   },
   {
-    question: "¿El drone está garantizado en cualquier locación?",
+    question: "¿La producción en locación está disponible para cualquier consulta?",
     answer:
-      "No. El trabajo aéreo se cotiza solo después de confirmar piloto acreditado disponible, espacio aéreo, clima, permiso de la propiedad y seguridad de la locación.",
+      "No se publica una disponibilidad universal. La producción local de video se considera de forma selectiva después de conocer la locación y las necesidades de captura.",
   },
   {
     question: "¿Todo el proyecto se puede manejar en español?",
     answer:
-      "Sí. El español es la lengua nativa de Esteban. También puede comunicarse en inglés a nivel intermedio.",
+      "Sí. El español es el idioma principal de Esteban. También puede comunicarse en inglés a nivel intermedio.",
   },
   {
-    question: "¿Con cuánto tiempo debo reservar un trabajo en locación?",
+    question: "¿Qué información ayuda a revisar un proyecto local?",
     answer:
-      "Se recomienda reservar con tres o cuatro días de anticipación. Las solicitudes urgentes pueden evaluarse según la carga de trabajo.",
+      "Comparte la ciudad, la meta del proyecto, el uso previsto, los archivos disponibles y las referencias visuales. Con eso se puede iniciar la conversación.",
   },
   {
-    question: "¿Cuántas rondas de revisión se incluyen?",
+    question: "¿Dónde puedo revisar el trabajo de Esteban?",
     answer:
-      "Normalmente se incluyen dos rondas: comentarios sobre el primer corte y una ronda final de ajustes. Las revisiones adicionales se cotizan aparte.",
+      "El portafolio público incluye ocho videos seleccionados del canal de YouTube de Esteban con los datos y créditos disponibles.",
   },
 ];
 
 export const metadata = buildPageMetadata({
   title: "Edición de Video en Palm Beach County",
   description:
-    "Edición de video, contenido con IA, planificación para redes, grabación móvil y proyectos seleccionados para negocios de Palm Beach County.",
+    "Edición de video, contenido con IA, planificación para redes y proyectos seleccionados de captura local para negocios de Palm Beach County.",
   path: "/es/areas/palm-beach-county",
   locale: "es",
 });
@@ -121,19 +109,14 @@ export default function SpanishPalmBeachCountyPage() {
           "Edición de video",
           "Contenido asistido por IA",
           "Planificación de redes sociales",
-          "Grabación móvil",
-          "Fotografía de producto",
+          "Producción de video en locación definida de forma selectiva",
         ],
         description:
-          "Edición remota y servicios seleccionados de contenido en locación para negocios de Palm Beach County.",
+          "Servicios creativos remotos y producción local de video definida de forma selectiva para el área de expansión de Palm Beach County.",
         provider: { "@id": absoluteUrl("/#business") },
         areaServed: {
           "@type": "AdministrativeArea",
           name: "Palm Beach County, Florida",
-          containsPlace: cities.map((name) => ({
-            "@type": "City",
-            name,
-          })),
         },
         availableLanguage: ["Spanish", "English"],
       },
@@ -174,8 +157,12 @@ export default function SpanishPalmBeachCountyPage() {
 
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
         <Container size="xl">
-          <nav aria-label="Navegación" className="text-sm text-[#5a6066]">
-            <Link href="/es/areas" className="hover:text-[#c84a2c]">
+          <nav aria-label="Migas de pan" className="text-sm text-[#5a6066]">
+            <Link href="/es" className="hover:text-[#9f3c27]">
+              Inicio
+            </Link>{" "}
+            /{" "}
+            <Link href="/es/areas" className="hover:text-[#9f3c27]">
               Áreas de servicio
             </Link>{" "}
             / Palm Beach County
@@ -186,18 +173,18 @@ export default function SpanishPalmBeachCountyPage() {
                 Área de servicio / Palm Beach County
               </p>
               <h1 className="mt-4 max-w-4xl font-serif text-5xl leading-none sm:text-6xl">
-                Contenido para Palm Beach County, disponible por cotización.
+                Contenido para Palm Beach County, considerado proyecto por proyecto.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
                 <strong>Respuesta rápida:</strong> Palm Beach County es un área
-                de expansión para Esteban Moreno Media. Boca Raton es una
-                prioridad y las demás ciudades se consideran cuando el proyecto,
-                traslado, equipo y fecha encajan.
+                de expansión para Esteban Moreno Media. La disponibilidad se
+                considera por proyecto y todavía no se publica cobertura por
+                ciudad.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/es/contacto"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#e85d3e] px-6 text-sm font-medium text-white hover:bg-[#c84a2c]"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white hover:bg-[#a93e29]"
                 >
                   Consultar un proyecto en Palm Beach
                   <ArrowRight className="size-4" aria-hidden="true" />
@@ -212,24 +199,15 @@ export default function SpanishPalmBeachCountyPage() {
               </div>
             </div>
 
-            <aside className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
+            <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
               <MapPin className="size-6 text-[#e85d3e]" aria-hidden="true" />
-              <h2 className="mt-5 font-serif text-3xl">Ciudades consideradas por cotización</h2>
+              <h2 className="mt-5 font-serif text-3xl">Área de expansión a nivel de condado</h2>
               <p className="mt-3 text-sm leading-6 text-[#252a2d]">
-                La dirección, ventana de acceso, estacionamiento, peajes,
-                equipo y tiempo de traslado se confirman durante la cotización.
+                Palm Beach County sigue siendo un mercado de expansión considerado
+                proyecto por proyecto. No se enumeran ciudades hasta que Esteban
+                confirme dónde es práctica la producción local actualmente.
               </p>
-              <ul className="mt-5 flex flex-wrap gap-2" aria-label="Ciudades de Palm Beach County">
-                {cities.map((city) => (
-                  <li
-                    key={city}
-                    className="rounded-full border border-[#ddd4c8] px-3 py-1 text-xs text-[#5a6066]"
-                  >
-                    {city}
-                  </li>
-                ))}
-              </ul>
-            </aside>
+            </div>
           </div>
         </Container>
       </section>
@@ -237,10 +215,10 @@ export default function SpanishPalmBeachCountyPage() {
       <section className="py-12 sm:py-16" aria-labelledby="servicios-palm-beach">
         <Container size="xl">
           <p className="text-xs font-medium uppercase text-[#5a6066]">
-            Servicios disponibles
+            Prioridades confirmadas
           </p>
           <h2 id="servicios-palm-beach" className="mt-4 max-w-3xl font-serif text-4xl leading-tight sm:text-5xl">
-            Un sistema visual, definido por entregables reales.
+            Servicios que se pueden conversar sin asumir un paquete fijo.
           </h2>
           <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {palmBeachServices.map((service) => {
@@ -267,14 +245,15 @@ export default function SpanishPalmBeachCountyPage() {
           <div className="grid gap-8 lg:grid-cols-[.8fr_1fr]">
             <div>
               <p className="text-xs font-medium uppercase text-[#5a6066]">
-                Antes de reservar
+                Antes de consultar
               </p>
               <h2 className="mt-4 font-serif text-4xl leading-tight">
                 Respuestas directas para proyectos en Palm Beach County.
               </h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                Envía la ciudad, fecha, meta del proyecto, referencias y uso
-                final. Con eso se puede empezar un scope útil.
+                Las preguntas útiles de alcance cubren el condado, la meta, el
+                material disponible, las referencias y el uso previsto. No
+                implican disponibilidad local ni entregables fijos.
               </p>
             </div>
             <dl className="grid gap-3">
@@ -297,15 +276,15 @@ export default function SpanishPalmBeachCountyPage() {
       <section className="py-12 sm:py-16">
         <Container size="xl">
           <div className="rounded-lg bg-[#101214] p-6 text-[#f6f1ea] sm:p-8">
-            <h2 className="font-serif text-4xl">¿Ya tienes una locación en Palm Beach County?</h2>
+            <h2 className="font-serif text-4xl">¿Tienes un proyecto en Palm Beach County?</h2>
             <p className="mt-4 max-w-2xl leading-7 text-[#d8d0c7]">
-              Comparte la dirección o venue, fecha, entregables y deadline.
-              Esteban confirma disponibilidad y cualquier detalle de traslado o
-              locación antes de que te comprometas.
+              Comparte el condado, la meta, el uso previsto y las referencias
+              visuales para conversar sobre si la disponibilidad actual del área
+              de expansión podría encajar.
             </p>
             <Link
               href="/es/contacto"
-              className="mt-6 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#e85d3e] px-6 text-sm font-medium text-white hover:bg-[#c84a2c]"
+              className="mt-6 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white hover:bg-[#a93e29]"
             >
               Mandar el brief
               <ArrowRight className="size-4" aria-hidden="true" />

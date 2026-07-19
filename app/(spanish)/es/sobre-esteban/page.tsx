@@ -1,42 +1,36 @@
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, ShieldCheck } from "lucide-react";
+import {
+  ArrowRight,
+  CheckCircle2,
+  PlaySquare,
+  Send,
+  ShieldCheck,
+} from "lucide-react";
 
 import { ReelPreview } from "@/components/reel-preview";
 import { Container } from "@/components/ui/container";
+import { buildProfilePageJsonLd } from "@/lib/entity-schema";
 import { spanishProofPrinciples, spanishTrustQuestions } from "@/lib/spanish-site";
 import { buildPageMetadata } from "@/lib/site-metadata";
-import { absoluteUrl, site } from "@/lib/site";
+import { site } from "@/lib/site";
+
+const aboutDescription =
+  "Conoce a Esteban Moreno, editor de video y creador de contenido en Fort Lauderdale, con atención en español y trabajo publicado en su portafolio.";
 
 export const metadata = buildPageMetadata({
   title: "Sobre Esteban Moreno",
-  description:
-    "Conoce a Esteban Moreno, comunicador audiovisual en Fort Lauderdale enfocado en edición, contenido con IA, estrategia para redes y producción por proyecto.",
+  description: aboutDescription,
   path: "/es/sobre-esteban",
   locale: "es",
   type: "profile",
 });
 
-const personJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "@id": absoluteUrl("/#esteban"),
-  name: "Esteban Moreno",
-  url: absoluteUrl("/es/sobre-esteban"),
-  jobTitle: "Comunicador audiovisual, editor de video y creador de contenido",
-  worksFor: {
-    "@type": "LocalBusiness",
-    "@id": absoluteUrl("/#business"),
-    name: site.name,
-  },
-  knowsLanguage: ["Spanish", "English"],
-  workLocation: [
-    { "@type": "City", name: "Fort Lauderdale, Florida" },
-    { "@type": "AdministrativeArea", name: "Broward County, Florida" },
-    { "@type": "AdministrativeArea", name: "Miami-Dade County, Florida" },
-    { "@type": "AdministrativeArea", name: "Palm Beach County, Florida" },
-  ],
-  sameAs: [site.instagram],
-};
+const profilePageJsonLd = buildProfilePageJsonLd({
+  path: "/es/sobre-esteban",
+  name: "Sobre Esteban Moreno",
+  description: aboutDescription,
+  language: "es-US",
+});
 
 export default function SpanishAboutPage() {
   return (
@@ -45,7 +39,7 @@ export default function SpanishAboutPage() {
         type="application/ld+json"
         suppressHydrationWarning
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(personJsonLd),
+          __html: JSON.stringify(profilePageJsonLd),
         }}
       />
       <section className="py-12 sm:py-16">
@@ -56,14 +50,20 @@ export default function SpanishAboutPage() {
                 Sobre Esteban
               </p>
               <h1 className="mt-4 max-w-3xl font-serif text-5xl leading-none sm:text-6xl">
-                Atención directa en español, con mirada creativa y de negocio.
+                Esteban Moreno: atención directa en español, con mirada creativa y de negocio.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-                Esteban estudió Comunicación Audiovisual en la Universidad de
-                Medellín. Su experiencia incluye edición, contenido para redes,
-                real estate, restaurantes, deportes y fotografía de producto.
-                Además, lideró durante cinco años una marca en línea, experiencia
-                que hoy aporta a su forma de entender las metas del cliente.
+                Esteban Moreno López trabaja públicamente como Esteban Moreno y
+                es el fundador de Esteban Moreno Media en Fort Lauderdale.
+                El servicio publicado se enfoca en edición de video, contenido
+                asistido por IA, planificación para redes y producción definida
+                según cada proyecto remoto o seleccionado en South Florida.
+              </p>
+              <p className="mt-4 max-w-2xl leading-7 text-[#252a2d]">
+                Su portafolio público conecta cada proyecto seleccionado con los
+                créditos disponibles y la fuente original del video. El español
+                es su idioma principal y también puede mantener comunicación de
+                trabajo en inglés intermedio.
               </p>
               <div className="mt-8 grid gap-3">
                 {spanishProofPrinciples.map((principle) => (
@@ -81,13 +81,31 @@ export default function SpanishAboutPage() {
                   </div>
                 ))}
               </div>
-              <Link
-                href="/es/contacto"
-                className="mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#e85d3e] px-6 text-sm font-medium text-white hover:bg-[#c84a2c]"
-              >
-                Cotizar en español
-                <ArrowRight className="size-4" aria-hidden="true" />
-              </Link>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link
+                  href="/es/contacto"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white hover:bg-[#a93e29]"
+                >
+                  Hablar del proyecto
+                  <ArrowRight className="size-4" aria-hidden="true" />
+                </Link>
+                <a
+                  href={site.instagram}
+                  rel="me"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-[#101214] px-5 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"
+                >
+                  <Send className="size-4" aria-hidden="true" />
+                  Instagram
+                </a>
+                <a
+                  href={site.youtube}
+                  rel="me"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-[#101214] px-5 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"
+                >
+                  <PlaySquare className="size-4" aria-hidden="true" />
+                  YouTube
+                </a>
+              </div>
             </div>
             <ReelPreview
               title="Detrás de cámara"
@@ -111,7 +129,7 @@ export default function SpanishAboutPage() {
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
                 La credibilidad empieza con hechos verificables: no usamos prueba
                 inventada. Cuando haya material real, esta página mostrará los
-                reels, fotos, testimonios y ejemplos correspondientes.
+                testimonios y ejemplos correspondientes.
               </p>
             </div>
             <div className="grid gap-3">

@@ -26,7 +26,7 @@ export function ServicesStrip() {
           </div>
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 self-start text-sm font-medium text-[#101214] underline decoration-[#e85d3e] decoration-2 underline-offset-4 hover:text-[#e85d3e] sm:self-end"
+            className="inline-flex items-center gap-2 self-start text-sm font-medium text-[#101214] underline decoration-[#e85d3e] decoration-2 underline-offset-4 hover:text-[#7f2f20] sm:self-end"
           >
             View all services
             <ArrowRight className="size-4" aria-hidden="true" />
@@ -35,14 +35,15 @@ export function ServicesStrip() {
 
         <ul
           role="list"
-          className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5"
+          className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
         >
           {services.map((service) => {
             const Icon = service.icon;
             return (
-              <li key={service.id}>
-                <article
-                  className="flex h-full flex-col rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5 transition hover:-translate-y-0.5 hover:border-[#e85d3e] hover:shadow-sm"
+              <li key={service.id} className="h-full">
+                <Link
+                  href={`/services#${service.id}`}
+                  className="group flex h-full flex-col rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5 transition hover:-translate-y-0.5 hover:border-[#e85d3e] hover:shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e85d3e]"
                 >
                   <Icon
                     className="size-7 text-[#e85d3e]"
@@ -54,7 +55,14 @@ export function ServicesStrip() {
                   <p className="mt-2 text-sm leading-6 text-[#252a2d]">
                     {service.description}
                   </p>
-                </article>
+                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27]">
+                    Explore this service
+                    <ArrowRight
+                      className="size-4 transition-transform group-hover:translate-x-0.5"
+                      aria-hidden="true"
+                    />
+                  </span>
+                </Link>
               </li>
             );
           })}

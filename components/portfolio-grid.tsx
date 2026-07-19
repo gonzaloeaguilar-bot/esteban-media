@@ -1,5 +1,6 @@
 import enMessages from "@/messages/en.json";
 import esMessages from "@/messages/es.json";
+import Link from "next/link";
 import {
   getPortfolioCategories,
   type PortfolioItem,
@@ -118,6 +119,10 @@ export function PortfolioGrid({ items, locale }: PortfolioGridProps) {
               <div className="grid gap-6 lg:grid-cols-2">
                 {categoryItems.map((item) => {
                   const copy = resolvePortfolioItemCopy(item, locale);
+                  const projectPath =
+                    locale === "es"
+                      ? `/es/portafolio/${item.id}`
+                      : `/portfolio/${item.id}`;
 
                   return (
                     <article
@@ -156,6 +161,14 @@ export function PortfolioGrid({ items, locale }: PortfolioGridProps) {
                             · {copy.credits}
                           </p>
                         ) : null}
+                        <Link
+                          href={projectPath}
+                          className="mt-5 inline-flex min-h-10 items-center text-sm font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
+                        >
+                          {locale === "es"
+                            ? `Ver la página de ${copy.title}`
+                            : `View the ${copy.title} project page`}
+                        </Link>
                       </div>
                     </article>
                   );

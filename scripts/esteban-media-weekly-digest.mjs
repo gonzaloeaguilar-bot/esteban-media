@@ -16,6 +16,7 @@ import { pathToFileURL } from "node:url";
 
 import {
   INDEX_WATCH_SCHEMA,
+  LEGACY_V1_WATCH_URLS,
   SITE_URL,
   WATCH_URLS,
   acquireLock,
@@ -29,6 +30,8 @@ import {
 
 export const WEEKLY_DIGEST_SCHEMA = "esteban-media.weekly-digest.v1";
 export const GA_MEASUREMENT_ID = "G-W9CM4CE2MQ";
+const DIGEST_WATCH_SET_EXPANSION_SCHEMA =
+  "esteban-media.weekly-digest-watch-set-expansion.v1";
 
 const DEFAULT_STATE_DIR = join(
   homedir(),
@@ -483,16 +486,25 @@ export function evaluateSiteHealth(resources) {
   const loader = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
   const normalizedHomepage = resources.homepage.body.replace(/\\+"/g, '"');
   const loaderPresent = normalizedHomepage.includes(loader);
-  const configPresent = normalizedHomepage.includes(
-    `gtag('config', ${JSON.stringify(GA_MEASUREMENT_ID)}`,
-  );
+  const configPresent = new RegExp(
+    `(?:window\\.)?gtag\\(['\"]config['\"]\\s*,\\s*${JSON.stringify(GA_MEASUREMENT_ID)}`,
+  ).test(normalizedHomepage);
   const hostGuardPresent = normalizedHomepage.includes(
-    `window.location.hostname === ${JSON.stringify(new URL(SITE_URL).hostname)}`,
+    `window.location.hostname !== ${JSON.stringify(new URL(SITE_URL).hostname)}`,
   );
+  const querySafePageViewsPresent =
+    normalizedHomepage.includes("send_page_view: false") &&
+    normalizedHomepage.includes(
+      "page_location: canonicalOrigin + safePagePath(window.location.pathname)",
+    ) &&
+    normalizedHomepage.includes("page_referrer: currentPageReferrer");
   const analyticsErrors = [];
   if (!loaderPresent) analyticsErrors.push("GA loader missing");
   if (!configPresent) analyticsErrors.push("GA config missing");
   if (!hostGuardPresent) analyticsErrors.push("production hostname guard missing");
+  if (!querySafePageViewsPresent) {
+    analyticsErrors.push("query-safe manual page-view config missing");
+  }
 
   const probes = {
     homepage: probeResult(
@@ -526,6 +538,7 @@ export function evaluateSiteHealth(resources) {
         loaderPresent,
         configPresent,
         hostGuardPresent,
+        querySafePageViewsPresent,
       },
       analyticsErrors,
     ),
@@ -558,6 +571,19 @@ function validateTotals(totals) {
     (totals.ctr === null || Number.isFinite(totals.ctr)) &&
     (totals.position === null || Number.isFinite(totals.position))
   );
+}
+
+function watchInventoryForContract(count, hash) {
+  if (count === WATCH_URLS.length && hash === watchedUrlHash()) {
+    return WATCH_URLS;
+  }
+  if (
+    count === LEGACY_V1_WATCH_URLS.length &&
+    hash === watchedUrlHash(LEGACY_V1_WATCH_URLS)
+  ) {
+    return LEGACY_V1_WATCH_URLS;
+  }
+  return null;
 }
 
 export function indexWatchSourceSnapshot(
@@ -661,7 +687,9 @@ export function indexWatchSourceSnapshot(
     countValues.reduce((total, value) => total + value, 0) !==
       WATCH_URLS.length
   ) {
-    throw new Error("Index-watch inspection counts do not sum to 20");
+    throw new Error(
+      `Index-watch inspection counts do not sum to ${WATCH_URLS.length}`,
+    );
   }
   const recomputedIndexed = {
     pass: 0,
@@ -748,7 +776,12 @@ function delta(current, previous) {
 }
 
 export function buildTrend(previousState, source) {
-  const previous = previousState?.latest?.sourceIndexWatch || null;
+  const previousCandidate = previousState?.latest?.sourceIndexWatch || null;
+  const previous =
+    previousCandidate?.watchUrlCount === source.watchUrlCount &&
+    previousCandidate?.watchUrlHash === source.watchUrlHash
+      ? previousCandidate
+      : null;
   return {
     comparisonRunDate: previous?.runDate || null,
     finalClicksDelta: delta(
@@ -781,7 +814,7 @@ export function monitoringStatus(health, source) {
   return health?.overall === "PASS" && coveragePass ? "PASS" : "DEGRADED";
 }
 
-function isValidProbeSet(health) {
+function isValidProbeSet(health, watchInventory = WATCH_URLS) {
   if (!health || !["PASS", "DEGRADED"].includes(health.overall)) return false;
   const expectedKeys = ["analytics", "homepage", "robots", "sitemap"];
   const actualKeys = Object.keys(health.probes || {}).sort();
@@ -817,8 +850,8 @@ function isValidProbeSet(health) {
     (sitemap.hash !== null && typeof sitemap.hash !== "string") ||
     (sitemap.ok &&
       (sitemap.status !== 200 ||
-        sitemap.count !== WATCH_URLS.length ||
-        sitemap.hash !== watchedUrlHash())) ||
+        sitemap.count !== watchInventory.length ||
+        sitemap.hash !== watchedUrlHash(watchInventory))) ||
     !validBase(robots, "robots") ||
     robots.url !== `${SITE_URL}robots.txt` ||
     !validStatus(robots.status) ||
@@ -845,6 +878,10 @@ function isValidProbeSet(health) {
 function isValidSource(source) {
   const generatedAt = new Date(source?.generatedAt);
   const firstIncompleteDate = source?.firstIncompleteDate;
+  const watchInventory = watchInventoryForContract(
+    source?.watchUrlCount,
+    source?.watchUrlHash,
+  );
   if (
     source?.schema !== INDEX_WATCH_SCHEMA ||
     typeof source.runId !== "string" ||
@@ -854,8 +891,7 @@ function isValidSource(source) {
     isoDateInTimeZone(generatedAt, "America/New_York") !== source.runDate ||
     !Number.isFinite(source.ageMinutes) ||
     source.ageMinutes < -5 ||
-    source.watchUrlCount !== WATCH_URLS.length ||
-    source.watchUrlHash !== watchedUrlHash() ||
+    !watchInventory ||
     !/^\d{4}-\d{2}-\d{2}$/.test(source.startDate || "") ||
     !/^\d{4}-\d{2}-\d{2}$/.test(source.endDate || "") ||
     source.startDate !== shiftIsoDate(source.endDate, -27) ||
@@ -880,7 +916,8 @@ function isValidSource(source) {
   return (
     indexedKeys.join(",") === "fail,neutral,pass,unknown" &&
     counts.every((value) => Number.isInteger(value) && value >= 0) &&
-    counts.reduce((total, value) => total + value, 0) === WATCH_URLS.length &&
+    counts.reduce((total, value) => total + value, 0) ===
+      watchInventory.length &&
     source.events.every(
       (event) =>
         typeof event?.id === "string" &&
@@ -914,6 +951,19 @@ function trendMatchesPrevious(current, previous) {
   const trend = current.trend;
   const source = current.sourceIndexWatch;
   const prior = previous.sourceIndexWatch;
+  if (
+    source.watchUrlCount !== prior.watchUrlCount ||
+    source.watchUrlHash !== prior.watchUrlHash
+  ) {
+    return (
+      trend.comparisonRunDate === null &&
+      trend.finalClicksDelta === null &&
+      trend.finalImpressionsDelta === null &&
+      trend.allDataClicksDelta === null &&
+      trend.allDataImpressionsDelta === null &&
+      trend.indexedPassDelta === null
+    );
+  }
   return (
     trend.comparisonRunDate === previous.runDate &&
     trend.finalClicksDelta ===
@@ -933,13 +983,18 @@ function trendMatchesPrevious(current, previous) {
 
 function isDigestSnapshot(snapshot) {
   const generatedAt = new Date(snapshot?.generatedAt);
+  const watchInventory = watchInventoryForContract(
+    snapshot?.sourceIndexWatch?.watchUrlCount,
+    snapshot?.sourceIndexWatch?.watchUrlHash,
+  );
   return (
     typeof snapshot?.runId === "string" &&
     Boolean(snapshot.runId) &&
     /^\d{4}-\d{2}-\d{2}$/.test(snapshot?.runDate || "") &&
     Number.isFinite(generatedAt.getTime()) &&
     isoDateInTimeZone(generatedAt, "America/New_York") === snapshot.runDate &&
-    isValidProbeSet(snapshot.health) &&
+    Boolean(watchInventory) &&
+    isValidProbeSet(snapshot.health, watchInventory) &&
     isValidSource(snapshot.sourceIndexWatch) &&
     snapshot.sourceIndexWatch.runDate === snapshot.runDate &&
     Date.parse(snapshot.sourceIndexWatch.generatedAt) <= generatedAt.getTime() &&
@@ -949,11 +1004,46 @@ function isDigestSnapshot(snapshot) {
   );
 }
 
+function hasValidHistoryInventoryOrder(history) {
+  let reachedLegacyInventory = false;
+  for (const entry of history) {
+    const inventory = watchInventoryForContract(
+      entry.sourceIndexWatch.watchUrlCount,
+      entry.sourceIndexWatch.watchUrlHash,
+    );
+    if (inventory === LEGACY_V1_WATCH_URLS) {
+      reachedLegacyInventory = true;
+    } else if (reachedLegacyInventory) {
+      return false;
+    }
+  }
+  return true;
+}
+
 export function validateDigestState(state) {
   if (!state) return null;
   const failures = [];
   if (state.schema !== WEEKLY_DIGEST_SCHEMA) failures.push("schema");
   if (state.siteUrl !== SITE_URL) failures.push("siteUrl");
+  const latestInventory = watchInventoryForContract(
+    state.latest?.sourceIndexWatch?.watchUrlCount,
+    state.latest?.sourceIndexWatch?.watchUrlHash,
+  );
+  const latestIsLegacy = latestInventory === LEGACY_V1_WATCH_URLS;
+  const validExpansionMarker =
+    state.watchSetExpansion?.schema ===
+      DIGEST_WATCH_SET_EXPANSION_SCHEMA &&
+    state.watchSetExpansion?.fromCount === LEGACY_V1_WATCH_URLS.length &&
+    state.watchSetExpansion?.fromHash ===
+      watchedUrlHash(LEGACY_V1_WATCH_URLS) &&
+    state.watchSetExpansion?.toCount === WATCH_URLS.length &&
+    state.watchSetExpansion?.toHash === watchedUrlHash();
+  if (
+    state.watchSetExpansion !== undefined &&
+    (!validExpansionMarker || !latestIsLegacy)
+  ) {
+    failures.push("watchSetExpansion");
+  }
   if (!isDigestSnapshot(state.latest)) failures.push("latest");
   if (
     !Array.isArray(state.history) ||
@@ -965,6 +1055,8 @@ export function validateDigestState(state) {
       state.history.length
   ) {
     failures.push("history");
+  } else if (!hasValidHistoryInventoryOrder(state.history)) {
+    failures.push("history.inventory");
   } else if (
     state.history.some(
       (entry, index) =>
@@ -982,7 +1074,17 @@ export function validateDigestState(state) {
       `Existing weekly-digest state failed validation: ${failures.join(", ")}`,
     );
   }
-  return state;
+  if (!latestIsLegacy) return state;
+  return {
+    ...state,
+    watchSetExpansion: {
+      schema: DIGEST_WATCH_SET_EXPANSION_SCHEMA,
+      fromCount: LEGACY_V1_WATCH_URLS.length,
+      fromHash: watchedUrlHash(LEGACY_V1_WATCH_URLS),
+      toCount: WATCH_URLS.length,
+      toHash: watchedUrlHash(),
+    },
+  };
 }
 
 function buildDigestState(previousState, snapshot) {
@@ -1111,7 +1213,9 @@ export function mergeHotNote(existing, block, runDate) {
 function probeObservation(probe) {
   if (probe.ok) {
     if (probe.name === "GA configuration") return "exact configuration present";
-    if (probe.count !== undefined) return `HTTP ${probe.status}; ${probe.count}/20 URLs`;
+    if (probe.count !== undefined) {
+      return `HTTP ${probe.status}; ${probe.count}/${WATCH_URLS.length} URLs`;
+    }
     return `HTTP ${probe.status}`;
   }
   return probe.errors.map(markdownCell).join("; ");
@@ -1226,6 +1330,7 @@ function stateSummary(state, status, extra = {}) {
     allDataPropertyTotals:
       state.latest.sourceIndexWatch.allDataPropertyTotals,
     indexed: state.latest.sourceIndexWatch.indexed,
+    watchSetExpansionPending: Boolean(state.watchSetExpansion),
     ...extra,
   };
 }
@@ -1268,6 +1373,7 @@ export async function runWeeklyDigest(args, dependencies = {}) {
       !args.dryRun &&
       !args.force &&
       !previousError &&
+      !previousState?.watchSetExpansion &&
       previousState?.latest?.runDate === args.runDate
     ) {
       const [existingHotNote, existingDigestNote] = await Promise.all([

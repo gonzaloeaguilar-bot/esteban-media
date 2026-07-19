@@ -17,6 +17,18 @@ const defaultUri = normalizeOrigin(
 );
 const timeZone = process.env.GA4_TIME_ZONE || "America/New_York";
 const currencyCode = process.env.GA4_CURRENCY_CODE || "USD";
+const customDimensions = [
+  {
+    parameterName: "contact_method",
+    displayName: "Contact method",
+    description: "Email, phone, Instagram, or contact-page intent.",
+  },
+  {
+    parameterName: "ai_source",
+    displayName: "AI referral source",
+    description: "Known AI answer or assistant surface that referred the visit.",
+  },
+];
 
 function requiredEnv(name, pattern) {
   const value = process.env[name]?.trim();
@@ -81,7 +93,7 @@ async function api(accessToken, method, path, body, baseUrl = adminApi) {
   return payload;
 }
 
-async function ensureEnhancedMeasurement(accessToken, stream) {
+async function ensureEnhancedMeasurementDisabled(accessToken, stream) {
   const settingsPath = `/${stream.name}/enhancedMeasurementSettings`;
   const current = await api(
     accessToken,
@@ -91,7 +103,7 @@ async function ensureEnhancedMeasurement(accessToken, stream) {
     adminAlphaApi,
   );
 
-  if (current.streamEnabled && current.pageChangesEnabled) {
+  if (!current.streamEnabled && !current.pageChangesEnabled) {
     return { settings: current, status: "existing" };
   }
 
@@ -104,12 +116,57 @@ async function ensureEnhancedMeasurement(accessToken, stream) {
     `${settingsPath}?${updateMask.toString()}`,
     {
       name: `${stream.name}/enhancedMeasurementSettings`,
-      streamEnabled: true,
-      pageChangesEnabled: true,
+      streamEnabled: false,
+      pageChangesEnabled: false,
     },
     adminAlphaApi,
   );
   return { settings, status: "updated" };
+}
+
+async function ensureCustomDimensions(accessToken, propertyId) {
+  const path = `/properties/${propertyId}/customDimensions`;
+  const query = new URLSearchParams({ pageSize: "200" });
+  const existing = await api(
+    accessToken,
+    "GET",
+    `${path}?${query.toString()}`,
+  );
+  const current = existing.customDimensions || [];
+  const results = [];
+
+  for (const definition of customDimensions) {
+    const matches = current.filter(
+      (dimension) => dimension.parameterName === definition.parameterName,
+    );
+
+    if (matches.length > 1) {
+      throw new Error(
+        `Multiple GA4 custom dimensions use ${JSON.stringify(definition.parameterName)}`,
+      );
+    }
+
+    if (matches.length === 1) {
+      results.push({
+        parameterName: definition.parameterName,
+        status: "existing",
+        name: matches[0].name,
+      });
+      continue;
+    }
+
+    const created = await api(accessToken, "POST", path, {
+      ...definition,
+      scope: "EVENT",
+    });
+    results.push({
+      parameterName: definition.parameterName,
+      status: "created",
+      name: created.name,
+    });
+  }
+
+  return results;
 }
 
 function numericId(resourceName, prefix) {
@@ -189,9 +246,13 @@ try {
     throw new Error("GA4 web stream did not return a valid measurement ID");
   }
 
-  const enhancedMeasurementResult = await ensureEnhancedMeasurement(
+  const enhancedMeasurementResult = await ensureEnhancedMeasurementDisabled(
     accessToken,
     streamResult.stream,
+  );
+  const customDimensionResults = await ensureCustomDimensions(
+    accessToken,
+    propertyId,
   );
 
   console.log(
@@ -206,10 +267,12 @@ try {
         defaultUri,
         enhancedMeasurementStatus: enhancedMeasurementResult.status,
         enhancedMeasurement: {
-          streamEnabled: enhancedMeasurementResult.settings.streamEnabled,
+          streamEnabled:
+            enhancedMeasurementResult.settings.streamEnabled === true,
           pageChangesEnabled:
-            enhancedMeasurementResult.settings.pageChangesEnabled,
+            enhancedMeasurementResult.settings.pageChangesEnabled === true,
         },
+        customDimensions: customDimensionResults,
         token: "redacted",
       },
       null,

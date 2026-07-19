@@ -4,10 +4,11 @@ import {
   languageAlternates,
   spanishAreas,
   spanishNichePages,
+  spanishServices,
   spanishSite,
   spanishRoutes,
 } from "../spanish-site";
-import { serviceAreas, site, socialImage } from "../site";
+import { serviceAreas, services, site, socialImage } from "../site";
 
 describe("site contact details", () => {
   it("publishes Esteban's current email and phone number", () => {
@@ -94,17 +95,13 @@ describe("Palm Beach County coverage", () => {
       schemaType: "AdministrativeArea",
       href: "/areas/palm-beach-county",
     });
-    expect(englishArea?.neighborhoods).toEqual(
-      expect.arrayContaining(["Boca Raton", "West Palm Beach", "Jupiter"]),
-    );
+    expect(englishArea).not.toHaveProperty("neighborhoods");
 
     expect(spanishArea).toMatchObject({
       county: "Palm Beach County",
       href: "/es/areas/palm-beach-county",
     });
-    expect(spanishArea?.neighborhoods).toEqual(
-      expect.arrayContaining(["Boca Raton", "West Palm Beach", "Jupiter"]),
-    );
+    expect(spanishArea).not.toHaveProperty("neighborhoods");
   });
 
   it("keeps reciprocal English, Spanish, and default language URLs", () => {
@@ -118,5 +115,70 @@ describe("Palm Beach County coverage", () => {
 
     expect(languageAlternates[englishPath]).toEqual(expectedAlternates);
     expect(languageAlternates[spanishPath]).toEqual(expectedAlternates);
+  });
+});
+
+describe("approved public facts", () => {
+  it("publishes only the four confirmed service priorities", () => {
+    expect(services.map((service) => service.id)).toEqual([
+      "editing",
+      "ai-content",
+      "social-planning",
+      "on-location",
+    ]);
+    expect(spanishServices.map((service) => service.id)).toEqual([
+      "edicion",
+      "contenido-ia",
+      "planificacion-social",
+      "videografia",
+    ]);
+
+    const publishedServices = JSON.stringify({ services, spanishServices });
+    for (const gatedPhrase of [
+      "product photography",
+      "fotografía de producto",
+      "aerial options",
+      "opciones aéreas",
+      "first cut",
+      "primer corte",
+      "review link",
+      "enlace de revisión",
+    ]) {
+      expect(publishedServices.toLowerCase()).not.toContain(gatedPhrase);
+    }
+  });
+
+  it("keeps area data at verified county level without city chips", () => {
+    const areaData = JSON.stringify({ serviceAreas, spanishAreas });
+
+    for (const area of [...serviceAreas, ...spanishAreas]) {
+      expect(area).not.toHaveProperty("neighborhoods");
+    }
+    for (const unconfirmedCity of [
+      "Boca Raton",
+      "West Palm Beach",
+      "Jupiter",
+      "Hollywood",
+      "Pompano Beach",
+      "Brickell",
+      "Doral",
+    ]) {
+      expect(areaData).not.toContain(unconfirmedCity);
+    }
+  });
+
+  it("marks photography and drone routes as pending educational resources", () => {
+    const photography = spanishNichePages.find(
+      (page) => page.slug === "fotografo-en-fort-lauderdale",
+    );
+    const drone = spanishNichePages.find(
+      (page) => page.slug === "drone-real-estate-miami",
+    );
+
+    for (const legacyPage of [photography, drone]) {
+      expect(legacyPage?.availability).toBe("pending-confirmation");
+      expect(legacyPage?.description).toContain("Ruta educativa heredada");
+      expect(legacyPage?.lead).toContain("no ofrece");
+    }
   });
 });

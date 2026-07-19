@@ -31,9 +31,9 @@ export default function SpanishContactPage() {
               </p>
               <p className="mt-4 max-w-2xl text-sm leading-6 text-[#5a6066]">
                 Esteban Moreno Media es un negocio de área de servicio con
-                atención remota. No hay un estudio abierto al público; las
-                consultas se manejan por teléfono o videollamada y el trabajo
-                local se cotiza según la ubicación.
+                atención remota. No hay un estudio abierto al público. Las
+                consultas pueden comenzar por email, teléfono o Instagram, y la
+                disponibilidad local se considera para cada proyecto.
               </p>
 
               <div className="mt-8 grid gap-3">
@@ -79,7 +79,7 @@ export default function SpanishContactPage() {
               </div>
             </div>
 
-            <aside className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
+            <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
               <MessageSquareText
                 className="size-6 text-[#e85d3e]"
                 aria-hidden="true"
@@ -93,9 +93,8 @@ export default function SpanishContactPage() {
                 <li>
                   <strong className="text-[#101214]">Ciudad:</strong> Miami,
                   Fort Lauderdale, Palm Beach County, venue, propiedad o
-                  dirección si ya existe. Puede aplicarse un cargo de traslado
-                  después de 20 millas desde Fort Lauderdale; el estacionamiento
-                  requerido se agrega a la cotización.
+                  dirección si ya existe. Para trabajo en locación, comparte
+                  cualquier detalle de acceso que pueda afectar el alcance.
                 </li>
                 <li>
                   <strong className="text-[#101214]">Fecha:</strong> día de
@@ -106,7 +105,7 @@ export default function SpanishContactPage() {
                   website, Google Business, listing, menu, evento o anuncios.
                 </li>
               </ul>
-            </aside>
+            </div>
           </div>
         </Container>
       </section>

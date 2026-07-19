@@ -15,7 +15,9 @@ macOS coalesces a sleep-missed calendar event after wake, but a powered-off Mac 
 - Detail/history: `/Users/gonzalo/obsidian-wiki/client-esteban-media/wiki/esteban-media-weekly-digest.md`
 - Installed job: `~/Library/LaunchAgents/com.esteban-media.weekly-digest.plist`
 
-The digest never calls Search Console or URL Inspection. It consumes a validated, same-Eastern-date, no-more-than-18-hours-old `esteban-media.index-watch.v1` snapshot with the Pacific analytics range expected at digest time and the exact 20-URL hash. It then runs four bounded production probes: homepage/canonical, sitemap parity, robots directives, and the exact GA loader/config/production-host guard. “GA configuration present” is not a claim that collection or Realtime processing is healthy.
+The digest never calls Search Console or URL Inspection. It consumes a validated, same-Eastern-date, no-more-than-18-hours-old `esteban-media.index-watch.v1` snapshot with the Pacific analytics range expected at digest time and the exact current 46-URL hash. It then runs four bounded production probes: homepage/canonical, sitemap parity, robots directives, and the exact GA loader/config/production-host guard plus query-safe manual-page-view fields. “GA configuration present” is not a claim that collection or Realtime processing is healthy.
+
+The exact legacy 20-URL v1 digest remains readable during the inventory transition. Its existing history retains the original denominator, same-day replay is bypassed once, and the first current run starts a fresh trend baseline instead of comparing 46 URLs against 20. Malformed or foreign inventory states fail closed.
 
 Probe failures are monitoring observations: the job writes a `DEGRADED` digest with per-probe evidence. Credential/state/vault/contract errors are execution failures, preserve the previous digest, create `last-error.json`, and exit nonzero.
 
@@ -35,8 +37,8 @@ The run is idempotent by Eastern calendar date. A same-date replay makes no netw
 
 The installer starts the job asynchronously. Do not inspect its output immediately after `kickstart`; first observe the launchd run count increase and then wait until `launchctl print` no longer reports a running process.
 
-1. Confirm `/usr/bin/readlink /etc/localtime` ends in `/America/New_York`. Run `pnpm index-watch:status` and require the current Eastern date, no `last-error.json`, the exact 20-URL hash, and inspection counts totaling 20.
+1. Confirm `/usr/bin/readlink /etc/localtime` ends in `/America/New_York`. Run `pnpm index-watch:status` and require the current Eastern date, no `last-error.json`, the exact 46-URL hash, and inspection counts totaling 46.
 2. Run `sh scripts/install-weekly-digest-launch-agent.sh`. Confirm the installed and committed plists are byte-identical with `cmp`, mode `600`, and `launchctl print gui/$(id -u)/com.esteban-media.weekly-digest` shows Sunday 08:45, the committed absolute script path, and exit status `0` after completion.
-3. Run `pnpm weekly-digest:status`. Require `READY`, overall `PASS`, probe health `PASS`, four passing real probes, the exact B1 source run ID/totals/hash, and indexed coverage `20/20`.
-4. Inspect the hot note and detail note. Require one managed block in each, the current Eastern date, three HTTP `200` observations, exact GA configuration evidence, finalized/all-data property totals, 20/20 coverage, and one history row. Require no `last-error.json` and a zero-byte `launchd.err.log`.
+3. Run `pnpm weekly-digest:status`. Require `READY`, overall `PASS`, probe health `PASS`, four passing real probes, the exact B1 source run ID/totals/hash, and indexed coverage reported against all 46 watched URLs.
+4. Inspect the hot note and detail note. Require one managed block in each, the current Eastern date, three HTTP `200` observations, exact GA configuration evidence, finalized/all-data property totals, 46-URL coverage, and a preserved history row for each prior run. Require no `last-error.json` and a zero-byte `launchd.err.log`.
 5. Hash `latest.json`, the hot note, and the detail note. Kickstart once more, wait for launchd completion, and require `ALREADY_RECORDED`, zero additional probes, byte-identical hashes, no error state, and zero-byte stderr.

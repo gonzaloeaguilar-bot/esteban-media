@@ -18,7 +18,7 @@ import { pathToFileURL } from "node:url";
 
 export const INDEX_WATCH_SCHEMA = "esteban-media.index-watch.v1";
 export const SITE_URL = "https://estebanmorenomedia.com/";
-export const WATCH_URLS = [
+export const LEGACY_V1_WATCH_URLS = [
   "https://estebanmorenomedia.com/",
   "https://estebanmorenomedia.com/services",
   "https://estebanmorenomedia.com/portfolio",
@@ -40,9 +40,42 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/es/video-para-restaurantes-miami",
   "https://estebanmorenomedia.com/es/drone-real-estate-miami",
 ];
+export const WATCH_URLS = [
+  ...LEGACY_V1_WATCH_URLS,
+  "https://estebanmorenomedia.com/portfolio/my-dler",
+  "https://estebanmorenomedia.com/es/portafolio/my-dler",
+  "https://estebanmorenomedia.com/portfolio/banacol",
+  "https://estebanmorenomedia.com/es/portafolio/banacol",
+  "https://estebanmorenomedia.com/portfolio/bar-door-monkey",
+  "https://estebanmorenomedia.com/es/portafolio/bar-door-monkey",
+  "https://estebanmorenomedia.com/portfolio/healthy-smile",
+  "https://estebanmorenomedia.com/es/portafolio/healthy-smile",
+  "https://estebanmorenomedia.com/portfolio/homeowners",
+  "https://estebanmorenomedia.com/es/portafolio/homeowners",
+  "https://estebanmorenomedia.com/portfolio/diana-jack",
+  "https://estebanmorenomedia.com/es/portafolio/diana-jack",
+  "https://estebanmorenomedia.com/portfolio/la-huelga",
+  "https://estebanmorenomedia.com/es/portafolio/la-huelga",
+  "https://estebanmorenomedia.com/portfolio/ml-colombia",
+  "https://estebanmorenomedia.com/es/portafolio/ml-colombia",
+  "https://estebanmorenomedia.com/guides",
+  "https://estebanmorenomedia.com/es/guias",
+  "https://estebanmorenomedia.com/guides/prepare-footage-for-video-editing",
+  "https://estebanmorenomedia.com/guides/write-a-useful-video-brief",
+  "https://estebanmorenomedia.com/guides/vertical-horizontal-video-exports-and-safe-zones",
+  "https://estebanmorenomedia.com/guides/remote-video-editing-handoff",
+  "https://estebanmorenomedia.com/es/guias/preparar-material-para-edicion-de-video",
+  "https://estebanmorenomedia.com/es/guias/como-escribir-un-brief-util-de-video",
+  "https://estebanmorenomedia.com/es/guias/video-vertical-horizontal-y-zonas-seguras",
+  "https://estebanmorenomedia.com/es/guias/entrega-para-edicion-remota-de-video",
+];
+
+const WATCH_SET_EXPANSION_SCHEMA =
+  "esteban-media.index-watch-set-expansion.v1";
 
 const MANAGED_START = "<!-- esteban-media:index-watch:start -->";
 const MANAGED_END = "<!-- esteban-media:index-watch:end -->";
+const NOTE_DESCRIPTION = `Automated three-times-weekly Search Console performance and indexed-version coverage for the fixed ${WATCH_URLS.length}-URL sitemap set.`;
 const DEFAULT_STATE_DIR = join(
   homedir(),
   ".local/state/esteban-media-index-watch",
@@ -544,6 +577,22 @@ function isRenderableHistoryEntry(entry) {
   );
 }
 
+function historyEntryWatchCount(entry) {
+  const counts = entry?.inspection?.counts;
+  const values = [
+    counts?.pass,
+    counts?.neutral,
+    counts?.fail,
+    counts?.unknown,
+  ];
+  if (values.every((value) => Number.isInteger(value) && value >= 0)) {
+    return values.reduce((total, value) => total + value, 0);
+  }
+  return Array.isArray(entry?.inspection?.pages)
+    ? entry.inspection.pages.length
+    : 0;
+}
+
 export function detectAlerts(previousState, snapshot) {
   const alerts = [];
   const observedPages = snapshot.searchAnalytics.pages.filter(
@@ -663,7 +712,7 @@ export function renderManagedBlock(state) {
     .slice(0, NOTE_HISTORY_LIMIT)
     .map(
       (entry) =>
-        `| ${markdownCell(entry.generatedAt)} | ${entry.searchAnalytics.finalPropertyTotals.clicks} | ${entry.searchAnalytics.finalPropertyTotals.impressions} | ${entry.searchAnalytics.allDataPropertyTotals.impressions} | ${entry.inspection.counts.pass}/20 | ${entry.alerts.map((alert) => alert.type).join(", ") || "none"} |`,
+        `| ${markdownCell(entry.generatedAt)} | ${entry.searchAnalytics.finalPropertyTotals.clicks} | ${entry.searchAnalytics.finalPropertyTotals.impressions} | ${entry.searchAnalytics.allDataPropertyTotals.impressions} | ${entry.inspection.counts.pass}/${historyEntryWatchCount(entry)} | ${entry.alerts.map((alert) => alert.type).join(", ") || "none"} |`,
     )
     .join("\n");
 
@@ -708,7 +757,7 @@ tags: [esteban-media, search-console, indexing, automation]
 
 # Esteban Media — Search Console Index Watch
 
-Automated three-times-weekly Search Console performance and indexed-version coverage for the fixed 20-URL sitemap set.
+${NOTE_DESCRIPTION}
 
 ${managedBlock}
 `;
@@ -733,7 +782,11 @@ export function mergeManagedNote(existing, managedBlock, updatedDate) {
     start === -1
       ? `${existing.trimEnd()}\n\n${managedBlock}\n`
       : `${existing.slice(0, start)}${managedBlock}${existing.slice(end + MANAGED_END.length)}`;
-  return updateFrontmatterDate(next, updatedDate);
+  const currentDescription = next.replace(
+    /Automated three-times-weekly Search Console performance and indexed-version coverage for the fixed \d+-URL sitemap set\./,
+    NOTE_DESCRIPTION,
+  );
+  return updateFrontmatterDate(currentDescription, updatedDate);
 }
 
 async function readJsonIfExists(path) {
@@ -754,10 +807,124 @@ async function readTextIfExists(path) {
   }
 }
 
+function urlsMatchInventory(urls, inventory) {
+  let normalized;
+  try {
+    normalized = urls.map(normalizeUrl).sort();
+  } catch {
+    return false;
+  }
+  const expected = inventory.map(normalizeUrl).sort();
+  return (
+    normalized.length === expected.length &&
+    new Set(normalized).size === expected.length &&
+    normalized.every((url, index) => url === expected[index])
+  );
+}
+
+function validExpansionMarker(marker) {
+  return (
+    marker?.schema === WATCH_SET_EXPANSION_SCHEMA &&
+    marker.fromCount === LEGACY_V1_WATCH_URLS.length &&
+    marker.fromHash === watchedUrlHash(LEGACY_V1_WATCH_URLS) &&
+    marker.toCount === WATCH_URLS.length &&
+    marker.toHash === watchedUrlHash()
+  );
+}
+
+function zeroAnalyticsPage(url) {
+  return {
+    url,
+    observed: false,
+    clicks: 0,
+    impressions: 0,
+    ctr: null,
+    position: null,
+  };
+}
+
+function unconfirmedInspectionPage(url) {
+  return {
+    url,
+    verdict: "VERDICT_UNSPECIFIED",
+    coverageState: "Not inspected since watch-set expansion",
+    indexingState: "INDEXING_STATE_UNSPECIFIED",
+    pageFetchState: "PAGE_FETCH_STATE_UNSPECIFIED",
+    robotsTxtState: "ROBOTS_TXT_STATE_UNSPECIFIED",
+    lastCrawlTime: null,
+    googleCanonical: null,
+    userCanonical: null,
+    canonicalMismatch: false,
+  };
+}
+
+function migrateLegacyWatchState(state) {
+  const analyticsByUrl = new Map(
+    state.latest.searchAnalytics.pages.map((page) => [
+      normalizeUrl(page.url),
+      page,
+    ]),
+  );
+  const inspectionByUrl = new Map(
+    state.latest.inspection.pages.map((page) => [normalizeUrl(page.url), page]),
+  );
+  const verdictByUrl = new Map(
+    Object.entries(state.confirmedVerdicts).map(([url, verdict]) => [
+      normalizeUrl(url),
+      verdict,
+    ]),
+  );
+  const inspectionPages = WATCH_URLS.map(
+    (url) => inspectionByUrl.get(normalizeUrl(url)) || unconfirmedInspectionPage(url),
+  );
+
+  return {
+    ...state,
+    watchUrlCount: WATCH_URLS.length,
+    watchUrlHash: watchedUrlHash(),
+    latest: {
+      ...state.latest,
+      searchAnalytics: {
+        ...state.latest.searchAnalytics,
+        pages: WATCH_URLS.map(
+          (url) => analyticsByUrl.get(normalizeUrl(url)) || zeroAnalyticsPage(url),
+        ),
+      },
+      inspection: {
+        ...state.latest.inspection,
+        counts: inspectionCounts(inspectionPages),
+        pages: inspectionPages,
+      },
+    },
+    confirmedVerdicts: Object.fromEntries(
+      WATCH_URLS.map((url) => [
+        url,
+        verdictByUrl.get(normalizeUrl(url)) ?? null,
+      ]),
+    ),
+    watchSetExpansion: {
+      schema: WATCH_SET_EXPANSION_SCHEMA,
+      fromCount: LEGACY_V1_WATCH_URLS.length,
+      fromHash: watchedUrlHash(LEGACY_V1_WATCH_URLS),
+      toCount: WATCH_URLS.length,
+      toHash: watchedUrlHash(),
+    },
+  };
+}
+
 export function validatePreviousState(state) {
   if (!state) return null;
   const failures = [];
-  const expectedUrls = [...WATCH_URLS].map(normalizeUrl).sort();
+  const isCurrentInventory =
+    state.watchUrlCount === WATCH_URLS.length &&
+    state.watchUrlHash === watchedUrlHash();
+  const isLegacyInventory =
+    state.watchUrlCount === LEGACY_V1_WATCH_URLS.length &&
+    state.watchUrlHash === watchedUrlHash(LEGACY_V1_WATCH_URLS);
+  const expectedInventory = isLegacyInventory
+    ? LEGACY_V1_WATCH_URLS
+    : WATCH_URLS;
+  const expectedUrls = expectedInventory.map(normalizeUrl).sort();
   const validateUrlRows = (rows, label, validateRow) => {
     if (!Array.isArray(rows)) {
       failures.push(label);
@@ -771,8 +938,8 @@ export function validatePreviousState(state) {
       return;
     }
     if (
-      actualUrls.length !== WATCH_URLS.length ||
-      new Set(actualUrls).size !== WATCH_URLS.length ||
+      actualUrls.length !== expectedInventory.length ||
+      new Set(actualUrls).size !== expectedInventory.length ||
       actualUrls.some((url, index) => url !== expectedUrls[index])
     ) {
       failures.push(`${label}.urls`);
@@ -783,8 +950,21 @@ export function validatePreviousState(state) {
   };
   if (state.schema !== INDEX_WATCH_SCHEMA) failures.push("schema");
   if (state.siteUrl !== SITE_URL) failures.push("siteUrl");
-  if (state.watchUrlCount !== WATCH_URLS.length) failures.push("watchUrlCount");
-  if (state.watchUrlHash !== watchedUrlHash()) failures.push("watchUrlHash");
+  if (!isCurrentInventory && !isLegacyInventory) {
+    if (
+      state.watchUrlCount !== WATCH_URLS.length &&
+      state.watchUrlCount !== LEGACY_V1_WATCH_URLS.length
+    ) {
+      failures.push("watchUrlCount");
+    }
+    failures.push("watchUrlHash");
+  }
+  if (
+    state.watchSetExpansion !== undefined &&
+    (!isCurrentInventory || !validExpansionMarker(state.watchSetExpansion))
+  ) {
+    failures.push("watchSetExpansion");
+  }
   if (!state.latest || typeof state.latest !== "object") {
     failures.push("latest");
   } else {
@@ -792,6 +972,26 @@ export function validatePreviousState(state) {
       if (typeof state.latest[field] !== "string" || !state.latest[field]) {
         failures.push(`latest.${field}`);
       }
+    }
+    const expectedLiveSitemapHash = watchedUrlHash(expectedInventory);
+    let validatedLiveSitemap = null;
+    try {
+      validatedLiveSitemap = validateWatchedSitemap(
+        state.latest.liveSitemap?.urls || [],
+        expectedInventory,
+      );
+    } catch {
+      failures.push("latest.liveSitemap.urls");
+    }
+    if (state.latest.liveSitemap?.count !== expectedInventory.length) {
+      failures.push("latest.liveSitemap.count");
+    }
+    if (
+      state.latest.liveSitemap?.hash !== expectedLiveSitemapHash ||
+      (validatedLiveSitemap &&
+        validatedLiveSitemap.hash !== expectedLiveSitemapHash)
+    ) {
+      failures.push("latest.liveSitemap.hash");
     }
     validateUrlRows(
       state.latest.inspection?.pages,
@@ -805,6 +1005,31 @@ export function validatePreviousState(state) {
           "VERDICT_UNSPECIFIED",
         ]).has(row?.verdict) && typeof row?.coverageState === "string",
     );
+    const counts = state.latest.inspection?.counts;
+    const countValues = [
+      counts?.pass,
+      counts?.neutral,
+      counts?.fail,
+      counts?.unknown,
+    ];
+    if (
+      countValues.some(
+        (value) => !Number.isInteger(value) || value < 0,
+      ) ||
+      countValues.reduce((total, value) => total + value, 0) !==
+        expectedInventory.length
+    ) {
+      failures.push("latest.inspection.counts");
+    } else if (Array.isArray(state.latest.inspection?.pages)) {
+      const recomputed = inspectionCounts(state.latest.inspection.pages);
+      if (
+        Object.keys(recomputed).some(
+          (key) => recomputed[key] !== counts[key],
+        )
+      ) {
+        failures.push("latest.inspection.counts.mismatch");
+      }
+    }
     validateUrlRows(
       state.latest.searchAnalytics?.pages,
       "latest.searchAnalytics.pages",
@@ -853,9 +1078,7 @@ export function validatePreviousState(state) {
   } else {
     const confirmedUrls = Object.keys(confirmedVerdicts).sort();
     if (
-      confirmedUrls.length !== WATCH_URLS.length ||
-      new Set(confirmedUrls).size !== WATCH_URLS.length ||
-      confirmedUrls.some((url, index) => url !== expectedUrls[index])
+      !urlsMatchInventory(confirmedUrls, expectedInventory)
     ) {
       failures.push("confirmedVerdicts.urls");
     }
@@ -874,7 +1097,7 @@ export function validatePreviousState(state) {
       `Existing index-watch state failed validation: ${failures.join(", ")}`,
     );
   }
-  return state;
+  return isLegacyInventory ? migrateLegacyWatchState(state) : state;
 }
 
 async function atomicWrite(path, content, mode = 0o600) {
@@ -1161,6 +1384,7 @@ function stateSummary(state, status, extra = {}) {
     indexed: state.latest.inspection.counts,
     alerts: state.latest.alerts.map((alert) => alert.type),
     pendingNotificationCount: state.pendingNotifications?.length || 0,
+    watchSetExpansionPending: Boolean(state.watchSetExpansion),
     ...extra,
   };
 }
@@ -1179,9 +1403,8 @@ async function writeLastError(args, error) {
 export async function runIndexWatch(args, dependencies = {}) {
   await mkdir(args.stateDir, { recursive: true });
   const latestPath = join(args.stateDir, "latest.json");
-  const previousState = validatePreviousState(
-    await readJsonIfExists(latestPath),
-  );
+  const rawPreviousState = await readJsonIfExists(latestPath);
+  const previousState = validatePreviousState(rawPreviousState);
   const previousError = await readJsonIfExists(
     join(args.stateDir, "last-error.json"),
   );
@@ -1199,17 +1422,24 @@ export async function runIndexWatch(args, dependencies = {}) {
     const hadPendingNotifications =
       (previousState?.pendingNotifications?.length || 0) > 0;
     let baselineState = previousState;
+    let persistedBaselineState = rawPreviousState;
     let priorDelivery = { state: previousState, results: [] };
     if (!args.dryRun && previousState) {
-      priorDelivery = deliverPendingNotifications(previousState, {
+      const deliveryState = previousState.watchSetExpansion
+        ? rawPreviousState
+        : previousState;
+      priorDelivery = deliverPendingNotifications(deliveryState, {
         enabled: args.notify,
         notifier: dependencies.notifier || notifyLocal,
       });
-      baselineState = priorDelivery.state;
-      if (baselineState !== previousState) {
+      persistedBaselineState = priorDelivery.state;
+      baselineState = previousState.watchSetExpansion
+        ? validatePreviousState(priorDelivery.state)
+        : priorDelivery.state;
+      if (priorDelivery.state !== deliveryState) {
         await atomicWrite(
           latestPath,
-          `${JSON.stringify(baselineState, null, 2)}\n`,
+          `${JSON.stringify(priorDelivery.state, null, 2)}\n`,
         );
       }
     }
@@ -1218,6 +1448,7 @@ export async function runIndexWatch(args, dependencies = {}) {
       !args.dryRun &&
       !args.force &&
       !previousError &&
+      !baselineState?.watchSetExpansion &&
       baselineState?.latest?.runDate === args.runDate
     ) {
       const existingNote = await readTextIfExists(args.notePath);
@@ -1267,10 +1498,10 @@ export async function runIndexWatch(args, dependencies = {}) {
     try {
       await atomicWrite(args.notePath, nextNote, 0o644);
     } catch (error) {
-      if (baselineState) {
+      if (persistedBaselineState) {
         await atomicWrite(
           latestPath,
-          `${JSON.stringify(baselineState, null, 2)}\n`,
+          `${JSON.stringify(persistedBaselineState, null, 2)}\n`,
         );
       } else {
         await unlink(latestPath).catch((unlinkError) => {

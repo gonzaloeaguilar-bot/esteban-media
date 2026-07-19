@@ -6,7 +6,6 @@ import { Container } from "@/components/ui/container";
 import {
   spanishNichePages,
   spanishOpportunitySignals,
-  spanishPackages,
   spanishServices,
   spanishSite,
 } from "@/lib/spanish-site";
@@ -27,7 +26,7 @@ export default function SpanishHomePage() {
         <Container size="xl">
           <div className="max-w-3xl">
             <p className="text-xs font-medium uppercase text-[#5a6066]">
-              Fort Lauderdale / Broward / Miami-Dade / Palm Beach County por cotización
+              Fort Lauderdale / Broward / Miami-Dade / Palm Beach County en expansión
             </p>
             <h1 className="mt-5 max-w-[12ch] font-serif text-5xl leading-none sm:text-6xl lg:text-7xl">
               Edición, contenido con IA y estrategia para negocios que quieren publicar mejor.
@@ -35,16 +34,16 @@ export default function SpanishHomePage() {
             <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
               Esteban Moreno Media ofrece edición de video, contenido con IA y
               planificación para redes desde Fort Lauderdale para Broward,
-              Miami-Dade y clientes remotos. La producción en locación se cotiza
-              según el proyecto; el español es el idioma principal de Esteban y
-              su inglés es intermedio.
+              Miami-Dade y clientes remotos. La producción en locación se
+              considera de forma selectiva, proyecto por proyecto; el español
+              es el idioma principal de Esteban y su inglés es intermedio.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/es/contacto"
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#e85d3e] px-6 text-sm font-medium text-white hover:bg-[#c84a2c]"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white hover:bg-[#a93e29]"
               >
-                Cotizar proyecto
+                Consultar un proyecto
                 <ArrowRight className="size-4" aria-hidden="true" />
               </Link>
               <Link
@@ -55,26 +54,26 @@ export default function SpanishHomePage() {
               </Link>
             </div>
 
-            <dl className="mt-8 grid gap-3 sm:grid-cols-3">
+            <ul role="list" className="mt-8 grid gap-3 sm:grid-cols-3">
               {spanishOpportunitySignals.map((signal) => {
                 const Icon = signal.icon;
                 return (
-                  <div
+                  <li
                     key={signal.label}
                     className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-4"
                   >
                     <Icon className="size-5 text-[#e85d3e]" aria-hidden="true" />
-                    <dt className="mt-3 text-xs uppercase text-[#5a6066]">
+                    <p className="mt-3 text-xs uppercase text-[#5a6066]">
                       {signal.label}
-                    </dt>
-                    <dd className="font-serif text-xl">{signal.value}</dd>
+                    </p>
+                    <p className="font-serif text-xl">{signal.value}</p>
                     <p className="mt-2 text-xs leading-5 text-[#5a6066]">
                       {signal.detail}
                     </p>
-                  </div>
+                  </li>
                 );
               })}
-            </dl>
+            </ul>
           </div>
         </Container>
       </section>
@@ -88,14 +87,15 @@ export default function SpanishHomePage() {
             title="Contenido conectado con una meta de negocio."
             lead="La meta es simple: editar con intención, organizar qué publicar y definir con claridad cuándo hace falta producir material nuevo."
           />
-          <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
+          <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {spanishServices.map((service) => {
               const Icon = service.icon;
               return (
-                <article
-                  id={service.id}
+                <Link
                   key={service.id}
-                  className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5"
+                  href={`/es/servicios#${service.id}`}
+                  className="group rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5 transition hover:-translate-y-0.5 hover:border-[#e85d3e] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e85d3e]"
+                  aria-label={`Explorar ${service.name}`}
                 >
                   <Icon className="size-6 text-[#e85d3e]" aria-hidden="true" />
                   <h2 className="mt-5 font-serif text-2xl leading-tight">
@@ -104,7 +104,14 @@ export default function SpanishHomePage() {
                   <p className="mt-3 text-sm leading-6 text-[#252a2d]">
                     {service.description}
                   </p>
-                </article>
+                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27]">
+                    Explorar este servicio
+                    <ArrowRight
+                      className="size-4 transition-transform group-hover:translate-x-0.5"
+                      aria-hidden="true"
+                    />
+                  </span>
+                </Link>
               );
             })}
           </div>
@@ -116,7 +123,7 @@ export default function SpanishHomePage() {
           <SectionIntro
             eyebrow="Servicios y ubicaciones"
             title="Encuentra el servicio que encaja con tu proyecto."
-            lead="Explora opciones por tipo de proyecto y zona. Los servicios en locación y cualquier opción aérea se confirman antes de cotizar."
+            lead="Explora servicios confirmados y rutas heredadas por tipo de proyecto. Las páginas de fotografía y drone explican que su disponibilidad sigue pendiente de confirmación."
             inverted
           />
           <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -146,30 +153,6 @@ export default function SpanishHomePage() {
 
       <section className="py-12 sm:py-16">
         <Container size="xl">
-          <SectionIntro
-            eyebrow="Paquetes"
-            title="Tres formas sencillas de empezar."
-            lead="Cada opción se cotiza según material, locación, cantidad de entregables, uso de IA y fecha límite."
-          />
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
-            {spanishPackages.map((item) => (
-              <article
-                key={item.name}
-                className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6"
-              >
-                <p className="text-xs uppercase text-[#5a6066]">{item.name}</p>
-                <h2 className="mt-3 font-serif text-4xl">{item.price}</h2>
-                <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                  {item.description}
-                </p>
-              </article>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      <section className="pb-12 sm:pb-16">
-        <Container size="xl">
           <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6 sm:p-8">
             <p className="text-xs font-medium uppercase text-[#5a6066]">
               Contacto
@@ -180,9 +163,9 @@ export default function SpanishHomePage() {
                   Manda un brief corto en español.
                 </h2>
                 <p className="mt-3 max-w-2xl text-sm leading-6 text-[#252a2d]">
-                  Incluye fecha, ciudad, tipo de negocio, entregables y links de
-                  referencia. Si no sabes exactamente qué necesitas, manda la
-                  meta del proyecto.
+                  Comparte la meta, el condado, el material disponible, el uso
+                  previsto y links de referencia. No hace falta asumir formatos
+                  ni una forma de trabajo específica.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
@@ -194,7 +177,7 @@ export default function SpanishHomePage() {
                 </Link>
                 <a
                   href={`mailto:${site.email}`}
-                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#e85d3e] px-5 text-sm font-medium text-white hover:bg-[#c84a2c]"
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-5 text-sm font-medium text-white hover:bg-[#a93e29]"
                 >
                   <Mail className="size-4" aria-hidden="true" />
                   Email

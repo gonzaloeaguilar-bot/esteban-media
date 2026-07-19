@@ -4,6 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Mail, Phone, PlaySquare, Send } from "lucide-react";
 
+import { getPairedLanguageRoute } from "@/lib/language-routes";
+
 type FooterProps = {
   description: string;
   spanishDescription: string;
@@ -25,15 +27,14 @@ const englishGroups = [
       { href: "/services#ai-content", label: "AI content" },
       { href: "/services#social-planning", label: "Social planning" },
       { href: "/services#on-location", label: "Local capture" },
-      { href: "/services#product-aerial", label: "Photo + aerial" },
     ],
   },
   {
     title: "Areas",
     items: [
-      { href: "/areas", label: "Fort Lauderdale" },
-      { href: "/areas", label: "Broward County" },
-      { href: "/areas", label: "Miami-Dade" },
+      { href: "/areas#fort-lauderdale", label: "Fort Lauderdale" },
+      { href: "/areas#broward-county", label: "Broward County" },
+      { href: "/areas#miami-dade", label: "Miami-Dade" },
       { href: "/areas/palm-beach-county", label: "Palm Beach County" },
     ],
   },
@@ -43,6 +44,7 @@ const englishGroups = [
       { href: "/", label: "Home" },
       { href: "/services", label: "Services" },
       { href: "/portfolio", label: "Portfolio" },
+      { href: "/guides", label: "Video guides" },
       { href: "/areas", label: "Areas" },
       { href: "/about", label: "About" },
       { href: "/contact", label: "Contact" },
@@ -60,15 +62,14 @@ const spanishGroups = [
       { href: "/es/servicios#contenido-ia", label: "Contenido IA" },
       { href: "/es/servicios#planificacion-social", label: "Plan social" },
       { href: "/es/servicios#videografia", label: "Video" },
-      { href: "/es/servicios#fotografia", label: "Foto + aéreo" },
     ],
   },
   {
     title: "Áreas",
     items: [
-      { href: "/es/areas", label: "Fort Lauderdale" },
-      { href: "/es/areas", label: "Broward County" },
-      { href: "/es/areas", label: "Miami-Dade" },
+      { href: "/es/areas#fort-lauderdale", label: "Fort Lauderdale" },
+      { href: "/es/areas#broward-county", label: "Broward County" },
+      { href: "/es/areas#miami-dade", label: "Miami-Dade" },
       { href: "/es/areas/palm-beach-county", label: "Palm Beach County" },
     ],
   },
@@ -78,6 +79,7 @@ const spanishGroups = [
       { href: "/es", label: "Inicio" },
       { href: "/es/servicios", label: "Servicios" },
       { href: "/es/portafolio", label: "Portafolio" },
+      { href: "/es/guias", label: "Guías de video" },
       { href: "/es/areas", label: "Áreas" },
       { href: "/es/sobre-esteban", label: "Sobre Esteban" },
       { href: "/es/contacto", label: "Contacto" },
@@ -90,7 +92,15 @@ const spanishGroups = [
 export function SiteFooterClient(props: FooterProps) {
   const pathname = usePathname();
   const isSpanish = pathname === "/es" || pathname.startsWith("/es/");
-  const groups = isSpanish ? spanishGroups : englishGroups;
+  const languageHref = getPairedLanguageRoute(pathname);
+  const groups = (isSpanish ? spanishGroups : englishGroups).map((group) => ({
+    ...group,
+    items: group.items.map((item) =>
+      item.label === (isSpanish ? "English" : "Español")
+        ? { ...item, href: languageHref }
+        : item,
+    ),
+  }));
 
   return (
     <footer className="bg-[#101214] text-[#f6f1ea]">
@@ -121,6 +131,7 @@ export function SiteFooterClient(props: FooterProps) {
             </a>
             <a
               href={props.instagram}
+              rel="me"
               className="inline-flex items-center gap-2 rounded-full border border-[#f6f1ea]/20 px-4 py-2 text-sm hover:bg-white/10"
             >
               <Send className="size-4" aria-hidden="true" />
@@ -128,6 +139,7 @@ export function SiteFooterClient(props: FooterProps) {
             </a>
             <a
               href={props.youtube}
+              rel="me"
               className="inline-flex items-center gap-2 rounded-full border border-[#f6f1ea]/20 px-4 py-2 text-sm hover:bg-white/10"
             >
               <PlaySquare className="size-4" aria-hidden="true" />

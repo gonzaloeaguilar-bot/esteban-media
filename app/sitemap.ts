@@ -1,5 +1,17 @@
 import type { MetadataRoute } from "next";
 
+import {
+  getGuideAlternates,
+  getGuidePath,
+  getGuides,
+  type GuideLocale,
+} from "@/lib/guides";
+import {
+  getPortfolioWatchItems,
+  getPortfolioWatchLanguages,
+  getPortfolioWatchPath,
+  type PortfolioWatchLocale,
+} from "@/lib/portfolio-watch";
 import { languageAlternates, spanishRoutes } from "@/lib/spanish-site";
 import { absoluteUrl } from "@/lib/site";
 
@@ -30,23 +42,87 @@ function sitemapAlternates(path: string) {
   };
 }
 
+function watchSitemapAlternates(id: string) {
+  return {
+    languages: Object.fromEntries(
+      Object.entries(getPortfolioWatchLanguages(id)).map(([language, path]) => [
+        language,
+        absoluteUrl(path),
+      ]),
+    ),
+  };
+}
+
+function guideSitemapAlternates(locale: GuideLocale, slug: string) {
+  const guide = getGuides(locale).find((candidate) => candidate.slug === slug);
+
+  if (!guide) {
+    throw new Error(`Missing ${locale} guide for sitemap slug ${slug}`);
+  }
+
+  return {
+    languages: Object.fromEntries(
+      Object.entries(getGuideAlternates(guide)).map(([language, path]) => [
+        language,
+        absoluteUrl(path),
+      ]),
+    ),
+  };
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date("2026-07-16");
+  const releaseLastModified = new Date("2026-07-19");
+  const watchLocales: readonly PortfolioWatchLocale[] = ["en", "es"];
+  const guideLocales: readonly GuideLocale[] = ["en", "es"];
 
   return [
     ...routes.map((route) => ({
       url: absoluteUrl(route.path),
-      lastModified,
+      lastModified: releaseLastModified,
       changeFrequency: "weekly" as const,
       priority: route.priority,
       alternates: sitemapAlternates(route.path),
     })),
     ...spanishRoutes.map((path) => ({
       url: absoluteUrl(path),
-      lastModified,
+      lastModified: releaseLastModified,
       changeFrequency: "weekly" as const,
       priority: path === "/es" ? 0.95 : 0.75,
       alternates: sitemapAlternates(path),
     })),
+    ...getPortfolioWatchItems().flatMap((item) =>
+      watchLocales.map((locale) => ({
+        url: absoluteUrl(getPortfolioWatchPath(item.id, locale)),
+        lastModified: releaseLastModified,
+        changeFrequency: "monthly" as const,
+        priority: 0.75,
+        alternates: watchSitemapAlternates(item.id),
+      })),
+    ),
+    ...guideLocales.map((locale) => {
+      const path = locale === "es" ? "/es/guias" : "/guides";
+      return {
+        url: absoluteUrl(path),
+        lastModified: releaseLastModified,
+        changeFrequency: "monthly" as const,
+        priority: 0.7,
+        alternates: {
+          languages: {
+            "en-US": absoluteUrl("/guides"),
+            "es-US": absoluteUrl("/es/guias"),
+            "x-default": absoluteUrl("/guides"),
+          },
+        },
+      };
+    }),
+    ...guideLocales.flatMap((locale) =>
+      getGuides(locale).map((guide) => ({
+        url: absoluteUrl(getGuidePath(guide)),
+        lastModified: releaseLastModified,
+        changeFrequency: "monthly" as const,
+        priority: 0.65,
+        alternates: guideSitemapAlternates(locale, guide.slug),
+      })),
+    ),
   ];
 }

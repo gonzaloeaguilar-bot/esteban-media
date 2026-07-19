@@ -18,7 +18,7 @@ export const spanishSite = {
   description:
     "Edición de video, contenido con IA, planificación para redes y producción selectiva desde Fort Lauderdale para Broward, Miami-Dade y clientes remotos.",
   contactLead:
-    "Cuéntame la meta, fecha, ciudad, entregables y dónde se publicará el contenido. La atención es principalmente en español y también hay comunicación disponible en inglés.",
+    "Comparte la meta, el condado, el material disponible, las referencias y el uso previsto. La atención es principalmente en español y también hay comunicación disponible en inglés intermedio.",
 };
 
 export type SpanishService = {
@@ -34,25 +34,25 @@ export type SpanishService = {
 export const spanishServices: SpanishService[] = [
   {
     id: "edicion",
-    name: "Edición de video y reels",
+    name: "Edición de video",
     shortName: "Edición",
     description:
       "Edición remota para emprendedores, negocios, agencias y equipos que ya tienen material grabado.",
     detail:
-      "Ritmo, captions, color, música y exportes se definen según la pieza y el canal.",
+      "El alcance parte del material disponible, la meta de publicación y las necesidades de formato.",
     icon: Scissors,
-    tags: ["Remoto", "Reels", "Postproducción"],
+    tags: ["Remoto", "Material existente", "Postproducción"],
   },
   {
     id: "contenido-ia",
     name: "Contenido con IA",
     shortName: "Contenido IA",
     description:
-      "Imágenes, movimiento y variaciones creativas asistidas por IA para contenido social y productos.",
+      "Apoyo creativo con métodos asistidos por IA, definido alrededor de una meta de contenido confirmada.",
     detail:
-      "El proceso y el nivel de generación se explican antes de comenzar, con revisión humana.",
+      "Las preguntas de alcance aclaran dónde puede encajar la IA, qué referencias guían la dirección y cómo se usará el contenido.",
     icon: WandSparkles,
-    tags: ["Imágenes", "Animación", "Variaciones"],
+    tags: ["Asistido por IA", "Dirección creativa", "Según proyecto"],
   },
   {
     id: "planificacion-social",
@@ -61,31 +61,20 @@ export const spanishServices: SpanishService[] = [
     description:
       "Un plan práctico para marcas que necesitan publicar con consistencia y una intención clara.",
     detail:
-      "Temas, formatos, frecuencia y necesidades de producción se pueden organizar por mes.",
+      "Las preguntas de alcance cubren la audiencia, la meta, los canales y las necesidades de contenido.",
     icon: CalendarRange,
-    tags: ["Estrategia", "Frecuencia", "Mensual"],
+    tags: ["Estrategia", "Frecuencia", "Plan de contenido"],
   },
   {
     id: "videografia",
     name: "Contenido en locación",
     shortName: "Grabación",
     description:
-      "Producción ligera para restaurantes, real estate, productos, emprendedores y marcas locales.",
+      "Producción local de video, definida de forma selectiva para emprendedores, negocios y marcas.",
     detail:
-      "La cotización define locación, método de captura, entregables, traslado y plazo.",
+      "La disponibilidad y el alcance se consideran proyecto por proyecto después de conocer la locación, la meta y las necesidades de captura.",
     icon: Video,
-    tags: ["South Florida", "Social", "Real estate"],
-  },
-  {
-    id: "fotografia",
-    name: "Producto y opciones aéreas",
-    shortName: "Foto + aéreo",
-    description:
-      "Fotografía de producto y, cuando el proyecto lo permite, tomas aéreas para dar contexto a una propiedad o marca.",
-    detail:
-      "El drone se ofrece solo al confirmar espacio aéreo, clima, permiso de la propiedad y disponibilidad de piloto acreditado.",
-    icon: Camera,
-    tags: ["Producto", "Propiedad", "Aéreo cotizado"],
+    tags: ["South Florida", "En locación", "Según proyecto"],
   },
 ];
 
@@ -96,27 +85,13 @@ export const spanishAreas = [
     href: "/es/areas",
     description:
       "Base principal para emprendedores, restaurantes, real estate y contenido para negocios locales.",
-    neighborhoods: [
-      "Las Olas",
-      "Flagler Village",
-      "Victoria Park",
-      "Wilton Manors",
-      "Rio Vista",
-    ],
   },
   {
     name: "Broward County",
     county: "Broward County",
     href: "/es/areas",
     description:
-      "Disponible por cotización en Hollywood, Pompano Beach, Davie, Plantation, Sunrise, Weston, Coral Springs y áreas cercanas.",
-    neighborhoods: [
-      "Hollywood",
-      "Pompano Beach",
-      "Davie",
-      "Plantation",
-      "Sunrise",
-    ],
+      "Broward County forma parte del mercado local habitual para proyectos definidos de forma selectiva.",
   },
   {
     name: "Miami-Dade",
@@ -124,23 +99,13 @@ export const spanishAreas = [
     href: "/es/areas",
     description:
       "Proyectos seleccionados para emprendedores, restaurantes, marcas y real estate en Miami-Dade.",
-    neighborhoods: ["Miami", "Brickell", "Wynwood", "Doral", "Coral Gables"],
   },
   {
     name: "Palm Beach County",
     county: "Palm Beach County",
     href: "/es/areas/palm-beach-county",
     description:
-      "Disponible por cotización para proyectos seleccionados desde Boca Raton y Delray Beach hasta West Palm Beach, Palm Beach Gardens, Jupiter y Wellington.",
-    neighborhoods: [
-      "Boca Raton",
-      "Delray Beach",
-      "Boynton Beach",
-      "West Palm Beach",
-      "Palm Beach Gardens",
-      "Jupiter",
-      "Wellington",
-    ],
+      "Palm Beach County es un área de expansión considerada proyecto por proyecto; todavía no se publica cobertura por ciudad.",
   },
 ];
 
@@ -154,9 +119,10 @@ export type SpanishNichePage = {
   lead: string;
   keyword: string;
   location: string;
+  availability: "confirmed" | "pending-confirmation";
   icon: LucideIcon;
   bestFor: string[];
-  deliverables: string[];
+  scopingQuestions: string[];
   projectFit: string;
   faqs: { question: string; answer: string }[];
 };
@@ -167,38 +133,39 @@ export const spanishNichePages: SpanishNichePage[] = [
     title: "Videógrafo en Miami",
     metadataTitle: "Videógrafo en Miami",
     description:
-      "Edición y producción de video por proyecto en Miami para emprendedores, restaurantes, propiedades y marcas que prefieren trabajar en español.",
-    eyebrow: "Miami / Doral / Brickell / Wynwood",
-    h1: "Videógrafo en Miami para contenido que se siente local.",
+      "Información sobre edición y producción selectiva de video por proyecto en Miami-Dade, con atención principal en español.",
+    eyebrow: "Miami-Dade / atención en español",
+    h1: "Video en Miami-Dade, definido proyecto por proyecto.",
     lead:
-      "Si buscas un videógrafo en Miami que pueda hablar español, entender el negocio y entregar piezas listas para redes, Esteban cubre proyectos pequeños y medianos sin convertirlo en una producción pesada.",
+      "Esteban tiene proyectos publicados y verificables realizados en Miami. Para una nueva idea en locación, la disponibilidad y el alcance se conversan de forma individual; la atención es principalmente en español y su inglés es intermedio.",
     keyword: "videógrafo en Miami",
     location: "Miami-Dade",
+    availability: "confirmed",
     icon: Video,
     bestFor: [
-      "Restaurantes que necesitan reels, menú visual o contenido mensual.",
-      "Agentes de real estate que quieren video y cortes verticales.",
-      "Marcas locales que prefieren planificar el contenido en español.",
-      "Emprendedores que necesitan edición o contenido continuo para redes.",
+      "Negocios con material existente que quieren conversar sobre edición.",
+      "Equipos que evalúan una producción de video en locación definida de forma selectiva.",
+      "Marcas que prefieren explicar la meta y las referencias en español.",
+      "Personas que quieren revisar prueba publicada de proyectos reales en Miami.",
     ],
-    deliverables: [
-      "Video vertical para Reels/TikTok/Shorts.",
-      "Edición con captions, color y música.",
-      "B-roll para reutilizar en futuras publicaciones.",
-      "Versiones para website, anuncios o Google Business cuando aplica.",
+    scopingQuestions: [
+      "¿Ya existe material grabado o la idea requiere una captura nueva?",
+      "¿Qué debe comunicar el contenido y dónde se publicará?",
+      "¿La locación está dentro de Miami-Dade?",
+      "¿Qué disponibilidad, formatos y alcance deben confirmarse para este proyecto?",
     ],
     projectFit:
-      "Una opción directa para negocios, restaurantes y propiedades que necesitan video local sin una producción de agencia innecesariamente grande.",
+      "Esta página conecta las prioridades confirmadas de edición y producción selectiva con prueba publicada en Miami. No promete disponibilidad, formatos ni un alcance universal.",
     faqs: [
       {
         question: "¿Esteban trabaja en español?",
         answer:
-          "Sí. El español es su idioma principal. También puede mantener comunicación de trabajo en inglés.",
+          "Sí. El español es su idioma principal y también puede mantener comunicación de trabajo en inglés intermedio.",
       },
       {
         question: "¿Cubre todo Miami-Dade?",
         answer:
-          "Cubre proyectos seleccionados en Miami, Doral, Brickell, Wynwood, Coral Gables, Miami Beach y zonas cercanas.",
+          "Miami-Dade es un mercado de proyectos seleccionados. No se publica una lista de ciudades o vecindarios; la disponibilidad de cada locación se confirma al consultar.",
       },
     ],
   },
@@ -207,38 +174,39 @@ export const spanishNichePages: SpanishNichePage[] = [
     title: "Videógrafo en Fort Lauderdale",
     metadataTitle: "Videógrafo en Fort Lauderdale",
     description:
-      "Edición y producción de video por proyecto en Fort Lauderdale para negocios, restaurantes, propiedades y contenido social en Broward County.",
+      "Información sobre edición y producción selectiva de video por proyecto desde Fort Lauderdale para Broward County.",
     eyebrow: "Fort Lauderdale / Broward County",
-    h1: "Videógrafo en Fort Lauderdale para negocios que necesitan contenido claro.",
+    h1: "Video desde Fort Lauderdale, con alcance definido por proyecto.",
     lead:
-      "Esteban está basado en Fort Lauderdale y trabaja con negocios locales que necesitan grabación, edición y piezas listas para publicar sin un proceso complicado.",
+      "Fort Lauderdale es la base de Esteban Moreno Media. La edición, la planificación y la producción local de video forman parte de sus prioridades confirmadas; cada idea en locación se considera de forma selectiva.",
     keyword: "videógrafo en Fort Lauderdale",
     location: "Fort Lauderdale",
+    availability: "confirmed",
     icon: MapPin,
     bestFor: [
-      "Negocios cerca de Las Olas, Flagler Village y Wilton Manors.",
-      "Emprendedores que necesitan reels o edición continua.",
-      "Propiedades, restaurantes y espacios comerciales.",
-      "Creadores o profesionales que necesitan contenido constante.",
+      "Negocios de Broward que quieren explicar una meta de video en español.",
+      "Emprendedores con material existente para una posible edición.",
+      "Equipos que evalúan si una captura local encaja con el proyecto.",
+      "Personas que quieren revisar primero el portafolio publicado.",
     ],
-    deliverables: [
-      "Shoot corto en locación.",
-      "Reel principal y cortes secundarios.",
-      "Fotos o clips adicionales cuando el scope lo incluye.",
-      "Entrega en formatos verticales y horizontales.",
+    scopingQuestions: [
+      "¿El proyecto parte de archivos existentes o de una idea para grabar?",
+      "¿Qué necesita entender la audiencia?",
+      "¿Qué tipo de locación estaría involucrada?",
+      "¿Qué disponibilidad, uso y necesidades de formato deben confirmarse?",
     ],
     projectFit:
-      "Ideal para proyectos en Broward que necesitan un profesional basado en Fort Lauderdale, comunicación clara y un alcance definido desde el principio.",
+      "Esta ruta explica la base local y ayuda a preparar una consulta sobre edición o producción selectiva. El alcance se confirma para cada proyecto.",
     faqs: [
       {
         question: "¿Fort Lauderdale es la base principal?",
         answer:
-          "Sí. Fort Lauderdale y Broward son la base principal, con proyectos seleccionados en Miami-Dade y Palm Beach County.",
+          "Sí. Fort Lauderdale y Broward son la base local; Miami-Dade es un mercado seleccionado y Palm Beach County sigue siendo un área de expansión.",
       },
       {
-        question: "¿Se puede hacer un shoot pequeño?",
+        question: "¿La producción en locación está disponible para cualquier idea?",
         answer:
-          "Sí. El alcance, la duración y los entregables se confirman en la cotización antes de reservar.",
+          "No se publica una disponibilidad universal. La producción local se considera de forma selectiva después de conocer la meta, la locación y las necesidades de captura.",
       },
     ],
   },
@@ -247,38 +215,39 @@ export const spanishNichePages: SpanishNichePage[] = [
     title: "Fotógrafo en Fort Lauderdale",
     metadataTitle: "Fotógrafo en Fort Lauderdale",
     description:
-      "Fotografía de producto y contenido comercial por proyecto en Fort Lauderdale para restaurantes, propiedades y marcas.",
-    eyebrow: "Producto / comida / espacios",
-    h1: "Fotógrafo en Fort Lauderdale para fotos que tu negocio sí puede usar.",
+      "Ruta educativa heredada sobre fotografía en Fort Lauderdale. La fotografía no se publica actualmente como servicio confirmado de Esteban Moreno Media.",
+    eyebrow: "Ruta heredada / confirmación pendiente",
+    h1: "Fotografía en Fort Lauderdale: disponibilidad pendiente de confirmación.",
     lead:
-      "Fotos útiles para productos, menús, Google Business, listings y publicaciones. La cotización confirma el método de captura y la cantidad de imágenes finales.",
+      "Esta URL se conserva para evitar confusión y explicar el estado real: la disponibilidad de fotografía sigue pendiente de confirmación con Esteban. La página no ofrece una sesión ni promete imágenes, equipo o entregables.",
     keyword: "fotógrafo en Fort Lauderdale",
-    location: "Fort Lauderdale",
+    location: "Fort Lauderdale / Broward County",
+    availability: "pending-confirmation",
     icon: Camera,
     bestFor: [
-      "Negocios que necesitan actualizar Google Business o su website.",
-      "Restaurantes con fotos de platos, equipo y ambiente.",
-      "Marcas que necesitan fotografía de producto.",
-      "Propiedades o espacios que necesitan verse mejor en línea.",
+      "Entender por qué esta ruta heredada continúa publicada.",
+      "Distinguir trabajo visual verificado de una sesión fotográfica.",
+      "Revisar los servicios que sí están confirmados actualmente.",
+      "Preparar preguntas para una futura confirmación de disponibilidad.",
     ],
-    deliverables: [
-      "Galería seleccionada y editada.",
-      "Fotos verticales y horizontales.",
-      "Uso para web, redes, menús y anuncios.",
-      "Opción de combinar con reels o clips cortos.",
+    scopingQuestions: [
+      "¿La fotografía forma parte de los servicios actuales? Aún está pendiente de confirmación.",
+      "¿Qué prueba publicada corresponde realmente a fotografía? Ninguna se presenta como sesión confirmada.",
+      "¿Qué prioridades sí están publicadas? Edición, contenido con IA, planificación y producción selectiva de video.",
+      "¿Cómo consultar sin asumir disponibilidad? Pregunta por los servicios confirmados y describe la meta visual.",
     ],
     projectFit:
-      "Una sesión enfocada para negocios, restaurantes, productos o propiedades que necesitan imágenes editadas y listas para usar.",
+      "Es un recurso de transparencia, no una página de reserva. Mantiene la ruta mientras Esteban confirma si la fotografía debe ofrecerse públicamente.",
     faqs: [
       {
-        question: "¿Hace solo fotografía?",
+        question: "¿Se puede reservar fotografía con Esteban?",
         answer:
-          "La fotografía de producto puede cotizarse sola o combinarse con video cuando el proyecto lo requiere.",
+          "La fotografía no se publica actualmente como servicio confirmado. Su disponibilidad sigue pendiente de una respuesta directa de Esteban.",
       },
       {
-        question: "¿Sirve para negocios pequeños?",
+        question: "¿My D'ler demuestra una sesión fotográfica?",
         answer:
-          "Sí. La idea es producir imágenes útiles sin sobredimensionar el proyecto.",
+          "No. Ese proyecto verifica trabajo visual de marca, diseños sociales, video 3D y mockups; no se presenta como una sesión de fotografía.",
       },
     ],
   },
@@ -287,38 +256,39 @@ export const spanishNichePages: SpanishNichePage[] = [
     title: "Reels para negocios en Miami",
     metadataTitle: "Reels para Negocios en Miami",
     description:
-      "Grabación y edición de reels para negocios en Miami, restaurantes, marcas locales, tiendas, profesionales y creadores.",
+      "Información sobre edición y producción selectiva de video corto para negocios de Miami-Dade, con atención principal en español.",
     eyebrow: "Instagram / TikTok / Shorts",
-    h1: "Reels para negocios en Miami sin perder tiempo en producciones enormes.",
+    h1: "Reels para negocios de Miami-Dade, con alcance por proyecto.",
     lead:
-      "Un buen reel necesita una idea clara, tomas útiles y edición con ritmo. Esteban ayuda a convertir un local, producto o servicio en contenido vertical que se puede publicar rápido.",
+      "La edición de video corto es una prioridad confirmada de Esteban. Si una idea requiere grabación en Miami-Dade, la producción se considera de forma selectiva después de conocer la meta y la locación.",
     keyword: "reels para negocios Miami",
-    location: "Miami",
+    location: "Miami-Dade",
+    availability: "confirmed",
     icon: Scissors,
     bestFor: [
-      "Restaurantes y cafeterías que necesitan mostrar platos y ambiente.",
-      "Tiendas, salones, entrenadores y marcas personales.",
-      "Negocios latinos que prefieren planificar el contenido en español.",
-      "Campañas pequeñas para Meta Ads o contenido orgánico.",
+      "Negocios con clips existentes que quieren explorar una edición.",
+      "Marcas que necesitan pensar qué comunicar en video corto.",
+      "Equipos latinos que prefieren una conversación de alcance en español.",
+      "Proyectos que podrían requerir una captura local seleccionada.",
     ],
-    deliverables: [
-      "Reel principal de 15 a 45 segundos.",
-      "Hooks y cortes alternos según el material.",
-      "Captions, musica y formato vertical.",
-      "Banco de clips para reutilizar.",
+    scopingQuestions: [
+      "¿Qué debe entender la audiencia en el video?",
+      "¿Qué material ya está disponible?",
+      "¿Dónde se publicaría el contenido?",
+      "¿Qué formato, disponibilidad y alcance deben confirmarse?",
     ],
     projectFit:
-      "Pensado para dueños que necesitan reels concretos para explicar, vender o mostrar el negocio con una entrega sencilla y publicable.",
+      "Esta ruta ayuda a preparar una conversación sobre edición o captura selectiva de video corto. No fija duración, cantidad, formato ni fecha de entrega.",
     faqs: [
       {
         question: "¿Puedo pedir solo edición de reels?",
         answer:
-          "Sí. Si ya tienes videos grabados, Esteban puede editar, ordenar y preparar versiones listas para publicar.",
+          "La edición de video con material existente es una prioridad confirmada. El alcance y las necesidades de formato se conversan para cada proyecto.",
       },
       {
-        question: "¿Los reels pueden ser bilingues?",
+        question: "¿Los reels pueden ser bilingües?",
         answer:
-          "Se pueden cotizar captions o versiones en español e inglés según la audiencia y el material.",
+          "El español es el idioma principal de Esteban y su inglés es intermedio. Cualquier necesidad de idioma dentro del contenido debe consultarse sin asumir versiones específicas.",
       },
     ],
   },
@@ -327,38 +297,39 @@ export const spanishNichePages: SpanishNichePage[] = [
     title: "Video para restaurantes en Miami",
     metadataTitle: "Video para Restaurantes en Miami",
     description:
-      "Video y fotografía para restaurantes en Miami: reels, platos, ambiente, menú visual, equipo, delivery y contenido para redes.",
+      "Información sobre edición y producción selectiva de video para restaurantes de Miami-Dade, con atención principal en español.",
     eyebrow: "Restaurantes / comida / hospitality",
-    h1: "Video para restaurantes en Miami que abre el apetito antes de la visita.",
+    h1: "Video para restaurantes de Miami-Dade, evaluado proyecto por proyecto.",
     lead:
-      "La primera decisión muchas veces pasa en Instagram, Google o el menú digital. Esteban crea fotos, clips y reels para que el plato, el ambiente y la experiencia se entiendan rápido.",
+      "Esta página explica cómo iniciar una consulta de video para un restaurante. La edición está confirmada y una posible captura en locación se considera de forma selectiva; la fotografía no se presenta como servicio disponible.",
     keyword: "video para restaurantes Miami",
-    location: "Miami",
+    location: "Miami-Dade",
+    availability: "confirmed",
     icon: UtensilsCrossed,
     bestFor: [
-      "Restaurantes latinos, cafes, bares y conceptos nuevos.",
-      "Lanzamientos de menu, brunch, happy hour o eventos especiales.",
-      "Contenido para Google Business, Instagram y delivery apps.",
-      "Dueños que necesitan foto y video en una sola visita.",
+      "Restaurantes con material existente que podría necesitar edición.",
+      "Dueños que quieren definir la meta antes de producir contenido nuevo.",
+      "Equipos que prefieren explicar el proyecto en español.",
+      "Ideas que podrían requerir una captura local seleccionada.",
     ],
-    deliverables: [
-      "Fotos de platos, bebidas y ambiente.",
-      "Reels verticales con ritmo social.",
-      "Clips del equipo, cocina o proceso.",
-      "Entrega organizada por uso: menu, web, redes y anuncios.",
+    scopingQuestions: [
+      "¿Qué aspecto del restaurante necesita comunicar el video?",
+      "¿Ya existe material grabado?",
+      "¿La idea requiere una locación en Miami-Dade?",
+      "¿Qué uso, formato y disponibilidad deben confirmarse?",
     ],
     projectFit:
-      "Funciona para restaurantes que necesitan mostrar platos, ambiente y equipo en una misma visita, con piezas organizadas por canal y uso.",
+      "Es una guía para preparar una consulta sobre edición o producción selectiva de video. No promete fotografía, una visita, una lista de piezas ni resultados comerciales.",
     faqs: [
       {
         question: "¿Se puede grabar durante servicio?",
         answer:
-          "Sí, pero lo ideal es planificar horas de menor ruido para controlar luz, platos y flujo del equipo.",
+          "No se publica una regla universal. Si la idea requiere captura, la locación, la disponibilidad y las necesidades operativas deben evaluarse para ese proyecto.",
       },
       {
-        question: "¿Incluye fotos y video?",
+        question: "¿Esta página ofrece fotografía de alimentos?",
         answer:
-          "Puede incluir ambos. El scope se ajusta según menú, cantidad de platos y entregables.",
+          "No. La fotografía sigue pendiente de confirmación y no se presenta actualmente como servicio disponible.",
       },
     ],
   },
@@ -367,38 +338,39 @@ export const spanishNichePages: SpanishNichePage[] = [
     title: "Drone para real estate en Miami",
     metadataTitle: "Drone para Real Estate en Miami",
     description:
-      "Drone para real estate en Miami y Broward: tomas aéreas, video de propiedad, contenido para agentes, listings y desarrollos.",
-    eyebrow: "Real estate / propiedades / listings",
-    h1: "Drone para real estate en Miami cuando la propiedad necesita contexto.",
+      "Ruta educativa heredada sobre drone para real estate en Miami-Dade. El trabajo aéreo no se publica actualmente como servicio confirmado.",
+    eyebrow: "Ruta heredada / confirmación pendiente",
+    h1: "Drone para real estate en Miami: disponibilidad pendiente de confirmación.",
     lead:
-      "Las tomas aéreas ayudan a explicar ubicación, escala, exterior y acceso. Se cotizan solo cuando puede confirmarse un piloto acreditado y las condiciones legales y operativas del vuelo.",
+      "Esta URL se conserva para evitar confusión y explicar el estado real: la disponibilidad de trabajo con drone sigue pendiente de confirmación con Esteban. La página no ofrece vuelo, piloto, equipo ni tomas aéreas.",
     keyword: "drone real estate Miami",
-    location: "Miami / Broward",
+    location: "Miami-Dade",
+    availability: "pending-confirmation",
     icon: Home,
     bestFor: [
-      "Agentes con listings residenciales o comerciales.",
-      "Propiedades cerca de agua, avenidas principales o zonas reconocibles.",
-      "Airbnb, alquileres, espacios comerciales y desarrollos pequeños.",
-      "Contenido para Instagram, YouTube Shorts, websites y anuncios.",
+      "Entender por qué esta ruta heredada continúa publicada.",
+      "Distinguir producción de video verificada de una muestra aérea.",
+      "Revisar servicios actuales como edición y producción selectiva en tierra.",
+      "Preparar preguntas para una futura confirmación de disponibilidad.",
     ],
-    deliverables: [
-      "Tomas aéreas exteriores cuando se confirme piloto acreditado, clima, permisos y espacio aéreo.",
-      "Video de recorrido con tomas en tierra.",
-      "Fotos o stills seleccionados.",
-      "Versiones para listing, redes y presentacion.",
+    scopingQuestions: [
+      "¿El trabajo con drone forma parte de los servicios actuales? Aún está pendiente de confirmación.",
+      "¿El portafolio publicado incluye una muestra aérea? No se presenta ninguna como tal.",
+      "¿Qué alternativas sí están confirmadas? Edición y producción selectiva de video en locación.",
+      "¿Cómo consultar sin asumir disponibilidad? Describe la meta y pregunta por los servicios actuales.",
     ],
     projectFit:
-      "Ayuda a agentes y propietarios a mostrar ubicación, escala y contexto con una mezcla de tomas aéreas y cobertura desde tierra.",
+      "Es un recurso de transparencia, no una página de reserva. Mantiene la ruta mientras Esteban confirma si el trabajo aéreo debe ofrecerse públicamente.",
     faqs: [
       {
-        question: "¿Siempre se puede volar drone?",
+        question: "¿Se puede reservar un vuelo con drone?",
         answer:
-          "No. Depende de piloto acreditado disponible, clima, permiso de la propiedad, espacio aéreo y seguridad del área.",
+          "No se publica actualmente como servicio confirmado. La disponibilidad de trabajo aéreo sigue pendiente de una respuesta directa de Esteban.",
       },
       {
-        question: "¿Sirve para agentes bilingues?",
+        question: "¿Los proyectos relacionados prueban trabajo aéreo o de real estate?",
         answer:
-          "Sí. La planificación puede hacerse en español y la entrega puede considerar audiencias en español e inglés.",
+          "No. Los enlaces relacionados verifican producción y edición; no se presentan como vuelos con drone ni como proyectos de real estate.",
       },
     ],
   },
@@ -491,7 +463,7 @@ export const spanishProofPrinciples = [
   "El español es el idioma principal de Esteban; también hay comunicación de trabajo disponible en inglés.",
   "La página publica solo prueba real: trabajos reales, enlaces reales y testimonios reales cuando existan.",
   "La edición, el contenido con IA, la planificación y la captura se conectan a una meta comercial.",
-  "El scope queda claro antes de grabar: entregables, formatos, fecha y uso final.",
+  "Las consultas parten de la meta, el material disponible, la ubicación y el uso previsto.",
 ];
 
 export const spanishTrustQuestions = [
@@ -508,7 +480,7 @@ export const spanishTrustQuestions = [
   {
     question: "¿Qué hace diferente a Esteban?",
     answer:
-      "Ofrece atención directa y personalizada, hace preguntas antes de producir y aporta la perspectiva de haber administrado su propia marca en línea durante cinco años.",
+      "Ofrece atención directa en español, comunicación disponible en inglés intermedio y un portafolio público limitado a proyectos y créditos verificables.",
   },
 ];
 
@@ -517,38 +489,17 @@ export const spanishRoutes = [
   ...spanishNichePages.map((page) => `/es/${page.slug}`),
 ];
 
-export const spanishPackages = [
-  {
-    name: "Edición remota",
-    price: "Cotización",
-    description:
-      "Para material ya grabado que necesita un reel o un lote de piezas con alcance definido.",
-  },
-  {
-    name: "Plan mensual",
-    price: "Cotización",
-    description:
-      "Estrategia, frecuencia y mezcla de formatos definidas según las necesidades del negocio.",
-  },
-  {
-    name: "Proyecto en locación",
-    price: "Cotización",
-    description:
-      "Producción local con traslado, método de captura, entregables y plazo confirmados antes de reservar.",
-  },
-];
-
 export const spanishOpportunitySignals = [
   {
     label: "Atención",
     value: "Español primero",
-    detail: "Brief, preguntas y cambios con comunicación directa.",
+    detail: "Comunicación directa en español; inglés intermedio disponible.",
     icon: Languages,
   },
   {
     label: "Base local",
     value: "Broward",
-    detail: "Fort Lauderdale es la base operativa y una búsqueda menos saturada.",
+    detail: "Fort Lauderdale es la base operativa dentro de Broward County.",
     icon: Building2,
   },
   {

@@ -1,6 +1,9 @@
 import { describe, expect, it } from "vitest";
 
-import { buildPortfolioCollectionSchema } from "../portfolio-schema";
+import {
+  buildPortfolioCollectionSchema,
+  buildPortfolioWatchSchema,
+} from "../portfolio-schema";
 
 const items = [
   {
@@ -31,16 +34,21 @@ describe("portfolio collection schema", () => {
     expect(schema.publisher["@id"]).toMatch(/\/#business$/);
     expect(schema.mainEntity["@type"]).toBe("ItemList");
     expect(schema.mainEntity.numberOfItems).toBe(1);
-    expect(schema.mainEntity.itemListElement[0].item["@type"]).toBe(
-      "VideoObject",
-    );
+    expect(schema.mainEntity.itemListElement[0].item["@type"]).toBe("WebPage");
     expect(schema.mainEntity.itemListElement[0].item.url).toMatch(
-      /\/portfolio#sample-project$/,
+      /\/portfolio\/sample-project$/,
     );
-    expect(schema.mainEntity.itemListElement[0].item.sameAs).toBe(items[0].url);
+    expect(schema.mainEntity.itemListElement[0].item["@id"]).toMatch(
+      /\/portfolio\/sample-project#webpage$/,
+    );
+    expect(
+      schema.mainEntity.itemListElement[0].item.primaryImageOfPage.url,
+    ).toMatch(
+      /\/portfolio\/sample-project\.jpg$/,
+    );
   });
 
-  it("uses verified video metadata without inventing authorship", () => {
+  it("reserves video-specific markup for the linked watch page", () => {
     const schema = buildPortfolioCollectionSchema({
       path: "/es/portafolio",
       locale: "es-US",
@@ -50,19 +58,24 @@ describe("portfolio collection schema", () => {
     });
     const serialized = JSON.stringify(schema);
 
-    expect(serialized).toContain('"name":"Miami"');
+    expect(serialized).toContain('"primaryImageOfPage"');
+    expect(serialized).toContain(
+      '"url":"https://estebanmorenomedia.com/portfolio/sample-project.jpg"',
+    );
+    expect(serialized).not.toContain('"VideoObject"');
+    expect(serialized).not.toContain('"uploadDate"');
+    expect(serialized).not.toContain('"duration"');
+    expect(serialized).not.toContain('"embedUrl"');
+    expect(serialized).not.toContain('"sameAs"');
+    expect(serialized).not.toContain('"creditText"');
+    expect(serialized).not.toContain('"locationCreated"');
     expect(serialized).not.toContain('"creator"');
     expect(serialized).not.toContain("copyrightYear");
     expect(serialized).not.toContain("dateCreated");
-    expect(serialized).toContain('"uploadDate":"2022-08-31T17:06:40-07:00"');
-    expect(serialized).toContain('"duration":"PT0M55S"');
-    expect(serialized).toContain(
-      '"embedUrl":"https://www.youtube-nocookie.com/embed/abcdefghijk"',
-    );
     expect(serialized).not.toContain("drive.google.com");
   });
 
-  it("keeps one language-neutral work identity across both collections", () => {
+  it("points each localized collection to its corresponding watch page", () => {
     const english = buildPortfolioCollectionSchema({
       path: "/portfolio",
       locale: "en-US",
@@ -78,10 +91,87 @@ describe("portfolio collection schema", () => {
       items,
     });
 
-    expect(english.mainEntity.itemListElement[0].item["@id"]).toBe(
-      spanish.mainEntity.itemListElement[0].item["@id"],
+    expect(english.mainEntity.itemListElement[0].item["@id"]).toMatch(
+      /\/portfolio\/sample-project#webpage$/,
     );
-    expect(JSON.stringify(english.mainEntity)).not.toContain('"inLanguage"');
-    expect(JSON.stringify(spanish.mainEntity)).not.toContain('"inLanguage"');
+    expect(spanish.mainEntity.itemListElement[0].item["@id"]).toMatch(
+      /\/es\/portafolio\/sample-project#webpage$/,
+    );
+    expect(english.mainEntity.itemListElement[0].item.inLanguage).toBe("en-US");
+    expect(spanish.mainEntity.itemListElement[0].item.inLanguage).toBe("es-US");
+  });
+});
+
+describe("portfolio watch-page schema", () => {
+  it("connects a localized page, visible video, and breadcrumbs", () => {
+    const schema = buildPortfolioWatchSchema({
+      path: "/portfolio/sample-project",
+      locale: "en-US",
+      ...items[0],
+      breadcrumbs: [
+        { name: "Home", path: "/" },
+        { name: "Portfolio", path: "/portfolio" },
+        { name: "Sample project", path: "/portfolio/sample-project" },
+      ],
+    });
+    const webpage = schema["@graph"].find(
+      (node) => node["@type"] === "WebPage",
+    );
+    const video = schema["@graph"].find(
+      (node) => node["@type"] === "VideoObject",
+    );
+    const breadcrumbs = schema["@graph"].find(
+      (node) => node["@type"] === "BreadcrumbList",
+    );
+
+    expect(webpage).toMatchObject({
+      url: "https://estebanmorenomedia.com/portfolio/sample-project",
+      inLanguage: "en-US",
+      mainEntity: {
+        "@id":
+          "https://estebanmorenomedia.com/portfolio/sample-project#video",
+      },
+    });
+    expect(video).toMatchObject({
+      "@type": "VideoObject",
+      name: "Sample project",
+      description: "A verified project summary.",
+      creditText: "Direction and editing: Esteban Moreno",
+      thumbnailUrl:
+        "https://estebanmorenomedia.com/portfolio/sample-project.jpg",
+      sameAs: "https://www.youtube.com/watch?v=abcdefghijk",
+      embedUrl: "https://www.youtube-nocookie.com/embed/abcdefghijk",
+      inLanguage: "en-US",
+    });
+    expect(breadcrumbs).toMatchObject({
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        expect.objectContaining({ position: 1, name: "Home" }),
+        expect.objectContaining({ position: 2, name: "Portfolio" }),
+        expect.objectContaining({ position: 3, name: "Sample project" }),
+      ],
+    });
+  });
+
+  it("keeps optional location honest and does not invent authorship or dates", () => {
+    const schema = buildPortfolioWatchSchema({
+      path: "/es/portafolio/sample-project",
+      locale: "es-US",
+      ...items[0],
+      breadcrumbs: [
+        { name: "Inicio", path: "/es" },
+        { name: "Portafolio", path: "/es/portafolio" },
+        {
+          name: "Sample project",
+          path: "/es/portafolio/sample-project",
+        },
+      ],
+    });
+    const serialized = JSON.stringify(schema);
+
+    expect(serialized).toContain('"locationCreated":{"@type":"Place","name":"Miami"}');
+    expect(serialized).not.toContain('"creator"');
+    expect(serialized).not.toContain('"copyrightYear"');
+    expect(serialized).not.toContain('"dateCreated"');
   });
 });

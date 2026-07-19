@@ -1,11 +1,10 @@
 import type { LucideIcon } from "lucide-react";
 import {
   CalendarRange,
-  Camera,
   Laptop,
   Languages,
   MapPin,
-  RefreshCcw,
+  BadgeCheck,
   Scissors,
   WandSparkles,
   Video,
@@ -19,6 +18,10 @@ export const siteUrl =
 export const site = {
   name: "Esteban Moreno Media",
   shortName: "Esteban Moreno",
+  founder: {
+    name: "Esteban Moreno",
+    fullName: "Esteban Moreno López",
+  },
   domain: "estebanmorenomedia.com",
   email: "esmolopez@gmail.com",
   phone: {
@@ -48,25 +51,25 @@ export type Service = {
 export const services: Service[] = [
   {
     id: "editing",
-    name: "Video editing and short-form cuts",
+    name: "Video editing",
     shortName: "Editing",
     description:
       "Remote editing for entrepreneurs, businesses, agencies, and teams that already have footage to shape.",
     detail:
-      "Hooks, pacing, captions, color, music timing, and platform-ready exports are scoped around the project.",
+      "Scoping starts with the source footage, publishing goal, and format needs for the project.",
     icon: Scissors,
-    tags: ["Remote", "Short-form", "Post-production"],
+    tags: ["Remote", "Supplied footage", "Post-production"],
   },
   {
     id: "ai-content",
     name: "AI-assisted content",
     shortName: "AI content",
     description:
-      "AI-assisted images, motion, and creative variations for social content and product storytelling.",
+      "Creative support using AI-assisted methods, scoped around a confirmed content goal.",
     detail:
-      "The workflow and level of generation are explained before the work begins, with human review built in.",
+      "Scoping questions clarify where AI-assisted methods may fit, which references guide the direction, and how the content will be used.",
     icon: WandSparkles,
-    tags: ["Images", "Motion", "Creative testing"],
+    tags: ["AI-assisted", "Creative direction", "Project-specific"],
   },
   {
     id: "social-planning",
@@ -75,55 +78,20 @@ export const services: Service[] = [
     description:
       "A practical content plan for brands that need consistency, not another folder of disconnected assets.",
     detail:
-      "Topics, formats, cadence, and production needs can be organized as a monthly scope.",
+      "Scoping questions cover the audience, publishing goal, channels, and content needs.",
     icon: CalendarRange,
-    tags: ["Strategy", "Cadence", "Monthly content"],
+    tags: ["Strategy", "Cadence", "Content plan"],
   },
   {
     id: "on-location",
     name: "On-location content capture",
     shortName: "Capture",
     description:
-      "Lightweight capture for restaurants, real estate, products, entrepreneurs, and local brands.",
+      "Selectively scoped local video production for entrepreneurs, businesses, and brands.",
     detail:
-      "The quote defines the location, capture approach, deliverables, travel, and timeline before booking.",
+      "Availability and scope are considered project by project after learning the location, goal, and capture needs.",
     icon: Video,
-    tags: ["South Florida", "Social", "Real estate"],
-  },
-  {
-    id: "product-aerial",
-    name: "Product photography and aerial options",
-    shortName: "Photo + aerial",
-    description:
-      "Product stills and, when the project allows, aerial footage that adds useful context to a property or brand.",
-    detail:
-      "Drone work is offered only when airspace, weather, property permission, and credentialed-pilot availability are confirmed.",
-    icon: Camera,
-    tags: ["Product", "Property", "Scoped aerial"],
-  },
-];
-
-export const packages = [
-  {
-    name: "Remote editing",
-    price: "Custom quote",
-    description:
-      "For existing footage that needs a clean short-form edit or a planned batch of deliverables.",
-    items: ["Single or batch edits", "Captions and color", "Timeline confirmed in scope"],
-  },
-  {
-    name: "Monthly content plan",
-    price: "Custom quote",
-    description:
-      "For businesses that need a repeatable mix of posts, videos, carousels, or AI-assisted creative.",
-    items: ["Content strategy", "Format and cadence plan", "Deliverables defined together"],
-  },
-  {
-    name: "On-location project",
-    price: "Custom quote",
-    description:
-      "A scoped visit for local content, product photography, real estate, or restaurant work.",
-    items: ["Capture plan", "Travel confirmed up front", "Final assets by agreed use"],
+    tags: ["South Florida", "On location", "Project-specific"],
   },
 ];
 
@@ -135,13 +103,6 @@ export const serviceAreas = [
     href: "/areas",
     description:
       "Home base for entrepreneurs, restaurants, real estate, and local business content.",
-    neighborhoods: [
-      "Las Olas",
-      "Flagler Village",
-      "Victoria Park",
-      "Wilton Manors",
-      "Rio Vista",
-    ],
   },
   {
     name: "Broward County",
@@ -149,14 +110,7 @@ export const serviceAreas = [
     schemaType: "AdministrativeArea" as const,
     href: "/areas",
     description:
-      "Available by quote across Hollywood, Pompano Beach, Davie, Plantation, Coral Springs, Sunrise, Weston, and nearby areas.",
-    neighborhoods: [
-      "Hollywood",
-      "Pompano Beach",
-      "Davie",
-      "Plantation",
-      "Coral Springs",
-    ],
+      "Broward County is part of the normal local market for selectively scoped projects.",
   },
   {
     name: "Miami-Dade",
@@ -165,7 +119,6 @@ export const serviceAreas = [
     href: "/areas",
     description:
       "Selected projects for entrepreneurs, restaurants, brands, and real estate across Miami-Dade.",
-    neighborhoods: ["Brickell", "Wynwood", "Doral", "Coral Gables", "Miami Beach"],
   },
   {
     name: "Palm Beach County",
@@ -173,45 +126,36 @@ export const serviceAreas = [
     schemaType: "AdministrativeArea" as const,
     href: "/areas/palm-beach-county",
     description:
-      "Available by quote for selected content projects from Boca Raton and Delray Beach through West Palm Beach, Palm Beach Gardens, Jupiter, and Wellington.",
-    neighborhoods: [
-      "Boca Raton",
-      "Delray Beach",
-      "Boynton Beach",
-      "West Palm Beach",
-      "Palm Beach Gardens",
-      "Jupiter",
-      "Wellington",
-    ],
+      "Palm Beach County is an expansion area considered project by project; sub-city coverage is not yet published.",
   },
 ];
 
-export const processSteps = [
+export const scopingQuestions = [
   {
-    name: "Brief",
+    name: "What is the goal?",
     detail:
-      "A short call or message: goal, date, location, references, and deadline.",
+      "What should the content communicate, and where will it be published?",
   },
   {
-    name: "Plan or receive",
+    name: "What already exists?",
     detail:
-      "Esteban reviews your files for remote editing or confirms the plan for a local capture project.",
+      "Is there source footage to edit, or would the idea require newly captured material?",
   },
   {
-    name: "First cut",
+    name: "Does location matter?",
     detail:
-      "You get a review link and leave timestamped notes where changes are needed.",
+      "For a local idea, which county and type of location would be involved?",
   },
   {
-    name: "Deliver",
+    name: "What needs confirmation?",
     detail:
-      "Final exports arrive in the formats you need for web, social, and archive.",
+      "Ask about availability, scope, timing, and format needs for the individual project.",
   },
 ];
 
 export const trustSignals = [
   { label: "Based in", value: "Fort Lauderdale", icon: MapPin },
-  { label: "Reviews", value: "2 rounds typical", icon: RefreshCcw },
+  { label: "Proof", value: "Real portfolio", icon: BadgeCheck },
   { label: "Service", value: "Spanish-first", icon: Languages },
   { label: "Workflow", value: "Remote + local", icon: Laptop },
 ];
