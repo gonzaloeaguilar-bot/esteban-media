@@ -4,8 +4,8 @@ Production is live. This file tracks repository implementation; account/access w
 
 ## P0 — Search establishment
 
-- [ ] Verify Google Search Console and submit `/sitemap.xml`
-- [ ] Request indexing for the primary English/Spanish, service, and area pages
+- [x] Verify Google Search Console and submit `/sitemap.xml`
+- [x] Request indexing for the primary English/Spanish, service, and area pages
 - [ ] Create or claim one legitimate hidden-address service-area Google Business Profile
 
 ## P0 — Real proof
@@ -30,6 +30,7 @@ Production is live. This file tracks repository implementation; account/access w
 
 - [x] Add an accessible bilingual portfolio backed by real public work
 - [x] Connect a production-scoped GA4 stream with page-change measurement and a bilingual privacy disclosure
+- [ ] Install and acceptance-test the three-times-weekly Search Console index-watch loop
 - [ ] Define organic/local/AI referral reporting
 - [x] Add route metadata, sitemap, portfolio schema, and data tests
 
