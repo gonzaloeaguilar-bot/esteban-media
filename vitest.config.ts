@@ -4,7 +4,11 @@ import path from "node:path";
 export default defineConfig({
   test: {
     environment: "node",
-    include: ["**/__tests__/**/*.test.ts", "**/*.test.ts"],
+    include: [
+      "**/__tests__/**/*.test.ts",
+      "**/*.test.ts",
+      "**/*.test.mjs",
+    ],
     exclude: ["node_modules", ".next", "dist"],
   },
   css: {
