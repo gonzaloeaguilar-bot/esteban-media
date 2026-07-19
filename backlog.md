@@ -31,7 +31,7 @@ Production is live. This file tracks repository implementation; account/access w
 - [x] Add an accessible bilingual portfolio backed by real public work
 - [x] Connect a production-scoped GA4 stream with page-change measurement and a bilingual privacy disclosure
 - [x] Install and acceptance-test the three-times-weekly Search Console index-watch loop
-- [ ] Install and acceptance-test the Sunday health and Search Console digest loop
+- [x] Install and acceptance-test the Sunday health and Search Console digest loop
 - [ ] Define organic/local/AI referral reporting
 - [x] Add route metadata, sitemap, portfolio schema, and data tests
 
