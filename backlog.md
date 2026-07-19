@@ -21,7 +21,7 @@ Production is live. This file tracks repository implementation; account/access w
 - [ ] Add a branded 1200×630 Open Graph image and logo/image schema
 - [ ] Tighten long titles and homepage descriptions
 - [ ] Add one direct entity/service/location sentence above the homepage fold
-- [ ] Run a current Lighthouse performance, accessibility, and SEO baseline; remediate material findings
+- [ ] Run mobile and desktop Lighthouse baselines on `/`, `/es`, `/portfolio`, and `/es/portafolio`; record scores and remediate material performance, accessibility, and SEO findings
 - [x] Add `VideoObject` collection schema for all eight published videos
 - [ ] Add `ImageObject`/logo schema when approved brand photography and logo files are available
 - [ ] Add English priority-service pages when distinct, verified content is ready

@@ -18,9 +18,9 @@ Keep the production site reproducible, governed, private, and ready for the next
 - GitHub: `https://github.com/gonzaloeaguilar-bot/esteban-media` (private)
 - Canonical production branch: `main`; changes land through pull requests and CI.
 - Production baseline merged through PR #21; the bilingual portfolio shipped through PR #36 at `2b5cc1f`.
-- The former iCloud `origin` is preserved as the archival `icloud` remote and must not be used with `git fetch --all` while it remains invalid.
+- In the retained Desktop legacy copy, the former iCloud `origin` is preserved as the archival `icloud` remote and must not be used with `git fetch --all`.
 - Repository contains internal interview/source documents and must remain private.
-- Local Graphify map exists and is ignored; refresh after the portfolio release without treating refresh failure as a release blocker.
+- A local Graphify map exists only in the retained Desktop legacy copy and is ignored. Build a fresh local map in the canonical clone before broad architecture work; refresh failure is not a release blocker.
 - Vercel's GitHub integration is verified; portfolio production deployment `dpl_E13tRppBCJhL9atAaTNqnYsEQLxc` is Ready and all canonical aliases point to it.
 - GitHub branch protection is unavailable for this private repository on the current plan; PR/CI discipline is therefore enforced by repository policy rather than a server-side rule.
 
@@ -45,8 +45,8 @@ Keep the production site reproducible, governed, private, and ready for the next
 
 ## Next safe work
 
-1. Complete Search Console ownership verification, submit the expanded 20-URL sitemap, and request priority indexing; then begin GBP setup.
-2. Turn the strongest published projects into dedicated case studies only when Esteban confirms deliverables, roles, locations, and outcomes.
-3. Correct root document language on Spanish routes; add Esteban's approved headshot/logo/reel and a branded Open Graph asset.
-4. Ask Esteban to review the Spanish portfolio voice and replace the 480×360 `La Huelga` poster when a better source is available.
+1. Ship the analytics + technical SEO PR: GA4, server-rendered Spanish document language, branded Open Graph image, metadata tightening, and direct entity/service/location copy.
+2. Add the three-times-weekly Search Console index-watch and weekly site-health digest loops after the technical release.
+3. Finish the hidden-address service-area Google Business Profile only after Esteban confirms the official category.
+4. Turn the strongest published projects into dedicated case studies only when Esteban confirms deliverables, roles, locations, and outcomes.
 5. Add reviews, citations, and local links only as legitimate evidence becomes available.
