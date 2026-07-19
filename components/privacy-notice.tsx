@@ -13,7 +13,7 @@ export function PrivacyNotice({ locale }: { locale: "en" | "es" }) {
   return (
     <main className="bg-[#f6f1ea] py-12 text-[#101214] sm:py-16">
       <Container size="lg">
-        <p className="text-xs font-medium uppercase text-[#c84a2c]">
+        <p className="text-xs font-medium uppercase text-[#9f3c27]">
           {isSpanish ? "Privacidad" : "Privacy"}
         </p>
         <h1 className="mt-4 font-serif text-5xl leading-none sm:text-6xl">
@@ -93,7 +93,7 @@ export function PrivacyNotice({ locale }: { locale: "en" | "es" }) {
                 ? "Para preguntas o solicitudes de privacidad, escribe a"
                 : "For privacy questions or requests, email"}{" "}
               <a
-                className="font-medium text-[#c84a2c] underline underline-offset-4"
+                className="font-medium text-[#9f3c27] underline underline-offset-4"
                 href={`mailto:${site.email}`}
               >
                 {site.email}
@@ -134,7 +134,7 @@ function ExternalPolicyLink({
       href={href}
       target="_blank"
       rel="noreferrer"
-      className="mt-4 inline-flex items-center gap-2 font-medium text-[#c84a2c] underline underline-offset-4"
+      className="mt-4 inline-flex items-center gap-2 font-medium text-[#9f3c27] underline underline-offset-4"
     >
       {children}
       <ExternalLink className="size-4" aria-hidden="true" />

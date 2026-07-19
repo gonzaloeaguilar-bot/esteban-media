@@ -18,7 +18,7 @@ export default function GlobalNotFound() {
         <SiteChrome>
           <main className="bg-[#f6f1ea] py-20 text-[#101214] sm:py-28">
             <Container size="xl">
-              <p className="text-xs font-medium uppercase tracking-wide text-[#c84a2c]">
+              <p className="text-xs font-medium uppercase tracking-wide text-[#9f3c27]">
                 404 · Page not found / Página no encontrada
               </p>
               <h1 className="mt-5 max-w-3xl font-serif text-5xl leading-none sm:text-6xl">
@@ -30,7 +30,7 @@ export default function GlobalNotFound() {
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#e85d3e] px-6 text-sm font-medium text-white hover:bg-[#c84a2c]"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white hover:bg-[#a93e29]"
                 >
                   Return home
                   <ArrowRight className="size-4" aria-hidden="true" />

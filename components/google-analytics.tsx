@@ -1,10 +1,18 @@
 import Script from "next/script";
 
+import sitemap from "@/app/sitemap";
+import { buildGoogleAnalyticsScript } from "@/lib/google-analytics-script";
 import { site } from "@/lib/site";
 
 export function GoogleAnalytics() {
   const measurementId = site.googleAnalyticsMeasurementId;
   const canonicalHostname = site.domain;
+  const instagramHostname = new URL(site.instagram).hostname;
+  const allowedPaths = [
+    ...sitemap().map((entry) => new URL(entry.url).pathname),
+    "/privacy",
+    "/es/privacidad",
+  ];
 
   return (
     <>
@@ -14,18 +22,12 @@ export function GoogleAnalytics() {
         strategy="afterInteractive"
       />
       <Script id="google-analytics" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          if (window.location.hostname === ${JSON.stringify(canonicalHostname)}) {
-            gtag('config', ${JSON.stringify(measurementId)}, {
-              send_page_view: true,
-              allow_google_signals: false,
-              allow_ad_personalization_signals: false
-            });
-          }
-        `}
+        {buildGoogleAnalyticsScript({
+          measurementId,
+          canonicalHostname,
+          instagramHostname,
+          allowedPaths,
+        })}
       </Script>
     </>
   );

@@ -1,4 +1,11 @@
-import { mkdtemp, readFile, rm, utimes, writeFile } from "node:fs/promises";
+import {
+  mkdir,
+  mkdtemp,
+  readFile,
+  rm,
+  utimes,
+  writeFile,
+} from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 
@@ -7,6 +14,7 @@ import { afterEach, describe, expect, it } from "vitest";
 import sitemap from "../app/sitemap.ts";
 import {
   INDEX_WATCH_SCHEMA,
+  LEGACY_V1_WATCH_URLS,
   SITE_URL,
   WATCH_URLS,
   acquireLock,
@@ -76,6 +84,7 @@ function makeSnapshot({ impressions = 0, verdict = "PASS" } = {}) {
     runDate: "2026-07-19",
     generatedAt: "2026-07-19T12:00:00.000Z",
     permissionLevel: "siteOwner",
+    liveSitemap: validateWatchedSitemap(WATCH_URLS),
     searchAnalytics: {
       startDate: "2026-06-21",
       endDate: "2026-07-18",
@@ -136,6 +145,31 @@ function makeState(snapshot) {
   };
 }
 
+function makeLegacyState() {
+  const snapshot = makeSnapshot();
+  const legacyUrls = new Set(LEGACY_V1_WATCH_URLS);
+  snapshot.searchAnalytics.pages = snapshot.searchAnalytics.pages.filter(
+    (page) => legacyUrls.has(page.url),
+  );
+  snapshot.inspection.pages = snapshot.inspection.pages.filter((page) =>
+    legacyUrls.has(page.url),
+  );
+  snapshot.inspection.counts = {
+    pass: LEGACY_V1_WATCH_URLS.length,
+    neutral: 0,
+    fail: 0,
+    unknown: 0,
+  };
+  snapshot.liveSitemap = validateWatchedSitemap(
+    LEGACY_V1_WATCH_URLS,
+    LEGACY_V1_WATCH_URLS,
+  );
+  const state = makeState(snapshot);
+  state.watchUrlCount = LEGACY_V1_WATCH_URLS.length;
+  state.watchUrlHash = watchedUrlHash(LEGACY_V1_WATCH_URLS);
+  return state;
+}
+
 function retryingFetch(successResponse) {
   let attempts = 0;
   return async () => {
@@ -145,11 +179,67 @@ function retryingFetch(successResponse) {
   };
 }
 
+function indexWatchFixtureFetch(counter) {
+  const jsonResponse = (payload) =>
+    new Response(JSON.stringify(payload), {
+      status: 200,
+      headers: { "content-type": "application/json" },
+    });
+
+  return async (url, options = {}) => {
+    counter.count += 1;
+    if (url === `${SITE_URL}sitemap.xml`) {
+      return new Response(
+        `<urlset>${WATCH_URLS.map((watchedUrl) => `<url><loc>${watchedUrl}</loc></url>`).join("")}</urlset>`,
+        { status: 200 },
+      );
+    }
+    if (url === "https://oauth.fixture/token") {
+      return jsonResponse({ access_token: "fixture-access" });
+    }
+    if (url === "https://www.googleapis.com/webmasters/v3/sites") {
+      return jsonResponse({
+        siteEntry: [{ siteUrl: SITE_URL, permissionLevel: "siteOwner" }],
+      });
+    }
+    if (url.includes("/searchAnalytics/query")) {
+      const body = JSON.parse(options.body);
+      if (body.dimensions.includes("date")) {
+        return jsonResponse({
+          rows: [],
+          metadata: { first_incomplete_date: "2026-07-18" },
+        });
+      }
+      return jsonResponse({ rows: [] });
+    }
+    if (
+      url ===
+      "https://searchconsole.googleapis.com/v1/urlInspection/index:inspect"
+    ) {
+      const { inspectionUrl } = JSON.parse(options.body);
+      return jsonResponse({
+        inspectionResult: {
+          indexStatusResult: {
+            verdict: "PASS",
+            coverageState: "Submitted and indexed",
+            indexingState: "INDEXING_ALLOWED",
+            pageFetchState: "SUCCESSFUL",
+            robotsTxtState: "ALLOWED",
+            googleCanonical: inspectionUrl,
+            userCanonical: inspectionUrl,
+          },
+        },
+      });
+    }
+    throw new Error(`Unexpected fixture URL: ${url}`);
+  };
+}
+
 describe("Search Console index watch", () => {
   it("keeps the fixed watch set identical to the application sitemap", () => {
     const urls = sitemap().map((entry) => entry.url).sort();
 
-    expect(WATCH_URLS).toHaveLength(20);
+    expect(WATCH_URLS).toHaveLength(46);
     expect([...WATCH_URLS].sort()).toEqual(urls);
     expect(validateWatchedSitemap(urls).hash).toBe(watchedUrlHash());
   });
@@ -357,6 +447,21 @@ describe("Search Console index watch", () => {
     expect(second.match(/esteban-media:index-watch:end/g)).toHaveLength(1);
   });
 
+  it("updates the persisted note description to the current watch-set size", () => {
+    const state = makeState(makeSnapshot());
+    const existing = `# Human heading\n\nAutomated three-times-weekly Search Console performance and indexed-version coverage for the fixed 20-URL sitemap set.\n`;
+    const merged = mergeManagedNote(
+      existing,
+      renderManagedBlock(state),
+      "2026-07-19",
+    );
+
+    expect(merged).toContain(
+      `fixed ${WATCH_URLS.length}-URL sitemap set`,
+    );
+    expect(merged).not.toContain("fixed 20-URL sitemap set");
+  });
+
   it("retries transient JSON requests without leaking request details", async () => {
     let attempts = 0;
     const fetchImpl = async () => {
@@ -451,6 +556,186 @@ describe("Search Console index watch", () => {
     expect(() =>
       validatePreviousState({ ...state, everImpressions: "yes" }),
     ).toThrow("everImpressions");
+  });
+
+  it("migrates the strict 20-URL v1 state without losing durable evidence", () => {
+    const legacyUrls = new Set(LEGACY_V1_WATCH_URLS);
+    const legacy = makeLegacyState();
+    legacy.eventHistory = [
+      { id: "historical-event", type: "reindexed", message: "Preserve me" },
+    ];
+    legacy.pendingNotifications = [
+      { id: "pending-event", type: "deindexed", message: "Retry me" },
+    ];
+
+    const migrated = validatePreviousState(legacy);
+    const addedUrls = WATCH_URLS.filter((url) => !legacyUrls.has(url));
+
+    expect(migrated).not.toBe(legacy);
+    expect(migrated).toMatchObject({
+      watchUrlCount: WATCH_URLS.length,
+      watchUrlHash: watchedUrlHash(),
+      watchSetExpansion: {
+        fromCount: LEGACY_V1_WATCH_URLS.length,
+        toCount: WATCH_URLS.length,
+      },
+    });
+    expect(migrated.history).toBe(legacy.history);
+    expect(migrated.eventHistory).toBe(legacy.eventHistory);
+    expect(migrated.pendingNotifications).toBe(legacy.pendingNotifications);
+    expect(migrated.latest.inspection.counts).toEqual({
+      pass: LEGACY_V1_WATCH_URLS.length,
+      neutral: 0,
+      fail: 0,
+      unknown: addedUrls.length,
+    });
+    for (const url of addedUrls) {
+      expect(
+        migrated.latest.searchAnalytics.pages.find((page) => page.url === url),
+      ).toEqual({
+        url,
+        observed: false,
+        clicks: 0,
+        impressions: 0,
+        ctr: null,
+        position: null,
+      });
+      expect(
+        migrated.latest.inspection.pages.find((page) => page.url === url),
+      ).toMatchObject({ url, verdict: "VERDICT_UNSPECIFIED" });
+      expect(migrated.confirmedVerdicts[url]).toBeNull();
+    }
+  });
+
+  it("fails closed for malformed or foreign subset states", () => {
+    const state = makeState(makeSnapshot());
+    const foreignInventory = WATCH_URLS.slice(0, 19);
+    state.watchUrlCount = foreignInventory.length;
+    state.watchUrlHash = watchedUrlHash(foreignInventory);
+    state.latest.searchAnalytics.pages = state.latest.searchAnalytics.pages.slice(
+      0,
+      foreignInventory.length,
+    );
+    state.latest.inspection.pages = state.latest.inspection.pages.slice(
+      0,
+      foreignInventory.length,
+    );
+    state.latest.inspection.counts = {
+      pass: foreignInventory.length,
+      neutral: 0,
+      fail: 0,
+      unknown: 0,
+    };
+    state.confirmedVerdicts = Object.fromEntries(
+      foreignInventory.map((url) => [url, "PASS"]),
+    );
+
+    expect(() => validatePreviousState(state)).toThrow(
+      "failed validation",
+    );
+
+    const malformedLegacy = structuredClone(state);
+    malformedLegacy.watchUrlCount = LEGACY_V1_WATCH_URLS.length;
+    malformedLegacy.watchUrlHash = watchedUrlHash(LEGACY_V1_WATCH_URLS);
+    expect(() => validatePreviousState(malformedLegacy)).toThrow(
+      "latest.inspection.pages.urls",
+    );
+  });
+
+  it("rejects a legacy state whose persisted live sitemap is foreign", () => {
+    const legacy = makeLegacyState();
+    const foreignUrls = [
+      ...LEGACY_V1_WATCH_URLS.slice(0, -1),
+      "https://estebanmorenomedia.com/foreign-route",
+    ];
+    legacy.latest.liveSitemap = {
+      count: LEGACY_V1_WATCH_URLS.length,
+      hash: watchedUrlHash(foreignUrls),
+      urls: foreignUrls,
+    };
+
+    expect(() => validatePreviousState(legacy)).toThrow(
+      "latest.liveSitemap.urls",
+    );
+  });
+
+  it("forces a same-day collection after migrating v1 and persists a normal 46-URL state", async () => {
+    const directory = await mkdtemp(join(tmpdir(), "esteban-index-migration-"));
+    temporaryDirectories.push(directory);
+    const stateDir = join(directory, "state");
+    const notePath = join(directory, "index-watch.md");
+    const tokenPath = join(directory, "token.json");
+    const legacy = makeLegacyState();
+    legacy.eventHistory = [
+      { id: "historical-event", type: "reindexed", message: "Preserve me" },
+    ];
+    legacy.pendingNotifications = [
+      { id: "pending-event", type: "deindexed", message: "Retry me" },
+    ];
+    await mkdir(stateDir, { recursive: true });
+    await writeFile(
+      join(stateDir, "latest.json"),
+      `${JSON.stringify(legacy, null, 2)}\n`,
+    );
+    await writeFile(
+      tokenPath,
+      JSON.stringify({
+        client_id: "fixture-client",
+        client_secret: "fixture-secret",
+        refresh_token: "fixture-refresh",
+        token_uri: "https://oauth.fixture/token",
+      }),
+    );
+    const counter = { count: 0 };
+    const result = await runIndexWatch(
+      {
+        command: "run",
+        dryRun: false,
+        force: false,
+        notify: false,
+        startDate: "2026-06-21",
+        endDate: "2026-07-18",
+        runDate: legacy.latest.runDate,
+        runId: "2026-07-19T13:00:00.000Z",
+        stateDir,
+        notePath,
+        tokenPath,
+      },
+      { fetchImpl: indexWatchFixtureFetch(counter) },
+    );
+
+    expect(result).toMatchObject({
+      status: "PASS",
+      watchedUrlCount: WATCH_URLS.length,
+      indexed: { pass: WATCH_URLS.length },
+      pendingNotificationCount: 1,
+    });
+    expect(counter.count).toBeGreaterThan(0);
+
+    const persisted = JSON.parse(
+      await readFile(join(stateDir, "latest.json"), "utf8"),
+    );
+    expect(persisted.watchSetExpansion).toBeUndefined();
+    expect(persisted.latest.liveSitemap).toMatchObject({
+      count: WATCH_URLS.length,
+      hash: watchedUrlHash(),
+    });
+    expect(persisted.history).toHaveLength(2);
+    expect(persisted.eventHistory).toContainEqual(
+      expect.objectContaining({ id: "historical-event" }),
+    );
+    expect(persisted.pendingNotifications).toContainEqual(
+      expect.objectContaining({ id: "pending-event" }),
+    );
+    expect(
+      LEGACY_V1_WATCH_URLS.every(
+        (url) => persisted.confirmedVerdicts[url] === "PASS",
+      ),
+    ).toBe(true);
+    expect(validatePreviousState(persisted)).toBe(persisted);
+    expect(await readFile(notePath, "utf8")).toContain(
+      `| ${LEGACY_V1_WATCH_URLS.length}/${LEGACY_V1_WATCH_URLS.length} |`,
+    );
   });
 
   it("ignores malformed historical rows without blocking the latest baseline", () => {
@@ -707,5 +992,79 @@ describe("Search Console index watch", () => {
     );
     expect(delivered).toEqual(["known-urgent-alert"]);
     expect(persisted.pendingNotifications).toEqual([]);
+  });
+
+  it("keeps legacy inventory raw when notification retry precedes a failed migration collection", async () => {
+    const directory = await mkdtemp(
+      join(tmpdir(), "esteban-index-watch-legacy-alert-"),
+    );
+    temporaryDirectories.push(directory);
+    const legacy = makeLegacyState();
+    legacy.pendingNotifications = [
+      {
+        id: "legacy-pending-alert",
+        type: "deindexed",
+        message: "Retry from the legacy outbox.",
+      },
+    ];
+    await writeFile(
+      join(directory, "latest.json"),
+      `${JSON.stringify(legacy, null, 2)}\n`,
+    );
+
+    await expect(
+      runIndexWatch(
+        {
+          command: "run",
+          dryRun: false,
+          force: false,
+          notify: true,
+          startDate: "2026-06-22",
+          endDate: "2026-07-19",
+          runDate: "2026-07-20",
+          runId: "2026-07-20T12:00:00.000Z",
+          stateDir: directory,
+          notePath: join(directory, "index-watch.md"),
+          tokenPath: join(directory, "unused-token.json"),
+        },
+        {
+          notifier: (alert) => ({
+            alertId: alert.id,
+            delivered: false,
+            status: "fixture-failure",
+          }),
+          fetchImpl: async () => {
+            throw new Error("fixture migration collection failure");
+          },
+        },
+      ),
+    ).rejects.toThrow("fixture migration collection failure");
+
+    const persisted = JSON.parse(
+      await readFile(join(directory, "latest.json"), "utf8"),
+    );
+    expect(persisted).toMatchObject({
+      watchUrlCount: LEGACY_V1_WATCH_URLS.length,
+      watchUrlHash: watchedUrlHash(LEGACY_V1_WATCH_URLS),
+    });
+    expect(persisted.watchSetExpansion).toBeUndefined();
+    expect(persisted.latest.liveSitemap).toMatchObject({
+      count: LEGACY_V1_WATCH_URLS.length,
+      hash: watchedUrlHash(LEGACY_V1_WATCH_URLS),
+    });
+    expect(persisted.latest.searchAnalytics.pages).toHaveLength(
+      LEGACY_V1_WATCH_URLS.length,
+    );
+    expect(persisted.latest.inspection.pages).toHaveLength(
+      LEGACY_V1_WATCH_URLS.length,
+    );
+    expect(persisted.pendingNotifications).toEqual([
+      expect.objectContaining({
+        id: "legacy-pending-alert",
+        deliveryAttempts: 1,
+        lastDeliveryAttemptAt: expect.any(String),
+      }),
+    ]);
+    expect(validatePreviousState(persisted).watchSetExpansion).toBeDefined();
   });
 });

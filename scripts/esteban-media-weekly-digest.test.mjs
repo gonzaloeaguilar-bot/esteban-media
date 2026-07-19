@@ -6,6 +6,7 @@ import { afterEach, describe, expect, it } from "vitest";
 
 import {
   INDEX_WATCH_SCHEMA,
+  LEGACY_V1_WATCH_URLS,
   SITE_URL,
   WATCH_URLS,
   defaultRange,
@@ -147,7 +148,7 @@ function resource(url, body, contentType, status = 200, finalUrl = url) {
 
 function makeResources({ includeAnalytics = true } = {}) {
   const analytics = includeAnalytics
-    ? `<script src="https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}"></script><script>window.location.hostname === "estebanmorenomedia.com"; gtag('config', "${GA_MEASUREMENT_ID}", { send_page_view: true });</script>`
+    ? `<script src="https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}"></script><script>window.location.hostname !== "estebanmorenomedia.com"; window.gtag('config', "${GA_MEASUREMENT_ID}", { send_page_view: false, page_location: canonicalOrigin + safePagePath(window.location.pathname), page_referrer: currentPageReferrer });</script>`
     : "";
   return {
     homepage: resource(
@@ -188,6 +189,63 @@ function makeDigestState() {
     updatedAt: snapshot.generatedAt,
     latest: snapshot,
     history: [snapshot],
+  };
+}
+
+function makeLegacyDigestState() {
+  const state = structuredClone(makeDigestState());
+  const source = state.latest.sourceIndexWatch;
+  source.watchUrlCount = LEGACY_V1_WATCH_URLS.length;
+  source.watchUrlHash = watchedUrlHash(LEGACY_V1_WATCH_URLS);
+  source.indexed = {
+    pass: LEGACY_V1_WATCH_URLS.length,
+    neutral: 0,
+    fail: 0,
+    unknown: 0,
+  };
+  state.latest.health.probes.sitemap.count = LEGACY_V1_WATCH_URLS.length;
+  state.latest.health.probes.sitemap.hash = watchedUrlHash(
+    LEGACY_V1_WATCH_URLS,
+  );
+  state.latest.overall = monitoringStatus(state.latest.health, source);
+  state.history = [state.latest];
+  return state;
+}
+
+function makeDigestHistoryState(inventories) {
+  const snapshots = inventories.map((inventory, index) => {
+    const snapshot = structuredClone(
+      inventory === "legacy"
+        ? makeLegacyDigestState().latest
+        : makeDigestState().latest,
+    );
+    const generatedAt = new Date(
+      Date.parse("2026-07-19T12:45:00.000Z") -
+        index * 7 * 24 * 60 * 60 * 1_000,
+    ).toISOString();
+    const runDate = generatedAt.slice(0, 10);
+    snapshot.runId = generatedAt;
+    snapshot.runDate = runDate;
+    snapshot.generatedAt = generatedAt;
+    snapshot.sourceIndexWatch.runId = generatedAt;
+    snapshot.sourceIndexWatch.runDate = runDate;
+    snapshot.sourceIndexWatch.generatedAt = generatedAt;
+    return snapshot;
+  });
+  for (const [index, snapshot] of snapshots.entries()) {
+    snapshot.trend = buildTrend(
+      snapshots[index + 1]
+        ? { latest: { sourceIndexWatch: snapshots[index + 1].sourceIndexWatch } }
+        : null,
+      snapshot.sourceIndexWatch,
+    );
+  }
+  return {
+    schema: WEEKLY_DIGEST_SCHEMA,
+    siteUrl: SITE_URL,
+    updatedAt: snapshots[0].generatedAt,
+    latest: snapshots[0],
+    history: snapshots,
   };
 }
 
@@ -257,12 +315,17 @@ describe("Esteban Media weekly digest", () => {
       schema: INDEX_WATCH_SCHEMA,
       runId: state.latest.runId,
       runDate: "2026-07-19",
-      watchUrlCount: 20,
+      watchUrlCount: WATCH_URLS.length,
       watchUrlHash: watchedUrlHash(),
       startDate: "2026-06-21",
       endDate: "2026-07-18",
       allDataPropertyTotals: { clicks: 1, impressions: 1 },
-      indexed: { pass: 20, neutral: 0, fail: 0, unknown: 0 },
+      indexed: {
+        pass: WATCH_URLS.length,
+        neutral: 0,
+        fail: 0,
+        unknown: 0,
+      },
     });
     expect(
       state.latest.searchAnalytics.pages.reduce(
@@ -297,12 +360,14 @@ describe("Esteban Media weekly digest", () => {
     wrongSitemap.latest.liveSitemap.urls = WATCH_URLS.slice(1);
     expect(() => validate(wrongSitemap)).toThrow();
     const wrongCounts = structuredClone(state);
-    wrongCounts.latest.inspection.counts.pass = 19;
-    expect(() => validate(wrongCounts)).toThrow("do not sum to 20");
+    wrongCounts.latest.inspection.counts.pass = WATCH_URLS.length - 1;
+    expect(() => validate(wrongCounts)).toThrow(
+      "latest.inspection.counts",
+    );
     const mismatchedCounts = structuredClone(state);
     mismatchedCounts.latest.inspection.pages[0].verdict = "FAIL";
     expect(() => validate(mismatchedCounts)).toThrow(
-      "do not match page verdicts",
+      "latest.inspection.counts.mismatch",
     );
     const wrongHash = structuredClone(state);
     wrongHash.watchUrlHash = "wrong";
@@ -345,7 +410,7 @@ describe("Esteban Media weekly digest", () => {
     expect(healthy.overall).toBe("PASS");
     expect(Object.values(healthy.probes).every((probe) => probe.ok)).toBe(true);
     expect(healthy.probes.sitemap).toMatchObject({
-      count: 20,
+      count: WATCH_URLS.length,
       hash: watchedUrlHash(),
     });
 
@@ -365,10 +430,10 @@ describe("Esteban Media weekly digest", () => {
     );
   });
 
-  it("degrades the visible digest when coverage is not 20/20", () => {
+  it("degrades the visible digest when coverage is incomplete", () => {
     const state = makeDigestState();
     state.latest.sourceIndexWatch.indexed = {
-      pass: 19,
+      pass: WATCH_URLS.length - 1,
       neutral: 1,
       fail: 0,
       unknown: 0,
@@ -382,9 +447,11 @@ describe("Esteban Media weekly digest", () => {
     expect(state.latest.health.overall).toBe("PASS");
     expect(state.latest.overall).toBe("DEGRADED");
     expect(renderHotPulse(state.latest)).toContain("[!danger]");
-    expect(renderHotPulse(state.latest)).toContain("indexed 19/20 PASS");
+    expect(renderHotPulse(state.latest)).toContain(
+      `indexed ${WATCH_URLS.length - 1}/${WATCH_URLS.length} PASS`,
+    );
     expect(renderDigestDetail(state)).toContain(
-      "19 PASS · 1 neutral/excluded",
+      `${WATCH_URLS.length - 1} PASS · 1 neutral/excluded`,
     );
     expect(validateDigestState(state)).toBe(state);
   });
@@ -422,7 +489,7 @@ describe("Esteban Media weekly digest", () => {
     const priorSource = structuredClone(current.latest.sourceIndexWatch);
     priorSource.runDate = "2026-07-12";
     priorSource.allDataPropertyTotals = totals();
-    priorSource.indexed.pass = 19;
+    priorSource.indexed.pass = WATCH_URLS.length - 1;
     const trend = buildTrend(
       { latest: { sourceIndexWatch: priorSource } },
       current.latest.sourceIndexWatch,
@@ -523,11 +590,11 @@ describe("Esteban Media weekly digest", () => {
         state.latest.health.probes.robots.status = 500;
       },
       (state) => {
-        state.latest.sourceIndexWatch.indexed.pass = 19;
+        state.latest.sourceIndexWatch.indexed.pass = WATCH_URLS.length - 1;
       },
       (state) => {
         state.latest.overall = "PASS";
-        state.latest.sourceIndexWatch.indexed.pass = 19;
+        state.latest.sourceIndexWatch.indexed.pass = WATCH_URLS.length - 1;
         state.latest.sourceIndexWatch.indexed.neutral = 1;
       },
     ];
@@ -540,6 +607,46 @@ describe("Esteban Media weekly digest", () => {
     const corruptHistory = structuredClone(valid);
     corruptHistory.history = [null];
     expect(() => validateDigestState(corruptHistory)).toThrow("history");
+  });
+
+  it("recognizes the valid legacy digest contract and marks it for a fresh run", () => {
+    const legacy = makeLegacyDigestState();
+    const migrated = validateDigestState(legacy);
+
+    expect(migrated).not.toBe(legacy);
+    expect(migrated.history).toBe(legacy.history);
+    expect(migrated.watchSetExpansion).toMatchObject({
+      fromCount: LEGACY_V1_WATCH_URLS.length,
+      toCount: WATCH_URLS.length,
+    });
+
+    const malformed = structuredClone(legacy);
+    malformed.latest.sourceIndexWatch.watchUrlHash = "foreign";
+    malformed.history[0] = malformed.latest;
+    expect(() => validateDigestState(malformed)).toThrow("latest");
+  });
+
+  it("accepts only the newest-to-oldest current then legacy history boundary", () => {
+    const state = makeDigestHistoryState([
+      "current",
+      "current",
+      "legacy",
+      "legacy",
+    ]);
+
+    expect(validateDigestState(state)).toBe(state);
+  });
+
+  it("rejects a reverse legacy-to-current history boundary", () => {
+    const state = makeDigestHistoryState(["legacy", "current"]);
+
+    expect(() => validateDigestState(state)).toThrow("history.inventory");
+  });
+
+  it("rejects repeated current-to-legacy-to-current history boundaries", () => {
+    const state = makeDigestHistoryState(["current", "legacy", "current"]);
+
+    expect(() => validateDigestState(state)).toThrow("history.inventory");
   });
 
   it("reports stale cadence after the next Sunday grace window", () => {
@@ -570,7 +677,7 @@ describe("Esteban Media weekly digest", () => {
       "2026-08-02",
     );
 
-    state.latest.sourceIndexWatch.indexed.pass = 19;
+    state.latest.sourceIndexWatch.indexed.pass = WATCH_URLS.length - 1;
     state.latest.sourceIndexWatch.indexed.neutral = 1;
     state.latest.overall = "DEGRADED";
     state.history[0] = state.latest;
@@ -633,7 +740,7 @@ describe("Esteban Media weekly digest", () => {
       status: "PASS",
       health: "PASS",
       allDataPropertyTotals: { clicks: 1, impressions: 1 },
-      indexed: { pass: 20 },
+      indexed: { pass: WATCH_URLS.length },
     });
     expect(counter.count).toBe(3);
     const stateBefore = await readFile(join(args.stateDir, "latest.json"), "utf8");
@@ -654,6 +761,56 @@ describe("Esteban Media weekly digest", () => {
     expect(repaired.status).toBe("REPAIRED_NOTES");
     expect(counter.count).toBe(3);
     expect(await readFile(args.digestNotePath, "utf8")).toBe(detailBefore);
+  });
+
+  it("forces a same-day digest after the watch-set expansion and keeps legacy history", async () => {
+    const directory = await mkdtemp(join(tmpdir(), "esteban-weekly-migration-"));
+    temporaryDirectories.push(directory);
+    const indexWatchStateDir = join(directory, "index-state");
+    await mkdir(indexWatchStateDir, { recursive: true });
+    await writeFile(join(directory, "hot.md"), hotNote());
+    await writeFile(
+      join(indexWatchStateDir, "latest.json"),
+      `${JSON.stringify(makeIndexWatchState(), null, 2)}\n`,
+    );
+    const args = {
+      ...makeArgs(directory, indexWatchStateDir),
+      runId: "2026-07-19T13:00:00.000Z",
+    };
+    await mkdir(args.stateDir, { recursive: true });
+    await writeFile(
+      join(args.stateDir, "latest.json"),
+      `${JSON.stringify(makeLegacyDigestState(), null, 2)}\n`,
+    );
+    const counter = { count: 0 };
+    const result = await runWeeklyDigest(
+      args,
+      easternDependencies({
+        fetchImpl: fixtureFetch(counter),
+        sleep: async () => {},
+        now: () => fixtureNow,
+      }),
+    );
+
+    expect(result).toMatchObject({ status: "PASS" });
+    expect(counter.count).toBe(3);
+    const persisted = JSON.parse(
+      await readFile(join(args.stateDir, "latest.json"), "utf8"),
+    );
+    expect(persisted.watchSetExpansion).toBeUndefined();
+    expect(persisted.history).toHaveLength(2);
+    expect(persisted.latest.trend).toEqual({
+      comparisonRunDate: null,
+      finalClicksDelta: null,
+      finalImpressionsDelta: null,
+      allDataClicksDelta: null,
+      allDataImpressionsDelta: null,
+      indexedPassDelta: null,
+    });
+    expect(validateDigestState(persisted)).toBe(persisted);
+    expect(await readFile(args.digestNotePath, "utf8")).toContain(
+      `| ${LEGACY_V1_WATCH_URLS.length}/${LEGACY_V1_WATCH_URLS.length} |`,
+    );
   });
 
   it("re-reads state after acquiring the lock in a delayed two-run race", async () => {

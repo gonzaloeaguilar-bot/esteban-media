@@ -32,8 +32,9 @@ export default function ContactPage() {
               </p>
               <p className="mt-4 max-w-2xl text-sm leading-6 text-[#5a6066]">
                 Esteban Moreno Media is a remote-first service-area business.
-                There is no client-facing studio; consultations happen by phone
-                or video call, and local work is quoted by location.
+                There is no client-facing studio. Inquiries can start by email,
+                phone, or Instagram, and local availability is considered for
+                each project.
               </p>
 
               <div className="mt-8 grid gap-3">
@@ -79,7 +80,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <aside className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
+            <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
               <MessageSquareText
                 className="size-6 text-[#e85d3e]"
                 aria-hidden="true"
@@ -92,9 +93,8 @@ export default function ContactPage() {
                 </li>
                 <li>
                   <strong className="text-[#101214]">Location:</strong> city,
-                  venue, property, or address if available. A travel fee may
-                  apply beyond 20 miles from Fort Lauderdale; required parking
-                  is added to the quote.
+                  venue, property, or address if available. For on-location
+                  work, share access details that may affect the project scope.
                 </li>
                 <li>
                   <strong className="text-[#101214]">Timeline:</strong> shoot or
@@ -105,7 +105,7 @@ export default function ContactPage() {
                   assets go and what a good result looks like.
                 </li>
               </ul>
-            </aside>
+            </div>
           </div>
         </Container>
       </section>

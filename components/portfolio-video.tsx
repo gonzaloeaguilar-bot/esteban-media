@@ -45,22 +45,18 @@ export function PortfolioVideo({
   return (
     <div>
       <div className="relative aspect-video overflow-hidden rounded-t-xl bg-[#101214]">
-        <iframe
-          ref={playerRef}
-          tabIndex={-1}
-          loading="lazy"
-          className={`absolute inset-0 size-full border-0 transition-opacity ${
-            isPlaying ? "opacity-100" : "pointer-events-none opacity-0"
-          }`}
-          src={`https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}?playsinline=1&rel=0${
-            isPlaying ? "&autoplay=1" : ""
-          }`}
-          title={title}
-          aria-hidden={!isPlaying}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerPolicy="strict-origin-when-cross-origin"
-          allowFullScreen
-        />
+        {isPlaying ? (
+          <iframe
+            ref={playerRef}
+            tabIndex={-1}
+            className="absolute inset-0 size-full border-0"
+            src={`https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}?playsinline=1&rel=0&autoplay=1`}
+            title={title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          />
+        ) : null}
         {!isPlaying ? (
           <button
             ref={playButtonRef}
@@ -73,7 +69,7 @@ export function PortfolioVideo({
               src={poster}
               alt=""
               fill
-              sizes="(min-width: 1024px) 50vw, 100vw"
+              sizes="(min-width: 1280px) 600px, (min-width: 1024px) calc(50vw - 40px), calc(100vw - 32px)"
               className="object-cover transition duration-500 group-hover:scale-[1.02]"
             />
             <span
@@ -112,7 +108,7 @@ export function PortfolioVideo({
           href={url}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-3 inline-flex min-h-10 items-center gap-2 text-sm font-medium text-[#9f3c27] underline decoration-[#e85d3e]/40 underline-offset-4 transition hover:text-[#e85d3e]"
+          className="mt-3 inline-flex min-h-10 items-center gap-2 text-sm font-medium text-[#9f3c27] underline decoration-[#e85d3e]/40 underline-offset-4 transition hover:text-[#7f2f20]"
         >
           {watchLabel}
           <ExternalLink className="size-4" aria-hidden="true" />

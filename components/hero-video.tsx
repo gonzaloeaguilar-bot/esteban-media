@@ -23,27 +23,31 @@ export function HeroVideo() {
         <div className="flex min-h-[78svh] flex-col justify-center py-20 sm:min-h-[82svh] sm:py-24 lg:min-h-[88svh] lg:py-28">
           <div className="inline-flex items-center gap-2 self-start rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs uppercase tracking-wide backdrop-blur">
             <MapPin className="size-3.5" aria-hidden="true" />
-            Fort Lauderdale · Broward · Miami-Dade · Palm Beach County by quote
+            Fort Lauderdale · Broward · Miami-Dade · Palm Beach expansion area
           </div>
 
           <h1
             id="hero-heading"
-            className="mt-6 max-w-[14ch] font-serif text-5xl leading-[1.02] sm:text-6xl lg:text-7xl"
+            className="mt-6 max-w-[17ch] font-serif text-5xl leading-[1.02] sm:text-6xl lg:text-7xl"
           >
-            We make things feel like a film.
+            Video editing and content production in Fort Lauderdale.
           </h1>
 
-          <p className="mt-6 max-w-2xl text-base leading-7 text-[#e8e2d8] sm:text-lg sm:leading-8">
+          <p className="mt-5 font-serif text-2xl italic text-[#f0b384] sm:text-3xl">
+            We make things feel like a film.
+          </p>
+
+          <p className="mt-4 max-w-2xl text-base leading-7 text-[#e8e2d8] sm:text-lg sm:leading-8">
             Esteban Moreno Media provides video editing, AI-assisted content,
             and social planning from Fort Lauderdale for Broward, Miami-Dade,
-            and remote clients. Selected on-location production is quoted by
-            project.
+            and remote clients. On-location production is considered
+            selectively, project by project.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href="/contact"
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#e85d3e] px-6 text-sm font-medium text-white transition hover:bg-[#c84a2c] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white transition hover:bg-[#a93e29] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
               Start a project
               <ArrowRight className="size-4" aria-hidden="true" />
@@ -56,11 +60,14 @@ export function HeroVideo() {
             </Link>
           </div>
 
-          <dl className="mt-10 grid max-w-3xl gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <ul
+            role="list"
+            className="mt-10 grid max-w-3xl gap-3 sm:grid-cols-2 lg:grid-cols-4"
+          >
             {trustSignals.map((signal) => {
               const Icon = signal.icon;
               return (
-                <div
+                <li
                   key={signal.label}
                   className="flex items-center gap-3 rounded-lg border border-white/15 bg-white/5 p-3 backdrop-blur"
                 >
@@ -69,17 +76,17 @@ export function HeroVideo() {
                     aria-hidden="true"
                   />
                   <div>
-                    <dt className="text-[0.65rem] uppercase tracking-wide text-[#d8d0c7]">
+                    <span className="block text-[0.65rem] uppercase tracking-wide text-[#d8d0c7]">
                       {signal.label}
-                    </dt>
-                    <dd className="font-serif text-lg leading-tight">
+                    </span>
+                    <span className="block font-serif text-lg leading-tight">
                       {signal.value}
-                    </dd>
+                    </span>
                   </div>
-                </div>
+                </li>
               );
             })}
-          </dl>
+          </ul>
         </div>
       </Container>
     </section>

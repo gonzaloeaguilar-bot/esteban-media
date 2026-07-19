@@ -130,9 +130,9 @@ export default function SpanishPortfolioPage() {
             <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
               <Link
                 href="/es/contacto"
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#e85d3e] px-6 text-sm font-medium text-white transition hover:bg-[#c84a2c]"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white transition hover:bg-[#a93e29]"
               >
-                Cotizar un proyecto
+                Consultar un proyecto
                 <ArrowRight className="size-4" aria-hidden="true" />
               </Link>
               <a

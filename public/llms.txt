@@ -1,12 +1,12 @@
 # Esteban Moreno Media
 
-> Fort Lauderdale-based audiovisual communicator focused on video editing, AI-assisted creative, social media planning, and carefully scoped local production.
+> Fort Lauderdale-based video editor and content creator focused on video editing, AI-assisted creative, social media planning, and selectively scoped on-location video production.
 
 Canonical site: https://estebanmorenomedia.com/
-Owner / creator: Esteban Moreno
+Owner / creator: Esteban Moreno López, who works publicly as Esteban Moreno
 Primary market: Fort Lauderdale, Broward County, and Miami-Dade County; Palm Beach County is an expansion/service area
 Languages: Spanish-first service; intermediate English communication available
-Last updated: 2026-07-16
+Last updated: 2026-07-19
 
 ## Core Pages
 
@@ -17,6 +17,7 @@ Last updated: 2026-07-16
 - Palm Beach County: https://estebanmorenomedia.com/areas/palm-beach-county
 - About: https://estebanmorenomedia.com/about
 - Contact: https://estebanmorenomedia.com/contact
+- Video guides: https://estebanmorenomedia.com/guides
 
 ## Spanish Pages
 
@@ -27,36 +28,65 @@ Last updated: 2026-07-16
 - Palm Beach County en español: https://estebanmorenomedia.com/es/areas/palm-beach-county
 - Sobre Esteban: https://estebanmorenomedia.com/es/sobre-esteban
 - Contacto en español: https://estebanmorenomedia.com/es/contacto
+- Guías de video: https://estebanmorenomedia.com/es/guias
 - Videógrafo en Miami: https://estebanmorenomedia.com/es/videografo-en-miami
 - Videógrafo en Fort Lauderdale: https://estebanmorenomedia.com/es/videografo-en-fort-lauderdale
-- Fotógrafo en Fort Lauderdale: https://estebanmorenomedia.com/es/fotografo-en-fort-lauderdale
+- Fotógrafo en Fort Lauderdale (legacy educational route; service availability pending confirmation): https://estebanmorenomedia.com/es/fotografo-en-fort-lauderdale
 - Reels para negocios en Miami: https://estebanmorenomedia.com/es/reels-para-negocios-miami
 - Video para restaurantes en Miami: https://estebanmorenomedia.com/es/video-para-restaurantes-miami
-- Drone para real estate en Miami: https://estebanmorenomedia.com/es/drone-real-estate-miami
+- Drone para real estate en Miami (legacy educational route; service availability pending confirmation): https://estebanmorenomedia.com/es/drone-real-estate-miami
+
+## Selected Video Watch Pages
+
+- My D'ler: https://estebanmorenomedia.com/portfolio/my-dler
+- Banacol: https://estebanmorenomedia.com/portfolio/banacol
+- Bar Door Monkey Miami: https://estebanmorenomedia.com/portfolio/bar-door-monkey
+- Healthy Smile Miami: https://estebanmorenomedia.com/portfolio/healthy-smile
+- Homeowners: https://estebanmorenomedia.com/portfolio/homeowners
+- Diana & Jack: https://estebanmorenomedia.com/portfolio/diana-jack
+- La Huelga: https://estebanmorenomedia.com/portfolio/la-huelga
+- ML Colombia: https://estebanmorenomedia.com/portfolio/ml-colombia
+- Portafolio My D'ler: https://estebanmorenomedia.com/es/portafolio/my-dler
+- Portafolio Banacol: https://estebanmorenomedia.com/es/portafolio/banacol
+- Portafolio Bar Door Monkey Miami: https://estebanmorenomedia.com/es/portafolio/bar-door-monkey
+- Portafolio Healthy Smile Miami: https://estebanmorenomedia.com/es/portafolio/healthy-smile
+- Portafolio Homeowners: https://estebanmorenomedia.com/es/portafolio/homeowners
+- Portafolio Diana & Jack: https://estebanmorenomedia.com/es/portafolio/diana-jack
+- Portafolio La Huelga: https://estebanmorenomedia.com/es/portafolio/la-huelga
+- Portafolio ML Colombia: https://estebanmorenomedia.com/es/portafolio/ml-colombia
+
+## Practical Video Guides
+
+- Prepare footage for video editing: https://estebanmorenomedia.com/guides/prepare-footage-for-video-editing
+- Write a useful video brief: https://estebanmorenomedia.com/guides/write-a-useful-video-brief
+- Vertical and horizontal exports and safe zones: https://estebanmorenomedia.com/guides/vertical-horizontal-video-exports-and-safe-zones
+- Remote video editing handoff: https://estebanmorenomedia.com/guides/remote-video-editing-handoff
+- Preparar material para edición: https://estebanmorenomedia.com/es/guias/preparar-material-para-edicion-de-video
+- Escribir un brief útil de video: https://estebanmorenomedia.com/es/guias/como-escribir-un-brief-util-de-video
+- Video vertical, horizontal y zonas seguras: https://estebanmorenomedia.com/es/guias/video-vertical-horizontal-y-zonas-seguras
+- Entrega para edición remota: https://estebanmorenomedia.com/es/guias/entrega-para-edicion-remota-de-video
 
 ## Services
 
-- Video editing and short-form cuts for supplied footage.
-- AI-assisted images, motion, and creative variations.
-- Social media planning and monthly content strategy.
-- Phone-based capture for social media and small on-location projects.
-- Product photography by project.
-- Aerial options only after pilot availability, airspace, weather, property permission, and required authorization are confirmed.
+- Video editing for supplied footage.
+- AI-assisted content.
+- Social media planning.
+- Selectively scoped on-location video production.
+- Photography and drone work are not currently published as confirmed services; their legacy Spanish routes remain available only as transparent educational resources pending confirmation.
 
 ## Service Areas
 
 - Fort Lauderdale is the operating base.
-- Broward County and Miami are the normal local markets.
-- Palm Beach County is an expansion area; Boca Raton and other listed cities are considered by quote.
-- A travel fee may apply beyond 20 miles from Fort Lauderdale, and required parking is added to the quote.
+- Broward County and Miami-Dade County are the normal local markets.
+- Palm Beach County is a county-level expansion area considered project by project; no sub-city coverage is currently published.
 - Remote editing, AI-assisted content, and social planning do not require an on-location visit.
 
-## Working Terms
+## Project Scope
 
 - Esteban Moreno Media is a remote-first service-area business with no client-facing studio.
-- On-location work is ideally booked three to four days ahead.
-- Delivery timing is confirmed after the project is reviewed; urgent requests depend on workload.
-- Two review rounds are normally included. Additional revisions are quoted separately.
+- General scoping questions can cover the goal, intended use, county, available source files, and references.
+- Availability, scope, timing, and format needs are discussed for the individual project; no specific workflow is published as universal.
+- Published pages do not state universal packages, prices, turnaround times, or revision allowances.
 
 ## Proof Policy
 

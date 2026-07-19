@@ -23,13 +23,13 @@ export function ContactCta() {
               Send the goal, deadline, and what you already have.
             </h2>
             <p className="mt-5 text-base leading-7 text-[#d8d0c7] sm:text-lg sm:leading-8">
-              A few lines is enough. Esteban follows up with the questions needed
-              to define the deliverables, timeline, and project-specific quote.
+              A few lines is enough to start a conversation about scope,
+              availability, timing, and format needs for the individual project.
             </p>
             <div className="mt-7">
               <Link
                 href="/contact"
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#e85d3e] px-6 text-sm font-medium text-white transition hover:bg-[#c84a2c] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white transition hover:bg-[#a93e29] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
                 Start the brief
                 <ArrowRight className="size-4" aria-hidden="true" />

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import {
   ArrowRight,
-  Camera,
+  CalendarRange,
   Languages,
   MapPin,
   Scissors,
@@ -13,42 +13,30 @@ import { Container } from "@/components/ui/container";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl } from "@/lib/site";
 
-const cities = [
-  "Boca Raton",
-  "Delray Beach",
-  "Boynton Beach",
-  "West Palm Beach",
-  "Palm Beach",
-  "Palm Beach Gardens",
-  "Jupiter",
-  "Wellington",
-  "Lake Worth Beach",
-];
-
 const palmBeachServices = [
   {
     name: "Remote video editing",
     description:
-      "Short-form edits, captions, color, and platform-ready exports for footage you already have.",
+      "A confirmed priority for projects that begin with existing footage and a publishing goal.",
     icon: Scissors,
   },
   {
-    name: "AI and social planning",
+    name: "AI-assisted content",
     description:
-      "AI-assisted creative and a practical content plan built around the formats your business needs.",
+      "AI-assisted creative is a confirmed priority, scoped around the project goal and intended use.",
     icon: WandSparkles,
   },
   {
-    name: "Mobile content capture",
+    name: "Social media planning",
     description:
-      "Phone-based recording for social media, restaurants, real estate, products, and small local projects.",
-    icon: Video,
+      "A confirmed priority for discussing audience, channels, publishing goals, and content needs.",
+    icon: CalendarRange,
   },
   {
-    name: "Product photo and aerial options",
+    name: "On-location content capture",
     description:
-      "Product photography and aerial footage quoted only after capture requirements and authorized-pilot availability are confirmed.",
-    icon: Camera,
+      "Local video production is considered selectively after the location, goal, and capture needs are known.",
+    icon: Video,
   },
 ];
 
@@ -56,44 +44,44 @@ const questions = [
   {
     question: "Does Esteban Moreno Media work in Palm Beach County?",
     answer:
-      "Palm Beach County is an expansion area. Esteban is based in Fort Lauderdale and considers selected projects by quote, with travel, timing, parking, access, equipment, and deliverables confirmed before booking.",
+      "Palm Beach County is an expansion area. Esteban is based in Fort Lauderdale and considers selected projects after learning the county, project goal, and general needs.",
   },
   {
-    question: "Which Palm Beach County cities are covered?",
+    question: "Is sub-city coverage published for Palm Beach County?",
     answer:
-      "Boca Raton is a priority expansion market. Delray Beach, Boynton Beach, West Palm Beach, Palm Beach, Palm Beach Gardens, Jupiter, Wellington, Lake Worth Beach, and nearby areas are considered by quote.",
+      "No. Palm Beach County is published only as a county-level expansion area until Esteban confirms individual city availability.",
   },
   {
-    question: "How are travel costs handled?",
+    question: "Can Palm Beach County clients work with Esteban remotely?",
     answer:
-      "A travel fee may apply beyond 20 miles from Fort Lauderdale. Required parking is added to the quote, and longer trips are confirmed before booking.",
+      "Yes. Video editing, AI-assisted content, and social planning can begin with existing files and references without an on-location visit.",
   },
   {
-    question: "Is drone coverage guaranteed at every location?",
+    question: "Is on-location production available for every inquiry?",
     answer:
-      "No. Aerial work is quoted only after credentialed-pilot availability, airspace, weather, property permission, and site safety are confirmed.",
+      "No universal availability is published. Local video production is considered selectively after the location and capture needs are understood.",
   },
   {
     question: "Can the project be handled in Spanish?",
     answer:
-      "Yes. Spanish is Esteban's native language. He can also communicate in English at an intermediate level.",
+      "Yes. Spanish is Esteban's primary language. He can also communicate in English at an intermediate level.",
   },
   {
-    question: "How far ahead should on-location work be booked?",
+    question: "What information helps Esteban review a local project?",
     answer:
-      "Three to four days ahead is preferred. Urgent requests may be considered depending on the current workload.",
+      "Share the city, project goal, intended use, available files, and visual references. That is enough to start the conversation.",
   },
   {
-    question: "How many review rounds are included?",
+    question: "Where can I review Esteban's work?",
     answer:
-      "Two review rounds are normally included: feedback on the first cut and one final adjustment round. Additional revisions are quoted separately.",
+      "The public portfolio includes eight selected videos from Esteban's YouTube channel with the project facts and credits currently available.",
   },
 ];
 
 export const metadata = buildPageMetadata({
   title: "Video Editing in Palm Beach County",
   description:
-    "Video editing, AI-assisted content, social planning, mobile capture, and selected production projects for Palm Beach County businesses.",
+    "Video editing, AI-assisted content, social planning, and selected local capture projects for Palm Beach County businesses.",
   path: "/areas/palm-beach-county",
   locale: "en",
 });
@@ -121,19 +109,14 @@ export default function PalmBeachCountyPage() {
           "Video editing",
           "AI-assisted content",
           "Social media planning",
-          "Mobile video capture",
-          "Product photography",
+          "Selectively scoped on-location video production",
         ],
         description:
-          "Remote editing and selected on-location content services for Palm Beach County businesses.",
+          "Remote creative services and selectively scoped local video production for the Palm Beach County expansion area.",
         provider: { "@id": absoluteUrl("/#business") },
         areaServed: {
           "@type": "AdministrativeArea",
           name: "Palm Beach County, Florida",
-          containsPlace: cities.map((name) => ({
-            "@type": "City",
-            name,
-          })),
         },
         availableLanguage: ["English", "Spanish"],
       },
@@ -175,7 +158,11 @@ export default function PalmBeachCountyPage() {
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
         <Container size="xl">
           <nav aria-label="Breadcrumb" className="text-sm text-[#5a6066]">
-            <Link href="/areas" className="hover:text-[#c84a2c]">
+            <Link href="/" className="hover:text-[#9f3c27]">
+              Home
+            </Link>{" "}
+            /{" "}
+            <Link href="/areas" className="hover:text-[#9f3c27]">
               Service areas
             </Link>{" "}
             / Palm Beach County
@@ -186,18 +173,17 @@ export default function PalmBeachCountyPage() {
                 Palm Beach County service area
               </p>
               <h1 className="mt-4 max-w-4xl font-serif text-5xl leading-none sm:text-6xl">
-                Content support for Palm Beach County, available by quote.
+                Palm Beach County content support, considered project by project.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
                 <strong>Quick answer:</strong> Palm Beach County is an expansion
-                area for Esteban Moreno Media. Boca Raton is a priority, and
-                other cities are considered when the project, travel, equipment,
-                and schedule are a fit.
+                area for Esteban Moreno Media. Availability is considered by
+                project, and no individual city coverage is published yet.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/contact"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#e85d3e] px-6 text-sm font-medium text-white hover:bg-[#c84a2c]"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white hover:bg-[#a93e29]"
                 >
                   Ask about a Palm Beach project
                   <ArrowRight className="size-4" aria-hidden="true" />
@@ -212,24 +198,15 @@ export default function PalmBeachCountyPage() {
               </div>
             </div>
 
-            <aside className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
+            <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
               <MapPin className="size-6 text-[#e85d3e]" aria-hidden="true" />
-              <h2 className="mt-5 font-serif text-3xl">Cities considered by quote</h2>
+              <h2 className="mt-5 font-serif text-3xl">County-level expansion area</h2>
               <p className="mt-3 text-sm leading-6 text-[#252a2d]">
-                The project address, access window, parking, tolls, equipment,
-                and travel time are confirmed during quoting.
+                Palm Beach County remains an expansion market considered project
+                by project. Individual cities are not listed until Esteban confirms
+                where local production is currently practical.
               </p>
-              <ul className="mt-5 flex flex-wrap gap-2" aria-label="Palm Beach County cities served">
-                {cities.map((city) => (
-                  <li
-                    key={city}
-                    className="rounded-full border border-[#ddd4c8] px-3 py-1 text-xs text-[#5a6066]"
-                  >
-                    {city}
-                  </li>
-                ))}
-              </ul>
-            </aside>
+            </div>
           </div>
         </Container>
       </section>
@@ -237,10 +214,10 @@ export default function PalmBeachCountyPage() {
       <section className="py-12 sm:py-16" aria-labelledby="palm-beach-services">
         <Container size="xl">
           <p className="text-xs font-medium uppercase text-[#5a6066]">
-            What you can book
+            Confirmed priorities
           </p>
           <h2 id="palm-beach-services" className="mt-4 max-w-3xl font-serif text-4xl leading-tight sm:text-5xl">
-            One visual system, scoped to the actual deliverables.
+            Services that can be discussed without assuming a fixed package.
           </h2>
           <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {palmBeachServices.map((service) => {
@@ -267,14 +244,15 @@ export default function PalmBeachCountyPage() {
           <div className="grid gap-8 lg:grid-cols-[.8fr_1fr]">
             <div>
               <p className="text-xs font-medium uppercase text-[#5a6066]">
-                Before you book
+                Before you inquire
               </p>
               <h2 className="mt-4 font-serif text-4xl leading-tight">
                 Direct answers for Palm Beach County projects.
               </h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                Send the city, date, project goal, references, and intended use.
-                That is enough to start a useful scope.
+                Useful scoping questions cover the county, project goal, available
+                material, references, and intended use. They do not imply local
+                availability or fixed deliverables.
               </p>
             </div>
             <dl className="grid gap-3">
@@ -297,15 +275,14 @@ export default function PalmBeachCountyPage() {
       <section className="py-12 sm:py-16">
         <Container size="xl">
           <div className="rounded-lg bg-[#101214] p-6 text-[#f6f1ea] sm:p-8">
-            <h2 className="font-serif text-4xl">Have a Palm Beach County location in mind?</h2>
+            <h2 className="font-serif text-4xl">Have a Palm Beach County project in mind?</h2>
             <p className="mt-4 max-w-2xl leading-7 text-[#d8d0c7]">
-              Share the address or venue, date, deliverables, and deadline.
-              Esteban will confirm availability and any travel or site
-              considerations before you commit.
+              Share the county, project goal, intended use, and visual references
+              to discuss whether the current expansion-area availability may fit.
             </p>
             <Link
               href="/contact"
-              className="mt-6 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#e85d3e] px-6 text-sm font-medium text-white hover:bg-[#c84a2c]"
+              className="mt-6 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white hover:bg-[#a93e29]"
             >
               Start the brief
               <ArrowRight className="size-4" aria-hidden="true" />

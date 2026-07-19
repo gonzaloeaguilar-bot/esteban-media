@@ -1,0 +1,735 @@
+import type { Metadata } from "next";
+
+import { buildPageMetadata } from "@/lib/site-metadata";
+import { absoluteUrl } from "@/lib/site";
+
+export const GUIDE_IDS = [
+  "prepare-footage",
+  "video-brief",
+  "formats-and-safe-zones",
+  "remote-editing-handoff",
+] as const;
+
+export type GuideId = (typeof GUIDE_IDS)[number];
+export type GuideLocale = "en" | "es";
+
+export type GuideSection = {
+  heading: string;
+  paragraphs: readonly string[];
+  bullets?: readonly string[];
+};
+
+type GuideCopy = {
+  slug: string;
+  metadataTitle: string;
+  title: string;
+  description: string;
+  eyebrow: string;
+  answer: string;
+  proof: GuideProofLink;
+  sections: readonly GuideSection[];
+};
+
+type GuidePair = {
+  id: GuideId;
+  en: GuideCopy;
+  es: GuideCopy;
+};
+
+export type Guide = GuideCopy & {
+  id: GuideId;
+  locale: GuideLocale;
+};
+
+export type GuideSupportLink = {
+  href: string;
+  label: string;
+  description: string;
+};
+
+export type GuideProofLink = {
+  href: string;
+  title: string;
+  description: string;
+};
+
+export const guidePolicyNotes: Record<GuideLocale, string> = {
+  en: "This is general project-preparation guidance, not Esteban Moreno Media policy. Packages, process, review terms, timing, file transfer, and deliverables are defined for each project.",
+  es: "Esta es una guía general para preparar un proyecto, no una política de Esteban Moreno Media. Los paquetes, el proceso, las revisiones, los plazos, la transferencia de archivos y los entregables se definen para cada proyecto.",
+};
+
+const guidePairs: readonly GuidePair[] = [
+  {
+    id: "prepare-footage",
+    en: {
+      slug: "prepare-footage-for-video-editing",
+      metadataTitle: "Prepare Footage for Editing",
+      title: "How to prepare footage for a video editor",
+      description:
+        "Organize original footage, project context, references, and required assets so a remote video edit can begin with fewer open questions.",
+      eyebrow: "Before editing begins",
+      answer:
+        "Send the original footage in a clear folder structure, then add a short note with the goal, intended platform, deadline, references, and any clips or messages that must appear.",
+      proof: {
+        href: "/portfolio/homeowners",
+        title: "Homeowners",
+        description:
+          "The approved portfolio lists script and video editing for this project. It is linked as relevant published work, not as evidence of a specific file-handoff process.",
+      },
+      sections: [
+        {
+          heading: "Keep the source material clear",
+          paragraphs: [
+            "Keep the original video and audio files available. Group files by shoot, scene, date, or camera when that distinction will help someone understand what belongs together.",
+            "Use short folder and file labels that describe the content. A simple structure is more useful than renaming every clip or building a complicated archive.",
+          ],
+          bullets: [
+            "Original video files, grouped by shoot or scene",
+            "Separate audio files, if the project has them",
+            "Logos, approved graphics, and exact on-screen wording",
+            "References in their own folder or link list",
+          ],
+        },
+        {
+          heading: "Explain the result you need",
+          paragraphs: [
+            "The footage does not explain the business goal by itself. Include the main message, where the video will be published, the requested format, and the deadline that matters to the project.",
+            "Flag must-use moments and anything that should not be used. If there are several deliverables, name each one instead of assuming a single edit can cover every placement.",
+          ],
+          bullets: [
+            "Goal and intended audience",
+            "Primary platform or placement",
+            "Vertical, horizontal, or both",
+            "Must-use clips, names, offers, or calls to action",
+            "Known audio, continuity, or permission concerns",
+          ],
+        },
+        {
+          heading: "Finish with one handoff note",
+          paragraphs: [
+            "Put the essential context in one message or document: what is included, what is missing, who will consolidate feedback, and which date or launch matters to the request.",
+            "Treat the note as preparation, not as an assumed production policy. Scope, timing, review method, file transfer, and deliverables still need to be agreed for the individual project.",
+          ],
+        },
+      ],
+    },
+    es: {
+      slug: "preparar-material-para-edicion-de-video",
+      metadataTitle: "Preparar Material para Edición",
+      title: "Cómo preparar material para un editor de video",
+      description:
+        "Organiza videos originales, contexto, referencias y recursos necesarios para comenzar una edición remota con menos preguntas pendientes.",
+      eyebrow: "Antes de comenzar la edición",
+      answer:
+        "Envía los videos originales en carpetas claras y agrega una nota breve con la meta, el canal de publicación, la fecha, las referencias y los clips o mensajes que deben aparecer.",
+      proof: {
+        href: "/es/portafolio/homeowners",
+        title: "Homeowners",
+        description:
+          "El portafolio aprobado registra guion y edición de video para este proyecto. Se enlaza como trabajo publicado relacionado, no como prueba de un proceso específico de entrega de archivos.",
+      },
+      sections: [
+        {
+          heading: "Mantén claro el material original",
+          paragraphs: [
+            "Conserva los archivos originales de video y audio. Agrúpalos por grabación, escena, fecha o cámara cuando esa separación ayude a entender qué material pertenece al mismo momento.",
+            "Usa nombres cortos que describan el contenido. Una estructura sencilla sirve más que renombrar cada clip o crear un archivo complicado.",
+          ],
+          bullets: [
+            "Videos originales agrupados por grabación o escena",
+            "Archivos de audio separados, si existen",
+            "Logos, gráficos aprobados y texto exacto en pantalla",
+            "Referencias en una carpeta o lista de enlaces aparte",
+          ],
+        },
+        {
+          heading: "Explica el resultado que necesitas",
+          paragraphs: [
+            "El material por sí solo no explica la meta del negocio. Indica el mensaje principal, dónde se publicará el video, el formato solicitado y la fecha relevante para el proyecto.",
+            "Marca los momentos obligatorios y lo que no debe usarse. Si necesitas varias piezas, nombra cada entrega en lugar de asumir que un solo corte funcionará en todos los canales.",
+          ],
+          bullets: [
+            "Meta y audiencia principal",
+            "Canal o ubicación donde se publicará",
+            "Formato vertical, horizontal o ambos",
+            "Clips, nombres, ofertas o llamados a la acción obligatorios",
+            "Problemas conocidos de audio, continuidad o permisos",
+          ],
+        },
+        {
+          heading: "Cierra con una sola nota de entrega",
+          paragraphs: [
+            "Reúne el contexto esencial en un mensaje o documento: qué está incluido, qué falta, quién consolidará los comentarios y qué fecha o lanzamiento importa para la solicitud.",
+            "Usa la nota como preparación, no como una política de producción asumida. El alcance, los plazos, el método de revisión, la transferencia de archivos y los entregables todavía deben acordarse para cada proyecto.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "video-brief",
+    en: {
+      slug: "write-a-useful-video-brief",
+      metadataTitle: "Write a Useful Video Brief",
+      title: "How to write a video brief an editor can use",
+      description:
+        "Build a concise video brief around the goal, audience, source material, deliverables, references, review contact, and deadline.",
+      eyebrow: "Define the project",
+      answer:
+        "A useful video brief states the goal, audience, publishing destination, available material, requested deliverables, references, reviewer, and deadline in one place.",
+      proof: {
+        href: "/portfolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        description:
+          "Approved credits list pre-production, models, location, videography, and editing. Those documented elements make the project a useful scope example, but its private brief and process are not published.",
+      },
+      sections: [
+        {
+          heading: "Start with the decision the video should support",
+          paragraphs: [
+            "Describe what the viewer should understand or do after watching. That answer is more actionable than asking for a video that is simply polished, dynamic, or engaging.",
+            "Add the audience and publishing destination because pacing, framing, captions, and the call to action depend on how the piece will be used.",
+          ],
+          bullets: [
+            "Goal: what should change after someone watches?",
+            "Audience: who needs to understand the message?",
+            "Placement: website, social feed, short-form channel, presentation, or archive",
+          ],
+        },
+        {
+          heading: "Name the material and deliverables",
+          paragraphs: [
+            "List what already exists: footage, voice-over, music direction, logos, copy, product details, and references. Then list the requested pieces separately, including their orientation when it is known.",
+            "If an item is undecided, label it as an open question. That is more useful than hiding uncertainty inside a vague request.",
+          ],
+          bullets: [
+            "Source files and approved brand assets",
+            "Number and type of requested pieces",
+            "Vertical or horizontal orientation",
+            "Required words, names, captions, or calls to action",
+          ],
+        },
+        {
+          heading: "Make review and timing explicit",
+          paragraphs: [
+            "Include the deadline, the date the video will be used, and the person responsible for collecting feedback. These can be different facts, so write each one clearly.",
+            "Use the brief to surface open questions instead of turning assumptions into promises. The eventual scope can define deliverables, timing, and review responsibilities for the individual project.",
+          ],
+          bullets: [
+            "Project deadline and any fixed publish date",
+            "One person responsible for consolidated feedback",
+            "References with a note explaining what is useful about each one",
+          ],
+        },
+      ],
+    },
+    es: {
+      slug: "como-escribir-un-brief-util-de-video",
+      metadataTitle: "Escribir un Brief de Video",
+      title: "Cómo escribir un brief de video que sí se puede usar",
+      description:
+        "Prepara un resumen claro con meta, audiencia, material disponible, entregables, referencias, persona encargada de revisar y fecha.",
+      eyebrow: "Define el proyecto",
+      answer:
+        "Un brief, o resumen del proyecto, reúne en un solo lugar la meta, la audiencia, dónde se publicará, el material disponible, las piezas solicitadas, las referencias, quién revisa y la fecha.",
+      proof: {
+        href: "/es/portafolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        description:
+          "Los créditos aprobados registran preproducción, modelos, locación, videografía y edición. Esos elementos documentados sirven como ejemplo de alcance, pero el brief y el proceso privado del proyecto no están publicados.",
+      },
+      sections: [
+        {
+          heading: "Empieza por la decisión que debe apoyar el video",
+          paragraphs: [
+            "Explica qué debe entender o hacer la persona después de ver la pieza. Esa respuesta orienta mejor que pedir un video solamente dinámico, profesional o atractivo.",
+            "Agrega la audiencia y el lugar de publicación porque el ritmo, el encuadre, los subtítulos y el llamado a la acción dependen del uso final.",
+          ],
+          bullets: [
+            "Meta: ¿qué debería cambiar después de ver el video?",
+            "Audiencia: ¿quién necesita entender el mensaje?",
+            "Uso: sitio web, red social, canal de video corto, presentación o archivo",
+          ],
+        },
+        {
+          heading: "Nombra el material y los entregables",
+          paragraphs: [
+            "Enumera lo que ya existe: videos, voz en off, dirección musical, logos, textos, datos del producto y referencias. Después enumera cada pieza solicitada e indica su orientación cuando ya esté definida.",
+            "Si algo todavía no está decidido, márcalo como pregunta pendiente. Es más útil que esconder la duda dentro de una solicitud general.",
+          ],
+          bullets: [
+            "Archivos originales y recursos de marca aprobados",
+            "Cantidad y tipo de piezas solicitadas",
+            "Orientación vertical u horizontal",
+            "Palabras, nombres, subtítulos o llamados a la acción obligatorios",
+          ],
+        },
+        {
+          heading: "Aclara la revisión y las fechas",
+          paragraphs: [
+            "Incluye la fecha límite, la fecha en que se usará el video y la persona responsable de reunir los comentarios. Pueden ser datos diferentes, por eso conviene escribir cada uno.",
+            "Usa el brief para mostrar las preguntas pendientes en vez de convertir supuestos en promesas. El alcance de cada proyecto puede definir los entregables, los plazos y la responsabilidad de revisión.",
+          ],
+          bullets: [
+            "Fecha límite y cualquier día fijo de publicación",
+            "Una persona responsable de consolidar los comentarios",
+            "Referencias con una nota sobre lo que sirve de cada una",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "formats-and-safe-zones",
+    en: {
+      slug: "vertical-horizontal-video-exports-and-safe-zones",
+      metadataTitle: "Video Formats and Safe Zones",
+      title: "Vertical and horizontal video exports: a safe-zone guide",
+      description:
+        "Choose a primary video orientation, plan intentional reframes, and keep essential text and action clear of interface and crop areas.",
+      eyebrow: "Plan the final formats",
+      answer:
+        "Choose the primary placement before editing, request a separate reframe when you need both vertical and horizontal versions, and keep essential faces, products, text, and calls to action away from the edges.",
+      proof: {
+        href: "/portfolio/my-dler",
+        title: "My D'ler",
+        description:
+          "Approved credits list brand key visuals, social designs, a 3D video, and product mockups. That mix is relevant to format planning, but the portfolio does not publish this project's export specifications.",
+      },
+      sections: [
+        {
+          heading: "Let the placement choose the first format",
+          paragraphs: [
+            "A 9:16 vertical frame and a 16:9 horizontal frame show different parts of the same shot. Decide which placement matters most before choosing the primary edit.",
+            "Vertical video is commonly used in full-screen short-form feeds. Horizontal video is commonly used on YouTube, websites, presentations, and wider displays. Confirm the actual destination instead of exporting by habit.",
+          ],
+        },
+        {
+          heading: "Treat each reframe as a composition decision",
+          paragraphs: [
+            "A horizontal cut cannot always be cropped into a useful vertical piece. People, products, captions, and movement may need a different position or a different shot.",
+            "When both orientations are requested, identify the priority version and list the secondary version separately. Do not assume one automatic crop will work; framing, text placement, and requested outputs still need to be defined for that project.",
+          ],
+          bullets: [
+            "Keep the main subject readable in the narrower frame",
+            "Check whether captions cover faces, products, or demonstrations",
+            "Use a separate text layout when the crop changes",
+            "Preview each export in the placement where it will appear",
+          ],
+        },
+        {
+          heading: "Use safe zones without inventing one permanent template",
+          paragraphs: [
+            "Platform controls, captions, account labels, and crop behavior can cover the outer parts of a frame. Keep essential information comfortably inside the composition and check the current platform preview before publishing.",
+            "Avoid relying on one set of pixel measurements for every channel because interfaces can change. Save the exact wording and graphics separately so they can be repositioned when needed.",
+          ],
+          bullets: [
+            "Keep names and calls to action away from the top and bottom edges",
+            "Leave breathing room around faces, logos, and product details",
+            "Check auto-captions and manually placed captions together",
+            "Review the thumbnail or cover crop separately from the video",
+          ],
+        },
+      ],
+    },
+    es: {
+      slug: "video-vertical-horizontal-y-zonas-seguras",
+      metadataTitle: "Video y Zonas Seguras",
+      title: "Video vertical, horizontal y zonas seguras para exportar",
+      description:
+        "Elige una orientación principal, planifica cada reencuadre y mantén textos y acciones importantes fuera de las áreas de interfaz o recorte.",
+      eyebrow: "Planifica los formatos finales",
+      answer:
+        "Define primero dónde se publicará, solicita un reencuadre separado si necesitas versiones verticales y horizontales, y mantén rostros, productos, textos y llamados importantes lejos de los bordes.",
+      proof: {
+        href: "/es/portafolio/my-dler",
+        title: "My D'ler",
+        description:
+          "Los créditos aprobados registran piezas visuales de marca, diseños sociales, un video 3D y mockups de producto. Esa mezcla es relevante para planificar formatos, pero el portafolio no publica las especificaciones de exportación del proyecto.",
+      },
+      sections: [
+        {
+          heading: "Deja que el uso final defina el primer formato",
+          paragraphs: [
+            "Un cuadro vertical 9:16 y uno horizontal 16:9 muestran partes diferentes de la misma toma. Decide qué canal es prioritario antes de elegir la edición principal.",
+            "El video vertical se usa con frecuencia en canales de video corto a pantalla completa. El horizontal es común en YouTube, sitios web, presentaciones y pantallas anchas. Confirma el destino real en vez de exportar por costumbre.",
+          ],
+        },
+        {
+          heading: "Trata cada reencuadre como una nueva composición",
+          paragraphs: [
+            "Un corte horizontal no siempre se puede recortar y convertir en una pieza vertical útil. Personas, productos, subtítulos y movimientos pueden necesitar otra posición o una toma diferente.",
+            "Cuando solicites ambas orientaciones, identifica la versión prioritaria y anota la secundaria por separado. No asumas que un recorte automático funcionará; el encuadre, la posición del texto y los exportes solicitados todavía deben definirse para ese proyecto.",
+          ],
+          bullets: [
+            "Mantén el sujeto principal legible en el cuadro más estrecho",
+            "Revisa si los subtítulos cubren rostros, productos o demostraciones",
+            "Usa otra distribución de texto cuando cambia el recorte",
+            "Prueba cada exporte en el lugar donde se publicará",
+          ],
+        },
+        {
+          heading: "Usa zonas seguras sin inventar una plantilla permanente",
+          paragraphs: [
+            "Los controles, subtítulos, nombres de cuenta y recortes de cada plataforma pueden cubrir las partes exteriores. Mantén la información esencial dentro de la composición y revisa la vista previa actual antes de publicar.",
+            "No dependas de una sola medida en píxeles para todos los canales porque las interfaces pueden cambiar. Guarda textos y gráficos por separado para poder moverlos cuando sea necesario.",
+          ],
+          bullets: [
+            "Aleja nombres y llamados a la acción de los bordes superior e inferior",
+            "Deja espacio alrededor de rostros, logos y detalles de producto",
+            "Revisa juntos los subtítulos automáticos y los colocados durante la edición",
+            "Comprueba por separado el recorte de la portada o miniatura",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "remote-editing-handoff",
+    en: {
+      slug: "remote-video-editing-handoff",
+      metadataTitle: "Remote Editing Handoff",
+      title: "A practical handoff for remote video editing",
+      description:
+        "Organize source files, project context, feedback, and requested output formats for a clearer remote video-editing conversation.",
+      eyebrow: "Work clearly from a distance",
+      answer:
+        "A useful remote-editing handoff groups source files, one project brief, clearly labeled feedback, and a list of requested output formats. The actual process and deliverables still need to be agreed for that project.",
+      proof: {
+        href: "/portfolio/homeowners",
+        title: "Homeowners",
+        description:
+          "The approved portfolio credits this project with script and video editing. It is a related editing example; nothing published confirms that it used the handoff described in this general guide.",
+      },
+      sections: [
+        {
+          heading: "Package files and context together",
+          paragraphs: [
+            "Place the original footage, audio, approved graphics, copy, and references in a structure that another person can follow. Add one brief that explains the goal, intended use, deadline, and requested deliverables.",
+            "Keep assumptions separate from confirmed facts. This preparation does not decide which files an editor will accept or what the eventual scope, transfer method, schedule, or deliverables will include.",
+          ],
+        },
+        {
+          heading: "Make feedback easy to locate",
+          paragraphs: [
+            "When reviewing any shared draft, identify the exact moment or element that needs attention. Write what should change and, when useful, why it matters to the message or placement.",
+            "A timestamp can help when the chosen review method supports one, but no tool, number of review rounds, or feedback process is assumed here. Collecting comments before sending them can still reduce conflicting requests.",
+          ],
+          bullets: [
+            "Name the exact moment or element",
+            "Describe the requested change",
+            "Include replacement wording when text must change",
+            "Resolve conflicting feedback before sending it",
+          ],
+        },
+        {
+          heading: "List the requested output needs",
+          paragraphs: [
+            "List the versions requested for web, social, or archive. Orientation, captions, text placement, and file naming may differ across those uses.",
+            "Treat that list as an input to the conversation, not a promise of delivery. File transfer, schedule, accepted deliverables, and review points remain open until they are agreed for the individual project.",
+          ],
+          bullets: [
+            "List each requested orientation and placement",
+            "State whether text or captions should appear in the image",
+            "Keep source material, review versions, and any approved files in separate folders",
+          ],
+        },
+      ],
+    },
+    es: {
+      slug: "entrega-para-edicion-remota-de-video",
+      metadataTitle: "Entrega para Edición Remota",
+      title: "Una entrega práctica para edición remota de video",
+      description:
+        "Organiza archivos, contexto, comentarios y formatos solicitados para conversar con más claridad sobre una edición de video a distancia.",
+      eyebrow: "Trabaja con claridad a distancia",
+      answer:
+        "Una entrega útil para edición remota reúne archivos originales, un resumen del proyecto, comentarios claros y una lista de formatos solicitados. El proceso y los entregables reales todavía deben acordarse para ese proyecto.",
+      proof: {
+        href: "/es/portafolio/homeowners",
+        title: "Homeowners",
+        description:
+          "El portafolio aprobado registra guion y edición de video para este proyecto. Es un ejemplo relacionado de edición; nada publicado confirma que haya usado la entrega descrita en esta guía general.",
+      },
+      sections: [
+        {
+          heading: "Entrega juntos los archivos y el contexto",
+          paragraphs: [
+            "Organiza videos originales, audio, gráficos aprobados, textos y referencias de una forma que otra persona pueda seguir. Agrega un brief con la meta, el uso final, la fecha y los entregables solicitados.",
+            "Separa los supuestos de los datos confirmados. Esta preparación no decide qué archivos aceptará un editor ni qué incluirán el alcance, la transferencia, el calendario o los entregables finales.",
+          ],
+        },
+        {
+          heading: "Haz que los comentarios sean fáciles de ubicar",
+          paragraphs: [
+            "Al revisar cualquier versión compartida, identifica el momento o elemento exacto que necesita atención. Escribe qué debe cambiar y, cuando ayude, por qué importa para el mensaje o el canal.",
+            "Una marca de tiempo puede ayudar cuando el método de revisión elegido la permite, pero esta guía no supone una herramienta, cantidad de rondas ni proceso de comentarios. Reunir las observaciones antes de enviarlas puede reducir solicitudes contradictorias.",
+          ],
+          bullets: [
+            "Nombra el momento o elemento exacto",
+            "Describe el cambio solicitado",
+            "Incluye el texto nuevo cuando debe cambiar una frase",
+            "Resuelve comentarios contradictorios antes de enviarlos",
+          ],
+        },
+        {
+          heading: "Enumera los formatos solicitados",
+          paragraphs: [
+            "Enumera las versiones solicitadas para el sitio web, las redes o el archivo. La orientación, los subtítulos, la posición del texto y los nombres de archivo pueden cambiar según el uso.",
+            "Trata esa lista como información para la conversación, no como una promesa de entrega. La transferencia, el calendario, los entregables aceptados y los puntos de revisión siguen pendientes hasta acordarlos para cada proyecto.",
+          ],
+          bullets: [
+            "Enumera cada orientación y lugar de publicación solicitado",
+            "Indica si el texto o los subtítulos deberían quedar integrados en la imagen",
+            "Separa el material original, las versiones de revisión y cualquier archivo aprobado",
+          ],
+        },
+      ],
+    },
+  },
+];
+
+export const guidesIndexCopy = {
+  en: {
+    path: "/guides",
+    metadataTitle: "Practical Video Production Guides",
+    description:
+      "Four practical guides for preparing footage, writing a video brief, choosing export formats, and handing off a remote video edit.",
+    breadcrumbHome: "Home",
+    breadcrumbCurrent: "Guides",
+    breadcrumbLabel: "Breadcrumb",
+    eyebrow: "Practical video guides",
+    title: "Make the next video project easier to define and review.",
+    answerLabel: "Quick answer:",
+    answer:
+      "Start with the guide that matches your next decision: organize footage, write the brief, choose final formats, or prepare a remote-editing handoff.",
+    intro:
+      "These guides offer general preparation steps, not Esteban Moreno Media policies. They do not assume a package, price, turnaround, review method, transfer method, or set of deliverables.",
+    readLabel: "Read the guide",
+    languageLabel: "Leer las guías en español",
+    relatedEyebrow: "From planning to proof",
+    relatedTitle: "Use the guides with real services and published work.",
+  },
+  es: {
+    path: "/es/guias",
+    metadataTitle: "Guías Prácticas de Video",
+    description:
+      "Cuatro guías prácticas para preparar material, escribir un brief, elegir formatos y organizar una edición remota de video.",
+    breadcrumbHome: "Inicio",
+    breadcrumbCurrent: "Guías",
+    breadcrumbLabel: "Migas de pan",
+    eyebrow: "Guías prácticas de video",
+    title: "Define y revisa tu próximo proyecto de video con más claridad.",
+    answerLabel: "Respuesta rápida:",
+    answer:
+      "Empieza por la decisión que tienes pendiente: organizar el material, escribir el brief, elegir los formatos finales o preparar una edición remota.",
+    intro:
+      "Estas guías ofrecen pasos generales de preparación, no políticas de Esteban Moreno Media. No asumen paquetes, precios, plazos, método de revisión, transferencia ni entregables definidos.",
+    readLabel: "Leer la guía",
+    languageLabel: "Read the guides in English",
+    relatedEyebrow: "De la planificación a la prueba",
+    relatedTitle: "Conecta las guías con servicios reales y trabajos publicados.",
+  },
+} as const;
+
+const supportLinks: Record<GuideLocale, readonly GuideSupportLink[]> = {
+  en: [
+    {
+      href: "/services#editing",
+      label: "Explore video editing services",
+      description:
+        "Review the published video-editing service, which prioritizes remote editing for clients who already have footage.",
+    },
+    {
+      href: "/portfolio",
+      label: "Review selected video work",
+      description:
+        "Browse approved public projects with the descriptions and credits currently available.",
+    },
+    {
+      href: "/contact",
+      label: "Share a project brief",
+      description:
+        "Ask about a video-editing project and what information is needed to evaluate it.",
+    },
+  ],
+  es: [
+    {
+      href: "/es/servicios#edicion",
+      label: "Explorar servicios de edición",
+      description:
+        "Consulta el servicio publicado de edición, enfocado en trabajo remoto para clientes que ya tienen material.",
+    },
+    {
+      href: "/es/portafolio",
+      label: "Ver trabajos de video publicados",
+      description:
+        "Explora proyectos públicos aprobados con las descripciones y los créditos disponibles.",
+    },
+    {
+      href: "/es/contacto",
+      label: "Compartir el brief de un proyecto",
+      description:
+        "Pregunta por un proyecto de edición y qué información se necesita para evaluarlo en español.",
+    },
+  ],
+};
+
+export function getGuides(locale: GuideLocale): Guide[] {
+  return guidePairs.map((pair) => ({
+    id: pair.id,
+    locale,
+    ...pair[locale],
+  }));
+}
+
+export function getGuideBySlug(locale: GuideLocale, slug: string) {
+  return getGuides(locale).find((guide) => guide.slug === slug);
+}
+
+export function getGuideById(locale: GuideLocale, id: GuideId) {
+  return getGuides(locale).find((guide) => guide.id === id);
+}
+
+export function getGuidePath(guide: Guide) {
+  return guide.locale === "es"
+    ? `/es/guias/${guide.slug}`
+    : `/guides/${guide.slug}`;
+}
+
+export function getGuideCompanion(guide: Guide) {
+  return getGuideById(guide.locale === "en" ? "es" : "en", guide.id);
+}
+
+export function getGuideAlternates(guide: Guide) {
+  const englishGuide = getGuideById("en", guide.id);
+  const spanishGuide = getGuideById("es", guide.id);
+
+  if (!englishGuide || !spanishGuide) {
+    throw new Error(`Missing localized guide pair for ${guide.id}`);
+  }
+
+  const englishPath = getGuidePath(englishGuide);
+  const spanishPath = getGuidePath(spanishGuide);
+
+  return {
+    "en-US": englishPath,
+    "es-US": spanishPath,
+    "x-default": englishPath,
+  };
+}
+
+export function getGuideSupportLinks(locale: GuideLocale) {
+  return supportLinks[locale];
+}
+
+export function getGuideStaticParams(locale: GuideLocale) {
+  return getGuides(locale).map(({ slug }) => ({ slug }));
+}
+
+export function buildGuideMetadata(guide: Guide): Metadata {
+  return buildPageMetadata({
+    title: guide.metadataTitle,
+    description: guide.description,
+    path: getGuidePath(guide),
+    locale: guide.locale,
+    languages: getGuideAlternates(guide),
+  });
+}
+
+export function buildGuidesIndexMetadata(locale: GuideLocale): Metadata {
+  const copy = guidesIndexCopy[locale];
+  return buildPageMetadata({
+    title: copy.metadataTitle,
+    description: copy.description,
+    path: copy.path,
+    locale,
+    languages: {
+      "en-US": guidesIndexCopy.en.path,
+      "es-US": guidesIndexCopy.es.path,
+      "x-default": guidesIndexCopy.en.path,
+    },
+  });
+}
+
+function buildBreadcrumbList(
+  id: string,
+  items: readonly { name: string; path: string }[],
+) {
+  return {
+    "@type": "BreadcrumbList",
+    "@id": id,
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: absoluteUrl(item.path),
+    })),
+  };
+}
+
+export function buildGuideStructuredData(guide: Guide) {
+  const copy = guidesIndexCopy[guide.locale];
+  const path = getGuidePath(guide);
+  const pageUrl = absoluteUrl(path);
+  const breadcrumbsId = `${pageUrl}#breadcrumbs`;
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: guide.title,
+        description: guide.description,
+        inLanguage: guide.locale === "es" ? "es-US" : "en-US",
+        isPartOf: { "@id": absoluteUrl("/#website") },
+        breadcrumb: { "@id": breadcrumbsId },
+      },
+      buildBreadcrumbList(breadcrumbsId, [
+        {
+          name: copy.breadcrumbHome,
+          path: guide.locale === "es" ? "/es" : "/",
+        },
+        { name: copy.breadcrumbCurrent, path: copy.path },
+        { name: guide.title, path },
+      ]),
+    ],
+  };
+}
+
+export function buildGuidesIndexStructuredData(locale: GuideLocale) {
+  const copy = guidesIndexCopy[locale];
+  const pageUrl = absoluteUrl(copy.path);
+  const breadcrumbsId = `${pageUrl}#breadcrumbs`;
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: copy.metadataTitle,
+        description: copy.description,
+        inLanguage: locale === "es" ? "es-US" : "en-US",
+        isPartOf: { "@id": absoluteUrl("/#website") },
+        breadcrumb: { "@id": breadcrumbsId },
+        hasPart: getGuides(locale).map((guide) => ({
+          "@type": "WebPage",
+          "@id": `${absoluteUrl(getGuidePath(guide))}#webpage`,
+          url: absoluteUrl(getGuidePath(guide)),
+          name: guide.title,
+        })),
+      },
+      buildBreadcrumbList(breadcrumbsId, [
+        {
+          name: copy.breadcrumbHome,
+          path: locale === "es" ? "/es" : "/",
+        },
+        { name: copy.breadcrumbCurrent, path: copy.path },
+      ]),
+    ],
+  };
+}
