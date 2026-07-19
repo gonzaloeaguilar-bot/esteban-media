@@ -1,6 +1,6 @@
 # Search Console index-watch operations
 
-`com.esteban-media.index-watch` runs at 08:00 ET every Wednesday, Friday, and Sunday. It reads only Search Console performance and indexed-version URL Inspection data for the fixed 20-URL sitemap set.
+`com.esteban-media.index-watch` runs at 08:00 every Wednesday, Friday, and Sunday while macOS is configured for `America/New_York`; same-day idempotency prevents duplicate collection. The installer refuses to load the job in another system timezone because `StartCalendarInterval` follows macOS, not the child process's `TZ` variable. macOS coalesces a sleep-missed calendar event after wake; after a power-off miss, use the manual run command below. The job reads only Search Console performance and indexed-version URL Inspection data for the fixed 20-URL sitemap set.
 
 ## Runtime paths
 
