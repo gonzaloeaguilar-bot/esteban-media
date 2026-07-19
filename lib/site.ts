@@ -11,6 +11,8 @@ import {
   Video,
 } from "lucide-react";
 
+import { socialImageAlt, socialImageSize } from "@/lib/social-image";
+
 export const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://estebanmorenomedia.com";
 
@@ -27,9 +29,10 @@ export const site = {
   instagram: "https://www.instagram.com/steeban1/",
   youtube: "https://www.youtube.com/@estebanmorenolopez3811",
   googleSiteVerification: "I70vr7LMsVyZc_VO4grb6fDxQXPTbhB7LIIFjJUlvUs",
+  googleAnalyticsMeasurementId: "G-W9CM4CE2MQ",
   location: "Fort Lauderdale, FL",
   description:
-    "Fort Lauderdale-based video editor and content partner for AI-assisted creative, social media planning, and scoped production across Broward, Miami-Dade, Palm Beach County, and remote projects.",
+    "Fort Lauderdale video editing, AI-assisted content, social planning, and selectively scoped on-location production for Broward, Miami-Dade, and remote clients.",
 };
 
 export type Service = {
@@ -216,3 +219,9 @@ export const trustSignals = [
 export function absoluteUrl(path = "/") {
   return new URL(path, siteUrl).toString();
 }
+
+export const socialImage = {
+  url: absoluteUrl("/social-card"),
+  ...socialImageSize,
+  alt: socialImageAlt,
+};

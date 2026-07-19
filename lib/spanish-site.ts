@@ -14,9 +14,9 @@ import {
 } from "lucide-react";
 
 export const spanishSite = {
-  title: "Esteban Moreno Media en Español",
+  title: "Edición de Video en Fort Lauderdale",
   description:
-    "Edición de video, contenido con IA, planificación para redes y producción por proyecto desde Fort Lauderdale para Broward, Miami-Dade, Palm Beach County y clientes remotos.",
+    "Edición de video, contenido con IA, planificación para redes y producción selectiva desde Fort Lauderdale para Broward, Miami-Dade y clientes remotos.",
   contactLead:
     "Cuéntame la meta, fecha, ciudad, entregables y dónde se publicará el contenido. La atención es principalmente en español y también hay comunicación disponible en inglés.",
 };
@@ -165,7 +165,7 @@ export const spanishNichePages: SpanishNichePage[] = [
   {
     slug: "videografo-en-miami",
     title: "Videógrafo en Miami",
-    metadataTitle: "Videógrafo en Miami | Video y Reels en Español",
+    metadataTitle: "Videógrafo en Miami",
     description:
       "Edición y producción de video por proyecto en Miami para emprendedores, restaurantes, propiedades y marcas que prefieren trabajar en español.",
     eyebrow: "Miami / Doral / Brickell / Wynwood",
@@ -205,8 +205,7 @@ export const spanishNichePages: SpanishNichePage[] = [
   {
     slug: "videografo-en-fort-lauderdale",
     title: "Videógrafo en Fort Lauderdale",
-    metadataTitle:
-      "Videógrafo en Fort Lauderdale | Video y Reels en Español",
+    metadataTitle: "Videógrafo en Fort Lauderdale",
     description:
       "Edición y producción de video por proyecto en Fort Lauderdale para negocios, restaurantes, propiedades y contenido social en Broward County.",
     eyebrow: "Fort Lauderdale / Broward County",
@@ -246,8 +245,7 @@ export const spanishNichePages: SpanishNichePage[] = [
   {
     slug: "fotografo-en-fort-lauderdale",
     title: "Fotógrafo en Fort Lauderdale",
-    metadataTitle:
-      "Fotógrafo en Fort Lauderdale | Fotos Comerciales y Contenido",
+    metadataTitle: "Fotógrafo en Fort Lauderdale",
     description:
       "Fotografía de producto y contenido comercial por proyecto en Fort Lauderdale para restaurantes, propiedades y marcas.",
     eyebrow: "Producto / comida / espacios",
@@ -287,7 +285,7 @@ export const spanishNichePages: SpanishNichePage[] = [
   {
     slug: "reels-para-negocios-miami",
     title: "Reels para negocios en Miami",
-    metadataTitle: "Reels para Negocios en Miami | Video Corto en Español",
+    metadataTitle: "Reels para Negocios en Miami",
     description:
       "Grabación y edición de reels para negocios en Miami, restaurantes, marcas locales, tiendas, profesionales y creadores.",
     eyebrow: "Instagram / TikTok / Shorts",
@@ -327,8 +325,7 @@ export const spanishNichePages: SpanishNichePage[] = [
   {
     slug: "video-para-restaurantes-miami",
     title: "Video para restaurantes en Miami",
-    metadataTitle:
-      "Video y Fotografía para Restaurantes en Miami | Reels y Menú Visual",
+    metadataTitle: "Video para Restaurantes en Miami",
     description:
       "Video y fotografía para restaurantes en Miami: reels, platos, ambiente, menú visual, equipo, delivery y contenido para redes.",
     eyebrow: "Restaurantes / comida / hospitality",
@@ -368,8 +365,7 @@ export const spanishNichePages: SpanishNichePage[] = [
   {
     slug: "drone-real-estate-miami",
     title: "Drone para real estate en Miami",
-    metadataTitle:
-      "Drone para Real Estate en Miami | Foto, Video y Tomas Aéreas",
+    metadataTitle: "Drone para Real Estate en Miami",
     description:
       "Drone para real estate en Miami y Broward: tomas aéreas, video de propiedad, contenido para agentes, listings y desarrollos.",
     eyebrow: "Real estate / propiedades / listings",

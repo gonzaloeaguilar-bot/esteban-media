@@ -49,9 +49,8 @@ export function SiteHeaderClient({ shortName }: { shortName: string }) {
   ];
 
   useEffect(() => {
-    document.documentElement.lang = isSpanish ? "es-US" : "en-US";
     setIsMenuOpen(false);
-  }, [isSpanish, pathname]);
+  }, [pathname]);
 
   useEffect(() => {
     if (!isMenuOpen) {

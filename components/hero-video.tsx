@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowRight, MapPin } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { site, trustSignals } from "@/lib/site";
+import { trustSignals } from "@/lib/site";
 
 export function HeroVideo() {
   return (
@@ -23,7 +23,7 @@ export function HeroVideo() {
         <div className="flex min-h-[78svh] flex-col justify-center py-20 sm:min-h-[82svh] sm:py-24 lg:min-h-[88svh] lg:py-28">
           <div className="inline-flex items-center gap-2 self-start rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs uppercase tracking-wide backdrop-blur">
             <MapPin className="size-3.5" aria-hidden="true" />
-            Fort Lauderdale · Broward · Miami-Dade · Palm Beach
+            Fort Lauderdale · Broward · Miami-Dade · Palm Beach County by quote
           </div>
 
           <h1
@@ -34,10 +34,10 @@ export function HeroVideo() {
           </h1>
 
           <p className="mt-6 max-w-2xl text-base leading-7 text-[#e8e2d8] sm:text-lg sm:leading-8">
-            {site.shortName} edits video, develops AI-assisted creative, and
-            plans social content for entrepreneurs, agencies, restaurants,
-            real estate, and growing brands — remotely or on location in South
-            Florida.
+            Esteban Moreno Media provides video editing, AI-assisted content,
+            and social planning from Fort Lauderdale for Broward, Miami-Dade,
+            and remote clients. Selected on-location production is quoted by
+            project.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
