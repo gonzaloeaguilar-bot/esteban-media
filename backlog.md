@@ -21,6 +21,7 @@ Production is live. This file tracks repository implementation; account/access w
 - [ ] Add a branded 1200×630 Open Graph image and logo/image schema
 - [ ] Tighten long titles and homepage descriptions
 - [ ] Add one direct entity/service/location sentence above the homepage fold
+- [ ] Run a current Lighthouse performance, accessibility, and SEO baseline; remediate material findings
 - [x] Add `VideoObject` collection schema for all eight published videos
 - [ ] Add `ImageObject`/logo schema when approved brand photography and logo files are available
 - [ ] Add English priority-service pages when distinct, verified content is ready
@@ -44,3 +45,4 @@ Production is live. This file tracks repository implementation; account/access w
 - [x] Services, areas, About, contact, Palm Beach expansion, schema, sitemap, robots, and `llms.txt`
 - [x] Canonical custom domain and Vercel production deployment
 - [x] Dedicated Obsidian project module and repository governance
+- [x] Canonical GitHub-backed local checkout at `/Users/gonzalo/code/esteban-media`

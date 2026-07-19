@@ -15,7 +15,7 @@ Read this file before changing the repository. Obsidian is the project-context s
 - Vercel project: `esteban-media`
 - GitHub: `https://github.com/gonzaloeaguilar-bot/esteban-media`
 - Obsidian: `/Users/gonzalo/obsidian-wiki/client-esteban-media/`
-- Local repo: `/Users/gonzalo/Desktop/Esteban-Projects/Esteban-Media-Redesign`
+- Local repo: `/Users/gonzalo/code/esteban-media`
 
 ## Canonical business facts
 

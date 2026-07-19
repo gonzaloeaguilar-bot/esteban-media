@@ -4,6 +4,13 @@
 
 Keep the production site reproducible, governed, private, and ready for the next proof/indexing phase.
 
+## Current state — 2026-07-19
+
+- The canonical local checkout is now `/Users/gonzalo/code/esteban-media`, cloned directly from the private GitHub repository with `origin` set to GitHub.
+- The former Desktop checkout remains intact as a legacy copy with an explicit canonical-path note; its archival `icloud` remote is not part of the new checkout.
+- Fresh-clone validation passed on Node `22.22.2` / pnpm `10.14.0`: lint, typecheck, 29 tests, and the 26-page production build.
+- Next roadmap item: analytics + technical SEO PR (GA4, server-rendered Spanish document language, branded Open Graph image, metadata tightening, and direct entity/service/location copy).
+
 ## Current state — 2026-07-16
 
 - Production: `https://estebanmorenomedia.com`
