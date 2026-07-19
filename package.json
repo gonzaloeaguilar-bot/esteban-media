@@ -18,6 +18,9 @@
     "index-watch:dry-run": "node scripts/search-console-index-watch.mjs dry-run",
     "index-watch:run": "node scripts/search-console-index-watch.mjs run",
     "index-watch:status": "node scripts/search-console-index-watch.mjs status",
+    "weekly-digest:dry-run": "node scripts/esteban-media-weekly-digest.mjs dry-run",
+    "weekly-digest:run": "node scripts/esteban-media-weekly-digest.mjs run",
+    "weekly-digest:status": "node scripts/esteban-media-weekly-digest.mjs status",
     "seo:verify": "node scripts/verify-technical-seo.mjs",
     "check": "pnpm lint && pnpm typecheck && pnpm test && pnpm build"
   },

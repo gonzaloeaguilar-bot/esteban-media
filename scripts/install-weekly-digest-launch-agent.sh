@@ -1,12 +1,12 @@
 #!/bin/sh
 set -eu
 
-label="com.esteban-media.index-watch"
+label="com.esteban-media.weekly-digest"
 user_id="$(id -u)"
 domain="gui/${user_id}"
 source_plist="/Users/gonzalo/code/esteban-media/ops/launchd/${label}.plist"
 installed_plist="/Users/gonzalo/Library/LaunchAgents/${label}.plist"
-state_directory="/Users/gonzalo/.local/state/esteban-media-index-watch"
+state_directory="/Users/gonzalo/.local/state/esteban-media-weekly-digest"
 system_time_zone="$(/usr/bin/readlink /etc/localtime || true)"
 
 case "$system_time_zone" in
