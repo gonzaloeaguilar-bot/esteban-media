@@ -48,43 +48,43 @@
     "items": {
       "my-dler": {
         "title": "My D'ler",
-        "summary": "Un paquete de marca con piezas visuales clave, diseños sociales, un video 3D y mockups de producto.",
-        "credits": "Piezas visuales clave de marca, diseños sociales, video 3D y mockups de producto."
+        "summary": "Paquete de marca y presentación para My D'ler, una app de entrega de domicilios, realizado a través de una agencia para un cliente en Ecuador. Esteban creó el key visual y las piezas gráficas para redes, y produjo videos con animación 2D para la presentación al cliente.",
+        "credits": "Key visual, diseño gráfico para redes y animación 2D para la presentación de la agencia."
       },
       "banacol": {
         "title": "Banacol",
-        "summary": "Un proyecto de Banacol seleccionado del portafolio anterior de Esteban.",
-        "credits": "Colaboración con la agencia Jungelbox en Medellín, Colombia."
+        "summary": "Video corporativo para Banacol, producido con la agencia Jungelbox. Esteban realizó todas las tomas aéreas durante tres días en las operaciones de exportación de banano y plátano en Urabá, Antioquia, Colombia, incluyendo vuelos de dron desde lanchas en el mar.",
+        "credits": "Cinematografía aérea con dron, por encargo de la agencia Jungelbox (Medellín, Colombia)."
       },
       "bar-door-monkey": {
         "title": "Bar Door Monkey Miami",
-        "summary": "Un video promocional en Miami desarrollado desde la preproducción hasta la edición final.",
-        "credits": "Preproducción, modelos, locación, videografía y edición."
+        "summary": "Spot promocional para redes de Bar Door Monkey, un restaurante de Miami, producido en locación durante la grabación del programa SoccerMásTV y entregado para el Instagram del lugar.",
+        "credits": "Videografía y edición en locación para el spot social del restaurante."
       },
       "healthy-smile": {
         "title": "Healthy Smile Miami",
-        "summary": "Un video promocional en Miami desarrollado desde la creación de un guion tipo sketch hasta la grabación y edición.",
-        "credits": "Guion tipo sketch, videografía y edición."
+        "summary": "Videos para redes sociales de un consultorio odontológico en Miami, por encargo de una agencia. Esteban grabó en locación —video y sonido— y luego editó y entregó las piezas finales para su publicación.",
+        "credits": "Videografía, sonido y edición en locación."
       },
       "homeowners": {
         "title": "Homeowners",
-        "summary": "Un video con guion seleccionado del portafolio anterior de Esteban.",
-        "credits": "Guion y edición de video."
+        "summary": "Video para redes de Homeowners, editado por Esteban a partir del material entregado por la agencia.",
+        "credits": "Edición de video (material aportado por la agencia)."
       },
       "diana-jack": {
         "title": "Diana & Jack",
-        "summary": "Una película de boda seleccionada del portafolio anterior de Esteban.",
-        "credits": "Película de boda seleccionada para el portafolio; rol individual no especificado."
+        "summary": "Película de boda grabada en Boston, Massachusetts. Esteban fue el videógrafo y editor, y entregó una película completa de 20 minutos del día más un tráiler de resumen de alrededor de minuto y medio.",
+        "credits": "Videografía y edición; entregables: película de 20 minutos y tráiler de resumen."
       },
       "la-huelga": {
         "title": "La Huelga",
-        "summary": "Tráiler del cortometraje La Huelga.",
-        "credits": "Dirección y cinematografía."
+        "summary": "Cortometraje que Esteban dirigió como proyecto universitario en Colombia: una idea original, desarrollada con una guionista, basada en la historia real de la Masacre de las Bananeras. La producción tomó alrededor de siete meses.",
+        "credits": "Dirección e idea original, desarrollada con una guionista."
       },
       "ml-colombia": {
         "title": "ML Colombia",
-        "summary": "Un video para redes sociales seleccionado del portafolio anterior de Esteban.",
-        "credits": "Trabajo para redes sociales; rol individual no especificado."
+        "summary": "Contenido y estrategia digital para Miracle Leaf (ML Colombia), la marca propia de comercio electrónico de cosméticos con CBD que Esteban fundó y dirigió durante unos seis años. Como CEO lideró la marca de principio a fin: contenido digital, estrategia y dos sitios web sucesivos.",
+        "credits": "Fundador y CEO; contenido y estrategia digital (marca propia)."
       }
     },
     "status": {
