@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, MapPin } from "lucide-react";
 
@@ -10,13 +11,21 @@ export function HeroVideo() {
       aria-labelledby="hero-heading"
       className="relative isolate overflow-hidden bg-[#101214] text-[#f6f1ea]"
     >
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_72%_32%,#cf6a2c_0%,#2d140d_46%,#080404_100%)]"
+      <Image
+        src="/about/esteban-on-set.jpg"
+        alt="Esteban Moreno filming on a lit studio set in Fort Lauderdale"
+        fill
+        priority
+        sizes="100vw"
+        className="absolute inset-0 -z-30 object-cover object-[60%_46%]"
       />
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-[linear-gradient(120deg,rgba(0,0,0,.15),rgba(0,0,0,.72))]"
+        className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,rgba(8,4,4,.94)_0%,rgba(8,4,4,.8)_40%,rgba(19,8,6,.42)_100%)]"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(0deg,rgba(8,4,4,.7)_0%,rgba(8,4,4,.1)_38%,transparent_60%)]"
       />
 
       <Container size="xl" className="relative">
