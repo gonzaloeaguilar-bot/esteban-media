@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, PlaySquare, Send, ShieldCheck } from "lucide-react";
 
-import { ReelPreview } from "@/components/reel-preview";
+import { OnSetMedia } from "@/components/on-set-media";
 import { Container } from "@/components/ui/container";
 import { buildProfilePageJsonLd } from "@/lib/entity-schema";
 import { buildPageMetadata } from "@/lib/site-metadata";
@@ -107,10 +107,11 @@ export default function AboutPage() {
                 </a>
               </div>
             </div>
-            <ReelPreview
-              title="Behind the camera"
-              location="Fort Lauderdale"
-              label="Headshot / reel pending"
+            <OnSetMedia
+              primaryAlt="Esteban Moreno shooting with a Canon DSLR in a lit studio setup"
+              primaryCaption="Behind the camera · Fort Lauderdale"
+              secondaryAlt="Esteban Moreno working with the crew on a video production set"
+              secondaryCaption="On set"
             />
           </div>
         </Container>
