@@ -17,7 +17,7 @@ export function HeroVideo() {
         fill
         priority
         sizes="100vw"
-        className="absolute inset-0 -z-30 object-cover object-[72%_28%]"
+        className="absolute inset-0 -z-30 object-cover object-[60%_46%]"
       />
       <div
         aria-hidden="true"
