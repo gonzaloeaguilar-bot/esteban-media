@@ -19,14 +19,21 @@ export function OnSetMedia({
   return (
     <div className="mx-auto w-full max-w-[25rem] space-y-4">
       <figure className="relative aspect-[4/5] w-full overflow-hidden rounded-lg bg-[#2d140d] shadow-2xl shadow-black/15">
-        <Image
-          src="/about/esteban-on-set.jpg"
-          alt={primaryAlt}
-          fill
-          sizes="(min-width: 1024px) 400px, calc(100vw - 32px)"
-          className="object-cover"
-          priority
-        />
+        {/* Short, muted, looping clip of Esteban shooting; the studio still is
+            the poster so it paints instantly and is the reduced-motion/no-JS
+            fallback. */}
+        <video
+          className="absolute inset-0 size-full object-cover object-[center_34%]"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster="/about/esteban-on-set.jpg"
+          aria-label={primaryAlt}
+        >
+          <source src="/about/esteban-on-set.mp4" type="video/mp4" />
+        </video>
         <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/65 to-transparent p-4 text-xs font-medium uppercase tracking-wide text-[#f6f1ea]">
           {primaryCaption}
         </figcaption>
