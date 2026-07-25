@@ -48,8 +48,8 @@
     "items": {
       "my-dler": {
         "title": "My D'ler",
-        "summary": "Paquete de marca y presentación para My D'ler, una app de entrega de domicilios, realizado a través de una agencia para un cliente en Ecuador. Esteban creó el key visual y las piezas gráficas para redes, y produjo videos con animación 2D para la presentación al cliente.",
-        "credits": "Key visual, diseño gráfico para redes y animación 2D para la presentación de la agencia."
+        "summary": "Paquete de marca y presentación para My D'ler, una app de entrega de domicilios, realizado a través de una agencia para un cliente en Ecuador. Esteban creó el key visual y las piezas gráficas para redes, un video 3D y mockups de producto, además de videos con animación 2D para la presentación al cliente.",
+        "credits": "Key visual, diseño gráfico para redes, animación 2D, video 3D y mockups de producto para la presentación de la agencia."
       },
       "banacol": {
         "title": "Banacol",
@@ -58,18 +58,18 @@
       },
       "bar-door-monkey": {
         "title": "Bar Door Monkey Miami",
-        "summary": "Spot promocional para redes de Bar Door Monkey, un restaurante de Miami, producido en locación durante la grabación del programa SoccerMásTV y entregado para el Instagram del lugar.",
+        "summary": "Spot promocional para redes de Bar Door Monkey, un restaurante de Miami, producido en locación durante la grabación del programa Soccer y Más y entregado para el Instagram del lugar.",
         "credits": "Videografía y edición en locación para el spot social del restaurante."
       },
       "healthy-smile": {
         "title": "Healthy Smile Miami",
-        "summary": "Videos para redes sociales de un consultorio odontológico en Miami, por encargo de una agencia. Esteban grabó en locación —video y sonido— y luego editó y entregó las piezas finales para su publicación.",
+        "summary": "Videos para redes sociales de un consultorio odontológico en Miami, por encargo de la agencia 300 Bees. Esteban grabó en locación —video y sonido— y luego editó y entregó las piezas finales para su publicación.",
         "credits": "Videografía, sonido y edición en locación."
       },
       "homeowners": {
         "title": "Homeowners",
-        "summary": "Video para redes de Homeowners, editado por Esteban a partir del material entregado por la agencia.",
-        "credits": "Edición de video (material aportado por la agencia)."
+        "summary": "Video para redes de Homeowners, editado por Esteban a partir del material entregado por la agencia 300 Bees.",
+        "credits": "Edición de video (material aportado por la agencia 300 Bees)."
       },
       "diana-jack": {
         "title": "Diana & Jack",
@@ -79,7 +79,7 @@
       "la-huelga": {
         "title": "La Huelga",
         "summary": "Cortometraje que Esteban dirigió como proyecto universitario en Colombia: una idea original, desarrollada con una guionista, basada en la historia real de la Masacre de las Bananeras. La producción tomó alrededor de siete meses.",
-        "credits": "Dirección e idea original, desarrollada con una guionista."
+        "credits": "Dirección, dirección de fotografía e idea original (desarrollada con una guionista)."
       },
       "ml-colombia": {
         "title": "ML Colombia",

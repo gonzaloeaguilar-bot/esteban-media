@@ -52,12 +52,12 @@ Todo el contenido de **Miracle Leaf (ML Colombia)** es de una **marca propia** q
 - **Banacol / Healthy Smile / Diana & Jack / La Huelga / ML Colombia:** enriquecidos con los hechos que Esteban confirmó (rol, lugar, entregables). Antes eran textos genéricos "seleccionado del portafolio anterior".
 - **ML Colombia = Miracle Leaf**, marca propia de Esteban (fundador/CEO). Permiso de publicación implícito por ser marca propia.
 
-## Contradicciones a confirmar con Esteban (no resueltas por audio)
+## Contradicciones — RESUELTAS por Gonzalo (2026-07-25, confirmando en nombre de Esteban)
 
-1. **My D'ler:** el texto anterior afirmaba "video 3D y mockups de producto". En el audio Esteban solo menciona **animación 2D** y piezas gráficas/key visual. El sitio ahora refleja 2D. Confirmar si hubo 3D/mockups reales.
-2. **Bar Door Monkey:** el texto anterior afirmaba "preproducción, modelos, locación". El audio lo describe como pauta/spot producido durante SoccerMásTV. El sitio ahora dice videografía + edición en locación. Confirmar si hubo casting de modelos/preproducción formal.
-3. **La Huelga:** el crédito anterior decía "Dirección y cinematografía". El audio dice **dirección general + idea original + guionista**. El sitio ahora dice "Dirección e idea original". Confirmar si también hizo cinematografía.
-4. **Nombre de agencia (Homeowners / Healthy Smile):** transcrito como "300Bs / 300 bis" — incierto. **No se publica** el nombre de la agencia hasta confirmarlo.
+1. **My D'ler:** ✅ **Sí hubo** video 3D y mockups de producto. El sitio ahora incluye key visual, gráficas para redes, animación 2D, **video 3D y mockups de producto**.
+2. **Bar Door Monkey:** ✅ El programa se llama **Soccer y Más** (no "SoccerMásTV"). El framing de spot/pauta es correcto; corregido el nombre del programa.
+3. **La Huelga:** ✅ Esteban **también fue director de fotografía (DP)**. El crédito ahora dice "Dirección, dirección de fotografía e idea original (con guionista)".
+4. **Nombre de agencia (Homeowners / Healthy Smile):** ✅ La agencia es **300 Bees**. Publicada en ambos proyectos.
 
 ## Todavía pendiente (respuesta C — no dada en estos audios)
 
