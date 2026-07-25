@@ -7,7 +7,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 
-import { ReelPreview } from "@/components/reel-preview";
+import { OnSetMedia } from "@/components/on-set-media";
 import { Container } from "@/components/ui/container";
 import { buildProfilePageJsonLd } from "@/lib/entity-schema";
 import { spanishProofPrinciples, spanishTrustQuestions } from "@/lib/spanish-site";
@@ -107,10 +107,11 @@ export default function SpanishAboutPage() {
                 </a>
               </div>
             </div>
-            <ReelPreview
-              title="Detrás de cámara"
-              location="Fort Lauderdale"
-              label="Prueba real pendiente"
+            <OnSetMedia
+              primaryAlt="Esteban Moreno grabando con una cámara Canon en un set con iluminación"
+              primaryCaption="Detrás de cámara · Fort Lauderdale"
+              secondaryAlt="Esteban Moreno trabajando con el equipo en un set de producción de video"
+              secondaryCaption="En el set"
             />
           </div>
         </Container>
