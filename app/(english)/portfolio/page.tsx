@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Mail } from "lucide-react";
+import { ArrowRight, Film, Mail, Play, Upload } from "lucide-react";
 
 import {
   getLiveYouTubePortfolioItems,
@@ -100,6 +100,118 @@ export default function PortfolioPage() {
                 Browse the collection
                 <ArrowRight className="size-4" aria-hidden="true" />
               </a>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/*
+        Anchor-service band — the remote-editing case for the portfolio.
+        All copy here is limited to CONFIRMED facts (offer note 2026-07-25 +
+        the real editing-only "Homeowners" project). No prices, turnaround,
+        revision counts, testimonials, or metrics — those stay gated behind
+        Esteban's confirmation.
+        [PLACEHOLDER — Esteban to supply] a full client case study
+        (brief -> deliverable -> measurable outcome -> quotable testimonial)
+        can drop in below the proof callout once he confirms real material.
+      */}
+      <section
+        className="border-b border-[#d6ccc0] bg-[#efe7db] py-14 sm:py-16"
+        aria-labelledby="anchor-service-heading"
+      >
+        <Container size="xl">
+          <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+            <div>
+              <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">
+                Anchor service
+              </p>
+              <h2
+                id="anchor-service-heading"
+                className="mt-4 max-w-xl font-serif text-4xl leading-tight sm:text-5xl"
+              >
+                Remote editing, from the footage you already have.
+              </h2>
+              <p className="mt-5 max-w-xl text-base leading-7 text-[#3f4548]">
+                Esteban&apos;s core service is post-production. You send the
+                footage you&apos;ve already captured &mdash; phone clips, event
+                coverage, product shots, or footage from a shoot &mdash; and he
+                shapes it into a finished, publish-ready video. The work is
+                remote-first, so you don&apos;t need to be in South Florida to
+                work together.
+              </p>
+              <Link
+                href="/services#editing"
+                className="mt-6 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
+              >
+                See how editing works
+                <ArrowRight className="size-4" aria-hidden="true" />
+              </Link>
+            </div>
+
+            <div>
+              <ol className="grid gap-4 sm:grid-cols-3">
+                {[
+                  {
+                    Icon: Upload,
+                    step: "Step 1",
+                    title: "You send the footage",
+                    detail:
+                      "Share what you already have: raw clips, an event, a shoot, or a folder of assets.",
+                  },
+                  {
+                    Icon: Film,
+                    step: "Step 2",
+                    title: "Esteban edits it",
+                    detail:
+                      "Post-production shaped around your goal and where the video will be published.",
+                  },
+                  {
+                    Icon: Play,
+                    step: "Step 3",
+                    title: "You get a publish-ready cut",
+                    detail:
+                      "A finished video, edited for the platform and story you have in mind.",
+                  },
+                ].map(({ Icon, step, title: stepTitle, detail }) => (
+                  <li
+                    key={stepTitle}
+                    className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5"
+                  >
+                    <span className="grid size-10 place-items-center rounded-lg bg-[#101214] text-[#e85d3e]">
+                      <Icon className="size-5" aria-hidden="true" />
+                    </span>
+                    <p className="mt-4 text-xs font-medium uppercase tracking-[0.12em] text-[#9f3c27]">
+                      {step}
+                    </p>
+                    <h3 className="mt-2 font-serif text-2xl leading-tight">
+                      {stepTitle}
+                    </h3>
+                    <p className="mt-2 text-sm leading-6 text-[#3f4548]">
+                      {detail}
+                    </p>
+                  </li>
+                ))}
+              </ol>
+
+              <Link
+                href="/portfolio/homeowners"
+                className="group mt-4 block rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5 transition hover:border-[#e85d3e]"
+              >
+                <span className="text-xs font-medium uppercase tracking-[0.12em] text-[#5a6066]">
+                  Editing-only proof
+                </span>
+                <span className="mt-2 flex items-center justify-between gap-3 font-serif text-2xl leading-tight">
+                  Homeowners
+                  <ArrowRight
+                    className="size-5 shrink-0 text-[#9f3c27] transition-transform group-hover:translate-x-0.5"
+                    aria-hidden="true"
+                  />
+                </span>
+                <span className="mt-2 block text-sm leading-6 text-[#5a6066]">
+                  A social video Esteban edited entirely from footage supplied
+                  by the agency 300 Bees &mdash; the anchor service in action.
+                </span>
+              </Link>
             </div>
           </div>
         </Container>
