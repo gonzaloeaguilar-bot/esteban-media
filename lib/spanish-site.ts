@@ -2464,6 +2464,9 @@ export const spanishCoreRoutes = [
   "/es/areas/palm-beach-county",
   "/es/sobre-esteban",
   "/es/contacto",
+  "/es/calculadora",
+  "/es/recursos/kit-video-social",
+  "/es/evaluacion",
 ];
 
 export const languageAlternates: Record<string, Record<string, string>> = {
@@ -2471,6 +2474,21 @@ export const languageAlternates: Record<string, Record<string, string>> = {
     "en-US": "/",
     "es-US": "/es",
     "x-default": "/",
+  },
+  "/calculator": {
+    "en-US": "/calculator",
+    "es-US": "/es/calculadora",
+    "x-default": "/calculator",
+  },
+  "/resources/social-video-kit": {
+    "en-US": "/resources/social-video-kit",
+    "es-US": "/es/recursos/kit-video-social",
+    "x-default": "/resources/social-video-kit",
+  },
+  "/assessment": {
+    "en-US": "/assessment",
+    "es-US": "/es/evaluacion",
+    "x-default": "/assessment",
   },
   "/services": {
     "en-US": "/services",

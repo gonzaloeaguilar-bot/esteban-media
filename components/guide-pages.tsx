@@ -7,6 +7,10 @@ import {
 } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { VideoBudgetEstimator } from "@/components/video-budget-estimator";
+import { ScriptAndOverlayKit } from "@/components/script-and-overlay-kit";
+import { VideoStrategyAssessment } from "@/components/video-strategy-assessment";
+import { FootageHandoffChecklist } from "@/components/footage-handoff-checklist";
 import {
   buildGuideStructuredData,
   buildGuidesIndexStructuredData,
@@ -333,6 +337,31 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
                 ) : null}
               </section>
             ))}
+
+            {/* INTERACTIVE LEAD MAGNET EMBEDS BASED ON GUIDE SUBJECT */}
+            {guide.id === "remote-editing-handoff" && (
+              <div className="my-10">
+                <FootageHandoffChecklist locale={locale} />
+              </div>
+            )}
+
+            {(guide.id === "fort-lauderdale-video-cost-guide" || guide.id.includes("cost") || guide.id.includes("cuesta")) && (
+              <div className="my-10">
+                <VideoBudgetEstimator locale={locale} />
+              </div>
+            )}
+
+            {(guide.id === "formats-and-safe-zones" || guide.id.includes("vertical")) && (
+              <div className="my-10">
+                <ScriptAndOverlayKit locale={locale} />
+              </div>
+            )}
+
+            {(guide.id === "bilingual-video-strategy-guide" || guide.id.includes("bilingue")) && (
+              <div className="my-10">
+                <VideoStrategyAssessment locale={locale} />
+              </div>
+            )}
           </div>
         </Container>
       </article>

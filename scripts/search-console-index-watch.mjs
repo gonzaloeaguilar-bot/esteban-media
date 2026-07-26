@@ -42,6 +42,12 @@ export const LEGACY_V1_WATCH_URLS = [
 ];
 export const WATCH_URLS = [
   ...LEGACY_V1_WATCH_URLS,
+  "https://estebanmorenomedia.com/calculator",
+  "https://estebanmorenomedia.com/es/calculadora",
+  "https://estebanmorenomedia.com/resources/social-video-kit",
+  "https://estebanmorenomedia.com/es/recursos/kit-video-social",
+  "https://estebanmorenomedia.com/assessment",
+  "https://estebanmorenomedia.com/es/evaluacion",
   "https://estebanmorenomedia.com/es/editor-de-video-real-estate-miami",
   "https://estebanmorenomedia.com/services/ai-product-photography-miami",
   "https://estebanmorenomedia.com/services/dental-video-marketing-south-florida",
