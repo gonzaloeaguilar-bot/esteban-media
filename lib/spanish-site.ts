@@ -2132,7 +2132,328 @@ export const spanishNichePages: SpanishNichePage[] = [
       },
     ],
   },
+  {
+    slug: "servicio-de-edicion-de-video-para-youtube-miami",
+    title: "Servicio de edición de video para YouTube en Miami",
+    metadataTitle: "Edición Video YouTube Miami",
+    description:
+      "Edición de contenido en formato largo para YouTube: ritmo fluido, gráficos explicativos, sonido limpio y miniaturas atractivas.",
+    eyebrow: "YouTube / Creadores y Marcas",
+    h1: "Edición de video profesional para canales de YouTube.",
+    lead:
+      "Aumenta la retención de tus espectadores en YouTube con cortes dinámicos, superposiciones gráficas y capítulos marcados.",
+    keyword: "servicio de edición de video para YouTube en Miami",
+    location: "Miami-Dade / Broward",
+    availability: "confirmed",
+    icon: Video,
+    bestFor: [
+      "Creadores de contenido, educadores y canales de marca en YouTube.",
+      "Empresas que producen videopodcasts y entrevistas en formato largo.",
+    ],
+    scopingQuestions: [
+      "¿El video requiere división de capítulos y llamadas a la suscripción?",
+      "¿Cuentas con gráficos de miniatura o deseas su diseño?",
+    ],
+    projectFit:
+      "Optimización de ritmo para maximizar el tiempo de visualización.",
+    faqs: [
+      {
+        question: "¿Incluyen diseño de capítulos y pantalla final de YouTube?",
+        answer:
+          "Sí. Insertamos marcas de tiempo para la descripción de YouTube y animaciones de suscripción.",
+      },
+    ],
+  },
+  {
+    slug: "editor-de-video-para-anuncios-de-tiktok-miami",
+    title: "Editor de video para anuncios de TikTok e Instagram",
+    metadataTitle: "Editor Video Anuncios TikTok Miami",
+    description:
+      "Edición de anuncios de video direct-response para TikTok, Reels y Shorts con ganchos visuales de alta conversión.",
+    eyebrow: "TikTok Ads / Social Video Ads",
+    h1: "Edición de anuncios en video optimizados para TikTok e Instagram.",
+    lead:
+      "Engancha a tu audiencia en los primeros 3 segundos con anuncios de respuesta directa pulidos para campañas en redes.",
+    keyword: "editor de video para anuncios de TikTok en Miami",
+    location: "Miami-Dade / Broward",
+    availability: "confirmed",
+    icon: WandSparkles,
+    bestFor: [
+      "Marcas e-commerce, apps y agencias de medios pagados en redes.",
+      "Emprendedores que ejecutan campañas publicitarias en Meta y TikTok.",
+    ],
+    scopingQuestions: [
+      "¿Tienes variaciones de ganchos iniciales para pruebas A/B?",
+      "¿Requieres subtítulos en tendencia y efectos de voz?",
+    ],
+    projectFit:
+      "Retención ágil orientada al clic y la conversión directa.",
+    faqs: [
+      {
+        question: "¿Entregan variaciones de ganchos (hooks) para pruebas publicitarias?",
+        answer:
+          "Sí. Podemos entregar múltiples inicios de 3 a 5 segundos para optimizar el rendimiento de la campaña.",
+      },
+    ],
+  },
+  {
+    slug: "edicion-de-video-para-cursos-online",
+    title: "Edición de video para cursos online y webinars",
+    metadataTitle: "Edición Video Cursos Online",
+    description:
+      "Edición de módulos educativos, lecciones en video, webinars y tutoriales para plataformas de e-learning.",
+    eyebrow: "Cursos Online / E-Learning",
+    h1: "Edición de video para cursos en línea y programas educativos.",
+    lead:
+      "Pule tus lecciones educativas con sincronización de diapositivas, audio cristalino y gráficos que facilitan el aprendizaje.",
+    keyword: "edición de video para cursos online",
+    location: "Miami-Dade / Broward",
+    availability: "confirmed",
+    icon: WandSparkles,
+    bestFor: [
+      "Infoproductores, mentores y creadores de cursos digitales.",
+      "Instituciones educativas y plataformas de e-learning.",
+    ],
+    scopingQuestions: [
+      "¿El curso combina grabación de pantalla con cámara del instructor?",
+      "¿Deseas resaltar puntos clave con texto animado en pantalla?",
+    ],
+    projectFit:
+      "Estructura clara y sonido nivelado para máxima claridad pedagógica.",
+    faqs: [
+      {
+        question: "¿Limpian ruidos de fondo y titubeos del instructor?",
+        answer:
+          "Sí. Editamos el audio para eliminar ruidos ambiente y pausas innecesarias, manteniendo la fluidez del habla.",
+      },
+    ],
+  },
+  {
+    slug: "edicion-de-video-de-capacitacion-corporativa-miami",
+    title: "Edición de video de capacitación corporativa en Miami",
+    metadataTitle: "Video Capacitación Corporativa Miami",
+    description:
+      "Edición de videos de inducción, procedimientos SOP y capacitaciones internas para empresas en Miami.",
+    eyebrow: "Capacitación Corporativa / SOP",
+    h1: "Videos de capacitación e inducción interna para corporativos.",
+    lead:
+      "Convierte manuales y procesos operativos en videos explicativos breves que aceleran la incorporación de empleados.",
+    keyword: "edición de video de capacitación corporativa en Miami",
+    location: "Distrito Financiero / Doral / Miami",
+    availability: "confirmed",
+    icon: Building2,
+    bestFor: [
+      "Departamentos de recursos humanos y operaciones en empresas corporativas.",
+      "Firmas en expansión que necesitan estandarizar su entrenamiento.",
+    ],
+    scopingQuestions: [
+      "¿El video incluirá capturas de pantalla de software o grabaciones presenciales?",
+      "¿Requieres resúmenes clave al final de cada módulo?",
+    ],
+    projectFit:
+      "Formato profesional, claro e instructivo.",
+    faqs: [
+      {
+        question: "¿Se pueden añadir cuestionarios o llamados en pantalla?",
+        answer:
+          "Sí. Agregamos placas de texto y pausas de repaso para reforzar la absorción de contenidos.",
+      },
+    ],
+  },
+  {
+    slug: "editor-de-video-para-campanas-de-crowdfunding",
+    title: "Editor de video para campañas de crowdfunding en Miami",
+    metadataTitle: "Video Editor Crowdfunding Miami",
+    description:
+      "Edición de videos de lanzamiento de producto para campañas en Kickstarter e Indiegogo.",
+    eyebrow: "Crowdfunding / Lanzamiento de Producto",
+    h1: "Videos emotivos y persuasivos para campañas de crowdfunding.",
+    lead:
+      "Cuenta la historia detrás de tu innovación con videos persuasivos diseñados para captar patrocinadores e inversores.",
+    keyword: "editor de video para campañas de crowdfunding en Miami",
+    location: "Wynwood / Miami-Dade",
+    availability: "confirmed",
+    icon: WandSparkles,
+    bestFor: [
+      "Startups tecnológicas, creadores de gadgets y emprendedores en Kickstarter.",
+      "Marcas innovadoras que buscan financiamiento inicial.",
+    ],
+    scopingQuestions: [
+      "¿Cuentas con animación 3D de prototipo o grabaciones de prototipo real?",
+      "¿El video incluye el testimonio del fundador?",
+    ],
+    projectFit:
+      "Narrativa inspiradora enfocada en generar emoción y confianza en el proyecto.",
+    faqs: [
+      {
+        question: "¿Integran llamado a la acción final con metas de financiamiento?",
+        answer:
+          "Sí. Diseñamos gráficos finales atractivos con los incentivos de la campaña y llamada al patrocinio.",
+      },
+    ],
+  },
+  {
+    slug: "edicion-de-video-con-dron-miami",
+    title: "Servicio de edición de video con dron en Miami",
+    metadataTitle: "Servicio Edición Video Dron Miami",
+    description:
+      "Posproducción y corrección de color de tomas aéreas grabadas con dron para arquitectura, eventos y bienes raíces.",
+    eyebrow: "Video Aéreo / Dron",
+    h1: "Posproducción y colorimetría profesional para video aéreo con dron.",
+    lead:
+      "Estabiliza, corrige el color e integra gráficos sobre tus tomas en 4K grabadas con dron para resultados deslumbrantes.",
+    keyword: "servicio de edición de video con dron en Miami",
+    location: "Miami-Dade / Broward / Palm Beach",
+    availability: "confirmed",
+    icon: Video,
+    bestFor: [
+      "Operadores de dron y videógrafos aéreos que buscan delegar la posproducción.",
+      "Empresas de bienes raíces, construcción y eventos al aire libre.",
+    ],
+    scopingQuestions: [
+      "¿El material proviene de tomas horizontales o verticales?",
+      "¿Deseas nivelar tonos de cielo y agua en tomas marciales?",
+    ],
+    projectFit:
+      "Tratamiento de color cinemático para tomas panorámicas.",
+    faqs: [
+      {
+        question: "¿Cómo corrigen el parpadeo o movimientos bruscos del dron?",
+        answer:
+          "Aplicamos algoritmos de estabilización digital de alta precisión para suavizar el recorrido de cámara.",
+      },
+    ],
+  },
+  {
+    slug: "postproduccion-de-videos-musicales-miami",
+    title: "Postproducción de videos musicales en Miami",
+    metadataTitle: "Postproducción Videos Musicales Miami",
+    description:
+      "Montaje, corrección de color cinemática y sincronización de labios para videos musicales de artistas en Miami.",
+    eyebrow: "Videos Musicales / Artistas",
+    h1: "Postproducción cinemática para videos musicales en Miami.",
+    lead:
+      "Crea una pieza audiovisual icónica para tu lanzamiento musical con colorimetría de cine y efectos rítmicos adaptados al género.",
+    keyword: "postproducción de videos musicales en Miami",
+    location: "Wynwood / Miami Beach",
+    availability: "confirmed",
+    icon: Video,
+    bestFor: [
+      "Artistas independientes, bandas y sellos discográficos en Miami.",
+      "Directores de videos musicales que buscan posproducción de alto nivel.",
+    ],
+    scopingQuestions: [
+      "¿Cuál es el género musical y el tono visual deseado (urbano, pop, latino)?",
+      "¿Cuentas con múltiples tomas de playback de la canción?",
+    ],
+    projectFit:
+      "Sincronización milimétrica y look de cine estilizado.",
+    faqs: [
+      {
+        question: "¿Sincronizan múltiples tomas de interpretación con la pista master?",
+        answer:
+          "Sí. Realizamos multicámara sincronizada con la pista de audio master para cortar entre diferentes escenarios.",
+      },
+    ],
+  },
+  {
+    slug: "edicion-de-clips-para-webinars",
+    title: "Edición de clips para webinars y eventos virtuales",
+    metadataTitle: "Edición Clips Webinars Miami",
+    description:
+      "Corte y extracción de momentos destacados de webinars largos para convertirlos en cápsulas virales para redes sociales.",
+    eyebrow: "Webinars / Clips para Redes",
+    h1: "Transforma webinars grabados en clips virales para redes sociales.",
+    lead:
+      "Extrae los mejores consejos e ideas de tus eventos virtuales y conviertenlos en reels con subtítulos animados de alto impacto.",
+    keyword: "edición de clips para webinars",
+    location: "Miami-Dade / Broward",
+    availability: "confirmed",
+    icon: WandSparkles,
+    bestFor: [
+      "Conferencistas, consultores y empresas que organizan webinars periódicos.",
+      "Agencias de marketing que buscan maximizar el contenido de eventos virtuales.",
+    ],
+    scopingQuestions: [
+      "¿Tienes identificados los minutos de las mejores intervenciones?",
+      "¿Deseas formato 9:16 vertical con subtítulos resaltados?",
+    ],
+    projectFit:
+      "Optimización de contenido largo para consumo rápido en redes.",
+    faqs: [
+      {
+        question: "¿Pueden seleccionar ustedes las mejores partes del webinar?",
+        answer:
+          "Sí. Revisamos la grabación para identificar los momentos con mayor gancho y valor informativo.",
+      },
+    ],
+  },
+  {
+    slug: "produccion-masiva-de-video-para-redes-miami",
+    title: "Producción masiva de video para redes en Miami",
+    metadataTitle: "Producción Masiva Video Redes Miami",
+    description:
+      "Servicio de batching de contenido en video: edición de decenas de reels y shorts a partir de sesiones de grabación concentradas.",
+    eyebrow: "Batching / Contenido Masivo",
+    h1: "Edición masiva de video para mantener presencia constante en redes.",
+    lead:
+      "Aprovecha un solo día de grabación para obtener un mes entero de contenido en video perfectamente editado y programable.",
+    keyword: "producción masiva de video para redes en Miami",
+    location: "Miami-Dade / Broward / Palm Beach",
+    availability: "confirmed",
+    icon: WandSparkles,
+    bestFor: [
+      "Creadores de marca personal, ejecutivos y empresas con publicación diaria.",
+      "Equipos de marketing que trabajan con calendarios mensuales de contenido.",
+    ],
+    scopingQuestions: [
+      "¿Cuántos videos mensuales planeas publicar (15, 30, 60 clips)?",
+      "¿Cuentas con la plantilla gráfica de marca lista?",
+    ],
+    projectFit:
+      "Flujo de trabajo estructurado y entregas organizadas por fecha.",
+    faqs: [
+      {
+        question: "¿Cómo entregan los lotes masivos de video?",
+        answer:
+          "Organizamos los archivos en carpetas ordenadas por semana y día con nombres descriptivos para su publicación.",
+      },
+    ],
+  },
+  {
+    slug: "servicio-de-edicion-de-entrevistas-de-video",
+    title: "Servicio de edición de entrevistas de video",
+    metadataTitle: "Edición Entrevistas Video Miami",
+    description:
+      "Edición multicámara de entrevistas, limpieza de audio, encuadre dinámico e inserción de b-roll para testimonios.",
+    eyebrow: "Entrevistas / Testimoniales Multicámara",
+    h1: "Edición profesional de entrevistas de video y conversaciones.",
+    lead:
+      "Pule conversaciones grabadas a dos o más cámaras, alternando encuadres de forma fluida y agregando material de apoyo visual.",
+    keyword: "servicio de edición de entrevistas de video",
+    location: "Miami-Dade / Broward",
+    availability: "confirmed",
+    icon: Video,
+    bestFor: [
+      "Podcasters, periodistas y productores de contenido documental.",
+      "Empresas que graban testimonios de clientes o paneles de expertos.",
+    ],
+    scopingQuestions: [
+      "¿La entrevista fue grabada a 1, 2 o 3 cámaras simultáneas?",
+      "¿Requiere inserción de b-roll de apoyo durante la narración?",
+    ],
+    projectFit:
+      "Cortes invisibles que priorizan el ritmo natural del testimonio.",
+    faqs: [
+      {
+        question: "¿Sincronizan audio grabado externamente con micrófonos de solapa?",
+        answer:
+          "Sí. Sincronizamos las pistas de audio independientes con la señal de video de las cámaras de forma perfecta.",
+      },
+    ],
+  },
 ];
+
 
 
 export const spanishCoreRoutes = [

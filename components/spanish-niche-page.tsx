@@ -822,6 +822,136 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
       },
     ],
   },
+  "servicio-de-edicion-de-video-para-youtube-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en South Florida",
+    note: "Edición dinámica en formato largo para YouTube.",
+    serviceIds: ["edicion", "edicion-podcast"],
+    projects: [
+      {
+        href: "/es/portafolio/my-dler",
+        title: "My D'ler",
+        detail: "Edición y montaje de video en formato largo.",
+      },
+    ],
+  },
+  "editor-de-video-para-anuncios-de-tiktok-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en South Florida",
+    note: "Anuncios de video direct-response con ganchos iniciales.",
+    serviceIds: ["edicion", "reutilizacion-redes"],
+    projects: [
+      {
+        href: "/es/portafolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        detail: "Cortes de anuncios publicitarios de alto enganche.",
+      },
+    ],
+  },
+  "edicion-de-video-para-cursos-online": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en South Florida",
+    note: "Edición clara de lecciones y módulos educativos.",
+    serviceIds: ["edicion"],
+    projects: [
+      {
+        href: "/es/portafolio/healthy-smile",
+        title: "Healthy Smile",
+        detail: "Video explicativo de alta claridad visual.",
+      },
+    ],
+  },
+  "edicion-de-video-de-capacitacion-corporativa-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en el Distrito Financiero de Miami",
+    note: "Edición de videos de inducción y procedimientos SOP.",
+    serviceIds: ["edicion"],
+    projects: [
+      {
+        href: "/es/portafolio/banacol",
+        title: "Banacol",
+        detail: "Video de comunicación corporativa.",
+      },
+    ],
+  },
+  "editor-de-video-para-campanas-de-crowdfunding": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Wynwood",
+    note: "Videos persuasivos de lanzamiento en Kickstarter.",
+    serviceIds: ["edicion", "videografia"],
+    projects: [
+      {
+        href: "/es/portafolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        detail: "Presentación comercial persuasiva.",
+      },
+    ],
+  },
+  "edicion-de-video-con-dron-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en South Florida",
+    note: "Posproducción y corrección de color aéreo 4K.",
+    serviceIds: ["edicion"],
+    projects: [
+      {
+        href: "/es/portafolio/homeowners",
+        title: "Homeowners",
+        detail: "Posproducción de tomas aéreas.",
+      },
+    ],
+  },
+  "postproduccion-de-videos-musicales-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Wynwood y Miami Beach",
+    note: "Colorimetría cinemática y edición de ritmo musical.",
+    serviceIds: ["edicion"],
+    projects: [
+      {
+        href: "/es/portafolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        detail: "Edición rítmica y estilo visual audaz.",
+      },
+    ],
+  },
+  "edicion-de-clips-para-webinars": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en South Florida",
+    note: "Extracción de clips destacados de eventos virtuales.",
+    serviceIds: ["edicion", "reutilizacion-redes"],
+    projects: [
+      {
+        href: "/es/portafolio/healthy-smile",
+        title: "Healthy Smile",
+        detail: "Cápsulas en video para redes.",
+      },
+    ],
+  },
+  "produccion-masiva-de-video-para-redes-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en South Florida",
+    note: "Batching masivo de reels y shorts para publicación mensual.",
+    serviceIds: ["edicion", "reutilizacion-redes"],
+    projects: [
+      {
+        href: "/es/portafolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        detail: "Producción de lotes de video social.",
+      },
+    ],
+  },
+  "servicio-de-edicion-de-entrevistas-de-video": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en South Florida",
+    note: "Edición multicámara de conversaciones y testimoniales.",
+    serviceIds: ["edicion", "edicion-podcast"],
+    projects: [
+      {
+        href: "/es/portafolio/my-dler",
+        title: "My D'ler",
+        detail: "Edición multicámara de testimonios.",
+      },
+    ],
+  },
 };
 
 export function buildSpanishNicheMetadata(slug: string): Metadata {

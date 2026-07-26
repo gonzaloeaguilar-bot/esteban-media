@@ -111,6 +111,16 @@ describe("customer-facing ranking pages", () => {
       "video-inmobiliario-sunny-isles",
       "edicion-de-video-palm-beach-gardens",
       "produccion-de-video-davie-fl",
+      "servicio-de-edicion-de-video-para-youtube-miami",
+      "editor-de-video-para-anuncios-de-tiktok-miami",
+      "edicion-de-video-para-cursos-online",
+      "edicion-de-video-de-capacitacion-corporativa-miami",
+      "editor-de-video-para-campanas-de-crowdfunding",
+      "edicion-de-video-con-dron-miami",
+      "postproduccion-de-videos-musicales-miami",
+      "edicion-de-clips-para-webinars",
+      "produccion-masiva-de-video-para-redes-miami",
+      "servicio-de-edicion-de-entrevistas-de-video",
     ]) {
       expect(niche).toContain(`"${slug}"`);
     }
