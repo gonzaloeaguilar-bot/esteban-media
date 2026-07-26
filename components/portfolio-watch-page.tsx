@@ -247,6 +247,17 @@ export function PortfolioWatchPage({ item, locale }: PortfolioWatchPageProps) {
                 {copy.summary}
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
+                {item.websiteUrl ? (
+                  <a
+                    href={item.websiteUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-5 text-sm font-medium text-white shadow-sm hover:bg-[#a93e29]"
+                  >
+                    {locale === "es" ? "Visitar Sitio Web En Vivo" : "Visit Live Website"}
+                    <ExternalLink className="size-4" aria-hidden="true" />
+                  </a>
+                ) : null}
                 <Link
                   href={mediaUrl}
                   className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#f6f1ea] px-5 text-sm font-medium text-[#101214] hover:bg-white"
@@ -339,14 +350,34 @@ export function PortfolioWatchPage({ item, locale }: PortfolioWatchPageProps) {
                   </div>
                 </>
               ) : (
-                <div className="bg-[#fbf6ef] p-5 sm:col-span-2">
-                  <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-[#5a6066]">
-                    {locale === "es" ? "Tecnología & Plataforma" : "Tech Stack & Platform"}
-                  </dt>
-                  <dd className="mt-2 text-sm font-medium leading-6 text-[#252a2d]">
-                    Next.js · React · AI Lead Capture Engine · Mobile-First SEO
-                  </dd>
-                </div>
+                <>
+                  <div className="bg-[#fbf6ef] p-5 sm:col-span-2">
+                    <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-[#5a6066]">
+                      {locale === "es" ? "Tecnología & Plataforma" : "Tech Stack & Platform"}
+                    </dt>
+                    <dd className="mt-2 text-sm font-medium leading-6 text-[#252a2d]">
+                      Next.js · React · AI Lead Capture Engine · Mobile-First SEO
+                    </dd>
+                  </div>
+                  {item.websiteUrl ? (
+                    <div className="bg-[#fbf6ef] p-5 sm:col-span-2">
+                      <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-[#5a6066]">
+                        {locale === "es" ? "Enlace al Sitio Web En Vivo" : "Live Website Link"}
+                      </dt>
+                      <dd className="mt-2 text-sm font-medium leading-6 text-[#252a2d]">
+                        <a
+                          href={item.websiteUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 font-semibold text-[#c84a2c] hover:underline"
+                        >
+                          {item.websiteUrl}
+                          <ExternalLink className="size-4" aria-hidden="true" />
+                        </a>
+                      </dd>
+                    </div>
+                  ) : null}
+                </>
               )}
             </dl>
           </div>

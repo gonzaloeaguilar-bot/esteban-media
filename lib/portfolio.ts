@@ -127,6 +127,7 @@ export interface PortfolioItem {
   year?: number;
   /** Verified location context only; omitted when not specified. */
   location?: string;
+  websiteUrl?: string;
   media: MediaSource;
   featured?: boolean;
   status: PortfolioItemStatus;
@@ -146,6 +147,7 @@ export const PORTFOLIO_ITEMS: readonly PortfolioItem[] = [
     creditsI18nKey: "flas-concierge",
     year: 2026,
     location: "Fort Lauderdale",
+    websiteUrl: "https://fortlauderdaleautosale.com",
     featured: true,
     status: "live",
     media: {
@@ -163,6 +165,7 @@ export const PORTFOLIO_ITEMS: readonly PortfolioItem[] = [
     descriptionI18nKey: "gains-from-geebs",
     creditsI18nKey: "gains-from-geebs",
     year: 2026,
+    websiteUrl: "https://gainsfromgeebs.com",
     featured: true,
     status: "live",
     media: {
@@ -181,6 +184,7 @@ export const PORTFOLIO_ITEMS: readonly PortfolioItem[] = [
     creditsI18nKey: "titanforge",
     year: 2026,
     location: "South Florida",
+    websiteUrl: "https://titanforgeapp.com",
     featured: true,
     status: "live",
     media: {
@@ -354,6 +358,7 @@ export const PORTFOLIO_ITEMS: readonly PortfolioItem[] = [
     creditsI18nKey: "front-line-auto",
     year: 2026,
     location: "Miami / Broward",
+    websiteUrl: "https://frontlineautofl.com",
     featured: true,
     status: "live",
     media: {
@@ -372,6 +377,7 @@ export const PORTFOLIO_ITEMS: readonly PortfolioItem[] = [
     creditsI18nKey: "gonzalo-tech-chatbots",
     year: 2026,
     location: "South Florida",
+    websiteUrl: "https://fortlauderdaleautosale.com",
     featured: true,
     status: "live",
     media: {
