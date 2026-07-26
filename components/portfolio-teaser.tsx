@@ -16,6 +16,7 @@ const categoryLabels = {
     events: "Events",
     editing: "Editing",
     narrative: "Narrative",
+    "web-design": "Web Design & AI",
   },
   es: {
     animation: "Animación",
@@ -24,6 +25,7 @@ const categoryLabels = {
     events: "Eventos",
     editing: "Edición",
     narrative: "Narrativa",
+    "web-design": "Diseño Web e IA",
   },
 } as const;
 

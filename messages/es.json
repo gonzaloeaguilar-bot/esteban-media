@@ -43,9 +43,39 @@
         "title": "Narrativa",
         "description": "Cortometrajes y trabajos narrativos centrados en dirección y cinematografía.",
         "shortLabel": "Narrativa"
+      },
+      "web-design": {
+        "title": "Diseño Web e IA",
+        "description": "Diseño web personalizado, aplicaciones web interactivas y chatbots con IA para captura de clientes.",
+        "shortLabel": "Web e IA"
       }
     },
     "items": {
+      "titanforge": {
+        "title": "TitanForge Platform & AI Bot",
+        "summary": "Plataforma web de alto rendimiento y bot de IA conversacional para calificación automática de prospectos, agendas instantáneas y registro de clientes.",
+        "credits": "Diseño web full-stack, arquitectura UI/UX y motor de bot de IA conversacional."
+      },
+      "gains-from-geebs": {
+        "title": "Gains From Geebs Web App y Bot de IA",
+        "summary": "Plataforma web interactiva de fitness y bot conversacional de IA diseñado para atender consultas sobre planes de entrenamiento, nutrición y calificación de prospectos 24/7.",
+        "credits": "Ingeniería de aplicaciones web, calculadoras fitness y chatbot de IA conversacional."
+      },
+      "front-line-auto": {
+        "title": "Frontline Auto & AI Concierge",
+        "summary": "Sistema web para concesionario de autos con chatbot concierge de IA 24/7 integrado para consulta de inventario, captura bilingüe y agendamiento de prueba de manejo.",
+        "credits": "Plataforma web de concesionario, interfaz de inventario y bot concierge de IA."
+      },
+      "flas-concierge": {
+        "title": "Fort Lauderdale Auto Sale (Concierge IA FLAS)",
+        "summary": "Sistema web para concesionario de Fort Lauderdale y bot concierge de IA creado para precalificación de financiamiento Buy-Here-Pay-Here, inventarios y captura de clientes en tiempo real.",
+        "credits": "Arquitectura web para concesionario, suite de calculadoras BHPH y motor de chatbot de IA."
+      },
+      "gonzalo-tech-chatbots": {
+        "title": "Chatbots de IA Conversacionales (Casos Geebs y FLAS)",
+        "summary": "Chatbots de IA conversacional 24/7 desarrollados a la medida para Geebs y Fort Lauderdale Auto Sale (FLAS) para automatizar atención al cliente, calificar prospectos y cerrar citas.",
+        "credits": "Arquitectura de bots de IA, ingeniería de prompts y sistemas de captura de clientes."
+      },
       "my-dler": {
         "title": "My D'ler",
         "summary": "Paquete de marca y presentación para My D'ler, una app de entrega de domicilios, realizado a través de una agencia para un cliente en Ecuador. Esteban creó el key visual y las piezas gráficas para redes, un video 3D y mockups de producto, además de videos con animación 2D para la presentación al cliente.",

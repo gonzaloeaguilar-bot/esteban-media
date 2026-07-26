@@ -39,6 +39,7 @@ const relevantServiceIds = {
   events: { en: "on-location", es: "videografia" },
   editing: { en: "editing", es: "edicion" },
   narrative: { en: "editing", es: "edicion" },
+  "web-design": { en: "website-design", es: "diseno-web" },
 } satisfies Record<PortfolioCategoryId, Record<PortfolioWatchLocale, string>>;
 
 const posterSizes: Record<string, { width: number; height: number }> = {

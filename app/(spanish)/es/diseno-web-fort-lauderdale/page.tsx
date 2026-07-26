@@ -1,0 +1,350 @@
+import Link from "next/link";
+import { ArrowRight, Laptop, Mail, Phone, Bot, Sparkles, Layout, ShieldCheck } from "lucide-react";
+
+import { Container } from "@/components/ui/container";
+import { buildPageMetadata } from "@/lib/site-metadata";
+import { absoluteUrl, site } from "@/lib/site";
+
+export const metadata = buildPageMetadata({
+  title: "Diseño Web Fort Lauderdale & Chatbots con IA",
+  description:
+    "Diseño de páginas web de alta conversión, aplicaciones web personalizadas e integración de chatbots con IA en Fort Lauderdale, Miami y South Florida.",
+  path: "/es/diseno-web-fort-lauderdale",
+  locale: "es",
+});
+
+export default function DisenoWebFortLauderdalePage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": absoluteUrl("/es/diseno-web-fort-lauderdale#service"),
+        name: "Diseño Web Fort Lauderdale & Chatbots con IA",
+        description:
+          "Diseño de sitios web personalizados de alta conversión, aplicaciones web y chatbots de atención 24/7 con IA para empresas en Fort Lauderdale y South Florida.",
+        provider: {
+          "@type": "LocalBusiness",
+          "@id": absoluteUrl("/#business"),
+          name: site.name,
+          url: absoluteUrl("/es"),
+          telephone: site.phone.e164,
+        },
+        areaServed: "Fort Lauderdale / Broward / Miami-Dade / South Florida",
+        serviceType: "Diseño Web e Integración de Chatbots con IA",
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": absoluteUrl("/es/diseno-web-fort-lauderdale#breadcrumbs"),
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Inicio",
+            item: absoluteUrl("/es"),
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Servicios",
+            item: absoluteUrl("/es/servicios"),
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: "Diseño Web Fort Lauderdale",
+            item: absoluteUrl("/es/diseno-web-fort-lauderdale"),
+          },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        "@id": absoluteUrl("/es/diseno-web-fort-lauderdale#faq"),
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "¿Qué diferencia el diseño web de Esteban Media?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Creamos motores digitales completos de conversión. En lugar de páginas estáticas simples, integramos arquitectura web veloz, medios audiovisuales de impacto y chatbots con IA 24/7 para capturar clientes.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "¿Cómo funciona el chatbot con IA en el sitio web?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Nuestros chatbots conversacionales con IA se integran en tu sitio web para responder preguntas frecuentes, calificar clientes potenciales y agendar citas automáticamente las 24 horas.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "¿Desarrollan sitios web para concesionarios, marcas de fitness y negocios de servicios?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Sí. Nuestro portafolio incluye sistemas para concesionarios de autos (Frontline Auto, FLAS), marcas de fitness (TitanForge, Gains From Geebs), restaurantes y empresas locales.",
+            },
+          },
+        ],
+      },
+    ],
+  };
+
+  const showcaseProjects = [
+    {
+      id: "titanforge",
+      title: "TitanForge Platform & AI Bot",
+      category: "Plataforma de Fitness & Alto Rendimiento",
+      description:
+        "Arquitectura web de alta conversión, registro interactivo de clientes y bot de IA integrado para calificación automática de prospectos.",
+      tags: ["App Web Next.js", "Bot de IA", "Intake de Clientes"],
+      href: "/es/portafolio/titanforge",
+    },
+    {
+      id: "gains-from-geebs",
+      title: "Gains From Geebs Web App y Bot de IA",
+      category: "Plataforma de Salud & Bot de IA",
+      description:
+        "Plataforma web interactiva de fitness y bot conversacional de IA diseñado para atender consultas sobre planes de entrenamiento, nutrición y calificación de prospectos 24/7.",
+      tags: ["Bot de IA Fitness", "Calculadoras", "Calificación 24/7"],
+      href: "/es/portafolio/gains-from-geebs",
+    },
+    {
+      id: "front-line-auto",
+      title: "Frontline Auto & AI Concierge",
+      category: "Motor Web para Concesionario",
+      description:
+        "Plataforma para concesionario con chatbot concierge de IA 24/7 para consulta de inventario y agendamiento instantáneo de pruebas de manejo.",
+      tags: ["Inventario de Autos", "Concierge con IA", "Atención Bilingüe"],
+      href: "/es/portafolio/front-line-auto",
+    },
+    {
+      id: "flas-concierge",
+      title: "Fort Lauderdale Auto Sale (Concierge IA FLAS)",
+      category: "Concesionario & Financiamiento BHPH",
+      description:
+        "Sistema web para concesionario y bot concierge de IA creado para precalificación de financiamiento Buy-Here-Pay-Here, inventarios y captura de clientes en tiempo real.",
+      tags: ["Bot BHPH con IA", "Calculadora Financiera", "Captura SMS"],
+      href: "/es/portafolio/flas-concierge",
+    },
+    {
+      id: "gonzalo-tech-chatbots",
+      title: "Chatbots de IA Conversacionales (Casos Geebs y FLAS)",
+      category: "IA Conversacional & Automatización",
+      description:
+        "Chatbots de IA conversacional 24/7 desarrollados a la medida para Geebs y Fort Lauderdale Auto Sale (FLAS) para automatizar atención al cliente, calificar prospectos y agendar citas automáticamente.",
+      tags: ["Bot Coaching Geebs", "Bot Financiero FLAS", "Captura IA 24/7"],
+      href: "/es/portafolio/gonzalo-tech-chatbots",
+    },
+  ];
+
+  return (
+    <main className="bg-[#f6f1ea] text-[#101214]">
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
+        <Container size="xl">
+          <nav aria-label="Navegación" className="mb-8 text-sm text-[#5a6066]">
+            <ol className="flex flex-wrap items-center gap-2">
+              <li>
+                <Link href="/es" className="hover:text-[#9f3c27]">
+                  Inicio
+                </Link>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li>
+                <Link href="/es/servicios" className="hover:text-[#9f3c27]">
+                  Servicios
+                </Link>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li aria-current="page" className="text-[#252a2d]">
+                Diseño Web Fort Lauderdale
+              </li>
+            </ol>
+          </nav>
+          <div className="grid gap-10 lg:grid-cols-[1fr_.8fr] lg:items-center">
+            <div>
+              <p className="text-xs font-medium uppercase tracking-wide text-[#5a6066]">
+                Vertical de Diseño Web e Integraciones con IA
+              </p>
+              <h1 className="mt-4 max-w-4xl font-serif text-5xl leading-none sm:text-6xl">
+                Diseño Web y Chatbots con IA en Fort Lauderdale.
+              </h1>
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
+                Desarrollamos sitios web modernos de alta conversión, aplicaciones web interactivas y chatbots conversacionales con IA para negocios en Fort Lauderdale, Miami y South Florida. Transforma visitantes en clientes agendados automáticamente.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link
+                  href="/es/contacto"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white hover:bg-[#a93e29]"
+                >
+                  Iniciar Proyecto Web
+                  <ArrowRight className="size-4" aria-hidden="true" />
+                </Link>
+                <Link
+                  href="/es/portafolio"
+                  className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#101214] px-6 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"
+                >
+                  Ver Portafolio Web
+                </Link>
+              </div>
+            </div>
+
+            <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6 shadow-sm">
+              <Laptop className="size-8 text-[#e85d3e]" aria-hidden="true" />
+              <h2 className="mt-5 font-serif text-3xl">Más que Sitios Web Estáticos</h2>
+              <p className="mt-4 text-sm leading-6 text-[#252a2d]">
+                El crecimiento de tu negocio requiere un sistema digital completo: páginas ultrarrápidas, contenido audiovisual de impacto y chatbots con IA que atienden clientes las 24 horas.
+              </p>
+              <dl className="mt-6 grid gap-3">
+                <div className="rounded-md border border-[#ddd4c8] p-3">
+                  <dt className="text-xs uppercase text-[#5a6066]">Vertical de Servicio</dt>
+                  <dd className="mt-1 font-serif text-xl">Diseño Web y Chatbots con IA</dd>
+                </div>
+                <div className="rounded-md border border-[#ddd4c8] p-3">
+                  <dt className="text-xs uppercase text-[#5a6066]">Área de Cobertura</dt>
+                  <dd className="mt-1 font-serif text-xl">Fort Lauderdale / Miami-Dade / Broward</dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Capacidades */}
+      <section className="border-b border-[#ddd4c8] py-14 sm:py-20">
+        <Container size="xl">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <p className="text-xs font-medium uppercase text-[#5a6066]">Arquitectura y Capacidades Web</p>
+            <h2 className="mt-3 font-serif text-4xl leading-tight sm:text-5xl">
+              Sistemas Web de Alta Conversión para Negocios Locales
+            </h2>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
+              <Layout className="size-8 text-[#e85d3e]" />
+              <h3 className="mt-4 font-serif text-2xl">Arquitectura Web Personalizada</h3>
+              <p className="mt-3 text-sm leading-6 text-[#252a2d]">
+                Sitios web limpios, rápidos y adaptados a tu marca. Carga instantánea, diseño móvil prioritario y alta velocidad.
+              </p>
+            </div>
+            <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
+              <Bot className="size-8 text-[#e85d3e]" />
+              <h3 className="mt-4 font-serif text-2xl">Chatbots Conversacionales con IA</h3>
+              <p className="mt-3 text-sm leading-6 text-[#252a2d]">
+                Chatbots inteligentes entrenados con la información de tu negocio. Califican prospectos, responden dudas y capturan contactos 24/7.
+              </p>
+            </div>
+            <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
+              <Sparkles className="size-8 text-[#e85d3e]" />
+              <h3 className="mt-4 font-serif text-2xl">Integración Audiovisual</h3>
+              <p className="mt-3 text-sm leading-6 text-[#252a2d]">
+                Integración fluida de videos promocionales, diseño gráfico e imágenes de marca dentro de tu sitio web para máxima conversión.
+              </p>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Proyectos Destacados */}
+      <section className="border-b border-[#ddd4c8] bg-[#fbf6ef] py-14 sm:py-20">
+        <Container size="xl">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between mb-12">
+            <div>
+              <p className="text-xs font-medium uppercase text-[#5a6066]">Portafolio Comprobado</p>
+              <h2 className="mt-3 font-serif text-4xl leading-tight sm:text-5xl">
+                Proyectos Web y de IA Destacados
+              </h2>
+            </div>
+            <Link
+              href="/es/portafolio"
+              className="inline-flex items-center gap-2 text-sm font-medium text-[#101214] underline decoration-[#e85d3e] underline-offset-4 hover:text-[#7f2f20]"
+            >
+              Ver Todo el Portafolio
+              <ArrowRight className="size-4" />
+            </Link>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {showcaseProjects.map((project) => (
+              <article
+                key={project.id}
+                className="flex flex-col rounded-lg border border-[#ddd4c8] bg-[#f6f1ea] p-6 transition hover:-translate-y-0.5 hover:border-[#e85d3e] hover:shadow-sm"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-[#e85d3e]">
+                    {project.category}
+                  </span>
+                  <ShieldCheck className="size-5 text-[#5a6066]" />
+                </div>
+                <h3 className="mt-3 font-serif text-2xl leading-tight">{project.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-[#252a2d] flex-1">
+                  {project.description}
+                </p>
+                <div className="mt-4 flex flex-wrap gap-1.5">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded bg-[#ebe3d7] px-2 py-0.5 text-xs text-[#5a6066]"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <Link
+                  href={project.href}
+                  className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27] hover:underline"
+                >
+                  Explorar detalles
+                  <ArrowRight className="size-4" />
+                </Link>
+              </article>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* CTA Footer */}
+      <section className="pb-16 sm:pb-20 pt-12">
+        <Container size="xl">
+          <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-8 sm:p-12 text-center">
+            <p className="text-xs font-medium uppercase text-[#5a6066]">Comienza Hoy Mismo</p>
+            <h2 className="mt-3 font-serif text-4xl sm:text-5xl">
+              ¿Listo para Potenciar tu Sitio Web y Captura de Clientes con IA?
+            </h2>
+            <p className="mt-4 max-w-2xl mx-auto text-base text-[#252a2d]">
+              Contacta a Esteban Media para una consulta sobre diseño web personalizado y chatbots con IA en Fort Lauderdale y South Florida.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+              <Link
+                href="/es/contacto"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-8 text-base font-medium text-white hover:bg-[#a93e29]"
+              >
+                Agendar Consulta de Alcance
+                <ArrowRight className="size-5" />
+              </Link>
+              <a
+                href={`mailto:${site.email}`}
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-[#101214] px-6 text-base font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"
+              >
+                <Mail className="size-5" />
+                {site.email}
+              </a>
+              <a
+                href={site.phone.href}
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-[#101214] px-6 text-base font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"
+              >
+                <Phone className="size-5" />
+                {site.phone.display}
+              </a>
+            </div>
+          </div>
+        </Container>
+      </section>
+    </main>
+  );
+}

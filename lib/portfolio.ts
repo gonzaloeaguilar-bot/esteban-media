@@ -18,6 +18,7 @@ export const PORTFOLIO_CATEGORY_IDS = [
   "social-content",
   "narrative",
   "animation",
+  "web-design",
 ] as const;
 
 export type PortfolioCategoryId = (typeof PORTFOLIO_CATEGORY_IDS)[number];
@@ -103,7 +104,12 @@ export type PortfolioItemI18nKey =
   | "homeowners"
   | "diana-jack"
   | "la-huelga"
-  | "ml-colombia";
+  | "ml-colombia"
+  | "titanforge"
+  | "gains-from-geebs"
+  | "front-line-auto"
+  | "flas-concierge"
+  | "gonzalo-tech-chatbots";
 
 export interface PortfolioItem {
   /** Stable URL-safe id, also used by the local poster filename. */
@@ -283,6 +289,95 @@ export const PORTFOLIO_ITEMS: readonly PortfolioItem[] = [
       poster: "/portfolio/my-dler.jpg",
       uploadDate: "2024-01-23T14:21:54-08:00",
       duration: "PT0M11S",
+      aspect: "16:9",
+    },
+  },
+  {
+    id: "titanforge",
+    category: "web-design",
+    title: "TitanForge Platform & AI Bot",
+    titleI18nKey: "titanforge",
+    descriptionI18nKey: "titanforge",
+    creditsI18nKey: "titanforge",
+    year: 2026,
+    location: "South Florida",
+    featured: true,
+    status: "live",
+    media: {
+      kind: "image",
+      src: "/portfolio/titanforge.jpg",
+      alt: "TitanForge Web Design & AI Chatbot System",
+      aspect: "16:9",
+    },
+  },
+  {
+    id: "gains-from-geebs",
+    category: "web-design",
+    title: "Gains From Geebs Web App",
+    titleI18nKey: "gains-from-geebs",
+    descriptionI18nKey: "gains-from-geebs",
+    creditsI18nKey: "gains-from-geebs",
+    year: 2026,
+    featured: true,
+    status: "live",
+    media: {
+      kind: "image",
+      src: "/portfolio/gains-from-geebs.jpg",
+      alt: "Gains From Geebs Interactive Fitness Platform",
+      aspect: "16:9",
+    },
+  },
+  {
+    id: "front-line-auto",
+    category: "web-design",
+    title: "Frontline Auto & AI Concierge",
+    titleI18nKey: "front-line-auto",
+    descriptionI18nKey: "front-line-auto",
+    creditsI18nKey: "front-line-auto",
+    year: 2026,
+    location: "Miami / Broward",
+    featured: true,
+    status: "live",
+    media: {
+      kind: "image",
+      src: "/portfolio/front-line-auto.jpg",
+      alt: "Frontline Auto Dealership Platform & AI Concierge Bot",
+      aspect: "16:9",
+    },
+  },
+  {
+    id: "flas-concierge",
+    category: "web-design",
+    title: "Fort Lauderdale Auto Sale (FLAS)",
+    titleI18nKey: "flas-concierge",
+    descriptionI18nKey: "flas-concierge",
+    creditsI18nKey: "flas-concierge",
+    year: 2026,
+    location: "Fort Lauderdale",
+    featured: true,
+    status: "live",
+    media: {
+      kind: "image",
+      src: "/portfolio/flas-concierge.jpg",
+      alt: "Fort Lauderdale Auto Sale BHPH Dealership Web System",
+      aspect: "16:9",
+    },
+  },
+  {
+    id: "gonzalo-tech-chatbots",
+    category: "web-design",
+    title: "Custom AI Lead Chatbots & Systems",
+    titleI18nKey: "gonzalo-tech-chatbots",
+    descriptionI18nKey: "gonzalo-tech-chatbots",
+    creditsI18nKey: "gonzalo-tech-chatbots",
+    year: 2026,
+    location: "South Florida",
+    featured: true,
+    status: "live",
+    media: {
+      kind: "image",
+      src: "/portfolio/gonzalo-tech-chatbots.jpg",
+      alt: "Custom AI Conversational Lead Bots & Web Systems",
       aspect: "16:9",
     },
   },

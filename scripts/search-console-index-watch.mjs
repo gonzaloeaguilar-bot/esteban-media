@@ -49,6 +49,8 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/assessment",
   "https://estebanmorenomedia.com/es/evaluacion",
   "https://estebanmorenomedia.com/es/editor-de-video-real-estate-miami",
+  "https://estebanmorenomedia.com/services/website-design-fort-lauderdale",
+  "https://estebanmorenomedia.com/es/diseno-web-fort-lauderdale",
   "https://estebanmorenomedia.com/services/ai-product-photography-miami",
   "https://estebanmorenomedia.com/services/dental-video-marketing-south-florida",
   "https://estebanmorenomedia.com/services/med-spa-video-marketing-south-florida",

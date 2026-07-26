@@ -48,6 +48,11 @@ const expectedCategoryByItem: Record<string, PortfolioCategoryId> = {
   "diana-jack": "events",
   "la-huelga": "narrative",
   "ml-colombia": "social-content",
+  titanforge: "web-design",
+  "gains-from-geebs": "web-design",
+  "front-line-auto": "web-design",
+  "flas-concierge": "web-design",
+  "gonzalo-tech-chatbots": "web-design",
 };
 
 const verifiedYears: Record<string, number> = {
@@ -56,10 +61,15 @@ const verifiedYears: Record<string, number> = {
   "healthy-smile": 2021,
   homeowners: 2021,
   "la-huelga": 2017,
+  titanforge: 2026,
+  "gains-from-geebs": 2026,
+  "front-line-auto": 2026,
+  "flas-concierge": 2026,
+  "gonzalo-tech-chatbots": 2026,
 };
 
 describe("verified portfolio data", () => {
-  it("declares the six evidence-based categories in display order", () => {
+  it("declares the seven evidence-based categories in display order", () => {
     expect(PORTFOLIO_CATEGORY_IDS).toEqual([
       "business-promos",
       "events",
@@ -67,19 +77,20 @@ describe("verified portfolio data", () => {
       "social-content",
       "narrative",
       "animation",
+      "web-design",
     ]);
   });
 
-  it("ships exactly eight unique live projects with no placeholder media", () => {
-    expect(PORTFOLIO_ITEMS).toHaveLength(8);
-    expect(new Set(PORTFOLIO_ITEMS.map((item) => item.id)).size).toBe(8);
+  it("ships exactly 13 unique live projects with no placeholder media", () => {
+    expect(PORTFOLIO_ITEMS).toHaveLength(13);
+    expect(new Set(PORTFOLIO_ITEMS.map((item) => item.id)).size).toBe(13);
 
     for (const item of PORTFOLIO_ITEMS) {
       expect(item.status).toBe("live");
       expect(item.media.kind).not.toBe("placeholder");
     }
 
-    expect(getLivePortfolioItemCount()).toBe(8);
+    expect(getLivePortfolioItemCount()).toBe(13);
     expect(getPlaceholderItemCount()).toBe(0);
   });
 
@@ -101,14 +112,12 @@ describe("verified portfolio data", () => {
     }
   });
 
-  it("publishes only canonical YouTube watch URLs with matching ids", () => {
+  it("publishes only canonical YouTube watch URLs with matching ids for video items", () => {
+    const youtubeItems = PORTFOLIO_ITEMS.filter((item) => isYouTubeSource(item.media));
     const videoIds = new Set<string>();
 
-    for (const item of PORTFOLIO_ITEMS) {
-      expect(isYouTubeSource(item.media)).toBe(true);
-      if (!isYouTubeSource(item.media)) {
-        throw new Error(`${item.id} must use a YouTube media source`);
-      }
+    for (const item of youtubeItems) {
+      if (!isYouTubeSource(item.media)) continue;
 
       expect(item.media.videoId).toMatch(/^[A-Za-z0-9_-]{11}$/);
       expect(item.media.url).toBe(
@@ -122,18 +131,15 @@ describe("verified portfolio data", () => {
       videoIds.add(item.media.videoId);
     }
 
-    expect(videoIds.size).toBe(PORTFOLIO_ITEMS.length);
+    expect(videoIds.size).toBe(youtubeItems.length);
   });
 
-  it("uses an existing local poster named after each stable item id", () => {
+  it("uses an existing local poster or image asset named after each stable item id", () => {
     for (const item of PORTFOLIO_ITEMS) {
-      if (!isYouTubeSource(item.media)) {
-        throw new Error(`${item.id} must use a YouTube media source`);
-      }
-
-      expect(item.media.poster).toBe(`/portfolio/${item.id}.jpg`);
+      const posterPath = item.media.kind === "youtube" ? item.media.poster : item.media.src;
+      expect(posterPath).toBe(`/portfolio/${item.id}.jpg`);
       expect(
-        existsSync(join(process.cwd(), "public", item.media.poster)),
+        existsSync(join(process.cwd(), "public", posterPath)),
       ).toBe(true);
     }
   });

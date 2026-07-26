@@ -125,12 +125,14 @@ describe("approved public facts", () => {
       "ai-content",
       "social-planning",
       "on-location",
+      "website-design",
     ]);
     expect(spanishServices.map((service) => service.id)).toEqual([
       "edicion",
       "contenido-ia",
       "planificacion-social",
       "videografia",
+      "diseno-web",
     ]);
 
     const publishedServices = JSON.stringify({ services, spanishServices });

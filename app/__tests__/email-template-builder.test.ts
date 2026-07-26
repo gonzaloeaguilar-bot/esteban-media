@@ -22,9 +22,9 @@ describe("Email Template Builder - Tella Dark Pressure-Tested System", () => {
     // Scroll-stopping 3s Hook
     expect(html).toContain("El 80% de tus clientes pasa de largo en redes en 3 segundos");
 
-    // Free Web Design & Google Profile Audit Offer
-    expect(html).toContain("Auditoría de Sitio Web");
-    expect(html).toContain("Optimización de Ficha de Google Business Profile");
+    // Concrete empirical web audit metrics
+    expect(html).toContain("Sitio Web Actual: davielatinbistro.com");
+    expect(html).toMatch(/52\/100 \(Carga lenta (&gt;|>)/);
 
     // Real portfolio CTA & Links
     expect(html).toContain("Ver Portafolio de Videos en Vivo →");
@@ -54,7 +54,7 @@ describe("Email Template Builder - Tella Dark Pressure-Tested System", () => {
 
     expect(lower).toContain("background-color: #121214");
     expect(html).toContain("80% of potential customers scroll past social video in 3s");
-    expect(html).toContain("Free Web Design");
+    expect(html).toContain("FREE INCLUDED: Next.js Web Redesign");
     expect(html).toContain("View Live Video Portfolio →");
     expect(html).toContain("https://estebanmorenomedia.com/portfolio/bar-door-monkey");
   });

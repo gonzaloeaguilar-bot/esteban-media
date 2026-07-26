@@ -21,6 +21,7 @@ const routes = [
   { path: "/resources/social-video-kit", priority: 0.9 },
   { path: "/assessment", priority: 0.9 },
   { path: "/services", priority: 0.9 },
+  { path: "/services/website-design-fort-lauderdale", priority: 0.85 },
   { path: "/services/ai-product-photography-miami", priority: 0.85 },
   { path: "/services/dental-video-marketing-south-florida", priority: 0.85 },
   { path: "/services/med-spa-video-marketing-south-florida", priority: 0.85 },

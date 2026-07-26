@@ -77,6 +77,17 @@ export const spanishServices: SpanishService[] = [
     icon: Video,
     tags: ["South Florida", "En locación", "Según proyecto"],
   },
+  {
+    id: "diseno-web",
+    name: "Diseño Web y Chatbots con IA",
+    shortName: "Diseño Web e IA",
+    description:
+      "Sitios web personalizados de alta conversión, aplicaciones web interactivas y chatbots de IA para captura de clientes 24/7.",
+    detail:
+      "El diseño y desarrollo combina arquitectura web moderna, bots conversacionales de IA e integración visual de marca.",
+    icon: Laptop,
+    tags: ["Diseño Web", "Chatbots IA", "Sistemas de Conversión"],
+  },
 ];
 
 export const spanishAreas = [
@@ -129,6 +140,47 @@ export type SpanishNichePage = {
 };
 
 export const spanishNichePages: SpanishNichePage[] = [
+  {
+    slug: "diseno-web-fort-lauderdale",
+    title: "Diseño Web y Chatbots en Fort Lauderdale",
+    metadataTitle: "Diseño Web & Chatbots IA",
+    description:
+      "Diseño de páginas web de alta conversión, aplicaciones web personalizadas e integración de chatbots con IA en Fort Lauderdale y South Florida.",
+    eyebrow: "Fort Lauderdale / Diseño Web e IA",
+    h1: "Diseño Web y Chatbots con IA para Negocios en Fort Lauderdale.",
+    lead:
+      "Desarrollamos sitios web modernos de alta conversión y chatbots conversacionales de IA para empresas locales en Fort Lauderdale, Miami y Broward. Combina presencia web con automatización de clientes 24/7.",
+    keyword: "diseño web fort lauderdale",
+    location: "Fort Lauderdale / Broward / Miami",
+    availability: "confirmed",
+    icon: Laptop,
+    bestFor: [
+      "Negocios locales que buscan reemplazar su sitio web antiguo por un sistema moderno de ventas.",
+      "Empresas y concesionarios que desean chatbots de IA para responder clientes 24/7.",
+      "Marcas y marcas personales que requieren aplicaciones web interactivas.",
+      "Equipos que prefieren atención directa y bilingüe en South Florida.",
+    ],
+    scopingQuestions: [
+      "¿Cuál es el objetivo principal del nuevo sitio web (ventas, agenda, captura de leads)?",
+      "¿Requiere un chatbot de IA para responder preguntas frecuentes o calificar prospectos?",
+      "¿Dispones de logo, fotos y videos de marca o necesitas apoyo creativo?",
+      "¿Qué plazo estimado tienes para el lanzamiento del proyecto?",
+    ],
+    projectFit:
+      "Esta ruta conecta el desarrollo web de alta conversión con chatbots de IA y portafolio real comprobado (TitanForge, Geebs, Frontline Auto, FLAS).",
+    faqs: [
+      {
+        question: "¿El sitio web incluye diseño adaptado a teléfonos móviles?",
+        answer:
+          "Sí. Todos nuestros sitios web se diseñan primero para dispositivos móviles (mobile-first) garantizando velocidad extrema y excelente experiencia de usuario.",
+      },
+      {
+        question: "¿Cómo funciona el chatbot con IA en la página?",
+        answer:
+          "Integraciones con IA que responden preguntas frecuentes de tus clientes, califican prospectos y agendan citas automáticamente las 24 horas del día.",
+      },
+    ],
+  },
   {
     slug: "videografo-en-miami",
     title: "Videógrafo en Miami",

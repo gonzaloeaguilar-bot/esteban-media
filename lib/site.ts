@@ -93,6 +93,17 @@ export const services: Service[] = [
     icon: Video,
     tags: ["South Florida", "On location", "Project-specific"],
   },
+  {
+    id: "website-design",
+    name: "Website Design & AI Chatbots",
+    shortName: "Web Design & AI",
+    description:
+      "High-converting custom websites, interactive web applications, and AI lead-capture chatbots built for local businesses.",
+    detail:
+      "Scoping covers brand goals, custom web architecture, AI lead bot requirements, and media content integration.",
+    icon: Laptop,
+    tags: ["Web Design", "AI Chatbots", "Conversion Systems"],
+  },
 ];
 
 export const serviceAreas = [

@@ -40,9 +40,39 @@
         "title": "Narrative",
         "description": "Short-film and narrative work centered on direction and cinematography.",
         "shortLabel": "Narrative"
+      },
+      "web-design": {
+        "title": "Web Design & AI",
+        "description": "Custom website design, interactive web applications, and AI lead-capture chatbots.",
+        "shortLabel": "Web & AI"
       }
     },
     "items": {
+      "titanforge": {
+        "title": "TitanForge Platform & AI Bot",
+        "summary": "Custom high-performance web platform and AI DM bot designed for automated lead qualification, instant booking, and client intake.",
+        "credits": "Full-stack web design, UI/UX architecture, and custom AI chatbot lead engine."
+      },
+      "gains-from-geebs": {
+        "title": "Gains From Geebs Web App & AI Bot",
+        "summary": "An interactive fitness platform and conversational AI DM bot designed for instant fitness coaching inquiries, workout plan selection, and 24/7 lead qualification.",
+        "credits": "Web application engineering, interactive fitness calculators, and custom AI coaching chatbot."
+      },
+      "front-line-auto": {
+        "title": "Frontline Auto & AI Concierge",
+        "summary": "Car dealership web system with integrated 24/7 AI auto concierge chatbot for inventory browsing, bilingual lead capture, and test drive scheduling.",
+        "credits": "Dealership web platform, inventory UI engineering, and conversational AI concierge bot."
+      },
+      "flas-concierge": {
+        "title": "Fort Lauderdale Auto Sale (FLAS AI Concierge)",
+        "summary": "Fort Lauderdale dealership web system and intelligent AI concierge bot built for Buy-Here-Pay-Here financing pre-qualification, inventory availability, and instant lead capture.",
+        "credits": "Dealership web architecture, BHPH financing calculator suite, and AI concierge chatbot engine."
+      },
+      "gonzalo-tech-chatbots": {
+        "title": "Conversational AI Lead Chatbots (Geebs & FLAS)",
+        "summary": "Custom 24/7 conversational AI chatbots built for Geebs and Fort Lauderdale Auto Sale (FLAS) to automate customer inquiries, pre-qualify leads, and drive instant conversions.",
+        "credits": "AI chatbot architecture, custom prompt engineering, and automated lead capture systems."
+      },
       "my-dler": {
         "title": "My D'ler",
         "summary": "A brand and pitch package for My D'ler, a food-delivery app, produced through an agency for a client in Ecuador. Esteban created the key visual and social graphics, a 3D video, and product mockups, plus 2D animated videos for the client presentation.",
