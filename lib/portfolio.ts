@@ -12,12 +12,12 @@
 
 /** Keep in sync with `Portfolio.categories.*` in both message files. */
 export const PORTFOLIO_CATEGORY_IDS = [
-  "animation",
   "business-promos",
-  "social-content",
   "events",
   "editing",
+  "social-content",
   "narrative",
+  "animation",
 ] as const;
 
 export type PortfolioCategoryId = (typeof PORTFOLIO_CATEGORY_IDS)[number];
