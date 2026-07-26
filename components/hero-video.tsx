@@ -1,11 +1,25 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, MapPin } from "lucide-react";
+import { ArrowRight, BadgeCheck, Languages, Laptop, MapPin } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { trustSignals } from "@/lib/site";
+import { trustSignals as trustSignalsEn } from "@/lib/site";
 
-export function HeroVideo() {
+type HeroVideoProps = {
+  locale?: "en" | "es";
+};
+
+const trustSignalsEs = [
+  { label: "Ubicación", value: "Fort Lauderdale", icon: MapPin },
+  { label: "Prueba", value: "Portafolio real", icon: BadgeCheck },
+  { label: "Atención", value: "Español primero", icon: Languages },
+  { label: "Flujo", value: "Remoto + local", icon: Laptop },
+];
+
+export function HeroVideo({ locale = "en" }: HeroVideoProps) {
+  const isSpanish = locale === "es";
+  const trustSignals = isSpanish ? trustSignalsEs : trustSignalsEn;
+
   return (
     <section
       aria-labelledby="hero-heading"
@@ -25,40 +39,45 @@ export function HeroVideo() {
           <div>
             <div className="inline-flex items-center gap-2 self-start rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs uppercase tracking-wide backdrop-blur">
               <MapPin className="size-3.5" aria-hidden="true" />
-              Fort Lauderdale · Broward · Miami-Dade · Palm Beach expansion area
+              {isSpanish
+                ? "Fort Lauderdale · Broward · Miami-Dade · Área de expansión en Palm Beach"
+                : "Fort Lauderdale · Broward · Miami-Dade · Palm Beach expansion area"}
             </div>
 
             <h1
               id="hero-heading"
               className="mt-6 max-w-[17ch] font-serif text-5xl leading-[1.02] sm:text-6xl lg:text-7xl"
             >
-              Video editing and content production in Fort Lauderdale.
+              {isSpanish
+                ? "Edición de video y producción de contenido en Fort Lauderdale."
+                : "Video editing and content production in Fort Lauderdale."}
             </h1>
 
             <p className="mt-5 font-serif text-2xl italic text-[#f0b384] sm:text-3xl">
-              We make things feel like a film.
+              {isSpanish
+                ? "Hacemos que las cosas se sientan como una película."
+                : "We make things feel like a film."}
             </p>
 
             <p className="mt-4 max-w-2xl text-base leading-7 text-[#e8e2d8] sm:text-lg sm:leading-8">
-              Esteban Moreno Media provides video editing, AI-assisted content,
-              and social planning from Fort Lauderdale for Broward, Miami-Dade,
-              and remote clients. On-location production is considered
-              selectively, project by project.
+              {isSpanish
+                ? "Esteban Moreno Media ofrece edición de video, contenido con IA y planificación para redes desde Fort Lauderdale para Broward, Miami-Dade y clientes remotos. La producción en locación se considera de forma selectiva, proyecto por proyecto."
+                : "Esteban Moreno Media provides video editing, AI-assisted content, and social planning from Fort Lauderdale for Broward, Miami-Dade, and remote clients. On-location production is considered selectively, project by project."}
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
-                href="/contact"
+                href={isSpanish ? "/es/contacto" : "/contact"}
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white transition hover:bg-[#a93e29] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
-                Start a project
+                {isSpanish ? "Consultar un proyecto" : "Start a project"}
                 <ArrowRight className="size-4" aria-hidden="true" />
               </Link>
               <Link
-                href="#services"
+                href={isSpanish ? "/es/servicios" : "#services"}
                 className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/30 bg-white/5 px-6 text-sm font-medium text-white backdrop-blur transition hover:bg-white hover:text-[#101214] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
-                See what Esteban does
+                {isSpanish ? "Ver servicios" : "See what Esteban does"}
               </Link>
             </div>
           </div>
@@ -67,7 +86,11 @@ export function HeroVideo() {
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl border border-white/10 shadow-2xl shadow-black/40">
               <Image
                 src="/about/esteban-on-set.jpg"
-                alt="Esteban Moreno filming with a Canon camera on a lit studio set in Fort Lauderdale"
+                alt={
+                  isSpanish
+                    ? "Esteban Moreno grabando con una cámara Canon en un set de estudio iluminado en Fort Lauderdale"
+                    : "Esteban Moreno filming with a Canon camera on a lit studio set in Fort Lauderdale"
+                }
                 fill
                 priority
                 sizes="(min-width: 1024px) 416px, (min-width: 640px) 400px, calc(100vw - 32px)"

@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { ArrowRight, Mail, Phone, Send } from "lucide-react";
 
+import { HeroVideo } from "@/components/hero-video";
 import { PortfolioTeaser } from "@/components/portfolio-teaser";
 import { Container } from "@/components/ui/container";
 import {
   spanishNichePages,
-  spanishOpportunitySignals,
   spanishServices,
   spanishSite,
 } from "@/lib/spanish-site";
@@ -22,61 +22,7 @@ export const metadata = buildPageMetadata({
 export default function SpanishHomePage() {
   return (
     <main className="bg-[#f6f1ea] text-[#101214]">
-      <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
-        <Container size="xl">
-          <div className="max-w-3xl">
-            <p className="text-xs font-medium uppercase text-[#5a6066]">
-              Fort Lauderdale / Broward / Miami-Dade / Palm Beach County en expansión
-            </p>
-            <h1 className="mt-5 max-w-[12ch] font-serif text-5xl leading-none sm:text-6xl lg:text-7xl">
-              Edición, contenido con IA y estrategia para negocios que quieren publicar mejor.
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-              Esteban Moreno Media ofrece edición de video, contenido con IA y
-              planificación para redes desde Fort Lauderdale para Broward,
-              Miami-Dade y clientes remotos. La producción en locación se
-              considera de forma selectiva, proyecto por proyecto; el español
-              es el idioma principal de Esteban y su inglés es intermedio.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                href="/es/contacto"
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white hover:bg-[#a93e29]"
-              >
-                Consultar un proyecto
-                <ArrowRight className="size-4" aria-hidden="true" />
-              </Link>
-              <Link
-                href="/es/servicios"
-                className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#101214] px-6 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"
-              >
-                Ver servicios
-              </Link>
-            </div>
-
-            <ul role="list" className="mt-8 grid gap-3 sm:grid-cols-3">
-              {spanishOpportunitySignals.map((signal) => {
-                const Icon = signal.icon;
-                return (
-                  <li
-                    key={signal.label}
-                    className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-4"
-                  >
-                    <Icon className="size-5 text-[#e85d3e]" aria-hidden="true" />
-                    <p className="mt-3 text-xs uppercase text-[#5a6066]">
-                      {signal.label}
-                    </p>
-                    <p className="font-serif text-xl">{signal.value}</p>
-                    <p className="mt-2 text-xs leading-5 text-[#5a6066]">
-                      {signal.detail}
-                    </p>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        </Container>
-      </section>
+      <HeroVideo locale="es" />
 
       <PortfolioTeaser locale="es" />
 
