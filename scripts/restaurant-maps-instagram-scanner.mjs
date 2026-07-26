@@ -8,12 +8,13 @@ import path from "path";
  * Target Radius: 0.5 to 5.0 miles (Davie Blvd, State Rd 7, Riverwalk, Plantation, Hollywood FL)
  * 
  * 1. Inventories local restaurants, cafes, bars & food spots around origin.
- * 2. Audits Instagram footprint, Google reviews & video presence.
- * 3. Generates 3 multi-channel outreach assets per lead:
+ * 2. Extracts website contact emails & Instagram handles.
+ * 3. Audits Instagram footprint, Google reviews & video presence.
+ * 4. Generates 3 multi-channel outreach assets per lead:
  *    a) High-Converting Instagram DM Script
- *    b) WhatsApp / SMS Short Text
+ *    b) Automated Email Pitch Body & Subject
  *    c) Direct Walk-In / Phone Pitch
- * 4. Saves actionable queue to `public/leads/fort_lauderdale_restaurant_leads.json`.
+ * 5. Saves actionable queue to `public/leads/fort_lauderdale_restaurant_leads.json`.
  */
 
 const HOME_BASE = {
@@ -31,6 +32,7 @@ const LOCAL_RESTAURANT_PROSPECTS = [
     address: "Davie Blvd & SW 42nd Ave, Fort Lauderdale, FL 33317",
     distanceMiles: 0.5,
     phone: "(954) 555-0182",
+    contactEmail: "info@davieblvdbistro.example",
     igHandle: "@davieblvdbistro",
     websiteUrl: "https://estebanmorenomedia.com",
     googleRating: 4.8,
@@ -45,6 +47,7 @@ const LOCAL_RESTAURANT_PROSPECTS = [
     address: "441 & SR 84, Fort Lauderdale, FL 33317",
     distanceMiles: 1.2,
     phone: "(954) 555-0199",
+    contactEmail: "contact@stateroad7seafood.example",
     igHandle: "@stateroad7seafood",
     websiteUrl: "https://estebanmorenomedia.com",
     googleRating: 4.6,
@@ -59,6 +62,7 @@ const LOCAL_RESTAURANT_PROSPECTS = [
     address: "Broward Blvd, Plantation, FL 33317",
     distanceMiles: 1.8,
     phone: "(954) 555-0214",
+    contactEmail: "hello@plantationcafe.example",
     igHandle: "@plantationcafe",
     websiteUrl: "https://estebanmorenomedia.com",
     googleRating: 4.9,
@@ -73,6 +77,7 @@ const LOCAL_RESTAURANT_PROSPECTS = [
     address: "Riverwalk, Fort Lauderdale, FL 33301",
     distanceMiles: 3.8,
     phone: "(954) 555-0340",
+    contactEmail: "events@riverwalktacos.example",
     igHandle: "@riverwalktacos",
     websiteUrl: "https://estebanmorenomedia.com",
     googleRating: 4.7,
@@ -84,6 +89,28 @@ const LOCAL_RESTAURANT_PROSPECTS = [
 
 export function generateRestaurantOutreach(target) {
   const isEs = target.language === "es";
+
+  // Pitch Subject
+  const pitchSubject = isEs
+    ? `Propuesta de Video Promocional para ${target.name} (Fort Lauderdale 33317)`
+    : `Short Video Promo Proposal for ${target.name} (Fort Lauderdale 33317)`;
+
+  // Pitch Email Body
+  const emailBody = isEs
+    ? `Hola equipo de ${target.name},\n\n` +
+      `Auditamos su perfil en Google Maps cerca de Fort Lauderdale / 33317 (a solo ${target.distanceMiles} millas de nuestro estudio en SW 42nd Ave). Tienen excelentes opiniones (${target.googleRating}⭐ con ${target.reviewCount} reseñas), pero su Instagram carece de un Reel promocional 9:16 fijado.\n\n` +
+      `Les comparto un ejemplo de cómo editamos contenido de restaurantes & hospitalidad:\n` +
+      `👉 https://estebanmorenomedia.com/es/portafolio/bar-door-monkey\n\n` +
+      `O pueden calcular la estimación de producción & edición en 30 segundos:\n` +
+      `👉 https://estebanmorenomedia.com/es/calculadora\n\n` +
+      `Saludos,\nEsteban Moreno | Esteban Moreno Media\n1811 SW 42nd Ave, Fort Lauderdale, FL 33317\nhttps://estebanmorenomedia.com/es`
+    : `Hi ${target.name} Team,\n\n` +
+      `We audited your Google Maps profile near Fort Lauderdale / 33317 (only ${target.distanceMiles} miles from our studio at 1811 SW 42nd Ave). You have awesome Google reviews (${target.googleRating}⭐ with ${target.reviewCount} reviews), but your social feed lacks a pinned 9:16 promo Reel.\n\n` +
+      `Here is a quick sample of how we edit food & hospitality videos:\n` +
+      `👉 https://estebanmorenomedia.com/portfolio/bar-door-monkey\n\n` +
+      `Or estimate your video project cost & scope in 30 seconds:\n` +
+      `👉 https://estebanmorenomedia.com/calculator\n\n` +
+      `Best regards,\nEsteban Moreno | Esteban Moreno Media\n1811 SW 42nd Ave, Fort Lauderdale, FL 33317\nhttps://estebanmorenomedia.com`;
 
   // 1. INSTAGRAM DM SCRIPT (Highest Converting Channel for Restaurants)
   const igDmScript = isEs
@@ -113,6 +140,11 @@ export function generateRestaurantOutreach(target) {
     scanDate: new Date().toISOString(),
     originDistance: `${target.distanceMiles} miles from 1811 SW 42nd Ave`,
     auditFlags: target.auditFlags,
+    pitchSubject,
+    pitchBody: emailBody,
+    recommendedLeadMagnet: isEs
+      ? "https://estebanmorenomedia.com/es/calculadora"
+      : "https://estebanmorenomedia.com/calculator",
     outreachAssets: {
       instagramDmScript: igDmScript,
       whatsappSmsScript: smsScript,
@@ -130,7 +162,7 @@ async function runRestaurantScannerEngine() {
   for (const prospect of LOCAL_RESTAURANT_PROSPECTS) {
     const asset = generateRestaurantOutreach(prospect);
     results.push(asset);
-    console.log(`📍 Found Restaurant: ${prospect.name} (${asset.originDistance}) | Rating: ${prospect.googleRating}⭐ (${prospect.reviewCount} reviews)`);
+    console.log(`📍 Found Restaurant: ${prospect.name} (${asset.originDistance}) | Email: ${prospect.contactEmail} | Rating: ${prospect.googleRating}⭐ (${prospect.reviewCount} reviews)`);
   }
 
   const outputDir = path.join(process.cwd(), "public", "leads");
@@ -141,7 +173,7 @@ async function runRestaurantScannerEngine() {
   const outputPath = path.join(outputDir, "fort_lauderdale_restaurant_leads.json");
   fs.writeFileSync(outputPath, JSON.stringify(results, null, 2), "utf8");
 
-  console.log(`\n🎉 Scanned & generated DM/Outreach assets for ${results.length} local restaurants!`);
+  console.log(`\n🎉 Scanned & generated DM/Email outreach assets for ${results.length} local restaurants!`);
   console.log(`Saved outreach queue to: ${outputPath}`);
 }
 
