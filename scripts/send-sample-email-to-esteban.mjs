@@ -17,26 +17,26 @@ if (fs.existsSync(envPath)) {
 }
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY || "re_CdQhFqvt_CPeGcaKR3az2W5LjKMgKNhpq";
-const RECIPIENTS = ["esmolopez@gmail.com", "gonzalo.e.aguilar@gmail.com"];
-const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "Esteban Moreno Media <contact@estebanmorenomedia.com>";
+const RECIPIENTS = ["gonzalo.e.aguilar@gmail.com", "esmolopez@gmail.com"];
 
-async function sendTechSampleEmail() {
-  console.log(`Sending BEST-IN-CLASS TECH HTML EMAIL via Resend...`);
+async function sendTellaStyleEmails() {
+  console.log(`Sending TELLA & CANVA STYLE CLEAN HTML EMAILS via Resend...`);
 
-  const subject = "📍 [DISEÑO TECH 8K] Propuesta de Video Promocional para Davie Blvd Latin Bistro (Fort Lauderdale 33317)";
-
-  const htmlContent = buildTechOutreachHtmlEmail({
+  // 1. Send Warm Cream Version
+  const creamHtml = buildTechOutreachHtmlEmail({
     targetName: "Davie Blvd Latin Bistro & Grill",
     city: "Fort Lauderdale",
     distanceMiles: "0.5",
     googleRating: "4.8",
     reviewCount: "142",
     language: "es",
-    portfolioUrl: "https://estebanmorenomedia.com/es/portafolio/bar-door-monkey",
-    calculatorUrl: "https://estebanmorenomedia.com/es/calculadora",
+    portfolioUrl: "https://estebanmorenomedia.com/es/portafolio",
+    youtubeUrl: "https://www.youtube.com/@estebanmorenolopez3811",
+    contactEmail: "esmolopez@gmail.com",
+    theme: "cream",
   });
 
-  for (const target of RECIPIENTS) {
+  for (const t of RECIPIENTS) {
     try {
       const res = await fetch("https://api.resend.com/emails", {
         method: "POST",
@@ -45,24 +45,54 @@ async function sendTechSampleEmail() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          from: FROM_EMAIL,
-          to: [target],
-          subject,
-          html: htmlContent,
+          from: "Esteban Moreno Media <onboarding@resend.dev>",
+          to: [t],
+          subject: "✨ [DISEÑO TELLA CREAM] Muestra de Video & Consejos - Esteban Moreno Media",
+          html: creamHtml,
         }),
       });
-
-      if (res.ok) {
-        const data = await res.json();
-        console.log(`✅ DISPATCHED LIVE TECH EMAIL TO ${target}! Resend ID: ${data.id}`);
-      } else {
-        const errText = await res.text();
-        console.error(`❌ Resend API Error for ${target} (${res.status}): ${errText}`);
-      }
+      const data = await res.json();
+      console.log(`✅ Sent CREAM Tella style email to ${t} | Resend ID: ${data.id}`);
     } catch (err) {
-      console.error(`❌ Exception sending email to ${target}:`, err);
+      console.error(`❌ Error sending Cream email to ${t}:`, err);
+    }
+  }
+
+  // 2. Send Matte Dark Version
+  const darkHtml = buildTechOutreachHtmlEmail({
+    targetName: "Davie Blvd Latin Bistro & Grill",
+    city: "Fort Lauderdale",
+    distanceMiles: "0.5",
+    googleRating: "4.8",
+    reviewCount: "142",
+    language: "es",
+    portfolioUrl: "https://estebanmorenomedia.com/es/portafolio",
+    youtubeUrl: "https://www.youtube.com/@estebanmorenolopez3811",
+    contactEmail: "esmolopez@gmail.com",
+    theme: "dark",
+  });
+
+  for (const t of RECIPIENTS) {
+    try {
+      const res = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${RESEND_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          from: "Esteban Moreno Media <onboarding@resend.dev>",
+          to: [t],
+          subject: "✨ [DISEÑO TELLA DARK] Muestra de Video & Consejos - Esteban Moreno Media",
+          html: darkHtml,
+        }),
+      });
+      const data = await res.json();
+      console.log(`✅ Sent DARK Tella style email to ${t} | Resend ID: ${data.id}`);
+    } catch (err) {
+      console.error(`❌ Error sending Dark email to ${t}:`, err);
     }
   }
 }
 
-sendTechSampleEmail();
+sendTellaStyleEmails();
