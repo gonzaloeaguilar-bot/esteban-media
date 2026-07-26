@@ -1,5 +1,6 @@
 import type { LucideIcon } from "lucide-react";
 import {
+  Anchor,
   Building2,
   CalendarRange,
   Camera,
@@ -880,6 +881,166 @@ export const spanishNichePages: SpanishNichePage[] = [
         question: "¿Cómo se envían los archivos pesados desde Palm Beach?",
         answer:
           "Utilizamos enlaces seguros de Dropbox o Frame.io para una transferencia rápida de material.",
+      },
+    ],
+  },
+  {
+    slug: "produccion-de-video-doral-miami",
+    title: "Producción de video en Doral Miami",
+    metadataTitle: "Producción de Video Doral Miami",
+    description:
+      "Producción y edición de video para empresas B2B, distribuidores y marcas comerciales en Doral y Miami.",
+    eyebrow: "Doral / B2B Commercial",
+    h1: "Producción de video y contenido comercial en Doral.",
+    lead:
+      "Ofrecemos servicios de producción, videografía corporativa y edición remota para distribuidores, agencias de logística y marcas comerciales en Doral.",
+    keyword: "producción de video en Doral",
+    location: "Doral / Miami-Dade",
+    availability: "confirmed",
+    icon: Video,
+    bestFor: [
+      "Empresas de logística, importación y distribuidores en Doral.",
+      "Marcas B2B que necesitan videos de producto y corporativos.",
+    ],
+    scopingQuestions: [
+      "¿El video se filmará en almacén/oficina en Doral o es edición de material existente?",
+      "¿En qué idiomas se distribuirá el video?",
+    ],
+    projectFit:
+      "Atención directa y bilingüe para empresas en la zona comercial de Doral.",
+    faqs: [
+      {
+        question: "¿Atienden proyectos corporativos en Doral?",
+        answer:
+          "Sí. Contamos con cobertura de grabación en sitio y edición remota para empresas en Doral y el oeste de Miami-Dade.",
+      },
+    ],
+  },
+  {
+    slug: "video-inmobiliario-coral-gables",
+    title: "Video inmobiliario en Coral Gables",
+    metadataTitle: "Video Inmobiliario Coral Gables",
+    description:
+      "Producción y edición de video de lujo para propiedades residenciales y comerciales en Coral Gables.",
+    eyebrow: "Coral Gables / Real Estate",
+    h1: "Videos de propiedades de lujo en Coral Gables.",
+    lead:
+      "Editamos y estructuramos recorridos visuales de alta calidad para agentes de bienes raíces y firmas inmobiliarias en Coral Gables.",
+    keyword: "video inmobiliario en Coral Gables",
+    location: "Coral Gables / Miami-Dade",
+    availability: "confirmed",
+    icon: Building2,
+    bestFor: [
+      "Agentes de bienes raíces de lujo en Coral Gables.",
+      "Desarrolladores e inmobiliarias en el sur de Miami.",
+    ],
+    scopingQuestions: [
+      "¿Las tomas de la propiedad ya fueron grabadas?",
+      "¿Requieres edición para Instagram Reels o formato horizontal de alta resolución?",
+    ],
+    projectFit:
+      "Resaltado por el trabajo de edición publicado en el sector inmobiliario.",
+    faqs: [
+      {
+        question: "¿Incluye edición de música y color de lujo?",
+        answer:
+          "Sí. Cada video inmobiliario se entrega con corrección de color profesional y diseño sonoro adecuado para propiedades de alto valor.",
+      },
+    ],
+  },
+  {
+    slug: "video-para-yates-y-hospitalidad-fort-lauderdale",
+    title: "Video para yates y hospitalidad en Fort Lauderdale",
+    metadataTitle: "Video Yates Fort Lauderdale",
+    description:
+      "Edición de video y producción promocional para la industria náutica, yates y hospitalidad en Fort Lauderdale.",
+    eyebrow: "Fort Lauderdale / Náutica",
+    h1: "Videos promocionales para yates, marinos y hospitalidad.",
+    lead:
+      "Fort Lauderdale es la capital náutica de Florida. Creamos y editamos contenido en video para servicios de chárter, marinos y marcas de lujo.",
+    keyword: "video para yates en Fort Lauderdale",
+    location: "Fort Lauderdale / Broward",
+    availability: "confirmed",
+    icon: Anchor,
+    bestFor: [
+      "Empresas de chárter de yates y servicios marítimos en Fort Lauderdale.",
+      "Hoteles y restaurantes frente al mar en Broward.",
+    ],
+    scopingQuestions: [
+      "¿El material en video se grabó en marina o en navegación?",
+      "¿Cuál es el público objetivo principal del video?",
+    ],
+    projectFit:
+      "Producción y edición de estilo de vida náutico en South Florida.",
+    faqs: [
+      {
+        question: "¿Pueden editar clips grabados en teléfono o dron?",
+        answer:
+          "Sí. Procesamos tomas aéreas y clips marinos para crear videos promocionales dinámicos para redes sociales.",
+      },
+    ],
+  },
+  {
+    slug: "video-corporativo-distrito-financiero-miami",
+    title: "Video corporativo en el centro financiero de Miami",
+    metadataTitle: "Video Corporativo Miami",
+    description:
+      "Producción de video corporativo, testimoniales y contenido para firmas financieras y empresas en Miami.",
+    eyebrow: "Miami / Corporativo",
+    h1: "Videos corporativos y de presentación en Miami.",
+    lead:
+      "Edición de video profesional y testimoniales ejecutivos para firmas financieras, startups tecnológicas y empresas en el centro financiero de Miami.",
+    keyword: "video corporativo en Miami",
+    location: "Downtown Miami / Financial District",
+    availability: "confirmed",
+    icon: Building2,
+    bestFor: [
+      "Firmas de servicios profesionales, legales y financieras en Miami.",
+      "Empresas tecnológicas que necesitan videos de presentación ejecutiva.",
+    ],
+    scopingQuestions: [
+      "¿Se grabarán testimoniales de ejecutivos u operaciones en oficina?",
+      "¿Requieren subtítulos en inglés y español?",
+    ],
+    projectFit:
+      "Comunicación corporativa bilingüe de alto nivel.",
+    faqs: [
+      {
+        question: "¿Ofrecen servicios de subtitulado bilingüe?",
+        answer:
+          "Sí. Proporcionamos archivos con subtítulos sincronizados en ambos idiomas para distribución corporativa.",
+      },
+    ],
+  },
+  {
+    slug: "video-para-pequenos-negocios-pembroke-pines",
+    title: "Video para pequeños negocios en Pembroke Pines",
+    metadataTitle: "Video Pequeños Negocios Pines",
+    description:
+      "Edición de video accesible y promocional para PyMEs y servicios locales en Pembroke Pines y Miramar.",
+    eyebrow: "Pembroke Pines / Broward",
+    h1: "Videos promocionales para negocios locales en Pembroke Pines.",
+    lead:
+      "Apoyamos a emprendedores y comercios locales en Pembroke Pines y Miramar con edición de video optimizada para atraer clientes de la zona.",
+    keyword: "video para pequeños negocios en Pembroke Pines",
+    location: "Pembroke Pines / Broward",
+    availability: "confirmed",
+    icon: Video,
+    bestFor: [
+      "Comercios, clínicas locales y empresas de servicios en Pembroke Pines.",
+      "Negocios familiares que buscan presencia activa en Instagram y Facebook.",
+    ],
+    scopingQuestions: [
+      "¿Dispones de grabaciones cortas grabadas en tu local?",
+      "¿Qué oferta o servicio deseas promocionar?",
+    ],
+    projectFit:
+      "Edición directa y económica por proyecto para PyMEs locales.",
+    faqs: [
+      {
+        question: "¿Cómo funciona el servicio si estoy en Pembroke Pines?",
+        answer:
+          "Puedes enviarnos tu material por la nube y nosotros coordinamos la edición de forma 100% remota y continua.",
       },
     ],
   },

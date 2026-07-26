@@ -72,6 +72,11 @@ describe("customer-facing ranking pages", () => {
       "editor-de-video-corto-para-redes-miami",
       "produccion-de-video-palm-beach-county",
       "edicion-de-video-palm-beach-county",
+      "produccion-de-video-doral-miami",
+      "video-inmobiliario-coral-gables",
+      "video-para-yates-y-hospitalidad-fort-lauderdale",
+      "video-corporativo-distrito-financiero-miami",
+      "video-para-pequenos-negocios-pembroke-pines",
     ]) {
       expect(niche).toContain(`"${slug}"`);
     }

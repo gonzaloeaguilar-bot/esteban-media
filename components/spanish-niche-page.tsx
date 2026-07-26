@@ -315,6 +315,71 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
       },
     ],
   },
+  "produccion-de-video-doral-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade y Broward",
+    note: "Servicios de grabación y edición para zona comercial de Doral.",
+    serviceIds: ["videografia", "edicion"],
+    projects: [
+      {
+        href: "/es/portafolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        detail: "Producción comercial y edición.",
+      },
+    ],
+  },
+  "video-inmobiliario-coral-gables": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade y Broward",
+    note: "Edición visual para propiedades de lujo en Coral Gables.",
+    serviceIds: ["edicion"],
+    projects: [
+      {
+        href: "/es/portafolio/homeowners",
+        title: "Homeowners",
+        detail: "Recorridos visuales y edición inmobiliaria.",
+      },
+    ],
+  },
+  "video-para-yates-y-hospitalidad-fort-lauderdale": {
+    areaHref: "/es/areas#broward",
+    areaLabel: "Ver cobertura en Broward",
+    note: "Contenido promocional para marcas marítimas y hospitalidad.",
+    serviceIds: ["edicion", "videografia"],
+    projects: [
+      {
+        href: "/es/portafolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        detail: "Producción de hospitalidad y alimentos.",
+      },
+    ],
+  },
+  "video-corporativo-distrito-financiero-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade",
+    note: "Edición corporativa bilingüe para firmas en Miami.",
+    serviceIds: ["edicion", "planificacion-social"],
+    projects: [
+      {
+        href: "/es/portafolio/my-dler",
+        title: "My D'ler",
+        detail: "Contenido visual de marca corporativa.",
+      },
+    ],
+  },
+  "video-para-pequenos-negocios-pembroke-pines": {
+    areaHref: "/es/areas#broward",
+    areaLabel: "Ver cobertura en Broward",
+    note: "Edición remota para PyMEs en Pembroke Pines y Miramar.",
+    serviceIds: ["edicion"],
+    projects: [
+      {
+        href: "/es/portafolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        detail: "Producción y edición para negocio local.",
+      },
+    ],
+  },
 };
 
 export function buildSpanishNicheMetadata(slug: string): Metadata {
