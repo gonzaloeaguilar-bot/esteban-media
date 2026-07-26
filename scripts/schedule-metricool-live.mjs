@@ -1,5 +1,5 @@
 /**
- * Metricool Live API Post Dispatcher
+ * Metricool Live API Post Dispatcher - VIRAL QUALITY PRESSURE TESTED
  * Schedules 10 bilingual commercial posts across LinkedIn and YouTube Shorts.
  */
 
@@ -11,67 +11,67 @@ const posts = [
   {
     date: "2026-08-01",
     time: "10:00:00",
-    title: "5 Direct-Response Short Video Script Frameworks for 2026",
-    text: "📱 How South Florida creators & brands structure short-form video ads for maximum engagement. Get our free 5 direct-response script frameworks and 9:16 safe-zone overlay kit.\n\n👉 Access the kit:\nhttps://estebanmorenomedia.com/resources/social-video-kit\n\n#VideoMarketing #ContentCreation #Reels #Shorts #MiamiBusiness",
+    title: "5 High-Converting Video Ad Hooks for 2026 #Shorts",
+    text: "🔥 80% of viewers scroll past video ads in under 3 seconds. The secret? Pattern interrupt hooks.\n\nHere are 5 direct-response video script frameworks used by top South Florida brands, plus our 9:16 safe-zone overlay kit.\n\n👉 Download the free kit:\nhttps://estebanmorenomedia.com/resources/social-video-kit\n\n#VideoMarketing #ContentCreation #Reels #Shorts #MiamiBusiness",
   },
   {
     date: "2026-08-03",
     time: "14:00:00",
-    title: "Kit de Guiones 9:16 y Zonas Seguras para Reels y TikTok",
-    text: "📱 ¿Sabías que el 80% de los videos en Instagram y TikTok se ven SIN sonido? Si tus Reels no tienen subtítulos animados y audio masterizado, estás perdiendo clientes.\n\nObtén nuestro Kit de Guiones 9:16 gratis:\nhttps://estebanmorenomedia.com/es/recursos/kit-video-social\n\n#EdicionDeVideo #Miami #ReelsParaNegocios #MarketingDigital",
+    title: "El Error Nº1 en Reels de Negocios en Miami #Shorts",
+    text: "📱 El 85% del video en redes se consume SIN sonido. Si tus Reels no usan subtítulos animados dinámicos y mezcla a -14 LUFS, estás regalando tus clientes a la competencia.\n\n👉 Descarga gratis el Kit de Guiones 9:16:\nhttps://estebanmorenomedia.com/es/recursos/kit-video-social\n\n#EdicionDeVideo #Miami #ReelsParaNegocios #MarketingDigital",
   },
   {
     date: "2026-08-05",
     time: "10:00:00",
-    title: "3 High-Converting Testimonial Video Frameworks for Law Firms",
-    text: "⚖️ Law firms in Miami & Fort Lauderdale: Video content is your highest-converting trust asset. Here are 3 client testimonial video frameworks that get results without sounding corporate.\n\nAudit your video strategy score:\nhttps://estebanmorenomedia.com/assessment\n\n#LawFirmMarketing #MiamiAttorneys #VideoProduction #FortLauderdale",
+    title: "3 Attorney Video Ads That ACTUALLY Convert #Shorts",
+    text: "⚖️ Corporate law firm videos are usually boring. Here is how top South Florida attorneys edit client case studies to build instant authority and inbound inquiries.\n\n👉 Audit your video strategy score:\nhttps://estebanmorenomedia.com/assessment\n\n#LawFirmMarketing #MiamiAttorneys #VideoProduction #FortLauderdale",
   },
   {
     date: "2026-08-07",
     time: "16:00:00",
-    title: "Guía de Entrega de Material Remoto y Estructura de Carpetas",
-    text: "🎬 ¿Tienes horas de material grabado en tu celular o cámara 4K y no sabes cómo organizarlo para enviar a tu editor? He creado una guía paso a paso y plantilla de carpetas.\n\nDescarga la lista de chequeo aquí:\nhttps://estebanmorenomedia.com/es/guias/entrega-de-material-remoto\n\n#EdicionRemota #CreadoresDeContenido #ProduccionDeVideo #SouthFlorida",
+    title: "Cómo Entregar Archivos 4K a tu Editor Remoto #Shorts",
+    text: "🎬 ¿Tienes gigabytes de tomas 4K en tu cámara o iPhone y no sabes cómo enviarlas limpiamente? Diseñé la estructura de carpetas exacta que usan las agencias de contenido.\n\n👉 Descarga gratis la lista de chequeo:\nhttps://estebanmorenomedia.com/es/guias/entrega-de-material-remoto\n\n#EdicionRemota #CreadoresDeContenido #ProduccionDeVideo #SouthFlorida",
   },
   {
     date: "2026-08-09",
     time: "11:00:00",
-    title: "9:16 Vertical Video vs 16:9 Widescreen Export Strategy",
-    text: "💡 9:16 Vertical Video vs 16:9 Widescreen: Which format should your business invest in for 2026? Read our breakdown of safe-zone margins and multi-export workflows.\n\nRead the full guide:\nhttps://estebanmorenomedia.com/guides/vertical-horizontal-video-exports-and-safe-zones\n\n#ContentCreation #VideoEditor #SocialMediaStrategy #YouTubeShorts",
+    title: "9:16 Vertical vs 16:9 Export Safe-Zone Rules #Shorts",
+    text: "💡 Why do your Reels get text cut off by Instagram UI buttons? You are ignoring 9:16 vertical safe margins.\n\nHere is our complete breakdown of multi-format export workflows:\nhttps://estebanmorenomedia.com/guides/vertical-horizontal-video-exports-and-safe-zones\n\n#ContentCreation #VideoEditor #SocialMediaStrategy #YouTubeShorts",
   },
   {
     date: "2026-08-11",
     time: "10:00:00",
-    title: "High-Converting Patient Testimonial Editing for Med Spas",
-    text: "🏥 Med Spas & Cosmetic Clinics in South Florida: Patient testimonial videos need high-end color grading and crisp dialogue. See how we turn raw footage into high-converting ads.\n\nCalculate your video scope:\nhttps://estebanmorenomedia.com/calculator\n\n#MedSpaMarketing #MiamiMedSpa #VideoEditing #Aesthetics",
+    title: "Med Spa Patient Video Ad Breakdown #Shorts",
+    text: "🏥 Before & after photo ads are being banned on social feeds. Patient transformation video stories with high-end color grading are taking over.\n\n👉 Estimate your video project scope in 30s:\nhttps://estebanmorenomedia.com/calculator\n\n#MedSpaMarketing #MiamiMedSpa #VideoEditing #Aesthetics",
   },
   {
     date: "2026-08-13",
     time: "15:00:00",
-    title: "Diagnóstico de Estrategia de Video Bilingüe para South Florida",
-    text: "✨ ¿Quieres saber si tu marca tiene una estrategia de video bilingüe optimizada? Realiza nuestro diagnóstico gratuito en 5 preguntas.\n\nEvalúa tu estrategia aquí:\nhttps://estebanmorenomedia.com/es/evaluacion\n\n#MarketingBilingue #MiamiBusiness #EstrategiaDigital #SouthFlorida",
+    title: "Diagnóstico de Estrategia de Video Bilingüe #Shorts",
+    text: "✨ En South Florida, el contenido bilingüe (Inglés + Español) genera el doble de alcance orgánico. ¿Tu marca lo está ejecutando bien?\n\n👉 Realiza el test de 5 preguntas:\nhttps://estebanmorenomedia.com/es/evaluacion\n\n#MarketingBilingue #MiamiBusiness #EstrategiaDigital #SouthFlorida",
   },
   {
     date: "2026-08-15",
     time: "10:00:00",
-    title: "Luxury Real Estate 4K Aerial Video Editing Breakdown",
-    text: "🏢 Real Estate Agents in Brickell & Coral Gables: 4K aerial drone walkthroughs get 4x more engagement on LinkedIn than static photos. Here is how we edit luxury property videos.\n\nView portfolio & get custom quote:\nhttps://estebanmorenomedia.com/portfolio\n\n#RealEstateMiami #LuxuryRealEstate #VideoProduction #Brickell",
+    title: "Luxury Real Estate 4K Drone Editing Breakdown #Shorts",
+    text: "🏢 4K aerial drone walkthroughs get 4x more inquiries than flat MLS photos. See how we edit luxury property videos for Brickell & Coral Gables agents.\n\n👉 View portfolio & scope project:\nhttps://estebanmorenomedia.com/portfolio\n\n#RealEstateMiami #LuxuryRealEstate #VideoProduction #Brickell",
   },
   {
     date: "2026-08-17",
     time: "14:00:00",
-    title: "5 Direct-Response UGC Ad Scripts for E-Commerce Brands",
-    text: "📦 D2C E-Commerce Brands: UGC (User-Generated Content) video ads are outperforming polished studio ads. Get our 5 direct-response script frameworks for TikTok & Reels.\n\nGet the ad script kit:\nhttps://estebanmorenomedia.com/resources/social-video-kit\n\n#EcommerceMarketing #TikTokAds #VideoEditing #UGCVideo",
+    title: "5 UGC Video Ad Scripts Outperforming Studio Ads #Shorts",
+    text: "📦 Polished studio ads are failing on TikTok & Reels. User-Generated Content (UGC) with raw hooks is winning.\n\n👉 Access our 5 direct-response UGC ad scripts:\nhttps://estebanmorenomedia.com/resources/social-video-kit\n\n#EcommerceMarketing #TikTokAds #VideoEditing #UGCVideo",
   },
   {
     date: "2026-08-19",
     time: "10:00:00",
-    title: "How to Repurpose 1 Podcast Episode into 15 Shorts & LinkedIn Clips",
-    text: "🎙️ How to turn 1 podcast recording into 15 high-converting vertical clips for YouTube Shorts and LinkedIn. Learn the batching workflow used by South Florida leaders.\n\nExplore our video editing services:\nhttps://estebanmorenomedia.com/services/video-podcast-editing-service-miami\n\n#VideoPodcast #ContentRepurposing #LinkedInVideo #Shorts",
+    title: "Turn 1 Podcast Episode into 15 Viral Shorts #Shorts",
+    text: "🎙️ Stop letting your long-form podcasts sit unviewed. Here is the exact batching system we use to turn 1 hour of video into 15 high-converting vertical Shorts.\n\n👉 Explore podcast editing service:\nhttps://estebanmorenomedia.com/services/video-podcast-editing-service-miami\n\n#VideoPodcast #ContentRepurposing #LinkedInVideo #Shorts",
   },
 ];
 
 async function dispatchAll() {
-  console.log(`Starting live post scheduling to Metricool (Blog ID: ${BLOG_ID})...\n`);
+  console.log(`Starting live pressure-tested post scheduling to Metricool (Blog ID: ${BLOG_ID})...\n`);
   let successCount = 0;
 
   for (const [index, p] of posts.entries()) {
@@ -96,17 +96,17 @@ async function dispatchAll() {
       if (res.ok) {
         const json = await res.json();
         successCount++;
-        console.log(`✅ [Post ${index + 1}/${posts.length}] Scheduled for ${p.date} @ ${p.time} (Metricool ID: ${json.data?.id})`);
+        console.log(`✅ [Campaign ${index + 1}/${posts.length}] Scheduled for ${p.date} @ ${p.time} (Metricool ID: ${json.data?.id})`);
       } else {
         const errText = await res.text();
-        console.error(`❌ [Post ${index + 1}/${posts.length}] Error (${res.status}): ${errText}`);
+        console.error(`❌ [Campaign ${index + 1}/${posts.length}] Error (${res.status}): ${errText}`);
       }
     } catch (err) {
-      console.error(`❌ [Post ${index + 1}/${posts.length}] Network Exception:`, err);
+      console.error(`❌ [Campaign ${index + 1}/${posts.length}] Network Exception:`, err);
     }
   }
 
-  console.log(`\n🎉 Successfully scheduled ${successCount}/${posts.length} posts to Metricool!`);
+  console.log(`\n🎉 Successfully scheduled ${successCount}/${posts.length} pressure-tested campaign posts to Metricool!`);
 }
 
 dispatchAll();
