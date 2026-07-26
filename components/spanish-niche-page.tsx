@@ -120,6 +120,19 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
       },
     ],
   },
+  "editor-de-video-real-estate-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade y Broward",
+    note: "El proyecto Homeowners demuestra trabajo publicado de guion y edición para el sector inmobiliario.",
+    serviceIds: ["edicion", "planificacion-social"],
+    projects: [
+      {
+        href: "/es/portafolio/homeowners",
+        title: "Homeowners",
+        detail: "Ejemplo publicado de guion y edición de video para bienes raíces.",
+      },
+    ],
+  },
 };
 
 export function buildSpanishNicheMetadata(slug: string): Metadata {

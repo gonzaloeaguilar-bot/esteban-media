@@ -42,6 +42,7 @@ export const LEGACY_V1_WATCH_URLS = [
 ];
 export const WATCH_URLS = [
   ...LEGACY_V1_WATCH_URLS,
+  "https://estebanmorenomedia.com/es/editor-de-video-real-estate-miami",
   "https://estebanmorenomedia.com/portfolio/my-dler",
   "https://estebanmorenomedia.com/es/portafolio/my-dler",
   "https://estebanmorenomedia.com/portfolio/banacol",
@@ -64,10 +65,16 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/guides/write-a-useful-video-brief",
   "https://estebanmorenomedia.com/guides/vertical-horizontal-video-exports-and-safe-zones",
   "https://estebanmorenomedia.com/guides/remote-video-editing-handoff",
+  "https://estebanmorenomedia.com/guides/how-to-use-instagram-reels-for-business",
+  "https://estebanmorenomedia.com/guides/video-content-ideas-for-restaurants",
+  "https://estebanmorenomedia.com/guides/instagram-reels-ideas-for-real-estate",
   "https://estebanmorenomedia.com/es/guias/preparar-material-para-edicion-de-video",
   "https://estebanmorenomedia.com/es/guias/como-escribir-un-brief-util-de-video",
   "https://estebanmorenomedia.com/es/guias/video-vertical-horizontal-y-zonas-seguras",
   "https://estebanmorenomedia.com/es/guias/entrega-para-edicion-remota-de-video",
+  "https://estebanmorenomedia.com/es/guias/como-usar-instagram-reels-para-tu-negocio",
+  "https://estebanmorenomedia.com/es/guias/ideas-de-contenido-de-video-para-restaurantes",
+  "https://estebanmorenomedia.com/es/guias/ideas-de-reels-para-agentes-de-bienes-raices",
 ];
 
 const WATCH_SET_EXPANSION_SCHEMA =

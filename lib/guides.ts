@@ -8,6 +8,9 @@ export const GUIDE_IDS = [
   "video-brief",
   "formats-and-safe-zones",
   "remote-editing-handoff",
+  "reels-for-business",
+  "restaurant-video-ideas",
+  "real-estate-reels",
 ] as const;
 
 export type GuideId = (typeof GUIDE_IDS)[number];
@@ -487,6 +490,271 @@ const guidePairs: readonly GuidePair[] = [
       ],
     },
   },
+  {
+    id: "reels-for-business",
+    en: {
+      slug: "how-to-use-instagram-reels-for-business",
+      metadataTitle: "Instagram Reels for Business",
+      title: "How to use Instagram Reels for business",
+      description:
+        "A practical guide for business owners to plan, format, and edit short-form Instagram Reels that attract customers without wasting hours on trends.",
+      eyebrow: "Short-form strategy",
+      answer:
+        "Focus each Reel on one clear business message, record clear audio and video, use vertical 9:16 framing, add readable captions, and close with a direct call to action.",
+      proof: {
+        href: "/portfolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        description:
+          "Approved portfolio credits include pre-production, videography, and editing for this project. It is linked as a related short-form video example; nothing published confirms a specific production process.",
+      },
+      sections: [
+        {
+          heading: "Focus on one clear message per Reel",
+          paragraphs: [
+            "Short-form video works best when each piece addresses a single decision, question, or feature. Avoid packing an entire company overview into 30 seconds.",
+            "Start with a strong hook in the first two seconds: show the product in action, state the customer problem, or ask a direct question.",
+          ],
+          bullets: [
+            "One core point or offer per video",
+            "Hook in the first 2 seconds",
+            "Clear vertical 9:16 framing",
+            "On-screen text or auto-captions for silent viewing",
+          ],
+        },
+        {
+          heading: "Record clean audio and intentional visuals",
+          paragraphs: [
+            "Good lighting and clear audio matter more than expensive camera gear. Position yourself near natural light and use a lapel or directional microphone whenever voice is recorded.",
+            "Keep clips moving with quick cuts every 2 to 4 seconds to maintain viewer pacing without overwhelming the message.",
+          ],
+        },
+        {
+          heading: "Include a direct call to action",
+          paragraphs: [
+            "Tell the viewer what step to take next: visit your location, check the link in your bio, or comment for details. A clear call to action connects views to business inquiries.",
+          ],
+        },
+      ],
+    },
+    es: {
+      slug: "como-usar-instagram-reels-para-tu-negocio",
+      metadataTitle: "Instagram Reels para Negocios",
+      title: "Cómo usar Instagram Reels para tu negocio",
+      description:
+        "Guía práctica para planificar, formatear y editar Reels de Instagram en video corto que atraigan clientes sin perder tiempo en tendencias.",
+      eyebrow: "Estrategia de video corto",
+      answer:
+        "Enfoca cada Reel en un mensaje comercial claro, graba audio y video nítidos, usa formato vertical 9:16, agrega subtítulos legibles y cierra con un llamado a la acción directo.",
+      proof: {
+        href: "/es/portafolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        description:
+          "Los créditos aprobados del portafolio incluyen preproducción, videografía y edición para este proyecto. Se enlaza como un ejemplo relacionado de video corto; nada publicado confirma un proceso específico.",
+      },
+      sections: [
+        {
+          heading: "Enfoca un solo mensaje claro por Reel",
+          paragraphs: [
+            "El video corto funciona mejor cuando cada pieza responde a una sola duda, decisión o función. Evita resumir toda la empresa en 30 segundos.",
+            "Comienza con un gancho fuerte en los primeros dos segundos: muestra el producto en acción, menciona la necesidad del cliente o plantea una pregunta directa.",
+          ],
+          bullets: [
+            "Un punto clave u oferta por video",
+            "Gancho en los primeros 2 segundos",
+            "Encuadre vertical 9:16 claro",
+            "Texto en pantalla o subtítulos para reproducción en silencio",
+          ],
+        },
+        {
+          heading: "Graba audio limpio y tomas intencionales",
+          paragraphs: [
+            "La buena iluminación y el audio claro importan más que equipos costosos. Ubícate cerca de luz natural y usa un micrófono lavalier o direccional cuando grabes voz.",
+            "Mantén el ritmo con cortes cada 2 a 4 segundos para sostener la atención sin saturar el mensaje.",
+          ],
+        },
+        {
+          heading: "Incluye un llamado a la acción directo",
+          paragraphs: [
+            "Indica al espectador qué paso dar después: visitar la locación, revisar el enlace en la biografía o comentar para más detalles. Un llamado claro conecta vistas con consultas reales.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "restaurant-video-ideas",
+    en: {
+      slug: "video-content-ideas-for-restaurants",
+      metadataTitle: "Video Content Ideas for Restaurants",
+      title: "Video content ideas that bring customers to your restaurant",
+      description:
+        "Simple, high-impact video ideas for restaurants, bars, and food brands in South Florida to showcase dishes, atmosphere, and behind-the-scenes preparation.",
+      eyebrow: "Restaurant video marketing",
+      answer:
+        "Show high-quality close-ups of signature dishes, capture peak atmosphere, introduce your culinary team, and highlight seasonal specials or customer favorites.",
+      proof: {
+        href: "/portfolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        description:
+          "Approved credits list promotional video and social content for this restaurant project. It is linked as a related industry example; the portfolio does not publish private client briefs.",
+      },
+      sections: [
+        {
+          heading: "Showcase signature dish preparation",
+          paragraphs: [
+            "Close-up video of sizzling food, plating, and fresh ingredients performs exceptionally well on Instagram and TikTok. Focus on sensory details like steam, crunch, and sauce pours.",
+          ],
+          bullets: [
+            "Signature dish close-ups and plating",
+            "Chef's special or house creation backstory",
+            "Cocktail preparation and pouring",
+            "Customer reaction and table atmosphere",
+          ],
+        },
+        {
+          heading: "Capture peak dining atmosphere",
+          paragraphs: [
+            "Show prospective diners what it feels like to visit during busy evening service or weekend brunch. Natural lighting and ambient sound bring the space to life.",
+          ],
+        },
+        {
+          heading: "Highlight weekly specials and events",
+          paragraphs: [
+            "Create short, reusable 15-second templates to announce Happy Hour, weekend specials, or private dining availability.",
+          ],
+        },
+      ],
+    },
+    es: {
+      slug: "ideas-de-contenido-de-video-para-restaurantes",
+      metadataTitle: "Ideas de Video para Restaurantes",
+      title: "Ideas de contenido en video para atraer clientes a tu restaurante",
+      description:
+        "Ideas sencillas y de alto impacto en video para restaurantes, bares y marcas gastronómicas en South Florida para destacar platos, ambiente y preparación.",
+      eyebrow: "Marketing en video para restaurantes",
+      answer:
+        "Muestra primeros planos de platos estrella, captura el ambiente en horas concurridas, presenta al equipo de cocina y destaca ofertas o especialidades de la casa.",
+      proof: {
+        href: "/es/portafolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        description:
+          "Los créditos aprobados registran video promocional y contenido social para este restaurante. Se enlaza como un ejemplo relacionado del sector; el portafolio no publica briefs privados de clientes.",
+      },
+      sections: [
+        {
+          heading: "Destaca la preparación de tus platos estrella",
+          paragraphs: [
+            "Los videos en primer plano de comida recién servida, el emplatado y los ingredientes frescos funcionan muy bien en Instagram y TikTok. Enfócate en detalles sensoriales como vapor, texturas y salsas.",
+          ],
+          bullets: [
+            "Primeros planos de platos estrella y emplatado",
+            "Historia detrás del plato del chef o especialidad",
+            "Preparación de cocteles y servicio de bebidas",
+            "Reacciones de clientes y ambiente en mesa",
+          ],
+        },
+        {
+          heading: "Captura el ambiente real en horas concurridas",
+          paragraphs: [
+            "Muestra a los futuros comensales cómo se siente visitar el restaurante durante la cena o el brunch del fin de semana. La luz adecuada y el ambiente real dan vida al espacio.",
+          ],
+        },
+        {
+          heading: "Resalta promociones semanales y eventos",
+          paragraphs: [
+            "Crea plantillas cortas de 15 segundos para anunciar el Happy Hour, platillos de temporada o la disponibilidad de salones privados.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "real-estate-reels",
+    en: {
+      slug: "instagram-reels-ideas-for-real-estate",
+      metadataTitle: "Instagram Reels for Real Estate",
+      title: "Instagram Reels ideas for real estate agents",
+      description:
+        "Effective short-form video ideas for real estate agents in South Florida to showcase property walkthroughs, neighborhood highlights, and buyer tips.",
+      eyebrow: "Real estate video strategy",
+      answer:
+        "Highlight top property features in 15–30 second vertical tours, share quick homebuyer tips, and feature local neighborhood highlights to build agent authority.",
+      proof: {
+        href: "/portfolio/homeowners",
+        title: "Homeowners",
+        description:
+          "Approved editing credits cover real estate video post-production. It is linked as a relevant editing sample; nothing published confirms a specific file handoff or template.",
+      },
+      sections: [
+        {
+          heading: "Create high-impact property walkthroughs",
+          paragraphs: [
+            "Open with the single best feature of the property (e.g., waterfront view, chef's kitchen, or master suite) rather than the front door. Keep clips under 3 seconds per room.",
+          ],
+          bullets: [
+            "Feature-first property tours (15-30s)",
+            "Local neighborhood spotlights and amenities",
+            "First-time buyer tip of the week",
+            "Market stats presented simply",
+          ],
+        },
+        {
+          heading: "Share educational homebuyer and seller advice",
+          paragraphs: [
+            "Answer one common buyer or seller question per video (e.g., closing cost surprises, inspection tips, or staging mistakes). Position yourself as the trusted local expert.",
+          ],
+        },
+        {
+          heading: "Feature local neighborhood guides",
+          paragraphs: [
+            "Showcase local coffee shops, parks, and dining spots near your active listings. Buyers invest in the lifestyle, not just the square footage.",
+          ],
+        },
+      ],
+    },
+    es: {
+      slug: "ideas-de-reels-para-agentes-de-bienes-raices",
+      metadataTitle: "Reels de Instagram para Real Estate",
+      title: "Ideas de Reels de Instagram para agentes de bienes raíces",
+      description:
+        "Ideas de video corto efectivas para agentes inmobiliarios en South Florida para mostrar recorridos de propiedades, vecindarios y consejos de compra.",
+      eyebrow: "Estrategia de video para real estate",
+      answer:
+        "Muestra lo mejor de cada propiedad en recorridos verticales de 15 a 30 segundos, comparte consejos rápidos para compradores y resalta atractivos del vecindario.",
+      proof: {
+        href: "/es/portafolio/homeowners",
+        title: "Homeowners",
+        description:
+          "Los créditos aprobados de edición cubren postproducción de video para real estate. Se enlaza como una muestra de edición relacionada; nada publicado confirma una plantilla específica.",
+      },
+      sections: [
+        {
+          heading: "Crea recorridos de propiedades de alto impacto",
+          paragraphs: [
+            "Abre con la mejor característica de la propiedad (vista al agua, cocina equipada o suite principal) en lugar de la puerta de entrada. Mantén clips de menos de 3 segundos por espacio.",
+          ],
+          bullets: [
+            "Recorridos enfocados en lo mejor del inmueble (15-30s)",
+            "Destacados del vecindario y comercios cercanos",
+            "Consejo semanal para compradores primerizos",
+            "Datos del mercado explicados de forma simple",
+          ],
+        },
+        {
+          heading: "Comparte consejos para compradores y vendedores",
+          paragraphs: [
+            "Responde una duda frecuente por video (gastos de cierre, inspecciones o errores de preparación). Posiciónate como el experto local de confianza.",
+          ],
+        },
+        {
+          heading: "Publica guías del vecindario local",
+          paragraphs: [
+            "Muestra cafeterías, parques y restaurantes cerca de tus propiedades activas. Los compradores eligen el estilo de vida, no solo los metros cuadrados.",
+          ],
+        },
+      ],
+    },
+  },
 ];
 
 export const guidesIndexCopy = {
@@ -494,7 +762,7 @@ export const guidesIndexCopy = {
     path: "/guides",
     metadataTitle: "Practical Video Production Guides",
     description:
-      "Four practical guides for preparing footage, writing a video brief, choosing export formats, and handing off a remote video edit.",
+      "Practical guides for preparing footage, writing a video brief, choosing export formats, social Reels, restaurant marketing, and real estate video strategy.",
     breadcrumbHome: "Home",
     breadcrumbCurrent: "Guides",
     breadcrumbLabel: "Breadcrumb",

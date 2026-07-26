@@ -374,6 +374,47 @@ export const spanishNichePages: SpanishNichePage[] = [
       },
     ],
   },
+  {
+    slug: "editor-de-video-real-estate-miami",
+    title: "Editor de video para real estate en Miami",
+    metadataTitle: "Editor de Video Real Estate en Miami",
+    description:
+      "Información sobre edición remota y producción selectiva de video para agentes inmobiliarios y marcas de real estate en South Florida.",
+    eyebrow: "Real Estate / Bienes Raíces",
+    h1: "Edición de video y Reels para real estate en South Florida.",
+    lead:
+      "La edición de video y contenido para redes es una prioridad confirmada de Esteban. Ayudamos a agentes y agencias inmobiliarias a estructurar recorridos y videos de propiedades a partir de su material grabado.",
+    keyword: "editor de video para real estate",
+    location: "South Florida / Miami-Dade / Broward",
+    availability: "confirmed",
+    icon: Home,
+    bestFor: [
+      "Agentes de bienes raíces con tomas de propiedades listas para editar.",
+      "Inmobiliarias que buscan publicar Reels y recorridos verticales con consistencia.",
+      "Equipos que prefieren comunicar requerimientos y edición en español.",
+      "Proyectos que requieren postproducción remota estructurada.",
+    ],
+    scopingQuestions: [
+      "¿Ya tienes las tomas de la propiedad grabadas?",
+      "¿Qué formato y canal de publicación necesitas (Reels 9:16, YouTube 16:9)?",
+      "¿Requieres subtítulos, gráficos de marca o música de fondo?",
+      "¿Cuál es la fecha límite para la publicación del inmueble?",
+    ],
+    projectFit:
+      "Esta ruta conecta prioridades de edición remota con trabajo publicado de bienes raíces. No garantiza vuelos con drone ni tomas aéreas a menos que se confirmen de forma independiente.",
+    faqs: [
+      {
+        question: "¿Se incluye edición para Instagram Reels y TikTok?",
+        answer:
+          "Sí. Editamos material en formato vertical 9:16 optimizado para Reels, Shorts y TikTok con subtítulos legibles y cortes dinámicos.",
+      },
+      {
+        question: "¿Esta página incluye tomas con drone?",
+        answer:
+          "No. El servicio aéreo sigue pendiente de confirmación. Esta página se enfoca en edición remota de video para bienes raíces.",
+      },
+    ],
+  },
 ];
 
 export const spanishCoreRoutes = [

@@ -9,7 +9,7 @@ export default defineConfig({
       "**/*.test.ts",
       "**/*.test.mjs",
     ],
-    exclude: ["node_modules", ".next", "dist"],
+    exclude: ["node_modules", "**/node_modules/**", ".next", ".claude", "dist"],
   },
   css: {
     // Tailwind v4 PostCSS plugin (@tailwindcss/postcss) is ESM-only and

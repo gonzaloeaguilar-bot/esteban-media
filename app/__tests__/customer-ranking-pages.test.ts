@@ -57,6 +57,7 @@ describe("customer-facing ranking pages", () => {
       "reels-para-negocios-miami",
       "video-para-restaurantes-miami",
       "drone-real-estate-miami",
+      "editor-de-video-real-estate-miami",
     ]) {
       expect(niche).toContain(`"${slug}"`);
     }

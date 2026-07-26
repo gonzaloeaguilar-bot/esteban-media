@@ -12,18 +12,24 @@ import {
 import { metadata as spanishIndexMetadata } from "../(spanish)/es/guias/page";
 
 describe("guide routes", () => {
-  it("pre-renders four localized detail routes in each language", () => {
+  it("pre-renders seven localized detail routes in each language", () => {
     expect(generateEnglishParams()).toEqual([
       { slug: "prepare-footage-for-video-editing" },
       { slug: "write-a-useful-video-brief" },
       { slug: "vertical-horizontal-video-exports-and-safe-zones" },
       { slug: "remote-video-editing-handoff" },
+      { slug: "how-to-use-instagram-reels-for-business" },
+      { slug: "video-content-ideas-for-restaurants" },
+      { slug: "instagram-reels-ideas-for-real-estate" },
     ]);
     expect(generateSpanishParams()).toEqual([
       { slug: "preparar-material-para-edicion-de-video" },
       { slug: "como-escribir-un-brief-util-de-video" },
       { slug: "video-vertical-horizontal-y-zonas-seguras" },
       { slug: "entrega-para-edicion-remota-de-video" },
+      { slug: "como-usar-instagram-reels-para-tu-negocio" },
+      { slug: "ideas-de-contenido-de-video-para-restaurantes" },
+      { slug: "ideas-de-reels-para-agentes-de-bienes-raices" },
     ]);
   });
 
