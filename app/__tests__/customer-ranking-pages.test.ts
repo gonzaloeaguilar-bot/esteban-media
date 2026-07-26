@@ -77,6 +77,12 @@ describe("customer-facing ranking pages", () => {
       "video-para-yates-y-hospitalidad-fort-lauderdale",
       "video-corporativo-distrito-financiero-miami",
       "video-para-pequenos-negocios-pembroke-pines",
+      "marketing-de-video-para-cirugia-plastica-miami",
+      "fotografia-de-joyas-y-lujo-miami",
+      "marketing-de-video-para-gimnasios-miami",
+      "videografo-para-eventos-corporativos-miami",
+      "marketing-de-video-automotriz-miami",
+      "produccion-de-video-para-hoteles-miami",
     ]) {
       expect(niche).toContain(`"${slug}"`);
     }

@@ -239,7 +239,7 @@ describe("Search Console index watch", () => {
   it("keeps the fixed watch set identical to the application sitemap", () => {
     const urls = sitemap().map((entry) => entry.url).sort();
 
-    expect(WATCH_URLS).toHaveLength(99);
+    expect(WATCH_URLS).toHaveLength(111);
     expect([...WATCH_URLS].sort()).toEqual(urls);
     expect(validateWatchedSitemap(urls).hash).toBe(watchedUrlHash());
   });

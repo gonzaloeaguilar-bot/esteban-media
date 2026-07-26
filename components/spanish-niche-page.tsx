@@ -380,6 +380,84 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
       },
     ],
   },
+  "marketing-de-video-para-cirugia-plastica-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade",
+    note: "Edición confidencial para clínicas de cirugía plástica en Miami.",
+    serviceIds: ["edicion", "planificacion-social"],
+    projects: [
+      {
+        href: "/es/portafolio/my-dler",
+        title: "My D'ler",
+        detail: "Estrategia visual estética.",
+      },
+    ],
+  },
+  "fotografia-de-joyas-y-lujo-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade",
+    note: "Visuales de alta resolución asistidos por IA para joyería de lujo.",
+    serviceIds: ["contenido-ia"],
+    projects: [
+      {
+        href: "/es/portafolio/my-dler",
+        title: "My D'ler",
+        detail: "Imágenes comerciales y retoque.",
+      },
+    ],
+  },
+  "marketing-de-video-para-gimnasios-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade y Broward",
+    note: "Edición de alto ritmo para gimnasios y centros de entrenamiento.",
+    serviceIds: ["edicion", "planificacion-social"],
+    projects: [
+      {
+        href: "/es/portafolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        detail: "Producción y cortes dinámicos.",
+      },
+    ],
+  },
+  "videografo-para-eventos-corporativos-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade",
+    note: "Cobertura de eventos corporativos y edición de resúmenes.",
+    serviceIds: ["videografia", "edicion"],
+    projects: [
+      {
+        href: "/es/portafolio/my-dler",
+        title: "My D'ler",
+        detail: "Grabación corporativa.",
+      },
+    ],
+  },
+  "marketing-de-video-automotriz-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade y Broward",
+    note: "Edición estilo cinematográfico para autos de lujo y detailing.",
+    serviceIds: ["edicion"],
+    projects: [
+      {
+        href: "/es/portafolio/homeowners",
+        title: "Homeowners",
+        detail: "Corrección de color cinematográfica.",
+      },
+    ],
+  },
+  "produccion-de-video-para-hoteles-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade",
+    note: "Producción y edición promocional para hoteles y resorts.",
+    serviceIds: ["videografia", "edicion"],
+    projects: [
+      {
+        href: "/es/portafolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        detail: "Producción de hospitalidad.",
+      },
+    ],
+  },
 };
 
 export function buildSpanishNicheMetadata(slug: string): Metadata {

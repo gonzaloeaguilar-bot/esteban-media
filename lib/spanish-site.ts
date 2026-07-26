@@ -1044,6 +1044,198 @@ export const spanishNichePages: SpanishNichePage[] = [
       },
     ],
   },
+  {
+    slug: "marketing-de-video-para-cirugia-plastica-miami",
+    title: "Marketing de video para cirugía plástica en Miami",
+    metadataTitle: "Video Cirugía Plástica Miami",
+    description:
+      "Edición de video confidencial y elegante para clínicas de cirugía plástica y medicina estética en Miami.",
+    eyebrow: "Cirugía Plástica / Estética",
+    h1: "Marketing de video para cirujanos plásticos en Miami.",
+    lead:
+      "Editamos videos explicativos, testimoniales de pacientes y contenido educativo para cirujanos plásticos y centros quirúrgicos en Miami.",
+    keyword: "video para cirugía plástica en Miami",
+    location: "Miami / Coral Gables",
+    availability: "confirmed",
+    icon: Video,
+    bestFor: [
+      "Cirujanos plásticos y clínicas de medicina estética en Miami.",
+      "Centros quirúrgicos que buscan educar a pacientes potenciales.",
+    ],
+    scopingQuestions: [
+      "¿El video se enfocará en consultas, explicaciones médicas o instalaciones?",
+      "¿Cuentas con consentimiento de pacientes para testimoniales?",
+    ],
+    projectFit:
+      "Edición estética de alta confidencialidad y elegancia visual.",
+    faqs: [
+      {
+        question: "¿Mantienen privacidad estricta en el manejo de grabaciones?",
+        answer:
+          "Absolutamente. Todo el material clínico se procesa mediante almacenamiento cifrado con total confidencialidad.",
+      },
+    ],
+  },
+  {
+    slug: "fotografia-de-joyas-y-lujo-miami",
+    title: "Fotografía de joyas y productos de lujo en Miami",
+    metadataTitle: "Fotografía Joyas Lujo Miami",
+    description:
+      "Fotografía asistida por IA y retoque comercial para joyería, relojes y artículos de lujo en Miami.",
+    eyebrow: "Joyería / Marca de Lujo",
+    h1: "Fotografía de productos de lujo y joyería en Miami.",
+    lead:
+      "Generamos imágenes comerciales hiperrealistas y retoque de alta resolución para marcas de joyas, relojes y lujo en Miami.",
+    keyword: "fotografía de joyas en Miami",
+    location: "Miami / Doral",
+    availability: "confirmed",
+    icon: Camera,
+    bestFor: [
+      "Joyeros, diseñadores y marcas de artículos de lujo.",
+      "Tiendas e-commerce de joyería fina en South Florida.",
+    ],
+    scopingQuestions: [
+      "¿Deseas fotografía macro en estudio o generación de escenarios de lujo con IA?",
+      "¿En qué resolución e-commerce requieres las imágenes?",
+    ],
+    projectFit:
+      "Imágenes de producto impecables optimizadas con herramientas de IA.",
+    faqs: [
+      {
+        question: "¿Se pueden crear fondos de lujo con IA sin enviar la pieza física?",
+        answer:
+          "Sí. Con fotografías base nítidas de la joya, podemos componer fondos e iluminación de nivel editorial utilizando IA.",
+      },
+    ],
+  },
+  {
+    slug: "marketing-de-video-para-gimnasios-miami",
+    title: "Marketing de video para gimnasios y fitness en Miami",
+    metadataTitle: "Video Fitness Gimnasios Miami",
+    description:
+      "Edición de video dinámico y promocionales para gimnasios, estudios de pilates y entrenadores en Miami.",
+    eyebrow: "Fitness / Gimnasios",
+    h1: "Videos dinámicos para gimnasios y centros de entrenamiento.",
+    lead:
+      "Edición de alto impacto y cortes para redes sociales diseñados para captar nuevos miembros en gimnasios y centros fitness de Miami.",
+    keyword: "video para gimnasios en Miami",
+    location: "Miami-Dade / Broward",
+    availability: "confirmed",
+    icon: Video,
+    bestFor: [
+      "Gimnasios, boxes de CrossFit y estudios de Pilates en Miami.",
+      "Entrenadores personales que buscan construir su marca en redes sociales.",
+    ],
+    scopingQuestions: [
+      "¿Deseas promocionar instalaciones, entrenamientos o testimoniales de alumnos?",
+      "¿El video irá destinado a Reels de Instagram o anuncios pagados?",
+    ],
+    projectFit:
+      "Edición rítmica con música de alta energía y títulos dinámicos.",
+    faqs: [
+      {
+        question: "¿Incluyen música libre de derechos para redes sociales?",
+        answer:
+          "Sí. Seleccionamos pistas musicales comerciales licenciadas sin riesgo de bloqueo en plataformas digitales.",
+      },
+    ],
+  },
+  {
+    slug: "videografo-para-eventos-corporativos-miami",
+    title: "Videógrafo para eventos corporativos en Miami",
+    metadataTitle: "Video Eventos Corporativos Miami",
+    description:
+      "Grabación en sitio y edición de resumen de eventos corporativos, conferencias y exposiciones en Miami.",
+    eyebrow: "Eventos Corporativos",
+    h1: "Cobertura en video y resumen de eventos corporativos en Miami.",
+    lead:
+      "Captura en video y edición rápida de recaps para convenciones, lanzamientos de marca y conferencias en Miami.",
+    keyword: "video de eventos corporativos en Miami",
+    location: "Miami Convention Center / Downtown Miami",
+    availability: "confirmed",
+    icon: Camera,
+    bestFor: [
+      "Empresas que organizan conferencias o convenciones en Miami.",
+      "Marcas corporativas que requieren un video resumen (aftermovie) de su evento.",
+    ],
+    scopingQuestions: [
+      "¿El evento es de un solo día o de varios días de duración?",
+      "¿Requieres entrega de resumen rápido durante el evento?",
+    ],
+    projectFit:
+      "Cobertura limpia y profesional coordinada con la agenda de tu evento.",
+    faqs: [
+      {
+        question: "¿Pueden entregar un teaser el mismo día del evento?",
+        answer:
+          "Sí. Ofrecemos servicio de edición rápida el mismo día para publicar actualizaciones inmediatas en redes sociales.",
+      },
+    ],
+  },
+  {
+    slug: "marketing-de-video-automotriz-miami",
+    title: "Marketing de video automotriz en Miami",
+    metadataTitle: "Video Automotriz Miami",
+    description:
+      "Edición de video cinematográfico para concesionarios, talleres de detailing y vehículos de lujo en Miami.",
+    eyebrow: "Automotriz / Detailing",
+    h1: "Videos de vehículos de alto nivel y servicios automotrices.",
+    lead:
+      "Resaltamos el diseño y acabado de autos exóticos, servicios de detailing y ventas en concesionarios con ediciones en video de estilo cinematográfico.",
+    keyword: "video automotriz en Miami",
+    location: "Miami / Fort Lauderdale",
+    availability: "confirmed",
+    icon: Video,
+    bestFor: [
+      "Talleres de auto detailing y protección de pintura (PPF).",
+      "Concesionarios de autos exóticos y de lujo en South Florida.",
+    ],
+    scopingQuestions: [
+      "¿Dispones de tomas detalladas de interiores y exteriores del auto?",
+      "¿El objetivo es ventas directas o engagement en redes sociales?",
+    ],
+    projectFit:
+      "Corrección de color y diseño de sonido de alta fidelidad automotriz.",
+    faqs: [
+      {
+        question: "¿Se puede agregar diseño de sonido de motores?",
+        answer:
+          "Sí. Realzamos la experiencia auditiva del video con efectos de sonido de motor y ambiente profesionales.",
+      },
+    ],
+  },
+  {
+    slug: "produccion-de-video-para-hoteles-miami",
+    title: "Producción de video para hoteles y hospitalidad en Miami",
+    metadataTitle: "Video Hoteles Hospitalidad Miami",
+    description:
+      "Videos promocionales, recorridos de suites y contenido de experiencia de huésped para hoteles en Miami.",
+    eyebrow: "Hoteles / Hospitalidad",
+    h1: "Videos promocionales para hoteles y resorts en Miami.",
+    lead:
+      "Captura visual y edición refinada para mostrar las instalaciones, amenidades y experiencia gastronómica de hoteles en Miami y South Beach.",
+    keyword: "video para hoteles en Miami",
+    location: "Miami Beach / South Florida",
+    availability: "confirmed",
+    icon: Building2,
+    bestFor: [
+      "Boutique hoteles, resorts y propiedades de hospitalidad.",
+      "Grupos hoteleros que necesitan videos para su sitio web y redes sociales.",
+    ],
+    scopingQuestions: [
+      "¿El video abarcará habitaciones, piscina, restaurante o todo el complejo?",
+      "¿En qué plataformas digitales se publicará?",
+    ],
+    projectFit:
+      "Calidad cinematográfica que transmite lujo y hospitalidad.",
+    faqs: [
+      {
+        question: "¿Producen versiones optimizadas para Instagram y sitio web?",
+        answer:
+          "Sí. Entregamos la versión horizontal para el sitio web y adaptaciones verticales para Reels y Stories.",
+      },
+    ],
+  },
 ];
 
 export const spanishCoreRoutes = [
