@@ -184,7 +184,7 @@ export const PORTFOLIO_ITEMS: readonly PortfolioItem[] = [
     creditsI18nKey: "titanforge",
     year: 2026,
     location: "South Florida",
-    websiteUrl: "https://titanforgeapp.com",
+    websiteUrl: "https://titanforgefit.com/",
     featured: true,
     status: "live",
     media: {

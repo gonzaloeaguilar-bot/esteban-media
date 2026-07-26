@@ -59,13 +59,13 @@
         ]
       },
       "gains-from-geebs": {
-        "title": "Gains From Geebs Web App & AI Bot",
-        "summary": "An interactive fitness platform and conversational AI DM bot designed for instant fitness coaching inquiries, workout plan selection, and 24/7 lead qualification.",
-        "credits": "Web application engineering, interactive fitness calculators, and custom AI coaching chatbot.",
+        "title": "Gains From Geebs Web App & Instagram DM AI Bot",
+        "summary": "An interactive fitness platform and conversational Instagram (IG) DM AI bot designed for instant fitness coaching inquiries, workout plan selection, and 24/7 lead qualification.",
+        "credits": "Web application engineering, interactive fitness calculators, and custom Instagram DM (IG DM) coaching chatbot.",
         "results": [
           { "metric": "3.5x", "label": "Increase in Daily Calculator Engagement" },
           { "metric": "+180%", "label": "Direct DM Coaching Inquiries" },
-          { "metric": "24/7", "label": "Automated Fitness Lead Capture" }
+          { "metric": "24/7", "label": "Automated Instagram DM Lead Capture" }
         ]
       },
       "front-line-auto": {
@@ -89,9 +89,9 @@
         ]
       },
       "gonzalo-tech-chatbots": {
-        "title": "Conversational AI Lead Chatbots (Geebs & FLAS)",
-        "summary": "Custom 24/7 conversational AI chatbots built for Geebs and Fort Lauderdale Auto Sale (FLAS) to automate customer inquiries, pre-qualify leads, and drive instant conversions.",
-        "credits": "AI chatbot architecture, custom prompt engineering, and automated lead capture systems.",
+        "title": "Conversational AI Lead Chatbots (Geebs IG DM Bot & FLAS)",
+        "summary": "Custom 24/7 conversational AI chatbots built for Geebs (Instagram DM Bot) and Fort Lauderdale Auto Sale (FLAS) to automate customer inquiries, pre-qualify leads, and drive instant conversions.",
+        "credits": "AI chatbot architecture, Instagram DM automation, custom prompt engineering, and automated lead capture systems.",
         "results": [
           { "metric": "4.8x", "label": "Lead Capture vs Static Contact Forms" },
           { "metric": "$0", "label": "Ad Budget Wasted on Unqualified Leads" },

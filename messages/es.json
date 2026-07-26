@@ -62,13 +62,13 @@
         ]
       },
       "gains-from-geebs": {
-        "title": "Gains From Geebs Web App y Bot de IA",
-        "summary": "Plataforma web interactiva de fitness y bot conversacional de IA diseñado para atender consultas sobre planes de entrenamiento, nutrición y calificación de prospectos 24/7.",
-        "credits": "Ingeniería de aplicaciones web, calculadoras fitness y chatbot de IA conversacional.",
+        "title": "Gains From Geebs Web App y Bot de IA para Instagram DM",
+        "summary": "Plataforma web interactiva de fitness y bot conversacional de IA para Instagram DM (IG DM) diseñado para atender consultas sobre planes de entrenamiento, nutrición y calificación de prospectos 24/7.",
+        "credits": "Ingeniería de aplicaciones web, calculadoras fitness y chatbot de IA conversacional para Instagram DM.",
         "results": [
           { "metric": "3.5x", "label": "Incremento en Uso Diario de Calculadoras" },
-          { "metric": "+180%", "label": "Consultas Directas de Coaching por Mensaje" },
-          { "metric": "24/7", "label": "Captura Automatizada de Prospectos" }
+          { "metric": "+180%", "label": "Consultas Directas de Coaching por Mensaje (IG DM)" },
+          { "metric": "24/7", "label": "Captura Automatizada de Prospectos por IG DM" }
         ]
       },
       "front-line-auto": {
@@ -92,9 +92,9 @@
         ]
       },
       "gonzalo-tech-chatbots": {
-        "title": "Chatbots de IA Conversacionales (Casos Geebs y FLAS)",
-        "summary": "Chatbots de IA conversacional 24/7 desarrollados a la medida para Geebs y Fort Lauderdale Auto Sale (FLAS) para automatizar atención al cliente, calificar prospectos y cerrar citas.",
-        "credits": "Arquitectura de bots de IA, ingeniería de prompts y sistemas de captura de clientes.",
+        "title": "Chatbots de IA Conversacionales (Geebs IG DM Bot y FLAS)",
+        "summary": "Chatbots de IA conversacional 24/7 desarrollados a la medida para Geebs (Bot para Instagram DM) y Fort Lauderdale Auto Sale (FLAS) para automatizar atención al cliente, calificar prospectos y cerrar citas.",
+        "credits": "Arquitectura de bots de IA, automatización para Instagram DM, ingeniería de prompts y captura de clientes.",
         "results": [
           { "metric": "4.8x", "label": "Captura de Clientes vs Formularios Estáticos" },
           { "metric": "$0", "label": "Presupuesto Desperdiciado en Leads Fríos" },
