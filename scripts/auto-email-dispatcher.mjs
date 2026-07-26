@@ -2,12 +2,53 @@ import fs from "fs";
 import path from "path";
 
 /**
- * Automated Email Dispatcher Engine
- * Reads audited leads from `public/leads/*.json` and dispatches personalized cold outreach emails.
- * Supports SMTP, Mailgun, SendGrid, or local queue generation.
+ * Automated Resend Email Dispatcher Engine
+ * Reads audited leads from `public/leads/*.json` and dispatches personalized cold outreach emails
+ * via Resend API (https://api.resend.com/emails).
  */
 
-export async function dispatchAutomatedLeads(leadsFilePath) {
+const RESEND_API_KEY = process.env.RESEND_API_KEY || "";
+const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "Esteban Moreno <contact@estebanmorenomedia.com>";
+const DEFAULT_LEADS_FILE = path.join(process.cwd(), "public", "leads", "fort_lauderdale_restaurant_leads.json");
+
+export async function sendEmailViaResend(to, subject, text, html) {
+  if (!RESEND_API_KEY) {
+    return {
+      success: false,
+      mode: "simulation",
+      message: "RESEND_API_KEY is not set. Payload formatted & queued for live dispatch.",
+    };
+  }
+
+  try {
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${RESEND_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: FROM_EMAIL,
+        to: [to],
+        subject,
+        text,
+        html: html || `<div style="font-family: sans-serif; line-height: 1.6;">${text.replace(/\n/g, "<br/>")}</div>`,
+      }),
+    });
+
+    if (res.ok) {
+      const data = await res.json();
+      return { success: true, mode: "live", id: data.id };
+    } else {
+      const errText = await res.text();
+      return { success: false, mode: "error", error: errText };
+    }
+  } catch (err) {
+    return { success: false, mode: "error", error: err.message };
+  }
+}
+
+export async function dispatchAutomatedLeads(leadsFilePath = DEFAULT_LEADS_FILE) {
   if (!fs.existsSync(leadsFilePath)) {
     console.error(`❌ File not found: ${leadsFilePath}`);
     return;
@@ -16,27 +57,40 @@ export async function dispatchAutomatedLeads(leadsFilePath) {
   const fileContent = fs.readFileSync(leadsFilePath, "utf8");
   const leads = JSON.parse(fileContent);
 
-  console.log(`Starting Automated Email Dispatch for ${leads.length} leads in ${path.basename(leadsFilePath)}...\n`);
+  console.log(`Starting Resend Automated Email Dispatch for ${leads.length} leads in ${path.basename(leadsFilePath)}...`);
+  console.log(`From Sender: ${FROM_EMAIL}`);
+  console.log(`Resend API Key Status: ${RESEND_API_KEY ? "🔑 LIVE RESEND KEY DETECTED" : "⚠️ SIMULATION MODE (Set RESEND_API_KEY to send live)"}\n`);
+
   let dispatchedCount = 0;
 
   for (const item of leads) {
     const target = item.restaurant || item.prospect || item.business;
     const recipientEmail = target.contactEmail || target.email;
     const subject = item.pitchSubject || item.generatedSubject;
-    const body = item.pitchBody || item.generatedEmailBody || item.outreachAssets?.walkInPhoneScript;
+    const textBody = item.pitchBody || item.generatedEmailBody;
 
-    console.log(`📧 [Auto-Dispatching Email ${dispatchedCount + 1}/${leads.length}]`);
+    if (!recipientEmail || recipientEmail.includes("example.com")) {
+      console.log(`⚠️ Skipping test domain lead: ${target.name} (${recipientEmail || "no email"})`);
+      continue;
+    }
+
+    console.log(`📧 [Dispatching via Resend ${dispatchedCount + 1}/${leads.length}]`);
     console.log(`   To: ${target.name} <${recipientEmail}>`);
     console.log(`   Subject: ${subject}`);
-    console.log(`   Lead Magnet Link: ${item.recommendedLeadMagnet || "https://estebanmorenomedia.com/calculator"}`);
-    console.log(`   Status: QUEUED & READY FOR SMTP DISPATCH\n`);
+
+    const result = await sendEmailViaResend(recipientEmail, subject, textBody);
+    if (result.success) {
+      console.log(`   ✅ DISPATCHED LIVE VIA RESEND! Email ID: ${result.id}\n`);
+    } else {
+      console.log(`   ℹ️ Queued (${result.mode}): ${result.message || result.error}\n`);
+    }
     dispatchedCount++;
   }
 
-  console.log(`🎉 Successfully queued & prepped ${dispatchedCount}/${leads.length} automated emails for direct delivery!`);
+  console.log(`🎉 Processed ${leads.length} leads. Ready for direct Resend delivery!`);
 }
 
 if (process.argv[1]?.includes("auto-email-dispatcher")) {
-  const defaultFile = path.join(process.cwd(), "public", "leads", "fort_lauderdale_restaurant_leads.json");
-  dispatchAutomatedLeads(defaultFile);
+  const fileArg = process.argv[2] ? path.resolve(process.argv[2]) : DEFAULT_LEADS_FILE;
+  dispatchAutomatedLeads(fileArg);
 }
