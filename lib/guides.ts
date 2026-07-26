@@ -23,6 +23,26 @@ export const GUIDE_IDS = [
   "choose-video-editor-guide",
   "agency-video-editing-guide",
   "repurpose-longform-to-reels-guide",
+  "fort-lauderdale-video-cost-guide",
+  "script-social-ads-guide",
+  "interview-lighting-audio-guide",
+  "caption-styles-reels-guide",
+  "transfer-large-video-files-guide",
+  "bilingual-video-strategy-guide",
+  "video-aspect-ratios-guide",
+  "color-grading-vs-correction-guide",
+  "mix-audio-social-video-guide",
+  "select-broll-corporate-guide",
+  "ideal-video-length-guide",
+  "design-video-thumbnails-guide",
+  "improve-video-retention-guide",
+  "freelance-vs-post-agency-guide",
+  "drone-video-editing-guidelines-guide",
+  "b2b-video-funnel-guide",
+  "prepare-audio-for-editing-guide",
+  "testimonial-script-template-guide",
+  "vertical-video-best-practices-guide",
+  "raw-video-formats-explained-guide",
 ] as const;
 
 export type GuideId = (typeof GUIDE_IDS)[number];
@@ -1596,6 +1616,1026 @@ const guidePairs: readonly GuidePair[] = [
           heading: "Adaptación al formato 9:16 vertical",
           paragraphs: [
             "Ajusta el encuadre móvil, centra la imagen del hablante y añade subtítulos llamativos en la zona segura.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "fort-lauderdale-video-cost-guide",
+    en: {
+      slug: "video-production-cost-fort-lauderdale",
+      metadataTitle: "Fort Lauderdale Video Costs",
+      title: "How much does video production cost in Fort Lauderdale?",
+      description:
+        "Understand video production costs, editing retainers, and budget factors in Fort Lauderdale and Broward County.",
+      eyebrow: "Budgeting / Fort Lauderdale",
+      answer:
+        "Costs depend on shoot days vs remote editing, motion graphics complexity, and final vertical/horizontal export deliverables.",
+      proof: {
+        href: "/portfolio/my-dler",
+        title: "My D'ler",
+        description:
+          "Approved portfolio credits include published corporate video editing. Linked as a public sample; not published as evidence of identical deliverables in every engagement.",
+      },
+      sections: [
+        {
+          heading: "Evaluating Remote Editing vs Full Filming",
+          paragraphs: [
+            "If you already possess raw footage, remote post-production significantly lowers project costs compared to hiring on-site crews.",
+          ],
+        },
+      ],
+    },
+    es: {
+      slug: "cuanto-cuesta-la-produccion-de-video-en-fort-lauderdale",
+      metadataTitle: "Costo Producción Video Ft Lauderdale",
+      title: "¿Cuánto cuesta la producción de video en Fort Lauderdale?",
+      description:
+        "Guía de costos de producción y edición de video para empresas en Fort Lauderdale y el condado de Broward.",
+      eyebrow: "Presupuesto / Fort Lauderdale",
+      answer:
+        "El costo depende de si es edición remota o filmación presencial, la complejidad de animaciones y las entregas requeridas.",
+      proof: {
+        href: "/es/portafolio/my-dler",
+        title: "My D'ler",
+        description:
+          "Los créditos aprobados del portafolio incluyen edición corporativa. Se enlaza como ejemplo publicado; nada publicado confirma entregables idénticos en cada caso.",
+      },
+      sections: [
+        {
+          heading: "Edición remota frente a producción presencial",
+          paragraphs: [
+            "Si ya cuentas con tomas grabadas, la posproducción remota reduce drásticamente los costos en comparación con equipos de rodaje.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "script-social-ads-guide",
+    en: {
+      slug: "how-to-script-social-video-ads",
+      metadataTitle: "How to Script Social Video Ads",
+      title: "How to script high-converting social video ads",
+      description:
+        "Learn how to structure 15-to-30-second vertical video scripts with visual hooks, problem-solving, and strong calls to action.",
+      eyebrow: "Scriptwriting / Social Ads",
+      answer:
+        "Start with a 3-second visual or verbal hook, state the core value proposition, demonstrate proof, and end with a clear CTA.",
+      proof: {
+        href: "/portfolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        description:
+          "Approved portfolio credits include published brand video editing. Linked as a public sample; not published as evidence of identical deliverables in every engagement.",
+      },
+      sections: [
+        {
+          heading: "The 3-Second Hook Rule",
+          paragraphs: [
+            "Capture immediate scroll attention with high-energy movement or an intriguing statement in the opening 3 seconds.",
+          ],
+        },
+      ],
+    },
+    es: {
+      slug: "como-escribir-guiones-para-anuncios-de-video",
+      metadataTitle: "Guiones Anuncios Video Social",
+      title: "Cómo escribir guiones de anuncios en video para redes sociales",
+      description:
+        "Aprende a estructurar guiones de video vertical de 15 a 30 segundos con ganchos iniciales y llamadas a la acción.",
+      eyebrow: "Guiones / Anuncios Sociales",
+      answer:
+        "Comienza con un gancho de 3 segundos, presenta el beneficio principal, muestra prueba visual y concluye con un llamado claro.",
+      proof: {
+        href: "/es/portafolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        description:
+          "Los créditos aprobados del portafolio incluyen edición publicitaria. Se enlaza como ejemplo publicado; nada publicado confirma entregables idénticos en cada caso.",
+      },
+      sections: [
+        {
+          heading: "La regla del gancho de 3 segundos",
+          paragraphs: [
+            "Detén el desplazamiento en redes con movimiento enérgico o una frase impactante durante los primeros 3 segundos.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "interview-lighting-audio-guide",
+    en: {
+      slug: "lighting-setup-for-video-interviews-at-home",
+      metadataTitle: "Home Video Interview Setup",
+      title: "Lighting and microphone setup for home video interviews",
+      description:
+        "Practical guide to positioning soft key lights, clip-on lavalier mics, and background depth for executive home video interviews.",
+      eyebrow: "Production / Home Interviews",
+      answer:
+        "Position key light 45 degrees to one side, place lavalier mic 6 inches from chin, and sit 5 feet away from the back wall.",
+      proof: {
+        href: "/portfolio/my-dler",
+        title: "My D'ler",
+        description:
+          "Approved portfolio credits include published interview video editing. Linked as a public sample; not published as evidence of identical deliverables in every engagement.",
+      },
+      sections: [
+        {
+          heading: "Microphone Placement for Clear Dialogue",
+          paragraphs: [
+            "Attach lavalier mics firmly to clothing to eliminate rustle and isolate speech from room echo.",
+          ],
+        },
+      ],
+    },
+    es: {
+      slug: "iluminacion-y-configuracion-para-entrevistas-de-video",
+      metadataTitle: "Iluminación Entrevistas Video",
+      title: "Configuración de iluminación y audio para entrevistas virtuales",
+      description:
+        "Guía práctica de iluminación suave, micrófonos de solapa y fondo para entrevistas ejecutivas grabadas en oficina.",
+      eyebrow: "Producción / Entrevistas en Casa",
+      answer:
+        "Ubica la luz principal a 45 grados, coloca el micrófono a 15 cm de la barbilla y mantén distancia con la pared trasera.",
+      proof: {
+        href: "/es/portafolio/my-dler",
+        title: "My D'ler",
+        description:
+          "Los créditos aprobados del portafolio incluyen edición de entrevistas. Se enlaza como ejemplo publicado; nada publicado confirma entregables idénticos en cada caso.",
+      },
+      sections: [
+        {
+          heading: "Colocación de micrófono para voz nítida",
+          paragraphs: [
+            "Fija los micrófonos de solapa firmemente en la ropa para evitar roces y aislar el habla del eco ambiental.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "caption-styles-reels-guide",
+    en: {
+      slug: "best-caption-styles-for-instagram-reels",
+      metadataTitle: "Best Subtitle Styles for Reels",
+      title: "Best caption styles and subtitle strategies for Reels",
+      description:
+        "Explore word-by-word highlighted captions, safe zone margins, and typographic styles for maximum social video engagement.",
+      eyebrow: "Subtitles / Social Reels",
+      answer:
+        "Use high-contrast bold fonts centered in the safe zone with active word highlighting to keep viewers watching on mute.",
+      proof: {
+        href: "/portfolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        description:
+          "Approved portfolio credits include published caption video formatting. Linked as a public sample; not published as evidence of identical deliverables in every engagement.",
+      },
+      sections: [
+        {
+          heading: "Maintaining Text Safe Zones",
+          paragraphs: [
+            "Keep subtitles away from bottom Instagram UI buttons and top account headers to ensure full legibility.",
+          ],
+        },
+      ],
+    },
+    es: {
+      slug: "mejores-estilos-de-subtitulos-para-reels",
+      metadataTitle: "Mejores Subtítulos para Reels",
+      title: "Mejores estilos de subtítulos y textos para Reels y Shorts",
+      description:
+        "Descubre tipografías de alto contraste, zonas seguras y resaltado de palabras clave para videos verticales en redes.",
+      eyebrow: "Subtítulos / Reels Sociales",
+      answer:
+        "Utiliza fuentes en negrita de alto contraste dentro de la zona segura con resaltado de palabras clave para reproducción sin sonido.",
+      proof: {
+        href: "/es/portafolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        description:
+          "Los créditos aprobados del portafolio incluyen edición de subtítulos. Se enlaza como ejemplo publicado; nada publicado confirma entregables idénticos en cada caso.",
+      },
+      sections: [
+        {
+          heading: "Zonas seguras de texto en pantalla",
+          paragraphs: [
+            "Evita colocar texto sobre los botones inferiores de Instagram o el encabezado superior para garantizar lectura completa.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "transfer-large-video-files-guide",
+    en: {
+      slug: "fastest-way-to-send-large-video-files-to-editor",
+      metadataTitle: "Send Large Video Files to Editor",
+      title: "Fastest ways to transfer raw 4K video files to remote editors",
+      description:
+        "Learn how to use cloud transfer platforms, zip archives, and proxy workflows when handing off raw footage to an editor.",
+      eyebrow: "Workflow / File Transfer",
+      answer:
+        "Use Google Drive, Frame.io, or WeTransfer Pro with structured folder names and proxy files for seamless remote editor handoff.",
+      proof: {
+        href: "/portfolio/homeowners",
+        title: "Homeowners",
+        description:
+          "Approved portfolio credits include published remote video post-production. Linked as a public sample; not published as evidence of identical deliverables in every engagement.",
+      },
+      sections: [
+        {
+          heading: "Organizing Raw Footage Folders",
+          paragraphs: [
+            "Group files by date, camera angle, and audio stems before uploading to prevent missing asset delays.",
+          ],
+        },
+      ],
+    },
+    es: {
+      slug: "como-enviar-archivos-pesados-de-video-para-edicion",
+      metadataTitle: "Enviar Archivos Pesados Video",
+      title: "Cómo enviar archivos de video pesados en 4K para edición remota",
+      description:
+        "Guía para transferir carpetas de video 4K mediante plataformas en la nube y archivos proxy para tu editor de video.",
+      eyebrow: "Flujo / Transferencia de Archivos",
+      answer:
+        "Utiliza Google Drive, Frame.io o WeTransfer Pro con nombres de carpeta estructurados y proxies para una entrega fluida.",
+      proof: {
+        href: "/es/portafolio/homeowners",
+        title: "Homeowners",
+        description:
+          "Los créditos aprobados del portafolio incluyen posproducción remota. Se enlaza como ejemplo publicado; nada publicado confirma entregables idénticos en cada caso.",
+      },
+      sections: [
+        {
+          heading: "Organización de carpetas de material",
+          paragraphs: [
+            "Agrupa archivos por fecha, ángulo de cámara y pistas de audio antes de subir para evitar retrasos por activos faltantes.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "bilingual-video-strategy-guide",
+    en: {
+      slug: "bilingual-video-marketing-strategy-south-florida",
+      metadataTitle: "Bilingual Video Strategy SoFlo",
+      title: "Why bilingual English & Spanish video content wins in South Florida",
+      description:
+        "Discover how dual-language captioning and mirrored video campaigns expand market reach across Miami, Broward, and Palm Beach.",
+      eyebrow: "Strategy / Bilingual Marketing",
+      answer:
+        "Create mirrored English and Spanish landing pages and dual-captioned social reels to capture South Florida's diverse commercial market.",
+      proof: {
+        href: "/portfolio/banacol",
+        title: "Banacol",
+        description:
+          "Approved portfolio credits include published international bilingual video production. Linked as a public sample; not published as evidence of identical deliverables in every engagement.",
+      },
+      sections: [
+        {
+          heading: "Capturing Dual-Language Search Intent",
+          paragraphs: [
+            "Publishing dedicated Spanish and English video assets allows brands to rank in both language search indexes simultaneously.",
+          ],
+        },
+      ],
+    },
+    es: {
+      slug: "estrategia-de-video-bilingue-south-florida",
+      metadataTitle: "Estrategia Video Bilingüe Florida",
+      title: "Por qué la estrategia de video bilingüe domina el mercado de South Florida",
+      description:
+        "Descubre cómo los subtítulos dobles y las campañas de video espejadas amplían el alcance comercial en South Florida.",
+      eyebrow: "Estrategia / Marketing Bilingüe",
+      answer:
+        "Crea páginas de aterrizaje y reels de video en inglés y español para captar todo el mercado comercial de South Florida.",
+      proof: {
+        href: "/es/portafolio/banacol",
+        title: "Banacol",
+        description:
+          "Los créditos aprobados del portafolio incluyen producción bilingüe internacional. Se enlaza como ejemplo publicado; nada publicado confirma entregables idénticos en cada caso.",
+      },
+      sections: [
+        {
+          heading: "Captación de búsquedas en ambos idiomas",
+          paragraphs: [
+            "Publicar activos de video dedicados en español e inglés permite posicionarse en ambos índices de búsqueda de forma simultánea.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "video-aspect-ratios-guide",
+    en: {
+      slug: "video-aspect-ratios-cheat-sheet",
+      metadataTitle: "Video Aspect Ratio Cheat Sheet",
+      title: "Video aspect ratios and safe zones cheat sheet for social media",
+      description:
+        "Complete guide to 16:9 widescreen, 9:16 vertical, 1:1 square, and 4:5 vertical video dimensions for all platforms.",
+      eyebrow: "Formatting / Aspect Ratios",
+      answer:
+        "Export 9:16 (1080x1920) for Reels/TikTok, 16:9 (1920x1080) for YouTube/Web, and 4:5 (1080x1350) for Instagram Feed posts.",
+      proof: {
+        href: "/portfolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        description:
+          "Approved portfolio credits include published multi-format video exports. Linked as a public sample; not published as evidence of identical deliverables in every engagement.",
+      },
+      sections: [
+        {
+          heading: "Selecting Dimensions per Destination Platform",
+          paragraphs: [
+            "Tailor export resolutions to native platform specs to prevent unwanted cropping or letterboxing.",
+          ],
+        },
+      ],
+    },
+    es: {
+      slug: "guia-de-relaciones-de-aspecto-de-video",
+      metadataTitle: "Guía Relaciones Aspecto Video",
+      title: "Guía de relaciones de aspecto y zonas seguras para redes sociales",
+      description:
+        "Guía completa de dimensiones de video 16:9 horizontal, 9:16 vertical, 1:1 cuadrado y 4:5 para todas las plataformas.",
+      eyebrow: "Formato / Relaciones de Aspecto",
+      answer:
+        "Exporta 9:16 (1080x1920) para Reels/TikTok, 16:9 (1920x1080) para YouTube/Web y 4:5 (1080x1350) para publicaciones en feed.",
+      proof: {
+        href: "/es/portafolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        description:
+          "Los créditos aprobados del portafolio incluyen exportación multiformato. Se enlaza como ejemplo publicado; nada publicado confirma entregables idénticos en cada caso.",
+      },
+      sections: [
+        {
+          heading: "Selección de dimensiones por plataforma de destino",
+          paragraphs: [
+            "Adapta las resoluciones de exportación a las especificaciones nativas de cada plataforma para evitar recortes no deseados.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "color-grading-vs-correction-guide",
+    en: {
+      slug: "color-grading-vs-color-correction-guide",
+      metadataTitle: "Color Grading vs Correction",
+      title: "Color grading vs color correction: What is the difference?",
+      description:
+        "Understand technical color correction (white balance, exposure) vs creative color grading (stylized looks, LUTs, mood).",
+      eyebrow: "Post-Production / Color",
+      answer:
+        "Color correction fixes exposure and white balance; color grading applies stylistic creative looks and emotional tones.",
+      proof: {
+        href: "/portfolio/my-dler",
+        title: "My D'ler",
+        description:
+          "Approved portfolio credits include published color grading and post-production. Linked as a public sample; not published as evidence of identical deliverables in every engagement.",
+      },
+      sections: [
+        {
+          heading: "The Two-Step Color Workflow",
+          paragraphs: [
+            "Always normalize LOG/RAW footage through color correction before applying creative LUTs or color grades.",
+          ],
+        },
+      ],
+    },
+    es: {
+      slug: "correccion-de-color-vs-colorimetria-guia",
+      metadataTitle: "Colorimetría vs Corrección Color",
+      title: "Corrección de color vs colorimetría creativa: ¿Cuál es la diferencia?",
+      description:
+        "Comprende la diferencia entre corrección de color técnica (balance de blancos) y colorimetría estilizada creativa.",
+      eyebrow: "Posproducción / Color",
+      answer:
+        "La corrección de color ajusta exposición y balance; la colorimetría aporta estilo creativo y personalidad visual.",
+      proof: {
+        href: "/es/portafolio/my-dler",
+        title: "My D'ler",
+        description:
+          "Los créditos aprobados del portafolio incluyen corrección de color y posproducción. Se enlaza como ejemplo publicado; nada publicado confirma entregables idénticos en cada caso.",
+      },
+      sections: [
+        {
+          heading: "El proceso de color en dos pasos",
+          paragraphs: [
+            "Normaliza siempre tomas en formato LOG/RAW mediante corrección técnica antes de aplicar estilos creativos finales.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "mix-audio-social-video-guide",
+    en: {
+      slug: "how-to-mix-audio-for-social-video",
+      metadataTitle: "How to Mix Audio for Social Video",
+      title: "How to mix speech, music, and sound effects for social video",
+      description:
+        "Learn essential audio mixing techniques: ducking background music, mastering dialogue levels (-14 LUFS), and adding impact SFX.",
+      eyebrow: "Audio / Post-Production",
+      answer:
+        "Set dialogue at -12dB to -6dB, duck music to -22dB under speech, and master final audio output to -14 LUFS for social platforms.",
+      proof: {
+        href: "/portfolio/healthy-smile",
+        title: "Healthy Smile",
+        description:
+          "Approved portfolio credits include published audio dialogue mastering. Linked as a public sample; not published as evidence of identical deliverables in every engagement.",
+      },
+      sections: [
+        {
+          heading: "Audio Ducking Techniques",
+          paragraphs: [
+            "Automatically lower background music volume whenever dialogue is spoken to maintain 100% vocal clarity.",
+          ],
+        },
+      ],
+    },
+    es: {
+      slug: "como-mezclar-audio-para-videos-en-redes",
+      metadataTitle: "Mezcla de Audio para Video Social",
+      title: "Cómo mezclar voz, música y efectos de sonido para videos en redes",
+      description:
+        "Aprende técnicas esenciales de mezcla: atenuación de música de fondo (ducking), niveles de diálogo (-14 LUFS) y efectos SFX.",
+      eyebrow: "Audio / Posproducción",
+      answer:
+        "Ajusta voces entre -12dB y -6dB, atenúa la música a -22dB bajo la voz y masteriza el resultado final a -14 LUFS para redes.",
+      proof: {
+        href: "/es/portafolio/healthy-smile",
+        title: "Healthy Smile",
+        description:
+          "Los créditos aprobados del portafolio incluyen mezcla de audio. Se enlaza como ejemplo publicado; nada publicado confirma entregables idénticos en cada caso.",
+      },
+      sections: [
+        {
+          heading: "Técnicas de atenuación de música (ducking)",
+          paragraphs: [
+            "Reduce automáticamente el volumen de la pista musical cada vez que el hablante interviene para garantizar la máxima nitidez.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "select-broll-corporate-guide",
+    en: {
+      slug: "how-to-select-broll-for-corporate-video",
+      metadataTitle: "How to Select Corporate B-Roll",
+      title: "How to select supporting B-roll footage for corporate videos",
+      description:
+        "Learn how to pair spoken interview points with context-relevant B-roll, movement shots, and workplace interactions.",
+      eyebrow: "Editing / B-Roll Selection",
+      answer:
+        "Select B-roll that visually demonstrates what the speaker describes, alternating wide establishing shots with tight action cutaways.",
+      proof: {
+        href: "/portfolio/my-dler",
+        title: "My D'ler",
+        description:
+          "Approved portfolio credits include published corporate B-roll integration. Linked as a public sample; not published as evidence of identical deliverables in every engagement.",
+      },
+      sections: [
+        {
+          heading: "Matching Action to Narrative",
+          paragraphs: [
+            "Cut away to action clips precisely on natural sentence pauses to support the speaker's core points seamlessly.",
+          ],
+        },
+      ],
+    },
+    es: {
+      slug: "como-seleccionar-broll-para-video-corporativo",
+      metadataTitle: "Selección B-Roll Video Corporativo",
+      title: "Cómo seleccionar tomas de apoyo B-roll para videos corporativos",
+      description:
+        "Aprende a combinar relatos de entrevistas con tomas de apoyo relevantes, movimiento e interacciones de equipo.",
+      eyebrow: "Edición / Selección B-Roll",
+      answer:
+        "Elige tomas de apoyo que ilustren exactamente lo que relata el hablante, alternando planos generales con detalles de acción.",
+      proof: {
+        href: "/es/portafolio/my-dler",
+        title: "My D'ler",
+        description:
+          "Los créditos aprobados del portafolio incluyen integración de tomas de apoyo B-roll. Se enlaza como ejemplo publicado; nada publicado confirma entregables idénticos en cada caso.",
+      },
+      sections: [
+        {
+          heading: "Coincidencia de acción y narrativa",
+          paragraphs: [
+            "Inserta tomas de apoyo en las pausas naturales de las frases para respaldar las ideas del portavoz de forma fluida.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "ideal-video-length-guide",
+    en: {
+      slug: "ideal-video-length-for-social-platforms",
+      metadataTitle: "Ideal Video Length by Platform",
+      title: "Ideal video length best practices across social platforms",
+      description:
+        "Recommended duration benchmarks for Instagram Reels (15-30s), TikTok (20-45s), YouTube Shorts (<60s), and YouTube (8-15 mins).",
+      eyebrow: "Strategy / Video Length",
+      answer:
+        "Keep paid social ads under 30 seconds, organic Reels/TikToks between 20 to 45 seconds, and YouTube content between 8 to 12 minutes.",
+      proof: {
+        href: "/portfolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        description:
+          "Approved portfolio credits include published short-form video editing. Linked as a public sample; not published as evidence of identical deliverables in every engagement.",
+      },
+      sections: [
+        {
+          heading: "Platform Retention Curves",
+          paragraphs: [
+            "Mobile feed viewers drop off rapidly after 30 seconds unless the narrative constantly introduces new visual stimuli.",
+          ],
+        },
+      ],
+    },
+    es: {
+      slug: "duracion-ideal-de-video-para-redes-sociales",
+      metadataTitle: "Duración Ideal Video en Redes",
+      title: "Duración ideal de video recomendada según cada plataforma social",
+      description:
+        "Duraciones recomendadas para Instagram Reels (15-30s), TikTok (20-45s), Shorts (<60s) y YouTube (8-15 min).",
+      eyebrow: "Estrategia / Duración de Video",
+      answer:
+        "Mantén anuncios pagados por debajo de 30 segundos, Reels/TikToks orgánicos entre 20 y 45 segundos y YouTube entre 8 y 12 minutos.",
+      proof: {
+        href: "/es/portafolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        description:
+          "Los créditos aprobados del portafolio incluyen edición en formato corto. Se enlaza como ejemplo publicado; nada publicado confirma entregables idénticos en cada caso.",
+      },
+      sections: [
+        {
+          heading: "Curvas de retención en móviles",
+          paragraphs: [
+            "La audiencia en dispositivos móviles decae tras los 30 segundos si el video no introduce nuevos estímulos visuales.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "design-video-thumbnails-guide",
+    en: {
+      slug: "how-to-design-clickable-video-thumbnails",
+      metadataTitle: "Designing Clickable Thumbnails",
+      title: "How to design high-CTR clickable video thumbnails",
+      description:
+        "Principles of high-click-through-rate video thumbnails: expressive faces, high-contrast text, 3-element composition, and mobile preview scaling.",
+      eyebrow: "Visual Design / Thumbnails",
+      answer:
+        "Combine an expressive close-up facial crop, a 3-word bold title hook, and a high-contrast background element at 1280x720 resolution.",
+      proof: {
+        href: "/portfolio/my-dler",
+        title: "My D'ler",
+        description:
+          "Approved portfolio credits include published thumbnail visual design. Linked as a public sample; not published as evidence of identical deliverables in every engagement.",
+      },
+      sections: [
+        {
+          heading: "The 3-Element Rule",
+          paragraphs: [
+            "Limit thumbnail visual clutter to no more than 3 distinct focus elements to maintain instant clarity on small mobile screens.",
+          ],
+        },
+      ],
+    },
+    es: {
+      slug: "como-disenar-miniaturas-de-video-atractivas",
+      metadataTitle: "Diseño Miniaturas de Video",
+      title: "Cómo diseñar miniaturas de video atractivas y de alto clic (CTR)",
+      description:
+        "Principios de diseño para miniaturas con alto porcentaje de clics: expresiones faciales, contraste y regla de 3 elementos.",
+      eyebrow: "Diseño Visual / Miniaturas",
+      answer:
+        "Combina una expresión facial cercana, un texto en negrita de 3 palabras y un fondo de alto contraste en resolución 1280x720.",
+      proof: {
+        href: "/es/portafolio/my-dler",
+        title: "My D'ler",
+        description:
+          "Los créditos aprobados del portafolio incluyen diseño de miniaturas. Se enlaza como ejemplo publicado; nada publicado confirma entregables idénticos en cada caso.",
+      },
+      sections: [
+        {
+          heading: "Regla de los 3 elementos visuales",
+          paragraphs: [
+            "Limita la composición a un máximo de 3 elementos principales para asegurar legibilidad inmediata en dispositivos móviles.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "improve-video-retention-guide",
+    en: {
+      slug: "how-to-improve-video-retention-rate",
+      metadataTitle: "Improving Video Retention Rates",
+      title: "How to improve audience retention rates in video editing",
+      description:
+        "Editing techniques to fix viewer drop-off: pattern interrupts, sound effects, speed ramping, and removing verbal fluff.",
+      eyebrow: "Post-Production / Retention",
+      answer:
+        "Insert visual pattern interrupts every 4 to 6 seconds, cut dead air pauses, and use subtle sound effects to signal scene shifts.",
+      proof: {
+        href: "/portfolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        description:
+          "Approved portfolio credits include published fast-paced video editing. Linked as a public sample; not published as evidence of identical deliverables in every engagement.",
+      },
+      sections: [
+        {
+          heading: "Applying Pattern Interrupts",
+          paragraphs: [
+            "Use subtle zooms, text pop-ups, or angle shifts to re-engage viewer attention throughout the video timeline.",
+          ],
+        },
+      ],
+    },
+    es: {
+      slug: "como-mejorar-la-retencion-de-audiencia-en-video",
+      metadataTitle: "Retención Audiencia en Video",
+      title: "Cómo mejorar la retención de audiencia en la edición de video",
+      description:
+        "Técnicas de edición para evitar la caída de espectadores: interrupción de patrones, efectos de sonido y eliminación de pausas.",
+      eyebrow: "Posproducción / Retención",
+      answer:
+        "Aplica interrupciones visuales cada 4 a 6 segundos, elimina pausas muertas y utiliza efectos de sonido para marcar cambios.",
+      proof: {
+        href: "/es/portafolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        description:
+          "Los créditos aprobados del portafolio incluyen edición rítmica. Se enlaza como ejemplo publicado; nada publicado confirma entregables idénticos en cada caso.",
+      },
+      sections: [
+        {
+          heading: "Aplicación de interrupciones de patrón",
+          paragraphs: [
+            "Utiliza zooms sutiles, apariciones de texto o cambios de ángulo para mantener la atención a lo largo de la línea de tiempo.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "freelance-vs-post-agency-guide",
+    en: {
+      slug: "freelance-video-editor-vs-post-agency",
+      metadataTitle: "Freelance Editor vs Post Agency",
+      title: "Freelance video editor vs post-production agency: Which fits?",
+      description:
+        "Compare working directly with a specialized remote editor vs hiring a full-service post-production agency for video projects.",
+      eyebrow: "Hiring / Decision Guide",
+      answer:
+        "Hire a specialized remote editor for direct communication, fast turnaround, and lower overhead; hire an agency for multi-team projects.",
+      proof: {
+        href: "/portfolio/my-dler",
+        title: "My D'ler",
+        description:
+          "Approved portfolio credits include published specialized video editing. Linked as a public sample; not published as evidence of identical deliverables in every engagement.",
+      },
+      sections: [
+        {
+          heading: "Direct Collaborative Feedback",
+          paragraphs: [
+            "Working directly with a dedicated editor eliminates agency account manager gatekeeping and speeds up review turnarounds.",
+          ],
+        },
+      ],
+    },
+    es: {
+      slug: "editor-de-video-freelance-vs-agencia-de-postproduccion",
+      metadataTitle: "Editor Freelance vs Agencia Video",
+      title: "Editor de video freelance vs agencia de posproducción: ¿Cuál conviene?",
+      description:
+        "Compara trabajar directamente con un editor remoto especializado frente a contratar una agencia de posproducción integral.",
+      eyebrow: "Contratación / Guía de Decisión",
+      answer:
+        "Elige un editor remoto especializado para trato directo y entregas rápidas; contrata agencia para proyectos con múltiples equipos.",
+      proof: {
+        href: "/es/portafolio/my-dler",
+        title: "My D'ler",
+        description:
+          "Los créditos aprobados del portafolio incluyen edición remota especializada. Se enlaza como ejemplo publicado; nada publicado confirma entregables idénticos en cada caso.",
+      },
+      sections: [
+        {
+          heading: "Comunicación directa sin intermediarios",
+          paragraphs: [
+            "Tratar directamente con el editor elimina gestores de cuentas e intermediarios, agilizando las revisiones de proyecto.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "drone-video-editing-guidelines-guide",
+    en: {
+      slug: "drone-video-editing-guidelines-florida",
+      metadataTitle: "Drone Video Editing Guidelines",
+      title: "Drone & aerial video editing best practices and guidelines",
+      description:
+        "Learn how to color grade 4K aerial shots, stabilize flight motion, add property boundary graphics, and sync aerial cuts to music.",
+      eyebrow: "Aerial / Drone Post-Production",
+      answer:
+        "Apply digital stabilization, balance sky-to-water color exposure, and add clean graphics overlays to highlight property boundaries.",
+      proof: {
+        href: "/portfolio/homeowners",
+        title: "Homeowners",
+        description:
+          "Approved portfolio credits include published aerial real estate video editing. Linked as a public sample; not published as evidence of identical deliverables in every engagement.",
+      },
+      sections: [
+        {
+          heading: "Stabilizing Flight Wobble",
+          paragraphs: [
+            "Use post-production warp stabilization to remove wind wobble and create silky-smooth cinematic aerial moves.",
+          ],
+        },
+      ],
+    },
+    es: {
+      slug: "guias-de-edicion-de-video-con-dron-florida",
+      metadataTitle: "Guía Edición Video con Dron",
+      title: "Mejores prácticas y guías para edición de video aéreo con dron",
+      description:
+        "Aprende a realizar corrección de color en tomas aéreas 4K, estabilizar movimientos de vuelo e integrar líneas de propiedad.",
+      eyebrow: "Aéreo / Posproducción con Dron",
+      answer:
+        "Aplica estabilización digital, equilibra el tono entre cielo y agua e integra gráficos limpios para señalar límites de terrenos.",
+      proof: {
+        href: "/es/portafolio/homeowners",
+        title: "Homeowners",
+        description:
+          "Los créditos aprobados del portafolio incluyen edición de video aéreo. Se enlaza como ejemplo publicado; nada publicado confirma entregables idénticos en cada caso.",
+      },
+      sections: [
+        {
+          heading: "Estabilización de oscilaciones por viento",
+          paragraphs: [
+            "Aplica estabilización de posproducción para corregir ráfagas de viento y lograr desplazamientos aéreos ultra-fluidos.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "b2b-video-funnel-guide",
+    en: {
+      slug: "b2b-video-marketing-funnel-strategy",
+      metadataTitle: "B2B Video Marketing Funnel",
+      title: "How to build a B2B video marketing conversion funnel",
+      description:
+        "Structure top-of-funnel educational videos, middle-of-funnel case studies, and bottom-of-funnel product walkthroughs.",
+      eyebrow: "B2B / Video Strategy",
+      answer:
+        "Align video formats to buyer awareness: educational reels for cold reach, case story edits for consideration, and demo reels for closing.",
+      proof: {
+        href: "/portfolio/my-dler",
+        title: "My D'ler",
+        description:
+          "Approved portfolio credits include published B2B video marketing editing. Linked as a public sample; not published as evidence of identical deliverables in every engagement.",
+      },
+      sections: [
+        {
+          heading: "Funnel-Stage Video Mapping",
+          paragraphs: [
+            "Deliver bite-sized social videos for awareness while keeping in-depth case study edits on high-converting landing pages.",
+          ],
+        },
+      ],
+    },
+    es: {
+      slug: "estrategia-de-embudo-de-video-marketing-b2b",
+      metadataTitle: "Embudo Video Marketing B2B",
+      title: "Cómo construir un embudo de conversión con video marketing B2B",
+      description:
+        "Estructura videos educativos para atracción, casos de éxito para evaluación y demostraciones de producto para cierre.",
+      eyebrow: "B2B / Estrategia de Video",
+      answer:
+        "Adapta el contenido a cada etapa del cliente: reels educativos para alcance, historias de éxito para evaluación y demos para venta.",
+      proof: {
+        href: "/es/portafolio/my-dler",
+        title: "My D'ler",
+        description:
+          "Los créditos aprobados del portafolio incluyen edición de video B2B. Se enlaza como ejemplo publicado; nada publicado confirma entregables idénticos en cada caso.",
+      },
+      sections: [
+        {
+          heading: "Mapeo de videos según etapa de compra",
+          paragraphs: [
+            "Publica cápsulas cortas en redes para generar interés y reserva los videos detallados de casos para páginas de venta.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "prepare-audio-for-editing-guide",
+    en: {
+      slug: "how-to-prepare-audio-for-video-editing",
+      metadataTitle: "How to Prepare Audio for Editing",
+      title: "How to prepare and organize audio files for video editing",
+      description:
+        "Best practices for exporting 24-bit WAV audio stems, syncing external lavalier tracks, and eliminating ambient room noise.",
+      eyebrow: "Audio / Preparation",
+      answer:
+        "Export uncompressed 24-bit 48kHz WAV audio files, record a reference clap for visual sync, and record 10 seconds of room tone.",
+      proof: {
+        href: "/portfolio/healthy-smile",
+        title: "Healthy Smile",
+        description:
+          "Approved portfolio credits include published audio track restoration. Linked as a public sample; not published as evidence of identical deliverables in every engagement.",
+      },
+      sections: [
+        {
+          heading: "Importance of Room Tone Recording",
+          paragraphs: [
+            "Record 10 seconds of silent room tone on location so your editor can sample background noise for clean audio subtraction.",
+          ],
+        },
+      ],
+    },
+    es: {
+      slug: "como-preparar-audio-para-edicion-de-video",
+      metadataTitle: "Preparar Audio para Edición",
+      title: "Cómo preparar y organizar archivos de audio para edición de video",
+      description:
+        "Buenas prácticas para exportar archivos WAV a 24 bits, sincronizar micrófonos de solapa y eliminar ruido ambiental.",
+      eyebrow: "Audio / Preparación",
+      answer:
+        "Exporta audio WAV a 48kHz sin compresión, graba una palmada de sincronización y registra 10 segundos de tono de sala.",
+      proof: {
+        href: "/es/portafolio/healthy-smile",
+        title: "Healthy Smile",
+        description:
+          "Los créditos aprobados del portafolio incluyen restauración de pistas de audio. Se enlaza como ejemplo publicado; nada publicado confirma entregables idénticos en cada caso.",
+      },
+      sections: [
+        {
+          heading: "Importancia del registro de tono de sala",
+          paragraphs: [
+            "Graba 10 segundos de silencio ambiental en el lugar de rodaje para facilitar la eliminación digital de ruido de fondo.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "testimonial-script-template-guide",
+    en: {
+      slug: "customer-testimonial-video-script-template",
+      metadataTitle: "Testimonial Video Script Template",
+      title: "Customer testimonial video question framework & script template",
+      description:
+        "Effective 5-question interview framework to elicit authentic, story-driven customer video testimonials.",
+      eyebrow: "Testimonials / Script Template",
+      answer:
+        "Ask client about their situation before working with you, their hesitation, the turning point, and specific measurable results achieved.",
+      proof: {
+        href: "/portfolio/my-dler",
+        title: "My D'ler",
+        description:
+          "Approved portfolio credits include published testimonial video editing. Linked as a public sample; not published as evidence of identical deliverables in every engagement.",
+      },
+      sections: [
+        {
+          heading: "Eliciting Authentic Emotional Answers",
+          paragraphs: [
+            "Ask open-ended questions focused on problem-solving rather than scripted product praise to ensure genuine audience trust.",
+          ],
+        },
+      ],
+    },
+    es: {
+      slug: "plantilla-de-guion-para-video-testimonial",
+      metadataTitle: "Guión Video Testimonial Template",
+      title: "Plantilla de guión y estructura de preguntas para video testimonial",
+      description:
+        "Estructura efectiva de 5 preguntas para obtener testimoniales de clientes auténticos y orientados a la conversión.",
+      eyebrow: "Testimoniales / Plantilla",
+      answer:
+        "Pregunta sobre la situación previa, la duda inicial, el momento de cambio y los resultados específicos y medibles obtenidos.",
+      proof: {
+        href: "/es/portafolio/my-dler",
+        title: "My D'ler",
+        description:
+          "Los créditos aprobados del portafolio incluyen edición de testimoniales. Se enlaza como ejemplo publicado; nada publicado confirma entregables idénticos en cada caso.",
+      },
+      sections: [
+        {
+          heading: "Respuestas emotivas y genuinas",
+          paragraphs: [
+            "Formula preguntas abiertas enfocadas en la resolución de problemas para lograr un testimonio cercano y creíble.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "vertical-video-best-practices-guide",
+    en: {
+      slug: "vertical-video-editing-best-practices",
+      metadataTitle: "Vertical Video Editing Best Practices",
+      title: "Vertical video editing best practices for Reels, Shorts & TikTok",
+      description:
+        "Master 9:16 vertical editing: mobile framing, text positioning, fast-cut pacing, and background blur fills.",
+      eyebrow: "Vertical Video / Best Practices",
+      answer:
+        "Frame subjects in the vertical center third, place text in safe margins, and edit at a crisp 1.5x pacing speed for mobile feeds.",
+      proof: {
+        href: "/portfolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        description:
+          "Approved portfolio credits include published vertical video editing. Linked as a public sample; not published as evidence of identical deliverables in every engagement.",
+      },
+      sections: [
+        {
+          heading: "Handling Widescreen Footage in Vertical Canvas",
+          paragraphs: [
+            "Use styled background blur fills or pan-and-scan crops when adapting horizontal 16:9 footage into vertical 9:16 reels.",
+          ],
+        },
+      ],
+    },
+    es: {
+      slug: "mejores-practicas-de-edicion-de-video-vertical",
+      metadataTitle: "Prácticas Edición Video Vertical",
+      title: "Mejores prácticas de edición de video vertical para Reels y TikTok",
+      description:
+        "Domina la edición en 9:16: encuadre móvil, ubicación de subtítulos, ritmo rápido y rellenos de desenfoque de fondo.",
+      eyebrow: "Video Vertical / Mejores Prácticas",
+      answer:
+        "Encuadra al sujeto en el tercio central vertical, coloca textos dentro de márgenes seguros y edita a ritmo ágil para móviles.",
+      proof: {
+        href: "/es/portafolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        description:
+          "Los créditos aprobados del portafolio incluyen edición de video vertical. Se enlaza como ejemplo publicado; nada publicado confirma entregables idénticos en cada caso.",
+      },
+      sections: [
+        {
+          heading: "Adaptación de tomas horizontales a canvas vertical",
+          paragraphs: [
+            "Utiliza rellenos de desenfoque o reencuadres dinámicos al adaptar material horizontal 16:9 a formato vertical 9:16.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "raw-video-formats-explained-guide",
+    en: {
+      slug: "raw-video-file-formats-explained",
+      metadataTitle: "RAW Video Formats Explained",
+      title: "RAW video file formats, LOG profiles, and codecs explained",
+      description:
+        "Demystifying ProRes, H.264/H.265, Sony S-Log3, Canon C-Log, and REDCODE RAW for non-technical clients and creators.",
+      eyebrow: "Technical / Video Codecs",
+      answer:
+        "LOG profiles capture maximum dynamic range for color grading, ProRes retains quality for editing, and H.264 delivers final web exports.",
+      proof: {
+        href: "/portfolio/homeowners",
+        title: "Homeowners",
+        description:
+          "Approved portfolio credits include published multi-codec video post-production. Linked as a public sample; not published as evidence of identical deliverables in every engagement.",
+      },
+      sections: [
+        {
+          heading: "Choosing Export Codecs per Destination",
+          paragraphs: [
+            "Use Apple ProRes 422 for editing master archives and H.264 MP4 with AAC audio for web and social uploads.",
+          ],
+        },
+      ],
+    },
+    es: {
+      slug: "formatos-de-archivo-de-video-raw-explicados",
+      metadataTitle: "Formatos Video RAW Explicados",
+      title: "Formatos de archivo de video RAW, perfiles LOG y códecs explicados",
+      description:
+        "Entiende ProRes, H.264/H.265, Sony S-Log3, Canon C-Log y REDCODE RAW de forma sencilla para tus proyectos de video.",
+      eyebrow: "Técnico / Códecs de Video",
+      answer:
+        "Los perfiles LOG conservan el rango dinámico para color; ProRes mantiene calidad para edición y H.264 optimiza el archivo web.",
+      proof: {
+        href: "/es/portafolio/homeowners",
+        title: "Homeowners",
+        description:
+          "Los créditos aprobados del portafolio incluyen posproducción multi-códec. Se enlaza como ejemplo publicado; nada publicado confirma entregables idénticos en cada caso.",
+      },
+      sections: [
+        {
+          heading: "Elección de códecs según el destino final",
+          paragraphs: [
+            "Utiliza Apple ProRes 422 para archivos de edición master y H.264 MP4 con audio AAC para subir a sitios web y redes sociales.",
           ],
         },
       ],
