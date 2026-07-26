@@ -562,6 +562,136 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
       },
     ],
   },
+  "produccion-de-video-para-firmas-de-abogados-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade y Broward",
+    note: "Videos institucionales y testimoniales para firmas legales.",
+    serviceIds: ["videografia", "edicion"],
+    projects: [
+      {
+        href: "/es/portafolio/my-dler",
+        title: "My D'ler",
+        detail: "Video corporativo institucional.",
+      },
+    ],
+  },
+  "marketing-de-video-para-alquiler-de-yates-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami Beach y Fort Lauderdale",
+    note: "Videos de estilo de vida náutico y chárters de yates.",
+    serviceIds: ["edicion"],
+    projects: [
+      {
+        href: "/es/portafolio/my-dler",
+        title: "My D'ler",
+        detail: "Edición de video de estilo de vida de lujo.",
+      },
+    ],
+  },
+  "marketing-de-video-para-odontologia-estetica-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade",
+    note: "Videos de diseño de sonrisa y transformaciones dentales.",
+    serviceIds: ["edicion"],
+    projects: [
+      {
+        href: "/es/portafolio/healthy-smile",
+        title: "Healthy Smile",
+        detail: "Video marketing para clínicas dentales.",
+      },
+    ],
+  },
+  "edicion-de-video-para-discotecas-y-eventos-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami Beach y Wynwood",
+    note: "Cortes de alto impacto y ritmo rápido para clubes nocturnos.",
+    serviceIds: ["edicion"],
+    projects: [
+      {
+        href: "/es/portafolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        detail: "Cortes promocionales nocturnos.",
+      },
+    ],
+  },
+  "marketing-de-video-para-contratistas-de-techos-florida": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en South Florida",
+    note: "Videos de proyectos de techado e instalaciones de impacto.",
+    serviceIds: ["edicion"],
+    projects: [
+      {
+        href: "/es/portafolio/homeowners",
+        title: "Homeowners",
+        detail: "Video promocional de servicios residenciales.",
+      },
+    ],
+  },
+  "produccion-de-video-para-asesores-financieros-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en el Distrito Financiero de Miami",
+    note: "Videos explicativos y corporativos para asesores patrimoniales.",
+    serviceIds: ["edicion"],
+    projects: [
+      {
+        href: "/es/portafolio/my-dler",
+        title: "My D'ler",
+        detail: "Video corporativo institucional.",
+      },
+    ],
+  },
+  "edicion-de-video-para-hoteles-boutique-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami Beach",
+    note: "Videos elegantes de instalaciones y suites boutique.",
+    serviceIds: ["edicion"],
+    projects: [
+      {
+        href: "/es/portafolio/my-dler",
+        title: "My D'ler",
+        detail: "Visuales de hospitalidad boutique.",
+      },
+    ],
+  },
+  "editor-de-video-de-productos-para-ecommerce": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade",
+    note: "Edición dinámica para demostraciones de producto e-commerce.",
+    serviceIds: ["edicion", "reutilizacion-redes"],
+    projects: [
+      {
+        href: "/es/portafolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        detail: "Edición publicitaria de producto.",
+      },
+    ],
+  },
+  "edicion-de-video-para-joyeria-de-lujo-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en el Distrito de Diseño de Miami",
+    note: "Edición de macro-detalle y brillo para joyería de alta gama.",
+    serviceIds: ["edicion"],
+    projects: [
+      {
+        href: "/es/portafolio/my-dler",
+        title: "My D'ler",
+        detail: "Edición estética de lujo.",
+      },
+    ],
+  },
+  "edicion-de-video-aereo-inmobiliario-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en South Florida",
+    note: "Edición y estabilización de tomas aéreos con dron.",
+    serviceIds: ["edicion"],
+    projects: [
+      {
+        href: "/es/portafolio/homeowners",
+        title: "Homeowners",
+        detail: "Edición aérea e inmobiliaria.",
+      },
+    ],
+  },
 };
 
 export function buildSpanishNicheMetadata(slug: string): Metadata {

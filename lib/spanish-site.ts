@@ -1492,6 +1492,326 @@ export const spanishNichePages: SpanishNichePage[] = [
       },
     ],
   },
+  {
+    slug: "produccion-de-video-para-firmas-de-abogados-miami",
+    title: "Producción de video para firmas de abogados en Miami",
+    metadataTitle: "Video Abogados Firmas Miami",
+    description:
+      "Videos testimoniales, presentación de socios y contenido institucional para bufetes de abogados en Miami.",
+    eyebrow: "Firmas de Abogados / Legal",
+    h1: "Videos institucionales y de testimonio para firmas de abogados.",
+    lead:
+      "Genera confianza y autoridad con historias de casos de éxito, perfiles de socios y videos explicativos legales para tu firma en Miami.",
+    keyword: "video para abogados en Miami",
+    location: "Downtown Miami / Distrito Financiero",
+    availability: "confirmed",
+    icon: WandSparkles,
+    bestFor: [
+      "Firmas de abogados de lesiones personales, corporativo e inmigración.",
+      "Bufetes legales que buscan diferenciarse en campañas de video marketing.",
+    ],
+    scopingQuestions: [
+      "¿El video incluirá testimoniales de clientes o perfiles de abogados?",
+      "¿Requiere subtítulos en inglés y español para audiencias locales?",
+    ],
+    projectFit:
+      "Postproducción sobria, elegante y de alta credibilidad.",
+    faqs: [
+      {
+        question: "¿Pueden editar entrevistas grabadas en la oficina de la firma?",
+        answer:
+          "Sí. Limpiamos el audio, nivelamos el color e integramos gráficos con la marca institucional.",
+      },
+    ],
+  },
+  {
+    slug: "marketing-de-video-para-alquiler-de-yates-miami",
+    title: "Marketing de video para alquiler de yates en Miami",
+    metadataTitle: "Video Alquiler Yates Miami",
+    description:
+      "Videos cinemáticos de yates, recorridos en mar abierto y contenido promocional para chárters marinos en Miami.",
+    eyebrow: "Yates / Chárter Marino",
+    h1: "Videos promocionales cinemáticos para chárter de yates en Miami.",
+    lead:
+      "Destaca el lujo de la cubierta, las experiencias a bordo y las vistas costeras para atraer clientes de chárter de alto nivel.",
+    keyword: "video para alquiler de yates en Miami",
+    location: "Miami Beach / Fort Lauderdale",
+    availability: "confirmed",
+    icon: Video,
+    bestFor: [
+      "Empresas de chárter de yates y brókeres marinos en Miami y Fort Lauderdale.",
+      "Marcas de estilo de vida náutico y experiencias de lujo.",
+    ],
+    scopingQuestions: [
+      "¿Las tomas incluyen video aéreo con dron o recorrido de interiores?",
+      "¿El video se publicará en Instagram Reels o sitio web principal?",
+    ],
+    projectFit:
+      "Visuales deslumbrantes con ritmo fluido y sonido marino profesional.",
+    faqs: [
+      {
+        question: "¿Combinan tomas de dron con clips de interior de yates?",
+        answer:
+          "Sí. Editamos transiciones impecables entre vistas aéreas del mar y detalles de lujo en camarotes.",
+      },
+    ],
+  },
+  {
+    slug: "marketing-de-video-para-odontologia-estetica-miami",
+    title: "Marketing de video para odontología estética en Miami",
+    metadataTitle: "Video Odontología Estética Miami",
+    description:
+      "Videos de transformaciones de sonrisa, antes y después y testimonios de pacientes para clínicas dentales estéticas.",
+    eyebrow: "Odontología Estética",
+    h1: "Videos promocionales para odontología estética en Miami.",
+    lead:
+      "Demuestra la calidad de tus diseño de sonrisa y carillas dentales con videos emotivos de transformación de pacientes.",
+    keyword: "video para odontología estética en Miami",
+    location: "Coral Gables / Miami",
+    availability: "confirmed",
+    icon: WandSparkles,
+    bestFor: [
+      "Dentistas cosméticos y especialistas en diseño de sonrisa.",
+      "Clínicas de implantología y ortodoncia invisible.",
+    ],
+    scopingQuestions: [
+      "¿Cuentas con clips de antes y después de los pacientes?",
+      "¿Deseas mostrar explicaciones breves del procedimiento por el especialista?",
+    ],
+    projectFit:
+      "Edición estética impecable que transmite limpieza y confianza.",
+    faqs: [
+      {
+        question: "¿Cómo destacan los resultados de cambio de sonrisa?",
+        answer:
+          "Utilizamos comparativas en pantalla dividida y zooms de alta definición que resaltan la estética dental.",
+      },
+    ],
+  },
+  {
+    slug: "edicion-de-video-para-discotecas-y-eventos-miami",
+    title: "Edición de video para discotecas y eventos en Miami",
+    metadataTitle: "Edición Video Discotecas Miami",
+    description:
+      "Edición de ritmo rápido, efectos visuales y recaps nocturnos para discotecas, clubes y eventos VIP en Miami.",
+    eyebrow: "Vida Nocturna / Eventos VIP",
+    h1: "Edición de video vibrante para discotecas y eventos nocturnos.",
+    lead:
+      "Resumen la energía de la fiesta con cortes de ritmo rápido, luces sincronizadas y efectos visuales modernos para redes sociales.",
+    keyword: "edición de video para discotecas en Miami",
+    location: "Miami Beach / Wynwood",
+    availability: "confirmed",
+    icon: Video,
+    bestFor: [
+      "Discotecas, bares gastronómicos y promotores de eventos VIP.",
+      "DJs y artistas que buscan reels promocionales de alto impacto.",
+    ],
+    scopingQuestions: [
+      "¿Tienes música grabada del set en vivo o pista limpia en estudio?",
+      "¿Requiere efectos de destello de luz o transiciones rápidas?",
+    ],
+    projectFit:
+      "Postproducción dinámica de alto impacto sensorial.",
+    faqs: [
+      {
+        question: "¿Pueden ajustar los cortes al ritmo exacto de la música?",
+        answer:
+          "Sí. Sincronizamos cada cambio de toma con los beats de la pista para crear un reel electromagnético.",
+      },
+    ],
+  },
+  {
+    slug: "marketing-de-video-para-contratistas-de-techos-florida",
+    title: "Marketing de video para contratistas de techos en Florida",
+    metadataTitle: "Video Contratistas Techos Florida",
+    description:
+      "Videos de procesos de instalación de techos, inspecciones y testimonios para contratistas en South Florida.",
+    eyebrow: "Contratistas de Techos",
+    h1: "Videos de obras y testimonios para empresas de techado.",
+    lead:
+      "Demuestra la durabilidad y calidad de tus proyectos de techado residencial y comercial para ganar proyectos de alto valor.",
+    keyword: "video para contratistas de techos en Florida",
+    location: "Miami-Dade / Broward",
+    availability: "confirmed",
+    icon: Building2,
+    bestFor: [
+      "Empresas de techado residencial y comercial en South Florida.",
+      "Contratistas de ventanas de impacto y remodelación exterior.",
+    ],
+    scopingQuestions: [
+      "¿Las tomas muestran el proceso antes, durante y después del trabajo?",
+      "¿Deseas resaltar garantías de resistencia a huracanes?",
+    ],
+    projectFit:
+      "Demostración sólida de capacidad técnica y confianza comercial.",
+    faqs: [
+      {
+        question: "¿Soportan tomas grabadas en obra con teléfonos móviles?",
+        answer:
+          "Sí. Estabilizamos las tomas en techo y mejoramos el contraste visual para mostrar el acabado impecable.",
+      },
+    ],
+  },
+  {
+    slug: "produccion-de-video-para-asesores-financieros-miami",
+    title: "Producción de video para asesores financieros en Miami",
+    metadataTitle: "Video Asesores Financieros Miami",
+    description:
+      "Videos de autoridad, análisis de mercado y contenido educativo para asesores financieros y gestión de patrimonio.",
+    eyebrow: "Finanzas / Gestión Patrimonial",
+    h1: "Videos de autoridad para asesores financieros y patrimoniales.",
+    lead:
+      "Comunica conceptos financieros complejos de forma clara y profesional mediante videos institucionales y cápsulas para redes.",
+    keyword: "video para asesores financieros en Miami",
+    location: "Distrito Financiero / Downtown Miami",
+    availability: "confirmed",
+    icon: WandSparkles,
+    bestFor: [
+      "Asesores de inversión independientes y gestores de patrimonio.",
+      "Firmas de planificación financiera y fondos boutique.",
+    ],
+    scopingQuestions: [
+      "¿El video incluirá gráficos animados de datos financieros?",
+      "¿Se publicará en LinkedIn, YouTube o sitio corporativo?",
+    ],
+    projectFit:
+      "Presentación sobria, ejecutiva y orientada a la confianza.",
+    faqs: [
+      {
+        question: "¿Se pueden integrar diapositivas y gráficos de mercado?",
+        answer:
+          "Sí. Diseñamos gráficos limpios sobrepuestos en pantalla para acompañar la explicación del asesor.",
+      },
+    ],
+  },
+  {
+    slug: "edicion-de-video-para-hoteles-boutique-miami",
+    title: "Edición de video para hoteles boutique en Miami",
+    metadataTitle: "Edición Video Hoteles Boutique Miami",
+    description:
+      "Edición de recorridos de suites, experiencias gastronómicas y áreas comunes para hoteles boutique en Miami.",
+    eyebrow: "Hoteles Boutique / Hospitalidad",
+    h1: "Videos promocionales para hoteles boutique y resorts en Miami.",
+    lead:
+      "Resalta la arquitectura distintiva, comodidad de habitaciones y servicios exclusivos para impulsar reservas directas.",
+    keyword: "edición de video para hoteles boutique en Miami",
+    location: "Miami Beach / South Beach",
+    availability: "confirmed",
+    icon: Video,
+    bestFor: [
+      "Hoteles boutique independientes y resorts de estilo de vida.",
+      "Grupos de hospitalidad que relanzan propiedades vacacionales.",
+    ],
+    scopingQuestions: [
+      "¿Las tomas abarcan habitaciones, piscina o restaurante del hotel?",
+      "¿Requieres versiones verticales para Instagram y horizontales para web?",
+    ],
+    projectFit:
+      "Edición estética elegante de alta calidad visual.",
+    faqs: [
+      {
+        question: "¿Entregan formatos optimizados para Booking e Instagram?",
+        answer:
+          "Sí. Entregamos versiones en relación 16:9 para web y 9:16 vertical para redes sociales.",
+      },
+    ],
+  },
+  {
+    slug: "editor-de-video-de-productos-para-ecommerce",
+    title: "Editor de video de productos para e-commerce en Miami",
+    metadataTitle: "Editor Video Productos E-Commerce",
+    description:
+      "Edición de video de producto para tiendas Shopify, Amazon y campañas de conversión e-commerce.",
+    eyebrow: "E-Commerce / Video de Producto",
+    h1: "Edición de video de productos para tiendas e-commerce.",
+    lead:
+      "Muestra funciones, empaque y detalles de producto en videos de ritmo optimizado para aumentar la conversión de tu tienda online.",
+    keyword: "editor de video de productos para e-commerce",
+    location: "Miami-Dade / Broward",
+    availability: "confirmed",
+    icon: WandSparkles,
+    bestFor: [
+      "Marcas directas al consumidor (D2C) en Shopify o Amazon.",
+      "Emprendedores que venden productos físicos con campañas de anuncios.",
+    ],
+    scopingQuestions: [
+      "¿Cuentas con demos de producto grabados en estudio o uso real?",
+      "¿Requieres textos sobrepuestos resaltando beneficios clave?",
+    ],
+    projectFit:
+      "Edición comercial rápida orientada a la venta directa.",
+    faqs: [
+      {
+        question: "¿Se pueden añadir textos con beneficios e íconos animados?",
+        answer:
+          "Sí. Diseñamos llamados a la acción y leyendas de características clave alineados con la identidad del producto.",
+      },
+    ],
+  },
+  {
+    slug: "edicion-de-video-para-joyeria-de-lujo-miami",
+    title: "Edición de video para joyería de lujo en Miami",
+    metadataTitle: "Video Joyería de Lujo Miami",
+    description:
+      "Edición detallada de piezas de alta joyería, diamantes y relojes de lujo para marcas en Miami.",
+    eyebrow: "Joyería / Relojes de Lujo",
+    h1: "Edición de video deslumbrante para joyería de lujo.",
+    lead:
+      "Captura el brillo de diamantes, cortes de gemas y artesanía en metales preciosos con iluminación y colorimetría refinada.",
+    keyword: "edición de video para joyería en Miami",
+    location: "Distrito de Diseño / Coral Gables",
+    availability: "confirmed",
+    icon: WandSparkles,
+    bestFor: [
+      "Joyerías boutique, diseñadores de alta joyería y distribuidores de relojes de lujo.",
+      "Marcas de accesorios finos que venden en línea o en boutique.",
+    ],
+    scopingQuestions: [
+      "¿Las tomas son en macro de 360 grados o con modelos luciendo piezas?",
+      "¿Requieres música de fondo sutil y elegante?",
+    ],
+    projectFit:
+      "Postproducción hiper-detallada con colorimetría de precisión.",
+    faqs: [
+      {
+        question: "¿Se resalta el brillo real de diamantes y metales?",
+        answer:
+          "Sí. Aplicamos corrección de color avanzada que acentúa los reflejos y matices reales de las piezas.",
+      },
+    ],
+  },
+  {
+    slug: "edicion-de-video-aereo-inmobiliario-miami",
+    title: "Edición de video aéreo e inmobiliario en Miami",
+    metadataTitle: "Video Aéreo Inmobiliario Miami",
+    description:
+      "Edición de tomas aéreas con dron, vistas panorámicas de mansiones y mapas virtuales para bienes raíces en Miami.",
+    eyebrow: "Video Aéreo / Dron Inmobiliario",
+    h1: "Edición de video aéreo para propiedades inmobiliarias de lujo.",
+    lead:
+      "Integra perspectivas aéreas de mansiones, terrenos y entornos costeros en videos inmobiliarios atractivos y fluidos.",
+    keyword: "edición de video aéreo inmobiliario en Miami",
+    location: "Miami-Dade / Broward / Palm Beach",
+    availability: "confirmed",
+    icon: Building2,
+    bestFor: [
+      "Realtors de lujo y firmas inmobiliarias en South Florida.",
+      "Videógrafos aéreos que necesitan posproducción profesional.",
+    ],
+    scopingQuestions: [
+      "¿Cuentas con archivos de video 4K grabados con dron?",
+      "¿Deseas superposiciones de líneas de propiedad o nombres de áreas?",
+    ],
+    projectFit:
+      "Estabilización y colorimetría de paisaje marino y residencial.",
+    faqs: [
+      {
+        question: "¿Se pueden añadir marcadores de ubicación en el video?",
+        answer:
+          "Sí. Añadimos gráficos sutiles que señalan puntos de interés cercanos como playas, escuelas o distritos comerciales.",
+      },
+    ],
+  },
 ];
 
 export const spanishCoreRoutes = [

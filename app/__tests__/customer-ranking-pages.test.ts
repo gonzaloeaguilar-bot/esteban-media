@@ -91,6 +91,16 @@ describe("customer-facing ranking pages", () => {
       "produccion-de-video-de-marca-miami",
       "produccion-de-video-para-entrenadores-personales-miami",
       "edicion-de-video-promocional-para-restaurantes-miami",
+      "produccion-de-video-para-firmas-de-abogados-miami",
+      "marketing-de-video-para-alquiler-de-yates-miami",
+      "marketing-de-video-para-odontologia-estetica-miami",
+      "edicion-de-video-para-discotecas-y-eventos-miami",
+      "marketing-de-video-para-contratistas-de-techos-florida",
+      "produccion-de-video-para-asesores-financieros-miami",
+      "edicion-de-video-para-hoteles-boutique-miami",
+      "editor-de-video-de-productos-para-ecommerce",
+      "edicion-de-video-para-joyeria-de-lujo-miami",
+      "edicion-de-video-aereo-inmobiliario-miami",
     ]) {
       expect(niche).toContain(`"${slug}"`);
     }
