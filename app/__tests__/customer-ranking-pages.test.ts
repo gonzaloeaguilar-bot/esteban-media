@@ -101,6 +101,16 @@ describe("customer-facing ranking pages", () => {
       "editor-de-video-de-productos-para-ecommerce",
       "edicion-de-video-para-joyeria-de-lujo-miami",
       "edicion-de-video-aereo-inmobiliario-miami",
+      "edicion-de-video-miami-beach",
+      "video-inmobiliario-aventura-miami",
+      "video-creativo-wynwood-miami",
+      "edicion-de-video-corporativo-weston",
+      "video-de-marca-de-lujo-jupiter",
+      "video-para-negocios-hollywood-fl",
+      "produccion-de-video-delray-beach",
+      "video-inmobiliario-sunny-isles",
+      "edicion-de-video-palm-beach-gardens",
+      "produccion-de-video-davie-fl",
     ]) {
       expect(niche).toContain(`"${slug}"`);
     }

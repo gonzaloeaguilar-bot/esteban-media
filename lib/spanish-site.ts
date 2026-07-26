@@ -1812,7 +1812,328 @@ export const spanishNichePages: SpanishNichePage[] = [
       },
     ],
   },
+  {
+    slug: "edicion-de-video-miami-beach",
+    title: "Edición de video en Miami Beach",
+    metadataTitle: "Edición de Video Miami Beach",
+    description:
+      "Edición de video para proyectos en Miami Beach: hospitalidad, estilo de vida, eventos y bienes raíces de lujo.",
+    eyebrow: "Miami Beach / Hospitalidad y Estilo de Vida",
+    h1: "Edición de video profesional para proyectos en Miami Beach.",
+    lead:
+      "Transforma tomas costeras, eventos nocturnos y propiedades de lujo en videos cinemáticos optimizados para marcas de Miami Beach.",
+    keyword: "edición de video en Miami Beach",
+    location: "Miami Beach / South Beach",
+    availability: "confirmed",
+    icon: Video,
+    bestFor: [
+      "Hoteles, restaurantes y clubes nocturnos en Miami Beach.",
+      "Marcas de moda costera y agentes de bienes raíces de lujo.",
+    ],
+    scopingQuestions: [
+      "¿El video destaca ambientes de playa, nocturnos o interiores?",
+      "¿Requiere versiones en formato vertical para Instagram Reels?",
+    ],
+    projectFit:
+      "Ritmo vibrante, colores cálidos y estética de lujo costero.",
+    faqs: [
+      {
+        question: "¿Cómo optimizan el color para tomas en exteriores de Miami Beach?",
+        answer:
+          "Equilibramos tonos de mar azul turquesa y cielos soleados manteniendo tonos de piel naturales.",
+      },
+    ],
+  },
+  {
+    slug: "video-inmobiliario-aventura-miami",
+    title: "Video inmobiliario en Aventura y Sunny Isles",
+    metadataTitle: "Video Inmobiliario Aventura Miami",
+    description:
+      "Videos de recorridos por condominios de lujo, penthouse y mansiones marítimas en Aventura y Sunny Isles.",
+    eyebrow: "Aventura / Sunny Isles",
+    h1: "Videos inmobiliarios para propiedades de lujo en Aventura.",
+    lead:
+      "Muestra vistas intercostales, acabados de alta gama y amenidades de condominios de lujo con videos cinemáticos.",
+    keyword: "video inmobiliario en Aventura Miami",
+    location: "Aventura / Sunny Isles Beach",
+    availability: "confirmed",
+    icon: Building2,
+    bestFor: [
+      "Realtors de lujo y firmas inmobiliarias especializadas en Aventura y Sunny Isles.",
+      "Desarrolladores de condominios marítimos de alta gama.",
+    ],
+    scopingQuestions: [
+      "¿Las tomas incluyen vistas intercostales o interiores de penthouse?",
+      "¿Se agregarán planos o datos de la propiedad en pantalla?",
+    ],
+    projectFit:
+      "Presentación sobria y refinada de alto estándar visual.",
+    faqs: [
+      {
+        question: "¿Destacan las amenidades del edificio como marina o spa?",
+        answer:
+          "Sí. Editamos secuencias que integran perfectamente el área residencial con las áreas comunes del condominio.",
+      },
+    ],
+  },
+  {
+    slug: "video-creativo-wynwood-miami",
+    title: "Producción de video creativo en Wynwood",
+    metadataTitle: "Video Creativo Wynwood Miami",
+    description:
+      "Edición y producción de video creativo para marcas de moda, arte, gastronomía y agencias en Wynwood.",
+    eyebrow: "Wynwood / Distrito Creativo",
+    h1: "Edición de video creativo e innovador para marcas en Wynwood.",
+    lead:
+      "Combina ritmo urbano, gráficos audaces y estética artística para proyectos creativos en el corazón del distrito de Wynwood.",
+    keyword: "video creativo en Wynwood Miami",
+    location: "Wynwood / Distrito de Diseño",
+    availability: "confirmed",
+    icon: WandSparkles,
+    bestFor: [
+      "Marcas de moda streetwear, galerías de arte y conceptos gastronómicos de Wynwood.",
+      "Agencias creativas que buscan posproducción de estilo vanguardista.",
+    ],
+    scopingQuestions: [
+      "¿El video usará música alternativa o efectos de ritmo acelerado?",
+      "¿Deseas superposiciones de grafitis o elementos gráficos animados?",
+    ],
+    projectFit:
+      "Visuales audaces, dinámicos e innovadores.",
+    faqs: [
+      {
+        question: "¿Soportan efectos visuales y transiciones de ritmo creativo?",
+        answer:
+          "Sí. Aplicamos transiciones rápidas, efectos de textura y tipografía urbana ajustados al estilo del cliente.",
+      },
+    ],
+  },
+  {
+    slug: "edicion-de-video-corporativo-weston",
+    title: "Edición de video corporativo en Weston",
+    metadataTitle: "Video Corporativo Weston FL",
+    description:
+      "Edición de video institucional, entrevistas ejecutivas y cápsulas para empresas y clínicas en Weston, Florida.",
+    eyebrow: "Weston / Broward County",
+    h1: "Edición de video corporativo para empresas en Weston, FL.",
+    lead:
+      "Produce comunicados institucionales, videos de capacitación y promocionales de alta credibilidad para corporativos en Weston.",
+    keyword: "video corporativo en Weston FL",
+    location: "Weston / Broward County",
+    availability: "confirmed",
+    icon: WandSparkles,
+    bestFor: [
+      "Empresas corporativas, centros médicos y firmas de servicios en Weston y Davie.",
+      "Negocios familiares consolidados en el oeste de Broward.",
+    ],
+    scopingQuestions: [
+      "¿El video es para uso interno corporativo o redes externas?",
+      "¿Se requiere limpieza de sonido en entrevistas de oficina?",
+    ],
+    projectFit:
+      "Comunicación sobria, profesional y enfocada en confianza.",
+    faqs: [
+      {
+        question: "¿Pueden editar conferencias o presentaciones corporativas grabadas?",
+        answer:
+          "Sí. Eliminamos pausas, insertamos diapositivas explicativas y mejoramos la nitidez del audio.",
+      },
+    ],
+  },
+  {
+    slug: "video-de-marca-de-lujo-jupiter",
+    title: "Video de marca de lujo en Jupiter y Palm Beach Gardens",
+    metadataTitle: "Video Marca de Lujo Jupiter FL",
+    description:
+      "Videos de marcas de lujo, clubes de golf y servicios de alto patrimonio en Jupiter y Palm Beach Gardens.",
+    eyebrow: "Jupiter / Palm Beach Gardens",
+    h1: "Videos promocionales para marcas de lujo en Jupiter, FL.",
+    lead:
+      "Captura la sofisticación de clubes privados, náutica de lujo y propiedades exclusivas en el norte del condado de Palm Beach.",
+    keyword: "video de marca de lujo en Jupiter FL",
+    location: "Jupiter / Palm Beach Gardens",
+    availability: "confirmed",
+    icon: Video,
+    bestFor: [
+      "Clubes de golf residenciales, marinas y marcas de estilo de vida en Jupiter.",
+      "Servicios de alto valor para residentes de Palm Beach Gardens.",
+    ],
+    scopingQuestions: [
+      "¿Las tomas son de campos de golf, yates o residencias privadas?",
+      "¿Se busca un tono sereno y elegante con narrativa en voz en off?",
+    ],
+    projectFit:
+      "Colorimetría de alta gama y narrativa pausada de prestigio.",
+    faqs: [
+      {
+        question: "¿Editan videos para clubes residenciales y marinos privados?",
+        answer:
+          "Sí. Creamos videos de presentación de estilo de vida con música orquestal o acústica de alta distinción.",
+      },
+    ],
+  },
+  {
+    slug: "video-para-negocios-hollywood-fl",
+    title: "Video para pequeños negocios en Hollywood, FL",
+    metadataTitle: "Video Negocios Hollywood FL",
+    description:
+      "Videos promocionales, reels para Instagram y presentaciones comerciales para comercios en Hollywood y Hallandale.",
+    eyebrow: "Hollywood / Broward County",
+    h1: "Videos promocionales para negocios locales en Hollywood, FL.",
+    lead:
+      "Aumenta la visibilidad local de tu tienda, restaurante o servicio profesional en Hollywood con contenido en video atractivo.",
+    keyword: "video para negocios en Hollywood FL",
+    location: "Hollywood / Hallandale Beach",
+    availability: "confirmed",
+    icon: Building2,
+    bestFor: [
+      "Comercios locales, restaurantes y profesionales en Hollywood, FL.",
+      "Empresas de servicios que atienden el área metropolitana de Broward.",
+    ],
+    scopingQuestions: [
+      "¿El video busca atraer clientes locales en Instagram o Google?",
+      "¿Cuentas con ofertas o promociones de temporada?",
+    ],
+    projectFit:
+      "Mensajes directos, claros y orientados a la conversión de clientes.",
+    faqs: [
+      {
+        question: "¿Incluyen llamadas a la acción con teléfono y sitio web?",
+        answer:
+          "Sí. Diseñamos gráficos finales con botones de contacto, ubicación y datos directos del negocio.",
+      },
+    ],
+  },
+  {
+    slug: "produccion-de-video-delray-beach",
+    title: "Producción de video en Delray Beach",
+    metadataTitle: "Producción Video Delray Beach",
+    description:
+      "Edición y producción de video para boutique, gastronomía y servicios profesionales en Delray Beach, Florida.",
+    eyebrow: "Delray Beach / Palm Beach County",
+    h1: "Edición de video para negocios en Delray Beach, FL.",
+    lead:
+      "Resalta la energía costera y la oferta comercial de Atlantic Avenue con videos promocionales de calidad cinematográfica.",
+    keyword: "producción de video en Delray Beach",
+    location: "Delray Beach / Palm Beach County",
+    availability: "confirmed",
+    icon: Video,
+    bestFor: [
+      "Restaurantes, boutiques y galerías en Atlantic Avenue de Delray Beach.",
+      "Servicios profesionales en el sur del condado de Palm Beach.",
+    ],
+    scopingQuestions: [
+      "¿Las tomas son en exteriores de playa o interiores de local?",
+      "¿Se requiere distribución de contenido para redes sociales?",
+    ],
+    projectFit:
+      "Visuales luminosos con enfoque en estilo de vida local.",
+    faqs: [
+      {
+        question: "¿Adaptan el video para anuncios locales en Instagram y Meta?",
+        answer:
+          "Sí. Entregamos los cortes requeridos para campañas publicitarias segmentadas en Delray Beach.",
+      },
+    ],
+  },
+  {
+    slug: "video-inmobiliario-sunny-isles",
+    title: "Video inmobiliario en Sunny Isles Beach",
+    metadataTitle: "Video Inmobiliario Sunny Isles",
+    description:
+      "Videos cinemáticos de torres residenciales de lujo, oceanfront penthouse y vistas de playa en Sunny Isles.",
+    eyebrow: "Sunny Isles Beach",
+    h1: "Videos cinemáticos para torres de lujo en Sunny Isles Beach.",
+    lead:
+      "Muestra la magnificencia de las torres frente al mar en Sunny Isles con recorridos en video de clase mundial.",
+    keyword: "video inmobiliario en Sunny Isles Beach",
+    location: "Sunny Isles Beach / Aventura",
+    availability: "confirmed",
+    icon: Building2,
+    bestFor: [
+      "Agentes inmobiliarios de lujo en torres icónicas de Sunny Isles.",
+      "Inversionistas y compradores internacionales de propiedades de playa.",
+    ],
+    scopingQuestions: [
+      "¿El departamento tiene vista directa al océano Atlántico?",
+      "¿Requiere narración en español e inglés?",
+    ],
+    projectFit:
+      "Edición ultra-pulida orientada a compradores internacionales de alto patrimonio.",
+    faqs: [
+      {
+        question: "¿Soportan gráficos en varios idiomas para compradores extranjeros?",
+        answer:
+          "Sí. Podemos entregar versiones subtituladas en inglés, español o portugués según el mercado objetivo.",
+      },
+    ],
+  },
+  {
+    slug: "edicion-de-video-palm-beach-gardens",
+    title: "Edición de video en Palm Beach Gardens",
+    metadataTitle: "Edición Video Palm Beach Gardens",
+    description:
+      "Edición de video para servicios ejecutivos, clínicas y residencias de lujo en Palm Beach Gardens.",
+    eyebrow: "Palm Beach Gardens",
+    h1: "Edición de video para empresas y residencias en Palm Beach Gardens.",
+    lead:
+      "Comunica la excelencia de tus servicios comerciales o residenciales con videos pulidos de alta distinción visual.",
+    keyword: "edición de video en Palm Beach Gardens",
+    location: "Palm Beach Gardens / Jupiter",
+    availability: "confirmed",
+    icon: WandSparkles,
+    bestFor: [
+      "Clínicas médicas, centros de salud y bufetes en Palm Beach Gardens.",
+      "Empresas de arquitectura y paisajismo de lujo.",
+    ],
+    scopingQuestions: [
+      "¿El video se enfocará en instalaciones o entrevistas al equipo?",
+      "¿Buscas publicar en YouTube o LinkedIn corporativo?",
+    ],
+    projectFit:
+      "Tono corporativo sofisticado y limpio.",
+    faqs: [
+      {
+        question: "¿Optimizan el contenido para LinkedIn ejecutivo?",
+        answer:
+          "Sí. Formateamos clips horizontales con subtítulos incrustados ideales para audiencias de LinkedIn.",
+      },
+    ],
+  },
+  {
+    slug: "produccion-de-video-davie-fl",
+    title: "Producción de video en Davie, FL",
+    metadataTitle: "Producción Video Davie FL",
+    description:
+      "Edición de video para centros ecuestres, comercios y servicios educativos en Davie y el suroeste de Broward.",
+    eyebrow: "Davie / Broward County",
+    h1: "Edición de video para negocios y servicios en Davie, FL.",
+    lead:
+      "Presenta tus instalaciones, ranchos, comercios o servicios educativos con videos claros y atractivos.",
+    keyword: "producción de video en Davie FL",
+    location: "Davie / Plantation / Broward",
+    availability: "confirmed",
+    icon: Building2,
+    bestFor: [
+      "Comercios locales, centros educativos y propiedades en Davie.",
+      "Contratistas y proveedores de servicios comunitarios.",
+    ],
+    scopingQuestions: [
+      "¿Las tomas son en espacios abiertos o aulas/oficinas?",
+      "¿Requieres llamados a la acción comerciales directos?",
+    ],
+    projectFit:
+      "Edición auténtica y natural enfocada en la comunidad local.",
+    faqs: [
+      {
+        question: "¿Procesan tomas grabadas en eventos al aire libre?",
+        answer:
+          "Sí. Estabilizamos movimiento y nivelamos los niveles de iluminación solar directa para tomas exteriores.",
+      },
+    ],
+  },
 ];
+
 
 export const spanishCoreRoutes = [
   "/es",

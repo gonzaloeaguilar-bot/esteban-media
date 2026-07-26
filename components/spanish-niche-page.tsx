@@ -692,6 +692,136 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
       },
     ],
   },
+  "edicion-de-video-miami-beach": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami Beach",
+    note: "Edición cinemática de estilo de vida e historia costera.",
+    serviceIds: ["edicion"],
+    projects: [
+      {
+        href: "/es/portafolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        detail: "Cortes de ambiente festivo costero.",
+      },
+    ],
+  },
+  "video-inmobiliario-aventura-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Aventura y Sunny Isles",
+    note: "Videos de condominios marítimos y penthouses de lujo.",
+    serviceIds: ["edicion"],
+    projects: [
+      {
+        href: "/es/portafolio/homeowners",
+        title: "Homeowners",
+        detail: "Edición de penthouse e interiores.",
+      },
+    ],
+  },
+  "video-creativo-wynwood-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Wynwood",
+    note: "Edición vanguardista y ritmos audaces para marcas creativas.",
+    serviceIds: ["edicion"],
+    projects: [
+      {
+        href: "/es/portafolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        detail: "Postproducción de estilo urbano.",
+      },
+    ],
+  },
+  "edicion-de-video-corporativo-weston": {
+    areaHref: "/es/areas#broward",
+    areaLabel: "Ver cobertura en Broward County",
+    note: "Edición sobria de comunicados e historia corporativa.",
+    serviceIds: ["edicion"],
+    projects: [
+      {
+        href: "/es/portafolio/my-dler",
+        title: "My D'ler",
+        detail: "Video corporativo institucional.",
+      },
+    ],
+  },
+  "video-de-marca-de-lujo-jupiter": {
+    areaHref: "/es/areas/palm-beach-county",
+    areaLabel: "Ver cobertura en Palm Beach County",
+    note: "Videos sobrios de estilo de vida para clubes marítimos y golf.",
+    serviceIds: ["edicion"],
+    projects: [
+      {
+        href: "/es/portafolio/my-dler",
+        title: "My D'ler",
+        detail: "Edición visual de marca de prestigio.",
+      },
+    ],
+  },
+  "video-para-negocios-hollywood-fl": {
+    areaHref: "/es/areas#broward",
+    areaLabel: "Ver cobertura en Broward County",
+    note: "Videos promocionales claros para comercios de Hollywood.",
+    serviceIds: ["edicion"],
+    projects: [
+      {
+        href: "/es/portafolio/healthy-smile",
+        title: "Healthy Smile",
+        detail: "Video marketing para comercios locales.",
+      },
+    ],
+  },
+  "produccion-de-video-delray-beach": {
+    areaHref: "/es/areas/palm-beach-county",
+    areaLabel: "Ver cobertura en Palm Beach County",
+    note: "Edición ligera y vibrante para negocios en Delray Beach.",
+    serviceIds: ["edicion"],
+    projects: [
+      {
+        href: "/es/portafolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        detail: "Visuales gastronómicos y boutique.",
+      },
+    ],
+  },
+  "video-inmobiliario-sunny-isles": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Sunny Isles Beach",
+    note: "Edición cinemática de torres de lujo e imponentes vistas al mar.",
+    serviceIds: ["edicion"],
+    projects: [
+      {
+        href: "/es/portafolio/homeowners",
+        title: "Homeowners",
+        detail: "Edición de vistas al océano e interiores.",
+      },
+    ],
+  },
+  "edicion-de-video-palm-beach-gardens": {
+    areaHref: "/es/areas/palm-beach-county",
+    areaLabel: "Ver cobertura en Palm Beach County",
+    note: "Edición sobria para clínicas y servicios ejecutivos.",
+    serviceIds: ["edicion"],
+    projects: [
+      {
+        href: "/es/portafolio/healthy-smile",
+        title: "Healthy Smile",
+        detail: "Video corporativo institucional.",
+      },
+    ],
+  },
+  "produccion-de-video-davie-fl": {
+    areaHref: "/es/areas#broward",
+    areaLabel: "Ver cobertura en Broward County",
+    note: "Edición natural para propiedades y comercios en Davie.",
+    serviceIds: ["edicion"],
+    projects: [
+      {
+        href: "/es/portafolio/homeowners",
+        title: "Homeowners",
+        detail: "Edición de servicios locales y espacios.",
+      },
+    ],
+  },
 };
 
 export function buildSpanishNicheMetadata(slug: string): Metadata {
