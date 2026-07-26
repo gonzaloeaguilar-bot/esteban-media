@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { buildTechOutreachHtmlEmail } from "../../lib/email-template-builder.mjs";
 
 describe("Email Template Builder - Tella Dark Pressure-Tested System", () => {
-  it("renders dark theme email cleanly with 3s hook, real portfolio links, and SMS redirect endpoint", () => {
+  it("renders dark theme email cleanly with 3s hook, real portfolio links, Web Audit Offer, and SMS redirect endpoint", () => {
     const html = buildTechOutreachHtmlEmail({
       targetName: "Davie Blvd Latin Bistro & Grill",
       city: "Fort Lauderdale",
@@ -22,6 +22,10 @@ describe("Email Template Builder - Tella Dark Pressure-Tested System", () => {
     // Scroll-stopping 3s Hook
     expect(html).toContain("El 80% de tus clientes pasa de largo en redes en 3 segundos");
 
+    // Free Web Design & Google Profile Audit Offer
+    expect(html).toContain("Auditoría de Sitio Web");
+    expect(html).toContain("Optimización de Ficha de Google Business Profile");
+
     // Real portfolio CTA & Links
     expect(html).toContain("Ver Portafolio de Videos en Vivo →");
     expect(html).toContain("https://estebanmorenomedia.com/es/portafolio");
@@ -30,17 +34,13 @@ describe("Email Template Builder - Tella Dark Pressure-Tested System", () => {
     expect(html).toContain("Bar Door Monkey");
     expect(html).toContain("Diana & Jack");
 
-    // Tella style italicized numbered list items
-    expect(html).toContain('font-style: italic;">Gancho de interrupción (0-3s).</strong>');
-    expect(html).toContain('font-style: italic;">Subtítulos kinéticos activos.</strong>');
-
     // Contact section, WhatsApp & HTTPS SMS redirect endpoint
     expect(html).toContain("WhatsApp (305-497-4478)");
     expect(html).toContain("https://estebanmorenomedia.com/api/sms?phone=13054974478");
     expect(html).toContain("📍 1811 SW 42nd Ave, Fort Lauderdale, FL 33317");
   });
 
-  it("renders English email cleanly with high-impact hook", () => {
+  it("renders English email cleanly with high-impact hook and free web audit offer", () => {
     const html = buildTechOutreachHtmlEmail({
       targetName: "Sunny Isles MedSpa",
       city: "Sunny Isles",
@@ -54,8 +54,8 @@ describe("Email Template Builder - Tella Dark Pressure-Tested System", () => {
 
     expect(lower).toContain("background-color: #121214");
     expect(html).toContain("80% of potential customers scroll past social video in 3s");
+    expect(html).toContain("Free Web Design");
     expect(html).toContain("View Live Video Portfolio →");
     expect(html).toContain("https://estebanmorenomedia.com/portfolio/bar-door-monkey");
-    expect(html).toContain('font-style: italic;">Pattern-interrupt hook (0-3s).</strong>');
   });
 });
