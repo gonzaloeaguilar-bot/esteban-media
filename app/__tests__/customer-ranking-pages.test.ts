@@ -89,6 +89,8 @@ describe("customer-facing ranking pages", () => {
       "marketing-de-video-para-spas-y-bienestar-miami",
       "edicion-de-video-para-eventos-miami",
       "produccion-de-video-de-marca-miami",
+      "produccion-de-video-para-entrenadores-personales-miami",
+      "edicion-de-video-promocional-para-restaurantes-miami",
     ]) {
       expect(niche).toContain(`"${slug}"`);
     }

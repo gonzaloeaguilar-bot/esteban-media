@@ -15,15 +15,15 @@ import {
 import { site } from "../site";
 
 describe("bilingual practical guides", () => {
-  it("returns exactly 17 guides for English", () => {
+  it("returns exactly 19 guides for English", () => {
     const guides = getGuides("en");
-    expect(guides).toHaveLength(17);
+    expect(guides).toHaveLength(19);
     expect(guides.every((guide) => guide.locale === "en")).toBe(true);
   });
 
-  it("returns exactly 17 guides for Spanish", () => {
+  it("returns exactly 19 guides for Spanish", () => {
     const guides = getGuides("es");
-    expect(guides).toHaveLength(17);
+    expect(guides).toHaveLength(19);
     expect(guides.every((guide) => guide.locale === "es")).toBe(true);
   });
 
@@ -31,13 +31,13 @@ describe("bilingual practical guides", () => {
     const englishGuides = getGuides("en");
     const spanishGuides = getGuides("es");
 
-    expect(englishGuides).toHaveLength(17);
-    expect(spanishGuides).toHaveLength(17);
+    expect(englishGuides).toHaveLength(19);
+    expect(spanishGuides).toHaveLength(19);
     expect(englishGuides.map(({ id }) => id)).toEqual(
       spanishGuides.map(({ id }) => id),
     );
-    expect(new Set(englishGuides.map(({ slug }) => slug))).toHaveLength(17);
-    expect(new Set(spanishGuides.map(({ slug }) => slug))).toHaveLength(17);
+    expect(new Set(englishGuides.map(({ slug }) => slug))).toHaveLength(19);
+    expect(new Set(spanishGuides.map(({ slug }) => slug))).toHaveLength(19);
 
     for (const guide of [...englishGuides, ...spanishGuides]) {
       expect(guide.answer.length).toBeGreaterThan(80);
@@ -57,9 +57,9 @@ describe("bilingual practical guides", () => {
     const metadataTitles = allGuides.map(({ metadataTitle }) => metadataTitle);
     const descriptions = allGuides.map(({ description }) => description);
 
-    expect(new Set(canonicalPaths).size).toBe(34);
-    expect(new Set(metadataTitles).size).toBe(34);
-    expect(new Set(descriptions).size).toBe(34);
+    expect(new Set(canonicalPaths).size).toBe(38);
+    expect(new Set(metadataTitles).size).toBe(38);
+    expect(new Set(descriptions).size).toBe(38);
 
     for (const guide of allGuides) {
       const metadata = buildGuideMetadata(guide);

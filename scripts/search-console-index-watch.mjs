@@ -72,6 +72,8 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/services/wellness-spa-video-marketing-miami",
   "https://estebanmorenomedia.com/services/event-video-editing-miami",
   "https://estebanmorenomedia.com/services/brand-video-production-miami",
+  "https://estebanmorenomedia.com/services/fitness-trainer-video-production-miami",
+  "https://estebanmorenomedia.com/services/restaurant-promo-video-editing-miami",
   "https://estebanmorenomedia.com/es/fotografia-de-producto-con-ia-miami",
   "https://estebanmorenomedia.com/es/imagenes-con-ia-para-ecommerce-miami",
   "https://estebanmorenomedia.com/es/marketing-de-video-para-dentistas-miami",
@@ -103,6 +105,8 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/es/marketing-de-video-para-spas-y-bienestar-miami",
   "https://estebanmorenomedia.com/es/edicion-de-video-para-eventos-miami",
   "https://estebanmorenomedia.com/es/produccion-de-video-de-marca-miami",
+  "https://estebanmorenomedia.com/es/produccion-de-video-para-entrenadores-personales-miami",
+  "https://estebanmorenomedia.com/es/edicion-de-video-promocional-para-restaurantes-miami",
   "https://estebanmorenomedia.com/portfolio/my-dler",
   "https://estebanmorenomedia.com/es/portafolio/my-dler",
   "https://estebanmorenomedia.com/portfolio/banacol",
@@ -138,6 +142,8 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/guides/reels-vs-tiktok-vs-shorts-for-local-business",
   "https://estebanmorenomedia.com/guides/ai-video-editing-vs-human-editor",
   "https://estebanmorenomedia.com/guides/how-to-choose-a-video-editor-in-miami",
+  "https://estebanmorenomedia.com/guides/video-editing-workflow-for-agencies-miami",
+  "https://estebanmorenomedia.com/guides/how-to-repurpose-long-form-video-into-reels",
   "https://estebanmorenomedia.com/es/guias/preparar-material-para-edicion-de-video",
   "https://estebanmorenomedia.com/es/guias/como-escribir-un-brief-util-de-video",
   "https://estebanmorenomedia.com/es/guias/video-vertical-horizontal-y-zonas-seguras",
@@ -155,6 +161,8 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/es/guias/reels-vs-tiktok-vs-shorts-para-negocios-locales",
   "https://estebanmorenomedia.com/es/guias/edicion-de-video-con-ia-vs-editor-profesional",
   "https://estebanmorenomedia.com/es/guias/como-elegir-un-editor-de-video-en-miami",
+  "https://estebanmorenomedia.com/es/guias/flujo-de-edicion-de-video-para-agencias-miami",
+  "https://estebanmorenomedia.com/es/guias/como-reutilizar-video-largo-en-reels",
 ];
 
 const WATCH_SET_EXPANSION_SCHEMA =

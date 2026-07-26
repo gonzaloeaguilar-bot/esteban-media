@@ -1428,6 +1428,70 @@ export const spanishNichePages: SpanishNichePage[] = [
       },
     ],
   },
+  {
+    slug: "produccion-de-video-para-entrenadores-personales-miami",
+    title: "Producción de video para entrenadores personales en Miami",
+    metadataTitle: "Video Entrenadores Personales Miami",
+    description:
+      "Videos de entrenamiento dinámicos, reels de transformación y contenido promocional para personal trainers y coaches en Miami.",
+    eyebrow: "Personal Trainers / Fitness",
+    h1: "Videos de alta energía para personal trainers y coaches.",
+    lead:
+      "Captura la intensidad de tus sesiones de entrenamiento con reels dinámicos, edición de ritmo rápido y testimonios de clientes.",
+    keyword: "video para personal trainer en Miami",
+    location: "Miami / Distrito Financiero",
+    availability: "confirmed",
+    icon: Video,
+    bestFor: [
+      "Personal trainers independientes y coaches de acondicionamiento físico.",
+      "Estudios boutique de entrenamiento funcional y Pilates.",
+    ],
+    scopingQuestions: [
+      "¿El video se enfocará en rutinas de ejercicio o historias de transformación?",
+      "¿Tienes música rítmica seleccionada para la edición?",
+    ],
+    projectFit:
+      "Edición motivacional de alto impacto visual.",
+    faqs: [
+      {
+        question: "¿Pueden editar clips grabados en gimnasios con smartphone?",
+        answer:
+          "Sí. Optimizamos la resolución, estabilizamos las tomas y mejoramos el audio de fondo.",
+      },
+    ],
+  },
+  {
+    slug: "edicion-de-video-promocional-para-restaurantes-miami",
+    title: "Edición de video promocional para restaurantes en Miami",
+    metadataTitle: "Edición Video Restaurantes Miami",
+    description:
+      "Edición de video gastronómico, reels de platillos insignia y promocionales para restaurantes y bares en Miami.",
+    eyebrow: "Gastronomía / Restaurantes",
+    h1: "Edición de video apetitosa para restaurantes en Miami.",
+    lead:
+      "Destaca los detalles culinarios, ambiente de comedor y preparación de bebidas con videos cortos diseñados para generar reservas.",
+    keyword: "edición de video para restaurantes en Miami",
+    location: "Miami / Wynwood",
+    availability: "confirmed",
+    icon: Video,
+    bestFor: [
+      "Restaurantes, bares gastronómicos y conceptos de comida rápida de lujo.",
+      "Agencias de marketing gastronómico en South Florida.",
+    ],
+    scopingQuestions: [
+      "¿Cuentas con tomas en cámara lenta de preparación de alimentos?",
+      "¿El video incluirá superposiciones de menú o precios promocionales?",
+    ],
+    projectFit:
+      "Edición sensorial detallada para apetito visual.",
+    faqs: [
+      {
+        question: "¿Incluyen música con derechos comerciales?",
+        answer:
+          "Sí. Suministramos licencias comerciales completas para uso en redes sociales y sitio web.",
+      },
+    ],
+  },
 ];
 
 export const spanishCoreRoutes = [

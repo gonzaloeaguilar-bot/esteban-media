@@ -34,6 +34,8 @@ describe("guide routes", () => {
       { slug: "reels-vs-tiktok-vs-shorts-for-local-business" },
       { slug: "ai-video-editing-vs-human-editor" },
       { slug: "how-to-choose-a-video-editor-in-miami" },
+      { slug: "video-editing-workflow-for-agencies-miami" },
+      { slug: "how-to-repurpose-long-form-video-into-reels" },
     ]);
     expect(esParams.map(({ slug }) => slug)).toEqual([
       "preparar-material-para-edicion-de-video",
@@ -53,6 +55,8 @@ describe("guide routes", () => {
       "reels-vs-tiktok-vs-shorts-para-negocios-locales",
       "edicion-de-video-con-ia-vs-editor-profesional",
       "como-elegir-un-editor-de-video-en-miami",
+      "flujo-de-edicion-de-video-para-agencias-miami",
+      "como-reutilizar-video-largo-en-reels",
     ]);
   });
 

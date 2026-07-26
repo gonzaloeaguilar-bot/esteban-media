@@ -536,6 +536,32 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
       },
     ],
   },
+  "produccion-de-video-para-entrenadores-personales-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade",
+    note: "Videos dinámicos para personal trainers y coaches de fitness.",
+    serviceIds: ["edicion", "reutilizacion-redes"],
+    projects: [
+      {
+        href: "/es/portafolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        detail: "Cortes de ritmo rápido.",
+      },
+    ],
+  },
+  "edicion-de-video-promocional-para-restaurantes-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade",
+    note: "Edición apetitosa de reels culinarios para restaurantes.",
+    serviceIds: ["edicion"],
+    projects: [
+      {
+        href: "/es/portafolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        detail: "Video promocional gastronómico.",
+      },
+    ],
+  },
 };
 
 export function buildSpanishNicheMetadata(slug: string): Metadata {

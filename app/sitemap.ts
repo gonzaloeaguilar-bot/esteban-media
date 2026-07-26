@@ -47,6 +47,8 @@ const routes = [
   { path: "/services/wellness-spa-video-marketing-miami", priority: 0.85 },
   { path: "/services/event-video-editing-miami", priority: 0.85 },
   { path: "/services/brand-video-production-miami", priority: 0.85 },
+  { path: "/services/fitness-trainer-video-production-miami", priority: 0.85 },
+  { path: "/services/restaurant-promo-video-editing-miami", priority: 0.85 },
   { path: "/portfolio", priority: 0.9 },
   { path: "/areas", priority: 0.85 },
   { path: "/areas/palm-beach-county", priority: 0.85 },

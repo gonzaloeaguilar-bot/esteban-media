@@ -21,6 +21,8 @@ export const GUIDE_IDS = [
   "reels-vs-tiktok-vs-shorts-guide",
   "ai-vs-human-editor-guide",
   "choose-video-editor-guide",
+  "agency-video-editing-guide",
+  "repurpose-longform-to-reels-guide",
 ] as const;
 
 export type GuideId = (typeof GUIDE_IDS)[number];
@@ -1468,6 +1470,132 @@ const guidePairs: readonly GuidePair[] = [
           heading: "Flujo de trabajo bilingüe claro",
           paragraphs: [
             "Elige un editor que comunique los requerimientos con precisión tanto en español como en inglés para el mercado de South Florida.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "agency-video-editing-guide",
+    en: {
+      slug: "video-editing-workflow-for-agencies-miami",
+      metadataTitle: "Agency Video Editing Workflow Guide",
+      title: "White-label video editing workflow for marketing agencies in Miami",
+      description:
+        "How marketing agencies outsource high-volume video editing with standardized asset handoff, master timelines, and review cycles.",
+      eyebrow: "Agency Workflow",
+      answer:
+        "Establish standardized folder structures, shared drive sync, clear video briefs, and dedicated Slack/email feedback rounds.",
+      proof: {
+        href: "/portfolio/my-dler",
+        title: "My D'ler",
+        description:
+          "Approved portfolio credits include agency-level white-label post-production. Linked as a published example; nothing published confirms identical agency retainer terms.",
+      },
+      sections: [
+        {
+          heading: "Standardizing folder structures for agency handoff",
+          paragraphs: [
+            "Organize raw footage by camera angle, audio tracks, logos, and brand guidelines before sharing cloud folders.",
+          ],
+        },
+        {
+          heading: "Managing revision rounds efficiently",
+          paragraphs: [
+            "Use frame-accurate video review tools and batch feedback to minimize turn-around cycles for client campaigns.",
+          ],
+        },
+      ],
+    },
+    es: {
+      slug: "flujo-de-edicion-de-video-para-agencias-miami",
+      metadataTitle: "Edición Video para Agencias Guía",
+      title: "Flujo de edición de video marca blanca para agencias en Miami",
+      description:
+        "Cómo las agencias de marketing externalizan la edición de video masiva con entregas estandarizadas y rondas de revisión.",
+      eyebrow: "Flujo para Agencias",
+      answer:
+        "Establece carpetas organizadas en la nube, briefs detallados y rondas de retroalimentación estructuradas por correo o Slack.",
+      proof: {
+        href: "/es/portafolio/my-dler",
+        title: "My D'ler",
+        description:
+          "Los créditos aprobados del portafolio incluyen postproducción para agencias. Se enlaza como ejemplo publicado; nada publicado confirma términos idénticos para todo cliente.",
+      },
+      sections: [
+        {
+          heading: "Estandarización de carpetas de proyecto",
+          paragraphs: [
+            "Clasifica los clips por cámara, fuentes de audio y logotipos antes de compartir la carpeta en la nube.",
+          ],
+        },
+        {
+          heading: "Gestión eficiente de revisiones",
+          paragraphs: [
+            "Agrupa las observaciones de cambios en listas específicas con marcas de tiempo para agilizar la entrega final.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "repurpose-longform-to-reels-guide",
+    en: {
+      slug: "how-to-repurpose-long-form-video-into-reels",
+      metadataTitle: "Repurpose Video into Reels Guide",
+      title: "How to repurpose long-form video podcasts into social Reels",
+      description:
+        "Step-by-step strategy for extracting high-hook moments from podcasts, webinars, and keynotes for Instagram Reels and Shorts.",
+      eyebrow: "Content Repurposing",
+      answer:
+        "Identify emotional or high-value 30-60 second segments, reframe to 9:16 vertical, add animated captions, and craft a strong hook.",
+      proof: {
+        href: "/portfolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        description:
+          "Approved portfolio credits include vertical social video repurposing. Linked as a published example; nothing published confirms identical view counts across channels.",
+      },
+      sections: [
+        {
+          heading: "Identifying high-performing clip moments",
+          paragraphs: [
+            "Look for standalone insights, strong opinions, or story climaxes in podcast recordings that make viewers pause.",
+          ],
+        },
+        {
+          heading: "Formatting for vertical mobile screens",
+          paragraphs: [
+            "Crop to 9:16 ratio, place speaker face centered, and overlay dynamic subtitles in the lower-third safe zone.",
+          ],
+        },
+      ],
+    },
+    es: {
+      slug: "como-reutilizar-video-largo-en-reels",
+      metadataTitle: "Reutilizar Video en Reels Guía",
+      title: "Cómo reutilizar videos largos y podcasts en Reels y Shorts",
+      description:
+        "Estrategia paso a paso para extraer ganchos de valor en podcasts y seminarios web para publicar en Instagram Reels y Shorts.",
+      eyebrow: "Reutilización de Contenido",
+      answer:
+        "Identifica momentos clave de 30 a 60 segundos, adapta el encuadre a 9:16 vertical, añade subtítulos dinámicos y un gancho inicial.",
+      proof: {
+        href: "/es/portafolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        description:
+          "Los créditos aprobados del portafolio incluyen adaptación de video vertical para redes. Se enlaza como ejemplo publicado; nada publicado confirma reproducciones idénticas en cada caso.",
+      },
+      sections: [
+        {
+          heading: "Identificación de momentos clave",
+          paragraphs: [
+            "Selecciona fragmentos con ideas potentes o respuestas directas que funcionen de forma independiente.",
+          ],
+        },
+        {
+          heading: "Adaptación al formato 9:16 vertical",
+          paragraphs: [
+            "Ajusta el encuadre móvil, centra la imagen del hablante y añade subtítulos llamativos en la zona segura.",
           ],
         },
       ],
