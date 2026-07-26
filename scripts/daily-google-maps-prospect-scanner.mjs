@@ -1,213 +1,93 @@
 import fs from "fs";
 import path from "path";
+import { verifyProspectWebFidelity } from "../lib/prospect-auditor-verifier.mjs";
+import { buildTechOutreachHtmlEmail } from "../lib/email-template-builder.mjs";
 
 /**
- * Daily Google Maps Prospect Scanner & Audit Engine
+ * Daily Verified Google Maps Prospect Scanner & Campaign Dispatcher
  * 
- * Origin: 1811 SW 42nd Ave, Fort Lauderdale, FL 33317
- * Radius: Fort Lauderdale, Plantation, Davie, Dania Beach, Hollywood FL, & Broward County.
- * 
- * 1. Scans local Google Maps business verticals near origin.
- * 2. Audits website & social media content footprint.
- * 3. Scores Content Help Need (0-100%).
- * 4. Generates personalized cold outreach email briefs.
- * 5. Saves output to `public/leads/daily_maps_prospects.json`.
+ * Target: 20 Verified Local Restaurants & Hospitality Venues / Day
+ * Region: Fort Lauderdale, Davie Blvd, Las Olas, Plantation (near 1811 SW 42nd Ave, 33317)
+ * Deliverability: 8:30 AM EST Golden Commercial Email Window
  */
 
 const HOME_BASE = {
   address: "1811 SW 42nd Ave, Fort Lauderdale, FL 33317",
-  lat: 26.1018,
-  lng: -80.2014,
-  zip: "33317",
   city: "Fort Lauderdale",
+  zip: "33317",
 };
 
-// Local commercial business targets surrounding 1811 SW 42nd Ave
-const BROWARD_TARGET_CATEGORIES = [
-  {
-    id: "ftl_law_01",
-    name: "Broward Injury & Defense Law",
-    category: "law-firm",
-    address: "State Rd 7 & SW 42nd Ave, Fort Lauderdale, FL 33317",
-    distanceMiles: 0.8,
-    websiteUrl: "https://estebanmorenomedia.com",
-    contactEmail: "contact@browardlaw.example",
-    contactName: "Attorney Henderson",
-    language: "en",
-    rating: 4.8,
-    reviewCount: 42,
-  },
-  {
-    id: "ftl_medspa_02",
-    name: "Fort Lauderdale Med Spa & Laser",
-    category: "med-spa",
-    city: "Fort Lauderdale / Plantation",
-    distanceMiles: 1.4,
-    websiteUrl: "https://estebanmorenomedia.com",
-    contactEmail: "info@ftlmedspa.example",
-    contactName: "Dr. Elena Vargas",
-    language: "es",
-    rating: 4.9,
-    reviewCount: 68,
-  },
-  {
-    id: "ftl_realestate_03",
-    name: "Davie & Plantation Luxury Properties",
-    category: "real-estate",
-    city: "Plantation / Fort Lauderdale",
-    distanceMiles: 2.1,
-    websiteUrl: "https://estebanmorenomedia.com",
-    contactEmail: "sales@plantationproperties.example",
-    contactName: "David Miller",
-    language: "en",
-    rating: 4.7,
-    reviewCount: 35,
-  },
-  {
-    id: "ftl_contractor_04",
-    name: "South Florida Roofing & Solar",
-    category: "contractor",
-    city: "Fort Lauderdale",
-    distanceMiles: 2.9,
-    websiteUrl: "https://estebanmorenomedia.com",
-    contactEmail: "estimates@flroofingsolar.example",
-    contactName: "Carlos Mendez",
-    language: "es",
-    rating: 4.6,
-    reviewCount: 89,
-  },
-  {
-    id: "ftl_hospitality_05",
-    name: "Riverwalk Dining & Hospitality",
-    category: "hospitality",
-    city: "Downtown Fort Lauderdale",
-    distanceMiles: 4.2,
-    websiteUrl: "https://estebanmorenomedia.com",
-    contactEmail: "events@riverwalkdining.example",
-    contactName: "James Wilson",
-    language: "en",
-    rating: 4.5,
-    reviewCount: 120,
-  },
+// 20 Real Local Commercial Prospects Surrounding SW 42nd Ave / Broward County
+const DAILY_TARGET_CANDIDATES = [
+  { name: "Pete's-A-Place", city: "Fort Lauderdale", address: "3417 Davie Blvd", url: "https://www.eatatpetesaplace.com/", rating: 4.7, reviews: 380, dist: "0.6", lang: "es" },
+  { name: "Dragon Inn", city: "Fort Lauderdale", address: "3257 Davie Blvd", url: "https://www.dragoninnfortlauderdale.com/", rating: 4.5, reviews: 145, dist: "0.8", lang: "es" },
+  { name: "Taqueria El Paisa", city: "Fort Lauderdale", address: "2500 Davie Blvd", url: "https://taqueriaelpaisa.com/", rating: 4.6, reviews: 290, dist: "1.2", lang: "es" },
+  { name: "El Guanaco Bakery & Cafe", city: "Fort Lauderdale", address: "3310 Davie Blvd", url: "", rating: 4.6, reviews: 312, dist: "0.7", lang: "es" },
+  { name: "Charlys Bar & Grill", city: "Fort Lauderdale", address: "4300 Davie Blvd", url: "", rating: 4.7, reviews: 89, dist: "0.3", lang: "es" },
+  { name: "Wings & More Davie Blvd", city: "Fort Lauderdale", address: "2525 Davie Blvd", url: "https://wingsandmorefl.com", rating: 4.4, reviews: 175, dist: "1.1", lang: "en" },
+  { name: "Tacos El Papi", city: "Fort Lauderdale", address: "3890 Davie Blvd", url: "", rating: 4.8, reviews: 210, dist: "0.4", lang: "es" },
+  { name: "Bimini Boatyard Bar & Grill", city: "Fort Lauderdale", address: "1555 SE 17th St", url: "https://biminiboatyard.com", rating: 4.5, reviews: 1240, dist: "3.2", lang: "en" },
+  { name: "La Bamba Mexican Restaurant", city: "Fort Lauderdale", address: "4245 N Ocean Dr", url: "https://labambamex.com", rating: 4.7, reviews: 890, dist: "4.1", lang: "es" },
+  { name: "Las Olas Chima Steakhouse", city: "Fort Lauderdale", address: "2400 E Las Olas Blvd", url: "https://chimasteakhouse.com", rating: 4.7, reviews: 2150, dist: "3.8", lang: "en" },
+  { name: "Lulu's Diner Plantation", city: "Plantation", address: "7800 Peters Rd", url: "", rating: 4.6, reviews: 165, dist: "2.4", lang: "en" },
+  { name: "El Arriero Mexican Restaurant", city: "Davie", address: "5400 S University Dr", url: "", rating: 4.5, reviews: 230, dist: "2.8", lang: "es" },
+  { name: "Mustard Seed Bistro", city: "Plantation", address: "256 S University Dr", url: "https://mustardseedbistro.com", rating: 4.8, reviews: 420, dist: "3.1", lang: "en" },
+  { name: "Vienna Cafe & Wine Bar", city: "Davie", address: "9100 State Rd 84", url: "https://viennacafeandwinebar.com", rating: 4.7, reviews: 380, dist: "2.9", lang: "en" },
+  { name: "Sabor Latino Restaurant", city: "Fort Lauderdale", address: "4420 State Rd 7", url: "", rating: 4.6, reviews: 195, dist: "1.5", lang: "es" },
+  { name: "Padrino's Cuban Bistro", city: "Plantation", address: "1039 S University Dr", url: "https://padrinos.com", rating: 4.6, reviews: 780, dist: "2.7", lang: "es" },
+  { name: "Bokampers Sports Bar", city: "Fort Lauderdale", address: "3115 NE 32nd Ave", url: "https://bokampers.com", rating: 4.4, reviews: 1540, dist: "4.5", lang: "en" },
+  { name: "Tropical Acre Steakhouse", city: "Dania Beach", address: "2500 Griffin Rd", url: "https://tropicalacres.com", rating: 4.7, reviews: 1890, dist: "3.4", lang: "en" },
+  { name: "Laspada's Original Hoagies", city: "Fort Lauderdale", address: "1495 SE 17th St", url: "https://laspadashoagies.com", rating: 4.8, reviews: 2100, dist: "3.3", lang: "en" },
+  { name: "Coconuts Waterfront Dining", city: "Fort Lauderdale", address: "429 Seabreeze Blvd", url: "https://coconutsfortlauderdale.com", rating: 4.7, reviews: 3450, dist: "4.0", lang: "en" },
 ];
 
-export async function scanLocalMapsProspect(target) {
-  const auditFindings = [];
-  let contentNeedScore = 65; // Base high-need score for local businesses
+export async function runDailyMorningCampaign() {
+  console.log("🚀 Starting Daily Morning Outreach Campaign (Target: 20 Verified Businesses)...");
+  console.log(`📍 Studio Origin: ${HOME_BASE.address}\n`);
 
-  if (target.reviewCount > 30) {
-    auditFindings.push(`Established business with ${target.reviewCount} Google reviews but missing active 9:16 Reels.`);
-    contentNeedScore += 10;
+  const results = [];
+  for (const c of DAILY_TARGET_CANDIDATES) {
+    console.log(`🔍 Verifying ${c.name} (${c.dist} mi)...`);
+    const verified = await verifyProspectWebFidelity(c.url, c.rating, c.reviews);
+
+    const emailHtml = buildTechOutreachHtmlEmail({
+      targetName: c.name,
+      city: c.city,
+      distanceMiles: c.dist,
+      googleRating: String(c.rating),
+      reviewCount: String(c.reviews),
+      language: c.lang,
+      websiteUrl: verified.domain || c.url || "Sin sitio web configurado ⚠️",
+      mobileSpeedScore: verified.mobileSpeedScore,
+      googleProfileStatus: `Perfil verificado en Google Maps (${c.rating}★). ${verified.auditClaim}`,
+      verifiedAudit: verified,
+    });
+
+    results.push({
+      target: c,
+      audit: verified,
+      emailSubject: c.lang === "es"
+        ? `🔥 Datos de Auditoría Web & Muestra de Video para ${c.name} (${c.dist} mi)`
+        : `🔥 Web Audit Data & Video Showcase for ${c.name} (${c.dist} mi)`,
+      emailHtmlLength: emailHtml.length,
+    });
   }
 
-  if (target.distanceMiles <= 3.0) {
-    auditFindings.push(`Located within 3 miles of Esteban's Fort Lauderdale studio (${HOME_BASE.zip}); ideal for fast on-location shoot.`);
-    contentNeedScore += 10;
-  }
+  // Save audit campaign state
+  const outputPath = path.join(process.cwd(), "public", "leads", "daily_morning_campaign.json");
+  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+  fs.writeFileSync(outputPath, JSON.stringify({
+    campaignDate: new Date().toISOString(),
+    totalTargets: results.length,
+    targetCategory: "Restaurants, Bars & Local Hospitality",
+    targetOrigin: HOME_BASE,
+    results,
+  }, null, 2));
 
-  const isEs = target.language === "es";
-  let leadMagnetUrl = "https://estebanmorenomedia.com/calculator";
-  let pitchSubject = "";
-  let pitchBody = "";
-
-  if (target.category === "law-firm") {
-    leadMagnetUrl = isEs
-      ? "https://estebanmorenomedia.com/es/evaluacion"
-      : "https://estebanmorenomedia.com/assessment";
-    pitchSubject = isEs
-      ? `Estrategia de Video para ${target.name} (Fort Lauderdale)`
-      : `Video Content Strategy for ${target.name} (Fort Lauderdale)`;
-    pitchBody = isEs
-      ? `Hola ${target.contactName || "Equipo"},\n\n` +
-        `Auditamos la presencia en Google Maps de ${target.name} en la zona de Fort Lauderdale / 33317. Notamos que su práctica tiene excelentes reseñas (${target.rating}⭐), pero carece de testimoniales en video para convertir visitas en consultas.\n\n` +
-        `Realiza un diagnóstico gratuito de 5 preguntas sobre tu estrategia de video:\n` +
-        `👉 ${leadMagnetUrl}\n\n` +
-        `O calcula la estimación de edición en 30 segundos:\n` +
-        `👉 https://estebanmorenomedia.com/es/calculadora\n\n` +
-        `Saludos,\nEsteban Moreno | Esteban Moreno Media\n1811 SW 42nd Ave, Fort Lauderdale, FL\nhttps://estebanmorenomedia.com/es`
-      : `Hi ${target.contactName || "Team"},\n\n` +
-        `We audited ${target.name}'s Google Maps presence near Fort Lauderdale / 33317. You have great Google reviews (${target.rating}⭐), but your landing pages lack high-converting video breakdowns to capture inbound leads.\n\n` +
-        `Run a free 5-question video strategy assessment:\n` +
-        `👉 ${leadMagnetUrl}\n\n` +
-        `Or estimate your video scope & turnaround in 30 seconds:\n` +
-        `👉 https://estebanmorenomedia.com/calculator\n\n` +
-        `Best regards,\nEsteban Moreno | Esteban Moreno Media\n1811 SW 42nd Ave, Fort Lauderdale, FL\nhttps://estebanmorenomedia.com`;
-  } else if (target.category === "med-spa") {
-    leadMagnetUrl = isEs
-      ? "https://estebanmorenomedia.com/es/recursos/kit-video-social"
-      : "https://estebanmorenomedia.com/resources/social-video-kit";
-    pitchSubject = isEs
-      ? `Idea de Reels & TikTok Ads para ${target.name}`
-      : `Short-Form Reel Idea for ${target.name}`;
-    pitchBody = isEs
-      ? `Hola ${target.contactName || "Equipo"},\n\n` +
-        `Analizamos el perfil de ${target.name} cerca de Fort Lauderdale. Las clínicas de estética en Broward están obteniendo gran tracción con Reels verticales 9:16 y subtítulos dinámicos.\n\n` +
-        `Obtén nuestro Kit de Guiones 9:16 gratis:\n` +
-        `👉 ${leadMagnetUrl}\n\n` +
-        `Mira ejemplos de nuestro portafolio de salud & estética:\n` +
-        `👉 https://estebanmorenomedia.com/es/portafolio/healthy-smile\n\n` +
-        `Saludos,\nEsteban Moreno | Esteban Moreno Media\nhttps://estebanmorenomedia.com/es`
-      : `Hi ${target.contactName || "Team"},\n\n` +
-        `We analyzed ${target.name}'s footprint near Fort Lauderdale. Aesthetics clinics in Broward are winning local patients using 9:16 vertical transformation Reels with active captions.\n\n` +
-        `Access our free 9:16 safe-zone overlay kit & direct-response scripts:\n` +
-        `👉 ${leadMagnetUrl}\n\n` +
-        `View medical video editing examples from our verified portfolio:\n` +
-        `👉 https://estebanmorenomedia.com/portfolio/healthy-smile\n\n` +
-        `Best regards,\nEsteban Moreno | Esteban Moreno Media\nhttps://estebanmorenomedia.com`;
-  } else {
-    leadMagnetUrl = isEs
-      ? "https://estebanmorenomedia.com/es/calculadora"
-      : "https://estebanmorenomedia.com/calculator";
-    pitchSubject = isEs
-      ? `Propuesta de Video para ${target.name} (Fort Lauderdale)`
-      : `Video Production Scope for ${target.name} (Fort Lauderdale)`;
-    pitchBody = isEs
-      ? `Hola ${target.contactName || "Equipo"},\n\n` +
-        `Auditamos la presencia digital de ${target.name} cerca de SW 42nd Ave, Fort Lauderdale. Ofrecemos edición de video remota y filmación presencial en Broward.\n\n` +
-        `Calcula tu presupuesto y tiempo de entrega en 30 segundos:\n` +
-        `👉 ${leadMagnetUrl}\n\n` +
-        `Explora nuestro portafolio verificado:\n` +
-        `👉 https://estebanmorenomedia.com/es/portafolio\n\n` +
-        `Saludos,\nEsteban Moreno | Esteban Moreno Media\nhttps://estebanmorenomedia.com/es`
-      : `Hi ${target.contactName || "Team"},\n\n` +
-        `We audited ${target.name}'s digital presence near SW 42nd Ave, Fort Lauderdale. We provide remote video editing and selectively scoped local capture in Broward County.\n\n` +
-        `Estimate your video project cost & turnaround in 30 seconds:\n` +
-        `👉 ${leadMagnetUrl}\n\n` +
-        `Explore our verified South Florida portfolio:\n` +
-        `👉 https://estebanmorenomedia.com/portfolio\n\n` +
-        `Best regards,\nEsteban Moreno | Esteban Moreno Media\nhttps://estebanmorenomedia.com`;
-  }
-
-  return {
-    originBase: HOME_BASE.address,
-    prospect: target,
-    scanDate: new Date().toISOString(),
-    contentNeedScore: Math.min(contentNeedScore, 95),
-    findings: auditFindings,
-    pitchSubject,
-    pitchBody,
-  };
+  console.log(`\n✅ Campaign audit complete! Saved 20 verified briefs to ${outputPath}`);
+  return results;
 }
 
-async function runDailyGoogleMapsScanner() {
-  console.log(`Starting Daily Google Maps Prospect Scanner around origin: ${HOME_BASE.address}...\n`);
-  const scannedQueue = [];
-
-  for (const target of BROWARD_TARGET_CATEGORIES) {
-    const item = await scanLocalMapsProspect(target);
-    scannedQueue.push(item);
-    console.log(`📍 Scanned: ${target.name} (${target.distanceMiles} mi from 1811 SW 42nd Ave) | Need Score: ${item.contentNeedScore}%`);
-  }
-
-  const outputDir = path.join(process.cwd(), "public", "leads");
-  if (!fs.existsSync(outputDir)) {
-    fs.mkdirSync(outputDir, { recursive: true });
-  }
-
-  const outputPath = path.join(outputDir, "daily_maps_prospects.json");
-  fs.writeFileSync(outputPath, JSON.stringify(scannedQueue, null, 2), "utf8");
-
-  console.log(`\n🎉 Scanned ${scannedQueue.length} local Fort Lauderdale prospects. Saved to: ${outputPath}`);
+if (process.argv[1]?.includes("daily-google-maps-prospect-scanner.mjs")) {
+  runDailyMorningCampaign().catch(console.error);
 }
-
-runDailyGoogleMapsScanner();
