@@ -358,7 +358,7 @@ export const PORTFOLIO_ITEMS: readonly PortfolioItem[] = [
     creditsI18nKey: "front-line-auto",
     year: 2026,
     location: "Miami / Broward",
-    websiteUrl: "https://frontlineautofl.com",
+    websiteUrl: "https://frontlineautosfl.com/",
     featured: true,
     status: "live",
     media: {
