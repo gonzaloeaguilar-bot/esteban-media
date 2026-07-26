@@ -353,6 +353,38 @@ export function PortfolioWatchPage({ item, locale }: PortfolioWatchPageProps) {
         </Container>
       </section>
 
+      {copy.results && copy.results.length > 0 ? (
+        <section className="border-t border-[#d6ccc0] bg-[#fbf6ef] py-12 sm:py-16">
+          <Container size="xl">
+            <div className="max-w-3xl">
+              <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">
+                {locale === "es" ? "Resultados del Proyecto & Impacto" : "Key Results & Business Impact"}
+              </p>
+              <h2 className="mt-3 font-serif text-3xl sm:text-4xl">
+                {locale === "es"
+                  ? "Impacto medible impulsado para este cliente."
+                  : "Measurable outcomes driven for this client."}
+              </h2>
+            </div>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {copy.results.map((result, idx) => (
+                <div
+                  key={idx}
+                  className="rounded-xl border border-[#ddd4c8] bg-[#f6f1ea] p-6 shadow-sm"
+                >
+                  <span className="block font-serif text-4xl font-bold text-[#c84a2c] sm:text-5xl">
+                    {result.metric}
+                  </span>
+                  <span className="mt-3 block text-sm font-medium leading-relaxed text-[#252a2d]">
+                    {result.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </Container>
+        </section>
+      ) : null}
+
       <section className="border-y border-[#d6ccc0] bg-[#e7ded2] py-12 sm:py-16">
         <Container size="xl">
           <div className="grid gap-5 lg:grid-cols-2">

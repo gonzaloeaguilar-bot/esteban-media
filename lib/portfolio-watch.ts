@@ -14,10 +14,16 @@ export type LiveYouTubePortfolioItem = PortfolioItem & {
   media: YouTubeSource;
 };
 
+export type PortfolioResultMetric = {
+  metric: string;
+  label: string;
+};
+
 type PortfolioItemCopy = {
   title: string;
   summary: string;
   credits: string;
+  results?: readonly PortfolioResultMetric[];
 };
 
 type PortfolioCatalog = {

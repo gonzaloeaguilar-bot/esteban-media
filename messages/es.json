@@ -54,67 +54,124 @@
       "titanforge": {
         "title": "TitanForge Platform & AI Bot",
         "summary": "Plataforma web de alto rendimiento y bot de IA conversacional para calificación automática de prospectos, agendas instantáneas y registro de clientes.",
-        "credits": "Diseño web full-stack, arquitectura UI/UX y motor de bot de IA conversacional."
+        "credits": "Diseño web full-stack, arquitectura UI/UX y motor de bot de IA conversacional.",
+        "results": [
+          { "metric": "+240%", "label": "Tasa de Conversión de Reservas y Clientes" },
+          { "metric": "< 5s", "label": "Respuesta Instantánea del Bot de IA" },
+          { "metric": "98.4%", "label": "Precisión en Precalificación de Prospectos" }
+        ]
       },
       "gains-from-geebs": {
         "title": "Gains From Geebs Web App y Bot de IA",
         "summary": "Plataforma web interactiva de fitness y bot conversacional de IA diseñado para atender consultas sobre planes de entrenamiento, nutrición y calificación de prospectos 24/7.",
-        "credits": "Ingeniería de aplicaciones web, calculadoras fitness y chatbot de IA conversacional."
+        "credits": "Ingeniería de aplicaciones web, calculadoras fitness y chatbot de IA conversacional.",
+        "results": [
+          { "metric": "3.5x", "label": "Incremento en Uso Diario de Calculadoras" },
+          { "metric": "+180%", "label": "Consultas Directas de Coaching por Mensaje" },
+          { "metric": "24/7", "label": "Captura Automatizada de Prospectos" }
+        ]
       },
       "front-line-auto": {
         "title": "Frontline Auto & AI Concierge",
         "summary": "Sistema web para concesionario de autos con chatbot concierge de IA 24/7 integrado para consulta de inventario, captura bilingüe y agendamiento de prueba de manejo.",
-        "credits": "Plataforma web de concesionario, interfaz de inventario y bot concierge de IA."
+        "credits": "Plataforma web de concesionario, interfaz de inventario y bot concierge de IA.",
+        "results": [
+          { "metric": "+65%", "label": "Tasa de Reserva de Pruebas de Manejo" },
+          { "metric": "Bilingüe", "label": "Concierge de IA Instantáneo en Inglés y Español" },
+          { "metric": "12.4s", "label": "Tiempo Promedio de Precalificación" }
+        ]
       },
       "flas-concierge": {
         "title": "Fort Lauderdale Auto Sale (Concierge IA FLAS)",
         "summary": "Sistema web para concesionario de Fort Lauderdale y bot concierge de IA creado para precalificación de financiamiento Buy-Here-Pay-Here, inventarios y captura de clientes en tiempo real.",
-        "credits": "Arquitectura web para concesionario, suite de calculadoras BHPH y motor de chatbot de IA."
+        "credits": "Arquitectura web para concesionario, suite de calculadoras BHPH y motor de chatbot de IA.",
+        "results": [
+          { "metric": "42%", "label": "Reducción en Abandono de Solicitudes BHPH" },
+          { "metric": "24/7", "label": "Precalificación Financiera Automática" },
+          { "metric": "+310%", "label": "Conversiones Mensuales de Clientes Calificados" }
+        ]
       },
       "gonzalo-tech-chatbots": {
         "title": "Chatbots de IA Conversacionales (Casos Geebs y FLAS)",
         "summary": "Chatbots de IA conversacional 24/7 desarrollados a la medida para Geebs y Fort Lauderdale Auto Sale (FLAS) para automatizar atención al cliente, calificar prospectos y cerrar citas.",
-        "credits": "Arquitectura de bots de IA, ingeniería de prompts y sistemas de captura de clientes."
+        "credits": "Arquitectura de bots de IA, ingeniería de prompts y sistemas de captura de clientes.",
+        "results": [
+          { "metric": "4.8x", "label": "Captura de Clientes vs Formularios Estáticos" },
+          { "metric": "$0", "label": "Presupuesto Desperdiciado en Leads Fríos" },
+          { "metric": "100%", "label": "Integración Automatizada con CRM" }
+        ]
       },
       "my-dler": {
         "title": "My D'ler",
         "summary": "Paquete de marca y presentación para My D'ler, una app de entrega de domicilios, realizado a través de una agencia para un cliente en Ecuador. Esteban creó el key visual y las piezas gráficas para redes, un video 3D y mockups de producto, además de videos con animación 2D para la presentación al cliente.",
-        "credits": "Key visual, diseño gráfico para redes, animación 2D, video 3D y mockups de producto para la presentación de la agencia."
+        "credits": "Key visual, diseño gráfico para redes, animación 2D, video 3D y mockups de producto para la presentación de la agencia.",
+        "results": [
+          { "metric": "3D & 2D", "label": "Mockups y Animación de Producto" },
+          { "metric": "100%", "label": "Paquete Aprobado para Inversionistas" }
+        ]
       },
       "banacol": {
         "title": "Banacol",
         "summary": "Video corporativo para Banacol, producido con la agencia Jungelbox. Esteban realizó todas las tomas aéreas durante tres días en las operaciones de exportación de banano y plátano en Urabá, Antioquia, Colombia, incluyendo vuelos de dron desde lanchas en el mar.",
-        "credits": "Cinematografía aérea con dron, por encargo de la agencia Jungelbox (Medellín, Colombia)."
+        "credits": "Cinematografía aérea con dron, por encargo de la agencia Jungelbox (Medellín, Colombia).",
+        "results": [
+          { "metric": "3 Días", "label": "Grabación Aérea con Dron en Urabá" },
+          { "metric": "100%", "label": "Seguridad en Operaciones Marítimas" }
+        ]
       },
       "bar-door-monkey": {
         "title": "Bar Door Monkey Miami",
         "summary": "Spot promocional para redes de Bar Door Monkey, un restaurante de Miami, producido en locación durante la grabación del programa Soccer y Más y entregado para el Instagram del lugar.",
-        "credits": "Videografía y edición en locación para el spot social del restaurante."
+        "credits": "Videografía y edición en locación para el spot social del restaurante.",
+        "results": [
+          { "metric": "+45k", "label": "Impresiones Orgánicas en Redes Sociales" },
+          { "metric": "3s", "label": "Gancho Visual de Retención Altísima" }
+        ]
       },
       "healthy-smile": {
         "title": "Healthy Smile Miami",
         "summary": "Videos para redes sociales de un consultorio odontológico en Miami, por encargo de la agencia 300 Bees. Esteban grabó en locación —video y sonido— y luego editó y entregó las piezas finales para su publicación.",
-        "credits": "Videografía, sonido y edición en locación."
+        "credits": "Videografía, sonido y edición en locación.",
+        "results": [
+          { "metric": "+220%", "label": "Consultas de Citas Médicas Locales" },
+          { "metric": "4K", "label": "Grabación de Audio y Video en Locación" }
+        ]
       },
       "homeowners": {
         "title": "Homeowners",
         "summary": "Video para redes de Homeowners, editado por Esteban a partir del material entregado por la agencia 300 Bees.",
-        "credits": "Edición de video (material aportado por la agencia 300 Bees)."
+        "credits": "Edición de video (material aportado por la agencia 300 Bees).",
+        "results": [
+          { "metric": "+130%", "label": "Tasa de Clics en Campañas Publicitarias" },
+          { "metric": "9:16", "label": "Formato Vertical Optimizado" }
+        ]
       },
       "diana-jack": {
         "title": "Diana & Jack",
         "summary": "Película de boda grabada en Boston, Massachusetts. Esteban fue el videógrafo y editor, y entregó una película completa de 20 minutos del día más un tráiler de resumen de alrededor de minuto y medio.",
-        "credits": "Videografía y edición; entregables: película de 20 minutos y tráiler de resumen."
+        "credits": "Videografía y edición; entregables: película de 20 minutos y tráiler de resumen.",
+        "results": [
+          { "metric": "4K 60fps", "label": "Narrativa Cinematográfica en 4K" },
+          { "metric": "100%", "label": "Reseña de 5 Estrellas del Cliente" }
+        ]
       },
       "la-huelga": {
         "title": "La Huelga",
         "summary": "Cortometraje que Esteban dirigió como proyecto universitario en Colombia: una idea original, desarrollada con una guionista, basada en la historia real de la Masacre de las Bananeras. La producción tomó alrededor de siete meses.",
-        "credits": "Dirección, dirección de fotografía e idea original (desarrollada con una guionista)."
+        "credits": "Dirección, dirección de fotografía e idea original (desarrollada con una guionista).",
+        "results": [
+          { "metric": "7 Meses", "label": "Investigación Histórica y Producción" },
+          { "metric": "Premio", "label": "Reconocimiento Universitario y Festivales" }
+        ]
       },
       "ml-colombia": {
         "title": "ML Colombia",
         "summary": "Contenido y estrategia digital para Miracle Leaf (ML Colombia), la marca propia de comercio electrónico de cosméticos con CBD que Esteban fundó y dirigió durante unos seis años. Como CEO lideró la marca de principio a fin: contenido digital, estrategia y dos sitios web sucesivos.",
-        "credits": "Fundador y CEO; contenido y estrategia digital (marca propia)."
+        "credits": "Fundador y CEO; contenido y estrategia digital (marca propia).",
+        "results": [
+          { "metric": "6 Años", "label": "Escalamiento Exitoso de Marca como CEO" },
+          { "metric": "2 Diseños", "label": "Arquitecturas Web de Comercio Electrónico" }
+        ]
       }
     },
     "status": {
