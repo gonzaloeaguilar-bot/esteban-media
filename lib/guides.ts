@@ -12,6 +12,7 @@ export const GUIDE_IDS = [
   "restaurant-video-ideas",
   "real-estate-reels",
   "ai-product-photography-guide",
+  "product-photography-pricing-guide",
 ] as const;
 
 export type GuideId = (typeof GUIDE_IDS)[number];
@@ -840,6 +841,95 @@ const guidePairs: readonly GuidePair[] = [
           heading: "Mantén una presentación de marca honesta",
           paragraphs: [
             "Sé transparente cuando la IA se use para mockups o conceptos. Destacar el apoyo creativo genera confianza mientras entrega piezas modernas y pulidas para la marca.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "product-photography-pricing-guide",
+    en: {
+      slug: "how-much-does-product-photography-cost",
+      metadataTitle: "Product Photography Pricing Guide",
+      title: "How much does product photography cost? Rates & pricing guide",
+      description:
+        "Understand product photography pricing models (per image, per day, or project scope) for e-commerce brands and local South Florida businesses.",
+      eyebrow: "Product pricing guide",
+      answer:
+        "Product photography rates typically depend on project scope, number of final retouched angles, lifestyle staging complexity, and whether AI-assisted asset creation is used.",
+      proof: {
+        href: "/portfolio/my-dler",
+        title: "My D'ler",
+        description:
+          "Approved portfolio credits include brand key visuals, social designs, 3D video, and product mockups. It is linked as a related visual design example; nothing published confirms a specific pricing tier or rate sheet.",
+      },
+      sections: [
+        {
+          heading: "Standard pricing models for product visuals",
+          paragraphs: [
+            "Commercial product photography and visual creation are generally billed per image, per day rate, or by full project deliverable package.",
+            "Per-image pricing works well for standard catalog e-commerce shots, while full project scopes are ideal for custom lifestyle branding and multi-asset launches.",
+          ],
+          bullets: [
+            "Per-image rates for clean catalog photos",
+            "Day rates for multi-product studio or location shoots",
+            "Project scope pricing for combined photography & AI visual packages",
+          ],
+        },
+        {
+          heading: "Factors that impact final project costs",
+          paragraphs: [
+            "Factors like complex reflections, prop staging, licensing scope, and advanced retouching directly influence the final cost.",
+            "Using AI background generation with real product reference photos can significantly reduce traditional set staging and location travel expenses.",
+          ],
+        },
+        {
+          heading: "Getting an accurate custom quote",
+          paragraphs: [
+            "To receive a precise estimate, share the total product count, target usage channels (Amazon, website, print), and reference visual examples with your creator.",
+          ],
+        },
+      ],
+    },
+    es: {
+      slug: "cuanto-cuesta-la-fotografia-de-producto",
+      metadataTitle: "Guía de Precios de Fotografía",
+      title: "¿Cuánto cuesta la fotografía de producto? Guía de tarifas y costos",
+      description:
+        "Entiende los modelos de precios de fotografía de producto (por imagen, por jornada o por proyecto) para marcas de e-commerce y negocios en South Florida.",
+      eyebrow: "Guía de tarifas de producto",
+      answer:
+        "Las tarifas de fotografía de producto dependen del alcance del proyecto, la cantidad de ángulos finales editados, la complejidad del entorno y el uso de asistencias con IA.",
+      proof: {
+        href: "/es/portafolio/my-dler",
+        title: "My D'ler",
+        description:
+          "Los créditos aprobados del portafolio incluyen piezas visuales de marca, diseños sociales, video 3D y mockups de producto. Se enlaza como un ejemplo de diseño visual relacionado; nada publicado confirma una tarifa o tabla de precios específica.",
+      },
+      sections: [
+        {
+          heading: "Modelos estándar de precios para imágenes de producto",
+          paragraphs: [
+            "La creación de imágenes de producto se cotiza habitualmente por imagen, por jornada de trabajo o mediante paquetes completos por proyecto.",
+            "La tarifa por imagen es ideal para catálogos estandarizados de e-commerce, mientras que el alcance por proyecto conviene a lanzamientos de marca integrales.",
+          ],
+          bullets: [
+            "Tarifas por imagen para fotos limpias de catálogo",
+            "Jornadas diarias para producciones en locación o estudio",
+            "Cotizaciones por proyecto para paquetes que combinan fotos e IA",
+          ],
+        },
+        {
+          heading: "Factores que influyen en el costo final",
+          paragraphs: [
+            "Detalles como iluminación compleja, ambientación de estilo de vida, derechos de uso y retoque avanzado impactan directamente el presupuesto.",
+            "El uso de generación de entornos asistidos por IA con fotos reales del producto permite optimizar costos de ambientación y traslados.",
+          ],
+        },
+        {
+          heading: "Cómo solicitar una cotización exacta",
+          paragraphs: [
+            "Para obtener un presupuesto preciso, comparte la cantidad de productos, los canales de difusión (Amazon, sitio web, redes) y referencias visuales de lo que buscas.",
           ],
         },
       ],

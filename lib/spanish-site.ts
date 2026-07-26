@@ -558,6 +558,107 @@ export const spanishNichePages: SpanishNichePage[] = [
       },
     ],
   },
+  {
+    slug: "marketing-de-video-para-clinicas-esteticas-miami",
+    title: "Marketing de video para clínicas estéticas en Miami",
+    metadataTitle: "Video Marketing Estéticas Miami",
+    description:
+      "Edición de video y Reels para med spas, clínicas estéticas y centros de dermatología cosmética en Miami y Fort Lauderdale.",
+    eyebrow: "Med Spa / Estética",
+    h1: "Video marketing y Reels para clínicas estéticas y med spas.",
+    lead:
+      "El contenido en video es clave para generar confianza en procedimientos estéticos. Editamos tomas de tratamientos, instalaciones y antes/después para publicaciones dinámicas en Instagram y TikTok.",
+    keyword: "marketing de video para med spas",
+    location: "Miami-Dade / Broward",
+    availability: "confirmed",
+    icon: Video,
+    bestFor: [
+      "Clínicas estéticas y med spas con tomas de instalaciones y procedimientos.",
+      "Centros cosméticos que desean explicar tratamientos antiedad e inyectables en video.",
+      "Marcas de belleza que buscan interacción constante en el mercado de Miami.",
+    ],
+    scopingQuestions: [
+      "¿Qué tratamientos estéticos principales deseas promocionar?",
+      "¿Tienes permisos firmados de pacientes para mostrar tratamientos?",
+      "¿Prefieres edición de clips existentes o planificación de grabación?",
+    ],
+    projectFit:
+      "Conecta postproducción de video profesional con comunicación ética en salud estética.",
+    faqs: [
+      {
+        question: "¿Qué formato de video funciona mejor para med spas?",
+        answer:
+          "Los videos verticales en 9:16 con subtítulos dinámicos que muestran el paso a paso del tratamiento y recomendaciones de cuidado posterior.",
+      },
+    ],
+  },
+  {
+    slug: "reutilizacion-de-contenido-para-redes-miami",
+    title: "Reutilización de contenido de video en Miami",
+    metadataTitle: "Repurposing de Video para Redes",
+    description:
+      "Transforma videos largos, webinars o podcasts en Reels, Shorts y clips para redes sociales con edición profesional.",
+    eyebrow: "Repurposing / Edición",
+    h1: "Transforma videos largos en decenas de clips para redes sociales.",
+    lead:
+      "La reutilización de contenido (repurposing) es una prioridad confirmada de Esteban. Convertimos ponencias, podcasts y videos de YouTube en piezas verticales optimizadas para Reels y TikTok.",
+    keyword: "reutilización de contenido de video",
+    location: "Miami-Dade / Fort Lauderdale / Remote",
+    availability: "confirmed",
+    icon: Scissors,
+    bestFor: [
+      "Creadores y empresas con webinars, conferencias o podcasts grabados.",
+      "Marcas que buscan multiplicar sus publicaciones sin grabar nuevo contenido.",
+      "Equipos que necesitan selección de momentos clave y subtítulos dinámicos.",
+    ],
+    scopingQuestions: [
+      "¿De qué duración son tus videos fuente?",
+      "¿Cuántos clips cortos por video esperas extraer?",
+      "¿Cuentas con elementos de marca (logos, colores, tipografías)?",
+    ],
+    projectFit:
+      "Enfocado en edición remota eficiente sobre material existente grabado por el cliente.",
+    faqs: [
+      {
+        question: "¿Qué tipo de videos largos se pueden transformar?",
+        answer:
+          "Webinars, entrevistas, conferencias, episodios de podcast y videos largos de YouTube.",
+      },
+    ],
+  },
+  {
+    slug: "produccion-de-video-para-pequenos-negocios-miami",
+    title: "Producción de video para pequeños negocios en Miami",
+    metadataTitle: "Video para Pequeños Negocios",
+    description:
+      "Edición de video y producción adaptable para PyMEs, emprendedores y negocios locales en Miami y Fort Lauderdale.",
+    eyebrow: "Negocios Locales / PyMEs",
+    h1: "Videos promocionales y contenido social para pequeños negocios.",
+    lead:
+      "Ayudamos a pequeños negocios locales a comunicarse profesionalmente en video. Desde la edición de clips grabados con smartphone hasta videos de presentación de marca.",
+    keyword: "video para pequeños negocios",
+    location: "Miami-Dade / Broward",
+    availability: "confirmed",
+    icon: Video,
+    bestFor: [
+      "Emprendedores que lanzan un producto o servicio local.",
+      "Negocios familiares que desean aumentar su visibilidad en redes sociales.",
+      "Empresas locales que prefieren asesoría directa y bilingüe.",
+    ],
+    scopingQuestions: [
+      "¿Cuál es el objetivo principal del video (ventas, concientización, contratación)?",
+      "¿Dispones de material propio o requieres planificación de producción?",
+    ],
+    projectFit:
+      "Edición y postproducción accesible y transparente estructurada por proyecto.",
+    faqs: [
+      {
+        question: "¿Es necesario contar con equipo profesional para grabar?",
+        answer:
+          "No siempre. Un smartphone moderno con buena iluminación natural puede generar excelentes tomas que nosotros transformamos con edición profesional.",
+      },
+    ],
+  },
 ];
 
 export const spanishCoreRoutes = [

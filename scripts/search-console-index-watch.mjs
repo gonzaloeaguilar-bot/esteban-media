@@ -45,10 +45,16 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/es/editor-de-video-real-estate-miami",
   "https://estebanmorenomedia.com/services/ai-product-photography-miami",
   "https://estebanmorenomedia.com/services/dental-video-marketing-south-florida",
+  "https://estebanmorenomedia.com/services/med-spa-video-marketing-south-florida",
+  "https://estebanmorenomedia.com/services/content-repurposing-service-miami",
+  "https://estebanmorenomedia.com/services/small-business-video-production-miami",
   "https://estebanmorenomedia.com/es/fotografia-de-producto-con-ia-miami",
   "https://estebanmorenomedia.com/es/imagenes-con-ia-para-ecommerce-miami",
   "https://estebanmorenomedia.com/es/marketing-de-video-para-dentistas-miami",
   "https://estebanmorenomedia.com/es/marketing-de-video-para-abogados-miami",
+  "https://estebanmorenomedia.com/es/marketing-de-video-para-clinicas-esteticas-miami",
+  "https://estebanmorenomedia.com/es/reutilizacion-de-contenido-para-redes-miami",
+  "https://estebanmorenomedia.com/es/produccion-de-video-para-pequenos-negocios-miami",
   "https://estebanmorenomedia.com/portfolio/my-dler",
   "https://estebanmorenomedia.com/es/portafolio/my-dler",
   "https://estebanmorenomedia.com/portfolio/banacol",
@@ -75,6 +81,7 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/guides/video-content-ideas-for-restaurants",
   "https://estebanmorenomedia.com/guides/instagram-reels-ideas-for-real-estate",
   "https://estebanmorenomedia.com/guides/how-to-use-ai-for-product-photography",
+  "https://estebanmorenomedia.com/guides/how-much-does-product-photography-cost",
   "https://estebanmorenomedia.com/es/guias/preparar-material-para-edicion-de-video",
   "https://estebanmorenomedia.com/es/guias/como-escribir-un-brief-util-de-video",
   "https://estebanmorenomedia.com/es/guias/video-vertical-horizontal-y-zonas-seguras",
@@ -83,6 +90,7 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/es/guias/ideas-de-contenido-de-video-para-restaurantes",
   "https://estebanmorenomedia.com/es/guias/ideas-de-reels-para-agentes-de-bienes-raices",
   "https://estebanmorenomedia.com/es/guias/como-usar-inteligencia-artificial-para-fotografia-de-producto",
+  "https://estebanmorenomedia.com/es/guias/cuanto-cuesta-la-fotografia-de-producto",
 ];
 
 const WATCH_SET_EXPANSION_SCHEMA =

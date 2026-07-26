@@ -62,6 +62,9 @@ describe("customer-facing ranking pages", () => {
       "imagenes-con-ia-para-ecommerce-miami",
       "marketing-de-video-para-dentistas-miami",
       "marketing-de-video-para-abogados-miami",
+      "marketing-de-video-para-clinicas-esteticas-miami",
+      "reutilizacion-de-contenido-para-redes-miami",
+      "produccion-de-video-para-pequenos-negocios-miami",
     ]) {
       expect(niche).toContain(`"${slug}"`);
     }

@@ -185,6 +185,45 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
       },
     ],
   },
+  "marketing-de-video-para-clinicas-esteticas-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade y Broward",
+    note: "El proyecto Healthy Smile demuestra videografía y edición para servicios de estética y salud.",
+    serviceIds: ["edicion", "videografia", "planificacion-social"],
+    projects: [
+      {
+        href: "/es/portafolio/healthy-smile",
+        title: "Healthy Smile Miami",
+        detail: "Videografía y edición para clínica estética y dental.",
+      },
+    ],
+  },
+  "reutilizacion-de-contenido-para-redes-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade y Broward",
+    note: "Proyectos del portafolio respaldan postproducción remota y cortes dinámicos.",
+    serviceIds: ["edicion", "planificacion-social"],
+    projects: [
+      {
+        href: "/es/portafolio/homeowners",
+        title: "Homeowners",
+        detail: "Ejemplo publicado de estructuración de guion y edición.",
+      },
+    ],
+  },
+  "produccion-de-video-para-pequenos-negocios-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade y Broward",
+    note: "El proyecto Bar Door Monkey demuestra producción en locación y edición para negocios locales.",
+    serviceIds: ["edicion", "videografia", "planificacion-social"],
+    projects: [
+      {
+        href: "/es/portafolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        detail: "Producción en locación y edición para negocio local en Miami.",
+      },
+    ],
+  },
 };
 
 export function buildSpanishNicheMetadata(slug: string): Metadata {
