@@ -133,6 +133,58 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
       },
     ],
   },
+  "fotografia-de-producto-con-ia-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade y Broward",
+    note: "El proyecto My D'ler demuestra trabajo publicado de imágenes visuales de marca y mockups de producto.",
+    serviceIds: ["contenido-ia", "edicion"],
+    projects: [
+      {
+        href: "/es/portafolio/my-dler",
+        title: "My D'ler",
+        detail: "Piezas visuales de marca, diseños sociales, video 3D y mockups de producto.",
+      },
+    ],
+  },
+  "imagenes-con-ia-para-ecommerce-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade y Broward",
+    note: "Demostrado por trabajo de diseño y composición de marca en nuestro portafolio.",
+    serviceIds: ["contenido-ia", "edicion"],
+    projects: [
+      {
+        href: "/es/portafolio/my-dler",
+        title: "My D'ler",
+        detail: "Diseños sociales y mockups visuales para producto.",
+      },
+    ],
+  },
+  "marketing-de-video-para-dentistas-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade",
+    note: "El proyecto Healthy Smile demuestra videografía, guion tipo sketch y edición para el sector de salud dental en Miami.",
+    serviceIds: ["edicion", "videografia", "planificacion-social"],
+    projects: [
+      {
+        href: "/es/portafolio/healthy-smile",
+        title: "Healthy Smile Miami",
+        detail: "Guion tipo sketch, videografía y edición para clínica dental.",
+      },
+    ],
+  },
+  "marketing-de-video-para-abogados-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade y Broward",
+    note: "Proyectos publicados verifican postproducción de video y estructura de contenido para servicios profesionales.",
+    serviceIds: ["edicion", "planificacion-social"],
+    projects: [
+      {
+        href: "/es/portafolio/homeowners",
+        title: "Homeowners",
+        detail: "Ejemplo publicado de guion y edición de video.",
+      },
+    ],
+  },
 };
 
 export function buildSpanishNicheMetadata(slug: string): Metadata {

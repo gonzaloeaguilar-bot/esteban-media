@@ -43,6 +43,12 @@ export const LEGACY_V1_WATCH_URLS = [
 export const WATCH_URLS = [
   ...LEGACY_V1_WATCH_URLS,
   "https://estebanmorenomedia.com/es/editor-de-video-real-estate-miami",
+  "https://estebanmorenomedia.com/services/ai-product-photography-miami",
+  "https://estebanmorenomedia.com/services/dental-video-marketing-south-florida",
+  "https://estebanmorenomedia.com/es/fotografia-de-producto-con-ia-miami",
+  "https://estebanmorenomedia.com/es/imagenes-con-ia-para-ecommerce-miami",
+  "https://estebanmorenomedia.com/es/marketing-de-video-para-dentistas-miami",
+  "https://estebanmorenomedia.com/es/marketing-de-video-para-abogados-miami",
   "https://estebanmorenomedia.com/portfolio/my-dler",
   "https://estebanmorenomedia.com/es/portafolio/my-dler",
   "https://estebanmorenomedia.com/portfolio/banacol",
@@ -68,6 +74,7 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/guides/how-to-use-instagram-reels-for-business",
   "https://estebanmorenomedia.com/guides/video-content-ideas-for-restaurants",
   "https://estebanmorenomedia.com/guides/instagram-reels-ideas-for-real-estate",
+  "https://estebanmorenomedia.com/guides/how-to-use-ai-for-product-photography",
   "https://estebanmorenomedia.com/es/guias/preparar-material-para-edicion-de-video",
   "https://estebanmorenomedia.com/es/guias/como-escribir-un-brief-util-de-video",
   "https://estebanmorenomedia.com/es/guias/video-vertical-horizontal-y-zonas-seguras",
@@ -75,6 +82,7 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/es/guias/como-usar-instagram-reels-para-tu-negocio",
   "https://estebanmorenomedia.com/es/guias/ideas-de-contenido-de-video-para-restaurantes",
   "https://estebanmorenomedia.com/es/guias/ideas-de-reels-para-agentes-de-bienes-raices",
+  "https://estebanmorenomedia.com/es/guias/como-usar-inteligencia-artificial-para-fotografia-de-producto",
 ];
 
 const WATCH_SET_EXPANSION_SCHEMA =

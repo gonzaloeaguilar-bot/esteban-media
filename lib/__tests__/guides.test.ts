@@ -17,17 +17,29 @@ import { getPortfolioWatchItems } from "../portfolio-watch";
 import { site } from "../site";
 
 describe("bilingual practical guides", () => {
-  it("publishes four complete reciprocal guide pairs", () => {
+  it("returns exactly 8 guides for English", () => {
+    const guides = getGuides("en");
+    expect(guides).toHaveLength(8);
+    expect(guides.every((guide) => guide.locale === "en")).toBe(true);
+  });
+
+  it("returns exactly 8 guides for Spanish", () => {
+    const guides = getGuides("es");
+    expect(guides).toHaveLength(8);
+    expect(guides.every((guide) => guide.locale === "es")).toBe(true);
+  });
+
+  it("publishes complete reciprocal guide pairs", () => {
     const englishGuides = getGuides("en");
     const spanishGuides = getGuides("es");
 
-    expect(englishGuides).toHaveLength(7);
-    expect(spanishGuides).toHaveLength(7);
+    expect(englishGuides).toHaveLength(8);
+    expect(spanishGuides).toHaveLength(8);
     expect(englishGuides.map(({ id }) => id)).toEqual(
       spanishGuides.map(({ id }) => id),
     );
-    expect(new Set(englishGuides.map(({ slug }) => slug))).toHaveLength(7);
-    expect(new Set(spanishGuides.map(({ slug }) => slug))).toHaveLength(7);
+    expect(new Set(englishGuides.map(({ slug }) => slug))).toHaveLength(8);
+    expect(new Set(spanishGuides.map(({ slug }) => slug))).toHaveLength(8);
 
     for (const guide of [...englishGuides, ...spanishGuides]) {
       expect(guide.answer.length).toBeGreaterThan(80);
@@ -64,9 +76,9 @@ describe("bilingual practical guides", () => {
     const metadataTitles = allGuides.map(({ metadataTitle }) => metadataTitle);
     const descriptions = allGuides.map(({ description }) => description);
 
-    expect(new Set(canonicalPaths).size).toBe(14);
-    expect(new Set(metadataTitles).size).toBe(14);
-    expect(new Set(descriptions).size).toBe(14);
+    expect(new Set(canonicalPaths).size).toBe(16);
+    expect(new Set(metadataTitles).size).toBe(16);
+    expect(new Set(descriptions).size).toBe(16);
 
     for (const guide of allGuides) {
       const metadata = buildGuideMetadata(guide);

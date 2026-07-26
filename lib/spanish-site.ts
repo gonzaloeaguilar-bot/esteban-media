@@ -415,6 +415,149 @@ export const spanishNichePages: SpanishNichePage[] = [
       },
     ],
   },
+  {
+    slug: "fotografia-de-producto-con-ia-miami",
+    title: "Fotografía de producto con IA en Miami",
+    metadataTitle: "Fotos de Producto con IA en Miami",
+    description:
+      "Creación de imágenes de producto e integraciones visuales asistidas por IA para marcas de e-commerce y negocios en Miami y Fort Lauderdale.",
+    eyebrow: "Imágenes con IA / E-Commerce",
+    h1: "Fotografía de producto e imágenes de marca asistidas por IA.",
+    lead:
+      "El desarrollo de contenido con IA es un servicio confirmado de Esteban. Ayudamos a marcas de e-commerce y tiendas locales a generar fondos, entornos y mockups de producto de alto impacto a partir de fotos de referencia reales.",
+    keyword: "fotografía de producto con IA",
+    location: "Miami-Dade / Fort Lauderdale / Broward",
+    availability: "confirmed",
+    icon: WandSparkles,
+    bestFor: [
+      "Marcas de e-commerce que necesitan imágenes de catálogo y catálogo de producto.",
+      "Emprendedores que buscan fondos de estilo de vida sin alquilar estudios costosos.",
+      "Tiendas que prefieren coordinar requerimientos creativos en español.",
+      "Proyectos visuales que requieren conceptos publicitarios modernos.",
+    ],
+    scopingQuestions: [
+      "¿Tienes fotos originales del producto con buena resolución?",
+      "¿Qué tipo de fondo o ambiente deseas generar con IA?",
+      "¿En qué canales se utilizarán las imágenes (sitio web, Amazon, redes)?",
+      "¿Qué estilo o paleta de colores representa tu marca?",
+    ],
+    projectFit:
+      "Esta ruta explica el servicio de imágenes con IA combinando fotos reales del producto con generación asistida. No promete sesiones de fotografía tradicional en estudio a menos que se acuerden.",
+    faqs: [
+      {
+        question: "¿Las imágenes con IA parecen reales?",
+        answer:
+          "Sí. Trabajamos utilizando fotos reales de tu producto como base para asegurar que el logo, los colores y las proporciones se mantengan exactos.",
+      },
+      {
+        question: "¿Sirve para tiendas de Amazon o Shopify?",
+        answer:
+          "Totalmente. Creamos fondos de estilo de vida y mockups limpios optimizados para listados de e-commerce y publicidad digital.",
+      },
+    ],
+  },
+  {
+    slug: "imagenes-con-ia-para-ecommerce-miami",
+    title: "Imágenes con IA para e-commerce en Miami",
+    metadataTitle: "Imágenes con IA para E-Commerce",
+    description:
+      "Generación de piezas visuales y mockups con IA para tiendas en línea, marcas direct-to-consumer y vendedores en South Florida.",
+    eyebrow: "E-Commerce / Branding",
+    h1: "Imágenes y gráficos con IA para tiendas en línea en South Florida.",
+    lead:
+      "Optimizamos la presencia visual de tiendas en línea mediante la edición y composición de imágenes con IA. Transforma tomas simples de producto en fotos de estilo de vida listas para publicar.",
+    keyword: "imágenes con IA para e-commerce",
+    location: "South Florida / Miami-Dade / Broward",
+    availability: "confirmed",
+    icon: WandSparkles,
+    bestFor: [
+      "Vendedores en línea que necesitan mejorar el aspecto visual de sus listados.",
+      "Marcas que lanzan nuevos productos y requieren piezas publicitarias rápidamente.",
+      "Equipos que prefieren comunicación directa en español.",
+    ],
+    scopingQuestions: [
+      "¿Cuántos productos o referencias necesitas trabajar?",
+      "¿Tienes guía de estilo de marca definida?",
+      "¿Qué plataformas de venta utilizas?",
+    ],
+    projectFit:
+      "Orientado a la creación y composición de piezas visuales digitales. My D'ler demuestra trabajo real de diseño de marca y mockups de producto.",
+    faqs: [
+      {
+        question: "¿Se pueden crear fondos de temporada?",
+        answer:
+          "Sí. Es posible adaptar el entorno del producto para campañas navideñas, verano u ofertas especiales sin volver a fotografiar.",
+      },
+    ],
+  },
+  {
+    slug: "marketing-de-video-para-dentistas-miami",
+    title: "Marketing de video para dentistas en Miami",
+    metadataTitle: "Video Marketing Dentistas Miami",
+    description:
+      "Edición de video y producción selectiva para clínicas dentales, odontólogos y centros de estética dental en South Florida.",
+    eyebrow: "Salud & Salud Dental",
+    h1: "Video marketing y contenido en redes para clínicas dentales.",
+    lead:
+      "El proyecto Healthy Smile demuestra experiencia real produciendo y editando contenido en video para clínicas dentales en Miami. Creamos videos informativos, testimoniales y contenido para redes que genera confianza.",
+    keyword: "marketing de video para dentistas",
+    location: "Miami-Dade / Broward",
+    availability: "confirmed",
+    icon: Video,
+    bestFor: [
+      "Consultorios odontológicos que desean explicar tratamientos en video.",
+      "Clínicas dentales con tomas grabadas que necesitan edición profesional.",
+      "Doctores que buscan atraer pacientes en el mercado hispano de Miami.",
+    ],
+    scopingQuestions: [
+      "¿El video explicará procedimientos o testimonios de pacientes?",
+      "¿Se grabará en la clínica o se editará material existente?",
+      "¿Qué canales de difusión principales utilizarás?",
+    ],
+    projectFit:
+      "Resaltado por el proyecto Healthy Smile en nuestro portafolio. Conecta edición de video profesional con comunicación en salud dental.",
+    faqs: [
+      {
+        question: "¿Qué tipo de videos funcionan mejor para dentistas?",
+        answer:
+          "Los videos educativos cortos (explicación de carillas, alineadores o blanqueamiento) y los sketches breves generan gran interacción y confianza.",
+      },
+    ],
+  },
+  {
+    slug: "marketing-de-video-para-abogados-miami",
+    title: "Marketing de video para abogados en Miami",
+    metadataTitle: "Video Marketing Abogados Miami",
+    description:
+      "Edición de video profesional y contenido para firmas legales, abogados y despachos de abogados en Miami y Fort Lauderdale.",
+    eyebrow: "Servicios Legales / Firmas",
+    h1: "Video marketing y Reels educativos para abogados y firmas legales.",
+    lead:
+      "Estructuramos y editamos videos educativos para abogados y firmas de abogados en South Florida. Convierte conceptos legales complejos en mensajes claros y profesionales para redes sociales.",
+    keyword: "marketing de video para abogados",
+    location: "Miami-Dade / Broward County",
+    availability: "confirmed",
+    icon: Video,
+    bestFor: [
+      "Abogados que comparten consejos legales y respuestas frecuentes en redes.",
+      "Firmas que buscan mantener presencia constante en Instagram, YouTube y LinkedIn.",
+      "Despachos que requieren atención y edición bilingüe (español e inglés).",
+    ],
+    scopingQuestions: [
+      "¿Qué especialidad legal abordará el contenido (inmigración, accidentes, corporativo)?",
+      "¿Cuentas con guion o temas prioritarios a tratar?",
+      "¿Deseas formato vertical para Reels o formato horizontal para sitio web?",
+    ],
+    projectFit:
+      "Enfocado en edición y estructuración de contenido profesional legal. Mantiene la voz seria y transparente que exige la industria.",
+    faqs: [
+      {
+        question: "¿Cómo se mantiene la imagen profesional del despacho?",
+        answer:
+          "Cuidamos el ritmo, la tipografía de marca y los subtítulos para que el video mantenga la sobriedad y la autoridad que exige el sector legal.",
+      },
+    ],
+  },
 ];
 
 export const spanishCoreRoutes = [

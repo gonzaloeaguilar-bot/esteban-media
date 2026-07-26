@@ -58,6 +58,10 @@ describe("customer-facing ranking pages", () => {
       "video-para-restaurantes-miami",
       "drone-real-estate-miami",
       "editor-de-video-real-estate-miami",
+      "fotografia-de-producto-con-ia-miami",
+      "imagenes-con-ia-para-ecommerce-miami",
+      "marketing-de-video-para-dentistas-miami",
+      "marketing-de-video-para-abogados-miami",
     ]) {
       expect(niche).toContain(`"${slug}"`);
     }

@@ -11,6 +11,7 @@ export const GUIDE_IDS = [
   "reels-for-business",
   "restaurant-video-ideas",
   "real-estate-reels",
+  "ai-product-photography-guide",
 ] as const;
 
 export type GuideId = (typeof GUIDE_IDS)[number];
@@ -750,6 +751,95 @@ const guidePairs: readonly GuidePair[] = [
           heading: "Publica guías del vecindario local",
           paragraphs: [
             "Muestra cafeterías, parques y restaurantes cerca de tus propiedades activas. Los compradores eligen el estilo de vida, no solo los metros cuadrados.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "ai-product-photography-guide",
+    en: {
+      slug: "how-to-use-ai-for-product-photography",
+      metadataTitle: "AI Product Photography Guide",
+      title: "How to use AI for product photography and e-commerce images",
+      description:
+        "Learn how AI-assisted image creation helps e-commerce brands, restaurants, and small businesses create high-quality product visuals faster without replacing real photography.",
+      eyebrow: "AI image creation",
+      answer:
+        "Combine clean reference photos with AI-assisted background generation and scene rendering to produce high-impact product visuals while maintaining real product accuracy.",
+      proof: {
+        href: "/portfolio/my-dler",
+        title: "My D'ler",
+        description:
+          "Approved portfolio credits include brand key visuals, social designs, 3D video, and product mockups. It is linked as a related visual design example; nothing published confirms a specific AI software workflow.",
+      },
+      sections: [
+        {
+          heading: "Use real product photos as reference anchors",
+          paragraphs: [
+            "AI product imagery works best when rooted in clean, original photos of the actual product. Feeding real product angles ensures logos, colors, and key details stay accurate.",
+            "Avoid generating 100% synthetic products from scratch when selling physical items, as minor discrepancies can lead to customer returns.",
+          ],
+          bullets: [
+            "Start with high-resolution reference photos",
+            "Maintain true product proportions and colors",
+            "Use AI primarily for backgrounds, lighting, and environments",
+          ],
+        },
+        {
+          heading: "Generate context-rich backgrounds and lighting",
+          paragraphs: [
+            "Rather than staging an expensive studio set for every lifestyle environment, AI image tools can place clean product cutouts into marble countertops, outdoor sunlight, or cozy kitchen settings.",
+            "Refine prompt direction to match your brand aesthetic, ensuring shadows and reflections look natural.",
+          ],
+        },
+        {
+          heading: "Maintain honest brand presentation",
+          paragraphs: [
+            "Be transparent when AI assistance is used for mockups or concepts. Highlighting creative design support builds trust while delivering modern, polished brand imagery.",
+          ],
+        },
+      ],
+    },
+    es: {
+      slug: "como-usar-inteligencia-artificial-para-fotografia-de-producto",
+      metadataTitle: "Guía de Fotografía con IA",
+      title: "Cómo usar IA para fotografía de producto e imágenes de e-commerce",
+      description:
+        "Aprende cómo la creación de imágenes asistida por IA ayuda a marcas de e-commerce, restaurantes y pequeños negocios a crear piezas visuales sin reemplazar la fotografía real.",
+      eyebrow: "Creación de imágenes con IA",
+      answer:
+        "Combina fotos de referencia limpias con generación de fondos y entornos asistidos por IA para producir imágenes de producto de alto impacto manteniendo la precisión del producto real.",
+      proof: {
+        href: "/es/portafolio/my-dler",
+        title: "My D'ler",
+        description:
+          "Los créditos aprobados del portafolio incluyen piezas visuales de marca, diseños sociales, video 3D y mockups de producto. Se enlaza como un ejemplo de diseño visual relacionado; nada publicado confirma un flujo de software de IA específico.",
+      },
+      sections: [
+        {
+          heading: "Usa fotos reales del producto como ancla de referencia",
+          paragraphs: [
+            "Las imágenes de producto con IA funcionan mejor cuando se basan en fotos originales y limpias del producto real. Proveer ángulos reales garantiza que los logos, colores y detalles clave sigan siendo exactos.",
+            "Evita generar productos 100% sintéticos desde cero al vender artículos físicos, ya que pequeñas diferencias pueden causar devoluciones de clientes.",
+          ],
+          bullets: [
+            "Comienza con fotos de referencia en alta resolución",
+            "Conserva proporciones y colores reales del producto",
+            "Usa la IA principalmente para fondos, iluminación y entornos",
+          ],
+        },
+        {
+          heading: "Genera fondos y entornos llenos de contexto",
+          paragraphs: [
+            "En lugar de armar un set de estudio costoso para cada ambiente, las herramientas de IA pueden ubicar el producto en superficies de mármol, luz natural de exterior o ambientes cálidos.",
+            "Ajusta las instrucciones creativas para que coincidan con la estética de tu marca, cuidando que las sombras y reflejos se vean naturales.",
+          ],
+        },
+        {
+          heading: "Mantén una presentación de marca honesta",
+          paragraphs: [
+            "Sé transparente cuando la IA se use para mockups o conceptos. Destacar el apoyo creativo genera confianza mientras entrega piezas modernas y pulidas para la marca.",
           ],
         },
       ],

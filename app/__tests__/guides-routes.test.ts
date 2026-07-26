@@ -12,8 +12,11 @@ import {
 import { metadata as spanishIndexMetadata } from "../(spanish)/es/guias/page";
 
 describe("guide routes", () => {
-  it("pre-renders seven localized detail routes in each language", () => {
-    expect(generateEnglishParams()).toEqual([
+  it("pre-renders eight localized detail routes in each language", async () => {
+    const enParams = await generateEnglishParams();
+    const esParams = await generateSpanishParams();
+
+    expect(enParams).toEqual([
       { slug: "prepare-footage-for-video-editing" },
       { slug: "write-a-useful-video-brief" },
       { slug: "vertical-horizontal-video-exports-and-safe-zones" },
@@ -21,15 +24,17 @@ describe("guide routes", () => {
       { slug: "how-to-use-instagram-reels-for-business" },
       { slug: "video-content-ideas-for-restaurants" },
       { slug: "instagram-reels-ideas-for-real-estate" },
+      { slug: "how-to-use-ai-for-product-photography" },
     ]);
-    expect(generateSpanishParams()).toEqual([
-      { slug: "preparar-material-para-edicion-de-video" },
-      { slug: "como-escribir-un-brief-util-de-video" },
-      { slug: "video-vertical-horizontal-y-zonas-seguras" },
-      { slug: "entrega-para-edicion-remota-de-video" },
-      { slug: "como-usar-instagram-reels-para-tu-negocio" },
-      { slug: "ideas-de-contenido-de-video-para-restaurantes" },
-      { slug: "ideas-de-reels-para-agentes-de-bienes-raices" },
+    expect(esParams.map(({ slug }) => slug)).toEqual([
+      "preparar-material-para-edicion-de-video",
+      "como-escribir-un-brief-util-de-video",
+      "video-vertical-horizontal-y-zonas-seguras",
+      "entrega-para-edicion-remota-de-video",
+      "como-usar-instagram-reels-para-tu-negocio",
+      "ideas-de-contenido-de-video-para-restaurantes",
+      "ideas-de-reels-para-agentes-de-bienes-raices",
+      "como-usar-inteligencia-artificial-para-fotografia-de-producto",
     ]);
   });
 
