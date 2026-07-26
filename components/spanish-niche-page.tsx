@@ -289,6 +289,32 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
       },
     ],
   },
+  "produccion-de-video-palm-beach-county": {
+    areaHref: "/es/areas/palm-beach-county",
+    areaLabel: "Ver página dedicada de Palm Beach County",
+    note: "Cobertura directa en el condado de Palm Beach.",
+    serviceIds: ["videografia", "edicion"],
+    projects: [
+      {
+        href: "/es/portafolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        detail: "Ejemplo de producción en locación y edición.",
+      },
+    ],
+  },
+  "edicion-de-video-palm-beach-county": {
+    areaHref: "/es/areas/palm-beach-county",
+    areaLabel: "Ver página dedicada de Palm Beach County",
+    note: "Edición remota de video disponible para empresas en el condado de Palm Beach.",
+    serviceIds: ["edicion"],
+    projects: [
+      {
+        href: "/es/portafolio/homeowners",
+        title: "Homeowners",
+        detail: "Edición remota y postproducción de video.",
+      },
+    ],
+  },
 };
 
 export function buildSpanishNicheMetadata(slug: string): Metadata {

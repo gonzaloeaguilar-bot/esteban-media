@@ -70,6 +70,8 @@ describe("customer-facing ranking pages", () => {
       "marketing-de-video-para-contratistas-miami",
       "fotografo-de-retratos-y-headshots-miami",
       "editor-de-video-corto-para-redes-miami",
+      "produccion-de-video-palm-beach-county",
+      "edicion-de-video-palm-beach-county",
     ]) {
       expect(niche).toContain(`"${slug}"`);
     }

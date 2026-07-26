@@ -819,6 +819,70 @@ export const spanishNichePages: SpanishNichePage[] = [
       },
     ],
   },
+  {
+    slug: "produccion-de-video-palm-beach-county",
+    title: "Producción de video en Palm Beach",
+    metadataTitle: "Producción de Video Palm Beach",
+    description:
+      "Producción de video, comerciales y contenido para marcas y empresas en Palm Beach County.",
+    eyebrow: "Palm Beach County",
+    h1: "Producción de video y contenido comercial en Palm Beach.",
+    lead:
+      "Ofrecemos planificación, videografía y postproducción para marcas, empresas inmobiliarias y negocios locales en el condado de Palm Beach.",
+    keyword: "producción de video en Palm Beach",
+    location: "Palm Beach County",
+    availability: "confirmed",
+    icon: Video,
+    bestFor: [
+      "Marcas y empresas en el área de Palm Beach que necesitan comerciales y videos corporativos.",
+      "Agentes inmobiliarios y negocios en Palm Beach County.",
+    ],
+    scopingQuestions: [
+      "¿El video se filmará en locación en el condado o requieres edición remota?",
+      "¿Cuáles son los entregables finales necesarios?",
+    ],
+    projectFit:
+      "Cobertura directa en Palm Beach County respaldada por portafolio publicado.",
+    faqs: [
+      {
+        question: "¿Tienen cobertura en el condado de Palm Beach?",
+        answer:
+          "Sí. Ofrecemos producción en sitio y edición remota para proyectos en el condado de Palm Beach.",
+      },
+    ],
+  },
+  {
+    slug: "edicion-de-video-palm-beach-county",
+    title: "Edición de video en Palm Beach County",
+    metadataTitle: "Edición de Video Palm Beach",
+    description:
+      "Servicio de edición remota de video para empresas y creadores en Palm Beach County.",
+    eyebrow: "Palm Beach County",
+    h1: "Edición de video profesional en Palm Beach County.",
+    lead:
+      "Edición remota de video para empresas, negocios locales y creadores en el condado de Palm Beach. Optimiza tu material bruto en piezas listas para publicar.",
+    keyword: "edición de video en Palm Beach",
+    location: "Palm Beach County",
+    availability: "confirmed",
+    icon: Video,
+    bestFor: [
+      "Negocios en el área de Palm Beach que cuentan con grabaciones y necesitan edición.",
+      "Creadores de contenido y empresas en Palm Beach County.",
+    ],
+    scopingQuestions: [
+      "¿En qué formato tienes el material grabado?",
+      "¿Cuál es el calendario de entregas de tu proyecto?",
+    ],
+    projectFit:
+      "Edición remota y eficiente sin requerir desplazamientos.",
+    faqs: [
+      {
+        question: "¿Cómo se envían los archivos pesados desde Palm Beach?",
+        answer:
+          "Utilizamos enlaces seguros de Dropbox o Frame.io para una transferencia rápida de material.",
+      },
+    ],
+  },
 ];
 
 export const spanishCoreRoutes = [

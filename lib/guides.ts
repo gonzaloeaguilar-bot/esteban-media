@@ -14,6 +14,8 @@ export const GUIDE_IDS = [
   "ai-product-photography-guide",
   "product-photography-pricing-guide",
   "ai-vs-traditional-photo-guide",
+  "editor-vs-videographer-guide",
+  "remote-vs-local-editing-guide",
 ] as const;
 
 export type GuideId = (typeof GUIDE_IDS)[number];
@@ -1018,6 +1020,134 @@ const guidePairs: readonly GuidePair[] = [
           heading: "El enfoque híbrido: lo mejor de ambos mundos",
           paragraphs: [
             "Muchas marcas de e-commerce toman fotos limpias de estudio y usan IA para generar fondos de temporada y piezas publicitarias para redes sociales.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "editor-vs-videographer-guide",
+    en: {
+      slug: "video-editor-vs-videographer",
+      metadataTitle: "Video Editor vs Videographer",
+      title: "Video editor vs videographer: which role do you need?",
+      description:
+        "Understand the difference between hiring a video editor for existing footage versus hiring a videographer for on-location camera capture.",
+      eyebrow: "Role & Workflow Comparison",
+      answer:
+        "Hire a videographer when you need physical camera operation on-site, and hire a video editor when you already have recorded footage and need narrative pacing, color, motion, and captions.",
+      proof: {
+        href: "/portfolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        description:
+          "Approved portfolio credits include location camera capture and full video editing. It is linked as a proof example; nothing published confirms dual-role scope on all projects.",
+      },
+      sections: [
+        {
+          heading: "Core differences in responsibilities",
+          paragraphs: [
+            "A videographer operates physical camera equipment, lighting, and audio gear on location to capture raw footage.",
+            "A video editor works in post-production, organizing raw assets into a cohesive story with color grading, sound design, and text graphics.",
+          ],
+        },
+        {
+          heading: "When you only need a remote video editor",
+          paragraphs: [
+            "If your team already records raw footage on smartphones or camera equipment, hiring a remote video editor is the most efficient and cost-effective route to produce social content.",
+          ],
+        },
+      ],
+    },
+    es: {
+      slug: "editor-de-video-vs-videografo",
+      metadataTitle: "Editor de Video vs Videógrafo",
+      title: "Editor de video vs videógrafo: ¿cuál rol necesitas?",
+      description:
+        "Entiende la diferencia entre contratar un editor de video para material existente versus un videógrafo para grabación en locación.",
+      eyebrow: "Comparación de Roles y Flujo",
+      answer:
+        "Contrata un videógrafo cuando requieras operación de cámara en sitio, y un editor de video cuando ya dispongas de tomas y necesites narrativa, color, ritmo y subtítulos.",
+      proof: {
+        href: "/es/portafolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        description:
+          "Los créditos aprobados del portafolio incluyen producción en locación y edición de video. Se enlaza como ejemplo publicado; nada publicado confirma alcance dual en todos los proyectos.",
+      },
+      sections: [
+        {
+          heading: "Diferencias centrales en responsabilidades",
+          paragraphs: [
+            "Un videógrafo opera equipos de cámara, iluminación y audio en el sitio de grabación para capturar tomas originales.",
+            "Un editor de video trabaja en postproducción organizando material bruto en una historia cohesiva con color, sonido y gráficos.",
+          ],
+        },
+        {
+          heading: "Cuándo solo necesitas un editor de video remoto",
+          paragraphs: [
+            "Si tu equipo ya graba tomas con smartphones o cámaras, contratar un editor remoto es la ruta más eficiente para mantener presencia en redes.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "remote-vs-local-editing-guide",
+    en: {
+      slug: "remote-vs-local-video-editing",
+      metadataTitle: "Remote vs Local Video Editing",
+      title: "Remote video editing vs local production studio",
+      description:
+        "Compare remote video post-production turnaround, pricing flexibility, and collaboration workflows against local production agencies.",
+      eyebrow: "Production Model Comparison",
+      answer:
+        "Remote video editing provides faster turnaround and global flexibility using cloud asset transfer, while local studios offer physical presence and local set builds.",
+      proof: {
+        href: "/portfolio/ml-colombia",
+        title: "ML Colombia",
+        description:
+          "Approved portfolio credits include remote video post-production for social content. It is linked as a proof example; nothing published confirms identical turnarounds for every scope.",
+      },
+      sections: [
+        {
+          heading: "Why remote editing accelerates turnaround",
+          paragraphs: [
+            "By using cloud storage links (Dropbox, Frame.io, Google Drive), footage handoff happens instantly, eliminating physical drive shipping delays.",
+          ],
+        },
+        {
+          heading: "Cost efficiency of remote post-production",
+          paragraphs: [
+            "Remote video editing removes physical studio overhead, allowing project budgets to go directly toward creative editing quality and quick revisions.",
+          ],
+        },
+      ],
+    },
+    es: {
+      slug: "edicion-remota-vs-estudio-local",
+      metadataTitle: "Edición Remota vs Estudio Local",
+      title: "Edición remota de video vs estudio de producción local",
+      description:
+        "Compara tiempos de entrega, flexibilidad de precios y colaboración de postproducción remota frente a agencias locales de producción.",
+      eyebrow: "Comparación de Modelos",
+      answer:
+        "La edición remota de video ofrece entregas más rápidas y flexibilidad mediante transferencia en la nube, mientras que el estudio local ofrece presencia física en set.",
+      proof: {
+        href: "/es/portafolio/ml-colombia",
+        title: "ML Colombia",
+        description:
+          "Los créditos aprobados del portafolio incluyen postproducción remota de video para redes. Se enlaza como ejemplo publicado; nada publicado confirma tiempos idénticos para todo alcance.",
+      },
+      sections: [
+        {
+          heading: "Por qué la edición remota acelera las entregas",
+          paragraphs: [
+            "Mediante enlaces de almacenamiento en la nube (Dropbox, Frame.io), la transferencia de archivos ocurre al instante sin envíos físicos de discos.",
+          ],
+        },
+        {
+          heading: "Eficiencia de costos en postproducción remota",
+          paragraphs: [
+            "La edición remota elimina costos de mantenimiento de estudio físico, canalizando el presupuesto directamente a la calidad narrativa y de edición.",
           ],
         },
       ],

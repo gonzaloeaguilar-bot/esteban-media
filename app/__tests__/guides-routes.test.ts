@@ -27,6 +27,8 @@ describe("guide routes", () => {
       { slug: "how-to-use-ai-for-product-photography" },
       { slug: "how-much-does-product-photography-cost" },
       { slug: "ai-product-photography-vs-traditional-studio" },
+      { slug: "video-editor-vs-videographer" },
+      { slug: "remote-vs-local-video-editing" },
     ]);
     expect(esParams.map(({ slug }) => slug)).toEqual([
       "preparar-material-para-edicion-de-video",
@@ -39,6 +41,8 @@ describe("guide routes", () => {
       "como-usar-inteligencia-artificial-para-fotografia-de-producto",
       "cuanto-cuesta-la-fotografia-de-producto",
       "fotografia-de-producto-con-ia-vs-estudio-tradicional",
+      "editor-de-video-vs-videografo",
+      "edicion-remota-vs-estudio-local",
     ]);
   });
 

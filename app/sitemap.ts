@@ -28,6 +28,8 @@ const routes = [
   { path: "/services/contractor-video-marketing-south-florida", priority: 0.85 },
   { path: "/services/headshot-photographer-miami", priority: 0.85 },
   { path: "/services/short-form-video-editor-miami", priority: 0.85 },
+  { path: "/services/video-production-boca-raton", priority: 0.85 },
+  { path: "/services/video-editing-west-palm-beach", priority: 0.85 },
   { path: "/portfolio", priority: 0.9 },
   { path: "/areas", priority: 0.85 },
   { path: "/areas/palm-beach-county", priority: 0.85 },

@@ -53,6 +53,8 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/services/contractor-video-marketing-south-florida",
   "https://estebanmorenomedia.com/services/headshot-photographer-miami",
   "https://estebanmorenomedia.com/services/short-form-video-editor-miami",
+  "https://estebanmorenomedia.com/services/video-production-boca-raton",
+  "https://estebanmorenomedia.com/services/video-editing-west-palm-beach",
   "https://estebanmorenomedia.com/es/fotografia-de-producto-con-ia-miami",
   "https://estebanmorenomedia.com/es/imagenes-con-ia-para-ecommerce-miami",
   "https://estebanmorenomedia.com/es/marketing-de-video-para-dentistas-miami",
@@ -65,6 +67,8 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/es/marketing-de-video-para-contratistas-miami",
   "https://estebanmorenomedia.com/es/fotografo-de-retratos-y-headshots-miami",
   "https://estebanmorenomedia.com/es/editor-de-video-corto-para-redes-miami",
+  "https://estebanmorenomedia.com/es/produccion-de-video-palm-beach-county",
+  "https://estebanmorenomedia.com/es/edicion-de-video-palm-beach-county",
   "https://estebanmorenomedia.com/portfolio/my-dler",
   "https://estebanmorenomedia.com/es/portafolio/my-dler",
   "https://estebanmorenomedia.com/portfolio/banacol",
@@ -93,6 +97,8 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/guides/how-to-use-ai-for-product-photography",
   "https://estebanmorenomedia.com/guides/how-much-does-product-photography-cost",
   "https://estebanmorenomedia.com/guides/ai-product-photography-vs-traditional-studio",
+  "https://estebanmorenomedia.com/guides/video-editor-vs-videographer",
+  "https://estebanmorenomedia.com/guides/remote-vs-local-video-editing",
   "https://estebanmorenomedia.com/es/guias/preparar-material-para-edicion-de-video",
   "https://estebanmorenomedia.com/es/guias/como-escribir-un-brief-util-de-video",
   "https://estebanmorenomedia.com/es/guias/video-vertical-horizontal-y-zonas-seguras",
@@ -103,6 +109,8 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/es/guias/como-usar-inteligencia-artificial-para-fotografia-de-producto",
   "https://estebanmorenomedia.com/es/guias/cuanto-cuesta-la-fotografia-de-producto",
   "https://estebanmorenomedia.com/es/guias/fotografia-de-producto-con-ia-vs-estudio-tradicional",
+  "https://estebanmorenomedia.com/es/guias/editor-de-video-vs-videografo",
+  "https://estebanmorenomedia.com/es/guias/edicion-remota-vs-estudio-local",
 ];
 
 const WATCH_SET_EXPANSION_SCHEMA =
