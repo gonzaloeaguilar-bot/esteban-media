@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Laptop, Mail, Phone, Bot, Sparkles, Layout, ShieldCheck } from "lucide-react";
 
@@ -273,35 +274,48 @@ export default function DisenoWebFortLauderdalePage() {
             {showcaseProjects.map((project) => (
               <article
                 key={project.id}
-                className="flex flex-col rounded-lg border border-[#ddd4c8] bg-[#f6f1ea] p-6 transition hover:-translate-y-0.5 hover:border-[#e85d3e] hover:shadow-sm"
+                className="group flex flex-col overflow-hidden rounded-xl border border-[#ddd4c8] bg-[#fbf6ef] transition hover:-translate-y-0.5 hover:border-[#e85d3e] hover:shadow-md"
               >
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-[#e85d3e]">
+                <Link href={project.href} className="relative aspect-video overflow-hidden bg-[#101214]">
+                  <Image
+                    src={`/portfolio/${project.id}.jpg`}
+                    alt={project.title}
+                    fill
+                    sizes="(min-width: 1024px) 384px, (min-width: 768px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <span className="absolute bottom-3 left-3 rounded-md bg-[#c84a2c] px-2.5 py-1 text-xs font-semibold uppercase tracking-wider text-white">
                     {project.category}
                   </span>
-                  <ShieldCheck className="size-5 text-[#5a6066]" />
-                </div>
-                <h3 className="mt-3 font-serif text-2xl leading-tight">{project.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-[#252a2d] flex-1">
-                  {project.description}
-                </p>
-                <div className="mt-4 flex flex-wrap gap-1.5">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded bg-[#ebe3d7] px-2 py-0.5 text-xs text-[#5a6066]"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <Link
-                  href={project.href}
-                  className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27] hover:underline"
-                >
-                  Explorar detalles
-                  <ArrowRight className="size-4" />
                 </Link>
+                <div className="flex flex-1 flex-col p-6">
+                  <h3 className="font-serif text-2xl leading-tight text-[#101214]">
+                    <Link href={project.href} className="hover:text-[#c84a2c]">
+                      {project.title}
+                    </Link>
+                  </h3>
+                  <p className="mt-3 flex-1 text-sm leading-6 text-[#3f4548]">
+                    {project.description}
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-1.5">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded bg-[#ebe3d7] px-2 py-0.5 text-xs text-[#5a6066]"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <Link
+                    href={project.href}
+                    className="mt-6 inline-flex min-h-10 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-4 text-sm font-medium text-white transition hover:bg-[#a93e29]"
+                  >
+                    Ver Caso de Estudio & Resultados
+                    <ArrowRight className="size-4" />
+                  </Link>
+                </div>
               </article>
             ))}
           </div>
