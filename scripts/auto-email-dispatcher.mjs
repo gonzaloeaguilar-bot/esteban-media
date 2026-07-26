@@ -7,6 +7,20 @@ import path from "path";
  * via Resend API (https://api.resend.com/emails).
  */
 
+// Load .env.local if present
+const envPath = path.join(process.cwd(), ".env.local");
+if (fs.existsSync(envPath)) {
+  const envContent = fs.readFileSync(envPath, "utf8");
+  envContent.split("\n").forEach((line) => {
+    const match = line.match(/^([^=]+)=(.*)$/);
+    if (match) {
+      const key = match[1].trim();
+      const val = match[2].trim().replace(/^["']|["']$/g, "");
+      if (!process.env[key]) process.env[key] = val;
+    }
+  });
+}
+
 const RESEND_API_KEY = process.env.RESEND_API_KEY || "";
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "Esteban Moreno <contact@estebanmorenomedia.com>";
 const DEFAULT_LEADS_FILE = path.join(process.cwd(), "public", "leads", "fort_lauderdale_restaurant_leads.json");
