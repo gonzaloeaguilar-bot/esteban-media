@@ -69,13 +69,13 @@
         ]
       },
       "front-line-auto": {
-        "title": "Frontline Auto & AI Concierge",
-        "summary": "Car dealership web system with integrated 24/7 AI auto concierge chatbot for inventory browsing, bilingual lead capture, and test drive scheduling.",
-        "credits": "Dealership web platform, inventory UI engineering, and conversational AI concierge bot.",
+        "title": "Frontline Auto Repair & AI Service Concierge",
+        "summary": "Auto repair shop web system with integrated 24/7 AI service concierge chatbot for repair scheduling, service quotes, bilingual intake, and maintenance inquiries.",
+        "credits": "Auto repair web platform, service booking UI engineering, and conversational AI repair concierge bot.",
         "results": [
-          { "metric": "+65%", "label": "Test Drive Booking Conversion Rate" },
-          { "metric": "Bilingual", "label": "Instant English & Spanish Auto Concierge" },
-          { "metric": "12.4s", "label": "Average Inventory Pre-Qualification Time" }
+          { "metric": "+65%", "label": "Automated Service Booking Conversion Rate" },
+          { "metric": "Bilingual", "label": "Instant English & Spanish Auto Repair Concierge" },
+          { "metric": "12.4s", "label": "Average Repair Intake & Service Quote Time" }
         ]
       },
       "flas-concierge": {

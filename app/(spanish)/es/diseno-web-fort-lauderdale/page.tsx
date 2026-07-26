@@ -112,11 +112,11 @@ export default function DisenoWebFortLauderdalePage() {
     },
     {
       id: "front-line-auto",
-      title: "Frontline Auto & AI Concierge",
-      category: "Motor Web para Concesionario",
+      title: "Frontline Auto Repair & Concierge IA de Servicio",
+      category: "Motor Web para Taller de Reparaciones",
       description:
-        "Plataforma para concesionario con chatbot concierge de IA 24/7 para consulta de inventario y agendamiento instantáneo de pruebas de manejo.",
-      tags: ["Inventario de Autos", "Concierge con IA", "Atención Bilingüe"],
+        "Plataforma web para taller de reparación automotriz equipada con un bot concierge de IA 24/7 para cotizaciones de reparación y agendamiento instantáneo de servicio.",
+      tags: ["Taller Automotriz", "Concierge de Servicio con IA", "Atención Bilingüe"],
       href: "/es/portafolio/front-line-auto",
     },
     {

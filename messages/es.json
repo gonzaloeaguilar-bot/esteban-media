@@ -72,13 +72,13 @@
         ]
       },
       "front-line-auto": {
-        "title": "Frontline Auto & AI Concierge",
-        "summary": "Sistema web para concesionario de autos con chatbot concierge de IA 24/7 integrado para consulta de inventario, captura bilingüe y agendamiento de prueba de manejo.",
-        "credits": "Plataforma web de concesionario, interfaz de inventario y bot concierge de IA.",
+        "title": "Frontline Auto Repair & Concierge IA de Servicio",
+        "summary": "Sistema web para taller de reparación automotriz con chatbot concierge de IA 24/7 para agendamiento de reparaciones, cotizaciones de servicio y atención bilingüe.",
+        "credits": "Plataforma web de taller mecánico, interfaz de reservas de servicio y bot concierge de IA para reparaciones.",
         "results": [
-          { "metric": "+65%", "label": "Tasa de Reserva de Pruebas de Manejo" },
-          { "metric": "Bilingüe", "label": "Concierge de IA Instantáneo en Inglés y Español" },
-          { "metric": "12.4s", "label": "Tiempo Promedio de Precalificación" }
+          { "metric": "+65%", "label": "Tasa de Conversión de Reservas de Servicio" },
+          { "metric": "Bilingüe", "label": "Concierge de IA Instantáneo para Reparaciones (EN/ES)" },
+          { "metric": "12.4s", "label": "Tiempo Promedio de Cotización y Consulta" }
         ]
       },
       "flas-concierge": {

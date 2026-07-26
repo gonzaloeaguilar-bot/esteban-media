@@ -352,7 +352,7 @@ export const PORTFOLIO_ITEMS: readonly PortfolioItem[] = [
   {
     id: "front-line-auto",
     category: "web-design",
-    title: "Frontline Auto & AI Concierge",
+    title: "Frontline Auto Repair & AI Service Concierge",
     titleI18nKey: "front-line-auto",
     descriptionI18nKey: "front-line-auto",
     creditsI18nKey: "front-line-auto",
@@ -364,7 +364,7 @@ export const PORTFOLIO_ITEMS: readonly PortfolioItem[] = [
     media: {
       kind: "image",
       src: "/portfolio/front-line-auto.jpg",
-      alt: "Frontline Auto Dealership Platform & AI Concierge Bot",
+      alt: "Frontline Auto Repair Platform & AI Service Concierge Bot",
       aspect: "16:9",
     },
   },

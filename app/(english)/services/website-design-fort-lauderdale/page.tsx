@@ -120,11 +120,11 @@ export default function WebsiteDesignFortLauderdalePage() {
     },
     {
       id: "front-line-auto",
-      title: "Frontline Auto & AI Concierge",
-      category: "Automotive Dealership Web Engine",
+      title: "Frontline Auto Repair & AI Service Concierge",
+      category: "Auto Repair & Maintenance Web Engine",
       description:
-        "Full-service dealership web platform equipped with an intelligent 24/7 AI auto concierge bot for inventory inquiries and instant test drive scheduling.",
-      tags: ["Dealership Inventory", "AI Auto Concierge", "Bilingual Support"],
+        "Full-service auto repair shop web platform equipped with an intelligent 24/7 AI service concierge bot for repair quotes and instant service booking.",
+      tags: ["Auto Repair Shop", "AI Service Concierge", "Bilingual Support"],
       href: "/portfolio/front-line-auto",
     },
     {
