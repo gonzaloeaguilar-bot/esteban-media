@@ -18,7 +18,7 @@ if (fs.existsSync(envPath)) {
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY || "re_CdQhFqvt_CPeGcaKR3az2W5LjKMgKNhpq";
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "Esteban Moreno Media <contact@estebanmorenomedia.com>";
-const RECIPIENTS = ["gonzalo.e.aguilar@gmail.com", "esmolopez@gmail.com"];
+const RECIPIENTS = ["gonzalo.e.aguilar@gmail.com"];
 
 async function sendTellaStyleEmails() {
   console.log(`Sending TELLA & CANVA STYLE CLEAN HTML EMAILS via Resend...`);
