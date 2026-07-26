@@ -1,6 +1,7 @@
 import { Mail, MessageSquareText, Phone, Send } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { VideoBriefBuilder } from "@/components/video-brief-builder";
 import { spanishServices, spanishSite } from "@/lib/spanish-site";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { site } from "@/lib/site";
@@ -79,32 +80,36 @@ export default function SpanishContactPage() {
               </div>
             </div>
 
-            <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
-              <MessageSquareText
-                className="size-6 text-[#e85d3e]"
-                aria-hidden="true"
-              />
-              <h2 className="mt-5 font-serif text-3xl">Qué incluir</h2>
-              <ul className="mt-6 space-y-4 text-sm leading-6 text-[#252a2d]">
-                <li>
-                  <strong className="text-[#101214]">Tipo de proyecto:</strong>{" "}
-                  {spanishServices.map((service) => service.shortName).join(", ")}.
-                </li>
-                <li>
-                  <strong className="text-[#101214]">Ciudad:</strong> Miami,
-                  Fort Lauderdale, Palm Beach County, venue, propiedad o
-                  dirección si ya existe. Para trabajo en locación, comparte
-                  cualquier detalle de acceso que pueda afectar el alcance.
-                </li>
-                <li>
-                  <strong className="text-[#101214]">Fecha:</strong> día de
-                  grabación o entrega de material, lanzamiento y si la solicitud es urgente.
-                </li>
-                <li>
-                  <strong className="text-[#101214]">Meta:</strong> redes,
-                  website, Google Business, listing, menu, evento o anuncios.
-                </li>
-              </ul>
+            <div className="space-y-6">
+              <VideoBriefBuilder locale="es" />
+
+              <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
+                <MessageSquareText
+                  className="size-6 text-[#e85d3e]"
+                  aria-hidden="true"
+                />
+                <h2 className="mt-5 font-serif text-3xl">Qué incluir</h2>
+                <ul className="mt-6 space-y-4 text-sm leading-6 text-[#252a2d]">
+                  <li>
+                    <strong className="text-[#101214]">Tipo de proyecto:</strong>{" "}
+                    {spanishServices.map((service) => service.shortName).join(", ")}.
+                  </li>
+                  <li>
+                    <strong className="text-[#101214]">Ciudad:</strong> Miami,
+                    Fort Lauderdale, Palm Beach County, venue, propiedad o
+                    dirección si ya existe. Para trabajo en locación, comparte
+                    cualquier detalle de acceso que pueda afectar el alcance.
+                  </li>
+                  <li>
+                    <strong className="text-[#101214]">Fecha:</strong> día de
+                    rodaje o entrega de edición.
+                  </li>
+                  <li>
+                    <strong className="text-[#101214]">Resultado:</strong> dónde
+                    se publica el material y qué resultado comercial buscas.
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </Container>

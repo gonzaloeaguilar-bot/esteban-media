@@ -1,6 +1,7 @@
 import { Mail, MessageSquareText, Phone, Send } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { VideoBriefBuilder } from "@/components/video-brief-builder";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { services, site } from "@/lib/site";
 
@@ -80,31 +81,35 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
-              <MessageSquareText
-                className="size-6 text-[#e85d3e]"
-                aria-hidden="true"
-              />
-              <h2 className="mt-5 font-serif text-3xl">What to include</h2>
-              <ul className="mt-6 space-y-4 text-sm leading-6 text-[#252a2d]">
-                <li>
-                  <strong className="text-[#101214]">Project type:</strong>{" "}
-                  {services.map((service) => service.shortName).join(", ")}.
-                </li>
-                <li>
-                  <strong className="text-[#101214]">Location:</strong> city,
-                  venue, property, or address if available. For on-location
-                  work, share access details that may affect the project scope.
-                </li>
-                <li>
-                  <strong className="text-[#101214]">Timeline:</strong> shoot or
-                  handoff date, launch date, and whether urgent delivery matters.
-                </li>
-                <li>
-                  <strong className="text-[#101214]">Outcome:</strong> where the
-                  assets go and what a good result looks like.
-                </li>
-              </ul>
+            <div className="space-y-6">
+              <VideoBriefBuilder locale="en" />
+
+              <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
+                <MessageSquareText
+                  className="size-6 text-[#e85d3e]"
+                  aria-hidden="true"
+                />
+                <h2 className="mt-5 font-serif text-3xl">What to include</h2>
+                <ul className="mt-6 space-y-4 text-sm leading-6 text-[#252a2d]">
+                  <li>
+                    <strong className="text-[#101214]">Project type:</strong>{" "}
+                    {services.map((service) => service.shortName).join(", ")}.
+                  </li>
+                  <li>
+                    <strong className="text-[#101214]">Location:</strong> city,
+                    venue, property, or address if available. For on-location
+                    work, share access details that may affect the project scope.
+                  </li>
+                  <li>
+                    <strong className="text-[#101214]">Timeline:</strong> shoot or
+                    editing delivery date.
+                  </li>
+                  <li>
+                    <strong className="text-[#101214]">Outcome:</strong> where the
+                    assets go and what a good result looks like.
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </Container>

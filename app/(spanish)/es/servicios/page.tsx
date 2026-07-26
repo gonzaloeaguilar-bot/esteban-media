@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2, Laptop, MapPin } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { VideoBriefBuilder } from "@/components/video-brief-builder";
 import { entityIds } from "@/lib/entity-schema";
 import {
   spanishAreas,
@@ -245,6 +246,10 @@ export default function SpanishServicesPage() {
               ))}
             </ul>
           </section>
+
+          <div className="mt-12">
+            <VideoBriefBuilder locale="es" />
+          </div>
 
           <div className="mt-14 rounded-lg bg-[#101214] p-6 text-[#f6f1ea] sm:p-8">
             <h2 className="font-serif text-4xl">¿No sabes cuál servicio encaja?</h2>
