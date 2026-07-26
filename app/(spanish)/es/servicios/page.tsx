@@ -144,7 +144,26 @@ export default function SpanishServicesPage() {
                       </span>
                     ))}
                   </div>
-                  {proof ? (
+                  {service.id === "diseno-web" || service.id === "website-design" ? (
+                    <Link
+                      href="/es/diseno-web-fort-lauderdale"
+                      className="group mt-6 block rounded-lg border border-[#c84a2c] bg-[#c84a2c] p-5 text-white shadow-sm transition hover:bg-[#a93e29]"
+                    >
+                      <span className="text-xs font-bold uppercase tracking-wider text-[#f0b384]">
+                        Centro Destacado de Diseño Web & IA
+                      </span>
+                      <span className="mt-2 flex items-center justify-between gap-3 font-serif text-xl font-bold text-white">
+                        Explorar Centro de Diseño Web & Chatbots con IA
+                        <ArrowRight
+                          className="size-5 shrink-0 transition-transform group-hover:translate-x-1"
+                          aria-hidden="true"
+                        />
+                      </span>
+                      <span className="mt-2 block text-sm leading-6 text-[#f6f1ea]">
+                        Ver aplicaciones web personalizadas, motores para concesionarios y chatbots de captura con IA para TitanForge, Geebs, FLAS y Frontline Auto.
+                      </span>
+                    </Link>
+                  ) : proof ? (
                     <Link
                       href={proof.href}
                       className="group mt-6 block rounded-md border border-[#ddd4c8] bg-white/50 p-4 hover:border-[#e85d3e]"
