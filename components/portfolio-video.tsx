@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { ExternalLink, Play, X } from "lucide-react";
+import { ExternalLink, Play, Sparkles, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { PortfolioVideoModal } from "@/components/portfolio-video-modal";
 
 interface PortfolioVideoProps {
   videoId: string;
@@ -20,6 +21,7 @@ export function PortfolioVideo({
   locale,
 }: PortfolioVideoProps) {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const playerRef = useRef<HTMLIFrameElement>(null);
   const playButtonRef = useRef<HTMLButtonElement>(null);
   const restorePlayFocus = useRef(false);
@@ -103,7 +105,7 @@ export function PortfolioVideo({
         {isPlaying ? loadedLabel : ""}
       </p>
 
-      <div className="px-5 sm:px-6">
+      <div className="flex flex-wrap items-center justify-between gap-2 px-5 sm:px-6">
         <a
           href={url}
           target="_blank"
@@ -113,7 +115,23 @@ export function PortfolioVideo({
           {watchLabel}
           <ExternalLink className="size-4" aria-hidden="true" />
         </a>
+        <button
+          type="button"
+          onClick={() => setIsModalOpen(true)}
+          className="mt-3 inline-flex min-h-10 items-center gap-2 rounded-full border border-[#c84a2c]/30 bg-[#c84a2c]/5 px-3 py-1 text-xs font-semibold text-[#c84a2c] transition hover:bg-[#c84a2c] hover:text-white"
+        >
+          <Sparkles className="size-3.5" aria-hidden="true" />
+          {locale === "es" ? "Reproducción Lightbox" : "Lightbox Player"}
+        </button>
       </div>
+
+      <PortfolioVideoModal
+        videoId={videoId}
+        title={title}
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        locale={locale}
+      />
     </div>
   );
 }
