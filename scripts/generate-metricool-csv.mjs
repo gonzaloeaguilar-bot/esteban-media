@@ -1,87 +1,83 @@
-import fs from "node:fs";
-import path from "node:path";
+import fs from "fs";
+import path from "path";
 
-const SCHEDULED_POSTS = [
-  // WEEK 1
+/**
+ * Metricool Bulk CSV Post Generator for Esteban Moreno Media.
+ * Produces a CSV file ready for import into Metricool for LinkedIn & YouTube Shorts.
+ */
+
+const outputDir = path.join(process.cwd(), "public", "social");
+if (!fs.existsSync(outputDir)) {
+  fs.mkdirSync(outputDir, { recursive: true });
+}
+
+const csvPath = path.join(outputDir, "metricool_batch_posts.csv");
+
+const posts = [
+  {
+    date: "2026-08-01",
+    time: "10:00",
+    text: "🚀 Are you wasting 10+ hours a week trying to edit your own business videos? Here is the exact framework South Florida brands use to delegate remote video editing cleanly.\n\n👉 Calculate your budget & scope in 30 seconds:\nhttps://estebanmorenomedia.com/calculator\n\n#VideoEditing #SouthFlorida #MiamiBusiness #VideoMarketing",
+  },
   {
     date: "2026-08-03",
-    time: "08:30",
-    networks: "LinkedIn, YouTube, Instagram",
-    textEs: "🔥 Animación 3D y renderizado de producto para marcas e-commerce.\n\nTransforma tus productos estáticos en videos dinámicos para anuncios.\n\n📍 Ver caso de estudio: https://estebanmorenomedia.com/portfolio/my-dler\n🧮 Calculadora de Presupuestos: https://estebanmorenomedia.com/es/calculadora\n\n#3DAnimation #ProductDesign #VideoAds #Ecommerce #MiamiBusiness",
-    textEn: "🔥 3D animation & product rendering for e-commerce brands.\n\nTransform static product assets into dynamic high-converting video ads.\n\n📍 View case study: https://estebanmorenomedia.com/portfolio/my-dler\n🧮 Budget Estimator: https://estebanmorenomedia.com/calculator\n\n#3DAnimation #ProductDesign #VideoAds #Ecommerce #MiamiBusiness",
-    mediaUrl: "https://www.youtube.com/watch?v=vMvbC5yOzgs",
+    time: "14:00",
+    text: "📱 ¿Sabías que el 80% de los videos en Instagram y TikTok se ven SIN sonido? Si tus Reels no tienen subtítulos animados y audio masterizado, estás perdiendo clientes.\n\nObtén nuestro Kit de Guiones 9:16 gratis:\nhttps://estebanmorenomedia.com/es/recursos/kit-video-social\n\n#EdicionDeVideo #Miami #ReelsParaNegocios #MarketingDigital",
   },
   {
     date: "2026-08-05",
-    time: "08:30",
-    networks: "LinkedIn, YouTube, Instagram",
-    textEs: "💼 Posproducción de video corporativo para empresas e instituciones.\n\nMapeo de color cinemático, edición de ritmo y audio masterizado a -14 LUFS.\n\n📍 Caso de estudio completo: https://estebanmorenomedia.com/portfolio/banacol\n📊 Presupuestos corporativos: https://estebanmorenomedia.com/es/calculadora\n\n#CorporateVideo #PostProduction #VideoEditing #SouthFlorida #EstebanMorenoMedia",
-    textEn: "💼 Corporate video post-production for companies & institutions.\n\nCinematic color grading, pacing, and -14 LUFS dialogue mastering.\n\n📍 View case study: https://estebanmorenomedia.com/portfolio/banacol\n📊 Scope your budget: https://estebanmorenomedia.com/calculator\n\n#CorporateVideo #PostProduction #VideoEditing #SouthFlorida #EstebanMorenoMedia",
-    mediaUrl: "https://www.youtube.com/watch?v=DgeKWR8s80M",
+    time: "10:00",
+    text: "⚖️ Law firms in Miami & Fort Lauderdale: Video content is your highest-converting trust asset. Here are 3 client testimonial video frameworks that get results without sounding corporate.\n\nAudit your video strategy score:\nhttps://estebanmorenomedia.com/assessment\n\n#LawFirmMarketing #MiamiAttorneys #VideoProduction #FortLauderdale",
   },
   {
     date: "2026-08-07",
-    time: "08:30",
-    networks: "LinkedIn, YouTube, Instagram",
-    textEs: "🍹 Cobertura y edición dinámica para restaurantes, bares y vida nocturna en Miami.\n\nGanchos visuales diseñados para captar atención en Instagram y TikTok.\n\n📍 Ver proyecto: https://estebanmorenomedia.com/portfolio/bar-door-monkey\n📲 Edición de Reels: https://estebanmorenomedia.com/es/reels-para-negocios-miami\n\n#MiamiNightlife #RestaurantMarketing #ReelsMiami #VideoPromo",
-    textEn: "🍹 Dynamic promo editing for restaurants, nightlife, and hospitality in Miami.\n\nVisual hooks designed to stop the scroll on Instagram & TikTok.\n\n📍 View project: https://estebanmorenomedia.com/portfolio/bar-door-monkey\n📲 Social Video Kit: https://estebanmorenomedia.com/resources/social-video-kit\n\n#MiamiNightlife #RestaurantMarketing #ReelsMiami #VideoPromo",
-    mediaUrl: "https://www.youtube.com/watch?v=m1PZOcutQHg",
-  },
-  // WEEK 2
-  {
-    date: "2026-08-10",
-    time: "08:30",
-    networks: "LinkedIn, YouTube, Instagram",
-    textEs: "🩺 Video marketing profesional para clínicas de odontología y Med Spas en South Florida.\n\nAtrae más pacientes con testimonios y tratamientos editados en alta calidad.\n\n📍 Caso de estudio: https://estebanmorenomedia.com/portfolio/healthy-smile\n🩺 Servicio Med Spa: https://estebanmorenomedia.com/services/med-spa-video-marketing-south-florida\n\n#MedSpaMiami #DentalMarketing #HealthcareVideo #SouthFlorida",
-    textEn: "🩺 Professional video marketing for dental practices & Med Spas in South Florida.\n\nConvert viewers into patients with high-retention clinical promos.\n\n📍 View case study: https://estebanmorenomedia.com/portfolio/healthy-smile\n🩺 Med Spa Services: https://estebanmorenomedia.com/services/med-spa-video-marketing-south-florida\n\n#MedSpaMiami #DentalMarketing #HealthcareVideo #SouthFlorida",
-    mediaUrl: "https://www.youtube.com/watch?v=YTJW6zn14S8",
+    time: "16:00",
+    text: "🎬 ¿Tienes horas de material grabado en tu celular o cámara 4K y no sabes cómo organizarlo para enviar a tu editor? He creado una guía paso a paso y plantilla de carpetas.\n\nDescarga la lista de chequeo aquí:\nhttps://estebanmorenomedia.com/es/guias/entrega-de-material-remoto\n\n#EdicionRemota #CreadoresDeContenido #ProduccionDeVideo #SouthFlorida",
   },
   {
-    date: "2026-08-12",
-    time: "08:30",
-    networks: "LinkedIn, YouTube, Instagram",
-    textEs: "🏡 Edición de video promocional para agencias inmobiliarias y servicios financieros.\n\nRitmo ágil y títulos optimizados en zonas seguras 9:16.\n\n📍 Ver proyecto: https://estebanmorenomedia.com/portfolio/homeowners\n🏢 Servicio Real Estate: https://estebanmorenomedia.com/es/editor-de-video-real-estate-miami\n\n#RealEstateVideo #MortgageMarketing #MiamiRealEstate #VideoEditor",
-    textEn: "🏡 Promotional video editing for real estate brokerages & mortgage advisors.\n\nFast pacing and 9:16 safe-zone vertical title placement.\n\n📍 View project: https://estebanmorenomedia.com/portfolio/homeowners\n🏢 Real Estate Drone Editing: https://estebanmorenomedia.com/services/real-estate-drone-video-editing-miami\n\n#RealEstateVideo #MortgageMarketing #MiamiRealEstate #VideoEditor",
-    mediaUrl: "https://www.youtube.com/watch?v=2m3iHq0JrLM",
+    date: "2026-08-09",
+    time: "11:00",
+    text: "💡 9:16 Vertical Video vs 16:9 Widescreen: Which format should your business invest in for 2026? Read our breakdown of safe-zone margins and multi-export workflows.\n\nRead the full guide:\nhttps://estebanmorenomedia.com/guides/vertical-horizontal-video-exports-and-safe-zones\n\n#ContentCreation #VideoEditor #SocialMediaStrategy #YouTubeShorts",
   },
   {
-    date: "2026-08-14",
-    time: "08:30",
-    networks: "LinkedIn, YouTube, Instagram",
-    textEs: "📽️ Edición de video narrativo para eventos y bodas cinemáticas.\n\nCapturamos la emoción con corrección de color pulida y mezcla de música impecable.\n\n📍 Ver historia completa: https://estebanmorenomedia.com/portfolio/diana-jack\n✨ Servicios de edición: https://estebanmorenomedia.com/services\n\n#WeddingVideo #EventVideography #CinematicEditing #VideoPost",
-    textEn: "📽️ Narrative video editing for events & cinematic weddings.\n\nCapture emotion with polished color grading and seamless audio mixing.\n\n📍 View full story: https://estebanmorenomedia.com/portfolio/diana-jack\n✨ Video Services: https://estebanmorenomedia.com/services\n\n#WeddingVideo #EventVideography #CinematicEditing #VideoPost",
-    mediaUrl: "https://www.youtube.com/watch?v=3tjLDtVrhG4",
+    date: "2026-08-11",
+    time: "10:00",
+    text: "🏥 Med Spas & Cosmetic Clinics in South Florida: Patient testimonial videos need high-end color grading and crisp dialogue. See how we turn raw footage into high-converting ads.\n\nCalculate your video scope:\nhttps://estebanmorenomedia.com/calculator\n\n#MedSpaMarketing #MiamiMedSpa #VideoEditing #Aesthetics",
   },
-  // WEEK 3
+  {
+    date: "2026-08-13",
+    time: "15:00",
+    text: "✨ ¿Quieres saber si tu marca tiene una estrategia de video bilingüe optimizada? Realiza nuestro diagnóstico gratuito en 5 preguntas.\n\nEvalúa tu estrategia aquí:\nhttps://estebanmorenomedia.com/es/evaluacion\n\n#MarketingBilingue #MiamiBusiness #EstrategiaDigital #SouthFlorida",
+  },
+  {
+    date: "2026-08-15",
+    time: "10:00",
+    text: "🏢 Real Estate Agents in Brickell & Coral Gables: 4K aerial drone walkthroughs get 4x more engagement on LinkedIn than static photos. Here is how we edit luxury property videos.\n\nView portfolio & get custom quote:\nhttps://estebanmorenomedia.com/portfolio\n\n#RealEstateMiami #LuxuryRealEstate #VideoProduction #Brickell",
+  },
   {
     date: "2026-08-17",
-    time: "08:30",
-    networks: "LinkedIn, YouTube, Instagram",
-    textEs: "🎬 Posproducción narrativa y diseño de sonido para cortometrajes.\n\nEstructuración de escenas, corrección de color y mezcla multicanal.\n\n📍 Proyecto La Huelga: https://estebanmorenomedia.com/portfolio/la-huelga\n🚀 Evaluador de estrategia: https://estebanmorenomedia.com/es/evaluacion\n\n#ShortFilm #Filmmaking #SoundDesign #ColorGrading #VideoEditing",
-    textEn: "🎬 Narrative post-production & sound design for short films.\n\nScene structuring, color correction, and multi-channel audio mixing.\n\n📍 La Huelga Project: https://estebanmorenomedia.com/portfolio/la-huelga\n🚀 Strategy Assessment: https://estebanmorenomedia.com/assessment\n\n#ShortFilm #Filmmaking #SoundDesign #ColorGrading #VideoEditing",
-    mediaUrl: "https://www.youtube.com/watch?v=W3pA6V8bN60",
+    time: "14:00",
+    text: "📦 D2C E-Commerce Brands: UGC (User-Generated Content) video ads are outperforming polished studio ads. Get our 5 direct-response script frameworks for TikTok & Reels.\n\nGet the ad script kit:\nhttps://estebanmorenomedia.com/resources/social-video-kit\n\n#EcommerceMarketing #TikTokAds #VideoEditing #UGCVideo",
   },
   {
     date: "2026-08-19",
-    time: "08:30",
-    networks: "LinkedIn, YouTube, Instagram",
-    textEs: "📲 Edición de lotes de video para redes sociales de marcas e instituciones.\n\nConsistencia de marca, subtítulos animados y entrega rápida.\n\n📍 Ver caso completo: https://estebanmorenomedia.com/portfolio/ml-colombia\n🧮 Calcula tu lote mensual: https://estebanmorenomedia.com/es/calculadora\n\n#SocialMediaVideo #ContentBatching #ReelsEditing #MarketingDigital",
-    textEn: "📲 Batch video editing for corporate brand channels & social media.\n\nBrand consistency, animated captions, and rapid turnaround.\n\n📍 View full case: https://estebanmorenomedia.com/portfolio/ml-colombia\n🧮 Scope monthly batching: https://estebanmorenomedia.com/calculator\n\n#SocialMediaVideo #ContentBatching #ReelsEditing #MarketingDigital",
-    mediaUrl: "https://www.youtube.com/watch?v=n9c6m_1361w",
+    time: "10:00",
+    text: "🎙️ How to turn 1 podcast recording into 15 high-converting vertical clips for YouTube Shorts and LinkedIn. Learn the batching workflow used by South Florida leaders.\n\nExplore our video editing services:\nhttps://estebanmorenomedia.com/services/video-podcast-editing-service-miami\n\n#VideoPodcast #ContentRepurposing #LinkedInVideo #Shorts",
   },
 ];
 
-console.log("Generating Metricool Bulk Upload CSV & Manifest...");
+function generateCSV() {
+  const headers = ["Date", "Time", "Text"];
+  const rows = posts.map((post) => {
+    const escapedText = `"${post.text.replace(/"/g, '""')}"`;
+    return `${post.date},${post.time},${escapedText}`;
+  });
 
-// Generate CSV lines
-const csvLines = ["Date,Time,Networks,Text_EN,Text_ES,Media_Url"];
-SCHEDULED_POSTS.forEach((post) => {
-  const textEnClean = `"${post.textEn.replace(/"/g, '""')}"`;
-  const textEsClean = `"${post.textEs.replace(/"/g, '""')}"`;
-  csvLines.push(`${post.date},${post.time},"${post.networks}",${textEnClean},${textEsClean},${post.mediaUrl}`);
-});
+  const csvContent = [headers.join(","), ...rows].join("\n");
+  fs.writeFileSync(csvPath, csvContent, "utf8");
 
-const csvPath = path.join(process.cwd(), "public/metricool_bulk_schedule_master.csv");
-fs.writeFileSync(csvPath, csvLines.join("\n"), "utf8");
+  console.log(`[METRICOOL CSV GENERATED] File saved to: ${csvPath}`);
+  console.log(`Total scheduled posts: ${posts.length}`);
+}
 
-console.log(`Successfully generated Metricool Bulk Schedule CSV at ${csvPath}!`);
+generateCSV();
