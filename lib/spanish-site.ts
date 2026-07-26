@@ -1300,6 +1300,134 @@ export const spanishNichePages: SpanishNichePage[] = [
       },
     ],
   },
+  {
+    slug: "video-para-arquitectura-y-diseno-miami",
+    title: "Video para arquitectura y diseño de interiores en Miami",
+    metadataTitle: "Video Arquitectura Diseño Miami",
+    description:
+      "Edición de video cinematográfico y recorridos para firmas de arquitectura y diseñadores de interiores en Miami.",
+    eyebrow: "Arquitectura / Diseño",
+    h1: "Videos promocionales para estudios de arquitectura y diseño.",
+    lead:
+      "Resaltamos detalles de diseño, texturas e iluminación en proyectos residenciales y comerciales para arquitectos e interioristas en Miami.",
+    keyword: "video de arquitectura en Miami",
+    location: "Miami / Coral Gables",
+    availability: "confirmed",
+    icon: Building2,
+    bestFor: [
+      "Estudios de arquitectura y firmas de diseño de interiores.",
+      "Desarrolladores boutique en Miami y South Florida.",
+    ],
+    scopingQuestions: [
+      "¿Las tomas abarcan fotografía estática animada o clips de video?",
+      "¿El video se publicará en portfolio web o Instagram?",
+    ],
+    projectFit:
+      "Edición minimalista y de alto nivel estilístico.",
+    faqs: [
+      {
+        question: "¿Se pueden animar fotos de arquitectura de alta resolución?",
+        answer:
+          "Sí. Utilizamos técnicas de parallax y movimiento de cámara virtual para dar vida a portafolios fotográficos.",
+      },
+    ],
+  },
+  {
+    slug: "marketing-de-video-para-spas-y-bienestar-miami",
+    title: "Marketing de video para spas y bienestar en Miami",
+    metadataTitle: "Video Spas Bienestar Miami",
+    description:
+      "Videos relajantes y contenido promocional para spas de lujo, centros de bienestar y tratamientos holísticos en Miami.",
+    eyebrow: "Spas / Bienestar",
+    h1: "Videos promocionales para spas y centros de bienestar.",
+    lead:
+      "Creamos contenido visual envolvente con ritmo sereno y edición estética para atraer clientes a spas y centros holísticos en Miami.",
+    keyword: "video para spas en Miami",
+    location: "Miami Beach / Distrito Financiero",
+    availability: "confirmed",
+    icon: Video,
+    bestFor: [
+      "Day spas, centros de medicina holística y resorts de bienestar.",
+      "Marcas de cuidado personal que buscan transmitir tranquilidad y lujo.",
+    ],
+    scopingQuestions: [
+      "¿Deseas mostrar tratamientos, ambiente del spa o testimoniales?",
+      "¿Requieres diseño de sonido relajante personalizado?",
+    ],
+    projectFit:
+      "Estética visual limpia con edición fluida y sonido envolvente.",
+    faqs: [
+      {
+        question: "¿Incluye diseño de sonido ambiente de spa?",
+        answer:
+          "Sí. Integramos texturas sonoras naturales y música ambiental licenciada que transmite relajación.",
+      },
+    ],
+  },
+  {
+    slug: "edicion-de-video-para-eventos-miami",
+    title: "Edición de video para eventos en Miami",
+    metadataTitle: "Edición Video Eventos Miami",
+    description:
+      "Edición remota y postproducción de grabaciones de eventos, fiestas corporativas y galas en Miami.",
+    eyebrow: "Edición de Eventos",
+    h1: "Edición de video profesional para eventos y galas.",
+    lead:
+      "Organizamos y editamos grabaciones de eventos en vivo en videos de resumen atractivos y resúmenes para participantes.",
+    keyword: "edición de video de eventos en Miami",
+    location: "Miami-Dade / Broward",
+    availability: "confirmed",
+    icon: Video,
+    bestFor: [
+      "Organizadores de eventos y agencias de producción en South Florida.",
+      "Fotógrafos y videógrafos que necesitan externalizar la postproducción.",
+    ],
+    scopingQuestions: [
+      "¿Cuántas horas de grabación bruta deseas resumir?",
+      "¿Cuál es el tiempo de entrega deseado para la primera versión?",
+    ],
+    projectFit:
+      "Postproducción estructurada para videógrafos independientes.",
+    faqs: [
+      {
+        question: "¿Puedo enviar archivos masivos de video?",
+        answer:
+          "Sí. Recibimos archivos pesados de varias cámaras a través de enlaces directos de nube.",
+      },
+    ],
+  },
+  {
+    slug: "produccion-de-video-de-marca-miami",
+    title: "Producción de video de marca en Miami",
+    metadataTitle: "Producción Video Marca Miami",
+    description:
+      "Videos manifiesto de marca, historias de fundadores y contenido institucional para empresas en Miami.",
+    eyebrow: "Branding / Manifiesto",
+    h1: "Videos de marca y manifiesto institucional en Miami.",
+    lead:
+      "Conectamos la visión de tu empresa con su audiencia mediante videos de historia de marca con guion sólido y edición cinematográfica.",
+    keyword: "video de marca en Miami",
+    location: "Miami / South Florida",
+    availability: "confirmed",
+    icon: WandSparkles,
+    bestFor: [
+      "Empresas en crecimiento y startups que relanzan su identidad de marca.",
+      "Fundadores que desean contar la historia detrás de su negocio.",
+    ],
+    scopingQuestions: [
+      "¿Cuentas con un guion o narración en voz en off grabada?",
+      "¿Qué emociones o valores de marca deseas destacar?",
+    ],
+    projectFit:
+      "Narrativa de marca auténtica y duradera.",
+    faqs: [
+      {
+        question: "¿Ayudan a estructurar la voz en off y la música de fondo?",
+        answer:
+          "Sí. Seleccionamos la locución comercial bilingüe y la composición musical que mejor represente la personalidad de tu marca.",
+      },
+    ],
+  },
 ];
 
 export const spanishCoreRoutes = [

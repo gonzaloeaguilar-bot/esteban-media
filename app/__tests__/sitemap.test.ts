@@ -16,11 +16,11 @@ import sitemap from "../sitemap";
 describe("portfolio sitemap entries", () => {
   const entries = sitemap();
 
-  it("publishes the exact 121-URL release inventory with the release date", () => {
+  it("publishes the exact 133-URL release inventory with the release date", () => {
     const urls = entries.map((entry) => entry.url);
 
-    expect(entries).toHaveLength(121);
-    expect(new Set(urls)).toHaveLength(121);
+    expect(entries).toHaveLength(133);
+    expect(new Set(urls)).toHaveLength(133);
     expect(
       entries.every(
         (entry) =>

@@ -32,6 +32,8 @@ describe("guide routes", () => {
       { slug: "corporate-video-production-cost-miami" },
       { slug: "record-video-with-iphone-for-professional-editing" },
       { slug: "reels-vs-tiktok-vs-shorts-for-local-business" },
+      { slug: "ai-video-editing-vs-human-editor" },
+      { slug: "how-to-choose-a-video-editor-in-miami" },
     ]);
     expect(esParams.map(({ slug }) => slug)).toEqual([
       "preparar-material-para-edicion-de-video",
@@ -49,6 +51,8 @@ describe("guide routes", () => {
       "cuanto-cuesta-la-produccion-de-video-corporativo-miami",
       "grabar-video-con-iphone-para-edicion-profesional",
       "reels-vs-tiktok-vs-shorts-para-negocios-locales",
+      "edicion-de-video-con-ia-vs-editor-profesional",
+      "como-elegir-un-editor-de-video-en-miami",
     ]);
   });
 

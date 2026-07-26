@@ -85,6 +85,10 @@ describe("customer-facing ranking pages", () => {
       "produccion-de-video-para-hoteles-miami",
       "edicion-de-video-podcast-miami",
       "editor-de-video-ugc-para-ecommerce",
+      "video-para-arquitectura-y-diseno-miami",
+      "marketing-de-video-para-spas-y-bienestar-miami",
+      "edicion-de-video-para-eventos-miami",
+      "produccion-de-video-de-marca-miami",
     ]) {
       expect(niche).toContain(`"${slug}"`);
     }

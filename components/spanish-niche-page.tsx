@@ -484,6 +484,58 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
       },
     ],
   },
+  "video-para-arquitectura-y-diseno-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade",
+    note: "Edición estilizada para firmas de arquitectura e interiorismo.",
+    serviceIds: ["edicion"],
+    projects: [
+      {
+        href: "/es/portafolio/homeowners",
+        title: "Homeowners",
+        detail: "Edición arquitectónica e inmobiliaria.",
+      },
+    ],
+  },
+  "marketing-de-video-para-spas-y-bienestar-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade",
+    note: "Contenido visual envolvente para spas y marcas de bienestar.",
+    serviceIds: ["edicion", "planificacion-social"],
+    projects: [
+      {
+        href: "/es/portafolio/my-dler",
+        title: "My D'ler",
+        detail: "Estrategia visual estética.",
+      },
+    ],
+  },
+  "edicion-de-video-para-eventos-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade y Broward",
+    note: "Edición y armado de recaps para eventos y galas.",
+    serviceIds: ["edicion"],
+    projects: [
+      {
+        href: "/es/portafolio/my-dler",
+        title: "My D'ler",
+        detail: "Edición de video de eventos.",
+      },
+    ],
+  },
+  "produccion-de-video-de-marca-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade",
+    note: "Videos de historia de marca y manifiesto institucional.",
+    serviceIds: ["videografia", "edicion"],
+    projects: [
+      {
+        href: "/es/portafolio/my-dler",
+        title: "My D'ler",
+        detail: "Video de marca institucional.",
+      },
+    ],
+  },
 };
 
 export function buildSpanishNicheMetadata(slug: string): Metadata {

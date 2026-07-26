@@ -19,6 +19,8 @@ export const GUIDE_IDS = [
   "corporate-video-cost-guide",
   "record-with-iphone-guide",
   "reels-vs-tiktok-vs-shorts-guide",
+  "ai-vs-human-editor-guide",
+  "choose-video-editor-guide",
 ] as const;
 
 export type GuideId = (typeof GUIDE_IDS)[number];
@@ -1340,6 +1342,132 @@ const guidePairs: readonly GuidePair[] = [
           heading: "Flujo de publicación multiplataforma",
           paragraphs: [
             "Editar un video vertical maestro permite distribuir el contenido simultáneamente en Instagram, TikTok y YouTube Shorts.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "ai-vs-human-editor-guide",
+    en: {
+      slug: "ai-video-editing-vs-human-editor",
+      metadataTitle: "AI Video Editing vs Human Editor",
+      title: "AI video editing tools vs hiring a professional video editor",
+      description:
+        "Compare automated AI video tools with human video post-production for pacing, storytelling, and brand consistency.",
+      eyebrow: "Tool Comparison",
+      answer:
+        "AI tools accelerate basic captions and silence removal, while human editors provide narrative pacing, color correction, and brand positioning.",
+      proof: {
+        href: "/portfolio/my-dler",
+        title: "My D'ler",
+        description:
+          "Approved portfolio credits include human video editing and brand post-production. Linked as a published example; nothing published confirms identical workflows across all projects.",
+      },
+      sections: [
+        {
+          heading: "Where AI video tools excel",
+          paragraphs: [
+            "AI software quickly generates subtitle SRT files, cuts silent pauses, and suggests automated B-roll clips.",
+          ],
+        },
+        {
+          heading: "Why human editors drive higher engagement",
+          paragraphs: [
+            "Human editors craft narrative structure, select subtle audio cues, and refine color balance to hold viewer attention.",
+          ],
+        },
+      ],
+    },
+    es: {
+      slug: "edicion-de-video-con-ia-vs-editor-profesional",
+      metadataTitle: "Edición Video IA vs Editor Humano",
+      title: "Herramientas de edición con IA vs contratar un editor profesional",
+      description:
+        "Comparación entre software automatizado de IA y postproducción humana en narrativa, ritmo y coherencia visual de marca.",
+      eyebrow: "Comparación de Herramientas",
+      answer:
+        "Las herramientas de IA aceleran subtítulos y cortes básicos, mientras que un editor profesional aporta ritmo narrativo y colorimetría.",
+      proof: {
+        href: "/es/portafolio/my-dler",
+        title: "My D'ler",
+        description:
+          "Los créditos aprobados del portafolio incluyen postproducción y edición de marca humana. Se enlaza como ejemplo publicado; nada publicado confirma flujos idénticos en todo caso.",
+      },
+      sections: [
+        {
+          heading: "Ventajas de las herramientas de IA",
+          paragraphs: [
+            "Los programas de IA generan subtítulos automáticos y eliminan pausas de silencio con rapidez.",
+          ],
+        },
+        {
+          heading: "El valor insustituible de la edición humana",
+          paragraphs: [
+            "Un editor humano estructura la narrativa visual, ajusta el ritmo musical y cuida la estética de la marca.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "choose-video-editor-guide",
+    en: {
+      slug: "how-to-choose-a-video-editor-in-miami",
+      metadataTitle: "How to Choose a Video Editor Miami",
+      title: "How to choose a professional video editor in Miami",
+      description:
+        "Essential criteria for evaluating portfolio proof, communication clarity, turnaround expectations, and scoping questions.",
+      eyebrow: "Hiring Guide",
+      answer:
+        "Evaluate real published portfolio credits, demand clear scoping questions, confirm English/Spanish communication, and avoid agencies with unverified claims.",
+      proof: {
+        href: "/portfolio/homeowners",
+        title: "Homeowners",
+        description:
+          "Approved portfolio credits include published client post-production. Linked as a published example; nothing published confirms identical turnaround times across all projects.",
+      },
+      sections: [
+        {
+          heading: "Verifying real portfolio credits",
+          paragraphs: [
+            "Look for named client credits and published project links rather than generic stock footage reels.",
+          ],
+        },
+        {
+          heading: "Communication & bilingual workflow",
+          paragraphs: [
+            "Choose an editor who provides clear scoping questions and fluent communication in both English and Spanish for South Florida campaigns.",
+          ],
+        },
+      ],
+    },
+    es: {
+      slug: "como-elegir-un-editor-de-video-en-miami",
+      metadataTitle: "Cómo Elegir Editor de Video Miami",
+      title: "Cómo elegir un editor de video profesional en Miami",
+      description:
+        "Criterios esenciales para evaluar portafolios, claridad de comunicación, expectativas de entrega y alcance en Miami.",
+      eyebrow: "Guía de Contratación",
+      answer:
+        "Evalúa trabajos reales publicados, exige preguntas claras de alcance y confirma comunicación fluida bilingüe.",
+      proof: {
+        href: "/es/portafolio/homeowners",
+        title: "Homeowners",
+        description:
+          "Los créditos aprobados del portafolio incluyen postproducción publicada. Se enlaza como ejemplo publicado; nada publicado confirma tiempos idénticos para todo alcance.",
+      },
+      sections: [
+        {
+          heading: "Verificación de créditos reales",
+          paragraphs: [
+            "Revisa proyectos públicos aprobados con nombres de clientes reales en lugar de resúmenes genéricos con material de stock.",
+          ],
+        },
+        {
+          heading: "Flujo de trabajo bilingüe claro",
+          paragraphs: [
+            "Elige un editor que comunique los requerimientos con precisión tanto en español como en inglés para el mercado de South Florida.",
           ],
         },
       ],
