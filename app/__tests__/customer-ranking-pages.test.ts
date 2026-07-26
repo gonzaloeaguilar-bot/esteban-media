@@ -83,6 +83,8 @@ describe("customer-facing ranking pages", () => {
       "videografo-para-eventos-corporativos-miami",
       "marketing-de-video-automotriz-miami",
       "produccion-de-video-para-hoteles-miami",
+      "edicion-de-video-podcast-miami",
+      "editor-de-video-ugc-para-ecommerce",
     ]) {
       expect(niche).toContain(`"${slug}"`);
     }

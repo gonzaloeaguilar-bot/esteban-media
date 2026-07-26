@@ -29,6 +29,9 @@ describe("guide routes", () => {
       { slug: "ai-product-photography-vs-traditional-studio" },
       { slug: "video-editor-vs-videographer" },
       { slug: "remote-vs-local-video-editing" },
+      { slug: "corporate-video-production-cost-miami" },
+      { slug: "record-video-with-iphone-for-professional-editing" },
+      { slug: "reels-vs-tiktok-vs-shorts-for-local-business" },
     ]);
     expect(esParams.map(({ slug }) => slug)).toEqual([
       "preparar-material-para-edicion-de-video",
@@ -43,6 +46,9 @@ describe("guide routes", () => {
       "fotografia-de-producto-con-ia-vs-estudio-tradicional",
       "editor-de-video-vs-videografo",
       "edicion-remota-vs-estudio-local",
+      "cuanto-cuesta-la-produccion-de-video-corporativo-miami",
+      "grabar-video-con-iphone-para-edicion-profesional",
+      "reels-vs-tiktok-vs-shorts-para-negocios-locales",
     ]);
   });
 

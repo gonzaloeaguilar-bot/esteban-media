@@ -458,6 +458,32 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
       },
     ],
   },
+  "edicion-de-video-podcast-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade",
+    note: "Edición multicámara y creación de clips para videopodcasts.",
+    serviceIds: ["edicion", "reutilizacion-redes"],
+    projects: [
+      {
+        href: "/es/portafolio/homeowners",
+        title: "Homeowners",
+        detail: "Edición remota y postproducción.",
+      },
+    ],
+  },
+  "editor-de-video-ugc-para-ecommerce": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade",
+    note: "Edición dinámica de ganchos y anuncios UGC para e-commerce.",
+    serviceIds: ["edicion", "reutilizacion-redes"],
+    projects: [
+      {
+        href: "/es/portafolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        detail: "Cortes promocionales rápidos.",
+      },
+    ],
+  },
 };
 
 export function buildSpanishNicheMetadata(slug: string): Metadata {

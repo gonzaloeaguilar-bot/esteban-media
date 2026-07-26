@@ -16,6 +16,9 @@ export const GUIDE_IDS = [
   "ai-vs-traditional-photo-guide",
   "editor-vs-videographer-guide",
   "remote-vs-local-editing-guide",
+  "corporate-video-cost-guide",
+  "record-with-iphone-guide",
+  "reels-vs-tiktok-vs-shorts-guide",
 ] as const;
 
 export type GuideId = (typeof GUIDE_IDS)[number];
@@ -1148,6 +1151,195 @@ const guidePairs: readonly GuidePair[] = [
           heading: "Eficiencia de costos en postproducción remota",
           paragraphs: [
             "La edición remota elimina costos de mantenimiento de estudio físico, canalizando el presupuesto directamente a la calidad narrativa y de edición.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "corporate-video-cost-guide",
+    en: {
+      slug: "corporate-video-production-cost-miami",
+      metadataTitle: "Corporate Video Cost Miami Guide",
+      title: "How much does corporate video production cost in Miami?",
+      description:
+        "Understand pricing drivers, scope factors, and budget considerations for corporate video editing and production in South Florida.",
+      eyebrow: "Video Pricing Guide",
+      answer:
+        "Corporate video costs depend on filming scope, number of cameras, script preparation, and remote editing requirements.",
+      proof: {
+        href: "/portfolio/my-dler",
+        title: "My D'ler",
+        description:
+          "Approved portfolio credits include corporate visual brand post-production. Linked as a published example; nothing published confirms identical pricing across all projects.",
+      },
+      sections: [
+        {
+          heading: "Key factors driving corporate video pricing",
+          paragraphs: [
+            "Video budgets are determined by total shoot hours, location permits, editing complexity, and audio mastering needs.",
+          ],
+        },
+        {
+          heading: "Cost savings with remote editing of corporate footage",
+          paragraphs: [
+            "Clients who capture internal footage or hire local camera operators can save up to 40% by outsourcing post-production to a dedicated video editor.",
+          ],
+        },
+      ],
+    },
+    es: {
+      slug: "cuanto-cuesta-la-produccion-de-video-corporativo-miami",
+      metadataTitle: "Video Corporativo Costo Miami Guía",
+      title: "¿Cuánto cuesta la producción de video corporativo en Miami?",
+      description:
+        "Guía de costos, presupuestos y factores de alcance para la producción y edición de video corporativo en Miami.",
+      eyebrow: "Guía de Precios",
+      answer:
+        "El costo de un video corporativo varía según los días de rodaje, cantidad de cámaras, guion y horas de edición de postproducción.",
+      proof: {
+        href: "/es/portafolio/my-dler",
+        title: "My D'ler",
+        description:
+          "Los créditos aprobados del portafolio incluyen postproducción de marca corporativa. Se enlaza como ejemplo publicado; nada publicado confirma precios idénticos para todo proyecto.",
+      },
+      sections: [
+        {
+          heading: "Factores principales que determinan el costo",
+          paragraphs: [
+            "El presupuesto se ajusta según la duración del video final, complejidad de animación de títulos y requisitos de locación.",
+          ],
+        },
+        {
+          heading: "Ahorro al separar grabación y edición remota",
+          paragraphs: [
+            "Organizar la grabación interna y contratar únicamente la edición remota permite optimizar los recursos corporativos.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "record-with-iphone-guide",
+    en: {
+      slug: "record-video-with-iphone-for-professional-editing",
+      metadataTitle: "iPhone Video Pro Editing Guide",
+      title: "How to record video content with an iPhone for professional editing",
+      description:
+        "Best practices for lighting, audio, frame rate settings, and file transfer when recording on smartphone for pro video editors.",
+      eyebrow: "Footage Preparation",
+      answer:
+        "Lock focus/exposure, record in 4K 24fps or 60fps, use an external lapel microphone, and upload uncompressed files to Google Drive or Dropbox.",
+      proof: {
+        href: "/portfolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        description:
+          "Approved portfolio credits include promotional video editing from client footage. Linked as a published example; nothing published confirms identical settings for every project.",
+      },
+      sections: [
+        {
+          heading: "Camera settings for clean footage",
+          paragraphs: [
+            "Set iPhone camera video format to 4K at 24fps or 30fps with Grid enabled to maintain steady composition.",
+          ],
+        },
+        {
+          heading: "Audio & lighting tips before uploading",
+          paragraphs: [
+            "Position key light facing the speaker and use a wireless lapel microphone to avoid echo during editing.",
+          ],
+        },
+      ],
+    },
+    es: {
+      slug: "grabar-video-con-iphone-para-edicion-profesional",
+      metadataTitle: "Grabar Video iPhone Edición Pro",
+      title: "Cómo grabar video con iPhone para edición profesional",
+      description:
+        "Recomendaciones de iluminación, audio, resolución y transferencia de archivos para grabar con smartphone y editar como profesional.",
+      eyebrow: "Guía de Grabación",
+      answer:
+        "Bloquea el enfoque y la exposición, graba en 4K a 24fps o 60fps, usa un micrófono de solapa y sube archivos sin comprimir.",
+      proof: {
+        href: "/es/portafolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        description:
+          "Los créditos aprobados del portafolio incluyen edición promocional de material de cliente. Se enlaza como ejemplo publicado; nada publicado confirma configuraciones idénticas en todo caso.",
+      },
+      sections: [
+        {
+          heading: "Configuración recomendada de cámara",
+          paragraphs: [
+            "Configura la cámara del iPhone en resolución 4K a 24fps o 30fps y activa la retícula para asegurar tomas niveladas.",
+          ],
+        },
+        {
+          heading: "Consejos de audio e iluminación",
+          paragraphs: [
+            "Orienta la luz principal hacia la persona y utiliza un micrófono de solapa inalámbrico para evitar reverberación.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "reels-vs-tiktok-vs-shorts-guide",
+    en: {
+      slug: "reels-vs-tiktok-vs-shorts-for-local-business",
+      metadataTitle: "Reels TikTok Shorts Guide",
+      title: "Instagram Reels vs TikTok vs YouTube Shorts for local business",
+      description:
+        "Compare audience demographics, aspect ratios, caption strategies, and video formatting across vertical video platforms.",
+      eyebrow: "Platform Strategy",
+      answer:
+        "Instagram Reels targets local community buyers, TikTok drives organic virality, and YouTube Shorts builds long-term search authority.",
+      proof: {
+        href: "/portfolio/homeowners",
+        title: "Homeowners",
+        description:
+          "Approved portfolio credits include vertical social video formatting. Linked as a published example; nothing published confirms identical distribution metrics across platforms.",
+      },
+      sections: [
+        {
+          heading: "Format specs and safe zones",
+          paragraphs: [
+            "All vertical platforms use 9:16 aspect ratio (1080x1920), but safe zones differ near bottom captions and side buttons.",
+          ],
+        },
+        {
+          heading: "Cross-posting workflow for local SMBs",
+          paragraphs: [
+            "Editing one master vertical video with clean audio allows simultaneous deployment across Instagram, TikTok, and Shorts.",
+          ],
+        },
+      ],
+    },
+    es: {
+      slug: "reels-vs-tiktok-vs-shorts-para-negocios-locales",
+      metadataTitle: "Reels TikTok Shorts Guía",
+      title: "Instagram Reels vs TikTok vs YouTube Shorts para negocios locales",
+      description:
+        "Comparativa de audiencias, formatos, zonas seguras y estrategias de contenido en video vertical para comercios locales.",
+      eyebrow: "Estrategia de Plataformas",
+      answer:
+        "Instagram Reels conecta con clientes locales directos, TikTok impulsa alcance viral y YouTube Shorts genera posicionamiento en búsquedas a largo plazo.",
+      proof: {
+        href: "/es/portafolio/homeowners",
+        title: "Homeowners",
+        description:
+          "Los créditos aprobados del portafolio incluyen formato de video vertical para redes. Se enlaza como ejemplo publicado; nada publicado confirma métricas idénticas entre plataformas.",
+      },
+      sections: [
+        {
+          heading: "Especificaciones y zonas seguras",
+          paragraphs: [
+            "Cada plataforma usa formato 9:16 (1080x1920), pero las áreas de botones y texto varían según la interfaz.",
+          ],
+        },
+        {
+          heading: "Flujo de publicación multiplataforma",
+          paragraphs: [
+            "Editar un video vertical maestro permite distribuir el contenido simultáneamente en Instagram, TikTok y YouTube Shorts.",
           ],
         },
       ],

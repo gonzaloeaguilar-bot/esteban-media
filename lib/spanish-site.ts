@@ -1236,6 +1236,70 @@ export const spanishNichePages: SpanishNichePage[] = [
       },
     ],
   },
+  {
+    slug: "edicion-de-video-podcast-miami",
+    title: "Edición de video podcast en Miami",
+    metadataTitle: "Edición Video Podcast Miami",
+    description:
+      "Servicio de edición de videopodcast, multicámara, clips para redes sociales y eliminación de silencios en Miami.",
+    eyebrow: "Video Podcast / Creadores",
+    h1: "Edición profesional de video podcasts en Miami.",
+    lead:
+      "Transformamos grabaciones multicámara de podcast en episodios pulidos y clips cortos verticales optimizados para YouTube, Spotify e Instagram.",
+    keyword: "edición de video podcast en Miami",
+    location: "Miami-Dade / Remote",
+    availability: "confirmed",
+    icon: Video,
+    bestFor: [
+      "Creadores de video podcasts, consultores y emprendedores en Miami.",
+      "Empresas que producen shows de entrevistas o podcasts corporativos.",
+    ],
+    scopingQuestions: [
+      "¿La grabación del podcast es de una o varias cámaras?",
+      "¿Requieres clips cortos de momentos destacados para redes sociales?",
+    ],
+    projectFit:
+      "Edición bilingüe y optimización constante de episodios.",
+    faqs: [
+      {
+        question: "¿Incluye diseño de portadas e introducciones animadas?",
+        answer:
+          "Sí. Podemos agregar animaciones de inicio, zócalos con nombres de invitados y gráficos de marca.",
+      },
+    ],
+  },
+  {
+    slug: "editor-de-video-ugc-para-ecommerce",
+    title: "Editor de video UGC para e-commerce en Miami",
+    metadataTitle: "Editor Video UGC E-Commerce",
+    description:
+      "Edición de video UGC (contenido generado por usuarios) optimizado para anuncios en Meta y TikTok para marcas e-commerce.",
+    eyebrow: "UGC / E-Commerce Ads",
+    h1: "Edición de anuncios UGC para marcas e-commerce.",
+    lead:
+      "Convertimos clips de testimoniales de usuarios y unboxings en anuncios de video de alta conversión con ganchos visuales y subtítulos animados.",
+    keyword: "editor de video UGC en Miami",
+    location: "Miami / Remote E-Commerce",
+    availability: "confirmed",
+    icon: WandSparkles,
+    bestFor: [
+      "Marcas e-commerce que utilizan anuncios en TikTok y Meta Ads.",
+      "Agencias de marketing digital que necesitan edición ágil de variaciones de anuncios.",
+    ],
+    scopingQuestions: [
+      "¿Envías las tomas UGC de tus creadores para edición?",
+      "¿Cuántas variaciones de gancho (hook) necesitas por anuncio?",
+    ],
+    projectFit:
+      "Edición rápida orientada a rendimiento y conversión en redes sociales.",
+    faqs: [
+      {
+        question: "¿Pueden editar múltiples variaciones para pruebas A/B?",
+        answer:
+          "Sí. Entregamos distintas versiones con diferentes ganchos iniciales y llamadas a la acción para optimizar el retorno de inversión.",
+      },
+    ],
+  },
 ];
 
 export const spanishCoreRoutes = [

@@ -41,6 +41,8 @@ const routes = [
   { path: "/services/corporate-event-videographer-miami", priority: 0.85 },
   { path: "/services/automotive-video-marketing-miami", priority: 0.85 },
   { path: "/services/hotel-hospitality-video-production-miami", priority: 0.85 },
+  { path: "/services/video-podcast-editing-service-miami", priority: 0.85 },
+  { path: "/services/ugc-video-editor-ecommerce", priority: 0.85 },
   { path: "/portfolio", priority: 0.9 },
   { path: "/areas", priority: 0.85 },
   { path: "/areas/palm-beach-county", priority: 0.85 },

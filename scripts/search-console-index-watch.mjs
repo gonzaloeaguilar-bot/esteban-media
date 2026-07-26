@@ -66,6 +66,8 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/services/corporate-event-videographer-miami",
   "https://estebanmorenomedia.com/services/automotive-video-marketing-miami",
   "https://estebanmorenomedia.com/services/hotel-hospitality-video-production-miami",
+  "https://estebanmorenomedia.com/services/video-podcast-editing-service-miami",
+  "https://estebanmorenomedia.com/services/ugc-video-editor-ecommerce",
   "https://estebanmorenomedia.com/es/fotografia-de-producto-con-ia-miami",
   "https://estebanmorenomedia.com/es/imagenes-con-ia-para-ecommerce-miami",
   "https://estebanmorenomedia.com/es/marketing-de-video-para-dentistas-miami",
@@ -91,6 +93,8 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/es/videografo-para-eventos-corporativos-miami",
   "https://estebanmorenomedia.com/es/marketing-de-video-automotriz-miami",
   "https://estebanmorenomedia.com/es/produccion-de-video-para-hoteles-miami",
+  "https://estebanmorenomedia.com/es/edicion-de-video-podcast-miami",
+  "https://estebanmorenomedia.com/es/editor-de-video-ugc-para-ecommerce",
   "https://estebanmorenomedia.com/portfolio/my-dler",
   "https://estebanmorenomedia.com/es/portafolio/my-dler",
   "https://estebanmorenomedia.com/portfolio/banacol",
@@ -121,6 +125,9 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/guides/ai-product-photography-vs-traditional-studio",
   "https://estebanmorenomedia.com/guides/video-editor-vs-videographer",
   "https://estebanmorenomedia.com/guides/remote-vs-local-video-editing",
+  "https://estebanmorenomedia.com/guides/corporate-video-production-cost-miami",
+  "https://estebanmorenomedia.com/guides/record-video-with-iphone-for-professional-editing",
+  "https://estebanmorenomedia.com/guides/reels-vs-tiktok-vs-shorts-for-local-business",
   "https://estebanmorenomedia.com/es/guias/preparar-material-para-edicion-de-video",
   "https://estebanmorenomedia.com/es/guias/como-escribir-un-brief-util-de-video",
   "https://estebanmorenomedia.com/es/guias/video-vertical-horizontal-y-zonas-seguras",
@@ -133,6 +140,9 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/es/guias/fotografia-de-producto-con-ia-vs-estudio-tradicional",
   "https://estebanmorenomedia.com/es/guias/editor-de-video-vs-videografo",
   "https://estebanmorenomedia.com/es/guias/edicion-remota-vs-estudio-local",
+  "https://estebanmorenomedia.com/es/guias/cuanto-cuesta-la-produccion-de-video-corporativo-miami",
+  "https://estebanmorenomedia.com/es/guias/grabar-video-con-iphone-para-edicion-profesional",
+  "https://estebanmorenomedia.com/es/guias/reels-vs-tiktok-vs-shorts-para-negocios-locales",
 ];
 
 const WATCH_SET_EXPANSION_SCHEMA =
