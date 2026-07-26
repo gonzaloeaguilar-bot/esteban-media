@@ -1,9 +1,10 @@
 import fs from "fs";
 import path from "path";
+import { buildTechOutreachHtmlEmail } from "../lib/email-template-builder.mjs";
 
 /**
- * Automated Resend Email Dispatcher Engine
- * Reads audited leads from `public/leads/*.json` and dispatches personalized cold outreach emails
+ * Automated Resend Email Dispatcher Engine - TECH DESIGN SYSTEM EDITION
+ * Reads audited leads from `public/leads/*.json` and dispatches high-converting tech HTML emails
  * via Resend API (https://api.resend.com/emails).
  */
 
@@ -21,8 +22,8 @@ if (fs.existsSync(envPath)) {
   });
 }
 
-const RESEND_API_KEY = process.env.RESEND_API_KEY || "";
-const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "Esteban Moreno <contact@estebanmorenomedia.com>";
+const RESEND_API_KEY = process.env.RESEND_API_KEY || "re_CdQhFqvt_CPeGcaKR3az2W5LjKMgKNhpq";
+const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "Esteban Moreno Media <contact@estebanmorenomedia.com>";
 const DEFAULT_LEADS_FILE = path.join(process.cwd(), "public", "leads", "fort_lauderdale_restaurant_leads.json");
 
 export async function sendEmailViaResend(to, subject, text, html) {
@@ -46,7 +47,7 @@ export async function sendEmailViaResend(to, subject, text, html) {
         to: [to],
         subject,
         text,
-        html: html || `<div style="font-family: sans-serif; line-height: 1.6;">${text.replace(/\n/g, "<br/>")}</div>`,
+        html,
       }),
     });
 
@@ -71,30 +72,40 @@ export async function dispatchAutomatedLeads(leadsFilePath = DEFAULT_LEADS_FILE)
   const fileContent = fs.readFileSync(leadsFilePath, "utf8");
   const leads = JSON.parse(fileContent);
 
-  console.log(`Starting Resend Automated Email Dispatch for ${leads.length} leads in ${path.basename(leadsFilePath)}...`);
+  console.log(`Starting Resend Automated TECH Email Dispatch for ${leads.length} leads in ${path.basename(leadsFilePath)}...`);
   console.log(`From Sender: ${FROM_EMAIL}`);
-  console.log(`Resend API Key Status: ${RESEND_API_KEY ? "🔑 LIVE RESEND KEY DETECTED" : "⚠️ SIMULATION MODE (Set RESEND_API_KEY to send live)"}\n`);
+  console.log(`Resend API Key Status: ${RESEND_API_KEY ? "🔑 LIVE RESEND KEY DETECTED" : "⚠️ SIMULATION MODE"}\n`);
 
   let dispatchedCount = 0;
 
   for (const item of leads) {
     const target = item.restaurant || item.prospect || item.business;
     const recipientEmail = target.contactEmail || target.email;
-    const subject = item.pitchSubject || item.generatedSubject;
-    const textBody = item.pitchBody || item.generatedEmailBody;
+    const subject = item.pitchSubject || item.generatedSubject || `Propuesta de Video para ${target.name}`;
 
     if (!recipientEmail || recipientEmail.includes("example.com")) {
       console.log(`⚠️ Skipping test domain lead: ${target.name} (${recipientEmail || "no email"})`);
       continue;
     }
 
+    const techHtml = buildTechOutreachHtmlEmail({
+      targetName: target.name,
+      city: target.city || "Fort Lauderdale",
+      distanceMiles: target.distanceMiles ? target.distanceMiles.toString() : "1.0",
+      googleRating: target.googleRating ? target.googleRating.toString() : "4.8",
+      reviewCount: target.reviewCount ? target.reviewCount.toString() : "100",
+      language: target.language || "es",
+      portfolioUrl: item.recommendedLeadMagnet || "https://estebanmorenomedia.com/portfolio/bar-door-monkey",
+      calculatorUrl: "https://estebanmorenomedia.com/calculator",
+    });
+
     console.log(`📧 [Dispatching via Resend ${dispatchedCount + 1}/${leads.length}]`);
     console.log(`   To: ${target.name} <${recipientEmail}>`);
     console.log(`   Subject: ${subject}`);
 
-    const result = await sendEmailViaResend(recipientEmail, subject, textBody);
+    const result = await sendEmailViaResend(recipientEmail, subject, item.pitchBody, techHtml);
     if (result.success) {
-      console.log(`   ✅ DISPATCHED LIVE VIA RESEND! Email ID: ${result.id}\n`);
+      console.log(`   ✅ DISPATCHED LIVE TECH EMAIL VIA RESEND! Email ID: ${result.id}\n`);
     } else {
       console.log(`   ℹ️ Queued (${result.mode}): ${result.message || result.error}\n`);
     }
