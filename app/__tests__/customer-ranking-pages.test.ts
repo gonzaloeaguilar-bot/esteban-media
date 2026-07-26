@@ -65,6 +65,11 @@ describe("customer-facing ranking pages", () => {
       "marketing-de-video-para-clinicas-esteticas-miami",
       "reutilizacion-de-contenido-para-redes-miami",
       "produccion-de-video-para-pequenos-negocios-miami",
+      "fotos-con-ia-para-bienes-raices-miami",
+      "fotografia-de-comida-con-ia-restaurantes",
+      "marketing-de-video-para-contratistas-miami",
+      "fotografo-de-retratos-y-headshots-miami",
+      "editor-de-video-corto-para-redes-miami",
     ]) {
       expect(niche).toContain(`"${slug}"`);
     }

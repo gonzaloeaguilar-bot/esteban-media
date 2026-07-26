@@ -13,6 +13,7 @@ export const GUIDE_IDS = [
   "real-estate-reels",
   "ai-product-photography-guide",
   "product-photography-pricing-guide",
+  "ai-vs-traditional-photo-guide",
 ] as const;
 
 export type GuideId = (typeof GUIDE_IDS)[number];
@@ -930,6 +931,93 @@ const guidePairs: readonly GuidePair[] = [
           heading: "Cómo solicitar una cotización exacta",
           paragraphs: [
             "Para obtener un presupuesto preciso, comparte la cantidad de productos, los canales de difusión (Amazon, sitio web, redes) y referencias visuales de lo que buscas.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "ai-vs-traditional-photo-guide",
+    en: {
+      slug: "ai-product-photography-vs-traditional-studio",
+      metadataTitle: "AI vs Studio Product Photography",
+      title: "AI product photography vs traditional studio photography",
+      description:
+        "Compare cost, turnaround, lifestyle flexibility, and product accuracy between AI-assisted image creation and traditional studio photoshoots.",
+      eyebrow: "AI vs Studio comparison",
+      answer:
+        "AI product photography excels at fast, cost-effective lifestyle background generation using real reference photos, while traditional studio shoots remain ideal for complex physical props and hands-on staging.",
+      proof: {
+        href: "/portfolio/my-dler",
+        title: "My D'ler",
+        description:
+          "Approved portfolio credits include brand key visuals, social designs, 3D video, and product mockups. It is linked as a related visual design example; nothing published confirms a specific AI software workflow.",
+      },
+      sections: [
+        {
+          heading: "Speed and turnaround comparison",
+          paragraphs: [
+            "Traditional studio shoots require physical set staging, lighting setup, model scheduling, and location permits, often taking weeks from concept to final edit.",
+            "AI-assisted product visual creation leverages real reference photos to render lifestyle backgrounds in days, drastically shortening launch timelines.",
+          ],
+          bullets: [
+            "Faster campaign iteration and A/B testing visuals",
+            "Unlimited environment variations without set construction costs",
+            "Consistent product accuracy when anchored with real product photos",
+          ],
+        },
+        {
+          heading: "When to choose traditional studio photography",
+          paragraphs: [
+            "Opt for traditional studio shoots when intricate physical hands, complex liquid splashes, or strict tactile texture interactions are critical to product demonstration.",
+          ],
+        },
+        {
+          heading: "The hybrid approach: best of both worlds",
+          paragraphs: [
+            "Many modern e-commerce brands take high-resolution studio reference photos of the product and use AI tools to generate seasonal lifestyle environments for advertising campaigns.",
+          ],
+        },
+      ],
+    },
+    es: {
+      slug: "fotografia-de-producto-con-ia-vs-estudio-tradicional",
+      metadataTitle: "IA vs Estudio de Fotografía",
+      title: "Fotografía de producto con IA vs estudio tradicional",
+      description:
+        "Compara costo, tiempos de entrega, flexibilidad de entorno y precisión entre creación de imágenes asistida por IA y sesiones de estudio tradicionales.",
+      eyebrow: "Comparación IA vs Estudio",
+      answer:
+        "La fotografía con IA destaca en generación rápida y rentable de entornos de estilo de vida con fotos reales de referencia, mientras que el estudio tradicional conviene para utilería física compleja.",
+      proof: {
+        href: "/es/portafolio/my-dler",
+        title: "My D'ler",
+        description:
+          "Los créditos aprobados del portafolio incluyen piezas visuales de marca, diseños sociales, video 3D y mockups de producto. Se enlaza como un ejemplo de diseño visual relacionado; nada publicado confirma un flujo de software de IA específico.",
+      },
+      sections: [
+        {
+          heading: "Comparativa de velocidad y tiempos de entrega",
+          paragraphs: [
+            "Las sesiones de estudio tradicionales requieren ambientación de sets, iluminación y permisos de locación, lo que suele tomar semanas entre producción y entrega final.",
+            "La creación asistida por IA utiliza fotos reales de referencia para generar entornos de estilo de vida en días, reduciendo tiempos de lanzamiento.",
+          ],
+          bullets: [
+            "Iteración rápida de campañas y pruebas visuales A/B",
+            "Variaciones de entorno sin costos de construcción de set",
+            "Precisión del producto garantizada mediante fotos reales de ancla",
+          ],
+        },
+        {
+          heading: "Cuándo elegir la fotografía de estudio tradicional",
+          paragraphs: [
+            "Elige fotografía tradicional de estudio cuando la interacción física directa con manos o salpicaduras complejas sea indispensable para mostrar el producto.",
+          ],
+        },
+        {
+          heading: "El enfoque híbrido: lo mejor de ambos mundos",
+          paragraphs: [
+            "Muchas marcas de e-commerce toman fotos limpias de estudio y usan IA para generar fondos de temporada y piezas publicitarias para redes sociales.",
           ],
         },
       ],

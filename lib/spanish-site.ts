@@ -659,6 +659,166 @@ export const spanishNichePages: SpanishNichePage[] = [
       },
     ],
   },
+  {
+    slug: "fotos-con-ia-para-bienes-raices-miami",
+    title: "Fotos con IA para bienes raíces en Miami",
+    metadataTitle: "Fotos con IA Bienes Raíces Miami",
+    description:
+      "Mejora visual de imágenes inmobiliarias y ambientación virtual con IA para agentes y propiedades en South Florida.",
+    eyebrow: "Real Estate / IA Visual",
+    h1: "Fotos e imágenes con IA para inmuebles y bienes raíces.",
+    lead:
+      "Ayudamos a agentes inmobiliarios a retocar y generar fondos de ambientación limpia para propiedades mediante herramientas visuales asistidas por IA.",
+    keyword: "fotos con IA para bienes raíces",
+    location: "Miami-Dade / Broward",
+    availability: "confirmed",
+    icon: WandSparkles,
+    bestFor: [
+      "Agentes de bienes raíces que necesitan retocar imágenes de propiedades.",
+      "Inmobiliarias que buscan presentar ambientes iluminados y limpios.",
+    ],
+    scopingQuestions: [
+      "¿Las tomas del inmueble están listas para retocar?",
+      "¿Qué elementos deseas mejorar (iluminación, cielo, fondos)?",
+    ],
+    projectFit:
+      "Resaltado por el trabajo de guion y edición de Homeowners en el sector inmobiliario.",
+    faqs: [
+      {
+        question: "¿Se altera la estructura real de la propiedad?",
+        answer:
+          "No. Se optimizan la iluminación, cielos y entornos conservando la distribución exacta de la propiedad.",
+      },
+    ],
+  },
+  {
+    slug: "fotografia-de-comida-con-ia-restaurantes",
+    title: "Fotografía de comida con IA para restaurantes",
+    metadataTitle: "Fotos de Comida con IA Restaurantes",
+    description:
+      "Creación de piezas visuales de platillos y menús asistidas por IA para restaurantes y marcas gastronómicas en Miami.",
+    eyebrow: "Gastronomía / IA Visual",
+    h1: "Fotografía de comida e imágenes de menú asistidas por IA.",
+    lead:
+      "El proyecto Bar Door Monkey demuestra trabajo real de producción y contenido gastronómico. Generamos fondos y composiciones visuales de estilo de vida para restaurantes.",
+    keyword: "fotografía de comida con IA",
+    location: "Miami-Dade / Fort Lauderdale",
+    availability: "confirmed",
+    icon: UtensilsCrossed,
+    bestFor: [
+      "Restaurantes que lanzan nuevos platillos o promociones de temporada.",
+      "Marcas gastronómicas que necesitan contenido constante para redes sociales.",
+    ],
+    scopingQuestions: [
+      "¿Tienes fotos originales de los platillos?",
+      "¿En qué plataformas publicarás el menú o las fotos?",
+    ],
+    projectFit:
+      "Combina fotos reales de platillos con entornos visuales atractivos.",
+    faqs: [
+      {
+        question: "¿El platillo se sigue viendo real?",
+        answer:
+          "Sí. Usamos la foto real del plato preparado como ancla y generamos el entorno de mesa o restaurante.",
+      },
+    ],
+  },
+  {
+    slug: "marketing-de-video-para-contratistas-miami",
+    title: "Marketing de video para contratistas en Miami",
+    metadataTitle: "Video Marketing Contratistas Miami",
+    description:
+      "Edición de video y proyectos promocionales para contratistas, remodeladores y servicios del hogar en South Florida.",
+    eyebrow: "Servicios del Hogar / Contratistas",
+    h1: "Videos de proyectos y transformaciones para contratistas.",
+    lead:
+      "Muestra la calidad de tu trabajo de remodelación y construcción. Editamos clips de antes y después, testimoniales de clientes y explicaciones de proyectos.",
+    keyword: "marketing de video para contratistas",
+    location: "Miami-Dade / Broward",
+    availability: "confirmed",
+    icon: Video,
+    bestFor: [
+      "Contratistas generales, pintores, techadores y remodeladores de cocinas/baños.",
+      "Empresas de servicios que desean mostrar proyectos terminados.",
+    ],
+    scopingQuestions: [
+      "¿Tienes videos o fotos del proceso de remodelación (antes y después)?",
+      "¿Prefieres edición de clips en teléfono o planificar tomas en sitio?",
+    ],
+    projectFit:
+      "Edición estructurada remota para contratistas locales.",
+    faqs: [
+      {
+        question: "¿Funciona para mostrar proyectos de remodelación?",
+        answer:
+          "Excelente. Los videos de 'antes y después' son el formato de mayor conversión para contratistas.",
+      },
+    ],
+  },
+  {
+    slug: "fotografo-de-retratos-y-headshots-miami",
+    title: "Fotógrafo de retratos y headshots en Miami",
+    metadataTitle: "Retratos y Headshots Miami",
+    description:
+      "Retratos profesionales y headshots para ejecutivos, abogados, agentes inmobiliarios y marcas personales en Miami.",
+    eyebrow: "Retratos / Marca Personal",
+    h1: "Headshots profesionales y retratos corporativos.",
+    lead:
+      "Fotografía y retoque de retratos ejecutivos y headshots profesionales para perfiles de LinkedIn, sitios web corporativos y tarjetas de presentación.",
+    keyword: "fotógrafo de headshots en Miami",
+    location: "Miami-Dade / Fort Lauderdale",
+    availability: "confirmed",
+    icon: Camera,
+    bestFor: [
+      "Ejecutivos y emprendedores que actualizan su perfil profesional.",
+      "Agentes de bienes raíces y abogados que necesitan una imagen de confianza.",
+    ],
+    scopingQuestions: [
+      "¿La sesión será en estudio, oficina o locación exterior?",
+      "¿Cuántas personas necesitan headshot?",
+    ],
+    projectFit:
+      "Sesiones de retratos agendadas por proyecto en South Florida.",
+    faqs: [
+      {
+        question: "¿Se incluye retoque fotográfico digital?",
+        answer:
+          "Sí. Cada retrato final seleccionado incluye retoque discreto de piel y color.",
+      },
+    ],
+  },
+  {
+    slug: "editor-de-video-corto-para-redes-miami",
+    title: "Editor de video corto para redes en Miami",
+    metadataTitle: "Editor de Video Corto Reels Miami",
+    description:
+      "Edición especializada en Reels, Shorts y TikTok para creadores, marcas y empresas en South Florida.",
+    eyebrow: "Video Corto / Reels",
+    h1: "Edición de Reels, TikToks y YouTube Shorts.",
+    lead:
+      "Editamos videos verticales en formato 9:16 con cortes dinámicos, subtítulos legibles y ritmos que mantienen la retención de audiencia.",
+    keyword: "editor de video corto",
+    location: "Miami-Dade / Broward / Remote",
+    availability: "confirmed",
+    icon: Scissors,
+    bestFor: [
+      "Creadores de contenido y empresas que publican Reels y Shorts diariamente.",
+      "Marcas que buscan mantener consistencia visual en redes sociales.",
+    ],
+    scopingQuestions: [
+      "¿Cuántos videos cortos al mes planeas publicar?",
+      "¿Cuentas con la plantilla o estilo gráfico de tu marca?",
+    ],
+    projectFit:
+      "Servicio central de edición remota de video corto.",
+    faqs: [
+      {
+        question: "¿Incluye subtítulos animados?",
+        answer:
+          "Sí. Todos los videos cortos incluyen subtítulos legibles optimizados para reproducción sin sonido.",
+      },
+    ],
+  },
 ];
 
 export const spanishCoreRoutes = [

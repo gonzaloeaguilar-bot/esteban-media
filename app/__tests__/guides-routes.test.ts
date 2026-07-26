@@ -26,6 +26,7 @@ describe("guide routes", () => {
       { slug: "instagram-reels-ideas-for-real-estate" },
       { slug: "how-to-use-ai-for-product-photography" },
       { slug: "how-much-does-product-photography-cost" },
+      { slug: "ai-product-photography-vs-traditional-studio" },
     ]);
     expect(esParams.map(({ slug }) => slug)).toEqual([
       "preparar-material-para-edicion-de-video",
@@ -37,6 +38,7 @@ describe("guide routes", () => {
       "ideas-de-reels-para-agentes-de-bienes-raices",
       "como-usar-inteligencia-artificial-para-fotografia-de-producto",
       "cuanto-cuesta-la-fotografia-de-producto",
+      "fotografia-de-producto-con-ia-vs-estudio-tradicional",
     ]);
   });
 

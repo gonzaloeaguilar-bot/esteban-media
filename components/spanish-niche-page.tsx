@@ -224,6 +224,71 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
       },
     ],
   },
+  "fotos-con-ia-para-bienes-raices-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade y Broward",
+    note: "El proyecto Homeowners demuestra trabajo de edición e imágenes de bienes raíces.",
+    serviceIds: ["contenido-ia", "edicion"],
+    projects: [
+      {
+        href: "/es/portafolio/homeowners",
+        title: "Homeowners",
+        detail: "Ejemplo publicado de bienes raíces.",
+      },
+    ],
+  },
+  "fotografia-de-comida-con-ia-restaurantes": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade y Broward",
+    note: "El proyecto Bar Door Monkey respalda producción y contenido para restaurantes.",
+    serviceIds: ["contenido-ia", "edicion"],
+    projects: [
+      {
+        href: "/es/portafolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        detail: "Producción y edición para restaurante local.",
+      },
+    ],
+  },
+  "marketing-de-video-para-contratistas-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade y Broward",
+    note: "Trabajo publicado respalda postproducción de video para empresas de servicios.",
+    serviceIds: ["edicion", "planificacion-social"],
+    projects: [
+      {
+        href: "/es/portafolio/homeowners",
+        title: "Homeowners",
+        detail: "Ejemplo publicado de estructuración de guion y edición.",
+      },
+    ],
+  },
+  "fotografo-de-retratos-y-headshots-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade y Broward",
+    note: "Sesiones de retratos agendadas por proyecto en South Florida.",
+    serviceIds: ["fotografia", "edicion"],
+    projects: [
+      {
+        href: "/es/portafolio/my-dler",
+        title: "My D'ler",
+        detail: "Piezas visuales de marca y retratos de estilo de vida.",
+      },
+    ],
+  },
+  "editor-de-video-corto-para-redes-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade y Broward",
+    note: "Postproducción remota especializada en Reels y Shorts.",
+    serviceIds: ["edicion", "planificacion-social"],
+    projects: [
+      {
+        href: "/es/portafolio/ml-colombia",
+        title: "ML Colombia",
+        detail: "Edición de video corto publicado para redes.",
+      },
+    ],
+  },
 };
 
 export function buildSpanishNicheMetadata(slug: string): Metadata {
