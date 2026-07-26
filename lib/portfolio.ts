@@ -448,3 +448,9 @@ export function isPlaceholderSource(
 ): media is PlaceholderSource {
   return media.kind === "placeholder";
 }
+
+export function getPoster(item: PortfolioItem): string | undefined {
+  if (item.media.kind === "youtube") return item.media.poster;
+  if (item.media.kind === "image") return item.media.src;
+  return undefined;
+}

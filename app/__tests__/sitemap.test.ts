@@ -19,8 +19,8 @@ describe("portfolio sitemap entries", () => {
   it("publishes the exact 249-URL release inventory with the release date", () => {
     const urls = entries.map((entry) => entry.url);
 
-    expect(entries).toHaveLength(249);
-    expect(new Set(urls)).toHaveLength(249);
+    expect(entries).toHaveLength(259);
+    expect(new Set(urls)).toHaveLength(259);
     expect(
       entries.every(
         (entry) =>

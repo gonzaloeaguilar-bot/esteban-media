@@ -46,19 +46,18 @@ const posterSizes: Record<string, { width: number; height: number }> = {
   "la-huelga": { width: 480, height: 360 },
 };
 
-const liveYouTubeItems = PORTFOLIO_ITEMS.filter(
-  (item): item is LiveYouTubePortfolioItem =>
-    item.status === "live" && isYouTubeSource(item.media),
+const livePortfolioItems = PORTFOLIO_ITEMS.filter(
+  (item) => item.status === "live",
 );
 
-export function getPortfolioWatchItems(): readonly LiveYouTubePortfolioItem[] {
-  return liveYouTubeItems;
+export function getPortfolioWatchItems(): readonly PortfolioItem[] {
+  return livePortfolioItems;
 }
 
 export function getPortfolioWatchItem(
   id: string,
-): LiveYouTubePortfolioItem | undefined {
-  return liveYouTubeItems.find((item) => item.id === id);
+): PortfolioItem | undefined {
+  return livePortfolioItems.find((item) => item.id === id);
 }
 
 export function getPortfolioWatchCopy(

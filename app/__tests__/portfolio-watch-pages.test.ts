@@ -86,23 +86,24 @@ describe("portfolio watch routes", () => {
         canonical: getPortfolioWatchPath(item.id, "es"),
         languages,
       });
+      const posterUrl = item.media.kind === "youtube" ? item.media.poster : item.media.src;
       expect(english.openGraph).toMatchObject({
         url: `https://estebanmorenomedia.com/portfolio/${item.id}`,
         locale: "en_US",
-        images: [expect.objectContaining({ url: expect.stringContaining(item.media.poster) })],
+        images: [expect.objectContaining({ url: expect.stringContaining(posterUrl) })],
       });
       expect(spanish.openGraph).toMatchObject({
         url: `https://estebanmorenomedia.com/es/portafolio/${item.id}`,
         locale: "es_US",
-        images: [expect.objectContaining({ url: expect.stringContaining(item.media.poster) })],
+        images: [expect.objectContaining({ url: expect.stringContaining(posterUrl) })],
       });
 
       englishDescriptions.add(String(english.description));
       spanishDescriptions.add(String(spanish.description));
     }
 
-    expect(englishDescriptions.size).toBe(8);
-    expect(spanishDescriptions.size).toBe(8);
+    expect(englishDescriptions.size).toBe(13);
+    expect(spanishDescriptions.size).toBe(13);
   });
 
   it("keeps the real 4:3 La Huelga poster dimensions in social metadata", async () => {
@@ -131,16 +132,17 @@ describe("portfolio watch routes", () => {
 });
 
 describe("rendered portfolio watch-page evidence", () => {
-  it("renders a discoverable iframe, local poster, facts, breadcrumbs, schema, and links for every page", () => {
+  it("renders a discoverable element, local poster, facts, breadcrumbs, schema, and links for every page", () => {
     for (const item of getPortfolioWatchItems()) {
       for (const locale of locales) {
         const copy = getPortfolioWatchCopy(item, locale);
         const page = PortfolioWatchPage({ item, locale });
         const elements = collectElements(page);
         const iframe = elements.find((element) => element.type === "iframe");
+        const posterUrl = item.media.kind === "youtube" ? item.media.poster : item.media.src;
         const localPoster = elements.find(
           (element) =>
-            (element.props as { src?: string }).src === item.media.poster,
+            (element.props as { src?: string }).src === posterUrl,
         );
         const hrefs = elements
           .map((element) => (element.props as { href?: string }).href)
@@ -152,16 +154,20 @@ describe("rendered portfolio watch-page evidence", () => {
         );
         const visibleText = textContent(page);
 
-        expect(iframe?.props).toMatchObject({
-          src: `https://www.youtube-nocookie.com/embed/${item.media.videoId}?playsinline=1&rel=0`,
-          loading: "eager",
-          allowFullScreen: true,
-        });
+        if (item.media.kind === "youtube") {
+          expect(iframe?.props).toMatchObject({
+            src: `https://www.youtube-nocookie.com/embed/${item.media.videoId}?playsinline=1&rel=0`,
+            loading: "eager",
+            allowFullScreen: true,
+          });
+        }
         expect(localPoster).toBeDefined();
         expect(
           (localPoster?.props as { alt?: string } | undefined)?.alt,
-        ).toBe("");
-        expect(hrefs).toContain(item.media.url);
+        ).toBe(copy.title);
+        if (item.media.kind === "youtube") {
+          expect(hrefs).toContain(item.media.url);
+        }
         expect(hrefs).toContain(
           locale === "es" ? "/es/portafolio" : "/portfolio",
         );

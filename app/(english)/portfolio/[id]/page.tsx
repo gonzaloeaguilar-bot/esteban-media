@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { PortfolioWatchPage } from "@/components/portfolio-watch-page";
+import { getPoster } from "@/lib/portfolio";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl } from "@/lib/site";
 import {
@@ -36,6 +37,7 @@ export async function generateMetadata({
   const copy = getPortfolioWatchCopy(item, "en");
   const path = getPortfolioWatchPath(item.id, "en");
   const posterSize = getPortfolioPosterSize(item.id);
+  const posterUrl = getPoster(item) ?? "";
 
   return buildPageMetadata({
     title: copy.title,
@@ -45,9 +47,9 @@ export async function generateMetadata({
     languages: getPortfolioWatchLanguages(item.id),
     images: [
       {
-        url: absoluteUrl(item.media.poster),
+        url: absoluteUrl(posterUrl),
         ...posterSize,
-        alt: `Video thumbnail for ${copy.title}`,
+        alt: `Thumbnail for ${copy.title}`,
       },
     ],
   });

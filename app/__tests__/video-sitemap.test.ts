@@ -23,7 +23,7 @@ describe("video sitemap", () => {
     expect(xml.match(/<url>/g)).toHaveLength(16);
     expect(xml.match(/<video:video>/g)).toHaveLength(16);
 
-    for (const item of getPortfolioWatchItems()) {
+    for (const item of getPortfolioWatchItems().filter((item) => item.media.kind === "youtube")) {
       expect(xml).toContain(
         `<loc>https://estebanmorenomedia.com${getPortfolioWatchPath(
           item.id,

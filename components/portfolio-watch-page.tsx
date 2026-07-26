@@ -11,6 +11,7 @@ import { Container } from "@/components/ui/container";
 import { spanishServices } from "@/lib/spanish-site";
 import { services } from "@/lib/site";
 import { buildPortfolioWatchSchema } from "@/lib/portfolio-schema";
+import { getPoster, isYouTubeSource, type PortfolioItem } from "@/lib/portfolio";
 import {
   getPortfolioCategoryPath,
   getPortfolioCollectionPath,
@@ -18,12 +19,11 @@ import {
   getPortfolioWatchPath,
   getRelevantServiceId,
   isoDurationToSeconds,
-  type LiveYouTubePortfolioItem,
   type PortfolioWatchLocale,
 } from "@/lib/portfolio-watch";
 
 type PortfolioWatchPageProps = {
-  item: LiveYouTubePortfolioItem;
+  item: PortfolioItem;
   locale: PortfolioWatchLocale;
 };
 
@@ -55,7 +55,7 @@ const labels = {
     home: "Home",
     portfolio: "Portfolio",
     breadcrumb: "Breadcrumb",
-    eyebrow: "Selected video project",
+    eyebrow: "Selected project",
     credits: "Credits",
     year: "Year",
     location: "Location",
@@ -65,7 +65,7 @@ const labels = {
     language: "Ver en español",
     projectDetails: "Available project details",
     projectDetailsLead:
-      "These are the details preserved in Esteban’s approved portfolio and the public video source.",
+      "These are the details preserved in Esteban’s approved portfolio.",
     relatedService: "Related service",
     relatedWork: "More selected work",
     relatedWorkLead: "Browse other projects in",
@@ -79,7 +79,7 @@ const labels = {
     home: "Inicio",
     portfolio: "Portafolio",
     breadcrumb: "Migas de pan",
-    eyebrow: "Proyecto de video seleccionado",
+    eyebrow: "Proyecto seleccionado",
     credits: "Créditos",
     year: "Año",
     location: "Ubicación",
@@ -89,7 +89,7 @@ const labels = {
     language: "View in English",
     projectDetails: "Detalles disponibles del proyecto",
     projectDetailsLead:
-      "Estos son los detalles conservados en el portafolio aprobado de Esteban y en la fuente pública del video.",
+      "Estos son los detalles conservados en el portafolio aprobado de Esteban.",
     relatedService: "Servicio relacionado",
     relatedWork: "Más trabajos seleccionados",
     relatedWorkLead: "Explora otros proyectos en",
@@ -141,6 +141,14 @@ export function PortfolioWatchPage({ item, locale }: PortfolioWatchPageProps) {
     throw new Error(`Missing ${locale} service mapping for ${item.id}`);
   }
 
+  const isVideo = isYouTubeSource(item.media);
+  const poster = getPoster(item) ?? "";
+  const mediaUrl = isYouTubeSource(item.media)
+    ? item.media.url
+    : locale === "es"
+    ? "/es/diseno-web-fort-lauderdale"
+    : "/services/website-design-fort-lauderdale";
+
   const servicePath =
     locale === "es"
       ? `/es/servicios#${service.id}`
@@ -153,11 +161,11 @@ export function PortfolioWatchPage({ item, locale }: PortfolioWatchPageProps) {
     title: copy.title,
     summary: copy.summary,
     credits: copy.credits,
-    url: item.media.url,
-    poster: item.media.poster,
-    videoId: item.media.videoId,
-    uploadDate: item.media.uploadDate,
-    duration: item.media.duration,
+    url: mediaUrl,
+    poster: poster,
+    videoId: isYouTubeSource(item.media) ? item.media.videoId : item.id,
+    uploadDate: isYouTubeSource(item.media) ? item.media.uploadDate : "2026-01-01T00:00:00Z",
+    duration: isYouTubeSource(item.media) ? item.media.duration : "PT0M0S",
     location: item.location,
     breadcrumbs: [
       { name: text.home, path: homePath },
@@ -197,24 +205,35 @@ export function PortfolioWatchPage({ item, locale }: PortfolioWatchPageProps) {
           <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1.45fr)_minmax(18rem,.55fr)] lg:items-center lg:gap-12">
             <div className="relative aspect-video overflow-hidden rounded-xl border border-white/15 bg-[#292b2d] shadow-2xl">
               <Image
-                src={item.media.poster}
-                alt=""
+                src={poster}
+                alt={copy.title}
                 fill
                 priority
                 sizes="(min-width: 1280px) 68vw, (min-width: 1024px) 62vw, 100vw"
                 className="object-cover"
               />
-              <iframe
-                className="absolute inset-0 size-full border-0"
-                src={`https://www.youtube-nocookie.com/embed/${encodeURIComponent(
-                  item.media.videoId,
-                )}?playsinline=1&rel=0`}
-                title={text.iframe(copy.title)}
-                loading="eager"
-                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-              />
+              {isYouTubeSource(item.media) ? (
+                <iframe
+                  className="absolute inset-0 size-full border-0"
+                  src={`https://www.youtube-nocookie.com/embed/${encodeURIComponent(
+                    item.media.videoId,
+                  )}?playsinline=1&rel=0`}
+                  title={text.iframe(copy.title)}
+                  loading="eager"
+                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+              ) : (
+                <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/30 to-transparent p-6 text-white sm:p-8">
+                  <span className="inline-flex items-center gap-2 self-start rounded-full bg-[#c84a2c] px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-white">
+                    Web App & AI System
+                  </span>
+                  <p className="mt-2 font-serif text-2xl text-[#f6f1ea]">
+                    {copy.title}
+                  </p>
+                </div>
+              )}
             </div>
 
             <div>
@@ -228,15 +247,17 @@ export function PortfolioWatchPage({ item, locale }: PortfolioWatchPageProps) {
                 {copy.summary}
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
-                <a
-                  href={item.media.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href={mediaUrl}
                   className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#f6f1ea] px-5 text-sm font-medium text-[#101214] hover:bg-white"
                 >
-                  {text.watch}
+                  {isVideo
+                    ? text.watch
+                    : locale === "es"
+                    ? "Ver Servicio de Diseño Web & IA"
+                    : "View Web & AI Service"}
                   <ExternalLink className="size-4" aria-hidden="true" />
-                </a>
+                </Link>
                 <Link
                   href={languagePath}
                   hrefLang={otherLocale === "es" ? "es-US" : "en-US"}
@@ -294,26 +315,39 @@ export function PortfolioWatchPage({ item, locale }: PortfolioWatchPageProps) {
                   </dd>
                 </div>
               ) : null}
-              <div className="bg-[#fbf6ef] p-5">
-                <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-[#5a6066]">
-                  {text.uploadDate}
-                </dt>
-                <dd className="mt-2 text-sm leading-6 text-[#252a2d]">
-                  <time dateTime={item.media.uploadDate}>
-                    {formatUploadDate(item.media.uploadDate, locale)}
-                  </time>
-                </dd>
-              </div>
-              <div className="bg-[#fbf6ef] p-5">
-                <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-[#5a6066]">
-                  {text.duration}
-                </dt>
-                <dd className="mt-2 text-sm leading-6 text-[#252a2d]">
-                  <time dateTime={item.media.duration}>
-                    {formatDuration(item.media.duration)}
-                  </time>
-                </dd>
-              </div>
+              {isYouTubeSource(item.media) ? (
+                <>
+                  <div className="bg-[#fbf6ef] p-5">
+                    <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-[#5a6066]">
+                      {text.uploadDate}
+                    </dt>
+                    <dd className="mt-2 text-sm leading-6 text-[#252a2d]">
+                      <time dateTime={item.media.uploadDate}>
+                        {formatUploadDate(item.media.uploadDate, locale)}
+                      </time>
+                    </dd>
+                  </div>
+                  <div className="bg-[#fbf6ef] p-5">
+                    <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-[#5a6066]">
+                      {text.duration}
+                    </dt>
+                    <dd className="mt-2 text-sm leading-6 text-[#252a2d]">
+                      <time dateTime={item.media.duration}>
+                        {formatDuration(item.media.duration)}
+                      </time>
+                    </dd>
+                  </div>
+                </>
+              ) : (
+                <div className="bg-[#fbf6ef] p-5 sm:col-span-2">
+                  <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-[#5a6066]">
+                    {locale === "es" ? "Tecnología & Plataforma" : "Tech Stack & Platform"}
+                  </dt>
+                  <dd className="mt-2 text-sm font-medium leading-6 text-[#252a2d]">
+                    Next.js · React · AI Lead Capture Engine · Mobile-First SEO
+                  </dd>
+                </div>
+              )}
             </dl>
           </div>
         </Container>

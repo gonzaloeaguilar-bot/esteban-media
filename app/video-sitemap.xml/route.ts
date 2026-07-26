@@ -23,10 +23,13 @@ function escapeXml(value: string) {
 
 function buildVideoSitemapXml() {
   const urls = locales.flatMap((locale) =>
-    getPortfolioWatchItems().map((item) => {
-      const copy = getPortfolioWatchCopy(item, locale);
-      const pageUrl = absoluteUrl(getPortfolioWatchPath(item.id, locale));
-      const playerUrl = `https://www.youtube-nocookie.com/embed/${item.media.videoId}`;
+    getPortfolioWatchItems()
+      .filter((item) => item.media.kind === "youtube")
+      .map((item) => {
+        if (item.media.kind !== "youtube") return "";
+        const copy = getPortfolioWatchCopy(item, locale);
+        const pageUrl = absoluteUrl(getPortfolioWatchPath(item.id, locale));
+        const playerUrl = `https://www.youtube-nocookie.com/embed/${item.media.videoId}`;
 
       return [
         "  <url>",

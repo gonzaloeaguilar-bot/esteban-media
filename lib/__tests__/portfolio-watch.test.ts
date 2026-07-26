@@ -15,17 +15,19 @@ import {
 const locales: readonly PortfolioWatchLocale[] = ["en", "es"];
 
 describe("portfolio watch-page source", () => {
-  it("creates one stable path per locale for all eight approved videos", () => {
+  it("creates one stable path per locale for all 13 approved projects", () => {
     const items = getPortfolioWatchItems();
     const paths = items.flatMap((item) =>
       locales.map((locale) => getPortfolioWatchPath(item.id, locale)),
     );
 
-    expect(items).toHaveLength(8);
-    expect(paths).toHaveLength(16);
+    expect(items).toHaveLength(13);
+    expect(paths).toHaveLength(26);
     expect(new Set(paths).size).toBe(paths.length);
     expect(paths).toContain("/portfolio/my-dler");
     expect(paths).toContain("/es/portafolio/my-dler");
+    expect(paths).toContain("/portfolio/gains-from-geebs");
+    expect(paths).toContain("/portfolio/flas-concierge");
   });
 
   it("resolves unique approved copy in both languages", () => {
@@ -34,8 +36,8 @@ describe("portfolio watch-page source", () => {
         getPortfolioWatchCopy(item, locale),
       );
 
-      expect(new Set(localized.map((copy) => copy.title)).size).toBe(8);
-      expect(new Set(localized.map((copy) => copy.summary)).size).toBe(8);
+      expect(new Set(localized.map((copy) => copy.title)).size).toBe(13);
+      expect(new Set(localized.map((copy) => copy.summary)).size).toBe(13);
       expect(
         localized.every(
           (copy) => copy.summary.length > 0 && copy.credits.length > 0,
@@ -57,10 +59,10 @@ describe("portfolio watch-page source", () => {
   it("maps each verified category to an existing localized service anchor", () => {
     for (const item of getPortfolioWatchItems()) {
       expect(getRelevantServiceId(item.category, "en")).toMatch(
-        /^(editing|ai-content|social-planning|on-location)$/,
+        /^(editing|ai-content|social-planning|on-location|website-design)$/,
       );
       expect(getRelevantServiceId(item.category, "es")).toMatch(
-        /^(edicion|contenido-ia|planificacion-social|videografia)$/,
+        /^(edicion|contenido-ia|planificacion-social|videografia|diseno-web)$/,
       );
     }
   });
