@@ -68,6 +68,19 @@ export function VideoStrategyAssessment({ locale = "en" }: VideoStrategyAssessme
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
+
+    fetch("/api/lead", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        source: "strategy-assessment",
+        locale,
+        name: clientName,
+        email: clientEmail,
+        phone: clientPhone,
+        score,
+      }),
+    }).catch((err) => console.error("Lead submission error:", err));
   };
 
   const getMailtoUrl = () => {

@@ -135,6 +135,16 @@ export function ScriptAndOverlayKit({ locale = "en" }: ScriptAndOverlayKitProps)
   const handleUnlock = (e: React.FormEvent) => {
     e.preventDefault();
     setUnlocked(true);
+
+    fetch("/api/lead", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        source: "script-kit",
+        locale,
+        email: clientEmail,
+      }),
+    }).catch((err) => console.error("Lead submission error:", err));
   };
 
   return (

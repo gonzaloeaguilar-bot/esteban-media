@@ -88,6 +88,22 @@ export function VideoBudgetEstimator({ locale = "en" }: VideoBudgetEstimatorProp
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
+
+    fetch("/api/lead", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        source: "budget-estimator",
+        locale,
+        name: clientName,
+        email: clientEmail,
+        phone: clientPhone,
+        company,
+        priceRange: estimate.priceRange,
+        projectType: serviceType,
+        footageStatus: footageSource,
+      }),
+    }).catch((err) => console.error("Lead submission error:", err));
   };
 
   const getMailtoUrl = () => {

@@ -68,6 +68,22 @@ export function VideoBriefBuilder({ locale = "en" }: VideoBriefBuilderProps) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
+
+    fetch("/api/lead", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        source: "brief-builder",
+        locale,
+        name: clientName,
+        email: clientEmail,
+        phone: clientPhone,
+        projectType,
+        footageStatus,
+        formatNeeds,
+        notes,
+      }),
+    }).catch((err) => console.error("Lead submission error:", err));
   };
 
   const getMailtoUrl = () => {
