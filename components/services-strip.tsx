@@ -35,14 +35,18 @@ export function ServicesStrip() {
 
         <ul
           role="list"
-          className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
+          className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
         >
           {services.map((service) => {
             const Icon = service.icon;
+            const href =
+              service.id === "website-design"
+                ? "/services/website-design-fort-lauderdale"
+                : `/services#${service.id}`;
             return (
               <li key={service.id} className="h-full">
                 <Link
-                  href={`/services#${service.id}`}
+                  href={href}
                   className="group flex h-full flex-col rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5 transition hover:-translate-y-0.5 hover:border-[#e85d3e] hover:shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e85d3e]"
                 >
                   <Icon

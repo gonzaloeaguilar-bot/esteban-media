@@ -13,10 +13,10 @@ describe("customer-facing ranking pages", () => {
     const spanishHome = source("app/(spanish)/es/page.tsx");
 
     expect(hero).toContain(
-      "Video editing and content production in Fort Lauderdale.",
+      "Video editing, website design, and content production in Fort Lauderdale.",
     );
     expect(hero).toContain("We make things feel like a film.");
-    expect(services).toContain("href={`/services#${service.id}`}");
+    expect(services).toContain("website-design");
     expect(spanishHome).toContain(
       "href={`/es/servicios#${service.id}`}",
     );

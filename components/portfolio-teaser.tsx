@@ -42,7 +42,7 @@ function getPoster(item: PortfolioItem) {
 }
 
 export function PortfolioTeaser({ locale }: PortfolioTeaserProps) {
-  const items = getFeaturedPortfolioItems(3).filter(
+  const items = getFeaturedPortfolioItems(6).filter(
     (item) => item.status === "live",
   );
   const isSpanish = locale === "es";
@@ -73,8 +73,8 @@ export function PortfolioTeaser({ locale }: PortfolioTeaserProps) {
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-7 text-[#c9c1b8]">
               {isSpanish
-                ? "Una selección del trabajo publicado de Esteban. Abre el portafolio para ver los videos y los créditos disponibles."
-                : "A selection of Esteban's published work. Open the portfolio to watch the videos and review available credits."}
+                ? "Una selección del trabajo publicado de Esteban. Abre el portafolio para ver los videos, sitios web y chatbots con IA."
+                : "A selection of Esteban's published work. Open the portfolio to explore videos, custom websites, and AI chatbots."}
             </p>
           </div>
           <Link
@@ -89,11 +89,17 @@ export function PortfolioTeaser({ locale }: PortfolioTeaserProps) {
         <div className="mt-8 grid gap-4 md:grid-cols-3">
           {items.map((item) => {
             const poster = getPoster(item);
+            const targetHref =
+              item.category === "web-design"
+                ? isSpanish
+                  ? "/es/diseno-web-fort-lauderdale"
+                  : "/services/website-design-fort-lauderdale"
+                : `${href}/${item.id}`;
 
             return (
               <Link
                 key={item.id}
-                href={`${href}/${item.id}`}
+                href={targetHref}
                 className="group overflow-hidden rounded-lg border border-white/10 bg-white/[0.04] transition-colors hover:bg-white/[0.08]"
               >
                 <span className="sr-only">

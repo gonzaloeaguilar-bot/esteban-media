@@ -62,7 +62,7 @@ export function SiteHeaderClient({ shortName }: { shortName: string }) {
           <span className="min-w-0">
             <span className="block truncate font-serif text-lg">{shortName}</span>
             <span className="hidden text-xs uppercase text-[#5a6066] sm:block">
-              {isSpanish ? "Edición / IA / Redes" : "Editing / AI / Social"}
+              {isSpanish ? "Edición / Web & IA / Redes" : "Editing / Web & AI / Social"}
             </span>
           </span>
         </Link>
