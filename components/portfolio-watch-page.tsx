@@ -224,6 +224,20 @@ export function PortfolioWatchPage({ item, locale }: PortfolioWatchPageProps) {
                   referrerPolicy="strict-origin-when-cross-origin"
                   allowFullScreen
                 />
+              ) : item.websiteUrl ? (
+                <a
+                  href={item.websiteUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/20 to-transparent p-6 text-white sm:p-8"
+                >
+                  <span className="inline-flex items-center gap-2 self-start rounded-full bg-[#c84a2c] px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-white shadow-md transition group-hover:bg-[#a93e29]">
+                    {locale === "es" ? "Sitio Web En Vivo ↗" : "Live Website ↗"}
+                  </span>
+                  <p className="mt-2 font-serif text-2xl text-[#f6f1ea] group-hover:text-white group-hover:underline">
+                    {copy.title}
+                  </p>
+                </a>
               ) : (
                 <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/30 to-transparent p-6 text-white sm:p-8">
                   <span className="inline-flex items-center gap-2 self-start rounded-full bg-[#c84a2c] px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-white">
@@ -246,6 +260,29 @@ export function PortfolioWatchPage({ item, locale }: PortfolioWatchPageProps) {
               <p className="mt-5 text-base leading-7 text-[#d8d0c7] sm:text-lg sm:leading-8">
                 {copy.summary}
               </p>
+              {item.websiteUrl ? (
+                <div className="mt-6 rounded-xl border border-[#c84a2c]/50 bg-[#c84a2c]/15 p-4 sm:p-5">
+                  <div className="flex flex-wrap items-center justify-between gap-3">
+                    <div>
+                      <span className="text-xs font-bold uppercase tracking-wider text-[#f0b384]">
+                        {locale === "es" ? "Sitio Web En Vivo" : "Live Web Platform"}
+                      </span>
+                      <p className="font-mono text-sm font-semibold text-white">
+                        {item.websiteUrl}
+                      </p>
+                    </div>
+                    <a
+                      href={item.websiteUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex min-h-10 items-center gap-2 rounded-full bg-[#c84a2c] px-4 text-xs font-semibold text-white transition hover:bg-[#a93e29]"
+                    >
+                      {locale === "es" ? "Visitar Sitio En Vivo ↗" : "Launch Live Site ↗"}
+                      <ExternalLink className="size-3.5" />
+                    </a>
+                  </div>
+                </div>
+              ) : null}
               <div className="mt-7 flex flex-wrap gap-3">
                 {item.websiteUrl ? (
                   <a
