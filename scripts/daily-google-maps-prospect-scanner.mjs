@@ -2,6 +2,8 @@ import fs from "fs";
 import path from "path";
 import { verifyProspectWebFidelity } from "../lib/prospect-auditor-verifier.mjs";
 import { buildTechOutreachHtmlEmail } from "../lib/email-template-builder.mjs";
+import { extractBusinessContactInfo } from "../lib/website-email-extractor.mjs";
+import { findLocalBusinesses } from "../lib/local-business-finder.mjs";
 
 /**
  * Daily Verified Google Maps Prospect Scanner & Campaign Dispatcher
@@ -41,34 +43,70 @@ const DAILY_TARGET_CANDIDATES = [
   { name: "Coconuts Waterfront Dining", city: "Fort Lauderdale", address: "429 Seabreeze Blvd", url: "https://coconutsfortlauderdale.com", rating: 4.7, reviews: 3450, dist: "4.0", lang: "en" },
 ];
 
+/**
+ * Resolve today's prospects. Prefers LIVE, keyless discovery via OpenStreetMap
+ * (real businesses near the studio — no Google Maps API key needed). Falls back to
+ * the curated DAILY_TARGET_CANDIDATES list if discovery is unavailable (Overpass down).
+ */
+async function resolveCandidates() {
+  try {
+    const discovered = await findLocalBusinesses({ radiusM: 6500, limit: 20 });
+    if (discovered.length >= 8) {
+      console.log(`📡 Discovered ${discovered.length} live local prospects via OpenStreetMap (keyless).\n`);
+      // discovered prospects carry rating:null/reviews:null — copy stays honest downstream
+      return discovered;
+    }
+    console.log(`⚠️  Only ${discovered.length} live prospects found — using curated fallback list.\n`);
+  } catch (e) {
+    console.log(`⚠️  Live discovery failed (${e.message}) — using curated fallback list.\n`);
+  }
+  return DAILY_TARGET_CANDIDATES;
+}
+
 export async function runDailyMorningCampaign() {
   console.log("🚀 Starting Daily Morning Outreach Campaign (Target: 20 Verified Businesses)...");
   console.log(`📍 Studio Origin: ${HOME_BASE.address}\n`);
 
+  const candidates = await resolveCandidates();
   const results = [];
-  for (const c of DAILY_TARGET_CANDIDATES) {
+  for (const c of candidates) {
     console.log(`🔍 Verifying ${c.name} (${c.dist} mi)...`);
     const verified = await verifyProspectWebFidelity(c.url, c.rating, c.reviews);
 
+    // Harvest business contact emails
+    let contactEmails = [];
+    if (c.url) {
+      const extracted = await extractBusinessContactInfo(c.url);
+      contactEmails = extracted.emails || [];
+    }
+
+    const hasRating = c.rating != null && c.reviews != null;
     const emailHtml = buildTechOutreachHtmlEmail({
       targetName: c.name,
       city: c.city,
       distanceMiles: c.dist,
-      googleRating: String(c.rating),
-      reviewCount: String(c.reviews),
+      googleRating: hasRating ? String(c.rating) : null,
+      reviewCount: hasRating ? String(c.reviews) : null,
       language: c.lang,
       websiteUrl: verified.domain || c.url || "Sin sitio web configurado ⚠️",
       mobileSpeedScore: verified.mobileSpeedScore,
-      googleProfileStatus: `Perfil verificado en Google Maps (${c.rating}★). ${verified.auditClaim}`,
+      googleProfileStatus: hasRating
+        ? `Perfil verificado en Google Maps (${c.rating}★). ${verified.auditClaim}`
+        : verified.auditClaim,
       verifiedAudit: verified,
     });
 
     results.push({
-      target: c,
+      target: {
+        ...c,
+        contactEmail: contactEmails[0] || null,
+        allExtractedEmails: contactEmails,
+      },
       audit: verified,
       emailSubject: c.lang === "es"
         ? `🔥 Datos de Auditoría Web & Muestra de Video para ${c.name} (${c.dist} mi)`
         : `🔥 Web Audit Data & Video Showcase for ${c.name} (${c.dist} mi)`,
+      emailHtml: emailHtml,
       emailHtmlLength: emailHtml.length,
     });
   }
