@@ -30,9 +30,14 @@ async function dispatchMorningCampaign() {
   console.log(`🚀 Dispatching ${campaign.results.length} verified outreach emails via Resend...`);
 
   for (const item of campaign.results) {
-    // Note: In production we use item.target.contactEmail. For safety we only log it now.
-    // To go live: change `to: ["gonzalo.e.aguilar@gmail.com"]` -> `to: [item.target.contactEmail]`
-    const targetEmail = "gonzalo.e.aguilar@gmail.com"; // Safety lock
+    const targetEmail = item.target.contactEmail;
+
+    if (!targetEmail || targetEmail.includes(".example")) {
+      console.log(`⚠️ Skipping ${item.target.name}: No verified contact email found on site.`);
+      continue;
+    }
+
+    const htmlBody = item.emailHtml || `<h1>${item.emailSubject}</h1><p>Visita nuestro portafolio en https://estebanmorenomedia.com</p>`;
 
     try {
       const res = await fetch("https://api.resend.com/emails", {
@@ -46,21 +51,22 @@ async function dispatchMorningCampaign() {
           to: [targetEmail], 
           reply_to: REPLY_TO_EMAIL, // 🔥 Forwards all client replies to Esteban's personal inbox
           subject: item.emailSubject,
-          html: `<h1>${item.emailSubject}</h1><p>Email content length: ${item.emailHtmlLength}</p>`, // In real script: use the generated html string
+          html: htmlBody,
           tags: [ // 🔥 Enables tracking analytics in Resend Dashboard
             { name: "campaign", value: "daily_morning_outreach" },
-            { name: "target_city", value: item.target.city.toLowerCase().replace(/\s+/g, "_") }
+            { name: "target_city", value: item.target.city.toLowerCase().replace(/\s+/g, "_") },
+            { name: "prospect_name", value: item.target.name.toLowerCase().replace(/[^a-z0-9]+/g, "_").slice(0, 48) }
           ]
         }),
       });
       const data = await res.json();
       if (res.ok) {
-        console.log(`✅ Sent email to ${item.target.name} | Resend ID: ${data.id}`);
+        console.log(`✅ DISPATCHED LIVE to ${item.target.name} <${targetEmail}> | Resend ID: ${data.id}`);
       } else {
-        console.log(`⚠️ Resend error for ${item.target.name}:`, data);
+        console.log(`⚠️ Resend error for ${item.target.name} <${targetEmail}>:`, data);
       }
     } catch (e) {
-      console.error(`💥 Failed to send to ${item.target.name}:`, e);
+      console.error(`💥 Failed to send to ${item.target.name} <${targetEmail}>:`, e);
     }
 
     // Rate limiting delay (Resend allows 10 req/s, we space it to 1 req/s for safety and warm-up)

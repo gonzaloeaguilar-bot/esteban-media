@@ -48,6 +48,9 @@ export async function sendEmailViaResend(to, subject, text, html) {
         subject,
         text,
         html,
+        tags: [
+          { name: "campaign", value: "automated_leads_dispatch" }
+        ],
       }),
     });
 
