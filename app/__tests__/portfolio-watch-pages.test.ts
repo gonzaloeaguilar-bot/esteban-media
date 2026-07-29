@@ -86,7 +86,12 @@ describe("portfolio watch routes", () => {
         canonical: getPortfolioWatchPath(item.id, "es"),
         languages,
       });
-      const posterUrl = item.media.kind === "youtube" ? item.media.poster : item.media.src;
+      const posterUrl =
+        "src" in item.media
+          ? item.media.src
+          : "poster" in item.media
+            ? item.media.poster
+            : "";
       expect(english.openGraph).toMatchObject({
         url: `https://estebanmorenomedia.com/portfolio/${item.id}`,
         locale: "en_US",
@@ -139,7 +144,12 @@ describe("rendered portfolio watch-page evidence", () => {
         const page = PortfolioWatchPage({ item, locale });
         const elements = collectElements(page);
         const iframe = elements.find((element) => element.type === "iframe");
-        const posterUrl = item.media.kind === "youtube" ? item.media.poster : item.media.src;
+        const posterUrl =
+        "src" in item.media
+          ? item.media.src
+          : "poster" in item.media
+            ? item.media.poster
+            : "";
         const localPoster = elements.find(
           (element) =>
             (element.props as { src?: string }).src === posterUrl,
