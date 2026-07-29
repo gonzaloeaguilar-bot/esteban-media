@@ -1,0 +1,6 @@
+{
+  "note": "CAN-SPAM suppression list. Every address here is SKIPPED before any send. 'unsubscribed' = opted out; 'bounced' = hard-bounced. This file is checked by lib/outreach-compliance.mjs (loadSuppressionList/isSuppressed) before EVERY send. An unreadable/corrupt file fails CLOSED (suppresses everyone).",
+  "unsubscribed": [],
+  "bounced": [],
+  "updatedAt": null
+}

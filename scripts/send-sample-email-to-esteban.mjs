@@ -1,106 +1,87 @@
 import fs from "fs";
 import path from "path";
-import { buildTechOutreachHtmlEmail } from "../lib/email-template-builder.mjs";
 
-// Load .env.local
-const envPath = path.join(process.cwd(), ".env.local");
-if (fs.existsSync(envPath)) {
-  const envContent = fs.readFileSync(envPath, "utf8");
-  envContent.split("\n").forEach((line) => {
-    const match = line.match(/^([^=]+)=(.*)$/);
-    if (match) {
-      const key = match[1].trim();
-      const val = match[2].trim().replace(/^["']|["']$/g, "");
-      if (!process.env[key]) process.env[key] = val;
-    }
-  });
-}
+import {
+  loadEnvLocal,
+  sendGateEnabled,
+  assertLiveSendAllowed,
+  requireResendKey,
+  listUnsubscribeHeaders,
+} from "../lib/outreach-compliance.mjs";
+import { buildCompliantOutreachEmail } from "../lib/compliant-outreach-email.mjs";
 
-const RESEND_API_KEY = process.env.RESEND_API_KEY || "re_CdQhFqvt_CPeGcaKR3az2W5LjKMgKNhpq";
-const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "Esteban Moreno Media <contact@estebanmorenomedia.com>";
-const RECIPIENTS = ["gonzalo.e.aguilar@gmail.com"];
+/**
+ * Internal PREVIEW tool: renders the compliant outreach email so Gonzalo/Esteban
+ * can review exactly what a prospect would receive.
+ *
+ * SAFETY:
+ *   - No hardcoded Resend key; env-only.
+ *   - Default DRY-RUN: writes the rendered HTML to disk, sends nothing.
+ *   - Sends the preview to the INTERNAL recipient list only, and only when
+ *     ESTEBAN_SEND_LIVE=1 + RESEND_API_KEY + ESTEBAN_POSTAL_ADDRESS are set.
+ *   - Uses a clearly-labeled SAMPLE prospect — never a fabricated real business.
+ */
 
-async function sendTellaStyleEmails() {
-  console.log(`Sending TELLA & CANVA STYLE CLEAN HTML EMAILS via Resend...`);
-  console.log(`Using From Email: ${FROM_EMAIL}\n`);
+loadEnvLocal();
 
-  // 1. Send Warm Cream Version
-  const creamHtml = buildTechOutreachHtmlEmail({
-    targetName: "Davie Blvd Latin Bistro & Grill",
+const FROM_EMAIL =
+  process.env.RESEND_FROM_EMAIL ||
+  "Esteban Moreno Media <contact@estebanmorenomedia.com>";
+// Internal reviewers only (consented). Not prospects.
+const RECIPIENTS = (process.env.SAMPLE_PREVIEW_RECIPIENTS || "gonzalo.e.aguilar@gmail.com")
+  .split(",")
+  .map((s) => s.trim())
+  .filter(Boolean);
+const PREVIEW_OUT = path.join(process.cwd(), "public", "leads", "sample-preview.html");
+
+async function sendSamplePreview() {
+  const sample = buildCompliantOutreachEmail({
+    name: "[MUESTRA / SAMPLE — negocio ficticio]",
     city: "Fort Lauderdale",
-    distanceMiles: "0.5",
-    googleRating: "4.8",
-    reviewCount: "142",
+    igHandle: "",
     language: "es",
-    portfolioUrl: "https://estebanmorenomedia.com/es/portafolio",
-    contactEmail: "esmolopez@gmail.com",
-    theme: "cream",
+    email: RECIPIENTS[0] || "preview@example.com",
   });
 
-  for (const t of RECIPIENTS) {
+  const live = sendGateEnabled();
+
+  if (!live) {
+    fs.mkdirSync(path.dirname(PREVIEW_OUT), { recursive: true });
+    fs.writeFileSync(PREVIEW_OUT, sample.html, "utf8");
+    console.log(`📝 DRY-RUN. Wrote compliant sample preview to ${PREVIEW_OUT}. Sent 0 emails.`);
+    console.log("   To email the preview to internal reviewers: set ESTEBAN_SEND_LIVE=1 + RESEND_API_KEY + ESTEBAN_POSTAL_ADDRESS.");
+    return;
+  }
+
+  assertLiveSendAllowed();
+  const key = requireResendKey();
+  for (const to of RECIPIENTS) {
     try {
       const res = await fetch("https://api.resend.com/emails", {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${RESEND_API_KEY}`,
+          Authorization: `Bearer ${key}`,
           "Content-Type": "application/json",
+          ...listUnsubscribeHeaders(to),
         },
         body: JSON.stringify({
           from: FROM_EMAIL,
-          to: [t],
-          subject: "✨ [DISEÑO TELLA CREAM] Muestra de Video & Consejos - Esteban Moreno Media",
-          html: creamHtml,
+          to: [to],
+          subject: `[PREVIEW] ${sample.subject}`,
+          html: sample.html,
+          text: sample.text,
+          headers: listUnsubscribeHeaders(to),
         }),
       });
-      const data = await res.json();
-      if (res.ok) {
-        console.log(`✅ Sent CREAM Tella style email to ${t} | Resend ID: ${data.id}`);
-      } else {
-        console.log(`⚠️ Resend notice for ${t}: ${data.message || JSON.stringify(data)}`);
-      }
+      const data = await res.json().catch(() => ({}));
+      console.log(res.ok ? `✅ Preview sent to ${to} (id ${data.id})` : `⚠️ Failed ${to} (status ${res.status})`);
     } catch (err) {
-      console.error(`❌ Error sending Cream email to ${t}:`, err);
-    }
-  }
-
-  // 2. Send Matte Dark Version
-  const darkHtml = buildTechOutreachHtmlEmail({
-    targetName: "Davie Blvd Latin Bistro & Grill",
-    city: "Fort Lauderdale",
-    distanceMiles: "0.5",
-    googleRating: "4.8",
-    reviewCount: "142",
-    language: "es",
-    portfolioUrl: "https://estebanmorenomedia.com/es/portafolio",
-    contactEmail: "esmolopez@gmail.com",
-    theme: "dark",
-  });
-
-  for (const t of RECIPIENTS) {
-    try {
-      const res = await fetch("https://api.resend.com/emails", {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${RESEND_API_KEY}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          from: FROM_EMAIL,
-          to: [t],
-          subject: "✨ [DISEÑO TELLA DARK] Muestra de Video & Consejos - Esteban Moreno Media",
-          html: darkHtml,
-        }),
-      });
-      const data = await res.json();
-      if (res.ok) {
-        console.log(`✅ Sent DARK Tella style email to ${t} | Resend ID: ${data.id}`);
-      } else {
-        console.log(`⚠️ Resend notice for ${t}: ${data.message || JSON.stringify(data)}`);
-      }
-    } catch (err) {
-      console.error(`❌ Error sending Dark email to ${t}:`, err);
+      console.error(`❌ Error sending preview to ${to}: ${err.message}`);
     }
   }
 }
 
-sendTellaStyleEmails();
+sendSamplePreview().catch((e) => {
+  console.error("Preview error:", e.message);
+  process.exitCode = 1;
+});

@@ -1,0 +1,29 @@
+{
+  "note": "REAL, handle-verified outreach targets. Seeded from the vault page esteban-outbound-prospects-verified-2026-07-27.md. NO emails are stored here on purpose: a real contact email must be harvested at runtime from the business's real website (lib/website-email-extractor.mjs). NO ratings, review counts, or distances are stored — those were fabricated in the old scanners. NO fabricated businesses, .example emails, 555 numbers, or self-referencing URLs. Anchor offer = remote video editing of client-supplied footage; keep messaging generic until the C2 offer gate opens.",
+  "source": "vault:esteban-outbound-prospects-verified-2026-07-27",
+  "updated": "2026-07-27",
+  "prospects": [
+    { "id": "D5", "name": "Immersive Media Solutions", "segment": "agency", "city": "Miami", "language": "en", "igHandle": "@immersivemediasolutions", "website": "", "handleVerified": true, "angle": "overflow/white-label editing of their supplied footage" },
+    { "id": "D1", "name": "Sociallybuzz", "segment": "agency", "city": "Fort Lauderdale", "language": "en", "igHandle": "", "website": "https://sociallybuzz.com", "handleVerified": false, "angle": "white-label overflow editor" },
+    { "id": "D2", "name": "Osborne Digital Marketing", "segment": "agency", "city": "Fort Lauderdale", "language": "en", "igHandle": "", "website": "https://osbornedm.com", "handleVerified": false, "angle": "subcontract post-production capacity" },
+    { "id": "D4", "name": "Mile 1 Media", "segment": "agency", "city": "Fort Lauderdale", "language": "en", "igHandle": "", "website": "https://mile1media.com", "handleVerified": false, "angle": "remote post partner" },
+    { "id": "B1", "name": "Concierge Real Estate Services", "segment": "real-estate", "city": "Wilton Manors", "language": "en", "igHandle": "@conciergesofl", "website": "", "handleVerified": true, "angle": "standardize agent listing walkthroughs" },
+    { "id": "A1a", "name": "Mangos on Las Olas", "segment": "restaurant", "city": "Fort Lauderdale", "language": "en", "igHandle": "@mangos.on.lasolas", "website": "", "handleVerified": true, "angle": "weekly reel from phone footage" },
+    { "id": "A1b", "name": "Boatyard", "segment": "restaurant", "city": "Fort Lauderdale", "language": "en", "igHandle": "@boatyard_restaurantftl", "website": "", "handleVerified": true, "angle": "edit existing venue footage" },
+    { "id": "A2", "name": "Arepa Bar", "segment": "restaurant", "city": "Miami", "language": "es", "igHandle": "@arepa.bar", "website": "", "handleVerified": true, "angle": "remote edit of kitchen/service footage" },
+    { "id": "A3a", "name": "Monserrate Restaurante", "segment": "restaurant", "city": "Doral", "language": "es", "igHandle": "@monserraterestaurante", "website": "", "handleVerified": true, "angle": "remote edit, no shoot" },
+    { "id": "A3b", "name": "Patacon Pisao", "segment": "restaurant", "city": "Doral", "language": "es", "igHandle": "@pataconpisao", "website": "", "handleVerified": true, "angle": "Spanish-first remote edit" },
+    { "id": "A3c", "name": "Delicias Colombianas", "segment": "restaurant", "city": "Weston", "language": "es", "igHandle": "@deliciascolombianasfl", "website": "", "handleVerified": true, "angle": "weekly cadence, edited remotely" },
+    { "id": "A3d", "name": "El Colombiano Colombian Cuisine", "segment": "restaurant", "city": "Weston", "language": "es", "igHandle": "@elcolombianocuisine", "website": "", "handleVerified": true, "angle": "raw plate/kitchen clips into a feed" },
+    { "id": "A4a", "name": "Pompano Beach Brewing Company", "segment": "brewery", "city": "Pompano Beach", "language": "en", "igHandle": "@pompano_beach_brewing", "website": "", "handleVerified": true, "angle": "event-night clips into a cadence" },
+    { "id": "A4b", "name": "LauderAle Brewery", "segment": "brewery", "city": "Fort Lauderdale", "language": "en", "igHandle": "@lauderale", "website": "", "handleVerified": true, "angle": "taproom-event cadence" },
+    { "id": "A5a", "name": "Le Cafe In", "segment": "cafe", "city": "Hollywood", "language": "es", "igHandle": "@le.cafein", "website": "", "handleVerified": true, "angle": "remote editing retainer framing" },
+    { "id": "A5b", "name": "Roasted Bean Cafe FL", "segment": "cafe", "city": "Hollywood", "language": "es", "igHandle": "@roastedbeancafefl", "website": "", "handleVerified": true, "angle": "daily clips into shorts" },
+    { "id": "A5c", "name": "Hollywood Coffee House", "segment": "cafe", "city": "Hollywood", "language": "en", "igHandle": "@hollywoodcoffeehouse", "website": "", "handleVerified": true, "angle": "high-cadence cafe editing" },
+    { "id": "A5d", "name": "Cafe Hollywood", "segment": "cafe", "city": "Hollywood", "language": "en", "igHandle": "@cafehollywoodus", "website": "", "handleVerified": true, "angle": "high-cadence cafe editing" },
+    { "id": "C1", "name": "Brazen Apparel", "segment": "ecommerce", "city": "Fort Lauderdale", "language": "en", "igHandle": "@brazenapparel", "website": "", "handleVerified": true, "angle": "drop-day/product clips into short-form" },
+    { "id": "C2", "name": "Vault Fort Lauderdale", "segment": "ecommerce", "city": "Fort Lauderdale", "language": "en", "igHandle": "@vlt.ftl", "website": "", "handleVerified": true, "angle": "founder-empathy; edit drop/lookbook footage" },
+    { "id": "C3", "name": "Frlsss Streetwear", "segment": "ecommerce", "city": "Fort Lauderdale", "language": "en", "igHandle": "@frlsss.streetwear", "website": "", "handleVerified": true, "angle": "maker/product footage into remote editing" },
+    { "id": "C4", "name": "Miami MD Skincare", "segment": "ecommerce", "city": "Miami", "language": "en", "igHandle": "@miamimdskincare", "website": "", "handleVerified": true, "angle": "edit product/UGC footage into cadence" }
+  ]
+}

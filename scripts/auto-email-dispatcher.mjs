@@ -1,121 +1,125 @@
 import fs from "fs";
 import path from "path";
-import { buildTechOutreachHtmlEmail } from "../lib/email-template-builder.mjs";
+
+import {
+  loadEnvLocal,
+  loadSuppressionList,
+  screenRecipient,
+  sendGateEnabled,
+  assertLiveSendAllowed,
+  requireResendKey,
+  listUnsubscribeHeaders,
+} from "../lib/outreach-compliance.mjs";
+import { buildCompliantOutreachEmail } from "../lib/compliant-outreach-email.mjs";
 
 /**
- * Automated Resend Email Dispatcher Engine - TECH DESIGN SYSTEM EDITION
- * Reads audited leads from `public/leads/*.json` and dispatches high-converting tech HTML emails
- * via Resend API (https://api.resend.com/emails).
+ * Automated lead dispatcher.
+ *
+ * SAFETY (see lib/outreach-compliance.mjs):
+ *   - No hardcoded Resend key; env-only, fail loud if missing.
+ *   - Default DRY-RUN. Live send needs ESTEBAN_SEND_LIVE=1 + RESEND_API_KEY +
+ *     ESTEBAN_POSTAL_ADDRESS.
+ *   - Suppression + fabricated-email screening before EVERY send.
+ *   - Uses the compliant, generic template (remote-editing anchor) with the
+ *     CAN-SPAM footer — never the old fabricated-metrics template.
  */
 
-// Load .env.local if present
-const envPath = path.join(process.cwd(), ".env.local");
-if (fs.existsSync(envPath)) {
-  const envContent = fs.readFileSync(envPath, "utf8");
-  envContent.split("\n").forEach((line) => {
-    const match = line.match(/^([^=]+)=(.*)$/);
-    if (match) {
-      const key = match[1].trim();
-      const val = match[2].trim().replace(/^["']|["']$/g, "");
-      if (!process.env[key]) process.env[key] = val;
-    }
+loadEnvLocal();
+
+const FROM_EMAIL =
+  process.env.RESEND_FROM_EMAIL ||
+  "Esteban Moreno Media <contact@estebanmorenomedia.com>";
+const REPLY_TO = "esmolopez@gmail.com";
+const DEFAULT_LEADS_FILE = path.join(process.cwd(), "public", "leads", "outreach-dryrun-drafts.json");
+const DRAFTS_OUT = path.join(process.cwd(), "public", "leads", "auto-dispatch-dryrun.json");
+
+async function sendEmailViaResend(draft) {
+  const key = requireResendKey();
+  const res = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${key}`,
+      "Content-Type": "application/json",
+      ...listUnsubscribeHeaders(draft.to),
+    },
+    body: JSON.stringify({
+      from: FROM_EMAIL,
+      to: [draft.to],
+      reply_to: REPLY_TO,
+      subject: draft.subject,
+      text: draft.text,
+      html: draft.html,
+      headers: listUnsubscribeHeaders(draft.to),
+      tags: [{ name: "campaign", value: "automated_leads_dispatch" }],
+    }),
   });
-}
-
-const RESEND_API_KEY = process.env.RESEND_API_KEY || "re_CdQhFqvt_CPeGcaKR3az2W5LjKMgKNhpq";
-const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "Esteban Moreno Media <contact@estebanmorenomedia.com>";
-const DEFAULT_LEADS_FILE = path.join(process.cwd(), "public", "leads", "fort_lauderdale_restaurant_leads.json");
-
-export async function sendEmailViaResend(to, subject, text, html) {
-  if (!RESEND_API_KEY) {
-    return {
-      success: false,
-      mode: "simulation",
-      message: "RESEND_API_KEY is not set. Payload formatted & queued for live dispatch.",
-    };
-  }
-
-  try {
-    const res = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${RESEND_API_KEY}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: FROM_EMAIL,
-        to: [to],
-        subject,
-        text,
-        html,
-        tags: [
-          { name: "campaign", value: "automated_leads_dispatch" }
-        ],
-      }),
-    });
-
-    if (res.ok) {
-      const data = await res.json();
-      return { success: true, mode: "live", id: data.id };
-    } else {
-      const errText = await res.text();
-      return { success: false, mode: "error", error: errText };
-    }
-  } catch (err) {
-    return { success: false, mode: "error", error: err.message };
-  }
+  const data = await res.json().catch(() => ({}));
+  return { ok: res.ok, id: data.id, status: res.status };
 }
 
 export async function dispatchAutomatedLeads(leadsFilePath = DEFAULT_LEADS_FILE) {
   if (!fs.existsSync(leadsFilePath)) {
     console.error(`❌ File not found: ${leadsFilePath}`);
+    process.exitCode = 1;
     return;
   }
 
-  const fileContent = fs.readFileSync(leadsFilePath, "utf8");
-  const leads = JSON.parse(fileContent);
+  const parsed = JSON.parse(fs.readFileSync(leadsFilePath, "utf8"));
+  const leads = Array.isArray(parsed) ? parsed : parsed.drafts || [];
+  const suppressionList = loadSuppressionList();
+  if (suppressionList === null) {
+    console.error("❌ Suppression list unreadable — failing closed.");
+    process.exitCode = 1;
+    return;
+  }
 
-  console.log(`Starting Resend Automated TECH Email Dispatch for ${leads.length} leads in ${path.basename(leadsFilePath)}...`);
-  console.log(`From Sender: ${FROM_EMAIL}`);
-  console.log(`Resend API Key Status: ${RESEND_API_KEY ? "🔑 LIVE RESEND KEY DETECTED" : "⚠️ SIMULATION MODE"}\n`);
+  const live = sendGateEnabled();
+  if (live) assertLiveSendAllowed();
 
-  let dispatchedCount = 0;
+  console.log(`Processing ${leads.length} lead(s). Live send: ${live ? "ON" : "OFF (dry-run)"}`);
+
+  const drafts = [];
+  const skipped = [];
 
   for (const item of leads) {
-    const target = item.restaurant || item.prospect || item.business;
-    const recipientEmail = target.contactEmail || target.email;
-    const subject = item.pitchSubject || item.generatedSubject || `Propuesta de Video para ${target.name}`;
+    const target = item.restaurant || item.prospect || item.business || item.target || item;
+    const recipientEmail = item.to || target.contactEmail || target.email;
 
-    if (!recipientEmail || recipientEmail.includes("example.com")) {
-      console.log(`⚠️ Skipping test domain lead: ${target.name} (${recipientEmail || "no email"})`);
+    const screen = screenRecipient(recipientEmail, suppressionList);
+    if (!screen.ok) {
+      skipped.push({ name: target.name, email: recipientEmail || null, reason: screen.reason });
+      console.log(`⏭️ Skipping ${target.name}: ${screen.reason}`);
       continue;
     }
 
-    const techHtml = buildTechOutreachHtmlEmail({
-      targetName: target.name,
-      city: target.city || "Fort Lauderdale",
-      distanceMiles: target.distanceMiles ? target.distanceMiles.toString() : "1.0",
-      googleRating: target.googleRating ? target.googleRating.toString() : "4.8",
-      reviewCount: target.reviewCount ? target.reviewCount.toString() : "100",
-      language: target.language || "es",
-      portfolioUrl: item.recommendedLeadMagnet || "https://estebanmorenomedia.com/portfolio/bar-door-monkey",
-      calculatorUrl: "https://estebanmorenomedia.com/calculator",
+    const built = buildCompliantOutreachEmail({
+      name: target.name,
+      city: target.city || "",
+      igHandle: target.igHandle || "",
+      language: target.language || target.lang || "es",
+      email: recipientEmail,
     });
+    const draft = { to: recipientEmail, name: target.name, subject: built.subject, html: built.html, text: built.text };
 
-    console.log(`📧 [Dispatching via Resend ${dispatchedCount + 1}/${leads.length}]`);
-    console.log(`   To: ${target.name} <${recipientEmail}>`);
-    console.log(`   Subject: ${subject}`);
-
-    const result = await sendEmailViaResend(recipientEmail, subject, item.pitchBody, techHtml);
-    if (result.success) {
-      console.log(`   ✅ DISPATCHED LIVE TECH EMAIL VIA RESEND! Email ID: ${result.id}\n`);
-    } else {
-      console.log(`   ℹ️ Queued (${result.mode}): ${result.message || result.error}\n`);
+    if (!live) {
+      drafts.push(draft);
+      continue;
     }
-    dispatchedCount++;
+
+    const result = await sendEmailViaResend(draft);
+    console.log(result.ok ? `✅ Sent to ${draft.to} (id ${result.id})` : `⚠️ Failed ${draft.to} (status ${result.status})`);
+    await new Promise((r) => setTimeout(r, 1000));
   }
 
-  console.log(`🎉 Processed ${leads.length} leads. Ready for direct Resend delivery!`);
+  if (!live) {
+    fs.mkdirSync(path.dirname(DRAFTS_OUT), { recursive: true });
+    fs.writeFileSync(
+      DRAFTS_OUT,
+      JSON.stringify({ mode: "dry-run", generatedAt: new Date().toISOString(), draftCount: drafts.length, skipped, drafts }, null, 2),
+      "utf8",
+    );
+    console.log(`\n📝 DRY-RUN. Wrote ${drafts.length} draft(s) to ${DRAFTS_OUT}; skipped ${skipped.length}. Sent 0.`);
+  }
 }
 
 if (process.argv[1]?.includes("auto-email-dispatcher")) {

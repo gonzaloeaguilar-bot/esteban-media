@@ -51,3 +51,7 @@ context-snapshot.md
 # local code-intelligence indexes (may include private interview context)
 /graphify-out/
 /.codegraph/
+
+# Generated outreach dry-run drafts (regenerated each run)
+public/leads/*dryrun*.json
+public/leads/*dry-run*.json
