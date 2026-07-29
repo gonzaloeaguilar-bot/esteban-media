@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  buildSpanishNicheStructuredData,
   languageAlternates,
   spanishAreas,
   spanishNichePages,
@@ -181,6 +182,70 @@ describe("approved public facts", () => {
       expect(legacyPage?.availability).toBe("pending-confirmation");
       expect(legacyPage?.description).toContain("Ruta educativa heredada");
       expect(legacyPage?.lead).toContain("no ofrece");
+    }
+  });
+});
+
+describe("Spanish niche page structured data", () => {
+  it("emits FAQPage JSON-LD that mirrors the visible FAQ copy for every page", () => {
+    for (const page of spanishNichePages) {
+      const graph = buildSpanishNicheStructuredData(page)["@graph"];
+      const faqNode = graph.find(
+        (node) => (node as { "@type": string })["@type"] === "FAQPage",
+      ) as
+        | {
+            "@id": string;
+            inLanguage: string;
+            mainEntity: {
+              "@type": string;
+              name: string;
+              acceptedAnswer: { "@type": string; text: string };
+            }[];
+          }
+        | undefined;
+
+      expect(faqNode, `missing FAQPage for ${page.slug}`).toBeDefined();
+      expect(faqNode?.inLanguage).toBe("es-US");
+      expect(faqNode?.["@id"]).toBe(
+        `https://estebanmorenomedia.com/es/${page.slug}#faq`,
+      );
+      expect(faqNode?.mainEntity).toHaveLength(page.faqs.length);
+      expect(page.faqs.length).toBeGreaterThan(0);
+
+      page.faqs.forEach((faq, index) => {
+        const question = faqNode?.mainEntity[index];
+        expect(question?.["@type"]).toBe("Question");
+        expect(question?.name).toBe(faq.question);
+        expect(question?.acceptedAnswer["@type"]).toBe("Answer");
+        expect(question?.acceptedAnswer.text).toBe(faq.answer);
+      });
+    }
+  });
+
+  it("emits a three-step breadcrumb trail for every page", () => {
+    for (const page of spanishNichePages) {
+      const graph = buildSpanishNicheStructuredData(page)["@graph"];
+      const breadcrumb = graph.find(
+        (node) => (node as { "@type": string })["@type"] === "BreadcrumbList",
+      ) as { itemListElement: { position: number; item: string }[] } | undefined;
+
+      expect(breadcrumb?.itemListElement).toHaveLength(3);
+      expect(breadcrumb?.itemListElement.at(-1)?.item).toBe(
+        `https://estebanmorenomedia.com/es/${page.slug}`,
+      );
+    }
+  });
+
+  it("uses a Service entity for confirmed pages and a transparent WebPage for pending routes", () => {
+    for (const page of spanishNichePages) {
+      const graph = buildSpanishNicheStructuredData(page)["@graph"];
+      const primaryType = (graph[0] as { "@type": string })["@type"];
+
+      if (page.availability === "pending-confirmation") {
+        expect(primaryType).toBe("WebPage");
+      } else {
+        expect(primaryType).toBe("Service");
+      }
     }
   });
 });

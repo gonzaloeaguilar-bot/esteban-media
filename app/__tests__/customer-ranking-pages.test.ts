@@ -49,6 +49,8 @@ describe("customer-facing ranking pages", () => {
 
   it("connects every Spanish niche through direct project and area links", () => {
     const niche = source("components/spanish-niche-page.tsx");
+    // Structured-data construction lives in the shared, unit-tested builder.
+    const nicheSchema = source("lib/spanish-site.ts");
 
     for (const slug of [
       "videografo-en-miami",
@@ -132,7 +134,8 @@ describe("customer-facing ranking pages", () => {
     expect(niche).toContain("/es/areas#miami-dade");
     expect(niche).toContain("/es/areas#fort-lauderdale");
     expect(niche).toContain("/es/guias");
-    expect(niche).toContain("BreadcrumbList");
+    expect(nicheSchema).toContain("BreadcrumbList");
+    expect(nicheSchema).toContain("FAQPage");
   });
 
   it("names the same public founder on both localized About pages", () => {

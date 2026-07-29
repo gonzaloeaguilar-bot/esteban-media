@@ -4,9 +4,13 @@ import { notFound } from "next/navigation";
 import { ArrowRight, CheckCircle2, Mail, Phone, Send } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { getSpanishNichePage, spanishServices } from "@/lib/spanish-site";
+import {
+  buildSpanishNicheStructuredData,
+  getSpanishNichePage,
+  spanishServices,
+} from "@/lib/spanish-site";
 import { buildPageMetadata } from "@/lib/site-metadata";
-import { absoluteUrl, site } from "@/lib/site";
+import { site } from "@/lib/site";
 
 type NicheLinkContext = {
   areaHref: string;
@@ -990,65 +994,7 @@ export function SpanishNichePage({ slug }: { slug: string }) {
         linkContext.serviceIds.includes(service.id),
       )
     : spanishServices;
-  const path = `/es/${page.slug}`;
-  const pageEntityJsonLd = isPendingConfirmation
-    ? {
-        "@type": "WebPage",
-        "@id": absoluteUrl(`${path}#resource`),
-        name: page.title,
-        description: page.description,
-        url: absoluteUrl(path),
-        inLanguage: "es-US",
-        about: page.keyword,
-        isPartOf: { "@id": absoluteUrl("/#website") },
-      }
-    : {
-        "@type": "Service",
-        "@id": absoluteUrl(`${path}#service`),
-        name: page.title,
-        description: page.description,
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          email: site.email,
-          telephone: site.phone.e164,
-        },
-        areaServed: page.location,
-        availableLanguage: ["Spanish", "English"],
-        serviceType: page.keyword,
-      };
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@graph": [
-      pageEntityJsonLd,
-      {
-        "@type": "BreadcrumbList",
-        "@id": absoluteUrl(`${path}#breadcrumbs`),
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Inicio",
-            item: absoluteUrl("/es"),
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: "Servicios",
-            item: absoluteUrl("/es/servicios"),
-          },
-          {
-            "@type": "ListItem",
-            position: 3,
-            name: page.title,
-            item: absoluteUrl(path),
-          },
-        ],
-      },
-    ],
-  };
+  const jsonLd = buildSpanishNicheStructuredData(page);
 
   return (
     <main className="bg-[#f6f1ea] text-[#101214]">
