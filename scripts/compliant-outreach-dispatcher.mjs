@@ -28,6 +28,7 @@ import { extractBusinessContactInfo } from "../lib/website-email-extractor.mjs";
  */
 
 const SEED_PATH = path.join(process.cwd(), "scripts", "data", "verified-prospects.json");
+const DISCOVERED_PATH = path.join(process.cwd(), "scripts", "data", "discovered-prospects.json");
 const DRAFTS_OUT = path.join(process.cwd(), "public", "leads", "outreach-dryrun-drafts.json");
 const FROM_EMAIL =
   process.env.RESEND_FROM_EMAIL ||
@@ -37,6 +38,54 @@ const REPLY_TO = "esmolopez@gmail.com";
 export function loadSeedProspects(seedPath = SEED_PATH) {
   const data = JSON.parse(fs.readFileSync(seedPath, "utf8"));
   return data.prospects || [];
+}
+
+/**
+ * Load the keyless-discovery feed (scripts/data/discovered-prospects.json) if it
+ * exists. Produced by scripts/compliant-prospect-discovery.mjs. Absent/corrupt
+ * file => no discovered prospects (the seed still works). Runtime state, gitignored.
+ */
+export function loadDiscoveredProspects(discoveredPath = DISCOVERED_PATH) {
+  if (!fs.existsSync(discoveredPath)) return [];
+  try {
+    const data = JSON.parse(fs.readFileSync(discoveredPath, "utf8"));
+    return data.prospects || [];
+  } catch {
+    return [];
+  }
+}
+
+/**
+ * Merge the hand-verified seed with the daily discovery feed, de-duplicated by
+ * normalized business name and (when present) email, so the same business is
+ * never queued twice. The seed takes precedence.
+ */
+export function loadAllProspects({
+  seedPath = SEED_PATH,
+  discoveredPath = DISCOVERED_PATH,
+} = {}) {
+  const norm = (s) =>
+    String(s || "")
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9]+/g, " ")
+      .trim();
+  const seed = loadSeedProspects(seedPath);
+  const discovered = loadDiscoveredProspects(discoveredPath);
+  const seenNames = new Set();
+  const seenEmails = new Set();
+  const merged = [];
+  for (const p of [...seed, ...discovered]) {
+    const nameKey = norm(p.name);
+    const emailKey = (p.email || "").toLowerCase().trim();
+    if (nameKey && seenNames.has(nameKey)) continue;
+    if (emailKey && seenEmails.has(emailKey)) continue;
+    if (nameKey) seenNames.add(nameKey);
+    if (emailKey) seenEmails.add(emailKey);
+    merged.push(p);
+  }
+  return merged;
 }
 
 /**
@@ -116,7 +165,8 @@ async function sendViaResend(draft) {
 export async function runCompliantOutreach() {
   loadEnvLocal();
 
-  const prospects = loadSeedProspects();
+  // Consume the hand-verified seed PLUS the keyless daily discovery feed.
+  const prospects = loadAllProspects();
   const suppressionList = loadSuppressionList();
   if (suppressionList === null) {
     console.error("❌ Suppression list is unreadable — failing closed. No drafts, no sends.");

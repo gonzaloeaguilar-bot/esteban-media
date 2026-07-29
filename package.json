@@ -22,6 +22,7 @@
     "weekly-digest:run": "node scripts/esteban-media-weekly-digest.mjs run",
     "weekly-digest:status": "node scripts/esteban-media-weekly-digest.mjs status",
     "seo:verify": "node scripts/verify-technical-seo.mjs",
+    "discover:dry-run": "node scripts/compliant-prospect-discovery.mjs",
     "check": "pnpm lint && pnpm typecheck && pnpm test && pnpm build"
   },
   "dependencies": {
