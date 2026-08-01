@@ -136,7 +136,7 @@ describe("verified portfolio data", () => {
 
   it("uses an existing local poster or image asset named after each stable item id", () => {
     for (const item of PORTFOLIO_ITEMS) {
-      const posterPath = item.media.kind === "youtube" ? item.media.poster : item.media.src;
+      const posterPath = "poster" in item.media ? item.media.poster : "src" in item.media ? item.media.src : "";
       expect(posterPath).toBe(`/portfolio/${item.id}.jpg`);
       expect(
         existsSync(join(process.cwd(), "public", posterPath)),

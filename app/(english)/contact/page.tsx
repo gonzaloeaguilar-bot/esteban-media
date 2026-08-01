@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Mail, MessageSquareText, Phone, Send } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
@@ -32,10 +33,13 @@ export default function ContactPage() {
                 are better than a long creative deck.
               </p>
               <p className="mt-4 max-w-2xl text-sm leading-6 text-[#5a6066]">
-                Esteban Moreno Media is a remote-first service-area business.
-                There is no client-facing studio. Inquiries can start by email,
-                phone, or Instagram, and local availability is considered for
-                each project.
+                <Link href="/" className="underline underline-offset-4 hover:text-[#9f3c27]">
+                  Esteban Moreno Media
+                </Link>{" "}
+                is a remote-first service-area business. There is no
+                client-facing studio. Inquiries can start by email, phone, or
+                Instagram, and local availability is considered for each
+                project.
               </p>
 
               <div className="mt-8 grid gap-3">
