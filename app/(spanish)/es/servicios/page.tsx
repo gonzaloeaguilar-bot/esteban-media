@@ -217,6 +217,9 @@ export default function SpanishServicesPage() {
                   <Link className="text-[#9f3c27] underline underline-offset-4" href="#planificacion-social">
                     Planificación
                   </Link>
+                  <Link className="text-[#9f3c27] underline underline-offset-4" href="/es/reels-para-negocios-miami">
+                    Reels para negocios
+                  </Link>
                 </div>
               </article>
               <article className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
