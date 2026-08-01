@@ -22,6 +22,9 @@
     "weekly-digest:run": "node scripts/esteban-media-weekly-digest.mjs run",
     "weekly-digest:status": "node scripts/esteban-media-weekly-digest.mjs status",
     "seo:verify": "node scripts/verify-technical-seo.mjs",
+    "seo:indexnow:dry-run": "node scripts/indexnow-submit.mjs dry-run",
+    "seo:indexnow:run": "node scripts/indexnow-submit.mjs run",
+    "seo:indexnow:status": "node scripts/indexnow-submit.mjs status",
     "check": "pnpm lint && pnpm typecheck && pnpm test && pnpm build"
   },
   "dependencies": {
