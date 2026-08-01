@@ -88,6 +88,8 @@ const routes = [
   { path: "/areas/palm-beach-county", priority: 0.85 },
   { path: "/about", priority: 0.7 },
   { path: "/contact", priority: 0.8 },
+  { path: "/es/servicios/produccion-video-firmas-abogados-miami", priority: 0.85 },
+  { path: "/es/servicios/produccion-video-bienes-raices-coral-gables", priority: 0.85 },
 ];
 
 function sitemapAlternates(path: string) {
