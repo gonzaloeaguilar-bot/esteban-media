@@ -8,10 +8,10 @@ import { buildPageMetadata } from "@/lib/site-metadata";
 import { site } from "@/lib/site";
 
 const aboutDescription =
-  "About Esteban Moreno, a Fort Lauderdale video editor and content partner focused on editing, AI-assisted creative, social planning, and scoped production.";
+  "Esteban Moreno, founder of Esteban Moreno Media (Fort Lauderdale): video editing, AI-assisted content, social planning, Spanish-first service.";
 
 export const metadata = buildPageMetadata({
-  title: "About Esteban Moreno",
+  title: "Esteban Moreno, Video Editor Bio",
   description: aboutDescription,
   path: "/about",
   locale: "en",
@@ -54,10 +54,13 @@ export default function AboutPage() {
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
                 Esteban Moreno López works publicly as Esteban Moreno, the
-                founder behind Esteban Moreno Media in Fort Lauderdale. The
-                published service focuses on video editing, AI-assisted creative,
-                social planning, and scoped production for remote and selected
-                South Florida projects.
+                founder behind{" "}
+                <Link href="/" className="underline underline-offset-4 hover:text-[#9f3c27]">
+                  Esteban Moreno Media
+                </Link>{" "}
+                in Fort Lauderdale. The published service focuses on video
+                editing, AI-assisted creative, social planning, and scoped
+                production for remote and selected South Florida projects.
               </p>
               <p className="mt-4 max-w-2xl leading-7 text-[#252a2d]">
                 His public portfolio connects each selected project to its

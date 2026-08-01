@@ -1,0 +1,46 @@
+{
+ "project": "esteban-media",
+ "mode": "pr",
+ "target_type": "pr",
+ "target_id": "PR-60",
+ "goal": "One-shot overnight autopilot expansion move (move class: title_meta_rewrite) for the query \"esteban moreno\", briefed as 5 impressions / position 12.6 / 0.00% CTR in Google Search Console. Hypothesis: a title/meta rewrite on the page that actually ranks for this query could lift CTR. Task instructions required re-verifying the GSC figures live against the same property/window before trusting them, and required NO_ACTION if the opportunity didn't hold up.",
+ "evidence": {
+  "obsidian_context": "Read /Users/gonzalo/code/esteban-media/AGENTS.md, autonomy.md, and .ai/handoff.md before editing. No prior client-esteban-media wiki page existed for this specific move; the Obsidian esteban-media-hot.md and a new page will be updated at session end per the wiki closed-loop protocol, recording this PR/branch and the verified GSC breakdown.",
+  "project_routing": "esteban-media repo, fresh git worktree /Users/gonzalo/code/esteban-media-title-meta-esteban-moreno created via `git worktree add -b nightshift/2026-07-31-title-meta-esteban-moreno ../esteban-media-title-meta-esteban-moreno origin/main` (origin/main @ ecf1c64) per the repo's git/worktree policy -- the primary checkout at /Users/gonzalo/code/esteban-media was left untouched (it was mid-work on an unrelated branch, feat/keyless-prospect-seeker). Branch nightshift/2026-07-31-title-meta-esteban-moreno, PR #60. Edited only: app/(english)/about/page.tsx, plus this evidence file.",
+  "hard_stops_checked": "No pricing, offers, factual/business claims, money paths, DNS, credentials, or secrets touched. No client names, reviews, results, turnaround, or credentials added -- verified against autonomy.md's 'Explicit approval required' list. Diff is exactly 2 lines changed in 1 file (title + description strings). JSON-LD ProfilePage.name field deliberately left unchanged so as not to touch anything beyond the CTR-relevant title/meta.",
+  "reviewer_ensemble": "Builder+skeptic+taste self-review on the diff (2 lines, 1 file, no new imports/deps). Builder: reused the existing buildPageMetadata() helper and aboutDescription const exactly as before -- only the string values changed, so the JSON-LD description (which reads the same const) stayed in sync automatically. Skeptic: confirmed via grep that no test or other file hardcodes the old title string 'About Esteban Moreno' as a title expectation (only the unrelated JSON-LD .name field, which was left untouched, matches that string in entity-schema.test.ts) -- ran the full test suite (147/147 pass) and typecheck/lint/build to confirm no breakage. Also verified the rendered <title>/<meta description> in the actual built about.html byte-for-byte match the intended strings. Taste: new title leads with the exact-match name (matches how personal-name/navigational queries are usually best served) and states plain intent ('Bio') rather than inventing a marketing tagline; description keeps every fact that was already present (founder, Fort Lauderdale, video editing/AI-assisted content/social planning, Spanish-first) with no new or stronger claims.",
+  "reviewer_disagreement_reviewed": "No disagreement between builder/skeptic/taste. One deliberate scoping decision: the homepage ('/') also receives impressions for this query (3 of 5, at a better position than /about) but its title serves the much higher-volume 'video editor fort lauderdale' commercial cluster documented in .ai/handoff.md's ranking-expansion history -- rewriting it for a 5-impression personal-name query was judged out of scope for a 'small and reversible' move and was excluded in favor of the dedicated /about bio page, which is the correct scoped target per the move brief's own hypothesis ('likely an about/bio/founder page given it's a personal name').",
+  "winner_rationale": "Chose a title/meta-only edit on /about (not the homepage, not a new page, not on-page copy/H1) because: (1) it's the dedicated bio/founder entity page for 'Esteban Moreno' and the correct scoped target per the brief; (2) the existing H1 already contains 'Esteban Moreno' so no on-page copy change was necessary; (3) it's the smallest possible reversible diff that puts the exact-match query term at the front of both title and description, which is the standard lever for personal-name/navigational-query CTR; (4) leaving the homepage and JSON-LD name untouched avoids risking the site's established commercial-title strategy and any test coverage tied to the existing entity name string.",
+  "tests_or_validation": "pnpm lint -- pass (0 errors, only 8 pre-existing warnings in unrelated files). pnpm typecheck -- pass. pnpm test -- 147/147 pass across 25 files (vitest). pnpm build -- pass, 132-page production build with no errors. pnpm check (lint+typecheck+test+build chained) -- exit 0. Manually grepped the built .next/server/app/about.html and confirmed <title>Esteban Moreno, Video Editor Bio | Esteban Moreno Media</title> (55 chars) and the matching <meta name=\"description\"> (142 chars), both within this repo's own seo:verify thresholds (title <=60, description <=160).",
+  "debt_delta": "neutral",
+  "obsidian_handoff": "Session-end update pending in /Users/gonzalo/obsidian-wiki/client-esteban-media/wiki/esteban-media-hot.md documenting PR #60, the live-verified GSC page-split (homepage 3 imp @ pos 8.3, /about 2 imp @ pos 19), the title/meta rewrite, and the merge outcome once CI resolves.",
+  "claim_hygiene_checked": "No new or stronger claims. Every fact in the new description (founder, Esteban Moreno Media, Fort Lauderdale, video editing, AI-assisted content, social planning, Spanish-first) was already present in either the old title/description or the page body copy above the fold. No prices, turnaround, credentials, testimonials, or client references added.",
+  "data_sources_current": "GSC data pulled live for this task directly via the Search Console webmasters/v3 searchAnalytics.query API against sc-domain property https://estebanmorenomedia.com/, using the OAuth credential already provisioned for this repo's own index-watch job (~/.config/geebs/google_oauth_webmasters_token.json, read-only, not modified). Filtered dimensionFilterGroups on query='esteban moreno' (equals), with both query-only and query+page dimension breakdowns, at 4 windows ending 3 days before today (GSC data lag): 16d, 28d, 90d, and 180d. All 4 windows returned byte-identical aggregate rows (5 impressions, 0 clicks, 0.00% CTR, position 12.6), confirming the brief's figures exactly and confirming the 5 impressions are concentrated in the most recent ~16 days. The query+page breakdown (not present in the original brief) is the key new evidence: 3 impressions/pos 8.3 on '/' and 2 impressions/pos 19 on '/about'.",
+  "booking_or_authority_thesis": "Not a booking-flow change. Thesis: for a personal-name/navigational query, leading the title and meta description with the exact-match name (instead of burying it after a generic 'About' prefix) improves SERP snippet relevance-signaling and bolded-term matching, which is the standard lever for lifting CTR on low-volume branded/entity queries -- consistent with the page's own existing ProfilePage/ProfilePage ld+json entity strategy documented in this repo's SEO/GEO rules (AGENTS.md)."
+ },
+ "reviewers": {
+  "builder": {
+   "status": "ok",
+   "note": "Reused buildPageMetadata() and the single aboutDescription const exactly as before; only the two string literals changed, so JSON-LD description stayed in sync automatically and no new code paths were introduced."
+  },
+  "skeptic": {
+   "status": "ok",
+   "note": "Grepped for hardcoded references to the old title string across the repo; only the untouched JSON-LD .name field matches (already covered by an existing passing test). Full pnpm check (lint/typecheck/test/build) is green, and the rendered about.html was inspected directly to confirm the exact title/description bytes shipped."
+  },
+  "taste": {
+   "status": "ok",
+   "note": "New title/description lead with the exact-match personal name and restate only facts already present elsewhere on the page -- no invented tagline, no new claims, consistent with the site's existing honest-facts-only content policy."
+  }
+ },
+ "scores": {
+  "source_fidelity": 5,
+  "architecture_soundness": 5,
+  "implementation_quality": 5,
+  "review_completeness": 5,
+  "debt_posture": 5,
+  "verification_strength": 5,
+  "taste_fit": 5
+ },
+ "disagreements": [],
+ "winner_rationale": "Smallest possible reversible diff (2 lines, 1 file) that puts the exact-match query term at the front of the title/description on the correct dedicated entity page (/about), deliberately excluding the homepage's higher-volume commercial title from the change to keep the move scoped and low-risk."
+}
