@@ -1,0 +1,27 @@
+# Esteban Media Product Intent Contract
+project_name: "esteban-media"
+core_purpose: "Showcase high-impact media production, video reel portfolios, commercial storytelling, local SEO dominance, and inbound project lead capture across South Florida and Colorado."
+
+human_experience_requirements:
+  - visual_excellence: "Fast-loading, high-resolution video reels and rich visual aesthetics"
+  - local_seo_authority: "Verifiable media production case studies, client testimonials, and multi-region geo coverage"
+  - lead_capture: "Direct 1-click consultation & project quote intake"
+
+brand_expansion_lanes:
+  - commercial_video_production: "Brand commercials, corporate storytelling, and promotional campaign videos"
+  - social_reels_and_vertical_video: "Short-form vertical video reels, TikTok/Instagram content, and ad creative"
+  - drone_and_aerial_videography: "Licensed commercial drone videography and 4K aerial cinematography"
+  - documentary_and_event_media: "Corporate events, brand launches, and executive interview documentaries"
+  - dual_region_geo_footprint: "South Florida (Miami, Fort Lauderdale, West Palm Beach) and Colorado (Denver, Parker, Boulder, Colorado Springs)"
+
+seo_geo_dau_expansion_intent:
+  - geo_footprint_target: "South Florida & Colorado video production, corporate storytelling, commercial media, and drone videography search dominance"
+  - route_expansion_engine: "Automated video case studies, industry media playbooks, production answer briefs, and multi-city geo landing pages"
+  - dau_retention_features: "Interactive video reel gallery, project budget calculator, and creative brief generator"
+  - structured_data: "Schema.org VideoObject, LocalBusiness, and Service markup"
+
+prohibited_antipatterns:
+  - slow_unoptimized_video_assets
+  - thin_uncited_case_studies
+  - missing_video_schema
+  - broken_media_links
