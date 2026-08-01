@@ -10,7 +10,7 @@ const API_URL = `https://app.metricool.com/api/v2/scheduler/posts?blogId=${BLOG_
 const posts = [
   {
     date: "2026-07-27",
-    time: "10:00:00",
+    time: "13:30:00",
     title: "5 High-Converting Video Ad Hooks for 2026 #Shorts",
     text: "🔥 80% of viewers scroll past video ads in under 3 seconds. The secret? Pattern interrupt hooks.\n\nHere are 5 direct-response video script frameworks used by top South Florida brands, plus our 9:16 safe-zone overlay kit.\n\n👉 Download the free kit:\nhttps://estebanmorenomedia.com/resources/social-video-kit\n\n#VideoMarketing #ContentCreation #Reels #Shorts #MiamiBusiness",
   },

@@ -26,8 +26,11 @@ export interface LeadResponse {
 }
 
 export function validateLeadPayload(payload: Partial<LeadPayload>): { valid: boolean; error?: string } {
-  if (!payload.email || typeof payload.email !== "string" || !payload.email.includes("@")) {
-    return { valid: false, error: "A valid email address is required." };
+  const hasEmail = typeof payload.email === "string" && payload.email.trim().length > 0 && payload.email.includes("@");
+  const hasPhone = typeof payload.phone === "string" && payload.phone.replace(/\D/g, "").length >= 7;
+
+  if (!hasEmail && !hasPhone) {
+    return { valid: false, error: "A valid email address or phone number is required." };
   }
   if (!payload.source || typeof payload.source !== "string") {
     return { valid: false, error: "Lead source identifier is required." };

@@ -40,7 +40,7 @@ export async function POST(request: Request) {
           body: JSON.stringify({
             from: FROM_EMAIL,
             to: [NOTIFY_EMAIL],
-            subject: `🔥 [NUEVO LEAD] ${payload.name || payload.email} (${payload.source.toUpperCase()})`,
+            subject: `🔥 [NUEVO LEAD] ${payload.name || payload.email || payload.phone || "Cliente"} (${payload.source.toUpperCase()})`,
             text: formattedBrief,
           }),
         });
