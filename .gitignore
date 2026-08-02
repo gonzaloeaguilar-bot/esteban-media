@@ -51,3 +51,12 @@ context-snapshot.md
 # local code-intelligence indexes (may include private interview context)
 /graphify-out/
 /.codegraph/
+
+# Generated outreach dry-run drafts (regenerated each run)
+public/leads/*dryrun*.json
+public/leads/*dry-run*.json
+
+# Runtime prospect-discovery state (contains third-party harvested emails;
+# regenerated daily by scripts/compliant-prospect-discovery.mjs)
+scripts/data/discovered-prospects.json
+public/leads/discovery-ledger.json
