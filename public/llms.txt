@@ -6,7 +6,7 @@ Canonical site: https://estebanmorenomedia.com/
 Owner / creator: Esteban Moreno López, who works publicly as Esteban Moreno
 Primary market: Fort Lauderdale, Broward County, and Miami-Dade County; Palm Beach County is an expansion/service area
 Languages: Spanish-first service; intermediate English communication available
-Last updated: 2026-07-19
+Last updated: 2026-07-29
 
 ## Core Pages
 
@@ -29,12 +29,19 @@ Last updated: 2026-07-19
 - Sobre Esteban: https://estebanmorenomedia.com/es/sobre-esteban
 - Contacto en español: https://estebanmorenomedia.com/es/contacto
 - Guías de video: https://estebanmorenomedia.com/es/guias
-- Videógrafo en Miami: https://estebanmorenomedia.com/es/videografo-en-miami
-- Videógrafo en Fort Lauderdale: https://estebanmorenomedia.com/es/videografo-en-fort-lauderdale
-- Fotógrafo en Fort Lauderdale (legacy educational route; service availability pending confirmation): https://estebanmorenomedia.com/es/fotografo-en-fort-lauderdale
-- Reels para negocios en Miami: https://estebanmorenomedia.com/es/reels-para-negocios-miami
-- Video para restaurantes en Miami: https://estebanmorenomedia.com/es/video-para-restaurantes-miami
-- Drone para real estate en Miami (legacy educational route; service availability pending confirmation): https://estebanmorenomedia.com/es/drone-real-estate-miami
+
+## Bilingual Service & Area Landing Pages
+
+The site publishes a bilingual catalog of service and neighborhood landing pages
+for video editing, AI-assisted content, social planning, and selectively scoped
+on-location work across Broward and Miami-Dade. They are not separate businesses
+or new service categories; each page describes how one of the confirmed services
+applies to a specific audience, industry, or area, and each links back to real
+published portfolio proof. Browse the full set from the English services hub
+(/services), the Spanish services hub (/es/servicios), and the XML sitemap.
+
+- Sitemap: https://estebanmorenomedia.com/sitemap.xml
+- Video sitemap: https://estebanmorenomedia.com/video-sitemap.xml
 
 ## Selected Video Watch Pages
 
@@ -57,6 +64,13 @@ Last updated: 2026-07-19
 
 ## Practical Video Guides
 
+A growing library of practical, general-preparation video guides ships in paired
+English and Spanish versions (footage preparation, writing a brief, export
+formats and safe zones, remote-editing handoff, and more). They are educational
+guidance rather than Esteban Moreno Media policy. Full indexes:
+
+- English guides index: https://estebanmorenomedia.com/guides
+- Guías en español: https://estebanmorenomedia.com/es/guias
 - Prepare footage for video editing: https://estebanmorenomedia.com/guides/prepare-footage-for-video-editing
 - Write a useful video brief: https://estebanmorenomedia.com/guides/write-a-useful-video-brief
 - Vertical and horizontal exports and safe zones: https://estebanmorenomedia.com/guides/vertical-horizontal-video-exports-and-safe-zones
@@ -87,6 +101,15 @@ Last updated: 2026-07-19
 - General scoping questions can cover the goal, intended use, county, available source files, and references.
 - Availability, scope, timing, and format needs are discussed for the individual project; no specific workflow is published as universal.
 - Published pages do not state universal packages, prices, turnaround times, or revision allowances.
+
+## Common Questions
+
+- What does Esteban Moreno Media do? Video editing of client-supplied footage, AI-assisted content, social media planning, and selectively scoped on-location video production.
+- Where is it based and what areas are served? Fort Lauderdale is the base; Broward County and Miami-Dade County are the normal local markets, and Palm Beach County is an expansion area considered project by project.
+- What languages are available? Service is Spanish-first, with intermediate English communication available.
+- Does a project require an in-person visit? No. Remote editing, AI-assisted content, and social planning are handled remotely; only on-location capture involves a local visit, and that is scoped selectively.
+- Are prices, turnaround times, or revision counts published? No. Availability, scope, timing, and format are discussed per individual project; the site publishes no universal packages, prices, turnaround times, or revision allowances.
+- How do I start a project? Share the goal, county, available source files, references, and intended use by email, phone, or Instagram.
 
 ## Proof Policy
 
