@@ -8,8 +8,19 @@ const highlights = [
   {
     icon: MapPin,
     label: "Local",
-    detail:
-      "Based in Fort Lauderdale, with local work in Broward and selected Miami-Dade projects; Palm Beach is considered by project.",
+    detail: (
+      <>
+        Based in Fort Lauderdale, with local work in Broward and selected
+        Miami-Dade projects;{" "}
+        <Link
+          href="/areas/palm-beach-county"
+          className="font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-2 hover:text-[#7f2f20]"
+        >
+          Palm Beach County video production
+        </Link>{" "}
+        is considered by project.
+      </>
+    ),
   },
   {
     icon: BriefcaseBusiness,
