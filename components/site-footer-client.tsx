@@ -45,6 +45,7 @@ const englishGroups = [
       { href: "/services", label: "Services" },
       { href: "/portfolio", label: "Portfolio" },
       { href: "/guides", label: "Video guides" },
+      { href: "/daily-publish-prompt", label: "Daily publishing prompt" },
       { href: "/areas", label: "Areas" },
       { href: "/about", label: "About" },
       { href: "/contact", label: "Contact" },
