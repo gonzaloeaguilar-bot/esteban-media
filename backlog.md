@@ -38,6 +38,7 @@ Production is live. This file tracks repository implementation; account/access w
 - [x] Install and acceptance-test the Sunday health and Search Console digest loop; probes pass and the expected overall `DEGRADED` state tracks Google's processing of the 26 new URLs
 - [x] Define contact and AI-referral measurement; provision GA4 dimensions for `contact_method` and `ai_source`
 - [x] Add route metadata, sitemap, portfolio schema, and data tests
+- [x] Add one lightweight daily-return publishing prompt with local progress/streak state and first-party email capture
 
 ## P2 — Portfolio refinement
 

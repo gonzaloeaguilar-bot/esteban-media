@@ -4,7 +4,7 @@
  */
 
 export interface LeadPayload {
-  source: "brief-builder" | "budget-estimator" | "strategy-assessment" | "script-kit" | "contact";
+  source: "brief-builder" | "budget-estimator" | "strategy-assessment" | "script-kit" | "daily-prompt" | "contact";
   locale?: "en" | "es";
   name?: string;
   email: string;

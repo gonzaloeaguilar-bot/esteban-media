@@ -1,0 +1,57 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-62",
+  "status": "review_pending",
+  "obsidian_context": {
+    "vault": "/Users/gonzalo/obsidian-wiki/client-esteban-media",
+    "hot_note": "wiki/esteban-media-hot.md",
+    "summary": "Live GSC page-dimension data for the required URL-prefix property was sparse. The change therefore targets repeat use rather than reach."
+  },
+  "project_routing": {
+    "canonical_repo": "/Users/gonzalo/code/esteban-media",
+    "worktree": "/Users/gonzalo/code/esteban-media-dau-engine-20260803",
+    "branch": "nightshift/2026-08-03-dau-engine",
+    "move_class": "dau_engine"
+  },
+  "hard_stops_checked": {
+    "pricing_or_offers": "not touched",
+    "factual_business_claims": "not added",
+    "secrets_or_credentials": "not accessed or changed",
+    "deployment": "not performed",
+    "third_party_services_or_backends": "not added",
+    "external_outreach": "not performed"
+  },
+  "reviewer_ensemble": {
+    "builder": {
+      "verdict": "pass",
+      "evidence": "One interactive client component provides a rotating daily prompt, three task controls, local progress, and a streak."
+    },
+    "skeptic": {
+      "verdict": "pass_with_note",
+      "evidence": "The capture explicitly discloses that delivery is not automated, avoiding a promise the existing lead endpoint cannot fulfill."
+    },
+    "taste": {
+      "verdict": "pass",
+      "evidence": "Controls use 44px-or-greater touch targets, keyboard-native buttons, a single-column mobile layout, and utility-only copy."
+    }
+  },
+  "reviewer_disagreement_reviewed": "The only concern was framing the existing lead endpoint as email delivery. The final visible disclosure states that delivery is not automated and that progress remains on the device.",
+  "winner_rationale": "A daily prompt plus a short local checklist gives a concrete repeat-use loop without inventing editorial content, recurring infrastructure, or a new service promise.",
+  "tests_or_validation": {
+    "commands": [
+      "pnpm check",
+      "git diff --check"
+    ],
+    "results": "pnpm check passed: lint completed with 3 pre-existing warnings, typecheck passed, 186/186 tests passed, and Next.js production build passed.",
+    "browser": "Local 375px browser smoke: content rendered, no Next.js error overlay, a checklist button toggled aria-pressed state, and no horizontal scroll was detected."
+  },
+  "debt_delta": "No dependency, service, backend, credential, scheduler, or monitoring-inventory change. The new route is deliberately not added to the fixed sitemap/watch inventory to avoid an unrelated monitoring migration.",
+  "obsidian_handoff": "Pending update after PR creation: hot note, project index, and registry will record PR #62, GSC verification, scope, tests, and review-gated status.",
+  "claim_hygiene_checked": "Pass: copy is utility-oriented and contains no pricing, offer, discount, guarantee, testimonial, medical/outcome claim, or invented statistic.",
+  "data_sources_current": {
+    "gsc": "Queried 2026-08-03 via the required helper using property https://estebanmorenomedia.com/, 28 days, dimensions date,page.",
+    "site_infrastructure": "Existing /api/lead endpoint and GA instrumentation were verified in source before reuse."
+  },
+  "booking_or_authority_thesis": "Not applicable: this is an on-site planning utility only. It does not create bookings, commitments, outreach, or authority changes."
+}

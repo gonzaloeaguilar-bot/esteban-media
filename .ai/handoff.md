@@ -4,6 +4,13 @@
 
 Keep the production site reproducible, governed, private, and ready for the next proof/indexing phase.
 
+## Daily-return surface — 2026-08-03 (PR pending)
+
+- Added one English-only route, `/daily-publish-prompt`, with a date-rotated practical publishing prompt, three keyboard-operable daily checks, and on-device localStorage progress/streak state. It is linked additively from the English footer and intentionally stays outside the fixed Search Console sitemap/watch inventory to avoid an unplanned monitoring migration.
+- The single email-capture block uses the existing first-party `/api/lead` path with `source: "daily-prompt"`; its visible disclosure states that delivery is not automated and local progress stays on the device. No vendor, credential, backend, pricing, service commitment, or factual business claim was added.
+- Local validation: `pnpm check` passed (186/186 tests; production build renders `/daily-publish-prompt`), with 3 pre-existing lint warnings. Mobile browser smoke passed at 375px: page has content, no framework overlay/errors, interactive check toggles, and no horizontal scrolling.
+- GSC was re-queried before build with the required URL-prefix property, 28-day, `date,page` dimensions. It returned sparse page-level activity, consistent with the retention hypothesis; no claim was added from it.
+
 ## Compliant daily prospect email-discovery feed — 2026-07-29
 
 - Added `scripts/compliant-prospect-discovery.mjs`: a keyless, DISCOVERY-ONLY feed that grows the outbound campaign beyond the 22 hand-verified seeds. Discovers real South-Florida small businesses (restaurants, cafes, breweries, agencies, real estate, e-commerce/boutiques) via the **OpenStreetMap Overpass API** (no key, no paid service), harvests a REAL contact email from each business's real website (`lib/website-email-extractor.mjs`), and screens every candidate through the shared compliance core (`isFabricatedEmail` / `screenRecipient` / `loadSuppressionList`).
