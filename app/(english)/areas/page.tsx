@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, Laptop, MapPin } from "lucide-react";
 
+import { ServiceLandingDirectory } from "@/components/service-landing-directory";
 import { Container } from "@/components/ui/container";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, serviceAreas } from "@/lib/site";
@@ -193,6 +194,8 @@ export default function AreasPage() {
               ))}
             </div>
           </section>
+
+          <ServiceLandingDirectory />
 
           <div className="mt-12 flex flex-wrap gap-3">
             <Link
