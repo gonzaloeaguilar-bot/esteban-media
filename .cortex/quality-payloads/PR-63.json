@@ -1,0 +1,30 @@
+{
+  "project": "esteban-media",
+  "mode": "release",
+  "target_type": "pr",
+  "target_id": "PR-63",
+  "requires_pr": true,
+  "goal": "Restore dropped Spanish URL continuity and remove sitemap-only discovery for English service routes.",
+  "summary": "Adds two permanent redirect mappings and links all 62 current English service landing routes from both Services and Areas hubs.",
+  "risk": "Low to medium; routing and hub navigation change, bounded by 196 tests and a production build.",
+  "changed_paths": ["next.config.ts", "app/sitemap.ts", "app/(english)/areas/page.tsx", "app/(english)/services/page.tsx", "components/service-landing-directory.tsx"],
+  "requested_actions": ["review and merge only after checks pass", "verify live redirects and rerun Semrush"],
+  "public_claims": ["No new clients, outcomes, prices, turnaround, credentials, address, or availability claims."],
+  "debt_delta": "reduced",
+  "reviewers": {
+    "builder": {"status": "ok", "note": "Codex implementation completed in an isolated worktree."},
+    "skeptic": {"status": "ok", "note": "Antigravity final matrix review returned PASS."},
+    "taste": {"status": "ok", "note": "Claude returned conditional PR-gate PASS and requires live redirects plus issue-class recrawl."}
+  },
+  "scores": {"source_fidelity": 5, "architecture_soundness": 5, "implementation_quality": 5, "review_completeness": 5, "debt_posture": 5, "verification_strength": 4, "taste_fit": 5},
+  "evidence": {
+    "tests_or_validation": "Two exact redirect mappings; shared directory equals all 62 /services/* sitemap routes; 196 tests and build pass.",
+    "ci_passed": "Local gates and GitHub validate pass; all required checks must be green before merge.",
+    "pr_review_complete": "Codex build, Antigravity review PASS, Claude conditional PR-gate PASS.",
+    "hard_stops_checked": "No merge, deploy, outreach, disavow, pricing, or public claim expansion.",
+    "deploy_or_rollback_plan": "Normal PR merge and Vercel path only; revert the PR to roll back.",
+    "post_change_verification": "Confirm both legacy URLs redirect in production and rerun the original Semrush issue class before closure.",
+    "claim_hygiene_checked": "This payload claims PR readiness only, not production or fresh Semrush closure."
+  },
+  "disagreements": "Claude requires the original Semrush finding count to be reconciled before declaring the issue class closed."
+}
