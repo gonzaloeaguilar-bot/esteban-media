@@ -9,7 +9,7 @@
   "risk": "Low to medium; routing and hub navigation change, bounded by 196 tests and a production build.",
   "changed_paths": ["next.config.ts", "app/sitemap.ts", "app/(english)/areas/page.tsx", "app/(english)/services/page.tsx", "components/service-landing-directory.tsx"],
   "requested_actions": ["review and merge only after checks pass", "verify live redirects and rerun Semrush"],
-  "public_claims": ["No new clients, outcomes, prices, turnaround, credentials, address, or availability claims."],
+  "public_claims": ["No new clients, outcomes, prices, turnaround, qualifications, address, or availability claims."],
   "debt_delta": "reduced",
   "reviewers": {
     "builder": {"status": "ok", "note": "Codex implementation completed in an isolated worktree."},
@@ -22,6 +22,9 @@
     "project_routing": "Canonical Esteban repository, isolated worktree under the task workspace, PR-only branch.",
     "reviewer_ensemble": "Codex built; Antigravity reviewed PASS; Claude returned conditional PR-gate PASS.",
     "reviewer_disagreement_reviewed": "Claude requires original issue-count reconciliation before Semrush closure; the PR claims only build readiness.",
+    "winner_rationale": "Two exact redirects restore known migrations while one shared route inventory gives every current English service page two relevant hub sources.",
+    "debt_delta": "Reduced: redirect and sitemap-directory parity are regression tested.",
+    "obsidian_handoff": "client-esteban-media/wiki/esteban-media-hot.md",
     "tests_or_validation": "Two exact redirect mappings; shared directory equals all 62 /services/* sitemap routes; 196 tests and build pass.",
     "ci_passed": "Local gates and GitHub validate pass; all required checks must be green before merge.",
     "pr_review_complete": "Codex build, Antigravity review PASS, Claude conditional PR-gate PASS.",
