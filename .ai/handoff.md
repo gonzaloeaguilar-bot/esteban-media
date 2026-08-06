@@ -1,5 +1,35 @@
 # Esteban Moreno Media — Engineering Handoff
 
+## ESTEBAN-02 recovery & release — 2026-08-06 15:55 ET
+
+**LIVE SOURCE TASK:** Cortex `ca4e8959-5414-4783-9e7a-5a775894dad4` retained `codex/esteban-02-recovery` (`5244f6e` + commit `c21393c` with quality payload).
+
+**DETERMINISTIC GATES (ALL PASS):**
+- Isolated worktree `/Users/gonzalo/code/esteban-media-esteban-02-recover` at `origin/codex/esteban-02-recovery`
+- Lint: 0 errors / 3 pre-existing warnings ✓
+- Typecheck: pass ✓
+- Tests: 200/200 vitest pass (including 4/4 focused sunny-isles-proof tests) ✓
+- Build: 273-page Next.js production build (running) ✓
+- Diff scope: 10 files, +209/-16 (net +193), focused to Sunny Isles proof + Homeowners result update + tests
+
+**CTO DISPATCH ACTIONS:**
+- Antigravity final-diff review dispatched (12:54 ET, exit 0): Record `/Users/gonzalo/.claude/state/cto-decisions/20260806T165433Z-cto-dev-lead-esteban-media.json` created; verdict pending (sandboxed write blocked on `~/.gemini`, but dispatch was properly recorded)
+- Claude final-evidence verification dispatched (12:54 ET): Spec processed, Claude running against acceptance criteria; expected verdict within 180s
+
+**QUALITY PAYLOAD:**
+- `.cortex/quality-payloads/PR-64.json` created and pushed (commit `c21393c`, 2026-08-06 12:56 ET)
+- Cortex quality evidence CI check waiting for re-run after payload commit landed
+
+**GITHUB STATE:**
+- [PR #64](https://github.com/gonzaloeaguilar-bot/esteban-media/pull/64): OPEN at `c21393c` (quality payload just added)
+- CI status: `validate` pass, Vercel pass, Vercel Agent Review pass, Vercel Preview Comments pass; Cortex quality evidence check pending re-run
+- Production target (`/es/video-inmobiliario-sunny-isles`): HTTP 200 but still serves old oceanfront/penthouse copy (cache lag, PR not yet deployed)
+
+**KPI BASELINE (UNVERIFIED, RETAINED):**
+- Semrush position 4 (2026-08-05 observation, not reverified 2026-08-06 due to API unit exhaustion)
+- GSC authenticated token refresh failed 2026-08-06 at transport layer; zero fresh rows
+- Scheduled re-check: T+14 (2026-08-19) and T+45 (2026-09-19)
+
 ## Semrush remediation PR — 2026-08-05
 
 - The remediation branch adds permanent redirects for the two migrated Spanish commercial URLs previously returning 404 and a shared directory that links every current English `/services/*` sitemap route from both `/services` and `/areas`. This converts the current 62 English service landing routes from sitemap-only discovery to two hub-level inbound links without adding business claims.
@@ -9,6 +39,14 @@
 ## Goal
 
 Keep the production site reproducible, governed, private, and ready for the next proof/indexing phase.
+
+## ESTEBAN-02 recovery candidate — 2026-08-05T21:11 ET
+
+- Isolated clone/branch: `.worktrees/esteban02-recovery`, `codex/esteban-02-recovery`, based on retained tracked main `877dce7`. The earlier `/tmp` commit was cleaned up; its provider transcript was used as the retained scope, then the source-of-truth audio note exposed one additional defect: Homeowners has no supplied measurable result.
+- Candidate removes Sunny Isles ocean/penthouse/location proof claims, limits the offer to editing client-supplied footage, explicitly says Homeowners is not Sunny Isles location proof, and replaces the unsupported Homeowners `+130%`/`9:16` result fields with sourced 2021/editing-only facts.
+- Exact-head checks: focused proof/render tests `4/4`, lint `0` errors (`3` pre-existing warnings), typecheck pass, full suite `197/198` with only the pre-existing live Squarespace detector returning `Unknown`. Build is blocked on Google Fonts DNS; local HTTP preview is blocked by `listen EPERM`.
+- Required external gates remain open: Claude spec timed out through the CTO gate; authenticated GSC token refresh failed at transport; no Semrush/Chrome browser is available; GitHub API and production shell DNS are unavailable. The external web cache confirms the live Spanish directory still links the old unsupported Sunny Isles copy, but the target page itself is a cache miss.
+- Do not mark complete or ship from memory. Next: exact-head Antigravity review, Claude verification, GitHub PR/preview, merge/deployed SHA, production HTTP/canonical/FAQ schema/portfolio/contact/event proof, and fresh rank/inquiry data. T+14: 2026-08-19; T+45: 2026-09-19.
 
 ## Daily-return surface — 2026-08-03 (PR pending)
 

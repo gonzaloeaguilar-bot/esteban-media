@@ -139,8 +139,8 @@
         "summary": "A social-media video for Homeowners, edited by Esteban from footage supplied by the agency 300 Bees.",
         "credits": "Video editing (footage provided by the agency 300 Bees).",
         "results": [
-          { "metric": "+130%", "label": "Ad Campaign Click-Through Rate" },
-          { "metric": "9:16", "label": "Vertical Video Format Optimization" }
+          { "metric": "2021", "label": "Published editing project" },
+          { "metric": "Editing only", "label": "Footage supplied by 300 Bees" }
         ]
       },
       "diana-jack": {

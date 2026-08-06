@@ -30,6 +30,7 @@ Production is live. This file tracks repository implementation; account/access w
 - [x] Strengthen the homepage, bilingual service/area hubs, internal proof links, and Esteban entity graph using only approved facts
 - [x] Publish four practical bilingual guide pairs with explicit general-guidance and evidence caveats
 - [x] Use click-to-load YouTube facades on both collection pages while keeping every watch-page iframe rendered and discoverable
+- [ ] Release and measure ESTEBAN-02 Sunny Isles factual-proof correction; PR #64 is open with validate/Vercel reviews green, but Cortex evidence failed and Claude/Antigravity produced no verdict, so merge/deployed SHA remain blocked; production still serves old copy and fresh GSC returned no query/page rows
 
 ## P1 — Product and measurement
 
