@@ -1,5 +1,12 @@
 # Esteban Moreno Media — Engineering Handoff
 
+## ESTEBAN-02 release attempt — 2026-08-06T09:25 ET
+
+- Retained worktree was clean at exact commit `921e5454188275a0d13f6e5dfa7a58a50649022f`; exact-head gates passed 198 tests, lint with 0 errors/3 pre-existing warnings, typecheck, and build. Merged current `origin/main` (`ea157d45`) without rebase/reset; integrated head `3f2e2ed` passed 200 tests and the same gates.
+- [PR #64](https://github.com/gonzaloeaguilar-bot/esteban-media/pull/64) is open at `3f2e2ed`. GitHub `validate`, Vercel preview, Vercel Agent Review, and Preview Comments passed. Cortex quality evidence failed because no independent evidence block/payload exists; do not self-attach approval.
+- Required Antigravity and Claude calls were each dispatched exactly once through `cto-dispatch.sh`, but neither produced a verdict/completed CTO record in this sandbox. Antigravity was blocked writing `~/.gemini/antigravity-cli`; Claude ended with its record still `status: dispatched`. Merge/deploy is prohibited.
+- Live production target returned HTTP 200/self-canonical but still contains `oceanfront penthouse`, proving the candidate is not deployed. Authenticated GSC at `2026-08-06T13:24Z` returned zero rows for the exact query (2026-07-01–2026-08-04) and zero target-page rows (2026-05-01–2026-08-04); retained Semrush position 4 remains unverified/current ranking outcome open.
+
 ## Semrush remediation PR — 2026-08-05
 
 - The remediation branch adds permanent redirects for the two migrated Spanish commercial URLs previously returning 404 and a shared directory that links every current English `/services/*` sitemap route from both `/services` and `/areas`. This converts the current 62 English service landing routes from sitemap-only discovery to two hub-level inbound links without adding business claims.
