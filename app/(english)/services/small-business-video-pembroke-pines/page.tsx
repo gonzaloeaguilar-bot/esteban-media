@@ -11,6 +11,11 @@ export const metadata = buildPageMetadata({
     "Promotional video editing and social content creation for small businesses in Pembroke Pines and Miramar, Florida.",
   path: "/services/small-business-video-pembroke-pines",
   locale: "en",
+  languages: {
+    "en-US": "/services/small-business-video-pembroke-pines",
+    "es-US": "/es/video-para-pequenos-negocios-pembroke-pines",
+    "x-default": "/services/small-business-video-pembroke-pines",
+  },
 });
 
 export default function SmallBusinessVideoPembrokePinesPage() {

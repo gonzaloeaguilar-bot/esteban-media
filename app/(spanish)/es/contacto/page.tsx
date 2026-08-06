@@ -6,6 +6,8 @@ import { spanishServices, spanishSite } from "@/lib/spanish-site";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { site } from "@/lib/site";
 
+const PEMBROKE_PINES_SOURCE = "pembroke-pines-small-business-video" as const;
+
 export const metadata = buildPageMetadata({
   title: "Contacto en Español",
   description:
@@ -14,7 +16,15 @@ export const metadata = buildPageMetadata({
   locale: "es",
 });
 
-export default function SpanishContactPage() {
+export default async function SpanishContactPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ source?: string }>;
+}) {
+  const { source } = await searchParams;
+  const leadSource =
+    source === PEMBROKE_PINES_SOURCE ? PEMBROKE_PINES_SOURCE : "brief-builder";
+
   return (
     <main className="bg-[#f6f1ea] text-[#101214]">
       <section className="py-12 sm:py-16">
@@ -81,7 +91,7 @@ export default function SpanishContactPage() {
             </div>
 
             <div className="space-y-6">
-              <VideoBriefBuilder locale="es" />
+              <VideoBriefBuilder locale="es" source={leadSource} />
 
               <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
                 <MessageSquareText

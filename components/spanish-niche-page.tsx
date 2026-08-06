@@ -4,13 +4,9 @@ import { notFound } from "next/navigation";
 import { ArrowRight, CheckCircle2, Mail, Phone, Send } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import {
-  buildSpanishNicheStructuredData,
-  getSpanishNichePage,
-  spanishServices,
-} from "@/lib/spanish-site";
+import { getSpanishNichePage, spanishServices } from "@/lib/spanish-site";
 import { buildPageMetadata } from "@/lib/site-metadata";
-import { site } from "@/lib/site";
+import { absoluteUrl, site } from "@/lib/site";
 
 type NicheLinkContext = {
   areaHref: string;
@@ -374,13 +370,13 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
   "video-para-pequenos-negocios-pembroke-pines": {
     areaHref: "/es/areas#broward",
     areaLabel: "Ver cobertura en Broward",
-    note: "Edición remota para PyMEs en Pembroke Pines y Miramar.",
-    serviceIds: ["edicion"],
+    note: "Bar Door Monkey verifica videografía y edición para un video promocional publicado de un negocio local en Miami. No se presenta como un proyecto realizado en Pembroke Pines ni como prueba de resultados comerciales.",
+    serviceIds: ["edicion", "planificacion-social", "videografia"],
     projects: [
       {
         href: "/es/portafolio/bar-door-monkey",
         title: "Bar Door Monkey Miami",
-        detail: "Producción y edición para negocio local.",
+        detail: "Videografía y edición en locación para un spot social publicado en Miami.",
       },
     ],
   },
@@ -966,15 +962,21 @@ export function buildSpanishNicheMetadata(slug: string): Metadata {
   }
 
   const path = `/es/${page.slug}`;
+  const languages: Record<string, string> =
+    slug === "video-para-pequenos-negocios-pembroke-pines"
+      ? {
+          "en-US": "/services/small-business-video-pembroke-pines",
+          "es-US": path,
+          "x-default": "/services/small-business-video-pembroke-pines",
+        }
+      : { "es-US": path };
 
   return buildPageMetadata({
     title: page.metadataTitle,
     description: page.description,
     path,
     locale: "es",
-    languages: {
-      "es-US": path,
-    },
+    languages,
   });
 }
 
@@ -994,7 +996,69 @@ export function SpanishNichePage({ slug }: { slug: string }) {
         linkContext.serviceIds.includes(service.id),
       )
     : spanishServices;
-  const jsonLd = buildSpanishNicheStructuredData(page);
+  const path = `/es/${page.slug}`;
+  const pageEntityJsonLd = isPendingConfirmation
+    ? {
+        "@type": "WebPage",
+        "@id": absoluteUrl(`${path}#resource`),
+        name: page.title,
+        description: page.description,
+        url: absoluteUrl(path),
+        inLanguage: "es-US",
+        about: page.keyword,
+        isPartOf: { "@id": absoluteUrl("/#website") },
+      }
+    : {
+        "@type": "Service",
+        "@id": absoluteUrl(`${path}#service`),
+        name: page.title,
+        description: page.description,
+        provider: {
+          "@type": "LocalBusiness",
+          "@id": absoluteUrl("/#business"),
+          name: site.name,
+          url: absoluteUrl("/"),
+          email: site.email,
+          telephone: site.phone.e164,
+        },
+        areaServed: page.location,
+        availableLanguage: ["Spanish", "English"],
+        serviceType: page.keyword,
+      };
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      pageEntityJsonLd,
+      {
+        "@type": "BreadcrumbList",
+        "@id": absoluteUrl(`${path}#breadcrumbs`),
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Inicio",
+            item: absoluteUrl("/es"),
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Servicios",
+            item: absoluteUrl("/es/servicios"),
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: page.title,
+            item: absoluteUrl(path),
+          },
+        ],
+      },
+    ],
+  };
+  const contactHref =
+    page.slug === "video-para-pequenos-negocios-pembroke-pines"
+      ? "/es/contacto?source=pembroke-pines-small-business-video"
+      : "/es/contacto";
 
   return (
     <main className="bg-[#f6f1ea] text-[#101214]">
@@ -1048,7 +1112,7 @@ export function SpanishNichePage({ slug }: { slug: string }) {
               ) : null}
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
-                  href="/es/contacto"
+                  href={contactHref}
                   className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white hover:bg-[#a93e29]"
                 >
                   {isPendingConfirmation
@@ -1133,7 +1197,7 @@ export function SpanishNichePage({ slug }: { slug: string }) {
                     <ArrowRight className="size-4" aria-hidden="true" />
                   </Link>
                   <Link
-                    href="/es/contacto"
+                    href={contactHref}
                     className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#c84a2c] px-5 text-sm font-medium text-white hover:bg-[#a93e29]"
                   >
                     {isPendingConfirmation

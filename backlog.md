@@ -18,7 +18,6 @@ Production is live. This file tracks repository implementation; account/access w
 
 ## P1 — Technical SEO / GEO / ALOHA
 
-- [x] Add permanent redirects for the two dropped Spanish commercial URLs and give all 62 current English service landing routes two hub-level inbound links (Semrush remediation PR, 2026-08-05)
 - [x] Render Spanish pages with initial document-level `lang="es"`
 - [x] Add a branded 1200×630 Open Graph image
 - [x] Tighten long titles and homepage descriptions
@@ -30,6 +29,7 @@ Production is live. This file tracks repository implementation; account/access w
 - [x] Strengthen the homepage, bilingual service/area hubs, internal proof links, and Esteban entity graph using only approved facts
 - [x] Publish four practical bilingual guide pairs with explicit general-guidance and evidence caveats
 - [x] Use click-to-load YouTube facades on both collection pages while keeping every watch-page iframe rendered and discoverable
+- [ ] Release ESTEBAN-03 after the fail-closed 3-LLM/build/preview boundary: factual Pembroke Pines copy, reciprocal hreflang, and attributed brief source are implemented locally; Claude spec, full build, preview, production, and fresh rank evidence remain required
 
 ## P1 — Product and measurement
 
@@ -39,7 +39,6 @@ Production is live. This file tracks repository implementation; account/access w
 - [x] Install and acceptance-test the Sunday health and Search Console digest loop; probes pass and the expected overall `DEGRADED` state tracks Google's processing of the 26 new URLs
 - [x] Define contact and AI-referral measurement; provision GA4 dimensions for `contact_method` and `ai_source`
 - [x] Add route metadata, sitemap, portfolio schema, and data tests
-- [x] Add one lightweight daily-return publishing prompt with local progress/streak state and first-party email capture
 
 ## P2 — Portfolio refinement
 

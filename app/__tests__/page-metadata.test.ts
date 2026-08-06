@@ -54,4 +54,19 @@ describe("complete page metadata", () => {
       },
     });
   });
+
+  it("pairs the Pembroke Pines small-business pages with reciprocal hreflang", () => {
+    const metadata = buildSpanishNicheMetadata(
+      "video-para-pequenos-negocios-pembroke-pines",
+    );
+
+    expect(metadata.alternates).toMatchObject({
+      canonical: "/es/video-para-pequenos-negocios-pembroke-pines",
+      languages: {
+        "en-US": "/services/small-business-video-pembroke-pines",
+        "es-US": "/es/video-para-pequenos-negocios-pembroke-pines",
+        "x-default": "/services/small-business-video-pembroke-pines",
+      },
+    });
+  });
 });
