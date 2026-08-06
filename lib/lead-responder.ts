@@ -3,8 +3,27 @@
  * Validates, formats, and dispatches lead notifications.
  */
 
+export type LeadSource =
+  | "brief-builder"
+  | "budget-estimator"
+  | "strategy-assessment"
+  | "script-kit"
+  | "daily-prompt"
+  | "contact"
+  | "pembroke-pines-small-business-video";
+
+const LEAD_SOURCES = new Set<LeadSource>([
+  "brief-builder",
+  "budget-estimator",
+  "strategy-assessment",
+  "script-kit",
+  "daily-prompt",
+  "contact",
+  "pembroke-pines-small-business-video",
+]);
+
 export interface LeadPayload {
-  source: "brief-builder" | "budget-estimator" | "strategy-assessment" | "script-kit" | "contact";
+  source: LeadSource;
   locale?: "en" | "es";
   name?: string;
   email: string;
@@ -31,6 +50,9 @@ export function validateLeadPayload(payload: Partial<LeadPayload>): { valid: boo
   }
   if (!payload.source || typeof payload.source !== "string") {
     return { valid: false, error: "Lead source identifier is required." };
+  }
+  if (!LEAD_SOURCES.has(payload.source as LeadSource)) {
+    return { valid: false, error: "Lead source identifier is invalid." };
   }
   return { valid: true };
 }

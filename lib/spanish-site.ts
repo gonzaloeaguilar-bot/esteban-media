@@ -1069,11 +1069,11 @@ export const spanishNichePages: SpanishNichePage[] = [
     title: "Video para pequeños negocios en Pembroke Pines",
     metadataTitle: "Video Pequeños Negocios Pines",
     description:
-      "Edición de video accesible y promocional para PyMEs y servicios locales en Pembroke Pines y Miramar.",
+      "Edición de video y contenido promocional para pequeños negocios de Pembroke Pines, con atención remota desde Fort Lauderdale.",
     eyebrow: "Pembroke Pines / Broward",
     h1: "Videos promocionales para negocios locales en Pembroke Pines.",
     lead:
-      "Apoyamos a emprendedores y comercios locales en Pembroke Pines y Miramar con edición de video optimizada para atraer clientes de la zona.",
+      "Esteban Moreno Media atiende consultas de emprendedores y pequeños negocios de Pembroke Pines desde Fort Lauderdale. El alcance puede incluir edición de material del cliente, planificación social y grabación en locación evaluada por proyecto.",
     keyword: "video para pequeños negocios en Pembroke Pines",
     location: "Pembroke Pines / Broward",
     availability: "confirmed",
@@ -1087,12 +1087,17 @@ export const spanishNichePages: SpanishNichePage[] = [
       "¿Qué oferta o servicio deseas promocionar?",
     ],
     projectFit:
-      "Edición directa y económica por proyecto para PyMEs locales.",
+      "Edición de material entregado por el cliente y, según el alcance, planificación social o producción en locación evaluada por proyecto.",
     faqs: [
       {
         question: "¿Cómo funciona el servicio si estoy en Pembroke Pines?",
         answer:
-          "Puedes enviarnos tu material por la nube y nosotros coordinamos la edición de forma 100% remota y continua.",
+          "Puedes comenzar con un brief y material ya grabado. Esteban trabaja desde Fort Lauderdale; cualquier grabación en locación se evalúa según el alcance del proyecto.",
+      },
+      {
+        question: "¿El portafolio incluye un proyecto hecho en Pembroke Pines?",
+        answer:
+          "No se presenta un proyecto de Pembroke Pines. Bar Door Monkey es un ejemplo publicado en Miami que verifica videografía y edición para un video promocional de un negocio local, sin afirmar resultados comerciales.",
       },
     ],
   },

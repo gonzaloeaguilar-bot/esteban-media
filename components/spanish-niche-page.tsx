@@ -370,13 +370,13 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
   "video-para-pequenos-negocios-pembroke-pines": {
     areaHref: "/es/areas#broward",
     areaLabel: "Ver cobertura en Broward",
-    note: "Edición remota para PyMEs en Pembroke Pines y Miramar.",
-    serviceIds: ["edicion"],
+    note: "Bar Door Monkey verifica videografía y edición para un video promocional publicado de un negocio local en Miami. No se presenta como un proyecto realizado en Pembroke Pines ni como prueba de resultados comerciales.",
+    serviceIds: ["edicion", "planificacion-social", "videografia"],
     projects: [
       {
         href: "/es/portafolio/bar-door-monkey",
         title: "Bar Door Monkey Miami",
-        detail: "Producción y edición para negocio local.",
+        detail: "Videografía y edición en locación para un spot social publicado en Miami.",
       },
     ],
   },
@@ -962,15 +962,21 @@ export function buildSpanishNicheMetadata(slug: string): Metadata {
   }
 
   const path = `/es/${page.slug}`;
+  const languages: Record<string, string> =
+    slug === "video-para-pequenos-negocios-pembroke-pines"
+      ? {
+          "en-US": "/services/small-business-video-pembroke-pines",
+          "es-US": path,
+          "x-default": "/services/small-business-video-pembroke-pines",
+        }
+      : { "es-US": path };
 
   return buildPageMetadata({
     title: page.metadataTitle,
     description: page.description,
     path,
     locale: "es",
-    languages: {
-      "es-US": path,
-    },
+    languages,
   });
 }
 
@@ -1049,6 +1055,10 @@ export function SpanishNichePage({ slug }: { slug: string }) {
       },
     ],
   };
+  const contactHref =
+    page.slug === "video-para-pequenos-negocios-pembroke-pines"
+      ? "/es/contacto?source=pembroke-pines-small-business-video"
+      : "/es/contacto";
 
   return (
     <main className="bg-[#f6f1ea] text-[#101214]">
@@ -1102,7 +1112,7 @@ export function SpanishNichePage({ slug }: { slug: string }) {
               ) : null}
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
-                  href="/es/contacto"
+                  href={contactHref}
                   className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white hover:bg-[#a93e29]"
                 >
                   {isPendingConfirmation
@@ -1187,7 +1197,7 @@ export function SpanishNichePage({ slug }: { slug: string }) {
                     <ArrowRight className="size-4" aria-hidden="true" />
                   </Link>
                   <Link
-                    href="/es/contacto"
+                    href={contactHref}
                     className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#c84a2c] px-5 text-sm font-medium text-white hover:bg-[#a93e29]"
                   >
                     {isPendingConfirmation
