@@ -4,6 +4,12 @@
 
 Keep the production site reproducible, governed, private, and ready for the next proof/indexing phase.
 
+## ESTEBAN-03 implementation checkpoint — 2026-08-05 ET
+
+- Isolated clone/branch `codex/esteban-03-pembroke-pines` is based on verified object `877dce7`. The target Spanish page now removes unsupported affordability/outcome/continuous-service wording, explicitly says the published Miami proof is not a Pembroke Pines project or commercial-results proof, adds reciprocal hreflang to the existing English pair, and carries the allowlisted source `pembroke-pines-small-business-video` into first-party brief submissions.
+- Evidence: `git diff --check` pass; focused 26/26 pass; lint 0 errors/3 pre-existing warnings; typecheck pass; full suite 194/195 with only the unrelated network-backed Squarespace fixture failing. Build is blocked by `fonts.googleapis.com` DNS; local preview bind is blocked by `EPERM`; production/GSC hosts do not resolve; browser selection has no available browser.
+- Required Claude spec failed through three gated strategy variants (180s/120s/90s timeouts), so nothing was released or claimed complete. Full evidence and delayed KPI contract: `docs/audits/ESTEBAN-03-pembroke-pines-ranking-2026-08-05.md`.
+
 ## Daily-return surface — 2026-08-03 (PR pending)
 
 - Added one English-only route, `/daily-publish-prompt`, with a date-rotated practical publishing prompt, three keyboard-operable daily checks, and on-device localStorage progress/streak state. It is linked additively from the English footer and intentionally stays outside the fixed Search Console sitemap/watch inventory to avoid an unplanned monitoring migration.

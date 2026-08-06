@@ -2,15 +2,20 @@
 
 import { useState } from "react";
 import { ArrowRight, CheckCircle2, RotateCcw, Send, Sparkles } from "lucide-react";
+import type { LeadSource } from "@/lib/lead-responder";
 import { site } from "@/lib/site";
 
 type Locale = "en" | "es";
 
 interface VideoBriefBuilderProps {
   locale?: Locale;
+  source?: LeadSource;
 }
 
-export function VideoBriefBuilder({ locale = "en" }: VideoBriefBuilderProps) {
+export function VideoBriefBuilder({
+  locale = "en",
+  source = "brief-builder",
+}: VideoBriefBuilderProps) {
   const isEs = locale === "es";
 
   const [step, setStep] = useState<number>(1);
@@ -73,7 +78,7 @@ export function VideoBriefBuilder({ locale = "en" }: VideoBriefBuilderProps) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        source: "brief-builder",
+        source,
         locale,
         name: clientName,
         email: clientEmail,

@@ -128,6 +128,12 @@ describe("customer-facing ranking pages", () => {
     }
     expect(niche).toContain("/es/portafolio/bar-door-monkey");
     expect(niche).toContain("/es/portafolio/healthy-smile");
+    expect(niche).toContain(
+      "/es/contacto?source=pembroke-pines-small-business-video",
+    );
+    expect(niche).toContain(
+      "No se presenta como un proyecto realizado en Pembroke Pines",
+    );
     expect(niche).toContain("/es/portafolio/homeowners");
     expect(niche).toContain("/es/portafolio/my-dler");
     expect(niche).toContain("/es/portafolio/ml-colombia");
