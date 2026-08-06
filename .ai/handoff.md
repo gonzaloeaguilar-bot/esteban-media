@@ -4,6 +4,14 @@
 
 Keep the production site reproducible, governed, private, and ready for the next proof/indexing phase.
 
+## ESTEBAN-02 recovery candidate — 2026-08-05T21:11 ET
+
+- Isolated clone/branch: `.worktrees/esteban02-recovery`, `codex/esteban-02-recovery`, based on retained tracked main `877dce7`. The earlier `/tmp` commit was cleaned up; its provider transcript was used as the retained scope, then the source-of-truth audio note exposed one additional defect: Homeowners has no supplied measurable result.
+- Candidate removes Sunny Isles ocean/penthouse/location proof claims, limits the offer to editing client-supplied footage, explicitly says Homeowners is not Sunny Isles location proof, and replaces the unsupported Homeowners `+130%`/`9:16` result fields with sourced 2021/editing-only facts.
+- Exact-head checks: focused proof/render tests `4/4`, lint `0` errors (`3` pre-existing warnings), typecheck pass, full suite `197/198` with only the pre-existing live Squarespace detector returning `Unknown`. Build is blocked on Google Fonts DNS; local HTTP preview is blocked by `listen EPERM`.
+- Required external gates remain open: Claude spec timed out through the CTO gate; authenticated GSC token refresh failed at transport; no Semrush/Chrome browser is available; GitHub API and production shell DNS are unavailable. The external web cache confirms the live Spanish directory still links the old unsupported Sunny Isles copy, but the target page itself is a cache miss.
+- Do not mark complete or ship from memory. Next: exact-head Antigravity review, Claude verification, GitHub PR/preview, merge/deployed SHA, production HTTP/canonical/FAQ schema/portfolio/contact/event proof, and fresh rank/inquiry data. T+14: 2026-08-19; T+45: 2026-09-19.
+
 ## Daily-return surface — 2026-08-03 (PR pending)
 
 - Added one English-only route, `/daily-publish-prompt`, with a date-rotated practical publishing prompt, three keyboard-operable daily checks, and on-device localStorage progress/streak state. It is linked additively from the English footer and intentionally stays outside the fixed Search Console sitemap/watch inventory to avoid an unplanned monitoring migration.

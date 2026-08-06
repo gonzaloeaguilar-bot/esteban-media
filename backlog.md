@@ -29,6 +29,7 @@ Production is live. This file tracks repository implementation; account/access w
 - [x] Strengthen the homepage, bilingual service/area hubs, internal proof links, and Esteban entity graph using only approved facts
 - [x] Publish four practical bilingual guide pairs with explicit general-guidance and evidence caveats
 - [x] Use click-to-load YouTube facades on both collection pages while keeping every watch-page iframe rendered and discoverable
+- [ ] Release and measure ESTEBAN-02 Sunny Isles factual-proof correction; candidate is locally tested, but Claude/Antigravity, preview, deployed SHA, production HTTP/schema/link/event, and fresh rank/inquiry gates remain open
 
 ## P1 — Product and measurement
 

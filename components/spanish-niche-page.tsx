@@ -790,13 +790,13 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
   "video-inmobiliario-sunny-isles": {
     areaHref: "/es/areas#miami-dade",
     areaLabel: "Ver cobertura en Sunny Isles Beach",
-    note: "Edición cinemática de torres de lujo e imponentes vistas al mar.",
+    note: "Homeowners demuestra un proyecto publicado de edición con material suministrado por 300 Bees. No se presenta como un proyecto realizado en Sunny Isles.",
     serviceIds: ["edicion"],
     projects: [
       {
         href: "/es/portafolio/homeowners",
         title: "Homeowners",
-        detail: "Edición de vistas al océano e interiores.",
+        detail: "Proyecto de 2021: edición de video a partir de material suministrado por 300 Bees.",
       },
     ],
   },

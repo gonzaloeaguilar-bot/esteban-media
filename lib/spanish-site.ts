@@ -2095,30 +2095,30 @@ export const spanishNichePages: SpanishNichePage[] = [
     title: "Video inmobiliario en Sunny Isles Beach",
     metadataTitle: "Video Inmobiliario Sunny Isles",
     description:
-      "Videos cinemáticos de torres residenciales de lujo, oceanfront penthouse y vistas de playa en Sunny Isles.",
+      "Edición de video inmobiliario para agentes y equipos en Sunny Isles Beach a partir de material suministrado por el cliente.",
     eyebrow: "Sunny Isles Beach",
-    h1: "Videos cinemáticos para torres de lujo en Sunny Isles Beach.",
+    h1: "Edición de video inmobiliario para Sunny Isles Beach.",
     lead:
-      "Muestra la magnificencia de las torres frente al mar en Sunny Isles con recorridos en video de clase mundial.",
+      "Convierte el material ya grabado de una propiedad en un video claro para presentar el inmueble y compartirlo en los canales acordados.",
     keyword: "video inmobiliario en Sunny Isles Beach",
     location: "Sunny Isles Beach / Aventura",
     availability: "confirmed",
     icon: Building2,
     bestFor: [
-      "Agentes inmobiliarios de lujo en torres icónicas de Sunny Isles.",
-      "Inversionistas y compradores internacionales de propiedades de playa.",
+      "Agentes y equipos inmobiliarios que ya tienen material grabado de una propiedad.",
+      "Marcas que necesitan organizar un video inmobiliario para canales acordados.",
     ],
     scopingQuestions: [
-      "¿El departamento tiene vista directa al océano Atlántico?",
-      "¿Requiere narración en español e inglés?",
+      "¿Qué material de la propiedad ya está grabado y quién tiene permiso para usarlo?",
+      "¿Dónde se publicará el video y qué información debe aparecer?",
     ],
     projectFit:
-      "Edición ultra-pulida orientada a compradores internacionales de alto patrimonio.",
+      "Edición de material suministrado por el cliente, con alcance y entregables definidos para cada proyecto.",
     faqs: [
       {
-        question: "¿Soportan gráficos en varios idiomas para compradores extranjeros?",
+        question: "¿Pueden editar material ya grabado de una propiedad en Sunny Isles?",
         answer:
-          "Sí. Podemos entregar versiones subtituladas en inglés, español o portugués según el mercado objetivo.",
+          "Sí. Esteban puede editar material suministrado por el cliente; el alcance, los formatos y el uso previsto se confirman para cada proyecto.",
       },
     ],
   },
