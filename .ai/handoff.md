@@ -1,5 +1,11 @@
 # Esteban Moreno Media — Engineering Handoff
 
+## Semrush remediation PR — 2026-08-05
+
+- The remediation branch adds permanent redirects for the two migrated Spanish commercial URLs previously returning 404 and a shared directory that links every current English `/services/*` sitemap route from both `/services` and `/areas`. This converts the current 62 English service landing routes from sitemap-only discovery to two hub-level inbound links without adding business claims.
+- Regression coverage asserts both redirect mappings and exact parity between the shared directory and the sitemap route inventory. `pnpm check` passes 196/196 tests and the production build; the three lint warnings are pre-existing.
+- This is PR-only. Production and a fresh Semrush crawl remain unverified until merge/deploy.
+
 ## Goal
 
 Keep the production site reproducible, governed, private, and ready for the next proof/indexing phase.

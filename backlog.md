@@ -18,6 +18,7 @@ Production is live. This file tracks repository implementation; account/access w
 
 ## P1 — Technical SEO / GEO / ALOHA
 
+- [x] Add permanent redirects for the two dropped Spanish commercial URLs and give all 62 current English service landing routes two hub-level inbound links (Semrush remediation PR, 2026-08-05)
 - [x] Render Spanish pages with initial document-level `lang="es"`
 - [x] Add a branded 1200×630 Open Graph image
 - [x] Tighten long titles and homepage descriptions

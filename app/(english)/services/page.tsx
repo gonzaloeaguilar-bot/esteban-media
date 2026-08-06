@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2, Laptop, MapPin } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { ServiceLandingDirectory } from "@/components/service-landing-directory";
 import { VideoBriefBuilder } from "@/components/video-brief-builder";
 import { entityIds } from "@/lib/entity-schema";
 import { buildPageMetadata } from "@/lib/site-metadata";
@@ -257,6 +258,8 @@ export default function ServicesPage() {
           <div className="mt-12">
             <VideoBriefBuilder locale="en" />
           </div>
+
+          <ServiceLandingDirectory />
 
           <div className="mt-14 rounded-lg bg-[#101214] p-6 text-[#f6f1ea] sm:p-8">
             <h2 className="font-serif text-4xl">Not sure which service fits?</h2>
