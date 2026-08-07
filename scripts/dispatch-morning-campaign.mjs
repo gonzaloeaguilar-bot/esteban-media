@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import crypto from "crypto";
 
 import {
   loadEnvLocal,
@@ -30,6 +31,46 @@ const FROM_EMAIL =
   "Esteban Moreno Media <contact@estebanmorenomedia.com>";
 const REPLY_TO_EMAIL = "esmolopez@gmail.com";
 const DRAFTS_OUT = path.join(process.cwd(), "public", "leads", "morning-campaign-dryrun.json");
+const DELIVERY_LEDGER = path.join(
+  process.cwd(),
+  "data",
+  "outreach",
+  "morning-campaign-send-ledger.jsonl",
+);
+
+function recipientHash(email) {
+  return crypto.createHash("sha256").update(email.trim().toLowerCase()).digest("hex");
+}
+
+function deliveryIdempotencyKey(email, campaignDate) {
+  return `esteban-morning/${campaignDate}/${recipientHash(email).slice(0, 32)}`;
+}
+
+function ensureDeliveryLedgerWritable(ledgerPath = DELIVERY_LEDGER) {
+  fs.mkdirSync(path.dirname(ledgerPath), { recursive: true });
+  const descriptor = fs.openSync(ledgerPath, "a", 0o600);
+  fs.closeSync(descriptor);
+  fs.chmodSync(ledgerPath, 0o600);
+}
+
+function appendDeliveryRecord(record, ledgerPath = DELIVERY_LEDGER) {
+  fs.mkdirSync(path.dirname(ledgerPath), { recursive: true });
+  const safeRecord = {
+    observed_at: record.observed_at || new Date().toISOString(),
+    campaign: "daily_morning_outreach",
+    status: record.status,
+    recipient_sha256: recipientHash(record.email),
+    provider: "resend",
+    provider_id: record.provider_id || null,
+    response_status: record.response_status || null,
+    error_type: record.error_type || null,
+  };
+  fs.appendFileSync(ledgerPath, `${JSON.stringify(safeRecord)}\n`, {
+    encoding: "utf8",
+    mode: 0o600,
+  });
+  return safeRecord;
+}
 
 async function dispatchMorningCampaign() {
   const campaignPath = path.join(process.cwd(), "public", "leads", "daily_morning_campaign.json");
@@ -48,7 +89,10 @@ async function dispatchMorningCampaign() {
   }
 
   const live = sendGateEnabled();
-  if (live) assertLiveSendAllowed(); // throws unless fully configured + permitted
+  if (live) {
+    assertLiveSendAllowed(); // throws unless fully configured + permitted
+    ensureDeliveryLedgerWritable(); // fail before the first external request
+  }
 
   const drafts = [];
   const skipped = [];
@@ -75,14 +119,17 @@ async function dispatchMorningCampaign() {
       continue;
     }
 
+    let providerAccepted = false;
     try {
       const key = requireResendKey();
+      const campaignDate = String(campaign.generatedAt || new Date().toISOString()).slice(0, 10);
       const res = await fetch("https://api.resend.com/emails", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${key}`,
           "Content-Type": "application/json",
           ...listUnsubscribeHeaders(targetEmail),
+          "Idempotency-Key": deliveryIdempotencyKey(targetEmail, campaignDate),
         },
         body: JSON.stringify({
           from: FROM_EMAIL,
@@ -96,11 +143,31 @@ async function dispatchMorningCampaign() {
       });
       const data = await res.json().catch(() => ({}));
       if (res.ok) {
+        providerAccepted = true;
+        appendDeliveryRecord({
+          status: "accepted",
+          email: targetEmail,
+          provider_id: data.id,
+          response_status: res.status,
+        });
         console.log(`✅ Sent to ${item.target?.name} <${targetEmail}> | id ${data.id}`);
       } else {
+        appendDeliveryRecord({
+          status: "failed",
+          email: targetEmail,
+          response_status: res.status,
+          error_type: "provider_rejected",
+        });
         console.log(`⚠️ Resend error for ${item.target?.name}: status ${res.status}`);
       }
     } catch (e) {
+      if (!providerAccepted) {
+        appendDeliveryRecord({
+          status: "failed",
+          email: targetEmail,
+          error_type: e instanceof Error ? e.name : "unknown_error",
+        });
+      }
       console.error(`💥 Failed to send to ${item.target?.name}: ${e.message}`);
     }
     await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -125,4 +192,11 @@ if (process.argv[1]?.includes("dispatch-morning-campaign.mjs")) {
   });
 }
 
-export { dispatchMorningCampaign };
+export {
+  DELIVERY_LEDGER,
+  appendDeliveryRecord,
+  deliveryIdempotencyKey,
+  dispatchMorningCampaign,
+  ensureDeliveryLedgerWritable,
+  recipientHash,
+};

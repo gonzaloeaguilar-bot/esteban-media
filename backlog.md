@@ -34,6 +34,8 @@ Production is live. This file tracks repository implementation; account/access w
 
 ## P1 — Product and measurement
 
+- [x] Add a private, PII-safe, idempotent provider delivery ledger to the morning campaign dispatcher; live sending remains gated on a valid Resend key and compliant postal address
+
 - [x] Add an accessible bilingual portfolio backed by real public work
 - [x] Connect a production-scoped GA4 stream with query-safe manual page measurement and a bilingual privacy disclosure
 - [x] Install and acceptance-test the three-times-weekly Search Console index-watch loop; live inventory migrated from 20 to 46 with indexing classifications of 20 `PASS`, 26 new `NEUTRAL`, and no failures/unknowns
