@@ -28,6 +28,23 @@ describe("lead-responder", () => {
         source: "brief-builder",
       })
     ).toEqual({ valid: true });
+
+    expect(
+      validateLeadPayload({
+        email: "client@example.com",
+        source: "pembroke-pines-small-business-video",
+      })
+    ).toEqual({ valid: true });
+
+    expect(
+      validateLeadPayload({
+        email: "client@example.com",
+        source: "unknown-source" as "brief-builder",
+      })
+    ).toEqual({
+      valid: false,
+      error: "Lead source identifier is invalid.",
+    });
   });
 
   it("generates a unique lead ID with lead_ prefix", () => {

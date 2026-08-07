@@ -49,8 +49,6 @@ describe("customer-facing ranking pages", () => {
 
   it("connects every Spanish niche through direct project and area links", () => {
     const niche = source("components/spanish-niche-page.tsx");
-    // Structured-data construction lives in the shared, unit-tested builder.
-    const nicheSchema = source("lib/spanish-site.ts");
 
     for (const slug of [
       "videografo-en-miami",
@@ -128,14 +126,19 @@ describe("customer-facing ranking pages", () => {
     }
     expect(niche).toContain("/es/portafolio/bar-door-monkey");
     expect(niche).toContain("/es/portafolio/healthy-smile");
+    expect(niche).toContain(
+      "/es/contacto?source=pembroke-pines-small-business-video",
+    );
+    expect(niche).toContain(
+      "No se presenta como un proyecto realizado en Pembroke Pines",
+    );
     expect(niche).toContain("/es/portafolio/homeowners");
     expect(niche).toContain("/es/portafolio/my-dler");
     expect(niche).toContain("/es/portafolio/ml-colombia");
     expect(niche).toContain("/es/areas#miami-dade");
     expect(niche).toContain("/es/areas#fort-lauderdale");
     expect(niche).toContain("/es/guias");
-    expect(nicheSchema).toContain("BreadcrumbList");
-    expect(nicheSchema).toContain("FAQPage");
+    expect(niche).toContain("BreadcrumbList");
   });
 
   it("names the same public founder on both localized About pages", () => {

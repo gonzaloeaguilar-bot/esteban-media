@@ -14,8 +14,6 @@ import {
   WandSparkles,
 } from "lucide-react";
 
-import { absoluteUrl, site } from "@/lib/site";
-
 export const spanishSite = {
   title: "Edición de Video en Fort Lauderdale",
   description:
@@ -1071,11 +1069,11 @@ export const spanishNichePages: SpanishNichePage[] = [
     title: "Video para pequeños negocios en Pembroke Pines",
     metadataTitle: "Video Pequeños Negocios Pines",
     description:
-      "Edición de video accesible y promocional para PyMEs y servicios locales en Pembroke Pines y Miramar.",
+      "Edición de video y contenido promocional para pequeños negocios de Pembroke Pines, con atención remota desde Fort Lauderdale.",
     eyebrow: "Pembroke Pines / Broward",
     h1: "Videos promocionales para negocios locales en Pembroke Pines.",
     lead:
-      "Apoyamos a emprendedores y comercios locales en Pembroke Pines y Miramar con edición de video optimizada para atraer clientes de la zona.",
+      "Esteban Moreno Media atiende consultas de emprendedores y pequeños negocios de Pembroke Pines desde Fort Lauderdale. El alcance puede incluir edición de material del cliente, planificación social y grabación en locación evaluada por proyecto.",
     keyword: "video para pequeños negocios en Pembroke Pines",
     location: "Pembroke Pines / Broward",
     availability: "confirmed",
@@ -1089,12 +1087,17 @@ export const spanishNichePages: SpanishNichePage[] = [
       "¿Qué oferta o servicio deseas promocionar?",
     ],
     projectFit:
-      "Edición directa y económica por proyecto para PyMEs locales.",
+      "Edición de material entregado por el cliente y, según el alcance, planificación social o producción en locación evaluada por proyecto.",
     faqs: [
       {
         question: "¿Cómo funciona el servicio si estoy en Pembroke Pines?",
         answer:
-          "Puedes enviarnos tu material por la nube y nosotros coordinamos la edición de forma 100% remota y continua.",
+          "Puedes comenzar con un brief y material ya grabado. Esteban trabaja desde Fort Lauderdale; cualquier grabación en locación se evalúa según el alcance del proyecto.",
+      },
+      {
+        question: "¿El portafolio incluye un proyecto hecho en Pembroke Pines?",
+        answer:
+          "No se presenta un proyecto de Pembroke Pines. Bar Door Monkey es un ejemplo publicado en Miami que verifica videografía y edición para un video promocional de un negocio local, sin afirmar resultados comerciales.",
       },
     ],
   },
@@ -2664,92 +2667,4 @@ export const spanishOpportunitySignals = [
 
 export function getSpanishNichePage(slug: string) {
   return spanishNichePages.find((page) => page.slug === slug);
-}
-
-/**
- * Builds the JSON-LD `@graph` for a Spanish niche landing page.
- *
- * The graph mirrors the page's already-visible content only: the primary
- * entity (a `Service` for confirmed pages, or a transparent `WebPage`
- * resource for legacy pending-confirmation routes), a `BreadcrumbList`, and a
- * `FAQPage` whose questions/answers are rendered verbatim on the page. No
- * claim is added here that is not already published in the page copy.
- */
-export function buildSpanishNicheStructuredData(page: SpanishNichePage) {
-  const path = `/es/${page.slug}`;
-  const isPendingConfirmation = page.availability === "pending-confirmation";
-
-  const pageEntityJsonLd = isPendingConfirmation
-    ? {
-        "@type": "WebPage",
-        "@id": absoluteUrl(`${path}#resource`),
-        name: page.title,
-        description: page.description,
-        url: absoluteUrl(path),
-        inLanguage: "es-US",
-        about: page.keyword,
-        isPartOf: { "@id": absoluteUrl("/#website") },
-      }
-    : {
-        "@type": "Service",
-        "@id": absoluteUrl(`${path}#service`),
-        name: page.title,
-        description: page.description,
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          email: site.email,
-          telephone: site.phone.e164,
-        },
-        areaServed: page.location,
-        availableLanguage: ["Spanish", "English"],
-        serviceType: page.keyword,
-      };
-
-  return {
-    "@context": "https://schema.org",
-    "@graph": [
-      pageEntityJsonLd,
-      {
-        "@type": "BreadcrumbList",
-        "@id": absoluteUrl(`${path}#breadcrumbs`),
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Inicio",
-            item: absoluteUrl("/es"),
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: "Servicios",
-            item: absoluteUrl("/es/servicios"),
-          },
-          {
-            "@type": "ListItem",
-            position: 3,
-            name: page.title,
-            item: absoluteUrl(path),
-          },
-        ],
-      },
-      {
-        "@type": "FAQPage",
-        "@id": absoluteUrl(`${path}#faq`),
-        inLanguage: "es-US",
-        isPartOf: { "@id": absoluteUrl("/#website") },
-        mainEntity: page.faqs.map((faq) => ({
-          "@type": "Question",
-          name: faq.question,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: faq.answer,
-          },
-        })),
-      },
-    ],
-  };
 }
