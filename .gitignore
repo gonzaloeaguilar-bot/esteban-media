@@ -60,3 +60,7 @@ public/leads/*dry-run*.json
 # regenerated daily by scripts/compliant-prospect-discovery.mjs)
 scripts/data/discovered-prospects.json
 public/leads/discovery-ledger.json
+
+# Append-only provider acceptance ledger. Runtime evidence only; recipient
+# addresses are hashed, and the file must not be published or committed.
+data/outreach/morning-campaign-send-ledger.jsonl

@@ -15,7 +15,7 @@ import {
 import { languageAlternates, spanishRoutes } from "@/lib/spanish-site";
 import { absoluteUrl } from "@/lib/site";
 
-const routes = [
+export const sitemapRoutes = [
   { path: "/", priority: 1 },
   { path: "/calculator", priority: 0.9 },
   { path: "/resources/social-video-kit", priority: 0.9 },
@@ -141,7 +141,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const guideLocales: readonly GuideLocale[] = ["en", "es"];
 
   return [
-    ...routes.map((route) => ({
+    ...sitemapRoutes.map((route) => ({
       url: absoluteUrl(route.path),
       lastModified: releaseLastModified,
       changeFrequency: "weekly" as const,
