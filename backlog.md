@@ -30,7 +30,7 @@ Production is live. This file tracks repository implementation; account/access w
 - [x] Strengthen the homepage, bilingual service/area hubs, internal proof links, and Esteban entity graph using only approved facts
 - [x] Publish four practical bilingual guide pairs with explicit general-guidance and evidence caveats
 - [x] Use click-to-load YouTube facades on both collection pages while keeping every watch-page iframe rendered and discoverable
-- [ ] Release and measure ESTEBAN-02 Sunny Isles factual-proof correction; PR #64 is open with validate/Vercel reviews green, but Cortex evidence failed and Claude/Antigravity produced no verdict, so merge/deployed SHA remain blocked; production still serves old copy and fresh GSC returned no query/page rows
+- [ ] Measure ESTEBAN-02 Sunny Isles factual-proof correction. Shipped: PR #64 merged 2026-08-06T17:01:01Z as `53153cf`; production serves the corrected copy and Claude verified HTTP/canonical/FAQ-schema/link/event proof at head `b8f2ad8` (200/200 tests, lint/typecheck/build clean). Still open: (a) no independent Antigravity verdict was ever returned — the review file is an unanswered prompt and the PR has zero reviews, so the merge preceded its own declared gate; (b) fresh GSC shows **0 rows** for the route over 2026-07-09..2026-08-05, so the before-value is zero search presence and the retained "position 4" claim is withdrawn; (c) Semrush is walled on API units. Re-measure at T+14 (2026-08-19) and T+45 (2026-09-19)
 
 ## P1 — Product and measurement
 

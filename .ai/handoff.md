@@ -41,11 +41,13 @@
 **GITHUB STATE:**
 - [PR #64](https://github.com/gonzaloeaguilar-bot/esteban-media/pull/64): OPEN at `c21393c` (quality payload just added)
 - CI status: `validate` pass, Vercel pass, Vercel Agent Review pass, Vercel Preview Comments pass; Cortex quality evidence check pending re-run
-- Production target (`/es/video-inmobiliario-sunny-isles`): HTTP 200 but still serves old oceanfront/penthouse copy (cache lag, PR not yet deployed)
+- Production target (`/es/video-inmobiliario-sunny-isles`): **corrected copy is live** as of 2026-08-06. PR #64 merged `2026-08-06T17:01:01Z` as `53153cf30ab90d8c95beeaa785692a803fd8b084`. Verified HTTP 200, self-canonical, `FAQPage` matching visible FAQ, Homeowners/area/contact links, zero `oceanfront|penthouse|vistas de playa|+130%` matches.
 
-**KPI BASELINE (UNVERIFIED, RETAINED):**
-- Semrush position 4 (2026-08-05 observation, not reverified 2026-08-06 due to API unit exhaustion)
-- GSC authenticated token refresh failed 2026-08-06 at transport layer; zero fresh rows
+**KPI BASELINE (VERIFIED 2026-08-06T17:40Z):**
+- GSC is **not** blocked. Token refresh succeeded and Search Analytics returned HTTP 200 on property `https://estebanmorenomedia.com/` (`siteOwner`). The earlier `TypeError: fetch failed` was transient.
+- Fresh 28-day window `2026-07-09`..`2026-08-05`: the target route returns **0 rows** — no impressions, no clicks, no position. The property itself has data (`292` impressions, `2` clicks, avg position `34.7`), so this is a real absence for the page.
+- The "Semrush position 4" observation is **withdrawn** as the baseline; it is unsupported by fresh authenticated data. Treat the before-value as zero recorded search presence.
+- Semrush is a real, tested wall: active subscription, insufficient API units (`https://www.semrush.com/mcp-access`).
 - Scheduled re-check: T+14 (2026-08-19) and T+45 (2026-09-19)
 
 ## Semrush remediation PR — 2026-08-05
@@ -62,9 +64,9 @@ Keep the production site reproducible, governed, private, and ready for the next
 
 - Isolated clone/branch: `.worktrees/esteban02-recovery`, `codex/esteban-02-recovery`, based on retained tracked main `877dce7`. The earlier `/tmp` commit was cleaned up; its provider transcript was used as the retained scope, then the source-of-truth audio note exposed one additional defect: Homeowners has no supplied measurable result.
 - Candidate removes Sunny Isles ocean/penthouse/location proof claims, limits the offer to editing client-supplied footage, explicitly says Homeowners is not Sunny Isles location proof, and replaces the unsupported Homeowners `+130%`/`9:16` result fields with sourced 2021/editing-only facts.
-- Exact-head checks: focused proof/render tests `4/4`, lint `0` errors (`3` pre-existing warnings), typecheck pass, full suite `197/198` with only the pre-existing live Squarespace detector returning `Unknown`. Build is blocked on Google Fonts DNS; local HTTP preview is blocked by `listen EPERM`.
-- Required external gates remain open: Claude spec timed out through the CTO gate; authenticated GSC token refresh failed at transport; no Semrush/Chrome browser is available; GitHub API and production shell DNS are unavailable. The external web cache confirms the live Spanish directory still links the old unsupported Sunny Isles copy, but the target page itself is a cache miss.
-- Do not mark complete or ship from memory. Next: exact-head Antigravity review, Claude verification, GitHub PR/preview, merge/deployed SHA, production HTTP/canonical/FAQ schema/portfolio/contact/event proof, and fresh rank/inquiry data. T+14: 2026-08-19; T+45: 2026-09-19.
+- Exact-head checks, re-run by Claude at final head `b8f2ad89c81e4b743c2fbba4fc4dda69cf4978d4` on 2026-08-06: focused proof/render tests `4/4`, lint `0` errors (`3` pre-existing warnings), typecheck pass, full suite `200/200`, production build pass, preview HTTP 200 with full canonical/FAQ/link proof. The earlier `197/198`, Google Fonts DNS block, and `listen EPERM` preview block were all network artifacts and did not reproduce. `5244f6e..b8f2ad8` touches only `.ai/*` and `.cortex/*`, so source and tests are identical at both heads.
+- One required gate is still genuinely open: **no independent Antigravity verdict exists**. `.ai/esteban-02-antigravity-review.md` is an unanswered dispatch prompt and `gh pr view 64 --json reviews` returns `[]`. The PR merged and deployed ahead of that gate and ahead of Claude verification.
+- Do not mark complete. Remaining: independent Antigravity review of the shipped diff, and fresh after-rank/qualified-inquiry data against the zero baseline. T+14: 2026-08-19; T+45: 2026-09-19.
 
 ## Daily-return surface — 2026-08-03 (PR pending)
 
