@@ -1,5 +1,23 @@
 # Esteban Moreno Media — Engineering Handoff
 
+## Provider delivery ledger — 2026-08-07
+
+- Branch `codex/esteban-campaign-ledger` adds a private append-only Resend
+  acceptance/failure ledger for the morning campaign dispatcher.
+- Recipient addresses are SHA-256 hashed, the ledger is mode `0600` and
+  gitignored, and live execution now verifies the ledger is writable before
+  the first external request.
+- Resend requests carry a stable recipient/day idempotency key so retries do
+  not duplicate the same day's campaign email.
+- The live gate is unchanged: `ESTEBAN_SEND_LIVE=1`, a valid Resend key, and a
+  compliant postal address are all still required. No email was sent here.
+- Verification: focused Vitest `3/3`, typecheck pass, lint 0 errors with the
+  same three pre-existing unused-import warnings.
+- Current external blocker: the configured local Resend credential returns
+  HTTP 401, and no compliant postal address is configured. Replace those two
+  inputs before enabling the live gate; Cortex must count provider-accepted
+  ledger rows, not drafts.
+
 ## ESTEBAN-02 recovery & release — 2026-08-06 15:55 ET
 
 **LIVE SOURCE TASK:** Cortex `ca4e8959-5414-4783-9e7a-5a775894dad4` retained `codex/esteban-02-recovery` (`5244f6e` + commit `c21393c` with quality payload).
