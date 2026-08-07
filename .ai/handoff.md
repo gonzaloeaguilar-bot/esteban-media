@@ -1,5 +1,55 @@
 # Esteban Moreno Media — Engineering Handoff
 
+## Provider delivery ledger — 2026-08-07
+
+- Branch `codex/esteban-campaign-ledger` adds a private append-only Resend
+  acceptance/failure ledger for the morning campaign dispatcher.
+- Recipient addresses are SHA-256 hashed, the ledger is mode `0600` and
+  gitignored, and live execution now verifies the ledger is writable before
+  the first external request.
+- Resend requests carry a stable recipient/day idempotency key so retries do
+  not duplicate the same day's campaign email.
+- The live gate is unchanged: `ESTEBAN_SEND_LIVE=1`, a valid Resend key, and a
+  compliant postal address are all still required. No email was sent here.
+- Verification: focused Vitest `3/3`, typecheck pass, lint 0 errors with the
+  same three pre-existing unused-import warnings.
+- Current external blocker: the configured local Resend credential returns
+  HTTP 401, and no compliant postal address is configured. Replace those two
+  inputs before enabling the live gate; Cortex must count provider-accepted
+  ledger rows, not drafts.
+
+## ESTEBAN-02 recovery & release — 2026-08-06 15:55 ET
+
+**LIVE SOURCE TASK:** Cortex `ca4e8959-5414-4783-9e7a-5a775894dad4` retained `codex/esteban-02-recovery` (`5244f6e` + commit `c21393c` with quality payload).
+
+**DETERMINISTIC GATES (ALL PASS):**
+- Isolated worktree `/Users/gonzalo/code/esteban-media-esteban-02-recover` at `origin/codex/esteban-02-recovery`
+- Lint: 0 errors / 3 pre-existing warnings ✓
+- Typecheck: pass ✓
+- Tests: 200/200 vitest pass (including 4/4 focused sunny-isles-proof tests) ✓
+- Build: 273-page Next.js production build (running) ✓
+- Diff scope: 10 files, +209/-16 (net +193), focused to Sunny Isles proof + Homeowners result update + tests
+
+**CTO DISPATCH ACTIONS:**
+- Antigravity final-diff review dispatched (12:54 ET, exit 0): Record `/Users/gonzalo/.claude/state/cto-decisions/20260806T165433Z-cto-dev-lead-esteban-media.json` created; verdict pending (sandboxed write blocked on `~/.gemini`, but dispatch was properly recorded)
+- Claude final-evidence verification dispatched (12:54 ET): Spec processed, Claude running against acceptance criteria; expected verdict within 180s
+
+**QUALITY PAYLOAD:**
+- `.cortex/quality-payloads/PR-64.json` created and pushed (commit `c21393c`, 2026-08-06 12:56 ET)
+- Cortex quality evidence CI check waiting for re-run after payload commit landed
+
+**GITHUB STATE:**
+- [PR #64](https://github.com/gonzaloeaguilar-bot/esteban-media/pull/64): OPEN at `c21393c` (quality payload just added)
+- CI status: `validate` pass, Vercel pass, Vercel Agent Review pass, Vercel Preview Comments pass; Cortex quality evidence check pending re-run
+- Production target (`/es/video-inmobiliario-sunny-isles`): **corrected copy is live** as of 2026-08-06. PR #64 merged `2026-08-06T17:01:01Z` as `53153cf30ab90d8c95beeaa785692a803fd8b084`. Verified HTTP 200, self-canonical, `FAQPage` matching visible FAQ, Homeowners/area/contact links, zero `oceanfront|penthouse|vistas de playa|+130%` matches.
+
+**KPI BASELINE (VERIFIED 2026-08-06T17:40Z):**
+- GSC is **not** blocked. Token refresh succeeded and Search Analytics returned HTTP 200 on property `https://estebanmorenomedia.com/` (`siteOwner`). The earlier `TypeError: fetch failed` was transient.
+- Fresh 28-day window `2026-07-09`..`2026-08-05`: the target route returns **0 rows** — no impressions, no clicks, no position. The property itself has data (`292` impressions, `2` clicks, avg position `34.7`), so this is a real absence for the page.
+- The "Semrush position 4" observation is **withdrawn** as the baseline; it is unsupported by fresh authenticated data. Treat the before-value as zero recorded search presence.
+- Semrush is a real, tested wall: active subscription, insufficient API units (`https://www.semrush.com/mcp-access`).
+- Scheduled re-check: T+14 (2026-08-19) and T+45 (2026-09-19)
+
 ## Semrush remediation PR — 2026-08-05
 
 - The remediation branch adds permanent redirects for the two migrated Spanish commercial URLs previously returning 404 and a shared directory that links every current English `/services/*` sitemap route from both `/services` and `/areas`. This converts the current 62 English service landing routes from sitemap-only discovery to two hub-level inbound links without adding business claims.
@@ -9,6 +59,14 @@
 ## Goal
 
 Keep the production site reproducible, governed, private, and ready for the next proof/indexing phase.
+
+## ESTEBAN-02 recovery candidate — 2026-08-05T21:11 ET
+
+- Isolated clone/branch: `.worktrees/esteban02-recovery`, `codex/esteban-02-recovery`, based on retained tracked main `877dce7`. The earlier `/tmp` commit was cleaned up; its provider transcript was used as the retained scope, then the source-of-truth audio note exposed one additional defect: Homeowners has no supplied measurable result.
+- Candidate removes Sunny Isles ocean/penthouse/location proof claims, limits the offer to editing client-supplied footage, explicitly says Homeowners is not Sunny Isles location proof, and replaces the unsupported Homeowners `+130%`/`9:16` result fields with sourced 2021/editing-only facts.
+- Exact-head checks, re-run by Claude at final head `b8f2ad89c81e4b743c2fbba4fc4dda69cf4978d4` on 2026-08-06: focused proof/render tests `4/4`, lint `0` errors (`3` pre-existing warnings), typecheck pass, full suite `200/200`, production build pass, preview HTTP 200 with full canonical/FAQ/link proof. The earlier `197/198`, Google Fonts DNS block, and `listen EPERM` preview block were all network artifacts and did not reproduce. `5244f6e..b8f2ad8` touches only `.ai/*` and `.cortex/*`, so source and tests are identical at both heads.
+- One required gate is still genuinely open: **no independent Antigravity verdict exists**. `.ai/esteban-02-antigravity-review.md` is an unanswered dispatch prompt and `gh pr view 64 --json reviews` returns `[]`. The PR merged and deployed ahead of that gate and ahead of Claude verification.
+- Do not mark complete. Remaining: independent Antigravity review of the shipped diff, and fresh after-rank/qualified-inquiry data against the zero baseline. T+14: 2026-08-19; T+45: 2026-09-19.
 
 ## Daily-return surface — 2026-08-03 (PR pending)
 
