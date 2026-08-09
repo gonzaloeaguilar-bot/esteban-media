@@ -81,6 +81,7 @@ const spanishGroups = [
       { href: "/es/servicios", label: "Servicios" },
       { href: "/es/portafolio", label: "Portafolio" },
       { href: "/es/guias", label: "Guías de video" },
+      { href: "/es/prompt-de-publicacion-diaria", label: "Prompt de publicación diaria" },
       { href: "/es/areas", label: "Áreas" },
       { href: "/es/sobre-esteban", label: "Sobre Esteban" },
       { href: "/es/contacto", label: "Contacto" },
