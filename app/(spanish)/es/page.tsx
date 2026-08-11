@@ -110,8 +110,15 @@ export default function SpanishHomePage() {
                 </h2>
                 <p className="mt-3 max-w-2xl text-sm leading-6 text-[#252a2d]">
                   Comparte la meta, el condado, el material disponible, el uso
-                  previsto y links de referencia. No hace falta asumir formatos
-                  ni una forma de trabajo específica.
+                  previsto y links de referencia. Las{" "}
+                  <Link
+                    href="/es/guias"
+                    className="underline underline-offset-4 hover:text-[#9f3c27]"
+                  >
+                    guías prácticas de video
+                  </Link>{" "}
+                  ayudan a definir esos detalles sin asumir formatos ni una
+                  forma de trabajo específica.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
