@@ -44,6 +44,11 @@ describe("getPairedLanguageRoute", () => {
     expect(getPairedLanguageRoute("/es/privacidad")).toBe("/privacy");
   });
 
+  it("pairs daily-publish-prompt with spanish prompt-de-publicacion-diaria", () => {
+    expect(getPairedLanguageRoute("/daily-publish-prompt")).toBe("/es/prompt-de-publicacion-diaria");
+    expect(getPairedLanguageRoute("/es/prompt-de-publicacion-diaria")).toBe("/daily-publish-prompt");
+  });
+
   it("falls back to the other-language home for unpaired routes", () => {
     expect(getPairedLanguageRoute("/unknown")).toBe("/es");
     expect(getPairedLanguageRoute("/es/sin-pareja")).toBe("/");
