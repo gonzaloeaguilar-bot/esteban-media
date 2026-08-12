@@ -17,6 +17,8 @@ const pairedLanguageRoutes: Record<string, string> = {
     "/es/guias/video-vertical-horizontal-y-zonas-seguras",
   "/guides/remote-video-editing-handoff":
     "/es/guias/entrega-para-edicion-remota-de-video",
+  "/daily-publish-prompt": "/es/prompt-de-publicacion-diaria",
+  "/daily-hook-planner": "/es/planificador-de-ganchos-de-video",
 };
 
 for (const [englishPath, spanishPath] of Object.entries({

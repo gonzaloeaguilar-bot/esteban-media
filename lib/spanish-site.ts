@@ -14,6 +14,8 @@ import {
   WandSparkles,
 } from "lucide-react";
 
+import { absoluteUrl, site } from "@/lib/site";
+
 export const spanishSite = {
   title: "Edición de Video en Fort Lauderdale",
   description:
@@ -2669,53 +2671,88 @@ export function getSpanishNichePage(slug: string) {
   return spanishNichePages.find((page) => page.slug === slug);
 }
 
+/**
+ * Builds the JSON-LD `@graph` for a Spanish niche landing page.
+ *
+ * The graph mirrors the page's already-visible content only: the primary
+ * entity (a `Service` for confirmed pages, or a transparent `WebPage`
+ * resource for legacy pending-confirmation routes), a `BreadcrumbList`, and a
+ * `FAQPage` whose questions/answers are rendered verbatim on the page. No
+ * claim is added here that is not already published in the page copy.
+ */
 export function buildSpanishNicheStructuredData(page: SpanishNichePage) {
-  const origin = "https://estebanmorenomedia.com";
   const path = `/es/${page.slug}`;
-  const absolute = (suffix: string) => `${origin}${suffix}`;
-  const primary = page.availability === "pending-confirmation"
+  const isPendingConfirmation = page.availability === "pending-confirmation";
+
+  const pageEntityJsonLd = isPendingConfirmation
     ? {
         "@type": "WebPage",
-        "@id": absolute(`${path}#resource`),
+        "@id": absoluteUrl(`${path}#resource`),
         name: page.title,
         description: page.description,
-        url: absolute(path),
+        url: absoluteUrl(path),
         inLanguage: "es-US",
         about: page.keyword,
-        isPartOf: { "@id": absolute("/#website") },
+        isPartOf: { "@id": absoluteUrl("/#website") },
       }
     : {
         "@type": "Service",
-        "@id": absolute(`${path}#service`),
+        "@id": absoluteUrl(`${path}#service`),
         name: page.title,
         description: page.description,
+        provider: {
+          "@type": "LocalBusiness",
+          "@id": absoluteUrl("/#business"),
+          name: site.name,
+          url: absoluteUrl("/"),
+          email: site.email,
+          telephone: site.phone.e164,
+        },
         areaServed: page.location,
         availableLanguage: ["Spanish", "English"],
         serviceType: page.keyword,
-        provider: { "@id": absolute("/#business") },
       };
 
   return {
     "@context": "https://schema.org",
     "@graph": [
-      primary,
+      pageEntityJsonLd,
       {
         "@type": "BreadcrumbList",
-        "@id": absolute(`${path}#breadcrumbs`),
+        "@id": absoluteUrl(`${path}#breadcrumbs`),
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Inicio", item: absolute("/es") },
-          { "@type": "ListItem", position: 2, name: "Servicios", item: absolute("/es/servicios") },
-          { "@type": "ListItem", position: 3, name: page.title, item: absolute(path) },
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Inicio",
+            item: absoluteUrl("/es"),
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Servicios",
+            item: absoluteUrl("/es/servicios"),
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: page.title,
+            item: absoluteUrl(path),
+          },
         ],
       },
       {
         "@type": "FAQPage",
-        "@id": absolute(`${path}#faq`),
+        "@id": absoluteUrl(`${path}#faq`),
         inLanguage: "es-US",
+        isPartOf: { "@id": absoluteUrl("/#website") },
         mainEntity: page.faqs.map((faq) => ({
           "@type": "Question",
           name: faq.question,
-          acceptedAnswer: { "@type": "Answer", text: faq.answer },
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
         })),
       },
     ],

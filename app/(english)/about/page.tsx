@@ -64,9 +64,16 @@ export default function AboutPage() {
               </p>
               <p className="mt-4 max-w-2xl leading-7 text-[#252a2d]">
                 His public portfolio connects each selected project to its
-                available credits and original video source. His service is
-                Spanish-first, with intermediate English communication available
-                for project work.
+                available credits and original video source. His Spanish{" "}
+                <Link
+                  href="/es/guias"
+                  className="underline underline-offset-4 hover:text-[#9f3c27]"
+                >
+                  practical video guides
+                </Link>{" "}
+                cover project preparation, while his service is Spanish-first,
+                with intermediate English communication available for project
+                work.
               </p>
               <div className="mt-8 grid gap-3">
                 {principles.map((principle) => (
