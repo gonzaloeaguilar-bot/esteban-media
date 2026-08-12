@@ -138,7 +138,8 @@ describe("customer-facing ranking pages", () => {
     expect(niche).toContain("/es/areas#miami-dade");
     expect(niche).toContain("/es/areas#fort-lauderdale");
     expect(niche).toContain("/es/guias");
-    expect(niche).toContain("BreadcrumbList");
+    expect(niche).toContain("buildSpanishNicheStructuredData");
+    expect(source("lib/spanish-site.ts")).toContain("BreadcrumbList");
   });
 
   it("names the same public founder on both localized About pages", () => {

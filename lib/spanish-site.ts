@@ -2668,3 +2668,56 @@ export const spanishOpportunitySignals = [
 export function getSpanishNichePage(slug: string) {
   return spanishNichePages.find((page) => page.slug === slug);
 }
+
+export function buildSpanishNicheStructuredData(page: SpanishNichePage) {
+  const origin = "https://estebanmorenomedia.com";
+  const path = `/es/${page.slug}`;
+  const absolute = (suffix: string) => `${origin}${suffix}`;
+  const primary = page.availability === "pending-confirmation"
+    ? {
+        "@type": "WebPage",
+        "@id": absolute(`${path}#resource`),
+        name: page.title,
+        description: page.description,
+        url: absolute(path),
+        inLanguage: "es-US",
+        about: page.keyword,
+        isPartOf: { "@id": absolute("/#website") },
+      }
+    : {
+        "@type": "Service",
+        "@id": absolute(`${path}#service`),
+        name: page.title,
+        description: page.description,
+        areaServed: page.location,
+        availableLanguage: ["Spanish", "English"],
+        serviceType: page.keyword,
+        provider: { "@id": absolute("/#business") },
+      };
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      primary,
+      {
+        "@type": "BreadcrumbList",
+        "@id": absolute(`${path}#breadcrumbs`),
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Inicio", item: absolute("/es") },
+          { "@type": "ListItem", position: 2, name: "Servicios", item: absolute("/es/servicios") },
+          { "@type": "ListItem", position: 3, name: page.title, item: absolute(path) },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        "@id": absolute(`${path}#faq`),
+        inLanguage: "es-US",
+        mainEntity: page.faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: { "@type": "Answer", text: faq.answer },
+        })),
+      },
+    ],
+  };
+}

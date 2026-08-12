@@ -141,7 +141,7 @@ describe("bilingual practical guides", () => {
     );
   });
 
-  it("adds visible-page-aligned breadcrumb data without FAQ schema", () => {
+  it("adds visible-page-aligned breadcrumb data and FAQ schema only where visible", () => {
     for (const guide of [...getGuides("en"), ...getGuides("es")]) {
       const structuredData = buildGuideStructuredData(guide);
       const graph = structuredData["@graph"];
@@ -163,7 +163,9 @@ describe("bilingual practical guides", () => {
         name: guide.title,
         item: `https://estebanmorenomedia.com${getGuidePath(guide)}`,
       });
-      expect(JSON.stringify(structuredData)).not.toContain("FAQPage");
+      expect(JSON.stringify(structuredData).includes("FAQPage")).toBe(
+        Boolean(guide.faqs?.length),
+      );
     }
 
     for (const locale of ["en", "es"] as const) {

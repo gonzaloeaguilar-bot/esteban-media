@@ -27,6 +27,9 @@ Production is live. This file tracks repository implementation; account/access w
 - [ ] Add `ImageObject`/logo schema when approved brand photography and logo files are available
 - [ ] Add English priority-service pages when distinct, verified content is ready
 - [x] Strengthen the homepage, bilingual service/area hubs, internal proof links, and Esteban entity graph using only approved facts
+- [x] Add a bilingual homepage authority hub that connects priority services to three accurately credited portfolio projects
+- [x] Rebuild the corporate-video pricing guide with transparent scope factors, quote inputs, decision criteria, visible FAQ, and matching structured data
+- [x] Freeze the 259-URL sitemap until the current inventory is classified; CI now rejects URL-count growth or duplication
 - [x] Publish four practical bilingual guide pairs with explicit general-guidance and evidence caveats
 - [x] Use click-to-load YouTube facades on both collection pages while keeping every watch-page iframe rendered and discoverable
 - [ ] Release ESTEBAN-03 after the fail-closed 3-LLM/build/preview boundary: factual Pembroke Pines copy, reciprocal hreflang, and attributed brief source are implemented locally; Claude spec, full build, preview, production, and fresh rank evidence remain required
@@ -39,6 +42,7 @@ Production is live. This file tracks repository implementation; account/access w
 - [x] Install and acceptance-test the Sunday health and Search Console digest loop; probes pass and the expected overall `DEGRADED` state tracks Google's processing of the 26 new URLs
 - [x] Define contact and AI-referral measurement; provision GA4 dimensions for `contact_method` and `ai_source`
 - [x] Add route metadata, sitemap, portfolio schema, and data tests
+- [x] Run the live weekly search/index digest on 2026-08-12 and connect qualified-action evidence to the zero-token portfolio GA4 ingest
 
 ## P2 — Portfolio refinement
 

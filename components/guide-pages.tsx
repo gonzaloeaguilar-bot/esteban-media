@@ -39,6 +39,8 @@ const detailCopy = {
     supportTitle: "Connect the preparation to services and real project proof.",
     proofEyebrow: "Related published example",
     proofLinkLabel: "View the project page",
+    faqEyebrow: "Questions before requesting a quote",
+    faqTitle: "Corporate video pricing FAQ",
   },
   es: {
     breadcrumbHome: "Inicio",
@@ -54,6 +56,8 @@ const detailCopy = {
     supportTitle: "Conecta la preparación con servicios y prueba real publicada.",
     proofEyebrow: "Ejemplo publicado relacionado",
     proofLinkLabel: "Ver la página del proyecto",
+    faqEyebrow: "Preguntas antes de pedir cotización",
+    faqTitle: "Preguntas sobre precios de video corporativo",
   },
 } as const;
 
@@ -337,6 +341,21 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
                 ) : null}
               </section>
             ))}
+
+            {guide.faqs?.length ? (
+              <section id="faq" className="scroll-mt-24" aria-labelledby="faq-heading">
+                <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">{copy.faqEyebrow}</p>
+                <h2 id="faq-heading" className="mt-3 font-serif text-4xl leading-tight sm:text-5xl">{copy.faqTitle}</h2>
+                <div className="mt-6 space-y-4">
+                  {guide.faqs.map((faq) => (
+                    <details key={faq.question} className="rounded-xl border border-[#ddd4c8] bg-[#fbf6ef] p-5">
+                      <summary className="cursor-pointer font-medium text-[#101214]">{faq.question}</summary>
+                      <p className="mt-3 leading-7 text-[#3f4548]">{faq.answer}</p>
+                    </details>
+                  ))}
+                </div>
+              </section>
+            ) : null}
 
             {/* INTERACTIVE LEAD MAGNET EMBEDS BASED ON GUIDE SUBJECT */}
             {guide.id === "remote-editing-handoff" && (

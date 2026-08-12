@@ -156,3 +156,11 @@ The bullets below preserve earlier 2026-07-19 acceptance evidence. Their 20-URL,
 1. Finish the hidden-address service-area Google Business Profile only after Esteban confirms the official category.
 2. Turn the strongest published projects into dedicated case studies only when Esteban confirms deliverables, roles, locations, and outcomes.
 3. Add reviews, citations, and local links only as legitimate evidence becomes available.
+## Organic recovery implementation — 2026-08-12
+
+- Isolated branch `codex/organic-compounding-20260812` expands both localized homepages into an entity/service/proof hub using three published, credited projects: Homeowners, Healthy Smile, and Bar Door Monkey.
+- Rebuilt the bilingual corporate-video pricing guide around project scope, decision criteria, quote inputs, explicit exclusions, published proof, visible FAQ, and matching FAQ schema. Removed the unsupported “save up to 40%” claim.
+- Added an explicit 259-URL inventory freeze with a test that fails on sitemap growth or duplication. The existing fixed Search Console watch set remains unchanged.
+- Restored the shared Spanish niche structured-data builder and wired visible FAQs to matching FAQ schema.
+- Validation: lint has zero errors and three pre-existing unused-import warnings; typecheck passed; 34 files / 205 tests passed; 273-page production build passed.
+- Live weekly digest was run after correcting a duplicate H1 in the hot note: homepage, sitemap, robots, and analytics probes pass; 2 finalized clicks / 406 impressions / 35.7882 average position; 194/259 PASS, 65 neutral, zero fail. Overall status is `DEGRADED` because search performance remains below target, not because production probes failed.

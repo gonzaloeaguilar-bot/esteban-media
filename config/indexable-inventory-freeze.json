@@ -1,0 +1,17 @@
+{
+  "status": "frozen",
+  "effectiveDate": "2026-08-12",
+  "approvedSitemapUrlCount": 259,
+  "approvedSitemapUrlSetSha256": "d250f86d7837813bfacbd84af768fecb9aff4e4919f4ae4f27535474cee0fcc7",
+  "allowedNewIndexableUrls": 0,
+  "reason": "Classify and consolidate the current low/no-impression inventory before expanding the sitemap.",
+  "exceptions": [
+    "A redirect or canonical consolidation that does not increase the sitemap URL count",
+    "A replacement URL approved in the same change as removal of an existing indexable URL"
+  ],
+  "unfreezeRequires": [
+    "Every current sitemap URL classified as keep, improve, merge, redirect, or remove",
+    "No unexplained sitemap drift in the fixed Search Console watch set",
+    "A written demand-and-conversion hypothesis plus owner for each proposed URL"
+  ]
+}

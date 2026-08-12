@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Mail, Phone, Send } from "lucide-react";
 
 import { HeroVideo } from "@/components/hero-video";
+import { HomeAuthorityHub } from "@/components/home-authority-hub";
 import { PortfolioTeaser } from "@/components/portfolio-teaser";
 import { Container } from "@/components/ui/container";
 import {
@@ -23,6 +24,7 @@ export default function SpanishHomePage() {
   return (
     <main className="bg-[#f6f1ea] text-[#101214]">
       <HeroVideo locale="es" />
+      <HomeAuthorityHub locale="es" />
 
       <PortfolioTeaser locale="es" />
 
