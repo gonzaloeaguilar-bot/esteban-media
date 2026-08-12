@@ -10,7 +10,7 @@ import {
   spanishServices,
 } from "@/lib/spanish-site";
 import { buildPageMetadata } from "@/lib/site-metadata";
-import { absoluteUrl, site } from "@/lib/site";
+import { site } from "@/lib/site";
 
 type NicheLinkContext = {
   areaHref: string;

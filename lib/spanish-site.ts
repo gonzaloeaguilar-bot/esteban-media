@@ -2758,4 +2758,3 @@ export function buildSpanishNicheStructuredData(page: SpanishNichePage) {
     ],
   };
 }
-

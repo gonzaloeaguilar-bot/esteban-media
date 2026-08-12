@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { AboutTeaser } from "@/components/about-teaser";
 import { ContactCta } from "@/components/contact-cta";
 import { HeroVideo } from "@/components/hero-video";
+import { HomeAuthorityHub } from "@/components/home-authority-hub";
 import { PortfolioTeaser } from "@/components/portfolio-teaser";
 import { ServicesStrip } from "@/components/services-strip";
 
@@ -19,6 +20,7 @@ export default function Home() {
   return (
     <main className="bg-[#f6f1ea] text-[#101214]">
       <HeroVideo />
+      <HomeAuthorityHub />
       <ServicesStrip />
       <PortfolioTeaser locale="en" />
       <AboutTeaser />

@@ -63,6 +63,7 @@ type GuideCopy = {
   answer: string;
   proof: GuideProofLink;
   sections: readonly GuideSection[];
+  faqs?: readonly { question: string; answer: string }[];
 };
 
 type GuidePair = {
@@ -1190,26 +1191,70 @@ const guidePairs: readonly GuidePair[] = [
         "Understand pricing drivers, scope factors, and budget considerations for corporate video editing and production in South Florida.",
       eyebrow: "Video Pricing Guide",
       answer:
-        "Corporate video costs depend on filming scope, number of cameras, script preparation, and remote editing requirements.",
+        "There is no responsible one-price answer before the scope is defined. A useful quote separates pre-production, capture, post-production, deliverables, review terms, and usage so you can compare like with like.",
       proof: {
-        href: "/portfolio/my-dler",
-        title: "My D'ler",
+        href: "/portfolio/healthy-smile",
+        title: "Healthy Smile Miami",
         description:
-          "Approved portfolio credits include corporate visual brand post-production. Linked as a published example; nothing published confirms identical pricing across all projects.",
+          "The published project credits Esteban with on-location video, sound, editing, and delivery for a Miami dental clinic on assignment with 300 Bees. Nothing published confirms an identical price, process, or crew for another project.",
       },
       sections: [
         {
-          heading: "Key factors driving corporate video pricing",
+          heading: "Start with the business job, not a package name",
           paragraphs: [
-            "Video budgets are determined by total shoot hours, location permits, editing complexity, and audio mastering needs.",
+            "A recruiting film, customer story, service explainer, event recap, and batch of short social edits solve different problems. Define the audience, desired action, distribution channels, and useful shelf life before discussing cameras or edit length.",
+            "Esteban Moreno Media does not publish a universal fixed package for corporate video. The written quote should define the project-specific scope, deliverables, timing, review terms, and responsibilities.",
+          ],
+          bullets: [
+            "Who needs to watch, and what should they understand or do next?",
+            "Where will the video live: website, sales deck, YouTube, paid media, or social?",
+            "Is this one flagship asset, a reusable content library, or both?",
           ],
         },
         {
-          heading: "Cost savings with remote editing of corporate footage",
+          heading: "The scope factors that change a quote",
           paragraphs: [
-            "Clients who capture internal footage or hire local camera operators can save up to 40% by outsourcing post-production to a dedicated video editor.",
+            "The largest differences usually come from what must happen before the edit begins and how many finished versions the project needs. A quote is easier to evaluate when every assumption is written down.",
+          ],
+          bullets: [
+            "Pre-production: brief, concept, script, interview prompts, schedule, and location planning.",
+            "Capture: shoot time, locations, camera and audio needs, talent, travel, and any permits supplied by the client or production team.",
+            "Post-production: footage volume, story edit, sound cleanup, color work, graphics, captions, licensed assets, and review rounds.",
+            "Delivery: master length, cutdowns, aspect ratios, languages, file formats, deadlines, and usage requirements.",
           ],
         },
+        {
+          heading: "Choose the production path that matches what you already have",
+          paragraphs: [
+            "If your team already has usable footage, remote editing may be the cleanest scope. If the message depends on interviews, controlled sound, or consistent visual coverage, on-location production may be appropriate. A hybrid scope can combine a focused shoot with multiple edits for different channels.",
+            "The right choice depends on the footage and business goal—not on a generic promise that one workflow is always cheaper or faster.",
+          ],
+        },
+        {
+          heading: "Send these facts to receive a comparable quote",
+          paragraphs: [
+            "A short, concrete brief reduces assumptions and makes competing estimates easier to compare. Include what is known and label what still needs recommendation.",
+          ],
+          bullets: [
+            "Business goal, audience, intended call to action, and target channels.",
+            "Existing footage or assets, filming location, people on camera, and preferred dates.",
+            "Requested master video, cutdowns, captions, language versions, and file formats.",
+            "Reference links, approval owner, deadline, and any must-use brand or legal language.",
+          ],
+        },
+        {
+          heading: "Compare quotes by exclusions and proof",
+          paragraphs: [
+            "Check whether each proposal includes pre-production, capture, editing, audio, graphics, captions, revisions, travel, licensed assets, and final versions. Ask what triggers a change order and who owns each input.",
+            "Then review published work whose credited scope resembles yours. A portfolio page can prove the kind of work performed; it cannot prove an unpublished price, result, or identical process for your project.",
+          ],
+        },
+      ],
+      faqs: [
+        { question: "Does Esteban Moreno Media publish fixed corporate video packages?", answer: "No universal package is published. Scope, deliverables, timing, review terms, and responsibilities are defined for each project in the quote." },
+        { question: "Can I hire Esteban only to edit footage my team recorded?", answer: "Remote editing can be scoped when you already have usable footage. Share the original files, goal, references, required versions, and deadline so the material can be assessed." },
+        { question: "What makes a corporate video quote increase?", answer: "Additional locations or capture needs, larger footage volumes, complex story or graphics work, multiple languages or formats, licensed assets, tight timing, and more review cycles can all change scope." },
+        { question: "What should I send before asking for a quote?", answer: "Send the business goal, audience, channels, existing assets, location, desired deliverables, references, approval owner, and target date. Unknowns can be marked for recommendation." },
       ],
     },
     es: {
@@ -1220,26 +1265,38 @@ const guidePairs: readonly GuidePair[] = [
         "Guía de costos, presupuestos y factores de alcance para la producción y edición de video corporativo en Miami.",
       eyebrow: "Guía de Precios",
       answer:
-        "El costo de un video corporativo varía según los días de rodaje, cantidad de cámaras, guion y horas de edición de postproducción.",
+        "No existe una respuesta responsable de precio único antes de definir el alcance. Una cotización útil separa preproducción, grabación, postproducción, entregables, revisiones y uso.",
       proof: {
-        href: "/es/portafolio/my-dler",
-        title: "My D'ler",
+        href: "/es/portafolio/healthy-smile",
+        title: "Healthy Smile Miami",
         description:
-          "Los créditos aprobados del portafolio incluyen postproducción de marca corporativa. Se enlaza como ejemplo publicado; nada publicado confirma precios idénticos para todo proyecto.",
+          "El proyecto publicado acredita a Esteban por video y sonido en locación, edición y entrega para un consultorio dental de Miami por encargo de 300 Bees. Nada publicado confirma un precio, proceso o equipo idéntico para otro proyecto.",
       },
       sections: [
         {
-          heading: "Factores principales que determinan el costo",
+          heading: "Empieza por la tarea de negocio, no por el nombre de un paquete",
           paragraphs: [
-            "El presupuesto se ajusta según la duración del video final, complejidad de animación de títulos y requisitos de locación.",
+            "Un video de reclutamiento, testimonio, explicación de servicio, resumen de evento y lote de piezas sociales resuelven problemas distintos. Define audiencia, acción deseada, canales y vida útil antes de hablar de cámaras o duración.",
+            "Esteban Moreno Media no publica un paquete fijo universal. La cotización escrita debe definir alcance, entregables, plazos, revisiones y responsabilidades para ese proyecto.",
           ],
+          bullets: ["Quién verá el video y qué debe entender o hacer.", "Dónde se publicará: web, ventas, YouTube, pauta o redes.", "Si necesitas una pieza principal, una biblioteca reutilizable o ambas."],
         },
         {
-          heading: "Ahorro al separar grabación y edición remota",
+          heading: "Factores de alcance que cambian una cotización",
           paragraphs: [
-            "Organizar la grabación interna y contratar únicamente la edición remota permite optimizar los recursos corporativos.",
+            "Las diferencias principales suelen venir de lo que debe ocurrir antes de editar y de cuántas versiones finales necesita el proyecto. Cada supuesto debe quedar por escrito.",
           ],
+          bullets: ["Preproducción: brief, concepto, guion, preguntas, agenda y locación.", "Grabación: tiempo, locaciones, cámara, sonido, talento, traslados y permisos.", "Postproducción: volumen de material, narrativa, audio, color, gráficos, subtítulos, licencias y revisiones.", "Entrega: duración, recortes, formatos, idiomas, archivos, fechas y uso."],
         },
+        { heading: "Elige la ruta según el material que ya tienes", paragraphs: ["Si tu equipo ya tiene material usable, la edición remota puede ser el alcance más claro. Si el mensaje depende de entrevistas, sonido controlado o cobertura visual consistente, puede convenir producción en locación. Un alcance híbrido combina una grabación enfocada con varias ediciones.", "La elección depende del material y la meta; no de una promesa genérica de que un flujo siempre será más barato o rápido."] },
+        { heading: "Envía estos datos para recibir una cotización comparable", paragraphs: ["Un brief corto y concreto reduce supuestos. Incluye lo conocido y marca lo que todavía necesita recomendación."], bullets: ["Meta, audiencia, llamada a la acción y canales.", "Material existente, locación, personas en cámara y fechas preferidas.", "Video principal, recortes, subtítulos, idiomas y formatos.", "Referencias, responsable de aprobación, fecha objetivo y lenguaje obligatorio."] },
+        { heading: "Compara exclusiones y prueba publicada", paragraphs: ["Revisa si cada propuesta incluye preproducción, grabación, edición, audio, gráficos, subtítulos, revisiones, traslados, licencias y versiones finales. Pregunta qué genera un cambio de alcance.", "Después revisa trabajos publicados con créditos similares. Un portafolio prueba el trabajo realizado; no prueba un precio, resultado o proceso no publicado para tu proyecto."] },
+      ],
+      faqs: [
+        { question: "¿Esteban Moreno Media publica paquetes fijos de video corporativo?", answer: "No hay un paquete universal publicado. El alcance, los entregables, los plazos, las revisiones y las responsabilidades se definen en cada cotización." },
+        { question: "¿Puedo contratar solamente la edición del material de mi equipo?", answer: "La edición remota puede cotizarse si ya existe material usable. Comparte archivos originales, meta, referencias, versiones necesarias y fecha objetivo." },
+        { question: "¿Qué puede aumentar el alcance de una cotización?", answer: "Más locaciones o necesidades de grabación, mayor volumen de material, narrativa o gráficos complejos, varios idiomas o formatos, licencias, plazos ajustados y más ciclos de revisión." },
+        { question: "¿Qué debo enviar para pedir una cotización?", answer: "Envía meta, audiencia, canales, activos existentes, locación, entregables, referencias, responsable de aprobación y fecha objetivo. Marca los datos todavía desconocidos." },
       ],
     },
   },
@@ -2849,6 +2906,17 @@ export function buildGuideStructuredData(guide: Guide) {
         { name: copy.breadcrumbCurrent, path: copy.path },
         { name: guide.title, path },
       ]),
+      ...(guide.faqs?.length
+        ? [{
+            "@type": "FAQPage",
+            "@id": `${pageUrl}#faq`,
+            mainEntity: guide.faqs.map((faq) => ({
+              "@type": "Question",
+              name: faq.question,
+              acceptedAnswer: { "@type": "Answer", text: faq.answer },
+            })),
+          }]
+        : []),
     ],
   };
 }
