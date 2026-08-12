@@ -8,6 +8,7 @@
     "components/site-footer-client.tsx",
     "lib/language-routes.ts",
     "lib/lead-responder.ts",
+    ".ai/handoff.md",
     ".cortex/quality-payloads/PR-72.json"
   ],
   "debt_delta": "neutral",

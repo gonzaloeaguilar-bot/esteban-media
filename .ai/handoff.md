@@ -1,5 +1,14 @@
 # Esteban Moreno Media — Engineering Handoff
 
+## Daily Video Hook & Planning Surface — 2026-08-12 (PR #72 open)
+
+- Added `/daily-hook-planner` (English) and `/es/planificador-de-ganchos-de-video` (Spanish) as an interactive DAU engine surface.
+- Features date-rotated video hook frameworks, random hook switcher, 3-step action checklist, and on-device `localStorage` streak tracking (`esteban-media-daily-hook-planner` and `-es`).
+- Connected lightweight email capture block to `/api/lead` path with `source: "daily-hook-planner"`.
+- Additive navigation links added to footer menus (`site-footer-client.tsx`) and paired language routes mapped (`language-routes.ts`).
+- Verification: `pnpm check` green (207/207 vitest tests passed, typescript clean, eslint clean, 276 static pages built).
+- PR #72 open and review-gated for editorial approval.
+
 ## Provider delivery ledger — 2026-08-07
 
 - Branch `codex/esteban-campaign-ledger` adds a private append-only Resend
