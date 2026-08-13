@@ -39,6 +39,14 @@ const englishGroups = [
     ],
   },
   {
+    title: "Plan a project",
+    items: [
+      { href: "/calculator", label: "Budget calculator" },
+      { href: "/assessment", label: "Video strategy diagnostic" },
+      { href: "/resources/social-video-kit", label: "Script & safe-zone kit" },
+    ],
+  },
+  {
     title: "Site",
     items: [
       { href: "/", label: "Home" },
@@ -73,6 +81,14 @@ const spanishGroups = [
       { href: "/es/areas#broward-county", label: "Broward County" },
       { href: "/es/areas#miami-dade", label: "Miami-Dade" },
       { href: "/es/areas/palm-beach-county", label: "Palm Beach County" },
+    ],
+  },
+  {
+    title: "Planea tu proyecto",
+    items: [
+      { href: "/es/calculadora", label: "Calculadora de presupuesto" },
+      { href: "/es/evaluacion", label: "Diagnóstico de estrategia" },
+      { href: "/es/recursos/kit-video-social", label: "Kit de guiones y zonas seguras" },
     ],
   },
   {
