@@ -2549,6 +2549,24 @@ export const languageAlternates: Record<string, Record<string, string>> = {
     "es-US": "/es/evaluacion",
     "x-default": "/assessment",
   },
+  // Spanish-side entries must mirror their English counterparts exactly.
+  // hreflang is only honoured when both documents point at each other; a
+  // one-directional declaration is discarded by Google.
+  "/es/calculadora": {
+    "en-US": "/calculator",
+    "es-US": "/es/calculadora",
+    "x-default": "/calculator",
+  },
+  "/es/recursos/kit-video-social": {
+    "en-US": "/resources/social-video-kit",
+    "es-US": "/es/recursos/kit-video-social",
+    "x-default": "/resources/social-video-kit",
+  },
+  "/es/evaluacion": {
+    "en-US": "/assessment",
+    "es-US": "/es/evaluacion",
+    "x-default": "/assessment",
+  },
   "/services": {
     "en-US": "/services",
     "es-US": "/es/servicios",
