@@ -16,20 +16,17 @@ import sitemap from "../sitemap";
 describe("portfolio sitemap entries", () => {
   const entries = sitemap();
 
-  it("publishes the exact 249-URL release inventory with the release date", () => {
+  it("publishes the exact 259-URL release inventory, each URL once", () => {
     const urls = entries.map((entry) => entry.url);
 
     expect(entries).toHaveLength(259);
     expect(new Set(urls)).toHaveLength(259);
-    expect(
-      entries.every(
-        (entry) =>
-          entry.lastModified &&
-          new Date(entry.lastModified).toISOString() ===
-            "2026-07-19T00:00:00.000Z",
-      ),
-    ).toBe(true);
   });
+
+  // This used to assert every entry carried lastModified 2026-07-19. That
+  // pinned a single hardcoded date across all 259 URLs, which stopped being
+  // true the moment anything shipped. lastmod truthfulness is now asserted in
+  // sitemap-lastmod-truth.test.ts instead of a bulk date being locked in here.
   const englishUrl = "https://estebanmorenomedia.com/portfolio";
   const spanishUrl = "https://estebanmorenomedia.com/es/portafolio";
 

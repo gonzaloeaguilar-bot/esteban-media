@@ -1,0 +1,61 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-76",
+  "status": "review_pending",
+  "evidence": {
+    "obsidian_context": "client-esteban-media vault, wiki/esteban-media-hot.md — closing the second half of roadmap item 3, 'use truthful lastmod values for Esteban rather than bulk dates', which the earlier sitemap-truth pass did not cover.",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, canonical checkout /Users/gonzalo/code/esteban-media, isolated worktree /Users/gonzalo/code/esteban-lastmod-20260812, branch fix/esteban-sitemap-lastmod-truth-20260812, move class seo_sitemap.",
+    "hard_stops_checked": "Checked and clear: no pricing or offer change, no factual business claim, no secrets or credentials touched, no deployment performed, no third-party service added, no external outreach, no PII. No URL is added or removed — the inventory stays at 259.",
+    "reviewer_ensemble": "builder pass, skeptic pass, taste pass — see the reviewer_ensemble object.",
+    "reviewer_disagreement_reviewed": "The skeptic argued that removing lastmod discards a ranking signal. Resolved on evidence: the emitted value was a single hardcoded 2026-07-19 across all 259 URLs and was already false, since PRs #73, #74 and #75 shipped after it. A demonstrably wrong lastmod is discounted by crawlers; an absent one is read as unknown. No per-item date exists in the content model to substitute.",
+    "winner_rationale": "Omitting is the only currently truthful option. Deriving per-URL dates from git at build time was rejected for now because Vercel checkouts are shallow and the content model has no per-item date field; adding real dates to the content is the correct follow-up, and the new test documents that.",
+    "tests_or_validation": "pnpm check green: lint 0 errors with 3 pre-existing warnings in untouched files, typecheck clean, 215/215 tests across 37 files, production build passed. Live evidence for the defect: the production sitemap returned 259 lastmod values and all 259 were 2026-07-19.",
+    "debt_delta": "neutral",
+    "obsidian_handoff": "esteban-media-hot.md records the bulk-date defect, this fix, and the per-item-date follow-up."
+  },
+  "project_routing": {
+    "canonical_repo": "/Users/gonzalo/code/esteban-media",
+    "worktree": "/Users/gonzalo/code/esteban-lastmod-20260812",
+    "branch": "fix/esteban-sitemap-lastmod-truth-20260812",
+    "move_class": "seo_sitemap"
+  },
+  "hard_stops_checked": {
+    "pricing_or_offers": "not touched",
+    "factual_business_claims": "not added — no user-visible copy changed",
+    "secrets_or_credentials": "not accessed or changed",
+    "deployment": "not performed",
+    "third_party_services_or_backends": "not added",
+    "external_outreach": "not performed",
+    "url_inventory": "unchanged at 259, asserted by the existing sitemap test"
+  },
+  "reviewer_ensemble": {
+    "builder": {
+      "verdict": "pass",
+      "evidence": "Removes one hardcoded constant and its six usages from app/sitemap.ts. Entry count, URL uniqueness, alternates, changeFrequency and priority are untouched and still asserted by the existing suite."
+    },
+    "skeptic": {
+      "verdict": "pass",
+      "evidence": "The defect was confirmed against production, not inferred: all 259 lastmod values in the live sitemap were the identical 2026-07-19. The pre-existing test that asserted that bulk date was updated rather than deleted — its URL-count and uniqueness assertions are retained, and a new test fails if any bulk date is reintroduced."
+    },
+    "taste": {
+      "verdict": "pass",
+      "evidence": "No user-visible change. The code comment states why the field is absent so the next reader does not restore it as an apparent oversight."
+    }
+  },
+  "reviewer_disagreement_reviewed": "The skeptic argued removing lastmod discards a signal. Resolved on evidence: the value was already false and no truthful per-item substitute exists.",
+  "winner_rationale": "Omitting an unsubstantiable field beats asserting a uniform false one; adding real per-item content dates is the tracked follow-up.",
+  "tests_or_validation": {
+    "commands": ["pnpm check"],
+    "results": "lint 0 errors with 3 pre-existing warnings; typecheck clean; 215/215 tests across 37 files; production build passed.",
+    "browser": "Not applicable — sitemap output is asserted directly in unit tests, and the live defect was measured with curl against the production sitemap."
+  },
+  "debt_delta": "Neutral. No dependency, service, route, or inventory change. One hardcoded constant removed.",
+  "obsidian_handoff": "esteban-media-hot.md records the bulk-date defect, this fix, and the per-item-date follow-up.",
+  "claim_hygiene_checked": "Pass. No user-visible copy added or changed.",
+  "data_sources_current": {
+    "production_sitemap": "Fetched live 2026-08-12: 259 lastmod values, all 2026-07-19.",
+    "codebase": "app/sitemap.ts and the existing sitemap test were read in full before changing either."
+  },
+  "booking_or_authority_thesis": "Not applicable directly. Sitemap trust is an input to crawl scheduling, not to bookings; this change removes a false signal rather than adding a claim."
+}
