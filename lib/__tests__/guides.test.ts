@@ -166,6 +166,7 @@ describe("bilingual practical guides", () => {
       expect(JSON.stringify(structuredData).includes("FAQPage")).toBe(
         Boolean(guide.faqs?.length),
       );
+      expect(graph.some((node) => node["@type"] === "Article")).toBe(true);
     }
 
     for (const locale of ["en", "es"] as const) {
@@ -198,5 +199,45 @@ describe("bilingual practical guides", () => {
         ),
       ).toBe(true);
     }
+  });
+
+  it("rebuilds product photography cost guide with real scope, visible FAQ, Article schema, portfolio proof, and conversion paths", () => {
+    const esGuide = getGuides("es").find(
+      (g) => g.slug === "cuanto-cuesta-la-fotografia-de-producto",
+    );
+    expect(esGuide).toBeDefined();
+    if (!esGuide) return;
+
+    // Real scope & variables
+    const prose = JSON.stringify(esGuide.sections);
+    expect(prose).toMatch(/SKUs|productos/i);
+    expect(prose).toMatch(/ángulos/i);
+    expect(prose).toMatch(/catálogo|estilo de vida|lifestyle/i);
+    expect(prose).toMatch(/retoque/i);
+    expect(prose).toMatch(/licencias|uso/i);
+
+    // Visible FAQs & Schema alignment
+    expect(esGuide.faqs?.length).toBeGreaterThanOrEqual(3);
+    const structuredData = buildGuideStructuredData(esGuide);
+    const faqNode = structuredData["@graph"].find(
+      (node) => node["@type"] === "FAQPage",
+    );
+    expect(faqNode).toBeDefined();
+
+    // Portfolio proof accurately credited
+    expect(esGuide.proof.href).toBe("/es/portafolio/my-dler");
+    expect(esGuide.proof.description).toMatch(/nada publicado confirma/i);
+
+    // Conversion path links
+    expect(prose).toContain("/es/calculadora");
+    expect(prose).toContain("/es/contacto");
+
+    // No fixed price asserted for Esteban's services
+    expect(esGuide.answer).toContain("No existe una tarifa única responsable");
+    // Assert the REQUIREMENT, not one phrasing: any cited market figure must be
+    // disclaimed as market context rather than an Esteban Moreno Media price.
+    expect(prose).toMatch(/mercado/i);
+    expect(prose).toMatch(/no (constituyen una oferta|una oferta|es una oferta)/i);
+    expect(prose).toMatch(/Esteban Moreno Media/);
   });
 });
