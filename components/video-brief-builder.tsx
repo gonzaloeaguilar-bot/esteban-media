@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ArrowRight, CheckCircle2, RotateCcw, Send, Sparkles } from "lucide-react";
 import type { LeadSource } from "@/lib/lead-responder";
 import { site } from "@/lib/site";
+import { trackLeadSubmit } from "@/lib/analytics-events";
 
 type Locale = "en" | "es";
 
@@ -73,6 +74,7 @@ export function VideoBriefBuilder({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
+    trackLeadSubmit(source, locale);
 
     fetch("/api/lead", {
       method: "POST",

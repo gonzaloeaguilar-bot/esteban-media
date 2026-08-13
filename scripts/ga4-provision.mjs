@@ -28,6 +28,12 @@ const customDimensions = [
     displayName: "AI referral source",
     description: "Known AI answer or assistant surface that referred the visit.",
   },
+  {
+    parameterName: "lead_source",
+    displayName: "Lead source",
+    description:
+      "Which on-site form produced a lead_submit: budget estimator, strategy assessment, brief builder, script kit, or daily prompt.",
+  },
 ];
 
 function requiredEnv(name, pattern) {

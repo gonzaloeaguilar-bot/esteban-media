@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Copy, Check, Download, FileText, Layout, Sparkles, Send } from "lucide-react";
 import { site } from "@/lib/site";
+import { trackLeadSubmit } from "@/lib/analytics-events";
 
 type Locale = "en" | "es";
 
@@ -135,6 +136,7 @@ export function ScriptAndOverlayKit({ locale = "en" }: ScriptAndOverlayKitProps)
   const handleUnlock = (e: React.FormEvent) => {
     e.preventDefault();
     setUnlocked(true);
+    trackLeadSubmit("script-kit", locale);
 
     fetch("/api/lead", {
       method: "POST",
