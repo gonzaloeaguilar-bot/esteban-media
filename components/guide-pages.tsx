@@ -61,6 +61,53 @@ const detailCopy = {
   },
 } as const;
 
+function renderFormattedText(text: string) {
+  const parts: React.ReactNode[] = [];
+  const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+
+  while ((match = regex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.substring(lastIndex, match.index));
+    }
+    const label = match[1];
+    const href = match[2];
+    const isExternal = href.startsWith("http");
+
+    if (isExternal) {
+      parts.push(
+        <a
+          key={`${href}-${match.index}`}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[#c84a2c]"
+        >
+          {label}
+        </a>,
+      );
+    } else {
+      parts.push(
+        <Link
+          key={`${href}-${match.index}`}
+          href={href}
+          className="font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[#c84a2c]"
+        >
+          {label}
+        </Link>,
+      );
+    }
+    lastIndex = regex.lastIndex;
+  }
+
+  if (lastIndex < text.length) {
+    parts.push(text.substring(lastIndex));
+  }
+
+  return parts.length > 0 ? parts : text;
+}
+
 function StructuredData({ data }: { data: object }) {
   return (
     <script
@@ -323,7 +370,7 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
                 </h2>
                 <div className="mt-6 space-y-4 text-base leading-8 text-[#252a2d] sm:text-lg">
                   {section.paragraphs.map((paragraph) => (
-                    <p key={paragraph}>{paragraph}</p>
+                    <p key={paragraph}>{renderFormattedText(paragraph)}</p>
                   ))}
                 </div>
                 {section.bullets ? (
@@ -334,7 +381,7 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
                           className="mt-1 size-4 shrink-0 text-[#1a7f82]"
                           aria-hidden="true"
                         />
-                        <span>{item}</span>
+                        <span>{renderFormattedText(item)}</span>
                       </li>
                     ))}
                   </ul>
@@ -350,7 +397,7 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
                   {guide.faqs.map((faq) => (
                     <details key={faq.question} className="rounded-xl border border-[#ddd4c8] bg-[#fbf6ef] p-5">
                       <summary className="cursor-pointer font-medium text-[#101214]">{faq.question}</summary>
-                      <p className="mt-3 leading-7 text-[#3f4548]">{faq.answer}</p>
+                      <p className="mt-3 leading-7 text-[#3f4548]">{renderFormattedText(faq.answer)}</p>
                     </details>
                   ))}
                 </div>
