@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ArrowRight, CheckCircle2, Send, Sparkles, Trophy } from "lucide-react";
 import { site } from "@/lib/site";
+import { trackLeadSubmit } from "@/lib/analytics-events";
 
 type Locale = "en" | "es";
 
@@ -68,6 +69,7 @@ export function VideoStrategyAssessment({ locale = "en" }: VideoStrategyAssessme
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
+    trackLeadSubmit("strategy-assessment", locale);
 
     fetch("/api/lead", {
       method: "POST",

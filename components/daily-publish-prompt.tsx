@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { Check, Mail, RotateCcw } from "lucide-react";
+import { trackLeadSubmit } from "@/lib/analytics-events";
 
 const prompts = [
   "Choose one useful moment from footage already on hand.",
@@ -107,6 +108,9 @@ export function DailyPublishPrompt() {
         }),
       });
       setCaptureStatus(response.ok ? "saved" : "error");
+      // This form is the only one that knows whether the POST succeeded, so it
+      // reports the lead only on success rather than on attempt.
+      if (response.ok) trackLeadSubmit("daily-prompt", "en");
     } catch {
       setCaptureStatus("error");
     }

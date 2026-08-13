@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Calculator, CheckCircle2, DollarSign, Send, Sparkles, Clock, ShieldCheck } from "lucide-react";
 import { site } from "@/lib/site";
+import { trackLeadSubmit } from "@/lib/analytics-events";
 
 type Locale = "en" | "es";
 
@@ -88,6 +89,7 @@ export function VideoBudgetEstimator({ locale = "en" }: VideoBudgetEstimatorProp
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
+    trackLeadSubmit("budget-estimator", locale);
 
     fetch("/api/lead", {
       method: "POST",
