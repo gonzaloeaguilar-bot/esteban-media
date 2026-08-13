@@ -136,21 +136,29 @@ function guideSitemapAlternates(locale: GuideLocale, slug: string) {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const releaseLastModified = new Date("2026-07-19");
+  // No lastModified is emitted on purpose.
+  //
+  // Every URL previously carried the same hardcoded date (2026-07-19), which
+  // asserted that all 259 pages last changed on one day. That was untrue the
+  // moment anything shipped, and a sitemap whose lastmod is demonstrably wrong
+  // is a signal crawlers learn to discount rather than a neutral one.
+  //
+  // The content model has no per-item published/updated field, so there is no
+  // truthful per-URL date to substitute. An absent lastmod means "unknown",
+  // which is honest; a uniform one means "all changed together", which is not.
+  // Restoring it requires adding real per-item dates to the content first.
   const watchLocales: readonly PortfolioWatchLocale[] = ["en", "es"];
   const guideLocales: readonly GuideLocale[] = ["en", "es"];
 
   return [
     ...sitemapRoutes.map((route) => ({
       url: absoluteUrl(route.path),
-      lastModified: releaseLastModified,
       changeFrequency: "weekly" as const,
       priority: route.priority,
       alternates: sitemapAlternates(route.path),
     })),
     ...spanishRoutes.map((path) => ({
       url: absoluteUrl(path),
-      lastModified: releaseLastModified,
       changeFrequency: "weekly" as const,
       priority: path === "/es" ? 0.95 : 0.75,
       alternates: sitemapAlternates(path),
@@ -158,8 +166,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...getPortfolioWatchItems().flatMap((item) =>
       watchLocales.map((locale) => ({
         url: absoluteUrl(getPortfolioWatchPath(item.id, locale)),
-        lastModified: releaseLastModified,
-        changeFrequency: "monthly" as const,
+          changeFrequency: "monthly" as const,
         priority: 0.75,
         alternates: watchSitemapAlternates(item.id),
       })),
@@ -168,8 +175,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       const path = locale === "es" ? "/es/guias" : "/guides";
       return {
         url: absoluteUrl(path),
-        lastModified: releaseLastModified,
-        changeFrequency: "monthly" as const,
+          changeFrequency: "monthly" as const,
         priority: 0.7,
         alternates: {
           languages: {
@@ -183,8 +189,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...guideLocales.flatMap((locale) =>
       getGuides(locale).map((guide) => ({
         url: absoluteUrl(getGuidePath(guide)),
-        lastModified: releaseLastModified,
-        changeFrequency: "monthly" as const,
+          changeFrequency: "monthly" as const,
         priority: 0.65,
         alternates: guideSitemapAlternates(locale, guide.slug),
       })),
