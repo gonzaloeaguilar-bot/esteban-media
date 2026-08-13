@@ -1,0 +1,61 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-81",
+  "status": "review_pending",
+  "evidence": {
+    "obsidian_context": "client-esteban-media vault. Gonzalo reported 2026-08-13 that the site was still showing a Vercel favicon. Confirmed: app/favicon.ico was the Vercel triangle, committed 2026-07-19 and never replaced.",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, canonical checkout /Users/gonzalo/code/esteban-media, isolated worktree /Users/gonzalo/code/esteban-favicon-20260813, branch fix/esteban-favicon-20260813, move class brand_assets.",
+    "hard_stops_checked": "No pricing, no factual business claim, no secrets, no deployment, no third-party service, no outreach, no PII. No URL added — inventory stays 259. No new dependency: the icon was rasterised with the already-installed Chrome and macOS sips.",
+    "reviewer_ensemble": "builder pass, skeptic pass, taste pass — see reviewer_ensemble object.",
+    "reviewer_disagreement_reviewed": "Whether to design a new mark or reuse the existing one. Reusing won: the site header already renders a brand mark, so inventing a different icon would have introduced a second, competing identity.",
+    "winner_rationale": "The favicon now reproduces the mark the header already uses — white serif italic 'e' on a #c84a2c rounded square — so the browser tab matches the site. Shipped as an SVG plus a multi-size ICO and an apple-touch icon via Next file conventions, rather than a single low-resolution ICO.",
+    "tests_or_validation": "pnpm check: lint 0 errors with 3 pre-existing warnings, typecheck clean, 227/227 tests across 39 files, production build passed. Built HTML confirmed to emit all three icon links. The 32px downscale was viewed to confirm the glyph stays legible at tab size.",
+    "debt_delta": "neutral",
+    "obsidian_handoff": "esteban-media-hot.md records that the Vercel default favicon shipped in production for roughly three weeks and what replaced it."
+  },
+  "project_routing": {
+    "canonical_repo": "/Users/gonzalo/code/esteban-media",
+    "worktree": "/Users/gonzalo/code/esteban-favicon-20260813",
+    "branch": "fix/esteban-favicon-20260813",
+    "move_class": "brand_assets"
+  },
+  "hard_stops_checked": {
+    "pricing_or_offers": "not touched",
+    "factual_business_claims": "none added",
+    "secrets_or_credentials": "not accessed or changed",
+    "deployment": "not performed",
+    "third_party_services_or_backends": "not added",
+    "external_outreach": "not performed",
+    "url_inventory": "unchanged at 259"
+  },
+  "reviewer_ensemble": {
+    "builder": {
+      "verdict": "pass",
+      "evidence": "Three files added under app/ using Next.js file conventions: favicon.ico (16/32/48 multi-size), icon.svg, apple-icon.png (180). The built HTML emits rel=icon for both ico and svg plus rel=apple-touch-icon."
+    },
+    "skeptic": {
+      "verdict": "pass",
+      "evidence": "The defect was confirmed by md5, not assumed: the served favicon matched app/favicon.ico exactly, and rendering it showed the Vercel triangle. The replacement was checked at 32px to confirm it does not turn to mush at tab size. No hardcoded icon metadata exists that would override the file conventions."
+    },
+    "taste": {
+      "verdict": "pass",
+      "evidence": "Reproduces the existing header mark exactly rather than introducing a second identity: same colour #c84a2c, same serif italic 'e', same rounded-square silhouette."
+    }
+  },
+  "reviewer_disagreement_reviewed": "New mark vs reuse of the header mark; reuse won to avoid a competing identity.",
+  "winner_rationale": "Match the header mark; ship SVG + multi-size ICO + apple icon rather than one small ICO.",
+  "tests_or_validation": {
+    "commands": ["pnpm check"],
+    "results": "lint 0 errors with 3 pre-existing warnings; typecheck clean; 227/227 tests across 39 files; production build passed; built HTML emits all three icon links.",
+    "browser": "The rendered icon was viewed at 512px and at 32px to confirm brand match and small-size legibility."
+  },
+  "debt_delta": "Neutral. Three static assets, no code path, no dependency.",
+  "obsidian_handoff": "esteban-media-hot.md records the incident and fix.",
+  "claim_hygiene_checked": "Pass. No copy added.",
+  "data_sources_current": {
+    "production": "https://estebanmorenomedia.com/favicon.ico fetched 2026-08-13; md5 c30c7d42707a47a3f4591831641e50dc, identical to the committed app/favicon.ico.",
+    "brand_mark": "components/site-header-client.tsx read directly: rounded square bg-[#c84a2c], font-serif italic, white, letter 'e'."
+  },
+  "booking_or_authority_thesis": "A default-template favicon undercuts the entity signals the site otherwise carries; the tab icon is often the first brand impression in a crowded tab bar. No claim is made about ranking effect."
+}
