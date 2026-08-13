@@ -27,7 +27,7 @@ const serviceProof: Record<
   edicion: {
     href: "/es/portafolio/homeowners",
     label: "Homeowners",
-    detail: "Trabajo publicado de guion y edición de video.",
+    detail: "Trabajo publicado de edición de video.",
   },
   "contenido-ia": {
     href: "/es/portafolio/my-dler",

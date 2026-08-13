@@ -90,8 +90,15 @@ export default function CrowdfundingVideoEditorMiamiPage() {
               <WandSparkles className="size-8 text-[#e85d3e]" aria-hidden="true" />
               <h2 className="mt-5 font-serif text-3xl">Launch video proof</h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                Our portfolio project <strong>Bar Door Monkey Miami</strong> proves published commercial product presentation editing.
+                Our portfolio project <strong>My D&apos;ler</strong> demonstrates published 2D and 3D video pitch graphics, product mockups, and launch materials.
               </p>
+              <Link
+                href="/portfolio/my-dler"
+                className="group mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27]"
+              >
+                Review My D&apos;ler Pitch Video Proof
+                <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+              </Link>
             </div>
           </div>
         </Container>

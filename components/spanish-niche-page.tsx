@@ -53,7 +53,7 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
       {
         href: "/es/portafolio/homeowners",
         title: "Homeowners",
-        detail: "Trabajo publicado de guion y edición de video.",
+        detail: "Trabajo publicado de edición de video.",
       },
     ],
   },
@@ -120,20 +120,20 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
       {
         href: "/es/portafolio/homeowners",
         title: "Homeowners",
-        detail: "Ejemplo publicado de guion y edición de video.",
+        detail: "Ejemplo publicado de edición de video.",
       },
     ],
   },
   "editor-de-video-real-estate-miami": {
     areaHref: "/es/areas#miami-dade",
     areaLabel: "Ver cobertura en Miami-Dade y Broward",
-    note: "El proyecto Homeowners demuestra trabajo publicado de guion y edición para el sector inmobiliario.",
+    note: "El proyecto Homeowners demuestra trabajo publicado de edición de video para el sector inmobiliario.",
     serviceIds: ["edicion", "planificacion-social"],
     projects: [
       {
         href: "/es/portafolio/homeowners",
         title: "Homeowners",
-        detail: "Ejemplo publicado de guion y edición de video para bienes raíces.",
+        detail: "Ejemplo publicado de edición de video para bienes raíces.",
       },
     ],
   },
@@ -185,7 +185,7 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
       {
         href: "/es/portafolio/homeowners",
         title: "Homeowners",
-        detail: "Ejemplo publicado de guion y edición de video.",
+        detail: "Ejemplo publicado de edición de video.",
       },
     ],
   },
@@ -211,7 +211,7 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
       {
         href: "/es/portafolio/homeowners",
         title: "Homeowners",
-        detail: "Ejemplo publicado de estructuración de guion y edición.",
+        detail: "Ejemplo publicado de edición de video.",
       },
     ],
   },
@@ -263,7 +263,7 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
       {
         href: "/es/portafolio/homeowners",
         title: "Homeowners",
-        detail: "Ejemplo publicado de estructuración de guion y edición.",
+        detail: "Ejemplo publicado de edición de video.",
       },
     ],
   },
@@ -348,13 +348,13 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
   "video-para-yates-y-hospitalidad-fort-lauderdale": {
     areaHref: "/es/areas#broward",
     areaLabel: "Ver cobertura en Broward",
-    note: "Contenido promocional para marcas marítimas y hospitalidad.",
+    note: "El proyecto Banacol demuestra cinematografía aérea grabada desde embarcaciones en mar abierto.",
     serviceIds: ["edicion", "videografia"],
     projects: [
       {
-        href: "/es/portafolio/bar-door-monkey",
-        title: "Bar Door Monkey Miami",
-        detail: "Producción de hospitalidad y alimentos.",
+        href: "/es/portafolio/banacol",
+        title: "Banacol",
+        detail: "Cinematografía aérea con dron operado desde embarcaciones en mar abierto.",
       },
     ],
   },
@@ -803,13 +803,13 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
   "edicion-de-video-palm-beach-gardens": {
     areaHref: "/es/areas/palm-beach-county",
     areaLabel: "Ver cobertura en Palm Beach County",
-    note: "Edición sobria para clínicas y servicios ejecutivos.",
+    note: "El proyecto Homeowners demuestra trabajo publicado de edición de video a partir de material suministrado por la agencia.",
     serviceIds: ["edicion"],
     projects: [
       {
-        href: "/es/portafolio/healthy-smile",
-        title: "Healthy Smile",
-        detail: "Video corporativo institucional.",
+        href: "/es/portafolio/homeowners",
+        title: "Homeowners",
+        detail: "Trabajo publicado de edición de video.",
       },
     ],
   },
@@ -881,13 +881,13 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
   "editor-de-video-para-campanas-de-crowdfunding": {
     areaHref: "/es/areas#miami-dade",
     areaLabel: "Ver cobertura en Wynwood",
-    note: "Videos persuasivos de lanzamiento en Kickstarter.",
+    note: "El proyecto My D'ler demuestra piezas visuales de marca, video 3D, animación 2D y mockups para presentaciones de producto.",
     serviceIds: ["edicion", "videografia"],
     projects: [
       {
-        href: "/es/portafolio/bar-door-monkey",
-        title: "Bar Door Monkey Miami",
-        detail: "Presentación comercial persuasiva.",
+        href: "/es/portafolio/my-dler",
+        title: "My D'ler",
+        detail: "Piezas visuales de marca, video 3D, animación 2D y mockups de producto.",
       },
     ],
   },
