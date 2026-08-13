@@ -53,7 +53,7 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
       {
         href: "/es/portafolio/homeowners",
         title: "Homeowners",
-        detail: "Trabajo publicado de guion y edición de video.",
+        detail: "Trabajo publicado de edición de video.",
       },
     ],
   },
@@ -120,20 +120,20 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
       {
         href: "/es/portafolio/homeowners",
         title: "Homeowners",
-        detail: "Ejemplo publicado de guion y edición de video.",
+        detail: "Ejemplo publicado de edición de video.",
       },
     ],
   },
   "editor-de-video-real-estate-miami": {
     areaHref: "/es/areas#miami-dade",
     areaLabel: "Ver cobertura en Miami-Dade y Broward",
-    note: "El proyecto Homeowners demuestra trabajo publicado de guion y edición para el sector inmobiliario.",
+    note: "El proyecto Homeowners demuestra trabajo publicado de edición de video para el sector inmobiliario.",
     serviceIds: ["edicion", "planificacion-social"],
     projects: [
       {
         href: "/es/portafolio/homeowners",
         title: "Homeowners",
-        detail: "Ejemplo publicado de guion y edición de video para bienes raíces.",
+        detail: "Ejemplo publicado de edición de video para bienes raíces.",
       },
     ],
   },
@@ -185,7 +185,7 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
       {
         href: "/es/portafolio/homeowners",
         title: "Homeowners",
-        detail: "Ejemplo publicado de guion y edición de video.",
+        detail: "Ejemplo publicado de edición de video.",
       },
     ],
   },
@@ -211,7 +211,7 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
       {
         href: "/es/portafolio/homeowners",
         title: "Homeowners",
-        detail: "Ejemplo publicado de estructuración de guion y edición.",
+        detail: "Ejemplo publicado de edición de video.",
       },
     ],
   },
@@ -263,7 +263,7 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
       {
         href: "/es/portafolio/homeowners",
         title: "Homeowners",
-        detail: "Ejemplo publicado de estructuración de guion y edición.",
+        detail: "Ejemplo publicado de edición de video.",
       },
     ],
   },
@@ -803,13 +803,13 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
   "edicion-de-video-palm-beach-gardens": {
     areaHref: "/es/areas/palm-beach-county",
     areaLabel: "Ver cobertura en Palm Beach County",
-    note: "El proyecto Homeowners demuestra trabajo publicado de guion y edición de video a partir de material suministrado.",
+    note: "El proyecto Homeowners demuestra trabajo publicado de edición de video a partir de material suministrado por la agencia.",
     serviceIds: ["edicion"],
     projects: [
       {
         href: "/es/portafolio/homeowners",
         title: "Homeowners",
-        detail: "Trabajo publicado de guion y edición de video.",
+        detail: "Trabajo publicado de edición de video.",
       },
     ],
   },
