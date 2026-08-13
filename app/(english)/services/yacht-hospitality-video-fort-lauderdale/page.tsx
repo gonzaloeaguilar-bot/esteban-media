@@ -88,10 +88,17 @@ export default function YachtHospitalityVideoFortLauderdalePage() {
 
             <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
               <Anchor className="size-8 text-[#e85d3e]" aria-hidden="true" />
-              <h2 className="mt-5 font-serif text-3xl">Marine & hospitality</h2>
+              <h2 className="mt-5 font-serif text-3xl">Marine & aerial proof</h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                Fort Lauderdale marine content editing with dynamic pacing, sound design, and color grading.
+                Our portfolio project <strong>Banacol</strong> proves published aerial drone cinematography filmed on assignment from boats at sea.
               </p>
+              <Link
+                href="/portfolio/banacol"
+                className="group mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27]"
+              >
+                Review Banacol Marine & Aerial Drone Proof
+                <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+              </Link>
             </div>
           </div>
         </Container>

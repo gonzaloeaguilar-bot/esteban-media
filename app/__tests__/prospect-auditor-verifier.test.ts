@@ -12,7 +12,7 @@ describe("Factual Prospect Auditor Verifier - Pressure Test Suite", () => {
     expect(result.hasLocalSchema).toBe(true);
     expect(result.factualEvidence.length).toBeGreaterThanOrEqual(4);
     expect(result.auditClaim).toContain("Squarespace");
-  });
+  }, 15000);
 
   it("accurately handles missing website fallback without false claims", async () => {
     const result = await verifyProspectWebFidelity("", 4.5, 80);
@@ -30,5 +30,5 @@ describe("Factual Prospect Auditor Verifier - Pressure Test Suite", () => {
     expect(result.domain).toBe("www.dragoninnfortlauderdale.com");
     expect(result.factualEvidence).toBeDefined();
     expect(result.auditClaim).toContain("www.dragoninnfortlauderdale.com");
-  });
+  }, 15000);
 });

@@ -192,4 +192,38 @@ describe("customer-facing ranking pages", () => {
     expect(publicCopy).toContain("pending-confirmation");
     expect(publicCopy.toLowerCase()).toContain("ruta educativa heredada");
   });
+
+  it("bridges priority service pages to matching published case studies and contact paths in EN and ES", () => {
+    const cosmeticDentistry = source("app/(english)/services/cosmetic-dentistry-video-marketing-miami/page.tsx");
+    const videoEditingPb = source("app/(english)/services/video-editing-palm-beach-gardens/page.tsx");
+    const crowdfunding = source("app/(english)/services/crowdfunding-video-editor-miami/page.tsx");
+    const yachtHospitality = source("app/(english)/services/yacht-hospitality-video-fort-lauderdale/page.tsx");
+    const spanishNiche = source("components/spanish-niche-page.tsx");
+
+    // EN portfolio links
+    expect(cosmeticDentistry).toContain('href="/portfolio/healthy-smile"');
+    expect(cosmeticDentistry).toContain('href="/contact"');
+
+    expect(videoEditingPb).toContain('href="/portfolio/homeowners"');
+    expect(videoEditingPb).toContain('href="/contact"');
+
+    expect(crowdfunding).toContain('href="/portfolio/my-dler"');
+    expect(crowdfunding).toContain('href="/contact"');
+
+    expect(yachtHospitality).toContain('href="/portfolio/banacol"');
+    expect(yachtHospitality).toContain('href="/contact"');
+
+    // ES portfolio links via nicheLinkContext
+    expect(spanishNiche).toContain('"marketing-de-video-para-odontologia-estetica-miami"');
+    expect(spanishNiche).toContain('/es/portafolio/healthy-smile');
+
+    expect(spanishNiche).toContain('"edicion-de-video-palm-beach-gardens"');
+    expect(spanishNiche).toContain('/es/portafolio/homeowners');
+
+    expect(spanishNiche).toContain('"editor-de-video-para-campanas-de-crowdfunding"');
+    expect(spanishNiche).toContain('/es/portafolio/my-dler');
+
+    expect(spanishNiche).toContain('"video-para-yates-y-hospitalidad-fort-lauderdale"');
+    expect(spanishNiche).toContain('/es/portafolio/banacol');
+  });
 });

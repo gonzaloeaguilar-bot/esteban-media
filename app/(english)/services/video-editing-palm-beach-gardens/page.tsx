@@ -90,8 +90,15 @@ export default function VideoEditingPalmBeachGardensPage() {
               <WandSparkles className="size-8 text-[#e85d3e]" aria-hidden="true" />
               <h2 className="mt-5 font-serif text-3xl">Palm Beach Gardens proof</h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                Our portfolio project <strong>Healthy Smile</strong> proves published medical and corporate video editing.
+                Our portfolio project <strong>Homeowners</strong> proves published post-production video editing from agency-supplied raw footage.
               </p>
+              <Link
+                href="/portfolio/homeowners"
+                className="group mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27]"
+              >
+                Review Homeowners Video Editing Proof
+                <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+              </Link>
             </div>
           </div>
         </Container>
