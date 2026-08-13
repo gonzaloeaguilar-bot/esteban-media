@@ -913,7 +913,7 @@ const guidePairs: readonly GuidePair[] = [
           heading: "Industry pricing models and market context",
           paragraphs: [
             "Commercial creators and studios typically use three pricing models: per-image rates, day rates, or complete project package pricing. Standard e-commerce catalog photos are usually billed per photo for larger volumes, while custom lifestyle launches are quoted on a project scope basis.",
-            "As general South Florida market context, basic e-commerce catalog shots typically range from $35 to $150 USD per image depending on volume and retouching, while styled lifestyle productions range from $800 to $2,500 USD per day plus production expenses. These figures provide market context and do not represent a fixed price commitment from Esteban Moreno Media. To request a custom quote, reach out via [contact](/contact).",
+            "As general South Florida market context, simple white-background catalog images are commonly quoted around $25 to $50 USD each, with Miami studios advertising entry rates near $35 per image; styled lifestyle work with props or models is quoted far higher per image, and half-day sessions in Miami commonly run $300 to $1,000 USD plus production expenses. These figures are published market rates for the area, not a price commitment from Esteban Moreno Media, and the ranges move with volume, retouching depth and usage rights. For a figure tied to your actual scope use the [budget estimator](/calculator), and for a written quote reach out via [contact](/contact).",
           ],
         },
         {
@@ -986,7 +986,7 @@ const guidePairs: readonly GuidePair[] = [
           heading: "Modelos de cotización en el mercado y referencia orientativa",
           paragraphs: [
             "En la industria comercial, los creadores y estudios suelen aplicar tres modelos de tarificación: costo por imagen individual, tarifa por jornada de producción (day rate) o presupuesto por paquete de proyecto. Las fotos de catálogo estándar suelen cotizarse por unidad cuando el volumen es alto, mientras que las producciones conceptuales de marca se evalúan por proyecto integral.",
-            "Como contexto general del mercado de South Florida, las fotos simples de catálogo se ubican habitualmente en rangos de $35 a $150 USD por imagen según volumen y retoque, mientras que las producciones de estilo de vida con ambientación o modelos suelen estructurarse en jornadas de $800 a $2,500 USD por día más costos de producción. Estas cifras sirven como referencia del mercado local y no constituyen una oferta fija de Esteban Moreno Media. Para obtener una estimación formal de tu proyecto, contáctanos a través de [contacto](/es/contacto).",
+            "Como contexto general del mercado de South Florida, las fotos simples de catálogo con fondo blanco se cotizan por lo común entre $25 y $50 USD por imagen, y hay estudios de Miami que publican tarifas de entrada cercanas a $35 por imagen; el trabajo de estilo de vida con ambientación o modelos se cotiza bastante más alto por imagen, y las sesiones de medio día en Miami suelen ubicarse entre $300 y $1,000 USD más costos de producción. Son tarifas publicadas del mercado local, no una oferta de Esteban Moreno Media, y los rangos se mueven según volumen, nivel de retoque y derechos de uso. Para una cifra atada a tu alcance real usa la [calculadora de presupuesto](/es/calculadora), y para una cotización escrita escríbenos por [contacto](/es/contacto).",
           ],
         },
         {

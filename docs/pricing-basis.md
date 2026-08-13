@@ -65,3 +65,29 @@ multiplier are unchanged — they describe scope, not market position.
 - [What a Corporate Video Actually Costs in Miami in 2026](https://www.miamilivingmagazine.com/post/what-a-corporate-video-actually-costs-in-miami-in-2026)
 - [Product Photography Pricing 2026: $25–$500/Image & Packages](https://larsmillermedia.com/product-photography-pricing/)
 - [How Much Does a Commercial Photographer Cost in Miami?](https://makphotodesign.com/2026/07/06/how-much-does-a-commercial-photographer-cost-in-miami/)
+
+## Market-context figures cited in the cost guides
+
+`/es/guias/cuanto-cuesta-la-fotografia-de-producto` and its English sibling cite
+**published market rates for South Florida** to explain what drives cost. These
+are explicitly labelled on-page as market context and **not** as an Esteban
+Moreno Media price. They must stay traceable to the sources below.
+
+| Figure cited | Source |
+|---|---|
+| $25–50 per image, simple white-background catalog | Lars Miller Media 2026 product photography pricing |
+| ~$35 per image entry rate, Miami studios | Squareshot Miami ecommerce product photography |
+| Styled lifestyle quoted materially higher per image | Lars Miller Media ($150–500+ per image) |
+| $300–1,000 half-day session, Miami | MAK Photo & Design, commercial photographer cost in Miami |
+
+Corrected 2026-08-13 during verification: the dispatched build originally cited
+"$35–150 per image" for basic catalog work and "$800–2,500 per day" for styled
+lifestyle. Neither traced to a source — $150 is the *floor* of the styled range
+in the cited guide, not the ceiling of basic catalog, and the day-rate figure
+exceeded the published Miami half-day and producer day rates. Replaced with the
+sourced ranges above.
+
+Additional sources:
+- [Product Photography Pricing 2026: $25–$500/Image & Packages](https://larsmillermedia.com/product-photography-pricing/)
+- [Squareshot | Product photography in Miami](https://www.squareshot.com/ecommerce-product-photography-service-miami)
+- [How Much Does a Commercial Photographer Cost in Miami?](https://makphotodesign.com/2026/07/06/how-much-does-a-commercial-photographer-cost-in-miami/)

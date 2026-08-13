@@ -234,6 +234,10 @@ describe("bilingual practical guides", () => {
 
     // No fixed price asserted for Esteban's services
     expect(esGuide.answer).toContain("No existe una tarifa única responsable");
-    expect(prose).toMatch(/referencia del mercado local y no constituyen una oferta fija/i);
+    // Assert the REQUIREMENT, not one phrasing: any cited market figure must be
+    // disclaimed as market context rather than an Esteban Moreno Media price.
+    expect(prose).toMatch(/mercado/i);
+    expect(prose).toMatch(/no (constituyen una oferta|una oferta|es una oferta)/i);
+    expect(prose).toMatch(/Esteban Moreno Media/);
   });
 });
