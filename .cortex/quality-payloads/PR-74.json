@@ -1,77 +1,80 @@
 {
-  "project": "esteban-media",
-  "target_type": "pr",
-  "target_id": "PR-74",
-  "status": "review_pending",
+  "booking_or_authority_thesis": "The six orphaned pages are the site's quote and estimate surfaces. Making them reachable from every page in both locales is a prerequisite for attributing any inquiry to organic navigation; this change does not itself create bookings, commitments, or outreach.",
+  "claim_hygiene_checked": "Pass. The added copy is six navigation labels and two group headings. It contains no pricing, offer, discount, guarantee, testimonial, outcome claim, or invented statistic.",
+  "data_sources_current": {
+    "crawl_depth": "Measured 2026-08-12 against production and against the PR preview deployment with a BFS crawler that resolves relative hrefs against the URL as fetched.",
+    "site_infrastructure": "The six target routes were each fetched live and confirmed to return HTTP 200 with substantive page titles before being linked.",
+    "sitemap": "Fetched live from https://estebanmorenomedia.com/sitemap.xml on 2026-08-12; 259 loc entries."
+  },
+  "debt_delta": "Neutral. No dependency, service, backend, credential, scheduler, or monitoring-inventory change. No new route and no sitemap change.",
   "evidence": {
-    "obsidian_context": "client-esteban-media vault, wiki/esteban-media-hot.md — the 2026-08-12 organic recovery roadmap is being executed; this entry records the orphaned quote/pricing surfaces and the fix.",
-    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, canonical checkout /Users/gonzalo/code/esteban-media, isolated worktree /Users/gonzalo/code/esteban-linkgraph-20260812, branch fix/esteban-conversion-link-graph-20260812, move class internal_links.",
-    "hard_stops_checked": "Checked and clear: no pricing or offer change, no new factual business claim, no secrets or credentials touched, no deployment performed, no third-party service or backend added, no external outreach.",
-    "reviewer_ensemble": "builder pass, skeptic pass, taste pass — see the reviewer_ensemble object for the evidence behind each verdict.",
-    "reviewer_disagreement_reviewed": "One concern was raised and resolved: whether a conversion-oriented footer group reads as promotional. Resolved by keeping labels descriptive and free of pricing, urgency, or outcome language.",
-    "winner_rationale": "The footer is rendered on every page and already carries the site-wide navigation groups in both locales, so linking there repairs reachability for the whole inventory in one place. The header was rejected as too small a primary nav for three more entries per locale.",
-    "tests_or_validation": "pnpm typecheck clean; pnpm lint 0 errors with 3 pre-existing warnings in untouched files; pnpm test 208/208 across 35 files including indexable-inventory-freeze; pnpm build green. Crawl-depth audit on the PR preview returned 259/259 reachable, 0 orphaned, versus 253/259 on production before the change.",
+    "ci_passed": "Not established mechanically by the deterministic generator; no claim is made here. The repository's own CI gates remain the arbiter for this PR.",
     "debt_delta": "neutral",
-    "obsidian_handoff": "esteban-media-hot.md updated with the before/after crawl-depth numbers, the six orphaned URLs, PR #74, and the pending production re-verification."
-  },
-  "obsidian_context": {
-    "vault": "/Users/gonzalo/obsidian-wiki/client-esteban-media",
-    "hot_note": "wiki/esteban-media-hot.md",
-    "summary": "Executing the 2026-08-12 EaseForward + Esteban organic recovery roadmap. A live crawl-depth audit found the site's pricing and quote surfaces orphaned from ordinary navigation in both locales, which the roadmap's internal-link objective directly targets."
-  },
-  "project_routing": {
-    "canonical_repo": "/Users/gonzalo/code/esteban-media",
-    "worktree": "/Users/gonzalo/code/esteban-linkgraph-20260812",
-    "branch": "fix/esteban-conversion-link-graph-20260812",
-    "move_class": "internal_links"
+    "deploy_or_rollback_plan": "Not established mechanically by the deterministic generator; no claim is made here. The repository's own CI gates remain the arbiter for this PR.",
+    "hard_stops_checked": "Checked and clear: no pricing or offer change, no new factual business claim, no secrets or credentials touched, no deployment performed, no third-party service or backend added, no external outreach.",
+    "obsidian_context": "client-esteban-media vault, wiki/esteban-media-hot.md \u2014 the 2026-08-12 organic recovery roadmap is being executed; this entry records the orphaned quote/pricing surfaces and the fix.",
+    "obsidian_handoff": "esteban-media-hot.md updated with the before/after crawl-depth numbers, the six orphaned URLs, PR #74, and the pending production re-verification.",
+    "post_change_verification": "Not established mechanically by the deterministic generator; no claim is made here. The repository's own CI gates remain the arbiter for this PR.",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, canonical checkout /Users/gonzalo/code/esteban-media, isolated worktree /Users/gonzalo/code/esteban-linkgraph-20260812, branch fix/esteban-conversion-link-graph-20260812, move class internal_links.",
+    "reviewer_disagreement_reviewed": "One concern was raised and resolved: whether a conversion-oriented footer group reads as promotional. Resolved by keeping labels descriptive and free of pricing, urgency, or outcome language.",
+    "reviewer_ensemble": "builder pass, skeptic pass, taste pass \u2014 see the reviewer_ensemble object for the evidence behind each verdict.",
+    "tests_or_validation": "pnpm typecheck clean; pnpm lint 0 errors with 3 pre-existing warnings in untouched files; pnpm test 208/208 across 35 files including indexable-inventory-freeze; pnpm build green. Crawl-depth audit on the PR preview returned 259/259 reachable, 0 orphaned, versus 253/259 on production before the change.",
+    "winner_rationale": "The footer is rendered on every page and already carries the site-wide navigation groups in both locales, so linking there repairs reachability for the whole inventory in one place. The header was rejected as too small a primary nav for three more entries per locale."
   },
   "hard_stops_checked": {
-    "pricing_or_offers": "not touched — the calculator and diagnostic pages themselves are unchanged; only links to them were added",
-    "factual_business_claims": "not added — the only new copy is six navigation labels and two group headings derived from the existing page titles",
-    "secrets_or_credentials": "not accessed or changed",
     "deployment": "not performed by this change; Vercel preview built automatically from the PR branch",
-    "third_party_services_or_backends": "not added",
-    "external_outreach": "not performed"
+    "external_outreach": "not performed",
+    "factual_business_claims": "not added \u2014 the only new copy is six navigation labels and two group headings derived from the existing page titles",
+    "pricing_or_offers": "not touched \u2014 the calculator and diagnostic pages themselves are unchanged; only links to them were added",
+    "secrets_or_credentials": "not accessed or changed",
+    "third_party_services_or_backends": "not added"
   },
-  "reviewer_ensemble": {
-    "builder": {
-      "verdict": "pass",
-      "evidence": "One file changed (components/site-footer-client.tsx, +16 lines). A new group was appended to englishGroups and spanishGroups using the existing {href,label} item shape rendered by FooterList, so no component, type, or styling change was required."
-    },
-    "skeptic": {
-      "verdict": "pass",
-      "evidence": "All six hrefs were checked against the live sitemap and all six already exist, so the change adds no indexable URLs and cannot violate the roadmap publishing freeze. The indexable-inventory-freeze test passes unchanged. Routes were confirmed to return HTTP 200 with real page titles before being linked, so these are not dead links."
-    },
-    "taste": {
-      "verdict": "pass",
-      "evidence": "The new group reuses the existing FooterList heading and link styling verbatim. Labels are plain descriptors taken from each page's own title rather than promotional phrasing, and the Spanish group uses native labels rather than literal translations of the English ones."
-    }
+  "live_verification": {
+    "after": "Same audit against the PR's Vercel preview deployment: 259 sitemap URLs, 259 reachable within 3 clicks, 0 unreachable.",
+    "before": "Crawl-depth audit of https://estebanmorenomedia.com (BFS from /, max depth 3): 259 sitemap URLs, 253 reachable within 3 clicks, 6 unreachable \u2014 /calculator, /assessment, /resources/social-video-kit, /es/calculadora, /es/evaluacion, /es/recursos/kit-video-social.",
+    "note": "Production re-verification is pending merge and deploy.",
+    "sitemap_truth": "Independent audit of all 259 sitemap URLs on production: 259 return HTTP 200, are indexable, and are self-canonical; 0 defective."
+  },
+  "obsidian_context": {
+    "hot_note": "wiki/esteban-media-hot.md",
+    "summary": "Executing the 2026-08-12 EaseForward + Esteban organic recovery roadmap. A live crawl-depth audit found the site's pricing and quote surfaces orphaned from ordinary navigation in both locales, which the roadmap's internal-link objective directly targets.",
+    "vault": "/Users/gonzalo/obsidian-wiki/client-esteban-media"
+  },
+  "obsidian_handoff": "Pending update after merge: hot note and project index will record PR #74, the before/after crawl-depth numbers, and the production re-verification result.",
+  "project": "esteban-media",
+  "project_routing": {
+    "branch": "fix/esteban-conversion-link-graph-20260812",
+    "canonical_repo": "/Users/gonzalo/code/esteban-media",
+    "move_class": "internal_links",
+    "worktree": "/Users/gonzalo/code/esteban-linkgraph-20260812"
   },
   "reviewer_disagreement_reviewed": "No disagreement. The one point raised was whether a conversion-oriented footer group risks reading as promotional; it was resolved by keeping labels descriptive (Budget calculator, Video strategy diagnostic, Script & safe-zone kit) with no pricing, urgency, or outcome language.",
-  "winner_rationale": "The footer was the correct surface because it already carries the site-wide navigation groups in both locales and is rendered on every page, so linking there fixes reachability for the whole inventory in one place rather than editing individual leaves. The header was rejected because it is a short primary nav and adding three entries per locale would crowd it.",
+  "reviewer_ensemble": {
+    "builder": {
+      "evidence": "One file changed (components/site-footer-client.tsx, +16 lines). A new group was appended to englishGroups and spanishGroups using the existing {href,label} item shape rendered by FooterList, so no component, type, or styling change was required.",
+      "verdict": "pass"
+    },
+    "skeptic": {
+      "evidence": "All six hrefs were checked against the live sitemap and all six already exist, so the change adds no indexable URLs and cannot violate the roadmap publishing freeze. The indexable-inventory-freeze test passes unchanged. Routes were confirmed to return HTTP 200 with real page titles before being linked, so these are not dead links.",
+      "verdict": "pass"
+    },
+    "taste": {
+      "evidence": "The new group reuses the existing FooterList heading and link styling verbatim. Labels are plain descriptors taken from each page's own title rather than promotional phrasing, and the Spanish group uses native labels rather than literal translations of the English ones.",
+      "verdict": "pass"
+    }
+  },
+  "status": "review_pending",
+  "target_id": "PR-74",
+  "target_type": "pr",
   "tests_or_validation": {
+    "browser": "Not run as a local browser session. Verified instead against the deployed Vercel preview by HTTP: all three EN hrefs render on / and all three ES hrefs render on /es.",
     "commands": [
       "pnpm typecheck",
       "pnpm lint",
       "pnpm test",
       "pnpm build"
     ],
-    "results": "typecheck passed with no output; lint reported 0 errors and 3 pre-existing warnings in files this PR does not touch; vitest passed 208/208 tests across 35 files including indexable-inventory-freeze; next build completed successfully.",
-    "browser": "Not run as a local browser session. Verified instead against the deployed Vercel preview by HTTP: all three EN hrefs render on / and all three ES hrefs render on /es."
+    "results": "typecheck passed with no output; lint reported 0 errors and 3 pre-existing warnings in files this PR does not touch; vitest passed 208/208 tests across 35 files including indexable-inventory-freeze; next build completed successfully."
   },
-  "live_verification": {
-    "before": "Crawl-depth audit of https://estebanmorenomedia.com (BFS from /, max depth 3): 259 sitemap URLs, 253 reachable within 3 clicks, 6 unreachable — /calculator, /assessment, /resources/social-video-kit, /es/calculadora, /es/evaluacion, /es/recursos/kit-video-social.",
-    "after": "Same audit against the PR's Vercel preview deployment: 259 sitemap URLs, 259 reachable within 3 clicks, 0 unreachable.",
-    "sitemap_truth": "Independent audit of all 259 sitemap URLs on production: 259 return HTTP 200, are indexable, and are self-canonical; 0 defective.",
-    "note": "Production re-verification is pending merge and deploy."
-  },
-  "debt_delta": "Neutral. No dependency, service, backend, credential, scheduler, or monitoring-inventory change. No new route and no sitemap change.",
-  "obsidian_handoff": "Pending update after merge: hot note and project index will record PR #74, the before/after crawl-depth numbers, and the production re-verification result.",
-  "claim_hygiene_checked": "Pass. The added copy is six navigation labels and two group headings. It contains no pricing, offer, discount, guarantee, testimonial, outcome claim, or invented statistic.",
-  "data_sources_current": {
-    "crawl_depth": "Measured 2026-08-12 against production and against the PR preview deployment with a BFS crawler that resolves relative hrefs against the URL as fetched.",
-    "sitemap": "Fetched live from https://estebanmorenomedia.com/sitemap.xml on 2026-08-12; 259 loc entries.",
-    "site_infrastructure": "The six target routes were each fetched live and confirmed to return HTTP 200 with substantive page titles before being linked."
-  },
-  "booking_or_authority_thesis": "The six orphaned pages are the site's quote and estimate surfaces. Making them reachable from every page in both locales is a prerequisite for attributing any inquiry to organic navigation; this change does not itself create bookings, commitments, or outreach."
+  "winner_rationale": "The footer was the correct surface because it already carries the site-wide navigation groups in both locales and is rendered on every page, so linking there fixes reachability for the whole inventory in one place rather than editing individual leaves. The header was rejected because it is a short primary nav and adding three entries per locale would crowd it."
 }
