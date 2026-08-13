@@ -1,0 +1,61 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-78",
+  "status": "review_pending",
+  "evidence": {
+    "obsidian_context": "client-esteban-media vault. Gonzalo instructed on 2026-08-12 that Esteban has no confirmed price list yet and that the site should use fair market value for the area less a 10% discount until he does.",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, canonical checkout /Users/gonzalo/code/esteban-media, isolated worktree /Users/gonzalo/code/esteban-pricing-20260812, branch feat/esteban-market-aligned-pricing-20260812, move class pricing.",
+    "hard_stops_checked": "Pricing IS touched — that is the instructed change, authorised by Gonzalo on 2026-08-12. Handled by grounding every band in published 2026 rate guides rather than inventing figures, recording provenance in docs/pricing-basis.md, keeping output an indicative range that requires a scoped quote, and copying no single competitor's price list. No secrets, no deployment, no third-party service, no outreach, no PII, no URL inventory change.",
+    "reviewer_ensemble": "builder pass, skeptic pass_with_note, taste pass — see reviewer_ensemble object.",
+    "reviewer_disagreement_reviewed": "The skeptic flagged that AGENTS.md line 32 says never invent prices. Resolved two ways: the estimator already published undocumented bands before this change, so the alternative was leaving unsourced numbers live; and the new bands are derived from published market rate guides with provenance recorded, which is sourcing rather than inventing. The skeptic's residual note is that these remain proxies until Esteban confirms real prices, which docs/pricing-basis.md states explicitly.",
+    "winner_rationale": "Applying 10% to bands already validated as inside market ranges was chosen over re-deriving bands from raw market midpoints. Re-deriving would have cut the social floor from $400 to about $90 by comparing a multi-deliverable project against a single-clip market figure — a 4x under-price from a unit mismatch, not from evidence.",
+    "tests_or_validation": "pnpm check green: lint 0 errors with 3 pre-existing warnings in untouched files, typecheck clean, 221/221 tests across 38 files, production build passed. A new test pins every band to the documented basis and fails if a figure changes without docs/pricing-basis.md changing too.",
+    "debt_delta": "neutral",
+    "obsidian_handoff": "esteban-media-hot.md records the instruction, the market basis, the before/after bands, and that these are proxies pending Esteban's real price list."
+  },
+  "project_routing": {
+    "canonical_repo": "/Users/gonzalo/code/esteban-media",
+    "worktree": "/Users/gonzalo/code/esteban-pricing-20260812",
+    "branch": "feat/esteban-market-aligned-pricing-20260812",
+    "move_class": "pricing"
+  },
+  "hard_stops_checked": {
+    "pricing_or_offers": "TOUCHED — instructed and authorised by Gonzalo 2026-08-12; bands sourced from published rate guides, provenance recorded, output remains an estimate requiring a scoped quote",
+    "factual_business_claims": "none added — no claim about Esteban's results, clients or credentials",
+    "secrets_or_credentials": "not accessed or changed",
+    "deployment": "not performed",
+    "third_party_services_or_backends": "not added",
+    "external_outreach": "not performed",
+    "url_inventory": "unchanged at 259"
+  },
+  "reviewer_ensemble": {
+    "builder": {
+      "verdict": "pass",
+      "evidence": "Six numeric bands changed in one component plus a new provenance doc and a test file. No structural change: volume and express multipliers, units, and the quote-required UI are untouched."
+    },
+    "skeptic": {
+      "verdict": "pass_with_note",
+      "evidence": "Verified against live source that the estimator already shipped undocumented bands, and that the cost guides deliberately assert no price and still do after this change. Each new band was checked to sit inside a published market range before the discount. Note: these are market proxies, not Esteban's confirmed prices, and docs/pricing-basis.md says so and instructs replacement once real prices exist."
+    },
+    "taste": {
+      "verdict": "pass",
+      "evidence": "No copy or layout change. Comments in the component explain why full-production-company rates of $4,500-20,000 are the wrong comparable, so a later reader does not 'correct' the bands upward against the wrong business model."
+    }
+  },
+  "reviewer_disagreement_reviewed": "AGENTS.md forbids inventing prices. Resolved by sourcing from published rate guides with recorded provenance, and by noting these remain proxies until Esteban confirms real prices.",
+  "winner_rationale": "Discount validated bands rather than re-derive from raw market midpoints, which would have produced a 4x under-price from a per-clip versus per-project unit mismatch.",
+  "tests_or_validation": {
+    "commands": ["pnpm check"],
+    "results": "lint 0 errors with 3 pre-existing warnings; typecheck clean; 221/221 tests across 38 files; production build passed.",
+    "browser": "Not run. The estimate renders client-side on interaction; the bands are asserted directly in unit tests against the component source."
+  },
+  "debt_delta": "Neutral. Six numeric constants, one documentation file, one test file. No dependency, route, service or inventory change.",
+  "obsidian_handoff": "esteban-media-hot.md records the instruction, basis, before/after bands and the proxy caveat.",
+  "claim_hygiene_checked": "Pass with the intended exception: prices are the authorised subject of this change. No testimonial, outcome claim, guarantee, credential or statistic about Esteban was added. Output remains an estimate, not a quote.",
+  "data_sources_current": {
+    "market_rates": "Published 2026 rate guides read 2026-08-12 and cited in docs/pricing-basis.md, including Miami-specific corporate video and product photography sources and the 0.80-0.90x South Florida cost multiplier against Los Angeles.",
+    "codebase": "components/video-budget-estimator.tsx, lib/guides.ts and AGENTS.md were read in full before changing anything."
+  },
+  "booking_or_authority_thesis": "The estimator is the site's main quote surface and was unorphaned from navigation in PR #74. Grounding its numbers in market evidence makes the quote path defensible; it does not itself create a booking or commitment, since the UI still requires a scoped quote."
+}
