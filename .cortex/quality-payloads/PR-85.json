@@ -1,0 +1,66 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-85",
+  "status": "review_pending",
+  "evidence": {
+    "obsidian_context": "personal-ops/wiki/semrush-lanes-esteban-easeforward-2026-08-14.md and personal-hot.md. Follows PR #84, which paired 36 EN<->ES service pages under the owner directive to stay bilingual with English as the ranking engine for Miami-Dade / Broward / Palm Beach.",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, canonical checkout /Users/gonzalo/code/esteban-media, isolated worktree /Users/gonzalo/code/esteban-recip, branch fix/reciprocal-hreflang, move class seo_hreflang.",
+    "hard_stops_checked": "Checked and clear: no pricing or offer change, no factual business claim, no user-visible copy added or changed, no secrets or credentials touched, no deployment performed, no third-party service added, no external outreach, no PII. No URL added or removed.",
+    "reviewer_ensemble": "builder pass, skeptic pass, taste pass \u2014 see the reviewer_ensemble object.",
+    "reviewer_disagreement_reviewed": "The skeptic asked why this was not caught by PR #84's green run, since an hreflang-reciprocity test already existed and passed. Answered rather than deflected: that test asserts the languageAlternates MAP and the rendered SITEMAP, both of which were genuinely reciprocal. The divergence was in buildSpanishNicheMetadata, which hardcoded its languages and never read the map, so page metadata was one-way while both validated artifacts looked correct. The lesson recorded in the code comment is that validating a data source is not validating the output, and the new tests assert the emitted metadata directly.",
+    "winner_rationale": "Reading the shared map is strictly better than a per-slug hardcode: it removes a special case, makes every pair live in one place, and means the English and Spanish sides cannot drift again. Fallback to self-reference preserves correct behaviour for pages that genuinely have no counterpart.",
+    "tests_or_validation": "typecheck clean; 228/229 tests. New guards proven to catch the defect: with the fix reverted, exactly the two new tests fail and the four pre-existing reciprocity checks still pass. The single suite failure is pre-existing and unrelated (see tests_or_validation object).",
+    "debt_delta": "improvement",
+    "obsidian_handoff": "personal-hot.md records the one-way hreflang defect, the root cause, and the test-coverage gap it exposed."
+  },
+  "project_routing": {
+    "canonical_repo": "/Users/gonzalo/code/esteban-media",
+    "worktree": "/Users/gonzalo/code/esteban-recip",
+    "branch": "fix/reciprocal-hreflang",
+    "move_class": "seo_hreflang"
+  },
+  "hard_stops_checked": {
+    "pricing_or_offers": "not touched",
+    "factual_business_claims": "not added \u2014 no user-visible copy changed",
+    "secrets_or_credentials": "not accessed or changed",
+    "deployment": "not performed",
+    "third_party_services_or_backends": "not added",
+    "external_outreach": "not performed",
+    "url_inventory": "unchanged"
+  },
+  "reviewer_ensemble": {
+    "builder": {
+      "verdict": "pass",
+      "evidence": "buildSpanishNicheMetadata now reads languageAlternates[path] with a self-reference fallback. The pembroke-pines pair was migrated from the hardcode into the map; both of its routes were verified to exist first, so removing the special case cannot silently drop a working pair. No consumer changes were needed \u2014 lib/site-metadata.ts and app/sitemap.ts already read the same map."
+    },
+    "skeptic": {
+      "verdict": "pass",
+      "evidence": "The defect was measured in production, not inferred: curling both sides of a pair showed the English page emitting en-US/es-US/x-default and the Spanish page emitting only es-US. The new tests were verified to FAIL without the fix (2 failed / 4 passed) rather than assumed to work. The one failing suite test was isolated by stashing this branch's changes and re-running on clean origin/main in the same worktree, where it fails identically \u2014 so it is pre-existing."
+    },
+    "taste": {
+      "verdict": "pass",
+      "evidence": "A comment on the changed function records what was wrong, why one-way hreflang is discarded, and how it was caught, so a future reader does not reintroduce a per-slug hardcode. The test carries the same note about validating output rather than the data source."
+    }
+  },
+  "reviewer_disagreement_reviewed": "Skeptic challenged how a green PR shipped a broken result. Root cause identified as a coverage gap (map and sitemap asserted, metadata not) and closed with output-level tests proven to fail without the fix.",
+  "winner_rationale": "One source of truth for language pairs, with tests on the emitted metadata rather than on the map that feeds it.",
+  "tests_or_validation": {
+    "commands": [
+      "pnpm check",
+      "vitest run app/__tests__/hreflang-reciprocity.test.ts"
+    ],
+    "results": "typecheck clean; 228 passed / 1 failed of 229. Negative control: reverting the fix fails exactly the 2 new tests (2 failed / 4 passed of 6).",
+    "known_failure": "prospect-auditor-verifier > 'accurately audits real Squarespace website' fetches a live third-party site (www.eatatpetesaplace.com) and now returns platform 'Unknown'. PRE-EXISTING and unrelated: stashing this branch's changes and re-running on clean origin/main in the same worktree fails identically. It passed on PR #84 earlier today, so the external page changed. Not fixed here; flagged as a fragile live-network test.",
+    "browser": "Production HTML was curled on both sides of a pair to confirm the defect before fixing and to define the acceptance condition."
+  },
+  "source_material_checked": "Read components/spanish-niche-page.tsx, lib/spanish-site.ts, lib/site-metadata.ts, app/sitemap.ts and the existing app/__tests__/hreflang-reciprocity.test.ts in full. Confirmed pembroke-pines was absent from languageAlternates and that both of its routes exist. Live production HTML checked for the English and Spanish sides of a paired route.",
+  "debt_delta": "Improvement. Removes a per-slug hardcode and a second source of truth for language pairs; adds output-level test coverage where only source-level coverage existed.",
+  "obsidian_handoff": "personal-hot.md 2026-08-14.",
+  "claim_hygiene_checked": "Pass. No user-visible copy added or changed.",
+  "data_sources_current": {
+    "production_html": "Curled 2026-08-14 after the PR #84 production deploy (sha 27ddfaa): English side emitted three hreflang tags, Spanish side emitted one self-referential tag.",
+    "route_inventory": "Verified /services/small-business-video-pembroke-pines and /es/video-para-pequenos-negocios-pembroke-pines both exist before migrating that pair into the map."
+  },
+  "booking_or_authority_thesis": "Authority. Reciprocal hreflang is the condition under which Google treats the two language versions as one page rather than competitors; without it PR #84's pairing had no effect. It consolidates existing signal and adds no reach by itself."
+}

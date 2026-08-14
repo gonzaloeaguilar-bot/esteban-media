@@ -2529,6 +2529,18 @@ export const spanishCoreRoutes = [
 ];
 
 export const languageAlternates: Record<string, Record<string, string>> = {
+  // pembroke-pines was previously hardcoded inside buildSpanishNicheMetadata.
+  // Moved here so every pair lives in one place and both languages read it.
+  "/services/small-business-video-pembroke-pines": {
+    "en-US": "/services/small-business-video-pembroke-pines",
+    "es-US": "/es/video-para-pequenos-negocios-pembroke-pines",
+    "x-default": "/services/small-business-video-pembroke-pines",
+  },
+  "/es/video-para-pequenos-negocios-pembroke-pines": {
+    "en-US": "/services/small-business-video-pembroke-pines",
+    "es-US": "/es/video-para-pequenos-negocios-pembroke-pines",
+    "x-default": "/services/small-business-video-pembroke-pines",
+  },
   // Bilingual service/niche pairs (2026-08-14). Both languages stay live —
   // Spanish serves the large bilingual audience, English is the ranking engine
   // for Miami-Dade / Broward / Palm Beach. Before this, only 17 shell pages
