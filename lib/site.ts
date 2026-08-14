@@ -31,6 +31,11 @@ export const site = {
   },
   instagram: "https://www.instagram.com/steeban1/",
   youtube: "https://www.youtube.com/@estebanmorenolopez3811",
+  // Verified Google Business Profile (place ChIJz5tunn0FmqERd6F9Q9Irxao, cid
+  // 12305289738935181687). Read live from the Business Information API
+  // 2026-08-14. This is the entity link between the site and the profile that
+  // carries the reviews; it is NOT a licence to emit aggregateRating here.
+  googleBusinessProfile: "https://maps.google.com/?cid=12305289738935181687",
   googleSiteVerification: "I70vr7LMsVyZc_VO4grb6fDxQXPTbhB7LIIFjJUlvUs",
   googleAnalyticsMeasurementId: "G-W9CM4CE2MQ",
   location: "Fort Lauderdale, FL",

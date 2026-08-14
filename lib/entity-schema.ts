@@ -14,7 +14,7 @@ export const personEntityJsonLd = {
   description:
     "Spanish-first video editor and content creator based in Fort Lauderdale, with intermediate English communication available.",
   url: absoluteUrl("/about"),
-  sameAs: [site.instagram, site.youtube],
+  sameAs: [site.instagram, site.youtube, site.googleBusinessProfile],
   jobTitle: "Video editor and content creator",
   worksFor: {
     "@id": entityIds.business,
@@ -24,6 +24,7 @@ export const personEntityJsonLd = {
     { "@type": "City", name: "Fort Lauderdale, Florida" },
     { "@type": "AdministrativeArea", name: "Broward County, Florida" },
     { "@type": "AdministrativeArea", name: "Miami-Dade County, Florida" },
+    { "@type": "AdministrativeArea", name: "Palm Beach County, Florida" },
   ],
   knowsAbout: [
     "AI-assisted content",
@@ -47,7 +48,7 @@ export const localBusinessEntityJsonLd = {
     "@type": area.schemaType,
     name: area.name,
   })),
-  sameAs: [site.instagram, site.youtube],
+  sameAs: [site.instagram, site.youtube, site.googleBusinessProfile],
   availableLanguage: ["Spanish", "English (intermediate)"],
   contactPoint: {
     "@type": "ContactPoint",
