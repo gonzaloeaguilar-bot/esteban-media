@@ -7,6 +7,7 @@ import { Container } from "@/components/ui/container";
 import {
   buildSpanishNicheStructuredData,
   getSpanishNichePage,
+  languageAlternates,
   spanishServices,
 } from "@/lib/spanish-site";
 import { buildPageMetadata } from "@/lib/site-metadata";
@@ -966,14 +967,20 @@ export function buildSpanishNicheMetadata(slug: string): Metadata {
   }
 
   const path = `/es/${page.slug}`;
+  // Read the shared languageAlternates map rather than hardcoding pairs here.
+  //
+  // This function used to special-case exactly ONE slug and emit
+  // `{ "es-US": path }` for every other Spanish niche page. That made hreflang
+  // ONE-WAY: after PR #84 paired 36 service pages, the English side correctly
+  // advertised en-US/es-US/x-default while the Spanish side still pointed only
+  // at itself. Google ignores non-reciprocal hreflang, so the pairs did nothing
+  // in production until this read the same map the English side does.
+  // Caught by checking the live HTML on both sides, not by trusting the map.
+  //
+  // Fallback keeps a Spanish page with no English counterpart self-referencing,
+  // which is the correct signal for a page that genuinely has no pair.
   const languages: Record<string, string> =
-    slug === "video-para-pequenos-negocios-pembroke-pines"
-      ? {
-          "en-US": "/services/small-business-video-pembroke-pines",
-          "es-US": path,
-          "x-default": "/services/small-business-video-pembroke-pines",
-        }
-      : { "es-US": path };
+    languageAlternates[path] ?? { "es-US": path };
 
   return buildPageMetadata({
     title: page.metadataTitle,

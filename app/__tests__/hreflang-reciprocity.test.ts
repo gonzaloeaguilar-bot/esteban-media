@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 
-import { languageAlternates } from "@/lib/spanish-site";
+import { languageAlternates, spanishNichePages } from "@/lib/spanish-site";
+import { buildSpanishNicheMetadata } from "@/components/spanish-niche-page";
 import sitemap from "@/app/sitemap";
 
 /**
@@ -65,5 +66,46 @@ describe("hreflang reciprocity", () => {
       }
     }
     expect(broken, broken.join("\n")).toEqual([]);
+  });
+  /**
+   * Regression for 2026-08-14. The three checks above all passed while
+   * production served ONE-WAY hreflang: buildSpanishNicheMetadata hardcoded
+   * `{ "es-US": path }` for every slug but one, so the map and the sitemap were
+   * reciprocal and the rendered page metadata was not. Validating the data
+   * source is not the same as validating what the page emits.
+   */
+  it("Spanish niche pages emit the alternates from the shared map", () => {
+    const broken: string[] = [];
+    for (const page of spanishNichePages) {
+      const path = `/es/${page.slug}`;
+      const expected = languageAlternates[path];
+      if (!expected) continue; // unpaired page: self-reference is correct
+      const emitted = buildSpanishNicheMetadata(page.slug)?.alternates?.languages as
+        | Record<string, string>
+        | undefined;
+      if (!emitted) {
+        broken.push(`${path} emits no alternates but is paired in the map`);
+        continue;
+      }
+      for (const [lang, target] of Object.entries(expected)) {
+        if (emitted[lang] !== target) {
+          broken.push(`${path} emits ${lang}=${String(emitted[lang])}, map says ${target}`);
+        }
+      }
+    }
+    expect(broken, broken.join("\n")).toEqual([]);
+  });
+
+  it("a paired Spanish page advertises its English counterpart", () => {
+    const paired = Object.keys(languageAlternates).filter((k) => k.startsWith("/es/"));
+    expect(paired.length).toBeGreaterThan(30);
+    for (const path of paired) {
+      const slug = path.replace("/es/", "");
+      if (!spanishNichePages.some((p) => p.slug === slug)) continue;
+      const langs = (buildSpanishNicheMetadata(slug)?.alternates?.languages ??
+        {}) as Record<string, string>;
+      expect(langs["en-US"], `${path} must advertise en-US`).toBeTruthy();
+      expect(langs["x-default"], `${path} must advertise x-default`).toBeTruthy();
+    }
   });
 });
