@@ -1,0 +1,66 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-88",
+  "status": "review_pending",
+  "evidence": {
+    "obsidian_context": "client-esteban-media/wiki/esteban-media-hot.md and esteban-media-traffic-baseline-2026-08-14.md. The Google Business Profile went from zero to 7 ratings at 5.0 on 2026-08-14, which is the event this change responds to. The roadmap gate chain recorded C1 GBP as closed 2026-08-13 and C3 reviews as the next unlock.",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, canonical checkout /Users/gonzalo/code/esteban-media, isolated worktree /Users/gonzalo/code/esteban-media-gbp-entity, branch feat/gbp-entity-link, move class seo_entity_graph.",
+    "hard_stops_checked": "Checked and clear. No price or offer figure changed. No new user-visible marketing copy. Nothing under ~/.config was read into the diff. No release performed by this change. No third-party runtime service added. No contact made with any person. No URL added or removed from the sitemap. See the hard_stops_checked object.",
+    "reviewer_ensemble": "builder pass, skeptic pass, taste pass - see the reviewer_ensemble object.",
+    "reviewer_disagreement_reviewed": "The skeptic pushed on the most tempting adjacent change: since a verified 5.0 from 7 ratings now exists, why not emit aggregateRating and win a star snippet. Answered rather than deferred. A rating collected on Google and asserted by the subject about itself is self-serving structured data, ineligible for review rich results and a documented manual-action risk. The PR therefore adds a regression test that pins the ABSENCE of aggregateRating and review nodes, so a later pass cannot quietly add them. The taste reviewer raised a second point, that Person.workLocation listed two counties while LocalBusiness.areaServed listed three; the narrower node was corrected rather than the wider one loosened, because the live profile service area was confirmed as three counties by re-reading it after the change.",
+    "winner_rationale": "sameAs is the schema.org-sanctioned way to attach a third-party record to an entity, and it is the only mechanism here that does entity disambiguation without asserting anything about ourselves. The alternative considered and rejected was embedding the rating directly. Storing the URL on the site config object rather than inline in the schema module keeps one source of truth for the profile link and lets a test assert the exact value.",
+    "tests_or_validation": "pnpm check green: 238 of 238 tests across 40 files, lint 0 errors, typecheck clean, production build clean. The new guards were proven against the pre-fix state: with lib/site.ts and lib/entity-schema.ts reverted and only the test file kept, 3 of the 5 tests in entity-schema.test.ts fail. The two facts the tests encode were both read live from Google rather than assumed.",
+    "ci_passed": "pnpm check run locally in the isolated worktree before push, 238 of 238 tests, 40 files, build clean. GitHub validate workflow and the Vercel preview build are the remote confirmation.",
+    "pr_review_complete": "Self-review pass over the full diff for correctness, scope, and repo pattern fit. Diff is 3 files and stays inside lib/. No error-handling path touched, so the silent-failure pass found nothing to examine.",
+    "deploy_or_rollback_plan": "Ships through the normal merge to main and Vercel path. Rollback is a single revert of this commit: the change is three additive lines of static JSON-LD plus tests, with no migration, no runtime behaviour, and no data written anywhere.",
+    "post_change_verification": "After merge, fetch https://estebanmorenomedia.com/ and assert the ld+json graph contains the profile URL in sameAs on both the Person node and the LocalBusiness node, and that neither node carries aggregateRating. The same URL is already checked into the test suite so drift fails locally too.",
+    "claim_hygiene_checked": "Every business fact in this diff and its description was read live from Google today, not recalled. The profile identifier and cid came from the Business Information API on locations/9465569364777265733; the rating and rating count came from the Places API on the same place; the three-county service area was re-read after being corrected. No claim about certification, licensing, or capability was added.",
+    "debt_delta": "improvement",
+    "obsidian_handoff": "esteban-media-hot.md records the profile ratings event, the live-verified service area correction, the entity-link fix, and the standing prohibition on self-asserted rating markup."
+  },
+  "project_routing": {
+    "canonical_repo": "/Users/gonzalo/code/esteban-media",
+    "worktree": "/Users/gonzalo/code/esteban-media-gbp-entity",
+    "branch": "feat/gbp-entity-link",
+    "move_class": "seo_entity_graph"
+  },
+  "hard_stops_checked": {
+    "pricing_or_offers": "not touched",
+    "factual_business_claims": "none added; the only new literal is a Google profile URL read live from the API today",
+    "secrets_or_credentials": "none accessed or changed by the diff",
+    "deployment": "not performed by this change",
+    "third_party_services_or_backends": "none added",
+    "external_outreach": "none performed",
+    "url_inventory": "unchanged - no route added or removed, sitemap identical"
+  },
+  "reviewer_ensemble": {
+    "builder": {
+      "status": "pass",
+      "note": "Three files, all additive. site.googleBusinessProfile holds the URL; both sameAs arrays consume it; Person.workLocation gains the third county. Existing pinned assertion on the Person node was updated in the same commit rather than loosened to a partial match, so the shape stays pinned."
+    },
+    "skeptic": {
+      "status": "pass",
+      "note": "Pushed hardest on the omission rather than the addition: the valuable-looking move here is aggregateRating and it is the wrong one. The PR encodes that refusal as a test instead of a comment. Also checked that the URL is not invented - it resolves from cid 12305289738935181687, which came back from the Business Information API metadata for this location, and the same place returns rating 5 with 7 ratings from the Places API."
+    },
+    "taste": {
+      "status": "pass",
+      "note": "Comments explain why the link exists and why the rating does not, which is the part a future pass would otherwise get wrong. No new abstraction introduced for three lines of data."
+    }
+  },
+  "tests_or_validation": {
+    "commands": [
+      "pnpm exec vitest run lib/__tests__/entity-schema.test.ts",
+      "pnpm check"
+    ],
+    "results": "5 of 5 in entity-schema.test.ts; 238 of 238 across 40 files; lint 0 errors and 3 pre-existing warnings; typecheck clean; production build clean.",
+    "known_failure": "none",
+    "browser": "not required - the change is static JSON-LD asserted directly by unit tests and verifiable in the served HTML after merge."
+  },
+  "source_material_checked": "Google Business Information API v1 (locations/9465569364777265733, readMask serviceArea and categories), Google Places API v1 (place ChIJz5tunn0FmqERd6F9Q9Irxao, fields reviews, rating, userRatingCount), Search Console Search Analytics API for the brand-query position that motivates the change. All three read live on 2026-08-14.",
+  "data_sources_current": {
+    "production_html": "https://estebanmorenomedia.com/ fetched 2026-08-14; the served ld+json graph confirmed sameAs held Instagram and YouTube only and no aggregateRating anywhere.",
+    "route_inventory": "unchanged by this PR"
+  },
+  "booking_or_authority_thesis": "The site does not own its own name: the brand query esteban moreno media sits at position 6.6 with zero clicks over 2026-07-15 to 08-11, against 463 impressions and 2 clicks sitewide. A verified profile now holding 7 ratings at 5.0 is the strongest authority signal this business has, and nothing declared the link between it and the domain. sameAs is that declaration. This does not claim to move commercial rankings, which sit at position 35 to 68 and have a different cause."
+}
