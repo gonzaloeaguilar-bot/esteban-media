@@ -881,13 +881,13 @@ const guidePairs: readonly GuidePair[] = [
     id: "product-photography-pricing-guide",
     en: {
       slug: "how-much-does-product-photography-cost",
-      metadataTitle: "Product Photography Pricing Guide",
+      metadataTitle: "Product Photography Pricing",
       title: "How much does product photography cost? Rates & pricing guide",
       description:
         "Understand product photography pricing models (per image, per day, or project scope) for e-commerce brands and local South Florida businesses.",
       eyebrow: "Product pricing guide",
       answer:
-        "Product photography rates typically depend on project scope, number of final retouched angles, lifestyle staging complexity, and whether AI-assisted asset creation is used.",
+        "Product photography rates depend on SKU volume, required angles per product, staging complexity (clean catalog vs lifestyle setting), retouching depth, and usage rights. There is no responsible single price before scope is defined.",
       proof: {
         href: "/portfolio/my-dler",
         title: "My D'ler",
@@ -896,41 +896,71 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Standard pricing models for product visuals",
+          heading: "Key variables that shape product photography costs",
           paragraphs: [
-            "Commercial product photography and visual creation are generally billed per image, per day rate, or by full project deliverable package.",
-            "Per-image pricing works well for standard catalog e-commerce shots, while full project scopes are ideal for custom lifestyle branding and multi-asset launches.",
+            "Commercial product visual pricing depends directly on operational scope. In professional visual production, projects are quoted by evaluating specific scope parameters before establishing a final estimate. You can estimate an indicative reference based on your project parameters using the [budget calculator](/calculator).",
+            "Critical cost variables include total SKU volume, number of retouched angles per product, and set staging complexity.",
           ],
           bullets: [
-            "Per-image rates for clean catalog photos",
-            "Day rates for multi-product studio or location shoots",
-            "Project scope pricing for combined photography & AI visual packages",
+            "Total SKU count and number of final retouched angles (standard catalog vs hero composites).",
+            "Catalog photography (clean white/neutral backdrop) vs lifestyle photography (contextual props and staging).",
+            "Use of physical props, talent, or AI-assisted background environments.",
+            "Retouching depth (basic dust/reflection cleanup vs high-end commercial composite retouching).",
+            "Usage licensing scope (e-commerce & social media vs paid global advertising campaigns).",
           ],
         },
         {
-          heading: "Factors that impact final project costs",
+          heading: "Industry pricing models and market context",
           paragraphs: [
-            "Factors like complex reflections, prop staging, licensing scope, and advanced retouching directly influence the final cost.",
-            "Using AI background generation with real product reference photos can significantly reduce traditional set staging and location travel expenses.",
+            "Commercial creators and studios typically use three pricing models: per-image rates, day rates, or complete project package pricing. Standard e-commerce catalog photos are usually billed per photo for larger volumes, while custom lifestyle launches are quoted on a project scope basis.",
+            "As general South Florida market context, simple white-background catalog images are commonly quoted around $25 to $50 USD each, with Miami studios advertising entry rates near $35 per image; styled lifestyle work with props or models is quoted far higher per image, and half-day sessions in Miami commonly run $300 to $1,000 USD plus production expenses. These figures are published market rates for the area, not a price commitment from Esteban Moreno Media, and the ranges move with volume, retouching depth and usage rights. For a figure tied to your actual scope use the [budget estimator](/calculator), and for a written quote reach out via [contact](/contact).",
           ],
         },
         {
-          heading: "Getting an accurate custom quote",
+          heading: "How to define scope for an accurate quote",
           paragraphs: [
-            "To receive a precise estimate, share the total product count, target usage channels (Amazon, website, print), and reference visual examples with your creator.",
+            "There is no responsible single price before project scope is defined. To receive an accurate quote without surprises, specify technical requirements before production begins.",
+            "Define your exact SKU count, required angles (such as packaging or 45-degree detail shots), publishing channels, and visual reference examples. You can calculate an instant estimate with our [budget calculator](/calculator) or send a message via [contact](/contact) to discuss your brand's requirements.",
           ],
+        },
+      ],
+      faqs: [
+        {
+          question: "What details are needed to quote product photography?",
+          answer:
+            "Share your total SKU count, angles per product, whether you need clean catalog or lifestyle shots, retouching expectations, and intended distribution channels.",
+        },
+        {
+          question: "What is the difference between catalog and lifestyle product photos?",
+          answer:
+            "Catalog photos present products on clean white or neutral backdrops for e-commerce stores. Lifestyle photos feature styled environments, props, or usage contexts to build emotional brand connection.",
+        },
+        {
+          question: "How does AI assistance impact product visual costs?",
+          answer:
+            "AI assistance can generate photorealistic backgrounds using real product reference photos, reducing physical set builds and location travel costs.",
+        },
+        {
+          question: "Is retouching included in product photography pricing?",
+          answer:
+            "Yes, delivered files include standard color correction and basic cleanup. Advanced composite retouching or beauty cleanup is specified within the initial project scope.",
+        },
+        {
+          question: "Where can I calculate an initial budget estimate?",
+          answer:
+            "Use our budget calculator at /calculator for an instant estimated range based on project volume, or message us via /contact for a tailored proposal.",
         },
       ],
     },
     es: {
       slug: "cuanto-cuesta-la-fotografia-de-producto",
-      metadataTitle: "Guía de Precios de Fotografía",
+      metadataTitle: "Guía Precios Fotos de Producto",
       title: "¿Cuánto cuesta la fotografía de producto? Guía de tarifas y costos",
       description:
         "Entiende los modelos de precios de fotografía de producto (por imagen, por jornada o por proyecto) para marcas de e-commerce y negocios en South Florida.",
       eyebrow: "Guía de tarifas de producto",
       answer:
-        "Las tarifas de fotografía de producto dependen del alcance del proyecto, la cantidad de ángulos finales editados, la complejidad del entorno y el uso de asistencias con IA.",
+        "Las tarifas de fotografía de producto dependen del volumen de SKUs, los ángulos por producto, la complejidad del entorno (catálogo vs estilo de vida), el retoque y los derechos de uso. No existe una tarifa única responsable sin definir el alcance.",
       proof: {
         href: "/es/portafolio/my-dler",
         title: "My D'ler",
@@ -939,82 +969,95 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Modelos de tarificación para imágenes de producto: por foto, por jornada y por proyecto",
+          heading: "Variables que determinan el precio por fotografía de producto",
           paragraphs: [
-            "Comprender el precio por fotografía de producto requiere identificar primero la estructura comercial más adecuada para el catálogo o campaña. La creación de contenido visual de producto se cotiza habitualmente bajo tres esquemas principales: tarifa por imagen individual, tarifa por jornada de estudio o cotización por proyecto integral.",
-            "La tarifa por imagen es la opción idónea para catálogos estandarizados de e-commerce y tiendas online sobre fondo blanco o neutro, donde se busca consistencia visual en un volumen definido de referencias. La tarifa por jornada de trabajo o media jornada conviene cuando se cuenta con lotes numerosos de productos que comparten esquemas de iluminación similares, optimizando la sesión continua. Por su parte, la cotización por proyecto integral resulta adecuada para lanzamientos de marca, producciones de estilo de vida con atrezzo y paquetes híbridos que combinan fotografía real con entornos generados mediante IA.",
-            "Al analizar la foto producto precio unitario o por paquete, la elección del modelo debe alinearse con la cantidad de SKUs, la diversidad de composiciones y los canales finales donde se difundirá cada imagen.",
+            "El precio por fotografía de producto depende directamente del alcance operativo del proyecto. En el mercado audiovisual, los proyectos se estructuran evaluando factores clave antes de definir el presupuesto final. Para estimar una referencia orientativa basada en tus parámetros, puedes usar la [calculadora de presupuesto](/es/calculadora).",
+            "Entre las variables determinantes se destacan el volumen total de productos (SKUs), la cantidad de ángulos requeridos por producto y el nivel de complejidad en la preparación del set.",
           ],
           bullets: [
-            "Tarifas por imagen para tomas de catálogo (packshots en fondo blanco o neutro)",
-            "Jornadas de estudio o locación para sesiones dinámicas con múltiples referencias",
-            "Paquetes por proyecto para lanzamientos editoriales y producciones asistidas por IA",
+            "Volumen de SKUs y ángulos finales editados (catalogación simple vs tomas compuestas).",
+            "Fotografía de catálogo (fondo blanco/neutro) vs fotografías de estilo de vida (lifestyle con ambientación).",
+            "Uso de utilería física, modelos o fondos generados/asistidos por IA.",
+            "Profundidad de retoque digital (limpieza de imperfecciones vs retoque comercial de alta gama).",
+            "Licencias de uso (uso exclusivo para e-commerce/redes vs campañas publicitarias globales).",
           ],
         },
         {
-          heading: "Variables técnicas que determinan el costo y la complejidad de la sesión",
+          heading: "Modelos de cotización en el mercado y referencia orientativa",
           paragraphs: [
-            "El precio por fotografía de producto no depende únicamente de la cantidad de artículos, sino de los requerimientos técnicos y de producción necesarios para lograr un estándar comercial competitivo.",
-            "Materiales y superficies: productos con acabados reflectantes, como botellas de vidrio, frascos de cosmética, joyería o metales pulidos, demandan esquemas de iluminación especializados y difusores específicos para controlar brillos no deseados, lo que incrementa el tiempo de ajuste frente a superficies mates o no reflectantes.",
-            "Ambientación, estilismo y modelos: incorporar atrezzo decorativo físico (props), sets ambientales de cocina, baño o naturaleza, o la presencia de modelos de manos y cuerpo entero, agrega capas de preproducción, estilismo y coordinación de rodaje.",
-            "Nivel de retoque y postproducción digital: la edición básica abarca calibración de color, recorte de fondo y eliminación de motas de polvo. Proyectos de alta gama pueden requerir trazados de recorte de precisión (alpha masking), recomposición de reflejos, sombras naturales generadas en postproducción y retoque cosmético avanzado.",
-            "Derechos de uso y licencias: el alcance de la licencia comercial (uso exclusivo en tienda online y redes sociales versus campañas publicitarias en medios masivos o impresos a gran escala) define los términos y el valor del entregable final.",
-          ],
-          bullets: [
-            "Cantidad de productos (SKUs) y número de ángulos o tomas de detalle por cada uno",
-            "Reflectividad y textura de los materiales (vidrio, metal pulido, cosmética, joyería)",
-            "Uso de atrezzo físico o generación de entornos ambientales virtuales con IA",
-            "Nivel de postproducción: limpieza básica, trazados de recorte o retoque editorial avanzado",
-            "Ámbito y duración de la licencia de uso comercial de las imágenes",
+            "En la industria comercial, los creadores y estudios suelen aplicar tres modelos de tarificación: costo por imagen individual, tarifa por jornada de producción (day rate) o presupuesto por paquete de proyecto. Las fotos de catálogo estándar suelen cotizarse por unidad cuando el volumen es alto, mientras que las producciones conceptuales de marca se evalúan por proyecto integral.",
+            "Como contexto general del mercado de South Florida, las fotos simples de catálogo con fondo blanco se cotizan por lo común entre $25 y $50 USD por imagen, y hay estudios de Miami que publican tarifas de entrada cercanas a $35 por imagen; el trabajo de estilo de vida con ambientación o modelos se cotiza bastante más alto por imagen, y las sesiones de medio día en Miami suelen ubicarse entre $300 y $1,000 USD más costos de producción. Son tarifas publicadas del mercado local, no una oferta de Esteban Moreno Media, y los rangos se mueven según volumen, nivel de retoque y derechos de uso. Para una cifra atada a tu alcance real usa la [calculadora de presupuesto](/es/calculadora), y para una cotización escrita escríbenos por [contacto](/es/contacto).",
           ],
         },
         {
-          heading: "Estructura típica de un presupuesto de fotografía de producto",
+          heading: "Cómo definir el alcance para solicitar una cotización exacta",
           paragraphs: [
-            "Un presupuesto fotografía producto detallado y transparente debe desglosar las diferentes fases operativas del proyecto para que la marca conozca con exactitud qué conceptos están incluidos antes de iniciar la producción.",
-            "La fase de preproducción contempla la planificación visual, el desarrollo del moodboard y la confección de la lista de tomas (shot list) con los ángulos prioritarios. Durante la sesión de captura se cubren los tiempos de estudio, el equipamiento de cámaras y ópticas macro, y la iluminación técnica. Finalmente, la etapa de postproducción y entrega abarca el procesado RAW, el retoque digital acordado, la exportación en los formatos y resoluciones requeridos para marketplaces o plataformas web, y la cesión de derechos correspondiente.",
+            "No existe una tarifa única responsable antes de definir el brief técnico. Para recibir una cotización precisa y sin sorpresas, es indispensable detallar las especificaciones antes de iniciar la producción.",
+            "Te recomendamos definir el listado exacto de SKUs, si requerirás tomas de empaque o detalles en 45°, los canales donde publicarás las imágenes y ejemplos visuales de referencia. Puedes calcular una estimación transparente en nuestra [calculadora de presupuesto](/es/calculadora) o escribirnos directamente en [contacto](/es/contacto) para evaluar los requerimientos de tu marca.",
+          ],
+        },
+        {
+          heading: "Estructura típica de un presupuesto fotografía producto",
+          paragraphs: [
+            "Un presupuesto fotografía producto detallado desglosa el precio por fotografía de producto en las fases operativas del proyecto para que la marca sepa con exactitud qué conceptos están incluidos antes de iniciar la producción.",
+            "La preproducción contempla la planificación visual, el moodboard y la lista de tomas (shot list) con los ángulos prioritarios. La sesión de captura cubre tiempos de estudio, equipamiento de cámaras y ópticas macro, e iluminación técnica. La postproducción y entrega abarca el procesado RAW, el retoque acordado, la exportación en los formatos y resoluciones que exigen marketplaces y plataformas web, y la cesión de derechos correspondiente.",
           ],
           bullets: [
-            "Preproducción: planificación de la lista de tomas (shot list) y definición de referencias estéticas",
-            "Producción: tiempo de estudio, equipo de iluminación, ópticas de producto y captura calibrada",
-            "Postproducción: revelado digital, corrección de color, limpieza de imperfecciones y exportación optimizada",
-            "Entregables y licencias: cesión de derechos de uso comercial y entrega de archivos en alta resolución",
+            "Preproducción: lista de tomas (shot list) y definición de referencias estéticas",
+            "Producción: tiempo de estudio, iluminación, ópticas de producto y captura calibrada",
+            "Postproducción: revelado digital, corrección de color, limpieza y exportación optimizada",
+            "Entregables y licencias: cesión de derechos de uso comercial y archivos en alta resolución",
           ],
         },
         {
           heading: "Cómo comparar cotizaciones y qué suele quedar excluido",
           paragraphs: [
-            "Al comparar propuestas para un presupuesto fotografía producto, es fundamental analizar los entregables netos y las condiciones de servicio en lugar de fijarse únicamente en el monto global.",
-            "Verifica si el retoque digital, los recortes de fondo con transparencia y las sombras realistas vienen incluidos en la tarifa base o si se facturan como suplementos por imagen. Asimismo, confirma la política respecto a las rondas de revisión permitidas y la entrega de los archivos finales en los perfiles de color adecuados (sRGB para web, Adobe RGB o CMYK para impresión).",
-            "Es común que las propuestas estándar no incluyan la adquisición de atrezzo específico perecedero, honorarios de modelos externos, gastos de transporte y seguro de las muestras físicas, o retoques extraordinarios no contemplados en el brief original. Aclarar estos puntos por escrito antes de la producción ayuda a evitar desviaciones de presupuesto.",
+            "Al comparar propuestas conviene analizar los entregables netos y las condiciones de servicio, no únicamente el monto global.",
+            "Verifica si el retoque digital, los recortes de fondo con transparencia y las sombras realistas vienen incluidos en la tarifa base o se facturan como suplementos por imagen. Confirma también las rondas de revisión permitidas y la entrega en los perfiles de color adecuados (sRGB para web, Adobe RGB o CMYK para impresión).",
+            "Las propuestas estándar no suelen incluir la compra de atrezzo perecedero, honorarios de modelos externos, transporte y seguro de las muestras físicas, ni retoques que excedan el brief original. Aclarar estos puntos por escrito antes de la producción ayuda a evitar desviaciones de presupuesto.",
           ],
         },
       ],
       faqs: [
         {
-          question: "¿Cómo se calcula el precio por fotografía de producto para e-commerce y catálogos?",
+          question: "¿Qué factores hacen que la relación de foto producto precio varíe entre artículos?",
           answer:
-            "El precio por fotografía de producto suele calcularse por imagen individual en pedidos estandarizados de catálogo o por jornada de trabajo cuando se procesan grandes volúmenes de artículos. El costo varía según el número de ángulos por producto, la necesidad de fondos blancos puros o transparentes y el nivel de retoque digital solicitado.",
+            "La variación en la foto producto precio depende de la dificultad de iluminación que exige cada material (vidrio, metal pulido, joyería o cosmética reflectante), de la necesidad de atrezzo o escenografía, y del tiempo de postproducción dedicado a eliminar reflejos e imperfecciones en cada imagen.",
         },
         {
-          question: "¿Qué información se necesita para solicitar un presupuesto fotografía producto?",
+          question: "¿Cuándo conviene contratar por jornada en vez de por foto individual?",
           answer:
-            "Para recibir un presupuesto fotografía producto exacto, se debe detallar la cantidad de referencias (SKUs), el número de tomas requeridas por producto, el tipo de acabado o material (especialmente si es reflectante como vidrio o joyería), los canales de difusión previstos y ejemplos visuales de referencia.",
+            "La tarifa por jornada conviene cuando se fotografían lotes grandes de artículos con requisitos de iluminación uniformes, o en sesiones de estilo de vida donde se capturan múltiples combinaciones de productos y ambientes en un mismo bloque de tiempo de estudio.",
         },
         {
-          question: "¿Qué factores hacen que la relación de foto producto precio varíe entre diferentes artículos?",
+          question: "¿Qué conceptos suelen quedar excluidos en una cotización estándar?",
           answer:
-            "La variación en la foto producto precio depende principalmente de la dificultad técnica de iluminación que exige cada material, la necesidad de atrezzo o escenografía especializada y el tiempo de postproducción dedicado a la eliminación de reflejos o imperfecciones en cada imagen.",
+            "Suelen excluirse la compra de atrezzo perecedero o decorativo específico, la contratación de modelos de manos o estilistas externos, los costes de envío y devolución de las muestras del producto, y las solicitudes de retoque que excedan el alcance pactado inicialmente.",
         },
         {
-          question: "¿Cuándo es más conveniente contratar por jornada de estudio que por foto individual?",
+          question: "¿Qué información se necesita para cotizar fotografía de producto?",
           answer:
-            "La tarifa por jornada es más conveniente cuando se fotografían lotes grandes de artículos con requisitos de iluminación uniformes, o en sesiones de estilo de vida donde se capturan múltiples combinaciones de productos y ambientes en un mismo bloque de tiempo de estudio.",
+            "Se requiere la cantidad total de SKUs, el número de ángulos por producto, si las fotos son sobre fondo limpio o estilo de vida (lifestyle), el nivel de retoque deseado y los canales de uso.",
         },
         {
-          question: "¿Qué conceptos suelen quedar excluidos en una cotización estándar de fotografía de producto?",
+          question: "¿Qué diferencia hay entre fotos de catálogo y fotos de estilo de vida?",
           answer:
-            "Suelen excluirse los gastos de compra de atrezzo perecedero o decorativo específico, la contratación de modelos de manos o estilistas externos, los costes de envío y devolución de las muestras del producto, y las solicitudes de retoque complejo que excedan el alcance pactado inicialmente.",
+            "Las fotos de catálogo muestran el producto sobre fondo blanco o neutro para e-commerce (Amazon, Shopify). Las fotos de estilo de vida incluyen ambientación, utilería o contexto de uso para conectar emocionalmente con el comprador.",
+        },
+        {
+          question: "¿Cómo influye la Inteligencia Artificial en los costos de imagen de producto?",
+          answer:
+            "La IA permite generar fondos y entornos fotorrealistas a partir de fotos base del producto real, reduciendo la necesidad de construir sets físicos costosos o viajar a locaciones.",
+        },
+        {
+          question: "¿Se incluye el retoque digital en la cotización?",
+          answer:
+            "Sí, cada entregable incluye corrección de color y limpieza digital básica. Retoque complejo de imperfecciones o montaje avanzado se define en el alcance del proyecto.",
+        },
+        {
+          question: "¿Dónde puedo calcular una estimación inicial de presupuesto?",
+          answer:
+            "Puedes usar nuestra calculadora de presupuesto en /es/calculadora para obtener un rango estimado según el volumen y tipo de proyecto, o escribirnos en /es/contacto para una propuesta a la medida.",
         },
       ],
     },
@@ -2950,6 +2993,25 @@ export function buildGuideStructuredData(guide: Guide) {
         inLanguage: guide.locale === "es" ? "es-US" : "en-US",
         isPartOf: { "@id": absoluteUrl("/#website") },
         breadcrumb: { "@id": breadcrumbsId },
+      },
+      {
+        "@type": "Article",
+        "@id": `${pageUrl}#article`,
+        url: pageUrl,
+        headline: guide.title,
+        description: guide.description,
+        inLanguage: guide.locale === "es" ? "es-US" : "en-US",
+        mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
+        author: {
+          "@type": "Person",
+          name: "Esteban Moreno",
+          url: absoluteUrl(guide.locale === "es" ? "/es/sobre-esteban" : "/about"),
+        },
+        publisher: {
+          "@type": "Organization",
+          name: "Esteban Moreno Media",
+          url: absoluteUrl(guide.locale === "es" ? "/es" : "/"),
+        },
       },
       buildBreadcrumbList(breadcrumbsId, [
         {

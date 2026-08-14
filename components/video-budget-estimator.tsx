@@ -26,22 +26,39 @@ export function VideoBudgetEstimator({ locale = "en" }: VideoBudgetEstimatorProp
   const [submitted, setSubmitted] = useState<boolean>(false);
 
   // Estimation Logic
+  // Base bands are South Florida market rates for an editing-led freelancer
+  // (Esteban's actual model), less a standing 10% introductory discount.
+  //
+  // Provenance — each band was checked against published 2026 rate guides
+  // before the discount was applied; see docs/pricing-basis.md:
+  //   social      market $100-500 per short-form project
+  //   youtube     market $300-1,500 per YouTube edit
+  //   corporate   market $500-2,500 per medium/explainer project
+  //   realestate  market $250-1,200 short ad creative
+  //   ecommerce   market $250-1,200 short ad creative
+  //   capture     market $300-1,000 half-day
+  //
+  // These are deliberately NOT Miami full-production-company rates
+  // ($4,500-20,000), because that comparable assumes a full crew and
+  // is the wrong model for editing-led work. Do not "correct" upward to it.
+  //
+  // Output stays an indicative range; the UI requires a scoped quote.
   const calculateEstimate = () => {
-    let baseMin = 400;
-    let baseMax = 750;
+    let baseMin = 350;
+    let baseMax = 675;
 
     if (serviceType === "youtube") {
-      baseMin = 500;
-      baseMax = 950;
-    } else if (serviceType === "corporate") {
-      baseMin = 800;
-      baseMax = 1600;
-    } else if (serviceType === "realestate") {
-      baseMin = 650;
-      baseMax = 1200;
-    } else if (serviceType === "ecommerce") {
       baseMin = 450;
       baseMax = 850;
+    } else if (serviceType === "corporate") {
+      baseMin = 725;
+      baseMax = 1450;
+    } else if (serviceType === "realestate") {
+      baseMin = 575;
+      baseMax = 1075;
+    } else if (serviceType === "ecommerce") {
+      baseMin = 400;
+      baseMax = 775;
     }
 
     // Volume multiplier
@@ -64,8 +81,9 @@ export function VideoBudgetEstimator({ locale = "en" }: VideoBudgetEstimatorProp
     }
 
     if (footageSource === "shoot") {
-      baseMin += 450;
-      baseMax += 850;
+      // Half-day on-location capture: market $300-1,000, less 10%.
+      baseMin += 400;
+      baseMax += 775;
     }
 
     if (speed === "express") {

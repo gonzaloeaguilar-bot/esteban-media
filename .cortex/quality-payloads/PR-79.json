@@ -1,0 +1,61 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-79",
+  "status": "review_pending",
+  "evidence": {
+    "obsidian_context": "client-esteban-media vault. Roadmap 48-hour queue row 6: 'Three case-study link bridges — each priority service links to a matching case study and contact path'. Measured before: /services/yacht-hospitality-video-fort-lauderdale and /services/cosmetic-dentistry-video-marketing-miami had zero portfolio links.",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, canonical checkout /Users/gonzalo/code/esteban-media, isolated worktree /Users/gonzalo/code/esteban-bridges-20260813, branch feat/esteban-case-study-bridges-20260813, move class internal_links.",
+    "hard_stops_checked": "No pricing change, no secrets, no deployment, no third-party service, no outreach, no PII. No URL added or removed — inventory stays 259. Claim hygiene was the live risk here and is addressed below.",
+    "reviewer_ensemble": "builder pass (Antigravity), skeptic pass_with_correction (Claude verification found and fixed a false credit), taste pass.",
+    "reviewer_disagreement_reviewed": "The build asserted Esteban did 'guion y edición' (scripting and editing) on the Homeowners project. Verification against the published portfolio page showed the credit is 'Video editing (footage provided by the agency 300 Bees)' with no scriptwriting. The claim was corrected. Verification also found eight pre-existing instances of the same false claim already live on main; all ten were corrected in this branch.",
+    "winner_rationale": "Bridges were matched on credited scope rather than topic similarity: Banacol to yacht/maritime because its published credit is aerial footage flown from boats at sea; My D'ler to crowdfunding because its credit is brand and pitch assets; Homeowners to video editing because its credit is editing from supplied footage.",
+    "tests_or_validation": "Verified independently rather than trusting the build report. pnpm check: lint 0 errors with 3 pre-existing warnings, typecheck clean, 226/226 tests across 39 files, production build passed. indexable-inventory-freeze confirmed at 259 URLs. The prospect-auditor suite is network-dependent and intermittently times out; the build added 15s timeouts, which is a reasonable fix and was kept.",
+    "debt_delta": "neutral",
+    "obsidian_handoff": "esteban-media-hot.md records the bridges, the false-credit correction, and that the CTO dispatch lane was used with Claude verifying."
+  },
+  "project_routing": {
+    "canonical_repo": "/Users/gonzalo/code/esteban-media",
+    "worktree": "/Users/gonzalo/code/esteban-bridges-20260813",
+    "branch": "feat/esteban-case-study-bridges-20260813",
+    "move_class": "internal_links"
+  },
+  "hard_stops_checked": {
+    "pricing_or_offers": "not touched",
+    "factual_business_claims": "CORRECTED — a false scriptwriting credit for Homeowners was removed in ten places, eight of which pre-dated this branch",
+    "secrets_or_credentials": "not accessed or changed",
+    "deployment": "not performed",
+    "third_party_services_or_backends": "not added",
+    "external_outreach": "not performed",
+    "url_inventory": "unchanged at 259"
+  },
+  "reviewer_ensemble": {
+    "builder": {
+      "verdict": "pass",
+      "evidence": "Antigravity bridged four priority service pages across both locales, matching each to a published case study, with contact paths already present."
+    },
+    "skeptic": {
+      "verdict": "pass_with_note",
+      "evidence": "Each asserted credited scope was checked against the live portfolio page. Banacol and My D'ler matched their published credits exactly. Homeowners did not — the build claimed scripting, the page credits editing only — and was corrected. Note: the same false claim existed eight times on main before this work and is also fixed here."
+    },
+    "taste": {
+      "verdict": "pass",
+      "evidence": "Anchor text describes the actual work rather than generic 'case study' or 'read more' labels."
+    }
+  },
+  "reviewer_disagreement_reviewed": "Build asserted a scriptwriting credit the portfolio does not support; corrected after live verification.",
+  "winner_rationale": "Matched on credited scope, not topic similarity.",
+  "tests_or_validation": {
+    "commands": ["pnpm check", "pnpm vitest run scripts/indexable-inventory-freeze.test.mjs"],
+    "results": "lint 0 errors with 3 pre-existing warnings; typecheck clean; 226/226 tests across 39 files; production build passed; freeze test confirms 259 URLs.",
+    "browser": "Not run. Bridges are asserted in source and the pre-change state was measured with curl against production."
+  },
+  "debt_delta": "Neutral. Four service pages, one shared Spanish component, one new test. No dependency, route, service or inventory change.",
+  "obsidian_handoff": "esteban-media-hot.md records the bridges and the false-credit correction.",
+  "claim_hygiene_checked": "This was the material finding. A scriptwriting credit unsupported by the published portfolio was removed from ten locations. No testimonial, outcome claim, guarantee or statistic was added.",
+  "data_sources_current": {
+    "gsc": "90-day page dimension read 2026-08-13 to identify priority services by impressions.",
+    "portfolio_pages": "Each linked case study was fetched live and its credited scope read before the link was accepted."
+  },
+  "booking_or_authority_thesis": "Service pages that show credited proof and a contact path are the site's conversion surface. This adds proof to services that had none; it makes no claim about outcomes."
+}

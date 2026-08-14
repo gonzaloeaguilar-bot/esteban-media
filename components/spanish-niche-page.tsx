@@ -7,6 +7,7 @@ import { Container } from "@/components/ui/container";
 import {
   buildSpanishNicheStructuredData,
   getSpanishNichePage,
+  languageAlternates,
   spanishServices,
 } from "@/lib/spanish-site";
 import { buildPageMetadata } from "@/lib/site-metadata";
@@ -53,7 +54,7 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
       {
         href: "/es/portafolio/homeowners",
         title: "Homeowners",
-        detail: "Trabajo publicado de guion y edición de video.",
+        detail: "Trabajo publicado de edición de video.",
       },
     ],
   },
@@ -120,20 +121,20 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
       {
         href: "/es/portafolio/homeowners",
         title: "Homeowners",
-        detail: "Ejemplo publicado de guion y edición de video.",
+        detail: "Ejemplo publicado de edición de video.",
       },
     ],
   },
   "editor-de-video-real-estate-miami": {
     areaHref: "/es/areas#miami-dade",
     areaLabel: "Ver cobertura en Miami-Dade y Broward",
-    note: "El proyecto Homeowners demuestra trabajo publicado de guion y edición para el sector inmobiliario.",
+    note: "El proyecto Homeowners demuestra trabajo publicado de edición de video para el sector inmobiliario.",
     serviceIds: ["edicion", "planificacion-social"],
     projects: [
       {
         href: "/es/portafolio/homeowners",
         title: "Homeowners",
-        detail: "Ejemplo publicado de guion y edición de video para bienes raíces.",
+        detail: "Ejemplo publicado de edición de video para bienes raíces.",
       },
     ],
   },
@@ -185,7 +186,7 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
       {
         href: "/es/portafolio/homeowners",
         title: "Homeowners",
-        detail: "Ejemplo publicado de guion y edición de video.",
+        detail: "Ejemplo publicado de edición de video.",
       },
     ],
   },
@@ -211,7 +212,7 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
       {
         href: "/es/portafolio/homeowners",
         title: "Homeowners",
-        detail: "Ejemplo publicado de estructuración de guion y edición.",
+        detail: "Ejemplo publicado de edición de video.",
       },
     ],
   },
@@ -263,7 +264,7 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
       {
         href: "/es/portafolio/homeowners",
         title: "Homeowners",
-        detail: "Ejemplo publicado de estructuración de guion y edición.",
+        detail: "Ejemplo publicado de edición de video.",
       },
     ],
   },
@@ -348,13 +349,13 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
   "video-para-yates-y-hospitalidad-fort-lauderdale": {
     areaHref: "/es/areas#broward",
     areaLabel: "Ver cobertura en Broward",
-    note: "Contenido promocional para marcas marítimas y hospitalidad.",
+    note: "El proyecto Banacol demuestra cinematografía aérea grabada desde embarcaciones en mar abierto.",
     serviceIds: ["edicion", "videografia"],
     projects: [
       {
-        href: "/es/portafolio/bar-door-monkey",
-        title: "Bar Door Monkey Miami",
-        detail: "Producción de hospitalidad y alimentos.",
+        href: "/es/portafolio/banacol",
+        title: "Banacol",
+        detail: "Cinematografía aérea con dron operado desde embarcaciones en mar abierto.",
       },
     ],
   },
@@ -803,13 +804,13 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
   "edicion-de-video-palm-beach-gardens": {
     areaHref: "/es/areas/palm-beach-county",
     areaLabel: "Ver cobertura en Palm Beach County",
-    note: "Edición sobria para clínicas y servicios ejecutivos.",
+    note: "El proyecto Homeowners demuestra trabajo publicado de edición de video a partir de material suministrado por la agencia.",
     serviceIds: ["edicion"],
     projects: [
       {
-        href: "/es/portafolio/healthy-smile",
-        title: "Healthy Smile",
-        detail: "Video corporativo institucional.",
+        href: "/es/portafolio/homeowners",
+        title: "Homeowners",
+        detail: "Trabajo publicado de edición de video.",
       },
     ],
   },
@@ -881,13 +882,13 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
   "editor-de-video-para-campanas-de-crowdfunding": {
     areaHref: "/es/areas#miami-dade",
     areaLabel: "Ver cobertura en Wynwood",
-    note: "Videos persuasivos de lanzamiento en Kickstarter.",
+    note: "El proyecto My D'ler demuestra piezas visuales de marca, video 3D, animación 2D y mockups para presentaciones de producto.",
     serviceIds: ["edicion", "videografia"],
     projects: [
       {
-        href: "/es/portafolio/bar-door-monkey",
-        title: "Bar Door Monkey Miami",
-        detail: "Presentación comercial persuasiva.",
+        href: "/es/portafolio/my-dler",
+        title: "My D'ler",
+        detail: "Piezas visuales de marca, video 3D, animación 2D y mockups de producto.",
       },
     ],
   },
@@ -966,14 +967,20 @@ export function buildSpanishNicheMetadata(slug: string): Metadata {
   }
 
   const path = `/es/${page.slug}`;
+  // Read the shared languageAlternates map rather than hardcoding pairs here.
+  //
+  // This function used to special-case exactly ONE slug and emit
+  // `{ "es-US": path }` for every other Spanish niche page. That made hreflang
+  // ONE-WAY: after PR #84 paired 36 service pages, the English side correctly
+  // advertised en-US/es-US/x-default while the Spanish side still pointed only
+  // at itself. Google ignores non-reciprocal hreflang, so the pairs did nothing
+  // in production until this read the same map the English side does.
+  // Caught by checking the live HTML on both sides, not by trusting the map.
+  //
+  // Fallback keeps a Spanish page with no English counterpart self-referencing,
+  // which is the correct signal for a page that genuinely has no pair.
   const languages: Record<string, string> =
-    slug === "video-para-pequenos-negocios-pembroke-pines"
-      ? {
-          "en-US": "/services/small-business-video-pembroke-pines",
-          "es-US": path,
-          "x-default": "/services/small-business-video-pembroke-pines",
-        }
-      : { "es-US": path };
+    languageAlternates[path] ?? { "es-US": path };
 
   return buildPageMetadata({
     title: page.metadataTitle,
