@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, Mail, Phone, Send } from "lucide-react";
 
+import { ClientReviews } from "@/components/client-reviews";
 import { HeroVideo } from "@/components/hero-video";
 import { HomeAuthorityHub } from "@/components/home-authority-hub";
 import { PortfolioTeaser } from "@/components/portfolio-teaser";
@@ -27,6 +28,8 @@ export default function SpanishHomePage() {
       <HomeAuthorityHub locale="es" />
 
       <PortfolioTeaser locale="es" />
+
+      <ClientReviews locale="es" />
 
       <section className="py-12 sm:py-16">
         <Container size="xl">

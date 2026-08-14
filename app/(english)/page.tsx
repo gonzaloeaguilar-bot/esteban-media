@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { AboutTeaser } from "@/components/about-teaser";
+import { ClientReviews } from "@/components/client-reviews";
 import { ContactCta } from "@/components/contact-cta";
 import { HeroVideo } from "@/components/hero-video";
 import { HomeAuthorityHub } from "@/components/home-authority-hub";
@@ -23,6 +24,7 @@ export default function Home() {
       <HomeAuthorityHub />
       <ServicesStrip />
       <PortfolioTeaser locale="en" />
+      <ClientReviews locale="en" />
       <AboutTeaser />
       <ContactCta />
     </main>
