@@ -969,9 +969,9 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Variables principales que determinan el costo de producción",
+          heading: "Variables que determinan el precio por fotografía de producto",
           paragraphs: [
-            "La cotización de un proyecto de fotografía o imágenes de producto depende directamente del alcance operativo. En el mercado audiovisual, los proyectos se estructuran evaluando factores clave antes de definir el presupuesto final. Para estimar una referencia orientativa basada en tus parámetros, puedes usar la [calculadora de presupuesto](/es/calculadora).",
+            "El precio por fotografía de producto depende directamente del alcance operativo del proyecto. En el mercado audiovisual, los proyectos se estructuran evaluando factores clave antes de definir el presupuesto final. Para estimar una referencia orientativa basada en tus parámetros, puedes usar la [calculadora de presupuesto](/es/calculadora).",
             "Entre las variables determinantes se destacan el volumen total de productos (SKUs), la cantidad de ángulos requeridos por producto y el nivel de complejidad en la preparación del set.",
           ],
           bullets: [
@@ -996,8 +996,44 @@ const guidePairs: readonly GuidePair[] = [
             "Te recomendamos definir el listado exacto de SKUs, si requerirás tomas de empaque o detalles en 45°, los canales donde publicarás las imágenes y ejemplos visuales de referencia. Puedes calcular una estimación transparente en nuestra [calculadora de presupuesto](/es/calculadora) o escribirnos directamente en [contacto](/es/contacto) para evaluar los requerimientos de tu marca.",
           ],
         },
+        {
+          heading: "Estructura típica de un presupuesto fotografía producto",
+          paragraphs: [
+            "Un presupuesto fotografía producto detallado desglosa el precio por fotografía de producto en las fases operativas del proyecto para que la marca sepa con exactitud qué conceptos están incluidos antes de iniciar la producción.",
+            "La preproducción contempla la planificación visual, el moodboard y la lista de tomas (shot list) con los ángulos prioritarios. La sesión de captura cubre tiempos de estudio, equipamiento de cámaras y ópticas macro, e iluminación técnica. La postproducción y entrega abarca el procesado RAW, el retoque acordado, la exportación en los formatos y resoluciones que exigen marketplaces y plataformas web, y la cesión de derechos correspondiente.",
+          ],
+          bullets: [
+            "Preproducción: lista de tomas (shot list) y definición de referencias estéticas",
+            "Producción: tiempo de estudio, iluminación, ópticas de producto y captura calibrada",
+            "Postproducción: revelado digital, corrección de color, limpieza y exportación optimizada",
+            "Entregables y licencias: cesión de derechos de uso comercial y archivos en alta resolución",
+          ],
+        },
+        {
+          heading: "Cómo comparar cotizaciones y qué suele quedar excluido",
+          paragraphs: [
+            "Al comparar propuestas conviene analizar los entregables netos y las condiciones de servicio, no únicamente el monto global.",
+            "Verifica si el retoque digital, los recortes de fondo con transparencia y las sombras realistas vienen incluidos en la tarifa base o se facturan como suplementos por imagen. Confirma también las rondas de revisión permitidas y la entrega en los perfiles de color adecuados (sRGB para web, Adobe RGB o CMYK para impresión).",
+            "Las propuestas estándar no suelen incluir la compra de atrezzo perecedero, honorarios de modelos externos, transporte y seguro de las muestras físicas, ni retoques que excedan el brief original. Aclarar estos puntos por escrito antes de la producción ayuda a evitar desviaciones de presupuesto.",
+          ],
+        },
       ],
       faqs: [
+        {
+          question: "¿Qué factores hacen que la relación de foto producto precio varíe entre artículos?",
+          answer:
+            "La variación en la foto producto precio depende de la dificultad de iluminación que exige cada material (vidrio, metal pulido, joyería o cosmética reflectante), de la necesidad de atrezzo o escenografía, y del tiempo de postproducción dedicado a eliminar reflejos e imperfecciones en cada imagen.",
+        },
+        {
+          question: "¿Cuándo conviene contratar por jornada en vez de por foto individual?",
+          answer:
+            "La tarifa por jornada conviene cuando se fotografían lotes grandes de artículos con requisitos de iluminación uniformes, o en sesiones de estilo de vida donde se capturan múltiples combinaciones de productos y ambientes en un mismo bloque de tiempo de estudio.",
+        },
+        {
+          question: "¿Qué conceptos suelen quedar excluidos en una cotización estándar?",
+          answer:
+            "Suelen excluirse la compra de atrezzo perecedero o decorativo específico, la contratación de modelos de manos o estilistas externos, los costes de envío y devolución de las muestras del producto, y las solicitudes de retoque que excedan el alcance pactado inicialmente.",
+        },
         {
           question: "¿Qué información se necesita para cotizar fotografía de producto?",
           answer:
