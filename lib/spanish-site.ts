@@ -2529,6 +2529,374 @@ export const spanishCoreRoutes = [
 ];
 
 export const languageAlternates: Record<string, Record<string, string>> = {
+  // Bilingual service/niche pairs (2026-08-14). Both languages stay live —
+  // Spanish serves the large bilingual audience, English is the ranking engine
+  // for Miami-Dade / Broward / Palm Beach. Before this, only 17 shell pages
+  // were paired, so the 62 English service pages and their Spanish
+  // equivalents had NO hreflang and no toggle between them.
+  // x-default points at English by design: US search intent for these
+  // services is English (Semrush 2026-08-13 — "videografo miami" returns no
+  // US data at all, while "videographer miami" is 260/mo at KD 26).
+  "/services/ai-food-photography-restaurants": {
+    "en-US": "/services/ai-food-photography-restaurants",
+    "es-US": "/es/fotografia-de-comida-con-ia-restaurantes",
+    "x-default": "/services/ai-food-photography-restaurants",
+  },
+  "/es/fotografia-de-comida-con-ia-restaurantes": {
+    "en-US": "/services/ai-food-photography-restaurants",
+    "es-US": "/es/fotografia-de-comida-con-ia-restaurantes",
+    "x-default": "/services/ai-food-photography-restaurants",
+  },
+  "/services/ai-product-photography-miami": {
+    "en-US": "/services/ai-product-photography-miami",
+    "es-US": "/es/fotografia-de-producto-con-ia-miami",
+    "x-default": "/services/ai-product-photography-miami",
+  },
+  "/es/fotografia-de-producto-con-ia-miami": {
+    "en-US": "/services/ai-product-photography-miami",
+    "es-US": "/es/fotografia-de-producto-con-ia-miami",
+    "x-default": "/services/ai-product-photography-miami",
+  },
+  "/services/ai-real-estate-photo-enhancement": {
+    "en-US": "/services/ai-real-estate-photo-enhancement",
+    "es-US": "/es/fotos-con-ia-para-bienes-raices-miami",
+    "x-default": "/services/ai-real-estate-photo-enhancement",
+  },
+  "/es/fotos-con-ia-para-bienes-raices-miami": {
+    "en-US": "/services/ai-real-estate-photo-enhancement",
+    "es-US": "/es/fotos-con-ia-para-bienes-raices-miami",
+    "x-default": "/services/ai-real-estate-photo-enhancement",
+  },
+  "/services/architecture-design-video-miami": {
+    "en-US": "/services/architecture-design-video-miami",
+    "es-US": "/es/video-para-arquitectura-y-diseno-miami",
+    "x-default": "/services/architecture-design-video-miami",
+  },
+  "/es/video-para-arquitectura-y-diseno-miami": {
+    "en-US": "/services/architecture-design-video-miami",
+    "es-US": "/es/video-para-arquitectura-y-diseno-miami",
+    "x-default": "/services/architecture-design-video-miami",
+  },
+  "/services/automotive-video-marketing-miami": {
+    "en-US": "/services/automotive-video-marketing-miami",
+    "es-US": "/es/marketing-de-video-automotriz-miami",
+    "x-default": "/services/automotive-video-marketing-miami",
+  },
+  "/es/marketing-de-video-automotriz-miami": {
+    "en-US": "/services/automotive-video-marketing-miami",
+    "es-US": "/es/marketing-de-video-automotriz-miami",
+    "x-default": "/services/automotive-video-marketing-miami",
+  },
+  "/services/boutique-hotel-video-editing-miami": {
+    "en-US": "/services/boutique-hotel-video-editing-miami",
+    "es-US": "/es/edicion-de-video-para-hoteles-boutique-miami",
+    "x-default": "/services/boutique-hotel-video-editing-miami",
+  },
+  "/es/edicion-de-video-para-hoteles-boutique-miami": {
+    "en-US": "/services/boutique-hotel-video-editing-miami",
+    "es-US": "/es/edicion-de-video-para-hoteles-boutique-miami",
+    "x-default": "/services/boutique-hotel-video-editing-miami",
+  },
+  "/services/corporate-training-video-editing-miami": {
+    "en-US": "/services/corporate-training-video-editing-miami",
+    "es-US": "/es/edicion-de-video-de-capacitacion-corporativa-miami",
+    "x-default": "/services/corporate-training-video-editing-miami",
+  },
+  "/es/edicion-de-video-de-capacitacion-corporativa-miami": {
+    "en-US": "/services/corporate-training-video-editing-miami",
+    "es-US": "/es/edicion-de-video-de-capacitacion-corporativa-miami",
+    "x-default": "/services/corporate-training-video-editing-miami",
+  },
+  "/services/corporate-video-editing-weston-fl": {
+    "en-US": "/services/corporate-video-editing-weston-fl",
+    "es-US": "/es/edicion-de-video-corporativo-weston",
+    "x-default": "/services/corporate-video-editing-weston-fl",
+  },
+  "/es/edicion-de-video-corporativo-weston": {
+    "en-US": "/services/corporate-video-editing-weston-fl",
+    "es-US": "/es/edicion-de-video-corporativo-weston",
+    "x-default": "/services/corporate-video-editing-weston-fl",
+  },
+  "/services/creative-video-production-wynwood": {
+    "en-US": "/services/creative-video-production-wynwood",
+    "es-US": "/es/video-creativo-wynwood-miami",
+    "x-default": "/services/creative-video-production-wynwood",
+  },
+  "/es/video-creativo-wynwood-miami": {
+    "en-US": "/services/creative-video-production-wynwood",
+    "es-US": "/es/video-creativo-wynwood-miami",
+    "x-default": "/services/creative-video-production-wynwood",
+  },
+  "/services/crowdfunding-video-editor-miami": {
+    "en-US": "/services/crowdfunding-video-editor-miami",
+    "es-US": "/es/editor-de-video-para-campanas-de-crowdfunding",
+    "x-default": "/services/crowdfunding-video-editor-miami",
+  },
+  "/es/editor-de-video-para-campanas-de-crowdfunding": {
+    "en-US": "/services/crowdfunding-video-editor-miami",
+    "es-US": "/es/editor-de-video-para-campanas-de-crowdfunding",
+    "x-default": "/services/crowdfunding-video-editor-miami",
+  },
+  "/services/drone-video-editing-service-miami": {
+    "en-US": "/services/drone-video-editing-service-miami",
+    "es-US": "/es/edicion-de-video-con-dron-miami",
+    "x-default": "/services/drone-video-editing-service-miami",
+  },
+  "/es/edicion-de-video-con-dron-miami": {
+    "en-US": "/services/drone-video-editing-service-miami",
+    "es-US": "/es/edicion-de-video-con-dron-miami",
+    "x-default": "/services/drone-video-editing-service-miami",
+  },
+  "/services/ecommerce-product-video-editor-miami": {
+    "en-US": "/services/ecommerce-product-video-editor-miami",
+    "es-US": "/es/editor-de-video-de-productos-para-ecommerce",
+    "x-default": "/services/ecommerce-product-video-editor-miami",
+  },
+  "/es/editor-de-video-de-productos-para-ecommerce": {
+    "en-US": "/services/ecommerce-product-video-editor-miami",
+    "es-US": "/es/editor-de-video-de-productos-para-ecommerce",
+    "x-default": "/services/ecommerce-product-video-editor-miami",
+  },
+  "/services/event-video-editing-miami": {
+    "en-US": "/services/event-video-editing-miami",
+    "es-US": "/es/edicion-de-video-para-eventos-miami",
+    "x-default": "/services/event-video-editing-miami",
+  },
+  "/es/edicion-de-video-para-eventos-miami": {
+    "en-US": "/services/event-video-editing-miami",
+    "es-US": "/es/edicion-de-video-para-eventos-miami",
+    "x-default": "/services/event-video-editing-miami",
+  },
+  "/services/headshot-photographer-miami": {
+    "en-US": "/services/headshot-photographer-miami",
+    "es-US": "/es/fotografo-de-retratos-y-headshots-miami",
+    "x-default": "/services/headshot-photographer-miami",
+  },
+  "/es/fotografo-de-retratos-y-headshots-miami": {
+    "en-US": "/services/headshot-photographer-miami",
+    "es-US": "/es/fotografo-de-retratos-y-headshots-miami",
+    "x-default": "/services/headshot-photographer-miami",
+  },
+  "/services/jewelry-product-photography-miami": {
+    "en-US": "/services/jewelry-product-photography-miami",
+    "es-US": "/es/fotografia-de-joyas-y-lujo-miami",
+    "x-default": "/services/jewelry-product-photography-miami",
+  },
+  "/es/fotografia-de-joyas-y-lujo-miami": {
+    "en-US": "/services/jewelry-product-photography-miami",
+    "es-US": "/es/fotografia-de-joyas-y-lujo-miami",
+    "x-default": "/services/jewelry-product-photography-miami",
+  },
+  "/services/luxury-jewelry-video-editing-miami": {
+    "en-US": "/services/luxury-jewelry-video-editing-miami",
+    "es-US": "/es/edicion-de-video-para-joyeria-de-lujo-miami",
+    "x-default": "/services/luxury-jewelry-video-editing-miami",
+  },
+  "/es/edicion-de-video-para-joyeria-de-lujo-miami": {
+    "en-US": "/services/luxury-jewelry-video-editing-miami",
+    "es-US": "/es/edicion-de-video-para-joyeria-de-lujo-miami",
+    "x-default": "/services/luxury-jewelry-video-editing-miami",
+  },
+  "/services/nightlife-event-video-editing-miami": {
+    "en-US": "/services/nightlife-event-video-editing-miami",
+    "es-US": "/es/edicion-de-video-para-discotecas-y-eventos-miami",
+    "x-default": "/services/nightlife-event-video-editing-miami",
+  },
+  "/es/edicion-de-video-para-discotecas-y-eventos-miami": {
+    "en-US": "/services/nightlife-event-video-editing-miami",
+    "es-US": "/es/edicion-de-video-para-discotecas-y-eventos-miami",
+    "x-default": "/services/nightlife-event-video-editing-miami",
+  },
+  "/services/online-course-video-editing-service": {
+    "en-US": "/services/online-course-video-editing-service",
+    "es-US": "/es/edicion-de-video-para-cursos-online",
+    "x-default": "/services/online-course-video-editing-service",
+  },
+  "/es/edicion-de-video-para-cursos-online": {
+    "en-US": "/services/online-course-video-editing-service",
+    "es-US": "/es/edicion-de-video-para-cursos-online",
+    "x-default": "/services/online-course-video-editing-service",
+  },
+  "/services/plastic-surgery-video-marketing-miami": {
+    "en-US": "/services/plastic-surgery-video-marketing-miami",
+    "es-US": "/es/marketing-de-video-para-cirugia-plastica-miami",
+    "x-default": "/services/plastic-surgery-video-marketing-miami",
+  },
+  "/es/marketing-de-video-para-cirugia-plastica-miami": {
+    "en-US": "/services/plastic-surgery-video-marketing-miami",
+    "es-US": "/es/marketing-de-video-para-cirugia-plastica-miami",
+    "x-default": "/services/plastic-surgery-video-marketing-miami",
+  },
+  "/services/real-estate-drone-video-editing-miami": {
+    "en-US": "/services/real-estate-drone-video-editing-miami",
+    "es-US": "/es/drone-real-estate-miami",
+    "x-default": "/services/real-estate-drone-video-editing-miami",
+  },
+  "/es/drone-real-estate-miami": {
+    "en-US": "/services/real-estate-drone-video-editing-miami",
+    "es-US": "/es/drone-real-estate-miami",
+    "x-default": "/services/real-estate-drone-video-editing-miami",
+  },
+  "/services/real-estate-video-aventura-miami": {
+    "en-US": "/services/real-estate-video-aventura-miami",
+    "es-US": "/es/video-inmobiliario-aventura-miami",
+    "x-default": "/services/real-estate-video-aventura-miami",
+  },
+  "/es/video-inmobiliario-aventura-miami": {
+    "en-US": "/services/real-estate-video-aventura-miami",
+    "es-US": "/es/video-inmobiliario-aventura-miami",
+    "x-default": "/services/real-estate-video-aventura-miami",
+  },
+  "/services/real-estate-video-coral-gables": {
+    "en-US": "/services/real-estate-video-coral-gables",
+    "es-US": "/es/video-inmobiliario-coral-gables",
+    "x-default": "/services/real-estate-video-coral-gables",
+  },
+  "/es/video-inmobiliario-coral-gables": {
+    "en-US": "/services/real-estate-video-coral-gables",
+    "es-US": "/es/video-inmobiliario-coral-gables",
+    "x-default": "/services/real-estate-video-coral-gables",
+  },
+  "/services/real-estate-video-sunny-isles": {
+    "en-US": "/services/real-estate-video-sunny-isles",
+    "es-US": "/es/video-inmobiliario-sunny-isles",
+    "x-default": "/services/real-estate-video-sunny-isles",
+  },
+  "/es/video-inmobiliario-sunny-isles": {
+    "en-US": "/services/real-estate-video-sunny-isles",
+    "es-US": "/es/video-inmobiliario-sunny-isles",
+    "x-default": "/services/real-estate-video-sunny-isles",
+  },
+  "/services/short-form-video-editor-miami": {
+    "en-US": "/services/short-form-video-editor-miami",
+    "es-US": "/es/editor-de-video-corto-para-redes-miami",
+    "x-default": "/services/short-form-video-editor-miami",
+  },
+  "/es/editor-de-video-corto-para-redes-miami": {
+    "en-US": "/services/short-form-video-editor-miami",
+    "es-US": "/es/editor-de-video-corto-para-redes-miami",
+    "x-default": "/services/short-form-video-editor-miami",
+  },
+  "/services/tiktok-ad-video-editor-miami": {
+    "en-US": "/services/tiktok-ad-video-editor-miami",
+    "es-US": "/es/editor-de-video-para-anuncios-de-tiktok-miami",
+    "x-default": "/services/tiktok-ad-video-editor-miami",
+  },
+  "/es/editor-de-video-para-anuncios-de-tiktok-miami": {
+    "en-US": "/services/tiktok-ad-video-editor-miami",
+    "es-US": "/es/editor-de-video-para-anuncios-de-tiktok-miami",
+    "x-default": "/services/tiktok-ad-video-editor-miami",
+  },
+  "/services/ugc-video-editor-ecommerce": {
+    "en-US": "/services/ugc-video-editor-ecommerce",
+    "es-US": "/es/editor-de-video-ugc-para-ecommerce",
+    "x-default": "/services/ugc-video-editor-ecommerce",
+  },
+  "/es/editor-de-video-ugc-para-ecommerce": {
+    "en-US": "/services/ugc-video-editor-ecommerce",
+    "es-US": "/es/editor-de-video-ugc-para-ecommerce",
+    "x-default": "/services/ugc-video-editor-ecommerce",
+  },
+  "/services/video-editing-miami-beach": {
+    "en-US": "/services/video-editing-miami-beach",
+    "es-US": "/es/edicion-de-video-miami-beach",
+    "x-default": "/services/video-editing-miami-beach",
+  },
+  "/es/edicion-de-video-miami-beach": {
+    "en-US": "/services/video-editing-miami-beach",
+    "es-US": "/es/edicion-de-video-miami-beach",
+    "x-default": "/services/video-editing-miami-beach",
+  },
+  "/services/video-editing-palm-beach-gardens": {
+    "en-US": "/services/video-editing-palm-beach-gardens",
+    "es-US": "/es/edicion-de-video-palm-beach-gardens",
+    "x-default": "/services/video-editing-palm-beach-gardens",
+  },
+  "/es/edicion-de-video-palm-beach-gardens": {
+    "en-US": "/services/video-editing-palm-beach-gardens",
+    "es-US": "/es/edicion-de-video-palm-beach-gardens",
+    "x-default": "/services/video-editing-palm-beach-gardens",
+  },
+  "/services/video-podcast-editing-service-miami": {
+    "en-US": "/services/video-podcast-editing-service-miami",
+    "es-US": "/es/edicion-de-video-podcast-miami",
+    "x-default": "/services/video-podcast-editing-service-miami",
+  },
+  "/es/edicion-de-video-podcast-miami": {
+    "en-US": "/services/video-podcast-editing-service-miami",
+    "es-US": "/es/edicion-de-video-podcast-miami",
+    "x-default": "/services/video-podcast-editing-service-miami",
+  },
+  "/services/video-production-davie-fl": {
+    "en-US": "/services/video-production-davie-fl",
+    "es-US": "/es/produccion-de-video-davie-fl",
+    "x-default": "/services/video-production-davie-fl",
+  },
+  "/es/produccion-de-video-davie-fl": {
+    "en-US": "/services/video-production-davie-fl",
+    "es-US": "/es/produccion-de-video-davie-fl",
+    "x-default": "/services/video-production-davie-fl",
+  },
+  "/services/video-production-delray-beach": {
+    "en-US": "/services/video-production-delray-beach",
+    "es-US": "/es/produccion-de-video-delray-beach",
+    "x-default": "/services/video-production-delray-beach",
+  },
+  "/es/produccion-de-video-delray-beach": {
+    "en-US": "/services/video-production-delray-beach",
+    "es-US": "/es/produccion-de-video-delray-beach",
+    "x-default": "/services/video-production-delray-beach",
+  },
+  "/services/video-production-doral-miami": {
+    "en-US": "/services/video-production-doral-miami",
+    "es-US": "/es/produccion-de-video-doral-miami",
+    "x-default": "/services/video-production-doral-miami",
+  },
+  "/es/produccion-de-video-doral-miami": {
+    "en-US": "/services/video-production-doral-miami",
+    "es-US": "/es/produccion-de-video-doral-miami",
+    "x-default": "/services/video-production-doral-miami",
+  },
+  "/services/website-design-fort-lauderdale": {
+    "en-US": "/services/website-design-fort-lauderdale",
+    "es-US": "/es/diseno-web-fort-lauderdale",
+    "x-default": "/services/website-design-fort-lauderdale",
+  },
+  "/es/diseno-web-fort-lauderdale": {
+    "en-US": "/services/website-design-fort-lauderdale",
+    "es-US": "/es/diseno-web-fort-lauderdale",
+    "x-default": "/services/website-design-fort-lauderdale",
+  },
+  "/services/yacht-charter-video-marketing-miami": {
+    "en-US": "/services/yacht-charter-video-marketing-miami",
+    "es-US": "/es/marketing-de-video-para-alquiler-de-yates-miami",
+    "x-default": "/services/yacht-charter-video-marketing-miami",
+  },
+  "/es/marketing-de-video-para-alquiler-de-yates-miami": {
+    "en-US": "/services/yacht-charter-video-marketing-miami",
+    "es-US": "/es/marketing-de-video-para-alquiler-de-yates-miami",
+    "x-default": "/services/yacht-charter-video-marketing-miami",
+  },
+  "/services/yacht-hospitality-video-fort-lauderdale": {
+    "en-US": "/services/yacht-hospitality-video-fort-lauderdale",
+    "es-US": "/es/video-para-yates-y-hospitalidad-fort-lauderdale",
+    "x-default": "/services/yacht-hospitality-video-fort-lauderdale",
+  },
+  "/es/video-para-yates-y-hospitalidad-fort-lauderdale": {
+    "en-US": "/services/yacht-hospitality-video-fort-lauderdale",
+    "es-US": "/es/video-para-yates-y-hospitalidad-fort-lauderdale",
+    "x-default": "/services/yacht-hospitality-video-fort-lauderdale",
+  },
+  "/services/youtube-video-editing-service-miami": {
+    "en-US": "/services/youtube-video-editing-service-miami",
+    "es-US": "/es/servicio-de-edicion-de-video-para-youtube-miami",
+    "x-default": "/services/youtube-video-editing-service-miami",
+  },
+  "/es/servicio-de-edicion-de-video-para-youtube-miami": {
+    "en-US": "/services/youtube-video-editing-service-miami",
+    "es-US": "/es/servicio-de-edicion-de-video-para-youtube-miami",
+    "x-default": "/services/youtube-video-editing-service-miami",
+  },
   "/": {
     "en-US": "/",
     "es-US": "/es",
