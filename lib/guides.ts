@@ -986,7 +986,7 @@ const guidePairs: readonly GuidePair[] = [
           paragraphs: [
             "Al comparar propuestas para un presupuesto fotografía producto, es fundamental analizar los entregables netos y las condiciones de servicio en lugar de fijarse únicamente en el monto global.",
             "Verifica si el retoque digital, los recortes de fondo con transparencia y las sombras realistas vienen incluidos en la tarifa base o si se facturan como suplementos por imagen. Asimismo, confirma la política respecto a las rondas de revisión permitidas y la entrega de los archivos finales en los perfiles de color adecuados (sRGB para web, Adobe RGB o CMYK para impresión).",
-            "Es común que las propuestas estándar no incluyan la adquisición de atrezzo específico perecedero, honorarios de modelos externos, gastos de transporte y seguro de las muestras físicas, o retoques extraordinarios no contemplados en el brief original. Aclarar estos puntos por escrito antes de la producción evita desviaciones y garantiza una colaboración eficiente.",
+            "Es común que las propuestas estándar no incluyan la adquisición de atrezzo específico perecedero, honorarios de modelos externos, gastos de transporte y seguro de las muestras físicas, o retoques extraordinarios no contemplados en el brief original. Aclarar estos puntos por escrito antes de la producción ayuda a evitar desviaciones de presupuesto.",
           ],
         },
       ],
