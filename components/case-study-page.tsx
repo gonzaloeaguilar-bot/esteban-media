@@ -18,6 +18,53 @@ import {
 } from "@/lib/case-studies";
 import { isYouTubeSource, getPortfolioItemById } from "@/lib/portfolio";
 
+function renderFormattedText(text: string) {
+  const parts: React.ReactNode[] = [];
+  const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+
+  while ((match = regex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.substring(lastIndex, match.index));
+    }
+    const label = match[1];
+    const href = match[2];
+    const isExternal = href.startsWith("http");
+
+    if (isExternal) {
+      parts.push(
+        <a
+          key={`${href}-${match.index}`}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[#c84a2c]"
+        >
+          {label}
+        </a>,
+      );
+    } else {
+      parts.push(
+        <Link
+          key={`${href}-${match.index}`}
+          href={href}
+          className="font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[#c84a2c]"
+        >
+          {label}
+        </Link>,
+      );
+    }
+    lastIndex = regex.lastIndex;
+  }
+
+  if (lastIndex < text.length) {
+    parts.push(text.substring(lastIndex));
+  }
+
+  return parts.length > 0 ? parts : text;
+}
+
 interface CaseStudyPageProps {
   caseStudy: CaseStudy;
 }
@@ -186,7 +233,7 @@ export function CaseStudyPage({ caseStudy }: CaseStudyPageProps) {
                       key={pIdx}
                       className="text-base leading-7 text-[#3f4548] sm:text-lg sm:leading-8"
                     >
-                      {p}
+                      {renderFormattedText(p)}
                     </p>
                   ))}
 
@@ -201,7 +248,7 @@ export function CaseStudyPage({ caseStudy }: CaseStudyPageProps) {
                             className="mt-1 size-4 shrink-0 text-[#c84a2c]"
                             aria-hidden="true"
                           />
-                          <span>{bullet}</span>
+                          <span>{renderFormattedText(bullet)}</span>
                         </li>
                       ))}
                     </ul>

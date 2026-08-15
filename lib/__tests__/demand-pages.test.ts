@@ -171,6 +171,24 @@ describe("Spanish niche page depth: reels-para-negocios-miami", () => {
     expect(markup).toContain('href="/es/guias/video-vertical-horizontal-y-zonas-seguras"');
     expect(markup).toContain('href="/es/guias/entrega-para-edicion-remota-de-video"');
   });
+
+  it("receives internal links from Spanish guides and site navigation", async () => {
+    const { getGuides } = await import("@/lib/guides");
+    const spanishGuides = getGuides("es");
+    const linkingGuides = spanishGuides.filter((g) =>
+      JSON.stringify(g.sections).includes("/es/reels-para-negocios-miami"),
+    );
+
+    // At least 4 guides contain contextual inbound links to reels-para-negocios-miami
+    expect(linkingGuides.length).toBeGreaterThanOrEqual(4);
+
+    const linkingSlugs = linkingGuides.map((g) => g.slug);
+    expect(linkingSlugs).toContain("video-vertical-horizontal-y-zonas-seguras");
+    expect(linkingSlugs).toContain("como-usar-instagram-reels-para-tu-negocio");
+    expect(linkingSlugs).toContain("reels-vs-tiktok-vs-shorts-para-negocios-locales");
+    expect(linkingSlugs).toContain("como-reutilizar-video-largo-en-reels");
+    expect(linkingSlugs).toContain("mejores-estilos-de-subtitulos-para-reels");
+  });
 });
 
 describe("Restaurant promo video editing internal links mesh", () => {
