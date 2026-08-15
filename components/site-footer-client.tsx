@@ -72,6 +72,8 @@ const spanishGroups = [
       { href: "/es/servicios#contenido-ia", label: "Contenido IA" },
       { href: "/es/servicios#planificacion-social", label: "Plan social" },
       { href: "/es/servicios#videografia", label: "Video" },
+      { href: "/es/reels-para-negocios-miami", label: "Reels para negocios" },
+      { href: "/es/video-para-restaurantes-miami", label: "Video para restaurantes" },
     ],
   },
   {

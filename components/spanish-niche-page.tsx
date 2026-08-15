@@ -1100,7 +1100,7 @@ export function SpanishNichePage({ slug }: { slug: string }) {
                 {page.h1}
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-                {page.lead}
+                {renderFormattedText(page.lead)}
               </p>
               {isPendingConfirmation ? (
                 <p
@@ -1144,7 +1144,7 @@ export function SpanishNichePage({ slug }: { slug: string }) {
                   : "¿Para qué proyecto encaja?"}
               </h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                {page.projectFit}
+                {renderFormattedText(page.projectFit)}
               </p>
               <dl className="mt-6 grid gap-3">
                 <div className="rounded-md border border-[#ddd4c8] p-3">

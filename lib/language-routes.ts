@@ -17,6 +17,10 @@ const pairedLanguageRoutes: Record<string, string> = {
     "/es/guias/video-vertical-horizontal-y-zonas-seguras",
   "/guides/remote-video-editing-handoff":
     "/es/guias/entrega-para-edicion-remota-de-video",
+  "/services/restaurant-promo-video-editing-miami":
+    "/es/video-para-restaurantes-miami",
+  "/services/short-form-video-editor-miami":
+    "/es/reels-para-negocios-miami",
   "/daily-publish-prompt": "/es/prompt-de-publicacion-diaria",
   "/daily-hook-planner": "/es/planificador-de-ganchos-de-video",
 };
