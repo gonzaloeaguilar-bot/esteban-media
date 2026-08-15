@@ -123,6 +123,12 @@ export const spanishAreas = [
   },
 ];
 
+export type SpanishNicheSection = {
+  heading: string;
+  paragraphs: readonly string[];
+  bullets?: readonly string[];
+};
+
 export type SpanishNichePage = {
   slug: string;
   title: string;
@@ -138,6 +144,7 @@ export type SpanishNichePage = {
   bestFor: string[];
   scopingQuestions: string[];
   projectFit: string;
+  sections?: readonly SpanishNicheSection[];
   faqs: { question: string; answer: string }[];
 };
 
@@ -334,16 +341,90 @@ export const spanishNichePages: SpanishNichePage[] = [
     ],
     projectFit:
       "Esta ruta ayuda a preparar una conversación sobre edición o captura selectiva de video corto. No fija duración, cantidad, formato ni fecha de entrega.",
-    faqs: [
+    sections: [
       {
-        question: "¿Puedo pedir solo edición de reels?",
-        answer:
-          "La edición de video con material existente es una prioridad confirmada. El alcance y las necesidades de formato se conversan para cada proyecto.",
+        heading: "Estructura de video corto para captar atención en Miami",
+        paragraphs: [
+          "En el mercado comercial de Miami-Dade, donde la atención en plataformas como Instagram, TikTok y YouTube Shorts es inmediata, un Reel efectivo no intenta resumir toda la historia de una empresa en 30 segundos. Cada video funciona mejor cuando se enfoca en un solo mensaje claro: resolver una duda puntual, demostrar el funcionamiento de un producto o presentar la experiencia que vive un cliente.",
+          "Los primeros 2 a 3 segundos determinan si el usuario continúa viendo o desliza hacia la siguiente publicación. Por eso la edición prioriza ganchos visuales y verbales directos: mostrar el resultado final al inicio, formular una pregunta frecuente de clientes locales o iniciar con una acción dinámica que contextualice el negocio de inmediato.",
+        ],
+        bullets: [
+          "Un solo beneficio, servicio o duda clave por cada pieza de video",
+          "Gancho visual o verbal directo en los primeros 2 a 3 segundos",
+          "Ritmo ágil con cortes y transiciones limpias cada 2 a 4 segundos",
+          "Cierre con llamado a la acción concreto (visitar el local, enviar un mensaje o consultar el perfil)",
+        ],
       },
       {
-        question: "¿Los reels pueden ser bilingües?",
+        heading: "Criterios técnicos: encuadre 9:16, zonas seguras y subtítulos dinámicos",
+        paragraphs: [
+          "El formato estándar para Reels y videos verticales es una resolución de 1080×1920 píxeles con una relación de aspecto 9:16. Sin embargo, las interfaces de Instagram y TikTok colocan botones de interacción (me gusta, comentarios, compartir) en el lateral derecho y la descripción con el audio en la franja inferior. Si los elementos clave o los subtítulos se ubican en esas áreas, la interfaz los oculta.",
+          "Una postproducción cuidada mantiene los textos principales, logotipos y subtítulos dentro de la zona segura central (Safe Zone). Además, dado que gran parte de los usuarios reproduce videos en dispositivos móviles con el audio silenciado, la inclusión de subtítulos dinámicos y legibles asegura que el mensaje se transmita con claridad en cualquier contexto. Consulta nuestra [guía de formatos y zonas seguras](/es/guias/video-vertical-horizontal-y-zonas-seguras) para conocer los márgenes recomendados.",
+        ],
+        bullets: [
+          "Exportación en 1080×1920 (9:16) con compresión optimizada para redes móviles",
+          "Respeto estricto de márgenes de seguridad para evitar solapamientos con la interfaz",
+          "Subtitulado dinámico con tipografía legible y contraste sobre el fondo",
+          "Ecualización y limpieza de voz para una escucha nítida en altavoces de teléfono",
+        ],
+      },
+      {
+        heading: "Flujo de postproducción remota y material existente",
+        paragraphs: [
+          "Muchas empresas de Miami ya cuentan con grabaciones realizadas con teléfonos inteligentes o cámaras propias en sus locales, eventos o demostraciones. A través de un flujo de postproducción remota, ese material se selecciona, recorta y transforma en piezas ágiles listas para publicar en redes sociales.",
+          "El proceso inicia reuniendo los archivos de video en una carpeta compartida en la nube junto con una breve nota sobre el objetivo comercial de cada clip. Si quieres preparar tus archivos antes de enviarlos, revisa la [guía de entrega para edición remota](/es/guias/entrega-para-edicion-remota-de-video).",
+        ],
+        bullets: [
+          "Selección de las mejores tomas y eliminación de silencios o pausas innecesarias",
+          "Corrección básica de color para unificar clips grabados en distintos momentos",
+          "Integración de identidad visual (paleta de colores, logotipo y estilo tipográfico)",
+          "Preparación de versiones adaptadas para Instagram Reels, TikTok y YouTube Shorts",
+        ],
+      },
+      {
+        heading: "Producción selectiva en Miami-Dade y enfoque bilingüe",
+        paragraphs: [
+          "Cuando un proyecto requiere captura de tomas nuevas en locación dentro del condado de Miami-Dade, la producción se evalúa de forma selectiva considerando la locación, el tipo de negocio y la planificación del contenido.",
+          "En un entorno multicultural como el sur de la Florida, la comunicación directa en español facilita definir el tono, los ganchos y el estilo de cada video sin barreras de idioma, adaptando el contenido para audiencias hispanas o bilingües de la región.",
+        ],
+        bullets: [
+          "Planificación de tomas en locación según el tipo de producto, local o servicio",
+          "Comunicación fluida y directa en español durante todo el proceso de consulta y revisión",
+          "Coordinación de cortes para audiencias hispanohablantes o bilingües en South Florida",
+          "Enlace con proyectos reales del portafolio como [Bar Door Monkey Miami](/es/portafolio/bar-door-monkey) y [ML Colombia](/es/portafolio/ml-colombia)",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Puedo pedir solo edición de reels si ya tengo los videos grabados?",
         answer:
-          "El español es el idioma principal de Esteban y su inglés es intermedio. Cualquier necesidad de idioma dentro del contenido debe consultarse sin asumir versiones específicas.",
+          "Sí. La edición de video con material existente es una prioridad confirmada de Esteban. Puedes enviar tus grabaciones en vertical u horizontal a través de almacenamiento en la nube, y el alcance de edición, subtítulos y formato se define para cada proyecto.",
+      },
+      {
+        question: "¿Qué formato y resolución se entregan los Reels?",
+        answer:
+          "Los videos se entregan en formato vertical 9:16 (1080×1920 px en MP4), respetando las zonas seguras de Instagram, TikTok y YouTube Shorts para que ningún texto o subtítulo quede tapado por botones de la plataforma.",
+      },
+      {
+        question: "¿Los reels pueden ser bilingües o incluir subtítulos?",
+        answer:
+          "El español es el idioma principal de atención de Esteban y cuenta con inglés intermedio. Se pueden incorporar subtítulos dinámicos en español, inglés o versiones adaptadas según las necesidades de la audiencia del negocio en Miami.",
+      },
+      {
+        question: "¿Se realiza grabación en locación para Reels en Miami-Dade?",
+        answer:
+          "La edición remota con material suministrado es el servicio prioritario confirmado. Si un proyecto en Miami-Dade necesita grabación en locación, la producción se evalúa de manera selectiva analizando el tipo de negocio, la locación y el alcance requerido.",
+      },
+      {
+        question: "¿Qué tipo de videos cortos funcionan mejor para empresas locales en Miami?",
+        answer:
+          "Los formatos más efectivos para negocios locales son demostraciones breves de servicios o productos, respuestas directas a preguntas frecuentes de clientes, recorridos de instalaciones o locales comerciales, y clips testimoniales enfocados en un solo mensaje claro.",
+      },
+      {
+        question: "¿Cómo se envían los archivos para comenzar un proyecto de edición?",
+        answer:
+          "Los archivos crudos se comparten mediante enlaces de servicios en la nube (como Google Drive o Dropbox), acompañados de notas sobre el objetivo del video y las referencias deseadas.",
       },
     ],
   },
