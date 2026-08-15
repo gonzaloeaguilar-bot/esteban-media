@@ -259,3 +259,21 @@ describe("media narrowing helpers", () => {
     expect(samples.filter(isPlaceholderSource)).toHaveLength(1);
   });
 });
+
+describe("homeowners internal link mesh", () => {
+  it("provides in-content internal links to /portfolio/homeowners across English guides", async () => {
+    const { getGuides } = await import("../guides");
+    const enGuides = getGuides("en");
+    const esGuides = getGuides("es");
+
+    const enInContent = enGuides.filter((g) =>
+      JSON.stringify(g.sections).includes("/portfolio/homeowners"),
+    );
+    const esInContent = esGuides.filter((g) =>
+      JSON.stringify(g.sections).includes("/es/portafolio/homeowners"),
+    );
+
+    expect(enInContent.length).toBeGreaterThanOrEqual(6);
+    expect(esInContent.length).toBeGreaterThanOrEqual(6);
+  });
+});

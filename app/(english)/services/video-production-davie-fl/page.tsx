@@ -92,6 +92,13 @@ export default function VideoProductionDavieFlPage() {
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
                 Our portfolio project <strong>Homeowners</strong> proves published local service and property video editing.
               </p>
+              <Link
+                href="/portfolio/homeowners"
+                className="group mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27]"
+              >
+                Review Homeowners Property Video Proof
+                <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+              </Link>
             </div>
           </div>
         </Container>
