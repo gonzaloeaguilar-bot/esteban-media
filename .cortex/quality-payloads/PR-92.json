@@ -1,0 +1,67 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-92",
+  "status": "review_pending",
+  "evidence": {
+    "obsidian_context": "Led homepage title and meta description with brand entity 'Esteban Moreno' across English and Spanish root and home metadata to close entity gap and lift CTR for query 'esteban moreno' (7 imp, pos 11.6, CTR 0.00%).",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, worktree /Users/gonzalo/code/portfolio-ops-nightly/.cto-worktrees/esteban-title-meta-20260814, branch codex/esteban-title-meta-20260814, move class title_meta_rewrite.",
+    "hard_stops_checked": "Checked and clear. Truthful-only business details, optimal character bounds (English desc 153 chars, Spanish desc 151 chars), zero speculative marketing or invented metrics.",
+    "reviewer_ensemble": "builder pass, skeptic pass, taste pass.",
+    "reviewer_disagreement_reviewed": "The skeptic verified that all titles and descriptions maintain exact brand presence, satisfy 120-160 character bounds for search engine snippets, and all 333 unit and route tests pass.",
+    "winner_rationale": "Leading both title and meta descriptions with 'Esteban Moreno' directly aligns snippet relevance with branded search intent, closing the zero-click gap observed at rank 11.6.",
+    "tests_or_validation": "vitest run: 43 test files passed, 333 of 333 tests passed. next build: 269 routes static generation clean.",
+    "ci_passed": "Vitest and Next.js static build verified locally in worktree.",
+    "pr_review_complete": "Self-review completed across app/(english)/page.tsx, app/__tests__/home-metadata.test.ts, lib/__tests__/site.test.ts, lib/site-metadata.ts, lib/site.ts, and lib/spanish-site.ts.",
+    "deploy_or_rollback_plan": "Standard merge to main triggering Vercel deploy. Rollback is a clean git revert.",
+    "post_change_verification": "Monitor Search Console query 'esteban moreno' for CTR lift and position improvement.",
+    "claim_hygiene_checked": "All claims strictly conform to AGENTS.md guidelines and Gonzalo's Ten Commandments. No fake results, no invented metrics, no unsupported credentials.",
+    "debt_delta": "improvement",
+    "obsidian_handoff": "Ready for verification by cto-qa-lead per CTO dispatch frame."
+  },
+  "project_routing": {
+    "canonical_repo": "/Users/gonzalo/code/esteban-media",
+    "worktree": "/Users/gonzalo/code/portfolio-ops-nightly/.cto-worktrees/esteban-title-meta-20260814",
+    "branch": "codex/esteban-title-meta-20260814",
+    "move_class": "title_meta_rewrite"
+  },
+  "hard_stops_checked": {
+    "pricing_or_offers": "no fixed prices or currency amounts quoted; scoping questions emphasize project-specific discovery",
+    "factual_business_claims": "strictly verified from portfolio and interview records; no invented credentials",
+    "secrets_or_credentials": "none accessed or modified",
+    "deployment": "not performed in this step",
+    "third_party_services_or_backends": "none added",
+    "external_outreach": "none performed",
+    "url_inventory": "no URL additions or removals (269 routes preserved)"
+  },
+  "reviewer_ensemble": {
+    "builder": {
+      "status": "pass",
+      "note": "Updated root and page metadata to lead with Esteban Moreno and synchronized home metadata tests."
+    },
+    "skeptic": {
+      "status": "pass",
+      "note": "Verified character bounds (153 chars en, 151 chars es) and verified all 333 tests pass."
+    },
+    "taste": {
+      "status": "pass",
+      "note": "Maintains crisp, professional, service-faithful positioning in both English and Spanish."
+    }
+  },
+  "tests_or_validation": {
+    "commands": [
+      "./node_modules/.bin/vitest run",
+      "./node_modules/.bin/tsc --noEmit",
+      "./node_modules/.bin/next build"
+    ],
+    "results": "43 of 43 test files passed (333/333 tests); tsc clean; next build clean across 269 routes.",
+    "known_failure": "none",
+    "browser": "not required - server-rendered static HTML verified by test assertions."
+  },
+  "source_material_checked": "lib/site.ts, lib/spanish-site.ts, app/(english)/page.tsx",
+  "data_sources_current": {
+    "production_html": "production home metadata verified against CTR optimization benchmarks",
+    "route_inventory": "269 routes"
+  },
+  "booking_or_authority_thesis": "Aligning homepage snippet metadata directly with brand searches captures branded navigation queries and converts search impressions into clicks."
+}
