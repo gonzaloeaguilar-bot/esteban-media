@@ -44,6 +44,18 @@ export const localBusinessEntityJsonLd = {
   email: site.email,
   telephone: site.phone.e164,
   description: site.description,
+  // The "A" of NAP. Read live 2026-08-15: the Google profile is
+  // CUSTOMER_LOCATION_ONLY with storefrontAddress null, so no streetAddress may
+  // ever be published here — but locality/region/country must be, because
+  // areaServed says where he works, not where the business is, and
+  // LocalBusiness is defined around `address`. Keep this identical to the GBP
+  // city and to every citation (esteban-citation-packet-2026-08-14).
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Fort Lauderdale",
+    addressRegion: "FL",
+    addressCountry: "US",
+  },
   areaServed: serviceAreas.map((area) => ({
     "@type": area.schemaType,
     name: area.name,
