@@ -443,29 +443,103 @@ export const spanishNichePages: SpanishNichePage[] = [
     availability: "confirmed",
     icon: UtensilsCrossed,
     bestFor: [
-      "Restaurantes con material existente que podría necesitar edición.",
+      "Restaurantes con material existente que necesita edición profesional.",
       "Dueños que quieren definir la meta antes de producir contenido nuevo.",
       "Equipos que prefieren explicar el proyecto en español.",
-      "Ideas que podrían requerir una captura local seleccionada.",
+      "Ideas que requieren una captura local seleccionada en Miami-Dade.",
     ],
     scopingQuestions: [
       "¿Qué aspecto del restaurante necesita comunicar el video?",
-      "¿Ya existe material grabado?",
+      "¿Ya existe material grabado en cocina o salón?",
       "¿La idea requiere una locación en Miami-Dade?",
       "¿Qué uso, formato y disponibilidad deben confirmarse?",
     ],
     projectFit:
-      "Es una guía para preparar una consulta sobre edición o producción selectiva de video. No promete fotografía, una visita, una lista de piezas ni resultados comerciales.",
-    faqs: [
+      "Es una guía para preparar una consulta sobre edición o producción selectiva de video para restaurantes. Para ideas de contenido gastronómico, consulta nuestra [guía de ideas de video para restaurantes](/es/guias/ideas-de-contenido-de-video-para-restaurantes) o nuestra sección de [reels para negocios en Miami](/es/reels-para-negocios-miami).",
+    sections: [
       {
-        question: "¿Se puede grabar durante servicio?",
-        answer:
-          "No se publica una regla universal. Si la idea requiere captura, la locación, la disponibilidad y las necesidades operativas deben evaluarse para ese proyecto.",
+        heading: "Estrategia de video gastronómico y dinámicas de restaurantes en Miami",
+        paragraphs: [
+          "El sector de restaurantes en Miami-Dade —desde Wynwood hasta Coral Gables, Doral y Miami Beach— compite en un entorno visual sumamente dinámico donde los comensales deciden dónde comer a través de videos cortos en Instagram y TikTok. Un video gastronómico efectivo no busca abarcar todo el menú en 30 segundos, sino despertar el apetito enfocándose en la preparación de platos estrella, la textura de los ingredientes y la atmósfera viva del salón.",
+          "Para marcas gastronómicas que evalúan [video para restaurantes en Miami](/es/video-para-restaurantes-miami), estructurar el contenido con ganchos visuales en los primeros 3 segundos (como el corte de una carne jugosa, el vertido de una salsa o el humo saliendo de la parrilla) multiplica la retención de audiencia. Revisa nuestra [guía de ideas de video para restaurantes](/es/guias/ideas-de-contenido-de-video-para-restaurantes) para explorar formatos probados.",
+        ],
+        bullets: [
+          "Enfoque en 1 o 2 platos insignia con primeros planos de emplatado y texturas",
+          "Gancho sensorial directo en los primeros 2 a 3 segundos (humo, crujido, salsas)",
+          "Captura del ambiente real y energía del salón en horas de servicio o brunch",
+          "Llamado a la acción claro para reservas, visitas al local o pedidos directos",
+        ],
       },
       {
-        question: "¿Esta página ofrece fotografía de alimentos?",
+        heading: "Criterios técnicos: planos detalle de cocina, ritmo ágil y zonas seguras 9:16",
+        paragraphs: [
+          "La postproducción de video gastronómico exige un cuidado meticuloso del color, el ritmo y el audio. Una correcta corrección de color resalta la frescura y calidez natural de los alimentos sin saturaciones artificiales que distorsionen el plato. Asimismo, el diseño sonoro —capturando el sonido del chisporroteo, el brindis de copas y el bullicio acogedor— transforma un clip ordinario en una experiencia sensorial inmersiva.",
+          "En el formato vertical 1080×1920 (9:16), es fundamental respetar las zonas seguras centrales para que los textos, nombres de platillos y precios no queden cubiertos por los botones de interacción de Instagram o TikTok. Consulta nuestra [guía de formatos y zonas seguras](/es/guias/video-vertical-horizontal-y-zonas-seguras) para detalles técnicos de exportación.",
+        ],
+        bullets: [
+          "Resolución vertical 1080×1920 (9:16) con compresión optimizada para carga rápida móvil",
+          "Corrección de color realista que potencia el apetito y la frescura de los ingredientes",
+          "Respeto riguroso de zonas seguras evitando solapamiento con botones de redes sociales",
+          "Diseño sonoro limpio con ecualización de audio ambiente y efectos de cocina",
+        ],
+      },
+      {
+        heading: "Flujo de postproducción remota con material propio del restaurante",
+        paragraphs: [
+          "Muchos restaurantes y chefs en Miami ya acumulan horas de grabaciones en alta calidad capturadas con teléfonos inteligentes o cámaras durante servicios, catas o eventos. A través de un flujo de edición remota, seleccionamos las mejores tomas, eliminamos partes innecesarias, aplicamos transiciones fluidas y añadimos subtítulos llamativos.",
+          "El proceso comienza reuniendo los clips en una carpeta de Google Drive o Dropbox y compartiendo las prioridades del local. Para organizar tus archivos antes de enviarlos, revisa nuestra [guía de entrega para edición remota de video](/es/guias/entrega-para-edicion-remota-de-video).",
+        ],
+        bullets: [
+          "Recepción de archivos crudos organizados por plato, evento o turno de servicio",
+          "Edición dinámica y recorte de pausas para maximizar el ritmo y la atención",
+          "Integración de logotipo, tipografía de marca y paleta cromática del restaurante",
+          "Entrega de versiones listas para publicar en Instagram Reels, TikTok y YouTube Shorts",
+        ],
+      },
+      {
+        heading: "Captura selectiva en locación en Miami-Dade y atención directa en español",
+        paragraphs: [
+          "Cuando un restaurante en Miami requiere tomas nuevas en locación, la producción se evalúa de manera selectiva analizando la disponibilidad, el horario de cocina y el alcance del rodaje. Grabar durante horas de preparación matutina o justo antes del servicio permite capturar al chef y los ingredientes con iluminación controlada sin interrumpir la operación del restaurante.",
+          "Contar con atención directa en español facilita coordinar con el equipo de cocina y gerencia de forma rápida y fluida en el sur de la Florida. Conoce nuestro trabajo publicado en el sector con el proyecto [Bar Door Monkey Miami](/es/portafolio/bar-door-monkey) y explora también opciones complementarias como [fotografía de comida asistida por IA](/es/fotografia-de-comida-con-ia-restaurantes).",
+        ],
+        bullets: [
+          "Coordinación de rodaje en cocina y salón adaptada a la dinámica del restaurante",
+          "Planificación de lista de tomas (shot list) para optimizar el tiempo del chef y staff",
+          "Atención directa y fluida en español para restaurantes del sur de la Florida",
+          "Respaldo en proyectos reales verificados como [Bar Door Monkey Miami](/es/portafolio/bar-door-monkey)",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Puedo solicitar solo edición de video si ya grabamos material en la cocina o el salón?",
         answer:
-          "No. La fotografía sigue pendiente de confirmación y no se presenta actualmente como servicio disponible.",
+          "Sí. La edición de video con material existente suministrado por el restaurante es un servicio prioritario confirmado. Puedes transferir tus grabaciones verticales u horizontales por la nube y realizamos la selección, ritmo, color, subtítulos y música para entrega en redes sociales.",
+      },
+      {
+        question: "¿Qué tipo de videos funcionan mejor para atraer comensales en redes sociales en Miami?",
+        answer:
+          "Los formatos con mejor rendimiento en Miami son los clips de 15 a 30 segundos enfocados en el gancho sensorial de un plato estrella (humo, corte, queso derretido), recorridos de ambiente durante cenas o brunch de fin de semana, y videos breves del chef explicando el concepto o la recomendación de la casa.",
+      },
+      {
+        question: "¿Se puede coordinar grabación en locación dentro de Miami-Dade?",
+        answer:
+          "La grabación en locación se evalúa de forma selectiva según el tipo de restaurante, la locación en Miami-Dade y el cronograma operativo del negocio. Se planifica en horarios convenientes para no interferir con el servicio a clientes.",
+      },
+      {
+        question: "¿Los videos se entregan optimizados con subtítulos y formato vertical 9:16?",
+        answer:
+          "Sí. Todos los videos se entregan en formato vertical 1080×1920 (9:16) listos para Instagram Reels, TikTok y YouTube Shorts, respetando las zonas seguras para que los textos no queden cubiertos por botones de la interfaz.",
+      },
+      {
+        question: "¿Cómo se coordinan las consultas y revisiones del proyecto?",
+        answer:
+          "Esteban atiende principalmente en español con nivel intermedio de inglés. Las consultas se inician compartiendo el objetivo del restaurante, el material disponible y la ubicación, lo que permite evaluar el alcance de forma clara y sin demoras.",
+      },
+      {
+        question: "¿Esta página ofrece fotografía de alimentos o sesiones fotográficas?",
+        answer:
+          "No. La fotografía de alimentos tradicional sigue pendiente de confirmación y no se publica actualmente como servicio disponible. Para alternativas visuales digitales, puedes revisar [fotografía de comida con IA para restaurantes](/es/fotografia-de-comida-con-ia-restaurantes).",
       },
     ],
   },
@@ -836,7 +910,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Gastronomía / IA Visual",
     h1: "Fotografía de comida e imágenes de menú asistidas por IA.",
     lead:
-      "El proyecto Bar Door Monkey demuestra trabajo real de producción y contenido gastronómico. Generamos fondos y composiciones visuales de estilo de vida para restaurantes.",
+      "El proyecto Bar Door Monkey demuestra trabajo real de producción y contenido gastronómico. Generamos fondos y composiciones visuales de estilo de vida para restaurantes. Para producción y edición en movimiento, consulta nuestro servicio de [video para restaurantes en Miami](/es/video-para-restaurantes-miami).",
     keyword: "fotografía de comida con IA",
     location: "Miami-Dade / Fort Lauderdale",
     availability: "confirmed",
@@ -850,7 +924,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       "¿En qué plataformas publicarás el menú o las fotos?",
     ],
     projectFit:
-      "Combina fotos reales de platillos con entornos visuales atractivos.",
+      "Combina fotos reales de platillos con entornos visuales atractivos. Si además cuentas con tomas de cocina o salón, revisa nuestras opciones de [video para restaurantes en Miami](/es/video-para-restaurantes-miami).",
     faqs: [
       {
         question: "¿El platillo se sigue viendo real?",
@@ -1353,7 +1427,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Hoteles / Hospitalidad",
     h1: "Videos promocionales para hoteles y resorts en Miami.",
     lead:
-      "Captura visual y edición refinada para mostrar las instalaciones, amenidades y experiencia gastronómica de hoteles en Miami y South Beach.",
+      "Captura visual y edición refinada para mostrar las instalaciones, amenidades y experiencia gastronómica de hoteles en Miami y South Beach. Para contenido gastronómico específico de comedores y bares, consulta [video para restaurantes en Miami](/es/video-para-restaurantes-miami).",
     keyword: "video para hoteles en Miami",
     location: "Miami Beach / South Florida",
     availability: "confirmed",
@@ -1609,7 +1683,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Gastronomía / Restaurantes",
     h1: "Edición de video apetitosa para restaurantes en Miami.",
     lead:
-      "Destaca los detalles culinarios, ambiente de comedor y preparación de bebidas con videos cortos diseñados para generar reservas.",
+      "Destaca los detalles culinarios, ambiente de comedor y preparación de bebidas con videos cortos diseñados para generar reservas. Consulta todos los alcances de servicio en [video para restaurantes en Miami](/es/video-para-restaurantes-miami).",
     keyword: "edición de video para restaurantes en Miami",
     location: "Miami / Wynwood",
     availability: "confirmed",
@@ -1623,7 +1697,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       "¿El video incluirá superposiciones de menú o precios promocionales?",
     ],
     projectFit:
-      "Edición sensorial detallada para apetito visual.",
+      "Edición sensorial detallada para apetito visual. Para alcances combinados de rodaje y postproducción, visita [video para restaurantes en Miami](/es/video-para-restaurantes-miami).",
     faqs: [
       {
         question: "¿Incluyen música con derechos comerciales?",
