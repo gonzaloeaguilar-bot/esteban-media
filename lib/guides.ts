@@ -388,7 +388,7 @@ const guidePairs: readonly GuidePair[] = [
           heading: "Deja que el uso final defina el primer formato",
           paragraphs: [
             "Un cuadro vertical 9:16 y uno horizontal 16:9 muestran partes diferentes de la misma toma. Decide qué canal es prioritario antes de elegir la edición principal.",
-            "El video vertical se usa con frecuencia en canales de video corto a pantalla completa. Para empresas y marcas que evalúan [reels para negocios en Miami](/es/reels-para-negocios-miami), el encuadre 9:16 asegura máxima visibilidad en feeds móviles. El horizontal es común en YouTube, sitios web, presentaciones y pantallas anchas. Confirma el destino real en vez de exportar por costumbre.",
+            "El video vertical se usa con frecuencia en canales de video corto a pantalla completa como [reels para negocios en Miami](/es/reels-para-negocios-miami) y [video para restaurantes en Miami](/es/video-para-restaurantes-miami). Para empresas y marcas que evalúan estos formatos, el encuadre 9:16 asegura máxima visibilidad en feeds móviles. El horizontal es común en YouTube, sitios web, presentaciones y pantallas anchas. Confirma el destino real en vez de exportar por costumbre.",
           ],
         },
         {
@@ -588,7 +588,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Enfoca un solo mensaje claro por Reel",
           paragraphs: [
-            "El video corto funciona mejor cuando cada pieza responde a una sola duda, decisión o función. Evita resumir toda la empresa en 30 segundos. Para marcas y negocios locales que buscan [reels para negocios en Miami](/es/reels-para-negocios-miami), el objetivo inicial es transmitir valor con claridad inmediata.",
+            "El video corto funciona mejor cuando cada pieza responde a una sola duda, decisión o función. Evita resumir toda la empresa en 30 segundos y enfócate en un solo beneficio. Para marcas y negocios locales que estructuran campañas de [reels para negocios en Miami](/es/reels-para-negocios-miami), el objetivo inicial es transmitir valor con claridad inmediata.",
             "Comienza con un gancho fuerte en los primeros dos segundos: muestra el producto en acción, menciona la necesidad del cliente o plantea una pregunta directa. En hostelería y gastronomía, la [edición de video promocional para restaurantes en Miami](/es/edicion-de-video-promocional-para-restaurantes-miami) destaca platos y ambiente desde el primer segundo.",
           ],
           bullets: [
@@ -601,7 +601,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Graba audio limpio y tomas intencionales",
           paragraphs: [
-            "La buena iluminación y el audio claro importan más que equipos costosos. Ubícate cerca de luz natural y usa un micrófono lavalier o direccional cuando grabes voz.",
+            "La buena iluminación y el audio claro importan más que equipos costosos. Ubícate cerca de luz natural y usa un micrófono lavalier o direccional cuando grabes voz. En gastronomía y hospitalidad, este enfoque se aplica en [video para restaurantes en Miami](/es/video-para-restaurantes-miami) para registrar la preparación de alimentos con luz óptima y sonido nítido.",
             "Mantén el ritmo con cortes cada 2 a 4 segundos para sostener la atención sin saturar el mensaje.",
           ],
         },
@@ -677,7 +677,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Destaca la preparación de tus platos estrella",
           paragraphs: [
-            "Los videos en primer plano de comida recién servida, el emplatado y los ingredientes frescos funcionan muy bien en Instagram y TikTok. Enfócate en detalles sensoriales como vapor, texturas y salsas. Para negocios gastronómicos, nuestro servicio de [edición de video promocional para restaurantes en Miami](/es/edicion-de-video-promocional-para-restaurantes-miami) convierte material de cocina en reels comerciales atractivos.",
+            "Los videos en primer plano de comida recién servida, el emplatado y los ingredientes frescos funcionan muy bien en Instagram y TikTok. Enfócate en detalles sensoriales como vapor, texturas y salsas. Si buscas postproducción especializada para tu local, consulta nuestro servicio de [video para restaurantes en Miami](/es/video-para-restaurantes-miami). Para negocios gastronómicos, la [edición de video promocional para restaurantes en Miami](/es/edicion-de-video-promocional-para-restaurantes-miami) convierte material de cocina en reels comerciales atractivos.",
           ],
           bullets: [
             "Primeros planos de platos estrella y emplatado con [edición de video para restaurantes](/es/edicion-de-video-promocional-para-restaurantes-miami)",
@@ -689,7 +689,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Captura el ambiente real en horas concurridas",
           paragraphs: [
-            "Muestra a los futuros comensales cómo se siente visitar el restaurante durante la cena o el brunch del fin de semana. La luz adecuada y el ambiente real dan vida al espacio.",
+            "Muestra a los futuros comensales cómo se siente visitar el restaurante durante la cena o el brunch del fin de semana. La luz adecuada y el ambiente real dan vida al espacio. Para planificar tomas o editar material capturado, revisa nuestra página de [video para restaurantes en Miami](/es/video-para-restaurantes-miami).",
           ],
         },
         {
@@ -864,7 +864,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Genera fondos y entornos llenos de contexto",
           paragraphs: [
-            "En lugar de armar un set de estudio costoso para cada ambiente, las herramientas de IA pueden ubicar el producto en superficies de mármol, luz natural de exterior o ambientes cálidos. Para marcas gastronómicas, combinar imágenes de menú con [edición de video promocional para restaurantes en Miami](/es/edicion-de-video-promocional-para-restaurantes-miami) ofrece una estrategia visual integral.",
+            "En lugar de armar un set de estudio costoso para cada ambiente, las herramientas de IA pueden ubicar el producto en superficies de mármol, luz natural de exterior o ambientes cálidos. En el sector gastronómico, las marcas combinan estas piezas visuales con [video para restaurantes en Miami](/es/video-para-restaurantes-miami) para mostrar platos y ambiente con dinamismo. Combinar imágenes de menú con [edición de video promocional para restaurantes en Miami](/es/edicion-de-video-promocional-para-restaurantes-miami) ofrece una estrategia visual integral.",
             "Ajusta las instrucciones creativas para que coincidan con la estética de tu marca, cuidando que las sombras y reflejos se vean naturales.",
           ],
         },
@@ -1653,13 +1653,13 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Especificaciones y zonas seguras",
           paragraphs: [
-            "Cada plataforma usa formato 9:16 (1080x1920), pero las áreas de botones y texto varían según la interfaz.",
+            "Cada plataforma usa formato 9:16 (1080x1920), pero las áreas de botones y texto varían según la interfaz. Al planificar campañas de [reels para negocios en Miami](/es/reels-para-negocios-miami), respetar estas medidas previene que elementos clave queden ocultos.",
           ],
         },
         {
           heading: "Flujo de publicación multiplataforma",
           paragraphs: [
-            "Editar un video vertical maestro permite distribuir el contenido simultáneamente en Instagram, TikTok y YouTube Shorts. Si buscas optimizar el contenido para audiencias locales en el sur de la Florida, revisa [reels para negocios en Miami](/es/reels-para-negocios-miami).",
+            "Editar un video vertical maestro permite distribuir el contenido simultáneamente en Instagram, TikTok y YouTube Shorts. Si buscas optimizar el contenido para audiencias locales en el sur de la Florida, revisa [reels para negocios en Miami](/es/reels-para-negocios-miami). Para locales gastronómicos que promocionan especialidades y eventos, consultar [video para restaurantes en Miami](/es/video-para-restaurantes-miami) permite preparar piezas verticales optimizadas para comensales.",
           ],
         },
       ],
@@ -1905,13 +1905,13 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Identificación de momentos clave",
           paragraphs: [
-            "Selecciona fragmentos con ideas potentes o respuestas directas que funcionen de forma independiente. En gastronomía, la [edición de video promocional para restaurantes en Miami](/es/edicion-de-video-promocional-para-restaurantes-miami) transforma grabaciones largas en clips sociales ágiles.",
+            "Selecciona fragmentos con ideas potentes o respuestas directas que funcionen de forma independiente. En restaurantes y negocios de comida, grabaciones de cocina completa o entrevistas con el chef se pueden dividir en múltiples clips promocionales mediante [video para restaurantes en Miami](/es/video-para-restaurantes-miami). En gastronomía, la [edición de video promocional para restaurantes en Miami](/es/edicion-de-video-promocional-para-restaurantes-miami) transforma grabaciones largas en clips sociales ágiles.",
           ],
         },
         {
           heading: "Adaptación al formato 9:16 vertical",
           paragraphs: [
-            "Ajusta el encuadre móvil, centra la imagen del hablante y añade subtítulos llamativos en la zona segura. Para proyectos comerciales locales, consulta nuestra página de [reels para negocios en Miami](/es/reels-para-negocios-miami) para definir ganchos y llamados a la acción efectivos.",
+            "Ajusta el encuadre móvil, centra la imagen del hablante y añade subtítulos llamativos en la zona segura. Para proyectos comerciales locales, consulta nuestra página de [reels para negocios en Miami](/es/reels-para-negocios-miami) para definir ganchos y llamados a la acción efectivos y mantener presencia continua con costos de producción eficientes.",
           ],
         },
       ],
@@ -2013,7 +2013,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "La regla del gancho de 3 segundos",
           paragraphs: [
-            "Detén el desplazamiento en redes con movimiento enérgico o una frase impactante durante los primeros 3 segundos, tal como se estructuró el guion de clínica en el [proyecto Healthy Smile Miami](/es/portafolio/healthy-smile) (y su [caso de estudio](/es/casos-de-estudio/healthy-smile)). Para anuncios de comida y bebidas, la [edición de video promocional para restaurantes en Miami](/es/edicion-de-video-promocional-para-restaurantes-miami) utiliza ganchos visuales sensoriales que impulsan visitas al local.",
+            "Detén el desplazamiento en redes con movimiento enérgico o una frase impactante durante los primeros 3 segundos, tal como se estructuró el guion de clínica en el [proyecto Healthy Smile Miami](/es/portafolio/healthy-smile) (y su [caso de estudio](/es/casos-de-estudio/healthy-smile)). Para anuncios de comida y bebidas, la [edición de video promocional para restaurantes en Miami](/es/edicion-de-video-promocional-para-restaurantes-miami) utiliza ganchos visuales sensoriales que impulsan visitas al local, y para locales comerciales puedes revisar los formatos aplicados en [video para restaurantes en Miami](/es/video-para-restaurantes-miami).",
           ],
         },
       ],
@@ -2115,7 +2115,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Zonas seguras de texto en pantalla",
           paragraphs: [
-            "Evita colocar texto sobre los botones inferiores de Instagram o el encabezado superior para garantizar lectura completa. Mantener los textos en la zona central es indispensable en [reels para negocios en Miami](/es/reels-para-negocios-miami) donde la mayoría de reproducciones ocurre en silencio. En reels gastronómicos, la [edición de video promocional para restaurantes en Miami](/es/edicion-de-video-promocional-para-restaurantes-miami) mantiene subtítulos limpios que no tapan los platos.",
+            "Evita colocar texto sobre los botones inferiores de Instagram o el encabezado superior para garantizar lectura completa. Mantener los textos en la zona central es indispensable en [reels para negocios en Miami](/es/reels-para-negocios-miami) y [video para restaurantes en Miami](/es/video-para-restaurantes-miami) donde la mayoría de reproducciones ocurre en silencio. En reels gastronómicos, la [edición de video promocional para restaurantes en Miami](/es/edicion-de-video-promocional-para-restaurantes-miami) mantiene subtítulos limpios que no tapan los platos.",
           ],
         },
       ],
@@ -2295,7 +2295,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Captación de búsquedas en ambos idiomas",
           paragraphs: [
-            "Publicar activos de video dedicados en español e inglés permite posicionarse en ambos índices de búsqueda de forma simultánea, una estrategia respaldada en proyectos locales como la campaña de [Healthy Smile Miami](/es/portafolio/healthy-smile) (y su [caso de estudio](/es/casos-de-estudio/healthy-smile)).",
+            "Publicar activos de video dedicados en español e inglés permite posicionarse en ambos índices de búsqueda de forma simultánea, una estrategia respaldada en proyectos locales como la campaña de [Healthy Smile Miami](/es/portafolio/healthy-smile) (y su [caso de estudio](/es/casos-de-estudio/healthy-smile)). En el mercado restaurantero y gastronómico de Miami, las piezas de [video para restaurantes en Miami](/es/video-para-restaurantes-miami) conectan de manera directa con comensales locales y turistas internacionales.",
           ],
         },
       ],
@@ -2499,7 +2499,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Coincidencia de acción y narrativa",
           paragraphs: [
-            "Inserta tomas de apoyo en las pausas naturales de las frases para respaldar las ideas del portavoz de forma fluida.",
+            "Inserta tomas de apoyo en las pausas naturales de las frases para respaldar las ideas del portavoz de forma fluida. En producciones de hospitalidad y gastronomía, este ritmo de cortes B-roll con planos detalle se aplica ampliamente en [video para restaurantes en Miami](/es/video-para-restaurantes-miami).",
           ],
         },
       ],
@@ -2550,7 +2550,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Curvas de retención en móviles",
           paragraphs: [
-            "La audiencia en dispositivos móviles decae tras los 30 segundos si el video no introduce nuevos estímulos visuales.",
+            "La audiencia en dispositivos móviles decae tras los 30 segundos si el video no introduce nuevos estímulos visuales. En formatos promocionales de comida y bebidas como en [video para restaurantes en Miami](/es/video-para-restaurantes-miami), duraciones de 15 a 25 segundos con ritmo ágil maximizan la tasa de visualización completa.",
           ],
         },
       ],
