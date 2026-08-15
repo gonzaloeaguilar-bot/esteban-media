@@ -2,7 +2,6 @@ import enMessages from "@/messages/en.json";
 import esMessages from "@/messages/es.json";
 import {
   PORTFOLIO_ITEMS,
-  isYouTubeSource,
   type PortfolioCategoryId,
   type PortfolioItem,
   type YouTubeSource,

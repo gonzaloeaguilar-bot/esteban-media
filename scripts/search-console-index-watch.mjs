@@ -281,6 +281,16 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/es/guias/plantilla-de-guion-para-video-testimonial",
   "https://estebanmorenomedia.com/es/guias/mejores-practicas-de-edicion-de-video-vertical",
   "https://estebanmorenomedia.com/es/guias/formatos-de-archivo-de-video-raw-explicados",
+  "https://estebanmorenomedia.com/case-studies/banacol",
+  "https://estebanmorenomedia.com/case-studies/homeowners",
+  "https://estebanmorenomedia.com/case-studies/flas-concierge",
+  "https://estebanmorenomedia.com/case-studies/healthy-smile",
+  "https://estebanmorenomedia.com/case-studies/my-dler",
+  "https://estebanmorenomedia.com/es/casos-de-estudio/banacol",
+  "https://estebanmorenomedia.com/es/casos-de-estudio/homeowners",
+  "https://estebanmorenomedia.com/es/casos-de-estudio/flas-concierge",
+  "https://estebanmorenomedia.com/es/casos-de-estudio/healthy-smile",
+  "https://estebanmorenomedia.com/es/casos-de-estudio/my-dler",
 ];
 
 const WATCH_SET_EXPANSION_SCHEMA =

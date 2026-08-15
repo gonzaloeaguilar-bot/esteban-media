@@ -2,6 +2,11 @@ import enMessages from "@/messages/en.json";
 import esMessages from "@/messages/es.json";
 import Link from "next/link";
 import {
+  CASE_STUDY_IDS,
+  getCaseStudyPath,
+  type CaseStudyId,
+} from "@/lib/case-studies";
+import {
   getPortfolioCategories,
   type PortfolioItem,
   type YouTubeSource,
@@ -161,14 +166,26 @@ export function PortfolioGrid({ items, locale }: PortfolioGridProps) {
                             · {copy.credits}
                           </p>
                         ) : null}
-                        <Link
-                          href={projectPath}
-                          className="mt-5 inline-flex min-h-10 items-center text-sm font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
-                        >
-                          {locale === "es"
-                            ? `Ver la página de ${copy.title}`
-                            : `View the ${copy.title} project page`}
-                        </Link>
+                        <div className="mt-5 flex flex-wrap items-center gap-4">
+                          <Link
+                            href={projectPath}
+                            className="inline-flex min-h-10 items-center text-sm font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
+                          >
+                            {locale === "es"
+                              ? `Ver la página de ${copy.title}`
+                              : `View the ${copy.title} project page`}
+                          </Link>
+                          {CASE_STUDY_IDS.includes(item.id as CaseStudyId) ? (
+                            <Link
+                              href={getCaseStudyPath(item.id as CaseStudyId, locale)}
+                              className="inline-flex min-h-10 items-center rounded-full bg-[#101214] px-3.5 py-1 text-xs font-semibold text-white transition hover:bg-[#c84a2c]"
+                            >
+                              {locale === "es"
+                                ? "Ver caso de estudio →"
+                                : "View case study →"}
+                            </Link>
+                          ) : null}
+                        </div>
                       </div>
                     </article>
                   );
