@@ -96,7 +96,13 @@ export default function ShortFormVideoEditorPage() {
               <Scissors className="size-8 text-[#e85d3e]" aria-hidden="true" />
               <h2 className="mt-5 font-serif text-3xl">Reel proof</h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                Our portfolio project <strong>ML Colombia</strong> proves published short-form social video editing.
+                Our portfolio project <strong>ML Colombia</strong> proves published short-form social video editing. For food & beverage concepts, see our dedicated{" "}
+                <Link
+                  href="/services/restaurant-promo-video-editing-miami"
+                  className="font-semibold text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[#c84a2c]"
+                >
+                  restaurant promo video editing in Miami
+                </Link>.
               </p>
             </div>
           </div>

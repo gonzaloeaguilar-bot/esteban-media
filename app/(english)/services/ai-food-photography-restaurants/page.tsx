@@ -84,6 +84,12 @@ export default function AIFoodPhotographyPage() {
                   <ArrowRight className="size-4" aria-hidden="true" />
                 </Link>
                 <Link
+                  href="/services/restaurant-promo-video-editing-miami"
+                  className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#101214] px-6 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"
+                >
+                  Restaurant Promo Video Editing
+                </Link>
+                <Link
                   href="/portfolio/bar-door-monkey"
                   className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#101214] px-6 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"
                 >
@@ -96,7 +102,14 @@ export default function AIFoodPhotographyPage() {
               <UtensilsCrossed className="size-8 text-[#e85d3e]" aria-hidden="true" />
               <h2 className="mt-5 font-serif text-3xl">Restaurant proof</h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                Our portfolio project <strong>Bar Door Monkey Miami</strong> proves published culinary videography and food post-production.
+                Our portfolio project <strong>Bar Door Monkey Miami</strong> proves published culinary videography and food post-production. Pair still photos with{" "}
+                <Link
+                  href="/services/restaurant-promo-video-editing-miami"
+                  className="font-semibold text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[#c84a2c]"
+                >
+                  restaurant promo video editing in Miami
+                </Link>{" "}
+                for full social campaigns.
               </p>
             </div>
           </div>

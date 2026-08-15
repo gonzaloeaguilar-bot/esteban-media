@@ -90,7 +90,14 @@ export default function CreativeVideoProductionWynwoodPage() {
               <WandSparkles className="size-8 text-[#e85d3e]" aria-hidden="true" />
               <h2 className="mt-5 font-serif text-3xl">Wynwood proof</h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                Our portfolio project <strong>Bar Door Monkey Miami</strong> proves published creative venue and event video editing.
+                Our portfolio project <strong>Bar Door Monkey Miami</strong> proves published creative venue and culinary promo editing. Explore specialized{" "}
+                <Link
+                  href="/services/restaurant-promo-video-editing-miami"
+                  className="font-semibold text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[#c84a2c]"
+                >
+                  restaurant promo video editing in Miami
+                </Link>{" "}
+                for dining concepts.
               </p>
             </div>
           </div>

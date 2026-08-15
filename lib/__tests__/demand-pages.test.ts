@@ -173,3 +173,94 @@ describe("Spanish niche page depth: reels-para-negocios-miami", () => {
   });
 });
 
+describe("Restaurant promo video editing internal links mesh", () => {
+  it("renders multiple high-relevance English guides linking contextually to /services/restaurant-promo-video-editing-miami", async () => {
+    const guideSlugs = [
+      "video-content-ideas-for-restaurants",
+      "how-to-use-instagram-reels-for-business",
+      "how-to-repurpose-long-form-video-into-reels",
+      "how-to-script-social-video-ads",
+      "best-caption-styles-for-instagram-reels",
+      "how-to-use-ai-for-product-photography",
+    ];
+
+    for (const slug of guideSlugs) {
+      const guide = getGuideBySlug("en", slug);
+      expect(guide).toBeDefined();
+      if (!guide) continue;
+
+      const markup = renderToStaticMarkup(
+        React.createElement(GuideDetailPage, { guide }),
+      );
+      expect(markup).toContain(
+        'href="/services/restaurant-promo-video-editing-miami"',
+      );
+    }
+  });
+
+  it("renders Spanish companion guides linking to /es/edicion-de-video-promocional-para-restaurantes-miami", async () => {
+    const spanishGuideSlugs = [
+      "ideas-de-contenido-de-video-para-restaurantes",
+      "como-usar-instagram-reels-para-tu-negocio",
+      "como-reutilizar-video-largo-en-reels",
+      "como-escribir-guiones-para-anuncios-de-video",
+      "mejores-estilos-de-subtitulos-para-reels",
+      "como-usar-inteligencia-artificial-para-fotografia-de-producto",
+    ];
+
+    for (const slug of spanishGuideSlugs) {
+      const guide = getGuideBySlug("es", slug);
+      expect(guide).toBeDefined();
+      if (!guide) continue;
+
+      const markup = renderToStaticMarkup(
+        React.createElement(GuideDetailPage, { guide }),
+      );
+      expect(markup).toContain(
+        'href="/es/edicion-de-video-promocional-para-restaurantes-miami"',
+      );
+    }
+  });
+
+  it("renders restaurant-promo-video-editing-miami page with connected services, proof, guides, and tools", async () => {
+    const { default: RestaurantPromoPage } = await import(
+      "@/app/(english)/services/restaurant-promo-video-editing-miami/page"
+    );
+
+    const markup = renderToStaticMarkup(React.createElement(RestaurantPromoPage));
+
+    expect(markup).toContain('href="/portfolio/bar-door-monkey"');
+    expect(markup).toContain(
+      'href="/services/ai-food-photography-restaurants"',
+    );
+    expect(markup).toContain(
+      'href="/services/short-form-video-editor-miami"',
+    );
+    expect(markup).toContain(
+      'href="/services/creative-video-production-wynwood"',
+    );
+    expect(markup).toContain(
+      'href="/guides/video-content-ideas-for-restaurants"',
+    );
+    expect(markup).toContain(
+      'href="/guides/how-to-use-instagram-reels-for-business"',
+    );
+    expect(markup).toContain('href="/calculator"');
+    expect(markup).toContain('href="/contact"');
+  });
+
+  it("has bidirectional language route pairing for restaurant promo video editing", async () => {
+    const { getPairedLanguageRoute } = await import("@/lib/language-routes");
+
+    expect(
+      getPairedLanguageRoute("/services/restaurant-promo-video-editing-miami"),
+    ).toBe("/es/edicion-de-video-promocional-para-restaurantes-miami");
+
+    expect(
+      getPairedLanguageRoute(
+        "/es/edicion-de-video-promocional-para-restaurantes-miami",
+      ),
+    ).toBe("/services/restaurant-promo-video-editing-miami");
+  });
+});
+

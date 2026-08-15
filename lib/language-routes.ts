@@ -2,6 +2,8 @@ const pairedLanguageRoutes: Record<string, string> = {
   "/": "/es",
   "/services": "/es/servicios",
   "/services/website-design-fort-lauderdale": "/es/diseno-web-fort-lauderdale",
+  "/services/restaurant-promo-video-editing-miami":
+    "/es/edicion-de-video-promocional-para-restaurantes-miami",
   "/portfolio": "/es/portafolio",
   "/areas": "/es/areas",
   "/areas/palm-beach-county": "/es/areas/palm-beach-county",
