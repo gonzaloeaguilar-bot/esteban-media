@@ -267,13 +267,18 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
   "produccion-de-video-para-pequenos-negocios-miami": {
     areaHref: "/es/areas#miami-dade",
     areaLabel: "Ver cobertura en Miami-Dade y Broward",
-    note: "El proyecto Bar Door Monkey demuestra producción en locación y edición para negocios locales.",
+    note: "Los proyectos Bar Door Monkey y Healthy Smile demuestran producción en locación, captura de audio y edición para negocios locales.",
     serviceIds: ["edicion", "videografia", "planificacion-social"],
     projects: [
       {
         href: "/es/portafolio/bar-door-monkey",
         title: "Bar Door Monkey Miami",
         detail: "Producción en locación y edición para negocio local en Miami.",
+      },
+      {
+        href: "/es/portafolio/healthy-smile",
+        title: "Healthy Smile Miami",
+        detail: "Video promocional en locación y edición para consultorio dental local.",
       },
     ],
   },
@@ -423,7 +428,7 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
   "video-para-pequenos-negocios-pembroke-pines": {
     areaHref: "/es/areas#broward",
     areaLabel: "Ver cobertura en Broward",
-    note: "Bar Door Monkey verifica videografía y edición para un video promocional publicado de un negocio local en Miami. No se presenta como un proyecto realizado en Pembroke Pines ni como prueba de resultados comerciales.",
+    note: "Bar Door Monkey y Healthy Smile verifican videografía y edición para videos promocionales publicados de negocios locales en Miami. No se presenta como un proyecto realizado en Pembroke Pines ni como prueba de resultados comerciales.",
     serviceIds: ["edicion", "planificacion-social", "videografia"],
     projects: [
       {
@@ -431,14 +436,24 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
         title: "Bar Door Monkey Miami",
         detail: "Videografía y edición en locación para un spot social publicado en Miami.",
       },
+      {
+        href: "/es/portafolio/healthy-smile",
+        title: "Healthy Smile Miami",
+        detail: "Ejemplo de producción y edición en locación para un negocio local.",
+      },
     ],
   },
   "marketing-de-video-para-cirugia-plastica-miami": {
     areaHref: "/es/areas#miami-dade",
     areaLabel: "Ver cobertura en Miami-Dade",
-    note: "Edición confidencial para clínicas de cirugía plástica en Miami.",
-    serviceIds: ["edicion", "planificacion-social"],
+    note: "Edición y producción en locación para consultorios médicos y clínicas de cirugía plástica en Miami.",
+    serviceIds: ["edicion", "planificacion-social", "videografia"],
     projects: [
+      {
+        href: "/es/portafolio/healthy-smile",
+        title: "Healthy Smile Miami",
+        detail: "Videografía y edición para clínica estética en Miami.",
+      },
       {
         href: "/es/portafolio/my-dler",
         title: "My D'ler",
@@ -553,9 +568,14 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
   "marketing-de-video-para-spas-y-bienestar-miami": {
     areaHref: "/es/areas#miami-dade",
     areaLabel: "Ver cobertura en Miami-Dade",
-    note: "Contenido visual envolvente para spas y marcas de bienestar.",
-    serviceIds: ["edicion", "planificacion-social"],
+    note: "Contenido visual envolvente y producción en locación para spas, clínicas y marcas de bienestar.",
+    serviceIds: ["edicion", "planificacion-social", "videografia"],
     projects: [
+      {
+        href: "/es/portafolio/healthy-smile",
+        title: "Healthy Smile Miami",
+        detail: "Video promocional y contenido visual en locación.",
+      },
       {
         href: "/es/portafolio/my-dler",
         title: "My D'ler",

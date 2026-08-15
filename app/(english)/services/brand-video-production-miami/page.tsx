@@ -90,8 +90,15 @@ export default function BrandVideoProductionMiamiPage() {
               <WandSparkles className="size-8 text-[#e85d3e]" aria-hidden="true" />
               <h2 className="mt-5 font-serif text-3xl">Brand video proof</h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                Our portfolio project <strong>My D&apos;ler</strong> proves published corporate brand visual video production and strategy.
+                Our portfolio project <strong>Healthy Smile</strong> proves published commercial brand video production, on-location shooting, and editing in Miami.
               </p>
+              <Link
+                href="/portfolio/healthy-smile"
+                className="group mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27]"
+              >
+                Review Healthy Smile Miami Brand Video Proof
+                <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+              </Link>
             </div>
           </div>
         </Container>

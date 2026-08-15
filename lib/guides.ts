@@ -235,7 +235,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Name the material and deliverables",
           paragraphs: [
-            "List what already exists: footage, voice-over, music direction, logos, copy, product details, and references. Then list the requested pieces separately, including their orientation when it is known.",
+            "List what already exists: footage, voice-over, music direction, logos, copy, product details, and references. Then list the requested pieces separately, including their orientation when it is known. For an example of how on-location requirements and deliverable definitions come together in a local business shoot, review the [Healthy Smile Miami dental video project](/portfolio/healthy-smile) (detailed in the [Healthy Smile case study](/case-studies/healthy-smile)).",
             "If an item is undecided, label it as an open question. That is more useful than hiding uncertainty inside a vague request.",
           ],
           bullets: [
@@ -290,7 +290,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Nombra el material y los entregables",
           paragraphs: [
-            "Enumera lo que ya existe: videos, voz en off, dirección musical, logos, textos, datos del producto y referencias. Después enumera cada pieza solicitada e indica su orientación cuando ya esté definida.",
+            "Enumera lo que ya existe: videos, voz en off, dirección musical, logos, textos, datos del producto y referencias. Después enumera cada pieza solicitada e indica su orientación cuando ya esté definida. Como ejemplo de estructuración de entregables para un negocio local, revisa el [proyecto Healthy Smile Miami](/es/portafolio/healthy-smile) (y su [caso de estudio](/es/casos-de-estudio/healthy-smile)).",
             "Si algo todavía no está decidido, márcalo como pregunta pendiente. Es más útil que esconder la duda dentro de una solicitud general.",
           ],
           bullets: [
@@ -1485,7 +1485,7 @@ const guidePairs: readonly GuidePair[] = [
           heading: "Compare quotes by exclusions and proof",
           paragraphs: [
             "Check whether each proposal includes pre-production, capture, editing, audio, graphics, captions, revisions, travel, licensed assets, and final versions. Ask what triggers a change order and who owns each input.",
-            "Then review published work whose credited scope resembles yours. A portfolio page can prove the kind of work performed; it cannot prove an unpublished price, result, or identical process for your project.",
+            "Then review published work whose credited scope resembles yours. For example, the [Healthy Smile Miami dental clinic project](/portfolio/healthy-smile) (detailed in the [Healthy Smile case study](/case-studies/healthy-smile)) proves on-location video, audio, and editing execution in South Florida. A portfolio page can prove the kind of work performed; it cannot prove an unpublished price, result, or identical process for your project.",
           ],
         },
       ],
@@ -1529,7 +1529,7 @@ const guidePairs: readonly GuidePair[] = [
         },
         { heading: "Elige la ruta según el material que ya tienes", paragraphs: ["Si tu equipo ya tiene material usable, la edición remota puede ser el alcance más claro. Si el mensaje depende de entrevistas, sonido controlado o cobertura visual consistente, puede convenir producción en locación. Un alcance híbrido combina una grabación enfocada con varias ediciones.", "La elección depende del material y la meta; no de una promesa genérica de que un flujo siempre será más barato o rápido."] },
         { heading: "Envía estos datos para recibir una cotización comparable", paragraphs: ["Un brief corto y concreto reduce supuestos. Incluye lo conocido y marca lo que todavía necesita recomendación."], bullets: ["Meta, audiencia, llamada a la acción y canales.", "Material existente, locación, personas en cámara y fechas preferidas.", "Video principal, recortes, subtítulos, idiomas y formatos.", "Referencias, responsable de aprobación, fecha objetivo y lenguaje obligatorio."] },
-        { heading: "Compara exclusiones y prueba publicada", paragraphs: ["Revisa si cada propuesta incluye preproducción, grabación, edición, audio, gráficos, subtítulos, revisiones, traslados, licencias y versiones finales. Pregunta qué genera un cambio de alcance.", "Después revisa trabajos publicados con créditos similares. Un portafolio prueba el trabajo realizado; no prueba un precio, resultado o proceso no publicado para tu proyecto."] },
+        { heading: "Compara exclusiones y prueba publicada", paragraphs: ["Revisa si cada propuesta incluye preproducción, grabación, edición, audio, gráficos, subtítulos, revisiones, traslados, licencias y versiones finales. Pregunta qué genera un cambio de alcance.", "Después revisa trabajos publicados con créditos similares. Por ejemplo, el [proyecto Healthy Smile Miami](/es/portafolio/healthy-smile) (y su [caso de estudio](/es/casos-de-estudio/healthy-smile)) acredita grabación en locación, captura de sonido y edición en South Florida. El portafolio demuestra el tipo de trabajo realizado; no un precio o resultado no publicado."] },
       ],
       faqs: [
         { question: "¿Esteban Moreno Media publica paquetes fijos de video corporativo?", answer: "No hay un paquete universal publicado. El alcance, los entregables, los plazos, las revisiones y las responsabilidades se definen en cada cotización." },
@@ -1755,7 +1755,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Communication & bilingual workflow",
           paragraphs: [
-            "Choose an editor who provides clear scoping questions and fluent communication in both English and Spanish for South Florida campaigns.",
+            "Choose an editor who provides clear scoping questions and fluent communication in both English and Spanish for South Florida campaigns. Real client work like the [Healthy Smile Miami dental project](/portfolio/healthy-smile) (and its [Healthy Smile case study](/case-studies/healthy-smile)) demonstrates end-to-end local production coordination in English and Spanish.",
           ],
         },
       ],
@@ -1785,7 +1785,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Flujo de trabajo bilingüe claro",
           paragraphs: [
-            "Elige un editor que comunique los requerimientos con precisión tanto en español como en inglés para el mercado de South Florida.",
+            "Elige un editor que comunique los requerimientos con precisión tanto en español como en inglés para el mercado de South Florida. Trabajos reales de clientes como el [proyecto Healthy Smile Miami](/es/portafolio/healthy-smile) (y su [caso de estudio](/es/casos-de-estudio/healthy-smile)) demuestran coordinación bilingüe de producción en locación y edición en Miami.",
           ],
         },
       ],
@@ -1989,7 +1989,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "The 3-Second Hook Rule",
           paragraphs: [
-            "Capture immediate scroll attention with high-energy movement or an intriguing statement in the opening 3 seconds. For hospitality campaigns, specialized [restaurant promo video editing in Miami](/services/restaurant-promo-video-editing-miami) pairs sensory soundscapes with fast-paced dish reveals to maximize reservation conversion.",
+            "Capture immediate scroll attention with high-energy movement or an intriguing statement in the opening 3 seconds, such as the hook-driven patient clinic concept in the [Healthy Smile Miami video project](/portfolio/healthy-smile) (detailed in the [Healthy Smile case study](/case-studies/healthy-smile)). For hospitality campaigns, specialized [restaurant promo video editing in Miami](/services/restaurant-promo-video-editing-miami) pairs sensory soundscapes with fast-paced dish reveals to maximize reservation conversion.",
           ],
         },
       ],
@@ -2013,7 +2013,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "La regla del gancho de 3 segundos",
           paragraphs: [
-            "Detén el desplazamiento en redes con movimiento enérgico o una frase impactante durante los primeros 3 segundos. Para anuncios de comida y bebidas, la [edición de video promocional para restaurantes en Miami](/es/edicion-de-video-promocional-para-restaurantes-miami) utiliza ganchos visuales sensoriales que impulsan visitas al local.",
+            "Detén el desplazamiento en redes con movimiento enérgico o una frase impactante durante los primeros 3 segundos, tal como se estructuró el guion de clínica en el [proyecto Healthy Smile Miami](/es/portafolio/healthy-smile) (y su [caso de estudio](/es/casos-de-estudio/healthy-smile)). Para anuncios de comida y bebidas, la [edición de video promocional para restaurantes en Miami](/es/edicion-de-video-promocional-para-restaurantes-miami) utiliza ganchos visuales sensoriales que impulsan visitas al local.",
           ],
         },
       ],
@@ -2040,7 +2040,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Microphone Placement for Clear Dialogue",
           paragraphs: [
-            "Attach lavalier mics firmly to clothing to eliminate rustle and isolate speech from room echo.",
+            "Attach lavalier mics firmly to clothing to eliminate rustle and isolate speech from room echo. For an example of crisp on-location clinical dialog capture, review the [Healthy Smile Miami dental video project](/portfolio/healthy-smile) (detailed in the [Healthy Smile case study](/case-studies/healthy-smile)).",
           ],
         },
       ],
@@ -2064,7 +2064,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Colocación de micrófono para voz nítida",
           paragraphs: [
-            "Fija los micrófonos de solapa firmemente en la ropa para evitar roces y aislar el habla del eco ambiental.",
+            "Fija los micrófonos de solapa firmemente en la ropa para evitar roces y aislar el habla del eco ambiental. Como ejemplo de captura de audio y diálogo en locación clínica, revisa el [proyecto Healthy Smile Miami](/es/portafolio/healthy-smile) (y su [caso de estudio](/es/casos-de-estudio/healthy-smile)).",
           ],
         },
       ],
@@ -2271,7 +2271,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Capturing Dual-Language Search Intent",
           paragraphs: [
-            "Publishing dedicated Spanish and English video assets allows brands to rank in both language search indexes simultaneously.",
+            "Publishing dedicated Spanish and English video assets allows brands to rank in both language search indexes simultaneously, a strategy exemplified by local business projects like the [Healthy Smile Miami dental campaign](/portfolio/healthy-smile) (detailed in the [Healthy Smile case study](/case-studies/healthy-smile)).",
           ],
         },
       ],
@@ -2295,7 +2295,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Captación de búsquedas en ambos idiomas",
           paragraphs: [
-            "Publicar activos de video dedicados en español e inglés permite posicionarse en ambos índices de búsqueda de forma simultánea.",
+            "Publicar activos de video dedicados en español e inglés permite posicionarse en ambos índices de búsqueda de forma simultánea, una estrategia respaldada en proyectos locales como la campaña de [Healthy Smile Miami](/es/portafolio/healthy-smile) (y su [caso de estudio](/es/casos-de-estudio/healthy-smile)).",
           ],
         },
       ],
@@ -2424,7 +2424,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Audio Ducking Techniques",
           paragraphs: [
-            "Automatically lower background music volume whenever dialogue is spoken to maintain 100% vocal clarity.",
+            "Automatically lower background music volume whenever dialogue is spoken to maintain 100% vocal clarity, as demonstrated in the dialogue balancing for the [Healthy Smile Miami video project](/portfolio/healthy-smile) (detailed in the [Healthy Smile case study](/case-studies/healthy-smile)).",
           ],
         },
       ],
@@ -2448,7 +2448,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Técnicas de atenuación de música (ducking)",
           paragraphs: [
-            "Reduce automáticamente el volumen de la pista musical cada vez que el hablante interviene para garantizar la máxima nitidez.",
+            "Reduce automáticamente el volumen de la pista musical cada vez que el hablante interviene para garantizar la máxima nitidez, tal como se aprecia en el balance de diálogos del [proyecto Healthy Smile Miami](/es/portafolio/healthy-smile) (y su [caso de estudio](/es/casos-de-estudio/healthy-smile)).",
           ],
         },
       ],
@@ -2781,7 +2781,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Funnel-Stage Video Mapping",
           paragraphs: [
-            "Deliver bite-sized social videos for awareness while keeping in-depth case study edits on high-converting landing pages.",
+            "Deliver bite-sized social videos for awareness while keeping in-depth case study edits on high-converting landing pages. For an example of converting local clinic traffic through structured video, review the [Healthy Smile Miami dental project](/portfolio/healthy-smile) (detailed in the [Healthy Smile case study](/case-studies/healthy-smile)).",
           ],
         },
       ],
@@ -2805,7 +2805,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Mapeo de videos según etapa de compra",
           paragraphs: [
-            "Publica cápsulas cortas en redes para generar interés y reserva los videos detallados de casos para páginas de venta.",
+            "Publica cápsulas cortas en redes para generar interés y reserva los videos detallados de casos para páginas de venta. Para revisar cómo un video promocional apoya la conversión en consultorios locales, consulta el [proyecto Healthy Smile Miami](/es/portafolio/healthy-smile) (y su [caso de estudio](/es/casos-de-estudio/healthy-smile)).",
           ],
         },
       ],
@@ -2832,7 +2832,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Importance of Room Tone Recording",
           paragraphs: [
-            "Record 10 seconds of silent room tone on location so your editor can sample background noise for clean audio subtraction.",
+            "Record 10 seconds of silent room tone on location so your editor can sample background noise for clean audio subtraction, as applied to on-location dental clinic audio in the [Healthy Smile Miami video project](/portfolio/healthy-smile) (detailed in the [Healthy Smile case study](/case-studies/healthy-smile)).",
           ],
         },
       ],
@@ -2856,7 +2856,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Importancia del registro de tono de sala",
           paragraphs: [
-            "Graba 10 segundos de silencio ambiental en el lugar de rodaje para facilitar la eliminación digital de ruido de fondo.",
+            "Graba 10 segundos de silencio ambiental en el lugar de rodaje para facilitar la eliminación digital de ruido de fondo, tal como se aplicó en el audio en locación del [proyecto Healthy Smile Miami](/es/portafolio/healthy-smile) (y su [caso de estudio](/es/casos-de-estudio/healthy-smile)).",
           ],
         },
       ],
@@ -2883,7 +2883,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Eliciting Authentic Emotional Answers",
           paragraphs: [
-            "Ask open-ended questions focused on problem-solving rather than scripted product praise to ensure genuine audience trust.",
+            "Ask open-ended questions focused on problem-solving rather than scripted product praise to ensure genuine audience trust. For an example of a patient story approach on location, review the [Healthy Smile Miami dental video project](/portfolio/healthy-smile) (detailed in the [Healthy Smile case study](/case-studies/healthy-smile)).",
           ],
         },
       ],
@@ -2907,7 +2907,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Respuestas emotivas y genuinas",
           paragraphs: [
-            "Formula preguntas abiertas enfocadas en la resolución de problemas para lograr un testimonio cercano y creíble.",
+            "Formula preguntas abiertas enfocadas en la resolución de problemas para lograr un testimonio cercano y creíble. Como referencia de narración y producción en locación, revisa el [proyecto Healthy Smile Miami](/es/portafolio/healthy-smile) (y su [caso de estudio](/es/casos-de-estudio/healthy-smile)).",
           ],
         },
       ],

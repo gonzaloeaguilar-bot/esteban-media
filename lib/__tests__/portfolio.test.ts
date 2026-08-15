@@ -277,3 +277,21 @@ describe("homeowners internal link mesh", () => {
     expect(esInContent.length).toBeGreaterThanOrEqual(6);
   });
 });
+
+describe("healthy-smile internal link mesh", () => {
+  it("provides in-content internal links to /portfolio/healthy-smile and /es/portafolio/healthy-smile across guides", async () => {
+    const { getGuides } = await import("../guides");
+    const enGuides = getGuides("en");
+    const esGuides = getGuides("es");
+
+    const enInContent = enGuides.filter((g) =>
+      JSON.stringify(g.sections).includes("/portfolio/healthy-smile"),
+    );
+    const esInContent = esGuides.filter((g) =>
+      JSON.stringify(g.sections).includes("/es/portafolio/healthy-smile"),
+    );
+
+    expect(enInContent.length).toBeGreaterThanOrEqual(8);
+    expect(esInContent.length).toBeGreaterThanOrEqual(8);
+  });
+});

@@ -161,7 +161,7 @@ export default function SmallBusinessVideoPage() {
             <section className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
               <h2 className="font-serif text-3xl">Transparent per-project pricing</h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                Every project is scoped to your exact deliverables and budget with no hidden surprises. Communicate comfortably in English or Spanish.
+                Every project is scoped to your exact deliverables and budget with no hidden surprises. Review our published <Link href="/portfolio/healthy-smile" className="font-medium text-[#9f3c27] hover:underline">Healthy Smile Miami project</Link> for an example of on-location capture, dialogue audio mastering, and local business video editing.
               </p>
               <Link
                 href="/services"
