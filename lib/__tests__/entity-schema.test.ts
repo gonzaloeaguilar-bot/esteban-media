@@ -79,6 +79,32 @@ describe("Google Business Profile entity link", () => {
     expect(personEntityJsonLd).not.toHaveProperty("aggregateRating");
   });
 
+  it("publishes the business city without ever publishing a street address", () => {
+    // 2026-08-15 NAP audit: the LocalBusiness node shipped with no `address` at
+    // all — no locality, region or postal code on any of the 269 URLs, checked
+    // in production. areaServed is where he works; address is where the
+    // business is, and Google reads them differently.
+    expect(localBusinessEntityJsonLd.address).toEqual({
+      "@type": "PostalAddress",
+      addressLocality: "Fort Lauderdale",
+      addressRegion: "FL",
+      addressCountry: "US",
+    });
+
+    // Service-area business: the Google profile hides the address by design
+    // (CUSTOMER_LOCATION_ONLY, storefrontAddress null). Publishing one here
+    // would contradict the profile and every citation built from it.
+    expect(localBusinessEntityJsonLd.address).not.toHaveProperty(
+      "streetAddress",
+    );
+
+    // The city must match site.location, which the footer already renders, so
+    // the visible NAP and the markup can never drift apart.
+    expect(site.location).toBe(
+      `${localBusinessEntityJsonLd.address.addressLocality}, ${localBusinessEntityJsonLd.address.addressRegion}`,
+    );
+  });
+
   it("covers all three counties Esteban serves in the Google profile", () => {
     // GBP serviceArea (patched 2026-08-14) is Broward + Miami-Dade + Palm Beach.
     // The site must not claim a narrower area than the profile.
