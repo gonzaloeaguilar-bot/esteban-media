@@ -17,9 +17,9 @@ import {
 import { absoluteUrl, site } from "@/lib/site";
 
 export const spanishSite = {
-  title: "Edición de Video en Fort Lauderdale",
+  title: "Esteban Moreno | Edición de Video en Fort Lauderdale",
   description:
-    "Edición de video, contenido con IA, planificación para redes y producción selectiva desde Fort Lauderdale para Broward, Miami-Dade y clientes remotos.",
+    "Esteban Moreno ofrece edición de video, contenido con IA, planificación para redes y producción selectiva en Fort Lauderdale, Miami y clientes remotos.",
   contactLead:
     "Comparte la meta, el condado, el material disponible, las referencias y el uso previsto. La atención es principalmente en español y también hay comunicación disponible en inglés intermedio.",
 };

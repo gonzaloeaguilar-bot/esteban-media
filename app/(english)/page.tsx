@@ -8,12 +8,23 @@ import { HomeAuthorityHub } from "@/components/home-authority-hub";
 import { PortfolioTeaser } from "@/components/portfolio-teaser";
 import { ServicesStrip } from "@/components/services-strip";
 
+import { site } from "@/lib/site";
+
 export const metadata: Metadata = {
   // Lead the homepage title with the brand-name entity ("Esteban Moreno")
   // to close the entity gap on the "esteban moreno" brand query.
   title: {
     absolute:
       "Esteban Moreno | Fort Lauderdale Video Editor & Content Creator",
+  },
+  description: site.description,
+  openGraph: {
+    title: "Esteban Moreno | Fort Lauderdale Video Editor & Content Creator",
+    description: site.description,
+  },
+  twitter: {
+    title: "Esteban Moreno | Fort Lauderdale Video Editor & Content Creator",
+    description: site.description,
   },
 };
 

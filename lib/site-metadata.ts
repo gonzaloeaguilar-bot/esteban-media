@@ -61,7 +61,7 @@ function buildRootMetadata(locale: "en" | "es"): Metadata {
   const path = isSpanish ? "/es" : "/";
   const title = isSpanish
     ? `${spanishSite.title} | ${site.name}`
-    : `Video Editor in Fort Lauderdale | ${site.name}`;
+    : `Esteban Moreno | Video Editor in Fort Lauderdale | ${site.name}`;
   const description = isSpanish ? spanishSite.description : site.description;
 
   return {
