@@ -40,7 +40,7 @@ export const site = {
   googleAnalyticsMeasurementId: "G-W9CM4CE2MQ",
   location: "Fort Lauderdale, FL",
   description:
-    "Fort Lauderdale video editing, AI-assisted content, social planning, and selectively scoped on-location production for Broward, Miami-Dade, and remote clients.",
+    "Esteban Moreno is a Fort Lauderdale video editor and creator offering remote video editing, AI content, social planning, and South Florida production.",
 };
 
 export type Service = {
