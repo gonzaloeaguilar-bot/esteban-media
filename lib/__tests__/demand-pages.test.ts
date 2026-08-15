@@ -117,3 +117,59 @@ describe("demand pages depth and substance", () => {
     });
   }
 });
+
+describe("Spanish niche page depth: reels-para-negocios-miami", () => {
+  it("renders with substantive sections, FAQs, and portfolio links", async () => {
+    const { SpanishNichePage } = await import("@/components/spanish-niche-page");
+    const { getSpanishNichePage, buildSpanishNicheStructuredData } = await import(
+      "@/lib/spanish-site"
+    );
+
+    const slug = "reels-para-negocios-miami";
+    const page = getSpanishNichePage(slug);
+    expect(page).toBeDefined();
+    if (!page) return;
+
+    const markup = renderToStaticMarkup(
+      React.createElement(SpanishNichePage, { slug })
+    );
+    const visibleText = extractVisibleText(markup);
+    const wordCount = countWords(visibleText);
+
+    // High substantive depth (>= 800 words)
+    expect(wordCount).toBeGreaterThanOrEqual(800);
+
+    // Contains all 4 substantive section headings
+    expect(page.sections).toBeDefined();
+    expect(page.sections?.length).toBe(4);
+    for (const section of page.sections ?? []) {
+      expect(markup).toContain(section.heading);
+    }
+
+    // FAQ schema alignment: every FAQ in schema is in visible markup
+    const structuredData = buildSpanishNicheStructuredData(page);
+    const graph = structuredData["@graph"] as Array<{
+      "@type": string;
+      mainEntity?: Array<{ name: string; acceptedAnswer: { text: string } }>;
+    }>;
+    const faqNode = graph.find((node) => node["@type"] === "FAQPage");
+    expect(faqNode).toBeDefined();
+    expect(faqNode?.mainEntity?.length).toBeGreaterThanOrEqual(6);
+
+    for (const faq of faqNode?.mainEntity ?? []) {
+      expect(markup).toContain(faq.name);
+      expect(markup).toContain(faq.acceptedAnswer.text);
+    }
+
+    // Internal links to published portfolio proof
+    expect(markup).toContain('href="/es/portafolio/bar-door-monkey"');
+    expect(markup).toContain('href="/es/portafolio/ml-colombia"');
+    expect(markup).toContain('href="/es/areas#miami-dade"');
+    expect(markup).toContain('href="/es/contacto"');
+
+    // Internal links to related guides
+    expect(markup).toContain('href="/es/guias/video-vertical-horizontal-y-zonas-seguras"');
+    expect(markup).toContain('href="/es/guias/entrega-para-edicion-remota-de-video"');
+  });
+});
+

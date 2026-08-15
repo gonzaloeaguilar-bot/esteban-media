@@ -1,3 +1,4 @@
+import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -12,6 +13,53 @@ import {
 } from "@/lib/spanish-site";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { site } from "@/lib/site";
+
+function renderFormattedText(text: string) {
+  const parts: React.ReactNode[] = [];
+  const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+
+  while ((match = regex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.substring(lastIndex, match.index));
+    }
+    const label = match[1];
+    const href = match[2];
+    const isExternal = href.startsWith("http");
+
+    if (isExternal) {
+      parts.push(
+        <a
+          key={`${href}-${match.index}`}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[#c84a2c]"
+        >
+          {label}
+        </a>,
+      );
+    } else {
+      parts.push(
+        <Link
+          key={`${href}-${match.index}`}
+          href={href}
+          className="font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[#c84a2c]"
+        >
+          {label}
+        </Link>,
+      );
+    }
+    lastIndex = regex.lastIndex;
+  }
+
+  if (lastIndex < text.length) {
+    parts.push(text.substring(lastIndex));
+  }
+
+  return parts.length > 0 ? parts : text;
+}
 
 type NicheLinkContext = {
   areaHref: string;
@@ -1126,6 +1174,48 @@ export function SpanishNichePage({ slug }: { slug: string }) {
           </div>
         </Container>
       </section>
+
+      {page.sections && page.sections.length > 0 ? (
+        <section className="border-t border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
+          <Container size="xl">
+            <div className="mx-auto max-w-4xl space-y-12">
+              <div className="border-b border-[#ddd4c8] pb-6">
+                <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">
+                  Guía de alcance y criterios técnicos
+                </p>
+                <h2 className="mt-3 font-serif text-3xl sm:text-4xl">
+                  Estrategia, formato y edición de video corto para negocios
+                </h2>
+              </div>
+              {page.sections.map((section) => (
+                <article key={section.heading} className="space-y-4">
+                  <h3 className="font-serif text-2xl sm:text-3xl text-[#101214]">
+                    {section.heading}
+                  </h3>
+                  <div className="space-y-4 text-base leading-8 text-[#252a2d]">
+                    {section.paragraphs.map((p, pIndex) => (
+                      <p key={pIndex}>{renderFormattedText(p)}</p>
+                    ))}
+                  </div>
+                  {section.bullets && section.bullets.length > 0 ? (
+                    <ul className="mt-4 space-y-2.5 rounded-xl border border-[#ddd4c8] bg-[#fbf6ef] p-5 sm:p-6">
+                      {section.bullets.map((bullet, bIndex) => (
+                        <li key={bIndex} className="flex gap-3 text-sm leading-6 text-[#252a2d]">
+                          <CheckCircle2
+                            className="mt-0.5 size-4 shrink-0 text-[#1a7f82]"
+                            aria-hidden="true"
+                          />
+                          <span>{renderFormattedText(bullet)}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
+                </article>
+              ))}
+            </div>
+          </Container>
+        </section>
+      ) : null}
 
       {linkContext ? (
         <section className="border-t border-[#ddd4c8] py-12 sm:py-16">

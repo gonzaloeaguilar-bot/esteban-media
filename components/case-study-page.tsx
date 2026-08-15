@@ -31,7 +31,6 @@ export function CaseStudyPage({ caseStudy }: CaseStudyPageProps) {
   const homePath = isSpanish ? "/es" : "/";
   const portfolioPath = isSpanish ? "/es/portafolio" : "/portfolio";
   const portfolioItem = getPortfolioItemById(caseStudy.id);
-  const isVideo = portfolioItem && isYouTubeSource(portfolioItem.media);
 
   return (
     <main className="bg-[#f6f1ea] text-[#101214]">
