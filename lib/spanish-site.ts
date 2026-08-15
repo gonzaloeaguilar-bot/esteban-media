@@ -2911,6 +2911,16 @@ export const languageAlternates: Record<string, Record<string, string>> = {
     "es-US": "/es/video-inmobiliario-sunny-isles",
     "x-default": "/services/real-estate-video-sunny-isles",
   },
+  "/services/restaurant-promo-video-editing-miami": {
+    "en-US": "/services/restaurant-promo-video-editing-miami",
+    "es-US": "/es/edicion-de-video-promocional-para-restaurantes-miami",
+    "x-default": "/services/restaurant-promo-video-editing-miami",
+  },
+  "/es/edicion-de-video-promocional-para-restaurantes-miami": {
+    "en-US": "/services/restaurant-promo-video-editing-miami",
+    "es-US": "/es/edicion-de-video-promocional-para-restaurantes-miami",
+    "x-default": "/services/restaurant-promo-video-editing-miami",
+  },
   "/services/short-form-video-editor-miami": {
     "en-US": "/services/short-form-video-editor-miami",
     "es-US": "/es/editor-de-video-corto-para-redes-miami",
