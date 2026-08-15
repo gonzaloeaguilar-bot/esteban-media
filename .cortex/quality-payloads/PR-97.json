@@ -1,0 +1,56 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-97",
+  "status": "quality_enforced_passed",
+  "allowed": true,
+  "recorded": true,
+  "quality_result": {
+    "status": "quality_passed"
+  },
+  "evidence": {
+    "obsidian_context": "client-esteban-media/wiki/esteban-nap-audit-2026-08-15.md. The NAP audit read the live Google Business Profile and found two defects: the profile carries no phone number, and the site's LocalBusiness node carries no address. This PR fixes the second. The first cannot be fixed from here - the Business Information API returns PHONE_NUMBER_EDITS_NOT_ALLOWED - and is recorded as a UI action for Gonzalo.",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, canonical checkout /Users/gonzalo/code/esteban-media, isolated worktree /Users/gonzalo/code/esteban-nap-20260815 branched from origin/main, branch fix/nap-address-schema-20260815, move class seo_entity_graph.",
+    "hard_stops_checked": "Checked and clear. No price, offer or turnaround claim touched. No street address published - the addition is locality, region and country only, and the test pins streetAddress as absent. No credential read into the diff. No route added or removed, sitemap unchanged at 269. No outreach performed.",
+    "reviewer_ensemble": "builder pass, skeptic pass, taste pass - see the reviewer_ensemble object.",
+    "reviewer_disagreement_reviewed": "The skeptic pressed on the obvious adjacent change: if we are adding an address, add postalCode and geo coordinates too and give Google a full pin. Rejected on evidence rather than taste. The live profile is CUSTOMER_LOCATION_ONLY with storefrontAddress null and latlng null, so any postal code or coordinate published here would be an assertion the profile does not make, which is the exact entity split the citation packet exists to prevent. A second point was raised and acted on: an earlier draft of the audit claimed the visible footer had no city line. Reading components/site-footer-client.tsx and then the production HTML showed the footer already renders site.location in the copyright line. The claim was wrong and was corrected before this PR was written; the test now asserts the schema city equals site.location so the two cannot drift.",
+    "winner_rationale": "address is the field LocalBusiness is defined around, and areaServed does not substitute for it - areaServed is where the work happens, address is where the business is. Adding locality/region/country is the maximum that can be published truthfully for a service-area business whose profile hides its address. The alternative, leaving address absent and relying on areaServed plus visible text, is what shipped and what the audit found wanting.",
+    "tests_or_validation": "pnpm check green in the isolated worktree: lint 0 errors, typecheck clean, 335 tests across 43 files, 269 static pages built. The new guard was proven against the pre-fix state by reverting lib/entity-schema.ts and keeping only the test: it fails at entity-schema.test.ts:87 with Received: undefined, confirming the address was genuinely absent on origin/main rather than merely untested.",
+    "ci_passed": "pnpm check run locally before push. GitHub validate workflow and the Vercel preview build are the remote confirmation.",
+    "pr_review_complete": "Self-review over the full diff: two files, both additive, all inside lib/. No error-handling path touched, so the silent-failure pass had nothing to examine.",
+    "deploy_or_rollback_plan": "Ships through the normal merge to main and Vercel path. Rollback is a single revert: the change is static JSON-LD plus a test, no migration, no runtime behaviour, nothing written anywhere.",
+    "post_change_verification": "After merge, fetch https://estebanmorenomedia.com/ and https://estebanmorenomedia.com/es and assert the ld+json graph contains addressLocality Fort Lauderdale on the LocalBusiness node and no streetAddress anywhere. The site-wide sample that found the defect (10 of 269 URLs, EN and ES) will be re-run the same way.",
+    "claim_hygiene_checked": "Every business fact here was read live on 2026-08-15, not recalled. The service-area type, null storefrontAddress and null latlng came from the Business Information API on locations/9465569364777265733. The absent phone was confirmed twice, including against a control profile that returned its phone through the identical call. The city Fort Lauderdale, FL already exists in site.location and in the rendered footer. No claim about certification, licensing or capability was added.",
+    "debt_delta": "improvement",
+    "obsidian_handoff": "esteban-nap-audit-2026-08-15.md records both defects, the site-wide 10-of-269 check, the blocked phone edit, and the ordered action list. esteban-media-hot.md carries the summary."
+  },
+  "project_routing": {
+    "canonical_repo": "/Users/gonzalo/code/esteban-media",
+    "worktree": "/Users/gonzalo/code/esteban-nap-20260815",
+    "branch": "fix/nap-address-schema-20260815",
+    "move_class": "seo_entity_graph"
+  },
+  "hard_stops_checked": {
+    "pricing_or_offers": "not touched",
+    "factual_business_claims": "one city literal, already present in site.location and in the rendered footer, and matching the Google profile",
+    "secrets_or_credentials": "none accessed or changed by the diff",
+    "deployment": "not performed by this change",
+    "third_party_services_or_backends": "none added",
+    "external_outreach": "none performed",
+    "url_inventory": "unchanged - 269 URLs, sitemap identical"
+  },
+  "reviewer_ensemble": {
+    "builder": {
+      "status": "pass",
+      "note": "Two files, additive only. address sits beside description on the existing LocalBusiness literal; the test pins both the presence of the city and the absence of streetAddress, and ties the city to site.location."
+    },
+    "skeptic": {
+      "status": "pass",
+      "note": "Asked for the pre-fix failure rather than accepting a green suite. Got it: Received: undefined at entity-schema.test.ts:87 with the source file reverted."
+    },
+    "taste": {
+      "status": "pass",
+      "note": "Comment explains why streetAddress is forbidden here rather than only what the field is, so a later pass reads the constraint before adding to it."
+    }
+  }
+}
