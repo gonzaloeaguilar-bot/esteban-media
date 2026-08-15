@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Laptop, Mail, Phone, Bot, Sparkles, Layout, ShieldCheck } from "lucide-react";
+import { ArrowRight, Laptop, Mail, Phone, Bot, Sparkles, Layout } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import { buildPageMetadata } from "@/lib/site-metadata";

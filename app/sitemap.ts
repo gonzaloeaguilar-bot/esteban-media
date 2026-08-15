@@ -1,6 +1,11 @@
 import type { MetadataRoute } from "next";
 
 import {
+  getCaseStudies,
+  getCaseStudyPath,
+  type CaseStudyLocale,
+} from "@/lib/case-studies";
+import {
   getGuideAlternates,
   getGuidePath,
   getGuides,
@@ -149,6 +154,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Restoring it requires adding real per-item dates to the content first.
   const watchLocales: readonly PortfolioWatchLocale[] = ["en", "es"];
   const guideLocales: readonly GuideLocale[] = ["en", "es"];
+  const caseStudyLocales: readonly CaseStudyLocale[] = ["en", "es"];
 
   return [
     ...sitemapRoutes.map((route) => ({
@@ -169,6 +175,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
           changeFrequency: "monthly" as const,
         priority: 0.75,
         alternates: watchSitemapAlternates(item.id),
+      })),
+    ),
+    ...caseStudyLocales.flatMap((locale) =>
+      getCaseStudies(locale).map((study) => ({
+        url: absoluteUrl(getCaseStudyPath(study)),
+        changeFrequency: "monthly" as const,
+        priority: 0.8,
+        alternates: sitemapAlternates(getCaseStudyPath(study)),
       })),
     ),
     ...guideLocales.map((locale) => {

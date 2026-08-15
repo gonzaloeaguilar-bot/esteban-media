@@ -1,6 +1,11 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  getCaseStudies,
+  getCaseStudyAlternates,
+  getCaseStudyPath,
+} from "@/lib/case-studies";
+import {
   getGuideAlternates,
   getGuidePath,
   getGuides,
@@ -16,11 +21,11 @@ import sitemap from "../sitemap";
 describe("portfolio sitemap entries", () => {
   const entries = sitemap();
 
-  it("publishes the exact 259-URL release inventory, each URL once", () => {
+  it("publishes the exact 269-URL release inventory, each URL once", () => {
     const urls = entries.map((entry) => entry.url);
 
-    expect(entries).toHaveLength(259);
-    expect(new Set(urls)).toHaveLength(259);
+    expect(entries).toHaveLength(269);
+    expect(new Set(urls)).toHaveLength(269);
   });
 
   // This used to assert every entry carried lastModified 2026-07-19. That
@@ -109,6 +114,30 @@ describe("portfolio sitemap entries", () => {
 
         expect(urls.filter((candidate) => candidate === url)).toHaveLength(1);
         expect(entry?.alternates?.languages).toEqual(expectedLanguages);
+      }
+    }
+  });
+
+  it("includes all ten case study URLs with reciprocal alternates", () => {
+    const urls = entries.map((entry) => entry.url);
+
+    for (const locale of ["en", "es"] as const) {
+      for (const study of getCaseStudies(locale)) {
+        const url = `https://estebanmorenomedia.com${getCaseStudyPath(study)}`;
+        const expectedLanguages = Object.fromEntries(
+          Object.entries(getCaseStudyAlternates(study)).map(
+            ([language, path]) => [
+              language,
+              `https://estebanmorenomedia.com${path}`,
+            ],
+          ),
+        );
+        const entry = entries.find((candidate) => candidate.url === url);
+
+        expect(urls.filter((candidate) => candidate === url)).toHaveLength(1);
+        expect(entry?.alternates?.languages).toEqual(expectedLanguages);
+        expect(entry?.changeFrequency).toBe("monthly");
+        expect(entry?.priority).toBe(0.8);
       }
     }
   });

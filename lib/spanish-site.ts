@@ -2529,6 +2529,57 @@ export const spanishCoreRoutes = [
 ];
 
 export const languageAlternates: Record<string, Record<string, string>> = {
+  // Case Study pairs (2026-08-14): Banacol, Homeowners, FLAS, Healthy Smile, My D'ler
+  "/case-studies/banacol": {
+    "en-US": "/case-studies/banacol",
+    "es-US": "/es/casos-de-estudio/banacol",
+    "x-default": "/case-studies/banacol",
+  },
+  "/es/casos-de-estudio/banacol": {
+    "en-US": "/case-studies/banacol",
+    "es-US": "/es/casos-de-estudio/banacol",
+    "x-default": "/case-studies/banacol",
+  },
+  "/case-studies/homeowners": {
+    "en-US": "/case-studies/homeowners",
+    "es-US": "/es/casos-de-estudio/homeowners",
+    "x-default": "/case-studies/homeowners",
+  },
+  "/es/casos-de-estudio/homeowners": {
+    "en-US": "/case-studies/homeowners",
+    "es-US": "/es/casos-de-estudio/homeowners",
+    "x-default": "/case-studies/homeowners",
+  },
+  "/case-studies/flas-concierge": {
+    "en-US": "/case-studies/flas-concierge",
+    "es-US": "/es/casos-de-estudio/flas-concierge",
+    "x-default": "/case-studies/flas-concierge",
+  },
+  "/es/casos-de-estudio/flas-concierge": {
+    "en-US": "/case-studies/flas-concierge",
+    "es-US": "/es/casos-de-estudio/flas-concierge",
+    "x-default": "/case-studies/flas-concierge",
+  },
+  "/case-studies/healthy-smile": {
+    "en-US": "/case-studies/healthy-smile",
+    "es-US": "/es/casos-de-estudio/healthy-smile",
+    "x-default": "/case-studies/healthy-smile",
+  },
+  "/es/casos-de-estudio/healthy-smile": {
+    "en-US": "/case-studies/healthy-smile",
+    "es-US": "/es/casos-de-estudio/healthy-smile",
+    "x-default": "/case-studies/healthy-smile",
+  },
+  "/case-studies/my-dler": {
+    "en-US": "/case-studies/my-dler",
+    "es-US": "/es/casos-de-estudio/my-dler",
+    "x-default": "/case-studies/my-dler",
+  },
+  "/es/casos-de-estudio/my-dler": {
+    "en-US": "/case-studies/my-dler",
+    "es-US": "/es/casos-de-estudio/my-dler",
+    "x-default": "/case-studies/my-dler",
+  },
   // pembroke-pines was previously hardcoded inside buildSpanishNicheMetadata.
   // Moved here so every pair lives in one place and both languages read it.
   "/services/small-business-video-pembroke-pines": {

@@ -11,6 +11,11 @@ import { Container } from "@/components/ui/container";
 import { spanishServices } from "@/lib/spanish-site";
 import { services } from "@/lib/site";
 import { buildPortfolioWatchSchema } from "@/lib/portfolio-schema";
+import {
+  CASE_STUDY_IDS,
+  getCaseStudyPath,
+  type CaseStudyId,
+} from "@/lib/case-studies";
 import { getPoster, isYouTubeSource, type PortfolioItem } from "@/lib/portfolio";
 import {
   getPortfolioCategoryPath,
@@ -261,6 +266,15 @@ export function PortfolioWatchPage({ item, locale }: PortfolioWatchPageProps) {
                 {copy.summary}
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
+                {CASE_STUDY_IDS.includes(item.id as CaseStudyId) ? (
+                  <Link
+                    href={getCaseStudyPath(item.id as CaseStudyId, locale)}
+                    className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-5 text-sm font-medium text-white shadow-sm hover:bg-[#a93e29]"
+                  >
+                    {locale === "es" ? "Ver Caso de Estudio Completo" : "Read Full Case Study"}
+                    <ArrowRight className="size-4" aria-hidden="true" />
+                  </Link>
+                ) : null}
                 {item.websiteUrl ? (
                   <a
                     href={item.websiteUrl}

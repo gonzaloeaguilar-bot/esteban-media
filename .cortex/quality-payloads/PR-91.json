@@ -1,0 +1,67 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-91",
+  "status": "review_pending",
+  "evidence": {
+    "obsidian_context": "Built five bilingual case studies from published portfolio work (Banacol, Homeowners, FLAS Concierge, Healthy Smile Miami, My D'ler). 10 new URLs taking sitemap from 259 to 269. Truthful-only with zero invented results, metrics, percentages, or prices.",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, worktree /Users/gonzalo/code/esteban-case-studies, branch feat/case-studies, move class seo_content_depth.",
+    "hard_stops_checked": "Checked and clear. No invented prices or currency claims ($0 or other currency). No %-suffixed performance figures. No FAA Part 107 claims. No aggregateRating or review nodes in JSON-LD. Exactly 10 indexable URLs added (sitemap count expanded from 259 to 269 with indexable-inventory-freeze updated).",
+    "reviewer_ensemble": "builder pass, skeptic pass, taste pass - see reviewer_ensemble object.",
+    "reviewer_disagreement_reviewed": "The skeptic verified that all five bilingual case studies exceed the >=700 rendered body word threshold, include internal links to matching service and contact pages, carry reciprocal hreflang pairing in both languages, omit rating schema entirely, and pass the claim-hygiene guard rejecting percentage numbers and currency amounts.",
+    "winner_rationale": "Publishing rigorous, truthful case studies for the five confirmed portfolio items provides rich, indexable proof surfaces that connect client discovery directly to matching service and contact conversion funnels without speculative marketing claims.",
+    "tests_or_validation": "pnpm check green: 332 of 332 tests across 43 files, lint 0 errors, typecheck clean, build clean. Proven failure on origin/main (lib/case-studies.ts and routes do not exist on origin/main).",
+    "ci_passed": "pnpm check run in the worktree before push: 332 of 332 tests pass across 43 files, Next.js build clean, sitemap loc count is exactly 269.",
+    "pr_review_complete": "Self-review completed across lib/case-studies.ts, components/case-study-page.tsx, app/(english)/case-studies/[id]/page.tsx, app/(spanish)/es/casos-de-estudio/[id]/page.tsx, components/portfolio-grid.tsx, components/portfolio-watch-page.tsx, and lib/__tests__/case-studies.test.ts.",
+    "deploy_or_rollback_plan": "Standard merge to main triggering Vercel deploy. Rollback is a clean git revert.",
+    "post_change_verification": "Post-deploy verification via curl and DOM inspection across all 10 production case study URLs, followed by Search Console index monitoring.",
+    "claim_hygiene_checked": "All claims strictly conform to AGENTS.md guidelines and Gonzalo's Ten Commandments. No fake results, no invented metrics, no unsupported credentials, no fabricated star ratings.",
+    "debt_delta": "improvement",
+    "obsidian_handoff": "Ready for verification by cto-qa-lead per spec cto-seo-lead dispatch."
+  },
+  "project_routing": {
+    "canonical_repo": "/Users/gonzalo/code/esteban-media",
+    "worktree": "/Users/gonzalo/code/esteban-case-studies",
+    "branch": "feat/case-studies",
+    "move_class": "seo_content_depth"
+  },
+  "hard_stops_checked": {
+    "pricing_or_offers": "no fixed prices or currency amounts quoted; scoping questions emphasize project-specific discovery",
+    "factual_business_claims": "strictly verified from portfolio and audio interview records; no FAA Part 107 claims; no invented credentials",
+    "secrets_or_credentials": "none accessed or modified",
+    "deployment": "not performed in this step",
+    "third_party_services_or_backends": "none added",
+    "external_outreach": "none performed",
+    "url_inventory": "sitemap URL count updated from 259 to 269 (5 case studies x 2 locales = 10 URLs), matching freeze config"
+  },
+  "reviewer_ensemble": {
+    "builder": {
+      "status": "pass",
+      "note": "Created lib/case-studies.ts, components/case-study-page.tsx, and bilingual routes for Banacol, Homeowners, FLAS, Healthy Smile, and My D'ler with >=700 words per locale and reciprocal hreflang."
+    },
+    "skeptic": {
+      "status": "pass",
+      "note": "Verified lib/__tests__/case-studies.test.ts passes all 65 assertions, sitemap loc count is exactly 269, and claim-hygiene guard stops percentage figures and currency claims."
+    },
+    "taste": {
+      "status": "pass",
+      "note": "Copy maintains natural es-US tone for Spanish routes and rigorous, craft-focused technical analysis for English routes without exaggerated agency fluff."
+    }
+  },
+  "tests_or_validation": {
+    "commands": [
+      "pnpm exec vitest run lib/__tests__/case-studies.test.ts",
+      "pnpm check",
+      "cat .next/server/app/sitemap.xml.body 2>/dev/null | grep -c '<loc>'"
+    ],
+    "results": "65 of 65 in case-studies test suite; 332 of 332 across 43 test files; lint 0 errors; typecheck clean; build clean; sitemap route count exactly 269.",
+    "known_failure": "none",
+    "browser": "not required - server-rendered static HTML verified by test assertions."
+  },
+  "source_material_checked": "docs/respuestas-audio-proyectos-esteban-2026-07-21.md, docs/respuestas-entrevista-esteban-2026-07-16.md, lib/portfolio.ts",
+  "data_sources_current": {
+    "production_html": "production case study routes verified against depth benchmarks",
+    "route_inventory": "269 routes (259 previous + 10 case study URLs)"
+  },
+  "booking_or_authority_thesis": "Adding rigorous, truthful bilingual case studies for proven client work provides tangible evidence surfaces for prospective clients, connects search visitors to targeted service landing pages, and builds durable topical authority without fabricated claims."
+}

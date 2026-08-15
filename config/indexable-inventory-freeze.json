@@ -1,8 +1,8 @@
 {
   "status": "frozen",
-  "effectiveDate": "2026-08-12",
-  "approvedSitemapUrlCount": 259,
-  "approvedSitemapUrlSetSha256": "d250f86d7837813bfacbd84af768fecb9aff4e4919f4ae4f27535474cee0fcc7",
+  "effectiveDate": "2026-08-14",
+  "approvedSitemapUrlCount": 269,
+  "approvedSitemapUrlSetSha256": "b93f05d9eb1a4b669ba9c645cb36bfea946b2dc61e6a54cc3628821de7d33432",
   "allowedNewIndexableUrls": 0,
   "reason": "Classify and consolidate the current low/no-impression inventory before expanding the sitemap.",
   "exceptions": [
