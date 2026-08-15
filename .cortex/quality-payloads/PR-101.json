@@ -10,11 +10,11 @@
     "reviewer_ensemble": "Codex implementation and deterministic checks passed; independent Antigravity and Claude verification remain pending because the governed free-provider lane is exhausted/unhealthy.",
     "reviewer_disagreement_reviewed": "No independent reviewer verdict is available; PR remains draft and review_pending.",
     "winner_rationale": "A strict allowlisted event provides the warehouse signal needed by the portfolio CDP without exporting lead contact data or visitor free text.",
-    "tests_or_validation": "pnpm check passed: lint, typecheck, 44 test files / 348 tests, and 288-page Next.js production build.",
+    "tests_or_validation": "pnpm check passed: lint, typecheck, 45 test files / 354 tests, and 289-page Next.js production build.",
     "ci_passed": "Local full repository check passed; GitHub validate is pending at payload creation time.",
     "pr_review_complete": "Builder self-review complete; independent provider review is still owed.",
     "deploy_or_rollback_plan": "Keep draft until independent review. Standard merge/deploy only after gates pass; rollback is a clean git revert.",
-    "post_change_verification": "After authorized deploy, verify one legitimate lead produces one safe structured runtime event and that the portfolio adapter accepts it without PII.",
+    "post_change_verification": "After authorized deploy/configuration, verify one legitimate lead and one authorized lifecycle update produce safe structured events that the portfolio adapter accepts without PII.",
     "claim_hygiene_checked": "No business or marketing claims changed. Event fields are allowlisted and tested against raw PII/free-text leakage.",
     "debt_delta": "improvement",
     "obsidian_handoff": "Record PR-only status in the Esteban and portfolio CDP vault pages; do not claim live ingestion before production evidence."
@@ -48,7 +48,7 @@
   },
   "tests_or_validation": {
     "commands": ["pnpm check"],
-    "results": "44 of 44 test files passed (348/348 tests); lint and typecheck clean; Next.js production build completed 288 pages.",
+    "results": "45 of 45 test files passed (354/354 tests); lint and typecheck clean; Next.js production build completed 289 pages.",
     "known_failure": "Independent 3-LLM review unavailable; draft status retained.",
     "browser": "not required for a server route/logging-only change"
   },
