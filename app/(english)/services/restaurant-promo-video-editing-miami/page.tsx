@@ -20,7 +20,7 @@ import { absoluteUrl, site } from "@/lib/site";
 export const metadata = buildPageMetadata({
   title: "Restaurant Promo Video Editing Miami",
   description:
-    "Mouth-watering culinary video editing, dish spotlight reels, and promotional video content for Miami restaurants and bars.",
+    "Professional restaurant promo video editing in Miami. High-retention food reels, dish spotlight cuts & social promo videos tailored for South Florida dining.",
   path: "/services/restaurant-promo-video-editing-miami",
   locale: "en",
 });
@@ -34,7 +34,7 @@ export default function RestaurantPromoVideoEditingMiamiPage() {
         "@id": absoluteUrl("/services/restaurant-promo-video-editing-miami#service"),
         name: "Restaurant Promo Video Editing Miami",
         description:
-          "Culinary video editing, restaurant promotional video reels, food preparation highlights, and dining ambiance edits in Miami.",
+          "Professional restaurant promo video editing in Miami. High-retention food reels, dish spotlight cuts & social promo videos tailored for South Florida dining.",
         provider: {
           "@type": "LocalBusiness",
           "@id": absoluteUrl("/#business"),

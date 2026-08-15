@@ -69,4 +69,28 @@ describe("complete page metadata", () => {
       },
     });
   });
+
+  it("verifies restaurant promo video editing metadata and snippet CTR criteria", async () => {
+    const { metadata } = await import(
+      "../(english)/services/restaurant-promo-video-editing-miami/page"
+    );
+
+    expect(metadata.title).toBe("Restaurant Promo Video Editing Miami");
+    expect(metadata.description).toBe(
+      "Professional restaurant promo video editing in Miami. High-retention food reels, dish spotlight cuts & social promo videos tailored for South Florida dining.",
+    );
+    expect(metadata.description?.length).toBeGreaterThanOrEqual(120);
+    expect(metadata.description?.length).toBeLessThanOrEqual(160);
+    expect(metadata.description?.toLowerCase()).toContain(
+      "restaurant promo video editing in miami",
+    );
+    expect(metadata.alternates?.canonical).toBe(
+      "/services/restaurant-promo-video-editing-miami",
+    );
+    expect(metadata.alternates?.languages).toMatchObject({
+      "en-US": "/services/restaurant-promo-video-editing-miami",
+      "es-US": "/es/edicion-de-video-promocional-para-restaurantes-miami",
+      "x-default": "/services/restaurant-promo-video-editing-miami",
+    });
+  });
 });
