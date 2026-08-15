@@ -24,6 +24,7 @@ const englishGroups = [
     title: "Services",
     items: [
       { href: "/services#editing", label: "Video editing" },
+      { href: "/services/restaurant-promo-video-editing-miami", label: "Restaurant promo" },
       { href: "/services#ai-content", label: "AI content" },
       { href: "/services#social-planning", label: "Social planning" },
       { href: "/services#on-location", label: "Local capture" },
@@ -69,6 +70,10 @@ const spanishGroups = [
     title: "Servicios",
     items: [
       { href: "/es/servicios#edicion", label: "Edición" },
+      {
+        href: "/es/edicion-de-video-promocional-para-restaurantes-miami",
+        label: "Video para restaurantes",
+      },
       { href: "/es/servicios#contenido-ia", label: "Contenido IA" },
       { href: "/es/servicios#planificacion-social", label: "Plan social" },
       { href: "/es/servicios#videografia", label: "Video" },
