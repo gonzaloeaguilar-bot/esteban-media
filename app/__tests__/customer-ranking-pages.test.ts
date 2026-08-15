@@ -227,6 +227,22 @@ describe("customer-facing ranking pages", () => {
     expect(architecture).toContain('href="/portfolio/homeowners"');
     expect(footer).toContain('href: "/portfolio/homeowners"');
     expect(footer).toContain('href: "/es/portafolio/homeowners"');
+    expect(footer).toContain('href: "/portfolio/healthy-smile"');
+    expect(footer).toContain('href: "/es/portafolio/healthy-smile"');
+
+    const plasticSurgery = source("app/(english)/services/plastic-surgery-video-marketing-miami/page.tsx");
+    const wellnessSpa = source("app/(english)/services/wellness-spa-video-marketing-miami/page.tsx");
+    const smallBusinessHollywood = source("app/(english)/services/small-business-video-hollywood-fl/page.tsx");
+    const smallBusinessPines = source("app/(english)/services/small-business-video-pembroke-pines/page.tsx");
+    const brandVideo = source("app/(english)/services/brand-video-production-miami/page.tsx");
+    const interviewVideo = source("app/(english)/services/interview-video-editing-service/page.tsx");
+
+    expect(plasticSurgery).toContain('href="/portfolio/healthy-smile"');
+    expect(wellnessSpa).toContain('href="/portfolio/healthy-smile"');
+    expect(smallBusinessHollywood).toContain('href="/portfolio/healthy-smile"');
+    expect(smallBusinessPines).toContain('href="/portfolio/healthy-smile"');
+    expect(brandVideo).toContain('href="/portfolio/healthy-smile"');
+    expect(interviewVideo).toContain('href="/portfolio/healthy-smile"');
 
     // ES portfolio links via nicheLinkContext
     expect(spanishNiche).toContain('"marketing-de-video-para-odontologia-estetica-miami"');
