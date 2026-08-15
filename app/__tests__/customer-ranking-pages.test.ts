@@ -213,6 +213,21 @@ describe("customer-facing ranking pages", () => {
     expect(yachtHospitality).toContain('href="/portfolio/banacol"');
     expect(yachtHospitality).toContain('href="/contact"');
 
+    const sunnyIsles = source("app/(english)/services/real-estate-video-sunny-isles/page.tsx");
+    const coralGables = source("app/(english)/services/real-estate-video-coral-gables/page.tsx");
+    const aventura = source("app/(english)/services/real-estate-video-aventura-miami/page.tsx");
+    const droneVideo = source("app/(english)/services/real-estate-drone-video-editing-miami/page.tsx");
+    const architecture = source("app/(english)/services/architecture-design-video-miami/page.tsx");
+    const footer = source("components/site-footer-client.tsx");
+
+    expect(sunnyIsles).toContain('href="/portfolio/homeowners"');
+    expect(coralGables).toContain('href="/portfolio/homeowners"');
+    expect(aventura).toContain('href="/portfolio/homeowners"');
+    expect(droneVideo).toContain('href="/portfolio/homeowners"');
+    expect(architecture).toContain('href="/portfolio/homeowners"');
+    expect(footer).toContain('href: "/portfolio/homeowners"');
+    expect(footer).toContain('href: "/es/portafolio/homeowners"');
+
     // ES portfolio links via nicheLinkContext
     expect(spanishNiche).toContain('"marketing-de-video-para-odontologia-estetica-miami"');
     expect(spanishNiche).toContain('/es/portafolio/healthy-smile');

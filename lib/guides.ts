@@ -117,7 +117,7 @@ const guidePairs: readonly GuidePair[] = [
           heading: "Keep the source material clear",
           paragraphs: [
             "Keep the original video and audio files available. Group files by shoot, scene, date, or camera when that distinction will help someone understand what belongs together.",
-            "Use short folder and file labels that describe the content. A simple structure is more useful than renaming every clip or building a complicated archive.",
+            "Use short folder and file labels that describe the content. A simple structure is more useful than renaming every clip or building a complicated archive. See how supplied clips were structured and edited in the [Homeowners real estate editing project](/portfolio/homeowners) (and the [Homeowners case study](/case-studies/homeowners)).",
           ],
           bullets: [
             "Original video files, grouped by shoot or scene",
@@ -152,12 +152,12 @@ const guidePairs: readonly GuidePair[] = [
     es: {
       slug: "preparar-material-para-edicion-de-video",
       metadataTitle: "Preparar Material para Edición",
-      title: "Cómo preparar material para un editor de video",
+      title: "Cómo preparar el material para un editor de video",
       description:
-        "Organiza videos originales, contexto, referencias y recursos necesarios para comenzar una edición remota con menos preguntas pendientes.",
-      eyebrow: "Antes de comenzar la edición",
+        "Organiza videos originales, contexto, referencias y archivos necesarios para iniciar una edición remota con menos dudas abiertas.",
+      eyebrow: "Antes de empezar la edición",
       answer:
-        "Envía los videos originales en carpetas claras y agrega una nota breve con la meta, el canal de publicación, la fecha, las referencias y los clips o mensajes que deben aparecer.",
+        "Envía el material original en una estructura clara de carpetas y añade una nota breve con el objetivo, el canal, la fecha, las referencias y los clips o mensajes obligatorios.",
       proof: {
         href: "/es/portafolio/homeowners",
         title: "Homeowners",
@@ -169,7 +169,7 @@ const guidePairs: readonly GuidePair[] = [
           heading: "Mantén claro el material original",
           paragraphs: [
             "Conserva los archivos originales de video y audio. Agrúpalos por grabación, escena, fecha o cámara cuando esa separación ayude a entender qué material pertenece al mismo momento.",
-            "Usa nombres cortos que describan el contenido. Una estructura sencilla sirve más que renombrar cada clip o crear un archivo complicado.",
+            "Usa nombres cortos que describan el contenido. Una estructura sencilla sirve más que renombrar cada clip o crear un archivo complicado. Revisa cómo se organizó y editó el material entregado en el [proyecto Homeowners](/es/portafolio/homeowners) (y su [caso de estudio](/es/casos-de-estudio/homeowners)).",
           ],
           bullets: [
             "Videos originales agrupados por grabación o escena",
@@ -441,7 +441,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Package files and context together",
           paragraphs: [
-            "Place the original footage, audio, approved graphics, copy, and references in a structure that another person can follow. Add one brief that explains the goal, intended use, deadline, and requested deliverables.",
+            "Place the original footage, audio, approved graphics, copy, and references in a structure that another person can follow. Add one brief that explains the goal, intended use, deadline, and requested deliverables. For a real-world example of remote video post-production from supplied footage, explore the [Homeowners real estate editing project](/portfolio/homeowners) (and [Homeowners case study](/case-studies/homeowners)).",
             "Keep assumptions separate from confirmed facts. This preparation does not decide which files an editor will accept or what the eventual scope, transfer method, schedule, or deliverables will include.",
           ],
         },
@@ -491,7 +491,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Entrega juntos los archivos y el contexto",
           paragraphs: [
-            "Organiza videos originales, audio, gráficos aprobados, textos y referencias de una forma que otra persona pueda seguir. Agrega un brief con la meta, el uso final, la fecha y los entregables solicitados.",
+            "Organiza videos originales, audio, gráficos aprobados, textos y referencias de una forma que otra persona pueda seguir. Agrega un brief con la meta, el uso final, la fecha y los entregables solicitados. Como ejemplo práctico de postproducción remota con material externo, explora el [proyecto Homeowners](/es/portafolio/homeowners) (y su [caso de estudio](/es/casos-de-estudio/homeowners)).",
             "Separa los supuestos de los datos confirmados. Esta preparación no decide qué archivos aceptará un editor ni qué incluirán el alcance, la transferencia, el calendario o los entregables finales.",
           ],
         },
@@ -722,7 +722,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Create high-impact property walkthroughs",
           paragraphs: [
-            "Open with the single best feature of the property (e.g., waterfront view, chef's kitchen, or master suite) rather than the front door. Keep clips under 3 seconds per room.",
+            "Open with the single best feature of the property (e.g., waterfront view, chef's kitchen, or master suite) rather than the front door. Keep clips under 3 seconds per room, as demonstrated in the [Homeowners real estate editing project](/portfolio/homeowners) (and [Homeowners case study](/case-studies/homeowners)), where balanced pacing and neutral lighting highlight residential spaces.",
           ],
           bullets: [
             "Feature-first property tours (15-30s)",
@@ -764,7 +764,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Crea recorridos de propiedades de alto impacto",
           paragraphs: [
-            "Abre con la mejor característica de la propiedad (vista al agua, cocina equipada o suite principal) en lugar de la puerta de entrada. Mantén clips de menos de 3 segundos por espacio.",
+            "Abre con la mejor característica de la propiedad (vista al agua, cocina equipada o suite principal) en lugar de la puerta de entrada. Mantén clips de menos de 3 segundos por espacio, tal como se implementó en el [proyecto Homeowners](/es/portafolio/homeowners) (y su [caso de estudio](/es/casos-de-estudio/homeowners)), logrando un ritmo dinámico y equilibrado.",
           ],
           bullets: [
             "Recorridos enfocados en lo mejor del inmueble (15-30s)",
@@ -1191,7 +1191,7 @@ const guidePairs: readonly GuidePair[] = [
             "Understanding how each professional prices their services helps marketing teams and business owners allocate their production budgets efficiently without paying premium on-set rates for desk-based post-production tasks.",
             "Videographers typically bill using half-day (4 to 5 hours) or full-day (8 to 10 hours) day rates. These rates cover not only their time on set, but also capital depreciation on expensive camera packages, lighting gear, transport, and insurance. Adding extra shoot days or specialized crew members immediately scales on-location expenses.",
             "Video editors generally price their work on a per-project basis, per-deliverable package (such as monthly social media retainers or batch packs), or hourly post-production rates. Because remote editing eliminates travel time and on-location crew overhead, it allows creative budgets to go directly into editing quality, sound design, and rapid revision turnarounds.",
-            "For businesses that already record internal video using high-end smartphones (such as iPhone ProRes/Log) or in-house studio cameras, hiring a dedicated remote editor is significantly more cost-effective than hiring a full production crew. To explore dedicated post-production packages, view our [short-form video editing services](/services/short-form-video-editor-miami), or check our [corporate event videographer in Miami](/services/corporate-event-videographer-miami) if you require selective local camera capture.",
+            "For businesses that already record internal video using high-end smartphones (such as iPhone ProRes/Log) or in-house studio cameras, hiring a dedicated remote editor is significantly more cost-effective than hiring a full production crew. Review how supplied agency footage was shaped into a refined real estate cut in the [Homeowners portfolio project](/portfolio/homeowners) (and [Homeowners case study](/case-studies/homeowners)). To explore dedicated post-production packages, view our [short-form video editing services](/services/short-form-video-editor-miami), or check our [corporate event videographer in Miami](/services/corporate-event-videographer-miami) if you require selective local camera capture.",
           ],
           bullets: [
             "Day rates: videography budgets reflect shoot days, crew size, camera kits, and travel logistics",
@@ -1292,7 +1292,7 @@ const guidePairs: readonly GuidePair[] = [
             "Comprender los modelos de tarificación de cada profesional permite a negocios y marcas distribuir su inversión audiovisual con máxima eficiencia, evitando pagar costos de producción en locación para tareas que corresponden a postproducción.",
             "Los videógrafos suelen cobrar mediante tarifas por media jornada (half-day, 4 a 5 horas) o jornada completa (full-day, 8 a 10 horas). Estas tarifas amortizan la inversión en equipos de cámara, iluminación, transporte, seguros y tiempo en set. Añadir días adicionales de rodaje o asistentes técnicos incrementa directamente el presupuesto del proyecto.",
             "Los editores de video, en cambio, estructuran sus honorarios por proyecto cerrado, por paquete de piezas (como planes mensuales de contenido para redes sociales) o por horas de postproducción. Al no requerir traslados ni despliegue físico de equipo, la edición remota permite que el presupuesto se destine íntegramente al perfeccionamiento narrativo, la animación gráfica y entregas ágiles.",
-            "Para empresas que ya capturan contenido con teléfonos de última generación (como iPhone en formato ProRes/Log) o cámaras propias, contratar un editor remoto especializado resulta considerablemente más rentable que coordinar grabaciones presenciales continuas. Si buscas un servicio de edición continua, consulta nuestro [editor de video corto para redes en Miami](/es/editor-de-video-corto-para-redes-miami), o explora opciones de captura presencial con nuestro [videógrafo en Miami](/es/videografo-en-miami).",
+            "Para empresas que ya capturan contenido con teléfonos de última generación (como iPhone en formato ProRes/Log) o cámaras propias, contratar un editor remoto especializado resulta considerablemente más rentable que coordinar grabaciones presenciales continuas. Revisa cómo se transformó el material suministrado por agencia en el [proyecto Homeowners](/es/portafolio/homeowners) (y su [caso de estudio](/es/casos-de-estudio/homeowners)). Si buscas un servicio de edición continua, consulta nuestro [editor de video corto para redes en Miami](/es/editor-de-video-corto-para-redes-miami), o explora opciones de captura presencial con nuestro [videógrafo en Miami](/es/videografo-en-miami).",
           ],
           bullets: [
             "Tarifas de videografía: basadas en días de rodaje, volumen de equipo técnico, asistentes y traslados",
@@ -1384,7 +1384,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Cost efficiency of remote post-production",
           paragraphs: [
-            "Remote video editing removes physical studio overhead, allowing project budgets to go directly toward creative editing quality and quick revisions.",
+            "Remote video editing removes physical studio overhead, allowing project budgets to go directly toward creative editing quality and quick revisions. See how supplied agency clips were turned into a streamlined commercial asset in the [Homeowners portfolio project](/portfolio/homeowners) (and the [Homeowners case study](/case-studies/homeowners)).",
           ],
         },
       ],
@@ -1414,7 +1414,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Eficiencia de costos en postproducción remota",
           paragraphs: [
-            "La edición remota elimina costos de mantenimiento de estudio físico, canalizando el presupuesto directamente a la calidad narrativa y de edición.",
+            "La edición remota elimina costos de mantenimiento de estudio físico, canalizando el presupuesto directamente a la calidad narrativa y de edición. Revisa cómo clips de agencia se convirtieron en una pieza comercial ágil en el [proyecto Homeowners](/es/portafolio/homeowners) (y su [caso de estudio](/es/casos-de-estudio/homeowners)).",
           ],
         },
       ],
@@ -1749,7 +1749,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Verifying real portfolio credits",
           paragraphs: [
-            "Look for named client credits and published project links rather than generic stock footage reels.",
+            "Look for named client credits and published project links rather than generic stock footage reels. For instance, the [Homeowners real estate editing project](/portfolio/homeowners) (and [Homeowners case study](/case-studies/homeowners)) provides verifiable proof of client post-production with agency-supplied footage.",
           ],
         },
         {
@@ -1779,7 +1779,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Verificación de créditos reales",
           paragraphs: [
-            "Revisa proyectos públicos aprobados con nombres de clientes reales en lugar de resúmenes genéricos con material de stock.",
+            "Revisa proyectos públicos aprobados con nombres de clientes reales en lugar de resúmenes genéricos con material de stock. Por ejemplo, el [proyecto Homeowners](/es/portafolio/homeowners) y su [caso de estudio](/es/casos-de-estudio/homeowners) muestran una postproducción verificada a partir de material suministrado por agencia.",
           ],
         },
         {
@@ -1812,7 +1812,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Standardizing folder structures for agency handoff",
           paragraphs: [
-            "Organize raw footage by camera angle, audio tracks, logos, and brand guidelines before sharing cloud folders.",
+            "Organize raw footage by camera angle, audio tracks, logos, and brand guidelines before sharing cloud folders. For an example of working seamlessly with agency-supplied assets, review the [Homeowners real estate editing project](/portfolio/homeowners) (commissioned via 300 Bees and detailed in the [Homeowners case study](/case-studies/homeowners)).",
           ],
         },
         {
@@ -1842,7 +1842,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Estandarización de carpetas de proyecto",
           paragraphs: [
-            "Clasifica los clips por cámara, fuentes de audio y logotipos antes de compartir la carpeta en la nube.",
+            "Clasifica los clips por cámara, fuentes de audio y logotipos antes de compartir la carpeta en la nube. Como ejemplo de trabajo con material entregado por agencias, revisa el [proyecto Homeowners](/es/portafolio/homeowners) (gestionado con la agencia 300 Bees y detallado en su [caso de estudio](/es/casos-de-estudio/homeowners)).",
           ],
         },
         {
@@ -2144,7 +2144,7 @@ const guidePairs: readonly GuidePair[] = [
           paragraphs: [
             "Transferring large video files to a remote video editor without multi-day upload delays requires matching your transfer method to total project data volume and actual internet connection speeds. Modern digital cinema and mirrorless cameras capture substantial bitrates: standard 4K 10-bit Apple ProRes 422 HQ generates approximately 110 GB per hour of recorded footage, Sony XAVC-I reaches 240 to 600 Mbps, and raw formats like Canon Cinema RAW Light or REDCODE RAW can easily generate 500 GB to over 1 TB across a single multi-camera commercial shoot.",
             "Internet speed bottlenecks usually occur on the upload side. While commercial facilities may have symmetrical 1 Gbps fiber connections (capable of transferring 100 GB in roughly 15 to 20 minutes), typical office and residential broadband operates on asymmetric cable connections offering 300 to 500 Mbps download but only 20 to 35 Mbps upload. At 30 Mbps upload, a 150 GB raw footage folder requires over 11 hours of uninterrupted bandwidth, making unoptimized uploads a common project bottleneck.",
-            "For packages under 100 GB, dedicated cloud transfer platforms like MASV offer browser-based accelerated UDP protocols that utilize your full available bandwidth without requiring complex client software installations. For ongoing collaborative post-production, established shared folders in Google Drive or Dropbox Business allow background folder synchronization. When working on fast-paced social edits, explore our [short-form video editing services](/services/short-form-video-editor-miami) and general [post-production services](/services), or get in touch through our [contact](/contact) page to discuss project scope.",
+            "For packages under 100 GB, dedicated cloud transfer platforms like MASV offer browser-based accelerated UDP protocols that utilize your full available bandwidth without requiring complex client software installations. For ongoing collaborative post-production, established shared folders in Google Drive or Dropbox Business allow background folder synchronization. For an example of a streamlined remote post-production workflow handling supplied agency assets, review the [Homeowners real estate editing project](/portfolio/homeowners) (and [Homeowners case study](/case-studies/homeowners)). When working on fast-paced social edits, explore our [short-form video editing services](/services/short-form-video-editor-miami) and general [post-production services](/services), or get in touch through our [contact](/contact) page to discuss project scope.",
             "When total raw project archives run to hundreds of gigabytes or more on a connection with slow upload speed, handing over a physical drive is often faster than any online transfer. Copying to an external SSD and shipping the encrypted drive by overnight courier gives a more predictable arrival time than an upload that can stall for hours.",
           ],
           bullets: [
@@ -2244,7 +2244,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Organización de carpetas de material",
           paragraphs: [
-            "Agrupa archivos por fecha, ángulo de cámara y pistas de audio antes de subir para evitar retrasos por activos faltantes.",
+            "Agrupa archivos por fecha, ángulo de cámara y pistas de audio antes de subir para evitar retrasos por activos faltantes. Para revisar cómo funciona una entrega remota de material de agencia, consulta el [proyecto Homeowners](/es/portafolio/homeowners) (y su [caso de estudio](/es/casos-de-estudio/homeowners)).",
           ],
         },
       ],
@@ -2730,7 +2730,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Stabilizing Flight Wobble",
           paragraphs: [
-            "Use post-production warp stabilization to remove wind wobble and create silky-smooth cinematic aerial moves.",
+            "Use post-production warp stabilization to remove wind wobble and create silky-smooth cinematic aerial moves, similar to the property walkthrough sequencing in the [Homeowners real estate editing project](/portfolio/homeowners) (detailed in the [Homeowners case study](/case-studies/homeowners)).",
           ],
         },
       ],
@@ -2754,7 +2754,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Estabilización de oscilaciones por viento",
           paragraphs: [
-            "Aplica estabilización de posproducción para corregir ráfagas de viento y lograr desplazamientos aéreos ultra-fluidos.",
+            "Aplica estabilización de posproducción para corregir ráfagas de viento y lograr desplazamientos aéreos ultra-fluidos, como se aprecia en el montaje inmobiliario del [proyecto Homeowners](/es/portafolio/homeowners) (y su [caso de estudio](/es/casos-de-estudio/homeowners)).",
           ],
         },
       ],
@@ -2985,7 +2985,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Choosing Export Codecs per Destination",
           paragraphs: [
-            "Use Apple ProRes 422 for editing master archives and H.264 MP4 with AAC audio for web and social uploads.",
+            "Use Apple ProRes 422 for editing master archives and H.264 MP4 with AAC audio for web and social uploads, combining disparate camera codecs into a unified color-graded master as illustrated in the [Homeowners real estate editing project](/portfolio/homeowners) (detailed in the [Homeowners case study](/case-studies/homeowners)).",
           ],
         },
       ],
@@ -3009,7 +3009,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Elección de códecs según el destino final",
           paragraphs: [
-            "Utiliza Apple ProRes 422 para archivos de edición master y H.264 MP4 con audio AAC para subir a sitios web y redes sociales.",
+            "Utiliza Apple ProRes 422 para archivos de edición master y H.264 MP4 con audio AAC para subir a sitios web y redes sociales, unificando tomas de múltiples cámaras en un master calibrado como en el [proyecto Homeowners](/es/portafolio/homeowners) (y su [caso de estudio](/es/casos-de-estudio/homeowners)).",
           ],
         },
       ],
