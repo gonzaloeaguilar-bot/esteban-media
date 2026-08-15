@@ -337,7 +337,7 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
   "editor-de-video-corto-para-redes-miami": {
     areaHref: "/es/areas#miami-dade",
     areaLabel: "Ver cobertura en Miami-Dade y Broward",
-    note: "Postproducción remota especializada en Reels y Shorts.",
+    note: "Postproducción remota especializada en Reels y Shorts. Para estructurar una estrategia comercial local en South Florida, consulta nuestra página de [reels para negocios en Miami](/es/reels-para-negocios-miami).",
     serviceIds: ["edicion", "planificacion-social"],
     projects: [
       {
@@ -1120,7 +1120,7 @@ export function SpanishNichePage({ slug }: { slug: string }) {
                 {page.h1}
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-                {page.lead}
+                {renderFormattedText(page.lead)}
               </p>
               {isPendingConfirmation ? (
                 <p
@@ -1164,7 +1164,7 @@ export function SpanishNichePage({ slug }: { slug: string }) {
                   : "¿Para qué proyecto encaja?"}
               </h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                {page.projectFit}
+                {renderFormattedText(page.projectFit)}
               </p>
               <dl className="mt-6 grid gap-3">
                 <div className="rounded-md border border-[#ddd4c8] p-3">
@@ -1249,7 +1249,7 @@ export function SpanishNichePage({ slug }: { slug: string }) {
                   Revisa trabajo real antes de hablar del proyecto.
                 </h2>
                 <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                  {linkContext.note}
+                  {renderFormattedText(linkContext.note)}
                 </p>
                 <div className="mt-6 flex flex-wrap gap-3">
                   <Link
@@ -1338,7 +1338,7 @@ export function SpanishNichePage({ slug }: { slug: string }) {
                 >
                   <h3 className="font-serif text-2xl">{faq.question}</h3>
                   <p className="mt-3 text-sm leading-6 text-[#252a2d]">
-                    {faq.answer}
+                    {renderFormattedText(faq.answer)}
                   </p>
                 </article>
               ))}
@@ -1406,7 +1406,7 @@ function ContentList({ title, items }: { title: string; items: string[] }) {
               className="mt-0.5 size-5 shrink-0 text-[#e85d3e]"
               aria-hidden="true"
             />
-            <span>{item}</span>
+            <span>{renderFormattedText(item)}</span>
           </li>
         ))}
       </ul>

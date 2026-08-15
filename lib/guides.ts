@@ -388,7 +388,7 @@ const guidePairs: readonly GuidePair[] = [
           heading: "Deja que el uso final defina el primer formato",
           paragraphs: [
             "Un cuadro vertical 9:16 y uno horizontal 16:9 muestran partes diferentes de la misma toma. Decide qué canal es prioritario antes de elegir la edición principal.",
-            "El video vertical se usa con frecuencia en canales de video corto a pantalla completa. El horizontal es común en YouTube, sitios web, presentaciones y pantallas anchas. Confirma el destino real en vez de exportar por costumbre.",
+            "El video vertical se usa con frecuencia en canales de video corto a pantalla completa. Para empresas y marcas que evalúan [reels para negocios en Miami](/es/reels-para-negocios-miami), el encuadre 9:16 asegura máxima visibilidad en feeds móviles. El horizontal es común en YouTube, sitios web, presentaciones y pantallas anchas. Confirma el destino real en vez de exportar por costumbre.",
           ],
         },
         {
@@ -588,7 +588,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Enfoca un solo mensaje claro por Reel",
           paragraphs: [
-            "El video corto funciona mejor cuando cada pieza responde a una sola duda, decisión o función. Evita resumir toda la empresa en 30 segundos.",
+            "El video corto funciona mejor cuando cada pieza responde a una sola duda, decisión o función. Evita resumir toda la empresa en 30 segundos. Para marcas y negocios locales que buscan [reels para negocios en Miami](/es/reels-para-negocios-miami), el objetivo inicial es transmitir valor con claridad inmediata.",
             "Comienza con un gancho fuerte en los primeros dos segundos: muestra el producto en acción, menciona la necesidad del cliente o plantea una pregunta directa. En hostelería y gastronomía, la [edición de video promocional para restaurantes en Miami](/es/edicion-de-video-promocional-para-restaurantes-miami) destaca platos y ambiente desde el primer segundo.",
           ],
           bullets: [
@@ -608,7 +608,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Incluye un llamado a la acción directo",
           paragraphs: [
-            "Indica al espectador qué paso dar después: visitar la locación, revisar el enlace en la biografía o comentar para más detalles. Un llamado claro conecta vistas con consultas reales.",
+            "Indica al espectador qué paso dar después: visitar la locación, revisar el enlace en la biografía o comentar para más detalles. Un llamado claro conecta vistas con consultas reales. Si quieres preparar un proyecto con material propio o captura selectiva, consulta nuestra página de [reels para negocios en Miami](/es/reels-para-negocios-miami).",
           ],
         },
       ],
@@ -1659,7 +1659,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Flujo de publicación multiplataforma",
           paragraphs: [
-            "Editar un video vertical maestro permite distribuir el contenido simultáneamente en Instagram, TikTok y YouTube Shorts.",
+            "Editar un video vertical maestro permite distribuir el contenido simultáneamente en Instagram, TikTok y YouTube Shorts. Si buscas optimizar el contenido para audiencias locales en el sur de la Florida, revisa [reels para negocios en Miami](/es/reels-para-negocios-miami).",
           ],
         },
       ],
@@ -1911,7 +1911,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Adaptación al formato 9:16 vertical",
           paragraphs: [
-            "Ajusta el encuadre móvil, centra la imagen del hablante y añade subtítulos llamativos en la zona segura.",
+            "Ajusta el encuadre móvil, centra la imagen del hablante y añade subtítulos llamativos en la zona segura. Para proyectos comerciales locales, consulta nuestra página de [reels para negocios en Miami](/es/reels-para-negocios-miami) para definir ganchos y llamados a la acción efectivos.",
           ],
         },
       ],
@@ -2115,7 +2115,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Zonas seguras de texto en pantalla",
           paragraphs: [
-            "Evita colocar texto sobre los botones inferiores de Instagram o el encabezado superior para garantizar lectura completa. En reels gastronómicos, la [edición de video promocional para restaurantes en Miami](/es/edicion-de-video-promocional-para-restaurantes-miami) mantiene subtítulos limpios que no tapan los platos.",
+            "Evita colocar texto sobre los botones inferiores de Instagram o el encabezado superior para garantizar lectura completa. Mantener los textos en la zona central es indispensable en [reels para negocios en Miami](/es/reels-para-negocios-miami) donde la mayoría de reproducciones ocurre en silencio. En reels gastronómicos, la [edición de video promocional para restaurantes en Miami](/es/edicion-de-video-promocional-para-restaurantes-miami) mantiene subtítulos limpios que no tapan los platos.",
           ],
         },
       ],
