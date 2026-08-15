@@ -1,5 +1,14 @@
 # Esteban Moreno Media — Engineering Handoff
 
+## Spanish Reels for Business Content Depth — 2026-08-15 (PR #93 open)
+
+- Expanded `/es/reels-para-negocios-miami` with 4 substantive, structured guidance sections (Miami-Dade short-form video structure, 9:16 vertical / safe-zone specs & dynamic captions, cloud handoff postproduction workflow, selective on-location capture).
+- Expanded visible FAQs (from 2 to 6) with 100% schema parity (`FAQPage` JSON-LD).
+- Enabled `sections` rendering with markdown formatting in `components/spanish-niche-page.tsx` and internal links to related guides (`/es/guias/video-vertical-horizontal-y-zonas-seguras`, `/es/guias/entrega-para-edicion-remota-de-video`) and verified portfolio proof (`/es/portafolio/bar-door-monkey`, `/es/portafolio/ml-colombia`).
+- Added regression tests in `lib/__tests__/demand-pages.test.ts`.
+- Verification: `pnpm check` passed (226 test files / 1,519 vitest tests pass, typescript clean, eslint clean, all 269 static pages built).
+- PR: [PR #93](https://github.com/gonzaloeaguilar-bot/esteban-media/pull/93) (branch `agy/esteban-reels-miami-depth-20260815`, commit `905d1fe`).
+
 ## Daily Video Hook & Planning Surface — 2026-08-12 (PR #72 open)
 
 - Added `/daily-hook-planner` (English) and `/es/planificador-de-ganchos-de-video` (Spanish) as an interactive DAU engine surface.
