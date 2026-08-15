@@ -4,7 +4,7 @@ import { OUTCOME_EVENT_NAMES, safeOutcomeEvent, type OutcomeStage } from "@/lib/
 const INPUT_FIELDS = new Set(["outcomeId", "inquirySourceRecordId", "stage", "occurredAt"]);
 
 export function authorizedOutcomeRequest(authorization: string | null, configuredToken: string): boolean {
-  if (!configuredToken || !authorization?.startsWith("Bearer ")) return false;
+  if (configuredToken.length < 32 || !authorization?.startsWith("Bearer ")) return false;
   const supplied = Buffer.from(authorization.slice(7));
   const expected = Buffer.from(configuredToken);
   return supplied.length === expected.length && timingSafeEqual(supplied, expected);

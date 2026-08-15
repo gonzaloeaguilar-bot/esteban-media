@@ -8,6 +8,7 @@ const payload = {
   stage: "booked",
   occurredAt: "2026-08-15T20:00:00.000Z",
 };
+const token = "0123456789abcdef0123456789abcdef";
 
 afterEach(() => {
   delete process.env.CDP_OUTCOME_WRITE_TOKEN;
@@ -35,10 +36,10 @@ describe("privacy-safe outcome intake", () => {
   });
 
   it("uses constant-length token comparison and rejects missing/wrong credentials", () => {
-    expect(authorizedOutcomeRequest("Bearer correct", "correct")).toBe(true);
-    expect(authorizedOutcomeRequest("Bearer wrong", "correct")).toBe(false);
-    expect(authorizedOutcomeRequest(null, "correct")).toBe(false);
-    expect(authorizedOutcomeRequest("Bearer correct", "")).toBe(false);
+    expect(authorizedOutcomeRequest(`Bearer ${token}`, token)).toBe(true);
+    expect(authorizedOutcomeRequest(`Bearer ${token.slice(1)}`, token)).toBe(false);
+    expect(authorizedOutcomeRequest(null, token)).toBe(false);
+    expect(authorizedOutcomeRequest("Bearer too-short", "too-short")).toBe(false);
   });
 
   it("fails closed when the write token is not configured", async () => {
@@ -47,26 +48,26 @@ describe("privacy-safe outcome intake", () => {
   });
 
   it("emits only the safe event after authentication", async () => {
-    process.env.CDP_OUTCOME_WRITE_TOKEN = "secret-token";
+    process.env.CDP_OUTCOME_WRITE_TOKEN = token;
     const info = vi.spyOn(console, "info").mockImplementation(() => undefined);
     const response = await POST(new Request("https://example.com/api/cdp/outcome", {
       method: "POST",
-      headers: { authorization: "Bearer secret-token", "content-type": "application/json" },
+      headers: { authorization: `Bearer ${token}`, "content-type": "application/json" },
       body: JSON.stringify(payload),
     }));
     expect(response.status).toBe(202);
     const encoded = JSON.stringify(info.mock.calls);
     expect(encoded).toContain("[CDP_OUTCOME_V1]");
     expect(encoded).not.toContain("email");
-    expect(encoded).not.toContain("secret-token");
+    expect(encoded).not.toContain(token);
   });
 
   it("does not log invalid payloads", async () => {
-    process.env.CDP_OUTCOME_WRITE_TOKEN = "secret-token";
+    process.env.CDP_OUTCOME_WRITE_TOKEN = token;
     const info = vi.spyOn(console, "info").mockImplementation(() => undefined);
     const response = await POST(new Request("https://example.com/api/cdp/outcome", {
       method: "POST",
-      headers: { authorization: "Bearer secret-token", "content-type": "application/json" },
+      headers: { authorization: `Bearer ${token}`, "content-type": "application/json" },
       body: JSON.stringify({ ...payload, notes: "private" }),
     }));
     expect(response.status).toBe(400);
