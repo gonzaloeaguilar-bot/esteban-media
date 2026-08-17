@@ -1,5 +1,14 @@
 # Esteban Moreno Media — Engineering Handoff
 
+## Portfolio Page Content Depth & Search Enrichment — 2026-08-17
+
+- Expanded `/portfolio` with substantive coverage answering searcher intent for video editing portfolio and production services:
+  - Creative disciplines breakdown across video editing/post-production, business/brand promos, animation/visual assets, and custom web systems.
+  - 4-step project workflow covering media intake (cloud handoff), story arc/editorial cutting, audio mixing/color grading/dynamic captions, and timecoded review/master multi-format exports.
+  - Comprehensive FAQ section with 6 targeted questions (footage suitability, remote collaboration, smartphone video, export formats, bilingual English/Spanish delivery, and South Florida capture).
+  - Enhanced structured data combining `CollectionPage` and `FAQPage` JSON-LD schema.
+- Verification: `pnpm check` passed (lint, typecheck, 45 test files / 354 tests, and Next.js static build of 289 routes).
+
 ## Privacy-safe CDP lead event — 2026-08-15 (PR #101 draft)
 
 - Replaced the `/api/lead` log of the full formatted lead brief with a versioned `[CDP_EVENT_V1]` JSON envelope.
