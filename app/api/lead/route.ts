@@ -5,6 +5,7 @@ import {
   validateLeadPayload,
   type LeadPayload,
 } from "@/lib/lead-responder";
+import { safeLeadEvent, type NotificationStatus } from "@/lib/cdp-event";
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY || "";
 const NOTIFY_EMAIL = process.env.LEAD_NOTIFY_EMAIL || "esmolopez@gmail.com";
@@ -26,12 +27,12 @@ export async function POST(request: Request) {
     const leadId = generateLeadId();
     const formattedBrief = formatLeadSummary(payload);
 
-    console.log(`[LEAD RECEIVED ${leadId}]`, formattedBrief);
+    let notificationStatus: NotificationStatus = "not_configured";
 
     // If Resend API Key is set, send instant email notification to Esteban
     if (RESEND_API_KEY) {
       try {
-        await fetch("https://api.resend.com/emails", {
+        const response = await fetch("https://api.resend.com/emails", {
           method: "POST",
           headers: {
             Authorization: `Bearer ${RESEND_API_KEY}`,
@@ -44,10 +45,16 @@ export async function POST(request: Request) {
             text: formattedBrief,
           }),
         });
+        notificationStatus = response.ok ? "accepted" : "failed";
       } catch (resendErr) {
+        notificationStatus = "failed";
         console.error("Resend API notification error:", resendErr);
       }
     }
+
+    // Privacy-safe ingestion boundary. Never log formattedBrief or the raw
+    // payload: they contain contact data and free-text notes.
+    console.info("[CDP_EVENT_V1]", JSON.stringify(safeLeadEvent(leadId, payload, notificationStatus)));
 
     const isEs = payload.locale === "es";
 

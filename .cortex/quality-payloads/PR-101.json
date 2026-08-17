@@ -1,0 +1,61 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-101",
+  "status": "review_pending",
+  "evidence": {
+    "obsidian_context": "The existing lead route logged formattedBrief, which included visitor contact fields and free-text notes. This change establishes a privacy-safe, versioned CDP event boundary.",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, isolated worktree /Users/gonzalo/code/esteban-cdp-lead-20260815, branch feat/cdp-safe-lead-event-20260815.",
+    "hard_stops_checked": "No deployment, production lead submission, email send, credential change, IAM change, or BigQuery write was performed.",
+    "reviewer_ensemble": "Codex implementation and deterministic checks passed; independent Antigravity and Claude verification remain pending because the governed free-provider lane is exhausted/unhealthy.",
+    "reviewer_disagreement_reviewed": "No independent reviewer verdict is available; PR remains draft and review_pending.",
+    "winner_rationale": "A strict allowlisted event provides the warehouse signal needed by the portfolio CDP without exporting lead contact data or visitor free text.",
+    "tests_or_validation": "pnpm check passed: lint, typecheck, 45 test files / 354 tests, and 289-page Next.js production build.",
+    "ci_passed": "Local full repository check passed; GitHub validate is pending at payload creation time.",
+    "pr_review_complete": "Builder self-review complete; independent provider review is still owed.",
+    "deploy_or_rollback_plan": "Keep draft until independent review. Standard merge/deploy only after gates pass; rollback is a clean git revert.",
+    "post_change_verification": "After authorized deploy/configuration, verify one legitimate lead and one authorized lifecycle update produce safe structured events that the portfolio adapter accepts without PII.",
+    "claim_hygiene_checked": "No business or marketing claims changed. Event fields are allowlisted and tested against raw PII/free-text leakage.",
+    "debt_delta": "improvement",
+    "obsidian_handoff": "Record PR-only status in the Esteban and portfolio CDP vault pages; do not claim live ingestion before production evidence."
+  },
+  "project_routing": {
+    "canonical_repo": "/Users/gonzalo/code/esteban-media",
+    "worktree": "/Users/gonzalo/code/esteban-cdp-lead-20260815",
+    "branch": "feat/cdp-safe-lead-event-20260815",
+    "move_class": "privacy_safe_cdp_event"
+  },
+  "hard_stops_checked": {
+    "pii_or_free_text": "excluded from event and covered by regression test",
+    "secrets_or_credentials": "none accessed or modified",
+    "deployment": "not performed",
+    "external_messages": "none sent",
+    "warehouse_writes": "none performed"
+  },
+  "reviewer_ensemble": {
+    "builder": {
+      "status": "pass",
+      "note": "Implemented the allowlisted event and removed full formattedBrief logging."
+    },
+    "skeptic": {
+      "status": "pending",
+      "note": "Independent governed-provider review unavailable in this session."
+    },
+    "taste": {
+      "status": "pending",
+      "note": "No user-facing copy or UI changed; independent governed-provider review remains owed."
+    }
+  },
+  "tests_or_validation": {
+    "commands": ["pnpm check"],
+    "results": "45 of 45 test files passed (354/354 tests); lint and typecheck clean; Next.js production build completed 289 pages.",
+    "known_failure": "Independent 3-LLM review unavailable; draft status retained.",
+    "browser": "not required for a server route/logging-only change"
+  },
+  "source_material_checked": "app/api/lead/route.ts, lib/cdp-event.ts, lib/__tests__/cdp-event.test.ts",
+  "data_sources_current": {
+    "production_event_rows": "0 verified; change is not deployed",
+    "warehouse_adapter": "implemented in portfolio-ops PR #211; not live"
+  },
+  "booking_or_authority_thesis": "A privacy-safe lead event lets the CTO system observe funnel outcomes without turning the warehouse into a contact-data leak."
+}

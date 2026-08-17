@@ -1,5 +1,22 @@
 # Esteban Moreno Media — Engineering Handoff
 
+## Privacy-safe CDP lead event — 2026-08-15 (PR #101 draft)
+
+- Replaced the `/api/lead` log of the full formatted lead brief with a versioned `[CDP_EVENT_V1]` JSON envelope.
+- The event contains only schema/event metadata, project/source, the generated lead ID, locale, lead source, and notification status. It excludes name, email, phone, company, budget, timeline, service, and free-text notes.
+- Resend behavior is unchanged. The event records only `accepted`, `failed`, or `not_configured`; no email was sent and no production deployment was performed.
+- Added regression coverage proving raw PII and free text cannot appear in the event. `pnpm check` passed: lint, typecheck, 44 test files / 348 tests, and a 288-page production build.
+- Portfolio warehouse PR #211 includes the strict Esteban parser and atomic BigQuery shadow-ingest adapter. Live rows remain zero until this PR is reviewed, merged, deployed, and a legitimate production lead occurs.
+- PR: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/101
+
+### Lifecycle outcome intake added
+
+- Added `POST /api/cdp/outcome`, which is inert with HTTP 503 unless `CDP_OUTCOME_WRITE_TOKEN` is configured and rejects missing/wrong bearer credentials with HTTP 401.
+- It accepts only `outcomeId`, `inquirySourceRecordId`, `stage`, and `occurredAt`; extra fields, invalid IDs/stages/timestamps, and malformed JSON return HTTP 400 without an event log.
+- Accepted stages map exactly to the portfolio contract: qualified, booked, delivered, closed, and lost. The emitted `[CDP_OUTCOME_V1]` contains no contact data or free text.
+- No token was created, no environment was changed, no endpoint was deployed/called externally, and no production outcome was recorded.
+- Updated verification: `pnpm check` passed lint, typecheck, 45 test files / 354 tests, and a 289-page production build including the dynamic outcome route.
+
 ## Spanish Reels for Business Internal Links & Mesh — 2026-08-15
 
 - Added contextual inbound internal links pointing to `/es/reels-para-negocios-miami`:
