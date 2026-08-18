@@ -11,19 +11,19 @@ import { ServicesStrip } from "@/components/services-strip";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  // Lead the homepage title with the brand-name entity ("Esteban Moreno")
-  // to close the entity gap on the "esteban moreno" brand query.
+  // Lead the homepage title with the exact business name ("Esteban Moreno Media")
+  // for entity clarity and brand discovery.
   title: {
     absolute:
-      "Esteban Moreno | Fort Lauderdale Video Editor & Content Creator",
+      "Esteban Moreno Media | Fort Lauderdale Video Editor & Content Creator",
   },
   description: site.description,
   openGraph: {
-    title: "Esteban Moreno | Fort Lauderdale Video Editor & Content Creator",
+    title: "Esteban Moreno Media | Fort Lauderdale Video Editor & Content Creator",
     description: site.description,
   },
   twitter: {
-    title: "Esteban Moreno | Fort Lauderdale Video Editor & Content Creator",
+    title: "Esteban Moreno Media | Fort Lauderdale Video Editor & Content Creator",
     description: site.description,
   },
 };

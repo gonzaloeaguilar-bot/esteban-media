@@ -17,7 +17,7 @@ import {
 import { absoluteUrl, site } from "@/lib/site";
 
 export const spanishSite = {
-  title: "Esteban Moreno | Edición de Video en Fort Lauderdale",
+  title: "Esteban Moreno Media | Edición de Video en Fort Lauderdale",
   description:
     "Esteban Moreno ofrece edición de video, contenido con IA, planificación para redes y producción selectiva en Fort Lauderdale, Miami y clientes remotos.",
   contactLead:
