@@ -1,13 +1,16 @@
 # Esteban Moreno Media — Engineering Handoff
 
-## Portfolio Page Content Depth & Search Enrichment — 2026-08-17
+## Portfolio Page Content Depth & Search Enrichment — 2026-08-18
 
-- Expanded `/portfolio` with substantive coverage answering searcher intent for video editing portfolio and production services:
+- Expanded `/portfolio` with substantive coverage answering searcher intent for video editing portfolio, technical delivery standards, commercial formats, and production services:
   - Creative disciplines breakdown across video editing/post-production, business/brand promos, animation/visual assets, and custom web systems.
   - 4-step project workflow covering media intake (cloud handoff), story arc/editorial cutting, audio mixing/color grading/dynamic captions, and timecoded review/master multi-format exports.
-  - Comprehensive FAQ section with 6 targeted questions (footage suitability, remote collaboration, smartphone video, export formats, bilingual English/Spanish delivery, and South Florida capture).
-  - Enhanced structured data combining `CollectionPage` and `FAQPage` JSON-LD schema.
-- Verification: `pnpm check` passed (lint, typecheck, 45 test files / 354 tests, and Next.js static build of 289 routes).
+  - Dedicated technical delivery standards section covering aspect ratios (9:16, 16:9, 1:1), audio loudness normalization (-14 / -16 LUFS), Rec.709/Log color pipeline, and master delivery codecs (ProRes 422, MP4/H.264, .SRT).
+  - Commercial formats & project types breakdown covering restaurant/hospitality promos, short-form reels/TikToks, brand/founder stories, and web systems/AI bots.
+  - Comprehensive FAQ section expanded to 10 targeted questions (footage suitability, remote collaboration, smartphone video, export formats, bilingual English/Spanish delivery, South Florida capture, revisions workflow, technical raw specs, music licensing clearance, multicam matching).
+  - Enhanced structured data combining `CollectionPage` and `FAQPage` JSON-LD schema with complete parity across all 10 visible FAQ questions.
+- Verification: `pnpm check` passed (lint, typecheck, 46 test files / 355 tests, and Next.js static build of 289 routes).
+- Added `app/__tests__/portfolio-depth.test.ts` asserting presence and integrity of all new technical specifications, commercial formats, and expanded FAQs.
 
 ## Privacy-safe CDP lead event — 2026-08-15 (PR #101 draft)
 
