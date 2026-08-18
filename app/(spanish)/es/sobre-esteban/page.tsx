@@ -60,7 +60,14 @@ export default function SpanishAboutPage() {
                 según cada proyecto remoto o seleccionado en South Florida.
               </p>
               <p className="mt-4 max-w-2xl leading-7 text-[#252a2d]">
-                Su portafolio público conecta cada proyecto seleccionado con los
+                Su{" "}
+                <Link
+                  href="/es/portafolio"
+                  className="underline underline-offset-4 hover:text-[#9f3c27]"
+                >
+                  portafolio público
+                </Link>{" "}
+                conecta cada proyecto seleccionado con los
                 créditos disponibles y la fuente original del video. El español
                 es su idioma principal y también puede mantener comunicación de
                 trabajo en inglés intermedio.

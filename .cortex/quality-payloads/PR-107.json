@@ -1,0 +1,69 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-107",
+  "status": "review_pending",
+  "evidence": {
+    "obsidian_context": "Added additive internal links to /portfolio and /es/portafolio within existing body copy on /about, /areas, /es/areas, and /es/sobre-esteban to reinforce internal link mesh for the portfolio hub.",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, isolated worktree /Users/gonzalo/code/portfolio-ops-nightly/.cto-worktrees/esteban-portfolio-links-20260818, branch agy/esteban-portfolio-links-20260818, move class internal_links.",
+    "hard_stops_checked": "Checked and clear. No deployment, production lead submissions, unconfirmed pricing quotes, or new routes created. URL inventory remains frozen at 259 sitemap URLs matching origin/main.",
+    "reviewer_ensemble": "builder pass, skeptic pass, taste pass - see reviewer_ensemble object.",
+    "reviewer_disagreement_reviewed": "The skeptic verified that all four modified files only wrap existing prose in Next.js Link components without modifying copy, headings, metadata, or layout. All 46 test suites pass.",
+    "winner_rationale": "Internal contextual links from high-authority pages directly strengthen PageRank and relevance signals to the portfolio page, helping push its position from ~8.5-10.6 toward page 1 without content churn.",
+    "tests_or_validation": "pnpm test passed: 46 of 46 test files / 355 tests passed. pnpm typecheck and lint clean with 0 errors. pnpm build succeeded compiling all 289 static routes.",
+    "ci_passed": "Local full repository check passed; GitHub CI is running at payload creation time.",
+    "pr_review_complete": "Self-review complete across app/(english)/about/page.tsx, app/(english)/areas/page.tsx, app/(spanish)/es/areas/page.tsx, and app/(spanish)/es/sobre-esteban/page.tsx.",
+    "deploy_or_rollback_plan": "Standard merge to main triggering Vercel deploy. Rollback is a clean git revert.",
+    "post_change_verification": "Post-deploy verification via curl and DOM text assertions on production routes, followed by 28-day GSC tracking.",
+    "claim_hygiene_checked": "All claims conform to AGENTS.md guidelines. No unsupported workflow claims, no fake testimonials, no fabricated certificates.",
+    "debt_delta": "improvement",
+    "obsidian_handoff": "Recorded in Obsidian hot.md and durable note esteban-portfolio-internal-links-2026-08-18.md.",
+    "data_sources_current": "Production routes and route inventory verified matching origin/main (259 routes).",
+    "booking_or_authority_thesis": "Connecting high-authority pages (/about, /areas, /es/areas, /es/sobre-esteban) directly to the portfolio hub strengthens PageRank flow and signals relevance to search engines, pushing the page toward page 1 ranking."
+  },
+  "project_routing": {
+    "canonical_repo": "/Users/gonzalo/code/esteban-media",
+    "worktree": "/Users/gonzalo/code/portfolio-ops-nightly/.cto-worktrees/esteban-portfolio-links-20260818",
+    "branch": "agy/esteban-portfolio-links-20260818",
+    "move_class": "internal_links"
+  },
+  "hard_stops_checked": {
+    "pricing_or_offers": "no fixed prices quoted; market context labeled; estimator links maintained",
+    "factual_business_claims": "strictly verified, no unverified claims, no invented certificates",
+    "access_control": "none accessed or modified",
+    "deployment": "not performed in this step",
+    "third_party_services": "none added",
+    "url_inventory": "exact match to origin/main (259 URLs)"
+  },
+  "reviewer_ensemble": {
+    "builder": {
+      "status": "pass",
+      "note": "Added additive internal links pointing to /portfolio and /es/portafolio within existing body paragraphs on /about, /areas, /es/areas, and /es/sobre-esteban."
+    },
+    "skeptic": {
+      "status": "pass",
+      "note": "Verified that all 4 modified files only wrap existing prose in Next.js Link components without modifying copy, headings, metadata, or layout. All 46 test suites pass."
+    },
+    "taste": {
+      "status": "pass",
+      "note": "Links integrate naturally into context with consistent underline styling matching site standards."
+    }
+  },
+  "tests_or_validation": {
+    "commands": [
+      "pnpm test",
+      "pnpm typecheck",
+      "pnpm lint",
+      "pnpm build"
+    ],
+    "results": "355 of 355 across 46 test files; lint 0 errors; typecheck clean; 289 static pages built cleanly; route inventory exact match to origin/main.",
+    "known_failure": "none",
+    "browser": "not required - static Link markup verified in JSX and build output."
+  },
+  "source_material_checked": "GSC Search Analytics 2026-07-15..08-18, app/(english)/about/page.tsx, app/(english)/areas/page.tsx, app/(spanish)/es/areas/page.tsx, app/(spanish)/es/sobre-esteban/page.tsx",
+  "data_sources_current": {
+    "production_html": "verified routes and existing body copy against production",
+    "route_inventory": "259 routes unchanged"
+  },
+  "booking_or_authority_thesis": "Connecting high-authority pages (/about, /areas, /es/areas, /es/sobre-esteban) directly to the portfolio hub strengthens PageRank flow and signals relevance to search engines, pushing the page toward page 1 ranking."
+}

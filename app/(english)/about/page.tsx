@@ -63,7 +63,14 @@ export default function AboutPage() {
                 production for remote and selected South Florida projects.
               </p>
               <p className="mt-4 max-w-2xl leading-7 text-[#252a2d]">
-                His public portfolio connects each selected project to its
+                His{" "}
+                <Link
+                  href="/portfolio"
+                  className="underline underline-offset-4 hover:text-[#9f3c27]"
+                >
+                  public portfolio
+                </Link>{" "}
+                connects each selected project to its
                 available credits and original video source. His Spanish{" "}
                 <Link
                   href="/es/guias"
