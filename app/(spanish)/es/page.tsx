@@ -38,21 +38,25 @@ export default function SpanishHomePage() {
             title="Contenido conectado con una meta de negocio."
             lead="La meta es simple: editar con intención, organizar qué publicar y definir con claridad cuándo hace falta producir material nuevo."
           />
-          <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {spanishServices.map((service) => {
               const Icon = service.icon;
+              const href =
+                service.id === "diseno-web"
+                  ? "/es/diseno-web-fort-lauderdale"
+                  : `/es/servicios#${service.id}`;
               return (
                 <Link
                   key={service.id}
-                  href={`/es/servicios#${service.id}`}
-                  className="group rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5 transition hover:-translate-y-0.5 hover:border-[#e85d3e] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e85d3e]"
+                  href={href}
+                  className="group flex h-full flex-col rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5 transition hover:-translate-y-0.5 hover:border-[#e85d3e] hover:shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e85d3e]"
                   aria-label={`Explorar ${service.name}`}
                 >
-                  <Icon className="size-6 text-[#e85d3e]" aria-hidden="true" />
-                  <h2 className="mt-5 font-serif text-2xl leading-tight">
-                    {service.name}
+                  <Icon className="size-7 text-[#e85d3e]" aria-hidden="true" />
+                  <h2 className="mt-4 font-serif text-xl leading-tight">
+                    {service.shortName}
                   </h2>
-                  <p className="mt-3 text-sm leading-6 text-[#252a2d]">
+                  <p className="mt-2 text-sm leading-6 text-[#252a2d]">
                     {service.description}
                   </p>
                   <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27]">

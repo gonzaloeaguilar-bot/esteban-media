@@ -45,6 +45,11 @@ const serviceProof: Record<
     label: "Bar Door Monkey Miami",
     detail: "Pre-production, location, videography, and editing in one project.",
   },
+  "website-design": {
+    href: "/portfolio/flas-concierge",
+    label: "FLAS AI Concierge & Web System",
+    detail: "Custom web platform and 24/7 AI lead capture concierge for an auto dealership.",
+  },
 };
 
 export default function ServicesPage() {
