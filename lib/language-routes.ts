@@ -23,6 +23,7 @@ const pairedLanguageRoutes: Record<string, string> = {
     "/es/reels-para-negocios-miami",
   "/daily-publish-prompt": "/es/prompt-de-publicacion-diaria",
   "/daily-hook-planner": "/es/planificador-de-ganchos-de-video",
+  "/daily-script-timer": "/es/temporizador-de-guiones-de-video",
 };
 
 for (const [englishPath, spanishPath] of Object.entries({
