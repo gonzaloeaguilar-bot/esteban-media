@@ -1363,9 +1363,40 @@ export async function runWeeklyDigest(args, dependencies = {}) {
   }
 
   try {
-    const previousState = validateDigestState(
-      await readJsonIfExists(latestPath),
-    );
+    // validateDigestState FAILS CLOSED, deliberately, and its tests pin that
+    // ("deeply rejects malformed persisted snapshots"). Do not soften it.
+    //
+    // The one recoverable case: a stored snapshot whose sourceIndexWatch cohort
+    // is neither current nor legacy. That happens when WATCH_URLS is redefined
+    // upstream — watchInventoryForContract returns null, isDigestSnapshot
+    // rejects it, and this loop dies alongside index-watch with no way back.
+    // Reseat only that case, and only here in the run path.
+    const rawDigestState = await readJsonIfExists(latestPath);
+    let previousState;
+    try {
+      previousState = validateDigestState(rawDigestState);
+    } catch (digestValidationError) {
+      const storedCount = rawDigestState?.latest?.sourceIndexWatch?.watchUrlCount;
+      const storedHash = rawDigestState?.latest?.sourceIndexWatch?.watchUrlHash;
+      if (watchInventoryForContract(storedCount, storedHash)) {
+        throw digestValidationError;
+      }
+      const archivePath = join(
+        args.stateDir,
+        `latest.orphaned-cohort-${Date.now()}.json`,
+      );
+      await atomicWrite(
+        archivePath,
+        `${JSON.stringify(rawDigestState, null, 2)}\n`,
+      );
+      console.warn(
+        `[weekly-digest] stored snapshot references an unrecognised watch cohort ` +
+          `(${storedCount} URLs) while the current inventory is ${WATCH_URLS.length}. ` +
+          `Archived to ${archivePath}; starting a fresh baseline. ` +
+          `Original: ${digestValidationError.message}`,
+      );
+      previousState = null;
+    }
     const previousError = await readJsonIfExists(
       join(args.stateDir, "last-error.json"),
     );

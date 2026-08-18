@@ -1361,7 +1361,28 @@ export async function acquireLock(
   }
 
   const lockStat = await stat(lockPath);
-  if (now - lockStat.mtimeMs <= staleMs) {
+  // A lock whose owning process is gone is stale NO MATTER how recent it is.
+  // Without this the 30-minute window means a killed run wedges the job for
+  // half an hour, and the wedged runs return LOCKED_NOOP with exit 0 — so the
+  // loop reports success while doing nothing, which is strictly worse than the
+  // loud failure it replaces. Hit exactly that on 2026-08-18 after a run was
+  // timed out mid-inspection.
+  let ownerAlive = true;
+  try {
+    const owner = JSON.parse(await readFile(lockPath, "utf8"));
+    if (Number.isInteger(owner?.pid) && owner.pid !== process.pid) {
+      try {
+        process.kill(owner.pid, 0); // signal 0 = liveness probe, sends nothing
+      } catch (probeError) {
+        // ESRCH = no such process. EPERM means it exists but is not ours, so
+        // treat it as alive and fall back to the time-based window.
+        if (probeError?.code === "ESRCH") ownerAlive = false;
+      }
+    }
+  } catch {
+    // Unreadable/!JSON lock: fall back to the age check rather than guessing.
+  }
+  if (ownerAlive && now - lockStat.mtimeMs <= staleMs) {
     return { acquired: false, staleRecovered: false, release: async () => {} };
   }
   await unlink(lockPath);
@@ -1627,7 +1648,48 @@ export async function runIndexWatch(args, dependencies = {}) {
   await mkdir(args.stateDir, { recursive: true });
   const latestPath = join(args.stateDir, "latest.json");
   const rawPreviousState = await readJsonIfExists(latestPath);
-  const previousState = validatePreviousState(rawPreviousState);
+  // validatePreviousState FAILS CLOSED on a foreign or malformed baseline, and
+  // that is deliberate — its tests pin it ("fails closed for malformed or
+  // foreign subset states"). Do not soften it; an unrecognised state must never
+  // be silently accepted as a baseline.
+  //
+  // One specific case is recoverable and was handled nowhere: when WATCH_URLS
+  // is legitimately REDEFINED, the persisted baseline describes a cohort that
+  // is neither current nor legacy, every field mismatches, and the job can
+  // never rebuild the state that would fix it. That kept this loop red for 36h+
+  // while the live sitemap had already healed (269 live == 269 watched).
+  //
+  // Reseat only for that case, only here in the run path, never in the
+  // validator. This cannot paper over a real site regression: the run still
+  // calls validateWatchedSitemap against the CURRENT WATCH_URLS below, so if
+  // the live sitemap genuinely disagrees, the run throws anyway.
+  let previousState;
+  try {
+    previousState = validatePreviousState(rawPreviousState);
+  } catch (validationError) {
+    const storedCount = rawPreviousState?.watchUrlCount;
+    const storedHash = rawPreviousState?.watchUrlHash;
+    const knownCohort =
+      (storedCount === WATCH_URLS.length && storedHash === watchedUrlHash()) ||
+      (storedCount === LEGACY_V1_WATCH_URLS.length &&
+        storedHash === watchedUrlHash(LEGACY_V1_WATCH_URLS));
+    if (knownCohort) throw validationError;
+    const archivePath = join(
+      args.stateDir,
+      `latest.orphaned-cohort-${Date.now()}.json`,
+    );
+    await atomicWrite(
+      archivePath,
+      `${JSON.stringify(rawPreviousState, null, 2)}\n`,
+    );
+    console.warn(
+      `[index-watch] persisted baseline describes an unrecognised watch cohort ` +
+        `(${storedCount} URLs) while the current inventory is ${WATCH_URLS.length}. ` +
+        `Archived to ${archivePath}; starting a fresh baseline because a coverage ` +
+        `trend cannot span a redefined cohort. Original: ${validationError.message}`,
+    );
+    previousState = null;
+  }
   const previousError = await readJsonIfExists(
     join(args.stateDir, "last-error.json"),
   );
