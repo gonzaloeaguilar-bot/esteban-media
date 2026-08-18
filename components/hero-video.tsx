@@ -49,8 +49,8 @@ export function HeroVideo({ locale = "en" }: HeroVideoProps) {
               className="mt-6 max-w-[17ch] font-serif text-5xl leading-[1.02] sm:text-6xl lg:text-7xl"
             >
               {isSpanish
-                ? "Edición de video, diseño web y producción de contenido en Fort Lauderdale."
-                : "Video editing, website design, and content production in Fort Lauderdale."}
+                ? "Esteban Moreno Media · Edición de video, diseño web y producción en Fort Lauderdale."
+                : "Esteban Moreno Media · Video editing, website design, and content production in Fort Lauderdale."}
             </h1>
 
             <p className="mt-5 font-serif text-2xl italic text-[#f0b384] sm:text-3xl">

@@ -52,7 +52,7 @@ describe("localized home metadata", () => {
 
     const englishHomeSource = source("app/(english)/page.tsx");
     expect(englishHomeSource).toContain(
-      'absolute:\n      "Esteban Moreno | Fort Lauderdale Video Editor & Content Creator"',
+      'absolute:\n      "Esteban Moreno Media | Fort Lauderdale Video Editor & Content Creator"',
     );
     expect(englishHomeSource).toContain("description: site.description");
     expect(englishHomeSource).toContain("openGraph:");

@@ -64,3 +64,6 @@ public/leads/discovery-ledger.json
 # Append-only provider acceptance ledger. Runtime evidence only; recipient
 # addresses are hashed, and the file must not be published or committed.
 data/outreach/morning-campaign-send-ledger.jsonl
+
+.serena/
+
