@@ -176,7 +176,7 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
   "editor-de-video-real-estate-miami": {
     areaHref: "/es/areas#miami-dade",
     areaLabel: "Ver cobertura en Miami-Dade y Broward",
-    note: "El proyecto Homeowners demuestra trabajo publicado de edición de video para el sector inmobiliario.",
+    note: "El proyecto [Homeowners](/es/portafolio/homeowners) demuestra trabajo publicado de edición de video para el sector inmobiliario.",
     serviceIds: ["edicion", "planificacion-social"],
     projects: [
       {
@@ -285,7 +285,7 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
   "fotos-con-ia-para-bienes-raices-miami": {
     areaHref: "/es/areas#miami-dade",
     areaLabel: "Ver cobertura en Miami-Dade y Broward",
-    note: "El proyecto Homeowners demuestra trabajo de edición e imágenes de bienes raíces.",
+    note: "El proyecto [Homeowners](/es/portafolio/homeowners) demuestra trabajo de edición e imágenes de bienes raíces.",
     serviceIds: ["contenido-ia", "edicion"],
     projects: [
       {
@@ -859,7 +859,7 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
   "video-inmobiliario-sunny-isles": {
     areaHref: "/es/areas#miami-dade",
     areaLabel: "Ver cobertura en Sunny Isles Beach",
-    note: "Homeowners demuestra un proyecto publicado de edición con material suministrado por 300 Bees. No se presenta como un proyecto realizado en Sunny Isles.",
+    note: "[Homeowners](/es/portafolio/homeowners) demuestra un proyecto publicado de edición con material suministrado por 300 Bees. No se presenta como un proyecto realizado en Sunny Isles.",
     serviceIds: ["edicion"],
     projects: [
       {
@@ -872,7 +872,7 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
   "edicion-de-video-palm-beach-gardens": {
     areaHref: "/es/areas/palm-beach-county",
     areaLabel: "Ver cobertura en Palm Beach County",
-    note: "El proyecto Homeowners demuestra trabajo publicado de edición de video a partir de material suministrado por la agencia.",
+    note: "El proyecto [Homeowners](/es/portafolio/homeowners) demuestra trabajo publicado de edición de video a partir de material suministrado por la agencia.",
     serviceIds: ["edicion"],
     projects: [
       {

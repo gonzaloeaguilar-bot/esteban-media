@@ -892,7 +892,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       "¿Qué elementos deseas mejorar (iluminación, cielo, fondos)?",
     ],
     projectFit:
-      "Resaltado por el trabajo de guion y edición de Homeowners en el sector inmobiliario.",
+      "Resaltado por el trabajo de guion y edición de [Homeowners](/es/portafolio/homeowners) en el sector inmobiliario.",
     faqs: [
       {
         question: "¿Se altera la estructura real de la propiedad?",
