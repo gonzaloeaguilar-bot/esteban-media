@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Laptop, Mail, Phone, Bot, Sparkles, Layout } from "lucide-react";
+import { ArrowRight, CheckCircle2, Laptop, Mail, Phone, Bot, Sparkles, Layout } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import { buildPageMetadata } from "@/lib/site-metadata";
@@ -84,6 +84,30 @@ export default function DisenoWebFortLauderdalePage() {
             acceptedAnswer: {
               "@type": "Answer",
               text: "Sí. Nuestro portafolio incluye sistemas para concesionarios de autos (Frontline Auto, FLAS), marcas de fitness (TitanForge, Gains From Geebs), restaurantes y empresas locales.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "¿Los sitios web están adaptados para móviles y son bilingües (inglés/español)?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Cada sitio está optimizado para móviles (mobile-first) para garantizar máxima velocidad y puede configurarse bilingüe en inglés y español para atender el mercado diverso de South Florida.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "¿Cuánto tiempo toma el desarrollo de un sitio web con chatbot de IA?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "La mayoría de proyectos de diseño web e integración de chatbots con IA se entregan entre 2 y 3 semanas según el alcance y la preparación del contenido.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "¿Ofrecen mantenimiento y hosting para los sitios web?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Proveemos despliegue web llave en mano, monitoreo de rendimiento y optimizaciones continuas para los chatbots y la plataforma.",
             },
           },
         ],
@@ -318,6 +342,65 @@ export default function DisenoWebFortLauderdalePage() {
                 </div>
               </article>
             ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* Target Industries & FAQs */}
+      <section className="py-14 sm:py-20">
+        <Container size="xl">
+          <div className="grid gap-8 lg:grid-cols-2">
+            <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6 sm:p-8">
+              <h2 className="font-serif text-3xl">Nicho e Industrias que Atendemos</h2>
+              <ul className="mt-6 space-y-4 text-sm leading-6 text-[#252a2d]">
+                <li className="flex gap-3">
+                  <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-[#e85d3e]" />
+                  <span><strong>Concesionarios de Autos y BHPH:</strong> Muestra de inventario, herramientas de financiamiento y bots concierge con IA para agendamiento.</span>
+                </li>
+                <li className="flex gap-3">
+                  <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-[#e85d3e]" />
+                  <span><strong>Fitness, Coaching y Plataformas de Salud:</strong> Sistemas de registro de clientes, calculadoras interactivas y bots automatizados para DM.</span>
+                </li>
+                <li className="flex gap-3">
+                  <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-[#e85d3e]" />
+                  <span><strong>Restaurantes y Locales de Hospitalidad:</strong> Menús digitales, integración de videos promocionales y formularios de eventos.</span>
+                </li>
+                <li className="flex gap-3">
+                  <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-[#e85d3e]" />
+                  <span><strong>Contratistas y Servicios Profesionales:</strong> Páginas de alta confianza, muestra de reseñas y calificación de prospectos.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6 sm:p-8">
+              <h2 className="font-serif text-3xl">Preguntas Frecuentes</h2>
+              <dl className="mt-6 space-y-6 text-sm text-[#252a2d]">
+                <div>
+                  <dt className="font-medium text-base text-[#101214]">¿Qué diferencia el diseño web de Esteban Media?</dt>
+                  <dd className="mt-2 leading-6">Creamos motores digitales completos de conversión. En lugar de páginas estáticas simples, integramos arquitectura web veloz, medios audiovisuales de impacto y chatbots con IA 24/7 para capturar clientes.</dd>
+                </div>
+                <div>
+                  <dt className="font-medium text-base text-[#101214]">¿Cómo funciona el chatbot con IA en el sitio web?</dt>
+                  <dd className="mt-2 leading-6">Nuestros chatbots conversacionales con IA se integran en tu sitio web para responder preguntas frecuentes, calificar clientes potenciales y agendar citas automáticamente las 24 horas.</dd>
+                </div>
+                <div>
+                  <dt className="font-medium text-base text-[#101214]">¿Desarrollan sitios web para concesionarios, marcas de fitness y negocios de servicios?</dt>
+                  <dd className="mt-2 leading-6">Sí. Nuestro portafolio incluye sistemas para concesionarios de autos (Frontline Auto, FLAS), marcas de fitness (TitanForge, Gains From Geebs), restaurantes y empresas locales.</dd>
+                </div>
+                <div>
+                  <dt className="font-medium text-base text-[#101214]">¿Los sitios web están adaptados para móviles y son bilingües (inglés/español)?</dt>
+                  <dd className="mt-2 leading-6">Cada sitio está optimizado para móviles (mobile-first) para garantizar máxima velocidad y puede configurarse bilingüe en inglés y español para atender el mercado diverso de South Florida.</dd>
+                </div>
+                <div>
+                  <dt className="font-medium text-base text-[#101214]">¿Cuánto tiempo toma el desarrollo de un sitio web con chatbot de IA?</dt>
+                  <dd className="mt-2 leading-6">La mayoría de proyectos de diseño web e integración de chatbots con IA se entregan entre 2 y 3 semanas según el alcance y la preparación del contenido.</dd>
+                </div>
+                <div>
+                  <dt className="font-medium text-base text-[#101214]">¿Ofrecen mantenimiento y hosting para los sitios web?</dt>
+                  <dd className="mt-2 leading-6">Proveemos despliegue web llave en mano, monitoreo de rendimiento y optimizaciones continuas para los chatbots y la plataforma.</dd>
+                </div>
+              </dl>
+            </div>
           </div>
         </Container>
       </section>

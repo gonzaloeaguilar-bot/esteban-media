@@ -44,6 +44,11 @@ const serviceProof: Record<
     label: "Bar Door Monkey Miami",
     detail: "Preproducción, locación, videografía y edición en un solo proyecto.",
   },
+  "diseno-web": {
+    href: "/es/portafolio/flas-concierge",
+    label: "FLAS AI Concierge y Sistema Web",
+    detail: "Plataforma web personalizada y concierge de IA 24/7 para concesionario de autos.",
+  },
 };
 
 const spanishScopingQuestions = [

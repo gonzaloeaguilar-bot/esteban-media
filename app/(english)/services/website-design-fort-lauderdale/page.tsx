@@ -94,6 +94,22 @@ export default function WebsiteDesignFortLauderdalePage() {
               text: "Every site is engineered mobile-first for fast load times and can be built fully bilingual in English and Spanish to target South Florida's diverse audience.",
             },
           },
+          {
+            "@type": "Question",
+            name: "How fast can a new website and AI chatbot launch?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Most custom web design and AI chatbot implementations are delivered within 2 to 3 weeks depending on project scope and content readiness.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Do you manage hosting and updates?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "We provide turn-key web deployment, ongoing performance monitoring, and chatbot updates as your business evolves.",
+            },
+          },
         ],
       },
     ],
@@ -361,12 +377,24 @@ export default function WebsiteDesignFortLauderdalePage() {
               <h2 className="font-serif text-3xl">Frequently Asked Questions</h2>
               <dl className="mt-6 space-y-6 text-sm text-[#252a2d]">
                 <div>
-                  <dt className="font-medium text-base text-[#101214]">How fast can a new website and AI chatbot launch?</dt>
-                  <dd className="mt-2 leading-6">Most custom web design and AI chatbot implementations are delivered within 2 to 3 weeks depending on project scope and content readiness.</dd>
+                  <dt className="font-medium text-base text-[#101214]">What makes Esteban Media&apos;s website design different?</dt>
+                  <dd className="mt-2 leading-6">We build complete high-converting digital engines. Instead of just static brochure websites, we integrate custom web design, mobile-first performance, video media assets, and 24/7 conversational AI lead capture chatbots.</dd>
                 </div>
                 <div>
-                  <dt className="font-medium text-base text-[#101214]">Can the AI chatbot work in both English and Spanish?</dt>
-                  <dd className="mt-2 leading-6">Yes! Our chatbots are fluent in both English and Spanish, allowing you to serve South Florida&apos;s bilingual customer base seamlessly.</dd>
+                  <dt className="font-medium text-base text-[#101214]">How does the AI lead chatbot integration work on the website?</dt>
+                  <dd className="mt-2 leading-6">Our custom AI chatbots embed directly into your website or social messaging channels to answer customer questions 24/7, qualify incoming leads, capture contact info, and schedule appointments automatically.</dd>
+                </div>
+                <div>
+                  <dt className="font-medium text-base text-[#101214]">Do you design websites for dealerships, fitness brands, and service businesses?</dt>
+                  <dd className="mt-2 leading-6">Yes. Our portfolio includes specialized platforms for auto dealerships (Frontline Auto, FLAS), high-performance fitness brands (TitanForge, Gains From Geebs), restaurants, and local service providers.</dd>
+                </div>
+                <div>
+                  <dt className="font-medium text-base text-[#101214]">Are the websites mobile-friendly and bilingual (English/Spanish)?</dt>
+                  <dd className="mt-2 leading-6">Every site is engineered mobile-first for fast load times and can be built fully bilingual in English and Spanish to target South Florida&apos;s diverse audience.</dd>
+                </div>
+                <div>
+                  <dt className="font-medium text-base text-[#101214]">How fast can a new website and AI chatbot launch?</dt>
+                  <dd className="mt-2 leading-6">Most custom web design and AI chatbot implementations are delivered within 2 to 3 weeks depending on project scope and content readiness.</dd>
                 </div>
                 <div>
                   <dt className="font-medium text-base text-[#101214]">Do you manage hosting and updates?</dt>

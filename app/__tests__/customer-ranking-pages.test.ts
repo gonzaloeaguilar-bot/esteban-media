@@ -17,9 +17,8 @@ describe("customer-facing ranking pages", () => {
     );
     expect(hero).toContain("We make things feel like a film.");
     expect(services).toContain("website-design");
-    expect(spanishHome).toContain(
-      "href={`/es/servicios#${service.id}`}",
-    );
+    expect(spanishHome).toContain("diseno-web");
+    expect(spanishHome).toContain("/es/servicios#${service.id}");
   });
 
   it("keeps gated travel and revision policies off public ranking copy", () => {
