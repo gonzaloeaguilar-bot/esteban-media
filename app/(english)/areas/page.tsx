@@ -169,8 +169,14 @@ export default function AreasPage() {
               Published project proof for Miami-Dade availability.
             </h2>
             <p className="mt-4 max-w-2xl leading-7 text-[#252a2d]">
-              These are real Miami projects from Esteban&apos;s public portfolio.
-              They document the work shown; they do not imply results or
+              These are real Miami projects from Esteban&apos;s{" "}
+              <Link
+                href="/portfolio"
+                className="underline underline-offset-4 hover:text-[#9f3c27]"
+              >
+                public portfolio
+              </Link>
+              . They document the work shown; they do not imply results or
               services that are not listed in the project credits.
             </p>
             <div className="mt-7 grid gap-4 md:grid-cols-2">
