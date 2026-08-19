@@ -1,12 +1,15 @@
 import Link from "next/link";
 import {
   ArrowRight,
+  Camera,
   CheckCircle2,
   Film,
+  Gauge,
   HelpCircle,
   Layers,
   Mail,
   Play,
+  Repeat,
   Sliders,
   Smartphone,
   Sparkles,
@@ -131,6 +134,29 @@ const portfolioFaqItems = [
       "Can footage captured across multiple cameras and smartphones be matched?",
     answer:
       "Yes. Multicam shoots and mixed-device footage (such as iPhones, mirrorless cameras, and drone clips) are color-balanced, normalized to a unified visual palette, and time-aligned with master audio tracks during the editorial cut.",
+  },
+  {
+    question:
+      "How does batch editing work for social media content campaigns?",
+    answer:
+      "If you record multiple clips or long-form video in a single session, Esteban can batch-edit the material into a series of cohesive short-form reels, TikToks, and Shorts. This includes consistent intro hooks, uniform branding, color grading, and scheduled drop-ready files.",
+  },
+  {
+    question: "What camera color profiles and Log footage formats are supported?",
+    answer:
+      "Ingest workflows support standard Log and flat color profiles including Apple Log, Sony S-Log3, Canon C-Log, Panasonic V-Log, and DJI D-Log M. Footage is transformed into normalized Rec.709 color space with custom tone curve adjustments for balanced saturation and skin tone clarity.",
+  },
+  {
+    question:
+      "How are on-screen subtitles and safe zones formatted for vertical video?",
+    answer:
+      "Vertical 9:16 videos are formatted within safe-zone boundaries that prevent text, lower thirds, and important visual elements from being obscured by Instagram Reels, TikTok, or YouTube Shorts interface overlays (like captions, like buttons, and profile headers).",
+  },
+  {
+    question:
+      "Can existing long-form videos or podcasts be repurposed into short-form clips?",
+    answer:
+      "Yes. Raw podcast recordings, webinars, or long-form YouTube videos can be analyzed for high-impact insights and edited into standalone short-form clips complete with engaging hooks, motion graphics, and synchronized subtitles.",
   },
 ];
 
@@ -798,6 +824,125 @@ export default function PortfolioPage() {
                   <ArrowRight className="size-3.5" aria-hidden="true" />
                 </Link>
               </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Post-Production Engineering & Retention Pipeline */}
+      <section
+        className="border-t border-[#d6ccc0] bg-[#efe7db] py-14 sm:py-16"
+        aria-labelledby="engineering-heading"
+      >
+        <Container size="xl">
+          <div className="max-w-3xl">
+            <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">
+              Post-production pipeline
+            </p>
+            <h2
+              id="engineering-heading"
+              className="mt-4 font-serif text-4xl leading-tight sm:text-5xl"
+            >
+              Editorial engineering built for viewer retention and asset longevity.
+            </h2>
+            <p className="mt-4 text-base leading-7 text-[#3f4548] sm:text-lg sm:leading-8">
+              Post-production extends beyond basic cuts. Every edit incorporates
+              structured pacing rules, color-space management, sonic balancing,
+              and cross-channel asset repurposing to maximize the lifespan of your footage.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            <div className="flex flex-col justify-between rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
+              <div>
+                <span className="grid size-10 place-items-center rounded-lg bg-[#101214] text-[#e85d3e]">
+                  <Camera className="size-5" aria-hidden="true" />
+                </span>
+                <h3 className="mt-4 font-serif text-2xl leading-tight">
+                  Log & Raw Format Ingest
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-[#3f4548]">
+                  Native ingest for Apple Log, Sony S-Log3, Canon C-Log, and DJI
+                  D-Log footage with tailored LUT transforms and wide dynamic range
+                  preservation.
+                </p>
+              </div>
+              <Link
+                href="/guides/raw-video-file-formats-explained"
+                className="mt-5 inline-flex items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
+              >
+                Log & raw format guide
+                <ArrowRight className="size-3.5" aria-hidden="true" />
+              </Link>
+            </div>
+
+            <div className="flex flex-col justify-between rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
+              <div>
+                <span className="grid size-10 place-items-center rounded-lg bg-[#101214] text-[#e85d3e]">
+                  <Gauge className="size-5" aria-hidden="true" />
+                </span>
+                <h3 className="mt-4 font-serif text-2xl leading-tight">
+                  Retention & Hook Pacing
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-[#3f4548]">
+                  Hook architecture in the first 3 seconds, pattern interrupts,
+                  visual velocity changes, and dynamic cuts structured to
+                  elevate watch duration and completion rates.
+                </p>
+              </div>
+              <Link
+                href="/guides/how-to-improve-video-retention-rate"
+                className="mt-5 inline-flex items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
+              >
+                Audience retention guide
+                <ArrowRight className="size-3.5" aria-hidden="true" />
+              </Link>
+            </div>
+
+            <div className="flex flex-col justify-between rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
+              <div>
+                <span className="grid size-10 place-items-center rounded-lg bg-[#101214] text-[#e85d3e]">
+                  <Sliders className="size-5" aria-hidden="true" />
+                </span>
+                <h3 className="mt-4 font-serif text-2xl leading-tight">
+                  Kinetic Captions & Safe Zones
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-[#3f4548]">
+                  High-contrast dynamic subtitles with keyword emphasis, centered
+                  strictly within platform UI safe zones for full readability across
+                  Reels, TikTok, and Shorts.
+                </p>
+              </div>
+              <Link
+                href="/guides/best-caption-styles-for-instagram-reels"
+                className="mt-5 inline-flex items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
+              >
+                Reels caption style guide
+                <ArrowRight className="size-3.5" aria-hidden="true" />
+              </Link>
+            </div>
+
+            <div className="flex flex-col justify-between rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
+              <div>
+                <span className="grid size-10 place-items-center rounded-lg bg-[#101214] text-[#e85d3e]">
+                  <Repeat className="size-5" aria-hidden="true" />
+                </span>
+                <h3 className="mt-4 font-serif text-2xl leading-tight">
+                  Content Repurposing & Batching
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-[#3f4548]">
+                  Transforming long-form interviews, webinars, and event shoots into
+                  high-impact episodic social reels, audiograms, and multi-channel
+                  campaign cutdowns.
+                </p>
+              </div>
+              <Link
+                href="/services/content-repurposing-service-miami"
+                className="mt-5 inline-flex items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
+              >
+                Repurposing service
+                <ArrowRight className="size-3.5" aria-hidden="true" />
+              </Link>
             </div>
           </div>
         </Container>
