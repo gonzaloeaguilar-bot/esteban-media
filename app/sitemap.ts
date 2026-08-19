@@ -17,6 +17,7 @@ import {
   getPortfolioWatchPath,
   type PortfolioWatchLocale,
 } from "@/lib/portfolio-watch";
+import { isConsolidatedPath } from "@/lib/consolidation";
 import { languageAlternates, spanishRoutes } from "@/lib/spanish-site";
 import { absoluteUrl } from "@/lib/site";
 
@@ -98,6 +99,7 @@ export const sitemapRoutes = [
 function sitemapAlternates(path: string) {
   const languages = languageAlternates[path];
 
+
   if (!languages) {
     return undefined;
   }
@@ -140,7 +142,7 @@ function guideSitemapAlternates(locale: GuideLocale, slug: string) {
   };
 }
 
-export default function sitemap(): MetadataRoute.Sitemap {
+function allSitemapEntries(): MetadataRoute.Sitemap {
   // No lastModified is emitted on purpose.
   //
   // Every URL previously carried the same hardcoded date (2026-07-19), which
@@ -209,4 +211,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       })),
     ),
   ];
+}
+
+/**
+ * Merged and noindexed URLs from the 2026-08-12 cohort decisions must not be
+ * advertised. A 301 source or a noindex page in a sitemap is a contradictory
+ * signal, and leaving them listed is exactly what kept the inventory frozen.
+ */
+export default function sitemap(): MetadataRoute.Sitemap {
+  return allSitemapEntries().filter((entry) => {
+    const path = new URL(entry.url).pathname.replace(/\/$/, "") || "/";
+    return !isConsolidatedPath(path);
+  });
 }
