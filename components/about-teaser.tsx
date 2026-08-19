@@ -25,8 +25,19 @@ const highlights = [
   {
     icon: BriefcaseBusiness,
     label: "Published proof",
-    detail:
-      "The portfolio names only the projects, roles, and public video sources that can be verified.",
+    detail: (
+      <>
+        The{" "}
+        <Link
+          href="/portfolio"
+          className="font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-2 hover:text-[#7f2f20]"
+        >
+          portfolio
+        </Link>{" "}
+        names only the projects, roles, and public video sources that can be
+        verified.
+      </>
+    ),
   },
   {
     icon: Languages,

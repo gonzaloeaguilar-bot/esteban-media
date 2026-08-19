@@ -90,7 +90,14 @@ export default function SmallBusinessVideoHollywoodFlPage() {
               <Building2 className="size-8 text-[#e85d3e]" aria-hidden="true" />
               <h2 className="mt-5 font-serif text-3xl">Local business proof</h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                Our portfolio project <strong>Healthy Smile</strong> proves published local business video marketing, on-location capture, and post-production.
+                Our{" "}
+                <Link
+                  href="/portfolio"
+                  className="underline underline-offset-4 hover:text-[#9f3c27]"
+                >
+                  portfolio
+                </Link>{" "}
+                project <strong>Healthy Smile</strong> proves published local business video marketing, on-location capture, and post-production.
               </p>
               <Link
                 href="/portfolio/healthy-smile"
