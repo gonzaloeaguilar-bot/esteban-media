@@ -14,6 +14,7 @@ const LEAD_FORMS = [
   "components/video-brief-builder.tsx",
   "components/script-and-overlay-kit.tsx",
   "components/daily-publish-prompt.tsx",
+  "components/daily-shot-list-planner.tsx",
 ];
 
 afterEach(() => {
