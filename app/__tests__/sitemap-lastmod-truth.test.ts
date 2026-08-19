@@ -6,7 +6,7 @@ describe("sitemap lastmod truthfulness", () => {
   const entries = sitemap();
 
   it("emits the full inventory", () => {
-    expect(entries.length).toBeGreaterThan(250);
+    expect(entries.length).toBeGreaterThan(230);
   });
 
   it("does not assert a lastModified it cannot substantiate", () => {

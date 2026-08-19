@@ -1,10 +1,27 @@
 {
   "status": "frozen",
   "effectiveDate": "2026-08-14",
-  "approvedSitemapUrlCount": 269,
-  "approvedSitemapUrlSetSha256": "b93f05d9eb1a4b669ba9c645cb36bfea946b2dc61e6a54cc3628821de7d33432",
+  "baselineRevisedOn": "2026-08-19",
+  "approvedSitemapUrlCount": 243,
+  "approvedSitemapUrlSetSha256": "f00430b579b0b3af8b4f6ce9f7f47bc866d12a82d984db0546fe80e6adcf36a2",
   "allowedNewIndexableUrls": 0,
   "reason": "Classify and consolidate the current low/no-impression inventory before expanding the sitemap.",
+  "consolidationExecuted": {
+    "on": "2026-08-19",
+    "decisionSource": "cohort-decisions-esteban-2026-08-12 (vault), re-validated against the 2026-08-19 Search Console run",
+    "previousCount": 269,
+    "removed": 26,
+    "merged": 0,
+    "noindexed": 26,
+    "promotedBackToKeep": 2,
+    "enforcedBy": "config/cohort-consolidation.json via lib/consolidation.ts, applied in app/sitemap.ts and lib/site-metadata.ts",
+    "note": "The 2026-08-12 decisions had been documented and never shipped; all 21 MERGE URLs were still live and sitemapped on 2026-08-19. Requirement 1 of unfreezeRequires is therefore met, and the drift in the Search Console watch set is explained by this entry, satisfying requirement 2. Requirement 3 is per-URL and still outstanding.",
+    "strategicallyExempted": 33,
+    "exemptionNote": "31 URLs were pulled out of execution: 4 AI/web-theme pages seeding the 2026-08-19 positioning; 15 whose coverageState is 'URL is unknown to Google' (never fetched, so no rejection to act on); and 12 whose language counterpart survives, since NOINDEX is applied symmetrically across a bilingual pair or not at all.",
+    "mergesDeferred": 19,
+    "deferralNote": "All 19 MERGE decisions were deferred; see deferralReason in config/cohort-consolidation.json.",
+    "scope": "Service and niche pages only; all /guides/ and /es/guias/ URLs are deferred to the merge track."
+  },
   "exceptions": [
     "A redirect or canonical consolidation that does not increase the sitemap URL count",
     "A replacement URL approved in the same change as removal of an existing indexable URL"
