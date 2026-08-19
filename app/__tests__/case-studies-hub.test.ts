@@ -1,6 +1,16 @@
-import { describe, expect, it } from "vitest";
+import * as React from "react";
+import { afterAll, beforeAll, describe, expect, it, vi } from "vitest";
 
-import sitemap from "../sitemap";
+beforeAll(() => vi.stubGlobal("React", React));
+afterAll(() => vi.unstubAllGlobals());
+
+import freeze from "../../config/indexable-inventory-freeze.json";
+import { PortfolioGrid } from "@/components/portfolio-grid";
+import {
+  englishGroups as englishFooterGroups,
+  spanishGroups as spanishFooterGroups,
+} from "@/components/site-footer-client";
+import { englishNav, spanishNav } from "@/components/site-header-client";
 import {
   CASE_STUDY_IDS,
   buildCaseStudiesIndexMetadata,
@@ -12,6 +22,8 @@ import {
   getCaseStudyPath,
   type CaseStudyLocale,
 } from "@/lib/case-studies";
+import { PORTFOLIO_ITEMS } from "@/lib/portfolio";
+import sitemap from "../sitemap";
 
 const LOCALES: readonly CaseStudyLocale[] = ["en", "es"];
 
@@ -80,11 +92,101 @@ describe("no published case study is orphaned from the hub", () => {
   });
 });
 
+describe("case-studies hub discoverability and navigation data", () => {
+  it("includes /case-studies positioned directly after portfolio in English header nav data", () => {
+    const portfolioIndex = englishNav.findIndex(
+      (item) => item.href === "/portfolio",
+    );
+    expect(portfolioIndex).toBeGreaterThanOrEqual(0);
+    expect(englishNav[portfolioIndex + 1]).toEqual({
+      href: "/case-studies",
+      label: "Case studies",
+    });
+  });
+
+  it("includes /es/casos-de-estudio positioned directly after portfolio in Spanish header nav data", () => {
+    const portfolioIndex = spanishNav.findIndex(
+      (item) => item.href === "/es/portafolio",
+    );
+    expect(portfolioIndex).toBeGreaterThanOrEqual(0);
+    expect(spanishNav[portfolioIndex + 1]).toEqual({
+      href: "/es/casos-de-estudio",
+      label: "Casos de estudio",
+    });
+  });
+
+  it("includes an exact /case-studies link in the English footer nav data", () => {
+    const allEnglishFooterItems = englishFooterGroups.flatMap(
+      (group) => group.items,
+    );
+    const item = allEnglishFooterItems.find(
+      (candidate) => candidate.href === "/case-studies",
+    );
+    expect(item).toBeDefined();
+    expect(item).toEqual({
+      href: "/case-studies",
+      label: "Case studies",
+    });
+  });
+
+  it("includes an exact /es/casos-de-estudio link in the Spanish footer nav data", () => {
+    const allSpanishFooterItems = spanishFooterGroups.flatMap(
+      (group) => group.items,
+    );
+    const item = allSpanishFooterItems.find(
+      (candidate) => candidate.href === "/es/casos-de-estudio",
+    );
+    expect(item).toBeDefined();
+    expect(item).toEqual({
+      href: "/es/casos-de-estudio",
+      label: "Casos de estudio",
+    });
+  });
+
+  it.each(LOCALES)(
+    "renders a link to the case-studies hub from PortfolioGrid in %s",
+    (locale) => {
+      const grid = PortfolioGrid({ items: PORTFOLIO_ITEMS, locale });
+      expect(grid).not.toBeNull();
+
+      function findLinkHref(node: unknown, targetHref: string): boolean {
+        if (!node || typeof node !== "object") return false;
+        const elem = node as { props?: { href?: string; children?: unknown } };
+        if (elem.props?.href === targetHref) return true;
+        if (Array.isArray(node)) {
+          return node.some((child) => findLinkHref(child, targetHref));
+        }
+        if (Array.isArray(elem.props?.children)) {
+          return elem.props.children.some((child) =>
+            findLinkHref(child, targetHref),
+          );
+        }
+        if (elem.props?.children) {
+          return findLinkHref(elem.props.children, targetHref);
+        }
+        return false;
+      }
+
+      const expectedHref = getCaseStudiesIndexPath(locale);
+      expect(findLinkHref(grid, expectedHref)).toBe(true);
+    },
+  );
+});
+
 describe("sitemap inventory freeze is respected", () => {
   // config/indexable-inventory-freeze.json froze the sitemap at 269 URLs on
-  // 2026-08-14 with allowedNewIndexableUrls: 0, pending classification of the
-  // existing low/no-impression inventory. The hubs ship as crawlable pages
-  // reachable by internal link, and join the sitemap only at unfreeze.
+  // 2026-08-14 (revised to 243 on 2026-08-19) with allowedNewIndexableUrls: 0,
+  // pending classification of the existing low/no-impression inventory.
+  // The hubs ship as crawlable pages reachable by internal link, and join the
+  // sitemap only at unfreeze.
+  it("matches the exact approved URL count from the freeze config", () => {
+    const entries = sitemap();
+    expect(entries).toHaveLength(freeze.approvedSitemapUrlCount);
+    expect(new Set(entries.map((e) => e.url)).size).toBe(
+      freeze.approvedSitemapUrlCount,
+    );
+  });
+
   it("does not add the hub URLs to the sitemap while the freeze holds", () => {
     const urls = sitemap().map((entry) => entry.url);
 

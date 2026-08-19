@@ -1,0 +1,55 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-117",
+  "status": "review_pending",
+  "evidence": {
+    "obsidian_context": "Esteban Media AI-shop loop, lane L0 follow-through. PR #115 shipped the bilingual case-study hub but a second-party review found it had zero inbound internal links and is intentionally absent from the sitemap under the inventory freeze, so it was undiscoverable. This PR adds the internal links only.",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, isolated worktree /Users/gonzalo/code/esteban-hub-discovery-20260819 created off origin/main, branch feat/esteban-hub-discovery, move class seo_internal_linking.",
+    "hard_stops_checked": "Checked and clear. app/sitemap.ts and config/indexable-inventory-freeze.json are untouched, confirmed by git diff --name-only origin/main...HEAD. No new indexable URL is created; the freeze test still asserts exactly 243 sitemap URLs with a matching SHA-256 set hash and asserts the hub URLs are absent. No street address, no pricing, no outcome or metric claims, no invented client, review, turnaround or credential. No claim of full bilingualism and no drone or Part 107 implication. No outbound sending, no third-party service, no data backend.",
+    "reviewer_ensemble": "builder pass (agy, after the codex lane returned a usage-limit error), skeptic pass (free lane, VERDICT APPROVE), taste pass - see reviewer_ensemble object.",
+    "reviewer_disagreement_reviewed": "No disagreement between the reviewer roles. The verifying session independently re-ran the gate rather than trusting the builder report, because the CTO gate logged 'acceptance is not executable' on the build dispatch and fell back to a generic probe, meaning the builder's own acceptance was never enforced. The one residual risk both the skeptic and the verifier named is that nav-data assertions would not catch a component that silently stops rendering the nav; the added PortfolioGrid render assertion covers that one surface only.",
+    "winner_rationale": "Internal links are the only freeze-safe discovery mechanism available. The inventory freeze sets allowedNewIndexableUrls to 0, so the hub cannot enter the sitemap without a deliberate unfreeze with a written demand hypothesis and a named owner. Linking to it from the header, footer and portfolio surfaces makes it crawlable through existing indexed pages without adding a single URL.",
+    "tests_or_validation": "pnpm check exits 0 in the worktree: lint clean, typecheck clean, 49 of 49 test files and 387 of 387 tests passed, Next.js build succeeded. Test count rose from 380 to 387. Three separate negative controls were run by the verifying session: reverting components/site-header-client.tsx, components/site-footer-client.tsx and components/portfolio-grid.tsx individually to origin/main each made vitest exit 1 with exactly 2 failed assertions, proving the new tests are falsifiable per surface.",
+    "url_inventory": "No change. Live sitemap.xml serves 243 <loc> entries and contains neither /case-studies nor /es/casos-de-estudio, verified by curl against production.",
+    "debt_delta": "neutral",
+    "obsidian_handoff": "Durable page written this session: ~/obsidian-wiki/client-esteban-media/wiki/esteban-ai-shop-iteration-2026-08-19-l0.md, linked from esteban-media-hot.md and from the loop spec esteban-ai-shop-loop-goal-2026-08-19. It records the stale-green-check finding on PR #115, the live boundary verification, the undiscoverable-hub finding that produced this PR, the codex quota exhaustion that collapsed the 3-LLM lane to one model, and the next lane (L1 keyword map).",
+    "ci_passed": "GitHub check 'validate' passed on PR #117 (run 32260997531). 'Vercel Preview Comments' passed. The 'Cortex quality evidence' check is the gate this payload exists to satisfy and was the only failing check at the time of writing. Locally, pnpm check exits 0 with 387 of 387 tests across 49 test files.",
+    "deploy_or_rollback_plan": "Deploy is the repo's normal Vercel path on merge to main; no migration, no env var, no external service is involved. Rollback is a single git revert of the squash commit, because the change is four files of nav data plus tests and touches neither app/sitemap.ts nor config/indexable-inventory-freeze.json. A revert cannot alter the indexable inventory.",
+    "post_change_verification": "After merge, verify at the real boundary rather than on the merge: curl the production header and footer markup for href=\"/case-studies\" and href=\"/es/casos-de-estudio\", and re-assert the freeze by confirming curl of sitemap.xml still returns exactly 243 <loc> entries with zero matches for the hub URLs. Discovery itself is then measured in Search Console, where the hub should move off 'URL is unknown to Google' once the linking pages are recrawled."
+  },
+  "reviewer_ensemble": {
+    "builder": {
+      "status": "pass",
+      "note": "Added the case-studies hub entry to the English and Spanish header nav arrays directly after portfolio, to the English and Spanish footer nav columns, and to the portfolio grid surface via a locale-aware path helper. Exported the nav data so it can be asserted directly."
+    },
+    "skeptic": {
+      "status": "pass",
+      "note": "Independent second-party review through the CTO gate on the free lane, kept distinct from agy which authored the commit because the codex lane is quota-exhausted until 23:29. VERDICT APPROVE: confirmed no sitemap or freeze-config modification, no fabricated client, review, outcome, metric, price, turnaround or credential in the added labels, correct locale paths with no leakage between the English and Spanish navs, and falsifiable nav-data tests."
+    },
+    "taste": {
+      "status": "pass",
+      "note": "Link labels are plain nav nouns, 'Case studies' and 'Casos de estudio', matching the existing label register in both locales. No new marketing copy was introduced anywhere."
+    }
+  },
+  "tests_or_validation": {
+    "commands": [
+      "pnpm check",
+      "npx vitest run app/__tests__/case-studies-hub.test.ts",
+      "git checkout origin/main -- components/site-header-client.tsx && npx vitest run app/__tests__/case-studies-hub.test.ts",
+      "git checkout origin/main -- components/site-footer-client.tsx && npx vitest run app/__tests__/case-studies-hub.test.ts",
+      "git checkout origin/main -- components/portfolio-grid.tsx && npx vitest run app/__tests__/case-studies-hub.test.ts",
+      "curl -s https://estebanmorenomedia.com/sitemap.xml | grep -c '<loc>'"
+    ],
+    "results": "pnpm check exit 0, 387 of 387 tests across 49 test files, lint 0 errors, typecheck clean, Next.js build clean. Each of the three negative controls exited 1 with 2 failed assertions and the tree was restored to clean after each. Production sitemap returned 243 loc entries with 0 matches for the hub URLs.",
+    "known_failure": "none",
+    "browser": "not required - server-rendered nav and links covered by data-level and render tests plus the Next.js build."
+  },
+  "source_material_checked": "components/site-header-client.tsx, components/site-footer-client.tsx, components/portfolio-grid.tsx, app/__tests__/case-studies-hub.test.ts, app/sitemap.ts, config/indexable-inventory-freeze.json, scripts/indexable-inventory-freeze.test.mjs, lib/case-studies.ts",
+  "data_sources_current": {
+    "production_html": "https://estebanmorenomedia.com/case-studies and /es/casos-de-estudio both returned HTTP 200 and rendered all five case-study ids after PR #115 deployed.",
+    "route_inventory": "unchanged at 243 indexable URLs; this PR adds internal links only."
+  },
+  "booking_or_authority_thesis": "The case-study hub is the proof surface for the AI-shop repositioning. While the inventory freeze holds it out of the sitemap, internal links from the header, footer and portfolio are the only path by which crawlers and visitors can reach it, so this converts an already-shipped but unreachable page into a discoverable credibility asset.",
+  "debt_delta": "neutral"
+}
