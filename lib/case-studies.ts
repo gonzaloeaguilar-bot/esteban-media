@@ -1138,3 +1138,195 @@ export function buildCaseStudyStructuredData(caseStudy: CaseStudy) {
     ],
   };
 }
+
+// ---------------------------------------------------------------------------
+// Case-study index (hub)
+//
+// The five case-study detail pages shipped in #91 and are listed in the
+// sitemap, but `/case-studies` and `/es/casos-de-estudio` returned 404: only
+// `[id]/page.tsx` existed under each route segment, with no index page. That
+// left every published case study reachable only from a portfolio deep link.
+// ---------------------------------------------------------------------------
+
+export type CaseStudyDiscipline = "systems" | "production" | "design";
+
+/**
+ * Discipline is derived from the published scope of each case study rather
+ * than stored on the localized content blocks, so the grouping cannot drift
+ * between the English and Spanish copies of the same project.
+ */
+export const CASE_STUDY_DISCIPLINES: Record<CaseStudyId, CaseStudyDiscipline> = {
+  "flas-concierge": "systems",
+  banacol: "production",
+  "healthy-smile": "production",
+  homeowners: "production",
+  "my-dler": "design",
+};
+
+export function getCaseStudyDiscipline(
+  caseStudyOrId: CaseStudy | CaseStudyId,
+): CaseStudyDiscipline {
+  const id = typeof caseStudyOrId === "string" ? caseStudyOrId : caseStudyOrId.id;
+  return CASE_STUDY_DISCIPLINES[id];
+}
+
+export const caseStudiesIndexCopy = {
+  en: {
+    path: "/case-studies",
+    metadataTitle: "Case Studies: Web, AI Systems & Video Projects",
+    description:
+      "Published Esteban Moreno Media case studies covering dealership web architecture with a conversational AI concierge, aerial cinematography, on-location dental production, real estate post-production, and 3D motion design.",
+    breadcrumbHome: "Home",
+    breadcrumbCurrent: "Case Studies",
+    breadcrumbLabel: "Breadcrumb",
+    eyebrow: "Published project work",
+    title: "How each project was scoped, built, and delivered.",
+    answerLabel: "Quick answer:",
+    answer:
+      "Five published case studies covering web and AI systems, on-location and aerial production, remote post-production, and motion design — each with the confirmed role, deliverables, and scoping questions used on the project.",
+    intro:
+      "Every case study on this page describes work that was actually delivered. Roles are stated exactly as they were performed, and no client name, review, outcome, price, or turnaround appears here without the client's own published confirmation.",
+    readLabel: "Read the case study",
+    languageLabel: "Ver los casos de estudio en español",
+    countLabel: "Focused breakdowns of delivered project work.",
+    disciplineHeadings: {
+      systems: "Web & AI systems",
+      production: "Video production & post",
+      design: "Motion & design",
+    },
+    disciplineIntros: {
+      systems:
+        "Custom web architecture and conversational AI built for local businesses that need inquiries answered outside office hours.",
+      production:
+        "On-location capture, aerial cinematography, and remote post-production from supplied or captured footage.",
+      design:
+        "3D motion, key visuals, and pitch assets produced on assignment.",
+    },
+    relatedEyebrow: "From proof to project",
+    relatedTitle: "Connect a case study to the service and the portfolio piece behind it.",
+    roleLabel: "Role",
+    deliverablesLabel: "Deliverables",
+  },
+  es: {
+    path: "/es/casos-de-estudio",
+    metadataTitle: "Casos de Estudio: Web, Sistemas con IA y Video",
+    description:
+      "Casos de estudio publicados de Esteban Moreno Media: arquitectura web con concierge de IA conversacional para concesionario, cinematografía aérea, producción odontológica en locación, postproducción inmobiliaria y animación 3D.",
+    breadcrumbHome: "Inicio",
+    breadcrumbCurrent: "Casos de Estudio",
+    breadcrumbLabel: "Migas de pan",
+    eyebrow: "Trabajo publicado",
+    title: "Cómo se definió, se construyó y se entregó cada proyecto.",
+    answerLabel: "Respuesta rápida:",
+    answer:
+      "Cinco casos de estudio publicados sobre sistemas web con IA, producción en locación y aérea, postproducción remota y diseño de movimiento, cada uno con el rol confirmado, los entregables y las preguntas de definición usadas en el proyecto.",
+    intro:
+      "Cada caso de estudio de esta página describe trabajo realmente entregado. Los roles se declaran tal como se ejecutaron, y ningún nombre de cliente, reseña, resultado, precio o tiempo de entrega aparece aquí sin la confirmación pública del propio cliente.",
+    readLabel: "Leer el caso de estudio",
+    languageLabel: "Read the case studies in English",
+    countLabel: "Desgloses concretos de trabajo entregado.",
+    disciplineHeadings: {
+      systems: "Web y sistemas con IA",
+      production: "Producción y postproducción de video",
+      design: "Animación y diseño",
+    },
+    disciplineIntros: {
+      systems:
+        "Arquitectura web a medida e IA conversacional para negocios locales que necesitan responder consultas fuera del horario de oficina.",
+      production:
+        "Grabación en locación, cinematografía aérea y postproducción remota con material entregado o capturado.",
+      design:
+        "Animación 3D, piezas visuales clave y material de presentación producidos por encargo.",
+    },
+    relatedEyebrow: "De la prueba al proyecto",
+    relatedTitle: "Conecta cada caso de estudio con su servicio y su pieza de portafolio.",
+    roleLabel: "Rol",
+    deliverablesLabel: "Entregables",
+  },
+} as const;
+
+export const CASE_STUDY_DISCIPLINE_ORDER: readonly CaseStudyDiscipline[] = [
+  "systems",
+  "production",
+  "design",
+];
+
+export function getCaseStudiesIndexPath(locale: CaseStudyLocale): string {
+  return caseStudiesIndexCopy[locale].path;
+}
+
+export function getCaseStudiesByDiscipline(locale: CaseStudyLocale) {
+  const studies = getCaseStudies(locale);
+
+  return CASE_STUDY_DISCIPLINE_ORDER.map((discipline) => ({
+    discipline,
+    studies: studies.filter(
+      (study) => getCaseStudyDiscipline(study) === discipline,
+    ),
+  })).filter((group) => group.studies.length > 0);
+}
+
+export function buildCaseStudiesIndexMetadata(
+  locale: CaseStudyLocale,
+): Metadata {
+  const copy = caseStudiesIndexCopy[locale];
+
+  return buildPageMetadata({
+    title: copy.metadataTitle,
+    description: copy.description,
+    path: copy.path,
+    locale,
+    languages: {
+      "en-US": caseStudiesIndexCopy.en.path,
+      "es-US": caseStudiesIndexCopy.es.path,
+      "x-default": caseStudiesIndexCopy.en.path,
+    },
+  });
+}
+
+export function buildCaseStudiesIndexStructuredData(locale: CaseStudyLocale) {
+  const copy = caseStudiesIndexCopy[locale];
+  const pageUrl = absoluteUrl(copy.path);
+  const breadcrumbsId = `${pageUrl}#breadcrumbs`;
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: copy.metadataTitle,
+        description: copy.description,
+        inLanguage: locale === "es" ? "es-US" : "en-US",
+        isPartOf: { "@id": absoluteUrl("/#website") },
+        breadcrumb: { "@id": breadcrumbsId },
+        publisher: { "@id": absoluteUrl("/#business") },
+        hasPart: getCaseStudies(locale).map((study) => ({
+          "@type": "WebPage",
+          "@id": `${absoluteUrl(getCaseStudyPath(study))}#webpage`,
+          url: absoluteUrl(getCaseStudyPath(study)),
+          name: study.title,
+        })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": breadcrumbsId,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: copy.breadcrumbHome,
+            item: absoluteUrl(locale === "es" ? "/es" : "/"),
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: copy.breadcrumbCurrent,
+            item: pageUrl,
+          },
+        ],
+      },
+    ],
+  };
+}
