@@ -19,7 +19,7 @@ type FooterProps = {
   name: string;
 };
 
-const englishGroups = [
+export const englishGroups = [
   {
     title: "Services",
     items: [
@@ -53,6 +53,7 @@ const englishGroups = [
       { href: "/", label: "Home" },
       { href: "/services", label: "Services" },
       { href: "/portfolio", label: "Portfolio" },
+      { href: "/case-studies", label: "Case studies" },
       { href: "/portfolio/healthy-smile", label: "Healthy Smile Miami" },
       { href: "/portfolio/homeowners", label: "Homeowners edit" },
       { href: "/guides", label: "Video guides" },
@@ -68,7 +69,7 @@ const englishGroups = [
   },
 ];
 
-const spanishGroups = [
+export const spanishGroups = [
   {
     title: "Servicios",
     items: [
@@ -107,6 +108,7 @@ const spanishGroups = [
       { href: "/es", label: "Inicio" },
       { href: "/es/servicios", label: "Servicios" },
       { href: "/es/portafolio", label: "Portafolio" },
+      { href: "/es/casos-de-estudio", label: "Casos de estudio" },
       { href: "/es/portafolio/healthy-smile", label: "Healthy Smile Miami" },
       { href: "/es/portafolio/homeowners", label: "Edición Homeowners" },
       { href: "/es/guias", label: "Guías de video" },

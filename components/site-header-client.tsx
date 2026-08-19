@@ -7,16 +7,18 @@ import { ArrowRight, Menu, X } from "lucide-react";
 
 import { getPairedLanguageRoute } from "@/lib/language-routes";
 
-const englishNav = [
+export const englishNav = [
   { href: "/services", label: "Services" },
   { href: "/portfolio", label: "Portfolio" },
+  { href: "/case-studies", label: "Case studies" },
   { href: "/areas", label: "Areas" },
   { href: "/about", label: "About" },
 ];
 
-const spanishNav = [
+export const spanishNav = [
   { href: "/es/servicios", label: "Servicios" },
   { href: "/es/portafolio", label: "Portafolio" },
+  { href: "/es/casos-de-estudio", label: "Casos de estudio" },
   { href: "/es/areas", label: "Áreas" },
   { href: "/es/sobre-esteban", label: "Sobre Esteban" },
 ];
