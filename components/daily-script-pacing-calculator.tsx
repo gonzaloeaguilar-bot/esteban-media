@@ -96,7 +96,7 @@ const DRILLS_ES: PacingDrill[] = [
     wpm: 135,
     description: "Señala el punto de fricción de la audiencia, revela la solución en 2 pasos y brinda un siguiente paso claro.",
     template:
-      "Si tus videos pierden audiencia en los primeros 5 segundos, probablemente te falta una prueba visual inmediata. En lugar de presentarte, muestra el resultado final desde el primer fotograma. Luego explica los 2 pasos exactos para lograrlo. Consulta el enlace para estructuras diarias de video.",
+      "Define un punto de fricción de la audiencia. Abre con una prueba visual relacionada, explica dos pasos y termina con una siguiente acción concreta.",
   },
   {
     title: "Desglose de Proceso en 3 Pasos de 45 Segundos",
@@ -105,7 +105,7 @@ const DRILLS_ES: PacingDrill[] = [
     wpm: 130,
     description: "Entrega un flujo técnico en 3 pasos con pausas naturales entre pasos para tomas de apoyo.",
     template:
-      "Esta es la preparación exacta en 3 pasos antes de presionar grabar en cada rodaje. Paso 1: Coloca la luz principal a 45 grados. Paso 2: Bloquea la exposición manual para evitar parpadeos en el fondo. Paso 3: Graba 5 segundos de sonido ambiente para sincronización limpia. Consulta la guía para la lista completa.",
+      "Usa esta estructura de 3 pasos antes de grabar. Paso 1: Elige la posición de la luz principal. Paso 2: Comprueba si la exposición muestra parpadeos. Paso 3: Graba una muestra breve de sonido ambiente. Añade una pausa entre cada paso para una toma de apoyo.",
   },
   {
     title: "Caso de Estudio y Demostración de 60 Segundos",
@@ -171,7 +171,7 @@ export function localDateKey() {
 }
 
 export function drillForTodayIndex(total: number) {
-  const dayNumber = Math.floor(Date.now() / 86_400_000);
+  const dayNumber = Math.floor(new Date().setHours(0, 0, 0, 0) / 86_400_000);
   return dayNumber % total;
 }
 
@@ -205,12 +205,10 @@ export function DailyScriptPacingCalculator({ locale = "en" }: { locale?: "en" |
   });
 
   const [isReady, setIsReady] = useState(false);
-  const initialDrillIndex = drillForTodayIndex(drills.length);
-  const initialDrill = drills[initialDrillIndex];
-  const [drillIndex, setDrillIndex] = useState(initialDrillIndex);
-  const [scriptText, setScriptText] = useState(initialDrill.template);
-  const [targetSeconds, setTargetSeconds] = useState(initialDrill.targetSeconds);
-  const [wpm, setWpm] = useState(initialDrill.wpm);
+  const [drillIndex, setDrillIndex] = useState(0);
+  const [scriptText, setScriptText] = useState("");
+  const [targetSeconds, setTargetSeconds] = useState(30);
+  const [wpm, setWpm] = useState(135);
   const [copied, setCopied] = useState(false);
 
   const [email, setEmail] = useState("");
@@ -220,6 +218,13 @@ export function DailyScriptPacingCalculator({ locale = "en" }: { locale?: "en" |
   const currentDrill = drills[drillIndex % drills.length];
 
   useEffect(() => {
+    const todayDrillIndex = drillForTodayIndex(drills.length);
+    const todayDrill = drills[todayDrillIndex];
+    setDrillIndex(todayDrillIndex);
+    setScriptText(todayDrill.template);
+    setTargetSeconds(todayDrill.targetSeconds);
+    setWpm(todayDrill.wpm);
+
     const saved = window.localStorage.getItem(storageKey);
     if (!saved) {
       setState({
@@ -257,7 +262,7 @@ export function DailyScriptPacingCalculator({ locale = "en" }: { locale?: "en" |
       });
     }
     setIsReady(true);
-  }, [today, readinessChecks.length]);
+  }, [drills, today, readinessChecks.length]);
 
   useEffect(() => {
     if (!isReady) return;
@@ -351,6 +356,20 @@ export function DailyScriptPacingCalculator({ locale = "en" }: { locale?: "en" |
 
   const completedChecksCount = state.checksCompleted.filter(Boolean).length;
   const isChecksComplete = completedChecksCount === readinessChecks.length && readinessChecks.length > 0;
+
+  if (!isReady) {
+    return (
+      <div
+        className="mx-auto min-h-80 max-w-2xl rounded-2xl border border-[#ddd4c8] bg-[#fbf6ef] p-4 shadow-sm sm:p-7"
+        role="status"
+        aria-live="polite"
+      >
+        <p className="text-sm text-[#5a6066]">
+          {isEs ? "Preparando la plantilla diaria…" : "Preparing today’s pacing drill…"}
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className="mx-auto max-w-2xl rounded-2xl border border-[#ddd4c8] bg-[#fbf6ef] p-4 shadow-sm sm:p-7">
