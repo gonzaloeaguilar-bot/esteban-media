@@ -127,6 +127,11 @@
 
 Keep the production site reproducible, governed, private, and ready for the next proof/indexing phase.
 
+## Miami video-production cost metadata — 2026-08-20
+
+- Candidate branch `codex/esteban-video-production-miami-tuition-20260820` refreshes only the English corporate-video-cost guide metadata for the live low-CTR query `video production miami tuition`. The title now leads with `Miami Video Production Cost Guide`; the description names the scope, filming, editing, deliverables, and quote inputs that the visible guide already explains.
+- This preserves the guide's existing no-fixed-price position and does not add a route, claim, schema type, or language-pair change. Local `pnpm check` passed before PR creation.
+
 ## ESTEBAN-02 recovery candidate — 2026-08-05T21:11 ET
 
 - Isolated clone/branch: `.worktrees/esteban02-recovery`, `codex/esteban-02-recovery`, based on retained tracked main `877dce7`. The earlier `/tmp` commit was cleaned up; its provider transcript was used as the retained scope, then the source-of-truth audio note exposed one additional defect: Homeowners has no supplied measurable result.
