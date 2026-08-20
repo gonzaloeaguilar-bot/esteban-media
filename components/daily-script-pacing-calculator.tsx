@@ -21,7 +21,7 @@ const DRILLS_EN: PacingDrill[] = [
     wpm: 150,
     description: "Anchor the core mistake and immediate solution in 3 short sentences before the viewer scrolls.",
     template:
-      "Stop doing this common filming mistake if you want clean retention. Here is the single adjustment that cuts editing time in half. Save this for your next video shoot.",
+      "Name one filming mistake. Show the affected frame. Then describe one adjustment and the next check to run before recording.",
   },
   {
     title: "30-Second Problem-Agitation-Solution",
@@ -39,7 +39,7 @@ const DRILLS_EN: PacingDrill[] = [
     wpm: 135,
     description: "Deliver a clear 3-step technical workflow with natural pause markers between steps for cutaways.",
     template:
-      "Here is the exact 3-step setup we use before hitting record on every commercial shoot. Step 1: Set key light at 45 degrees. Step 2: Lock exposure manually to prevent room flicker. Step 3: Record 5 seconds of room tone for clean audio syncing. Check the guide for the complete checklist.",
+      "Use this 3-step setup before recording. Step 1: Choose the key-light position. Step 2: Check exposure for visible flicker. Step 3: Record a short room-tone sample for audio editing. Add a pause between each step for a cutaway.",
   },
   {
     title: "60-Second Case Study & Transformation",
@@ -48,7 +48,7 @@ const DRILLS_EN: PacingDrill[] = [
     wpm: 135,
     description: "Narrate client baseline, strategic turnaround, and measurable outcome with dedicated b-roll pauses.",
     template:
-      "A local business came to us with 200 raw video clips and zero social engagement. Here was the turnaround plan: First, we cut every clip down to 2-second action bites. Second, we added clear text hooks highlighting signature offerings. Within 30 days, their organic video reach tripled. The lesson: short, high-density cuts beat long static footage every time. Share this with your marketing team.",
+      "Draft a neutral before-and-after example. Start with a folder of unedited clips. Next, describe two editing decisions, such as selecting action shots and adding clear text labels. End by naming the observable difference in the finished sequence without inventing performance results.",
   },
   {
     title: "30-Second Myth-Buster & Reframe",
@@ -57,7 +57,7 @@ const DRILLS_EN: PacingDrill[] = [
     wpm: 140,
     description: "Dispel an expensive gear misconception and emphasize the 2 fundamentals that actually drive quality.",
     template:
-      "You do not need a $5,000 camera to create clean business videos. The two things that actually matter are clean directional lighting and crisp wireless audio. Nail those two, and any modern phone will deliver professional results. Check your audio levels and start filming.",
+      "Test the idea that the camera is the only part of video quality. Compare the image under two lighting positions, then compare audio from two microphone distances. Use the visible and audible differences to choose the next setup.",
   },
   {
     title: "40-Second Behind-the-Scenes Production Drill",
@@ -66,7 +66,7 @@ const DRILLS_EN: PacingDrill[] = [
     wpm: 135,
     description: "Break down an efficient on-location filming session to demonstrate systematic content creation.",
     template:
-      "Here is what happens behind the camera during a 60-minute video batch shoot. We start with 3 camera angles, verify the 9:16 safe-zone framing, and record 6 distinct hook variations in the first 15 minutes. Batching your capture this way saves hours in post-production. Try this framework on your next shoot.",
+      "Outline a batch-recording session. List the planned camera angles, verify the safe area for the target format, and record alternate openings. Add time markers to the outline so each section has a clear stopping point.",
   },
   {
     title: "20-Second Direct Offer & Next Step",
@@ -75,7 +75,7 @@ const DRILLS_EN: PacingDrill[] = [
     wpm: 145,
     description: "Filter target audience immediately, define service scope concisely, and direct to portfolio.",
     template:
-      "Need help turning your raw footage into polished, high-retention video content? We edit and format short-form videos for growing businesses in South Florida and remote. Tap the link to view our recent work.",
+      "State the type of footage, the intended video format, and the next review step. Keep the request specific: identify the source files, target duration, aspect ratio, and delivery date.",
   },
 ];
 
@@ -87,7 +87,7 @@ const DRILLS_ES: PacingDrill[] = [
     wpm: 145,
     description: "Ancla el error principal y la solución inmediata en 3 frases cortas antes de que el usuario haga scroll.",
     template:
-      "Deja de cometer este error al grabar si quieres retención limpia. Aquí tienes el ajuste clave que reduce el tiempo de edición a la mitad. Guarda esto para tu próxima grabación de video.",
+      "Nombra un error de grabación. Muestra el fotograma afectado. Luego describe un ajuste y la siguiente comprobación antes de grabar.",
   },
   {
     title: "Problema-Agitación-Solución de 30 Segundos",
@@ -114,7 +114,7 @@ const DRILLS_ES: PacingDrill[] = [
     wpm: 130,
     description: "Narra la situación inicial, el cambio estratégico y el resultado concreto con pausas para B-roll.",
     template:
-      "Un negocio local llegó con 200 clips sin editar y cero interacción en redes. Este fue el plan de acción: Primero, cortamos cada toma a planos de acción de 2 segundos. Segundo, agregamos textos clave destacando los servicios principales. En 30 días, su alcance orgánico se multiplicó. La lección: planos cortos y dinámicos superan tomas estáticas. Comparte esto con tu equipo.",
+      "Redacta un ejemplo neutral de antes y después. Comienza con una carpeta de clips sin editar. Luego, describe dos decisiones de edición, como seleccionar tomas de acción y añadir rótulos claros. Termina con una diferencia observable en la secuencia final sin inventar resultados de rendimiento.",
   },
   {
     title: "Mito Común y Reencuadre de 30 Segundos",
@@ -123,7 +123,7 @@ const DRILLS_ES: PacingDrill[] = [
     wpm: 135,
     description: "Desmitifica la necesidad de equipos costosos y destaca los 2 pilares que determinan la calidad del video.",
     template:
-      "No necesitas una cámara de 5.000 dólares para producir videos profesionales para tu negocio. Los dos factores que marcan la diferencia son iluminación direccional limpia y audio inalámbrico claro. Domina esos dos elementos y cualquier teléfono actual te dará un acabado impecable. Revisa tu audio y empieza a grabar.",
+      "Pon a prueba la idea de que la cámara es el único factor de calidad. Compara la imagen con dos posiciones de luz y el audio con dos distancias de micrófono. Usa las diferencias visibles y audibles para elegir la siguiente configuración.",
   },
   {
     title: "Ritmo de Detrás de Cámaras de 40 Segundos",
@@ -132,7 +132,7 @@ const DRILLS_ES: PacingDrill[] = [
     wpm: 130,
     description: "Desglosa una sesión eficiente de grabación por lotes para estructurar contenido continuo.",
     template:
-      "Esto es lo que ocurre detrás de cámara durante una sesión de grabación de 60 minutos. Configuramos 3 ángulos de toma, verificamos zonas seguras 9:16 y grabamos 6 variaciones de ganchos en los primeros 15 minutos. Trabajar por lotes ahorra horas de postproducción. Aplica este método en tu próxima sesión.",
+      "Organiza una sesión de grabación por lotes. Enumera los ángulos previstos, verifica la zona segura del formato final y graba aperturas alternativas. Añade marcas de tiempo al esquema para definir el cierre de cada sección.",
   },
   {
     title: "Llamado a la Acción Directo de 20 Segundos",
@@ -141,7 +141,7 @@ const DRILLS_ES: PacingDrill[] = [
     wpm: 140,
     description: "Filtra a tu público objetivo, define el alcance del servicio y dirige al portafolio.",
     template:
-      "¿Necesitas ayuda para transformar tu material grabado en videos de alta retención para redes? Editamos y optimizamos contenido para negocios en el sur de Florida y de forma remota. Visita nuestro portafolio para ver ejemplos recientes.",
+      "Indica el tipo de material, el formato de video previsto y el siguiente paso de revisión. Especifica los archivos de origen, la duración objetivo, la relación de aspecto y la fecha de entrega.",
   },
 ];
 
@@ -165,14 +165,32 @@ type PacingState = {
 
 const storageKey = "esteban-media-daily-pacing-calculator";
 
-function localDateKey() {
+export function localDateKey() {
   const now = new Date();
   return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
 }
 
-function drillForTodayIndex(total: number) {
-  const dayNumber = Math.floor(new Date().setHours(0, 0, 0, 0) / 86_400_000);
+export function drillForTodayIndex(total: number) {
+  const dayNumber = Math.floor(Date.now() / 86_400_000);
   return dayNumber % total;
+}
+
+export function nextStreak(streak: number, wasComplete: boolean, isComplete: boolean) {
+  if (isComplete && !wasComplete) return streak + 1;
+  if (wasComplete && !isComplete) return Math.max(0, streak - 1);
+  return streak;
+}
+
+export function carriedStreak(
+  streak: number,
+  previousDate: string,
+  currentDate: string,
+  previousDayComplete: boolean,
+) {
+  const previous = new Date(`${previousDate}T00:00:00`);
+  const current = new Date(`${currentDate}T00:00:00`);
+  const dayGap = Math.round((current.getTime() - previous.getTime()) / 86_400_000);
+  return dayGap === 1 && previousDayComplete ? streak : 0;
 }
 
 export function DailyScriptPacingCalculator({ locale = "en" }: { locale?: "en" | "es" }) {
@@ -187,24 +205,17 @@ export function DailyScriptPacingCalculator({ locale = "en" }: { locale?: "en" |
   });
 
   const [isReady, setIsReady] = useState(false);
-  const [drillIndex, setDrillIndex] = useState(0);
-  const [scriptText, setScriptText] = useState("");
-  const [targetSeconds, setTargetSeconds] = useState(30);
-  const [wpm, setWpm] = useState(135);
+  const initialDrillIndex = drillForTodayIndex(drills.length);
+  const initialDrill = drills[initialDrillIndex];
+  const [drillIndex, setDrillIndex] = useState(initialDrillIndex);
+  const [scriptText, setScriptText] = useState(initialDrill.template);
+  const [targetSeconds, setTargetSeconds] = useState(initialDrill.targetSeconds);
+  const [wpm, setWpm] = useState(initialDrill.wpm);
   const [copied, setCopied] = useState(false);
 
   const [email, setEmail] = useState("");
   const [captureStatus, setCaptureStatus] = useState<"idle" | "sending" | "saved" | "error">("idle");
   const today = useMemo(localDateKey, []);
-
-  useEffect(() => {
-    const idx = drillForTodayIndex(drills.length);
-    setDrillIndex(idx);
-    const initialDrill = drills[idx];
-    setScriptText(initialDrill.template);
-    setTargetSeconds(initialDrill.targetSeconds);
-    setWpm(initialDrill.wpm);
-  }, [drills]);
 
   const currentDrill = drills[drillIndex % drills.length];
 
@@ -229,10 +240,13 @@ export function DailyScriptPacingCalculator({ locale = "en" }: { locale?: "en" |
           streak: parsed.streak || 0,
         });
       } else {
+        const completedPreviousDay =
+          (parsed.checksCompleted || []).length === readinessChecks.length &&
+          parsed.checksCompleted.every(Boolean);
         setState({
           date: today,
           checksCompleted: Array(readinessChecks.length).fill(false),
-          streak: parsed.streak || 0,
+          streak: carriedStreak(parsed.streak || 0, parsed.date, today, completedPreviousDay),
         });
       }
     } catch {
@@ -261,12 +275,7 @@ export function DailyScriptPacingCalculator({ locale = "en" }: { locale?: "en" |
       return {
         ...current,
         checksCompleted,
-        streak:
-          nowAllChecks && !wasAllChecks
-            ? current.streak + 1
-            : nowAllChecks
-              ? current.streak
-              : Math.max(0, current.streak - 1),
+        streak: nextStreak(current.streak, wasAllChecks, nowAllChecks),
       };
     });
   }

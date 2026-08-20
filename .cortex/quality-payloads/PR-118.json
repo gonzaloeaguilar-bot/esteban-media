@@ -7,15 +7,17 @@
     "obsidian_context": "Additive bilingual daily video script pacing and teleprompter calculator habit surface to establish a daily return engine for video creators and editors.",
     "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, isolated worktree /Users/gonzalo/code/portfolio-ops-nightly/.cto-worktrees/esteban-dau-engine-20260820, branch agy/esteban-dau-engine-20260820, move class dau_engine.",
     "hard_stops_checked": "Checked and clear. Pure additive interactive utility surface, zero modifications to existing content routes, zero pricing or outcome guarantees, zero third-party integrations or external data stores.",
-    "reviewer_ensemble": "builder pass, skeptic pass, taste pass - see reviewer_ensemble object.",
-    "reviewer_disagreement_reviewed": "The skeptic verified that all links resolve to valid paired routes /daily-script-pacing-calculator and /es/calculadora-de-ritmo-de-video, local storage state isolates properly, email capture connects safely to existing /api/lead, and all 50 test files / 391 tests pass.",
+    "reviewer_ensemble": "Builder completed the surface. Independent QA found claim-copy and streak defects; both were corrected and covered by the final 394-test pass. Taste review remains review-gated.",
+    "reviewer_disagreement_reviewed": "Independent QA rejected the initial copy and streak behavior. The final branch uses neutral drills, tested consecutive-day streak helpers, reciprocal language alternates, and the repository-approved frozen sitemap inventory.",
     "winner_rationale": "Building an interactive script pacing calculator with cadence presets (100-160 WPM), 7 rotating daily drills, and 3 delivery checks provides immediate daily utility for video producers, establishing a concrete reason to return daily while capturing qualified lead interest.",
-    "tests_or_validation": "pnpm check passed: lint 0 errors, typecheck clean, 50 of 50 test files / 391 tests passed, and 295-page Next.js production build succeeded.",
-    "ci_passed": "Local full repository check passed; GitHub validate is pending at payload creation time.",
-    "pr_review_complete": "Self-review complete across app/(english)/daily-script-pacing-calculator/page.tsx, app/(spanish)/es/calculadora-de-ritmo-de-video/page.tsx, components/daily-script-pacing-calculator.tsx, lib/language-routes.ts, lib/lead-responder.ts, components/site-footer-client.tsx, app/__tests__/daily-script-pacing-calculator.test.ts, and app/__tests__/lead-submit-analytics.test.ts.",
+    "tests_or_validation": "pnpm check passed after QA fixes: lint clean, typecheck clean, 50 of 50 test files / 394 tests passed, and 295-page Next.js production build succeeded.",
+    "ci_passed": "Local full repository gate passed after QA fixes; prior GitHub validate passed and the new head is awaiting GitHub validation.",
+    "pr_review_complete": "Independent Claude QA completed and found two blockers. Both were corrected: neutral drill copy and consecutive-day streak logic with direct tests. Reciprocal language metadata was also added; sitemap inclusion remains excluded by the repository's 243-URL inventory freeze.",
     "deploy_or_rollback_plan": "Review-gated PR awaiting editorial review. When merged to main, standard Vercel deploy triggers. Rollback is a clean git revert.",
     "post_change_verification": "Post-deploy verification via curl and DOM interactive state assertions on both English and Spanish production URLs, followed by DAU retention monitoring.",
-    "claim_hygiene_checked": "All copy strictly voice-neutral utility microcopy. No pricing, guarantees, client testimonials, medical or business outcome claims.",
+    "claim_hygiene_checked": "Independent QA identified attributed and performance copy in the initial commit. All such templates were replaced with neutral exercise instructions, and a source scan found none of the rejected phrases.",
+    "data_sources_current": "Live PR diff and check rollup read from GitHub; route inventory and metadata verified from the current branch; full local gate rerun after fixes.",
+    "booking_or_authority_thesis": "The interactive pacing workflow provides repeat utility for script preparation; any retention effect remains to be measured after editorial approval.",
     "debt_delta": "improvement",
     "obsidian_handoff": "Recorded in Obsidian hot.md and durable notes."
   },
@@ -40,7 +42,7 @@
     },
     "skeptic": {
       "status": "pass",
-      "note": "Verified that all interactive controls are thumb-reachable and keyboard accessible, fallback state handles SSR hydration cleanly, and unit tests cover language routes and lead responder validation."
+      "note": "Independent QA initially failed the branch on copy and streak logic. The defects were corrected, direct streak tests were added, and the full 394-test gate passed."
     },
     "taste": {
       "status": "pass",
@@ -51,7 +53,7 @@
     "commands": [
       "pnpm check"
     ],
-    "results": "391 of 391 tests across 50 test files passed; lint 0 errors; typecheck clean; Next.js build clean with 295 prerendered pages.",
+    "results": "394 of 394 tests across 50 test files passed; lint clean; typecheck clean; Next.js build clean with 295 prerendered pages.",
     "known_failure": "none",
     "browser": "not required - server-rendered and client hydration verified by tests and Next.js build."
   },

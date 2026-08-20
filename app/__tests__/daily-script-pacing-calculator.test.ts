@@ -3,6 +3,11 @@ import { describe, expect, it } from "vitest";
 import { englishGroups, spanishGroups } from "@/components/site-footer-client";
 import { getPairedLanguageRoute } from "@/lib/language-routes";
 import { validateLeadPayload } from "@/lib/lead-responder";
+import { languageAlternates } from "@/lib/spanish-site";
+import {
+  carriedStreak,
+  nextStreak,
+} from "@/components/daily-script-pacing-calculator";
 
 describe("Daily Script Pacing Calculator surface", () => {
   it("pairs English and Spanish daily script pacing calculator routes correctly", () => {
@@ -58,5 +63,26 @@ describe("Daily Script Pacing Calculator surface", () => {
     const esPage = await import("../(spanish)/es/calculadora-de-ritmo-de-video/page");
     expect(esPage.metadata.title).toBe("Calculadora de Ritmo de Video y Guion Diario");
     expect(esPage.metadata.alternates?.canonical).toBe("/es/calculadora-de-ritmo-de-video");
+  });
+
+  it("publishes reciprocal language alternates", () => {
+    expect(languageAlternates["/daily-script-pacing-calculator"]?.["es-US"]).toBe(
+      "/es/calculadora-de-ritmo-de-video",
+    );
+    expect(languageAlternates["/es/calculadora-de-ritmo-de-video"]?.["en-US"]).toBe(
+      "/daily-script-pacing-calculator",
+    );
+  });
+
+  it("preserves a prior streak while a new day's checklist is in progress", () => {
+    expect(nextStreak(4, false, false)).toBe(4);
+    expect(nextStreak(4, false, true)).toBe(5);
+    expect(nextStreak(5, true, false)).toBe(4);
+  });
+
+  it("carries streaks only from a completed consecutive day", () => {
+    expect(carriedStreak(4, "2026-08-19", "2026-08-20", true)).toBe(4);
+    expect(carriedStreak(4, "2026-08-18", "2026-08-20", true)).toBe(0);
+    expect(carriedStreak(4, "2026-08-19", "2026-08-20", false)).toBe(0);
   });
 });
