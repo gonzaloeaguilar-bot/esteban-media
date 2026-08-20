@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { englishGroups, spanishGroups } from "@/components/site-footer-client";
 import { getPairedLanguageRoute } from "@/lib/language-routes";
@@ -6,8 +6,13 @@ import { validateLeadPayload } from "@/lib/lead-responder";
 import { languageAlternates } from "@/lib/spanish-site";
 import {
   carriedStreak,
+  drillForTodayIndex,
   nextStreak,
 } from "@/components/daily-script-pacing-calculator";
+
+afterEach(() => {
+  vi.useRealTimers();
+});
 
 describe("Daily Script Pacing Calculator surface", () => {
   it("pairs English and Spanish daily script pacing calculator routes correctly", () => {
@@ -84,5 +89,13 @@ describe("Daily Script Pacing Calculator surface", () => {
     expect(carriedStreak(4, "2026-08-19", "2026-08-20", true)).toBe(4);
     expect(carriedStreak(4, "2026-08-18", "2026-08-20", true)).toBe(0);
     expect(carriedStreak(4, "2026-08-19", "2026-08-20", false)).toBe(0);
+  });
+
+  it("rotates the daily drill at local midnight", () => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date(2026, 7, 20, 23, 59, 59));
+    const beforeMidnight = drillForTodayIndex(7);
+    vi.setSystemTime(new Date(2026, 7, 21, 0, 0, 0));
+    expect(drillForTodayIndex(7)).toBe((beforeMidnight + 1) % 7);
   });
 });

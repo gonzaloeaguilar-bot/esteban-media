@@ -10,9 +10,9 @@
     "reviewer_ensemble": "Builder completed the surface. Independent QA found claim-copy and streak defects; both were corrected and covered by the final 394-test pass. Taste review remains review-gated.",
     "reviewer_disagreement_reviewed": "Independent QA rejected the initial copy and streak behavior, then caught a static-render daily-selection regression. The final branch uses neutral drills, tested consecutive-day streak helpers, local-midnight selection after hydration, reciprocal language alternates, and the repository-approved frozen sitemap inventory.",
     "winner_rationale": "Building an interactive script pacing calculator with cadence presets (100-160 WPM), 7 rotating daily drills, and 3 delivery checks provides immediate daily utility for video producers, establishing a concrete reason to return daily while capturing qualified lead interest.",
-    "tests_or_validation": "pnpm check passed after QA fixes: lint clean, typecheck clean, 50 of 50 test files / 394 tests passed, and 295-page Next.js production build succeeded.",
+    "tests_or_validation": "pnpm check passed after final QA fixes: lint clean, typecheck clean, 50 of 50 test files / 395 tests passed, and 295-page Next.js production build succeeded.",
     "ci_passed": "Local full repository gate passed after QA fixes; prior GitHub validate passed and the new head is awaiting GitHub validation.",
-    "pr_review_complete": "Independent Claude QA completed two passes. Copy, streak logic, static-render hydration, local-midnight selection, and reciprocal language metadata findings were corrected; sitemap inclusion remains excluded by the repository's 243-URL inventory freeze.",
+    "pr_review_complete": "Independent Claude QA completed three passes and returned PASS on commit 67037eb. Copy, streak logic, static-render hydration, local-midnight selection, and reciprocal language metadata findings were corrected; the final durability update adds a local-midnight regression test and static heading.",
     "deploy_or_rollback_plan": "Review-gated PR awaiting editorial review. When merged to main, standard Vercel deploy triggers. Rollback is a clean git revert.",
     "post_change_verification": "Post-deploy verification via curl and DOM interactive state assertions on both English and Spanish production URLs, followed by DAU retention monitoring.",
     "claim_hygiene_checked": "Independent QA identified attributed and performance copy in the initial commit. All such templates were replaced with neutral exercise instructions, and a source scan found none of the rejected phrases.",
@@ -53,7 +53,7 @@
     "commands": [
       "pnpm check"
     ],
-    "results": "394 of 394 tests across 50 test files passed; lint clean; typecheck clean; Next.js build clean with 295 prerendered pages.",
+    "results": "395 of 395 tests across 50 test files passed; lint clean; typecheck clean; Next.js build clean with 295 prerendered pages.",
     "known_failure": "none",
     "browser": "not required - server-rendered and client hydration verified by tests and Next.js build."
   },

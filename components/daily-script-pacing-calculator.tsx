@@ -30,7 +30,7 @@ const DRILLS_EN: PacingDrill[] = [
     wpm: 140,
     description: "Call out the audience friction point, reveal the exact 2-step fix, and deliver a clean next step.",
     template:
-      "If your videos lose attention in the first 5 seconds, you are likely missing an immediate visual proof point. Instead of introducing yourself, show the finished result right away. Then explain the exact 2 steps to get there. Check the link for daily filming frameworks.",
+      "Define one audience friction point. Open with related visual evidence, explain two steps, and finish with one concrete next action.",
   },
   {
     title: "45-Second Step-by-Step Process Breakdown",
@@ -364,6 +364,9 @@ export function DailyScriptPacingCalculator({ locale = "en" }: { locale?: "en" |
         role="status"
         aria-live="polite"
       >
+        <h1 className="font-serif text-3xl font-semibold text-[#101214] sm:text-4xl">
+          {isEs ? "Ritmo de guion y duración estimada" : "Script pacing & teleprompter timing"}
+        </h1>
         <p className="text-sm text-[#5a6066]">
           {isEs ? "Preparando la plantilla diaria…" : "Preparing today’s pacing drill…"}
         </p>
