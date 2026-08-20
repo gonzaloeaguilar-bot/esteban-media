@@ -1,0 +1,29 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-120",
+  "goal": "Refine metadata for the existing Miami video-production cost guide.",
+  "summary": "The English guide title and description now state Miami video-production scope and quote inputs while keeping the existing fixed-price disclaimer.",
+  "risk": "Metadata-only change on an existing English guide; localized route, canonical path, and structured content stay unchanged.",
+  "public_claims": "The copy describes the existing guide's visible scope factors and does not add client results, fixed rates, or availability claims.",
+  "obsidian_context": "Read client-esteban-media hot status, index, agent rules, and the daily growth brief before implementation.",
+  "project_routing": "English guide data in lib/guides.ts renders /guides/corporate-video-production-cost-miami.",
+  "hard_stops_checked": "No unsupported client outcome, fixed-rate, address, review, credential, or availability statement was added.",
+  "reviewer_ensemble": {
+    "builder": "Implemented a two-string metadata rewrite plus a focused regression assertion.",
+    "skeptic": "Checked the rendered production route, source metadata builder, reciprocal-guide tests, and title-length contract.",
+    "taste": "Kept the wording concise, specific to the guide's visible scope discussion, and consistent with the existing plain-language voice."
+  },
+  "reviewer_disagreement_reviewed": "No disagreement found: the new wording matches the guide's visible discussion of scope, filming, editing, deliverables, and quote inputs.",
+  "winner_rationale": "The selected wording puts Miami video production first without turning a scope guide into a rate promise.",
+  "tests_or_validation": "Focused guide tests passed (2 files, 11 tests); pnpm check passed: lint, typecheck, 49 test files / 388 tests, and production build.",
+  "debt_delta": "Adds one focused assertion that locks the chosen metadata; no new route, schema type, dependency, or inventory entry.",
+  "obsidian_handoff": "The repository handoff records the branch, scope, and completed local validation; canonical vault update is pending final PR state.",
+  "claim_hygiene_checked": "Verified the text only summarizes visible guide material and retains the existing no-universal-package position.",
+  "data_sources_current": "Live GSC helper completed a current esteban date/page pull; daily growth brief identifies the observed query and current page candidate.",
+  "booking_or_authority_thesis": "The guide helps a searcher compare scope inputs before requesting a project-specific quote.",
+  "ci_passed": "Pending GitHub checks for PR-120.",
+  "pr_review_complete": "Local diff review and a CTO-routed read-only QA review were completed; GitHub review state remains pending.",
+  "deploy_or_rollback_plan": "Merge through the normal PR path; reverting this commit restores the prior metadata exactly.",
+  "post_change_verification": "After merge, fetch the canonical guide and confirm HTTP 200 plus the rendered title and description."
+}
