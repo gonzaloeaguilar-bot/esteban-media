@@ -163,9 +163,15 @@ export default function SpanishAreasPage() {
               Proyectos publicados que respaldan la disponibilidad en Miami-Dade.
             </h2>
             <p className="mt-4 max-w-2xl leading-7 text-[#252a2d]">
-              Estos son proyectos reales de Miami en el portafolio público de
-              Esteban. Documentan el trabajo indicado, sin atribuir resultados
-              ni servicios que no aparecen en los créditos.
+              Estos son proyectos reales de Miami en el{" "}
+              <Link
+                href="/es/portafolio"
+                className="underline underline-offset-4 hover:text-[#9f3c27]"
+              >
+                portafolio público
+              </Link>{" "}
+              de Esteban. Documentan el trabajo indicado, sin atribuir
+              resultados ni servicios que no aparecen en los créditos.
             </p>
             <div className="mt-7 grid gap-4 md:grid-cols-2">
               {miamiProof.map((project) => (

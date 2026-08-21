@@ -118,7 +118,8 @@ export default function SpanishHomePage() {
                   Manda un brief corto en español.
                 </h2>
                 <p className="mt-3 max-w-2xl text-sm leading-6 text-[#252a2d]">
-                  Comparte la meta, el condado, el material disponible, el uso
+                  Comparte la meta, el condado, el{" "}
+                  <Link href="/es/calculadora">material disponible</Link>, el uso
                   previsto y links de referencia. Las{" "}
                   <Link
                     href="/es/guias"

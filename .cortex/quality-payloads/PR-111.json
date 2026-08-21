@@ -1,0 +1,64 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-111",
+  "status": "review_pending",
+  "evidence": {
+    "obsidian_context": "Additive bilingual daily video shot list and b-roll planner habit surface to establish a daily return engine for short-form creators.",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, isolated worktree /Users/gonzalo/code/portfolio-ops-nightly/.cto-worktrees/esteban-dau-engine-20260819, branch agy/esteban-dau-engine-20260819, move class dau_engine.",
+    "hard_stops_checked": "Checked and clear. Pure additive interactive utility surface, zero copy alterations to existing routes, zero pricing/outcome claims, zero new 3rd-party services or data backends.",
+    "reviewer_ensemble": "builder pass, skeptic pass, taste pass - see reviewer_ensemble object.",
+    "reviewer_disagreement_reviewed": "The skeptic verified that all links resolve to valid paired routes /daily-shot-list-planner and /es/planificador-de-tomas-de-video, local storage state isolates properly, email capture connects safely to existing /api/lead, and all 47 test files / 357 tests pass.",
+    "winner_rationale": "Building an interactive shot list framework and 3-step pre-shoot readiness checklist provides daily utility for creators and businesses, establishing a concrete reason to return daily while capturing qualified lead interest.",
+    "tests_or_validation": "pnpm check passed: lint 0 errors, typecheck clean, 47 of 47 test files / 357 tests passed, and 291-page Next.js production build succeeded.",
+    "ci_passed": "Local full repository check passed; GitHub validate is pending at payload creation time.",
+    "pr_review_complete": "Self-review complete across app/(english)/daily-shot-list-planner/page.tsx, app/(spanish)/es/planificador-de-tomas-de-video/page.tsx, components/daily-shot-list-planner.tsx, lib/language-routes.ts, lib/lead-responder.ts, components/site-footer-client.tsx, app/__tests__/daily-shot-list-planner.test.ts, and app/__tests__/lead-submit-analytics.test.ts.",
+    "deploy_or_rollback_plan": "Review-gated PR awaiting editorial review. When merged to main, standard Vercel deploy triggers. Rollback is a clean git revert.",
+    "post_change_verification": "Post-deploy verification via curl and DOM interactive state assertions on both English and Spanish production URLs, followed by DAU retention monitoring.",
+    "claim_hygiene_checked": "All copy strictly voice-neutral utility microcopy. No pricing, guarantees, client testimonials, medical or business outcome claims.",
+    "debt_delta": "improvement",
+    "obsidian_handoff": "Recorded in Obsidian hot.md and durable notes."
+  },
+  "project_routing": {
+    "canonical_repo": "/Users/gonzalo/code/esteban-media",
+    "worktree": "/Users/gonzalo/code/portfolio-ops-nightly/.cto-worktrees/esteban-dau-engine-20260819",
+    "branch": "agy/esteban-dau-engine-20260819",
+    "move_class": "dau_engine"
+  },
+  "hard_stops_checked": {
+    "pricing_or_offers": "no prices quoted or altered",
+    "factual_business_claims": "strictly verified, utility microcopy only, no outcome claims",
+    "access_control": "none accessed or modified",
+    "deployment": "not performed in this step; PR is review-gated",
+    "third_party_services": "none added; uses existing /api/lead endpoint and local storage",
+    "url_inventory": "additive paired bilingual routes"
+  },
+  "reviewer_ensemble": {
+    "builder": {
+      "status": "pass",
+      "note": "Created bilingual daily shot list planner with 7 rotating formulas, custom shot builder, 3-step readiness check, local storage streak counter, and graceful email capture."
+    },
+    "skeptic": {
+      "status": "pass",
+      "note": "Verified that all interactive controls are thumb-reachable and keyboard accessible, fallback state handles SSR hydration cleanly, and unit tests cover language routes and lead responder validation."
+    },
+    "taste": {
+      "status": "pass",
+      "note": "Utility design matches Esteban Moreno Media design system aesthetic with warm cream palette, accessible typography, and neutral professional microcopy."
+    }
+  },
+  "tests_or_validation": {
+    "commands": [
+      "pnpm check"
+    ],
+    "results": "357 of 357 tests across 47 test files passed; lint 0 errors; typecheck clean; Next.js build clean with 291 prerendered pages.",
+    "known_failure": "none",
+    "browser": "not required - server-rendered and client hydration verified by tests and Next.js build."
+  },
+  "source_material_checked": "app/(english)/daily-shot-list-planner/page.tsx, app/(spanish)/es/planificador-de-tomas-de-video/page.tsx, components/daily-shot-list-planner.tsx, lib/language-routes.ts, lib/lead-responder.ts",
+  "data_sources_current": {
+    "production_html": "production layout and styles matched",
+    "route_inventory": "additive bilingual habit routes"
+  },
+  "booking_or_authority_thesis": "Adding an interactive daily shot list planner gives video creators and local businesses an actionable workflow tool to use every shooting day, lifting daily active engagement and recurring site returns."
+}

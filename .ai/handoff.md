@@ -10,14 +10,27 @@
 - Verification: `pnpm check` passed (lint clean, typecheck clean, 46 test files / 356 tests passed, and 291-page production build generated).
 - PR open and review-gated for editorial approval.
 
-## Portfolio Page Content Depth & Search Enrichment — 2026-08-17
+## Portfolio Page Content Depth & Industry Specialization — 2026-08-19
 
-- Expanded `/portfolio` with substantive coverage answering searcher intent for video editing portfolio and production services:
+- Deepened `/portfolio` with substantive coverage answering search intent for video editing portfolio, industry specialization, and quality assurance:
+  - Added dedicated Industry-Tailored Post-Production section addressing Real Estate & Architecture, Medical & Dental Practices, Contractors & Home Trades, and Corporate & Interview Series, with contextual internal service links.
+  - Added dedicated 4-point Post-Production Quality Assurance Protocol covering Audio Isolation & Loudness Verification (-14 / -16 LUFS), Color Calibration & Exposure Balancing (Rec.709 conforming), Mobile Safe-Zone & Caption Formatting (iOS/Android UI margins), and Master Codec & Metadata Packaging (H.264/MP4, ProRes, .SRT).
+  - Expanded portfolio FAQ items from 10 to 14 questions, adding high-intent coverage for long-form to vertical reels content repurposing, timecoded revision workflows, mixed frame rates & multi-camera conforming, and deliverable organization.
+  - Structured data parity: `FAQPage` JSON-LD schema dynamically updated to include all 14 questions in exact sync with visible HTML.
+  - Extended regression suite `app/__tests__/portfolio-depth.test.ts` to assert presence and integrity of industry focus sections, quality assurance protocol, and new FAQ entries.
+- Verification: `pnpm check` passed cleanly (lint 0 errors, typecheck clean, 46 test files / 355 tests passed, static build of 289 routes clean).
+
+## Portfolio Page Content Depth & Search Enrichment — 2026-08-18
+
+- Expanded `/portfolio` with substantive coverage answering searcher intent for video editing portfolio, technical delivery standards, commercial formats, and production services:
   - Creative disciplines breakdown across video editing/post-production, business/brand promos, animation/visual assets, and custom web systems.
   - 4-step project workflow covering media intake (cloud handoff), story arc/editorial cutting, audio mixing/color grading/dynamic captions, and timecoded review/master multi-format exports.
-  - Comprehensive FAQ section with 6 targeted questions (footage suitability, remote collaboration, smartphone video, export formats, bilingual English/Spanish delivery, and South Florida capture).
-  - Enhanced structured data combining `CollectionPage` and `FAQPage` JSON-LD schema.
-- Verification: `pnpm check` passed (lint, typecheck, 45 test files / 354 tests, and Next.js static build of 289 routes).
+  - Dedicated technical delivery standards section covering aspect ratios (9:16, 16:9, 1:1), audio loudness normalization (-14 / -16 LUFS), Rec.709/Log color pipeline, and master delivery codecs (ProRes 422, MP4/H.264, .SRT).
+  - Commercial formats & project types breakdown covering restaurant/hospitality promos, short-form reels/TikToks, brand/founder stories, and web systems/AI bots.
+  - Comprehensive FAQ section expanded to 10 targeted questions (footage suitability, remote collaboration, smartphone video, export formats, bilingual English/Spanish delivery, South Florida capture, revisions workflow, technical raw specs, music licensing clearance, multicam matching).
+  - Enhanced structured data combining `CollectionPage` and `FAQPage` JSON-LD schema with complete parity across all 10 visible FAQ questions.
+- Verification: `pnpm check` passed (lint, typecheck, 46 test files / 355 tests, and Next.js static build of 289 routes).
+- Added `app/__tests__/portfolio-depth.test.ts` asserting presence and integrity of all new technical specifications, commercial formats, and expanded FAQs.
 
 ## Privacy-safe CDP lead event — 2026-08-15 (PR #101 draft)
 
@@ -123,6 +136,11 @@
 ## Goal
 
 Keep the production site reproducible, governed, private, and ready for the next proof/indexing phase.
+
+## Miami video-production cost metadata — 2026-08-20
+
+- Candidate branch `codex/esteban-video-production-miami-tuition-20260820` refreshes only the English corporate-video-cost guide metadata for the live low-CTR query `video production miami tuition`. The title now leads with `Miami Video Production Cost Guide`; the description names the scope, filming, editing, deliverables, and quote inputs that the visible guide already explains.
+- This preserves the guide's existing no-fixed-price position and does not add a route, claim, schema type, or language-pair change. Local `pnpm check` passed before PR creation.
 
 ## ESTEBAN-02 recovery candidate — 2026-08-05T21:11 ET
 

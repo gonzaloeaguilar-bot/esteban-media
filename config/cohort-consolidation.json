@@ -1,0 +1,414 @@
+{
+  "schema": "esteban-media.cohort-consolidation.v1",
+  "executedOn": "2026-08-19",
+  "source": "cohort-decisions-esteban-2026-08-12.csv",
+  "revalidatedAgainst": {
+    "runId": "2026-08-19T12:00:05.732Z",
+    "window": "2026-07-22..2026-08-18"
+  },
+  "note": "The 2026-08-12 cohort decisions were documented and never shipped: all 21 MERGE URLs were still live and sitemapped on 2026-08-19. This file is the executable form. Decisions were re-validated against the 08-19 Search Console run before execution; any URL that had started earning impressions was promoted back to KEEP under the cohort's own rule 1. Four URLs were exempted from execution because the 2026-08-12 decisions predate the 2026-08-19 AI/automation positioning; retiring them would remove the seed of the very cluster the site is pivoting toward.",
+  "promotedToKeep": [
+    {
+      "path": "/guides/best-caption-styles-for-instagram-reels",
+      "impressions": 12,
+      "was": "MERGE",
+      "reason": "earns 12 impressions in the 2026-07-22..08-18 window; rule 1 (demand is demand) outranks the 2026-08-12 MERGE"
+    },
+    {
+      "path": "/guides/customer-testimonial-video-script-template",
+      "impressions": 4,
+      "was": "MERGE",
+      "reason": "earns 4 impressions in the 2026-07-22..08-18 window; rule 1 (demand is demand) outranks the 2026-08-12 MERGE"
+    }
+  ],
+  "noindex": [
+    {
+      "path": "/es/edicion-de-clips-para-webinars",
+      "reason": "Google discovered it and declined to index; no demand and no differentiation"
+    },
+    {
+      "path": "/es/edicion-de-video-aereo-inmobiliario-miami",
+      "reason": "Google discovered it and declined to index; no demand and no differentiation"
+    },
+    {
+      "path": "/es/edicion-de-video-palm-beach-county",
+      "reason": "Google discovered it and declined to index; no demand and no differentiation"
+    },
+    {
+      "path": "/es/edicion-de-video-para-eventos-miami",
+      "reason": "Google discovered it and declined to index; no demand and no differentiation"
+    },
+    {
+      "path": "/es/edicion-de-video-para-joyeria-de-lujo-miami",
+      "reason": "Google discovered it and declined to index; no demand and no differentiation"
+    },
+    {
+      "path": "/es/editor-de-video-de-productos-para-ecommerce",
+      "reason": "Google discovered it and declined to index; no demand and no differentiation"
+    },
+    {
+      "path": "/es/produccion-de-video-davie-fl",
+      "reason": "Google discovered it and declined to index; no demand and no differentiation"
+    },
+    {
+      "path": "/es/produccion-de-video-para-firmas-de-abogados-miami",
+      "reason": "Google discovered it and declined to index; no demand and no differentiation"
+    },
+    {
+      "path": "/es/produccion-de-video-para-pequenos-negocios-miami",
+      "reason": "Google discovered it and declined to index; no demand and no differentiation"
+    },
+    {
+      "path": "/es/servicio-de-edicion-de-entrevistas-de-video",
+      "reason": "Google discovered it and declined to index; no demand and no differentiation"
+    },
+    {
+      "path": "/es/servicio-de-edicion-de-video-para-youtube-miami",
+      "reason": "Google discovered it and declined to index; no demand and no differentiation"
+    },
+    {
+      "path": "/es/video-inmobiliario-aventura-miami",
+      "reason": "Google discovered it and declined to index; no demand and no differentiation"
+    },
+    {
+      "path": "/es/video-para-negocios-hollywood-fl",
+      "reason": "Google discovered it and declined to index; no demand and no differentiation"
+    },
+    {
+      "path": "/es/videografo-para-eventos-corporativos-miami",
+      "reason": "Google discovered it and declined to index; no demand and no differentiation"
+    },
+    {
+      "path": "/services/ecommerce-product-video-editor-miami",
+      "reason": "Google discovered it and declined to index; no demand and no differentiation"
+    },
+    {
+      "path": "/services/event-video-editing-miami",
+      "reason": "Google discovered it and declined to index; no demand and no differentiation"
+    },
+    {
+      "path": "/services/fitness-trainer-video-production-miami",
+      "reason": "Google discovered it and declined to index; no demand and no differentiation"
+    },
+    {
+      "path": "/services/law-firm-video-production-miami",
+      "reason": "Google discovered it and declined to index; no demand and no differentiation"
+    },
+    {
+      "path": "/services/luxury-brand-video-jupiter-fl",
+      "reason": "Google discovered it and declined to index; no demand and no differentiation"
+    },
+    {
+      "path": "/services/luxury-jewelry-video-editing-miami",
+      "reason": "Google discovered it and declined to index; no demand and no differentiation"
+    },
+    {
+      "path": "/services/real-estate-video-aventura-miami",
+      "reason": "Google discovered it and declined to index; no demand and no differentiation"
+    },
+    {
+      "path": "/services/roofing-contractor-video-marketing-south-florida",
+      "reason": "Google discovered it and declined to index; no demand and no differentiation"
+    },
+    {
+      "path": "/services/social-media-video-batching-miami",
+      "reason": "Google discovered it and declined to index; no demand and no differentiation"
+    },
+    {
+      "path": "/services/video-production-boca-raton",
+      "reason": "Google discovered it and declined to index; no demand and no differentiation"
+    },
+    {
+      "path": "/services/video-production-davie-fl",
+      "reason": "Google discovered it and declined to index; no demand and no differentiation"
+    },
+    {
+      "path": "/services/youtube-video-editing-service-miami",
+      "reason": "Google discovered it and declined to index; no demand and no differentiation"
+    }
+  ],
+  "strategicExemptions": [
+    {
+      "path": "/es/diseno-web-fort-lauderdale",
+      "was": "NOINDEX",
+      "reason": "Spanish web-design page and the ES half of the /services/website-design-fort-lauderdale pair. Google has never crawled it ('URL is unknown to Google'), which is a discovery failure, not absent demand. Web design and AI systems are the 2026-08-19 growth theme, so this page is queued for improvement rather than retired."
+    },
+    {
+      "path": "/es/fotos-con-ia-para-bienes-raices-miami",
+      "was": "NOINDEX",
+      "reason": "Spanish AI-imagery page; retained with the AI cluster for the same reason."
+    },
+    {
+      "path": "/es/imagenes-con-ia-para-ecommerce-miami",
+      "was": "NOINDEX",
+      "reason": "Spanish AI-imagery page; retained with the AI cluster for the same reason."
+    },
+    {
+      "path": "/services/ai-real-estate-photo-enhancement",
+      "was": "NOINDEX",
+      "reason": "AI-themed service page carrying a 'Discovered - currently not indexed' verdict. Retained as part of the AI cluster seed; sibling AI pages (/services/ai-product-photography-miami, /services/ai-food-photography-restaurants) already earn impressions."
+    },
+    {
+      "path": "/es/edicion-de-video-promocional-para-restaurantes-miami",
+      "was": "NOINDEX",
+      "coverageState": "URL is unknown to Google",
+      "reason": "Google has never crawled this URL, so there is no evidence it was rejected. The 2026-08-12 rule 3 conflated 'URL is unknown to Google' (never looked) with 'Discovered - currently not indexed' (looked and declined). Only the latter is a crawl-budget verdict. This URL is a DISCOVERY failure and is queued for internal linking and IndexNow instead of retirement."
+    },
+    {
+      "path": "/es/marketing-de-video-automotriz-miami",
+      "was": "NOINDEX",
+      "coverageState": "URL is unknown to Google",
+      "reason": "Google has never crawled this URL, so there is no evidence it was rejected. The 2026-08-12 rule 3 conflated 'URL is unknown to Google' (never looked) with 'Discovered - currently not indexed' (looked and declined). Only the latter is a crawl-budget verdict. This URL is a DISCOVERY failure and is queued for internal linking and IndexNow instead of retirement."
+    },
+    {
+      "path": "/es/marketing-de-video-para-odontologia-estetica-miami",
+      "was": "NOINDEX",
+      "coverageState": "URL is unknown to Google",
+      "reason": "Google has never crawled this URL, so there is no evidence it was rejected. The 2026-08-12 rule 3 conflated 'URL is unknown to Google' (never looked) with 'Discovered - currently not indexed' (looked and declined). Only the latter is a crawl-budget verdict. This URL is a DISCOVERY failure and is queued for internal linking and IndexNow instead of retirement."
+    },
+    {
+      "path": "/es/postproduccion-de-videos-musicales-miami",
+      "was": "NOINDEX",
+      "coverageState": "URL is unknown to Google",
+      "reason": "Google has never crawled this URL, so there is no evidence it was rejected. The 2026-08-12 rule 3 conflated 'URL is unknown to Google' (never looked) with 'Discovered - currently not indexed' (looked and declined). Only the latter is a crawl-budget verdict. This URL is a DISCOVERY failure and is queued for internal linking and IndexNow instead of retirement."
+    },
+    {
+      "path": "/es/produccion-masiva-de-video-para-redes-miami",
+      "was": "NOINDEX",
+      "coverageState": "URL is unknown to Google",
+      "reason": "Google has never crawled this URL, so there is no evidence it was rejected. The 2026-08-12 rule 3 conflated 'URL is unknown to Google' (never looked) with 'Discovered - currently not indexed' (looked and declined). Only the latter is a crawl-budget verdict. This URL is a DISCOVERY failure and is queued for internal linking and IndexNow instead of retirement."
+    },
+    {
+      "path": "/es/video-corporativo-distrito-financiero-miami",
+      "was": "NOINDEX",
+      "coverageState": "URL is unknown to Google",
+      "reason": "Google has never crawled this URL, so there is no evidence it was rejected. The 2026-08-12 rule 3 conflated 'URL is unknown to Google' (never looked) with 'Discovered - currently not indexed' (looked and declined). Only the latter is a crawl-budget verdict. This URL is a DISCOVERY failure and is queued for internal linking and IndexNow instead of retirement."
+    },
+    {
+      "path": "/guides/color-grading-vs-color-correction-guide",
+      "was": "NOINDEX",
+      "coverageState": "URL is unknown to Google",
+      "reason": "Google has never crawled this URL, so there is no evidence it was rejected. The 2026-08-12 rule 3 conflated 'URL is unknown to Google' (never looked) with 'Discovered - currently not indexed' (looked and declined). Only the latter is a crawl-budget verdict. This URL is a DISCOVERY failure and is queued for internal linking and IndexNow instead of retirement."
+    },
+    {
+      "path": "/guides/video-content-ideas-for-restaurants",
+      "was": "NOINDEX",
+      "coverageState": "URL is unknown to Google",
+      "reason": "Google has never crawled this URL, so there is no evidence it was rejected. The 2026-08-12 rule 3 conflated 'URL is unknown to Google' (never looked) with 'Discovered - currently not indexed' (looked and declined). Only the latter is a crawl-budget verdict. This URL is a DISCOVERY failure and is queued for internal linking and IndexNow instead of retirement."
+    },
+    {
+      "path": "/services/content-repurposing-service-miami",
+      "was": "NOINDEX",
+      "coverageState": "URL is unknown to Google",
+      "reason": "Google has never crawled this URL, so there is no evidence it was rejected. The 2026-08-12 rule 3 conflated 'URL is unknown to Google' (never looked) with 'Discovered - currently not indexed' (looked and declined). Only the latter is a crawl-budget verdict. This URL is a DISCOVERY failure and is queued for internal linking and IndexNow instead of retirement."
+    },
+    {
+      "path": "/services/interview-video-editing-service",
+      "was": "NOINDEX",
+      "coverageState": "URL is unknown to Google",
+      "reason": "Google has never crawled this URL, so there is no evidence it was rejected. The 2026-08-12 rule 3 conflated 'URL is unknown to Google' (never looked) with 'Discovered - currently not indexed' (looked and declined). Only the latter is a crawl-budget verdict. This URL is a DISCOVERY failure and is queued for internal linking and IndexNow instead of retirement."
+    },
+    {
+      "path": "/services/jewelry-product-photography-miami",
+      "was": "NOINDEX",
+      "coverageState": "URL is unknown to Google",
+      "reason": "Google has never crawled this URL, so there is no evidence it was rejected. The 2026-08-12 rule 3 conflated 'URL is unknown to Google' (never looked) with 'Discovered - currently not indexed' (looked and declined). Only the latter is a crawl-budget verdict. This URL is a DISCOVERY failure and is queued for internal linking and IndexNow instead of retirement."
+    },
+    {
+      "path": "/services/med-spa-video-marketing-south-florida",
+      "was": "NOINDEX",
+      "coverageState": "URL is unknown to Google",
+      "reason": "Google has never crawled this URL, so there is no evidence it was rejected. The 2026-08-12 rule 3 conflated 'URL is unknown to Google' (never looked) with 'Discovered - currently not indexed' (looked and declined). Only the latter is a crawl-budget verdict. This URL is a DISCOVERY failure and is queued for internal linking and IndexNow instead of retirement."
+    },
+    {
+      "path": "/services/real-estate-drone-video-editing-miami",
+      "was": "NOINDEX",
+      "coverageState": "URL is unknown to Google",
+      "reason": "Google has never crawled this URL, so there is no evidence it was rejected. The 2026-08-12 rule 3 conflated 'URL is unknown to Google' (never looked) with 'Discovered - currently not indexed' (looked and declined). Only the latter is a crawl-budget verdict. This URL is a DISCOVERY failure and is queued for internal linking and IndexNow instead of retirement."
+    },
+    {
+      "path": "/services/video-editing-west-palm-beach",
+      "was": "NOINDEX",
+      "coverageState": "URL is unknown to Google",
+      "reason": "Google has never crawled this URL, so there is no evidence it was rejected. The 2026-08-12 rule 3 conflated 'URL is unknown to Google' (never looked) with 'Discovered - currently not indexed' (looked and declined). Only the latter is a crawl-budget verdict. This URL is a DISCOVERY failure and is queued for internal linking and IndexNow instead of retirement."
+    },
+    {
+      "path": "/services/wealth-management-video-production-miami",
+      "was": "NOINDEX",
+      "coverageState": "URL is unknown to Google",
+      "reason": "Google has never crawled this URL, so there is no evidence it was rejected. The 2026-08-12 rule 3 conflated 'URL is unknown to Google' (never looked) with 'Discovered - currently not indexed' (looked and declined). Only the latter is a crawl-budget verdict. This URL is a DISCOVERY failure and is queued for internal linking and IndexNow instead of retirement."
+    },
+    {
+      "path": "/es/edicion-de-video-de-capacitacion-corporativa-miami",
+      "was": "NOINDEX",
+      "reason": "Its language counterpart survives consolidation. A bilingual pair is one document in two languages, so noindex is applied symmetrically or not at all - retiring one half leaves the survivor advertising an hreflang alternate the sitemap no longer lists, which is a non-reciprocity defect."
+    },
+    {
+      "path": "/es/edicion-de-video-miami-beach",
+      "was": "NOINDEX",
+      "reason": "Its language counterpart survives consolidation. A bilingual pair is one document in two languages, so noindex is applied symmetrically or not at all - retiring one half leaves the survivor advertising an hreflang alternate the sitemap no longer lists, which is a non-reciprocity defect."
+    },
+    {
+      "path": "/es/fotografo-de-retratos-y-headshots-miami",
+      "was": "NOINDEX",
+      "reason": "Its language counterpart survives consolidation. A bilingual pair is one document in two languages, so noindex is applied symmetrically or not at all - retiring one half leaves the survivor advertising an hreflang alternate the sitemap no longer lists, which is a non-reciprocity defect."
+    },
+    {
+      "path": "/es/guias/ideas-de-contenido-de-video-para-restaurantes",
+      "was": "NOINDEX",
+      "reason": "Its language counterpart survives consolidation. A bilingual pair is one document in two languages, so noindex is applied symmetrically or not at all - retiring one half leaves the survivor advertising an hreflang alternate the sitemap no longer lists, which is a non-reciprocity defect."
+    },
+    {
+      "path": "/es/produccion-de-video-delray-beach",
+      "was": "NOINDEX",
+      "reason": "Its language counterpart survives consolidation. A bilingual pair is one document in two languages, so noindex is applied symmetrically or not at all - retiring one half leaves the survivor advertising an hreflang alternate the sitemap no longer lists, which is a non-reciprocity defect."
+    },
+    {
+      "path": "/es/video-creativo-wynwood-miami",
+      "was": "NOINDEX",
+      "reason": "Its language counterpart survives consolidation. A bilingual pair is one document in two languages, so noindex is applied symmetrically or not at all - retiring one half leaves the survivor advertising an hreflang alternate the sitemap no longer lists, which is a non-reciprocity defect."
+    },
+    {
+      "path": "/services/automotive-video-marketing-miami",
+      "was": "NOINDEX",
+      "reason": "Its language counterpart survives consolidation. A bilingual pair is one document in two languages, so noindex is applied symmetrically or not at all - retiring one half leaves the survivor advertising an hreflang alternate the sitemap no longer lists, which is a non-reciprocity defect."
+    },
+    {
+      "path": "/services/corporate-video-editing-weston-fl",
+      "was": "NOINDEX",
+      "reason": "Its language counterpart survives consolidation. A bilingual pair is one document in two languages, so noindex is applied symmetrically or not at all - retiring one half leaves the survivor advertising an hreflang alternate the sitemap no longer lists, which is a non-reciprocity defect."
+    },
+    {
+      "path": "/services/plastic-surgery-video-marketing-miami",
+      "was": "NOINDEX",
+      "reason": "Its language counterpart survives consolidation. A bilingual pair is one document in two languages, so noindex is applied symmetrically or not at all - retiring one half leaves the survivor advertising an hreflang alternate the sitemap no longer lists, which is a non-reciprocity defect."
+    },
+    {
+      "path": "/services/real-estate-video-coral-gables",
+      "was": "NOINDEX",
+      "reason": "Its language counterpart survives consolidation. A bilingual pair is one document in two languages, so noindex is applied symmetrically or not at all - retiring one half leaves the survivor advertising an hreflang alternate the sitemap no longer lists, which is a non-reciprocity defect."
+    },
+    {
+      "path": "/services/ugc-video-editor-ecommerce",
+      "was": "NOINDEX",
+      "reason": "Its language counterpart survives consolidation. A bilingual pair is one document in two languages, so noindex is applied symmetrically or not at all - retiring one half leaves the survivor advertising an hreflang alternate the sitemap no longer lists, which is a non-reciprocity defect."
+    },
+    {
+      "path": "/services/yacht-charter-video-marketing-miami",
+      "was": "NOINDEX",
+      "reason": "Its language counterpart survives consolidation. A bilingual pair is one document in two languages, so noindex is applied symmetrically or not at all - retiring one half leaves the survivor advertising an hreflang alternate the sitemap no longer lists, which is a non-reciprocity defect."
+    },
+    {
+      "path": "/es/guias/como-reutilizar-video-largo-en-reels",
+      "was": "NOINDEX",
+      "reason": "Guides are handled by the deferred MERGE track, which consolidates each cluster into one winner per concept. Applying noindex to a guide in the same pass would pre-empt that editorial decision and strand a URL the merge plan may yet designate a winner."
+    },
+    {
+      "path": "/guides/how-to-repurpose-long-form-video-into-reels",
+      "was": "NOINDEX",
+      "reason": "Guides are handled by the deferred MERGE track, which consolidates each cluster into one winner per concept. Applying noindex to a guide in the same pass would pre-empt that editorial decision and strand a URL the merge plan may yet designate a winner."
+    }
+  ],
+  "decisionRuleCorrection": "The 2026-08-12 rule 3 noindexed any page that was 'Discovered - currently not indexed, or unknown despite being in the sitemap'. Those two coverage states are not equivalent: the first is Google declining to index a page it fetched, the second is Google never having fetched it. Retiring the second converts a discovery problem into a permanent one. Execution therefore applies noindex only to 'Discovered - currently not indexed'.",
+  "deferredMerges": [
+    {
+      "from": "/es/guias/como-disenar-miniaturas-de-video-atractivas",
+      "to": "/es/guias/como-seleccionar-broll-para-video-corporativo",
+      "reason": "near-duplicate of /es/guias/como-seleccionar-broll-para-video-corporativo, which outperforms it"
+    },
+    {
+      "from": "/es/guias/como-escribir-guiones-para-anuncios-de-video",
+      "to": "/es/guias/como-enviar-archivos-pesados-de-video-para-edicion",
+      "reason": "near-duplicate of /es/guias/como-enviar-archivos-pesados-de-video-para-edicion, which outperforms it"
+    },
+    {
+      "from": "/es/guias/como-mezclar-audio-para-videos-en-redes",
+      "to": "/es/guias/como-seleccionar-broll-para-video-corporativo",
+      "reason": "near-duplicate of /es/guias/como-seleccionar-broll-para-video-corporativo, which outperforms it"
+    },
+    {
+      "from": "/es/guias/como-preparar-audio-para-edicion-de-video",
+      "to": "/es/guias/plantilla-de-guion-para-video-testimonial",
+      "reason": "near-duplicate of /es/guias/plantilla-de-guion-para-video-testimonial, which outperforms it"
+    },
+    {
+      "from": "/es/guias/duracion-ideal-de-video-para-redes-sociales",
+      "to": "/es/guias/como-seleccionar-broll-para-video-corporativo",
+      "reason": "near-duplicate of /es/guias/como-seleccionar-broll-para-video-corporativo, which outperforms it"
+    },
+    {
+      "from": "/es/guias/estrategia-de-embudo-de-video-marketing-b2b",
+      "to": "/es/guias/plantilla-de-guion-para-video-testimonial",
+      "reason": "near-duplicate of /es/guias/plantilla-de-guion-para-video-testimonial, which outperforms it"
+    },
+    {
+      "from": "/es/guias/formatos-de-archivo-de-video-raw-explicados",
+      "to": "/es/guias/plantilla-de-guion-para-video-testimonial",
+      "reason": "near-duplicate of /es/guias/plantilla-de-guion-para-video-testimonial, which outperforms it"
+    },
+    {
+      "from": "/es/guias/guia-de-relaciones-de-aspecto-de-video",
+      "to": "/es/guias/como-enviar-archivos-pesados-de-video-para-edicion",
+      "reason": "near-duplicate of /es/guias/como-enviar-archivos-pesados-de-video-para-edicion, which outperforms it"
+    },
+    {
+      "from": "/es/guias/guias-de-edicion-de-video-con-dron-florida",
+      "to": "/es/guias/plantilla-de-guion-para-video-testimonial",
+      "reason": "near-duplicate of /es/guias/plantilla-de-guion-para-video-testimonial, which outperforms it"
+    },
+    {
+      "from": "/es/guias/iluminacion-y-configuracion-para-entrevistas-de-video",
+      "to": "/es/guias/como-enviar-archivos-pesados-de-video-para-edicion",
+      "reason": "near-duplicate of /es/guias/como-enviar-archivos-pesados-de-video-para-edicion, which outperforms it"
+    },
+    {
+      "from": "/guides/b2b-video-marketing-funnel-strategy",
+      "to": "/guides/drone-video-editing-guidelines-florida",
+      "reason": "near-duplicate of /guides/drone-video-editing-guidelines-florida, which outperforms it"
+    },
+    {
+      "from": "/guides/how-to-design-clickable-video-thumbnails",
+      "to": "/guides/how-to-mix-audio-for-social-video",
+      "reason": "near-duplicate of /guides/how-to-mix-audio-for-social-video, which outperforms it"
+    },
+    {
+      "from": "/guides/how-to-prepare-audio-for-video-editing",
+      "to": "/guides/drone-video-editing-guidelines-florida",
+      "reason": "near-duplicate of /guides/drone-video-editing-guidelines-florida, which outperforms it"
+    },
+    {
+      "from": "/guides/how-to-script-social-video-ads",
+      "to": "/guides/fastest-way-to-send-large-video-files-to-editor",
+      "reason": "near-duplicate of /guides/fastest-way-to-send-large-video-files-to-editor, which outperforms it"
+    },
+    {
+      "from": "/guides/how-to-select-broll-for-corporate-video",
+      "to": "/guides/how-to-mix-audio-for-social-video",
+      "reason": "near-duplicate of /guides/how-to-mix-audio-for-social-video, which outperforms it"
+    },
+    {
+      "from": "/guides/ideal-video-length-for-social-platforms",
+      "to": "/guides/how-to-mix-audio-for-social-video",
+      "reason": "near-duplicate of /guides/how-to-mix-audio-for-social-video, which outperforms it"
+    },
+    {
+      "from": "/guides/lighting-setup-for-video-interviews-at-home",
+      "to": "/guides/fastest-way-to-send-large-video-files-to-editor",
+      "reason": "near-duplicate of /guides/fastest-way-to-send-large-video-files-to-editor, which outperforms it"
+    },
+    {
+      "from": "/guides/raw-video-file-formats-explained",
+      "to": "/guides/drone-video-editing-guidelines-florida",
+      "reason": "near-duplicate of /guides/drone-video-editing-guidelines-florida, which outperforms it"
+    },
+    {
+      "from": "/guides/video-aspect-ratios-cheat-sheet",
+      "to": "/guides/fastest-way-to-send-large-video-files-to-editor",
+      "reason": "near-duplicate of /guides/fastest-way-to-send-large-video-files-to-editor, which outperforms it"
+    }
+  ],
+  "merges": [],
+  "deferralReason": "All 19 MERGE decisions are guide URLs, and the 2026-08-12 clustering ran per-language: the EN and ES clusters picked different winners for the same concept. Propagating each merge to its language counterpart would merge two surviving winners away (/guides/how-to-mix-audio-for-social-video and /guides/drone-video-editing-guidelines-florida) and create redirect chains. Choosing one winner per concept across both languages is an editorial decision, not a mechanical one, so the merges are deferred to a follow-up rather than executed unsafely here. The 40 noindex decisions are independent of pairing and ship now.",
+  "pairSymmetryRule": "NOINDEX is applied only when both halves of a language pair qualify. 12 URLs were promoted back to KEEP under this rule.",
+  "guideScopeRule": "This pass touches service and niche pages only. Every /guides/ and /es/guias/ URL is deferred to the merge track."
+}

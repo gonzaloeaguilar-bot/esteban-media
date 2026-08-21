@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { isNoindexPath } from "@/lib/consolidation";
 
 import { languageAlternates, spanishSite } from "@/lib/spanish-site";
 import { absoluteUrl, site, siteUrl, socialImage } from "@/lib/site";
@@ -53,6 +54,12 @@ export function buildPageMetadata({
       description,
       images: images.map((image) => image.url),
     },
+    // Pages carrying a 2026-08-12 NOINDEX decision: Google saw them, declined
+    // to index them, and they earn nothing. The directive makes that explicit
+    // instead of leaving them to be recrawled indefinitely.
+    ...(isNoindexPath(path)
+      ? { robots: { index: false, follow: true } }
+      : {}),
   };
 }
 

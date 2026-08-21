@@ -1,15 +1,21 @@
 import Link from "next/link";
 import {
   ArrowRight,
+  Building2,
   CheckCircle2,
+  FileText,
   Film,
   HelpCircle,
   Layers,
   Mail,
   Play,
+  Sliders,
+  Smartphone,
   Sparkles,
+  Stethoscope,
   Upload,
   Video,
+  Wrench,
 } from "lucide-react";
 
 import {
@@ -105,6 +111,54 @@ const portfolioFaqItems = [
     question: "Are on-location filming sessions available in South Florida?",
     answer:
       "Select on-location videography and capture can be scoped for businesses and projects across Fort Lauderdale, Broward County, and Miami-Dade. Palm Beach County projects are considered by individual scope.",
+  },
+  {
+    question:
+      "How are revisions and feedback handled during video post-production?",
+    answer:
+      "Draft cuts are shared through private, timestamped review links. You can pause at exact seconds to leave pinpoint feedback, request pacing adjustments, text alterations, or audio tweaks. Revisions are addressed systematically to keep production timelines predictable.",
+  },
+  {
+    question:
+      "What technical specs should client-supplied raw footage meet?",
+    answer:
+      "Footage captured in 1080p, 4K, or higher at standard framerates (24fps, 30fps, 60fps, or 120fps) in standard codecs like H.264, HEVC/H.265, or ProRes is supported. Esteban handles color space conversion (including Log and flat profiles), frame rate interpretation, and audio cleanup during ingest.",
+  },
+  {
+    question:
+      "Are audio tracks and background music legally cleared for commercial use?",
+    answer:
+      "Yes. All music beds, background tracks, and sound effects incorporated into final client deliverables use fully licensed, royalty-free commercial libraries. This prevents automated copyright strikes or takedowns across YouTube, Instagram, TikTok, and web hosting.",
+  },
+  {
+    question:
+      "Can footage captured across multiple cameras and smartphones be matched?",
+    answer:
+      "Yes. Multicam shoots and mixed-device footage (such as iPhones, mirrorless cameras, and drone clips) are color-balanced, normalized to a unified visual palette, and time-aligned with master audio tracks during the editorial cut.",
+  },
+  {
+    question:
+      "How do you handle content repurposing from long-form video into vertical reels?",
+    answer:
+      "Long-form recordings such as interviews, presentations, or horizontal brand videos can be repurposed into multiple vertical 9:16 clips. Esteban identifies key talking points, trims filler, reformats framing for vertical viewing, and adds synchronized on-screen captions.",
+  },
+  {
+    question:
+      "What is the process for submitting revision notes on draft cuts?",
+    answer:
+      "Drafts are shared through a private review link where you can leave timestamped notes directly on the video timeline. You can request specific adjustments to pacing, audio balancing, text styling, or color balance, and updated cuts are delivered systematically.",
+  },
+  {
+    question:
+      "Can you work with mixed framerates and multi-camera footage?",
+    answer:
+      "Yes. Projects containing mixed frame rates (such as 24fps dialogue with 60fps or 120fps slow-motion) and multi-camera angles are conformed to a unified timeline with proper shutter angle interpretation and frame rate conversions.",
+  },
+  {
+    question:
+      "How are final video masters formatted and organized for delivery?",
+    answer:
+      "Deliverables include full-resolution master files exported in your specified aspect ratios (9:16, 16:9, 1:1), accompanied by clean versions (without text/captions) and versions with styled captions, along with standalone .SRT subtitle files.",
   },
 ];
 
@@ -501,6 +555,479 @@ export default function PortfolioPage() {
                   title: "Review & Master Export",
                   description:
                     "You review the cut through a direct link, provide timecoded notes, and receive final high-bitrate master files formatted in your required aspect ratios (9:16 vertical, 16:9 widescreen, or 1:1 square).",
+                },
+              ].map(({ number, title: stepTitle, description: stepDesc }) => (
+                <div
+                  key={number}
+                  className="flex gap-5 rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5 sm:p-6"
+                >
+                  <span className="font-serif text-3xl font-light text-[#9f3c27]/60">
+                    {number}
+                  </span>
+                  <div>
+                    <h3 className="font-serif text-xl sm:text-2xl leading-tight">
+                      {stepTitle}
+                    </h3>
+                    <p className="mt-2 text-sm leading-6 text-[#3f4548]">
+                      {stepDesc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Technical Delivery Standards & Specifications */}
+      <section
+        className="border-t border-[#d6ccc0] bg-[#efe7db] py-14 sm:py-16"
+        aria-labelledby="technical-standards-heading"
+      >
+        <Container size="xl">
+          <div className="max-w-3xl">
+            <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">
+              Delivery standards
+            </p>
+            <h2
+              id="technical-standards-heading"
+              className="mt-4 font-serif text-4xl leading-tight sm:text-5xl"
+            >
+              Technical specifications and delivery standards for every edit.
+            </h2>
+            <p className="mt-4 text-base leading-7 text-[#3f4548] sm:text-lg sm:leading-8">
+              Every project is mastered to meet the technical standards,
+              framing rules, and loudness targets required by modern social
+              platforms, web players, and commercial broadcast.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            <div className="flex flex-col justify-between rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
+              <div>
+                <span className="grid size-10 place-items-center rounded-lg bg-[#101214] text-[#e85d3e]">
+                  <Smartphone className="size-5" aria-hidden="true" />
+                </span>
+                <h3 className="mt-4 font-serif text-2xl leading-tight">
+                  Multi-Platform Aspect Ratios
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-[#3f4548]">
+                  Tailored framing for 9:16 vertical (Instagram Reels, TikTok,
+                  Shorts), 16:9 widescreen (YouTube, web, TV), and 1:1 square
+                  feeds with platform-safe margin compliance.
+                </p>
+              </div>
+              <Link
+                href="/guides/vertical-horizontal-video-exports-and-safe-zones"
+                className="mt-5 inline-flex items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
+              >
+                Safe-zone & export guide
+                <ArrowRight className="size-3.5" aria-hidden="true" />
+              </Link>
+            </div>
+
+            <div className="flex flex-col justify-between rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
+              <div>
+                <span className="grid size-10 place-items-center rounded-lg bg-[#101214] text-[#e85d3e]">
+                  <Sliders className="size-5" aria-hidden="true" />
+                </span>
+                <h3 className="mt-4 font-serif text-2xl leading-tight">
+                  Audio Mastering & Loudness
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-[#3f4548]">
+                  Dialogue de-noising, spectral cleanup, vocal compression, and
+                  loudness targeting (-14 LUFS for YouTube, -16 LUFS for social)
+                  to eliminate distortion across phone speakers.
+                </p>
+              </div>
+              <Link
+                href="/guides/how-to-mix-audio-for-social-video"
+                className="mt-5 inline-flex items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
+              >
+                Social audio mixing guide
+                <ArrowRight className="size-3.5" aria-hidden="true" />
+              </Link>
+            </div>
+
+            <div className="flex flex-col justify-between rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
+              <div>
+                <span className="grid size-10 place-items-center rounded-lg bg-[#101214] text-[#e85d3e]">
+                  <Sparkles className="size-5" aria-hidden="true" />
+                </span>
+                <h3 className="mt-4 font-serif text-2xl leading-tight">
+                  Color Pipeline & Grading
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-[#3f4548]">
+                  Log-to-Rec.709 color conversion, shot-to-shot white balance
+                  matching, natural skin tone preservation, and stylized
+                  creative grades across mixed-camera shoots.
+                </p>
+              </div>
+              <div className="mt-4 flex flex-wrap gap-1.5 text-xs text-[#5a6066]">
+                <span className="rounded bg-[#efe7db] px-2 py-0.5">Rec.709</span>
+                <span className="rounded bg-[#efe7db] px-2 py-0.5">Log normalization</span>
+                <span className="rounded bg-[#efe7db] px-2 py-0.5">Skin tone fidelity</span>
+              </div>
+            </div>
+
+            <div className="flex flex-col justify-between rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
+              <div>
+                <span className="grid size-10 place-items-center rounded-lg bg-[#101214] text-[#e85d3e]">
+                  <Upload className="size-5" aria-hidden="true" />
+                </span>
+                <h3 className="mt-4 font-serif text-2xl leading-tight">
+                  Master Delivery Codecs
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-[#3f4548]">
+                  Web-optimized high-bitrate MP4/H.264 deliverables alongside
+                  Apple ProRes 422 archive masters, delivered with sidecar
+                  .SRT subtitle tracks or burnt-in styled captions.
+                </p>
+              </div>
+              <Link
+                href="/guides/fastest-way-to-send-large-video-files-to-editor"
+                className="mt-5 inline-flex items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
+              >
+                Footage handoff guide
+                <ArrowRight className="size-3.5" aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Industry-Tailored Post-Production Applications */}
+      <section
+        className="border-t border-[#d6ccc0] bg-[#efe7db] py-14 sm:py-16"
+        aria-labelledby="industries-heading"
+      >
+        <Container size="xl">
+          <div className="max-w-3xl">
+            <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">
+              Industry focus
+            </p>
+            <h2
+              id="industries-heading"
+              className="mt-4 font-serif text-4xl leading-tight sm:text-5xl"
+            >
+              Tailored post-production for specialized business sectors.
+            </h2>
+            <p className="mt-4 text-base leading-7 text-[#3f4548] sm:text-lg sm:leading-8">
+              Different commercial sectors require different editorial rhythms,
+              visual treatments, and narrative priorities to connect with their
+              prospective clients in South Florida.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            <div className="flex flex-col justify-between rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
+              <div>
+                <span className="grid size-10 place-items-center rounded-lg bg-[#101214] text-[#e85d3e]">
+                  <Building2 className="size-5" aria-hidden="true" />
+                </span>
+                <h3 className="mt-4 font-serif text-2xl leading-tight">
+                  Real Estate & Architecture
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-[#3f4548]">
+                  Smooth spatial transitions, interior-to-exterior exposure
+                  balancing, and vertical walkthroughs formatted for luxury property
+                  showcases.
+                </p>
+              </div>
+              <Link
+                href="/services/real-estate-video-aventura-miami"
+                className="mt-5 inline-flex items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
+              >
+                Real estate video service
+                <ArrowRight className="size-3.5" aria-hidden="true" />
+              </Link>
+            </div>
+
+            <div className="flex flex-col justify-between rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
+              <div>
+                <span className="grid size-10 place-items-center rounded-lg bg-[#101214] text-[#e85d3e]">
+                  <Stethoscope className="size-5" aria-hidden="true" />
+                </span>
+                <h3 className="mt-4 font-serif text-2xl leading-tight">
+                  Medical & Dental Practices
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-[#3f4548]">
+                  High-trust educational explainers, procedure overviews, and
+                  natural skin tone color grading that emphasize clinical
+                  professionalism.
+                </p>
+              </div>
+              <Link
+                href="/services/cosmetic-dentistry-video-marketing-miami"
+                className="mt-5 inline-flex items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
+              >
+                Dental marketing service
+                <ArrowRight className="size-3.5" aria-hidden="true" />
+              </Link>
+            </div>
+
+            <div className="flex flex-col justify-between rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
+              <div>
+                <span className="grid size-10 place-items-center rounded-lg bg-[#101214] text-[#e85d3e]">
+                  <Wrench className="size-5" aria-hidden="true" />
+                </span>
+                <h3 className="mt-4 font-serif text-2xl leading-tight">
+                  Contractors & Home Trades
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-[#3f4548]">
+                  Transformation reels, on-site time-lapses, and project
+                  milestone edits demonstrating craftsmanship for South Florida
+                  homeowners.
+                </p>
+              </div>
+              <Link
+                href="/services/contractor-video-marketing-south-florida"
+                className="mt-5 inline-flex items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
+              >
+                Contractor video service
+                <ArrowRight className="size-3.5" aria-hidden="true" />
+              </Link>
+            </div>
+
+            <div className="flex flex-col justify-between rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
+              <div>
+                <span className="grid size-10 place-items-center rounded-lg bg-[#101214] text-[#e85d3e]">
+                  <FileText className="size-5" aria-hidden="true" />
+                </span>
+                <h3 className="mt-4 font-serif text-2xl leading-tight">
+                  Corporate & Interview Series
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-[#3f4548]">
+                  Multi-mic speech leveling, ambient noise removal, professional
+                  speaker titles, and focused executive soundbites for company
+                  communications.
+                </p>
+              </div>
+              <Link
+                href="/services/interview-video-editing-service"
+                className="mt-5 inline-flex items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
+              >
+                Interview editing service
+                <ArrowRight className="size-3.5" aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Commercial Video Formats & Project Types */}
+      <section className="py-14 sm:py-18" aria-labelledby="formats-heading">
+        <Container size="xl">
+          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+            <div>
+              <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">
+                Project structures
+              </p>
+              <h2
+                id="formats-heading"
+                className="mt-4 max-w-xl font-serif text-4xl leading-tight sm:text-5xl"
+              >
+                Commercial video formats crafted for South Florida businesses.
+              </h2>
+              <p className="mt-5 max-w-xl text-base leading-7 text-[#3f4548]">
+                Every business category requires a distinct visual rhythm.
+                Esteban tailors pacing, narrative hooks, graphics, and music
+                selection to match the exact buying context of your target
+                audience.
+              </p>
+              <div className="mt-6 space-y-3 text-sm text-[#3f4548]">
+                <div className="flex items-start gap-3">
+                  <CheckCircle2
+                    className="mt-0.5 size-4 shrink-0 text-[#1a9fa3]"
+                    aria-hidden="true"
+                  />
+                  <span>
+                    Restaurant and hospitality spotlights that showcase atmosphere
+                    and culinary craft.
+                  </span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2
+                    className="mt-0.5 size-4 shrink-0 text-[#1a9fa3]"
+                    aria-hidden="true"
+                  />
+                  <span>
+                    Short-form social reels engineered to maximize 3-second hook
+                    rate and watch time.
+                  </span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2
+                    className="mt-0.5 size-4 shrink-0 text-[#1a9fa3]"
+                    aria-hidden="true"
+                  />
+                  <span>
+                    High-converting responsive web systems backed by automated AI
+                    chatbots.
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="flex flex-col justify-between rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5 sm:p-6">
+                <div>
+                  <h3 className="font-serif text-xl sm:text-2xl leading-tight">
+                    Restaurant & Hospitality
+                  </h3>
+                  <p className="mt-2 text-sm leading-6 text-[#3f4548]">
+                    Appetizing dish sequences, bar highlights, ambient venue
+                    pacing, and localized South Florida dining promos.
+                  </p>
+                </div>
+                <Link
+                  href="/services/restaurant-promo-video-editing-miami"
+                  className="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
+                >
+                  Restaurant video service
+                  <ArrowRight className="size-3.5" aria-hidden="true" />
+                </Link>
+              </div>
+
+              <div className="flex flex-col justify-between rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5 sm:p-6">
+                <div>
+                  <h3 className="font-serif text-xl sm:text-2xl leading-tight">
+                    Social Reels & TikToks
+                  </h3>
+                  <p className="mt-2 text-sm leading-6 text-[#3f4548]">
+                    Vertical video edits with punchy pacing, on-screen dynamic
+                    captions, and sound design tailored for algorithmic reach.
+                  </p>
+                </div>
+                <Link
+                  href="/services/short-form-video-editor-miami"
+                  className="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
+                >
+                  Short-form editing service
+                  <ArrowRight className="size-3.5" aria-hidden="true" />
+                </Link>
+              </div>
+
+              <div className="flex flex-col justify-between rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5 sm:p-6">
+                <div>
+                  <h3 className="font-serif text-xl sm:text-2xl leading-tight">
+                    Brand & Founder Stories
+                  </h3>
+                  <p className="mt-2 text-sm leading-6 text-[#3f4548]">
+                    Authentic client case studies, founder profiles, and service
+                    overviews that build credibility with high-ticket prospects.
+                  </p>
+                </div>
+                <Link
+                  href="/services/brand-video-production-miami"
+                  className="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
+                >
+                  Brand video service
+                  <ArrowRight className="size-3.5" aria-hidden="true" />
+                </Link>
+              </div>
+
+              <div className="flex flex-col justify-between rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5 sm:p-6">
+                <div>
+                  <h3 className="font-serif text-xl sm:text-2xl leading-tight">
+                    Web Systems & AI Bots
+                  </h3>
+                  <p className="mt-2 text-sm leading-6 text-[#3f4548]">
+                    Custom digital touchpoints and 24/7 lead qualification
+                    chatbots that turn viewers into qualified booked inquiries.
+                  </p>
+                </div>
+                <Link
+                  href="/services/website-design-fort-lauderdale"
+                  className="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
+                >
+                  Web & AI chatbot service
+                  <ArrowRight className="size-3.5" aria-hidden="true" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Post-Production Quality Assurance & Review Protocol */}
+      <section
+        className="border-t border-[#d6ccc0] bg-[#efe7db] py-14 sm:py-16"
+        aria-labelledby="quality-protocol-heading"
+      >
+        <Container size="xl">
+          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+            <div>
+              <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">
+                Quality assurance
+              </p>
+              <h2
+                id="quality-protocol-heading"
+                className="mt-4 max-w-xl font-serif text-4xl leading-tight sm:text-5xl"
+              >
+                Rigorous post-production standards before final delivery.
+              </h2>
+              <p className="mt-5 max-w-xl text-base leading-7 text-[#3f4548]">
+                Every edit undergoes a four-point verification protocol to
+                guarantee audio clarity, color accuracy, mobile safe-zone
+                compliance, and clean master file encoding.
+              </p>
+              <div className="mt-6 space-y-3 text-sm text-[#3f4548]">
+                <div className="flex items-start gap-3">
+                  <CheckCircle2
+                    className="mt-0.5 size-4 shrink-0 text-[#1a9fa3]"
+                    aria-hidden="true"
+                  />
+                  <span>
+                    Zero audio clipping with balanced dialogue and normalized music tracks.
+                  </span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2
+                    className="mt-0.5 size-4 shrink-0 text-[#1a9fa3]"
+                    aria-hidden="true"
+                  />
+                  <span>
+                    Safe-zone protection ensuring captions and logos remain unobstructed by app UI.
+                  </span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2
+                    className="mt-0.5 size-4 shrink-0 text-[#1a9fa3]"
+                    aria-hidden="true"
+                  />
+                  <span>
+                    Clean, master exports paired with captioned social cuts and standalone subtitle files.
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              {[
+                {
+                  number: "01",
+                  title: "Audio Isolation & Loudness Verification",
+                  description:
+                    "Dialogue is treated with spectral de-noising, room resonance removal, and multiband compression. Loudness is measured to hit -14 LUFS (YouTube/web) or -16 LUFS (Instagram/TikTok).",
+                },
+                {
+                  number: "02",
+                  title: "Color Calibration & Exposure Balancing",
+                  description:
+                    "Clips from multiple cameras are matched against skin tone reference charts. Highlights and shadows are conformed to standard Rec.709 color gamut to prevent digital banding.",
+                },
+                {
+                  number: "03",
+                  title: "Mobile Safe-Zone & Caption Formatting",
+                  description:
+                    "On-screen graphics, animated titles, and subtitles are positioned away from native platform buttons, comment drawers, and profile icons on iOS and Android devices.",
+                },
+                {
+                  number: "04",
+                  title: "Master Codec & Metadata Packaging",
+                  description:
+                    "Final renders are produced in high-bitrate H.264/MP4 and Apple ProRes formats with clean descriptive file names, frame-rate synchronization, and UTF-8 encoded .SRT tracks.",
                 },
               ].map(({ number, title: stepTitle, description: stepDesc }) => (
                 <div

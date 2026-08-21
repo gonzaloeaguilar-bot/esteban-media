@@ -101,6 +101,22 @@ describe("bilingual practical guides", () => {
     });
   });
 
+  it("targets Miami video production cost intent with truthful metadata", () => {
+    const guide = getGuides("en").find(
+      ({ id }) => id === "corporate-video-cost-guide",
+    );
+
+    expect(guide).toMatchObject({
+      slug: "corporate-video-production-cost-miami",
+      metadataTitle: "Miami Video Production Cost Guide",
+      description:
+        "Plan a Miami video production budget: compare scope, filming, editing, deliverables, and quote inputs before choosing a production path.",
+    });
+    expect(buildGuideMetadata(guide!).title).toBe(
+      "Miami Video Production Cost Guide",
+    );
+  });
+
   it("labels every article as general guidance without implying a private policy", () => {
     const corpus = JSON.stringify({
       guides: [...getGuides("en"), ...getGuides("es")],

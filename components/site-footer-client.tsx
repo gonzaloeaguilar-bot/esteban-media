@@ -19,7 +19,7 @@ type FooterProps = {
   name: string;
 };
 
-const englishGroups = [
+export const englishGroups = [
   {
     title: "Services",
     items: [
@@ -53,11 +53,14 @@ const englishGroups = [
       { href: "/", label: "Home" },
       { href: "/services", label: "Services" },
       { href: "/portfolio", label: "Portfolio" },
+      { href: "/case-studies", label: "Case studies" },
       { href: "/portfolio/healthy-smile", label: "Healthy Smile Miami" },
       { href: "/portfolio/homeowners", label: "Homeowners edit" },
       { href: "/guides", label: "Video guides" },
       { href: "/daily-publish-prompt", label: "Daily publishing prompt" },
       { href: "/daily-hook-planner", label: "Daily video hook planner" },
+      { href: "/daily-shot-list-planner", label: "Daily video shot list planner" },
+      { href: "/daily-script-pacing-calculator", label: "Daily video script pacing calculator" },
       { href: "/daily-script-timer", label: "Daily video script timer" },
       { href: "/areas", label: "Areas" },
       { href: "/about", label: "About" },
@@ -68,7 +71,7 @@ const englishGroups = [
   },
 ];
 
-const spanishGroups = [
+export const spanishGroups = [
   {
     title: "Servicios",
     items: [
@@ -107,11 +110,14 @@ const spanishGroups = [
       { href: "/es", label: "Inicio" },
       { href: "/es/servicios", label: "Servicios" },
       { href: "/es/portafolio", label: "Portafolio" },
+      { href: "/es/casos-de-estudio", label: "Casos de estudio" },
       { href: "/es/portafolio/healthy-smile", label: "Healthy Smile Miami" },
       { href: "/es/portafolio/homeowners", label: "Edición Homeowners" },
       { href: "/es/guias", label: "Guías de video" },
       { href: "/es/prompt-de-publicacion-diaria", label: "Prompt de publicación diaria" },
       { href: "/es/planificador-de-ganchos-de-video", label: "Planificador de ganchos de video" },
+      { href: "/es/planificador-de-tomas-de-video", label: "Planificador de tomas de video" },
+      { href: "/es/calculadora-de-ritmo-de-video", label: "Calculadora de ritmo de video" },
       { href: "/es/temporizador-de-guiones-de-video", label: "Temporizador de guiones de video" },
       { href: "/es/areas", label: "Áreas" },
       { href: "/es/sobre-esteban", label: "Sobre Esteban" },
