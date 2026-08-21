@@ -1,5 +1,15 @@
 # Esteban Moreno Media — Engineering Handoff
 
+## Daily Script Timer & Video Pacing Calculator — 2026-08-18
+
+- Added `/daily-script-timer` (English) and `/es/temporizador-de-guiones-de-video` (Spanish) as an interactive DAU engine surface.
+- Features real-time speaking pace & word count budget calculator across 15s/30s/60s/90s formats and 130/150/170 WPM rates.
+- Includes 7 date-rotated rehearsal frameworks, 1-click script copy, 3-step action checklist, and on-device `localStorage` streak tracking (`esteban-media-daily-script-timer` and `-es`).
+- Connected lightweight email capture block to `/api/lead` with `source: "daily-script-timer"` and client-side GA4 analytics reporting.
+- Additive navigation links added to footer menus (`site-footer-client.tsx`) and paired language routes mapped (`language-routes.ts`).
+- Verification: `pnpm check` passed (lint clean, typecheck clean, 46 test files / 356 tests passed, and 291-page production build generated).
+- PR open and review-gated for editorial approval.
+
 ## Portfolio Page Content Depth & Industry Specialization — 2026-08-19
 
 - Deepened `/portfolio` with substantive coverage answering search intent for video editing portfolio, industry specialization, and quality assurance:

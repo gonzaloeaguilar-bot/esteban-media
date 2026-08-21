@@ -43,6 +43,7 @@ Production is live. This file tracks repository implementation; account/access w
 - [x] Define contact and AI-referral measurement; provision GA4 dimensions for `contact_method` and `ai_source`
 - [x] Add route metadata, sitemap, portfolio schema, and data tests
 - [x] Run the live weekly search/index digest on 2026-08-12 and connect qualified-action evidence to the zero-token portfolio GA4 ingest
+- [x] Add interactive bilingual daily video script timer & pacing calculator surface (`/daily-script-timer` and `/es/temporizador-de-guiones-de-video`)
 
 ## P2 — Portfolio refinement
 
