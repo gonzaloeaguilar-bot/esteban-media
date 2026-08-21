@@ -254,3 +254,9 @@ The bullets below preserve earlier 2026-07-19 acceptance evidence. Their 20-URL,
 - Restored the shared Spanish niche structured-data builder and wired visible FAQs to matching FAQ schema.
 - Validation: lint has zero errors and three pre-existing unused-import warnings; typecheck passed; 34 files / 205 tests passed; 273-page production build passed.
 - Live weekly digest was run after correcting a duplicate H1 in the hot note: homepage, sitemap, robots, and analytics probes pass; 2 finalized clicks / 406 impressions / 35.7882 average position; 194/259 PASS, 65 neutral, zero fail. Overall status is `DEGRADED` because search performance remains below target, not because production probes failed.
+
+## Yacht and hospitality metadata rewrite — 2026-08-21
+
+- Live same-page GSC verification for `2026-07-22`–`2026-08-19` found 5 impressions, 0 clicks, and weighted position 6.4 for `/es/video-para-yates-y-hospitalidad-fort-lauderdale`.
+- Rewrote the search title to `Video para Yates y Hospitalidad | Fort Lauderdale` and front-loaded the exact video intent in the description without changing the URL, visible page claims, schema, or indexable inventory.
+- Added focused regression coverage for the metadata values and length limits.
