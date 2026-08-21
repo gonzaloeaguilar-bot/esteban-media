@@ -1160,9 +1160,9 @@ export const spanishNichePages: SpanishNichePage[] = [
   {
     slug: "video-para-yates-y-hospitalidad-fort-lauderdale",
     title: "Video para yates y hospitalidad en Fort Lauderdale",
-    metadataTitle: "Video Yates Fort Lauderdale",
+    metadataTitle: "Video para Yates y Hospitalidad",
     description:
-      "Edición de video y producción promocional para la industria náutica, yates y hospitalidad en Fort Lauderdale.",
+      "Video para yates y hospitalidad en Fort Lauderdale, con edición y producción promocional para marcas náuticas, chárteres y experiencias locales.",
     eyebrow: "Fort Lauderdale / Náutica",
     h1: "Videos promocionales para yates, marinos y hospitalidad.",
     lead:

@@ -64,6 +64,20 @@ describe("Spanish search titles", () => {
       );
     }
   });
+
+  it("targets yacht and hospitality demand in Fort Lauderdale", () => {
+    const page = spanishNichePages.find(
+      ({ slug }) => slug === "video-para-yates-y-hospitalidad-fort-lauderdale",
+    );
+
+    expect(page).toMatchObject({
+      metadataTitle: "Video para Yates y Hospitalidad",
+      description:
+        "Video para yates y hospitalidad en Fort Lauderdale, con edición y producción promocional para marcas náuticas, chárteres y experiencias locales.",
+    });
+    expect(`${page?.metadataTitle} | ${site.name}`).toHaveLength(54);
+    expect(page?.description.length).toBeLessThanOrEqual(160);
+  });
 });
 
 describe("portfolio language routes", () => {
