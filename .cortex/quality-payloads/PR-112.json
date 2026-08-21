@@ -1,0 +1,65 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-112",
+  "status": "review_pending",
+  "evidence": {
+    "obsidian_context": "Deepened the existing /portfolio page with substantive coverage on post-production retention engineering, camera Log ingest workflows, kinetic captioning, and expanded FAQs answering video portfolio search intent.",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, isolated worktree /Users/gonzalo/code/portfolio-ops-nightly/.cto-worktrees/esteban-portfolio-depth-20260819, branch agy/esteban-portfolio-depth-20260819, move class content_depth.",
+    "hard_stops_checked": "Checked and clear. No deployment, unconfirmed pricing quotes, or new routes created. URL inventory remains frozen at 259 sitemap URLs matching origin/main.",
+    "reviewer_ensemble": "builder pass, skeptic pass, taste pass - see reviewer_ensemble object.",
+    "reviewer_disagreement_reviewed": "The skeptic verified that the expanded portfolio page preserves all existing copy, adds additive retention pipeline and ingest sections, maintains 100% FAQ schema parity across all 14 questions, and passes all 46 test files including the updated portfolio-depth test suite.",
+    "winner_rationale": "Expanding substantive content depth on an existing page that already ranks at position 8.5 captures page-one search intent without creating URL cannibalization or fragmenting link equity.",
+    "tests_or_validation": "pnpm check passed: lint 0 errors, typecheck clean, 46 of 46 test files / 355 tests passed, and 289-page Next.js production build succeeded.",
+    "ci_passed": "Local full repository check passed; GitHub validate is pending at payload creation time.",
+    "pr_review_complete": "Self-review complete across app/(english)/portfolio/page.tsx, app/__tests__/portfolio-depth.test.ts, and .cortex/quality-payloads/PR-112.json.",
+    "deploy_or_rollback_plan": "Standard merge to main triggering Vercel deploy. Rollback is a clean git revert.",
+    "post_change_verification": "Post-deploy verification via curl and DOM text assertions on production /portfolio, followed by 28-day GSC tracking.",
+    "claim_hygiene_checked": "All claims conform to AGENTS.md guidelines. No unsupported workflow claims, no fake testimonials, no fabricated certificates.",
+    "debt_delta": "improvement",
+    "obsidian_handoff": "Recorded in Obsidian hot.md and durable note esteban-portfolio-content-depth-2026-08-19.md."
+  },
+  "project_routing": {
+    "canonical_repo": "/Users/gonzalo/code/esteban-media",
+    "worktree": "/Users/gonzalo/code/portfolio-ops-nightly/.cto-worktrees/esteban-portfolio-depth-20260819",
+    "branch": "agy/esteban-portfolio-depth-20260819",
+    "move_class": "content_depth"
+  },
+  "hard_stops_checked": {
+    "pricing_or_offers": "no fixed prices quoted; market context labeled; estimator links maintained",
+    "factual_business_claims": "strictly verified, no FAA Part 107 claims, no invented certificates",
+    "access_control": "none accessed or modified",
+    "deployment": "not performed in this step",
+    "third_party_services": "none added",
+    "url_inventory": "exact match to origin/main (259 URLs)"
+  },
+  "reviewer_ensemble": {
+    "builder": {
+      "status": "pass",
+      "note": "Expanded copy on /portfolio to add post-production retention pipeline and 4 new FAQ items with matching FAQPage JSON-LD schema."
+    },
+    "skeptic": {
+      "status": "pass",
+      "note": "Verified app/__tests__/portfolio-depth.test.ts asserts presence and integrity of all new technical specifications, retention pipeline, and expanded FAQs."
+    },
+    "taste": {
+      "status": "pass",
+      "note": "Copy maintains natural, professional technical clarity matching Esteban Moreno Media's existing register without template fluff."
+    }
+  },
+  "tests_or_validation": {
+    "commands": [
+      "pnpm exec vitest run app/__tests__/portfolio-depth.test.ts",
+      "pnpm check"
+    ],
+    "results": "1 of 1 in new test suite; 355 of 355 across 46 test files; lint 0 errors; typecheck clean; build clean; sitemap route count 259 matching origin/main.",
+    "known_failure": "none",
+    "browser": "not required - server-rendered static HTML verified by test assertions."
+  },
+  "source_material_checked": "GSC Search Analytics 2026-07-15..08-19, app/(english)/portfolio/page.tsx, lib/portfolio.ts",
+  "data_sources_current": {
+    "production_html": "production portfolio route verified against template depth benchmarks",
+    "route_inventory": "259 routes unchanged"
+  },
+  "booking_or_authority_thesis": "Deepening the /portfolio page with post-production retention pipeline, format ingest standards, and high-intent FAQs enables it to answer search intent comprehensively and move toward page one."
+}

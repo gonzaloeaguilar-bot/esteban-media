@@ -55,6 +55,20 @@ describe("portfolio content depth and technical specifications", () => {
     expect(text).toContain("Master Codec & Metadata Packaging");
 
     // Verifies expanded FAQ entries
+    // Verifies post-production engineering & retention section
+    expect(text).toContain("Editorial engineering built for viewer retention and asset longevity");
+    expect(text).toContain("Log & Raw Format Ingest");
+    expect(text).toContain("Retention & Hook Pacing");
+    expect(text).toContain("Kinetic Captions & Safe Zones");
+    expect(text).toContain("Content Repurposing & Batching");
+
+    // Verifies all 14 FAQ entries
+    expect(text).toContain("What types of video projects can be edited from client-provided footage?");
+    expect(text).toContain("How does remote editing collaboration work if I am outside South Florida?");
+    expect(text).toContain("Can I send footage captured on a smartphone or GoPro?");
+    expect(text).toContain("What export formats and aspect ratios are delivered for campaigns?");
+    expect(text).toContain("Does Esteban Moreno Media handle bilingual English and Spanish content?");
+    expect(text).toContain("Are on-location filming sessions available in South Florida?");
     expect(text).toContain("How are revisions and feedback handled during video post-production?");
     expect(text).toContain("What technical specs should client-supplied raw footage meet?");
     expect(text).toContain("Are audio tracks and background music legally cleared for commercial use?");
@@ -63,5 +77,9 @@ describe("portfolio content depth and technical specifications", () => {
     expect(text).toContain("What is the process for submitting revision notes on draft cuts?");
     expect(text).toContain("Can you work with mixed framerates and multi-camera footage?");
     expect(text).toContain("How are final video masters formatted and organized for delivery?");
+    expect(text).toContain("How does batch editing work for social media content campaigns?");
+    expect(text).toContain("What camera color profiles and Log footage formats are supported?");
+    expect(text).toContain("How are on-screen subtitles and safe zones formatted for vertical video?");
+    expect(text).toContain("Can existing long-form videos or podcasts be repurposed into short-form clips?");
   });
 });
