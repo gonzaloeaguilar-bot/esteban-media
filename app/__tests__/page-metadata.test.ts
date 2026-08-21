@@ -93,4 +93,28 @@ describe("complete page metadata", () => {
       "x-default": "/services/restaurant-promo-video-editing-miami",
     });
   });
+
+  it("verifies TikTok ad video editor metadata and snippet CTR criteria", async () => {
+    const { metadata } = await import(
+      "../(english)/services/tiktok-ad-video-editor-miami/page"
+    );
+
+    expect(metadata.title).toBe("TikTok Ad Video Editor Miami");
+    expect(metadata.description).toBe(
+      "Professional TikTok ad video editor in Miami. High-converting direct-response edits, 3-second hooks, dynamic captions & paid social video ads for brands.",
+    );
+    expect(metadata.description?.length).toBeGreaterThanOrEqual(120);
+    expect(metadata.description?.length).toBeLessThanOrEqual(160);
+    expect(metadata.description?.toLowerCase()).toContain(
+      "tiktok ad video editor in miami",
+    );
+    expect(metadata.alternates?.canonical).toBe(
+      "/services/tiktok-ad-video-editor-miami",
+    );
+    expect(metadata.alternates?.languages).toMatchObject({
+      "en-US": "/services/tiktok-ad-video-editor-miami",
+      "es-US": "/es/editor-de-video-para-anuncios-de-tiktok-miami",
+      "x-default": "/services/tiktok-ad-video-editor-miami",
+    });
+  });
 });

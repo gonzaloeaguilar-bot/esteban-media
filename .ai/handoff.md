@@ -1,5 +1,13 @@
 # Esteban Moreno Media — Engineering Handoff
 
+## TikTok Ad Video Editor Miami Title & Meta Rewrite — 2026-08-21
+
+- Refined English and Spanish metadata for `/services/tiktok-ad-video-editor-miami` (`/es/editor-de-video-para-anuncios-de-tiktok-miami`) to directly address search intent for "tiktok ad video editor miami" and lift SERP CTR.
+- Updated English description to high-intent CTR copy (153 chars): "Professional TikTok ad video editor in Miami. High-converting direct-response edits, 3-second hooks, dynamic captions & paid social video ads for brands."
+- Updated Spanish description (147 chars) aligning with direct-response social video editing scope.
+- Added regression tests in `app/__tests__/page-metadata.test.ts` verifying title, 120-160 char snippet length, query substring, and bilingual reciprocal alternates.
+- Verification: `pnpm check` clean (ESLint 0 errors, typecheck clean, 51 test files / 399 tests passing, production build of 291 pages static clean).
+
 ## Daily Script Timer & Video Pacing Calculator — 2026-08-18
 
 - Added `/daily-script-timer` (English) and `/es/temporizador-de-guiones-de-video` (Spanish) as an interactive DAU engine surface.

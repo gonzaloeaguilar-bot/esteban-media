@@ -8,7 +8,7 @@ import { absoluteUrl, site } from "@/lib/site";
 export const metadata = buildPageMetadata({
   title: "TikTok Ad Video Editor Miami",
   description:
-    "TikTok ad video editor in Miami: direct-response video ads for TikTok, Instagram Reels, and YouTube Shorts with scroll-stopping hooks.",
+    "Professional TikTok ad video editor in Miami. High-converting direct-response edits, 3-second hooks, dynamic captions & paid social video ads for brands.",
   path: "/services/tiktok-ad-video-editor-miami",
   locale: "en",
 });
