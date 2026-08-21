@@ -1,0 +1,51 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-124",
+  "goal": "Rewrite metadata for the yacht and hospitality video service page to lift CTR on target search query.",
+  "summary": "The English and Spanish metadata descriptions and titles for the yacht and hospitality service route are refined to state promotional video production, marine charters, brands, and waterfront venues.",
+  "risk": "Metadata-only change on an existing service route and Spanish niche entry; no route additions or schema alterations.",
+  "public_claims": "The copy describes video editing and production capabilities for yacht and hospitality venues without unsupported client results or rate promises.",
+  "evidence": {
+    "obsidian_context": "Repository rules, client context, and the overnight expansion brief were reviewed before implementation.",
+    "project_routing": "English service page at app/(english)/services/yacht-hospitality-video-fort-lauderdale/page.tsx and Spanish niche entry in lib/spanish-site.ts.",
+    "hard_stops_checked": "No unsupported client outcome, fixed rate, address, review, or availability statement was added.",
+    "reviewer_ensemble": {
+      "builder": "Rewrote English description to 154 chars and Spanish description to 150 chars with title under 60-char template limit, and added unit tests locking metadata length and query presence.",
+      "skeptic": "Verified length constraints, brand template bounds <= 60 chars, canonical tags, Open Graph / Twitter metadata alignment, and reciprocal hreflang pairings.",
+      "taste": "Kept copy direct, benefit-driven, and aligned with creative video editing standards for South Florida marine and hospitality clients."
+    },
+    "reviewer_disagreement_reviewed": "No disagreement found: the selected wording concisely captures yacht and marine hospitality video production capabilities.",
+    "winner_rationale": "The selected metadata matches search intent for video para yates y hospitalidad fort lauderdale with clear value propositions within 120-160 characters.",
+    "tests_or_validation": "pnpm check passed: ESLint clean, typecheck clean, 51 test files / 400 tests passing, and 291-page production build successful.",
+    "debt_delta": "Adds one focused regression assertion in app/__tests__/page-metadata.test.ts; no new dependencies or routes.",
+    "obsidian_handoff": "Repository handoff records the branch, scope, and local validation; final state will be recorded upon completion.",
+    "claim_hygiene_checked": "Verified against visible service offerings.",
+    "data_sources_current": "Live GSC query verified 5 impressions at position 19.8 (4 impressions at position 5.25 for target Spanish route) for 'video para yates y hospitalidad fort lauderdale'.",
+    "booking_or_authority_thesis": "High-intent searchers searching for Fort Lauderdale yacht and hospitality video production receive a compelling, relevant snippet that lifts CTR.",
+    "ci_passed": "Local repository gates passed cleanly; GitHub checks for PR-124 are pending.",
+    "pr_review_complete": "Local builder, skeptic, and taste reviews completed; GitHub review state is pending.",
+    "deploy_or_rollback_plan": "Merge through standard repository PR lane; reverting the commit restores previous metadata.",
+    "post_change_verification": "After merge, fetch canonical route /services/yacht-hospitality-video-fort-lauderdale and /es/video-para-yates-y-hospitalidad-fort-lauderdale to confirm HTTP 200 and rendered metadata."
+  },
+  "obsidian_context": "Repository rules, client context, and the overnight expansion brief were reviewed before implementation.",
+  "project_routing": "English service page at app/(english)/services/yacht-hospitality-video-fort-lauderdale/page.tsx and Spanish niche entry in lib/spanish-site.ts.",
+  "hard_stops_checked": "No unsupported client outcome, fixed rate, address, review, or availability statement was added.",
+  "reviewer_ensemble": {
+    "builder": "Rewrote English description to 154 chars and Spanish description to 150 chars with title under 60-char template limit, and added unit tests locking metadata length and query presence.",
+    "skeptic": "Verified length constraints, brand template bounds <= 60 chars, canonical tags, Open Graph / Twitter metadata alignment, and reciprocal hreflang pairings.",
+    "taste": "Kept copy direct, benefit-driven, and aligned with creative video editing standards for South Florida marine and hospitality clients."
+  },
+  "reviewer_disagreement_reviewed": "No disagreement found: the selected wording concisely captures yacht and marine hospitality video production capabilities.",
+  "winner_rationale": "The selected metadata matches search intent for video para yates y hospitalidad fort lauderdale with clear value propositions within 120-160 characters.",
+  "tests_or_validation": "pnpm check passed: ESLint clean, typecheck clean, 51 test files / 400 tests passing, and 291-page production build successful.",
+  "debt_delta": "Adds one focused regression assertion in app/__tests__/page-metadata.test.ts; no new dependencies or routes.",
+  "obsidian_handoff": "Repository handoff records the branch, scope, and local validation; final state will be recorded upon completion.",
+  "claim_hygiene_checked": "Verified against visible service offerings.",
+  "data_sources_current": "Live GSC query verified 5 impressions at position 19.8 (4 impressions at position 5.25 for target Spanish route) for 'video para yates y hospitalidad fort lauderdale'.",
+  "booking_or_authority_thesis": "High-intent searchers searching for Fort Lauderdale yacht and hospitality video production receive a compelling, relevant snippet that lifts CTR.",
+  "ci_passed": "Local repository gates passed cleanly; GitHub checks for PR-124 are pending.",
+  "pr_review_complete": "Local builder, skeptic, and taste reviews completed; GitHub review state is pending.",
+  "deploy_or_rollback_plan": "Merge through standard repository PR lane; reverting the commit restores previous metadata.",
+  "post_change_verification": "After merge, fetch canonical route /services/yacht-hospitality-video-fort-lauderdale and /es/video-para-yates-y-hospitalidad-fort-lauderdale to confirm HTTP 200 and rendered metadata."
+}
