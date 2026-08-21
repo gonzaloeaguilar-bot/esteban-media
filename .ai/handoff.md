@@ -1,5 +1,15 @@
 # Esteban Moreno Media — Engineering Handoff
 
+## Portfolio Page Content Depth & Industry Specialization — 2026-08-19
+
+- Deepened `/portfolio` with substantive coverage answering search intent for video editing portfolio, industry specialization, and quality assurance:
+  - Added dedicated Industry-Tailored Post-Production section addressing Real Estate & Architecture, Medical & Dental Practices, Contractors & Home Trades, and Corporate & Interview Series, with contextual internal service links.
+  - Added dedicated 4-point Post-Production Quality Assurance Protocol covering Audio Isolation & Loudness Verification (-14 / -16 LUFS), Color Calibration & Exposure Balancing (Rec.709 conforming), Mobile Safe-Zone & Caption Formatting (iOS/Android UI margins), and Master Codec & Metadata Packaging (H.264/MP4, ProRes, .SRT).
+  - Expanded portfolio FAQ items from 10 to 14 questions, adding high-intent coverage for long-form to vertical reels content repurposing, timecoded revision workflows, mixed frame rates & multi-camera conforming, and deliverable organization.
+  - Structured data parity: `FAQPage` JSON-LD schema dynamically updated to include all 14 questions in exact sync with visible HTML.
+  - Extended regression suite `app/__tests__/portfolio-depth.test.ts` to assert presence and integrity of industry focus sections, quality assurance protocol, and new FAQ entries.
+- Verification: `pnpm check` passed cleanly (lint 0 errors, typecheck clean, 46 test files / 355 tests passed, static build of 289 routes clean).
+
 ## Portfolio Page Content Depth & Search Enrichment — 2026-08-18
 
 - Expanded `/portfolio` with substantive coverage answering searcher intent for video editing portfolio, technical delivery standards, commercial formats, and production services:
@@ -116,6 +126,11 @@
 ## Goal
 
 Keep the production site reproducible, governed, private, and ready for the next proof/indexing phase.
+
+## Miami video-production cost metadata — 2026-08-20
+
+- Candidate branch `codex/esteban-video-production-miami-tuition-20260820` refreshes only the English corporate-video-cost guide metadata for the live low-CTR query `video production miami tuition`. The title now leads with `Miami Video Production Cost Guide`; the description names the scope, filming, editing, deliverables, and quote inputs that the visible guide already explains.
+- This preserves the guide's existing no-fixed-price position and does not add a route, claim, schema type, or language-pair change. Local `pnpm check` passed before PR creation.
 
 ## ESTEBAN-02 recovery candidate — 2026-08-05T21:11 ET
 

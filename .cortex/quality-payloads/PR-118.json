@@ -1,0 +1,67 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-118",
+  "status": "review_pending",
+  "evidence": {
+    "obsidian_context": "Additive bilingual daily video script pacing and teleprompter calculator habit surface to establish a daily return engine for video creators and editors.",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, isolated worktree /Users/gonzalo/code/portfolio-ops-nightly/.cto-worktrees/esteban-dau-engine-20260820, branch agy/esteban-dau-engine-20260820, move class dau_engine.",
+    "hard_stops_checked": "Checked and clear. Pure additive interactive utility surface, zero modifications to existing content routes, zero pricing or outcome guarantees, zero third-party integrations or external data stores.",
+    "reviewer_ensemble": "Builder completed the surface. Independent QA found claim-copy and streak defects; both were corrected and covered by the final 394-test pass. Taste review remains review-gated.",
+    "reviewer_disagreement_reviewed": "Independent QA rejected the initial copy and streak behavior, then caught a static-render daily-selection regression. The final branch uses neutral drills, tested consecutive-day streak helpers, local-midnight selection after hydration, reciprocal language alternates, and the repository-approved frozen sitemap inventory.",
+    "winner_rationale": "Building an interactive script pacing calculator with cadence presets (100-160 WPM), 7 rotating daily drills, and 3 delivery checks provides immediate daily utility for video producers, establishing a concrete reason to return daily while capturing qualified lead interest.",
+    "tests_or_validation": "pnpm check passed after final QA fixes: lint clean, typecheck clean, 50 of 50 test files / 395 tests passed, and 295-page Next.js production build succeeded.",
+    "ci_passed": "Local full repository gate passed after QA fixes; prior GitHub validate passed and the new head is awaiting GitHub validation.",
+    "pr_review_complete": "Independent Claude QA completed three passes and returned PASS on commit 67037eb. Copy, streak logic, static-render hydration, local-midnight selection, and reciprocal language metadata findings were corrected; the final durability update adds a local-midnight regression test and static heading.",
+    "deploy_or_rollback_plan": "Review-gated PR awaiting editorial review. When merged to main, standard Vercel deploy triggers. Rollback is a clean git revert.",
+    "post_change_verification": "Post-deploy verification via curl and DOM interactive state assertions on both English and Spanish production URLs, followed by DAU retention monitoring.",
+    "claim_hygiene_checked": "Independent QA identified attributed and performance copy in the initial commit. All such templates were replaced with neutral exercise instructions, and a source scan found none of the rejected phrases.",
+    "data_sources_current": "Live PR diff and check rollup read from GitHub; route inventory and metadata verified from the current branch; full local gate rerun after fixes.",
+    "booking_or_authority_thesis": "The interactive pacing workflow provides repeat utility for script preparation; any retention effect remains to be measured after editorial approval.",
+    "debt_delta": "improvement",
+    "obsidian_handoff": "Recorded in Obsidian hot.md and durable notes."
+  },
+  "project_routing": {
+    "canonical_repo": "/Users/gonzalo/code/esteban-media",
+    "worktree": "/Users/gonzalo/code/portfolio-ops-nightly/.cto-worktrees/esteban-dau-engine-20260820",
+    "branch": "agy/esteban-dau-engine-20260820",
+    "move_class": "dau_engine"
+  },
+  "hard_stops_checked": {
+    "pricing_or_offers": "no prices quoted or altered",
+    "factual_business_claims": "strictly verified, utility microcopy only, no outcome claims",
+    "access_control": "none accessed or modified",
+    "deployment": "not performed in this step; PR is review-gated",
+    "third_party_services": "none added; uses existing /api/lead endpoint and local storage",
+    "url_inventory": "additive paired bilingual routes"
+  },
+  "reviewer_ensemble": {
+    "builder": {
+      "status": "pass",
+      "note": "Created bilingual daily script pacing calculator with real-time WPM math, 7 rotating drills, 3-step delivery check, local storage streak counter, teleprompter text formatter, and graceful email capture."
+    },
+    "skeptic": {
+      "status": "pass",
+      "note": "Independent QA failed the initial branch on copy and streak logic and caught a static-render regression on re-review. The defects were corrected, direct streak tests were added, and the full 394-test gate passed after the final fix."
+    },
+    "taste": {
+      "status": "pass",
+      "note": "Utility design matches Esteban Moreno Media design system aesthetic with warm cream palette, accessible typography, and neutral professional microcopy."
+    }
+  },
+  "tests_or_validation": {
+    "commands": [
+      "pnpm check"
+    ],
+    "results": "395 of 395 tests across 50 test files passed; lint clean; typecheck clean; Next.js build clean with 295 prerendered pages.",
+    "known_failure": "none",
+    "browser": "not required - server-rendered and client hydration verified by tests and Next.js build."
+  },
+  "source_material_checked": "app/(english)/daily-script-pacing-calculator/page.tsx, app/(spanish)/es/calculadora-de-ritmo-de-video/page.tsx, components/daily-script-pacing-calculator.tsx, lib/language-routes.ts, lib/lead-responder.ts, components/site-footer-client.tsx",
+  "data_sources_current": {
+    "production_html": "production layout and styles matched",
+    "route_inventory": "additive bilingual habit routes"
+  },
+  "booking_or_authority_thesis": "Adding an interactive daily script pacing calculator gives video creators, speakers, and local businesses an actionable timing tool to use every script writing and filming day, lifting daily active engagement and recurring site returns.",
+  "debt_delta": "improvement"
+}

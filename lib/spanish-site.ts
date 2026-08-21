@@ -2684,6 +2684,16 @@ export const spanishCoreRoutes = [
 ];
 
 export const languageAlternates: Record<string, Record<string, string>> = {
+  "/daily-script-pacing-calculator": {
+    "en-US": "/daily-script-pacing-calculator",
+    "es-US": "/es/calculadora-de-ritmo-de-video",
+    "x-default": "/daily-script-pacing-calculator",
+  },
+  "/es/calculadora-de-ritmo-de-video": {
+    "en-US": "/daily-script-pacing-calculator",
+    "es-US": "/es/calculadora-de-ritmo-de-video",
+    "x-default": "/daily-script-pacing-calculator",
+  },
   // Case Study pairs (2026-08-14): Banacol, Homeowners, FLAS, Healthy Smile, My D'ler
   "/case-studies/banacol": {
     "en-US": "/case-studies/banacol",

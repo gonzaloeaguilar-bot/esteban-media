@@ -114,7 +114,14 @@ export default function RestaurantPromoVideoEditingMiamiPage() {
               <Video className="size-8 text-[#e85d3e]" aria-hidden="true" />
               <h2 className="mt-5 font-serif text-3xl">Restaurant video proof</h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                Our portfolio project <strong>Bar Door Monkey Miami</strong> proves published promotional hospitality videography and editing.
+                Our{" "}
+                <Link
+                  href="/portfolio"
+                  className="underline underline-offset-4 hover:text-[#9f3c27]"
+                >
+                  portfolio
+                </Link>{" "}
+                project <strong>Bar Door Monkey Miami</strong> proves published promotional hospitality videography and editing.
               </p>
               <div className="mt-5 border-t border-[#ddd4c8] pt-4">
                 <Link

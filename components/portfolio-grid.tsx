@@ -3,6 +3,7 @@ import esMessages from "@/messages/es.json";
 import Link from "next/link";
 import {
   CASE_STUDY_IDS,
+  getCaseStudiesIndexPath,
   getCaseStudyPath,
   type CaseStudyId,
 } from "@/lib/case-studies";
@@ -77,17 +78,25 @@ export function PortfolioGrid({ items, locale }: PortfolioGridProps) {
     <div id="portfolio-collection">
       <nav
         aria-label={locale === "es" ? "Categorías del portafolio" : "Portfolio categories"}
-        className="mb-12 flex flex-wrap gap-2 border-y border-[#d6ccc0] py-5"
+        className="mb-12 flex flex-wrap items-center justify-between gap-3 border-y border-[#d6ccc0] py-5"
       >
-        {categories.map((category) => (
-          <a
-            key={category.id}
-            href={`#portfolio-${category.slug}`}
-            className="inline-flex min-h-10 items-center rounded-full border border-[#cfc4b7] bg-[#fbf6ef] px-4 text-sm font-medium text-[#252a2d] transition hover:border-[#e85d3e] hover:text-[#9f3c27]"
-          >
-            {labels[category.id]?.shortLabel ?? labels[category.id]?.title ?? category.id}
-          </a>
-        ))}
+        <div className="flex flex-wrap gap-2">
+          {categories.map((category) => (
+            <a
+              key={category.id}
+              href={`#portfolio-${category.slug}`}
+              className="inline-flex min-h-10 items-center rounded-full border border-[#cfc4b7] bg-[#fbf6ef] px-4 text-sm font-medium text-[#252a2d] transition hover:border-[#e85d3e] hover:text-[#9f3c27]"
+            >
+              {labels[category.id]?.shortLabel ?? labels[category.id]?.title ?? category.id}
+            </a>
+          ))}
+        </div>
+        <Link
+          href={getCaseStudiesIndexPath(locale)}
+          className="inline-flex min-h-10 items-center gap-1.5 rounded-full border border-[#cfc4b7] bg-[#fbf6ef] px-4 text-sm font-medium text-[#252a2d] transition hover:border-[#e85d3e] hover:text-[#9f3c27]"
+        >
+          {locale === "es" ? "Ver casos de estudio →" : "View case studies →"}
+        </Link>
       </nav>
 
       <div className="space-y-16 sm:space-y-20">

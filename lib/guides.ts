@@ -1424,10 +1424,10 @@ const guidePairs: readonly GuidePair[] = [
     id: "corporate-video-cost-guide",
     en: {
       slug: "corporate-video-production-cost-miami",
-      metadataTitle: "Corporate Video Cost Miami Guide",
+      metadataTitle: "Miami Video Production Cost Guide",
       title: "How much does corporate video production cost in Miami?",
       description:
-        "Understand pricing drivers, scope factors, and budget considerations for corporate video editing and production in South Florida.",
+        "Plan a Miami video production budget: compare scope, filming, editing, deliverables, and quote inputs before choosing a production path.",
       eyebrow: "Video Pricing Guide",
       answer:
         "There is no responsible one-price answer before the scope is defined. A useful quote separates pre-production, capture, post-production, deliverables, review terms, and usage so you can compare like with like.",

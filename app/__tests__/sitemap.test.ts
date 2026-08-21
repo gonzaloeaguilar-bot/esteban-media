@@ -21,11 +21,11 @@ import sitemap from "../sitemap";
 describe("portfolio sitemap entries", () => {
   const entries = sitemap();
 
-  it("publishes the exact 269-URL release inventory, each URL once", () => {
+  it("publishes the exact 243-URL consolidated inventory, each URL once", () => {
     const urls = entries.map((entry) => entry.url);
 
-    expect(entries).toHaveLength(269);
-    expect(new Set(urls)).toHaveLength(269);
+    expect(entries).toHaveLength(243);
+    expect(new Set(urls)).toHaveLength(243);
   });
 
   // This used to assert every entry carried lastModified 2026-07-19. That
