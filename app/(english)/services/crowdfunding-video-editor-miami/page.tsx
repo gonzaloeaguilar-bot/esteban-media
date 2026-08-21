@@ -90,7 +90,14 @@ export default function CrowdfundingVideoEditorMiamiPage() {
               <WandSparkles className="size-8 text-[#e85d3e]" aria-hidden="true" />
               <h2 className="mt-5 font-serif text-3xl">Launch video proof</h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                Our portfolio project <strong>My D&apos;ler</strong> demonstrates published 2D and 3D video pitch graphics, product mockups, and launch materials.
+                Our{" "}
+                <Link
+                  href="/portfolio"
+                  className="underline underline-offset-4 hover:text-[#9f3c27]"
+                >
+                  portfolio
+                </Link>{" "}
+                project <strong>My D&apos;ler</strong> demonstrates published 2D and 3D video pitch graphics, product mockups, and launch materials.
               </p>
               <Link
                 href="/portfolio/my-dler"
