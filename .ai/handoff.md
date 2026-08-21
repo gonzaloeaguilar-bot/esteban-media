@@ -1,5 +1,20 @@
 # Esteban Moreno Media — Engineering Handoff
 
+## Short-form editing search surface — 2026-08-21
+
+- Deepened the existing indexable `/services/short-form-video-editor-miami`
+  route without increasing the frozen sitemap inventory.
+- Updated its metadata from `Short Form Video Editor Miami` and a generic
+  South Florida description to `Short-Form Video Editing Miami` and a distinct
+  supplied-footage/service-area description.
+- Added visible answer-first scope, intake requirements, deliverables, and
+  service-area copy using only the confirmed remote-editing and selectively
+  scoped Broward/Miami-Dade production offer.
+- Changed the homepage Editing card from `/services#editing` to the dedicated
+  service route, making it directly reachable from `/`.
+- Verification: focused Vitest 2/2, ESLint exit 0, direct TypeScript exit 0,
+  indexable-inventory freeze 1/1, and `git diff --check` exit 0.
+
 ## Portfolio Page Content Depth & Industry Specialization — 2026-08-19
 
 - Deepened `/portfolio` with substantive coverage answering search intent for video editing portfolio, industry specialization, and quality assurance:

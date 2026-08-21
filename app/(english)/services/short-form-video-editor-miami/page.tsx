@@ -1,3 +1,4 @@
+import React from "react";
 import Link from "next/link";
 import { ArrowRight, Scissors, Mail, Phone } from "lucide-react";
 
@@ -6,9 +7,9 @@ import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
 export const metadata = buildPageMetadata({
-  title: "Short Form Video Editor Miami",
+  title: "Short-Form Video Editing Miami",
   description:
-    "Short-form video editing for Instagram Reels, TikTok, and YouTube Shorts for creators and businesses in South Florida.",
+    "Short-form video editing for Reels, TikTok, and YouTube Shorts from supplied footage, serving Miami-Dade, Broward, and remote clients.",
   path: "/services/short-form-video-editor-miami",
   locale: "en",
 });
@@ -103,6 +104,41 @@ export default function ShortFormVideoEditorPage() {
                 >
                   restaurant promo video editing in Miami
                 </Link>.
+              </p>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-b border-[#ddd4c8] py-12 sm:py-16">
+        <Container size="xl">
+          <div className="grid gap-10 lg:grid-cols-2">
+            <div>
+              <p className="text-xs font-medium uppercase text-[#5a6066]">
+                Editing scope
+              </p>
+              <h2 className="mt-3 font-serif text-4xl">
+                Turn supplied footage into platform-ready vertical video.
+              </h2>
+              <p className="mt-5 text-base leading-7 text-[#252a2d]">
+                Short-form editing starts with the footage you already have,
+                the audience you want to reach, and the channel where the video
+                will be published. The edit can combine selected takes, pacing,
+                captions, sound design, and vertical framing around that brief.
+              </p>
+            </div>
+            <div>
+              <h2 className="font-serif text-3xl">What to send</h2>
+              <ul className="mt-5 space-y-3 text-sm leading-6 text-[#252a2d]">
+                <li>Original video and audio files</li>
+                <li>The publishing channel: Reels, TikTok, or Shorts</li>
+                <li>Brand references, message, and preferred visual direction</li>
+                <li>The versions and aspect ratios the project needs</li>
+              </ul>
+              <p className="mt-6 text-sm leading-6 text-[#252a2d]">
+                Remote editing is available from supplied footage. Selective
+                on-location capture is scoped project by project in Broward and
+                Miami-Dade; no studio visit is required.
               </p>
             </div>
           </div>

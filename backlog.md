@@ -26,6 +26,7 @@ Production is live. This file tracks repository implementation; account/access w
 - [x] Add truthful localized `VideoObject` data on all 16 dedicated watch pages and represent collection entries as links to those `WebPage` entities
 - [ ] Add `ImageObject`/logo schema when approved brand photography and logo files are available
 - [ ] Add English priority-service pages when distinct, verified content is ready
+- [x] Make the existing short-form editing service a substantive search surface with distinct metadata and a direct homepage link
 - [x] Strengthen the homepage, bilingual service/area hubs, internal proof links, and Esteban entity graph using only approved facts
 - [x] Add a bilingual homepage authority hub that connects priority services to three accurately credited portfolio projects
 - [x] Rebuild the corporate-video pricing guide with transparent scope factors, quote inputs, decision criteria, visible FAQ, and matching structured data

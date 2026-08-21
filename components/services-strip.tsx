@@ -1,3 +1,4 @@
+import React from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
@@ -40,7 +41,9 @@ export function ServicesStrip() {
           {services.map((service) => {
             const Icon = service.icon;
             const href =
-              service.id === "website-design"
+              service.id === "editing"
+                ? "/services/short-form-video-editor-miami"
+                : service.id === "website-design"
                 ? "/services/website-design-fort-lauderdale"
                 : `/services#${service.id}`;
             return (
