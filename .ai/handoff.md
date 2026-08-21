@@ -1,5 +1,13 @@
 # Esteban Moreno Media — Engineering Handoff
 
+## Yacht & Hospitality Fort Lauderdale Title & Meta Rewrite — 2026-08-21
+
+- Refined English and Spanish metadata for `/services/yacht-hospitality-video-fort-lauderdale` (`/es/video-para-yates-y-hospitalidad-fort-lauderdale`) to target search intent for "video para yates y hospitalidad fort lauderdale" and lift SERP CTR.
+- Updated Spanish metadataTitle to "Video Yates Hospitalidad Lauderdale" (36 chars) and Spanish description to high-intent CTR copy (150 chars): "Edición y producción de video para yates y hospitalidad en Fort Lauderdale. Videos promocionales para chárters, marcas marinas y venues frente al agua."
+- Updated English description to high-intent CTR copy (154 chars): "Professional yacht and hospitality video production in Fort Lauderdale. Promotional video editing for charter companies, marine brands & waterfront venues."
+- Added regression tests in `app/__tests__/page-metadata.test.ts` verifying titles, 120-160 char snippet lengths, query substrings, and bilingual reciprocal alternates.
+- Verification: `pnpm check` clean (ESLint 0 errors, typecheck clean, 51 test files / 400 tests passing, production build of 291 pages static clean).
+
 ## TikTok Ad Video Editor Miami Title & Meta Rewrite — 2026-08-21
 
 - Refined English and Spanish metadata for `/services/tiktok-ad-video-editor-miami` (`/es/editor-de-video-para-anuncios-de-tiktok-miami`) to directly address search intent for "tiktok ad video editor miami" and lift SERP CTR.

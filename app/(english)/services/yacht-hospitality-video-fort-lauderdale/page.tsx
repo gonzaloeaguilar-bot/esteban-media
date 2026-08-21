@@ -8,7 +8,7 @@ import { absoluteUrl, site } from "@/lib/site";
 export const metadata = buildPageMetadata({
   title: "Yacht Hospitality Video Fort Lauderdale",
   description:
-    "Promotional video editing and marine video production for yacht charters, marine services, and hospitality in Fort Lauderdale.",
+    "Professional yacht and hospitality video production in Fort Lauderdale. Promotional video editing for charter companies, marine brands & waterfront venues.",
   path: "/services/yacht-hospitality-video-fort-lauderdale",
   locale: "en",
 });

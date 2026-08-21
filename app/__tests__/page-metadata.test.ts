@@ -117,4 +117,54 @@ describe("complete page metadata", () => {
       "x-default": "/services/tiktok-ad-video-editor-miami",
     });
   });
+
+  it("verifies yacht and hospitality video Fort Lauderdale metadata and snippet CTR criteria", async () => {
+    const spanishMetadata = buildSpanishNicheMetadata(
+      "video-para-yates-y-hospitalidad-fort-lauderdale",
+    );
+
+    expect(spanishMetadata.title).toBe(
+      "Video Yates Hospitalidad Lauderdale",
+    );
+    expect(spanishMetadata.description).toBe(
+      "Edición y producción de video para yates y hospitalidad en Fort Lauderdale. Videos promocionales para chárters, marcas marinas y venues frente al agua.",
+    );
+    expect(spanishMetadata.description?.length).toBeGreaterThanOrEqual(120);
+    expect(spanishMetadata.description?.length).toBeLessThanOrEqual(160);
+    expect(spanishMetadata.description?.toLowerCase()).toContain(
+      "video para yates y hospitalidad en fort lauderdale",
+    );
+    expect(spanishMetadata.alternates?.canonical).toBe(
+      "/es/video-para-yates-y-hospitalidad-fort-lauderdale",
+    );
+    expect(spanishMetadata.alternates?.languages).toMatchObject({
+      "en-US": "/services/yacht-hospitality-video-fort-lauderdale",
+      "es-US": "/es/video-para-yates-y-hospitalidad-fort-lauderdale",
+      "x-default": "/services/yacht-hospitality-video-fort-lauderdale",
+    });
+
+    const { metadata: englishMetadata } = await import(
+      "../(english)/services/yacht-hospitality-video-fort-lauderdale/page"
+    );
+
+    expect(englishMetadata.title).toBe(
+      "Yacht Hospitality Video Fort Lauderdale",
+    );
+    expect(englishMetadata.description).toBe(
+      "Professional yacht and hospitality video production in Fort Lauderdale. Promotional video editing for charter companies, marine brands & waterfront venues.",
+    );
+    expect(englishMetadata.description?.length).toBeGreaterThanOrEqual(120);
+    expect(englishMetadata.description?.length).toBeLessThanOrEqual(160);
+    expect(englishMetadata.description?.toLowerCase()).toContain(
+      "yacht and hospitality video production in fort lauderdale",
+    );
+    expect(englishMetadata.alternates?.canonical).toBe(
+      "/services/yacht-hospitality-video-fort-lauderdale",
+    );
+    expect(englishMetadata.alternates?.languages).toMatchObject({
+      "en-US": "/services/yacht-hospitality-video-fort-lauderdale",
+      "es-US": "/es/video-para-yates-y-hospitalidad-fort-lauderdale",
+      "x-default": "/services/yacht-hospitality-video-fort-lauderdale",
+    });
+  });
 });
