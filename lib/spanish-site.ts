@@ -2383,7 +2383,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     title: "Editor de video para anuncios de TikTok e Instagram",
     metadataTitle: "Editor Video Anuncios TikTok Miami",
     description:
-      "Edición de anuncios de video direct-response para TikTok, Reels y Shorts con ganchos visuales de alta conversión.",
+      "Editor de video para anuncios de TikTok en Miami. Edición direct-response, ganchos de alta retención, subtítulos dinámicos y video ads para marcas.",
     eyebrow: "TikTok Ads / Social Video Ads",
     h1: "Edición de anuncios en video optimizados para TikTok e Instagram.",
     lead:
