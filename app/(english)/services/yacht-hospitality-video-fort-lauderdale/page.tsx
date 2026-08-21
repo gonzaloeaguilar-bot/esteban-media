@@ -90,7 +90,14 @@ export default function YachtHospitalityVideoFortLauderdalePage() {
               <Anchor className="size-8 text-[#e85d3e]" aria-hidden="true" />
               <h2 className="mt-5 font-serif text-3xl">Marine & aerial proof</h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                Our portfolio project <strong>Banacol</strong> proves published aerial drone cinematography filmed on assignment from boats at sea.
+                Our{" "}
+                <Link
+                  href="/portfolio"
+                  className="underline underline-offset-4 hover:text-[#9f3c27]"
+                >
+                  portfolio
+                </Link>{" "}
+                project <strong>Banacol</strong> proves published aerial drone cinematography filmed on assignment from boats at sea.
               </p>
               <Link
                 href="/portfolio/banacol"
