@@ -91,7 +91,7 @@
           { "metric": "+310%", "label": "Conversiones Mensuales de Clientes Calificados" }
         ]
       },
-      "gonzalo-tech-chatbots": {
+      "ai-lead-automation": {
         "title": "Chatbots de IA Conversacionales (Geebs IG DM Bot y FLAS)",
         "summary": "Chatbots de IA conversacional 24/7 desarrollados a la medida para Geebs (Bot para Instagram DM) y Fort Lauderdale Auto Sale (FLAS) para automatizar atención al cliente, calificar prospectos y cerrar citas.",
         "credits": "Arquitectura de bots de IA, automatización para Instagram DM, ingeniería de prompts y captura de clientes.",

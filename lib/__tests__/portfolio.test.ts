@@ -52,7 +52,7 @@ const expectedCategoryByItem: Record<string, PortfolioCategoryId> = {
   "gains-from-geebs": "web-design",
   "front-line-auto": "web-design",
   "flas-concierge": "web-design",
-  "gonzalo-tech-chatbots": "web-design",
+  "ai-lead-automation": "web-design",
 };
 
 const verifiedYears: Record<string, number> = {
@@ -65,7 +65,7 @@ const verifiedYears: Record<string, number> = {
   "gains-from-geebs": 2026,
   "front-line-auto": 2026,
   "flas-concierge": 2026,
-  "gonzalo-tech-chatbots": 2026,
+  "ai-lead-automation": 2026,
 };
 
 describe("verified portfolio data", () => {

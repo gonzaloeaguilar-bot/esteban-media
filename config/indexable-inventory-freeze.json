@@ -3,7 +3,7 @@
   "effectiveDate": "2026-08-14",
   "baselineRevisedOn": "2026-08-19",
   "approvedSitemapUrlCount": 243,
-  "approvedSitemapUrlSetSha256": "f00430b579b0b3af8b4f6ce9f7f47bc866d12a82d984db0546fe80e6adcf36a2",
+  "approvedSitemapUrlSetSha256": "70fc0fe5ffcf26dc159e5e0c93a8d5e624f9764ca39f62b999b85b51b232bc98",
   "allowedNewIndexableUrls": 0,
   "reason": "Classify and consolidate the current low/no-impression inventory before expanding the sitemap.",
   "consolidationExecuted": {

@@ -16,7 +16,7 @@ describe("Website Design & AI Chatbot QA Test Suite", () => {
       "gains-from-geebs",
       "titanforge",
       "front-line-auto",
-      "gonzalo-tech-chatbots",
+      "ai-lead-automation",
     ]);
   });
 
@@ -33,7 +33,7 @@ describe("Website Design & AI Chatbot QA Test Suite", () => {
     const flas = getPortfolioItemById("flas-concierge");
     expect(flas?.websiteUrl).toBe("https://fortlauderdaleautosale.com");
 
-    const chatbots = getPortfolioItemById("gonzalo-tech-chatbots");
+    const chatbots = getPortfolioItemById("ai-lead-automation");
     expect(chatbots?.websiteUrl).toBe("https://fortlauderdaleautosale.com");
   });
 

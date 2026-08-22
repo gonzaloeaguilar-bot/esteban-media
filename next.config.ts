@@ -20,6 +20,16 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/portfolio/gonzalo-tech-chatbots",
+        destination: "/portfolio/ai-lead-automation",
+        permanent: true,
+      },
+      {
+        source: "/es/portafolio/gonzalo-tech-chatbots",
+        destination: "/es/portafolio/ai-lead-automation",
+        permanent: true,
+      },
+      {
         source: "/es/servicios/produccion-video-bienes-raices-coral-gables",
         destination: "/es/video-inmobiliario-coral-gables",
         permanent: true,
