@@ -88,7 +88,7 @@
           { "metric": "+310%", "label": "Monthly Qualified Lead Conversions" }
         ]
       },
-      "gonzalo-tech-chatbots": {
+      "ai-lead-automation": {
         "title": "Conversational AI Lead Chatbots (Geebs IG DM Bot & FLAS)",
         "summary": "Custom 24/7 conversational AI chatbots built for Geebs (Instagram DM Bot) and Fort Lauderdale Auto Sale (FLAS) to automate customer inquiries, pre-qualify leads, and drive instant conversions.",
         "credits": "AI chatbot architecture, Instagram DM automation, custom prompt engineering, and automated lead capture systems.",

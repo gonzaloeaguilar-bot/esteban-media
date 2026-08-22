@@ -109,7 +109,7 @@ export type PortfolioItemI18nKey =
   | "gains-from-geebs"
   | "front-line-auto"
   | "flas-concierge"
-  | "gonzalo-tech-chatbots";
+  | "ai-lead-automation";
 
 export interface PortfolioItem {
   /** Stable URL-safe id, also used by the local poster filename. */
@@ -369,12 +369,12 @@ export const PORTFOLIO_ITEMS: readonly PortfolioItem[] = [
     },
   },
   {
-    id: "gonzalo-tech-chatbots",
+    id: "ai-lead-automation",
     category: "web-design",
     title: "Conversational AI Lead Chatbots (Geebs & FLAS)",
-    titleI18nKey: "gonzalo-tech-chatbots",
-    descriptionI18nKey: "gonzalo-tech-chatbots",
-    creditsI18nKey: "gonzalo-tech-chatbots",
+    titleI18nKey: "ai-lead-automation",
+    descriptionI18nKey: "ai-lead-automation",
+    creditsI18nKey: "ai-lead-automation",
     year: 2026,
     location: "South Florida",
     websiteUrl: "https://fortlauderdaleautosale.com",
@@ -382,7 +382,7 @@ export const PORTFOLIO_ITEMS: readonly PortfolioItem[] = [
     status: "live",
     media: {
       kind: "image",
-      src: "/portfolio/gonzalo-tech-chatbots.jpg",
+      src: "/portfolio/ai-lead-automation.jpg",
       alt: "Custom AI Conversational Lead Bots for Geebs & FLAS",
       aspect: "16:9",
     },

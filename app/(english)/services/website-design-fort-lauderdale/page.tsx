@@ -153,13 +153,13 @@ export default function WebsiteDesignFortLauderdalePage() {
       href: "/portfolio/flas-concierge",
     },
     {
-      id: "gonzalo-tech-chatbots",
+      id: "ai-lead-automation",
       title: "Conversational AI Lead Chatbots (Geebs & FLAS)",
       category: "Conversational AI & Lead Automation",
       description:
         "Bespoke 24/7 conversational AI chatbots engineered for Geebs and Fort Lauderdale Auto Sale (FLAS) to automate customer inquiries, pre-qualify leads, and drive instant booked appointments.",
       tags: ["Geebs Coaching Bot", "FLAS Financing Bot", "24/7 AI Lead Capture"],
-      href: "/portfolio/gonzalo-tech-chatbots",
+      href: "/portfolio/ai-lead-automation",
     },
   ];
 
