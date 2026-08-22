@@ -1,0 +1,54 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-128",
+  "status": "review_pending",
+  "evidence": {
+    "obsidian_context": "Owner-directed moonlighting firewall: Esteban Media is the sole public provider and no behind-the-scenes operator identity may appear on public surfaces.",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, isolated worktree, branch codex/moonlight-public-identity-firewall.",
+    "hard_stops_checked": "No pricing, outreach, credentials, client-system activation, or factual outcome claims changed. Legacy public URLs redirect to neutral Esteban Media-owned routes.",
+    "reviewer_ensemble": "builder pass, skeptic pass, taste pass",
+    "reviewer_disagreement_reviewed": "The review distinguished private machine paths from shipped public source, asset names, route IDs, sitemap entries, metadata, and rendered HTML/RSC.",
+    "winner_rationale": "Replacing the operator-named public identifier everywhere and enforcing it with a source-and-asset regression test removes current exposure and prevents recurrence.",
+    "tests_or_validation": "pnpm test: 52 files and 401 tests passed; pnpm typecheck passed; pnpm build passed with 297 static pages; rendered HTML/RSC scan found zero prohibited identity matches.",
+    "ci_passed": "GitHub validate passed and Vercel preview deployed successfully.",
+    "pr_review_complete": "Reviewed all changed EN/ES links, portfolio data, translations, image paths, sitemap/index-watch targets, redirects, and the public identity test.",
+    "deploy_or_rollback_plan": "Merge through the normal Vercel path. Roll back with a revert if neutral routes or redirects fail at production.",
+    "post_change_verification": "Fetch production neutral routes, legacy redirects, sitemap, and homepage; scan returned public bodies and URLs for prohibited identity tokens.",
+    "claim_hygiene_checked": "No new capability, result, client, timeline, or ROI claims.",
+    "debt_delta": "improvement",
+    "obsidian_handoff": "Recorded in the Esteban Media hot note and AI automation roadmap."
+  },
+  "project_routing": {
+    "canonical_repo": "/Users/gonzalo/code/esteban-media",
+    "worktree": "/Users/gonzalo/code/esteban-moonlight-fix.NKWaq6",
+    "branch": "codex/moonlight-public-identity-firewall",
+    "move_class": "privacy_guardrail"
+  },
+  "hard_stops_checked": {
+    "pricing_or_offers": "unchanged",
+    "factual_business_claims": "unchanged; no new public claims",
+    "secrets_or_credentials": "none accessed or changed",
+    "deployment": "preview only before merge",
+    "third_party_services_or_backends": "none added",
+    "external_outreach": "none performed",
+    "url_inventory": "same count; one bilingual portfolio identifier renamed with permanent redirects"
+  },
+  "reviewer_ensemble": {
+    "builder": {"status": "pass", "note": "Replaced the public identifier across source, assets, sitemap monitoring, and EN/ES routes."},
+    "skeptic": {"status": "pass", "note": "Confirmed the previous identifier was live in production and the new test fails on prohibited tokens in public surfaces."},
+    "taste": {"status": "pass", "note": "Neutral ai-lead-automation naming preserves the case-study meaning under the Esteban Media brand."}
+  },
+  "tests_or_validation": {
+    "commands": ["pnpm test", "pnpm typecheck", "pnpm build", "rendered HTML/RSC prohibited-token scan"],
+    "results": "52/52 test files and 401/401 tests passed; typecheck clean; production build clean; zero rendered public identity matches.",
+    "known_failure": "none",
+    "browser": "Vercel preview completed successfully; production boundary verification follows merge."
+  },
+  "source_material_checked": "Live homepage, website-design service page, old portfolio route, sitemap.xml, public source directories, and generated HTML/RSC.",
+  "data_sources_current": {
+    "production_html": "Old public identifier verified live before the change on 2026-08-22.",
+    "route_inventory": "297 static pages; bilingual portfolio ID renamed without changing count."
+  },
+  "booking_or_authority_thesis": "Privacy and moonlighting compliance are hard release constraints; removing operator identity must precede expanding the Esteban Media technology offer."
+}
