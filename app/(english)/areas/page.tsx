@@ -201,6 +201,45 @@ export default function AreasPage() {
             </div>
           </section>
 
+          <section
+            className="mt-14 rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6 sm:p-8"
+            aria-labelledby="location-inquiry-heading"
+          >
+            <p className="text-xs font-medium uppercase text-[#5a6066]">
+              What to include with a location inquiry
+            </p>
+            <h2
+              id="location-inquiry-heading"
+              className="mt-4 max-w-3xl font-serif text-4xl leading-tight"
+            >
+              Start with the place, the goal, and the footage.
+            </h2>
+            <p className="mt-4 max-w-3xl leading-7 text-[#252a2d]">
+              For on-location capture, share the county, project goal, and what
+              needs to be filmed. For editing, AI-assisted content, or social
+              planning, share the source files or references you already have
+              and where the finished content will be used. That gives Esteban
+              enough context to discuss whether the work can begin remotely or
+              needs a selectively scoped South Florida visit.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-4 text-sm font-medium">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 text-[#9f3c27] hover:text-[#7f2f20]"
+              >
+                Send the project details
+                <ArrowRight className="size-4" aria-hidden="true" />
+              </Link>
+              <Link
+                href="/services"
+                className="inline-flex items-center gap-2 text-[#9f3c27] hover:text-[#7f2f20]"
+              >
+                Compare services
+                <ArrowRight className="size-4" aria-hidden="true" />
+              </Link>
+            </div>
+          </section>
+
           <ServiceLandingDirectory />
 
           <div className="mt-12 flex flex-wrap gap-3">
