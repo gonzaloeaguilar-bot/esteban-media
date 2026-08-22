@@ -1,5 +1,14 @@
 # Esteban Moreno Media — Engineering Handoff
 
+## Homepage single-step project intake — 2026-08-22
+
+- Replaced the homepage contact section's mandatory `/contact` page hop with an inline email + project-summary form that submits to the existing `/api/lead` boundary using the allowlisted `contact` source.
+- The detailed `/contact` brief remains available as a secondary path. The inline form includes accessible pending, success, and recoverable error states and retains direct email, phone, and Instagram options.
+- `trackLeadSubmit("contact", "en")` fires only after the API returns an accepted response, so GA4 does not count rejected requests as leads. The existing privacy contract remains intact: analytics receives only source and locale; email and free text go only to `/api/lead`.
+- This implements the attached funnel diagnosis without adding a URL or violating the live indexable-inventory freeze (`allowedNewIndexableUrls: 0`). Success evidence is at least one `lead_submit` key event or one verified `/api/lead` delivery-ledger row.
+- Verification: `pnpm test -- app/__tests__/lead-submit-analytics.test.ts app/__tests__/lead-responder.test.ts` passed all 51 test files / 400 tests; `pnpm lint`, `pnpm typecheck`, and `git diff --check` exited 0.
+- Independent Antigravity review returned `APPROVE`. Claude verification remains owed: the first governed run exited 80 after starting in plan mode without a verdict, and one explicit-permission retry timed out at 180 seconds (exit 124). Neither failure is represented as approval.
+
 ## TikTok Ad Video Editor Miami Title & Meta Rewrite — 2026-08-21
 
 - Refined English and Spanish metadata for `/services/tiktok-ad-video-editor-miami` (`/es/editor-de-video-para-anuncios-de-tiktok-miami`) to directly address search intent for "tiktok ad video editor miami" and lift SERP CTR.
