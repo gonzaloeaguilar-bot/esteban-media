@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Laptop, MapPin } from "lucide-react";
+import { ArrowRight, HelpCircle, Laptop, MapPin } from "lucide-react";
 
 import { ServiceLandingDirectory } from "@/components/service-landing-directory";
 import { Container } from "@/components/ui/container";
@@ -36,30 +36,74 @@ const miamiProof = [
   },
 ];
 
+const serviceAreaFaqs = [
+  {
+    question: "How does remote editing differ from local content capture?",
+    answer:
+      "Remote video editing, AI-assisted content workflows, and social media planning begin directly from supplied footage and project references, serving clients across South Florida and remotely. On-location content capture is evaluated selectively based on the filming site, objectives, and schedule in Fort Lauderdale or Broward, with Miami-Dade available for confirmed projects.",
+  },
+  {
+    question: "Can footage filmed outside South Florida be edited remotely?",
+    answer:
+      "Yes. Post-production video editing, audio mixing, color finishing, and social formatting work directly with digital source assets transferred online from any location, without geographic restrictions.",
+  },
+  {
+    question: "How is project availability evaluated for Palm Beach County?",
+    answer:
+      "Palm Beach County is an expansion area evaluated on an individual project basis for on-location filming. Remote video editing and content planning remain available for any project with supplied source footage.",
+  },
+  {
+    question: "Do you provide bilingual English and Spanish content support?",
+    answer:
+      "Yes. Esteban Moreno Media provides Spanish-first and bilingual video editing, content planning, and narrative pacing structured for South Florida businesses reaching both English and Spanish-speaking audiences.",
+  },
+  {
+    question: "What details help clarify a new project inquiry?",
+    answer:
+      "Specify whether you have existing source footage to edit or need on-location filming. Sharing the primary project objective, intended publishing platforms, and target timeline helps Esteban confirm whether the project can proceed remotely or requires a scheduled local production visit.",
+  },
+];
+
 export default function AreasPage() {
   const areaJsonLd = {
     "@context": "https://schema.org",
-    "@type": "ItemList",
-    "@id": absoluteUrl("/areas#service-areas"),
-    name: "Service areas for Esteban Moreno Media",
-    itemListElement: serviceAreas.map((area, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      item: {
-        "@type": area.schemaType,
-        name: area.name,
-        description: area.description,
-        url: absoluteUrl(`/areas#${areaAnchors[area.name]}`),
-        ...(area.schemaType === "City"
-          ? {
-              containedInPlace: {
-                "@type": "AdministrativeArea",
-                name: area.county,
-              },
-            }
-          : {}),
+    "@graph": [
+      {
+        "@type": "ItemList",
+        "@id": absoluteUrl("/areas#service-areas"),
+        name: "Service areas for Esteban Moreno Media",
+        itemListElement: serviceAreas.map((area, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          item: {
+            "@type": area.schemaType,
+            name: area.name,
+            description: area.description,
+            url: absoluteUrl(`/areas#${areaAnchors[area.name]}`),
+            ...(area.schemaType === "City"
+              ? {
+                  containedInPlace: {
+                    "@type": "AdministrativeArea",
+                    name: area.county,
+                  },
+                }
+              : {}),
+          },
+        })),
       },
-    })),
+      {
+        "@type": "FAQPage",
+        "@id": absoluteUrl("/areas#faq"),
+        mainEntity: serviceAreaFaqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      },
+    ],
   };
 
   return (
@@ -237,6 +281,42 @@ export default function AreasPage() {
                 Compare services
                 <ArrowRight className="size-4" aria-hidden="true" />
               </Link>
+            </div>
+          </section>
+
+          <section
+            className="mt-14"
+            aria-labelledby="service-areas-faq-heading"
+          >
+            <p className="text-xs font-medium uppercase text-[#5a6066]">
+              Common questions
+            </p>
+            <h2
+              id="service-areas-faq-heading"
+              className="mt-4 max-w-3xl font-serif text-4xl leading-tight"
+            >
+              Frequently asked questions about service areas and production.
+            </h2>
+            <div className="mt-7 grid gap-5 md:grid-cols-2">
+              {serviceAreaFaqs.map((faq) => (
+                <article
+                  key={faq.question}
+                  className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6"
+                >
+                  <div className="flex items-start gap-3">
+                    <HelpCircle
+                      className="mt-1 size-5 shrink-0 text-[#9f3c27]"
+                      aria-hidden="true"
+                    />
+                    <h3 className="font-serif text-2xl leading-tight">
+                      {faq.question}
+                    </h3>
+                  </div>
+                  <p className="mt-3 text-sm leading-6 text-[#252a2d]">
+                    {faq.answer}
+                  </p>
+                </article>
+              ))}
             </div>
           </section>
 
