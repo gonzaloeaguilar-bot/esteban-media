@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, BadgeCheck, Languages, Laptop, MapPin } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { HeroProjectIntake } from "@/components/hero-project-intake";
 import { trustSignals as trustSignalsEn } from "@/lib/site";
 
 type HeroVideoProps = {
@@ -65,7 +66,9 @@ export function HeroVideo({ locale = "en" }: HeroVideoProps) {
                 : "Esteban Moreno Media provides video editing, custom website design, 24/7 AI lead capture chatbots, and social content planning from Fort Lauderdale for Broward, Miami-Dade, and remote clients."}
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-3">
+            <HeroProjectIntake locale={locale} />
+
+            <div className="mt-5 flex flex-wrap gap-3">
               <Link
                 href={isSpanish ? "/es/contacto" : "/contact"}
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white transition hover:bg-[#a93e29] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"

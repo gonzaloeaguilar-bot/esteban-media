@@ -175,6 +175,26 @@ async function ensureCustomDimensions(accessToken, propertyId) {
   return results;
 }
 
+async function ensureLeadSubmitKeyEvent(accessToken, propertyId) {
+  const path = `/properties/${propertyId}/keyEvents`;
+  const existing = await api(accessToken, "GET", `${path}?pageSize=200`);
+  const matches = (existing.keyEvents || []).filter(
+    (keyEvent) => keyEvent.eventName === "lead_submit",
+  );
+
+  if (matches.length > 1) {
+    throw new Error('Multiple GA4 key events use "lead_submit"');
+  }
+  if (matches.length === 1) {
+    return { status: "existing", name: matches[0].name };
+  }
+
+  const created = await api(accessToken, "POST", path, {
+    eventName: "lead_submit",
+  });
+  return { status: "created", name: created.name };
+}
+
 function numericId(resourceName, prefix) {
   const match = new RegExp(`^${prefix}/(\\d+)$`).exec(resourceName || "");
   if (!match) {
@@ -260,6 +280,7 @@ try {
     accessToken,
     propertyId,
   );
+  const leadSubmitKeyEvent = await ensureLeadSubmitKeyEvent(accessToken, propertyId);
 
   console.log(
     JSON.stringify(
@@ -279,6 +300,7 @@ try {
             enhancedMeasurementResult.settings.pageChangesEnabled === true,
         },
         customDimensions: customDimensionResults,
+        leadSubmitKeyEvent,
         token: "redacted",
       },
       null,

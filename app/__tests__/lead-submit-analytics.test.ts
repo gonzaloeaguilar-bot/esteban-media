@@ -17,6 +17,7 @@ const LEAD_FORMS = [
   "components/daily-shot-list-planner.tsx",
   "components/daily-script-pacing-calculator.tsx",
   "components/contact-cta.tsx",
+  "components/hero-project-intake.tsx",
 ];
 
 afterEach(() => {
@@ -58,5 +59,22 @@ describe("lead_submit instrumentation", () => {
 
   it("registers lead_source as a GA4 custom dimension so it is reportable", () => {
     expect(source("scripts/ga4-provision.mjs")).toContain('parameterName: "lead_source"');
+  });
+
+  it("provisions lead_submit as a GA4 key event", () => {
+    const provisioning = source("scripts/ga4-provision.mjs");
+    expect(provisioning).toContain("ensureLeadSubmitKeyEvent");
+    expect(provisioning).toContain('eventName: "lead_submit"');
+  });
+
+  it("places a two-field privacy-safe intake in the homepage hero", () => {
+    const hero = source("components/hero-video.tsx");
+    const intake = source("components/hero-project-intake.tsx");
+
+    expect(hero).toContain("<HeroProjectIntake locale={locale} />");
+    expect(intake).toContain('source: "homepage-hero"');
+    expect(intake).toContain('name="email"');
+    expect(intake).toContain('name="projectNeed"');
+    expect(intake).toContain("trackLeadSubmit");
   });
 });
