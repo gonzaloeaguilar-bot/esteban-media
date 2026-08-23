@@ -5,9 +5,8 @@ import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl } from "@/lib/site";
 
 export const metadata = buildPageMetadata({
-  title: "Video Production & Editing Budget Calculator",
-  description:
-    "Free video production cost and turnaround estimator for South Florida businesses and remote editing clients.",
+  title: "Video Editing Cost Calculator | South Florida",
+  description: "Use this video editing cost calculator to estimate a project range, turnaround and scope for Reels, YouTube, corporate video, real estate and more.",
   path: "/calculator",
   locale: "en",
 });
