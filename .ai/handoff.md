@@ -1,5 +1,11 @@
 # Esteban Moreno Media — Engineering Handoff
 
+## Homepage hero intake + GA4 key event provisioning — 2026-08-23
+
+- Added the existing privacy-safe `/api/lead` intake directly to the English and Spanish homepage hero: email plus project need, submitted as the allowlisted `homepage-hero` source. `lead_submit` is emitted only after a successful API response.
+- Updated the idempotent GA4 provisioning script to create (or retain) `lead_submit` as a GA4 key event, alongside its existing `lead_source` custom dimension. No GA4 account operation was executed in this change.
+- Regression coverage locks the hero placement, fields, post-success tracking, and key-event provisioning contract.
+
 ## Homepage single-step project intake — 2026-08-22
 
 - Replaced the homepage contact section's mandatory `/contact` page hop with an inline email + project-summary form that submits to the existing `/api/lead` boundary using the allowlisted `contact` source.
