@@ -18,6 +18,7 @@ const LEAD_FORMS = [
   "components/daily-script-pacing-calculator.tsx",
   "components/contact-cta.tsx",
   "components/hero-project-intake.tsx",
+  "components/website-project-intake.tsx",
 ];
 
 afterEach(() => {
@@ -76,5 +77,16 @@ describe("lead_submit instrumentation", () => {
     expect(intake).toContain('name="email"');
     expect(intake).toContain('name="projectNeed"');
     expect(intake).toContain("trackLeadSubmit");
+  });
+
+  it("places a tracked direct intake on both website-design commercial routes", () => {
+    const intake = source("components/website-project-intake.tsx");
+
+    expect(intake).toContain('source: "website-design-intake"');
+    expect(intake).toContain('trackLeadSubmit("website-design-intake", locale)');
+    expect(source("app/(english)/services/website-design-fort-lauderdale/page.tsx"))
+      .toContain('<WebsiteProjectIntake locale="en" />');
+    expect(source("app/(spanish)/es/diseno-web-fort-lauderdale/page.tsx"))
+      .toContain('<WebsiteProjectIntake locale="es" />');
   });
 });

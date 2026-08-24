@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2, Laptop, Mail, Phone, Bot, Sparkles, Layout } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { WebsiteProjectIntake } from "@/components/website-project-intake";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -417,6 +418,7 @@ export default function WebsiteDesignFortLauderdalePage() {
             <p className="mt-4 max-w-2xl mx-auto text-base text-[#252a2d]">
               Contact Esteban Media today for a scoping consultation on custom website design and AI chatbot automation in Fort Lauderdale and South Florida.
             </p>
+            <WebsiteProjectIntake locale="en" />
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <Link
                 href="/contact"
