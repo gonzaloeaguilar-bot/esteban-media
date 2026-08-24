@@ -39,6 +39,13 @@ describe("lead-responder", () => {
     expect(
       validateLeadPayload({
         email: "client@example.com",
+        source: "website-design-intake",
+      })
+    ).toEqual({ valid: true });
+
+    expect(
+      validateLeadPayload({
+        email: "client@example.com",
         source: "unknown-source" as "brief-builder",
       })
     ).toEqual({

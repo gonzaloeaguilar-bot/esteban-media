@@ -1,5 +1,12 @@
 # Esteban Moreno Media — Engineering Handoff
 
+## Website-design direct project intake — 2026-08-24
+
+- Added one bounded, bilingual direct inquiry surface to the existing primary commercial pair: `/services/website-design-fort-lauderdale` and `/es/diseno-web-fort-lauderdale`. It collects only email and the buyer's stated website need without sending the visitor through `/contact`.
+- The form submits through the existing `/api/lead` boundary with the new allowlisted `website-design-intake` source. `lead_submit` records only that source and locale after a successful response; email and project details are excluded from analytics.
+- Regression coverage verifies both page placements and the tracking contract. Verification: `git diff --check`, focused Vitest (10 tests), `pnpm typecheck`, `pnpm lint`, and `pnpm build` all exited 0. The build statically rendered both modified routes.
+- Success evidence: a nonzero GA4 `lead_submit` key-event count filtered to `website-design-intake`, plus a corresponding accepted `/api/lead` delivery record where configured. No production event was created by this code change.
+
 ## Homepage hero intake + GA4 key event provisioning — 2026-08-23
 
 - Added the existing privacy-safe `/api/lead` intake directly to the English and Spanish homepage hero: email plus project need, submitted as the allowlisted `homepage-hero` source. `lead_submit` is emitted only after a successful API response.
