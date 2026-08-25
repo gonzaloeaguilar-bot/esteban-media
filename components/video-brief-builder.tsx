@@ -71,12 +71,10 @@ export function VideoBriefBuilder({
         { id: "both", label: "Both Formats (Multi-Export Package)", desc: "Simultaneous vertical and horizontal exports with safe zone margins." },
       ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    trackLeadSubmit(source, locale);
-
-    fetch("/api/lead", {
+    try {
+      const response = await fetch("/api/lead", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -90,7 +88,13 @@ export function VideoBriefBuilder({
         formatNeeds,
         notes,
       }),
-    }).catch((err) => console.error("Lead submission error:", err));
+      });
+      if (!response.ok) throw new Error("Lead submission failed");
+      trackLeadSubmit(source, locale);
+      setSubmitted(true);
+    } catch (err) {
+      console.error("Lead submission error:", err);
+    }
   };
 
   const getMailtoUrl = () => {

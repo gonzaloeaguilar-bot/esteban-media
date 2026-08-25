@@ -66,12 +66,10 @@ export function VideoStrategyAssessment({ locale = "en" }: VideoStrategyAssessme
 
   const tierInfo = getTierInfo();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    trackLeadSubmit("strategy-assessment", locale);
-
-    fetch("/api/lead", {
+    try {
+      const response = await fetch("/api/lead", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -82,7 +80,13 @@ export function VideoStrategyAssessment({ locale = "en" }: VideoStrategyAssessme
         phone: clientPhone,
         score,
       }),
-    }).catch((err) => console.error("Lead submission error:", err));
+      });
+      if (!response.ok) throw new Error("Lead submission failed");
+      trackLeadSubmit("strategy-assessment", locale);
+      setSubmitted(true);
+    } catch (err) {
+      console.error("Lead submission error:", err);
+    }
   };
 
   const getMailtoUrl = () => {
