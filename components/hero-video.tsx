@@ -50,8 +50,8 @@ export function HeroVideo({ locale = "en" }: HeroVideoProps) {
               className="mt-6 max-w-[17ch] font-serif text-5xl leading-[1.02] sm:text-6xl lg:text-7xl"
             >
               {isSpanish
-                ? "Esteban Moreno Media · Edición de video, diseño web y producción en Fort Lauderdale."
-                : "Esteban Moreno Media · Video editing, website design, and content production in Fort Lauderdale."}
+                ? "Esteban Moreno Media · Sistemas digitales, automatización y contenido en Fort Lauderdale."
+                : "Esteban Moreno Media · Digital systems, automation, and content in Fort Lauderdale."}
             </h1>
 
             <p className="mt-5 font-serif text-2xl italic text-[#f0b384] sm:text-3xl">
@@ -62,8 +62,8 @@ export function HeroVideo({ locale = "en" }: HeroVideoProps) {
 
             <p className="mt-4 max-w-2xl text-base leading-7 text-[#e8e2d8] sm:text-lg sm:leading-8">
               {isSpanish
-                ? "Esteban Moreno Media ofrece edición de video, diseño web personalizado, chatbots conversacionales con IA y planificación para redes desde Fort Lauderdale para Broward, Miami-Dade y clientes remotos."
-                : "Esteban Moreno Media provides video editing, custom website design, 24/7 AI lead capture chatbots, and social content planning from Fort Lauderdale for Broward, Miami-Dade, and remote clients."}
+                ? "Conectamos perfiles de negocio, marketplaces, sitios web, chatbots, automatización de DM, email y SMS, SEO y medición; video y fotografía aportan el contenido que mueve todo el sistema."
+                : "We connect business profiles, marketplaces, conversion websites, chatbots, DM/email/SMS automation, SEO, and measurement; video and photography provide the content that powers the system."}
             </p>
 
             <HeroProjectIntake locale={locale} />

@@ -1,44 +1,43 @@
+"use client";
+
 import Link from "next/link";
-import { ArrowRight, BookOpenText, MapPin, Video } from "lucide-react";
+import { ArrowRight, BarChart3, Bot, MapPinned, Search, ShieldCheck, Workflow } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { trackServiceInterest } from "@/lib/analytics-events";
 
 type Locale = "en" | "es";
 
 const copy = {
   en: {
-    eyebrow: "Video editor and content partner in South Florida",
-    title: "One clear path from business goal to finished video.",
-    intro: "Esteban Moreno Media is based in Fort Lauderdale and serves Broward, selected Miami-Dade projects, and Palm Beach County by project. Work can begin with footage you already have or with a scoped production plan when new capture is needed.",
-    proofTitle: "Match the service to published project proof",
-    guideTitle: "Plan the scope before requesting a quote",
-    proofLabel: "View credited project",
-    guideLabel: "Open pricing guide",
-    contactLabel: "Send a project brief",
-    proofs: [
-      { title: "Remote video editing", description: "Homeowners was edited by Esteban from footage supplied by the agency 300 Bees.", href: "/portfolio/homeowners" },
-      { title: "On-location business video", description: "Healthy Smile credits Esteban with on-location video, sound, editing, and delivery for a Miami dental clinic.", href: "/portfolio/healthy-smile" },
-      { title: "Social promotional video", description: "Bar Door Monkey credits on-location videography and editing for a Miami restaurant social spot.", href: "/portfolio/bar-door-monkey" },
+    eyebrow: "Digital systems & growth infrastructure",
+    title: "More than media: the systems that help a business get found, respond, and follow through.",
+    intro: "Esteban Moreno Media designs the connected presence around your customer journey—profiles and marketplaces, a conversion website, automation, reporting, and the creative content that powers it.",
+    label: "Explore the complete digital-systems catalog",
+    href: "/services/website-design-fort-lauderdale#digital-systems-heading",
+    cards: [
+      { icon: MapPinned, title: "Profiles & marketplaces", text: "Google Business Profile, Maps, Yelp, and role-specific marketplaces such as Zillow, Homes.com, and Realtor.com when appropriate.", key: "profiles" },
+      { icon: Bot, title: "Social & DM systems", text: "Instagram, Facebook Page, TikTok Business, ManyChat, and a mapped DM funnel from first reply to human handoff.", key: "social-dm" },
+      { icon: Workflow, title: "Websites & automation", text: "Mobile-first sites, forms, email, SMS with Twilio, routing, address autocomplete, and custom agent-assisted workflows.", key: "web-automation" },
+      { icon: BarChart3, title: "Content & measurement", text: "Photo and video work, content analysis, hypotheses, and Metricool reporting that turns channel activity into decisions.", key: "content-measurement" },
+      { icon: Search, title: "SEO, local & AI search", text: "Technical SEO, local presence, source clarity, and observed visibility for Google and AI assistants—without ranking guarantees.", key: "search" },
+      { icon: ShieldCheck, title: "Research & resilience", text: "Market and competitor research, funnel and cost audits, user-journey simulation, and authorized security pressure testing.", key: "research-resilience" },
     ],
-    guideHref: "/guides/corporate-video-production-cost-miami",
-    contactHref: "/contact",
   },
   es: {
-    eyebrow: "Editor de video y aliado de contenido en South Florida",
-    title: "Una ruta clara desde la meta de negocio hasta el video final.",
-    intro: "Esteban Moreno Media está en Fort Lauderdale y atiende Broward, proyectos seleccionados en Miami-Dade y Palm Beach County según el proyecto. El trabajo puede comenzar con material existente o con un alcance de producción para grabar contenido nuevo.",
-    proofTitle: "Conecta el servicio con prueba publicada",
-    guideTitle: "Define el alcance antes de pedir cotización",
-    proofLabel: "Ver proyecto acreditado",
-    guideLabel: "Abrir guía de precios",
-    contactLabel: "Enviar brief del proyecto",
-    proofs: [
-      { title: "Edición remota de video", description: "Homeowners fue editado por Esteban con material entregado por la agencia 300 Bees.", href: "/es/portafolio/homeowners" },
-      { title: "Video de negocio en locación", description: "Healthy Smile acredita a Esteban por video, sonido, edición y entrega para un consultorio dental de Miami.", href: "/es/portafolio/healthy-smile" },
-      { title: "Video promocional para redes", description: "Bar Door Monkey acredita videografía y edición en locación para un spot social de un restaurante de Miami.", href: "/es/portafolio/bar-door-monkey" },
+    eyebrow: "Sistemas digitales e infraestructura de crecimiento",
+    title: "Más que media: los sistemas que ayudan a un negocio a encontrarse, responder y dar seguimiento.",
+    intro: "Esteban Moreno Media diseña una presencia conectada alrededor del recorrido del cliente: perfiles y marketplaces, sitio de conversión, automatización, medición y el contenido creativo que lo impulsa.",
+    label: "Explorar el catálogo completo de sistemas digitales",
+    href: "/es/diseno-web-fort-lauderdale#digital-systems-heading",
+    cards: [
+      { icon: MapPinned, title: "Perfiles y marketplaces", text: "Google Business Profile, Maps, Yelp y marketplaces según el rol, como Zillow, Homes.com y Realtor.com cuando correspondan.", key: "profiles" },
+      { icon: Bot, title: "Redes y sistemas de DM", text: "Instagram, Facebook Page, TikTok Business, ManyChat y un embudo de DM mapeado desde la primera respuesta hasta la entrega humana.", key: "social-dm" },
+      { icon: Workflow, title: "Sitios web y automatización", text: "Sitios mobile-first, formularios, correo, SMS con Twilio, distribución, address autocomplete y flujos personalizados asistidos por agentes.", key: "web-automation" },
+      { icon: BarChart3, title: "Contenido y medición", text: "Foto y video, análisis de contenido, hipótesis y reportes de Metricool para convertir actividad de canales en decisiones.", key: "content-measurement" },
+      { icon: Search, title: "SEO, local y búsqueda con IA", text: "SEO técnico, presencia local, claridad de fuentes y visibilidad observada en Google y asistentes de IA, sin prometer rankings.", key: "search" },
+      { icon: ShieldCheck, title: "Research y resiliencia", text: "Research de mercado y competencia, auditorías de funnel y costo, simulación de journeys y pressure testing de seguridad autorizado.", key: "research-resilience" },
     ],
-    guideHref: "/es/guias/cuanto-cuesta-la-produccion-de-video-corporativo-miami",
-    contactHref: "/es/contacto",
   },
 } as const;
 
@@ -48,28 +47,23 @@ export function HomeAuthorityHub({ locale = "en" }: { locale?: Locale }) {
   return (
     <section className="border-b border-[#ddd4c8] bg-[#101214] py-14 text-[#f6f1ea] sm:py-20" aria-labelledby={`authority-hub-${locale}`}>
       <Container size="xl">
-        <div className="grid gap-8 lg:grid-cols-[1.05fr_.95fr] lg:gap-14">
-          <div>
-            <p className="flex items-center gap-2 text-xs font-medium uppercase tracking-[0.16em] text-[#ffb49e]"><MapPin className="size-4" aria-hidden="true" />{content.eyebrow}</p>
-            <h2 id={`authority-hub-${locale}`} className="mt-4 max-w-3xl font-serif text-4xl leading-tight sm:text-5xl">{content.title}</h2>
-            <p className="mt-5 max-w-3xl text-base leading-8 text-[#d8d0c7]">{content.intro}</p>
-            <div className="mt-7 flex flex-wrap gap-3">
-              <Link href={content.guideHref} className="inline-flex min-h-12 items-center gap-2 rounded-full bg-[#f6f1ea] px-6 text-sm font-medium text-[#101214] hover:bg-white"><BookOpenText className="size-4" aria-hidden="true" />{content.guideLabel}</Link>
-              <Link href={content.contactHref} className="inline-flex min-h-12 items-center gap-2 rounded-full border border-white/40 px-6 text-sm font-medium hover:bg-white/10">{content.contactLabel}<ArrowRight className="size-4" aria-hidden="true" /></Link>
-            </div>
-          </div>
-          <div>
-            <p className="flex items-center gap-2 text-xs font-medium uppercase tracking-[0.16em] text-[#ffb49e]"><Video className="size-4" aria-hidden="true" />{content.proofTitle}</p>
-            <div className="mt-4 grid gap-3">
-              {content.proofs.map((proof) => (
-                <Link key={proof.href} href={proof.href} className="group rounded-xl border border-white/15 bg-white/[0.05] p-5 hover:border-[#ffb49e] hover:bg-white/[0.08]">
-                  <h3 className="font-serif text-2xl">{proof.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-[#d8d0c7]">{proof.description}</p>
-                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-[#ffb49e]">{content.proofLabel}<ArrowRight className="size-4 transition group-hover:translate-x-1" aria-hidden="true" /></span>
-                </Link>
-              ))}
-            </div>
-          </div>
+        <div className="max-w-4xl">
+          <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#ffb49e]">{content.eyebrow}</p>
+          <h2 id={`authority-hub-${locale}`} className="mt-4 font-serif text-4xl leading-tight sm:text-5xl">{content.title}</h2>
+          <p className="mt-5 text-base leading-8 text-[#d8d0c7]">{content.intro}</p>
+        </div>
+        <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {content.cards.map((card) => {
+            const Icon = card.icon;
+            return (
+              <Link key={card.key} href={content.href} onClick={() => trackServiceInterest(card.key, locale)} className="group rounded-xl border border-white/15 bg-white/[0.05] p-5 transition hover:border-[#ffb49e] hover:bg-white/[0.08]">
+                <Icon className="size-6 text-[#ffb49e]" aria-hidden="true" />
+                <h3 className="mt-4 font-serif text-2xl">{card.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-[#d8d0c7]">{card.text}</p>
+                <span className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-[#ffb49e]">{content.label}<ArrowRight className="size-4 transition group-hover:translate-x-1" aria-hidden="true" /></span>
+              </Link>
+            );
+          })}
         </div>
       </Container>
     </section>

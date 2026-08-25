@@ -21,7 +21,7 @@ export function ServicesStrip() {
               id="services-heading"
               className="mt-3 font-serif text-4xl leading-tight sm:text-5xl"
             >
-              Editing first. Strategy connected. Production when needed.
+              Content, profiles, websites, and automation—connected around the customer journey.
             </h2>
           </div>
           <Link
@@ -71,6 +71,16 @@ export function ServicesStrip() {
             );
           })}
         </ul>
+        <Link
+          href="/services/website-design-fort-lauderdale#digital-systems-heading"
+          className="group mt-6 flex items-center justify-between gap-4 rounded-lg border border-[#c84a2c] bg-[#fbf6ef] p-5 transition hover:bg-[#fff9f2]"
+        >
+          <span>
+            <span className="block text-xs font-medium uppercase tracking-wide text-[#9f3c27]">Digital systems</span>
+            <span className="mt-1 block font-serif text-2xl">Business profiles, marketplaces, DM funnels, CRM-ready automations, reporting, and search readiness.</span>
+          </span>
+          <ArrowRight className="size-5 shrink-0 text-[#9f3c27] transition-transform group-hover:translate-x-1" aria-hidden="true" />
+        </Link>
       </Container>
     </section>
   );

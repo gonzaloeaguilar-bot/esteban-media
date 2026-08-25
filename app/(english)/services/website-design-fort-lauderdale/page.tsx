@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Laptop, Mail, Phone, Bot, Sparkles, Layout } from "lucide-react";
+import { ArrowRight, CheckCircle2, Laptop, Mail, Phone, Bot, Sparkles, Layout, MapPinned, BarChart3, MessagesSquare, Search, ShieldCheck, Workflow } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import { WebsiteProjectIntake } from "@/components/website-project-intake";
@@ -97,18 +97,18 @@ export default function WebsiteDesignFortLauderdalePage() {
           },
           {
             "@type": "Question",
-            name: "How fast can a new website and AI chatbot launch?",
+            name: "Can you connect our profiles, website, and follow-up?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Most custom web design and AI chatbot implementations are delivered within 2 to 3 weeks depending on project scope and content readiness.",
+              text: "Yes. We can scope a connected system across business profiles, the website, forms, DM automation, email, and SMS. The exact platforms, access, consent, and handoff rules are confirmed before implementation.",
             },
           },
           {
             "@type": "Question",
-            name: "Do you manage hosting and updates?",
+            name: "Can you help us rank in AI assistants?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "We provide turn-key web deployment, ongoing performance monitoring, and chatbot updates as your business evolves.",
+              text: "We improve the underlying site, business information, and source clarity that make a business easier to evaluate online. No provider controls placement in AI answers, so we report observed visibility and referral evidence rather than guarantee rankings.",
             },
           },
         ],
@@ -348,6 +348,37 @@ export default function WebsiteDesignFortLauderdalePage() {
         </Container>
       </section>
 
+      <section className="border-b border-[#ddd4c8] py-14 sm:py-20" aria-labelledby="digital-systems-heading">
+        <Container size="xl">
+          <p className="text-xs font-medium uppercase text-[#5a6066]">Digital systems, scoped to your business</p>
+          <h2 id="digital-systems-heading" className="mt-3 max-w-4xl font-serif text-4xl leading-tight sm:text-5xl">
+            One connected presence—from the profile a customer finds to the follow-up they receive.
+          </h2>
+          <p className="mt-5 max-w-3xl leading-7 text-[#252a2d]">
+            We scope the stack around your actual channels, permissions, and customer journey. Each module can stand alone or connect to the website and lead flow; platform setup, access, and ongoing operations are confirmed before work begins.
+          </p>
+          <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {[
+              { icon: MapPinned, title: "Local profiles & marketplace presence", body: "Google Business Profile and Google Maps profile cleanup, Yelp profile support, and a channel-by-channel marketplace checklist. For real-estate teams, that can include profile setup or cleanup for Zillow, Homes.com, Realtor.com, and the platforms that fit the market and permissions." },
+              { icon: MessagesSquare, title: "Social business profiles & DM funnels", body: "Instagram, Facebook Page, TikTok Business, ManyChat setup, and mapped DM funnels—from keyword or ad response through qualification, handoff, and follow-up." },
+              { icon: Workflow, title: "Custom automation & agent flows", body: "End-to-end workflows for forms, lead routing, appointment steps, email, SMS through Twilio, address autocomplete, and custom agent-assisted flows. Every automation is mapped with its trigger, owner, fallback, and consent requirements." },
+              { icon: BarChart3, title: "Content, video & measurement", body: "Photo and video editing, video analysis, content testing hypotheses, and Metricool setup for channel reporting. Performance data informs decisions; it is not a guarantee that a post will go viral." },
+              { icon: Search, title: "SEO, local SEO & AI-search readiness", body: "Technical SEO, on-page improvements, local-profile consistency, structured data where eligible, and clearer source material for search engines and AI assistants. We measure observed visibility instead of promising placement in Google, ChatGPT, Perplexity, or Claude." },
+              { icon: ShieldCheck, title: "Audits, research & resilience", body: "Digital-presence mapping, competitor and market research, funnel and cost audits, user-journey simulations, security-oriented pressure testing, and recommendations for reducing repetitive manual work. Testing is authorized, scoped, and never substitutes for a formal security certification." },
+            ].map((service) => {
+              const Icon = service.icon;
+              return (
+                <article key={service.title} className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
+                  <Icon className="size-7 text-[#e85d3e]" aria-hidden="true" />
+                  <h3 className="mt-4 font-serif text-2xl">{service.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-[#252a2d]">{service.body}</p>
+                </article>
+              );
+            })}
+          </div>
+        </Container>
+      </section>
+
       {/* Target Industries */}
       <section className="py-14 sm:py-20">
         <Container size="xl">
@@ -394,12 +425,12 @@ export default function WebsiteDesignFortLauderdalePage() {
                   <dd className="mt-2 leading-6">Every site is engineered mobile-first for fast load times and can be built fully bilingual in English and Spanish to target South Florida&apos;s diverse audience.</dd>
                 </div>
                 <div>
-                  <dt className="font-medium text-base text-[#101214]">How fast can a new website and AI chatbot launch?</dt>
-                  <dd className="mt-2 leading-6">Most custom web design and AI chatbot implementations are delivered within 2 to 3 weeks depending on project scope and content readiness.</dd>
+                  <dt className="font-medium text-base text-[#101214]">Can you connect our profiles, website, and follow-up?</dt>
+                  <dd className="mt-2 leading-6">Yes. We can scope a connected system across business profiles, the website, forms, DM automation, email, and SMS. The exact platforms, access, consent, and handoff rules are confirmed before implementation.</dd>
                 </div>
                 <div>
-                  <dt className="font-medium text-base text-[#101214]">Do you manage hosting and updates?</dt>
-                  <dd className="mt-2 leading-6">We provide turn-key web deployment, ongoing performance monitoring, and chatbot updates as your business evolves.</dd>
+                  <dt className="font-medium text-base text-[#101214]">Can you help us rank in AI assistants?</dt>
+                  <dd className="mt-2 leading-6">We improve the underlying site, business information, and source clarity that make a business easier to evaluate online. No provider controls placement in AI answers, so we report observed visibility and referral evidence rather than guarantee rankings.</dd>
                 </div>
               </dl>
             </div>

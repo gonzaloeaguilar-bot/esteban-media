@@ -13,10 +13,11 @@ describe("customer-facing ranking pages", () => {
     const spanishHome = source("app/(spanish)/es/page.tsx");
 
     expect(hero).toContain(
-      "Video editing, website design, and content production in Fort Lauderdale.",
+      "Digital systems, automation, and content in Fort Lauderdale.",
     );
     expect(hero).toContain("We make things feel like a film.");
     expect(services).toContain("website-design");
+    expect(services).toContain("Digital systems");
     expect(spanishHome).toContain("diseno-web");
     expect(spanishHome).toContain("/es/servicios#${service.id}");
   });
