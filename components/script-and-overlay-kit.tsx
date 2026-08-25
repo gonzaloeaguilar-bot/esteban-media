@@ -133,12 +133,10 @@ export function ScriptAndOverlayKit({ locale = "en" }: ScriptAndOverlayKitProps)
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleUnlock = (e: React.FormEvent) => {
+  const handleUnlock = async (e: React.FormEvent) => {
     e.preventDefault();
-    setUnlocked(true);
-    trackLeadSubmit("script-kit", locale);
-
-    fetch("/api/lead", {
+    try {
+      const response = await fetch("/api/lead", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -146,7 +144,13 @@ export function ScriptAndOverlayKit({ locale = "en" }: ScriptAndOverlayKitProps)
         locale,
         email: clientEmail,
       }),
-    }).catch((err) => console.error("Lead submission error:", err));
+      });
+      if (!response.ok) throw new Error("Lead submission failed");
+      trackLeadSubmit("script-kit", locale);
+      setUnlocked(true);
+    } catch (err) {
+      console.error("Lead submission error:", err);
+    }
   };
 
   return (

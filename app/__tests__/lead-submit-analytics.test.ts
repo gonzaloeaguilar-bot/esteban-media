@@ -25,22 +25,31 @@ afterEach(() => {
   delete (globalThis as { window?: unknown }).window;
 });
 
-describe("lead_submit instrumentation", () => {
+describe("confirmed lead instrumentation", () => {
   it("sends only the form identity and locale, never PII", () => {
     const gtag = vi.fn();
     (globalThis as { window?: unknown }).window = { gtag };
 
     trackLeadSubmit("budget-estimator", "es");
 
-    expect(gtag).toHaveBeenCalledTimes(1);
+    expect(gtag).toHaveBeenCalledTimes(2);
     const [command, name, params] = gtag.mock.calls[0];
     expect(command).toBe("event");
     expect(name).toBe("lead_submit");
     expect(params).toEqual({ lead_source: "budget-estimator", locale: "es" });
 
+    expect(gtag).toHaveBeenLastCalledWith("event", "contact_intent", {
+      contact_method: "form_submit",
+      lead_source: "budget-estimator",
+      locale: "es",
+    });
+
     // The PII the forms collect must never reach GA4.
-    for (const forbidden of ["email", "name", "phone", "company", "notes"]) {
-      expect(Object.keys(params)).not.toContain(forbidden);
+    for (const event of gtag.mock.calls) {
+      const eventParams = event[2] as Record<string, unknown>;
+      for (const forbidden of ["email", "name", "phone", "company", "notes"]) {
+        expect(Object.keys(eventParams)).not.toContain(forbidden);
+      }
     }
   });
 
