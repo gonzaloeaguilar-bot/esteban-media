@@ -2255,7 +2255,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     title: "Video inmobiliario en Sunny Isles Beach",
     metadataTitle: "Video Inmobiliario Sunny Isles",
     description:
-      "Edición de video inmobiliario para agentes y equipos en Sunny Isles Beach a partir de material suministrado por el cliente.",
+      "Edición de video inmobiliario en Sunny Isles Beach para agentes y equipos con material suministrado por el cliente.",
     eyebrow: "Sunny Isles Beach",
     h1: "Edición de video inmobiliario para Sunny Isles Beach.",
     lead:
