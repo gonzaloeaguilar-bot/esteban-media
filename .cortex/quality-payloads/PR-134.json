@@ -27,7 +27,7 @@
     "winner_rationale": "Change is scoped to 2 path(s); the repository's own gates are the arbiter of correctness."
   },
   "goal": "fix(seo): align Sunny Isles video metadata",
-  "mode": "release",
+  "mode": "pr",
   "project": "esteban-media",
   "requested_actions": [
     "merge only after all GitHub checks are green"
