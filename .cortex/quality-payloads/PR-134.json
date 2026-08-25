@@ -6,7 +6,7 @@
   "debt_delta": "neutral",
   "evidence": {
     "booking_or_authority_thesis": "Not asserted by a generated payload.",
-    "ci_passed": "Real statusCheckRollup at authoring time: validate=PENDING, Vercel=SUCCESS, Vercel Preview Comments=SUCCESS.",
+    "ci_passed": "Real statusCheckRollup at authoring time: validate=SUCCESS, Vercel=SUCCESS, Vercel Preview Comments=SUCCESS.",
     "claim_hygiene_checked": "This generator adds no marketing, pricing, service, or outcome claim of its own.",
     "data_sources_current": "PR file list and statusCheckRollup read live from the GitHub API at authoring time.",
     "debt_delta": "neutral",
@@ -23,7 +23,7 @@
     "project_routing": "Branch codex/esteban-sunny-isles-ctr-20260825 in gonzaloeaguilar-bot/esteban-media, PR #134.",
     "reviewer_disagreement_reviewed": "No disagreement: the checks are mechanical and their raw results are quoted in ci_passed.",
     "reviewer_ensemble": "Deterministic authoring: this payload was generated from git and CI facts by loaders/payload_autofill.py, not written by a language model. The notes below state what was mechanically verified \u2014 they do not represent a simulated human review.",
-    "tests_or_validation": "Real statusCheckRollup at authoring time: validate=PENDING, Vercel=SUCCESS, Vercel Preview Comments=SUCCESS.",
+    "tests_or_validation": "Real statusCheckRollup at authoring time: validate=SUCCESS, Vercel=SUCCESS, Vercel Preview Comments=SUCCESS.",
     "winner_rationale": "Change is scoped to 2 path(s); the repository's own gates are the arbiter of correctness."
   },
   "goal": "fix(seo): align Sunny Isles video metadata",
@@ -39,8 +39,8 @@
       "status": "ok"
     },
     "skeptic": {
-      "note": "Real statusCheckRollup at authoring time: validate=PENDING, Vercel=SUCCESS, Vercel Preview Comments=SUCCESS.",
-      "status": "warn"
+      "note": "Real statusCheckRollup at authoring time: validate=SUCCESS, Vercel=SUCCESS, Vercel Preview Comments=SUCCESS.",
+      "status": "ok"
     },
     "taste": {
       "note": "Not assessed mechanically; no aesthetic claim is made here.",
