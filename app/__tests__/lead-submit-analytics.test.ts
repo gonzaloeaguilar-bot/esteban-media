@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it, vi, afterEach } from "vitest";
 
-import { trackLeadSubmit } from "@/lib/analytics-events";
+import { trackLeadSubmit, trackServiceInterest } from "@/lib/analytics-events";
 
 function source(path: string) {
   return readFileSync(join(process.cwd(), path), "utf8");
@@ -48,6 +48,18 @@ describe("lead_submit instrumentation", () => {
     expect(() => trackLeadSubmit("script-kit", "en")).not.toThrow();
   });
 
+  it("records service interest without visitor or form data", () => {
+    const gtag = vi.fn();
+    (globalThis as { window?: unknown }).window = { gtag };
+
+    trackServiceInterest("web-automation", "en");
+
+    expect(gtag).toHaveBeenCalledWith("event", "service_interest", {
+      service: "web-automation",
+      locale: "en",
+    });
+  });
+
   it("every form that POSTs to /api/lead also reports lead_submit", () => {
     for (const path of LEAD_FORMS) {
       const contents = source(path);
@@ -60,6 +72,7 @@ describe("lead_submit instrumentation", () => {
 
   it("registers lead_source as a GA4 custom dimension so it is reportable", () => {
     expect(source("scripts/ga4-provision.mjs")).toContain('parameterName: "lead_source"');
+    expect(source("scripts/ga4-provision.mjs")).toContain('parameterName: "service"');
   });
 
   it("provisions lead_submit as a GA4 key event", () => {

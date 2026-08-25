@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Laptop, Mail, Phone, Bot, Sparkles, Layout } from "lucide-react";
+import { ArrowRight, CheckCircle2, Laptop, Mail, Phone, Bot, Sparkles, Layout, MapPinned, BarChart3, MessagesSquare, Search, ShieldCheck, Workflow } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import { WebsiteProjectIntake } from "@/components/website-project-intake";
@@ -97,18 +97,18 @@ export default function DisenoWebFortLauderdalePage() {
           },
           {
             "@type": "Question",
-            name: "¿Cuánto tiempo toma el desarrollo de un sitio web con chatbot de IA?",
+            name: "¿Pueden conectar nuestros perfiles, sitio web y seguimiento?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "La mayoría de proyectos de diseño web e integración de chatbots con IA se entregan entre 2 y 3 semanas según el alcance y la preparación del contenido.",
+              text: "Sí. Podemos definir un sistema conectado entre perfiles comerciales, sitio web, formularios, automatización de DM, correo y SMS. Las plataformas, accesos, consentimiento y reglas de entrega se confirman antes de implementar.",
             },
           },
           {
             "@type": "Question",
-            name: "¿Ofrecen mantenimiento y hosting para los sitios web?",
+            name: "¿Pueden ayudarnos a posicionarnos en asistentes de IA?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Proveemos despliegue web llave en mano, monitoreo de rendimiento y optimizaciones continuas para los chatbots y la plataforma.",
+              text: "Mejoramos el sitio, la información comercial y la claridad de las fuentes para que el negocio sea más fácil de evaluar en internet. Ningún proveedor controla la inclusión en respuestas de IA, así que reportamos visibilidad y referidos observados en lugar de garantizar posiciones.",
             },
           },
         ],
@@ -237,6 +237,37 @@ export default function DisenoWebFortLauderdalePage() {
                 </div>
               </dl>
             </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-b border-[#ddd4c8] py-14 sm:py-20" aria-labelledby="digital-systems-heading">
+        <Container size="xl">
+          <p className="text-xs font-medium uppercase text-[#5a6066]">Sistemas digitales, definidos para tu negocio</p>
+          <h2 id="digital-systems-heading" className="mt-3 max-w-4xl font-serif text-4xl leading-tight sm:text-5xl">
+            Una presencia conectada: desde el perfil donde te encuentran hasta el seguimiento que reciben.
+          </h2>
+          <p className="mt-5 max-w-3xl leading-7 text-[#252a2d]">
+            Definimos el stack según tus canales, permisos y recorrido del cliente. Cada módulo puede funcionar por separado o conectarse con el sitio y el flujo de clientes; el acceso a plataformas y la operación continua se confirman antes de empezar.
+          </p>
+          <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {[
+              { icon: MapPinned, title: "Perfiles locales y marketplaces", body: "Optimización de Google Business Profile y Google Maps, apoyo con Yelp y un checklist de marketplaces por canal. Para equipos inmobiliarios puede incluir configuración o limpieza de Zillow, Homes.com, Realtor.com y las plataformas adecuadas para su mercado y permisos." },
+              { icon: MessagesSquare, title: "Perfiles sociales y embudo de DM", body: "Instagram, Facebook Page, TikTok Business, configuración de ManyChat y flujos de DM: desde una respuesta por keyword o anuncio hasta calificación, entrega y seguimiento." },
+              { icon: Workflow, title: "Automatización personalizada y agent flows", body: "Flujos end-to-end para formularios, distribución de leads, pasos de citas, correo, SMS con Twilio, autocompletado de dirección y agentes asistidos. Cada automatización se documenta con trigger, responsable, fallback y requisitos de consentimiento." },
+              { icon: BarChart3, title: "Contenido, video y medición", body: "Edición de foto y video, análisis de videos, hipótesis de pruebas de contenido y configuración de Metricool para reportes de canales. Los datos guían decisiones; no garantizan que una publicación se vuelva viral." },
+              { icon: Search, title: "SEO, SEO local y preparación para búsqueda con IA", body: "SEO técnico, mejoras on-page, consistencia de perfiles locales, datos estructurados cuando correspondan y material fuente más claro para buscadores y asistentes. Medimos visibilidad observada sin prometer posiciones en Google, ChatGPT, Perplexity o Claude." },
+              { icon: ShieldCheck, title: "Auditorías, research y resiliencia", body: "Mapeo de presencia digital, investigación de mercado y competencia, auditorías de funnels y costos, simulaciones de experiencia de usuario y pressure testing orientado a seguridad. Toda prueba es autorizada, con alcance definido, y no reemplaza una certificación formal de ciberseguridad." },
+            ].map((service) => {
+              const Icon = service.icon;
+              return (
+                <article key={service.title} className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
+                  <Icon className="size-7 text-[#e85d3e]" aria-hidden="true" />
+                  <h3 className="mt-4 font-serif text-2xl">{service.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-[#252a2d]">{service.body}</p>
+                </article>
+              );
+            })}
           </div>
         </Container>
       </section>
@@ -393,12 +424,12 @@ export default function DisenoWebFortLauderdalePage() {
                   <dd className="mt-2 leading-6">Cada sitio está optimizado para móviles (mobile-first) para garantizar máxima velocidad y puede configurarse bilingüe en inglés y español para atender el mercado diverso de South Florida.</dd>
                 </div>
                 <div>
-                  <dt className="font-medium text-base text-[#101214]">¿Cuánto tiempo toma el desarrollo de un sitio web con chatbot de IA?</dt>
-                  <dd className="mt-2 leading-6">La mayoría de proyectos de diseño web e integración de chatbots con IA se entregan entre 2 y 3 semanas según el alcance y la preparación del contenido.</dd>
+                  <dt className="font-medium text-base text-[#101214]">¿Pueden conectar nuestros perfiles, sitio web y seguimiento?</dt>
+                  <dd className="mt-2 leading-6">Sí. Podemos definir un sistema conectado entre perfiles comerciales, sitio web, formularios, automatización de DM, correo y SMS. Las plataformas, accesos, consentimiento y reglas de entrega se confirman antes de implementar.</dd>
                 </div>
                 <div>
-                  <dt className="font-medium text-base text-[#101214]">¿Ofrecen mantenimiento y hosting para los sitios web?</dt>
-                  <dd className="mt-2 leading-6">Proveemos despliegue web llave en mano, monitoreo de rendimiento y optimizaciones continuas para los chatbots y la plataforma.</dd>
+                  <dt className="font-medium text-base text-[#101214]">¿Pueden ayudarnos a posicionarnos en asistentes de IA?</dt>
+                  <dd className="mt-2 leading-6">Mejoramos el sitio, la información comercial y la claridad de las fuentes para que el negocio sea más fácil de evaluar en internet. Ningún proveedor controla la inclusión en respuestas de IA, así que reportamos visibilidad y referidos observados en lugar de garantizar posiciones.</dd>
                 </div>
               </dl>
             </div>

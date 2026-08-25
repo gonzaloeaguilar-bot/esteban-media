@@ -18,6 +18,8 @@ Production is live. This file tracks repository implementation; account/access w
 
 ## P1 — Technical SEO / GEO / ALOHA
 
+- [ ] Release the bilingual digital-systems service-hub expansion after a clean full test/build and independent review. Keep the sitemap frozen; create individual product/service URLs only as 1:1 replacements with demand and conversion evidence.
+
 - [x] Render Spanish pages with initial document-level `lang="es"`
 - [x] Add a branded 1200×630 Open Graph image
 - [x] Tighten long titles and homepage descriptions

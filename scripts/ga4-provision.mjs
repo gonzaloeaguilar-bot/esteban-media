@@ -34,6 +34,11 @@ const customDimensions = [
     description:
       "Which on-site form produced a lead_submit: budget estimator, strategy assessment, brief builder, script kit, or daily prompt.",
   },
+  {
+    parameterName: "service",
+    displayName: "Service interest",
+    description: "Which public service category a visitor opened from the site.",
+  },
 ];
 
 function requiredEnv(name, pattern) {

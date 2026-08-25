@@ -15,6 +15,14 @@ import type { LeadSource } from "@/lib/lead-responder";
 
 type Gtag = (command: "event", name: string, params?: Record<string, unknown>) => void;
 
+/** Records interest in a public service category; no visitor or form data is sent. */
+export function trackServiceInterest(service: string, locale: string): void {
+  if (typeof window === "undefined") return;
+  const gtag = (window as unknown as { gtag?: Gtag }).gtag;
+  if (typeof gtag !== "function") return;
+  gtag("event", "service_interest", { service, locale });
+}
+
 /** Fires once a lead form has been submitted, mirroring its /api/lead `source`. */
 export function trackLeadSubmit(leadSource: LeadSource, locale: string): void {
   if (typeof window === "undefined") return;
