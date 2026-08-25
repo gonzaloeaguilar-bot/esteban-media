@@ -17,7 +17,7 @@
   "debt_delta": "neutral",
   "evidence": {
     "booking_or_authority_thesis": "Not asserted by a generated payload.",
-    "ci_passed": "Real statusCheckRollup at authoring time: validate=PENDING, Vercel=SUCCESS, Vercel Preview Comments=SUCCESS.",
+    "ci_passed": "Real statusCheckRollup at authoring time: validate=SUCCESS, Vercel=SUCCESS, Vercel Preview Comments=SUCCESS.",
     "claim_hygiene_checked": "This generator adds no marketing, pricing, service, or outcome claim of its own.",
     "data_sources_current": "PR file list and statusCheckRollup read live from the GitHub API at authoring time.",
     "debt_delta": "neutral",
@@ -38,7 +38,7 @@
     "winner_rationale": "Change is scoped to 13 path(s); the repository's own gates are the arbiter of correctness."
   },
   "goal": "feat: promote digital systems across service hubs",
-  "mode": "release",
+  "mode": "pr",
   "project": "esteban-media",
   "requested_actions": [
     "merge only after all GitHub checks are green"
@@ -50,8 +50,8 @@
       "status": "ok"
     },
     "skeptic": {
-      "note": "Real statusCheckRollup at authoring time: validate=PENDING, Vercel=SUCCESS, Vercel Preview Comments=SUCCESS.",
-      "status": "warn"
+      "note": "Real statusCheckRollup at authoring time: validate=SUCCESS, Vercel=SUCCESS, Vercel Preview Comments=SUCCESS.",
+      "status": "ok"
     },
     "taste": {
       "note": "Not assessed mechanically; no aesthetic claim is made here.",
