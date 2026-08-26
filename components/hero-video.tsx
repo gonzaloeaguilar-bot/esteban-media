@@ -61,9 +61,29 @@ export function HeroVideo({ locale = "en" }: HeroVideoProps) {
             </p>
 
             <p className="mt-4 max-w-2xl text-base leading-7 text-[#e8e2d8] sm:text-lg sm:leading-8">
-              {isSpanish
-                ? "Definimos el alcance de sitios web de conversión, chatbots para captar clientes y flujos de email y SMS según el objetivo, los accesos y las reglas de consentimiento de tu negocio. El video y el contenido pueden apoyar el sistema cuando el proyecto lo necesita."
-                : "We scope conversion websites, AI lead-capture chatbots, and email and SMS workflows around your business goal, access, and consent rules. Video and content can support the system when the project needs them."}
+              {isSpanish ? (
+                <>
+                  Definimos el alcance de sitios web de conversión, chatbots para captar clientes y flujos de email y SMS según el objetivo, los accesos y las reglas de consentimiento de tu negocio. El video y el contenido pueden apoyar el sistema cuando el proyecto lo necesita. Consulta nuestras{" "}
+                  <Link
+                    href="/es/guias"
+                    className="underline decoration-[#ffb49e] underline-offset-4 hover:text-[#ffb49e]"
+                  >
+                    guías prácticas de video
+                  </Link>{" "}
+                  para planear el contenido antes de producirlo.
+                </>
+              ) : (
+                <>
+                  We scope conversion websites, AI lead-capture chatbots, and email and SMS workflows around your business goal, access, and consent rules. Video and content can support the system when the project needs them. Browse our{" "}
+                  <Link
+                    href="/guides"
+                    className="underline decoration-[#ffb49e] underline-offset-4 hover:text-[#ffb49e]"
+                  >
+                    practical video guides
+                  </Link>{" "}
+                  to plan content before production.
+                </>
+              )}
             </p>
 
             <HeroProjectIntake locale={locale} />
