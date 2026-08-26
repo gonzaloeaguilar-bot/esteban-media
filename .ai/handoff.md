@@ -1,5 +1,12 @@
 # Esteban Moreno Media — Engineering Handoff
 
+## Homepage technology-intake hero alignment — 2026-08-26
+
+- Reframed the shared English/Spanish homepage hero around the verified primary commercial lanes: AI lead-capture chatbots, automated email/SMS customer workflows, and conversion websites. The copy now states the buyer problem and scoping boundaries (business goal, access, and consent rules); video/content remains a supporting capability.
+- This deliberately differs from the stale research recommendation to re-center video: the dispatch's newer live GSC row reports the branded query at **1.82% CTR** (not the earlier 0.32% baseline), while the owner-positioning instruction makes a qualified technology inquiry the KPI. No title, metadata, URL, schema, analytics, or form behavior changed.
+- Regression coverage updated for the new hero promise. Verification: `pnpm test -- app/__tests__/customer-ranking-pages.test.ts` completed **53 files / 407 tests**, `pnpm lint`, `pnpm typecheck`, and `git diff --check` exited 0. The test runner did not honor the supplied file filter and therefore ran the full suite.
+- Success evidence: a nonzero accepted `homepage-hero` lead submission / GA4 `lead_submit` key event attributable to an organic homepage session, with later GSC observation for the branded query. No production event was created and no deployment was performed.
+
 ## Website-design direct project intake — 2026-08-24
 
 - Added one bounded, bilingual direct inquiry surface to the existing primary commercial pair: `/services/website-design-fort-lauderdale` and `/es/diseno-web-fort-lauderdale`. It collects only email and the buyer's stated website need without sending the visitor through `/contact`.

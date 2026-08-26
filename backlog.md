@@ -38,6 +38,7 @@ Production is live. This file tracks repository implementation; account/access w
 
 ## P1 — Product and measurement
 
+- [x] Align the bilingual homepage hero with the primary technology inquiry lanes (AI lead capture, automated customer workflows, and conversion websites), preserving the existing privacy-safe homepage intake and its consent-scoped language
 - [x] Add a single-step homepage project intake using the existing `/api/lead` and privacy-safe `lead_submit` measurement paths, including direct hero placement and idempotent GA4 key-event provisioning
 - [x] Add a bilingual direct inquiry intake to the verified website-design/chatbot commercial pair, with a distinct privacy-safe `website-design-intake` measurement source
 - [x] Add an accessible bilingual portfolio backed by real public work
