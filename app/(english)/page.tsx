@@ -8,23 +8,21 @@ import { HomeAuthorityHub } from "@/components/home-authority-hub";
 import { PortfolioTeaser } from "@/components/portfolio-teaser";
 import { ServicesStrip } from "@/components/services-strip";
 
-import { site } from "@/lib/site";
-
 export const metadata: Metadata = {
   // Lead the homepage title with the exact business name ("Esteban Moreno Media")
   // for entity clarity and brand discovery.
   title: {
     absolute:
-      "Esteban Moreno Media | Fort Lauderdale Video Editor & Content Creator",
+      "Esteban Moreno Media | Growth Systems, Websites & Creative Production",
   },
-  description: site.description,
+  description: "Fort Lauderdale growth systems: conversion websites, local presence, AI lead capture, automation, data audits, and creative production.",
   openGraph: {
-    title: "Esteban Moreno Media | Fort Lauderdale Video Editor & Content Creator",
-    description: site.description,
+    title: "Esteban Moreno Media | Growth Systems, Websites & Creative Production",
+    description: "Fort Lauderdale growth systems: conversion websites, local presence, AI lead capture, automation, data audits, and creative production.",
   },
   twitter: {
-    title: "Esteban Moreno Media | Fort Lauderdale Video Editor & Content Creator",
-    description: site.description,
+    title: "Esteban Moreno Media | Growth Systems, Websites & Creative Production",
+    description: "Fort Lauderdale growth systems: conversion websites, local presence, AI lead capture, automation, data audits, and creative production.",
   },
 };
 

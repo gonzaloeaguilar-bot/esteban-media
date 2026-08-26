@@ -14,7 +14,7 @@ const copy = {
     title: "More than media: the systems that help a business get found, respond, and follow through.",
     intro: "Esteban Moreno Media designs the connected presence around your customer journey—profiles and marketplaces, a conversion website, automation, reporting, and the creative content that powers it.",
     label: "Explore the complete digital-systems catalog",
-    href: "/services/website-design-fort-lauderdale#digital-systems-heading",
+    href: "/services",
     cards: [
       { icon: MapPinned, title: "Profiles & marketplaces", text: "Google Business Profile, Maps, Yelp, and role-specific marketplaces such as Zillow, Homes.com, and Realtor.com when appropriate.", key: "profiles" },
       { icon: Bot, title: "Social & DM systems", text: "Instagram, Facebook Page, TikTok Business, ManyChat, and a mapped DM funnel from first reply to human handoff.", key: "social-dm" },
@@ -29,7 +29,7 @@ const copy = {
     title: "Más que media: los sistemas que ayudan a un negocio a encontrarse, responder y dar seguimiento.",
     intro: "Esteban Moreno Media diseña una presencia conectada alrededor del recorrido del cliente: perfiles y marketplaces, sitio de conversión, automatización, medición y el contenido creativo que lo impulsa.",
     label: "Explorar el catálogo completo de sistemas digitales",
-    href: "/es/diseno-web-fort-lauderdale#digital-systems-heading",
+    href: "/es/servicios",
     cards: [
       { icon: MapPinned, title: "Perfiles y marketplaces", text: "Google Business Profile, Maps, Yelp y marketplaces según el rol, como Zillow, Homes.com y Realtor.com cuando correspondan.", key: "profiles" },
       { icon: Bot, title: "Redes y sistemas de DM", text: "Instagram, Facebook Page, TikTok Business, ManyChat y un embudo de DM mapeado desde la primera respuesta hasta la entrega humana.", key: "social-dm" },

@@ -46,10 +46,10 @@ describe("site contact details", () => {
 
   it("keeps homepage descriptions concise and source-faithful", () => {
     expect(site.description).toBe(
-      "Esteban Moreno is a Fort Lauderdale video editor and creator offering remote video editing, AI content, social planning, and South Florida production.",
+      "Esteban Moreno Media builds Fort Lauderdale growth systems: websites, local presence, AI lead capture, automation, data audits, and creative production.",
     );
     expect(spanishSite.description).toBe(
-      "Esteban Moreno ofrece edición de video, contenido con IA, planificación para redes y producción selectiva en Fort Lauderdale, Miami y clientes remotos.",
+      "Esteban Moreno Media crea sistemas de growth: sitios web, presencia local, captura con IA, automatización, datos y producción creativa desde Fort Lauderdale.",
     );
     expect(site.description.length).toBeLessThanOrEqual(160);
     expect(spanishSite.description.length).toBeLessThanOrEqual(160);
