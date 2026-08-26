@@ -1,5 +1,14 @@
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Laptop, MapPin } from "lucide-react";
+import {
+  ArrowRight,
+  Bot,
+  CheckCircle2,
+  ChartLine,
+  ClipboardCheck,
+  Laptop,
+  MapPin,
+  Workflow,
+} from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import { ServiceLandingDirectory } from "@/components/service-landing-directory";
@@ -14,9 +23,9 @@ import {
 } from "@/lib/site";
 
 export const metadata = buildPageMetadata({
-  title: "Video Editing & Content Services",
+  title: "Growth Systems, Websites & Creative Production",
   description:
-    "Video editing, AI-assisted content, social media planning, and scoped production from Fort Lauderdale for remote clients and South Florida businesses.",
+    "Conversion websites, AI lead capture, local presence, measurement, automation, and creative production for businesses in Fort Lauderdale and South Florida.",
   path: "/services",
   locale: "en",
 });
@@ -52,12 +61,51 @@ const serviceProof: Record<
   },
 };
 
+const growthPillars = [
+  {
+    title: "Conversion websites",
+    detail:
+      "Mobile-first websites and focused landing pages designed around a clear offer, measured inquiry path, and the content your team needs to publish.",
+    icon: Laptop,
+  },
+  {
+    title: "AI lead capture & lifecycle",
+    detail:
+      "Scoped chatbots, DM flows, email and SMS follow-up that route a new inquiry into the right human or next step. Consent and platform access are confirmed before launch.",
+    icon: Bot,
+  },
+  {
+    title: "Local presence",
+    detail:
+      "A practical plan for Google Business Profile, Maps, Apple, Yelp, industry marketplaces, and the pages that explain a local service clearly.",
+    icon: MapPin,
+  },
+  {
+    title: "Data & funnel audit",
+    detail:
+      "Audit the current journey, measurement, handoffs, and manual work before deciding which system should be built first.",
+    icon: ChartLine,
+  },
+  {
+    title: "Custom operations automation",
+    detail:
+      "Project-scoped integrations, reporting workflows, and AI-assisted operations that connect approved tools and keep a human escalation path.",
+    icon: Workflow,
+  },
+  {
+    title: "Creative production",
+    detail:
+      "Video, photography, editing, and social assets that give the website, campaigns, and follow-up system something worth converting around.",
+    icon: ClipboardCheck,
+  },
+];
+
 export default function ServicesPage() {
   const servicesJsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
     "@id": absoluteUrl("/services#services"),
-    name: "Creative production services",
+    name: "Growth systems and creative production services",
     itemListElement: services.map((service, index) => ({
       "@type": "ListItem",
       position: index + 1,
@@ -87,15 +135,64 @@ export default function ServicesPage() {
             Services
           </p>
           <h1 className="mt-4 max-w-3xl font-serif text-5xl leading-none sm:text-6xl">
-            Editing, AI-assisted creative, social planning, and scoped production.
+            Growth systems that turn an idea into a working digital customer journey.
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-            Start with the outcome and where the content will be used. Esteban
-            can work remotely with footage you already have or plan a focused
-            South Florida capture after the location and project needs are known.
+            Start with the business outcome: more qualified inquiries, a clearer
+            local presence, less manual follow-up, or a better way to see what is
+            working. Esteban Media combines websites, measured lead capture,
+            automation, and creative production around a confirmed scope.
           </p>
 
-          <div className="mt-10 grid gap-5 lg:grid-cols-2">
+          <section className="mt-12" aria-labelledby="growth-systems-heading">
+            <p className="text-xs font-medium uppercase text-[#5a6066]">
+              0→1 Growth Systems
+            </p>
+            <h2
+              id="growth-systems-heading"
+              className="mt-4 max-w-3xl font-serif text-4xl leading-tight"
+            >
+              One accountable system, from first search to follow-up.
+            </h2>
+            <p className="mt-4 max-w-3xl leading-7 text-[#252a2d]">
+              These are scoped building blocks, not a promise that every business
+              needs every tool. Timing depends on confirmed scope, assets, access,
+              consent requirements, and client review cycles.
+            </p>
+            <div className="mt-7 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {growthPillars.map((pillar) => {
+                const Icon = pillar.icon;
+                return (
+                  <article
+                    key={pillar.title}
+                    className="rounded-lg border border-[#ddd4c8] bg-white/50 p-5"
+                  >
+                    <Icon className="size-6 text-[#c84a2c]" aria-hidden="true" />
+                    <h3 className="mt-4 font-serif text-2xl">{pillar.title}</h3>
+                    <p className="mt-3 text-sm leading-6 text-[#252a2d]">
+                      {pillar.detail}
+                    </p>
+                  </article>
+                );
+              })}
+            </div>
+            <Link
+              href="/services/website-design-fort-lauderdale"
+              className="mt-7 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27] underline underline-offset-4"
+            >
+              Explore the current website and AI lead-capture work
+              <ArrowRight className="size-4" aria-hidden="true" />
+            </Link>
+          </section>
+
+          <section className="mt-14" aria-labelledby="creative-production-heading">
+            <p className="text-xs font-medium uppercase text-[#5a6066]">
+              Creative production
+            </p>
+            <h2 id="creative-production-heading" className="mt-4 max-w-3xl font-serif text-4xl leading-tight">
+              Video and photography remain the creative fuel for the system.
+            </h2>
+            <div className="mt-7 grid gap-5 lg:grid-cols-2">
             {services.map((service) => {
               const Icon = service.icon;
               const proof = serviceProof[service.id];
@@ -179,7 +276,8 @@ export default function ServicesPage() {
                 </article>
               );
             })}
-          </div>
+            </div>
+          </section>
 
           <section className="mt-14" aria-labelledby="delivery-model-heading">
             <p className="text-xs font-medium uppercase text-[#5a6066]">

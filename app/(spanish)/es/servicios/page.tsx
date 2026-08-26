@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Laptop, MapPin } from "lucide-react";
+import { ArrowRight, Bot, CheckCircle2, ChartLine, ClipboardCheck, Laptop, MapPin, Workflow } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import { VideoBriefBuilder } from "@/components/video-brief-builder";
@@ -13,12 +13,21 @@ import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl } from "@/lib/site";
 
 export const metadata = buildPageMetadata({
-  title: "Edición de Video y Contenido",
+  title: "Sistemas de Growth, Web y Producción Creativa",
   description:
-    "Edición de video, contenido con IA, planificación para redes y producción por proyecto en español desde Fort Lauderdale.",
+    "Sitios web de conversión, captura de clientes con IA, presencia local, automatización y producción creativa desde Fort Lauderdale.",
   path: "/es/servicios",
   locale: "es",
 });
+
+const pilaresGrowth = [
+  { titulo: "Sitios web de conversión", detalle: "Sitios mobile-first y páginas enfocadas en una oferta, una ruta de consulta medible y contenido listo para publicar.", icono: Laptop },
+  { titulo: "Captura y seguimiento con IA", detalle: "Chatbots, flujos de DM, email y SMS definidos para enrutar consultas a la siguiente persona o paso. El consentimiento y acceso se confirman antes del lanzamiento.", icono: Bot },
+  { titulo: "Presencia local", detalle: "Un plan para Google Business Profile, Maps, Apple, Yelp, marketplaces de industria y páginas que explican claramente un servicio local.", icono: MapPin },
+  { titulo: "Auditoría de datos y funnel", detalle: "Revisamos recorrido, medición, handoffs y trabajo manual antes de decidir qué sistema construir primero.", icono: ChartLine },
+  { titulo: "Automatización de operaciones", detalle: "Integraciones, reportes y operaciones asistidas por IA conectadas a herramientas aprobadas y con escalación humana.", icono: Workflow },
+  { titulo: "Producción creativa", detalle: "Video, fotografía, edición y activos sociales que dan a la web, campañas y seguimiento algo valioso alrededor de lo cual convertir.", icono: ClipboardCheck },
+];
 
 const serviceProof: Record<
   string,
@@ -75,7 +84,7 @@ export default function SpanishServicesPage() {
     "@context": "https://schema.org",
     "@type": "ItemList",
     "@id": absoluteUrl("/es/servicios#servicios"),
-    name: "Servicios creativos de Esteban Moreno Media",
+    name: "Sistemas de growth y producción creativa de Esteban Moreno Media",
     inLanguage: "es-US",
     itemListElement: spanishServices.map((service, index) => ({
       "@type": "ListItem",
@@ -107,15 +116,33 @@ export default function SpanishServicesPage() {
             Servicios en español
           </p>
           <h1 className="mt-4 max-w-4xl font-serif text-5xl leading-none sm:text-6xl">
-            Edición, contenido con IA, planificación y producción según el proyecto.
+            Sistemas de growth que llevan una idea a un recorrido digital funcional.
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-            Empieza por la meta y el lugar donde se publicará el contenido.
-            Esteban puede trabajar de forma remota con material existente o
-            planificar una captura puntual en South Florida. La atención es
-            primero en español y también hay comunicación disponible en inglés
-            intermedio.
+            Empezamos por el resultado: más consultas calificadas, una presencia
+            local clara, menos seguimiento manual o una mejor forma de entender
+            qué funciona. Esteban Media combina web, captura medida, automatización
+            y producción creativa alrededor de un alcance confirmado.
           </p>
+
+          <section className="mt-12" aria-labelledby="sistemas-growth-heading">
+            <p className="text-xs font-medium uppercase text-[#5a6066]">Sistemas de growth 0→1</p>
+            <h2 id="sistemas-growth-heading" className="mt-4 max-w-3xl font-serif text-4xl leading-tight">
+              Un sistema responsable, desde la primera búsqueda hasta el seguimiento.
+            </h2>
+            <p className="mt-4 max-w-3xl leading-7 text-[#252a2d]">
+              Son bloques definidos por alcance, no la promesa de que cada negocio necesita todas las herramientas. El tiempo depende del alcance, materiales, accesos, consentimiento y ciclos de revisión confirmados.
+            </p>
+            <div className="mt-7 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {pilaresGrowth.map((pilar) => {
+                const Icono = pilar.icono;
+                return <article key={pilar.titulo} className="rounded-lg border border-[#ddd4c8] bg-white/50 p-5"><Icono className="size-6 text-[#c84a2c]" aria-hidden="true" /><h3 className="mt-4 font-serif text-2xl">{pilar.titulo}</h3><p className="mt-3 text-sm leading-6 text-[#252a2d]">{pilar.detalle}</p></article>;
+              })}
+            </div>
+            <Link href="/es/diseno-web-fort-lauderdale" className="mt-7 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27] underline underline-offset-4">
+              Explorar el trabajo actual de sitios web y captura con IA <ArrowRight className="size-4" aria-hidden="true" />
+            </Link>
+          </section>
 
           <div className="mt-10 grid gap-4 md:grid-cols-2">
             {spanishServices.map((service) => {
