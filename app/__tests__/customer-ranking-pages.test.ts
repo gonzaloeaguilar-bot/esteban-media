@@ -13,9 +13,9 @@ describe("customer-facing ranking pages", () => {
     const spanishHome = source("app/(spanish)/es/page.tsx");
 
     expect(hero).toContain(
-      "Digital systems, automation, and content in Fort Lauderdale.",
+      "AI lead-capture chatbots, automated customer workflows, and conversion websites.",
     );
-    expect(hero).toContain("We make things feel like a film.");
+    expect(hero).toContain("A clear path from the first inquiry to follow-up.");
     expect(services).toContain("website-design");
     expect(services).toContain("Digital systems");
     expect(spanishHome).toContain("diseno-web");

@@ -50,20 +50,20 @@ export function HeroVideo({ locale = "en" }: HeroVideoProps) {
               className="mt-6 max-w-[17ch] font-serif text-5xl leading-[1.02] sm:text-6xl lg:text-7xl"
             >
               {isSpanish
-                ? "Esteban Moreno Media · Sistemas digitales, automatización y contenido en Fort Lauderdale."
-                : "Esteban Moreno Media · Digital systems, automation, and content in Fort Lauderdale."}
+                ? "Esteban Moreno Media · Chatbots para captar clientes, flujos automatizados y sitios web de conversión."
+                : "Esteban Moreno Media · AI lead-capture chatbots, automated customer workflows, and conversion websites."}
             </h1>
 
             <p className="mt-5 font-serif text-2xl italic text-[#f0b384] sm:text-3xl">
               {isSpanish
-                ? "Hacemos que las cosas se sientan como una película."
-                : "We make things feel like a film."}
+                ? "Una ruta clara desde la primera consulta hasta el seguimiento."
+                : "A clear path from the first inquiry to follow-up."}
             </p>
 
             <p className="mt-4 max-w-2xl text-base leading-7 text-[#e8e2d8] sm:text-lg sm:leading-8">
               {isSpanish
-                ? "Conectamos perfiles de negocio, marketplaces, sitios web, chatbots, automatización de DM, email y SMS, SEO y medición; video y fotografía aportan el contenido que mueve todo el sistema."
-                : "We connect business profiles, marketplaces, conversion websites, chatbots, DM/email/SMS automation, SEO, and measurement; video and photography provide the content that powers the system."}
+                ? "Definimos el alcance de sitios web de conversión, chatbots para captar clientes y flujos de email y SMS según el objetivo, los accesos y las reglas de consentimiento de tu negocio. El video y el contenido pueden apoyar el sistema cuando el proyecto lo necesita."
+                : "We scope conversion websites, AI lead-capture chatbots, and email and SMS workflows around your business goal, access, and consent rules. Video and content can support the system when the project needs them."}
             </p>
 
             <HeroProjectIntake locale={locale} />
