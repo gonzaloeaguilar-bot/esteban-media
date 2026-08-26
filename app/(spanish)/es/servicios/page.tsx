@@ -21,12 +21,12 @@ export const metadata = buildPageMetadata({
 });
 
 const pilaresGrowth = [
-  { titulo: "Sitios web de conversión", detalle: "Sitios mobile-first y páginas enfocadas en una oferta, una ruta de consulta medible y contenido listo para publicar.", icono: Laptop },
-  { titulo: "Captura y seguimiento con IA", detalle: "Chatbots, flujos de DM, email y SMS definidos para enrutar consultas a la siguiente persona o paso. El consentimiento y acceso se confirman antes del lanzamiento.", icono: Bot },
-  { titulo: "Presencia local", detalle: "Un plan para Google Business Profile, Maps, Apple, Yelp, marketplaces de industria y páginas que explican claramente un servicio local.", icono: MapPin },
-  { titulo: "Auditoría de datos y funnel", detalle: "Revisamos recorrido, medición, handoffs y trabajo manual antes de decidir qué sistema construir primero.", icono: ChartLine },
-  { titulo: "Automatización de operaciones", detalle: "Integraciones, reportes y operaciones asistidas por IA conectadas a herramientas aprobadas y con escalación humana.", icono: Workflow },
-  { titulo: "Producción creativa", detalle: "Video, fotografía, edición y activos sociales que dan a la web, campañas y seguimiento algo valioso alrededor de lo cual convertir.", icono: ClipboardCheck },
+  { titulo: "Sitios web de conversión", detalle: "Sitios mobile-first y páginas enfocadas en una oferta, una ruta de consulta medible y contenido listo para publicar.", icono: Laptop, href: "/es/sitios-web-de-conversion" },
+  { titulo: "Captura y seguimiento con IA", detalle: "Chatbots, flujos de DM, email y SMS definidos para enrutar consultas a la siguiente persona o paso. El consentimiento y acceso se confirman antes del lanzamiento.", icono: Bot, href: "/es/captura-y-automatizacion-de-clientes-con-ia" },
+  { titulo: "Presencia local", detalle: "Un plan para Google Business Profile, Maps, Apple, Yelp, marketplaces de industria y páginas que explican claramente un servicio local.", icono: MapPin, href: "/es/presencia-local-seo" },
+  { titulo: "Auditoría de datos y funnel", detalle: "Revisamos recorrido, medición, handoffs y trabajo manual antes de decidir qué sistema construir primero.", icono: ChartLine, href: "/es/auditoria-de-funnel-y-datos" },
+  { titulo: "Automatización de operaciones", detalle: "Integraciones, reportes y operaciones asistidas por IA conectadas a herramientas aprobadas y con escalación humana.", icono: Workflow, href: "/es/automatizacion-de-operaciones" },
+  { titulo: "Producción creativa", detalle: "Video, fotografía, edición y activos sociales que dan a la web, campañas y seguimiento algo valioso alrededor de lo cual convertir.", icono: ClipboardCheck, href: "/es/produccion-creativa" },
 ];
 
 const serviceProof: Record<
@@ -136,7 +136,7 @@ export default function SpanishServicesPage() {
             <div className="mt-7 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {pilaresGrowth.map((pilar) => {
                 const Icono = pilar.icono;
-                return <article key={pilar.titulo} className="rounded-lg border border-[#ddd4c8] bg-white/50 p-5"><Icono className="size-6 text-[#c84a2c]" aria-hidden="true" /><h3 className="mt-4 font-serif text-2xl">{pilar.titulo}</h3><p className="mt-3 text-sm leading-6 text-[#252a2d]">{pilar.detalle}</p></article>;
+                return <Link href={pilar.href} key={pilar.titulo} className="rounded-lg border border-[#ddd4c8] bg-white/50 p-5 transition hover:-translate-y-0.5 hover:border-[#e85d3e] hover:shadow-sm"><Icono className="size-6 text-[#c84a2c]" aria-hidden="true" /><h3 className="mt-4 font-serif text-2xl">{pilar.titulo}</h3><p className="mt-3 text-sm leading-6 text-[#252a2d]">{pilar.detalle}</p></Link>;
               })}
             </div>
             <Link href="/es/diseno-web-fort-lauderdale" className="mt-7 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27] underline underline-offset-4">

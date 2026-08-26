@@ -17,9 +17,9 @@ import {
 import { absoluteUrl, site } from "@/lib/site";
 
 export const spanishSite = {
-  title: "Esteban Moreno Media | Edición de Video en Fort Lauderdale",
+  title: "Esteban Moreno Media | Sistemas de Growth y Producción Creativa",
   description:
-    "Esteban Moreno ofrece edición de video, contenido con IA, planificación para redes y producción selectiva en Fort Lauderdale, Miami y clientes remotos.",
+    "Esteban Moreno Media crea sistemas de growth: sitios web, presencia local, captura con IA, automatización, datos y producción creativa desde Fort Lauderdale.",
   contactLead:
     "Comparte la meta, el condado, el material disponible, las referencias y el uso previsto. La atención es principalmente en español y también hay comunicación disponible en inglés intermedio.",
 };

@@ -67,36 +67,42 @@ const growthPillars = [
     detail:
       "Mobile-first websites and focused landing pages designed around a clear offer, measured inquiry path, and the content your team needs to publish.",
     icon: Laptop,
+    href: "/services/conversion-websites",
   },
   {
     title: "AI lead capture & lifecycle",
     detail:
       "Scoped chatbots, DM flows, email and SMS follow-up that route a new inquiry into the right human or next step. Consent and platform access are confirmed before launch.",
     icon: Bot,
+    href: "/services/ai-lead-capture-automation",
   },
   {
     title: "Local presence",
     detail:
       "A practical plan for Google Business Profile, Maps, Apple, Yelp, industry marketplaces, and the pages that explain a local service clearly.",
     icon: MapPin,
+    href: "/services/local-presence-seo",
   },
   {
     title: "Data & funnel audit",
     detail:
       "Audit the current journey, measurement, handoffs, and manual work before deciding which system should be built first.",
     icon: ChartLine,
+    href: "/services/growth-funnel-audit",
   },
   {
     title: "Custom operations automation",
     detail:
       "Project-scoped integrations, reporting workflows, and AI-assisted operations that connect approved tools and keep a human escalation path.",
     icon: Workflow,
+    href: "/services/custom-operations-automation",
   },
   {
     title: "Creative production",
     detail:
       "Video, photography, editing, and social assets that give the website, campaigns, and follow-up system something worth converting around.",
     icon: ClipboardCheck,
+    href: "/services/creative-production",
   },
 ];
 
@@ -163,16 +169,17 @@ export default function ServicesPage() {
               {growthPillars.map((pillar) => {
                 const Icon = pillar.icon;
                 return (
-                  <article
+                  <Link
+                    href={pillar.href}
                     key={pillar.title}
-                    className="rounded-lg border border-[#ddd4c8] bg-white/50 p-5"
+                    className="rounded-lg border border-[#ddd4c8] bg-white/50 p-5 transition hover:-translate-y-0.5 hover:border-[#e85d3e] hover:shadow-sm"
                   >
                     <Icon className="size-6 text-[#c84a2c]" aria-hidden="true" />
                     <h3 className="mt-4 font-serif text-2xl">{pillar.title}</h3>
                     <p className="mt-3 text-sm leading-6 text-[#252a2d]">
                       {pillar.detail}
                     </p>
-                  </article>
+                  </Link>
                 );
               })}
             </div>
