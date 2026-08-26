@@ -7,6 +7,11 @@
 - Regression coverage updated for the new hero promise. Verification: `pnpm test -- app/__tests__/customer-ranking-pages.test.ts` completed **53 files / 407 tests**, `pnpm lint`, `pnpm typecheck`, and `git diff --check` exited 0. The test runner did not honor the supplied file filter and therefore ran the full suite.
 - Success evidence: a nonzero accepted `homepage-hero` lead submission / GA4 `lead_submit` key event attributable to an organic homepage session, with later GSC observation for the branded query. No production event was created and no deployment was performed.
 
+## Locale-specific guide-hub discovery links — 2026-08-26
+
+- Added contextual guide-hub links to the matching locale in the homepage hero: `/guides` in English and `/es/guias` in Spanish. This preserves the current technology-intake positioning while making the existing guide hubs discoverable from both localized homepages.
+- Antigravity review caught the original cross-locale English target during the CTO gate; the rebased change uses the English `/guides` route and Spanish `/es/guias` route.
+
 ## Website-design direct project intake — 2026-08-24
 
 - Added one bounded, bilingual direct inquiry surface to the existing primary commercial pair: `/services/website-design-fort-lauderdale` and `/es/diseno-web-fort-lauderdale`. It collects only email and the buyer's stated website need without sending the visitor through `/contact`.
