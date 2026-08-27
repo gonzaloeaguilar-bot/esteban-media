@@ -1,0 +1,28 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-142",
+  "status": "review_pending",
+  "goal": "Add a contextual portfolio link to the editing service section.",
+  "summary": "The existing portfolio sentence now links its existing post-production wording to the established editing section.",
+  "risk": "One source file and one same-site link; no route, style, metadata, data, or visible wording change.",
+  "public_claims": "No public factual assertion was added; the link wraps existing wording.",
+  "evidence": {
+    "obsidian_context": "Reviewed the Esteban Media hot note, index, agent guide, repository rules, and current handoff before implementation.",
+    "project_routing": "Isolated worktree branch codex/esteban-portfolio-links-20260827 from origin/main; PR-142 targets the existing English portfolio page.",
+    "hard_stops_checked": "The source diff is one Link around existing body text, points to the established same-site editing section, and contains no other repository change.",
+    "reviewer_ensemble": "Builder review confirmed the one-link source diff. Skeptic review confirmed /services returns HTTP 200 and contains the editing anchor. Taste review confirmed no visible wording or visual treatment was added.",
+    "reviewer_disagreement_reviewed": "No disagreement recorded; the route matches the existing post-production phrase.",
+    "winner_rationale": "The contextual route gives visitors and crawlers an additional in-body path from portfolio proof to the relevant editing service detail.",
+    "tests_or_validation": "git diff --check, pnpm lint, pnpm typecheck, and pnpm test passed (53 files, 407 tests). Live requests to /portfolio and /services returned HTTP 200. pnpm build was attempted but stopped when the runner reported ENOSPC with 126 MiB free.",
+    "debt_delta": "neutral",
+    "obsidian_handoff": "No vault write was made because this dispatch confines writes to its assigned worktree.",
+    "claim_hygiene_checked": "The link reuses existing visible wording and introduces no factual assertion.",
+    "data_sources_current": "The GSC helper queried date,page for the specified 28-day window and returned 54 impressions, zero clicks, and weighted position 8.3519 for /portfolio. Live production requests returned HTTP 200 for /portfolio and /services.",
+    "booking_or_authority_thesis": "Visitors reviewing portfolio work can follow the existing post-production phrase to the supporting editing section.",
+    "ci_passed": "Local lint, typecheck, tests, and diff validation passed; GitHub checks were in progress when this file was created.",
+    "pr_review_complete": "Local source, scope, route, and claim review completed before PR-142; repository checks and external PR review remain pending.",
+    "deploy_or_rollback_plan": "Use the repository's normal merge flow; a one-line source revert removes the link.",
+    "post_change_verification": "After merge, request /portfolio and confirm the rendered post-production link targets /services#editing while both routes return successfully."
+  }
+}
