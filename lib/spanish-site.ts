@@ -1698,11 +1698,61 @@ export const spanishNichePages: SpanishNichePage[] = [
     ],
     projectFit:
       "Edición sensorial detallada para apetito visual. Para alcances combinados de rodaje y postproducción, visita [video para restaurantes en Miami](/es/video-para-restaurantes-miami).",
+    sections: [
+      {
+        heading: "Estructura de un reel de platillo o menú",
+        paragraphs: [
+          "Un reel gastronómico puede partir de una sola idea clara: un platillo insignia, una bebida, una preparación, el ambiente del salón o un mensaje breve del equipo. La edición puede abrir con el detalle visual más inmediato —vapor, corte, salsa, emplatado o vertido— y luego ordenar los planos para que el espectador entienda qué se ofrece y cuál es el siguiente paso que el restaurante desea comunicar.",
+          "No existe una secuencia única para todos los locales. Los primeros planos de ingredientes, manos y textura pueden alternarse con planos más abiertos del servicio o la sala. El ritmo se define por el material disponible y por el mensaje, sin acelerar una toma hasta que el plato deje de apreciarse. Para planificar material antes de grabar, consulta la [guía de ideas de video para restaurantes](/es/guias/ideas-de-contenido-de-video-para-restaurantes).",
+        ],
+      },
+      {
+        heading: "Color y ritmo con textura natural",
+        paragraphs: [
+          "El tratamiento de color busca que el alimento se vea apetitoso y que conserve su textura natural. Exposición, balance de blancos, contraste y saturación se revisan entre clips para que luz de cocina, luz de mesa, salsas e ingredientes se sientan coherentes dentro de una misma pieza. No se presenta una corrección de color como sustituto de una buena toma ni como una promesa sobre el resultado comercial.",
+          "La base de trabajo es el [material suministrado por el cliente](/es/guias/entrega-para-edicion-remota-de-video). Pueden incluirse clips de smartphone o cámara de preparación, emplatado, bebidas, ambiente y mensajes a cámara, junto con los nombres correctos del menú y la intención de cada publicación. Las necesidades de rodaje se conversan por separado; no se presumen dentro de una edición remota.",
+        ],
+      },
+      {
+        heading: "Versiones 9:16, 1:1 y texto para ver sin sonido",
+        paragraphs: [
+          "El alcance puede incluir una versión vertical 9:16 para Instagram Reels y TikTok, además de una versión cuadrada 1:1 cuando una publicación la necesite. Los recortes se revisan para que el plato, el producto y el texto importante se mantengan visibles en cada formato. La [guía de video vertical, horizontal y zonas seguras](/es/guias/video-vertical-horizontal-y-zonas-seguras) ofrece contexto para decidir qué formatos solicitar.",
+          "Subtítulos o textos breves pueden explicar una frase hablada, un detalle del menú o un llamado a la acción aportado por el restaurante. Esto permite seguir el mensaje cuando el audio está apagado. El texto se coloca evitando tapar el plato y las zonas que suelen ocupar los controles de la plataforma, sin reemplazar la información que el negocio debe confirmar antes de publicar.",
+        ],
+      },
+      {
+        heading: "Entrega de material y revisión de la edición",
+        paragraphs: [
+          "La entrega es más clara cuando las carpetas indican platillo, fecha, orientación de cámara y tomas imprescindibles. Junto al material, el restaurante puede compartir logo, tipografías, ortografía del menú, referencias y los canales donde se publicará. La [guía de entrega para edición remota](/es/guias/entrega-para-edicion-remota-de-video) resume una forma práctica de organizar ese envío.",
+          "Después de compartir un borrador, el restaurante puede reunir notas con marca de tiempo sobre selección de tomas, ritmo, textos o llamados a la acción. El alcance de revisiones se acuerda en cada proyecto, sin asumir una cantidad fija de rondas ni un plazo de entrega. Este orden ayuda a que el comentario sea específico y que la conversación se mantenga centrada en el material y los objetivos definidos.",
+        ],
+      },
+    ],
     faqs: [
       {
-        question: "¿Incluyen música con derechos comerciales?",
+        question: "¿Qué material puede entregar un restaurante para editar un video promocional?",
         answer:
-          "Sí. Suministramos licencias comerciales completas para uso en redes sociales y sitio web.",
+          "El restaurante puede compartir material suministrado por el cliente: preparación, emplatado, bebidas, sala, personal, detalles de menú o mensajes a cámara. También ayuda incluir el nombre correcto de cada platillo, referencias, logo y los canales donde se publicará.",
+      },
+      {
+        question: "¿Cómo se estructura un reel corto de comida o menú?",
+        answer:
+          "La edición puede empezar con el detalle más inmediato y continuar con preparación, textura, emplatado, ambiente o un mensaje del equipo. La secuencia se decide con el material disponible y el objetivo que comparta el restaurante, no con una fórmula fija.",
+      },
+      {
+        question: "¿Pueden preparar versiones verticales y cuadradas?",
+        answer:
+          "Sí. Se puede definir una versión 9:16 para Reels y TikTok y una versión 1:1 para una publicación cuadrada cuando el alcance lo requiera. Cada recorte se revisa para conservar visibles el platillo y la información esencial.",
+      },
+      {
+        question: "¿Pueden incluir subtítulos para quien ve el video sin sonido?",
+        answer:
+          "Se pueden añadir subtítulos o textos breves para una frase hablada, contexto de menú o un llamado a la acción proporcionado por el restaurante. El texto se ubica para no cubrir el alimento ni zonas habituales de la interfaz.",
+      },
+      {
+        question: "¿Cómo se comparten comentarios y revisiones?",
+        answer:
+          "Tras recibir un borrador, el restaurante puede reunir comentarios con marca de tiempo sobre planos, ritmo, textos o llamados a la acción. El alcance de revisiones se conversa por proyecto; no se presupone una cantidad fija de rondas.",
       },
     ],
   },

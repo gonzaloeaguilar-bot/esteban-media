@@ -1,5 +1,11 @@
 # Esteban Moreno Media — Engineering Handoff
 
+## Restaurant promo service-page depth and FAQ parity — 2026-08-27
+
+- PR #144 deepens the existing English `/services/restaurant-promo-video-editing-miami` and Spanish `/es/edicion-de-video-promocional-para-restaurantes-miami` pages without adding routes or changing metadata, canonicals, hreflang, or sitemap inventory. It covers short-form dish/menu structure, appetite-led natural-texture color treatment, 9:16 and 1:1 delivery, sound-off captions, client-supplied-footage handoff, and a project-scoped revision workflow.
+- Each locale has five visible FAQs. The English page emits matching `FAQPage` JSON-LD directly; the Spanish page continues through `buildSpanishNicheStructuredData`, whose schema parity is asserted by the new regression test.
+- Validation on branch `codex/restaurant-depth-20260827`, commit `eb3b681`: `pnpm lint`, `pnpm typecheck`, `pnpm test` (**55 files / 411 tests**), `git diff --check`, and `pnpm build` passed. The built sitemap file contains exactly **243** `<loc>` entries. Source-copy counts: EN 1,178 → 2,156; scoped ES object 174 → 959. No deployment or performance outcome is claimed; PR review and a future GSC observation are the remaining evidence boundaries.
+
 ## Near-top-10 CTR targeting and restaurant-query canonicalization — 2026-08-27
 
 - Candidate branch `fix/ctr-near-top10-20260827` refreshes the metadata for the existing English/Spanish areas and portfolio hubs. The raw titles are 50–60 characters and all four descriptions are 120–160 characters; no URL, canonical, schema, or sitemap entry changes.
