@@ -279,7 +279,9 @@ export default function PortfolioPage() {
                 Remote editing, from the footage you already have.
               </h2>
               <p className="mt-5 max-w-xl text-base leading-7 text-[#3f4548]">
-                Esteban&apos;s core service is post-production. You send the
+                Esteban&apos;s core service is{" "}
+                <Link href="/services#editing">post-production</Link>. You send
+                the
                 footage you&apos;ve already captured &mdash; phone clips, event
                 coverage, product shots, or footage from a shoot &mdash; and he
                 shapes it into a finished, publish-ready video. The work is
