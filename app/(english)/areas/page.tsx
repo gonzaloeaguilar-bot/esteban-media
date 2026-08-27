@@ -7,9 +7,9 @@ import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, serviceAreas } from "@/lib/site";
 
 export const metadata = buildPageMetadata({
-  title: "Service Areas",
+  title: "Miami & Fort Lauderdale Video Editing Services | Esteban",
   description:
-    "Fort Lauderdale-based video editing and content support for Broward and Miami-Dade, with Palm Beach County considered project by project as an expansion area.",
+    "Explore video editing, AI-assisted content, and social planning for Fort Lauderdale, Broward, and Miami-Dade. Palm Beach projects are scoped individually.",
   path: "/areas",
   locale: "en",
 });
@@ -243,6 +243,33 @@ export default function AreasPage() {
                 </Link>
               ))}
             </div>
+          </section>
+
+          <section
+            className="mt-14 rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6 sm:p-8"
+            aria-labelledby="restaurant-service-heading"
+          >
+            <p className="text-xs font-medium uppercase text-[#5a6066]">
+              Restaurant projects in Miami
+            </p>
+            <h2
+              id="restaurant-service-heading"
+              className="mt-4 max-w-3xl font-serif text-4xl leading-tight"
+            >
+              Looking for restaurant video editing rather than area coverage?
+            </h2>
+            <p className="mt-4 max-w-3xl leading-7 text-[#252a2d]">
+              This page explains where Esteban works. For restaurant promotion
+              details and the relevant project inquiry, use the dedicated Miami
+              service page.
+            </p>
+            <Link
+              href="/services/restaurant-promo-video-editing-miami"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27] hover:text-[#7f2f20]"
+            >
+              Explore restaurant promo video editing in Miami
+              <ArrowRight className="size-4" aria-hidden="true" />
+            </Link>
           </section>
 
           <section

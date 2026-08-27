@@ -1,5 +1,11 @@
 # Esteban Moreno Media — Engineering Handoff
 
+## Near-top-10 CTR targeting and restaurant-query canonicalization — 2026-08-27
+
+- Candidate branch `fix/ctr-near-top10-20260827` refreshes the metadata for the existing English/Spanish areas and portfolio hubs. The raw titles are 50–60 characters and all four descriptions are 120–160 characters; no URL, canonical, schema, or sitemap entry changes.
+- The English and Spanish area hubs now make geographic scope their explicit purpose and link restaurant-promo visitors to the respective dedicated restaurant service page. This is intended to consolidate the observed English restaurant-promo query toward `/services/restaurant-promo-video-editing-miami`, without a redirect, noindex directive, or inventory exception.
+- Regression coverage asserts the exact metadata strings, length bounds, and locale-correct dedicated-service links. Local checks: `pnpm lint`, `pnpm typecheck`, `pnpm test` (54 files / 409 tests), and `git diff --check` passed. The full suite includes the frozen-inventory assertion for exactly 243 sitemap URLs and its approved hash. No deploy has occurred; the post-release evidence is a new GSC observation for the affected pages and query.
+
 ## Homepage technology-intake hero alignment — 2026-08-26
 
 - Reframed the shared English/Spanish homepage hero around the verified primary commercial lanes: AI lead-capture chatbots, automated email/SMS customer workflows, and conversion websites. The copy now states the buyer problem and scoping boundaries (business goal, access, and consent rules); video/content remains a supporting capability.

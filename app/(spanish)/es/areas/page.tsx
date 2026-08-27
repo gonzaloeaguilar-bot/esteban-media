@@ -7,9 +7,9 @@ import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl } from "@/lib/site";
 
 export const metadata = buildPageMetadata({
-  title: "Áreas de Servicio en Español",
+  title: "Servicios de edición de video en Miami y Fort Lauderdale",
   description:
-    "Edición de video y contenido desde Fort Lauderdale para Broward y Miami-Dade, con Palm Beach County como área de expansión evaluada por proyecto.",
+    "Explora edición de video, contenido con IA y planificación social para Fort Lauderdale, Broward y Miami-Dade. Palm Beach se evalúa según el proyecto.",
   path: "/es/areas",
   locale: "es",
 });
@@ -193,6 +193,33 @@ export default function SpanishAreasPage() {
                 </Link>
               ))}
             </div>
+          </section>
+
+          <section
+            className="mt-14 rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6 sm:p-8"
+            aria-labelledby="restaurantes-servicio-heading"
+          >
+            <p className="text-xs font-medium uppercase text-[#5a6066]">
+              Proyectos de restaurantes en Miami
+            </p>
+            <h2
+              id="restaurantes-servicio-heading"
+              className="mt-4 max-w-3xl font-serif text-4xl leading-tight"
+            >
+              ¿Buscas edición de video para un restaurante, no cobertura por zona?
+            </h2>
+            <p className="mt-4 max-w-3xl leading-7 text-[#252a2d]">
+              Esta página explica las zonas de servicio. Para detalles de una
+              promoción de restaurante y la consulta correspondiente, visita
+              la página de servicio en Miami.
+            </p>
+            <Link
+              href="/es/edicion-de-video-promocional-para-restaurantes-miami"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27] hover:text-[#7f2f20]"
+            >
+              Ver edición de video promocional para restaurantes en Miami
+              <ArrowRight className="size-4" aria-hidden="true" />
+            </Link>
           </section>
 
           <div className="mt-12 flex flex-wrap gap-3">

@@ -12,9 +12,9 @@ import { buildPortfolioCollectionSchema } from "@/lib/portfolio-schema";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
-const title = "Portafolio de Video";
+const title = "Portafolio de edición de video en Miami y Fort Lauderdale";
 const description =
-  "Explora trabajos seleccionados de animación, videos promocionales, contenido social, eventos, edición y narrativa de Esteban Moreno Media.";
+  "Mira trabajos seleccionados de edición, promoción, contenido social, eventos, animación y narrativa para proyectos en Miami y Fort Lauderdale.";
 const liveItems = getLiveYouTubePortfolioItems(PORTFOLIO_ITEMS);
 const primaryPoster = liveItems.find((item) =>
   item.media.poster.startsWith("/portfolio/"),

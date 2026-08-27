@@ -32,9 +32,9 @@ import { buildPortfolioCollectionSchema } from "@/lib/portfolio-schema";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
-const title = "Selected Video Work";
+const title = "Miami & Fort Lauderdale Video Editing Portfolio | Esteban";
 const description =
-  "Explore selected animation, promotional, social, event, editing, and narrative video work from Esteban Moreno Media.";
+  "See selected video editing, promotional, social, event, animation, and narrative work from Esteban Moreno Media for Miami and Fort Lauderdale projects.";
 const liveItems = getLiveYouTubePortfolioItems(PORTFOLIO_ITEMS);
 const primaryPoster = liveItems.find((item) =>
   item.media.poster.startsWith("/portfolio/"),
