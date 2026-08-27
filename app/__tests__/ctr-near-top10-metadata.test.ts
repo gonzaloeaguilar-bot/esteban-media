@@ -31,13 +31,13 @@ function collectHrefs(node: React.ReactNode): string[] {
 describe("near-top-10 CTR metadata and canonical service targeting", () => {
   it("renders click-focused, localized areas and portfolio metadata", () => {
     expect(englishAreasMetadata.title).toBe(
-      "Miami & Fort Lauderdale Video Editing Services | Esteban",
+      "Miami & Fort Lauderdale Video Editing Services",
     );
     expect(englishAreasMetadata.description).toBe(
       "Explore video editing, AI-assisted content, and social planning for Fort Lauderdale, Broward, and Miami-Dade. Palm Beach projects are scoped individually.",
     );
     expect(englishPortfolioMetadata.title).toBe(
-      "Miami & Fort Lauderdale Video Editing Portfolio | Esteban",
+      "Miami & Fort Lauderdale Video Editing Portfolio",
     );
     expect(englishPortfolioMetadata.description).toBe(
       "See selected video editing, promotional, social, event, animation, and narrative work from Esteban Moreno Media for Miami and Fort Lauderdale projects.",
@@ -61,7 +61,8 @@ describe("near-top-10 CTR metadata and canonical service targeting", () => {
       spanishAreasMetadata,
       spanishPortfolioMetadata,
     ]) {
-      expect(String(metadata.title).length).toBeGreaterThanOrEqual(50);
+      // Raw page title only — the site template appends " | Esteban Moreno Media" at render.
+      expect(String(metadata.title).length).toBeGreaterThanOrEqual(40);
       expect(String(metadata.title).length).toBeLessThanOrEqual(60);
       expect(metadata.description?.length).toBeGreaterThanOrEqual(120);
       expect(metadata.description?.length).toBeLessThanOrEqual(160);
