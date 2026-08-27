@@ -17,6 +17,34 @@ import { Container } from "@/components/ui/container";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
+const faqs = [
+  {
+    question: "What footage can a restaurant provide for promo video editing?",
+    answer:
+      "Restaurant owners can provide client-supplied footage from a phone or camera: dish preparation, plating, beverage pours, dining-room atmosphere, staff moments, menu details, or a chef speaking to camera. A short note about the featured dish, promotion, audience, and where the video will appear gives the edit useful context.",
+  },
+  {
+    question: "How are restaurant reels structured for short-form viewing?",
+    answer:
+      "A short restaurant reel can open on the most visually immediate moment, then move through preparation, texture, plating, or the room before ending with a clear menu, location, reservation, or ordering prompt supplied by the restaurant. The sequence depends on the available footage and the restaurant's message.",
+  },
+  {
+    question: "Can restaurant videos be prepared in vertical and square formats?",
+    answer:
+      "Yes. A project can be scoped for 9:16 vertical versions for Instagram Reels and TikTok, plus 1:1 square versions where that placement is useful. Framing, text placement, and crops are reviewed for each requested format so important food details and on-screen information remain visible.",
+  },
+  {
+    question: "Are captions included for sound-off restaurant video viewing?",
+    answer:
+      "Captions or subtitles can be added for spoken lines, menu context, or calls to action supplied by the restaurant. This helps a viewer follow the message when audio is muted, while keeping text clear of platform interface areas and the featured dish.",
+  },
+  {
+    question: "How does feedback and revision work on a restaurant video edit?",
+    answer:
+      "After a draft is shared, the restaurant can consolidate time-stamped feedback on pacing, selected shots, text, and supplied calls to action. Revision scope is discussed with the project so feedback can be handled in an organized review cycle without assuming a fixed number of rounds.",
+  },
+] as const;
+
 export const metadata = buildPageMetadata({
   title: "Restaurant Promo Video Editing Miami",
   description:
@@ -44,6 +72,17 @@ export default function RestaurantPromoVideoEditingMiamiPage() {
         },
         areaServed: "Miami / Wynwood",
         serviceType: "Restaurant video marketing",
+      },
+      {
+        "@type": "FAQPage",
+        "@id": absoluteUrl("/services/restaurant-promo-video-editing-miami#faq"),
+        inLanguage: "en-US",
+        isPartOf: { "@id": absoluteUrl("/#website") },
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: { "@type": "Answer", text: faq.answer },
+        })),
       },
     ],
   };
@@ -85,7 +124,7 @@ export default function RestaurantPromoVideoEditingMiamiPage() {
                 Restaurant Promo Video Editing in Miami.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-                Appetizing food video edits, slow-motion beverage preparation, and high-converting restaurant promotional reels designed for Instagram, TikTok, and digital menus.
+                Food-focused video edits, slow-motion beverage preparation, and restaurant promotional reels for Instagram, TikTok, and digital menus.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
@@ -133,6 +172,56 @@ export default function RestaurantPromoVideoEditingMiamiPage() {
                 </Link>
               </div>
             </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
+        <Container size="xl">
+          <div className="mx-auto max-w-4xl">
+            <p className="text-xs font-medium uppercase text-[#5a6066]">Editing approach</p>
+            <h2 className="mt-3 font-serif text-3xl sm:text-4xl">
+              Build a food reel around the moments people can see.
+            </h2>
+            <div className="mt-8 space-y-6 text-base leading-8 text-[#252a2d]">
+              <p>
+                A useful restaurant promo starts with a clear subject: a signature dish, a new menu item, a beverage ritual, a dining moment, or a short message from the team. For short-form viewing, the edit can lead with the most immediate visual detail—steam, a pour, a cut, a finish, or a plated reveal—then give the viewer enough context to understand what is being served and what the restaurant wants them to do next.
+              </p>
+              <p>
+                Pacing is shaped by the footage rather than a fixed formula. Close shots of hands, ingredients, texture, and service can sit beside wider shots that establish the room. The result can move quickly without making the food hard to read: each clip earns its place by showing preparation, atmosphere, or the menu message. For ideas that help plan those shots before filming, see the <Link href="/guides/video-content-ideas-for-restaurants" className="underline underline-offset-4 hover:text-[#9f3c27]">restaurant video content guide</Link>.
+              </p>
+              <p>
+                Food color treatment should support appetite and natural texture, not turn a dish into an artificial color claim. Exposure, white balance, contrast, and saturation are reviewed across supplied clips so skin tones, table light, sauces, and ingredients feel consistent within the edit. The available source material sets the boundary: this service edits <strong>client-supplied footage</strong>, and any capture needs are scoped separately rather than assumed.
+              </p>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-b border-[#ddd4c8] bg-[#fbf6ef] py-12 sm:py-16">
+        <Container size="xl">
+          <div className="mx-auto max-w-4xl">
+            <p className="text-xs font-medium uppercase text-[#5a6066]">Platform-ready delivery</p>
+            <h2 className="mt-3 font-serif text-3xl sm:text-4xl">
+              Plan crops, captions, and handoff for the placements you use.
+            </h2>
+            <div className="mt-8 grid gap-6 sm:grid-cols-3">
+              <article className="rounded-xl border border-[#ddd4c8] bg-[#f6f1ea] p-6">
+                <h3 className="font-serif text-2xl">9:16 and 1:1</h3>
+                <p className="mt-3 text-sm leading-6 text-[#252a2d]">Vertical 9:16 versions can be prepared for Reels and TikTok; 1:1 square versions can be requested for feeds or other placements. Each version is framed for its intended crop.</p>
+              </article>
+              <article className="rounded-xl border border-[#ddd4c8] bg-[#f6f1ea] p-6">
+                <h3 className="font-serif text-2xl">Sound-off clarity</h3>
+                <p className="mt-3 text-sm leading-6 text-[#252a2d]">Captions and subtitles can carry spoken context, menu details, or a supplied call to action when viewers are watching without sound. Text is placed to avoid obscuring the food and common interface areas.</p>
+              </article>
+              <article className="rounded-xl border border-[#ddd4c8] bg-[#f6f1ea] p-6">
+                <h3 className="font-serif text-2xl">Organized feedback</h3>
+                <p className="mt-3 text-sm leading-6 text-[#252a2d]">Share footage with the dish names, brand assets, preferred message, and intended placements. A draft gives the restaurant a point to provide consolidated, time-stamped notes for the agreed revision scope.</p>
+              </article>
+            </div>
+            <p className="mt-8 text-base leading-8 text-[#252a2d]">
+              The handoff is simpler when folders identify the dish, date, camera orientation, and any must-use clips. Include menu spelling, logo files, and approved wording with the <strong>client-supplied footage</strong>. The <Link href="/guides/remote-video-editing-handoff" className="underline underline-offset-4 hover:text-[#9f3c27]">remote editing handoff guide</Link> explains a practical way to organize that material before it is shared.
+            </p>
           </div>
         </Container>
       </section>
@@ -190,6 +279,25 @@ export default function RestaurantPromoVideoEditingMiamiPage() {
                 <ArrowRight className="size-3.5" aria-hidden="true" />
               </span>
             </Link>
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-b border-[#ddd4c8] py-12 sm:py-16">
+        <Container size="xl">
+          <div className="grid gap-8 lg:grid-cols-[.8fr_1fr]">
+            <div>
+              <p className="text-xs font-medium uppercase text-[#5a6066]">Frequently asked questions</p>
+              <h2 className="mt-4 font-serif text-4xl leading-tight">Practical details before you share restaurant footage.</h2>
+            </div>
+            <div className="grid gap-3">
+              {faqs.map((faq) => (
+                <article key={faq.question} className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5">
+                  <h3 className="font-serif text-2xl">{faq.question}</h3>
+                  <p className="mt-3 text-sm leading-6 text-[#252a2d]">{faq.answer}</p>
+                </article>
+              ))}
+            </div>
           </div>
         </Container>
       </section>
