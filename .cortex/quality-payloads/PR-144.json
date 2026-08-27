@@ -2,7 +2,12 @@
   "project": "esteban-media",
   "target_type": "pr",
   "target_id": "PR-144",
-  "status": "review_pending",
+  "status": "quality_enforced_passed",
+  "allowed": true,
+  "recorded": true,
+  "quality_result": {
+    "status": "quality_passed"
+  },
   "evidence": {
     "obsidian_context": "P1 wave 2 targets the existing restaurant promo page after fresh GSC evidence placed the exact query at 20 impressions and average position 7.5. The repository work is freeze-safe: no new URL or sitemap change.",
     "project_routing": "Repo gonzaloeaguilar-bot/esteban-media; branch codex/restaurant-depth-20260827; base origin/main c6a92f3; builder commit eb3b6815ba3bbcd798030c03c7a6bb0249d2ff1e.",
