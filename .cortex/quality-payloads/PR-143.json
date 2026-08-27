@@ -1,0 +1,12 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-143",
+  "status": "review_pending",
+  "evidence": {
+    "obsidian_context": "P1 traffic push: converted near-top-10 GSC impressions (all 0 clicks) into click-worthy metadata. /areas 61 impr pos 9.21, /portfolio 54 impr pos 8.35 (window 2026-07-27..2026-08-23). Consolidated 'restaurant promo video editing miami' query (20 impr, pos 7.5) split between /areas and the dedicated service page by routing intent from /areas to /services/restaurant-promo-video-editing-miami.",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, worktree .worktrees/ctr-near-top10-20260827, branch fix/ctr-near-top10-20260827, move class title_meta_rewrite + internal_link_consolidation. CTO decision record 20260827T231200Z-cto-seo-lead-esteban-media.json, kpi-esteban-traffic.",
+    "hard_stops_checked": "Checked and clear. No invented clients/prices/reviews/stats/guarantees, no street address, no drone-pilot claims, no aggregateRating (deterministic banned-claims scan clean). Titles 56-57 chars, descriptions 151-154 chars. EN/ES parity kept. No URL, redirect, noindex, canonical, or sitemap changes; frozen inventory verified at exactly 243 built sitemap locs.",
+    "verification": "pnpm lint, pnpm typecheck, pnpm test 54 files / 409 tests, git diff --check, pnpm build exit 0, sitemap.xml.body grep -c '<loc>' = 243. New regression test app/__tests__/ctr-near-top10-metadata.test.ts pins exact metadata and canonical service links."
+  }
+}
