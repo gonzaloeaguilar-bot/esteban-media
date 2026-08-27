@@ -7,7 +7,7 @@ import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, serviceAreas } from "@/lib/site";
 
 export const metadata = buildPageMetadata({
-  title: "Miami & Fort Lauderdale Video Editing Services | Esteban",
+  title: "Miami & Fort Lauderdale Video Editing Services",
   description:
     "Explore video editing, AI-assisted content, and social planning for Fort Lauderdale, Broward, and Miami-Dade. Palm Beach projects are scoped individually.",
   path: "/areas",
