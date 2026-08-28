@@ -18,6 +18,7 @@ Production is live. This file tracks repository implementation; account/access w
 
 ## P1 — Technical SEO / GEO / ALOHA
 
+- [x] Prepare a durability-tested metadata refinement on the actual `/about` page ranking for `esteban moreno` (6 impressions, position 13.7 in the 2026-08-27 28-day GSC artifact); pending independent review, PR checks, deployment, and a fresh query/page observation.
 - [x] Prepare depth and FAQ-schema expansion for the existing EN/ES restaurant-promo service pair without changing the frozen 243-URL inventory; PR #144 is open, with independent CTO review and later GSC observation pending.
 - [x] Prepare a bilingual CTR candidate for the near-top-10 `/areas` and `/portfolio` hubs, with a dedicated-service link that consolidates restaurant-promo intent without changing the frozen 243-URL inventory; awaiting PR review, deploy, and fresh GSC evidence.
 - [ ] Release the bilingual digital-systems service-hub expansion after a clean full test/build and independent review. Keep the sitemap frozen; create individual product/service URLs only as 1:1 replacements with demand and conversion evidence.

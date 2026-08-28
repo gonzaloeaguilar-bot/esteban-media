@@ -1,5 +1,11 @@
 # Esteban Moreno Media — Engineering Handoff
 
+## English founder-page branded-query metadata — 2026-08-28
+
+- Fresh GSC candidate artifact `~/.claude/state/growth-remediation/latest-analysis.json` selected the real `/about` ranking page for `esteban moreno`: **6 impressions, 0 clicks, average position 13.7** in its 28-day read. This is a recurrence of the July title-only change, so the durable regression coverage now locks the full person-to-business entity framing rather than relying on a one-off metadata edit.
+- The existing `/about` route now leads its title with `Esteban Moreno | Founder & Video Editor` and its 160-character description ties the publicly visible founder bio to Esteban Moreno Media, Fort Lauderdale, Spanish-first video editing, AI-assisted content, social planning, and scoped projects. No route, canonical, hreflang, schema, sitemap, or service claim changed.
+- Local release boundary: Node `22` `pnpm lint`, `pnpm typecheck`, `pnpm test` (**56 files / 413 tests**), `pnpm build` (**309 static pages**), and `git diff --check` passed. Pending independent CTO review, PR checks, and post-release live `/about` metadata plus later GSC query/page observation; no traffic gain is claimed.
+
 ## Restaurant promo service-page depth and FAQ parity — 2026-08-27
 
 - PR #144 deepens the existing English `/services/restaurant-promo-video-editing-miami` and Spanish `/es/edicion-de-video-promocional-para-restaurantes-miami` pages without adding routes or changing metadata, canonicals, hreflang, or sitemap inventory. It covers short-form dish/menu structure, appetite-led natural-texture color treatment, 9:16 and 1:1 delivery, sound-off captions, client-supplied-footage handoff, and a project-scoped revision workflow.
