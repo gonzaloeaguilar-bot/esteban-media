@@ -1,0 +1,48 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-149",
+  "status": "review_pending",
+  "evidence": {
+    "obsidian_context": "P1 traffic push: demand wave deepening high-commercial intent TikTok Ad Video Editor service pages. Prior GSC review shows 750 impressions with 1 click; deepening niche service pages with structured editorial depth, safe zone guidance, hook testing frameworks, contextual internal guide links, and FAQPage JSON-LD schemas in EN and ES.",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, worktree .worktrees/demand-wave-tiktok-ad-editor, branch feat/demand-wave-tiktok-ad-editor, move class content_depth + schema_faq. CTO decision record 20260828T141641Z-cto-seo-lead-esteban-media.json, kpi-esteban-traffic.",
+    "hard_stops_checked": "Checked and clear. No invented clients/prices/reviews/stats/guarantees, no street address, no drone-pilot claims, no aggregateRating. Retains boundary 'material suministrado por el cliente'. EN/ES parity maintained across English landing page and Spanish niche page data. Frozen inventory verified at 243 URLs with 0 new/modified indexable routes.",
+    "verification": "pnpm lint, pnpm typecheck, pnpm test 57 files / 415 tests, git diff --check exit 0. New regression test app/__tests__/tiktok-ad-editor-depth.test.ts pins copy substance, internal guide links, and FAQPage schema visibility for both locales.",
+    "reviewer_ensemble": {
+      "builder": {
+        "status": "ok",
+        "note": "Antigravity builder executed move class 1 (content depth + FAQPage JSON-LD) on TikTok ad video editor service pages; acceptance suite passed."
+      },
+      "skeptic": {
+        "status": "ok",
+        "note": "Deterministic adversarial scan verified: 0 banned claims (prices, %, guarantees, fake stats, drone claims), safe zone guidance accurate, EN/ES parity complete, sitemap URL count strictly preserved at 243."
+      },
+      "taste": {
+        "status": "ok",
+        "note": "Copy aligns with technical video post-production standards: 9:16 UI safe zones, hook variation testing, high-retention first 3 seconds, and contextual linking to technical guides."
+      }
+    },
+    "reviewer_disagreement_reviewed": "No disagreement. Skeptic confirmed zero policy violations and zero inventory drift; taste review confirmed authentic commercial depth.",
+    "winner_rationale": "Chosen move: depth + FAQPage JSON-LD schema expansion for TikTok Ad Video Editor in EN & ES to capture commercial video editing demand without sitemap drift.",
+    "tests_or_validation": "pnpm lint exit 0; pnpm typecheck exit 0; pnpm test 57 files / 415 tests all pass including app/__tests__/tiktok-ad-editor-depth.test.ts; git diff --check clean.",
+    "debt_delta": "Net negative debt: adds regression testing for TikTok ad service page depth and FAQ schema; zero new runtime dependencies.",
+    "obsidian_handoff": "esteban-media-hot.md updated with PR-149 record, move class content_depth, and scheduled verification dates."
+  },
+  "reviewer_ensemble": {
+    "builder": {
+      "status": "ok",
+      "note": "Antigravity builder executed move class 1 (content depth + FAQPage JSON-LD) on TikTok ad video editor service pages; acceptance suite passed."
+    },
+    "skeptic": {
+      "status": "ok",
+      "note": "Deterministic adversarial scan verified: 0 banned claims (prices, %, guarantees, fake stats, drone claims), safe zone guidance accurate, EN/ES parity complete, sitemap URL count strictly preserved at 243."
+    },
+    "taste": {
+      "status": "ok",
+      "note": "Copy aligns with technical video post-production standards: 9:16 UI safe zones, hook variation testing, high-retention first 3 seconds, and contextual linking to technical guides."
+    }
+  },
+  "winner_rationale": "Chosen move: depth + FAQPage JSON-LD schema expansion for TikTok Ad Video Editor in EN & ES to capture commercial video editing demand without sitemap drift.",
+  "reviewer_disagreement_reviewed": "No disagreement. Skeptic confirmed zero policy violations and zero inventory drift; taste review confirmed authentic commercial depth.",
+  "tests_or_validation": "pnpm lint exit 0; pnpm typecheck exit 0; pnpm test 57 files / 415 tests all pass including app/__tests__/tiktok-ad-editor-depth.test.ts; git diff --check clean."
+}
