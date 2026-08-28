@@ -1,11 +1,11 @@
 {
-  "status": "frozen",
-  "effectiveDate": "2026-08-14",
+  "status": "demand_gated",
+  "effectiveDate": "2026-08-28",
   "baselineRevisedOn": "2026-08-19",
   "approvedSitemapUrlCount": 243,
   "approvedSitemapUrlSetSha256": "70fc0fe5ffcf26dc159e5e0c93a8d5e624f9764ca39f62b999b85b51b232bc98",
-  "allowedNewIndexableUrls": 0,
-  "reason": "Classify and consolidate the current low/no-impression inventory before expanding the sitemap.",
+  "allowedNewIndexableUrls": 2,
+  "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {
     "on": "2026-08-19",
     "decisionSource": "cohort-decisions-esteban-2026-08-12 (vault), re-validated against the 2026-08-19 Search Console run",
@@ -24,11 +24,13 @@
   },
   "exceptions": [
     "A redirect or canonical consolidation that does not increase the sitemap URL count",
-    "A replacement URL approved in the same change as removal of an existing indexable URL"
+    "A replacement URL approved in the same change as removal of an existing indexable URL",
+    "Up to allowedNewIndexableUrls new demand-backed URLs per demand-wave run, each with cited evidence and a follow-up date"
   ],
   "unfreezeRequires": [
     "Every current sitemap URL classified as keep, improve, merge, redirect, or remove",
     "No unexplained sitemap drift in the fixed Search Console watch set",
     "A written demand-and-conversion hypothesis plus owner for each proposed URL"
-  ]
+  ],
+  "allowanceWindow": "per demand-wave run"
 }
