@@ -2452,11 +2452,61 @@ export const spanishNichePages: SpanishNichePage[] = [
     ],
     projectFit:
       "Retención ágil orientada al clic y la conversión directa.",
+    sections: [
+      {
+        heading: "Estructura de gancho y retención en los primeros 3 segundos",
+        paragraphs: [
+          "Un anuncio de video efectivo para TikTok y Meta depende de los primeros segundos para detener el scroll. La edición organiza el material suministrado por el cliente para abrir con el gancho visual o auditivo más convincente: una demostración de producto, un problema reconocible, una pregunta directa o una toma de acción inmediata.",
+          "El ritmo editorial mantiene la atención eliminando pausas innecesarias, empleando cortes limpios y acelerando transiciones entre demostraciones de características y beneficios. Para entender la arquitectura técnica de estos formatos, consulta la [guía de Reels vs TikTok vs Shorts para negocios locales](/es/guias/reels-vs-tiktok-vs-shorts-para-negocios-locales).",
+        ],
+      },
+      {
+        heading: "Subtítulos dinámicos y zonas seguras para pauta digital",
+        paragraphs: [
+          "Gran parte del consumo de anuncios móviles ocurre sin audio activado o en entornos ruidosos. La edición incorpora subtítulos dinámicos sincronizados con precisión, destacando palabras clave y manteniendo los textos dentro de las zonas seguras verticales 9:16.",
+          "Esto garantiza que la interfaz de TikTok e Instagram (botones de me gusta, comentarios, descripciones y llamadas a la acción) no oculte datos críticos del producto ni la propuesta de valor. Para pautas de diseño y encuadre, revisa la [guía de video vertical, horizontal y zonas seguras](/es/guias/video-vertical-horizontal-y-zonas-seguras).",
+        ],
+      },
+      {
+        heading: "Variaciones de ganchos (hooks) y pruebas de creatividad",
+        paragraphs: [
+          "Las campañas de paid social requieren iteración constante de creatividades. A partir de una misma sesión de grabación o conjunto de tomas de producto, se pueden estructurar múltiples variaciones de inicio (hooks) acopladas a un cuerpo y llamada a la acción consistentes.",
+          "Este enfoque modular permite a las marcas probar diferentes ángulos de venta, objeciones y disparadores visuales en el administrador de anuncios sin necesidad de producir videos completamente independientes desde cero.",
+        ],
+      },
+      {
+        heading: "Entrega de material y organización del flujo de postproducción",
+        paragraphs: [
+          "El proceso de trabajo se basa en material suministrado por el cliente: grabaciones de teléfono, tomas de producto con cámara, testimonios en video o metraje UGC. Organizar las tomas por concepto, producto y ángulo facilita una postproducción ágil y estructurada.",
+          "Junto con el material grabado, compartir guiones, logotipos vectoriales, lineamientos de marca y la oferta exacta agiliza la integración de gráficos y llamados a la acción. Consulta la [guía de entrega para edición remota de video](/es/guias/entrega-para-edicion-remota-de-video) para preparar tus archivos.",
+        ],
+      },
+    ],
     faqs: [
+      {
+        question: "¿Qué tipo de material debo entregar para la edición de anuncios de TikTok?",
+        answer:
+          "Trabajamos con material suministrado por el cliente: grabaciones en smartphone o cámara, tomas de uso de producto, testimonios estilo UGC, demostraciones y recursos de marca (logos, fuentes, directrices de oferta).",
+      },
       {
         question: "¿Entregan variaciones de ganchos (hooks) para pruebas publicitarias?",
         answer:
-          "Sí. Podemos entregar múltiples inicios de 3 a 5 segundos para optimizar el rendimiento de la campaña.",
+          "Sí. Podemos estructurar múltiples inicios de 3 a 5 segundos combinados con un cuerpo común y llamada a la acción para facilitar pruebas A/B en campañas de paid social.",
+      },
+      {
+        question: "¿Cómo aseguran que los subtítulos y gráficos no queden tapados por la interfaz de TikTok?",
+        answer:
+          "Diseñamos cada pieza respetando las zonas seguras verticales 9:16 de TikTok e Instagram Reels, asegurando que textos, subtítulos dinámicos y logos queden libres de botones y descripciones de la plataforma.",
+      },
+      {
+        question: "¿Los anuncios editados son compatibles con campañas en Instagram Reels y Facebook Ads?",
+        answer:
+          "Sí. Los anuncios en formato vertical 9:16 y las adaptaciones cuadradas 1:1 o 4:5 se configuran para rendir en los placements de TikTok Ads Manager y Meta Ads Manager.",
+      },
+      {
+        question: "¿Cómo se gestionan las revisiones y ajustes en la edición de anuncios?",
+        answer:
+          "Tras compartir el primer borrador, se recopilan comentarios específicos con marcas de tiempo sobre ritmo, ganchos, gráficos y textos para aplicar los ajustes dentro del alcance acordado del proyecto.",
       },
     ],
   },
