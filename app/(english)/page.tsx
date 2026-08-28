@@ -13,16 +13,19 @@ export const metadata: Metadata = {
   // for entity clarity and brand discovery.
   title: {
     absolute:
-      "Esteban Moreno Media | Growth Systems, Websites & Creative Production",
+      "Esteban Moreno Media | AI Chatbots, Automation & Websites",
   },
-  description: "Fort Lauderdale growth systems: conversion websites, local presence, AI lead capture, automation, data audits, and creative production.",
+  description:
+    "AI lead-capture chatbots, customer workflows, and conversion websites for Fort Lauderdale businesses across Broward and Miami-Dade.",
   openGraph: {
-    title: "Esteban Moreno Media | Growth Systems, Websites & Creative Production",
-    description: "Fort Lauderdale growth systems: conversion websites, local presence, AI lead capture, automation, data audits, and creative production.",
+    title: "Esteban Moreno Media | AI Chatbots, Automation & Websites",
+    description:
+      "AI lead-capture chatbots, customer workflows, and conversion websites for Fort Lauderdale businesses across Broward and Miami-Dade.",
   },
   twitter: {
-    title: "Esteban Moreno Media | Growth Systems, Websites & Creative Production",
-    description: "Fort Lauderdale growth systems: conversion websites, local presence, AI lead capture, automation, data audits, and creative production.",
+    title: "Esteban Moreno Media | AI Chatbots, Automation & Websites",
+    description:
+      "AI lead-capture chatbots, customer workflows, and conversion websites for Fort Lauderdale businesses across Broward and Miami-Dade.",
   },
 };
 
