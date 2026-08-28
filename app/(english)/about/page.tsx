@@ -8,10 +8,10 @@ import { buildPageMetadata } from "@/lib/site-metadata";
 import { site } from "@/lib/site";
 
 const aboutDescription =
-  "Esteban Moreno, founder of Esteban Moreno Media (Fort Lauderdale): video editing, AI-assisted content, social planning, Spanish-first service.";
+  "Meet Esteban Moreno, founder of Esteban Moreno Media in Fort Lauderdale. Spanish-first video editing, AI-assisted content, social planning, and scoped projects.";
 
 export const metadata = buildPageMetadata({
-  title: "Esteban Moreno, Video Editor Bio",
+  title: "Esteban Moreno | Founder & Video Editor",
   description: aboutDescription,
   path: "/about",
   locale: "en",
