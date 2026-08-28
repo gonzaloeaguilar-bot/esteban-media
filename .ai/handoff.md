@@ -1,5 +1,10 @@
 # Esteban Moreno Media — Engineering Handoff
 
+## Demand-wave stop recorded — 2026-08-27
+
+- No competing demand change was made. The required dated collector file `~/.local/state/esteban-media-seo-geo/review-20260827.json` was absent, and GitHub returned open PR #141 (`feat: internal links for guias (esteban growth-starvation)`, created `2026-08-27T09:12:02Z`) from the live PR read. The standing demand-wave charter requires stopping on either condition.
+- Durable repository artifact: `.ai/demand-wave-prless-stop-2026-08-27.md`. Owner `cto-seo-lead`: publish/verify the dated collector and reconcile or close #141 before a subsequent wave selects one bounded move. No deployment, traffic, or ranking result is claimed.
+
 ## Restaurant promo service-page depth and FAQ parity — 2026-08-27
 
 - PR #144 deepens the existing English `/services/restaurant-promo-video-editing-miami` and Spanish `/es/edicion-de-video-promocional-para-restaurantes-miami` pages without adding routes or changing metadata, canonicals, hreflang, or sitemap inventory. It covers short-form dish/menu structure, appetite-led natural-texture color treatment, 9:16 and 1:1 delivery, sound-off captions, client-supplied-footage handoff, and a project-scoped revision workflow.
