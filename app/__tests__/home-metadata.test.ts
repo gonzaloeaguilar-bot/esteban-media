@@ -52,9 +52,9 @@ describe("localized home metadata", () => {
 
     const englishHomeSource = source("app/(english)/page.tsx");
     expect(englishHomeSource).toContain(
-      'absolute:\n      "Esteban Moreno Media | Growth Systems, Websites & Creative Production"',
+      'absolute:\n      "Esteban Moreno Media | AI Chatbots, Automation & Websites"',
     );
-    expect(englishHomeSource).toContain("Fort Lauderdale growth systems");
+    expect(englishHomeSource).toContain("AI lead-capture chatbots");
     expect(englishHomeSource).toContain("openGraph:");
     expect(englishHomeSource).toContain("twitter:");
   });
