@@ -159,6 +159,12 @@ export default function SpanishServicesPage() {
                   <p className="mt-3 leading-7 text-[#252a2d]">
                     {service.description}
                   </p>
+                  {service.startingPrice ? (
+                    <p className="mt-2 text-sm font-medium text-[#9f3c27]">
+                      {service.startingPrice} — cada proyecto recibe una
+                      cotización a la medida.
+                    </p>
+                  ) : null}
                   <p className="mt-4 text-sm leading-6 text-[#5a6066]">
                     <CheckCircle2
                       className="mr-2 inline size-4 text-[#1a9fa3]"

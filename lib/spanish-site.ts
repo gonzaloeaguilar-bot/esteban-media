@@ -19,7 +19,7 @@ import { absoluteUrl, site } from "@/lib/site";
 export const spanishSite = {
   title: "Esteban Moreno Media | Sistemas de Growth y Producción Creativa",
   description:
-    "Esteban Moreno Media crea sistemas de growth: sitios web, presencia local, captura con IA, automatización, datos y producción creativa desde Fort Lauderdale.",
+    "Esteban Moreno Media: edición de video, contenido con IA y producción para redes en South Florida. Bilingüe Español/English. Fort Lauderdale — cotiza rápido.",
   contactLead:
     "Comparte la meta, el condado, el material disponible, las referencias y el uso previsto. La atención es principalmente en español y también hay comunicación disponible en inglés intermedio.",
 };
@@ -32,6 +32,8 @@ export type SpanishService = {
   detail: string;
   icon: LucideIcon;
   tags: string[];
+  /** Precio inicial autorizado por el owner (2026-08-28) — siempre "Desde", nunca precio cerrado. */
+  startingPrice?: string;
 };
 
 export const spanishServices: SpanishService[] = [
@@ -45,6 +47,7 @@ export const spanishServices: SpanishService[] = [
       "El alcance parte del material disponible, la meta de publicación y las necesidades de formato.",
     icon: Scissors,
     tags: ["Remoto", "Material existente", "Postproducción"],
+    startingPrice: "Desde $200",
   },
   {
     id: "contenido-ia",
@@ -67,6 +70,7 @@ export const spanishServices: SpanishService[] = [
       "Las preguntas de alcance cubren la audiencia, la meta, los canales y las necesidades de contenido.",
     icon: CalendarRange,
     tags: ["Estrategia", "Frecuencia", "Plan de contenido"],
+    startingPrice: "Paquetes mensuales desde $640/mes",
   },
   {
     id: "videografia",
@@ -78,6 +82,7 @@ export const spanishServices: SpanishService[] = [
       "La disponibilidad y el alcance se consideran proyecto por proyecto después de conocer la locación, la meta y las necesidades de captura.",
     icon: Video,
     tags: ["South Florida", "En locación", "Según proyecto"],
+    startingPrice: "Jornadas de producción desde $800",
   },
   {
     id: "diseno-web",
@@ -437,7 +442,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Restaurantes / comida / hospitality",
     h1: "Video para restaurantes de Miami-Dade, evaluado proyecto por proyecto.",
     lead:
-      "Esta página explica cómo iniciar una consulta de video para un restaurante. La edición está confirmada y una posible captura en locación se considera de forma selectiva; la fotografía no se presenta como servicio disponible.",
+      "Esta página explica cómo iniciar una consulta de video para un restaurante. La edición está confirmada — los videos promocionales parten desde $240 por proyecto, con cotización a la medida — y una posible captura en locación se considera de forma selectiva; la fotografía no se presenta como servicio disponible.",
     keyword: "video para restaurantes Miami",
     location: "Miami-Dade",
     availability: "confirmed",
@@ -1683,7 +1688,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Gastronomía / Restaurantes",
     h1: "Edición de video apetitosa para restaurantes en Miami.",
     lead:
-      "Destaca los detalles culinarios, ambiente de comedor y preparación de bebidas con videos cortos diseñados para generar reservas. Consulta todos los alcances de servicio en [video para restaurantes en Miami](/es/video-para-restaurantes-miami).",
+      "Destaca los detalles culinarios, ambiente de comedor y preparación de bebidas con videos cortos diseñados para generar reservas. Desde $240 por video promocional; cada proyecto recibe una cotización a la medida. Consulta todos los alcances de servicio en [video para restaurantes en Miami](/es/video-para-restaurantes-miami).",
     keyword: "edición de video para restaurantes en Miami",
     location: "Miami / Wynwood",
     availability: "confirmed",

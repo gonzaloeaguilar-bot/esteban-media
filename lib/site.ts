@@ -40,7 +40,7 @@ export const site = {
   googleAnalyticsMeasurementId: "G-W9CM4CE2MQ",
   location: "Fort Lauderdale, FL",
   description:
-    "Esteban Moreno Media builds Fort Lauderdale growth systems: websites, local presence, AI lead capture, automation, data audits, and creative production.",
+    "Esteban Moreno Media: video editing, AI content & social production for South Florida businesses. Bilingual English/Español. Fort Lauderdale — get a fast quote.",
 };
 
 export type Service = {
@@ -51,6 +51,12 @@ export type Service = {
   detail: string;
   icon: LucideIcon;
   tags: string[];
+  /**
+   * Owner-authorized "Starts at" price (fair-market Florida rate less 20%,
+   * approved 2026-08-28 — see docs/pricing-basis.md). Always a floor, never a
+   * fixed quote. Omit for services without an authorized starting price.
+   */
+  startingPrice?: string;
 };
 
 export const services: Service[] = [
@@ -64,6 +70,7 @@ export const services: Service[] = [
       "Scoping starts with the source footage, publishing goal, and format needs for the project.",
     icon: Scissors,
     tags: ["Remote", "Supplied footage", "Post-production"],
+    startingPrice: "Starts at $200",
   },
   {
     id: "ai-content",
@@ -86,6 +93,7 @@ export const services: Service[] = [
       "Scoping questions cover the audience, publishing goal, channels, and content needs.",
     icon: CalendarRange,
     tags: ["Strategy", "Cadence", "Content plan"],
+    startingPrice: "Monthly packages start at $640/mo",
   },
   {
     id: "on-location",
@@ -97,6 +105,7 @@ export const services: Service[] = [
       "Availability and scope are considered project by project after learning the location, goal, and capture needs.",
     icon: Video,
     tags: ["South Florida", "On location", "Project-specific"],
+    startingPrice: "Production days start at $800",
   },
   {
     id: "website-design",

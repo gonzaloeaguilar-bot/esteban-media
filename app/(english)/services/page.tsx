@@ -220,6 +220,12 @@ export default function ServicesPage() {
                       <p className="mt-3 leading-7 text-[#252a2d]">
                         {service.description}
                       </p>
+                      {service.startingPrice ? (
+                        <p className="mt-2 text-sm font-medium text-[#9f3c27]">
+                          {service.startingPrice} — every project gets a scoped
+                          quote.
+                        </p>
+                      ) : null}
                     </div>
                   </div>
                   <ul className="mt-6 space-y-3 text-sm text-[#252a2d]">

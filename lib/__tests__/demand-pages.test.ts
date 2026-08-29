@@ -10,7 +10,7 @@ const TARGET_PAGES = [
     locale: "es" as const,
     slug: "cuanto-cuesta-la-fotografia-de-producto",
     path: "/es/guias/cuanto-cuesta-la-fotografia-de-producto",
-    requiredPhrase: "No existe una tarifa única responsable",
+    requiredPhrase: "parten desde $280 por sesión",
     serviceLink: "/es/fotografia-de-producto-con-ia-miami",
     contactLink: "/es/contacto",
     companionSlug: "how-much-does-product-photography-cost",
