@@ -59,6 +59,11 @@ export function ServicesStrip() {
                   <p className="mt-2 text-sm leading-6 text-[#252a2d]">
                     {service.description}
                   </p>
+                  {service.startingPrice ? (
+                    <p className="mt-2 text-sm font-medium text-[#9f3c27]">
+                      {service.startingPrice}
+                    </p>
+                  ) : null}
                   <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27]">
                     Explore this service
                     <ArrowRight
