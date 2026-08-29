@@ -52,9 +52,9 @@ describe("localized home metadata", () => {
 
     const englishHomeSource = source("app/(english)/page.tsx");
     expect(englishHomeSource).toContain(
-      'absolute:\n      "Esteban Moreno Media | AI Chatbots, Automation & Websites"',
+      'absolute:\n      "Esteban Moreno Media | Video Editing & AI Content"',
     );
-    expect(englishHomeSource).toContain("AI lead-capture chatbots");
+    expect(englishHomeSource).toContain("Video editing, AI-assisted content");
     expect(englishHomeSource).toContain("openGraph:");
     expect(englishHomeSource).toContain("twitter:");
   });
