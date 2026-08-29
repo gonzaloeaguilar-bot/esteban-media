@@ -46,9 +46,9 @@ const faqs = [
 ] as const;
 
 export const metadata = buildPageMetadata({
-  title: "Restaurant Promo Video Editing Miami",
+  title: "Restaurant Promo Video Editing Miami — From $240",
   description:
-    "Professional restaurant promo video editing in Miami. High-retention food reels, dish spotlight cuts & social promo videos tailored for South Florida dining.",
+    "Restaurant promo video editing in Miami from $240. High-retention food reels, dish spotlight cuts & social promo videos that fill South Florida tables.",
   path: "/services/restaurant-promo-video-editing-miami",
   locale: "en",
 });
@@ -125,6 +125,10 @@ export default function RestaurantPromoVideoEditingMiamiPage() {
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
                 Food-focused video edits, slow-motion beverage preparation, and restaurant promotional reels for Instagram, TikTok, and digital menus.
+              </p>
+              <p className="mt-4 text-base font-medium text-[#9f3c27]">
+                Restaurant promo edits start at $240 — every project gets a
+                scoped quote.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link

@@ -248,12 +248,15 @@ describe("bilingual practical guides", () => {
     expect(prose).toContain("/es/calculadora");
     expect(prose).toContain("/es/contacto");
 
-    // No fixed price asserted for Esteban's services
-    expect(esGuide.answer).toContain("No existe una tarifa única responsable");
-    // Assert the REQUIREMENT, not one phrasing: any cited market figure must be
-    // disclaimed as market context rather than an Esteban Moreno Media price.
+    // Owner-authorized starting price (2026-08-28, docs/pricing-basis.md):
+    // "Desde $280 por sesión" is a floor, never a closed quote.
+    expect(esGuide.answer).toContain("parten desde $280 por sesión");
+    expect(esGuide.answer).toContain("no existe una tarifa única cerrada");
+    // Market figures stay framed as market context, and the direct reference
+    // is explicitly attributed to Esteban Moreno Media as a starting price.
     expect(prose).toMatch(/mercado/i);
-    expect(prose).toMatch(/no (constituyen una oferta|una oferta|es una oferta)/i);
+    expect(prose).toContain("parten desde $280 por sesión");
+    expect(prose).toContain("Es un precio inicial, nunca una cifra cerrada");
     expect(prose).toMatch(/Esteban Moreno Media/);
   });
 });

@@ -75,10 +75,13 @@ describe("complete page metadata", () => {
       "../(english)/services/restaurant-promo-video-editing-miami/page"
     );
 
-    expect(metadata.title).toBe("Restaurant Promo Video Editing Miami");
-    expect(metadata.description).toBe(
-      "Professional restaurant promo video editing in Miami. High-retention food reels, dish spotlight cuts & social promo videos tailored for South Florida dining.",
+    expect(metadata.title).toBe(
+      "Restaurant Promo Video Editing Miami — From $240",
     );
+    expect(metadata.description).toBe(
+      "Restaurant promo video editing in Miami from $240. High-retention food reels, dish spotlight cuts & social promo videos that fill South Florida tables.",
+    );
+    expect(metadata.description).toContain("from $240");
     expect(metadata.description?.length).toBeGreaterThanOrEqual(120);
     expect(metadata.description?.length).toBeLessThanOrEqual(160);
     expect(metadata.description?.toLowerCase()).toContain(
