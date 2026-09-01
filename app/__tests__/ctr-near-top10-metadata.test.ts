@@ -83,4 +83,16 @@ describe("near-top-10 CTR metadata and canonical service targeting", () => {
       "/es/edicion-de-video-promocional-para-restaurantes-miami",
     );
   });
+
+  it("connects the Spanish areas hub to relevant local project guides", () => {
+    const hrefs = collectHrefs(SpanishAreasPage());
+
+    expect(hrefs).toEqual(
+      expect.arrayContaining([
+        "/es/videografo-en-miami",
+        "/es/videografo-en-fort-lauderdale",
+        "/es/reels-para-negocios-miami",
+      ]),
+    );
+  });
 });

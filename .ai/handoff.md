@@ -319,3 +319,8 @@ The bullets below preserve earlier 2026-07-19 acceptance evidence. Their 20-URL,
 - Inventory constraint remains binding: `config/indexable-inventory-freeze.json` is `frozen`, with `allowedNewIndexableUrls: 0`; future individual service URLs require 1:1 replacements plus a written demand/conversion hypothesis.
 - Copy boundaries added: no promise of AI-answer rankings or viral results; no unsupported delivery-time or hosting-maintenance promise. New `app/__tests__/digital-systems-catalog.test.ts` locks those boundaries.
 - Validation passed with Node `22.22.2`: focused catalog test `2/2`, `pnpm lint`, `pnpm typecheck`, and `git diff --check`. Full `pnpm test` reached `404/406` before an existing external-network prospect-auditor assertion failed (`Squarespace` expected; `Unknown` received). Build compiled and generated `297/297` pages, then hung in the worktree at the final export step; process was stopped, so this is not release-ready until a clean build finishes.
+# Spanish areas internal-link remediation — 2026-08-31
+
+- Added a contextual, Spanish-language project-guide cluster to `/es/areas` for the existing Miami-Dade, Fort Lauderdale/Broward, and short-form video routes. It strengthens service discovery without adding URLs or making new availability claims.
+- Added regression coverage in `app/__tests__/ctr-near-top10-metadata.test.ts` for all three links.
+- Verification in this worktree: `pnpm lint`, `pnpm typecheck`, `pnpm test` (exit 0), `pnpm build` (generated `.next/BUILD_ID` `ajipqb67YYzjUcufhLmy6`), and `git diff --check` all passed. Commands used Node `26.7.0`, which emitted the repository's existing engine-range warning (`>=20.9 <23`).
