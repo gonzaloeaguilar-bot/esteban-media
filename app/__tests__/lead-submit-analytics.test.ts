@@ -95,10 +95,10 @@ describe("confirmed lead instrumentation", () => {
     const intake = source("components/hero-project-intake.tsx");
 
     expect(hero).toContain("<HeroProjectIntake locale={locale} />");
-    expect(intake).toContain('source: "homepage-hero"');
+    expect(intake).toContain('source: "hero-intake"');
     expect(intake).toContain('name="email"');
     expect(intake).toContain('name="projectNeed"');
-    expect(intake).toContain("trackLeadSubmit");
+    expect(intake).toContain('trackLeadSubmit("hero-intake", locale)');
   });
 
   it("places a tracked direct intake on both website-design commercial routes", () => {

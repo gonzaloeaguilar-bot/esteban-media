@@ -25,7 +25,7 @@ export function HeroProjectIntake({ locale }: HeroProjectIntakeProps) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          source: "homepage-hero",
+          source: "hero-intake",
           locale,
           email,
           notes: projectNeed,
@@ -34,7 +34,7 @@ export function HeroProjectIntake({ locale }: HeroProjectIntakeProps) {
 
       if (!response.ok) throw new Error("Lead request failed");
 
-      trackLeadSubmit("homepage-hero", locale);
+      trackLeadSubmit("hero-intake", locale);
       setSubmitState("success");
       setEmail("");
       setProjectNeed("");
