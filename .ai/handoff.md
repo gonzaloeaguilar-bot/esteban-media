@@ -324,3 +324,9 @@ The bullets below preserve earlier 2026-07-19 acceptance evidence. Their 20-URL,
 - Added a contextual, Spanish-language project-guide cluster to `/es/areas` for the existing Miami-Dade, Fort Lauderdale/Broward, and short-form video routes. It strengthens service discovery without adding URLs or making new availability claims.
 - Added regression coverage in `app/__tests__/ctr-near-top10-metadata.test.ts` for all three links.
 - Verification in this worktree: `pnpm lint`, `pnpm typecheck`, `pnpm test` (exit 0), `pnpm build` (generated `.next/BUILD_ID` `ajipqb67YYzjUcufhLmy6`), and `git diff --check` all passed. Commands used Node `26.7.0`, which emitted the repository's existing engine-range warning (`>=20.9 <23`).
+# Priority-growth CTR candidate — 2026-09-01
+
+- Work ID: `priority-growth:2026-09-01:esteban`; immutable action brief SHA-256: `0a430d7a536eb113852adda7f109c99674c57a7f374021002d05c76f5fde3047`.
+- Evidence: the 2026-08-30 brief's seven-day Search Console window recorded 44 impressions and zero clicks. On 2026-08-27, the English homepage had two impressions and zero clicks for `video production services`.
+- Candidate: the English homepage title now explicitly offers `Video Editing & Production Services`; the aligned 148-character description clarifies that production is scoped and retains AI-assisted content and social planning. `app/__tests__/home-metadata.test.ts` prevents the exact query-aligned title and description language from drifting.
+- Validation: `pnpm lint`, `pnpm typecheck`, `pnpm test`, and `pnpm build` passed using Node `v22.22.2`; production build prerendered 309 pages.
