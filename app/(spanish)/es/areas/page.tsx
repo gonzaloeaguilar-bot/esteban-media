@@ -36,6 +36,27 @@ const miamiProof = [
   },
 ];
 
+const projectTypeLinks = [
+  {
+    href: "/es/videografo-en-miami",
+    title: "Video para proyectos en Miami-Dade",
+    detail:
+      "Revisa el enfoque de edición y producción selectiva para proyectos definidos en Miami-Dade.",
+  },
+  {
+    href: "/es/videografo-en-fort-lauderdale",
+    title: "Video para proyectos en Fort Lauderdale y Broward",
+    detail:
+      "Consulta el punto de partida para una grabación o edición vinculada a la base local.",
+  },
+  {
+    href: "/es/reels-para-negocios-miami",
+    title: "Reels para negocios en Miami",
+    detail:
+      "Encuentra detalles sobre edición de video corto para Instagram, TikTok y YouTube Shorts.",
+  },
+];
+
 export default function SpanishAreasPage() {
   const areaJsonLd = {
     "@context": "https://schema.org",
@@ -220,6 +241,43 @@ export default function SpanishAreasPage() {
               Ver edición de video promocional para restaurantes en Miami
               <ArrowRight className="size-4" aria-hidden="true" />
             </Link>
+          </section>
+
+          <section className="mt-14" aria-labelledby="proyectos-por-tipo-heading">
+            <p className="text-xs font-medium uppercase text-[#5a6066]">
+              Servicios según el proyecto
+            </p>
+            <h2
+              id="proyectos-por-tipo-heading"
+              className="mt-4 max-w-3xl font-serif text-4xl leading-tight"
+            >
+              Elige una guía según el lugar y el formato que necesitas.
+            </h2>
+            <p className="mt-4 max-w-3xl leading-7 text-[#252a2d]">
+              Las páginas de servicio explican el encaje del proyecto antes de
+              contactar. La disponibilidad de grabación en locación se confirma
+              según el alcance y la ubicación.
+            </p>
+            <div className="mt-7 grid gap-4 md:grid-cols-3">
+              {projectTypeLinks.map((project) => (
+                <Link
+                  key={project.href}
+                  href={project.href}
+                  className="group rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6 hover:border-[#e85d3e]"
+                >
+                  <span className="flex items-center justify-between gap-3 font-serif text-2xl leading-tight">
+                    {project.title}
+                    <ArrowRight
+                      className="size-5 shrink-0 text-[#9f3c27] transition-transform group-hover:translate-x-0.5"
+                      aria-hidden="true"
+                    />
+                  </span>
+                  <span className="mt-3 block text-sm leading-6 text-[#252a2d]">
+                    {project.detail}
+                  </span>
+                </Link>
+              ))}
+            </div>
           </section>
 
           <div className="mt-12 flex flex-wrap gap-3">
