@@ -324,3 +324,7 @@ The bullets below preserve earlier 2026-07-19 acceptance evidence. Their 20-URL,
 - Added a contextual, Spanish-language project-guide cluster to `/es/areas` for the existing Miami-Dade, Fort Lauderdale/Broward, and short-form video routes. It strengthens service discovery without adding URLs or making new availability claims.
 - Added regression coverage in `app/__tests__/ctr-near-top10-metadata.test.ts` for all three links.
 - Verification in this worktree: `pnpm lint`, `pnpm typecheck`, `pnpm test` (exit 0), `pnpm build` (generated `.next/BUILD_ID` `ajipqb67YYzjUcufhLmy6`), and `git diff --check` all passed. Commands used Node `26.7.0`, which emitted the repository's existing engine-range warning (`>=20.9 <23`).
+# Demand-wave verification — 2026-08-31
+
+- **Result:** PR-less. Fresh candidate data named `/guides/video-editor-vs-videographer` (31 impressions, position 12.45) as a depth candidate, but current `lib/guides.ts` and `lib/__tests__/demand-pages.test.ts` confirm a reciprocal EN/ES guide with four sections, six visible FAQs, schema parity, and rendered-depth coverage. No stale content-padding change was made.
+- **Evidence / next owner:** `.ai/demand-wave-pr-less-2026-08-31.md`; `cto-seo-lead` should add existing-depth and recent-route-change suppression to the nightly candidate classifier before its next run.
