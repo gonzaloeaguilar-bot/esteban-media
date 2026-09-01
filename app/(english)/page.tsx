@@ -13,19 +13,19 @@ export const metadata: Metadata = {
   // for entity clarity and brand discovery.
   title: {
     absolute:
-      "Esteban Moreno Media | Video Editing & AI Content",
+      "Video Editing & Production Services | Esteban Moreno Media",
   },
   description:
-    "Video editing, AI-assisted content, and social production for South Florida businesses. Bilingual English/Español. Fort Lauderdale — get a fast quote.",
+    "Video editing and scoped video production services for South Florida businesses. AI-assisted content and social planning. Bilingual English/Español.",
   openGraph: {
-    title: "Esteban Moreno Media | Video Editing & AI Content",
+    title: "Video Editing & Production Services | Esteban Moreno Media",
     description:
-      "Video editing, AI-assisted content, and social production for South Florida businesses. Bilingual English/Español. Fort Lauderdale — get a fast quote.",
+      "Video editing and scoped video production services for South Florida businesses. AI-assisted content and social planning. Bilingual English/Español.",
   },
   twitter: {
-    title: "Esteban Moreno Media | Video Editing & AI Content",
+    title: "Video Editing & Production Services | Esteban Moreno Media",
     description:
-      "Video editing, AI-assisted content, and social production for South Florida businesses. Bilingual English/Español. Fort Lauderdale — get a fast quote.",
+      "Video editing and scoped video production services for South Florida businesses. AI-assisted content and social planning. Bilingual English/Español.",
   },
 };
 
