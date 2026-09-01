@@ -13,9 +13,14 @@ describe("customer-facing ranking pages", () => {
     const spanishHome = source("app/(spanish)/es/page.tsx");
 
     expect(hero).toContain(
-      "AI lead-capture chatbots, automated customer workflows, and conversion websites.",
+      "Video editing, AI-assisted content, and social production.",
     );
-    expect(hero).toContain("A clear path from the first inquiry to follow-up.");
+    expect(hero).toContain(
+      "Clear creative support, from your footage to ready-to-publish content.",
+    );
+    expect(hero).toContain(
+      "Edición de video, contenido asistido por IA y producción para redes.",
+    );
     expect(services).toContain("website-design");
     expect(services).toContain("Digital systems");
     expect(spanishHome).toContain("diseno-web");
