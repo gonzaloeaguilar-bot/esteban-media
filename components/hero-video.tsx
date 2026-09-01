@@ -50,20 +50,20 @@ export function HeroVideo({ locale = "en" }: HeroVideoProps) {
               className="mt-6 max-w-[17ch] font-serif text-5xl leading-[1.02] sm:text-6xl lg:text-7xl"
             >
               {isSpanish
-                ? "Esteban Moreno Media · Chatbots para captar clientes, flujos automatizados y sitios web de conversión."
-                : "Esteban Moreno Media · AI lead-capture chatbots, automated customer workflows, and conversion websites."}
+                ? "Esteban Moreno Media · Edición de video, contenido asistido por IA y producción para redes."
+                : "Esteban Moreno Media · Video editing, AI-assisted content, and social production."}
             </h1>
 
             <p className="mt-5 font-serif text-2xl italic text-[#f0b384] sm:text-3xl">
               {isSpanish
-                ? "Una ruta clara desde la primera consulta hasta el seguimiento."
-                : "A clear path from the first inquiry to follow-up."}
+                ? "Apoyo creativo claro, desde tu material hasta contenido listo para publicar."
+                : "Clear creative support, from your footage to ready-to-publish content."}
             </p>
 
             <p className="mt-4 max-w-2xl text-base leading-7 text-[#e8e2d8] sm:text-lg sm:leading-8">
               {isSpanish ? (
                 <>
-                  Definimos el alcance de sitios web de conversión, chatbots para captar clientes y flujos de email y SMS según el objetivo, los accesos y las reglas de consentimiento de tu negocio. El video y el contenido pueden apoyar el sistema cuando el proyecto lo necesita. Consulta nuestras{" "}
+                  Editamos videos, desarrollamos contenido asistido por IA y planificamos contenido para redes según el objetivo y el material de tu negocio. La producción local se define según el alcance del proyecto. Consulta nuestras{" "}
                   <Link
                     href="/es/guias"
                     className="underline decoration-[#ffb49e] underline-offset-4 hover:text-[#ffb49e]"
@@ -74,7 +74,7 @@ export function HeroVideo({ locale = "en" }: HeroVideoProps) {
                 </>
               ) : (
                 <>
-                  We scope conversion websites, AI lead-capture chatbots, and email and SMS workflows around your business goal, access, and consent rules. Video and content can support the system when the project needs them. Browse our{" "}
+                  We edit video, develop AI-assisted content, and plan social content around your business goal and available footage. On-location production is scoped when the project calls for it. Browse our{" "}
                   <Link
                     href="/guides"
                     className="underline decoration-[#ffb49e] underline-offset-4 hover:text-[#ffb49e]"
