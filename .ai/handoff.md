@@ -1,5 +1,11 @@
 # Esteban Moreno Media — Engineering Handoff
 
+## Homepage service-intent clarity — 2026-09-02
+
+- The immutable `priority-growth:2026-09-02:esteban:replacement` brief records **0 clicks from 38 impressions** over 2026-08-25 through 2026-08-31 and names the English homepage for `video editing services` (2 impressions, 0 clicks) and `video production services` (2 impressions, 0 clicks) on 2026-08-31.
+- The existing English homepage metadata already contained those supported service terms. Its visible hero summary now uses the matching phrases “video editing services” and “Video production,” while retaining the supported limit that production is scoped by project. This adds no route, pricing, client result, location claim, canonical, hreflang, sitemap, or schema change.
+- Regression coverage verifies both visible phrases. Before release, run the repository gates and the governed priority-growth verifier; after release, use a later GSC query/page read to observe clicks and impressions. No CTR or traffic outcome is claimed.
+
 ## Homepage CTR refinement — 2026-09-02
 
 - The immutable priority-growth brief for `priority-growth:2026-09-02:esteban` reports no organic clicks in its seven-day read (32 impressions) and identifies the English homepage for the observed `esteban moreno media` and `video production services` queries.

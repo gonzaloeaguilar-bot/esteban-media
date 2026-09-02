@@ -74,7 +74,7 @@ export function HeroVideo({ locale = "en" }: HeroVideoProps) {
                 </>
               ) : (
                 <>
-                  We edit video, develop AI-assisted content, and plan social content around your business goal and available footage. On-location production is scoped when the project calls for it. Browse our{" "}
+                  We provide video editing services, develop AI-assisted content, and plan social content around your business goal and available footage. Video production is scoped when the project calls for it. Browse our{" "}
                   <Link
                     href="/guides"
                     className="underline decoration-[#ffb49e] underline-offset-4 hover:text-[#ffb49e]"
