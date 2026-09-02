@@ -7,6 +7,7 @@ import { metadata as englishPortfolioMetadata } from "../(english)/portfolio/pag
 import { metadata as spanishAreasMetadata } from "../(spanish)/es/areas/page";
 import SpanishAreasPage from "../(spanish)/es/areas/page";
 import { metadata as spanishPortfolioMetadata } from "../(spanish)/es/portafolio/page";
+import SpanishPortfolioPage from "../(spanish)/es/portafolio/page";
 
 beforeAll(() => vi.stubGlobal("React", React));
 afterAll(() => vi.unstubAllGlobals());
@@ -94,5 +95,12 @@ describe("near-top-10 CTR metadata and canonical service targeting", () => {
         "/es/reels-para-negocios-miami",
       ]),
     );
+  });
+
+  it("connects the Spanish portfolio hub to service-area coverage for local shoots", () => {
+    expect(collectStrings(SpanishPortfolioPage())).toContain(
+      "¿Tu proyecto necesita una grabación en South Florida?",
+    );
+    expect(collectHrefs(SpanishPortfolioPage())).toContain("/es/areas");
   });
 });

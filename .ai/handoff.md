@@ -324,6 +324,11 @@ The bullets below preserve earlier 2026-07-19 acceptance evidence. Their 20-URL,
 - Added a contextual, Spanish-language project-guide cluster to `/es/areas` for the existing Miami-Dade, Fort Lauderdale/Broward, and short-form video routes. It strengthens service discovery without adding URLs or making new availability claims.
 - Added regression coverage in `app/__tests__/ctr-near-top10-metadata.test.ts` for all three links.
 - Verification in this worktree: `pnpm lint`, `pnpm typecheck`, `pnpm test` (exit 0), `pnpm build` (generated `.next/BUILD_ID` `ajipqb67YYzjUcufhLmy6`), and `git diff --check` all passed. Commands used Node `26.7.0`, which emitted the repository's existing engine-range warning (`>=20.9 <23`).
+
+# Spanish portfolio → areas internal link — 2026-09-02
+
+- Added one contextual link from `/es/portafolio` to `/es/areas` for visitors considering a South Florida on-location production. It preserves the established scope: Fort Lauderdale and Broward as the local base, selected Miami-Dade work, and Palm Beach considered per project.
+- Added regression coverage in `app/__tests__/ctr-near-top10-metadata.test.ts`. Validation passed: `pnpm test` (57 files / 417 tests), `npm run typecheck --silent`, and `git diff --check`.
 # Priority-growth CTR candidate — 2026-09-01
 
 - Work ID: `priority-growth:2026-09-01:esteban`; immutable action brief SHA-256: `0a430d7a536eb113852adda7f109c99674c57a7f374021002d05c76f5fde3047`.
