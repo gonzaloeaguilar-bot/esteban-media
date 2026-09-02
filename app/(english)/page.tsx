@@ -9,23 +9,23 @@ import { PortfolioTeaser } from "@/components/portfolio-teaser";
 import { ServicesStrip } from "@/components/services-strip";
 
 export const metadata: Metadata = {
-  // Lead the homepage title with the exact business name ("Esteban Moreno Media")
-  // for entity clarity and brand discovery.
+  // Lead with the exact business name for the observed branded homepage query,
+  // then state the confirmed service category for production-services intent.
   title: {
     absolute:
-      "Video Editing & Production Services | Esteban Moreno Media",
+      "Esteban Moreno Media | Video Editing & Production Services",
   },
   description:
-    "Video editing and scoped video production services for South Florida businesses. AI-assisted content and social planning. Bilingual English/Español.",
+    "Esteban Moreno Media offers video editing and scoped video production for South Florida businesses, plus AI-assisted content and social planning.",
   openGraph: {
-    title: "Video Editing & Production Services | Esteban Moreno Media",
+    title: "Esteban Moreno Media | Video Editing & Production Services",
     description:
-      "Video editing and scoped video production services for South Florida businesses. AI-assisted content and social planning. Bilingual English/Español.",
+      "Esteban Moreno Media offers video editing and scoped video production for South Florida businesses, plus AI-assisted content and social planning.",
   },
   twitter: {
-    title: "Video Editing & Production Services | Esteban Moreno Media",
+    title: "Esteban Moreno Media | Video Editing & Production Services",
     description:
-      "Video editing and scoped video production services for South Florida businesses. AI-assisted content and social planning. Bilingual English/Español.",
+      "Esteban Moreno Media offers video editing and scoped video production for South Florida businesses, plus AI-assisted content and social planning.",
   },
 };
 

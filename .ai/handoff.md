@@ -1,5 +1,11 @@
 # Esteban Moreno Media — Engineering Handoff
 
+## Homepage CTR refinement — 2026-09-02
+
+- The immutable priority-growth brief for `priority-growth:2026-09-02:esteban` reports no organic clicks in its seven-day read (32 impressions) and identifies the English homepage for the observed `esteban moreno media` and `video production services` queries.
+- The English homepage title now begins with the exact business name and retains the confirmed video editing and scoped production service category. Its description uses the same supported scope, including AI-assisted content and social planning. Open Graph and X/Twitter metadata match the search snippet.
+- Regression coverage locks the branded title and supported description. This candidate does not add a route, change sitemap/canonical/hreflang/schema, or claim a traffic outcome. Validate before release, then observe a later GSC query/page read for clicks and impressions.
+
 ## English founder-page branded-query metadata — 2026-08-28
 
 - Fresh GSC candidate artifact `~/.claude/state/growth-remediation/latest-analysis.json` selected the real `/about` ranking page for `esteban moreno`: **6 impressions, 0 clicks, average position 13.7** in its 28-day read. This is a recurrence of the July title-only change, so the durable regression coverage now locks the full person-to-business entity framing rather than relying on a one-off metadata edit.
