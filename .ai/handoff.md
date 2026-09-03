@@ -1,5 +1,11 @@
 # Esteban Moreno Media — Engineering Handoff
 
+## Homepage website-designer snippet alignment — 2026-09-03
+
+- The immutable `priority-growth:2026-09-03:esteban:recovery-6` brief records **0 clicks from 31 homepage impressions** from 2026-08-26 through 2026-09-01. It identifies the homepage for `website designer` (3 impressions, 0 clicks), `video production services` (2 impressions, 0 clicks), and `video editing services` (2 impressions, 0 clicks).
+- The English homepage search, Open Graph, and X descriptions now use the exact supported phrase “website designer support,” while retaining video editing services and scoped video production services. This changes no route, canonical, hreflang, sitemap, schema, price, client, result, or availability claim.
+- Regression coverage requires the shared descriptions to retain the phrase. Run the governed verifier before release, then compare a later Search Console query/page window; no click-through or ranking outcome is claimed.
+
 ## Homepage portfolio-cue CTR contract — 2026-09-03
 
 - The immutable `priority-growth:2026-09-03:esteban:recovery-5` brief records **0 clicks from 31 homepage impressions** from 2026-08-26 through 2026-09-01. It identifies the homepage for `website designer` (3 impressions, 0 clicks), `video production services` (2 impressions, 0 clicks), and `video editing services` (2 impressions, 0 clicks).
