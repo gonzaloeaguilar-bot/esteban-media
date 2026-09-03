@@ -16,16 +16,16 @@ export const metadata: Metadata = {
       "Esteban Moreno Media | Video Editing Services & Website Design",
   },
   description:
-    "Esteban Moreno Media offers video editing services, website design, and scoped video production services for South Florida businesses.",
+    "Video editing services, video production services, and website design for South Florida businesses. View portfolio work and request a scoped project quote.",
   openGraph: {
     title: "Esteban Moreno Media | Video Editing Services & Website Design",
     description:
-      "Esteban Moreno Media offers video editing services, website design, and scoped video production services for South Florida businesses.",
+      "Video editing services, video production services, and website design for South Florida businesses. View portfolio work and request a scoped project quote.",
   },
   twitter: {
     title: "Esteban Moreno Media | Video Editing Services & Website Design",
     description:
-      "Esteban Moreno Media offers video editing services, website design, and scoped video production services for South Florida businesses.",
+      "Video editing services, video production services, and website design for South Florida businesses. View portfolio work and request a scoped project quote.",
   },
 };
 

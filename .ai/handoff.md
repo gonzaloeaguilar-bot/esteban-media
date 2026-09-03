@@ -1,5 +1,11 @@
 # Esteban Moreno Media — Engineering Handoff
 
+## Priority-growth homepage portfolio CTR snippet — 2026-09-03
+
+- Bound work ID: `priority-growth:2026-09-02:esteban:replacement:recovery-4`; immutable brief SHA-256 `383da5e3d7f2268bb960f50beb69291715f2af71fb7127a3ad7b5cab902561b3`.
+- The fresh brief records zero clicks from 31 homepage impressions and identifies `website designer` (3 impressions), `video production services` (2), and `video editing services` (2). The established homepage title is unchanged. Its search, Open Graph, and Twitter descriptions now name each observed service intent and direct visitors to portfolio work and a scoped project quote.
+- Regression coverage keeps the three descriptions identical, requires all observed service phrases and the portfolio language, and enforces the 120–160 character snippet range. No route, offer, price, result, schema type, or indexable inventory changed. Verify the candidate before release and use a later Search Console query/page window; no click-through outcome is claimed.
+
 ## Homepage three-intent CTR contract — 2026-09-03
 
 - The immutable `priority-growth:2026-09-03:esteban:recovery-3` brief records **0 clicks from 31 homepage impressions** for 2026-08-26 through 2026-09-01. It identifies the homepage for `website designer` (3 impressions, 0 clicks), `video production services` (2 impressions, 0 clicks), and `video editing services` (2 impressions, 0 clicks).
