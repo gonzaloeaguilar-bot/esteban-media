@@ -10,22 +10,23 @@ import { ServicesStrip } from "@/components/services-strip";
 
 export const metadata: Metadata = {
   // Keep the observed homepage intent in one bounded contract: video editing,
-  // website design, and scoped video production are all confirmed offerings.
+  // website designer support, and scoped video production are all confirmed
+  // offerings.
   title: {
     absolute:
       "Esteban Moreno Media | Video Editing Services & Website Design",
   },
   description:
-    "Esteban Moreno Media offers video editing services, website design, and scoped video production services for South Florida businesses. View portfolio work.",
+    "Esteban Moreno Media offers video editing services, website designer support, and scoped video production services for South Florida businesses. View portfolio work.",
   openGraph: {
     title: "Esteban Moreno Media | Video Editing Services & Website Design",
     description:
-      "Esteban Moreno Media offers video editing services, website design, and scoped video production services for South Florida businesses. View portfolio work.",
+      "Esteban Moreno Media offers video editing services, website designer support, and scoped video production services for South Florida businesses. View portfolio work.",
   },
   twitter: {
     title: "Esteban Moreno Media | Video Editing Services & Website Design",
     description:
-      "Esteban Moreno Media offers video editing services, website design, and scoped video production services for South Florida businesses. View portfolio work.",
+      "Esteban Moreno Media offers video editing services, website designer support, and scoped video production services for South Florida businesses. View portfolio work.",
   },
 };
 

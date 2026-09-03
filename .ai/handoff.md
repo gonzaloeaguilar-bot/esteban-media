@@ -1,5 +1,12 @@
 # Esteban Moreno Media — Engineering Handoff
 
+## Homepage website-designer CTR refinement — 2026-09-02
+
+- Work ID: `priority-growth:2026-09-02:esteban:replacement:recovery-6`; immutable brief SHA-256: `df9135d96fd8a52cb85262c5ff0fc9c33e78db8b27511539b613b454f948b5bc`.
+- Evidence: the brief records 0 clicks from 31 homepage impressions for 2026-08-26 through 2026-09-01, including `website designer` (3 impressions), `video production services` (2), and `video editing services` (2).
+- Candidate: the English homepage’s search, Open Graph, and X descriptions now use the exact supported phrase “website designer support,” while retaining video editing services, scoped video production services, and the existing portfolio cue. It adds no route, price, client, result, availability, canonical, hreflang, sitemap, or schema claim.
+- Verification required before release: run the governed priority-growth verifier and then compare a later Search Console query/page window. This change does not claim a click-through or ranking outcome.
+
 ## Homepage portfolio-cue CTR contract — 2026-09-03
 
 - The immutable `priority-growth:2026-09-03:esteban:recovery-5` brief records **0 clicks from 31 homepage impressions** from 2026-08-26 through 2026-09-01. It identifies the homepage for `website designer` (3 impressions, 0 clicks), `video production services` (2 impressions, 0 clicks), and `video editing services` (2 impressions, 0 clicks).
