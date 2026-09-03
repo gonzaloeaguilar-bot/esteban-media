@@ -55,7 +55,7 @@ describe("localized home metadata", () => {
       'absolute:\n      "Esteban Moreno Media | Video Editing & Production Services"',
     );
     expect(englishHomeSource).toContain(
-      "Esteban Moreno Media offers video editing and scoped video production",
+      "Esteban Moreno Media: video editing services and scoped video production services",
     );
     expect(englishHomeSource).toContain(
       "AI-assisted content and social planning",
