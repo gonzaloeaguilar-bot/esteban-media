@@ -55,6 +55,42 @@ const projectTypeLinks = [
     detail:
       "Encuentra detalles sobre edición de video corto para Instagram, TikTok y YouTube Shorts.",
   },
+  {
+    href: "/es/diseno-web-fort-lauderdale",
+    title: "Diseño Web y Chatbots en Fort Lauderdale",
+    detail:
+      "Sitios web modernos de alta conversión y chatbots conversacionales con IA para negocios locales.",
+  },
+  {
+    href: "/es/produccion-de-video-doral-miami",
+    title: "Producción de video en Doral Miami",
+    detail:
+      "Producción audiovisual y contenido comercial para marcas y negocios en el área de Doral.",
+  },
+  {
+    href: "/es/produccion-de-video-palm-beach-county",
+    title: "Producción de video en Palm Beach",
+    detail:
+      "Alcance y producción selectiva de video para proyectos y marcas en Palm Beach County.",
+  },
+  {
+    href: "/es/edicion-de-video-corporativo-weston",
+    title: "Edición de video corporativo en Weston",
+    detail:
+      "Postproducción de video profesional para empresas y firmas corporativas en Broward.",
+  },
+  {
+    href: "/es/video-inmobiliario-coral-gables",
+    title: "Video inmobiliario en Coral Gables",
+    detail:
+      "Recorridos inmobiliarios y video de arquitectura para propiedades en Miami-Dade.",
+  },
+  {
+    href: "/es/video-para-yates-y-hospitalidad-fort-lauderdale",
+    title: "Video para yates y hospitalidad en Fort Lauderdale",
+    detail:
+      "Producción de video para la industria náutica, hospitalidad y turismo en Fort Lauderdale.",
+  },
 ];
 
 export default function SpanishAreasPage() {
