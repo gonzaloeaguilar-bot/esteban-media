@@ -13,17 +13,17 @@ export const metadata: Metadata = {
   // then state the confirmed service category for production-services intent.
   title: {
     absolute:
-      "Esteban Moreno Media | Video Editing & Production Services",
+      "Esteban Moreno Media | Video Editing Services & Production",
   },
   description:
     "Esteban Moreno Media: video editing services and scoped video production services for South Florida businesses, plus AI-assisted content and social planning.",
   openGraph: {
-    title: "Esteban Moreno Media | Video Editing & Production Services",
+    title: "Esteban Moreno Media | Video Editing Services & Production",
     description:
       "Esteban Moreno Media: video editing services and scoped video production services for South Florida businesses, plus AI-assisted content and social planning.",
   },
   twitter: {
-    title: "Esteban Moreno Media | Video Editing & Production Services",
+    title: "Esteban Moreno Media | Video Editing Services & Production",
     description:
       "Esteban Moreno Media: video editing services and scoped video production services for South Florida businesses, plus AI-assisted content and social planning.",
   },
