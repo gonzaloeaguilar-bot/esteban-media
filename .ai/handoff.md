@@ -1,5 +1,11 @@
 # Esteban Moreno Media — Engineering Handoff
 
+## Homepage search-snippet refinement — 2026-09-03
+
+- The immutable `priority-growth:2026-09-03:esteban` brief records 0 clicks from 31 homepage impressions for 2026-08-26 through 2026-09-01. On 2026-08-31, the homepage appeared for `video production services` and `video editing services`, with 2 impressions and 0 clicks for each query.
+- The English homepage metadata now begins with Esteban Moreno Media and uses the observed service phrases, while retaining the confirmed boundary that on-location production is scoped. Open Graph and X metadata use the same description.
+- This is a search-result wording change only; it does not claim a click-through or ranking result. Run the governed verifier before release and check a later Search Console query/page window for the outcome.
+
 ## Homepage services-strip intent refinement — 2026-09-02
 
 - The immutable `priority-growth:2026-09-02:esteban:replacement:recovery-3` brief records **0 clicks from 31 impressions** over 2026-08-26 through 2026-09-01 (10 impressions in the final 72 hours) and names the English homepage for `website designer` (3 impressions, 0 clicks on 2026-08-27), `video production services` (2 impressions, 0 clicks on 2026-08-31), and `video editing services` (2 impressions, 0 clicks on 2026-08-31).
