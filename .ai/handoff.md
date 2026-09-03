@@ -1,5 +1,11 @@
 # Esteban Moreno Media — Engineering Handoff
 
+## Homepage portfolio-cue CTR contract — 2026-09-03
+
+- The immutable `priority-growth:2026-09-03:esteban:recovery-5` brief records **0 clicks from 31 homepage impressions** from 2026-08-26 through 2026-09-01. It identifies the homepage for `website designer` (3 impressions, 0 clicks), `video production services` (2 impressions, 0 clicks), and `video editing services` (2 impressions, 0 clicks).
+- The English homepage keeps the observed service terms and scoped-production boundary, then adds the concise “View portfolio work” cue to its search, Open Graph, and X descriptions. This points searchers to evidence already available on the site without adding a client, result, price, or availability claim.
+- Regression coverage requires all three descriptions to retain that cue. Run the governed verifier before release, then compare a later Search Console query/page window; no click-through or ranking outcome is claimed.
+
 ## Homepage three-intent CTR contract — 2026-09-03
 
 - The immutable `priority-growth:2026-09-03:esteban:recovery-3` brief records **0 clicks from 31 homepage impressions** for 2026-08-26 through 2026-09-01. It identifies the homepage for `website designer` (3 impressions, 0 clicks), `video production services` (2 impressions, 0 clicks), and `video editing services` (2 impressions, 0 clicks).

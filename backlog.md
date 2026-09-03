@@ -18,6 +18,7 @@ Production is live. This file tracks repository implementation; account/access w
 
 ## P1 — Technical SEO / GEO / ALOHA
 
+- [x] Prepare the `priority-growth:2026-09-03:esteban:recovery-5` English homepage portfolio-cue CTR contract: retain the observed service terms and scoped-production boundary, then consistently add “View portfolio work” to search and social descriptions; release verification and a later Search Console query/page observation remain required.
 - [x] Prepare the `priority-growth:2026-09-03:esteban:recovery-3` English homepage three-intent CTR contract: the title and matching search/social descriptions now cover the observed video editing, website design, and scoped video production intent; regression coverage prevents the shared metadata surfaces from drifting. Release verification and a later Search Console query/page observation remain required.
 - [x] Prepare the `priority-growth:2026-09-03:esteban:recovery-2` English homepage title refinement: title, Open Graph, and X metadata now contain the observed `video editing services` phrase and retain the confirmed production category; release verification and a later Search Console query/page observation remain required.
 - [x] Prepare the `priority-growth:2026-09-03:esteban` English homepage search-snippet refinement: the title-aligned metadata now leads with Esteban Moreno Media and names the observed `video editing services` and scoped `video production services` queries; release verification and a later Search Console query/page observation remain required.
