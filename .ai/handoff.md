@@ -1,5 +1,11 @@
 # Esteban Moreno Media — Engineering Handoff
 
+## Homepage three-intent CTR contract — 2026-09-03
+
+- The immutable `priority-growth:2026-09-03:esteban:recovery-3` brief records **0 clicks from 31 homepage impressions** for 2026-08-26 through 2026-09-01. It identifies the homepage for `website designer` (3 impressions, 0 clicks), `video production services` (2 impressions, 0 clicks), and `video editing services` (2 impressions, 0 clicks).
+- The English homepage title now retains the exact `Video Editing Services` phrasing while naming the confirmed website-design offering. Its search, Open Graph, and X descriptions consistently state video editing services, website design, and scoped video production services.
+- Regression coverage requires the three shared descriptions to keep both the video-editing/website-design language and the scoped-production boundary. Run the governed verifier before release, then measure a later Search Console query/page window. No click-through or ranking result is claimed.
+
 ## Homepage title query alignment — 2026-09-03
 
 - The immutable `priority-growth:2026-09-03:esteban:recovery-2` brief records 0 clicks from 31 homepage impressions for 2026-08-26 through 2026-09-01. On 2026-08-31, the homepage appeared for `video editing services` and `video production services`, with 2 impressions and 0 clicks for each query.
