@@ -1,5 +1,11 @@
 # Esteban Moreno Media — Engineering Handoff
 
+## Homepage services-strip intent refinement — 2026-09-02
+
+- The immutable `priority-growth:2026-09-02:esteban:replacement:recovery-3` brief records **0 clicks from 31 impressions** over 2026-08-26 through 2026-09-01 (10 impressions in the final 72 hours) and names the English homepage for `website designer` (3 impressions, 0 clicks on 2026-08-27), `video production services` (2 impressions, 0 clicks on 2026-08-31), and `video editing services` (2 impressions, 0 clicks on 2026-08-31).
+- The English homepage services strip and shared service catalog now explicitly reflect the observed search terms: the website design service card and digital systems highlight feature “Website designer” workflows and solutions, while editing and on-location cards name “video editing services” and “video production services” explicitly within confirmed scoped offerings.
+- Regression coverage in `app/__tests__/customer-ranking-pages.test.ts` asserts these visible phrases. Before release, run the governed priority-growth verifier; after release, observe future GSC query/page metrics. No CTR or ranking outcome is claimed.
+
 ## Homepage website-designer intent alignment — 2026-09-02
 
 - The immutable `priority-growth:2026-09-02:esteban:replacement:recovery-2` brief records **0 clicks from 38 impressions** over 2026-08-25 through 2026-08-31 and names the English homepage for `website designer` (3 impressions, 0 clicks on 2026-08-27), `video production services` (2 impressions, 0 clicks on 2026-08-31), and `video editing services` (2 impressions, 0 clicks on 2026-08-31).
