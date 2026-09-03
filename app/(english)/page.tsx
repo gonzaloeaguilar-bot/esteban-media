@@ -10,22 +10,23 @@ import { ServicesStrip } from "@/components/services-strip";
 
 export const metadata: Metadata = {
   // Lead with the exact business name for the observed branded homepage query,
-  // then state the confirmed service category for production-services intent.
+  // then lead with the observed editing-services intent. Production remains
+  // explicitly scoped to avoid expanding the confirmed on-location offering.
   title: {
     absolute:
-      "Esteban Moreno Media | Video Editing & Production Services",
+      "Video Editing Services | Esteban Moreno Media",
   },
   description:
-    "Esteban Moreno Media: video editing services and scoped video production services for South Florida businesses, plus AI-assisted content and social planning.",
+    "Video editing services for South Florida businesses, with scoped video production, AI-assisted content, and social planning from Esteban Moreno Media.",
   openGraph: {
-    title: "Esteban Moreno Media | Video Editing & Production Services",
+    title: "Video Editing Services | Esteban Moreno Media",
     description:
-      "Esteban Moreno Media: video editing services and scoped video production services for South Florida businesses, plus AI-assisted content and social planning.",
+      "Video editing services for South Florida businesses, with scoped video production, AI-assisted content, and social planning from Esteban Moreno Media.",
   },
   twitter: {
-    title: "Esteban Moreno Media | Video Editing & Production Services",
+    title: "Video Editing Services | Esteban Moreno Media",
     description:
-      "Esteban Moreno Media: video editing services and scoped video production services for South Florida businesses, plus AI-assisted content and social planning.",
+      "Video editing services for South Florida businesses, with scoped video production, AI-assisted content, and social planning from Esteban Moreno Media.",
   },
 };
 

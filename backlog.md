@@ -18,6 +18,7 @@ Production is live. This file tracks repository implementation; account/access w
 
 ## P1 — Technical SEO / GEO / ALOHA
 
+- [x] Prepare the `priority-growth:2026-09-03:esteban:recovery-1` English homepage CTR recovery: title, description, and share metadata now lead with the observed `video editing services` intent while retaining scoped production; release verification and a later Search Console query/page observation remain required.
 - [x] Prepare the `priority-growth:2026-09-03:esteban` English homepage search-snippet refinement: the title-aligned metadata now leads with Esteban Moreno Media and names the observed `video editing services` and scoped `video production services` queries; release verification and a later Search Console query/page observation remain required.
 - [x] Prepare the `priority-growth:2026-09-02:esteban:replacement:recovery-3` English homepage service-card and digital-systems CTR refinement: service descriptions and digital-systems summary in the homepage strip now explicitly connect `website designer`, `video editing services`, and `video production services` search intent without expanding confirmed offerings; release verification and a later GSC query/page observation remain required.
 - [x] Prepare the `priority-growth:2026-09-02:esteban:replacement:recovery-2` English homepage website designer intent alignment: visible authority hub copy now incorporates the observed `website designer` query for custom website workflows; release verification and a later GSC query/page observation remain required.

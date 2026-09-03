@@ -1,5 +1,11 @@
 # Esteban Moreno Media — Engineering Handoff
 
+## Homepage video-editing CTR recovery — 2026-09-03
+
+- The immutable `priority-growth:2026-09-03:esteban:recovery-1` brief reports 0 clicks from 31 English-homepage impressions in 2026-08-26 through 2026-09-01, including 2 impressions and 0 clicks for `video editing services` on 2026-08-31.
+- The English homepage now leads its title and description with the observed video-editing-services intent. It retains the factual limit that video production is scoped, and keeps Open Graph and X metadata identical to the search snippet.
+- The added regression test locks search/share alignment and the 120–160 character snippet range. This does not claim a traffic or ranking result; release verification and a later Search Console query/page observation remain required.
+
 ## Homepage search-snippet refinement — 2026-09-03
 
 - The immutable `priority-growth:2026-09-03:esteban` brief records 0 clicks from 31 homepage impressions for 2026-08-26 through 2026-09-01. On 2026-08-31, the homepage appeared for `video production services` and `video editing services`, with 2 impressions and 0 clicks for each query.

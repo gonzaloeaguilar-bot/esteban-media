@@ -52,16 +52,28 @@ describe("localized home metadata", () => {
 
     const englishHomeSource = source("app/(english)/page.tsx");
     expect(englishHomeSource).toContain(
-      'absolute:\n      "Esteban Moreno Media | Video Editing & Production Services"',
+      'absolute:\n      "Video Editing Services | Esteban Moreno Media"',
     );
     expect(englishHomeSource).toContain(
-      "Esteban Moreno Media: video editing services and scoped video production services",
+      "Video editing services for South Florida businesses, with scoped video production",
     );
     expect(englishHomeSource).toContain(
-      "AI-assisted content and social planning",
+      "AI-assisted content, and social planning",
     );
     expect(englishHomeSource).toContain("openGraph:");
     expect(englishHomeSource).toContain("twitter:");
+  });
+
+  it("keeps the English homepage search and share snippets aligned", () => {
+    const englishHomeSource = source("app/(english)/page.tsx");
+    const title = "Video Editing Services | Esteban Moreno Media";
+    const description =
+      "Video editing services for South Florida businesses, with scoped video production, AI-assisted content, and social planning from Esteban Moreno Media.";
+
+    expect(englishHomeSource.split(title)).toHaveLength(4);
+    expect(englishHomeSource.split(description)).toHaveLength(4);
+    expect(description.length).toBeGreaterThanOrEqual(120);
+    expect(description.length).toBeLessThanOrEqual(160);
   });
 
   it("verifies brand entity presence and optimal character bounds for CTR", () => {
