@@ -14,7 +14,7 @@ export type LeadSource =
   | "daily-pacing-calculator"
   | "daily-script-timer"
   | "contact"
-  | "homepage-hero"
+  | "hero-intake"
   | "website-design-intake"
   | "pembroke-pines-small-business-video";
 
@@ -29,7 +29,7 @@ const LEAD_SOURCES = new Set<LeadSource>([
   "daily-pacing-calculator",
   "daily-script-timer",
   "contact",
-  "homepage-hero",
+  "hero-intake",
   "website-design-intake",
   "pembroke-pines-small-business-video",
 ]);
