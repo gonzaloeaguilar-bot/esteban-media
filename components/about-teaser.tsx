@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, BriefcaseBusiness, Languages, MapPin } from "lucide-react";
+import { ArrowRight, BriefcaseBusiness, Languages, Laptop, MapPin } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import { site } from "@/lib/site";
@@ -36,6 +36,22 @@ const highlights = [
         </Link>{" "}
         names only the projects, roles, and public video sources that can be
         verified.
+      </>
+    ),
+  },
+  {
+    icon: Laptop,
+    label: "Website design",
+    detail: (
+      <>
+        Custom{" "}
+        <Link
+          href="/services/website-design-fort-lauderdale"
+          className="font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-2 hover:text-[#7f2f20]"
+        >
+          website designer
+        </Link>{" "}
+        solutions and AI lead capture systems connected to your customer journey.
       </>
     ),
   },
