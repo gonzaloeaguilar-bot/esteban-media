@@ -1,5 +1,11 @@
 # Esteban Moreno Media — Engineering Handoff
 
+## Homepage video-editing proof cue — 2026-09-03
+
+- The immutable `priority-growth:2026-09-02:esteban:replacement:recovery-7` brief records **0 clicks from 31 homepage impressions** from 2026-08-26 through 2026-09-01. It names the homepage for `website designer` (3 impressions, 0 clicks), `video production services` (2 impressions, 0 clicks), and `video editing services` (2 impressions, 0 clicks).
+- The English homepage search, Open Graph, and X descriptions retain those supported service terms and the scoped-production boundary, while replacing the generic portfolio cue with “View video editing work.” The 157-character description points to the site's existing work without adding a client, result, price, or availability claim.
+- Regression coverage requires all three descriptions to retain the cue. Run the governed verifier before release, then compare a later Search Console query/page window; no click-through or ranking outcome is claimed.
+
 ## Homepage website-designer snippet alignment — 2026-09-03
 
 - The immutable `priority-growth:2026-09-03:esteban:recovery-6` brief records **0 clicks from 31 homepage impressions** from 2026-08-26 through 2026-09-01. It identifies the homepage for `website designer` (3 impressions, 0 clicks), `video production services` (2 impressions, 0 clicks), and `video editing services` (2 impressions, 0 clicks).
