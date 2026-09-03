@@ -52,20 +52,39 @@ describe("localized home metadata", () => {
 
     const englishHomeSource = source("app/(english)/page.tsx");
     expect(englishHomeSource).toContain(
-      'absolute:\n      "Esteban Moreno Media | Video Editing Services & Website Design"',
+      'absolute:\n      "Video Editing Services & Production | Esteban Moreno Media"',
     );
-    expect(englishHomeSource).toContain("Video Editing Services & Website Design");
-    expect(englishHomeSource).toContain("video editing services, website design");
-    expect(englishHomeSource).toContain("scoped video production services");
-    expect(englishHomeSource).toContain("View portfolio work.");
-    expect(englishHomeSource.match(/video editing services, website design/g)).toHaveLength(3);
-    expect(englishHomeSource.match(/scoped video production services/g)).toHaveLength(3);
-    expect(englishHomeSource.match(/View portfolio work\./g)).toHaveLength(3);
+    expect(englishHomeSource).toContain(
+      "Video Editing Services & Production | Esteban Moreno Media",
+    );
+    expect(englishHomeSource).toContain(
+      "Video editing services and scoped video production",
+    );
+    expect(englishHomeSource).toContain("Explore Esteban Moreno Media's portfolio");
+    expect(
+      englishHomeSource.match(/Video Editing Services & Production \| Esteban Moreno Media/g),
+    ).toHaveLength(3);
+    expect(
+      englishHomeSource.match(/Video editing services and scoped video production/g),
+    ).toHaveLength(3);
+    expect(
+      englishHomeSource.match(/Explore Esteban Moreno Media's portfolio/g),
+    ).toHaveLength(3);
     expect(englishHomeSource).toContain("openGraph:");
     expect(englishHomeSource).toContain("twitter:");
   });
 
   it("verifies brand entity presence and optimal character bounds for CTR", () => {
+    const englishHomeSource = source("app/(english)/page.tsx");
+    const title = "Video Editing Services & Production | Esteban Moreno Media";
+    const description =
+      "Video editing services and scoped video production for South Florida businesses. Explore Esteban Moreno Media's portfolio and start your project.";
+
+    expect(englishHomeSource).toContain(title);
+    expect(englishHomeSource).toContain(description);
+    expect(title.length).toBeLessThanOrEqual(60);
+    expect(description.length).toBeGreaterThanOrEqual(120);
+    expect(description.length).toBeLessThanOrEqual(160);
     expect(site.description.startsWith("Esteban Moreno")).toBe(true);
     expect(spanishSite.description.startsWith("Esteban Moreno")).toBe(true);
     expect(site.description.length).toBeGreaterThanOrEqual(120);

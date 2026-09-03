@@ -346,6 +346,13 @@ The bullets below preserve earlier 2026-07-19 acceptance evidence. Their 20-URL,
 1. Finish the hidden-address service-area Google Business Profile only after Esteban confirms the official category.
 2. Turn the strongest published projects into dedicated case studies only when Esteban confirms deliverables, roles, locations, and outcomes.
 3. Add reviews, citations, and local links only as legitimate evidence becomes available.
+
+## Priority-growth CTR candidate — 2026-09-02 recovery-5
+
+- Work ID: `priority-growth:2026-09-02:esteban:replacement:recovery-5`; immutable action brief SHA-256: `5370f696a162f0dda08c567936d53dbf945ad86dae5b7fb90eafe13593b2d3ee`.
+- Evidence: the brief records 0 clicks from 31 homepage impressions in its 2026-08-26 to 2026-09-01 window, including `video editing services` and `video production services` impressions.
+- Candidate: the English homepage's search, Open Graph, and X metadata now share a 58-character title and a 145-character description that precisely name video editing and scoped production, include a portfolio cue, and do not claim website design as a core offering.
+- Validation: lint, typecheck, all tests, build, `git diff --check`, and the governed priority-growth candidate verifier passed locally. A release and later Search Console observation remain required before claiming a CTR result.
 ## Organic recovery implementation — 2026-08-12
 
 - Isolated branch `codex/organic-compounding-20260812` expands both localized homepages into an entity/service/proof hub using three published, credited projects: Homeowners, Healthy Smile, and Bar Door Monkey.

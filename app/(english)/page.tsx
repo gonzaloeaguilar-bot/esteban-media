@@ -9,23 +9,24 @@ import { PortfolioTeaser } from "@/components/portfolio-teaser";
 import { ServicesStrip } from "@/components/services-strip";
 
 export const metadata: Metadata = {
-  // Keep the observed homepage intent in one bounded contract: video editing,
-  // website design, and scoped video production are all confirmed offerings.
+  // Keep the observed homepage intent in one bounded contract: video editing
+  // and scoped video production are confirmed offerings and the only services
+  // represented in this CTR-focused snippet.
   title: {
     absolute:
-      "Esteban Moreno Media | Video Editing Services & Website Design",
+      "Video Editing Services & Production | Esteban Moreno Media",
   },
   description:
-    "Esteban Moreno Media offers video editing services, website design, and scoped video production services for South Florida businesses. View portfolio work.",
+    "Video editing services and scoped video production for South Florida businesses. Explore Esteban Moreno Media's portfolio and start your project.",
   openGraph: {
-    title: "Esteban Moreno Media | Video Editing Services & Website Design",
+    title: "Video Editing Services & Production | Esteban Moreno Media",
     description:
-      "Esteban Moreno Media offers video editing services, website design, and scoped video production services for South Florida businesses. View portfolio work.",
+      "Video editing services and scoped video production for South Florida businesses. Explore Esteban Moreno Media's portfolio and start your project.",
   },
   twitter: {
-    title: "Esteban Moreno Media | Video Editing Services & Website Design",
+    title: "Video Editing Services & Production | Esteban Moreno Media",
     description:
-      "Esteban Moreno Media offers video editing services, website design, and scoped video production services for South Florida businesses. View portfolio work.",
+      "Video editing services and scoped video production for South Florida businesses. Explore Esteban Moreno Media's portfolio and start your project.",
   },
 };
 
