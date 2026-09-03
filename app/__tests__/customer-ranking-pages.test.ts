@@ -18,11 +18,17 @@ describe("customer-facing ranking pages", () => {
     expect(hero).toContain(
       "Clear creative support, from your footage to ready-to-publish content.",
     );
-    expect(hero).toContain("We provide video editing services");
-    expect(hero).toContain("Video production is scoped when the project calls for it.");
+    expect(hero).toContain(
+      "Video editing services for businesses with existing footage",
+    );
+    expect(hero).toContain("Video production services are scoped");
     expect(hero).toContain(
       "Edición de video, contenido asistido por IA y producción para redes.",
     );
+    expect(hero).toContain(
+      "Servicios de edición de video para negocios con material propio",
+    );
+    expect(hero).toContain("servicios de producción de video local");
     expect(services).toContain("website-design");
     expect(services).toContain("Digital systems");
     expect(services).toContain("Website designer workflows");

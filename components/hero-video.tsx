@@ -63,7 +63,7 @@ export function HeroVideo({ locale = "en" }: HeroVideoProps) {
             <p className="mt-4 max-w-2xl text-base leading-7 text-[#e8e2d8] sm:text-lg sm:leading-8">
               {isSpanish ? (
                 <>
-                  Editamos videos, desarrollamos contenido asistido por IA y planificamos contenido para redes según el objetivo y el material de tu negocio. La producción local se define según el alcance del proyecto. Consulta nuestras{" "}
+                  Servicios de edición de video para negocios con material propio, contenido asistido por IA y planificación para redes según el objetivo. Los servicios de producción de video local se definen según el alcance del proyecto. Consulta nuestras{" "}
                   <Link
                     href="/es/guias"
                     className="underline decoration-[#ffb49e] underline-offset-4 hover:text-[#ffb49e]"
@@ -74,7 +74,7 @@ export function HeroVideo({ locale = "en" }: HeroVideoProps) {
                 </>
               ) : (
                 <>
-                  We provide video editing services, develop AI-assisted content, and plan social content around your business goal and available footage. Video production is scoped when the project calls for it. Browse our{" "}
+                  Video editing services for businesses with existing footage, AI-assisted content, and social planning shaped around your goal. Video production services are scoped when a project calls for local capture. Browse our{" "}
                   <Link
                     href="/guides"
                     className="underline decoration-[#ffb49e] underline-offset-4 hover:text-[#ffb49e]"
