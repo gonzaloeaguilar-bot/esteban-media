@@ -13,17 +13,17 @@ export const metadata: Metadata = {
   // website designer support, and scoped video production are all confirmed offerings.
   title: {
     absolute:
-      "Esteban Moreno Media | Video Editing Services & Website Design",
+      "Esteban Moreno Media | Video Editing, Production & Websites",
   },
   description:
     "Esteban Moreno Media offers video editing services, website designer support, and scoped video production services in South Florida. View video editing work.",
   openGraph: {
-    title: "Esteban Moreno Media | Video Editing Services & Website Design",
+    title: "Esteban Moreno Media | Video Editing, Production & Websites",
     description:
       "Esteban Moreno Media offers video editing services, website designer support, and scoped video production services in South Florida. View video editing work.",
   },
   twitter: {
-    title: "Esteban Moreno Media | Video Editing Services & Website Design",
+    title: "Esteban Moreno Media | Video Editing, Production & Websites",
     description:
       "Esteban Moreno Media offers video editing services, website designer support, and scoped video production services in South Florida. View video editing work.",
   },
