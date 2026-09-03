@@ -55,10 +55,14 @@ describe("localized home metadata", () => {
       'absolute:\n      "Esteban Moreno Media | Video Editing Services & Website Design"',
     );
     expect(englishHomeSource).toContain("Video Editing Services & Website Design");
-    expect(englishHomeSource).toContain("video editing services, website design");
+    expect(englishHomeSource).toContain(
+      "video editing services, website designer support",
+    );
     expect(englishHomeSource).toContain("scoped video production services");
     expect(englishHomeSource).toContain("View portfolio work.");
-    expect(englishHomeSource.match(/video editing services, website design/g)).toHaveLength(3);
+    expect(
+      englishHomeSource.match(/video editing services, website designer support/g),
+    ).toHaveLength(3);
     expect(englishHomeSource.match(/scoped video production services/g)).toHaveLength(3);
     expect(englishHomeSource.match(/View portfolio work\./g)).toHaveLength(3);
     expect(englishHomeSource).toContain("openGraph:");
