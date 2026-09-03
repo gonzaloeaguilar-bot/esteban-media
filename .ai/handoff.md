@@ -1,5 +1,11 @@
 # Esteban Moreno Media — Engineering Handoff
 
+## Homepage title query alignment — 2026-09-03
+
+- The immutable `priority-growth:2026-09-03:esteban:recovery-2` brief records 0 clicks from 31 homepage impressions for 2026-08-26 through 2026-09-01. On 2026-08-31, the homepage appeared for `video editing services` and `video production services`, with 2 impressions and 0 clicks for each query.
+- The English homepage title now states the exact observed `Video Editing Services` phrase while retaining Esteban Moreno Media and the confirmed production category. The matching Open Graph and X titles use the same wording; the description remains limited to scoped production services.
+- This is a search-result wording change only. Run the governed verifier before release and use a later Search Console query/page window to assess the result; no click-through or ranking outcome is claimed.
+
 ## Homepage search-snippet refinement — 2026-09-03
 
 - The immutable `priority-growth:2026-09-03:esteban` brief records 0 clicks from 31 homepage impressions for 2026-08-26 through 2026-09-01. On 2026-08-31, the homepage appeared for `video production services` and `video editing services`, with 2 impressions and 0 clicks for each query.
