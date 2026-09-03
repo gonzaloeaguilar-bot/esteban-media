@@ -2,6 +2,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 
+import { metadata as englishHomeMetadata } from "../(english)/page";
 import { metadata as spanishHomeMetadata } from "../(spanish)/es/page";
 import {
   englishRootMetadata,
@@ -55,14 +56,22 @@ describe("localized home metadata", () => {
       'absolute:\n      "Esteban Moreno Media | Video Editing Services & Production"',
     );
     expect(englishHomeSource).toContain("Video Editing Services & Production");
-    expect(englishHomeSource).toContain(
-      "Esteban Moreno Media: video editing services and scoped video production services",
-    );
-    expect(englishHomeSource).toContain(
-      "AI-assisted content and social planning",
-    );
+    expect(englishHomeSource).toContain("Browse Esteban Moreno Media's portfolio");
     expect(englishHomeSource).toContain("openGraph:");
     expect(englishHomeSource).toContain("twitter:");
+  });
+
+  it("keeps the English homepage search and social snippets aligned", () => {
+    const description =
+      "Video editing services and scoped video production services in South Florida. Browse Esteban Moreno Media's portfolio, AI-assisted content, and website design.";
+
+    expect(englishHomeMetadata.description).toBe(description);
+    expect(englishHomeMetadata.openGraph?.description).toBe(description);
+    expect(englishHomeMetadata.twitter?.description).toBe(description);
+    expect(description).toHaveLength(159);
+    expect(description).toContain("video editing services");
+    expect(description).toContain("scoped video production services");
+    expect(description).toContain("portfolio");
   });
 
   it("verifies brand entity presence and optimal character bounds for CTR", () => {

@@ -1,5 +1,11 @@
 # Esteban Moreno Media — Engineering Handoff
 
+## Homepage portfolio-led CTR snippet — 2026-09-03
+
+- The immutable `priority-growth:2026-09-03:esteban:recovery-4` brief records 0 clicks from 31 homepage impressions for 2026-08-26 through 2026-09-01, including `video editing services` and `video production services` on 2026-08-31.
+- The English homepage keeps those confirmed services in its search, Open Graph, and X descriptions while adding a truthful invitation to browse the published portfolio. Regression coverage keeps all three descriptions identical and within a 159-character snippet length.
+- Run the governed verifier before release, then measure a later Search Console query/page window. No click-through or ranking result is claimed.
+
 ## Homepage title query alignment — 2026-09-03
 
 - The immutable `priority-growth:2026-09-03:esteban:recovery-2` brief records 0 clicks from 31 homepage impressions for 2026-08-26 through 2026-09-01. On 2026-08-31, the homepage appeared for `video editing services` and `video production services`, with 2 impressions and 0 clicks for each query.
