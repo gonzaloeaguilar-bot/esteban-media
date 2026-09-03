@@ -18,7 +18,7 @@ const copy = {
     cards: [
       { icon: MapPinned, title: "Profiles & marketplaces", text: "Google Business Profile, Maps, Yelp, and role-specific marketplaces such as Zillow, Homes.com, and Realtor.com when appropriate.", key: "profiles" },
       { icon: Bot, title: "Social & DM systems", text: "Instagram, Facebook Page, TikTok Business, ManyChat, and a mapped DM funnel from first reply to human handoff.", key: "social-dm" },
-      { icon: Workflow, title: "Websites & automation", text: "Mobile-first sites, forms, email, SMS with Twilio, routing, address autocomplete, and custom agent-assisted workflows.", key: "web-automation" },
+      { icon: Workflow, title: "Websites & automation", text: "Custom website designer workflows, mobile-first sites, forms, email, SMS with Twilio, routing, address autocomplete, and agent-assisted systems.", key: "web-automation" },
       { icon: BarChart3, title: "Content & measurement", text: "Photo and video work, content analysis, hypotheses, and Metricool reporting that turns channel activity into decisions.", key: "content-measurement" },
       { icon: Search, title: "SEO, local & AI search", text: "Technical SEO, local presence, source clarity, and observed visibility for Google and AI assistants—without ranking guarantees.", key: "search" },
       { icon: ShieldCheck, title: "Research & resilience", text: "Market and competitor research, funnel and cost audits, user-journey simulation, and authorized security pressure testing.", key: "research-resilience" },

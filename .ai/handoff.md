@@ -1,5 +1,11 @@
 # Esteban Moreno Media — Engineering Handoff
 
+## Homepage website-designer intent alignment — 2026-09-02
+
+- The immutable `priority-growth:2026-09-02:esteban:replacement:recovery-2` brief records **0 clicks from 38 impressions** over 2026-08-25 through 2026-08-31 and names the English homepage for `website designer` (3 impressions, 0 clicks on 2026-08-27), `video production services` (2 impressions, 0 clicks on 2026-08-31), and `video editing services` (2 impressions, 0 clicks on 2026-08-31).
+- The English homepage authority hub card for websites and automation now explicitly incorporates “Custom website designer workflows” alongside mobile-first sites, forms, and agent-assisted systems, connecting directly to the confirmed website design service capability without adding new routes, changing sitemaps, altering canonicals, or expanding claims.
+- Regression coverage in `app/__tests__/customer-ranking-pages.test.ts` asserts the visible phrase. Before release, run the governed priority-growth verifier; after release, observe future GSC query/page metrics. No CTR or ranking outcome is claimed.
+
 ## Homepage service-intent clarity — 2026-09-02
 
 - The immutable `priority-growth:2026-09-02:esteban:replacement` brief records **0 clicks from 38 impressions** over 2026-08-25 through 2026-08-31 and names the English homepage for `video editing services` (2 impressions, 0 clicks) and `video production services` (2 impressions, 0 clicks) on 2026-08-31.

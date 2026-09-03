@@ -25,6 +25,8 @@ describe("customer-facing ranking pages", () => {
     );
     expect(services).toContain("website-design");
     expect(services).toContain("Digital systems");
+    const authorityHub = source("components/home-authority-hub.tsx");
+    expect(authorityHub).toContain("Custom website designer workflows");
     expect(spanishHome).toContain("diseno-web");
     expect(spanishHome).toContain("/es/servicios#${service.id}");
   });

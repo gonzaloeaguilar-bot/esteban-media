@@ -18,6 +18,7 @@ Production is live. This file tracks repository implementation; account/access w
 
 ## P1 — Technical SEO / GEO / ALOHA
 
+- [x] Prepare the `priority-growth:2026-09-02:esteban:replacement:recovery-2` English homepage website designer intent alignment: visible authority hub copy now incorporates the observed `website designer` query for custom website workflows; release verification and a later GSC query/page observation remain required.
 - [x] Prepare the `priority-growth:2026-09-02:esteban:replacement` English homepage service-intent clarification: visible hero copy now matches the observed `video editing services` and `video production services` wording while keeping production scoped by project; release verification and a later GSC query/page observation remain required.
 - [x] Prepare the `priority-growth:2026-09-02:esteban` homepage CTR refinement from the immutable brief: lead the English homepage title with the observed branded query and retain confirmed video editing and scoped production services; later GSC query/page observation remains required.
 - [x] Prepare an evidence-bound English homepage CTR refinement for the 2026-08-27 `video production services` query observation (2 impressions, 0 clicks): title and description now name scoped video production services without expanding the confirmed offering.
