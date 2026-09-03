@@ -59,12 +59,12 @@ describe("localized home metadata", () => {
       "video editing services, website designer support",
     );
     expect(englishHomeSource).toContain("scoped video production services");
-    expect(englishHomeSource).toContain("View portfolio work.");
+    expect(englishHomeSource).toContain("View video editing work.");
     expect(
       englishHomeSource.match(/video editing services, website designer support/g),
     ).toHaveLength(3);
     expect(englishHomeSource.match(/scoped video production services/g)).toHaveLength(3);
-    expect(englishHomeSource.match(/View portfolio work\./g)).toHaveLength(3);
+    expect(englishHomeSource.match(/View video editing work\./g)).toHaveLength(3);
     expect(englishHomeSource).toContain("openGraph:");
     expect(englishHomeSource).toContain("twitter:");
   });
