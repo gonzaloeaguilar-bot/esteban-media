@@ -224,6 +224,32 @@ export default function SpanishPortfolioPage() {
         </Container>
       </section>
 
+      <section className="border-t border-[#d6ccc0] bg-[#efe7db] py-12 sm:py-16">
+        <Container size="xl">
+          <div className="grid gap-6 rounded-2xl border border-[#d6ccc0] bg-[#fbf6ef] p-7 sm:grid-cols-[1fr_auto] sm:items-end sm:p-10">
+            <div>
+              <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">
+                Producción en locación
+              </p>
+              <h2 className="mt-3 max-w-3xl font-serif text-4xl leading-tight">
+                ¿Tu proyecto necesita una grabación en South Florida?
+              </h2>
+              <p className="mt-4 max-w-2xl text-sm leading-6 text-[#3f4548] sm:text-base sm:leading-7">
+                Revisa la cobertura para Fort Lauderdale, Broward, Miami-Dade y
+                Palm Beach antes de consultar por una producción en locación.
+              </p>
+            </div>
+            <Link
+              href="/es/areas"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-[#101214] px-6 text-sm font-medium text-[#252a2d] transition hover:bg-[#101214] hover:text-[#f6f1ea]"
+            >
+              Ver áreas de servicio
+              <ArrowRight className="size-4" aria-hidden="true" />
+            </Link>
+          </div>
+        </Container>
+      </section>
+
       <section className="border-t border-[#d6ccc0] py-14 sm:py-18">
         <Container size="xl">
           <div className="grid gap-8 rounded-2xl bg-[#e7ded2] p-7 sm:p-10 lg:grid-cols-[1fr_auto] lg:items-end">
