@@ -82,7 +82,7 @@ export function ServicesStrip() {
         >
           <span>
             <span className="block text-xs font-medium uppercase tracking-wide text-[#9f3c27]">Digital systems</span>
-            <span className="mt-1 block font-serif text-2xl">Business profiles, marketplaces, DM funnels, CRM-ready automations, reporting, and search readiness.</span>
+            <span className="mt-1 block font-serif text-2xl">Website designer workflows, business profiles, marketplaces, DM funnels, CRM-ready automations, reporting, and search readiness.</span>
           </span>
           <ArrowRight className="size-5 shrink-0 text-[#9f3c27] transition-transform group-hover:translate-x-1" aria-hidden="true" />
         </Link>

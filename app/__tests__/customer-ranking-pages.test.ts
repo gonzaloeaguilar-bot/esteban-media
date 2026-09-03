@@ -25,8 +25,15 @@ describe("customer-facing ranking pages", () => {
     );
     expect(services).toContain("website-design");
     expect(services).toContain("Digital systems");
+    expect(services).toContain("Website designer workflows");
     const authorityHub = source("components/home-authority-hub.tsx");
     expect(authorityHub).toContain("Custom website designer workflows");
+    const siteConfig = source("lib/site.ts");
+    expect(siteConfig).toContain("Website designer solutions");
+    expect(siteConfig).toContain("Remote video editing services");
+    expect(siteConfig).toContain(
+      "Selectively scoped local video production services",
+    );
     expect(spanishHome).toContain("diseno-web");
     expect(spanishHome).toContain("/es/servicios#${service.id}");
   });

@@ -65,7 +65,7 @@ export const services: Service[] = [
     name: "Video editing",
     shortName: "Editing",
     description:
-      "Remote editing for entrepreneurs, businesses, agencies, and teams that already have footage to shape.",
+      "Remote video editing services for entrepreneurs, businesses, agencies, and teams that already have footage to shape.",
     detail:
       "Scoping starts with the source footage, publishing goal, and format needs for the project.",
     icon: Scissors,
@@ -100,7 +100,7 @@ export const services: Service[] = [
     name: "On-location content capture",
     shortName: "Capture",
     description:
-      "Selectively scoped local video production for entrepreneurs, businesses, and brands.",
+      "Selectively scoped local video production services for entrepreneurs, businesses, and brands.",
     detail:
       "Availability and scope are considered project by project after learning the location, goal, and capture needs.",
     icon: Video,
@@ -112,7 +112,7 @@ export const services: Service[] = [
     name: "Website Design & AI Chatbots",
     shortName: "Web Design & AI",
     description:
-      "High-converting custom websites, interactive web applications, and AI lead-capture chatbots built for local businesses.",
+      "Website designer solutions for high-converting custom websites, interactive web applications, and AI lead-capture chatbots built for local businesses.",
     detail:
       "Scoping covers brand goals, custom web architecture, AI lead bot requirements, and media content integration.",
     icon: Laptop,
