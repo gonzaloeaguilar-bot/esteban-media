@@ -1,0 +1,48 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-178",
+  "status": "review_pending",
+  "evidence": {
+    "obsidian_context": "P1 traffic push: demand wave deepening high-commercial intent Contact and Consultation pages in EN and ES. Fresh GSC evidence (candidates-2026-09-04.json) shows /contact earning 35 impressions at position 19.05 with 0 clicks and /es/contacto flagged for internal links / orphan coverage. Deepened both consultation pages with intent-aligned metadata (titles 57-58 chars, descriptions 154-159 chars), project preparation guidance, contextual guide links (/guides/write-a-useful-video-brief, /guides/prepare-footage-for-video-editing, /guides/remote-video-editing-handoff), budget calculator & coverage cross-links, and FAQPage JSON-LD schemas in EN and ES.",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, worktree .worktrees/demand-wave-restaurant-promo-depth-20260904, branch feat/demand-wave-restaurant-promo-depth-20260904, move class content_depth + title_meta_rewrite + schema_faq. CTO decision record 20260904T055230Z-cto-seo-lead-esteban-media-1788501151919117000-52193-c3411d3687f03834.json, kpi-esteban-traffic.",
+    "hard_stops_checked": "Checked and clear. No invented clients/prices/reviews/stats/guarantees, no street address, no drone-pilot claims, no aggregateRating. Retains boundary 'material suministrado por el cliente' / 'client-supplied footage'. Strict EN/ES parity maintained. Frozen inventory verified at exactly 243 URLs with 0 new or modified indexable routes.",
+    "verification": "pnpm lint, pnpm typecheck, pnpm test 58 files / 419 tests, git diff --check exit 0. New regression test app/__tests__/contact-depth.test.ts pins copy substance, guide links, and FAQPage schema visibility for both locales.",
+    "reviewer_ensemble": {
+      "builder": {
+        "status": "ok",
+        "note": "Antigravity builder executed move class 1 & 3 (content depth + metadata optimization + FAQPage JSON-LD) on Contact consultation pages in EN and ES; all acceptance suites passed."
+      },
+      "skeptic": {
+        "status": "ok",
+        "note": "Deterministic adversarial scan verified: 0 banned claims (prices, %, guarantees, fake stats, drone claims), safe zone guidance accurate, EN/ES parity complete, sitemap URL count strictly preserved at 243."
+      },
+      "taste": {
+        "status": "ok",
+        "note": "Copy clearly structures project scoping: briefs, client-supplied raw footage, aspect ratios (9:16 vertical vs 16:9 widescreen), remote turnaround, and contextual linking to technical guides."
+      }
+    },
+    "reviewer_disagreement_reviewed": "No disagreement. Skeptic confirmed zero policy violations and zero inventory drift; taste review confirmed clear consultation and scoping guidance.",
+    "winner_rationale": "Chosen move: depth + FAQPage JSON-LD schema expansion and intent-led metadata rewrite for Contact pages in EN & ES to capture commercial inquiry demand from GSC without sitemap drift.",
+    "tests_or_validation": "pnpm lint exit 0; pnpm typecheck exit 0; pnpm test 58 files / 419 tests all pass including app/__tests__/contact-depth.test.ts; git diff --check clean.",
+    "debt_delta": "Net negative debt: adds regression testing for Contact page depth, metadata bounds, and FAQ schema; zero new runtime dependencies or routes.",
+    "obsidian_handoff": "esteban-media-hot.md updated with PR-178 record, move class content_depth + schema_faq, and scheduled verification dates."
+  },
+  "reviewer_ensemble": {
+    "builder": {
+      "status": "ok",
+      "note": "Antigravity builder executed move class 1 & 3 (content depth + metadata optimization + FAQPage JSON-LD) on Contact consultation pages in EN and ES; all acceptance suites passed."
+    },
+    "skeptic": {
+      "status": "ok",
+      "note": "Deterministic adversarial scan verified: 0 banned claims (prices, %, guarantees, fake stats, drone claims), safe zone guidance accurate, EN/ES parity complete, sitemap URL count strictly preserved at 243."
+    },
+    "taste": {
+      "status": "ok",
+      "note": "Copy clearly structures project scoping: briefs, client-supplied raw footage, aspect ratios (9:16 vertical vs 16:9 widescreen), remote turnaround, and contextual linking to technical guides."
+    }
+  },
+  "winner_rationale": "Chosen move: depth + FAQPage JSON-LD schema expansion and intent-led metadata rewrite for Contact pages in EN & ES to capture commercial inquiry demand from GSC without sitemap drift.",
+  "reviewer_disagreement_reviewed": "No disagreement. Skeptic confirmed zero policy violations and zero inventory drift; taste review confirmed clear consultation and scoping guidance.",
+  "tests_or_validation": "pnpm lint exit 0; pnpm typecheck exit 0; pnpm test 58 files / 419 tests all pass including app/__tests__/contact-depth.test.ts; git diff --check clean."
+}
