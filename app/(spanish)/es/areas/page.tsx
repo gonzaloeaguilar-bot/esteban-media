@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { ArrowRight, Laptop, MapPin } from "lucide-react";
+import { ArrowRight, HelpCircle, Laptop, MapPin } from "lucide-react";
 
+import { SpanishServiceLandingDirectory } from "@/components/spanish-service-landing-directory";
 import { Container } from "@/components/ui/container";
 import { spanishAreas } from "@/lib/spanish-site";
 import { buildPageMetadata } from "@/lib/site-metadata";
@@ -33,6 +34,34 @@ const miamiProof = [
     title: "Healthy Smile Miami",
     detail:
       "Video promocional en Miami desarrollado desde un guion tipo sketch hasta la grabación y edición.",
+  },
+];
+
+const serviceAreaFaqs = [
+  {
+    question: "¿Cómo se diferencia la edición remota de la producción en locación?",
+    answer:
+      "La edición de video remota, los flujos con IA y la planificación para redes comienzan directamente desde el material grabado y referencias visuales del cliente, atendiendo marcas en South Florida y en cualquier ubicación. La grabación en locación se evalúa de manera selectiva según la sede del rodaje, los objetivos y el calendario en Fort Lauderdale o Broward, con disponibilidad en Miami-Dade para proyectos confirmados.",
+  },
+  {
+    question: "¿Se puede editar material grabado fuera del sur de la Florida?",
+    answer:
+      "Sí. La postproducción de video, mezcla de audio, corrección de color y adaptación de formatos para redes sociales funcionan directamente con archivos digitales transferidos por internet sin restricciones geográficas.",
+  },
+  {
+    question: "¿Cómo se evalúa la disponibilidad para Palm Beach County?",
+    answer:
+      "Palm Beach County es un área de expansión evaluada individualmente por proyecto para grabaciones en locación. La edición remota de video y la planificación de contenido están disponibles de inmediato para cualquier proyecto con material existente.",
+  },
+  {
+    question: "¿Ofrecen atención y contenido bilingüe en español e inglés?",
+    answer:
+      "Sí. Esteban Moreno Media brinda atención principal en español y comunicación fluida en inglés, estructurando guiones, subtítulos dinámicos y narrativa de video adaptada para audiencias hispanohablantes y del mercado general en Estados Unidos.",
+  },
+  {
+    question: "¿Qué información conviene compartir al solicitar una cotización?",
+    answer:
+      "Indica si ya cuentas con material grabado o si requieres una jornada de rodaje en locación. Compartir el objetivo comercial, los canales de publicación previstos y la fecha estimada de entrega permite definir si el proyecto puede iniciar en remoto o requiere coordinar una visita técnica en South Florida.",
   },
 ];
 
@@ -96,20 +125,37 @@ const projectTypeLinks = [
 export default function SpanishAreasPage() {
   const areaJsonLd = {
     "@context": "https://schema.org",
-    "@type": "ItemList",
-    "@id": absoluteUrl("/es/areas#areas-de-servicio"),
-    name: "Áreas de servicio de Esteban Moreno Media",
-    inLanguage: "es-US",
-    itemListElement: spanishAreas.map((area, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      item: {
-        "@type": area.name === "Fort Lauderdale" ? "City" : "AdministrativeArea",
-        name: area.name,
-        description: area.description,
-        url: absoluteUrl(`/es/areas#${areaAnchors[area.name]}`),
+    "@graph": [
+      {
+        "@type": "ItemList",
+        "@id": absoluteUrl("/es/areas#areas-de-servicio"),
+        name: "Áreas de servicio de Esteban Moreno Media",
+        inLanguage: "es-US",
+        itemListElement: spanishAreas.map((area, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          item: {
+            "@type": area.name === "Fort Lauderdale" ? "City" : "AdministrativeArea",
+            name: area.name,
+            description: area.description,
+            url: absoluteUrl(`/es/areas#${areaAnchors[area.name]}`),
+          },
+        })),
       },
-    })),
+      {
+        "@type": "FAQPage",
+        "@id": absoluteUrl("/es/areas#faq"),
+        inLanguage: "es-US",
+        mainEntity: serviceAreaFaqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      },
+    ],
   };
 
   return (
@@ -279,6 +325,81 @@ export default function SpanishAreasPage() {
             </Link>
           </section>
 
+          <section
+            className="mt-14 rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6 sm:p-8"
+            aria-labelledby="consulta-ubicacion-heading"
+          >
+            <p className="text-xs font-medium uppercase text-[#5a6066]">
+              Qué incluir en tu consulta por ubicación
+            </p>
+            <h2
+              id="consulta-ubicacion-heading"
+              className="mt-4 max-w-3xl font-serif text-4xl leading-tight"
+            >
+              Empieza con el lugar, el objetivo y el material disponible.
+            </h2>
+            <p className="mt-4 max-w-3xl leading-7 text-[#252a2d]">
+              Para grabaciones en locación, comparte el condado, el objetivo del
+              proyecto y qué se necesita filmar. Para edición de video, contenido
+              con IA o planificación para redes, comparte los archivos de origen
+              o referencias que ya tienes y dónde se publicará el video final.
+              Esto permite evaluar si el trabajo puede desarrollarse de forma
+              remota o requiere una visita técnica en South Florida.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-4 text-sm font-medium">
+              <Link
+                href="/es/contacto"
+                className="inline-flex items-center gap-2 text-[#9f3c27] hover:text-[#7f2f20]"
+              >
+                Enviar detalles del proyecto
+                <ArrowRight className="size-4" aria-hidden="true" />
+              </Link>
+              <Link
+                href="/es/servicios"
+                className="inline-flex items-center gap-2 text-[#9f3c27] hover:text-[#7f2f20]"
+              >
+                Comparar servicios
+                <ArrowRight className="size-4" aria-hidden="true" />
+              </Link>
+            </div>
+          </section>
+
+          <section
+            className="mt-14"
+            aria-labelledby="preguntas-areas-heading"
+          >
+            <p className="text-xs font-medium uppercase text-[#5a6066]">
+              Preguntas frecuentes
+            </p>
+            <h2
+              id="preguntas-areas-heading"
+              className="mt-4 max-w-3xl font-serif text-4xl leading-tight"
+            >
+              Preguntas comunes sobre áreas de servicio y producción audiovisual.
+            </h2>
+            <div className="mt-7 grid gap-5 md:grid-cols-2">
+              {serviceAreaFaqs.map((faq) => (
+                <article
+                  key={faq.question}
+                  className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6"
+                >
+                  <div className="flex items-start gap-3">
+                    <HelpCircle
+                      className="mt-1 size-5 shrink-0 text-[#9f3c27]"
+                      aria-hidden="true"
+                    />
+                    <h3 className="font-serif text-2xl leading-tight">
+                      {faq.question}
+                    </h3>
+                  </div>
+                  <p className="mt-3 text-sm leading-6 text-[#252a2d]">
+                    {faq.answer}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </section>
+
           <section className="mt-14" aria-labelledby="proyectos-por-tipo-heading">
             <p className="text-xs font-medium uppercase text-[#5a6066]">
               Servicios según el proyecto
@@ -315,6 +436,8 @@ export default function SpanishAreasPage() {
               ))}
             </div>
           </section>
+
+          <SpanishServiceLandingDirectory />
 
           <div className="mt-12 flex flex-wrap gap-3">
             <Link
