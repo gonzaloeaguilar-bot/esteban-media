@@ -55,14 +55,14 @@ export function HeroProjectIntake({ locale }: HeroProjectIntakeProps) {
 
   const quickChips = isSpanish
     ? [
-        { label: "Edición de video", value: "Edición de video" },
-        { label: "Contenido con IA", value: "Contenido asistido por IA" },
-        { label: "Web y chatbots", value: "Diseño web y chatbots con IA" },
+        { label: "Chatbots con IA", value: "Chatbot con IA para captar consultas" },
+        { label: "Seguimiento por email y SMS", value: "Automatizar el seguimiento de clientes por email y SMS" },
+        { label: "Diseño web", value: "Sitio web para recibir consultas" },
       ]
     : [
-        { label: "Video Editing", value: "Video editing" },
-        { label: "AI Content", value: "AI-assisted content" },
-        { label: "Web & AI", value: "Website design & AI chatbots" },
+        { label: "AI chatbots", value: "AI chatbot to capture inquiries" },
+        { label: "Email and SMS follow-up", value: "Automate customer follow-up by email and SMS" },
+        { label: "Website design", value: "Website to receive project inquiries" },
       ];
 
   return (
@@ -116,8 +116,11 @@ export function HeroProjectIntake({ locale }: HeroProjectIntakeProps) {
           <button
             key={chip.label}
             type="button"
+            aria-pressed={projectNeed === chip.value}
+            aria-controls={`hero-project-need-${locale}`}
+            disabled={submitState === "submitting"}
             onClick={() => setProjectNeed(chip.value)}
-            className={`rounded-full border px-2.5 py-0.5 text-xs transition ${
+            className={`min-h-11 rounded-full border px-2.5 py-1 text-xs transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-70 ${
               projectNeed === chip.value
                 ? "border-[#f0b384] bg-[#f0b384]/20 text-[#f0b384]"
                 : "border-white/20 bg-white/5 text-[#e8e2d8] hover:border-white/40 hover:bg-white/10"

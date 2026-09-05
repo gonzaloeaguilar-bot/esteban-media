@@ -1,3 +1,13 @@
+## Overnight draft repair — 2026-09-05
+
+- Scope: retained branch `growth/overnight-esteban-20260905-1521`, original commit `f407bad`; only the existing homepage intake shortcuts were repaired. Graph dependencies: `hero-video` → `hero-project-intake` → `analytics-events`.
+- Replaced video/content shortcuts with localized AI chatbot, email/SMS follow-up, and website inquiries, matching the dispatch priorities and existing `lib/growth-systems.ts` / `lib/portfolio.ts` capabilities. Added accessible pressed state, field association, 44px minimum targets, focus outline, and disabled shortcuts while submitting. No delivery claims, new integrations, or external messages.
+- Live `git ls-remote origin refs/heads/main` matched local `origin/main` at `a71e1e4`; no merge needed. `gh run list --branch growth/overnight-esteban-20260905-1521 --limit 5 --json databaseId,status,conclusion,url` returned `[]`; no branch CI failures were available.
+- Initial `pnpm check` exited 1 because dependencies were missing. `pnpm install --frozen-lockfile --store-dir .pnpm-store` exited 0 (store subsequently moved under ignored node_modules). Added regression initially failed on attribute ordering; corrected to inspect the required field independently. Final `pnpm check` exited 0: lint, typecheck, 60 test files / 423 tests, and production build. `git diff --check` exited 0.
+- `pnpm start --port 3187` plus Python urllib/HTMLParser checks returned HTTP 200 for `/` and `/es`; all localized shortcut text appeared in visible HTML in the specified order. Live production reads returned HTTP 200 but lacked the new shortcut content, as expected for an unpublished branch. No lead was submitted; production behavior is not claimed verified.
+- `.overnight-verification.json` contains exact production URL/text/order assertions and remains uncommitted. Local check/install/server logs are ignored. No push or PR creation.
+- Next: cto-qa-lead reviews this retained draft before any release; after authorized deployment, run the uncommitted assertions against production. Canonical wiki/registry writes were deferred because this dispatch restricts all writes to this worktree; this entry is the local handoff for that synchronization.
+
 # Esteban Moreno Media — Engineering Handoff
 
 ## Homepage video-editing proof cue — 2026-09-03
