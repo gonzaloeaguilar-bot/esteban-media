@@ -8,6 +8,12 @@
 - `.overnight-verification.json` contains exact production URL/text/order assertions and remains uncommitted. Local check/install/server logs are ignored. No push or PR creation.
 - Next: cto-qa-lead reviews this retained draft before any release; after authorized deployment, run the uncommitted assertions against production. Canonical wiki/registry writes were deferred because this dispatch restricts all writes to this worktree; this entry is the local handoff for that synchronization.
 
+## Overnight evidence repair — 2026-09-05
+
+- The prior CTO attempt failed before verification because the provider returned an empty response; no code change was required. `origin/main` remains `a71e1e4`, and the retained branch remains two commits ahead.
+- Re-ran `pnpm check`: lint, typecheck, 60 test files / 423 tests, and the 309-page production build all exited 0. `git diff --check` also exited 0.
+- Repaired the uncommitted `.overnight-verification.json` assertions to check distinctive visible shortcut labels on `https://estebanmorenomedia.com/` and `/es`. Whole-page order was intentionally not asserted because `Website design` already appears elsewhere on the homepage; the built HTTP boundary separately verified the shortcut button order in both locales.
+
 # Esteban Moreno Media — Engineering Handoff
 
 ## Homepage video-editing proof cue — 2026-09-03
