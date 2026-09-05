@@ -1167,11 +1167,11 @@ export const spanishNichePages: SpanishNichePage[] = [
     title: "Video para yates y hospitalidad en Fort Lauderdale",
     metadataTitle: "Video para Yates y Hospitalidad",
     description:
-      "Video para yates y hospitalidad en Fort Lauderdale, con edición y producción promocional para marcas náuticas, chárteres y experiencias locales.",
+      "Video para yates y hospitalidad en Fort Lauderdale. Edición promocional para chárteres náuticos, brokers marinos y turismo con material del cliente.",
     eyebrow: "Fort Lauderdale / Náutica",
     h1: "Videos promocionales para yates, marinos y hospitalidad.",
     lead:
-      "Fort Lauderdale es la capital náutica de Florida. Creamos y editamos contenido en video para servicios de chárter, marinos y marcas de lujo.",
+      "Fort Lauderdale es la capital náutica de Florida. Editamos y producimos contenido audiovisual para servicios de chárter, brokers marinos, hoteles y marcas náuticas a partir de material suministrado por el cliente. Consulta guías especializadas como [guías de edición de video con dron en Florida](/es/guias/guias-de-edicion-de-video-con-dron-florida) y [entrega para edición remota de video](/es/guias/entrega-para-edicion-remota-de-video).",
     keyword: "video para yates en Fort Lauderdale",
     location: "Fort Lauderdale / Broward",
     availability: "confirmed",
@@ -1181,16 +1181,36 @@ export const spanishNichePages: SpanishNichePage[] = [
       "Hoteles y restaurantes frente al mar en Broward.",
     ],
     scopingQuestions: [
-      "¿El material en video se grabó en marina o en navegación?",
-      "¿Cuál es el público objetivo principal del video?",
+      "¿El material en video se grabó en marina, en navegación o incluye tomas aéreas?",
+      "¿Requieres versiones verticales 9:16 para Instagram/TikTok y horizontales 16:9 para web?",
     ],
     projectFit:
-      "Producción y edición de estilo de vida náutico en South Florida.",
+      "Postproducción y edición de estilo de vida náutico en Fort Lauderdale y South Florida. Demostrado por el proyecto [Banacol](/es/portafolio/banacol) con cinematografía aérea en mar abierto.",
     faqs: [
       {
-        question: "¿Pueden editar clips grabados en teléfono o dron?",
+        question: "¿Qué tipo de material puede suministrar una empresa de chárter o corretaje náutico?",
         answer:
-          "Sí. Procesamos tomas aéreas y clips marinos para crear videos promocionales dinámicos para redes sociales.",
+          "Las empresas náuticas suministran material grabado por el cliente: tomas con dron, recorridos de cabina, navegación en aguas abiertas, deportes acuáticos, momentos de hospitalidad y tomas del capitán. Incluir logotipos y especificaciones de la embarcación ayuda a estructurar la edición.",
+      },
+      {
+        question: "¿Cómo optimizan el audio con ruido de viento, oleaje y motores marinos?",
+        answer:
+          "Aplicamos reducción de ruido y ecualización para limpiar voces y diálogos, atenuamos el rugido de motores e integramos capas de sonido ambiental marino junto a música con licencia comercial adaptada a marcas de lujo.",
+      },
+      {
+        question: "¿Pueden editar y estabilizar tomas aéreas capturadas desde embarcaciones?",
+        answer:
+          "Sí. Estabilizamos clips aéreos suministrados por el cliente y aplicamos corrección de color para balancear la luz solar intensa, reflejos sobre el agua y tonos de madera teca en cubierta.",
+      },
+      {
+        question: "¿Se entregan versiones para redes sociales y páginas web de corretaje?",
+        answer:
+          "Sí. Entregamos versiones 16:9 en alta resolución para sitios web y portales de chárter, además de cortes verticales 9:16 para Instagram Reels, TikTok y anuncios digitales.",
+      },
+      {
+        question: "¿Cómo funciona el proceso de envío de archivos y revisiones?",
+        answer:
+          "Los archivos de video y tomas aéreas se comparten mediante transferencia segura en la nube. Tras la primera entrega, puedes enviar comentarios consolidados con marcas de tiempo para ajustar ritmo, música y llamadas a la acción.",
       },
     ],
   },

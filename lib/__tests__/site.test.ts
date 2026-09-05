@@ -73,7 +73,7 @@ describe("Spanish search titles", () => {
     expect(page).toMatchObject({
       metadataTitle: "Video para Yates y Hospitalidad",
       description:
-        "Video para yates y hospitalidad en Fort Lauderdale, con edición y producción promocional para marcas náuticas, chárteres y experiencias locales.",
+        "Video para yates y hospitalidad en Fort Lauderdale. Edición promocional para chárteres náuticos, brokers marinos y turismo con material del cliente.",
     });
     expect(`${page?.metadataTitle} | ${site.name}`).toHaveLength(54);
     expect(page?.description.length).toBeLessThanOrEqual(160);
