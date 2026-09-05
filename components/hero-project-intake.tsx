@@ -53,6 +53,18 @@ export function HeroProjectIntake({ locale }: HeroProjectIntakeProps) {
     );
   }
 
+  const quickChips = isSpanish
+    ? [
+        { label: "Edición de video", value: "Edición de video" },
+        { label: "Contenido con IA", value: "Contenido asistido por IA" },
+        { label: "Web y chatbots", value: "Diseño web y chatbots con IA" },
+      ]
+    : [
+        { label: "Video Editing", value: "Video editing" },
+        { label: "AI Content", value: "AI-assisted content" },
+        { label: "Web & AI", value: "Website design & AI chatbots" },
+      ];
+
   return (
     <form onSubmit={handleSubmit} className="mt-7 grid max-w-xl gap-3 sm:grid-cols-[1fr_1.35fr_auto] sm:items-end">
       <div>
@@ -72,9 +84,11 @@ export function HeroProjectIntake({ locale }: HeroProjectIntakeProps) {
         />
       </div>
       <div>
-        <label htmlFor={`hero-project-need-${locale}`} className="text-sm font-medium text-white">
-          {isSpanish ? "Necesidad del proyecto" : "Project need"}
-        </label>
+        <div className="flex items-center justify-between">
+          <label htmlFor={`hero-project-need-${locale}`} className="text-sm font-medium text-white">
+            {isSpanish ? "Necesidad del proyecto" : "Project need"}
+          </label>
+        </div>
         <input
           id={`hero-project-need-${locale}`}
           name="projectNeed"
@@ -94,6 +108,25 @@ export function HeroProjectIntake({ locale }: HeroProjectIntakeProps) {
           ? isSpanish ? "Enviando…" : "Sending…"
           : isSpanish ? "Enviar" : "Send"}
       </button>
+      <div className="sm:col-span-3 flex flex-wrap items-center gap-1.5 pt-0.5">
+        <span className="text-xs text-[#d8d0c7]">
+          {isSpanish ? "Opciones rápidas:" : "Quick select:"}
+        </span>
+        {quickChips.map((chip) => (
+          <button
+            key={chip.label}
+            type="button"
+            onClick={() => setProjectNeed(chip.value)}
+            className={`rounded-full border px-2.5 py-0.5 text-xs transition ${
+              projectNeed === chip.value
+                ? "border-[#f0b384] bg-[#f0b384]/20 text-[#f0b384]"
+                : "border-white/20 bg-white/5 text-[#e8e2d8] hover:border-white/40 hover:bg-white/10"
+            }`}
+          >
+            {chip.label}
+          </button>
+        ))}
+      </div>
       {submitState === "error" && (
         <p role="alert" className="sm:col-span-3 text-sm text-[#f7b9aa]">
           {isSpanish
