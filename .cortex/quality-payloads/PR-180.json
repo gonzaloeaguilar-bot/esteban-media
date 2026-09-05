@@ -1,0 +1,48 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-180",
+  "status": "review_pending",
+  "evidence": {
+    "obsidian_context": "P1 traffic push: demand wave deepening striking-distance commercial intent service pages for Yacht Hospitality Video in Fort Lauderdale across EN and ES. Fresh GSC evidence (latest.json searchAnalytics window 2026-08-07 .. 2026-09-03) shows /services/yacht-hospitality-video-fort-lauderdale earning 3 impressions at position 7.33 (0 clicks) and Spanish counterpart /es/video-para-yates-y-hospitalidad-fort-lauderdale earning 7 impressions at position 5.00 (0 clicks). Deepened both service pages with intent-aligned metadata (EN title 55 chars, desc 154 chars; ES title 51 chars, desc 150 chars), marine video post-production guidance, contextual guide links (/guides/drone-video-editing-guidelines-florida, /guides/remote-video-editing-handoff), connected service cards, Banacol aerial marine proof links, budget calculator cross-links, and FAQPage JSON-LD schemas in EN and ES.",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, worktree .worktrees/demand-wave-restaurant-promo-depth-20260905, branch feat/demand-wave-restaurant-promo-depth-20260905, move class content_depth + title_meta_rewrite + schema_faq. CTO decision record 20260905T075628Z-cto-seo-lead-esteban-media-1788594989504487000-99446-7051e76e2940b5a7.json, kpi-esteban-traffic.",
+    "hard_stops_checked": "Checked and clear. No invented clients/prices/reviews/stats/guarantees, no street address, no drone-pilot/Part 107 claims, no aggregateRating. Retains boundary 'material suministrado por el cliente' / 'client-supplied footage'. Strict EN/ES parity maintained. Frozen inventory verified at exactly 243 URLs with 0 new or modified indexable routes.",
+    "verification": "pnpm lint, pnpm typecheck, pnpm test 59 files / 421 tests, git diff --check exit 0. New regression test app/__tests__/yacht-hospitality-video-depth.test.ts pins copy substance, guide links, and FAQPage schema visibility for both locales.",
+    "reviewer_ensemble": {
+      "builder": {
+        "status": "ok",
+        "note": "Antigravity builder executed move class 1 & 3 (content depth + metadata optimization + FAQPage JSON-LD + guide internal linking) on Yacht Hospitality Video Fort Lauderdale service pages in EN and ES; all acceptance suites passed."
+      },
+      "skeptic": {
+        "status": "ok",
+        "note": "Deterministic adversarial scan verified: 0 banned claims (prices, %, guarantees, fake stats, drone claims), marine audio and safe zone guidance accurate, EN/ES parity complete, sitemap URL count strictly preserved at 243."
+      },
+      "taste": {
+        "status": "ok",
+        "note": "Copy cleanly articulates marine post-production: luxury lifestyle pacing, multi-format delivery (16:9 widescreen broker masters vs 9:16 vertical charter reels), water reflection color grading, wind noise suppression, and contextual linking to technical guides."
+      }
+    },
+    "reviewer_disagreement_reviewed": "No disagreement. Skeptic confirmed zero policy violations and zero inventory drift; taste review confirmed clear marine video post-production guidance and proof integration.",
+    "winner_rationale": "Chosen move: depth + FAQPage JSON-LD schema expansion and intent-led metadata rewrite for Yacht Hospitality Video Fort Lauderdale in EN & ES to capture commercial inquiry demand from GSC striking-distance queries without sitemap drift.",
+    "tests_or_validation": "pnpm lint exit 0; pnpm typecheck exit 0; pnpm test 59 files / 421 tests all pass including app/__tests__/yacht-hospitality-video-depth.test.ts; git diff --check clean.",
+    "debt_delta": "Net negative debt: adds regression testing for Yacht Hospitality Video page depth, metadata bounds, and FAQ schema; zero new runtime dependencies or routes.",
+    "obsidian_handoff": "esteban-media-hot.md updated with PR-180 record, move class content_depth + schema_faq, and scheduled verification dates."
+  },
+  "reviewer_ensemble": {
+    "builder": {
+      "status": "ok",
+      "note": "Antigravity builder executed move class 1 & 3 (content depth + metadata optimization + FAQPage JSON-LD + guide internal linking) on Yacht Hospitality Video Fort Lauderdale service pages in EN and ES; all acceptance suites passed."
+    },
+    "skeptic": {
+      "status": "ok",
+      "note": "Deterministic adversarial scan verified: 0 banned claims (prices, %, guarantees, fake stats, drone claims), marine audio and safe zone guidance accurate, EN/ES parity complete, sitemap URL count strictly preserved at 243."
+    },
+    "taste": {
+      "status": "ok",
+      "note": "Copy cleanly articulates marine post-production: luxury lifestyle pacing, multi-format delivery (16:9 widescreen broker masters vs 9:16 vertical charter reels), water reflection color grading, wind noise suppression, and contextual linking to technical guides."
+    }
+  },
+  "winner_rationale": "Chosen move: depth + FAQPage JSON-LD schema expansion and intent-led metadata rewrite for Yacht Hospitality Video Fort Lauderdale in EN & ES to capture commercial inquiry demand from GSC striking-distance queries without sitemap drift.",
+  "reviewer_disagreement_reviewed": "No disagreement. Skeptic confirmed zero policy violations and zero inventory drift; taste review confirmed clear marine video post-production guidance and proof integration.",
+  "tests_or_validation": "pnpm lint exit 0; pnpm typecheck exit 0; pnpm test 59 files / 421 tests all pass including app/__tests__/yacht-hospitality-video-depth.test.ts; git diff --check clean."
+}

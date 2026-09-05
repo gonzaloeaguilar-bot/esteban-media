@@ -8,7 +8,7 @@ const pageMetadata = buildSpanishNicheMetadata(slug);
 
 export const metadata = {
   ...pageMetadata,
-  title: { absolute: "Video para Yates y Hospitalidad | Fort Lauderdale" },
+  title: { absolute: "Video para Yates y Hospitalidad en Fort Lauderdale" },
 };
 
 export default function Page() {
