@@ -57,7 +57,14 @@ export default function SpanishAboutPage() {
                 es el fundador de Esteban Moreno Media en Fort Lauderdale.
                 El servicio publicado se enfoca en edición de video, contenido
                 asistido por IA, planificación para redes y producción definida
-                según cada proyecto remoto o seleccionado en South Florida.
+                según cada proyecto remoto o cobertura en{" "}
+                <Link
+                  href="/es/areas"
+                  className="underline underline-offset-4 hover:text-[#9f3c27]"
+                >
+                  tres condados como área de servicio
+                </Link>{" "}
+                en South Florida.
               </p>
               <p className="mt-4 max-w-2xl leading-7 text-[#252a2d]">
                 Su{" "}
