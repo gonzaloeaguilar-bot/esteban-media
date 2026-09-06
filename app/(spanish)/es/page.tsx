@@ -120,7 +120,14 @@ export default function SpanishHomePage() {
                 <p className="mt-3 max-w-2xl text-sm leading-6 text-[#252a2d]">
                   Comparte la meta, el condado, el{" "}
                   <Link href="/es/calculadora">material disponible</Link>, el uso
-                  previsto y links de referencia. Las{" "}
+                  previsto y links de referencia. Consulta las{" "}
+                  <Link
+                    href="/es/areas"
+                    className="underline underline-offset-4 hover:text-[#9f3c27]"
+                  >
+                    áreas de servicio
+                  </Link>{" "}
+                  al indicar dónde se realizaría la grabación. Las{" "}
                   <Link
                     href="/es/guias"
                     className="underline underline-offset-4 hover:text-[#9f3c27]"
