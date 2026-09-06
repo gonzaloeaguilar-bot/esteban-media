@@ -264,7 +264,13 @@ export default function SpanishServicesPage() {
                 <MapPin className="size-7 text-[#e85d3e]" aria-hidden="true" />
                 <h3 className="mt-4 font-serif text-3xl">Captura en South Florida</h3>
                 <p className="mt-3 leading-7 text-[#252a2d]">
-                  Fort Lauderdale y Broward son la base local. Hay proyectos
+                  <Link
+                    href="/es/areas"
+                    className="underline underline-offset-4 hover:text-[#9f3c27]"
+                  >
+                    Fort Lauderdale
+                  </Link>{" "}
+                  y Broward son la base local. Hay proyectos
                   seleccionados en Miami-Dade, mientras Palm Beach County sigue
                   siendo un área de expansión considerada por proyecto.
                 </p>

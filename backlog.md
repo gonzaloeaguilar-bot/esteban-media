@@ -18,6 +18,8 @@ Production is live. This file tracks repository implementation; account/access w
 
 ## P1 — Technical SEO / GEO / ALOHA
 
+- [x] Prepare two contextual body-copy links to `/es/areas` from `/es` and `/es/servicios`; preserve existing hub return links. Independent review and release remain with the parent dispatch.
+
 - [x] Prepare the `priority-growth:2026-09-02:esteban:replacement:recovery-7` English homepage proof-cue CTR refinement: retain the observed service terms and scoped-production boundary, then replace the generic portfolio callout with “View video editing work” in search and social descriptions; release verification and a later Search Console query/page observation remain required.
 - [x] Prepare the `priority-growth:2026-09-03:esteban:recovery-6` English homepage website-designer snippet alignment: search, Open Graph, and X descriptions now use the observed `website designer` wording while retaining video editing services and scoped video production services; release verification and a later Search Console query/page observation remain required.
 - [x] Prepare the `priority-growth:2026-09-03:esteban:recovery-5` English homepage portfolio-cue CTR contract: retain the observed service terms and scoped-production boundary, then consistently add “View portfolio work” to search and social descriptions; release verification and a later Search Console query/page observation remain required.
