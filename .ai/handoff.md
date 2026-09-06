@@ -1,3 +1,10 @@
+## Overnight draft repair verification — 2026-09-06
+
+- Repaired the retained branch's missing `.overnight-verification.json` evidence manifest. It now validates two absolute production pages (`https://estebanmorenomedia.com/` and `/es`) against distinctive visible quick-select labels; it remains uncommitted by design.
+- The required validator now exits `0` with `{"valid": true, "pages": 2}`. `pnpm check` exits `0` with lint, typecheck, 60 test files / 423 tests, and a 309-page production build. `git diff --check` exits `0`.
+- Local rendered HTTP smoke checks against `pnpm start --port 3187` returned `200` for `/` and `/es`; scoped form parsing found the exact English order `AI chatbots`, `Email and SMS follow-up`, `Website design` and Spanish order `Chatbots con IA`, `Seguimiento por email y SMS`, `Diseño web`, exit `0`.
+- `git ls-remote origin refs/heads/main` remains represented by `origin/main` at `a71e1e4`; the branch is ahead by three commits. No push, PR, deployment, or external lead submission was performed.
+
 ## Overnight draft repair — 2026-09-05
 
 - Scope: retained branch `growth/overnight-esteban-20260905-1521`, original commit `f407bad`; only the existing homepage intake shortcuts were repaired. Graph dependencies: `hero-video` → `hero-project-intake` → `analytics-events`.
