@@ -21,6 +21,14 @@
 - Re-ran `pnpm check`: lint, typecheck, 60 test files / 423 tests, and the 309-page production build all exited 0. `git diff --check` also exited 0.
 - Repaired the uncommitted `.overnight-verification.json` assertions to check distinctive visible shortcut labels on `https://estebanmorenomedia.com/` and `/es`. Whole-page order was intentionally not asserted because `Website design` already appears elsewhere on the homepage; the built HTTP boundary separately verified the shortcut button order in both locales.
 
+## Spanish areas contextual inbound links — 2026-09-05
+
+- Added two body-copy links to `/es/areas`: location planning on `/es` and the existing Fort Lauderdale sentence on `/es/servicios`. Anchors use the target's visible heading language. Existing `/es/servicios#edicion` and `#videografia` return links already satisfy the hub-link requirement.
+- Inspected the supplied Graphify dependencies and shared context packet; both SHA-256 hashes match the dispatch. The supplied earning-page list is empty; these sources were selected for topical relevance, with earnings unverified.
+- The orphan premise recurs despite prior portfolio-to-areas work: current source already contains links from portfolio, contact, services, and the Palm Beach page. `curl` verified the target returns HTTP 200. No indexing or traffic improvement is claimed.
+- Validation: `npm run typecheck --silent`, `pnpm lint`, and `git diff --check` exited 0. Full `pnpm test`: 420/421 passed, with a five-second timeout in the unchanged English portfolio mesh test. Isolated default retry also timed out; `pnpm exec vitest run lib/__tests__/portfolio.test.ts --maxWorkers=1 --minWorkers=1 --testTimeout=30000` passed all 19 tests. No test/config changes were made. Production build and deployment were not run in this scoped implementation dispatch.
+- Parent `cto-qa-lead`: complete independent review and any release checks before shipping. External Obsidian/registry writes and provider dispatch records are deferred because this task confines writes to this worktree. Detector follow-up: check actual inbound links before labeling an existing route orphaned.
+
 # Esteban Moreno Media — Engineering Handoff
 
 ## Homepage video-editing proof cue — 2026-09-03
