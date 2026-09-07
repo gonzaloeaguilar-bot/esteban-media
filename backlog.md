@@ -83,3 +83,6 @@ Production is live. This file tracks repository implementation; account/access w
 - [x] Canonical custom domain and Vercel production deployment
 - [x] Dedicated Obsidian project module and repository governance
 - [x] Canonical GitHub-backed local checkout at `/Users/gonzalo/code/esteban-media`
+
+- [x] Repair 2026-09-05 retained homepage inquiry shortcuts for bilingual technology services and accessibility; local gates and rendered HTTP checks passed.
+- [ ] cto-qa-lead: review retained draft before release, then verify production shortcut content and synchronize canonical notes after deployment.

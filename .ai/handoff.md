@@ -1,3 +1,26 @@
+## Overnight draft repair verification — 2026-09-06
+
+- Repaired the retained branch's missing `.overnight-verification.json` evidence manifest. It now validates two absolute production pages (`https://estebanmorenomedia.com/` and `/es`) against distinctive visible quick-select labels; it remains uncommitted by design.
+- The required validator now exits `0` with `{"valid": true, "pages": 2}`. `pnpm check` exits `0` with lint, typecheck, 60 test files / 423 tests, and a 309-page production build. `git diff --check` exits `0`.
+- Local rendered HTTP smoke checks against `pnpm start --port 3187` returned `200` for `/` and `/es`; scoped form parsing found the exact English order `AI chatbots`, `Email and SMS follow-up`, `Website design` and Spanish order `Chatbots con IA`, `Seguimiento por email y SMS`, `Diseño web`, exit `0`.
+- `git ls-remote origin refs/heads/main` remains represented by `origin/main` at `a71e1e4`; the branch is ahead by three commits. No push, PR, deployment, or external lead submission was performed.
+
+## Overnight draft repair — 2026-09-05
+
+- Scope: retained branch `growth/overnight-esteban-20260905-1521`, original commit `f407bad`; only the existing homepage intake shortcuts were repaired. Graph dependencies: `hero-video` → `hero-project-intake` → `analytics-events`.
+- Replaced video/content shortcuts with localized AI chatbot, email/SMS follow-up, and website inquiries, matching the dispatch priorities and existing `lib/growth-systems.ts` / `lib/portfolio.ts` capabilities. Added accessible pressed state, field association, 44px minimum targets, focus outline, and disabled shortcuts while submitting. No delivery claims, new integrations, or external messages.
+- Live `git ls-remote origin refs/heads/main` matched local `origin/main` at `a71e1e4`; no merge needed. `gh run list --branch growth/overnight-esteban-20260905-1521 --limit 5 --json databaseId,status,conclusion,url` returned `[]`; no branch CI failures were available.
+- Initial `pnpm check` exited 1 because dependencies were missing. `pnpm install --frozen-lockfile --store-dir .pnpm-store` exited 0 (store subsequently moved under ignored node_modules). Added regression initially failed on attribute ordering; corrected to inspect the required field independently. Final `pnpm check` exited 0: lint, typecheck, 60 test files / 423 tests, and production build. `git diff --check` exited 0.
+- `pnpm start --port 3187` plus Python urllib/HTMLParser checks returned HTTP 200 for `/` and `/es`; all localized shortcut text appeared in visible HTML in the specified order. Live production reads returned HTTP 200 but lacked the new shortcut content, as expected for an unpublished branch. No lead was submitted; production behavior is not claimed verified.
+- `.overnight-verification.json` contains exact production URL/text/order assertions and remains uncommitted. Local check/install/server logs are ignored. No push or PR creation.
+- Next: cto-qa-lead reviews this retained draft before any release; after authorized deployment, run the uncommitted assertions against production. Canonical wiki/registry writes were deferred because this dispatch restricts all writes to this worktree; this entry is the local handoff for that synchronization.
+
+## Overnight evidence repair — 2026-09-05
+
+- The prior CTO attempt failed before verification because the provider returned an empty response; no code change was required. `origin/main` remains `a71e1e4`, and the retained branch remains two commits ahead.
+- Re-ran `pnpm check`: lint, typecheck, 60 test files / 423 tests, and the 309-page production build all exited 0. `git diff --check` also exited 0.
+- Repaired the uncommitted `.overnight-verification.json` assertions to check distinctive visible shortcut labels on `https://estebanmorenomedia.com/` and `/es`. Whole-page order was intentionally not asserted because `Website design` already appears elsewhere on the homepage; the built HTTP boundary separately verified the shortcut button order in both locales.
+
 ## Spanish areas contextual inbound links — 2026-09-05
 
 - Added two body-copy links to `/es/areas`: location planning on `/es` and the existing Fort Lauderdale sentence on `/es/servicios`. Anchors use the target's visible heading language. Existing `/es/servicios#edicion` and `#videografia` return links already satisfy the hub-link requirement.
