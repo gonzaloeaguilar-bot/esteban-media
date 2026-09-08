@@ -261,13 +261,20 @@ export default function AreasPage() {
             <p className="mt-4 max-w-3xl leading-7 text-[#252a2d]">
               This page explains where Esteban works. For restaurant promotion
               details and the relevant project inquiry, use the dedicated Miami
-              service page.
+              service page for{" "}
+              <Link
+                href="/services/restaurant-promo-video-editing-miami"
+                className="underline underline-offset-4 hover:text-[#9f3c27]"
+              >
+                restaurant promo video editing in Miami
+              </Link>
+              .
             </p>
             <Link
               href="/services/restaurant-promo-video-editing-miami"
               className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27] hover:text-[#7f2f20]"
             >
-              Explore restaurant promo video editing in Miami
+              Restaurant promo video editing in Miami
               <ArrowRight className="size-4" aria-hidden="true" />
             </Link>
           </section>
