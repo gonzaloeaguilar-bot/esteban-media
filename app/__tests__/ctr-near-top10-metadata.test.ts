@@ -38,10 +38,10 @@ describe("near-top-10 CTR metadata and canonical service targeting", () => {
       "Explore video editing, AI-assisted content, and social planning for Fort Lauderdale, Broward, and Miami-Dade. Palm Beach projects are scoped individually.",
     );
     expect(englishPortfolioMetadata.title).toBe(
-      "Miami & Fort Lauderdale Video Editing Portfolio",
+      "Miami Video Editing Portfolio | Real Work",
     );
     expect(englishPortfolioMetadata.description).toBe(
-      "See selected video editing, promotional, social, event, animation, and narrative work from Esteban Moreno Media for Miami and Fort Lauderdale projects.",
+      "See real restaurant, real estate, brand, social, event, and animation video work from Esteban Moreno Media in Miami and Fort Lauderdale, with project details.",
     );
     expect(spanishAreasMetadata.title).toBe(
       "Servicios de edición de video en Miami y Fort Lauderdale",

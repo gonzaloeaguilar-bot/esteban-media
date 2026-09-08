@@ -26,6 +26,10 @@ describe("portfolio content depth and technical specifications", () => {
 
     const text = collectStrings(page);
 
+    expect(text).toContain(
+      "Browse real video editing work from Esteban Moreno Media, including restaurant, real estate, brand, social, event, animation, and narrative projects.",
+    );
+
     // Verifies technical delivery standards section
     expect(text).toContain("Technical specifications and delivery standards for every edit");
     expect(text).toContain("Multi-Platform Aspect Ratios");

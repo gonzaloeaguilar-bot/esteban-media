@@ -9,7 +9,7 @@ describe("portfolio social metadata", () => {
     expect(spanishMetadata.alternates?.canonical).toBe("/es/portafolio");
     expect(englishMetadata.twitter).toMatchObject({
       card: "summary_large_image",
-      description: expect.stringContaining("selected"),
+      description: expect.stringContaining("real restaurant"),
     });
     expect(spanishMetadata.twitter).toMatchObject({
       card: "summary_large_image",
