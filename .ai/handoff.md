@@ -1,3 +1,10 @@
+## Overnight draft repair — 2026-09-08
+
+- Repaired the retained branch `growth/overnight-esteban-20260908-1708` by restoring the required uncommitted `.overnight-verification.json` manifest for `/areas`. It asserts the two distinctive visible labels introduced by the English Areas-page link change.
+- Live local validation: `verify-content.py ... --validate-only` exited 0 (`{"valid": true, "pages": 1}`). The local production server returned HTTP 200 for `/areas`; both changed labels were visible and the target service href appeared four times total, including two pre-existing related links.
+- Deterministic gates: focused regression 4/4 passed; `pnpm check` passed lint, typecheck, 60 test files / 423 tests, and a 309-page production build; `git diff --check` exited 0.
+- No push, PR, deployment, provider dispatch, or external lead submission was performed. The manifest remains uncommitted by design.
+
 ## Overnight draft repair verification — 2026-09-06
 
 - Repaired the retained branch's missing `.overnight-verification.json` evidence manifest. It now validates two absolute production pages (`https://estebanmorenomedia.com/` and `/es`) against distinctive visible quick-select labels; it remains uncommitted by design.
