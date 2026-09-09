@@ -167,6 +167,19 @@ export default function SpanishAreasPage() {
       />
       <section className="py-12 sm:py-16">
         <Container size="xl">
+          <nav aria-label="Migas de pan" className="mb-6 text-sm text-[#5a6066]">
+            <ol className="flex flex-wrap items-center gap-2">
+              <li>
+                <Link href="/es" className="hover:text-[#9f3c27]">
+                  Inicio
+                </Link>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li aria-current="page" className="text-[#252a2d]">
+                Áreas de servicio
+              </li>
+            </ol>
+          </nav>
           <p className="text-xs font-medium uppercase text-[#5a6066]">
             Áreas de servicio
           </p>

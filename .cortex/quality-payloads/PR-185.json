@@ -1,0 +1,49 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-185",
+  "status": "review_pending",
+  "evidence": {
+    "obsidian_context": "Rebuild of conflicted PR #179 (internal links for areas, growth-starvation remediation) on current main. Only the parts not already merged via #177/#181: breadcrumb nav on /es/areas, /es/areas contextual link boxes on /es/calculadora and /es/evaluacion, and an /es/areas link in the /es/sobre-esteban bio. Homepage hunk skipped because main already carries both /es/areas and /es/guias links there.",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, worktree /tmp/em-relink, branch fix/relink-179-141, move class internal_link_remediation.",
+    "hard_stops_checked": "Checked and clear. Copy is navigational only; no business-detail changes, no pricing, no new URLs.",
+    "reviewer_ensemble": "builder pass, skeptic pass, taste pass.",
+    "reviewer_disagreement_reviewed": "Skeptic verified each hunk against current main before re-applying: grep confirmed the breadcrumb and the three /es/areas links were absent, and confirmed the homepage link already exists on main, so that hunk was intentionally dropped instead of duplicated.",
+    "winner_rationale": "Re-applying by intent instead of a textual merge avoids duplicating links already merged in #177/#181 while restoring the four missing inbound links to /es/areas that the growth-starvation dispatch targeted.",
+    "tests_or_validation": "npm run typecheck exit 0 (tsc binary verified present after fresh npm ci); vitest run 60/60 files, 423/423 tests passed.",
+    "ci_passed": "GitHub Actions validate job green on PR #185 (run 34366674200); Vercel preview deployment completed.",
+    "pr_review_complete": "Self-review across app/(spanish)/es/areas/page.tsx, calculadora/page.tsx, evaluacion/page.tsx, sobre-esteban/page.tsx; verified each edit matches the original #179 markup and Link import already present in every file.",
+    "deploy_or_rollback_plan": "Standard squash-merge to main triggering Vercel deploy. Rollback is a clean git revert of the squash commit.",
+    "post_change_verification": "Monitor /es/areas inbound-link coverage and Search Console clicks for the Spanish area pages over the next 28-day window.",
+    "claim_hygiene_checked": "No new factual business claims; only navigation copy reusing wording already reviewed in the original #179 dispatch.",
+    "debt_delta": "improvement",
+    "obsidian_handoff": "Replacement for conflicted #179; old PR left open with a comment linking here per instruction."
+  },
+  "project_routing": {
+    "canonical_repo": "/Users/gonzalo/code/esteban-media",
+    "worktree": "/tmp/em-relink",
+    "branch": "fix/relink-179-141",
+    "move_class": "internal_link_remediation"
+  },
+  "hard_stops_checked": {
+    "pricing_or_offers": "none touched",
+    "factual_business_claims": "none added; navigational copy only",
+    "deployment": "not performed in this step",
+    "third_party_services_or_backends": "none added",
+    "external_outreach": "none performed",
+    "url_inventory": "no URL additions or removals"
+  },
+  "reviewer_ensemble": {
+    "builder": {"status": "pass", "note": "Re-applied the four missing hunks of #179 with the original markup on current main."},
+    "skeptic": {"status": "pass", "note": "Verified via grep that each link was absent on main and that the homepage hunk is already covered by #177/#181; 423/423 tests pass."},
+    "taste": {"status": "pass", "note": "Breadcrumb and link-box styling match the existing Spanish page system (same tokens and classes)."}
+  },
+  "tests_or_validation": {
+    "commands": ["npm ci", "npm run typecheck", "npm test"],
+    "results": "tsc clean; 60/60 test files, 423/423 tests passed.",
+    "known_failure": "none",
+    "browser": "not required - static server-rendered markup covered by route tests."
+  },
+  "source_material_checked": "gh pr diff 179; app/(spanish)/es pages on origin/main",
+  "data_sources_current": {"pr_179_diff": "fetched 2026-09-09", "main_head": "7385054"}
+}
