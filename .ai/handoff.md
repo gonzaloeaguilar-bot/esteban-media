@@ -1,3 +1,8 @@
+## Spanish guide-hub inbound links — 2026-09-09 (rebuild of PR #141)
+
+- Added two contextual inbound links to `/es/guias`: one from the Spanish product-photography cost guide when preparing a content brief, and one from the English service-areas page for Spanish-first clients planning a remote handoff. The Spanish homepage link remains in place from the prior merged remediation.
+- Verification: `npm run typecheck --silent`, `npm test`, and `git diff --check` exited 0. This change has not been deployed or measured in Search Console.
+
 ## Overnight draft repair — 2026-09-08
 
 - Repaired the retained branch `growth/overnight-esteban-20260908-1708` by restoring the required uncommitted `.overnight-verification.json` manifest for `/areas`. It asserts the two distinctive visible labels introduced by the English Areas-page link change.

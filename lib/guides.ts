@@ -1016,7 +1016,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Cómo preparar un brief técnico para recibir una cotización precisa sin sobrecostos",
           paragraphs: [
-            "Dado que no existe una tarifa única responsable antes de definir el brief técnico, la mejor forma de asegurar una cotización ajustada a tus necesidades reales es proporcionar especificaciones claras desde el primer contacto.",
+            "Dado que no existe una tarifa única responsable antes de definir el brief técnico, la mejor forma de asegurar una cotización ajustada a tus necesidades reales es proporcionar especificaciones claras desde el primer contacto. Las [guías prácticas de video](/es/guias) ayudan a definir y revisar las decisiones de contenido antes de preparar ese brief.",
             "Te recomendamos preparar un inventario con el número exacto de SKUs clasificados por tipo de material (mate, reflectante, translúcido o textil), los ángulos obligatorios por artículo, los canales donde se publicarán las imágenes y ejemplos visuales de referencia que reflejen el tono estético deseado.",
             "Aclarar también las posibles exclusiones habituales —como la compra de utilería perecedera, modelos de manos o los costos de envío y devolución de las muestras físicas— permite estructurar una propuesta sin ambigüedades. Puedes explorar alternativas de producción visual y consultar nuestra [calculadora de presupuesto](/es/calculadora) o escribirnos directamente a través de [contacto](/es/contacto) para evaluar el alcance específico de tu catálogo comercial.",
           ],

@@ -173,7 +173,16 @@ export default function AreasPage() {
                 <p className="mt-3 leading-7 text-[#252a2d]">
                   Video editing, AI-assisted content, and social planning can
                   begin with existing files and references. Those services are
-                  available to clients beyond South Florida.
+                  available to clients beyond South Florida. Spanish-first
+                  clients can use the{" "}
+                  <Link
+                    href="/es/guias"
+                    className="underline underline-offset-4 hover:text-[#9f3c27]"
+                  >
+                    practical video guides
+                  </Link>{" "}
+                  to define and review their next video project before a
+                  remote handoff.
                 </p>
                 <Link
                   href="/services#editing"
