@@ -1,0 +1,65 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-186",
+  "status": "review_pending",
+  "evidence": {
+    "obsidian_context": "Rebuild of conflicted PR #141 (internal links for guias) on current main. Adds two contextual inbound links to /es/guias: from the English /areas remote-editing card for Spanish-first clients, and from the Spanish product-photography cost guide brief section in lib/guides.ts. Also records the work in backlog.md and .ai/handoff.md. Spanish homepage /es/guias link already on main.",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, worktree /tmp/em-relink, branch fix/relink-141, move class internal_link_remediation.",
+    "hard_stops_checked": "Checked and clear. Copy is navigational only; no business-detail changes, no pricing, no new URLs.",
+    "reviewer_ensemble": "builder pass, skeptic pass, taste pass.",
+    "reviewer_disagreement_reviewed": "Skeptic verified via grep that neither /es/guias link existed on current main before re-applying, and that the homepage /es/guias link the original handoff note references is already merged.",
+    "winner_rationale": "Restores the two missing inbound links to the Spanish guide hub targeted by the original growth-starvation dispatch without duplicating the already-merged homepage link.",
+    "tests_or_validation": "npm run typecheck exit 0 (tsc binary verified present after fresh npm ci); vitest run 60/60 files, 423/423 tests passed.",
+    "ci_passed": "GitHub Actions validate job green on PR #186 (run 34366792562); Vercel preview deployment completed.",
+    "pr_review_complete": "Self-review across app/(english)/areas/page.tsx, lib/guides.ts, backlog.md, .ai/handoff.md; git diff --check clean.",
+    "deploy_or_rollback_plan": "Standard squash-merge to main triggering Vercel deploy. Rollback is a clean git revert of the squash commit.",
+    "post_change_verification": "Monitor /es/areas inbound-link coverage and Search Console clicks for the Spanish area pages over the next 28-day window.",
+    "claim_hygiene_checked": "No new factual business claims; only navigation copy reusing wording already reviewed in the original #179 dispatch.",
+    "debt_delta": "improvement",
+    "obsidian_handoff": "Replacement for conflicted #141; old PR left open with a comment linking here per instruction."
+  },
+  "project_routing": {
+    "canonical_repo": "/Users/gonzalo/code/esteban-media",
+    "worktree": "/tmp/em-relink141",
+    "branch": "fix/relink-141",
+    "move_class": "internal_link_remediation"
+  },
+  "hard_stops_checked": {
+    "pricing_or_offers": "none touched",
+    "factual_business_claims": "none added; navigational copy only",
+    "deployment": "not performed in this step",
+    "third_party_services_or_backends": "none added",
+    "external_outreach": "none performed",
+    "url_inventory": "no URL additions or removals"
+  },
+  "reviewer_ensemble": {
+    "builder": {
+      "status": "pass",
+      "note": "Re-applied both /es/guias inbound links plus backlog and handoff records on current main."
+    },
+    "skeptic": {
+      "status": "pass",
+      "note": "Verified links absent on main; 423/423 tests pass; git diff --check clean."
+    },
+    "taste": {
+      "status": "pass",
+      "note": "Link copy matches existing bilingual navigation style and tokens."
+    }
+  },
+  "tests_or_validation": {
+    "commands": [
+      "npm ci",
+      "npm run typecheck",
+      "npm test"
+    ],
+    "results": "tsc clean; 60/60 test files, 423/423 tests passed.",
+    "known_failure": "none",
+    "browser": "not required - static server-rendered markup covered by route tests."
+  },
+  "source_material_checked": "gh pr diff 141; app/(english)/areas/page.tsx and lib/guides.ts on origin/main",
+  "data_sources_current": {
+    "pr_141_diff": "fetched 2026-09-09",
+    "main_head": "7385054"
+  }
+}

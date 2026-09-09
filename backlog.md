@@ -47,6 +47,7 @@ Production is live. This file tracks repository implementation; account/access w
 - [ ] Add `ImageObject`/logo schema when approved brand photography and logo files are available
 - [ ] Add English priority-service pages when distinct, verified content is ready
 - [x] Strengthen the homepage, bilingual service/area hubs, internal proof links, and Esteban entity graph using only approved facts
+- [x] Add contextual inbound links to the existing Spanish practical-video guide hub from earning content and service-area pages
 - [x] Add a bilingual homepage authority hub that connects priority services to three accurately credited portfolio projects
 - [x] Rebuild the corporate-video pricing guide with transparent scope factors, quote inputs, decision criteria, visible FAQ, and matching structured data
 - [x] Freeze the 259-URL sitemap until the current inventory is classified; CI now rejects URL-count growth or duplication
