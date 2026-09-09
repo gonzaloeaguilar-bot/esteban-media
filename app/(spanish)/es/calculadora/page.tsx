@@ -48,6 +48,19 @@ export default function SpanishCalculatorPage() {
           </nav>
 
           <VideoBudgetEstimator locale="es" />
+
+          <div className="mt-12 rounded-xl border border-[#ddd4c8] bg-[#fbf6ef] p-6 text-sm text-[#252a2d]">
+            <p>
+              Las tarifas estimadas aplican a postproducción remota y rodajes locales. Revisa la cobertura en nuestras{" "}
+              <Link
+                href="/es/areas"
+                className="font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#7f2f20]"
+              >
+                áreas de servicio de video en South Florida
+              </Link>{" "}
+              para planificar el alcance geográfico de tu producción.
+            </p>
+          </div>
         </Container>
       </section>
     </main>
