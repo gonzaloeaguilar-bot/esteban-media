@@ -32,9 +32,9 @@ import { buildPortfolioCollectionSchema } from "@/lib/portfolio-schema";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
-const title = "Miami & Fort Lauderdale Video Editing Portfolio";
+const title = "Miami Video Editing Portfolio | Real Work";
 const description =
-  "See selected video editing, promotional, social, event, animation, and narrative work from Esteban Moreno Media for Miami and Fort Lauderdale projects.";
+  "See real restaurant, real estate, brand, social, event, and animation video work from Esteban Moreno Media in Miami and Fort Lauderdale, with project details.";
 const liveItems = getLiveYouTubePortfolioItems(PORTFOLIO_ITEMS);
 const primaryPoster = liveItems.find((item) =>
   item.media.poster.startsWith("/portfolio/"),
@@ -227,10 +227,11 @@ export default function PortfolioPage() {
                 Real projects, presented in their original form.
               </h1>
               <p className="mt-6 max-w-2xl text-base leading-7 text-[#d8d0c7] sm:text-lg sm:leading-8">
-                A curated collection from Esteban&apos;s approved portfolio. Each
-                card shows the available project description and credits; when
-                the original portfolio did not specify an individual role, the
-                card says so plainly.
+                Browse real video editing work from Esteban Moreno Media,
+                including restaurant, real estate, brand, social, event,
+                animation, and narrative projects. Each published card shows
+                the available project description and credits, and says plainly
+                when an individual role was not specified.
               </p>
             </div>
             <div className="border-l border-white/15 pl-6">
