@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl } from "@/lib/site";
+import { PRODUCT_PHOTO_MARKET, usd } from "@/lib/pricing";
 
 export const GUIDE_IDS = [
   "prepare-footage",
@@ -913,7 +914,7 @@ const guidePairs: readonly GuidePair[] = [
           heading: "Industry pricing models and market context",
           paragraphs: [
             "Commercial creators and studios typically use three pricing models: per-image rates, day rates, or complete project package pricing. Standard e-commerce catalog photos are usually billed per photo for larger volumes, while custom lifestyle launches are quoted on a project scope basis.",
-            "As general South Florida market context, simple white-background catalog images are commonly quoted around $25 to $50 USD each, with Miami studios advertising entry rates near $35 per image; styled lifestyle work with props or models is quoted far higher per image, and half-day sessions in Miami commonly run $300 to $1,000 USD plus production expenses. These figures are published market rates for the area, not a price commitment from Esteban Moreno Media, and the ranges move with volume, retouching depth and usage rights. For a figure tied to your actual scope use the [budget estimator](/calculator), and for a written quote reach out via [contact](/contact).",
+            `As general South Florida market context, simple white-background catalog images are commonly quoted around ${usd(PRODUCT_PHOTO_MARKET.perImageMin)} to ${usd(PRODUCT_PHOTO_MARKET.perImageMax)} USD each, with Miami studios advertising entry rates near ${usd(PRODUCT_PHOTO_MARKET.miamiEntryPerImage)} per image; styled lifestyle work with props or models is quoted far higher per image, and half-day sessions in Miami commonly run ${usd(PRODUCT_PHOTO_MARKET.halfDayMin)} to ${usd(PRODUCT_PHOTO_MARKET.halfDayMax)} USD plus production expenses. These figures are published market rates for the area, not a price commitment from Esteban Moreno Media, and the ranges move with volume, retouching depth and usage rights. For a figure tied to your actual scope use the [budget estimator](/calculator), and for a written quote reach out via [contact](/contact).`,
           ],
         },
         {
@@ -989,7 +990,7 @@ const guidePairs: readonly GuidePair[] = [
           paragraphs: [
             "En la industria audiovisual y fotográfica comercial existen tres modelos habituales para estructurar los presupuestos de fotografía de producto: costo por imagen unitaria, tarifa por jornada de producción (day rate o half-day rate) y tarifa por paquete de proyecto cerrado.",
             "El modelo de costo por imagen unitaria es el estándar preferido en proyectos de catálogo e-commerce de mediano y alto volumen. Permite a las marcas calcular con exactitud su costo de adquisición visual por producto. En producciones donde los requisitos de iluminación y set cambian constantemente entre artículos, los fotógrafos y estudios suelen optar por tarifas de jornada, donde se reserva el estudio, el equipamiento de iluminación y el equipo humano por bloques de tiempo.",
-            "Como contexto general del mercado de South Florida, las fotos simples de catálogo con fondo blanco se cotizan por lo común entre $25 y $50 USD por imagen, y hay estudios de Miami que publican tarifas de entrada cercanas a $35 por imagen; el trabajo de estilo de vida con ambientación o modelos se cotiza bastante más alto por imagen, y las sesiones de medio día en Miami suelen ubicarse entre $300 y $1,000 USD más costos de producción. Son tarifas publicadas del mercado local, no una oferta de Esteban Moreno Media, y los rangos se mueven según volumen, nivel de retoque y derechos de uso. Para una cifra atada a tu alcance real usa la [calculadora de presupuesto](/es/calculadora), y para una cotización escrita escríbenos por [contacto](/es/contacto).",
+            `Como contexto general del mercado de South Florida, las fotos simples de catálogo con fondo blanco se cotizan por lo común entre ${usd(PRODUCT_PHOTO_MARKET.perImageMin)} y ${usd(PRODUCT_PHOTO_MARKET.perImageMax)} USD por imagen, y hay estudios de Miami que publican tarifas de entrada cercanas a ${usd(PRODUCT_PHOTO_MARKET.miamiEntryPerImage)} por imagen; el trabajo de estilo de vida con ambientación o modelos se cotiza bastante más alto por imagen, y las sesiones de medio día en Miami suelen ubicarse entre ${usd(PRODUCT_PHOTO_MARKET.halfDayMin)} y ${usd(PRODUCT_PHOTO_MARKET.halfDayMax)} USD más costos de producción. Son tarifas publicadas del mercado local, no una oferta de Esteban Moreno Media, y los rangos se mueven según volumen, nivel de retoque y derechos de uso. Para una cifra atada a tu alcance real usa la [calculadora de presupuesto](/es/calculadora), y para una cotización escrita escríbenos por [contacto](/es/contacto).`,
           ],
           bullets: [
             "Tarifa por imagen (cost per image): ideal para catalogación masiva con iluminación constante",
