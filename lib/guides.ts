@@ -2095,6 +2095,49 @@ const guidePairs: readonly GuidePair[] = [
             "Keep subtitles away from bottom Instagram UI buttons and top account headers to ensure full legibility. When formatting dynamic text for dining reels, [restaurant promo video editing in Miami](/services/restaurant-promo-video-editing-miami) balances animated captions with mouth-watering food visuals.",
           ],
         },
+        {
+          heading: "Choose caption styles by viewing context",
+          paragraphs: [
+            "Reels, Shorts, and TikTok clips are often watched without sound, but the right subtitle treatment depends on how much the viewer needs to understand. Talking-head clips usually need clean sentence captions; food, product, and event reels often work better with short emphasis words that support the visuals instead of repeating every frame.",
+            "For a business account, keep one recognizable type style for recurring content, then adjust weight, placement, and animation speed by format. A menu reel, founder tip, customer walkthrough, and service explanation can share a brand look without using the same caption rhythm.",
+          ],
+          bullets: [
+            "Use full sentence captions when spoken information carries the message",
+            "Use short emphasis captions when visuals already explain the action",
+            "Keep type weight heavy enough to read on a bright phone screen",
+            "Avoid placing animated words over faces, products, or food texture",
+          ],
+        },
+        {
+          heading: "Balance highlighting with readability",
+          paragraphs: [
+            "Word-by-word highlighting can help pacing, but too much movement makes a useful video feel noisy. Highlight only the word or phrase that changes the meaning, and keep the rest of the line stable enough for a muted viewer to follow.",
+            "Before publishing, preview the captioned cut at phone size and check the first three seconds, the strongest visual moment, and the final action line. Those moments decide whether the caption style supports the video or competes with it.",
+          ],
+          bullets: [
+            "Limit active highlighting to one short phrase at a time",
+            "Keep line breaks natural so viewers do not reread the same idea",
+            "Check contrast against both light and dark shots",
+            "Save editable text layers when versions need different platforms",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          question: "What caption style works best for Instagram Reels?",
+          answer:
+            "The best caption style is high contrast, easy to read at phone size, and matched to the video type. Talking-head clips usually need full sentence subtitles, while product, food, and event reels can use shorter emphasis captions.",
+        },
+        {
+          question: "Should every word be highlighted in a Reel caption?",
+          answer:
+            "No. Highlight only the word or phrase that helps the viewer follow the idea. Constant movement can reduce readability, especially when the video already has fast motion or detailed visuals.",
+        },
+        {
+          question: "Where should captions be placed on vertical video?",
+          answer:
+            "Keep captions inside the central safe area so platform buttons, account labels, and crop behavior do not cover important words. Always preview the edit on the platform or phone layout before publishing.",
+        },
       ],
     },
     es: {
@@ -2118,6 +2161,49 @@ const guidePairs: readonly GuidePair[] = [
           paragraphs: [
             "Evita colocar texto sobre los botones inferiores de Instagram o el encabezado superior para garantizar lectura completa. Mantener los textos en la zona central es indispensable en [reels para negocios en Miami](/es/reels-para-negocios-miami) y [video para restaurantes en Miami](/es/video-para-restaurantes-miami) donde la mayoría de reproducciones ocurre en silencio. En reels gastronómicos, la [edición de video promocional para restaurantes en Miami](/es/edicion-de-video-promocional-para-restaurantes-miami) mantiene subtítulos limpios que no tapan los platos.",
           ],
+        },
+        {
+          heading: "Elige el estilo según cómo se verá el video",
+          paragraphs: [
+            "Reels, Shorts y TikToks muchas veces se ven sin sonido, pero el subtítulo correcto depende de cuánto necesita entender la persona. Un video hablado suele necesitar frases completas; un reel de comida, producto o evento puede funcionar mejor con palabras cortas de énfasis que acompañan la imagen.",
+            "Para una cuenta de negocio, conviene mantener una línea visual reconocible y ajustar peso, ubicación y velocidad según el formato. Un plato, un consejo del fundador, un recorrido y una explicación de servicio pueden compartir estilo sin tener el mismo ritmo de texto.",
+          ],
+          bullets: [
+            "Usa frases completas cuando la voz lleva el mensaje principal",
+            "Usa textos cortos cuando la imagen ya explica la acción",
+            "Mantén una tipografía suficientemente gruesa para leer en celular",
+            "No pongas palabras animadas sobre rostros, productos o textura de comida",
+          ],
+        },
+        {
+          heading: "Resalta sin perder legibilidad",
+          paragraphs: [
+            "El resaltado palabra por palabra puede ayudar al ritmo, pero demasiado movimiento vuelve confuso un video útil. Resalta solo la palabra o frase que cambia el sentido y deja el resto de la línea estable para que se pueda seguir sin sonido.",
+            "Antes de publicar, revisa el corte con subtítulos en tamaño de celular: los primeros tres segundos, el momento visual más fuerte y la línea final de acción. Esos puntos muestran si el texto ayuda al video o compite con él.",
+          ],
+          bullets: [
+            "Limita el resaltado activo a una frase corta por vez",
+            "Corta las líneas de forma natural para no repetir la misma idea",
+            "Prueba contraste sobre tomas claras y oscuras",
+            "Guarda capas de texto editables cuando necesites versiones por plataforma",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          question: "¿Qué estilo de subtítulos funciona mejor para Reels?",
+          answer:
+            "El mejor estilo es de alto contraste, legible en tamaño de celular y acorde al tipo de video. Los videos hablados suelen necesitar frases completas; los de producto, comida o evento pueden usar textos cortos de énfasis.",
+        },
+        {
+          question: "¿Conviene resaltar cada palabra del subtítulo?",
+          answer:
+            "No. Resalta solo la palabra o frase que ayuda a seguir la idea. El movimiento constante puede reducir la lectura, sobre todo cuando el video ya tiene acción rápida o muchos detalles visuales.",
+        },
+        {
+          question: "¿Dónde se colocan los subtítulos en video vertical?",
+          answer:
+            "Colócalos dentro de la zona central segura para que botones, nombres de cuenta y recortes de cada plataforma no cubran palabras importantes. Revisa siempre la vista en celular antes de publicar.",
         },
       ],
     },
