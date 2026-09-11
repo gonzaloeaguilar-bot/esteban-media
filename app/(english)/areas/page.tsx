@@ -119,7 +119,7 @@ export default function AreasPage() {
             Service areas
           </p>
           <h1 className="mt-4 max-w-3xl font-serif text-5xl leading-none sm:text-6xl">
-            Fort Lauderdale-based, South Florida practical.
+            Fort Lauderdale-based, providing practical video editing and AI-assisted content for South Florida.
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
             Fort Lauderdale and Broward are the local base, with selected work
