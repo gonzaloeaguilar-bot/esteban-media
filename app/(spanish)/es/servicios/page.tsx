@@ -133,6 +133,16 @@ export default function SpanishServicesPage() {
             <p className="mt-4 max-w-3xl leading-7 text-[#252a2d]">
               Son bloques definidos por alcance, no la promesa de que cada negocio necesita todas las herramientas. El tiempo depende del alcance, materiales, accesos, consentimiento y ciclos de revisión confirmados.
             </p>
+            <p className="mt-3 max-w-3xl leading-7 text-[#252a2d]">
+              Si todavía estás definiendo qué pedir, empieza con la{" "}
+              <Link
+                href="/es/evaluacion"
+                className="font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#7f2f20]"
+              >
+                evaluación de estrategia de video
+              </Link>{" "}
+              antes de enviar los detalles del proyecto.
+            </p>
             <div className="mt-7 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {pilaresGrowth.map((pilar) => {
                 const Icono = pilar.icono;
@@ -331,6 +341,12 @@ export default function SpanishServicesPage() {
               >
                 Hablar del proyecto
                 <ArrowRight className="size-4" aria-hidden="true" />
+              </Link>
+              <Link
+                href="/es/evaluacion"
+                className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/30 px-6 text-sm font-medium text-white hover:bg-white hover:text-[#101214]"
+              >
+                Probar la evaluación
               </Link>
               <Link
                 href="/es/portafolio"

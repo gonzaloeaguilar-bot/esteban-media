@@ -165,6 +165,16 @@ export default function ServicesPage() {
               needs every tool. Timing depends on confirmed scope, assets, access,
               consent requirements, and client review cycles.
             </p>
+            <p className="mt-3 max-w-3xl leading-7 text-[#252a2d]">
+              If you are still deciding what to ask for, start with the{" "}
+              <Link
+                href="/assessment"
+                className="font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#7f2f20]"
+              >
+                video strategy diagnostic
+              </Link>{" "}
+              before sending the project brief.
+            </p>
             <div className="mt-7 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {growthPillars.map((pillar) => {
                 const Icon = pillar.icon;
@@ -390,6 +400,12 @@ export default function ServicesPage() {
               >
                 Start a project
                 <ArrowRight className="size-4" aria-hidden="true" />
+              </Link>
+              <Link
+                href="/assessment"
+                className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/30 px-6 text-sm font-medium text-white hover:bg-white hover:text-[#101214]"
+              >
+                Try the diagnostic
               </Link>
               <Link
                 href="/portfolio"
