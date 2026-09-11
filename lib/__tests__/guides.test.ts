@@ -314,4 +314,69 @@ describe("bilingual practical guides", () => {
       );
     }
   });
+
+  it("deepens the editor-vs-videographer guide pair with quote-decision guidance", () => {
+    const enGuide = getGuides("en").find(
+      (g) => g.slug === "video-editor-vs-videographer",
+    );
+    const esGuide = getGuides("es").find(
+      (g) => g.slug === "editor-de-video-vs-videografo",
+    );
+
+    expect(enGuide).toBeDefined();
+    expect(esGuide).toBeDefined();
+    if (!enGuide || !esGuide) return;
+
+    expect(enGuide.sections).toHaveLength(5);
+    expect(esGuide.sections).toHaveLength(5);
+    expect(enGuide.faqs).toHaveLength(6);
+    expect(esGuide.faqs).toHaveLength(6);
+
+    const enProse = JSON.stringify(enGuide.sections);
+    const esProse = JSON.stringify(esGuide.sections);
+
+    expect(enProse).toContain(
+      "Use a simple decision brief before requesting a quote",
+    );
+    expect(enProse).toContain("Editing-first: existing footage");
+    expect(enProse).toContain("Filming-first: location");
+    expect(enProse).toContain("/services/short-form-video-editor-miami");
+    expect(enProse).toContain("/services/corporate-event-videographer-miami");
+
+    expect(esProse).toContain(
+      "Usa un brief sencillo antes de pedir una cotización",
+    );
+    expect(esProse).toContain("Primero edición: material existente");
+    expect(esProse).toContain("Primero grabación: locación");
+    expect(esProse).toContain("/es/editor-de-video-corto-para-redes-miami");
+    expect(esProse).toContain("/es/videografo-en-miami");
+
+    for (const guide of [enGuide, esGuide]) {
+      const structuredData = buildGuideStructuredData(guide);
+      const faqNode = structuredData["@graph"].find(
+        (
+          node,
+        ): node is {
+          "@type": string;
+          "@id": string;
+          mainEntity: {
+            "@type": string;
+            name: string;
+            acceptedAnswer: { "@type": string; text: string };
+          }[];
+        } => node["@type"] === "FAQPage" && "mainEntity" in node,
+      );
+      expect(faqNode).toBeDefined();
+      expect(faqNode?.["@id"]).toBe(
+        `https://estebanmorenomedia.com${getGuidePath(guide)}#faq`,
+      );
+      expect(faqNode?.mainEntity).toEqual(
+        guide.faqs?.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: { "@type": "Answer", text: faq.answer },
+        })),
+      );
+    }
+  });
 });

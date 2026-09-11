@@ -1,3 +1,11 @@
+## Editor-vs-videographer guide depth — 2026-09-11
+
+- Fresh page-level evidence from `/Users/gonzalo/.local/state/esteban-media-index-watch/latest.json` generated 2026-09-10 shows `/guides/video-editor-vs-videographer` with 35 impressions, 0 clicks, and average position 10.9429 for the 2026-08-12 through 2026-09-08 window. The broader 2026-09-11 GSC/GBP review records 2 clicks, 603 impressions, and average position 26.4 with no alerts.
+- Deepened the existing English and Spanish `editor-vs-videographer-guide` pair with a quote-decision brief section that separates editing-first, filming-first, and combined-scope inputs. Existing service, contact, language, proof, Article, breadcrumb, and FAQPage surfaces remain in place.
+- Regression coverage in `lib/__tests__/guides.test.ts` pins EN/ES section count, FAQ count, decision-brief phrases, service links, and FAQPage schema parity. No URL, sitemap, canonical, hreflang, redirect, noindex, price, client result, review, street address, drone-pilot claim, or availability promise changed.
+- Validation on Node v26.7.0: `pnpm lint` exited 0; `pnpm typecheck` exited 0 with a 600-second timeout wrapper after a 300-second wrapper timed out silently; `git diff --check` exited 0; focused `pnpm test lib/__tests__/guides.test.ts lib/__tests__/demand-pages.test.ts` passed 44 tests. Plain `pnpm test` ran 423/427 passing but hit four unrelated 5-second test timeouts; `pnpm test -- --testTimeout=30000` passed 61 files / 427 tests. Node emits the existing unsupported-engine warning because the repo asks for `>=20.9 <23`.
+- External Obsidian hot note and global project registry sync are deferred to the parent verifier because this dispatch confines writes to `/Users/gonzalo/code/esteban-media` and subdirectories.
+
 ## Services-to-assessment internal links — 2026-09-11
 
 - Fresh demand-wave evidence from the dispatch and local review state records Search Console window 2026-08-11 through 2026-09-07 at 2 clicks, 599 impressions, average position 26.8. The local candidate file for 2026-09-10 exposes Spanish hub internal-link candidates including `/es/servicios` and `/es/evaluacion`, with no page-level rank-band rows available.

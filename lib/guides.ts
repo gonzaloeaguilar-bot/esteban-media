@@ -1215,6 +1215,19 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
+          heading: "Use a simple decision brief before requesting a quote",
+          paragraphs: [
+            "Before asking for pricing, write down what already exists and what still needs to be created. If the footage already exists, the conversation can focus on editing style, deliverables, pacing, captions, sound, color, and the platform where the video will appear. If the footage does not exist, the conversation needs to cover location access, people on camera, schedule, lighting, audio capture, and whether local production is realistic for the project.",
+            "A useful brief does not need to be long. It should separate editing inputs from filming inputs so the person reviewing the request can tell whether you need post-production, on-location capture, or both. That prevents a vague request like \"we need a video\" from turning into a quote that includes the wrong role.",
+            "For an editing-first request, send the current footage, the desired output length, target platform, reference style, required words or graphics, and one person responsible for feedback. For a filming request, add the location, date range, people or products involved, access limits, and whether your team already has a separate editor.",
+          ],
+          bullets: [
+            "Editing-first: existing footage, target platform, aspect ratio, captions, graphics, music direction, and review contact",
+            "Filming-first: location, schedule, access, people on camera, audio needs, shot list, and post-production plan",
+            "Combined scope: creative direction, capture plan, editing deliverables, approval path, and any open questions",
+          ],
+        },
+        {
           heading: "Common production pitfalls and how to brief each role effectively",
           paragraphs: [
             "A frequent and expensive mistake in video marketing is relying on the assumption that filming flaws can easily be fixed in post-production. While modern digital tools can improve imperfect footage, severe audio reverberation, clipped microphone distortion, or out-of-focus subjects cannot be magically restored without sacrificing quality. Capturing clean source media on set protects the entire project.",
@@ -1313,6 +1326,19 @@ const guidePairs: readonly GuidePair[] = [
             "Solo editor: dispones de material grabado y requieres piezas terminadas con alto ritmo y acabado profesional",
             "Solo videógrafo: tienes capacidad de postproducción interna y requieres captura en sitio en South Florida",
             "Producción integral: requieres conceptualización, grabación profesional en locación y postproducción completa",
+          ],
+        },
+        {
+          heading: "Usa un brief sencillo antes de pedir una cotización",
+          paragraphs: [
+            "Antes de pedir precio, escribe qué material ya existe y qué falta crear. Si el material ya está grabado, la conversación puede concentrarse en estilo de edición, entregables, ritmo, subtítulos, sonido, color y plataforma de publicación. Si el material no existe, la conversación debe cubrir acceso a la locación, personas en cámara, fechas, iluminación, captura de audio y si la producción local es realista para ese proyecto.",
+            "Un brief útil no tiene que ser largo. Debe separar los insumos de edición de los insumos de grabación para que quien revise la solicitud entienda si necesitas postproducción, captura en locación o ambas cosas. Así una petición general como \"necesitamos un video\" no termina en una cotización basada en el rol equivocado.",
+            "Para una solicitud de edición, envía el material actual, duración deseada, plataforma, estilo de referencia, textos o gráficos obligatorios y una persona responsable de consolidar comentarios. Para una solicitud de grabación, agrega locación, rango de fechas, personas o productos involucrados, límites de acceso y si tu equipo ya cuenta con editor aparte.",
+          ],
+          bullets: [
+            "Primero edición: material existente, plataforma, formato, subtítulos, gráficos, música y contacto de revisión",
+            "Primero grabación: locación, agenda, acceso, personas en cámara, audio, lista de tomas y plan de postproducción",
+            "Alcance combinado: dirección creativa, plan de captura, entregables de edición, ruta de aprobación y preguntas abiertas",
           ],
         },
         {
