@@ -1,3 +1,9 @@
+## Caption-styles guide depth and FAQ schema — 2026-09-10
+
+- Fresh index-watch state for 2026-08-12 through 2026-09-08 shows `/es/guias/mejores-estilos-de-subtitulos-para-reels` at 16 impressions, 0 clicks, average position 9.5; the English counterpart `/guides/best-caption-styles-for-instagram-reels` has 33 impressions, 0 clicks, average position 41.94.
+- Deepened the existing bilingual caption-styles guide pair with practical guidance on choosing caption style by viewing context, balancing active word highlighting with readability, safe-zone checks, and editable text layers. Added three visible FAQs in both locales, which now emit matching `FAQPage` JSON-LD through the existing guide structured-data builder.
+- Regression coverage in `lib/__tests__/guides.test.ts` asserts the EN/ES section and FAQ counts, contextual links, and exact FAQPage schema parity. No URL, sitemap, canonical, hreflang, redirect, noindex, price, client result, review, address, drone, or availability claim changed. Later GSC query/page observation remains required; no traffic result is claimed.
+
 ## Spanish guide-hub inbound links — 2026-09-09 (rebuild of PR #141)
 
 - Added two contextual inbound links to `/es/guias`: one from the Spanish product-photography cost guide when preparing a content brief, and one from the English service-areas page for Spanish-first clients planning a remote handoff. The Spanish homepage link remains in place from the prior merged remediation.

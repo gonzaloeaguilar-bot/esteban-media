@@ -259,4 +259,59 @@ describe("bilingual practical guides", () => {
     expect(prose).toContain("Es un precio inicial, nunca una cifra cerrada");
     expect(prose).toMatch(/Esteban Moreno Media/);
   });
+
+  it("deepens the caption-styles guide pair with FAQPage schema for GSC-backed demand", () => {
+    const enGuide = getGuides("en").find(
+      (g) => g.slug === "best-caption-styles-for-instagram-reels",
+    );
+    const esGuide = getGuides("es").find(
+      (g) => g.slug === "mejores-estilos-de-subtitulos-para-reels",
+    );
+
+    expect(enGuide).toBeDefined();
+    expect(esGuide).toBeDefined();
+    if (!enGuide || !esGuide) return;
+
+    expect(enGuide.sections).toHaveLength(3);
+    expect(esGuide.sections).toHaveLength(3);
+    expect(enGuide.faqs).toHaveLength(3);
+    expect(esGuide.faqs).toHaveLength(3);
+
+    const enProse = JSON.stringify(enGuide.sections);
+    const esProse = JSON.stringify(esGuide.sections);
+    expect(enProse).toContain("Choose caption styles by viewing context");
+    expect(enProse).toContain("Balance highlighting with readability");
+    expect(enProse).toContain("/services/restaurant-promo-video-editing-miami");
+    expect(esProse).toContain("Elige el estilo según cómo se verá el video");
+    expect(esProse).toContain("Resalta sin perder legibilidad");
+    expect(esProse).toContain("/es/reels-para-negocios-miami");
+
+    for (const guide of [enGuide, esGuide]) {
+      const structuredData = buildGuideStructuredData(guide);
+      const faqNode = structuredData["@graph"].find(
+        (
+          node,
+        ): node is {
+          "@type": string;
+          "@id": string;
+          mainEntity: {
+            "@type": string;
+            name: string;
+            acceptedAnswer: { "@type": string; text: string };
+          }[];
+        } => node["@type"] === "FAQPage" && "mainEntity" in node,
+      );
+      expect(faqNode).toBeDefined();
+      expect(faqNode?.["@id"]).toBe(
+        `https://estebanmorenomedia.com${getGuidePath(guide)}#faq`,
+      );
+      expect(faqNode?.mainEntity).toEqual(
+        guide.faqs?.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: { "@type": "Answer", text: faq.answer },
+        })),
+      );
+    }
+  });
 });

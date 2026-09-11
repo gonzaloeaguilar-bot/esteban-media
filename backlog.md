@@ -18,6 +18,7 @@ Production is live. This file tracks repository implementation; account/access w
 
 ## P1 — Technical SEO / GEO / ALOHA
 
+- [x] Prepare caption-styles guide depth and FAQ schema from fresh GSC page evidence: `/es/guias/mejores-estilos-de-subtitulos-para-reels` has 16 impressions at average position 9.5 with 0 clicks in the 2026-08-12..2026-09-08 index-watch state, and the English counterpart has 33 impressions with 0 clicks. Later GSC observation remains required.
 - [x] Prepare two contextual body-copy links to `/es/areas` from `/es` and `/es/servicios`; preserve existing hub return links. Independent review and release remain with the parent dispatch.
 
 - [x] Prepare the `priority-growth:2026-09-02:esteban:replacement:recovery-7` English homepage proof-cue CTR refinement: retain the observed service terms and scoped-production boundary, then replace the generic portfolio callout with “View video editing work” in search and social descriptions; release verification and a later Search Console query/page observation remain required.

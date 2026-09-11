@@ -1,0 +1,50 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-188",
+  "status": "review_pending",
+  "evidence": {
+    "obsidian_context": "Daily demand wave selected content depth + FAQPage JSON-LD for an existing bilingual guide pair. Fresh index-watch state for 2026-08-12..2026-09-08 shows /es/guias/mejores-estilos-de-subtitulos-para-reels with 16 impressions, 0 clicks, average position 9.5, and /guides/best-caption-styles-for-instagram-reels with 33 impressions, 0 clicks, average position 41.94. The same 2026-09-10 SEO/GEO packet reports the 28-day GSC/GBP window 2026-08-11..2026-09-07 with 2 clicks, 599 impressions, and average position 26.8.",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, worktree .worktrees/demand-wave-esteban-fresh-20260910, branch demand-wave-esteban-fresh-20260910, move class content_depth + FAQPage JSON-LD. CTO decision record 20260910T222755Z-cto-seo-lead-esteban-media-1789079277083532000-72904-d827bb3b0dbf3999.json.",
+    "hard_stops_checked": "Checked and clear. No invented clients/prices/reviews/stats/guarantees, no street address, no drone/Part 107 claim, no aggregateRating, no new URL, no redirect, no noindex, no canonical/hreflang/sitemap change, and no inventory config change. EN/ES parity kept by updating both locale entries in the same guide pair.",
+    "verification": "pnpm lint, pnpm typecheck, pnpm test 60 files / 424 tests, and git diff --check all exited 0. Local shell used Node v26.7.0, so pnpm emitted the repo engine warning wanted >=20.9 <23, but all commands completed successfully.",
+    "reviewer_ensemble": {
+      "builder": {
+        "status": "ok",
+        "note": "Codex implemented one bounded GSC-backed guide-depth move on branch demand-wave-esteban-fresh-20260910 and opened PR #188."
+      },
+      "skeptic": {
+        "status": "ok",
+        "note": "Diff is limited to guide copy, one focused regression, and repo-local handoff/backlog notes. Inventory tests passed and no URL-bearing config changed."
+      },
+      "taste": {
+        "status": "ok",
+        "note": "Copy stays practical and factual: caption style by viewing context, safe zones, active highlighting restraint, contrast, and editable text layers."
+      }
+    },
+    "reviewer_disagreement_reviewed": "No reviewer disagreement in this provider run. Residual risk is measurement-only: later GSC query/page observation is required before claiming CTR, traffic, or ranking impact.",
+    "winner_rationale": "Chosen because the Spanish caption-styles guide is in the charter's rank band at 16 impressions, 0 clicks, average position 9.5, while the English counterpart has 33 impressions and no clicks. The existing page lacked depth and FAQ schema, so content depth plus visible FAQPage JSON-LD was the smallest eligible demand move without increasing the sitemap.",
+    "tests_or_validation": "pnpm lint exit 0; pnpm typecheck exit 0; pnpm test exit 0 with 60 files and 424 tests passed; git diff --check exit 0. New regression: lib/__tests__/guides.test.ts asserts EN/ES section counts, FAQ counts, contextual links, and FAQPage schema parity.",
+    "debt_delta": "Net negative debt: adds a focused regression around the GSC-backed guide pair and reuses the existing guide structured-data builder. No new dependency, route, config, or inventory exception.",
+    "obsidian_handoff": "Repo-local .ai/handoff.md and backlog.md updated. External Obsidian/registry writes were not performed because the dispatch workspace policy confines writes to /Users/gonzalo/code/esteban-media and subdirectories."
+  },
+  "reviewer_ensemble": {
+    "builder": {
+      "status": "ok",
+      "note": "Codex implemented one bounded GSC-backed guide-depth move on branch demand-wave-esteban-fresh-20260910 and opened PR #188."
+    },
+    "skeptic": {
+      "status": "ok",
+      "note": "Diff is limited to guide copy, one focused regression, and repo-local handoff/backlog notes. Inventory tests passed and no URL-bearing config changed."
+    },
+    "taste": {
+      "status": "ok",
+      "note": "Copy stays practical and factual: caption style by viewing context, safe zones, active highlighting restraint, contrast, and editable text layers."
+    }
+  },
+  "winner_rationale": "Chosen because the Spanish caption-styles guide is in the charter's rank band at 16 impressions, 0 clicks, average position 9.5, while the English counterpart has 33 impressions and no clicks. The existing page lacked depth and FAQ schema, so content depth plus visible FAQPage JSON-LD was the smallest eligible demand move without increasing the sitemap.",
+  "reviewer_disagreement_reviewed": "No reviewer disagreement in this provider run. Residual risk is measurement-only: later GSC query/page observation is required before claiming CTR, traffic, or ranking impact.",
+  "tests_or_validation": "pnpm lint exit 0; pnpm typecheck exit 0; pnpm test exit 0 with 60 files and 424 tests passed; git diff --check exit 0. New regression: lib/__tests__/guides.test.ts asserts EN/ES section counts, FAQ counts, contextual links, and FAQPage schema parity.",
+  "debt_delta": "Net negative debt: adds a focused regression around the GSC-backed guide pair and reuses the existing guide structured-data builder. No new dependency, route, config, or inventory exception.",
+  "obsidian_handoff": "Repo-local .ai/handoff.md and backlog.md updated. External Obsidian/registry writes were not performed because the dispatch workspace policy confines writes to /Users/gonzalo/code/esteban-media and subdirectories."
+}
