@@ -224,7 +224,7 @@ export default function PortfolioPage() {
                 Selected work
               </p>
               <h1 className="mt-4 max-w-4xl font-serif text-5xl leading-[0.96] sm:text-6xl lg:text-7xl">
-                Real projects, presented in their original form.
+                Real projects, shown exactly as they were delivered.
               </h1>
               <p className="mt-6 max-w-2xl text-base leading-7 text-[#d8d0c7] sm:text-lg sm:leading-8">
                 Browse real video editing work from Esteban Moreno Media,
