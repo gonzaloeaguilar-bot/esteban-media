@@ -1,0 +1,50 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-189",
+  "status": "review_pending",
+  "evidence": {
+    "obsidian_context": "Demand-wave dispatch for 2026-09-11 supplied Search Console window 2026-08-11..2026-09-07 with 2 clicks, 599 impressions, average position 26.8. Local review-2026-09-10.json matched the same GSC/GBP window. candidates-2026-09-10.json exposed internal-link candidates including /es/servicios and /es/evaluacion, with no page-level rank-band rows available.",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, worktree .worktrees/codex-demand-wave-20260911, branch codex/demand-wave-20260911, move class internal_link_orphans / internal intent routing. Shared context packet 20260911T002804Z-cto-seo-lead-esteban-media-1789086485742275000-51999-daea2e4a87e30f86.json and Graphify graph sha256 538982af0cdab10845510e2dda51fae425c26ed51f4dad094a9b3cf9eed36608 were read before editing.",
+    "hard_stops_checked": "Checked and clear. gh pr list showed no 2026-09-10 demand-wave PR open; PR #187 is pricing SSOT, not a demand-wave. No invented clients, prices, reviews, stats, guarantees, street address, drone/Part 107, aggregateRating, new URLs, redirects, noindex, canonicals, hreflang, schema, or sitemap inventory changes. EN/ES parity kept by touching /services and /es/servicios together.",
+    "verification": "pnpm lint exit 0; pnpm typecheck exit 0; pnpm test exit 0 with 61 files / 426 tests passed including new app/__tests__/services-assessment-links.test.ts; git diff --check exit 0. Node v26.7.0 emitted the existing unsupported-engine warning because package.json requires >=20.9 <23.",
+    "reviewer_ensemble": {
+      "builder": {
+        "status": "ok",
+        "note": "Codex implemented one bounded demand-wave move: paired service-hub links to the existing diagnostic/evaluation pages, with regression coverage and no inventory changes."
+      },
+      "skeptic": {
+        "status": "ok",
+        "note": "Diff reviewed for banned claims and SEO guardrails: no route, metadata, schema, sitemap, price, result, review, address, drone, redirect, or noindex changes."
+      },
+      "taste": {
+        "status": "ok",
+        "note": "The added copy is concise, user-facing, and fits the existing scoping section and final action cluster in both locales."
+      }
+    },
+    "reviewer_disagreement_reviewed": "No disagreement between builder, skeptic, and taste passes. The main risk is that local candidate evidence is hub-level rather than page-level rank-band evidence; accepted because this move is inventory-neutral, low-risk, and directly supports an existing Spanish candidate route with an English parity link.",
+    "winner_rationale": "Chosen move: internal-link support from the services hubs to the existing assessment/evaluation route. This was selected because the latest local candidate file offered internal-link candidates only, no depth/title candidate had page-level fresh evidence, and the move improves an existing route without expanding the 243-URL inventory.",
+    "tests_or_validation": "pnpm lint exit 0; pnpm typecheck exit 0; pnpm test 61 files / 426 tests all pass; git diff --check clean. New regression test app/__tests__/services-assessment-links.test.ts pins the English /assessment and Spanish /es/evaluacion links.",
+    "debt_delta": "Net negative debt: adds one regression test for a demand-wave internal-link contract; no dependency, config, schema, route, or inventory change.",
+    "obsidian_handoff": ".ai/handoff.md and backlog.md updated in-repo. External Obsidian hot note and global project registry sync deferred to the parent verifier because the dispatch workspace policy confines writes to /Users/gonzalo/code/esteban-media and subdirectories."
+  },
+  "reviewer_ensemble": {
+    "builder": {
+      "status": "ok",
+      "note": "Codex implemented one bounded demand-wave move: paired service-hub links to the existing diagnostic/evaluation pages, with regression coverage and no inventory changes."
+    },
+    "skeptic": {
+      "status": "ok",
+      "note": "Diff reviewed for banned claims and SEO guardrails: no route, metadata, schema, sitemap, price, result, review, address, drone, redirect, or noindex changes."
+    },
+    "taste": {
+      "status": "ok",
+      "note": "The added copy is concise, user-facing, and fits the existing scoping section and final action cluster in both locales."
+    }
+  },
+  "winner_rationale": "Chosen move: internal-link support from the services hubs to the existing assessment/evaluation route. This was selected because the latest local candidate file offered internal-link candidates only, no depth/title candidate had page-level fresh evidence, and the move improves an existing route without expanding the 243-URL inventory.",
+  "reviewer_disagreement_reviewed": "No disagreement between builder, skeptic, and taste passes. The main risk is that local candidate evidence is hub-level rather than page-level rank-band evidence; accepted because this move is inventory-neutral, low-risk, and directly supports an existing Spanish candidate route with an English parity link.",
+  "tests_or_validation": "pnpm lint exit 0; pnpm typecheck exit 0; pnpm test 61 files / 426 tests all pass; git diff --check clean. New regression test app/__tests__/services-assessment-links.test.ts pins the English /assessment and Spanish /es/evaluacion links.",
+  "debt_delta": "Net negative debt: adds one regression test for a demand-wave internal-link contract; no dependency, config, schema, route, or inventory change.",
+  "obsidian_handoff": ".ai/handoff.md and backlog.md updated in-repo. External Obsidian hot note and global project registry sync deferred to the parent verifier because the dispatch workspace policy confines writes to /Users/gonzalo/code/esteban-media and subdirectories."
+}
