@@ -1,3 +1,10 @@
+## Services-to-assessment internal links — 2026-09-11
+
+- Fresh demand-wave evidence from the dispatch and local review state records Search Console window 2026-08-11 through 2026-09-07 at 2 clicks, 599 impressions, average position 26.8. The local candidate file for 2026-09-10 exposes Spanish hub internal-link candidates including `/es/servicios` and `/es/evaluacion`, with no page-level rank-band rows available.
+- Added paired internal links from `/services` to `/assessment` and `/es/servicios` to `/es/evaluacion`, including one contextual body-copy link near the service scoping explanation and one CTA in the final action cluster per locale. No URL, sitemap, canonical, hreflang, schema, price, client result, address, review, drone, noindex, or redirect changed.
+- Regression coverage in `app/__tests__/services-assessment-links.test.ts` verifies both rendered service hubs include the diagnostic/evaluation hrefs and visible text. Validation on Node v26.7.0: `pnpm lint`, `pnpm typecheck`, `pnpm test` (61 files / 426 tests), and `git diff --check` all exit 0. Node emits the existing unsupported-engine warning because the repo asks for `>=20.9 <23`.
+- External Obsidian hot note and global project registry sync are deferred to the parent verifier because this dispatch confines writes to `/Users/gonzalo/code/esteban-media` and subdirectories.
+
 ## Caption-styles guide depth and FAQ schema — 2026-09-10
 
 - Fresh index-watch state for 2026-08-12 through 2026-09-08 shows `/es/guias/mejores-estilos-de-subtitulos-para-reels` at 16 impressions, 0 clicks, average position 9.5; the English counterpart `/guides/best-caption-styles-for-instagram-reels` has 33 impressions, 0 clicks, average position 41.94.
