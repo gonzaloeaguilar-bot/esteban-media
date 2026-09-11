@@ -1,0 +1,50 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-190",
+  "status": "review_pending",
+  "evidence": {
+    "obsidian_context": "Daily demand wave selected existing guide depth from fresh page evidence. /Users/gonzalo/.local/state/esteban-media-index-watch/latest.json generated 2026-09-10 shows https://estebanmorenomedia.com/guides/video-editor-vs-videographer with 35 impressions, 0 clicks, and average position 10.9429 for 2026-08-12 through 2026-09-08. The 2026-09-11 GSC/GBP review records 2 clicks, 603 impressions, average position 26.4, and no alerts.",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, worktree /Users/gonzalo/code/.worktrees/esteban-demand-wave-20260911, branch codex/demand-wave-services-meta-20260911, move class content_depth + FAQPage parity. Graphify map graphify-out/graph.json read before scoping: guide routes flow through lib/guides.ts, buildGuideMetadata, buildGuideStructuredData, and components/guide-pages.tsx.",
+    "hard_stops_checked": "Checked and clear. gh pr list --state open --search 'demand-wave in:title repo:gonzaloeaguilar-bot/esteban-media' returned an empty list. No new URL, sitemap, canonical, hreflang, redirect, noindex, schema type, price, client result, review, street address, drone-pilot claim, or availability promise changed. EN/ES parity kept.",
+    "verification": "pnpm lint exit 0. pnpm typecheck exit 0 with timeout 600 after an earlier timeout 300 ended silently. Focused pnpm test lib/__tests__/guides.test.ts lib/__tests__/demand-pages.test.ts passed 2 files / 44 tests. Plain pnpm test ran 423/427 passing then failed on four unrelated 5-second test timeouts under Node v26.7.0. pnpm test -- --testTimeout=30000 passed 61 files / 427 tests. git diff --check exit 0. Node emitted the existing unsupported-engine warning because the repo requires >=20.9 <23.",
+    "reviewer_ensemble": {
+      "builder": {
+        "status": "ok",
+        "note": "Codex implemented one bounded existing-guide depth move from fresh GSC page evidence and kept the change to guide data, regression coverage, handoff, and backlog."
+      },
+      "skeptic": {
+        "status": "ok",
+        "note": "Guardrail review found no inventory, canonical, hreflang, noindex, redirect, price, client-result, review, address, drone, or availability expansion. Test caveat is isolated to timing under Node 26 and documented."
+      },
+      "taste": {
+        "status": "ok",
+        "note": "Decision-brief copy is practical and reader-facing: it explains what to provide for editing-first, filming-first, or combined-scope requests without internal labels or unsupported promises."
+      }
+    },
+    "reviewer_disagreement_reviewed": "No reviewer disagreement. The only caveat is validation environment timing: default pnpm test hit unrelated 5-second timeouts, while the same suite passed with --testTimeout=30000.",
+    "winner_rationale": "Chosen over new URLs or broad metadata because the target already earns impressions in the 6-15 position band with 0 clicks, and guide depth can improve usefulness without changing the demand-gated inventory.",
+    "tests_or_validation": "pnpm lint exit 0; pnpm typecheck exit 0 with timeout 600; focused guide/demand tests 44 passed; full pnpm test -- --testTimeout=30000 passed 61 files / 427 tests; git diff --check exit 0.",
+    "debt_delta": "Net negative debt: adds focused regression coverage for the guide pair and documents the validation caveat. No dependency, route, schema-type, sitemap, or config churn.",
+    "obsidian_handoff": ".ai/handoff.md and backlog.md updated in repo. External Obsidian hot note and global project registry sync deferred to the parent verifier because this dispatch confines writes to /Users/gonzalo/code/esteban-media and subdirectories."
+  },
+  "reviewer_ensemble": {
+    "builder": {
+      "status": "ok",
+      "note": "Codex implemented one bounded existing-guide depth move from fresh GSC page evidence and kept the change to guide data, regression coverage, handoff, and backlog."
+    },
+    "skeptic": {
+      "status": "ok",
+      "note": "Guardrail review found no inventory, canonical, hreflang, noindex, redirect, price, client-result, review, address, drone, or availability expansion. Test caveat is isolated to timing under Node 26 and documented."
+    },
+    "taste": {
+      "status": "ok",
+      "note": "Decision-brief copy is practical and reader-facing: it explains what to provide for editing-first, filming-first, or combined-scope requests without internal labels or unsupported promises."
+    }
+  },
+  "winner_rationale": "Chosen over new URLs or broad metadata because the target already earns impressions in the 6-15 position band with 0 clicks, and guide depth can improve usefulness without changing the demand-gated inventory.",
+  "reviewer_disagreement_reviewed": "No reviewer disagreement. The only caveat is validation environment timing: default pnpm test hit unrelated 5-second timeouts, while the same suite passed with --testTimeout=30000.",
+  "tests_or_validation": "pnpm lint exit 0; pnpm typecheck exit 0 with timeout 600; focused guide/demand tests 44 passed; full pnpm test -- --testTimeout=30000 passed 61 files / 427 tests; git diff --check exit 0.",
+  "debt_delta": "Net negative debt: adds focused regression coverage for the guide pair and documents the validation caveat. No dependency, route, schema-type, sitemap, or config churn.",
+  "obsidian_handoff": ".ai/handoff.md and backlog.md updated in repo. External Obsidian hot note and global project registry sync deferred to the parent verifier because this dispatch confines writes to /Users/gonzalo/code/esteban-media and subdirectories."
+}

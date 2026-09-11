@@ -18,6 +18,7 @@ Production is live. This file tracks repository implementation; account/access w
 
 ## P1 — Technical SEO / GEO / ALOHA
 
+- [x] Prepare editor-vs-videographer guide depth from fresh page evidence: `/guides/video-editor-vs-videographer` has 35 impressions, 0 clicks, and average position 10.9429 in the 2026-09-10 index-watch snapshot for 2026-08-12..2026-09-08. Added paired EN/ES decision-brief guidance for editing-first, filming-first, and combined-scope requests; later GSC observation remains required.
 - [x] Prepare paired services-to-assessment internal links from `/services` to `/assessment` and `/es/servicios` to `/es/evaluacion` from the 2026-09-10 internal-link candidate set and 2026-08-11..2026-09-07 GSC window. Later GSC observation remains required; no inventory or schema changed.
 - [x] Prepare caption-styles guide depth and FAQ schema from fresh GSC page evidence: `/es/guias/mejores-estilos-de-subtitulos-para-reels` has 16 impressions at average position 9.5 with 0 clicks in the 2026-08-12..2026-09-08 index-watch state, and the English counterpart has 33 impressions with 0 clicks. Later GSC observation remains required.
 - [x] Prepare two contextual body-copy links to `/es/areas` from `/es` and `/es/servicios`; preserve existing hub return links. Independent review and release remain with the parent dispatch.
