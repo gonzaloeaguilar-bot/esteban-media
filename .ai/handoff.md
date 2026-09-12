@@ -31,6 +31,13 @@
 - Evidence: `~/.local/state/esteban-media-seo-geo/candidates-2026-09-13.json` selected `/es/areas` as an internal-link candidate while the 28-day GSC/GBP read showed 2 search clicks, 576 impressions, average position 24.6, and brand position 6.1 for 2026-08-14 through 2026-09-10.
 - The shared bilingual homepage hero now links the scoped production sentence to `/areas` in English and `/es/areas` in Spanish. This strengthens the existing service-area hub without adding routes, changing metadata, schema, sitemap inventory, canonicals, hreflang, NAP, or Palm Beach positioning.
 - Regression coverage in `app/__tests__/customer-ranking-pages.test.ts` locks both homepage hero area links. Validation passed: `pnpm lint`, `pnpm typecheck`, `pnpm test` (57 files / 417 tests), `pnpm build` (309 static pages), and `git diff --check`. No deployment or GSC outcome is claimed.
+## Spanish areas inbound anchor reinforcement — 2026-09-12
+
+- Dispatch target: `https://estebanmorenomedia.com/es/areas`, confirmed at `app/(spanish)/es/areas/page.tsx`; Graphify map and shared context packet SHA-256 values matched the supplied CTO frame.
+- Strengthened three existing Spanish body-copy references into contextual internal links to `/es/areas`: `/es`, `/es/servicios`, and `/es/portafolio`. Anchor language is drawn from the target page H1: `Fort Lauderdale como base y tres condados como área de servicio`.
+- No new routes, sitemap entries, canonicals, hreflang, schema, pricing, offers, testimonials, factual/numeric claims, analytics wiring, redirects, or noindex behavior changed. The `/es/areas` page already links back to `/es/servicios#edicion` and `/es/servicios#videografia`.
+- Validation: `pnpm install --frozen-lockfile` hydrated the worktree dependencies; `npm run typecheck --silent` and `git diff --check` exited 0. Only `app/(spanish)/es/page.tsx`, `app/(spanish)/es/servicios/page.tsx`, `app/(spanish)/es/portafolio/page.tsx`, `.ai/handoff.md`, and `backlog.md` are intended source/status changes.
+- External Obsidian hot note and global project registry sync are deferred to the parent verifier because this dispatch confines writes to `/Users/gonzalo/code/.starvation-wt/esteban-internal_links-1-103434` and subdirectories.
 
 ## Restaurant promo snippet and intent depth — 2026-09-12
 
