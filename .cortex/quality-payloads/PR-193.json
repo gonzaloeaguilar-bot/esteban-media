@@ -1,0 +1,50 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-193",
+  "status": "review_pending",
+  "evidence": {
+    "obsidian_context": "Daily demand wave for 2026-09-12. Fresh seo-geo review window 2026-08-12..2026-09-08 showed 2 clicks, 603 impressions, and average position 26.4. Prior PR #143 evidence identified the query 'restaurant promo video editing miami' at 20 impressions and average position 7.5 split between /areas and /services/restaurant-promo-video-editing-miami.",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, worktree .worktrees/codex-demand-wave-restaurant-miami-20260912, branch codex/demand-wave-restaurant-miami-20260912, move class content_depth + title_meta_rewrite. Shared context packet 20260912T043317Z-cto-seo-lead-esteban-media-1789187599202837000-43856-c76ba860e9a3d8df.json.",
+    "hard_stops_checked": "Checked and clear. No new URL, sitemap, canonical, hreflang, redirect, noindex, price, client result, review, street address, drone-pilot claim, aggregateRating, or availability promise changed. EN/ES parity kept. Existing $240 starting-price reference was preserved, not newly introduced.",
+    "verification": "pnpm lint exit 0; pnpm typecheck exit 0; pnpm test exit 0 with 61 files / 427 tests; git diff --check exit 0. Focused restaurant/page metadata test run also passed 2 files / 7 tests. Commands emitted the existing unsupported Node engine warning because the shell is Node v26.7.0 while package.json asks for >=20.9 <23.",
+    "reviewer_ensemble": {
+      "builder": {
+        "status": "ok",
+        "note": "Codex implemented one bounded existing-page demand move from the routed 2026-09-12 charter: restaurant service snippet cleanup plus EN/ES factual depth."
+      },
+      "skeptic": {
+        "status": "ok",
+        "note": "Full test suite caught an initial sub-city phrase in the new copy; the phrase was removed and the rerun passed 61 files / 427 tests. No inventory, route, or unsupported claim changed."
+      },
+      "taste": {
+        "status": "ok",
+        "note": "Copy is clearer for search intent and less salesy: it names food reels, dish spotlights, captions, social promo edits, and local brief inputs without promising reservations."
+      }
+    },
+    "reviewer_disagreement_reviewed": "No unresolved disagreement. The only issue found was deterministic: the public-copy gate rejected a sub-city reference. It was corrected before the green full-suite rerun.",
+    "winner_rationale": "Chosen move: refine the existing restaurant promo service pair instead of creating a new URL, because the prior near-top-10 query evidence shows demand for restaurant promo editing and the current charter keeps inventory demand-gated.",
+    "tests_or_validation": "pnpm lint exit 0; pnpm typecheck exit 0; pnpm test exit 0, 61 files / 427 tests; git diff --check exit 0. Focused pnpm test app/__tests__/restaurant-promo-depth.test.ts app/__tests__/page-metadata.test.ts exit 0, 2 files / 7 tests.",
+    "debt_delta": "Net negative debt: replaces overpromising snippet language with factual copy and extends regression tests for no-guarantee EN/ES language. No dependency, route, sitemap, or config churn.",
+    "obsidian_handoff": "Repo-local .ai/handoff.md and backlog.md were updated. External Obsidian hot note and global project registry sync are deferred to the parent verifier because this dispatch confines writes to /Users/gonzalo/code/esteban-media and subdirectories."
+  },
+  "reviewer_ensemble": {
+    "builder": {
+      "status": "ok",
+      "note": "Codex implemented one bounded existing-page demand move from the routed 2026-09-12 charter: restaurant service snippet cleanup plus EN/ES factual depth."
+    },
+    "skeptic": {
+      "status": "ok",
+      "note": "Full test suite caught an initial sub-city phrase in the new copy; the phrase was removed and the rerun passed 61 files / 427 tests. No inventory, route, or unsupported claim changed."
+    },
+    "taste": {
+      "status": "ok",
+      "note": "Copy is clearer for search intent and less salesy: it names food reels, dish spotlights, captions, social promo edits, and local brief inputs without promising reservations."
+    }
+  },
+  "winner_rationale": "Chosen move: refine the existing restaurant promo service pair instead of creating a new URL, because the prior near-top-10 query evidence shows demand for restaurant promo editing and the current charter keeps inventory demand-gated.",
+  "reviewer_disagreement_reviewed": "No unresolved disagreement. The only issue found was deterministic: the public-copy gate rejected a sub-city reference. It was corrected before the green full-suite rerun.",
+  "tests_or_validation": "pnpm lint exit 0; pnpm typecheck exit 0; pnpm test exit 0, 61 files / 427 tests; git diff --check exit 0. Focused pnpm test app/__tests__/restaurant-promo-depth.test.ts app/__tests__/page-metadata.test.ts exit 0, 2 files / 7 tests.",
+  "debt_delta": "Net negative debt: replaces overpromising snippet language with factual copy and extends regression tests for no-guarantee EN/ES language. No dependency, route, sitemap, or config churn.",
+  "obsidian_handoff": "Repo-local .ai/handoff.md and backlog.md were updated. External Obsidian hot note and global project registry sync are deferred to the parent verifier because this dispatch confines writes to /Users/gonzalo/code/esteban-media and subdirectories."
+}

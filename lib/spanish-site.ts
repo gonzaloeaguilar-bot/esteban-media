@@ -1704,11 +1704,11 @@ export const spanishNichePages: SpanishNichePage[] = [
     title: "Edición de video promocional para restaurantes en Miami",
     metadataTitle: "Edición Video Restaurantes Miami",
     description:
-      "Edición de video gastronómico, reels de platillos insignia y promocionales para restaurantes y bares en Miami.",
+      "Edición de video para restaurantes en Miami: reels de platillos, promociones, subtítulos y cortes sociales desde material del cliente.",
     eyebrow: "Gastronomía / Restaurantes",
     h1: "Edición de video apetitosa para restaurantes en Miami.",
     lead:
-      "Destaca los detalles culinarios, ambiente de comedor y preparación de bebidas con videos cortos diseñados para generar reservas. Desde $240 por video promocional; cada proyecto recibe una cotización a la medida. Consulta todos los alcances de servicio en [video para restaurantes en Miami](/es/video-para-restaurantes-miami).",
+      "Destaca detalles culinarios, ambiente de comedor y preparación de bebidas con videos cortos pensados para redes, menú digital o sitio web. Desde $240 por video promocional; cada proyecto recibe una cotización a la medida. Consulta todos los alcances de servicio en [video para restaurantes en Miami](/es/video-para-restaurantes-miami).",
     keyword: "edición de video para restaurantes en Miami",
     location: "Miami / Wynwood",
     availability: "confirmed",
@@ -1736,6 +1736,7 @@ export const spanishNichePages: SpanishNichePage[] = [
         paragraphs: [
           "El tratamiento de color busca que el alimento se vea apetitoso y que conserve su textura natural. Exposición, balance de blancos, contraste y saturación se revisan entre clips para que luz de cocina, luz de mesa, salsas e ingredientes se sientan coherentes dentro de una misma pieza. No se presenta una corrección de color como sustituto de una buena toma ni como una promesa sobre el resultado comercial.",
           "La base de trabajo es el [material suministrado por el cliente](/es/guias/entrega-para-edicion-remota-de-video). Pueden incluirse clips de smartphone o cámara de preparación, emplatado, bebidas, ambiente y mensajes a cámara, junto con los nombres correctos del menú y la intención de cada publicación. Las necesidades de rodaje se conversan por separado; no se presumen dentro de una edición remota.",
+          "Cuando el restaurante está en Miami, conviene indicar contexto local, plato, promoción y canal antes de editar. Un video de bar, un especial de almuerzo y un reel de comedor pueden necesitar ritmos, textos y primeros planos distintos. La edición mantiene clara esa intención local sin prometer un resultado de reservas.",
         ],
       },
       {

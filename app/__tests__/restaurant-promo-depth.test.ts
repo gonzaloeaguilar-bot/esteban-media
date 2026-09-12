@@ -19,6 +19,7 @@ describe("restaurant promo page depth and FAQ schema", () => {
     expect(wordCount(markup)).toBeGreaterThanOrEqual(900);
     expect(markup).toContain("9:16 and 1:1");
     expect(markup).toContain("client-supplied footage");
+    expect(markup).toContain("without claiming a guaranteed reservation result");
     expect(markup).toContain('href="/portfolio"');
     expect(markup).toContain('href="/guides/remote-video-editing-handoff"');
     expect(markup).toContain('href="/contact"');
@@ -33,6 +34,7 @@ describe("restaurant promo page depth and FAQ schema", () => {
     if (!page) return;
     const markup = renderToStaticMarkup(React.createElement(SpanishNichePage, { slug }));
     expect(wordCount(markup)).toBeGreaterThanOrEqual(900);
+    expect(markup).toContain("sin prometer un resultado de reservas");
     expect(page.sections).toHaveLength(4);
     expect(markup).toContain('href="/es/guias/entrega-para-edicion-remota-de-video"');
     expect(markup).toContain('href="/es/contacto"');
