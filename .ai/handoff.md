@@ -122,6 +122,11 @@
 - The immutable `priority-growth:2026-09-03:esteban:recovery-3` brief records **0 clicks from 31 homepage impressions** for 2026-08-26 through 2026-09-01. It identifies the homepage for `website designer` (3 impressions, 0 clicks), `video production services` (2 impressions, 0 clicks), and `video editing services` (2 impressions, 0 clicks).
 - The English homepage title now retains the exact `Video Editing Services` phrasing while naming the confirmed website-design offering. Its search, Open Graph, and X descriptions consistently state video editing services, website design, and scoped video production services.
 - Regression coverage requires the three shared descriptions to keep both the video-editing/website-design language and the scoped-production boundary. Run the governed verifier before release, then measure a later Search Console query/page window. No click-through or ranking result is claimed.
+## 2026-09-03 — Bilingual large-file transfer guide search-title refinement (PR pending)
+
+- Evidence: `/guides/fastest-way-to-send-large-video-files-to-editor` had 48 impressions, 0 clicks, and position 21.96 in the 28-day GSC candidate artifact ending 2026-08-31.
+- Changed the paired guide data only: English metadata title is now `Fastest Way to Send Large Video Files`; Spanish is `Cómo Enviar Archivos Grandes de Video`. The direct-answer body, canonical paths, hreflang mapping, and structured data source remain unchanged.
+- Added a regression assertion that locks both paired metadata titles. No deployment or ranking improvement is claimed; run all project gates and open a PR only when they pass.
 
 ## Homepage title query alignment — 2026-09-03
 
