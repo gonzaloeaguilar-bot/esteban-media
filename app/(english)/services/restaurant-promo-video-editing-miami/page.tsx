@@ -46,9 +46,9 @@ const faqs = [
 ] as const;
 
 export const metadata = buildPageMetadata({
-  title: "Restaurant Promo Video Editing Miami — From $240",
+  title: "Restaurant Promo Video Editing Miami | From $240",
   description:
-    "Restaurant promo video editing in Miami from $240. High-retention food reels, dish spotlight cuts & social promo videos that fill South Florida tables.",
+    "Restaurant promo video editing in Miami from $240. Food reels, dish spotlight cuts, captions, and social promo edits for South Florida restaurants.",
   path: "/services/restaurant-promo-video-editing-miami",
   locale: "en",
 });
@@ -62,7 +62,7 @@ export default function RestaurantPromoVideoEditingMiamiPage() {
         "@id": absoluteUrl("/services/restaurant-promo-video-editing-miami#service"),
         name: "Restaurant Promo Video Editing Miami",
         description:
-          "Professional restaurant promo video editing in Miami. High-retention food reels, dish spotlight cuts & social promo videos tailored for South Florida dining.",
+          "Restaurant promo video editing in Miami for food reels, dish spotlight cuts, captions, and social promo edits tailored to South Florida dining.",
         provider: {
           "@type": "LocalBusiness",
           "@id": absoluteUrl("/#business"),
@@ -124,7 +124,7 @@ export default function RestaurantPromoVideoEditingMiamiPage() {
                 Restaurant Promo Video Editing in Miami.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-                Food-focused video edits, slow-motion beverage preparation, and restaurant promotional reels for Instagram, TikTok, and digital menus.
+                Food-focused video edits, dish spotlight cuts, captioned restaurant reels, and social promo versions for Instagram, TikTok, digital menus, and web pages.
               </p>
               <p className="mt-4 text-base font-medium text-[#9f3c27]">
                 Restaurant promo edits start at $240 — every project gets a
@@ -196,6 +196,9 @@ export default function RestaurantPromoVideoEditingMiamiPage() {
               </p>
               <p>
                 Food color treatment should support appetite and natural texture, not turn a dish into an artificial color claim. Exposure, white balance, contrast, and saturation are reviewed across supplied clips so skin tones, table light, sauces, and ingredients feel consistent within the edit. The available source material sets the boundary: this service edits <strong>client-supplied footage</strong>, and any capture needs are scoped separately rather than assumed.
+              </p>
+              <p>
+                For Miami restaurants, the most useful brief usually names the local setting, dish, offer, and channel before the edit begins. A bar promo, a lunch special, and a dining-room reel may all need different pacing, captions, and opening shots. The edit can keep that local intent clear without claiming a guaranteed reservation result.
               </p>
             </div>
           </div>

@@ -76,10 +76,10 @@ describe("complete page metadata", () => {
     );
 
     expect(metadata.title).toBe(
-      "Restaurant Promo Video Editing Miami — From $240",
+      "Restaurant Promo Video Editing Miami | From $240",
     );
     expect(metadata.description).toBe(
-      "Restaurant promo video editing in Miami from $240. High-retention food reels, dish spotlight cuts & social promo videos that fill South Florida tables.",
+      "Restaurant promo video editing in Miami from $240. Food reels, dish spotlight cuts, captions, and social promo edits for South Florida restaurants.",
     );
     expect(metadata.description).toContain("from $240");
     expect(metadata.description?.length).toBeGreaterThanOrEqual(120);

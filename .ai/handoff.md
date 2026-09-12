@@ -1,3 +1,11 @@
+## Restaurant promo snippet and intent depth — 2026-09-12
+
+- Fresh demand-wave dispatch evidence records GSC window 2026-08-12 through 2026-09-08 at 2 clicks, 603 impressions, average position 26.4. The standing charter and prior PR #143 evidence identify `restaurant promo video editing miami` as a near-top-10 query split between `/areas` and `/services/restaurant-promo-video-editing-miami`.
+- Chosen move class: page with impressions/near-threshold intent needing depth and safer snippet language. Tightened the English restaurant service title/description and Service schema description, added Miami restaurant brief guidance, and mirrored the Spanish companion page description/lead/body copy. The copy preserves the $240 starting price already present, keeps the `client-supplied footage` boundary, and removes reservation/fill-tables outcome promises.
+- Regression coverage in `app/__tests__/page-metadata.test.ts` and `app/__tests__/restaurant-promo-depth.test.ts` pins the new snippet, EN/ES factual no-guarantee language, contact/service links, FAQPage parity, and substantive depth. No URL, sitemap, canonical, hreflang, redirect, noindex, new price, client result, review, street address, drone-pilot claim, or availability promise changed.
+- Validation on Node v26.7.0: `pnpm lint`, `pnpm typecheck`, `pnpm test` (61 files / 427 tests), and `git diff --check` all exit 0. Node emits the existing unsupported-engine warning because the repo asks for `>=20.9 <23`.
+- External Obsidian hot note and global project registry sync are deferred to the parent verifier because this dispatch confines writes to `/Users/gonzalo/code/esteban-media` and subdirectories.
+
 ## Editor-vs-videographer guide depth — 2026-09-11
 
 - Fresh page-level evidence from `/Users/gonzalo/.local/state/esteban-media-index-watch/latest.json` generated 2026-09-10 shows `/guides/video-editor-vs-videographer` with 35 impressions, 0 clicks, and average position 10.9429 for the 2026-08-12 through 2026-09-08 window. The broader 2026-09-11 GSC/GBP review records 2 clicks, 603 impressions, and average position 26.4 with no alerts.
