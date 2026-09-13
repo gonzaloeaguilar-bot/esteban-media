@@ -1,3 +1,10 @@
+## Video editor vs videographer raw-footage handoff depth — 2026-09-13
+
+- Live GSC helper check used the freshest settled page-dimension window because the default 28-day helper read stopped on stale table coverage. `/Library/Frameworks/Python.framework/Versions/3.13/bin/python3 /Users/gonzalo/code/portfolio-ops-nightly/scripts/gsc_query.py --site esteban --start 2026-08-13 --end 2026-09-09 --dimensions date,page` returned BigQuery source `max_data_date=2026-09-09` and showed `/guides/video-editor-vs-videographer` with several daily rows near page one, including 4 impressions at position 8.5 on 2026-08-26, 4 at 8.75 on 2026-08-24, 3 at 9.33 on 2026-09-08, and 2 at 10.0 on 2026-09-04.
+- Added one English-only section to `/guides/video-editor-vs-videographer` explaining raw-footage handoff quality: when existing footage is enough for editing, when missing coverage means new capture is needed, and how partial assets change the editor-vs-videographer decision. Added one matching visible FAQ. No URL, metadata, service offer, pricing, schema claim, or Spanish companion copy changed.
+- Validation in isolated worktree `codex/video-editor-vs-videographer-depth-20260913`: focused `pnpm exec vitest run lib/__tests__/demand-pages.test.ts` passed 34/34 tests; `pnpm lint`, `pnpm typecheck`, `pnpm test` passed 61 files / 428 tests; `pnpm build` prerendered 309 pages; `git diff --check` passed. Node `v26.7.0` emitted the existing engine-range warning for `>=20.9 <23`.
+- External Obsidian hot note and global project registry sync are deferred to the parent verifier because this dispatch confines writes to `/Users/gonzalo/code/esteban-media` and subdirectories.
+
 ## Restaurant promo snippet and intent depth — 2026-09-12
 
 - Fresh demand-wave dispatch evidence records GSC window 2026-08-12 through 2026-09-08 at 2 clicks, 603 impressions, average position 26.4. The standing charter and prior PR #143 evidence identify `restaurant promo video editing miami` as a near-top-10 query split between `/areas` and `/services/restaurant-promo-video-editing-miami`.

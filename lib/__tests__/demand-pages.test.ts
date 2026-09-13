@@ -116,6 +116,33 @@ describe("demand pages depth and substance", () => {
       });
     });
   }
+
+  it("deepens the video editor vs videographer guide with raw footage handoff guidance", () => {
+    const guide = getGuideBySlug("en", "video-editor-vs-videographer");
+
+    expect(
+      guide?.sections.some(
+        (section) =>
+          section.heading ===
+          "How raw footage handoff changes the role you should hire"
+      )
+    ).toBe(true);
+    expect(
+      guide?.faqs?.some(
+        (faq) =>
+          faq.question ===
+          "How do I know if my existing footage is enough for editing?"
+      )
+    ).toBe(true);
+
+    const markup = renderToStaticMarkup(
+      React.createElement(GuideDetailPage, { guide: guide! })
+    );
+
+    expect(markup).toContain("Good editor handoff");
+    expect(markup).toContain("Videographer need");
+    expect(markup).toContain("Existing footage is usually enough");
+  });
 });
 
 describe("Spanish niche page depth: reels-para-negocios-miami", () => {
@@ -398,5 +425,3 @@ describe("Spanish niche page depth: video-para-restaurantes-miami", () => {
     ).toBe("/es/edicion-de-video-promocional-para-restaurantes-miami");
   });
 });
-
-
