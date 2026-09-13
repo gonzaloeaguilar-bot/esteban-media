@@ -1,3 +1,9 @@
+## 2026-09-13 — Spanish service-area internal-link reinforcement
+
+- Evidence: `~/.local/state/esteban-media-seo-geo/candidates-2026-09-13.json` selected `/es/areas` as an internal-link candidate while the 28-day GSC/GBP read showed 2 search clicks, 576 impressions, average position 24.6, and brand position 6.1 for 2026-08-14 through 2026-09-10.
+- The shared bilingual homepage hero now links the scoped production sentence to `/areas` in English and `/es/areas` in Spanish. This strengthens the existing service-area hub without adding routes, changing metadata, schema, sitemap inventory, canonicals, hreflang, NAP, or Palm Beach positioning.
+- Regression coverage in `app/__tests__/customer-ranking-pages.test.ts` locks both homepage hero area links. Validation passed: `pnpm lint`, `pnpm typecheck`, `pnpm test` (57 files / 417 tests), `pnpm build` (309 static pages), and `git diff --check`. No deployment or GSC outcome is claimed.
+
 ## Restaurant promo snippet and intent depth — 2026-09-12
 
 - Fresh demand-wave dispatch evidence records GSC window 2026-08-12 through 2026-09-08 at 2 clicks, 603 impressions, average position 26.4. The standing charter and prior PR #143 evidence identify `restaurant promo video editing miami` as a near-top-10 query split between `/areas` and `/services/restaurant-promo-video-editing-miami`.
