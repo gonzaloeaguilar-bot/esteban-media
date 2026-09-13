@@ -122,6 +122,12 @@
 - The immutable `priority-growth:2026-09-03:esteban:recovery-3` brief records **0 clicks from 31 homepage impressions** for 2026-08-26 through 2026-09-01. It identifies the homepage for `website designer` (3 impressions, 0 clicks), `video production services` (2 impressions, 0 clicks), and `video editing services` (2 impressions, 0 clicks).
 - The English homepage title now retains the exact `Video Editing Services` phrasing while naming the confirmed website-design offering. Its search, Open Graph, and X descriptions consistently state video editing services, website design, and scoped video production services.
 - Regression coverage requires the three shared descriptions to keep both the video-editing/website-design language and the scoped-production boundary. Run the governed verifier before release, then measure a later Search Console query/page window. No click-through or ranking result is claimed.
+## 2026-09-13 — Spanish service-area internal-link reinforcement
+
+- Evidence: `~/.local/state/esteban-media-seo-geo/candidates-2026-09-13.json` selected `/es/areas` as an internal-link candidate while the 28-day GSC/GBP read showed 2 search clicks, 576 impressions, average position 24.6, and brand position 6.1 for 2026-08-14 through 2026-09-10.
+- The shared bilingual homepage hero now links the scoped production sentence to `/areas` in English and `/es/areas` in Spanish. This strengthens the existing service-area hub without adding routes, changing metadata, schema, sitemap inventory, canonicals, hreflang, NAP, or Palm Beach positioning.
+- Regression coverage in `app/__tests__/customer-ranking-pages.test.ts` locks both homepage hero area links. Validation passed: `pnpm lint`, `pnpm typecheck`, `pnpm test` (57 files / 417 tests), `pnpm build` (309 static pages), and `git diff --check`. No deployment or GSC outcome is claimed.
+
 ## 2026-09-03 — Bilingual large-file transfer guide search-title refinement (PR pending)
 
 - Evidence: `/guides/fastest-way-to-send-large-video-files-to-editor` had 48 impressions, 0 clicks, and position 21.96 in the 28-day GSC candidate artifact ending 2026-08-31.
