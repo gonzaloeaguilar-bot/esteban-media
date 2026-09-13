@@ -21,7 +21,8 @@ describe("customer-facing ranking pages", () => {
     expect(hero).toContain(
       "Video editing services for businesses with existing footage",
     );
-    expect(hero).toContain("Video production services are scoped");
+    expect(hero).toContain("Video production services are scoped around the project");
+    expect(hero).toContain('href="/areas"');
     expect(hero).toContain(
       "Edición de video, contenido asistido por IA y producción para redes.",
     );
@@ -29,6 +30,7 @@ describe("customer-facing ranking pages", () => {
       "Servicios de edición de video para negocios con material propio",
     );
     expect(hero).toContain("servicios de producción de video local");
+    expect(hero).toContain('href="/es/areas"');
     expect(services).toContain("website-design");
     expect(services).toContain("Digital systems");
     expect(services).toContain("Website designer workflows");
