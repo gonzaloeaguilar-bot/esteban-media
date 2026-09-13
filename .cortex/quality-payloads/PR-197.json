@@ -1,0 +1,64 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-197",
+  "status": "review_pending",
+  "evidence": {
+    "obsidian_context": "Repo-local .ai/handoff.md and backlog.md were read before editing. The 2026-09-11 handoff recorded the prior editor-vs-videographer guide depth move; this 2026-09-13 follow-up is a narrower English-only raw-footage handoff addition on the same existing ranking guide.",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, worktree .worktrees/codex-video-editor-vs-videographer-depth-20260913, branch codex/video-editor-vs-videographer-depth-20260913, move class content_depth, target /guides/video-editor-vs-videographer. Shared context packet 20260913T063034Z-cto-dev-lead-esteban-1789281034418369000-79331-4b7869da957b6fa7.json and Graphify map sha256 538982af0cdab10845510e2dda51fae425c26ed51f4dad094a9b3cf9eed36608 were read.",
+    "hard_stops_checked": "Checked and clear. No new route, sitemap entry, canonical, hreflang, redirect, noindex, rate, client result, review, street address, drone-pilot claim, aggregateRating, metadata change, or Spanish companion copy changed.",
+    "verification": "Focused pnpm exec vitest run lib/__tests__/demand-pages.test.ts passed 34/34 tests. pnpm check passed: lint exit 0, typecheck exit 0, test exit 0 with 61 files / 428 tests, and build exit 0 with 309 static pages. git diff --check exit 0. Commands emitted the existing unsupported Node engine warning because the shell is Node v26.7.0 while package.json asks for >=20.9 <23.",
+    "reviewer_ensemble": {
+      "builder": {
+        "status": "ok",
+        "note": "Codex added one English section and one FAQ explaining when existing raw footage is enough for editing and when new capture is needed."
+      },
+      "skeptic": {
+        "status": "ok",
+        "note": "The first full gate caught stale exact-count assertions in the existing guide tests; those assertions were updated to pin the new English-only depth while preserving the Spanish companion count."
+      },
+      "taste": {
+        "status": "ok",
+        "note": "Copy stays practical and decision-oriented, focused on handoff quality, missing coverage, and business partial-asset scenarios."
+      }
+    },
+    "reviewer_disagreement_reviewed": "No unresolved disagreement. The only issue found was deterministic test drift after adding an English section and FAQ.",
+    "winner_rationale": "Chosen move: deepen the existing ranking guide rather than create a new URL, because the live page-dimension helper showed the target page earning impressions near page one in the freshest settled window.",
+    "tests_or_validation": "pnpm exec vitest run lib/__tests__/demand-pages.test.ts exit 0, 34/34 tests. pnpm check exit 0: 61 files / 428 tests and 309 static pages. pnpm lint exit 0, pnpm typecheck exit 0, git diff --check exit 0.",
+    "debt_delta": "Net neutral to positive: adds durable regression coverage for the new section and FAQ, with no dependency, route, sitemap, config, or metadata churn.",
+    "obsidian_handoff": "Repo-local .ai/handoff.md and backlog.md were updated. External Obsidian hot note and global project registry sync are deferred to the parent verifier because this dispatch confines writes to /Users/gonzalo/code/esteban-media and subdirectories.",
+    "claim_hygiene_checked": "Compared the new copy with AGENTS.md and existing guide language. The addition is general workflow guidance and adds no new client proof, outcome promise, public address, certification, review, or service availability statement.",
+    "data_sources_current": "Live helper default 28-day page read stopped because the table was fresh only through 2026-09-09. The same helper was rerun with --site esteban --start 2026-08-13 --end 2026-09-09 --dimensions date,page and returned BigQuery source max_data_date=2026-09-09 plus target-page rows near positions 8.5 to 10.0.",
+    "booking_or_authority_thesis": "The guide now better answers the practical comparison intent by showing businesses how raw footage quality determines whether to hire an editor, a videographer, or a combined team.",
+    "ci_passed": "Local repository gate passed before payload creation: pnpm check exit 0, 61 files / 428 tests, 309 static pages. Remote GitHub checks are running for PR-197.",
+    "pr_review_complete": "Self-review complete across lib/guides.ts, lib/__tests__/guides.test.ts, lib/__tests__/demand-pages.test.ts, .ai/handoff.md, backlog.md, and .cortex/quality-payloads/PR-197.json.",
+    "deploy_or_rollback_plan": "Use the standard PR merge path after green checks and evidence attachment. Roll back by reverting the merge commit; the content change is additive and isolated to one guide dataset entry plus tests and notes.",
+    "post_change_verification": "After merge, fetch https://estebanmorenomedia.com/guides/video-editor-vs-videographer and confirm HTTP 200, the raw-footage handoff heading, the new FAQ, unchanged canonical URL, and no sitemap count change. Later GSC observation should compare the same page over the next settled 28-day window."
+  },
+  "reviewer_ensemble": {
+    "builder": {
+      "status": "ok",
+      "note": "Codex added one English section and one FAQ explaining when existing raw footage is enough for editing and when new capture is needed."
+    },
+    "skeptic": {
+      "status": "ok",
+      "note": "The first full gate caught stale exact-count assertions in the existing guide tests; those assertions were updated to pin the new English-only depth while preserving the Spanish companion count."
+    },
+    "taste": {
+      "status": "ok",
+      "note": "Copy stays practical and decision-oriented, focused on handoff quality, missing coverage, and business partial-asset scenarios."
+    }
+  },
+  "winner_rationale": "Chosen move: deepen the existing ranking guide rather than create a new URL, because the live page-dimension helper showed the target page earning impressions near page one in the freshest settled window.",
+  "reviewer_disagreement_reviewed": "No unresolved disagreement. The only issue found was deterministic test drift after adding an English section and FAQ.",
+  "tests_or_validation": "pnpm exec vitest run lib/__tests__/demand-pages.test.ts exit 0, 34/34 tests. pnpm check exit 0: 61 files / 428 tests and 309 static pages. pnpm lint exit 0, pnpm typecheck exit 0, git diff --check exit 0.",
+  "debt_delta": "Net neutral to positive: adds durable regression coverage for the new section and FAQ, with no dependency, route, sitemap, config, or metadata churn.",
+  "obsidian_handoff": "Repo-local .ai/handoff.md and backlog.md were updated. External Obsidian hot note and global project registry sync are deferred to the parent verifier because this dispatch confines writes to /Users/gonzalo/code/esteban-media and subdirectories.",
+  "claim_hygiene_checked": "Compared the new copy with AGENTS.md and existing guide language. The addition is general workflow guidance and adds no new client proof, outcome promise, public address, certification, review, or service availability statement.",
+  "data_sources_current": "Live helper default 28-day page read stopped because the table was fresh only through 2026-09-09. The same helper was rerun with --site esteban --start 2026-08-13 --end 2026-09-09 --dimensions date,page and returned BigQuery source max_data_date=2026-09-09 plus target-page rows near positions 8.5 to 10.0.",
+  "booking_or_authority_thesis": "The guide now better answers the practical comparison intent by showing businesses how raw footage quality determines whether to hire an editor, a videographer, or a combined team.",
+  "ci_passed": "Local repository gate passed before payload creation: pnpm check exit 0, 61 files / 428 tests, 309 static pages. Remote GitHub checks are running for PR-197.",
+  "pr_review_complete": "Self-review complete across lib/guides.ts, lib/__tests__/guides.test.ts, lib/__tests__/demand-pages.test.ts, .ai/handoff.md, backlog.md, and .cortex/quality-payloads/PR-197.json.",
+  "deploy_or_rollback_plan": "Use the standard PR merge path after green checks and evidence attachment. Roll back by reverting the merge commit; the content change is additive and isolated to one guide dataset entry plus tests and notes.",
+  "post_change_verification": "After merge, fetch https://estebanmorenomedia.com/guides/video-editor-vs-videographer and confirm HTTP 200, the raw-footage handoff heading, the new FAQ, unchanged canonical URL, and no sitemap count change. Later GSC observation should compare the same page over the next settled 28-day window."
+}
