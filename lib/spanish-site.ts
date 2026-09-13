@@ -389,7 +389,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         heading: "Producción selectiva en Miami-Dade y enfoque bilingüe",
         paragraphs: [
-          "Cuando un proyecto requiere captura de tomas nuevas en locación dentro del condado de Miami-Dade, la producción se evalúa de forma selectiva considerando la locación, el tipo de negocio y la planificación del contenido.",
+          "Cuando un proyecto requiere captura de tomas nuevas en locación dentro del condado de Miami-Dade, la producción se evalúa de forma selectiva considerando la locación, el tipo de negocio y la planificación del contenido dentro de las [áreas de servicio](/es/areas).",
           "En un entorno multicultural como el sur de la Florida, la comunicación directa en español facilita definir el tono, los ganchos y el estilo de cada video sin barreras de idioma, adaptando el contenido para audiencias hispanas o bilingües de la región.",
         ],
         bullets: [
@@ -504,7 +504,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         heading: "Captura selectiva en locación en Miami-Dade y atención directa en español",
         paragraphs: [
-          "Cuando un restaurante en Miami requiere tomas nuevas en locación, la producción se evalúa de manera selectiva analizando la disponibilidad, el horario de cocina y el alcance del rodaje. Grabar durante horas de preparación matutina o justo antes del servicio permite capturar al chef y los ingredientes con iluminación controlada sin interrumpir la operación del restaurante.",
+          "Cuando un restaurante en Miami requiere tomas nuevas en locación, la producción se evalúa de manera selectiva analizando la disponibilidad, el horario de cocina y el alcance del rodaje dentro de las [áreas de servicio](/es/areas). Grabar durante horas de preparación matutina o justo antes del servicio permite capturar al chef y los ingredientes con iluminación controlada sin interrumpir la operación del restaurante.",
           "Contar con atención directa en español facilita coordinar con el equipo de cocina y gerencia de forma rápida y fluida en el sur de la Florida. Conoce nuestro trabajo publicado en el sector con el proyecto [Bar Door Monkey Miami](/es/portafolio/bar-door-monkey) y explora también opciones complementarias como [fotografía de comida asistida por IA](/es/fotografia-de-comida-con-ia-restaurantes).",
         ],
         bullets: [

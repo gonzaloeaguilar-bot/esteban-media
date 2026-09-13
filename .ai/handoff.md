@@ -99,6 +99,12 @@
 
 # Esteban Moreno Media — Engineering Handoff
 
+## Spanish areas additional contextual inbound links — 2026-09-12
+
+- Added two more body-copy links to `/es/areas` from existing Spanish service pages rendered through `lib/spanish-site.ts`: `/es/reels-para-negocios-miami` and `/es/video-para-restaurantes-miami`. Both links use the target page's visible “áreas de servicio” language and stay inside location-planning sentences.
+- Confirmed the `/es/areas` route exists at `app/(spanish)/es/areas/page.tsx`; existing breadcrumb links from `/es/areas/palm-beach-county` preserve the return path to the section hub.
+- Validation for this dispatch: `pnpm install --frozen-lockfile` exited 0 after `node_modules` was absent. Run `npm run typecheck --silent` before review handoff.
+
 ## Homepage video-editing proof cue — 2026-09-03
 
 - The immutable `priority-growth:2026-09-02:esteban:replacement:recovery-7` brief records **0 clicks from 31 homepage impressions** from 2026-08-26 through 2026-09-01. It names the homepage for `website designer` (3 impressions, 0 clicks), `video production services` (2 impressions, 0 clicks), and `video editing services` (2 impressions, 0 clicks).
