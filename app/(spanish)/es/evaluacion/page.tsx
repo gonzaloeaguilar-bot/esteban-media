@@ -59,6 +59,15 @@ export default function SpanishAssessmentPage() {
                 áreas de servicio en Fort Lauderdale, Broward y Miami-Dade
               </Link>{" "}
               para conocer la disponibilidad de cobertura antes de solicitar tu diagnóstico.
+              Cuando ya tengas archivos, objetivo o fechas tentativas, puedes enviar el brief
+              por{" "}
+              <Link
+                href="/es/contacto"
+                className="font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#7f2f20]"
+              >
+                contacto en español
+              </Link>{" "}
+              para revisar el alcance sin asumir producción, precios ni disponibilidad.
             </p>
           </div>
         </Container>
