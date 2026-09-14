@@ -327,9 +327,9 @@ describe("bilingual practical guides", () => {
     expect(esGuide).toBeDefined();
     if (!enGuide || !esGuide) return;
 
-    expect(enGuide.sections).toHaveLength(5);
+    expect(enGuide.sections).toHaveLength(6);
     expect(esGuide.sections).toHaveLength(5);
-    expect(enGuide.faqs).toHaveLength(6);
+    expect(enGuide.faqs).toHaveLength(7);
     expect(esGuide.faqs).toHaveLength(6);
 
     const enProse = JSON.stringify(enGuide.sections);
@@ -340,6 +340,13 @@ describe("bilingual practical guides", () => {
     );
     expect(enProse).toContain("Editing-first: existing footage");
     expect(enProse).toContain("Filming-first: location");
+    expect(enProse).toContain(
+      "How raw footage handoff changes the role you should hire",
+    );
+    expect(enProse).toContain("Good editor handoff: clear speech");
+    expect(enGuide.faqs?.map((faq) => faq.question)).toContain(
+      "How do I know if my existing footage is enough for editing?",
+    );
     expect(enProse).toContain("/services/short-form-video-editor-miami");
     expect(enProse).toContain("/services/corporate-event-videographer-miami");
 
