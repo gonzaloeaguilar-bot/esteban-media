@@ -4,6 +4,14 @@
 - Added one English-only section to `/guides/video-editor-vs-videographer` explaining raw-footage handoff quality: when existing footage is enough for editing, when missing coverage means new capture is needed, and how partial assets change the editor-vs-videographer decision. Added one matching visible FAQ. No URL, metadata, service offer, pricing, schema claim, sitemap, canonical, hreflang, or Spanish companion copy changed.
 - Regression coverage in `lib/__tests__/guides.test.ts` and `lib/__tests__/demand-pages.test.ts` pins the new section, FAQ, and rendered phrases. External Obsidian hot note and global project registry sync are deferred to the parent verifier because this dispatch confines writes to the repo worktree.
 
+## Spanish evaluation-to-contact link — 2026-09-14
+
+- Fresh candidate evidence from `/Users/gonzalo/.local/state/esteban-media-seo-geo/candidates-2026-09-14.json` selected Spanish hub internal-link candidates including `/es/contacto` while the 28-day GSC/GBP read showed 2 search clicks, 545 impressions, average position 25.6, and brand position 7.3 for 2026-08-15 through 2026-09-11. Index-watch generated 2026-09-14 reports 243 watched URLs, 201 pass, 42 neutral, 0 fail, and live sitemap count 243.
+- Added one contextual link from `/es/evaluacion` to `/es/contacto` for visitors who already have files, goals, or tentative dates after using the strategy diagnostic. The copy explicitly avoids assuming production, prices, or availability, and preserves the existing `/es/areas` availability link.
+- Regression coverage in `app/__tests__/spanish-assessment-contact-link.test.ts` locks the Spanish contact href, visible Spanish anchor text, no-assumption boundary, and existing areas href. No URL, sitemap, canonical, hreflang, schema, NAP, price, client result, review, street address, drone-pilot claim, or availability promise changed.
+- Validation on this worktree: focused Vitest 1/1 passed; `pnpm lint`, `pnpm typecheck`, `pnpm test` (62 files / 429 tests), `pnpm build` (309 static pages), and `git diff --check` all exit 0. Dependencies were installed with `pnpm install --frozen-lockfile`; no package files changed.
+- External Obsidian hot note and global project registry sync are deferred to the parent verifier because this dispatch confines writes to `/Users/gonzalo/code/_overnight/esteban-seo-geo-20260902` and subdirectories. Later GSC observation remains required; no traffic or ranking outcome is claimed.
+
 ## 2026-09-13 — Spanish service-area internal-link reinforcement
 
 - Evidence: `~/.local/state/esteban-media-seo-geo/candidates-2026-09-13.json` selected `/es/areas` as an internal-link candidate while the 28-day GSC/GBP read showed 2 search clicks, 576 impressions, average position 24.6, and brand position 6.1 for 2026-08-14 through 2026-09-10.

@@ -1,0 +1,60 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-200",
+  "status": "quality_enforced_passed",
+  "allowed": true,
+  "recorded": true,
+  "quality_result": {
+    "status": "quality_passed"
+  },
+  "evidence": {
+    "obsidian_context": "AGENTS.md, esteban-media-hot.md, esteban-media-index.md, client-esteban-media/agents.md, .ai/handoff.md, current shared context packet, and latest candidate state were read before editing. External Obsidian writes are deferred because the dispatch confines writes to the overnight worktree.",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, isolated worktree /Users/gonzalo/code/_overnight/esteban-seo-geo-20260902, branch codex/esteban-spanish-evaluation-contact-20260914, PR-200, move class internal_links, target /es/contacto via /es/evaluacion.",
+    "data_sources_current": "latest.json showed GSC/GBP window 2026-08-15..2026-09-11 with 2 clicks, 545 impressions, average position 25.6, brand position 7.3, 0 call clicks, and 0 website clicks. candidates-2026-09-14.json selected Spanish hub internal-link candidates including /es/contacto. index-watch latest generated 2026-09-14 showed 243 watched URLs, live sitemap count 243, 201 pass, 42 neutral, 0 fail.",
+    "graphify_scope": "graphify-out/graph.json was inspected before edits and pointed to the Spanish evaluation/contact routes, route maps, and contact tests. graphify update /Users/gonzalo/code/_overnight/esteban-seo-geo-20260902 exited 0 after commit and rebuilt the graph to 2045 nodes and 4214 edges.",
+    "hard_stops_checked": "Checked and clear. No new URL, sitemap entry, canonical, hreflang, redirect, noindex, schema change, NAP change, price, client result, review, public street address, drone-pilot claim, aggregateRating, or availability promise changed.",
+    "verification": "pnpm install --frozen-lockfile exit 0 with no package file changes. Focused Vitest app/__tests__/spanish-assessment-contact-link.test.ts passed 1/1. pnpm lint exit 0. pnpm typecheck exit 0. pnpm test exit 0 with 62 files / 429 tests. pnpm build exit 0 with 309 static pages. git diff --check exit 0.",
+    "reviewer_ensemble": {
+      "builder": {
+        "status": "ok",
+        "note": "Codex added one contextual Spanish evaluation-page link to /es/contacto for diagnostic visitors ready to send project details."
+      },
+      "skeptic": {
+        "status": "ok",
+        "note": "The copy explicitly says the contact review does not assume production, prices, or availability, avoiding unsupported commercial claims."
+      },
+      "taste": {
+        "status": "ok",
+        "note": "The link appears in the existing support panel near the areas link, matching the page's current decision flow without visual churn."
+      }
+    },
+    "reviewer_disagreement_reviewed": "No unresolved disagreement. The only remote issue found was missing PR-body quality evidence; this payload and body summary repair that check.",
+    "winner_rationale": "Chosen move: route /es/evaluacion visitors to /es/contacto because today's candidate list includes /es/contacto and the evaluation page is a high-intent Spanish page already connected from /es/servicios.",
+    "tests_or_validation": "Focused Vitest 1/1, pnpm lint, pnpm typecheck, pnpm test 62 files / 429 tests, pnpm build 309 static pages, git diff --check, and graphify update all exited 0.",
+    "debt_delta": "Net positive: adds a regression test for the Spanish evaluation-to-contact path and avoids dependency, inventory, metadata, or schema churn.",
+    "obsidian_handoff": "Repo-local .ai/handoff.md and backlog.md were updated. External Obsidian hot note and global project registry sync are deferred to the parent verifier because this dispatch confines writes to the overnight worktree.",
+    "pr_review_complete": "Self-review complete across app/(spanish)/es/evaluacion/page.tsx, app/__tests__/spanish-assessment-contact-link.test.ts, .ai/handoff.md, backlog.md, and .cortex/quality-payloads/PR-200.json.",
+    "deploy_or_rollback_plan": "Use the standard PR merge path after green checks and independent review. Roll back by reverting the merge commit; the code change is one additive link plus test and notes.",
+    "post_change_verification": "After merge, fetch https://estebanmorenomedia.com/es/evaluacion and confirm HTTP 200, href /es/contacto, unchanged /es/areas link, unchanged sitemap count, and no unsupported claim. Later GSC observation should compare /es/contacto and /es/evaluacion in a settled 28-day window."
+  },
+  "reviewer_ensemble": {
+    "builder": {
+      "status": "ok",
+      "note": "Codex added one contextual Spanish evaluation-page link to /es/contacto for diagnostic visitors ready to send project details."
+    },
+    "skeptic": {
+      "status": "ok",
+      "note": "The copy explicitly says the contact review does not assume production, prices, or availability, avoiding unsupported commercial claims."
+    },
+    "taste": {
+      "status": "ok",
+      "note": "The link appears in the existing support panel near the areas link, matching the page's current decision flow without visual churn."
+    }
+  },
+  "winner_rationale": "Chosen move: route /es/evaluacion visitors to /es/contacto because today's candidate list includes /es/contacto and the evaluation page is a high-intent Spanish page already connected from /es/servicios.",
+  "reviewer_disagreement_reviewed": "No unresolved disagreement. The only remote issue found was missing PR-body quality evidence; this payload and body summary repair that check.",
+  "tests_or_validation": "Focused Vitest 1/1, pnpm lint, pnpm typecheck, pnpm test 62 files / 429 tests, pnpm build 309 static pages, git diff --check, and graphify update all exited 0.",
+  "debt_delta": "Net positive: adds a regression test for the Spanish evaluation-to-contact path and avoids dependency, inventory, metadata, or schema churn.",
+  "obsidian_handoff": "Repo-local .ai/handoff.md and backlog.md were updated. External Obsidian hot note and global project registry sync are deferred to the parent verifier because this dispatch confines writes to the overnight worktree."
+}
