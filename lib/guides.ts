@@ -1228,6 +1228,19 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
+          heading: "How raw footage handoff changes the role you should hire",
+          paragraphs: [
+            "The strongest signal is whether your raw footage is already usable. If you have clear audio, stable framing, enough angles, and footage that covers the story from beginning to end, a video editor can usually turn those assets into a finished piece without sending a camera team back into the field.",
+            "If the available footage is missing essential moments, has unusable audio, lacks close-ups or establishing shots, or does not include the people and products the video needs to show, an editor can improve the material but cannot create true coverage that was never captured. That is when a videographer, or a combined production plan, becomes the more honest choice.",
+            "For business content, this boundary matters because many projects start with partial assets: a phone recording from an event, a webinar replay, a few customer clips, or footage from a previous contractor. An editor-first workflow can work well when those assets need structure, captions, cleanup, and platform formatting. A videographer-first workflow fits when the business needs new images, controlled lighting, interviews, and intentional sound captured on location.",
+          ],
+          bullets: [
+            "Good editor handoff: clear speech, stable shots, multiple angles, brand references, and enough footage to tell the story",
+            "Weak editor handoff: distorted audio, missing scenes, unclear subject, no establishing shots, or footage that does not match the desired message",
+            "Videographer need: new interviews, product demonstrations, venue coverage, controlled lighting, or on-camera direction",
+          ],
+        },
+        {
           heading: "Common production pitfalls and how to brief each role effectively",
           paragraphs: [
             "A frequent and expensive mistake in video marketing is relying on the assumption that filming flaws can easily be fixed in post-production. While modern digital tools can improve imperfect footage, severe audio reverberation, clipped microphone distortion, or out-of-focus subjects cannot be magically restored without sacrificing quality. Capturing clean source media on set protects the entire project.",
@@ -1251,6 +1264,11 @@ const guidePairs: readonly GuidePair[] = [
           question: "What equipment does a videographer bring compared to an editor's workstation?",
           answer:
             "A videographer brings cinema camera bodies, prime lenses, gimbals, lighting softboxes, and wireless microphone systems. An editor works on a high-performance computer with color-calibrated monitors and professional NLE software.",
+        },
+        {
+          question: "How do I know if my existing footage is enough for editing?",
+          answer:
+            "Existing footage is usually enough when the speech is clear, the key moments are captured, the framing is stable, and there is enough coverage to tell the story. If important scenes, interviews, products, or clean audio are missing, you may need new videography before editing.",
         },
         {
           question: "Can a video editor fix poor audio or bad lighting from raw footage?",

@@ -1,3 +1,9 @@
+## Video editor vs videographer raw-footage handoff depth — 2026-09-14
+
+- Live GSC helper check: the default 28-day page read stopped because the BigQuery table was fresh only through 2026-09-10, so the same helper was rerun for the settled 2026-08-12 through 2026-09-08 page-dimension window. `/Library/Frameworks/Python.framework/Versions/3.13/bin/python3 /Users/gonzalo/code/portfolio-ops-nightly/scripts/gsc_query.py --site esteban --start 2026-08-12 --end 2026-09-08 --dimensions date,page` showed `/guides/video-editor-vs-videographer` with 24 impressions, 0 clicks, and average position 11.79 across 8 rows.
+- Added one English-only section to `/guides/video-editor-vs-videographer` explaining raw-footage handoff quality: when existing footage is enough for editing, when missing coverage means new capture is needed, and how partial assets change the editor-vs-videographer decision. Added one matching visible FAQ. No URL, metadata, service offer, pricing, schema claim, sitemap, canonical, hreflang, or Spanish companion copy changed.
+- Regression coverage in `lib/__tests__/guides.test.ts` and `lib/__tests__/demand-pages.test.ts` pins the new section, FAQ, and rendered phrases. External Obsidian hot note and global project registry sync are deferred to the parent verifier because this dispatch confines writes to the repo worktree.
+
 ## 2026-09-13 — Spanish service-area internal-link reinforcement
 
 - Evidence: `~/.local/state/esteban-media-seo-geo/candidates-2026-09-13.json` selected `/es/areas` as an internal-link candidate while the 28-day GSC/GBP read showed 2 search clicks, 576 impressions, average position 24.6, and brand position 6.1 for 2026-08-14 through 2026-09-10.
