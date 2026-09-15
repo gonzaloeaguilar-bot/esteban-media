@@ -3163,7 +3163,7 @@ export const guidesIndexCopy = {
     answer:
       "Start with the guide that matches your next decision: organize footage, write the brief, choose final formats, or prepare a remote-editing handoff.",
     intro:
-      "These guides offer general preparation steps, not Esteban Moreno Media policies. They do not assume a package, price, turnaround, review method, transfer method, or set of deliverables.",
+      "These guides offer general preparation steps, not Esteban Moreno Media policies. They do not assume a package, price, turnaround, review method, transfer method, or set of deliverables. If you want to audit your video approach first, try the [video strategy diagnostic](/assessment).",
     readLabel: "Read the guide",
     languageLabel: "Leer las guías en español",
     relatedEyebrow: "From planning to proof",
@@ -3183,7 +3183,7 @@ export const guidesIndexCopy = {
     answer:
       "Empieza por la decisión que tienes pendiente: organizar el material, escribir el brief, elegir los formatos finales o preparar una edición remota.",
     intro:
-      "Estas guías ofrecen pasos generales de preparación, no políticas de Esteban Moreno Media. No asumen paquetes, precios, plazos, método de revisión, transferencia ni entregables definidos.",
+      "Estas guías ofrecen pasos generales de preparación, no políticas de Esteban Moreno Media. No asumen paquetes, precios, plazos, método de revisión, transferencia ni entregables definidos. Si prefieres revisar primero el enfoque de tu contenido, puedes usar el [diagnóstico de estrategia de video](/es/evaluacion).",
     readLabel: "Leer la guía",
     languageLabel: "Read the guides in English",
     relatedEyebrow: "De la planificación a la prueba",
