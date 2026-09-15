@@ -138,7 +138,7 @@ export function ContactCta() {
                   </button>
                   <Link
                     href="/contact"
-                    className="text-sm font-medium text-[#f0b384] underline underline-offset-4"
+                    className="-mx-2 inline-flex min-h-10 items-center rounded-md px-2 text-sm font-medium text-[#f0b384] underline underline-offset-4"
                   >
                     Build a detailed brief
                   </Link>

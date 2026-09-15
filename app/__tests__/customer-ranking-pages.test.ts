@@ -19,23 +19,23 @@ describe("customer-facing ranking pages", () => {
       "Clear creative support, from your footage to ready-to-publish content.",
     );
     expect(hero).toContain(
-      "Video editing services for businesses with existing footage",
+      "Video editing, AI-assisted content, and social planning for businesses",
     );
-    expect(hero).toContain("Video production services are scoped around the project");
+    expect(hero).toContain("For local filming, review the");
     expect(hero).toContain('href="/areas"');
     expect(hero).toContain(
-      "Edición de video, contenido asistido por IA y producción para redes.",
+      "Esteban Moreno Media · Video, IA y redes.",
     );
     expect(hero).toContain(
-      "Servicios de edición de video para negocios con material propio",
+      "Edición de video, contenido asistido por IA y planificación para redes.",
     );
-    expect(hero).toContain("servicios de producción de video local");
+    expect(hero).toContain("Si necesitas grabación local");
     expect(hero).toContain('href="/es/areas"');
     expect(services).toContain("website-design");
     expect(services).toContain("Digital systems");
-    expect(services).toContain("Website designer workflows");
+    expect(services).toContain("Website design, business profiles");
     const authorityHub = source("components/home-authority-hub.tsx");
-    expect(authorityHub).toContain("Custom website designer workflows");
+    expect(authorityHub).toContain("Mobile-first sites, forms, email, SMS");
     const siteConfig = source("lib/site.ts");
     expect(siteConfig).toContain("Website designer solutions");
     expect(siteConfig).toContain("Remote video editing services");

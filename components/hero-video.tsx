@@ -3,7 +3,6 @@ import Link from "next/link";
 import { ArrowRight, BadgeCheck, Languages, Laptop, MapPin } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { HeroProjectIntake } from "@/components/hero-project-intake";
 import { trustSignals as trustSignalsEn } from "@/lib/site";
 
 type HeroVideoProps = {
@@ -35,8 +34,8 @@ export function HeroVideo({ locale = "en" }: HeroVideoProps) {
         className="absolute inset-0 -z-10 bg-[linear-gradient(120deg,rgba(0,0,0,.2),rgba(0,0,0,.55))]"
       />
 
-      <Container size="xl" className="relative py-16 sm:py-20 lg:py-24">
-        <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_.95fr] lg:gap-14">
+      <Container size="xl" className="relative py-12 sm:py-20 lg:py-24">
+        <div className="grid items-center gap-7 lg:grid-cols-[1.05fr_.95fr] lg:gap-14">
           <div>
             <div className="inline-flex items-center gap-2 self-start rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs uppercase tracking-wide backdrop-blur">
               <MapPin className="size-3.5" aria-hidden="true" />
@@ -47,14 +46,14 @@ export function HeroVideo({ locale = "en" }: HeroVideoProps) {
 
             <h1
               id="hero-heading"
-              className="mt-6 max-w-[17ch] font-serif text-5xl leading-[1.02] sm:text-6xl lg:text-7xl"
+              className="mt-5 max-w-[17ch] font-serif text-4xl leading-[1.04] sm:mt-6 sm:text-6xl lg:text-7xl"
             >
               {isSpanish
-                ? "Esteban Moreno Media · Edición de video, contenido asistido por IA y producción para redes."
+                ? "Esteban Moreno Media · Video, IA y redes."
                 : "Esteban Moreno Media · Video editing, AI-assisted content, and social production."}
             </h1>
 
-            <p className="mt-5 font-serif text-2xl italic text-[#f0b384] sm:text-3xl">
+            <p className="mt-4 font-serif text-xl italic text-[#f0b384] sm:mt-5 sm:text-3xl">
               {isSpanish
                 ? "Apoyo creativo claro, desde tu material hasta contenido listo para publicar."
                 : "Clear creative support, from your footage to ready-to-publish content."}
@@ -63,7 +62,7 @@ export function HeroVideo({ locale = "en" }: HeroVideoProps) {
             <p className="mt-4 max-w-2xl text-base leading-7 text-[#e8e2d8] sm:text-lg sm:leading-8">
               {isSpanish ? (
                 <>
-                  Servicios de edición de video para negocios con material propio, contenido asistido por IA y planificación para redes según el objetivo. Los servicios de producción de video local se definen según el alcance del proyecto y las{" "}
+                  Edición de video, contenido asistido por IA y planificación para redes. Si necesitas grabación local, revisa las{" "}
                   <Link
                     href="/es/areas"
                     className="underline decoration-[#ffb49e] underline-offset-4 hover:text-[#ffb49e]"
@@ -77,11 +76,11 @@ export function HeroVideo({ locale = "en" }: HeroVideoProps) {
                   >
                     guías prácticas de video
                   </Link>{" "}
-                  para planear el contenido antes de producirlo.
+                  para preparar el contenido.
                 </>
               ) : (
                 <>
-                  Video editing services for businesses with existing footage, AI-assisted content, and social planning shaped around your goal. Video production services are scoped around the project, local capture needs, and{" "}
+                  Video editing, AI-assisted content, and social planning for businesses with footage or a new idea. For local filming, review the{" "}
                   <Link
                     href="/areas"
                     className="underline decoration-[#ffb49e] underline-offset-4 hover:text-[#ffb49e]"
@@ -95,32 +94,30 @@ export function HeroVideo({ locale = "en" }: HeroVideoProps) {
                   >
                     practical video guides
                   </Link>{" "}
-                  to plan content before production.
+                  before production.
                 </>
               )}
             </p>
 
-            <HeroProjectIntake locale={locale} />
-
             <div className="mt-5 flex flex-wrap gap-3">
               <Link
-                href={isSpanish ? "/es/contacto" : "/contact"}
+                href={isSpanish ? "/es/portafolio" : "/portfolio"}
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white transition hover:bg-[#a93e29] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
-                {isSpanish ? "Consultar un proyecto" : "Start a project"}
+                {isSpanish ? "Ver portafolio" : "View portfolio"}
                 <ArrowRight className="size-4" aria-hidden="true" />
               </Link>
               <Link
-                href={isSpanish ? "/es/servicios" : "#services"}
+                href={isSpanish ? "/es/contacto" : "/contact"}
                 className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/30 bg-white/5 px-6 text-sm font-medium text-white backdrop-blur transition hover:bg-white hover:text-[#101214] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
-                {isSpanish ? "Ver servicios" : "See what Esteban does"}
+                {isSpanish ? "Consultar un proyecto" : "Start a project"}
               </Link>
             </div>
           </div>
 
-          <figure className="mx-auto w-full max-w-[26rem] lg:mx-0 lg:justify-self-end">
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl border border-white/10 shadow-2xl shadow-black/40">
+          <figure className="mx-auto hidden w-full max-w-[26rem] sm:block lg:mx-0 lg:justify-self-end">
+            <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-white/10 shadow-2xl shadow-black/40 sm:aspect-[4/5]">
               <Image
                 src="/about/esteban-on-set.jpg"
                 alt={
@@ -139,7 +136,7 @@ export function HeroVideo({ locale = "en" }: HeroVideoProps) {
 
         <ul
           role="list"
-          className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-4"
+          className="mt-12 hidden gap-3 sm:grid sm:grid-cols-2 lg:grid-cols-4"
         >
           {trustSignals.map((signal) => {
             const Icon = signal.icon;

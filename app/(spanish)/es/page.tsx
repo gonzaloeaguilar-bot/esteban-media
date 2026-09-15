@@ -25,9 +25,8 @@ export default function SpanishHomePage() {
   return (
     <main className="bg-[#f6f1ea] text-[#101214]">
       <HeroVideo locale="es" />
-      <HomeAuthorityHub locale="es" />
-
       <PortfolioTeaser locale="es" />
+      <HomeAuthorityHub locale="es" />
 
       <ClientReviews locale="es" />
 
@@ -78,7 +77,7 @@ export default function SpanishHomePage() {
           <SectionIntro
             eyebrow="Servicios y ubicaciones"
             title="Encuentra el servicio que encaja con tu proyecto."
-            lead="Explora servicios confirmados y rutas heredadas por tipo de proyecto. Las páginas de fotografía y drone explican que su disponibilidad sigue pendiente de confirmación."
+            lead="Explora servicios disponibles y páginas por tipo de proyecto. Cuando una opción necesita confirmación, la página lo explica con claridad antes de que pidas una cotización."
             inverted
           />
           <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -120,17 +119,20 @@ export default function SpanishHomePage() {
                 <p className="mt-3 max-w-2xl text-sm leading-6 text-[#252a2d]">
                   Comparte la meta, el condado, el{" "}
                   <Link href="/es/calculadora">material disponible</Link>, el uso
-                  previsto y links de referencia. Consulta las{" "}
+                  previsto y links de referencia.
+                </p>
+                <p className="mt-3 max-w-2xl text-sm leading-6 text-[#252a2d]">
+                  Consulta las{" "}
                   <Link
                     href="/es/areas"
                     className="underline underline-offset-4 hover:text-[#9f3c27]"
                   >
                     áreas de servicio
                   </Link>{" "}
-                  al indicar dónde se realizaría la grabación. Las{" "}
+                  si necesitas grabación local. Las{" "}
                   <Link
                     href="/es/guias"
-                    className="underline underline-offset-4 hover:text-[#9f3c27]"
+                    className="-mx-2 inline-flex min-h-10 items-center rounded-md px-2 underline underline-offset-4 hover:text-[#9f3c27]"
                   >
                     guías prácticas de video
                   </Link>{" "}

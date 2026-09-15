@@ -156,14 +156,14 @@ export function SiteFooterClient(props: FooterProps) {
           <div className="mt-6 flex flex-wrap gap-3">
             <a
               href={`mailto:${props.email}`}
-              className="inline-flex items-center gap-2 rounded-full border border-[#f6f1ea]/20 px-4 py-2 text-sm hover:bg-white/10"
+              className="inline-flex min-h-11 items-center gap-2 rounded-full border border-[#f6f1ea]/20 px-4 py-2 text-sm hover:bg-white/10"
             >
               <Mail className="size-4" aria-hidden="true" />
               {isSpanish ? "Correo" : "Email"}
             </a>
             <a
               href={props.phoneHref}
-              className="inline-flex items-center gap-2 rounded-full border border-[#f6f1ea]/20 px-4 py-2 text-sm hover:bg-white/10"
+              className="inline-flex min-h-11 items-center gap-2 rounded-full border border-[#f6f1ea]/20 px-4 py-2 text-sm hover:bg-white/10"
             >
               <Phone className="size-4" aria-hidden="true" />
               {props.phoneDisplay}
@@ -171,7 +171,7 @@ export function SiteFooterClient(props: FooterProps) {
             <a
               href={props.instagram}
               rel="me"
-              className="inline-flex items-center gap-2 rounded-full border border-[#f6f1ea]/20 px-4 py-2 text-sm hover:bg-white/10"
+              className="inline-flex min-h-11 items-center gap-2 rounded-full border border-[#f6f1ea]/20 px-4 py-2 text-sm hover:bg-white/10"
             >
               <Send className="size-4" aria-hidden="true" />
               Instagram
@@ -179,7 +179,7 @@ export function SiteFooterClient(props: FooterProps) {
             <a
               href={props.youtube}
               rel="me"
-              className="inline-flex items-center gap-2 rounded-full border border-[#f6f1ea]/20 px-4 py-2 text-sm hover:bg-white/10"
+              className="inline-flex min-h-11 items-center gap-2 rounded-full border border-[#f6f1ea]/20 px-4 py-2 text-sm hover:bg-white/10"
             >
               <PlaySquare className="size-4" aria-hidden="true" />
               YouTube
@@ -216,7 +216,10 @@ function FooterList({
       <ul className="mt-4 space-y-2 text-sm">
         {items.map((item) => (
           <li key={`${item.href}-${item.label}`}>
-            <Link href={item.href} className="text-[#f6f1ea] hover:text-[#ffb49e]">
+            <Link
+              href={item.href}
+              className="-ml-2 inline-flex min-h-10 items-center rounded-md px-2 text-[#f6f1ea] hover:text-[#ffb49e]"
+            >
               {item.label}
             </Link>
           </li>
