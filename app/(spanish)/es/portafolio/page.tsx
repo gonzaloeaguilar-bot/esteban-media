@@ -235,8 +235,15 @@ export default function SpanishPortfolioPage() {
                 ¿Tu proyecto necesita una grabación en South Florida?
               </h2>
               <p className="mt-4 max-w-2xl text-sm leading-6 text-[#3f4548] sm:text-base sm:leading-7">
-                Revisa la cobertura para Fort Lauderdale, Broward, Miami-Dade y
-                Palm Beach antes de consultar por una producción en locación.
+                Revisa las{" "}
+                <Link
+                  href="/es/areas"
+                  className="underline underline-offset-4 hover:text-[#9f3c27]"
+                >
+                  áreas de servicio
+                </Link>{" "}
+                para Fort Lauderdale, Broward, Miami-Dade y Palm Beach antes de
+                consultar por una producción en locación.
               </p>
             </div>
             <Link

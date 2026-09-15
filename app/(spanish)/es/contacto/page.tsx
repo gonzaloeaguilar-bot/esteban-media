@@ -204,8 +204,16 @@ export default async function SpanishContactPage({
                   <li>
                     <strong className="text-[#101214]">Ciudad:</strong> Miami,
                     Fort Lauderdale, Palm Beach County, venue, propiedad o
-                    dirección si ya existe. Para trabajo en locación, comparte
-                    cualquier detalle de acceso que pueda afectar el alcance.
+                    dirección si ya existe. Antes de pedir trabajo en locación,
+                    revisa las{" "}
+                    <Link
+                      href="/es/areas"
+                      className="underline underline-offset-4 hover:text-[#9f3c27]"
+                    >
+                      áreas de servicio
+                    </Link>{" "}
+                    y comparte cualquier detalle de acceso que pueda afectar el
+                    alcance.
                   </li>
                   <li>
                     <strong className="text-[#101214]">Fecha:</strong> día de

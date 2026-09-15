@@ -4,6 +4,13 @@
 - Added reciprocal contextual links from the practical video guide hub intro (`/guides` in English and `/es/guias` in Spanish) to the video strategy diagnostic (`/assessment` and `/es/evaluacion`), enabling visitors exploring general video preparation to audit their commercial approach before requesting quotes. Markdown formatting was enabled in `GuidesIndexPage` intro rendering.
 - Preserved strict client-fact boundaries: no price, turnaround, package, review method, or availability promise changed. Frozen 243-URL inventory, sitemaps, canonicals, hreflang, NAP, and schemas preserved.
 - Regression coverage in `app/__tests__/guides-assessment-links.test.ts` locks the localized assessment hrefs and visible text.
+## Spanish areas internal-link reinforcement — 2026-09-15
+
+- Dispatch evidence selected `https://estebanmorenomedia.com/es/areas` as an internal-links candidate with 0 clicks/28d and 0.0% sitemap coverage. The supplied Graphify map and shared context packet hashes matched the dispatch before editing.
+- Added two contextual body-copy links to `/es/areas`: one in the Spanish portfolio location-production note and one in the Spanish contact brief checklist. Anchor text uses the target page's visible heading language, `áreas de servicio`.
+- Confirmed the target route exists at `app/(spanish)/es/areas/page.tsx` and already links back to `/es/servicios`, so no hub-return change was needed. No URL, metadata, sitemap, canonical, hreflang, schema, NAP, price, review, client result, street address, Palm Beach strengthening, drone claim, or availability promise changed.
+- Validation: initial `npm run typecheck --silent` failed because `node_modules` was missing and TypeScript could not resolve `next`, `react`, `lucide-react`, `vitest`, or Node types. `pnpm install --frozen-lockfile` installed dependencies without manifest changes; rerun `npm run typecheck --silent` exited 0. `git diff --check` exited 0.
+- External Obsidian hot note and global project registry sync are deferred to the parent verifier because this dispatch confines writes to `/Users/gonzalo/code/.starvation-wt/esteban-internal_links-1-033643` and subdirectories. Later GSC observation remains required; no traffic or ranking outcome is claimed.
 
 ## Video editor vs videographer raw-footage handoff depth — 2026-09-14
 
