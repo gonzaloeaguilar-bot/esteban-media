@@ -245,7 +245,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Fort Lauderdale / Broward County",
     h1: "Video desde Fort Lauderdale, con alcance definido por proyecto.",
     lead:
-      "Fort Lauderdale es la base de Esteban Moreno Media. La edición, la planificación y la producción local de video forman parte de sus prioridades confirmadas; cada idea en locación se considera de forma selectiva.",
+      "Fort Lauderdale es la base de Esteban Moreno Media. La edición, la planificación y la producción local de video forman parte de sus prioridades confirmadas; cada idea en locación se considera de forma selectiva dentro de [tres condados como área de servicio](/es/areas).",
     keyword: "videógrafo en Fort Lauderdale",
     location: "Fort Lauderdale",
     availability: "confirmed",
@@ -1708,7 +1708,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Gastronomía / Restaurantes",
     h1: "Edición de video apetitosa para restaurantes en Miami.",
     lead:
-      "Destaca detalles culinarios, ambiente de comedor y preparación de bebidas con videos cortos pensados para redes, menú digital o sitio web. Desde $240 por video promocional; cada proyecto recibe una cotización a la medida. Consulta todos los alcances de servicio en [video para restaurantes en Miami](/es/video-para-restaurantes-miami).",
+      "Destaca detalles culinarios, ambiente de comedor y preparación de bebidas con videos cortos pensados para redes, menú digital o sitio web. Desde $240 por video promocional; cada proyecto recibe una cotización a la medida. Consulta todos los alcances de servicio en [video para restaurantes en Miami](/es/video-para-restaurantes-miami) y las [áreas de servicio](/es/areas) cuando el brief incluya rodaje.",
     keyword: "edición de video para restaurantes en Miami",
     location: "Miami / Wynwood",
     availability: "confirmed",
@@ -1736,7 +1736,7 @@ export const spanishNichePages: SpanishNichePage[] = [
         paragraphs: [
           "El tratamiento de color busca que el alimento se vea apetitoso y que conserve su textura natural. Exposición, balance de blancos, contraste y saturación se revisan entre clips para que luz de cocina, luz de mesa, salsas e ingredientes se sientan coherentes dentro de una misma pieza. No se presenta una corrección de color como sustituto de una buena toma ni como una promesa sobre el resultado comercial.",
           "La base de trabajo es el [material suministrado por el cliente](/es/guias/entrega-para-edicion-remota-de-video). Pueden incluirse clips de smartphone o cámara de preparación, emplatado, bebidas, ambiente y mensajes a cámara, junto con los nombres correctos del menú y la intención de cada publicación. Las necesidades de rodaje se conversan por separado; no se presumen dentro de una edición remota.",
-          "Cuando el restaurante está en Miami, conviene indicar contexto local, plato, promoción y canal antes de editar. Un video de bar, un especial de almuerzo y un reel de comedor pueden necesitar ritmos, textos y primeros planos distintos. La edición mantiene clara esa intención local sin prometer un resultado de reservas.",
+          "Cuando el restaurante está en Miami, conviene indicar contexto local, plato, promoción, canal y ubicación antes de editar. Las [áreas de servicio](/es/areas) ayudan a separar una edición remota de una posible conversación de rodaje. Un video de bar, un especial de almuerzo y un reel de comedor pueden necesitar ritmos, textos y primeros planos distintos. La edición mantiene clara esa intención local sin prometer un resultado de reservas.",
         ],
       },
       {
@@ -2335,7 +2335,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Sunny Isles Beach",
     h1: "Edición de video inmobiliario para Sunny Isles Beach.",
     lead:
-      "Convierte el material ya grabado de una propiedad en un video claro para presentar el inmueble y compartirlo en los canales acordados.",
+      "Convierte el material ya grabado de una propiedad en un video claro para presentar el inmueble y compartirlo en los canales acordados. Si el proyecto requiere una conversación de ubicación, revisa las [áreas de servicio](/es/areas).",
     keyword: "video inmobiliario en Sunny Isles Beach",
     location: "Sunny Isles Beach / Aventura",
     availability: "confirmed",
