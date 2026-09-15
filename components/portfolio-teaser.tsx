@@ -54,27 +54,27 @@ export function PortfolioTeaser({ locale }: PortfolioTeaserProps) {
 
   return (
     <section
-      className="border-y border-[#ddd4c8] bg-[#101214] py-12 text-[#f6f1ea] sm:py-16"
+      className="border-y border-[#ddd4c8] bg-[#101214] py-10 text-[#f6f1ea] sm:py-14"
       aria-labelledby={`selected-work-${locale}`}
     >
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-3xl">
             <p className="text-xs font-medium uppercase text-[#ffb49e]">
-              {isSpanish ? "Trabajo seleccionado" : "Selected work"}
+              {isSpanish ? "Primero, el trabajo" : "First, the work"}
             </p>
             <h2
               id={`selected-work-${locale}`}
-              className="mt-4 font-serif text-4xl leading-tight sm:text-5xl"
+              className="mt-3 font-serif text-4xl leading-tight sm:text-5xl"
             >
               {isSpanish
-                ? "Proyectos reales, disponibles para ver."
-                : "Real projects, ready to watch."}
+                ? "Proyectos reales, fáciles de ver."
+                : "Real projects, easy to watch."}
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-7 text-[#c9c1b8]">
               {isSpanish
-                ? "Una selección del trabajo publicado de Esteban. Abre el portafolio para ver los videos, sitios web y chatbots con IA."
-                : "A selection of Esteban's published work. Open the portfolio to explore videos, custom websites, and AI chatbots."}
+                ? "Una muestra rápida del trabajo publicado de Esteban: videos, sitios web y chatbots con IA para evaluar estilo, ritmo y calidad desde el inicio."
+                : "A fast look at Esteban's published work: videos, custom websites, and AI chatbots so people can judge style, pace, and quality right away."}
             </p>
           </div>
           <Link
@@ -86,7 +86,7 @@ export function PortfolioTeaser({ locale }: PortfolioTeaserProps) {
           </Link>
         </div>
 
-        <div className="mt-8 grid gap-4 md:grid-cols-3">
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((item) => {
             const poster = getPoster(item);
             const targetHref =

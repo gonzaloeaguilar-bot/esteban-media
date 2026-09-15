@@ -33,9 +33,9 @@ export default function Home() {
   return (
     <main className="bg-[#f6f1ea] text-[#101214]">
       <HeroVideo />
+      <PortfolioTeaser locale="en" />
       <HomeAuthorityHub />
       <ServicesStrip />
-      <PortfolioTeaser locale="en" />
       <ClientReviews locale="en" />
       <AboutTeaser />
       <ContactCta />

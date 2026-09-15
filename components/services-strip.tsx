@@ -21,12 +21,12 @@ export function ServicesStrip() {
               id="services-heading"
               className="mt-3 font-serif text-4xl leading-tight sm:text-5xl"
             >
-              Content, profiles, websites, and automation—connected around the customer journey.
+              Content, profiles, websites, and automation connected around how customers find and contact you.
             </h2>
           </div>
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 self-start text-sm font-medium text-[#101214] underline decoration-[#e85d3e] decoration-2 underline-offset-4 hover:text-[#7f2f20] sm:self-end"
+            className="-ml-2 inline-flex min-h-10 items-center gap-2 self-start rounded-md px-2 text-sm font-medium text-[#101214] underline decoration-[#e85d3e] decoration-2 underline-offset-4 hover:text-[#7f2f20] sm:self-end"
           >
             View all services
             <ArrowRight className="size-4" aria-hidden="true" />
@@ -82,7 +82,7 @@ export function ServicesStrip() {
         >
           <span>
             <span className="block text-xs font-medium uppercase tracking-wide text-[#9f3c27]">Digital systems</span>
-            <span className="mt-1 block font-serif text-2xl">Website designer workflows, business profiles, marketplaces, DM funnels, CRM-ready automations, reporting, and search readiness.</span>
+            <span className="mt-1 block font-serif text-2xl">Website design, business profiles, marketplaces, DM follow-up, CRM-ready automations, reporting, and search support.</span>
           </span>
           <ArrowRight className="size-5 shrink-0 text-[#9f3c27] transition-transform group-hover:translate-x-1" aria-hidden="true" />
         </Link>

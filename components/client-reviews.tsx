@@ -92,7 +92,7 @@ export function ClientReviews({ locale = "en" }: { locale?: "en" | "es" }) {
             href={reviewSourceUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-2 hover:text-[#7f2f20]"
+            className="-mx-2 inline-flex min-h-10 items-center rounded-md px-2 font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-2 hover:text-[#7f2f20]"
           >
             {t.verify}
           </a>
