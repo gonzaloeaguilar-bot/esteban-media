@@ -45,10 +45,6 @@ function assert(condition, message, details = {}) {
   return { ok: Boolean(condition), message, details };
 }
 
-function wordCount(text) {
-  return text.trim().split(/\s+/).filter(Boolean).length;
-}
-
 async function evaluateRoute(page, route, viewport) {
   await page.goto(`${baseUrl}${route.path}`, {
     waitUntil: "networkidle",
@@ -56,9 +52,8 @@ async function evaluateRoute(page, route, viewport) {
   });
 
   const result = await page.evaluate(
-    ({ route, viewport, internalTerms }) => {
+    ({ viewport, internalTerms }) => {
       const norm = (value) => (value || "").trim().replace(/\s+/g, " ");
-      const lower = (value) => norm(value).toLowerCase();
       const main = document.querySelector("main");
       const hero = document.querySelector('section[aria-labelledby="hero-heading"]');
       const portfolio = document.querySelector('[aria-labelledby^="selected-work"]');
