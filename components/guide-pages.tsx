@@ -181,7 +181,7 @@ export function GuidesIndexPage({ locale }: { locale: GuideLocale }) {
                 <strong>{copy.answerLabel}</strong> {copy.answer}
               </p>
               <p className="mt-4 max-w-3xl leading-7 text-[#3f4548]">
-                {copy.intro}
+                {renderFormattedText(copy.intro)}
               </p>
             </div>
 

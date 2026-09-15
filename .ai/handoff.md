@@ -1,3 +1,10 @@
+## Bilingual guide hubs strategy assessment link — 2026-09-15
+
+- Fresh candidate evidence from `/Users/gonzalo/.local/state/esteban-media-seo-geo/candidates-2026-09-15.json` selected Spanish hub internal-link candidates including `/es/guias` and `/es/evaluacion` while the 28-day GSC/GBP read showed 2 search clicks, 535 impressions, average position 25.6, and brand position 8.0 for 2026-08-16 through 2026-09-12. Index-watch generated 2026-09-15 reports 243 watched URLs, 201 pass, 42 neutral, 0 fail, and live sitemap count 243.
+- Added reciprocal contextual links from the practical video guide hub intro (`/guides` in English and `/es/guias` in Spanish) to the video strategy diagnostic (`/assessment` and `/es/evaluacion`), enabling visitors exploring general video preparation to audit their commercial approach before requesting quotes. Markdown formatting was enabled in `GuidesIndexPage` intro rendering.
+- Preserved strict client-fact boundaries: no price, turnaround, package, review method, or availability promise changed. Frozen 243-URL inventory, sitemaps, canonicals, hreflang, NAP, and schemas preserved.
+- Regression coverage in `app/__tests__/guides-assessment-links.test.ts` locks the localized assessment hrefs and visible text.
+
 ## Video editor vs videographer raw-footage handoff depth — 2026-09-14
 
 - Live GSC helper check: the default 28-day page read stopped because the BigQuery table was fresh only through 2026-09-10, so the same helper was rerun for the settled 2026-08-12 through 2026-09-08 page-dimension window. `/Library/Frameworks/Python.framework/Versions/3.13/bin/python3 /Users/gonzalo/code/portfolio-ops-nightly/scripts/gsc_query.py --site esteban --start 2026-08-12 --end 2026-09-08 --dimensions date,page` showed `/guides/video-editor-vs-videographer` with 24 impressions, 0 clicks, and average position 11.79 across 8 rows.
