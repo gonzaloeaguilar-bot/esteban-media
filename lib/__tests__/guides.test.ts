@@ -386,4 +386,79 @@ describe("bilingual practical guides", () => {
       );
     }
   });
+
+  it("deepens the AI video editing vs human editor guide pair with FAQPage schema and contextual links", () => {
+    const enGuide = getGuides("en").find(
+      (g) => g.slug === "ai-video-editing-vs-human-editor",
+    );
+    const esGuide = getGuides("es").find(
+      (g) => g.slug === "edicion-de-video-con-ia-vs-editor-profesional",
+    );
+
+    expect(enGuide).toBeDefined();
+    expect(esGuide).toBeDefined();
+    if (!enGuide || !esGuide) return;
+
+    expect(enGuide.sections).toHaveLength(5);
+    expect(esGuide.sections).toHaveLength(5);
+    expect(enGuide.faqs).toHaveLength(4);
+    expect(esGuide.faqs).toHaveLength(4);
+
+    const enProse = JSON.stringify(enGuide.sections);
+    const esProse = JSON.stringify(esGuide.sections);
+
+    expect(enProse).toContain(
+      "Where automated AI video tools save time in post-production",
+    );
+    expect(enProse).toContain(
+      "Where automated tools struggle: Narrative pacing, emotion, and context",
+    );
+    expect(enProse).toContain("/portfolio/my-dler");
+    expect(enProse).toContain("/services/short-form-video-editor-miami");
+    expect(enProse).toContain("/services/ai-product-photography-miami");
+    expect(enProse).toContain("/guides/how-to-choose-a-video-editor-in-miami");
+    expect(enProse).toContain("/assessment");
+    expect(enProse).toContain("/contact");
+
+    expect(esProse).toContain(
+      "Áreas donde las herramientas automatizadas de IA ahorran tiempo",
+    );
+    expect(esProse).toContain(
+      "Límites del software automatizado: Narrativa, emoción y contexto",
+    );
+    expect(esProse).toContain("/es/portafolio/my-dler");
+    expect(esProse).toContain("/es/editor-de-video-corto-para-redes-miami");
+    expect(esProse).toContain("/es/fotografia-de-producto-con-ia-miami");
+    expect(esProse).toContain("/es/guias/como-elegir-un-editor-de-video-en-miami");
+    expect(esProse).toContain("/es/evaluacion");
+    expect(esProse).toContain("/es/contacto");
+
+    for (const guide of [enGuide, esGuide]) {
+      const structuredData = buildGuideStructuredData(guide);
+      const faqNode = structuredData["@graph"].find(
+        (
+          node,
+        ): node is {
+          "@type": string;
+          "@id": string;
+          mainEntity: {
+            "@type": string;
+            name: string;
+            acceptedAnswer: { "@type": string; text: string };
+          }[];
+        } => node["@type"] === "FAQPage" && "mainEntity" in node,
+      );
+      expect(faqNode).toBeDefined();
+      expect(faqNode?.["@id"]).toBe(
+        `https://estebanmorenomedia.com${getGuidePath(guide)}#faq`,
+      );
+      expect(faqNode?.mainEntity).toEqual(
+        guide.faqs?.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: { "@type": "Answer", text: faq.answer },
+        })),
+      );
+    }
+  });
 });
