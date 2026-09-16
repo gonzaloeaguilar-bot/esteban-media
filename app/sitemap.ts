@@ -89,6 +89,7 @@ export const sitemapRoutes = [
   { path: "/services/webinar-clip-editing-service", priority: 0.85 },
   { path: "/services/social-media-video-batching-miami", priority: 0.85 },
   { path: "/services/interview-video-editing-service", priority: 0.85 },
+  { path: "/desk-recommendations", priority: 0.85 },
   { path: "/portfolio", priority: 0.9 },
   { path: "/areas", priority: 0.85 },
   { path: "/areas/palm-beach-county", priority: 0.85 },
