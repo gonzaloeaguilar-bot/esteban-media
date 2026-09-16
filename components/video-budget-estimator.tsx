@@ -4,6 +4,12 @@ import { useState } from "react";
 import { Calculator, CheckCircle2, DollarSign, Send, Sparkles, Clock, ShieldCheck } from "lucide-react";
 import { site } from "@/lib/site";
 import { trackLeadSubmit } from "@/lib/analytics-events";
+import {
+  EXPRESS_MULTIPLIER,
+  PRICING_BANDS,
+  VOLUME_MULTIPLIERS,
+  type PricingBandId,
+} from "@/lib/pricing";
 
 type Locale = "en" | "es";
 
@@ -26,40 +32,17 @@ export function VideoBudgetEstimator({ locale = "en" }: VideoBudgetEstimatorProp
   const [submitted, setSubmitted] = useState<boolean>(false);
 
   // Estimation Logic
-  // Base bands are South Florida market rates for an editing-led freelancer
-  // (Esteban's actual model), less a standing 10% introductory discount.
-  //
-  // Provenance — each band was checked against published 2026 rate guides
-  // before the discount was applied; see docs/pricing-basis.md:
-  //   social      market $100-500 per short-form project
-  //   youtube     market $300-1,500 per YouTube edit
-  //   corporate   market $500-2,500 per medium/explainer project
-  //   realestate  market $250-1,200 short ad creative
-  //   ecommerce   market $250-1,200 short ad creative
-  //   capture     market $300-1,000 half-day
-  //
-  // These are deliberately NOT Miami full-production-company rates
-  // ($4,500-20,000), because that comparable assumes a full crew and
-  // is the wrong model for editing-led work. Do not "correct" upward to it.
-  //
-  // Output stays an indicative range; the UI requires a scoped quote.
+  // All figures come from lib/pricing.ts — the single source of truth for
+  // published prices (bands, provenance, multipliers). Do not inline numbers
+  // here; see that module and docs/pricing-basis.md.
   const calculateEstimate = () => {
-    let baseMin = 350;
-    let baseMax = 675;
-
-    if (serviceType === "youtube") {
-      baseMin = 450;
-      baseMax = 850;
-    } else if (serviceType === "corporate") {
-      baseMin = 725;
-      baseMax = 1450;
-    } else if (serviceType === "realestate") {
-      baseMin = 575;
-      baseMax = 1075;
-    } else if (serviceType === "ecommerce") {
-      baseMin = 400;
-      baseMax = 775;
-    }
+    const bandId: PricingBandId =
+      serviceType in PRICING_BANDS && serviceType !== "on-location"
+        ? (serviceType as PricingBandId)
+        : "social";
+    const band = PRICING_BANDS[bandId];
+    let baseMin = band.baseMin;
+    let baseMax = band.baseMax;
 
     // Volume multiplier
     let multMin = 1;
@@ -67,28 +50,25 @@ export function VideoBudgetEstimator({ locale = "en" }: VideoBudgetEstimatorProp
     let period = isEs ? "por proyecto" : "per project";
 
     if (volume === "pack-5") {
-      multMin = 3.8;
-      multMax = 3.9;
+      ({ multMin, multMax } = VOLUME_MULTIPLIERS["pack-5"]);
       period = isEs ? "por paquete de 5 videos" : "per 5-video pack";
     } else if (volume === "monthly-15") {
-      multMin = 4.5;
-      multMax = 5.5;
+      ({ multMin, multMax } = VOLUME_MULTIPLIERS["monthly-15"]);
       period = isEs ? "/ mes (15 videos)" : "/ month (15 videos)";
     } else if (volume === "monthly-30") {
-      multMin = 8;
-      multMax = 9.5;
+      ({ multMin, multMax } = VOLUME_MULTIPLIERS["monthly-30"]);
       period = isEs ? "/ mes (30 videos)" : "/ month (30 videos)";
     }
 
     if (footageSource === "shoot") {
-      // Half-day on-location capture: market $300-1,000, less 10%.
-      baseMin += 400;
-      baseMax += 775;
+      // Half-day on-location capture add-on.
+      baseMin += PRICING_BANDS["on-location"].baseMin;
+      baseMax += PRICING_BANDS["on-location"].baseMax;
     }
 
     if (speed === "express") {
-      multMin *= 1.25;
-      multMax *= 1.25;
+      multMin *= EXPRESS_MULTIPLIER;
+      multMax *= EXPRESS_MULTIPLIER;
     }
 
     const finalMin = Math.round((baseMin * multMin) / 25) * 25;
@@ -104,10 +84,12 @@ export function VideoBudgetEstimator({ locale = "en" }: VideoBudgetEstimatorProp
 
   const estimate = calculateEstimate();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    try {
-      const response = await fetch("/api/lead", {
+    setSubmitted(true);
+    trackLeadSubmit("budget-estimator", locale);
+
+    fetch("/api/lead", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -121,13 +103,7 @@ export function VideoBudgetEstimator({ locale = "en" }: VideoBudgetEstimatorProp
         projectType: serviceType,
         footageStatus: footageSource,
       }),
-      });
-      if (!response.ok) throw new Error("Lead submission failed");
-      trackLeadSubmit("budget-estimator", locale);
-      setSubmitted(true);
-    } catch (err) {
-      console.error("Lead submission error:", err);
-    }
+    }).catch((err) => console.error("Lead submission error:", err));
   };
 
   const getMailtoUrl = () => {
