@@ -176,6 +176,10 @@
 - Candidate branch `fix/ctr-near-top10-20260827` refreshes the metadata for the existing English/Spanish areas and portfolio hubs. The raw titles are 50–60 characters and all four descriptions are 120–160 characters; no URL, canonical, schema, or sitemap entry changes.
 - The English and Spanish area hubs now make geographic scope their explicit purpose and link restaurant-promo visitors to the respective dedicated restaurant service page. This is intended to consolidate the observed English restaurant-promo query toward `/services/restaurant-promo-video-editing-miami`, without a redirect, noindex directive, or inventory exception.
 - Regression coverage asserts the exact metadata strings, length bounds, and locale-correct dedicated-service links. Local checks: `pnpm lint`, `pnpm typecheck`, `pnpm test` (54 files / 409 tests), and `git diff --check` passed. The full suite includes the frozen-inventory assertion for exactly 243 sitemap URLs and its approved hash. No deploy has occurred; the post-release evidence is a new GSC observation for the affected pages and query.
+## Spanish guide-hub inbound links — 2026-08-27
+
+- Added two contextual inbound links to `/es/guias`: one from the Spanish product-photography cost guide when preparing a content brief, and one from the English service-areas page for Spanish-first clients planning a remote handoff. The Spanish homepage link remains in place from the prior merged remediation.
+- Verification: `npm run typecheck --silent` and `git diff --check` exited 0. This change has not been deployed or measured in Search Console.
 
 ## Homepage technology-intake hero alignment — 2026-08-26
 
