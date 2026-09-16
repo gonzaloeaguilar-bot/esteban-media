@@ -104,7 +104,8 @@ describe("stale decisions were re-validated before execution", () => {
 describe("consolidation arithmetic matches the published baseline", () => {
   it("removes exactly 26 URLs from the prior 269-URL inventory", () => {
     expect(consolidatedPathCount()).toBe(26);
-    expect(sitemap()).toHaveLength(269 - 26);
+    // +1 = /desk-recommendations, owner-ordered 2026-09-16 (not a consolidation change)
+    expect(sitemap()).toHaveLength(269 - 26 + 1);
   });
 
   it("never lists a redirect source in the sitemap", () => {
