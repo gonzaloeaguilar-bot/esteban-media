@@ -1,0 +1,35 @@
+{
+  "target_id": "pr-205",
+  "target_type": "pr",
+  "project": "esteban-media",
+  "mode": "pr",
+  "obsidian_context": "~/obsidian-wiki/client-esteban-media/esteban-media-hot.md updated 2026-09-16 with the stranded-lane finding, the moonlight-firewall root cause, the empty-ASIN bug and the 2026-10-16 follow-up. Vault committed 01bd2ad.",
+  "project_routing": "esteban-media (vault client-esteban-media, prefix esteban-media). Affiliate/monetization surface on estebanmorenomedia.com.",
+  "hard_stops_checked": "No money paths, payments, credentials, DNS, PII, lead data or indexing promotion touched. One deliberate policy exemption: the moonlight-identity firewall gets a NARROW one-path allowlist, taken only after the employment risk was put to Gonzalo explicitly and he chose it. No secrets in the diff.",
+  "reviewer_ensemble": "DRIVER SELF-REVIEW ONLY -- no independent agent reviewed this. Recorded honestly rather than claiming an ensemble.",
+  "reviewer_disagreement_reviewed": "No inter-reviewer disagreement (single reviewer). The one genuine disagreement was driver-vs-owner: the driver advised AGAINST putting the gonzalotech-20 tag on a client site; Gonzalo overruled after being shown the employment risk. Owner decision recorded in the PR body and in memory.",
+  "winner_rationale": "Cherry-picked only the two affiliate commits onto current main rather than rebasing a branch 97 commits behind, so the PR diff matches its stated intent; the third commit on the old branch was unrelated SEO work already superseded on main.",
+  "tests_or_validation": "vitest run: 431 passed, 63/63 files. next build: exit 0. Rendered-HTML assertions on .next/server/app/desk-recommendations.html: 18 populated ASINs, 0 empty (was 18 empty before the fix), 18 Product entries in JSON-LD, 36 rel=\"sponsored noopener\" links, 0 untagged Amazon URLs, FTC disclosure present. Negative control: /desk-recommendations confirmed 404 on production before the change.",
+  "debt_delta": "NET NEGATIVE overall, one item added. Removed: a blank-image bug affecting all 18 products, an unregistered sitemap route, and a branch stranded 97 commits behind main. Added: a one-path firewall exemption that must never be widened, and a freeze allowance consumed without demand evidence -- both recorded explicitly with a 2026-10-16 follow-up rather than left implicit.",
+  "obsidian_handoff": "esteban-media-hot.md plus two memory files (feedback-esteban-affiliate-uses-gonzalo-tag-by-owner-decision, reference-gonzalotech-zero-baseline-needs-content-not-rank-lift). Vault pushed 01bd2ad.",
+  "ci_passed": "validate run 35105000148 completed with conclusion=success, verified via gh run view (not assumed); Vercel deployment completed.",
+  "pr_review_complete": "Self-review complete against correctness, security, repo patterns and simplicity. No independent reviewer -- stated plainly rather than overclaimed.",
+  "evidence": {
+    "obsidian_context": "~/obsidian-wiki/client-esteban-media/esteban-media-hot.md updated 2026-09-16 with the stranded-lane finding, the moonlight-firewall root cause, the empty-ASIN bug and the 2026-10-16 follow-up. Vault committed 01bd2ad.",
+    "project_routing": "esteban-media (vault client-esteban-media, prefix esteban-media). Affiliate/monetization surface on estebanmorenomedia.com.",
+    "hard_stops_checked": "No money paths, payments, credentials, DNS, PII, lead data or indexing promotion touched. One deliberate policy exemption: the moonlight-identity firewall gets a NARROW one-path allowlist, taken only after the employment risk was put to Gonzalo explicitly and he chose it. No secrets in the diff.",
+    "reviewer_ensemble": "DRIVER SELF-REVIEW ONLY -- no independent agent reviewed this. Recorded honestly rather than claiming an ensemble.",
+    "reviewer_disagreement_reviewed": "No inter-reviewer disagreement (single reviewer). The one genuine disagreement was driver-vs-owner: the driver advised AGAINST putting the gonzalotech-20 tag on a client site; Gonzalo overruled after being shown the employment risk. Owner decision recorded in the PR body and in memory.",
+    "winner_rationale": "Cherry-picked only the two affiliate commits onto current main rather than rebasing a branch 97 commits behind, so the PR diff matches its stated intent; the third commit on the old branch was unrelated SEO work already superseded on main.",
+    "tests_or_validation": "vitest run: 431 passed, 63/63 files. next build: exit 0. Rendered-HTML assertions on .next/server/app/desk-recommendations.html: 18 populated ASINs, 0 empty (was 18 empty before the fix), 18 Product entries in JSON-LD, 36 rel=\"sponsored noopener\" links, 0 untagged Amazon URLs, FTC disclosure present. Negative control: /desk-recommendations confirmed 404 on production before the change.",
+    "debt_delta": "NET NEGATIVE overall, one item added. Removed: a blank-image bug affecting all 18 products, an unregistered sitemap route, and a branch stranded 97 commits behind main. Added: a one-path firewall exemption that must never be widened, and a freeze allowance consumed without demand evidence -- both recorded explicitly with a 2026-10-16 follow-up rather than left implicit.",
+    "obsidian_handoff": "esteban-media-hot.md plus two memory files (feedback-esteban-affiliate-uses-gonzalo-tag-by-owner-decision, reference-gonzalotech-zero-baseline-needs-content-not-rank-lift). Vault pushed 01bd2ad.",
+    "ci_passed": "validate run 35105000148 completed with conclusion=success, verified via gh run view (not assumed); Vercel deployment completed.",
+    "pr_review_complete": "Self-review complete against correctness, security, repo patterns and simplicity. No independent reviewer -- stated plainly rather than overclaimed."
+  },
+  "reviewers": {
+    "builder": "driver (Claude Opus 5) -- authored the change",
+    "skeptic": "driver self-review -- found the empty-ASIN bug, the unregistered sitemap route, the enforced sha256 I had wrongly assumed unenforced, and the moonlight firewall as the real root cause",
+    "taste": "driver self-review -- kept the firewall as a scoped exemption instead of deleting the guard"
+  }
+}

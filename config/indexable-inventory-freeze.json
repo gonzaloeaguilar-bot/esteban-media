@@ -2,9 +2,9 @@
   "status": "demand_gated",
   "effectiveDate": "2026-08-28",
   "baselineRevisedOn": "2026-08-19",
-  "approvedSitemapUrlCount": 243,
-  "approvedSitemapUrlSetSha256": "70fc0fe5ffcf26dc159e5e0c93a8d5e624f9764ca39f62b999b85b51b232bc98",
-  "allowedNewIndexableUrls": 2,
+  "approvedSitemapUrlCount": 244,
+  "approvedSitemapUrlSetSha256": "7f7789686f9ed0dcfd16f0a8fb9a455b7a21c7326287f0b147193e2651970b33",
+  "allowedNewIndexableUrls": 1,
   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {
     "on": "2026-08-19",
@@ -32,5 +32,16 @@
     "No unexplained sitemap drift in the fixed Search Console watch set",
     "A written demand-and-conversion hypothesis plus owner for each proposed URL"
   ],
-  "allowanceWindow": "per demand-wave run"
+  "allowanceWindow": "per demand-wave run",
+  "ownerOrderedAdditions": [
+    {
+      "on": "2026-09-16",
+      "url": "/desk-recommendations",
+      "orderedBy": "Gonzalo (in-session)",
+      "kind": "monetization",
+      "demandEvidence": "NONE. This is an owner-ordered affiliate/monetization page, not a demand-backed SEO page. It consumes one of the two allowed new indexable URLs WITHOUT the GSC query/impression signal the freeze reason requires. Recorded here so the exception is visible rather than silent.",
+      "followUpDate": "2026-10-16",
+      "followUp": "Check GSC for impressions on /desk-recommendations. If still zero at 30 days, this URL is dead weight and should be noindexed or merged."
+    }
+  ]
 }

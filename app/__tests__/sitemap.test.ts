@@ -21,11 +21,14 @@ import sitemap from "../sitemap";
 describe("portfolio sitemap entries", () => {
   const entries = sitemap();
 
-  it("publishes the exact 243-URL consolidated inventory, each URL once", () => {
+  it("publishes the exact 244-URL consolidated inventory, each URL once", () => {
     const urls = entries.map((entry) => entry.url);
 
-    expect(entries).toHaveLength(243);
-    expect(new Set(urls)).toHaveLength(243);
+    // 244 = 243 consolidated + /desk-recommendations, the owner-ordered
+    // affiliate page added 2026-09-16 (see config/indexable-inventory-freeze.json
+    // ownerOrderedAdditions).
+    expect(entries).toHaveLength(244);
+    expect(new Set(urls)).toHaveLength(244);
   });
 
   // This used to assert every entry carried lastModified 2026-07-19. That

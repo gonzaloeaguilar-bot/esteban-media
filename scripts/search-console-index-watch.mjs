@@ -44,6 +44,9 @@ export const WATCH_URLS = [
   ...LEGACY_V1_WATCH_URLS,
   "https://estebanmorenomedia.com/assessment",
   "https://estebanmorenomedia.com/calculator",
+  // Added 2026-09-16 with the owner-ordered affiliate page; the watch set must
+  // stay identical to app/sitemap.ts or index-watch reports false drift.
+  "https://estebanmorenomedia.com/desk-recommendations",
   "https://estebanmorenomedia.com/case-studies/banacol",
   "https://estebanmorenomedia.com/case-studies/flas-concierge",
   "https://estebanmorenomedia.com/case-studies/healthy-smile",
