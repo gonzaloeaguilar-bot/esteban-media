@@ -204,7 +204,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Miami-Dade / atención en español",
     h1: "Video en Miami-Dade, definido proyecto por proyecto.",
     lead:
-      "Esteban tiene proyectos publicados y verificables realizados en Miami. Para una nueva idea en locación, la disponibilidad y el alcance se conversan de forma individual; la atención es principalmente en español y su inglés es intermedio.",
+      "Esteban tiene proyectos publicados y verificables realizados en Miami. Para una nueva idea en locación, la disponibilidad y el alcance se conversan de forma individual según nuestras [áreas de servicio](/es/areas); la atención es principalmente en español y su inglés es intermedio.",
     keyword: "videógrafo en Miami",
     location: "Miami-Dade",
     availability: "confirmed",
@@ -598,7 +598,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Real Estate / Bienes Raíces",
     h1: "Edición de video y Reels para real estate en South Florida.",
     lead:
-      "La edición de video y contenido para redes es una prioridad confirmada de Esteban. Ayudamos a agentes y agencias inmobiliarias a estructurar recorridos y videos de propiedades a partir de su material grabado.",
+      "La edición de video y contenido para redes es una prioridad confirmada de Esteban. Ayudamos a agentes y agencias inmobiliarias a estructurar recorridos y videos de propiedades a partir de su material grabado en nuestras [áreas de servicio](/es/areas).",
     keyword: "editor de video para real estate",
     location: "South Florida / Miami-Dade / Broward",
     availability: "confirmed",
