@@ -2256,7 +2256,7 @@ const guidePairs: readonly GuidePair[] = [
     id: "transfer-large-video-files-guide",
     en: {
       slug: "fastest-way-to-send-large-video-files-to-editor",
-      metadataTitle: "Send Large Video Files to Editor",
+      metadataTitle: "Fastest Way to Send Large Video Files",
       title: "Fastest ways to transfer raw 4K video files to remote editors",
       description:
         "Learn the fastest ways to transfer raw 4K video footage and multi-gigabyte project archives to a remote video editor using cloud tools, proxies, and checksum verification.",
@@ -2358,7 +2358,7 @@ const guidePairs: readonly GuidePair[] = [
     },
     es: {
       slug: "como-enviar-archivos-pesados-de-video-para-edicion",
-      metadataTitle: "Enviar Archivos Pesados Video",
+      metadataTitle: "Cómo Enviar Archivos Grandes de Video",
       title: "Cómo enviar archivos de video pesados en 4K para edición remota",
       description:
         "Guía para transferir carpetas de video 4K mediante plataformas en la nube y archivos proxy para tu editor de video.",

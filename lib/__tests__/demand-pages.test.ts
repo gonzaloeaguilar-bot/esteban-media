@@ -25,6 +25,8 @@ const TARGET_PAGES = [
     contactLink: "/contact",
     companionSlug: "como-enviar-archivos-pesados-de-video-para-edicion",
     companionPath: "/es/guias/como-enviar-archivos-pesados-de-video-para-edicion",
+    metadataTitle: "Fastest Way to Send Large Video Files",
+    companionMetadataTitle: "Cómo Enviar Archivos Grandes de Video",
   },
   {
     locale: "en" as const,
@@ -73,6 +75,18 @@ describe("demand pages depth and substance", () => {
       });
 
       if (!guide) return;
+
+      if ("metadataTitle" in target) {
+        it("keeps the search title aligned with the guide's direct answer in both languages", () => {
+          const companion = getGuideBySlug(
+            target.locale === "en" ? "es" : "en",
+            target.companionSlug,
+          );
+
+          expect(guide.metadataTitle).toBe(target.metadataTitle);
+          expect(companion?.metadataTitle).toBe(target.companionMetadataTitle);
+        });
+      }
 
       const markup = renderToStaticMarkup(
         React.createElement(GuideDetailPage, { guide })
