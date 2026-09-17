@@ -45,6 +45,19 @@ export default function DailyScriptPacingCalculatorEsPage() {
           </ol>
         </nav>
         <DailyScriptPacingCalculator locale="es" />
+
+        <div className="mt-12 rounded-xl border border-[#ddd4c8] bg-[#fbf6ef] p-6 text-sm text-[#252a2d]">
+          <p>
+            Calibra el ritmo de tu guion antes de grabar en estudio o locación. Si tu producción contempla rodaje en South Florida, revisa nuestras{" "}
+            <Link
+              href="/es/areas"
+              className="font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#7f2f20]"
+            >
+              áreas de servicio de video
+            </Link>{" "}
+            para planificar el alcance por condado.
+          </p>
+        </div>
       </Container>
     </main>
   );

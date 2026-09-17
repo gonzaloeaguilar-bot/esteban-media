@@ -248,7 +248,14 @@ export default function DisenoWebFortLauderdalePage() {
             Una presencia conectada: desde el perfil donde te encuentran hasta el seguimiento que reciben.
           </h2>
           <p className="mt-5 max-w-3xl leading-7 text-[#252a2d]">
-            Definimos el stack según tus canales, permisos y recorrido del cliente. Cada módulo puede funcionar por separado o conectarse con el sitio y el flujo de clientes; el acceso a plataformas y la operación continua se confirman antes de empezar.
+            Definimos el stack según tus canales, permisos y recorrido del cliente en nuestros{" "}
+            <Link
+              href="/es/areas"
+              className="underline underline-offset-4 hover:text-[#9f3c27]"
+            >
+              tres condados como área de servicio
+            </Link>
+            . Cada módulo puede funcionar por separado o conectarse con el sitio y el flujo de clientes; el acceso a plataformas y la operación continua se confirman antes de empezar.
           </p>
           <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {[
@@ -446,7 +453,14 @@ export default function DisenoWebFortLauderdalePage() {
               ¿Listo para Potenciar tu Sitio Web y Captura de Clientes con IA?
             </h2>
             <p className="mt-4 max-w-2xl mx-auto text-base text-[#252a2d]">
-              Contacta a Esteban Media para una consulta sobre diseño web personalizado y chatbots con IA en Fort Lauderdale y South Florida.
+              Contacta a Esteban Media para una consulta sobre diseño web personalizado y chatbots con IA en Fort Lauderdale y nuestras{" "}
+              <Link
+                href="/es/areas"
+                className="underline underline-offset-4 hover:text-[#9f3c27]"
+              >
+                áreas de servicio
+              </Link>
+              .
             </p>
             <WebsiteProjectIntake locale="es" />
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">

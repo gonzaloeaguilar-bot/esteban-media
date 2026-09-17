@@ -1,3 +1,16 @@
+## Spanish areas internal-link reinforcement — 2026-09-17
+
+- Dispatch evidence selected `https://estebanmorenomedia.com/es/areas` as an internal-links candidate with 0 clicks/28d and 0.0% sitemap coverage from growth starvation detection. The supplied Graphify map and shared context packet hashes matched the dispatch before editing.
+- Confirmed the target route exists at `app/(spanish)/es/areas/page.tsx` and already links back to `/es/servicios#edicion`, `/es/servicios#videografia`, `/es/portafolio`, and `/es/contacto`.
+- Added 4 contextual internal body-copy links to `/es/areas` from Spanish utility and landing pages:
+  - `app/(spanish)/es/diseno-web-fort-lauderdale/page.tsx`: connected the digital systems overview (`tres condados como área de servicio`) and the bottom consultation CTA (`áreas de servicio`).
+  - `app/(spanish)/es/recursos/kit-video-social/page.tsx`: added contextual production guidance linking to `áreas de servicio en Fort Lauderdale, Broward y Miami-Dade`.
+  - `app/(spanish)/es/calculadora-de-ritmo-de-video/page.tsx`: added script pacing calibration note linking to `áreas de servicio de video`.
+  - `app/(spanish)/es/planificador-de-tomas-de-video/page.tsx`: added shot planner location note linking to `áreas de servicio en Fort Lauderdale, Broward y Miami-Dade`.
+- Preserved strict guardrails: no changes to URL inventory, routes, sitemaps, metadata, canonicals, hreflang, schema, prices, offers, testimonials, reviews, client results, NAP, or availability promises.
+- Validation: `npm run typecheck --silent` passed with code 0; `pnpm test` passed 63/63 test files and 437/437 tests; `git diff --check` passed cleanly.
+- External Obsidian hot note and global project registry sync are deferred to the parent verifier because this dispatch confines writes to `/Users/gonzalo/code/.starvation-wt/esteban-internal_links-1-014517` and subdirectories. Later GSC observation remains required; no traffic or ranking outcome is claimed.
+
 ## AI video editing vs human editor guide depth and FAQ schema — 2026-09-16
 
 - Fresh Search Console analytics in index-watch state for 2026-08-19..2026-09-15 selected the existing bilingual guide pair 'AI Video Editing vs Human Editor' (`/guides/ai-video-editing-vs-human-editor` and `/es/guias/edicion-de-video-con-ia-vs-editor-profesional`): the Spanish guide earned 4 impressions at average position 7.5 (0 clicks) and the English guide earned 3 impressions at average position 9.0 (0 clicks), falling directly into charter Priority 1 (rank band 6-15).
