@@ -1,0 +1,50 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-206",
+  "status": "review_pending",
+  "evidence": {
+    "obsidian_context": "Daily demand wave selected content depth + FAQPage JSON-LD for the existing bilingual guide pair 'AI Video Editing vs Human Editor' (/guides/ai-video-editing-vs-human-editor and /es/guias/edicion-de-video-con-ia-vs-editor-profesional). Fresh Search Console analytics in index-watch state report /es/guias/edicion-de-video-con-ia-vs-editor-profesional at 4 impressions, 0 clicks, average position 7.5, and /guides/ai-video-editing-vs-human-editor at 3 impressions, 0 clicks, average position 9.0 (both in the charter priority 1 rank band of 6-15). Total 28-day property window reports 530 impressions and 2 clicks.",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, worktree .worktrees/demand-wave-ai-video-editing-depth-20260916, branch feat/demand-wave-ai-video-editing-depth-20260916, move class content_depth + FAQPage JSON-LD. CTO decision record 20260916T234443Z-cto-seo-lead-esteban-media-1789602284328891000-95535-c34464ec0aa5c2e3.json.",
+    "hard_stops_checked": "Checked and clear. No invented clients/prices/reviews/stats/guarantees, no street address, no drone/Part 107 claims, no aggregateRating, no % figures, no delivery-time promises, no new URL, no redirect, no noindex, no canonical/hreflang/sitemap change, and no inventory config change. EN/ES parity maintained by updating both locale entries with 5 substantive sections, contextual internal links, and 4 visible FAQs per locale.",
+    "verification": "pnpm lint, pnpm typecheck, pnpm test (63 files / 437 tests passed), and git diff --check all exited 0.",
+    "reviewer_ensemble": {
+      "builder": {
+        "status": "ok",
+        "note": "Antigravity deepened the GSC-backed bilingual guide pair in lib/guides.ts and added regression coverage in lib/__tests__/guides.test.ts on branch feat/demand-wave-ai-video-editing-depth-20260916."
+      },
+      "skeptic": {
+        "status": "ok",
+        "note": "Diff is restricted to lib/guides.ts, lib/__tests__/guides.test.ts, .cortex quality payload, and handoff/backlog docs. No new URLs created and inventory freeze remains untouched."
+      },
+      "taste": {
+        "status": "ok",
+        "note": "Prose remains objective, professional, and practical: explains where AI automation excels, where human narrative and sound design are indispensable, how the hybrid workflow functions, and how to scope projects cleanly."
+      }
+    },
+    "reviewer_disagreement_reviewed": "No reviewer disagreement. Residual risk is measurement-only: GSC post-crawl observation is required before claiming rank or CTR changes.",
+    "winner_rationale": "Chosen because /es/guias/edicion-de-video-con-ia-vs-editor-profesional (pos 7.5) and /guides/ai-video-editing-vs-human-editor (pos 9.0) both earn impressions in the top 10 (rank band 6-15) without clicks, yet previously lacked depth (only 2 short paragraphs) and lacked FAQ schema. Content depth plus visible FAQPage JSON-LD was the top-priority demand move under the charter.",
+    "tests_or_validation": "pnpm lint exit 0; pnpm typecheck exit 0; pnpm test exit 0 (63 test files, 437 tests passed); git diff --check exit 0. New regression test in lib/__tests__/guides.test.ts asserts section counts, FAQ counts, contextual links, and FAQPage schema.",
+    "debt_delta": "Net negative debt: adds focused regression coverage for the guide pair and enhances structured data without introducing new dependencies or configuration churn.",
+    "obsidian_handoff": "Repo-local .ai/handoff.md and backlog.md updated. External Obsidian/registry writes confined per workspace policy."
+  },
+  "reviewer_ensemble": {
+    "builder": {
+      "status": "ok",
+      "note": "Antigravity deepened the GSC-backed bilingual guide pair in lib/guides.ts and added regression coverage in lib/__tests__/guides.test.ts on branch feat/demand-wave-ai-video-editing-depth-20260916."
+    },
+    "skeptic": {
+      "status": "ok",
+      "note": "Diff is restricted to lib/guides.ts, lib/__tests__/guides.test.ts, .cortex quality payload, and handoff/backlog docs. No new URLs created and inventory freeze remains untouched."
+    },
+    "taste": {
+      "status": "ok",
+      "note": "Prose remains objective, professional, and practical: explains where AI automation excels, where human narrative and sound design are indispensable, how the hybrid workflow functions, and how to scope projects cleanly."
+    }
+  },
+  "winner_rationale": "Chosen because /es/guias/edicion-de-video-con-ia-vs-editor-profesional (pos 7.5) and /guides/ai-video-editing-vs-human-editor (pos 9.0) both earn impressions in the top 10 (rank band 6-15) without clicks, yet previously lacked depth (only 2 short paragraphs) and lacked FAQ schema. Content depth plus visible FAQPage JSON-LD was the top-priority demand move under the charter.",
+  "reviewer_disagreement_reviewed": "No reviewer disagreement. Residual risk is measurement-only: GSC post-crawl observation is required before claiming rank or CTR changes.",
+  "tests_or_validation": "pnpm lint exit 0; pnpm typecheck exit 0; pnpm test exit 0 (63 test files, 437 tests passed); git diff --check exit 0. New regression test in lib/__tests__/guides.test.ts asserts section counts, FAQ counts, contextual links, and FAQPage schema.",
+  "debt_delta": "Net negative debt: adds focused regression coverage for the guide pair and enhances structured data without introducing new dependencies or configuration churn.",
+  "obsidian_handoff": "Repo-local .ai/handoff.md and backlog.md updated. External Obsidian/registry writes confined per workspace policy."
+}

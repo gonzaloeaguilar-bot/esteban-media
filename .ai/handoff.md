@@ -1,3 +1,10 @@
+## AI video editing vs human editor guide depth and FAQ schema — 2026-09-16
+
+- Fresh Search Console analytics in index-watch state for 2026-08-19..2026-09-15 selected the existing bilingual guide pair 'AI Video Editing vs Human Editor' (`/guides/ai-video-editing-vs-human-editor` and `/es/guias/edicion-de-video-con-ia-vs-editor-profesional`): the Spanish guide earned 4 impressions at average position 7.5 (0 clicks) and the English guide earned 3 impressions at average position 9.0 (0 clicks), falling directly into charter Priority 1 (rank band 6-15).
+- Deepened both English and Spanish entries in `lib/guides.ts` with 5 substantive sections, bullet points, contextual internal links (`/services/short-form-video-editor-miami`, `/services/ai-product-photography-miami`, `/portfolio/my-dler`, `/guides/how-to-choose-a-video-editor-in-miami`, `/assessment`, `/contact` and Spanish counterparts), and 4 visible FAQs per locale emitting structured `FAQPage` JSON-LD.
+- Maintained hard guardrails: no new routes, no sitemap/canonical/hreflang/inventory changes, no invented clients/prices/stats/reviews/guarantees, truthful scope and portfolio attribution.
+- Regression coverage in `lib/__tests__/guides.test.ts` validates section counts, FAQ counts, contextual links, and structured data schema. Full acceptance test suite (`pnpm lint`, `pnpm typecheck`, `pnpm test`, `git diff --check`) exited 0 (63 test files, 437 tests passed).
+
 ## Bilingual guide hubs strategy assessment link — 2026-09-15
 
 - Fresh candidate evidence from `/Users/gonzalo/.local/state/esteban-media-seo-geo/candidates-2026-09-15.json` selected Spanish hub internal-link candidates including `/es/guias` and `/es/evaluacion` while the 28-day GSC/GBP read showed 2 search clicks, 535 impressions, average position 25.6, and brand position 8.0 for 2026-08-16 through 2026-09-12. Index-watch generated 2026-09-15 reports 243 watched URLs, 201 pass, 42 neutral, 0 fail, and live sitemap count 243.
