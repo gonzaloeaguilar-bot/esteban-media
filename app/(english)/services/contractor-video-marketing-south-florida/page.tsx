@@ -69,7 +69,7 @@ export default function ContractorVideoMarketingPage() {
               <p className="text-xs font-medium uppercase text-[#5a6066]">
                 Home Services / Construction
               </p>
-              <h1 className="mt-4 max-w-4xl font-serif text-5xl leading-none sm:text-6xl">
+              <h1 className="mt-4 max-w-4xl font-serif em-display">
                 Contractor Video Marketing & Project Reels in South Florida.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">

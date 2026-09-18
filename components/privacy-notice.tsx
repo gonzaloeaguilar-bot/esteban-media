@@ -16,7 +16,7 @@ export function PrivacyNotice({ locale }: { locale: "en" | "es" }) {
         <p className="text-xs font-medium uppercase text-[#9f3c27]">
           {isSpanish ? "Privacidad" : "Privacy"}
         </p>
-        <h1 className="mt-4 font-serif text-5xl leading-none sm:text-6xl">
+        <h1 className="mt-4 font-serif em-display">
           {isSpanish ? "Aviso de privacidad" : "Privacy notice"}
         </h1>
         <p className="mt-5 text-sm text-[#5a6066]">

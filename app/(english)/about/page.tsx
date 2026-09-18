@@ -49,7 +49,7 @@ export default function AboutPage() {
               <p className="text-xs font-medium uppercase text-[#5a6066]">
                 About
               </p>
-              <h1 className="mt-4 max-w-3xl font-serif text-5xl leading-none sm:text-6xl">
+              <h1 className="mt-4 max-w-3xl font-serif em-display">
                 Esteban Moreno: edit-led, business-minded, personal by design.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">

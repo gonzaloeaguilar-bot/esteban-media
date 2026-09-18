@@ -174,7 +174,7 @@ export function GuidesIndexPage({ locale }: { locale: GuideLocale }) {
               <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">
                 {copy.eyebrow}
               </p>
-              <h1 className="mt-4 max-w-4xl font-serif text-5xl leading-none sm:text-6xl">
+              <h1 className="mt-4 max-w-4xl font-serif em-display">
                 {copy.title}
               </h1>
               <p className="mt-6 max-w-3xl text-lg leading-8 text-[#252a2d]">
@@ -301,7 +301,7 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
               <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">
                 {guide.eyebrow}
               </p>
-              <h1 className="mt-4 max-w-4xl font-serif text-5xl leading-none sm:text-6xl lg:text-7xl">
+              <h1 className="mt-4 max-w-4xl font-serif em-display em-display--xl">
                 {guide.title}
               </h1>
               <p className="mt-6 max-w-3xl text-lg leading-8 text-[#252a2d]">

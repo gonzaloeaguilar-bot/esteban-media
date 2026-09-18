@@ -73,7 +73,7 @@ export function GrowthSystemPage({
           <div className="grid gap-10 lg:grid-cols-[1fr_.78fr] lg:items-center">
             <div>
               <p className="text-xs font-medium uppercase tracking-wide text-[#5a6066]">{eyebrow}</p>
-              <h1 className="mt-4 max-w-4xl font-serif text-5xl leading-none sm:text-6xl">{title}</h1>
+              <h1 className="mt-4 max-w-4xl font-serif em-display">{title}</h1>
               <p className="mt-6 max-w-3xl text-lg leading-8 text-[#252a2d]">{lead}</p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link href={spanish ? "/es/contacto" : "/contact"} className="inline-flex min-h-12 items-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white hover:bg-[#a93e29]">

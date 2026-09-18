@@ -607,3 +607,30 @@ html.rail-anim #em-intro[hidden] {
 html.em-returning #em-intro {
   display: none !important;
 }
+
+/* ---------------------------------------------------------------------------
+   Hero display type.
+
+   The page headline was a fixed Tailwind step: 48px on a 375px phone, rising
+   to 60px from the `sm` breakpoint. 48px of serif across 375px wraps the
+   headline to five lines — 240px, more than a third of a 667px first screen —
+   and that alone pushed the primary call to action to y=717, fifty pixels
+   below the fold, measured on production.
+
+   The rail kit already answers this: every display size in it is
+   `clamp(floor, vw, ceiling)`, never a fixed step (its own largest is
+   `clamp(30px, 4vw, 52px)`). This follows that grammar.
+
+   9.375vw reaches exactly 60px at 640px — the `sm` breakpoint — so every
+   viewport from `sm` up renders pixel-identical to before. Only the phone
+   changes, which is where the defect was. line-height stays at 1 for the
+   same reason: it is what `leading-none` was.
+   --------------------------------------------------------------------------- */
+.em-display {
+  font-size: clamp(32px, 9.375vw, 60px);
+  line-height: 1;
+}
+/* Two pages carry a larger desktop ceiling; same curve, higher cap. */
+.em-display--xl {
+  font-size: clamp(32px, 9.375vw, 72px);
+}

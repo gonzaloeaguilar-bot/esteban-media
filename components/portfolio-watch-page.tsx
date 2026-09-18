@@ -259,7 +259,7 @@ export function PortfolioWatchPage({ item, locale }: PortfolioWatchPageProps) {
               <p className="text-xs font-medium uppercase tracking-[0.18em] text-[#f0b384]">
                 {text.eyebrow} · {copy.categoryTitle}
               </p>
-              <h1 className="mt-4 font-serif text-5xl leading-[0.98] sm:text-6xl">
+              <h1 className="mt-4 font-serif em-display">
                 {copy.title}
               </h1>
               <p className="mt-5 text-base leading-7 text-[#d8d0c7] sm:text-lg sm:leading-8">

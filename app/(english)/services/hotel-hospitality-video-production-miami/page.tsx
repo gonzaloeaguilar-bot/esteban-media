@@ -69,7 +69,7 @@ export default function HotelHospitalityVideoProductionMiamiPage() {
               <p className="text-xs font-medium uppercase text-[#5a6066]">
                 Miami Beach / Hotel Hospitality
               </p>
-              <h1 className="mt-4 max-w-4xl font-serif text-5xl leading-none sm:text-6xl">
+              <h1 className="mt-4 max-w-4xl font-serif em-display">
                 Hotel & Hospitality Video Production in Miami.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
