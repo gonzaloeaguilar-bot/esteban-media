@@ -1,8 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 import { getFeaturedPortfolioItems, type PortfolioItem } from "@/lib/portfolio";
+import { HomePortfolioRail } from "@/components/home-portfolio-rail";
 
 type PortfolioTeaserProps = {
   locale: "en" | "es";
@@ -86,59 +86,37 @@ export function PortfolioTeaser({ locale }: PortfolioTeaserProps) {
           </Link>
         </div>
 
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {items.map((item) => {
-            const poster = getPoster(item);
-            const targetHref =
-              item.category === "web-design"
-                ? isSpanish
-                  ? "/es/diseno-web-fort-lauderdale"
-                  : "/services/website-design-fort-lauderdale"
-                : `${href}/${item.id}`;
+        {/* The picture IS the product here, so this is the catalogue
+            language rather than a static grid: one strip you push sideways,
+            the way a streaming service shows a library. Same six items, same
+            words, same links — a horizontal rail instead of a 3-up grid that
+            already ran out of room at two rows on a phone.
 
-            return (
-              <Link
-                key={item.id}
-                href={targetHref}
-                className="group overflow-hidden rounded-lg border border-white/10 bg-white/[0.04] transition-colors hover:bg-white/[0.08]"
-              >
-                <span className="sr-only">
-                  {isSpanish ? "Ver " : "Watch "}
-                </span>
-                <div className="relative aspect-video overflow-hidden bg-[#252a2d]">
-                  {poster ? (
-                    <Image
-                      src={poster}
-                      alt=""
-                      fill
-                      sizes="(min-width: 1280px) 405px, (min-width: 768px) calc(33vw - 24px), calc(100vw - 32px)"
-                      className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
-                    />
-                  ) : null}
-                  <span className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
-                  <span className="absolute bottom-3 right-3 grid size-10 place-items-center rounded-full bg-[#c84a2c] text-white">
-                    <Play className="size-4 fill-current" aria-hidden="true" />
-                  </span>
-                </div>
-                <div className="p-5">
-                  <p className="text-xs uppercase text-[#ffb49e]">
-                    {categoryLabels[locale][item.category]}
-                  </p>
-                  <h3 className="mt-2 font-serif text-2xl leading-tight">
-                    {item.title}
-                  </h3>
-                  {item.location ? (
-                    <p
-                      aria-hidden="true"
-                      className="mt-2 text-sm text-[#c9c1b8]"
-                    >
-                      {item.location}
-                    </p>
-                  ) : null}
-                </div>
-              </Link>
-            );
-          })}
+            next/image is preserved through the kit's `media` slot, which
+            exists precisely so a consumer keeps its framework's optimised
+            image. Swapping to a bare <img> here would have traded LCP on the
+            most-visited page of the site for a tidier diff. */}
+        <div className="em-on-dark mt-8">
+          <HomePortfolioRail
+            locale={locale}
+            items={items.map((item) => {
+              const poster = getPoster(item);
+              const targetHref =
+                item.category === "web-design"
+                  ? isSpanish
+                    ? "/es/diseno-web-fort-lauderdale"
+                    : "/services/website-design-fort-lauderdale"
+                  : `${href}/${item.id}`;
+              return {
+                id: item.id,
+                href: targetHref,
+                title: item.title,
+                eyebrow: categoryLabels[locale][item.category],
+                location: item.location,
+                poster,
+              };
+            })}
+          />
         </div>
       </div>
     </section>
