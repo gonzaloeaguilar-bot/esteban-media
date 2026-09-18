@@ -35,7 +35,7 @@ export function ServicesStrip() {
 
         <ul
           role="list"
-          className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
+          className="em-shelf mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
         >
           {services.map((service) => {
             const Icon = service.icon;

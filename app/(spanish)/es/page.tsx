@@ -39,7 +39,7 @@ export default function SpanishHomePage() {
             title="Contenido conectado con una meta de negocio."
             lead="La meta es simple: editar con intención, organizar qué publicar y definir con claridad cuándo hace falta producir material nuevo."
           />
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          <div className="em-shelf mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {spanishServices.map((service) => {
               const Icon = service.icon;
               const href =

@@ -1043,3 +1043,11 @@ nav[aria-label*="igas de pan" i] a,
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(255, 180, 158, 0.09);
 }
+
+/* The skip link landed the content at y=0, underneath a 65px sticky header —
+   the one link on the page whose whole job is to get a keyboard user past the
+   header put them behind it. Every other anchor on the site already carries
+   this margin; this one had none. */
+#main-content {
+  scroll-margin-top: 96px;
+}

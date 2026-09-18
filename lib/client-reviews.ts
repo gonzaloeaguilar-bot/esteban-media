@@ -16,8 +16,17 @@ import { site } from "@/lib/site";
  *    is never emitted as `aggregateRating` JSON-LD; a rating collected on
  *    Google and asserted here about ourselves is self-serving markup.
  *
- * The profile received 7 ratings on 2026-08-14. Only the entries below cleared
- * rule 2. Add more when a reviewer's work is published, not before.
+ * COUNT, read live from the public profile on 2026-09-18:
+ * **11 reviews, all five stars** (5*: 11, 4*: 0, 3*: 0, 2*: 0, 1*: 0).
+ * The earlier note here said 7 on 2026-08-14 and was stale by four.
+ *
+ * Exactly ONE of those eleven clears rule 2, which is why this file has one
+ * entry while Google shows eleven. That gap is a CONTENT decision, not a bug:
+ * closing it means publishing the other reviewers' projects in lib/portfolio.ts
+ * so they become verifiable clients, or changing rule 2 — and rule 2 is the
+ * thing keeping friends-and-family testimonials off a page that claims every
+ * quote is from a published client. Add more when a reviewer's work is
+ * published, not before.
  */
 export type ClientReview = {
   /** Reviewer name exactly as Google publishes it. */
