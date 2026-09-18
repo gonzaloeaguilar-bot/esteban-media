@@ -1,0 +1,65 @@
+{
+ "target_id": "PR-213",
+ "target_type": "pr",
+ "status": "quality_enforced_passed",
+ "project": "esteban-media",
+ "allowed": true,
+ "recorded": true,
+ "quality_result": {
+  "status": "quality_passed"
+ },
+ "evidence": {
+  "obsidian_context": "Motion pass of the card redesign. Full record in client-esteban-media/wiki/esteban-sesion-rediseno-y-movimiento-2026-09-18.md.",
+  "project_routing": "esteban-media, isolated worktree /Users/gonzalo/code/esteban-motion on branch feat/cartel-motion from origin/main @ dc976a0.",
+  "hard_stops_checked": "No pricing, offers, guarantees, testimonials, outcome claims, invented stats, money paths, DNS, credentials or secrets. NO invented quotation and NO forged signature: the entrance uses only the wordmark and the tagline already published on that page, because Esteban has provided neither a signature asset nor a verified sentence. Moonlight public-identity firewall green.",
+  "reviewer_ensemble": "Builder, skeptic and taste self-review; NO independent second-party verdict. Skeptic caught the headline feature shipping as DEAD CODE: the ported veil could never fire because Next navigates on the client (documentLoadsDuringNav: 0, navType: 1, no veil class on arrival) while every static check passed. Rewritten router-driven and re-verified.",
+  "reviewer_disagreement_reviewed": "One deliberate deletion: the reference build's prefetch closes a 280ms document-fetch gap that soft navigation does not have. Dropped rather than ported, because cargo code reads as diligence in review.",
+  "winner_rationale": "The reference build's motion language on the kit's own primitives, with the triggers rebuilt for a client-routed app.",
+  "tests_or_validation": "pnpm check exit 0 \u2014 rail-kit lock @57a13c627458, eslint 0 errors, tsc clean, 449/449 tests across 64 files, production build clean, text-parity 91 routes keep every word, heading, link and schema blob. Motion verified in Chromium AND WebKit with 300ms latency / 700kbps emulated: entrance 289/401 frames, worst 29.7ms/44.0ms, ZERO frames over 50ms; veil opacity sampled 1 \u2192 1 \u2192 0.95 \u2192 0.63 \u2192 0.39 \u2192 0.16 \u2192 0 in both engines, the two held samples being the designed 28% beat. Fallbacks verified not assumed: reduced motion leaves 0 blocks invisible and hides the entrance; with JavaScript disabled the homepage renders 5,637 characters of readable text.",
+  "debt_delta": "neutral",
+  "obsidian_handoff": "Vault session page written; repo .ai/handoff.md rewritten in this branch.",
+  "claim_hygiene_checked": "No claims added. The entrance deliberately carries no quotation.",
+  "data_sources_current": "Real browsers driven through real navigations this session; the reference build's own components read at source."
+ },
+ "reviewers": {
+  "builder": {
+   "status": "ok",
+   "note": "Entrance, router-driven veil, scroll reveal and shimmer on the kit's primitives; gate class added before paint."
+  },
+  "skeptic": {
+   "status": "ok",
+   "note": "Found the ported veil was dead code under soft navigation \u2014 invisible to every static check \u2014 and deleted a prefetch that solves a problem this architecture does not have."
+  },
+  "taste": {
+   "status": "ok",
+   "note": "Dissolve rather than curtain, page colour not black, held beat so the mark registers, shimmer stops after three passes."
+  }
+ },
+ "scores": {
+  "source_fidelity": 5,
+  "architecture_soundness": 5,
+  "implementation_quality": 5,
+  "review_completeness": 3,
+  "debt_posture": 5
+ },
+ "disagreements": [],
+ "winner_rationale": "Port the gesture and the timings; rebuild the trigger for the architecture actually in use.",
+ "missing_evidence": [
+  "independent second-party verdict \u2014 agy/antigravity HTTP 429 on five probes today, codex exhausted, codexor over its monthly ceiling, orbuild patch-only. review_completeness scored 3 for this reason, and this is the change that least deserves it: it runs before paint, touches every page and can cover the viewport."
+ ],
+ "followup_tasks": [
+  "Scanned signature + one verified sentence from Esteban would make the entrance his rather than generic.",
+  "TL;DR blocks, blocked on turnaround / price band / on-location availability.",
+  "Hero CTA still at y=765 on a 667px viewport."
+ ],
+ "owner_waiver": {
+  "granted_by": "Gonzalo",
+  "granted_at_utc": "2026-09-18T16:27:18Z",
+  "waives": "review_completeness score 3 is below pass threshold 4",
+  "basis": "Gonzalo was told explicitly that this is the riskiest change of the day and the only one with no independent review, was offered the choice to leave it open, and said to proceed.",
+  "cause_reverified": "Five agy probes today, all HTTP 429 RESOURCE_EXHAUSTED; root cause measured as fleet contention \u2014 27 of 33 Antigravity dispatches today were machine-initiated.",
+  "what_this_does_NOT_claim": "That this change was independently reviewed. It was not. The score stays 3 and the Cortex check stays red.",
+  "reversible": "revert dc976a0..HEAD on main; the change is additive and every animation is gated behind a class that can be removed.",
+  "merge_method": "gh pr merge --admin (gate deliberately not satisfied)"
+ }
+}
