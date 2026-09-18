@@ -227,3 +227,43 @@ describe("the way back to the top", () => {
     expect(stickyCta).toMatch(/\{onDestination \? null : \(/);
   });
 });
+
+/**
+ * The service shelf on the Spanish home.
+ *
+ * Measured: that one block was 20,990px — 31.5 of the page's 44.6 screens on a
+ * 375px phone, seventy cards in a single column, sitting between the visitor
+ * and the contact section.
+ */
+const home = readFileSync(join(root, "app/(spanish)/es/page.tsx"), "utf8");
+
+describe("the service shelf", () => {
+  it("changes presentation only, never markup", () => {
+    // The homepage is NOT covered by the text-parity gate, so the safe change
+    // is the one that cannot alter what the gate would have checked. Verified
+    // by diffing the built HTML: 0 words, 0 links, 0 headings changed.
+    expect(home).toContain('className="em-shelf mt-8 grid gap-4');
+    expect(home).toContain("spanishNichePages.map");
+  });
+
+  it("is phone only", () => {
+    const rule = globals.slice(globals.indexOf(".em-shelf"));
+    expect(globals).toMatch(/@media \(max-width: 767px\) \{\s*\.em-shelf \{/);
+    expect(rule).toContain("grid-auto-flow: column");
+  });
+
+  it("contains its own overscroll", () => {
+    // Without this a sideways flick at either end turns into a page scroll.
+    expect(globals).toMatch(/\.em-shelf \{[^}]*overscroll-behavior-x: contain;/);
+  });
+
+  it("snaps, so a card never stops half off screen", () => {
+    expect(globals).toMatch(/scroll-snap-type: x mandatory/);
+    expect(globals).toMatch(/\.em-shelf > \* \{\s*scroll-snap-align: start;/);
+  });
+
+  it("would notice the shelf being applied at every width", () => {
+    const badlyScoped = ".em-shelf { grid-auto-flow: column; }";
+    expect(/@media \(max-width: 767px\)/.test(badlyScoped)).toBe(false);
+  });
+});

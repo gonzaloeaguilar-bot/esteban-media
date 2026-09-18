@@ -82,7 +82,7 @@ export default function SpanishHomePage() {
             lead="Explora servicios disponibles y páginas por tipo de proyecto. Cuando una opción necesita confirmación, la página lo explica con claridad antes de que pidas una cotización."
             inverted
           />
-          <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <div className="em-shelf mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {spanishNichePages.map((page) => {
               const Icon = page.icon;
               return (

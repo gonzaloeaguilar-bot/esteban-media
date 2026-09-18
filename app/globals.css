@@ -869,3 +869,43 @@ html.em-returning #em-intro {
   outline: 2px solid #ffb49e;
   outline-offset: 2px;
 }
+
+/* ---------------------------------------------------------------------------
+   The service shelf, on a phone.
+
+   Measured: this one block is 20,990px — 31.5 of the Spanish home's 44.6
+   screens on a 375px phone. Seventy cards in a single column. It is 70% of the
+   page, and it sits between the visitor and the contact section.
+
+   This is presentation ONLY. The markup, the seventy links, the seventy
+   headings and every word stay exactly as they are — the homepage is not
+   covered by the text-parity gate, so the safe change is the one that cannot
+   alter what the gate would have checked. Turning the grid into real cards
+   with new markup would also be rewriting the site's main internal-link mesh,
+   which deserves its own review rather than arriving inside a motion PR.
+
+   Phone only. From `md` up the grid already has two and three columns and the
+   section is a normal length.
+   --------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  .em-shelf {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 78%;
+    grid-template-columns: none;
+    overflow-x: auto;
+    /* Keeps a sideways flick from turning into a page scroll at the ends. */
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    /* Breaks the container's padding so the strip runs to both edges, which is
+       what tells a thumb it continues past the screen. */
+    margin-inline: -16px;
+    padding-inline: 16px;
+    padding-bottom: 8px;
+    scrollbar-width: thin;
+  }
+  .em-shelf > * {
+    scroll-snap-align: start;
+  }
+}
