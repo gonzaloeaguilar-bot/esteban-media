@@ -1,0 +1,53 @@
+{
+ "target_id": "PR-211",
+ "target_type": "pr",
+ "status": "quality_enforced_passed",
+ "project": "esteban-media",
+ "allowed": true,
+ "recorded": true,
+ "quality_result": {
+  "status": "quality_passed"
+ },
+ "evidence": {
+  "obsidian_context": "Phase 2 of the card redesign recorded in client-esteban-media/wiki/esteban-rediseno-tarjetas-rail-kit-2026-09-18.md. Phase 1 (PR #209, merged aefd808) moved the 70 Spanish niche routes onto the shared rail-kit; Gonzalo then checked the homepage and correctly found it untouched. This PR closes that gap.",
+  "project_routing": "esteban-media, isolated worktree /Users/gonzalo/code/esteban-home-rail on branch feat/home-portfolio-rail created from origin/main @ aefd808. The primary checkout (98 dirty files on an unrelated agy branch) was left untouched.",
+  "hard_stops_checked": "No pricing, offers, discounts, guarantees, testimonials, medical or outcome claims, invented stats, money paths, DNS, credentials or secrets touched. Zero copy authored: every string rendered is one the previous grid already rendered.",
+  "reviewer_ensemble": "Builder, skeptic and taste self-review; NO independent second-party verdict \u2014 see missing_evidence. Builder: replaced the homepage 3-up portfolio grid with the vendored rail-kit poster rail, preserving next/image through the kit's `media` slot so LCP on the most-visited page does not regress, and keeping the gradient scrim and play affordance. Skeptic: diffed rendered text against LIVE production for both / and /es; the first attempt lost the six screen-reader-only 'Watch'/'Ver' verbs per page, which was restored via the kit's own rail-sr-only class inside the figure. Re-measured: lost=0 on both. Also caught that a stale next server on a reused port was serving the PREVIOUS build, which made a correct fix look broken \u2014 diagnosed by diffing .next/server/app/index.html (6 occurrences) against the served page (0). Taste: verified at 375x667 and 1440 that the rail reads as a catalogue strip, the position counter localises (3 de 6 on /es), and no horizontal overflow exists at either width.",
+  "reviewer_disagreement_reviewed": "No disagreement. One deliberate decision recorded: rail-kit renders a plain <img>, and the grid used next/image. Rather than accept an LCP regression on the homepage, next/image is passed through the kit's `media` slot, which exists for exactly this.",
+  "winner_rationale": "Same six items, same words, same destinations, presented as one horizontal strip instead of six stacked cards. On a phone the grid cost roughly four screens before the page said anything else.",
+  "tests_or_validation": "pnpm check exit 0: rail-kit lock verified against gonzaloeaguilar-bot/rail-kit@57a13c627458, eslint clean (0 errors, 2 pre-existing <img> warnings), tsc clean, 449/449 vitest tests across 64 files, Next production build clean, and text-parity reporting '91 routes keep every word, heading, link and schema blob'. Independently, rendered-text diff against live production: / lost=0 added=[1,6,of,arrows]; /es lost=0 added=[1,6,de,arrows].",
+  "debt_delta": "neutral",
+  "obsidian_handoff": "esteban-media-hot.md carries the phase-1 prod verification; this PR's entry is appended on merge.",
+  "claim_hygiene_checked": "Zero claims added. The only new strings are the rail's own UI controls (arrows, position counter) and they are localised. No project, result or capability claim was introduced.",
+  "data_sources_current": "Production HTML fetched live on 2026-09-18 for / and /es as the comparison baseline, plus the five niche routes re-verified after the phase-1 deploy."
+ },
+ "reviewers": {
+  "builder": {
+   "status": "ok",
+   "note": "Homepage portfolio grid replaced by the shared rail; next/image preserved via the media slot; scrim and play affordance carried over."
+  },
+  "skeptic": {
+   "status": "ok",
+   "note": "Caught a real loss (6 sr-only verbs per page) by diffing against live production, and caught a stale-server false red by diffing built vs served. Both resolved and re-measured."
+  },
+  "taste": {
+   "status": "ok",
+   "note": "Catalogue strip reads correctly at 375x667 and 1440; counter localises; no overflow; dark-band skin consistent with the niche pages."
+  }
+ },
+ "scores": {
+  "source_fidelity": 5,
+  "architecture_soundness": 5,
+  "implementation_quality": 5,
+  "review_completeness": 3,
+  "debt_posture": 5
+ },
+ "disagreements": [],
+ "winner_rationale": "Put the homepage on the same shared component as the 70 niche routes so the site has one card language, without moving a single word of copy.",
+ "missing_evidence": [
+  "independent second-party verdict \u2014 all four CTO review lanes were down: codex exhausted 1122m, codexor over its $50 monthly OpenRouter ceiling, orbuild patch-only, agy/antigravity HTTP 429 RESOURCE_EXHAUSTED. review_completeness scored 3 for this reason."
+ ],
+ "followup_tasks": [
+  "Hero CTA sits at y=765 on a 667px viewport at 375x667, below the fold. Pre-existing on main, untouched by this PR, and the first item of the next phase."
+ ]
+}
