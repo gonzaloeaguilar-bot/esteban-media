@@ -787,6 +787,16 @@ html.em-returning #em-intro {
    height without moving the text: the negative margin gives it back to the
    layout, so the trail sits exactly where it did.
    --------------------------------------------------------------------------- */
+/* Targeted by the trail's accessible name rather than by a class, because the
+   class only reached the one template it was added to — the contact page still
+   measured 17px.
+
+   Matched as a SUBSTRING, case-insensitively. The first attempt pinned the
+   exact string "Breadcrumb" and missed every page that says "Breadcrumbs",
+   which is most of them. An exact display string is a brittle thing to hang a
+   rule on; the site uses at least three spellings across two languages. */
+nav[aria-label*="readcrumb" i] a,
+nav[aria-label*="igas de pan" i] a,
 .em-crumbs a,
 .em-crumbs [aria-current] {
   display: inline-flex;
