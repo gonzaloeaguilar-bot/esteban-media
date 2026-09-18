@@ -45,7 +45,13 @@ export function HomePortfolioRail({
     id: item.id,
     href: item.href,
     title: item.title,
-    badge: item.eyebrow,
+    // The category rides in the BODY, not over the picture. Every still in this
+    // rail is a website screenshot with headline type in it, so a badge laid on
+    // the photograph always covers a word: at the top it sat on "Inspected by a
+    // mechanic.", at the foot on "Backed by a warranty." There is no safe
+    // corner on a picture that is itself text.
+    meta: item.eyebrow,
+    metaPlacement: "block",
     // The grid showed the location under the title; keep it there.
     subtitle: item.location,
     // `image` is required by the media shape, but the rail never renders it

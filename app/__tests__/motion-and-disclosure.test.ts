@@ -267,3 +267,72 @@ describe("the service shelf", () => {
     expect(/@media \(max-width: 767px\)/.test(badlyScoped)).toBe(false);
   });
 });
+
+/**
+ * The poster.
+ *
+ * The frame was 1:1 while every picture is 16:9, so a 266px frame carried a
+ * 266x150 photograph and 116px of dead mat — only 36% of the card was picture.
+ */
+describe("the poster card", () => {
+  it("frames the picture at the aspect the pictures actually are", () => {
+    // Measured with EXIF applied: 12 of 13 stills are exactly 16:9. A frame at
+    // any other aspect either mats the picture or crops it, and cropping is not
+    // available — these are website screenshots with headline type in them.
+    const figure = globals.slice(
+      globals.indexOf(
+        '.em-cartel .rail-card[data-rail-kind="media"] .rail-card__figure {',
+      ),
+    );
+    expect(figure.slice(0, 2600)).toMatch(/aspect-ratio: 16 \/ 9;/);
+  });
+
+  it("never crops the stills", () => {
+    // Anchored on the em-cartel block: `.rail-card__figure img` alone matches
+    // the kit's transition rule first, which says nothing about cropping.
+    const i = globals.indexOf(
+      '.em-cartel .rail-card[data-rail-kind="media"] .rail-card__figure img,',
+    );
+    expect(i).toBeGreaterThan(-1);
+    expect(globals.slice(i, i + 400)).toMatch(/object-fit: contain !important/);
+  });
+
+  it("gives the picture the card's full width", () => {
+    // The inset made a frame inside the card's frame around a letterboxed
+    // picture: three nested rectangles.
+    const figure = globals.slice(
+      globals.indexOf(
+        '.em-cartel .rail-card[data-rail-kind="media"] .rail-card__figure {',
+      ),
+    );
+    expect(figure.slice(0, 900)).toMatch(/margin: 0;/);
+  });
+
+  it("is a poster, not a tile", () => {
+    const card = globals.slice(
+      globals.indexOf('.em-cartel .rail-card[data-rail-kind="media"] {'),
+    );
+    const ratio = card.match(/aspect-ratio: 1 \/ ([\d.]+);/);
+    expect(ratio).not.toBeNull();
+    expect(Number(ratio![1])).toBeGreaterThanOrEqual(1.4);
+  });
+
+  it("gives the free space to the body, not to a spare row after it", () => {
+    // `auto auto auto 1fr` left 101px sitting below everything as a void, which
+    // is what made a tall card look unfinished instead of composed.
+    const card = globals.slice(
+      globals.indexOf('.em-cartel .rail-card[data-rail-kind="media"] {'),
+    );
+    expect(card.slice(0, 900)).toMatch(/grid-template-rows: auto 1fr auto auto;/);
+  });
+
+  // Negative controls.
+  it("would notice the mat coming back", () => {
+    expect(/aspect-ratio: 16 \/ 9;/.test("aspect-ratio: 1 / 1;")).toBe(false);
+  });
+
+  it("would notice the poster flattening to a tile", () => {
+    const tile = "aspect-ratio: 1 / 1.2;";
+    expect(Number(tile.match(/1 \/ ([\d.]+)/)![1])).toBeLessThan(1.4);
+  });
+});

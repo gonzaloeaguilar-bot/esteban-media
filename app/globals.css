@@ -287,6 +287,85 @@
    So the figure stays 16/9 and the CARD gets its poster height from the panel
    below it: badge, title, description, each in its own grid row. Tall card,
    uncropped picture. */
+/* ---------------------------------------------------------------------------
+   THE POSTER.
+
+   The brief on the previous cards: they looked small and ugly; these should be
+   posters.
+
+   What was wrong, measured: the frame was 1:1 and the pictures are 16:9, so a
+   266px frame carried a 266x150 photograph and **116px of dead mat**. Only 36%
+   of the card was picture. That is the "frame inside a frame inside a
+   letterbox" — the card was not small, it was mostly padding.
+
+   The reference build's rule is that the card is image-dominant AT THE
+   PHOTOGRAPHS' OWN ASPECT, and that the number does not travel, the reasoning
+   does. Measured with EXIF applied: 12 of Esteban's 13 stills are **exactly
+   16:9**, one is 4:3, and all are landscape. So the frame is 16:9 — at which
+   point `contain` fills it edge to edge, with zero mat AND zero crop. Cropping
+   is not available here and that is not an opinion: these are website
+   screenshots, and `cover` was rendered and looked at — FLAS became
+   "mechanic. / Sold by the owner." with its first line gone.
+
+   A 16:9 picture cannot dominate a tall card; that is geometry, not taste. So
+   the poster is the classic one built around a wide still: picture full-bleed
+   across the top at its true aspect, then a tall typographic field. The height
+   comes from the type, the way a film poster's does.
+
+   The composition is a three-row grid so nothing can ever collide: title at
+   the top, space in the middle, place at the foot behind a rule — title up
+   top, credits at the bottom.
+   --------------------------------------------------------------------------- */
+.em-cartel .rail-card[data-rail-kind="media"] .rail-card__body {
+  min-height: 0;
+  padding: 24px 22px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  align-content: stretch;
+}
+.em-cartel .rail-card[data-rail-kind="media"] .rail-card__title {
+  font-size: clamp(25px, 2.4vw, 30px);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+/* The credits block, at the foot.
+
+   `metaPlacement: "block"` does not give two separate slots: the kit GROUPS
+   them — `__meta--block` is the category, rendered at 34px/800 because in the
+   kit's own vocabulary a block meta is the headline number of a stat card, and
+   `__value-note` is the place, nested under it. Read out of the DOM rather
+   than guessed at, after two rounds of styling class names that were not
+   there.
+
+   So they are treated as what they are: one credit group, pinned to the bottom
+   of the poster behind a rule. Title at the top, credits at the foot — the way
+   a poster is set. */
+.em-cartel .rail-card[data-rail-kind="media"] .rail-card__value {
+  grid-row: 3;
+  align-self: end;
+  display: grid;
+  gap: 3px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+.em-cartel .rail-card[data-rail-kind="media"] .rail-card__meta--block {
+  font-family: inherit;
+  font-size: 11.5px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #ffb49e;
+}
+.em-cartel .rail-card[data-rail-kind="media"] .rail-card__value-note {
+  font-size: 12.5px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.58);
+}
+
+
 .em-cartel .rail-card[data-rail-kind="media"] {
   position: relative;
   border-top: 0;
@@ -299,7 +378,12 @@
      breaks the day someone writes a second line. */
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto auto auto 1fr;
+  /* The BODY takes the free space, not a spare row after it. With `auto auto
+     auto 1fr` the leftover 101px sat below everything as a void, which is what
+     made a 1.45 card look unfinished rather than tall. */
+  grid-template-rows: auto 1fr auto auto;
+  /* The poster proportion. */
+  aspect-ratio: 1 / 1.45;
 }
 /* THE PHOTO IS MATTED, AND THAT IS WHAT MAKES THE CARD TALL.
 
@@ -322,7 +406,10 @@
 .em-cartel .rail-card[data-rail-kind="media"] .rail-card__figure {
   grid-area: 1 / 1 / 2 / 2;
   order: 0; /* the kit puts the figure after the text; the cover leads here */
-  margin: clamp(18px, 1.9vw, 26px) clamp(18px, 1.9vw, 26px) 0;
+  /* Full bleed. The inset made a frame inside the card's frame around a
+     letterboxed picture — three nested rectangles, which is what read as
+     "small and ugly". */
+  margin: 0;
   position: relative;
   /* THE FRAME IS 4:5. THE PICTURE INSIDE IT IS NOT CROPPED.
      This is the one arrangement that is both tall and honest. `cover` would
@@ -339,11 +426,11 @@
      and the mat reads as a margin. The card keeps its poster height from the
      PANEL below, which is where height belongs once the picture is as large
      as the width allows. */
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 16 / 9;
   display: grid;
   place-items: center;
   background: #0d0d0d;
-  border-radius: calc(var(--rail-card-radius) - 8px);
+  border-radius: 0;
   overflow: hidden;
   /* the mat reads as a frame because the picture sits INSIDE an edge */
   box-shadow:
@@ -418,8 +505,6 @@
   .rail-card[data-rail-kind="media"]:not(:has(.rail-card__description))
   .rail-card__body {
   padding-bottom: clamp(26px, 2.5vw, 34px);
-  min-height: clamp(132px, 13vw, 172px);
-  align-content: start;
 }
 .em-cartel .rail-card[data-rail-kind="media"] .rail-card__description {
   grid-area: 3 / 1 / 4 / 2;
