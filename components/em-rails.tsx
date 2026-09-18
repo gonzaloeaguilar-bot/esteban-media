@@ -21,6 +21,14 @@ export const RAIL_LABELS_ES = {
     from === to ? `${from} de ${total}` : `${from}–${to} de ${total}`,
 };
 
+/** The same, for the English side of the site. */
+export const RAIL_LABELS_EN = {
+  back: "Previous",
+  forward: "Next",
+  position: (from: number, to: number, total: number) =>
+    from === to ? `${from} of ${total}` : `${from}–${to} of ${total}`,
+};
+
 /**
  * The poster still for a portfolio link, or `null`.
  *
