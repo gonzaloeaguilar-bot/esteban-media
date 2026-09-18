@@ -169,6 +169,13 @@ const ALLOWED_ADDITIONS = new Set([
   // says when a headingless rail is given no name: English, on a Spanish page,
   // followed by a telemetry slug. Fixed upstream in rail-kit@57a13c6.
   "Proyectos", "publicados", "Servicios", "relacionados",
+  // The phone action bar. ONE word, and it is a DUPLICATE of the verb the hero
+  // button already uses — but a multiset comparison counts duplicates, which is
+  // exactly why it catches a lost repeat, so it is written down. The label was
+  // deliberately cut to a single word: "Consultar en espa\u00f1ol" would have
+  // required allowlisting "en", and permanently allowlisting a word that common
+  // would blind the gate to a real addition anywhere on 91 routes.
+  "Consultar",
 ]);
 
 const baseline = JSON.parse(readFileSync(file, "utf8"));

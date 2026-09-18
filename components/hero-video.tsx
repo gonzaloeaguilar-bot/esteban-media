@@ -99,7 +99,7 @@ export function HeroVideo({ locale = "en" }: HeroVideoProps) {
               )}
             </p>
 
-            <div className="mt-5 flex flex-wrap gap-3">
+            <div className="mt-5 flex flex-wrap gap-3" data-em-hero-actions>
               <Link
                 href={isSpanish ? "/es/portafolio" : "/portfolio"}
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white transition hover:bg-[#a93e29] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"

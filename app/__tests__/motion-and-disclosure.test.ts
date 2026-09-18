@@ -87,3 +87,70 @@ describe("the question list", () => {
     expect(Number(m![1]) * Number(m![2])).toBeGreaterThan(500);
   });
 });
+
+/**
+ * The phone action bar.
+ *
+ * Measured reason for it: a niche page is 11 screens on a 375px phone, a
+ * service page 22, the Spanish home 44. The hero action fixes the first screen
+ * and nothing after it.
+ */
+const stickyCta = readFileSync(join(root, "components/em-sticky-cta.tsx"), "utf8");
+const chrome = readFileSync(join(root, "components/site-chrome.tsx"), "utf8");
+
+describe("the phone action bar", () => {
+  it("lives in the site chrome, not in one template", () => {
+    // A visitor does not care which template they are on.
+    expect(chrome).toContain("<StickyCta />");
+  });
+
+  it("is built on the kit's stickybar rather than a new fixed element", () => {
+    expect(stickyCta).toContain("rail-stickybar");
+    expect(stickyCta).toContain("data-rail-visible");
+  });
+
+  it("never offers the page you are already on", () => {
+    expect(stickyCta).toMatch(/const onDestination = pathname === href/);
+  });
+
+  it("falls back to the headline when a page has no hero action", () => {
+    // /es/sobre-esteban has no hero action at all — its first is ~1,100px
+    // down — so it is exactly the page that must not be skipped.
+    expect(stickyCta).toMatch(/querySelector\("main h1"\)/);
+  });
+
+  it("is hidden from assistive tech and from tab order while off screen", () => {
+    expect(stickyCta).toMatch(/aria-hidden=\{visible \? undefined : "true"\}/);
+    expect(stickyCta).toMatch(/tabIndex=\{visible \? undefined : -1\}/);
+  });
+
+  it("reserves its height statically, so revealing it cannot shift layout", () => {
+    // The site measures CLS 0. Adding the padding when the bar appears would
+    // spend that; 76px of empty space below the footer costs nothing.
+    expect(globals).toMatch(
+      /@media \(max-width: 639px\) \{\s*body \{\s*padding-bottom: 76px;/,
+    );
+  });
+
+  it("is phone only", () => {
+    expect(globals).toMatch(
+      /@media \(min-width: 640px\) \{\s*\.em-stickybar \{\s*display: none;/,
+    );
+  });
+
+  it("reserves more height than the bar occupies", () => {
+    // Measured bar height is 69px; the reserve is 76px.
+    const reserve = Number(globals.match(/body \{\s*padding-bottom: (\d+)px;/)![1]);
+    expect(reserve).toBeGreaterThan(69);
+  });
+
+  // Negative controls.
+  it("would notice the destination guard being dropped", () => {
+    expect(/const onDestination = pathname === href/.test("const onDestination = false")).toBe(false);
+  });
+
+  it("would notice a reserve smaller than the bar", () => {
+    const bad = "body {\n  padding-bottom: 40px;";
+    expect(Number(bad.match(/padding-bottom: (\d+)px/)![1])).toBeLessThan(69);
+  });
+});

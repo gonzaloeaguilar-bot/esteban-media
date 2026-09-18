@@ -1095,7 +1095,7 @@ export function SpanishNichePage({ slug }: { slug: string }) {
       />
       <section className="border-b border-[#ddd4c8] py-8 sm:py-16 lg:py-20">
         <Container size="xl">
-          <nav aria-label="Migas de pan" className="mb-6 sm:mb-8 text-sm text-[#5a6066]">
+          <nav aria-label="Migas de pan" className="em-crumbs mb-6 sm:mb-8 text-sm text-[#5a6066]">
             <ol className="flex flex-wrap items-center gap-2">
               <li>
                 <Link href="/es" className="hover:text-[#9f3c27]">
@@ -1134,7 +1134,7 @@ export function SpanishNichePage({ slug }: { slug: string }) {
                   presenta fotografía ni drone como servicios disponibles.
                 </p>
               ) : null}
-              <div className="mt-6 sm:mt-8 flex flex-wrap gap-3">
+              <div className="mt-6 sm:mt-8 flex flex-wrap gap-3" data-em-hero-actions>
                 <Link
                   href={contactHref}
                   className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white hover:bg-[#a93e29]"

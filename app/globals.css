@@ -716,3 +716,96 @@ html.em-returning #em-intro {
     transition: none;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   The action bar that follows you down the page.
+
+   Phone only, and deliberately. The page is eleven screens tall on a 375px
+   phone; a desktop reading of the same page is not, and the header stays in
+   reach there, so a fixed bar on a wide viewport would cover content to solve
+   a problem that viewport does not have.
+
+   The kit ships the bar hidden and reveals it on `data-rail-visible`. What is
+   added here is the brand skin, the safe-area inset for a phone with a home
+   indicator, and the one thing a fixed bar must never get wrong: the page
+   reserves its height, so the last block is still readable with the bar up.
+   --------------------------------------------------------------------------- */
+.em-stickybar {
+  --rail-stickybar-bg: #101214;
+  --rail-stickybar-z: 40;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  transition: transform 0.32s cubic-bezier(0.2, 0.75, 0.2, 1);
+}
+.em-stickybar .rail-stickybar__in {
+  padding: 10px 16px;
+}
+.em-stickybar__action {
+  width: 100%;
+  gap: 8px;
+  min-height: 48px;
+  background: #c84a2c;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+}
+.em-stickybar__action:hover {
+  background: #a93e29;
+}
+/* The reserved height, declared statically on the phone rather than added by
+   the script when the bar appears. Reserving it in CSS costs 76px of empty
+   space below the footer, which nobody sees; adding it at the moment the bar
+   slides up would be a layout shift, and the site currently measures CLS 0.
+   The cheap, invisible option wins. */
+@media (max-width: 639px) {
+  body {
+    padding-bottom: 76px;
+  }
+}
+@media (min-width: 640px) {
+  .em-stickybar {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .em-stickybar {
+    transition: none;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Breadcrumb targets.
+
+   The crumbs measured 17px tall. WCAG 2.2 AA (2.5.8) asks for 24px, and a
+   17px target on a phone is a miss waiting to happen. The padding buys the
+   height without moving the text: the negative margin gives it back to the
+   layout, so the trail sits exactly where it did.
+   --------------------------------------------------------------------------- */
+.em-crumbs a,
+.em-crumbs [aria-current] {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+}
+
+/* ---------------------------------------------------------------------------
+   The smallest phones.
+
+   The UAT sweep checked 320x568 for overflow but never for the fold, and the
+   fold work missed it: the hero action landed at 613 against a 568px screen.
+   These are spacing trims only, scoped under 360px. The type is deliberately
+   NOT shrunk further — below about 30px the headline stops being a headline,
+   and a bar that follows the page down is the better answer to a small screen
+   than squeezing the first one until it fits.
+   --------------------------------------------------------------------------- */
+@media (max-width: 360px) {
+  .em-crumbs {
+    margin-bottom: 16px;
+  }
+  .em-display {
+    font-size: clamp(30px, 9.375vw, 60px);
+  }
+  [data-em-hero-actions] {
+    margin-top: 16px;
+  }
+}
