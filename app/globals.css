@@ -634,3 +634,85 @@ html.em-returning #em-intro {
 .em-display--xl {
   font-size: clamp(32px, 9.375vw, 72px);
 }
+
+/* ---------------------------------------------------------------------------
+   Reveal stagger.
+
+   The kit owns the reveal STATES and parametrises them with custom properties
+   (`--rail-reveal-distance`, `--rail-reveal-duration`). This follows that
+   grammar and adds the one thing a page of stacked blocks needs: blocks that
+   arrive in sequence rather than all at once.
+
+   The delay is capped. An index that keeps multiplying turns the last block of
+   a long page into a wait, and a visitor who has already scrolled to it is
+   looking at nothing. Six steps of 70ms is 420ms at the tail — under half a
+   second, which is arrival, not latency.
+
+   It hangs off `.rail-anim`, exactly like the states it delays, so a visitor
+   who asked for less motion never gets a delay either — and, per the rule the
+   motion system does not bend, nothing here can leave content invisible
+   without JavaScript: `rail-reveal` is only ever added by script.
+   --------------------------------------------------------------------------- */
+.rail-anim .rail-reveal {
+  transition-delay: calc(min(var(--em-reveal-i, 0), 6) * 70ms);
+}
+
+/* ---------------------------------------------------------------------------
+   The question list.
+
+   Native `<details>`, rendered OPEN by default. That is the whole point: not a
+   single answer is hidden from a reader or from an answer engine on first
+   paint, so nothing is traded away for the affordance — the visitor simply
+   gains the ability to fold away what they have finished reading.
+
+   The heading stays a real `<h3>` inside the summary. Turning it into the
+   summary itself would quietly rewrite the heading outline of 70 pages, which
+   is an information-architecture decision and not a styling one.
+   --------------------------------------------------------------------------- */
+.em-qa > summary {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  cursor: pointer;
+  list-style: none;
+}
+.em-qa > summary::-webkit-details-marker {
+  display: none;
+}
+.em-qa > summary:focus-visible {
+  outline: 2px solid #9f3c27;
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+/* The sign is the only moving part, and it is 44px of target even though the
+   glyph is 15px. */
+/* The sign is drawn by CSS, never written into the DOM. A decorative glyph in
+   the markup is a word as far as any text comparison is concerned — and the
+   parity gate caught exactly that on all 70 routes when this shipped as a
+   literal "+". Same treatment the numbered list already uses for its numeral. */
+.em-qa__pm::before {
+  content: "+";
+}
+.em-qa__pm {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  margin-top: 2px;
+  border: 1px solid #ddd4c8;
+  border-radius: 999px;
+  color: #9f3c27;
+  font-size: 15px;
+  line-height: 1;
+  transition: transform 0.28s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.em-qa[open] .em-qa__pm {
+  transform: rotate(45deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .em-qa__pm {
+    transition: none;
+  }
+}
