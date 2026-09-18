@@ -139,9 +139,21 @@ describe("the phone action bar", () => {
   });
 
   it("reserves more height than the bar occupies", () => {
-    // Measured bar height is 69px; the reserve is 76px.
+    // Measured bar height is 69px at 320, 375 and 390; the reserve is 76px.
+    // This is a static approximation of a runtime fact — the real check lives
+    // in the browser sweep, because this one cannot notice the bar growing.
     const reserve = Number(globals.match(/body \{\s*padding-bottom: (\d+)px;/)![1]);
     expect(reserve).toBeGreaterThan(69);
+  });
+
+  it("keeps its controls on one row", () => {
+    // The kit's bar wraps. `width: 100%` on the action pushed it to a second
+    // line, which grew the bar past the 76px reserve and covered the card
+    // underneath. Every piece measured correctly on its own; only a screenshot
+    // showed it, so the shape that caused it is pinned here.
+    const rule = globals.slice(globals.indexOf(".em-stickybar__action {"));
+    expect(rule.slice(0, 160)).not.toMatch(/width:\s*100%/);
+    expect(rule.slice(0, 160)).toMatch(/flex: 1 1 auto/);
   });
 
   // Negative controls.
@@ -152,5 +164,66 @@ describe("the phone action bar", () => {
   it("would notice a reserve smaller than the bar", () => {
     const bad = "body {\n  padding-bottom: 40px;";
     expect(Number(bad.match(/padding-bottom: (\d+)px/)![1])).toBeLessThan(69);
+  });
+});
+
+/**
+ * Reading progress. Built rather than taken from the kit: `rail-progress` is a
+ * labelled card with a value, and every word of it would be a new claim on 91
+ * routes. This one adds no text at all.
+ */
+const progress = readFileSync(
+  join(root, "components/em-reading-progress.tsx"),
+  "utf8",
+);
+
+describe("reading progress", () => {
+  it("contributes no text", () => {
+    // Anything between tags other than an expression would be a word on 91
+    // routes. The only child is a styled div.
+    expect(progress).not.toMatch(/>\s*[A-Za-zÀ-ÿ]{2,}\s*</);
+  });
+
+  it("is decoration, and says so", () => {
+    // A live progress value announced on every scroll tick is hostile; a
+    // screen reader already reports position.
+    expect(progress).toMatch(/aria-hidden="true"/);
+  });
+
+  it("only appears on a page long enough to need it", () => {
+    expect(progress).toMatch(/innerHeight \* 2/);
+    expect(progress).toMatch(/if \(!long\) return null;/);
+  });
+
+  it("is fixed, so it cannot shift the document", () => {
+    // The site measures CLS 0.
+    expect(globals).toMatch(/\.em-progress \{[^}]*position: fixed;/);
+  });
+
+  it("never transitions its width", () => {
+    // It reports a scroll position; animating it would make it lag the thing
+    // it reports, and need a second version for reduced motion.
+    const rule = globals.slice(globals.indexOf(".em-progress__fill"));
+    expect(rule.slice(0, 120)).not.toContain("transition");
+  });
+
+  it("would notice text creeping in", () => {
+    expect(/>\s*[A-Za-zÀ-ÿ]{2,}\s*</.test("<div>Progreso</div>")).toBe(true);
+  });
+});
+
+describe("the way back to the top", () => {
+  it("is icon only, with an accessible name", () => {
+    expect(stickyCta).toMatch(/aria-label="Volver arriba"/);
+  });
+
+  it("honours a request for less motion", () => {
+    expect(stickyCta).toMatch(/prefers-reduced-motion: reduce[\s\S]{0,60}\? "auto"/);
+  });
+
+  it("survives on the page where the primary action is suppressed", () => {
+    // The contact page is 11.9 screens; dropping the whole bar there would
+    // remove a useful control to remove a useless one.
+    expect(stickyCta).toMatch(/\{onDestination \? null : \(/);
   });
 });

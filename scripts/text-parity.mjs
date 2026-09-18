@@ -176,6 +176,9 @@ const ALLOWED_ADDITIONS = new Set([
   // required allowlisting "en", and permanently allowlisting a word that common
   // would blind the gate to a real addition anywhere on 91 routes.
   "Consultar",
+  // The way back to the top, inside that same bar. Icon only; these two words
+  // are its accessible name and the only text it contributes.
+  "Volver", "arriba",
 ]);
 
 const baseline = JSON.parse(readFileSync(file, "utf8"));

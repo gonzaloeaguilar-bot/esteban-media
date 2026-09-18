@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUp } from "lucide-react";
 
 /**
  * The action that follows you down the page.
@@ -41,15 +41,14 @@ export function StickyCta() {
 
   // A bar offering the contact page while you are ON the contact page is a
   // button that goes where you already are. Caught by walking every page type
-  // rather than only the templates this work touched.
+  // rather than only the templates this work touched. The bar still appears
+  // there, carrying only the way back up — the contact page is 11.9 screens,
+  // so dropping the bar entirely would take a useful control away to remove a
+  // useless one.
   const onDestination = pathname === href;
 
   useEffect(() => {
     setVisible(false);
-    if (onDestination) {
-      setArmed(false);
-      return;
-    }
     // The hero actions if the page has any; otherwise the headline. A page
     // whose first action is a thousand pixels down — /es/sobre-esteban has no
     // hero action at all, measured — is precisely the page that needs a bar
@@ -72,7 +71,7 @@ export function StickyCta() {
     );
     observer.observe(anchor);
     return () => observer.disconnect();
-  }, [pathname, onDestination]);
+  }, [pathname]);
 
   if (!armed) return null;
 
@@ -86,14 +85,36 @@ export function StickyCta() {
       aria-hidden={visible ? undefined : "true"}
     >
       <div className="rail-stickybar__in">
-        <Link
-          href={href}
-          className="rail-stickybar__action em-stickybar__action"
+        {/* On a page of eleven to forty-four screens, getting back to the top
+            is a real task and not a decoration. Icon only: its accessible name
+            is the only text it adds. */}
+        <button
+          type="button"
+          className="em-stickybar__top"
+          aria-label="Volver arriba"
           tabIndex={visible ? undefined : -1}
+          onClick={() =>
+            window.scrollTo({
+              top: 0,
+              behavior: window.matchMedia("(prefers-reduced-motion: reduce)")
+                .matches
+                ? "auto"
+                : "smooth",
+            })
+          }
         >
-          {label}
-          <ArrowRight className="size-4" aria-hidden="true" />
-        </Link>
+          <ArrowUp className="size-4" aria-hidden="true" />
+        </button>
+        {onDestination ? null : (
+          <Link
+            href={href}
+            className="rail-stickybar__action em-stickybar__action"
+            tabIndex={visible ? undefined : -1}
+          >
+            {label}
+            <ArrowRight className="size-4" aria-hidden="true" />
+          </Link>
+        )}
       </div>
     </div>
   );

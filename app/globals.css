@@ -740,8 +740,14 @@ html.em-returning #em-intro {
 .em-stickybar .rail-stickybar__in {
   padding: 10px 16px;
 }
+/* Shares the row with the way-back button instead of claiming all of it. The
+   kit's bar wraps, so `width: 100%` pushed this onto a second line: the bar
+   grew past the 76px the page reserves and covered the card underneath. A
+   screenshot caught that; no measurement in the sweep did, because each piece
+   was the right size on its own. */
 .em-stickybar__action {
-  width: 100%;
+  flex: 1 1 auto;
+  min-width: 0;
   gap: 8px;
   min-height: 48px;
   background: #c84a2c;
@@ -808,4 +814,58 @@ html.em-returning #em-intro {
   [data-em-hero-actions] {
     margin-top: 16px;
   }
+}
+
+/* ---------------------------------------------------------------------------
+   Reading progress.
+
+   Sits directly under the sticky header, which is 65px tall. Fixed rather than
+   sticky so it cannot participate in the document flow and shift anything:
+   the site measures CLS 0 and this must not spend it.
+
+   No transition on the width. It tracks a scroll position, so animating it
+   would make it lag the thing it reports, and a reduced-motion visitor would
+   have to be given a second version.
+   --------------------------------------------------------------------------- */
+.em-progress {
+  position: fixed;
+  top: 65px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 39;
+  background: transparent;
+  pointer-events: none;
+}
+.em-progress__fill {
+  height: 100%;
+  background: #c84a2c;
+}
+
+/* The way back, inside the action bar. 44px of target for a 16px glyph. */
+/* When the bar carries only the way back (on the contact page, where the
+   primary action would point at the page you are reading) it centres instead
+   of sitting against the left edge with nothing beside it. */
+.em-stickybar .rail-stickybar__in:has(> .em-stickybar__top:only-child) {
+  justify-content: center;
+}
+.em-stickybar__top {
+  flex: 0 0 auto;
+  display: inline-grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-right: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  color: #f6f1ea;
+  background: transparent;
+  cursor: pointer;
+}
+.em-stickybar__top:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+.em-stickybar__top:focus-visible {
+  outline: 2px solid #ffb49e;
+  outline-offset: 2px;
 }
