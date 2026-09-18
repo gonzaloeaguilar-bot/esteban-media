@@ -960,8 +960,12 @@ nav[aria-label*="igas de pan" i] a,
   padding-top: 12px;
   border-top: 1px solid #e3dccf;
   color: #101214;
-  font-size: 15px;
-  font-weight: 600;
+  /* 17px, because the body paragraph directly above it is 16px. The first pass
+     gave the price its own colour and weight and left it SMALLER than the text
+     it was competing with, which is a label treatment, not a price treatment.
+     A number a visitor is hunting for cannot be the smallest thing in the card. */
+  font-size: 17px;
+  font-weight: 650;
   line-height: 1.35;
   font-variant-numeric: tabular-nums;
 }

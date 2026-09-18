@@ -116,7 +116,14 @@ export function HeroVideo({ locale = "en" }: HeroVideoProps) {
             </div>
           </div>
 
-          <figure className="mx-auto hidden w-full max-w-[26rem] sm:block lg:mx-0 lg:justify-self-end">
+          {/* Shown on the phone too. It was `hidden sm:block`, so the site's most
+              visited entry had no photograph at all for three screens — on a
+              videographer's home page — while `priority` still made the browser
+              DOWNLOAD it: measured 55,878 bytes fetched and never displayed on a
+              390px phone. Un-hiding costs nothing at the fold, because on mobile
+              the figure stacks under the text: the hero CTA measures 583 either
+              way, and the photograph arrives at 671, immediately after it. */}
+          <figure className="mx-auto w-full max-w-[26rem] lg:mx-0 lg:justify-self-end">
             <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-white/10 shadow-2xl shadow-black/40 sm:aspect-[4/5]">
               <Image
                 src="/about/esteban-on-set.jpg"
