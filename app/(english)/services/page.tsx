@@ -207,7 +207,7 @@ export default function ServicesPage() {
               Creative production
             </p>
             <h2 id="creative-production-heading" className="mt-4 max-w-3xl font-serif text-4xl leading-tight">
-              Video and photography remain the creative fuel for the system.
+              Short video editing and photography remain the creative fuel for the system.
             </h2>
             <div className="mt-7 grid gap-5 lg:grid-cols-2">
             {services.map((service) => {
