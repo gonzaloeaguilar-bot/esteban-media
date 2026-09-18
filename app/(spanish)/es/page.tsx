@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Mail, Phone, Send } from "lucide-react";
 
 import { ClientReviews } from "@/components/client-reviews";
+import { SiteIntro } from "@/components/site-intro";
 import { HeroVideo } from "@/components/hero-video";
 import { HomeAuthorityHub } from "@/components/home-authority-hub";
 import { PortfolioTeaser } from "@/components/portfolio-teaser";
@@ -24,6 +25,7 @@ export const metadata = buildPageMetadata({
 export default function SpanishHomePage() {
   return (
     <main className="bg-[#f6f1ea] text-[#101214]">
+      <SiteIntro tagline="Apoyo creativo claro, desde tu material hasta contenido listo para publicar." />
       <HeroVideo locale="es" />
       <PortfolioTeaser locale="es" />
       <HomeAuthorityHub locale="es" />

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { AboutTeaser } from "@/components/about-teaser";
 import { ClientReviews } from "@/components/client-reviews";
 import { ContactCta } from "@/components/contact-cta";
+import { SiteIntro } from "@/components/site-intro";
 import { HeroVideo } from "@/components/hero-video";
 import { HomeAuthorityHub } from "@/components/home-authority-hub";
 import { PortfolioTeaser } from "@/components/portfolio-teaser";
@@ -32,6 +33,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className="bg-[#f6f1ea] text-[#101214]">
+      <SiteIntro tagline="Clear creative support, from your footage to ready-to-publish content." />
       <HeroVideo />
       <PortfolioTeaser locale="en" />
       <HomeAuthorityHub />

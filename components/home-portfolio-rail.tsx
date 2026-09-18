@@ -54,6 +54,11 @@ export function HomePortfolioRail({
     image: { src: item.poster ?? "", alt: "" },
     media: item.poster ? (
       <>
+        {/* A slow warm sweep across the cover. Three passes, then it stops:
+            an animation that never ends stops being a highlight and becomes
+            wallpaper — and on a rail of six it would be six things moving at
+            once. The kit guards it behind prefers-reduced-motion. */}
+        <span data-rail-shimmer aria-hidden="true" className="absolute inset-0 z-[1]" />
         {/* The grid this replaces opened each card link with a screen-reader
             -only verb, so the link announced "Watch <title>" rather than just
             the title. Dropping it was a real loss — caught by diffing the
