@@ -89,9 +89,11 @@ export default function SpanishHomePage() {
                 <Link
                   key={page.slug}
                   href={`/es/${page.slug}`}
-                  className="rounded-lg border border-white/10 bg-white/[0.04] p-5 transition-colors hover:bg-white/[0.08]"
+                  className="em-panel p-6"
                 >
-                  <Icon className="size-5 text-[#ffb49e]" aria-hidden="true" />
+                  <span className="em-panel__icon">
+                    <Icon className="size-5 text-[#ffb49e]" aria-hidden="true" />
+                  </span>
                   <h2 className="mt-4 font-serif text-2xl">{page.title}</h2>
                   <p className="mt-3 text-sm leading-6 text-[#c9c1b8]">
                     {page.description}

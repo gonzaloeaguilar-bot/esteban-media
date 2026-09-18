@@ -60,7 +60,7 @@ export function ServicesStrip() {
                     {service.description}
                   </p>
                   {service.startingPrice ? (
-                    <p className="mt-2 text-sm font-medium text-[#9f3c27]">
+                    <p className="em-price">
                       {service.startingPrice}
                     </p>
                   ) : null}

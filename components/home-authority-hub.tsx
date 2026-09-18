@@ -56,8 +56,10 @@ export function HomeAuthorityHub({ locale = "en" }: { locale?: Locale }) {
           {content.cards.map((card) => {
             const Icon = card.icon;
             return (
-              <Link key={card.key} href={content.href} onClick={() => trackServiceInterest(card.key, locale)} className="group rounded-xl border border-white/15 bg-white/[0.05] p-5 transition hover:border-[#ffb49e] hover:bg-white/[0.08]">
-                <Icon className="size-6 text-[#ffb49e]" aria-hidden="true" />
+              <Link key={card.key} href={content.href} onClick={() => trackServiceInterest(card.key, locale)} className="group em-panel p-6">
+                <span className="em-panel__icon">
+                  <Icon className="size-5 text-[#ffb49e]" aria-hidden="true" />
+                </span>
                 <h3 className="mt-4 font-serif text-2xl">{card.title}</h3>
                 <p className="mt-2 text-sm leading-6 text-[#d8d0c7]">{card.text}</p>
                 <span className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-[#ffb49e]">{content.label}<ArrowRight className="size-4 transition group-hover:translate-x-1" aria-hidden="true" /></span>

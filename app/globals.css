@@ -399,8 +399,27 @@
 .em-cartel .rail-card[data-rail-kind="media"] .rail-card__body {
   grid-area: 2 / 1 / 3 / 2;
   z-index: 2;
-  padding: clamp(22px, 2.2vw, 30px) clamp(20px, 2.1vw, 28px) 0;
-  gap: 8px;
+  padding: clamp(24px, 2.3vw, 32px) clamp(20px, 2.1vw, 28px) 0;
+  gap: 10px;
+}
+
+/* A card with no description has nothing in row 3, so the panel's `0` bottom
+   left the last line of type ONE PIXEL off the card's border — measured, on
+   the homepage rail, where the cards carry only a title and a place. Text
+   touching its own edge reads as unfinished however good the photograph above
+   it is.
+
+   The bottom air lives in the description for cards that have one, so this
+   gives it back only to the cards that do not, rather than double-spacing the
+   ones that do. The floor is what makes the card a POSTER: height belongs in
+   the panel, because the picture's rendered height is fixed by the card width
+   and a taller frame would only add dead mat. */
+.em-cartel
+  .rail-card[data-rail-kind="media"]:not(:has(.rail-card__description))
+  .rail-card__body {
+  padding-bottom: clamp(26px, 2.5vw, 34px);
+  min-height: clamp(132px, 13vw, 172px);
+  align-content: start;
 }
 .em-cartel .rail-card[data-rail-kind="media"] .rail-card__description {
   grid-area: 3 / 1 / 4 / 2;
@@ -918,4 +937,109 @@ nav[aria-label*="igas de pan" i] a,
   .em-shelf > * {
     scroll-snap-align: start;
   }
+}
+
+/* ---------------------------------------------------------------------------
+   The price.
+
+   It was rendered `text-sm font-medium text-[#9f3c27]` — the EXACT classes of
+   the "Explore this service" link directly beneath it. Same size, same weight,
+   same colour. The one number a visitor is looking for read as a second link
+   and disappeared into the card.
+
+   So it stops being terracotta, which on this site means "this is a link", and
+   becomes ink, which means "this is a fact". A hairline above it separates it
+   from the description, and tabular figures keep the numbers aligned down a
+   column of cards.
+
+   The words are untouched. They come from lib/site.ts, which is the one file
+   allowed to state a price, and nothing here edits or splits the sentence.
+   --------------------------------------------------------------------------- */
+.em-price {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid #e3dccf;
+  color: #101214;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.35;
+  font-variant-numeric: tabular-nums;
+}
+/* On the dark panels the same rule needs the dark-side ink. */
+.em-on-dark .em-price,
+.em-cartel .em-price {
+  border-top-color: rgba(255, 255, 255, 0.16);
+  color: #f6f1ea;
+}
+
+/* ---------------------------------------------------------------------------
+   The dark panel.
+
+   The cards on the dark bands were `border border-white/10` over
+   `bg-white/[0.04]`: a flat rectangle with a hairline round it. Next to the
+   cartel — which has light along its top edge, a step of shadow under it and a
+   faint diagonal wash — they read as placeholders.
+
+   This is the same recipe, inverted for a dark ground:
+
+     · light along the TOP edge only, because that is where the light is
+       coming from, and it is the single cheapest cue that an object has a
+       thickness rather than being a drawn outline;
+     · a step of shadow beneath, in the same direction that light implies;
+     · a diagonal wash capped well under 5% — past that it stops reading as
+       volume and starts reading as a gradient;
+     · a border that is brighter at the top than the bottom, for the same
+       reason as the highlight.
+
+   Hover lifts by one pixel. On a phone there is no hover, so nothing here
+   depends on it.
+   --------------------------------------------------------------------------- */
+.em-panel {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-top-color: rgba(255, 255, 255, 0.2);
+  border-radius: 14px;
+  background-color: rgba(255, 255, 255, 0.045);
+  background-image: linear-gradient(
+    148deg,
+    rgba(255, 255, 255, 0.045),
+    rgba(255, 255, 255, 0) 58%
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.09),
+    0 1px 2px rgba(0, 0, 0, 0.4),
+    0 12px 28px -18px rgba(0, 0, 0, 0.9);
+  transition:
+    transform 0.28s cubic-bezier(0.2, 0.7, 0.2, 1),
+    border-color 0.28s ease,
+    box-shadow 0.28s ease;
+}
+@media (hover: hover) {
+  .em-panel:hover {
+    transform: translateY(-1px);
+    border-color: rgba(255, 180, 158, 0.42);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.13),
+      0 2px 4px rgba(0, 0, 0, 0.45),
+      0 18px 36px -20px rgba(0, 0, 0, 0.95);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .em-panel {
+    transition: border-color 0.28s ease;
+  }
+  .em-panel:hover {
+    transform: none;
+  }
+}
+/* The icon stops floating loose at the top of the card and sits in a well, so
+   it reads as part of the object rather than dropped onto it. */
+.em-panel__icon {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 180, 158, 0.09);
 }
