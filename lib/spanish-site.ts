@@ -163,7 +163,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Fort Lauderdale / Diseño Web e IA",
     h1: "Diseño Web y Chatbots con IA para Negocios en Fort Lauderdale.",
     lead:
-      "Desarrollamos sitios web modernos de alta conversión y chatbots conversacionales de IA para empresas locales en Fort Lauderdale, Miami y Broward. Combina presencia web con automatización de clientes 24/7.",
+      "Desarrollamos sitios web modernos de alta conversión y chatbots conversacionales de IA para empresas locales en nuestras [áreas de servicio](/es/areas) de Fort Lauderdale, Miami y Broward. Combina presencia web con automatización de clientes 24/7.",
     keyword: "diseño web fort lauderdale",
     location: "Fort Lauderdale / Broward / Miami",
     availability: "confirmed",
@@ -1107,7 +1107,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Doral / B2B Commercial",
     h1: "Producción de video y contenido comercial en Doral.",
     lead:
-      "Ofrecemos servicios de producción, videografía corporativa y edición remota para distribuidores, agencias de logística y marcas comerciales en Doral.",
+      "Ofrecemos servicios de producción, videografía corporativa y edición remota dentro de nuestras [áreas de servicio](/es/areas) para distribuidores, agencias de logística y marcas comerciales en Doral.",
     keyword: "producción de video en Doral",
     location: "Doral / Miami-Dade",
     availability: "confirmed",
@@ -1139,7 +1139,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Coral Gables / Real Estate",
     h1: "Videos de propiedades de lujo en Coral Gables.",
     lead:
-      "Editamos y estructuramos recorridos visuales de alta calidad para agentes de bienes raíces y firmas inmobiliarias en Coral Gables.",
+      "Editamos y estructuramos recorridos visuales de alta calidad dentro de nuestras [áreas de servicio](/es/areas) para agentes de bienes raíces y firmas inmobiliarias en Coral Gables.",
     keyword: "video inmobiliario en Coral Gables",
     location: "Coral Gables / Miami-Dade",
     availability: "confirmed",
@@ -2207,7 +2207,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Weston / Broward County",
     h1: "Edición de video corporativo para empresas en Weston, FL.",
     lead:
-      "Produce comunicados institucionales, videos de capacitación y promocionales de alta credibilidad para corporativos en Weston.",
+      "Produce comunicados institucionales, videos de capacitación y promocionales de alta credibilidad para empresas dentro de nuestras [áreas de servicio](/es/areas) en Weston y Broward.",
     keyword: "video corporativo en Weston FL",
     location: "Weston / Broward County",
     availability: "confirmed",
