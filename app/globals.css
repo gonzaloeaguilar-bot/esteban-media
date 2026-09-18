@@ -231,3 +231,27 @@
   --rail-cta-secondary-border: rgba(246, 241, 234, 0.5);
   --rail-cta-secondary-color: #f6f1ea;
 }
+
+/* Numbered list: the numeral is a CSS counter, never DOM text. An `aria-hidden`
+   span would still put "1 2 3 4" into the page's text where a crawler reads it,
+   and this template changes presentation only. Drawn in the serif at a size the
+   body text never reaches, bleeding off the left edge — the numeral is the
+   point of interest a column of identical ticks never had. */
+.em-numbered {
+  counter-reset: em-numbered;
+}
+.em-numbered__item {
+  counter-increment: em-numbered;
+  padding-left: 3rem;
+}
+.em-numbered__item::before {
+  content: counter(em-numbered);
+  position: absolute;
+  left: 0.75rem;
+  top: 0.7rem;
+  font-family: var(--font-newsreader), ui-serif, Georgia, serif;
+  font-size: 1.5rem;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: #e85d3e;
+}

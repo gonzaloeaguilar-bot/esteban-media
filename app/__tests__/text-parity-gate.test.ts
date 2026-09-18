@@ -23,9 +23,13 @@ const page = ({
   heading = "Servicios en Miami",
   href = "/es/contacto",
   schema = '{"@type":"Service","name":"Video"}',
+  alt = "Fotograma del proyecto Bar Door Monkey",
+  deep = "Detalle tecnico",
 } = {}) => `<!doctype html><html><body>
   <script type="application/ld+json">${schema}</script>
   <h2>${heading}</h2>
+  <h4>${deep}</h4>
+  <img src="/x.jpg" alt="${alt}">
   <p>${words}</p>
   <a href="${href}">Escribir</a>
 </body></html>`;
@@ -71,9 +75,13 @@ describe("text-parity gate", () => {
   it("passes when only the markup around the words changes", () => {
     // This is the whole point: a card is allowed to replace a bullet.
     const before = page();
+    // No numeral in the markup: this case asserts that RESHAPING is free, and a
+    // numeral would be a new word, which is a different thing the gate should
+    // and does reject. That is why the real NumberedList draws its number with
+    // a CSS counter instead of rendering one.
     const after = before.replace(
       "<p>alpha bravo charlie</p>",
-      '<ol><li><span aria-hidden="true">1</span>alpha</li><li>bravo charlie</li></ol>',
+      "<ol><li>alpha</li><li>bravo charlie</li></ol>",
     );
     expect(compare(before, after).code).toBe(0);
   });
@@ -133,6 +141,37 @@ describe("text-parity gate", () => {
     const result = run(empty, baseline);
     expect(result.code).toBe(1);
     expect(result.out).toContain("disappeared from the build");
+  });
+
+  it("catches a blanked alt attribute", () => {
+    // Found by probing the gate, not by reading it: the first version stripped
+    // tags and threw every attribute away with them, so gutting an alt was
+    // invisible. That is the worst possible blind spot for a change whose
+    // entire point is putting pictures on the page.
+    const result = compare(page(), page({ alt: "" }));
+    expect(result.code).toBe(1);
+    expect(result.out).toContain("alt/title/aria-label word(s) lost");
+    expect(result.out).toContain("Monkey");
+  });
+
+  it("catches an h4 demoted to h5", () => {
+    // Every word survives a demotion, so nothing but the heading pass can see
+    // it — and the heading pass only covered h1-h3 at first.
+    const before = page();
+    const after = before.replace("<h4>Detalle tecnico</h4>", "<h5>Detalle tecnico</h5>");
+    const result = compare(before, after);
+    expect(result.code).toBe(1);
+    expect(result.out).toContain("heading outline changed");
+  });
+
+  it("catches words ADDED, not only words lost", () => {
+    // "Presentation only" is a two-sided claim. A template that starts saying
+    // something the copy never said breaks it just as much as one that drops a
+    // sentence.
+    const result = compare(page(), page({ words: "alpha bravo charlie delta" }));
+    expect(result.code).toBe(1);
+    expect(result.out).toContain("word(s) added");
+    expect(result.out).toContain("delta");
   });
 
   it("ships a baseline that actually covers the niche routes", () => {

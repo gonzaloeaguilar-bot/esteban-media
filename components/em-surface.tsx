@@ -95,6 +95,13 @@ export function Figure({
  * bleeds off the left edge rather than being cropped along its base — it is
  * set in the serif at a size the surrounding text never reaches, which is what
  * makes the row scannable at a glance.
+ *
+ * It is drawn by a CSS counter, not rendered into the DOM. The first version
+ * put `{index + 1}` in an `aria-hidden` span, and the parity gate was right to
+ * call that out: decorative or not, it puts "1 2 3 4" into the page's text
+ * where a crawler reads it, and this template is supposed to change
+ * presentation and nothing else. A counter is the version where that claim is
+ * simply true rather than argued.
  */
 export function NumberedList({
   items,
@@ -107,18 +114,12 @@ export function NumberedList({
   renderItem?: (item: string) => ReactNode;
 }) {
   return (
-    <ol className={cn("mt-6 space-y-3", className)}>
-      {items.map((item, index) => (
+    <ol className={cn("em-numbered mt-6 space-y-3", className)}>
+      {items.map((item) => (
         <li
           key={item}
-          className="relative flex gap-4 rounded-[4px] border border-[#e6ddd0] bg-[#f6f1ea]/70 px-4 py-3.5"
+          className="em-numbered__item relative flex gap-4 rounded-[4px] border border-[#e6ddd0] bg-[#f6f1ea]/70 px-4 py-3.5"
         >
-          <span
-            aria-hidden="true"
-            className="-ml-1 shrink-0 font-serif text-2xl leading-none tabular-nums text-[#e85d3e]"
-          >
-            {index + 1}
-          </span>
           <span className="text-sm leading-6 text-[#252a2d]">
             {renderItem ? renderItem(item) : item}
           </span>

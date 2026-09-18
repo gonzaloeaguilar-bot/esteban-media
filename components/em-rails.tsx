@@ -90,6 +90,11 @@ export function ProjectRail({
       source={source}
       variant="poster"
       size="lg"
+      // Without this the region announces itself as `Options — ${source}`:
+      // English, on a Spanish page, followed by a telemetry slug. The page's
+      // own h2 already names this strip on screen, so a visible `heading`
+      // would just say it twice.
+      ariaLabel="Proyectos publicados"
       // `span`, not a heading — which is the kit's own default for a rail of
       // posters. These titles were spans before the redesign, and promoting
       // them to h3 inserts two entries into the page outline. The rail-kit
@@ -140,6 +145,7 @@ export function ServiceRail({
       items={items}
       source={source}
       size="md"
+      ariaLabel="Servicios relacionados"
       titleAs="h3"
       cta="link"
       labels={RAIL_LABELS_ES}

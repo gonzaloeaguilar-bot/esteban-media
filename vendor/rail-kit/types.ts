@@ -194,6 +194,21 @@ export type RailProps = RailTelemetry & {
    */
   showControls?: boolean;
   /**
+   * What a screen reader calls this rail when it has no visible `heading`.
+   *
+   * Without it the region falls back to `Options — ${source}`, which is the
+   * right shape for a debug build and the wrong thing to say to a person: it
+   * is English on a site that may not be, and `source` is a telemetry slug.
+   * A consumer found its rails announcing "Options —
+   * niche_projects_videografo-en-miami" on a Spanish page.
+   *
+   * Prefer `heading` when the rail should carry a visible title. Use this when
+   * the page's own heading already names the rail and repeating it on screen
+   * would be noise — the label still has to exist for anyone who cannot see
+   * that heading's proximity.
+   */
+  ariaLabel?: string;
+  /**
    * The HTML element for each card's headline. `span` by default — a rail of
    * posters is not an outline. On a page where the cards ARE the content (a
    * pricing page, a catalogue), pass the heading level that fits under the

@@ -48,6 +48,7 @@ export default function Rail({
   progressSlot,
   tailSlot,
   showControls = false,
+  ariaLabel,
   titleAs = "span",
   labels,
   className,
@@ -206,7 +207,7 @@ export default function Rail({
           : undefined
       }
       aria-labelledby={heading ? headingId : undefined}
-      aria-label={heading ? undefined : `Options — ${source}`}
+      aria-label={heading ? undefined : (ariaLabel ?? `Options — ${source}`)}
     >
       {(heading || eyebrow || subheading || showControls) && (
         <header className="rail__header">
