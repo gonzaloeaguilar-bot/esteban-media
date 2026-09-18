@@ -1,0 +1,15 @@
+{
+  "repo": "gonzaloeaguilar-bot/rail-kit",
+  "ref": "57a13c627458be77fe50b3996dea935df2a82680",
+  "vendorPath": "vendor/rail-kit",
+  "files": {
+    "Rail.tsx": "edf8f865fbbd8cd759c95b076419df1d6d6d7964641d22fbd2404371e3d83f54",
+    "RailBillboard.tsx": "e9482da37db1bec6ab6996d3eda3d5e60a8dcceb0a09e8df55980966c01f8d64",
+    "RailCard.tsx": "9c0a1a0ccc210a3ef4085a32503a313b6969f4afe8361b6389c1492649aa038c",
+    "icons.tsx": "adc28e0518080526eb7d1154be8e340202a6543a363b79ed1621ec72c9925a44",
+    "index.ts": "5ab5f52648966821be9a80dcf3c468844698128a5cd96bc3d5b38ab04a28b488",
+    "motion.css": "31cead991457d2a428c172828e82e99604fb0c796082df9446d2c9dd83472a9d",
+    "rail.css": "7c2ecd38a4fcae30588caa779c91e8dec1db7ec685699c29904ba4dd042b7df5",
+    "types.ts": "87c8e019d29cd760e206787dc2fefe2d155e9e1b7b474d25fbdacb76889ba51a"
+  }
+}

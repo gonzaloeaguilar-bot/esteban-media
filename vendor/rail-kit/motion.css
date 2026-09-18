@@ -1,0 +1,209 @@
+/* rail-kit motion — the shared animation layer.
+ *
+ * Promoted from danielzea-site, where these lived as local components
+ * (`foco.css`, `brands.css`, `velo.css`, `entrada.css`) and could not be used
+ * by any other brand. Nothing here names a colour or a typeface; every value
+ * reads from a token with a neutral fallback, the same contract as rail.css.
+ *
+ * Import it separately from rail.css — a site that wants the cards and not
+ * the motion should not pay for the motion:
+ *
+ *   import "@/vendor/rail-kit/rail.css";
+ *   import "@/vendor/rail-kit/motion.css";
+ *
+ * EVERYTHING here sits inside `prefers-reduced-motion: no-preference`. There
+ * is no reduce block switching things off, because nothing is switched on
+ * without the query in the first place — which is the stronger version of the
+ * same promise: a visitor who asked for less movement never gets the styles
+ * at all, not even for one frame.
+ */
+
+/* ---------------------------------------------------------------------------
+ * SPOTLIGHT — a light travelling around the edge of the card in focus.
+ *
+ * ON THE ANGLE: a plain custom property is a string, and a string cannot be
+ * animated. Typed with @property as an <angle> it can, and the compositor
+ * does it. Where @property does not exist the cone is painted still, which is
+ * a fine floor: the ring still marks the card.
+ *
+ * ON THE FLOOR COLOUR, which is the part that took danielzea three tries: the
+ * cone's floor was at 6% white — black, in practice. With the ring dark
+ * everywhere except the tip of light, all you could see was that tip, and in
+ * a still screenshot the tip is always in ONE place, so the card looked like
+ * it had a glow on one border even though the light was going round. The
+ * floor is the accent now and the white tip travels over it: all four sides
+ * read at all times, and you can still see which one the light is passing.
+ *
+ * `linear`, not `ease-in-out`: a light running around a border does not
+ * accelerate and brake once per lap. That reads as a heartbeat.
+ * ------------------------------------------------------------------------- */
+
+@property --rail-spotlight-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+[data-rail-spotlight] {
+  position: relative;
+}
+
+[data-rail-spotlight]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border-radius: inherit;
+  padding: var(--rail-spotlight-width, 1.5px);
+  background-image: conic-gradient(
+    from var(--rail-spotlight-angle) at 50% 50%,
+    color-mix(in srgb, var(--rail-spotlight-color, var(--_accent, currentColor)) 34%, transparent) 0deg,
+    color-mix(in srgb, var(--rail-spotlight-light, #fff) 30%, transparent) 30deg,
+    color-mix(in srgb, var(--rail-spotlight-light, #fff) 55%, transparent) 62deg,
+    var(--rail-spotlight-light, #fff) 88deg,
+    var(--rail-spotlight-color, var(--_accent, currentColor)) 104deg,
+    color-mix(in srgb, var(--rail-spotlight-color, var(--_accent, currentColor)) 82%, transparent) 132deg,
+    color-mix(in srgb, var(--rail-spotlight-light, #fff) 34%, transparent) 176deg,
+    color-mix(in srgb, var(--rail-spotlight-color, var(--_accent, currentColor)) 30%, transparent) 250deg,
+    color-mix(in srgb, var(--rail-spotlight-color, var(--_accent, currentColor)) 34%, transparent) 360deg
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-rail-spotlight]::before {
+    animation: rail-spotlight var(--rail-spotlight-duration, 5.4s) linear
+      var(--rail-spotlight-iterations, 3);
+  }
+}
+
+@keyframes rail-spotlight {
+  to { --rail-spotlight-angle: 360deg; }
+}
+
+/* ---------------------------------------------------------------------------
+ * SHIMMER — a sweep across a surface, for the one suggested card.
+ *
+ * It animates `background-position`, not the gradient. A gradient recomputed
+ * every frame repaints the whole layer; a position shifted over a canvas
+ * bigger than the box is moved by the compositor. That is what the 240% is
+ * for: there has to be canvas to travel across.
+ * ------------------------------------------------------------------------- */
+
+[data-rail-shimmer] {
+  background-image: linear-gradient(
+    115deg,
+    transparent 30%,
+    color-mix(in srgb, var(--rail-shimmer, currentColor) 22%, transparent) 48%,
+    transparent 66%
+  );
+  background-size: 240% 240%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-rail-shimmer] {
+    animation: rail-shimmer var(--rail-shimmer-duration, 5.4s) ease-in-out
+      var(--rail-shimmer-iterations, 3);
+  }
+}
+
+@keyframes rail-shimmer {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+/* ---------------------------------------------------------------------------
+ * REVEAL — a block arrives as it enters the viewport.
+ *
+ * The kit only ships the two states. WHEN `is-in` goes on is the site's
+ * business, because it is the site that owns the IntersectionObserver, the
+ * routing and the hydration timing.
+ *
+ * The `.rail-anim` gate matters: without it, a visitor whose JavaScript never
+ * runs gets a page of permanently invisible blocks. The site adds `rail-anim`
+ * to <html> from script, so no-JS falls back to everything visible — which is
+ * the correct failure, not a blank page.
+ * ------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  .rail-anim .rail-reveal {
+    opacity: 0;
+    transform: translateY(var(--rail-reveal-distance, 22px));
+    transition:
+      opacity var(--rail-reveal-duration, 0.9s) ease,
+      transform var(--rail-reveal-duration, 0.9s) cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  .rail-anim .rail-reveal.is-in {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * VEIL — the plane that covers a page change, with the brand's mark on it.
+ *
+ * THE HELD BEAT AT THE START IS NOT PADDING. Without it the mark appears and
+ * is already leaving: there is no time to read it, and then there was no
+ * point putting it there. 0.22s still is enough to register it; the rest is
+ * the dissolve.
+ *
+ * 0.8s in total and not 1.05: a long dissolve reads as the page being slow. A
+ * curtain can afford time because the movement entertains; a fade cannot.
+ *
+ * The mark grows 3.5% as it leaves. That is what makes it read as dissolving
+ * into light rather than as somebody turning its brightness down.
+ *
+ * Both live on <html>, not on an element in the document, for the same
+ * reason: they have to exist BEFORE the new page's first frame, and a script
+ * at the end of <body> arrives too late.
+ * ------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  html.rail-veil::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    background: var(--rail-veil-bg, Canvas);
+    pointer-events: none;
+    animation: rail-veil-dissolve var(--rail-veil-duration, 0.8s) ease-out forwards;
+  }
+
+  /* The mark is the site's own: pass it as a string in --rail-veil-mark, or
+     leave it out and only the plane fades. */
+  html.rail-veil::before {
+    content: var(--rail-veil-mark, "");
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    z-index: 91;
+    width: max-content;
+    height: max-content;
+    pointer-events: none;
+    font-family: var(--rail-veil-mark-font, inherit);
+    font-size: var(--rail-veil-mark-size, clamp(21px, 2.6vw, 27px));
+    /* The tracking leaves a gap after the last letter, so a rule under the
+       mark sits off to the right. A matching text-indent splits it evenly. */
+    letter-spacing: var(--rail-veil-mark-tracking, 0.3em);
+    text-indent: var(--rail-veil-mark-tracking, 0.3em);
+    line-height: 1;
+    color: var(--rail-veil-mark-color, CanvasText);
+    animation: rail-veil-mark var(--rail-veil-duration, 0.8s) ease-out forwards;
+  }
+}
+
+@keyframes rail-veil-dissolve {
+  0%, 28% { opacity: 1; }
+  100% { opacity: 0; visibility: hidden; }
+}
+
+@keyframes rail-veil-mark {
+  0%, 28% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.035); visibility: hidden; }
+}
