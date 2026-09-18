@@ -1282,7 +1282,7 @@ export function SpanishNichePage({ slug }: { slug: string }) {
                   puts a picture on a page that had none. A project without an
                   approved still falls back to a text card rather than a media
                   card with an empty frame. */}
-              <div className="em-on-dark em-cartel rounded-[18px] bg-[#101214] p-5 sm:p-6">
+              <div className="em-on-dark em-cartel rounded-[18px] bg-[#101214] p-5 sm:p-6" data-em-reveal>
               <ProjectRail
                 projects={linkContext.projects}
                 source={`niche_projects_${page.slug}`}
@@ -1406,7 +1406,7 @@ export function SpanishNichePage({ slug }: { slug: string }) {
  */
 function ContentList({ title, items }: { title: string; items: string[] }) {
   return (
-    <Cartel as="section" className="p-6">
+    <Cartel as="section" className="p-6" data-em-reveal>
       <h2 className="font-serif text-3xl">{title}</h2>
       <NumberedList items={items} renderItem={renderFormattedText} />
     </Cartel>

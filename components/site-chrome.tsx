@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono, Newsreader } from "next/font/google";
 
 import { GoogleAnalytics } from "@/components/google-analytics";
+import { MOTION_GATE_SCRIPT, RouteVeil, SiteMotion } from "@/components/site-motion";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { siteEntityGraphJsonLd } from "@/lib/entity-schema";
@@ -26,6 +27,14 @@ export const siteBodyClassName = `${geistSans.variable} ${geistMono.variable} ${
 export function SiteChrome({ children }: { children: React.ReactNode }) {
   return (
     <>
+      {/* Before paint, always. Adding the gate class after first paint would
+          let a block render visible and then snap to opacity 0, which is worse
+          than no animation; and the arrival veil has to exist before the new
+          page's first frame, which a script at the end of <body> cannot do. */}
+      <script
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: MOTION_GATE_SCRIPT }}
+      />
       <script
         type="application/ld+json"
         suppressHydrationWarning
@@ -44,6 +53,8 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
         {children}
       </div>
       <SiteFooter />
+      <SiteMotion />
+      <RouteVeil />
       <GoogleAnalytics />
     </>
   );

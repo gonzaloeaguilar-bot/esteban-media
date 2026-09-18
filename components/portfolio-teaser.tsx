@@ -96,7 +96,7 @@ export function PortfolioTeaser({ locale }: PortfolioTeaserProps) {
             exists precisely so a consumer keeps its framework's optimised
             image. Swapping to a bare <img> here would have traded LCP on the
             most-visited page of the site for a tidier diff. */}
-        <div className="em-on-dark em-cartel mt-8">
+        <div className="em-on-dark em-cartel mt-8" data-em-reveal>
           <HomePortfolioRail
             locale={locale}
             items={items.map((item) => {

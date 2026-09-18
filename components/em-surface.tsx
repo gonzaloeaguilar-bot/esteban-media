@@ -32,14 +32,16 @@ export function Cartel({
   interactive = false,
   className,
   children,
+  ...rest
 }: {
   as?: "div" | "article" | "section" | "aside" | "li";
   interactive?: boolean;
   className?: string;
   children: ReactNode;
-}) {
+} & Record<`data-${string}`, unknown>) {
   return (
     <Tag
+      {...rest}
       className={cn(
         "relative rounded-[4px] border border-[#ddd4c8] bg-[#fbf6ef]",
         "bg-[linear-gradient(148deg,rgba(255,255,255,0.05),rgba(255,255,255,0)_58%)]",
