@@ -2,9 +2,11 @@ import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowRight, CheckCircle2, Mail, Phone, Send } from "lucide-react";
+import { ArrowRight, Mail, Phone, Send } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { Cartel, Figure, NumberedList } from "@/components/em-surface";
+import { ProjectRail, ServiceRail } from "@/components/em-rails";
 import {
   buildSpanishNicheStructuredData,
   getSpanishNichePage,
@@ -1156,7 +1158,12 @@ export function SpanishNichePage({ slug }: { slug: string }) {
               </div>
             </div>
 
-            <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
+            {/* The page's one moment of scale. What used to be here was a
+                definition list in a flat box: two labels and two values at
+                body size, the least looked-at object on the page despite
+                holding the two facts a visitor actually came to check. The
+                figures are sized against this card, not the window. */}
+            <Cartel as="aside" className="overflow-hidden p-6">
               <Icon className="size-7 text-[#e85d3e]" aria-hidden="true" />
               <h2 className="mt-5 font-serif text-3xl">
                 {isPendingConfirmation
@@ -1166,19 +1173,19 @@ export function SpanishNichePage({ slug }: { slug: string }) {
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
                 {renderFormattedText(page.projectFit)}
               </p>
-              <dl className="mt-6 grid gap-3">
-                <div className="rounded-md border border-[#ddd4c8] p-3">
-                  <dt className="text-xs uppercase text-[#5a6066]">
-                    {isPendingConfirmation ? "Tema" : "Servicio"}
-                  </dt>
-                  <dd className="mt-1 font-serif text-xl">{page.keyword}</dd>
-                </div>
-                <div className="rounded-md border border-[#ddd4c8] p-3">
-                  <dt className="text-xs uppercase text-[#5a6066]">Zona</dt>
-                  <dd className="mt-1 font-serif text-xl">{page.location}</dd>
-                </div>
+              <dl className="mt-6 grid gap-px overflow-hidden rounded-[4px] border border-[#ddd4c8] bg-[#ddd4c8]">
+                <Figure
+                  label={isPendingConfirmation ? "Tema" : "Servicio"}
+                  value={page.keyword}
+                  className="bg-[#fbf6ef]"
+                />
+                <Figure
+                  label="Zona"
+                  value={page.location}
+                  className="bg-[#fbf6ef]"
+                />
               </dl>
-            </div>
+            </Cartel>
           </div>
         </Container>
       </section>
@@ -1217,18 +1224,18 @@ export function SpanishNichePage({ slug }: { slug: string }) {
                       <p key={pIndex}>{renderFormattedText(p)}</p>
                     ))}
                   </div>
+                  {/* The prose above stays prose — it is written to be read,
+                      and turning an argument into cards would only shred it.
+                      The bullets under it are a different thing: a scannable
+                      checklist, which is what gets the card treatment. */}
                   {section.bullets && section.bullets.length > 0 ? (
-                    <ul className="mt-4 space-y-2.5 rounded-xl border border-[#ddd4c8] bg-[#fbf6ef] p-5 sm:p-6">
-                      {section.bullets.map((bullet, bIndex) => (
-                        <li key={bIndex} className="flex gap-3 text-sm leading-6 text-[#252a2d]">
-                          <CheckCircle2
-                            className="mt-0.5 size-4 shrink-0 text-[#1a7f82]"
-                            aria-hidden="true"
-                          />
-                          <span>{renderFormattedText(bullet)}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    <Cartel className="mt-4 p-5 sm:p-6">
+                      <NumberedList
+                        items={section.bullets}
+                        className="mt-0"
+                        renderItem={renderFormattedText}
+                      />
+                    </Cartel>
                   ) : null}
                 </article>
               ))}
@@ -1269,26 +1276,17 @@ export function SpanishNichePage({ slug }: { slug: string }) {
                   </Link>
                 </div>
               </div>
-              <div className="grid gap-4 sm:grid-cols-2">
-                {linkContext.projects.map((project) => (
-                  <Link
-                    key={project.href}
-                    href={project.href}
-                    className="group rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5 hover:border-[#e85d3e]"
-                  >
-                    <span className="flex items-center justify-between gap-3 font-serif text-2xl">
-                      {project.title}
-                      <ArrowRight
-                        className="size-4 shrink-0 text-[#9f3c27] transition-transform group-hover:translate-x-0.5"
-                        aria-hidden="true"
-                      />
-                    </span>
-                    <span className="mt-3 block text-sm leading-6 text-[#252a2d]">
-                      {project.detail}
-                    </span>
-                  </Link>
-                ))}
-              </div>
+              {/* The heading above this says "revisa trabajo real" and what
+                  followed was two boxes of words. These projects have approved
+                  stills sitting in public/portfolio; the rail is what finally
+                  puts a picture on a page that had none. A project without an
+                  approved still falls back to a text card rather than a media
+                  card with an empty frame. */}
+              <ProjectRail
+                projects={linkContext.projects}
+                source={`niche_projects_${page.slug}`}
+                cta="Ver el proyecto"
+              />
             </div>
           </Container>
         </section>
@@ -1302,19 +1300,22 @@ export function SpanishNichePage({ slug }: { slug: string }) {
           <h2 className="mt-4 max-w-3xl font-serif text-4xl leading-tight">
             Revisa las prioridades confirmadas relacionadas.
           </h2>
-          <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            {relatedServices.map((service) => (
-              <Link
-                key={service.id}
-                href={`/es/servicios#${service.id}`}
-                className="rounded-lg border border-white/10 bg-white/[0.04] p-4 hover:bg-white/[0.08]"
-              >
-                <h3 className="font-serif text-xl">{service.name}</h3>
-                <p className="mt-3 text-xs leading-5 text-[#c9c1b8]">
-                  {service.description}
-                </p>
-              </Link>
-            ))}
+          {/* Same rail, dark skin. The override is scoped to this section, not
+              to a colour-scheme media query: a deliberately dark band is a
+              design decision, whereas dark tokens behind
+              prefers-color-scheme mean half the visitors see a different site
+              and which half is down to chance. */}
+          <div className="em-on-dark mt-8">
+            <ServiceRail
+              services={relatedServices.map((service) => ({
+                id: service.id,
+                name: service.name,
+                description: service.description,
+                href: `/es/servicios#${service.id}`,
+              }))}
+              source={`niche_services_${page.slug}`}
+              cta="Ver el servicio"
+            />
           </div>
         </Container>
       </section>
@@ -1332,15 +1333,12 @@ export function SpanishNichePage({ slug }: { slug: string }) {
             </div>
             <div className="grid gap-3">
               {page.faqs.map((faq) => (
-                <article
-                  key={faq.question}
-                  className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5"
-                >
+                <Cartel as="article" key={faq.question} className="p-5">
                   <h3 className="font-serif text-2xl">{faq.question}</h3>
                   <p className="mt-3 text-sm leading-6 text-[#252a2d]">
                     {renderFormattedText(faq.answer)}
                   </p>
-                </article>
+                </Cartel>
               ))}
             </div>
           </div>
@@ -1349,7 +1347,7 @@ export function SpanishNichePage({ slug }: { slug: string }) {
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
-          <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6 sm:p-8">
+          <Cartel className="p-6 sm:p-8">
             <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
               <div>
                 <p className="text-xs font-medium uppercase text-[#5a6066]">
@@ -1381,6 +1379,8 @@ export function SpanishNichePage({ slug }: { slug: string }) {
                 </a>
                 <a
                   href={site.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-[#101214] px-5 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"
                 >
                   <Send className="size-4" aria-hidden="true" />
@@ -1388,28 +1388,25 @@ export function SpanishNichePage({ slug }: { slug: string }) {
                 </a>
               </div>
             </div>
-          </div>
+          </Cartel>
         </Container>
       </section>
     </main>
   );
 }
 
+/**
+ * Two of these sit side by side and together they were the single biggest
+ * source of the wall: a niche page renders fifty-five rows, every one of them
+ * the same check-mark glyph followed by a sentence. Numbering them gives each
+ * row its own identity and lets someone count what they are looking at, which
+ * a repeated tick never allowed.
+ */
 function ContentList({ title, items }: { title: string; items: string[] }) {
   return (
-    <section className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
+    <Cartel as="section" className="p-6">
       <h2 className="font-serif text-3xl">{title}</h2>
-      <ul className="mt-6 space-y-4 text-sm leading-6 text-[#252a2d]">
-        {items.map((item) => (
-          <li key={item} className="flex gap-3">
-            <CheckCircle2
-              className="mt-0.5 size-5 shrink-0 text-[#e85d3e]"
-              aria-hidden="true"
-            />
-            <span>{renderFormattedText(item)}</span>
-          </li>
-        ))}
-      </ul>
-    </section>
+      <NumberedList items={items} renderItem={renderFormattedText} />
+    </Cartel>
   );
 }

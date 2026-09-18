@@ -1,0 +1,4828 @@
+/* rail-kit — one rail, themed per brand.
+ *
+ * Every value below reads from a CSS custom property with a neutral fallback.
+ * A brand adopts the rail by setting these once, wherever it already defines
+ * its design tokens. Nothing here names a brand, a colour, or a typeface.
+ *
+ *   .my-brand {
+ *     --rail-accent: #c8102e;
+ *     --rail-card-bg: #141414;
+ *     --rail-card-radius: 16px;
+ *     --rail-media-aspect: 16 / 9;
+ *   }
+ *
+ * Motion: every transition and animation sits inside
+ * prefers-reduced-motion: no-preference, with a reduce block that switches all
+ * of it off. Hover behaviour is additionally gated on a fine pointer so a tap
+ * never leaves a card stuck in a hovered state.
+ */
+
+/* The private aliases must exist on every root the kit renders, not just the
+   rail: the billboard and the chips use the same accent, border and text
+   tokens, and without this their buttons fell back to `currentColor` and
+   rendered white on white. */
+/* The kit must not depend on the host's reset. Without this the padded
+   overlay measured 266px inside a 230px card under content-box — invisible in
+   a Tailwind site (preflight sets border-box) and broken everywhere else. */
+.rail,
+.rail-billboard,
+.rail-filters,
+.rail-frame,
+.rail-versus,
+.rail-list,
+.rail-sheet,
+.rail-faq,
+.rail-player,
+.rail-scene,
+.rail-stickybar,
+.rail-tabs,
+.rail-bottomnav,
+.rail-fab,
+.rail-progress,
+.rail-stats,
+.rail-empty,
+.rail-segmented,
+.rail-cta,
+.rail-disclosure,
+.rail-figures,
+.rail-options,
+.rail-promo,
+.rail-milestone,
+.rail-presence,
+.rail-live,
+.rail-copy,
+.rail-table,
+.rail-poll,
+.rail-ad,
+.rail-pageheader,
+.rail-price,
+.rail-rating,
+.rail-byline,
+.rail-search,
+.rail-coupons,
+.rail-toast,
+.rail-masonry,
+.rail-storyring,
+.rail-coachmark,
+.rail-shortcuts,
+.rail-offer,
+.rail *,
+.rail-billboard *,
+.rail-filters *,
+.rail-frame *,
+.rail-versus *,
+.rail-list *,
+.rail-sheet *,
+.rail-faq *,
+.rail-player *,
+.rail-scene *,
+.rail-stickybar *,
+.rail-tabs *,
+.rail-bottomnav *,
+.rail-fab *,
+.rail-progress *,
+.rail-stats *,
+.rail-empty *,
+.rail-segmented *,
+.rail-cta *,
+.rail-disclosure *,
+.rail-figures *,
+.rail-options *,
+.rail-promo *,
+.rail-milestone *,
+.rail-presence *,
+.rail-live *,
+.rail-copy *,
+.rail-table *,
+.rail-poll *,
+.rail-ad *,
+.rail-pageheader *,
+.rail-price *,
+.rail-rating *,
+.rail-byline *,
+.rail-search *,
+.rail-coupons *,
+.rail-toast *,
+.rail-masonry *,
+.rail-storyring *,
+.rail-coachmark *,
+.rail-shortcuts *,
+.rail-offer * {
+  box-sizing: border-box;
+}
+
+.rail,
+.rail-billboard,
+.rail-filters,
+.rail-frame,
+.rail-versus,
+.rail-list,
+.rail-sheet,
+.rail-faq,
+.rail-player,
+.rail-scene,
+.rail-stickybar,
+.rail-tabs,
+.rail-bottomnav,
+.rail-fab,
+.rail-progress,
+.rail-stats,
+.rail-empty,
+.rail-segmented,
+.rail-cta,
+.rail-disclosure,
+.rail-figures,
+.rail-options,
+.rail-promo,
+.rail-milestone,
+.rail-presence,
+.rail-live,
+.rail-copy,
+.rail-table,
+.rail-poll,
+.rail-ad,
+.rail-pageheader,
+.rail-price,
+.rail-rating,
+.rail-byline,
+.rail-search,
+.rail-coupons,
+.rail-toast,
+.rail-masonry,
+.rail-storyring,
+.rail-coachmark,
+.rail-shortcuts,
+.rail-offer {
+  --_gap: calc(var(--rail-gap, 20px) * var(--_space));
+  --_width: var(--rail-card-width, 300px);
+  --_accent: var(--rail-accent, currentColor);
+  --_radius: var(--rail-card-radius, 16px);
+  --_bg: var(--rail-card-bg, rgba(255, 255, 255, 0.04));
+  --_border: var(--rail-card-border, rgba(255, 255, 255, 0.12));
+  --_text: var(--rail-text, inherit);
+  --_muted: var(--rail-muted, rgba(255, 255, 255, 0.65));
+  --_aspect: var(--rail-media-aspect, 4 / 3);
+  --_shadow: var(--rail-card-shadow, 0 18px 40px -22px rgba(0, 0, 0, 0.9));
+
+  /* ---- the three axes -------------------------------------------------
+     Before this block a brand had to set ten separate sizes to look denser
+     or calmer, and motion could not be themed at all: every duration and
+     curve was a literal. Now a brand moves ONE number per axis and the kit
+     follows.
+
+     Every axis defaults to 1 and every step keeps the literal it already
+     had, so a brand that sets nothing renders exactly what it rendered
+     before. This is additive: the per-value tokens below still win when a
+     brand sets them.
+
+       .my-brand { --rail-density: 0.85; --rail-motion-scale: 0.7; }   */
+  --_type: var(--rail-type-scale, 1);
+  --_space: var(--rail-density, 1);
+  --_motion: var(--rail-motion-scale, 1);
+
+  --_text-2xs: calc(var(--rail-text-2xs, 11px) * var(--_type));
+  --_text-xs: calc(var(--rail-text-xs, 13px) * var(--_type));
+  --_text-sm: calc(var(--rail-text-sm, 13.5px) * var(--_type));
+  --_text-md: calc(var(--rail-text-md, 14px) * var(--_type));
+
+  --_space-2xs: calc(var(--rail-space-2xs, 4px) * var(--_space));
+  --_space-xs: calc(var(--rail-space-xs, 6px) * var(--_space));
+  --_space-sm: calc(var(--rail-space-sm, 10px) * var(--_space));
+  --_space-md: calc(var(--rail-space-md, 12px) * var(--_space));
+  --_space-lg: calc(var(--rail-space-lg, 16px) * var(--_space));
+  --_space-s: calc(var(--rail-space-s, 8px) * var(--_space));
+  --_space-3xs: calc(var(--rail-space-3xs, 2px) * var(--_space));
+  --_space-xl: calc(var(--rail-space-xl, 18px) * var(--_space));
+  --_space-2xl: calc(var(--rail-space-2xl, 20px) * var(--_space));
+  --_space-3xl: calc(var(--rail-space-3xl, 22px) * var(--_space));
+  /* Two steps the ramp was missing once 42 more components joined it. Added
+     rather than snapping 14 to 16 and 24 to 22, because every axis so far has
+     promised that a brand setting nothing renders exactly what it did. */
+  --_space-mid: calc(var(--rail-space-mid, 14px) * var(--_space));
+  --_space-4xl: calc(var(--rail-space-4xl, 24px) * var(--_space));
+  --_text-lg: calc(var(--rail-text-lg, 14.5px) * var(--_type));
+  --_text-xl: calc(var(--rail-text-xl, 17px) * var(--_type));
+  --_track-wide: var(--rail-track-wide, 0.04em);
+  --_track-wider: var(--rail-track-wider, 0.08em);
+  --_pill: var(--rail-pill-radius, 999px);
+
+  /* A control's tap target is the one value density must not be able to
+     break: WCAG 2.2 AA wants 24px and this kit ships 44. max() means a
+     brand can make the kit denser without configuring it below the floor. */
+  --_control-min: max(24px, calc(var(--rail-control-min, 44px) * var(--_space)));
+  --_control-min-sm: max(24px, calc(var(--rail-control-min-sm, 40px) * var(--_space)));
+
+  /* Durations, not the number of passes: the sweep still runs three times
+     and stops. A brand can slow it down; it cannot make it loop. */
+  --_dur-fast: calc(var(--rail-motion-fast, 0.2s) * var(--_motion));
+  --_dur-base: calc(var(--rail-motion-base, 0.28s) * var(--_motion));
+  --_dur-slow: calc(var(--rail-motion-slow, 0.5s) * var(--_motion));
+  --_dur-sweep: calc(var(--rail-motion-sweep, 2.6s) * var(--_motion));
+  --_ease: var(--rail-motion-ease, cubic-bezier(0.2, 0.7, 0.2, 1));
+  --_ease-soft: var(--rail-motion-ease-soft, ease);
+  /* The AA tap floor. NOT scaled by density: a brand may make the kit denser,
+     it may not configure itself below 24px. */
+  --_tap-min: var(--rail-tap-min, 24px);
+  --_ease-out: var(--rail-motion-ease-out, cubic-bezier(0.25, 0.46, 0.45, 0.94));
+  color: var(--_text);
+  container-type: inline-size;
+}
+
+.rail[data-rail-size="sm"] { --_width: var(--rail-card-width-sm, 240px); }
+.rail[data-rail-size="lg"] { --_width: var(--rail-card-width-lg, 360px); }
+
+.rail__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--_space-lg);
+}
+
+.rail__eyebrow {
+  font: var(--rail-eyebrow-font, inherit);
+  letter-spacing: var(--rail-eyebrow-tracking, 0.14em);
+  text-transform: var(--rail-eyebrow-transform, uppercase);
+  /* Small text on a brand accent usually fails WCAG AA — the Geebs red is
+     3.06:1 on its own background and the FLAS gold 3.02:1 on its own. Give
+     these three their own tokens so a brand can lighten the accent for small
+     text without touching buttons, where a large filled area passes. */
+  color: var(--rail-eyebrow-color, var(--_accent));
+  font-size: calc(var(--rail-eyebrow-size, 11px) * var(--_type));
+}
+
+.rail__heading {
+  font: var(--rail-heading-font, inherit);
+  font-size: calc(var(--rail-heading-size, clamp(22px, 3vw, 30px)) * var(--_type));
+  line-height: 1.12;
+  margin: var(--_space-s) 0 0;
+}
+
+.rail__subheading {
+  margin: var(--_space-sm) 0 0;
+  max-width: 60ch;
+  color: var(--_muted);
+  font-size: calc(var(--rail-subheading-size, 15px) * var(--_type));
+  line-height: 1.6;
+}
+
+/* Sin nada que desplazar no hay flechas: un control que no hace nada es peor
+   que ninguno. El contador sí se queda: "3 de 3" sigue diciendo algo. */
+.rail__arrows[data-rail-scrollable="false"] .rail__arrow--move { display: none; }
+.rail__arrow:disabled { opacity: 0.35; cursor: default; }
+
+.rail__position {
+  display: block;
+  margin: 0 var(--_space-2xs) 0 auto;
+  font-size: var(--_text-xs);
+  color: var(--rail-meta-color, var(--_muted));
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.rail__arrows { display: none; gap: var(--_space-s); flex-shrink: 0; }
+
+@media (min-width: 768px) {
+  .rail__arrows { display: flex; }
+  .rail__scroller { align-items: stretch; }
+}
+
+.rail__arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--_pill);
+  border: 1px solid var(--_border);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.rail__scroller {
+  display: flex;
+  /* On a phone you see one card at a time, so equal heights only buy a hole
+     above the button. From tablet up several cards are visible side by side
+     and their buttons should line up. */
+  align-items: flex-start;
+  gap: var(--_gap);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding-bottom: var(--_space-lg);
+  margin-top: var(--_space-4xl);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+}
+
+.rail__scroller::-webkit-scrollbar { display: none; }
+
+/* Decorative edge fade — no layout change, nothing focusable hidden, both
+   true ends still reachable. */
+@supports (mask-image: linear-gradient(to right, transparent, black)) {
+  @media (min-width: 768px) {
+    .rail__scroller {
+      mask-image: linear-gradient(to right, transparent 0, black 28px, black calc(100% - 56px), transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0, black 28px, black calc(100% - 56px), transparent 100%);
+    }
+  }
+}
+
+.rail-card {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  width: min(var(--_width), 78vw);
+  scroll-snap-align: start;
+  border: 1px solid var(--_border);
+  border-radius: var(--_radius);
+  background: var(--_bg);
+  color: inherit;
+  text-decoration: none;
+  overflow: hidden;
+  transform: translateZ(0);
+}
+
+.rail-card[data-rail-highlighted="true"] { border-color: var(--_accent); }
+
+.rail-card__figure {
+  position: relative;
+  display: block;
+  aspect-ratio: var(--_aspect);
+  background: var(--rail-figure-bg, rgba(255, 255, 255, 0.05));
+  overflow: hidden;
+}
+
+.rail-card[data-rail-kind="text"] .rail-card__figure {
+  aspect-ratio: var(--rail-text-aspect, 5 / 2);
+  display: grid;
+  place-items: center;
+}
+
+.rail-card__image { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.rail-card__glyph {
+  /* Its own token: this is large text, so it needs 3:1, and a brand accent
+     tuned for a filled button routinely is not that on the card surface. */
+  font: var(--rail-glyph-font, inherit);
+  font-size: calc(var(--rail-glyph-size, 38px) * var(--_type));
+  color: var(--rail-glyph-color, var(--_accent));
+  letter-spacing: var(--_track-wide);
+}
+
+.rail-card__badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: var(--_space-2xs) var(--_space-sm);
+  border-radius: var(--_pill);
+  font-size: var(--_text-2xs);
+  letter-spacing: var(--_track-wider);
+  text-transform: uppercase;
+  background: var(--rail-badge-bg, rgba(0, 0, 0, 0.6));
+  color: var(--rail-badge-color, #fff);
+}
+
+/* Icon chip + badge share one row above the title, so an icon-only card has a
+   deliberate header instead of an empty picture frame. */
+.rail-card__mark-row {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-sm);
+}
+
+.rail-card__icon {
+  display: inline-grid;
+  place-items: center;
+  width: var(--rail-icon-box, 36px);
+  height: var(--rail-icon-box, 36px);
+  border-radius: var(--rail-icon-radius, 12px);
+  border: 1px solid var(--_border);
+  background: var(--rail-icon-bg, rgba(255, 255, 255, 0.04));
+  color: var(--_accent);
+  flex: 0 0 auto;
+}
+
+.rail-card__icon > svg {
+  width: var(--rail-icon-size, 20px);
+  height: var(--rail-icon-size, 22px);
+}
+
+/* Inside the figure box the mark is bigger and unboxed — it is the picture. */
+.rail-card__figure .rail-card__icon {
+  width: auto;
+  height: auto;
+  border: 0;
+  background: none;
+}
+
+/* Consumer media (an embed, a video, a framework image) fills the same box a
+   plain <img> would, so a rail of embeds lines up with a rail of photos. */
+.rail-card__figure > iframe,
+.rail-card__figure > video,
+.rail-card__figure > :is(span, div) > img {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: cover;
+  display: block;
+}
+
+.rail-card__figure .rail-card__icon > svg {
+  width: var(--rail-figure-icon-size, 44px);
+  height: var(--rail-figure-icon-size, 44px);
+}
+
+.rail-card[data-rail-kind="stat"] .rail-card__icon { margin: var(--_space-xl) var(--_space-xl) 0; }
+
+/* With no figure, the badge sits in the body flow instead of over an image. */
+.rail-card__badge--inline {
+  position: static;
+  align-self: flex-start;
+  margin-bottom: var(--_space-3xs);
+}
+
+.rail-card__body { display: flex; flex-direction: column; gap: var(--_space-s); padding: var(--rail-card-padding, var(--_space-xl)); flex: 1; }
+.rail-card__head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--_space-sm); }
+/* The headline carries the card. Netflix-scale by default — a rail is scanned
+   at arm's length, and an 18px title made every card read like a list item. */
+/* El titular puede ser un encabezado de verdad; que serlo no le cambie el
+   tamaño ni el margen que trae el navegador. */
+.rail-card__title { margin: 0; }
+.rail-card__title {
+  font-family: var(--rail-title-font, inherit);
+  font-size: calc(var(--rail-title-size, clamp(20px, 1.6vw, 24px)) * var(--_type));
+  font-weight: var(--rail-title-weight, 600);
+  line-height: var(--rail-title-leading, 1.15);
+  letter-spacing: var(--rail-title-tracking, normal);
+  text-wrap: balance;
+}
+.rail-card__meta {
+  font-family: var(--rail-meta-font, inherit);
+  font-size: calc(var(--rail-meta-size, 14px) * var(--_type));
+  font-weight: var(--rail-meta-weight, inherit);
+  color: var(--rail-meta-color, var(--_accent));
+  white-space: nowrap;
+}
+
+/* The value as the decision: its own line, its own scale. The note under it
+   says what the number buys, so the number never has to. */
+.rail-card__value { display: flex; flex-direction: column; gap: var(--_space-3xs); }
+.rail-card__meta--block {
+  font-size: calc(var(--rail-value-size, clamp(34px, 3.4vw, 46px)) * var(--_type));
+  font-weight: var(--rail-value-weight, 800);
+  line-height: var(--rail-value-leading, 1);
+  letter-spacing: var(--rail-value-tracking, -0.045em);
+  color: var(--rail-value-color, var(--_text));
+}
+.rail-card__meta--block small {
+  font-size: calc(var(--rail-value-unit-size, 14px) * var(--_type));
+  font-weight: var(--rail-weight-regular, 400);
+  letter-spacing: normal;
+  color: var(--_muted);
+}
+.rail-card__value-note {
+  font-size: calc(var(--rail-value-note-size, 13px) * var(--_type));
+  font-weight: var(--rail-value-note-weight, 700);
+  color: var(--rail-value-note-color, var(--_text));
+}
+.rail-card__subtitle { font-size: calc(var(--rail-subtitle-size, 14px) * var(--_type)); color: var(--_muted); }
+.rail-card__description { margin: 0; font-size: var(--_text-md); line-height: 1.6; color: var(--_muted); }
+/* Opt-in line clamp — only inside a rail that asked for it. */
+.rail[data-rail-clamp] .rail-card__description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--rail-description-lines, 4);
+  line-clamp: var(--rail-description-lines, 4);
+  overflow: hidden;
+}
+
+.rail-card__bullets {
+  margin: var(--_space-2xs) 0 0;
+  padding-left: var(--rail-bullet-indent, var(--_space-xl));
+  font-size: calc(var(--rail-bullet-size, 13.5px) * var(--_type));
+  line-height: var(--rail-bullet-leading, 1.6);
+  color: var(--rail-bullet-color, var(--_muted));
+}
+.rail-card__bullets > li + li { margin-top: var(--rail-bullet-gap, 0); }
+/* Up to three actions; they stack on a phone and sit inline from tablet up. */
+.rail-card__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--_space-s);
+  margin-top: auto;
+  padding-top: var(--_space-md);
+}
+
+@media (min-width: 768px) {
+  .rail-card__actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}
+
+.rail-card__title-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.rail-card__title-link:hover { text-decoration: underline; }
+
+/* Dismiss controls. Visible on focus for keyboards, always visible on touch. */
+.rail-card__dismiss,
+.rail__dismiss {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: var(--_pill);
+  border: 1px solid var(--_border);
+  background: var(--rail-dismiss-bg, rgba(0, 0, 0, 0.45));
+  color: inherit;
+  font-size: var(--_text-xl);
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.rail__dismiss {
+  position: static;
+  width: 40px;
+  height: 40px;
+}
+
+.rail-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.rail-card__cta { font-size: var(--_text-sm); color: var(--rail-cta-link-color, var(--_accent)); text-decoration: none; }
+
+/* Buttons, not <button>s — see RailCard — so they carry their own box. */
+.rail-card__cta--primary,
+.rail-card__cta--secondary {
+  align-self: stretch;
+  text-decoration: none;
+  justify-content: center;
+  margin-top: auto;
+  padding: var(--rail-cta-padding, var(--_space-md) var(--_space-xl));
+  border-radius: var(--rail-cta-radius, 10px);
+  font-weight: var(--rail-cta-weight, 600);
+  font-size: calc(var(--rail-cta-size, 14.5px) * var(--_type));
+  /* WCAG AA tap target is 24px; 44 is the comfortable thumb size. */
+  min-height: var(--_control-min);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--_space-xs);
+  text-align: center;
+}
+
+/* Keeps the arrow beside the label when the label wraps, instead of pinned to
+   the far edge of the button. */
+.rail-card__cta-label { display: inline-block; }
+
+.rail-card__cta--primary {
+  background: var(--rail-cta-bg, var(--_accent));
+  color: var(--rail-cta-color, #fff);
+  border: 1px solid var(--rail-cta-bg, var(--_accent));
+}
+
+.rail-card__cta--secondary {
+  background: var(--rail-cta-secondary-bg, transparent);
+  color: var(--rail-cta-secondary-color, var(--rail-cta-link-color, var(--_accent)));
+  border: 1px solid var(--rail-cta-secondary-border, var(--_accent));
+}
+
+/* From tablet up the button sits at its natural width — a full-width button
+   on a 340px card reads as a form control rather than a choice. */
+@media (min-width: 768px) {
+  .rail-card__cta--primary,
+  .rail-card__cta--secondary {
+    align-self: flex-start;
+    justify-content: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rail-card__cta--primary,
+  .rail-card__cta--secondary {
+    transition: filter var(--_dur-fast) var(--_ease-soft), background-color var(--_dur-fast) var(--_ease-soft), color var(--_dur-fast) var(--_ease-soft);
+  }
+
+  .rail-card:hover .rail-card__cta--primary { filter: brightness(1.1); }
+
+  .rail-card:hover .rail-card__cta--secondary {
+    background: var(--rail-cta-bg, var(--_accent));
+    color: var(--rail-cta-color, #fff);
+  }
+}
+
+.rail-card__stat-value { font: var(--rail-stat-font, inherit); font-size: calc(var(--rail-stat-size, clamp(40px, 3.4vw, 52px)) * var(--_type)); line-height: 1; padding: var(--_space-3xl) var(--_space-xl) 0; }
+.rail-card__stat-label { font-size: var(--_text-md); color: var(--_muted); padding: var(--_space-sm) var(--_space-xl) 0; }
+.rail-card[data-rail-kind="stat"] .rail-card__description { padding: var(--_space-sm) var(--_space-xl) var(--_space-2xl); }
+
+.rail :is(a, button):focus-visible {
+  outline: 2px solid var(--rail-focus, var(--_accent));
+  outline-offset: 2px;
+}
+
+/* ── Motion ─────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: no-preference) {
+  .rail-card {
+    transition:
+      transform var(--_dur-base) var(--_ease),
+      opacity var(--_dur-base) var(--_ease-soft),
+      border-color var(--_dur-base) var(--_ease-soft),
+      box-shadow var(--_dur-base) var(--_ease-soft);
+  }
+
+  .rail-card__image { transition: transform var(--_dur-slow) var(--_ease); }
+  .rail__arrow { transition: transform var(--_dur-fast) var(--_ease-soft), border-color var(--_dur-fast) var(--_ease-soft); }
+  .rail__arrow:hover { transform: scale(1.08); }
+
+  @media (hover: hover) and (pointer: fine) {
+    .rail__scroller:hover .rail-card { opacity: 0.62; }
+
+    .rail-card:hover,
+    .rail-card:focus-visible,
+    .rail__scroller:hover .rail-card:focus-visible {
+      opacity: 1;
+      transform: translateY(-6px) scale(1.025);
+      box-shadow: var(--_shadow);
+    }
+
+    .rail-card:hover .rail-card__image { transform: scale(1.06); }
+  }
+
+  /* Tactile press — the thing that makes an app feel responsive rather than
+     a web page. */
+  .rail-card:active { transform: translateY(-2px) scale(0.99); }
+
+  /* Attention sweep on the one suggested card. Deliberately FINITE: three
+     passes and it stops. An infinite pulse is a slot-machine pattern, and a
+     card that never stops moving is a card nobody trusts. */
+  .rail-card[data-rail-highlighted="true"]::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      100deg,
+      transparent 35%,
+      var(--rail-shimmer, rgba(255, 255, 255, 0.11)) 50%,
+      transparent 65%
+    );
+    transform: translateX(-100%);
+    animation: rail-shimmer var(--_dur-sweep) ease-in-out 3;
+  }
+
+  .rail-card { position: relative; }
+
+  @keyframes rail-shimmer {
+    to { transform: translateX(100%); }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rail-card,
+  .rail-card__image,
+  .rail__arrow {
+    transition: none !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  .rail-card[data-rail-highlighted="true"]::after { display: none; }
+}
+
+/* ── Poster overlay, footer badge, header action ─────────────────────── */
+
+/* A second label on the art. Netflix uses the bottom edge for status
+   ("New Season", "Leaving Soon") and the top for provenance ("TOP 10"). */
+.rail-card__badge--footer {
+  top: auto;
+  bottom: 12px;
+  left: 12px;
+  background: var(--rail-footer-badge-bg, var(--_accent));
+  color: var(--rail-footer-badge-color, #fff);
+}
+
+/* Title drawn on the art, with a scrim heavy enough to keep it legible over
+   any photograph — the whole point of a poster lockup. */
+/* The overlay is positioned, not laid out: the image is a flex/grid item that
+   fills the figure, so an in-flow overlay landed beside it, outside the card.
+   Caught by comparing the two bounding boxes, not by looking at a screenshot. */
+
+.rail-card__figure[data-rail-overlay]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(
+    --rail-overlay-scrim,
+    linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.45) 38%, rgba(0, 0, 0, 0) 68%)
+  );
+}
+
+.rail-card__overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--_space-2xs);
+  padding: var(--rail-card-padding, var(--_space-xl));
+  width: 100%;
+  color: var(--rail-overlay-text, #fff);
+}
+
+.rail-card__overlay .rail-card__title { color: inherit; }
+.rail-card__overlay .rail-card__meta { color: var(--rail-overlay-meta, #fff); }
+
+.rail__header-action {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--_space-2xs);
+  min-height: var(--_control-min-sm);
+  padding: 0 var(--_space-2xs);
+  color: var(--rail-cta-link-color, var(--_accent));
+  font-size: var(--_text-lg);
+  font-weight: var(--rail-weight-semibold, 600);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.rail__header-action:hover { text-decoration: underline; }
+
+/* ── Billboard ───────────────────────────────────────────────────────── */
+
+.rail-billboard {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: var(--rail-billboard-radius, var(--rail-card-radius, 16px));
+  border: 1px solid var(--rail-card-border, rgba(255, 255, 255, 0.12));
+  aspect-ratio: var(--rail-billboard-aspect, 3 / 4);
+  color: var(--rail-overlay-text, #fff);
+  isolation: isolate;
+}
+
+@media (min-width: 768px) {
+  .rail-billboard { aspect-ratio: var(--rail-billboard-aspect-wide, 16 / 7); }
+}
+
+.rail-billboard__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.rail-billboard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(
+    --rail-overlay-scrim,
+    linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.45) 38%, rgba(0, 0, 0, 0) 68%)
+  );
+}
+
+.rail-billboard__badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: var(--_space-2xs) var(--_space-sm);
+  border-radius: var(--_pill);
+  font-size: var(--_text-2xs);
+  letter-spacing: var(--_track-wider);
+  text-transform: uppercase;
+  background: var(--rail-badge-bg, rgba(0, 0, 0, 0.6));
+  color: var(--rail-badge-color, #fff);
+}
+
+.rail-billboard__content {
+  position: absolute;
+  inset: auto 0 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--_space-md);
+  padding: var(--rail-billboard-padding, var(--_space-4xl));
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .rail-billboard__content {
+    align-items: flex-start;
+    text-align: left;
+    max-width: 44ch;
+  }
+}
+
+.rail-billboard__title {
+  margin: 0;
+  font-family: var(--rail-title-font, inherit);
+  font-size: calc(var(--rail-billboard-title-size, clamp(28px, 4vw, 46px)) * var(--_type));
+  font-weight: var(--rail-title-weight, 700);
+  line-height: 1.03;
+  letter-spacing: var(--rail-title-tracking, -0.02em);
+  text-wrap: balance;
+}
+
+.rail-billboard__lockup img,
+.rail-billboard__lockup svg {
+  max-width: min(70vw, 420px);
+  height: auto;
+  display: block;
+}
+
+.rail-billboard__status {
+  margin: 0;
+  font-size: calc(var(--rail-billboard-status-size, 16px) * var(--_type));
+  color: var(--rail-overlay-text, #fff);
+}
+
+.rail-billboard__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--_space-sm);
+  width: 100%;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .rail-billboard__actions { justify-content: flex-start; width: auto; }
+}
+
+.rail-billboard :is(a, button):focus-visible {
+  outline: 2px solid var(--rail-focus, #fff);
+  outline-offset: 2px;
+}
+
+/* ── Filter chips ────────────────────────────────────────────────────── */
+
+.rail-filters__list {
+  display: flex;
+  gap: var(--_space-s);
+  list-style: none;
+  margin: 0;
+  padding: 0 0 var(--_space-2xs);
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overscroll-behavior-x: contain;
+}
+
+.rail-filters__list::-webkit-scrollbar { display: none; }
+
+.rail-filters__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--_space-xs);
+  white-space: nowrap;
+  /* WCAG AA tap target is 24px; 40 is comfortable for a thumb. */
+  min-height: var(--_control-min-sm);
+  padding: 0 var(--_space-lg);
+  border-radius: var(--_pill);
+  border: 1px solid var(--rail-card-border, rgba(255, 255, 255, 0.12));
+  background: var(--rail-chip-bg, transparent);
+  color: inherit;
+  font-size: var(--_text-lg);
+  font-weight: var(--rail-weight-medium, 500);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.rail-filters__chip[data-active] {
+  background: var(--rail-chip-active-bg, var(--_accent));
+  border-color: var(--rail-chip-active-bg, var(--_accent));
+  color: var(--rail-chip-active-color, #fff);
+}
+
+.rail-filters__count { opacity: 0.7; font-variant-numeric: tabular-nums; }
+
+.rail-filters :is(a, button):focus-visible {
+  outline: 2px solid var(--rail-focus, currentColor);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rail-filters__chip { transition: background-color var(--_dur-fast) var(--_ease-soft), border-color var(--_dur-fast) var(--_ease-soft), color var(--_dur-fast) var(--_ease-soft); }
+}
+
+/* ---------------------------------------------------------------------------
+ * RailFrame — the band-and-border that marks one section as the week's thing.
+ * ------------------------------------------------------------------------- */
+
+.rail-frame {
+  border-radius: var(--rail-frame-radius, calc(var(--_radius) + var(--_space-s)));
+  padding: var(--rail-frame-inset, var(--_space-2xs));
+  /* The frame is the only place the kit draws a filled accent area, so it
+     takes its own token: a brand's button accent is often too loud at this
+     size, and too quiet behind white type. */
+  background: var(--rail-frame-bg, var(--_accent));
+  color: var(--rail-frame-color, #fff);
+  overflow: hidden;
+}
+
+.rail-frame__band {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--_space-2xs) var(--_space-sm);
+  margin: 0;
+  padding: var(--rail-frame-band-padding, var(--_space-s) var(--_space-md) var(--_space-sm));
+  text-align: center;
+}
+
+.rail-frame__label {
+  font-family: var(--rail-frame-label-font, var(--rail-heading-font, inherit));
+  font-size: calc(var(--rail-frame-label-size, 15px) * var(--_type));
+  font-weight: var(--rail-frame-label-weight, 800);
+  letter-spacing: var(--rail-frame-label-tracking, 0.02em);
+  text-transform: var(--rail-frame-label-transform, uppercase);
+}
+
+.rail-frame__presenter {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--_space-xs);
+  font-size: calc(var(--rail-frame-presenter-size, 14px) * var(--_type));
+}
+
+.rail-frame__presenter-prefix { opacity: 0.85; }
+.rail-frame__presenter-mark { font-weight: 700; color: inherit; }
+a.rail-frame__presenter-mark { text-decoration: none; }
+
+.rail-frame__presenter-mark :is(img, svg) {
+  display: block;
+  max-height: var(--rail-frame-presenter-logo-height, 18px);
+  width: auto;
+}
+
+.rail-frame__body {
+  border-radius: var(--_radius);
+  overflow: hidden;
+  /* The body is the host's own surface again: the frame colours its edge, not
+     what sits inside it. */
+  background: var(--rail-frame-body-bg, var(--_bg));
+  color: var(--_text);
+}
+
+.rail-frame :is(a, button):focus-visible {
+  outline: 2px solid var(--rail-focus, currentColor);
+  outline-offset: 2px;
+}
+
+/* ---------------------------------------------------------------------------
+ * RailVersus — two competitors, in two layouts.
+ * ------------------------------------------------------------------------- */
+
+.rail-versus {
+  display: flex;
+  flex-direction: column;
+  /* The card is sized by its slot, not the viewport — it sits in a frame, a
+     sidebar, a grid cell. Its breakpoints have to ask the card's own width. */
+  container-type: inline-size;
+  border-radius: var(--_radius);
+  background: var(--_bg);
+  color: var(--_text);
+  overflow: hidden;
+}
+
+/* Inside a frame the card has already been given its corner by the frame's
+   body, and doubling the radius leaves a visible sliver of frame colour. */
+.rail-frame__body > .rail-versus,
+.rail-frame__body > .rail-list { border-radius: 0; }
+
+.rail-versus__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.rail-versus__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-sm);
+  margin: 0;
+  padding: var(--rail-versus-eyebrow-padding, var(--_space-md) var(--_space-mid));
+  background: var(--rail-versus-eyebrow-bg, transparent);
+  color: var(--rail-versus-eyebrow-color, inherit);
+  font-size: calc(var(--rail-versus-eyebrow-size, 16px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+  line-height: 1.25;
+}
+
+.rail-versus__eyebrow-icon {
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.rail-versus__eyebrow-icon :is(img, svg) {
+  display: block;
+  width: var(--rail-icon-size, 20px);
+  height: var(--rail-icon-size, 20px);
+}
+
+.rail-versus__eyebrow-text {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rail-versus__eyebrow-badge {
+  flex-shrink: 0;
+  padding: var(--_space-2xs) var(--_space-md);
+  border-radius: var(--rail-versus-badge-radius, 6px);
+  background: var(--rail-versus-badge-bg, rgba(128, 128, 128, 0.16));
+  background: var(--rail-versus-badge-bg, color-mix(in srgb, currentColor 14%, transparent));
+  color: var(--rail-versus-badge-color, inherit);
+  font-size: calc(var(--rail-size-label, 13px) * var(--_type));
+  font-weight: var(--rail-weight-bold, 700);
+  letter-spacing: var(--rail-tracking-wide, 0.04em);
+}
+
+.rail-versus__header {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-md);
+  padding: var(--rail-versus-header-padding, var(--_space-md) var(--_space-mid));
+}
+
+.rail-versus__header-avatar {
+  flex-shrink: 0;
+  width: var(--rail-versus-avatar-size, 40px);
+  height: var(--rail-versus-avatar-size, 40px);
+  border-radius: var(--_pill);
+  object-fit: cover;
+}
+
+.rail-versus__header-text { flex: 1; min-width: 0; }
+
+.rail-versus__header-title {
+  margin: 0;
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  font-weight: var(--rail-weight-heavy, 800);
+  letter-spacing: var(--rail-tracking-wide, 0.04em);
+  text-transform: uppercase;
+}
+
+.rail-versus__header-subtitle {
+  margin: var(--_space-3xs) 0 0;
+  font-size: calc(var(--rail-size-meta, 14.5px) * var(--_type));
+  color: var(--_muted);
+}
+
+.rail-versus__header-value {
+  flex-shrink: 0;
+  margin: 0;
+  text-align: right;
+}
+
+.rail-versus__header-value-figure {
+  display: block;
+  font-size: calc(var(--rail-versus-header-value-size, 22px) * var(--_type));
+  font-weight: var(--rail-weight-bold, 700);
+  font-variant-numeric: tabular-nums;
+}
+
+.rail-versus__header-value-label {
+  display: block;
+  font-size: calc(var(--rail-size-label, 13px) * var(--_type));
+  color: var(--_muted);
+}
+
+.rail-versus__sides {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+}
+
+.rail-versus__side { min-width: 0; }
+.rail-versus__side > * { min-width: 0; }
+
+/* --- scores layout: figures face each other over one surface -------------- */
+
+.rail-versus[data-rail-layout="scores"] .rail-versus__side {
+  display: flex;
+  flex-direction: column;
+  gap: var(--_space-s);
+  padding: var(--rail-versus-side-padding, var(--_space-mid));
+}
+
+.rail-versus[data-rail-layout="scores"] .rail-versus__side[data-rail-side="right"] {
+  text-align: right;
+}
+
+.rail-versus[data-rail-layout="scores"] .rail-versus__art {
+  display: block;
+  flex-shrink: 0;
+  width: var(--rail-versus-crest-size, 58px);
+  height: var(--rail-versus-crest-size, 58px);
+  border-radius: var(--rail-versus-crest-radius, 8px);
+  overflow: hidden;
+}
+
+.rail-versus[data-rail-layout="scores"] .rail-versus__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--_space-2xs);
+}
+
+/* The crest and the score sit on one line, mirrored on the right-hand side so
+   the two scores end up next to each other in the middle of the card — which
+   is the comparison the visitor came for. */
+.rail-versus[data-rail-layout="scores"] .rail-versus__side {
+  display: grid;
+  grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+  grid-template-areas: "name name" "art body";
+  align-items: center;
+  column-gap: var(--_space-md);
+}
+
+.rail-versus[data-rail-layout="scores"] .rail-versus__side[data-rail-side="right"] {
+  grid-template-columns: minmax(0, 1fr) minmax(0, auto);
+  grid-template-areas: "name name" "body art";
+}
+
+.rail-versus[data-rail-layout="scores"] .rail-versus__name {
+  grid-area: name;
+  margin-bottom: var(--_space-s);
+}
+
+/* Under ~330px of card the crest and the score cannot share a line without
+   crushing the number, which is the one thing on this card nobody may
+   misread. The crest goes above it instead. */
+@container (max-width: 380px) {
+  .rail-versus[data-rail-layout="scores"] .rail-versus__side,
+  .rail-versus[data-rail-layout="scores"] .rail-versus__side[data-rail-side="right"] {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "name" "art" "body";
+  }
+  .rail-versus[data-rail-layout="scores"] .rail-versus__side[data-rail-side="right"] .rail-versus__art {
+    margin-left: auto;
+  }
+}
+.rail-versus[data-rail-layout="scores"] .rail-versus__art { grid-area: art; }
+.rail-versus[data-rail-layout="scores"] .rail-versus__body { grid-area: body; }
+
+/* --- panels layout: each side gets its own art panel --------------------- */
+
+.rail-versus[data-rail-layout="panels"] .rail-versus__sides {
+  gap: var(--rail-versus-panel-gap, 1px);
+  background: var(--rail-versus-panel-divider, var(--_border));
+}
+
+.rail-versus[data-rail-layout="panels"] .rail-versus__side {
+  display: flex;
+  flex-direction: column;
+  background: var(--_bg);
+}
+
+.rail-versus[data-rail-layout="panels"] .rail-versus__art {
+  position: relative;
+  display: block;
+  aspect-ratio: var(--rail-versus-panel-aspect, 1 / 1);
+  /* --_tint is the side's own background, set inline from `tint`. Without one
+     the panel falls back to the card surface. */
+  background: var(--_tint, var(--rail-versus-panel-bg, color-mix(in srgb, currentColor 6%, transparent)));
+  overflow: hidden;
+}
+
+.rail-versus[data-rail-layout="panels"] .rail-versus__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--_space-2xs);
+  padding: var(--rail-versus-side-padding, var(--_space-mid));
+}
+
+.rail-versus[data-rail-layout="panels"]
+  .rail-versus__side[data-rail-side="right"]
+  .rail-versus__body {
+  text-align: right;
+}
+
+.rail-versus__art-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.rail-versus__art :is(iframe, video) {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.rail-versus__chip {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: var(--rail-versus-chip-padding, calc(var(--_space-xs) / 2) var(--_space-s));
+  border-radius: var(--rail-versus-chip-radius, 5px);
+  background: var(--rail-versus-chip-bg, rgba(0, 0, 0, 0.55));
+  color: var(--rail-versus-chip-color, #fff);
+  font-size: calc(var(--rail-size-label, 12px) * var(--_type));
+  font-weight: var(--rail-weight-bold, 700);
+  letter-spacing: var(--rail-tracking-wide, 0.04em);
+}
+
+.rail-versus__side[data-rail-side="right"] .rail-versus__chip {
+  left: auto;
+  right: 8px;
+}
+
+.rail-versus__name {
+  margin: 0;
+  /* A grid item's default min-width is auto, so a long team name pushed its
+     column wider than the half it was given and overlapped the other side's
+     name. Both halves have to be allowed to be narrower than their content. */
+  min-width: 0;
+  /* break-word, not anywhere: `anywhere` shattered "DADDY ALLEN SUGAR BABIES"
+     into one syllable per line on a 375px phone. This breaks a word only when
+     the word alone cannot fit. */
+  overflow-wrap: break-word;
+  font-family: var(--rail-versus-name-font, var(--rail-title-font, inherit));
+  font-size: calc(var(--rail-versus-name-size, 15px) * var(--_type));
+  font-weight: var(--rail-versus-name-weight, 800);
+  line-height: 1.2;
+  letter-spacing: var(--rail-tracking-wide, 0.01em);
+  text-transform: var(--rail-versus-name-transform, uppercase);
+}
+
+.rail-versus__score { margin: 0; }
+
+.rail-versus__score-figure {
+  display: block;
+  font-family: var(--rail-versus-score-font, var(--rail-stat-font, inherit));
+  font-size: calc(var(--rail-versus-score-size, clamp(30px, 7vw, 44px)) * var(--_type));
+  font-weight: var(--rail-versus-score-weight, 700);
+  line-height: 1.05;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--rail-tracking-tight, -0.02em);
+}
+
+.rail-versus__score-label {
+  display: block;
+  font-size: calc(var(--rail-size-label, 12px) * var(--_type));
+  font-weight: var(--rail-weight-bold, 700);
+  letter-spacing: var(--rail-tracking-label, 0.08em);
+  text-transform: uppercase;
+  color: var(--_muted);
+}
+
+.rail-versus__stats {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--_space-3xs);
+}
+
+.rail-versus__stat {
+  font-size: calc(var(--rail-versus-stat-size, 14px) * var(--_type));
+  line-height: 1.35;
+  color: var(--_muted);
+}
+
+.rail-versus__stat-label { margin-right: 4px; }
+
+.rail-versus__stat[data-rail-tone="up"] .rail-versus__stat-value {
+  color: var(--rail-tone-up, #46c266);
+}
+
+.rail-versus__stat[data-rail-tone="down"] .rail-versus__stat-value {
+  color: var(--rail-tone-down, #e2585f);
+}
+
+.rail-versus__stat-value { font-variant-numeric: tabular-nums; }
+
+/* --- the meter ----------------------------------------------------------- */
+
+.rail-versus__meter {
+  padding: var(--rail-versus-meter-padding, var(--_space-2xs) var(--_space-mid) var(--_space-lg));
+}
+
+.rail-versus__meter-label {
+  margin: 0 0 var(--_space-xs);
+  font-size: calc(var(--rail-size-label, 12px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+  letter-spacing: var(--rail-tracking-label, 0.06em);
+  text-transform: uppercase;
+  color: var(--_muted);
+}
+
+.rail-versus__meter-row {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-md);
+}
+
+.rail-versus__meter-value {
+  flex-shrink: 0;
+  font-size: calc(var(--rail-versus-meter-value-size, 17px) * var(--_type));
+  font-weight: var(--rail-weight-bold, 700);
+  font-variant-numeric: tabular-nums;
+  color: var(--_muted);
+}
+
+.rail-versus__meter-track {
+  flex: 1;
+  height: var(--rail-versus-meter-height, 9px);
+  border-radius: var(--_pill);
+  /* A white-on-dark fallback is invisible on a light brand — caught in the
+     workbench, where the FLAS skin lost the unfilled half of the bar. */
+  background: var(--rail-versus-meter-track-bg, rgba(128, 128, 128, 0.22));
+  background: var(--rail-versus-meter-track-bg, color-mix(in srgb, currentColor 20%, transparent));
+  overflow: hidden;
+}
+
+.rail-versus__meter-fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--rail-versus-meter-fill, var(--_accent));
+}
+
+.rail-versus__hint {
+  margin: 0;
+  padding: 0 var(--_space-mid) var(--_space-lg);
+  text-align: center;
+  font-size: calc(var(--rail-size-meta, 14.5px) * var(--_type));
+  color: var(--_muted);
+}
+
+/* --- the footer ---------------------------------------------------------- */
+
+.rail-versus__actions {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  border-top: 1px solid var(--_border);
+}
+
+.rail-versus__action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* WCAG AA tap target is 24px; 48 is the comfortable thumb size for a row
+     that spans half the card. */
+  min-height: var(--rail-versus-action-height, 48px);
+  padding: var(--_space-s) var(--_space-md);
+  color: inherit;
+  font-size: calc(var(--rail-versus-action-size, 16px) * var(--_type));
+  font-weight: var(--rail-weight-medium, 500);
+  text-align: center;
+  text-decoration: none;
+}
+
+.rail-versus__action + .rail-versus__action {
+  border-left: 1px solid var(--_border);
+}
+
+.rail-versus :is(a, button):focus-visible {
+  outline: 2px solid var(--rail-focus, var(--_accent));
+  outline-offset: -2px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rail-versus__meter-fill { transition: inline-size var(--_dur-slow) var(--_ease); }
+  .rail-versus__action { transition: background-color var(--_dur-fast) var(--_ease-soft); }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .rail-versus__action:hover {
+    background: var(--rail-versus-action-hover-bg, color-mix(in srgb, currentColor 7%, transparent));
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * RailList — a vertical stack of one-line choices.
+ * ------------------------------------------------------------------------- */
+
+.rail-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--_space-md);
+}
+
+.rail-list__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--_space-lg);
+}
+
+.rail-list__eyebrow {
+  margin: 0 0 var(--_space-2xs);
+  font-size: calc(var(--rail-size-label, 12px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+  letter-spacing: var(--rail-tracking-label, 0.1em);
+  text-transform: uppercase;
+  color: var(--rail-eyebrow-color, var(--_muted));
+}
+
+.rail-list__heading {
+  margin: 0;
+  font-family: var(--rail-heading-font, inherit);
+  font-size: calc(var(--rail-heading-size, clamp(24px, 3vw, 34px)) * var(--_type));
+  font-weight: var(--rail-weight-bold, 700);
+  line-height: 1.1;
+}
+
+.rail-list__header-action {
+  flex-shrink: 0;
+  /* Measured at 55x18 by the brand check — under the 24px WCAG 2.2 AA floor.
+     A text link is still a tap target. */
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--_tap-min);
+  color: var(--rail-cta-link-color, var(--_accent));
+  font-size: calc(var(--rail-size-meta, 15px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+  text-decoration: none;
+}
+
+.rail-list__items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-radius: var(--_radius);
+  background: var(--rail-list-bg, var(--_bg));
+  overflow: hidden;
+}
+
+.rail-list__item + .rail-list__item {
+  border-top: 1px solid var(--_border);
+}
+
+.rail-list__row {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-mid);
+  /* 56 clears the 24px AA tap target with room for two lines of text. */
+  min-height: var(--rail-list-row-height, 56px);
+  padding: var(--rail-list-row-padding, var(--_space-mid) var(--_space-lg));
+  color: inherit;
+  text-decoration: none;
+}
+
+.rail-list__icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: var(--rail-icon-box, 34px);
+  height: var(--rail-icon-box, 34px);
+  border-radius: var(--rail-icon-radius, 10px);
+  background: var(--rail-icon-bg, transparent);
+  color: var(--_accent);
+}
+
+.rail-list__icon :is(img, svg) {
+  display: block;
+  width: var(--rail-icon-size, 22px);
+  height: var(--rail-icon-size, 22px);
+}
+
+.rail-list__text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--_space-3xs);
+}
+
+.rail-list__title {
+  font-family: var(--rail-title-font, inherit);
+  font-size: calc(var(--rail-list-title-size, 17px) * var(--_type));
+  font-weight: var(--rail-weight-bold, 700);
+  line-height: 1.25;
+}
+
+.rail-list__title-link { color: inherit; text-decoration: none; }
+
+.rail-list__description {
+  font-size: calc(var(--rail-list-description-size, 14.5px) * var(--_type));
+  line-height: 1.4;
+  color: var(--_muted);
+}
+
+.rail-list__value {
+  flex-shrink: 0;
+  font-size: calc(var(--rail-size-body, 16px) * var(--_type));
+  font-weight: var(--rail-weight-bold, 700);
+  font-variant-numeric: tabular-nums;
+}
+
+.rail-list__action {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--rail-list-action-height, var(--_control-min-sm));
+  padding: 0 var(--_space-xl);
+  border-radius: var(--rail-cta-radius, var(--_pill));
+  border: 1px solid var(--rail-cta-secondary-border, var(--_border));
+  background: var(--rail-cta-secondary-bg, transparent);
+  color: var(--rail-cta-secondary-color, var(--rail-cta-link-color, var(--_accent)));
+  font-size: calc(var(--rail-size-meta, 15px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.rail-list :is(a, button):focus-visible {
+  outline: 2px solid var(--rail-focus, var(--_accent));
+  outline-offset: -2px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rail-list__row { transition: background-color var(--_dur-fast) var(--_ease-soft); }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  a.rail-list__row:hover {
+    background: var(--rail-list-row-hover-bg, color-mix(in srgb, currentColor 6%, transparent));
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * Glass surface — opt in with data-rail-surface="glass" on any kit root.
+ *
+ * The material is in the EDGE, not the fill: a one-pixel gradient hairline
+ * that catches more light at the top, the way the canto of a real sheet of
+ * glass does. `saturate` is half the trick — without it the blur greys out
+ * whatever is behind and the panel reads as dirty plastic.
+ *
+ * It needs something behind it to be worth anything. On a flat background a
+ * glass card is just a slightly lighter card, which is why this is opt-in.
+ * ------------------------------------------------------------------------- */
+
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  [data-rail-surface="glass"] :is(.rail-card, .rail-versus, .rail-list__items),
+  .rail-versus[data-rail-surface="glass"],
+  .rail-list[data-rail-surface="glass"] .rail-list__items {
+    position: relative;
+    background: var(--rail-glass-bg, rgba(255, 255, 255, 0.07));
+    -webkit-backdrop-filter: blur(var(--rail-glass-blur, 18px))
+      saturate(var(--rail-glass-saturate, 1.7));
+    backdrop-filter: blur(var(--rail-glass-blur, 18px))
+      saturate(var(--rail-glass-saturate, 1.7));
+    box-shadow: var(--rail-glass-shadow, 0 24px 60px -28px rgba(0, 0, 0, 0.85));
+  }
+
+  /* The hairline is a ::before and not a `border`, because a border is the
+     same colour on all four sides and a lit edge is not. */
+  [data-rail-surface="glass"] :is(.rail-card, .rail-versus, .rail-list__items)::before,
+  .rail-versus[data-rail-surface="glass"]::before,
+  .rail-list[data-rail-surface="glass"] .rail-list__items::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: var(
+      --rail-glass-edge,
+      linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.55),
+        rgba(255, 255, 255, 0.12) 38%,
+        rgba(255, 255, 255, 0.06)
+      )
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * POSTER VARIANT — the catalogue language, promoted from danielzea-site's
+ * `cartel.css`, where it had been a local override of this kit for months.
+ *
+ * The default card is EDITORIAL and brand-neutral on purpose: text first, a
+ * hairline above it, the picture after. That is a magazine, and it is right
+ * for a piece of writing.
+ *
+ * It is wrong for a catalogue. When the thing on the card is a thing you look
+ * at — a car, a listing, a night, a film — the cover IS the product, so the
+ * picture leads and the words sit on the panel under it.
+ *
+ * What is NOT promoted from danielzea: the hard-coded #101010 panel, the
+ * cream #f3e4d6 label, the 4:5 aspect that came from measuring that site's
+ * eight photographs, and the `--prensa` / `--noche` variants, which are that
+ * site's content model. All of it arrives as tokens here.
+ * ------------------------------------------------------------------------- */
+
+/* One column, three rows. The picture takes the first; the title takes the
+   second, the copy the third.
+   The reason this is a grid and not `position: absolute`: in the kit's markup
+   the title and the figure are SIBLINGS, so anchoring one to the other needs
+   a made-up height for the caption — a magic number that breaks the day
+   somebody writes one more line. With rows, the card grows and nothing can
+   ever overlap. */
+[data-rail-variant="poster"] .rail-card[data-rail-kind="media"],
+.rail-card[data-rail-variant="poster"][data-rail-kind="media"] {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto;
+  border-top: 0;
+  border-radius: var(--_radius);
+  overflow: hidden;
+  background: var(--rail-poster-bg, var(--_bg));
+  box-shadow: var(--_shadow);
+  /* A POSTER CARD PAINTS ITS OWN PANEL, so it cannot take its text colour
+     from the brand and hope. Caught in the workbench: a light brand with a
+     dark --rail-poster-bg rendered dark text on it and the title disappeared
+     entirely. `color: inherit` is invisible to the theme audit — it is not a
+     literal — so this is the class of hole a regex cannot find and looking
+     can. Any surface that sets its own background owes its own foreground. */
+  color: var(--rail-poster-color, inherit);
+}
+
+[data-rail-variant="poster"] .rail-card[data-rail-kind="media"] :is(.rail-card__subtitle, .rail-card__meta, .rail-card__description),
+.rail-card[data-rail-variant="poster"][data-rail-kind="media"] :is(.rail-card__subtitle, .rail-card__meta, .rail-card__description) {
+  color: var(--rail-poster-muted, var(--_muted));
+}
+
+[data-rail-variant="poster"] .rail-card[data-rail-kind="media"] .rail-card__figure,
+.rail-card[data-rail-variant="poster"][data-rail-kind="media"] .rail-card__figure {
+  position: relative;
+  grid-area: 1 / 1 / 2 / 2;
+  z-index: 0;
+  margin-top: 0;
+  aspect-ratio: var(--rail-poster-aspect, var(--_aspect));
+}
+
+/* The picture takes ONLY the first row, and does not sit under the text.
+   danielzea measured this the hard way: across eight event photographs the
+   subject's face landed anywhere between 15% and 72% of the height, so any
+   scrim over the copy covered a face in three of them. A catalogue cover is
+   designed with its dead band at the bottom; a real photograph is not. */
+[data-rail-variant="poster"] .rail-card[data-rail-kind="media"] .rail-card__body,
+.rail-card[data-rail-variant="poster"][data-rail-kind="media"] .rail-card__body {
+  grid-area: 2 / 1 / 3 / 2;
+  z-index: 2;
+  gap: var(--_space-xs);
+  padding: var(--rail-poster-padding, 0 clamp(var(--_space-xl), 2vw, var(--_space-4xl)));
+}
+
+[data-rail-variant="poster"] .rail-card[data-rail-kind="media"] .rail-card__description,
+.rail-card[data-rail-variant="poster"][data-rail-kind="media"] .rail-card__description {
+  grid-area: 3 / 1 / 4 / 2;
+  z-index: 2;
+  display: block;
+  margin: 0;
+  padding: var(--_space-sm) clamp(var(--_space-xl), 2vw, var(--_space-4xl)) clamp(var(--_space-2xl), 2vw, var(--_space-4xl));
+  font-size: calc(var(--rail-size-body, 16px) * var(--_type));
+  line-height: 1.5;
+}
+
+/* The seam between the photograph and the panel reads as two pieces glued
+   together. Fading the last strip of the picture into the panel colour makes
+   it one card — and 18% is below the lowest face danielzea measured, so it
+   never covers a subject. Set --rail-poster-bg to a real colour for this to
+   work: a transparent panel has nothing to fade INTO. */
+[data-rail-variant="poster"] .rail-card[data-rail-kind="media"] .rail-card__figure::after,
+.rail-card[data-rail-variant="poster"][data-rail-kind="media"] .rail-card__figure::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 -1px 0;
+  height: var(--rail-poster-fade-height, 18%);
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    color-mix(in srgb, var(--rail-poster-bg, var(--_bg)) 55%, transparent) 52%,
+    var(--rail-poster-bg, var(--_bg)) 100%
+  );
+}
+
+/* THE BADGE IS A GLASS BOOKMARK, NOT INK ON THE PHOTOGRAPH.
+   A label over a picture cannot trust the picture's colour, because the
+   picture changes on every card and at every crop. So it brings its own
+   background — but an opaque rectangle reads as a patch stuck on top, so the
+   background is glass: it lets the photograph through and still holds the
+   letter. This is the sane exception to "no glass on a full-bleed card": the
+   glass here is a 20px label, not the whole panel.
+   The shape is a bookmark — square, with a V notch at the right, like the
+   ribbon left between the pages of a book. `clip-path` cancels
+   `border-radius`, so the left rounding lives inside the polygon itself. */
+[data-rail-variant="poster"] .rail-card[data-rail-kind="media"] .rail-card__badge,
+.rail-card[data-rail-variant="poster"][data-rail-kind="media"] .rail-card__badge,
+[data-rail-variant="poster"] .rail-billboard__badge {
+  /* The letter is NOT the brand accent, and that is arithmetic, not taste.
+     Measured against the worst case — a WHITE photograph behind the glass,
+     which in a real set exists: a lit ceiling, a pale studio wall. A mid
+     copper at .62 veil gives 1.98:1. Reaching AA by darkening the veil to
+     .85 stops being glass and becomes a black label, losing the one thing
+     the glass was for. A warm cream at .66 gives 5.38:1 and keeps it. */
+  color: var(--rail-poster-badge-color, #f3e4d6);
+  padding: var(--_space-xs) var(--_space-2xl) var(--_space-xs) var(--_space-md);
+  border-radius: 0;
+  background: var(--rail-poster-badge-bg, rgba(8, 8, 8, 0.66));
+  -webkit-backdrop-filter: blur(14px) saturate(1.5);
+  backdrop-filter: blur(14px) saturate(1.5);
+  /* the light on the edge: the material shows at the border, not in the fill */
+  box-shadow: var(--rail-poster-badge-edge, inset 0 1px 0 rgba(255, 255, 255, 0.16));
+  clip-path: polygon(
+    3px 0,
+    100% 0,
+    calc(100% - 8px) 50%,
+    100% 100%,
+    3px 100%,
+    0 calc(100% - 3px),
+    0 3px
+  );
+  text-shadow: var(--rail-poster-badge-shadow, 0 1px 3px rgba(0, 0, 0, 0.55));
+}
+
+[data-rail-variant="poster"] .rail-card[data-rail-kind="media"] .rail-card__badge,
+.rail-card[data-rail-variant="poster"][data-rail-kind="media"] .rail-card__badge {
+  grid-area: 1 / 1 / 2 / 2;
+  align-self: start;
+  justify-self: start;
+  z-index: 2;
+  margin: clamp(var(--_space-lg), 1.8vw, var(--_space-3xl));
+}
+
+[data-rail-variant="poster"] .rail-card[data-rail-kind="media"] .rail-card__title,
+.rail-card[data-rail-variant="poster"][data-rail-kind="media"] .rail-card__title {
+  font-size: calc(var(--rail-poster-title-size, clamp(22px, 2.2vw, 28px)) * var(--_type));
+}
+
+/* The catalogue gesture: the cover breathes under the cursor. Fine pointers
+   only — on a phone there is no hover and a :hover there stays stuck. */
+@media (prefers-reduced-motion: no-preference) {
+  [data-rail-variant="poster"] .rail-card[data-rail-kind="media"] .rail-card__image,
+  .rail-card[data-rail-variant="poster"][data-rail-kind="media"] .rail-card__image {
+    transition: transform var(--_dur-slow) var(--_ease);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  [data-rail-variant="poster"] .rail-card[data-rail-kind="media"]:hover .rail-card__image,
+  .rail-card[data-rail-variant="poster"][data-rail-kind="media"]:hover .rail-card__image {
+    transform: scale(var(--rail-poster-hover-scale, 1.045));
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * RailSheet — the card, opened. Promoted from danielzea-site's `ficha.css`.
+ *
+ * NEVER SET `display` ON THE <dialog>. This cost danielzea the only two bugs
+ * the piece ever had, and both are silent:
+ *
+ *   · Closed, the panel stayed IN THE FLOW. The browser's own rule is
+ *     `dialog:not([open]) { display: none }`, but ANY author `display` beats
+ *     it — author styles win over UA styles regardless of specificity. So the
+ *     panel existed at all times, invisible by colour but present to a screen
+ *     reader.
+ *   · Open, it flew 2,716px above the viewport. A modal dialog is centred by
+ *     the browser with its own `position: fixed` and `margin: auto`; changing
+ *     its `display` stops that machinery adding up.
+ *
+ * The grid goes on `.rail-sheet__in`, a wrapper inside. The dialog keeps the
+ * display the browser wants and takes only box and colour.
+ * ------------------------------------------------------------------------- */
+
+.rail-sheet {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--rail-text, inherit);
+  width: min(var(--rail-sheet-width, 1060px), 92vw);
+  max-height: var(--rail-sheet-height, 88vh);
+  overflow: hidden;
+  border-radius: var(--rail-card-radius, 16px);
+}
+
+.rail-sheet::backdrop {
+  background: var(--rail-sheet-backdrop, rgba(4, 4, 4, 0.82));
+  -webkit-backdrop-filter: blur(8px) saturate(1.2);
+  backdrop-filter: blur(8px) saturate(1.2);
+}
+
+.rail-sheet__in {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  max-height: var(--rail-sheet-height, 88vh);
+  overflow: hidden;
+  border-radius: var(--rail-card-radius, 16px);
+  /* A MODAL PANEL HAS TO BE OPAQUE, and --rail-card-bg is not: the kit's card
+     surface is deliberately translucent because a card sits ON the page and
+     is meant to pick up what is behind it. Inheriting that here let the rail
+     show straight through the open sheet.
+     The first attempt used `Canvas`, and the workbench caught it: Canvas
+     follows the OS colour scheme, not the brand, so a dark brand on a light
+     machine got a WHITE panel under its white text. A system colour cannot
+     know which way round the brand is.
+     So the fallback is opaque dark, which is what the rest of this file
+     already assumes — every neutral here is white-on-dark. A light brand
+     overrides --rail-sheet-bg exactly as it already overrides --rail-card-bg
+     and --rail-muted. The brand's own card tint is composited on top as an
+     image layer, so the panel keeps the brand's colour either way. */
+  background-color: var(--rail-sheet-bg, #111);
+  background-image: linear-gradient(
+    var(--rail-card-bg, transparent),
+    var(--rail-card-bg, transparent)
+  );
+  box-shadow: var(--rail-card-shadow, 0 18px 40px -22px rgba(0, 0, 0, 0.9));
+}
+
+@media (min-width: 860px) {
+  .rail-sheet__in {
+    grid-template-columns:
+      minmax(0, var(--rail-sheet-figure-width, 46%))
+      minmax(0, 1fr);
+  }
+}
+
+.rail-sheet__figure {
+  margin: 0;
+  min-height: 0;
+  background: var(--rail-sheet-figure-bg, rgba(0, 0, 0, 0.35));
+}
+
+/* `contain`, not `cover`: the whole point of opening it is to see the
+   photograph WHOLE. Cropping it again here would leave the panel with no
+   reason to exist. On a wide screen the picture has a full column to itself,
+   so it can fill it. */
+.rail-sheet__image,
+.rail-sheet__figure > :is(img, video, iframe) {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: var(--rail-sheet-figure-max, 44vh);
+  object-fit: contain;
+  border: 0;
+}
+
+@media (min-width: 860px) {
+  .rail-sheet__image,
+  .rail-sheet__figure > :is(img, video, iframe) {
+    max-height: var(--rail-sheet-height, 88vh);
+    object-fit: cover;
+  }
+}
+
+.rail-sheet__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--_space-mid);
+  min-height: 0;
+  padding: var(--rail-sheet-padding, clamp(var(--_space-4xl), 3.4vw, var(--_control-min)));
+  overflow-y: auto;
+}
+
+.rail-sheet__badge {
+  margin: 0;
+  font-size: calc(var(--rail-sheet-badge-size, 12px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+  letter-spacing: var(--rail-tracking-label, 0.1em);
+  text-transform: uppercase;
+  color: var(--rail-eyebrow-color, var(--rail-accent, currentColor));
+}
+
+.rail-sheet__title {
+  margin: 0;
+  font-family: var(--rail-sheet-title-font, var(--rail-heading-font, inherit));
+  font-size: calc(var(--rail-sheet-title-size, clamp(30px, 4vw, 52px)) * var(--_type));
+  font-weight: var(--rail-sheet-title-weight, 400);
+  line-height: 1.06;
+  letter-spacing: var(--rail-tracking-tight, -0.02em);
+}
+
+.rail-sheet__meta {
+  margin: 0;
+  font-size: calc(var(--rail-sheet-meta-size, 12px) * var(--_type));
+  letter-spacing: var(--rail-tracking-label, 0.1em);
+  text-transform: uppercase;
+  color: var(--rail-muted, rgba(255, 255, 255, 0.65));
+}
+
+.rail-sheet__body {
+  margin: var(--_space-xs) 0 0;
+  /* Reading size and a reading measure. This is the room the sheet exists to
+     give; setting it in a 44ch column is most of what makes it feel like a
+     page rather than a bigger card. */
+  font-size: calc(var(--rail-sheet-body-size, clamp(17px, 1.9vw, 21px)) * var(--_type));
+  line-height: 1.6;
+  max-width: var(--rail-sheet-measure, 44ch);
+  color: var(--rail-sheet-body-color, inherit);
+}
+
+.rail-sheet__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--_space-sm);
+  margin-top: auto;
+  padding-top: var(--_space-md);
+}
+
+.rail-sheet__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  /* 46 is comfortable for a thumb and clears the 24px AA target. */
+  width: var(--rail-sheet-close-size, 46px);
+  height: var(--rail-sheet-close-size, 46px);
+  border-radius: var(--_pill);
+  border: 1px solid var(--rail-card-border, rgba(255, 255, 255, 0.12));
+  background: var(--rail-sheet-close-bg, rgba(10, 10, 10, 0.55));
+  color: inherit;
+  font-size: calc(var(--rail-size-title, 26px) * var(--_type));
+  line-height: 1;
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.rail-sheet__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.rail-sheet :is(a, button):focus-visible {
+  outline: 2px solid var(--rail-focus, var(--rail-accent, currentColor));
+  outline-offset: 2px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .rail-sheet__close:hover {
+    background: var(--rail-sheet-close-hover-bg, rgba(10, 10, 10, 0.8));
+    border-color: var(--rail-accent, currentColor);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * RailFaq — questions and answers on <details>/<summary>.
+ * Promoted from danielzea-site's `faq.css`.
+ * ------------------------------------------------------------------------- */
+
+.rail-faq { max-width: var(--rail-measure, 68ch); }
+
+.rail-faq__heading {
+  margin: 0 0 var(--_space-s);
+  font-family: var(--rail-heading-font, inherit);
+  font-size: calc(var(--rail-heading-size, clamp(24px, 3vw, 34px)) * var(--_type));
+  font-weight: var(--rail-weight-bold, 700);
+  line-height: 1.1;
+}
+
+.rail-faq details { border-top: 1px solid var(--_border); }
+.rail-faq details[open] { border-color: var(--rail-faq-open-border, currentColor); }
+
+.rail-faq summary {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--_space-4xl);
+  /* 44 is the comfortable thumb target; AA's floor is 24. */
+  min-height: var(--_control-min);
+  padding: var(--rail-faq-padding, 28px 0);
+  list-style: none;
+  cursor: pointer;
+}
+
+/* Safari still paints its own marker without this. */
+.rail-faq summary::-webkit-details-marker { display: none; }
+
+.rail-faq__q {
+  margin: 0;
+  font-family: var(--rail-faq-q-font, var(--rail-title-font, inherit));
+  font-size: calc(var(--rail-faq-q-size, clamp(20px, 2.8vw, 34px)) * var(--_type));
+  font-weight: var(--rail-faq-q-weight, 400);
+  line-height: 1.2;
+  letter-spacing: var(--rail-tracking-tight, -0.018em);
+}
+
+.rail-faq__pm {
+  flex-shrink: 0;
+  font-size: calc(var(--rail-size-title, 24px) * var(--_type));
+  line-height: 1;
+  color: var(--_muted);
+}
+
+.rail-faq details[open] .rail-faq__pm { transform: rotate(45deg); }
+
+.rail-faq__a {
+  padding: var(--rail-faq-answer-padding, 0 0 calc(var(--_space-md) * 2.5));
+  max-width: var(--rail-measure, 44rem);
+  color: var(--_muted);
+  font-size: calc(var(--rail-faq-a-size, 18px) * var(--_type));
+  line-height: 1.62;
+}
+
+.rail-faq summary:focus-visible {
+  outline: 2px solid var(--rail-focus, var(--_accent));
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rail-faq__pm { transition: transform var(--_dur-base) var(--_ease); }
+}
+
+/* ---------------------------------------------------------------------------
+ * RailPlayer — a video facade. Promoted from danielzea-site's `video.css`.
+ * ------------------------------------------------------------------------- */
+
+.rail-player {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: var(--rail-player-padding, 26px 0 0);
+  border: 0;
+  border-top: 1px solid var(--rail-player-rule, currentColor);
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.rail-player[data-rail-playing] {
+  padding: 0;
+  border: 0;
+  aspect-ratio: 16 / 9;
+  background: var(--rail-player-stage-bg, #000);
+  cursor: auto;
+}
+
+.rail-player iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.rail-player__shot {
+  position: relative;
+  display: block;
+  margin-top: var(--_space-3xl);
+  overflow: hidden;
+}
+
+.rail-player__shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* THE PLAY DISC IS OPAQUE, and that is a contrast result rather than a style
+   choice. As a white glyph on a black disc at 34% its real contrast depended
+   on whichever frame sat underneath; against a pale mount it measured 1.06:1.
+   A control whose legibility is decided by a photograph is not a control. */
+.rail-player__mark {
+  position: absolute;
+  left: var(--rail-player-mark-inset, 22px);
+  bottom: var(--rail-player-mark-inset, 22px);
+  display: grid;
+  place-items: center;
+  width: var(--rail-player-mark-size, 56px);
+  height: var(--rail-player-mark-size, 56px);
+  padding-left: 3px;
+  border-radius: var(--_pill);
+  background: var(--rail-player-mark-bg, #faf8f6);
+  color: var(--rail-player-mark-color, #141210);
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  box-shadow: var(--rail-player-mark-shadow, 0 2px 10px rgba(0, 0, 0, 0.45));
+}
+
+.rail-player__title {
+  display: block;
+  margin-top: var(--_space-lg);
+  font-family: var(--rail-title-font, inherit);
+  font-size: calc(var(--rail-player-title-size, clamp(20px, 2.6vw, 32px)) * var(--_type));
+  font-weight: var(--rail-player-title-weight, 400);
+  line-height: 1.16;
+  letter-spacing: var(--rail-tracking-tight, -0.018em);
+}
+
+.rail-player__meta {
+  display: block;
+  margin-top: var(--_space-sm);
+  font-size: calc(var(--rail-size-micro, 11.5px) * var(--_type));
+  letter-spacing: var(--rail-tracking-label, 0.14em);
+  text-transform: uppercase;
+  color: var(--_muted);
+}
+
+.rail-player__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.rail-player:focus-visible {
+  outline: 2px solid var(--rail-focus, var(--_accent));
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rail-player__mark {
+    transition: background-color var(--_dur-slow) var(--_ease-soft), transform var(--_dur-slow) var(--_ease);
+  }
+  .rail-player__shot img {
+    transition: transform var(--_dur-slow) var(--_ease);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .rail-player:hover .rail-player__mark { transform: scale(1.06); }
+  .rail-player:hover .rail-player__shot img { transform: scale(1.03); }
+}
+
+/* ---------------------------------------------------------------------------
+ * RailScene — a photograph and one sentence, overlapping.
+ * Promoted from danielzea-site's `escena.css`.
+ * ------------------------------------------------------------------------- */
+
+.rail-scene {
+  display: grid;
+  gap: var(--rail-scene-gap, clamp(var(--_space-4xl), 4vw, calc(var(--_space-4xl) * 2.34)));
+  align-items: center;
+}
+
+.rail-scene__figure {
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  /* The picture keeps its portrait shape. Cropping a portrait to a landscape
+     band takes the top of somebody's head off. */
+  aspect-ratio: var(--rail-scene-aspect, 4 / 5);
+  outline: 1px solid var(--_border);
+  outline-offset: -1px;
+}
+
+.rail-scene__figure > :is(img, video, iframe) {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--rail-scene-focus, 50% 34%);
+  display: block;
+  border: 0;
+}
+
+.rail-scene__quote {
+  margin: 0;
+  font-family: var(--rail-scene-quote-font, var(--rail-heading-font, inherit));
+  font-size: calc(var(--rail-scene-quote-size, clamp(24px, 3.6vw, 46px)) * var(--_type));
+  font-weight: var(--rail-scene-quote-weight, 400);
+  font-style: var(--rail-scene-quote-style, italic);
+  line-height: 1.18;
+  letter-spacing: var(--rail-tracking-tight, -0.02em);
+  text-wrap: balance;
+  max-width: 20ch;
+}
+
+.rail-scene__caption {
+  margin: var(--rail-scene-caption-margin, clamp(var(--_space-2xl), 2.6vw, calc(var(--_space-md) * 2.5)) 0 0);
+  font-size: calc(var(--rail-scene-caption-size, 12px) * var(--_type));
+  letter-spacing: var(--rail-tracking-label, 0.1em);
+  text-transform: uppercase;
+  color: var(--_muted);
+}
+
+/* The accent rule marks the caption, not the quote: a hairline beside a large
+   serif line competes with it. */
+.rail-scene__caption::before {
+  content: "";
+  display: block;
+  width: 52px;
+  height: 1px;
+  background: var(--_accent);
+  margin: 0 0 var(--_space-lg);
+}
+
+@media (min-width: 860px) {
+  .rail-scene {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: 0;
+  }
+
+  /* THE PICTURE AND THE LINE TOUCH. Two columns with 84px of nothing between
+     them read as two objects looking at each other. The line riding over the
+     last third of the picture is what makes the page read like a cover. */
+  .rail-scene__text {
+    margin-left: clamp(-140px, -9vw, -60px);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* The line sits on a photograph, so it carries its own legibility rather
+     than trusting the frame underneath it. */
+  .rail-scene__quote {
+    text-shadow: var(
+      --rail-scene-quote-shadow,
+      0 2px 40px rgba(0, 0, 0, 0.85),
+      0 1px 8px rgba(0, 0, 0, 0.6)
+    );
+  }
+
+  .rail-scene[data-rail-flip] .rail-scene__figure { order: 2; }
+  .rail-scene[data-rail-flip] .rail-scene__text {
+    order: 1;
+    margin-left: 0;
+    margin-right: clamp(-140px, -9vw, -60px);
+    text-align: right;
+  }
+  .rail-scene[data-rail-flip] .rail-scene__quote { margin-left: auto; }
+  .rail-scene[data-rail-flip] .rail-scene__caption::before { margin-left: auto; }
+}
+
+/* ---------------------------------------------------------------------------
+ * RailStickyBar — the bar that follows the reader down the page.
+ * Promoted from danielzea-site's `contacto-fijo.css`.
+ * ------------------------------------------------------------------------- */
+
+.rail-stickybar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: var(--rail-stickybar-z, 40);
+  background: var(--rail-stickybar-bg, #0a0a0a);
+  border-top: 1px solid var(--_border);
+  transform: translateY(100%);
+}
+
+.rail-stickybar[data-rail-visible="true"] { transform: none; }
+
+.rail-stickybar__in {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--_space-lg);
+  flex-wrap: wrap;
+  max-width: var(--rail-stickybar-max, 1200px);
+  margin: 0 auto;
+  padding: var(--rail-stickybar-padding, var(--_space-mid) var(--_space-lg));
+}
+
+.rail-stickybar__label {
+  margin: 0;
+  min-width: 0;
+  font-size: calc(var(--rail-stickybar-label-size, 15px) * var(--_type));
+  color: var(--_muted);
+}
+
+.rail-stickybar__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-sm);
+  flex-shrink: 0;
+}
+
+.rail-stickybar__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--rail-stickybar-action-height, var(--_control-min));
+  padding: 0 var(--_space-xl);
+  border-radius: var(--rail-cta-radius, var(--_pill));
+  border: 1px solid var(--_border);
+  color: inherit;
+  font-size: calc(var(--rail-size-meta, 15px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.rail-stickybar__action[data-rail-primary] {
+  background: var(--rail-cta-bg, var(--_accent));
+  border-color: var(--rail-cta-bg, var(--_accent));
+  color: var(--rail-cta-color, #fff);
+}
+
+.rail-stickybar :is(a, button):focus-visible {
+  outline: 2px solid var(--rail-focus, var(--_accent));
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rail-stickybar {
+    transition: transform var(--_dur-slow) var(--_ease-out);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * RailTabs — the sections across the top, active one underlined.
+ * ------------------------------------------------------------------------- */
+
+.rail-tabs { border-bottom: 1px solid var(--_border); }
+
+.rail-tabs__list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.rail-tabs__item { flex: 1; min-width: 0; }
+
+.rail-tabs__tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--_space-s);
+  width: 100%;
+  /* 48 clears the 24px AA target with room for the underline below the text. */
+  min-height: var(--rail-tabs-height, 48px);
+  padding: var(--_space-md) var(--_space-s);
+  border: 0;
+  background: transparent;
+  color: var(--_muted);
+  font-family: inherit;
+  font-size: calc(var(--rail-tabs-size, 17px) * var(--_type));
+  font-weight: var(--rail-weight-medium, 500);
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  /* The underline is a border on the control, not a sliding element: one
+     fewer thing to keep in sync with the active id. */
+  border-bottom: 3px solid transparent;
+  margin-bottom: -1px;
+}
+
+.rail-tabs__tab[aria-current] {
+  color: var(--rail-tabs-active-color, var(--_accent));
+  border-bottom-color: var(--rail-tabs-active-color, var(--_accent));
+}
+
+.rail-tabs__label { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.rail-tabs__badge {
+  flex-shrink: 0;
+  min-width: 20px;
+  padding: 0 var(--_space-xs);
+  border-radius: var(--_pill);
+  background: var(--rail-badge-bg, var(--_accent));
+  color: var(--rail-badge-color, #fff);
+  font-size: calc(var(--rail-size-label, 12px) * var(--_type));
+  font-weight: var(--rail-weight-bold, 700);
+  line-height: var(--rail-tabs-badge-line, var(--_space-2xl));
+}
+
+.rail-tabs :is(a, button):focus-visible {
+  outline: 2px solid var(--rail-focus, var(--_accent));
+  outline-offset: -2px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rail-tabs__tab { transition: color var(--_dur-fast) var(--_ease-soft), border-color var(--_dur-fast) var(--_ease-soft); }
+}
+
+/* ---------------------------------------------------------------------------
+ * RailBottomNav — the destinations under the thumb.
+ * ------------------------------------------------------------------------- */
+
+.rail-bottomnav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: var(--rail-bottomnav-z, 45);
+  background: var(--rail-bottomnav-bg, #0a0a0a);
+  border-top: 1px solid var(--_border);
+  /* The home indicator on a modern phone sits over the bottom of the screen. */
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.rail-bottomnav__list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.rail-bottomnav__item { flex: 1; min-width: 0; }
+
+.rail-bottomnav__link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--_space-2xs);
+  min-height: var(--rail-bottomnav-height, 56px);
+  padding: var(--_space-s) var(--_space-2xs);
+  color: var(--_muted);
+  text-decoration: none;
+  text-align: center;
+}
+
+.rail-bottomnav__link[aria-current="page"] {
+  color: var(--rail-bottomnav-active-color, var(--_accent));
+}
+
+.rail-bottomnav__icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.rail-bottomnav__icon :is(svg, img) {
+  width: var(--rail-icon-size, 22px);
+  height: var(--rail-icon-size, 22px);
+  display: block;
+}
+
+.rail-bottomnav__badge {
+  position: absolute;
+  top: -6px;
+  left: 60%;
+  min-width: 17px;
+  padding: var(--rail-bottomnav-badge-padding, 0 calc(var(--_space-sm) / 2));
+  border-radius: var(--_pill);
+  background: var(--rail-badge-bg, var(--_accent));
+  color: var(--rail-badge-color, #fff);
+  font-size: calc(var(--rail-size-micro, 11px) * var(--_type));
+  font-weight: var(--rail-weight-bold, 700);
+  line-height: var(--rail-bottomnav-badge-line, calc(var(--_space-s) * 2.125));
+  text-align: center;
+}
+
+.rail-bottomnav__label {
+  font-size: calc(var(--rail-bottomnav-label-size, 11px) * var(--_type));
+  letter-spacing: var(--rail-tracking-wide, 0.02em);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.rail-bottomnav a:focus-visible {
+  outline: 2px solid var(--rail-focus, var(--_accent));
+  outline-offset: -2px;
+}
+
+/* ---------------------------------------------------------------------------
+ * RailFab — one persistent action, floating.
+ * ------------------------------------------------------------------------- */
+
+.rail-fab {
+  position: fixed;
+  right: var(--rail-fab-inset, 16px);
+  bottom: var(--rail-fab-inset, 16px);
+  z-index: var(--rail-fab-z, 50);
+  display: grid;
+  place-items: center;
+  gap: var(--_space-3xs);
+  width: var(--rail-fab-size, 68px);
+  height: var(--rail-fab-size, 68px);
+  border-radius: var(--_pill);
+  border: 0;
+  background: var(--rail-fab-bg, #fff);
+  color: var(--rail-fab-color, #111);
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: var(--rail-fab-shadow, 0 6px 20px -6px rgba(0, 0, 0, 0.6));
+  /* Clears the home indicator when it sits at the very bottom. */
+  margin-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.rail-fab__glyph {
+  display: grid;
+  place-items: center;
+  font-size: calc(var(--rail-fab-glyph-size, 22px) * var(--_type));
+  line-height: 1;
+}
+
+.rail-fab__glyph :is(svg, img) {
+  width: var(--rail-fab-glyph-size, 22px);
+  height: var(--rail-fab-glyph-size, 22px);
+  display: block;
+}
+
+.rail-fab__label {
+  font-size: calc(var(--rail-fab-label-size, 9.5px) * var(--_type));
+  font-weight: var(--rail-weight-bold, 700);
+  letter-spacing: var(--rail-tracking-label, 0.08em);
+  text-transform: uppercase;
+}
+
+.rail-fab:focus-visible {
+  outline: 2px solid var(--rail-focus, var(--_accent));
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rail-fab { transition: transform var(--_dur-fast) var(--_ease); }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .rail-fab:hover { transform: scale(1.05); }
+}
+
+/* ---------------------------------------------------------------------------
+ * RailProgress — progress towards one thing worth reaching.
+ * ------------------------------------------------------------------------- */
+
+.rail-progress {
+  padding: var(--rail-progress-padding, var(--_space-mid) var(--_space-lg));
+  border-radius: var(--_radius);
+  background: var(--rail-progress-bg, var(--_bg));
+}
+
+.rail-progress__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--_space-md);
+  margin-bottom: var(--_space-sm);
+}
+
+.rail-progress__label {
+  font-size: calc(var(--rail-progress-label-size, 17px) * var(--_type));
+  font-weight: var(--rail-weight-bold, 700);
+}
+
+.rail-progress__value {
+  font-size: calc(var(--rail-progress-value-size, 16px) * var(--_type));
+  font-weight: var(--rail-weight-bold, 700);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* <progress> is styled through vendor pseudo-elements and ignores most of
+   what you set on the element itself, so appearance is reset first. */
+.rail-progress__bar {
+  -webkit-appearance: none;
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: var(--rail-progress-height, 10px);
+  border: 0;
+  border-radius: var(--_pill);
+  overflow: hidden;
+  background: var(--rail-progress-track, color-mix(in srgb, currentColor 20%, transparent));
+  color: var(--rail-progress-fill, var(--_accent));
+}
+
+.rail-progress__bar::-webkit-progress-bar {
+  background: var(--rail-progress-track, color-mix(in srgb, currentColor 20%, transparent));
+  border-radius: var(--_pill);
+}
+
+.rail-progress__bar::-webkit-progress-value {
+  background: var(--rail-progress-fill, var(--_accent));
+  border-radius: var(--_pill);
+}
+
+.rail-progress__bar::-moz-progress-bar {
+  background: var(--rail-progress-fill, var(--_accent));
+  border-radius: var(--_pill);
+}
+
+.rail-progress__note {
+  margin: var(--_space-s) 0 0;
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  color: var(--_muted);
+}
+
+/* ---------------------------------------------------------------------------
+ * RailStats — two to four figures, all visible at once.
+ * ------------------------------------------------------------------------- */
+
+.rail-stats {
+  display: grid;
+  gap: var(--rail-stats-gap, var(--_space-md));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (min-width: 640px) {
+  .rail-stats[data-rail-columns="3"] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .rail-stats[data-rail-columns="4"] { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+.rail-stats__tile {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-md);
+  min-width: 0;
+  padding: var(--rail-stats-padding, var(--_space-lg));
+  border-radius: var(--_radius);
+  background: var(--rail-stats-bg, var(--_bg));
+  color: inherit;
+  text-decoration: none;
+}
+
+.rail-stats__icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+}
+
+.rail-stats__icon :is(svg, img) {
+  width: var(--rail-stats-icon-size, 34px);
+  height: var(--rail-stats-icon-size, 34px);
+  display: block;
+}
+
+.rail-stats__text { min-width: 0; }
+
+.rail-stats__value {
+  display: block;
+  font-family: var(--rail-stat-font, inherit);
+  font-size: calc(var(--rail-stats-value-size, clamp(24px, 5vw, 34px)) * var(--_type));
+  font-weight: var(--rail-weight-bold, 700);
+  line-height: 1.05;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--rail-tracking-tight, -0.02em);
+}
+
+.rail-stats__label {
+  display: block;
+  margin-top: var(--_space-3xs);
+  font-size: calc(var(--rail-stats-label-size, 14px) * var(--_type));
+  line-height: 1.25;
+  color: var(--_muted);
+}
+
+.rail-stats :is(a):focus-visible {
+  outline: 2px solid var(--rail-focus, var(--_accent));
+  outline-offset: 2px;
+}
+
+/* ---------------------------------------------------------------------------
+ * RailEmpty — the placeholder where something will be.
+ * ------------------------------------------------------------------------- */
+
+.rail-empty {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-mid);
+  flex-wrap: wrap;
+  padding: var(--rail-empty-padding, var(--_space-3xl));
+  border-radius: var(--_radius);
+  /* Dashed, because a solid box reads as a card that failed to fill and a
+     bare line of grey text reads as a component that failed to load. Dashed
+     says the space is reserved. */
+  border: 1px dashed var(--rail-empty-border, var(--_border));
+}
+
+.rail-empty__icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  opacity: 0.55;
+}
+
+.rail-empty__icon :is(svg, img) {
+  width: var(--rail-empty-icon-size, 34px);
+  height: var(--rail-empty-icon-size, 34px);
+  display: block;
+}
+
+.rail-empty__message {
+  flex: 1;
+  min-width: 12ch;
+  margin: 0;
+  font-size: calc(var(--rail-empty-size, 16px) * var(--_type));
+  color: var(--_muted);
+}
+
+/* ---------------------------------------------------------------------------
+ * RailList additions: a picture, a note line, a chevron.
+ * ------------------------------------------------------------------------- */
+
+.rail-list__image {
+  flex-shrink: 0;
+  display: block;
+  width: var(--rail-list-image-width, 64px);
+  aspect-ratio: var(--rail-list-image-aspect, 2 / 3);
+  object-fit: cover;
+  border-radius: var(--rail-list-image-radius, 6px);
+}
+
+.rail-list__note {
+  font-size: calc(var(--rail-list-note-size, 14px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+  line-height: 1.35;
+  color: var(--rail-list-note-color, var(--_accent));
+}
+
+.rail-list__chevron {
+  flex-shrink: 0;
+  font-size: calc(var(--rail-size-title, 22px) * var(--_type));
+  line-height: 1;
+  color: var(--_muted);
+}
+
+/* ---------------------------------------------------------------------------
+ * RailSegmented — two or three views of one section, in a pill.
+ * ------------------------------------------------------------------------- */
+
+.rail-segmented {
+  display: inline-flex;
+  gap: var(--_space-2xs);
+  padding: var(--rail-segmented-inset, var(--_space-2xs));
+  border-radius: var(--rail-segmented-radius, var(--_pill));
+  background: var(--rail-segmented-bg, color-mix(in srgb, currentColor 8%, transparent));
+}
+
+.rail-segmented[data-rail-block] { display: flex; width: 100%; }
+.rail-segmented[data-rail-block] .rail-segmented__segment { flex: 1; }
+
+.rail-segmented__segment {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--_space-s);
+  min-height: var(--rail-segmented-height, var(--_control-min-sm));
+  padding: 0 var(--_space-xl);
+  border: 0;
+  border-radius: inherit;
+  background: transparent;
+  color: var(--_muted);
+  font-family: inherit;
+  font-size: calc(var(--rail-size-body, 16px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.rail-segmented__segment[data-active] {
+  background: var(--rail-segmented-active-bg, color-mix(in srgb, currentColor 12%, transparent));
+  color: var(--rail-segmented-active-color, var(--_accent));
+}
+
+.rail-segmented__icon { display: grid; place-items: center; }
+.rail-segmented__icon :is(svg, img) {
+  width: var(--rail-icon-size, 18px);
+  height: var(--rail-icon-size, 18px);
+  display: block;
+}
+
+.rail-segmented :is(a, button):focus-visible {
+  outline: 2px solid var(--rail-focus, var(--_accent));
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rail-segmented__segment { transition: background-color var(--_dur-fast) var(--_ease-soft), color var(--_dur-fast) var(--_ease-soft); }
+}
+
+/* ---------------------------------------------------------------------------
+ * RailCta — one call to action, standing alone.
+ * ------------------------------------------------------------------------- */
+
+.rail-cta {
+  display: inline-grid;
+  justify-items: center;
+  gap: var(--_space-3xs);
+  min-height: var(--rail-cta-height, 48px);
+  padding: var(--rail-cta-padding, var(--_space-sm) var(--_space-3xl));
+  border: 1px solid transparent;
+  border-radius: var(--rail-cta-radius, var(--_pill));
+  font-family: inherit;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.rail-cta[data-rail-block] { display: grid; width: 100%; }
+.rail-cta[data-rail-size="lg"] { min-height: var(--rail-cta-height-lg, 64px); }
+/* A stacked CTA carries three registers, so it needs room to breathe. */
+.rail-cta[data-rail-stacked] { padding: var(--rail-cta-padding-stacked, var(--_space-md) var(--_space-3xl)); }
+
+.rail-cta[data-rail-variant="primary"] {
+  background: var(--rail-cta-bg, var(--_accent));
+  color: var(--rail-cta-color, #fff);
+  border-color: var(--rail-cta-bg, var(--_accent));
+}
+
+.rail-cta[data-rail-variant="secondary"] {
+  background: var(--rail-cta-secondary-bg, transparent);
+  color: var(--rail-cta-secondary-color, inherit);
+  border-color: var(--rail-cta-secondary-border, var(--_border));
+}
+
+.rail-cta[data-rail-variant="link"] {
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: var(--rail-cta-link-color, var(--_accent));
+}
+
+.rail-cta[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.rail-cta__main {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--_space-sm);
+  font-size: calc(var(--rail-size-body, 17px) * var(--_type));
+  font-weight: var(--rail-weight-bold, 700);
+}
+
+.rail-cta[data-rail-size="lg"] .rail-cta__main {
+  font-size: calc(var(--rail-cta-label-size-lg, 24px) * var(--_type));
+  letter-spacing: var(--rail-tracking-wide, 0.02em);
+}
+
+.rail-cta__eyebrow,
+.rail-cta__fineprint {
+  font-size: calc(var(--rail-size-micro, 12px) * var(--_type));
+  font-weight: var(--rail-weight-medium, 500);
+  /* Not muted: on a filled button the "muted" token is tuned for the page, not
+     for the accent, and it routinely fails contrast against it. Transparency
+     of the button's own text colour cannot. */
+  opacity: 0.85;
+}
+
+.rail-cta__icon { display: grid; place-items: center; }
+.rail-cta__icon :is(svg, img) {
+  width: var(--rail-icon-size, 22px);
+  height: var(--rail-icon-size, 22px);
+  display: block;
+}
+
+.rail-cta:focus-visible {
+  outline: 2px solid var(--rail-focus, var(--_accent));
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rail-cta { transition: filter var(--_dur-fast) var(--_ease-soft), background-color var(--_dur-fast) var(--_ease-soft); }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .rail-cta:not([disabled]):hover { filter: brightness(1.08); }
+}
+
+/* ---------------------------------------------------------------------------
+ * RailDisclosure — a section that folds away.
+ * ------------------------------------------------------------------------- */
+
+.rail-disclosure__head {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-sm);
+}
+
+.rail-disclosure__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--_space-md);
+  flex: 1;
+  min-height: var(--_control-min);
+  padding: var(--rail-disclosure-padding, var(--_space-sm) 0);
+  border: 0;
+  background: none;
+  color: inherit;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.rail-disclosure[data-rail-tone="header"] .rail-disclosure__summary {
+  flex: 1;
+  font-family: var(--rail-heading-font, inherit);
+  font-size: calc(var(--rail-disclosure-summary-size, 22px) * var(--_type));
+  font-weight: var(--rail-weight-bold, 700);
+}
+
+/* The footer tone is the full-width row under a card: centred, accent, quiet. */
+.rail-disclosure[data-rail-tone="footer"] { border-top: 1px solid var(--_border); }
+.rail-disclosure[data-rail-tone="footer"] .rail-disclosure__toggle {
+  justify-content: center;
+  padding: var(--rail-disclosure-footer-padding, var(--_space-mid) 0);
+  color: var(--rail-cta-link-color, var(--_accent));
+  font-size: calc(var(--rail-size-body, 16px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+
+.rail-disclosure__chevron {
+  flex-shrink: 0;
+  font-size: calc(var(--rail-size-title, 18px) * var(--_type));
+  line-height: 1;
+  color: var(--_muted);
+}
+
+.rail-disclosure[data-rail-tone="footer"] .rail-disclosure__chevron {
+  color: inherit;
+  margin-left: var(--_space-s);
+}
+
+.rail-disclosure[data-rail-open] .rail-disclosure__chevron { transform: rotate(180deg); }
+
+.rail-disclosure__badge {
+  flex-shrink: 0;
+  padding: var(--_space-2xs) var(--_space-sm);
+  border-radius: var(--rail-disclosure-badge-radius, 6px);
+  background: var(--rail-badge-bg, var(--_accent));
+  color: var(--rail-badge-color, #fff);
+  font-size: calc(var(--rail-size-micro, 12px) * var(--_type));
+  font-weight: var(--rail-weight-bold, 700);
+  letter-spacing: var(--rail-tracking-wide, 0.04em);
+}
+
+.rail-disclosure__toggle:focus-visible {
+  outline: 2px solid var(--rail-focus, var(--_accent));
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rail-disclosure__chevron { transition: transform var(--_dur-base) var(--_ease); }
+}
+
+/* ---------------------------------------------------------------------------
+ * RailFigures — labelled numbers inside a card.
+ * ------------------------------------------------------------------------- */
+
+.rail-figures {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: var(--_space-md);
+  margin: 0;
+}
+
+.rail-figures__pair { min-width: 0; }
+
+.rail-figures__label {
+  font-size: calc(var(--rail-size-meta, 15px) * var(--_type));
+  color: var(--_muted);
+}
+
+.rail-figures__value {
+  margin: var(--_space-3xs) 0 0;
+  font-family: var(--rail-stat-font, inherit);
+  font-size: calc(var(--rail-figures-size, clamp(24px, 5vw, 32px)) * var(--_type));
+  font-weight: var(--rail-weight-regular, 400);
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--rail-tracking-tight, -0.02em);
+}
+
+.rail-figures[data-rail-size="lg"] .rail-figures__value {
+  font-size: calc(var(--rail-figures-size-lg, clamp(30px, 7vw, 44px)) * var(--_type));
+}
+
+.rail-figures__value[data-rail-tone="up"] { color: var(--rail-tone-up, #46c266); }
+.rail-figures__value[data-rail-tone="down"] { color: var(--rail-tone-down, #e2585f); }
+
+/* ---------------------------------------------------------------------------
+ * RailOptions — two-line choices: terms on top, price underneath.
+ * ------------------------------------------------------------------------- */
+
+.rail-options {
+  display: grid;
+  grid-template-columns: repeat(var(--_cols, 3), minmax(0, 1fr));
+  gap: var(--rail-options-gap, var(--_space-s));
+}
+
+.rail-options__option {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: var(--_space-3xs);
+  /* 56 gives two lines of text a comfortable thumb target. */
+  min-height: var(--rail-options-height, 56px);
+  padding: var(--_space-s) var(--_space-sm);
+  border: 1px solid var(--rail-options-border, transparent);
+  border-radius: var(--rail-options-radius, var(--_radius));
+  background: var(--rail-options-bg, color-mix(in srgb, currentColor 8%, transparent));
+  color: inherit;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.rail-options__option[aria-checked="true"] {
+  border-color: var(--rail-options-active-border, var(--_accent));
+  background: var(--rail-options-active-bg, color-mix(in srgb, var(--_accent) 16%, transparent));
+}
+
+.rail-options__option[disabled] { opacity: 0.45; cursor: not-allowed; }
+
+.rail-options__eyebrow {
+  font-size: calc(var(--rail-size-micro, 11px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+  letter-spacing: var(--rail-tracking-label, 0.1em);
+  text-transform: uppercase;
+  color: var(--_muted);
+}
+
+.rail-options__line {
+  font-size: calc(var(--rail-size-body, 16px) * var(--_type));
+  font-variant-numeric: tabular-nums;
+}
+
+.rail-options__price {
+  font-size: calc(var(--rail-size-body, 17px) * var(--_type));
+  font-weight: var(--rail-weight-bold, 700);
+  font-variant-numeric: tabular-nums;
+  color: var(--rail-options-price-color, var(--_accent));
+}
+
+.rail-options__option:focus-visible {
+  outline: 2px solid var(--rail-focus, var(--_accent));
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rail-options__option { transition: background-color var(--_dur-fast) var(--_ease-soft), border-color var(--_dur-fast) var(--_ease-soft); }
+}
+
+/* ---------------------------------------------------------------------------
+ * RailPromo — the offer banner.
+ * ------------------------------------------------------------------------- */
+
+.rail-promo {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--_radius);
+  overflow: hidden;
+  background: var(--rail-promo-bg, var(--_bg));
+}
+
+.rail-promo__art {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: var(--rail-promo-height, 150px);
+  padding: var(--rail-promo-padding, var(--_space-xl));
+}
+
+.rail-promo__image,
+.rail-promo__art > :is(video, iframe) {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 0;
+}
+
+/* The copy sits on artwork that changes per campaign, so OVER ARTWORK it
+   brings its own floor rather than trusting whatever image lands behind it.
+   With no artwork there is nothing to out-shout, and forcing white here put
+   white text on a white panel for any brand whose promo surface is light. */
+.rail-promo__copy {
+  position: relative;
+  z-index: 1;
+  max-width: 34ch;
+}
+
+.rail-promo__art[data-rail-art] .rail-promo__copy {
+  color: var(--rail-promo-color, #fff);
+  text-shadow: var(--rail-promo-text-shadow, 0 2px 12px rgba(0, 0, 0, 0.75));
+}
+
+.rail-promo__title {
+  margin: 0;
+  font-family: var(--rail-heading-font, inherit);
+  font-size: calc(var(--rail-promo-title-size, clamp(20px, 4vw, 28px)) * var(--_type));
+  font-weight: var(--rail-weight-heavy, 800);
+  line-height: 1.1;
+}
+
+.rail-promo__subtitle {
+  margin: var(--_space-xs) 0 0;
+  font-size: calc(var(--rail-size-meta, 15px) * var(--_type));
+  line-height: 1.35;
+}
+
+.rail-promo__badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  padding: var(--_space-2xs) var(--_space-sm);
+  border-radius: var(--rail-promo-badge-radius, 6px);
+  background: var(--rail-badge-bg, var(--_accent));
+  color: var(--rail-badge-color, #fff);
+  font-size: calc(var(--rail-size-micro, 12px) * var(--_type));
+  font-weight: var(--rail-weight-bold, 700);
+  letter-spacing: var(--rail-tracking-wide, 0.04em);
+  text-transform: uppercase;
+}
+
+.rail-promo__dismiss {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  /* 36 is over the 24px AA floor without the control competing with the art. */
+  width: var(--rail-promo-dismiss-size, 36px);
+  height: var(--rail-promo-dismiss-size, 36px);
+  border-radius: var(--_pill);
+  border: 0;
+  background: var(--rail-promo-dismiss-bg, rgba(0, 0, 0, 0.55));
+  color: var(--rail-promo-dismiss-color, #fff);
+  font-size: calc(var(--rail-size-title, 18px) * var(--_type));
+  line-height: 1;
+  cursor: pointer;
+}
+
+/* The action is a full-width strip, not a button floating on the picture: a
+   button over artwork has to fight whatever is behind it for contrast, and the
+   artwork changes per campaign while this component does not. */
+.rail-promo__action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--_space-md);
+  min-height: var(--rail-promo-action-height, var(--_control-min));
+  padding: var(--_space-sm) var(--rail-promo-padding, var(--_space-xl));
+  background: var(--rail-promo-action-bg, var(--_accent));
+  color: var(--rail-promo-action-color, #fff);
+  font-size: calc(var(--rail-size-body, 16px) * var(--_type));
+  font-weight: var(--rail-weight-bold, 700);
+  letter-spacing: var(--rail-tracking-wide, 0.04em);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.rail-promo__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.rail-promo :is(a, button):focus-visible {
+  outline: 2px solid var(--rail-focus, var(--_accent));
+  outline-offset: -3px;
+}
+
+/* ---------------------------------------------------------------------------
+ * RailMilestone — progress between two named rungs.
+ * ------------------------------------------------------------------------- */
+
+.rail-milestone {
+  padding: var(--rail-milestone-padding, var(--_space-mid) var(--_space-lg));
+  border-radius: var(--_radius);
+  background: var(--rail-milestone-bg, var(--_bg));
+}
+
+.rail-milestone__count {
+  margin: 0 0 var(--_space-sm);
+  text-align: center;
+  font-size: calc(var(--rail-milestone-count-size, 18px) * var(--_type));
+  font-variant-numeric: tabular-nums;
+}
+
+.rail-milestone__value {
+  font-weight: var(--rail-weight-bold, 700);
+  color: var(--rail-milestone-value-color, var(--_accent));
+}
+
+.rail-milestone__target { color: var(--_muted); }
+
+.rail-milestone__track-row {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-sm);
+}
+
+.rail-milestone__node {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: var(--rail-milestone-node-size, 34px);
+  height: var(--rail-milestone-node-size, 34px);
+  border-radius: var(--rail-milestone-node-radius, 8px);
+  background: var(--rail-milestone-node-bg, color-mix(in srgb, currentColor 14%, transparent));
+  color: var(--_muted);
+  font-size: calc(var(--rail-size-body, 16px) * var(--_type));
+  font-weight: var(--rail-weight-bold, 700);
+}
+
+.rail-milestone__node[data-rail-reached] {
+  background: var(--rail-milestone-node-reached-bg, var(--_accent));
+  color: var(--rail-milestone-node-reached-color, #fff);
+}
+
+.rail-milestone__track {
+  flex: 1;
+  height: var(--rail-milestone-height, 8px);
+  border-radius: var(--_pill);
+  overflow: hidden;
+  background: var(--rail-milestone-track, color-mix(in srgb, currentColor 18%, transparent));
+}
+
+.rail-milestone__fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--rail-milestone-fill, var(--_accent));
+}
+
+.rail-milestone__note {
+  margin: var(--_space-s) 0 0;
+  text-align: center;
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  color: var(--_muted);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rail-milestone__fill { transition: inline-size var(--_dur-slow) var(--_ease); }
+}
+
+/* ---------------------------------------------------------------------------
+ * Tabs that scroll, and icons on tabs and chips.
+ * ------------------------------------------------------------------------- */
+
+.rail-tabs[data-rail-scroll] .rail-tabs__list {
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.rail-tabs[data-rail-scroll] .rail-tabs__list::-webkit-scrollbar { display: none; }
+.rail-tabs[data-rail-scroll] .rail-tabs__item { flex: 0 0 auto; }
+.rail-tabs[data-rail-scroll] .rail-tabs__tab { padding: var(--_space-md) var(--_space-lg); }
+
+.rail-tabs__icon,
+.rail-filters__icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.rail-tabs__icon :is(svg, img),
+.rail-filters__icon :is(svg, img) {
+  width: var(--rail-icon-size, 20px);
+  height: var(--rail-icon-size, 20px);
+  display: block;
+}
+
+.rail-filters__chip { gap: var(--_space-s); }
+
+/* The chip row scrolls, and a chip sliced by the viewport edge is the only
+   thing telling anyone. The rail fades its own edge for this; so does this. */
+@supports (mask-image: linear-gradient(to right, transparent, black)) {
+  .rail-filters__list {
+    mask-image: linear-gradient(
+      to right,
+      black 0,
+      black calc(100% - var(--rail-filters-fade, 32px)),
+      transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      black 0,
+      black calc(100% - var(--rail-filters-fade, 32px)),
+      transparent 100%
+    );
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * TILE VARIANT — art only, for a library of things you recognise by their
+ * cover: games, albums, films. The title lives IN the artwork, so the card
+ * draws none, and a badge and an info control sit in the corners.
+ * ------------------------------------------------------------------------- */
+
+[data-rail-variant="tile"] .rail-card,
+.rail-card[data-rail-variant="tile"] {
+  position: relative;
+  border: 0;
+  border-top: 0;
+  border-radius: var(--rail-tile-radius, 14px);
+  overflow: hidden;
+  background: var(--rail-tile-bg, var(--_bg));
+  width: min(var(--rail-tile-size, 170px), 45vw);
+}
+
+[data-rail-variant="tile"] .rail-card .rail-card__figure,
+.rail-card[data-rail-variant="tile"] .rail-card__figure {
+  margin-top: 0;
+  order: 0;
+  aspect-ratio: var(--rail-tile-aspect, 1 / 1);
+}
+
+/* The body is present for a screen reader and gone for a sighted visitor: the
+   artwork already carries the name, and repeating it under every tile turns a
+   wall of covers into a wall of captions. */
+[data-rail-variant="tile"] .rail-card .rail-card__body,
+.rail-card[data-rail-variant="tile"] .rail-card__body {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+[data-rail-variant="tile"] .rail-card .rail-card__badge,
+.rail-card[data-rail-variant="tile"] .rail-card__badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 2;
+  margin: 0;
+  padding: var(--rail-card-tile-badge-padding, calc(var(--_space-xs) / 2) calc(var(--_space-xl) / 2));
+  border-radius: var(--rail-tile-badge-radius, 5px);
+  background: var(--rail-badge-bg, var(--_accent));
+  color: var(--rail-badge-color, #fff);
+  font-size: calc(var(--rail-size-micro, 11px) * var(--_type));
+  font-weight: var(--rail-weight-bold, 700);
+  letter-spacing: var(--rail-tracking-wide, 0.04em);
+  text-transform: uppercase;
+}
+
+/* ---------------------------------------------------------------------------
+ * RailPresence — a measured number of people, shown live.
+ * ------------------------------------------------------------------------- */
+
+.rail-presence {
+  display: inline-flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0 var(--_space-s);
+  margin: 0;
+  font-size: calc(var(--rail-size-body, 16px) * var(--_type));
+  color: var(--_muted);
+}
+
+.rail-presence__glyph {
+  align-self: center;
+  display: grid;
+  place-items: center;
+  color: var(--rail-presence-color, var(--_accent));
+}
+
+.rail-presence__glyph :is(svg, img) {
+  width: var(--rail-icon-size, 18px);
+  height: var(--rail-icon-size, 18px);
+  display: block;
+}
+
+.rail-presence__dot {
+  display: block;
+  width: var(--rail-presence-dot-size, 9px);
+  height: var(--rail-presence-dot-size, 9px);
+  border-radius: var(--_pill);
+  background: currentColor;
+}
+
+.rail-presence__count {
+  font-weight: var(--rail-weight-bold, 700);
+  font-variant-numeric: tabular-nums;
+  color: var(--_text);
+}
+
+.rail-presence__when { font-size: calc(var(--rail-size-meta, 14px) * var(--_type)); opacity: 0.8; }
+
+/* The pulse is a halo on the dot, not the dot itself: a dot that changes size
+   makes the whole line reflow every frame. */
+@media (prefers-reduced-motion: no-preference) {
+  .rail-presence:not([data-rail-still]) .rail-presence__dot {
+    animation: rail-presence-pulse var(--_dur-sweep) ease-out infinite;
+  }
+}
+
+@keyframes rail-presence-pulse {
+  0% { box-shadow: 0 0 0 0 currentColor; opacity: 1; }
+  70% { box-shadow: 0 0 0 7px transparent; opacity: 0.75; }
+  100% { box-shadow: 0 0 0 0 transparent; opacity: 1; }
+}
+
+/* ---------------------------------------------------------------------------
+ * RailLive — what is happening right now.
+ * ------------------------------------------------------------------------- */
+
+.rail-live {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-sm);
+  font-size: calc(var(--rail-size-meta, 15px) * var(--_type));
+  color: var(--_muted);
+}
+
+.rail-live__mark {
+  flex-shrink: 0;
+  font-size: calc(var(--rail-size-label, 12px) * var(--_type));
+  line-height: 1;
+  color: var(--_muted);
+}
+
+.rail-live[data-rail-on] .rail-live__mark {
+  color: var(--rail-live-color, var(--rail-tone-down, #e2585f));
+}
+
+.rail-live[data-rail-on] .rail-live__status {
+  color: var(--rail-live-color, var(--rail-tone-down, #e2585f));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+
+.rail-live__slot {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-sm);
+  min-width: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rail-live[data-rail-on] .rail-live__mark {
+    animation: rail-live-blink var(--_dur-sweep) ease-in-out infinite;
+  }
+}
+
+@keyframes rail-live-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+/* ---------------------------------------------------------------------------
+ * RailCopy — a value and one press to take it.
+ * ------------------------------------------------------------------------- */
+
+.rail-copy {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-s);
+  min-width: 0;
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  color: var(--_muted);
+}
+
+.rail-copy__label { flex-shrink: 0; }
+
+.rail-copy__value {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.rail-copy__button {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  /* 32 is over the 24px AA floor without the control out-weighing the value. */
+  width: var(--rail-copy-button-size, 32px);
+  height: var(--rail-copy-button-size, 32px);
+  border: 0;
+  border-radius: var(--rail-copy-button-radius, 6px);
+  background: transparent;
+  color: inherit;
+  font-size: calc(var(--rail-size-body, 16px) * var(--_type));
+  line-height: 1;
+  cursor: pointer;
+}
+
+.rail-copy__button[data-rail-state="done"] { color: var(--rail-tone-up, #46c266); }
+.rail-copy__button[data-rail-state="failed"] { color: var(--rail-tone-down, #e2585f); }
+
+.rail-copy__button:focus-visible {
+  outline: 2px solid var(--rail-focus, var(--_accent));
+  outline-offset: 2px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .rail-copy__button:hover {
+    background: var(--rail-copy-button-hover-bg, color-mix(in srgb, currentColor 10%, transparent));
+  }
+}
+
+.rail-copy__sr,
+.rail-copy__status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------------------------------------------------------------------------
+ * RailTable — a standings table. A real <table>, so a screen reader can say
+ * "row 3, Points for, 130.90" instead of nine unlabelled numbers in a line.
+ * ------------------------------------------------------------------------- */
+
+.rail-table__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--_space-lg);
+  margin-bottom: var(--_space-sm);
+}
+
+.rail-table__heading {
+  margin: 0;
+  font-family: var(--rail-heading-font, inherit);
+  font-size: calc(var(--rail-heading-size, clamp(24px, 3vw, 34px)) * var(--_type));
+  font-weight: var(--rail-weight-bold, 700);
+  line-height: 1.1;
+}
+
+.rail-table__header-action {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--_tap-min);
+  color: var(--rail-cta-link-color, var(--_accent));
+  font-size: calc(var(--rail-size-body, 15px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+  text-decoration: none;
+}
+
+/* A table has a natural minimum width; on a phone it scrolls rather than
+   crushing the columns into unreadable stacks. */
+.rail-table__scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.rail-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: calc(var(--rail-size-body, 16px) * var(--_type));
+}
+
+.rail-table :is(th, td) {
+  padding: var(--rail-table-cell-padding, var(--_space-md) var(--_space-sm));
+  text-align: left;
+  vertical-align: middle;
+}
+
+.rail-table thead th {
+  font-size: calc(var(--rail-size-label, 13px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+  letter-spacing: var(--rail-tracking-wide, 0.04em);
+  color: var(--_muted);
+  border-bottom: 1px solid var(--_border);
+  white-space: nowrap;
+}
+
+.rail-table tbody tr + tr :is(th, td) {
+  border-top: 1px solid var(--rail-table-row-border, color-mix(in srgb, currentColor 8%, transparent));
+}
+
+.rail-table [data-rail-numeric] {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.rail-table__rank,
+.rail-table__rank-head {
+  width: 1%;
+  padding-right: var(--_space-2xs);
+  color: var(--_muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.rail-table__name {
+  font-weight: var(--rail-weight-semibold, 600);
+}
+
+.rail-table__name a { color: inherit; text-decoration: none; }
+
+.rail-table__avatar {
+  width: var(--rail-table-avatar-size, 30px);
+  height: var(--rail-table-avatar-size, 30px);
+  border-radius: var(--_pill);
+  object-fit: cover;
+  vertical-align: middle;
+  margin-right: var(--_space-sm);
+}
+
+/* The reader's own row. The colour is the quick read; the marker in the
+   accessible name is what makes it findable without seeing it. */
+.rail-table tbody tr[data-rail-mine] :is(th, td) {
+  background: var(--rail-table-mine-bg, color-mix(in srgb, currentColor 7%, transparent));
+}
+
+.rail-table__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.rail-table :is(a, button):focus-visible {
+  outline: 2px solid var(--rail-focus, var(--_accent));
+  outline-offset: 2px;
+}
+
+/* ---------------------------------------------------------------------------
+ * RailPoll — a two-way result, with every number stated.
+ * ------------------------------------------------------------------------- */
+
+.rail-poll__heads {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--_space-md);
+  margin-bottom: var(--_space-sm);
+}
+
+.rail-poll__side { margin: 0; min-width: 0; }
+.rail-poll__side[data-rail-side="right"] { text-align: right; }
+
+.rail-poll__name {
+  display: block;
+  font-size: calc(var(--rail-size-body, 16px) * var(--_type));
+  font-weight: var(--rail-weight-bold, 700);
+  letter-spacing: var(--rail-tracking-wide, 0.02em);
+  text-transform: var(--rail-poll-name-transform, uppercase);
+}
+
+.rail-poll__votes,
+.rail-poll__total {
+  display: block;
+  font-size: calc(var(--rail-size-meta, 15px) * var(--_type));
+  color: var(--_muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.rail-poll__total { margin: 0; align-self: center; text-align: center; }
+
+.rail-poll__bar {
+  display: flex;
+  min-height: var(--rail-poll-height, var(--_control-min-sm));
+  border-radius: var(--rail-poll-radius, var(--_pill));
+  overflow: hidden;
+  background: var(--rail-poll-track, color-mix(in srgb, currentColor 14%, transparent));
+}
+
+.rail-poll__fill {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-s);
+  min-width: 0;
+  padding: 0 var(--_space-mid);
+  background: var(--rail-poll-fill, color-mix(in srgb, currentColor 28%, transparent));
+  font-size: calc(var(--rail-size-body, 17px) * var(--_type));
+  font-weight: var(--rail-weight-bold, 700);
+  font-variant-numeric: tabular-nums;
+}
+
+.rail-poll__fill:last-child { justify-content: flex-end; }
+
+/* The reader's OWN pick, not the winner: marking the winner would turn a
+   majority into a verdict. */
+.rail-poll__fill[data-rail-chosen] {
+  background: var(--rail-poll-chosen-fill, var(--_accent));
+  color: var(--rail-poll-chosen-color, #fff);
+}
+
+.rail-poll__pct { white-space: nowrap; }
+
+.rail-poll__empty,
+.rail-poll__sr {
+  margin: 0;
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  color: var(--_muted);
+}
+
+.rail-poll__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ---------------------------------------------------------------------------
+ * RailAd — a paid placement that says so.
+ * ------------------------------------------------------------------------- */
+
+.rail-ad {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-s);
+  padding: var(--rail-ad-padding, var(--_space-md));
+  border: 1px solid var(--_border);
+  border-radius: var(--_radius);
+  background: var(--rail-ad-bg, transparent);
+}
+
+.rail-ad__link {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-mid);
+  flex: 1;
+  min-width: 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+.rail-ad__art {
+  flex-shrink: 0;
+  display: block;
+  width: var(--rail-ad-art-size, 62px);
+  aspect-ratio: var(--rail-ad-art-aspect, 1 / 1);
+  border-radius: var(--rail-ad-art-radius, 8px);
+  overflow: hidden;
+}
+
+.rail-ad__art > :is(img, video, iframe) {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border: 0;
+}
+
+.rail-ad__text { min-width: 0; display: flex; flex-direction: column; gap: var(--_space-2xs); }
+
+.rail-ad__title {
+  font-size: calc(var(--rail-size-body, 17px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+  line-height: 1.25;
+}
+
+/* Quiet, but never absent and never smaller than the kit's smallest readable
+   step: this is the disclosure, and shrinking it is how sites pretend. */
+.rail-ad__disclosure {
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  color: var(--_muted);
+}
+
+.rail-ad__menu {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: var(--rail-ad-menu-size, 34px);
+  height: var(--rail-ad-menu-size, 34px);
+  border: 0;
+  border-radius: var(--_pill);
+  background: transparent;
+  color: var(--_muted);
+  font-size: calc(var(--rail-size-title, 20px) * var(--_type));
+  line-height: 1;
+  cursor: pointer;
+}
+
+.rail-ad__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.rail-ad :is(a, button):focus-visible {
+  outline: 2px solid var(--rail-focus, var(--_accent));
+  outline-offset: 2px;
+}
+
+/* ---------------------------------------------------------------------------
+ * RailPageHeader — the top of a screen that is not the home screen.
+ * ------------------------------------------------------------------------- */
+
+.rail-pageheader__row {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-md);
+  min-height: var(--rail-pageheader-height, 56px);
+}
+
+.rail-pageheader__back,
+.rail-pageheader__action {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: var(--rail-pageheader-control-size, 44px);
+  height: var(--rail-pageheader-control-size, 44px);
+  border: 1px solid var(--rail-pageheader-control-border, transparent);
+  border-radius: var(--_pill);
+  background: var(--rail-pageheader-control-bg, transparent);
+  color: inherit;
+  font-size: calc(var(--rail-size-title, 20px) * var(--_type));
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.rail-pageheader__title {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--_space-sm);
+  margin: 0;
+  font-family: var(--rail-heading-font, inherit);
+  font-size: calc(var(--rail-pageheader-title-size, clamp(18px, 3vw, 22px)) * var(--_type));
+  font-weight: var(--rail-weight-bold, 700);
+  line-height: 1.2;
+}
+
+.rail-pageheader__mark { flex-shrink: 0; display: grid; place-items: center; }
+.rail-pageheader__mark :is(svg, img) {
+  width: var(--rail-pageheader-mark-size, 28px);
+  height: var(--rail-pageheader-mark-size, 28px);
+  display: block;
+}
+
+.rail-pageheader__expand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--_space-s);
+  min-width: 0;
+  min-height: var(--_tap-min);
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.rail-pageheader__chevron { flex-shrink: 0; font-size: calc(var(--rail-size-label, 14px) * var(--_type)); }
+.rail-pageheader__expand[aria-expanded="true"] .rail-pageheader__chevron {
+  transform: rotate(180deg);
+}
+
+.rail-pageheader__actions { display: flex; gap: var(--_space-xs); flex-shrink: 0; }
+
+.rail-pageheader__meta {
+  margin: var(--_space-3xs) 0 0;
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  color: var(--_muted);
+}
+
+.rail-pageheader__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.rail-pageheader :is(a, button):focus-visible {
+  outline: 2px solid var(--rail-focus, var(--_accent));
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rail-pageheader__chevron { transition: transform var(--_dur-base) var(--_ease); }
+}
+
+/* A wrapping chip set: a fixed menu you are meant to see all of. */
+.rail-filters[data-rail-wrap] .rail-filters__list {
+  flex-wrap: wrap;
+  overflow: visible;
+  mask-image: none;
+  -webkit-mask-image: none;
+}
+
+/* ---------------------------------------------------------------------------
+ * RailPrice — a price and everything that qualifies it.
+ * ------------------------------------------------------------------------- */
+
+.rail-price {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0 var(--_space-s);
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.rail-price__prefix,
+.rail-price__was,
+.rail-price__secondary {
+  font-size: calc(var(--rail-size-meta, 15px) * var(--_type));
+  color: var(--_muted);
+}
+
+.rail-price__now {
+  display: inline-flex;
+  align-items: baseline;
+  color: var(--rail-price-color, inherit);
+}
+
+.rail-price__currency {
+  font-size: calc(var(--rail-price-currency-size, 0.62em) * var(--_type));
+  align-self: flex-start;
+  padding-top: 0.22em;
+}
+
+/* Pounds big, pence small: the pounds are the decision, the pence the detail. */
+.rail-price__whole {
+  font-family: var(--rail-stat-font, inherit);
+  font-size: calc(var(--rail-price-size, 26px) * var(--_type));
+  font-weight: var(--rail-weight-bold, 700);
+  line-height: 1;
+  letter-spacing: var(--rail-tracking-tight, -0.02em);
+}
+
+.rail-price[data-rail-size="lg"] .rail-price__whole {
+  font-size: calc(var(--rail-price-size-lg, 38px) * var(--_type));
+}
+
+.rail-price__cents {
+  font-size: calc(var(--rail-price-cents-size, 0.62em) * var(--_type));
+  font-weight: var(--rail-weight-bold, 700);
+}
+
+.rail-price__unit {
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  font-weight: var(--rail-weight-medium, 500);
+  color: var(--_muted);
+  margin-left: var(--_space-3xs);
+}
+
+.rail-price__off {
+  font-size: calc(var(--rail-size-meta, 15px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+  color: var(--rail-price-off-color, var(--rail-tone-down, #e2585f));
+}
+
+.rail-price__secondary { flex-basis: 100%; }
+
+.rail-price__secondary-amount {
+  font-weight: var(--rail-weight-bold, 700);
+  color: var(--rail-price-secondary-color, var(--rail-tone-down, #e2585f));
+}
+
+/* ---------------------------------------------------------------------------
+ * RailRating — an average, and the sample it came from.
+ * ------------------------------------------------------------------------- */
+
+.rail-rating {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0 var(--_space-xs);
+  margin: 0;
+  font-size: calc(var(--rail-size-meta, 15px) * var(--_type));
+  color: var(--_muted);
+}
+
+.rail-rating__value {
+  font-weight: var(--rail-weight-semibold, 600);
+  color: var(--_text);
+  font-variant-numeric: tabular-nums;
+}
+
+/* One clipped row rather than N glyphs: a half star cannot be spoken. */
+.rail-rating__stars {
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+  font-size: calc(var(--rail-rating-star-size, 14px) * var(--_type));
+  letter-spacing: var(--rail-rating-star-gap, 1px);
+  color: var(--rail-rating-track, color-mix(in srgb, currentColor 30%, transparent));
+}
+
+.rail-rating__stars-fill {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  color: var(--rail-rating-color, #f0b429);
+}
+
+.rail-rating__stars-track { visibility: visible; }
+
+.rail-rating__count { font-variant-numeric: tabular-nums; }
+
+.rail-rating__meta::before {
+  content: "|";
+  margin-right: var(--_space-xs);
+  opacity: 0.45;
+}
+
+.rail-rating__sr,
+.rail-byline__sr,
+.rail-search__sr,
+.rail-coupons__sr,
+.rail-toast__sr,
+.rail-storyring__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------------------------------------------------------------------------
+ * RailByline — who is behind the thing.
+ * ------------------------------------------------------------------------- */
+
+.rail-byline {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--_space-s);
+  min-width: 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+.rail-byline__avatar {
+  flex-shrink: 0;
+  display: block;
+  width: var(--rail-byline-avatar-size, 28px);
+  height: var(--rail-byline-avatar-size, 28px);
+  border-radius: var(--_pill);
+  overflow: hidden;
+}
+
+.rail-byline[data-rail-size="sm"] {
+  --rail-byline-avatar-size: 22px;
+}
+
+.rail-byline__avatar > :is(img, video) {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.rail-byline__text { min-width: 0; }
+
+.rail-byline__line {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-xs);
+  min-width: 0;
+}
+
+.rail-byline__name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: calc(var(--rail-size-body, 16px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+
+.rail-byline__tick {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: var(--rail-byline-tick-size, 16px);
+  height: var(--rail-byline-tick-size, 16px);
+  border-radius: var(--_pill);
+  background: var(--rail-byline-tick-bg, var(--_accent));
+  color: var(--rail-byline-tick-color, #fff);
+  font-size: calc(var(--rail-byline-tick-glyph-size, 10px) * var(--_type));
+  line-height: 1;
+}
+
+.rail-byline__badge {
+  flex-shrink: 0;
+  padding: var(--rail-byline-badge-padding, var(--_space-3xs) calc(var(--_space-mid) / 2));
+  border-radius: var(--rail-byline-badge-radius, 4px);
+  background: var(--rail-byline-badge-bg, color-mix(in srgb, currentColor 14%, transparent));
+  font-size: calc(var(--rail-size-micro, 11px) * var(--_type));
+  font-weight: var(--rail-weight-bold, 700);
+  letter-spacing: var(--rail-tracking-wide, 0.04em);
+  text-transform: uppercase;
+}
+
+.rail-byline__meta {
+  display: block;
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  color: var(--_muted);
+}
+
+/* ---------------------------------------------------------------------------
+ * RailSearch — a real form, so Enter works and so does no-JS.
+ * ------------------------------------------------------------------------- */
+
+.rail-search {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-s);
+  padding: var(--rail-search-padding, var(--_space-2xs) var(--_space-2xs) var(--_space-2xs) var(--_space-mid));
+  border: 1px solid var(--rail-search-border, var(--_border));
+  border-radius: var(--rail-search-radius, var(--_pill));
+  background: var(--rail-search-bg, transparent);
+}
+
+.rail-search__glyph { flex-shrink: 0; font-size: calc(var(--rail-size-title, 18px) * var(--_type)); opacity: 0.7; }
+
+.rail-search__input {
+  flex: 1;
+  min-width: 0;
+  min-height: var(--rail-search-height, var(--_control-min-sm));
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: calc(var(--rail-size-body, 16px) * var(--_type));
+  outline: none;
+}
+
+.rail-search__input::placeholder { color: var(--_muted); }
+/* The browser's own clear button, which is not the brand's to restyle. */
+.rail-search__input::-webkit-search-cancel-button { filter: invert(0.5); }
+
+.rail-search__trailing {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: var(--rail-search-control-size, 36px);
+  height: var(--rail-search-control-size, 36px);
+  border: 0;
+  border-radius: var(--_pill);
+  background: transparent;
+  color: inherit;
+  font-size: calc(var(--rail-size-title, 18px) * var(--_type));
+  cursor: pointer;
+}
+
+.rail-search__submit {
+  flex-shrink: 0;
+  min-height: var(--rail-search-height, var(--_control-min-sm));
+  padding: 0 var(--_space-xl);
+  border: 0;
+  border-radius: var(--rail-search-radius, var(--_pill));
+  background: var(--rail-cta-bg, var(--_accent));
+  color: var(--rail-cta-color, #fff);
+  font: inherit;
+  font-size: calc(var(--rail-size-body, 16px) * var(--_type));
+  font-weight: var(--rail-weight-bold, 700);
+  cursor: pointer;
+}
+
+.rail-search:focus-within {
+  outline: 2px solid var(--rail-focus, var(--_accent));
+  outline-offset: 2px;
+}
+
+/* ---------------------------------------------------------------------------
+ * RailCoupons — a book of tickets. The perforation says "separate things you
+ * take", not "one block of text with three prices in it".
+ * ------------------------------------------------------------------------- */
+
+.rail-coupons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--_space-mid);
+  padding: var(--rail-coupons-padding, var(--_space-2xl));
+  border-radius: var(--rail-coupons-radius, var(--_radius));
+  background: var(--rail-coupons-bg, var(--_bg));
+}
+
+.rail-coupons__heading {
+  margin: 0;
+  font-family: var(--rail-heading-font, inherit);
+  font-size: calc(var(--rail-coupons-heading-size, clamp(24px, 5vw, 32px)) * var(--_type));
+  font-weight: var(--rail-weight-bold, 700);
+  line-height: 1.1;
+}
+
+.rail-coupons__sub { margin: var(--_space-2xs) 0 0; font-size: calc(var(--rail-size-body, 16px) * var(--_type)); }
+
+.rail-coupons__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-radius: var(--rail-coupons-ticket-radius, 12px);
+  background: var(--rail-coupons-ticket-bg, #fff);
+  color: var(--rail-coupons-ticket-color, #111);
+  overflow: hidden;
+}
+
+.rail-coupons__coupon { padding: var(--rail-coupons-ticket-padding, var(--_space-xl)); }
+
+/* The perforation. */
+.rail-coupons__coupon + .rail-coupons__coupon {
+  border-top: 1px dashed var(--rail-coupons-perforation, rgba(0, 0, 0, 0.22));
+}
+
+.rail-coupons__coupon[data-rail-claimed] { opacity: 0.55; }
+
+.rail-coupons__headline {
+  margin: 0;
+  font-size: calc(var(--rail-coupons-headline-size, clamp(26px, 6vw, 36px)) * var(--_type));
+  font-weight: var(--rail-weight-heavy, 800);
+  line-height: 1;
+  color: var(--rail-coupons-headline-color, var(--_accent));
+}
+
+.rail-coupons__terms {
+  margin: var(--_space-s) 0 0;
+  font-size: calc(var(--rail-size-meta, 15px) * var(--_type));
+}
+
+.rail-coupons__explain {
+  /* Measured at 15x19 by the brand check. An inline glyph is still a tap
+     target, and 24 is the WCAG 2.2 AA floor. */
+  display: inline-grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  margin-left: var(--_space-3xs);
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.rail-coupons__validity {
+  margin: var(--_space-2xs) 0 0;
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  opacity: 0.7;
+}
+
+.rail-coupons__action {
+  min-height: var(--rail-cta-height, 52px);
+  border: 0;
+  border-radius: var(--rail-cta-radius, var(--_pill));
+  background: var(--rail-cta-bg, var(--_accent));
+  color: var(--rail-cta-color, #fff);
+  font: inherit;
+  font-size: calc(var(--rail-size-body, 17px) * var(--_type));
+  font-weight: var(--rail-weight-bold, 700);
+  cursor: pointer;
+}
+
+.rail-coupons :is(a, button):focus-visible {
+  outline: 2px solid var(--rail-focus, var(--_accent));
+  outline-offset: 2px;
+}
+
+/* ---------------------------------------------------------------------------
+ * RailToast — tells you something without stopping you. Never takes focus.
+ * ------------------------------------------------------------------------- */
+
+.rail-toast {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-md);
+  padding: var(--rail-toast-padding, var(--_space-md) var(--_space-mid));
+  border-top: 1px solid var(--_border);
+  background: var(--rail-toast-bg, var(--_bg));
+  font-size: calc(var(--rail-size-body, 16px) * var(--_type));
+}
+
+.rail-toast[data-rail-tone="alert"] {
+  border-top-color: var(--rail-tone-down, #e2585f);
+}
+
+.rail-toast__glyph { flex-shrink: 0; display: grid; place-items: center; }
+.rail-toast__glyph :is(svg, img) {
+  width: var(--rail-icon-size, 22px);
+  height: var(--rail-icon-size, 22px);
+  display: block;
+}
+
+.rail-toast__message { flex: 1; min-width: 0; margin: 0; }
+
+.rail-toast__action {
+  flex-shrink: 0;
+  min-height: var(--_tap-min);
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--rail-cta-link-color, var(--_accent));
+  font: inherit;
+  font-weight: var(--rail-weight-semibold, 600);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.rail-toast__dismiss {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: var(--rail-toast-dismiss-size, 32px);
+  height: var(--rail-toast-dismiss-size, 32px);
+  border: 0;
+  border-radius: var(--_pill);
+  background: transparent;
+  color: var(--_muted);
+  font-size: calc(var(--rail-size-title, 20px) * var(--_type));
+  line-height: 1;
+  cursor: pointer;
+}
+
+.rail-toast :is(a, button):focus-visible {
+  outline: 2px solid var(--rail-focus, var(--_accent));
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* A keyframe, not a class flipped from an effect: an animation runs once on
+     mount and never again, which is exactly what that flag was faking. */
+  .rail-toast { animation: rail-toast-in var(--_dur-base) var(--_ease-soft) both; }
+}
+
+/* ---------------------------------------------------------------------------
+ * RailMasonry — a staggered grid. Reading order is DOWN each column.
+ * ------------------------------------------------------------------------- */
+
+.rail-masonry {
+  column-count: 2;
+  column-gap: var(--rail-masonry-gap, var(--_space-md));
+}
+
+@media (min-width: 720px) {
+  .rail-masonry[data-rail-columns="3"] { column-count: 3; }
+  .rail-masonry[data-rail-columns="4"] { column-count: 4; }
+}
+
+/* The rule everyone forgets: without it a card is sliced in half across a
+   column boundary. */
+.rail-masonry > * {
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  margin-bottom: var(--rail-masonry-gap, var(--_space-md));
+  display: block;
+}
+
+/* ---------------------------------------------------------------------------
+ * RailStoryRing — a ring that says a word as well as a colour.
+ * ------------------------------------------------------------------------- */
+
+.rail-storyring {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--_space-s);
+  max-width: var(--rail-storyring-size, 84px);
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.rail-storyring[data-rail-size="sm"] { --rail-storyring-size: 62px; }
+.rail-storyring[data-rail-size="lg"] { --rail-storyring-size: 104px; }
+
+.rail-storyring__ring {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: var(--rail-storyring-size, 84px);
+  height: var(--rail-storyring-size, 84px);
+  padding: var(--rail-storyring-width, 3px);
+  border-radius: var(--_pill);
+  background: var(--rail-storyring-idle, color-mix(in srgb, currentColor 22%, transparent));
+}
+
+.rail-storyring[data-rail-live] .rail-storyring__ring {
+  background: var(--rail-storyring-live, var(--_accent));
+}
+
+.rail-storyring[data-rail-seen] .rail-storyring__ring { opacity: 0.45; }
+
+.rail-storyring__avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--_pill);
+  overflow: hidden;
+  background: var(--rail-storyring-avatar-bg, var(--_bg));
+  border: var(--rail-storyring-gap, 2px) solid var(--rail-storyring-gap-color, transparent);
+}
+
+.rail-storyring__avatar > :is(img, video) {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: var(--_pill);
+}
+
+.rail-storyring__badge {
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1px var(--_space-s);
+  border-radius: var(--rail-storyring-badge-radius, 4px);
+  background: var(--rail-storyring-live, var(--_accent));
+  color: var(--rail-storyring-badge-color, #fff);
+  font-size: calc(var(--rail-size-micro, 10px) * var(--_type));
+  font-weight: var(--rail-weight-bold, 700);
+  letter-spacing: var(--rail-tracking-wide, 0.06em);
+  text-transform: uppercase;
+}
+
+.rail-storyring__name {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: calc(var(--rail-size-meta, 13px) * var(--_type));
+}
+
+.rail-storyring:focus-visible {
+  outline: 2px solid var(--rail-focus, var(--_accent));
+  outline-offset: 3px;
+  border-radius: var(--rail-storyring-focus-radius, var(--_space-md));
+}
+
+/* A page-sized empty state looks deliberate rather than like a broken slot. */
+.rail-empty[data-rail-tone="page"] {
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: var(--_space-xl);
+  padding: var(--rail-empty-page-padding, clamp(40px, 12vw, 88px) var(--_space-4xl));
+  border: 0;
+}
+
+.rail-empty[data-rail-tone="page"] .rail-empty__icon {
+  opacity: 0.35;
+}
+
+.rail-empty[data-rail-tone="page"] .rail-empty__icon :is(svg, img) {
+  width: var(--rail-empty-page-icon-size, 120px);
+  height: var(--rail-empty-page-icon-size, 120px);
+}
+
+.rail-empty[data-rail-tone="page"] .rail-empty__message {
+  flex: none;
+  font-size: calc(var(--rail-empty-page-size, clamp(20px, 5vw, 26px)) * var(--_type));
+  font-weight: var(--rail-weight-bold, 700);
+  color: var(--_text);
+}
+
+/* ---------------------------------------------------------------------------
+ * RailCoachmark — the bubble that points at something and explains it.
+ * ------------------------------------------------------------------------- */
+
+.rail-coachmark {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--_space-sm);
+  max-width: var(--rail-coachmark-width, 34ch);
+  padding: var(--rail-coachmark-padding, var(--_space-mid) var(--_space-mid) var(--_space-mid) var(--_space-lg));
+  border-radius: var(--rail-coachmark-radius, 10px);
+  background: var(--rail-coachmark-bg, #17171a);
+  color: var(--rail-coachmark-color, #fff);
+  box-shadow: var(--rail-coachmark-shadow, 0 12px 34px -14px rgba(0, 0, 0, 0.7));
+}
+
+/* The pointer is a rotated square on the bubble's own background, so it stays
+   in step with any colour a brand sets rather than needing its own token. */
+.rail-coachmark::before {
+  content: "";
+  position: absolute;
+  width: var(--rail-coachmark-arrow, 12px);
+  height: var(--rail-coachmark-arrow, 12px);
+  background: inherit;
+  transform: rotate(45deg);
+}
+
+.rail-coachmark[data-rail-side="top"]::before {
+  top: calc(var(--rail-coachmark-arrow, 12px) / -2);
+  left: var(--_offset, 16%);
+}
+.rail-coachmark[data-rail-side="bottom"]::before {
+  bottom: calc(var(--rail-coachmark-arrow, 12px) / -2);
+  left: var(--_offset, 16%);
+}
+.rail-coachmark[data-rail-side="left"]::before {
+  left: calc(var(--rail-coachmark-arrow, 12px) / -2);
+  top: var(--_offset, 16%);
+}
+.rail-coachmark[data-rail-side="right"]::before {
+  right: calc(var(--rail-coachmark-arrow, 12px) / -2);
+  top: var(--_offset, 16%);
+}
+
+.rail-coachmark__message {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  font-size: calc(var(--rail-size-body, 16px) * var(--_type));
+  line-height: 1.35;
+}
+
+.rail-coachmark__action {
+  flex-shrink: 0;
+  min-height: var(--_tap-min);
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-weight: var(--rail-weight-bold, 700);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.rail-coachmark__dismiss {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  /* 28 keeps the bubble compact while clearing the 24px AA floor. */
+  width: var(--rail-coachmark-dismiss-size, 28px);
+  height: var(--rail-coachmark-dismiss-size, 28px);
+  border: 0;
+  border-radius: var(--_pill);
+  background: transparent;
+  color: inherit;
+  font-size: calc(var(--rail-size-title, 20px) * var(--_type));
+  line-height: 1;
+  cursor: pointer;
+}
+
+.rail-coachmark :is(a, button):focus-visible {
+  outline: 2px solid var(--rail-coachmark-focus, currentColor);
+  outline-offset: 2px;
+}
+
+/* ---------------------------------------------------------------------------
+ * RailShortcuts — big marks, small words. You aim at the pizza, not the word.
+ * ------------------------------------------------------------------------- */
+
+.rail-shortcuts__list {
+  display: flex;
+  gap: var(--rail-shortcuts-gap, var(--_space-mid));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.rail-shortcuts__list::-webkit-scrollbar { display: none; }
+
+.rail-shortcuts[data-rail-wrap] .rail-shortcuts__list {
+  flex-wrap: wrap;
+  overflow: visible;
+  justify-content: center;
+}
+
+.rail-shortcuts__item { flex: 0 0 auto; }
+
+.rail-shortcuts__shortcut {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--_space-s);
+  width: var(--rail-shortcuts-width, 76px);
+  padding: var(--_space-2xs) 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.rail-shortcuts__glyph {
+  display: grid;
+  place-items: center;
+  width: var(--rail-shortcuts-glyph-box, 56px);
+  height: var(--rail-shortcuts-glyph-box, 56px);
+  border-radius: var(--rail-shortcuts-glyph-radius, var(--_pill));
+  background: var(--rail-shortcuts-glyph-bg, transparent);
+  font-size: calc(var(--rail-shortcuts-glyph-size, 40px) * var(--_type));
+  line-height: 1;
+}
+
+.rail-shortcuts__glyph :is(svg, img) {
+  width: var(--rail-shortcuts-glyph-size, 40px);
+  height: var(--rail-shortcuts-glyph-size, 40px);
+  display: block;
+}
+
+/* Never hidden: an emoji has no reliable accessible name across platforms and
+   an icon has none at all. */
+.rail-shortcuts__label {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  text-align: center;
+}
+
+.rail-shortcuts :is(a, button):focus-visible {
+  outline: 2px solid var(--rail-focus, var(--_accent));
+  outline-offset: 3px;
+  border-radius: var(--rail-shortcuts-focus-radius, var(--_space-s));
+}
+
+/* ---------------------------------------------------------------------------
+ * RailOffer — one offer, with the ticket's notch bitten out of its edge.
+ *
+ * The notch is two radial gradients in the background, not pseudo-elements:
+ * a pseudo-element notch has to be painted in the PAGE's colour to look
+ * punched, which means the strip only works on one background. A mask cuts a
+ * real hole, so whatever is behind shows through.
+ * ------------------------------------------------------------------------- */
+
+.rail-offer {
+  --_notch: var(--rail-offer-notch, 11px);
+  --_notch-at: var(--rail-offer-notch-at, 76%);
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--_space-mid);
+  padding: var(--rail-offer-padding, var(--_space-mid) var(--_space-xl));
+  border-radius: var(--rail-offer-radius, 14px);
+  background: var(--rail-offer-bg, color-mix(in srgb, var(--_accent) 14%, transparent));
+  -webkit-mask:
+    radial-gradient(var(--_notch) at var(--_notch-at) 0, transparent 99%, #000 100%) 0 0 / 100% 51% no-repeat,
+    radial-gradient(var(--_notch) at var(--_notch-at) 100%, transparent 99%, #000 100%) 0 100% / 100% 51% no-repeat;
+  mask:
+    radial-gradient(var(--_notch) at var(--_notch-at) 0, transparent 99%, #000 100%) 0 0 / 100% 51% no-repeat,
+    radial-gradient(var(--_notch) at var(--_notch-at) 100%, transparent 99%, #000 100%) 0 100% / 100% 51% no-repeat;
+}
+
+/* The dotted tear line between the stub and the rest. */
+.rail-offer::after {
+  content: "";
+  position: absolute;
+  top: var(--_notch);
+  bottom: var(--_notch);
+  left: var(--_notch-at);
+  border-left: 1px dashed var(--rail-offer-perforation, color-mix(in srgb, currentColor 30%, transparent));
+}
+
+.rail-offer[data-rail-claimed] { opacity: 0.6; }
+
+.rail-offer__glyph {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: var(--rail-offer-glyph-box, 44px);
+  height: var(--rail-offer-glyph-box, 44px);
+  border-radius: var(--rail-offer-glyph-radius, var(--_space-md));
+  background: var(--rail-offer-glyph-bg, var(--_accent));
+  color: var(--rail-offer-glyph-color, #fff);
+  font-size: calc(var(--rail-size-title, 22px) * var(--_type));
+  line-height: 1;
+}
+
+.rail-offer__glyph :is(svg, img) {
+  width: var(--rail-size-title, 22px);
+  height: var(--rail-size-title, 22px);
+  display: block;
+}
+
+.rail-offer__text { flex: 1; min-width: 0; }
+
+.rail-offer__headline {
+  margin: 0;
+  font-size: calc(var(--rail-size-body, 17px) * var(--_type));
+  font-weight: var(--rail-weight-bold, 700);
+  line-height: 1.25;
+}
+
+.rail-offer__validity {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-3xs);
+  margin: var(--_space-3xs) 0 0;
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  color: var(--_muted);
+}
+
+.rail-offer__explain {
+  display: inline-grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.rail-offer__action {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--rail-offer-action-height, var(--_control-min-sm));
+  padding: 0 var(--_space-xl);
+  border: 0;
+  border-radius: var(--rail-cta-radius, var(--_pill));
+  background: var(--rail-offer-action-bg, var(--rail-cta-bg, var(--_accent)));
+  color: var(--rail-offer-action-color, var(--rail-cta-color, #fff));
+  font: inherit;
+  font-size: calc(var(--rail-size-body, 15px) * var(--_type));
+  font-weight: var(--rail-weight-bold, 700);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.rail-offer__claimed {
+  flex-shrink: 0;
+  font-size: calc(var(--rail-size-meta, 15px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+  color: var(--_muted);
+}
+
+.rail-offer__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.rail-offer :is(a, button):focus-visible {
+  outline: 2px solid var(--rail-focus, var(--_accent));
+  outline-offset: 2px;
+}
+
+@keyframes rail-toast-in {
+  from { transform: translateY(var(--_space-s)); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+
+/* Toast gained a second line. */
+.rail-toast__text { flex: 1; min-width: 0; }
+.rail-toast__description {
+  margin: var(--_space-3xs) 0 0;
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  color: var(--_muted);
+}

@@ -25,7 +25,9 @@
     "seo:indexnow:dry-run": "node scripts/indexnow-submit.mjs dry-run",
     "seo:indexnow:run": "node scripts/indexnow-submit.mjs run",
     "seo:indexnow:status": "node scripts/indexnow-submit.mjs status",
-    "check": "pnpm lint && pnpm typecheck && pnpm test && pnpm build"
+    "check": "pnpm rail-kit:check && pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm text-parity",
+    "rail-kit:check": "node scripts/sync-rail-kit.mjs --check",
+    "text-parity": "node scripts/text-parity.mjs check .next/server/app app/__tests__/fixtures/spanish-niche-text-baseline.json"
   },
   "dependencies": {
     "@base-ui/react": "^1.4.1",

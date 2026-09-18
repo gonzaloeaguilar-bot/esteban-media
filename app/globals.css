@@ -1,5 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "../vendor/rail-kit/rail.css";
+@import "../vendor/rail-kit/motion.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -109,4 +111,123 @@
     scroll-behavior: auto !important;
     transition-duration: 0.001ms !important;
   }
+}
+
+/* ── Rails ────────────────────────────────────────────────────────────────
+   The rail itself lives in vendor/rail-kit and is shared across brands. This
+   block is the Esteban skin for it: nothing here is layout or behaviour, only
+   tokens. Change the rail in the rail-kit repo; change how this site looks
+   right here.
+
+   CONTRAST, MEASURED — not assumed. Ratios against the card surface #fbf6ef:
+
+     #c84a2c  4.37  the brand terracotta. FAILS AA for small text.
+     #9f3c27  6.20  the deep tone. Passes, and is what small text uses.
+     #e85d3e  3.22  decorative only — edges and glyphs, never text.
+     #5a6066  5.92  muted copy
+     #252a2d 13.49  body
+     white on #c84a2c 4.70 — passes AA, so terracotta is fine as a FILLED
+     button even though it fails as small text on the page.
+
+   That split is the whole reason there are two accent tokens below.
+
+   One identity, not two: none of this is redefined under
+   prefers-color-scheme: dark. Everyone sees the same site.                 */
+.rail {
+  --rail-accent: #c84a2c;
+  --rail-text: #101214;
+  --rail-muted: #5a6066;
+
+  /* Surface. A flat card on a flat page reads as a cut-out rectangle, so the
+     card sits a step above the page (#fbf6ef on #f6f1ea) and carries a 1px
+     light edge on top with the shadow below — light from the top left, the
+     same direction the shadow already implies. */
+  --rail-card-bg: #fbf6ef;
+  --rail-card-border: #ddd4c8;
+  --rail-card-shadow: 0 1px 0 rgba(255, 255, 255, 0.9) inset,
+    0 1px 2px rgba(16, 18, 20, 0.04), 0 6px 16px -8px rgba(16, 18, 20, 0.14);
+  /* Editorial, so nearly square: 0 reads unfinished, 12px reads like an app. */
+  --rail-card-radius: 4px;
+  --rail-card-width: 288px;
+  --rail-card-width-lg: 332px;
+  --rail-card-width-sm: 244px;
+
+  /* Small text takes the deep tone, never the bright one. */
+  --rail-eyebrow-color: #9f3c27;
+  --rail-meta-color: #9f3c27;
+  --rail-cta-link-color: #9f3c27;
+  --rail-value-color: #9f3c27;
+  --rail-price-color: #9f3c27;
+  --rail-bullet-color: #c84a2c;
+  --rail-glyph-color: #e85d3e;
+  --rail-figure-bg: #f1e9dd;
+  --rail-icon-bg: #f4ece1;
+
+  --rail-badge-bg: rgba(16, 18, 20, 0.82);
+  --rail-badge-color: #f6f1ea;
+  --rail-footer-badge-bg: rgba(16, 18, 20, 0.82);
+  --rail-footer-badge-color: #f6f1ea;
+
+  /* Filled button: white on terracotta, 4.70. */
+  --rail-cta-bg: #c84a2c;
+  --rail-cta-color: #ffffff;
+  --rail-cta-radius: 999px;
+  --rail-cta-secondary-bg: transparent;
+  --rail-cta-secondary-border: #101214;
+  --rail-cta-secondary-color: #101214;
+
+  /* The focus ring belongs to the brand. The browser's blue is not from here. */
+  --rail-focus: #9f3c27;
+
+  /* Headings take the same serif the pages use. The rail is scanned, not read. */
+  --rail-title-font: var(--font-newsreader), ui-serif, Georgia, serif;
+  --rail-heading-font: var(--font-newsreader), ui-serif, Georgia, serif;
+  --rail-stat-font: var(--font-newsreader), ui-serif, Georgia, serif;
+  --rail-title-weight: 400;
+  --rail-title-leading: 1.1;
+  --rail-title-tracking: -0.01em;
+
+  --rail-shimmer: rgba(16, 18, 20, 0.06);
+  --rail-text-aspect: 5 / 2;
+  /* MEASURED, not chosen: 12 of the 13 stills in public/portfolio are exactly
+     1280x720 or 1920x1080 — 16:9 to three decimals. A taller box would scale
+     by height and crop the SIDES, which is the axis that carries the subject
+     in a video still. la-huelga.jpg is the one exception (480x360, 4:3) and is
+     also the only low-resolution file in the set. */
+  --rail-media-aspect: 16 / 9;
+}
+
+/* The figures the page uses outside a rail — the one moment of scale. Sized
+   against its CONTAINER (cqi), not the window: a figure sized in vw inside a
+   grid overflows the moment the grid changes column count. */
+.em-figure {
+  container-type: inline-size;
+}
+.em-figure__value {
+  font-family: var(--font-newsreader), ui-serif, Georgia, serif;
+  font-size: clamp(2.75rem, 22cqi, 5.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  color: #101214;
+}
+
+/* The rail on the dark band. Scoped to a section that is deliberately dark,
+   never to prefers-color-scheme — the site has one identity.
+   Contrast on #101214: #ffb49e = 10.97, #f6f1ea = 16.71, #c9c1b8 = 10.55. */
+.em-on-dark .rail {
+  --rail-card-bg: rgba(255, 255, 255, 0.045);
+  --rail-card-border: rgba(255, 255, 255, 0.12);
+  --rail-card-shadow: 0 1px 0 rgba(255, 255, 255, 0.07) inset,
+    0 6px 16px -10px rgba(0, 0, 0, 0.6);
+  --rail-text: #f6f1ea;
+  --rail-muted: #c9c1b8;
+  --rail-eyebrow-color: #ffb49e;
+  --rail-meta-color: #ffb49e;
+  --rail-cta-link-color: #ffb49e;
+  --rail-figure-bg: rgba(255, 255, 255, 0.06);
+  --rail-icon-bg: rgba(255, 255, 255, 0.08);
+  --rail-focus: #ffb49e;
+  --rail-cta-secondary-border: rgba(246, 241, 234, 0.5);
+  --rail-cta-secondary-color: #f6f1ea;
 }
