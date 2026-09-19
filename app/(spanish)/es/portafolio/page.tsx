@@ -76,7 +76,7 @@ export default function SpanishPortfolioPage() {
               <p className="text-xs font-medium uppercase tracking-[0.18em] text-[#f0b384]">
                 Trabajos seleccionados
               </p>
-              <h1 className="mt-4 max-w-4xl font-serif text-5xl leading-[0.96] sm:text-6xl lg:text-7xl">
+              <h1 className="mt-4 max-w-4xl font-serif em-display em-display--xl">
                 Proyectos reales, presentados en su formato original.
               </h1>
               <p className="mt-6 max-w-2xl text-base leading-7 text-[#d8d0c7] sm:text-lg sm:leading-8">

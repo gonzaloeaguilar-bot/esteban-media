@@ -21,7 +21,7 @@ export default function GlobalNotFound() {
               <p className="text-xs font-medium uppercase tracking-wide text-[#9f3c27]">
                 404 · Page not found / Página no encontrada
               </p>
-              <h1 className="mt-5 max-w-3xl font-serif text-5xl leading-none sm:text-6xl">
+              <h1 className="mt-5 max-w-3xl font-serif em-display">
                 This address does not lead to an available page.
               </h1>
               <p lang="es" className="mt-5 max-w-2xl text-lg leading-8 text-[#252a2d]">

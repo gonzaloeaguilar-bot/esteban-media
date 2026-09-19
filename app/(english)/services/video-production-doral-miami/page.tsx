@@ -69,7 +69,7 @@ export default function VideoProductionDoralPage() {
               <p className="text-xs font-medium uppercase text-[#5a6066]">
                 Doral / B2B Commercial
               </p>
-              <h1 className="mt-4 max-w-4xl font-serif text-5xl leading-none sm:text-6xl">
+              <h1 className="mt-4 max-w-4xl font-serif em-display">
                 B2B Video Production in Doral, Miami.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">

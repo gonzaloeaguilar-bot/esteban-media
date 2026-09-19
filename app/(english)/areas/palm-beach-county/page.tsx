@@ -172,7 +172,7 @@ export default function PalmBeachCountyPage() {
               <p className="text-xs font-medium uppercase text-[#5a6066]">
                 Palm Beach County service area
               </p>
-              <h1 className="mt-4 max-w-4xl font-serif text-5xl leading-none sm:text-6xl">
+              <h1 className="mt-4 max-w-4xl font-serif em-display">
                 Palm Beach County content support, considered project by project.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">

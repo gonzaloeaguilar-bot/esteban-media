@@ -1092,9 +1092,9 @@ export function SpanishNichePage({ slug }: { slug: string }) {
           __html: JSON.stringify(jsonLd),
         }}
       />
-      <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
+      <section className="border-b border-[#ddd4c8] py-8 sm:py-16 lg:py-20">
         <Container size="xl">
-          <nav aria-label="Migas de pan" className="mb-8 text-sm text-[#5a6066]">
+          <nav aria-label="Migas de pan" className="mb-6 sm:mb-8 text-sm text-[#5a6066]">
             <ol className="flex flex-wrap items-center gap-2">
               <li>
                 <Link href="/es" className="hover:text-[#9f3c27]">
@@ -1118,10 +1118,10 @@ export function SpanishNichePage({ slug }: { slug: string }) {
               <p className="text-xs font-medium uppercase text-[#5a6066]">
                 {page.eyebrow}
               </p>
-              <h1 className="mt-4 max-w-4xl font-serif text-5xl leading-none sm:text-6xl">
+              <h1 className="mt-3 sm:mt-4 max-w-4xl font-serif em-display">
                 {page.h1}
               </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
+              <p className="mt-4 sm:mt-6 max-w-2xl text-lg leading-7 sm:leading-8 text-[#252a2d]">
                 {renderFormattedText(page.lead)}
               </p>
               {isPendingConfirmation ? (
@@ -1133,7 +1133,7 @@ export function SpanishNichePage({ slug }: { slug: string }) {
                   presenta fotografía ni drone como servicios disponibles.
                 </p>
               ) : null}
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className="mt-6 sm:mt-8 flex flex-wrap gap-3">
                 <Link
                   href={contactHref}
                   className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white hover:bg-[#a93e29]"

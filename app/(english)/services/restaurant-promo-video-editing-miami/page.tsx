@@ -120,7 +120,7 @@ export default function RestaurantPromoVideoEditingMiamiPage() {
               <p className="text-xs font-medium uppercase text-[#5a6066]">
                 Miami / Culinary & Hospitality
               </p>
-              <h1 className="mt-4 max-w-4xl font-serif text-5xl leading-none sm:text-6xl">
+              <h1 className="mt-4 max-w-4xl font-serif em-display">
                 Restaurant Promo Video Editing in Miami.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
