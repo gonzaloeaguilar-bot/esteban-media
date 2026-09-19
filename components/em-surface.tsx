@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -34,10 +34,14 @@ export function Cartel({
   children,
   ...rest
 }: {
-  as?: "div" | "article" | "section" | "aside" | "li";
+  as?: "div" | "article" | "section" | "aside" | "li" | "details";
   interactive?: boolean;
   className?: string;
   children: ReactNode;
+  /** Only meaningful with `as="details"`. */
+  open?: boolean;
+  /** For custom properties the page sets per instance, e.g. a stagger index. */
+  style?: CSSProperties;
 } & Record<`data-${string}`, unknown>) {
   return (
     <Tag

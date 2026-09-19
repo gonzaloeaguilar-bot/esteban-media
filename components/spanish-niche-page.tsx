@@ -1,4 +1,5 @@
 import React from "react";
+import type { CSSProperties } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -1094,7 +1095,7 @@ export function SpanishNichePage({ slug }: { slug: string }) {
       />
       <section className="border-b border-[#ddd4c8] py-8 sm:py-16 lg:py-20">
         <Container size="xl">
-          <nav aria-label="Migas de pan" className="mb-6 sm:mb-8 text-sm text-[#5a6066]">
+          <nav aria-label="Migas de pan" className="em-crumbs mb-6 sm:mb-8 text-sm text-[#5a6066]">
             <ol className="flex flex-wrap items-center gap-2">
               <li>
                 <Link href="/es" className="hover:text-[#9f3c27]">
@@ -1133,7 +1134,7 @@ export function SpanishNichePage({ slug }: { slug: string }) {
                   presenta fotografía ni drone como servicios disponibles.
                 </p>
               ) : null}
-              <div className="mt-6 sm:mt-8 flex flex-wrap gap-3">
+              <div className="mt-6 sm:mt-8 flex flex-wrap gap-3" data-em-hero-actions>
                 <Link
                   href={contactHref}
                   className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white hover:bg-[#a93e29]"
@@ -1193,9 +1194,10 @@ export function SpanishNichePage({ slug }: { slug: string }) {
       <section className="py-12 sm:py-16">
         <Container size="xl">
           <div className="grid gap-8 lg:grid-cols-2">
-            <ContentList title="Puede ser relevante para" items={page.bestFor} />
+            <ContentList title="Puede ser relevante para" items={page.bestFor} revealIndex={0} />
             <ContentList
               title="Preguntas para definir el alcance"
+              revealIndex={1}
               items={page.scopingQuestions}
             />
           </div>
@@ -1229,7 +1231,7 @@ export function SpanishNichePage({ slug }: { slug: string }) {
                       The bullets under it are a different thing: a scannable
                       checklist, which is what gets the card treatment. */}
                   {section.bullets && section.bullets.length > 0 ? (
-                    <Cartel className="mt-4 p-5 sm:p-6">
+                    <Cartel className="mt-4 p-5 sm:p-6" data-em-reveal>
                       <NumberedList
                         items={section.bullets}
                         className="mt-0"
@@ -1282,7 +1284,11 @@ export function SpanishNichePage({ slug }: { slug: string }) {
                   puts a picture on a page that had none. A project without an
                   approved still falls back to a text card rather than a media
                   card with an empty frame. */}
-              <div className="em-on-dark em-cartel rounded-[18px] bg-[#101214] p-5 sm:p-6" data-em-reveal>
+              <div
+                className="em-on-dark em-cartel rounded-[18px] bg-[#101214] p-5 sm:p-6"
+                data-em-reveal
+                data-rail-spotlight
+              >
               <ProjectRail
                 projects={linkContext.projects}
                 source={`niche_projects_${page.slug}`}
@@ -1334,9 +1340,19 @@ export function SpanishNichePage({ slug }: { slug: string }) {
               </h2>
             </div>
             <div className="grid gap-3">
-              {page.faqs.map((faq) => (
-                <Cartel as="article" key={faq.question} className="p-5">
-                  <h3 className="font-serif text-2xl">{faq.question}</h3>
+              {page.faqs.map((faq, index) => (
+                <Cartel
+                  as="details"
+                  key={faq.question}
+                  className="em-qa p-5"
+                  data-em-reveal
+                  style={{ "--em-reveal-i": index } as CSSProperties}
+                  open
+                >
+                  <summary>
+                    <h3 className="font-serif text-2xl">{faq.question}</h3>
+                    <span aria-hidden="true" className="em-qa__pm" />
+                  </summary>
                   <p className="mt-3 text-sm leading-6 text-[#252a2d]">
                     {renderFormattedText(faq.answer)}
                   </p>
@@ -1404,9 +1420,22 @@ export function SpanishNichePage({ slug }: { slug: string }) {
  * row its own identity and lets someone count what they are looking at, which
  * a repeated tick never allowed.
  */
-function ContentList({ title, items }: { title: string; items: string[] }) {
+function ContentList({
+  title,
+  items,
+  revealIndex = 0,
+}: {
+  title: string;
+  items: string[];
+  revealIndex?: number;
+}) {
   return (
-    <Cartel as="section" className="p-6" data-em-reveal>
+    <Cartel
+      as="section"
+      className="p-6"
+      data-em-reveal
+      style={{ "--em-reveal-i": revealIndex } as CSSProperties}
+    >
       <h2 className="font-serif text-3xl">{title}</h2>
       <NumberedList items={items} renderItem={renderFormattedText} />
     </Cartel>

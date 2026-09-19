@@ -287,6 +287,85 @@
    So the figure stays 16/9 and the CARD gets its poster height from the panel
    below it: badge, title, description, each in its own grid row. Tall card,
    uncropped picture. */
+/* ---------------------------------------------------------------------------
+   THE POSTER.
+
+   The brief on the previous cards: they looked small and ugly; these should be
+   posters.
+
+   What was wrong, measured: the frame was 1:1 and the pictures are 16:9, so a
+   266px frame carried a 266x150 photograph and **116px of dead mat**. Only 36%
+   of the card was picture. That is the "frame inside a frame inside a
+   letterbox" — the card was not small, it was mostly padding.
+
+   The reference build's rule is that the card is image-dominant AT THE
+   PHOTOGRAPHS' OWN ASPECT, and that the number does not travel, the reasoning
+   does. Measured with EXIF applied: 12 of Esteban's 13 stills are **exactly
+   16:9**, one is 4:3, and all are landscape. So the frame is 16:9 — at which
+   point `contain` fills it edge to edge, with zero mat AND zero crop. Cropping
+   is not available here and that is not an opinion: these are website
+   screenshots, and `cover` was rendered and looked at — FLAS became
+   "mechanic. / Sold by the owner." with its first line gone.
+
+   A 16:9 picture cannot dominate a tall card; that is geometry, not taste. So
+   the poster is the classic one built around a wide still: picture full-bleed
+   across the top at its true aspect, then a tall typographic field. The height
+   comes from the type, the way a film poster's does.
+
+   The composition is a three-row grid so nothing can ever collide: title at
+   the top, space in the middle, place at the foot behind a rule — title up
+   top, credits at the bottom.
+   --------------------------------------------------------------------------- */
+.em-cartel .rail-card[data-rail-kind="media"] .rail-card__body {
+  min-height: 0;
+  padding: 24px 22px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  align-content: stretch;
+}
+.em-cartel .rail-card[data-rail-kind="media"] .rail-card__title {
+  font-size: clamp(25px, 2.4vw, 30px);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+/* The credits block, at the foot.
+
+   `metaPlacement: "block"` does not give two separate slots: the kit GROUPS
+   them — `__meta--block` is the category, rendered at 34px/800 because in the
+   kit's own vocabulary a block meta is the headline number of a stat card, and
+   `__value-note` is the place, nested under it. Read out of the DOM rather
+   than guessed at, after two rounds of styling class names that were not
+   there.
+
+   So they are treated as what they are: one credit group, pinned to the bottom
+   of the poster behind a rule. Title at the top, credits at the foot — the way
+   a poster is set. */
+.em-cartel .rail-card[data-rail-kind="media"] .rail-card__value {
+  grid-row: 3;
+  align-self: end;
+  display: grid;
+  gap: 3px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+.em-cartel .rail-card[data-rail-kind="media"] .rail-card__meta--block {
+  font-family: inherit;
+  font-size: 11.5px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #ffb49e;
+}
+.em-cartel .rail-card[data-rail-kind="media"] .rail-card__value-note {
+  font-size: 12.5px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.58);
+}
+
+
 .em-cartel .rail-card[data-rail-kind="media"] {
   position: relative;
   border-top: 0;
@@ -299,7 +378,12 @@
      breaks the day someone writes a second line. */
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto auto auto 1fr;
+  /* The BODY takes the free space, not a spare row after it. With `auto auto
+     auto 1fr` the leftover 101px sat below everything as a void, which is what
+     made a 1.45 card look unfinished rather than tall. */
+  grid-template-rows: auto 1fr auto auto;
+  /* The poster proportion. */
+  aspect-ratio: 1 / 1.45;
 }
 /* THE PHOTO IS MATTED, AND THAT IS WHAT MAKES THE CARD TALL.
 
@@ -322,7 +406,10 @@
 .em-cartel .rail-card[data-rail-kind="media"] .rail-card__figure {
   grid-area: 1 / 1 / 2 / 2;
   order: 0; /* the kit puts the figure after the text; the cover leads here */
-  margin: clamp(18px, 1.9vw, 26px) clamp(18px, 1.9vw, 26px) 0;
+  /* Full bleed. The inset made a frame inside the card's frame around a
+     letterboxed picture — three nested rectangles, which is what read as
+     "small and ugly". */
+  margin: 0;
   position: relative;
   /* THE FRAME IS 4:5. THE PICTURE INSIDE IT IS NOT CROPPED.
      This is the one arrangement that is both tall and honest. `cover` would
@@ -339,11 +426,11 @@
      and the mat reads as a margin. The card keeps its poster height from the
      PANEL below, which is where height belongs once the picture is as large
      as the width allows. */
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 16 / 9;
   display: grid;
   place-items: center;
   background: #0d0d0d;
-  border-radius: calc(var(--rail-card-radius) - 8px);
+  border-radius: 0;
   overflow: hidden;
   /* the mat reads as a frame because the picture sits INSIDE an edge */
   box-shadow:
@@ -399,8 +486,25 @@
 .em-cartel .rail-card[data-rail-kind="media"] .rail-card__body {
   grid-area: 2 / 1 / 3 / 2;
   z-index: 2;
-  padding: clamp(22px, 2.2vw, 30px) clamp(20px, 2.1vw, 28px) 0;
-  gap: 8px;
+  padding: clamp(24px, 2.3vw, 32px) clamp(20px, 2.1vw, 28px) 0;
+  gap: 10px;
+}
+
+/* A card with no description has nothing in row 3, so the panel's `0` bottom
+   left the last line of type ONE PIXEL off the card's border — measured, on
+   the homepage rail, where the cards carry only a title and a place. Text
+   touching its own edge reads as unfinished however good the photograph above
+   it is.
+
+   The bottom air lives in the description for cards that have one, so this
+   gives it back only to the cards that do not, rather than double-spacing the
+   ones that do. The floor is what makes the card a POSTER: height belongs in
+   the panel, because the picture's rendered height is fixed by the card width
+   and a taller frame would only add dead mat. */
+.em-cartel
+  .rail-card[data-rail-kind="media"]:not(:has(.rail-card__description))
+  .rail-card__body {
+  padding-bottom: clamp(26px, 2.5vw, 34px);
 }
 .em-cartel .rail-card[data-rail-kind="media"] .rail-card__description {
   grid-area: 3 / 1 / 4 / 2;
@@ -633,4 +737,406 @@ html.em-returning #em-intro {
 /* Two pages carry a larger desktop ceiling; same curve, higher cap. */
 .em-display--xl {
   font-size: clamp(32px, 9.375vw, 72px);
+}
+
+/* ---------------------------------------------------------------------------
+   Reveal stagger.
+
+   The kit owns the reveal STATES and parametrises them with custom properties
+   (`--rail-reveal-distance`, `--rail-reveal-duration`). This follows that
+   grammar and adds the one thing a page of stacked blocks needs: blocks that
+   arrive in sequence rather than all at once.
+
+   The delay is capped. An index that keeps multiplying turns the last block of
+   a long page into a wait, and a visitor who has already scrolled to it is
+   looking at nothing. Six steps of 70ms is 420ms at the tail — under half a
+   second, which is arrival, not latency.
+
+   It hangs off `.rail-anim`, exactly like the states it delays, so a visitor
+   who asked for less motion never gets a delay either — and, per the rule the
+   motion system does not bend, nothing here can leave content invisible
+   without JavaScript: `rail-reveal` is only ever added by script.
+   --------------------------------------------------------------------------- */
+.rail-anim .rail-reveal {
+  transition-delay: calc(min(var(--em-reveal-i, 0), 6) * 70ms);
+}
+
+/* ---------------------------------------------------------------------------
+   The question list.
+
+   Native `<details>`, rendered OPEN by default. That is the whole point: not a
+   single answer is hidden from a reader or from an answer engine on first
+   paint, so nothing is traded away for the affordance — the visitor simply
+   gains the ability to fold away what they have finished reading.
+
+   The heading stays a real `<h3>` inside the summary. Turning it into the
+   summary itself would quietly rewrite the heading outline of 70 pages, which
+   is an information-architecture decision and not a styling one.
+   --------------------------------------------------------------------------- */
+.em-qa > summary {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  cursor: pointer;
+  list-style: none;
+}
+.em-qa > summary::-webkit-details-marker {
+  display: none;
+}
+.em-qa > summary:focus-visible {
+  outline: 2px solid #9f3c27;
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+/* The sign is the only moving part, and it is 44px of target even though the
+   glyph is 15px. */
+/* The sign is drawn by CSS, never written into the DOM. A decorative glyph in
+   the markup is a word as far as any text comparison is concerned — and the
+   parity gate caught exactly that on all 70 routes when this shipped as a
+   literal "+". Same treatment the numbered list already uses for its numeral. */
+.em-qa__pm::before {
+  content: "+";
+}
+.em-qa__pm {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  margin-top: 2px;
+  border: 1px solid #ddd4c8;
+  border-radius: 999px;
+  color: #9f3c27;
+  font-size: 15px;
+  line-height: 1;
+  transition: transform 0.28s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.em-qa[open] .em-qa__pm {
+  transform: rotate(45deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .em-qa__pm {
+    transition: none;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   The action bar that follows you down the page.
+
+   Phone only, and deliberately. The page is eleven screens tall on a 375px
+   phone; a desktop reading of the same page is not, and the header stays in
+   reach there, so a fixed bar on a wide viewport would cover content to solve
+   a problem that viewport does not have.
+
+   The kit ships the bar hidden and reveals it on `data-rail-visible`. What is
+   added here is the brand skin, the safe-area inset for a phone with a home
+   indicator, and the one thing a fixed bar must never get wrong: the page
+   reserves its height, so the last block is still readable with the bar up.
+   --------------------------------------------------------------------------- */
+.em-stickybar {
+  --rail-stickybar-bg: #101214;
+  --rail-stickybar-z: 40;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  transition: transform 0.32s cubic-bezier(0.2, 0.75, 0.2, 1);
+}
+.em-stickybar .rail-stickybar__in {
+  padding: 10px 16px;
+}
+/* Shares the row with the way-back button instead of claiming all of it. The
+   kit's bar wraps, so `width: 100%` pushed this onto a second line: the bar
+   grew past the 76px the page reserves and covered the card underneath. A
+   screenshot caught that; no measurement in the sweep did, because each piece
+   was the right size on its own. */
+.em-stickybar__action {
+  flex: 1 1 auto;
+  min-width: 0;
+  gap: 8px;
+  min-height: 48px;
+  background: #c84a2c;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+}
+.em-stickybar__action:hover {
+  background: #a93e29;
+}
+/* The reserved height, declared statically on the phone rather than added by
+   the script when the bar appears. Reserving it in CSS costs 76px of empty
+   space below the footer, which nobody sees; adding it at the moment the bar
+   slides up would be a layout shift, and the site currently measures CLS 0.
+   The cheap, invisible option wins. */
+@media (max-width: 639px) {
+  body {
+    padding-bottom: 76px;
+  }
+}
+@media (min-width: 640px) {
+  .em-stickybar {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .em-stickybar {
+    transition: none;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Breadcrumb targets.
+
+   The crumbs measured 17px tall. WCAG 2.2 AA (2.5.8) asks for 24px, and a
+   17px target on a phone is a miss waiting to happen. The padding buys the
+   height without moving the text: the negative margin gives it back to the
+   layout, so the trail sits exactly where it did.
+   --------------------------------------------------------------------------- */
+/* Targeted by the trail's accessible name rather than by a class, because the
+   class only reached the one template it was added to — the contact page still
+   measured 17px.
+
+   Matched as a SUBSTRING, case-insensitively. The first attempt pinned the
+   exact string "Breadcrumb" and missed every page that says "Breadcrumbs",
+   which is most of them. An exact display string is a brittle thing to hang a
+   rule on; the site uses at least three spellings across two languages. */
+nav[aria-label*="readcrumb" i] a,
+nav[aria-label*="igas de pan" i] a,
+.em-crumbs a,
+.em-crumbs [aria-current] {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+}
+
+/* ---------------------------------------------------------------------------
+   The smallest phones.
+
+   The UAT sweep checked 320x568 for overflow but never for the fold, and the
+   fold work missed it: the hero action landed at 613 against a 568px screen.
+   These are spacing trims only, scoped under 360px. The type is deliberately
+   NOT shrunk further — below about 30px the headline stops being a headline,
+   and a bar that follows the page down is the better answer to a small screen
+   than squeezing the first one until it fits.
+   --------------------------------------------------------------------------- */
+@media (max-width: 360px) {
+  .em-crumbs {
+    margin-bottom: 16px;
+  }
+  .em-display {
+    font-size: clamp(30px, 9.375vw, 60px);
+  }
+  [data-em-hero-actions] {
+    margin-top: 16px;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Reading progress.
+
+   Sits directly under the sticky header, which is 65px tall. Fixed rather than
+   sticky so it cannot participate in the document flow and shift anything:
+   the site measures CLS 0 and this must not spend it.
+
+   No transition on the width. It tracks a scroll position, so animating it
+   would make it lag the thing it reports, and a reduced-motion visitor would
+   have to be given a second version.
+   --------------------------------------------------------------------------- */
+.em-progress {
+  position: fixed;
+  top: 65px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 39;
+  background: transparent;
+  pointer-events: none;
+}
+.em-progress__fill {
+  height: 100%;
+  background: #c84a2c;
+}
+
+/* The way back, inside the action bar. 44px of target for a 16px glyph. */
+/* When the bar carries only the way back (on the contact page, where the
+   primary action would point at the page you are reading) it centres instead
+   of sitting against the left edge with nothing beside it. */
+.em-stickybar .rail-stickybar__in:has(> .em-stickybar__top:only-child) {
+  justify-content: center;
+}
+.em-stickybar__top {
+  flex: 0 0 auto;
+  display: inline-grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-right: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  color: #f6f1ea;
+  background: transparent;
+  cursor: pointer;
+}
+.em-stickybar__top:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+.em-stickybar__top:focus-visible {
+  outline: 2px solid #ffb49e;
+  outline-offset: 2px;
+}
+
+/* ---------------------------------------------------------------------------
+   The service shelf, on a phone.
+
+   Measured: this one block is 20,990px — 31.5 of the Spanish home's 44.6
+   screens on a 375px phone. Seventy cards in a single column. It is 70% of the
+   page, and it sits between the visitor and the contact section.
+
+   This is presentation ONLY. The markup, the seventy links, the seventy
+   headings and every word stay exactly as they are — the homepage is not
+   covered by the text-parity gate, so the safe change is the one that cannot
+   alter what the gate would have checked. Turning the grid into real cards
+   with new markup would also be rewriting the site's main internal-link mesh,
+   which deserves its own review rather than arriving inside a motion PR.
+
+   Phone only. From `md` up the grid already has two and three columns and the
+   section is a normal length.
+   --------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  .em-shelf {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 78%;
+    grid-template-columns: none;
+    overflow-x: auto;
+    /* Keeps a sideways flick from turning into a page scroll at the ends. */
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    /* Breaks the container's padding so the strip runs to both edges, which is
+       what tells a thumb it continues past the screen. */
+    margin-inline: -16px;
+    padding-inline: 16px;
+    padding-bottom: 8px;
+    scrollbar-width: thin;
+  }
+  .em-shelf > * {
+    scroll-snap-align: start;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   The price.
+
+   It was rendered `text-sm font-medium text-[#9f3c27]` — the EXACT classes of
+   the "Explore this service" link directly beneath it. Same size, same weight,
+   same colour. The one number a visitor is looking for read as a second link
+   and disappeared into the card.
+
+   So it stops being terracotta, which on this site means "this is a link", and
+   becomes ink, which means "this is a fact". A hairline above it separates it
+   from the description, and tabular figures keep the numbers aligned down a
+   column of cards.
+
+   The words are untouched. They come from lib/site.ts, which is the one file
+   allowed to state a price, and nothing here edits or splits the sentence.
+   --------------------------------------------------------------------------- */
+.em-price {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid #e3dccf;
+  color: #101214;
+  /* 17px, because the body paragraph directly above it is 16px. The first pass
+     gave the price its own colour and weight and left it SMALLER than the text
+     it was competing with, which is a label treatment, not a price treatment.
+     A number a visitor is hunting for cannot be the smallest thing in the card. */
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.35;
+  font-variant-numeric: tabular-nums;
+}
+/* On the dark panels the same rule needs the dark-side ink. */
+.em-on-dark .em-price,
+.em-cartel .em-price {
+  border-top-color: rgba(255, 255, 255, 0.16);
+  color: #f6f1ea;
+}
+
+/* ---------------------------------------------------------------------------
+   The dark panel.
+
+   The cards on the dark bands were `border border-white/10` over
+   `bg-white/[0.04]`: a flat rectangle with a hairline round it. Next to the
+   cartel — which has light along its top edge, a step of shadow under it and a
+   faint diagonal wash — they read as placeholders.
+
+   This is the same recipe, inverted for a dark ground:
+
+     · light along the TOP edge only, because that is where the light is
+       coming from, and it is the single cheapest cue that an object has a
+       thickness rather than being a drawn outline;
+     · a step of shadow beneath, in the same direction that light implies;
+     · a diagonal wash capped well under 5% — past that it stops reading as
+       volume and starts reading as a gradient;
+     · a border that is brighter at the top than the bottom, for the same
+       reason as the highlight.
+
+   Hover lifts by one pixel. On a phone there is no hover, so nothing here
+   depends on it.
+   --------------------------------------------------------------------------- */
+.em-panel {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-top-color: rgba(255, 255, 255, 0.2);
+  border-radius: 14px;
+  background-color: rgba(255, 255, 255, 0.045);
+  background-image: linear-gradient(
+    148deg,
+    rgba(255, 255, 255, 0.045),
+    rgba(255, 255, 255, 0) 58%
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.09),
+    0 1px 2px rgba(0, 0, 0, 0.4),
+    0 12px 28px -18px rgba(0, 0, 0, 0.9);
+  transition:
+    transform 0.28s cubic-bezier(0.2, 0.7, 0.2, 1),
+    border-color 0.28s ease,
+    box-shadow 0.28s ease;
+}
+@media (hover: hover) {
+  .em-panel:hover {
+    transform: translateY(-1px);
+    border-color: rgba(255, 180, 158, 0.42);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.13),
+      0 2px 4px rgba(0, 0, 0, 0.45),
+      0 18px 36px -20px rgba(0, 0, 0, 0.95);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .em-panel {
+    transition: border-color 0.28s ease;
+  }
+  .em-panel:hover {
+    transform: none;
+  }
+}
+/* The icon stops floating loose at the top of the card and sits in a well, so
+   it reads as part of the object rather than dropped onto it. */
+.em-panel__icon {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 180, 158, 0.09);
+}
+
+/* The skip link landed the content at y=0, underneath a 65px sticky header —
+   the one link on the page whose whole job is to get a keyboard user past the
+   header put them behind it. Every other anchor on the site already carries
+   this margin; this one had none. */
+#main-content {
+  scroll-margin-top: 96px;
 }

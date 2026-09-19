@@ -44,7 +44,11 @@ export function ClientReviews({ locale = "en" }: { locale?: "en" | "es" }) {
         </p>
         <h2
           id="client-reviews-heading"
-          className="mt-2 max-w-2xl text-2xl font-semibold tracking-tight text-[#101214] sm:text-3xl"
+          /* Matched to the site's H2 system. Measured on /es: every other section
+             heading is Newsreader 36/400; this one was ui-sans-serif 24/600 — the
+             single band carrying social proof was set in a different design system
+             and read as imported. */
+            className="mt-2 max-w-2xl font-serif text-4xl leading-tight text-[#101214]"
         >
           {t.title}
         </h2>

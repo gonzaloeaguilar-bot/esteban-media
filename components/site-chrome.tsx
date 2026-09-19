@@ -2,6 +2,8 @@ import { Geist, Geist_Mono, Newsreader } from "next/font/google";
 
 import { GoogleAnalytics } from "@/components/google-analytics";
 import { MOTION_GATE_SCRIPT, RouteVeil, SiteMotion } from "@/components/site-motion";
+import { StickyCta } from "@/components/em-sticky-cta";
+import { ReadingProgress } from "@/components/em-reading-progress";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { siteEntityGraphJsonLd } from "@/lib/entity-schema";
@@ -54,6 +56,8 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
       </div>
       <SiteFooter />
       <SiteMotion />
+      <ReadingProgress />
+      <StickyCta />
       <RouteVeil />
       <GoogleAnalytics />
     </>

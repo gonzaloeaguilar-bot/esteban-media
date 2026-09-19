@@ -39,7 +39,7 @@ export default function SpanishHomePage() {
             title="Contenido conectado con una meta de negocio."
             lead="La meta es simple: editar con intención, organizar qué publicar y definir con claridad cuándo hace falta producir material nuevo."
           />
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          <div className="em-shelf mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {spanishServices.map((service) => {
               const Icon = service.icon;
               const href =
@@ -82,16 +82,18 @@ export default function SpanishHomePage() {
             lead="Explora servicios disponibles y páginas por tipo de proyecto. Cuando una opción necesita confirmación, la página lo explica con claridad antes de que pidas una cotización."
             inverted
           />
-          <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <div className="em-shelf mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {spanishNichePages.map((page) => {
               const Icon = page.icon;
               return (
                 <Link
                   key={page.slug}
                   href={`/es/${page.slug}`}
-                  className="rounded-lg border border-white/10 bg-white/[0.04] p-5 transition-colors hover:bg-white/[0.08]"
+                  className="em-panel p-6"
                 >
-                  <Icon className="size-5 text-[#ffb49e]" aria-hidden="true" />
+                  <span className="em-panel__icon">
+                    <Icon className="size-5 text-[#ffb49e]" aria-hidden="true" />
+                  </span>
                   <h2 className="mt-4 font-serif text-2xl">{page.title}</h2>
                   <p className="mt-3 text-sm leading-6 text-[#c9c1b8]">
                     {page.description}

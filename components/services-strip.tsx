@@ -35,7 +35,7 @@ export function ServicesStrip() {
 
         <ul
           role="list"
-          className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
+          className="em-shelf mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
         >
           {services.map((service) => {
             const Icon = service.icon;
@@ -60,7 +60,7 @@ export function ServicesStrip() {
                     {service.description}
                   </p>
                   {service.startingPrice ? (
-                    <p className="mt-2 text-sm font-medium text-[#9f3c27]">
+                    <p className="em-price">
                       {service.startingPrice}
                     </p>
                   ) : null}
