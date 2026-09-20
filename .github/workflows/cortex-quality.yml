@@ -12,6 +12,7 @@ jobs:
   quality-evidence:
     name: Cortex quality evidence
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v6
