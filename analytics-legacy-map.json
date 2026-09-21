@@ -1,0 +1,47 @@
+{
+  "ai_referral_visit": {
+    "event": "section_view",
+    "params": {
+      "section_id": "ai_referral_entry"
+    },
+    "dual_emit": true
+  },
+  "contact": {
+    "event": "lead",
+    "params": {
+      "form_id": "contact",
+      "lead_type": "contact"
+    },
+    "dual_emit": false,
+    "why": "trackLeadSubmit's first argument is a lead SOURCE, not an event name; recorded so the gate can read it"
+  },
+  "contact_cta_click": {
+    "event": "contact_click",
+    "params": {
+      "method": "contact_page"
+    },
+    "dual_emit": true,
+    "why": "GA4 key event on properties/546162112"
+  },
+  "contact_intent": {
+    "event": "contact_click",
+    "params": {},
+    "dual_emit": true,
+    "why": "GA4 key event on properties/546162112"
+  },
+  "lead_submit": {
+    "event": "lead",
+    "params": {
+      "lead_type": "form_submit"
+    },
+    "dual_emit": true,
+    "why": "GA4 key event on properties/546162112"
+  },
+  "service_interest": {
+    "event": "cta_click",
+    "params": {
+      "cta_kind": "service_interest"
+    },
+    "dual_emit": true
+  }
+}

@@ -20,6 +20,10 @@ export function trackServiceInterest(service: string, locale: string): void {
   if (typeof window === "undefined") return;
   const gtag = (window as unknown as { gtag?: Gtag }).gtag;
   if (typeof gtag !== "function") return;
+  // Through the site's one writer, so the event carries the shared block and
+  // its contract twin. See google-analytics-script.ts.
+  const send = (window as unknown as { __estebanTrack?: Gtag }).__estebanTrack;
+  if (typeof send === "function") return send("event", "service_interest", { service, locale });
   gtag("event", "service_interest", { service, locale });
 }
 
@@ -34,8 +38,12 @@ export function trackLeadSubmit(leadSource: LeadSource, locale: string): void {
   if (typeof window === "undefined") return;
   const gtag = (window as unknown as { gtag?: Gtag }).gtag;
   if (typeof gtag !== "function") return;
-  gtag("event", "lead_submit", { lead_source: leadSource, locale });
-  gtag("event", "contact_intent", {
+  const send = (window as unknown as { __estebanTrack?: Gtag }).__estebanTrack;
+  const emit = typeof send === "function"
+    ? (name: string, params: Record<string, unknown>) => send("event", name, params)
+    : (name: string, params: Record<string, unknown>) => gtag("event", name, params);
+  emit("lead_submit", { lead_source: leadSource, locale });
+  emit("contact_intent", {
     contact_method: "form_submit",
     lead_source: leadSource,
     locale,
