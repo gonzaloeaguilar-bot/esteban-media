@@ -26,6 +26,40 @@
    a Tailwind site (preflight sets border-box) and broken everywhere else. */
 .rail,
 .rail-billboard,
+.rail-benefits,
+.rail-steps,
+.rail-drawpile,
+.rail-drawpile__stack,
+.rail-sparkle,
+.rail-allocation,
+.rail-tiers,
+.rail-terrain,
+.rail-limelight,
+.rail-post,
+.rail-skeleton,
+.rail-pack,
+.rail-deck,
+.rail-coverflow,
+.rail-confetti,
+.rail-playcard,
+.rail-reactions,
+.rail-boostercard,
+.rail-tagpicker,
+.rail-redeem,
+.rail-stage,
+.rail-score,
+.rail-controls,
+.rail-voice,
+.rail-intro,
+.rail-receipt,
+.rail-statuschip,
+.rail-statuslist,
+.rail-finder,
+.rail-finder__trigger,
+.rail-note,
+.rail-threadlist,
+.rail-playbill,
+.rail-brandcard,
 .rail-filters,
 .rail-frame,
 .rail-versus,
@@ -38,12 +72,20 @@
 .rail-tabs,
 .rail-bottomnav,
 .rail-fab,
+.rail-prompt,
+.rail-embed,
+.rail-nowplaying,
+.rail-story,
+.rail-tiles,
+.rail-track,
+.rail-merchant,
 .rail-progress,
 .rail-stats,
 .rail-empty,
 .rail-segmented,
 .rail-cta,
 .rail-disclosure,
+.rail-shelf,
 .rail-figures,
 .rail-options,
 .rail-promo,
@@ -66,8 +108,26 @@
 .rail-coachmark,
 .rail-shortcuts,
 .rail-offer,
+.rail-folder,
 .rail *,
 .rail-billboard *,
+.rail-benefits *,
+.rail-steps *,
+.rail-drawpile *,
+.rail-sparkle *,
+.rail-allocation *,
+.rail-tiers *,
+.rail-terrain *,
+.rail-limelight *,
+.rail-post *,
+.rail-skeleton *,
+.rail-pack *,
+.rail-deck *,
+.rail-coverflow *,
+.rail-confetti *,
+.rail-playcard *,
+.rail-reactions *,
+.rail-boostercard *,
 .rail-filters *,
 .rail-frame *,
 .rail-versus *,
@@ -86,6 +146,7 @@
 .rail-segmented *,
 .rail-cta *,
 .rail-disclosure *,
+.rail-shelf *,
 .rail-figures *,
 .rail-options *,
 .rail-promo *,
@@ -107,12 +168,53 @@
 .rail-storyring *,
 .rail-coachmark *,
 .rail-shortcuts *,
-.rail-offer * {
+.rail-offer *,
+.rail-folder *,
+.rail-turntable *,
+.rail-deck *,
+.rail-masthead *,
+.rail-evidence *,
+.rail-cover *,
+.rail-welcome * {
   box-sizing: border-box;
 }
 
 .rail,
 .rail-billboard,
+.rail-benefits,
+.rail-steps,
+.rail-drawpile,
+.rail-drawpile__stack,
+.rail-sparkle,
+.rail-allocation,
+.rail-tiers,
+.rail-terrain,
+.rail-limelight,
+.rail-post,
+.rail-skeleton,
+.rail-pack,
+.rail-deck,
+.rail-coverflow,
+.rail-confetti,
+.rail-playcard,
+.rail-reactions,
+.rail-boostercard,
+.rail-tagpicker,
+.rail-redeem,
+.rail-stage,
+.rail-score,
+.rail-controls,
+.rail-voice,
+.rail-intro,
+.rail-receipt,
+.rail-statuschip,
+.rail-statuslist,
+.rail-finder,
+.rail-finder__trigger,
+.rail-note,
+.rail-threadlist,
+.rail-playbill,
+.rail-brandcard,
 .rail-filters,
 .rail-frame,
 .rail-versus,
@@ -125,12 +227,20 @@
 .rail-tabs,
 .rail-bottomnav,
 .rail-fab,
+.rail-prompt,
+.rail-embed,
+.rail-nowplaying,
+.rail-story,
+.rail-tiles,
+.rail-track,
+.rail-merchant,
 .rail-progress,
 .rail-stats,
 .rail-empty,
 .rail-segmented,
 .rail-cta,
 .rail-disclosure,
+.rail-shelf,
 .rail-figures,
 .rail-options,
 .rail-promo,
@@ -152,10 +262,24 @@
 .rail-storyring,
 .rail-coachmark,
 .rail-shortcuts,
-.rail-offer {
+.rail-offer,
+.rail-folder,
+.rail-turntable,
+.rail-deck,
+.rail-masthead,
+.rail-evidence,
+.rail-cover,
+.rail-welcome {
   --_gap: calc(var(--rail-gap, 20px) * var(--_space));
   --_width: var(--rail-card-width, 300px);
   --_accent: var(--rail-accent, currentColor);
+  /* THE ACCENT AS TEXT IS A DIFFERENT COLOUR FROM THE ACCENT AS A FILL, and
+     this alias is the only reason a brand does not have to know that fifteen
+     times. An accent tuned for a filled button is routinely 3:1 or worse as
+     13-15px text, which the axe gate has now caught on three separate
+     components. A brand sets --rail-accent-text ONCE and every text use
+     follows; leave it unset and nothing changes. */
+  --_accent-text: var(--rail-accent-text, var(--_accent));
   --_radius: var(--rail-card-radius, 16px);
   --_bg: var(--rail-card-bg, rgba(255, 255, 255, 0.04));
   --_border: var(--rail-card-border, rgba(255, 255, 255, 0.12));
@@ -246,7 +370,7 @@
      3.06:1 on its own background and the FLAS gold 3.02:1 on its own. Give
      these three their own tokens so a brand can lighten the accent for small
      text without touching buttons, where a large filled area passes. */
-  color: var(--rail-eyebrow-color, var(--_accent));
+  color: var(--rail-eyebrow-color, var(--_accent-text));
   font-size: calc(var(--rail-eyebrow-size, 11px) * var(--_type));
 }
 
@@ -304,14 +428,47 @@
   align-items: flex-start;
   gap: var(--_gap);
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
+  /* NO SNAP. This went `mandatory` -> `proximity` -> gone, and the last step
+     is the one that fixes what people actually felt.
+
+     The arithmetic is the whole story. A card is 420px and the gap 26, so a
+     snap step is 446. One notch of a mouse wheel — or a small trackpad nudge —
+     moves about 197px, 43% of a step. Snapping resolves to the NEAREST point,
+     and 197 is closer to 0 than to 446, so the rail slides forward and then
+     puts itself back where it started. Measured on a real wheel event: it
+     reached 197 and walked home through 186, 141, 79, 26, 10, 0.
+
+     `proximity` does not save you here. It loosens WHEN a snap happens, not
+     WHERE it lands, and every short scroll is still short. The feeling is that
+     the carousel is jammed, and it is not a feeling: every gentle scroll is
+     undone.
+
+     The affordance that snapping was supposed to buy — landing on a card
+     instead of between two — is already in the arrows, which scroll by exactly
+     one card and say so. Free scrolling never fights the hand. */
+  scroll-snap-type: none;
   padding-bottom: var(--_space-lg);
   margin-top: var(--_space-4xl);
   scrollbar-width: none;
   -ms-overflow-style: none;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-x: contain;
+}
+
+/* Smooth scrolling is motion, and it was outside every reduce gate: a visitor
+   who asked for less movement still got the arrows gliding the rail. The kit's
+   own rule is that nothing animates without the query. */
+@media (prefers-reduced-motion: no-preference) {
+  .rail__scroller { scroll-behavior: smooth; }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .rail__scroller { cursor: grab; }
+  .rail__scroller[data-dragging="true"] {
+    cursor: grabbing;
+    scroll-behavior: auto;
+    user-select: none;
+  }
 }
 
 .rail__scroller::-webkit-scrollbar { display: none; }
@@ -332,7 +489,6 @@
   flex-direction: column;
   flex: 0 0 auto;
   width: min(var(--_width), 78vw);
-  scroll-snap-align: start;
   border: 1px solid var(--_border);
   border-radius: var(--_radius);
   background: var(--_bg);
@@ -365,7 +521,7 @@
      tuned for a filled button routinely is not that on the card surface. */
   font: var(--rail-glyph-font, inherit);
   font-size: calc(var(--rail-glyph-size, 38px) * var(--_type));
-  color: var(--rail-glyph-color, var(--_accent));
+  color: var(--rail-glyph-color, var(--_accent-text));
   letter-spacing: var(--_track-wide);
 }
 
@@ -460,7 +616,7 @@
   font-family: var(--rail-meta-font, inherit);
   font-size: calc(var(--rail-meta-size, 14px) * var(--_type));
   font-weight: var(--rail-meta-weight, inherit);
-  color: var(--rail-meta-color, var(--_accent));
+  color: var(--rail-meta-color, var(--_accent-text));
   white-space: nowrap;
 }
 
@@ -566,7 +722,7 @@
   border: 0;
 }
 
-.rail-card__cta { font-size: var(--_text-sm); color: var(--rail-cta-link-color, var(--_accent)); text-decoration: none; }
+.rail-card__cta { font-size: var(--_text-sm); color: var(--rail-cta-link-color, var(--_accent-text)); text-decoration: none; }
 
 /* Buttons, not <button>s — see RailCard — so they carry their own box. */
 .rail-card__cta--primary,
@@ -599,7 +755,7 @@
 
 .rail-card__cta--secondary {
   background: var(--rail-cta-secondary-bg, transparent);
-  color: var(--rail-cta-secondary-color, var(--rail-cta-link-color, var(--_accent)));
+  color: var(--rail-cta-secondary-color, var(--rail-cta-link-color, var(--_accent-text)));
   border: 1px solid var(--rail-cta-secondary-border, var(--_accent));
 }
 
@@ -694,6 +850,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .rail__scroller { scroll-behavior: auto; }
   .rail-card,
   .rail-card__image,
   .rail__arrow {
@@ -754,7 +911,7 @@
   gap: var(--_space-2xs);
   min-height: var(--_control-min-sm);
   padding: 0 var(--_space-2xs);
-  color: var(--rail-cta-link-color, var(--_accent));
+  color: var(--rail-cta-link-color, var(--_accent-text));
   font-size: var(--_text-lg);
   font-weight: var(--rail-weight-semibold, 600);
   text-decoration: none;
@@ -881,6 +1038,7 @@
   margin: 0;
   padding: 0 0 var(--_space-2xs);
   overflow-x: auto;
+  scroll-behavior: smooth;
   scrollbar-width: none;
   -ms-overflow-style: none;
   overscroll-behavior-x: contain;
@@ -912,7 +1070,16 @@
   color: var(--rail-chip-active-color, #fff);
 }
 
-.rail-filters__count { opacity: 0.7; font-variant-numeric: tabular-nums; }
+/* Third instance of the same mistake in this stylesheet: opacity used to say
+   "secondary" on something made of words. On the ACTIVE chip, which is filled
+   with the brand accent, 0.7 put the count at 3.79:1. The count is already
+   de-emphasised by being smaller and tabular; it does not need to be faded
+   too. --rail-filters-count-color exists for a brand that wants to push it
+   further, and it is that brand's job to keep it above 4.5. */
+.rail-filters__count {
+  color: var(--rail-filters-count-color, currentColor);
+  font-variant-numeric: tabular-nums;
+}
 
 .rail-filters :is(a, button):focus-visible {
   outline: 2px solid var(--rail-focus, currentColor);
@@ -1464,7 +1631,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   display: inline-flex;
   align-items: center;
   min-height: var(--_tap-min);
-  color: var(--rail-cta-link-color, var(--_accent));
+  color: var(--rail-cta-link-color, var(--_accent-text));
   font-size: calc(var(--rail-size-meta, 15px) * var(--_type));
   font-weight: var(--rail-weight-semibold, 600);
   text-decoration: none;
@@ -1551,7 +1718,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   border-radius: var(--rail-cta-radius, var(--_pill));
   border: 1px solid var(--rail-cta-secondary-border, var(--_border));
   background: var(--rail-cta-secondary-bg, transparent);
-  color: var(--rail-cta-secondary-color, var(--rail-cta-link-color, var(--_accent)));
+  color: var(--rail-cta-secondary-color, var(--rail-cta-link-color, var(--_accent-text)));
   font-size: calc(var(--rail-size-meta, 15px) * var(--_type));
   font-weight: var(--rail-weight-semibold, 600);
   text-decoration: none;
@@ -1825,6 +1992,13 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   max-height: var(--rail-sheet-height, 88vh);
   overflow: hidden;
   border-radius: var(--rail-card-radius, 16px);
+  /* A modal dialog is centred by the browser with `margin: auto`, and a CSS
+     reset takes that away without meaning to: Tailwind's preflight zeroes the
+     margin on every element, `dialog` included. The sheet then pins to the
+     inset-0 corner and sits hard against the left edge with the whole gap on
+     the right, which reads as a broken panel rather than a centred one.
+     Restated here so the kit does not depend on what a consumer's reset does. */
+  margin: auto;
 }
 
 .rail-sheet::backdrop {
@@ -2393,8 +2567,8 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 }
 
 .rail-tabs__tab[aria-current] {
-  color: var(--rail-tabs-active-color, var(--_accent));
-  border-bottom-color: var(--rail-tabs-active-color, var(--_accent));
+  color: var(--rail-tabs-active-color, var(--_accent-text));
+  border-bottom-color: var(--rail-tabs-active-color, var(--_accent-text));
 }
 
 .rail-tabs__label { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -2459,7 +2633,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 }
 
 .rail-bottomnav__link[aria-current="page"] {
-  color: var(--rail-bottomnav-active-color, var(--_accent));
+  color: var(--rail-bottomnav-active-color, var(--_accent-text));
 }
 
 .rail-bottomnav__icon {
@@ -2746,7 +2920,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   font-size: calc(var(--rail-list-note-size, 14px) * var(--_type));
   font-weight: var(--rail-weight-semibold, 600);
   line-height: 1.35;
-  color: var(--rail-list-note-color, var(--_accent));
+  color: var(--rail-list-note-color, var(--_accent-text));
 }
 
 .rail-list__chevron {
@@ -2792,7 +2966,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 
 .rail-segmented__segment[data-active] {
   background: var(--rail-segmented-active-bg, color-mix(in srgb, currentColor 12%, transparent));
-  color: var(--rail-segmented-active-color, var(--_accent));
+  color: var(--rail-segmented-active-color, var(--_accent-text));
 }
 
 .rail-segmented__icon { display: grid; place-items: center; }
@@ -2852,7 +3026,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   border: 0;
   border-radius: 0;
   background: none;
-  color: var(--rail-cta-link-color, var(--_accent));
+  color: var(--rail-cta-link-color, var(--_accent-text));
 }
 
 .rail-cta[disabled] {
@@ -2941,7 +3115,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 .rail-disclosure[data-rail-tone="footer"] .rail-disclosure__toggle {
   justify-content: center;
   padding: var(--rail-disclosure-footer-padding, var(--_space-mid) 0);
-  color: var(--rail-cta-link-color, var(--_accent));
+  color: var(--rail-cta-link-color, var(--_accent-text));
   font-size: calc(var(--rail-size-body, 16px) * var(--_type));
   font-weight: var(--rail-weight-semibold, 600);
 }
@@ -3066,7 +3240,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   font-size: calc(var(--rail-size-body, 17px) * var(--_type));
   font-weight: var(--rail-weight-bold, 700);
   font-variant-numeric: tabular-nums;
-  color: var(--rail-options-price-color, var(--_accent));
+  color: var(--rail-options-price-color, var(--_accent-text));
 }
 
 .rail-options__option:focus-visible {
@@ -3227,7 +3401,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 
 .rail-milestone__value {
   font-weight: var(--rail-weight-bold, 700);
-  color: var(--rail-milestone-value-color, var(--_accent));
+  color: var(--rail-milestone-value-color, var(--_accent-text));
 }
 
 .rail-milestone__target { color: var(--_muted); }
@@ -3288,6 +3462,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 
 .rail-tabs[data-rail-scroll] .rail-tabs__list {
   overflow-x: auto;
+  scroll-behavior: smooth;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
 }
@@ -3405,7 +3580,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   align-self: center;
   display: grid;
   place-items: center;
-  color: var(--rail-presence-color, var(--_accent));
+  color: var(--rail-presence-color, var(--_accent-text));
 }
 
 .rail-presence__glyph :is(svg, img) {
@@ -3582,7 +3757,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   display: inline-flex;
   align-items: center;
   min-height: var(--_tap-min);
-  color: var(--rail-cta-link-color, var(--_accent));
+  color: var(--rail-cta-link-color, var(--_accent-text));
   font-size: calc(var(--rail-size-body, 15px) * var(--_type));
   font-weight: var(--rail-weight-semibold, 600);
   text-decoration: none;
@@ -4268,13 +4443,24 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   border-top: 1px dashed var(--rail-coupons-perforation, rgba(0, 0, 0, 0.22));
 }
 
-.rail-coupons__coupon[data-rail-claimed] { opacity: 0.55; }
+/* Same defect as the offer strip above, same fix: fade the ticket, not its
+   words. */
+.rail-coupons__coupon[data-rail-claimed] {
+  background: var(--rail-coupons-claimed-bg, color-mix(in srgb, currentColor 4%, transparent));
+}
+.rail-coupons__coupon[data-rail-claimed] .rail-coupons__glyph {
+  opacity: var(--rail-coupons-claimed-glyph-opacity, 0.55);
+}
 
 .rail-coupons__headline {
   margin: 0;
   font-size: calc(var(--rail-coupons-headline-size, clamp(26px, 6vw, 36px)) * var(--_type));
   font-weight: var(--rail-weight-heavy, 800);
   line-height: 1;
+  /* NOT --_accent-text. The ticket paints its own light surface, so the value
+     a brand tunes for text on the dark PAGE is wrong here — it measured
+     2.76:1 on white. A token is tuned against a background, and this
+     component brings its own. */
   color: var(--rail-coupons-headline-color, var(--_accent));
 }
 
@@ -4357,7 +4543,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   padding: 0;
   border: 0;
   background: none;
-  color: var(--rail-cta-link-color, var(--_accent));
+  color: var(--rail-cta-link-color, var(--_accent-text));
   font: inherit;
   font-weight: var(--rail-weight-semibold, 600);
   text-decoration: none;
@@ -4622,6 +4808,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   margin: 0;
   padding: 0;
   overflow-x: auto;
+  scroll-behavior: smooth;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
 }
@@ -4722,7 +4909,19 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   border-left: 1px dashed var(--rail-offer-perforation, color-mix(in srgb, currentColor 30%, transparent));
 }
 
-.rail-offer[data-rail-claimed] { opacity: 0.6; }
+/* A claimed offer must read as TAKEN without becoming unreadable.
+   `opacity: 0.6` on the whole strip did both: it dimmed the surface and every
+   word on it, and the axe gate measured the result at 2.95:1 against 4.5.
+   Opacity is the wrong instrument for "quieter" whenever there is text
+   underneath it — it cannot tell the difference between a background it is
+   fine to fade and a sentence somebody still has to read.
+   The surface fades; the words do not. */
+.rail-offer[data-rail-claimed] {
+  background: var(--rail-offer-claimed-bg, color-mix(in srgb, var(--_accent) 6%, transparent));
+}
+.rail-offer[data-rail-claimed] .rail-offer__glyph {
+  opacity: var(--rail-offer-claimed-glyph-opacity, 0.55);
+}
 
 .rail-offer__glyph {
   flex-shrink: 0;
@@ -4758,7 +4957,11 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   gap: var(--_space-3xs);
   margin: var(--_space-3xs) 0 0;
   font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
-  color: var(--_muted);
+  /* Its own knob, not --_muted. The offer strip paints a tinted surface, so a
+     muted value tuned against the page background can land under 4.5:1 on it
+     (axe measured 3.04). A brand must be able to fix the offer without
+     lifting muted text everywhere else. */
+  color: var(--rail-offer-meta-color, var(--_muted));
 }
 
 .rail-offer__explain {
@@ -4794,7 +4997,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   flex-shrink: 0;
   font-size: calc(var(--rail-size-meta, 15px) * var(--_type));
   font-weight: var(--rail-weight-semibold, 600);
-  color: var(--_muted);
+  color: var(--rail-offer-meta-color, var(--_muted));
 }
 
 .rail-offer__sr {
@@ -4825,4 +5028,3779 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   margin: var(--_space-3xs) 0 0;
   font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
   color: var(--_muted);
+}
+
+
+/* -------------------------------------------------------------------------
+ * RailPrompt — an opt-in ask with two answers the same size.
+ *
+ * The decline is a real button, not a grey link. Every token below that could
+ * be used to shrink or fade it is deliberately absent: there is a knob for the
+ * accept's colour and none for making the decline quieter, because the whole
+ * argument of this component is that the two are equal.
+ * ------------------------------------------------------------------------- */
+
+.rail-prompt {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--_space-md);
+  padding: var(--rail-prompt-padding, var(--_space-mid));
+  border: 1px solid var(--rail-prompt-border, var(--_border));
+  border-radius: var(--rail-prompt-radius, 14px);
+  background: var(--rail-prompt-bg, transparent);
+  color: var(--_text);
+}
+
+.rail-prompt__glyph {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: var(--rail-icon-size, 22px);
+  height: var(--rail-icon-size, 22px);
+}
+
+.rail-prompt__text { min-width: 0; }
+
+.rail-prompt__heading {
+  margin: 0;
+  font-size: calc(var(--rail-size-body, 16px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+
+.rail-prompt__body {
+  margin: var(--_space-3xs) 0 0;
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  color: var(--_muted);
+}
+
+.rail-prompt__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--_space-md);
+  margin-top: var(--_space-md);
+}
+
+/* Same padding, same font, same min-height. Only the colour differs. */
+.rail-prompt__action {
+  min-height: var(--_tap-min);
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-weight: var(--rail-weight-semibold, 600);
+  font-size: calc(var(--rail-size-meta, 15px) * var(--_type));
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.rail-prompt__action--accept { color: var(--rail-prompt-accept-color, var(--_accent-text)); }
+.rail-prompt__action--decline { color: var(--rail-prompt-decline-color, var(--_text)); }
+
+.rail-prompt :is(a, button):focus-visible {
+  outline: 2px solid var(--rail-focus, currentColor);
+  outline-offset: 2px;
+}
+
+/* The extended FAB: a pill that follows its text instead of a fixed disc.
+   Height stays put so it lines up with the disc form; only the width moves. */
+.rail-fab[data-rail-extended] {
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  min-width: var(--rail-fab-size, 68px);
+  height: var(--rail-fab-extended-height, 56px);
+  padding: 0 var(--rail-fab-extended-padding, 22px);
+  gap: var(--_space-xs);
+}
+
+
+/* -------------------------------------------------------------------------
+ * RailEmbed — a third-party iframe that does not exist until it is asked for.
+ * ------------------------------------------------------------------------- */
+
+.rail-embed__frame {
+  display: block;
+  width: 100%;
+  border: 0;
+  border-radius: var(--rail-embed-radius, 12px);
+}
+
+.rail-embed__facade {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-mid);
+  padding: var(--rail-embed-padding, var(--_space-mid));
+  border: 1px solid var(--rail-embed-border, var(--_border));
+  border-radius: var(--rail-embed-radius, 12px);
+  background: var(--rail-embed-bg, transparent);
+  color: var(--_text);
+}
+
+.rail-embed__image {
+  flex-shrink: 0;
+  width: var(--rail-embed-art, 96px);
+  height: var(--rail-embed-art, 96px);
+  object-fit: cover;
+  border-radius: var(--rail-embed-art-radius, 8px);
+}
+
+.rail-embed__glyph {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: var(--rail-embed-art, 96px);
+  height: var(--rail-embed-art, 96px);
+}
+
+.rail-embed__text { min-width: 0; }
+.rail-embed__heading {
+  margin: 0;
+  font-weight: var(--rail-weight-semibold, 600);
+  font-size: calc(var(--rail-size-body, 16px) * var(--_type));
+}
+.rail-embed__body {
+  margin: var(--_space-3xs) 0 0;
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  color: var(--_muted);
+}
+.rail-embed__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--_space-md);
+  margin-top: var(--_space-md);
+}
+.rail-embed__load,
+.rail-embed__out {
+  min-height: var(--_tap-min);
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-weight: var(--rail-weight-semibold, 600);
+  font-size: calc(var(--rail-size-meta, 15px) * var(--_type));
+  cursor: pointer;
+  text-decoration: none;
+}
+.rail-embed__load { color: var(--rail-embed-load-color, var(--_accent-text)); }
+.rail-embed__out { color: var(--rail-embed-out-color, var(--_text)); }
+
+.rail-embed :is(a, button):focus-visible {
+  outline: 2px solid var(--rail-focus, currentColor);
+  outline-offset: 2px;
+}
+
+/* -------------------------------------------------------------------------
+ * RailMerchant — a directory of places, scanned rather than read.
+ * ------------------------------------------------------------------------- */
+
+.rail-merchant__heading {
+  margin: 0 0 var(--_space-md);
+  font-size: calc(var(--rail-heading-size, clamp(22px, 3vw, 30px)) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+
+.rail-merchant__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.rail-merchant__row {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-md);
+  border-bottom: 1px solid var(--rail-merchant-divider, var(--_border));
+}
+.rail-merchant__row:last-child { border-bottom: 0; }
+
+.rail-merchant__link {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--_space-md);
+  padding: var(--rail-merchant-padding, var(--_space-md) 0);
+  color: inherit;
+  text-decoration: none;
+}
+
+.rail-merchant__logo {
+  flex-shrink: 0;
+  width: var(--rail-merchant-logo, 44px);
+  height: var(--rail-merchant-logo, 44px);
+  border-radius: var(--rail-merchant-logo-radius, 50%);
+  object-fit: cover;
+  display: grid;
+  place-items: center;
+}
+.rail-merchant__logo--letter {
+  background: var(--rail-merchant-logo-bg, color-mix(in srgb, currentColor 12%, transparent));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+
+.rail-merchant__text {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--_space-3xs);
+}
+.rail-merchant__name { font-weight: var(--rail-weight-semibold, 600); }
+.rail-merchant__meta {
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  color: var(--_muted);
+}
+.rail-merchant__offer {
+  font-size: calc(var(--rail-size-meta, 13px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+  color: var(--rail-merchant-offer-color, var(--_accent-text));
+}
+.rail-merchant__tags { display: flex; flex-wrap: wrap; gap: var(--_space-3xs); }
+.rail-merchant__tag {
+  font-size: calc(var(--rail-size-meta, 12px) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+  padding: 1px var(--_space-3xs);
+  border: 1px solid var(--rail-merchant-tag-border, var(--_border));
+  border-radius: var(--rail-merchant-tag-radius, 4px);
+  color: var(--rail-merchant-tag-color, var(--_text));
+}
+.rail-merchant__unavailable {
+  font-size: calc(var(--rail-size-meta, 13px) * var(--_type));
+  color: var(--rail-merchant-unavailable-color, var(--_muted));
+}
+
+/* The row is quieter, and the TEXT keeps its contrast: the same rule the offer
+   strip learned when opacity dimmed a sentence somebody still had to read. */
+.rail-merchant__row[data-rail-unavailable] .rail-merchant__logo { opacity: 0.5; }
+
+.rail-merchant__favourite {
+  flex-shrink: 0;
+  min-width: var(--_tap-min);
+  min-height: var(--_tap-min);
+  border: 0;
+  background: none;
+  color: var(--rail-merchant-favourite-color, var(--_text));
+  font-size: calc(var(--rail-size-body, 18px) * var(--_type));
+  cursor: pointer;
+}
+
+.rail-merchant :is(a, button):focus-visible {
+  outline: 2px solid var(--rail-focus, currentColor);
+  outline-offset: 2px;
+}
+
+
+/* -------------------------------------------------------------------------
+ * RailNowPlaying — what is playing, on every screen.
+ * ------------------------------------------------------------------------- */
+
+.rail-nowplaying {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: var(--rail-nowplaying-layer, 40);
+  background: var(--rail-nowplaying-bg, var(--_bg));
+  border-top: 1px solid var(--rail-nowplaying-border, var(--_border));
+  color: var(--_text);
+}
+.rail-nowplaying__row {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-md);
+  padding: var(--rail-nowplaying-padding, var(--_space-xs) var(--_space-md));
+}
+.rail-nowplaying__summary {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--_space-md);
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+.rail-nowplaying__art {
+  flex-shrink: 0;
+  width: var(--rail-nowplaying-art, 44px);
+  height: var(--rail-nowplaying-art, 44px);
+  border-radius: var(--rail-nowplaying-art-radius, 6px);
+  object-fit: cover;
+}
+.rail-nowplaying__text { min-width: 0; display: flex; flex-direction: column; }
+.rail-nowplaying__title {
+  font-weight: var(--rail-weight-semibold, 600);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.rail-nowplaying__by { font-weight: 400; color: var(--_muted); }
+.rail-nowplaying__device {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-3xs);
+  font-size: calc(var(--rail-size-meta, 13px) * var(--_type));
+  color: var(--rail-nowplaying-device-color, var(--_accent-text));
+}
+.rail-nowplaying__controls { display: flex; align-items: center; gap: var(--_space-xs); }
+.rail-nowplaying__action,
+.rail-nowplaying__transport {
+  min-width: var(--_tap-min);
+  min-height: var(--_tap-min);
+  border: 0;
+  background: none;
+  color: inherit;
+  font-size: calc(var(--rail-size-body, 18px) * var(--_type));
+  cursor: pointer;
+}
+.rail-nowplaying__progress {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-xs);
+  padding: 0 var(--_space-md) var(--_space-xs);
+}
+.rail-nowplaying__progress progress {
+  flex: 1;
+  height: var(--rail-nowplaying-bar, 3px);
+  appearance: none;
+  border: 0;
+}
+.rail-nowplaying__clock {
+  font-size: calc(var(--rail-size-meta, 12px) * var(--_type));
+  color: var(--_muted);
+  font-variant-numeric: tabular-nums;
+}
+.rail-nowplaying :is(a, button):focus-visible {
+  outline: 2px solid var(--rail-focus, currentColor);
+  outline-offset: 2px;
+}
+
+/* -------------------------------------------------------------------------
+ * RailStory — a short sequence with a segmented bar and a mandatory pause.
+ * ------------------------------------------------------------------------- */
+
+.rail-story {
+  border: 1px solid var(--rail-story-border, var(--_border));
+  border-radius: var(--rail-story-radius, 14px);
+  background: var(--rail-story-bg, transparent);
+  overflow: hidden;
+}
+.rail-story__chrome {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-md);
+  padding: var(--rail-story-padding, var(--_space-md));
+}
+.rail-story__bars { flex: 1; display: flex; gap: var(--_space-3xs); }
+.rail-story__bar {
+  flex: 1;
+  height: var(--rail-story-bar, 3px);
+  appearance: none;
+  border: 0;
+}
+.rail-story__pause,
+.rail-story__close {
+  min-width: var(--_tap-min);
+  min-height: var(--_tap-min);
+  border: 0;
+  background: none;
+  color: inherit;
+  font-size: calc(var(--rail-size-body, 16px) * var(--_type));
+  cursor: pointer;
+}
+.rail-story__step { padding: 0 var(--rail-story-padding, var(--_space-md)) var(--rail-story-padding, var(--_space-md)); }
+.rail-story :is(a, button):focus-visible {
+  outline: 2px solid var(--rail-focus, currentColor);
+  outline-offset: 2px;
+}
+
+/* -------------------------------------------------------------------------
+ * RailTiles — a picture and a name, two across.
+ * ------------------------------------------------------------------------- */
+
+.rail-tiles__heading {
+  margin: 0 0 var(--_space-md);
+  font-size: calc(var(--rail-heading-size, clamp(22px, 3vw, 30px)) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+.rail-tiles__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--rail-tiles-gap, var(--_space-xs));
+}
+.rail-tiles[data-rail-columns="3"] .rail-tiles__grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.rail-tiles__tile {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-xs);
+  min-height: var(--rail-tiles-height, 56px);
+  border-radius: var(--rail-tiles-radius, 6px);
+  background: var(--rail-tiles-bg, color-mix(in srgb, currentColor 8%, transparent));
+  color: inherit;
+  text-decoration: none;
+  overflow: hidden;
+}
+.rail-tiles__art,
+.rail-tiles__glyph {
+  flex-shrink: 0;
+  width: var(--rail-tiles-art, 56px);
+  height: var(--rail-tiles-art, 56px);
+  object-fit: cover;
+  display: grid;
+  place-items: center;
+}
+.rail-tiles__label {
+  min-width: 0;
+  padding-right: var(--_space-xs);
+  font-weight: var(--rail-weight-semibold, 600);
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.rail-tiles__badge {
+  margin-left: auto;
+  padding-right: var(--_space-xs);
+  color: var(--rail-tiles-badge-color, var(--_accent-text));
+}
+.rail-tiles a:focus-visible {
+  outline: 2px solid var(--rail-focus, currentColor);
+  outline-offset: 2px;
+}
+
+/* -------------------------------------------------------------------------
+ * RailTrack — many rows of the same kind of thing, where the state is the news.
+ * ------------------------------------------------------------------------- */
+
+.rail-track__heading {
+  margin: 0 0 var(--_space-md);
+  font-size: calc(var(--rail-heading-size, clamp(22px, 3vw, 30px)) * var(--_type));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+.rail-track__list { list-style: none; margin: 0; padding: 0; }
+.rail-track__row { display: flex; align-items: center; gap: var(--_space-xs); }
+.rail-track__link {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--_space-md);
+  padding: var(--rail-track-padding, var(--_space-xs) 0);
+  color: inherit;
+  text-decoration: none;
+}
+.rail-track__art {
+  flex-shrink: 0;
+  width: var(--rail-track-art, 48px);
+  height: var(--rail-track-art, 48px);
+  border-radius: var(--rail-track-art-radius, 4px);
+  object-fit: cover;
+}
+.rail-track__text { min-width: 0; display: flex; flex-direction: column; }
+.rail-track__title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.rail-track__row[data-rail-playing] .rail-track__title {
+  color: var(--rail-track-playing-color, var(--_accent-text));
+  font-weight: var(--rail-weight-semibold, 600);
+}
+.rail-track__by {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-3xs);
+  font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
+  color: var(--_muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.rail-track__mark { color: var(--rail-track-mark-color, var(--_accent-text)); }
+.rail-track__saved { color: var(--rail-track-saved-color, var(--_accent-text)); }
+.rail-track__menu {
+  flex-shrink: 0;
+  min-width: var(--_tap-min);
+  min-height: var(--_tap-min);
+  border: 0;
+  background: none;
+  color: inherit;
+  font-size: calc(var(--rail-size-body, 18px) * var(--_type));
+  cursor: pointer;
+}
+.rail-track :is(a, button):focus-visible {
+  outline: 2px solid var(--rail-focus, currentColor);
+  outline-offset: 2px;
+}
+
+
+/* ── RailFolder ──────────────────────────────────────────────────────────
+   Folders in a drawer. The why is in RailFolder.tsx; this is the drawing.
+
+   Every colour, radius and step comes from a token with a neutral fallback,
+   like the rest of the kit: the folder has to look like manila in one brand
+   and like a black lacquer box in another without either of them editing
+   this file. */
+.rail-folder {
+  display: block;
+  color: var(--_text, currentColor);
+}
+
+/* THE TABS OVERLAP THEIR SHEET. A row of tabs sitting ON a panel is what
+   makes a drawer read as a drawer instead of as a segmented control, and the
+   overlap is the whole trick: the open tab loses its bottom edge and becomes
+   one shape with the sheet below it. */
+.rail-folder__tabs {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--rail-folder-gap, 3px);
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  padding: 0 var(--rail-folder-inset, 10px);
+  margin-bottom: -1px;
+  position: relative;
+  z-index: 1;
+}
+.rail-folder__tabs::-webkit-scrollbar { display: none; }
+
+.rail-folder__tab {
+  flex: 0 0 auto;
+  display: inline-flex;
+  /* LOS ROTULOS COMPARTEN LINEA DE BASE, Y ANTES BAILABAN. El escalon hace la
+     pestana mas alta segun su indice -esa es la intencion: se cortan arriba-
+     pero con el contenido centrado el TEXTO subia con la caja. Medido en el
+     consumidor: cinco pestanas con la linea de base en y=46, 44, 42, 40, 46.
+     Una fila de palabras a cinco alturas distintas se lee como desalineacion,
+     que es justo lo que el escalon queria evitar.
+     Anclado abajo, escalona el canto superior y no el texto. */
+  align-items: flex-end;
+  padding-bottom: var(--rail-folder-tab-pad-b, 11px);
+  gap: var(--_space-s, 8px);
+  min-height: var(--rail-folder-tab-height, 40px);
+  padding: 0 var(--rail-folder-tab-pad, 15px);
+  border: 1px solid var(--_border, currentColor);
+  border-bottom-color: transparent;
+  border-radius: var(--rail-folder-tab-radius, 9px) var(--rail-folder-tab-radius, 9px) 0 0;
+  background: var(--rail-folder-tab-bg, transparent);
+  color: inherit;
+  font: inherit;
+  font-size: var(--rail-folder-tab-size, 13px);
+  cursor: pointer;
+  /* THE STEP CHANGES THE TAB'S HEIGHT, NOT ITS BOTTOM EDGE, and the first
+     version had it backwards. Stepping the bottom margin lifted the inactive
+     tabs OFF the sheet: in a drawer they all rest on the same edge — what
+     varies is where they are cut at the top, which is how you can read them
+     all at once. Lifted instead, the row reads as a misalignment, and that is
+     exactly how it looked in review. */
+  padding-top: calc(var(--rail-folder-i, 0) * var(--rail-folder-step, 0px));
+}
+.rail-folder[data-rail-tone="drawer"] .rail-folder__tab {
+  --rail-folder-step: 3px;
+}
+.rail-folder__tab[aria-selected="true"] {
+  background: var(--rail-folder-sheet-bg, var(--_card-bg, transparent));
+  border-color: var(--_accent, currentColor);
+  border-bottom-color: transparent;
+  color: var(--_accent-text, inherit);
+}
+.rail-folder__tab:focus-visible {
+  outline: 2px solid var(--_accent, currentColor);
+  outline-offset: 2px;
+}
+.rail-folder__badge {
+  font-size: var(--rail-folder-badge-size, 11px);
+  opacity: 0.75;
+}
+
+/* THE SHEET IS WHAT YOU PULLED OUT. Its top-left corner stays square where
+   the tabs sit, so the tab and the sheet look cut from one piece of card. */
+.rail-folder__sheet {
+  border: 1px solid var(--_border, currentColor);
+  border-radius: 0 var(--rail-folder-radius, 12px) var(--rail-folder-radius, 12px)
+    var(--rail-folder-radius, 12px);
+  background: var(--rail-folder-sheet-bg, var(--_card-bg, transparent));
+  padding: var(--rail-folder-pad, 18px);
+}
+.rail-folder__sheet:focus-visible {
+  outline: 2px solid var(--_accent, currentColor);
+  outline-offset: -3px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* The sheet comes UP, like something lifted out of the drawer, and only a
+     few pixels: a folder that slides across the screen is a carousel wearing
+     a costume. */
+  .rail-folder__sheet {
+    animation: rail-folder-sale var(--rail-folder-speed, 0.26s) var(--_ease);
+  }
+  .rail-folder__tab {
+    transition: background var(--rail-folder-speed, 0.26s) ease,
+      border-color var(--rail-folder-speed, 0.26s) ease;
+  }
+}
+@keyframes rail-folder-sale {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   RailPlaybill — el cartel que no se puede recortar.
+
+   Dos marcas construyeron esto por separado y las dos chocaron con lo mismo:
+   una obra con el titulo y los creditos impresos DENTRO de los pixeles no
+   admite recorte. Cambiar `contain` por `cover` quita las bandas laterales y
+   se come los creditos; volver a `contain` devuelve los creditos y las bandas.
+   Ninguno de los dos es el arreglo.
+
+   El arreglo es dejar de meter la obra en una caja fija: en modo `artwork` la
+   imagen manda su propia proporcion, asi que no hay recorte NI bandas. El modo
+   `photo` si recorta, anclado arriba, porque en un retrato la cara esta alta y
+   lo que sobra esta abajo.
+   --------------------------------------------------------------------------- */
+.rail-playbill {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rail-playbill-gap, var(--_space-lg));
+  background: var(--rail-playbill-bg, transparent);
+  border-radius: var(--rail-playbill-radius, var(--rail-card-radius, 16px));
+  overflow: hidden;
+}
+
+.rail-playbill__media {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--rail-playbill-media-radius, inherit);
+}
+
+/* Modo artwork: la imagen impone su alto. Sin aspect-ratio, sin recorte. */
+.rail-playbill--artwork .rail-playbill__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Modo photo: caja con proporcion y recorte anclado arriba. */
+.rail-playbill--photo .rail-playbill__media {
+  aspect-ratio: var(--rail-playbill-aspect, 3 / 4);
+}
+
+.rail-playbill--photo .rail-playbill__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* El cuerpo va FUERA de la fotografia: ningun control cae sobre una cara. */
+.rail-playbill__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rail-playbill-body-gap, var(--_space-sm));
+  padding: var(--rail-playbill-padding, 0);
+}
+
+.rail-playbill__title {
+  margin: 0;
+  color: var(--rail-playbill-color, inherit);
+  font-size: calc(var(--rail-playbill-title-size, 18px) * var(--_type));
+  font-weight: var(--rail-playbill-title-weight, 600);
+  line-height: var(--rail-playbill-title-leading, 1.25);
+}
+
+.rail-playbill__meta,
+.rail-playbill__credit {
+  margin: 0;
+  color: var(--rail-playbill-muted, var(--_muted));
+  font-size: calc(var(--rail-playbill-meta-size, 14px) * var(--_type));
+  line-height: var(--rail-playbill-meta-leading, 1.4);
+}
+
+.rail-playbill__credit {
+  font-size: calc(var(--rail-playbill-credit-size, 12px) * var(--_type));
+}
+
+.rail-playbill__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--rail-playbill-actions-gap, var(--_space-sm));
+  margin-block-start: var(--rail-playbill-actions-offset, var(--_space-xs));
+}
+
+/* ---------------------------------------------------------------------------
+   RailBrandCard — la marca con su fotografia, y con su procedencia.
+
+   Una foto ilustrativa junto al nombre de una marca se lee como prueba de que
+   el trabajo ocurrio. Por eso la procedencia es parte del significado de la
+   tarjeta, viene por defecto en el lado prudente (`editorial`) y se imprime
+   como palabras visibles, nunca como un title.
+   --------------------------------------------------------------------------- */
+.rail-brandcard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rail-brandcard-gap, var(--_space-md));
+  color: inherit;
+  text-decoration: none;
+  background: var(--rail-brandcard-bg, transparent);
+  border: var(--rail-brandcard-border, 1px solid var(--_border));
+  border-radius: var(--rail-brandcard-radius, var(--rail-card-radius, 16px));
+  padding: var(--rail-brandcard-padding, 0);
+  overflow: hidden;
+}
+
+.rail-brandcard__media {
+  width: 100%;
+  aspect-ratio: var(--rail-brandcard-aspect, 4 / 3);
+  overflow: hidden;
+}
+
+.rail-brandcard__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.rail-brandcard__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rail-brandcard-body-gap, var(--_space-xs));
+  padding: var(--rail-brandcard-body-padding, var(--_space-lg));
+}
+
+.rail-brandcard__category {
+  margin: 0;
+  /* El acento de una marca se elige para destacar, no para leerse a 12px: en
+     el taller daba 3.05:1 sobre el papel oscuro, y AA pide 4.5:1 para texto
+     normal. El defecto es el tono apagado, que si esta gestionado; una marca
+     puede poner su acento cuando ese acento pase el contraste. */
+  color: var(--rail-brandcard-category-color, var(--_muted));
+  font-size: calc(var(--rail-brandcard-category-size, 12px) * var(--_type));
+  letter-spacing: var(--rail-brandcard-category-tracking, 0.08em);
+  text-transform: uppercase;
+}
+
+.rail-brandcard__name {
+  margin: 0;
+  font-size: calc(var(--rail-brandcard-name-size, 18px) * var(--_type));
+  font-weight: var(--rail-brandcard-name-weight, 600);
+  line-height: var(--rail-brandcard-name-leading, 1.25);
+}
+
+.rail-brandcard__phrase {
+  margin: 0;
+  color: var(--rail-brandcard-muted, var(--_muted));
+  font-size: calc(var(--rail-brandcard-phrase-size, 14px) * var(--_type));
+  line-height: var(--rail-brandcard-phrase-leading, 1.45);
+}
+
+/* La etiqueta de procedencia se LEE. No es un adorno ni un tooltip. */
+.rail-brandcard__label,
+.rail-brandcard__credit {
+  margin: 0;
+  color: var(--rail-brandcard-label-color, var(--_muted));
+  font-size: calc(var(--rail-brandcard-label-size, 12px) * var(--_type));
+  line-height: var(--rail-brandcard-label-leading, 1.4);
+}
+
+/* ---------------------------------------------------------------------------
+   RailNote — las palabras van ENCIMA de la cara, nunca sobre ella.
+
+   Un rotulo puesto sobre una fotografia acaba cayendo en la cara con algun
+   tamano de texto, en algun idioma, en alguna pantalla. Encima del avatar no
+   puede, en ninguno. El globo se corta a tres lineas: una nota es un
+   pensamiento de paso, y una fila cuyas tarjetas crecen hasta la mas larga
+   deja de ser una fila.
+   --------------------------------------------------------------------------- */
+.rail-note {
+  display: flex;
+  gap: var(--rail-note-gap, var(--_space-xl));
+  margin: 0;
+  padding: var(--rail-note-padding, var(--_space-md) var(--_space-lg));
+  list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.rail-note::-webkit-scrollbar { display: none; }
+
+/* El contenedor es flex con align-items:stretch, asi que cada item crece hasta
+   el mas alto; dentro, el contenido se ancla abajo. Resultado: los avatares
+   caen todos en la misma linea, tenga la nota una linea o tres, y la fila no
+   queda dentada. Medido antes de esto: 140.3 / 140.3 / 123.4 / 113.6 px. */
+.rail-note__item {
+  display: flex;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}
+
+.rail-note__link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  gap: var(--rail-note-stack-gap, var(--_space-xs));
+  width: var(--rail-note-width, calc(var(--_space-4xl) * 2.5));
+  color: inherit;
+  text-decoration: none;
+}
+
+.rail-note__bubble {
+  position: relative;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  max-width: 100%;
+  padding: var(--rail-note-bubble-padding, var(--_space-sm) var(--_space-md));
+  border-radius: var(--rail-note-bubble-radius, calc(var(--_space-lg) * 1.25));
+  background: var(--rail-note-bubble-bg, var(--_bg));
+  color: var(--rail-note-bubble-color, inherit);
+  font-size: calc(var(--rail-note-bubble-size, 13px) * var(--_type));
+  line-height: var(--rail-note-bubble-leading, 1.3);
+  text-align: center;
+}
+
+/* La cola. Dos circulos, como los globos de mensaje. */
+.rail-note__bubble::after,
+.rail-note__bubble::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  border-radius: 100%;
+  background: inherit;
+}
+
+.rail-note__bubble::before {
+  bottom: calc(var(--rail-note-tail, 8px) * -1);
+  width: var(--rail-note-tail, 8px);
+  height: var(--rail-note-tail, 8px);
+  transform: translateX(-50%);
+}
+
+.rail-note__bubble::after {
+  bottom: calc(var(--rail-note-tail, 8px) * -2);
+  width: calc(var(--rail-note-tail, 8px) / 2);
+  height: calc(var(--rail-note-tail, 8px) / 2);
+  transform: translateX(-150%);
+}
+
+/* Sin nota, el hueco se reserva: la fila no salta de alto tarjeta a tarjeta. */
+.rail-note__bubble--empty {
+  background: transparent;
+  min-height: var(--rail-note-bubble-min, calc(var(--_space-4xl)));
+}
+
+.rail-note__bubble--empty::before,
+.rail-note__bubble--empty::after { display: none; }
+
+.rail-note__avatar {
+  display: block;
+  width: var(--rail-note-avatar, calc(var(--_space-4xl) * 1.75));
+  height: var(--rail-note-avatar, calc(var(--_space-4xl) * 1.75));
+  border-radius: 100%;
+  overflow: hidden;
+  background: var(--rail-note-avatar-bg, var(--_bg));
+}
+
+.rail-note__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* La cara esta alta en un retrato: lo que sobra se recorta por abajo. */
+  object-position: center top;
+}
+
+.rail-note__name {
+  max-width: 100%;
+  overflow: hidden;
+  color: var(--rail-note-name-color, var(--_muted));
+  font-size: calc(var(--rail-note-name-size, 12px) * var(--_type));
+  line-height: var(--rail-note-name-leading, 1.3);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rail-note__link--seen .rail-note__avatar {
+  opacity: var(--rail-note-seen-opacity, 0.55);
+}
+
+/* ---------------------------------------------------------------------------
+   RailThreadList — la bandeja.
+
+   La marca de no leido lleva palabra ademas de punto. Un punto de color es el
+   estado mas barato y el menos accesible: no existe para un lector de pantalla
+   y es ambiguo para quien no separa ese tono del fondo.
+   --------------------------------------------------------------------------- */
+.rail-threadlist {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rail-threadlist__link {
+  display: flex;
+  align-items: center;
+  gap: var(--rail-threadlist-gap, var(--_space-lg));
+  padding: var(--rail-threadlist-padding, var(--_space-md) var(--_space-lg));
+  color: inherit;
+  text-decoration: none;
+}
+
+.rail-threadlist__avatar {
+  flex: 0 0 auto;
+  width: var(--rail-threadlist-avatar, calc(var(--_space-4xl) * 1.5));
+  height: var(--rail-threadlist-avatar, calc(var(--_space-4xl) * 1.5));
+  border-radius: 100%;
+  overflow: hidden;
+  background: var(--rail-threadlist-avatar-bg, var(--_bg));
+}
+
+.rail-threadlist__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* min-width:0 o el texto no se deja recortar dentro de un flex. */
+.rail-threadlist__body {
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+  flex-direction: column;
+  gap: var(--rail-threadlist-stack-gap, var(--_space-xs));
+}
+
+.rail-threadlist__name {
+  overflow: hidden;
+  font-size: calc(var(--rail-threadlist-name-size, 15px) * var(--_type));
+  font-weight: var(--rail-threadlist-name-weight, 500);
+  line-height: var(--rail-threadlist-name-leading, 1.3);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rail-threadlist__item--unread .rail-threadlist__name {
+  font-weight: var(--rail-threadlist-unread-weight, 700);
+}
+
+/* Una linea usa ellipsis; dos o mas necesitan line-clamp, que exige box.
+   Con -webkit-line-clamp NO se pone white-space:nowrap: el nowrap gana y la
+   segunda linea no llega a existir. */
+.rail-threadlist__preview {
+  display: -webkit-box;
+  -webkit-line-clamp: var(--_borders, 1);
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: var(--rail-threadlist-preview-color, var(--_muted));
+  font-size: calc(var(--rail-threadlist-preview-size, 14px) * var(--_type));
+  line-height: var(--rail-threadlist-preview-leading, 1.35);
+}
+
+.rail-threadlist__sender {
+  color: var(--rail-threadlist-sender-color, inherit);
+}
+
+.rail-threadlist__receipt {
+  margin-inline-end: var(--rail-threadlist-receipt-offset, var(--_space-xs));
+}
+
+/* La columna derecha: la hora arriba, las marcas debajo. */
+.rail-threadlist__aside {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--rail-threadlist-aside-gap, var(--_space-xs));
+  align-self: stretch;
+}
+
+.rail-threadlist__time {
+  color: var(--rail-threadlist-time-color, var(--_muted));
+  font-size: calc(var(--rail-threadlist-time-size, 12px) * var(--_type));
+  white-space: nowrap;
+}
+
+.rail-threadlist__marks {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--rail-threadlist-marks-gap, var(--_space-xs));
+  color: var(--rail-threadlist-marks-color, var(--_muted));
+}
+
+.rail-threadlist__muted {
+  margin-inline-start: var(--rail-threadlist-muted-offset, var(--_space-xs));
+}
+
+.rail-threadlist__unread {
+  flex: 0 0 auto;
+}
+
+.rail-threadlist__dot {
+  display: block;
+  width: var(--rail-threadlist-dot, var(--_space-md));
+  height: var(--rail-threadlist-dot, var(--_space-md));
+  border-radius: 100%;
+  background: var(--rail-threadlist-dot-bg, var(--_accent));
+}
+
+/* ---------------------------------------------------------------------------
+   RailBottomNav --floating — la barra se despega en una pastilla.
+
+   Solo con fondo real: flotar significa que el contenido pasa por debajo, y
+   una pastilla transparente pone texto en movimiento bajo los rotulos.
+   --------------------------------------------------------------------------- */
+.rail-bottomnav--floating {
+  right: var(--rail-bottomnav-floating-inset, var(--_space-lg));
+  left: var(--rail-bottomnav-floating-inset, var(--_space-lg));
+  width: auto;
+  margin-block-end: var(--rail-bottomnav-floating-lift, var(--_space-lg));
+  border-radius: var(--rail-bottomnav-floating-radius, calc(var(--_space-4xl) * 1.25));
+  background: var(--rail-bottomnav-floating-bg, var(--_bg));
+  box-shadow: var(--rail-bottomnav-floating-shadow, none);
+}
+
+/* ---------------------------------------------------------------------------
+   RailFinder — buscar todo el sitio desde cualquier sitio.
+
+   El disparador es una barra pequena o un boton redondo; la hoja es RailSheet,
+   asi que Escape cierra, el foco queda dentro mientras esta abierta y vuelve al
+   disparador al cerrar. El alto es de la marca: --rail-sheet-height a 100vh
+   para un buscador a pantalla completa.
+   --------------------------------------------------------------------------- */
+.rail-finder__trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--rail-finder-trigger-gap, var(--_space-sm));
+  border: var(--rail-finder-trigger-border, 1px solid var(--_border));
+  border-radius: var(--rail-finder-trigger-radius, calc(var(--_space-4xl) * 1.25));
+  background: var(--rail-finder-trigger-bg, var(--_bg));
+  color: var(--rail-finder-trigger-color, inherit);
+  cursor: pointer;
+  font: inherit;
+  font-size: calc(var(--rail-finder-trigger-size, 14px) * var(--_type));
+}
+
+.rail-finder__trigger--bar {
+  width: 100%;
+  padding: var(--rail-finder-trigger-padding, var(--_space-md) var(--_space-lg));
+}
+
+/* Redondo, y con lado suficiente para un pulgar: AA pide 24px de objetivo. */
+.rail-finder__trigger--icon {
+  justify-content: center;
+  width: var(--rail-finder-icon-size, calc(var(--_space-4xl) * 1.1));
+  height: var(--rail-finder-icon-size, calc(var(--_space-4xl) * 1.1));
+  padding: 0;
+}
+
+.rail-finder__glyph {
+  display: inline-flex;
+  flex: 0 0 auto;
+  color: var(--rail-finder-glyph-color, var(--_muted));
+}
+
+.rail-finder__hint {
+  overflow: hidden;
+  color: var(--rail-finder-hint-color, var(--_muted));
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rail-finder {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rail-finder-gap, var(--_space-lg));
+  min-height: 0;
+}
+
+/* El campo se queda arriba y SOLO la lista se desplaza: si el campo se va con
+   el scroll, afinar la busqueda obliga a volver a subir. */
+.rail-finder__field {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--rail-finder-field-gap, var(--_space-sm));
+  padding: var(--rail-finder-field-padding, var(--_space-md) var(--_space-lg));
+  border-radius: var(--rail-finder-field-radius, calc(var(--_space-4xl) * 1.25));
+  background: var(--rail-finder-field-bg, var(--_bg));
+}
+
+.rail-finder__input {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: calc(var(--rail-finder-input-size, 16px) * var(--_type));
+  outline: none;
+}
+
+.rail-finder__results {
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  list-style: none;
+}
+
+.rail-finder__link {
+  display: flex;
+  align-items: center;
+  gap: var(--rail-finder-thumb-gap, var(--_space-lg));
+  padding: var(--rail-finder-result-padding, var(--_space-md) var(--_space-lg));
+  border-radius: var(--rail-finder-result-radius, var(--rail-card-radius, 16px));
+  color: inherit;
+  text-decoration: none;
+}
+
+.rail-finder__thumb {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: var(--rail-finder-thumb, calc(var(--_space-4xl) * 1.35));
+  height: var(--rail-finder-thumb, calc(var(--_space-4xl) * 1.35));
+  border: var(--rail-finder-thumb-border, 1px solid var(--_border));
+  border-radius: 100%;
+  overflow: hidden;
+  color: var(--rail-finder-glyph-color, var(--_muted));
+}
+
+.rail-finder__thumb-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* min-width:0 o el texto no se deja recortar dentro de un flex. */
+.rail-finder__text {
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+  flex-direction: column;
+  gap: var(--rail-finder-result-gap, var(--_space-xs));
+}
+
+/* <mark> trae fondo amarillo del navegador. Se apaga y el enfasis pasa al
+   peso, que es lo que hace el patron de autocompletar: la parte que coincide
+   se distingue sin pintar la fila de otro color. */
+.rail-finder__match {
+  background: var(--rail-finder-match-bg, transparent);
+  color: var(--rail-finder-match-color, inherit);
+  font-weight: var(--rail-finder-match-weight, 700);
+}
+
+.rail-finder__badge {
+  margin-inline-start: var(--rail-finder-badge-offset, var(--_space-xs));
+}
+
+.rail-finder__trailing {
+  flex: 0 0 auto;
+}
+
+/* Cartas: cada resultado es un destino, no una sugerencia. */
+.rail-finder__results--cards {
+  display: grid;
+  gap: var(--rail-finder-cards-gap, var(--_space-lg));
+  grid-template-columns: repeat(auto-fill, minmax(var(--rail-finder-card-min, 240px), 1fr));
+}
+
+.rail-finder__results--cards .rail-finder__link {
+  flex-direction: column;
+  align-items: start;
+  border: var(--rail-finder-card-border, 1px solid var(--_border));
+}
+
+.rail-finder__results--cards .rail-finder__thumb {
+  width: 100%;
+  height: auto;
+  aspect-ratio: var(--rail-finder-card-aspect, 16 / 9);
+  border-radius: var(--rail-finder-card-thumb-radius, var(--rail-card-radius, 16px));
+}
+
+.rail-finder__section {
+  color: var(--rail-finder-section-color, var(--_muted));
+  font-size: calc(var(--rail-finder-section-size, 12px) * var(--_type));
+  letter-spacing: var(--rail-finder-section-tracking, 0.06em);
+  text-transform: uppercase;
+}
+
+.rail-finder__title {
+  font-size: calc(var(--rail-finder-title-size, 16px) * var(--_type));
+  font-weight: var(--rail-finder-title-weight, 600);
+  line-height: var(--rail-finder-title-leading, 1.3);
+}
+
+.rail-finder__summary {
+  color: var(--rail-finder-summary-color, var(--_muted));
+  font-size: calc(var(--rail-finder-summary-size, 14px) * var(--_type));
+  line-height: var(--rail-finder-summary-leading, 1.4);
+}
+
+.rail-finder__empty {
+  margin: 0;
+  padding: var(--rail-finder-empty-padding, var(--_space-lg));
+  color: var(--rail-finder-empty-color, var(--_muted));
+  font-size: calc(var(--rail-finder-empty-size, 15px) * var(--_type));
+}
+
+.rail-finder__query {
+  color: var(--rail-finder-query-color, inherit);
+  font-weight: var(--rail-finder-query-weight, 600);
+}
+
+/* ---------------------------------------------------------------------------
+   RailStatusChip — una cosa con nombre y si esta levantada.
+   El punto es color y forma: no existe para un lector de pantalla. Por eso el
+   estado viaja siempre en palabra, visible o para el lector.
+   --------------------------------------------------------------------------- */
+.rail-statuschip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--rail-statuschip-gap, var(--_space-sm));
+  padding: var(--rail-statuschip-padding, var(--_space-md) var(--_space-lg));
+  border: var(--rail-statuschip-border, 1px solid var(--_border));
+  border-radius: var(--rail-statuschip-radius, calc(var(--_space-4xl) * 1.25));
+  background: var(--rail-statuschip-bg, transparent);
+  color: inherit;
+  font-size: calc(var(--rail-statuschip-size, 14px) * var(--_type));
+  text-decoration: none;
+}
+
+.rail-statuschip__glyph {
+  display: inline-flex;
+  flex: 0 0 auto;
+  color: var(--rail-statuschip-glyph-color, var(--_muted));
+}
+
+.rail-statuschip__dot {
+  flex: 0 0 auto;
+  width: var(--rail-statuschip-dot, var(--_space-sm));
+  height: var(--rail-statuschip-dot, var(--_space-sm));
+  border-radius: 100%;
+  background: var(--rail-statuschip-dot-ok, #3fb950);
+}
+
+.rail-statuschip--busy .rail-statuschip__dot { background: var(--rail-statuschip-dot-busy, #d29922); }
+.rail-statuschip--warn .rail-statuschip__dot { background: var(--rail-statuschip-dot-warn, #d1242f); }
+.rail-statuschip--off .rail-statuschip__dot { background: var(--rail-statuschip-dot-off, #6e7681); }
+
+.rail-statuschip__status {
+  color: var(--rail-statuschip-status-color, var(--_muted));
+}
+
+.rail-statuschip__label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ---------------------------------------------------------------------------
+   RailStatusList — el trabajo y lo que esta haciendo cada pieza.
+   La marca de delante es un ESTADO, no una cara: se recorre la columna de
+   marcas buscando la que te reclama. Por eso cada estado lleva su palabra.
+   --------------------------------------------------------------------------- */
+.rail-statuslist {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rail-statuslist__link {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--rail-statuslist-gap, var(--_space-lg));
+  padding: var(--rail-statuslist-padding, var(--_space-lg));
+  color: inherit;
+  text-decoration: none;
+}
+
+.rail-statuslist__mark {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: var(--rail-statuslist-mark, calc(var(--_space-4xl) * 0.9));
+  height: var(--rail-statuslist-mark, calc(var(--_space-4xl) * 0.9));
+  color: var(--rail-statuslist-mark-color, var(--_muted));
+}
+
+.rail-statuslist__item--attention .rail-statuslist__mark {
+  color: var(--rail-statuslist-attention-color, var(--_accent));
+}
+
+.rail-statuslist__body {
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+  flex-direction: column;
+  gap: var(--rail-statuslist-stack-gap, var(--_space-xs));
+}
+
+.rail-statuslist__title {
+  overflow: hidden;
+  font-size: calc(var(--rail-statuslist-title-size, 17px) * var(--_type));
+  font-weight: var(--rail-statuslist-title-weight, 500);
+  line-height: var(--rail-statuslist-title-leading, 1.3);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rail-statuslist__meta {
+  overflow: hidden;
+  color: var(--rail-statuslist-meta-color, var(--_muted));
+  font-size: calc(var(--rail-statuslist-meta-size, 14px) * var(--_type));
+  line-height: var(--rail-statuslist-meta-leading, 1.35);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ---------------------------------------------------------------------------
+   RailReceipt — que paso con el mensaje que mandaste.
+   Un tick y dos ticks se diferencian en unos pixeles, y leido frente a
+   entregado suele ser solo un color: ninguna de las dos cosas llega a un lector
+   de pantalla ni sobrevive a un daltonismo. Por eso el estado lleva palabra.
+   --------------------------------------------------------------------------- */
+.rail-receipt {
+  display: inline-flex;
+  align-items: center;
+  color: var(--rail-receipt-color, var(--_muted));
+  vertical-align: -0.15em;
+}
+
+.rail-receipt--read { color: var(--rail-receipt-read, #53bdeb); }
+.rail-receipt--failed { color: var(--rail-receipt-failed, #d1242f); }
+
+/* ---------------------------------------------------------------------------
+   RailIntro — la vuelta que se da la primera vez, y solo la primera.
+
+   Panel abajo en el movil, tarjeta centrada en pantalla ancha. No tapa la
+   pagina entera a proposito: el paso habla de algo que esta DETRAS, y un
+   backdrop opaco esconde justo lo que se esta explicando.
+   --------------------------------------------------------------------------- */
+.rail-intro {
+  position: fixed;
+  z-index: var(--rail-intro-layer, 60);
+  right: var(--rail-intro-inset, var(--_space-lg));
+  bottom: var(--rail-intro-inset, var(--_space-lg));
+  left: var(--rail-intro-inset, var(--_space-lg));
+  display: flex;
+  flex-direction: column;
+  gap: var(--rail-intro-gap, var(--_space-md));
+  max-height: var(--rail-intro-max-height, 76vh);
+  overflow-y: auto;
+  padding: var(--rail-intro-padding, var(--_space-xl));
+  border: var(--rail-intro-border, 1px solid var(--_border));
+  border-radius: var(--rail-intro-radius, calc(var(--_space-xl) * 1.25));
+  background: var(--rail-intro-bg, var(--_bg));
+  color: var(--rail-intro-color, inherit);
+  box-shadow: var(--rail-intro-shadow, none);
+  outline: none;
+}
+
+@media (min-width: 720px) {
+  .rail-intro {
+    right: auto;
+    left: 50%;
+    width: min(var(--rail-intro-width, 420px), 92vw);
+    transform: translateX(-50%);
+  }
+}
+
+.rail-intro__media {
+  overflow: hidden;
+  border-radius: var(--rail-intro-media-radius, var(--rail-card-radius, 16px));
+}
+
+.rail-intro__count {
+  margin: 0;
+  color: var(--rail-intro-count-color, var(--_muted));
+  font-size: calc(var(--rail-intro-count-size, 12px) * var(--_type));
+  letter-spacing: var(--rail-intro-count-tracking, 0.06em);
+  text-transform: uppercase;
+}
+
+.rail-intro__title {
+  margin: 0;
+  font-size: calc(var(--rail-intro-title-size, 20px) * var(--_type));
+  font-weight: var(--rail-intro-title-weight, 600);
+  line-height: var(--rail-intro-title-leading, 1.25);
+}
+
+.rail-intro__body {
+  margin: 0;
+  color: var(--rail-intro-body-color, var(--_muted));
+  font-size: calc(var(--rail-intro-body-size, 15px) * var(--_type));
+  line-height: var(--rail-intro-body-leading, 1.5);
+}
+
+.rail-intro__dots {
+  display: flex;
+  gap: var(--rail-intro-dots-gap, var(--_space-xs));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rail-intro__dot {
+  width: var(--rail-intro-dot, var(--_space-sm));
+  height: var(--rail-intro-dot, var(--_space-sm));
+  border-radius: 100%;
+  background: var(--rail-intro-dot-bg, var(--_border));
+}
+
+.rail-intro__dot--at {
+  background: var(--rail-intro-dot-at, var(--_accent));
+}
+
+.rail-intro__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--rail-intro-actions-gap, var(--_space-md));
+}
+
+.rail-intro__move {
+  display: flex;
+  gap: var(--rail-intro-move-gap, var(--_space-sm));
+}
+
+/* Salir tiene que estar SIEMPRE a la vista, no escondido tras un aspa de 8px:
+   quien mas quiere salir es quien ya sabe como funciona esto. */
+.rail-intro__skip {
+  padding: var(--rail-intro-skip-padding, var(--_space-sm) 0);
+  border: 0;
+  background: none;
+  color: var(--rail-intro-skip-color, var(--_muted));
+  cursor: pointer;
+  font: inherit;
+  font-size: calc(var(--rail-intro-skip-size, 14px) * var(--_type));
+  text-decoration: underline;
+}
+
+/* El elemento del que habla el paso. Contorno, no relleno: rellenarlo taparia
+   justo la cosa que se esta senalando. */
+.rail-intro-anchor {
+  outline: var(--rail-intro-anchor-outline, 2px solid var(--_accent));
+  outline-offset: var(--rail-intro-anchor-offset, 3px);
+  border-radius: var(--rail-intro-anchor-radius, var(--rail-card-radius, 16px));
+}
+
+/* ---------------------------------------------------------------------------
+   RailVoice — decir lo que buscas.
+
+   El microfono late mientras escucha, y late porque es el unico aviso de que
+   hay un microfono abierto. Con prefers-reduced-motion el latido para y el
+   estado lo lleva el color y el texto: nunca SOLO la animacion.
+   --------------------------------------------------------------------------- */
+.rail-voice {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rail-voice-gap, var(--_space-md));
+}
+
+.rail-voice__mic {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: start;
+  width: var(--rail-voice-mic, calc(var(--_space-4xl) * 1.35));
+  height: var(--rail-voice-mic, calc(var(--_space-4xl) * 1.35));
+  padding: 0;
+  border: var(--rail-voice-mic-border, 1px solid var(--_border));
+  border-radius: 100%;
+  background: var(--rail-voice-mic-bg, var(--_bg));
+  color: var(--rail-voice-mic-color, inherit);
+  cursor: pointer;
+}
+
+.rail-voice__mic--on {
+  border-color: var(--rail-voice-on-border, var(--_accent));
+  background: var(--rail-voice-on-bg, var(--_bg));
+  color: var(--rail-voice-on-color, var(--_accent));
+  animation: rail-voice-pulse var(--rail-voice-pulse, 1.4s) ease-in-out infinite;
+}
+
+@keyframes rail-voice-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 var(--rail-voice-ring, rgba(255, 255, 255, 0.22)); }
+  50% { box-shadow: 0 0 0 var(--rail-voice-ring-size, 10px) transparent; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rail-voice__mic--on { animation: none; }
+}
+
+.rail-voice__status {
+  margin: 0;
+  min-height: var(--rail-voice-status-min, calc(var(--_space-xl) * 1.2));
+  color: var(--rail-voice-status-color, var(--_muted));
+  font-size: calc(var(--rail-voice-status-size, 15px) * var(--_type));
+  line-height: var(--rail-voice-status-leading, 1.4);
+}
+
+.rail-voice__empty {
+  margin: 0;
+  color: var(--rail-voice-empty-color, var(--_muted));
+  font-size: calc(var(--rail-voice-empty-size, 14px) * var(--_type));
+}
+
+.rail-voice__said {
+  color: var(--rail-voice-said-color, inherit);
+  font-weight: var(--rail-voice-said-weight, 600);
+}
+
+.rail-voice__unsupported {
+  margin: 0;
+  color: var(--rail-voice-unsupported-color, var(--_muted));
+  font-size: calc(var(--rail-voice-unsupported-size, 14px) * var(--_type));
+}
+
+.rail-voice__results {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rail-voice__link {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rail-voice-result-gap, var(--_space-xs));
+  padding: var(--rail-voice-result-padding, var(--_space-md) var(--_space-lg));
+  border-radius: var(--rail-voice-result-radius, var(--rail-card-radius, 16px));
+  color: inherit;
+  text-decoration: none;
+}
+
+.rail-voice__section {
+  color: var(--rail-voice-section-color, var(--_muted));
+  font-size: calc(var(--rail-voice-section-size, 12px) * var(--_type));
+  letter-spacing: var(--rail-voice-section-tracking, 0.06em);
+  text-transform: uppercase;
+}
+
+.rail-voice__title {
+  font-size: calc(var(--rail-voice-title-size, 16px) * var(--_type));
+  font-weight: var(--rail-voice-title-weight, 600);
+  line-height: var(--rail-voice-title-leading, 1.3);
+}
+
+/* Glifo junto al titulo de seccion: a la altura del texto, no de la caja. */
+.rail__heading-mark {
+  display: inline-flex;
+  align-items: center;
+  margin-inline-end: var(--rail-heading-mark-gap, var(--_space-sm));
+  vertical-align: -0.12em;
+}
+
+/* Chip de solo icono: un CIRCULO del alto de la fila.
+   El lado no se deriva de --_space-4xl. Lo intente y sale una elipse: ese token
+   vale 24px, asi que *1.1 daba 26.4 de ancho contra los 40 de alto que tienen
+   los chips de texto. Medido en navegador; leyendo el CSS no se ve.
+   `aspect-ratio` lo mantiene redondo aunque la marca cambie el alto de la fila,
+   y `flex:0 0 auto` impide que encoja y deje de ser un circulo al apretarse la
+   fila. 40px supera de sobra los 24 que pide AA como MINIMO de objetivo. */
+.rail-filters__chip--icon {
+  flex: 0 0 auto;
+  justify-content: center;
+  width: var(--rail-filters-icon-size, 40px);
+  height: var(--rail-filters-icon-size, 40px);
+  aspect-ratio: 1;
+  padding: 0;
+  border-radius: 100%;
+}
+
+/* ---------------------------------------------------------------------------
+   RailStage / RailScore / RailControls — el suelo de un juego pequeno.
+   --------------------------------------------------------------------------- */
+.rail-stage {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rail-stage-gap, var(--_space-md));
+}
+
+.rail-stage__canvas {
+  display: block;
+  width: 100%;
+  aspect-ratio: var(--rail-stage-aspect, 4 / 3);
+  border-radius: var(--rail-stage-radius, var(--rail-card-radius, 16px));
+  background: var(--rail-stage-bg, var(--_bg));
+  touch-action: none;
+}
+
+.rail-stage__panel {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--rail-stage-panel-gap, var(--_space-md));
+}
+
+.rail-score {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--rail-score-gap, var(--_space-lg));
+  font-size: calc(var(--rail-score-size, 14px) * var(--_type));
+}
+
+.rail-score__part {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--rail-score-part-gap, var(--_space-xs));
+}
+
+.rail-score__label {
+  color: var(--rail-score-label-color, var(--_muted));
+}
+
+.rail-score__value {
+  font-variant-numeric: tabular-nums;
+  font-weight: var(--rail-score-value-weight, 600);
+}
+
+/* El marcador actual manda sobre lo demas: es lo que se mira de reojo. */
+.rail-score__part--now .rail-score__value {
+  font-size: calc(var(--rail-score-now-size, 20px) * var(--_type));
+}
+
+.rail-score__part--extra .rail-score__value {
+  color: var(--rail-score-extra-color, var(--_muted));
+  font-weight: var(--rail-score-extra-weight, 500);
+}
+
+.rail-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--rail-controls-gap, var(--_space-sm));
+}
+
+/* 40px de lado, no 24: AA pide 24 como MINIMO, y un control que se toca con el
+   pulgar mientras pasa algo en pantalla necesita mas que el minimo. */
+.rail-controls__button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--rail-controls-button-gap, var(--_space-xs));
+  min-height: var(--rail-controls-min, 40px);
+  padding: var(--rail-controls-padding, var(--_space-sm) var(--_space-lg));
+  border: var(--rail-controls-border, 1px solid var(--_border));
+  border-radius: var(--rail-controls-radius, calc(var(--_space-4xl) * 1.25));
+  background: var(--rail-controls-bg, transparent);
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  font-size: calc(var(--rail-controls-size, 14px) * var(--_type));
+}
+
+/* El estado "puesto" lo lleva el BORDE y el fondo, no el color del texto.
+   Puse --_accent como color de rotulo y axe lo caza: 3.05:1 sobre papel oscuro
+   con AA pidiendo 4.5:1 a 14px. Es la SEGUNDA vez hoy que cometo esto mismo
+   (la categoria de RailBrandCard fue la primera): el acento de una marca se
+   elige para destacar, nunca para leerse pequeno. */
+.rail-controls__button[data-pressed] {
+  border-color: var(--rail-controls-on-border, var(--_accent));
+  background: var(--rail-controls-on-bg, var(--_bg));
+  color: var(--rail-controls-on-color, inherit);
+  font-weight: var(--rail-controls-on-weight, 600);
+}
+
+.rail-controls__button[disabled] {
+  cursor: default;
+  opacity: var(--rail-controls-off-opacity, 0.5);
+}
+
+.rail-controls__glyph {
+  display: inline-flex;
+}
+
+/* ---------------------------------------------------------------------------
+   RailRedeem — el catalogo de canje, leido contra lo que tienes.
+
+   La marca de la izquierda cambia de color, SI, pero el color no lleva solo el
+   dato: debajo del precio va la palabra. En la app de la que sale esto, poder
+   pagarlo o no se distingue unicamente por el tono de un rombo — misma forma,
+   mismo tamano. Eso no llega a un lector de pantalla y es una moneda al aire
+   para quien no separa rojo de gris, justo en el unico dato que la pantalla
+   existe para dar.
+   --------------------------------------------------------------------------- */
+.rail-redeem {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rail-redeem__link {
+  display: flex;
+  align-items: center;
+  gap: var(--rail-redeem-gap, var(--_space-lg));
+  padding: var(--rail-redeem-padding, var(--_space-md) var(--_space-lg));
+  color: inherit;
+  text-decoration: none;
+}
+
+.rail-redeem__mark {
+  flex: 0 0 auto;
+  width: var(--rail-redeem-mark, var(--_space-md));
+  height: var(--rail-redeem-mark, var(--_space-md));
+  border-radius: 100%;
+  background: var(--rail-redeem-mark-off, var(--_border));
+}
+
+.rail-redeem__mark[data-affordable] {
+  background: var(--rail-redeem-mark-on, var(--_accent));
+}
+
+.rail-redeem__thumb {
+  flex: 0 0 auto;
+  width: var(--rail-redeem-thumb, calc(var(--_space-4xl) * 2));
+  height: var(--rail-redeem-thumb, calc(var(--_space-4xl) * 2));
+  border-radius: var(--rail-redeem-thumb-radius, var(--rail-card-radius, 16px));
+  overflow: hidden;
+  background: var(--rail-redeem-thumb-bg, var(--_bg));
+}
+
+.rail-redeem__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* min-width:0 o el nombre largo no se deja recortar dentro de un flex. */
+.rail-redeem__text {
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+  flex-direction: column;
+  gap: var(--rail-redeem-stack-gap, var(--_space-xs));
+}
+
+.rail-redeem__badge {
+  align-self: start;
+  padding: var(--rail-redeem-badge-padding, 0 var(--_space-sm));
+  border-radius: var(--rail-redeem-badge-radius, var(--_space-sm));
+  background: var(--rail-redeem-badge-bg, var(--_bg));
+  color: var(--rail-redeem-badge-color, var(--_muted));
+  font-size: calc(var(--rail-redeem-badge-size, 11px) * var(--_type));
+  letter-spacing: var(--rail-redeem-badge-tracking, 0.06em);
+  text-transform: uppercase;
+}
+
+.rail-redeem__name {
+  font-size: calc(var(--rail-redeem-name-size, 16px) * var(--_type));
+  font-weight: var(--rail-redeem-name-weight, 600);
+  line-height: var(--rail-redeem-name-leading, 1.3);
+}
+
+.rail-redeem__cost {
+  color: var(--rail-redeem-cost-color, var(--_muted));
+  font-size: calc(var(--rail-redeem-cost-size, 14px) * var(--_type));
+  font-variant-numeric: tabular-nums;
+}
+
+.rail-redeem__status {
+  color: var(--rail-redeem-status-color, var(--_muted));
+  font-size: calc(var(--rail-redeem-status-size, 13px) * var(--_type));
+}
+
+.rail-redeem__status--yes {
+  color: var(--rail-redeem-status-on-color, inherit);
+  font-weight: var(--rail-redeem-status-on-weight, 600);
+}
+
+/* ---------------------------------------------------------------------------
+   RailTagPicker — etiquetas que alguien elige sobre si mismo.
+
+   Cada etiqueta es una casilla de verdad dentro de un <fieldset>: asi el
+   conjunto se anuncia como "3 de 7 seleccionadas" y no como siete botones
+   sueltos, y la barra espaciadora funciona sin que nadie la programe.
+   --------------------------------------------------------------------------- */
+.rail-tagpicker {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rail-tagpicker-gap, var(--_space-4xl));
+}
+
+.rail-tagpicker__group {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.rail-tagpicker__legend {
+  display: flex;
+  align-items: center;
+  gap: var(--rail-tagpicker-legend-gap, var(--_space-sm));
+  padding: 0;
+  margin-block-end: var(--rail-tagpicker-legend-space, var(--_space-md));
+  color: var(--rail-tagpicker-legend-color, inherit);
+  font-size: calc(var(--rail-tagpicker-legend-size, 17px) * var(--_type));
+  font-weight: var(--rail-tagpicker-legend-weight, 600);
+}
+
+.rail-tagpicker__group--avoid .rail-tagpicker__legend {
+  color: var(--rail-tagpicker-avoid-color, inherit);
+}
+
+.rail-tagpicker__glyph {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--rail-tagpicker-glyph, calc(var(--_space-4xl) * 1.1));
+  height: var(--rail-tagpicker-glyph, calc(var(--_space-4xl) * 1.1));
+  border-radius: 100%;
+  background: var(--rail-tagpicker-glyph-bg, var(--_bg));
+}
+
+.rail-tagpicker__note {
+  margin: 0 0 var(--rail-tagpicker-note-space, var(--_space-md));
+  color: var(--rail-tagpicker-note-color, var(--_muted));
+  font-size: calc(var(--rail-tagpicker-note-size, 14px) * var(--_type));
+  line-height: var(--rail-tagpicker-note-leading, 1.4);
+}
+
+.rail-tagpicker__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--rail-tagpicker-tags-gap, var(--_space-md));
+}
+
+/* 40px de alto: AA pide 24 como MINIMO, y estas se tocan con el pulgar. */
+.rail-tagpicker__tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--rail-tagpicker-tag-min, 40px);
+  padding: var(--rail-tagpicker-tag-padding, var(--_space-sm) var(--_space-xl));
+  border: var(--rail-tagpicker-tag-border, 1px solid var(--_border));
+  border-radius: var(--rail-tagpicker-tag-radius, calc(var(--_space-4xl) * 1.25));
+  background: var(--rail-tagpicker-tag-bg, transparent);
+  cursor: pointer;
+  font-size: calc(var(--rail-tagpicker-tag-size, 14px) * var(--_type));
+}
+
+.rail-tagpicker__tag[data-selected] {
+  border-color: var(--rail-tagpicker-on-border, var(--_accent));
+  background: var(--rail-tagpicker-on-bg, var(--_bg));
+  font-weight: var(--rail-tagpicker-on-weight, 600);
+}
+
+/* El anillo de foco va en la ETIQUETA, porque la casilla esta oculta para la
+   vista. Sin esto, tabular por el grupo no se ve moverse por ningun sitio. */
+.rail-tagpicker__tag:focus-within {
+  outline: var(--rail-tagpicker-focus, 2px solid currentColor);
+  outline-offset: 2px;
+}
+
+/* ---------------------------------------------------------------------------
+   RailBoosterCard — la carta de coleccion que se da la vuelta.
+
+   El giro vive en __turner, y la inclinacion en __box, que es el que lleva
+   data-rail-tilt. Separados a proposito: si el mismo elemento llevara las dos
+   transformaciones, inclinarse a mitad de giro las multiplicaria y la carta
+   saldria despedida en diagonal.
+   --------------------------------------------------------------------------- */
+.rail-boostercard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--rail-boostercard-gap, var(--_space-xl));
+  perspective: var(--rail-boostercard-perspective, 1400px);
+}
+
+.rail-boostercard__box {
+  position: relative;
+  width: 100%;
+  max-width: var(--rail-boostercard-width, 340px);
+  transform-style: preserve-3d;
+}
+
+.rail-boostercard__turner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rail-boostercard__turner {
+    transition: transform var(--rail-boostercard-turn, 620ms)
+      var(--rail-boostercard-ease, cubic-bezier(.2, .7, .2, 1));
+  }
+}
+
+.rail-boostercard[data-facing="back"] .rail-boostercard__turner {
+  transform: rotateY(180deg);
+}
+
+.rail-boostercard__face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  /* El canto. Sin un borde con color propio, una carta girada de canto
+     desaparece: no tiene grosor que ensenar.
+     El defecto NO puede ser --_border: mirando la captura, la carta flotaba sin
+     forma porque ese tono esta pensado para separar filas, no para dibujar el
+     borde de un objeto. Se mezcla con el texto actual, asi que se ve sobre
+     papel claro y sobre papel oscuro sin que la marca toque nada. */
+  /* Dos escalones a proposito: si el navegador no entiende color-mix, la
+     declaracion entera es invalida y la carta se queda SIN canto. La primera
+     linea es el suelo que siempre se aplica; la segunda la mejora donde se
+     puede. */
+  border: var(--rail-boostercard-edge, 1px solid currentColor);
+  border-color: var(--rail-boostercard-edge-color,
+    color-mix(in srgb, currentColor 38%, transparent));
+  border-radius: var(--rail-boostercard-radius, calc(var(--_space-xl) * 1.1));
+  background: var(--rail-boostercard-bg, var(--_bg));
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rail-boostercard__face--back {
+  transform: rotateY(180deg);
+}
+
+.rail-boostercard__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--rail-boostercard-head-gap, var(--_space-md));
+  padding: var(--rail-boostercard-head-padding, var(--_space-md) var(--_space-lg));
+}
+
+.rail-boostercard__rarity {
+  padding: var(--rail-boostercard-rarity-padding, var(--_space-2xs) var(--_space-md));
+  border-radius: var(--rail-boostercard-rarity-radius, var(--_space-xs));
+  /* Mismo motivo que el canto: con --_border, "INMORTAL" salia como texto suelto
+     y no como una chapa. */
+  background: var(--rail-boostercard-rarity-bg, var(--_border));
+  background: var(--rail-boostercard-rarity-bg,
+    color-mix(in srgb, currentColor 16%, transparent));
+  color: var(--rail-boostercard-rarity-color, inherit);
+  font-size: calc(var(--rail-boostercard-rarity-size, 12px) * var(--_type));
+  font-weight: var(--rail-boostercard-rarity-weight, 700);
+  letter-spacing: var(--rail-boostercard-rarity-tracking, 0.08em);
+  text-transform: uppercase;
+}
+
+.rail-boostercard__serial {
+  color: var(--rail-boostercard-serial-color, var(--_muted));
+  font-size: calc(var(--rail-boostercard-serial-size, 12px) * var(--_type));
+  font-variant-numeric: tabular-nums;
+}
+
+.rail-boostercard__art {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.rail-boostercard__flip {
+  min-height: var(--rail-boostercard-flip-min, 40px);
+  padding: var(--rail-boostercard-flip-padding, var(--_space-sm) var(--_space-xl));
+  border: var(--rail-boostercard-flip-border, 1px solid var(--_border));
+  border-radius: var(--rail-boostercard-flip-radius, calc(var(--_space-4xl) * 1.25));
+  background: var(--rail-boostercard-flip-bg, transparent);
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  font-size: calc(var(--rail-boostercard-flip-size, 14px) * var(--_type));
+}
+
+/* ---------------------------------------------------------------------------
+   RailPlayCard — un momento, como tarjeta.
+
+   El numero y las palabras traen la noticia. El tinte, el escudo de detras y el
+   confeti son el VOLUMEN, y el volumen se puede bajar a cero sin perder una
+   palabra. Esa es la prueba que deberia pasar todo efecto de celebracion.
+   --------------------------------------------------------------------------- */
+.rail-playcard {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--rail-playcard-gap, var(--_space-lg));
+  overflow: hidden;
+  padding: var(--rail-playcard-padding, var(--_space-md) var(--_space-lg));
+  border-radius: var(--rail-playcard-radius, var(--rail-card-radius, 16px));
+  background: var(--rail-playcard-bg, var(--_bg));
+  color: var(--rail-playcard-color, inherit);
+  text-decoration: none;
+}
+
+.rail-playcard__watermark {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  overflow: hidden;
+  opacity: var(--rail-playcard-watermark-opacity, 0.16);
+  pointer-events: none;
+}
+
+.rail-playcard__cutout {
+  width: var(--rail-playcard-cutout, calc(var(--_space-4xl) * 2.2));
+  height: var(--rail-playcard-cutout, calc(var(--_space-4xl) * 2.2));
+  overflow: hidden;
+  border-radius: var(--rail-playcard-cutout-radius, var(--_space-md));
+}
+
+.rail-playcard__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.rail-playcard__body {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: var(--rail-playcard-body-gap, var(--_space-3xs));
+}
+
+.rail-playcard__line {
+  display: flex;
+  align-items: baseline;
+  gap: var(--rail-playcard-line-gap, var(--_space-xs));
+}
+
+.rail-playcard__who {
+  font-size: calc(var(--rail-playcard-who-size, 19px) * var(--_type));
+  font-weight: var(--rail-playcard-who-weight, 700);
+  line-height: var(--rail-playcard-who-leading, 1.15);
+}
+
+.rail-playcard__role {
+  color: var(--rail-playcard-role-color, var(--_muted));
+  font-size: calc(var(--rail-playcard-role-size, 13px) * var(--_type));
+  font-weight: var(--rail-playcard-role-weight, 600);
+}
+
+.rail-playcard__what {
+  font-size: calc(var(--rail-playcard-what-size, 13px) * var(--_type));
+  font-weight: var(--rail-playcard-what-weight, 700);
+  letter-spacing: var(--rail-playcard-what-tracking, 0.02em);
+  text-transform: uppercase;
+}
+
+.rail-playcard__score {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--rail-playcard-score-gap, var(--_space-3xs));
+}
+
+.rail-playcard__delta {
+  font-size: calc(var(--rail-playcard-delta-size, 19px) * var(--_type));
+  font-weight: var(--rail-playcard-delta-weight, 700);
+  font-variant-numeric: tabular-nums;
+}
+
+.rail-playcard__total {
+  color: var(--rail-playcard-total-color, var(--_muted));
+  font-size: calc(var(--rail-playcard-total-size, 13px) * var(--_type));
+  font-variant-numeric: tabular-nums;
+}
+
+.rail-playcard__foot {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--rail-playcard-foot-gap, var(--_space-md));
+  color: var(--rail-playcard-foot-color, var(--_muted));
+  font-size: calc(var(--rail-playcard-foot-size, 13px) * var(--_type));
+}
+
+/* El confeti. FINITO y sin pointer-events: cae una vez, no se puede tocar, y
+   con motion reducido no existe ni una pieza. */
+.rail-confetti {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.rail-confetti__piece {
+  position: absolute;
+  top: -12%;
+  left: var(--_x, 50%);
+  width: var(--rail-confetti-piece-w, 6px);
+  height: var(--rail-confetti-piece-h, 10px);
+  border-radius: 1px;
+  background: var(--rail-confetti-piece-bg, currentColor);
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rail-confetti__piece {
+    animation: rail-confetti-fall var(--rail-confetti-fall, 1100ms)
+      var(--rail-confetti-fall-ease, cubic-bezier(.25, .6, .4, 1)) var(--_delay, 0ms) 1 forwards;
+  }
+}
+
+/* La CAIDA va en `top`, no en `transform`.
+ *
+ * Un porcentaje en translate se mide contra la ALTURA DE LA PROPIA PIEZA, no
+ * contra la tarjeta: con piezas de 10px, `translateY(320%)` son 32px y el
+ * confeti se queda pegado arriba. Medido antes de esto: la pieza bajaba de 58 a
+ * 62 px en 450ms, cuatro pixeles, y a simple vista parecia que caia.
+ *
+ * Un porcentaje en `top` SI se resuelve contra el bloque contenedor, que es lo
+ * que aqui significa "de arriba abajo de la tarjeta". El giro y la deriva se
+ * quedan en transform, que es barato. */
+@keyframes rail-confetti-fall {
+  0% { opacity: 0; top: -12%; transform: translate3d(0, 0, 0) rotate(0deg); }
+  12% { opacity: 1; }
+  100% { opacity: 0; top: 112%; transform: translate3d(var(--_drift, 0), 0, 0) rotate(var(--_spin, 180deg)); }
+}
+
+/* ---------------------------------------------------------------------------
+   RailReactions — lo que pensó la sala, en marcas con cuenta.
+   --------------------------------------------------------------------------- */
+.rail-reactions {
+  display: flex;
+  align-items: center;
+  gap: var(--rail-reactions-gap, var(--_space-sm));
+}
+
+.rail-reactions__chip,
+.rail-reactions__add {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--rail-reactions-chip-gap, var(--_space-xs));
+  min-height: var(--rail-reactions-min, 36px);
+  padding: var(--rail-reactions-padding, var(--_space-xs) var(--_space-md));
+  border: var(--rail-reactions-border, 1px solid var(--_border));
+  border-radius: var(--rail-reactions-radius, calc(var(--_space-4xl) * 1.25));
+  background: var(--rail-reactions-bg, transparent);
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  font-size: calc(var(--rail-reactions-size, 14px) * var(--_type));
+}
+
+.rail-reactions__chip[data-mine] {
+  border-color: var(--rail-reactions-mine-border, var(--_accent));
+  background: var(--rail-reactions-mine-bg, var(--_bg));
+  font-weight: var(--rail-reactions-mine-weight, 700);
+}
+
+.rail-reactions__add {
+  justify-content: center;
+  width: var(--rail-reactions-add, 36px);
+  padding: 0;
+}
+
+.rail-reactions__count {
+  font-variant-numeric: tabular-nums;
+}
+
+.rail-reactions__more {
+  color: var(--rail-reactions-more-color, var(--_muted));
+  font-size: calc(var(--rail-reactions-more-size, 13px) * var(--_type));
+  white-space: nowrap;
+}
+
+/* Letra pequena dentro de una tarjeta de jugada. Se lee: si algo hay que decir
+   en pequeno, se dice — no se insinua ni se quita. */
+.rail-playcard__detail {
+  grid-column: 1 / -1;
+  color: var(--rail-playcard-detail-color, var(--_muted));
+  font-size: calc(var(--rail-playcard-detail-size, 12px) * var(--_type));
+  line-height: var(--rail-playcard-detail-leading, 1.4);
+}
+
+/* El pie de la carta de coleccion: fecha, marcador, sello. */
+.rail-boostercard__footnote {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--rail-boostercard-footnote-gap, var(--_space-md));
+  padding: var(--rail-boostercard-footnote-padding, var(--_space-sm) var(--_space-lg));
+  color: var(--rail-boostercard-footnote-color, var(--_muted));
+  font-size: calc(var(--rail-boostercard-footnote-size, 11px) * var(--_type));
+  line-height: var(--rail-boostercard-footnote-leading, 1.35);
+}
+
+/* ---------------------------------------------------------------------------
+   El acabado holografico.
+
+   Dos fondos y `background-clip`: el de dentro se recorta al padding-box y el
+   degradado conico al border-box, asi que el "borde" ES el degradado. Sin
+   pseudo-elementos — ::before y ::after ya tienen dueno en este kit.
+   --------------------------------------------------------------------------- */
+.rail-boostercard--holo .rail-boostercard__face {
+  /* La capa de dentro tiene que TAPAR. El fondo por defecto del kit es
+     translucido (rgba blanco al 4%), asi que sin esto el conico no se queda en
+     el canto: se ve a traves de toda la cara y el contenido acaba sobre un
+     arcoiris lavado. Visto en una captura, no leyendo el CSS.
+     `--rail-boostercard-paper` es el papel opaco sobre el que se compone; una
+     marca lo pone en su color y el conico vuelve a ser solo borde. */
+  background-color: var(--rail-boostercard-paper, #0b0b0c);
+  border-color: transparent;
+  background-image:
+    linear-gradient(var(--rail-boostercard-paper, #0b0b0c), var(--rail-boostercard-paper, #0b0b0c)),
+    var(--rail-boostercard-holo,
+      conic-gradient(from var(--rail-boostercard-holo-turn, 210deg),
+        #9ad8ff, #c9a7ff, #ffd6a5, #a7ffd8, #9ad8ff));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  border-width: var(--rail-boostercard-holo-width, 2px);
+  border-style: solid;
+}
+
+
+/* =====================================================   RailPack — el sobre sin abrir, y el mazo que sale de el.
+
+   Distinto de RailBoosterCard, que es UNA carta con dos caras que gira. Esto es
+   lo de antes: el sobre CERRADO que eliges, que viaja al centro de la pantalla,
+   se rasga, y reparte una PILA de cartas que se pasan una a una.
+
+   Nace de gonzaloaguilar.tech, donde se construyo a mano y se corrigio contra
+   un telefono de verdad. Lo que se aprendio alli y por lo que vive aqui:
+
+   - EL NOMBRE VA EN UNA PLACA, no sobre el metal. Un degradado metalico barre
+     del claro al oscuro y ninguna tinta aguanta todas sus paradas: seis de
+     nueve metales dejaban el nombre por debajo de 4,5:1. Con la placa el par
+     de colores es uno solo y deja de depender del metal.
+   - LA ILUSTRACION VA EN MEDIO, anclada al 42% del alto y centrada sobre si
+     misma. Pegada abajo se solapaba con la placa en cuanto el nombre crecia.
+   - LA PISTA DE ABRIR ES UNA PASTILLA, no mas texto del mismo tamano. Subirle
+     el cuerpo de 11 a 13 la IGUALO al nombre en vez de distinguirla.
+   - EL SOBRE ELEGIDO SALE DEL ARBOL para crecer. Dentro de un carril con
+     overflow se le cortaban 48px, y ni position:fixed ni un z-index alto lo
+     arreglan cuando un ancestro crea contexto de apilamiento.
+
+   Todo el color entra por variables: el kit no sabe de que marca es.
+   ============================================================ */
+.rail-pack {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  min-height: var(--rail-pack-min-height, 320px);
+  padding: var(--rail-pack-padding, var(--_space-xl) var(--_space-sm) var(--_space-md));
+  border: 1px solid var(--rail-pack-edge, currentColor);
+  border-radius: var(--rail-pack-radius, var(--_space-xs));
+  background: var(--rail-pack-bg, var(--_paper, #fff));
+  color: var(--rail-pack-ink, var(--_ink, #111));
+  box-shadow: var(--rail-pack-shadow, 0 12px 20px rgb(0 0 0 / 13%));
+  cursor: pointer;
+  touch-action: manipulation;
+  overflow: hidden;
+}
+
+/* La ilustracion del tema, en la mitad del sobre. */
+.rail-pack__art {
+  position: absolute;
+  left: 50%;
+  top: var(--rail-pack-art-top, 42%);
+  transform: translate(-50%, -50%);
+  width: var(--rail-pack-art-size, 84px);
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  opacity: 0.55;
+}
+
+.rail-pack__art > svg {
+  display: block;
+  width: 76%;
+  height: 76%;
+  overflow: visible;
+}
+
+/* LA PLACA DEL NOMBRE. Un par de colores fijo, no el del metal. */
+.rail-pack__name {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--rail-pack-name-gap, var(--_space-2xs));
+  min-height: var(--rail-pack-name-min, 66px);
+  padding: var(--rail-pack-name-padding, var(--_space-sm) var(--_space-2xs) var(--_space-lg));
+  background: var(--rail-pack-name-bg, rgb(9 15 27 / 58%));
+  color: var(--rail-pack-name-ink, #fff);
+  backdrop-filter: blur(16px) saturate(150%);
+  text-align: center;
+}
+
+.rail-pack__hint {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--rail-pack-hint-gap, var(--_space-2xs));
+  padding: var(--rail-pack-hint-padding, var(--_space-3xs) var(--_space-sm));
+  border-radius: var(--rail-pack-hint-radius, 999px);
+  background: var(--rail-pack-hint-bg, #fff);
+  color: var(--rail-pack-hint-ink, #0c1421);
+  font: 800 var(--rail-pack-hint-size, 13.5px) / 1 inherit;
+}
+
+.rail-pack__seal {
+  position: absolute;
+  left: var(--_space-sm);
+  top: var(--_space-sm);
+  opacity: 0.6;
+  font: 700 var(--rail-pack-seal-size, 12px) / 1 inherit;
+}
+
+.rail-pack__foil {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* EL MAZO. Las cartas salen apiladas, no en lista: cada una es una sorpresa. */
+.rail-deck {
+  position: relative;
+  min-height: var(--rail-deck-min-height, 320px);
+}
+
+.rail-deck__card {
+  position: absolute;
+  inset: 0;
+  transform: translateY(calc(var(--d, 0) * var(--rail-deck-step, 10px)))
+             scale(calc(1 - var(--d, 0) * 0.04));
+  /* La duracion sale del token de movimiento del kit, asi que una marca que
+     baja su ritmo -o lo apaga- lo baja tambien aqui sin tocar esta regla. */
+  transition: transform var(--_dur-base) var(--rail-deck-ease, cubic-bezier(0.2, 0.8, 0.25, 1)),
+              opacity var(--_dur-base);
+}
+
+/* Solo la de arriba se lee y se toca: si un lector de pantalla leyera las de
+   debajo, contaria la sorpresa antes de tiempo. */
+.rail-deck__card[aria-hidden="true"] {
+  pointer-events: none;
+}
+
+.rail-deck__card--gone {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rail-deck__card {
+    transition: none;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   RailCoverflow — la fila en perspectiva.
+
+   Lo elegido de frente; lo demas gira hacia dentro y se aleja. El reflejo es un
+   duplicado volteado con un desvanecido: no es un filtro, porque `filter` sobre
+   una escena 3D fuerza un contexto de apilamiento nuevo y aplasta la
+   perspectiva de los hijos.
+   --------------------------------------------------------------------------- */
+.rail-coverflow {
+  --_step: var(--rail-coverflow-step, 62%);
+  --_turn: var(--rail-coverflow-turn, 48deg);
+  --_depth: var(--rail-coverflow-depth, 120px);
+  position: relative;
+  overflow: hidden;
+  padding: var(--rail-coverflow-padding, var(--_space-xl) 0);
+  perspective: var(--rail-coverflow-perspective, 1100px);
+  outline: none;
+}
+
+.rail-coverflow__stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: var(--rail-coverflow-height, 300px);
+  transform-style: preserve-3d;
+}
+
+.rail-coverflow__slot {
+  grid-area: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform-style: preserve-3d;
+  /* Lo del centro va delante; lo de los lados, detras y en ese orden. */
+  z-index: calc(10 - max(var(--_i, 0), calc(var(--_i, 0) * -1)));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rail-coverflow__slot {
+    transform:
+      translateX(calc(var(--_i, 0) * var(--_step)))
+      translateZ(calc(max(var(--_i, 0), calc(var(--_i, 0) * -1)) * var(--_depth) * -1))
+      rotateY(calc(var(--_i, 0) * var(--_turn) * -1));
+    transition: transform var(--rail-coverflow-glide, 420ms) var(--_ease-out, ease-out);
+  }
+}
+
+/* Motion reducido: fila plana que se desliza. Una perspectiva congelada es un
+   monton de rectangulos torcidos, y el sentido —"hay mas a los lados"— se
+   pierde justo para quien pidio menos movimiento. */
+.rail-coverflow--still .rail-coverflow__slot {
+  transform: translateX(calc(var(--_i, 0) * var(--rail-coverflow-step-flat, 104%)));
+}
+
+.rail-coverflow__piece {
+  display: block;
+  cursor: pointer;
+  /* Sin esto, una pieza que pasa de 90 grados ensena su REVERSO: el mismo
+     dibujo con el texto al reves. Se vio en una captura — "Ambicion" escrito
+     de derecha a izquierda en el sobre del extremo. Un carrusel no tiene
+     dorso que ensenar, asi que se oculta. */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rail-coverflow__art {
+  display: block;
+  width: var(--rail-coverflow-width, 180px);
+}
+
+.rail-coverflow__art > * {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--rail-coverflow-radius, var(--_space-md));
+}
+
+/* El reflejo: el mismo dibujo volteado, desvanecido hacia abajo. */
+.rail-coverflow__mirror {
+  display: block;
+  width: var(--rail-coverflow-width, 180px);
+  margin-block-start: var(--rail-coverflow-mirror-gap, var(--_space-xs));
+  opacity: var(--rail-coverflow-mirror-opacity, 0.28);
+  transform: scaleY(-1);
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, #000 72%);
+  mask-image: linear-gradient(to top, transparent 0%, #000 72%);
+  pointer-events: none;
+}
+
+.rail-coverflow__mirror > * {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--rail-coverflow-radius, var(--_space-md));
+}
+
+.rail-coverflow__slot[data-current] .rail-coverflow__piece:focus-visible,
+.rail-coverflow:focus-visible {
+  outline: var(--rail-coverflow-focus, 2px solid currentColor);
+  outline-offset: 3px;
+}
+
+
+/* ---------------------------------------------------------------------------
+   El FOIL. El canto holografico dice "coleccionable"; el foil es lo que hace
+   que una carta parezca una carta de verdad cuando la mueves.
+
+   La referencia es un sobre de Pokemon: una lamina iridiscente que barre la
+   cara y CAMBIA con el angulo. Por eso no es un degradado fijo — un degradado
+   fijo se ve una vez y deja de existir. Sigue a `--hx`/`--hy`, que el sitio
+   consumidor pone con el puntero o con la inclinacion del telefono.
+
+   Va en un elemento REAL y no en ::before/::after, porque en este kit esos dos
+   ya tienen dueno. Y se apaga entero con reduce: una lamina que persigue el
+   dedo es movimiento, no decoracion.
+   --------------------------------------------------------------------------- */
+.rail-boostercard__foil {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: var(--rail-boostercard-foil-opacity, 0.55);
+  mix-blend-mode: var(--rail-boostercard-foil-blend, color-dodge);
+  background:
+    /* El brillo que sigue al dedo. */
+    radial-gradient(
+      circle at var(--hx, 50%) var(--hy, 50%),
+      rgb(255 255 255 / 55%) 0%,
+      rgb(255 255 255 / 10%) 24%,
+      transparent 52%
+    ),
+    /* La iridiscencia: el arcoiris se desplaza con el dedo, asi que dos
+       posiciones distintas del puntero dan dos cartas distintas. El angulo lo
+       pone el consumidor en `--rail-boostercard-foil-turn`; aqui no se calcula
+       a partir de `--hx` porque un porcentaje no se convierte en grados en CSS,
+       y una variable que nadie puede poner es configuracion muerta. */
+    linear-gradient(
+      var(--rail-boostercard-foil-turn, 104deg),
+      transparent 14%,
+      rgb(154 216 255 / 45%) 26%,
+      rgb(201 167 255 / 45%) 38%,
+      rgb(255 214 165 / 45%) 50%,
+      rgb(167 255 216 / 45%) 62%,
+      transparent 78%
+    );
+}
+
+/* La trama fina que hace que el foil parezca impreso y no pintado. Sin ella la
+   lamina se ve como un filtro de color; con ella, como una superficie. */
+.rail-boostercard__foil::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: var(--rail-boostercard-foil-grain, 0.4);
+  background-image: repeating-linear-gradient(
+    115deg,
+    rgb(255 255 255 / 12%) 0 1px,
+    transparent 1px 4px
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rail-boostercard__foil {
+    display: none;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   RailSparkle — los destellos de lo raro.
+
+   Cada brillo son DOS barras cruzadas, no una imagen: una estrella de cuatro
+   puntas dibujada con pseudo-elementos pesa cero bytes y hereda el color, asi
+   que una marca la tine sin sustituir ningun asset.
+
+   `::before` y `::after` estan libres AQUI porque este elemento es propio del
+   efecto y no lo comparte con nadie — que es justo lo que no pasaba con el
+   canto del vidrio y el spotlight.
+   --------------------------------------------------------------------------- */
+.rail-sparkle {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.rail-sparkle__glint {
+  position: absolute;
+  left: var(--_x, 50%);
+  top: var(--_y, 50%);
+  width: var(--_size, 14px);
+  height: var(--_size, 14px);
+  margin: calc(var(--_size, 14px) / -2);
+  color: var(--rail-sparkle-color, currentColor);
+  opacity: 0;
+  /* Un halo propio alrededor de cada punta.
+     Sin esto, un destello claro sobre una carta clara no existe: la primera
+     version se pinto en blanco sobre un degradado calido y en la captura no se
+     distinguia del fondo. El bloom le da borde contra cualquier superficie, y
+     va en `filter` sobre un span aislado —sin hijos en 3D— asi que el contexto
+     de apilamiento que crea no aplasta ninguna perspectiva. */
+  filter: drop-shadow(0 0 var(--rail-sparkle-bloom, 3px)
+    var(--rail-sparkle-bloom-color, rgb(255 255 255 / 85%)));
+}
+
+.rail-sparkle__glint::before,
+.rail-sparkle__glint::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: currentColor;
+  /* La forma de estrella: una barra fina que se afila en las puntas. */
+  clip-path: polygon(50% 0%, 58% 42%, 100% 50%, 58% 58%, 50% 100%, 42% 58%, 0% 50%, 42% 42%);
+}
+
+.rail-sparkle__glint::after {
+  transform: rotate(45deg) scale(var(--rail-sparkle-cross, 0.62));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rail-sparkle__glint {
+    animation: rail-sparkle-pop var(--rail-sparkle-life, 900ms)
+      var(--rail-sparkle-ease, ease-out) var(--_delay, 0ms) 1 forwards;
+  }
+
+  .rail-sparkle--loop .rail-sparkle__glint {
+    animation-iteration-count: infinite;
+    animation-duration: var(--rail-sparkle-loop-life, 2.4s);
+  }
+}
+
+@keyframes rail-sparkle-pop {
+  0% { opacity: 0; transform: scale(0.2) rotate(0deg); }
+  30% { opacity: 1; transform: scale(1) rotate(28deg); }
+  100% { opacity: 0; transform: scale(0.35) rotate(56deg); }
+}
+
+/* El envoltorio del mazo: la pila, la cuenta y el boton de repartir. El #37
+   dejo `.rail-deck` (la pila) pero no la caja que la sostiene. */
+.rail-drawpile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--rail-drawpile-gap, var(--_space-lg));
+}
+
+.rail-drawpile__count {
+  margin: 0;
+  min-height: var(--rail-drawpile-count-min, var(--_space-xl));
+  color: var(--rail-drawpile-count-color, var(--_muted));
+  font-size: calc(var(--rail-drawpile-count-size, 14px) * var(--_type));
+}
+
+/* ---------------------------------------------------------------------------
+   RailDrawPile — la pila de la que sale una carta cada vez.
+
+   Nace de un choque de nombres: `RailDeck` ya existia en una rama sin mergear
+   —un mazo de TRIAJE, con "me interesa" y "paso"— y es de un dia antes, ademas
+   de ser dueno de todo el espacio .rail-deck__*. Dos mecanicas distintas no
+   pueden compartir prefijo: la primera clase que coincidiera se pintaria con
+   las reglas de la otra.
+   --------------------------------------------------------------------------- */
+.rail-drawpile__stack {
+  position: relative;
+  min-height: var(--rail-drawpile-min-height, 320px);
+}
+
+.rail-drawpile__card {
+  position: absolute;
+  inset: 0;
+  transform: translateY(calc(var(--d, 0) * var(--rail-drawpile-step, 10px)))
+             scale(calc(1 - var(--d, 0) * 0.04));
+  transition: transform var(--_dur-base) var(--rail-drawpile-ease, cubic-bezier(0.2, 0.8, 0.25, 1)),
+              opacity var(--_dur-base);
+}
+
+.rail-drawpile__card[aria-hidden="true"] {
+  pointer-events: none;
+}
+
+.rail-drawpile__card--gone {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rail-drawpile__card { transition: none; }
+}
+
+/* ---------------------------------------------------------------------------
+ * TURNTABLE — the sensory object on a magazine-format site.
+ *
+ * Promoted from the Christian Castiblanco build. The rotation and the arm
+ * travel live in motion.css and only run when the root carries data-spinning,
+ * which the component sets from the audio element's own events.
+ */
+.rail-turntable {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--_gap);
+  align-items: center;
+  color: var(--_text);
+}
+.rail-turntable__deck {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: var(--_gap);
+  aspect-ratio: 1;
+  padding: var(--_space-md);
+  background: var(--rail-turntable-deck, rgba(255, 255, 255, 0.05));
+  border-radius: var(--_radius);
+  overflow: hidden;
+}
+.rail-turntable__record {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  max-width: var(--rail-turntable-size, 440px);
+  aspect-ratio: 1;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--rail-turntable-vinyl, #111);
+  cursor: pointer;
+}
+.rail-turntable__grooves {
+  position: absolute;
+  inset: 4%;
+  border-radius: 50%;
+  background: repeating-radial-gradient(circle,
+    var(--rail-turntable-groove-dark, #131313) 0 2px,
+    var(--rail-turntable-groove-light, #373737) 3px,
+    var(--rail-turntable-groove-dark, #131313) 4px 5px);
+  border: 1px solid var(--rail-turntable-groove-edge, #333);
+}
+.rail-turntable__label {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 35%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--rail-turntable-label-bg, #a43c2e);
+  color: var(--rail-turntable-label-ink, #fff);
+  text-align: center;
+}
+.rail-turntable__label b { font-size: var(--rail-turntable-mark, 3rem); line-height: 1; }
+.rail-turntable__label small { font-size: var(--_text-xs); margin-top: .4em; }
+.rail-turntable__label i {
+  position: absolute;
+  top: 49%; left: 49%;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--rail-turntable-spindle, #c9c5bb);
+}
+.rail-turntable__arm {
+  position: absolute;
+  top: 8%; right: 10%;
+  width: 34%; height: 6px;
+  padding: 0;
+  border: 0;
+  background: var(--rail-turntable-arm, #b9b3a7);
+  cursor: pointer;
+}
+/* The arm is a 6px bar. The thing a finger has to hit is not. */
+.rail-turntable__arm::before {
+  content: "";
+  position: absolute;
+  inset: -19px -10px;
+}
+.rail-turntable__side { min-width: 0; display: flex; flex-direction: column; gap: var(--_space-xs); }
+.rail-turntable__badge {
+  align-self: start;
+  font-size: var(--_text-xs);
+  padding: var(--_space-xs) var(--_space-sm);
+  border: 1px solid var(--_border);
+  border-radius: var(--_radius);
+  color: var(--_muted);
+}
+.rail-turntable__list { list-style: none; margin: 0; padding: 0; }
+.rail-turntable__track {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--_space-sm);
+  min-height: var(--_control-min);
+  padding: var(--_space-xs) 0;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid var(--_border);
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+/* La pista sonando se marca con PESO y con un filete, no con el acento como
+   color de texto: axe lo midio en 3.05:1 sobre papel oscuro con AA pidiendo
+   4.5:1 a 13px. Es la tercera vez hoy que aparece este mismo fallo en el kit
+   —antes en la categoria de RailBrandCard y en el control pulsado—, siempre
+   por la misma razon: el acento de una marca se elige para destacar, nunca
+   para leerse pequeno. */
+.rail-turntable__track[aria-pressed="true"] {
+  font-weight: var(--rail-turntable-playing-weight, 700);
+  box-shadow: inset 2px 0 0 var(--_accent);
+}
+.rail-turntable__number { font-variant-numeric: tabular-nums; color: var(--_muted); }
+.rail-turntable__text { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.rail-turntable__text small { color: var(--_muted); font-size: var(--_text-xs); }
+.rail-turntable__state { margin: 0; color: var(--_muted); font-size: var(--_text-sm); min-height: var(--_text-md); }
+
+@media (max-width: 720px) {
+  .rail-turntable { grid-template-columns: 1fr; }
+}
+
+/* ---------------------------------------------------------------------------
+ * DECK — cards you keep or pass.
+ *
+ * THE CARD IS SIZED BY THE CONSUMER, not by a constant in here. A viewport
+ * budget written as `calc(100svh - bar - 190px)` shipped with its own caption
+ * and both buttons under a fixed bar, because the 190px stood for chrome that
+ * measured 357px. Set --rail-deck-card-h from measured boxes, or let it be the
+ * default and give it room.
+ */
+.rail-deck { display: flex; flex-direction: column; gap: var(--_space-xs); color: var(--_text); }
+.rail-deck__progress { margin: 0; font-size: var(--_text-xs); color: var(--_muted); }
+.rail-deck__card {
+  display: flex;
+  flex-direction: column;
+  height: var(--rail-deck-card-h, 440px);
+  padding: var(--_space-md);
+  background: var(--_bg);
+  border: 1px solid var(--_border);
+  border-radius: var(--_radius);
+  box-shadow: var(--_shadow);
+  /* Horizontal is ours; vertical stays the page's. */
+  touch-action: pan-y;
+  user-select: none;
+  cursor: grab;
+}
+.rail-deck__card:active { cursor: grabbing; }
+.rail-deck__media { position: relative; flex: 1 1 0; min-height: 0; overflow: hidden; border-radius: var(--_radius); }
+.rail-deck__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.rail-deck__tag {
+  position: absolute;
+  top: var(--_space-xs); left: var(--_space-xs);
+  max-width: calc(100% - var(--_space-sm));
+  width: max-content;
+  padding: var(--_space-xs) var(--_space-sm);
+  font-size: var(--_text-xs);
+  background: var(--rail-deck-tag-bg, color-mix(in srgb, #000 60%, transparent));
+  color: var(--rail-deck-tag-ink, #fff);
+}
+.rail-deck__stamp {
+  display: none;
+  position: absolute;
+  top: 48%; left: 50%;
+  transform: translate(-50%, -50%) rotate(-8deg);
+  padding: var(--_space-xs) var(--_space-sm);
+  border: 3px solid;
+  border-radius: var(--_radius);
+  font-weight: var(--rail-deck-stamp-weight, 700);
+  white-space: nowrap;
+  color: var(--rail-deck-stamp-ink, #fff);
+}
+.rail-decide.is-keeping .rail-deck__stamp--keep,
+.rail-decide.is-passing .rail-deck__stamp--pass { display: block; }
+.rail-deck__stamp--keep { background: var(--rail-deck-keep, #305e44); }
+.rail-deck__stamp--pass { background: var(--rail-deck-pass, #7b352f); }
+.rail-deck__body { flex: none; display: flex; flex-direction: column; padding-top: var(--_space-xs); }
+.rail-deck__body small { color: var(--_muted); font-size: var(--_text-xs); }
+.rail-deck__body a { min-height: var(--_tap-min); display: inline-flex; align-items: center; color: inherit; }
+.rail-deck__actions { display: flex; gap: var(--_space-sm); }
+.rail-deck__actions button {
+  flex: 1;
+  min-height: var(--_control-min);
+  padding: var(--_space-xs);
+  border: 1px solid var(--_border);
+  border-radius: var(--_pill);
+  background: var(--_bg);
+  color: var(--_text);
+  cursor: pointer;
+}
+.rail-deck__actions button:last-child {
+  background: var(--rail-deck-go-bg, #253c30);
+  color: var(--rail-deck-go-ink, #fff);
+  border-color: var(--rail-deck-go-bg, #253c30);
+}
+.rail-deck__result { display: flex; flex-direction: column; gap: var(--_space-xs); }
+
+/* ---------------------------------------------------------------------------
+ * MASTHEAD — the editorial section header. Rule ABOVE, because a line under a
+ * heading closes it and a line over one opens a section.
+ */
+.rail-masthead { color: var(--_text); }
+.rail-masthead__top {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--_space-md);
+  flex-wrap: wrap;
+  margin: 0 0 var(--_space-lg);
+  padding-top: var(--_space-md);
+  border-top: 1px solid var(--_border);
+  font-size: var(--_text-xs);
+}
+.rail-masthead__counter { color: var(--_muted); text-align: right; }
+.rail-masthead__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: var(--_space-lg);
+}
+.rail-masthead__title h2 {
+  margin: 0;
+  font-size: var(--rail-masthead-size, clamp(40px, 6.5vw, 86px));
+  line-height: var(--rail-masthead-leading, .98);
+  letter-spacing: var(--rail-masthead-tracking, -.045em);
+  font-weight: var(--rail-masthead-weight, 400);
+}
+.rail-masthead__controls { flex: none; display: flex; gap: var(--_space-xs); }
+.rail-masthead__lede { margin: var(--_space-md) 0 0; color: var(--_muted); font-size: var(--_text-md); }
+@media (max-width: 720px) {
+  .rail-masthead__title { display: block; }
+  .rail-masthead__controls { margin-top: var(--_space-md); }
+}
+
+/* ---------------------------------------------------------------------------
+ * EVIDENCE — a collaboration, and an honest label for the picture beside it.
+ * The label sits ON the image because the body copy is what people skip.
+ */
+.rail-evidence { list-style: none; margin: 0; padding: 0; display: contents; }
+.rail-evidence__item { min-width: 0; }
+.rail-evidence__card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--_bg);
+  border: 1px solid var(--_border);
+  border-radius: var(--_radius);
+  overflow: hidden;
+  color: var(--_text);
+}
+.rail-evidence__media { position: relative; display: block; }
+.rail-evidence__media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: var(--rail-evidence-aspect, 3 / 4);
+  object-fit: cover;
+}
+.rail-evidence__provenance {
+  position: absolute;
+  left: var(--_space-sm);
+  bottom: var(--_space-sm);
+  max-width: calc(100% - var(--_space-lg));
+  width: max-content;
+  padding: var(--_space-xs) var(--_space-sm);
+  font-size: var(--_text-xs);
+  background: var(--rail-evidence-provenance-bg, rgba(0, 0, 0, 0.72));
+  color: var(--rail-evidence-provenance-ink, #fff);
+  border-radius: var(--_radius);
+}
+.rail-evidence__body { flex: 1; display: flex; flex-direction: column; padding: var(--_space-md); }
+.rail-evidence__kicker { margin: 0; font-size: var(--_text-xs); color: var(--_muted); }
+.rail-evidence__body h3 { margin: var(--_space-xs) 0 0; font-size: var(--_text-xl); font-weight: var(--rail-evidence-name-weight, 400); }
+.rail-evidence__note { margin: var(--_space-xs) 0 0; color: var(--_muted); font-size: var(--_text-sm); }
+.rail-evidence__body a {
+  margin-top: auto;
+  padding-top: var(--_space-md);
+  min-height: var(--_tap-min);
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--_text-sm);
+  color: var(--_accent-text);
+}
+
+/* ---------------------------------------------------------------------------
+ * COVER — the first screen. Photograph on top, words in a panel below it.
+ * Never text over the face (E03): two zones cannot regress the way an overlay
+ * does the moment the asset changes.
+ */
+.rail-cover { color: var(--_text); }
+.rail-cover__masthead {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--_space-md);
+  margin: 0 0 var(--_space-md);
+  font-size: var(--_text-xs);
+}
+.rail-cover__edition { color: var(--_muted); }
+.rail-cover__track {
+  display: flex;
+  gap: var(--_gap);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  padding-bottom: var(--_space-sm);
+}
+.rail-cover__poster {
+  flex: 0 0 var(--rail-cover-width, 78%);
+  max-width: var(--rail-cover-max, 520px);
+  display: flex;
+  flex-direction: column;
+  scroll-snap-align: center;
+  background: var(--_bg);
+  border: 1px solid var(--_border);
+  border-radius: var(--_radius);
+  overflow: hidden;
+}
+.rail-cover__media { position: relative; display: block; }
+.rail-cover__media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: var(--rail-cover-aspect, 3 / 4);
+  object-fit: cover;
+}
+/* Seats the photograph against the page. It is NOT there to make text legible:
+   there is no text on the photograph. */
+.rail-cover__shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg,
+    var(--rail-cover-shade, rgba(0, 0, 0, 0.35)), transparent 45%);
+  pointer-events: none;
+}
+.rail-cover__label {
+  position: absolute;
+  top: var(--_space-sm);
+  left: var(--_space-sm);
+  display: flex;
+  gap: var(--_space-sm);
+  padding: var(--_space-xs) var(--_space-sm);
+  font-size: var(--_text-xs);
+  background: var(--rail-cover-label-bg, rgba(0, 0, 0, 0.6));
+  color: var(--rail-cover-label-ink, #fff);
+}
+.rail-cover__copy { display: flex; flex-direction: column; padding: var(--_space-md); }
+.rail-cover__copy h2 {
+  margin: 0;
+  font-size: var(--rail-cover-title-size, clamp(30px, 5vw, 52px));
+  line-height: var(--rail-cover-title-leading, 1);
+  letter-spacing: var(--rail-masthead-tracking, -.045em);
+  font-weight: var(--rail-cover-title-weight, 400);
+}
+.rail-cover__copy p { margin: var(--_space-sm) 0 0; color: var(--_muted); font-size: var(--_text-sm); }
+.rail-cover__copy a {
+  margin-top: var(--_space-md);
+  min-height: var(--_tap-min);
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--_text-sm);
+  color: var(--_accent-text);
+}
+
+/* ---------------------------------------------------------------------------
+ * WELCOME — the card that arrives before the form. E12 as a component.
+ */
+.rail-welcome { display: flex; flex-direction: column; gap: var(--_space-md); color: var(--_text); }
+.rail-welcome__card {
+  padding: var(--_space-lg);
+  border: 1px solid var(--_border);
+  border-radius: var(--_radius);
+  background: linear-gradient(140deg,
+    var(--rail-welcome-bg, rgba(255, 255, 255, 0.08)), transparent);
+  transform: rotate(var(--rail-welcome-tilt, -1.5deg));
+}
+.rail-welcome__eyebrow { display: block; font-size: var(--_text-xs); color: var(--_muted); }
+.rail-welcome__card strong {
+  display: block;
+  margin-top: var(--_space-lg);
+  font-size: var(--rail-welcome-size, clamp(24px, 4.5vw, 34px));
+  line-height: var(--rail-welcome-leading, 1.1);
+  font-weight: var(--rail-welcome-weight, 400);
+}
+.rail-welcome__card strong span,
+.rail-welcome__card strong em { display: block; }
+.rail-welcome__note { margin: 0; color: var(--_muted); font-size: var(--_text-sm); }
+.rail-welcome__open {
+  min-height: var(--_control-min);
+  padding: var(--_space-sm) var(--_space-lg);
+  border: 1px solid var(--_border);
+  border-radius: var(--_pill);
+  background: var(--rail-welcome-action-bg, transparent);
+  color: inherit;
+  cursor: pointer;
+}
+@media (prefers-reduced-motion: reduce) {
+  .rail-welcome__card { transform: none; }
+}
+
+/* ── RailDisclosure — the one rule its panel was missing ─────────────────
+   The rest of this component has been styled since it shipped, further up
+   this file. What had no rule at all was the panel.
+
+   It keeps its children in the DOM and hides them with the `hidden`
+   attribute, which is the right design — a fold that unmounts its links hides
+   them from a crawler too. But `[hidden]` is only `display: none` in the UA
+   sheet, and ANY author display beats it. Put a Tailwind `grid` or `flex`
+   inside and the panel renders wide open while aria-expanded says false.
+
+   Not hypothetical: gainsfromgeebs had twelve closed <details> on /science
+   rendering all 96 cards inside them for exactly this reason, and the page
+   came to 16,729px on a phone.
+
+   `!important` on purpose — it has to beat a utility class whose name it
+   cannot know.                                                             */
+.rail-disclosure__panel[hidden] { display: none !important; }
+
+/* ---------------------------------------------------------------------------
+   RailBenefits — lo que ganas, en filas.
+   --------------------------------------------------------------------------- */
+.rail-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rail-benefits-gap, var(--_space-xl));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rail-benefits__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--rail-benefits-item-gap, var(--_space-lg));
+}
+
+.rail-benefits__glyph {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: var(--rail-benefits-glyph, calc(var(--_space-4xl) * 1.6));
+  height: var(--rail-benefits-glyph, calc(var(--_space-4xl) * 1.6));
+  border-radius: 100%;
+  background: var(--rail-benefits-glyph-bg, var(--_bg));
+  color: var(--rail-benefits-glyph-color, inherit);
+}
+
+/* min-width:0 o un titulo largo no se deja recortar dentro de un flex. */
+.rail-benefits__text {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: var(--rail-benefits-text-gap, var(--_space-2xs));
+}
+
+.rail-benefits__title {
+  font-size: calc(var(--rail-benefits-title-size, 17px) * var(--_type));
+  font-weight: var(--rail-benefits-title-weight, 700);
+  line-height: var(--rail-benefits-title-leading, 1.3);
+}
+
+.rail-benefits__body {
+  color: var(--rail-benefits-body-color, var(--_muted));
+  font-size: calc(var(--rail-benefits-body-size, 16px) * var(--_type));
+  line-height: var(--rail-benefits-body-leading, 1.45);
+}
+
+/* ---------------------------------------------------------------------------
+   RailSteps — por donde vas.
+
+   Los tramos son iguales y se reparten el ancho, asi que cinco pasos no hacen
+   la barra mas larga: hacen cada tramo mas estrecho. Una barra que crece con el
+   numero de pasos miente sobre cuanto queda.
+   --------------------------------------------------------------------------- */
+.rail-steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rail-steps-gap, var(--_space-sm));
+}
+
+.rail-steps__track {
+  display: flex;
+  gap: var(--rail-steps-seg-gap, var(--_space-xs));
+}
+
+.rail-steps__seg {
+  flex: 1 1 0;
+  height: var(--rail-steps-height, 3px);
+  border-radius: var(--rail-steps-radius, var(--_pill));
+  background: var(--rail-steps-pending, var(--_border));
+}
+
+.rail-steps__seg[data-done] {
+  background: var(--rail-steps-done, currentColor);
+}
+
+.rail-steps__label {
+  margin: 0;
+  color: var(--rail-steps-label-color, var(--_muted));
+  font-size: calc(var(--rail-steps-label-size, 13px) * var(--_type));
+}
+
+/* ── RailSkeleton — el hueco con la forma del contenido ──────────────────
+   Las barras heredan el ancho y el alto por style inline porque los fija
+   quien llama: la forma del esqueleto ES el dato, y una clase no puede
+   saberla. Lo unico que decide el kit es el color, el radio y el ritmo.   */
+.rail-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rail-skeleton-group-gap, var(--_space-md));
+}
+
+.rail-skeleton[data-gap="sm"] {
+  gap: var(--rail-skeleton-group-gap-sm, var(--_space-sm));
+}
+
+.rail-skeleton__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rail-skeleton-gap, var(--_space-xs));
+}
+
+.rail-skeleton__bar {
+  display: block;
+  border-radius: var(--rail-skeleton-radius, var(--_radius));
+  background: var(--rail-skeleton-bg, var(--_border));
+}
+
+/* ── RailPost — una cosa dicha, entera ───────────────────────────────────
+   El recorte es `-webkit-line-clamp`, que sigue siendo la unica forma que
+   respeta la altura de linea real del texto. `max-height: 3lh` recorta a
+   ciegas y deja media linea asomando por abajo en cuanto la fuente no es la
+   que se supuso.                                                          */
+.rail-post {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rail-post-gap, var(--_space-sm));
+  padding: var(--rail-post-pad, var(--_space-md));
+  background: var(--rail-post-bg, var(--_bg));
+  border-radius: var(--rail-post-radius, var(--_radius));
+  color: inherit;
+}
+
+.rail-post__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--rail-post-gap, var(--_space-sm));
+}
+
+.rail-post__overflow {
+  flex: 0 0 auto;
+}
+
+.rail-post__body {
+  margin: 0;
+  color: var(--rail-post-color, inherit);
+}
+
+.rail-post__body[data-clamped] {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--rail-post-clamp, 3);
+  line-clamp: var(--rail-post-clamp, 3);
+  overflow: hidden;
+}
+
+.rail-post__more {
+  align-self: flex-start;
+  min-height: var(--_control-min-sm);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--rail-post-more-color, var(--_accent));
+  font: inherit;
+  cursor: pointer;
+}
+
+.rail-post__attachment {
+  border-radius: var(--rail-post-attachment-radius, var(--_radius));
+  overflow: hidden;
+}
+
+.rail-post__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--rail-post-gap, var(--_space-sm));
+}
+
+/* ── RailPromo layout="beside" y RailStats delta ─────────────────────────
+   El panel de arte al lado, no detras. Existe porque un promo que vive en un
+   feed entre dos tarjetas no puede ser 150px de fotografia: tiene que leerse
+   de un vistazo como UNA fila, y copy sobre foto a esa altura no se lee con
+   ningun contraste.                                                        */
+.rail-promo[data-layout="beside"] {
+  display: grid;
+  grid-template-columns: var(--rail-promo-panel-width, 96px) 1fr;
+  grid-template-rows: auto auto;
+}
+
+.rail-promo[data-layout="beside"] .rail-promo__art {
+  grid-row: 1 / span 2;
+  min-height: var(--rail-promo-beside-height, 100%);
+  padding: 0;
+  background: var(--rail-promo-panel-bg, var(--_accent));
+}
+
+.rail-promo[data-layout="beside"] .rail-promo__panel {
+  position: relative;
+  padding: var(--rail-promo-beside-padding, var(--_space-md));
+}
+
+.rail-promo[data-layout="beside"] .rail-promo__title {
+  font-size: calc(var(--rail-promo-beside-title-size, 15px) * var(--_type));
+  font-weight: var(--rail-weight-normal, 400);
+  line-height: 1.4;
+}
+
+/* Sin arte detras del texto, el texto no se pone su propio suelo. */
+.rail-promo[data-layout="beside"] .rail-promo__copy {
+  color: inherit;
+  text-shadow: none;
+  max-width: none;
+  /* El hueco de la aspa. Medido en el navegador: sin el, la ultima palabra de
+     la primera linea pasa POR DEBAJO del boton de cerrar. Un absolute no
+     empuja al texto, y el texto no sabe que hay algo encima. */
+  padding-right: var(--rail-promo-beside-gutter, 34px);
+}
+
+/* En una fila, la accion es un enlace, no una barra rellena. La barra existe
+   para competir con una fotografia a 150px de alto; aqui no hay fotografia
+   detras de nada y una barra verde a ancho completo convierte un anuncio
+   discreto en el elemento mas ruidoso de la pantalla. */
+.rail-promo[data-layout="beside"] .rail-promo__action {
+  grid-column: 2;
+  justify-content: flex-start;
+  gap: var(--_space-sm);
+  padding: 0 var(--rail-promo-beside-padding, var(--_space-md))
+    var(--rail-promo-beside-padding, var(--_space-md));
+  background: transparent;
+  color: var(--rail-promo-beside-action-color, var(--_accent));
+  font-weight: var(--rail-weight-bold, 700);
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.rail-promo[data-layout="beside"] .rail-promo__meta {
+  margin-left: auto;
+  font-weight: var(--rail-weight-normal, 400);
+}
+
+.rail-promo__meta {
+  color: var(--rail-promo-meta-color, var(--_muted));
+  font-size: calc(var(--rail-size-micro, 12px) * var(--_type));
+  font-variant-numeric: tabular-nums;
+}
+
+/* El delta va al lado de la cifra, con su propio color por direccion. El
+   color NO es la informacion: el componente escribe la palabra para el lector
+   de pantalla, porque un "+0.52" verde no le dice nada a quien no lo ve — ni
+   a quien no distingue ese verde de ese rojo. */
+.rail-stats__delta {
+  margin-left: var(--rail-stats-delta-gap, var(--_space-2xs));
+  font-size: calc(var(--rail-stats-delta-size, 15px) * var(--_type));
+  font-variant-numeric: tabular-nums;
+}
+
+.rail-stats__delta[data-direction="up"] {
+  color: var(--rail-stats-up, var(--_accent));
+}
+
+.rail-stats__delta[data-direction="down"] {
+  color: var(--rail-stats-down, currentColor);
+}
+
+/* ── RailTerrain y RailLimelight — los dos telones ───────────────────────
+   RailTerrain pinta en canvas (via RailStage); aqui solo esta su caja.    */
+.rail-terrain {
+  position: relative;
+  border-radius: var(--rail-terrain-radius, var(--_radius));
+  overflow: hidden;
+}
+
+.rail-limelight {
+  position: relative;
+  min-height: var(--rail-limelight-height, 320px);
+  overflow: hidden;
+}
+
+.rail-limelight__subject {
+  position: absolute;
+  bottom: var(--rail-limelight-floor, 28%);
+  left: 50%;
+  z-index: 1;
+  transform: translate(calc(-50% + var(--rail-limelight-x, 0%)), 0);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rail-limelight__subject {
+    transition: transform var(--rail-limelight-follow, 900ms)
+      var(--_ease-soft, cubic-bezier(0.22, 1, 0.36, 1));
+  }
+}
+
+/* ── RailAllocation — como se reparte un todo ────────────────────────────
+   Los tramos NO llevan gap: un hueco entre tramos hace que la barra sume
+   menos del 100% a ojo, y el ojo es lo unico que lee una barra.          */
+.rail-allocation {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rail-allocation-gap, var(--_space-md));
+}
+
+.rail-allocation__bar {
+  display: flex;
+  height: var(--rail-allocation-height, 10px);
+  border-radius: var(--rail-allocation-radius, var(--_pill));
+  overflow: hidden;
+  background: var(--rail-allocation-track, var(--_border));
+}
+
+.rail-allocation__slice {
+  min-width: var(--rail-allocation-min-slice, 2px);
+  background: var(--rail-allocation-slice, var(--_accent));
+}
+
+.rail-allocation__legend {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rail-allocation-row-gap, var(--_space-sm));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rail-allocation__row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--rail-allocation-row-inner-gap, var(--_space-sm));
+}
+
+.rail-allocation__dot {
+  flex: 0 0 auto;
+  width: var(--rail-allocation-dot, 9px);
+  height: var(--rail-allocation-dot, 9px);
+  border-radius: var(--rail-allocation-dot-radius, 2px);
+  background: var(--rail-allocation-slice, var(--_accent));
+  transform: translateY(-1px);
+}
+
+.rail-allocation__text {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.rail-allocation__name {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+}
+
+button.rail-allocation__name {
+  min-height: var(--_control-min-sm);
+  cursor: pointer;
+}
+
+.rail-allocation__detail {
+  color: var(--rail-allocation-detail-color, var(--_muted));
+  font-size: calc(var(--rail-size-micro, 12px) * var(--_type));
+}
+
+.rail-allocation__share {
+  flex: 0 0 auto;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── RailTiers — la escalera de recompensas ──────────────────────────── */
+.rail-tiers {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rail-tiers-gap, var(--_space-md));
+}
+
+.rail-tiers__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rail-tiers-row-gap, var(--_space-sm));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rail-tiers__row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--rail-tiers-row-inner-gap, var(--_space-sm));
+}
+
+.rail-tiers__glyph {
+  flex: 0 0 auto;
+  color: var(--rail-tiers-glyph-color, var(--_accent));
+}
+
+.rail-tiers__text {
+  display: flex;
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+  gap: 0 var(--_space-xs);
+  min-width: 0;
+}
+
+.rail-tiers__reward {
+  font-weight: var(--rail-weight-bold, 700);
+}
+
+.rail-tiers__row[data-reached] .rail-tiers__requirement {
+  color: var(--rail-tiers-reached-color, var(--_muted));
+}
+
+.rail-tiers__reached {
+  flex: 0 0 auto;
+  color: var(--rail-tiers-reached-color, var(--_muted));
+  font-size: calc(var(--rail-size-micro, 12px) * var(--_type));
+}
+
+.rail-tiers__footnote {
+  margin: 0;
+  color: var(--rail-tiers-footnote-color, var(--_muted));
+  font-size: calc(var(--rail-size-micro, 12px) * var(--_type));
+}
+
+
+/* ============================================================
+   RAIL SHELF — folders stacked down the page, one open at a time
+   ============================================================
+   A drawer runs across; this runs down. Every folder gets a full line for its
+   name, a count and a line of description, so the shelf can be read without
+   opening anything — which is the point when the contents are a library rather
+   than two optional paragraphs.
+
+   The book look is built from a left edge and elevation, NOT from a transform.
+   A scaled spine inside a panel that clips would grow out of a box that did not
+   grow with it, and the first and last child always show it first. */
+.rail-shelf {
+  display: grid;
+  gap: var(--rail-shelf-gap, 14px);
+}
+
+.rail-shelf__search {
+  display: grid;
+  gap: var(--_space-xs);
+}
+
+.rail-shelf__label {
+  color: var(--rail-muted, rgba(255, 255, 255, 0.62));
+  font-size: var(--rail-size-micro, 12px);
+  letter-spacing: var(--_track-wide);
+  text-transform: uppercase;
+}
+
+.rail-shelf__field {
+  width: 100%;
+  min-height: var(--_control-min, 44px);
+  padding: 0 var(--_space-mid);
+  border: 1px solid var(--rail-card-border, rgba(255, 255, 255, 0.14));
+  border-radius: var(--rail-shelf-field-radius, 10px);
+  background: var(--rail-shelf-field-bg, rgba(0, 0, 0, 0.28));
+  color: var(--rail-text, #fff);
+  font: inherit;
+  font-size: var(--rail-shelf-field-size, 16px);
+}
+
+/* 16px is not a style choice: iOS Safari zooms the whole page in when a focused
+   input is smaller, and the reader then has to pinch back out to see the shelf
+   they were searching. */
+
+.rail-shelf__stack {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 var(--rail-shelf-ledge-gap, 10px);
+  display: grid;
+  gap: var(--rail-shelf-book-gap, 6px);
+  /* The shelf the pile sits on. One rule, the width of the stack: without it
+     the books float, and a pile of books with nothing under it is a list. */
+  border-bottom: var(--rail-shelf-ledge-width, 2px) solid
+    var(--rail-shelf-ledge, var(--_accent, currentColor));
+}
+
+/* A BOOK LYING ON A PILE, not a rounded rectangle with a stripe.
+ 
+   Four things make it read as an object rather than a row, and all four are
+   cheap: a spine down the left with the grain of the material running across
+   it, the cut edge of the pages down the right, a cover that catches light at
+   its top edge, and a shadow that says the one below is carrying it.
+ 
+   Every value is a token. A brand that wants gold books sets two variables;
+   nobody should have to edit a component rule to look like themselves. */
+.rail-shelf__book {
+  position: relative;
+  border: 1px solid var(--rail-shelf-border, rgba(255, 255, 255, 0.14));
+  border-radius: var(--rail-shelf-radius, 12px);
+  background:
+    linear-gradient(
+      180deg,
+      var(--rail-shelf-sheen, rgba(255, 255, 255, 0.07)) 0,
+      transparent var(--rail-shelf-sheen-stop, 40%)
+    ),
+    var(--rail-shelf-bg, rgba(255, 255, 255, 0.03));
+  box-shadow: var(--rail-shelf-shadow, 0 2px 0 rgba(0, 0, 0, 0.35));
+  overflow: hidden;
+}
+
+/* THE CUT EDGE OF THE PAGES, down the right. Repeating hairlines, because a
+   solid band reads as a border and paper is many thin things. */
+.rail-shelf__book::after {
+  content: "";
+  position: absolute;
+  inset: var(--rail-shelf-pages-inset, 8px) 0 var(--rail-shelf-pages-inset, 8px)
+    auto;
+  right: 0;
+  width: var(--rail-shelf-pages, 7px);
+  border-radius: var(--rail-shelf-edge-radius, 3px) 0 0
+    var(--rail-shelf-edge-radius, 3px);
+  background: repeating-linear-gradient(
+    90deg,
+    var(--rail-shelf-page-line, rgba(255, 255, 255, 0.16)) 0,
+    var(--rail-shelf-page-line, rgba(255, 255, 255, 0.16)) 1px,
+    transparent 1px,
+    transparent var(--rail-shelf-page-step, 3px)
+  );
+  opacity: var(--rail-shelf-pages-opacity, 0.7);
+  pointer-events: none;
+}
+
+/* IT COMES OFF THE PILE WHEN YOU PRESS IT, the way you pull a book out.
+   `:active` as well as `:hover`, because a thumb has no hover — a lift that
+   only exists for a mouse is a lift most readers never get. Closed books only:
+   an open one lifting while you are reading inside it is a jolt, not a touch. */
+@media (prefers-reduced-motion: no-preference) {
+  .rail-shelf__book:not([data-rail-open]) {
+    transition:
+      transform var(--_dur-fast) var(--_ease),
+      border-color var(--_dur-fast) ease,
+      box-shadow var(--_dur-fast) ease;
+  }
+
+  .rail-shelf__book:not([data-rail-open]):active {
+    transform: translateY(var(--rail-shelf-lift, -3px));
+    border-color: var(--rail-shelf-lift-border, var(--_accent, currentColor));
+    box-shadow: var(--rail-shelf-lift-shadow, 0 8px 18px rgba(0, 0, 0, 0.45));
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .rail-shelf__book:not([data-rail-open]):hover {
+    transform: translateY(var(--rail-shelf-lift, -3px));
+    border-color: var(--rail-shelf-lift-border, var(--_accent, currentColor));
+    box-shadow: var(--rail-shelf-lift-shadow, 0 8px 18px rgba(0, 0, 0, 0.45));
+  }
+}
+
+.rail-shelf__book[data-rail-open] {
+  border-color: var(--rail-shelf-open-border, var(--_accent, currentColor));
+  background: var(--rail-shelf-open-bg, rgba(255, 255, 255, 0.05));
+  box-shadow: var(--rail-shelf-open-shadow, 0 14px 34px rgba(0, 0, 0, 0.42));
+}
+
+.rail-shelf__spine {
+  display: flex;
+  width: 100%;
+  min-height: var(--rail-shelf-spine-min, 62px);
+  align-items: center;
+  gap: var(--_space-md);
+  padding: var(--_space-md) var(--_space-mid) var(--_space-md)
+    calc(var(--rail-shelf-edge, 6px) + var(--_space-md));
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* The spine of the book: a coloured edge down the left, the way a shelf reads
+   from across the room.
+ 
+   It is positioned against the BOOK, not laid out inside the button. Inside,
+   `align-self: stretch` only reaches the button's content box, so the button's
+   own vertical padding left the bar floating with a gap at each end — and when
+   a folder opened, the bar stopped at the spine while the panel carried on
+   underneath it. A spine that does not reach the ends of the book is a stripe. */
+.rail-shelf__book {
+  position: relative;
+}
+
+.rail-shelf__edge {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--rail-shelf-edge, 10px);
+  border-radius: 0 var(--rail-shelf-edge-radius, 3px)
+    var(--rail-shelf-edge-radius, 3px) 0;
+  /* The grain runs ACROSS the spine, which is how light falls on the bound
+     edge of a book: a flat fill reads as a highlighter mark. */
+  background: linear-gradient(
+    90deg,
+    var(--rail-shelf-edge-dark, rgba(0, 0, 0, 0.35)) 0,
+    var(--rail-shelf-edge-color, var(--_accent, currentColor))
+      var(--rail-shelf-edge-mid, 45%),
+    var(--rail-shelf-edge-light, rgba(255, 255, 255, 0.28)) 100%
+  );
+  background-color: var(--rail-shelf-edge-color, var(--_accent, currentColor));
+  opacity: var(--rail-shelf-edge-opacity, 0.72);
+}
+
+.rail-shelf__book[data-rail-open] .rail-shelf__edge {
+  opacity: 1;
+}
+
+.rail-shelf__title {
+  display: grid;
+  gap: var(--rail-shelf-title-gap, 3px);
+  flex: 1 1 auto;
+  min-width: 0;
+  color: var(--rail-text, #fff);
+  font-size: var(--rail-shelf-title-size, 17px);
+  font-weight: var(--rail-shelf-title-weight, 700);
+  line-height: 1.25;
+}
+
+.rail-shelf__hint {
+  color: var(--rail-muted, rgba(255, 255, 255, 0.62));
+  font-size: var(--rail-shelf-hint-size, 13px);
+  font-weight: var(--rail-shelf-hint-weight, 400);
+  line-height: 1.4;
+}
+
+.rail-shelf__badge {
+  flex: 0 0 auto;
+  min-width: 26px;
+  padding: var(--rail-shelf-badge-pad, 3px) var(--_space-s);
+  border-radius: var(--rail-shelf-badge-radius, 999px);
+  background: var(--rail-badge-bg, rgba(0, 0, 0, 0.6));
+  color: var(--rail-badge-color, #fff);
+  font-size: var(--rail-size-micro, 12px);
+  font-weight: var(--rail-shelf-badge-weight, 700);
+  text-align: center;
+}
+
+.rail-shelf__chevron {
+  flex: 0 0 auto;
+  color: var(--rail-muted, rgba(255, 255, 255, 0.62));
+  font-size: var(--rail-shelf-chevron-size, 18px);
+  line-height: 1;
+  transition: transform var(--_dur-fast) ease;
+}
+
+.rail-shelf__book[data-rail-open] .rail-shelf__chevron {
+  transform: rotate(180deg);
+}
+
+.rail-shelf__panel {
+  padding: var(--_space-3xs) var(--_space-mid) var(--_space-lg)
+    calc(var(--rail-shelf-edge, 6px) + var(--_space-lg));
+}
+
+/* [hidden] loses to an author `display`, and a grid or flex panel here would
+   ignore it and render open. Stated once, loudly, because it has cost this kit
+   a release before. */
+.rail-shelf__panel[hidden] {
+  display: none !important;
+}
+
+.rail-shelf__empty {
+  margin: 0;
+  color: var(--rail-muted, rgba(255, 255, 255, 0.62));
+  font-size: var(--_text-md);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rail-shelf__chevron {
+    transition: none;
+  }
 }

@@ -143,6 +143,143 @@
     opacity: 1;
     transform: none;
   }
+
+  /* STAGGER — the same arrival, one part at a time.
+   *
+   * For a headline that lands word by word, or a list whose rows come in
+   * behind each other. The site wraps each part in `.rail-reveal-part` and
+   * sets `--_i` on it; nothing here counts anything, because :nth-child()
+   * cannot see across the line breaks a headline actually wraps at.
+   *
+   * ON THE CAP. The delay is clamped, and that is the whole reason this is a
+   * kit rule and not three lines in a stylesheet: a 40-word paragraph with
+   * 60ms per word is a two-and-a-half second wait for the last word, and the
+   * reader has finished the sentence long before the sentence has finished
+   * arriving. Past the cap the rest come in together, which nobody notices —
+   * the animation is over by then either way.
+   *
+   * It rides on .rail-reveal, so `is-in` still drives it and the no-JS floor
+   * is the same: without `.rail-anim` every part is simply visible. */
+  .rail-anim .rail-reveal .rail-reveal-part {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(var(--rail-reveal-part-distance, 14px));
+    transition:
+      opacity var(--rail-reveal-part-duration, 0.5s) ease,
+      transform var(--rail-reveal-part-duration, 0.5s)
+        cubic-bezier(0.2, 0.7, 0.2, 1);
+    transition-delay: min(
+      calc(var(--_i, 0) * var(--rail-reveal-stagger, 55ms)),
+      var(--rail-reveal-stagger-cap, 700ms)
+    );
+  }
+
+  .rail-anim .rail-reveal.is-in .rail-reveal-part {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * TILT — a surface that obeys the pointer, so a card reads as an object in the
+ * hand rather than a picture of one.
+ *
+ * Promoted from danielzea-site, where it was written twice in three days: once
+ * for a digital business card and again, from scratch, for a pricing card in
+ * another stylesheet. The second time was the tell — the brief was «make it
+ * tactile», and the answer was a component, not a page.
+ *
+ * WHAT THE KIT SHIPS AND WHAT IT DOES NOT. The kit ships the states and the
+ * geometry; the SITE writes the two angles, because only the site knows which
+ * element is being pointed at and how it wants to sample the pointer. This is
+ * the same split as REVEAL above and for the same reason: the observer, the
+ * routing and the hydration timing are the site's business. The contract is
+ * four custom properties and two classes:
+ *
+ *   on pointermove, inside ONE requestAnimationFrame per frame:
+ *     --rail-tilt-x / --rail-tilt-y   the two angles, in deg
+ *     --rail-tilt-lx / --rail-tilt-ly the sheen's position, in %
+ *   on enter/leave:  .is-tilting      on press:  .is-pressed
+ *
+ * ON THE CEILING, which is a design decision and not a detail: the angles are
+ * the site's to cap, and the honest cap depends on what the card carries. The
+ * card that IS the gesture — a contact card someone opens from a QR — can
+ * afford five degrees. A card with a PRICE on it cannot: a tariff that sways
+ * reads as a banner, and that costs credit exactly where credit is being
+ * asked for. Three degrees there. A kit that hard-coded one number would have
+ * been wrong for one of the two.
+ *
+ * ON THE DEPTH. The tilt alone reads as a skewed rectangle. What makes it read
+ * as an object with thickness is a few children coming FORWARD in Z while it
+ * leans — the badge, the headline figure, the button. That is
+ * `[data-rail-tilt-lift]`, and it needs `preserve-3d` on the card, which is
+ * why the card sets it unconditionally and not only while tilting: flipping
+ * `transform-style` mid-gesture re-rasterises every layer.
+ *
+ * ON TOUCH. The tilt is pointer-only by contract — a finger COVERS the card it
+ * is tilting, so the effect is work a phone pays for in battery and nobody
+ * sees. The press is not: without a pointer it is the only answer the surface
+ * can give, so `.is-pressed` is the part that must survive on a phone.
+ * ------------------------------------------------------------------------- */
+
+/* The scene. Perspective belongs to the PARENT: set on the card itself, each
+   card gets its own vanishing point and a row of them leans like a row of
+   separate objects instead of one surface seen from one place. */
+[data-rail-tilt-scene] {
+  perspective: var(--rail-tilt-perspective, 1600px);
+}
+
+[data-rail-tilt] {
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+/* The specular sheen, painted by the card's own background so the component
+   costs no extra element and cannot fight a border or a ring drawn on ::before
+   or ::after — both of which are already spoken for in this file. */
+[data-rail-tilt-sheen] {
+  background-image: radial-gradient(
+    var(--rail-tilt-sheen-size, 40% 50%) at var(--rail-tilt-lx, 50%) var(--rail-tilt-ly, 0%),
+    color-mix(in srgb, var(--rail-tilt-sheen-light, #fff) 8%, transparent) 0%,
+    color-mix(in srgb, var(--rail-tilt-sheen-color, var(--_accent, currentColor)) 8%, transparent) 40%,
+    transparent 74%
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-rail-tilt] {
+    transform: rotateX(var(--rail-tilt-x, 0deg)) rotateY(var(--rail-tilt-y, 0deg));
+    /* Slow on the way back to flat, quick while the pointer is on it: a
+       surface that lags the finger does not feel like a surface. */
+    transition:
+      transform var(--rail-tilt-return, 0.5s) cubic-bezier(0.2, 0.7, 0.2, 1),
+      box-shadow var(--rail-tilt-return, 0.5s) ease;
+  }
+
+  [data-rail-tilt].is-tilting {
+    transition:
+      transform var(--rail-tilt-follow, 0.12s) linear,
+      box-shadow var(--rail-tilt-return, 0.5s) ease;
+  }
+
+  [data-rail-tilt-lift] {
+    transition: transform var(--rail-tilt-return, 0.5s) cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  [data-rail-tilt].is-tilting [data-rail-tilt-lift] {
+    transform: translateZ(var(--rail-tilt-lift, 20px));
+  }
+
+  /* The press keeps the current angles: dropping them here makes the card
+     snap flat under the finger, which reads as the gesture being rejected. */
+  [data-rail-tilt].is-pressed {
+    transform: scale(var(--rail-tilt-press, 0.99))
+      rotateX(var(--rail-tilt-x, 0deg)) rotateY(var(--rail-tilt-y, 0deg));
+    transition: transform var(--rail-tilt-press-duration, 0.18s)
+      cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
 }
 
 /* ---------------------------------------------------------------------------
@@ -206,4 +343,212 @@
 @keyframes rail-veil-mark {
   0%, 28% { opacity: 1; transform: scale(1); }
   100% { opacity: 0; transform: scale(1.035); visibility: hidden; }
+}
+
+/* ---------------------------------------------------------------------------
+   EL BRILLO. `[data-rail-glow]`.
+ *
+ * Un halo alrededor de una pieza que importa: la carta que acabas de ganar, la
+ * jugada que cambio el marcador.
+ *
+ * VA EN `box-shadow`, NO en un pseudo-elemento. `::before` ya es del
+ * spotlight y `::after` del canto del vidrio: un tercer inquilino no gana "a
+ * medias", se mezclan propiedad por propiedad y sale algo que no se parece a
+ * ninguno de los tres. Con box-shadow el brillo convive con cualquiera.
+ *
+ * NO RECORTA. Un halo dibujado por fuera muere dentro de un `overflow:hidden`,
+ * asi que se pone en el elemento que ENVUELVE a la tarjeta, nunca en la
+ * superficie recortada.
+ *
+ * EL LATIDO ES OPCIONAL Y NUNCA ES EL DATO. `[data-rail-glow="pulse"]` respira;
+ * con motion reducido el halo se queda quieto pero SIGUE AHI. Apagar el
+ * movimiento no puede apagar la informacion, y si el halo fuera el unico modo
+ * de saber que algo es especial, ya estaria mal antes de llegar aqui.
+ * --------------------------------------------------------------------------- */
+[data-rail-glow] {
+  --_glow-color: var(--rail-glow-color, currentColor);
+  --_glow-spread: var(--rail-glow-spread, 22px);
+  box-shadow:
+    0 0 var(--_glow-spread) calc(var(--_glow-spread) / -3) var(--_glow-color),
+    0 0 calc(var(--_glow-spread) * 2.2) calc(var(--_glow-spread) / -2) var(--_glow-color);
+}
+
+[data-rail-glow="soft"] {
+  --_glow-spread: var(--rail-glow-spread-soft, 14px);
+}
+
+[data-rail-glow="strong"] {
+  --_glow-spread: var(--rail-glow-spread-strong, 34px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-rail-glow="pulse"] {
+    animation: rail-glow-breathe var(--rail-glow-beat, 2.6s) ease-in-out infinite;
+  }
+}
+
+@keyframes rail-glow-breathe {
+  0%, 100% { box-shadow: 0 0 var(--_glow-spread) calc(var(--_glow-spread) / -3) var(--_glow-color); }
+  50% {
+    box-shadow:
+      0 0 calc(var(--_glow-spread) * 1.6) calc(var(--_glow-spread) / -4) var(--_glow-color),
+      0 0 calc(var(--_glow-spread) * 3) calc(var(--_glow-spread) / -2) var(--_glow-color);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * DECISION EXITS — a card leaving in the direction you decided.
+ *
+ * Promoted from the Christian Castiblanco postcard deck, where they were local
+ * and could not be used by another brand. See docs/MAGAZINE-LANE.md.
+ *
+ * TWO EXITS, NOT ONE. A deck driven by both a button and a drag needs two, and
+ * the reason is the starting position. A button press starts at rest, so it can
+ * afford to hold still for a beat while the stamp registers — that hold is what
+ * tells you which way you chose. A drag has already travelled; holding it at
+ * neutral means teleporting the card back under the finger that just moved it,
+ * waiting, and only then leaving. That shipped, and it read as a bug.
+ *
+ * The drag variants therefore start from --rail-drag-x / --rail-drag-angle, the
+ * live offset, and never return to zero. Set them while dragging and do NOT
+ * clear them before adding the exit class — the animation reads them on the
+ * first frame.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  .rail-decide { transition: transform .28s ease, opacity .28s ease; }
+
+  /* Dragging: no transition, the pointer is the clock. */
+  .rail-decide.is-dragging {
+    transform: translateX(var(--rail-drag-x, 0px)) rotate(var(--rail-drag-angle, 0deg));
+    transition: none;
+  }
+
+  /* Tap path: hold, then go. The hold is the point. */
+  .rail-decide.is-keeping { animation: rail-decide-keep .9s ease-in-out both; }
+  .rail-decide.is-passing { animation: rail-decide-pass .9s ease-in-out both; }
+
+  /* Drag path: continue, never return. */
+  .rail-decide.from-drag.is-keeping { animation: rail-decide-keep-drag .42s cubic-bezier(.32,.72,.4,1) both; }
+  .rail-decide.from-drag.is-passing { animation: rail-decide-pass-drag .42s cubic-bezier(.32,.72,.4,1) both; }
+
+  @keyframes rail-decide-keep {
+    0%, 40% { transform: rotate(var(--rail-decide-rest, -1deg)); opacity: 1; }
+    100%    { transform: translateX(var(--rail-decide-travel, 150px)) rotate(13deg); opacity: 0; }
+  }
+  @keyframes rail-decide-pass {
+    0%, 40% { transform: rotate(var(--rail-decide-rest, -1deg)); opacity: 1; }
+    100%    { transform: translateX(calc(var(--rail-decide-travel, 150px) * -1)) rotate(-13deg); opacity: 0; }
+  }
+  @keyframes rail-decide-keep-drag {
+    from { transform: translateX(var(--rail-drag-x, 0px)) rotate(var(--rail-drag-angle, 0deg)); opacity: 1; }
+    to   { transform: translateX(var(--rail-decide-fling, 260px)) rotate(13deg); opacity: 0; }
+  }
+  @keyframes rail-decide-pass-drag {
+    from { transform: translateX(var(--rail-drag-x, 0px)) rotate(var(--rail-drag-angle, 0deg)); opacity: 1; }
+    to   { transform: translateX(calc(var(--rail-decide-fling, 260px) * -1)) rotate(-13deg); opacity: 0; }
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * VINYL — rotation bound to media state, never to a timer.
+ *
+ * The disc turns because the audio element says it is playing. Drive it from
+ * the `play`, `pause` and `ended` events and let the animation-play-state do
+ * the work; a setInterval drifts away from the sound within a minute and the
+ * drift is the thing people notice without being able to name it.
+ *
+ *   audio.addEventListener('play',  () => deck.dataset.spinning = 'true');
+ *   audio.addEventListener('pause', () => delete deck.dataset.spinning);
+ */
+@media (prefers-reduced-motion: no-preference) {
+  .rail-vinyl { animation: rail-vinyl 3.4s linear infinite; animation-play-state: paused; }
+  [data-spinning] .rail-vinyl, .rail-vinyl[data-spinning] { animation-play-state: running; }
+  @keyframes rail-vinyl { to { transform: rotate(360deg); } }
+
+  /* The arm swings in and stays; it is a position, not a loop. */
+  .rail-tonearm { transition: transform .5s cubic-bezier(.2,.8,.2,1); transform: rotate(var(--rail-tonearm-rest, -16deg)); transform-origin: 80% 16%; }
+  [data-spinning] .rail-tonearm, .rail-tonearm[data-spinning] { transform: rotate(var(--rail-tonearm-play, 0deg)); }
+}
+
+/* ---------------------------------------------------------------------------
+ * GLINT — a finite pass across an action that just became relevant.
+ *
+ * Three passes, then it stops. Finite is the whole point: a shimmer that loops
+ * is read as a loading state, and a visitor waits for it instead of pressing it.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  .rail-glint { position: relative; overflow: hidden; }
+  .rail-glint::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(110deg, transparent 30%, var(--rail-glint-sheen, rgb(255 255 255 / .22)) 45%, transparent 65%);
+    transform: translateX(-100%);
+    animation: rail-glint 1.15s ease-out 3;
+  }
+  @keyframes rail-glint { to { transform: translateX(100%); } }
+}
+
+/* ---------------------------------------------------------------------------
+ * LIMELIGHT — a cone of light from above onto whatever is standing under it.
+ *
+ * THIS IS NOT `data-rail-spotlight`. The spotlight is a light running around
+ * a card's BORDER, marking which card is in focus. This is a light falling on
+ * a SUBJECT from overhead, marking a thing on a stage. They were nearly given
+ * the same name, which would have left the kit with one word for two effects
+ * and no way to ask for either.
+ *
+ * ON WHY THE CONE IS A SEPARATE ELEMENT FROM THE SUBJECT. The cone has to
+ * TRACK the subject when it moves, and the two cannot share a transform: the
+ * subject also scales and flips, and a cone that scales with its actor stops
+ * being a cone. `--rail-limelight-x` drives both, so the consumer moves one
+ * variable and the light follows.
+ *
+ * ON THE POOL. Without the ellipse on the ground the cone just fades out and
+ * the subject reads as floating in fog. The pool is what puts it on a floor.
+ * ------------------------------------------------------------------------- */
+
+[data-rail-limelight] {
+  position: relative;
+  overflow: hidden;
+}
+
+[data-rail-limelight]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: var(--rail-limelight-floor, 28%);
+  left: 50%;
+  width: var(--rail-limelight-width, 34%);
+  transform: translateX(calc(-50% + var(--rail-limelight-x, 0%)));
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--rail-limelight-color, #fff) 22%, transparent),
+    transparent
+  );
+  clip-path: polygon(38% 0%, 62% 0%, 100% 100%, 0% 100%);
+  pointer-events: none;
+}
+
+[data-rail-limelight]::after {
+  content: "";
+  position: absolute;
+  bottom: var(--rail-limelight-floor, 28%);
+  left: 50%;
+  width: var(--rail-limelight-pool, 30%);
+  aspect-ratio: 3 / 1;
+  transform: translate(calc(-50% + var(--rail-limelight-x, 0%)), 50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    color-mix(in srgb, var(--rail-limelight-color, #fff) 26%, transparent),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-rail-limelight]::before,
+  [data-rail-limelight]::after {
+    transition: transform var(--rail-limelight-follow, 900ms)
+      var(--_ease-soft, cubic-bezier(0.22, 1, 0.36, 1));
+  }
 }

@@ -73,8 +73,26 @@ const ref = execFileSync("git", ["-C", LOCAL_KIT, "rev-parse", "HEAD"], {
   encoding: "utf8",
 }).trim();
 
+// La lista sale de `src/` AGUAS ARRIBA, no de las claves del lock.
+//
+// Leyendo el lock, un sync solo puede traer lo que ya tiene: cada componente
+// nuevo del kit se lo salta en silencio, y la marca se queda congelada sin que
+// ninguna puerta lo diga. Medido el 20-sep: el kit paso de 51 a 80 componentes
+// y este repo recibio CERO, porque su lock nombraba cuatro ficheros.
+//
+// Es el mismo arreglo que ya llevan flas-v2 y gainsfromgeebs-site.
+const upstream = readdirSync(join(LOCAL_KIT, "src")).filter(
+  (f) => /\.(tsx?|css)$/.test(f) && !OURS.has(f),
+);
+const dropped = Object.keys(lock.files).filter(
+  (n) => !OURS.has(n) && !upstream.includes(n),
+);
+if (dropped.length) {
+  console.warn(`rail-kit: ya no estan arriba, borra a mano: ${dropped.join(", ")}`);
+}
+
 const files = {};
-for (const name of Object.keys(lock.files)) {
+for (const name of [...new Set([...upstream, ...Object.keys(lock.files)])]) {
   const dest = join(lock.vendorPath, name);
   if (!OURS.has(name)) {
     const from = join(LOCAL_KIT, "src", name);

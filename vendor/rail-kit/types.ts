@@ -153,6 +153,12 @@ export type RailProps = RailTelemetry & {
   /** Surface label — rides along on every telemetry call. */
   source: string;
   heading?: string;
+  /**
+   * A mark before the heading — the section's own glyph, a brand lockup.
+   * Decorative on purpose: the heading already names the section, and saying
+   * it twice is noise for anyone listening.
+   */
+  headingMark?: ReactNode;
   subheading?: string;
   eyebrow?: string;
   /** Card width preset. Brands override with --rail-card-width if needed. */
