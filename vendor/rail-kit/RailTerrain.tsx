@@ -1,5 +1,7 @@
 "use client";
 
+import { useRef } from "react";
+
 import RailStage from "./RailStage";
 
 export type RailTerrainProps = {
@@ -51,9 +53,12 @@ export default function RailTerrain({
   source,
   className,
 }: RailTerrainProps) {
-  let t = 0;
-  let tint: [number, number, number] = [74, 222, 128];
-  let tintReadAt = -1;
+  // El estado de la animacion vive en un ref, no en variables del cuerpo del
+  // componente. Un `let` aqui se reinicia en cada render —la ola daria un
+  // salto cada vez que el padre pinta— y ademas el compilador de React lo
+  // rechaza: escribir una local despues del render es exactamente el error
+  // que esto evitaba por accidente y ahora evita a proposito.
+  const anim = useRef({ t: 0, tint: [74, 222, 128] as [number, number, number], tintReadAt: -1 });
 
   return (
     // El envoltorio existe por la telemetria: `RailStage` pinta su propio
@@ -76,7 +81,7 @@ export default function RailTerrain({
         // `still` no es un fotograma en blanco: es la ola parada en una fase
         // que se lee. Congelarla en t=0 la deja recta, que es justo la forma
         // que no cuenta que esto es una ola.
-        t = still ? period * 0.18 : t + dt;
+        anim.current.t = still ? period * 0.18 : anim.current.t + dt;
 
         // EL CANVAS NO LEE VARIABLES CSS. `fillStyle = "var(--x)"` no falla:
         // se descarta en silencio y el punto se pinta del color anterior, asi
@@ -84,8 +89,9 @@ export default function RailTerrain({
         // marca sin que nada avisara. Hay que resolverla contra el elemento y
         // convertirla a numeros. Se relee una vez por segundo, no por punto:
         // getComputedStyle mil veces por fotograma es el bucle caro clasico.
-        if (t - tintReadAt > 1 || tintReadAt < 0) {
-          tintReadAt = t;
+        const { t } = anim.current;
+        if (t - anim.current.tintReadAt > 1 || anim.current.tintReadAt < 0) {
+          anim.current.tintReadAt = t;
           const raw = getComputedStyle(ctx.canvas)
             .getPropertyValue("--rail-terrain-dot")
             .trim();
@@ -96,7 +102,7 @@ export default function RailTerrain({
               probe.fillStyle = raw;
               const hex = probe.fillStyle;
               if (typeof hex === "string" && hex.startsWith("#") && hex.length === 7) {
-                tint = [
+                anim.current.tint = [
                   parseInt(hex.slice(1, 3), 16),
                   parseInt(hex.slice(3, 5), 16),
                   parseInt(hex.slice(5, 7), 16),
@@ -158,7 +164,7 @@ export default function RailTerrain({
 
             ctx.beginPath();
             ctx.arc(sx, sy, radius, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(${tint[0]}, ${tint[1]}, ${tint[2]}, ${alpha.toFixed(3)})`;
+            ctx.fillStyle = `rgba(${anim.current.tint[0]}, ${anim.current.tint[1]}, ${anim.current.tint[2]}, ${alpha.toFixed(3)})`;
             ctx.fill();
           }
         }
