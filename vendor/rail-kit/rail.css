@@ -26,9 +26,17 @@
    a Tailwind site (preflight sets border-box) and broken everywhere else. */
 .rail,
 .rail-billboard,
+.rail-benefits,
+.rail-steps,
 .rail-drawpile,
 .rail-drawpile__stack,
 .rail-sparkle,
+.rail-allocation,
+.rail-tiers,
+.rail-terrain,
+.rail-limelight,
+.rail-post,
+.rail-skeleton,
 .rail-pack,
 .rail-deck,
 .rail-coverflow,
@@ -77,6 +85,7 @@
 .rail-segmented,
 .rail-cta,
 .rail-disclosure,
+.rail-shelf,
 .rail-figures,
 .rail-options,
 .rail-promo,
@@ -102,8 +111,16 @@
 .rail-folder,
 .rail *,
 .rail-billboard *,
+.rail-benefits *,
+.rail-steps *,
 .rail-drawpile *,
 .rail-sparkle *,
+.rail-allocation *,
+.rail-tiers *,
+.rail-terrain *,
+.rail-limelight *,
+.rail-post *,
+.rail-skeleton *,
 .rail-pack *,
 .rail-deck *,
 .rail-coverflow *,
@@ -129,6 +146,7 @@
 .rail-segmented *,
 .rail-cta *,
 .rail-disclosure *,
+.rail-shelf *,
 .rail-figures *,
 .rail-options *,
 .rail-promo *,
@@ -163,9 +181,17 @@
 
 .rail,
 .rail-billboard,
+.rail-benefits,
+.rail-steps,
 .rail-drawpile,
 .rail-drawpile__stack,
 .rail-sparkle,
+.rail-allocation,
+.rail-tiers,
+.rail-terrain,
+.rail-limelight,
+.rail-post,
+.rail-skeleton,
 .rail-pack,
 .rail-deck,
 .rail-coverflow,
@@ -214,6 +240,7 @@
 .rail-segmented,
 .rail-cta,
 .rail-disclosure,
+.rail-shelf,
 .rail-figures,
 .rail-options,
 .rail-promo,
@@ -8085,4 +8112,695 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   .rail-welcome__card { transform: none; }
+}
+
+/* ── RailDisclosure — the one rule its panel was missing ─────────────────
+   The rest of this component has been styled since it shipped, further up
+   this file. What had no rule at all was the panel.
+
+   It keeps its children in the DOM and hides them with the `hidden`
+   attribute, which is the right design — a fold that unmounts its links hides
+   them from a crawler too. But `[hidden]` is only `display: none` in the UA
+   sheet, and ANY author display beats it. Put a Tailwind `grid` or `flex`
+   inside and the panel renders wide open while aria-expanded says false.
+
+   Not hypothetical: gainsfromgeebs had twelve closed <details> on /science
+   rendering all 96 cards inside them for exactly this reason, and the page
+   came to 16,729px on a phone.
+
+   `!important` on purpose — it has to beat a utility class whose name it
+   cannot know.                                                             */
+.rail-disclosure__panel[hidden] { display: none !important; }
+
+/* ---------------------------------------------------------------------------
+   RailBenefits — lo que ganas, en filas.
+   --------------------------------------------------------------------------- */
+.rail-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rail-benefits-gap, var(--_space-xl));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rail-benefits__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--rail-benefits-item-gap, var(--_space-lg));
+}
+
+.rail-benefits__glyph {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: var(--rail-benefits-glyph, calc(var(--_space-4xl) * 1.6));
+  height: var(--rail-benefits-glyph, calc(var(--_space-4xl) * 1.6));
+  border-radius: 100%;
+  background: var(--rail-benefits-glyph-bg, var(--_bg));
+  color: var(--rail-benefits-glyph-color, inherit);
+}
+
+/* min-width:0 o un titulo largo no se deja recortar dentro de un flex. */
+.rail-benefits__text {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: var(--rail-benefits-text-gap, var(--_space-2xs));
+}
+
+.rail-benefits__title {
+  font-size: calc(var(--rail-benefits-title-size, 17px) * var(--_type));
+  font-weight: var(--rail-benefits-title-weight, 700);
+  line-height: var(--rail-benefits-title-leading, 1.3);
+}
+
+.rail-benefits__body {
+  color: var(--rail-benefits-body-color, var(--_muted));
+  font-size: calc(var(--rail-benefits-body-size, 16px) * var(--_type));
+  line-height: var(--rail-benefits-body-leading, 1.45);
+}
+
+/* ---------------------------------------------------------------------------
+   RailSteps — por donde vas.
+
+   Los tramos son iguales y se reparten el ancho, asi que cinco pasos no hacen
+   la barra mas larga: hacen cada tramo mas estrecho. Una barra que crece con el
+   numero de pasos miente sobre cuanto queda.
+   --------------------------------------------------------------------------- */
+.rail-steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rail-steps-gap, var(--_space-sm));
+}
+
+.rail-steps__track {
+  display: flex;
+  gap: var(--rail-steps-seg-gap, var(--_space-xs));
+}
+
+.rail-steps__seg {
+  flex: 1 1 0;
+  height: var(--rail-steps-height, 3px);
+  border-radius: var(--rail-steps-radius, var(--_pill));
+  background: var(--rail-steps-pending, var(--_border));
+}
+
+.rail-steps__seg[data-done] {
+  background: var(--rail-steps-done, currentColor);
+}
+
+.rail-steps__label {
+  margin: 0;
+  color: var(--rail-steps-label-color, var(--_muted));
+  font-size: calc(var(--rail-steps-label-size, 13px) * var(--_type));
+}
+
+/* ── RailSkeleton — el hueco con la forma del contenido ──────────────────
+   Las barras heredan el ancho y el alto por style inline porque los fija
+   quien llama: la forma del esqueleto ES el dato, y una clase no puede
+   saberla. Lo unico que decide el kit es el color, el radio y el ritmo.   */
+.rail-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rail-skeleton-group-gap, var(--_space-md));
+}
+
+.rail-skeleton[data-gap="sm"] {
+  gap: var(--rail-skeleton-group-gap-sm, var(--_space-sm));
+}
+
+.rail-skeleton__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rail-skeleton-gap, var(--_space-xs));
+}
+
+.rail-skeleton__bar {
+  display: block;
+  border-radius: var(--rail-skeleton-radius, var(--_radius));
+  background: var(--rail-skeleton-bg, var(--_border));
+}
+
+/* ── RailPost — una cosa dicha, entera ───────────────────────────────────
+   El recorte es `-webkit-line-clamp`, que sigue siendo la unica forma que
+   respeta la altura de linea real del texto. `max-height: 3lh` recorta a
+   ciegas y deja media linea asomando por abajo en cuanto la fuente no es la
+   que se supuso.                                                          */
+.rail-post {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rail-post-gap, var(--_space-sm));
+  padding: var(--rail-post-pad, var(--_space-md));
+  background: var(--rail-post-bg, var(--_bg));
+  border-radius: var(--rail-post-radius, var(--_radius));
+  color: inherit;
+}
+
+.rail-post__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--rail-post-gap, var(--_space-sm));
+}
+
+.rail-post__overflow {
+  flex: 0 0 auto;
+}
+
+.rail-post__body {
+  margin: 0;
+  color: var(--rail-post-color, inherit);
+}
+
+.rail-post__body[data-clamped] {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--rail-post-clamp, 3);
+  line-clamp: var(--rail-post-clamp, 3);
+  overflow: hidden;
+}
+
+.rail-post__more {
+  align-self: flex-start;
+  min-height: var(--_control-min-sm);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--rail-post-more-color, var(--_accent));
+  font: inherit;
+  cursor: pointer;
+}
+
+.rail-post__attachment {
+  border-radius: var(--rail-post-attachment-radius, var(--_radius));
+  overflow: hidden;
+}
+
+.rail-post__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--rail-post-gap, var(--_space-sm));
+}
+
+/* ── RailPromo layout="beside" y RailStats delta ─────────────────────────
+   El panel de arte al lado, no detras. Existe porque un promo que vive en un
+   feed entre dos tarjetas no puede ser 150px de fotografia: tiene que leerse
+   de un vistazo como UNA fila, y copy sobre foto a esa altura no se lee con
+   ningun contraste.                                                        */
+.rail-promo[data-layout="beside"] {
+  display: grid;
+  grid-template-columns: var(--rail-promo-panel-width, 96px) 1fr;
+  grid-template-rows: auto auto;
+}
+
+.rail-promo[data-layout="beside"] .rail-promo__art {
+  grid-row: 1 / span 2;
+  min-height: var(--rail-promo-beside-height, 100%);
+  padding: 0;
+  background: var(--rail-promo-panel-bg, var(--_accent));
+}
+
+.rail-promo[data-layout="beside"] .rail-promo__panel {
+  position: relative;
+  padding: var(--rail-promo-beside-padding, var(--_space-md));
+}
+
+.rail-promo[data-layout="beside"] .rail-promo__title {
+  font-size: calc(var(--rail-promo-beside-title-size, 15px) * var(--_type));
+  font-weight: var(--rail-weight-normal, 400);
+  line-height: 1.4;
+}
+
+/* Sin arte detras del texto, el texto no se pone su propio suelo. */
+.rail-promo[data-layout="beside"] .rail-promo__copy {
+  color: inherit;
+  text-shadow: none;
+  max-width: none;
+  /* El hueco de la aspa. Medido en el navegador: sin el, la ultima palabra de
+     la primera linea pasa POR DEBAJO del boton de cerrar. Un absolute no
+     empuja al texto, y el texto no sabe que hay algo encima. */
+  padding-right: var(--rail-promo-beside-gutter, 34px);
+}
+
+/* En una fila, la accion es un enlace, no una barra rellena. La barra existe
+   para competir con una fotografia a 150px de alto; aqui no hay fotografia
+   detras de nada y una barra verde a ancho completo convierte un anuncio
+   discreto en el elemento mas ruidoso de la pantalla. */
+.rail-promo[data-layout="beside"] .rail-promo__action {
+  grid-column: 2;
+  justify-content: flex-start;
+  gap: var(--_space-sm);
+  padding: 0 var(--rail-promo-beside-padding, var(--_space-md))
+    var(--rail-promo-beside-padding, var(--_space-md));
+  background: transparent;
+  color: var(--rail-promo-beside-action-color, var(--_accent));
+  font-weight: var(--rail-weight-bold, 700);
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.rail-promo[data-layout="beside"] .rail-promo__meta {
+  margin-left: auto;
+  font-weight: var(--rail-weight-normal, 400);
+}
+
+.rail-promo__meta {
+  color: var(--rail-promo-meta-color, var(--_muted));
+  font-size: calc(var(--rail-size-micro, 12px) * var(--_type));
+  font-variant-numeric: tabular-nums;
+}
+
+/* El delta va al lado de la cifra, con su propio color por direccion. El
+   color NO es la informacion: el componente escribe la palabra para el lector
+   de pantalla, porque un "+0.52" verde no le dice nada a quien no lo ve — ni
+   a quien no distingue ese verde de ese rojo. */
+.rail-stats__delta {
+  margin-left: var(--rail-stats-delta-gap, var(--_space-2xs));
+  font-size: calc(var(--rail-stats-delta-size, 15px) * var(--_type));
+  font-variant-numeric: tabular-nums;
+}
+
+.rail-stats__delta[data-direction="up"] {
+  color: var(--rail-stats-up, var(--_accent));
+}
+
+.rail-stats__delta[data-direction="down"] {
+  color: var(--rail-stats-down, currentColor);
+}
+
+/* ── RailTerrain y RailLimelight — los dos telones ───────────────────────
+   RailTerrain pinta en canvas (via RailStage); aqui solo esta su caja.    */
+.rail-terrain {
+  position: relative;
+  border-radius: var(--rail-terrain-radius, var(--_radius));
+  overflow: hidden;
+}
+
+.rail-limelight {
+  position: relative;
+  min-height: var(--rail-limelight-height, 320px);
+  overflow: hidden;
+}
+
+.rail-limelight__subject {
+  position: absolute;
+  bottom: var(--rail-limelight-floor, 28%);
+  left: 50%;
+  z-index: 1;
+  transform: translate(calc(-50% + var(--rail-limelight-x, 0%)), 0);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rail-limelight__subject {
+    transition: transform var(--rail-limelight-follow, 900ms)
+      var(--_ease-soft, cubic-bezier(0.22, 1, 0.36, 1));
+  }
+}
+
+/* ── RailAllocation — como se reparte un todo ────────────────────────────
+   Los tramos NO llevan gap: un hueco entre tramos hace que la barra sume
+   menos del 100% a ojo, y el ojo es lo unico que lee una barra.          */
+.rail-allocation {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rail-allocation-gap, var(--_space-md));
+}
+
+.rail-allocation__bar {
+  display: flex;
+  height: var(--rail-allocation-height, 10px);
+  border-radius: var(--rail-allocation-radius, var(--_pill));
+  overflow: hidden;
+  background: var(--rail-allocation-track, var(--_border));
+}
+
+.rail-allocation__slice {
+  min-width: var(--rail-allocation-min-slice, 2px);
+  background: var(--rail-allocation-slice, var(--_accent));
+}
+
+.rail-allocation__legend {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rail-allocation-row-gap, var(--_space-sm));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rail-allocation__row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--rail-allocation-row-inner-gap, var(--_space-sm));
+}
+
+.rail-allocation__dot {
+  flex: 0 0 auto;
+  width: var(--rail-allocation-dot, 9px);
+  height: var(--rail-allocation-dot, 9px);
+  border-radius: var(--rail-allocation-dot-radius, 2px);
+  background: var(--rail-allocation-slice, var(--_accent));
+  transform: translateY(-1px);
+}
+
+.rail-allocation__text {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.rail-allocation__name {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+}
+
+button.rail-allocation__name {
+  min-height: var(--_control-min-sm);
+  cursor: pointer;
+}
+
+.rail-allocation__detail {
+  color: var(--rail-allocation-detail-color, var(--_muted));
+  font-size: calc(var(--rail-size-micro, 12px) * var(--_type));
+}
+
+.rail-allocation__share {
+  flex: 0 0 auto;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── RailTiers — la escalera de recompensas ──────────────────────────── */
+.rail-tiers {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rail-tiers-gap, var(--_space-md));
+}
+
+.rail-tiers__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rail-tiers-row-gap, var(--_space-sm));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rail-tiers__row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--rail-tiers-row-inner-gap, var(--_space-sm));
+}
+
+.rail-tiers__glyph {
+  flex: 0 0 auto;
+  color: var(--rail-tiers-glyph-color, var(--_accent));
+}
+
+.rail-tiers__text {
+  display: flex;
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+  gap: 0 var(--_space-xs);
+  min-width: 0;
+}
+
+.rail-tiers__reward {
+  font-weight: var(--rail-weight-bold, 700);
+}
+
+.rail-tiers__row[data-reached] .rail-tiers__requirement {
+  color: var(--rail-tiers-reached-color, var(--_muted));
+}
+
+.rail-tiers__reached {
+  flex: 0 0 auto;
+  color: var(--rail-tiers-reached-color, var(--_muted));
+  font-size: calc(var(--rail-size-micro, 12px) * var(--_type));
+}
+
+.rail-tiers__footnote {
+  margin: 0;
+  color: var(--rail-tiers-footnote-color, var(--_muted));
+  font-size: calc(var(--rail-size-micro, 12px) * var(--_type));
+}
+
+
+/* ============================================================
+   RAIL SHELF — folders stacked down the page, one open at a time
+   ============================================================
+   A drawer runs across; this runs down. Every folder gets a full line for its
+   name, a count and a line of description, so the shelf can be read without
+   opening anything — which is the point when the contents are a library rather
+   than two optional paragraphs.
+
+   The book look is built from a left edge and elevation, NOT from a transform.
+   A scaled spine inside a panel that clips would grow out of a box that did not
+   grow with it, and the first and last child always show it first. */
+.rail-shelf {
+  display: grid;
+  gap: var(--rail-shelf-gap, 14px);
+}
+
+.rail-shelf__search {
+  display: grid;
+  gap: var(--_space-xs);
+}
+
+.rail-shelf__label {
+  color: var(--rail-muted, rgba(255, 255, 255, 0.62));
+  font-size: var(--rail-size-micro, 12px);
+  letter-spacing: var(--_track-wide);
+  text-transform: uppercase;
+}
+
+.rail-shelf__field {
+  width: 100%;
+  min-height: var(--_control-min, 44px);
+  padding: 0 var(--_space-mid);
+  border: 1px solid var(--rail-card-border, rgba(255, 255, 255, 0.14));
+  border-radius: var(--rail-shelf-field-radius, 10px);
+  background: var(--rail-shelf-field-bg, rgba(0, 0, 0, 0.28));
+  color: var(--rail-text, #fff);
+  font: inherit;
+  font-size: var(--rail-shelf-field-size, 16px);
+}
+
+/* 16px is not a style choice: iOS Safari zooms the whole page in when a focused
+   input is smaller, and the reader then has to pinch back out to see the shelf
+   they were searching. */
+
+.rail-shelf__stack {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 var(--rail-shelf-ledge-gap, 10px);
+  display: grid;
+  gap: var(--rail-shelf-book-gap, 6px);
+  /* The shelf the pile sits on. One rule, the width of the stack: without it
+     the books float, and a pile of books with nothing under it is a list. */
+  border-bottom: var(--rail-shelf-ledge-width, 2px) solid
+    var(--rail-shelf-ledge, var(--_accent, currentColor));
+}
+
+/* A BOOK LYING ON A PILE, not a rounded rectangle with a stripe.
+ 
+   Four things make it read as an object rather than a row, and all four are
+   cheap: a spine down the left with the grain of the material running across
+   it, the cut edge of the pages down the right, a cover that catches light at
+   its top edge, and a shadow that says the one below is carrying it.
+ 
+   Every value is a token. A brand that wants gold books sets two variables;
+   nobody should have to edit a component rule to look like themselves. */
+.rail-shelf__book {
+  position: relative;
+  border: 1px solid var(--rail-shelf-border, rgba(255, 255, 255, 0.14));
+  border-radius: var(--rail-shelf-radius, 12px);
+  background:
+    linear-gradient(
+      180deg,
+      var(--rail-shelf-sheen, rgba(255, 255, 255, 0.07)) 0,
+      transparent var(--rail-shelf-sheen-stop, 40%)
+    ),
+    var(--rail-shelf-bg, rgba(255, 255, 255, 0.03));
+  box-shadow: var(--rail-shelf-shadow, 0 2px 0 rgba(0, 0, 0, 0.35));
+  overflow: hidden;
+}
+
+/* THE CUT EDGE OF THE PAGES, down the right. Repeating hairlines, because a
+   solid band reads as a border and paper is many thin things. */
+.rail-shelf__book::after {
+  content: "";
+  position: absolute;
+  inset: var(--rail-shelf-pages-inset, 8px) 0 var(--rail-shelf-pages-inset, 8px)
+    auto;
+  right: 0;
+  width: var(--rail-shelf-pages, 7px);
+  border-radius: var(--rail-shelf-edge-radius, 3px) 0 0
+    var(--rail-shelf-edge-radius, 3px);
+  background: repeating-linear-gradient(
+    90deg,
+    var(--rail-shelf-page-line, rgba(255, 255, 255, 0.16)) 0,
+    var(--rail-shelf-page-line, rgba(255, 255, 255, 0.16)) 1px,
+    transparent 1px,
+    transparent var(--rail-shelf-page-step, 3px)
+  );
+  opacity: var(--rail-shelf-pages-opacity, 0.7);
+  pointer-events: none;
+}
+
+/* IT COMES OFF THE PILE WHEN YOU PRESS IT, the way you pull a book out.
+   `:active` as well as `:hover`, because a thumb has no hover — a lift that
+   only exists for a mouse is a lift most readers never get. Closed books only:
+   an open one lifting while you are reading inside it is a jolt, not a touch. */
+@media (prefers-reduced-motion: no-preference) {
+  .rail-shelf__book:not([data-rail-open]) {
+    transition:
+      transform var(--_dur-fast) var(--_ease),
+      border-color var(--_dur-fast) ease,
+      box-shadow var(--_dur-fast) ease;
+  }
+
+  .rail-shelf__book:not([data-rail-open]):active {
+    transform: translateY(var(--rail-shelf-lift, -3px));
+    border-color: var(--rail-shelf-lift-border, var(--_accent, currentColor));
+    box-shadow: var(--rail-shelf-lift-shadow, 0 8px 18px rgba(0, 0, 0, 0.45));
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .rail-shelf__book:not([data-rail-open]):hover {
+    transform: translateY(var(--rail-shelf-lift, -3px));
+    border-color: var(--rail-shelf-lift-border, var(--_accent, currentColor));
+    box-shadow: var(--rail-shelf-lift-shadow, 0 8px 18px rgba(0, 0, 0, 0.45));
+  }
+}
+
+.rail-shelf__book[data-rail-open] {
+  border-color: var(--rail-shelf-open-border, var(--_accent, currentColor));
+  background: var(--rail-shelf-open-bg, rgba(255, 255, 255, 0.05));
+  box-shadow: var(--rail-shelf-open-shadow, 0 14px 34px rgba(0, 0, 0, 0.42));
+}
+
+.rail-shelf__spine {
+  display: flex;
+  width: 100%;
+  min-height: var(--rail-shelf-spine-min, 62px);
+  align-items: center;
+  gap: var(--_space-md);
+  padding: var(--_space-md) var(--_space-mid) var(--_space-md)
+    calc(var(--rail-shelf-edge, 6px) + var(--_space-md));
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* The spine of the book: a coloured edge down the left, the way a shelf reads
+   from across the room.
+ 
+   It is positioned against the BOOK, not laid out inside the button. Inside,
+   `align-self: stretch` only reaches the button's content box, so the button's
+   own vertical padding left the bar floating with a gap at each end — and when
+   a folder opened, the bar stopped at the spine while the panel carried on
+   underneath it. A spine that does not reach the ends of the book is a stripe. */
+.rail-shelf__book {
+  position: relative;
+}
+
+.rail-shelf__edge {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--rail-shelf-edge, 10px);
+  border-radius: 0 var(--rail-shelf-edge-radius, 3px)
+    var(--rail-shelf-edge-radius, 3px) 0;
+  /* The grain runs ACROSS the spine, which is how light falls on the bound
+     edge of a book: a flat fill reads as a highlighter mark. */
+  background: linear-gradient(
+    90deg,
+    var(--rail-shelf-edge-dark, rgba(0, 0, 0, 0.35)) 0,
+    var(--rail-shelf-edge-color, var(--_accent, currentColor))
+      var(--rail-shelf-edge-mid, 45%),
+    var(--rail-shelf-edge-light, rgba(255, 255, 255, 0.28)) 100%
+  );
+  background-color: var(--rail-shelf-edge-color, var(--_accent, currentColor));
+  opacity: var(--rail-shelf-edge-opacity, 0.72);
+}
+
+.rail-shelf__book[data-rail-open] .rail-shelf__edge {
+  opacity: 1;
+}
+
+.rail-shelf__title {
+  display: grid;
+  gap: var(--rail-shelf-title-gap, 3px);
+  flex: 1 1 auto;
+  min-width: 0;
+  color: var(--rail-text, #fff);
+  font-size: var(--rail-shelf-title-size, 17px);
+  font-weight: var(--rail-shelf-title-weight, 700);
+  line-height: 1.25;
+}
+
+.rail-shelf__hint {
+  color: var(--rail-muted, rgba(255, 255, 255, 0.62));
+  font-size: var(--rail-shelf-hint-size, 13px);
+  font-weight: var(--rail-shelf-hint-weight, 400);
+  line-height: 1.4;
+}
+
+.rail-shelf__badge {
+  flex: 0 0 auto;
+  min-width: 26px;
+  padding: var(--rail-shelf-badge-pad, 3px) var(--_space-s);
+  border-radius: var(--rail-shelf-badge-radius, 999px);
+  background: var(--rail-badge-bg, rgba(0, 0, 0, 0.6));
+  color: var(--rail-badge-color, #fff);
+  font-size: var(--rail-size-micro, 12px);
+  font-weight: var(--rail-shelf-badge-weight, 700);
+  text-align: center;
+}
+
+.rail-shelf__chevron {
+  flex: 0 0 auto;
+  color: var(--rail-muted, rgba(255, 255, 255, 0.62));
+  font-size: var(--rail-shelf-chevron-size, 18px);
+  line-height: 1;
+  transition: transform var(--_dur-fast) ease;
+}
+
+.rail-shelf__book[data-rail-open] .rail-shelf__chevron {
+  transform: rotate(180deg);
+}
+
+.rail-shelf__panel {
+  padding: var(--_space-3xs) var(--_space-mid) var(--_space-lg)
+    calc(var(--rail-shelf-edge, 6px) + var(--_space-lg));
+}
+
+/* [hidden] loses to an author `display`, and a grid or flex panel here would
+   ignore it and render open. Stated once, loudly, because it has cost this kit
+   a release before. */
+.rail-shelf__panel[hidden] {
+  display: none !important;
+}
+
+.rail-shelf__empty {
+  margin: 0;
+  color: var(--rail-muted, rgba(255, 255, 255, 0.62));
+  font-size: var(--_text-md);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rail-shelf__chevron {
+    transition: none;
+  }
 }

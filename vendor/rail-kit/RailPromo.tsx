@@ -15,6 +15,25 @@ export type RailPromoProps = {
   /** A chip in the corner — "Odds boost", "New", "Sponsored". */
   badge?: ReactNode;
   /**
+   * Where the artwork goes.
+   *
+   * `"over"` (the default, and what every consumer gets without asking) is
+   * the full-bleed banner: copy on top of the picture.
+   *
+   * `"beside"` puts the art in a narrow panel down one side and the copy in
+   * its own column. It exists because a promo that has to sit in a feed
+   * between two content cards cannot be 150px of photograph — it has to read
+   * at a glance as one row, and copy over art at that height is unreadable at
+   * any contrast. The side panel also lets a brand use a flat accent block
+   * instead of a photo, which is the version that ages well.
+   */
+  layout?: "over" | "beside";
+  /**
+   * The small print at the far end of the action row — a position in a set
+   * ("1/10"), an expiry, a sponsor. Not a heading and never the offer itself.
+   */
+  meta?: ReactNode;
+  /**
    * Lets the visitor close it. `dismissKey` remembers that in their own
    * localStorage — leave it out and the banner returns on the next load,
    * because a dismissal the visitor cannot make stick is a trap.
@@ -57,6 +76,8 @@ export default function RailPromo({
   media,
   action,
   badge,
+  layout = "over",
+  meta,
   dismissible,
   dismissKey,
   dismissLabel = "Dismiss",
@@ -67,10 +88,39 @@ export default function RailPromo({
   const [gone, setGone] = useState(() => alreadyDismissed(dismissKey));
   if (gone) return null;
 
+  const copy = (
+    <div className="rail-promo__copy">
+      <p className="rail-promo__title">{title}</p>
+      {subtitle && <p className="rail-promo__subtitle">{subtitle}</p>}
+    </div>
+  );
+
+  const dismiss = dismissible ? (
+    <button
+      type="button"
+      className="rail-promo__dismiss"
+      onClick={() => {
+        setGone(true);
+        if (dismissKey) {
+          try {
+            localStorage.setItem(`rail-promo:${dismissKey}`, "1");
+          } catch {
+            /* nothing to do: it comes back next load */
+          }
+        }
+        onSelect?.({ source, action: "dismiss" });
+      }}
+    >
+      <span aria-hidden="true">×</span>
+      <span className="rail-promo__sr">{dismissLabel}</span>
+    </button>
+  ) : null;
+
   return (
     <section
       className={["rail-promo", className].filter(Boolean).join(" ")}
       data-rail-promo={source}
+      data-layout={layout}
     >
       {/* Says whether there is artwork behind the copy. Without it the copy
           must not force white-on-a-scrim: on a brand whose promo surface is
@@ -87,31 +137,20 @@ export default function RailPromo({
             />
           ))}
         {badge && <span className="rail-promo__badge">{badge}</span>}
-        <div className="rail-promo__copy">
-          <p className="rail-promo__title">{title}</p>
-          {subtitle && <p className="rail-promo__subtitle">{subtitle}</p>}
-        </div>
-        {dismissible && (
-          <button
-            type="button"
-            className="rail-promo__dismiss"
-            onClick={() => {
-              setGone(true);
-              if (dismissKey) {
-                try {
-                  localStorage.setItem(`rail-promo:${dismissKey}`, "1");
-                } catch {
-                  /* nothing to do: it comes back next load */
-                }
-              }
-              onSelect?.({ source, action: "dismiss" });
-            }}
-          >
-            <span aria-hidden="true">×</span>
-            <span className="rail-promo__sr">{dismissLabel}</span>
-          </button>
-        )}
+        {/* Beside-layout lifts these OUT of the art, because a column cannot
+            be a sibling of something it is nested inside. CSS alone could not
+            do this reflow, which is why it is a branch and not a media query. */}
+        {layout === "over" && copy}
+        {layout === "over" && dismiss}
       </div>
+
+      {layout === "beside" && (
+        <div className="rail-promo__panel">
+          {copy}
+          {dismiss}
+        </div>
+      )}
+
       {action && (
         <a
           className="rail-promo__action"
@@ -119,7 +158,11 @@ export default function RailPromo({
           onClick={() => onSelect?.({ source, action: "open" })}
         >
           <span>{action.label}</span>
-          <span aria-hidden="true">→</span>
+          {meta ? (
+            <span className="rail-promo__meta">{meta}</span>
+          ) : (
+            <span aria-hidden="true">→</span>
+          )}
         </a>
       )}
     </section>

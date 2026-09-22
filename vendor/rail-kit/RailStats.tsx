@@ -10,6 +10,23 @@ export type RailStatTile = {
   label: string;
   /** A mark beside the figure — a coin, a token, a brand glyph. */
   icon?: ReactNode;
+  /**
+   * How the figure moved, as the words a person would say: "+$0.52",
+   * "-2.77%". A string and not a number, because the sign, the currency and
+   * the decimals are the consumer's to decide — and a component that formats
+   * money is a component that gets the locale wrong somewhere.
+   */
+  delta?: string;
+  /**
+   * Which way that movement counts, AND the words for it. They travel
+   * together and the type enforces it: the first version let a caller pass
+   * `direction` alone, which set the colour and emitted nothing for a screen
+   * reader — the exact failure the field exists to prevent. Colour carrying
+   * the meaning on its own is the bug, so the type does not allow it.
+   *
+   * `labels` ships no English: the consumer says "sube"/"baja", "up"/"down".
+   */
+  movement?: { way: "up" | "down"; labels: { up: string; down: string } };
   /** Makes the whole tile a link. */
   href?: string;
 };
@@ -55,7 +72,22 @@ export default function RailStats({
               </span>
             )}
             <span className="rail-stats__text">
-              <span className="rail-stats__value">{tile.value}</span>
+              <span className="rail-stats__value">
+                {tile.value}
+                {tile.delta && (
+                  <span
+                    className="rail-stats__delta"
+                    data-direction={tile.movement?.way}
+                  >
+                    {tile.movement && (
+                      <span className="rail-sr-only">
+                        {tile.movement.labels[tile.movement.way]}{" "}
+                      </span>
+                    )}
+                    {tile.delta}
+                  </span>
+                )}
+              </span>
               <span className="rail-stats__label">{tile.label}</span>
             </span>
           </>
