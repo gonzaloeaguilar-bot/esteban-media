@@ -280,5 +280,20 @@ describe("customer-facing ranking pages", () => {
 
     expect(spanishNiche).toContain('"video-para-yates-y-hospitalidad-fort-lauderdale"');
     expect(spanishNiche).toContain('/es/portafolio/banacol');
+
+    // Spanish interactive tools and resources link to /es/areas
+    const pacingPage = source("app/(spanish)/es/calculadora-de-ritmo-de-video/page.tsx");
+    const hookPage = source("app/(spanish)/es/planificador-de-ganchos-de-video/page.tsx");
+    const shotPage = source("app/(spanish)/es/planificador-de-tomas-de-video/page.tsx");
+    const timerPage = source("app/(spanish)/es/temporizador-de-guiones-de-video/page.tsx");
+    const promptPage = source("app/(spanish)/es/prompt-de-publicacion-diaria/page.tsx");
+    const kitPage = source("app/(spanish)/es/recursos/kit-video-social/page.tsx");
+
+    expect(pacingPage).toContain('href="/es/areas"');
+    expect(hookPage).toContain('href="/es/areas"');
+    expect(shotPage).toContain('href="/es/areas"');
+    expect(timerPage).toContain('href="/es/areas"');
+    expect(promptPage).toContain('href="/es/areas"');
+    expect(kitPage).toContain('href="/es/areas"');
   });
 });

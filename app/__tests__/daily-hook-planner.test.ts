@@ -22,4 +22,16 @@ describe("Daily Hook Planner surface", () => {
     expect(result.valid).toBe(true);
     expect(result.error).toBeUndefined();
   });
+
+  it("links the Spanish daily hook planner page to /es/areas", () => {
+    const { readFileSync } = require("node:fs");
+    const { join } = require("node:path");
+    const markup = readFileSync(
+      join(process.cwd(), "app/(spanish)/es/planificador-de-ganchos-de-video/page.tsx"),
+      "utf8",
+    );
+    expect(markup).toContain('href="/es/areas"');
+    expect(markup).toContain("áreas de servicio en Fort Lauderdale, Broward y Miami-Dade");
+  });
 });
+

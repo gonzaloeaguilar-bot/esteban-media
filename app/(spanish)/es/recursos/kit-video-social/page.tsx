@@ -54,6 +54,19 @@ export default function SpanishSocialVideoKitPage() {
           </nav>
 
           <ScriptAndOverlayKit locale="es" />
+
+          <div className="mt-12 rounded-xl border border-[#ddd4c8] bg-[#fbf6ef] p-6 text-sm text-[#252a2d]">
+            <p>
+              ¿Necesitas apoyo profesional para producir o editar tus videos según estas plantillas? Revisa nuestras{" "}
+              <Link
+                href="/es/areas"
+                className="font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#7f2f20]"
+              >
+                áreas de servicio en Fort Lauderdale, Broward y Miami-Dade
+              </Link>{" "}
+              para consultar la disponibilidad de cobertura local y postproducción remota.
+            </p>
+          </div>
         </Container>
       </section>
     </main>

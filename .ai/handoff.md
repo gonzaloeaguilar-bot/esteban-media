@@ -1,9 +1,18 @@
-# Engineering handoff — esteban-media
+## In production (and ongoing starvation remediations)
 
-Last substantive session: **2026-09-18**, card redesign + motion.
-Full record: `~/obsidian-wiki/client-esteban-media/wiki/esteban-sesion-rediseno-y-movimiento-2026-09-18.md`
+### Spanish areas inbound internal links reinforcement — 2026-09-23
+- Remediation target: `https://estebanmorenomedia.com/es/areas`
+- Contextual internal links added across 6 Spanish interactive tool and resource surfaces:
+  - `/es/calculadora-de-ritmo-de-video` (Daily script pacing calculator)
+  - `/es/planificador-de-ganchos-de-video` (Daily hook planner)
+  - `/es/planificador-de-tomas-de-video` (Daily shot list planner)
+  - `/es/temporizador-de-guiones-de-video` (Daily script timer)
+  - `/es/prompt-de-publicacion-diaria` (Daily publish prompt)
+  - `/es/recursos/kit-video-social` (Social video kit)
+- Each page now presents a contextual callout linking to `/es/areas` with anchor text referencing service areas in Fort Lauderdale, Broward, and Miami-Dade.
+- Preserved frozen URL inventory, metadata, schema, and zero unsupported service claims.
+- Added regression test assertions in `app/__tests__/customer-ranking-pages.test.ts`, `app/__tests__/daily-hook-planner.test.ts`, `app/__tests__/daily-script-pacing-calculator.test.ts`, `app/__tests__/daily-shot-list-planner.test.ts`, and `app/__tests__/daily-script-timer.test.ts`.
 
-## In production
 
 `aefd808` 70 Spanish niche routes as cards · `adc592b` homepage portfolio rail ·
 `dc976a0` the real cartel (tall poster cards, 293×375 ratio 1.28 on a phone, 68% photo).
