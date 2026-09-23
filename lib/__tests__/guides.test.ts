@@ -461,4 +461,97 @@ describe("bilingual practical guides", () => {
       );
     }
   });
+
+  it("deepens the remote vs local video editing guide pair with FAQPage schema and contextual links", () => {
+    const enGuide = getGuides("en").find(
+      (g) => g.slug === "remote-vs-local-video-editing",
+    );
+    const esGuide = getGuides("es").find(
+      (g) => g.slug === "edicion-remota-vs-estudio-local",
+    );
+
+    expect(enGuide).toBeDefined();
+    expect(esGuide).toBeDefined();
+    if (!enGuide || !esGuide) return;
+
+    expect(enGuide.sections).toHaveLength(4);
+    expect(esGuide.sections).toHaveLength(4);
+    expect(enGuide.faqs).toHaveLength(4);
+    expect(esGuide.faqs).toHaveLength(4);
+
+    const enProse = JSON.stringify(enGuide.sections);
+    const esProse = JSON.stringify(esGuide.sections);
+
+    expect(enProse).toContain(
+      "Why remote editing accelerates turnaround and removes studio overhead",
+    );
+    expect(enProse).toContain(
+      "Cost structures: Project-based post-production vs local studio day rates",
+    );
+    expect(enProse).toContain(
+      "Collaboration tools and review workflows for remote video teams",
+    );
+    expect(enProse).toContain(
+      "When a local production studio is required vs when remote editing is ideal",
+    );
+    expect(enProse).toContain("/services/short-form-video-editor-miami");
+    expect(enProse).toContain("/guides/fastest-way-to-send-large-video-files-to-editor");
+    expect(enProse).toContain("/portfolio/homeowners");
+    expect(enProse).toContain("/case-studies/homeowners");
+    expect(enProse).toContain("/services");
+    expect(enProse).toContain("/guides/write-a-useful-video-brief");
+    expect(enProse).toContain("/guides/video-editor-vs-videographer");
+    expect(enProse).toContain("/assessment");
+    expect(enProse).toContain("/contact");
+
+    expect(esProse).toContain(
+      "Por qué la edición remota acelera las entregas y reduce costos fijos",
+    );
+    expect(esProse).toContain(
+      "Estructura de costos: Paquetes de edición vs tarifas por jornada de estudio local",
+    );
+    expect(esProse).toContain(
+      "Herramientas de colaboración y flujo de revisión para equipos remotos",
+    );
+    expect(esProse).toContain(
+      "Cuándo se necesita un estudio local y cuándo conviene la edición remota",
+    );
+    expect(esProse).toContain("/es/editor-de-video-corto-para-redes-miami");
+    expect(esProse).toContain("/es/guias/como-enviar-archivos-pesados-de-video-para-edicion");
+    expect(esProse).toContain("/es/portafolio/homeowners");
+    expect(esProse).toContain("/es/casos-de-estudio/homeowners");
+    expect(esProse).toContain("/es/servicios");
+    expect(esProse).toContain("/es/guias/como-escribir-un-brief-util-de-video");
+    expect(esProse).toContain("/es/guias/editor-de-video-vs-videografo");
+    expect(esProse).toContain("/es/evaluacion");
+    expect(esProse).toContain("/es/contacto");
+
+    for (const guide of [enGuide, esGuide]) {
+      const structuredData = buildGuideStructuredData(guide);
+      const faqNode = structuredData["@graph"].find(
+        (
+          node,
+        ): node is {
+          "@type": string;
+          "@id": string;
+          mainEntity: {
+            "@type": string;
+            name: string;
+            acceptedAnswer: { "@type": string; text: string };
+          }[];
+        } => node["@type"] === "FAQPage" && "mainEntity" in node,
+      );
+      expect(faqNode).toBeDefined();
+      expect(faqNode?.["@id"]).toBe(
+        `https://estebanmorenomedia.com${getGuidePath(guide)}#faq`,
+      );
+      expect(faqNode?.mainEntity).toEqual(
+        guide.faqs?.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: { "@type": "Answer", text: faq.answer },
+        })),
+      );
+    }
+  });
 });
