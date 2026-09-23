@@ -14,19 +14,19 @@ export const metadata: Metadata = {
   // website designer support, and scoped video production are all confirmed offerings.
   title: {
     absolute:
-      "Esteban Moreno Media | Video Editing, Production & Websites",
+      "Esteban Moreno Media | Fort Lauderdale Video Producer",
   },
   description:
-    "Esteban Moreno Media offers video editing services, website designer support, and scoped video production services in South Florida. View video editing work.",
+    "Esteban Moreno Media creates professional video content for Fort Lauderdale businesses. View our portfolio, services, and contact us to discuss your project.",
   openGraph: {
-    title: "Esteban Moreno Media | Video Editing, Production & Websites",
+    title: "Esteban Moreno Media | Fort Lauderdale Video Producer",
     description:
-      "Esteban Moreno Media offers video editing services, website designer support, and scoped video production services in South Florida. View video editing work.",
+      "Esteban Moreno Media creates professional video content for Fort Lauderdale businesses. View our portfolio, services, and contact us to discuss your project.",
   },
   twitter: {
-    title: "Esteban Moreno Media | Video Editing, Production & Websites",
+    title: "Esteban Moreno Media | Fort Lauderdale Video Producer",
     description:
-      "Esteban Moreno Media offers video editing services, website designer support, and scoped video production services in South Florida. View video editing work.",
+      "Esteban Moreno Media creates professional video content for Fort Lauderdale businesses. View our portfolio, services, and contact us to discuss your project.",
   },
 };
 
