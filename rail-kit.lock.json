@@ -1,6 +1,6 @@
 {
   "repo": "gonzaloeaguilar-bot/rail-kit",
-  "ref": "015221f82c625d474358cf849dc0353472c38daa",
+  "ref": "700d20af9ad4d02b6d8bd2c3a1941a77c1be6d7b",
   "vendorPath": "vendor/rail-kit",
   "files": {
     "Rail.tsx": "58dbed9c5a7803e79094f7e53019cc96e1579135a336725295cc11c66cbca3b2",
@@ -99,7 +99,7 @@
     "icons.tsx": "adc28e0518080526eb7d1154be8e340202a6543a363b79ed1621ec72c9925a44",
     "index.ts": "5ab5f52648966821be9a80dcf3c468844698128a5cd96bc3d5b38ab04a28b488",
     "motion.css": "86af39bb17b69cd2ae87b6d0d5a9b8f1767e5b7e94246b55562440a3c7ec1400",
-    "rail.css": "bbe8e309ecae93be371cd3f37191ceb1911495c0bb39b89c24d65f256fae83e7",
+    "rail.css": "13c2203e2b2df3471ae24390a6225c821d211d418d9921d2930faffea49c834f",
     "seeded.ts": "2c6af9e4546a463996c9e915b4fcab1085cb328e8803c853e73baff5f3d96159",
     "telemetry.ts": "1358b5e08b12dfb45226c6498f11afc55566f7e042ab2776f567d6874f84657f",
     "types.ts": "ac33e7e40c63b5918f37607e927b319784dbe7705e15bf240c73b0fdef1ee174"

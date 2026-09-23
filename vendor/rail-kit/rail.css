@@ -2429,6 +2429,16 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 }
 .rail-faq details[open] { border-color: var(--rail-faq-open-border, currentColor); }
 
+/* SEPARACION ENTRE PREGUNTAS. Va en `+` y no en un `gap` del contenedor porque
+   el contenedor no es flex ni grid. Por defecto CERO: en la forma de
+   separadores las lineas tienen que tocarse, que es lo que las hace una lista
+   y no una pila de cajas. Solo cobra sentido con la forma de tarjeta.
+   Lo encontro una revision independiente MIDIENDO: yo declare el token en el
+   sitio que lo adoptaba y no comprobe que alguien lo leyera, asi que las
+   tarjetas salian pegadas donde antes habia 16 px. Una variable declarada y
+   no consumida no se distingue de no haber hecho nada. */
+.rail-faq details + details { margin-top: var(--rail-faq-gap, 0); }
+
 .rail-faq summary {
   display: flex;
   align-items: flex-start;
@@ -2501,7 +2511,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   max-width: var(--rail-measure, 44rem);
   color: var(--_muted);
   font-size: calc(var(--rail-faq-a-size, 18px) * var(--_type));
-  line-height: 1.62;
+  line-height: var(--rail-faq-a-line, 1.62);
 }
 
 .rail-faq summary:focus-visible {

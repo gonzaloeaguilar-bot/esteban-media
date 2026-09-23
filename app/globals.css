@@ -1161,4 +1161,7 @@ nav[aria-label*="igas de pan" i] a,
   --rail-faq-item-padding: 0 1.25rem;
   --rail-faq-padding: 1.25rem 0;
   --rail-faq-gap: 1rem;
+  /* 1.75 es el `leading-7` que tenian las respuestas escritas a mano. El kit
+     viene en 1.62 y hasta ahora no habia forma de moverlo. */
+  --rail-faq-a-line: 1.75;
 }
