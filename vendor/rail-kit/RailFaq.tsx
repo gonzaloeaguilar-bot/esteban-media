@@ -67,10 +67,17 @@ export default function RailFaq({
         >
           <summary>
             <h3 className="rail-faq__q">{item.question}</h3>
-            {/* A plus that rotates into a cross. Decorative: the state is
-                already on the <details> element for anything that reads. */}
+            {/* Un mas que gira hasta ser una cruz. Decorativo: el estado ya
+                esta en el <details> para quien lea la pagina.
+
+                EL GIRO VA EN EL HIJO, no en la caja. Un cuadrado girado 45
+                grados ocupa su DIAGONAL, asi que girar el elemento que hace
+                de item de la fila lo sacaba fuera del contenedor y estiraba el
+                documento — medido en esteban-media: 398 px en un viewport de
+                390. Con la caja quieta y el glifo girando dentro, el sitio que
+                ocupa no cambia al abrirse. */}
             <span className="rail-faq__pm" aria-hidden="true">
-              +
+              <span className="rail-faq__pm-glyph">+</span>
             </span>
           </summary>
           <div className="rail-faq__a">{item.answer}</div>

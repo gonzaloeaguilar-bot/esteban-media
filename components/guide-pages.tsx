@@ -1,4 +1,5 @@
 import React from "react";
+import RailFaq from "@/vendor/rail-kit/RailFaq";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -394,13 +395,28 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
               <section id="faq" className="scroll-mt-24" aria-labelledby="faq-heading">
                 <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">{copy.faqEyebrow}</p>
                 <h2 id="faq-heading" className="mt-3 font-serif text-4xl leading-tight sm:text-5xl">{copy.faqTitle}</h2>
-                <div className="mt-6 space-y-4">
-                  {guide.faqs.map((faq) => (
-                    <details key={faq.question} className="rounded-xl border border-[#ddd4c8] bg-[#fbf6ef] p-5">
-                      <summary className="cursor-pointer font-medium text-[#101214]">{faq.question}</summary>
-                      <p className="mt-3 leading-7 text-[#3f4548]">{renderFormattedText(faq.answer)}</p>
-                    </details>
-                  ))}
+                {/* `RailFaq` del kit, no un acordeon propio.
+                    El que habia aqui era `<details>` + `<summary>` con clases
+                    sueltas: funcionaba, pero cada sitio que lo reescribe se
+                    queda sin lo que el kit ya trae —el marcador que gira, el
+                    foco visible, el objetivo tactil de 24 px y el respeto a
+                    `prefers-reduced-motion`— y sin los arreglos que lleguen
+                    despues.
+
+                    EL ASPECTO NO CAMBIA, y esta medido: fondo #fbf6ef, borde
+                    #ddd4c8 de 1px y radio de 12px, los mismos que tenian las
+                    clases de aqui. Salen de los tokens de `globals.css` — y
+                    los mandos que hacian falta para eso no existian en el kit
+                    hasta que se intento este cambio. */}
+                <div className="mt-6">
+                  <RailFaq
+                    source="guide-faq"
+                    items={guide.faqs.map((faq) => ({
+                      id: faq.question,
+                      question: faq.question,
+                      answer: renderFormattedText(faq.answer),
+                    }))}
+                  />
                 </div>
               </section>
             ) : null}

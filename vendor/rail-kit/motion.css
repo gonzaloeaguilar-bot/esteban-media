@@ -160,6 +160,13 @@
    *
    * It rides on .rail-reveal, so `is-in` still drives it and the no-JS floor
    * is the same: without `.rail-anim` every part is simply visible. */
+  /* EL SEPARADOR ENTRE TROZOS TIENE QUE PODER ROMPER. Dos `inline-block`
+     pegados no dan oportunidad de corte, y un `&nbsp;` DENTRO del trozo
+     tampoco: el titular deja de envolver entero. Medido en la propia story de
+     este kit a 390 px —la que cualquiera copia— las palabras 5 a 8 caian en
+     x=405, 498 y 530: media frase fuera de la pantalla, con el texto en su
+     sitio y sin que ninguna puerta dijera nada. El espacio va FUERA del
+     `<span>` y es un espacio normal. */
   .rail-anim .rail-reveal .rail-reveal-part {
     display: inline-block;
     opacity: 0;
@@ -550,5 +557,143 @@
   [data-rail-limelight]::after {
     transition: transform var(--rail-limelight-follow, 900ms)
       var(--_ease-soft, cubic-bezier(0.22, 1, 0.36, 1));
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * EL SOBRE. `.rail-envelope`.
+ *
+ * Cinco tiempos, y el orden es todo el efecto. Si se disparan a la vez se lee
+ * como una transicion; escalonados se lee como que alguien abre un sobre.
+ *
+ *   1. la solapa arranca ya y frena largo
+ *   2. el lacre cede cuando la solapa va por la mitad — y se ROMPE: las dos
+ *      mitades salen hacia fuera, giran y caen, cada una a su ritmo. Si las
+ *      dos hacen lo mismo se lee como una animacion, no como algo que cede
+ *   3. el pliego sale cuando la solapa esta casi abierta
+ *   4. el sobre, ya vacio, se hunde MIENTRAS el papel aun sube
+ *   5. la carta entra y sus partes llegan escalonadas
+ *
+ * `respira` es la unica que corre sin que nadie toque nada: un objeto sobre
+ * una mesa no esta perfectamente quieto, y esa es la diferencia entre un sobre
+ * y un rectangulo.
+ * ------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  .rail-envelope__piece {
+    animation: rail-envelope-breathe 8s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+    transition: transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .rail-envelope__flap {
+    transition: transform 1.45s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .rail-envelope__seal {
+    transition: opacity 0.5s ease 0.34s;
+  }
+
+  .rail-envelope__wax {
+    transition: transform 1.5s cubic-bezier(0.22, 0.62, 0.28, 1) 0.26s;
+  }
+
+  .rail-envelope__letters {
+    transition: opacity 0.3s ease 0.2s;
+  }
+
+  .rail-envelope__sheet {
+    transition:
+      transform 1.9s cubic-bezier(0.16, 1, 0.3, 1) 0.62s,
+      box-shadow 1.9s ease 0.62s;
+  }
+
+  .rail-envelope__scene {
+    transition:
+      opacity 1s ease 1.45s,
+      transform 1.3s cubic-bezier(0.4, 0, 0.2, 1) 1.45s;
+  }
+
+  .rail-envelope__hint {
+    transition: opacity 0.45s ease;
+  }
+
+  /* LA ESCENA NO SE QUITA DEL FLUJO HASTA QUE TERMINA. `display:none` corta
+     una transicion en el primer cuadro: el sobre desapareceria de golpe y
+     ninguno de los cinco tiempos se veria. Mientras corre la animacion, la
+     escena sigue ocupando su sitio y se va sola. */
+  .rail-envelope[data-open="si"] .rail-envelope__scene {
+    display: grid;
+    opacity: 0;
+    transform: translateY(46px) scale(0.955);
+  }
+
+  .rail-envelope[data-open="si"] .rail-envelope__piece {
+    animation: none;
+    transform: rotateX(7deg) translateY(-6px);
+  }
+
+  .rail-envelope[data-open="si"] .rail-envelope__flap {
+    transform: rotateX(-174deg);
+  }
+
+  .rail-envelope[data-open="si"] .rail-envelope__seal {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .rail-envelope[data-open="si"] .rail-envelope__letters {
+    opacity: 0;
+  }
+
+  .rail-envelope[data-open="si"] .rail-envelope__wax[data-half="left"] {
+    transform: translate(-30px, 86px) rotate(-52deg);
+  }
+
+  .rail-envelope[data-open="si"] .rail-envelope__wax[data-half="right"] {
+    transform: translate(34px, 104px) rotate(63deg);
+  }
+
+  .rail-envelope[data-open="si"] .rail-envelope__sheet {
+    transform: translateY(-84%) scale(1.07) rotate(-1.2deg);
+    box-shadow: var(--rail-envelope-sheet-out-shadow, 0 38px 64px rgba(0, 0, 0, 0.66));
+  }
+
+  .rail-envelope[data-open="si"] .rail-envelope__hint {
+    opacity: 0;
+  }
+
+  .rail-envelope__letter {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+
+  .rail-envelope[data-open="si"] .rail-envelope__letter {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 1.2s ease 1.45s,
+      transform 1.4s cubic-bezier(0.16, 1, 0.3, 1) 1.45s;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .rail-envelope__seal {
+      transition:
+        transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.5s ease 0.34s;
+    }
+
+    .rail-envelope__seal:hover {
+      transform: translate(-50%, -50%) scale(1.06);
+    }
+  }
+}
+
+@keyframes rail-envelope-breathe {
+  0%,
+  100% {
+    transform: translateY(0) rotateX(0deg);
+  }
+  50% {
+    transform: translateY(-7px) rotateX(2.2deg);
   }
 }

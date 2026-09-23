@@ -31,6 +31,15 @@ export type RailSheetProps = {
   children?: ReactNode;
   /** The close button's accessible name. A button with no name is not a button. */
   closeLabel?: string;
+  /**
+   * Keep the tallest height the sheet has reached while it stays open, so a
+   * step that is shorter than the last one does not make the panel jump.
+   * Measured 2026-09-22 on a two-step ask: without it the panel was 256px,
+   * then 292 with the error line, then 373, and every change moved it. On by
+   * default; pass `false` for a sheet whose content should be allowed to
+   * shrink (a search whose results narrow as you type, say).
+   */
+  holdHeight?: boolean;
   source: string;
   onSelect?: (info: {
     source: string;
@@ -64,11 +73,13 @@ export default function RailSheet({
   actions = [],
   children,
   closeLabel = "Close",
+  holdHeight = true,
   source,
   onSelect,
   className,
 }: RailSheetProps) {
   const ref = useRef<HTMLDialogElement>(null);
+  const inner = useRef<HTMLDivElement>(null);
   /**
    * Whether this was driven by a pointer. It matters only ON CLOSE: the
    * browser returns focus to whatever opened the sheet, and on that element a
@@ -134,6 +145,29 @@ export default function RailSheet({
     return () => dialog.removeEventListener("close", handle);
   }, [onClose]);
 
+  // THE PANEL NEVER SHRINKS WHILE IT IS OPEN. rail.css pins the top; this
+  // keeps the bottom where it was. A ratchet, not a snapshot: it follows the
+  // content up (an error line appears) and refuses to follow it back down.
+  // rail.css caps it at the sheet's max height, so turning a phone sideways
+  // cannot leave a panel taller than the screen.
+  useEffect(() => {
+    const el = inner.current;
+    if (!open || !holdHeight || !el || typeof ResizeObserver !== "function") return;
+    let held = 0;
+    const observer = new ResizeObserver(() => {
+      const height = el.offsetHeight;
+      if (height > held) {
+        held = height;
+        el.style.setProperty("--_sheet-hold", `${height}px`);
+      }
+    });
+    observer.observe(el);
+    return () => {
+      observer.disconnect();
+      el.style.removeProperty("--_sheet-hold");
+    };
+  }, [open, holdHeight]);
+
   const resolved = actions.slice(0, 3).map((action, index) => ({
     ...action,
     variant: action.variant ?? (index === 0 ? "primary" : "secondary"),
@@ -162,7 +196,14 @@ export default function RailSheet({
     >
       {/* The grid lives on a wrapper INSIDE the dialog. See rail.css: giving
           the <dialog> itself a `display` breaks it in two separate ways. */}
-      <div className="rail-sheet__in">
+      <div
+        ref={inner}
+        className="rail-sheet__in"
+        // Whether a picture leads the panel. On a phone it is the first thing
+        // in it, so the close button takes its own row above the picture
+        // instead of sitting on the artwork (E03).
+        data-rail-sheet-figure={open && figure ? "" : undefined}
+      >
         <button
           type="button"
           className="rail-sheet__close"

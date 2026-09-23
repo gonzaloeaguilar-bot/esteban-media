@@ -1,6 +1,13 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  useSyncExternalStore,
+  type ReactNode,
+} from "react";
 
 export type RailIntroStep = {
   id: string;
@@ -49,6 +56,24 @@ export type RailIntroProps = {
 
 const PREFIX = "rail-intro:";
 
+/** Lee la marca del navegador. Fuera del componente para que la referencia sea
+    estable: `useSyncExternalStore` vuelve a suscribirse si cambia. */
+function leerVisto(seenKey: string): boolean {
+  try {
+    return localStorage.getItem(PREFIX + seenKey) === "1";
+  } catch {
+    // Safari en privado lanza al tocar localStorage. Si no se puede recordar,
+    // mas vale no enseñarlo que enseñarlo en cada carga.
+    return true;
+  }
+}
+
+/** Nadie mas escribe esta clave en esta pestaña, asi que no hay a que
+    suscribirse; la funcion existe porque la API la exige. */
+function suscribirAlmacen(): () => void {
+  return () => {};
+}
+
 /**
  * The walkthrough a person gets the first time, and only the first time.
  *
@@ -92,21 +117,38 @@ export default function RailIntro({
    * rejects, and the first also meant the first paint was always "closed"
    * before flipping.
    */
-  const [dismissed, setDismissed] = useState(() => {
-    if (typeof localStorage === "undefined") return true;
-    try {
-      return localStorage.getItem(PREFIX + seenKey) === "1";
-    } catch {
-      return true;
-    }
-  });
+  // EL SERVIDOR NO SABE SI ESTE VISITANTE YA LO CERRO, y no puede saberlo:
+  // `localStorage` es del navegador. Esto lo leia en el inicializador de
+  // `useState`, asi que el servidor pintaba «cerrado» —porque ahi
+  // `localStorage` no existe— y el cliente, en una primera visita, pintaba
+  // «abierto». Dos HTML distintos: React tira el del servidor y repinta, con
+  // el aviso de hidratacion #418. Medido renderizando las 92 stories dentro de
+  // un build de produccion de Next: `Intro` era la unica que lo provocaba, y
+  // en desarrollo NO se reproduce.
+  //
+  // El comentario de aqui arriba cuenta como se llego: primero era un efecto
+  // que leia y llamaba a setOpen —primer cuadro siempre cerrado y luego un
+  // salto— y se movio al inicializador para quitar el salto. El salto se fue y
+  // entro el desajuste.
+  //
+  // `useSyncExternalStore` es la herramienta hecha para esto: `getServerSnapshot`
+  // da el valor que usan el servidor Y el primer render del cliente, asi que los
+  // dos coinciden; despues React lee el del navegador. No hay desajuste y no hay
+  // escritura de estado dentro de un efecto.
+  const [override, setOverride] = useState<boolean | null>(null);
+  const guardado = useSyncExternalStore(
+    suscribirAlmacen,
+    () => leerVisto(seenKey),
+    () => true, // en el servidor se asume visto: no enseñar algo que quiza ya cerro
+  );
+  const dismissed = override ?? guardado;
   const open = forceOpen || !dismissed;
   const [at, setAt] = useState(0);
   const panel = useRef<HTMLDivElement>(null);
 
   const finish = useCallback(
     (skippedAt: number | null) => {
-      setDismissed(true);
+      setOverride(true);
       try {
         localStorage.setItem(PREFIX + seenKey, "1");
       } catch {

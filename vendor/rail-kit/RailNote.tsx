@@ -46,6 +46,9 @@ export default function RailNote({
   onSelect,
   className,
 }: RailNoteProps) {
+  // Sin notas no hay lista: 24 px de nada no son informacion.
+  if (items.length === 0) return null;
+
   return (
     <ul
       className={["rail-note", className].filter(Boolean).join(" ")}

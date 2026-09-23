@@ -89,7 +89,13 @@ export default function RailCoachmark({
         onClick={onDismiss}
       >
         <span aria-hidden="true">×</span>
-        <span className="rail-coachmark__sr">{dismissLabel}</span>
+        {/* `rail-sr-only`, la tecnica del kit, y no una clase propia.
+            `rail-coachmark__sr` no tenia NI UNA regla en `rail.css`: era un
+            nombre inventado aqui que nadie escribio nunca. Resultado medido a
+            320 px: la palabra «Dismiss» se veia, 70 px de ancho al lado de la
+            aspa, y encima empujaba el documento a 338. Un texto que solo
+            deberia oirse estaba a la vista desde el primer dia. */}
+        <span className="rail-sr-only">{dismissLabel}</span>
       </button>
     </div>
   );
