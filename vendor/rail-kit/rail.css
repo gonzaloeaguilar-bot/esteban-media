@@ -24,6 +24,27 @@
 /* The kit must not depend on the host's reset. Without this the padded
    overlay measured 266px inside a 230px card under content-box — invisible in
    a Tailwind site (preflight sets border-box) and broken everywhere else. */
+/* PROPIEDADES LOGICAS, NO FISICAS, EN TODO EL KIT.
+ *
+ * `inset-inline-start` en vez de `left`, `margin-inline-end` en vez de
+ * `margin-right`, `text-align: start` en vez de `left`. En un sitio que se lee
+ * de izquierda a derecha computan EXACTAMENTE lo mismo — comprobado: las tres
+ * puertas de navegador dan el mismo resultado antes y despues—, y en uno que
+ * se lee al reves el navegador las espeja solo.
+ *
+ * COMO SE MIDIO, porque el conteo de greps me hizo afirmar algo falso. Dije
+ * «el kit no funcionaria en RTL» contando 119 propiedades fisicas contra 8
+ * logicas. Al medirlo de verdad —poner `dir=rtl` y comparar la posicion de
+ * cada elemento— resulto que NADA desbordaba ni se salia por la izquierda: el
+ * motor ya espeja flex, grid y texto por su cuenta. Un numero de grep no es
+ * un sintoma.
+ *
+ * Lo que si quedaba clavado eran las afordancias ancladas a un lado: el boton
+ * flotante en la esquina, la etiqueta de la baraja, los distintivos de las
+ * tarjetas. 31 clases no se espejaban; ahora 6, y las seis son correctas —
+ * el brazo de un tocadiscos no se espeja porque alguien lea en arabe, y el
+ * foco de `RailLimelight` va donde dice la prop `at`, que es contenido.
+ */
 .rail,
 .rail-billboard,
 .rail-benefits,
@@ -109,6 +130,9 @@
 .rail-shortcuts,
 .rail-offer,
 .rail-folder,
+.rail-envelope,
+.rail-mailhint,
+.rail-agenda,
 .rail *,
 .rail-billboard *,
 .rail-benefits *,
@@ -175,8 +199,20 @@
 .rail-masthead *,
 .rail-evidence *,
 .rail-cover *,
+.rail-envelope *,
+.rail-mailhint *,
+.rail-agenda *,
 .rail-welcome * {
   box-sizing: border-box;
+  /* UNA PALABRA LARGA NO PUEDE MOVER LA PAGINA. El kit no elige el contenido:
+     lo elige la marca, y el contenido real trae apellidos compuestos, correos,
+     referencias y URLs sin un espacio donde romper. Medido inyectando una
+     palabra de 34 caracteres en cada nodo de texto: 24 de las 86 stories
+     desbordaban a lo ancho, hasta 1168 px en un viewport de 390.
+     `break-word` solo parte la palabra CUANDO no cabe, asi que no cambia nada
+     de lo que ya entra — y deja intacto el min-content, que es lo que otros
+     componentes usan para dimensionarse. */
+  overflow-wrap: anywhere;
 }
 
 .rail,
@@ -269,6 +305,9 @@
 .rail-masthead,
 .rail-evidence,
 .rail-cover,
+.rail-envelope,
+.rail-mailhint,
+.rail-agenda,
 .rail-welcome {
   --_gap: calc(var(--rail-gap, 20px) * var(--_space));
   --_width: var(--rail-card-width, 300px);
@@ -350,6 +389,43 @@
   --_ease-out: var(--rail-motion-ease-out, cubic-bezier(0.25, 0.46, 0.45, 0.94));
   color: var(--_text);
   container-type: inline-size;
+}
+
+/* LA CONTENCION EN LINEA NO VALE PARA TODAS LAS RAICES.
+ *
+ * `container-type: inline-size` hace dos cosas a la vez, y solo una se queria:
+ *
+ *   BIEN. El ancho del elemento deja de depender de su contenido, asi que un
+ *   carril horizontal no puede estirar la pagina. Medido: sin esto, la story
+ *   que pinta los 92 componentes pasa de 397 px de ancho a 960 en un viewport
+ *   de 390 — media pagina fuera de la pantalla. NO era config muerta, aunque
+ *   en `rail.css` solo haya UNA `@container` (la de `.rail-versus`, que ya
+ *   declara la suya).
+ *
+ *   MAL. Sobre una raiz cuyo ancho SALE de su contenido, ese mismo efecto la
+ *   derrumba a cero. Siete del kit se declaran `display: inline-*`, y las
+ *   siete estaban rotas: `.rail-cta[data-rail-variant="link"]` media 0x21 con
+ *   su etiqueta de 35 px dentro, y `.rail-storyring` daba 0x108 con el anillo
+ *   de 84 px desbordando y el nombre desaparecido del todo.
+ *
+ * Asi que se queda donde ayuda y se apaga donde derrumba. La lista de abajo
+ * NO es una preferencia: es exactamente el conjunto de raices que declaran
+ * `display: inline-*`. Si un componente nuevo se declara asi, tiene que
+ * entrar aqui — y si se olvida, `dom-sweep` lo caza como `caja-de-cero`,
+ * que es como se encontro esto.
+ *
+ * COMO SE ESCONDIO TANTO TIEMPO: un boton de 0 px no se ve como un error, se
+ * ve como un boton que no esta. Y las nueve puertas leen ficheros, asi que
+ * ninguna puede ver un ancho: las 92 pasaban en verde con esto dentro.
+ */
+.rail-receipt,
+.rail-statuschip,
+.rail-segmented,
+.rail-cta,
+.rail-presence,
+.rail-byline,
+.rail-storyring {
+  container-type: normal;
 }
 
 .rail[data-rail-size="sm"] { --_width: var(--rail-card-width-sm, 240px); }
@@ -528,7 +604,7 @@
 .rail-card__badge {
   position: absolute;
   top: 12px;
-  left: 12px;
+  inset-inline-start: 12px;
   padding: var(--_space-2xs) var(--_space-sm);
   border-radius: var(--_pill);
   font-size: var(--_text-2xs);
@@ -654,7 +730,7 @@
 
 .rail-card__bullets {
   margin: var(--_space-2xs) 0 0;
-  padding-left: var(--rail-bullet-indent, var(--_space-xl));
+  padding-inline-start: var(--rail-bullet-indent, var(--_space-xl));
   font-size: calc(var(--rail-bullet-size, 13.5px) * var(--_type));
   line-height: var(--rail-bullet-leading, 1.6);
   color: var(--rail-bullet-color, var(--_muted));
@@ -677,7 +753,14 @@
   }
 }
 
+/* EL TITULO ES EL OBJETIVO PRINCIPAL DE LA TARJETA, asi que se comporta como
+   uno: bloque a todo el ancho y con el suelo AA de 24 px. Medido daba 23 —un
+   pixel corto— y en linea no se puede corregir sin tocar la tipografia de
+   todas las marcas. Como bloque, ademas, se puede pulsar en cualquier punto
+   del renglon y no solo sobre las letras. */
 .rail-card__title-link {
+  display: block;
+  min-height: var(--_tap-min);
   color: inherit;
   text-decoration: none;
 }
@@ -689,7 +772,7 @@
 .rail__dismiss {
   position: absolute;
   top: 10px;
-  right: 10px;
+  inset-inline-end: 10px;
   width: 32px;
   height: 32px;
   display: inline-grid;
@@ -722,7 +805,18 @@
   border: 0;
 }
 
-.rail-card__cta { font-size: var(--_text-sm); color: var(--rail-cta-link-color, var(--_accent-text)); text-decoration: none; }
+/* UN ENLACE DE ACCION ES UN OBJETIVO, no una palabra. Medido a 375 px daba
+   255x16: el ancho lo tenia, el alto no. El suelo AA son 24 px —no 44— y
+   `inline-flex` se lo da sin mover ni una letra, porque la caja crece hacia
+   fuera del renglon y el texto se queda donde estaba. */
+.rail-card__cta {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--_tap-min);
+  font-size: var(--_text-sm);
+  color: var(--rail-cta-link-color, var(--_accent-text));
+  text-decoration: none;
+}
 
 /* Buttons, not <button>s — see RailCard — so they carry their own box. */
 .rail-card__cta--primary,
@@ -869,7 +963,7 @@
 .rail-card__badge--footer {
   top: auto;
   bottom: 12px;
-  left: 12px;
+  inset-inline-start: 12px;
   background: var(--rail-footer-badge-bg, var(--_accent));
   color: var(--rail-footer-badge-color, #fff);
 }
@@ -907,7 +1001,11 @@
 
 .rail__header-action {
   display: inline-flex;
+  flex-shrink: 0;
   align-items: center;
+  /* A direct child of the header now, so it pushes itself to the end: with
+     no heading beside it there is nothing else to do the pushing. */
+  margin-inline-start: auto;
   gap: var(--_space-2xs);
   min-height: var(--_control-min-sm);
   padding: 0 var(--_space-2xs);
@@ -916,7 +1014,16 @@
   font-weight: var(--rail-weight-semibold, 600);
   text-decoration: none;
   white-space: nowrap;
+  /* Now that it always renders, a long label must wrap instead of widening
+     the page (long-word-sweep): short labels stay on one line. */
+  min-width: 0;
+  max-width: 60%;
 }
+.rail__header-action { white-space: normal; overflow-wrap: anywhere; text-align: end; }
+
+/* The counter already pushes itself to the end; two auto margins would split
+   the space and strand the counter mid-header. */
+.rail__position + .rail__header-action { margin-inline-start: 0; }
 
 .rail__header-action:hover { text-decoration: underline; }
 
@@ -960,7 +1067,7 @@
 .rail-billboard__badge {
   position: absolute;
   top: 16px;
-  left: 16px;
+  inset-inline-start: 16px;
   padding: var(--_space-2xs) var(--_space-sm);
   border-radius: var(--_pill);
   font-size: var(--_text-2xs);
@@ -984,7 +1091,7 @@
 @media (min-width: 768px) {
   .rail-billboard__content {
     align-items: flex-start;
-    text-align: left;
+    text-align: start;
     max-width: 44ch;
   }
 }
@@ -1132,7 +1239,13 @@
 }
 
 .rail-frame__presenter-prefix { opacity: 0.85; }
-.rail-frame__presenter-mark { font-weight: 700; color: inherit; }
+.rail-frame__presenter-mark {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--_tap-min);
+  font-weight: var(--rail-frame-presenter-weight, 700);
+  color: inherit;
+}
 a.rail-frame__presenter-mark { text-decoration: none; }
 
 .rail-frame__presenter-mark :is(img, svg) {
@@ -1267,7 +1380,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 .rail-versus__header-value {
   flex-shrink: 0;
   margin: 0;
-  text-align: right;
+  text-align: end;
 }
 
 .rail-versus__header-value-figure {
@@ -1302,7 +1415,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 }
 
 .rail-versus[data-rail-layout="scores"] .rail-versus__side[data-rail-side="right"] {
-  text-align: right;
+  text-align: end;
 }
 
 .rail-versus[data-rail-layout="scores"] .rail-versus__art {
@@ -1351,7 +1464,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
     grid-template-areas: "name" "art" "body";
   }
   .rail-versus[data-rail-layout="scores"] .rail-versus__side[data-rail-side="right"] .rail-versus__art {
-    margin-left: auto;
+    margin-inline-start: auto;
   }
 }
 .rail-versus[data-rail-layout="scores"] .rail-versus__art { grid-area: art; }
@@ -1390,7 +1503,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 .rail-versus[data-rail-layout="panels"]
   .rail-versus__side[data-rail-side="right"]
   .rail-versus__body {
-  text-align: right;
+  text-align: end;
 }
 
 .rail-versus__art-image {
@@ -1410,7 +1523,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 .rail-versus__chip {
   position: absolute;
   top: 8px;
-  left: 8px;
+  inset-inline-start: 8px;
   padding: var(--rail-versus-chip-padding, calc(var(--_space-xs) / 2) var(--_space-s));
   border-radius: var(--rail-versus-chip-radius, 5px);
   background: var(--rail-versus-chip-bg, rgba(0, 0, 0, 0.55));
@@ -1422,7 +1535,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 
 .rail-versus__side[data-rail-side="right"] .rail-versus__chip {
   left: auto;
-  right: 8px;
+  inset-inline-end: 8px;
 }
 
 .rail-versus__name {
@@ -1434,7 +1547,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   /* break-word, not anywhere: `anywhere` shattered "DADDY ALLEN SUGAR BABIES"
      into one syllable per line on a 375px phone. This breaks a word only when
      the word alone cannot fit. */
-  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
   font-family: var(--rail-versus-name-font, var(--rail-title-font, inherit));
   font-size: calc(var(--rail-versus-name-size, 15px) * var(--_type));
   font-weight: var(--rail-versus-name-weight, 800);
@@ -1479,7 +1592,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   color: var(--_muted);
 }
 
-.rail-versus__stat-label { margin-right: 4px; }
+.rail-versus__stat-label { margin-inline-end: 4px; }
 
 .rail-versus__stat[data-rail-tone="up"] .rail-versus__stat-value {
   color: var(--rail-tone-up, #46c266);
@@ -1571,7 +1684,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 }
 
 .rail-versus__action + .rail-versus__action {
-  border-left: 1px solid var(--_border);
+  border-inline-start: 1px solid var(--_border);
 }
 
 .rail-versus :is(a, button):focus-visible {
@@ -1862,6 +1975,21 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   z-index: 2;
   gap: var(--_space-xs);
   padding: var(--rail-poster-padding, 0 clamp(var(--_space-xl), 2vw, var(--_space-4xl)));
+  /* NEVER TIGHTER TO THE BOTTOM THAN TO THE SIDE. The shorthand above has no
+     bottom, so the last thing in the panel — usually the button — sat on the
+     card's edge: 1px of air under "See it whole" at 390px against 19px at the
+     side. The floor is the side padding, and a brand can raise it. */
+  padding-block-end: var(
+    --rail-poster-padding-end,
+    max(var(--_space-lg), clamp(var(--_space-xl), 2vw, var(--_space-4xl)))
+  );
+}
+
+/* The description brings its own bottom padding for the day it is the last
+   thing in the panel; now that the panel has one, it would count twice. */
+[data-rail-variant="poster"] .rail-card[data-rail-kind="media"] .rail-card__description:last-child,
+.rail-card[data-rail-variant="poster"][data-rail-kind="media"] .rail-card__description:last-child {
+  padding-block-end: 0;
 }
 
 [data-rail-variant="poster"] .rail-card[data-rail-kind="media"] .rail-card__description,
@@ -1879,10 +2007,18 @@ a.rail-frame__presenter-mark { text-decoration: none; }
    together. Fading the last strip of the picture into the panel colour makes
    it one card — and 18% is below the lowest face danielzea measured, so it
    never covers a subject. Set --rail-poster-bg to a real colour for this to
-   work: a transparent panel has nothing to fade INTO. */
+   work: a transparent panel has nothing to fade INTO.
+
+   A brand whose posters are AUTHORED ARTWORK sets `--rail-poster-fade: none`
+   (added 2026-09-22). The fade paints over the picture, and a poster card
+   does not know whether its picture is a photograph or somebody's drawing: on
+   The Dancing Chairs it washed the legs and the signature out of every
+   drawing, which is E02. It stays ON by default so photo-led brands already
+   vendoring the kit look exactly as before when they re-sync. */
 [data-rail-variant="poster"] .rail-card[data-rail-kind="media"] .rail-card__figure::after,
 .rail-card[data-rail-variant="poster"][data-rail-kind="media"] .rail-card__figure::after {
   content: "";
+  display: var(--rail-poster-fade, block);
   position: absolute;
   inset: auto 0 -1px 0;
   height: var(--rail-poster-fade-height, 18%);
@@ -1999,6 +2135,31 @@ a.rail-frame__presenter-mark { text-decoration: none; }
      the right, which reads as a broken panel rather than a centred one.
      Restated here so the kit does not depend on what a consumer's reset does. */
   margin: auto;
+  /* PINNED AT THE TOP, NOT CENTRED. `margin: auto` centres vertically too,
+     so every change of content height moved the panel: measured on a two-step
+     ask at 390px, the top went 294 → 276 → 236 between step one, the error
+     line and step two. The offset is the one a sheet of full height would get
+     when centred, so a tall sheet sits exactly where it always did; only a
+     short one stops floating. RailSheet also holds the height it reached. */
+  margin-block-start: var(
+    --rail-sheet-offset,
+    max(0px, calc((100vh - var(--rail-sheet-height, 88vh)) / 2))
+  );
+}
+
+/* ON A PHONE THE SHEET IS A SHEET, not a card floating in the middle: full
+   width, from the top, with its close in reach. The browser's own modal rule
+   caps a dialog at `100% - 2em - 6px`, which is what left 19px of backdrop on
+   either side at 390px; it is overridden here, not merely out-sized. */
+@media (max-width: 639.98px) {
+  .rail-sheet {
+    border-start-start-radius: 0;
+    border-start-end-radius: 0;
+    width: 100%;
+    max-width: 100%;
+    margin-inline: 0;
+    margin-block-start: var(--rail-sheet-offset-mobile, env(safe-area-inset-top, 0px));
+  }
 }
 
 .rail-sheet::backdrop {
@@ -2011,6 +2172,12 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   position: relative;
   display: grid;
   grid-template-columns: 1fr;
+  /* A flexible row, not an auto one: a flexible track is the one that can
+     resolve against both the max height (the text column scrolls inside it)
+     and the held height set by RailSheet (the panel keeps its size when a
+     shorter step replaces a longer one). */
+  grid-template-rows: minmax(0, 1fr);
+  min-height: min(var(--_sheet-hold, 0px), var(--rail-sheet-height, 88vh));
   max-height: var(--rail-sheet-height, 88vh);
   overflow: hidden;
   border-radius: var(--rail-card-radius, 16px);
@@ -2035,6 +2202,13 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   box-shadow: var(--rail-card-shadow, 0 18px 40px -22px rgba(0, 0, 0, 0.9));
 }
 
+@media (max-width: 639.98px) {
+  .rail-sheet__in {
+    border-start-start-radius: 0;
+    border-start-end-radius: 0;
+  }
+}
+
 @media (min-width: 860px) {
   .rail-sheet__in {
     grid-template-columns:
@@ -2043,10 +2217,26 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   }
 }
 
+/* One column: the picture on top, the text under it. The close button then
+   gets a row of its own ABOVE the picture, because the top-right corner of a
+   drawing is part of the drawing (E03) — measured 1,035px² of button over the
+   artwork at 390px before this. */
+@media (max-width: 859.98px) {
+  .rail-sheet__in[data-rail-sheet-figure] {
+    grid-template-rows: auto minmax(0, 1fr);
+    padding-block-start: calc(
+      var(--rail-sheet-close-size, 46px) + 2 * var(--rail-sheet-close-inset, 10px)
+    );
+  }
+}
+
+/* The figure takes the panel's own surface. A grey fill here painted 33px
+   bands either side of a portrait at 390px, and on a white sheet read as a
+   broken frame (E04). A brand that wants a mat sets the token. */
 .rail-sheet__figure {
   margin: 0;
   min-height: 0;
-  background: var(--rail-sheet-figure-bg, rgba(0, 0, 0, 0.35));
+  background: var(--rail-sheet-figure-bg, transparent);
 }
 
 /* `contain`, not `cover`: the whole point of opening it is to see the
@@ -2061,6 +2251,20 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   max-height: var(--rail-sheet-figure-max, 44vh);
   object-fit: contain;
   border: 0;
+}
+
+/* In one column a picture is sized to ITS OWN ratio, not stretched to the
+   panel's width and letterboxed inside that box: a portrait gets a portrait
+   box, centred, with the sheet's surface either side. Video and embeds keep
+   the full-width box, where a letterbox is the medium's own. */
+@media (max-width: 859.98px) {
+  .rail-sheet__image,
+  .rail-sheet__figure > img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin-inline: auto;
+  }
 }
 
 @media (min-width: 860px) {
@@ -2098,6 +2302,23 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   letter-spacing: var(--rail-tracking-tight, -0.02em);
 }
 
+/* THE CLOSE BUTTON HAS A LANE, and the first lines of text stay out of it.
+   It is absolutely placed in the top-right corner, so without this a long
+   title ran under it: 579px² of the button sat on the last word of "What
+   caught your eye?" at 390px, hiding the question mark. The lane is the
+   button plus a gap. With a picture on top (one column) the button has a row
+   of its own above the picture, so the text below needs no lane. */
+.rail-sheet__badge,
+.rail-sheet__title {
+  padding-inline-end: calc(var(--rail-sheet-close-size, 46px) + var(--_space-md));
+}
+
+@media (max-width: 859.98px) {
+  .rail-sheet__in[data-rail-sheet-figure] :is(.rail-sheet__badge, .rail-sheet__title) {
+    padding-inline-end: 0;
+  }
+}
+
 .rail-sheet__meta {
   margin: 0;
   font-size: calc(var(--rail-sheet-meta-size, 12px) * var(--_type));
@@ -2127,8 +2348,8 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 
 .rail-sheet__close {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: var(--rail-sheet-close-inset, 10px);
+  inset-inline-end: var(--rail-sheet-close-inset, 10px);
   z-index: 3;
   display: grid;
   place-items: center;
@@ -2137,7 +2358,11 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   height: var(--rail-sheet-close-size, 46px);
   border-radius: var(--_pill);
   border: 1px solid var(--rail-card-border, rgba(255, 255, 255, 0.12));
-  background: var(--rail-sheet-close-bg, rgba(10, 10, 10, 0.55));
+  /* Tinted from the panel's own ink, so it reads on a dark sheet and on a
+     light one. The old default was a dark glass made to sit on photographs;
+     the button no longer sits on photographs, and on a white sheet that glass
+     was a grey blot. */
+  background: var(--rail-sheet-close-bg, color-mix(in srgb, currentColor 8%, transparent));
   color: inherit;
   font-size: calc(var(--rail-size-title, 26px) * var(--_type));
   line-height: 1;
@@ -2165,7 +2390,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 
 @media (hover: hover) and (pointer: fine) {
   .rail-sheet__close:hover {
-    background: var(--rail-sheet-close-hover-bg, rgba(10, 10, 10, 0.8));
+    background: var(--rail-sheet-close-hover-bg, color-mix(in srgb, currentColor 16%, transparent));
     border-color: var(--rail-accent, currentColor);
   }
 }
@@ -2185,7 +2410,23 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   line-height: 1.1;
 }
 
-.rail-faq details { border-top: 1px solid var(--_border); }
+/* DOS FORMAS DE FAQ, Y LA MARCA ELIGE. Por defecto son separadores: una linea
+   sobre cada pregunta y nada mas, que es lo editorial. Pero esteban-media tenia
+   escrito a mano un acordeon de TARJETAS —fondo crema, borde y esquina
+   redondeada por pregunta— y al pasarlo al kit no habia forma de conservarlo
+   sin editar esta regla, que es exactamente lo que el kit promete que nunca
+   hace falta. Los cuatro mandos de abajo lo permiten sin cambiar nada para
+   quien ya lo usa: sus valores por defecto SON el aspecto de separadores. */
+.rail-faq details {
+  /* El ATAJO va primero y el lado despues: `border` resetea los cuatro lados,
+     asi que escribirlo debajo del `border-top` se lo comeria. Es la trampa que
+     ya costo una sesion con `padding`. */
+  border: var(--rail-faq-item-border, none);
+  border-top: var(--rail-faq-item-border-top, 1px solid var(--_border));
+  border-radius: var(--rail-faq-item-radius, 0);
+  background: var(--rail-faq-item-bg, transparent);
+  padding: var(--rail-faq-item-padding, 0);
+}
 .rail-faq details[open] { border-color: var(--rail-faq-open-border, currentColor); }
 
 .rail-faq summary {
@@ -2203,7 +2444,23 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 /* Safari still paints its own marker without this. */
 .rail-faq summary::-webkit-details-marker { display: none; }
 
+/* `min-width: 0` para que la pregunta PUEDA encogerse. Es un item flex, y el
+   defecto `min-width: auto` la deja con el ancho de su palabra mas larga: con
+   el hueco grande de la fila y el marcador fijo al lado, la suma se sale. No
+   aparecio en mi maquina sino en CI —Linux tiene otras metricas de fuente— y
+   esa es la leccion: un desborde que depende de la fuente es un desborde que
+   depende del ordenador de quien mira. `overflow-wrap` remata el caso de la
+   palabra unica mas ancha que la columna.
+
+   Y `anywhere`, NO `break-word`. Los dos rompen la palabra al pintar, pero
+   solo `anywhere` reduce el min-content del elemento, que es lo que se
+   propaga hacia arriba: con `break-word` la pregunta seguia aportando el
+   ancho de su palabra mas larga, el `<section>` de la story acababa con una
+   columna de 284 px dentro de una caja de 240, y la pagina desbordaba igual.
+   Se veia identico en el CSS y hacia dos cosas distintas. */
 .rail-faq__q {
+  min-width: 0;
+  overflow-wrap: anywhere;
   margin: 0;
   font-family: var(--rail-faq-q-font, var(--rail-title-font, inherit));
   font-size: calc(var(--rail-faq-q-size, clamp(20px, 2.8vw, 34px)) * var(--_type));
@@ -2212,14 +2469,32 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   letter-spacing: var(--rail-tracking-tight, -0.018em);
 }
 
+/* UN ADORNO GIRADO NO PUEDE ENSANCHAR LA PAGINA.
+   Este `+` gira 45 grados al abrirse, y un cuadrado girado ocupa su DIAGONAL:
+   la caja de layout medi­a 14,7 px y su rectangulo pasaba a 27. Como es el
+   ultimo item de una fila `space-between`, ese exceso caia fuera del
+   contenedor y estiraba el documento. Medido en esteban-media (Next 15): 398
+   px en un viewport de 390. En geebs no salia — su tipografia da un glifo mas
+   estrecho—, asi que es un fallo que aparece o no segun la fuente del SITIO.
+
+   Agrandar la caja lo empeora (mas lado, mas diagonal: llego a 51 px). Lo que
+   funciona es al reves: la caja se queda quieta y gira el GLIFO, que es mas
+   pequeno que ella. */
 .rail-faq__pm {
   flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  /* La caja tiene que dar de si para la DIAGONAL del glifo: 15 px girados son
+     21. Como la que gira es el glifo y no ella, agrandarla ya no agranda nada
+     —ese fue mi primer intento y lo empeoro, de 396 a 397—. */
+  width: var(--rail-faq-marker-box, 1.5em);
+  height: var(--rail-faq-marker-box, 1.5em);
   font-size: calc(var(--rail-size-title, 24px) * var(--_type));
   line-height: 1;
   color: var(--_muted);
 }
 
-.rail-faq details[open] .rail-faq__pm { transform: rotate(45deg); }
+.rail-faq details[open] .rail-faq__pm-glyph { transform: rotate(45deg); }
 
 .rail-faq__a {
   padding: var(--rail-faq-answer-padding, 0 0 calc(var(--_space-md) * 2.5));
@@ -2235,7 +2510,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .rail-faq__pm { transition: transform var(--_dur-base) var(--_ease); }
+  .rail-faq__pm-glyph { transition: transform var(--_dur-base) var(--_ease); }
 }
 
 /* ---------------------------------------------------------------------------
@@ -2251,7 +2526,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   border-top: 1px solid var(--rail-player-rule, currentColor);
   background: transparent;
   color: inherit;
-  text-align: left;
+  text-align: start;
   cursor: pointer;
 }
 
@@ -2290,13 +2565,13 @@ a.rail-frame__presenter-mark { text-decoration: none; }
    A control whose legibility is decided by a photograph is not a control. */
 .rail-player__mark {
   position: absolute;
-  left: var(--rail-player-mark-inset, 22px);
+  inset-inline-start: var(--rail-player-mark-inset, 22px);
   bottom: var(--rail-player-mark-inset, 22px);
   display: grid;
   place-items: center;
   width: var(--rail-player-mark-size, 56px);
   height: var(--rail-player-mark-size, 56px);
-  padding-left: 3px;
+  padding-inline-start: 3px;
   border-radius: var(--_pill);
   background: var(--rail-player-mark-bg, #faf8f6);
   color: var(--rail-player-mark-color, #141210);
@@ -2426,7 +2701,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
      them read as two objects looking at each other. The line riding over the
      last third of the picture is what makes the page read like a cover. */
   .rail-scene__text {
-    margin-left: clamp(-140px, -9vw, -60px);
+    margin-inline-start: clamp(-140px, -9vw, -60px);
     position: relative;
     z-index: 1;
   }
@@ -2444,12 +2719,12 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   .rail-scene[data-rail-flip] .rail-scene__figure { order: 2; }
   .rail-scene[data-rail-flip] .rail-scene__text {
     order: 1;
-    margin-left: 0;
-    margin-right: clamp(-140px, -9vw, -60px);
-    text-align: right;
+    margin-inline-start: 0;
+    margin-inline-end: clamp(-140px, -9vw, -60px);
+    text-align: end;
   }
-  .rail-scene[data-rail-flip] .rail-scene__quote { margin-left: auto; }
-  .rail-scene[data-rail-flip] .rail-scene__caption::before { margin-left: auto; }
+  .rail-scene[data-rail-flip] .rail-scene__quote { margin-inline-start: auto; }
+  .rail-scene[data-rail-flip] .rail-scene__caption::before { margin-inline-start: auto; }
 }
 
 /* ---------------------------------------------------------------------------
@@ -2531,14 +2806,28 @@ a.rail-frame__presenter-mark { text-decoration: none; }
  * RailTabs — the sections across the top, active one underlined.
  * ------------------------------------------------------------------------- */
 
-.rail-tabs { border-bottom: 1px solid var(--_border); }
+/* LA BARRA SE DESPLAZA ELLA; LA PAGINA NO.
+   `.rail-tabs__item` ya llevaba `min-width: 0`, asi que las pestanas se
+   encogen al pintar — pero el min-content de la lista sigue siendo la suma de
+   todas, y ESO es lo que sube al contenedor. Medido en una caja de 240 px: la
+   barra ocupaba 284 y empujaba el documento entero. Una barra de pestanas con
+   mas pestanas de las que caben tiene que recorrerse de lado, que es lo que
+   hace cualquier app; lo que no puede es mover la pagina. */
+.rail-tabs { min-width: 0; border-bottom: 1px solid var(--_border); }
 
 .rail-tabs__list {
   display: flex;
+  min-width: 0;
+  overflow-x: auto;
+  /* Sin barra visible: en movil no la hay y en escritorio taparia el filete
+     de la pestana activa, que es el unico indicador que tiene. */
+  scrollbar-width: none;
   list-style: none;
   margin: 0;
   padding: 0;
 }
+
+.rail-tabs__list::-webkit-scrollbar { display: none; }
 
 .rail-tabs__item { flex: 1; min-width: 0; }
 
@@ -2683,7 +2972,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 
 .rail-fab {
   position: fixed;
-  right: var(--rail-fab-inset, 16px);
+  inset-inline-end: var(--rail-fab-inset, 16px);
   bottom: var(--rail-fab-inset, 16px);
   z-index: var(--rail-fab-z, 50);
   display: grid;
@@ -2934,13 +3223,19 @@ a.rail-frame__presenter-mark { text-decoration: none; }
  * RailSegmented — two or three views of one section, in a pill.
  * ------------------------------------------------------------------------- */
 
+/* Mismo caso que la barra de pestanas: el grupo se recorre, la pagina no. */
 .rail-segmented {
   display: inline-flex;
+  max-width: 100%;
+  min-width: 0;
+  flex-wrap: wrap;
   gap: var(--_space-2xs);
   padding: var(--rail-segmented-inset, var(--_space-2xs));
   border-radius: var(--rail-segmented-radius, var(--_pill));
   background: var(--rail-segmented-bg, color-mix(in srgb, currentColor 8%, transparent));
 }
+
+.rail-segmented::-webkit-scrollbar { display: none; }
 
 .rail-segmented[data-rail-block] { display: flex; width: 100%; }
 .rail-segmented[data-rail-block] .rail-segmented__segment { flex: 1; }
@@ -3021,7 +3316,10 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 }
 
 .rail-cta[data-rail-variant="link"] {
-  min-height: 0;
+  /* Sin caja, pero SIGUE siendo un objetivo. Con `min-height: 0` medi­a 60x20
+     y el suelo AA son 24 px. Se lo queda como alto minimo: no pinta nada
+     —fondo none, borde 0— y se puede tocar. */
+  min-height: var(--_tap-min);
   padding: 0;
   border: 0;
   border-radius: 0;
@@ -3099,7 +3397,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   background: none;
   color: inherit;
   font-family: inherit;
-  text-align: left;
+  text-align: start;
   cursor: pointer;
 }
 
@@ -3129,7 +3427,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 
 .rail-disclosure[data-rail-tone="footer"] .rail-disclosure__chevron {
   color: inherit;
-  margin-left: var(--_space-s);
+  margin-inline-start: var(--_space-s);
 }
 
 .rail-disclosure[data-rail-open] .rail-disclosure__chevron { transform: rotate(180deg); }
@@ -3315,7 +3613,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 .rail-promo__badge {
   position: absolute;
   top: 12px;
-  left: 12px;
+  inset-inline-start: 12px;
   z-index: 2;
   padding: var(--_space-2xs) var(--_space-sm);
   border-radius: var(--rail-promo-badge-radius, 6px);
@@ -3330,7 +3628,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 .rail-promo__dismiss {
   position: absolute;
   top: 10px;
-  right: 10px;
+  inset-inline-end: 10px;
   z-index: 2;
   display: grid;
   place-items: center;
@@ -3549,7 +3847,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 .rail-card[data-rail-variant="tile"] .rail-card__badge {
   position: absolute;
   top: 8px;
-  left: 8px;
+  inset-inline-start: 8px;
   z-index: 2;
   margin: 0;
   padding: var(--rail-card-tile-badge-padding, calc(var(--_space-xs) / 2) calc(var(--_space-xl) / 2));
@@ -3778,7 +4076,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 
 .rail-table :is(th, td) {
   padding: var(--rail-table-cell-padding, var(--_space-md) var(--_space-sm));
-  text-align: left;
+  text-align: start;
   vertical-align: middle;
 }
 
@@ -3796,7 +4094,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 }
 
 .rail-table [data-rail-numeric] {
-  text-align: right;
+  text-align: end;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
@@ -3804,7 +4102,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 .rail-table__rank,
 .rail-table__rank-head {
   width: 1%;
-  padding-right: var(--_space-2xs);
+  padding-inline-end: var(--_space-2xs);
   color: var(--_muted);
   font-variant-numeric: tabular-nums;
 }
@@ -3813,7 +4111,13 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   font-weight: var(--rail-weight-semibold, 600);
 }
 
-.rail-table__name a { color: inherit; text-decoration: none; }
+.rail-table__name a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--_tap-min);
+  color: inherit;
+  text-decoration: none;
+}
 
 .rail-table__avatar {
   width: var(--rail-table-avatar-size, 30px);
@@ -3821,7 +4125,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   border-radius: var(--_pill);
   object-fit: cover;
   vertical-align: middle;
-  margin-right: var(--_space-sm);
+  margin-inline-end: var(--_space-sm);
 }
 
 /* The reader's own row. The colour is the quick read; the marker in the
@@ -3860,7 +4164,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 }
 
 .rail-poll__side { margin: 0; min-width: 0; }
-.rail-poll__side[data-rail-side="right"] { text-align: right; }
+.rail-poll__side[data-rail-side="right"] { text-align: end; }
 
 .rail-poll__name {
   display: block;
@@ -4075,7 +4379,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   background: none;
   color: inherit;
   font: inherit;
-  text-align: left;
+  text-align: start;
   cursor: pointer;
 }
 
@@ -4175,7 +4479,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
   font-weight: var(--rail-weight-medium, 500);
   color: var(--_muted);
-  margin-left: var(--_space-3xs);
+  margin-inline-start: var(--_space-3xs);
 }
 
 .rail-price__off {
@@ -4235,7 +4539,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 
 .rail-rating__meta::before {
   content: "|";
-  margin-right: var(--_space-xs);
+  margin-inline-end: var(--_space-xs);
   opacity: 0.45;
 }
 
@@ -4361,7 +4665,8 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   background: transparent;
   color: inherit;
   font: inherit;
-  font-size: calc(var(--rail-size-body, 16px) * var(--_type));
+  /* Never under 16px: iPhone Safari zooms into smaller fields on focus. */
+  font-size: max(var(--rail-input-min-size, 16px), calc(var(--rail-size-body, 16px) * var(--_type)));
   outline: none;
 }
 
@@ -4477,7 +4782,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   width: 24px;
   height: 24px;
   vertical-align: middle;
-  margin-left: var(--_space-3xs);
+  margin-inline-start: var(--_space-3xs);
   padding: 0;
   border: 0;
   background: none;
@@ -4580,14 +4885,33 @@ a.rail-frame__presenter-mark { text-decoration: none; }
  * RailMasonry — a staggered grid. Reading order is DOWN each column.
  * ------------------------------------------------------------------------- */
 
+/* The column count lives in one custom property so the CSS-columns fallback
+   and the balanced grid can never disagree, and RailMasonry reads it from
+   here instead of repeating the breakpoint in JavaScript. */
 .rail-masonry {
-  column-count: 2;
+  --_cols: 2;
+  column-count: var(--_cols);
   column-gap: var(--rail-masonry-gap, var(--_space-md));
 }
 
 @media (min-width: 720px) {
-  .rail-masonry[data-rail-columns="3"] { column-count: 3; }
-  .rail-masonry[data-rail-columns="4"] { column-count: 4; }
+  .rail-masonry[data-rail-columns="3"] { --_cols: 3; }
+  .rail-masonry[data-rail-columns="4"] { --_cols: 4; }
+}
+
+/* Balanced: every item is placed by RailMasonry in the column that is
+   shortest at that moment, on 1px rows. The gap is inside each item's span. */
+.rail-masonry[data-rail-balanced] {
+  display: grid;
+  grid-template-columns: repeat(var(--_cols), minmax(0, 1fr));
+  grid-auto-rows: 1px;
+  row-gap: 0;
+  align-items: start;
+  column-count: auto;
+}
+
+.rail-masonry[data-rail-balanced] > * {
+  margin-bottom: 0;
 }
 
 /* The rule everyone forgets: without it a card is sliced in half across a
@@ -4740,18 +5064,18 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 
 .rail-coachmark[data-rail-side="top"]::before {
   top: calc(var(--rail-coachmark-arrow, 12px) / -2);
-  left: var(--_offset, 16%);
+  inset-inline-start: var(--_offset, 16%);
 }
 .rail-coachmark[data-rail-side="bottom"]::before {
   bottom: calc(var(--rail-coachmark-arrow, 12px) / -2);
-  left: var(--_offset, 16%);
+  inset-inline-start: var(--_offset, 16%);
 }
 .rail-coachmark[data-rail-side="left"]::before {
-  left: calc(var(--rail-coachmark-arrow, 12px) / -2);
+  inset-inline-start: calc(var(--rail-coachmark-arrow, 12px) / -2);
   top: var(--_offset, 16%);
 }
 .rail-coachmark[data-rail-side="right"]::before {
-  right: calc(var(--rail-coachmark-arrow, 12px) / -2);
+  inset-inline-end: calc(var(--rail-coachmark-arrow, 12px) / -2);
   top: var(--_offset, 16%);
 }
 
@@ -4905,8 +5229,34 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   position: absolute;
   top: var(--_notch);
   bottom: var(--_notch);
-  left: var(--_notch-at);
-  border-left: 1px dashed var(--rail-offer-perforation, color-mix(in srgb, currentColor 30%, transparent));
+  inset-inline-start: var(--_notch-at);
+  border-inline-start: 1px dashed var(--rail-offer-perforation, color-mix(in srgb, currentColor 30%, transparent));
+}
+
+/* WITH A STUB, THE TEAR LINE BELONGS TO THE STUB. A fixed 76% put it behind
+   any button wider than a word: at 390px the line ran at x=288 through "Get
+   first word" (213–356) and "How it works" (217–356). Drawn from the stub's
+   own box it sits in the middle of the gap before it, whatever the label.
+   It spans the whole strip on purpose: the strip's mask clips it to the
+   strip, and the two notches (placed at the same x by RailOffer) bite its
+   ends off exactly as the fixed line was inset before. */
+.rail-offer[data-rail-stub]::after { display: none; }
+
+.rail-offer[data-rail-stub] :is(.rail-offer__action, .rail-offer__claimed) {
+  position: relative;
+}
+
+.rail-offer[data-rail-stub] :is(.rail-offer__action, .rail-offer__claimed)::before {
+  content: "";
+  position: absolute;
+  inset-block: -100vh;
+  inset-inline-start: calc(var(--_space-mid) / -2);
+  /* The strip's ink, not the button's: currentColor in here is the label
+     colour, which on a filled button is the one colour guaranteed to vanish
+     against the strip. */
+  color: var(--_accent-text);
+  border-inline-start: 1px dashed var(--rail-offer-perforation, color-mix(in srgb, currentColor 30%, transparent));
+  pointer-events: none;
 }
 
 /* A claimed offer must read as TAKEN without becoming unreadable.
@@ -4976,8 +5326,22 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   cursor: pointer;
 }
 
+/* `min-width: 0` EN LOS PORTADORES DE TEXTO, uno a uno y no en bloque.
+   Las catorce stories que seguian moviendo la pagina con una palabra larga
+   tenian TODAS la misma causa: un item de flex o grid con el `min-width: auto`
+   que trae el lenguaje. La tentacion es ponerlo a cero para todo lo que pinta
+   el kit — lo probe y es peor el remedio: baja de 14 a 13 y hunde CINCO
+   objetivos tactiles por debajo del suelo AA, porque un boton tambien es un
+   item de flex y tambien se encoge. Encogerse esta bien para el texto y mal
+   para lo que se toca. */
 .rail-offer__action {
+  min-width: 0;
   flex-shrink: 0;
+  /* A long label wraps inside the button rather than pushing the strip
+     wider than the screen (long-word-sweep). */
+  max-width: 50%;
+  overflow-wrap: anywhere;
+  text-align: center;
   display: inline-flex;
   align-items: center;
   min-height: var(--rail-offer-action-height, var(--_control-min-sm));
@@ -5321,7 +5685,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   background: none;
   color: inherit;
   font: inherit;
-  text-align: left;
+  text-align: start;
   text-decoration: none;
   cursor: pointer;
 }
@@ -5396,9 +5760,18 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   gap: var(--_space-md);
   padding: var(--rail-story-padding, var(--_space-md));
 }
-.rail-story__bars { flex: 1; display: flex; gap: var(--_space-3xs); }
+/* `min-width: 0` EN LOS DOS, Y NO ES DECORACION. Los hijos son `<progress>`,
+   que trae un ancho por defecto del navegador de ~160 px. Con `min-width:
+   auto` —el defecto de un item flex— la fila no puede encogerse por debajo de
+   ese ancho por barra, asi que con tres pasos exige 480 px. Medido a 320: el
+   boton de cerrar caia en x=565, dentro de un contenedor de 278 px que ademas
+   lleva `overflow: hidden`. O sea, EN UNA PANTALLA DE 320 px NO SE PODIA
+   CERRAR LA HISTORIA, y no se veia como un fallo: se veia como que no hay
+   boton de cerrar. */
+.rail-story__bars { flex: 1; min-width: 0; display: flex; gap: var(--_space-3xs); }
 .rail-story__bar {
   flex: 1;
+  min-width: 0;
   height: var(--rail-story-bar, 3px);
   appearance: none;
   border: 0;
@@ -5461,7 +5834,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 }
 .rail-tiles__label {
   min-width: 0;
-  padding-right: var(--_space-xs);
+  padding-inline-end: var(--_space-xs);
   font-weight: var(--rail-weight-semibold, 600);
   font-size: calc(var(--rail-size-meta, 14px) * var(--_type));
   overflow: hidden;
@@ -5470,8 +5843,8 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   -webkit-box-orient: vertical;
 }
 .rail-tiles__badge {
-  margin-left: auto;
-  padding-right: var(--_space-xs);
+  margin-inline-start: auto;
+  padding-inline-end: var(--_space-xs);
   color: var(--rail-tiles-badge-color, var(--_accent-text));
 }
 .rail-tiles a:focus-visible {
@@ -6033,6 +6406,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 
 /* La columna derecha: la hora arriba, las marcas debajo. */
 .rail-threadlist__aside {
+  min-width: 0;
   display: flex;
   flex: 0 0 auto;
   flex-direction: column;
@@ -6077,8 +6451,8 @@ a.rail-frame__presenter-mark { text-decoration: none; }
    una pastilla transparente pone texto en movimiento bajo los rotulos.
    --------------------------------------------------------------------------- */
 .rail-bottomnav--floating {
-  right: var(--rail-bottomnav-floating-inset, var(--_space-lg));
-  left: var(--rail-bottomnav-floating-inset, var(--_space-lg));
+  inset-inline-end: var(--rail-bottomnav-floating-inset, var(--_space-lg));
+  inset-inline-start: var(--rail-bottomnav-floating-inset, var(--_space-lg));
   width: auto;
   margin-block-end: var(--rail-bottomnav-floating-lift, var(--_space-lg));
   border-radius: var(--rail-bottomnav-floating-radius, calc(var(--_space-4xl) * 1.25));
@@ -6160,7 +6534,8 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   background: transparent;
   color: inherit;
   font: inherit;
-  font-size: calc(var(--rail-finder-input-size, 16px) * var(--_type));
+  /* Never under 16px: iPhone Safari zooms into smaller fields on focus. */
+  font-size: max(var(--rail-input-min-size, 16px), calc(var(--rail-finder-input-size, 16px) * var(--_type)));
   outline: none;
 }
 
@@ -6410,9 +6785,9 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 .rail-intro {
   position: fixed;
   z-index: var(--rail-intro-layer, 60);
-  right: var(--rail-intro-inset, var(--_space-lg));
+  inset-inline-end: var(--rail-intro-inset, var(--_space-lg));
   bottom: var(--rail-intro-inset, var(--_space-lg));
-  left: var(--rail-intro-inset, var(--_space-lg));
+  inset-inline-start: var(--rail-intro-inset, var(--_space-lg));
   display: flex;
   flex-direction: column;
   gap: var(--rail-intro-gap, var(--_space-md));
@@ -7154,7 +7529,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 .rail-confetti__piece {
   position: absolute;
   top: -12%;
-  left: var(--_x, 50%);
+  inset-inline-start: var(--_x, 50%);
   width: var(--rail-confetti-piece-w, 6px);
   height: var(--rail-confetti-piece-h, 10px);
   border-radius: 1px;
@@ -7200,6 +7575,10 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   align-items: center;
   gap: var(--rail-reactions-chip-gap, var(--_space-xs));
   min-height: var(--rail-reactions-min, 36px);
+  /* El alto lo tenia; el ancho no. Con un solo glifo («+») media 20 px, por
+     debajo del suelo AA de 24. Un boton alto y estrecho sigue siendo un boton
+     dificil de acertar con el pulgar. */
+  min-width: var(--_tap-min);
   padding: var(--rail-reactions-padding, var(--_space-xs) var(--_space-md));
   border: var(--rail-reactions-border, 1px solid var(--_border));
   border-radius: var(--rail-reactions-radius, calc(var(--_space-4xl) * 1.25));
@@ -7227,6 +7606,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 }
 
 .rail-reactions__more {
+  min-width: 0;
   color: var(--rail-reactions-more-color, var(--_muted));
   font-size: calc(var(--rail-reactions-more-size, 13px) * var(--_type));
   white-space: nowrap;
@@ -7378,7 +7758,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 
 .rail-pack__seal {
   position: absolute;
-  left: var(--_space-sm);
+  inset-inline-start: var(--_space-sm);
   top: var(--_space-sm);
   opacity: 0.6;
   font: 700 var(--rail-pack-seal-size, 12px) / 1 inherit;
@@ -7388,39 +7768,6 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   position: absolute;
   inset: 0;
   pointer-events: none;
-}
-
-/* EL MAZO. Las cartas salen apiladas, no en lista: cada una es una sorpresa. */
-.rail-deck {
-  position: relative;
-  min-height: var(--rail-deck-min-height, 320px);
-}
-
-.rail-deck__card {
-  position: absolute;
-  inset: 0;
-  transform: translateY(calc(var(--d, 0) * var(--rail-deck-step, 10px)))
-             scale(calc(1 - var(--d, 0) * 0.04));
-  /* La duracion sale del token de movimiento del kit, asi que una marca que
-     baja su ritmo -o lo apaga- lo baja tambien aqui sin tocar esta regla. */
-  transition: transform var(--_dur-base) var(--rail-deck-ease, cubic-bezier(0.2, 0.8, 0.25, 1)),
-              opacity var(--_dur-base);
-}
-
-/* Solo la de arriba se lee y se toca: si un lector de pantalla leyera las de
-   debajo, contaria la sorpresa antes de tiempo. */
-.rail-deck__card[aria-hidden="true"] {
-  pointer-events: none;
-}
-
-.rail-deck__card--gone {
-  opacity: 0;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .rail-deck__card {
-    transition: none;
-  }
 }
 
 /* ---------------------------------------------------------------------------
@@ -7612,7 +7959,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 
 .rail-sparkle__glint {
   position: absolute;
-  left: var(--_x, 50%);
+  inset-inline-start: var(--_x, 50%);
   top: var(--_y, 50%);
   width: var(--_size, 14px);
   height: var(--_size, 14px);
@@ -7818,7 +8165,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   border: 0;
   border-bottom: 1px solid var(--_border);
   color: inherit;
-  text-align: left;
+  text-align: start;
   cursor: pointer;
 }
 /* La pista sonando se marca con PESO y con un filete, no con el acento como
@@ -7870,7 +8217,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 .rail-deck__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .rail-deck__tag {
   position: absolute;
-  top: var(--_space-xs); left: var(--_space-xs);
+  top: var(--_space-xs); inset-inline-start: var(--_space-xs);
   max-width: calc(100% - var(--_space-sm));
   width: max-content;
   padding: var(--_space-xs) var(--_space-sm);
@@ -7914,6 +8261,26 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   border-color: var(--rail-deck-go-bg, #253c30);
 }
 .rail-deck__result { display: flex; flex-direction: column; gap: var(--_space-xs); }
+/* THE RESULT TAKES THE CARD'S PLACE, NOT LESS. The card and its buttons are
+   tall and a result is usually a line and a button, so the section collapsed
+   when it appeared and everything under it jumped up: 269px on The Dancing
+   Chairs, 407px in the workbench. The result reserves exactly what it
+   replaced — the card, the gap, the button row — from the same token that
+   sizes the card, so a brand that budgets --rail-deck-card-h gets a result of
+   the same height for free. Centred, so the room reads as the result's own.
+   CSS only, on purpose: RailDeck.tsx is left untouched. */
+.rail-deck__result {
+  min-height: calc(var(--rail-deck-card-h, 440px) + var(--_space-xs) + var(--_control-min));
+  justify-content: center;
+}
+/* FINISHED, THE COUNTER IS A LEFTOVER. "7 of 7 · 4 kept" above "You kept 4"
+   says the same thing twice, and the first is the running score of a game
+   that is over (REVIEW §5). It is clipped, not removed: it keeps its line, so
+   the height above holds to the pixel, and it stays in the live region, so a
+   screen reader still hears the final count as the deck ends. */
+.rail-deck:has(> .rail-deck__result) .rail-deck__progress {
+  clip-path: inset(50%);
+}
 
 /* ---------------------------------------------------------------------------
  * MASTHEAD — the editorial section header. Rule ABOVE, because a line under a
@@ -7930,14 +8297,16 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   border-top: 1px solid var(--_border);
   font-size: var(--_text-xs);
 }
-.rail-masthead__counter { color: var(--_muted); text-align: right; }
+.rail-masthead__counter { color: var(--_muted); text-align: end; }
 .rail-masthead__title {
   display: flex;
   justify-content: space-between;
   align-items: end;
   gap: var(--_space-lg);
 }
-.rail-masthead__title h2 {
+/* :is() keeps the specificity of the old `h2` selector, so a consumer's
+ * override of `.rail-masthead__title h2` still wins exactly as before. */
+.rail-masthead__title :is(h1, h2, h3) {
   margin: 0;
   font-size: var(--rail-masthead-size, clamp(40px, 6.5vw, 86px));
   line-height: var(--rail-masthead-leading, .98);
@@ -7976,7 +8345,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 }
 .rail-evidence__provenance {
   position: absolute;
-  left: var(--_space-sm);
+  inset-inline-start: var(--_space-sm);
   bottom: var(--_space-sm);
   max-width: calc(100% - var(--_space-lg));
   width: max-content;
@@ -8052,7 +8421,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 .rail-cover__label {
   position: absolute;
   top: var(--_space-sm);
-  left: var(--_space-sm);
+  inset-inline-start: var(--_space-sm);
   display: flex;
   gap: var(--_space-sm);
   padding: var(--_space-xs) var(--_space-sm);
@@ -8089,6 +8458,28 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   background: linear-gradient(140deg,
     var(--rail-welcome-bg, rgba(255, 255, 255, 0.08)), transparent);
   transform: rotate(var(--rail-welcome-tilt, -1.5deg));
+  /* A rotation is painted, not laid out: the corners of a tilted card rise
+     and fall outside its box, and at 390px the top corner rose 4.7px into the
+     button above it (16px at 1280, where the card is wider). The allowance
+     is layout room for what the tilt paints. */
+  margin-block: var(--rail-welcome-tilt-room, var(--_space-md));
+}
+/* The rise is half the card's width times the sine of the tilt, so a card
+   that stretches to 1040px on a desktop needs more room than one at 350px.
+   `.rail-welcome` is an inline-size container, so 50cqi IS half that width. */
+@supports (width: calc(1px * sin(1deg))) {
+  .rail-welcome__card {
+    margin-block: var(
+      --rail-welcome-tilt-room,
+      max(
+        var(--_space-md),
+        calc(
+          50cqi * max(sin(var(--rail-welcome-tilt, -1.5deg)), -1 * sin(var(--rail-welcome-tilt, -1.5deg)))
+          + var(--_space-xs)
+        )
+      )
+    );
+  }
 }
 .rail-welcome__eyebrow { display: block; font-size: var(--_text-xs); color: var(--_muted); }
 .rail-welcome__card strong {
@@ -8101,13 +8492,24 @@ a.rail-frame__presenter-mark { text-decoration: none; }
 .rail-welcome__card strong span,
 .rail-welcome__card strong em { display: block; }
 .rail-welcome__note { margin: 0; color: var(--_muted); font-size: var(--_text-sm); }
+/* The open button is the page's main ask, so a brand must be able to make it
+   primary. Only the background was a token; the ink stayed `inherit`, so a
+   dark background meant dark-on-dark. Every new knob falls back to what the
+   rule painted before, so existing consumers look exactly the same. */
 .rail-welcome__open {
   min-height: var(--_control-min);
   padding: var(--_space-sm) var(--_space-lg);
-  border: 1px solid var(--_border);
+  border: 1px solid var(--rail-welcome-action-border, var(--_border));
   border-radius: var(--_pill);
   background: var(--rail-welcome-action-bg, transparent);
-  color: inherit;
+  color: var(--rail-welcome-action-color, inherit);
+  /* A <button> does not inherit the page's font: the browser gives it its
+     own, and without this line the page's main ask rendered in Arial at
+     13.33px on every brand. `font: inherit` first, because the shorthand
+     resets weight and size; the two knobs come after it. */
+  font: inherit;
+  font-size: var(--rail-welcome-action-size, var(--_text-md));
+  font-weight: var(--rail-welcome-action-weight, inherit);
   cursor: pointer;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -8288,8 +8690,17 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   padding: 0;
   border: 0;
   background: transparent;
-  color: var(--rail-post-more-color, var(--_accent));
+  /* NO VA EN EL ACENTO, y es la cuarta vez que esta misma decision se corrige
+     en este kit. Medido por axe sobre la marca de Geebs: acento #b91c1c sobre
+     #111 da 2,91:1, y el suelo para texto pequeno es 4,5:1. «Ver mas» no es
+     un adorno: es el control que decide si se lee el resto del mensaje.
+     El color lo pone el texto normal y el afordance lo llevan el subrayado y
+     el peso — que se ven igual sin distinguir tonos. */
+  color: var(--rail-post-more-color, var(--_text));
   font: inherit;
+  font-weight: var(--rail-post-more-weight, 600);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
   cursor: pointer;
 }
 
@@ -8342,7 +8753,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   /* El hueco de la aspa. Medido en el navegador: sin el, la ultima palabra de
      la primera linea pasa POR DEBAJO del boton de cerrar. Un absolute no
      empuja al texto, y el texto no sabe que hay algo encima. */
-  padding-right: var(--rail-promo-beside-gutter, 34px);
+  padding-inline-end: var(--rail-promo-beside-gutter, 34px);
 }
 
 /* En una fila, la accion es un enlace, no una barra rellena. La barra existe
@@ -8356,14 +8767,18 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   padding: 0 var(--rail-promo-beside-padding, var(--_space-md))
     var(--rail-promo-beside-padding, var(--_space-md));
   background: transparent;
-  color: var(--rail-promo-beside-action-color, var(--_accent));
+  /* `--_accent-text`, no `--_accent`. El primero es el acento COMO TEXTO —el
+     kit ya distingue los dos— y el segundo es el acento como relleno. Medido
+     sobre la marca de Geebs: el relleno da 2,91:1 sobre #111 y el suelo para
+     texto pequeno es 4,5:1. Sin fondo detras que lo sostenga, esto es texto. */
+  color: var(--rail-promo-beside-action-color, var(--_accent-text));
   font-weight: var(--rail-weight-bold, 700);
   text-transform: none;
   letter-spacing: normal;
 }
 
 .rail-promo[data-layout="beside"] .rail-promo__meta {
-  margin-left: auto;
+  margin-inline-start: auto;
   font-weight: var(--rail-weight-normal, 400);
 }
 
@@ -8378,13 +8793,16 @@ a.rail-frame__presenter-mark { text-decoration: none; }
    de pantalla, porque un "+0.52" verde no le dice nada a quien no lo ve — ni
    a quien no distingue ese verde de ese rojo. */
 .rail-stats__delta {
-  margin-left: var(--rail-stats-delta-gap, var(--_space-2xs));
+  margin-inline-start: var(--rail-stats-delta-gap, var(--_space-2xs));
   font-size: calc(var(--rail-stats-delta-size, 15px) * var(--_type));
   font-variant-numeric: tabular-nums;
 }
 
 .rail-stats__delta[data-direction="up"] {
-  color: var(--rail-stats-up, var(--_accent));
+  /* Texto, no relleno: ver `.rail-promo[data-layout="beside"]`. La palabra y
+     la flecha ya llevan el significado —`movement` exige ambas—, asi que el
+     tono solo tiene que ser legible, no informativo. */
+  color: var(--rail-stats-up, var(--_accent-text));
 }
 
 .rail-stats__delta[data-direction="down"] {
@@ -8479,7 +8897,7 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   background: none;
   color: inherit;
   font: inherit;
-  text-align: left;
+  text-align: start;
 }
 
 button.rail-allocation__name {
@@ -8541,6 +8959,7 @@ button.rail-allocation__name {
 }
 
 .rail-tiers__reached {
+  min-width: 0;
   flex: 0 0 auto;
   color: var(--rail-tiers-reached-color, var(--_muted));
   font-size: calc(var(--rail-size-micro, 12px) * var(--_type));
@@ -8700,7 +9119,7 @@ button.rail-allocation__name {
   background: none;
   color: inherit;
   font: inherit;
-  text-align: left;
+  text-align: start;
   cursor: pointer;
 }
 
@@ -8803,4 +9222,465 @@ button.rail-allocation__name {
   .rail-shelf__chevron {
     transition: none;
   }
+}
+
+/* ===========================================================================
+   RailEnvelope — el sobre lacrado que se abre y deja una carta.
+
+   Cuatro piezas apiladas en 3D dentro de una sola caja: el dorso, el pliego
+   (la carta doblada, DENTRO), el frente que lo tapa, y la solapa triangular
+   que gira. El lacre va encima de todo.
+
+   EL FRENTE ES UN RECTANGULO, no un pico. La V la dibuja la solapa, que es
+   quien la tiene. Recortar tambien el frente dejaba ver el papel claro por
+   los dos triangulos de arriba: colmillos. Los dos hombros tapan esos huecos,
+   que en un sobre de verdad son el dorso.
+   =========================================================================== */
+
+.rail-envelope {
+  display: grid;
+  gap: var(--rail-envelope-gap, var(--_space-lg));
+  justify-items: center;
+  color: var(--_text);
+}
+
+.rail-envelope__scene {
+  position: relative;
+  display: grid;
+  /* UNA sola columna, dicha explicitamente. Sin esto un segundo hijo —venga
+     de donde venga— crea una segunda pista y el sobre se descentra. */
+  grid-template-columns: 100%;
+  justify-items: center;
+  gap: var(--_space-md);
+  perspective: var(--rail-envelope-perspective, 1500px);
+  perspective-origin: 50% 34%;
+}
+
+.rail-envelope[data-open="si"] .rail-envelope__scene {
+  pointer-events: none;
+}
+
+.rail-envelope__piece {
+  position: relative;
+  /* `100%`, no `88vw`. Un componente que se mide contra el VIEWPORT ignora la
+     caja en la que esta: dentro de un contenedor con padding, 88vw es mas
+     ancho que el sitio que tiene. Medido a 320 px dentro de un envoltorio con
+     24 de padding: el sobre se iba hasta x=326 y empujaba la pagina. El kit no
+     sabe donde lo van a poner — esa es justo la razon de existir del kit. */
+  width: var(--rail-envelope-width, min(420px, 100%));
+  aspect-ratio: var(--rail-envelope-aspect, 1.46 / 1);
+  transform-style: preserve-3d;
+  filter: drop-shadow(0 26px 44px rgba(0, 0, 0, 0.66));
+}
+
+.rail-envelope__back {
+  position: absolute;
+  inset: 0;
+  background: var(--rail-envelope-inside, var(--_bg));
+  border: 1px solid var(--_border);
+}
+
+.rail-envelope__sheet {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  top: 9%;
+  height: 76%;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  background: var(--rail-envelope-paper, #f7f4ef);
+  color: var(--rail-envelope-paper-ink, #2a1a0d);
+  box-shadow: var(--rail-envelope-paper-shadow, 0 2px 10px rgba(0, 0, 0, 0.35));
+}
+
+.rail-envelope__note {
+  margin: 0;
+  padding: 0 var(--_space-md);
+  max-width: 26ch;
+  text-align: center;
+  font-size: var(--_text-sm);
+  line-height: 1.5;
+  text-wrap: balance;
+}
+
+.rail-envelope__shoulder {
+  position: absolute;
+  top: 0;
+  height: 58%;
+  width: 50%;
+  z-index: 2;
+  background: var(--rail-envelope-inside, var(--_bg));
+}
+
+.rail-envelope__shoulder[data-side="left"] {
+  left: 0;
+  clip-path: polygon(0 0, 100% 100%, 0 100%);
+}
+
+.rail-envelope__shoulder[data-side="right"] {
+  right: 0;
+  clip-path: polygon(100% 0, 0 100%, 100% 100%);
+}
+
+.rail-envelope__front {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 60%;
+  z-index: 2;
+  display: grid;
+  align-content: end;
+  justify-items: center;
+  gap: var(--_space-2xs);
+  padding: 0 var(--_space-lg) var(--_space-sm);
+  background: var(--rail-envelope-face, var(--_bg));
+  border: 1px solid var(--_border);
+  border-top: 0;
+}
+
+.rail-envelope__to {
+  margin: 0;
+  font-size: var(--_text-lg);
+}
+
+.rail-envelope__from {
+  margin: 0;
+  font-size: var(--_text-xs);
+  color: var(--_muted);
+}
+
+.rail-envelope__flap {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 58%;
+  z-index: 3;
+  background: var(--rail-envelope-flap, var(--_bg));
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top center;
+  transform: rotateX(0deg);
+  /* Sin esto la cara de atras de la solapa se pinta al pasar de 90 grados y
+     el sobre ensena su propio reverso encima del pliego. */
+  backface-visibility: hidden;
+  border-bottom: 1px solid var(--_border);
+}
+
+.rail-envelope__seal {
+  position: absolute;
+  left: 50%;
+  top: 58%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  width: var(--rail-envelope-seal-size, 64px);
+  height: var(--rail-envelope-seal-size, 64px);
+  min-height: var(--rail-tap-min, 44px);
+  padding: 0;
+  border: 0;
+  border-radius: var(--rail-envelope-seal-radius, 999px);
+  cursor: pointer;
+  /* El lacre lleva SU PROPIO fondo de acento. Con `transparent`, una puerta de
+     contraste sube por los padres, encuentra el fondo de la pagina y mide un
+     texto que en pantalla se lee perfectamente. */
+  background: var(--_accent);
+  transform-style: preserve-3d;
+}
+
+.rail-envelope__wax {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  background: var(--rail-envelope-wax, var(--_accent));
+  box-shadow: var(--rail-envelope-wax-shadow, 0 3px 12px rgba(0, 0, 0, 0.6));
+}
+
+.rail-envelope__wax[data-half="left"] {
+  left: 0;
+  border-radius: var(--rail-envelope-seal-radius, 999px) 0 0 var(--rail-envelope-seal-radius, 999px);
+}
+
+.rail-envelope__wax[data-half="right"] {
+  right: 0;
+  border-radius: 0 var(--rail-envelope-seal-radius, 999px) var(--rail-envelope-seal-radius, 999px) 0;
+}
+
+.rail-envelope__letters {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: var(--_text-md);
+  letter-spacing: var(--rail-envelope-letters-tracking, 0.12em);
+  text-indent: var(--rail-envelope-letters-tracking, 0.12em);
+  color: var(--rail-envelope-letters, var(--_ink, #111));
+}
+
+.rail-envelope__hint {
+  margin: 0;
+  font-size: var(--_text-2xs);
+  letter-spacing: var(--rail-envelope-hint-tracking, 0.2em);
+  text-transform: uppercase;
+  color: var(--_muted);
+}
+
+/* La carta ocupa sitio solo cuando esta fuera del sobre: un `display:none`
+   sobre un contenedor con `inert` seria redundante, pero deja de existir para
+   la busqueda del navegador (Ctrl+F), que sigue siendo una forma legitima de
+   llegar a algo. Se oculta con `visibility` y altura cero. */
+.rail-envelope__letter {
+  width: 100%;
+  max-width: var(--rail-envelope-letter-width, 100%);
+}
+
+.rail-envelope[data-open="no"] .rail-envelope__letter {
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+.rail-envelope[data-open="si"] .rail-envelope__scene {
+  display: none;
+}
+
+/* ===========================================================================
+   RailMailHint — el campo de correo que adivina la casa.
+   =========================================================================== */
+
+.rail-mailhint {
+  display: grid;
+  gap: var(--_space-2xs);
+  color: var(--_text);
+}
+
+.rail-mailhint__label {
+  font-size: var(--_text-xs);
+  color: var(--_muted);
+}
+
+.rail-mailhint__box {
+  position: relative;
+}
+
+.rail-mailhint__input {
+  width: 100%;
+  min-height: var(--rail-mailhint-height, 44px);
+  padding: var(--_space-xs) var(--_space-sm);
+  font: inherit;
+  /* Never under 16px: iPhone Safari zooms the whole page into any field
+     smaller than that on focus, and does not zoom back out. */
+  font-size: max(var(--rail-input-min-size, 16px), var(--_text-md));
+  color: var(--_text);
+  background: var(--_bg);
+  border: 1px solid var(--_border);
+  border-radius: var(--_radius);
+}
+
+.rail-mailhint__input:focus-visible {
+  outline: 2px solid var(--_accent);
+  outline-offset: 2px;
+}
+
+.rail-mailhint__input[aria-invalid="true"] {
+  border-color: var(--rail-mailhint-error, var(--_accent));
+}
+
+.rail-mailhint__list {
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  right: 0;
+  top: calc(100% + var(--_space-2xs));
+  margin: 0;
+  padding: var(--_space-2xs);
+  list-style: none;
+  display: grid;
+  gap: var(--rail-mailhint-option-gap, 2px);
+  background: var(--rail-mailhint-list-bg, var(--_bg));
+  border: 1px solid var(--_border);
+  border-radius: var(--_radius);
+  box-shadow: var(--_shadow);
+}
+
+.rail-mailhint__list[hidden] {
+  display: none;
+}
+
+.rail-mailhint__option {
+  padding: var(--_space-xs) var(--_space-sm);
+  min-height: var(--rail-tap-min-aa, 24px);
+  border-radius: calc(var(--_radius) / 2);
+  cursor: pointer;
+  font-size: var(--_text-sm);
+}
+
+.rail-mailhint__option[data-marked="si"] {
+  background: var(--rail-mailhint-marked, var(--_border));
+}
+
+.rail-mailhint__hint,
+.rail-mailhint__error {
+  margin: 0;
+  font-size: var(--_text-xs);
+  color: var(--_muted);
+}
+
+.rail-mailhint__error {
+  color: var(--rail-mailhint-error, var(--_accent-text));
+}
+
+/* ===========================================================================
+   RailAgenda — la agenda por tramos, con cubierta y contador.
+   =========================================================================== */
+
+.rail-agenda {
+  display: grid;
+  gap: var(--_space-md);
+  color: var(--_text);
+}
+
+.rail-agenda__count {
+  margin: 0;
+  font-size: var(--_text-xs);
+  letter-spacing: var(--rail-agenda-count-tracking, 0.14em);
+  text-transform: uppercase;
+  color: var(--_muted);
+}
+
+.rail-agenda__stack {
+  display: grid;
+  gap: var(--rail-agenda-gap, var(--_space-sm));
+}
+
+.rail-agenda__heading {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.rail-agenda__spine {
+  width: 100%;
+  min-height: var(--rail-tap-min, 44px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--_space-sm);
+  padding: var(--_space-sm) var(--_space-md);
+  text-align: start;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  background: var(--rail-agenda-spine-bg, var(--_bg));
+  border: 1px solid var(--_border);
+  border-radius: var(--_radius);
+}
+
+.rail-agenda__spine:focus-visible {
+  outline: 2px solid var(--_accent);
+  outline-offset: 2px;
+}
+
+.rail-agenda__spine-text {
+  display: grid;
+  gap: var(--rail-agenda-spine-line-gap, 2px);
+}
+
+.rail-agenda__label {
+  font-size: var(--_text-md);
+}
+
+.rail-agenda__hint {
+  font-size: var(--_text-xs);
+  color: var(--_muted);
+}
+
+/* La cinta es la unica marca de estado que no es el texto: crece cuando el
+   grupo esta abierto. No lleva color propio — el acento de la marca y ya. */
+.rail-agenda__ribbon {
+  flex: 0 0 auto;
+  width: var(--rail-agenda-ribbon-width, 3px);
+  height: var(--rail-agenda-ribbon-height, 18px);
+  border-radius: var(--rail-agenda-ribbon-radius, 999px);
+  background: var(--_accent);
+  opacity: 0.45;
+}
+
+.rail-agenda__group[data-open="si"] .rail-agenda__ribbon {
+  height: calc(var(--rail-agenda-ribbon-height, 18px) * 1.7);
+  opacity: 1;
+}
+
+.rail-agenda__items {
+  margin: var(--_space-sm) 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: var(--_space-sm);
+}
+
+.rail-agenda__items[hidden] {
+  display: none;
+}
+
+.rail-agenda__card {
+  display: grid;
+  gap: var(--_space-2xs);
+  padding: var(--_space-md);
+  background: var(--_bg);
+  border: 1px solid var(--_border);
+  border-radius: var(--_radius);
+}
+
+.rail-agenda__item[data-picked="si"] .rail-agenda__card {
+  border-color: var(--_accent);
+}
+
+.rail-agenda__when {
+  margin: 0;
+  font-size: var(--_text-xs);
+  letter-spacing: var(--rail-agenda-when-tracking, 0.1em);
+  text-transform: uppercase;
+  color: var(--_muted);
+}
+
+.rail-agenda__title {
+  margin: 0;
+  font-size: var(--_text-md);
+}
+
+.rail-agenda__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--_tap-min);
+  color: inherit;
+}
+
+.rail-agenda__where {
+  margin: 0;
+  font-size: var(--_text-sm);
+  color: var(--_muted);
+}
+
+.rail-agenda__pick {
+  justify-self: start;
+  min-height: var(--rail-tap-min-aa, 24px);
+  padding: var(--_space-2xs) var(--_space-sm);
+  font: inherit;
+  font-size: var(--_text-xs);
+  cursor: pointer;
+  color: var(--_text);
+  background: transparent;
+  border: 1px solid var(--_border);
+  border-radius: var(--rail-agenda-pick-radius, 999px);
+}
+
+/* El estado elegido NO se dice solo con color: el borde de acento va con un
+   peso distinto, porque el acento sobre texto pequeno no llega a 4.5:1 y un
+   estado que solo existe en el tono desaparece para quien no lo distingue. */
+.rail-agenda__pick[aria-pressed="true"] {
+  border-color: var(--_accent);
+  font-weight: var(--rail-agenda-pick-picked-weight, 600);
+}
+
+.rail-agenda__pick:focus-visible {
+  outline: 2px solid var(--_accent);
+  outline-offset: 2px;
 }

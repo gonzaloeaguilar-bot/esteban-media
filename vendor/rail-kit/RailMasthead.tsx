@@ -11,8 +11,16 @@ export type RailMastheadProps = {
    * lines saying the same thing is one line with extra steps.
    */
   counter?: string;
-  /** The big one. An h2: this is a section inside a page, not the page. */
+  /** The big one. An h2 by default: this is a section inside a page, not the page. */
   title: string;
+  /**
+   * The element behind the title. `h2` unless told otherwise, because a
+   * masthead is normally a section header. Pass `h1` only when the masthead IS
+   * the page title — a page whose first thing is this header, with no other
+   * h1 — and `h3` when it heads a section nested inside another. Styling does
+   * not change with the level.
+   */
+  titleAs?: "h1" | "h2" | "h3";
   /** One sentence under the title. Two is an introduction, and nobody reads those. */
   lede?: ReactNode;
   /**
@@ -44,11 +52,13 @@ export default function RailMasthead({
   kicker,
   counter,
   title,
+  titleAs = "h2",
   lede,
   controls,
   source,
   className,
 }: RailMastheadProps) {
+  const Titulo = titleAs;
   return (
     <header
       className={["rail-masthead", className].filter(Boolean).join(" ")}
@@ -59,7 +69,7 @@ export default function RailMasthead({
         {counter && <span className="rail-masthead__counter">{counter}</span>}
       </p>
       <div className="rail-masthead__title">
-        <h2>{title}</h2>
+        <Titulo>{title}</Titulo>
         {controls && <div className="rail-masthead__controls">{controls}</div>}
       </div>
       {lede && <p className="rail-masthead__lede">{lede}</p>}

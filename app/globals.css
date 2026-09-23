@@ -1140,3 +1140,25 @@ nav[aria-label*="igas de pan" i] a,
 #main-content {
   scroll-margin-top: 96px;
 }
+
+/* RailFaq — los mismos valores que tenia el acordeon escrito a mano en
+   `guide-pages.tsx`: borde #ddd4c8, fondo #fbf6ef, radio de 0.75rem, pregunta
+   en #101214 y respuesta en #3f4548. El componente cambia; el aspecto no. */
+.rail-faq {
+  --rail-faq-padding: 1.25rem 0;
+  --rail-faq-q-size: 1rem;
+  --rail-faq-q-weight: 500;
+  --rail-faq-a-size: 1rem;
+  --rail-text: #101214;
+  --rail-muted: #3f4548;
+  --rail-card-border: #ddd4c8;
+  /* Las tarjetas que tenia el acordeon escrito a mano, valor por valor:
+     `rounded-xl border border-[#ddd4c8] bg-[#fbf6ef] p-5`. */
+  --rail-faq-item-border: 1px solid #ddd4c8;
+  --rail-faq-item-border-top: 1px solid #ddd4c8;
+  --rail-faq-item-radius: 0.75rem;
+  --rail-faq-item-bg: #fbf6ef;
+  --rail-faq-item-padding: 0 1.25rem;
+  --rail-faq-padding: 1.25rem 0;
+  --rail-faq-gap: 1rem;
+}
