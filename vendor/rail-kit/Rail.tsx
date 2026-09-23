@@ -343,7 +343,7 @@ export default function Rail({
       aria-labelledby={heading ? headingId : undefined}
       aria-label={heading ? undefined : (ariaLabel ?? `Options — ${source}`)}
     >
-      {(heading || eyebrow || subheading || showControls) && (
+      {(heading || eyebrow || subheading || showControls || headerAction) && (
         <header className="rail__header">
           <div>
             {eyebrow && <p className="rail__eyebrow">{eyebrow}</p>}
@@ -370,12 +370,18 @@ export default function Rail({
               {posicion}
             </p>
           )}
+          {headerAction && (
+            /* OUTSIDE the arrows, for the same reason as the counter: the
+               arrows are hidden below 768px, and they only exist at all
+               when the rail has a header. Inside them, "See all" was passed
+               and never drawn — 0 links at 390 and at 1280 on a rail with no
+               heading — which is the one place a phone visitor needed it. */
+            <a className="rail__header-action" href={headerAction.href}>
+              {headerAction.label} <span aria-hidden="true">›</span>
+            </a>
+          )}
+          {(heading || eyebrow || subheading || showControls) && (
           <div className="rail__arrows" data-rail-scrollable={puedeAtras || puedeAdelante ? "true" : "false"}>
-            {headerAction && (
-              <a className="rail__header-action" href={headerAction.href}>
-                {headerAction.label} <span aria-hidden="true">›</span>
-              </a>
-            )}
             {dismissible && (
               <button
                 type="button"
@@ -411,6 +417,7 @@ export default function Rail({
               →
             </button>
           </div>
+          )}
         </header>
       )}
 

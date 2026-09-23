@@ -61,7 +61,13 @@ export default function RailCover({
         <span>{masthead}</span>
         {edition && <span className="rail-cover__edition">{edition}</span>}
       </p>
-      <div className="rail-cover__track" tabIndex={0} aria-label={scrollerLabel}>
+      {/* `role="group"`, como el carril principal. Un `div` con `tabIndex` y
+          `aria-label` pero SIN rol es una etiqueta que la norma prohibe: axe la
+          levanta como `aria-prohibited-attr`, y lo que significa en la practica
+          es que el nombre no se anuncia — el lector de pantalla llega a una
+          region enfocable y no dice que es. Solo salio con la lista vacia, que
+          es el caso que ninguna story miraba. */}
+      <div className="rail-cover__track" role="group" tabIndex={0} aria-label={scrollerLabel}>
         {posters.map((poster, i) => (
           <article className="rail-cover__poster" key={poster.id}>
             <span className="rail-cover__media">

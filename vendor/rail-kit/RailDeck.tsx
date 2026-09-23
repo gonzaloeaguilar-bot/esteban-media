@@ -28,6 +28,19 @@ export type RailDeckProps = {
   progressLabel: (of: { index: number; total: number; kept: number }) => string;
   /** Called once, when the last card has been decided. */
   onFinish?: (kept: RailDeckCard[]) => void;
+  /**
+   * Called on EVERY decision, the moment it is made. `onFinish` alone only
+   * reports people who reach the end, so a visitor who keeps two cards and
+   * leaves tells you nothing about which cards they wanted — the one question
+   * a keep/pass deck exists to answer.
+   */
+  onDecide?: (info: {
+    source: string;
+    id: string;
+    index: number;
+    keep: boolean;
+    via: "button" | "drag" | "key";
+  }) => void;
   /** What the deck becomes once it is done. Renders in the card's place. */
   result?: (kept: RailDeckCard[], restart: () => void) => React.ReactNode;
   source: string;
@@ -68,6 +81,7 @@ export default function RailDeck({
   instructions,
   progressLabel,
   onFinish,
+  onDecide,
   result,
   source,
   className,
@@ -89,10 +103,11 @@ export default function RailDeck({
     el.style.removeProperty("--rail-drag-angle");
   };
 
-  const decide = (keep: boolean, fromDrag: boolean) => {
+  const decide = (keep: boolean, fromDrag: boolean, via: "button" | "drag" | "key" = fromDrag ? "drag" : "button") => {
     const el = card.current;
     if (busy || done || !el) return;
     setBusy(true);
+    onDecide?.({ source, id: current.id, index, keep, via });
     const nextKept = keep ? [...kept, current] : kept;
     if (keep) setKept(nextKept);
 
@@ -170,7 +185,7 @@ export default function RailDeck({
             onKeyDown={(e) => {
               if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
               e.preventDefault();
-              decide(e.key === "ArrowRight", false);
+              decide(e.key === "ArrowRight", false, "key");
             }}
           >
             {current.image && (

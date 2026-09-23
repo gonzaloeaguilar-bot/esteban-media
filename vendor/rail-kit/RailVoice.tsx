@@ -1,6 +1,13 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  useSyncExternalStore,
+  type ReactNode,
+} from "react";
 import { search, terms as splitTerms, type RailFindEntry } from "./find";
 
 export type RailVoiceProps = {
@@ -39,6 +46,13 @@ export type RailVoiceProps = {
 type Phase = "idle" | "listening" | "done" | "denied" | "unsupported";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
+/** No hay a que suscribirse: el soporte del navegador no cambia en vida de la
+    pagina. La funcion existe porque `useSyncExternalStore` la exige, y va fuera
+    del componente para que su referencia sea estable. */
+function suscribirMotor(): () => void {
+  return () => {};
+}
+
 function recogniser(): any {
   if (typeof window === "undefined") return null;
   const w = window as any;
@@ -81,9 +95,31 @@ export default function RailVoice({
   source,
   className,
 }: RailVoiceProps) {
-  const [phase, setPhase] = useState<Phase>(() =>
-    recogniser() ? "idle" : "unsupported",
+  // EL SERVIDOR NO TIENE NAVEGADOR, y por tanto no tiene reconocimiento de voz.
+  // Esto lo leia en el inicializador de `useState`: el servidor pintaba «no
+  // soportado» y Chrome pintaba el boton de hablar. Dos HTML distintos, y React
+  // tira el del servidor y repinta con el aviso #418. Medido renderizando las
+  // 92 stories dentro de un build de produccion de Next — en desarrollo NO se
+  // reproduce, asi que no lo veria nadie hasta produccion.
+  //
+  // El comentario de abajo tiene razon en que el soporte «se sabe en el primer
+  // render del cliente». Lo que se le paso es que ANTES hay un render de
+  // servidor, y ese tambien cuenta.
+  //
+  // `getServerSnapshot` da el valor que usan el servidor Y el primer render del
+  // cliente, asi que coinciden; React lee el de verdad justo despues.
+  const soportado = useSyncExternalStore(
+    suscribirMotor,
+    () => recogniser() !== null,
+    () => false,
   );
+  const [override, setOverride] = useState<Phase | null>(null);
+  const phase: Phase = override ?? (soportado ? "idle" : "unsupported");
+  const setPhase = (v: Phase | ((p: Phase) => Phase)) =>
+    setOverride((prev) => {
+      const actual = prev ?? (recogniser() ? "idle" : "unsupported");
+      return typeof v === "function" ? (v as (p: Phase) => Phase)(actual) : v;
+    });
   const [transcript, setTranscript] = useState("");
   const engine = useRef<any>(null);
 

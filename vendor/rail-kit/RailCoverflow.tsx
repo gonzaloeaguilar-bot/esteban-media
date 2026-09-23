@@ -90,6 +90,16 @@ export default function RailCoverflow({
     if (item) onSelect?.({ source, id: item.id });
   };
 
+  // SIN PIEZAS NO HAY VITRINA. Con la lista vacia esto reservaba 310x336 —un
+  // tercio de una pantalla de telefono— de nada: ni contenido, ni borde, ni
+  // mensaje. Un hueco asi no se lee como «no hay nada», se lee como que algo
+  // no ha cargado. Que poner en su lugar lo decide la marca; el kit no se
+  // inventa un texto vacio en un idioma que no conoce.
+  //
+  // El guard va DESPUES de los hooks: salir antes de un `useState` cambia el
+  // numero de hooks entre renders y React lo rompe.
+  if (items.length === 0) return null;
+
   return (
     <div
       ref={box}

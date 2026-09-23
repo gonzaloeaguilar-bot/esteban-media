@@ -12,11 +12,26 @@ export type RailPresenceProps = {
    */
   label: string;
   /**
-   * When the count was measured. Renders as "updated 2 min ago" and is the
-   * honest half of this component: a live number without a measurement time
-   * cannot be told apart from an invented one.
+   * When the count was measured. Es la mitad honesta de este componente: un
+   * numero vivo sin hora de medicion no se distingue de uno inventado.
    */
   updatedAt?: Date | string | number;
+  /**
+   * Las palabras de la hora, a partir de los segundos transcurridos.
+   * Obligatoria en cuanto pasas `updatedAt`.
+   *
+   * AQUI HABIA INGLES INCRUSTADO: "just now", "min ago", "hr ago", "d ago",
+   * dentro de un kit que existe para no imponerle a una marca ni un color ni
+   * una tipografia. Un sitio en espanol renderizaba "2 min ago". Y el redondeo
+   * tampoco es nuestro: "hace un cuarto de hora" es una decision de la marca,
+   * no una division entre 60.
+   */
+  relativeTime?: (secondsAgo: number) => string;
+  /**
+   * La palabra que precede a la hora: "actualizado", "updated". Tambien era
+   * inglesa y fija.
+   */
+  updatedLabel?: string;
   /** Replaces the pulsing dot — a brand glyph, an icon. */
   glyph?: ReactNode;
   /** Hides the pulse. Use when the number is real but not moving. */
@@ -26,16 +41,6 @@ export type RailPresenceProps = {
 };
 
 const nf = new Intl.NumberFormat();
-
-function ago(when: Date): string {
-  const seconds = Math.max(0, Math.round((Date.now() - when.getTime()) / 1000));
-  if (seconds < 60) return "just now";
-  const minutes = Math.round(seconds / 60);
-  if (minutes < 60) return `${minutes} min ago`;
-  const hours = Math.round(minutes / 60);
-  if (hours < 24) return `${hours} hr ago`;
-  return `${Math.round(hours / 24)} d ago`;
-}
 
 /**
  * A number of people, measured and shown live — "26,198 active players".
@@ -59,21 +64,40 @@ export default function RailPresence({
   count,
   label,
   updatedAt,
+  relativeTime,
+  updatedLabel,
   glyph,
   still,
   source,
   className,
 }: RailPresenceProps) {
   const when = updatedAt ? new Date(updatedAt) : null;
-  const valid = when && !Number.isNaN(when.getTime());
-  // Re-render the relative time so "just now" does not sit there for an hour.
-  const [, tick] = useState(0);
+  const valid = Boolean(when && !Number.isNaN(when.getTime()) && relativeTime);
+
+  // `Date.now()` NO PUEDE CORRER EN EL RENDER. Este componente se vendoriza en
+  // cuatro sitios de Next: el servidor pinta "hace 3 segundos", el cliente
+  // recalcula al hidratar y pinta "hace 5", y React tira un aviso de
+  // desajuste y repinta. El reloj arranca en el MOMENTO DE LA MEDICION, que es
+  // un dato que llega por props: servidor y cliente coinciden en el primer
+  // cuadro porque los dos calculan cero segundos. El efecto lo corrige en
+  // cuanto monta y cada minuto despues.
+  const [ahora, setAhora] = useState<number | null>(null);
 
   useEffect(() => {
     if (!valid) return;
-    const id = setInterval(() => tick((n) => n + 1), 60_000);
-    return () => clearInterval(id);
+    // En el cuadro siguiente, no dentro del efecto: escribir estado de forma
+    // sincrona encadena un render dentro de otro y el compilador de React lo
+    // rechaza. Un cuadro de retraso aqui no se ve — la hora ya venia del dato.
+    const primero = requestAnimationFrame(() => setAhora(Date.now()));
+    const id = setInterval(() => setAhora(Date.now()), 60_000);
+    return () => {
+      cancelAnimationFrame(primero);
+      clearInterval(id);
+    };
   }, [valid]);
+
+  const segundos =
+    when && valid ? Math.max(0, Math.round(((ahora ?? when.getTime()) - when.getTime()) / 1000)) : 0;
 
   return (
     <p
@@ -86,10 +110,10 @@ export default function RailPresence({
       </span>
       <span className="rail-presence__count">{nf.format(count)}</span>
       <span className="rail-presence__label">{label}</span>
-      {valid && (
+      {valid && when && relativeTime && (
         <span className="rail-presence__when">
-          {"· updated "}
-          <time dateTime={when.toISOString()}>{ago(when)}</time>
+          {updatedLabel ? `· ${updatedLabel} ` : "· "}
+          <time dateTime={when.toISOString()}>{relativeTime(segundos)}</time>
         </span>
       )}
     </p>

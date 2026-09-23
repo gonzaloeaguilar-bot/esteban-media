@@ -1,6 +1,6 @@
 "use client";
 
-import type { ReactNode } from "react";
+import { useRef, type ReactNode } from "react";
 
 export type RailControl = {
   /**
@@ -43,6 +43,13 @@ export type RailControlsProps = {
  * buttons are found by position breaks silently the day somebody adds one in
  * front, and the failure looks like a different button misbehaving rather than
  * like a selector being wrong.
+ *
+ * CON `exclusive`, EL ROL CAMBIA Y LAS TECLAS TAMBIEN. `radiogroup` promete
+ * que el grupo se entra una vez con el tabulador y se recorre con las flechas;
+ * `group` no promete nada de eso y cada boton se tabula por separado. Asi que
+ * el tabindex rotatorio y las flechas SOLO existen en el modo exclusivo — poner
+ * las teclas en los dos seria quitarle al modo normal el recorrido que tiene.
+ * Medido antes: `tabindex=[,,,]` con cuatro radios y el foco quieto.
  */
 export default function RailControls({
   controls,
@@ -52,6 +59,31 @@ export default function RailControls({
   source,
   className,
 }: RailControlsProps) {
+  const botones = useRef<(HTMLButtonElement | null)[]>([]);
+
+  const habilitados = controls.map((c, i) => (c.disabled ? -1 : i)).filter((i) => i >= 0);
+  const marcado = controls.findIndex((c) => c.pressed && !c.disabled);
+  const entrada = marcado >= 0 ? marcado : habilitados[0] ?? -1;
+
+  const mover = (desde: number, paso: number) => {
+    if (habilitados.length === 0) return;
+    const donde = habilitados.indexOf(desde);
+    const siguiente = habilitados[(donde + paso + habilitados.length) % habilitados.length];
+    botones.current[siguiente]?.focus();
+    onPress({ source, id: controls[siguiente].id });
+  };
+
+  const teclas = (e: React.KeyboardEvent<HTMLButtonElement>, index: number) => {
+    if (!exclusive) return;
+    if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+      e.preventDefault();
+      mover(index, 1);
+    } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+      e.preventDefault();
+      mover(index, -1);
+    }
+  };
+
   return (
     <div
       className={["rail-controls", className].filter(Boolean).join(" ")}
@@ -59,7 +91,7 @@ export default function RailControls({
       role={exclusive ? "radiogroup" : "group"}
       aria-label={label}
     >
-      {controls.map((control) => (
+      {controls.map((control, index) => (
         <button
           key={control.id}
           type="button"
@@ -67,9 +99,17 @@ export default function RailControls({
           data-control={control.id}
           data-pressed={control.pressed ? "" : undefined}
           disabled={control.disabled}
+          ref={(n) => {
+            botones.current[index] = n;
+          }}
           {...(exclusive
-            ? { role: "radio", "aria-checked": Boolean(control.pressed) }
+            ? {
+                role: "radio",
+                "aria-checked": Boolean(control.pressed),
+                tabIndex: index === entrada ? 0 : -1,
+              }
             : { "aria-pressed": Boolean(control.pressed) })}
+          onKeyDown={(e) => teclas(e, index)}
           onClick={() => onPress({ source, id: control.id })}
         >
           {control.glyph && (
