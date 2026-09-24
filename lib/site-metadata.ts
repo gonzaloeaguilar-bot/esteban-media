@@ -21,6 +21,17 @@ type PageMetadataOptions = {
   images?: SocialMetadataImage[];
 };
 
+// The root layouts (english + spanish) set a `title.template` of
+// `%s | ${site.name}` so any page that supplies a plain string title gets
+// the brand appended automatically. A page whose own title already names
+// the brand (e.g. "Contact Esteban Moreno Media | ...") would then render
+// with the brand twice — once from the page, once from the template. When
+// that happens, wrap the title in `{ absolute }` so Next renders it exactly
+// as written instead of running it through the parent template again.
+function containsBrand(value: string): boolean {
+  return value.toLowerCase().includes(site.name.toLowerCase());
+}
+
 export function buildPageMetadata({
   title,
   description,
@@ -30,10 +41,11 @@ export function buildPageMetadata({
   type = "website",
   images = [socialImage],
 }: PageMetadataOptions): Metadata {
-  const socialTitle = `${title} | ${site.name}`;
+  const titleAlreadyBranded = containsBrand(title);
+  const socialTitle = titleAlreadyBranded ? title : `${title} | ${site.name}`;
 
   return {
-    title,
+    title: titleAlreadyBranded ? { absolute: title } : title,
     description,
     alternates: {
       canonical: path,
@@ -66,8 +78,10 @@ export function buildPageMetadata({
 function buildRootMetadata(locale: "en" | "es"): Metadata {
   const isSpanish = locale === "es";
   const path = isSpanish ? "/es" : "/";
+  // spanishSite.title already names the brand ("Esteban Moreno Media |
+  // Sistemas de Growth..."); appending site.name again double-branded /es.
   const title = isSpanish
-    ? `${spanishSite.title} | ${site.name}`
+    ? spanishSite.title
     : `Esteban Moreno | Video Editor in Fort Lauderdale | ${site.name}`;
   const description = isSpanish ? spanishSite.description : site.description;
 

@@ -30,9 +30,13 @@ describe("localized home metadata", () => {
         images: [socialImage.url],
       },
     });
+    // spanishSite.title already names the brand ("Esteban Moreno Media |
+    // Sistemas de Growth..."), so the root default must NOT append site.name
+    // again — that double-branded the /es <title> in production (fixed
+    // 2026-09-24, see lib/site-metadata.ts).
     expect(spanishRootMetadata).toMatchObject({
       title: {
-        default: `${spanishSite.title} | ${site.name}`,
+        default: spanishSite.title,
         template: `%s | ${site.name}`,
       },
       openGraph: {
@@ -40,11 +44,14 @@ describe("localized home metadata", () => {
         images: [socialImage],
       },
     });
+    // buildPageMetadata detects the title already contains the brand and
+    // wraps it in `{ absolute }` so the parent template doesn't append the
+    // brand a second time.
     expect(spanishHomeMetadata).toMatchObject({
-      title: spanishSite.title,
+      title: { absolute: spanishSite.title },
       description: spanishSite.description,
       openGraph: {
-        title: `${spanishSite.title} | ${site.name}`,
+        title: spanishSite.title,
         description: spanishSite.description,
         images: [socialImage],
       },

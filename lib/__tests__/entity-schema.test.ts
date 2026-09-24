@@ -70,6 +70,20 @@ describe("Google Business Profile entity link", () => {
     );
   });
 
+  it("gives the Organization/LocalBusiness node a logo so it's eligible for rich results", () => {
+    expect(localBusinessEntityJsonLd.logo).toMatchObject({
+      "@type": "ImageObject",
+      url: "https://estebanmorenomedia.com/apple-icon.png",
+    });
+  });
+
+  it("carries name, url, and WebSite name matching the brand exactly once", () => {
+    expect(localBusinessEntityJsonLd.name).toBe(site.name);
+    expect(localBusinessEntityJsonLd.url).toBe("https://estebanmorenomedia.com/");
+    expect(websiteEntityJsonLd.name).toBe(site.name);
+    expect(websiteEntityJsonLd.url).toBe("https://estebanmorenomedia.com/");
+  });
+
   it("never asserts a rating about the business on its own pages", () => {
     // reference-no-self-serving-aggregaterating: a 5.0 collected on Google is
     // self-serving markup here, ineligible for rich results and a manual-action

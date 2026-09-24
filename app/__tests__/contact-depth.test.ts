@@ -15,11 +15,15 @@ function wordCount(markup: string) {
 describe("Contact page depth, guides integration, and FAQPage schema", () => {
   it("renders substantive English contact page with guidance, links, and FAQPage JSON-LD", () => {
     // Metadata check
-    expect(enMetadata.title).toBe(
-      "Contact Esteban Moreno Media | Video Editing & Production",
-    );
-    expect(enMetadata.title?.toString().length).toBeGreaterThanOrEqual(50);
-    expect(enMetadata.title?.toString().length).toBeLessThanOrEqual(60);
+    // The page's own title already names the brand, so buildPageMetadata
+    // wraps it in `{ absolute }` to stop the root layout's title template
+    // from appending the brand a second time (fixed 2026-09-24).
+    expect(enMetadata.title).toEqual({
+      absolute: "Contact Esteban Moreno Media | Video Editing & Production",
+    });
+    const enTitleText = (enMetadata.title as { absolute: string }).absolute;
+    expect(enTitleText.length).toBeGreaterThanOrEqual(50);
+    expect(enTitleText.length).toBeLessThanOrEqual(60);
     expect(enMetadata.description).toBe(
       "Contact Esteban Moreno Media for video editing, AI content creation, social planning, and scoped South Florida production. Send your brief or project details.",
     );
@@ -48,11 +52,12 @@ describe("Contact page depth, guides integration, and FAQPage schema", () => {
 
   it("renders substantive Spanish contact page with guidance, links, and FAQPage JSON-LD", async () => {
     // Metadata check
-    expect(esMetadata.title).toBe(
-      "Contacto en Español | Esteban Moreno Media Fort Lauderdale",
-    );
-    expect(esMetadata.title?.toString().length).toBeGreaterThanOrEqual(50);
-    expect(esMetadata.title?.toString().length).toBeLessThanOrEqual(60);
+    expect(esMetadata.title).toEqual({
+      absolute: "Contacto en Español | Esteban Moreno Media Fort Lauderdale",
+    });
+    const esTitleText = (esMetadata.title as { absolute: string }).absolute;
+    expect(esTitleText.length).toBeGreaterThanOrEqual(50);
+    expect(esTitleText.length).toBeLessThanOrEqual(60);
     expect(esMetadata.description).toBe(
       "Contacta a Esteban Moreno Media en español para edición de video, contenido con IA y producción en South Florida. Envía tu brief o detalles del proyecto.",
     );
