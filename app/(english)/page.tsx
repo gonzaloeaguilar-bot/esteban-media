@@ -10,23 +10,17 @@ import { PortfolioTeaser } from "@/components/portfolio-teaser";
 import { ServicesStrip } from "@/components/services-strip";
 
 export const metadata: Metadata = {
-  // Keep the observed homepage intent in one bounded contract: video editing,
-  // website designer support, and scoped video production are all confirmed offerings.
   title: {
-    absolute:
-      "Esteban Moreno Media | Fort Lauderdale Video Producer",
+    absolute: "Esteban Moreno Media | Video Production & Photography Services in Fort Lauderdale",
   },
-  description:
-    "Esteban Moreno Media creates professional video content for Fort Lauderdale businesses. View our portfolio, services, and contact us to discuss your project.",
+  description: "Professional video production and photography for businesses in Fort Lauderdale and South Florida. Boost your brand with Esteban Moreno Media.",
   openGraph: {
-    title: "Esteban Moreno Media | Fort Lauderdale Video Producer",
-    description:
-      "Esteban Moreno Media creates professional video content for Fort Lauderdale businesses. View our portfolio, services, and contact us to discuss your project.",
+    title: "Esteban Moreno Media | Video Production & Photography Services in Fort Lauderdale",
+    description: "Professional video production and photography for businesses in Fort Lauderdale and South Florida. Boost your brand with Esteban Moreno Media.",
   },
   twitter: {
-    title: "Esteban Moreno Media | Fort Lauderdale Video Producer",
-    description:
-      "Esteban Moreno Media creates professional video content for Fort Lauderdale businesses. View our portfolio, services, and contact us to discuss your project.",
+    title: "Esteban Moreno Media | Video Production & Photography Services in Fort Lauderdale",
+    description: "Professional video production and photography for businesses in Fort Lauderdale and South Florida. Boost your brand with Esteban Moreno Media.",
   },
 };
 
