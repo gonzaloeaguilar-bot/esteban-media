@@ -1,4 +1,5 @@
 import Script from "next/script";
+import { useEffect } from "react";
 
 import sitemap from "@/app/sitemap";
 import { buildGoogleAnalyticsScript } from "@/lib/google-analytics-script";
@@ -13,6 +14,24 @@ export function GoogleAnalytics() {
     "/privacy",
     "/es/privacidad",
   ];
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const isBot = navigator.webdriver || 
+                    /bot|googlebot|crawler|spider|robot|crawling/i.test(navigator.userAgent);
+      if (!isBot) {
+        const scriptContent = buildGoogleAnalyticsScript({
+          measurementId,
+          canonicalHostname,
+          instagramHostname,
+          allowedPaths,
+        });
+        const script = document.createElement('script');
+        script.textContent = scriptContent;
+        document.head.appendChild(script);
+      }
+    }
+  }, [measurementId, canonicalHostname, instagramHostname, allowedPaths]);
 
   return (
     <>
@@ -41,14 +60,6 @@ export function GoogleAnalytics() {
           })();
         })();
       `}</Script>
-      <Script id="google-analytics" strategy="afterInteractive">
-        {buildGoogleAnalyticsScript({
-          measurementId,
-          canonicalHostname,
-          instagramHostname,
-          allowedPaths,
-        })}
-      </Script>
     </>
   );
 }
