@@ -1,6 +1,6 @@
 # Engineering handoff — esteban-media
 
-Last substantive session: **2026-09-18**, card redesign + motion.
+Last substantive session: **2026-09-24**, growth-starvation internal link reinforcement for `/es/areas` on 6 Spanish interactive tool pages.
 Full record: `~/obsidian-wiki/client-esteban-media/wiki/esteban-sesion-rediseno-y-movimiento-2026-09-18.md`
 
 ## In production
