@@ -30,9 +30,13 @@ describe("localized home metadata", () => {
         images: [socialImage.url],
       },
     });
+    // spanishSite.title already names the brand ("Esteban Moreno Media |
+    // Sistemas de Growth..."), so the root default must NOT append site.name
+    // again — that double-branded the /es <title> in production (fixed
+    // 2026-09-24, see lib/site-metadata.ts).
     expect(spanishRootMetadata).toMatchObject({
       title: {
-        default: `${spanishSite.title} | ${site.name}`,
+        default: spanishSite.title,
         template: `%s | ${site.name}`,
       },
       openGraph: {
@@ -40,11 +44,14 @@ describe("localized home metadata", () => {
         images: [socialImage],
       },
     });
+    // buildPageMetadata detects the title already contains the brand and
+    // wraps it in `{ absolute }` so the parent template doesn't append the
+    // brand a second time.
     expect(spanishHomeMetadata).toMatchObject({
-      title: spanishSite.title,
+      title: { absolute: spanishSite.title },
       description: spanishSite.description,
       openGraph: {
-        title: `${spanishSite.title} | ${site.name}`,
+        title: spanishSite.title,
         description: spanishSite.description,
         images: [socialImage],
       },
@@ -52,21 +59,17 @@ describe("localized home metadata", () => {
 
     const englishHomeSource = source("app/(english)/page.tsx");
     expect(englishHomeSource).toContain(
-      'absolute:\n      "Esteban Moreno Media | Video Editing, Production & Websites"',
+      'absolute:\n      "Esteban Moreno Media | Fort Lauderdale Video Producer"',
     );
     expect(englishHomeSource).toContain(
-      "Video Editing, Production & Websites",
+      "Fort Lauderdale Video Producer",
     );
     expect(englishHomeSource).toContain(
-      "video editing services, website designer support",
+      "creates professional video content for Fort Lauderdale businesses.",
     );
-    expect(englishHomeSource).toContain("scoped video production services");
-    expect(englishHomeSource).toContain("View video editing work.");
     expect(
-      englishHomeSource.match(/video editing services, website designer support/g),
+      englishHomeSource.match(/creates professional video content for Fort Lauderdale businesses\./g),
     ).toHaveLength(3);
-    expect(englishHomeSource.match(/scoped video production services/g)).toHaveLength(3);
-    expect(englishHomeSource.match(/View video editing work\./g)).toHaveLength(3);
     expect(englishHomeSource).toContain("openGraph:");
     expect(englishHomeSource).toContain("twitter:");
   });
