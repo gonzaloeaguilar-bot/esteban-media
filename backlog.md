@@ -100,3 +100,23 @@ Production is live. This file tracks repository implementation; account/access w
 
 - [x] Repair 2026-09-05 retained homepage inquiry shortcuts for bilingual technology services and accessibility; local gates and rendered HTTP checks passed.
 - [ ] cto-qa-lead: review retained draft before release, then verify production shortcut content and synchronize canonical notes after deployment.
+
+## 2026-09-24 — brand entity + title-dedup fix (this session)
+
+- [x] Fix double-branded `<title>` on /contact, /es/contacto, /es (home), and
+      /desk-recommendations — `buildPageMetadata` now detects a title that
+      already names the brand and wraps it in `{ absolute }` so the root
+      layout's `%s | Esteban Moreno Media` template doesn't append it again.
+      Negative control: `app/__tests__/brand-title-dedup.test.ts` (181 pages).
+- [x] Added `logo` (ImageObject, apple-icon.png 180x180) to the Organization/
+      LocalBusiness JSON-LD node. Organization + WebSite + Person graph was
+      already present sitewide via SiteChrome — no gaps otherwise.
+- [x] Verified /portfolio, /about, /contact, /areas are already linked from
+      the home page's visible header nav + footer with plain anchors — no
+      change needed.
+- [x] Git-history review 2026-08-24..2026-09-05: no robots/sitemap/canonical/
+      nav changes in the window. Found the likely cause of the week-of-08-31
+      GSC drop instead — the homepage `<title>`/description were rewritten
+      ~16 times in that window (PRs #145,#148,#151,#154,#155,#157-#165,#168,
+      #170,#172-#174), 8 of them within a single hour on 2026-09-03. Filed as
+      the evidenced finding in the PR description.

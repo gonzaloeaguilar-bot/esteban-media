@@ -44,6 +44,15 @@ export const localBusinessEntityJsonLd = {
   email: site.email,
   telephone: site.phone.e164,
   description: site.description,
+  // 180x180 app icon, the only square brand mark the repo ships (public/
+  // has no separate logo asset). Meets Google's minimum recommended
+  // logo size (112x112) for the Organization/LocalBusiness rich-result eligibility check.
+  logo: {
+    "@type": "ImageObject",
+    url: absoluteUrl("/apple-icon.png"),
+    width: 180,
+    height: 180,
+  },
   // The "A" of NAP. Read live 2026-08-15: the Google profile is
   // CUSTOMER_LOCATION_ONLY with storefrontAddress null, so no streetAddress may
   // ever be published here — but locality/region/country must be, because
