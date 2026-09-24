@@ -16,7 +16,7 @@ function analyticsSource() {
   ].join("\n");
 }
 
-function executeAnalyticsScript() {
+function executeAnalyticsScript(navigator?: Record<string, unknown>) {
   const dataLayer: IArguments[] = [];
   const location = {
     hostname: "estebanmorenomedia.com",
@@ -77,6 +77,7 @@ function executeAnalyticsScript() {
       },
       URL,
       Element: FakeElement,
+      ...(navigator ? { navigator } : {}),
     },
   );
 
@@ -195,5 +196,28 @@ describe("analytics safeguards", () => {
     expect(queuedPayload).not.toContain("visitor%40example.com");
     expect(queuedPayload).not.toContain("prompt=private");
     expect(queuedPayload).not.toContain("prompt=secret");
+  });
+});
+
+describe("automated browsers", () => {
+  const configCalls = (nav?: Record<string, unknown>) =>
+    executeAnalyticsScript(nav).calls().filter((c) => c[0] === "config").length;
+  const iphone =
+    "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 Version/17.0 Mobile/15E148 Safari/604.1";
+
+  it("configures GA4 for a real phone", () => {
+    expect(configCalls({ userAgent: iphone })).toBe(1);
+  });
+
+  it("never configures GA4 when navigator.webdriver is true", () => {
+    expect(configCalls({ userAgent: iphone, webdriver: true })).toBe(0);
+  });
+
+  it.each([
+    "Mozilla/5.0 (compatible; GPTBot/1.2; +https://openai.com/gptbot)",
+    "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; ClaudeBot/1.0)",
+    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 HeadlessChrome/128.0 Safari/537.36",
+  ])("never configures GA4 for %s", (ua) => {
+    expect(configCalls({ userAgent: ua })).toBe(0);
   });
 });
