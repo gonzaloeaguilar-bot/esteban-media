@@ -15,6 +15,17 @@ export function buildGoogleAnalyticsScript({
 
   return `
     (function () {
+      // Automated browsers (webdriver, crawlers, AI agents) never configure GA4:
+      // Google's known-bot list misses real-browser bots (portfolio audit 2026-09-23).
+      var nav = typeof navigator !== 'undefined' ? navigator : {};
+      var ua = String(nav.userAgent || '');
+      if (
+        nav.webdriver === true ||
+        /bot|crawl|spider|slurp|headless|lighthouse|pagespeed|gptbot|chatgpt-user|oai-searchbot|claudebot|claude-web|perplexity|bytespider|petalbot|semrush|ahrefs|dataforseo|facebookexternalhit|bingpreview/i.test(ua)
+      ) {
+        return;
+      }
+
       if (
         window.location.hostname !== ${JSON.stringify(canonicalHostname)} ||
         window.__estebanAnalyticsEventsBound
