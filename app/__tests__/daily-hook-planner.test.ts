@@ -1,3 +1,6 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+
 import { describe, expect, it } from "vitest";
 
 import { getPairedLanguageRoute } from "@/lib/language-routes";
@@ -24,8 +27,6 @@ describe("Daily Hook Planner surface", () => {
   });
 
   it("links the Spanish daily hook planner page to /es/areas", () => {
-    const { readFileSync } = require("node:fs");
-    const { join } = require("node:path");
     const markup = readFileSync(
       join(process.cwd(), "app/(spanish)/es/planificador-de-ganchos-de-video/page.tsx"),
       "utf8",

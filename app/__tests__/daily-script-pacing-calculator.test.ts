@@ -1,3 +1,6 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { englishGroups, spanishGroups } from "@/components/site-footer-client";
@@ -100,8 +103,6 @@ describe("Daily Script Pacing Calculator surface", () => {
   });
 
   it("links the Spanish daily script pacing calculator page to /es/areas", () => {
-    const { readFileSync } = require("node:fs");
-    const { join } = require("node:path");
     const markup = readFileSync(
       join(process.cwd(), "app/(spanish)/es/calculadora-de-ritmo-de-video/page.tsx"),
       "utf8",

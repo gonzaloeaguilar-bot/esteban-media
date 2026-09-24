@@ -1,3 +1,6 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+
 import { describe, expect, it } from "vitest";
 
 import { getPairedLanguageRoute } from "@/lib/language-routes";
@@ -32,8 +35,6 @@ describe("Daily Script Timer & Pacing surface", () => {
   });
 
   it("links the Spanish daily script timer page to /es/areas", () => {
-    const { readFileSync } = require("node:fs");
-    const { join } = require("node:path");
     const markup = readFileSync(
       join(process.cwd(), "app/(spanish)/es/temporizador-de-guiones-de-video/page.tsx"),
       "utf8",
