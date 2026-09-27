@@ -50,7 +50,7 @@ try {
     await shot("play-lens");
     const card = await page.eval(`const c=document.querySelector('.em-play__card'); return {open:c.dataset.open, text:c.innerText.replace(/\\s+/g,' ').slice(0,140)}`);
     await page.eval(`document.querySelector('[data-rail-segmented] button:last-child, .rail-segmented button:last-of-type')?.click()`);
-    await page.eval(`document.querySelector('.em-play__hot[data-part="monitor"]').click()`);
+    await page.eval(`document.querySelector('.em-play__hot[data-part="viewfinder"]').click()`);
     await sleep(1800);
     await shot("play-night-monitor");
     report[vp.name] = { after, live, card };

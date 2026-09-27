@@ -26,12 +26,12 @@ import type { CameraPart, CameraScene, LightMood } from "@/lib/camera-scene";
 
 const PART_TO_PACKAGE: Record<CameraPart, "presencia-local" | "arranque" | "crecimiento" | "todo-incluido"> = {
   lens: "presencia-local",
-  monitor: "arranque",
-  rec: "crecimiento",
-  transmitter: "todo-incluido",
+  viewfinder: "arranque",
+  turret: "crecimiento",
+  body: "todo-incluido",
 };
-const PART_ICON = { lens: MapPin, monitor: Clapperboard, rec: Smartphone, transmitter: Globe } as const;
-const ORDER: CameraPart[] = ["monitor", "rec", "lens", "transmitter"];
+const PART_ICON = { lens: MapPin, viewfinder: Clapperboard, turret: Smartphone, body: Globe } as const;
+const ORDER: CameraPart[] = ["viewfinder", "turret", "lens", "body"];
 
 const COPY = {
   es: {
@@ -39,7 +39,7 @@ const COPY = {
     title: "Toca la cámara.",
     lead: "Cada parte es una forma de trabajar juntos.",
     hint: "Arrastra para girar · toca una parte",
-    parts: { lens: "Lente", monitor: "Monitor", rec: "REC", transmitter: "Transmisor" },
+    parts: { lens: "Lente", viewfinder: "Visor", turret: "Torreta", body: "Cuerpo" },
     controls: "Controles de la cámara",
     left: "Izquierda",
     right: "Derecha",
@@ -49,14 +49,14 @@ const COPY = {
     studio: "Estudio",
     night: "Noche",
     see: "Ver paquete",
-    canvas: "Cámara de cine ilustrada en 3D. Cada parte abre un paquete.",
+    canvas: "Cámara de cine antigua en 3D, ilustrativa. Cada parte abre un paquete.",
   },
   en: {
     eyebrow: "Behind the camera",
     title: "Touch the camera.",
     lead: "Each part is a way to work together.",
     hint: "Drag to turn · tap a part",
-    parts: { lens: "Lens", monitor: "Monitor", rec: "REC", transmitter: "Transmitter" },
+    parts: { lens: "Lens", viewfinder: "Viewfinder", turret: "Turret", body: "Body" },
     controls: "Camera controls",
     left: "Left",
     right: "Right",
@@ -66,7 +66,7 @@ const COPY = {
     studio: "Studio",
     night: "Night",
     see: "See package",
-    canvas: "Illustrated 3D cinema camera. Each part opens a package.",
+    canvas: "Vintage film camera in 3D, illustrative. Each part opens a package.",
   },
 } as const;
 
@@ -76,7 +76,6 @@ export function CameraPlayground({ locale }: { locale: Locale }) {
   const priceCopy = packagesCopy(locale).price;
   const stageRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
   const sceneRef = useRef<CameraScene | null>(null);
   const hotRefs = useRef<Partial<Record<CameraPart, HTMLButtonElement | null>>>({});
   const [live, setLive] = useState(false);
@@ -98,12 +97,10 @@ export function CameraPlayground({ locale }: { locale: Locale }) {
         if (entry.isIntersecting && !scene && !disposed) {
           const mod = await import("@/lib/camera-scene").catch(() => null);
           if (!mod || disposed || !mod.canRunScene()) return;
-          const video = videoRef.current;
-          video?.play().catch(() => {});
-          scene = mod.createCameraScene({
+          scene = await mod
+            .createCameraScene({
             canvas,
             mode: "explore",
-            video,
             onPartTap: (p) => hotRefs.current[p]?.click(),
             onAnchors: (anchors) => {
               for (const [k, a] of Object.entries(anchors)) {
@@ -117,13 +114,16 @@ export function CameraPlayground({ locale }: { locale: Locale }) {
                 el.style.opacity = a.visible ? "" : "0";
               }
             },
-          });
+          })
+            .catch(() => null);
+          if (!scene || disposed) {
+            scene?.dispose();
+            return;
+          }
           sceneRef.current = scene;
           setLive(true);
         }
         scene?.setActive(entry.isIntersecting);
-        if (entry.isIntersecting) videoRef.current?.play().catch(() => {});
-        else videoRef.current?.pause();
       },
       { rootMargin: "300px 0px" },
     );
@@ -140,7 +140,7 @@ export function CameraPlayground({ locale }: { locale: Locale }) {
     const next = part === p ? null : p;
     setPart(next);
     sceneRef.current?.focus(next);
-    if (p === "rec" && next) {
+    if (p === "turret" && next) {
       setRecording(true);
       sceneRef.current?.setRecording(true);
     }
@@ -179,18 +179,6 @@ export function CameraPlayground({ locale }: { locale: Locale }) {
 
       <div ref={stageRef} className="em-play__stage" data-live={live ? "true" : "false"} data-mood={mood}>
         <canvas ref={canvasRef} className="em-play__canvas" role="img" aria-label={t.canvas} />
-        {/* Hidden source for the camera's monitor: his own clip. */}
-        <video
-          ref={videoRef}
-          className="em-play__source"
-          src="/about/esteban-on-set.mp4"
-          muted
-          loop
-          playsInline
-          preload="none"
-          aria-hidden="true"
-          tabIndex={-1}
-        />
 
         <ul className="em-play__hotspots" role="list">
           {ORDER.map((p) => {

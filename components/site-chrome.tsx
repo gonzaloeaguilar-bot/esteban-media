@@ -46,7 +46,7 @@ export const siteBodyClassName = `${geistSans.variable} ${geistMono.variable} ${
 // veil even if the bundle never arrives.
 export const LENS_MOMENT_KEY = "em_lens_moment";
 const BRAND_MOMENT_BOOT = `${readFileSync(join(process.cwd(), "vendor/web-kit/brand-moment/boot.js"), "utf8")}
-wkBrandMoment({ key: "${LENS_MOMENT_KEY}", only: ["/", "/es"], failsafeMs: 6500 });`;
+wkBrandMoment({ key: "${LENS_MOMENT_KEY}", only: ["/", "/es"], failsafeMs: 8000 });`;
 
 export function SiteChrome({ children }: { children: React.ReactNode }) {
   return (

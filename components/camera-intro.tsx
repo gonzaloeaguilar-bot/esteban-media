@@ -46,12 +46,18 @@ export function CameraIntro({ locale }: { locale: "es" | "en" }) {
         poll();
       });
 
-    const deadline = new Promise<null>((r) => setTimeout(() => r(null), 2800));
+    const deadline = new Promise<null>((r) => setTimeout(() => r(null), 3200));
 
     (async () => {
+      // The code AND the scanned camera must be here before the moment
+      // mounts, or the kit's timer would run while the model is still loading.
+      const ready = import("@/lib/camera-scene").then(async (m) => {
+        await m.preloadCameraAssets();
+        return m;
+      });
       const [mount, mod] = await Promise.all([
         waitForKit(),
-        Promise.race([import("@/lib/camera-scene"), deadline]),
+        Promise.race([ready, deadline]).catch(() => null),
       ]);
       if (cancelled) return;
       if (!mount || !mod || !mod.canRunScene() || !root.hasAttribute(ATTR)) return giveUp();
@@ -75,18 +81,17 @@ export function CameraIntro({ locale }: { locale: "es" | "en" }) {
       const canvas = moment?.querySelector<HTMLCanvasElement>(".em-lens__canvas");
       if (!moment || !canvas) return giveUp();
 
-      const video = document.querySelector<HTMLVideoElement>(".em-cine__video");
-      const scene = mod.createCameraScene({
+      const scene = await mod.createCameraScene({
         canvas,
         mode: "intro",
-        video,
         onIntroDone: () => {
           // Through the glass: the veil dissolves onto the hero footage, and the
           // hero's own entrance starts now rather than behind the cover.
           moment.classList.add("is-through");
           root.removeAttribute(ATTR);
         },
-      });
+      }).catch(() => null);
+      if (!scene) return giveUp();
       dispose = () => scene.dispose();
 
       // The kit removes the element when it finishes (timeout, skip, key, tap).
