@@ -308,6 +308,8 @@ export function buildGoogleAnalyticsScript({
             var destination = new URL(anchor.href, canonicalOrigin);
             if (destination.hostname === instagramHostname) {
               method = 'instagram';
+            } else if (destination.hostname === 'wa.me' || destination.hostname === 'api.whatsapp.com') {
+              method = 'whatsapp';
             } else if (
               destination.origin === canonicalOrigin &&
               (destination.pathname === '/contact' ||

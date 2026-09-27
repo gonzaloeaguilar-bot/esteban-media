@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono, Newsreader } from "next/font/google";
+import { Geist, Geist_Mono, Newsreader, Oswald } from "next/font/google";
 
 import { GoogleAnalytics } from "@/components/google-analytics";
 import { MOTION_GATE_SCRIPT, RouteVeil, SiteMotion } from "@/components/site-motion";
@@ -24,7 +24,16 @@ const newsreader = Newsreader({
   display: "swap",
 });
 
-export const siteBodyClassName = `${geistSans.variable} ${geistMono.variable} ${newsreader.variable} antialiased`;
+// The title-card face: condensed, uppercase, for opening credits and package
+// names only. Body and editorial copy stay on Geist and Newsreader.
+const oswald = Oswald({
+  variable: "--font-display",
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  display: "swap",
+});
+
+export const siteBodyClassName = `${geistSans.variable} ${geistMono.variable} ${newsreader.variable} ${oswald.variable} antialiased`;
 
 export function SiteChrome({ children }: { children: React.ReactNode }) {
   return (

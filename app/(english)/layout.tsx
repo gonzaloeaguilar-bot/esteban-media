@@ -1,6 +1,7 @@
 import { SiteChrome, siteBodyClassName } from "@/components/site-chrome";
 import { englishRootMetadata } from "@/lib/site-metadata";
 import "../globals.css";
+import "../cinema.css";
 
 export const metadata = englishRootMetadata;
 

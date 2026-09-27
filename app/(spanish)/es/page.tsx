@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { ArrowRight, Mail, Phone, Send } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 import { ClientReviews } from "@/components/client-reviews";
-import { SiteIntro } from "@/components/site-intro";
 import { HeroVideo } from "@/components/hero-video";
 import { HomeAuthorityHub } from "@/components/home-authority-hub";
+import { PackagesSection, ClosingCredits } from "@/components/packages-section";
 import { PortfolioTeaser } from "@/components/portfolio-teaser";
 import { Container } from "@/components/ui/container";
 import {
@@ -24,13 +24,12 @@ export const metadata = buildPageMetadata({
 
 export default function SpanishHomePage() {
   return (
-    <main className="bg-[#f6f1ea] text-[#101214]">
-      <SiteIntro tagline="Apoyo creativo claro, desde tu material hasta contenido listo para publicar." />
+    <main className="bg-[#f7f5f1] text-[#101214]">
       <HeroVideo locale="es" />
+      <PackagesSection locale="es" />
       <PortfolioTeaser locale="es" />
-      <HomeAuthorityHub locale="es" />
-
       <ClientReviews locale="es" />
+      <HomeAuthorityHub locale="es" />
 
       <section className="py-12 sm:py-16">
         <Container size="xl">
@@ -50,17 +49,17 @@ export default function SpanishHomePage() {
                 <Link
                   key={service.id}
                   href={href}
-                  className="group flex h-full flex-col rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5 transition hover:-translate-y-0.5 hover:border-[#e85d3e] hover:shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e85d3e]"
+                  className="group flex h-full flex-col rounded-xl border border-[#e4e0da] bg-white p-5 transition hover:-translate-y-0.5 hover:border-[#a93e29] hover:shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a93e29]"
                   aria-label={`Explorar ${service.name}`}
                 >
-                  <Icon className="size-7 text-[#e85d3e]" aria-hidden="true" />
-                  <h2 className="mt-4 font-serif text-xl leading-tight">
+                  <Icon className="size-7 text-[#a93e29]" aria-hidden="true" />
+                  <h2 className="mt-4 text-lg font-bold leading-tight tracking-tight">
                     {service.shortName}
                   </h2>
-                  <p className="mt-2 text-sm leading-6 text-[#252a2d]">
+                  <p className="mt-2 text-sm leading-6 text-[#4d5358]">
                     {service.description}
                   </p>
-                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27]">
+                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-[#a93e29]">
                     Explorar este servicio
                     <ArrowRight
                       className="size-4 transition-transform group-hover:translate-x-0.5"
@@ -74,7 +73,9 @@ export default function SpanishHomePage() {
         </Container>
       </section>
 
-      <section className="border-y border-[#ddd4c8] bg-[#101214] py-12 text-[#f6f1ea] sm:py-16">
+      {/* Every niche page stays linked from the home — the internal-link graph
+          does not change — but as a compact index, not 71 display cards. */}
+      <section className="bg-[#0b0c0d] py-12 text-[#f6f1ea] sm:py-16">
         <Container size="xl">
           <SectionIntro
             eyebrow="Servicios y ubicaciones"
@@ -82,101 +83,31 @@ export default function SpanishHomePage() {
             lead="Explora servicios disponibles y páginas por tipo de proyecto. Cuando una opción necesita confirmación, la página lo explica con claridad antes de que pidas una cotización."
             inverted
           />
-          <div className="em-shelf mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {spanishNichePages.map((page) => {
-              const Icon = page.icon;
-              return (
-                <Link
-                  key={page.slug}
-                  href={`/es/${page.slug}`}
-                  className="em-panel p-6"
-                >
-                  <span className="em-panel__icon">
-                    <Icon className="size-5 text-[#ffb49e]" aria-hidden="true" />
-                  </span>
-                  <h2 className="mt-4 font-serif text-2xl">{page.title}</h2>
-                  <p className="mt-3 text-sm leading-6 text-[#c9c1b8]">
-                    {page.description}
-                  </p>
-                  <span className="mt-5 inline-flex items-center gap-2 text-sm text-[#ffb49e]">
-                    Abrir página
-                    <ArrowRight className="size-4" aria-hidden="true" />
-                  </span>
+          <ul className="em-index-compact" role="list">
+            {spanishNichePages.map((page) => (
+              <li key={page.slug}>
+                <Link href={`/es/${page.slug}`}>
+                  {page.title}
+                  <ArrowRight className="size-4" aria-hidden="true" />
                 </Link>
-              );
-            })}
-          </div>
+              </li>
+            ))}
+          </ul>
         </Container>
       </section>
 
-      <section className="py-12 sm:py-16">
-        <Container size="xl">
-          <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6 sm:p-8">
-            <p className="text-xs font-medium uppercase text-[#5a6066]">
-              Contacto
-            </p>
-            <div className="mt-4 grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
-              <div>
-                <h2 className="font-serif text-4xl">
-                  Manda un brief corto en español.
-                </h2>
-                <p className="mt-3 max-w-2xl text-sm leading-6 text-[#252a2d]">
-                  Comparte la meta, el condado, el{" "}
-                  <Link href="/es/calculadora">material disponible</Link>, el uso
-                  previsto y links de referencia.
-                </p>
-                <p className="mt-3 max-w-2xl text-sm leading-6 text-[#252a2d]">
-                  Consulta las{" "}
-                  <Link
-                    href="/es/areas"
-                    className="underline underline-offset-4 hover:text-[#9f3c27]"
-                  >
-                    áreas de servicio
-                  </Link>{" "}
-                  si necesitas grabación local. Las{" "}
-                  <Link
-                    href="/es/guias"
-                    className="-mx-2 inline-flex min-h-10 items-center rounded-md px-2 underline underline-offset-4 hover:text-[#9f3c27]"
-                  >
-                    guías prácticas de video
-                  </Link>{" "}
-                  ayudan a definir esos detalles sin asumir formatos ni una
-                  forma de trabajo específica.
-                </p>
-              </div>
-              <div className="flex flex-wrap gap-3">
-                <Link
-                  href="/es/sobre-esteban"
-                  className="inline-flex min-h-11 items-center justify-center rounded-full border border-[#101214] px-5 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"
-                >
-                  Sobre Esteban
-                </Link>
-                <a
-                  href={`mailto:${site.email}`}
-                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-5 text-sm font-medium text-white hover:bg-[#a93e29]"
-                >
-                  <Mail className="size-4" aria-hidden="true" />
-                  Email
-                </a>
-                <a
-                  href={site.phone.href}
-                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-[#101214] px-5 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"
-                >
-                  <Phone className="size-4" aria-hidden="true" />
-                  Llamar
-                </a>
-                <a
-                  href={site.instagram}
-                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-[#101214] px-5 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"
-                >
-                  <Send className="size-4" aria-hidden="true" />
-                  Instagram
-                </a>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
+      <ClosingCredits locale="es">
+        <p>
+          Comparte la meta, el condado, el{" "}
+          <Link href="/es/calculadora">material disponible</Link>, el uso
+          previsto y links de referencia. Consulta las{" "}
+          <Link href="/es/areas">áreas de servicio</Link> si necesitas
+          grabación local, las{" "}
+          <Link href="/es/guias">guías prácticas de video</Link>, conoce{" "}
+          <Link href="/es/sobre-esteban">a Esteban</Link> o síguelo en{" "}
+          <a href={site.instagram}>Instagram</a>.
+        </p>
+      </ClosingCredits>
     </main>
   );
 }
@@ -201,7 +132,7 @@ function SectionIntro({
       >
         {eyebrow}
       </p>
-      <h2 className="mt-4 font-serif text-4xl leading-tight sm:text-5xl">
+      <h2 className="mt-4 text-4xl font-bold leading-[1.04] tracking-tight sm:text-5xl">
         {title}
       </h2>
       <p
