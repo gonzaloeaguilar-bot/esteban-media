@@ -319,6 +319,42 @@ html.rail-anim:not([data-brand-moment]) .em-cine__eyebrow {
 }
 .em-cine__cta--ghost:hover { background: #fff; color: var(--cine-ink); }
 
+/* Phone: the outline pill ended 22px above the viewport bottom at 375x667 and
+   the corner bracket crossed it. A compact text action on the same row saves
+   about 60px and frees the bracket. */
+@media (max-width: 1023px) {
+  .em-cine__actions { flex-wrap: nowrap; align-items: center; gap: 12px; }
+  /* Both labels on one line: with nowrap and no shrink guard, "Ver paquetes y
+     precios" wrapped inside its pill and the underlined secondary broke across
+     two lines, which reads as a squeezed layout rather than a pair of actions. */
+  .em-cine__cta {
+    white-space: nowrap;
+    font-size: 13px;
+    padding: 0 16px;
+  }
+  /* The pair has to end inside the gutter: at 375 it used to reach x=374 of
+     375, so the secondary action's arrow sat on the screen edge. */
+  .em-cine__cta svg { width: 14px; height: 14px; }
+  .em-cine__cta--ghost {
+    min-height: 0;
+    border: 0;
+    background: none;
+    padding: 6px 4px;
+    backdrop-filter: none;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+  .em-cine__cta--ghost:hover { background: none; color: #fff; }
+  .em-cine__credit { padding-bottom: 48px; }
+}
+
+/* Narrow phones cannot hold both labels on one line; there they stack again
+   rather than overflow the screen. */
+@media (max-width: 359px) {
+  .em-cine__actions { flex-wrap: wrap; gap: 12px; }
+}
+
 /* Phones: the app bar floats over the bottom of the screen, so the first
    screen ends above it — the credit and both buttons stay clear of the tabs. */
 @media (max-width: 1023px) {
@@ -396,7 +432,9 @@ html.rail-anim:not([data-brand-moment]) .em-cine__eyebrow {
 .em-cine-caption {
   background: var(--cine-ink);
   color: rgba(255, 255, 255, 0.84);
-  padding: 28px 0 40px;
+  /* No top padding: the hero already ends on about 120px of black, and the
+     hairline plus this padding read as an empty band, not as a join. */
+  padding: 0 0 40px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 .em-cine-caption__lead {
@@ -473,9 +511,12 @@ html.rail-anim:not([data-brand-moment]) .em-cine__eyebrow {
   scroll-margin-top: 72px;
 }
 .em-pk-needs {
+  /* One row per need. The four photos live in the package scenes below; a
+     second copy of the same four images, one section earlier, added about
+     900px of phone scroll and said nothing new. */
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 8px;
   margin: 28px 0 0;
   padding: 0;
   list-style: none;
@@ -506,25 +547,17 @@ html.rail-anim:not([data-brand-moment]) .em-cine__eyebrow {
 }
 .em-pk-need:active { transform: scale(0.98); }
 .em-pk-need:focus-visible { outline: 2px solid var(--cine-accent-deep); outline-offset: 3px; }
-.em-pk-need__icon {
-  display: grid;
-  place-items: center;
-  width: 40px;
-  height: 40px;
-  margin: 16px 0 0 14px;
-  border-radius: 12px;
-  background: var(--cine-ink);
-  color: #fff;
-  transition: background-color 0.25s, transform 0.35s var(--cine-ease);
-}
-.em-pk-need:hover .em-pk-need__icon,
-.em-pk-need:focus-visible .em-pk-need__icon { background: var(--cine-accent-deep); transform: rotate(-6deg); }
 .em-pk-need__body {
   display: flex;
   flex: 1;
   flex-direction: column;
-  gap: 6px;
-  padding: 12px 14px 16px;
+  gap: 2px;
+  min-height: 64px;
+  justify-content: center;
+  padding: 12px 14px;
+}
+@media (min-width: 1024px) {
+  .em-pk-need__body { gap: 6px; padding: 16px 16px 18px; }
 }
 .em-pk-need__title {
   font-weight: 700;
@@ -540,9 +573,10 @@ html.rail-anim:not([data-brand-moment]) .em-cine__eyebrow {
 .em-pk-need__go {
   display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  margin-top: auto;
+  justify-content: flex-start;
+  gap: 6px;
+  margin-top: 4px;
+  color: var(--cine-accent-deep);
   padding: 10px 12px;
   border-radius: 10px;
   background: var(--cine-ink);
@@ -626,9 +660,12 @@ html.rail-anim:not([data-brand-moment]) .em-cine__eyebrow {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 16px;
-    max-width: 1280px;
+    /* Same box as the Container that holds the heading above it (max-w-7xl,
+       lg:px-8), so the first card starts on the section gutter. The track used
+       to start 17px to its left; padding:0 then put it 32px to its left. */
+    max-width: 80rem;
     margin: 36px auto 0;
-    padding: 0 20px;
+    padding: 0 2rem;
     overflow: visible;
   }
   .em-pkcard { width: auto; }
@@ -638,6 +675,9 @@ html.rail-anim:not([data-brand-moment]) .em-cine__eyebrow {
   display: flex;
   flex-direction: column;
   width: 100%;
+  /* Desktop: one row of four, so the scene, the body and the price band have
+     to start at the same y in every card. "Personalizada" used to sit about
+     50px below the three prices. */
   overflow: hidden;
   border-radius: 16px;
   background: var(--cine-paper);
@@ -655,7 +695,11 @@ html.rail-anim:not([data-brand-moment]) .em-cine__eyebrow {
   transition: transform 1.4s var(--cine-ease);
 }
 .em-pkcard:hover .em-pkcard__scene img,
-.em-pkcard:active .em-pkcard__scene img { transform: scale(1.1); }
+.em-pkcard:active .em-pkcard__scene img,
+.em-pkcard:focus-within .em-pkcard__scene img { transform: scale(1.1); }
+/* The effect has to happen where the finger is, not only under a mouse. */
+.em-pkcard:active > article,
+.em-pkcard:focus-within > article { box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18); }
 /* A website screenshot carries its own words; dim it so they never compete
    with the package name set over it. */
 .em-pkcard[data-scene="screenshot"] .em-pkcard__scene img { opacity: 0.42; filter: saturate(0.6); }
@@ -726,6 +770,19 @@ html.rail-anim .em-pkcard.rail-reveal.is-in .em-pkcard__scene {
   flex: 1;
   flex-direction: column;
   padding: 22px 20px 24px;
+}
+@media (min-width: 1024px) {
+  /* One row of four, so the price band, the "ideal for" line and the button
+     have to start at the same y in every card. The includes list keeps its
+     natural height and the price box is pushed to the bottom of the card;
+     equal min-height then covers the one card that has no unit line under the
+     figure ("Personalizada" used to sit about 50px below the three prices).
+     Measured at 1440: price tops were 477/477/500/477 before this. */
+  .em-pkcard__price {
+    margin-top: auto;
+    min-height: 151px;
+    justify-content: center;
+  }
 }
 .em-pkcard__headline {
   display: flex;
@@ -867,8 +924,9 @@ html.rail-anim .em-pkcard.rail-reveal.is-in .em-pkcard__scene {
   flex-direction: column;
   gap: 6px;
   width: 100%;
-  min-height: 132px;
-  padding: 16px 16px 18px;
+  min-height: 92px;
+  padding: 16px 44px 18px 16px;
+  justify-content: center;
   border-radius: 14px;
   background: var(--cine-card);
   border: 1px solid var(--cine-line);
@@ -879,16 +937,6 @@ html.rail-anim .em-pkcard.rail-reveal.is-in .em-pkcard__scene {
 a.em-pk-carte__item:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(0, 0, 0, 0.1); }
 a.em-pk-carte__item:active { transform: scale(0.98); }
 a.em-pk-carte__item:focus-visible { outline: 2px solid var(--cine-accent-deep); outline-offset: 3px; }
-.em-pk-carte__icon {
-  display: grid;
-  place-items: center;
-  width: 38px;
-  height: 38px;
-  margin-bottom: 6px;
-  border-radius: 12px;
-  background: var(--cine-ink);
-  color: #fff;
-}
 .em-pk-carte__title {
   font-weight: 700;
   font-size: 15px;
@@ -902,8 +950,9 @@ a.em-pk-carte__item:focus-visible { outline: 2px solid var(--cine-accent-deep); 
 }
 .em-pk-carte__go {
   position: absolute;
-  top: 18px;
+  top: 50%;
   right: 16px;
+  transform: translateY(-50%);
   color: var(--cine-accent-deep);
 }
 
@@ -927,20 +976,28 @@ a.em-pk-carte__item:focus-visible { outline: 2px solid var(--cine-accent-deep); 
 }
 .em-pk-steps__list li {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding: 18px 18px 22px;
-  border-radius: 14px;
-  background: var(--cine-card);
-  border: 1px solid var(--cine-line);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 16px;
+  align-items: baseline;
+  padding: 14px 0 16px;
+  border-bottom: 1px solid var(--cine-line);
+}
+.em-pk-steps__list li:last-child { border-bottom: 0; }
+@media (min-width: 768px) {
+  .em-pk-steps__list li { border-bottom: 0; padding: 0; }
 }
 .em-pk-steps__n {
-  font: 600 13px/1 var(--font-geist-mono), monospace;
+  grid-row: 1 / span 2;
+  font-family: var(--font-display), "Oswald", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 1;
+  letter-spacing: -0.02em;
   color: var(--cine-accent-deep);
 }
 .em-pk-steps__title {
-  margin-top: 8px;
+  margin-top: 0;
   font-weight: 700;
   font-size: 18px;
   line-height: 1.2;
@@ -1423,3 +1480,15 @@ html.rail-anim .em-play__dot::before {
 
 .rail-finder__field { background: #ffffff; border: 1px solid var(--cine-line); border-radius: 999px; }
 .rail-finder__trigger.em-search { color: #252a2d; }
+
+/* The app bar steps aside for the closing credit, which offers the same
+   actions (see components/app-nav.tsx). */
+.em-appnav {
+  transition: transform 0.24s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.em-appnav[data-hidden] {
+  transform: translateY(130%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .em-appnav { transition: none; }
+}
