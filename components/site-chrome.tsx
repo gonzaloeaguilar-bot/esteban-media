@@ -1,8 +1,12 @@
-import { Geist, Geist_Mono, Newsreader } from "next/font/google";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+
+import Script from "next/script";
+import { Geist, Geist_Mono, Newsreader, Oswald } from "next/font/google";
 
 import { GoogleAnalytics } from "@/components/google-analytics";
 import { MOTION_GATE_SCRIPT, RouteVeil, SiteMotion } from "@/components/site-motion";
-import { StickyCta } from "@/components/em-sticky-cta";
+import { AppNav } from "@/components/app-nav";
 import { ReadingProgress } from "@/components/em-reading-progress";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -24,7 +28,25 @@ const newsreader = Newsreader({
   display: "swap",
 });
 
-export const siteBodyClassName = `${geistSans.variable} ${geistMono.variable} ${newsreader.variable} antialiased`;
+// The title-card face: condensed, uppercase, for opening credits and package
+// names only. Body and editorial copy stay on Geist and Newsreader.
+const oswald = Oswald({
+  variable: "--font-display",
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  display: "swap",
+});
+
+export const siteBodyClassName = `${geistSans.variable} ${geistMono.variable} ${newsreader.variable} ${oswald.variable} antialiased`;
+
+// The web-kit brand moment, decided before first paint. Vendored unmodified
+// (vendor/web-kit/SOURCE.txt); read at build time so the page inlines the
+// kit's own file rather than a copy that can drift. Plays once per tab, only
+// on the two home pages, never under reduced motion; the failsafe clears the
+// veil even if the bundle never arrives.
+export const LENS_MOMENT_KEY = "em_lens_moment";
+const BRAND_MOMENT_BOOT = `${readFileSync(join(process.cwd(), "vendor/web-kit/brand-moment/boot.js"), "utf8")}
+wkBrandMoment({ key: "${LENS_MOMENT_KEY}", only: ["/", "/es"], failsafeMs: 8000 });`;
 
 export function SiteChrome({ children }: { children: React.ReactNode }) {
   return (
@@ -36,6 +58,10 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
       <script
         suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: MOTION_GATE_SCRIPT }}
+      />
+      <script
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: BRAND_MOMENT_BOOT }}
       />
       <script
         type="application/ld+json"
@@ -57,7 +83,8 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
       <SiteFooter />
       <SiteMotion />
       <ReadingProgress />
-      <StickyCta />
+      <AppNav />
+      <Script id="web-kit-moment" src="/web-kit/mount.js" strategy="afterInteractive" />
       <RouteVeil />
       <GoogleAnalytics />
     </>

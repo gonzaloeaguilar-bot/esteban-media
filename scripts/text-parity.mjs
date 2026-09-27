@@ -176,6 +176,10 @@ const ALLOWED_ADDITIONS = new Set([
   // required allowlisting "en", and permanently allowlisting a word that common
   // would blind the gate to a real addition anywhere on 91 routes.
   "Consultar",
+  // The phone app bar that replaced it (2026-09-27): five one-word tab labels
+  // and the bar's one-word name, plus the header search button's name. All
+  // chrome; none is a common word that could hide a real addition.
+  "Inicio", "Paquetes", "Buscar", "Trabajo", "Hablar", "Atajos",
   // The way back to the top, inside that same bar. Icon only; these two words
   // are its accessible name and the only text it contributes.
   "Volver", "arriba",

@@ -3,9 +3,12 @@ import type { Metadata } from "next";
 import { AboutTeaser } from "@/components/about-teaser";
 import { ClientReviews } from "@/components/client-reviews";
 import { ContactCta } from "@/components/contact-cta";
-import { SiteIntro } from "@/components/site-intro";
 import { HeroVideo } from "@/components/hero-video";
 import { HomeAuthorityHub } from "@/components/home-authority-hub";
+import { CameraIntro } from "@/components/camera-intro";
+import { CameraPlayground } from "@/components/camera-playground";
+import { ClosingCredits, PackagesSection } from "@/components/packages-section";
+import { KeepReading } from "@/components/keep-reading";
 import { PortfolioTeaser } from "@/components/portfolio-teaser";
 import { ServicesStrip } from "@/components/services-strip";
 
@@ -32,15 +35,20 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="bg-[#f6f1ea] text-[#101214]">
-      <SiteIntro tagline="Clear creative support, from your footage to ready-to-publish content." />
+    <main className="bg-[#f7f5f1] text-[#101214]">
+      <CameraIntro locale="en" />
       <HeroVideo />
+      <CameraPlayground locale="en" />
+      <PackagesSection locale="en" />
       <PortfolioTeaser locale="en" />
-      <HomeAuthorityHub />
-      <ServicesStrip />
       <ClientReviews locale="en" />
-      <AboutTeaser />
-      <ContactCta />
+      <KeepReading id="more" title="Want to see everything?" destinations="Services, areas, guides and more about Esteban.">
+        <HomeAuthorityHub />
+        <ServicesStrip />
+        <AboutTeaser />
+        <ContactCta />
+      </KeepReading>
+      <ClosingCredits locale="en" />
     </main>
   );
 }

@@ -1,0 +1,58 @@
+/* wk-reading-path — the fold-out that shortens a page without removing a word.
+ *
+ * Everything a visitor needs in order to act stays visible. Everything that only
+ * supports READING collapses behind one <details> whose summary names its
+ * destinations, so the click is not mystery meat.
+ *
+ * Collapsed is not removed: the content stays in the DOM, so crawlers, answer
+ * engines and depth gates see exactly what they saw before. Say that out loud in
+ * the PR, because it is the first thing a reviewer doubts.
+ */
+
+.wk-keep-reading {
+  margin: clamp(28px, 5vw, 56px) 0;
+  border-top: 1px solid var(--wk-line, rgba(0, 0, 0, 0.12));
+  border-bottom: 1px solid var(--wk-line, rgba(0, 0, 0, 0.12));
+}
+
+.wk-keep-reading > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  /* 44px of tap target, because this is the control that decides whether the
+     rest of the page exists for this visitor. */
+  min-height: 44px;
+  padding: 18px 4px;
+  cursor: pointer;
+  list-style: none;
+  font: var(--wk-sans, system-ui, sans-serif);
+}
+.wk-keep-reading > summary::-webkit-details-marker { display: none; }
+
+.wk-keep-reading > summary strong {
+  font-size: clamp(16px, 2.2vw, 19px);
+  font-weight: 600;
+}
+/* The destinations, named. "Keep reading" on its own is mystery meat; this line
+   is what makes the click a decision. */
+.wk-keep-reading > summary small {
+  display: block;
+  margin-top: 4px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--wk-muted, rgba(0, 0, 0, 0.6));
+}
+
+.wk-keep-reading > summary::after {
+  content: "+";
+  font-size: 22px;
+  line-height: 1;
+  color: var(--wk-accent, currentColor);
+}
+.wk-keep-reading[open] > summary::after { content: "–"; }
+
+.wk-keep-reading > summary:focus-visible {
+  outline: 2px solid var(--wk-accent, currentColor);
+  outline-offset: 2px;
+}

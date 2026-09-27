@@ -3,6 +3,8 @@ import { join } from "node:path";
 
 import { describe, expect, it } from "vitest";
 
+import { PACKAGE_PRICES } from "@/lib/pricing";
+
 const llms = readFileSync(join(process.cwd(), "public/llms.txt"), "utf8");
 
 describe("public/llms.txt for AI crawlers", () => {
@@ -27,7 +29,7 @@ describe("public/llms.txt for AI crawlers", () => {
     expect(llms).toContain("What does Esteban Moreno Media do?");
     expect(llms).toContain("What languages are available?");
     expect(llms).toContain(
-      "Are prices, turnaround times, or revision counts published? No.",
+      "Are prices published? Yes, as starting points for four packages",
     );
   });
 
@@ -37,13 +39,20 @@ describe("public/llms.txt for AI crawlers", () => {
       "Photography and drone work are not currently published as confirmed services",
     );
     expect(llms).toContain("guaranteed views/rankings.");
-    expect(llms).not.toMatch(/\$\d/);
+    // Prices ARE published since 2026-09-27 (Esteban's own packages). The
+    // rule is now that every figure here is one of PACKAGE_PRICES, so this
+    // file cannot quote a price the site does not show.
+    const allowed = new Set(
+      Object.values(PACKAGE_PRICES).flatMap((p) => (p.kind === "from" ? [`$${p.amount}`] : [])),
+    );
+    for (const m of llms.match(/\$\d[\d,]*/g) ?? []) expect(allowed.has(m), m).toBe(true);
+    expect(allowed.size).toBeGreaterThan(0);
     expect(llms.toLowerCase()).not.toContain("guaranteed results");
   });
 
   it("carries the correct current contact details", () => {
     expect(llms).toContain("Email: esmolopez@gmail.com");
     expect(llms).toContain("Phone: (305) 497-4478");
-    expect(llms).toContain("Last updated: 2026-07-29");
+    expect(llms).toContain("Last updated: 2026-09-27");
   });
 });

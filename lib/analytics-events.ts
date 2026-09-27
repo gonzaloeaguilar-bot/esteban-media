@@ -14,6 +14,14 @@
 import type { LeadSource } from "@/lib/lead-responder";
 
 type Gtag = (command: "event", name: string, params?: Record<string, unknown>) => void;
+/**
+ * The site's one writer (lib/google-analytics-script.ts `sendEvent`). It takes
+ * the event NAME first — it is not gtag. Calling it gtag-style, with a leading
+ * "event", sent every event to GA4 named "event" with the real name spread
+ * into numbered parameters. That shipped in #216 and went unnoticed because no
+ * test ever executed the writer with a caller.
+ */
+type SiteTrack = (name: string, params?: Record<string, unknown>) => void;
 
 /** Records interest in a public service category; no visitor or form data is sent. */
 export function trackServiceInterest(service: string, locale: string): void {
@@ -22,8 +30,8 @@ export function trackServiceInterest(service: string, locale: string): void {
   if (typeof gtag !== "function") return;
   // Through the site's one writer, so the event carries the shared block and
   // its contract twin. See google-analytics-script.ts.
-  const send = (window as unknown as { __estebanTrack?: Gtag }).__estebanTrack;
-  if (typeof send === "function") return send("event", "service_interest", { service, locale });
+  const send = (window as unknown as { __estebanTrack?: SiteTrack }).__estebanTrack;
+  if (typeof send === "function") return send("service_interest", { service, locale });
   gtag("event", "service_interest", { service, locale });
 }
 
@@ -38,9 +46,9 @@ export function trackLeadSubmit(leadSource: LeadSource, locale: string): void {
   if (typeof window === "undefined") return;
   const gtag = (window as unknown as { gtag?: Gtag }).gtag;
   if (typeof gtag !== "function") return;
-  const send = (window as unknown as { __estebanTrack?: Gtag }).__estebanTrack;
+  const send = (window as unknown as { __estebanTrack?: SiteTrack }).__estebanTrack;
   const emit = typeof send === "function"
-    ? (name: string, params: Record<string, unknown>) => send("event", name, params)
+    ? (name: string, params: Record<string, unknown>) => send(name, params)
     : (name: string, params: Record<string, unknown>) => gtag("event", name, params);
   emit("lead_submit", { lead_source: leadSource, locale });
   emit("contact_intent", {

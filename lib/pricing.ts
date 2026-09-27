@@ -117,3 +117,21 @@ export const PRODUCT_PHOTO_MARKET = {
 export function usd(n: number): string {
   return `$${n.toLocaleString("en-US")}`;
 }
+
+// Esteban's own package prices, set by him in his 2026-09 services guide
+// (the "Paquetes" document he sends clients). These are owner-set starting
+// points, not market bands: every package page shows them as "desde"/"from",
+// and the quote process says a scoped quote is always issued. Change a price
+// here and every surface that shows it follows.
+export type PackageId = "arranque" | "crecimiento" | "presencia-local" | "todo-incluido";
+
+export type PackagePrice =
+  | { kind: "from"; amount: number; unit: "project" | "month" | "production-day" }
+  | { kind: "custom" };
+
+export const PACKAGE_PRICES: Record<PackageId, PackagePrice> = {
+  arranque: { kind: "from", amount: 200, unit: "project" },
+  crecimiento: { kind: "from", amount: 640, unit: "month" },
+  "presencia-local": { kind: "from", amount: 800, unit: "production-day" },
+  "todo-incluido": { kind: "custom" },
+};

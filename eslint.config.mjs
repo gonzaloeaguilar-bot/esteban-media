@@ -19,6 +19,8 @@ const eslintConfig = [
       "build/**",
       "next-env.d.ts",
       ".worktrees/**",
+      // Vendored, unmodified web-kit files (vendor/web-kit/SOURCE.txt).
+      "public/web-kit/**",
     ],
   },
 ];

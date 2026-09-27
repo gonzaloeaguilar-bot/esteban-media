@@ -43,5 +43,21 @@
       "cta_kind": "service_interest"
     },
     "dual_emit": true
+  },
+  "brand_moment_shown": {
+    "event": "section_view",
+    "params": {
+      "section_id": "brand_moment"
+    },
+    "dual_emit": false,
+    "why": "web-kit brand-moment (vendored, unmodified: public/web-kit/mount.js) reports its own lifecycle via gtag with moment, dismissed_by and elapsed_ms; kit-owned, read as the intro's view/complete"
+  },
+  "brand_moment_complete": {
+    "event": "section_view",
+    "params": {
+      "section_id": "brand_moment"
+    },
+    "dual_emit": false,
+    "why": "web-kit brand-moment (vendored, unmodified: public/web-kit/mount.js) reports its own lifecycle via gtag with moment, dismissed_by and elapsed_ms; kit-owned, read as the intro's view/complete"
   }
 }
