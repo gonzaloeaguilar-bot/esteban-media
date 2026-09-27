@@ -821,67 +821,6 @@ html.em-returning #em-intro {
   }
 }
 
-/* ---------------------------------------------------------------------------
-   The action bar that follows you down the page.
-
-   Phone only, and deliberately. The page is eleven screens tall on a 375px
-   phone; a desktop reading of the same page is not, and the header stays in
-   reach there, so a fixed bar on a wide viewport would cover content to solve
-   a problem that viewport does not have.
-
-   The kit ships the bar hidden and reveals it on `data-rail-visible`. What is
-   added here is the brand skin, the safe-area inset for a phone with a home
-   indicator, and the one thing a fixed bar must never get wrong: the page
-   reserves its height, so the last block is still readable with the bar up.
-   --------------------------------------------------------------------------- */
-.em-stickybar {
-  --rail-stickybar-bg: #101214;
-  --rail-stickybar-z: 40;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  padding-bottom: env(safe-area-inset-bottom, 0px);
-  transition: transform 0.32s cubic-bezier(0.2, 0.75, 0.2, 1);
-}
-.em-stickybar .rail-stickybar__in {
-  padding: 10px 16px;
-}
-/* Shares the row with the way-back button instead of claiming all of it. The
-   kit's bar wraps, so `width: 100%` pushed this onto a second line: the bar
-   grew past the 76px the page reserves and covered the card underneath. A
-   screenshot caught that; no measurement in the sweep did, because each piece
-   was the right size on its own. */
-.em-stickybar__action {
-  flex: 1 1 auto;
-  min-width: 0;
-  gap: 8px;
-  min-height: 48px;
-  background: #c84a2c;
-  color: #fff;
-  font-size: 15px;
-  font-weight: 500;
-}
-.em-stickybar__action:hover {
-  background: #a93e29;
-}
-/* The reserved height, declared statically on the phone rather than added by
-   the script when the bar appears. Reserving it in CSS costs 76px of empty
-   space below the footer, which nobody sees; adding it at the moment the bar
-   slides up would be a layout shift, and the site currently measures CLS 0.
-   The cheap, invisible option wins. */
-@media (max-width: 639px) {
-  body {
-    padding-bottom: 76px;
-  }
-}
-@media (min-width: 640px) {
-  .em-stickybar {
-    display: none;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .em-stickybar {
-    transition: none;
-  }
-}
 
 /* ---------------------------------------------------------------------------
    Breadcrumb targets.
@@ -956,33 +895,6 @@ nav[aria-label*="igas de pan" i] a,
   background: #c84a2c;
 }
 
-/* The way back, inside the action bar. 44px of target for a 16px glyph. */
-/* When the bar carries only the way back (on the contact page, where the
-   primary action would point at the page you are reading) it centres instead
-   of sitting against the left edge with nothing beside it. */
-.em-stickybar .rail-stickybar__in:has(> .em-stickybar__top:only-child) {
-  justify-content: center;
-}
-.em-stickybar__top {
-  flex: 0 0 auto;
-  display: inline-grid;
-  place-items: center;
-  width: 48px;
-  height: 48px;
-  margin-right: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  border-radius: 999px;
-  color: #f6f1ea;
-  background: transparent;
-  cursor: pointer;
-}
-.em-stickybar__top:hover {
-  background: rgba(255, 255, 255, 0.08);
-}
-.em-stickybar__top:focus-visible {
-  outline: 2px solid #ffb49e;
-  outline-offset: 2px;
-}
 
 /* ---------------------------------------------------------------------------
    The service shelf, on a phone.

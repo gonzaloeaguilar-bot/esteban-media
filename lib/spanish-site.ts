@@ -1,4 +1,5 @@
 import type { LucideIcon } from "lucide-react";
+import { PACKAGE_PRICES, usd } from "@/lib/pricing";
 import {
   Anchor,
   Building2,
@@ -20,6 +21,8 @@ export const spanishSite = {
   title: "Esteban Moreno Media | Sistemas de Growth y Producción Creativa",
   description:
     "Esteban Moreno Media: edición de video, contenido con IA y producción para redes en South Florida. Bilingüe Español/English. Fort Lauderdale — cotiza rápido.",
+  /** The Spanish HOME only: anchored on the published starting price (lib/pricing.ts). */
+  homeDescription: `Esteban Moreno Media: edición de video, contenido con IA y producción para redes en Fort Lauderdale y Miami. Paquetes desde ${usd(PACKAGE_PRICES.arranque.kind === "from" ? PACKAGE_PRICES.arranque.amount : 0)}. Cotiza por WhatsApp.`,
   contactLead:
     "Comparte la meta, el condado, el material disponible, las referencias y el uso previsto. La atención es principalmente en español y también hay comunicación disponible en inglés intermedio.",
 };

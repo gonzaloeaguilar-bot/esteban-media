@@ -5,6 +5,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowRight, Menu, X } from "lucide-react";
 
+import { SiteSearch } from "@/components/site-search";
+
 import { getPairedLanguageRoute } from "@/lib/language-routes";
 
 export const englishNav = [
@@ -85,6 +87,7 @@ export function SiteHeaderClient({ shortName }: { shortName: string }) {
         </nav>
 
         <div className="flex shrink-0 items-center gap-2">
+          <SiteSearch />
           <Link
             href={isSpanish ? "/es/contacto" : "/contact"}
             className="hidden items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#a93e29] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c84a2c] sm:inline-flex"

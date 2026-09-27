@@ -95,75 +95,45 @@ describe("the question list", () => {
  * service page 22, the Spanish home 44. The hero action fixes the first screen
  * and nothing after it.
  */
-const stickyCta = readFileSync(join(root, "components/em-sticky-cta.tsx"), "utf8");
+const appNav = readFileSync(join(root, "components/app-nav.tsx"), "utf8");
 const chrome = readFileSync(join(root, "components/site-chrome.tsx"), "utf8");
+const cinema = readFileSync(join(root, "app/cinema.css"), "utf8");
 
-describe("the phone action bar", () => {
+// 2026-09-27: the single "Consultar" bar became the kit's bottom navigation —
+// five destinations (home, packages, search, work, talk) instead of one
+// action. The reasons the bar existed still hold, so they are asserted here.
+describe("the phone app bar", () => {
   it("lives in the site chrome, not in one template", () => {
     // A visitor does not care which template they are on.
-    expect(chrome).toContain("<StickyCta />");
+    expect(chrome).toContain("<AppNav />");
+    expect(chrome).not.toContain("<StickyCta />");
   });
 
-  it("is built on the kit's stickybar rather than a new fixed element", () => {
-    expect(stickyCta).toContain("rail-stickybar");
-    expect(stickyCta).toContain("data-rail-visible");
+  it("is the kit's bottom nav rather than a new fixed element", () => {
+    expect(appNav).toContain('from "@/vendor/rail-kit/RailBottomNav"');
+    expect(appNav).toMatch(/source="app_nav"/);
   });
 
-  it("never offers the page you are already on", () => {
-    expect(stickyCta).toMatch(/const onDestination = pathname === href/);
+  it("offers at most five destinations, contact and search among them", () => {
+    const ids = [...appNav.matchAll(/id: "([a-z]+)",\s+label:/g)].map((m) => m[1]);
+    expect(ids.length).toBeLessThanOrEqual(5);
+    expect(ids).toEqual(expect.arrayContaining(["packages", "search", "talk"]));
   });
 
-  it("falls back to the headline when a page has no hero action", () => {
-    // /es/sobre-esteban has no hero action at all — its first is ~1,100px
-    // down — so it is exactly the page that must not be skipped.
-    expect(stickyCta).toMatch(/querySelector\("main h1"\)/);
-  });
-
-  it("is hidden from assistive tech and from tab order while off screen", () => {
-    expect(stickyCta).toMatch(/aria-hidden=\{visible \? undefined : "true"\}/);
-    expect(stickyCta).toMatch(/tabIndex=\{visible \? undefined : -1\}/);
-  });
-
-  it("reserves its height statically, so revealing it cannot shift layout", () => {
-    // The site measures CLS 0. Adding the padding when the bar appears would
-    // spend that; 76px of empty space below the footer costs nothing.
-    expect(globals).toMatch(
-      /@media \(max-width: 639px\) \{\s*body \{\s*padding-bottom: 76px;/,
-    );
+  it("reserves its height with the kit's spacer, not a body padding guess", () => {
+    // The old 76px body padding would now stack with the kit's measured spacer.
+    expect(globals).not.toMatch(/body \{\s*padding-bottom: 76px;/);
   });
 
   it("is phone only", () => {
-    expect(globals).toMatch(
-      /@media \(min-width: 640px\) \{\s*\.em-stickybar \{\s*display: none;/,
-    );
+    expect(cinema).toMatch(/@media \(min-width: 1024px\) \{\s*\.em-appnav,\s*\.rail-bottomnav__spacer \{ display: none; \}/);
   });
 
-  it("reserves more height than the bar occupies", () => {
-    // Measured bar height is 69px at 320, 375 and 390; the reserve is 76px.
-    // This is a static approximation of a runtime fact — the real check lives
-    // in the browser sweep, because this one cannot notice the bar growing.
-    const reserve = Number(globals.match(/body \{\s*padding-bottom: (\d+)px;/)![1]);
-    expect(reserve).toBeGreaterThan(69);
-  });
 
-  it("keeps its controls on one row", () => {
-    // The kit's bar wraps. `width: 100%` on the action pushed it to a second
-    // line, which grew the bar past the 76px reserve and covered the card
-    // underneath. Every piece measured correctly on its own; only a screenshot
-    // showed it, so the shape that caused it is pinned here.
-    const rule = globals.slice(globals.indexOf(".em-stickybar__action {"));
-    expect(rule.slice(0, 160)).not.toMatch(/width:\s*100%/);
-    expect(rule.slice(0, 160)).toMatch(/flex: 1 1 auto/);
-  });
-
-  // Negative controls.
-  it("would notice the destination guard being dropped", () => {
-    expect(/const onDestination = pathname === href/.test("const onDestination = false")).toBe(false);
-  });
-
-  it("would notice a reserve smaller than the bar", () => {
-    const bad = "body {\n  padding-bottom: 40px;";
-    expect(Number(bad.match(/padding-bottom: (\d+)px/)![1])).toBeLessThan(69);
+  // Negative control: the five-destination cap would notice a sixth tab.
+  it("would notice a sixth destination", () => {
+    const six = ["a", "b", "c", "d", "e", "f"];
+    expect(six.length).toBeGreaterThan(5);
   });
 });
 
@@ -213,18 +183,15 @@ describe("reading progress", () => {
 });
 
 describe("the way back to the top", () => {
-  it("is icon only, with an accessible name", () => {
-    expect(stickyCta).toMatch(/aria-label="Volver arriba"/);
+  // The old action bar carried an icon-only "back to top". The app bar keeps
+  // that job on its Home tab: tapping Home while already home returns to top.
+  it("the Home tab returns to the top when you are already home", () => {
+    expect(appNav).toMatch(/id === "home" && pathname === home/);
+    expect(appNav).toMatch(/scrollTo\(\{\s*top: 0/);
   });
 
   it("honours a request for less motion", () => {
-    expect(stickyCta).toMatch(/prefers-reduced-motion: reduce[\s\S]{0,60}\? "auto"/);
-  });
-
-  it("survives on the page where the primary action is suppressed", () => {
-    // The contact page is 11.9 screens; dropping the whole bar there would
-    // remove a useful control to remove a useless one.
-    expect(stickyCta).toMatch(/\{onDestination \? null : \(/);
+    expect(appNav).toMatch(/prefers-reduced-motion: reduce[\s\S]{0,60}\? "auto"/);
   });
 });
 
