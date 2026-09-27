@@ -429,9 +429,9 @@ export function createCameraScene(opts: CameraSceneOptions): CameraScene {
       cam.position.set(THREE.MathUtils.lerp(0.9, 0, a), THREE.MathUtils.lerp(-0.25, 0, a), 0);
       // Then the push: stop just short of the glass, iris wide open.
       const push = easeInOut((t - 1.35) / 1.5);
-      const z = THREE.MathUtils.lerp(10, 6.4, a) - push * 4.1;
+      const z = THREE.MathUtils.lerp(10, 6.4, a) - push * 3.2;
       view.position.set(THREE.MathUtils.lerp(1.8, 0, a), THREE.MathUtils.lerp(1.3, 0, a), z);
-      view.fov = THREE.MathUtils.lerp(30, 16, push);
+      view.fov = THREE.MathUtils.lerp(30, 21, push);
       view.updateProjectionMatrix();
       view.lookAt(0, 0, 0);
       setIris(ease((t - 1.45) / 1.1));
@@ -441,8 +441,8 @@ export function createCameraScene(opts: CameraSceneOptions): CameraScene {
       focusRing.rotation.y = -push * 1.4; // focus pulls as we approach
       // Into the glass the reflections fall away: the last frame is the dark
       // of the lens, which cuts to the footage it was looking at.
-      glass.envMapIntensity = 1.1 * (1 - push * 0.92);
-      renderer.toneMappingExposure = 1.05 * (1 - push * 0.55);
+      glass.envMapIntensity = 1.1 * Math.pow(1 - push, 2);
+      renderer.toneMappingExposure = 1.05 * (1 - push * 0.7);
       if (t > 2.95 && !introDone) {
         introDone = true;
         opts.onIntroDone?.();
