@@ -965,6 +965,12 @@ html.rail-anim .em-pk-steps__list.rail-reveal.is-in li:nth-child(3) { transition
   color: var(--cine-muted);
 }
 
+.em-pk-faq {
+  background: var(--cine-paper);
+  padding: 8px 0 64px;
+}
+.em-pk-faq__list { margin-top: 20px; max-width: 760px; }
+
 /* ------------------------------------------------------ closing credit ---- */
 
 .em-close {

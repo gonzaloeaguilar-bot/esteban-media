@@ -20,11 +20,14 @@ import {
   Workflow,
 } from "lucide-react";
 
+import RailFaq from "@/vendor/rail-kit/RailFaq";
 import RailPrice from "@/vendor/rail-kit/RailPrice";
 import { Container } from "@/components/ui/container";
 import {
   packageAnchor,
+  packageFaq,
   packagesCopy,
+  packagesJsonLd,
   packagesFor,
   priceFor,
   whatsappHref,
@@ -32,7 +35,8 @@ import {
   type Locale,
   type PackageContent,
 } from "@/lib/packages";
-import { site } from "@/lib/site";
+import { entityIds } from "@/lib/entity-schema";
+import { absoluteUrl, site } from "@/lib/site";
 
 const NEED_ICONS = {
   arranque: Clapperboard,
@@ -292,6 +296,31 @@ export function PackagesSection({ locale }: { locale: Locale }) {
           <p className="em-pk-steps__note">{copy.process.note}</p>
         </Container>
       </section>
+
+      {/* 5. Quick answers — the questions people actually ask ("¿cuánto cobras
+          por editar?"), answered first, from the same data as the cards. The
+          same text feeds the FAQPage schema below, so search and AI answers
+          quote exactly what a visitor reads. */}
+      <section className="em-pk-faq" aria-labelledby="em-pk-faq-title" data-section="package_faq">
+        <Container size="xl">
+          <p className="em-pk-eyebrow">{locale === "es" ? "Preguntas rápidas" : "Quick answers"}</p>
+          <h2 id="em-pk-faq-title" className="em-pk-title">
+            {locale === "es" ? "Lo que todos preguntan." : "What everyone asks."}
+          </h2>
+          <RailFaq
+            className="em-pk-faq__list"
+            source="package_faq"
+            items={packageFaq(locale).map((q) => ({ id: q.id, question: q.question, answer: q.answer }))}
+          />
+        </Container>
+      </section>
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(packagesJsonLd(locale, absoluteUrl(locale === "es" ? "/es" : "/"), entityIds.business)),
+        }}
+      />
     </div>
   );
 }

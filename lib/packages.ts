@@ -8,7 +8,7 @@
 // Prices are NOT written here. They live in lib/pricing.ts PACKAGE_PRICES so
 // one edit changes every surface.
 
-import { PACKAGE_PRICES, type PackageId, type PackagePrice } from "@/lib/pricing";
+import { PACKAGE_PRICES, usd, type PackageId, type PackagePrice } from "@/lib/pricing";
 
 export type Locale = "en" | "es";
 
@@ -304,4 +304,95 @@ export function whatsappHref(phoneE164: string, text: string): string {
 
 export function packageAnchor(id: PackageId): string {
   return `paquete-${id}`;
+}
+
+// ------------------------------------------------------------ search + AI
+// Everything below is DERIVED from the same content and PACKAGE_PRICES the
+// page renders, so structured data can never disagree with what a visitor sees.
+
+
+export function priceSentence(locale: Locale, id: PackageId): string {
+  const p = PACKAGE_PRICES[id];
+  const c = COPY[locale].price;
+  return p.kind === "from" ? `${c.from} ${usd(p.amount)} ${c.units[p.unit]}` : `${c.customLine} ${c.custom.toLowerCase()}`;
+}
+
+/** Short, answer-first questions for the page and for FAQPage schema. */
+export function packageFaq(locale: Locale): { id: string; question: string; answer: string }[] {
+  const pk = packagesFor(locale);
+  const by = (id: PackageId) => pk.find((p) => p.id === id)!;
+  const es = locale === "es";
+  return [
+    {
+      id: "cuanto-edicion",
+      question: es ? "¿Cuánto cobra Esteban por editar un video?" : "How much does Esteban charge to edit a video?",
+      answer: es
+        ? `El paquete ${by("arranque").name} (edición remota de tu material) es ${priceSentence("es", "arranque").toLowerCase()}, con formato para Reels, TikTok, YouTube o web y una ronda de revisión.`
+        : `The ${by("arranque").name} package (remote editing of your footage) is ${priceSentence("en", "arranque").toLowerCase()}, formatted for Reels, TikTok, YouTube or web, with one revision round.`,
+    },
+    {
+      id: "plan-mensual",
+      question: es ? "¿Tiene un plan mensual para redes sociales?" : "Is there a monthly social media plan?",
+      answer: es
+        ? `Sí: ${by("crecimiento").name}, ${priceSentence("es", "crecimiento").toLowerCase()}. Incluye plan de contenido, calendario, edición y reporte mensual.`
+        : `Yes: ${by("crecimiento").name}, ${priceSentence("en", "crecimiento").toLowerCase()}. It includes a content plan, calendar, editing and a monthly report.`,
+    },
+    {
+      id: "grabar-negocio",
+      question: es ? "¿Puede venir a grabar a mi negocio en Fort Lauderdale o Miami?" : "Can he film at my business in Fort Lauderdale or Miami?",
+      answer: es
+        ? `Sí, con ${by("presencia-local").name}: ${priceSentence("es", "presencia-local").toLowerCase()}, en Fort Lauderdale, Broward y proyectos seleccionados en Miami-Dade.`
+        : `Yes, with ${by("presencia-local").name}: ${priceSentence("en", "presencia-local").toLowerCase()}, in Fort Lauderdale, Broward and selected Miami-Dade projects.`,
+    },
+    {
+      id: "precios-fijos",
+      question: es ? "¿Los precios son fijos?" : "Are the prices fixed?",
+      answer: es
+        ? "No. Son puntos de partida: cada proyecto recibe una cotización específica después de confirmar formato, volumen, entregables y plazos."
+        : "No. They are starting points: every project gets a specific quote after format, volume, deliverables and timing are confirmed.",
+    },
+  ];
+}
+
+/** OfferCatalog + FAQPage, from the rendered content. */
+export function packagesJsonLd(locale: Locale, homeUrl: string, providerId: string) {
+  const es = locale === "es";
+  const catalog = {
+    "@context": "https://schema.org",
+    "@type": "OfferCatalog",
+    name: es ? "Paquetes de Esteban Moreno Media" : "Esteban Moreno Media packages",
+    url: `${homeUrl}#${es ? "paquetes" : "packages"}`,
+    itemListElement: packagesFor(locale).map((pkg, i) => {
+      const price = PACKAGE_PRICES[pkg.id];
+      return {
+        "@type": "Offer",
+        position: i + 1,
+        name: `${es ? "Paquete" : "Package"} ${pkg.name} — ${pkg.subtitle}`,
+        description: `${pkg.headline.join(" ")} ${pkg.includes.join(". ")}.`,
+        url: `${homeUrl}#${packageAnchor(pkg.id)}`,
+        availableAtOrFrom: { "@type": "Place", name: "Fort Lauderdale, FL" },
+        itemOffered: { "@type": "Service", name: `${pkg.name} — ${pkg.subtitle}`, provider: { "@id": providerId } },
+        ...(price.kind === "from"
+          ? {
+              priceSpecification: {
+                "@type": "UnitPriceSpecification",
+                minPrice: price.amount,
+                priceCurrency: "USD",
+                unitText: COPY[locale].price.units[price.unit],
+              },
+            }
+          : {}),
+      };
+    }),
+  };
+  const faq = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: packageFaq(locale).map((q) => ({
+      "@type": "Question",
+      name: q.question,
+      acceptedAnswer: { "@type": "Answer", text: q.answer },
+    })),
+  };
+  return [catalog, faq];
 }

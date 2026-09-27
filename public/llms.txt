@@ -6,7 +6,7 @@ Canonical site: https://estebanmorenomedia.com/
 Owner / creator: Esteban Moreno López, who works publicly as Esteban Moreno
 Primary market: Fort Lauderdale, Broward County, and Miami-Dade County; Palm Beach County is an expansion/service area
 Languages: Spanish-first service; intermediate English communication available
-Last updated: 2026-07-29
+Last updated: 2026-09-27
 
 ## Core Pages
 
@@ -88,6 +88,17 @@ guidance rather than Esteban Moreno Media policy. Full indexes:
 - Selectively scoped on-location video production.
 - Photography and drone work are not currently published as confirmed services; their legacy Spanish routes remain available only as transparent educational resources pending confirmation.
 
+## Packages
+
+Published on the home page (https://estebanmorenomedia.com/es#paquetes and https://estebanmorenomedia.com/#packages). Prices are starting points, not fixed rates.
+
+- Arranque / Starter — remote editing: from $200 per project. Video editing of your footage, formatted for Reels, TikTok, YouTube or web, 1 revision round included.
+- Crecimiento / Growth — monthly social plan: from $640 per month. Content plan, publishing calendar, editing, monthly report.
+- Presencia Local / Local Presence — on-site production: from $800 per production day. Pre-production and on-location capture, post-capture editing, deliverables by format; Fort Lauderdale, Broward and selected Miami-Dade projects.
+- Todo Incluido / All-In — digital ecosystem: custom quote. Conversion website, AI chatbot and lead capture, local profile and presence (Google Business, Maps), content and editing, reporting across channels.
+- A la carte: AI-assisted content, product or real estate photography, AI photo enhancement, local SEO and AI-search visibility, website/funnel/competitor audit, operations automation.
+- How to get a quote: 1) share the goal and available material, 2) confirm format, volume, deliverables, location and timing, 3) receive a project-specific quote. WhatsApp or phone: (305) 497-4478.
+
 ## Service Areas
 
 - Fort Lauderdale is the operating base.
@@ -100,7 +111,7 @@ guidance rather than Esteban Moreno Media policy. Full indexes:
 - Esteban Moreno Media is a remote-first service-area business with no client-facing studio.
 - General scoping questions can cover the goal, intended use, county, available source files, and references.
 - Availability, scope, timing, and format needs are discussed for the individual project; no specific workflow is published as universal.
-- Published pages do not state universal packages, prices, turnaround times, or revision allowances.
+- Four packages with starting prices are published (see Packages). Turnaround times are not published; every project still receives a specific quote.
 
 ## Common Questions
 
@@ -108,7 +119,8 @@ guidance rather than Esteban Moreno Media policy. Full indexes:
 - Where is it based and what areas are served? Fort Lauderdale is the base; Broward County and Miami-Dade County are the normal local markets, and Palm Beach County is an expansion area considered project by project.
 - What languages are available? Service is Spanish-first, with intermediate English communication available.
 - Does a project require an in-person visit? No. Remote editing, AI-assisted content, and social planning are handled remotely; only on-location capture involves a local visit, and that is scoped selectively.
-- Are prices, turnaround times, or revision counts published? No. Availability, scope, timing, and format are discussed per individual project; the site publishes no universal packages, prices, turnaround times, or revision allowances.
+- Are prices published? Yes, as starting points for four packages: Arranque / Starter (remote editing) from $200 per project, Crecimiento / Growth (monthly social plan) from $640 per month, Presencia Local / Local Presence (on-site production) from $800 per production day, and Todo Incluido / All-In (website, AI lead capture, local presence and content) by custom quote. Each project gets a specific quote; turnaround times are not published.
+- How much does it cost to edit a video? The Arranque / Starter package starts at $200 per project for remote editing of client footage, formatted for Reels, TikTok, YouTube or web, with one revision round included.
 - How do I start a project? Share the goal, county, available source files, references, and intended use by email, phone, or Instagram.
 
 ## Proof Policy

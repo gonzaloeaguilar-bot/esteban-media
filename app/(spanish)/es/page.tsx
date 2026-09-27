@@ -20,7 +20,7 @@ import { site } from "@/lib/site";
 
 export const metadata = buildPageMetadata({
   title: spanishSite.title,
-  description: spanishSite.description,
+  description: spanishSite.homeDescription,
   path: "/es",
   locale: "es",
 });

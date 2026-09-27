@@ -47,12 +47,16 @@ describe("localized home metadata", () => {
     // buildPageMetadata detects the title already contains the brand and
     // wraps it in `{ absolute }` so the parent template doesn't append the
     // brand a second time.
+    // The Spanish home anchors its snippet on the published starting price
+    // (2026-09-27); every other Spanish page keeps spanishSite.description.
+    expect(spanishSite.homeDescription).toContain("Paquetes desde $200");
+    expect(spanishSite.homeDescription.length).toBeLessThanOrEqual(160);
     expect(spanishHomeMetadata).toMatchObject({
       title: { absolute: spanishSite.title },
-      description: spanishSite.description,
+      description: spanishSite.homeDescription,
       openGraph: {
         title: spanishSite.title,
-        description: spanishSite.description,
+        description: spanishSite.homeDescription,
         images: [socialImage],
       },
     });
