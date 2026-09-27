@@ -1,12 +1,10 @@
-import { readFileSync } from "node:fs";
-import { join } from "node:path";
-
 import Script from "next/script";
 import { Geist, Geist_Mono, Newsreader, Oswald } from "next/font/google";
 
 import { GoogleAnalytics } from "@/components/google-analytics";
 import { MOTION_GATE_SCRIPT, RouteVeil, SiteMotion } from "@/components/site-motion";
 import { AppNav } from "@/components/app-nav";
+import { BRAND_MOMENT_BOOT_JS } from "@/vendor/web-kit/brand-moment/boot.generated";
 import { ReadingProgress } from "@/components/em-reading-progress";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -40,12 +38,12 @@ const oswald = Oswald({
 export const siteBodyClassName = `${geistSans.variable} ${geistMono.variable} ${newsreader.variable} ${oswald.variable} antialiased`;
 
 // The web-kit brand moment, decided before first paint. Vendored unmodified
-// (vendor/web-kit/SOURCE.txt); read at build time so the page inlines the
-// kit's own file rather than a copy that can drift. Plays once per tab, only
+// (vendor/web-kit/SOURCE.txt), compiled in as a string (boot.generated.ts,
+// kept identical to boot.js by a test) so no page reads a file at runtime. Plays once per tab, only
 // on the two home pages, never under reduced motion; the failsafe clears the
 // veil even if the bundle never arrives.
 export const LENS_MOMENT_KEY = "em_lens_moment";
-const BRAND_MOMENT_BOOT = `${readFileSync(join(process.cwd(), "vendor/web-kit/brand-moment/boot.js"), "utf8")}
+const BRAND_MOMENT_BOOT = `${BRAND_MOMENT_BOOT_JS}
 wkBrandMoment({ key: "${LENS_MOMENT_KEY}", only: ["/", "/es"], failsafeMs: 8000 });`;
 
 export function SiteChrome({ children }: { children: React.ReactNode }) {
