@@ -149,6 +149,16 @@ export default function ServicesPage() {
             working. Esteban Media combines websites, measured lead capture,
             automation, and creative production around a confirmed scope.
           </p>
+          <p className="mt-4 max-w-2xl leading-7 text-[#252a2d]">
+            Looking for what it costs? The{" "}
+            <Link
+              href="/pricing"
+              className="font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#7f2f20]"
+            >
+              pricing and packages page
+            </Link>{" "}
+            shows the starting price for each package.
+          </p>
 
           <section className="mt-12" aria-labelledby="growth-systems-heading">
             <p className="text-xs font-medium uppercase text-[#5a6066]">

@@ -22,7 +22,7 @@ export function AppNav() {
 
   const items = [
     { id: "home", label: es ? "Inicio" : "Home", href: home, icon: <Home /> },
-    { id: "packages", label: es ? "Paquetes" : "Packages", href: `${home === "/" ? "" : home}#${es ? "paquetes" : "packages"}`, icon: <Package /> },
+    { id: "packages", label: es ? "Paquetes" : "Packages", href: es ? "/es/precios" : "/pricing", icon: <Package /> },
     { id: "search", label: es ? "Buscar" : "Search", href: "#buscar", icon: <Search /> },
     { id: "work", label: es ? "Trabajo" : "Work", href: es ? "/es/portafolio" : "/portfolio", icon: <Clapperboard /> },
     {

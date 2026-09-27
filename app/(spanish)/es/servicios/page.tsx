@@ -124,6 +124,16 @@ export default function SpanishServicesPage() {
             qué funciona. Esteban Media combina web, captura medida, automatización
             y producción creativa alrededor de un alcance confirmado.
           </p>
+          <p className="mt-4 max-w-2xl leading-7 text-[#252a2d]">
+            ¿Buscas cuánto cuesta? En la{" "}
+            <Link
+              href="/es/precios"
+              className="font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#7f2f20]"
+            >
+              página de precios y paquetes
+            </Link>{" "}
+            está el precio de partida de cada paquete.
+          </p>
 
           <section className="mt-12" aria-labelledby="sistemas-growth-heading">
             <p className="text-xs font-medium uppercase text-[#5a6066]">Sistemas de growth 0→1</p>
