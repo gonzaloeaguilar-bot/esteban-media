@@ -34,13 +34,14 @@ import {
 } from "@/lib/packages";
 import { site } from "@/lib/site";
 
-type Gtag = (command: "event", name: string, params?: Record<string, unknown>) => void;
+/** The site's one writer: name first, not gtag-style. See lib/analytics-events.ts. */
+type SiteTrack = (name: string, params?: Record<string, unknown>) => void;
 
 /** Through the site's one writer, so every event carries the shared block. */
 function track(name: string, params: Record<string, unknown>) {
   if (typeof window === "undefined") return;
-  const send = (window as unknown as { __estebanTrack?: Gtag }).__estebanTrack;
-  if (typeof send === "function") send("event", name, params);
+  const send = (window as unknown as { __estebanTrack?: SiteTrack }).__estebanTrack;
+  if (typeof send === "function") send(name, params);
 }
 
 const NEED_ICONS = {

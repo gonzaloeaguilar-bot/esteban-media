@@ -2,6 +2,7 @@ import { runInNewContext } from "node:vm";
 
 import { describe, expect, it } from "vitest";
 
+import { trackLeadSubmit, trackServiceInterest } from "@/lib/analytics-events";
 import { buildGoogleAnalyticsScript } from "@/lib/google-analytics-script";
 
 /**
@@ -17,7 +18,11 @@ import { buildGoogleAnalyticsScript } from "@/lib/google-analytics-script";
  */
 type Emitted = { name: string; params: Record<string, unknown> };
 
-function runScript(pathname: string): { emit: (n: string, p?: Record<string, unknown>) => void; events: Emitted[] } {
+function runScript(pathname: string): {
+  emit: (n: string, p?: Record<string, unknown>) => void;
+  events: Emitted[];
+  window: Record<string, unknown>;
+} {
   const events: Emitted[] = [];
   const storage = new Map<string, string>();
   const window = {
@@ -49,7 +54,7 @@ function runScript(pathname: string): { emit: (n: string, p?: Record<string, unk
 
   const emit = (window as { __estebanTrack?: (n: string, p?: Record<string, unknown>) => void }).__estebanTrack;
   if (typeof emit !== "function") throw new Error("the script did not expose its single writer");
-  return { emit, events };
+  return { emit, events, window };
 }
 
 const SHARED = ["brand", "page_type", "locale", "variant"] as const;
@@ -111,5 +116,26 @@ describe("cross-brand analytics contract", () => {
     es.events.length = 0;
     es.emit("contact_intent", { contact_method: "email" });
     expect(es.events[0].params.page_type).toBe("form");
+  });
+
+  // The React callers reach the writer through window.__estebanTrack. #216
+  // wired them gtag-style — send("event", name, params) — against a writer that
+  // takes (name, params), so every lead_submit went to GA4 named "event". This
+  // runs the real callers against the real writer, not the writer alone.
+  it("sends React-side events under their own names through the writer", () => {
+    const { events, window } = runScript("/contact");
+    const g = globalThis as { window?: unknown };
+    const previous = g.window;
+    g.window = window;
+    try {
+      events.length = 0;
+      trackLeadSubmit("brief-builder", "en");
+      trackServiceInterest("video", "en");
+    } finally {
+      g.window = previous;
+    }
+    const names = events.map((e) => e.name);
+    expect(names).not.toContain("event");
+    expect(names).toEqual(expect.arrayContaining(["lead_submit", "contact_intent", "service_interest"]));
   });
 });
