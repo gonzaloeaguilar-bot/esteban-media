@@ -40,7 +40,6 @@ export function HeroVideo({ locale = "en" }: HeroVideoProps) {
         id="em-cine-hero"
         aria-labelledby="hero-heading"
         className="em-cine"
-        data-section-id="hero"
       >
         <div className="em-cine__stage">
           <div className="em-cine__frame">
@@ -82,7 +81,9 @@ export function HeroVideo({ locale = "en" }: HeroVideoProps) {
           <span className="em-cine__bar em-cine__bar--bottom" aria-hidden="true" />
 
           <div className="em-cine__credit">
-            <p className="em-cine__eyebrow">Content · Production · Digital</p>
+            <p className="em-cine__eyebrow">
+              {isSpanish ? "Contenido · Producción · Digital" : "Content · Production · Digital"}
+            </p>
             <h1 id="hero-heading" className="em-cine__title">
               <span className="em-cine__brand">
                 {/* The spaces are real text nodes: without them the heading's

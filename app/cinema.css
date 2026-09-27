@@ -47,6 +47,13 @@
   overflow: hidden;
   background: var(--cine-ink);
 }
+/* Phone transition: the footage scrolls at about half speed and re-aims at
+   the face, so the subject stays while the credit leaves. */
+@media (max-width: 1023px) {
+  .em-cine__frame { transform: translate3d(0, calc(var(--p) * 42svh), 0); }
+  .em-cine__poster,
+  .em-cine__video { object-position: 50% calc(22% - var(--p) * 14%); }
+}
 
 .em-cine__poster,
 .em-cine__video {
@@ -157,7 +164,7 @@ html.rail-anim .em-cine__rec-dot {
   left: 0;
   right: 0;
   z-index: 3;
-  height: calc(var(--p) * 13%);
+  height: min(13%, calc(var(--p) * 45%));
   background: var(--cine-ink);
   pointer-events: none;
 }
@@ -170,7 +177,7 @@ html.rail-anim .em-cine__bar {
 }
 @keyframes em-shutter {
   from { height: 50.5%; }
-  to { height: calc(var(--p) * 13%); }
+  to { height: min(13%, calc(var(--p) * 45%)); }
 }
 
 /* The opening credit. */
@@ -181,8 +188,8 @@ html.rail-anim .em-cine__bar {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 20px 34px;
-  transform: translateY(calc(var(--p) * -70px));
-  opacity: calc(1 - var(--p) * 1.7);
+  transform: translateY(calc(var(--p) * -110px));
+  opacity: calc(1 - var(--p) * 3.2);
 }
 
 .em-cine__eyebrow {
@@ -303,7 +310,7 @@ html.rail-anim .em-cine__eyebrow {
   .em-cine__what { margin-top: 10px; padding-top: 10px; font-size: 12px; }
   .em-cine__tagline { font-size: 1.3rem; margin-top: 8px; }
   .em-cine__actions { margin-top: 14px; }
-  .em-cine__credit { padding-bottom: 22px; }
+  .em-cine__credit { padding-bottom: 28px; }
   .em-cine__eyebrow { margin-bottom: 10px; }
 }
 
@@ -317,8 +324,9 @@ html.rail-anim .em-cine__eyebrow {
   .em-cine__frame {
     inset: auto;
     top: 50%;
-    right: max(40px, calc((100vw - 1280px) / 2 + 20px));
-    width: min(34vw, 470px);
+    right: max(40px, calc((100vw - 1280px) / 2 + 80px));
+    /* Never taller than the stage: the monitor keeps all four corners. */
+    width: min(38vw, 540px, calc((min(100svh, 920px) - 190px) * 0.6));
     aspect-ratio: 9 / 15;
     translate: 0 -50%;
     border-radius: 6px;
@@ -327,19 +335,32 @@ html.rail-anim .em-cine__eyebrow {
   .em-cine__frame::after {
     background: linear-gradient(to top, rgba(8, 9, 10, 0.35), transparent 40%);
   }
+  /* The poster, blurred, as the light of the room the monitor sits in. */
   .em-cine__stage::before {
     content: "";
     position: absolute;
-    inset: 0;
-    background: radial-gradient(60% 70% at 72% 50%, rgba(255, 255, 255, 0.06), transparent 70%);
+    inset: -60px;
+    background: url("/about/esteban-on-set-frame.jpg") 70% 30% / cover no-repeat;
+    filter: blur(48px) saturate(0.7);
+    opacity: 0.24;
     pointer-events: none;
   }
+  .em-cine__stage::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(11, 12, 13, 0.92) 0%, rgba(11, 12, 13, 0.55) 45%, rgba(11, 12, 13, 0.2) 100%);
+    pointer-events: none;
+  }
+  .em-cine__frame { z-index: 1; }
+  .em-cine__credit { z-index: 4; }
   .em-cine__credit {
     padding: 64px 40px;
   }
   .em-cine__credit > * {
-    max-width: calc(100% - min(34vw, 470px) - 80px);
+    max-width: calc(100% - min(38vw, 540px, calc((min(100svh, 920px) - 190px) * 0.6)) + 60px);
   }
+  .em-cine__brand { text-shadow: 0 6px 40px rgba(0, 0, 0, 0.55); }
   .em-cine__brand { font-size: clamp(5rem, 9.2vw, 9rem); }
   .em-cine__tagline { font-size: clamp(2rem, 2.6vw, 2.6rem); }
 }
@@ -464,35 +485,25 @@ html.rail-anim .em-cine__eyebrow {
 }
 .em-pk-need:active { transform: scale(0.98); }
 .em-pk-need:focus-visible { outline: 2px solid var(--cine-accent-deep); outline-offset: 3px; }
-.em-pk-need__media {
-  position: relative;
-  aspect-ratio: 4 / 3;
-  background: var(--cine-ink);
-}
-.em-pk-need__media img {
-  object-fit: cover;
-  transition: transform 0.6s var(--cine-ease);
-}
-.em-pk-need:hover .em-pk-need__media img { transform: scale(1.05); }
 .em-pk-need__icon {
-  position: absolute;
-  left: 12px;
-  bottom: -16px;
   display: grid;
   place-items: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin: 16px 0 0 14px;
+  border-radius: 12px;
   background: var(--cine-ink);
   color: #fff;
-  border: 2px solid var(--cine-card);
+  transition: background-color 0.25s, transform 0.35s var(--cine-ease);
 }
+.em-pk-need:hover .em-pk-need__icon,
+.em-pk-need:focus-visible .em-pk-need__icon { background: var(--cine-accent-deep); transform: rotate(-6deg); }
 .em-pk-need__body {
   display: flex;
   flex: 1;
   flex-direction: column;
   gap: 6px;
-  padding: 26px 14px 16px;
+  padding: 12px 14px 16px;
 }
 .em-pk-need__title {
   font-weight: 700;
@@ -522,7 +533,8 @@ html.rail-anim .em-cine__eyebrow {
   line-height: 1.25;
 }
 @media (min-width: 640px) {
-  .em-pk-need__body { padding: 28px 18px 18px; }
+  .em-pk-need__body { padding: 14px 18px 18px; }
+  .em-pk-need__icon { margin: 18px 0 0 18px; }
   .em-pk-need__title { font-size: 18px; }
 }
 
@@ -616,7 +628,8 @@ html.rail-anim .em-cine__eyebrow {
   transform: scale(1.04);
   transition: transform 1.4s var(--cine-ease);
 }
-.em-pkcard:hover .em-pkcard__scene img { transform: scale(1.1); }
+.em-pkcard:hover .em-pkcard__scene img,
+.em-pkcard:active .em-pkcard__scene img { transform: scale(1.1); }
 /* A website screenshot carries its own words; dim it so they never compete
    with the package name set over it. */
 .em-pkcard[data-scene="screenshot"] .em-pkcard__scene img { opacity: 0.42; filter: saturate(0.6); }
@@ -955,7 +968,7 @@ html.rail-anim .em-pk-steps__list.rail-reveal.is-in li:nth-child(3) { transition
   font-family: var(--font-display), "Oswald", "Arial Narrow", sans-serif;
   font-weight: 700;
   font-size: clamp(2.6rem, 11vw, 5.6rem);
-  line-height: 0.95;
+  line-height: 1.06;
   text-transform: uppercase;
 }
 .em-close__lead {
@@ -981,6 +994,19 @@ html.rail-anim .em-pk-steps__list.rail-reveal.is-in li:nth-child(3) { transition
   text-decoration: underline;
   text-decoration-color: var(--cine-accent-soft);
   text-underline-offset: 4px;
+}
+.em-close__textlink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 0 6px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: underline;
+  text-decoration-color: var(--cine-accent-soft);
+  text-underline-offset: 5px;
 }
 .em-close__sign {
   margin: 44px 0 0;

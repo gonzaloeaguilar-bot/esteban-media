@@ -65,12 +65,33 @@ export function StickyCta() {
     setArmed(true);
     if (!("IntersectionObserver" in window)) return;
 
+    // Two conditions: the hero action has left the screen, AND no section that
+    // already carries its own contact actions (`data-em-hides-sticky`, e.g. the
+    // closing credit) is on screen. Otherwise the bar is a second copy of the
+    // buttons right above it.
+    let heroGone = false;
+    const covering = new Set<Element>();
+    const update = () => setVisible(heroGone && covering.size === 0);
     const observer = new IntersectionObserver(
-      ([entry]) => setVisible(!entry.isIntersecting),
+      ([entry]) => {
+        heroGone = !entry.isIntersecting;
+        update();
+      },
       { threshold: 0 },
     );
     observer.observe(anchor);
-    return () => observer.disconnect();
+    const coverObserver = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) covering.add(e.target);
+        else covering.delete(e.target);
+      }
+      update();
+    });
+    document.querySelectorAll("[data-em-hides-sticky]").forEach((el) => coverObserver.observe(el));
+    return () => {
+      observer.disconnect();
+      coverObserver.disconnect();
+    };
   }, [pathname]);
 
   if (!armed) return null;

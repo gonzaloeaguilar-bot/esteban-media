@@ -66,6 +66,7 @@ function useSectionViews(ref: React.RefObject<HTMLElement | null>) {
     const root = ref.current;
     if (!root || !("IntersectionObserver" in window)) return;
     const sections = Array.from(root.querySelectorAll<HTMLElement>("[data-section-id]"));
+    if (root.dataset.sectionId) sections.push(root);
     const io = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -141,17 +142,8 @@ export function PackagesSection({ locale }: { locale: Locale }) {
                     className="em-pk-need"
                     onClick={goTo(pkg.id, "package_chooser")}
                   >
-                    <span className="em-pk-need__media">
-                      <Image
-                        src={pkg.image.src}
-                        alt=""
-                        fill
-                        sizes="(min-width: 1024px) 300px, 50vw"
-                        style={{ objectPosition: pkg.image.focal }}
-                      />
-                      <span className="em-pk-need__icon" aria-hidden="true">
-                        <Icon className="size-4" />
-                      </span>
+                    <span className="em-pk-need__icon" aria-hidden="true">
+                      <Icon className="size-5" />
                     </span>
                     <span className="em-pk-need__body">
                       <span className="em-pk-need__title">{pkg.need.title}</span>
@@ -353,8 +345,16 @@ export function ClosingCredits({ locale, children }: { locale: Locale; children?
   const copy = packagesCopy(locale).closing;
   const greeting =
     locale === "es" ? "Hola Esteban, quiero hablar de un proyecto." : "Hi Esteban, I'd like to talk about a project.";
+  const ref = useRef<HTMLElement>(null);
+  useSectionViews(ref);
   return (
-    <section className="em-close" aria-labelledby="em-close-title" data-section-id="closing_cta">
+    <section
+      ref={ref}
+      className="em-close"
+      aria-labelledby="em-close-title"
+      data-section-id="closing_cta"
+      data-em-hides-sticky
+    >
       <Image
         src="/portfolio/diana-jack.jpg"
         alt=""
@@ -384,7 +384,7 @@ export function ClosingCredits({ locale, children }: { locale: Locale; children?
             <Phone className="size-4" aria-hidden="true" />
             {copy.call}
           </a>
-          <a href={`mailto:${site.email}`} className="em-cine__cta em-cine__cta--ghost">
+          <a href={`mailto:${site.email}`} className="em-close__textlink">
             <Mail className="size-4" aria-hidden="true" />
             {copy.email}
           </a>

@@ -31,15 +31,18 @@ export function CinemaHeroMotion({ targetId }: { targetId: string }) {
     const onPlaying = () => video?.setAttribute("data-playing", "true");
     video?.addEventListener("playing", onPlaying);
     let visible = true;
-    let frame = 0;
+    /** The pending requestAnimationFrame id; 0 when no loop is scheduled. */
+    let rafId = 0;
     const started = performance.now();
     let lastFrame = -1;
 
     const pad = (n: number) => String(n).padStart(2, "0");
 
     const tick = (now: number) => {
-      frame = 0;
-      if (!visible || document.hidden) return;
+      if (!visible || document.hidden) {
+        rafId = 0;
+        return;
+      }
 
       // Scroll progress: how far the hero's own height has left the screen.
       const rect = hero.getBoundingClientRect();
@@ -56,11 +59,11 @@ export function CinemaHeroMotion({ targetId }: { targetId: string }) {
           el.textContent = `00:${pad(Math.floor(s / 60) % 60)}:${pad(s % 60)}:${pad(f)}`;
         }
       }
-      frame = requestAnimationFrame(tick);
+      rafId = requestAnimationFrame(tick);
     };
 
     const start = () => {
-      if (!frame) frame = requestAnimationFrame(tick);
+      if (!rafId) rafId = requestAnimationFrame(tick);
     };
 
     const io = new IntersectionObserver(
@@ -71,6 +74,8 @@ export function CinemaHeroMotion({ targetId }: { targetId: string }) {
           video?.play().catch(() => {});
         } else {
           video?.pause();
+          // Settle the transition instead of freezing it mid-way off screen.
+          if (entry.boundingClientRect.top < 0) hero.style.setProperty("--p", "1");
         }
       },
       { threshold: 0 },
@@ -87,7 +92,7 @@ export function CinemaHeroMotion({ targetId }: { targetId: string }) {
       io.disconnect();
       video?.removeEventListener("playing", onPlaying);
       document.removeEventListener("visibilitychange", onVisibility);
-      if (frame) cancelAnimationFrame(frame);
+      if (rafId) cancelAnimationFrame(rafId);
     };
   }, [targetId]);
 
