@@ -36,12 +36,15 @@ try {
           poster: document.querySelector('.em-cine__poster')?.complete,
           hiddenReveals: [...document.querySelectorAll('[data-em-reveal]')].filter(e => getComputedStyle(e).opacity === '0').length,
           h1: document.querySelector('h1')?.textContent,
+          layoutWidth: innerWidth,
           clipped: [...document.querySelectorAll('.em-pkcard__scene')].filter(e => getComputedStyle(e).clipPath !== 'none').length,
         };
       `);
       if (rm.anim) fail(`${tag} reduced-motion still sets rail-anim`);
       if (rm.video !== "none") fail(`${tag} reduced-motion shows video (${rm.video})`);
       if (rm.bar !== "none") fail(`${tag} reduced-motion shows letterbox bars`);
+      // A leak outside a scroller makes a phone zoom the whole page out.
+      if (rm.layoutWidth !== vp.width) fail(`${tag} layout viewport is ${rm.layoutWidth}px, not ${vp.width}px: something escapes a scroller`);
       if (!/Esteban Moreno Media/.test(rm.h1 || "")) fail(`${tag} h1 text is "${rm.h1}"`);
       if (!rm.poster) fail(`${tag} reduced-motion poster not loaded`);
       if (rm.hiddenReveals || rm.clipped) fail(`${tag} reduced-motion hides content (${rm.hiddenReveals} hidden, ${rm.clipped} clipped)`);

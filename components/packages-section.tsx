@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import {
   ArrowRight,
   Camera,
@@ -34,16 +34,6 @@ import {
 } from "@/lib/packages";
 import { site } from "@/lib/site";
 
-/** The site's one writer: name first, not gtag-style. See lib/analytics-events.ts. */
-type SiteTrack = (name: string, params?: Record<string, unknown>) => void;
-
-/** Through the site's one writer, so every event carries the shared block. */
-function track(name: string, params: Record<string, unknown>) {
-  if (typeof window === "undefined") return;
-  const send = (window as unknown as { __estebanTrack?: SiteTrack }).__estebanTrack;
-  if (typeof send === "function") send(name, params);
-}
-
 const NEED_ICONS = {
   arranque: Clapperboard,
   crecimiento: Smartphone,
@@ -60,46 +50,16 @@ const CARTE_ICONS: Record<ALaCarteItem["icon"], typeof Sparkles> = {
   workflow: Workflow,
 };
 
-/** Fires `section_view` once per tracked section, the first time it is on screen. */
-function useSectionViews(ref: React.RefObject<HTMLElement | null>) {
-  useEffect(() => {
-    const root = ref.current;
-    if (!root || !("IntersectionObserver" in window)) return;
-    const sections = Array.from(root.querySelectorAll<HTMLElement>("[data-section-id]"));
-    if (root.dataset.sectionId) sections.push(root);
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (!entry.isIntersecting) continue;
-          const id = (entry.target as HTMLElement).dataset.sectionId;
-          if (id) track("section_view", { section_id: id });
-          io.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.35 },
-    );
-    for (const s of sections) io.observe(s);
-    return () => io.disconnect();
-  }, [ref]);
-}
-
 export function PackagesSection({ locale }: { locale: Locale }) {
   const copy = packagesCopy(locale);
   const packages = packagesFor(locale);
-  const rootRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLOListElement>(null);
-  useSectionViews(rootRef);
 
   // A need card or a chip points at one package. On a phone the packages are a
   // horizontal track, so the anchor alone would scroll the page to the track
   // and leave the wrong card showing; this also slides the track to it. The
   // link stays a real #anchor, so without script it still lands.
-  const goTo = (id: PackageContent["id"], from: string) => (event: React.MouseEvent) => {
-    track("cta_click", {
-      cta_id: `${from}_${id}`,
-      cta_text: packages.find((p) => p.id === id)?.name ?? id,
-      cta_position: from,
-    });
+  const goTo = (id: PackageContent["id"]) => (event: React.MouseEvent) => {
     const card = document.getElementById(packageAnchor(id));
     const trackEl = trackRef.current;
     if (!card || !trackEl) return;
@@ -117,13 +77,13 @@ export function PackagesSection({ locale }: { locale: Locale }) {
       : `Hi Esteban, I saw your site and I'm interested in the ${name} package.`;
 
   return (
-    <div ref={rootRef} className="em-pk">
+    <div className="em-pk">
       {/* 1. The chooser: the visitor names the need before reading any package. */}
       <section
         id={locale === "es" ? "paquetes" : "packages"}
         className="em-pk-choose"
         aria-labelledby="em-pk-choose-title"
-        data-section-id="package_chooser"
+        data-section="package_chooser"
       >
         <Container size="xl">
           <p className="em-pk-eyebrow">{copy.chooser.eyebrow}</p>
@@ -140,7 +100,8 @@ export function PackagesSection({ locale }: { locale: Locale }) {
                   <a
                     href={`#${packageAnchor(pkg.id)}`}
                     className="em-pk-need"
-                    onClick={goTo(pkg.id, "package_chooser")}
+                    onClick={goTo(pkg.id)}
+                    data-cta={`package_chooser_${pkg.id}`}
                   >
                     <span className="em-pk-need__icon" aria-hidden="true">
                       <Icon className="size-5" />
@@ -166,7 +127,7 @@ export function PackagesSection({ locale }: { locale: Locale }) {
         id={locale === "es" ? "paquetes-detalle" : "packages-detail"}
         className="em-pk-scenes"
         aria-labelledby="em-pk-scenes-title"
-        data-section-id="packages"
+        data-section="packages"
       >
         <Container size="xl">
           <p className="em-pk-eyebrow em-pk-eyebrow--light">{copy.packages.eyebrow}</p>
@@ -178,7 +139,8 @@ export function PackagesSection({ locale }: { locale: Locale }) {
               <a
                 key={pkg.id}
                 href={`#${packageAnchor(pkg.id)}`}
-                onClick={goTo(pkg.id, "package_chips")}
+                onClick={goTo(pkg.id)}
+                data-cta={`package_chip_${pkg.id}`}
               >
                 <span aria-hidden="true">{pkg.number}</span> {pkg.name}
               </a>
@@ -258,13 +220,7 @@ export function PackagesSection({ locale }: { locale: Locale }) {
                       className="em-pkcard__cta"
                       target="_blank"
                       rel="noopener noreferrer"
-                      onClick={() =>
-                        track("cta_click", {
-                          cta_id: `package_${pkg.id}_whatsapp`,
-                          cta_text: copy.packages.quote(pkg.name),
-                          cta_position: "packages",
-                        })
-                      }
+                      data-cta={`package_${pkg.id}_whatsapp`}
                     >
                       <MessageCircle className="size-4" aria-hidden="true" />
                       {copy.packages.quote(pkg.name)}
@@ -278,7 +234,7 @@ export function PackagesSection({ locale }: { locale: Locale }) {
       </section>
 
       {/* 3. A la carte. */}
-      <section className="em-pk-carte" aria-labelledby="em-pk-carte-title" data-section-id="a_la_carte">
+      <section className="em-pk-carte" aria-labelledby="em-pk-carte-title" data-section="a_la_carte">
         <Container size="xl">
           <p className="em-pk-eyebrow">{copy.aLaCarte.eyebrow}</p>
           <h2 id="em-pk-carte-title" className="em-pk-title">
@@ -315,7 +271,7 @@ export function PackagesSection({ locale }: { locale: Locale }) {
       </section>
 
       {/* 4. The three steps. */}
-      <section className="em-pk-steps" aria-labelledby="em-pk-steps-title" data-section-id="quote_process">
+      <section className="em-pk-steps" aria-labelledby="em-pk-steps-title" data-section="quote_process">
         <Container size="xl">
           <p className="em-pk-eyebrow">{copy.process.eyebrow}</p>
           <h2 id="em-pk-steps-title" className="em-pk-title">
@@ -345,14 +301,11 @@ export function ClosingCredits({ locale, children }: { locale: Locale; children?
   const copy = packagesCopy(locale).closing;
   const greeting =
     locale === "es" ? "Hola Esteban, quiero hablar de un proyecto." : "Hi Esteban, I'd like to talk about a project.";
-  const ref = useRef<HTMLElement>(null);
-  useSectionViews(ref);
   return (
     <section
-      ref={ref}
       className="em-close"
       aria-labelledby="em-close-title"
-      data-section-id="closing_cta"
+      data-section="closing_cta"
       data-em-hides-sticky
     >
       <Image
@@ -373,9 +326,7 @@ export function ClosingCredits({ locale, children }: { locale: Locale; children?
             target="_blank"
             rel="noopener noreferrer"
             className="em-cine__cta em-cine__cta--primary"
-            onClick={() =>
-              track("cta_click", { cta_id: "closing_whatsapp", cta_text: copy.whatsapp, cta_position: "closing" })
-            }
+            data-cta="closing_whatsapp"
           >
             <MessageCircle className="size-4" aria-hidden="true" />
             {copy.whatsapp}

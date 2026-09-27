@@ -1,0 +1,8 @@
+web-kit brand-moment, vendored unmodified from portfolio-ops origin/main b2a4fbb (web-kit/brand-moment) on 2026-09-27.
+Do not edit here: change it in portfolio-ops/web-kit, re-sync with ~/.claude/durable/web-kit-sync.sh, copy, update hashes.
+
+066539f26e28e695655c06bfda89173be9e5a9f394adbe43f44ec1e06eafda42  boot.js
+b08570a96da684ddcde71166e36f285316c6b1b74d11a19b6f84edb08c469e29  moment.css
+e18d0ec922a8b2a2b64a4d72ed378b40d3138ea5ef4dde4417309a54d24dc002  ../../../public/web-kit/mount.js
+eba5b2e80a1af8cdd2189c67a425c3a65395883e15690946aff54f068b238843  reading-path/reading-path.css
+bf443eca33cfc27be0f9ecb4f4f715e6884792cb44a2df895158bfa7a18abb4e  ../../public/web-kit/reading-path-anchors.js

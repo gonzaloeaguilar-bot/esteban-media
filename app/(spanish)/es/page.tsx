@@ -4,7 +4,10 @@ import { ArrowRight } from "lucide-react";
 import { ClientReviews } from "@/components/client-reviews";
 import { HeroVideo } from "@/components/hero-video";
 import { HomeAuthorityHub } from "@/components/home-authority-hub";
+import { CameraIntro } from "@/components/camera-intro";
+import { CameraPlayground } from "@/components/camera-playground";
 import { PackagesSection, ClosingCredits } from "@/components/packages-section";
+import { KeepReading } from "@/components/keep-reading";
 import { PortfolioTeaser } from "@/components/portfolio-teaser";
 import { Container } from "@/components/ui/container";
 import {
@@ -25,10 +28,17 @@ export const metadata = buildPageMetadata({
 export default function SpanishHomePage() {
   return (
     <main className="bg-[#f7f5f1] text-[#101214]">
+      <CameraIntro locale="es" />
       <HeroVideo locale="es" />
+      <CameraPlayground locale="es" />
       <PackagesSection locale="es" />
       <PortfolioTeaser locale="es" />
       <ClientReviews locale="es" />
+      <KeepReading
+        id="mas"
+        title="¿Quieres ver todo?"
+        destinations="Servicios, zonas, guías y las 70 páginas por nicho."
+      >
       <HomeAuthorityHub locale="es" />
 
       <section className="py-12 sm:py-16">
@@ -95,6 +105,8 @@ export default function SpanishHomePage() {
           </ul>
         </Container>
       </section>
+
+      </KeepReading>
 
       <ClosingCredits locale="es">
         <p>

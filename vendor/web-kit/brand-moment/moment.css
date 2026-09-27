@@ -1,0 +1,55 @@
+/* wk-brand-moment — the veil and the shared chrome.
+   The brand supplies the object and its keyframes; everything here is the part
+   that was wrong on at least one site before it was written down. */
+
+/* Frame one. The attribute is set by boot.js while the document is still
+   parsing, so this paints before anything else — including a framework's own
+   route fallback, which is what put a cream LOADING screen in front of DuPont's
+   brand moment. */
+html[data-brand-moment="on"] { overflow: hidden; }
+html[data-brand-moment="on"]::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  background: var(--wk-veil, #0a0a0a);
+}
+
+.wk-moment {
+  position: fixed;
+  inset: 0;
+  /* Above every other fixed layer. Enumerate the site's real z-indexes before
+     trusting this number: Geebs had a sticky CTA at 30 and a chat widget at 50. */
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  background: var(--wk-veil, #0a0a0a);
+  color: var(--wk-ink, #f5f1eb);
+}
+
+/* A visitor must always be able to leave. 44px, not 24: this is a control
+   someone reaches for in a hurry. */
+.wk-moment-skip {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  min-height: 44px;
+  padding: 10px 18px;
+  border: 1px solid var(--wk-line, rgba(255, 255, 255, 0.22));
+  border-radius: var(--wk-radius, 999px);
+  background: transparent;
+  color: var(--wk-muted, rgba(255, 255, 255, 0.72));
+  font: 13px/1 var(--wk-sans, system-ui, sans-serif);
+  cursor: pointer;
+}
+.wk-moment-skip:focus-visible {
+  outline: 2px solid var(--wk-ink, #f5f1eb);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-brand-moment="on"]::before { display: none; }
+  html[data-brand-moment="on"] { overflow: auto; }
+  .wk-moment { display: none; }
+}
