@@ -32,6 +32,28 @@ function containsBrand(value: string): boolean {
   return value.toLowerCase().includes(site.name.toLowerCase());
 }
 
+/**
+ * Google truncates a description around 155-160 characters, so a long tail is
+ * written for nobody. Measured on production 2026-09-28: 6 of a 40-URL sample
+ * ran over, up to 280 characters — portfolio and case-study pages, whose
+ * descriptions are generated from body copy rather than written.
+ *
+ * The ceiling is 170, not 158: hand-written descriptions on this site land at
+ * 150-160 by design, and clamping those would rewrite good copy to fix bad
+ * copy. 170 leaves them untouched and still cuts the generated 179-280s.
+ *
+ * Cut on a word, never mid-word, and never add an ellipsis to something that
+ * already ends in punctuation.
+ */
+export function clampDescription(value: string, max = 170): string {
+  const text = value.replace(/\s+/g, " ").trim();
+  if (text.length <= max) return text;
+  const cut = text.slice(0, max - 1);
+  const atWord = cut.slice(0, cut.lastIndexOf(" "));
+  const body = (atWord.length > max * 0.6 ? atWord : cut).replace(/[\s,;:—-]+$/, "");
+  return /[.!?]$/.test(body) ? body : `${body}…`;
+}
+
 export function buildPageMetadata({
   title,
   description,
@@ -43,10 +65,11 @@ export function buildPageMetadata({
 }: PageMetadataOptions): Metadata {
   const titleAlreadyBranded = containsBrand(title);
   const socialTitle = titleAlreadyBranded ? title : `${title} | ${site.name}`;
+  const metaDescription = clampDescription(description);
 
   return {
     title: titleAlreadyBranded ? { absolute: title } : title,
-    description,
+    description: metaDescription,
     alternates: {
       canonical: path,
       languages,
@@ -56,14 +79,14 @@ export function buildPageMetadata({
       url: absoluteUrl(path),
       siteName: site.name,
       title: socialTitle,
-      description,
+      description: metaDescription,
       locale: locale === "es" ? "es_US" : "en_US",
       images,
     },
     twitter: {
       card: "summary_large_image",
       title: socialTitle,
-      description,
+      description: metaDescription,
       images: images.map((image) => image.url),
     },
     // Pages carrying a 2026-08-12 NOINDEX decision: Google saw them, declined

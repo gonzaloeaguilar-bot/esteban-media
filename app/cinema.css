@@ -1244,11 +1244,85 @@ html.rail-anim .em-pk-steps__list.rail-reveal.is-in li:nth-child(3) { transition
   62% { opacity: 1; }
   100% { opacity: 0; transform: scale(1.06); }
 }
-/* Through the glass: the whole moment dissolves onto the hero footage. */
-.wk-moment.is-through {
-  transition: opacity 0.55s var(--cine-ease), transform 0.55s var(--cine-ease);
+/* ------------------------------------------------------------------ iris ---
+   Through the glass: the lens opens ALL the way onto the hero.
+
+   Until now this was a cross-fade with a scale — the moment simply dissolved,
+   which is the one gesture a lens does not make. The aperture is a mask that
+   opens from the middle plus six blades that swing out of the way, so the last
+   thing the visitor sees is the lens opening onto his footage.
+
+   The mask animates mask-size, a plain length pair, so no @property
+   registration is needed and a browser without mask support just sees the
+   moment fade (the opacity leg below runs either way).
+   -------------------------------------------------------------------------- */
+.em-iris {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: #050607;
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, transparent 48%, #000 50%);
+  mask-image: radial-gradient(circle at 50% 50%, transparent 48%, #000 50%);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: 0% 0%;
+  mask-size: 0% 0%;
   opacity: 0;
-  transform: scale(1.08);
+}
+/* The blades: six wedges meeting at the middle, drawn dark over the glass. */
+.em-iris i {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 150vmax;
+  height: 150vmax;
+  margin: -75vmax 0 0 -75vmax;
+  background: conic-gradient(from calc(var(--b) * 60deg), rgba(5, 6, 7, 0.92) 0deg 26deg, transparent 26deg 360deg);
+  transform: rotate(0deg) scale(1);
+  transform-origin: 50% 50%;
+  opacity: 0;
+}
+
+/* For the hole to show the HERO and not the 3D scene, everything under the
+   iris has to go as the iris opens: the veil's own background, the lens
+   backdrop and the canvas. Measured first: the hole was opening onto the
+   camera scene, because .wk-moment carries an opaque --wk-veil background. */
+.wk-moment.is-through { background: transparent; }
+.wk-moment.is-through .em-lens,
+.wk-moment.is-through .em-lens__canvas,
+.wk-moment.is-through .em-lens__title {
+  transition: opacity 0.22s linear;
+  opacity: 0;
+}
+.wk-moment.is-through .em-iris {
+  animation: em-iris-open 0.6s cubic-bezier(0.22, 0.61, 0.24, 1) forwards;
+}
+.wk-moment.is-through .em-iris i {
+  animation: em-iris-blade 0.6s cubic-bezier(0.22, 0.61, 0.24, 1) forwards;
+}
+@keyframes em-iris-open {
+  0% { opacity: 1; -webkit-mask-size: 0% 0%; mask-size: 0% 0%; }
+  100% { opacity: 1; -webkit-mask-size: 340% 340%; mask-size: 340% 340%; }
+}
+@keyframes em-iris-blade {
+  0% { opacity: 1; transform: rotate(0deg) scale(1); }
+  70% { opacity: 0.55; }
+  100% { opacity: 0; transform: rotate(22deg) scale(1.35); }
+}
+
+/* What is left of the moment clears once the iris has finished opening. */
+.wk-moment.is-through {
+  transition: opacity 0.2s linear 0.58s;
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .em-iris,
+  .em-iris i { animation: none !important; opacity: 0 !important; }
+  .wk-moment.is-through { transition: opacity 0.2s linear; transform: none; }
 }
 
 /* ------------------------------------------------- touchable 3D camera ---- */
@@ -1429,6 +1503,29 @@ html.rail-anim .em-play__dot::before {
   pointer-events: none;
 }
 .em-play__card[data-open="true"] { transform: none; opacity: 1; pointer-events: auto; }
+/* The way out. The card used to have none: it closed only by tapping the same
+   hotspot again or Reset, and on a phone it sits over the camera you tapped. */
+.em-play__card-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(16, 18, 20, 0.08);
+  color: #2a2e32;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s var(--cine-ease);
+  -webkit-tap-highlight-color: transparent;
+}
+.em-play__card-close:hover { background: rgba(16, 18, 20, 0.16); }
+.em-play__card-close:active { transform: scale(0.92); }
+.em-play__card-close:focus-visible { outline: 2px solid var(--cine-accent-deep); outline-offset: 2px; }
+/* Room for it, so it never sits on the kicker. */
+.em-play__card-kicker { padding-right: 34px; }
 @media (min-width: 1024px) {
   .em-play__card { left: auto; right: 24px; bottom: 24px; width: 380px; }
 }
@@ -1564,4 +1661,75 @@ html.rail-anim .em-play__dot::before {
 @media (max-width: 1023px) and (max-height: 620px) {
   .em-pkcard__scene { display: none; }
   .em-pkcard__headline { display: none; }
+}
+
+/* Nothing ends underneath the floating bar: the last block of every page keeps
+   the bar's height as breathing room, so a page read to the end never finishes
+   behind it. */
+@media (max-width: 1023px) {
+  body { padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px)); }
+}
+
+/* ----------------------------------------------------------------- motion --
+   More of it, and all of it from the kit's states.
+
+   Stagger: a row of cards that arrives together reads as a screen repainting;
+   the same row arriving one after another reads as a hand dealing them. The
+   kit owns .rail-reveal / .is-in, so the only thing added here is the delay.
+   Capped at six so the last card is never left waiting.
+   -------------------------------------------------------------------------- */
+html.rail-anim .em-pk-needs.rail-reveal li,
+html.rail-anim .em-pk-carte__grid.rail-reveal li {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.66s var(--cine-ease),
+    transform 0.66s var(--cine-ease);
+}
+html.rail-anim .em-pk-needs.rail-reveal.is-in li,
+html.rail-anim .em-pk-carte__grid.rail-reveal.is-in li {
+  opacity: 1;
+  transform: none;
+}
+html.rail-anim .em-pk-needs.rail-reveal.is-in li:nth-child(2),
+html.rail-anim .em-pk-carte__grid.rail-reveal.is-in li:nth-child(2) { transition-delay: 0.07s; }
+html.rail-anim .em-pk-needs.rail-reveal.is-in li:nth-child(3),
+html.rail-anim .em-pk-carte__grid.rail-reveal.is-in li:nth-child(3) { transition-delay: 0.14s; }
+html.rail-anim .em-pk-needs.rail-reveal.is-in li:nth-child(4),
+html.rail-anim .em-pk-carte__grid.rail-reveal.is-in li:nth-child(4) { transition-delay: 0.21s; }
+html.rail-anim .em-pk-needs.rail-reveal.is-in li:nth-child(5),
+html.rail-anim .em-pk-carte__grid.rail-reveal.is-in li:nth-child(5) { transition-delay: 0.28s; }
+html.rail-anim .em-pk-needs.rail-reveal.is-in li:nth-child(n + 6),
+html.rail-anim .em-pk-carte__grid.rail-reveal.is-in li:nth-child(n + 6) { transition-delay: 0.35s; }
+
+/* Touch answers where the finger is, on every list row — the kit's cards do
+   this, these hand-rolled rows did not. */
+.em-pk-need,
+.em-pk-carte__item {
+  transition:
+    transform 0.28s cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 0.28s cubic-bezier(0.2, 0.7, 0.2, 1),
+    border-color 0.2s;
+}
+.em-pk-need:active,
+a.em-pk-carte__item:active {
+  transform: scale(0.985);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* The arrow leans into the tap. */
+.em-pk-carte__go,
+.em-pk-need__go svg {
+  transition: transform 0.28s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+a.em-pk-carte__item:hover .em-pk-carte__go,
+a.em-pk-carte__item:active .em-pk-carte__go,
+.em-pk-need:hover .em-pk-need__go svg,
+.em-pk-need:active .em-pk-need__go svg { transform: translateX(3px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .em-pk-need,
+  .em-pk-carte__item,
+  .em-pk-carte__go,
+  .em-pk-need__go svg { transition: none; }
 }

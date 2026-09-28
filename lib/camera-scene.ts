@@ -49,6 +49,7 @@ const HDR_URL = "/3d/studio_small_08_512.hdr";
 const SCALE = 15;
 
 const ease = (t: number) => 1 - Math.pow(1 - Math.min(1, Math.max(0, t)), 3);
+const clamp01 = (t: number) => Math.min(1, Math.max(0, t));
 const easeInOut = (t: number) => {
   const x = Math.min(1, Math.max(0, t));
   return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
@@ -317,26 +318,63 @@ export async function createCameraScene(opts: CameraSceneOptions): Promise<Camer
     lastTime = now;
 
     if (mode === "intro") {
-      // 0–1.6s: out of the dark, swinging round to face the visitor.
-      // 1.4–2.9s: push into the main lens until the glass goes dark.
+      // The opening, as a camera operator would shoot it:
+      //   0.0-1.5  out of the dark, swinging round to face the visitor
+      //   0.9-1.8  the TURRET turns a lens into place, and settles
+      //   1.5-2.2  a focus rack: the barrel turns, the frame breathes
+      //   2.0-3.2  the push into the glass
+      //   3.2      through — the iris opens on the hero (CSS, camera-intro)
       const t = (now - start) / 1000;
-      const a = easeInOut(t / 1.6);
-      rig.rotation.set(THREE.MathUtils.lerp(0.25, 0, a), THREE.MathUtils.lerp(-1.25, 0, a), THREE.MathUtils.lerp(-0.12, 0, a));
+      const a = easeInOut(t / 1.5);
+      // A held camera is never perfectly still. 0.9mm of drift, two rates, so
+      // it reads as a hand rather than a rig.
+      const driftX = Math.sin(t * 1.7) * 0.012 + Math.sin(t * 0.7) * 0.008;
+      const driftY = Math.cos(t * 1.3) * 0.010;
+      rig.rotation.set(
+        THREE.MathUtils.lerp(0.25, 0, a) + driftY * 0.5,
+        THREE.MathUtils.lerp(-1.25, 0, a) + driftX * 0.5,
+        THREE.MathUtils.lerp(-0.12, 0, a),
+      );
+
+      // The scan is ONE mesh (vintage_video_camera, a single Cube.029): it has
+      // no turret node and no barrel node, so nothing inside it can be turned.
+      // Checked before writing this, and the detail therefore lives in the
+      // MOVE, not in fake mechanics:
+      //   - the body rolls into frame and settles, like a camera being set down
+      //   - the operator racks focus (the frame breathes)
+      //   - the whole approach is an arc, not a straight line
+      const rollT = clamp01((t - 0.7) / 1.0);
+      const settle = rollT < 1 ? Math.sin(rollT * Math.PI * 3) * 0.055 * (1 - rollT) : 0;
+      rig.rotation.z += -(easeInOut(rollT) * 0.16 + settle) * (1 - clamp01((t - 2.0) / 1.2));
+
+      // The focus rack: the frame breathes in, then holds, before the push.
+      const focusT = clamp01((t - 1.5) / 0.7);
+
       rig.updateMatrixWorld(true);
       parts.turret.getWorldPosition(lensWorld); // the big lens of the turret
-      const push = easeInOut((t - 1.4) / 1.5);
-      approach.set(THREE.MathUtils.lerp(2.2, 0.2, a), THREE.MathUtils.lerp(1.4, 0.3, a), THREE.MathUtils.lerp(10, 6.5, a));
+      const push = easeInOut((t - 2.0) / 1.2);
+      // An arc, not a rail: the approach swings out before it comes in, which
+      // is what a dolly move looks like and a lerp never does.
+      const arc = Math.sin(a * Math.PI) * 0.9;
+      approach.set(
+        THREE.MathUtils.lerp(2.2, 0.2, a) + arc,
+        THREE.MathUtils.lerp(1.4, 0.3, a) + arc * 0.25,
+        THREE.MathUtils.lerp(10, 6.5, a),
+      );
       into.copy(lensWorld).add(origin.set(0, 0, 1.1));
       view.position.lerpVectors(approach, into, push);
-      view.fov = THREE.MathUtils.lerp(28, 16, push);
+      // 28 -> 25.4 on the rack (the breath), then 16 on the push.
+      view.fov = THREE.MathUtils.lerp(28 - focusT * 2.6, 16, push) + driftY * 2;
       view.updateProjectionMatrix();
       look.set(0, 0, 0).lerp(lensWorld, Math.min(1, push * 1.4));
       view.lookAt(look);
       key.intensity = 1.2 * ease(t / 0.9);
       rim.intensity = 1.4 * ease((t - 0.2) / 0.9);
       warm.intensity = 2.5 * ease((t - 0.8) / 1.0);
+      // The glass catches the key light as the barrel turns.
+      key.intensity += focusT * (1 - push) * 0.5;
       renderer.toneMappingExposure = ease(t / 0.8) * (1 - push * 0.9);
-      if (t > 2.95 && !introDone) {
+      if (t > 3.2 && !introDone) {
         introDone = true;
         opts.onIntroDone?.();
       }

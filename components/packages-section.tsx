@@ -75,7 +75,7 @@ export function PackagesSection({ locale }: { locale: Locale }) {
           </h2>
           <p className="em-pk-lead">{copy.chooser.lead}</p>
 
-          <ul className="em-pk-needs" role="list">
+          <ul className="em-pk-needs" role="list" data-em-reveal>
             {packages.map((pkg) => {
               return (
                 <li key={pkg.id} data-em-reveal>
@@ -220,7 +220,7 @@ export function PackagesSection({ locale }: { locale: Locale }) {
             {copy.aLaCarte.title}
           </h2>
           <p className="em-pk-lead">{copy.aLaCarte.lead}</p>
-          <ul className="em-pk-carte__grid" role="list">
+          <ul className="em-pk-carte__grid" role="list" data-em-reveal>
             {copy.aLaCarte.items.map((item) => {
               const inner = (
                 <>
