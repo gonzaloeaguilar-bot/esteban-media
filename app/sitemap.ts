@@ -23,6 +23,7 @@ import { absoluteUrl } from "@/lib/site";
 
 export const sitemapRoutes = [
   { path: "/", priority: 1 },
+  { path: "/pricing", priority: 0.95 },
   { path: "/calculator", priority: 0.9 },
   { path: "/resources/social-video-kit", priority: 0.9 },
   { path: "/assessment", priority: 0.9 },

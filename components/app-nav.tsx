@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 import { Clapperboard, Home, MessageCircle, Package, Search } from "lucide-react";
 
 import RailBottomNav from "@/vendor/rail-kit/RailBottomNav";
@@ -17,12 +18,35 @@ import { site } from "@/lib/site";
  */
 export function AppNav() {
   const pathname = usePathname();
+
+  // The closing section offers the same three actions the bar does, and on a
+  // phone the floating bar sat over the package price. `data-em-hides-sticky`
+  // was already in the markup and nothing read it, so the bar never moved.
+  useEffect(() => {
+    const targets = document.querySelectorAll("[data-em-hides-sticky]");
+    const nav = document.querySelector<HTMLElement>(".em-appnav");
+    if (!nav || targets.length === 0 || typeof IntersectionObserver !== "function") return;
+    const visible = new Set<Element>();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) visible.add(entry.target);
+          else visible.delete(entry.target);
+        }
+        if (visible.size > 0) nav.setAttribute("data-hidden", "");
+        else nav.removeAttribute("data-hidden");
+      },
+      { threshold: 0.2 },
+    );
+    targets.forEach((t) => observer.observe(t));
+    return () => observer.disconnect();
+  }, [pathname]);
   const es = pathname === "/es" || pathname.startsWith("/es/");
   const home = es ? "/es" : "/";
 
   const items = [
     { id: "home", label: es ? "Inicio" : "Home", href: home, icon: <Home /> },
-    { id: "packages", label: es ? "Paquetes" : "Packages", href: `${home === "/" ? "" : home}#${es ? "paquetes" : "packages"}`, icon: <Package /> },
+    { id: "packages", label: es ? "Paquetes" : "Packages", href: es ? "/es/precios" : "/pricing", icon: <Package /> },
     { id: "search", label: es ? "Buscar" : "Search", href: "#buscar", icon: <Search /> },
     { id: "work", label: es ? "Trabajo" : "Work", href: es ? "/es/portafolio" : "/portfolio", icon: <Clapperboard /> },
     {

@@ -3,22 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
-import {
-  ArrowRight,
-  Camera,
-  Check,
-  Clapperboard,
-  Gauge,
-  Globe,
-  Mail,
-  MapPin,
-  MessageCircle,
-  Phone,
-  Smartphone,
-  Sparkles,
-  Wand2,
-  Workflow,
-} from "lucide-react";
+import { ArrowRight, Check, Mail, MessageCircle, Phone } from "lucide-react";
 
 import RailFaq from "@/vendor/rail-kit/RailFaq";
 import RailPrice from "@/vendor/rail-kit/RailPrice";
@@ -31,28 +16,16 @@ import {
   packagesFor,
   priceFor,
   whatsappHref,
-  type ALaCarteItem,
   type Locale,
   type PackageContent,
 } from "@/lib/packages";
 import { entityIds } from "@/lib/entity-schema";
 import { absoluteUrl, site } from "@/lib/site";
 
-const NEED_ICONS = {
-  arranque: Clapperboard,
-  crecimiento: Smartphone,
-  "presencia-local": MapPin,
-  "todo-incluido": Globe,
-} as const;
-
-const CARTE_ICONS: Record<ALaCarteItem["icon"], typeof Sparkles> = {
-  sparkles: Sparkles,
-  camera: Camera,
-  wand: Wand2,
-  map: MapPin,
-  gauge: Gauge,
-  workflow: Workflow,
-};
+/* The icon medallions are gone on purpose: a black rounded-square tile per row
+   (and a sparkle for "IA") is the stock SaaS card device, and the chooser is
+   now a compact list. lib/packages.ts still carries the `icon` field for any
+   future surface that wants one. */
 
 export function PackagesSection({ locale }: { locale: Locale }) {
   const copy = packagesCopy(locale);
@@ -98,7 +71,6 @@ export function PackagesSection({ locale }: { locale: Locale }) {
 
           <ul className="em-pk-needs" role="list">
             {packages.map((pkg) => {
-              const Icon = NEED_ICONS[pkg.id];
               return (
                 <li key={pkg.id} data-em-reveal>
                   <a
@@ -107,9 +79,6 @@ export function PackagesSection({ locale }: { locale: Locale }) {
                     onClick={goTo(pkg.id)}
                     data-cta={`package_chooser_${pkg.id}`}
                   >
-                    <span className="em-pk-need__icon" aria-hidden="true">
-                      <Icon className="size-5" />
-                    </span>
                     <span className="em-pk-need__body">
                       <span className="em-pk-need__title">{pkg.need.title}</span>
                       <span className="em-pk-need__line">{pkg.need.line}</span>
@@ -247,15 +216,11 @@ export function PackagesSection({ locale }: { locale: Locale }) {
           <p className="em-pk-lead">{copy.aLaCarte.lead}</p>
           <ul className="em-pk-carte__grid" role="list">
             {copy.aLaCarte.items.map((item) => {
-              const Icon = CARTE_ICONS[item.icon];
               const inner = (
                 <>
-                  <span className="em-pk-carte__icon" aria-hidden="true">
-                    <Icon className="size-5" />
-                  </span>
                   <span className="em-pk-carte__title">{item.title}</span>
                   {item.note && <span className="em-pk-carte__note">{item.note}</span>}
-                  {item.href && <ArrowRight className="em-pk-carte__go size-4" aria-hidden="true" />}
+                  <ArrowRight className="em-pk-carte__go size-4" aria-hidden="true" />
                 </>
               );
               return (
@@ -371,7 +336,9 @@ export function ClosingCredits({ locale, children }: { locale: Locale; children?
         </div>
         {children && <div className="em-close__more">{children}</div>}
         <p className="em-close__sign" aria-hidden="true">
-          Esteban Moreno Media · Content · Production · Digital
+          {locale === "es"
+            ? "Esteban Moreno Media · Contenido · Producción · Digital"
+            : "Esteban Moreno Media · Content · Production · Digital"}
         </p>
       </Container>
     </section>

@@ -1,6 +1,7 @@
 const pairedLanguageRoutes: Record<string, string> = {
   "/": "/es",
   "/services": "/es/servicios",
+  "/pricing": "/es/precios",
   "/services/conversion-websites": "/es/sitios-web-de-conversion",
   "/services/ai-lead-capture-automation": "/es/captura-y-automatizacion-de-clientes-con-ia",
   "/services/local-presence-seo": "/es/presencia-local-seo",

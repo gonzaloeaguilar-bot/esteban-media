@@ -11,7 +11,7 @@ import { spanishNichePages } from "@/lib/spanish-site";
 const CORE: Record<Locale, { id: string; title: string; href: string; keywords?: string[] }[]> = {
   es: [
     { id: "inicio", title: "Inicio", href: "/es" },
-    { id: "paquetes", title: "Paquetes y precios", href: "/es#paquetes", keywords: ["precio", "cuanto cuesta", "tarifa", "cotizar"] },
+    { id: "paquetes", title: "Paquetes y precios", href: "/es/precios", keywords: ["precio", "cuanto cuesta", "tarifa", "cotizar"] },
     { id: "portafolio", title: "Portafolio", href: "/es/portafolio", keywords: ["trabajos", "videos", "ejemplos"] },
     { id: "casos", title: "Casos de estudio", href: "/es/casos-de-estudio" },
     { id: "servicios", title: "Servicios", href: "/es/servicios" },
@@ -23,7 +23,7 @@ const CORE: Record<Locale, { id: string; title: string; href: string; keywords?:
   ],
   en: [
     { id: "home", title: "Home", href: "/" },
-    { id: "packages", title: "Packages & prices", href: "/#packages", keywords: ["price", "cost", "rates", "quote"] },
+    { id: "packages", title: "Packages & prices", href: "/pricing", keywords: ["price", "cost", "rates", "quote"] },
     { id: "portfolio", title: "Portfolio", href: "/portfolio", keywords: ["work", "videos", "examples"] },
     { id: "cases", title: "Case studies", href: "/case-studies" },
     { id: "services", title: "Services", href: "/services" },

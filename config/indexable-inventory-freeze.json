@@ -1,10 +1,10 @@
 {
   "status": "demand_gated",
   "effectiveDate": "2026-08-28",
-  "baselineRevisedOn": "2026-08-19",
-  "approvedSitemapUrlCount": 244,
-  "approvedSitemapUrlSetSha256": "7f7789686f9ed0dcfd16f0a8fb9a455b7a21c7326287f0b147193e2651970b33",
-  "allowedNewIndexableUrls": 1,
+  "baselineRevisedOn": "2026-09-27",
+  "approvedSitemapUrlCount": 246,
+  "approvedSitemapUrlSetSha256": "42339ef7b1c904752d73dd6881c0503454bf3edf99fedc664e608cf6f836c75c",
+  "allowedNewIndexableUrls": 2,
   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {
     "on": "2026-08-19",
@@ -42,6 +42,19 @@
       "demandEvidence": "NONE. This is an owner-ordered affiliate/monetization page, not a demand-backed SEO page. It consumes one of the two allowed new indexable URLs WITHOUT the GSC query/impression signal the freeze reason requires. Recorded here so the exception is visible rather than silent.",
       "followUpDate": "2026-10-16",
       "followUp": "Check GSC for impressions on /desk-recommendations. If still zero at 30 days, this URL is dead weight and should be noindexed or merged."
+    },
+    {
+      "on": "2026-09-27",
+      "url": [
+        "/pricing",
+        "/es/precios"
+      ],
+      "orderedBy": "Gonzalo (in-session)",
+      "kind": "commercial-intent surface",
+      "demandEvidence": "NO NEW GSC QUERY CITED. These two URLs do not add new content: the packages and their starting prices were already rendered on / and /es as a homepage section, reachable only by anchor, so no URL could be linked, shared, searched or indexed as 'what it costs'. The pair gives that existing content an addressable URL for commercial 'pricing / precios / cuanto cuesta' intent the site otherwise answers only through the estimator at /calculator and /es/calculadora. Recorded as owner-ordered rather than demand-backed so the exception stays visible.",
+      "note": "Counted as two URLs because the freeze applies NOINDEX and indexation decisions symmetrically across a bilingual pair; allowedNewIndexableUrls raised 1 -> 2 for this pair, still within the 1-3 bound the gate test enforces.",
+      "followUpDate": "2026-10-27",
+      "followUp": "Check GSC for impressions and clicks on /pricing and /es/precios. If either is at zero impressions at 30 days, it is not earning its place in the inventory: keep it as an internally linked page and drop it from the sitemap."
     }
   ]
 }

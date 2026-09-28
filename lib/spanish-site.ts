@@ -2802,6 +2802,7 @@ export const spanishNichePages: SpanishNichePage[] = [
 export const spanishCoreRoutes = [
   "/es",
   "/es/servicios",
+  "/es/precios",
   "/es/portafolio",
   "/es/areas",
   "/es/areas/palm-beach-county",
@@ -2813,6 +2814,16 @@ export const spanishCoreRoutes = [
 ];
 
 export const languageAlternates: Record<string, Record<string, string>> = {
+  "/pricing": {
+    "en-US": "/pricing",
+    "es-US": "/es/precios",
+    "x-default": "/pricing",
+  },
+  "/es/precios": {
+    "en-US": "/pricing",
+    "es-US": "/es/precios",
+    "x-default": "/pricing",
+  },
   "/daily-script-pacing-calculator": {
     "en-US": "/daily-script-pacing-calculator",
     "es-US": "/es/calculadora-de-ritmo-de-video",
