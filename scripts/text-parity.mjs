@@ -46,6 +46,27 @@ if (!["snapshot", "check"].includes(mode) || !buildDir || !file) {
 /** Only the routes this change touches. */
 const SCOPE = /^es\/[^/]+\.html$/;
 
+/**
+ * Routes whose copy is DERIVED FROM THE DATE, and which therefore change on
+ * their own every midnight.
+ *
+ * Keeping them in the fixture made this gate fail every single day for a
+ * reason that was never a defect — and a gate that cries wolf daily is a gate
+ * everyone learns to repaint without reading. The components pick their text
+ * from `Math.floor(Date.now() / 86_400_000)`; see components/daily-*.tsx.
+ *
+ * This is an exclusion with a reason, not a silencer: if one of these pages
+ * loses its shell, the other gates (the route tests, the build, the browser
+ * checks) still see it.
+ */
+const DATE_DRIVEN = new Set([
+  "es/prompt-de-publicacion-diaria.html",
+  "es/planificador-de-ganchos-de-video.html",
+  "es/planificador-de-tomas-de-video.html",
+  "es/calculadora-de-ritmo-de-video.html",
+  "es/temporizador-de-guiones-de-video.html",
+]);
+
 function walk(dir, out = []) {
   for (const name of readdirSync(dir)) {
     const p = join(dir, name);
@@ -54,6 +75,8 @@ function walk(dir, out = []) {
   }
   return out;
 }
+
+const inScope = (route) => SCOPE.test(route) && !DATE_DRIVEN.has(route);
 
 const decodeEntities = (s) =>
   s
@@ -119,7 +142,7 @@ function fingerprint(html) {
 
 const files = walk(buildDir)
   .map((p) => [relative(buildDir, p), p])
-  .filter(([rel]) => SCOPE.test(rel))
+  .filter(([rel]) => inScope(rel))
   .sort(([a], [b]) => a.localeCompare(b));
 
 const current = {};
@@ -190,6 +213,10 @@ const problems = [];
 
 const seen = new Set(Object.keys(current));
 for (const route of Object.keys(baseline)) {
+  // A date-driven route that is still in an older fixture is not a missing
+  // page; it is an entry this gate stopped owning. Drop it quietly rather than
+  // report a disappearance that never happened.
+  if (DATE_DRIVEN.has(route)) continue;
   if (!seen.has(route)) {
     problems.push(`${route}: route disappeared from the build`);
     continue;

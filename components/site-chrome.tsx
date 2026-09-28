@@ -45,7 +45,7 @@ export const siteBodyClassName = `${geistSans.variable} ${geistMono.variable} ${
 // Renamed with the opening it belongs to: the key is what marks a tab as
 // "already saw it", so a new name means every visitor gets the edit bay once,
 // including the ones who had already seen the camera.
-export const MOMENT_KEY = "em_bay_moment";
+export const MOMENT_KEY = "em_signal_moment";
 const BRAND_MOMENT_BOOT = `${BRAND_MOMENT_BOOT_JS}
 wkBrandMoment({ key: "${MOMENT_KEY}", only: ["/", "/es"], failsafeMs: 8000 });`;
 

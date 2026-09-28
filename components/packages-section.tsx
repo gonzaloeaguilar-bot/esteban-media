@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
+import { useState } from "react";
 import { ArrowRight, Check, Mail, MessageCircle, Phone } from "lucide-react";
 
 import RailFaq from "@/vendor/rail-kit/RailFaq";
@@ -30,28 +30,30 @@ import { absoluteUrl, site } from "@/lib/site";
 export function PackagesSection({ locale }: { locale: Locale }) {
   const copy = packagesCopy(locale);
   const packages = packagesFor(locale);
-  const trackRef = useRef<HTMLOListElement>(null);
+  const [open, setOpen] = useState<PackageContent["id"] | null>(null);
 
-  // A need card or a chip points at one package. On a phone the packages are a
-  // horizontal track, so the anchor alone would scroll the page to the track
-  // and leave the wrong card showing; this also slides the track to it. The
-  // link stays a real #anchor, so without script it still lands.
-  const goTo = (id: PackageContent["id"]) => (event: React.MouseEvent) => {
-    const card = document.getElementById(packageAnchor(id));
-    const trackEl = trackRef.current;
-    if (!card || !trackEl) return;
-    event.preventDefault();
-    const reduced = !document.documentElement.classList.contains("rail-anim");
-    trackEl.scrollTo({ left: card.offsetLeft - trackEl.offsetLeft - 16, behavior: reduced ? "auto" : "smooth" });
-    // The hash below makes public/web-kit/reading-path-anchors.js land the
-    // card: it re-runs scrollIntoView until the target holds still, so it wins
-    // over any scroll set here. The clearance under the sticky header is
-    // therefore CSS — .em-pkcard's scroll-margin-top — not a number computed in
-    // this handler (measured 2026-09-28: a window.scrollTo here was overridden
-    // within ~200ms, every time).
-    const section = document.getElementById(locale === "es" ? "paquetes-detalle" : "packages-detail");
-    section?.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" });
+  /**
+   * One card opens at a time, and opening one keeps it under your thumb.
+   *
+   * There is no navigation left in this section: the card you tapped grows in
+   * place. That is why the horizontal track, the chips and the anchor-landing
+   * handler are gone — they existed to move the visitor between a chooser and
+   * a second section that showed the same four photos again.
+   */
+  const choose = (id: PackageContent["id"]) => {
+    const next = open === id ? null : id;
+    setOpen(next);
+    if (!next) return;
     history.replaceState(null, "", `#${packageAnchor(id)}`);
+    // Keep the card's top where the eye already is, under the sticky header.
+    window.requestAnimationFrame(() => {
+      const el = document.getElementById(packageAnchor(id));
+      const header = document.querySelector("header");
+      if (!el) return;
+      const top = window.scrollY + el.getBoundingClientRect().top - (header?.getBoundingClientRect().height ?? 64) - 12;
+      const reduced = !document.documentElement.classList.contains("rail-anim");
+      window.scrollTo({ top, behavior: reduced ? "auto" : "smooth" });
+    });
   };
 
   const quoteText = (name: string) =>
@@ -61,155 +63,144 @@ export function PackagesSection({ locale }: { locale: Locale }) {
 
   return (
     <div className="em-pk">
-      {/* 1. The chooser: the visitor names the need before reading any package. */}
+      {/* 1 + 2. ONE guided section: you pick what you need, and the card you
+          picked BECOMES the package. It used to be two sections — a chooser,
+          then a track of package cards — which showed the same four photos
+          twice in a row and made the visitor navigate between them. Now the
+          photo appears once, on a card that grows. */}
       <section
+        // #paquetes / #packages, because that is what the hero's primary CTA
+        // has always pointed at. Merging the chooser into this section deleted
+        // the element that carried those ids, and the main call to action on
+        // the home page quietly led nowhere — no error, no jump, nothing.
         id={locale === "es" ? "paquetes" : "packages"}
-        className="em-pk-choose"
-        aria-labelledby="em-pk-choose-title"
-        data-section="package_chooser"
+        className="em-pk-guide"
+        aria-labelledby="em-pk-guide-title"
+        data-section="packages"
       >
         <Container size="xl">
           <p className="em-pk-eyebrow">{copy.chooser.eyebrow}</p>
-          <h2 id="em-pk-choose-title" className="em-pk-title">
+          <h2 id="em-pk-guide-title" className="em-pk-title">
             {copy.chooser.title}
           </h2>
           <p className="em-pk-lead">{copy.chooser.lead}</p>
 
-          <ul className="em-pk-needs" role="list" data-em-reveal>
+          <ol className="em-pk-cards" role="list" data-open={open ?? "none"}>
             {packages.map((pkg) => {
+              const price = priceFor(pkg.id);
+              const isOpen = open === pkg.id;
+              const anchor = packageAnchor(pkg.id);
               return (
-                <li key={pkg.id} data-em-reveal>
-                  <a
-                    href={`#${packageAnchor(pkg.id)}`}
-                    className="em-pk-need"
-                    onClick={goTo(pkg.id)}
-                    data-cta={`package_chooser_${pkg.id}`}
+                <li
+                  key={pkg.id}
+                  id={anchor}
+                  className="em-pk-card"
+                  data-state={isOpen ? "open" : open ? "folded" : "idle"}
+                  data-scene={pkg.id === "todo-incluido" ? "screenshot" : undefined}
+                  data-em-reveal
+                >
+                  {/* The WAI-ARIA accordion shape: a heading that contains the
+                      control. The first pass put the package name in a span,
+                      which silently flattened the page's outline — text-parity
+                      caught the four lost h3s. */}
+                  <h3 className="em-pk-card__h">
+                  <button
+                    type="button"
+                    className="em-pk-card__head"
+                    aria-expanded={isOpen}
+                    aria-controls={`${anchor}-body`}
+                    // The heading wraps the whole card face, so without this
+                    // the h3 announces "01 Paquete Arranque Edición remota Ya
+                    // tengo videos Necesito que alguien los edite y los
+                    // convierta en contenido..." — a paragraph where a screen
+                    // reader's heading list needs a name.
+                    aria-label={`${copy.packages.packageWord} ${pkg.name}`}
+                    onClick={() => choose(pkg.id)}
+                    data-cta={`package_open_${pkg.id}`}
                   >
-                    <span className="em-pk-need__body">
-                      <span className="em-pk-need__title">{pkg.need.title}</span>
-                      <span className="em-pk-need__line">{pkg.need.line}</span>
-                      <span className="em-pk-need__go">
-                        {copy.chooser.cta(pkg.name)}
-                        <ArrowRight className="size-3.5" aria-hidden="true" />
+                    <span className="em-pk-card__scene">
+                      <Image
+                        src={pkg.image.src}
+                        alt={pkg.image.alt}
+                        fill
+                        sizes="(min-width: 1024px) 560px, 92vw"
+                        style={{ objectPosition: pkg.image.sceneFocal ?? pkg.image.focal }}
+                      />
+                      <span className="em-pk-card__credit">
+                        <span className="em-pkcard__number">{pkg.number}</span>
+                        <span className="em-pkcard__word">{copy.packages.packageWord}</span>
+                        <span className="em-pkcard__name" id={`${anchor}-name`}>
+                          {pkg.name}
+                        </span>
+                        <span className="em-pkcard__subtitle">{pkg.subtitle}</span>
                       </span>
                     </span>
-                  </a>
+                    <span className="em-pk-card__need">
+                      <span className="em-pk-card__need-title">{pkg.need.title}</span>
+                      <span className="em-pk-card__need-line">{pkg.need.line}</span>
+                      <span className="em-pk-card__go">
+                        {isOpen ? copy.chooser.close : copy.chooser.cta(pkg.name)}
+                        <ArrowRight className="size-4" aria-hidden="true" />
+                      </span>
+                    </span>
+                  </button>
+                  </h3>
+
+                  <div className="em-pk-card__body" id={`${anchor}-body`}>
+                    <div className="em-pk-card__inner">
+                      <p className="em-pkcard__headline">
+                        {pkg.headline.map((l) => (
+                          <span key={l}>{l}</span>
+                        ))}
+                      </p>
+                      <p className="sr-only">{copy.packages.includesLabel}</p>
+                      <ul className="em-pkcard__includes" role="list">
+                        {pkg.includes.map((item) => (
+                          <li key={item}>
+                            <Check className="size-3.5" aria-hidden="true" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+
+                      <div className="em-pkcard__price">
+                        {price.kind === "from" ? (
+                          <>
+                            <RailPrice
+                              now={price.amount.toLocaleString("en-US")}
+                              prefix={copy.price.from}
+                              size="lg"
+                              source={`package_${pkg.id}`}
+                            />
+                            <span className="em-pkcard__unit">{copy.price.units[price.unit]}</span>
+                          </>
+                        ) : (
+                          <>
+                            <span className="em-pkcard__custom-line">{copy.price.customLine}</span>
+                            <span className="em-pkcard__custom">{copy.price.custom}</span>
+                          </>
+                        )}
+                      </div>
+
+                      <p className="em-pkcard__ideal">{pkg.idealFor}</p>
+
+                      <a
+                        href={whatsappHref(site.phone.e164, quoteText(pkg.name))}
+                        className="em-pkcard__cta"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-cta={`package_${pkg.id}_whatsapp`}
+                      >
+                        <MessageCircle className="size-4" aria-hidden="true" />
+                        {copy.packages.quote(pkg.name)}
+                      </a>
+                    </div>
+                  </div>
                 </li>
               );
             })}
-          </ul>
+          </ol>
         </Container>
-      </section>
-
-      {/* 2. The packages, as four scenes. */}
-      <section
-        id={locale === "es" ? "paquetes-detalle" : "packages-detail"}
-        className="em-pk-scenes"
-        aria-labelledby="em-pk-scenes-title"
-        data-section="packages"
-      >
-        <Container size="xl">
-          <p className="em-pk-eyebrow em-pk-eyebrow--light">{copy.packages.eyebrow}</p>
-          <h2 id="em-pk-scenes-title" className="em-pk-title em-pk-title--light">
-            {copy.packages.title}
-          </h2>
-          <nav className="em-pk-chips" aria-label={copy.packages.eyebrow}>
-            {packages.map((pkg) => (
-              <a
-                key={pkg.id}
-                href={`#${packageAnchor(pkg.id)}`}
-                onClick={goTo(pkg.id)}
-                data-cta={`package_chip_${pkg.id}`}
-              >
-                <span aria-hidden="true">{pkg.number}</span> {pkg.name}
-              </a>
-            ))}
-          </nav>
-        </Container>
-
-        <ol ref={trackRef} className="em-pk-track" role="list">
-          {packages.map((pkg) => {
-            const price = priceFor(pkg.id);
-            return (
-              <li
-                key={pkg.id}
-                id={packageAnchor(pkg.id)}
-                className="em-pkcard"
-                data-em-reveal
-                data-scene={pkg.id === "todo-incluido" ? "screenshot" : undefined}
-              >
-                <article aria-labelledby={`${packageAnchor(pkg.id)}-name`}>
-                  <div className="em-pkcard__scene">
-                    <Image
-                      src={pkg.image.src}
-                      alt={pkg.image.alt}
-                      fill
-                      sizes="(min-width: 1024px) 320px, 86vw"
-                      style={{ objectPosition: pkg.image.sceneFocal ?? pkg.image.focal }}
-                    />
-                    <div className="em-pkcard__credit">
-                      <span className="em-pkcard__number">{pkg.number}</span>
-                      <span className="em-pkcard__word">{copy.packages.packageWord}</span>
-                      <h3 id={`${packageAnchor(pkg.id)}-name`} className="em-pkcard__name">
-                        {pkg.name}
-                      </h3>
-                      <span className="em-pkcard__subtitle">{pkg.subtitle}</span>
-                    </div>
-                  </div>
-
-                  <div className="em-pkcard__body">
-                    <p className="em-pkcard__headline">
-                      {pkg.headline.map((line) => (
-                        <span key={line}>{line}</span>
-                      ))}
-                    </p>
-                    <p className="sr-only">{copy.packages.includesLabel}</p>
-                    <ul className="em-pkcard__includes" role="list">
-                      {pkg.includes.map((item) => (
-                        <li key={item}>
-                          <Check className="size-3.5" aria-hidden="true" />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-
-                    <div className="em-pkcard__price">
-                      {price.kind === "from" ? (
-                        <>
-                          <RailPrice
-                            now={price.amount.toLocaleString("en-US")}
-                            prefix={copy.price.from}
-                            size="lg"
-                            source={`package_${pkg.id}`}
-                          />
-                          <span className="em-pkcard__unit">{copy.price.units[price.unit]}</span>
-                        </>
-                      ) : (
-                        <>
-                          <span className="em-pkcard__custom-line">{copy.price.customLine}</span>
-                          <span className="em-pkcard__custom">{copy.price.custom}</span>
-                        </>
-                      )}
-                    </div>
-
-                    <p className="em-pkcard__ideal">{pkg.idealFor}</p>
-
-                    <a
-                      href={whatsappHref(site.phone.e164, quoteText(pkg.name))}
-                      className="em-pkcard__cta"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      data-cta={`package_${pkg.id}_whatsapp`}
-                    >
-                      <MessageCircle className="size-4" aria-hidden="true" />
-                      {copy.packages.quote(pkg.name)}
-                    </a>
-                  </div>
-                </article>
-              </li>
-            );
-          })}
-        </ol>
       </section>
 
       {/* 3. A la carte. */}

@@ -39,10 +39,18 @@ describe("packages", () => {
     expect(decodeURIComponent(href.split("text=")[1])).toContain("Arranque");
   });
 
-  it("links every chooser card to a package anchor that exists", () => {
+  it("gives every package card its own anchor id", () => {
     const anchors = packagesFor("es").map((p) => packageAnchor(p.id));
     expect(new Set(anchors).size).toBe(4);
-    expect(source("components/packages-section.tsx")).toContain("id={packageAnchor(pkg.id)}");
+    // The assertion used to be the literal string `id={packageAnchor(pkg.id)}`,
+    // which broke the moment the value was hoisted to a const — a source-text
+    // test failing on a rename while the behaviour it guards was untouched.
+    // What has to stay true is that each card carries an id derived from
+    // packageAnchor, and that the section still owns the four anchors.
+    const src = source("components/packages-section.tsx");
+    expect(src).toMatch(/const anchor = packageAnchor\(pkg\.id\)/);
+    expect(src).toMatch(/id=\{anchor\}/);
+    expect(src).toMatch(/aria-controls=\{`\$\{anchor\}-body`\}/);
   });
 
   it("only links a la carte items to routes that exist", () => {

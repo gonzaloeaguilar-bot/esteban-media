@@ -1199,380 +1199,392 @@ html.rail-anim .em-pk-steps__list.rail-reveal.is-in li:nth-child(3) { transition
 .em-index-compact a:hover svg { transform: translateX(3px); }
 .em-index-compact svg { flex: none; color: var(--cine-accent-soft); transition: transform 0.2s; }
 
-/* ------------------------------------------------ the lens opening (intro) -- */
+/* The 3D camera opening and its iris are gone with the component that used
+   them (components/camera-intro.tsx, deleted). Their CSS outlived them by one
+   commit and did real damage on the way out: the leftover
+   `.wk-moment.is-through` rule sat LATER in this file than the signal's, so it
+   won the cascade and kept pointer-events on a veil that was already invisible
+   — measured, the page ignored taps for 3.9s after the opening ended. */
 
-.em-lens {
+/* ---------------------------------------------------------- the signal -----
+   The opening: no signal, then the signal locks.
+
+   Test bars, snow, scanlines and a stand-by card carrying the station ident,
+   one roll down the picture, and then the CRT snap — the image collapses to a
+   line and the site is behind it. 1.5s, skippable from the first frame.
+
+   Accessibility, not optional: nothing strobes. The snow drifts and the card
+   fades; there is no full-frame flashing, because photosensitive visitors are
+   a real audience. Under prefers-reduced-motion the whole thing is skipped.
+   -------------------------------------------------------------------------- */
+.em-signal {
   position: absolute;
   inset: 0;
-  background: radial-gradient(70% 60% at 50% 55%, #15181c 0%, #050607 70%);
+  overflow: hidden;
+  background: #05070a;
 }
-.em-lens__canvas {
+/* Test bars, muted: a memory of a test card, not a screenshot of one. */
+.em-signal__bars {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
+  background: linear-gradient(
+    90deg,
+    #9a9a9a 0 14.28%, #9a8f33 14.28% 28.56%, #33888f 28.56% 42.84%,
+    #2f7a3a 42.84% 57.12%, #8a3a7d 57.12% 71.4%, #9a3a33 71.4% 85.68%,
+    #33487f 85.68% 100%
+  );
+  opacity: 0.55;
+  filter: saturate(0.72);
+  animation: em-sg-bars 1.25s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
-.em-lens__title {
+@keyframes em-sg-bars {
+  0% { opacity: 0.66; }
+  70% { opacity: 0.5; }
+  100% { opacity: 0.2; }
+}
+.em-signal__snow {
+  position: absolute;
+  inset: -40%;
+  opacity: 0.32;
+  mix-blend-mode: screen;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: em-sg-snow 0.3s steps(5) infinite;
+}
+@keyframes em-sg-snow {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-4%, 3%); }
+  50% { transform: translate(3%, -4%); }
+  75% { transform: translate(-3%, -2%); }
+  100% { transform: translate(0, 0); }
+}
+.em-signal::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0.28) 0 1px, transparent 1px 3px);
+}
+.em-signal__card {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 10px;
+  padding: 0 20px;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.92);
+  animation: em-sg-card 1.25s ease-out forwards;
+}
+@keyframes em-sg-card {
+  0% { opacity: 0; }
+  16% { opacity: 1; }
+  82% { opacity: 1; }
+  100% { opacity: 0.9; }
+}
+/* CARGANDO <-> LOADING, swapping through a glitch.
+   Two stacked words on the same grid cell, opposite phases, and a slice that
+   tears at each swap. The tear is a clip-path + RGB split, not a flash: the
+   whole frame never changes luminance, which is the rule this opening keeps
+   for photosensitive visitors. */
+.em-signal__word {
+  position: relative;
+  display: grid;
+  margin: 0;
+  min-height: 1.05em;
+  font-family: var(--font-display), "Oswald", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.2rem, 11vw, 5rem);
+  line-height: 1;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.em-signal__w {
+  grid-area: 1 / 1;
+  position: relative;
+}
+.em-signal__w--es { animation: em-sg-word-a 2.4s steps(1, end) infinite; }
+.em-signal__w--en { animation: em-sg-word-b 2.4s steps(1, end) infinite; }
+@keyframes em-sg-word-a {
+  0%, 48% { opacity: 1; }
+  49%, 100% { opacity: 0; }
+}
+@keyframes em-sg-word-b {
+  0%, 48% { opacity: 0; }
+  49%, 100% { opacity: 1; }
+}
+/* The tear: a copy of the word, offset and colour-split, shown only across the
+   swap. data-text carries the glyphs so no second element is needed. */
+.em-signal__w::before,
+.em-signal__w::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+.em-signal__w::before { color: #57e0ff; }
+.em-signal__w::after { color: #ff4d3d; }
+.em-signal__w--es::before,
+.em-signal__w--es::after { animation: em-sg-tear 2.4s linear infinite; }
+.em-signal__w--en::before,
+.em-signal__w--en::after { animation: em-sg-tear 2.4s linear infinite; animation-delay: 1.2s; }
+.em-signal__w::before { animation-direction: normal; }
+@keyframes em-sg-tear {
+  0%, 40% { opacity: 0; transform: translate(0, 0); clip-path: inset(0 0 0 0); }
+  42% { opacity: 0.85; transform: translate(-4px, -2px); clip-path: inset(18% 0 52% 0); }
+  45% { opacity: 0.85; transform: translate(5px, 2px); clip-path: inset(56% 0 16% 0); }
+  47% { opacity: 0.7; transform: translate(-3px, 1px); clip-path: inset(34% 0 38% 0); }
+  50% { opacity: 0; transform: translate(0, 0); clip-path: inset(0 0 0 0); }
+  100% { opacity: 0; }
+}
+
+/* The language gate: two real links, so it works without the script too. */
+.em-signal__lang {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+}
+.em-signal__pick {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: rgba(8, 9, 10, 0.42);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  font: 600 14px/1 var(--font-geist-sans), sans-serif;
+  text-decoration: none;
+  transition: background-color 0.2s, transform 0.2s var(--cine-ease), border-color 0.2s;
+}
+.em-signal__pick:hover { background: #fff; color: var(--cine-ink); border-color: #fff; }
+.em-signal__pick:active { transform: scale(0.97); }
+.em-signal__pick:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+/* The station ident: one second is the only chance the opening has to say the
+   name, and a stand-by card is exactly where television put it. */
+.em-signal__ident {
+  margin: 0;
+  font-family: var(--font-display), "Oswald", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  font-size: clamp(0.95rem, 3.6vw, 1.5rem);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.92);
+}
+.em-signal__sub {
+  margin: 2px 0 0;
+  font: 600 10px/1 var(--font-geist-mono), monospace;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+}
+/* One roll down the picture, the way it used to settle. */
+.em-signal__roll {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: calc(18% + env(safe-area-inset-bottom, 0px));
-  text-align: center;
-  pointer-events: none;
-  animation: em-lens-title 2.6s var(--cine-ease) both;
+  height: 24%;
+  top: -28%;
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.18), transparent);
+  animation: em-sg-roll 0.7s cubic-bezier(0.3, 0, 0.2, 1) 0.42s forwards;
 }
-.em-lens__brand {
-  margin: 0;
-  font-family: var(--font-display), "Oswald", "Arial Narrow", sans-serif;
-  font-weight: 700;
-  font-size: clamp(1.9rem, 8.5vw, 3.6rem);
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: #fff;
-}
-.em-lens__kicker {
-  margin: 8px 0 0;
-  font: 500 11px/1.2 var(--font-geist-sans), sans-serif;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.7);
-}
-@keyframes em-lens-title {
-  0% { opacity: 0; transform: translateY(14px); letter-spacing: 0.2em; }
-  25% { opacity: 1; transform: none; }
-  62% { opacity: 1; }
-  100% { opacity: 0; transform: scale(1.06); }
-}
-/* ------------------------------------------------------------------ iris ---
-   Through the glass: the lens opens ALL the way onto the hero.
-
-   Until now this was a cross-fade with a scale — the moment simply dissolved,
-   which is the one gesture a lens does not make. The aperture is a mask that
-   opens from the middle plus six blades that swing out of the way, so the last
-   thing the visitor sees is the lens opening onto his footage.
-
-   The mask animates mask-size, a plain length pair, so no @property
-   registration is needed and a browser without mask support just sees the
-   moment fade (the opacity leg below runs either way).
-   -------------------------------------------------------------------------- */
-.em-iris {
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  pointer-events: none;
-  background: #050607;
-  -webkit-mask-image: radial-gradient(circle at 50% 50%, transparent 48%, #000 50%);
-  mask-image: radial-gradient(circle at 50% 50%, transparent 48%, #000 50%);
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-position: center;
-  -webkit-mask-size: 0% 0%;
-  mask-size: 0% 0%;
-  opacity: 0;
-}
-/* The blades: six wedges meeting at the middle, drawn dark over the glass. */
-.em-iris i {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 150vmax;
-  height: 150vmax;
-  margin: -75vmax 0 0 -75vmax;
-  background: conic-gradient(from calc(var(--b) * 60deg), rgba(5, 6, 7, 0.92) 0deg 26deg, transparent 26deg 360deg);
-  transform: rotate(0deg) scale(1);
-  transform-origin: 50% 50%;
-  opacity: 0;
+@keyframes em-sg-roll {
+  0% { top: -28%; opacity: 0; }
+  18% { opacity: 1; }
+  100% { top: 112%; opacity: 0; }
 }
 
-/* For the hole to show the HERO and not the 3D scene, everything under the
-   iris has to go as the iris opens: the veil's own background, the lens
-   backdrop and the canvas. Measured first: the hole was opening onto the
-   camera scene, because .wk-moment carries an opaque --wk-veil background. */
-.wk-moment.is-through { background: transparent; }
-.wk-moment.is-through .em-lens,
-.wk-moment.is-through .em-lens__canvas,
-.wk-moment.is-through .em-lens__title {
-  transition: opacity 0.22s linear;
-  opacity: 0;
+/* The lock: the picture snaps to a line and goes, and the site is behind it. */
+.wk-moment.is-through .em-signal {
+  animation: em-sg-out 0.42s cubic-bezier(0.45, 0, 0.15, 1) forwards;
 }
-.wk-moment.is-through .em-iris {
-  animation: em-iris-open 0.55s cubic-bezier(0.22, 0.61, 0.24, 1) forwards;
+@keyframes em-sg-out {
+  0% { transform: scaleY(1); filter: brightness(1); opacity: 1; }
+  46% { transform: scaleY(0.035); filter: brightness(2.6); opacity: 1; }
+  100% { transform: scaleY(0.012); filter: brightness(3.2); opacity: 0; }
 }
-.wk-moment.is-through .em-iris i {
-  animation: em-iris-blade 0.55s cubic-bezier(0.22, 0.61, 0.24, 1) forwards;
-}
-@keyframes em-iris-open {
-  0% { opacity: 1; -webkit-mask-size: 0% 0%; mask-size: 0% 0%; }
-  100% { opacity: 1; -webkit-mask-size: 340% 340%; mask-size: 340% 340%; }
-}
-@keyframes em-iris-blade {
-  0% { opacity: 1; transform: rotate(0deg) scale(1); }
-  70% { opacity: 0.55; }
-  100% { opacity: 0; transform: rotate(22deg) scale(1.35); }
-}
-
-/* What is left of the moment clears once the iris has finished opening. */
+/* Locked but not yet removed: the kit owns removal on its own timer, so
+   between the lock and that moment the veil is invisible AND still full-screen
+   at z-index 9999. Measured: nobody touched it, the picture locked at 2.4s and
+   the element lived until 6.3s — 3.9 seconds of an invisible sheet eating the
+   visitor's taps. */
 .wk-moment.is-through {
-  transition: opacity 0.2s linear 0.54s;
+  transition: opacity 0.18s linear 0.3s;
   opacity: 0;
+  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .em-iris,
-  .em-iris i { animation: none !important; opacity: 0 !important; }
-  .wk-moment.is-through { transition: opacity 0.2s linear; transform: none; }
+  .em-signal,
+  .em-signal__bars,
+  .em-signal__snow,
+  .em-signal__card,
+  .em-signal__roll,
+  .em-signal__w,
+  .em-signal__w::before,
+  .em-signal__w::after { animation: none !important; }
+  .em-signal__w--en { opacity: 0; }
+  .wk-moment.is-through .em-signal { opacity: 0; }
 }
 
-/* --------------------------------------------------------- the edit bay ----
-   The opening, as the SERVICE rather than the tool. Four real frames land on a
-   timeline, the waveform draws, the playhead sweeps, the render resolves and
-   what comes out is the site.
+/* ------------------------------------------------ the guided packages ------
+   One section. The card you tap GROWS into the package; it does not send you
+   to a second section that repeats the same four photos.
 
-   DOM and CSS only: nothing downloads before it can start, which is the other
-   half of why it replaced the 3D camera (2.1MB of model, textures and HDRI had
-   to arrive before that one could begin).
+   The four cards are large on purpose: this is the packages surface, so the
+   thing the visitor chooses from should look like the offer, not like a menu
+   row. When one opens, the other three fold to a compact row so the open one
+   owns the screen without the others disappearing.
    -------------------------------------------------------------------------- */
-.em-bay {
+.em-pk-guide {
+  background: var(--cine-paper);
+  color: var(--cine-text);
+  padding: 44px 0 52px;
+}
+.em-pk-cards {
+  display: grid;
+  gap: 14px;
+  margin: 26px 0 0;
+  padding: 0;
+  list-style: none;
+}
+@media (min-width: 1024px) {
+  .em-pk-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+  .em-pk-cards[data-open]:not([data-open="none"]) { grid-template-columns: minmax(0, 1fr); }
+}
+.em-pk-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  background: var(--cine-card);
+  border: 1px solid var(--cine-line);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  scroll-margin-top: 24px;
+  transition:
+    box-shadow 0.4s var(--cine-ease),
+    border-color 0.3s,
+    transform 0.4s var(--cine-ease);
+}
+.em-pk-card[data-state="open"] { box-shadow: 0 26px 70px rgba(0, 0, 0, 0.16); border-color: #d6cec3; }
+.em-pk-card:active { transform: scale(0.995); }
+
+/* The heading is the accordion's wrapper; it carries no type of its own. */
+.em-pk-card__h { margin: 0; font: inherit; }
+.em-pk-card__head {
+  display: grid;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: left;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+.em-pk-card__head:focus-visible { outline: 2px solid var(--cine-accent-deep); outline-offset: 3px; }
+
+/* The photo: big while you are choosing, a band once the card is open. */
+.em-pk-card__scene {
+  position: relative;
+  display: block;
+  height: clamp(190px, 34svh, 300px);
+  overflow: hidden;
+  background: var(--cine-ink-2);
+  transition: height 0.45s var(--cine-ease);
+}
+.em-pk-card[data-state="open"] .em-pk-card__scene { height: clamp(132px, 20svh, 200px); }
+.em-pk-card[data-state="folded"] .em-pk-card__scene { height: 104px; }
+.em-pk-card__scene img { object-fit: cover; transition: transform 1s var(--cine-ease); }
+.em-pk-card:hover .em-pk-card__scene img,
+.em-pk-card:active .em-pk-card__scene img { transform: scale(1.04); }
+.em-pk-card[data-scene="screenshot"] .em-pk-card__scene img { opacity: 0.42; filter: saturate(0.6); }
+.em-pk-card__scene::after {
+  content: "";
   position: absolute;
   inset: 0;
-  display: grid;
-  /* The slate at the top, the CUT as one block in the middle, the line and the
-     render at the bottom. Filmed first: video track and waveform were two
-     separate rows with ~300px of black between them, so the composition read
-     as three things floating rather than one bay. */
-  grid-template-rows: auto 1fr auto;
-  gap: 0;
-  /* The bottom pad clears the kit's own skip button: measured at 390x844 it
-     sat on top of RENDERIZANDO, the percentage and the progress bar — three
-     overlaps, all of them on the phone only. */
-  padding: calc(18px + env(safe-area-inset-top, 0px)) 18px calc(78px + env(safe-area-inset-bottom, 0px));
-  background: radial-gradient(80% 60% at 50% 40%, #16191d 0%, #060708 72%);
-  color: #fff;
-  overflow: hidden;
+  background: linear-gradient(to bottom, rgba(8, 9, 10, 0.86) 0%, rgba(8, 9, 10, 0.46) 44%, rgba(8, 9, 10, 0.08) 78%);
 }
-
-/* The slate. */
-.em-bay__head {
-  display: grid;
-  grid-template-columns: auto auto;
-  align-items: center;
-  justify-content: space-between;
-  font: 600 11px/1 var(--font-geist-mono), monospace;
-  letter-spacing: 0.18em;
-  color: rgba(255, 255, 255, 0.72);
-}
-.em-bay__rec { display: inline-flex; align-items: center; gap: 7px; }
-.em-bay__rec i {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #e0402a;
-  animation: em-bay-rec 1.1s steps(2, end) infinite;
-}
-@keyframes em-bay-rec { 0%, 55% { opacity: 1; } 56%, 100% { opacity: 0.25; } }
-.em-bay__tc { font-variant-numeric: tabular-nums; }
-/* The rule is part of the slate, drawn by it. As a SIBLING it competed with
-   the slate for the first grid row: the rule took row 1 and pushed REC and the
-   timecode into the middle of the screen (seen at 390x844). */
-.em-bay__head::after {
-  content: "";
-  display: block;
-  grid-column: 1 / -1;
-  height: 1px;
-  margin-top: 10px;
-  background: rgba(255, 255, 255, 0.14);
-  transform: scaleX(0);
-  transform-origin: 0 50%;
-  animation: em-bay-rule 0.45s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
-}
-@keyframes em-bay-rule { to { transform: scaleX(1); } }
-
-/* The track: the clips drop in, one after another, and snap into place. */
-/* Higher than centre on a phone: dead centre left 286px of black above the cut
-   and 258 below, so the composition floated in a void instead of sitting in a
-   bay. */
-.em-bay__cut {
-  align-self: center;
-  margin-top: 0;
-  display: grid;
-  gap: 10px;
-  width: 100%;
-}
-.em-bay__track {
-  position: relative;
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: 1fr;
-  gap: 8px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.em-bay__clip {
-  position: relative;
-  aspect-ratio: 9 / 13;
-  border-radius: 10px;
-  overflow: hidden;
-  background: #101315;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  transform: translateY(26px) scale(0.94);
-  animation: em-bay-drop 0.52s cubic-bezier(0.2, 0.9, 0.24, 1) forwards;
-  animation-delay: calc(0.28s + var(--i) * 0.19s);
-}
-.em-bay__clip img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.em-bay__labels {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: 1fr;
-  gap: 8px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-/* 6px in, so the playhead at the start of the cut never sits on the first
-   letter — at 390 it clipped the B of BAR DOOR MONKEY. */
-.em-bay__labels li {
-  padding-left: 6px;
-  font: 600 8.5px/1.25 var(--font-geist-mono), monospace;
-  letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.6);
-  opacity: 0;
-  animation: em-bay-line 0.4s linear forwards;
-  animation-delay: calc(0.5s + var(--i) * 0.19s);
-}
-@keyframes em-bay-drop {
-  0% { opacity: 0; transform: translateY(26px) scale(0.94); }
-  70% { opacity: 1; transform: translateY(-3px) scale(1.012); }
-  100% { opacity: 1; transform: none; }
-}
-/* The playhead sweeps the assembled cut. */
-/* The playhead is the height of the cut, not of the screen: it used to run
-   from 18% to 70% of the viewport, crossing empty black above and below the
-   clips, which no timeline does. */
-.em-bay__cut { position: relative; }
-.em-bay__cut::after {
-  content: "";
+.em-pk-card__credit {
   position: absolute;
-  top: -10px;
-  bottom: -10px;
-  left: 0;
-  width: 2px;
-  background: linear-gradient(to bottom, transparent, #e0402a 14%, #e0402a 86%, transparent);
-  box-shadow: 0 0 14px rgba(224, 64, 42, 0.8);
-  z-index: 2;
-  opacity: 0;
-  animation: em-bay-playhead 0.85s cubic-bezier(0.4, 0, 0.2, 1) 1.5s forwards;
-}
-@keyframes em-bay-playhead {
-  0% { opacity: 0; transform: translateX(0); }
-  12% { opacity: 1; }
-  92% { opacity: 1; }
-  100% { opacity: 0; transform: translateX(100%); }
-}
-
-/* The sound of the cut, drawn rather than pictured. */
-.em-bay__wave {
-  width: 100%;
-  height: 34px;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.04);
-  /* Clipped, because the polyline's last segment overshot the right edge and
-     left a stray red tick floating outside the block. */
-  overflow: hidden;
-}
-.em-bay__wave polyline {
-  fill: none;
-  stroke: rgba(224, 64, 42, 0.85);
-  stroke-width: 0.8;
-  vector-effect: non-scaling-stroke;
-  stroke-dasharray: 260;
-  stroke-dashoffset: 260;
-  animation: em-bay-wave 1.15s cubic-bezier(0.3, 0.7, 0.2, 1) 0.62s forwards;
-}
-@keyframes em-bay-wave { to { stroke-dashoffset: 0; } }
-
-/* Air between the cut and the line: at 390 they were touching (gap 0). */
-.em-bay__foot { display: grid; gap: 10px; margin-top: 28px; }
-.em-bay__line {
-  margin: 0;
-  max-width: 22ch;
-  font-family: var(--font-display), "Oswald", "Arial Narrow", sans-serif;
-  font-weight: 700;
-  font-size: clamp(1.5rem, 6.4vw, 2.6rem);
-  line-height: 1.04;
-  text-transform: uppercase;
-  opacity: 0;
-  transform: translateY(12px);
-  animation: em-bay-line 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) 1.15s forwards;
-}
-@keyframes em-bay-line { to { opacity: 1; transform: none; } }
-.em-bay__render {
+  inset: 0;
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  margin: 0;
-  font: 600 10px/1 var(--font-geist-mono), monospace;
-  letter-spacing: 0.2em;
+  flex-direction: column;
+  gap: 2px;
+  padding: 16px 18px 0;
+  color: #fff;
+  z-index: 1;
+}
+
+.em-pk-card__need {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 18px 16px;
+}
+.em-pk-card__need-title {
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+.em-pk-card__need-line { font-size: 14px; line-height: 1.45; color: var(--cine-muted); }
+.em-pk-card__go {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  font: 600 12px/1 var(--font-geist-sans), sans-serif;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.66);
-  opacity: 0;
-  animation: em-bay-line 0.4s linear 1.85s forwards;
+  color: var(--cine-accent-deep);
 }
-.em-bay__pct { font-variant-numeric: tabular-nums; color: #fff; }
-.em-bay__bar {
-  height: 2px;
-  border-radius: 2px;
-  background: rgba(255, 255, 255, 0.14);
+.em-pk-card__go svg { transition: transform 0.3s var(--cine-ease); }
+/* Open, the affordance becomes a close control on the scene. It used to sit in
+   the middle of the open card, between the need and the promise, which read as
+   a stray link rather than a way out. */
+.em-pk-card[data-state="open"] .em-pk-card__go {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  margin: 0;
+  padding: 8px 12px;
+  min-height: 34px;
+  border-radius: 999px;
+  background: rgba(8, 9, 10, 0.58);
+  backdrop-filter: blur(6px);
+  color: #fff;
+}
+.em-pk-card[data-state="open"] .em-pk-card__go svg { transform: rotate(180deg); }
+.em-pk-card[data-state="folded"] .em-pk-card__need-line { display: none; }
+
+/* The body opens in place. Always in the DOM — the four packages are the page's
+   substance and the schema describes all four, so none of this is rendered
+   conditionally. */
+.em-pk-card__body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.45s var(--cine-ease);
+}
+.em-pk-card[data-state="open"] .em-pk-card__body { grid-template-rows: 1fr; }
+.em-pk-card__inner {
   overflow: hidden;
+  padding: 0 18px;
   opacity: 0;
-  animation: em-bay-line 0.4s linear 1.85s forwards;
+  transition: opacity 0.3s linear;
 }
-.em-bay__bar i {
-  display: block;
-  height: 100%;
-  width: 100%;
-  background: #e0402a;
-  transform: scaleX(0);
-  transform-origin: 0 50%;
-  animation: em-bay-fill 0.7s cubic-bezier(0.4, 0, 0.2, 1) 1.9s forwards;
-}
-@keyframes em-bay-fill { to { transform: scaleX(1); } }
-
-@media (min-width: 900px) {
-  .em-bay { padding: 26px 40px 30px; }
-  .em-bay__cut { max-width: 900px; margin: 4vh auto 0; gap: 12px; align-self: center; }
-  .em-bay__track { gap: 12px; }
-  .em-bay__clip { aspect-ratio: 4 / 5; }
-  .em-bay__wave { height: 52px; }
-  .em-bay__foot { max-width: 900px; margin-inline: auto; width: 100%; }
-}
-
-/* The render resolves: the cut lifts away and the hero is what came out. */
-.wk-moment.is-through .em-bay {
-  transition: opacity 0.42s var(--cine-ease), transform 0.52s var(--cine-ease);
-  opacity: 0;
-  transform: scale(1.03);
-}
-.wk-moment.is-through .em-bay__clip {
-  transition: transform 0.52s cubic-bezier(0.4, 0, 0.2, 1);
-  transform: translateY(-10px) scale(1.06);
-}
-.wk-moment.is-through { transition: opacity 0.3s linear 0.24s; opacity: 0; }
+.em-pk-card[data-state="open"] .em-pk-card__inner { opacity: 1; padding-bottom: 20px; }
 
 @media (prefers-reduced-motion: reduce) {
-  .em-bay__clip,
-  .em-bay__line,
-  .em-bay__render,
-  .em-bay__bar,
-  .em-bay__bar i,
-  .em-bay__wave polyline,
-  .em-bay__head-line,
-  .em-bay__cut::after,
-  .em-bay__rec i { animation: none !important; opacity: 1; transform: none; stroke-dashoffset: 0; }
-  .em-bay__cut::after { opacity: 0; }
+  .em-pk-card,
+  .em-pk-card__scene,
+  .em-pk-card__body,
+  .em-pk-card__inner,
+  .em-pk-card__scene img { transition: none; }
 }
 
 /* ------------------------------------------------- touchable 3D camera ---- */
