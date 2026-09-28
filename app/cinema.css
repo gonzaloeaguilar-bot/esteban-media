@@ -646,6 +646,11 @@ html.rail-anim:not([data-brand-moment]) .em-cine__eyebrow {
   scroll-padding-inline: 20px;
   scrollbar-width: none;
   overscroll-behavior-x: contain;
+  /* overflow-x:auto alone computes overflow-y to auto as well, which made the
+     track a VERTICAL scroll container too: measured scrollHeight 712 against
+     clientHeight 708, so it held 4px of phantom scroll and its y-axis snap
+     fought every attempt to place a card under the sticky header. */
+  overflow-y: hidden;
 }
 .em-pk-track::-webkit-scrollbar { display: none; }
 .em-pkcard {
@@ -874,6 +879,66 @@ html.rail-anim .em-pkcard.rail-reveal.is-in .em-pkcard__scene {
 @media (min-width: 1024px) {
   .em-pkcard__ideal { min-height: 6em; }
 }
+html {
+  /* The header is sticky, so every anchor jump has to start below it. */
+  scroll-padding-top: 76px;
+}
+
+/* ------------------------------------------------------------------------
+   Phone: a package card has to FIT the screen with its button.
+
+   Measured on production 2026-09-28 at 390x844: the card was 858px tall — a
+   scene of 300px, a body of 558px carrying about 70px of dead space above the
+   price — so the card was taller than the phone and "Cotizar" landed at
+   y=785 while the floating app bar starts at y=775. The button was under the
+   bar. At 375x667 the price was under it too.
+
+   Budget: viewport - sticky header (65) - app bar (60) - air. The scene gives
+   up the height, because it is the one part that carries no information the
+   visitor needs in order to act.
+   --------------------------------------------------------------------- */
+@media (max-width: 1023px) {
+  /* The scene follows the screen: a 740px Android and an 844px iPhone do not
+     have the same room, and a fixed height made the card overflow on the
+     shorter one. */
+  /* The scene takes whatever the screen has left after the body, the sticky
+     header and the app bar — that is what makes the whole card, button
+     included, land inside one screen on a 667px phone and on an 844px one. */
+  .em-pkcard__scene { height: max(96px, min(150px, calc(100svh - 640px))); }
+  .em-pkcard__body { padding: 18px 20px 20px; }
+  /* No auto-push: the slack it created was the empty band above the price. */
+  .em-pkcard__cta { margin-top: 14px; }
+  .em-pkcard__price { margin-top: 16px; padding: 14px 14px 12px; }
+  .em-pkcard__price .rail-price { --rail-price-size-lg: 38px; }
+  .em-pkcard__ideal { margin: 12px 0 0; }
+  /* Clear of the sticky header when anything scrolls a card into view: the
+     card's top edge sat 11px under it (top=54, header bottom=65). A
+     scroll-margin on the card alone did not cover the anchor jumps and the
+     in-page scrollers, so the padding goes on the scroll container. */
+  /* The landing is owned by public/web-kit/reading-path-anchors.js, which
+     re-runs scrollIntoView on the hash target until it holds still. Measured:
+     it puts the card top at 54px, and scroll-margin-top adds to that — so 24
+     lands it about 12px below the 65px sticky header. */
+  .em-pkcard { scroll-margin-top: 24px; }
+  .em-pk-track { padding-bottom: calc(18px + env(safe-area-inset-bottom, 0px)); }
+}
+
+/* Short phones (iPhone SE and friends): the scene gives up more, and the
+   "ideal for" line goes — the price and the button matter more than a photo
+   caption on a 667px screen. */
+/* Shorter phones: the "ideal for" line goes — the price and the button matter
+   more than a photo caption when the screen is 740px or less. */
+@media (max-width: 1023px) and (max-height: 800px) {
+  .em-pkcard__ideal { display: none; }
+  .em-pkcard__includes { gap: 8px; }
+  .em-pkcard__headline { font-size: 19px; }
+  .em-pkcard__body { padding: 16px 18px 14px; }
+  /* iPhone SE (667) was the last size where the card's bottom edge still sat
+     under the app bar, by 7px. */
+  .em-pkcard__price { margin-top: 12px; padding: 12px 14px 10px; }
+  .em-pkcard__cta { margin-top: 12px; }
+}
+
 .em-pkcard__ideal {
   margin: 14px 0 18px;
   font-size: 13.5px;
@@ -1491,4 +1556,12 @@ html.rail-anim .em-play__dot::before {
 }
 @media (prefers-reduced-motion: reduce) {
   .em-appnav { transition: none; }
+}
+
+/* The smallest phones still in the wild (320x568): even a 96px scene does not
+   fit beside the includes, the price and the button. The photo goes — the
+   package still reads, and the button stays on the screen. */
+@media (max-width: 1023px) and (max-height: 620px) {
+  .em-pkcard__scene { display: none; }
+  .em-pkcard__headline { display: none; }
 }

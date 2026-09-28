@@ -43,6 +43,12 @@ export function PackagesSection({ locale }: { locale: Locale }) {
     event.preventDefault();
     const reduced = !document.documentElement.classList.contains("rail-anim");
     trackEl.scrollTo({ left: card.offsetLeft - trackEl.offsetLeft - 16, behavior: reduced ? "auto" : "smooth" });
+    // The hash below makes public/web-kit/reading-path-anchors.js land the
+    // card: it re-runs scrollIntoView until the target holds still, so it wins
+    // over any scroll set here. The clearance under the sticky header is
+    // therefore CSS — .em-pkcard's scroll-margin-top — not a number computed in
+    // this handler (measured 2026-09-28: a window.scrollTo here was overridden
+    // within ~200ms, every time).
     const section = document.getElementById(locale === "es" ? "paquetes-detalle" : "packages-detail");
     section?.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" });
     history.replaceState(null, "", `#${packageAnchor(id)}`);
