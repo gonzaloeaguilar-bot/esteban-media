@@ -5,7 +5,6 @@ import { ClientReviews } from "@/components/client-reviews";
 import { HeroVideo } from "@/components/hero-video";
 import { HomeAuthorityHub } from "@/components/home-authority-hub";
 import { SignalIntro } from "@/components/signal-intro";
-import { CameraPlayground } from "@/components/camera-playground";
 import { PackagesSection, ClosingCredits } from "@/components/packages-section";
 import { KeepReading } from "@/components/keep-reading";
 import { PortfolioTeaser } from "@/components/portfolio-teaser";
@@ -30,7 +29,6 @@ export default function SpanishHomePage() {
     <main className="bg-[#f7f5f1] text-[#101214]">
       <SignalIntro locale="es" />
       <HeroVideo locale="es" />
-      <CameraPlayground locale="es" />
       <PackagesSection locale="es" />
       <PortfolioTeaser locale="es" />
       <ClientReviews locale="es" />
