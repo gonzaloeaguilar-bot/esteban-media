@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ArrowLeft, ArrowRight, Circle, Clapperboard, Globe, MapPin, RotateCcw, Smartphone } from "lucide-react";
+import { ArrowLeft, ArrowRight, Circle, Clapperboard, Globe, MapPin, RotateCcw, Smartphone, X } from "lucide-react";
 
 import RailControls from "@/vendor/rail-kit/RailControls";
 import RailSegmented from "@/vendor/rail-kit/RailSegmented";
@@ -49,6 +49,7 @@ const COPY = {
     studio: "Estudio",
     night: "Noche",
     see: "Ver paquete",
+    close: "Cerrar",
     canvas: "Cámara de cine antigua en 3D, ilustrativa. Cada parte abre un paquete.",
   },
   en: {
@@ -62,6 +63,7 @@ const COPY = {
     right: "Right",
     rec: "Record",
     reset: "Reset",
+    close: "Close",
     light: "Scene light",
     studio: "Studio",
     night: "Night",
@@ -136,6 +138,26 @@ export function CameraPlayground({ locale }: { locale: Locale }) {
     };
   }, []);
 
+  // The card had no way out: it opened on a tap and closed only by hitting the
+  // same hotspot again or Reset. On a phone it lands over the camera you just
+  // tapped, so "I can't remove it" was exactly right. Three ways out now: the
+  // close control, Escape, and a tap on the stage away from the card.
+  useEffect(() => {
+    if (!part) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      setPart(null);
+      sceneRef.current?.focus(null);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [part]);
+
+  const dismiss = () => {
+    setPart(null);
+    sceneRef.current?.focus(null);
+  };
+
   const choose = (p: CameraPart) => {
     const next = part === p ? null : p;
     setPart(next);
@@ -177,7 +199,19 @@ export function CameraPlayground({ locale }: { locale: Locale }) {
         <p className="em-play__lead">{t.lead}</p>
       </Container>
 
-      <div ref={stageRef} className="em-play__stage" data-live={live ? "true" : "false"} data-mood={mood}>
+      <div
+        ref={stageRef}
+        className="em-play__stage"
+        data-live={live ? "true" : "false"}
+        data-mood={mood}
+        onPointerDown={(event) => {
+          if (!part) return;
+          const target = event.target as HTMLElement;
+          // the card and the hotspots own their own taps
+          if (target.closest(".em-play__card") || target.closest(".em-play__hot")) return;
+          dismiss();
+        }}
+      >
         <canvas ref={canvasRef} className="em-play__canvas" role="img" aria-label={t.canvas} />
 
         <ul className="em-play__hotspots" role="list">
@@ -215,6 +249,15 @@ export function CameraPlayground({ locale }: { locale: Locale }) {
         <div className="em-play__card" data-open={chosen ? "true" : "false"} aria-live="polite">
           {chosen && chosenPrice && (
             <>
+              <button
+                type="button"
+                className="em-play__card-close"
+                onClick={dismiss}
+                aria-label={t.close}
+                data-cta="camera_card_close"
+              >
+                <X className="size-4" aria-hidden="true" />
+              </button>
               <p className="em-play__card-kicker">
                 {chosen.number} · {t.parts[part!]}
               </p>

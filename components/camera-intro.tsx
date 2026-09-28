@@ -68,12 +68,25 @@ export function CameraIntro({ locale }: { locale: "es" | "en" }) {
           : '<p class="em-lens__kicker">Content · Production · Digital</p>';
       mount({
         name: "lens_opening",
-        runMs: 3700,
+        // 2.7s of camera + 0.55s of iris = 3.25s, and the scene can start up
+        // to ~1s after this mounts on a cold CDN. 5000 covers that; the kit's
+        // 8000ms failsafe still owns the worst case. Measured on the preview:
+        // at runMs 4300 the overlay was removed while the lens was still
+        // opening, and only there — locally the assets are warm and it fit.
+        runMs: 5000,
         skipLabel: locale === "es" ? "Saltar" : "Skip",
         html:
           '<div class="em-lens"><canvas class="em-lens__canvas"></canvas>' +
           '<div class="em-lens__title"><p class="em-lens__brand">Esteban Moreno Media</p>' +
           title +
+          "</div>" +
+          // The iris. Six blades over a mask that opens from the middle: when
+          // the push reaches the glass, the aperture opens ALL the way and the
+          // hero is what was behind it. Decoration only — aria-hidden, and it
+          // never gates the veil coming off.
+          '<div class="em-iris" aria-hidden="true">' +
+          '<i style="--b:0"></i><i style="--b:1"></i><i style="--b:2"></i>' +
+          '<i style="--b:3"></i><i style="--b:4"></i><i style="--b:5"></i>' +
           "</div></div>",
       });
 
@@ -85,8 +98,8 @@ export function CameraIntro({ locale }: { locale: "es" | "en" }) {
         canvas,
         mode: "intro",
         onIntroDone: () => {
-          // Through the glass: the veil dissolves onto the hero footage, and the
-          // hero's own entrance starts now rather than behind the cover.
+          // Through the glass: the iris opens over the hero, and the hero's own
+          // entrance starts now rather than behind the cover.
           moment.classList.add("is-through");
           root.removeAttribute(ATTR);
         },

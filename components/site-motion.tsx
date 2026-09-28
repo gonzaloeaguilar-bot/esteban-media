@@ -44,9 +44,48 @@ export function SiteMotion() {
     // The kit owns the two states; the threshold and the one-shot behaviour
     // are ours. `once` matters: a block that re-hides when it leaves the
     // viewport turns a scroll back up into a flicker.
-    const targets = Array.from(
+    const authored = Array.from(
       document.querySelectorAll<HTMLElement>("[data-em-reveal]"),
     );
+
+    /**
+     * Pages that never authored a single reveal target get one automatically.
+     *
+     * Measured on production 2026-09-28, on a random sample of 40 of the 246
+     * live URLs: 33 of them (82%) had ZERO reveal targets. The motion system
+     * was global in the chrome and local in practice — the home moved, and
+     * almost nothing else did.
+     *
+     * Conservative on purpose:
+     *  - only when the page authored none of its own, so a designed sequence
+     *    is never doubled;
+     *  - only top-level sections inside <main>, never arbitrary boxes;
+     *  - never anything already on screen at load, so the first paint and the
+     *    LCP block are untouched;
+     *  - capped, and skippable with data-em-no-reveal.
+     *
+     * The no-JS behaviour is unchanged: `rail-reveal` is added here, by the
+     * same script that only runs under `rail-anim`, so a page whose JS dies
+     * still renders everything visible.
+     */
+    const autoTargets: HTMLElement[] = [];
+    if (authored.length === 0) {
+      const blocks = Array.from(
+        document.querySelectorAll<HTMLElement>("main > section, main > div > section, main article"),
+      );
+      for (const el of blocks) {
+        if (autoTargets.length >= 24) break;
+        if (el.hasAttribute("data-em-no-reveal")) continue;
+        if (el.closest("[data-em-no-reveal]")) continue;
+        const rect = el.getBoundingClientRect();
+        // Already on screen at load: leave it alone.
+        if (rect.top < window.innerHeight) continue;
+        if (rect.height < 80) continue;
+        autoTargets.push(el);
+      }
+    }
+
+    const targets = authored.length > 0 ? authored : autoTargets;
     for (const el of targets) el.classList.add("rail-reveal");
 
     let observer: IntersectionObserver | undefined;
