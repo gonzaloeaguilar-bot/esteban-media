@@ -319,13 +319,19 @@ export async function createCameraScene(opts: CameraSceneOptions): Promise<Camer
 
     if (mode === "intro") {
       // The opening, as a camera operator would shoot it:
-      //   0.0-1.5  out of the dark, swinging round to face the visitor
-      //   0.9-1.8  the TURRET turns a lens into place, and settles
-      //   1.5-2.2  a focus rack: the barrel turns, the frame breathes
-      //   2.0-3.2  the push into the glass
-      //   3.2      through — the iris opens on the hero (CSS, camera-intro)
+      //   0.0-1.3  out of the dark, swinging round to face the visitor
+      //   0.6-1.4  the body rolls in and settles
+      //   1.3-1.8  a focus rack: the frame breathes
+      //   1.7-2.7  the push into the glass
+      //   2.7      through — the iris opens on the hero (CSS, camera-intro)
+      //
+      // The whole thing is 2.7s + 0.55s of iris. It used to be 3.2 + 0.9, and
+      // the preview deployment showed why that was wrong: on a cold CDN the
+      // scene starts ~400ms after the moment mounts, so the kit's own runMs
+      // timer removed the overlay BEFORE the lens finished opening. Measured
+      // there, never locally — locally the assets are warm and it fit.
       const t = (now - start) / 1000;
-      const a = easeInOut(t / 1.5);
+      const a = easeInOut(t / 1.3);
       // A held camera is never perfectly still. 0.9mm of drift, two rates, so
       // it reads as a hand rather than a rig.
       const driftX = Math.sin(t * 1.7) * 0.012 + Math.sin(t * 0.7) * 0.008;
@@ -343,16 +349,16 @@ export async function createCameraScene(opts: CameraSceneOptions): Promise<Camer
       //   - the body rolls into frame and settles, like a camera being set down
       //   - the operator racks focus (the frame breathes)
       //   - the whole approach is an arc, not a straight line
-      const rollT = clamp01((t - 0.7) / 1.0);
+      const rollT = clamp01((t - 0.6) / 0.8);
       const settle = rollT < 1 ? Math.sin(rollT * Math.PI * 3) * 0.055 * (1 - rollT) : 0;
-      rig.rotation.z += -(easeInOut(rollT) * 0.16 + settle) * (1 - clamp01((t - 2.0) / 1.2));
+      rig.rotation.z += -(easeInOut(rollT) * 0.16 + settle) * (1 - clamp01((t - 1.7) / 1.0));
 
       // The focus rack: the frame breathes in, then holds, before the push.
-      const focusT = clamp01((t - 1.5) / 0.7);
+      const focusT = clamp01((t - 1.3) / 0.5);
 
       rig.updateMatrixWorld(true);
       parts.turret.getWorldPosition(lensWorld); // the big lens of the turret
-      const push = easeInOut((t - 2.0) / 1.2);
+      const push = easeInOut((t - 1.7) / 1.0);
       // An arc, not a rail: the approach swings out before it comes in, which
       // is what a dolly move looks like and a lerp never does.
       const arc = Math.sin(a * Math.PI) * 0.9;
@@ -374,7 +380,7 @@ export async function createCameraScene(opts: CameraSceneOptions): Promise<Camer
       // The glass catches the key light as the barrel turns.
       key.intensity += focusT * (1 - push) * 0.5;
       renderer.toneMappingExposure = ease(t / 0.8) * (1 - push * 0.9);
-      if (t > 3.2 && !introDone) {
+      if (t > 2.7 && !introDone) {
         introDone = true;
         opts.onIntroDone?.();
       }

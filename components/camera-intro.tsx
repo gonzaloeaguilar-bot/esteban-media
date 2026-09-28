@@ -68,9 +68,12 @@ export function CameraIntro({ locale }: { locale: "es" | "en" }) {
           : '<p class="em-lens__kicker">Content · Production · Digital</p>';
       mount({
         name: "lens_opening",
-        // 3.2s of camera + 0.9s of iris. The kit's failsafe still owns the
-        // worst case; this is the planned length.
-        runMs: 4300,
+        // 2.7s of camera + 0.55s of iris = 3.25s, and the scene can start up
+        // to ~1s after this mounts on a cold CDN. 5000 covers that; the kit's
+        // 8000ms failsafe still owns the worst case. Measured on the preview:
+        // at runMs 4300 the overlay was removed while the lens was still
+        // opening, and only there — locally the assets are warm and it fit.
+        runMs: 5000,
         skipLabel: locale === "es" ? "Saltar" : "Skip",
         html:
           '<div class="em-lens"><canvas class="em-lens__canvas"></canvas>' +

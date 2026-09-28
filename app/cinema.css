@@ -1298,10 +1298,10 @@ html.rail-anim .em-pk-steps__list.rail-reveal.is-in li:nth-child(3) { transition
   opacity: 0;
 }
 .wk-moment.is-through .em-iris {
-  animation: em-iris-open 0.6s cubic-bezier(0.22, 0.61, 0.24, 1) forwards;
+  animation: em-iris-open 0.55s cubic-bezier(0.22, 0.61, 0.24, 1) forwards;
 }
 .wk-moment.is-through .em-iris i {
-  animation: em-iris-blade 0.6s cubic-bezier(0.22, 0.61, 0.24, 1) forwards;
+  animation: em-iris-blade 0.55s cubic-bezier(0.22, 0.61, 0.24, 1) forwards;
 }
 @keyframes em-iris-open {
   0% { opacity: 1; -webkit-mask-size: 0% 0%; mask-size: 0% 0%; }
@@ -1315,7 +1315,7 @@ html.rail-anim .em-pk-steps__list.rail-reveal.is-in li:nth-child(3) { transition
 
 /* What is left of the moment clears once the iris has finished opening. */
 .wk-moment.is-through {
-  transition: opacity 0.2s linear 0.58s;
+  transition: opacity 0.2s linear 0.54s;
   opacity: 0;
 }
 
