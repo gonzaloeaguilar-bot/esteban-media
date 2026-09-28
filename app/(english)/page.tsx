@@ -6,7 +6,6 @@ import { ContactCta } from "@/components/contact-cta";
 import { HeroVideo } from "@/components/hero-video";
 import { HomeAuthorityHub } from "@/components/home-authority-hub";
 import { SignalIntro } from "@/components/signal-intro";
-import { CameraPlayground } from "@/components/camera-playground";
 import { ClosingCredits, PackagesSection } from "@/components/packages-section";
 import { KeepReading } from "@/components/keep-reading";
 import { PortfolioTeaser } from "@/components/portfolio-teaser";
@@ -38,7 +37,6 @@ export default function Home() {
     <main className="bg-[#f7f5f1] text-[#101214]">
       <SignalIntro locale="en" />
       <HeroVideo />
-      <CameraPlayground locale="en" />
       <PackagesSection locale="en" />
       <PortfolioTeaser locale="en" />
       <ClientReviews locale="en" />
