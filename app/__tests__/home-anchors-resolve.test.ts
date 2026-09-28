@@ -22,7 +22,6 @@ describe("home in-page anchors resolve", () => {
   const files = [
     "components/hero-video.tsx",
     "components/packages-section.tsx",
-    "components/camera-playground.tsx",
     "components/site-header-client.tsx",
   ].map((f) => [f, source(f)] as const);
 
