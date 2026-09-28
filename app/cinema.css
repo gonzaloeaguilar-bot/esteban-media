@@ -1325,6 +1325,256 @@ html.rail-anim .em-pk-steps__list.rail-reveal.is-in li:nth-child(3) { transition
   .wk-moment.is-through { transition: opacity 0.2s linear; transform: none; }
 }
 
+/* --------------------------------------------------------- the edit bay ----
+   The opening, as the SERVICE rather than the tool. Four real frames land on a
+   timeline, the waveform draws, the playhead sweeps, the render resolves and
+   what comes out is the site.
+
+   DOM and CSS only: nothing downloads before it can start, which is the other
+   half of why it replaced the 3D camera (2.1MB of model, textures and HDRI had
+   to arrive before that one could begin).
+   -------------------------------------------------------------------------- */
+.em-bay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  /* The slate at the top, the CUT as one block in the middle, the line and the
+     render at the bottom. Filmed first: video track and waveform were two
+     separate rows with ~300px of black between them, so the composition read
+     as three things floating rather than one bay. */
+  grid-template-rows: auto 1fr auto;
+  gap: 0;
+  /* The bottom pad clears the kit's own skip button: measured at 390x844 it
+     sat on top of RENDERIZANDO, the percentage and the progress bar — three
+     overlaps, all of them on the phone only. */
+  padding: calc(18px + env(safe-area-inset-top, 0px)) 18px calc(78px + env(safe-area-inset-bottom, 0px));
+  background: radial-gradient(80% 60% at 50% 40%, #16191d 0%, #060708 72%);
+  color: #fff;
+  overflow: hidden;
+}
+
+/* The slate. */
+.em-bay__head {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  justify-content: space-between;
+  font: 600 11px/1 var(--font-geist-mono), monospace;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.72);
+}
+.em-bay__rec { display: inline-flex; align-items: center; gap: 7px; }
+.em-bay__rec i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #e0402a;
+  animation: em-bay-rec 1.1s steps(2, end) infinite;
+}
+@keyframes em-bay-rec { 0%, 55% { opacity: 1; } 56%, 100% { opacity: 0.25; } }
+.em-bay__tc { font-variant-numeric: tabular-nums; }
+/* The rule is part of the slate, drawn by it. As a SIBLING it competed with
+   the slate for the first grid row: the rule took row 1 and pushed REC and the
+   timecode into the middle of the screen (seen at 390x844). */
+.em-bay__head::after {
+  content: "";
+  display: block;
+  grid-column: 1 / -1;
+  height: 1px;
+  margin-top: 10px;
+  background: rgba(255, 255, 255, 0.14);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  animation: em-bay-rule 0.45s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+@keyframes em-bay-rule { to { transform: scaleX(1); } }
+
+/* The track: the clips drop in, one after another, and snap into place. */
+/* Higher than centre on a phone: dead centre left 286px of black above the cut
+   and 258 below, so the composition floated in a void instead of sitting in a
+   bay. */
+.em-bay__cut {
+  align-self: center;
+  margin-top: 0;
+  display: grid;
+  gap: 10px;
+  width: 100%;
+}
+.em-bay__track {
+  position: relative;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.em-bay__clip {
+  position: relative;
+  aspect-ratio: 9 / 13;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #101315;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transform: translateY(26px) scale(0.94);
+  animation: em-bay-drop 0.52s cubic-bezier(0.2, 0.9, 0.24, 1) forwards;
+  animation-delay: calc(0.28s + var(--i) * 0.19s);
+}
+.em-bay__clip img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.em-bay__labels {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* 6px in, so the playhead at the start of the cut never sits on the first
+   letter — at 390 it clipped the B of BAR DOOR MONKEY. */
+.em-bay__labels li {
+  padding-left: 6px;
+  font: 600 8.5px/1.25 var(--font-geist-mono), monospace;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.6);
+  opacity: 0;
+  animation: em-bay-line 0.4s linear forwards;
+  animation-delay: calc(0.5s + var(--i) * 0.19s);
+}
+@keyframes em-bay-drop {
+  0% { opacity: 0; transform: translateY(26px) scale(0.94); }
+  70% { opacity: 1; transform: translateY(-3px) scale(1.012); }
+  100% { opacity: 1; transform: none; }
+}
+/* The playhead sweeps the assembled cut. */
+/* The playhead is the height of the cut, not of the screen: it used to run
+   from 18% to 70% of the viewport, crossing empty black above and below the
+   clips, which no timeline does. */
+.em-bay__cut { position: relative; }
+.em-bay__cut::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  bottom: -10px;
+  left: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, #e0402a 14%, #e0402a 86%, transparent);
+  box-shadow: 0 0 14px rgba(224, 64, 42, 0.8);
+  z-index: 2;
+  opacity: 0;
+  animation: em-bay-playhead 0.85s cubic-bezier(0.4, 0, 0.2, 1) 1.5s forwards;
+}
+@keyframes em-bay-playhead {
+  0% { opacity: 0; transform: translateX(0); }
+  12% { opacity: 1; }
+  92% { opacity: 1; }
+  100% { opacity: 0; transform: translateX(100%); }
+}
+
+/* The sound of the cut, drawn rather than pictured. */
+.em-bay__wave {
+  width: 100%;
+  height: 34px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  /* Clipped, because the polyline's last segment overshot the right edge and
+     left a stray red tick floating outside the block. */
+  overflow: hidden;
+}
+.em-bay__wave polyline {
+  fill: none;
+  stroke: rgba(224, 64, 42, 0.85);
+  stroke-width: 0.8;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 260;
+  stroke-dashoffset: 260;
+  animation: em-bay-wave 1.15s cubic-bezier(0.3, 0.7, 0.2, 1) 0.62s forwards;
+}
+@keyframes em-bay-wave { to { stroke-dashoffset: 0; } }
+
+/* Air between the cut and the line: at 390 they were touching (gap 0). */
+.em-bay__foot { display: grid; gap: 10px; margin-top: 28px; }
+.em-bay__line {
+  margin: 0;
+  max-width: 22ch;
+  font-family: var(--font-display), "Oswald", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 6.4vw, 2.6rem);
+  line-height: 1.04;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: em-bay-line 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) 1.15s forwards;
+}
+@keyframes em-bay-line { to { opacity: 1; transform: none; } }
+.em-bay__render {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin: 0;
+  font: 600 10px/1 var(--font-geist-mono), monospace;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.66);
+  opacity: 0;
+  animation: em-bay-line 0.4s linear 1.85s forwards;
+}
+.em-bay__pct { font-variant-numeric: tabular-nums; color: #fff; }
+.em-bay__bar {
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.14);
+  overflow: hidden;
+  opacity: 0;
+  animation: em-bay-line 0.4s linear 1.85s forwards;
+}
+.em-bay__bar i {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: #e0402a;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  animation: em-bay-fill 0.7s cubic-bezier(0.4, 0, 0.2, 1) 1.9s forwards;
+}
+@keyframes em-bay-fill { to { transform: scaleX(1); } }
+
+@media (min-width: 900px) {
+  .em-bay { padding: 26px 40px 30px; }
+  .em-bay__cut { max-width: 900px; margin: 4vh auto 0; gap: 12px; align-self: center; }
+  .em-bay__track { gap: 12px; }
+  .em-bay__clip { aspect-ratio: 4 / 5; }
+  .em-bay__wave { height: 52px; }
+  .em-bay__foot { max-width: 900px; margin-inline: auto; width: 100%; }
+}
+
+/* The render resolves: the cut lifts away and the hero is what came out. */
+.wk-moment.is-through .em-bay {
+  transition: opacity 0.42s var(--cine-ease), transform 0.52s var(--cine-ease);
+  opacity: 0;
+  transform: scale(1.03);
+}
+.wk-moment.is-through .em-bay__clip {
+  transition: transform 0.52s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(-10px) scale(1.06);
+}
+.wk-moment.is-through { transition: opacity 0.3s linear 0.24s; opacity: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .em-bay__clip,
+  .em-bay__line,
+  .em-bay__render,
+  .em-bay__bar,
+  .em-bay__bar i,
+  .em-bay__wave polyline,
+  .em-bay__head-line,
+  .em-bay__cut::after,
+  .em-bay__rec i { animation: none !important; opacity: 1; transform: none; stroke-dashoffset: 0; }
+  .em-bay__cut::after { opacity: 0; }
+}
+
 /* ------------------------------------------------- touchable 3D camera ---- */
 
 .em-play {

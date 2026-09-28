@@ -5,7 +5,7 @@ import { ClientReviews } from "@/components/client-reviews";
 import { ContactCta } from "@/components/contact-cta";
 import { HeroVideo } from "@/components/hero-video";
 import { HomeAuthorityHub } from "@/components/home-authority-hub";
-import { CameraIntro } from "@/components/camera-intro";
+import { EditBayIntro } from "@/components/edit-bay-intro";
 import { CameraPlayground } from "@/components/camera-playground";
 import { ClosingCredits, PackagesSection } from "@/components/packages-section";
 import { KeepReading } from "@/components/keep-reading";
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className="bg-[#f7f5f1] text-[#101214]">
-      <CameraIntro locale="en" />
+      <EditBayIntro locale="en" />
       <HeroVideo />
       <CameraPlayground locale="en" />
       <PackagesSection locale="en" />
