@@ -42,9 +42,12 @@ export const siteBodyClassName = `${geistSans.variable} ${geistMono.variable} ${
 // kept identical to boot.js by a test) so no page reads a file at runtime. Plays once per tab, only
 // on the two home pages, never under reduced motion; the failsafe clears the
 // veil even if the bundle never arrives.
-export const LENS_MOMENT_KEY = "em_lens_moment";
+// Renamed with the opening it belongs to: the key is what marks a tab as
+// "already saw it", so a new name means every visitor gets the edit bay once,
+// including the ones who had already seen the camera.
+export const MOMENT_KEY = "em_signal_moment";
 const BRAND_MOMENT_BOOT = `${BRAND_MOMENT_BOOT_JS}
-wkBrandMoment({ key: "${LENS_MOMENT_KEY}", only: ["/", "/es"], failsafeMs: 8000 });`;
+wkBrandMoment({ key: "${MOMENT_KEY}", only: ["/", "/es"], failsafeMs: 8000 });`;
 
 export function SiteChrome({ children }: { children: React.ReactNode }) {
   return (
@@ -82,7 +85,12 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
       <SiteMotion />
       <ReadingProgress />
       <AppNav />
-      <Script id="web-kit-moment" src="/web-kit/mount.js" strategy="afterInteractive" />
+      {/* beforeInteractive, not after: the veil is up from first paint, and the
+          opening cannot mount until this script exists. Measured at 390x844 on
+          a 2x context, afterInteractive left 2.4s of BLACK before the edit bay
+          appeared — the visitor was looking at nothing while the page waited
+          for hydration. The file is ~2KB. */}
+      <Script id="web-kit-moment" src="/web-kit/mount.js" strategy="beforeInteractive" />
       <RouteVeil />
       <GoogleAnalytics />
     </>

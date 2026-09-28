@@ -34,7 +34,7 @@ export type ALaCarteItem = {
 };
 
 type Copy = {
-  chooser: { eyebrow: string; title: string; lead: string; cta: (name: string) => string };
+  chooser: { eyebrow: string; title: string; lead: string; cta: (name: string) => string; close: string };
   packages: { eyebrow: string; title: string; packageWord: string; includesLabel: string; quote: (name: string) => string };
   aLaCarte: { eyebrow: string; title: string; lead: string; items: ALaCarteItem[] };
   process: { eyebrow: string; title: string; lead: string; steps: { title: string; body: string }[]; note: string };
@@ -185,6 +185,7 @@ const COPY: Record<Locale, Copy> = {
       title: "Elige tu punto de partida.",
       lead: "Cuéntame qué necesitas y yo me encargo del resto.",
       cta: (name) => `Paquete ${name}`,
+      close: "Cerrar",
     },
     packages: {
       eyebrow: "Paquetes",
@@ -237,6 +238,7 @@ const COPY: Record<Locale, Copy> = {
       title: "Pick your starting point.",
       lead: "Tell me what you need and I will handle the rest.",
       cta: (name) => `${name} package`,
+      close: "Close",
     },
     packages: {
       eyebrow: "Packages",
