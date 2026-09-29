@@ -1,7 +1,9 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Bot, CheckCircle2, ChartLine, ClipboardCheck, Laptop, MapPin, Workflow } from "lucide-react";
 
 import { KeepReading } from "@/components/keep-reading";
+import { spanishServiceImages } from "@/lib/service-images";
 import { Container } from "@/components/ui/container";
 import { VideoBriefBuilder } from "@/components/video-brief-builder";
 import { entityIds } from "@/lib/entity-schema";
@@ -185,6 +187,20 @@ export default function SpanishServicesPage() {
                       {service.startingPrice} — cada proyecto recibe una
                       cotización a la medida.
                     </p>
+                  ) : null}
+                  {spanishServiceImages[service.id] ? (
+                    /* Un fotograma real de su propio trabajo. Los servicios sin
+                       una foto honesta no llevan ninguna: una imagen decorativa
+                       que no corresponde cuesta más que la ausencia. */
+                    <Image
+                      src={spanishServiceImages[service.id].src}
+                      alt={spanishServiceImages[service.id].alt}
+                      width={1200}
+                      height={675}
+                      sizes="(min-width: 1024px) 33vw, 100vw"
+                      className="mt-5 h-44 w-full rounded-lg object-cover"
+                      style={{ objectPosition: spanishServiceImages[service.id].focal }}
+                    />
                   ) : null}
                   <p className="mt-4 text-sm leading-6 text-[#5a6066]">
                     <CheckCircle2
