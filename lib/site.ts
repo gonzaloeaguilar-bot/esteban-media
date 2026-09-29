@@ -11,6 +11,12 @@ import {
 } from "lucide-react";
 
 import { socialImageAlt, socialImageSize } from "@/lib/social-image";
+import { PACKAGE_PRICES, usd } from "@/lib/pricing";
+
+/** The Arranque / Starter package floor — the ONE figure, from lib/pricing.ts. */
+const startingPackagePrice = usd(
+  PACKAGE_PRICES.arranque.kind === "from" ? PACKAGE_PRICES.arranque.amount : 0,
+);
 
 export const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://estebanmorenomedia.com";
@@ -70,7 +76,7 @@ export const services: Service[] = [
       "Scoping starts with the source footage, publishing goal, and format needs for the project.",
     icon: Scissors,
     tags: ["Remote", "Supplied footage", "Post-production"],
-    startingPrice: "Starts at $200",
+    startingPrice: `Starts at ${startingPackagePrice}`,
   },
   {
     id: "ai-content",

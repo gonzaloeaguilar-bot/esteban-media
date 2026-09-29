@@ -49,7 +49,7 @@ describe("localized home metadata", () => {
     // brand a second time.
     // The Spanish home anchors its snippet on the published starting price
     // (2026-09-27); every other Spanish page keeps spanishSite.description.
-    expect(spanishSite.homeDescription).toContain("Paquetes desde $200");
+    expect(spanishSite.homeDescription).toContain("Paquetes desde $100");
     expect(spanishSite.homeDescription.length).toBeLessThanOrEqual(160);
     expect(spanishHomeMetadata).toMatchObject({
       title: { absolute: spanishSite.title },
