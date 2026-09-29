@@ -130,7 +130,7 @@ export type PackagePrice =
   | { kind: "custom" };
 
 export const PACKAGE_PRICES: Record<PackageId, PackagePrice> = {
-  arranque: { kind: "from", amount: 200, unit: "project" },
+  arranque: { kind: "from", amount: 100, unit: "project" },
   crecimiento: { kind: "from", amount: 640, unit: "month" },
   "presencia-local": { kind: "from", amount: 800, unit: "production-day" },
   "todo-incluido": { kind: "custom" },
