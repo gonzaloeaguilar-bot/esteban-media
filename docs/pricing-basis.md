@@ -100,13 +100,13 @@ fixed quotes; every project still gets a scoped quote.
 
 | Offer | Starting price |
 |---|---|
-| Video editing (short social clips) | $200 |
+| Video editing (short social clips) | $100 |
 | Restaurant promo video | $240 |
 | Product photography session | $280 |
 | Monthly social content package | $640/mo |
 | On-location production (day) | $800 |
 
 Published at: `lib/site.ts` / `lib/spanish-site.ts` (`startingPrice` on canonical
-services), `/services/restaurant-promo-video-editing-miami`, the Spanish
+services, both derived from `PACKAGE_PRICES.arranque` in `lib/pricing.ts`), `/services/restaurant-promo-video-editing-miami`, the Spanish
 restaurant niche pages, and the Spanish product-photography pricing guide
 ("Desde $280 por sesión"). Do not change a figure without updating this table.
