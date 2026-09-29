@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -10,6 +11,7 @@ import {
   Workflow,
 } from "lucide-react";
 
+import { serviceImages } from "@/lib/service-images";
 import { Container } from "@/components/ui/container";
 import { ServiceLandingDirectory } from "@/components/service-landing-directory";
 import { VideoBriefBuilder } from "@/components/video-brief-builder";
@@ -248,6 +250,20 @@ export default function ServicesPage() {
                       ) : null}
                     </div>
                   </div>
+                  {serviceImages[service.id] ? (
+                    /* A real frame from his own work. Services with no honest
+                       frame get none — a decorative mismatch costs more than a
+                       missing image. */
+                    <Image
+                      src={serviceImages[service.id].src}
+                      alt={serviceImages[service.id].alt}
+                      width={1200}
+                      height={675}
+                      sizes="(min-width: 1024px) 33vw, 100vw"
+                      className="mt-5 h-44 w-full rounded-lg object-cover"
+                      style={{ objectPosition: serviceImages[service.id].focal }}
+                    />
+                  ) : null}
                   <ul className="mt-6 space-y-3 text-sm text-[#252a2d]">
                     <li className="flex gap-3">
                       <CheckCircle2
