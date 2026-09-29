@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { packageRoutes } from "@/lib/package-routes";
 import { useState } from "react";
 import { ArrowRight, Check, Mail, MessageCircle, Phone } from "lucide-react";
 
@@ -193,6 +194,9 @@ export function PackagesSection({ locale }: { locale: Locale }) {
                       >
                         <MessageCircle className="size-4" aria-hidden="true" />
                         {copy.packages.quote(pkg.name)}
+                      </a>
+                      <a href={packageRoutes[pkg.id][locale]} className="em-package-detail-link" data-cta={`package_${pkg.id}_details`}>
+                        {locale === "es" ? "Ver detalles del paquete" : "View package details"}
                       </a>
                     </div>
                   </div>

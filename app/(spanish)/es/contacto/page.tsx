@@ -5,11 +5,13 @@ import {
   HelpCircle,
   Mail,
   MapPin,
+  MessageCircle,
   MessageSquareText,
   Phone,
   Send,
 } from "lucide-react";
 
+import { whatsappHref } from "@/lib/packages";
 import { Container } from "@/components/ui/container";
 import { VideoBriefBuilder } from "@/components/video-brief-builder";
 import { spanishServices, spanishSite } from "@/lib/spanish-site";
@@ -140,11 +142,29 @@ export default async function SpanishContactPage({
                 </Link>{" "}
                 es un negocio de área de servicio en Fort Lauderdale con
                 atención remota. No hay un estudio abierto al público. Las
-                consultas pueden comenzar por email, teléfono o Instagram, y la
+                consultas pueden comenzar por WhatsApp, teléfono, email o Instagram, y la
                 disponibilidad local se considera para cada proyecto.
               </p>
 
               <div className="mt-8 grid gap-3">
+                {/* WhatsApp first: every package CTA on this site already sends people
+                    here, and the contact page — the one page whose whole job is contact —
+                    was the only place that did not offer it. */}
+                <a
+                  href={whatsappHref(site.phone.e164, 'Hola Esteban, quiero hablar de un proyecto.')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cta="contact_whatsapp"
+                  className="flex min-h-16 items-center gap-4 rounded-lg border border-[#c84a2c] bg-[#fff4ee] p-4 hover:border-[#9f3c27]"
+                >
+                  <MessageCircle className="size-5 text-[#9f3c27]" aria-hidden="true" />
+                  <span>
+                    <span className="block text-xs uppercase text-[#5a6066]">
+                      WhatsApp · Respuesta más rápida
+                    </span>
+                    <span>{site.phone.display}</span>
+                  </span>
+                </a>
                 <a
                   href={`mailto:${site.email}`}
                   className="flex min-h-16 items-center gap-4 rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-4 hover:border-[#e85d3e]"
