@@ -113,7 +113,7 @@ export default function ContactPage() {
                 Direct Consultation
               </p>
               <h1 className="mt-4 max-w-3xl font-serif em-display">
-                Tell Esteban what you need to publish.
+                Tell Esteban what you need to publish for your video project.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
                 Send a short brief with the date, location, service type, and
