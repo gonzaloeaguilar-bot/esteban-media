@@ -2,7 +2,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import RailPrice from "@/vendor/rail-kit/RailPrice";
-import { packagesFor, packagesCopy, whatsappHref, type Locale } from "@/lib/packages";
+import { packagesFor, packagesCopy, whatsappHref, packageFaqFor, packageDirectAnswer, packageDetailJsonLd, type Locale } from "@/lib/packages";
+import RailFaq from "@/vendor/rail-kit/RailFaq";
+import { entityIds } from "@/lib/entity-schema";
+import { absoluteUrl } from "@/lib/site";
 import { PACKAGE_PRICES, type PackageId } from "@/lib/pricing";
 import { packageRoutes } from "@/lib/package-routes";
 import { site } from "@/lib/site";
@@ -18,6 +21,9 @@ export function PackageDetail({ id, locale }: { id: PackageId; locale: Locale })
   const copy = packagesCopy(locale);
   const price = PACKAGE_PRICES[id];
   const es = locale === "es";
+  const direct = packageDirectAnswer(id, locale);
+  const faq = packageFaqFor(id, locale);
+  const [serviceLd, faqLd] = packageDetailJsonLd(id, locale, absoluteUrl(packageRoutes[id][locale]), entityIds.business);
   const factors = es ? [
     ["Ritmo de publicación", "La cantidad de piezas y la frecuencia de publicación cambian el trabajo de edición y planificación."],
     ["Material y grabación", "Indica si envías material grabado o necesitas producción en tu negocio. La grabación en locación se cotiza según el alcance."],
@@ -47,6 +53,13 @@ export function PackageDetail({ id, locale }: { id: PackageId; locale: Locale })
         <h2 className="font-serif text-3xl">{copy.packages.includesLabel}</h2>
         <ul className="mt-4 list-disc space-y-3 pl-5 leading-relaxed">{pkg.includes.map((line) => <li key={line}>{line}</li>)}</ul>
       </section>
+      {/* The citable unit. A question-shaped heading and ONE sentence that
+          answers it with no preamble, because an answer engine quotes a
+          sentence, not a page. It adds no words to the includes-list above. */}
+      <section className="mt-12 max-w-3xl" data-section={`package_answer_${id}`}>
+        <h2 className="font-serif text-3xl">{direct.question}</h2>
+        <p className="mt-4 text-lg leading-relaxed">{direct.answer}</p>
+      </section>
       <section className="mt-12 max-w-3xl">
         <h2 className="font-serif text-3xl">{es ? "Qué cambia el precio" : "What moves the price"}</h2>
         {id === "crecimiento" && <p className="mt-4 leading-relaxed">{es ? "El precio mensual es un punto de partida. Antes de confirmar, acordamos el calendario, las piezas y los formatos que necesita tu marca." : "The monthly price is a starting point. Before confirming, we agree on the calendar, pieces and formats your brand needs."}</p>}
@@ -55,6 +68,17 @@ export function PackageDetail({ id, locale }: { id: PackageId; locale: Locale })
         <p className="mt-5 leading-relaxed">{es ? "Usa la calculadora para orientar tu presupuesto de video. Comparte el resultado, el material disponible y tu fecha ideal por WhatsApp para recibir una cotización escrita." : "Use the calculator to estimate your video budget. Share the result, available footage and ideal date on WhatsApp for a written quote."}</p>
         <Link href={es ? "/es/calculadora" : "/calculator"} className="em-package-detail-link" data-cta={`package_${id}_calculator`}>{es ? "Calcular presupuesto de video" : "Estimate video budget"}</Link>
       </section>
+      {/* Only THIS package's questions. The hub carries all four, so repeating
+          them here would be duplicate structured data on nine URLs. */}
+      <section className="mt-12 max-w-3xl" data-section={`package_faq_${id}`}>
+        <RailFaq
+          heading={es ? "Preguntas sobre este paquete" : "Questions about this package"}
+          source={`package_faq_${id}`}
+          items={faq.map((q) => ({ id: q.id, question: q.question, answer: q.answer }))}
+        />
+      </section>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
     </Container>
   </main>;
 }
