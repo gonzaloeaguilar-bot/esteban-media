@@ -1,9 +1,9 @@
 {
   "status": "demand_gated",
   "effectiveDate": "2026-08-28",
-  "baselineRevisedOn": "2026-09-28",
-  "approvedSitemapUrlCount": 254,
-  "approvedSitemapUrlSetSha256": "932ae9f2b960cf768eb32952996adc51ebe5a8174247919011b56291fa1d42ea",
+  "baselineRevisedOn": "2026-09-29",
+  "approvedSitemapUrlCount": 256,
+  "approvedSitemapUrlSetSha256": "b6026b5e4454912d8238061defcdf392c6f248310973e39d43967b8d8cac5db5",
   "allowedNewIndexableUrls": 2,
   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {
@@ -73,6 +73,18 @@
       "demandEvidence": "Owner explicitly requested one URL per package in both languages. No new search-demand evidence claimed.",
       "followUpDate": "2026-10-28",
       "followUp": "Review package-detail clicks and Search Console impressions."
+    },
+    {
+      "on": "2026-09-29",
+      "url": [
+        "/pricing/real-estate",
+        "/es/precios/inmobiliaria"
+      ],
+      "orderedBy": "Gonzalo (in-session), from Esteban's own rate card",
+      "kind": "published-rates",
+      "demandEvidence": "Demand-backed, unlike /desk-recommendations. Search Console 2026-08-30..09-26 already shows this intent reaching the site WITHOUT a page to receive it: 'video production miami cost' at position 18 and 'corporate video production cost miami' earning impressions on a GUIDE, not on a price page. The AI-citation run the same week measured 0 citations for the brand on generic agency queries where clutch, designrush and productionhub win — queries a small studio does not take. A page publishing exact figures by home size competes on a question those directories do not answer. Source of every figure: Esteban's public rate card, September 2026, in lib/services-config.ts.",
+      "followUpDate": "2026-10-29",
+      "followUp": "Check GSC for impressions and position on /pricing/real-estate and /es/precios/inmobiliaria, and re-run the citation tracker for 'real estate photography miami cost'. Zero impressions at 30 days means the intent is not there and the pair should be merged into /pricing."
     }
   ]
 }

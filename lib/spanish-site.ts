@@ -2816,6 +2816,16 @@ export const spanishCoreRoutes = [
 
 export const languageAlternates: Record<string, Record<string, string>> = {
   ...Object.fromEntries(Object.values(packageRoutes).flatMap(({ en, es }) => [en, es].map((path) => [path, { "en-US": en, "es-US": es, "x-default": en }]))),
+  "/pricing/real-estate": {
+    "en-US": "/pricing/real-estate",
+    "es-US": "/es/precios/inmobiliaria",
+    "x-default": "/pricing/real-estate",
+  },
+  "/es/precios/inmobiliaria": {
+    "en-US": "/pricing/real-estate",
+    "es-US": "/es/precios/inmobiliaria",
+    "x-default": "/pricing/real-estate",
+  },
   "/pricing": {
     "en-US": "/pricing",
     "es-US": "/es/precios",
@@ -3408,6 +3418,7 @@ export const spanishTrustQuestions = [
 ];
 
 export const spanishRoutes = [
+  "/es/precios/inmobiliaria",
   ...Object.values(packageRoutes).map((route) => route.es),
   ...spanishCoreRoutes,
   ...spanishNichePages.map((page) => `/es/${page.slug}`),
