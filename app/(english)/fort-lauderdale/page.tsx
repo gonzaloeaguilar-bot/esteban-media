@@ -182,7 +182,7 @@ export default function FortLauderdalePage() {
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/contact"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white hover:bg-[#a93e29]"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)]"
                 >
                   Get a quote for Fort Lauderdale
                   <ArrowRight className="size-4" aria-hidden="true" />
@@ -276,7 +276,7 @@ export default function FortLauderdalePage() {
             </p>
             <Link
               href="/contact"
-              className="mt-6 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white hover:bg-[#a93e29]"
+              className="mt-6 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)]"
             >
               Start the brief
               <ArrowRight className="size-4" aria-hidden="true" />

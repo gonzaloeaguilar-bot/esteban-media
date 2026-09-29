@@ -20,10 +20,13 @@ const ATTR = "data-brand-moment";
  * carrying the station ident, one roll, and the picture snaps shut into a line
  * the way a CRT did — and behind it is the site.
  *
- * The word on the card swaps CARGANDO <-> LOADING through a glitch, and the
- * card offers the two languages as real links. For a Spanish-first business
- * with English available, the door is the honest place to say so — and the
- * choice costs a tap instead of a hunt through the header.
+ * The word on the card swaps CARGANDO <-> LOADING through a glitch: a bilingual
+ * business says so before a word of copy is read.
+ *
+ * The card used to ALSO offer the two languages as real links, because the
+ * header hid the switch inside the hamburger on a phone. The header now carries
+ * a permanent one-tap language control, so the door no longer has to be the
+ * place that choice is made — and the opening no longer has to wait for it.
  *
  * It is DOM and CSS only: nothing downloads before it can start and there is
  * no capability gate. The 3D opening could not begin until 2.1MB of model,
@@ -64,12 +67,16 @@ export function SignalIntro({ locale }: { locale: "es" | "en" }) {
 
       mount({
         name: "signal_opening",
-        // The ceiling, not the plan: the opening locks itself at 2.4s (below),
-        // and only a visitor reaching for the language choice gets the rest.
-        // The kit's own timer is what actually removes the element, so it has
-        // to be the LONGER of the two or the choice disappears mid-reach —
-        // measured: at runMs 3200 the card was gone at 3.2s no matter what.
-        runMs: 6000,
+        // The ceiling, not the plan: the opening locks itself at 2.4s (below).
+        // The kit's own timer is what actually removes the element, so it stays
+        // the LONGER of the two — but only just. It used to be 6000 so that a
+        // visitor reaching for the language choice INSIDE this card could not be
+        // beaten by the clock; that choice now lives permanently in the header,
+        // so nothing here needs three extra seconds. Measured before: a pointer
+        // over the card cancelled the 2.4s dismiss and stranded the visitor
+        // behind the overlay until this ceiling — 6.4s on a marketing home whose
+        // biggest word was LOADING.
+        runMs: 2800,
         skipLabel: es ? "Saltar" : "Skip",
         html:
           '<div class="em-signal">' +
@@ -83,10 +90,6 @@ export function SignalIntro({ locale }: { locale: "es" | "en" }) {
           '<span class="em-signal__w em-signal__w--en" data-text="LOADING">LOADING</span>' +
           "</p>" +
           '<p class="em-signal__ident">Esteban Moreno Media</p>' +
-          '<div class="em-signal__lang">' +
-          '<a class="em-signal__pick" href="/es" data-cta="intro_lang_es" hreflang="es">Español</a>' +
-          '<a class="em-signal__pick" href="/" data-cta="intro_lang_en" hreflang="en">English</a>' +
-          "</div>" +
           "</div>" +
           '<div class="em-signal__roll" aria-hidden="true"></div>' +
           "</div>",
@@ -100,30 +103,15 @@ export function SignalIntro({ locale }: { locale: "es" | "en" }) {
         moment.classList.add("is-through");
         root.removeAttribute(ATTR);
       };
-      let through = window.setTimeout(lock, 2400);
+      const through = window.setTimeout(lock, 2400);
 
-      // Reaching for the language buttons must not race the clock: a visitor
-      // whose finger is already on the card gets to finish. Any pointer over
-      // the card cancels the auto-dismiss; the skip button still ends it, and
-      // so does picking a language (those are real links).
-      const hold = () => {
-        window.clearTimeout(through);
-        through = 0 as unknown as number;
-      };
-      const card = moment.querySelector(".em-signal__card");
-      card?.addEventListener("pointerenter", hold, { once: true });
-
-      // The kit ends the moment on ANY pointerdown (mount.js: finish("tap")),
-      // which on a phone meant the tap aimed at "Español" removed the overlay
-      // before the link could resolve — the choice did nothing. Measured, not
-      // assumed. These two stay in their own bubble.
-      for (const pick of moment.querySelectorAll(".em-signal__pick")) {
-        pick.addEventListener("pointerdown", (event) => {
-          event.stopPropagation();
-          hold();
-        });
-        pick.addEventListener("click", (event) => event.stopPropagation());
-      }
+      // No pointer hold any more. It existed so a finger already on the card
+      // could reach the language links without the 2.4s dismiss beating it —
+      // and its cost was that ANY pointer over the card (a scroll gesture on a
+      // phone starts as one) cancelled the dismiss outright and held the
+      // visitor behind the overlay until the kit's ceiling. With the language
+      // choice in the header, the opening is now just an opening: it ends on
+      // its own clock, on the skip button, or on a tap.
 
       const mo = new MutationObserver(() => {
         if (moment.isConnected) return;

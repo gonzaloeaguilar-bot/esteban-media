@@ -157,7 +157,7 @@ export function ScriptAndOverlayKit({ locale = "en" }: ScriptAndOverlayKitProps)
     <div className="rounded-2xl border border-[#ddd4c8] bg-[#fbf6ef] p-6 shadow-sm sm:p-8">
       <div className="mb-6 flex flex-wrap items-center justify-between gap-4 border-b border-[#ddd4c8] pb-4">
         <div>
-          <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#c84a2c]">
+          <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[var(--em-accent-ink)]">
             <Sparkles className="size-3.5" aria-hidden="true" />
             {isEs ? "Recursos Gratuitos de Producción" : "Free Production Resource Kit"}
           </span>
@@ -238,8 +238,8 @@ export function ScriptAndOverlayKit({ locale = "en" }: ScriptAndOverlayKitProps)
 
             <div className="mt-6 border-t border-white/10 pt-4 text-xs text-[#5a6066]">
               {isEs
-                ? "💡 ¿Quieres que editemos tus videos basados en estos guiones? Contáctanos para cotizar tu lote."
-                : "💡 Want us to edit your videos using these scripts? Contact us for a custom package estimate."}
+                ? "¿Quieres que editemos tus videos basados en estos guiones? Contáctanos para cotizar tu lote."
+                : "Want us to edit your videos using these scripts? Contact us for a custom package estimate."}
             </div>
           </div>
         </div>
@@ -302,7 +302,7 @@ export function ScriptAndOverlayKit({ locale = "en" }: ScriptAndOverlayKitProps)
             </span>
             <a
               href={`mailto:${site.email}?subject=${encodeURIComponent(isEs ? "Solicitud de Kit de Video Social" : "Social Video Kit Asset Pack Request")}`}
-              className="inline-flex items-center gap-1.5 rounded-full bg-[#c84a2c] px-4 py-2 text-white hover:bg-[#a93e29]"
+              className="inline-flex items-center gap-1.5 rounded-full bg-[var(--em-accent-ink)] px-4 py-2 text-white hover:bg-[var(--em-accent-ink-hover)]"
             >
               <Download className="size-3.5" />
               {isEs ? "Solicitar Archivos .PNG" : "Request .PNG Assets"}
@@ -329,7 +329,7 @@ export function ScriptAndOverlayKit({ locale = "en" }: ScriptAndOverlayKitProps)
               />
               <button
                 type="submit"
-                className="inline-flex min-h-9 items-center gap-1.5 rounded-full bg-[#c84a2c] px-5 text-xs font-semibold text-white hover:bg-[#a93e29]"
+                className="inline-flex min-h-9 items-center gap-1.5 rounded-full bg-[var(--em-accent-ink)] px-5 text-xs font-semibold text-white hover:bg-[var(--em-accent-ink-hover)]"
               >
                 <Send className="size-3.5" />
                 {isEs ? "Desbloquear Kit" : "Unlock Kit"}

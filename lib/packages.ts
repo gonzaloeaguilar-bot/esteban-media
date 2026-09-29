@@ -356,6 +356,120 @@ export function packageFaq(locale: Locale): { id: string; question: string; answ
   ];
 }
 
+/**
+ * The questions that belong to ONE package, and a one-sentence answer to the
+ * question that page exists to answer.
+ *
+ * Why this is not just `packageFaq` again: the hub already carries all four
+ * questions, so repeating the same FAQPage on nine URLs would be duplicate
+ * structured data, and the eight package pages would be telling an answer engine
+ * the same thing the hub told it. Each page gets only its own question, which is
+ * also the only honest reason for it to have a URL of its own — measured
+ * 2026-09-28, their whole informational payload already existed on /pricing.
+ */
+const FAQ_BY_PACKAGE: Record<PackageId, string[]> = {
+  arranque: ["cuanto-edicion", "precios-fijos"],
+  crecimiento: ["plan-mensual", "precios-fijos"],
+  "presencia-local": ["grabar-negocio", "precios-fijos"],
+  "todo-incluido": ["precios-fijos"],
+};
+
+export function packageFaqFor(id: PackageId, locale: Locale) {
+  const wanted = FAQ_BY_PACKAGE[id];
+  return packageFaq(locale).filter((q) => wanted.includes(q.id));
+}
+
+/**
+ * The direct answer. One question-shaped heading and one sentence that answers
+ * it without a preamble, because that sentence is the citable unit: an answer
+ * engine quotes a sentence, not a page. It restates nothing from the
+ * includes-list — repeating the list here would add words and no information.
+ */
+export function packageDirectAnswer(id: PackageId, locale: Locale) {
+  const es = locale === "es";
+  const pk = packagesFor(locale).find((p) => p.id === id)!;
+  const price = priceSentence(locale, id).toLowerCase();
+  const map: Record<PackageId, { question: string; answer: string }> = {
+    arranque: {
+      question: es
+        ? "¿Cuánto cuesta editar un video en Fort Lauderdale?"
+        : "How much does it cost to edit a video in Fort Lauderdale?",
+      answer: es
+        ? `El paquete ${pk.name} es ${price}: tú envías el material grabado y recibes el video editado con formato para Reels, TikTok, YouTube o web, con una ronda de revisión.`
+        : `The ${pk.name} package is ${price}: you send the footage you already shot and get it back edited and formatted for Reels, TikTok, YouTube or web, with one revision round.`,
+    },
+    crecimiento: {
+      question: es
+        ? "¿Qué incluye un plan mensual de redes sociales y cuánto cuesta?"
+        : "What does a monthly social media plan include, and what does it cost?",
+      answer: es
+        ? `${pk.name} es ${price} e incluye el plan de contenido, el calendario de publicación, la edición y un reporte mensual — una sola persona responsable del contenido en vez de publicar cuando se puede.`
+        : `${pk.name} is ${price} and includes the content plan, the publishing calendar, the editing and a monthly report — one person accountable for content instead of posting when you can.`,
+    },
+    "presencia-local": {
+      question: es
+        ? "¿Cuánto cuesta un día de producción de video en Miami o Fort Lauderdale?"
+        : "What does a video production day cost in Miami or Fort Lauderdale?",
+      answer: es
+        ? `${pk.name} es ${price} e incluye la preproducción, la captura en tu negocio y la edición posterior, en Fort Lauderdale, Broward y proyectos seleccionados en Miami-Dade.`
+        : `${pk.name} is ${price} and covers pre-production, filming at your business and the editing afterwards, across Fort Lauderdale, Broward and selected Miami-Dade projects.`,
+    },
+    "todo-incluido": {
+      question: es
+        ? "¿Se puede contratar web, contenido y presencia local a un solo proveedor?"
+        : "Can one provider handle the website, the content and local presence?",
+      answer: es
+        ? `Sí: ${pk.name} reúne el sitio web de conversión, la captura de clientes con IA, el perfil local y el contenido en un solo alcance. Se cotiza a medida porque el punto de partida cambia en cada negocio.`
+        : `Yes: ${pk.name} brings the conversion website, AI lead capture, the local profile and the content into one scope. It is quoted individually because the starting point differs in every business.`,
+    },
+  };
+  return map[id];
+}
+
+/** Service + Offer + the page's OWN question, for one package page. */
+export function packageDetailJsonLd(
+  id: PackageId,
+  locale: Locale,
+  pageUrl: string,
+  providerId: string,
+) {
+  const pk = packagesFor(locale).find((p) => p.id === id)!;
+  const price = PACKAGE_PRICES[id];
+  const direct = packageDirectAnswer(id, locale);
+  const service: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${pageUrl}#service`,
+    name: pk.name,
+    serviceType: pk.subtitle,
+    description: direct.answer,
+    url: pageUrl,
+    provider: { "@id": providerId },
+    inLanguage: locale === "es" ? "es-US" : "en-US",
+  };
+  if (price.kind === "from") {
+    // `lowPrice` and no `highPrice`: the figure is a floor, and every project
+    // gets a scoped quote. Publishing it as `price` would assert a fixed cost.
+    service.offers = {
+      "@type": "AggregateOffer",
+      priceCurrency: "USD",
+      lowPrice: price.amount,
+      availability: "https://schema.org/InStock",
+    };
+  }
+  const faq = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${pageUrl}#faq`,
+    mainEntity: packageFaqFor(id, locale).map((q) => ({
+      "@type": "Question",
+      name: q.question,
+      acceptedAnswer: { "@type": "Answer", text: q.answer },
+    })),
+  };
+  return [service, faq] as const;
+}
+
 /** OfferCatalog + FAQPage, from the rendered content. */
 export function packagesJsonLd(locale: Locale, homeUrl: string, providerId: string) {
   const es = locale === "es";

@@ -1,0 +1,64 @@
+name: Enviar fotos o videos para la web
+description: Sube material de tu trabajo para que aparezca en tu sitio
+title: "Material nuevo: "
+labels: ["material"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Arrastra aquí las fotos o los videos y cuéntanos de qué son.
+        No hace falta que tengan un nombre especial ni un tamaño concreto:
+        cuanto más grandes y sin comprimir, mejor.
+
+  - type: textarea
+    id: archivos
+    attributes:
+      label: Las fotos o los videos
+      description: |
+        Arrástralos a este recuadro, o pulsa aquí y elígelos de tu computador.
+        Puedes poner varios de una vez.
+      placeholder: Arrastra los archivos aquí
+    validations:
+      required: true
+
+  - type: textarea
+    id: que-son
+    attributes:
+      label: ¿Qué son?
+      description: |
+        Una línea por archivo basta. Lo importante es de qué trabajo salieron y
+        qué se ve, porque eso decide en qué página encajan.
+      placeholder: |
+        Ejemplo:
+        - Las tres primeras: grabación en el restaurante de Las Olas, marzo.
+        - La cuarta: pantalla de mi línea de tiempo editando el video de la clínica.
+      value: |
+        - 
+    validations:
+      required: true
+
+  - type: dropdown
+    id: donde
+    attributes:
+      label: ¿Dónde crees que encajan?
+      description: Si no lo tienes claro, elige la última opción y nosotros lo decidimos.
+      options:
+        - Un trabajo concreto para clientes (restaurante, inmobiliaria, clínica…)
+        - Yo trabajando — grabando o editando
+        - Una explicación de cómo trabajas, para los artículos
+        - No estoy seguro, decídanlo ustedes
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: permiso
+    attributes:
+      label: Permiso para publicarlo
+      description: |
+        Esto es importante: si en el material sale un local, un producto o una
+        persona de un cliente, necesitamos poder enseñarlo públicamente.
+      options:
+        - label: Puedo publicar este material en mi sitio web
+          required: true
+        - label: Sale alguien reconocible y todavía NO tengo su permiso (avísanos y esperamos)
+          required: false

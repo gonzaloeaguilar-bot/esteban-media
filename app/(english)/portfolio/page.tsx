@@ -1265,7 +1265,7 @@ export default function PortfolioPage() {
             <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
               <Link
                 href="/contact"
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white transition hover:bg-[#a93e29]"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white transition hover:bg-[var(--em-accent-ink-hover)]"
               >
                 Start a project
                 <ArrowRight className="size-4" aria-hidden="true" />

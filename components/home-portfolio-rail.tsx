@@ -90,7 +90,7 @@ export function HomePortfolioRail({
         />
         <span
           aria-hidden="true"
-          className="absolute bottom-3 right-3 grid size-10 place-items-center rounded-full bg-[#c84a2c] text-white"
+          className="absolute bottom-3 right-3 grid size-10 place-items-center rounded-full bg-[var(--em-accent-ink)] text-white"
         >
           <Play className="size-4 fill-current" aria-hidden="true" />
         </span>

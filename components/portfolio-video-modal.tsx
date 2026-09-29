@@ -92,7 +92,7 @@ export function PortfolioVideoModal({
                 ? `Consulta sobre proyecto similar a: ${title}`
                 : `Inquiry regarding project similar to: ${title}`
             )}`}
-            className="inline-flex min-h-10 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-5 text-xs font-semibold text-white hover:bg-[#a93e29]"
+            className="inline-flex min-h-10 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-5 text-xs font-semibold text-white hover:bg-[var(--em-accent-ink-hover)]"
           >
             <Send className="size-3.5" aria-hidden="true" />
             {isEs ? "Cotizar Proyecto Similar" : "Scope Similar Project"}

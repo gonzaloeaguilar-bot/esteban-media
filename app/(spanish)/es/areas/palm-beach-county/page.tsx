@@ -184,7 +184,7 @@ export default function SpanishPalmBeachCountyPage() {
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/es/contacto"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white hover:bg-[#a93e29]"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)]"
                 >
                   Consultar un proyecto en Palm Beach
                   <ArrowRight className="size-4" aria-hidden="true" />
@@ -284,7 +284,7 @@ export default function SpanishPalmBeachCountyPage() {
             </p>
             <Link
               href="/es/contacto"
-              className="mt-6 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white hover:bg-[#a93e29]"
+              className="mt-6 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)]"
             >
               Mandar el brief
               <ArrowRight className="size-4" aria-hidden="true" />

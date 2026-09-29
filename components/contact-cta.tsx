@@ -131,7 +131,7 @@ export function ContactCta() {
                   <button
                     type="submit"
                     disabled={submitState === "submitting"}
-                    className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white transition hover:bg-[#a93e29] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:cursor-wait disabled:opacity-70"
+                    className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white transition hover:bg-[var(--em-accent-ink-hover)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:cursor-wait disabled:opacity-70"
                   >
                     {submitState === "submitting" ? "Sending…" : "Send project details"}
                     <ArrowRight className="size-4" aria-hidden="true" />

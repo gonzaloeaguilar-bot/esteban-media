@@ -105,8 +105,10 @@ describe("consolidation arithmetic matches the published baseline", () => {
   it("removes exactly 26 URLs from the prior 269-URL inventory", () => {
     expect(consolidatedPathCount()).toBe(26);
     // +3 = /desk-recommendations (2026-09-16) plus the /pricing and
-    // /es/precios pair (2026-09-27), all owner-ordered, not consolidation changes
-    expect(sitemap()).toHaveLength(269 - 26 + 3 + 8);
+    // /es/precios pair (2026-09-27); +8 = the package pages (2026-09-29);
+    // +2 = the real-estate rate-card pair (2026-09-29, demand-backed).
+    // All owner-ordered, none of them consolidation changes.
+    expect(sitemap()).toHaveLength(269 - 26 + 3 + 8 + 2);
   });
 
   it("never lists a redirect source in the sitemap", () => {

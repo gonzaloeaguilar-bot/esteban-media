@@ -26,6 +26,8 @@ export const sitemapRoutes = [
   ...Object.values(packageRoutes).map((route) => ({ path: route.en, priority: 0.8 })),
   { path: "/", priority: 1 },
   { path: "/pricing", priority: 0.95 },
+  // Published rates for a service line the packages do not cover.
+  { path: "/pricing/real-estate", priority: 0.9 },
   { path: "/calculator", priority: 0.9 },
   { path: "/resources/social-video-kit", priority: 0.9 },
   { path: "/assessment", priority: 0.9 },

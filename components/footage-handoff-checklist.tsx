@@ -71,7 +71,7 @@ export function FootageHandoffChecklist({ locale = "en" }: FootageHandoffCheckli
     <div className="rounded-2xl border border-[#ddd4c8] bg-[#fbf6ef] p-6 shadow-sm sm:p-8">
       <div className="mb-6 flex flex-wrap items-center justify-between gap-4 border-b border-[#ddd4c8] pb-4">
         <div>
-          <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#c84a2c]">
+          <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[var(--em-accent-ink)]">
             <Sparkles className="size-3.5" aria-hidden="true" />
             {isEs ? "Lista de Chequeo de Posproducción" : "Pre-Production Handoff Checklist"}
           </span>
@@ -165,7 +165,7 @@ export function FootageHandoffChecklist({ locale = "en" }: FootageHandoffCheckli
 
             <a
               href={`mailto:${site.email}?subject=${encodeURIComponent(isEs ? "Entrega de Material de Video para Edición" : "Video Footage Handoff for Editing")}`}
-              className="mt-3 inline-flex min-h-10 w-full items-center justify-center gap-2 rounded-full bg-[#c84a2c] text-xs font-semibold text-white hover:bg-[#a93e29]"
+              className="mt-3 inline-flex min-h-10 w-full items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] text-xs font-semibold text-white hover:bg-[var(--em-accent-ink-hover)]"
             >
               <Send className="size-3.5" aria-hidden="true" />
               {isEs ? "Enviar Enlace de Carpeta por Email" : "Send Folder Link via Email"}
