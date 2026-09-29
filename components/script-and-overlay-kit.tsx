@@ -238,8 +238,8 @@ export function ScriptAndOverlayKit({ locale = "en" }: ScriptAndOverlayKitProps)
 
             <div className="mt-6 border-t border-white/10 pt-4 text-xs text-[#5a6066]">
               {isEs
-                ? "💡 ¿Quieres que editemos tus videos basados en estos guiones? Contáctanos para cotizar tu lote."
-                : "💡 Want us to edit your videos using these scripts? Contact us for a custom package estimate."}
+                ? "¿Quieres que editemos tus videos basados en estos guiones? Contáctanos para cotizar tu lote."
+                : "Want us to edit your videos using these scripts? Contact us for a custom package estimate."}
             </div>
           </div>
         </div>
