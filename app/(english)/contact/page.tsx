@@ -5,11 +5,13 @@ import {
   HelpCircle,
   Mail,
   MapPin,
+  MessageCircle,
   MessageSquareText,
   Phone,
   Send,
 } from "lucide-react";
 
+import { whatsappHref } from "@/lib/packages";
 import { Container } from "@/components/ui/container";
 import { VideoBriefBuilder } from "@/components/video-brief-builder";
 import { buildPageMetadata } from "@/lib/site-metadata";
@@ -126,12 +128,30 @@ export default function ContactPage() {
                   Esteban Moreno Media
                 </Link>{" "}
                 is a remote-first service-area business in Fort Lauderdale. There
-                is no client-facing studio. Inquiries can start by email, phone,
-                or Instagram, and local availability is considered for each
-                project.
+                is no client-facing studio. Inquiries can start on WhatsApp,
+                by phone, by email or on Instagram, and local availability is
+                considered for each project.
               </p>
 
               <div className="mt-8 grid gap-3">
+                {/* WhatsApp first: every package CTA on this site already sends people
+                    here, and the contact page — the one page whose whole job is contact —
+                    was the only place that did not offer it. */}
+                <a
+                  href={whatsappHref(site.phone.e164, "Hi Esteban, I'd like to talk about a project.")}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cta="contact_whatsapp"
+                  className="flex min-h-16 items-center gap-4 rounded-lg border border-[#c84a2c] bg-[#fff4ee] p-4 hover:border-[#9f3c27]"
+                >
+                  <MessageCircle className="size-5 text-[#9f3c27]" aria-hidden="true" />
+                  <span>
+                    <span className="block text-xs uppercase text-[#5a6066]">
+                      WhatsApp · Fastest reply
+                    </span>
+                    <span>{site.phone.display}</span>
+                  </span>
+                </a>
                 <a
                   href={`mailto:${site.email}`}
                   className="flex min-h-16 items-center gap-4 rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-4 hover:border-[#e85d3e]"
