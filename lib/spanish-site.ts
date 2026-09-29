@@ -50,7 +50,7 @@ export const spanishServices: SpanishService[] = [
       "El alcance parte del material disponible, la meta de publicación y las necesidades de formato.",
     icon: Scissors,
     tags: ["Remoto", "Material existente", "Postproducción"],
-    startingPrice: "Desde $200",
+    startingPrice: `Desde ${usd(PACKAGE_PRICES.arranque.kind === "from" ? PACKAGE_PRICES.arranque.amount : 0)}`,
   },
   {
     id: "contenido-ia",
