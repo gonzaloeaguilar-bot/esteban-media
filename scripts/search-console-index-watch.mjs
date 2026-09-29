@@ -56,6 +56,8 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/es/precios/crecimiento",
   "https://estebanmorenomedia.com/es/precios/presencia-local",
   "https://estebanmorenomedia.com/es/precios/todo-incluido",
+  "https://estebanmorenomedia.com/pricing/real-estate",
+  "https://estebanmorenomedia.com/es/precios/inmobiliaria",
   "https://estebanmorenomedia.com/pricing",
   "https://estebanmorenomedia.com/es/precios",
   "https://estebanmorenomedia.com/case-studies/banacol",

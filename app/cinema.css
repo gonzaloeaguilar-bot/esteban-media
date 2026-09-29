@@ -971,6 +971,12 @@ html {
   background: var(--cine-paper);
   padding: 60px 0 44px;
 }
+.em-pk-carte__glyph {
+  color: var(--em-accent-ink, #a8381d);
+  flex: 0 0 auto;
+  margin-bottom: 10px;
+}
+
 .em-pk-carte__grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
