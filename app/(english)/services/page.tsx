@@ -10,6 +10,7 @@ import {
   Workflow,
 } from "lucide-react";
 
+import { KeepReading } from "@/components/keep-reading";
 import { Container } from "@/components/ui/container";
 import { ServiceLandingDirectory } from "@/components/service-landing-directory";
 import { VideoBriefBuilder } from "@/components/video-brief-builder";
@@ -395,7 +396,13 @@ export default function ServicesPage() {
             <VideoBriefBuilder locale="en" />
           </div>
 
-          <ServiceLandingDirectory />
+          <KeepReading
+            id="pages-by-project-type"
+            title="See every page by project type and area"
+            destinations="Editing, drone and real estate, restaurants, clinics, events, e-commerce and more, by South Florida city and county."
+          >
+            <ServiceLandingDirectory />
+          </KeepReading>
 
           <div className="mt-14 rounded-lg bg-[#101214] p-6 text-[#f6f1ea] sm:p-8">
             <h2 className="font-serif text-4xl">Not sure which service fits?</h2>

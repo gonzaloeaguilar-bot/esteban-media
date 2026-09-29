@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, Bot, CheckCircle2, ChartLine, ClipboardCheck, Laptop, MapPin, Workflow } from "lucide-react";
 
+import { KeepReading } from "@/components/keep-reading";
 import { Container } from "@/components/ui/container";
 import { VideoBriefBuilder } from "@/components/video-brief-builder";
 import { entityIds } from "@/lib/entity-schema";
@@ -377,6 +378,11 @@ export default function SpanishServicesPage() {
         </Container>
       </section>
 
+      <KeepReading
+        id="paginas-por-tipo-de-proyecto"
+        title="Ver todas las páginas por tipo de proyecto y zona"
+        destinations="Edición, dron e inmobiliaria, restaurantes, clínicas, eventos, e-commerce y más, por ciudad y condado del sur de Florida."
+      >
       <section className="border-t border-[#ddd4c8] py-12 sm:py-16">
         <Container size="xl">
           <p className="text-xs font-medium uppercase text-[#5a6066]">
@@ -407,6 +413,8 @@ export default function SpanishServicesPage() {
           </div>
         </Container>
       </section>
+      </KeepReading>
+
     </main>
   );
 }
