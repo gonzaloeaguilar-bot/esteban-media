@@ -39,7 +39,7 @@ function renderFormattedText(text: string) {
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          className="font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[#c84a2c]"
+          className="font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]"
         >
           {label}
         </a>,
@@ -49,7 +49,7 @@ function renderFormattedText(text: string) {
         <Link
           key={`${href}-${match.index}`}
           href={href}
-          className="font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[#c84a2c]"
+          className="font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]"
         >
           {label}
         </Link>,
@@ -140,7 +140,7 @@ export function CaseStudyPage({ caseStudy }: CaseStudyPageProps) {
                   rel="noopener noreferrer"
                   className="group absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/30 to-transparent p-6 text-white sm:p-8"
                 >
-                  <span className="inline-flex items-center gap-2 self-start rounded-full bg-[#c84a2c] px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-white shadow-md transition group-hover:bg-[#a93e29]">
+                  <span className="inline-flex items-center gap-2 self-start rounded-full bg-[var(--em-accent-ink)] px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-white shadow-md transition group-hover:bg-[var(--em-accent-ink-hover)]">
                     {isSpanish ? "Ver Sitio Web en Vivo ↗" : "View Live Website ↗"}
                   </span>
                   <p className="mt-2 font-serif text-2xl text-[#f6f1ea] group-hover:text-white group-hover:underline">
@@ -149,7 +149,7 @@ export function CaseStudyPage({ caseStudy }: CaseStudyPageProps) {
                 </a>
               ) : (
                 <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/30 to-transparent p-6 text-white sm:p-8">
-                  <span className="inline-flex items-center gap-2 self-start rounded-full bg-[#c84a2c] px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-white">
+                  <span className="inline-flex items-center gap-2 self-start rounded-full bg-[var(--em-accent-ink)] px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-white">
                     {isSpanish ? "Caso de Estudio Publicado" : "Published Case Study"}
                   </span>
                   <p className="mt-2 font-serif text-2xl text-[#f6f1ea]">
@@ -172,7 +172,7 @@ export function CaseStudyPage({ caseStudy }: CaseStudyPageProps) {
               <div className="mt-7 flex flex-wrap gap-3">
                 <Link
                   href={caseStudy.serviceLink.href}
-                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-5 text-sm font-medium text-white shadow-sm transition hover:bg-[#a93e29]"
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-5 text-sm font-medium text-white shadow-sm transition hover:bg-[var(--em-accent-ink-hover)]"
                 >
                   {caseStudy.serviceLink.label}
                   <ArrowRight className="size-4" aria-hidden="true" />
@@ -245,7 +245,7 @@ export function CaseStudyPage({ caseStudy }: CaseStudyPageProps) {
                           className="flex items-start gap-3 text-sm leading-6 text-[#252a2d] sm:text-base"
                         >
                           <CheckCircle2
-                            className="mt-1 size-4 shrink-0 text-[#c84a2c]"
+                            className="mt-1 size-4 shrink-0 text-[var(--em-accent-ink)]"
                             aria-hidden="true"
                           />
                           <span>{renderFormattedText(bullet)}</span>
@@ -270,7 +270,7 @@ export function CaseStudyPage({ caseStudy }: CaseStudyPageProps) {
               {/* Scoping Questions Section */}
               <div className="rounded-2xl border border-[#d6ccc0] bg-[#efe7db] p-6 sm:p-8">
                 <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#9f3c27]">
-                  <HelpCircle className="size-4 text-[#c84a2c]" aria-hidden="true" />
+                  <HelpCircle className="size-4 text-[var(--em-accent-ink)]" aria-hidden="true" />
                   <span>
                     {isSpanish
                       ? "Preguntas de Alcance para Proyectos Similares"
@@ -342,7 +342,7 @@ export function CaseStudyPage({ caseStudy }: CaseStudyPageProps) {
                         {isSpanish ? "Ubicación" : "Location"}
                       </dt>
                       <dd className="mt-0.5 flex items-center gap-1.5 font-medium text-[#101214]">
-                        <MapPin className="size-3.5 text-[#c84a2c]" aria-hidden="true" />
+                        <MapPin className="size-3.5 text-[var(--em-accent-ink)]" aria-hidden="true" />
                         {caseStudy.location}
                       </dd>
                     </div>
@@ -377,7 +377,7 @@ export function CaseStudyPage({ caseStudy }: CaseStudyPageProps) {
                             href={caseStudy.reviewUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="mt-1.5 inline-flex items-center gap-1 font-semibold text-[#c84a2c] hover:underline"
+                            className="mt-1.5 inline-flex items-center gap-1 font-semibold text-[var(--em-accent-ink)] hover:underline"
                           >
                             {isSpanish ? "Ver Perfil en Google Maps" : "View Google Maps Profile"}
                             <ExternalLink className="size-3" aria-hidden="true" />
@@ -449,7 +449,7 @@ export function CaseStudyPage({ caseStudy }: CaseStudyPageProps) {
             </div>
             <Link
               href={caseStudy.contactLink.href}
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white transition hover:bg-[#a93e29]"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white transition hover:bg-[var(--em-accent-ink-hover)]"
             >
               {caseStudy.contactLink.label}
               <ArrowRight className="size-4" aria-hidden="true" />

@@ -236,7 +236,7 @@ export function PortfolioWatchPage({ item, locale }: PortfolioWatchPageProps) {
                   rel="noopener noreferrer"
                   className="group absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/20 to-transparent p-6 text-white sm:p-8"
                 >
-                  <span className="inline-flex items-center gap-2 self-start rounded-full bg-[#c84a2c] px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-white shadow-md transition group-hover:bg-[#a93e29]">
+                  <span className="inline-flex items-center gap-2 self-start rounded-full bg-[var(--em-accent-ink)] px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-white shadow-md transition group-hover:bg-[var(--em-accent-ink-hover)]">
                     {locale === "es" ? "Sitio Web En Vivo ↗" : "Live Website ↗"}
                   </span>
                   <p className="mt-2 font-serif text-2xl text-[#f6f1ea] group-hover:text-white group-hover:underline">
@@ -245,7 +245,7 @@ export function PortfolioWatchPage({ item, locale }: PortfolioWatchPageProps) {
                 </a>
               ) : (
                 <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/30 to-transparent p-6 text-white sm:p-8">
-                  <span className="inline-flex items-center gap-2 self-start rounded-full bg-[#c84a2c] px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-white">
+                  <span className="inline-flex items-center gap-2 self-start rounded-full bg-[var(--em-accent-ink)] px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-white">
                     Web App & AI System
                   </span>
                   <p className="mt-2 font-serif text-2xl text-[#f6f1ea]">
@@ -269,7 +269,7 @@ export function PortfolioWatchPage({ item, locale }: PortfolioWatchPageProps) {
                 {CASE_STUDY_IDS.includes(item.id as CaseStudyId) ? (
                   <Link
                     href={getCaseStudyPath(item.id as CaseStudyId, locale)}
-                    className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-5 text-sm font-medium text-white shadow-sm hover:bg-[#a93e29]"
+                    className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-5 text-sm font-medium text-white shadow-sm hover:bg-[var(--em-accent-ink-hover)]"
                   >
                     {locale === "es" ? "Ver Caso de Estudio Completo" : "Read Full Case Study"}
                     <ArrowRight className="size-4" aria-hidden="true" />
@@ -280,7 +280,7 @@ export function PortfolioWatchPage({ item, locale }: PortfolioWatchPageProps) {
                     href={item.websiteUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-5 text-sm font-medium text-white shadow-sm hover:bg-[#a93e29]"
+                    className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-5 text-sm font-medium text-white shadow-sm hover:bg-[var(--em-accent-ink-hover)]"
                   >
                     {locale === "es" ? "Visitar Sitio Web En Vivo" : "Visit Live Website"}
                     <ExternalLink className="size-4" aria-hidden="true" />
@@ -397,7 +397,7 @@ export function PortfolioWatchPage({ item, locale }: PortfolioWatchPageProps) {
                           href={item.websiteUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 font-semibold text-[#c84a2c] hover:underline"
+                          className="inline-flex items-center gap-1.5 font-semibold text-[var(--em-accent-ink)] hover:underline"
                         >
                           {item.websiteUrl}
                           <ExternalLink className="size-4" aria-hidden="true" />
@@ -431,7 +431,7 @@ export function PortfolioWatchPage({ item, locale }: PortfolioWatchPageProps) {
                   key={idx}
                   className="rounded-xl border border-[#ddd4c8] bg-[#f6f1ea] p-6 shadow-sm"
                 >
-                  <span className="block font-serif text-4xl font-bold text-[#c84a2c] sm:text-5xl">
+                  <span className="block font-serif text-4xl font-bold text-[var(--em-accent-ink)] sm:text-5xl">
                     {result.metric}
                   </span>
                   <span className="mt-3 block text-sm font-medium leading-relaxed text-[#252a2d]">
@@ -507,7 +507,7 @@ export function PortfolioWatchPage({ item, locale }: PortfolioWatchPageProps) {
             </div>
             <Link
               href={contactPath}
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white hover:bg-[#a93e29]"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)]"
             >
               {text.contact}
               <ArrowRight className="size-4" aria-hidden="true" />

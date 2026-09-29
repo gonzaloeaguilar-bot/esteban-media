@@ -113,7 +113,7 @@ export function VideoStrategyAssessment({ locale = "en" }: VideoStrategyAssessme
   return (
     <div className="rounded-2xl border border-[#ddd4c8] bg-[#fbf6ef] p-6 shadow-sm sm:p-8">
       <div className="mb-6 border-b border-[#ddd4c8] pb-4">
-        <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#c84a2c]">
+        <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[var(--em-accent-ink)]">
           <Sparkles className="size-3.5" aria-hidden="true" />
           {isEs ? "Evaluación de Estrategia Digital" : "Bilingual Strategy Diagnostic"}
         </span>
@@ -146,7 +146,7 @@ export function VideoStrategyAssessment({ locale = "en" }: VideoStrategyAssessme
                   onClick={() => setBilingual(opt.id)}
                   className={`rounded-xl border p-3 font-medium transition-all ${
                     bilingual === opt.id
-                      ? "border-[#c84a2c] bg-[#c84a2c]/10 text-[#c84a2c]"
+                      ? "border-[#c84a2c] bg-[#c84a2c]/10 text-[var(--em-accent-ink)]"
                       : "border-[#ddd4c8] bg-[#f6f1ea] text-[#252a2d] hover:border-[#a93e29]"
                   }`}
                 >
@@ -173,7 +173,7 @@ export function VideoStrategyAssessment({ locale = "en" }: VideoStrategyAssessme
                   onClick={() => setVerticalRatio(opt.id)}
                   className={`rounded-xl border p-3 font-medium transition-all ${
                     verticalRatio === opt.id
-                      ? "border-[#c84a2c] bg-[#c84a2c]/10 text-[#c84a2c]"
+                      ? "border-[#c84a2c] bg-[#c84a2c]/10 text-[var(--em-accent-ink)]"
                       : "border-[#ddd4c8] bg-[#f6f1ea] text-[#252a2d] hover:border-[#a93e29]"
                   }`}
                 >
@@ -199,7 +199,7 @@ export function VideoStrategyAssessment({ locale = "en" }: VideoStrategyAssessme
                   onClick={() => setAudioCaptions(opt.id)}
                   className={`rounded-xl border p-3 font-medium transition-all ${
                     audioCaptions === opt.id
-                      ? "border-[#c84a2c] bg-[#c84a2c]/10 text-[#c84a2c]"
+                      ? "border-[#c84a2c] bg-[#c84a2c]/10 text-[var(--em-accent-ink)]"
                       : "border-[#ddd4c8] bg-[#f6f1ea] text-[#252a2d] hover:border-[#a93e29]"
                   }`}
                 >
@@ -226,7 +226,7 @@ export function VideoStrategyAssessment({ locale = "en" }: VideoStrategyAssessme
                   onClick={() => setFrequency(opt.id)}
                   className={`rounded-xl border p-3 font-medium transition-all ${
                     frequency === opt.id
-                      ? "border-[#c84a2c] bg-[#c84a2c]/10 text-[#c84a2c]"
+                      ? "border-[#c84a2c] bg-[#c84a2c]/10 text-[var(--em-accent-ink)]"
                       : "border-[#ddd4c8] bg-[#f6f1ea] text-[#252a2d] hover:border-[#a93e29]"
                   }`}
                 >
@@ -270,7 +270,7 @@ export function VideoStrategyAssessment({ locale = "en" }: VideoStrategyAssessme
               </p>
               <a
                 href={getMailtoUrl()}
-                className="mt-3 inline-flex min-h-10 w-full items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-4 text-xs font-semibold text-white hover:bg-[#a93e29]"
+                className="mt-3 inline-flex min-h-10 w-full items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-4 text-xs font-semibold text-white hover:bg-[var(--em-accent-ink-hover)]"
               >
                 <Send className="size-3.5" aria-hidden="true" />
                 {isEs ? "Enviar Resultado por Email" : "Send Score via Email"}
@@ -309,7 +309,7 @@ export function VideoStrategyAssessment({ locale = "en" }: VideoStrategyAssessme
 
               <button
                 type="submit"
-                className="mt-2 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-[#c84a2c] text-xs font-semibold text-white hover:bg-[#a93e29]"
+                className="mt-2 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] text-xs font-semibold text-white hover:bg-[var(--em-accent-ink-hover)]"
               >
                 <ArrowRight className="size-4" aria-hidden="true" />
                 {isEs ? "Obtener Plan de Acción de Video" : "Get Video Action Plan"}

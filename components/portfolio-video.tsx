@@ -118,7 +118,7 @@ export function PortfolioVideo({
         <button
           type="button"
           onClick={() => setIsModalOpen(true)}
-          className="mt-3 inline-flex min-h-10 items-center gap-2 rounded-full border border-[#c84a2c]/30 bg-[#c84a2c]/5 px-3 py-1 text-xs font-semibold text-[#c84a2c] transition hover:bg-[#c84a2c] hover:text-white"
+          className="mt-3 inline-flex min-h-10 items-center gap-2 rounded-full border border-[#c84a2c]/30 bg-[var(--em-accent-ink)]/5 px-3 py-1 text-xs font-semibold text-[var(--em-accent-ink)] transition hover:bg-[var(--em-accent-ink)] hover:text-white"
         >
           <Sparkles className="size-3.5" aria-hidden="true" />
           {locale === "es" ? "Reproducción Lightbox" : "Lightbox Player"}
