@@ -1,3 +1,30 @@
+/* ---------------------------------------------------------------------------
+   The accent, split in two.
+
+   `--em-accent` is the brand red and stays exactly what it was: it is correct
+   as a SURFACE and as a border, where the threshold is 3:1.
+
+   `--em-accent-ink` is the same red taken dark enough to carry TEXT. Measured
+   2026-09-28, the single accent failed WCAG AA everywhere it met type:
+
+     light text on the primary button   4.18:1   (needs 4.5)
+     red text on cream                  4.37:1   (needs 4.5)
+     peach on red                       2.57:1
+
+   The ink measures 6.01:1 on cream and 5.75:1 under light text. The hover is
+   darker again on purpose: at the old #a93e29 the hover state sat 0.8 luminance
+   units from the ink and stopped reading as a state change at all.
+
+   These exist because the literal #c84a2c was pasted into 364 places, so the
+   contrast could not be fixed in one edit — and would have drifted back. The
+   test in app/__tests__/accent-contrast.test.ts is what keeps it fixed.
+   --------------------------------------------------------------------------- */
+:root {
+  --em-accent: #c84a2c;
+  --em-accent-ink: #a8381d;
+  --em-accent-ink-hover: #8d2f18;
+}
+
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "../vendor/rail-kit/rail.css";

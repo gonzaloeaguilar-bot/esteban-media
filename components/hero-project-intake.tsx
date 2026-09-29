@@ -102,7 +102,7 @@ export function HeroProjectIntake({ locale }: HeroProjectIntakeProps) {
       <button
         type="submit"
         disabled={submitState === "submitting"}
-        className="min-h-12 rounded-full bg-[#c84a2c] px-5 text-sm font-medium text-white transition hover:bg-[#a93e29] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:cursor-wait disabled:opacity-70"
+        className="min-h-12 rounded-full bg-[var(--em-accent-ink)] px-5 text-sm font-medium text-white transition hover:bg-[var(--em-accent-ink-hover)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:cursor-wait disabled:opacity-70"
       >
         {submitState === "submitting"
           ? isSpanish ? "Enviando…" : "Sending…"

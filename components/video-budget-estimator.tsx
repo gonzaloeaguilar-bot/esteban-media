@@ -132,7 +132,7 @@ export function VideoBudgetEstimator({ locale = "en" }: VideoBudgetEstimatorProp
   return (
     <div className="rounded-2xl border border-[#ddd4c8] bg-[#fbf6ef] p-6 shadow-sm sm:p-8">
       <div className="mb-8 border-b border-[#ddd4c8] pb-6">
-        <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#c84a2c]">
+        <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[var(--em-accent-ink)]">
           <Calculator className="size-4" aria-hidden="true" />
           {isEs ? "Calculadora de Presupuesto" : "Budget & Scope Estimator"}
         </span>
@@ -168,7 +168,7 @@ export function VideoBudgetEstimator({ locale = "en" }: VideoBudgetEstimatorProp
                   onClick={() => setServiceType(item.id)}
                   className={`rounded-xl border p-3 font-medium transition-all ${
                     serviceType === item.id
-                      ? "border-[#c84a2c] bg-[#c84a2c]/10 text-[#c84a2c]"
+                      ? "border-[#c84a2c] bg-[#c84a2c]/10 text-[var(--em-accent-ink)]"
                       : "border-[#ddd4c8] bg-[#f6f1ea] text-[#252a2d] hover:border-[#a93e29]"
                   }`}
                 >
@@ -196,7 +196,7 @@ export function VideoBudgetEstimator({ locale = "en" }: VideoBudgetEstimatorProp
                   onClick={() => setVolume(item.id)}
                   className={`rounded-xl border p-3 font-medium transition-all ${
                     volume === item.id
-                      ? "border-[#c84a2c] bg-[#c84a2c]/10 text-[#c84a2c]"
+                      ? "border-[#c84a2c] bg-[#c84a2c]/10 text-[var(--em-accent-ink)]"
                       : "border-[#ddd4c8] bg-[#f6f1ea] text-[#252a2d] hover:border-[#a93e29]"
                   }`}
                 >
@@ -222,7 +222,7 @@ export function VideoBudgetEstimator({ locale = "en" }: VideoBudgetEstimatorProp
                   onClick={() => setFootageSource(item.id)}
                   className={`rounded-xl border p-3 font-medium transition-all ${
                     footageSource === item.id
-                      ? "border-[#c84a2c] bg-[#c84a2c]/10 text-[#c84a2c]"
+                      ? "border-[#c84a2c] bg-[#c84a2c]/10 text-[var(--em-accent-ink)]"
                       : "border-[#ddd4c8] bg-[#f6f1ea] text-[#252a2d] hover:border-[#a93e29]"
                   }`}
                 >
@@ -248,7 +248,7 @@ export function VideoBudgetEstimator({ locale = "en" }: VideoBudgetEstimatorProp
                   onClick={() => setSpeed(item.id)}
                   className={`rounded-xl border p-3 font-medium transition-all ${
                     speed === item.id
-                      ? "border-[#c84a2c] bg-[#c84a2c]/10 text-[#c84a2c]"
+                      ? "border-[#c84a2c] bg-[#c84a2c]/10 text-[var(--em-accent-ink)]"
                       : "border-[#ddd4c8] bg-[#f6f1ea] text-[#252a2d] hover:border-[#a93e29]"
                   }`}
                 >
@@ -302,7 +302,7 @@ export function VideoBudgetEstimator({ locale = "en" }: VideoBudgetEstimatorProp
               </p>
               <a
                 href={getMailtoUrl()}
-                className="mt-3 inline-flex min-h-10 w-full items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-4 text-xs font-semibold text-white hover:bg-[#a93e29]"
+                className="mt-3 inline-flex min-h-10 w-full items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-4 text-xs font-semibold text-white hover:bg-[var(--em-accent-ink-hover)]"
               >
                 <Send className="size-3.5" aria-hidden="true" />
                 {isEs ? "Enviar por Email" : "Send via Email"}
@@ -350,7 +350,7 @@ export function VideoBudgetEstimator({ locale = "en" }: VideoBudgetEstimatorProp
 
               <button
                 type="submit"
-                className="mt-2 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-[#c84a2c] text-xs font-semibold text-white hover:bg-[#a93e29]"
+                className="mt-2 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] text-xs font-semibold text-white hover:bg-[var(--em-accent-ink-hover)]"
               >
                 <DollarSign className="size-4" aria-hidden="true" />
                 {isEs ? "Bloquear Estimación de Presupuesto" : "Lock In Budget Scope"}

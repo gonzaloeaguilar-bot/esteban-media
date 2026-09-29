@@ -502,7 +502,7 @@ export function DailyScriptTimerEs() {
             <button
               type="submit"
               disabled={captureStatus === "sending"}
-              className="min-h-11 rounded-full bg-[#c84a2c] px-5 text-sm font-semibold text-white hover:bg-[#a93e29] disabled:cursor-wait disabled:opacity-70"
+              className="min-h-11 rounded-full bg-[var(--em-accent-ink)] px-5 text-sm font-semibold text-white hover:bg-[var(--em-accent-ink-hover)] disabled:cursor-wait disabled:opacity-70"
             >
               {captureStatus === "sending" ? "Guardando…" : "Guardar correo"}
             </button>

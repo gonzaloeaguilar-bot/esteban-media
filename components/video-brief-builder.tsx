@@ -132,7 +132,7 @@ export function VideoBriefBuilder({
     <div className="rounded-2xl border border-[#ddd4c8] bg-[#fbf6ef] p-6 shadow-sm sm:p-8">
       <div className="mb-6 flex flex-wrap items-center justify-between gap-4 border-b border-[#ddd4c8] pb-4">
         <div>
-          <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#c84a2c]">
+          <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[var(--em-accent-ink)]">
             <Sparkles className="size-3.5" aria-hidden="true" />
             {isEs ? "Planificador de Proyectos de Video" : "Interactive Video Brief Builder"}
           </span>
@@ -163,7 +163,7 @@ export function VideoBriefBuilder({
 
       {submitted ? (
         <div className="py-8 text-center">
-          <div className="mx-auto flex size-14 items-center justify-center rounded-full bg-[#c84a2c]/10 text-[#c84a2c]">
+          <div className="mx-auto flex size-14 items-center justify-center rounded-full bg-[#c84a2c]/10 text-[var(--em-accent-ink)]">
             <CheckCircle2 className="size-8" aria-hidden="true" />
           </div>
           <h4 className="mt-4 font-serif text-2xl font-semibold text-[#101214]">
@@ -178,7 +178,7 @@ export function VideoBriefBuilder({
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <a
               href={getMailtoUrl()}
-              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white hover:bg-[#a93e29]"
+              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)]"
             >
               <Send className="size-4" aria-hidden="true" />
               {isEs ? "Enviar Brief por Email" : "Send Brief via Email"}
@@ -224,7 +224,7 @@ export function VideoBriefBuilder({
                   type="button"
                   disabled={!projectType}
                   onClick={() => setStep(2)}
-                  className="inline-flex min-h-11 items-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white disabled:opacity-50 hover:bg-[#a93e29]"
+                  className="inline-flex min-h-11 items-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white disabled:opacity-50 hover:bg-[var(--em-accent-ink-hover)]"
                 >
                   {isEs ? "Siguiente Paso" : "Next Step"}
                   <ArrowRight className="size-4" aria-hidden="true" />
@@ -269,7 +269,7 @@ export function VideoBriefBuilder({
                   type="button"
                   disabled={!footageStatus}
                   onClick={() => setStep(3)}
-                  className="inline-flex min-h-11 items-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white disabled:opacity-50 hover:bg-[#a93e29]"
+                  className="inline-flex min-h-11 items-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white disabled:opacity-50 hover:bg-[var(--em-accent-ink-hover)]"
                 >
                   {isEs ? "Siguiente Paso" : "Next Step"}
                   <ArrowRight className="size-4" aria-hidden="true" />
@@ -314,7 +314,7 @@ export function VideoBriefBuilder({
                   type="button"
                   disabled={!formatNeeds}
                   onClick={() => setStep(4)}
-                  className="inline-flex min-h-11 items-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white disabled:opacity-50 hover:bg-[#a93e29]"
+                  className="inline-flex min-h-11 items-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white disabled:opacity-50 hover:bg-[var(--em-accent-ink-hover)]"
                 >
                   {isEs ? "Finalizar Brief" : "Finalize Brief"}
                   <ArrowRight className="size-4" aria-hidden="true" />
@@ -395,7 +395,7 @@ export function VideoBriefBuilder({
                 </button>
                 <button
                   type="submit"
-                  className="inline-flex min-h-11 items-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white hover:bg-[#a93e29]"
+                  className="inline-flex min-h-11 items-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)]"
                 >
                   <Send className="size-4" aria-hidden="true" />
                   {isEs ? "Generar Brief de Proyecto" : "Generate Project Brief"}

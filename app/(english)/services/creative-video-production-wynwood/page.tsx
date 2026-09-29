@@ -78,7 +78,7 @@ export default function CreativeVideoProductionWynwoodPage() {
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/contact"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white hover:bg-[#a93e29]"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)]"
                 >
                   Edit Wynwood Creative Video
                   <ArrowRight className="size-4" aria-hidden="true" />
@@ -93,7 +93,7 @@ export default function CreativeVideoProductionWynwoodPage() {
                 Our portfolio project <strong>Bar Door Monkey Miami</strong> proves published creative venue and culinary promo editing. Explore specialized{" "}
                 <Link
                   href="/services/restaurant-promo-video-editing-miami"
-                  className="font-semibold text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[#c84a2c]"
+                  className="font-semibold text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]"
                 >
                   restaurant promo video editing in Miami
                 </Link>{" "}
@@ -122,7 +122,7 @@ export default function CreativeVideoProductionWynwoodPage() {
               <div className="flex flex-wrap gap-3">
                 <a
                   href={`mailto:${site.email}`}
-                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-5 text-sm font-medium text-white hover:bg-[#a93e29]"
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-5 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)]"
                 >
                   <Mail className="size-4" aria-hidden="true" />
                   Email

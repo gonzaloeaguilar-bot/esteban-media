@@ -38,7 +38,7 @@ function renderFormattedText(text: string) {
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          className="font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[#c84a2c]"
+          className="font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]"
         >
           {label}
         </a>,
@@ -48,7 +48,7 @@ function renderFormattedText(text: string) {
         <Link
           key={`${href}-${match.index}`}
           href={href}
-          className="font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[#c84a2c]"
+          className="font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]"
         >
           {label}
         </Link>,
@@ -1137,7 +1137,7 @@ export function SpanishNichePage({ slug }: { slug: string }) {
               <div className="mt-6 sm:mt-8 flex flex-wrap gap-3" data-em-hero-actions>
                 <Link
                   href={contactHref}
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white hover:bg-[#a93e29]"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)]"
                 >
                   {isPendingConfirmation
                     ? "Consultar servicios confirmados"
@@ -1270,7 +1270,7 @@ export function SpanishNichePage({ slug }: { slug: string }) {
                   </Link>
                   <Link
                     href={contactHref}
-                    className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#c84a2c] px-5 text-sm font-medium text-white hover:bg-[#a93e29]"
+                    className="inline-flex min-h-11 items-center justify-center rounded-full bg-[var(--em-accent-ink)] px-5 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)]"
                   >
                     {isPendingConfirmation
                       ? "Consultar servicios confirmados"
@@ -1383,7 +1383,7 @@ export function SpanishNichePage({ slug }: { slug: string }) {
               <div className="flex flex-wrap gap-3">
                 <a
                   href={`mailto:${site.email}`}
-                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-5 text-sm font-medium text-white hover:bg-[#a93e29]"
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-5 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)]"
                 >
                   <Mail className="size-4" aria-hidden="true" />
                   Email

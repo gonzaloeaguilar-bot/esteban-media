@@ -129,7 +129,7 @@ export default function YachtHospitalityVideoFortLauderdalePage() {
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/contact"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white hover:bg-[#a93e29]"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)]"
                 >
                   Start a Yacht Video
                   <ArrowRight className="size-4" aria-hidden="true" />
@@ -165,7 +165,7 @@ export default function YachtHospitalityVideoFortLauderdalePage() {
               <div className="mt-5 border-t border-[#ddd4c8] pt-4">
                 <Link
                   href="/portfolio/banacol"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#9f3c27] hover:text-[#c84a2c]"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#9f3c27] hover:text-[var(--em-accent-ink)]"
                 >
                   Review Banacol Marine & Aerial Drone Proof
                   <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
@@ -379,7 +379,7 @@ export default function YachtHospitalityVideoFortLauderdalePage() {
                 </Link>
                 <a
                   href={`mailto:${site.email}`}
-                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-5 text-sm font-medium text-white hover:bg-[#a93e29]"
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-5 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)]"
                 >
                   <Mail className="size-4" aria-hidden="true" />
                   Email

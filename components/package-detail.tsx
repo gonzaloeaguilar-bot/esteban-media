@@ -39,7 +39,7 @@ export function PackageDetail({ id, locale }: { id: PackageId; locale: Locale })
             {price.kind === "from" ? <RailPrice now={price.amount.toLocaleString("en-US")} prefix={copy.price.from} unit={copy.price.units[price.unit]} source={`package_${id}`} size="lg" /> : <p className="font-serif text-3xl">{copy.price.custom}</p>}
           </div>
           <p className="max-w-xl leading-relaxed">{pkg.idealFor}</p>
-          <a className="mt-6 inline-flex min-h-11 items-center rounded-full bg-[#c84a2c] px-5 py-3 text-white" href={whatsappHref(site.phone.e164, es ? `Hola Esteban, quiero cotizar el paquete ${pkg.name}.` : `Hi Esteban, I'd like a quote for ${pkg.name}.`)} target="_blank" rel="noopener noreferrer" data-cta={`package_${id}_whatsapp`}>{copy.packages.quote(pkg.name)}</a>
+          <a className="mt-6 inline-flex min-h-11 items-center rounded-full bg-[var(--em-accent-ink)] px-5 py-3 text-white" href={whatsappHref(site.phone.e164, es ? `Hola Esteban, quiero cotizar el paquete ${pkg.name}.` : `Hi Esteban, I'd like a quote for ${pkg.name}.`)} target="_blank" rel="noopener noreferrer" data-cta={`package_${id}_whatsapp`}>{copy.packages.quote(pkg.name)}</a>
         </div>
         <Image src={pkg.image.src} alt={pkg.image.alt} width={1200} height={800} className="h-auto w-full rounded-xl" />
       </div>
