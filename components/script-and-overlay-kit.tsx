@@ -153,8 +153,11 @@ export function ScriptAndOverlayKit({ locale = "en" }: ScriptAndOverlayKitProps)
     }
   };
 
+  // The data-section is what makes this tool's events attributable: without it
+  // track.js walks up to no marker and reports cta_position "page", so every
+  // click here is counted and indistinguishable from any other on the page.
   return (
-    <div className="rounded-2xl border border-[#ddd4c8] bg-[#fbf6ef] p-6 shadow-sm sm:p-8">
+    <div data-section="script_and_overlay_kit" className="rounded-2xl border border-[#ddd4c8] bg-[#fbf6ef] p-6 shadow-sm sm:p-8">
       <div className="mb-6 flex flex-wrap items-center justify-between gap-4 border-b border-[#ddd4c8] pb-4">
         <div>
           <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#c84a2c]">
