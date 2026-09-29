@@ -11,10 +11,15 @@ import { site } from "@/lib/site";
  * /contact offered email (a gmail.com address), phone and Instagram, in that
  * order, on a site that charges $800 a production day.
  *
- * The email is NOT switched to an @estebanmorenomedia.com address here on
- * purpose: the domain has no MX record (verified with dig and host, three ways),
- * so any address on it would be dead, and a dead address on the lead-capture
- * page is worse than an unbranded working one. That needs a mailbox first.
+ * The email stays on Esteban's gmail.com address. That is the OWNER'S DECISION,
+ * taken 2026-09-29, not a pending task — do not "upgrade" it to a branded
+ * address.
+ *
+ * Why it would be a downgrade: estebanmorenomedia.com has NO MX record, verified
+ * three ways (`dig +short MX`, `dig @8.8.8.8`, `host -t MX`). The domain resolves
+ * but cannot receive mail, so an @estebanmorenomedia.com address would silently
+ * drop every email a lead sends — on the one page whose whole job is lead
+ * capture. An unbranded address that works beats a branded one that does not.
  */
 
 const PAGES = ["app/(english)/contact/page.tsx", "app/(spanish)/es/contacto/page.tsx"];
