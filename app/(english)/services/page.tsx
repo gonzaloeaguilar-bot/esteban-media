@@ -11,11 +11,8 @@ import {
   Workflow,
 } from "lucide-react";
 
-<<<<<<< HEAD
-import { serviceImages } from "@/lib/service-images";
-=======
 import { KeepReading } from "@/components/keep-reading";
->>>>>>> origin/main
+import { serviceImages } from "@/lib/service-images";
 import { Container } from "@/components/ui/container";
 import { ServiceLandingDirectory } from "@/components/service-landing-directory";
 import { VideoBriefBuilder } from "@/components/video-brief-builder";
