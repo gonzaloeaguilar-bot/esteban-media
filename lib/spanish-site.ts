@@ -1,3 +1,4 @@
+import { packageRoutes } from "@/lib/package-routes";
 import type { LucideIcon } from "lucide-react";
 import { PACKAGE_PRICES, usd } from "@/lib/pricing";
 import {
@@ -2814,6 +2815,7 @@ export const spanishCoreRoutes = [
 ];
 
 export const languageAlternates: Record<string, Record<string, string>> = {
+  ...Object.fromEntries(Object.values(packageRoutes).flatMap(({ en, es }) => [en, es].map((path) => [path, { "en-US": en, "es-US": es, "x-default": en }]))),
   "/pricing": {
     "en-US": "/pricing",
     "es-US": "/es/precios",
@@ -3406,6 +3408,7 @@ export const spanishTrustQuestions = [
 ];
 
 export const spanishRoutes = [
+  ...Object.values(packageRoutes).map((route) => route.es),
   ...spanishCoreRoutes,
   ...spanishNichePages.map((page) => `/es/${page.slug}`),
 ];

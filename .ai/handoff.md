@@ -1,3 +1,9 @@
+# Current bounded implementation — 2026-09-28
+
+Branch: `feat/lang-switch-and-package-detail`. Language control, root preference middleware and eight package detail routes implemented. Review package: `.ai/evidence/README.md`; validation results and remaining review status are recorded there. No production deployment performed by this provider call. The coordinator owns independent review and external-vault updates under the workspace-only write restriction.
+
+---
+
 # Engineering handoff — esteban-media
 
 Last substantive session: **2026-09-18**, card redesign + motion.
