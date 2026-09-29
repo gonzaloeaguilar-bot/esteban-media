@@ -1,4 +1,7 @@
+import { packageRoutes } from "@/lib/package-routes";
+
 const pairedLanguageRoutes: Record<string, string> = {
+  ...Object.fromEntries(Object.values(packageRoutes).map((route) => [route.en, route.es])),
   "/": "/es",
   "/services": "/es/servicios",
   "/pricing": "/es/precios",
