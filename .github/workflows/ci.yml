@@ -2,7 +2,11 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    # `dev` is where Esteban pushes. Without it here, a push to dev ran NOTHING
+    # and the first signal that something broke arrived when a PR was opened —
+    # which for someone who is not a developer is far too late to connect the
+    # failure to the change that caused it.
+    branches: [main, dev]
   pull_request:
 
 permissions:
