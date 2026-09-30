@@ -187,7 +187,7 @@ export function PortfolioGrid({ items, locale }: PortfolioGridProps) {
                           {CASE_STUDY_IDS.includes(item.id as CaseStudyId) ? (
                             <Link
                               href={getCaseStudyPath(item.id as CaseStudyId, locale)}
-                              className="inline-flex min-h-10 items-center rounded-full bg-[#101214] px-3.5 py-1 text-xs font-semibold text-white transition hover:bg-[#c84a2c]"
+                              className="inline-flex min-h-10 items-center rounded-full bg-[#101214] px-3.5 py-1 text-xs font-semibold text-white transition hover:bg-[var(--em-accent-ink)]"
                             >
                               {locale === "es"
                                 ? "Ver caso de estudio →"

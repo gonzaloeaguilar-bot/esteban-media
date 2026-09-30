@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -10,6 +11,8 @@ import {
   Workflow,
 } from "lucide-react";
 
+import { KeepReading } from "@/components/keep-reading";
+import { serviceImages } from "@/lib/service-images";
 import { Container } from "@/components/ui/container";
 import { ServiceLandingDirectory } from "@/components/service-landing-directory";
 import { VideoBriefBuilder } from "@/components/video-brief-builder";
@@ -194,7 +197,7 @@ export default function ServicesPage() {
                     key={pillar.title}
                     className="rounded-lg border border-[#ddd4c8] bg-white/50 p-5 transition hover:-translate-y-0.5 hover:border-[#e85d3e] hover:shadow-sm"
                   >
-                    <Icon className="size-6 text-[#c84a2c]" aria-hidden="true" />
+                    <Icon className="size-6 text-[var(--em-accent-ink)]" aria-hidden="true" />
                     <h3 className="mt-4 font-serif text-2xl">{pillar.title}</h3>
                     <p className="mt-3 text-sm leading-6 text-[#252a2d]">
                       {pillar.detail}
@@ -248,6 +251,20 @@ export default function ServicesPage() {
                       ) : null}
                     </div>
                   </div>
+                  {serviceImages[service.id] ? (
+                    /* A real frame from his own work. Services with no honest
+                       frame get none — a decorative mismatch costs more than a
+                       missing image. */
+                    <Image
+                      src={serviceImages[service.id].src}
+                      alt={serviceImages[service.id].alt}
+                      width={1200}
+                      height={675}
+                      sizes="(min-width: 1024px) 33vw, 100vw"
+                      className="mt-5 h-44 w-full rounded-lg object-cover"
+                      style={{ objectPosition: serviceImages[service.id].focal }}
+                    />
+                  ) : null}
                   <ul className="mt-6 space-y-3 text-sm text-[#252a2d]">
                     <li className="flex gap-3">
                       <CheckCircle2
@@ -270,7 +287,7 @@ export default function ServicesPage() {
                   {service.id === "website-design" ? (
                     <Link
                       href="/services/website-design-fort-lauderdale"
-                      className="group mt-6 block rounded-lg border border-[#c84a2c] bg-[#c84a2c] p-5 text-white shadow-sm transition hover:bg-[#a93e29]"
+                      className="group mt-6 block rounded-lg border border-[#c84a2c] bg-[var(--em-accent-ink)] p-5 text-white shadow-sm transition hover:bg-[var(--em-accent-ink-hover)]"
                     >
                       <span className="text-xs font-bold uppercase tracking-wider text-[#f0b384]">
                         Featured Web & AI Service Hub
@@ -395,7 +412,13 @@ export default function ServicesPage() {
             <VideoBriefBuilder locale="en" />
           </div>
 
-          <ServiceLandingDirectory />
+          <KeepReading
+            id="pages-by-project-type"
+            title="See every page by project type and area"
+            destinations="Editing, drone and real estate, restaurants, clinics, events, e-commerce and more, by South Florida city and county."
+          >
+            <ServiceLandingDirectory />
+          </KeepReading>
 
           <div className="mt-14 rounded-lg bg-[#101214] p-6 text-[#f6f1ea] sm:p-8">
             <h2 className="font-serif text-4xl">Not sure which service fits?</h2>
@@ -406,7 +429,7 @@ export default function ServicesPage() {
             <div className="mt-6 flex flex-wrap gap-3">
               <Link
                 href="/contact"
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white hover:bg-[#a93e29]"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)]"
               >
                 Start a project
                 <ArrowRight className="size-4" aria-hidden="true" />

@@ -84,7 +84,7 @@ function renderFormattedText(text: string) {
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          className="font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[#c84a2c]"
+          className="font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]"
         >
           {label}
         </a>,
@@ -94,7 +94,7 @@ function renderFormattedText(text: string) {
         <Link
           key={`${href}-${match.index}`}
           href={href}
-          className="font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[#c84a2c]"
+          className="font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]"
         >
           {label}
         </Link>,

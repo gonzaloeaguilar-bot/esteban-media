@@ -1,6 +1,9 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Bot, CheckCircle2, ChartLine, ClipboardCheck, Laptop, MapPin, Workflow } from "lucide-react";
 
+import { KeepReading } from "@/components/keep-reading";
+import { spanishServiceImages } from "@/lib/service-images";
 import { Container } from "@/components/ui/container";
 import { VideoBriefBuilder } from "@/components/video-brief-builder";
 import { entityIds } from "@/lib/entity-schema";
@@ -156,7 +159,7 @@ export default function SpanishServicesPage() {
             <div className="mt-7 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {pilaresGrowth.map((pilar) => {
                 const Icono = pilar.icono;
-                return <Link href={pilar.href} key={pilar.titulo} className="rounded-lg border border-[#ddd4c8] bg-white/50 p-5 transition hover:-translate-y-0.5 hover:border-[#e85d3e] hover:shadow-sm"><Icono className="size-6 text-[#c84a2c]" aria-hidden="true" /><h3 className="mt-4 font-serif text-2xl">{pilar.titulo}</h3><p className="mt-3 text-sm leading-6 text-[#252a2d]">{pilar.detalle}</p></Link>;
+                return <Link href={pilar.href} key={pilar.titulo} className="rounded-lg border border-[#ddd4c8] bg-white/50 p-5 transition hover:-translate-y-0.5 hover:border-[#e85d3e] hover:shadow-sm"><Icono className="size-6 text-[var(--em-accent-ink)]" aria-hidden="true" /><h3 className="mt-4 font-serif text-2xl">{pilar.titulo}</h3><p className="mt-3 text-sm leading-6 text-[#252a2d]">{pilar.detalle}</p></Link>;
               })}
             </div>
             <Link href="/es/diseno-web-fort-lauderdale" className="mt-7 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27] underline underline-offset-4">
@@ -185,6 +188,20 @@ export default function SpanishServicesPage() {
                       cotización a la medida.
                     </p>
                   ) : null}
+                  {spanishServiceImages[service.id] ? (
+                    /* Un fotograma real de su propio trabajo. Los servicios sin
+                       una foto honesta no llevan ninguna: una imagen decorativa
+                       que no corresponde cuesta más que la ausencia. */
+                    <Image
+                      src={spanishServiceImages[service.id].src}
+                      alt={spanishServiceImages[service.id].alt}
+                      width={1200}
+                      height={675}
+                      sizes="(min-width: 1024px) 33vw, 100vw"
+                      className="mt-5 h-44 w-full rounded-lg object-cover"
+                      style={{ objectPosition: spanishServiceImages[service.id].focal }}
+                    />
+                  ) : null}
                   <p className="mt-4 text-sm leading-6 text-[#5a6066]">
                     <CheckCircle2
                       className="mr-2 inline size-4 text-[#1a9fa3]"
@@ -205,7 +222,7 @@ export default function SpanishServicesPage() {
                   {service.id === "diseno-web" || service.id === "website-design" ? (
                     <Link
                       href="/es/diseno-web-fort-lauderdale"
-                      className="group mt-6 block rounded-lg border border-[#c84a2c] bg-[#c84a2c] p-5 text-white shadow-sm transition hover:bg-[#a93e29]"
+                      className="group mt-6 block rounded-lg border border-[#c84a2c] bg-[var(--em-accent-ink)] p-5 text-white shadow-sm transition hover:bg-[var(--em-accent-ink-hover)]"
                     >
                       <span className="text-xs font-bold uppercase tracking-wider text-[#f0b384]">
                         Centro Destacado de Diseño Web & IA
@@ -349,7 +366,7 @@ export default function SpanishServicesPage() {
             <div className="mt-6 flex flex-wrap gap-3">
               <Link
                 href="/es/contacto"
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white hover:bg-[#a93e29]"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)]"
               >
                 Hablar del proyecto
                 <ArrowRight className="size-4" aria-hidden="true" />
@@ -377,6 +394,11 @@ export default function SpanishServicesPage() {
         </Container>
       </section>
 
+      <KeepReading
+        id="paginas-por-tipo-de-proyecto"
+        title="Ver todas las páginas por tipo de proyecto y zona"
+        destinations="Edición, dron e inmobiliaria, restaurantes, clínicas, eventos, e-commerce y más, por ciudad y condado del sur de Florida."
+      >
       <section className="border-t border-[#ddd4c8] py-12 sm:py-16">
         <Container size="xl">
           <p className="text-xs font-medium uppercase text-[#5a6066]">
@@ -407,6 +429,8 @@ export default function SpanishServicesPage() {
           </div>
         </Container>
       </section>
+      </KeepReading>
+
     </main>
   );
 }

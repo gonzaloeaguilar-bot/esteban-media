@@ -206,7 +206,7 @@ export default function DisenoWebFortLauderdalePage() {
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/es/contacto"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white hover:bg-[#a93e29]"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)]"
                 >
                   Iniciar Proyecto Web
                   <ArrowRight className="size-4" aria-hidden="true" />
@@ -341,13 +341,13 @@ export default function DisenoWebFortLauderdalePage() {
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  <span className="absolute bottom-3 left-3 rounded-md bg-[#c84a2c] px-2.5 py-1 text-xs font-semibold uppercase tracking-wider text-white">
+                  <span className="absolute bottom-3 left-3 rounded-md bg-[var(--em-accent-ink)] px-2.5 py-1 text-xs font-semibold uppercase tracking-wider text-white">
                     {project.category}
                   </span>
                 </Link>
                 <div className="flex flex-1 flex-col p-6">
                   <h3 className="font-serif text-2xl leading-tight text-[#101214]">
-                    <Link href={project.href} className="hover:text-[#c84a2c]">
+                    <Link href={project.href} className="hover:text-[var(--em-accent-ink)]">
                       {project.title}
                     </Link>
                   </h3>
@@ -366,7 +366,7 @@ export default function DisenoWebFortLauderdalePage() {
                   </div>
                   <Link
                     href={project.href}
-                    className="mt-6 inline-flex min-h-10 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-4 text-sm font-medium text-white transition hover:bg-[#a93e29]"
+                    className="mt-6 inline-flex min-h-10 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-4 text-sm font-medium text-white transition hover:bg-[var(--em-accent-ink-hover)]"
                   >
                     Ver Caso de Estudio & Resultados
                     <ArrowRight className="size-4" />
@@ -452,7 +452,7 @@ export default function DisenoWebFortLauderdalePage() {
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <Link
                 href="/es/contacto"
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-8 text-base font-medium text-white hover:bg-[#a93e29]"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-8 text-base font-medium text-white hover:bg-[var(--em-accent-ink-hover)]"
               >
                 Agendar Consulta de Alcance
                 <ArrowRight className="size-5" />

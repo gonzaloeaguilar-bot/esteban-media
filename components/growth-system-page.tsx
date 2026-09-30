@@ -76,7 +76,7 @@ export function GrowthSystemPage({
               <h1 className="mt-4 max-w-4xl font-serif em-display">{title}</h1>
               <p className="mt-6 max-w-3xl text-lg leading-8 text-[#252a2d]">{lead}</p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Link href={spanish ? "/es/contacto" : "/contact"} className="inline-flex min-h-12 items-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white hover:bg-[#a93e29]">
+                <Link href={spanish ? "/es/contacto" : "/contact"} className="inline-flex min-h-12 items-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)]">
                   {spanish ? "Hablar del proyecto" : "Discuss your project"}<ArrowRight className="size-4" aria-hidden="true" />
                 </Link>
                 <Link href={servicePath} className="inline-flex min-h-12 items-center rounded-full border border-[#101214] px-6 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]">
@@ -88,7 +88,7 @@ export function GrowthSystemPage({
               <Icon className="size-9 text-[#e85d3e]" aria-hidden="true" />
               <h2 className="mt-5 font-serif text-3xl">{spanish ? "Qué puede incluir" : "What can be in scope"}</h2>
               <ul className="mt-5 space-y-3 text-sm leading-6 text-[#252a2d]">
-                {includes.map((item) => <li key={item} className="flex gap-3"><CheckCircle2 className="mt-0.5 size-4 shrink-0 text-[#c84a2c]" aria-hidden="true" />{item}</li>)}
+                {includes.map((item) => <li key={item} className="flex gap-3"><CheckCircle2 className="mt-0.5 size-4 shrink-0 text-[var(--em-accent-ink)]" aria-hidden="true" />{item}</li>)}
               </ul>
             </aside>
           </div>

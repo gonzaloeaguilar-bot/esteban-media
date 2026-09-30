@@ -175,7 +175,7 @@ export function DailyPublishPromptEs() {
           <form onSubmit={captureEmail} className="mt-4 flex flex-col gap-2 sm:flex-row">
             <label className="sr-only" htmlFor="daily-prompt-email-es">Correo electrónico</label>
             <input id="daily-prompt-email-es" type="email" required value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Correo electrónico" className="min-h-11 min-w-0 flex-1 rounded-lg border border-white/20 bg-white/10 px-3 text-sm text-white placeholder:text-white/50 focus:border-[#f0b384] focus:outline-none" />
-            <button type="submit" disabled={captureStatus === "sending"} className="min-h-11 rounded-full bg-[#c84a2c] px-5 text-sm font-semibold text-white hover:bg-[#a93e29] disabled:cursor-wait disabled:opacity-70">
+            <button type="submit" disabled={captureStatus === "sending"} className="min-h-11 rounded-full bg-[var(--em-accent-ink)] px-5 text-sm font-semibold text-white hover:bg-[var(--em-accent-ink-hover)] disabled:cursor-wait disabled:opacity-70">
               {captureStatus === "sending" ? "Guardando…" : "Guardar correo"}
             </button>
           </form>

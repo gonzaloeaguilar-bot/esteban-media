@@ -57,7 +57,7 @@ export function SiteHeaderClient({ shortName }: { shortName: string }) {
     <header className="sticky top-0 z-40 border-b border-[#ddd4c8] bg-[#f6f1ea]/92 backdrop-blur">
       <div className="mx-auto flex min-h-16 w-full max-w-7xl items-center justify-between gap-2 px-3 sm:px-6 lg:px-8">
         <Link href={isSpanish ? "/es" : "/"} className="flex min-w-0 items-center gap-2">
-          <span className="grid size-8 shrink-0 place-items-center rounded-md bg-[#c84a2c] font-serif text-lg italic text-white">
+          <span className="grid size-8 shrink-0 place-items-center rounded-md bg-[var(--em-accent-ink)] font-serif text-lg italic text-white">
             e
           </span>
           <span className="min-w-0">
@@ -102,7 +102,7 @@ export function SiteHeaderClient({ shortName }: { shortName: string }) {
           </a>
           <Link
             href={isSpanish ? "/es/contacto" : "/contact"}
-            className="hidden items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#a93e29] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c84a2c] sm:inline-flex"
+            className="hidden items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[var(--em-accent-ink-hover)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c84a2c] sm:inline-flex"
           >
             {isSpanish ? "Consultar proyecto de video" : "Start a video project"}
             <ArrowRight className="size-4" aria-hidden="true" />
@@ -145,7 +145,7 @@ export function SiteHeaderClient({ shortName }: { shortName: string }) {
             <Link
               href={isSpanish ? "/es/contacto" : "/contact"}
               onClick={() => setIsMenuOpen(false)}
-              className="mt-2 inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-5 text-sm font-medium text-white hover:bg-[#a93e29] sm:col-span-2"
+              className="mt-2 inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-5 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)] sm:col-span-2"
             >
               {isSpanish ? "Consultar un proyecto" : "Start a project"}
               <ArrowRight className="size-4" aria-hidden="true" />

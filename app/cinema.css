@@ -971,6 +971,12 @@ html {
   background: var(--cine-paper);
   padding: 60px 0 44px;
 }
+.em-pk-carte__glyph {
+  color: var(--em-accent-ink, #a8381d);
+  flex: 0 0 auto;
+  margin-bottom: 10px;
+}
+
 .em-pk-carte__grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1339,30 +1345,6 @@ html.rail-anim .em-pk-steps__list.rail-reveal.is-in li:nth-child(3) { transition
   100% { opacity: 0; }
 }
 
-/* The language gate: two real links, so it works without the script too. */
-.em-signal__lang {
-  display: flex;
-  gap: 10px;
-  margin-top: 6px;
-}
-.em-signal__pick {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 44px;
-  padding: 0 20px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  background: rgba(8, 9, 10, 0.42);
-  backdrop-filter: blur(6px);
-  color: #fff;
-  font: 600 14px/1 var(--font-geist-sans), sans-serif;
-  text-decoration: none;
-  transition: background-color 0.2s, transform 0.2s var(--cine-ease), border-color 0.2s;
-}
-.em-signal__pick:hover { background: #fff; color: var(--cine-ink); border-color: #fff; }
-.em-signal__pick:active { transform: scale(0.97); }
-.em-signal__pick:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
 /* The station ident: one second is the only chance the opening has to say the
    name, and a stand-by card is exactly where television put it. */
 .em-signal__ident {

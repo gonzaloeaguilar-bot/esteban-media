@@ -2,7 +2,15 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    # `esteban` is his branch — he pushes straight to it, and every push gets a
+    # green or red here plus a preview URL. Without it listed, a push to his
+    # branch ran NOTHING and the first sign of a problem arrived when a PR was
+    # opened, which for someone who is not a developer is far too late to
+    # connect the failure to the change that caused it.
+    #
+    # `esteban/**` too, so a second branch of his own works the same way without
+    # anyone editing this file again.
+    branches: [main, esteban, "esteban/**"]
   pull_request:
 
 permissions:
