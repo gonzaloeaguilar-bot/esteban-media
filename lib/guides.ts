@@ -3441,6 +3441,9 @@ export const guidesIndexCopy = {
     intro:
       "These guides offer general preparation steps, not Esteban Moreno Media policies. They do not assume a package, price, turnaround, review method, transfer method, or set of deliverables. If you want to audit your video approach first, try the [video strategy diagnostic](/assessment).",
     readLabel: "Read the guide",
+    listFoldSummary: "See every guide",
+    listFoldHint:
+      "The other {count} guides: formats, pricing, audio, delivery, social, real estate and restaurants.",
     languageLabel: "Leer las guías en español",
     relatedEyebrow: "From planning to proof",
     relatedTitle: "Use the guides with real services and published work.",
@@ -3461,6 +3464,9 @@ export const guidesIndexCopy = {
     intro:
       "Estas guías ofrecen pasos generales de preparación, no políticas de Esteban Moreno Media. No asumen paquetes, precios, plazos, método de revisión, transferencia ni entregables definidos. Si prefieres revisar primero el enfoque de tu contenido, puedes usar el [diagnóstico de estrategia de video](/es/evaluacion).",
     readLabel: "Leer la guía",
+    listFoldSummary: "Ver todas las guías",
+    listFoldHint:
+      "Las otras {count} guías: formatos, precios, audio, entrega, redes, inmobiliaria y restaurantes.",
     languageLabel: "Read the guides in English",
     relatedEyebrow: "De la planificación a la prueba",
     relatedTitle: "Conecta las guías con servicios reales y trabajos publicados.",
