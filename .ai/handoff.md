@@ -1,3 +1,13 @@
+# Real estate monthly plans — 2026-09-30
+
+Branch: `feat/real-estate-monthly-plans`. New section under the four packages (home `/`, `/es`, `/pricing`, `/es/precios`) showing the three PUBLIC monthly plans (Essential / Plus / Premium). Figures live in `lib/pricing.ts` (`REAL_ESTATE_PLANS`), words in `lib/real-estate-plans.ts`.
+
+- **Deliberately NOT published:** the photo ladder and the monthly size-surcharge ladder from the same guide. `app/__tests__/services-config.test.ts` blocks them because they are a client's negotiated terms and the repo is public. Do not add them, and do not edit that guard to make a change pass.
+- The per-shoot rate card (`REAL_ESTATE_MEDIA`) is unchanged. The guide's "extra properties are billed at the prices above" line was left out because it refers to the private ladder, not the public card.
+- `es/precios.html` in `spanish-niche-text-baseline.json` was refreshed (one line). The diff was verified purely additive: 0 words, headings, links or JSON-LD lost.
+
+---
+
 # Current bounded implementation — 2026-09-30
 
 Branch: `feat/commercial-cda87cb0f3ffa017-1-r0930`. Answered commercial buyer query: "Which video editors in Fort Lauderdale should a small business hire for social media videos and reels? Compare specific providers and cite their websites." (Prompt ID: `43ff69cb33a8dd094cf93b7a10c211010ccde15c2e6ea8f8c346e77baa090e37`). Deepened `/guides/video-production-cost-fort-lauderdale` and `/es/guias/cuanto-cuesta-la-produccion-de-video-en-fort-lauderdale`, updated `/fort-lauderdale` landing page, verified all build/text-parity/analytics gates. PR opened for independent review.

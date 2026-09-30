@@ -1861,3 +1861,87 @@ a.em-pk-carte__item:active .em-pk-carte__go,
   outline: 2px solid var(--em-accent, #c84a2c);
   outline-offset: 3px;
 }
+
+/* ---------------------------------------------- real estate monthly plans ---
+   Same card language as the four packages (dark title band, white body, the
+   shared price box and pill button), sized for three plans side by side.
+   -------------------------------------------------------------------------- */
+.em-re { padding-top: 8px; }
+.em-re-plans {
+  display: grid;
+  gap: 14px;
+  margin: 26px 0 0;
+  padding: 0;
+  list-style: none;
+}
+@media (min-width: 900px) {
+  .em-re-plans { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+}
+.em-re-card { display: flex; flex-direction: column; }
+.em-re-card__head {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+  padding: 22px 24px 20px;
+  background: var(--cine-ink);
+  color: #fff;
+  font: inherit;
+}
+.em-re-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 18px 20px 22px;
+}
+.em-re-card .em-pkcard__price { margin-top: 0; }
+.em-re-rows { margin: 18px 0 20px; }
+.em-re-rows > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--cine-line);
+  font-size: 14px;
+  line-height: 1.4;
+}
+.em-re-rows > div:last-child { border-bottom: 0; }
+.em-re-rows dt { color: var(--cine-muted); }
+.em-re-rows dd { margin: 0; font-weight: 700; text-align: right; white-space: nowrap; }
+.em-re-every { margin-top: 28px; max-width: 46rem; }
+.em-re-every__title {
+  margin: 0 0 10px;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.em-re-every ul { margin: 0; padding: 0; list-style: none; }
+.em-re-every li {
+  position: relative;
+  padding: 6px 0 6px 18px;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--cine-muted);
+}
+.em-re-every li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cine-accent);
+}
+.em-re-terms {
+  margin: 18px 0 0;
+  padding: 0;
+  max-width: 46rem;
+  list-style: none;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--cine-muted);
+}
+.em-re-terms li + li { margin-top: 4px; }
+.em-re .em-package-detail-link { gap: 8px; margin-top: 22px; }

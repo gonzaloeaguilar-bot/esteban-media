@@ -135,3 +135,37 @@ export const PACKAGE_PRICES: Record<PackageId, PackagePrice> = {
   "presencia-local": { kind: "from", amount: 800, unit: "production-day" },
   "todo-incluido": { kind: "custom" },
 };
+
+// Real estate monthly plans, from Esteban's 2026-09-30 "Real Estate" price
+// guide. Figures only: the words that go with them live in
+// lib/real-estate-plans.ts, so a price is edited in exactly one place.
+//
+// These are the MONTHLY plans. The per-shoot rate card is a separate source of
+// truth (REAL_ESTATE_MEDIA in lib/services-config.ts) and is not touched here.
+export type RealEstatePlanId = "essential" | "plus" | "premium";
+
+export type RealEstatePlan = {
+  id: RealEstatePlanId;
+  /** USD per month. */
+  price: number;
+  /** Properties per month, each up to 3,000 SF. */
+  properties: number;
+  productionDays: number;
+  /** Drone photography is an add-on on the smaller plans. */
+  drone: "add-on" | "included";
+  /** Posts or reels per week, as printed ("3–4" is a range, not a number). */
+  postsPerWeek: string;
+};
+
+export const REAL_ESTATE_PLANS: RealEstatePlan[] = [
+  { id: "essential", price: 450, properties: 1, productionDays: 2, drone: "add-on", postsPerWeek: "2" },
+  { id: "plus", price: 700, properties: 2, productionDays: 3, drone: "add-on", postsPerWeek: "3–4" },
+  { id: "premium", price: 1250, properties: 3, productionDays: 3, drone: "included", postsPerWeek: "5" },
+];
+
+export const REAL_ESTATE_PLAN_TERMS = {
+  minimumMonths: 3,
+  /** Metricool report cadence, in days (every 2 weeks). */
+  reportEveryDays: 14,
+  cancelNoticeDays: 30,
+} as const;
