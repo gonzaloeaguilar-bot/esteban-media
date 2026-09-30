@@ -26,6 +26,7 @@ import {
   PortfolioGrid,
   resolvePortfolioItemCopy,
 } from "@/components/portfolio-grid";
+import { KeepReading } from "@/components/keep-reading";
 import { PortfolioFilmstrip } from "@/components/portfolio-filmstrip";
 import { Container } from "@/components/ui/container";
 import { PORTFOLIO_ITEMS } from "@/lib/portfolio";
@@ -377,6 +378,23 @@ export default function PortfolioPage() {
         </Container>
       </section>
 
+      {/* Measured on production 2026-09-30: /portfolio was 29,360px on a phone,
+          the longest page on the site. The work itself is not what made it long
+          — the strip and the grid are about 6,500px between them. These seven
+          sections are: post-production standards, technical specifications,
+          creative disciplines, delivery formats. About 8,000px of essay on a
+          page somebody opened to LOOK at work.
+
+          So the work stays visible and the reading folds. Collapsed is not
+          removed: every word stays in the DOM, which is the whole reason these
+          sections exist. The FAQ is deliberately left OUTSIDE and below — the
+          kit's split rule puts it at the tail of the decision path, not inside
+          the fold. */}
+      <KeepReading
+        id="portfolio-standards"
+        title="How this work gets made"
+        destinations="Post-production standards, technical specifications, delivery formats and the disciplines behind each project."
+      >
       {/* Production Disciplines & Capabilities */}
       <section
         className="border-t border-[#d6ccc0] bg-[#efe7db] py-14 sm:py-16"
@@ -1204,6 +1222,7 @@ export default function PortfolioPage() {
         </Container>
       </section>
 
+      </KeepReading>
       {/* Portfolio & Editing FAQ */}
       <section
         className="border-t border-[#d6ccc0] bg-[#efe7db] py-14 sm:py-16"
