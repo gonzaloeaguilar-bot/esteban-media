@@ -13,6 +13,7 @@ import {
 
 import { KeepReading } from "@/components/keep-reading";
 import { serviceImages } from "@/lib/service-images";
+import { ServicesScene } from "@/components/services-scene";
 import { Container } from "@/components/ui/container";
 import { ServiceLandingDirectory } from "@/components/service-landing-directory";
 import { VideoBriefBuilder } from "@/components/video-brief-builder";
@@ -328,6 +329,9 @@ export default function ServicesPage() {
             })}
             </div>
           </section>
+
+          {/* Un respiro entre dos tramos largos de texto. */}
+          <ServicesScene locale="en" />
 
           <section className="mt-14" aria-labelledby="delivery-model-heading">
             <p className="text-xs font-medium uppercase text-[#5a6066]">
