@@ -101,13 +101,48 @@ async function fetchPage(url, { fetchImpl = fetch, timeoutMs = 8000 } = {}) {
       redirect: "follow",
       signal: AbortSignal.timeout(timeoutMs),
     });
-    if (!res.ok) return null;
+    if (!res.ok) return { html: null, status: res.status };
     const type = res.headers?.get?.("content-type") || "";
-    if (type && !/html|xml|text/i.test(type)) return null;
-    return await res.text();
-  } catch {
-    return null;
+    if (type && !/html|xml|text/i.test(type)) {
+      return { html: null, status: res.status, reason: "not_html" };
+    }
+    return { html: await res.text(), status: res.status };
+  } catch (error) {
+    // The error CLASS is the whole diagnosis — see classifyUnreachable.
+    const isTimeout =
+      error?.name === "TimeoutError" || /timeout|aborted/i.test(String(error?.message ?? ""));
+    return { html: null, status: 0, reason: isTimeout ? "timeout" : "connect_failed" };
   }
+}
+
+/**
+ * Why could we not read this site? The answer decides what to do next.
+ *
+ * Measured 2026-09-30 against the four real sites the first run all labelled
+ * `site_unreachable` — one name for four different problems:
+ *
+ *   countryhamneggs.com   403 behind Cloudflare  -> BOT BLOCK. A stealth
+ *                                                   fetcher would get in.
+ *   tomjenkinsbbq.net     521 behind Cloudflare  -> the ORIGIN IS DEAD. No
+ *                                                   scraper can fix that ever;
+ *                                                   drop the prospect.
+ *   h2ocafe.net           hangs for 20s          -> unresponsive host.
+ *   rosiesbng.com         connect fails (AWS)    -> TLS/connect failure.
+ *
+ * Collapsing these is what made "just add a stealth browser" look like the fix.
+ * It would have helped exactly ONE of the four. A dead business and a blocked
+ * crawler need opposite responses, so they get different names.
+ */
+export function classifyUnreachable(status, reason) {
+  if (status === 403 || status === 401 || status === 429) return "blocked_by_bot_protection";
+  // Cloudflare's 52x family means "we reached the edge, the origin did not answer".
+  if ([521, 522, 523, 525, 526].includes(status)) return "origin_down";
+  if (status === 404 || status === 410) return "page_missing";
+  if (status >= 500) return "server_error";
+  if (reason === "timeout") return "host_unresponsive";
+  if (reason === "connect_failed") return "connect_failed";
+  if (reason === "not_html") return "not_html";
+  return status ? `http_${status}` : "unknown";
 }
 
 /**
@@ -133,10 +168,17 @@ export async function harvestSiteContacts(websiteUrl, { fetchImpl = fetch } = {}
   const all = new Map();
   let pagesFetched = 0;
 
+  // Why the HOMEPAGE failed is the diagnosis for the whole site. A missing
+  // /contacto on a site that otherwise reads fine is not a failure at all.
+  let homeFailure = null;
+
   for (const subPath of PRIORITY_PATHS) {
     const target = new URL(subPath || "/", base).toString();
-    const html = await fetchPage(target, { fetchImpl });
-    if (html == null) continue;
+    const { html, status, reason } = await fetchPage(target, { fetchImpl });
+    if (html == null) {
+      if (subPath === "") homeFailure = classifyUnreachable(status, reason);
+      continue;
+    }
     pagesFetched += 1;
     const onContactPage = /contact|contacto|impressum/i.test(subPath);
     for (const candidate of extractEmailsFromHtml(html, { onContactPage })) {
@@ -152,7 +194,11 @@ export async function harvestSiteContacts(websiteUrl, { fetchImpl = fetch } = {}
   return {
     emails: rankEmailCandidates([...all.values()], { siteHost }),
     pagesFetched,
-    reason: all.size ? "ok" : pagesFetched ? "no_email_on_site" : "site_unreachable",
+    reason: all.size
+      ? "ok"
+      : pagesFetched
+        ? "no_email_on_site"
+        : (homeFailure ?? "site_unreachable"),
   };
 }
 
