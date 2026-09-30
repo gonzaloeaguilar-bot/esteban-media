@@ -1,3 +1,4 @@
+import { KeepReading } from "@/components/keep-reading";
 import Link from "next/link";
 import { ArrowRight, HelpCircle, Laptop, MapPin } from "lucide-react";
 
@@ -450,7 +451,23 @@ export default function SpanishAreasPage() {
             </div>
           </section>
 
-          <SpanishServiceLandingDirectory />
+          {/* THE PAGE DIRECTORY IS NAVIGATION, NOT THE PAGE (2026-09-30).
+              Measured on production at 390x844: /areas was 13,953px, and this
+              directory alone was 5,013px of it for 256 words — a wall of link
+              tiles sitting between the FAQ and the one action on the page.
+              /services has folded this same component since the first
+              reading-path pass; /areas never did, which is why measuring found
+              it and reading did not.
+
+              Collapsed is NOT removed: every link stays in the served HTML, so
+              the internal linking a crawler follows is untouched. */}
+          <KeepReading
+            id="directorio-de-servicios"
+            title="Todas las páginas por tipo de proyecto y zona"
+            destinations="Páginas de video, foto y contenido con IA para cada ciudad del sur de Florida y cada tipo de proyecto."
+          >
+            <SpanishServiceLandingDirectory />
+          </KeepReading>
 
           <div className="mt-12 flex flex-wrap gap-3">
             <Link
