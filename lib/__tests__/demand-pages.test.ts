@@ -48,6 +48,30 @@ const TARGET_PAGES = [
     companionSlug: "video-editor-vs-videographer",
     companionPath: "/guides/video-editor-vs-videographer",
   },
+  {
+    locale: "en" as const,
+    slug: "video-production-cost-fort-lauderdale",
+    path: "/guides/video-production-cost-fort-lauderdale",
+    requiredPhrase: "remote editing packages start from $100 per project",
+    serviceLink: "/services",
+    contactLink: "/contact",
+    companionSlug: "cuanto-cuesta-la-produccion-de-video-en-fort-lauderdale",
+    companionPath: "/es/guias/cuanto-cuesta-la-produccion-de-video-en-fort-lauderdale",
+    metadataTitle: "Fort Lauderdale Video Editing Costs",
+    companionMetadataTitle: "Edición Video Ft Lauderdale Costos",
+  },
+  {
+    locale: "es" as const,
+    slug: "cuanto-cuesta-la-produccion-de-video-en-fort-lauderdale",
+    path: "/es/guias/cuanto-cuesta-la-produccion-de-video-en-fort-lauderdale",
+    requiredPhrase: "edición remota parten desde $100 por proyecto",
+    serviceLink: "/es/servicios",
+    contactLink: "/es/contacto",
+    companionSlug: "video-production-cost-fort-lauderdale",
+    companionPath: "/guides/video-production-cost-fort-lauderdale",
+    metadataTitle: "Edición Video Ft Lauderdale Costos",
+    companionMetadataTitle: "Fort Lauderdale Video Editing Costs",
+  },
 ] as const;
 
 function extractVisibleText(html: string): string {
