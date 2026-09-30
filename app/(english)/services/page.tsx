@@ -249,7 +249,15 @@ export default function ServicesPage() {
             <p className="mt-4 max-w-3xl leading-7 text-[#252a2d]">
               Short video editing and photography remain the creative fuel for
               the system. Each service below shows its starting price; every
-              project still gets a scoped quote.
+              project still gets a scoped quote. Looking for what it costs as a
+              bundle? The{" "}
+              <Link
+                href="/pricing"
+                className="font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#7f2f20]"
+              >
+                pricing and packages page
+              </Link>{" "}
+              shows the starting price for each package.
             </p>
             <div className="mt-7 grid gap-5 lg:grid-cols-2">
             {services.map((service) => {
