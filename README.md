@@ -43,6 +43,16 @@ pnpm check
 
 The check command runs lint, TypeScript, unit tests, and a production build. Pull requests and `main` run the same gates in GitHub Actions.
 
+## Opening a pull request
+
+If you are Esteban and the PR changes public prices, service details, locations, proof, credentials, turnaround, or contact details, mark the public-claims checkbox in the PR template and write the exact approval/source in the owner approval field. Example:
+
+```text
+I, Esteban Moreno, approve the public pricing and Spanish copy in this PR.
+```
+
+You do not need to run `quality-enforce` locally. After the normal GitHub checks pass, Gonzalo's local evidence drain attaches the required Cortex quality JSON to the PR body.
+
 ## Deployment
 
 Production is hosted on Vercel. Changes should land through a pull request, pass CI, merge to `main`, and then be smoke-tested on the canonical domain. DNS, credentials, paid services, public client proof, and unsupported business claims require explicit approval.

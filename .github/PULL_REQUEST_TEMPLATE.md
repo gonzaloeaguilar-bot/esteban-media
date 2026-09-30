@@ -1,14 +1,22 @@
 ## Summary
 
+What changed, in one or two sentences:
+
 ## Production and business impact
 
 - [ ] No production behavior changes
 - [ ] Production behavior changes are described above
-- [ ] Any public claims, client proof, pricing, turnaround, credentials, locations, or contact changes are verified
+- [ ] Any public claims, client proof, pricing, turnaround, credentials, locations, or contact changes are verified by the business owner or source
+
+If this PR changes public prices, services, locations, proof, credentials, turnaround, or contact details, write the exact approval/source here:
+
+> Owner/source approval:
+>
+> Example: I, Esteban Moreno, approve the public pricing and Spanish copy in this PR.
 
 ## Cortex Quality Enforcement
 
-Run `quality-enforce` locally before requesting review, then paste the resulting JSON here.
+After the PR is opened and the normal checks pass, the local evidence drain attaches the Cortex JSON here. Esteban does not need to run a local command.
 
 ```json
 {
@@ -26,10 +34,6 @@ Run `quality-enforce` locally before requesting review, then paste the resulting
 
 ## Validation
 
-- [ ] `pnpm lint`
-- [ ] `pnpm typecheck`
-- [ ] `pnpm test`
-- [ ] `pnpm build`
+- [ ] I ran `pnpm check`, or I am relying on GitHub Actions to run the same validation
 - [ ] Relevant local/live smoke checks are listed above
-- [ ] Obsidian handoff is recorded.
-- [ ] No hard stop was bypassed.
+- [ ] No hard stop was bypassed
