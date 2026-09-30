@@ -87,7 +87,7 @@ const growthPillars = [
     href: "/services/local-presence-seo",
   },
   {
-    title: "Data & funnel audit",
+    title: "Data & measurement audit",
     detail:
       "Audit the current journey, measurement, handoffs, and manual work before deciding which system should be built first.",
     icon: ChartLine,
