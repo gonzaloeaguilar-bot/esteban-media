@@ -745,6 +745,50 @@ const guidePairs: readonly GuidePair[] = [
             "Showcase local coffee shops, parks, and dining spots near your active listings. Buyers invest in the lifestyle, not just the square footage.",
           ],
         },
+        {
+          heading: "Plan the two things South Florida listings stop you on",
+          paragraphs: [
+            "Most South Florida inventory is in a building somebody else controls, and most of it sits under controlled airspace. A condo or HOA generally has to approve filming in common areas, and some buildings ask for a certificate of insurance before a camera comes through the lobby — a question worth asking when the listing appointment is booked, not on shoot day. Separately, Fort Lauderdale, Miami and Opa-locka put a lot of the county under controlled airspace, where a drone flight needs FAA authorisation (LAANC) rather than just a licensed pilot. Both are scheduling facts, and both are why an aerial shot that was promised sometimes cannot be flown.",
+          ],
+          bullets: [
+            "Ask about filming permission and any COI when the listing is signed",
+            "Check airspace before promising an aerial",
+            "Have a ground-level opening shot that works if the drone is grounded",
+          ],
+        },
+        {
+          heading: "Cut it twice when half your buyers read Spanish",
+          paragraphs: [
+            "South Florida is a bilingual market, and a reel captioned only in English asks a large share of the audience to work harder than they will. The cheapest version of this is not a second shoot: it is the same footage with a second caption track and a Spanish-first hook, because the first line is what decides whether anyone watches the rest. Where an agent speaks Spanish, a short piece to camera in Spanish tends to outperform a translated caption over English audio — the language of the voice is itself the signal that this agent can represent that buyer.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          question: "Do I need permission to film inside a condo listing?",
+          answer:
+            "Usually yes for anything outside the unit itself. The association controls the lobby, pool deck, gym and grounds, and plenty of South Florida buildings require advance notice, a scheduled window, or a certificate of insurance before a camera crew comes through. The unit interior is normally the seller's call. The practical move is asking at the listing appointment, because the amenities are often the strongest footage in the building and finding out on shoot day means either losing them or rescheduling.",
+        },
+        {
+          question: "Can I use drone footage for any South Florida listing?",
+          answer:
+            "Not automatically. Much of Broward and Miami-Dade sits in controlled airspace around Fort Lauderdale, Miami and Opa-locka, and flying there needs FAA authorisation through LAANC in addition to a licensed remote pilot. Some areas are restricted outright. That is worth checking against the address before an aerial is promised in a listing presentation, and it is the reason a ground-level opening shot is a better default than an aerial — the opener has to exist whether or not the drone flies.",
+        },
+        {
+          question: "Should a real estate reel be in English or Spanish?",
+          answer:
+            "In South Florida the honest answer is both, from one shoot. A second caption track and a Spanish-first hook cost a fraction of a second production, and the hook matters more than the captions because it decides whether the rest gets watched. If the agent speaks Spanish, a short piece to camera in Spanish usually does better than Spanish captions over English audio — buyers read the language of the voice as a signal about who this agent represents, which a translated caption does not carry.",
+        },
+        {
+          question: "Can I put my branding on a listing video?",
+          answer:
+            "On your own social accounts, yes. Inside media syndicated through the MLS the rules vary by MLS and several restrict agent branding, contact details, or calls to action in listing media — so it is worth checking your own MLS rules rather than assuming. The usual answer is two exports from one edit: an unbranded cut for the listing feed and a branded cut for social. Deciding that before the edit is cheaper than re-exporting a set of videos afterwards.",
+        },
+        {
+          question: "What makes neighborhood content risky for an agent?",
+          answer:
+            "Real estate advertising is subject to fair housing rules, and neighborhood content is where marketing most easily drifts into implying who a community is for. Describing amenities, distances, and what is physically there is different from characterising the people who live there, and the second can read as steering even when nothing of the kind was meant. Keeping the copy on the place rather than the population is both the safer edit and the more useful one for a buyer.",
+        },
       ],
     },
     es: {
@@ -785,7 +829,50 @@ const guidePairs: readonly GuidePair[] = [
           heading: "Publica guías del vecindario local",
           paragraphs: [
             "Muestra cafeterías, parques y restaurantes cerca de tus propiedades activas. Los compradores eligen el estilo de vida, no solo los metros cuadrados.",
+          ],        },
+        {
+          heading: "Planea las dos cosas que detienen una grabación en South Florida",
+          paragraphs: [
+            "Casi todo el inventario de South Florida está en un edificio que controla alguien más, y buena parte queda bajo espacio aéreo controlado. Un condominio o HOA normalmente tiene que aprobar la grabación en áreas comunes, y varios edificios piden un certificado de seguro antes de que una cámara entre al lobby: conviene preguntarlo al firmar el listing, no el día de la grabación. Aparte, Fort Lauderdale, Miami y Opa-locka dejan gran parte del condado en espacio aéreo controlado, donde volar un dron exige autorización de la FAA (LAANC) y no solo un piloto con licencia. Las dos cosas son de agenda, y son la razón por la que a veces la toma aérea prometida no se puede volar.",
           ],
+          bullets: [
+            "Pregunta por el permiso de grabación y el COI al firmar el listing",
+            "Revisa el espacio aéreo antes de prometer una toma aérea",
+            "Ten una toma de apertura a nivel de piso que funcione sin dron",
+          ],
+        },
+        {
+          heading: "Córtalo dos veces cuando la mitad de tus compradores lee en español",
+          paragraphs: [
+            "South Florida es un mercado bilingüe, y un reel subtitulado solo en inglés le pide a una parte grande de la audiencia más esfuerzo del que va a hacer. La versión más económica de esto no es una segunda grabación: es el mismo material con una segunda pista de subtítulos y un gancho pensado en español, porque la primera línea es la que decide si alguien ve el resto. Cuando el agente habla español, un fragmento corto a cámara en español suele rendir más que un subtítulo traducido sobre audio en inglés — el idioma de la voz es en sí la señal de que ese agente puede representar a ese comprador.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          question: "¿Necesito permiso para grabar dentro de un condominio?",
+          answer:
+            "Por lo general sí para todo lo que esté fuera de la unidad. La asociación controla el lobby, la piscina, el gimnasio y los jardines, y muchos edificios de South Florida piden aviso previo, una ventana agendada o un certificado de seguro antes de que entre una cámara. El interior de la unidad normalmente lo decide el propietario. Lo práctico es preguntarlo en la cita del listing, porque las amenidades suelen ser el mejor material del edificio y enterarse el día de la grabación significa perderlas o reagendar.",
+        },
+        {
+          question: "¿Puedo usar dron en cualquier propiedad de South Florida?",
+          answer:
+            "No de forma automática. Buena parte de Broward y Miami-Dade está en espacio aéreo controlado alrededor de Fort Lauderdale, Miami y Opa-locka, y volar ahí requiere autorización de la FAA por LAANC además de un piloto remoto con licencia. Algunas zonas están restringidas del todo. Conviene revisarlo contra la dirección antes de prometer una toma aérea en una presentación de listing, y es la razón por la que una apertura a nivel de piso es mejor opción por defecto: la apertura tiene que existir vuele o no el dron.",
+        },
+        {
+          question: "¿El reel debe ir en inglés o en español?",
+          answer:
+            "En South Florida la respuesta honesta es en los dos, con una sola grabación. Una segunda pista de subtítulos y un gancho pensado en español cuestan una fracción de una segunda producción, y el gancho pesa más que los subtítulos porque decide si se ve el resto. Si el agente habla español, un fragmento corto a cámara en español suele rendir mejor que subtítulos en español sobre audio en inglés: el comprador lee el idioma de la voz como una señal de a quién representa ese agente, y un subtítulo traducido no carga con eso.",
+        },
+        {
+          question: "¿Puedo poner mi marca en el video de un listing?",
+          answer:
+            "En tus propias redes, sí. Dentro del material que se sindica por el MLS las reglas cambian según el MLS y varios restringen la marca del agente, sus datos de contacto o llamados a la acción en el material del listing, así que conviene revisar las reglas de tu MLS en vez de suponer. La salida habitual son dos exportaciones de una misma edición: un corte sin marca para el listing y un corte con marca para redes. Decidirlo antes de editar es más barato que reexportar una tanda de videos después.",
+        },
+        {
+          question: "¿Qué hace riesgoso el contenido sobre el vecindario?",
+          answer:
+            "La publicidad inmobiliaria está sujeta a las reglas de vivienda justa, y el contenido de vecindario es donde el marketing más fácilmente empieza a insinuar para quién es una comunidad. Describir amenidades, distancias y lo que físicamente hay es distinto de caracterizar a la gente que vive ahí, y lo segundo puede leerse como direccionamiento aunque no fuera la intención. Mantener el texto sobre el lugar y no sobre la población es a la vez la edición más segura y la más útil para un comprador.",
         },
       ],
     },
