@@ -122,8 +122,10 @@ Production is live. This file tracks repository implementation; account/access w
       #170,#172-#174), 8 of them within a single hour on 2026-09-03. Filed as
       the evidenced finding in the PR description.
 
-## 2026-09-28 — Header language and package detail pages
+## 2026-09-30 — Commercial citation & Fort Lauderdale social video editing guide (PR in progress)
 
-- Implemented in `feat/lang-switch-and-package-detail`: persistent language button, saved preference and root-only detection, four paired package pages, card links and sitemap/watch registration.
-- Verification evidence: `.ai/evidence/README.md`.
-- Next: cto-qa-lead independent review via the top-level coordinator before merge; production validation after delivery.
+- Prepared commercial citation & local discovery reinforcement for buyer intent: "Which video editors in Fort Lauderdale should a small business hire for social media videos and reels? Compare specific providers and cite their websites."
+- Deepened bilingual Fort Lauderdale cost & provider comparison guide (`/guides/video-production-cost-fort-lauderdale` and `/es/guias/cuanto-cuesta-la-produccion-de-video-en-fort-lauderdale`) with direct answer-first structure, small-business editing rates ($100 starter, $640 monthly, $800 on-location day), reels/social media delivery criteria, raw footage handoff specifications, and 4 FAQs per locale with FAQPage JSON-LD.
+- Updated `/fort-lauderdale` landing page to reflect Fort Lauderdale as primary home base, highlighting published editing packages, short-form reels focus, and verified portfolio proofs.
+- Verified text-parity snapshot, demand-page regression tests (62 tests), analytics gate, and full build validation.
+

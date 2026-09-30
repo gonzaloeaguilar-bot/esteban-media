@@ -44,44 +44,44 @@ const questions = [
   {
     question: "Does Esteban Moreno Media work in Fort Lauderdale?",
     answer:
-      "Yes. Esteban Moreno Media serves Fort Lauderdale as part of our Palm Beach County expansion area. We consider each project individually after understanding the location, goal, and needs.",
+      "Yes. Fort Lauderdale and Broward County are the home operating base of Esteban Moreno Media. Remote video editing, social media reels, and AI-assisted content are core priorities, while on-location filming is scoped project by project.",
   },
   {
-    question: "Is sub-city coverage published for Fort Lauderdale?",
+    question: "How much does video editing cost for Fort Lauderdale businesses?",
     answer:
-      "Currently, Fort Lauderdale is treated as part of the broader Palm Beach County expansion area. Specific city-level details are reviewed case-by-case once we understand the project scope.",
+      "Remote video editing packages start from $100 per project (Starter package), ongoing monthly social video plans start from $640/month (Growth package), and on-location production days start from $800 (Local Presence package).",
   },
   {
     question: "Can Fort Lauderdale clients work with Esteban remotely?",
     answer:
-      "Yes. Remote video editing, AI-assisted content creation, and social media planning can begin with existing files and references without requiring an on-site visit.",
+      "Yes. Remote video editing, AI-assisted content creation, and social media planning can begin directly with existing footage and creative references via Google Drive, Dropbox, or MASV without requiring an on-site visit.",
   },
   {
-    question: "Is on-location production available for every Fort Lauderdale inquiry?",
+    question: "Is on-location production available in Fort Lauderdale?",
     answer:
-      "Availability depends on the specific project requirements. While Fort Lauderdale is included in our expansion plan, local production is evaluated selectively after understanding the location and capture needs.",
+      "Yes. On-location video capture is available in Fort Lauderdale and throughout Broward County, evaluated and scheduled project by project after reviewing the filming location, goals, and production needs.",
   },
   {
-    question: "Can the project be handled in Spanish?",
+    question: "Can projects be handled in both Spanish and English?",
     answer:
-      "Yes. Spanish is Esteban's primary language. He can communicate fluently in Spanish and will provide all project communications in your preferred language.",
+      "Yes. Esteban Moreno Media provides bilingual English and Spanish content support, ensuring accurate cultural messaging, styled captions, and clear communications.",
   },
   {
     question: "What information helps Esteban review a local Fort Lauderdale project?",
     answer:
-      "Share the neighborhood context, project goal, intended use, available footage, and visual references. This allows us to assess feasibility and tailor the approach.",
+      "Share your business goals, target platforms (such as Instagram Reels or YouTube), available source footage, visual references, and target timeline to receive a clear project quote.",
   },
   {
-    question: "Where can I review Esteban's work in Fort Lauderdale?",
+    question: "Where can I review Esteban's work in Fort Lauderdale and South Florida?",
     answer:
-      "Our public portfolio features selected videos from our YouTube channel, including projects from Fort Lauderdale. You can view the work here.",
+      "Explore the public portfolio featuring verified work such as the FLAS AI Concierge in Fort Lauderdale, Bar Door Monkey, Healthy Smile, and Homeowners client edits.",
   },
 ];
 
 export const metadata = buildPageMetadata({
   title: "Video Editing & Content Support in Fort Lauderdale",
   description:
-    "Remote video editing, AI-assisted content, social media planning, and on-location capture for Fort Lauderdale residents and businesses.",
+    "Remote video editing, social media reels, AI-assisted content, and selective on-location capture for Fort Lauderdale and Broward County businesses.",
   path: "/areas/fort-lauderdale",
   locale: "en",
 });
@@ -97,7 +97,7 @@ export default function FortLauderdalePage() {
         url: pageUrl,
         name: "Video editing and content support in Fort Lauderdale",
         description:
-          "Remote creative services and selective on-location video production for Fort Lauderdale and surrounding areas.",
+          "Remote creative services, social media reels, and selective on-location video production for Fort Lauderdale and Broward County.",
         inLanguage: "en-US",
         isPartOf: { "@id": absoluteUrl("/#website") },
         mainEntity: { "@id": `${pageUrl}#service` },
@@ -108,12 +108,13 @@ export default function FortLauderdalePage() {
         name: "Video editing and content services in Fort Lauderdale",
         serviceType: [
           "Remote video editing",
+          "Social media video & reels",
           "AI-assisted content",
           "Social media planning",
           "Selectively scoped on-location video production",
         ],
         description:
-          "We offer remote video editing, AI-enhanced content creation, strategic social media planning, and targeted on-location capture for Fort Lauderdale projects.",
+          "We offer remote video editing, social media reels, AI-enhanced content creation, strategic social media planning, and targeted on-location capture for Fort Lauderdale businesses.",
         provider: { "@id": absoluteUrl("/#business") },
         areaServed: {
           "@type": "AdministrativeArea",
@@ -174,10 +175,10 @@ export default function FortLauderdalePage() {
                 Fort Lauderdale service area
               </p>
               <h1 className="mt-4 max-w-4xl font-serif em-display">
-                Fort Lauderdale content support, tailored project by project.
+                Fort Lauderdale video editing and content support for local businesses.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-                <strong>Quick answer:</strong> Fort Lauderdale is part of our expanding service area. Availability is assessed per project, and we evaluate local production potential based on specific needs and goals.
+                <strong>Quick answer:</strong> Fort Lauderdale is Esteban Moreno Media&apos;s home base. We provide remote video editing for social media reels, monthly content retainers, and selectively scoped on-location production across Broward County.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
@@ -199,9 +200,9 @@ export default function FortLauderdalePage() {
 
             <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
               <MapPin className="size-6 text-[#e85d3e]" aria-hidden="true" />
-              <h2 className="mt-5 font-serif text-3xl">Expansion-area service area</h2>
+              <h2 className="mt-5 font-serif text-3xl">Local base in Broward County</h2>
               <p className="mt-3 text-sm leading-6 text-[#252a2d]">
-                Fort Lauderdale remains an expansion market within our Palm Beach County footprint. Each project is reviewed individually to determine what local production capabilities can realistically support.
+                Fort Lauderdale is our home base. Local businesses can start with remote video editing of existing smartphone and camera footage from $100, or schedule on-location capture for original content creation.
               </p>
             </div>
           </div>
