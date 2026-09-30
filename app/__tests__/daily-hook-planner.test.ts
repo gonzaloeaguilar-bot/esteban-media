@@ -22,4 +22,15 @@ describe("Daily Hook Planner surface", () => {
     expect(result.valid).toBe(true);
     expect(result.error).toBeUndefined();
   });
+
+  it("links to /es/areas in the Spanish hook planner page", async () => {
+    const fs = await import("node:fs");
+    const path = await import("node:path");
+    const content = fs.readFileSync(
+      path.join(process.cwd(), "app/(spanish)/es/planificador-de-ganchos-de-video/page.tsx"),
+      "utf8",
+    );
+    expect(content).toContain('href="/es/areas"');
+    expect(content).toContain("áreas de servicio de video en South Florida");
+  });
 });

@@ -129,8 +129,11 @@ export function VideoBudgetEstimator({ locale = "en" }: VideoBudgetEstimatorProp
     return `mailto:${site.email}?subject=${subject}&body=${body}`;
   };
 
+  // The data-section is what makes this tool's events attributable: without it
+  // track.js walks up to no marker and reports cta_position "page", so every
+  // click here is counted and indistinguishable from any other on the page.
   return (
-    <div className="rounded-2xl border border-[#ddd4c8] bg-[#fbf6ef] p-6 shadow-sm sm:p-8">
+    <div data-section="video_budget_estimator" className="rounded-2xl border border-[#ddd4c8] bg-[#fbf6ef] p-6 shadow-sm sm:p-8">
       <div className="mb-8 border-b border-[#ddd4c8] pb-6">
         <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[var(--em-accent-ink)]">
           <Calculator className="size-4" aria-hidden="true" />
