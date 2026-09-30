@@ -27,6 +27,7 @@ import {
   type Guide,
   type GuideLocale,
 } from "@/lib/guides";
+import { redditQueryInsights } from "@/lib/reddit-query-insights";
 
 const detailCopy = {
   en: {
@@ -66,6 +67,27 @@ const detailCopy = {
     proofLinkLabel: "Ver la página del proyecto",
     faqEyebrow: "Preguntas antes de pedir cotización",
     faqTitle: "Preguntas sobre precios de video corporativo",
+  },
+} as const;
+
+const queryInsightCopy = {
+  en: {
+    eyebrow: "Search questions",
+    title: "Core topics people ask before they hire help.",
+    intro:
+      "These themes come from public Reddit discussions about video editing, reels, AI product images, and real estate photo editing. They are used here as topic research, not as testimonials.",
+    sourceLabel: "Source discussion",
+    linksLabel: "Related page",
+    keywordsLabel: "Keyword targets",
+  },
+  es: {
+    eyebrow: "Preguntas de busqueda",
+    title: "Temas clave que la gente pregunta antes de contratar ayuda.",
+    intro:
+      "Estos temas salen de conversaciones publicas en Reddit sobre edicion de video, reels, imagenes de producto con IA y edicion de fotos inmobiliarias. Se usan como investigacion de temas, no como testimonios.",
+    sourceLabel: "Conversacion fuente",
+    linksLabel: "Pagina relacionada",
+    keywordsLabel: "Palabras clave",
   },
 } as const;
 
@@ -151,6 +173,77 @@ function SupportLinks({ locale }: { locale: GuideLocale }) {
   );
 }
 
+function QueryInsights({ locale }: { locale: GuideLocale }) {
+  const copy = queryInsightCopy[locale];
+
+  return (
+    <section className="border-b border-[#ddd4c8] bg-[#fbf6ef] py-12 sm:py-16">
+      <Container size="xl">
+        <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">
+          {copy.eyebrow}
+        </p>
+        <div className="mt-3 grid gap-5 lg:grid-cols-[0.78fr_1.22fr] lg:items-end">
+          <div>
+            <h2 className="max-w-3xl font-serif text-3xl leading-tight text-[#101214] sm:text-4xl">
+              {copy.title}
+            </h2>
+            <p className="mt-4 max-w-2xl text-sm leading-7 text-[#3f4548] sm:text-base">
+              {copy.intro}
+            </p>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {redditQueryInsights.map((insight) => (
+              <article
+                key={insight.id}
+                className="rounded-xl border border-[#ddd4c8] bg-white p-5"
+              >
+                <h3 className="text-base font-semibold leading-6 text-[#101214]">
+                  {insight.audienceQuestion[locale]}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-[#41474d]">
+                  {insight.contentAngle[locale]}
+                </p>
+                <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-[#5a6066]">
+                  {copy.keywordsLabel}
+                </p>
+                <ul className="mt-2 flex flex-wrap gap-2">
+                  {insight.keywordTargets.map((target) => (
+                    <li
+                      key={target[locale]}
+                      className="rounded-full border border-[#ddd4c8] px-2.5 py-1 text-xs text-[#41474d]"
+                    >
+                      {target[locale]}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs">
+                  <a
+                    href={insight.sourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4"
+                  >
+                    {copy.sourceLabel}
+                  </a>
+                  {insight.internalLinks.slice(0, 2).map((link) => (
+                    <Link
+                      key={link[locale]}
+                      href={link[locale]}
+                      className="font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4"
+                    >
+                      {copy.linksLabel}
+                    </Link>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
 export function GuidesIndexPage({ locale }: { locale: GuideLocale }) {
   const copy = guidesIndexCopy[locale];
   const guides = getGuides(locale);
@@ -218,6 +311,8 @@ export function GuidesIndexPage({ locale }: { locale: GuideLocale }) {
           </div>
         </Container>
       </section>
+
+      <QueryInsights locale={locale} />
 
       <section className="py-12 sm:py-16 lg:py-20" aria-labelledby="guide-list-heading">
         <Container size="xl">

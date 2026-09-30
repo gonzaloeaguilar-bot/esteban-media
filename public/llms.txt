@@ -6,7 +6,7 @@ Canonical site: https://estebanmorenomedia.com/
 Owner / creator: Esteban Moreno López, who works publicly as Esteban Moreno
 Primary market: Fort Lauderdale, Broward County, and Miami-Dade County; Palm Beach County is an expansion/service area
 Languages: Spanish-first service; intermediate English communication available
-Last updated: 2026-09-27
+Last updated: 2026-09-30
 
 ## Core Pages
 
@@ -80,13 +80,20 @@ guidance rather than Esteban Moreno Media policy. Full indexes:
 - Video vertical, horizontal y zonas seguras: https://estebanmorenomedia.com/es/guias/video-vertical-horizontal-y-zonas-seguras
 - Entrega para edición remota: https://estebanmorenomedia.com/es/guias/entrega-para-edicion-remota-de-video
 
+Core questions these guides answer in both languages:
+
+- How much should a business budget for a month of edited reels? Targets: monthly reels editing package, remote video editor for social media, cuanto cuesta editar un video.
+- What does a remote editor need before quoting? Targets: video editing brief, send files to video editor, entrega para edicion remota de video.
+- When should a store use AI product images instead of a photo shoot? Targets: AI product photography for ecommerce, AI lifestyle product images, fotografia de producto con IA para ecommerce.
+- How can real estate photos use AI without making a property look fake? Targets: AI real estate photo enhancement, real estate photo editing Florida, edicion remota de media inmobiliaria.
+
 ## Services
 
 - Video editing for supplied footage.
-- AI-assisted content.
+- AI-assisted content and AI-assisted product or real estate visual content.
 - Social media planning.
 - Selectively scoped on-location video production.
-- Photography and drone work are not currently published as confirmed services; their legacy Spanish routes remain available only as transparent educational resources pending confirmation.
+- Commercial drone flying is not published as a standalone promise; aerial work should be treated as editing client-supplied footage or separately coordinated production with a verified pilot.
 
 ## Packages
 
@@ -111,6 +118,7 @@ Prices are starting points, not fixed rates: every project gets a written quote.
 - Broward County and Miami-Dade County are the normal local markets.
 - Palm Beach County is a county-level expansion area considered project by project; no sub-city coverage is currently published.
 - Remote editing, AI-assisted content, and social planning do not require an on-location visit.
+- Remote work can support clients outside South Florida when the project uses supplied footage, product images, brand references, or other assets that can be shared online.
 
 ## Project Scope
 
@@ -127,6 +135,7 @@ Prices are starting points, not fixed rates: every project gets a written quote.
 - Does a project require an in-person visit? No. Remote editing, AI-assisted content, and social planning are handled remotely; only on-location capture involves a local visit, and that is scoped selectively.
 - Are prices published? Yes, as starting points for four packages: Arranque / Starter (remote editing) from $100 per project, Crecimiento / Growth (monthly social plan) from $640 per month, Presencia Local / Local Presence (on-site production) from $800 per production day, and Todo Incluido / All-In (website, AI lead capture, local presence and content) by custom quote. Each project gets a specific quote; turnaround times are not published.
 - How much does it cost to edit a video? The Arranque / Starter package starts at $100 per project for remote editing of client footage, formatted for Reels, TikTok, YouTube or web, with one revision round included.
+- Can clients outside South Florida work remotely? Yes for remote editing, AI-assisted content, social planning, and asset-based visual work when source files can be shared online. Local capture is evaluated separately for South Florida projects.
 - How do I start a project? Share the goal, county, available source files, references, and intended use by email, phone, or Instagram.
 
 ## Proof Policy

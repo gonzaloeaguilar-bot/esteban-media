@@ -1,6 +1,10 @@
 import { describe, expect, it } from "vitest";
 
-import { clientReviews, reviewSourceUrl } from "../client-reviews";
+import {
+  clientReviews,
+  googleReviewSnapshot,
+  reviewSourceUrl,
+} from "../client-reviews";
 import { localBusinessEntityJsonLd, personEntityJsonLd } from "../entity-schema";
 import { PORTFOLIO_ITEMS } from "../portfolio";
 import { site } from "../site";
@@ -34,6 +38,16 @@ describe("published client reviews", () => {
       expect(review.publishedAt).toMatch(/^\d{4}-\d{2}-\d{2}$/);
     }
     expect(reviewSourceUrl).toBe(site.googleBusinessProfile);
+  });
+
+  it("publishes only the live Google profile snapshot, not unsourced review markup", () => {
+    expect(googleReviewSnapshot).toMatchObject({
+      rating: 5,
+      reviewCount: 11,
+      sampledReviews: 5,
+      readAt: "2026-09-30",
+      sourceCommand: "python3 ~/.claude/durable/esteban-review-watch.py --json",
+    });
   });
 
   it("reproduces the Google review text verbatim, typos included", () => {

@@ -12,7 +12,9 @@ describe("public/llms.txt for AI crawlers", () => {
     expect(llms).toContain("# Esteban Moreno Media");
     expect(llms).toContain("Canonical site: https://estebanmorenomedia.com/");
     expect(llms).toContain("- Video editing for supplied footage.");
-    expect(llms).toContain("- AI-assisted content.");
+    expect(llms).toContain(
+      "- AI-assisted content and AI-assisted product or real estate visual content.",
+    );
     expect(llms).toContain("- Social media planning.");
     expect(llms).toContain("- Selectively scoped on-location video production.");
   });
@@ -34,10 +36,11 @@ describe("public/llms.txt for AI crawlers", () => {
   });
 
   it("does not fabricate packages, prices, turnaround, or guaranteed results", () => {
-    // Photography/drone stay framed as pending, not confirmed services.
+    // Drone flying stays framed narrowly; AI-assisted visual pages are now live.
     expect(llms).toContain(
-      "Photography and drone work are not currently published as confirmed services",
+      "Commercial drone flying is not published as a standalone promise",
     );
+    expect(llms).toContain("Core questions these guides answer in both languages");
     expect(llms).toContain("guaranteed views/rankings.");
     // Prices ARE published since 2026-09-27 (Esteban's own packages). The
     // rule is now that every figure here is one of PACKAGE_PRICES, so this
@@ -53,6 +56,6 @@ describe("public/llms.txt for AI crawlers", () => {
   it("carries the correct current contact details", () => {
     expect(llms).toContain("Email: esmolopez@gmail.com");
     expect(llms).toContain("Phone: (305) 497-4478");
-    expect(llms).toContain("Last updated: 2026-09-27");
+    expect(llms).toContain("Last updated: 2026-09-30");
   });
 });

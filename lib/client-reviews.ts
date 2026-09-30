@@ -16,9 +16,11 @@ import { site } from "@/lib/site";
  *    is never emitted as `aggregateRating` JSON-LD; a rating collected on
  *    Google and asserted here about ourselves is self-serving markup.
  *
- * COUNT, read live from the public profile on 2026-09-18:
- * **11 reviews, all five stars** (5*: 11, 4*: 0, 3*: 0, 2*: 0, 1*: 0).
- * The earlier note here said 7 on 2026-08-14 and was stale by four.
+ * COUNT, read live from the public profile on 2026-09-30 with
+ * `python3 ~/.claude/durable/esteban-review-watch.py --json`:
+ * **11 reviews, 5.0 rating**. The Places sample returned 5 review authors,
+ * but not the Fort Lauderdale Auto Sales quote, so only the existing
+ * portfolio-matched quote remains published below.
  *
  * Exactly ONE of those eleven clears rule 2, which is why this file has one
  * entry while Google shows eleven. That gap is a CONTENT decision, not a bug:
@@ -39,6 +41,22 @@ export type ClientReview = {
   portfolioId: string;
   /** ISO date this quote was last read at the source. */
   readAt: string;
+};
+
+export type GoogleReviewSnapshot = {
+  rating: number;
+  reviewCount: number;
+  sampledReviews: number;
+  readAt: string;
+  sourceCommand: string;
+};
+
+export const googleReviewSnapshot: GoogleReviewSnapshot = {
+  rating: 5,
+  reviewCount: 11,
+  sampledReviews: 5,
+  readAt: "2026-09-30",
+  sourceCommand: "python3 ~/.claude/durable/esteban-review-watch.py --json",
 };
 
 export const clientReviews: ClientReview[] = [
