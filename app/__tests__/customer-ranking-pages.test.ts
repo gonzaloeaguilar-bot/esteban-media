@@ -281,4 +281,26 @@ describe("customer-facing ranking pages", () => {
     expect(spanishNiche).toContain('"video-para-yates-y-hospitalidad-fort-lauderdale"');
     expect(spanishNiche).toContain('/es/portafolio/banacol');
   });
+
+  it("links /es/areas from Spanish interactive tools and resources", () => {
+    const pacingCalculator = source("app/(spanish)/es/calculadora-de-ritmo-de-video/page.tsx");
+    const hookPlanner = source("app/(spanish)/es/planificador-de-ganchos-de-video/page.tsx");
+    const shotPlanner = source("app/(spanish)/es/planificador-de-tomas-de-video/page.tsx");
+    const scriptTimer = source("app/(spanish)/es/temporizador-de-guiones-de-video/page.tsx");
+    const publishPrompt = source("app/(spanish)/es/prompt-de-publicacion-diaria/page.tsx");
+    const socialKit = source("app/(spanish)/es/recursos/kit-video-social/page.tsx");
+
+    for (const toolPage of [
+      pacingCalculator,
+      hookPlanner,
+      shotPlanner,
+      scriptTimer,
+      publishPrompt,
+      socialKit,
+    ]) {
+      expect(toolPage).toContain('href="/es/areas"');
+      expect(toolPage).toContain("áreas de servicio de video en South Florida");
+    }
+  });
 });
+
