@@ -2,6 +2,13 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import {
+  ServiceCraft,
+  ServiceFaqs,
+  ServiceRelated,
+  buildServiceFaqSchema,
+} from "@/components/service-depth";
+import { YACHT_DEPTH } from "@/lib/service-depth-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +24,7 @@ export default function YachtCharterVideoMarketingMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/yacht-charter-video-marketing-miami"), YACHT_DEPTH.faqs),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/yacht-charter-video-marketing-miami#service"),
@@ -132,6 +140,18 @@ export default function YachtCharterVideoMarketingMiamiPage() {
           </div>
         </Container>
       </section>
+      {/* The depth that separates the 7 /services pages which earn from the 43
+          which do not. Measured 2026-09-30, chrome stripped: earners carry 3,210
+          unique body shingles at 13.1% overlap, this page's cohort 1,094 at
+          38.4%. Thin, not merely templated — so this ADDS vertical-specific
+          substance rather than folding or deleting anything. */}
+      <ServiceCraft
+        heading={YACHT_DEPTH.craftHeading}
+        cards={YACHT_DEPTH.craft}
+        sectionId="yacht-charter-craft"
+      />
+      <ServiceFaqs heading={YACHT_DEPTH.faqHeading} faqs={YACHT_DEPTH.faqs} />
+      <ServiceRelated heading={YACHT_DEPTH.relatedHeading} services={YACHT_DEPTH.related} />
     </main>
   );
 }
