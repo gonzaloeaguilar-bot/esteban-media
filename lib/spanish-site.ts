@@ -621,6 +621,31 @@ export const spanishNichePages: SpanishNichePage[] = [
     ],
     projectFit:
       "Esta ruta conecta prioridades de edición remota con trabajo publicado de bienes raíces. No garantiza vuelos con drone ni tomas aéreas a menos que se confirmen de forma independiente.",
+    sections: [
+      {
+        heading: "Las dos cosas que detienen una grabación inmobiliaria en South Florida",
+        paragraphs: [
+          "Casi todo el inventario de South Florida está en un edificio que controla alguien más, y buena parte queda bajo espacio aéreo controlado. Un condominio o HOA normalmente tiene que aprobar la grabación en áreas comunes, y varios edificios piden un certificado de seguro antes de que entre una cámara al lobby. Aparte, Fort Lauderdale, Miami y Opa-locka dejan gran parte del condado en espacio aéreo controlado, donde volar un dron exige autorización de la FAA por LAANC y no solo un piloto con licencia.",
+        ],
+        bullets: [
+          "Pregunta por el permiso de grabación y el certificado de seguro al firmar el listing",
+          "Revisa el espacio aéreo contra la dirección antes de prometer una toma aérea",
+          "Ten una apertura a nivel de piso que funcione si el dron no vuela",
+        ],
+      },
+      {
+        heading: "Dos cortes de una sola grabación, porque el mercado es bilingüe",
+        paragraphs: [
+          "Un reel subtitulado solo en inglés le pide a una parte grande del comprador de South Florida más esfuerzo del que va a hacer. La versión económica no es una segunda grabación: es el mismo material con una segunda pista de subtítulos y un gancho pensado en español, porque la primera línea decide si se ve el resto. Cuando el agente habla español, un fragmento corto a cámara en español suele rendir más que un subtítulo traducido sobre audio en inglés.",
+        ],
+      },
+      {
+        heading: "Un corte para el MLS y otro para redes",
+        paragraphs: [
+          "Las reglas del material que se sindica por el MLS cambian según el MLS, y varios restringen la marca del agente, sus datos de contacto o llamados a la acción dentro del video del listing. Lo práctico son dos exportaciones de la misma edición: un corte sin marca para el listing y un corte con marca para redes. Decidirlo antes de editar evita reexportar una tanda completa después. Y en el contenido de vecindario conviene describir el lugar — amenidades, distancias, lo que físicamente hay — y no a la gente que vive ahí: la publicidad inmobiliaria está sujeta a las reglas de vivienda justa.",
+        ],
+      },
+    ],
     faqs: [
       {
         question: "¿Se incluye edición para Instagram Reels y TikTok?",
