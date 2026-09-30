@@ -15,6 +15,7 @@ import {
   placeToProspect,
 } from "@/lib/apify-google-maps.mjs";
 import { _resetMxCache, validateEmail } from "@/lib/email-validation.mjs";
+import { classifyUnreachable } from "@/scripts/harvest-prospect-contacts.mjs";
 import {
   buildOverpassQuery,
   fetchLocalBusinesses,
@@ -406,5 +407,50 @@ describe("template placeholders found on real sites", () => {
     expect(isPlausibleBusinessEmail("nametag@printshop.com")).toBe(true);
     // And the legitimate address from the same run must survive.
     expect(isPlausibleBusinessEmail("marketing@lasvegascubancuisine.com")).toBe(true);
+  });
+});
+
+describe("why a site could not be read", () => {
+  /**
+   * Measured 2026-09-30 against the four real sites the first run labelled
+   * `site_unreachable`. One name, four different problems — and the response to
+   * each is different:
+   *
+   *   countryhamneggs.com  403 Cloudflare  -> bot block; a stealth fetcher helps
+   *   tomjenkinsbbq.net    521 Cloudflare  -> origin dead; nothing can help
+   *   h2ocafe.net          hangs 20s       -> unresponsive host
+   *   rosiesbng.com        connect fails   -> TLS/connect failure
+   *
+   * Collapsing them is what made "just add a stealth browser" look like the fix.
+   * It would have helped exactly one of the four.
+   */
+  it("separates a bot block from a dead origin", () => {
+    expect(classifyUnreachable(403, undefined)).toBe("blocked_by_bot_protection");
+    expect(classifyUnreachable(521, undefined)).toBe("origin_down");
+    // The distinction that matters: one is worth retrying differently, the
+    // other means the business's site is broken and the prospect is dead.
+    expect(classifyUnreachable(403, undefined)).not.toBe(classifyUnreachable(521, undefined));
+  });
+
+  it("names the transport failures too", () => {
+    expect(classifyUnreachable(0, "timeout")).toBe("host_unresponsive");
+    expect(classifyUnreachable(0, "connect_failed")).toBe("connect_failed");
+    expect(classifyUnreachable(0, undefined)).toBe("unknown");
+  });
+
+  it("does not call an ordinary 404 a block", () => {
+    // A missing /contacto is routine; treating it as bot protection would send
+    // a stealth retry at every site on the list.
+    expect(classifyUnreachable(404, undefined)).toBe("page_missing");
+    expect(classifyUnreachable(500, undefined)).toBe("server_error");
+  });
+
+  it("puts every Cloudflare origin-failure code in the origin_down bucket", () => {
+    for (const status of [521, 522, 523, 525, 526]) {
+      expect(classifyUnreachable(status, undefined), String(status)).toBe("origin_down");
+    }
+    // 520 is Cloudflare's "unknown error" and really can be the origin
+    // answering badly rather than being down, so it stays a server_error.
+    expect(classifyUnreachable(520, undefined)).toBe("server_error");
   });
 });
