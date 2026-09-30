@@ -10,6 +10,7 @@ import RailFaq from "@/vendor/rail-kit/RailFaq";
 import { Camera, Gauge, Map as MapIcon, Sparkles, Wand2, Workflow } from "lucide-react";
 import RailPrice from "@/vendor/rail-kit/RailPrice";
 import { Container } from "@/components/ui/container";
+import { RealEstatePlansSection } from "@/components/real-estate-plans-section";
 import {
   packageAnchor,
   packageFaq,
@@ -221,6 +222,10 @@ export function PackagesSection({ locale }: { locale: Locale }) {
           </ol>
         </Container>
       </section>
+
+      {/* 2b. Real estate: its own buyer and its own plan sizes, so its own
+          section directly under the four packages. */}
+      <RealEstatePlansSection locale={locale} />
 
       {/* 3. A la carte. */}
       <section className="em-pk-carte" aria-labelledby="em-pk-carte-title" data-section="a_la_carte">
