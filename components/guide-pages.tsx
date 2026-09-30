@@ -1,4 +1,6 @@
 import React from "react";
+import { GuideIllustration } from "@/components/guide-illustration";
+import { KeepReading } from "@/components/keep-reading";
 import RailFaq from "@/vendor/rail-kit/RailFaq";
 import Link from "next/link";
 import {
@@ -36,6 +38,8 @@ const detailCopy = {
     languageLabel: "Leer en español",
     relatedEyebrow: "Continue preparing",
     relatedTitle: "Related practical guides",
+    relatedFoldSummary: "More guides on this",
+    relatedFoldHint: "Formats, pricing, audio, delivery and the rest of the practical guides.",
     relatedLinkLabel: "Read guide",
     supportEyebrow: "Put the guide to work",
     supportTitle: "Connect the preparation to services and real project proof.",
@@ -53,6 +57,8 @@ const detailCopy = {
     languageLabel: "Read in English",
     relatedEyebrow: "Sigue preparando",
     relatedTitle: "Guías prácticas relacionadas",
+    relatedFoldSummary: "Más guías sobre esto",
+    relatedFoldHint: "Formatos, precios, audio, entrega y el resto de las guías prácticas.",
     relatedLinkLabel: "Leer la guía",
     supportEyebrow: "Usa la guía en tu proyecto",
     supportTitle: "Conecta la preparación con servicios y prueba real publicada.",
@@ -308,6 +314,10 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
               <p className="mt-6 max-w-3xl text-lg leading-8 text-[#252a2d]">
                 <strong>{copy.answerLabel}</strong> {guide.answer}
               </p>
+              {/* A drawing for the guide's theme. The photo library is 13
+                  project frames and none of them is about editing workflow, so
+                  a still here would be decoration. */}
+              <GuideIllustration slug={guide.slug} className="mt-8 h-40 w-full max-w-md rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-3" />
               <p className="mt-5 max-w-3xl border-l-2 border-[#c84a2c] pl-4 text-sm leading-6 text-[#3f4548]">
                 {guidePolicyNotes[locale]}
               </p>
@@ -484,6 +494,17 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
         </Container>
       </section>
 
+      {/* 8,810px of the 24,217px this page measured on a phone — more than a
+          third of it, and every pixel of it is NAVIGATION, not the article
+          somebody came to read. The kit's own rule for the split puts exactly
+          this inside: "photo galleries, explainers, service lists, regional
+          pages". Collapsed is not removed: every link stays in the DOM, so the
+          internal linking a crawler follows is untouched. */}
+      <KeepReading
+        id="related-guides"
+        title={copy.relatedFoldSummary}
+        destinations={copy.relatedFoldHint}
+      >
       <section className="py-12 sm:py-16" aria-labelledby="related-guides-heading">
         <Container size="xl">
           <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">
@@ -520,6 +541,7 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
           </div>
         </Container>
       </section>
+      </KeepReading>
     </main>
   );
 }

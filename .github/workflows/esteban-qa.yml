@@ -1,0 +1,107 @@
+name: Revisión automática de Esteban
+
+# Corre cuando Esteban empuja a su rama o a dev. No corre en main: allí ya
+# gobierna la regla de protección y el CI normal.
+on:
+  push:
+    branches: [esteban, "esteban/**", dev]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: esteban-qa-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  revisar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      # 1. Arregla lo mecánico y deja constancia de lo que no puede arreglar.
+      - name: Revisar y corregir
+        id: qa
+        continue-on-error: true
+        run: node scripts/esteban-qa.mjs
+
+      # 2. Si corrigió algo, lo devuelve a SU rama. Nunca a main.
+      - name: Devolver las correcciones a su rama
+        run: |
+          if [ -n "$(git status --porcelain -- components app)" ]; then
+            git config user.name "Revisión automática"
+            git config user.email "noreply@github.com"
+            git add components app
+            git commit -m "chore: analítica que faltaba, puesta automáticamente
+
+            Añadido por scripts/esteban-qa.mjs. Sin esta marca, track.js cuenta
+            el clic pero ningún informe puede decir qué control lo produjo."
+            git push origin HEAD:${GITHUB_REF_NAME}
+          fi
+
+      # 3. La puerta de verdad: lo mismo que se le exige a cualquier cambio.
+      - name: Puerta del proyecto
+        id: gate
+        continue-on-error: true
+        run: pnpm check
+
+      # 4. Le cuenta en español qué pasó, en su propia rama.
+      - name: Dejarle el resultado
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const qa = fs.existsSync('esteban-qa-report.md')
+              ? fs.readFileSync('esteban-qa-report.md', 'utf8')
+              : '';
+            const gateOk = '${{ steps.gate.outcome }}' === 'success';
+            const qaOk = '${{ steps.qa.outcome }}' === 'success';
+            const url = `https://esteban-media-git-${context.ref.replace('refs/heads/','').replace(/[^a-z0-9]/gi,'-')}-agora-tech.vercel.app`;
+            const title = gateOk && qaOk
+              ? '✅ Tu cambio está listo'
+              : '⚠️ Tu cambio necesita un ajuste';
+            const body = [
+              `## ${title}`,
+              '',
+              gateOk
+                ? 'El sitio compila y todas las pruebas pasan.'
+                : '**El sitio no compila o alguna prueba falló.** Abajo tienes el detalle; si no te dice nada, escríbeme y lo miro yo.',
+              '',
+              qa,
+              '',
+              `Puedes ver cómo quedó aquí: ${url}`,
+              '',
+              '_Esto lo escribió la revisión automática. Nada de esto ha llegado todavía al sitio real._',
+            ].join('\n');
+            await github.rest.repos.createCommitComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              commit_sha: context.sha,
+              body,
+            });
+
+      # 5. Si todo está bien, le abre la propuesta hacia main. No la mergea.
+      - name: Abrir la propuesta hacia main
+        if: steps.gate.outcome == 'success' && steps.qa.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH="${GITHUB_REF_NAME}"
+          if [ -z "$(gh pr list --head "$BRANCH" --base main --state open --json number -q '.[0].number')" ]; then
+            gh pr create --base main --head "$BRANCH" \
+              --title "Cambios de Esteban desde \`$BRANCH\`" \
+              --body "Abierta automáticamente porque la revisión pasó: el sitio compila, las pruebas pasan, la analítica está puesta y no hay precios escritos a mano ni tarifas privadas.
+
+          Falta una última mirada humana antes de que esto llegue al sitio real."
+          fi
