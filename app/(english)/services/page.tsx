@@ -13,6 +13,7 @@ import {
 
 import { KeepReading } from "@/components/keep-reading";
 import { serviceImages } from "@/lib/service-images";
+import { ServicesScene } from "@/components/services-scene";
 import { Container } from "@/components/ui/container";
 import { ServiceLandingDirectory } from "@/components/service-landing-directory";
 import { VideoBriefBuilder } from "@/components/video-brief-builder";
@@ -375,6 +376,9 @@ export default function ServicesPage() {
           <div className="mt-12">
             <VideoBriefBuilder locale="en" />
           </div>
+          {/* Un respiro entre dos tramos largos de texto. Queda FUERA del
+              plegado: es la parte que se mira, no la que se lee. */}
+          <ServicesScene locale="en" />
           {/* Everything below only supports READING: how remote and local work
               compare, the scoping questions, and the page directory. One
               fold-out, destinations named. Collapsed is not removed — the

@@ -81,8 +81,12 @@ describe("services config", () => {
 
   it("keeps a client's negotiated rates out of a PUBLIC repository", () => {
     const files = [...sourceFiles("lib"), ...sourceFiles("app"), ...sourceFiles("components")]
-      // this test names the forbidden figures on purpose
-      .filter((f) => !f.endsWith("services-config.test.ts"));
+      // Two files name the forbidden figures ON PURPOSE, because naming them is
+      // the only way to prove they get caught: this test, and the one that
+      // exercises the gate reviewing Esteban's pushes. Exempting a file for any
+      // other reason is how this guard quietly stops guarding.
+      .filter((f) => !f.endsWith("services-config.test.ts"))
+      .filter((f) => !f.endsWith("esteban-qa.test.ts"));
     const offenders: string[] = [];
     for (const file of files) {
       const text = readFileSync(join(process.cwd(), file), "utf8");
