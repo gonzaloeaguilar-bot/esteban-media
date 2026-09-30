@@ -2,6 +2,13 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import {
+  ServiceCraft,
+  ServiceFaqs,
+  ServiceRelated,
+  buildServiceFaqSchema,
+} from "@/components/service-depth";
+import { MED_SPA_DEPTH } from "@/lib/service-depth-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +24,7 @@ export default function MedSpaVideoMarketingPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/med-spa-video-marketing-south-florida"), MED_SPA_DEPTH.faqs),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/med-spa-video-marketing-south-florida#service"),
@@ -210,6 +218,18 @@ export default function MedSpaVideoMarketingPage() {
           </div>
         </Container>
       </section>
+      {/* The depth that separates the 7 /services pages which earn from the 43
+          which do not. Measured 2026-09-30, chrome stripped: earners carry 3,210
+          unique body shingles at 13.1% overlap, this page's cohort 1,094 at
+          38.4%. Thin, not merely templated — so this ADDS vertical-specific
+          substance rather than folding or deleting anything. */}
+      <ServiceCraft
+        heading={MED_SPA_DEPTH.craftHeading}
+        cards={MED_SPA_DEPTH.craft}
+        sectionId="med-spa-craft"
+      />
+      <ServiceFaqs heading={MED_SPA_DEPTH.faqHeading} faqs={MED_SPA_DEPTH.faqs} />
+      <ServiceRelated heading={MED_SPA_DEPTH.relatedHeading} services={MED_SPA_DEPTH.related} />
     </main>
   );
 }
