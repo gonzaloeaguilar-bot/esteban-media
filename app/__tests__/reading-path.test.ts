@@ -91,3 +91,37 @@ describe("reading path", () => {
     expect(component).toContain("details.open = true");
   });
 });
+
+describe("reading path — portfolio", () => {
+  const EN_PORTFOLIO = "app/(english)/portfolio/page.tsx";
+
+  /**
+   * Measured on production 2026-09-30: /portfolio was 29,360px on a phone, the
+   * longest page on the site — and the work is not what made it long. The strip
+   * and the grid are about 6,500px between them. Seven sections of essay —
+   * post-production standards, technical specifications, creative disciplines,
+   * delivery formats — accounted for roughly 8,000px on a page somebody opened
+   * to LOOK at work.
+   *
+   * After folding: 29,360 -> 18,304px, 38% shorter, DOM word count identical at
+   * 13,806.
+   *
+   * The Spanish portfolio is NOT folded, deliberately: it measures 13,287px and
+   * has none of these sections. Folding a page that is already short adds a
+   * click and saves nothing.
+   */
+  it("keeps the work itself visible and folds only the reading", () => {
+    const src = source(EN_PORTFOLIO);
+    const block = collapsed(src);
+    // The two things a visitor came for must never be inside the fold.
+    expect(block).not.toContain("PortfolioFilmstrip");
+    expect(block).not.toContain("PortfolioGrid");
+  });
+
+  it("leaves the FAQ outside and below, per the kit's split rule", () => {
+    const src = source(EN_PORTFOLIO);
+    const close = src.indexOf("</KeepReading>");
+    const faq = src.indexOf("Portfolio & Editing FAQ");
+    expect(faq).toBeGreaterThan(close);
+  });
+});
