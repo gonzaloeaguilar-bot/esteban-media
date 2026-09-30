@@ -154,6 +154,11 @@ function SupportLinks({ locale }: { locale: GuideLocale }) {
 export function GuidesIndexPage({ locale }: { locale: GuideLocale }) {
   const copy = guidesIndexCopy[locale];
   const guides = getGuides(locale);
+  // Eight is what fits a phone before a directory stops reading as a list of
+  // choices and starts reading as a wall. The rest is one click away and never
+  // leaves the DOM.
+  const shown = guides.slice(0, 8);
+  const folded = guides.slice(8);
   const homePath = locale === "es" ? "/es" : "/";
   const companionPath =
     locale === "es" ? guidesIndexCopy.en.path : guidesIndexCopy.es.path;
@@ -220,7 +225,7 @@ export function GuidesIndexPage({ locale }: { locale: GuideLocale }) {
             {copy.breadcrumbCurrent}
           </h2>
           <div className="grid gap-5 md:grid-cols-2">
-            {guides.map((guide, index) => (
+            {shown.map((guide, index) => (
               <article
                 key={guide.id}
                 className="flex min-h-80 flex-col rounded-2xl border border-[#d6ccc0] bg-[#fbf6ef] p-6 sm:p-8"
@@ -249,6 +254,64 @@ export function GuidesIndexPage({ locale }: { locale: GuideLocale }) {
               </article>
             ))}
           </div>
+
+          {/* THE DIRECTORY IS NOT THE ARTICLE (2026-09-30).
+              Measured on production: /guides was 21,326px on a phone, the
+              second-longest page on the site — and 39 identical 320px cards
+              were essentially all of it. Somebody opening a directory is
+              looking for ONE guide, and thirty-one cards past the eighth are
+              not helping them find it.
+
+              The first eight stay as cards. The other thirty-one sit inside
+              one fold-out whose summary names where it leads. Collapsed is NOT
+              removed: all 39 links, titles and answers stay in the served
+              HTML, so the internal linking a crawler follows and everything an
+              answer engine reads is byte-for-byte what it was. Only the
+              scrolling changed. */}
+          {folded.length > 0 ? (
+            <KeepReading
+              id="all-guides"
+              title={copy.listFoldSummary}
+              destinations={copy.listFoldHint.replace(
+                "{count}",
+                folded.length.toString(),
+              )}
+            >
+              <div className="grid gap-5 pb-4 md:grid-cols-2">
+                {folded.map((guide, offset) => {
+                  const index = shown.length + offset;
+                  return (
+                    <article
+                      key={guide.id}
+                      className="flex min-h-80 flex-col rounded-2xl border border-[#d6ccc0] bg-[#fbf6ef] p-6 sm:p-8"
+                    >
+                      <div className="flex items-center justify-between gap-4">
+                        <span className="font-serif text-4xl text-[#9f3c27]">
+                          {(index + 1).toString().padStart(2, "0")}
+                        </span>
+                        <span className="text-xs font-medium uppercase tracking-[0.14em] text-[#5a6066]">
+                          {guide.eyebrow}
+                        </span>
+                      </div>
+                      <h3 className="mt-8 max-w-xl font-serif text-3xl leading-tight sm:text-4xl">
+                        {guide.title}
+                      </h3>
+                      <p className="mt-4 max-w-xl text-sm leading-7 text-[#3f4548] sm:text-base">
+                        {guide.answer}
+                      </p>
+                      <Link
+                        href={getGuidePath(guide)}
+                        className="mt-auto inline-flex min-h-12 items-end gap-2 pt-8 font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4"
+                      >
+                        {copy.readLabel}
+                        <ArrowRight className="mb-1 size-4" aria-hidden="true" />
+                      </Link>
+                    </article>
+                  );
+                })}
+              </div>
+            </KeepReading>
+          ) : null}
         </Container>
       </section>
 

@@ -24,11 +24,25 @@ const EN = "app/(english)/services/page.tsx";
 const ES = "app/(spanish)/es/servicios/page.tsx";
 const source = (p: string) => readFileSync(join(process.cwd(), p), "utf8");
 
-/** The text between the fold-out's opening and closing tag. */
-function collapsed(src: string): string {
-  const open = src.indexOf("<KeepReading");
-  const close = src.indexOf("</KeepReading>");
-  expect(open).toBeGreaterThan(-1);
+/**
+ * The text between a fold-out's opening and closing tag.
+ *
+ * `id` is not optional garnish: guide-pages.tsx now holds TWO folds (the index
+ * list and the related-guides block on a detail page). Matching on the first
+ * `<KeepReading` made this helper return whichever one happened to appear
+ * first in the file, so a test about one fold silently started asserting
+ * against the other.
+ */
+function collapsed(src: string, id?: string): string {
+  const open = id
+    ? src.indexOf(`<KeepReading\n        id="${id}"`) >= 0
+      ? src.indexOf(`<KeepReading\n        id="${id}"`)
+      : src.indexOf(`id="${id}"`) >= 0
+        ? src.lastIndexOf("<KeepReading", src.indexOf(`id="${id}"`))
+        : -1
+    : src.indexOf("<KeepReading");
+  expect(open, `no fold-out with id ${id ?? "(first)"}`).toBeGreaterThan(-1);
+  const close = src.indexOf("</KeepReading>", open);
   expect(close).toBeGreaterThan(open);
   return src.slice(open, close);
 }
@@ -142,7 +156,7 @@ describe("reading path — guides", () => {
    */
   it("folds the related-guides block, which is navigation and not the article", () => {
     const src = source(GUIDE);
-    const block = collapsed(src);
+    const block = collapsed(src, "related-guides");
     expect(block).toContain("related-guides-heading");
     // The article itself must NEVER end up inside the fold.
     expect(block).not.toContain("guide.answer");
@@ -156,5 +170,36 @@ describe("reading path — guides", () => {
     // Both locales define it, or one language gets a mystery-meat control.
     expect(src.match(/relatedFoldSummary:/g)?.length).toBe(2);
     expect(src.match(/relatedFoldHint:/g)?.length).toBe(2);
+  });
+});
+
+
+describe("reading path — the guides directory", () => {
+  const GUIDE_PAGES = "components/guide-pages.tsx";
+
+  /**
+   * Measured on production 2026-09-30: /guides was 21,326px on a phone, the
+   * second-longest page on the site, and 39 identical 320px cards were
+   * essentially all of it. Somebody opening a directory wants ONE guide.
+   *
+   * Eight stay as cards; the other 31 sit inside one fold-out. Collapsed is
+   * not removed — every link, title and answer stays in the served HTML.
+   */
+  it("shows the first eight and folds the rest, never slicing them away", () => {
+    const src = source(GUIDE_PAGES);
+    // A `.slice(0, 8)` with no matching `.slice(8)` would DELETE 31 guides
+    // from the page. Both halves must be rendered.
+    expect(src).toContain("guides.slice(0, 8)");
+    expect(src).toContain("guides.slice(8)");
+    const block = collapsed(src, "all-guides");
+    expect(block).toContain("folded.map");
+  });
+
+  it("names where the fold leads, in both languages", () => {
+    const guides = source("lib/guides.ts");
+    expect(guides.match(/listFoldSummary:/g)?.length).toBe(2);
+    expect(guides.match(/listFoldHint:/g)?.length).toBe(2);
+    // The hint states how many are behind the click, from the real count.
+    expect(source(GUIDE_PAGES)).toContain("folded.length.toString()");
   });
 });
