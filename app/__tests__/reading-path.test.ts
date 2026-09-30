@@ -125,3 +125,36 @@ describe("reading path — portfolio", () => {
     expect(faq).toBeGreaterThan(close);
   });
 });
+
+describe("reading path — guides", () => {
+  const GUIDE = "components/guide-pages.tsx";
+
+  /**
+   * Measured on production 2026-09-30: a guide was 24,217px on a phone — longer
+   * than the services wall we folded the day before, and there are 78 of them.
+   * 8,810px of that, more than a third, was the "Related practical guides" block:
+   * navigation, not the article anybody arrived to read.
+   *
+   * After folding it: 24,381 -> 15,571px on the English guide and 16,821 -> 7,959
+   * on the Spanish one, with the DOM word count IDENTICAL open and closed
+   * (11,945 and 8,249) and all 38 links still inside. The internal linking a
+   * crawler follows is untouched; only the scrolling changed.
+   */
+  it("folds the related-guides block, which is navigation and not the article", () => {
+    const src = source(GUIDE);
+    const block = collapsed(src);
+    expect(block).toContain("related-guides-heading");
+    // The article itself must NEVER end up inside the fold.
+    expect(block).not.toContain("guide.answer");
+    expect(block).not.toContain("guidePolicyNotes");
+  });
+
+  it("names where the fold leads, in both languages", () => {
+    const src = source(GUIDE);
+    expect(src).toContain("relatedFoldSummary");
+    expect(src).toContain("relatedFoldHint");
+    // Both locales define it, or one language gets a mystery-meat control.
+    expect(src.match(/relatedFoldSummary:/g)?.length).toBe(2);
+    expect(src.match(/relatedFoldHint:/g)?.length).toBe(2);
+  });
+});
