@@ -203,3 +203,47 @@ describe("reading path — the guides directory", () => {
     expect(source(GUIDE_PAGES)).toContain("folded.length.toString()");
   });
 });
+
+describe("reading path — the areas pages", () => {
+  const EN_AREAS = "app/(english)/areas/page.tsx";
+  const ES_AREAS = "app/(spanish)/es/areas/page.tsx";
+
+  /**
+   * Measured on production 2026-09-30 at 390x844: /areas was 13,953px, and the
+   * bottom page directory alone was 5,013px of that for 256 words — link tiles
+   * between the FAQ and the one action on the page.
+   *
+   * /services has folded this exact component since the first reading-path
+   * pass. /areas never did, and nothing noticed until the page heights were
+   * measured one by one — which is why this test names the component rather
+   * than just asserting "a fold exists".
+   */
+  it("folds the page directory on both areas pages", () => {
+    expect(collapsed(source(EN_AREAS), "service-directory")).toContain(
+      "<ServiceLandingDirectory />",
+    );
+    expect(collapsed(source(ES_AREAS), "directorio-de-servicios")).toContain(
+      "<SpanishServiceLandingDirectory />",
+    );
+  });
+
+  it("keeps the area cards and the contact action outside the fold", () => {
+    // Each locale names its own list. A single shared literal would match
+    // NEITHER on the Spanish page, and `expect(-1).toBeGreaterThan(-1)` is the
+    // kind of assertion that looks meaningful and tests nothing.
+    for (const [page, list] of [
+      [EN_AREAS, "serviceAreas.map"],
+      [ES_AREAS, "spanishAreas.map"],
+    ] as const) {
+      const src = source(page);
+      const close = src.indexOf("</KeepReading>");
+      expect(close).toBeGreaterThan(-1);
+      // The area cards are what the page is FOR.
+      const cards = src.indexOf(list);
+      expect(cards, `${page} does not render ${list}`).toBeGreaterThan(-1);
+      expect(cards).toBeLessThan(close);
+      // And the action must be reachable without opening anything.
+      expect(src.lastIndexOf("/contact")).toBeGreaterThan(close);
+    }
+  });
+});
