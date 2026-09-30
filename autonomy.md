@@ -21,3 +21,7 @@ The website is production-live. Safe, reversible work remains highly autonomous,
 ## Required gates
 
 Use a pull request, pass `pnpm check`, review production/business-claim impact, merge to `main`, and smoke-test the canonical site. Record material decisions in `.ai/handoff.md` and the Esteban Media Obsidian module.
+
+## Esteban-owned business changes
+
+Esteban can approve public prices, service details, Spanish copy, locations, turnaround, credentials, contact details, and proof for his own business by marking the public-claims checkbox in the pull request and writing the approval/source in the PR body. He does not need local access to `quality-enforce`; the local evidence drain adds the Cortex JSON after required checks pass.
