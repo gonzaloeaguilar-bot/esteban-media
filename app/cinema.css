@@ -1708,3 +1708,123 @@ a.em-pk-carte__item:active .em-pk-carte__go,
   .em-pk-carte__go,
   .em-pk-need__go svg { transition: none; }
 }
+
+/* ---------------------------------------------------------------------------
+   La tira de película — el portafolio como fotogramas por los que se camina.
+
+   El 3D es CSS, no un modelo: la cámara que Esteban rechazó pesaba 2,1 MB y no
+   podía empezar hasta que llegaba entera. Esto pinta en el primer frame.
+   --------------------------------------------------------------------------- */
+
+.em-film-strip {
+  padding: clamp(32px, 6vw, 72px) 0;
+  background: #101214;
+  color: #f6f1ea;
+  /* The stage is 300px by default and the frame is taller than that, so the
+     kit's `overflow: hidden` cut the caption off. These are the component's own
+     knobs — set them rather than fight the component. The height is the still
+     (square, so = width) plus 2x14px of sprockets plus the 40px caption. */
+  /* ONE number. The kit sizes its own piece from `--rail-coverflow-width`, and
+     the frame fills it — a fixed width on the frame made it 260px inside a
+     180px piece, so it overflowed to the right and read as "not centred" when
+     the kit had centred everything correctly. Measured: rail, stage and piece
+     all at 195 on a 390px screen; only the frame sat at 226. */
+  --em-film-w: min(62vw, 260px);
+  --rail-coverflow-width: var(--em-film-w);
+  --rail-coverflow-height: calc(var(--em-film-w) + 68px);
+  --rail-coverflow-step: 58%;
+  --rail-coverflow-depth: 90px;
+  /* Los mandos del carril del kit heredan estos, así que el componente se ve
+     de esta marca sin tocar una línea suya. */
+  --rail-bg: #101214;
+  --rail-ink: #f6f1ea;
+  --rail-accent: var(--em-accent, #c84a2c);
+}
+
+.em-film-strip__title {
+  margin: 0 0 clamp(20px, 4vw, 36px);
+  padding-inline: clamp(16px, 5vw, 48px);
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: clamp(28px, 6vw, 48px);
+  line-height: 1.05;
+}
+
+/* El fotograma: cuadrado, con sus perforaciones arriba y abajo. */
+.em-film {
+  margin: 0;
+  /* Fills the piece the kit allocated; never dictates its own width. */
+  width: 100%;
+  background: #08090a;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px -22px rgba(0, 0, 0, 0.9);
+}
+
+/* La banda perforada. Un gradiente repetido, no doce elementos: doce nodos por
+   fotograma y trece fotogramas son 312 nodos que nadie lee. */
+.em-film__perf {
+  display: block;
+  height: 14px;
+  background-image: radial-gradient(
+    circle at 7px 7px,
+    #f6f1ea 0 3.2px,
+    transparent 3.4px
+  );
+  background-size: 22px 14px;
+  background-repeat: repeat-x;
+  opacity: 0.55;
+}
+
+.em-film__still {
+  display: block;
+  width: 100%;
+  /* Cuadrado, como el fotograma de una tira de contactos. */
+  aspect-ratio: 1 / 1;
+  height: auto;
+  object-fit: cover;
+}
+
+.em-film__cap {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px 12px;
+  /* Dos datos y se acaba: el título y el año. La lectura está en la página del
+     proyecto, que es a donde lleva el fotograma. */
+  font-size: 12px;
+}
+
+.em-film__name {
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.em-film__year {
+  flex: 0 0 auto;
+  color: #9aa0a6;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Sin movimiento para quien lo ha pedido: la perspectiva se queda, el giro no.
+   El kit ya respeta esto en su carril; esto cubre lo que añadimos aquí. */
+@media (prefers-reduced-motion: reduce) {
+  .em-film {
+    transition: none !important;
+  }
+}
+
+/* El fotograma entero es el enlace: centrar y abrir son gestos distintos, y
+   sin esto el carril quedaba con diez piezas que nadie podía enfocar ni
+   rastrear. */
+.em-film__link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+.em-film__link:focus-visible {
+  outline: 2px solid var(--em-accent, #c84a2c);
+  outline-offset: 3px;
+}
