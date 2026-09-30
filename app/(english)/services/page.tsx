@@ -197,10 +197,16 @@ export default function ServicesPage() {
               What does Esteban Media build?
             </h2>
             <p className="mt-4 max-w-3xl leading-7 text-[#252a2d]">
-              Six scoped building blocks, one accountable system from first search
-              to follow-up. Not a promise that every business needs every tool:
-              timing depends on confirmed scope, assets, access, consent
-              requirements, and client review cycles.
+              Start with the business outcome: more qualified inquiries, a clearer
+              local presence, less manual follow-up, or a better way to see what is
+              working. Esteban Media combines websites, measured lead capture,
+              automation, and creative production around a confirmed scope.
+            </p>
+            <p className="mt-3 max-w-3xl leading-7 text-[#252a2d]">
+              {growthPillars.length} scoped building blocks, one accountable system
+              from first search to follow-up. Not a promise that every business
+              needs every tool: timing depends on confirmed scope, assets, access,
+              consent requirements, and client review cycles.
             </p>
             <p className="mt-3 max-w-3xl leading-7 text-[#252a2d]">
               If you are still deciding what to ask for, start with the{" "}
