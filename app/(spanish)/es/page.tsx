@@ -1,3 +1,4 @@
+import { AudienceRouter } from "@/components/audience-router";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
@@ -29,6 +30,12 @@ export default function SpanishHomePage() {
     <main className="bg-[#f7f5f1] text-[#101214]">
       <SignalIntro locale="es" />
       <HeroVideo locale="es" />
+      {/* Social traffic ALL lands here: 36 sessions from Facebook and Instagram in
+          30 days, every one of them on "/", and all three of the site's form starts
+          came from m.facebook.com. The pages that convert existed and the homepage
+          linked to none of them. Above the fold on purpose — a visitor from an
+          Instagram bio link should not have to open a fold-out to find their lane. */}
+      <AudienceRouter locale="es" />
       <PackagesSection locale="es" />
       <PortfolioTeaser locale="es" />
       <ClientReviews locale="es" />
