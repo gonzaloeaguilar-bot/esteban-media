@@ -98,4 +98,15 @@ describe("Daily Script Pacing Calculator surface", () => {
     vi.setSystemTime(new Date(2026, 7, 21, 0, 0, 0));
     expect(drillForTodayIndex(7)).toBe((beforeMidnight + 1) % 7);
   });
+
+  it("links to /es/areas in the Spanish pacing calculator page", async () => {
+    const fs = await import("node:fs");
+    const path = await import("node:path");
+    const content = fs.readFileSync(
+      path.join(process.cwd(), "app/(spanish)/es/calculadora-de-ritmo-de-video/page.tsx"),
+      "utf8",
+    );
+    expect(content).toContain('href="/es/areas"');
+    expect(content).toContain("áreas de servicio de video en South Florida");
+  });
 });

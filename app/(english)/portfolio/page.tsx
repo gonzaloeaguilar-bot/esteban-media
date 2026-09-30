@@ -26,6 +26,7 @@ import {
   PortfolioGrid,
   resolvePortfolioItemCopy,
 } from "@/components/portfolio-grid";
+import { PortfolioFilmstrip } from "@/components/portfolio-filmstrip";
 import { Container } from "@/components/ui/container";
 import { PORTFOLIO_ITEMS } from "@/lib/portfolio";
 import { buildPortfolioCollectionSchema } from "@/lib/portfolio-schema";
@@ -366,6 +367,9 @@ export default function PortfolioPage() {
           </div>
         </Container>
       </section>
+
+      {/* Primero se ve, luego se lee: la tira antes de la cuadrícula. */}
+      <PortfolioFilmstrip locale="en" heading="The work, frame by frame" />
 
       <section className="py-12 sm:py-16 lg:py-20">
         <Container size="xl">
