@@ -88,7 +88,7 @@ const growthPillars = [
     href: "/services/local-presence-seo",
   },
   {
-    title: "Data & funnel audit",
+    title: "Data & measurement audit",
     detail:
       "Audit the current journey, measurement, handoffs, and manual work before deciding which system should be built first.",
     icon: ChartLine,
@@ -147,22 +147,45 @@ export default function ServicesPage() {
           <h1 className="mt-4 max-w-3xl font-serif em-display">
             Growth systems that turn an idea into a working digital customer journey.
           </h1>
+          {/* THE FIRST SCREEN SAYS WHAT THIS IS AND WHAT TO DO (2026-09-29).
+              Measured on the served page before this pass: 1,397 words, one
+              image, 20 phone screens, and two paragraphs of prose before a
+              single action. Now: one sentence, one action, one real frame of
+              his work. The rest of the page is sectioned under the questions
+              a client actually asks, and everything that only supports
+              reading is folded — collapsed, never removed. */}
           <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-            Start with the business outcome: more qualified inquiries, a clearer
-            local presence, less manual follow-up, or a better way to see what is
-            working. Esteban Media combines websites, measured lead capture,
-            automation, and creative production around a confirmed scope.
+            Websites, measured lead capture, automation, and creative production,
+            built around one confirmed scope so you get more qualified inquiries
+            and less manual follow-up.
           </p>
-          <p className="mt-4 max-w-2xl leading-7 text-[#252a2d]">
-            Looking for what it costs? The{" "}
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link
+              href="/contact"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)]"
+            >
+              Start a project
+              <ArrowRight className="size-4" aria-hidden="true" />
+            </Link>
             <Link
               href="/pricing"
-              className="font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#7f2f20]"
+              className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#101214]/30 px-6 text-sm font-medium text-[#101214] hover:bg-[#101214] hover:text-white"
             >
-              pricing and packages page
-            </Link>{" "}
-            shows the starting price for each package.
-          </p>
+              See starting prices
+            </Link>
+          </div>
+          {serviceImages["on-location"] ? (
+            <Image
+              src={serviceImages["on-location"].src}
+              alt={serviceImages["on-location"].alt}
+              width={1600}
+              height={900}
+              priority
+              sizes="(min-width: 1024px) 960px, 100vw"
+              className="mt-8 aspect-[16/9] w-full max-w-4xl rounded-lg object-cover"
+              style={{ objectPosition: serviceImages["on-location"].focal }}
+            />
+          ) : null}
 
           <section className="mt-12" aria-labelledby="growth-systems-heading">
             <p className="text-xs font-medium uppercase text-[#5a6066]">
@@ -172,11 +195,18 @@ export default function ServicesPage() {
               id="growth-systems-heading"
               className="mt-4 max-w-3xl font-serif text-4xl leading-tight"
             >
-              One accountable system, from first search to follow-up.
+              What does Esteban Media build?
             </h2>
             <p className="mt-4 max-w-3xl leading-7 text-[#252a2d]">
-              These are scoped building blocks, not a promise that every business
-              needs every tool. Timing depends on confirmed scope, assets, access,
+              Start with the business outcome: more qualified inquiries, a clearer
+              local presence, less manual follow-up, or a better way to see what is
+              working. Esteban Media combines websites, measured lead capture,
+              automation, and creative production around a confirmed scope.
+            </p>
+            <p className="mt-3 max-w-3xl leading-7 text-[#252a2d]">
+              {growthPillars.length} scoped building blocks, one accountable system
+              from first search to follow-up. Not a promise that every business
+              needs every tool: timing depends on confirmed scope, assets, access,
               consent requirements, and client review cycles.
             </p>
             <p className="mt-3 max-w-3xl leading-7 text-[#252a2d]">
@@ -221,8 +251,21 @@ export default function ServicesPage() {
               Creative production
             </p>
             <h2 id="creative-production-heading" className="mt-4 max-w-3xl font-serif text-4xl leading-tight">
-              Short video editing and photography remain the creative fuel for the system.
+              What does creative production include?
             </h2>
+            <p className="mt-4 max-w-3xl leading-7 text-[#252a2d]">
+              Short video editing and photography remain the creative fuel for
+              the system. Each service below shows its starting price; every
+              project still gets a scoped quote. Looking for what it costs as a
+              bundle? The{" "}
+              <Link
+                href="/pricing"
+                className="font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#7f2f20]"
+              >
+                pricing and packages page
+              </Link>{" "}
+              shows the starting price for each package.
+            </p>
             <div className="mt-7 grid gap-5 lg:grid-cols-2">
             {services.map((service) => {
               const Icon = service.icon;
@@ -330,10 +373,23 @@ export default function ServicesPage() {
             </div>
           </section>
 
-          {/* Un respiro entre dos tramos largos de texto. */}
+          <div className="mt-12">
+            <VideoBriefBuilder locale="en" />
+          </div>
+          {/* Un respiro entre dos tramos largos de texto. Queda FUERA del
+              plegado: es la parte que se mira, no la que se lee. */}
           <ServicesScene locale="en" />
-
-          <section className="mt-14" aria-labelledby="delivery-model-heading">
+          {/* Everything below only supports READING: how remote and local work
+              compare, the scoping questions, and the page directory. One
+              fold-out, destinations named. Collapsed is not removed — the
+              words stay in the served HTML for every crawler. The JSON-LD
+              service anchors (#editing, #ai-content…) stay OUTSIDE, above. */}
+          <KeepReading
+            id="how-we-work"
+            title="How does working with Esteban work?"
+            destinations="Remote or on location, the four scoping questions, and every page by project type and South Florida area."
+          >
+          <section className="mt-10" aria-labelledby="delivery-model-heading">
             <p className="text-xs font-medium uppercase text-[#5a6066]">
               Remote or on location
             </p>
@@ -341,7 +397,7 @@ export default function ServicesPage() {
               id="delivery-model-heading"
               className="mt-4 max-w-3xl font-serif text-4xl leading-tight"
             >
-              Compare remote work with selectively scoped local production.
+              Do you need to be in South Florida?
             </h2>
             <div className="mt-7 grid gap-5 md:grid-cols-2">
               <article className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
@@ -392,7 +448,7 @@ export default function ServicesPage() {
               id="process-heading"
               className="mt-4 max-w-3xl font-serif text-4xl leading-tight"
             >
-              Questions that help define an individual project.
+              What defines the scope of a project?
             </h2>
             <ul className="mt-7 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
               {scopingQuestions.map((question, index) => (
@@ -412,16 +468,19 @@ export default function ServicesPage() {
             </ul>
           </section>
 
-          <div className="mt-12">
-            <VideoBriefBuilder locale="en" />
-          </div>
-
-          <KeepReading
-            id="pages-by-project-type"
-            title="See every page by project type and area"
-            destinations="Editing, drone and real estate, restaurants, clinics, events, e-commerce and more, by South Florida city and county."
-          >
+          <section className="mt-10" aria-labelledby="pages-by-project-type-heading">
+            <h2
+              id="pages-by-project-type-heading"
+              className="max-w-3xl font-serif text-4xl leading-tight"
+            >
+              Which page covers your project type and area?
+            </h2>
+            <p className="mt-4 max-w-3xl leading-7 text-[#252a2d]">
+              Editing, drone and real estate, restaurants, clinics, events,
+              e-commerce and more, by South Florida city and county.
+            </p>
             <ServiceLandingDirectory />
+          </section>
           </KeepReading>
 
           <div className="mt-14 rounded-lg bg-[#101214] p-6 text-[#f6f1ea] sm:p-8">
