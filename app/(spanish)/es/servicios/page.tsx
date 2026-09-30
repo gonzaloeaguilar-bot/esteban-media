@@ -4,6 +4,7 @@ import { ArrowRight, Bot, CheckCircle2, ChartLine, ClipboardCheck, Laptop, MapPi
 
 import { KeepReading } from "@/components/keep-reading";
 import { spanishServiceImages } from "@/lib/service-images";
+import { ServicesScene } from "@/components/services-scene";
 import { Container } from "@/components/ui/container";
 import { VideoBriefBuilder } from "@/components/video-brief-builder";
 import { entityIds } from "@/lib/entity-schema";
@@ -262,6 +263,9 @@ export default function SpanishServicesPage() {
               );
             })}
           </div>
+
+          {/* Un respiro entre dos tramos largos de texto. */}
+          <ServicesScene locale="es" />
 
           <section className="mt-14" aria-labelledby="modalidad-heading">
             <p className="text-xs font-medium uppercase text-[#5a6066]">
