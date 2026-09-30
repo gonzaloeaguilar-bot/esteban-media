@@ -53,7 +53,22 @@ const REGISTRY = path.join(process.cwd(), "config", "indexable-inventory-freeze.
  * another key must not become invisible to this check. A gate that only sees one
  * array is a gate the next author silently bypasses.
  */
+/**
+ * @typedef {{
+ *   at: string,
+ *   date: string,
+ *   note: string,
+ *   url: string | string[] | null,
+ *   kind: string | null,
+ * }} FollowUp
+ * @typedef {FollowUp & { parsed: Date, daysLate: number }} DueFollowUp
+ *
+ * @param {unknown} node
+ * @param {string[]} [trail]
+ * @returns {FollowUp[]}
+ */
 export function collectFollowUps(node, trail = []) {
+  /** @type {FollowUp[]} */
   const out = [];
   if (Array.isArray(node)) {
     node.forEach((item, i) => out.push(...collectFollowUps(item, [...trail, String(i)])));
@@ -76,7 +91,21 @@ export function collectFollowUps(node, trail = []) {
   return out;
 }
 
-/** ISO date, or null. Refuses a Date-parseable string that is not ISO. */
+/**
+ * ISO date, or null.
+ *
+ * The regex is REDUNDANT today and kept deliberately. Appending `T00:00:00Z`
+ * already makes every non-ISO input an Invalid Date, so the NaN check below
+ * rejects "Oct 28 2026", "2026-1-1", "20261028" and "2026-13-01" on its own — a
+ * negative control that deleted the regex left all tests green, which is how that
+ * was established rather than assumed. It stays because it states the accepted
+ * shape at the top of the function, and because it becomes load-bearing the
+ * moment someone drops the suffix. The tests do NOT claim it is a working guard.
+ */
+/**
+ * @param {unknown} value
+ * @returns {Date | null}
+ */
 export function parseIsoDate(value) {
   if (typeof value !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return null;
   const date = new Date(`${value}T00:00:00Z`);
@@ -88,6 +117,11 @@ export function parseIsoDate(value) {
  *
  * `withinDays` looks ahead, so a weekly loop can warn before the date rather
  * than only after it.
+ */
+/**
+ * @param {FollowUp[]} entries
+ * @param {{ asOf?: Date, withinDays?: number }} [options]
+ * @returns {DueFollowUp[]}
  */
 export function dueFollowUps(entries, { asOf = new Date(), withinDays = 0 } = {}) {
   const horizon = new Date(asOf.getTime() + withinDays * 86400000);
@@ -167,7 +201,15 @@ function main() {
 
   console.log(`followup-due: ${due.length} of ${all.length} follow-up(s) DUE as of ${today}\n`);
   for (const entry of due) {
-    const late = entry.daysLate > 0 ? `${entry.daysLate} day(s) overdue` : "due today";
+    // `--within` pulls FUTURE entries into the report, and a negative daysLate
+    // was printing "due today" for a date sixteen days away — a reminder that
+    // lies about its own urgency is worse than no reminder.
+    const late =
+      entry.daysLate > 0
+        ? `${entry.daysLate} day(s) overdue`
+        : entry.daysLate < 0
+          ? `due in ${-entry.daysLate} day(s)`
+          : "due today";
     const where = entry.url ? ` ${JSON.stringify(entry.url)}` : "";
     console.log(`  ${entry.date}  ${late}${where}`);
     console.log(`    ${entry.note}`);

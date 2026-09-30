@@ -1,0 +1,38 @@
+# Are any registered follow-ups due?
+#
+# WHY A SCHEDULE AND NOT `pnpm check`. config/indexable-inventory-freeze.json
+# requires every owner-ordered or demand-backed URL to register a GSC follow-up
+# date, and on 2026-09-30 four were registered while NOTHING read them — no test,
+# no script, no loop, in this repo or portfolio-ops. A date in a JSON file that
+# nothing parses is a note to a future human who has no reason to open the file.
+#
+# It deliberately does NOT run inside `pnpm check`: a follow-up coming due is not
+# a reason to block a deploy. It runs weekly and goes RED until the entry is
+# resolved — which is the intended behaviour, not noise. "Resolved" means
+# recording what the URL actually earned and then either keeping it or retiring
+# it, and editing the registry accordingly. A commitment that cannot go red is
+# not a commitment.
+#
+# $0: pure node, no LLM, no credentials. The Search Console numbers come from the
+# portfolio-ops lane, which the job output names.
+name: Follow-ups due
+
+on:
+  schedule:
+    # Mondays, 12:10 UTC.
+    - cron: "10 12 * * 1"
+  workflow_dispatch:
+
+jobs:
+  followups:
+    name: Registered follow-ups
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      # No install step: the script reads one JSON file with the standard library.
+      - name: Report follow-ups due
+        run: node scripts/followup-due.mjs --within 7

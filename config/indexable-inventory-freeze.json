@@ -82,9 +82,22 @@
       ],
       "orderedBy": "Gonzalo (in-session), from Esteban's own rate card",
       "kind": "published-rates",
-      "demandEvidence": "Demand-backed, unlike /desk-recommendations. Search Console 2026-08-30..09-26 already shows this intent reaching the site WITHOUT a page to receive it: 'video production miami cost' at position 18 and 'corporate video production cost miami' earning impressions on a GUIDE, not on a price page. The AI-citation run the same week measured 0 citations for the brand on generic agency queries where clutch, designrush and productionhub win — queries a small studio does not take. A page publishing exact figures by home size competes on a question those directories do not answer. Source of every figure: Esteban's public rate card, September 2026, in lib/services-config.ts.",
+      "demandEvidence": "Demand-backed, unlike /desk-recommendations. Search Console 2026-08-30..09-26 already shows this intent reaching the site WITHOUT a page to receive it: 'video production miami cost' at position 18 and 'corporate video production cost miami' earning impressions on a GUIDE, not on a price page. The AI-citation run the same week measured 0 citations for the brand on generic agency queries where clutch, designrush and productionhub win \u2014 queries a small studio does not take. A page publishing exact figures by home size competes on a question those directories do not answer. Source of every figure: Esteban's public rate card, September 2026, in lib/services-config.ts.",
       "followUpDate": "2026-10-29",
       "followUp": "Check GSC for impressions and position on /pricing/real-estate and /es/precios/inmobiliaria, and re-run the citation tracker for 'real estate photography miami cost'. Zero impressions at 30 days means the intent is not there and the pair should be merged into /pricing."
+    },
+    {
+      "on": "2026-09-30",
+      "url": [
+        "/services/dental-video-marketing-south-florida",
+        "/services/yacht-charter-video-marketing-miami",
+        "/services/med-spa-video-marketing-south-florida"
+      ],
+      "orderedBy": "Gonzalo (in-session)",
+      "kind": "depth-pilot",
+      "demandEvidence": "These three URLs are NOT new; all three were already indexable and already indexed, and all three earned zero impressions in 2026-08-31..09-27. The change is depth, not inventory: measured with the site chrome subtracted, the 7 /services pages that earn carry 3,210 unique body shingles at 13.1% mutual overlap while this cohort carried 1,094 at 38.4%. The pilot raises these three to a median 2,890 at 19.2%.",
+      "followUpDate": "2026-10-28",
+      "followUp": "Compare impressions and position for these three against the 30 /services pages left untouched. If the differentiated three earn and the untouched cohort still does not, differentiation is the lever and the same treatment applies to the rest. If all of them stay at zero, depth is NOT the constraint here and the remaining pages should be retired rather than rewritten."
     }
   ]
 }
