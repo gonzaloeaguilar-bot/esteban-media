@@ -168,6 +168,88 @@ export const YACHT_DEPTH: Depth = {
   ],
 };
 
+export const YACHT_HOSPITALITY_DEPTH: Depth = {
+  craftHeading: "What yacht hospitality footage has to show clearly.",
+  craft: [
+    {
+      title: "The vessel and the experience",
+      detail:
+        "A yacht promo has two jobs at once: show the boat accurately and make the day feel desirable. Wide exterior passes establish the vessel, but the useful booking material is often closer — guests boarding, towels, catering, shaded seating, clean cabins, and the water moving past the hull. The edit has to connect those details without turning the vessel into a vague lifestyle montage.",
+    },
+    {
+      title: "Water, wind, and usable sound",
+      detail:
+        "Open-water footage usually arrives with wind bursts, motor rumble, and uneven dialogue. The safest edit treats onboard sound as texture unless a voice is clear enough to carry meaning. Music, wave ambience, and short natural sound moments can support the luxury feeling, but they should not hide a noisy recording that the viewer needs to understand.",
+    },
+    {
+      title: "Luxury pacing without hiding facts",
+      detail:
+        "A charter edit can feel polished and still answer practical questions: vessel name, layout, passenger experience, location, and the booking route. Slow shots help interiors and deck spaces breathe; faster cuts help water sports, drone passes, and arrival moments. The final piece should make the offer easier to inspect, not just make the footage prettier.",
+    },
+  ],
+  faqHeading: "Practical answers before sharing yacht hospitality footage.",
+  faqs: [
+    {
+      question: "What footage can a yacht charter or marine broker provide for video editing?",
+      answer:
+        "Useful material can include drone sweeps, cabin walkthroughs, dockside arrivals, cruising footage, wake sports, guest hospitality moments, catering, crew details, captain commentary, and still photos from a broker or prior shoot. The best folder also includes the vessel name, specs that are safe to publish, brand assets, booking contact details, and any shots that must not be used. That gives the edit a clear commercial purpose instead of becoming a general recap of a nice day on the water.",
+    },
+    {
+      question: "How do you manage wind noise, water splash, and engine roar in marine footage?",
+      answer:
+        "Marine recordings often include wind, engines, dock noise, and music from the day itself. Dialogue can sometimes be cleaned with noise reduction and EQ, but not every clip can become a voice-led asset. When sound is not usable, the edit can lean on music, wave ambience, short natural sound accents, and clear on-screen text. The important decision is made early: which clips need intelligible speech, and which only need to create atmosphere.",
+    },
+    {
+      question: "Can drone aerial footage be color graded and stabilized for yacht promos?",
+      answer:
+        "Yes, supplied aerial footage can be stabilized, leveled, trimmed, and color graded so the water, hull, teak, upholstery, and sky feel consistent across the edit. The limits depend on the original file: a clipped white hull, a tilted horizon with no crop room, or heavily compressed social downloads leave less room for repair. Original drone files are much better than reposted clips because they preserve detail in water highlights and shaded deck areas.",
+    },
+    {
+      question: "Do you deliver multi-format cuts for social media and website listings?",
+      answer:
+        "A yacht project often needs more than one output. A website or broker listing may use a calmer 16:9 edit that explains the vessel and onboard experience, while Instagram Reels, TikTok, or Shorts need a vertical cut that opens with the strongest moving-water or hospitality moment. Safe zones matter because vessel names, booking lines, and platform controls can collide on a phone. Planning those placements before export prevents text from covering the boat.",
+    },
+    {
+      question: "How does the file transfer and revision workflow work for marine video projects?",
+      answer:
+        "Raw footage can be shared through a cloud folder with notes by clip, route, or scene. Revisions are organized around timing, color, sound, and version needs so the final assets stay ready for brokers, charter teams, hospitality operators, and remote stakeholders.",
+    },
+  ],
+  relatedHeading: "Related services and guides for yacht and hospitality media.",
+  related: [
+    {
+      title: "Yacht Charter Video Marketing",
+      detail: "Marine charter promos, deck walkthroughs, and open-water lifestyle edits.",
+      href: "/services/yacht-charter-video-marketing-miami",
+    },
+    {
+      title: "Drone Video Editing",
+      detail: "Stabilization and color grading for supplied coastal and aerial footage.",
+      href: "/services/drone-video-editing-service-miami",
+    },
+    {
+      title: "Remote Editing Handoff",
+      detail: "How to organize vessel clips, drone files, audio, and brand assets.",
+      href: "/guides/remote-video-editing-handoff",
+    },
+    {
+      title: "Drone Video Editing Guidelines",
+      detail: "Prepare aerial footage so edits feel cinematic, compliant, and clear.",
+      href: "/guides/drone-video-editing-guidelines-florida",
+    },
+    {
+      title: "Short-Form Video Editing",
+      detail: "Shape vertical clips for launches, listings, events, and social campaigns.",
+      href: "/services/short-form-video-editor-miami",
+    },
+    {
+      title: "Restaurant Promo Video Editing",
+      detail: "Package hospitality footage into polished cuts for dining and venue promotion.",
+      href: "/services/restaurant-promo-video-editing-miami",
+    },
+  ],
+};
+
 export const MED_SPA_DEPTH: Depth = {
   craftHeading: "What med spa footage has to get right.",
   craft: [

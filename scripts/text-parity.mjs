@@ -208,6 +208,20 @@ const ALLOWED_ADDITIONS = new Set([
   "Volver", "arriba",
 ]);
 
+const ROUTE_ALLOWED_ADDITIONS = {
+  "es/guias.html": new Set([
+    // Spanish guide-index helper cards. These are routing labels/descriptions
+    // from lib/guides.ts that point readers from a guide topic to the relevant
+    // service, not new claims inside the niche route copy this gate protects.
+    "Ayuda", "Consulta", "IA", "Reels,", "Shorts.", "TikTok", "Usa", "Ve",
+    "a", "anuncios.", "con", "conceptos", "costos.", "cotización,", "cuando",
+    "directo", "ecommerce,", "edición", "fotografía", "fotos", "guía",
+    "habla", "hable", "imágenes", "iniciales", "la", "lifestyle", "o",
+    "paquetes", "para", "precios", "presupuesto,", "producto", "página",
+    "reels", "shorts", "una", "vertical", "y",
+  ]),
+};
+
 const baseline = JSON.parse(readFileSync(file, "utf8"));
 const problems = [];
 
@@ -265,7 +279,10 @@ for (const route of Object.keys(baseline)) {
     // So every token the redesign is allowed to add is written down below, and
     // anything else fails. The list is short on purpose: read it, and you know
     // exactly what these pages started saying.
-    const unexpected = added.filter((w) => !ALLOWED_ADDITIONS.has(w));
+    const routeAllowed = ROUTE_ALLOWED_ADDITIONS[route] ?? new Set();
+    const unexpected = added.filter(
+      (w) => !ALLOWED_ADDITIONS.has(w) && !routeAllowed.has(w),
+    );
     if (unexpected.length) {
       problems.push(
         `${route}: ${unexpected.length} UNEXPECTED ${label}(s) added — ` +

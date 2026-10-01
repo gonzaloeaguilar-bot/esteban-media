@@ -49,10 +49,28 @@ pnpm lint
 pnpm typecheck
 pnpm test
 pnpm build
+pnpm rail-adoption:check
 pnpm check
 ```
 
 All five validation gates must pass before merge or production deployment. After deployment, smoke-test changed routes and the canonical contact links.
+
+## Shared components for public pages
+
+Every public page contribution must use the shared Rail/common component system
+before adding hand-written UI. For service pages, start from
+`.ai/service-page-template.md` and the existing `components/service-depth.tsx`
+pattern:
+
+- page-specific copy goes in `lib/service-depth-content.ts`
+- render `ServiceCraft`, `ServiceFaqs`, and `ServiceRelated`
+- generate FAQPage JSON-LD with `buildServiceFaqSchema`
+- keep conversion sections attributable with `data-section` and `data-cta`
+
+If the needed UI does not exist in Rail/common components, add it to the shared
+library and sync it into this repo instead of creating a private one-off. The
+`pnpm rail-adoption:check` gate blocks new dense hand-rolled public pages unless
+they use common components or an approved shared renderer.
 
 ## Git and release policy
 

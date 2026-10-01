@@ -71,6 +71,7 @@ Production is live. This file tracks repository implementation; account/access w
 
 ## P1 — Product and measurement
 
+- [x] Add the shared-component adoption path for Esteban AI contributions: `.ai/service-page-template.md` tells contributors to use `components/service-depth.tsx`, `app/__tests__/rail-adoption.test.ts` blocks new dense hand-rolled page files, `.github/workflows/rail-adoption.yml` runs the gate weekly/manual, and `/services/yacht-hospitality-video-fort-lauderdale` is the migrated model page. Verified 2026-10-01 with `pnpm check` exit 0: rail-kit check, adoption check, lint, typecheck, 91 test files / 907 tests, production build, and text parity across 87 Spanish routes.
 - [x] Align the bilingual homepage hero with the primary technology inquiry lanes (AI lead capture, automated customer workflows, and conversion websites), preserving the existing privacy-safe homepage intake and its consent-scoped language
 - [x] Add a single-step homepage project intake using the existing `/api/lead` and privacy-safe `lead_submit` measurement paths, including direct hero placement and idempotent GA4 key-event provisioning
 - [x] Add a bilingual direct inquiry intake to the verified website-design/chatbot commercial pair, with a distinct privacy-safe `website-design-intake` measurement source
@@ -128,4 +129,3 @@ Production is live. This file tracks repository implementation; account/access w
 - Deepened bilingual Fort Lauderdale cost & provider comparison guide (`/guides/video-production-cost-fort-lauderdale` and `/es/guias/cuanto-cuesta-la-produccion-de-video-en-fort-lauderdale`) with direct answer-first structure, small-business editing rates ($100 starter, $640 monthly, $800 on-location day), reels/social media delivery criteria, raw footage handoff specifications, and 4 FAQs per locale with FAQPage JSON-LD.
 - Updated `/fort-lauderdale` landing page to reflect Fort Lauderdale as primary home base, highlighting published editing packages, short-form reels focus, and verified portfolio proofs.
 - Verified text-parity snapshot, demand-page regression tests (62 tests), analytics gate, and full build validation.
-
