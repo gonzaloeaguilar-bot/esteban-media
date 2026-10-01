@@ -21,6 +21,7 @@
     "weekly-digest:dry-run": "node scripts/esteban-media-weekly-digest.mjs dry-run",
     "weekly-digest:run": "node scripts/esteban-media-weekly-digest.mjs run",
     "weekly-digest:status": "node scripts/esteban-media-weekly-digest.mjs status",
+    "cta-dashboard": "node scripts/service-cta-dashboard.mjs",
     "seo:verify": "node scripts/verify-technical-seo.mjs",
     "seo:indexnow:dry-run": "node scripts/indexnow-submit.mjs dry-run",
     "seo:indexnow:run": "node scripts/indexnow-submit.mjs run",

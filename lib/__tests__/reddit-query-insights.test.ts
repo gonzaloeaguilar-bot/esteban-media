@@ -4,7 +4,7 @@ import { redditQueryInsights } from "../reddit-query-insights";
 
 describe("Reddit-sourced query insights", () => {
   it("covers Esteban's core remote and South Florida service intents", () => {
-    expect(redditQueryInsights).toHaveLength(4);
+    expect(redditQueryInsights).toHaveLength(8);
 
     const corpus = JSON.stringify(redditQueryInsights);
 
@@ -16,6 +16,10 @@ describe("Reddit-sourced query insights", () => {
     expect(corpus).toContain("fotografia de producto con IA para ecommerce");
     expect(corpus).toContain("AI real estate photo enhancement");
     expect(corpus).toContain("mejora de fotos inmobiliarias con IA");
+    expect(corpus).toContain("hire a remote YouTube video editor");
+    expect(corpus).toContain("UGC video editor for ecommerce");
+    expect(corpus).toContain("restaurant promo video editing Miami");
+    expect(corpus).toContain("remote bilingual video editor");
   });
 
   it("keeps every insight sourced, bilingual, and internally linked", () => {

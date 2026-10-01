@@ -236,6 +236,88 @@ const ROUTE_ALLOWED_ADDITIONS = {
   ]),
 };
 
+const SPANISH_INQUIRY_RAIL_WORDS = new Set([
+  "Asi", "Copia", "Email", "Envia", "Esteban", "Esteban,", "Hola",
+  "IA.", "Incluye", "Llamar", "Me", "Meta:", "Pedir", "Tengo", "UGC",
+  "UGC,", "WhatsApp", "YouTube.", "a", "alargar", "alterar.", "ambiente",
+  "anuncios", "anuncios.", "aplique.", "archivos", "audio,", "ayuda",
+  "beneficios,", "bruto,", "calendario,", "cambiar", "celular", "clara",
+  "claro", "claros.", "clips", "comida,", "comprador", "con", "convertir",
+  "cortas", "corto", "cotizacion", "cotizar", "creador", "crear", "cuando",
+  "debe", "del", "demostraciones,", "direccion", "disponibles,", "donde",
+  "ecommerce.", "edicion", "editar", "ejemplo", "en", "equipo,", "esto",
+  "esto?", "fecha", "formatos", "fotografia", "fotos", "frecuencia",
+  "general", "grabacion", "guion,", "ida", "imagenes", "inmobiliarias",
+  "inmobiliario", "la", "largo", "lo", "local,", "logo", "los", "lote",
+  "marca", "marca,", "masiva", "material", "mejora", "mejorar", "mensaje",
+  "mensual", "menu,", "meta,", "miniatura", "mostrar", "necesito",
+  "negocio.", "no", "notas", "o", "oferta", "online.", "originales,", "para", "paso",
+  "permitidos.", "piezas", "plataforma.", "platos,", "preparar",
+  "principal,", "produccion", "producto", "producto,", "productos",
+  "promocional", "propiedad", "proyecto", "publicacion.", "publicado",
+  "publicar", "publicar.", "puede", "puedes", "que", "redes.", "reels,",
+  "referencias", "referencias,", "referencias.", "responder", "restaurante",
+  "restaurantes.", "sacar", "se", "servicio,", "shorts", "siguiente",
+  "sin", "social", "sociales.", "temas,", "tentativos.", "tienda", "tienda,",
+  "tiktoks", "titulos", "trabajo", "un", "una", "usos", "util.", "va",
+  "ver.", "video", "videos", "visual", "vuelta.",
+  "y",
+]);
+
+const SPANISH_INQUIRY_ROUTES = new Set([
+  "es/edicion-de-video-promocional-para-restaurantes-miami.html",
+  "es/editor-de-video-corto-para-redes-miami.html",
+  "es/editor-de-video-de-productos-para-ecommerce.html",
+  "es/editor-de-video-ugc-para-ecommerce.html",
+  "es/fotografia-de-producto-con-ia-miami.html",
+  "es/fotos-con-ia-para-bienes-raices-miami.html",
+  "es/produccion-masiva-de-video-para-redes-miami.html",
+  "es/servicio-de-edicion-de-video-para-youtube-miami.html",
+]);
+
+for (const route of SPANISH_INQUIRY_ROUTES) {
+  const existing = ROUTE_ALLOWED_ADDITIONS[route] ?? new Set();
+  for (const word of SPANISH_INQUIRY_RAIL_WORDS) existing.add(word);
+  ROUTE_ALLOWED_ADDITIONS[route] = existing;
+}
+
+const ROUTE_ALLOWED_HEADINGS = {
+  ...Object.fromEntries(
+    [...SPANISH_INQUIRY_ROUTES].map((route) => [
+      route,
+      new Set(["h2:Envia el proyecto en un mensaje util."]),
+    ]),
+  ),
+  "es/guias.html": new Set([
+    "h3:Que debo enviar antes de contratar un editor de video para YouTube?",
+    "h3:Que hace que un video UGC de producto funcione como anuncio?",
+    "h3:Que material de restaurante vale la pena enviar a un editor?",
+    "h3:Puede un negocio fuera de Florida contratar a Esteban para edicion remota?",
+  ]),
+};
+
+for (const word of [
+  "Aclarar", "Conversacion", "Enfocarse", "Ensenar", "Esteban", "Florida",
+  "Florida.", "Miami", "Pagina", "Palabras", "Puede", "Que", "Responder",
+  "South", "UGC", "Ver", "anuncio?", "anuncios", "aprobacion", "archivos,",
+  "audio,", "bilingue", "brief", "bruto,", "cada", "canal,", "capturar",
+  "clara,", "clave", "comentarios.", "comercial", "comida", "como",
+  "completo", "consolidar", "contacto", "convertirlo", "cualquier", "debo",
+  "del", "depende", "desde", "direccion", "disponibilidad", "dueños",
+  "e", "ecommerce", "edicion:", "editor?", "el", "emplatando,", "enviar",
+  "equipo", "espanol", "estructura", "filmar", "forma", "fuente", "fuera",
+  "funcionan", "funcione", "gancho", "grabacion", "ingles", "inicial,",
+  "items", "local", "local,", "lugar;", "manos", "menu,", "miniatura",
+  "momento", "momentos", "negocio", "notas", "obligatorios,", "oferta",
+  "oferta,", "paquete", "pena", "plantilla", "practica:", "problema,",
+  "promocional", "prueba", "pruebas.", "referencia,", "referencias,",
+  "relacionada", "remoto", "remoto:", "responsable", "restaurante",
+  "restaurantes", "saliendo,", "seguras", "semana.", "separadas",
+  "servicio", "social", "subtitulos,", "uso,", "vale", "versiones",
+  "visible,", "zonas",
+  "YouTube", "edicion", "entregado,", "hace", "limite", "sin",
+]) ROUTE_ALLOWED_ADDITIONS["es/guias.html"].add(word);
+
 const baseline = JSON.parse(readFileSync(file, "utf8"));
 const problems = [];
 
@@ -307,10 +389,17 @@ for (const route of Object.keys(baseline)) {
 
   if (a.headings.join("\u0000") !== b.headings.join("\u0000")) {
     const gone = a.headings.filter((h) => !b.headings.includes(h));
-    problems.push(
-      `${route}: heading outline changed` +
-        (gone.length ? ` — lost ${gone.slice(0, 3).join(" | ")}` : " (order)"),
-    );
+    const addedHeadings = b.headings.filter((h) => !a.headings.includes(h));
+    const allowedHeadings = ROUTE_ALLOWED_HEADINGS[route] ?? new Set();
+    const unexpectedHeadings = addedHeadings.filter((h) => !allowedHeadings.has(h));
+    if (gone.length || unexpectedHeadings.length) {
+      problems.push(
+        `${route}: heading outline changed` +
+          (gone.length
+            ? ` — lost ${gone.slice(0, 3).join(" | ")}`
+            : ` — added ${unexpectedHeadings.slice(0, 3).join(" | ")}`),
+      );
+    }
   }
 
   const lostLinks = a.links.filter((h) => !b.links.includes(h));

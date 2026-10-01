@@ -8,6 +8,7 @@ import { ArrowRight, Mail, Phone, Send } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Cartel, Figure, NumberedList } from "@/components/em-surface";
 import { ProjectRail, ServiceRail } from "@/components/em-rails";
+import { ServiceInquiryRail, type ServiceInquiry } from "@/components/service-depth";
 import {
   buildSpanishNicheStructuredData,
   getSpanishNichePage,
@@ -1030,6 +1031,73 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
   },
 };
 
+const spanishInquiryServices: Record<string, ServiceInquiry> = {
+  "editor-de-video-corto-para-redes-miami": {
+    serviceId: "es_short_form_video",
+    serviceName: "edicion de video corto para redes",
+    goalPrompt: "publicar reels, shorts o tiktoks para un negocio",
+    assetPrompt: "videos originales, referencias y una fecha de publicacion",
+    proofHref: "/es/portafolio/ml-colombia",
+    proofLabel: "Ver ejemplo publicado",
+  },
+  "fotografia-de-producto-con-ia-miami": {
+    serviceId: "es_ai_product_photography",
+    serviceName: "fotografia de producto con IA",
+    goalPrompt: "crear imagenes de producto para tienda, anuncios o redes",
+    assetPrompt: "fotos del producto, marca, referencias y usos permitidos",
+    proofHref: "/es/portafolio/my-dler",
+    proofLabel: "Ver trabajo visual publicado",
+  },
+  "fotos-con-ia-para-bienes-raices-miami": {
+    serviceId: "es_ai_real_estate_photo",
+    serviceName: "mejora de fotos inmobiliarias con IA",
+    goalPrompt: "mejorar fotos de una propiedad sin cambiar lo que el comprador puede ver",
+    assetPrompt: "fotos originales, direccion general de la propiedad y notas de lo que no se debe alterar",
+    proofHref: "/es/portafolio/homeowners",
+    proofLabel: "Ver ejemplo inmobiliario publicado",
+  },
+  "edicion-de-video-promocional-para-restaurantes-miami": {
+    serviceId: "es_restaurant_promo_video",
+    serviceName: "edicion de video promocional para restaurantes",
+    goalPrompt: "mostrar comida, ambiente y una oferta clara para redes",
+    assetPrompt: "clips de platos, local, equipo, menu, logo y referencias",
+    proofHref: "/es/portafolio/bar-door-monkey",
+    proofLabel: "Ver ejemplo de restaurante",
+  },
+  "editor-de-video-de-productos-para-ecommerce": {
+    serviceId: "es_ecommerce_product_video",
+    serviceName: "edicion de video de productos para ecommerce",
+    goalPrompt: "crear demostraciones, anuncios o videos de producto para tienda online",
+    assetPrompt: "clips del producto, beneficios, marca, formatos y plataforma",
+    proofHref: "/es/portafolio/my-dler",
+    proofLabel: "Ver trabajo de producto",
+  },
+  "editor-de-video-ugc-para-ecommerce": {
+    serviceId: "es_ugc_video_ecommerce",
+    serviceName: "edicion de video UGC para ecommerce",
+    goalPrompt: "convertir material de creador o celular en anuncios claros",
+    assetPrompt: "clips UGC, guion, producto, oferta y referencias de anuncios",
+    proofHref: "/es/portafolio/bar-door-monkey",
+    proofLabel: "Ver ejemplo publicado",
+  },
+  "produccion-masiva-de-video-para-redes-miami": {
+    serviceId: "es_social_video_batching",
+    serviceName: "produccion masiva de video para redes",
+    goalPrompt: "preparar un lote mensual de reels, shorts o clips sociales",
+    assetPrompt: "material bruto, calendario, temas, marca y frecuencia de publicacion",
+    proofHref: "/es/portafolio/ml-colombia",
+    proofLabel: "Ver ejemplo social",
+  },
+  "servicio-de-edicion-de-video-para-youtube-miami": {
+    serviceId: "es_youtube_video_editing",
+    serviceName: "edicion de video para YouTube",
+    goalPrompt: "editar un video largo y sacar piezas cortas cuando aplique",
+    assetPrompt: "grabacion principal, audio, referencias, miniatura o titulos tentativos",
+    proofHref: "/es/portafolio/my-dler",
+    proofLabel: "Ver trabajo publicado",
+  },
+};
+
 export function buildSpanishNicheMetadata(slug: string): Metadata {
   const page = getSpanishNichePage(slug);
 
@@ -1083,6 +1151,7 @@ export function SpanishNichePage({ slug }: { slug: string }) {
     page.slug === "video-para-pequenos-negocios-pembroke-pines"
       ? "/es/contacto?source=pembroke-pines-small-business-video"
       : "/es/contacto";
+  const inquiryService = spanishInquiryServices[page.slug];
 
   return (
     <main className="bg-[#f6f1ea] text-[#101214]">
@@ -1298,6 +1367,14 @@ export function SpanishNichePage({ slug }: { slug: string }) {
             </div>
           </Container>
         </section>
+      ) : null}
+
+      {inquiryService ? (
+        <ServiceInquiryRail
+          service={inquiryService}
+          locale="es"
+          sectionId="consulta-de-servicio"
+        />
       ) : null}
 
       <section className="border-y border-[#ddd4c8] bg-[#101214] py-12 text-[#f6f1ea] sm:py-16">

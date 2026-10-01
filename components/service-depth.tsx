@@ -53,6 +53,35 @@ export type ServiceInquiry = {
   proofLabel: string;
 };
 
+type ServiceInquiryLocale = "en" | "es";
+
+const inquiryCopy = {
+  en: {
+    eyebrow: "Ask for a quote",
+    heading: "Send the project in one useful message.",
+    lead:
+      "Start with the service, goal, assets, deadline, and where the work will be published. That gives Esteban enough context to answer with a useful next step instead of a long back-and-forth.",
+    copyLabel: "Copy this",
+    message: (service: ServiceInquiry) =>
+      `Hi Esteban, I need help with ${service.serviceName}. Goal: ${service.goalPrompt}. I have ${service.assetPrompt}. Can you quote this?`,
+    mailSubject: (service: ServiceInquiry) => `${service.serviceName} project inquiry`,
+    mailBodySuffix: "Name:\nBusiness:\nDeadline:\nBest callback number:",
+    phoneLabel: "Call",
+  },
+  es: {
+    eyebrow: "Pedir cotizacion",
+    heading: "Envia el proyecto en un mensaje util.",
+    lead:
+      "Incluye el servicio, la meta, los archivos disponibles, la fecha y donde se va a publicar. Asi Esteban puede responder con un siguiente paso claro sin alargar la ida y vuelta.",
+    copyLabel: "Copia esto",
+    message: (service: ServiceInquiry) =>
+      `Hola Esteban, necesito ayuda con ${service.serviceName}. Meta: ${service.goalPrompt}. Tengo ${service.assetPrompt}. Me puedes cotizar esto?`,
+    mailSubject: (service: ServiceInquiry) => `Cotizacion para ${service.serviceName}`,
+    mailBodySuffix: "Nombre:\nNegocio:\nFecha:\nMejor numero para llamar:",
+    phoneLabel: "Llamar",
+  },
+} as const;
+
 /**
  * Build the FAQPage node for a page's JSON-LD `@graph`.
  *
@@ -211,13 +240,16 @@ export function ServiceFaqs({
 export function ServiceInquiryRail({
   service,
   sectionId = "service-inquiry",
+  locale = "en",
 }: {
   service: ServiceInquiry;
   sectionId?: string;
+  locale?: ServiceInquiryLocale;
 }) {
-  const message = `Hi Esteban, I need help with ${service.serviceName}. Goal: ${service.goalPrompt}. I have ${service.assetPrompt}. Can you quote this?`;
-  const mailSubject = `${service.serviceName} project inquiry`;
-  const mailBody = `${message}\n\nName:\nBusiness:\nDeadline:\nBest callback number:`;
+  const t = inquiryCopy[locale];
+  const message = t.message(service);
+  const mailSubject = t.mailSubject(service);
+  const mailBody = `${message}\n\n${t.mailBodySuffix}`;
 
   return (
     <section
@@ -229,19 +261,19 @@ export function ServiceInquiryRail({
         <div className="grid gap-8 lg:grid-cols-[1fr_.92fr] lg:items-center">
           <div>
             <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#f0b384]">
-              Ask for a quote
+              {t.eyebrow}
             </p>
             <h2 id={`${sectionId}-heading`} className="mt-4 max-w-3xl font-serif text-4xl leading-tight sm:text-5xl">
-              Send the project in one useful message.
+              {t.heading}
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-7 text-[#eadfd3]">
-              Start with the service, goal, assets, deadline, and where the work will be published. That gives Esteban enough context to answer with a useful next step instead of a long back-and-forth.
+              {t.lead}
             </p>
           </div>
 
           <div className="rounded-xl border border-white/15 bg-white/10 p-5 shadow-2xl shadow-black/20 sm:p-6">
             <p className="text-xs font-medium uppercase tracking-[0.14em] text-[#f0b384]">
-              Copy this
+              {t.copyLabel}
             </p>
             <p className="mt-4 rounded-lg border border-white/12 bg-black/20 p-4 text-sm leading-6 text-white">
               {message}
@@ -271,7 +303,7 @@ export function ServiceInquiryRail({
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/30 px-4 text-sm font-medium text-white hover:bg-white hover:text-[#101214]"
               >
                 <Phone className="size-4" aria-hidden="true" />
-                Call
+                {t.phoneLabel}
               </a>
             </div>
             <Link
