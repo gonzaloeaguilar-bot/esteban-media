@@ -78,6 +78,9 @@ describe("customer-facing ranking pages", () => {
     for (const slug of [
       "videografo-en-miami",
       "videografo-en-fort-lauderdale",
+      "produccion-de-video-fort-lauderdale",
+      "editor-de-reels-fort-lauderdale",
+      "editor-de-reels-miami",
       "fotografo-en-fort-lauderdale",
       "reels-para-negocios-miami",
       "video-para-restaurantes-miami",
@@ -303,4 +306,3 @@ describe("customer-facing ranking pages", () => {
     }
   });
 });
-

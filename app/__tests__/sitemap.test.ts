@@ -21,17 +21,17 @@ import sitemap from "../sitemap";
 describe("portfolio sitemap entries", () => {
   const entries = sitemap();
 
-  it("publishes the exact 264-URL consolidated inventory, each URL once", () => {
+  it("publishes the exact 267-URL consolidated inventory, each URL once", () => {
     const urls = entries.map((entry) => entry.url);
 
-    // 264 = 243 consolidated + /desk-recommendations (owner-ordered
+    // 267 = 243 consolidated + /desk-recommendations (owner-ordered
     // 2026-09-16) + /pricing and /es/precios (owner-ordered 2026-09-27)
     // + /pricing/real-estate and /es/precios/inmobiliaria (owner-ordered
     // 2026-09-29, demand-backed) + three buyer-prep resources and the remote
-    // editor service page added 2026-10-01 + four GEO pages added from
-    // same-day GSC query evidence.
-    expect(entries).toHaveLength(264);
-    expect(new Set(urls)).toHaveLength(264);
+    // editor service page added 2026-10-01 + four EN GEO pages and three ES
+    // GEO pages added from same-day GSC query evidence.
+    expect(entries).toHaveLength(267);
+    expect(new Set(urls)).toHaveLength(267);
   });
 
   // This used to assert every entry carried lastModified 2026-07-19. That

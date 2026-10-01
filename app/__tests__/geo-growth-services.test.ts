@@ -30,6 +30,27 @@ const geoPages = [
   ],
 ] as const;
 
+const spanishGeoPages = [
+  [
+    "/es/produccion-de-video-fort-lauderdale",
+    "app/(spanish)/es/produccion-de-video-fort-lauderdale/page.tsx",
+    "produccion-de-video-fort-lauderdale",
+    "es_video_production_fort_lauderdale",
+  ],
+  [
+    "/es/editor-de-reels-fort-lauderdale",
+    "app/(spanish)/es/editor-de-reels-fort-lauderdale/page.tsx",
+    "editor-de-reels-fort-lauderdale",
+    "es_reels_editor_fort_lauderdale",
+  ],
+  [
+    "/es/editor-de-reels-miami",
+    "app/(spanish)/es/editor-de-reels-miami/page.tsx",
+    "editor-de-reels-miami",
+    "es_reels_editor_miami",
+  ],
+] as const;
+
 describe("GEO growth service pages", () => {
   it.each(geoPages)("%s uses the common measured service component", (route, file, serviceId) => {
     const text = source(file);
@@ -54,8 +75,22 @@ describe("GEO growth service pages", () => {
     }
   });
 
+  it.each(spanishGeoPages)("%s uses the Spanish shared niche page and inquiry rail", (route, file, slug, serviceId) => {
+    const text = source(file);
+    const spanishSite = source("lib/spanish-site.ts");
+    const spanishComponent = source("components/spanish-niche-page.tsx");
+    const llms = source("public/llms.txt");
+
+    expect(text).toContain("SpanishNichePage");
+    expect(text).toContain(`const slug = "${slug}"`);
+    expect(spanishSite).toContain(`slug: "${slug}"`);
+    expect(spanishComponent).toContain(`"${slug}": {`);
+    expect(spanishComponent).toContain(`serviceId: "${serviceId}"`);
+    expect(llms).toContain(`https://estebanmorenomedia.com${route}`);
+  });
+
   it("keeps every page plain-language and avoids internal operations labels", () => {
-    for (const [, file] of geoPages) {
+    for (const [, file] of [...geoPages, ...spanishGeoPages]) {
       const text = source(file).toLowerCase();
       expect(text).not.toContain("analytics");
       expect(text).not.toContain("guardrail");

@@ -2821,6 +2821,246 @@ export const spanishNichePages: SpanishNichePage[] = [
       },
     ],
   },
+  {
+    slug: "produccion-de-video-fort-lauderdale",
+    title: "Produccion de video en Fort Lauderdale",
+    metadataTitle: "Produccion de Video Fort Lauderdale",
+    description:
+      "Produccion y edicion de video para negocios de Fort Lauderdale y Broward, con atencion en espanol y alcance definido por proyecto.",
+    eyebrow: "Fort Lauderdale / Broward",
+    h1: "Produccion de video en Fort Lauderdale para negocios que necesitan explicar su oferta.",
+    lead:
+      "Fort Lauderdale es la base de Esteban Moreno Media. Esta pagina ayuda a preparar una consulta de video para negocios de Broward: que se debe grabar, que material ya existe, donde se publicara y si el proyecto requiere captura local o solo edicion remota.",
+    keyword: "produccion de video Fort Lauderdale",
+    location: "Fort Lauderdale / Broward County",
+    availability: "confirmed",
+    icon: Video,
+    bestFor: [
+      "Negocios de Broward que necesitan un video claro para su web, redes o perfil local.",
+      "Equipos con clips existentes que quieren convertirlos en piezas listas para publicar.",
+      "Marcas que prefieren definir el alcance y revisar el material en espanol.",
+      "Proyectos que pueden necesitar captura local selectiva en Fort Lauderdale.",
+    ],
+    scopingQuestions: [
+      "¿El proyecto requiere grabar material nuevo o editar archivos existentes?",
+      "¿Que debe entender o hacer la persona despues de ver el video?",
+      "¿Donde se publicara: web, Instagram, TikTok, YouTube, presentacion o perfil local?",
+      "¿Que fecha, locacion, referencias y formatos deben confirmarse antes de cotizar?",
+    ],
+    projectFit:
+      "Esta ruta conecta la base local en Fort Lauderdale con servicios confirmados de edicion, planificacion social y produccion selectiva. Para una version en ingles, revisa [video production in Fort Lauderdale](/services/video-production-fort-lauderdale).",
+    sections: [
+      {
+        heading: "¿Que tipo de video necesita un negocio de Fort Lauderdale?",
+        paragraphs: [
+          "Un video local funciona mejor cuando responde una sola pregunta: que ofreces, para quien es y cual es el siguiente paso. Para un restaurante puede ser una pieza de menu o ambiente; para un agente inmobiliario, un recorrido de propiedad; para un servicio profesional, una explicacion corta de la oferta.",
+          "Antes de hablar de camaras o edicion, conviene definir el uso principal. Un video para la pagina web necesita contexto y confianza; un Reel necesita ritmo y subtitulos; un video para Google Business Profile debe ser directo y facil de entender en telefono.",
+        ],
+        bullets: [
+          "Una meta principal por video",
+          "Material disponible y material que falta",
+          "Formato vertical, horizontal o ambos",
+          "Un llamado a la accion simple: llamar, escribir o revisar un ejemplo",
+        ],
+      },
+      {
+        heading: "¿Cuando conviene editar remoto y cuando grabar en locacion?",
+        paragraphs: [
+          "Si ya tienes clips del equipo, producto, servicio o local, la edicion remota puede ser suficiente. El trabajo se enfoca en elegir las mejores tomas, ordenar la historia, limpiar el audio cuando aplique, agregar subtitulos y exportar en el formato correcto.",
+          "La captura en locacion se evalua proyecto por proyecto. Tiene sentido cuando no existe material util, cuando el negocio necesita mostrar un espacio fisico o cuando la oferta depende de personas, movimiento, producto o ambiente que no se puede explicar solo con texto.",
+        ],
+      },
+      {
+        heading: "¿Que se debe enviar para recibir una respuesta clara?",
+        paragraphs: [
+          "El primer mensaje debe incluir la meta, el condado, el tipo de negocio, los archivos disponibles, una referencia visual y la fecha ideal. Esa informacion evita una conversacion larga y ayuda a saber si el proyecto es de edicion, produccion o ambos.",
+          "Si tienes material listo, comparte una carpeta con clips originales y una nota breve. Si todavia no tienes material, describe la locacion, las personas que aparecerian, el uso previsto y los ejemplos de estilo que te gustan.",
+        ],
+        bullets: [
+          "Meta y uso del video",
+          "Enlaces a clips o carpeta de archivos",
+          "Referencia visual o ejemplo de estilo",
+          "Fecha y formato de publicacion",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Esteban trabaja desde Fort Lauderdale?",
+        answer:
+          "Si. Fort Lauderdale es la base operativa de Esteban Moreno Media dentro de Broward County. La disponibilidad para cada proyecto local se confirma despues de revisar la meta, la locacion y el alcance.",
+      },
+      {
+        question: "¿Puedo pedir solo edicion si ya tengo material?",
+        answer:
+          "Si. La edicion remota con material existente es una prioridad confirmada. Puedes enviar clips originales, referencias, textos y la plataforma de publicacion para recibir una respuesta mas precisa.",
+      },
+      {
+        question: "¿La produccion local esta disponible para cualquier idea?",
+        answer:
+          "No se publica una disponibilidad universal. La produccion en locacion se evalua de forma selectiva segun el objetivo, el lugar, las personas involucradas y las necesidades de captura.",
+      },
+      {
+        question: "¿Se puede atender el proyecto en espanol?",
+        answer:
+          "Si. La atencion principal de Esteban es en espanol, con comunicacion de trabajo disponible en ingles intermedio cuando el proyecto lo necesita.",
+      },
+    ],
+  },
+  {
+    slug: "editor-de-reels-fort-lauderdale",
+    title: "Editor de Reels en Fort Lauderdale",
+    metadataTitle: "Editor de Reels Fort Lauderdale",
+    description:
+      "Edicion de Reels, TikTok y Shorts para negocios de Fort Lauderdale que ya tienen material o necesitan ordenar una idea de video corto.",
+    eyebrow: "Reels / TikTok / Shorts",
+    h1: "Editor de Reels en Fort Lauderdale para convertir clips en videos claros.",
+    lead:
+      "Esta pagina es para negocios de Broward que ya tienen videos en el telefono, archivos de una grabacion o ideas para contenido corto. La edicion se puede trabajar remoto cuando los clips, referencias y objetivos estan claros.",
+    keyword: "editor de reels Fort Lauderdale",
+    location: "Fort Lauderdale / Broward County",
+    availability: "confirmed",
+    icon: Scissors,
+    bestFor: [
+      "Restaurantes, realtors, gimnasios, med spas y negocios locales con clips sin editar.",
+      "Equipos que necesitan subtitulos, ritmo y versiones listas para publicar.",
+      "Duenos que prefieren explicar la oferta y revisar el contenido en espanol.",
+      "Proyectos de contenido corto que no requieren una grabacion nueva.",
+    ],
+    scopingQuestions: [
+      "¿Cuantos clips tienes y en que formato estan grabados?",
+      "¿El Reel debe vender, explicar, educar o mostrar prueba visual?",
+      "¿Necesitas subtitulos, portada, musica, voz o version bilingue?",
+      "¿En que plataforma se publicara primero?",
+    ],
+    projectFit:
+      "Esta ruta responde la busqueda de editor de Reels en Fort Lauderdale y enlaza con la pagina en ingles [Reels Editor Fort Lauderdale](/services/reels-editor-fort-lauderdale).",
+    sections: [
+      {
+        heading: "¿Que hace util a un Reel de negocio?",
+        paragraphs: [
+          "Un Reel de negocio no necesita contar toda la historia de la marca. Debe abrir con el problema, resultado o momento visual mas claro, y despues llevar al espectador a una accion sencilla: escribir, llamar, visitar, reservar o revisar mas trabajo.",
+          "La edicion decide que se queda fuera. Silencios largos, tomas repetidas, intros lentas y textos pequenos hacen que el video pierda atencion antes de explicar la oferta.",
+        ],
+      },
+      {
+        heading: "¿Que debe incluir el material que envias?",
+        paragraphs: [
+          "Lo ideal es enviar clips originales, una referencia de estilo, el texto o idea principal, logo si aplica y la plataforma de publicacion. Si hay voz o testimonio, el audio debe compartirse en la mejor calidad disponible.",
+          "Tambien ayuda indicar que no se debe usar. Un editor puede elegir mejor cuando sabe que escenas son obligatorias, que tomas estan repetidas y que parte del producto, local o persona debe mantenerse visible.",
+        ],
+        bullets: [
+          "Clips originales, no descargas comprimidas de redes",
+          "Referencia de un Reel parecido",
+          "Mensaje principal y accion final",
+          "Logo, colores o subtitulos deseados",
+        ],
+      },
+      {
+        heading: "¿Como se adapta a Instagram, TikTok y Shorts?",
+        paragraphs: [
+          "Las plataformas verticales usan botones, textos y comentarios encima del video. Por eso los subtitulos y elementos importantes deben mantenerse dentro de zonas seguras, sin tapar caras, productos, comida, propiedades o herramientas.",
+          "Un mismo video puede necesitar pequenos cambios segun la plataforma: portada, duracion, texto inicial o version sin musica. Es mejor definir el primer canal antes de editar que intentar arreglarlo al final.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Puedo contratar solo la edicion de Reels?",
+        answer:
+          "Si. Si ya tienes clips, referencias y una meta clara, el proyecto puede enfocarse solo en edicion remota de Reels, TikTok o Shorts.",
+      },
+      {
+        question: "¿Que pasa si mis clips estan grabados con telefono?",
+        answer:
+          "Se pueden revisar. Muchos proyectos de Reels parten de material grabado con telefono, siempre que los archivos originales tengan suficiente luz, audio util y encuadre aprovechable.",
+      },
+      {
+        question: "¿Puede agregar subtitulos?",
+        answer:
+          "Si el proyecto lo requiere, se puede trabajar con subtitulos o textos en pantalla. El alcance exacto se confirma segun cantidad de videos, idioma, duracion y estilo.",
+      },
+      {
+        question: "¿Necesito estar en Fort Lauderdale para editar Reels?",
+        answer:
+          "No. La edicion puede hacerse remoto. Fort Lauderdale importa si el proyecto necesita captura nueva en locacion o una referencia local especifica.",
+      },
+    ],
+  },
+  {
+    slug: "editor-de-reels-miami",
+    title: "Editor de Reels en Miami",
+    metadataTitle: "Editor de Reels Miami",
+    description:
+      "Edicion de Reels, TikTok y Shorts para negocios de Miami-Dade que necesitan piezas claras, subtituladas y listas para publicar.",
+    eyebrow: "Miami / video corto",
+    h1: "Editor de Reels en Miami para negocios que publican en telefono primero.",
+    lead:
+      "Para negocios en Miami-Dade, los Reels funcionan mejor cuando el video muestra una oferta concreta, una experiencia real o una respuesta rapida a una duda del cliente. Esteban puede editar con material existente y revisar proyectos de captura local de forma selectiva.",
+    keyword: "editor de reels Miami",
+    location: "Miami-Dade / Remote",
+    availability: "confirmed",
+    icon: Scissors,
+    bestFor: [
+      "Restaurantes, tiendas, realtors, creadores y servicios locales con material para redes.",
+      "Negocios bilingues que necesitan subtitulos o mensajes claros en espanol.",
+      "Equipos que quieren convertir una grabacion larga en varios clips cortos.",
+      "Proyectos de Miami que requieren una consulta directa antes de grabar.",
+    ],
+    scopingQuestions: [
+      "¿El contenido se publicara en Instagram, TikTok, Shorts o varias plataformas?",
+      "¿El material muestra producto, persona, local, propiedad o testimonio?",
+      "¿Necesitas versiones en espanol, ingles o bilingues?",
+      "¿Cual es la fecha ideal de publicacion?",
+    ],
+    projectFit:
+      "Esta pagina complementa [Reels para negocios en Miami](/es/reels-para-negocios-miami) y la ruta en ingles [Reels Editor Miami](/services/reels-editor-miami).",
+    sections: [
+      {
+        heading: "¿Que diferencia un Reel de Miami de un video generico?",
+        paragraphs: [
+          "Miami-Dade tiene negocios muy visuales: restaurantes, wellness, real estate, eventos, productos, servicios profesionales y marcas bilingues. Un Reel generico pierde fuerza cuando no muestra el lugar, la persona, el producto o el contexto que hace creible la oferta.",
+          "La edicion debe conservar esos detalles mientras elimina pausas y repeticiones. El objetivo no es llenar segundos, sino hacer que el espectador entienda rapido por que el negocio merece un mensaje, una visita o una llamada.",
+        ],
+      },
+      {
+        heading: "¿Como se convierte una grabacion larga en varios Reels?",
+        paragraphs: [
+          "Una entrevista, visita, evento o demostracion puede dividirse en clips si contiene ideas distintas. Cada Reel debe tener una apertura propia, un punto principal y un cierre sencillo. Cortar una grabacion en pedazos iguales casi nunca produce buenos videos.",
+          "Para ayudar al editor, marca los momentos que no pueden faltar y los temas que quieres convertir en clips separados: pregunta frecuente, antes/despues, resultado, objecion, oferta o detalle del producto.",
+        ],
+      },
+      {
+        heading: "¿Cuando conviene pedir una version bilingue?",
+        paragraphs: [
+          "Una version bilingue puede ayudar cuando el negocio atiende tanto a clientes hispanos como angloparlantes. No siempre significa duplicar el video: a veces basta con subtitulos, texto de apoyo o una segunda version corta.",
+          "La decision depende de la audiencia, el canal y el mensaje. Para una oferta local, la claridad del texto y la legibilidad en telefono importan mas que mezclar idiomas sin una razon concreta.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Editan Reels para negocios de Miami con material existente?",
+        answer:
+          "Si. La edicion con material existente es una prioridad confirmada. Comparte clips originales, referencias, plataforma y meta para revisar el alcance.",
+      },
+      {
+        question: "¿Puede un video largo convertirse en varios Reels?",
+        answer:
+          "Si el material contiene varias ideas claras, se puede dividir en clips. Es mejor crear menos Reels utiles que muchos videos repetidos sin mensaje propio.",
+      },
+      {
+        question: "¿Se puede trabajar en espanol?",
+        answer:
+          "Si. Esteban atiende principalmente en espanol y tambien puede manejar comunicacion de trabajo en ingles intermedio.",
+      },
+      {
+        question: "¿La grabacion en Miami esta incluida?",
+        answer:
+          "No se asume automaticamente. La produccion en locacion se evalua proyecto por proyecto despues de revisar la meta, la locacion, el material existente y la disponibilidad.",
+      },
+    ],
+  },
 ];
 
 

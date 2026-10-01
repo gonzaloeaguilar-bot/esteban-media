@@ -110,6 +110,60 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
       },
     ],
   },
+  "produccion-de-video-fort-lauderdale": {
+    areaHref: "/es/areas#fort-lauderdale",
+    areaLabel: "Ver cobertura en Fort Lauderdale y Broward",
+    note: "Fort Lauderdale es la base local. Los proyectos enlazados verifican produccion y edicion publicadas; no inventan un caso especifico de Broward.",
+    serviceIds: ["edicion", "planificacion-social", "videografia"],
+    projects: [
+      {
+        href: "/es/portafolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        detail: "Preproduccion, locacion, videografia y edicion en un proyecto publicado.",
+      },
+      {
+        href: "/es/portafolio/homeowners",
+        title: "Homeowners",
+        detail: "Trabajo publicado de guion y edicion de video.",
+      },
+    ],
+  },
+  "editor-de-reels-fort-lauderdale": {
+    areaHref: "/es/areas#fort-lauderdale",
+    areaLabel: "Ver cobertura en Fort Lauderdale y Broward",
+    note: "La edicion de Reels puede hacerse remoto con material existente; la captura local se revisa proyecto por proyecto.",
+    serviceIds: ["edicion", "planificacion-social"],
+    projects: [
+      {
+        href: "/es/portafolio/ml-colombia",
+        title: "ML Colombia",
+        detail: "Video para redes sociales publicado en el portafolio.",
+      },
+      {
+        href: "/es/portafolio/homeowners",
+        title: "Homeowners",
+        detail: "Ejemplo publicado de edicion con material organizado.",
+      },
+    ],
+  },
+  "editor-de-reels-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade",
+    note: "Estos proyectos verifican experiencia en video social, promocional y edicion; los resultados comerciales no se inventan.",
+    serviceIds: ["edicion", "planificacion-social", "videografia"],
+    projects: [
+      {
+        href: "/es/portafolio/ml-colombia",
+        title: "ML Colombia",
+        detail: "Video para redes sociales publicado en el portafolio.",
+      },
+      {
+        href: "/es/portafolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        detail: "Video promocional en Miami con captura y edicion.",
+      },
+    ],
+  },
   "fotografo-en-fort-lauderdale": {
     areaHref: "/es/areas#fort-lauderdale",
     areaLabel: "Ver cobertura en Fort Lauderdale y Broward",
@@ -1085,6 +1139,30 @@ const spanishInquiryServices: Record<string, ServiceInquiry> = {
     serviceName: "produccion masiva de video para redes",
     goalPrompt: "preparar un lote mensual de reels, shorts o clips sociales",
     assetPrompt: "material bruto, calendario, temas, marca y frecuencia de publicacion",
+    proofHref: "/es/portafolio/ml-colombia",
+    proofLabel: "Ver ejemplo social",
+  },
+  "produccion-de-video-fort-lauderdale": {
+    serviceId: "es_video_production_fort_lauderdale",
+    serviceName: "produccion de video en Fort Lauderdale",
+    goalPrompt: "definir si el proyecto necesita edicion remota, captura local o ambos",
+    assetPrompt: "meta, locacion, material disponible, referencias, formato y fecha ideal",
+    proofHref: "/es/portafolio/bar-door-monkey",
+    proofLabel: "Ver produccion publicada",
+  },
+  "editor-de-reels-fort-lauderdale": {
+    serviceId: "es_reels_editor_fort_lauderdale",
+    serviceName: "edicion de Reels en Fort Lauderdale",
+    goalPrompt: "convertir clips existentes en Reels, TikTok o Shorts para un negocio local",
+    assetPrompt: "clips originales, referencia, mensaje principal, marca y plataforma de publicacion",
+    proofHref: "/es/portafolio/ml-colombia",
+    proofLabel: "Ver video social publicado",
+  },
+  "editor-de-reels-miami": {
+    serviceId: "es_reels_editor_miami",
+    serviceName: "edicion de Reels en Miami",
+    goalPrompt: "crear videos cortos claros para Instagram, TikTok o YouTube Shorts",
+    assetPrompt: "clips, referencias, idioma, textos, plataforma y fecha de publicacion",
     proofHref: "/es/portafolio/ml-colombia",
     proofLabel: "Ver ejemplo social",
   },
