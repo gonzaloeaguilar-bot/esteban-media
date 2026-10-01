@@ -3,6 +3,7 @@ import { Quote, Star } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import {
   clientReviews,
+  googleReviewSnapshot,
   reviewSourceLabel,
   reviewSourceUrl,
 } from "@/lib/client-reviews";
@@ -12,6 +13,7 @@ const copy = {
     eyebrow: "Client reviews",
     title: "What clients have said publicly.",
     lead: "Every quote below is published on the Google Business Profile and reproduced word for word. Follow the link to read it at the source.",
+    profileSnapshot: `${googleReviewSnapshot.rating.toFixed(1)} rating on Google with ${googleReviewSnapshot.reviewCount} public reviews, read ${googleReviewSnapshot.readAt}.`,
     verify: reviewSourceLabel.en,
     ratingNote: (count: number) =>
       `Published on Google, where ${count === 1 ? "this review is" : "these reviews are"} shown alongside the profile's current rating.`,
@@ -20,6 +22,7 @@ const copy = {
     eyebrow: "Reseñas de clientes",
     title: "Lo que los clientes han dicho públicamente.",
     lead: "Cada cita está publicada en el perfil de Google Business y se reproduce palabra por palabra. Sigue el enlace para leerla en la fuente.",
+    profileSnapshot: `${googleReviewSnapshot.rating.toFixed(1)} de calificación en Google con ${googleReviewSnapshot.reviewCount} reseñas públicas, leído el ${googleReviewSnapshot.readAt}.`,
     verify: reviewSourceLabel.es,
     ratingNote: (count: number) =>
       `Publicado en Google, donde ${count === 1 ? "esta reseña aparece" : "estas reseñas aparecen"} junto a la calificación actual del perfil.`,
@@ -54,6 +57,9 @@ export function ClientReviews({ locale = "en" }: { locale?: "en" | "es" }) {
         </h2>
         <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[#41474d] sm:text-base">
           {t.lead}
+        </p>
+        <p className="mt-3 max-w-2xl text-sm font-medium leading-relaxed text-[#101214] sm:text-base">
+          {t.profileSnapshot}
         </p>
 
         <ul className="mt-8 grid gap-4 md:grid-cols-2">
