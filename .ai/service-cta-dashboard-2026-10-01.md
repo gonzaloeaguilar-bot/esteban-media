@@ -4,9 +4,9 @@ Generated: 2026-10-01
 
 This is the zero-cost source inventory for quote, call, email, WhatsApp, and proof actions. The site analytics layer records `data-cta` clicks and link-based contact events; this file names the IDs to watch in GA4 or any exported report.
 
-- Total CTA IDs found: 94
-- Service quote CTA IDs found: 84
-- Contact-like CTA IDs found: 69
+- Total CTA IDs found: 106
+- Service quote CTA IDs found: 96
+- Contact-like CTA IDs found: 78
 
 ## Service quote actions
 
@@ -36,6 +36,14 @@ This is the zero-cost source inventory for quote, call, email, WhatsApp, and pro
 | `service_es_ecommerce_product_video_phone` | `components/service-depth.tsx` |
 | `service_es_ecommerce_product_video_proof` | `components/service-depth.tsx` |
 | `service_es_ecommerce_product_video_whatsapp` | `components/service-depth.tsx` |
+| `service_es_reels_editor_fort_lauderdale_email` | `components/service-depth.tsx` |
+| `service_es_reels_editor_fort_lauderdale_phone` | `components/service-depth.tsx` |
+| `service_es_reels_editor_fort_lauderdale_proof` | `components/service-depth.tsx` |
+| `service_es_reels_editor_fort_lauderdale_whatsapp` | `components/service-depth.tsx` |
+| `service_es_reels_editor_miami_email` | `components/service-depth.tsx` |
+| `service_es_reels_editor_miami_phone` | `components/service-depth.tsx` |
+| `service_es_reels_editor_miami_proof` | `components/service-depth.tsx` |
+| `service_es_reels_editor_miami_whatsapp` | `components/service-depth.tsx` |
 | `service_es_restaurant_promo_video_email` | `components/service-depth.tsx` |
 | `service_es_restaurant_promo_video_phone` | `components/service-depth.tsx` |
 | `service_es_restaurant_promo_video_proof` | `components/service-depth.tsx` |
@@ -52,6 +60,10 @@ This is the zero-cost source inventory for quote, call, email, WhatsApp, and pro
 | `service_es_ugc_video_ecommerce_phone` | `components/service-depth.tsx` |
 | `service_es_ugc_video_ecommerce_proof` | `components/service-depth.tsx` |
 | `service_es_ugc_video_ecommerce_whatsapp` | `components/service-depth.tsx` |
+| `service_es_video_production_fort_lauderdale_email` | `components/service-depth.tsx` |
+| `service_es_video_production_fort_lauderdale_phone` | `components/service-depth.tsx` |
+| `service_es_video_production_fort_lauderdale_proof` | `components/service-depth.tsx` |
+| `service_es_video_production_fort_lauderdale_whatsapp` | `components/service-depth.tsx` |
 | `service_es_youtube_video_editing_email` | `components/service-depth.tsx` |
 | `service_es_youtube_video_editing_phone` | `components/service-depth.tsx` |
 | `service_es_youtube_video_editing_proof` | `components/service-depth.tsx` |
@@ -125,6 +137,12 @@ This is the zero-cost source inventory for quote, call, email, WhatsApp, and pro
 | `service_es_ecommerce_product_video_email` | `components/service-depth.tsx` |
 | `service_es_ecommerce_product_video_phone` | `components/service-depth.tsx` |
 | `service_es_ecommerce_product_video_whatsapp` | `components/service-depth.tsx` |
+| `service_es_reels_editor_fort_lauderdale_email` | `components/service-depth.tsx` |
+| `service_es_reels_editor_fort_lauderdale_phone` | `components/service-depth.tsx` |
+| `service_es_reels_editor_fort_lauderdale_whatsapp` | `components/service-depth.tsx` |
+| `service_es_reels_editor_miami_email` | `components/service-depth.tsx` |
+| `service_es_reels_editor_miami_phone` | `components/service-depth.tsx` |
+| `service_es_reels_editor_miami_whatsapp` | `components/service-depth.tsx` |
 | `service_es_restaurant_promo_video_email` | `components/service-depth.tsx` |
 | `service_es_restaurant_promo_video_phone` | `components/service-depth.tsx` |
 | `service_es_restaurant_promo_video_whatsapp` | `components/service-depth.tsx` |
@@ -137,6 +155,9 @@ This is the zero-cost source inventory for quote, call, email, WhatsApp, and pro
 | `service_es_ugc_video_ecommerce_email` | `components/service-depth.tsx` |
 | `service_es_ugc_video_ecommerce_phone` | `components/service-depth.tsx` |
 | `service_es_ugc_video_ecommerce_whatsapp` | `components/service-depth.tsx` |
+| `service_es_video_production_fort_lauderdale_email` | `components/service-depth.tsx` |
+| `service_es_video_production_fort_lauderdale_phone` | `components/service-depth.tsx` |
+| `service_es_video_production_fort_lauderdale_whatsapp` | `components/service-depth.tsx` |
 | `service_es_youtube_video_editing_email` | `components/service-depth.tsx` |
 | `service_es_youtube_video_editing_phone` | `components/service-depth.tsx` |
 | `service_es_youtube_video_editing_whatsapp` | `components/service-depth.tsx` |
