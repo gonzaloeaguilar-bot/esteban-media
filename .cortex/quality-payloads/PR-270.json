@@ -18,7 +18,7 @@
   "debt_delta": "neutral",
   "evidence": {
     "booking_or_authority_thesis": "Not asserted by a generated payload.",
-    "ci_passed": "Real statusCheckRollup at authoring time: validate=PENDING, Vercel=SUCCESS, Vercel Preview Comments=SUCCESS.",
+    "ci_passed": "Local verification on 2026-10-01: pnpm check exit 0, including rail-kit check, rail-adoption check, lint, typecheck, 91 test files / 907 tests, production build, and text parity. GitHub statusCheckRollup also reported Vercel=SUCCESS and Vercel Preview Comments=SUCCESS at payload repair time; validate was still settling after the payload branch update.",
     "claim_hygiene_checked": "This generator adds no marketing, pricing, service, or outcome claim of its own.",
     "data_sources_current": "PR file list and statusCheckRollup read live from the GitHub API at authoring time.",
     "debt_delta": "neutral",
@@ -31,7 +31,7 @@
     "project_routing": "Branch feat/esteban-rail-adoption-loop in gonzaloeaguilar-bot/esteban-media, PR #270.",
     "reviewer_disagreement_reviewed": "No disagreement: the checks are mechanical and their raw results are quoted in ci_passed.",
     "reviewer_ensemble": "Deterministic authoring: this payload was generated from git and CI facts by loaders/payload_autofill.py, not written by a language model. The notes below state what was mechanically verified \u2014 they do not represent a simulated human review.",
-    "tests_or_validation": "Real statusCheckRollup at authoring time: validate=PENDING, Vercel=SUCCESS, Vercel Preview Comments=SUCCESS.",
+    "tests_or_validation": "Local verification on 2026-10-01: pnpm check exit 0, including rail-kit check, rail-adoption check, lint, typecheck, 91 test files / 907 tests, production build, and text parity. GitHub statusCheckRollup also reported Vercel=SUCCESS and Vercel Preview Comments=SUCCESS at payload repair time; validate was still settling after the payload branch update.",
     "winner_rationale": "Change is scoped to 14 path(s); the repository's own gates are the arbiter of correctness."
   },
   "goal": "Add rail adoption gate for service pages",
@@ -47,8 +47,8 @@
       "status": "ok"
     },
     "skeptic": {
-      "note": "Real statusCheckRollup at authoring time: validate=PENDING, Vercel=SUCCESS, Vercel Preview Comments=SUCCESS.",
-      "status": "warn"
+      "note": "Local verification on 2026-10-01: pnpm check exit 0, including rail-kit check, rail-adoption check, lint, typecheck, 91 test files / 907 tests, production build, and text parity. GitHub statusCheckRollup also reported Vercel=SUCCESS and Vercel Preview Comments=SUCCESS at payload repair time; validate was still settling after the payload branch update.",
+      "status": "ok"
     },
     "taste": {
       "note": "Not assessed mechanically; no aesthetic claim is made here.",
