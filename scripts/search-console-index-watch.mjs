@@ -767,6 +767,28 @@ function previousConfirmedVerdict(previousState, url) {
   )?.verdict;
 }
 
+function daysBetween(olderIso, newerIso) {
+  const older = Date.parse(olderIso || "");
+  const newer = Date.parse(newerIso || "");
+  if (!Number.isFinite(older) || !Number.isFinite(newer) || newer < older) {
+    return 0;
+  }
+  return Math.floor((newer - older) / 86_400_000);
+}
+
+function previousNeutralWatch(previousState, url) {
+  const record = previousState?.neutralWatch?.[url];
+  if (
+    record &&
+    record.url === url &&
+    typeof record.firstSeenAt === "string" &&
+    typeof record.lastSeenAt === "string"
+  ) {
+    return record;
+  }
+  return null;
+}
+
 function isAlertEvent(alert) {
   return (
     typeof alert?.id === "string" &&
@@ -878,6 +900,31 @@ export function detectAlerts(previousState, snapshot) {
         toVerdict: page.verdict,
       });
     }
+
+    if (page.verdict === "NEUTRAL") {
+      const watch = previousNeutralWatch(previousState, page.url);
+      const firstSeenAt = watch?.firstSeenAt || snapshot.generatedAt;
+      const neutralDays = daysBetween(firstSeenAt, snapshot.generatedAt);
+      if (neutralDays >= 7 && watch?.alertedAt !== snapshot.generatedAt) {
+        alerts.push({
+          id: eventId([
+            "neutral_seven_day_watch",
+            page.url,
+            firstSeenAt,
+            snapshot.generatedAt,
+            page.coverageState,
+          ]),
+          type: "neutral_seven_day_watch",
+          severity: "warning",
+          observedAt: snapshot.generatedAt,
+          message: `${new URL(page.url).pathname} has remained neutral/excluded for ${neutralDays} day(s): ${page.coverageState}. Review the page, links, sitemap inclusion, and whether it still deserves index-watch attention.`,
+          url: page.url,
+          firstSeenAt,
+          neutralDays,
+          coverageState: page.coverageState,
+        });
+      }
+    }
   }
   return alerts;
 }
@@ -920,6 +967,17 @@ export function renderManagedBlock(state) {
       return `| ${markdownCell(pathLabel(page.url))} | ${markdownCell(page.verdict)} | ${markdownCell(page.coverageState)} | ${metrics?.clicks ?? 0} | ${metrics?.impressions ?? 0} | ${markdownCell(page.lastCrawlTime)} | ${page.canonicalMismatch ? "yes" : "no"} |`;
     })
     .join("\n");
+  const staleNeutralRows = Object.values(state.neutralWatch || {})
+    .filter((record) => record.neutralDays >= 7)
+    .sort((a, b) => b.neutralDays - a.neutralDays || a.url.localeCompare(b.url))
+    .map(
+      (record) =>
+        `| ${markdownCell(pathLabel(record.url))} | ${record.neutralDays} | ${markdownCell(record.coverageState)} | ${markdownCell(record.firstSeenAt)} | ${markdownCell(record.lastSeenAt)} |`,
+    )
+    .join("\n");
+  const staleNeutralSection = staleNeutralRows
+    ? `\n### Neutral URLs older than 7 days\n\nThese URLs are still watched, but they need a human content/indexing decision if they keep staying excluded.\n\n| URL | Days neutral | Coverage | First seen neutral | Last seen neutral |\n|---|---:|---|---|---|\n${staleNeutralRows}\n`
+    : "";
   const historyRows = state.history
     .filter(isRenderableHistoryEntry)
     .slice(0, NOTE_HISTORY_LIMIT)
@@ -948,6 +1006,7 @@ ${alertLines}
 | URL | Verdict | Coverage | All-data clicks | All-data impressions | Last crawl | Canonical mismatch |
 |---|---|---|---:|---:|---|---|
 ${coverageRows}
+${staleNeutralSection}
 
 ### Run history
 
@@ -1125,6 +1184,40 @@ function migrateLegacyWatchState(state) {
   };
 }
 
+function backfillNeutralWatch(state) {
+  const existing = state.neutralWatch || {};
+  const next = {};
+  const inspectedNeutrals = new Set();
+  for (const page of state.latest?.inspection?.pages || []) {
+    if (page.verdict !== "NEUTRAL") continue;
+    inspectedNeutrals.add(page.url);
+    const previous = existing[page.url];
+    const firstSeenAt =
+      typeof previous?.firstSeenAt === "string" && previous.firstSeenAt
+        ? previous.firstSeenAt
+        : state.latest.generatedAt;
+    next[page.url] = {
+      url: page.url,
+      firstSeenAt,
+      lastSeenAt: state.latest.generatedAt,
+      neutralDays: daysBetween(firstSeenAt, state.latest.generatedAt),
+      coverageState: page.coverageState,
+      alertedAt:
+        typeof previous?.alertedAt === "string" ? previous.alertedAt : null,
+    };
+  }
+  const changed =
+    Object.keys(existing).length !== inspectedNeutrals.size ||
+    Object.keys(next).some(
+      (url) =>
+        !existing[url] ||
+        existing[url].lastSeenAt !== next[url].lastSeenAt ||
+        existing[url].neutralDays !== next[url].neutralDays ||
+        existing[url].coverageState !== next[url].coverageState,
+    );
+  return changed ? { ...state, neutralWatch: next } : state;
+}
+
 export function validatePreviousState(state) {
   if (!state) return null;
   const failures = [];
@@ -1281,6 +1374,40 @@ export function validatePreviousState(state) {
   ) {
     failures.push("pendingNotifications.shape");
   }
+  const neutralWatch = state.neutralWatch || {};
+  if (
+    neutralWatch &&
+    (typeof neutralWatch !== "object" || Array.isArray(neutralWatch))
+  ) {
+    failures.push("neutralWatch");
+  } else {
+    const neutralUrls = Object.keys(neutralWatch).sort();
+    if (
+      neutralUrls.length &&
+      !neutralUrls.every((url) => expectedUrls.includes(normalizeUrl(url)))
+    ) {
+      failures.push("neutralWatch.urls");
+    }
+    if (
+      Object.entries(neutralWatch).some(([url, record]) => {
+        if (record?.url !== url) return true;
+        if (typeof record.firstSeenAt !== "string" || !record.firstSeenAt) return true;
+        if (typeof record.lastSeenAt !== "string" || !record.lastSeenAt) return true;
+        if (!Number.isInteger(record.neutralDays) || record.neutralDays < 0) return true;
+        if (typeof record.coverageState !== "string") return true;
+        if (
+          record.alertedAt !== undefined &&
+          record.alertedAt !== null &&
+          typeof record.alertedAt !== "string"
+        ) {
+          return true;
+        }
+        return false;
+      })
+    ) {
+      failures.push("neutralWatch.shape");
+    }
+  }
   const confirmedVerdicts = state.confirmedVerdicts;
   if (
     !confirmedVerdicts ||
@@ -1310,7 +1437,9 @@ export function validatePreviousState(state) {
       `Existing index-watch state failed validation: ${failures.join(", ")}`,
     );
   }
-  return isLegacyInventory ? migrateLegacyWatchState(state) : state;
+  return backfillNeutralWatch(
+    isLegacyInventory ? migrateLegacyWatchState(state) : state,
+  );
 }
 
 async function atomicWrite(path, content, mode = 0o600) {
@@ -1578,6 +1707,26 @@ export function buildState(previousState, snapshot) {
       confirmedVerdicts[page.url] = page.verdict;
     }
   }
+  const latestNeutralAlerts = new Map(
+    snapshot.alerts
+      .filter((alert) => alert.type === "neutral_seven_day_watch" && alert.url)
+      .map((alert) => [alert.url, alert]),
+  );
+  const neutralWatch = {};
+  for (const page of snapshot.inspection.pages) {
+    if (page.verdict !== "NEUTRAL") continue;
+    const previous = previousNeutralWatch(previousState, page.url);
+    const firstSeenAt = previous?.firstSeenAt || snapshot.generatedAt;
+    const alert = latestNeutralAlerts.get(page.url);
+    neutralWatch[page.url] = {
+      url: page.url,
+      firstSeenAt,
+      lastSeenAt: snapshot.generatedAt,
+      neutralDays: daysBetween(firstSeenAt, snapshot.generatedAt),
+      coverageState: page.coverageState,
+      alertedAt: alert?.observedAt || previous?.alertedAt || null,
+    };
+  }
   const pendingNotifications = [
     ...(previousState?.pendingNotifications || []),
     ...snapshot.alerts,
@@ -1601,6 +1750,7 @@ export function buildState(previousState, snapshot) {
     history,
     eventHistory,
     confirmedVerdicts,
+    neutralWatch,
     pendingNotifications,
   };
 }
@@ -1618,6 +1768,7 @@ function stateSummary(state, status, extra = {}) {
     indexed: state.latest.inspection.counts,
     alerts: state.latest.alerts.map((alert) => alert.type),
     pendingNotificationCount: state.pendingNotifications?.length || 0,
+    neutralWatchCount: Object.keys(state.neutralWatch || {}).length,
     watchSetExpansionPending: Boolean(state.watchSetExpansion),
     ...extra,
   };

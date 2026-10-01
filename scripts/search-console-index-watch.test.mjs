@@ -141,6 +141,7 @@ function makeState(snapshot) {
           : null,
       ]),
     ),
+    neutralWatch: {},
     pendingNotifications: [],
   };
 }
@@ -421,6 +422,95 @@ describe("Search Console index watch", () => {
     expect(secondFailedState.pendingNotifications).toHaveLength(3);
   });
 
+  it("tracks neutral URLs for seven days and renders a follow-up section", () => {
+    const neutralUrl = WATCH_URLS[0];
+    const firstNeutral = makeSnapshot();
+    firstNeutral.runId = "2026-07-19T12:00:00.000Z";
+    firstNeutral.runDate = "2026-07-19";
+    firstNeutral.generatedAt = firstNeutral.runId;
+    firstNeutral.inspection.pages[0] = makeInspection(neutralUrl, "NEUTRAL");
+    firstNeutral.inspection.counts = {
+      pass: WATCH_URLS.length - 1,
+      neutral: 1,
+      fail: 0,
+      unknown: 0,
+    };
+    firstNeutral.alerts = detectAlerts(null, firstNeutral);
+    const firstState = buildState(null, firstNeutral);
+
+    expect(firstState.neutralWatch[neutralUrl]).toMatchObject({
+      firstSeenAt: firstNeutral.generatedAt,
+      lastSeenAt: firstNeutral.generatedAt,
+      neutralDays: 0,
+      alertedAt: null,
+    });
+    expect(firstState.pendingNotifications).toEqual([]);
+
+    const eighthDay = makeSnapshot();
+    eighthDay.runId = "2026-07-27T12:00:00.000Z";
+    eighthDay.runDate = "2026-07-27";
+    eighthDay.generatedAt = eighthDay.runId;
+    eighthDay.inspection.pages[0] = makeInspection(neutralUrl, "NEUTRAL");
+    eighthDay.inspection.counts = {
+      pass: WATCH_URLS.length - 1,
+      neutral: 1,
+      fail: 0,
+      unknown: 0,
+    };
+    eighthDay.alerts = detectAlerts(firstState, eighthDay);
+    const eighthState = buildState(firstState, eighthDay);
+
+    expect(eighthDay.alerts).toEqual([
+      expect.objectContaining({
+        type: "neutral_seven_day_watch",
+        url: neutralUrl,
+        neutralDays: 8,
+      }),
+    ]);
+    expect(eighthState.neutralWatch[neutralUrl]).toMatchObject({
+      firstSeenAt: firstNeutral.generatedAt,
+      lastSeenAt: eighthDay.generatedAt,
+      neutralDays: 8,
+      alertedAt: eighthDay.generatedAt,
+    });
+    expect(eighthState.pendingNotifications).toEqual([
+      expect.objectContaining({ type: "neutral_seven_day_watch" }),
+    ]);
+
+    const note = renderManagedBlock(eighthState);
+    expect(note).toContain("Neutral URLs older than 7 days");
+    expect(note).toContain("| / | 8 | Excluded by test |");
+  });
+
+  it("clears neutral-watch tracking when a URL returns to PASS", () => {
+    const neutralUrl = WATCH_URLS[0];
+    const neutral = makeSnapshot();
+    neutral.runId = "2026-07-19T12:00:00.000Z";
+    neutral.runDate = "2026-07-19";
+    neutral.generatedAt = neutral.runId;
+    neutral.inspection.pages[0] = makeInspection(neutralUrl, "NEUTRAL");
+    neutral.inspection.counts = {
+      pass: WATCH_URLS.length - 1,
+      neutral: 1,
+      fail: 0,
+      unknown: 0,
+    };
+    neutral.alerts = detectAlerts(null, neutral);
+    const neutralState = buildState(null, neutral);
+
+    const recovered = makeSnapshot();
+    recovered.runId = "2026-07-20T12:00:00.000Z";
+    recovered.runDate = "2026-07-20";
+    recovered.generatedAt = recovered.runId;
+    recovered.alerts = detectAlerts(neutralState, recovered);
+    const recoveredState = buildState(neutralState, recovered);
+
+    expect(recovered.alerts).toEqual([
+      expect.objectContaining({ type: "reindexed", url: neutralUrl }),
+    ]);
+    expect(recoveredState.neutralWatch[neutralUrl]).toBeUndefined();
+  });
+
   it("preserves human note content and replaces only the managed block", () => {
     const firstSnapshot = makeSnapshot({ impressions: 1 });
     firstSnapshot.alerts = detectAlerts(null, firstSnapshot);
@@ -556,6 +646,49 @@ describe("Search Console index watch", () => {
     expect(() =>
       validatePreviousState({ ...state, everImpressions: "yes" }),
     ).toThrow("everImpressions");
+    expect(() =>
+      validatePreviousState({
+        ...state,
+        neutralWatch: {
+          [WATCH_URLS[0]]: {
+            url: WATCH_URLS[1],
+            firstSeenAt: "2026-07-19T12:00:00.000Z",
+            lastSeenAt: "2026-07-19T12:00:00.000Z",
+            neutralDays: 0,
+            coverageState: "Excluded by test",
+          },
+        },
+      }),
+    ).toThrow("neutralWatch.shape");
+  });
+
+  it("backfills neutral-watch records for old states that predate the tracker", () => {
+    const neutralUrl = WATCH_URLS[0];
+    const snapshot = makeSnapshot();
+    snapshot.generatedAt = "2026-07-19T12:00:00.000Z";
+    snapshot.inspection.pages[0] = makeInspection(neutralUrl, "NEUTRAL");
+    snapshot.inspection.counts = {
+      pass: WATCH_URLS.length - 1,
+      neutral: 1,
+      fail: 0,
+      unknown: 0,
+    };
+    const state = makeState(snapshot);
+    delete state.neutralWatch;
+
+    const validated = validatePreviousState(state);
+
+    expect(validated).not.toBe(state);
+    expect(validated.neutralWatch).toEqual({
+      [neutralUrl]: {
+        url: neutralUrl,
+        firstSeenAt: snapshot.generatedAt,
+        lastSeenAt: snapshot.generatedAt,
+        neutralDays: 0,
+        coverageState: "Excluded by test",
+        alertedAt: null,
+      },
+    });
   });
 
   it("migrates the strict 20-URL v1 state without losing durable evidence", () => {

@@ -1,3 +1,15 @@
+# Index-watch neutral URL follow-up — 2026-10-01
+
+Branch: `feat/esteban-growth-watch-hardening`. This pass finishes Top 20 actions 18/19 by making the Search Console index-watch loop remember neutral/excluded URLs instead of only printing the current run.
+
+- Added `neutralWatch` state to `scripts/search-console-index-watch.mjs`: each current `NEUTRAL` URL stores first seen, last seen, days neutral, coverage state, and last alert time.
+- Added a seven-day warning path: if a URL stays neutral for 7+ days, the loop emits `neutral_seven_day_watch` and renders a "Neutral URLs older than 7 days" table in the managed Obsidian note.
+- Added recovery cleanup: when a watched neutral URL returns to `PASS`, the neutral-watch record disappears while the existing `reindexed` alert path still fires.
+- Added validation and backfill for older state files so the current 63 neutral URLs are brought under watch the next time `index-watch:status` or the scheduled loop reads state.
+- Verification: `pnpm exec vitest run scripts/search-console-index-watch.test.mjs` passed with 28 tests, and `pnpm index-watch:status` reported `indexed pass 193 neutral 63 fail 0 unknown 0`, `pendingNotificationCount 0`, and `neutralWatchCount 63` from `/Users/gonzalo/.local/state/esteban-media-index-watch/latest.json`.
+
+---
+
 # Rail/common component adoption loop — 2026-10-01
 
 Branch: `feat/esteban-rail-adoption-loop`. This pass creates the durable path for Esteban or his AI to contribute without hand-rolling dense page sections.
