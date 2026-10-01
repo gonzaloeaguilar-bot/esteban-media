@@ -43,6 +43,27 @@ pnpm check
 
 The check command runs lint, TypeScript, unit tests, and a production build. Pull requests and `main` run the same gates in GitHub Actions.
 
+## Shared components and analytics
+
+New public pages and content expansions must use the shared Rail/common component
+system before adding hand-written card grids, FAQs, pricing cards, lists, CTAs,
+or repeated sections. Service pages should follow
+[.ai/service-page-template.md](.ai/service-page-template.md): put page-specific
+depth in `lib/service-depth-content.ts`, render `ServiceCraft`, `ServiceFaqs`,
+and `ServiceRelated`, and build FAQ schema with `buildServiceFaqSchema`.
+
+Those shared components include analytics attribution through `data-section` and
+`data-cta`, which the sitewide `public/track.js` layer reads automatically. If a
+new contribution needs a component that does not exist, add it to the shared
+Rail/common library and sync it into this repo instead of hand-rolling a one-off
+surface.
+
+Quick gate:
+
+```bash
+pnpm rail-adoption:check
+```
+
 ## Opening a pull request
 
 If you are Esteban and the PR changes public prices, service details, locations, proof, credentials, turnaround, or contact details, mark the public-claims checkbox in the PR template and write the exact approval/source in the owner approval field. Example:

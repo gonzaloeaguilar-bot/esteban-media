@@ -1,0 +1,29 @@
+name: Rail/Common Component Adoption
+
+on:
+  schedule:
+    # Tuesdays, 12:25 UTC. Zero-cost deterministic gate; no LLMs.
+    - cron: "25 12 * * 2"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  rail-adoption:
+    name: Shared component adoption gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+        with:
+          version: 10.14.0
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm rail-kit:check
+      - run: pnpm rail-adoption:check
+

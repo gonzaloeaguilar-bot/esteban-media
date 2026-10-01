@@ -35,5 +35,7 @@ After the PR is opened and the normal checks pass, the local evidence drain atta
 ## Validation
 
 - [ ] I ran `pnpm check`, or I am relying on GitHub Actions to run the same validation
+- [ ] New public page UI uses Rail/common components, or the missing component was added to the shared library and synced here
+- [ ] Service-page changes follow `.ai/service-page-template.md`
 - [ ] Relevant local/live smoke checks are listed above
 - [ ] No hard stop was bypassed

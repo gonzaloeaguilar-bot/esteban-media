@@ -1,3 +1,16 @@
+# Rail/common component adoption loop — 2026-10-01
+
+Branch: `feat/esteban-rail-adoption-loop`. This pass creates the durable path for Esteban or his AI to contribute without hand-rolling dense page sections.
+
+- Added `.ai/service-page-template.md` for AI contributors: new service-page depth should use `components/service-depth.tsx` (`ServiceCraft`, `ServiceFaqs`, `ServiceRelated`, `buildServiceFaqSchema`) and keep analytics hooks as `data-section` / `data-cta` instead of one-off markup.
+- Added `app/__tests__/rail-adoption.test.ts` plus `pnpm rail-adoption:check`. The gate scans `app/**/page.tsx`, allows known shared renderers and legacy gaps, and blocks new dense public page files that do not use common components or an approved shared renderer.
+- Migrated `/services/yacht-hospitality-video-fort-lauderdale` as the reference page. Depth copy now lives in `YACHT_HOSPITALITY_DEPTH` in `lib/service-depth-content.ts`, while the page renders shared service-depth components and FAQ JSON-LD through the shared builder.
+- Added `.github/workflows/rail-adoption.yml` on a weekly Tuesday schedule plus manual dispatch, and added the adoption gate to `pnpm check`.
+- Current audit snapshot: 192 `page.tsx` files; 95 direct Rail/shared/service-depth imports; 80 thin wrappers around shared renderers; 17 likely hand-rolled page files remaining. See `.ai/rail-common-component-adoption-audit-2026-10-01.md`.
+- Verification: `pnpm check` exit 0 on 2026-10-01. It ran `rail-kit:check`, `rail-adoption:check` (3 tests), lint (46 existing warnings, 0 errors), typecheck, `vitest` (91 files / 907 tests), production build (323 static pages), and `text-parity` (87 routes keep every word, heading, link and schema blob).
+
+---
+
 # Real estate monthly plans — 2026-09-30
 
 Branch: `feat/real-estate-monthly-plans`. New section under the four packages (home `/`, `/es`, `/pricing`, `/es/precios`) showing the three PUBLIC monthly plans (Essential / Plus / Premium). Figures live in `lib/pricing.ts` (`REAL_ESTATE_PLANS`), words in `lib/real-estate-plans.ts`.
