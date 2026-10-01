@@ -2,6 +2,13 @@ import Link from "next/link";
 import { ArrowRight, WandSparkles, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import {
+  ServiceCraft,
+  ServiceFaqs,
+  ServiceRelated,
+  buildServiceFaqSchema,
+} from "@/components/service-depth";
+import { SOCIAL_BATCHING_DEPTH } from "@/lib/service-depth-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +24,7 @@ export default function SocialMediaVideoBatchingMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/social-media-video-batching-miami"), SOCIAL_BATCHING_DEPTH.faqs),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/social-media-video-batching-miami#service"),
@@ -132,6 +140,13 @@ export default function SocialMediaVideoBatchingMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceCraft
+        heading={SOCIAL_BATCHING_DEPTH.craftHeading}
+        cards={SOCIAL_BATCHING_DEPTH.craft}
+        sectionId="social-batching-craft"
+      />
+      <ServiceFaqs heading={SOCIAL_BATCHING_DEPTH.faqHeading} faqs={SOCIAL_BATCHING_DEPTH.faqs} />
+      <ServiceRelated heading={SOCIAL_BATCHING_DEPTH.relatedHeading} services={SOCIAL_BATCHING_DEPTH.related} />
     </main>
   );
 }

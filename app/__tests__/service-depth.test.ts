@@ -4,9 +4,16 @@ import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 
 import {
+  AI_PRODUCT_DEPTH,
+  AI_REAL_ESTATE_DEPTH,
   DENTAL_DEPTH,
+  ECOMMERCE_VIDEO_DEPTH,
   MED_SPA_DEPTH,
+  SHORT_FORM_DEPTH,
+  SOCIAL_BATCHING_DEPTH,
+  UGC_ECOMMERCE_DEPTH,
   YACHT_DEPTH,
+  YOUTUBE_EDITING_DEPTH,
 } from "@/lib/service-depth-content";
 
 /**
@@ -44,6 +51,54 @@ const PILOT = [
   ["med spa", MED_SPA_DEPTH, "app/(english)/services/med-spa-video-marketing-south-florida/page.tsx"],
 ] as const;
 
+const GROWTH_BATCH = [
+  [
+    "short form",
+    SHORT_FORM_DEPTH,
+    "app/(english)/services/short-form-video-editor-miami/page.tsx",
+    "/services/short-form-video-editor-miami",
+  ],
+  [
+    "AI product photography",
+    AI_PRODUCT_DEPTH,
+    "app/(english)/services/ai-product-photography-miami/page.tsx",
+    "/services/ai-product-photography-miami",
+  ],
+  [
+    "AI real estate photo enhancement",
+    AI_REAL_ESTATE_DEPTH,
+    "app/(english)/services/ai-real-estate-photo-enhancement/page.tsx",
+    "/services/ai-real-estate-photo-enhancement",
+  ],
+  [
+    "ecommerce product video",
+    ECOMMERCE_VIDEO_DEPTH,
+    "app/(english)/services/ecommerce-product-video-editor-miami/page.tsx",
+    "/services/ecommerce-product-video-editor-miami",
+  ],
+  [
+    "UGC ecommerce video",
+    UGC_ECOMMERCE_DEPTH,
+    "app/(english)/services/ugc-video-editor-ecommerce/page.tsx",
+    "/services/ugc-video-editor-ecommerce",
+  ],
+  [
+    "social media batching",
+    SOCIAL_BATCHING_DEPTH,
+    "app/(english)/services/social-media-video-batching-miami/page.tsx",
+    "/services/social-media-video-batching-miami",
+  ],
+  [
+    "YouTube editing",
+    YOUTUBE_EDITING_DEPTH,
+    "app/(english)/services/youtube-video-editing-service-miami/page.tsx",
+    "/services/youtube-video-editing-service-miami",
+  ],
+] as const;
+
+const RESTAURANT_PROMO_PAGE =
+  "app/(english)/services/restaurant-promo-video-editing-miami/page.tsx";
+
 describe("service depth — the pilot pages carry it", () => {
   it.each(PILOT)("%s renders craft, FAQ and related sections", (_name, _depth, page) => {
     const src = source(page);
@@ -58,6 +113,55 @@ describe("service depth — the pilot pages carry it", () => {
     // so the schema is built from the SAME array the section renders.
     expect(src).toContain("buildServiceFaqSchema");
     expect(src).toMatch(/buildServiceFaqSchema\(absoluteUrl\("\/services\/[a-z-]+"\), \w+\.faqs\)/);
+  });
+});
+
+describe("service depth — the 2026-10-01 growth batch carries it", () => {
+  it("covers the eight priority pages named in the growth spec", () => {
+    const priorityPageCount = GROWTH_BATCH.length + 1;
+    expect(priorityPageCount).toBe(8);
+    expect(source(RESTAURANT_PROMO_PAGE)).toContain("const faqs = [");
+  });
+
+  it.each(GROWTH_BATCH)("%s renders craft, FAQ and related sections", (_name, _depth, page) => {
+    const src = source(page);
+    expect(src).toContain("<ServiceCraft");
+    expect(src).toContain("<ServiceFaqs");
+    expect(src).toContain("<ServiceRelated");
+  });
+
+  it.each(GROWTH_BATCH)("%s declares its visible FAQ in JSON-LD", (_name, depth, page, path) => {
+    const src = source(page);
+    expect(src).toContain("buildServiceFaqSchema");
+    expect(src).toContain(`buildServiceFaqSchema(absoluteUrl("${path}"),`);
+    expect(depth.faqs).toHaveLength(4);
+    expect(depth.craft).toHaveLength(3);
+    expect(depth.related).toHaveLength(3);
+  });
+
+  it("links each priority page to a footage handoff, pricing, contact, or sibling money path", () => {
+    for (const [name, depth] of GROWTH_BATCH) {
+      const links = depth.related.map((service) => service.href);
+      expect(
+        links.some(
+          (href) =>
+            href.includes("/guides/remote-video-editing-handoff") ||
+            href.startsWith("/pricing") ||
+            href.startsWith("/services/"),
+        ),
+        name,
+      ).toBe(true);
+    }
+  });
+
+  it("keeps the restaurant promo page FAQ visible and generated from one local FAQ array", () => {
+    const src = source(RESTAURANT_PROMO_PAGE);
+    expect(src).toContain("const faqs = [");
+    expect(src).toContain('"@type": "FAQPage"');
+    expect(src).toContain("mainEntity: faqs.map");
+    expect(src).toContain("{faqs.map((faq) => (");
+    expect(src).toContain("What footage can a restaurant provide for promo video editing?");
+    expect(src).toContain("Practical details before you share restaurant footage.");
   });
 });
 

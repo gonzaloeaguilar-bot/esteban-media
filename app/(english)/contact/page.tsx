@@ -221,7 +221,22 @@ export default function ContactPage() {
                     <strong className="text-[#101214]">Outcome:</strong> where the
                     assets go and what a good result looks like.
                   </li>
+                  <li>
+                    <strong className="text-[#101214]">Files:</strong> if this is
+                    remote editing, include the folder link, footage status,
+                    must-use clips, brand assets, and any approved wording.
+                  </li>
                 </ul>
+                <div className="mt-6 rounded-md border border-[#ddd4c8] bg-white/60 p-4 text-sm leading-6 text-[#252a2d]">
+                  <p className="font-medium text-[#101214]">Useful first message</p>
+                  <p className="mt-2">
+                    Hi Esteban, I need help with [short-form editing / product
+                    visuals / real estate photos / another service]. The final
+                    asset is for [platform or page]. I already have [footage,
+                    photos, brand assets, references], and I need [deliverables]
+                    by [date if known].
+                  </p>
+                </div>
               </div>
             </div>
           </div>

@@ -2,6 +2,13 @@ import Link from "next/link";
 import { ArrowRight, Scissors, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import {
+  ServiceCraft,
+  ServiceFaqs,
+  ServiceRelated,
+  buildServiceFaqSchema,
+} from "@/components/service-depth";
+import { SHORT_FORM_DEPTH } from "@/lib/service-depth-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +24,7 @@ export default function ShortFormVideoEditorPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/short-form-video-editor-miami"), SHORT_FORM_DEPTH.faqs),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/short-form-video-editor-miami#service"),
@@ -144,6 +152,13 @@ export default function ShortFormVideoEditorPage() {
           </div>
         </Container>
       </section>
+      <ServiceCraft
+        heading={SHORT_FORM_DEPTH.craftHeading}
+        cards={SHORT_FORM_DEPTH.craft}
+        sectionId="short-form-craft"
+      />
+      <ServiceFaqs heading={SHORT_FORM_DEPTH.faqHeading} faqs={SHORT_FORM_DEPTH.faqs} />
+      <ServiceRelated heading={SHORT_FORM_DEPTH.relatedHeading} services={SHORT_FORM_DEPTH.related} />
     </main>
   );
 }

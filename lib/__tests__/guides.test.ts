@@ -202,8 +202,9 @@ describe("bilingual practical guides", () => {
     for (const locale of ["en", "es"] as const) {
       const hrefs = getGuideSupportLinks(locale).map(({ href }) => href);
 
-      expect(hrefs).toHaveLength(3);
+      expect(hrefs).toHaveLength(6);
       expect(hrefs.some((href) => href.includes("servic"))).toBe(true);
+      expect(hrefs.some((href) => href.includes("precios") || href.includes("pricing"))).toBe(true);
       expect(
         hrefs.some(
           (href) => href.includes("portfolio") || href.includes("portafolio"),
