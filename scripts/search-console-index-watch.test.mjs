@@ -240,7 +240,7 @@ describe("Search Console index watch", () => {
   it("keeps the fixed watch set identical to the application sitemap", () => {
     const urls = sitemap().map((entry) => entry.url).sort();
 
-    expect(WATCH_URLS).toHaveLength(256); // +/desk-recommendations 2026-09-16, +/pricing pair 2026-09-27, +real-estate pair 2026-09-29
+    expect(WATCH_URLS).toHaveLength(260); // +/desk-recommendations, pricing/package pages, real-estate pair, and 2026-10-01 remote/resource pages
     expect([...WATCH_URLS].sort()).toEqual(urls);
     expect(validateWatchedSitemap(urls).hash).toBe(watchedUrlHash());
   });

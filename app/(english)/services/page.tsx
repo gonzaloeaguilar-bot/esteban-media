@@ -11,6 +11,7 @@ import {
   Workflow,
 } from "lucide-react";
 
+import { ClientReviews } from "@/components/client-reviews";
 import { KeepReading } from "@/components/keep-reading";
 import { serviceImages } from "@/lib/service-images";
 import { ServicesScene } from "@/components/services-scene";
@@ -534,6 +535,10 @@ export default function ServicesPage() {
             <ServiceLandingDirectory />
           </section>
           </KeepReading>
+
+          <div className="-mx-4 mt-14 sm:-mx-6 lg:-mx-8">
+            <ClientReviews locale="en" />
+          </div>
 
           <div className="mt-14 rounded-lg bg-[#101214] p-6 text-[#f6f1ea] sm:p-8">
             <h2 className="font-serif text-4xl">Not sure which service fits?</h2>

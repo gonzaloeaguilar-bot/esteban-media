@@ -22,6 +22,11 @@ service page.
    - new buttons or cards need either a Rail component or explicit `data-cta`
 5. Use Rail/common components before hand-writing card grids, FAQ blocks,
    pricing cards, lists, tabs, sheets, CTAs, or repeated page sections.
+6. For Spanish pages, use the same `ServiceInquiryRail` with `locale="es"`.
+   Add the service entry to the Spanish generator instead of hand-writing a
+   separate Spanish contact block.
+7. After adding or changing quote/contact actions, run `pnpm cta-dashboard` so
+   `.ai/service-cta-dashboard-2026-10-01.md` lists the measurable IDs.
 
 ## Copy Rules
 
@@ -97,5 +102,6 @@ Run at least:
 
 ```bash
 pnpm exec vitest run app/__tests__/rail-adoption.test.ts app/__tests__/service-depth.test.ts
+pnpm cta-dashboard
 pnpm typecheck
 ```

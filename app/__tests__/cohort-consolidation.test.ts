@@ -107,8 +107,9 @@ describe("consolidation arithmetic matches the published baseline", () => {
     // +3 = /desk-recommendations (2026-09-16) plus the /pricing and
     // /es/precios pair (2026-09-27); +8 = the package pages (2026-09-29);
     // +2 = the real-estate rate-card pair (2026-09-29, demand-backed).
+    // +4 = the remote editor page and three buyer-prep resources (2026-10-01).
     // All owner-ordered, none of them consolidation changes.
-    expect(sitemap()).toHaveLength(269 - 26 + 3 + 8 + 2);
+    expect(sitemap()).toHaveLength(269 - 26 + 3 + 8 + 2 + 4);
   });
 
   it("never lists a redirect source in the sitemap", () => {

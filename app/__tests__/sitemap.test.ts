@@ -21,16 +21,16 @@ import sitemap from "../sitemap";
 describe("portfolio sitemap entries", () => {
   const entries = sitemap();
 
-  it("publishes the exact 256-URL consolidated inventory, each URL once", () => {
+  it("publishes the exact 260-URL consolidated inventory, each URL once", () => {
     const urls = entries.map((entry) => entry.url);
 
-    // 256 = 243 consolidated + /desk-recommendations (owner-ordered
+    // 260 = 243 consolidated + /desk-recommendations (owner-ordered
     // 2026-09-16) + /pricing and /es/precios (owner-ordered 2026-09-27)
     // + /pricing/real-estate and /es/precios/inmobiliaria (owner-ordered
-    // 2026-09-29, demand-backed); see
-    // config/indexable-inventory-freeze.json ownerOrderedAdditions.
-    expect(entries).toHaveLength(256);
-    expect(new Set(urls)).toHaveLength(256);
+    // 2026-09-29, demand-backed) + three buyer-prep resources and the remote
+    // editor service page added 2026-10-01.
+    expect(entries).toHaveLength(260);
+    expect(new Set(urls)).toHaveLength(260);
   });
 
   // This used to assert every entry carried lastModified 2026-07-19. That

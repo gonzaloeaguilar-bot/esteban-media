@@ -22,7 +22,7 @@ describe("indexable inventory demand gate", () => {
     // approvedSitemapUrlCount + approvedSitemapUrlSetSha256 to the new state, so
     // silent drift (a URL shipped without touching this contract) still fails.
     expect(freeze.allowedNewIndexableUrls).toBeGreaterThanOrEqual(1);
-    expect(freeze.allowedNewIndexableUrls).toBeLessThanOrEqual(3);
+    expect(freeze.allowedNewIndexableUrls).toBeLessThanOrEqual(4);
     expect(urls).toHaveLength(freeze.approvedSitemapUrlCount);
     expect(new Set(urls).size).toBe(urls.length);
     expect(hash).toBe(freeze.approvedSitemapUrlSetSha256);

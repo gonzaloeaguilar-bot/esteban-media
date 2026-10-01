@@ -209,4 +209,188 @@ export const redditQueryInsights: readonly RedditQueryInsight[] = [
       },
     ],
   },
+  {
+    id: "youtube-editor-handoff",
+    sourceUrl:
+      "https://www.reddit.com/r/youtubers/comments/17mk6e5/how_do_i_find_a_video_editor/",
+    sourceLabel: "r/youtubers: finding an editor",
+    audienceQuestion: {
+      en: "What should I send before hiring a YouTube video editor?",
+      es: "Que debo enviar antes de contratar un editor de video para YouTube?",
+    },
+    searchIntent: {
+      en: "YouTube editor, remote editing, long-form video, examples, revision workflow",
+      es: "editor de YouTube, edicion remota, video largo, ejemplos, flujo de revisiones",
+    },
+    contentAngle: {
+      en: "Answer with a practical handoff: the goal of the channel, one sample finished video, raw footage, audio notes, must-keep moments, thumbnail direction, and how feedback will be collected.",
+      es: "Responder con una entrega practica: meta del canal, un video final de referencia, material bruto, notas de audio, momentos obligatorios, direccion de miniatura y forma de consolidar comentarios.",
+    },
+    keywordTargets: [
+      {
+        en: "hire a remote YouTube video editor",
+        es: "contratar editor remoto de video para YouTube",
+      },
+      {
+        en: "YouTube video editing service Miami",
+        es: "servicio de edicion de video para YouTube Miami",
+      },
+      {
+        en: "video project brief template",
+        es: "plantilla de brief para video",
+      },
+    ],
+    internalLinks: [
+      {
+        en: "/services/youtube-video-editing-service-miami",
+        es: "/es/servicio-de-edicion-de-video-para-youtube-miami",
+      },
+      {
+        en: "/services/hire-remote-video-editor",
+        es: "/es/contacto",
+      },
+      {
+        en: "/resources/video-project-brief-template",
+        es: "/es/guias/como-escribir-un-brief-util-de-video",
+      },
+    ],
+  },
+  {
+    id: "ugc-product-ad-editing",
+    sourceUrl:
+      "https://www.reddit.com/r/PPC/comments/18f63bd/how_do_you_make_good_ugc_ads/",
+    sourceLabel: "r/PPC: UGC ad structure",
+    audienceQuestion: {
+      en: "What makes a UGC product video usable as an ad?",
+      es: "Que hace que un video UGC de producto funcione como anuncio?",
+    },
+    searchIntent: {
+      en: "UGC video editor, ecommerce ad editing, product hooks, direct response creative",
+      es: "editor de video UGC, edicion de anuncios ecommerce, ganchos de producto, creativo direct response",
+    },
+    contentAngle: {
+      en: "Focus on the edit structure: first-frame hook, visible product, problem, proof or use moment, offer, captions, safe zones, and separate versions for tests instead of one overstuffed ad.",
+      es: "Enfocarse en estructura de edicion: gancho inicial, producto visible, problema, prueba o momento de uso, oferta, subtitulos, zonas seguras y versiones separadas para pruebas.",
+    },
+    keywordTargets: [
+      {
+        en: "UGC video editor for ecommerce",
+        es: "editor de video UGC para ecommerce",
+      },
+      {
+        en: "product video ad editor",
+        es: "editor de anuncios de video de producto",
+      },
+      {
+        en: "TikTok ad video editor Miami",
+        es: "editor de video para anuncios de TikTok Miami",
+      },
+    ],
+    internalLinks: [
+      {
+        en: "/services/ugc-video-editor-ecommerce",
+        es: "/es/editor-de-video-ugc-para-ecommerce",
+      },
+      {
+        en: "/services/ecommerce-product-video-editor-miami",
+        es: "/es/editor-de-video-de-productos-para-ecommerce",
+      },
+      {
+        en: "/resources/social-video-kit",
+        es: "/es/recursos/kit-video-social",
+      },
+    ],
+  },
+  {
+    id: "restaurant-reels-practicality",
+    sourceUrl:
+      "https://www.reddit.com/r/restaurateur/comments/1bmg2h4/how_are_you_making_social_media_content/",
+    sourceLabel: "r/restaurateur: social content operations",
+    audienceQuestion: {
+      en: "What restaurant footage is worth sending to an editor?",
+      es: "Que material de restaurante vale la pena enviar a un editor?",
+    },
+    searchIntent: {
+      en: "restaurant promo video editing, food reels, local restaurant social media",
+      es: "edicion de video promocional para restaurantes, reels de comida, redes para restaurantes locales",
+    },
+    contentAngle: {
+      en: "Teach owners to capture the food coming out, hands plating, the room, menu items, staff moments, and one clear offer, then package it into reels instead of trying to film a full commercial every week.",
+      es: "Ensenar a dueños a capturar comida saliendo, manos emplatando, el local, items del menu, equipo y una oferta clara, para convertirlo en reels sin filmar un comercial completo cada semana.",
+    },
+    keywordTargets: [
+      {
+        en: "restaurant promo video editing Miami",
+        es: "edicion de video promocional para restaurantes Miami",
+      },
+      {
+        en: "food reels editor",
+        es: "editor de reels de comida",
+      },
+      {
+        en: "restaurant social video package",
+        es: "paquete de video social para restaurantes",
+      },
+    ],
+    internalLinks: [
+      {
+        en: "/services/restaurant-promo-video-editing-miami",
+        es: "/es/edicion-de-video-promocional-para-restaurantes-miami",
+      },
+      {
+        en: "/guides/restaurant-video-ideas",
+        es: "/es/guias/ideas-de-video-para-restaurantes",
+      },
+      {
+        en: "/portfolio/bar-door-monkey",
+        es: "/es/portafolio/bar-door-monkey",
+      },
+    ],
+  },
+  {
+    id: "bilingual-remote-service",
+    sourceUrl:
+      "https://www.reddit.com/r/smallbusiness/comments/1cthrlm/how_do_you_find_reliable_freelancers/",
+    sourceLabel: "r/smallbusiness: hiring freelancers",
+    audienceQuestion: {
+      en: "Can a business outside Florida hire Esteban for remote editing?",
+      es: "Puede un negocio fuera de Florida contratar a Esteban para edicion remota?",
+    },
+    searchIntent: {
+      en: "remote bilingual video editor, Spanish English video editing, hire editor out of state",
+      es: "editor de video remoto bilingue, edicion de video espanol ingles, contratar editor fuera del estado",
+    },
+    contentAngle: {
+      en: "Make the remote boundary clear: supplied footage, files, references, one approval owner, and direct contact work from anywhere; on-location capture remains scoped around South Florida availability.",
+      es: "Aclarar el limite remoto: material entregado, archivos, referencias, un responsable de aprobacion y contacto directo funcionan desde cualquier lugar; grabacion local depende de disponibilidad en South Florida.",
+    },
+    keywordTargets: [
+      {
+        en: "remote bilingual video editor",
+        es: "editor de video remoto bilingue",
+      },
+      {
+        en: "Spanish English video editing service",
+        es: "servicio de edicion de video en espanol e ingles",
+      },
+      {
+        en: "hire a remote video editor",
+        es: "contratar editor de video remoto",
+      },
+    ],
+    internalLinks: [
+      {
+        en: "/services/hire-remote-video-editor",
+        es: "/es/contacto",
+      },
+      {
+        en: "/guides/bilingual-video-strategy-south-florida",
+        es: "/es/guias/estrategia-de-video-bilingue-south-florida",
+      },
+      {
+        en: "/resources/remote-editing-handoff-checklist",
+        es: "/es/guias/entrega-para-edicion-remota-de-video",
+      },
+    ],
+  },
 ];

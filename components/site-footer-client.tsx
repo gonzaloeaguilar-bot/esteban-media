@@ -45,6 +45,9 @@ export const englishGroups = [
       { href: "/calculator", label: "Budget calculator" },
       { href: "/assessment", label: "Video strategy diagnostic" },
       { href: "/resources/social-video-kit", label: "Script & safe-zone kit" },
+      { href: "/resources/video-project-brief-template", label: "Video brief template" },
+      { href: "/resources/remote-editing-handoff-checklist", label: "Remote editing checklist" },
+      { href: "/resources/ai-product-photo-truth-checklist", label: "AI photo checklist" },
     ],
   },
   {

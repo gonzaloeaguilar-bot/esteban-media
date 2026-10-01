@@ -1,10 +1,10 @@
 {
   "status": "demand_gated",
   "effectiveDate": "2026-08-28",
-  "baselineRevisedOn": "2026-09-29",
-  "approvedSitemapUrlCount": 256,
-  "approvedSitemapUrlSetSha256": "b6026b5e4454912d8238061defcdf392c6f248310973e39d43967b8d8cac5db5",
-  "allowedNewIndexableUrls": 2,
+  "baselineRevisedOn": "2026-10-01",
+  "approvedSitemapUrlCount": 260,
+  "approvedSitemapUrlSetSha256": "5d0d197e6029e3474b2bbb5e28ea7197933302ac040f2b89081c39c500b79f0e",
+  "allowedNewIndexableUrls": 4,
   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {
     "on": "2026-08-19",
@@ -98,6 +98,20 @@
       "demandEvidence": "These three URLs are NOT new; all three were already indexable and already indexed, and all three earned zero impressions in 2026-08-31..09-27. The change is depth, not inventory: measured with the site chrome subtracted, the 7 /services pages that earn carry 3,210 unique body shingles at 13.1% mutual overlap while this cohort carried 1,094 at 38.4%. The pilot raises these three to a median 2,890 at 19.2%.",
       "followUpDate": "2026-10-28",
       "followUp": "Compare impressions and position for these three against the 30 /services pages left untouched. If the differentiated three earn and the untouched cohort still does not, differentiation is the lever and the same treatment applies to the rest. If all of them stay at zero, depth is NOT the constraint here and the remaining pages should be retired rather than rewritten."
+    },
+    {
+      "on": "2026-10-01",
+      "url": [
+        "/services/hire-remote-video-editor",
+        "/resources/video-project-brief-template",
+        "/resources/remote-editing-handoff-checklist",
+        "/resources/ai-product-photo-truth-checklist"
+      ],
+      "orderedBy": "Gonzalo (in-session)",
+      "kind": "conversion-and-helpfulness",
+      "demandEvidence": "Search Console status read 2026-10-01 showed 61 neutral URLs and 0 fails, with commercial package/pricing pages among the first neutral entries. The new remote editor page targets the out-of-state and remote editing question already answered in llms.txt and the guides hub. The three resource pages are copy-ready buyer-prep pages linked from the services hub, resources footer, and guide research cards; they support quote quality and internal links to the neutral pricing/package, handoff, AI product, and remote-editing pages.",
+      "followUpDate": "2026-11-01",
+      "followUp": "Check GSC impressions, indexed status, and CTA clicks for the four URLs. If any page earns zero impressions and zero CTA clicks after 30 days, remove it from the sitemap or merge it into the nearest guide/service page."
     }
   ]
 }

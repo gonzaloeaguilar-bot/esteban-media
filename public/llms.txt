@@ -18,6 +18,10 @@ Last updated: 2026-10-01
 - About: https://estebanmorenomedia.com/about
 - Contact: https://estebanmorenomedia.com/contact
 - Video guides: https://estebanmorenomedia.com/guides
+- Remote video editor: https://estebanmorenomedia.com/services/hire-remote-video-editor
+- Video project brief template: https://estebanmorenomedia.com/resources/video-project-brief-template
+- Remote editing handoff checklist: https://estebanmorenomedia.com/resources/remote-editing-handoff-checklist
+- AI product photo truth checklist: https://estebanmorenomedia.com/resources/ai-product-photo-truth-checklist
 
 ## Spanish Pages
 
@@ -75,6 +79,9 @@ guidance rather than Esteban Moreno Media policy. Full indexes:
 - Write a useful video brief: https://estebanmorenomedia.com/guides/write-a-useful-video-brief
 - Vertical and horizontal exports and safe zones: https://estebanmorenomedia.com/guides/vertical-horizontal-video-exports-and-safe-zones
 - Remote video editing handoff: https://estebanmorenomedia.com/guides/remote-video-editing-handoff
+- Video project brief template: https://estebanmorenomedia.com/resources/video-project-brief-template
+- Remote editing handoff checklist: https://estebanmorenomedia.com/resources/remote-editing-handoff-checklist
+- AI product photo truth checklist: https://estebanmorenomedia.com/resources/ai-product-photo-truth-checklist
 - Preparar material para edición: https://estebanmorenomedia.com/es/guias/preparar-material-para-edicion-de-video
 - Escribir un brief útil de video: https://estebanmorenomedia.com/es/guias/como-escribir-un-brief-util-de-video
 - Video vertical, horizontal y zonas seguras: https://estebanmorenomedia.com/es/guias/video-vertical-horizontal-y-zonas-seguras
@@ -86,6 +93,10 @@ Core questions these guides answer in both languages:
 - What does a remote editor need before quoting? Targets: video editing brief, send files to video editor, entrega para edicion remota de video.
 - When should a store use AI product images instead of a photo shoot? Targets: AI product photography for ecommerce, AI lifestyle product images, fotografia de producto con IA para ecommerce.
 - How can real estate photos use AI without making a property look fake? Targets: AI real estate photo enhancement, real estate photo editing Florida, edicion remota de media inmobiliaria.
+- What should I send before hiring a YouTube video editor? Targets: hire a remote YouTube video editor, YouTube video editing service Miami, video project brief template.
+- What makes a UGC product video usable as an ad? Targets: UGC video editor for ecommerce, product video ad editor, TikTok ad video editor Miami.
+- What restaurant footage is worth sending to an editor? Targets: restaurant promo video editing Miami, food reels editor, restaurant social video package.
+- Can a business outside Florida hire Esteban for remote editing? Targets: remote bilingual video editor, Spanish English video editing service, hire a remote video editor.
 - How much does a video editor cost in Miami or Fort Lauderdale? Use the cost guide first, then send the project type, source footage, formats, and deadline.
 - Can a business hire a remote video editor for reels or YouTube? Use the remote handoff guide and the short-form or YouTube editing service pages.
 - Can AI product photos be used for ecommerce? Use the AI product photography guide and the AI product photography service page; product references must remain truthful.
@@ -108,6 +119,7 @@ High-intent service pages with direct quote prompts:
 - UGC ecommerce video editing: https://estebanmorenomedia.com/services/ugc-video-editor-ecommerce
 - Social media video batching: https://estebanmorenomedia.com/services/social-media-video-batching-miami
 - YouTube video editing: https://estebanmorenomedia.com/services/youtube-video-editing-service-miami
+- Remote video editor: https://estebanmorenomedia.com/services/hire-remote-video-editor
 
 ## Packages
 
