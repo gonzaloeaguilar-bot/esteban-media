@@ -110,7 +110,7 @@ export default function ContactPage() {
           <div className="grid gap-10 lg:grid-cols-[1fr_.9fr]">
             <div>
               <p className="text-xs font-medium uppercase text-[#5a6066]">
-                Direct Consultation
+                Get a Direct Consultation for Your Video Project
               </p>
               <h1 className="mt-4 max-w-3xl font-serif em-display">
                 Tell Esteban what you need to publish for your video project.
