@@ -201,6 +201,30 @@ export default function ServicesPage() {
             <div className="mt-6 grid gap-4 md:grid-cols-3">
               {[
                 {
+                  href: "/services/video-production-fort-lauderdale",
+                  title: "Plan video in Fort Lauderdale",
+                  detail:
+                    "Local business video, Reels, website clips, and production planning around Broward projects.",
+                },
+                {
+                  href: "/services/reels-editor-fort-lauderdale",
+                  title: "Edit Fort Lauderdale Reels",
+                  detail:
+                    "Short-form editing for local business footage, captions, safe zones, and clear next steps.",
+                },
+                {
+                  href: "/services/reels-editor-miami",
+                  title: "Edit Miami Reels",
+                  detail:
+                    "Vertical social videos for Miami business clips, products, restaurants, and ad variations.",
+                },
+                {
+                  href: "/services/real-estate-reels-video-editor-south-florida",
+                  title: "Edit listing Reels",
+                  detail:
+                    "Property walkthroughs, agent clips, drone footage, and listing-safe short videos.",
+                },
+                {
                   href: "/services/short-form-video-editor-miami",
                   title: "Edit reels, TikToks, or Shorts",
                   detail:
