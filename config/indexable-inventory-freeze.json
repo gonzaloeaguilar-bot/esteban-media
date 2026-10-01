@@ -2,8 +2,8 @@
   "status": "demand_gated",
   "effectiveDate": "2026-08-28",
   "baselineRevisedOn": "2026-10-01",
-  "approvedSitemapUrlCount": 264,
-  "approvedSitemapUrlSetSha256": "c93f8dd5d0dc5fbe67e6b9e7555dfd05773d6a686589d11e1114a7a750e622de",
+  "approvedSitemapUrlCount": 267,
+  "approvedSitemapUrlSetSha256": "a6f15307d407a5b1dd1f6afced2c45775d60753461ee05806985fffc9eef43ff",
   "allowedNewIndexableUrls": 4,
   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {
@@ -126,6 +126,19 @@
       "demandEvidence": "Live index-watch status on 2026-10-01 reported 260 watched URLs, 466 all-data impressions, average position 14.0923, 199 pass, 61 neutral, 0 fail. Same-session GSC query/page evidence identified traction or gaps for 'fort lauderdale video production' (home ranking position 1), 'reel editor fort lauderdale', 'editor de reels fort lauderdale', 'editor de video miami', 'editor de reels miami', 'ugc video editor fort lauderdale', 'youtube editor miami', restaurant promo, crowdfunding, and real estate/video cost queries. These four URLs are the bounded 4-URL GEO wave that gives the strongest city/service and property-Reels intents a direct service page instead of relying on home, /areas, or broad short-form pages.",
       "followUpDate": "2026-11-01",
       "followUp": "Check GSC impressions, indexed status, CTA clicks, and query/page split for the four GEO URLs. If any page earns zero impressions and zero contact intent after 30 days, merge it into the nearest service hub or remove it from the sitemap."
+    },
+    {
+      "on": "2026-10-01",
+      "url": [
+        "/es/produccion-de-video-fort-lauderdale",
+        "/es/editor-de-reels-fort-lauderdale",
+        "/es/editor-de-reels-miami"
+      ],
+      "orderedBy": "Gonzalo (active goal: maximize GEO SEO and complete all 18 actions)",
+      "kind": "spanish-geo-and-answer-engine-growth",
+      "demandEvidence": "Live index-watch status on 2026-10-01 reported 264 watched URLs, 466 all-data impressions, average position 14.0923, 199 pass, 65 neutral, 0 fail. Same-session GSC query/page evidence identified Spanish demand gaps for 'editor de reels fort lauderdale', 'editor de video miami', and 'editor de reels miami', while 'fort lauderdale video production' already reached the site through broad pages. These three Spanish URLs give Spanish-first buyers direct service answers with shared inquiry rails, portfolio proof links, FAQ schema, and crawl-watch coverage.",
+      "followUpDate": "2026-11-01",
+      "followUp": "Check GSC impressions, indexed status, CTA clicks, and query/page split for the three Spanish GEO URLs. If any page earns zero impressions and zero contact intent after 30 days, merge it into the nearest Spanish service page or remove it from the sitemap."
     }
   ]
 }
