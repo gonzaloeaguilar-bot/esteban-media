@@ -91,6 +91,67 @@ const queryInsightCopy = {
   },
 } as const;
 
+const quoteIntentCopy = {
+  en: {
+    eyebrow: "Quote questions",
+    title: "Questions buyers ask right before they contact a video editor.",
+    intro:
+      "Use these if you are comparing cost, remote handoff, or AI visual services before asking for a quote.",
+    cards: [
+      {
+        question: "How much does a video editor cost in Miami or Fort Lauderdale?",
+        answer:
+          "Start with the pricing guide, then send the project type, source footage, formats, and deadline so the estimate can be scoped.",
+        href: "/guides/video-production-cost-fort-lauderdale",
+        cta: "Read cost guide",
+      },
+      {
+        question: "Can I hire a remote video editor for reels or YouTube?",
+        answer:
+          "Yes. Remote editing usually starts with original files, brand assets, references, and one message that explains the publishing goal.",
+        href: "/guides/remote-video-editing-handoff",
+        cta: "Plan remote handoff",
+      },
+      {
+        question: "Can AI product photos be used for ecommerce?",
+        answer:
+          "They can help when product references are accurate and the final image does not misrepresent labels, materials, size, or included items.",
+        href: "/guides/how-to-use-ai-for-product-photography",
+        cta: "Read AI photo guide",
+      },
+    ],
+  },
+  es: {
+    eyebrow: "Preguntas antes de cotizar",
+    title: "Preguntas que hacen los compradores justo antes de contactar a un editor.",
+    intro:
+      "Úsalas si estás comparando costo, entrega remota o imágenes con IA antes de pedir una cotización.",
+    cards: [
+      {
+        question: "¿Cuánto cuesta contratar un editor de video en Miami o Fort Lauderdale?",
+        answer:
+          "Empieza con la guía de precios y luego envía el tipo de proyecto, material disponible, formatos y fecha para definir el alcance.",
+        href: "/es/guias/cuanto-cuesta-la-produccion-de-video-en-fort-lauderdale",
+        cta: "Leer guía de costo",
+      },
+      {
+        question: "¿Puedo contratar edición remota para reels o YouTube?",
+        answer:
+          "Sí. La edición remota funciona mejor con archivos originales, elementos de marca, referencias y un mensaje que explique la meta de publicación.",
+        href: "/es/guias/entrega-para-edicion-remota-de-video",
+        cta: "Preparar entrega remota",
+      },
+      {
+        question: "¿Se pueden usar fotos de producto con IA para ecommerce?",
+        answer:
+          "Pueden ayudar cuando las referencias del producto son precisas y la imagen final no cambia etiquetas, materiales, tamaño o elementos incluidos.",
+        href: "/es/guias/como-usar-inteligencia-artificial-para-fotografia-de-producto",
+        cta: "Leer guía de fotos con IA",
+      },
+    ],
+  },
+} as const;
+
 function renderFormattedText(text: string) {
   const parts: React.ReactNode[] = [];
   const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
@@ -244,6 +305,47 @@ function QueryInsights({ locale }: { locale: GuideLocale }) {
   );
 }
 
+function QuoteIntentQuestions({ locale }: { locale: GuideLocale }) {
+  const copy = quoteIntentCopy[locale];
+
+  return (
+    <section className="border-b border-[#ddd4c8] py-12 sm:py-16" data-section="quote-intent-questions">
+      <Container size="xl">
+        <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">
+          {copy.eyebrow}
+        </p>
+        <div className="mt-3 grid gap-5 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
+          <div>
+            <p className="max-w-3xl font-serif text-3xl leading-tight text-[#101214] sm:text-4xl">
+              {copy.title}
+            </p>
+            <p className="mt-4 max-w-2xl text-sm leading-7 text-[#3f4548] sm:text-base">
+              {copy.intro}
+            </p>
+          </div>
+          <div className="grid gap-4">
+            {copy.cards.map((card) => (
+              <Link
+                key={card.href}
+                href={card.href}
+                data-cta={`quote_intent_${card.href.split("/").pop()}`}
+                className="group rounded-xl border border-[#ddd4c8] bg-[#fbf6ef] p-5 hover:border-[#e85d3e]"
+              >
+                <p className="font-serif text-2xl leading-tight">{card.question}</p>
+                <p className="mt-3 text-sm leading-6 text-[#3f4548]">{card.answer}</p>
+                <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27]">
+                  {card.cta}
+                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
 export function GuidesIndexPage({ locale }: { locale: GuideLocale }) {
   const copy = guidesIndexCopy[locale];
   const guides = getGuides(locale);
@@ -313,6 +415,7 @@ export function GuidesIndexPage({ locale }: { locale: GuideLocale }) {
       </section>
 
       <QueryInsights locale={locale} />
+      <QuoteIntentQuestions locale={locale} />
 
       <section className="py-12 sm:py-16 lg:py-20" aria-labelledby="guide-list-heading">
         <Container size="xl">

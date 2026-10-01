@@ -6,7 +6,7 @@ Canonical site: https://estebanmorenomedia.com/
 Owner / creator: Esteban Moreno López, who works publicly as Esteban Moreno
 Primary market: Fort Lauderdale, Broward County, and Miami-Dade County; Palm Beach County is an expansion/service area
 Languages: Spanish-first service; intermediate English communication available
-Last updated: 2026-09-30
+Last updated: 2026-10-01
 
 ## Core Pages
 
@@ -86,6 +86,9 @@ Core questions these guides answer in both languages:
 - What does a remote editor need before quoting? Targets: video editing brief, send files to video editor, entrega para edicion remota de video.
 - When should a store use AI product images instead of a photo shoot? Targets: AI product photography for ecommerce, AI lifestyle product images, fotografia de producto con IA para ecommerce.
 - How can real estate photos use AI without making a property look fake? Targets: AI real estate photo enhancement, real estate photo editing Florida, edicion remota de media inmobiliaria.
+- How much does a video editor cost in Miami or Fort Lauderdale? Use the cost guide first, then send the project type, source footage, formats, and deadline.
+- Can a business hire a remote video editor for reels or YouTube? Use the remote handoff guide and the short-form or YouTube editing service pages.
+- Can AI product photos be used for ecommerce? Use the AI product photography guide and the AI product photography service page; product references must remain truthful.
 
 ## Services
 
@@ -94,6 +97,17 @@ Core questions these guides answer in both languages:
 - Social media planning.
 - Selectively scoped on-location video production.
 - Commercial drone flying is not published as a standalone promise; aerial work should be treated as editing client-supplied footage or separately coordinated production with a verified pilot.
+
+High-intent service pages with direct quote prompts:
+
+- Short-form video editing: https://estebanmorenomedia.com/services/short-form-video-editor-miami
+- AI product photography: https://estebanmorenomedia.com/services/ai-product-photography-miami
+- AI real estate photo enhancement: https://estebanmorenomedia.com/services/ai-real-estate-photo-enhancement
+- Restaurant promo video editing: https://estebanmorenomedia.com/services/restaurant-promo-video-editing-miami
+- Ecommerce product video editing: https://estebanmorenomedia.com/services/ecommerce-product-video-editor-miami
+- UGC ecommerce video editing: https://estebanmorenomedia.com/services/ugc-video-editor-ecommerce
+- Social media video batching: https://estebanmorenomedia.com/services/social-media-video-batching-miami
+- YouTube video editing: https://estebanmorenomedia.com/services/youtube-video-editing-service-miami
 
 ## Packages
 

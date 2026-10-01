@@ -5,6 +5,7 @@ import { Container } from "@/components/ui/container";
 import {
   ServiceCraft,
   ServiceFaqs,
+  ServiceInquiryRail,
   ServiceRelated,
   buildServiceFaqSchema,
 } from "@/components/service-depth";
@@ -146,6 +147,16 @@ export default function SocialMediaVideoBatchingMiamiPage() {
         sectionId="social-batching-craft"
       />
       <ServiceFaqs heading={SOCIAL_BATCHING_DEPTH.faqHeading} faqs={SOCIAL_BATCHING_DEPTH.faqs} />
+      <ServiceInquiryRail
+        service={{
+          serviceId: "social_media_batching",
+          serviceName: "social media video batching",
+          goalPrompt: "turn one footage batch into a monthly set of vertical videos",
+          assetPrompt: "raw monthly footage, posting cadence, brand notes, and the platforms where the batch will run",
+          proofHref: "/portfolio/ml-colombia",
+          proofLabel: "Review social video proof",
+        }}
+      />
       <ServiceRelated heading={SOCIAL_BATCHING_DEPTH.relatedHeading} services={SOCIAL_BATCHING_DEPTH.related} />
     </main>
   );

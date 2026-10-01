@@ -5,6 +5,7 @@ import { Container } from "@/components/ui/container";
 import {
   ServiceCraft,
   ServiceFaqs,
+  ServiceInquiryRail,
   ServiceRelated,
   buildServiceFaqSchema,
 } from "@/components/service-depth";
@@ -146,6 +147,16 @@ export default function EcommerceProductVideoEditorMiamiPage() {
         sectionId="ecommerce-video-craft"
       />
       <ServiceFaqs heading={ECOMMERCE_VIDEO_DEPTH.faqHeading} faqs={ECOMMERCE_VIDEO_DEPTH.faqs} />
+      <ServiceInquiryRail
+        service={{
+          serviceId: "ecommerce_product_video",
+          serviceName: "ecommerce product video editing",
+          goalPrompt: "turn product footage into demo videos or listing ads",
+          assetPrompt: "raw product clips, product claims that are safe to publish, logo files, and the target store or ad placement",
+          proofHref: "/portfolio/bar-door-monkey",
+          proofLabel: "Review commercial video proof",
+        }}
+      />
       <ServiceRelated heading={ECOMMERCE_VIDEO_DEPTH.relatedHeading} services={ECOMMERCE_VIDEO_DEPTH.related} />
     </main>
   );

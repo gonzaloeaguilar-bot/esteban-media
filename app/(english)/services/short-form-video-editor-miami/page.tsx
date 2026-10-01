@@ -5,6 +5,7 @@ import { Container } from "@/components/ui/container";
 import {
   ServiceCraft,
   ServiceFaqs,
+  ServiceInquiryRail,
   ServiceRelated,
   buildServiceFaqSchema,
 } from "@/components/service-depth";
@@ -158,6 +159,16 @@ export default function ShortFormVideoEditorPage() {
         sectionId="short-form-craft"
       />
       <ServiceFaqs heading={SHORT_FORM_DEPTH.faqHeading} faqs={SHORT_FORM_DEPTH.faqs} />
+      <ServiceInquiryRail
+        service={{
+          serviceId: "short_form_video",
+          serviceName: "short-form video editing",
+          goalPrompt: "turn supplied footage into Reels, TikTok, or Shorts",
+          assetPrompt: "raw clips, references, brand notes, and the platforms where the videos will run",
+          proofHref: "/portfolio/ml-colombia",
+          proofLabel: "Review short-form portfolio proof",
+        }}
+      />
       <ServiceRelated heading={SHORT_FORM_DEPTH.relatedHeading} services={SHORT_FORM_DEPTH.related} />
     </main>
   );

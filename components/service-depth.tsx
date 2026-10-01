@@ -1,7 +1,9 @@
 import Link from "next/link";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2, Mail, MessageCircle, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { whatsappHref } from "@/lib/packages";
+import { site } from "@/lib/site";
 
 /**
  * The depth a service page needs to earn anything — as shared components.
@@ -42,6 +44,14 @@ import { Container } from "@/components/ui/container";
 export type ServiceFaq = { question: string; answer: string };
 export type CraftCard = { title: string; detail: string };
 export type RelatedService = { title: string; detail: string; href: string };
+export type ServiceInquiry = {
+  serviceId: string;
+  serviceName: string;
+  goalPrompt: string;
+  assetPrompt: string;
+  proofHref: string;
+  proofLabel: string;
+};
 
 /**
  * Build the FAQPage node for a page's JSON-LD `@graph`.
@@ -184,6 +194,95 @@ export function ServiceFaqs({
               <p className="mt-3 text-sm leading-6 text-[#252a2d]">{faq.answer}</p>
             </article>
           ))}
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+/**
+ * A service-page inquiry block with analytics out of the box.
+ *
+ * The shared click layer already records `mailto:`, `tel:`, and every
+ * `data-cta`. This component gives future service pages a consistent way to
+ * pass service context into WhatsApp/email links without duplicating tracking
+ * code or asking a prospect to invent the first message from scratch.
+ */
+export function ServiceInquiryRail({
+  service,
+  sectionId = "service-inquiry",
+}: {
+  service: ServiceInquiry;
+  sectionId?: string;
+}) {
+  const message = `Hi Esteban, I need help with ${service.serviceName}. Goal: ${service.goalPrompt}. I have ${service.assetPrompt}. Can you quote this?`;
+  const mailSubject = `${service.serviceName} project inquiry`;
+  const mailBody = `${message}\n\nName:\nBusiness:\nDeadline:\nBest callback number:`;
+
+  return (
+    <section
+      className="border-b border-[#ddd4c8] bg-[#101214] py-12 text-[#f6f1ea] sm:py-16"
+      aria-labelledby={`${sectionId}-heading`}
+      data-section={sectionId}
+    >
+      <Container size="xl">
+        <div className="grid gap-8 lg:grid-cols-[1fr_.92fr] lg:items-center">
+          <div>
+            <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#f0b384]">
+              Ask for a quote
+            </p>
+            <h2 id={`${sectionId}-heading`} className="mt-4 max-w-3xl font-serif text-4xl leading-tight sm:text-5xl">
+              Send the project in one useful message.
+            </h2>
+            <p className="mt-5 max-w-2xl text-base leading-7 text-[#eadfd3]">
+              Start with the service, goal, assets, deadline, and where the work will be published. That gives Esteban enough context to answer with a useful next step instead of a long back-and-forth.
+            </p>
+          </div>
+
+          <div className="rounded-xl border border-white/15 bg-white/10 p-5 shadow-2xl shadow-black/20 sm:p-6">
+            <p className="text-xs font-medium uppercase tracking-[0.14em] text-[#f0b384]">
+              Copy this
+            </p>
+            <p className="mt-4 rounded-lg border border-white/12 bg-black/20 p-4 text-sm leading-6 text-white">
+              {message}
+            </p>
+            <div className="mt-5 grid gap-3 sm:grid-cols-3">
+              <a
+                href={whatsappHref(site.phone.e164, message)}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-cta={`service_${service.serviceId}_whatsapp`}
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#f6f1ea] px-4 text-sm font-medium text-[#101214] hover:bg-white"
+              >
+                <MessageCircle className="size-4" aria-hidden="true" />
+                WhatsApp
+              </a>
+              <a
+                href={`mailto:${site.email}?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`}
+                data-cta={`service_${service.serviceId}_email`}
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/30 px-4 text-sm font-medium text-white hover:bg-white hover:text-[#101214]"
+              >
+                <Mail className="size-4" aria-hidden="true" />
+                Email
+              </a>
+              <a
+                href={site.phone.href}
+                data-cta={`service_${service.serviceId}_phone`}
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/30 px-4 text-sm font-medium text-white hover:bg-white hover:text-[#101214]"
+              >
+                <Phone className="size-4" aria-hidden="true" />
+                Call
+              </a>
+            </div>
+            <Link
+              href={service.proofHref}
+              data-cta={`service_${service.serviceId}_proof`}
+              className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-[#f0b384] underline decoration-[#f0b384]/60 underline-offset-4"
+            >
+              {service.proofLabel}
+              <ArrowRight className="size-4" aria-hidden="true" />
+            </Link>
+          </div>
         </div>
       </Container>
     </section>
