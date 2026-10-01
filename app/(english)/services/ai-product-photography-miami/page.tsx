@@ -5,6 +5,7 @@ import { Container } from "@/components/ui/container";
 import {
   ServiceCraft,
   ServiceFaqs,
+  ServiceInquiryRail,
   ServiceRelated,
   buildServiceFaqSchema,
 } from "@/components/service-depth";
@@ -224,6 +225,16 @@ export default function AIProductPhotographyPage() {
         sectionId="ai-product-craft"
       />
       <ServiceFaqs heading={AI_PRODUCT_DEPTH.faqHeading} faqs={AI_PRODUCT_DEPTH.faqs} />
+      <ServiceInquiryRail
+        service={{
+          serviceId: "ai_product_photography",
+          serviceName: "AI product photography",
+          goalPrompt: "create truthful ecommerce or lifestyle visuals from product references",
+          assetPrompt: "clear product photos, brand colors, exact labels, and the sales channel where the images will appear",
+          proofHref: "/portfolio/my-dler",
+          proofLabel: "Review product visual proof",
+        }}
+      />
       <ServiceRelated heading={AI_PRODUCT_DEPTH.relatedHeading} services={AI_PRODUCT_DEPTH.related} />
     </main>
   );

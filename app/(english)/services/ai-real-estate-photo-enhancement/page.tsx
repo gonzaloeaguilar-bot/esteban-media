@@ -5,6 +5,7 @@ import { Container } from "@/components/ui/container";
 import {
   ServiceCraft,
   ServiceFaqs,
+  ServiceInquiryRail,
   ServiceRelated,
   buildServiceFaqSchema,
 } from "@/components/service-depth";
@@ -162,6 +163,16 @@ export default function AIRealEstatePhotoPage() {
         sectionId="ai-real-estate-craft"
       />
       <ServiceFaqs heading={AI_REAL_ESTATE_DEPTH.faqHeading} faqs={AI_REAL_ESTATE_DEPTH.faqs} />
+      <ServiceInquiryRail
+        service={{
+          serviceId: "ai_real_estate_photos",
+          serviceName: "AI real estate photo enhancement",
+          goalPrompt: "improve listing photos while preserving the real property",
+          assetPrompt: "original listing photos, property notes, MLS or marketing constraints, and the target publish date",
+          proofHref: "/portfolio/homeowners",
+          proofLabel: "Review real estate portfolio proof",
+        }}
+      />
       <ServiceRelated heading={AI_REAL_ESTATE_DEPTH.relatedHeading} services={AI_REAL_ESTATE_DEPTH.related} />
     </main>
   );

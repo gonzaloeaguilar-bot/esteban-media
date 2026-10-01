@@ -5,6 +5,7 @@ import { Container } from "@/components/ui/container";
 import {
   ServiceCraft,
   ServiceFaqs,
+  ServiceInquiryRail,
   ServiceRelated,
   buildServiceFaqSchema,
 } from "@/components/service-depth";
@@ -146,6 +147,16 @@ export default function UGCVideoEditorEcommercePage() {
         sectionId="ugc-ecommerce-craft"
       />
       <ServiceFaqs heading={UGC_ECOMMERCE_DEPTH.faqHeading} faqs={UGC_ECOMMERCE_DEPTH.faqs} />
+      <ServiceInquiryRail
+        service={{
+          serviceId: "ugc_ecommerce_video",
+          serviceName: "UGC video editing for ecommerce",
+          goalPrompt: "turn creator or customer footage into ad variations",
+          assetPrompt: "creator clips, product notes, approved claims, hooks to test, and the target ad platform",
+          proofHref: "/portfolio/bar-door-monkey",
+          proofLabel: "Review promotional editing proof",
+        }}
+      />
       <ServiceRelated heading={UGC_ECOMMERCE_DEPTH.relatedHeading} services={UGC_ECOMMERCE_DEPTH.related} />
     </main>
   );

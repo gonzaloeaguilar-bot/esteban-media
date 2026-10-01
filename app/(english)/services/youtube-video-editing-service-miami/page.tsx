@@ -5,6 +5,7 @@ import { Container } from "@/components/ui/container";
 import {
   ServiceCraft,
   ServiceFaqs,
+  ServiceInquiryRail,
   ServiceRelated,
   buildServiceFaqSchema,
 } from "@/components/service-depth";
@@ -146,6 +147,16 @@ export default function YoutubeVideoEditingServiceMiamiPage() {
         sectionId="youtube-editing-craft"
       />
       <ServiceFaqs heading={YOUTUBE_EDITING_DEPTH.faqHeading} faqs={YOUTUBE_EDITING_DEPTH.faqs} />
+      <ServiceInquiryRail
+        service={{
+          serviceId: "youtube_video_editing",
+          serviceName: "YouTube video editing",
+          goalPrompt: "edit long-form footage for a clearer YouTube episode",
+          assetPrompt: "raw camera files, audio, channel style references, chapter needs, and the publish plan",
+          proofHref: "/portfolio/my-dler",
+          proofLabel: "Review long-form editing proof",
+        }}
+      />
       <ServiceRelated heading={YOUTUBE_EDITING_DEPTH.relatedHeading} services={YOUTUBE_EDITING_DEPTH.related} />
     </main>
   );

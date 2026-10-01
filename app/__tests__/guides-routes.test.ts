@@ -11,6 +11,8 @@ import {
 } from "../(spanish)/es/guias/[slug]/page";
 import { metadata as spanishIndexMetadata } from "../(spanish)/es/guias/page";
 import { getGuideSupportLinks } from "@/lib/guides";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 
 describe("guide routes", () => {
   it("pre-renders eight localized detail routes in each language", async () => {
@@ -66,5 +68,20 @@ describe("guide routes", () => {
     expect(esLinks).toContain("/es/editor-de-video-corto-para-redes-miami");
     expect(esLinks).toContain("/es/fotografia-de-producto-con-ia-miami");
     expect(esLinks).toContain("/es/precios");
+  });
+
+  it("surfaces buyer quote questions on the guide hub with localized real routes", () => {
+    const src = readFileSync(join(process.cwd(), "components/guide-pages.tsx"), "utf8");
+
+    expect(src).toContain("How much does a video editor cost in Miami or Fort Lauderdale?");
+    expect(src).toContain("Can I hire a remote video editor for reels or YouTube?");
+    expect(src).toContain("Can AI product photos be used for ecommerce?");
+    expect(src).toContain("/guides/video-production-cost-fort-lauderdale");
+    expect(src).toContain("/guides/remote-video-editing-handoff");
+    expect(src).toContain("/guides/how-to-use-ai-for-product-photography");
+    expect(src).toContain("/es/guias/cuanto-cuesta-la-produccion-de-video-en-fort-lauderdale");
+    expect(src).toContain("/es/guias/entrega-para-edicion-remota-de-video");
+    expect(src).toContain("/es/guias/como-usar-inteligencia-artificial-para-fotografia-de-producto");
+    expect(src).toContain("quote_intent_");
   });
 });

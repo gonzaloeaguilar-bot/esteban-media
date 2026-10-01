@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { ServiceInquiryRail } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -232,6 +233,17 @@ export default function RestaurantPromoVideoEditingMiamiPage() {
           </div>
         </Container>
       </section>
+
+      <ServiceInquiryRail
+        service={{
+          serviceId: "restaurant_promo_video",
+          serviceName: "restaurant promo video editing",
+          goalPrompt: "turn food, dining-room, or staff footage into a promo reel",
+          assetPrompt: "dish names, raw clips, menu wording, logo files, and the offer or booking action",
+          proofHref: "/portfolio/bar-door-monkey",
+          proofLabel: "Review restaurant video proof",
+        }}
+      />
 
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16">
         <Container size="xl">

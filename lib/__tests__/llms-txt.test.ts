@@ -56,6 +56,13 @@ describe("public/llms.txt for AI crawlers", () => {
   it("carries the correct current contact details", () => {
     expect(llms).toContain("Email: esmolopez@gmail.com");
     expect(llms).toContain("Phone: (305) 497-4478");
-    expect(llms).toContain("Last updated: 2026-09-30");
+    expect(llms).toContain("Last updated: 2026-10-01");
+  });
+
+  it("lists high-intent quote prompts for the priority service pages", () => {
+    expect(llms).toContain("High-intent service pages with direct quote prompts");
+    expect(llms).toContain("How much does a video editor cost in Miami or Fort Lauderdale?");
+    expect(llms).toContain("/services/short-form-video-editor-miami");
+    expect(llms).toContain("/services/ai-product-photography-miami");
   });
 });

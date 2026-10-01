@@ -9,12 +9,15 @@ service page.
 2. Render the page with the shared components from `components/service-depth.tsx`:
    - `ServiceCraft`
    - `ServiceFaqs`
+   - `ServiceInquiryRail`
    - `ServiceRelated`
    - `buildServiceFaqSchema`
 3. Build FAQPage JSON-LD from the same `faqs` array that the page visibly
    renders. Do not keep a separate schema-only FAQ copy.
 4. Keep major interactive or conversion sections attributable:
    - shared service-depth sections already include `data-section`
+   - `ServiceInquiryRail` already includes service-specific WhatsApp, email,
+     phone, and proof CTAs
    - related service cards already include `data-cta`
    - new buttons or cards need either a Rail component or explicit `data-cta`
 5. Use Rail/common components before hand-writing card grids, FAQ blocks,
@@ -38,6 +41,7 @@ service page.
 import {
   ServiceCraft,
   ServiceFaqs,
+  ServiceInquiryRail,
   ServiceRelated,
   buildServiceFaqSchema,
 } from "@/components/service-depth";
@@ -68,6 +72,16 @@ export default function Page() {
         sectionId="example-craft"
       />
       <ServiceFaqs heading={EXAMPLE_DEPTH.faqHeading} faqs={EXAMPLE_DEPTH.faqs} />
+      <ServiceInquiryRail
+        service={{
+          serviceId: "example_service",
+          serviceName: "example service",
+          goalPrompt: "describe the result the client wants",
+          assetPrompt: "name the files, references, dates, or assets they already have",
+          proofHref: "/portfolio",
+          proofLabel: "Review related work",
+        }}
+      />
       <ServiceRelated
         heading={EXAMPLE_DEPTH.relatedHeading}
         services={EXAMPLE_DEPTH.related}
@@ -85,4 +99,3 @@ Run at least:
 pnpm exec vitest run app/__tests__/rail-adoption.test.ts app/__tests__/service-depth.test.ts
 pnpm typecheck
 ```
-

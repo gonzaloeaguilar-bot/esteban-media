@@ -127,6 +127,7 @@ describe("service depth — the 2026-10-01 growth batch carries it", () => {
     const src = source(page);
     expect(src).toContain("<ServiceCraft");
     expect(src).toContain("<ServiceFaqs");
+    expect(src).toContain("<ServiceInquiryRail");
     expect(src).toContain("<ServiceRelated");
   });
 
@@ -162,6 +163,21 @@ describe("service depth — the 2026-10-01 growth batch carries it", () => {
     expect(src).toContain("{faqs.map((faq) => (");
     expect(src).toContain("What footage can a restaurant provide for promo video editing?");
     expect(src).toContain("Practical details before you share restaurant footage.");
+    expect(src).toContain("<ServiceInquiryRail");
+  });
+
+  it("gives every priority service page service-specific inquiry analytics", () => {
+    for (const [name, _depth, page] of GROWTH_BATCH) {
+      const src = source(page);
+      expect(src, name).toMatch(/serviceId: "[a-z0-9_]+"/);
+      expect(src, name).toContain("goalPrompt:");
+      expect(src, name).toContain("assetPrompt:");
+      expect(src, name).toContain("proofHref:");
+    }
+
+    const restaurant = source(RESTAURANT_PROMO_PAGE);
+    expect(restaurant).toContain('serviceId: "restaurant_promo_video"');
+    expect(restaurant).toContain("Bar Door Monkey");
   });
 });
 
