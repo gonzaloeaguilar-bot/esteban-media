@@ -3701,6 +3701,24 @@ const supportLinks: Record<GuideLocale, readonly GuideSupportLink[]> = {
         "Review the published video-editing service, which prioritizes remote editing for clients who already have footage.",
     },
     {
+      href: "/services/short-form-video-editor-miami",
+      label: "Short-form editing help",
+      description:
+        "Go straight to Reels, TikTok, and Shorts editing when the guide points to social video output.",
+    },
+    {
+      href: "/services/ai-product-photography-miami",
+      label: "AI product photo help",
+      description:
+        "Use the AI product photography page when the project is about ecommerce visuals, lifestyle product images, or ad concepts.",
+    },
+    {
+      href: "/pricing",
+      label: "Check starting prices",
+      description:
+        "Use the pricing page when a guide raises budget, quote, package, or cost questions.",
+    },
+    {
       href: "/portfolio",
       label: "Review selected video work",
       description:
@@ -3719,6 +3737,24 @@ const supportLinks: Record<GuideLocale, readonly GuideSupportLink[]> = {
       label: "Explorar servicios de edición",
       description:
         "Consulta el servicio publicado de edición, enfocado en trabajo remoto para clientes que ya tienen material.",
+    },
+    {
+      href: "/es/editor-de-video-corto-para-redes-miami",
+      label: "Ayuda con reels y shorts",
+      description:
+        "Ve directo a la página de edición vertical cuando la guía habla de Reels, TikTok o Shorts.",
+    },
+    {
+      href: "/es/fotografia-de-producto-con-ia-miami",
+      label: "Ayuda con fotos de producto con IA",
+      description:
+        "Usa la página de fotografía de producto con IA para imágenes de ecommerce, lifestyle o conceptos de anuncios.",
+    },
+    {
+      href: "/es/precios",
+      label: "Ver precios iniciales",
+      description:
+        "Consulta precios cuando una guía hable de presupuesto, cotización, paquetes o costos.",
     },
     {
       href: "/es/portafolio",

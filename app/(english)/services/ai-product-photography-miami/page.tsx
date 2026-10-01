@@ -2,6 +2,13 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2, WandSparkles, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import {
+  ServiceCraft,
+  ServiceFaqs,
+  ServiceRelated,
+  buildServiceFaqSchema,
+} from "@/components/service-depth";
+import { AI_PRODUCT_DEPTH } from "@/lib/service-depth-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +24,7 @@ export default function AIProductPhotographyPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/ai-product-photography-miami"), AI_PRODUCT_DEPTH.faqs),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/ai-product-photography-miami#service"),
@@ -210,6 +218,13 @@ export default function AIProductPhotographyPage() {
           </div>
         </Container>
       </section>
+      <ServiceCraft
+        heading={AI_PRODUCT_DEPTH.craftHeading}
+        cards={AI_PRODUCT_DEPTH.craft}
+        sectionId="ai-product-craft"
+      />
+      <ServiceFaqs heading={AI_PRODUCT_DEPTH.faqHeading} faqs={AI_PRODUCT_DEPTH.faqs} />
+      <ServiceRelated heading={AI_PRODUCT_DEPTH.relatedHeading} services={AI_PRODUCT_DEPTH.related} />
     </main>
   );
 }

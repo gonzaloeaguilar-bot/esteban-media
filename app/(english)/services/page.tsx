@@ -187,6 +187,58 @@ export default function ServicesPage() {
             />
           ) : null}
 
+          <section className="mt-10" aria-labelledby="quick-service-paths-heading">
+            <p className="text-xs font-medium uppercase text-[#5a6066]">
+              Fast paths
+            </p>
+            <h2
+              id="quick-service-paths-heading"
+              className="mt-3 max-w-3xl font-serif text-3xl leading-tight sm:text-4xl"
+            >
+              Already know what you need?
+            </h2>
+            <div className="mt-6 grid gap-4 md:grid-cols-3">
+              {[
+                {
+                  href: "/services/short-form-video-editor-miami",
+                  title: "Edit reels, TikToks, or Shorts",
+                  detail:
+                    "Remote short-form editing for supplied footage, captions, pacing, and platform-safe crops.",
+                },
+                {
+                  href: "/services/ai-product-photography-miami",
+                  title: "Create AI product visuals",
+                  detail:
+                    "Ecommerce product images and lifestyle concepts built from accurate product references.",
+                },
+                {
+                  href: "/services/ai-real-estate-photo-enhancement",
+                  title: "Enhance real estate photos",
+                  detail:
+                    "Remote listing photo improvement that keeps property details truthful and readable.",
+                },
+              ].map((path) => (
+                <Link
+                  key={path.href}
+                  href={path.href}
+                  className="group rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5 hover:border-[#e85d3e]"
+                >
+                  <h3 className="font-serif text-2xl">{path.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-[#252a2d]">
+                    {path.detail}
+                  </p>
+                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27]">
+                    Open service page
+                    <ArrowRight
+                      className="size-4 transition-transform group-hover:translate-x-0.5"
+                      aria-hidden="true"
+                    />
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </section>
+
           <section className="mt-12" aria-labelledby="growth-systems-heading">
             <p className="text-xs font-medium uppercase text-[#5a6066]">
               0→1 Growth Systems

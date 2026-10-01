@@ -2,6 +2,13 @@ import Link from "next/link";
 import { ArrowRight, WandSparkles, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import {
+  ServiceCraft,
+  ServiceFaqs,
+  ServiceRelated,
+  buildServiceFaqSchema,
+} from "@/components/service-depth";
+import { UGC_ECOMMERCE_DEPTH } from "@/lib/service-depth-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +24,7 @@ export default function UGCVideoEditorEcommercePage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/ugc-video-editor-ecommerce"), UGC_ECOMMERCE_DEPTH.faqs),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/ugc-video-editor-ecommerce#service"),
@@ -132,6 +140,13 @@ export default function UGCVideoEditorEcommercePage() {
           </div>
         </Container>
       </section>
+      <ServiceCraft
+        heading={UGC_ECOMMERCE_DEPTH.craftHeading}
+        cards={UGC_ECOMMERCE_DEPTH.craft}
+        sectionId="ugc-ecommerce-craft"
+      />
+      <ServiceFaqs heading={UGC_ECOMMERCE_DEPTH.faqHeading} faqs={UGC_ECOMMERCE_DEPTH.faqs} />
+      <ServiceRelated heading={UGC_ECOMMERCE_DEPTH.relatedHeading} services={UGC_ECOMMERCE_DEPTH.related} />
     </main>
   );
 }

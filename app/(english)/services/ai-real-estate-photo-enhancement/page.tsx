@@ -2,6 +2,13 @@ import Link from "next/link";
 import { ArrowRight, WandSparkles, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import {
+  ServiceCraft,
+  ServiceFaqs,
+  ServiceRelated,
+  buildServiceFaqSchema,
+} from "@/components/service-depth";
+import { AI_REAL_ESTATE_DEPTH } from "@/lib/service-depth-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +24,7 @@ export default function AIRealEstatePhotoPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/ai-real-estate-photo-enhancement"), AI_REAL_ESTATE_DEPTH.faqs),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/ai-real-estate-photo-enhancement#service"),
@@ -148,6 +156,13 @@ export default function AIRealEstatePhotoPage() {
           </div>
         </Container>
       </section>
+      <ServiceCraft
+        heading={AI_REAL_ESTATE_DEPTH.craftHeading}
+        cards={AI_REAL_ESTATE_DEPTH.craft}
+        sectionId="ai-real-estate-craft"
+      />
+      <ServiceFaqs heading={AI_REAL_ESTATE_DEPTH.faqHeading} faqs={AI_REAL_ESTATE_DEPTH.faqs} />
+      <ServiceRelated heading={AI_REAL_ESTATE_DEPTH.relatedHeading} services={AI_REAL_ESTATE_DEPTH.related} />
     </main>
   );
 }

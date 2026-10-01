@@ -174,8 +174,10 @@ export default function AreasPage() {
                 <p className="mt-3 leading-7 text-[#252a2d]">
                   Video editing, AI-assisted content, and social planning can
                   begin with existing files and references. Those services are
-                  available to clients beyond South Florida. Spanish-first
-                  clients can use the{" "}
+                  available to clients beyond South Florida when the work can be
+                  completed from supplied footage, photos, screen recordings,
+                  product references, or a clear brief. Spanish-first clients can
+                  use the{" "}
                   <Link
                     href="/es/guias"
                     className="underline underline-offset-4 hover:text-[#9f3c27]"
@@ -185,13 +187,17 @@ export default function AreasPage() {
                   to define and review their next video project before a
                   remote handoff.
                 </p>
-                <Link
-                  href="/services#editing"
-                  className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27]"
-                >
-                  Explore remote video editing
-                  <ArrowRight className="size-4" aria-hidden="true" />
-                </Link>
+                <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+                  <Link className="font-medium text-[#9f3c27] underline underline-offset-4" href="/services/short-form-video-editor-miami">
+                    Short-form editing
+                  </Link>
+                  <Link className="font-medium text-[#9f3c27] underline underline-offset-4" href="/services/ai-product-photography-miami">
+                    AI product visuals
+                  </Link>
+                  <Link className="font-medium text-[#9f3c27] underline underline-offset-4" href="/services/ai-real-estate-photo-enhancement">
+                    Real estate photo editing
+                  </Link>
+                </div>
               </article>
               <article className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
                 <MapPin className="size-7 text-[#e85d3e]" aria-hidden="true" />

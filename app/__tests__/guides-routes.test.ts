@@ -10,6 +10,7 @@ import {
   generateStaticParams as generateSpanishParams,
 } from "../(spanish)/es/guias/[slug]/page";
 import { metadata as spanishIndexMetadata } from "../(spanish)/es/guias/page";
+import { getGuideSupportLinks } from "@/lib/guides";
 
 describe("guide routes", () => {
   it("pre-renders eight localized detail routes in each language", async () => {
@@ -53,5 +54,17 @@ describe("guide routes", () => {
         },
       },
     });
+  });
+
+  it("keeps guide support links connected to services and pricing paths", () => {
+    const enLinks = getGuideSupportLinks("en").map((link) => link.href);
+    const esLinks = getGuideSupportLinks("es").map((link) => link.href);
+
+    expect(enLinks).toContain("/services/short-form-video-editor-miami");
+    expect(enLinks).toContain("/services/ai-product-photography-miami");
+    expect(enLinks).toContain("/pricing");
+    expect(esLinks).toContain("/es/editor-de-video-corto-para-redes-miami");
+    expect(esLinks).toContain("/es/fotografia-de-producto-con-ia-miami");
+    expect(esLinks).toContain("/es/precios");
   });
 });

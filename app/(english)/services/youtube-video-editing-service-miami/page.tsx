@@ -2,6 +2,13 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import {
+  ServiceCraft,
+  ServiceFaqs,
+  ServiceRelated,
+  buildServiceFaqSchema,
+} from "@/components/service-depth";
+import { YOUTUBE_EDITING_DEPTH } from "@/lib/service-depth-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +24,7 @@ export default function YoutubeVideoEditingServiceMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/youtube-video-editing-service-miami"), YOUTUBE_EDITING_DEPTH.faqs),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/youtube-video-editing-service-miami#service"),
@@ -132,6 +140,13 @@ export default function YoutubeVideoEditingServiceMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceCraft
+        heading={YOUTUBE_EDITING_DEPTH.craftHeading}
+        cards={YOUTUBE_EDITING_DEPTH.craft}
+        sectionId="youtube-editing-craft"
+      />
+      <ServiceFaqs heading={YOUTUBE_EDITING_DEPTH.faqHeading} faqs={YOUTUBE_EDITING_DEPTH.faqs} />
+      <ServiceRelated heading={YOUTUBE_EDITING_DEPTH.relatedHeading} services={YOUTUBE_EDITING_DEPTH.related} />
     </main>
   );
 }

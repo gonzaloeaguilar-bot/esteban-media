@@ -2,6 +2,13 @@ import Link from "next/link";
 import { ArrowRight, WandSparkles, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import {
+  ServiceCraft,
+  ServiceFaqs,
+  ServiceRelated,
+  buildServiceFaqSchema,
+} from "@/components/service-depth";
+import { ECOMMERCE_VIDEO_DEPTH } from "@/lib/service-depth-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +24,7 @@ export default function EcommerceProductVideoEditorMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/ecommerce-product-video-editor-miami"), ECOMMERCE_VIDEO_DEPTH.faqs),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/ecommerce-product-video-editor-miami#service"),
@@ -132,6 +140,13 @@ export default function EcommerceProductVideoEditorMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceCraft
+        heading={ECOMMERCE_VIDEO_DEPTH.craftHeading}
+        cards={ECOMMERCE_VIDEO_DEPTH.craft}
+        sectionId="ecommerce-video-craft"
+      />
+      <ServiceFaqs heading={ECOMMERCE_VIDEO_DEPTH.faqHeading} faqs={ECOMMERCE_VIDEO_DEPTH.faqs} />
+      <ServiceRelated heading={ECOMMERCE_VIDEO_DEPTH.relatedHeading} services={ECOMMERCE_VIDEO_DEPTH.related} />
     </main>
   );
 }

@@ -229,3 +229,437 @@ export const MED_SPA_DEPTH: Depth = {
     },
   ],
 };
+
+export const SHORT_FORM_DEPTH: Depth = {
+  craftHeading: "What short-form editing has to decide before the first cut.",
+  craft: [
+    {
+      title: "One hook per export",
+      detail:
+        "A strong short-form edit is not just a trimmed long video. The first seconds need one clear reason to keep watching: a result, a question, a contradiction, or a visual moment that already proves the topic. When the raw footage includes several possible hooks, each finished version should choose one instead of stacking them into a crowded opening.",
+    },
+    {
+      title: "Captions that do work",
+      detail:
+        "Captions carry the message when the viewer has sound off, but they can also make the edit feel heavy. The useful version highlights the spoken idea, keeps line breaks readable on a phone, and leaves room for the platform interface. A caption style should support pace and clarity, not become another moving object competing with the footage.",
+    },
+    {
+      title: "Platform-safe rhythm",
+      detail:
+        "Reels, TikTok, and Shorts all reward quick understanding, but the same cut does not always fit each placement. The edit has to account for vertical framing, text-safe areas, end cards, and whether the clip needs a clean loop. That is why raw footage should be delivered with the intended platforms named before editing begins.",
+    },
+  ],
+  faqHeading: "Practical answers before sending short-form footage.",
+  faqs: [
+    {
+      question: "What should I send for a short-form video edit?",
+      answer:
+        "Send the original files when possible, not only compressed social downloads. Include the intended platform, the main message, any must-use clip, brand assets, music direction if you have one, and examples of pacing you like. A note explaining what should happen after the viewer watches is also useful, because the ending changes if the goal is a booking, a product page, a DM, or a simple awareness post.",
+    },
+    {
+      question: "Can one set of raw clips become multiple reels?",
+      answer:
+        "Yes, when the footage contains more than one clear idea. A talking clip can become a direct answer, a myth-versus-fact edit, and a fast quote highlight if each version has its own hook and ending. What usually does not work is exporting the same timeline with three different captions and calling it a batch; the viewer sees the same video three times, and the content starts to feel recycled.",
+    },
+    {
+      question: "How do revisions work for short-form content?",
+      answer:
+        "The cleanest review is consolidated feedback on one draft: timestamp the exact line, caption, shot, or pacing moment you want changed. Revision scope depends on the project, but the important habit is separating factual corrections from creative preferences. If the message is wrong, it should be fixed directly. If the edit needs a different style, references help more than a long list of abstract adjectives.",
+    },
+    {
+      question: "When is short-form editing remote instead of local production?",
+      answer:
+        "It is remote when the useful footage already exists or can be captured by your team on a phone, camera, screen recording, or creator setup. Local production becomes relevant when the idea depends on camera direction, lighting, location access, or a specific shot list that cannot be captured casually. Many businesses start remote because it proves the content angle before a larger production day is planned.",
+    },
+  ],
+  relatedHeading: "Related services for social video output.",
+  related: [
+    {
+      title: "Social Media Video Batching",
+      detail: "Turn one recording session or folder of clips into a planned set of posts.",
+      href: "/services/social-media-video-batching-miami",
+    },
+    {
+      title: "TikTok Ad Video Editor",
+      detail: "Direct-response vertical ads built from supplied creator or product footage.",
+      href: "/services/tiktok-ad-video-editor-miami",
+    },
+    {
+      title: "Remote Editing Handoff",
+      detail: "A practical guide for organizing files before you send them.",
+      href: "/guides/remote-video-editing-handoff",
+    },
+  ],
+};
+
+export const AI_PRODUCT_DEPTH: Depth = {
+  craftHeading: "What AI product photography must keep truthful.",
+  craft: [
+    {
+      title: "Reference first",
+      detail:
+        "AI product visuals work best when the real product photo is treated as the source of truth. The label, color, proportions, texture, and logo placement need to survive the scene change. If the generated background makes the product look better but changes what a buyer will receive, the image has become a product claim rather than a marketing asset.",
+    },
+    {
+      title: "Use AI for context",
+      detail:
+        "The safer use is building lifestyle context around a product: counter surfaces, seasonal environments, simple props, and ad concepts that help a shopper understand where the item belongs. It is less safe to invent packaging text, change reflective details, or make a product appear larger or smaller than it is. The workflow should separate creative exploration from final commerce images.",
+    },
+    {
+      title: "Commerce-ready crops",
+      detail:
+        "Product visuals often need more than one output: marketplace-friendly product images, lifestyle crops for ads, square social posts, and vertical story placements. The image has to be composed with those crops in mind from the start. A dramatic horizontal concept can fail if the product or label disappears once the image is cut for a phone screen.",
+    },
+  ],
+  faqHeading: "Practical answers before starting an AI product image project.",
+  faqs: [
+    {
+      question: "What product files should I send for AI product photography?",
+      answer:
+        "Send clear reference photos from several angles, any existing product photos you already use, logo or label files when available, and notes about colors that must stay accurate. If the product has packaging text, ingredients, legal copy, or reflective surfaces, call those out before the first concept is made. The more exact the reference, the easier it is to use AI for setting and mood without changing the item itself.",
+    },
+    {
+      question: "When should AI product images not replace a photo shoot?",
+      answer:
+        "Do not use AI as the only source when the buyer needs exact proof of material, size, fit, manufacturing detail, or packaging copy. A real photo shoot is still the better foundation for products where accuracy is the selling point. AI can still help with ad concepts, background variations, and seasonal creative, but the final commerce image should not make the product look different from what arrives.",
+    },
+    {
+      question: "Can AI product images be used for ecommerce ads?",
+      answer:
+        "They can, when the product remains accurate and the image does not imply features, scale, or uses that are not real. Ads usually tolerate more lifestyle context than a marketplace product listing, but the same truth rule applies: a generated setting can make the creative easier to understand, not change the actual product. Keep a folder of approved reference images so future ad variations stay consistent.",
+    },
+    {
+      question: "How does the review process work for AI visuals?",
+      answer:
+        "Review starts by checking product fidelity before judging style. Confirm the label, color, shape, and any important detail first. Only then review background, lighting, crop, and mood. This order prevents a common failure where the image looks impressive but the item is no longer accurate. Consolidated notes with one approved direction are more useful than asking for many unrelated style changes at once.",
+    },
+  ],
+  relatedHeading: "Related services for product and ecommerce visuals.",
+  related: [
+    {
+      title: "Ecommerce Product Video Editor",
+      detail: "Product videos assembled from demos, phone clips, UGC, and brand assets.",
+      href: "/services/ecommerce-product-video-editor-miami",
+    },
+    {
+      title: "UGC Ecommerce Video Editor",
+      detail: "Creator-style product videos shaped for social and ad placements.",
+      href: "/services/ugc-video-editor-ecommerce",
+    },
+    {
+      title: "AI Product Photo Guide",
+      detail: "When AI product images help and when a real shoot is still needed.",
+      href: "/guides/how-to-use-ai-for-product-photography",
+    },
+  ],
+};
+
+export const AI_REAL_ESTATE_DEPTH: Depth = {
+  craftHeading: "What real estate photo enhancement must not change.",
+  craft: [
+    {
+      title: "Layout stays real",
+      detail:
+        "A listing image is a promise a buyer can inspect in person. AI can help with exposure, color, sky, and cluttered presentation, but it must not move walls, stretch rooms, remove permanent fixtures, invent views, or hide a defect that affects the property. The useful edit makes the room readable while preserving what the buyer will actually see.",
+    },
+    {
+      title: "Windows and color matter",
+      detail:
+        "South Florida rooms often mix bright exterior windows with warm interior light. Enhancement should balance that range without turning walls, floors, cabinets, or views into something else. A blue sky replacement may make an exterior clearer, but a false window view is a different claim. The file review has to separate light correction from property alteration.",
+    },
+    {
+      title: "MLS and social are different",
+      detail:
+        "A photo for an MLS feed and a photo for a social teaser do not need the same crop. The listing feed needs clarity and honesty first; a social crop can emphasize a feature as long as the underlying detail is real. Delivering both from the same source set avoids the common issue where a cinematic crop looks good online but fails to show the room.",
+    },
+  ],
+  faqHeading: "Practical answers before sending listing photos.",
+  faqs: [
+    {
+      question: "What real estate photo edits are safe to request?",
+      answer:
+        "Safe requests usually involve exposure balance, color correction, straightening, sky replacement where it does not change the actual view, light cleanup, and consistent crops. Requests become risky when they change what a buyer would inspect: room dimensions, permanent fixtures, flooring, ceiling condition, window views, landscaping, or anything attached to the property. If a detail matters to the sale, it should stay visible and accurate.",
+    },
+    {
+      question: "Can AI fix dark listing photos?",
+      answer:
+        "AI and manual editing can often improve a dark room by lifting shadows, balancing mixed light, and reducing color casts. The limit is the source file. If a window is completely blown out or a room is severely underexposed, the edit can make the image more readable but should not invent missing detail. Sending original high-resolution files gives more room to correct light without creating a fake look.",
+    },
+    {
+      question: "What should an agent send with property photos?",
+      answer:
+        "Send the original image files, the property address or neighborhood for context, the intended use, and any rules from the brokerage or listing platform. Note which photos are hero images and which are supporting rooms. If a feature must not be altered, say so directly. For social crops, include the platform and whether the image needs space for captions, logos, or a listing callout.",
+    },
+    {
+      question: "Can edited photos be used for remote real estate marketing?",
+      answer:
+        "Yes, when the source files are supplied digitally and the edits preserve the real property. Remote photo enhancement is usually practical because the work depends on files, not on the editor being on site. Local capture is a separate question: if the property needs new angles, drone work, or better original photography, that has to be scoped as production instead of retouching.",
+    },
+  ],
+  relatedHeading: "Related services for real estate media.",
+  related: [
+    {
+      title: "Real Estate Drone Video Editing",
+      detail: "Editing supplied aerial and property footage for listing and social use.",
+      href: "/services/real-estate-drone-video-editing-miami",
+    },
+    {
+      title: "Real Estate Video Aventura",
+      detail: "Video production and editing for Aventura real estate marketing.",
+      href: "/services/real-estate-video-aventura-miami",
+    },
+    {
+      title: "Real Estate Pricing",
+      detail: "Starting points for real estate media planning and monthly plans.",
+      href: "/pricing/real-estate",
+    },
+  ],
+};
+
+export const ECOMMERCE_VIDEO_DEPTH: Depth = {
+  craftHeading: "What ecommerce product videos need to prove quickly.",
+  craft: [
+    {
+      title: "Show the product working",
+      detail:
+        "A product video has to answer the viewer's practical question before it tries to feel cinematic. Show the item in use, the hand scale, the texture, the before state, or the result. If the footage only shows beauty shots, the edit has little evidence to work with. Useful ecommerce footage includes demonstrations, close-ups, packaging, and one clear reason to buy or learn more.",
+    },
+    {
+      title: "Keep claims tied to supplied proof",
+      detail:
+        "Editing can make a product easier to understand, but it should not add a performance claim the footage does not support. On-screen text works best when it names visible features, steps, or use cases. If a claim needs certification, lab support, user results, or a legal disclosure, the brand needs to provide that source before it becomes a caption or headline.",
+    },
+    {
+      title: "Cut for the buying path",
+      detail:
+        "A product page, a paid ad, and a social post need different emphasis. Product pages benefit from clarity and completeness; ads need a fast hook and a single action; social posts can carry more context or story. The same raw clips can support all three, but the edit should name the placement before pacing, crop, and end card are decided.",
+    },
+  ],
+  faqHeading: "Practical answers before sending product video footage.",
+  faqs: [
+    {
+      question: "What footage works best for ecommerce product videos?",
+      answer:
+        "Send the product being used, close-ups of important details, packaging shots, any founder or creator explanation, and footage that shows scale in a hand or real environment. Include brand assets, approved product language, and the destination page or campaign. The editor can tighten, caption, and structure the story, but the strongest proof still comes from footage where the product is visibly doing the thing customers care about.",
+    },
+    {
+      question: "Can one product shoot create several video assets?",
+      answer:
+        "Yes, if the source material covers more than one angle. One folder might become a product-page overview, a short ad hook, a comparison clip, and a social post focused on use. The batch works best when each export has a different job. Cutting the same timeline shorter and shorter can save time, but it rarely creates a strong set of distinct assets for a campaign.",
+    },
+    {
+      question: "How should product claims be handled in the edit?",
+      answer:
+        "Provide the exact wording the brand can stand behind, along with any required disclosure or proof source. The edit can place that language clearly and keep it visible long enough to read. It should not invent phrases like fastest, safest, or best unless the brand has substantiation. If the useful message is visual, showing the product in action often says more than adding a heavier claim on screen.",
+    },
+    {
+      question: "When does an ecommerce brand need video instead of only photos?",
+      answer:
+        "Video helps when motion, scale, setup, texture, use, or result changes the way a buyer understands the product. A still image can show the item; a video can show how it opens, fits, pours, installs, lights up, packs, or solves the problem. If customers keep asking the same practical question, that question is usually the first ecommerce video to make.",
+    },
+  ],
+  relatedHeading: "Related services for ecommerce video.",
+  related: [
+    {
+      title: "AI Product Photography",
+      detail: "Product visuals and lifestyle concepts from accurate reference photos.",
+      href: "/services/ai-product-photography-miami",
+    },
+    {
+      title: "UGC Ecommerce Video Editor",
+      detail: "Creator-style product videos shaped from testimonial and demo clips.",
+      href: "/services/ugc-video-editor-ecommerce",
+    },
+    {
+      title: "TikTok Ad Video Editor",
+      detail: "Short-form ad edits with hook variations from supplied product footage.",
+      href: "/services/tiktok-ad-video-editor-miami",
+    },
+  ],
+};
+
+export const UGC_ECOMMERCE_DEPTH: Depth = {
+  craftHeading: "What UGC product videos need from the raw clips.",
+  craft: [
+    {
+      title: "Keep the creator voice intact",
+      detail:
+        "UGC works because it feels like a person explaining the product, not a brand forcing a commercial into a selfie frame. The edit should remove dead air, sharpen the order, and add readable captions without sanding away the natural phrasing. If every sentence becomes brand copy, the finished video loses the reason a business asked for UGC in the first place.",
+    },
+    {
+      title: "Proof before polish",
+      detail:
+        "The best clips are often simple: opening the package, showing the texture, reacting to use, comparing a before state, or naming the exact problem. Heavy graphics cannot replace that proof. The edit should organize the creator's footage around the useful evidence, then add product names, captions, and calls to action only where they make the message easier to follow.",
+    },
+    {
+      title: "Versions for testing",
+      detail:
+        "A UGC folder usually contains several possible openings: a pain point, a result, an unboxing, a direct recommendation, or a demonstration. Those should become different versions only when the body of the video still supports the opening. A hook variation that promises one thing and then shows another wastes the creative test because the message is not coherent.",
+    },
+  ],
+  faqHeading: "Practical answers before sending UGC product clips.",
+  faqs: [
+    {
+      question: "What should a brand send with UGC footage?",
+      answer:
+        "Send the raw creator clips, approved product names, claims the brand can use, logo files if needed, and the intended placement. If the creator mentioned something that should not be used, flag it before editing begins. The editor also needs to know whether the goal is an organic social post, a paid ad, a product-page asset, or several versions from the same material.",
+    },
+    {
+      question: "Can UGC footage be edited into paid ad variations?",
+      answer:
+        "Yes, when the usage rights and brand approvals are clear. The same creator footage can become multiple cuts with different hooks, captions, or end cards, but each version should stay faithful to what the creator actually showed or said. If a paid ad needs a stronger claim, discount, or offer, the brand should provide exact approved wording so the edit does not invent it.",
+    },
+    {
+      question: "How much polish should a UGC video have?",
+      answer:
+        "Enough to make it easy to watch, not so much that it stops feeling direct. Cut pauses, clean audio where possible, add captions, remove confusing repeats, and use simple graphics for product names or calls to action. Avoid overbuilt motion and stock-style transitions unless the brand specifically wants a more produced ad. A good UGC edit still feels like the creator is speaking to the viewer.",
+    },
+    {
+      question: "What makes UGC clips hard to edit?",
+      answer:
+        "The common problems are missing product shots, poor audio, unclear claims, and clips recorded in only one orientation when the final placement needs another. A creator can also record a strong testimonial without showing the product enough for the edit to prove the point. The best handoff includes extra b-roll, clean room tone if available, and one note describing the exact message the brand wants the viewer to remember.",
+    },
+  ],
+  relatedHeading: "Related services for creator-style product video.",
+  related: [
+    {
+      title: "Ecommerce Product Video Editor",
+      detail: "Product-page and ad-ready videos made from product demos and brand clips.",
+      href: "/services/ecommerce-product-video-editor-miami",
+    },
+    {
+      title: "Social Media Video Batching",
+      detail: "Batch social edits from one folder of creator or founder footage.",
+      href: "/services/social-media-video-batching-miami",
+    },
+    {
+      title: "Remote Editing Handoff",
+      detail: "How to organize raw clips before sending them to an editor.",
+      href: "/guides/remote-video-editing-handoff",
+    },
+  ],
+};
+
+export const SOCIAL_BATCHING_DEPTH: Depth = {
+  craftHeading: "What turns a content folder into a useful batch.",
+  craft: [
+    {
+      title: "One batch, many jobs",
+      detail:
+        "A useful batch is not a pile of similar posts. It should cover different jobs: answer a common question, show proof, explain a process, handle an objection, and invite the next step. When the raw footage is organized by message instead of by file name, the edit can produce a set that feels planned rather than repetitive.",
+    },
+    {
+      title: "Repeatable capture habits",
+      detail:
+        "Batch editing gets easier when the business records the same useful ingredients each time: one direct-to-camera answer, a few b-roll clips, a process shot, a result or product close-up, and any needed brand assets. The goal is not a large shoot every week. It is a simple repeatable capture habit that creates enough variety for the editor to shape.",
+    },
+    {
+      title: "Calendar without filler",
+      detail:
+        "Posting consistently only helps if the content earns its slot. A batch should leave room for stronger pieces and cut weak ones rather than forcing every clip into the calendar. The edit can create a rhythm, but the business still benefits from choosing topics that connect to real questions, offers, projects, or proof instead of generic trends.",
+    },
+  ],
+  faqHeading: "Practical answers before batching social videos.",
+  faqs: [
+    {
+      question: "How should I prepare footage for a monthly content batch?",
+      answer:
+        "Group files by topic, not only by date. Add one note for each topic explaining the point, platform, offer, and any words that must appear. Include b-roll, product shots, screenshots, and brand assets in the same folder. If the batch needs Spanish and English versions, identify that before editing starts so captions, hooks, and calls to action can be planned rather than translated at the end.",
+    },
+    {
+      question: "What kinds of videos belong in a business content batch?",
+      answer:
+        "A balanced batch usually mixes answers to customer questions, proof from real projects, product or service explainers, founder commentary, process clips, and direct offer posts. The exact mix depends on the business, but variety matters because people do not need the same sales angle every time. The useful question is what a buyer needs to understand before they feel ready to contact you.",
+    },
+    {
+      question: "Can batching work for remote clients?",
+      answer:
+        "Yes. Remote batching works when the client can send usable files on a predictable rhythm and review drafts in one place. The editor does not need to be local if the content is built from supplied footage, screen recordings, product clips, or founder videos. Local production only becomes necessary when the content depends on new camera work, location access, or directed filming.",
+    },
+    {
+      question: "How do we avoid repetitive social posts?",
+      answer:
+        "Start with different questions and outcomes, then let the footage follow. If every clip begins with the same setup and ends with the same call to action, the batch will feel repetitive even if the captions change. A stronger workflow assigns each video a specific role before editing: teach, prove, compare, answer, invite, or show the work. That structure keeps the calendar varied.",
+    },
+  ],
+  relatedHeading: "Related services for ongoing social content.",
+  related: [
+    {
+      title: "Short-Form Video Editor",
+      detail: "Individual Reels, TikToks, and Shorts from supplied footage.",
+      href: "/services/short-form-video-editor-miami",
+    },
+    {
+      title: "Content Repurposing",
+      detail: "Turn long recordings into shorter posts and clips.",
+      href: "/services/content-repurposing-service-miami",
+    },
+    {
+      title: "Video Brief Guide",
+      detail: "Write a useful brief before asking for an ongoing batch.",
+      href: "/guides/write-a-useful-video-brief",
+    },
+  ],
+};
+
+export const YOUTUBE_EDITING_DEPTH: Depth = {
+  craftHeading: "What YouTube editing needs beyond trimming.",
+  craft: [
+    {
+      title: "Structure before style",
+      detail:
+        "A YouTube edit needs a clear promise, a path through the topic, and an ending that gives the viewer a reason to act or keep watching. Cutting pauses helps, but structure does more. If the recording wanders, the edit has to decide what belongs in the main story, what becomes a short clip, and what should be removed entirely.",
+    },
+    {
+      title: "Audio carries trust",
+      detail:
+        "Viewers forgive simple visuals more easily than harsh audio. Dialogue cleanup, level balance, music restraint, and removing distracting noise often matter more than complex graphics. Good YouTube editing makes the voice easy to follow for a long stretch, because the audience may be listening while working, driving, or watching on a small speaker.",
+    },
+    {
+      title: "Chapters and clips",
+      detail:
+        "Long-form YouTube footage can become more than one asset when the recording is organized. A full video may need chapters, while the strongest answers can become Shorts, Reels, or follow-up clips. The edit should identify those moments during the main timeline, not after everything is exported and the best short-form openings are harder to find.",
+    },
+  ],
+  faqHeading: "Practical answers before sending YouTube footage.",
+  faqs: [
+    {
+      question: "What files should I send for a YouTube edit?",
+      answer:
+        "Send original camera or screen files, separate audio if it exists, thumbnail ideas or stills, brand assets, any slides, and a short outline of the intended video. If the recording has must-keep sections, mark them by timestamp. If you want short clips from the same footage, say that early so the editor can preserve strong standalone moments while building the longer story.",
+    },
+    {
+      question: "Can a YouTube video become short-form clips?",
+      answer:
+        "Yes, when the long recording contains clear standalone answers or visual moments. The best clips usually have their own question, context, and ending; they should not feel like a random middle slice. Planning clips during the YouTube edit is more efficient than returning later, because the editor already knows where the strongest statements, examples, and transitions live.",
+    },
+    {
+      question: "How much should be cut from a talking-head YouTube video?",
+      answer:
+        "Cut enough to keep the idea moving, but not so much that the speaker sounds unnatural. Remove long pauses, repeated starts, technical interruptions, and tangents that do not support the topic. Keep useful breaths and human rhythm where they help the viewer follow. A good YouTube edit feels intentional, not frantic, because people stay for clarity and usefulness as much as speed.",
+    },
+    {
+      question: "When does a YouTube edit need extra graphics?",
+      answer:
+        "Use graphics when they explain something the footage or voice cannot carry alone: names, steps, screenshots, diagrams, product details, or important quotes. Do not add motion simply to make the timeline look busy. If a viewer can understand the point from the voice and footage, the cleaner edit may be stronger. If the topic is technical, supplied references and screenshots make graphics more accurate.",
+    },
+  ],
+  relatedHeading: "Related services for long-form video.",
+  related: [
+    {
+      title: "Content Repurposing",
+      detail: "Turn long recordings into clips, summaries, and social cuts.",
+      href: "/services/content-repurposing-service-miami",
+    },
+    {
+      title: "Video Podcast Editing",
+      detail: "Edit conversation-based episodes and clips from supplied recordings.",
+      href: "/services/video-podcast-editing-service-miami",
+    },
+    {
+      title: "How to Repurpose Long Form",
+      detail: "A guide for turning one recording into several useful assets.",
+      href: "/guides/how-to-repurpose-long-form-video-into-reels",
+    },
+  ],
+};
