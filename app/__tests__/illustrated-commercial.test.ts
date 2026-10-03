@@ -11,10 +11,29 @@ import { site } from "@/lib/site";
 import { REAL_ESTATE_PLAN_VISUALS } from "@/lib/real-estate-plan-visuals";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
+import { ALaCarteSection } from "@/components/a-la-carte-section";
+import { packagesCopy } from "@/lib/packages";
+import { aLaCarteVisual } from "@/lib/a-la-carte-visuals";
 
 const escape = (s: string) => s.replace(/&/g, "&amp;").replace(/'/g, "&#x27;").replace(/"/g, "&quot;");
 
 describe.each(["en", "es"] as const)("illustrated commercial content (%s)", locale => {
+  it("retains all single-service names, notes, destinations and preparation without client rendering", () => {
+    const html = renderToStaticMarkup(React.createElement(ALaCarteSection, { locale }));
+    const hashes = packagesCopy(locale).aLaCarte.items.map(item => {
+      const scene = aLaCarteVisual(item.id, locale);
+      expect(html).toContain(escape(item.title));
+      if (item.note) expect(html).toContain(escape(item.note));
+      expect(html).toContain(`href="${item.href ?? (locale === "es" ? "/es/contacto" : "/contact")}"`);
+      expect(html).toContain(`data-cta="a_la_carte_${item.id}"`);
+      expect(html).toContain(escape(scene.preparation));
+      return createHash("sha256").update(readFileSync(`public${scene.image}`)).digest("hex");
+    });
+    expect(new Set(hashes).size).toBe(6);
+    expect(html).toContain("<noscript>");
+    expect(html).toContain(locale === "es" ? "Ilustraciones conceptuales creadas con IA." : "Concept illustrations created with AI.");
+  });
+
   it("keeps every audience destination and original explanation in served HTML", () => {
     const html = renderToStaticMarkup(React.createElement(AudienceRouter, { locale }));
     for (const lane of AUDIENCE_LANES[locale].lanes) {

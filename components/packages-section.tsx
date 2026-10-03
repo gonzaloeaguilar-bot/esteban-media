@@ -1,13 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { packageRoutes } from "@/lib/package-routes";
 import { useState } from "react";
 import { ArrowRight, Check, Mail, MessageCircle, Phone } from "lucide-react";
 
 import RailFaq from "@/vendor/rail-kit/RailFaq";
-import { Camera, Gauge, Map as MapIcon, Sparkles, Wand2, Workflow } from "lucide-react";
+import { ALaCarteSection } from "@/components/a-la-carte-section";
 import RailPrice from "@/vendor/rail-kit/RailPrice";
 import { Container } from "@/components/ui/container";
 import { RealEstatePlansSection } from "@/components/real-estate-plans-section";
@@ -24,25 +23,6 @@ import {
 } from "@/lib/packages";
 import { entityIds } from "@/lib/entity-schema";
 import { absoluteUrl, site } from "@/lib/site";
-
-/* The icon medallions are gone on purpose: a black rounded-square tile per row
-   (and a sparkle for "IA") is the stock SaaS card device, and the chooser is
-   now a compact list. lib/packages.ts still carries the `icon` field for any
-   future surface that wants one. */
-
-/**
- * The icon each a-la-carte item already named in lib/packages.ts and that no
- * surface had ever rendered — the file says so: "still carries the `icon` field
- * for any future surface that wants one". This is that surface.
- */
-const CARTE_GLYPH = {
-  sparkles: Sparkles,
-  camera: Camera,
-  wand: Wand2,
-  map: MapIcon,
-  gauge: Gauge,
-  workflow: Workflow,
-} as const;
 
 export function PackagesSection({ locale }: { locale: Locale }) {
   const copy = packagesCopy(locale);
@@ -227,50 +207,7 @@ export function PackagesSection({ locale }: { locale: Locale }) {
           section directly under the four packages. */}
       <RealEstatePlansSection locale={locale} />
 
-      {/* 3. A la carte. */}
-      <section className="em-pk-carte" aria-labelledby="em-pk-carte-title" data-section="a_la_carte">
-        <Container size="xl">
-          <p className="em-pk-eyebrow">{copy.aLaCarte.eyebrow}</p>
-          <h2 id="em-pk-carte-title" className="em-pk-title">
-            {copy.aLaCarte.title}
-          </h2>
-          <p className="em-pk-lead">{copy.aLaCarte.lead}</p>
-          {/* Tried RailTiles here and reverted it, on purpose.
-              The repo vendors 92 kit components and uses 5, so a tile grid
-              looked like the obvious adoption. It is not: the kit's own
-              docstring warns a tile truncates past about eleven characters, and
-              at 176x56px every label cut — "Website, funnel and competit…",
-              "Operations automation —…". Raising an adoption number is not worth
-              a section nobody can read.
-
-              What the attempt DID find, and what is fixed here: two of these six
-              had no href and rendered as dead <div>s nobody could click. */}
-          <ul className="em-pk-carte__grid" role="list" data-em-reveal>
-            {copy.aLaCarte.items.map((item) => {
-              const Glyph = CARTE_GLYPH[item.icon as keyof typeof CARTE_GLYPH];
-              const inner = (
-                <>
-                  {Glyph ? (
-                    <Glyph className="em-pk-carte__glyph size-5" aria-hidden="true" />
-                  ) : null}
-                  <span className="em-pk-carte__title">{item.title}</span>
-                  {item.note && <span className="em-pk-carte__note">{item.note}</span>}
-                  <ArrowRight className="em-pk-carte__go size-4" aria-hidden="true" />
-                </>
-              );
-              // "Quoted per shoot" is an invitation to ask, not a dead end.
-              const href = item.href ?? (locale === "es" ? "/es/contacto" : "/contact");
-              return (
-                <li key={item.id} data-em-reveal>
-                  <Link href={href} className="em-pk-carte__item" data-cta={`a_la_carte_${item.id}`}>
-                    {inner}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </Container>
-      </section>
+      <ALaCarteSection locale={locale} />
 
       {/* 4. The three steps. */}
       <section className="em-pk-steps" aria-labelledby="em-pk-steps-title" data-section="quote_process">

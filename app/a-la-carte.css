@@ -1,0 +1,78 @@
+/* Esteban's tactile service collection. Disclosure behavior stays in Rail. */
+.em-carte{padding:60px 0 48px;background:#f7f0e6;color:#172322;scroll-margin-top:100px}
+.em-carte-intro{max-width:720px}
+.em-carte-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;list-style:none;padding:0;margin:30px 0 0;align-items:start}
+.em-carte-card{min-width:0;background:#fffaf3;border:1px solid #d6cabc;border-radius:20px;overflow:hidden;box-shadow:0 5px 0 #e6dacb}
+.em-carte-disclosure{padding:0;margin:0;border:0;border-radius:0;background:transparent}
+.em-carte-disclosure .rail-disclosure__head{padding:0;border:0}
+.em-carte-disclosure .rail-disclosure__toggle{display:block;width:100%;padding:0;border:0;border-radius:0;background:transparent;color:inherit;text-align:left;cursor:pointer;touch-action:pan-y}
+.em-carte-disclosure .rail-disclosure__summary{display:block;width:100%;white-space:normal}
+.em-carte-disclosure .rail-disclosure__chevron{display:none}
+.em-carte-art{display:block;position:relative;overflow:hidden;background:#f4eade;isolation:isolate}
+.em-carte-art img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:contain;transform-origin:50% 70%}
+.em-carte-copy{display:flex;flex-direction:column;padding:18px 20px 12px;gap:10px;min-height:177px}
+.em-carte-title{font:25px/1.16 var(--font-serif,Georgia,serif);letter-spacing:-.02em}
+.em-carte-note{font-size:14px;font-weight:400;line-height:1.5;color:#655b53}
+.em-carte-hint{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:44px;font-size:14px;line-height:1.4;color:#5b5046;margin-top:auto}
+.em-carte-hint svg{flex-shrink:0}
+.em-carte-disclosure[data-rail-open] .em-carte-hint svg{transform:rotate(45deg)}
+.em-carte-disclosure .rail-disclosure__panel{padding:0}
+.em-carte-disclosure .rail-disclosure__panel[hidden]{display:none}
+.em-carte-preparation{padding:16px 20px;background:#e7eee6;border-top:1px solid #cbd7c8}
+.em-carte-preparation p{margin:0;font-size:16px;line-height:1.55;color:#233b31}
+.em-carte-link{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:49px;margin:0 20px;padding:12px 0;color:#9f3c27;border-top:1px solid #ded3c5;text-decoration:none;font-size:15px;font-weight:600;line-height:1.4}
+.em-carte-link svg{flex-shrink:0}
+.em-carte :is(button,a):focus-visible{outline:3px solid #9f3c27;outline-offset:-4px;border-radius:8px}
+.em-carte-credit{margin:24px 0 0;font-size:12px;line-height:1.6;color:#685b51}
+.em-carte-credit time{white-space:nowrap}
+.em-carte-effect{position:absolute;inset:0;pointer-events:none;opacity:0}
+.em-carte-disclosure[data-rail-open] .em-carte-effect{opacity:1}
+.em-carte-effect i{position:absolute;display:block}
+.em-carte-card[data-kind=create] .em-carte-effect i{width:10px;height:10px;background:#9f3c27;border:2px solid #fffaf3;border-radius:3px;bottom:12%;left:38%}
+.em-carte-card[data-kind=create] .em-carte-effect i:nth-child(2){left:48%;background:#346250}
+.em-carte-card[data-kind=create] .em-carte-effect i:nth-child(3){left:58%;background:#bc8046}
+.em-carte-card[data-kind=capture] .em-carte-effect{background:#fffaf3;opacity:0}
+.em-carte-card[data-kind=enhance] .em-carte-effect i:first-child{inset:16% 17%;border-right:2px solid #fffaf3;box-shadow:3px 0 5px #b0886470}
+.em-carte-card[data-kind=locate] .em-carte-effect i:first-child{width:24%;height:16%;left:38%;bottom:18%;border:2px solid #9f3c27;border-radius:50%;box-shadow:0 0 0 7px #fffaf370}
+.em-carte-card[data-kind=inspect] .em-carte-effect i:first-child{width:45%;left:28%;top:29%;height:2px;background:#9f3c27;box-shadow:0 0 5px #fffaf3}
+.em-carte-card[data-kind=connect] .em-carte-effect i{width:10px;height:10px;background:#fffaf3;border:2px solid #9f3c27;border-radius:50%;left:24%;top:48%}
+.em-carte-card[data-kind=connect] .em-carte-effect i:nth-child(2){left:48%}
+.em-carte-card[data-kind=connect] .em-carte-effect i:nth-child(3){left:72%}
+@media(max-width:1023px){.em-carte-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:599px){
+ .em-carte{padding:42px 0}
+ .em-carte-grid{grid-template-columns:1fr;gap:18px;margin-top:24px}
+ .em-carte-disclosure .rail-disclosure__summary{display:grid;grid-template-columns:44% minmax(0,1fr);align-items:center}
+ .em-carte-art{border-radius:12px;margin:10px 0 10px 10px}
+ .em-carte-copy{padding:15px 14px 7px;gap:6px;min-height:170px}
+ .em-carte-title{font-size:21px;line-height:1.16}
+ .em-carte-note{font-size:13px;line-height:1.45}
+ .em-carte-hint{font-size:13px;min-height:38px}
+ .em-carte-link{margin:0 16px}
+ .em-carte-preparation{padding:15px 16px}
+}
+@media(prefers-reduced-motion:no-preference){
+ .em-carte-card[data-arrived=true] .em-carte-art img{animation:em-carte-arrive 2100ms ease-in-out 2}
+ .em-carte-card .em-carte-disclosure[data-rail-open] .em-carte-art img{animation:em-carte-touch 650ms ease both}
+ .em-carte-disclosure[data-rail-open] .em-carte-preparation{animation:em-carte-reveal 320ms ease-out both}
+ .em-carte-hint svg,.em-carte-link svg{transition:transform 180ms ease}
+ .em-carte-link:hover svg{transform:translateX(4px)}
+ .em-carte-card[data-kind=create] [data-rail-open] .em-carte-effect i{animation:em-carte-dot 550ms ease both}
+ .em-carte-card[data-kind=create] [data-rail-open] .em-carte-effect i:nth-child(2){animation-delay:150ms}
+ .em-carte-card[data-kind=create] [data-rail-open] .em-carte-effect i:nth-child(3){animation-delay:300ms}
+ .em-carte-card[data-kind=capture] [data-rail-open] .em-carte-effect{animation:em-carte-shutter 650ms ease both}
+ .em-carte-card[data-kind=enhance] [data-rail-open] .em-carte-effect i:first-child{animation:em-carte-wipe 1000ms ease both}
+ .em-carte-card[data-kind=locate] [data-rail-open] .em-carte-effect i:first-child{animation:em-carte-ring 900ms ease both}
+ .em-carte-card[data-kind=inspect] [data-rail-open] .em-carte-effect i:first-child{animation:em-carte-scan 1200ms ease both}
+ .em-carte-card[data-kind=connect] [data-rail-open] .em-carte-effect i{animation:em-carte-dot 600ms ease both}
+ .em-carte-card[data-kind=connect] [data-rail-open] .em-carte-effect i:nth-child(2){animation-delay:250ms}
+ .em-carte-card[data-kind=connect] [data-rail-open] .em-carte-effect i:nth-child(3){animation-delay:500ms}
+}
+@keyframes em-carte-arrive{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px) scale(.975)}}
+@keyframes em-carte-touch{0%,100%{transform:scale(1)}45%{transform:scale(.965) rotate(-.6deg)}}
+@keyframes em-carte-reveal{from{transform:translateY(-6px)}to{transform:none}}
+@keyframes em-carte-dot{0%{opacity:0;transform:scale(.3)}65%{transform:scale(1.4)}100%{opacity:1;transform:scale(1)}}
+@keyframes em-carte-shutter{0%,100%{opacity:0}35%{opacity:.65}}
+@keyframes em-carte-wipe{from{right:80%;opacity:0}35%{opacity:1}to{right:17%;opacity:0}}
+@keyframes em-carte-ring{from{transform:scale(.35);opacity:0}40%{opacity:1}to{transform:scale(1.8);opacity:0}}
+@keyframes em-carte-scan{from{top:29%;opacity:0}25%{opacity:1}to{top:65%;opacity:0}}
