@@ -30,6 +30,7 @@
 @import "../vendor/rail-kit/rail.css";
 @import "../vendor/rail-kit/motion.css";
 @import "./illustrated-commercial.css";
+@import "./a-la-carte.css";
 
 @custom-variant dark (&:is(.dark *));
 

@@ -138,3 +138,5 @@ Production is live. This file tracks repository implementation; account/access w
 - [x] Verify source/build gates and mobile/desktop behavior. Final production evidence is recorded in the dated project vault note.
 
 - [x] Owner-requested real-estate-only visual boundary, distinct1/2/3-property plan artwork, playful touch/keyboard response and reference storage; implemented and browser-verified2026-10-03. Delivery record: `.ai/handoff.md` and Obsidian `esteban-plan-distinction-2026-10-03`.
+
+- [x] Replace à la carte text/icon tiles with six distinct playful illustrations, shared disclosures, useful preparation guidance, EN/ES source links and finite touch motion (2026-10-03 owner request).
