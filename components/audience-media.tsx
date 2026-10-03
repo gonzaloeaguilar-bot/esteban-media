@@ -1,12 +1,22 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Play, Pause } from "lucide-react";
 import RailPlayer from "@/vendor/rail-kit/RailPlayer";
 import type { AudienceLocale } from "@/lib/audience-lanes";
 
 export function AudienceVideo({ locale, alt }: { locale: AudienceLocale; alt: string }) {
+  const root = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const element = root.current;
+    if (!element) return;
+    const observer = new IntersectionObserver(entries => {
+      element.dataset.visible = String(entries.some(entry => entry.isIntersecting));
+    }, { threshold: .15 });
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
   const label = locale === "es" ? "Ver un proyecto real" : "Watch a real project";
-  return <div className="em-audience-video">
+  return <div className="em-audience-video" ref={root}>
     <RailPlayer poster={{ src: "/illustrations/business.webp", alt }} title={label} playLabel={label}
       embedUrl="https://www.youtube-nocookie.com/embed/m1PZOcutQHg?autoplay=1&playsinline=1"
       playGlyph={<Play size={22} fill="currentColor" aria-hidden="true" />} source="audience-business-video" />

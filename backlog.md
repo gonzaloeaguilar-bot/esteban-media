@@ -136,3 +136,5 @@ Production is live. This file tracks repository implementation; account/access w
 - [x] Replace text-only audience cards with coherent labeled illustrations, existing project video, clear service links and optional original explanations.
 - [x] Replace repeated oversized monthly-plan headers with an illustrated selector using the existing pricing source; retain complete terms, Spanish parity and no-JS access.
 - [x] Verify source/build gates and mobile/desktop behavior. Final production evidence is recorded in the dated project vault note.
+
+- [x] Owner-requested real-estate-only visual boundary, distinct1/2/3-property plan artwork, playful touch/keyboard response and reference storage; implemented and browser-verified2026-10-03. Delivery record: `.ai/handoff.md` and Obsidian `esteban-plan-distinction-2026-10-03`.

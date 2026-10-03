@@ -2,8 +2,8 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { AUDIENCE_LANES, type AudienceLocale } from "@/lib/audience-lanes";
-import RailPlaybill from "@/vendor/rail-kit/RailPlaybill";
 import { AudienceVideo, EditingPreview } from "@/components/audience-media";
+import { IllustratedScene } from "@/components/illustrated-scene";
 
 const visual = {
   en: {
@@ -41,7 +41,9 @@ export function AudienceRouter({ locale }: { locale: AudienceLocale }) {
             <article key={lane.id} className="em-audience-card">
               <p className="em-audience-category"><span>{String(index + 1).padStart(2, "0")}</span>{lane.who}</p>
               {index === 1 ? <AudienceVideo locale={locale} alt={v.alts[index]} /> : (
-                <RailPlaybill image={{ src: `/illustrations/${artwork[index]}.webp`, alt: v.alts[index] }} fit="artwork" source={`audience-${lane.id}`} />
+                <IllustratedScene image={`/illustrations/${artwork[index]}.webp`} alt={v.alts[index]} kind={index === 2 ? "edit" : "photo"} source={`audience-${lane.id}`} locale={locale}
+                  label={locale === "es" ? (index === 2 ? "Dale ritmo al material" : "Encuadra tu propiedad") : (index === 2 ? "Bring the edit to life" : "Frame your listing")}
+                  facts={locale === "es" ? (index === 2 ? ["Cortes, subtítulos y sonido.", "Comentarios organizados para la siguiente versión."] : ["Recorridos y Reels.", "Editados a partir de tu material."]) : (index === 2 ? ["Cuts, captions and sound.", "Clear feedback for the next version."] : ["Walkthroughs and Reels.", "Edited from your footage."])} />
               )}
               <div className="em-audience-body">
                 <h3>{v.titles[index]}</h3>
