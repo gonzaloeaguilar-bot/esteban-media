@@ -44,7 +44,7 @@ export function RealEstatePlansSection({ locale }: { locale: Locale }) {
                   `${plan.postsPerWeek} ${es ? "posts o Reels por semana" : "posts or Reels per week"}`,
                   `${c.rows.drone}: ${plan.drone === "included" ? c.values.included : c.values.addOn}`,
                 ]} />
-              <p>{es ? "Ilustración conceptual · media para propiedades" : "Concept illustration · property media"}</p>
+              <p>{es ? "Ilustración conceptual · Actualizado " : "Concept illustration · Updated "}<time dateTime="2026-10-03">{es ? "3 oct 2026" : "Oct 3, 2026"}</time></p>
             </div>
             <div className="em-plan-overview">
               <div className="em-plan-name"><h3>{name}</h3><span>{plan.properties} {es ? (plan.properties === 1 ? "propiedad / mes" : "propiedades / mes") : (plan.properties === 1 ? "property / month" : "properties / month")}</span></div>
