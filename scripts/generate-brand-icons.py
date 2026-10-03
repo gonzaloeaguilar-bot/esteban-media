@@ -18,6 +18,7 @@ brand mark changes; the generated assets are committed.
 from __future__ import annotations
 
 import subprocess
+import shutil
 import sys
 from pathlib import Path
 
@@ -33,7 +34,13 @@ GLYPH = "e"
 FONT_REGULAR = Path("/System/Library/Fonts/Supplemental/Georgia Italic.ttf")
 FONT_BOLD = Path("/System/Library/Fonts/Supplemental/Georgia Bold Italic.ttf")
 
-APP = Path(__file__).resolve().parent.parent / "app"
+PUBLIC = Path(__file__).resolve().parent.parent / "public"
+BRAND = PUBLIC / "brand"
+BRAND_NAMES = {
+    "favicon.ico": "esteban-favicon.ico",
+    "icon.svg": "esteban-icon.svg",
+    "apple-icon.png": "esteban-apple-touch.png",
+}
 
 # (px, glyph height as fraction of canvas, use bold cut)
 # Small sizes get a bolder, larger glyph so the counter stays open.
@@ -137,12 +144,15 @@ def main() -> int:
             print(f"missing font: {font_path}", file=sys.stderr)
             return 1
 
-    build_ico(APP / "favicon.ico")
-    build_svg(APP / "icon.svg")
-    _render(*APPLE_SIZE).save(APP / "apple-icon.png")
+    BRAND.mkdir(parents=True, exist_ok=True)
+    build_ico(BRAND / BRAND_NAMES["favicon.ico"])
+    build_svg(BRAND / BRAND_NAMES["icon.svg"])
+    _render(*APPLE_SIZE).save(BRAND / BRAND_NAMES["apple-icon.png"])
 
-    for name in ("favicon.ico", "icon.svg", "apple-icon.png"):
-        target = APP / name
+    # Keep the legacy URLs for bookmarks and the Organization schema logo.
+    for name, branded_name in BRAND_NAMES.items():
+        target = BRAND / branded_name
+        shutil.copyfile(target, PUBLIC / name)
         digest = subprocess.run(
             ["md5", "-q", str(target)], capture_output=True, text=True, check=True
         ).stdout.strip()

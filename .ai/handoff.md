@@ -1,3 +1,7 @@
+# Favicon cache refresh — 2026-10-03
+
+Owner reports the Vercel favicon again. Current live root assets already contain Esteban’s terracotta e; the head still declares the original /favicon.ico URL. This repair gives all browser icon declarations explicit brand-specific paths in both root locales while preserving byte-identical legacy assets for bookmarks/schema. scripts/generate-brand-icons.py owns both sets. Existing glyph legibility tests plus metadata/alias tests guard the recurrence. Browser cache is a plausible cause, not directly proven. Delivery and production evidence: Obsidian esteban-favicon-refresh-2026-10-03.
+
 # Index-watch neutral URL follow-up — 2026-10-01
 
 Branch: `feat/esteban-growth-watch-hardening`. This pass finishes Top 20 actions 18/19 by making the Search Console index-watch loop remember neutral/excluded URLs instead of only printing the current run.

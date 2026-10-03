@@ -110,6 +110,16 @@ function buildRootMetadata(locale: "en" | "es"): Metadata {
 
   return {
     metadataBase: new URL(siteUrl),
+    // New brand-specific URLs refresh browsers that cached the scaffold icon.
+    // Legacy root assets remain available for old bookmarks and schema logos.
+    icons: {
+      icon: [
+        { url: "/brand/esteban-favicon.ico", type: "image/x-icon", sizes: "16x16 32x32 48x48" },
+        { url: "/brand/esteban-icon.svg", type: "image/svg+xml", sizes: "any" },
+      ],
+      shortcut: "/brand/esteban-favicon.ico",
+      apple: { url: "/brand/esteban-apple-touch.png", type: "image/png", sizes: "180x180" },
+    },
     title: {
       default: title,
       template: `%s | ${site.name}`,
