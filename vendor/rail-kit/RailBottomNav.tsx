@@ -65,11 +65,37 @@ export default function RailBottomNav({
   useEffect(() => {
     const bar = ref.current;
     if (!bar || typeof ResizeObserver !== "function") return;
-    const observer = new ResizeObserver(() => setHeight(bar.offsetHeight));
+    /**
+     * `offsetHeight` does NOT include margin, and `--floating` lifts itself off
+     * the bottom with `margin-block-end`. Reserving only the height therefore
+     * under-reserves by exactly the lift, and a fixed bar that does not hold
+     * all of its space sits on top of the end of the page — which is where the
+     * last call to action lives, the one thing this bar exists not to cover.
+     *
+     * Measured on estebanmorenomedia.com 2026-09-28: bar 60px + 10px lift =
+     * 70px occupied, spacer 60px, and the bar covered 11 text elements on the
+     * English home and 3 on the Spanish one. The same floating dock is on
+     * gainsfromgeebs.com, so this was never one brand's bug.
+     */
+    const measure = () => {
+      const styles = getComputedStyle(bar);
+      const lift =
+        parseFloat(styles.marginBlockEnd || styles.marginBottom || "0") || 0;
+      setHeight(bar.offsetHeight + lift);
+    };
+    const observer = new ResizeObserver(measure);
     observer.observe(bar);
-    setHeight(bar.offsetHeight);
-    return () => observer.disconnect();
-  }, []);
+    // Safe-area / responsive lift changes can affect only the margin, which
+    // ResizeObserver does not observe. Keep the reserved space current.
+    window.addEventListener("resize", measure);
+    window.visualViewport?.addEventListener("resize", measure);
+    measure();
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", measure);
+      window.visualViewport?.removeEventListener("resize", measure);
+    };
+  }, [floating, className]);
 
   const shown = items.slice(0, 5);
 

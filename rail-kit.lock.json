@@ -1,6 +1,6 @@
 {
   "repo": "gonzaloeaguilar-bot/rail-kit",
-  "ref": "700d20af9ad4d02b6d8bd2c3a1941a77c1be6d7b",
+  "ref": "b7d62ca01c0078031d90a9e6afd6e568ca4be457",
   "vendorPath": "vendor/rail-kit",
   "files": {
     "Rail.tsx": "58dbed9c5a7803e79094f7e53019cc96e1579135a336725295cc11c66cbca3b2",
@@ -10,7 +10,7 @@
     "RailBenefits.tsx": "f052a29028fa19b66bf60a1a9dc421514156ec9c5ee7aa336939f491d6708f98",
     "RailBillboard.tsx": "e9482da37db1bec6ab6996d3eda3d5e60a8dcceb0a09e8df55980966c01f8d64",
     "RailBoosterCard.tsx": "c41397569479f438d16bfbe351452cc024009032070dad3f457ca6545dadfcec",
-    "RailBottomNav.tsx": "d0635686e2d486e531d7e9770b95525246aca4a2add22e0e0fe64afb306a0b6a",
+    "RailBottomNav.tsx": "ebbb5032cfa1dc9ee4bb2ead9b5874c27cc622b2c1a264131dbb58e56dca61bd",
     "RailBrandCard.tsx": "b367bc108924b4e17161ce439653b8e00052dd452dfacbad48f4f59f780b1a49",
     "RailByline.tsx": "26ca623557847cfa740c54621cfecc4df59d24dcfd4a0a654398e29ad05df927",
     "RailCard.tsx": "9c0a1a0ccc210a3ef4085a32503a313b6969f4afe8361b6389c1492649aa038c",
@@ -97,11 +97,11 @@
     "RailWelcome.tsx": "6febc3a35b5a479fcd48a6f35581a564ae3ef6368e0c33d7e9be7696da594c14",
     "find.ts": "e3598cee541671b2672b46fc443c8ca522dc2d3adc0bb7b358784fe930b60a23",
     "icons.tsx": "adc28e0518080526eb7d1154be8e340202a6543a363b79ed1621ec72c9925a44",
-    "index.ts": "5ab5f52648966821be9a80dcf3c468844698128a5cd96bc3d5b38ab04a28b488",
     "motion.css": "86af39bb17b69cd2ae87b6d0d5a9b8f1767e5b7e94246b55562440a3c7ec1400",
-    "rail.css": "13c2203e2b2df3471ae24390a6225c821d211d418d9921d2930faffea49c834f",
+    "rail.css": "b056bf00e5dd9a1eb090d8ea98f2d8fffe864c1c8684a20f19d3e63368cb9557",
     "seeded.ts": "2c6af9e4546a463996c9e915b4fcab1085cb328e8803c853e73baff5f3d96159",
     "telemetry.ts": "1358b5e08b12dfb45226c6498f11afc55566f7e042ab2776f567d6874f84657f",
-    "types.ts": "ac33e7e40c63b5918f37607e927b319784dbe7705e15bf240c73b0fdef1ee174"
+    "types.ts": "ac33e7e40c63b5918f37607e927b319784dbe7705e15bf240c73b0fdef1ee174",
+    "index.ts": "5ab5f52648966821be9a80dcf3c468844698128a5cd96bc3d5b38ab04a28b488"
   }
 }

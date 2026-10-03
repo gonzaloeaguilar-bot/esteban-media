@@ -1624,7 +1624,7 @@ html.rail-anim .em-pk-steps__list.rail-reveal.is-in li:nth-child(3) { transition
   transition: transform 0.24s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 .em-appnav[data-hidden] {
-  transform: translateY(130%);
+  transform: translateY(calc(100% + var(--rail-bottomnav-floating-lift) + 24px));
 }
 @media (prefers-reduced-motion: reduce) {
   .em-appnav { transition: none; }

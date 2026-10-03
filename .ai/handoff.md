@@ -100,3 +100,9 @@ Merge when Gonzalo says.
 2. Hero CTA sits at y=765 on a 667px viewport — below the fold, untouched across four PRs.
 3. ~65 English service pages are hand-written one-offs; extract a template before they
    can receive any of this.
+
+## 2026-10-03 — Floating navigation safe-area repair
+
+The shared floating bar inherited home-indicator padding inside its pill while cinema.css already included the inset in the outside lift. Adopted a narrow upstream rail-kit maintenance commit b7d62ca (from this consumer's existing pin), preserving all unrelated vendored components. The shared fix removes floating interior padding, preserves safe clearance outside, includes lift in the spacer and remeasures viewport changes. The hide transform now includes the lift so the shorter bar completely leaves the screen.
+
+Verified: pnpm check EXIT 0 (939 tests, 3 adoption tests, 90-route text parity); shared browser fixture passes 375x667, 390x844 and 1280x800 with 0/34/0 simulated insets, original-defect negative control fails. Local built site: height59.5/padding0, external44/spacer104, hidden top868 in viewport844, Search opens and Escape closes. Physical iPhone unverified. Evidence: /Users/gonzalo/code/nav-safearea-evidence/. Claude OAuth expired; no Claude verification. Shared main's unrelated token-map audit failure is not part of this consumer backport. Production status to be recorded after PR checks.

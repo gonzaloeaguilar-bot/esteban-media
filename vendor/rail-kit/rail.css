@@ -6464,7 +6464,10 @@ a.rail-frame__presenter-mark { text-decoration: none; }
   inset-inline-end: var(--rail-bottomnav-floating-inset, var(--_space-lg));
   inset-inline-start: var(--rail-bottomnav-floating-inset, var(--_space-lg));
   width: auto;
-  margin-block-end: var(--rail-bottomnav-floating-lift, var(--_space-lg));
+  /* A floating pill clears the home indicator outside its painted surface.
+     max() also supports brands whose lift already includes the safe area. */
+  margin-block-end: max(var(--rail-bottomnav-floating-lift, var(--_space-lg)), env(safe-area-inset-bottom, 0px));
+  padding-bottom: 0;
   border-radius: var(--rail-bottomnav-floating-radius, calc(var(--_space-4xl) * 1.25));
   background: var(--rail-bottomnav-floating-bg, var(--_bg));
   box-shadow: var(--rail-bottomnav-floating-shadow, none);
