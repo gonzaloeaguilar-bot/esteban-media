@@ -1,80 +1,63 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-
 import { Container } from "@/components/ui/container";
 import { AUDIENCE_LANES, type AudienceLocale } from "@/lib/audience-lanes";
+import RailPlaybill from "@/vendor/rail-kit/RailPlaybill";
+import { AudienceVideo, EditingPreview } from "@/components/audience-media";
 
-/**
- * "Which of these are you?" — the step social traffic never gets.
- *
- * MEASURED 2026-09-30 in GA4, 30 days:
- *
- *   m.facebook.com    21 sessions -> ALL landed on "/"
- *   l.instagram.com   11 sessions -> ALL landed on "/"
- *   facebook.com       4 sessions -> ALL landed on "/"
- *
- * Every one of the 36 social sessions arrived on the homepage, and all three of
- * the site's form starts in that window came from m.facebook.com. Facebook is the
- * channel that converts. Meanwhile the page that produced the only contact click
- * was /es/reels-para-negocios-miami, and the fourth-biggest landing page on the
- * whole site was /es/guias/ideas-de-reels-para-agentes-de-bienes-raices — with
- * ONE search impression, so that audience came from social too.
- *
- * So the pages that convert exist, social sends people who want them, and the
- * homepage linked to none of them: `grep` for all four slugs in either home page
- * returned 0. That is the leak this closes.
- *
- * ServicesStrip already routes by SERVICE (what Esteban does). This routes by
- * AUDIENCE (who the visitor is), which is a different question and the one a
- * realtor arriving from an Instagram bio link is actually asking.
- *
- * Every lane carries `data-cta`, and the section carries `data-section`, so
- * public/track.js attributes the clicks with no hand-written event — which is
- * what makes "did this work?" answerable in 28 days instead of arguable.
- */
+const visual = {
+  en: {
+    eyebrow: "Your footage. Your next move.", heading: "What are you creating?",
+    intro: "Choose your kind of project. See what your footage could become.",
+    titles: ["Give your listing a story.", "Make people stop scrolling.", "Keep your next edit moving."],
+    lines: ["Walkthroughs and Reels, edited from your footage.", "Turn the moments you already film into content.", "Extra editing help, with clear feedback rounds."],
+    alts: ["Concept illustration of a home, camera and property photographs", "Concept illustration of a cafe being filmed on a phone", "Concept illustration of an editing desk with a monitor, filmstrip and headphones"],
+    more: "What can we make?", credit: "AI-generated concept illustrations. The linked projects show published work.",
+    project: "See a real project: Homeowners", process: "See the editing process",
+  },
+  es: {
+    eyebrow: "Tu material. Tu próximo paso.", heading: "¿Qué quieres crear?",
+    intro: "Elige tu tipo de proyecto. Mira en qué podemos convertir tu material.",
+    titles: ["Dale una historia a tu propiedad.", "Haz que dejen de deslizar.", "Dale ritmo a tu próxima edición."],
+    lines: ["Recorridos y Reels a partir de lo que ya grabaste.", "Convierte lo que ya grabas en contenido.", "Apoyo de edición, con comentarios organizados."],
+    alts: ["Ilustración conceptual de una casa, una cámara y fotografías de la propiedad", "Ilustración conceptual de un café grabado con un celular", "Ilustración conceptual de una mesa de edición con monitor, película y audífonos"],
+    more: "¿Qué podemos crear?", credit: "Ilustraciones conceptuales generadas con IA. Los proyectos enlazados muestran trabajos publicados.",
+    project: "Ver un proyecto real: Homeowners", process: "Ver el proceso de edición",
+  },
+};
+const artwork = ["property", "business", "editing"];
+
 export function AudienceRouter({ locale }: { locale: AudienceLocale }) {
   const copy = AUDIENCE_LANES[locale];
-
+  const v = visual[locale];
   return (
-    <section
-      id="audience"
-      aria-labelledby="audience-heading"
-      className="border-b border-[#ddd4c8] bg-[#fbf6ef] py-14 sm:py-20"
-      data-section="audience-router"
-    >
+    <section id="audience" aria-labelledby="audience-heading" className="em-visual-audience" data-section="audience-router">
       <Container size="xl">
-        <p className="text-xs font-medium uppercase tracking-wide text-[#5a6066]">
-          {copy.eyebrow}
-        </p>
-        <h2
-          id="audience-heading"
-          className="mt-3 max-w-3xl font-serif text-4xl leading-tight sm:text-5xl"
-        >
-          {copy.heading}
-        </h2>
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
-          {copy.lanes.map((lane) => (
-            <Link
-              key={lane.href}
-              href={lane.href}
-              data-cta={`audience-${lane.id}`}
-              className="group flex flex-col rounded-2xl border border-[#d6ccc0] bg-[#f6f1ea] p-6 transition hover:border-[#101214] sm:p-7"
-            >
-              <p className="text-xs font-medium uppercase tracking-[0.14em] text-[#9f3c27]">
-                {lane.who}
-              </p>
-              <h3 className="mt-4 font-serif text-3xl leading-tight">{lane.title}</h3>
-              <p className="mt-4 text-sm leading-6 text-[#252a2d]">{lane.detail}</p>
-              <span className="mt-auto inline-flex items-center gap-2 pt-7 text-sm font-medium text-[#9f3c27]">
-                {lane.action}
-                <ArrowRight
-                  className="size-4 transition-transform group-hover:translate-x-0.5"
-                  aria-hidden="true"
-                />
-              </span>
-            </Link>
+        <p className="em-visual-eyebrow">{v.eyebrow}</p>
+        <h2 id="audience-heading" className="em-visual-heading">{v.heading}</h2>
+        <p className="em-visual-intro">{v.intro}</p>
+        <div className="em-audience-cards">
+          {copy.lanes.map((lane, index) => (
+            <article key={lane.id} className="em-audience-card">
+              <p className="em-audience-category"><span>{String(index + 1).padStart(2, "0")}</span>{lane.who}</p>
+              {index === 1 ? <AudienceVideo locale={locale} alt={v.alts[index]} /> : (
+                <RailPlaybill image={{ src: `/illustrations/${artwork[index]}.webp`, alt: v.alts[index] }} fit="artwork" source={`audience-${lane.id}`} />
+              )}
+              <div className="em-audience-body">
+                <h3>{v.titles[index]}</h3>
+                <p>{v.lines[index]}</p>
+                <Link href={lane.href} data-cta={`audience-${lane.id}`} className="em-visual-action">
+                  {lane.action}<ArrowRight aria-hidden="true" size={18} />
+                </Link>
+                <details><summary>{v.more}</summary><p>{lane.title} {lane.detail}</p></details>
+                {index === 0 && <Link className="em-visual-credit" href={locale === "es" ? "/es/portafolio/homeowners" : "/portfolio/homeowners"} data-cta="audience_homeowners">{v.project}</Link>}
+                {index === 1 && <a className="em-visual-credit" href="https://www.youtube.com/watch?v=m1PZOcutQHg" data-cta="audience_business_project">Bar Door Monkey · YouTube</a>}
+                {index === 2 && <details className="em-process-details"><summary>{v.process}</summary><EditingPreview locale={locale} /></details>}
+              </div>
+            </article>
           ))}
         </div>
+        <p className="em-illustration-credit">{v.credit}</p>
       </Container>
     </section>
   );

@@ -130,3 +130,9 @@ Production is live. This file tracks repository implementation; account/access w
 - Deepened bilingual Fort Lauderdale cost & provider comparison guide (`/guides/video-production-cost-fort-lauderdale` and `/es/guias/cuanto-cuesta-la-produccion-de-video-en-fort-lauderdale`) with direct answer-first structure, small-business editing rates ($100 starter, $640 monthly, $800 on-location day), reels/social media delivery criteria, raw footage handoff specifications, and 4 FAQs per locale with FAQPage JSON-LD.
 - Updated `/fort-lauderdale` landing page to reflect Fort Lauderdale as primary home base, highlighting published editing packages, short-form reels focus, and verified portfolio proofs.
 - Verified text-parity snapshot, demand-page regression tests (62 tests), analytics gate, and full build validation.
+
+## 2026-10-03 — Visual audience choices and monthly plans
+
+- [x] Replace text-only audience cards with coherent labeled illustrations, existing project video, clear service links and optional original explanations.
+- [x] Replace repeated oversized monthly-plan headers with an illustrated selector using the existing pricing source; retain complete terms, Spanish parity and no-JS access.
+- [x] Verify source/build gates and mobile/desktop behavior. Final production evidence is recorded in the dated project vault note.

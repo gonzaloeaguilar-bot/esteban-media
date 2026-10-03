@@ -1,0 +1,24 @@
+{
+  "purpose": "AI-generated concept artwork, not client project photography",
+  "encoding": "cwebp quality 86; original complete 1536 by 1024 frame preserved",
+  "assets": [
+    {
+      "path": "public/illustrations/business.webp",
+      "sha256": "ec12291ffadfdc878bd8756d0c0285ac6b3deba74ccf68c522a3867997fb7fe4",
+      "bytes": 265728,
+      "source_sha256": "302b0287a2ee21742409919511157ceb266d0cdbf0dc1fcfa471c5b59a902c47"
+    },
+    {
+      "path": "public/illustrations/editing.webp",
+      "sha256": "d47fc1f200e03272fb326e1d5b952f8e69860b307297520e1a32c71f53f8d217",
+      "bytes": 220488,
+      "source_sha256": "d69b7bd8cf132bd014acfa87d7e107c32eec22f85c78abf2ab84986aeaa80de2"
+    },
+    {
+      "path": "public/illustrations/property.webp",
+      "sha256": "5b9810de9cd4976c3f076c093ce16fcf0f86b583e581fcd6ef32b8530a08289d",
+      "bytes": 248542,
+      "source_sha256": "f9ff17f105b12d643ebc7d0e83bdc697740625cf25393c49367d9b2ca79f7a12"
+    }
+  ]
+}
