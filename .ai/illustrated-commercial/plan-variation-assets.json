@@ -1,0 +1,27 @@
+{
+  "property": {
+    "path": "public/illustrations/property.webp",
+    "bytes": 248542,
+    "sha256": "5b9810de9cd4976c3f076c093ce16fcf0f86b583e581fcd6ef32b8530a08289d"
+  },
+  "property-plus": {
+    "path": "public/illustrations/property-plus.webp",
+    "bytes": 268764,
+    "sha256": "d47320748914a67f46fca3431c328f1c0cffef237b1ffc2bd2a1f3e5d187f492"
+  },
+  "property-premium": {
+    "path": "public/illustrations/property-premium.webp",
+    "bytes": 287338,
+    "sha256": "449397f49a90ea2b344ef47835f88fdb9ba4b6cfe580fb9f8c2ccee2496cae12"
+  },
+  "business": {
+    "path": "public/illustrations/business.webp",
+    "bytes": 265728,
+    "sha256": "ec12291ffadfdc878bd8756d0c0285ac6b3deba74ccf68c522a3867997fb7fe4"
+  },
+  "editing": {
+    "path": "public/illustrations/editing.webp",
+    "bytes": 220488,
+    "sha256": "d47fc1f200e03272fb326e1d5b952f8e69860b307297520e1a32c71f53f8d217"
+  }
+}

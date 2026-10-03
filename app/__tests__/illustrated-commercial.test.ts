@@ -8,6 +8,9 @@ import { REAL_ESTATE_PLANS } from "@/lib/pricing";
 import { realEstatePlansCopy, realEstateTerms, realEstatePlanName } from "@/lib/real-estate-plans";
 import { whatsappHref } from "@/lib/packages";
 import { site } from "@/lib/site";
+import { REAL_ESTATE_PLAN_VISUALS } from "@/lib/real-estate-plan-visuals";
+import { createHash } from "node:crypto";
+import { readFileSync } from "node:fs";
 
 const escape = (s: string) => s.replace(/&/g, "&amp;").replace(/'/g, "&#x27;").replace(/"/g, "&quot;");
 
@@ -19,7 +22,7 @@ describe.each(["en", "es"] as const)("illustrated commercial content (%s)", loca
       expect(html).toContain(`data-cta="audience-${lane.id}"`);
       expect(html).toContain(escape(lane.detail));
     }
-    for (const name of ["property", "business", "editing"]) expect(html).toContain(`/illustrations/${name}.webp`);
+    for (const name of ["property", "business", "editing"]) expect(decodeURIComponent(html)).toContain(`/illustrations/${name}.webp`);
     expect(html).not.toContain("<iframe"); // Third-party video waits for an actual click.
   });
 
@@ -35,5 +38,17 @@ describe.each(["en", "es"] as const)("illustrated commercial content (%s)", loca
     for (const term of [...realEstateTerms(locale), ...c.everyPlan.items]) expect(html).toContain(escape(term));
     expect(html.match(/class="em-plan-details"/g)).toHaveLength(3);
     expect(html).not.toMatch(/<article[^>]*hidden/); // All plans work without hydration.
+    expect(html).toContain(locale === "es" ? "Planes mensuales de bienes raíces." : "Monthly real estate plans.");
+    expect(html).toContain(locale === "es" ? "Solo para bienes raíces" : "Real estate only");
   });
+});
+
+it("ties three different creative files to the source property counts and drone inclusion", () => {
+  const hashes = REAL_ESTATE_PLANS.map(plan => {
+    const visual = REAL_ESTATE_PLAN_VISUALS[plan.id];
+    expect(visual.illustratedProperties).toBe(plan.properties);
+    expect(visual.includedDrone).toBe(plan.drone === "included");
+    return createHash("sha256").update(readFileSync(`public${visual.image}`)).digest("hex");
+  });
+  expect(new Set(hashes).size).toBe(REAL_ESTATE_PLANS.length);
 });
