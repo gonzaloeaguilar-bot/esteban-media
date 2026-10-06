@@ -39,6 +39,25 @@ const content: GeoServicePageContent = {
         "One Reel might need to introduce a business, another to answer a question, another to support a paid ad, and another to remind existing followers. Those are different edits, not just different lengths. Naming the intent before editing keeps the call to action from feeling pasted on.",
     },
   ],
+  // Citable depth, translated from copy Esteban already publishes in Spanish at
+  // /es/editor-de-reels-miami. Nothing new is claimed here.
+  depth: [
+    {
+      question: "What makes a Miami Reel different from a generic video?",
+      body:
+        "Miami-Dade is full of visually strong businesses: restaurants, wellness, real estate, events, products, professional services and bilingual brands. A generic Reel loses its force when it does not show the place, the person, the product or the context that makes the offer believable. The edit has to keep those details while removing pauses and repetitions. The aim is not to fill seconds, it is to let a viewer understand quickly why this business is worth a message, a visit or a call. That is a decision about what to keep, and it is made clip by clip rather than by a template.",
+    },
+    {
+      question: "How does one long recording become several Reels?",
+      body:
+        "An interview, a site visit, an event or a demonstration can be split into separate clips when it genuinely contains separate ideas. Each Reel then needs its own opening, one main point and a simple close. Cutting a recording into equal-length pieces almost never produces good videos, because the pieces inherit no structure of their own. To help the edit, mark the moments that cannot be missing and name the themes worth becoming their own clip: a frequent question, a before and after, a result, an objection, an offer, or one specific detail of the product.",
+    },
+    {
+      question: "When is a bilingual version worth asking for?",
+      body:
+        "A bilingual version helps when the business serves both Spanish-speaking and English-speaking customers. It does not always mean duplicating the video: subtitles, supporting on-screen text, or a second short version are often enough, and they cost less than a full second edit. The decision depends on the audience, the channel and the message. For a local offer, the clarity of the text and whether it is readable on a phone matter more than mixing both languages without a concrete reason to do so.",
+    },
+  ],
   faqHeading: "Questions before hiring a Miami Reels editor.",
   faqs: [
     {

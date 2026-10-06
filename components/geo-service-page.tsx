@@ -34,6 +34,16 @@ export type GeoServicePageContent = {
   areaServed: string;
   craftHeading: string;
   craft: readonly CraftCard[];
+  /**
+   * Citable depth: 100-180 words under a question-shaped heading.
+   *
+   * The craft cards above are ~50 words each, which reads fine and is too thin
+   * to be a citable unit — measured 2026-10-06 with scripts/dual-audience-gate.mjs,
+   * every English service page scored ZERO sections in the 100-180 band while
+   * the Spanish equivalents scored three. Optional, so a page without published
+   * source material stays honest rather than padded.
+   */
+  depth?: readonly { question: string; body: string }[];
   faqHeading: string;
   faqs: readonly ServiceFaq[];
   relatedHeading: string;
@@ -165,6 +175,32 @@ export function GeoServicePage({ content }: { content: GeoServicePageContent }) 
         cards={content.craft}
         sectionId={`${content.path.split("/").pop()}-craft`}
       />
+      {content.depth && content.depth.length > 0 ? (
+        <section
+          className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20"
+          data-section="service-depth"
+        >
+          <Container size="xl">
+            <div className="mx-auto max-w-4xl space-y-10">
+              <div className="border-b border-[#ddd4c8] pb-6">
+                <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">
+                  Scope and technical criteria
+                </p>
+                <h2 className="mt-3 font-serif text-3xl sm:text-4xl">
+                  {content.craftHeading}
+                </h2>
+              </div>
+              {content.depth.map((entry) => (
+                <article key={entry.question} className="space-y-4">
+                  <h3 className="font-serif text-2xl sm:text-3xl">{entry.question}</h3>
+                  <p className="text-base leading-8 text-[#252a2d]">{entry.body}</p>
+                </article>
+              ))}
+            </div>
+          </Container>
+        </section>
+      ) : null}
+
       <ServiceFaqs heading={content.faqHeading} faqs={content.faqs} />
       <ServiceInquiryRail service={content.inquiry} />
       <ServiceRelated heading={content.relatedHeading} services={content.related} />
