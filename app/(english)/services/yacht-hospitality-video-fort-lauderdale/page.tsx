@@ -143,6 +143,76 @@ export default function YachtHospitalityVideoFortLauderdalePage() {
         </Container>
       </section>
 
+
+      {/*
+        Citable depth for the marine page.
+        Measured 2026-10-06 with scripts/dual-audience-gate.mjs: this page scored
+        ZERO sections in the 100-180 word band — every unit was 46-90 words.
+        It was first reported as blocked on new facts from Esteban. That was
+        wrong: the page already publishes the material, fragmented across three
+        craft cards and five FAQ answers, all below citable weight.
+        These three sections expand the craft cards' own argument — what the
+        piece has to show, how it should move, and what it must still let a
+        buyer inspect. They deliberately do NOT restate the FAQ answers, which
+        already cover footage, sound, drone handling, formats and handoff.
+      */}
+      <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20" data-section="yacht-depth">
+        <Container size="xl">
+          <div className="mx-auto max-w-4xl space-y-10">
+            <div className="border-b border-[#ddd4c8] pb-6">
+              <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">
+                Scope and technical criteria
+              </p>
+              <h2 className="mt-3 font-serif text-3xl sm:text-4xl">
+                How a charter edit stays desirable and still answerable
+              </h2>
+            </div>
+
+            <article className="space-y-4">
+              <h3 className="font-serif text-2xl sm:text-3xl">What does a yacht promo actually have to show?</h3>
+              <p className="text-base leading-8 text-[#252a2d]">
+                A yacht promo carries two jobs at once: show the vessel accurately, and make the
+                day feel worth booking. Wide exterior passes establish the boat, but the material
+                that actually supports a booking is usually closer in — guests boarding, towels,
+                catering, shaded seating, clean cabins, and the water moving past the hull. The
+                edit has to connect those details to the vessel itself. When it does not, the
+                piece drifts into a vague lifestyle montage that could belong to any boat, and a
+                charter buyer learns nothing they can act on. The test is simple: after watching,
+                can a viewer say which vessel this was and what a day on it would be like.
+              </p>
+            </article>
+
+            <article className="space-y-4">
+              <h3 className="font-serif text-2xl sm:text-3xl">How should a marine edit move between slow and fast?</h3>
+              <p className="text-base leading-8 text-[#252a2d]">
+                Pace is not one setting across a charter piece. Interiors and deck spaces need
+                slower shots so a viewer can read the layout, the finish and how much room there
+                actually is; water sports, aerial passes and arrival moments survive much faster
+                cutting and lose energy without it. Mixing those two rhythms deliberately is most
+                of what makes a charter edit feel expensive rather than merely busy. The risk runs
+                both ways: cut the interiors at social-media speed and the vessel becomes
+                unreadable, and hold the action shots too long and the day stops feeling like
+                something worth being on board for.
+              </p>
+            </article>
+
+            <article className="space-y-4">
+              <h3 className="font-serif text-2xl sm:text-3xl">Can a polished edit still answer a buyer&rsquo;s questions?</h3>
+              <p className="text-base leading-8 text-[#252a2d]">
+                A charter edit can feel polished and still answer the practical things a broker or
+                guest needs: the vessel name, the layout, what the passenger experience is, where
+                it runs from, and how a booking is actually made. Those are not an interruption to
+                the atmosphere; they are the reason the atmosphere is being shown. The aim is to
+                make the offer easier to inspect, not only to make the footage prettier. Where a
+                detail is commercially sensitive — specifications, pricing, availability — it stays
+                the operator&rsquo;s to confirm and publish, and the edit leaves room for it rather
+                than inventing it.
+              </p>
+            </article>
+          </div>
+        </Container>
+      </section>
+
       <ServiceCraft
         heading={YACHT_HOSPITALITY_DEPTH.craftHeading}
         cards={YACHT_HOSPITALITY_DEPTH.craft}
