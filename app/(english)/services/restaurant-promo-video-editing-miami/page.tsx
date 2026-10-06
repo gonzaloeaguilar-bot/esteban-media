@@ -189,12 +189,17 @@ export default function RestaurantPromoVideoEditingMiamiPage() {
               Build a food reel around the moments people can see.
             </h2>
             <div className="mt-8 space-y-6 text-base leading-8 text-[#252a2d]">
+              {/* Split into two question-shaped subsections on 2026-10-06: the
+                  block measured 271 words, over the citable ceiling. The prose
+                  is untouched — only headings were added, so no claim moved. */}
+              <h3 className="font-serif text-2xl">What should the reel be built around?</h3>
               <p>
                 A useful restaurant promo starts with a clear subject: a signature dish, a new menu item, a beverage ritual, a dining moment, or a short message from the team. For short-form viewing, the edit can lead with the most immediate visual detail—steam, a pour, a cut, a finish, or a plated reveal—then give the viewer enough context to understand what is being served and what the restaurant wants them to do next.
               </p>
               <p>
                 Pacing is shaped by the footage rather than a fixed formula. Close shots of hands, ingredients, texture, and service can sit beside wider shots that establish the room. The result can move quickly without making the food hard to read: each clip earns its place by showing preparation, atmosphere, or the menu message. For ideas that help plan those shots before filming, see the <Link href="/guides/video-content-ideas-for-restaurants" className="underline underline-offset-4 hover:text-[#9f3c27]">restaurant video content guide</Link>.
               </p>
+              <h3 className="mt-8 font-serif text-2xl">How do colour and a local brief affect the edit?</h3>
               <p>
                 Food color treatment should support appetite and natural texture, not turn a dish into an artificial color claim. Exposure, white balance, contrast, and saturation are reviewed across supplied clips so skin tones, table light, sauces, and ingredients feel consistent within the edit. The available source material sets the boundary: this service edits <strong>client-supplied footage</strong>, and any capture needs are scoped separately rather than assumed.
               </p>
@@ -298,6 +303,92 @@ export default function RestaurantPromoVideoEditingMiamiPage() {
                 <ArrowRight className="size-3.5" aria-hidden="true" />
               </span>
             </Link>
+          </div>
+        </Container>
+      </section>
+
+
+      {/*
+        Craft depth, at parity with the Spanish page.
+        Measured 2026-10-06 with scripts/dual-audience-gate.mjs: the Spanish
+        restaurant page PASSED with three sections in the 100-180 word citable
+        band; this English page FAILED with zero, because every section was
+        46-90 words — thin, not long.
+        Every claim below is a translation of copy already published in Spanish
+        at /es/edicion-de-video-promocional-para-restaurantes-miami. Nothing new
+        is asserted, and the Spanish hedges are carried over deliberately: no
+        promised turnaround, no fixed revision count, and colour work is not
+        offered as a substitute for a good shot.
+      */}
+      <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20" data-section="restaurant-craft">
+        <Container size="xl">
+          <div className="mx-auto max-w-4xl space-y-10">
+            <div className="border-b border-[#ddd4c8] pb-6">
+              <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">
+                Scope and technical criteria
+              </p>
+              <h2 className="mt-3 font-serif text-3xl sm:text-4xl">
+                How a restaurant promo edit is actually put together
+              </h2>
+            </div>
+
+            <article className="space-y-4">
+              <h3 className="font-serif text-2xl sm:text-3xl">How is a dish or menu reel structured?</h3>
+              <p className="text-base leading-8 text-[#252a2d]">
+                A food reel can start from a single clear idea: a signature dish, a drink, a
+                preparation step, the atmosphere of the room, or a short message from the team.
+                The edit can open on the most immediate visual detail — steam, a knife cut, a
+                sauce, plating, or a pour — and then order the shots so the viewer understands
+                what is on offer and what the restaurant wants them to do next. There is no
+                single sequence that suits every venue. Close-ups of ingredients, hands and
+                texture can alternate with wider shots of service or the dining room. Pace is
+                set by the available footage and by the message, and a shot is never cut short
+                of the point where the dish stops reading on screen.
+              </p>
+            </article>
+
+            <article className="space-y-4">
+              <h3 className="font-serif text-2xl sm:text-3xl">How is colour handled so food keeps its natural texture?</h3>
+              <p className="text-base leading-8 text-[#252a2d]">
+                Colour work aims to keep food looking appetising while holding on to its natural
+                texture. Exposure, white balance, contrast and saturation are reviewed between
+                clips so that kitchen light, table light, sauces and ingredients feel coherent
+                inside one piece. Colour correction is not presented as a substitute for a good
+                shot, and it is not offered as a promise about how the food will perform. The
+                working basis is footage supplied by the client: phone or camera clips of
+                preparation, plating, drinks, atmosphere and pieces to camera, together with the
+                correct menu spellings and the intention behind each post. Filming needs are a
+                separate conversation and are never assumed to sit inside a remote edit.
+              </p>
+            </article>
+
+            <article className="space-y-4">
+              <h3 className="font-serif text-2xl sm:text-3xl">Which versions and on-screen text come with the edit?</h3>
+              <p className="text-base leading-8 text-[#252a2d]">
+                Scope can include a vertical 9:16 version for Instagram Reels and TikTok, plus a
+                square 1:1 version where a placement needs one. Crops are checked so the dish,
+                the product and any important text stay visible in every format. Captions or
+                short on-screen text can carry a spoken line, a menu detail, or a call to action
+                supplied by the restaurant, so the message still lands when the audio is off.
+                Text is placed to avoid covering the plate and the areas platform controls
+                usually occupy. It does not replace information the business needs to confirm
+                before publishing — prices, hours and offers stay the restaurant&rsquo;s to verify.
+              </p>
+            </article>
+
+            <article className="space-y-4">
+              <h3 className="font-serif text-2xl sm:text-3xl">How should footage be delivered, and how does review work?</h3>
+              <p className="text-base leading-8 text-[#252a2d]">
+                Delivery is clearest when folders name the dish, the date, the camera orientation
+                and the shots that cannot be dropped. Alongside the footage, a restaurant can
+                share its logo, typefaces, menu spelling, references, and the channels where the
+                piece will run. Once a draft is shared, notes work best gathered with timestamps,
+                covering shot selection, pace, on-screen text or calls to action. The number of
+                revision rounds is agreed per project rather than assumed, and no delivery
+                deadline is implied here. That order keeps feedback specific and keeps the
+                conversation on the footage and the goals that were set at the start.
+              </p>
+            </article>
           </div>
         </Container>
       </section>
