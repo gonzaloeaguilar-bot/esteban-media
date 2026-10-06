@@ -15,21 +15,39 @@ import { ServicesStrip } from "@/components/services-strip";
 export const metadata: Metadata = {
   // Keep the observed homepage intent in one bounded contract: video editing,
   // website designer support, and scoped video production are all confirmed offerings.
+  //
+  // CTR TEST, started 2026-10-06. This is a test, not a fix — causation is not
+  // established and the ceiling is small.
+  //
+  // Baseline, live Search Console 2026-07-06..2026-10-04, homepage:
+  //   "video production services"        40 impr, avg position 1.0, 0 clicks
+  //   "fort lauderdale video production" 19 impr, avg position 1.0, 0 clicks
+  //   "video production service"         16 impr, avg position 1.0, 0 clicks
+  // 75 impressions at position 1 and zero clicks, over 90 days.
+  //
+  // The old title led with a brand name the searcher does not know, and the old
+  // description made no offer ("View our portfolio, services, and contact us").
+  // The new pair leads with the service and the city the queries actually use,
+  // keeps the brand, and states the one real differentiator — Spanish-first.
+  //
+  // Read the same three queries in GSC after 2026-11-06. If clicks are still
+  // zero, the snippet was not the constraint and this should be reverted rather
+  // than iterated: 0.8 impressions a day cannot carry more work than this.
   title: {
     absolute:
-      "Esteban Moreno Media | Fort Lauderdale Video Producer",
+      "Fort Lauderdale Video Production & Editing | Esteban Moreno",
   },
   description:
-    "Esteban Moreno Media creates professional video content for Fort Lauderdale businesses. View our portfolio, services, and contact us to discuss your project.",
+    "Video editing, on-location capture and social content for businesses in Fort Lauderdale, Broward and Miami-Dade. Spanish-first, English available.",
   openGraph: {
-    title: "Esteban Moreno Media | Fort Lauderdale Video Producer",
+    title: "Fort Lauderdale Video Production & Editing | Esteban Moreno",
     description:
-      "Esteban Moreno Media creates professional video content for Fort Lauderdale businesses. View our portfolio, services, and contact us to discuss your project.",
+      "Video editing, on-location capture and social content for businesses in Fort Lauderdale, Broward and Miami-Dade. Spanish-first, English available.",
   },
   twitter: {
-    title: "Esteban Moreno Media | Fort Lauderdale Video Producer",
+    title: "Fort Lauderdale Video Production & Editing | Esteban Moreno",
     description:
-      "Esteban Moreno Media creates professional video content for Fort Lauderdale businesses. View our portfolio, services, and contact us to discuss your project.",
+      "Video editing, on-location capture and social content for businesses in Fort Lauderdale, Broward and Miami-Dade. Spanish-first, English available.",
   },
 };
 
