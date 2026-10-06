@@ -745,3 +745,326 @@ export const YOUTUBE_EDITING_DEPTH: Depth = {
     },
   ],
 };
+
+/* ------------------------------------------------------------------------- *
+ * The 2026-10-06 niche batch.
+ *
+ * Five verticals the site had no page for, each picked because it is a different
+ * BUYER rather than a different noun: a medical practice that is not a dentist, a
+ * creator who is their own client, an agency or photographer who subcontracts the
+ * edit, a salon, and a detail shop. The discipline is the same as the pilot above
+ * — three craft cards, four question-shaped FAQs, one real fact per section, and
+ * nothing invented. Each entry also carries the depth that sits behind a native
+ * <details> fold on its page, so the words are in the served HTML whether or not
+ * the fold is open.
+ * ------------------------------------------------------------------------- */
+
+export const MEDICAL_PRACTICE_DEPTH: Depth = {
+  craftHeading: "What a clinic shoot has to settle before the camera is out.",
+  craft: [
+    {
+      title: "Authorisation first, footage second",
+      detail:
+        "Showing a recognisable patient in marketing is governed by HIPAA, and what it asks for is a signed marketing authorisation held by the practice before anything is published. Nobody downstream can supply it later, so the clips worth filming are the ones already cleared. Practices that raise it at booking end up with usable patient footage; practices that raise it at the edit end up with a room tour.",
+    },
+    {
+      title: "Movement needs a wider frame",
+      detail:
+        "Gait, range of motion, a mobility screen, an adjustment on the table: the subject is a body travelling through space, so the frame has to contain the whole limb through the whole movement. That means a locked tripod and a step back rather than a tight handheld shot that chases the motion and loses the joint. One clean wide take beats five drifting close ones.",
+    },
+    {
+      title: "A treatment room is a loud room",
+      detail:
+        "Table motors, an ultrasound unit, an autoclave, the air handler and a hallway full of people all land in the microphone even when nobody notices them live. Getting the microphone close to whoever is speaking fixes most of it, and filming the talking part in the quietest room rather than the busiest one fixes the rest. Noise recorded behind a voice cannot be subtracted cleanly afterwards.",
+    },
+  ],
+  faqHeading: "Practical answers before a medical practice shares footage.",
+  faqs: [
+    {
+      question: "Do we need written authorisation before sending patient footage?",
+      answer:
+        "Yes, whenever a patient can be recognised. HIPAA treats marketing use of identifiable patient information as something the patient has to authorise in writing, and that authorisation belongs to the practice. Footage of the team, the rooms, the equipment, a demonstration on a staff member, or a hands-only shot where nobody is identifiable does not raise the same question. Flagging which clips are cleared when you send them keeps the edit from being built around a shot that can never be published.",
+    },
+    {
+      question: "What can a chiropractor or physical therapist film without a production day?",
+      answer:
+        "More than most expect. A phone on a tripod at chest height covers a clinician explaining one complaint to camera, a demonstration of a single exercise filmed wide enough to see the whole body, and a short tour of the room a nervous first-timer is picturing. The two things worth controlling are light falling on the face rather than behind it, and one quiet room for anything with talking in it.",
+    },
+    {
+      question: "How should a treatment explainer for a clinic be structured?",
+      answer:
+        "One complaint per video, named in the opening line, because somebody searching for help with sciatica will not sit through a general practice overview. After that the useful order is the question patients actually ask at the front desk, the answer in ordinary language, and what the first visit involves. The picture has to show whatever the words describe, which is why a demonstration beats a clinician gesturing at a diagram.",
+    },
+    {
+      question: "Can a clinic publish a patient's progress on social media?",
+      answer:
+        "With that patient's written authorisation, and with care about what the comparison implies. A progress story told as the result any patient should expect is a claim the practice has to be able to stand behind, so the safer framing is one person's experience in their own words. On the picture side, two clips only compare if the camera position, distance and lighting match, otherwise part of the difference belongs to the camera.",
+    },
+  ],
+  relatedHeading: "Related services for clinics and healthcare brands.",
+  related: [
+    {
+      title: "Dental Video Marketing",
+      detail: "The same consent discipline, applied where the mouth is the subject.",
+      href: "/services/dental-video-marketing-south-florida",
+    },
+    {
+      title: "Wellness & Spa Video",
+      detail: "Treatment rooms and calm-room atmosphere for wellness brands.",
+      href: "/services/wellness-spa-video-marketing-miami",
+    },
+    {
+      title: "Remote Editing Handoff",
+      detail: "How to package clinic clips so nothing is missing when editing starts.",
+      href: "/guides/remote-video-editing-handoff",
+    },
+  ],
+};
+
+export const CREATOR_DEPTH: Depth = {
+  craftHeading: "What a creator's edit has to get right every single week.",
+  craft: [
+    {
+      title: "The interface eats your corners",
+      detail:
+        "A vertical video is 1080x1920, but the app draws the username, caption, audio strip and the whole column of action buttons on top of it. Captions and on-screen text that land in those bands get covered on a phone while looking perfect in the editor. Keeping type in the middle of the frame is the difference between a legible post and one nobody could read.",
+    },
+    {
+      title: "A paid post has to say so, on screen",
+      detail:
+        "When a creator is paid, gifted product, or otherwise has a material connection to a brand, the FTC expects that disclosed clearly and conspicuously where the audience actually sees it. A line buried under a More tag or dropped into a comment is not where people look. The disclosure belongs in the video itself, and it is the creator who is responsible for making it.",
+    },
+    {
+      title: "A publishable pile, not one hero cut",
+      detail:
+        "A posting rhythm fails on supply, not on ambition. One filming session that stays in one outfit, one location and one lighting setup yields a stack of separate posts rather than a single edit, as long as each take is a self-contained idea with its own opening line. Batching the filming is what makes a calendar survive a busy week.",
+    },
+  ],
+  faqHeading: "Practical answers before a creator hands over a week of footage.",
+  faqs: [
+    {
+      question: "What should a creator send so editing can start immediately?",
+      answer:
+        "The original camera or phone files rather than anything re-downloaded from an app, since a platform export is already compressed and sharpening it back is not possible. With them, send a line per clip saying what the post is for, the handle and platform each one is going to, any brand or paid partnership involved, and the music or reference you have in mind. That is usually enough to avoid a round of questions.",
+    },
+    {
+      question: "How do captions get styled without covering the picture?",
+      answer:
+        "By keeping them in the safe middle band of the frame, in a weight heavy enough to survive compression, with enough contrast against whatever is moving behind them. Burned-in captions matter because a large share of feeds plays muted by default, so a video whose point lives only in the audio reaches a fraction of the people who saw it. Platform auto-captions are a fallback, not the plan.",
+    },
+    {
+      question: "Can one filming session cover a whole publishing week?",
+      answer:
+        "It can when the session is planned as a list of separate ideas instead of one long take. Each idea needs its own opening sentence, because a viewer arriving on the fourth post has not seen the first three. Changing a jacket or moving to a second wall between blocks keeps the posts from looking like slices of the same clip, which is the usual reason a batch gets spotted as a batch.",
+    },
+    {
+      question: "Who keeps the raw footage and the project files?",
+      answer:
+        "The footage is the creator's, and it is worth keeping an original copy somewhere other than the handoff folder, because a repurposed cut later needs the full-quality source rather than the published version. What gets returned from an edit are the finished exports in the formats the platforms need. Anything beyond that, such as open project files, is worth agreeing before the work starts rather than after.",
+    },
+  ],
+  relatedHeading: "Related services for creators and personal brands.",
+  related: [
+    {
+      title: "Short-Form Video Editing",
+      detail: "Vertical edits with burned-in captions from footage you already shot.",
+      href: "/services/short-form-video-editor-miami",
+    },
+    {
+      title: "Social Video Batching",
+      detail: "Turning one filming block into a stack of separate posts.",
+      href: "/services/social-media-video-batching-miami",
+    },
+    {
+      title: "YouTube Editing",
+      detail: "Long-form structure for the channel the clips point back to.",
+      href: "/services/youtube-video-editing-service-miami",
+    },
+  ],
+};
+
+export const WHITE_LABEL_DEPTH: Depth = {
+  craftHeading: "What an agency or photographer needs from a subcontracted edit.",
+  craft: [
+    {
+      title: "Delivered unbranded",
+      detail:
+        "Exports come back with no watermark, no end card and no credit, because the client relationship belongs to the studio that sold the job. Naming, folder structure and aspect ratios follow whatever convention that studio already uses with that client, so the files drop straight into an existing delivery instead of needing to be renamed first.",
+    },
+    {
+      title: "Log footage needs its colour recipe",
+      detail:
+        "Material shot in a flat or log profile looks washed out until the matching camera transform is applied, and guessing which one it is produces skin tones nobody ordered. Sending the camera model, the picture profile, and any LUT or grade already approved for that client removes the guesswork. A graded still from an earlier delivery is often the fastest way to communicate a look.",
+    },
+    {
+      title: "One brief, one round, written down",
+      detail:
+        "A subcontracted edit goes wrong in the feedback, not the cutting. Notes tied to timecode, gathered into a single list, turn a revision from a conversation into a task. The opposite pattern, a trickle of separate messages from several people, is what turns a simple pass into an open-ended one, so it is worth agreeing who speaks for the client before anything goes out for review.",
+    },
+  ],
+  faqHeading: "Practical answers before an agency sends a project over.",
+  faqs: [
+    {
+      question: "Does the client ever know an outside editor was involved?",
+      answer:
+        "Not from the files. Deliverables arrive unbranded, named the way the studio asks, with no credit, watermark or contact detail attached. Communication stays with the studio rather than going direct to the end client, and the work is not shown as a public reference without the studio's say. Whether to tell a client that post-production is subcontracted is the studio's decision to make, not something the files decide for them.",
+    },
+    {
+      question: "What should a photographer or agency include in the handoff?",
+      answer:
+        "The original camera files, any audio recorded separately, brand assets as vectors or layered files rather than screenshots, and a short brief naming the deliverables and where each one will be published. Add the camera and picture profile, any approved look, and the client's own reference material. A folder with that in it can be cut without a single clarifying question, which is usually the point.",
+    },
+    {
+      question: "How are revisions handled on a white-label project?",
+      answer:
+        "As one consolidated list per round, with timecodes, coming from a single point of contact at the studio. That matters more here than on direct work, because every note has already passed through the end client and the studio, and two people giving contradictory instructions costs a full pass. Agreeing up front how many rounds a job includes keeps the scope the studio quoted intact.",
+    },
+    {
+      question: "Can an editor match a look the studio has already established?",
+      answer:
+        "Yes, and the shortest route is a reference the studio already owns: a finished export from an earlier job, a LUT, or a graded frame. Matching a described look, as opposed to a shown one, takes more passes than matching a picture. If the footage comes from a camera or profile not used on that client before, a short graded test clip before the full edit is cheaper than a reversal at the end.",
+    },
+  ],
+  relatedHeading: "Related services for studios and production partners.",
+  related: [
+    {
+      title: "Hire a Remote Editor",
+      detail: "How remote post-production works when the shooting is already covered.",
+      href: "/services/hire-remote-video-editor",
+    },
+    {
+      title: "Interview Video Editing",
+      detail: "Multi-camera and sit-down interview assembly from supplied rushes.",
+      href: "/services/interview-video-editing-service",
+    },
+    {
+      title: "Content Repurposing",
+      detail: "Turning one delivered film into the cutdowns a client asks for next.",
+      href: "/services/content-repurposing-service-miami",
+    },
+  ],
+};
+
+export const SALON_DEPTH: Depth = {
+  craftHeading: "What salon, barbershop and nail footage demands.",
+  craft: [
+    {
+      title: "Mixed light breaks the colour",
+      detail:
+        "A salon usually has a window on one side and warm bulbs overhead, and those two sources are different colours. Left alone, the camera splits the difference and a balayage that took hours reads orange or grey on screen. Setting the white balance for one source, and keeping the chair away from the other, is what makes a colour result look on screen the way it looks in the mirror.",
+    },
+    {
+      title: "Nails are a macro subject",
+      detail:
+        "Filming a hand close enough to read the finish leaves very little depth in focus, and hands do not hold still. The fix is physical rather than digital: rest the hand on a support, give it something steady to sit against, and keep the camera at a fixed distance instead of drifting in and out. A braced close-up is sharp; a floating one is a blur nobody can use.",
+    },
+    {
+      title: "The transformation is the story",
+      detail:
+        "A cut, a colour or a set only lands if the viewer saw the starting point, which means the first shot has to exist before anyone picks up the clippers. Same chair, same angle, same light, and a final reveal filmed the same way. Shops that take that opening shot as a habit end up with a library of transformations; shops that remember afterwards have a shelf of endings.",
+    },
+  ],
+  faqHeading: "Practical answers before a salon or barbershop shares clips.",
+  faqs: [
+    {
+      question: "What should a salon film during a normal working day?",
+      answer:
+        "The pieces of a transformation, in order: the client in the chair before anything starts, two or three short moments during the work, and the finished look filmed from the same position as the opening shot. Add a few seconds of the room and a line from the stylist about what was done. None of that needs a closed day, and a phone braced against a mirror or a station shelf is steady enough.",
+    },
+    {
+      question: "Do clients need to agree before their haircut appears online?",
+      answer:
+        "Yes, and it is worth asking before filming rather than after. Somebody sitting in a chair with a cape on has not agreed to appear on a business account just by being there, and a client who says no later leaves an edit built around a face that cannot be shown. A note of who said yes, sent along with the footage, keeps the finished video out of that situation.",
+    },
+    {
+      question: "Why does hair colour look different on camera than in the chair?",
+      answer:
+        "Usually because the light is mixed. Daylight from a window is blue compared with the warm bulbs over the station, and when both land on the same head the camera has to pick one, so the other tints everything it touches. Filming in a consistent spot in the room, with the chair turned towards the dominant light, gets far closer to the real result than any correction applied afterwards.",
+    },
+    {
+      question: "How do barbershops and nail studios post consistently?",
+      answer:
+        "By capturing the same two or three shapes every week instead of inventing a new idea each time: the transformation, the detail close-up, and the stylist saying something short and useful. Repeatable shapes are quick to film between clients and quick to edit, and the familiarity is a feature rather than a limitation. The alternative, waiting for a remarkable day, is why most shop accounts go quiet.",
+    },
+  ],
+  relatedHeading: "Related services for appointment-based local businesses.",
+  related: [
+    {
+      title: "Reels for Miami Businesses",
+      detail: "Vertical posts from clips filmed between appointments.",
+      href: "/services/reels-editor-miami",
+    },
+    {
+      title: "Small Business Video",
+      detail: "Video for a local business with one location and a booking page.",
+      href: "/services/small-business-video-production-miami",
+    },
+    {
+      title: "Wellness & Spa Video",
+      detail: "Treatment-room footage for neighbouring appointment businesses.",
+      href: "/services/wellness-spa-video-marketing-miami",
+    },
+  ],
+};
+
+export const AUTO_DETAILING_DEPTH: Depth = {
+  craftHeading: "What a polished panel does to a camera.",
+  craft: [
+    {
+      title: "You are filming the reflection",
+      detail:
+        "A corrected, waxed or ceramic-coated panel behaves like a mirror, so what the lens records is whatever stands in front of the car: the shop door, a ladder, the person holding the camera. Choosing what reflects, an open sky or a plain wall rather than clutter, is the whole shot. Open shade and a clean background do more for a paint shot than any amount of colour work later.",
+    },
+    {
+      title: "Tint and fine patterns fight the sensor",
+      detail:
+        "A rear window with a dot matrix, a perforated graphic, or a textured mesh can produce shimmering interference patterns on video that nobody saw in the room. Moving the camera slightly, changing the distance, or shifting the angle usually clears it, and it is far easier to notice on set than to remove afterwards. Checking the screen on those shots before moving on saves the clip.",
+    },
+    {
+      title: "A wrap needs the whole car",
+      detail:
+        "Colour change and commercial graphics are judged on how the panels meet: the edges, the door handles, the curves where the vinyl is pulled. That asks for a slow pass along the body with the light sliding across it, plus close shots of the terminations, rather than one wide shot of the car parked straight on. The wide shot proves the colour; the close shots prove the work.",
+    },
+  ],
+  faqHeading: "Practical answers before a detail or wrap shop sends footage.",
+  faqs: [
+    {
+      question: "How should a detail shop film a before and after?",
+      answer:
+        "Same spot, same camera height, same light, both times. A correction looks dramatic in person because the reflection changed, and the only way to show that on screen is to let the viewer compare two shots that differ in nothing except the paint. Marking a filming position on the shop floor is the simplest way to make that repeatable, and it turns every car that comes through into a usable comparison.",
+    },
+    {
+      question: "Why do swirl marks disappear on camera?",
+      answer:
+        "Because they are visible only under a hard, single light source, and most shops are lit by broad overhead fixtures that wrap the panel evenly and hide exactly what you are trying to show. One directional light, or low-angle sun, raked across the paint brings the defects back. The same trick, used after the correction, is what makes the finished panel look deep instead of flat.",
+    },
+    {
+      question: "What footage works best for window tint and paint protection?",
+      answer:
+        "Shots that let a viewer see a difference they can believe: one treated window beside an untreated one, the view from inside looking out, a hand on the film edge at a clean cut line. Claims about heat rejection or durability belong to the film manufacturer and the shop that installs it, so the video shows install quality and the visible result rather than asserting performance figures.",
+    },
+    {
+      question: "Can a shop film this without closing the bay?",
+      answer:
+        "Yes, as long as the camera position is decided once and then reused. A phone on a tripod in a marked spot, a clean background behind the car, and a few seconds captured at the start and the end of each job is enough raw material for a steady stream of posts. What ruins the footage is not the lack of a studio but a cluttered reflection and a different angle every time.",
+    },
+  ],
+  relatedHeading: "Related services for automotive businesses.",
+  related: [
+    {
+      title: "Automotive Video Marketing",
+      detail: "Video for dealerships, where the subject is inventory rather than a service.",
+      href: "/services/automotive-video-marketing-miami",
+    },
+    {
+      title: "Reels for Miami Businesses",
+      detail: "Vertical posts cut from footage filmed in the bay.",
+      href: "/services/reels-editor-miami",
+    },
+    {
+      title: "Content Repurposing",
+      detail: "One longer build video turned into the clips each platform wants.",
+      href: "/services/content-repurposing-service-miami",
+    },
+  ],
+};

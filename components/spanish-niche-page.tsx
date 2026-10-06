@@ -1086,6 +1086,47 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
 };
 
 const spanishInquiryServices: Record<string, ServiceInquiry> = {
+  // Lote de nichos 2026-10-06.
+  "marketing-de-video-para-consultorios-medicos-miami": {
+    serviceId: "es_medical_practice_video",
+    serviceName: "video para un consultorio medico",
+    goalPrompt: "explicar un tratamiento o una molestia a futuros pacientes",
+    assetPrompt: "material de la clinica, los clips con autorizacion del paciente y el logo",
+    proofHref: "/es/portafolio/healthy-smile",
+    proofLabel: "Ver el proyecto clinico publicado",
+  },
+  "edicion-de-video-para-creadores-de-contenido-miami": {
+    serviceId: "es_content_creator_video",
+    serviceName: "edicion de video para creadores de contenido",
+    goalPrompt: "sostener un ritmo de publicacion en reels, tiktok y shorts",
+    assetPrompt: "archivos originales, las plataformas y cuentas, y los clips pagados",
+    proofHref: "/es/portafolio/ml-colombia",
+    proofLabel: "Ver contenido social publicado",
+  },
+  "edicion-de-video-marca-blanca-para-agencias": {
+    serviceId: "es_white_label_video_editing",
+    serviceName: "edicion de video en marca blanca",
+    goalPrompt: "entregar un montaje a nuestro propio cliente bajo nuestro nombre",
+    assetPrompt: "archivos de camara, recursos de marca, entregables y el grado aprobado",
+    proofHref: "/es/portafolio",
+    proofLabel: "Ver trabajo publicado",
+  },
+  "marketing-de-video-para-salones-y-barberias-miami": {
+    serviceId: "es_salon_barbershop_video",
+    serviceName: "video para un salon o barberia",
+    goalPrompt: "publicar transformaciones y llenar la agenda de la semana",
+    assetPrompt: "clips de antes y despues, primeros planos y la nota de quien dio permiso",
+    proofHref: "/es/portafolio",
+    proofLabel: "Ver trabajo publicado",
+  },
+  "marketing-de-video-para-detallado-y-wraps-miami": {
+    serviceId: "es_auto_detailing_video",
+    serviceName: "video para un taller de detallado, polarizado o wrap",
+    goalPrompt: "mostrar correccion de pintura, polarizado o un wrap de forma creible",
+    assetPrompt: "clips desde un punto marcado y el servicio que muestra cada uno",
+    proofHref: "/es/portafolio",
+    proofLabel: "Ver trabajo publicado",
+  },
   "editor-de-video-corto-para-redes-miami": {
     serviceId: "es_short_form_video",
     serviceName: "edicion de video corto para redes",

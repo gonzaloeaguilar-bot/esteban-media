@@ -102,6 +102,12 @@ export const sitemapRoutes = [
   { path: "/services/webinar-clip-editing-service", priority: 0.85 },
   { path: "/services/social-media-video-batching-miami", priority: 0.85 },
   { path: "/services/interview-video-editing-service", priority: 0.85 },
+  // 2026-10-06 niche batch: five buyers the site had no page for.
+  { path: "/services/medical-practice-video-marketing-miami", priority: 0.85 },
+  { path: "/services/content-creator-video-editing-miami", priority: 0.85 },
+  { path: "/services/white-label-video-editing-for-agencies", priority: 0.85 },
+  { path: "/services/salon-barbershop-video-marketing-miami", priority: 0.85 },
+  { path: "/services/auto-detailing-tint-wrap-video-marketing-miami", priority: 0.85 },
   { path: "/desk-recommendations", priority: 0.85 },
   { path: "/portfolio", priority: 0.9 },
   { path: "/areas", priority: 0.85 },

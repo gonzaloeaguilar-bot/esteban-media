@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2, Mail, MessageCircle, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { KeepReading } from "@/components/keep-reading";
 import { whatsappHref } from "@/lib/packages";
 import { site } from "@/lib/site";
 
@@ -316,6 +317,59 @@ export function ServiceInquiryRail({
             </Link>
           </div>
         </div>
+      </Container>
+    </section>
+  );
+}
+
+export type DeepDiveSection = {
+  /** Question-shaped, because that is the unit an answer engine quotes. */
+  heading: string;
+  paragraphs: readonly string[];
+};
+
+/**
+ * The depth that only supports READING, behind one native <details>.
+ *
+ * Why a fold here and not around the craft/FAQ sections above: everything a
+ * visitor needs in order to ACT stays visible, and this block is the second
+ * reading — the preparation detail somebody wants once they have already decided
+ * the page is about them.
+ *
+ * Why <details> and not a conditional render: COLLAPSED IS NOT REMOVED. The
+ * paragraphs are in the server-rendered HTML either way, which is the only
+ * reason this is allowed to be a fold at all — GPTBot, ClaudeBot and
+ * PerplexityBot run no JavaScript, so a client-mounted panel does not exist for
+ * them, while Google gives collapsed HTML full weight.
+ */
+export function ServiceDeepDive({
+  id,
+  title,
+  destinations,
+  sections,
+}: {
+  id: string;
+  title: string;
+  destinations: string;
+  sections: readonly DeepDiveSection[];
+}) {
+  return (
+    <section className="border-b border-[#ddd4c8] py-12 sm:py-16" data-section={`${id}-wrap`}>
+      <Container size="xl">
+        <KeepReading id={id} title={title} destinations={destinations}>
+          <div className="mx-auto mt-8 max-w-3xl space-y-10">
+            {sections.map((section) => (
+              <article key={section.heading} className="space-y-4">
+                <h3 className="font-serif text-2xl sm:text-3xl">{section.heading}</h3>
+                {section.paragraphs.map((paragraph) => (
+                  <p key={paragraph} className="text-base leading-8 text-[#252a2d]">
+                    {paragraph}
+                  </p>
+                ))}
+              </article>
+            ))}
+          </div>
+        </KeepReading>
       </Container>
     </section>
   );
