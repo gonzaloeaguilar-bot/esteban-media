@@ -1,3 +1,4 @@
+import { isConsolidatedPath } from "@/lib/consolidation";
 import { packageRoutes } from "@/lib/package-routes";
 import type { LucideIcon } from "lucide-react";
 import { PACKAGE_PRICES, usd } from "@/lib/pricing";
@@ -3497,8 +3498,69 @@ const nicheBatch20261006 = Object.fromEntries(
   ),
 );
 
-export const languageAlternates: Record<string, Record<string, string>> = {
+/**
+ * Spanish niche pages that shipped WITHOUT an English counterpart in the
+ * hreflang map, and therefore served only a self-referencing `es-US`.
+ *
+ * Measured 2026-10-06 by probing the served HTML of all 103 static Spanish
+ * routes: 63 emitted the correct three alternates, **36 emitted exactly one**
+ * (themselves), and 4 emitted none. An unpaired Spanish page tells Google
+ * nothing about its English twin, so Google is free to pick the English page
+ * for a Spanish query — which is exactly what the Search Console data shows:
+ * for "editor de reels fort lauderdale" the Spanish page does not appear at
+ * all, while the ENGLISH page ranks 15.0 and /areas and /es outrank it.
+ *
+ * Each pair below was matched by hand and verified before shipping: both sides
+ * return 200, and no English target was already claimed by a different Spanish
+ * page. An automated fuzzy match was tried first and rejected — it mapped the
+ * lawyer, dentist, gym, medspa and contractor pages all onto the AUTOMOTIVE
+ * page, and a wrong hreflang pair is worse than a missing one because it tells
+ * Google two unrelated pages are translations of each other. The safety check
+ * then caught a real conflict (`real-estate-drone-video-editing-miami` was
+ * already paired to `/es/drone-real-estate-miami`) and that pair was dropped.
+ *
+ * One further pair, for a Miami financial-district sub-city page, was removed
+ * after `customer-ranking-pages.test.ts` failed: that neighbourhood is an
+ * explicitly gated phrase in public copy and this file is one of the sources
+ * that test scans. Sub-city coverage stays gated — including in comments,
+ * which is how this was caught the second time.
+ *
+ * Ten further pairs were removed after the sitemap test failed: every page in
+ * them is CONSOLIDATED by the 2026-08-12 cohort decision, i.e. merged or
+ * noindexed and deliberately absent from the sitemap. Advertising an hreflang
+ * pair for a page we have told Google not to index is a contradictory signal,
+ * the same class of mistake the sitemap filter exists to prevent.
+ *
+ * Pages left unpaired on purpose: those with no unambiguous English twin
+ * (videografo-en-miami, fotografo-en-fort-lauderdale, the Palm Beach County
+ * pages, asesores-financieros) or where pairing would double-claim an English
+ * page that already has a Spanish counterpart.
+ */
+const nicheBatch20261006Hreflang = Object.fromEntries(
+  (
+    [
+      ["/services/reels-editor-fort-lauderdale", "/es/editor-de-reels-fort-lauderdale"],
+      ["/services/reels-editor-miami", "/es/editor-de-reels-miami"],
+      ["/services/med-spa-video-marketing-south-florida", "/es/marketing-de-video-para-clinicas-esteticas-miami"],
+      ["/services/contractor-video-marketing-south-florida", "/es/marketing-de-video-para-contratistas-miami"],
+      ["/services/dental-video-marketing-south-florida", "/es/marketing-de-video-para-dentistas-miami"],
+      ["/services/fitness-gym-video-marketing-miami", "/es/marketing-de-video-para-gimnasios-miami"],
+      ["/services/cosmetic-dentistry-video-marketing-miami", "/es/marketing-de-video-para-odontologia-estetica-miami"],
+      ["/services/wellness-spa-video-marketing-miami", "/es/marketing-de-video-para-spas-y-bienestar-miami"],
+      ["/services/music-video-post-production-miami", "/es/postproduccion-de-videos-musicales-miami"],
+      ["/services/brand-video-production-miami", "/es/produccion-de-video-de-marca-miami"],
+      ["/services/video-production-fort-lauderdale", "/es/produccion-de-video-fort-lauderdale"],
+      ["/services/hotel-hospitality-video-production-miami", "/es/produccion-de-video-para-hoteles-miami"],
+      ["/services/content-repurposing-service-miami", "/es/reutilizacion-de-contenido-para-redes-miami"],
+    ] as const
+  ).flatMap(([en, es]) =>
+    [en, es].map((path) => [path, { "en-US": en, "es-US": es, "x-default": en }] as const),
+  ),
+);
+
+const languageAlternatesRaw: Record<string, Record<string, string>> = {
   ...nicheBatch20261006,
+  ...nicheBatch20261006Hreflang,
   ...Object.fromEntries(Object.values(packageRoutes).flatMap(({ en, es }) => [en, es].map((path) => [path, { "en-US": en, "es-US": es, "x-default": en }]))),
   "/pricing/real-estate": {
     "en-US": "/pricing/real-estate",
@@ -4075,6 +4137,30 @@ export const languageAlternates: Record<string, Record<string, string>> = {
     "x-default": "/contact",
   },
 };
+
+/**
+ * hreflang is suppressed for any page the 2026-08-12 cohort decision marked
+ * noindex or merged.
+ *
+ * Advertising "this is the Spanish version of that page" while the page itself
+ * says "do not index me" is a contradictory signal, and it is the same mistake
+ * the sitemap filter at the bottom of app/sitemap.ts already prevents. Measured
+ * 2026-10-06: six pairs (ecommerce product video, event video, luxury jewelry,
+ * Aventura real estate, Davie production, YouTube editing) were noindexed on
+ * BOTH sides and still carried full hreflang annotations.
+ *
+ * Filtering here rather than hand-deleting rows means a future consolidation
+ * stops advertising itself automatically, with no second place to remember.
+ */
+export const languageAlternates: Record<string, Record<string, string>> =
+  Object.fromEntries(
+    Object.entries(languageAlternatesRaw).filter(
+      ([path, langs]) =>
+        !isConsolidatedPath(path) &&
+        !isConsolidatedPath(langs["en-US"]) &&
+        !isConsolidatedPath(langs["es-US"]),
+    ),
+  );
 
 export const spanishProofPrinciples = [
   "El español es el idioma principal de Esteban; también hay comunicación de trabajo disponible en inglés.",
