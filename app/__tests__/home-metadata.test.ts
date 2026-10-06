@@ -63,16 +63,16 @@ describe("localized home metadata", () => {
 
     const englishHomeSource = source("app/(english)/page.tsx");
     expect(englishHomeSource).toContain(
-      'absolute:\n      "Esteban Moreno Media | Fort Lauderdale Video Producer"',
+      'absolute:\n      "Fort Lauderdale Video Production & Editing | Esteban Moreno"',
     );
     expect(englishHomeSource).toContain(
-      "Fort Lauderdale Video Producer",
+      "Fort Lauderdale Video Production & Editing",
     );
     expect(englishHomeSource).toContain(
-      "creates professional video content for Fort Lauderdale businesses.",
+      "Spanish-first, English available.",
     );
     expect(
-      englishHomeSource.match(/creates professional video content for Fort Lauderdale businesses\./g),
+      englishHomeSource.match(/Spanish-first, English available\./g),
     ).toHaveLength(3);
     expect(englishHomeSource).toContain("openGraph:");
     expect(englishHomeSource).toContain("twitter:");
