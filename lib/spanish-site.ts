@@ -6,11 +6,15 @@ import {
   Building2,
   CalendarRange,
   Camera,
+  Car,
+  Handshake,
   Home,
   Languages,
   Laptop,
   MapPin,
+  Megaphone,
   Scissors,
+  Stethoscope,
   UtensilsCrossed,
   Video,
   WandSparkles,
@@ -3061,6 +3065,384 @@ export const spanishNichePages: SpanishNichePage[] = [
       },
     ],
   },
+  // ---------------------------------------------------------------------
+  // Lote de nichos 2026-10-06. Cinco compradores distintos, no cinco
+  // sinonimos: un consultorio medico que no es dental, un creador de
+  // contenido que es su propio cliente, una agencia o fotografo que
+  // subcontrata la edicion, un salon y un taller de detallado. Cada pagina
+  // responde primero, trae secciones con encabezado en forma de pregunta y
+  // un dato real por seccion, y no inventa precios, plazos ni resultados.
+  // ---------------------------------------------------------------------
+  {
+    slug: "marketing-de-video-para-consultorios-medicos-miami",
+    title: "Marketing de video para consultorios médicos en Miami",
+    metadataTitle: "Video para Consultorios Médicos Miami",
+    description:
+      "Edición de video y producción selectiva para quiroprácticos, fisioterapia, medicina funcional y clínicas de atención sin cita en Miami-Dade y Broward.",
+    eyebrow: "Consultorios / Quiropráctica / Fisioterapia",
+    h1: "Video para consultorios médicos en Miami y Broward.",
+    lead:
+      "Esteban edita el material que el propio consultorio graba en sus salas, y considera jornadas en locación de forma selectiva. Envía los clips que ya tienes, indica cuáles cuentan con autorización firmada del paciente y recibes un siguiente paso concreto. La atención es principalmente en español y también hay comunicación en inglés intermedio.",
+    keyword: "marketing de video para consultorios médicos",
+    location: "Miami-Dade / Broward",
+    availability: "confirmed",
+    icon: Stethoscope,
+    bestFor: [
+      "Quiroprácticos y fisioterapeutas que quieren explicar un dolor concreto en video.",
+      "Clínicas de medicina funcional con grabaciones propias listas para editar.",
+      "Centros de atención sin cita que necesitan explicar cómo es la primera visita.",
+      "Equipos clínicos que prefieren definir el contenido en español.",
+    ],
+    scopingQuestions: [
+      "¿El video explicará un tratamiento, una molestia específica o la experiencia de la primera visita?",
+      "¿Aparecerá algún paciente identificable y existe su autorización escrita?",
+      "¿El material ya está grabado o la idea requiere una captura en la clínica?",
+      "¿Dónde se publicará: redes verticales, sitio web o pauta?",
+    ],
+    projectFit:
+      "Esta ruta conecta la edición remota con contenido clínico que puede publicarse: primero el consentimiento, después el corte. No promete disponibilidad universal ni asesoría legal.",
+    sections: [
+      {
+        heading: "¿Qué define el consultorio antes de grabar?",
+        paragraphs: [
+          "Tres decisiones, y ninguna es sobre cámaras. La primera es quién aparece: un profesional, alguien del equipo, un paciente o nadie identificable. Solo el caso del paciente exige una autorización escrita de marketing bajo HIPAA, y esa autorización la conserva el consultorio, así que resolverlo primero es lo que hace posible el material con pacientes reales.",
+          "La segunda es la sala. Una sala con ventana suele ganarle a una sin luz natural, y la sala más silenciosa le gana a la más impresionante cuando hay alguien hablando. La tercera es para qué sirve el video: explicar una molestia a alguien que todavía no es paciente, mostrar cómo es la primera visita, o demostrar un ejercicio que un paciente actual pueda seguir en casa. Son tres grabaciones distintas, e intentar sacarlas de una hora improvisada es la razón más común por la que un consultorio termina con material que nunca publica.",
+        ],
+        bullets: [
+          "Decidir quién aparece y conseguir la autorización escrita antes de grabar",
+          "Elegir la sala por silencio y luz, no por tamaño",
+          "Un objetivo por video: explicar, mostrar la visita o demostrar un ejercicio",
+          "Dejar el micrófono cerca de quien habla y lejos del equipo que zumba",
+        ],
+      },
+      {
+        heading: "¿Qué se envía cuando el material está listo?",
+        paragraphs: [
+          "Una carpeta, una lista y las autorizaciones. La carpeta lleva los archivos originales tal como salieron del teléfono o la cámara, no clips reenviados por mensajería, porque esa copia ya viene comprimida y el detalle no se recupera. La lista dice, en una línea por clip, qué es y adónde va: publicación vertical, encabezado del sitio o pauta.",
+          "Las autorizaciones pesan igual que los archivos. Señalar qué clips muestran a un paciente identificable, y cuáles de esos están autorizados, permite montar el video solo con material publicable. Agrega el logo en vector o en archivo editable en lugar de una captura de pantalla, el nombre y el cargo de quien aparece en cámara, y la frase exacta del siguiente paso que quieres que tome quien lo vea.",
+        ],
+        bullets: [
+          "Archivos originales, no copias reenviadas por mensajería",
+          "Una línea por clip: qué es, dónde se publica y en qué formato",
+          "Lista de clips con paciente identificable y cuáles están autorizados",
+          "Logo en vector y el siguiente paso redactado tal como debe aparecer",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Hace falta autorización escrita antes de enviar material con pacientes?",
+        answer:
+          "Sí, siempre que el paciente sea reconocible. HIPAA trata el uso de información identificable del paciente con fines de marketing como algo que el paciente debe autorizar por escrito, y esa autorización la conserva el consultorio. El material del equipo, las salas, los equipos o una demostración hecha sobre personal de la clínica no plantea la misma pregunta.",
+      },
+      {
+        question: "¿Qué puede grabar una clínica sin una jornada de producción?",
+        answer:
+          "Bastante. Un teléfono sobre un trípode a la altura del pecho cubre a un profesional explicando una molestia a cámara, la demostración de un ejercicio con encuadre lo bastante amplio para ver el cuerpo completo, y un recorrido breve de la sala que imagina quien nunca ha venido. Lo que conviene controlar es que la luz caiga sobre la cara y que la parte hablada se grabe en la sala más silenciosa.",
+      },
+      {
+        question: "¿Se puede mostrar el progreso de un paciente en redes?",
+        answer:
+          "Con su autorización escrita y con cuidado sobre lo que la comparación insinúa. Un progreso presentado como el resultado que cualquier paciente debería esperar es una afirmación que el consultorio tendría que poder respaldar, así que el encuadre más seguro es la experiencia de una persona contada por ella misma. En la parte visual, dos clips solo se comparan si coinciden posición de cámara, distancia e iluminación.",
+      },
+    ],
+  },
+  {
+    slug: "edicion-de-video-para-creadores-de-contenido-miami",
+    title: "Edición de video para creadores de contenido en Miami",
+    metadataTitle: "Edición para Creadores de Contenido",
+    description:
+      "Edición vertical, subtítulos incrustados y ritmo de publicación para creadores e influencers: una sesión de grabación convertida en varias publicaciones.",
+    eyebrow: "Creadores / Influencers / Marca personal",
+    h1: "Edición y ritmo de publicación para creadores.",
+    lead:
+      "Tú grabas; Esteban corta las publicaciones verticales, incrusta los subtítulos y convierte una sola sesión en varias piezas con un orden de publicación. Envía los archivos originales y una línea por clip indicando plataforma y cuenta, y recibes las exportaciones listas en los formatos que piden las redes.",
+    keyword: "edición de video para creadores de contenido",
+    location: "Miami-Dade / Broward / Remoto",
+    availability: "confirmed",
+    icon: Megaphone,
+    bestFor: [
+      "Creadores que publican varias veces por semana y no alcanzan a editar.",
+      "Influencers con colaboraciones pagadas que deben declararse en el video.",
+      "Marcas personales que graban en bloque y necesitan un orden de publicación.",
+      "Cuentas que quieren subtítulos legibles sin depender de los automáticos.",
+    ],
+    scopingQuestions: [
+      "¿En qué plataformas se publica y con qué cuenta?",
+      "¿Cuántas ideas distintas trae la sesión grabada?",
+      "¿Hay clips con colaboración pagada, producto regalado o enlace de afiliado?",
+      "¿Tienes referencias de estilo, sonido o tipografía que debamos seguir?",
+    ],
+    projectFit:
+      "Esta ruta parte de material propio y entrega piezas verticales listas para publicar. No fija cantidad de videos, calendario ni fecha de entrega sin antes revisar la sesión.",
+    sections: [
+      {
+        heading: "¿Cómo se planea una sesión que rinda varias publicaciones?",
+        paragraphs: [
+          "Escribiendo la lista antes de tomar la cámara. Una sesión que rinde una pila de piezas publicables nace como una lista de ideas separadas, cada una con su propia primera frase, porque cada publicación es el primer contacto de alguien con la cuenta y no puede depender de la anterior.",
+          "De ahí en adelante se trata de reiniciar algo visible entre ideas: otra chaqueta, una segunda pared, pasar de sentado a de pie. Cambios pequeños que evitan que cinco piezas se lean como cinco rebanadas del mismo clip. Mantener fija la iluminación durante todo el bloque es la decisión opuesta, y es deliberada: una luz constante permite ordenar los clips después en cualquier secuencia. Lo último que vale la pena grabar son unos segundos de sala en silencio y dos planos de apoyo, que son los que rescatan una toma con un tropiezo en el medio.",
+        ],
+        bullets: [
+          "Una lista de ideas separadas, cada una con su propia primera frase",
+          "Un cambio visible entre bloques para que no parezcan el mismo clip",
+          "Iluminación fija durante toda la sesión para poder reordenar después",
+          "Unos segundos de sala en silencio y planos de apoyo al final",
+        ],
+      },
+      {
+        heading: "¿Qué entrega el creador y para qué sirve la declaración de pauta?",
+        paragraphs: [
+          "La entrega es corta: archivos originales, una línea por clip, la plataforma y la cuenta de destino, y cualquier referencia o audio que ya tengas en mente. Nombrar la plataforma importa porque la zona segura cambia entre una publicación de feed y una vertical a pantalla completa, y el texto colocado para la otra queda tapado por la interfaz.",
+          "La declaración es la parte que conviene resolver bien desde el principio. Cuando existe una relación material con una marca (pago, producto regalado, afiliación, un vínculo personal), la FTC espera que se declare de forma clara y visible donde el público realmente la note, es decir dentro del video y en lo que se dice, no solo en una descripción que hay que desplegar. Avisar al editor qué clips son colaboraciones pagadas es lo que mantiene la declaración dentro del corte.",
+        ],
+        bullets: [
+          "Archivos originales, nunca descargas de la propia plataforma",
+          "Plataforma y cuenta por clip, para colocar el texto en la zona segura",
+          "Aviso de qué clips son pagados, regalados o de afiliado",
+          "Subtítulos incrustados, porque gran parte del feed se reproduce sin audio",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Qué archivos debe enviar un creador para empezar a editar?",
+        answer:
+          "Los originales de la cámara o del teléfono, no material vuelto a descargar desde una aplicación, porque esa exportación ya está comprimida y no se puede devolver el detalle. Con ellos, una línea por clip con el objetivo de la pieza, la cuenta y la plataforma de destino, cualquier colaboración pagada y la música o referencia que tengas en mente.",
+      },
+      {
+        question: "¿Por qué los subtítulos van en el centro del encuadre?",
+        answer:
+          "Porque la aplicación dibuja el nombre de usuario, la descripción, la barra de audio y toda la columna de botones encima del video. Un texto que en el editor se ve perfecto puede quedar tapado en el teléfono. Mantener la tipografía dentro de la banda central, con suficiente contraste y peso, es la diferencia entre una pieza legible y una que nadie pudo leer.",
+      },
+      {
+        question: "¿Una sola sesión puede cubrir una semana de publicaciones?",
+        answer:
+          "Puede, cuando la sesión se planea como una lista de ideas distintas y no como una sola toma larga. Cada idea necesita su propia frase de apertura, porque quien llega a la cuarta publicación no vio las tres anteriores. Cambiar una prenda o moverse a otra pared entre bloques evita que el conjunto se note grabado de una sola vez.",
+      },
+    ],
+  },
+  {
+    slug: "edicion-de-video-marca-blanca-para-agencias",
+    title: "Edición de video en marca blanca para agencias y fotógrafos",
+    metadataTitle: "Edición en Marca Blanca para Agencias",
+    description:
+      "Edición de video sin marca para agencias de marketing y fotógrafos que venden la grabación y subcontratan la postproducción. Tu cliente, tu entrega, tu nombre.",
+    eyebrow: "Agencias / Fotógrafos / Estudios",
+    h1: "Edición en marca blanca para agencias y fotógrafos.",
+    lead:
+      "Tú vendiste la grabación y conservas al cliente. Esteban monta el material y devuelve archivos sin marca, nombrados a tu convención, sin logo, sin crédito y sin contacto con el cliente final. Envía los archivos de cámara, los recursos de marca y un brief de una página.",
+    keyword: "edición de video en marca blanca",
+    location: "South Florida / Remoto",
+    availability: "confirmed",
+    icon: Handshake,
+    bestFor: [
+      "Agencias de marketing que venden video y no tienen editor de planta.",
+      "Fotógrafos que graban en los mismos trabajos y subcontratan el montaje.",
+      "Estudios con picos de trabajo que necesitan capacidad adicional.",
+      "Equipos que requieren entregas sin marca listas para su propio cliente.",
+    ],
+    scopingQuestions: [
+      "¿Qué entregables, formatos y relaciones de aspecto necesita el cliente final?",
+      "¿Con qué cámara y perfil de imagen se grabó, y existe un LUT o grado aprobado?",
+      "¿Quién será el único punto de contacto para las notas de revisión?",
+      "¿Qué convención de nombres y estructura de carpetas usan en la entrega?",
+    ],
+    projectFit:
+      "Esta ruta es capacidad de postproducción para estudios: entrega sin marca, comunicación solo con el estudio y nada publicado como referencia sin su permiso.",
+    sections: [
+      {
+        heading: "¿Qué debe incluir el paquete que envía el estudio?",
+        paragraphs: [
+          "Todo lo necesario para montar sin hacer una sola pregunta, que en la práctica son cinco cosas. Los archivos originales de cámara, incluida la segunda cámara si existe, con su estructura de carpetas intacta en lugar de aplanada. El audio grabado por separado, si se usó grabadora o corbatero, para sincronizarlo en lugar de reconstruirlo desde la pista de la cámara.",
+          "Después, los recursos de marca en vector o en archivo por capas, porque un logo tomado de una página web es una fotografía de baja resolución de un logo. Un brief que nombre cada entregable, su relación de aspecto, su destino y su convención de nombres. Y la línea técnica: modelo de cámara, perfil de imagen, cuadros por segundo y cualquier LUT o grado aprobado. Ese último punto es el que más falta y el que decide si el montaje inicial llega con el aspecto del estudio o con una suposición.",
+        ],
+        bullets: [
+          "Archivos originales de todas las cámaras, con sus carpetas intactas",
+          "Audio grabado por separado para sincronizar, no reconstruir",
+          "Marca en vector o por capas, nunca una captura de pantalla",
+          "Cámara, perfil de imagen, cuadros por segundo y el LUT o grado aprobado",
+        ],
+      },
+      {
+        heading: "¿Quién habla con quién mientras corre la edición?",
+        paragraphs: [
+          "El estudio. La relación con el cliente final se queda con quien vendió el trabajo, así que las notas viajan a través de un único contacto designado y no llegan desde varios lados. No es una preferencia de orden: en trabajo subcontratado cada nota ya pasó por el cliente y por el estudio, y dos versiones de la misma instrucción cuestan una pasada completa sobre la línea de tiempo.",
+          "La forma práctica es una sola lista consolidada por ronda, con códigos de tiempo, y un acuerdo sobre cuántas rondas incluye el trabajo antes de empezar. En la entrega los archivos van sin marca ni logo, y el trabajo no se publica como referencia pública salvo que el estudio lo autorice. Contarle o no al cliente final que la postproducción está subcontratada es una decisión del estudio, y nada en los archivos la toma por él.",
+        ],
+        bullets: [
+          "Un único punto de contacto en el estudio para todas las notas",
+          "Una lista consolidada por ronda, con códigos de tiempo",
+          "Número de rondas acordado antes de empezar, no después",
+          "Archivos sin marca y cero publicación como referencia sin permiso",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿El cliente final se enterará de que hubo un editor externo?",
+        answer:
+          "No por los archivos. Los entregables llegan sin marca, nombrados como pide el estudio y sin crédito, logo ni datos de contacto. La comunicación se mantiene con el estudio en lugar de ir directo al cliente final, y el trabajo no se muestra como referencia pública sin su autorización. Contarlo o no es una decisión del estudio.",
+      },
+      {
+        question: "¿Se puede igualar un aspecto que la agencia ya tiene establecido?",
+        answer:
+          "Sí, y el camino más corto es una referencia que la agencia ya posea: una exportación terminada de un trabajo anterior, un LUT o un fotograma ya coloreado. Igualar un aspecto descrito con palabras cuesta más pasadas que igualar uno mostrado. Si el material viene de una cámara o un perfil nuevos para ese cliente, un clip de prueba coloreado antes del montaje completo evita una marcha atrás al final.",
+      },
+      {
+        question: "¿Cómo se manejan las revisiones en un proyecto de marca blanca?",
+        answer:
+          "Como una lista consolidada por ronda, con códigos de tiempo, enviada desde un único contacto del estudio. Importa más aquí que en el trabajo directo, porque cada nota ya pasó por el cliente final y por la agencia, y dos personas con instrucciones contradictorias cuestan una pasada completa. Acordar de antemano cuántas rondas incluye el trabajo protege el alcance que el estudio cotizó.",
+      },
+    ],
+  },
+  {
+    slug: "marketing-de-video-para-salones-y-barberias-miami",
+    title: "Marketing de video para salones y barberías en Miami",
+    metadataTitle: "Video para Salones y Barberías Miami",
+    description:
+      "Edición de video para salones de belleza, barberías y estudios de uñas en Miami y Fort Lauderdale: transformaciones, primeros planos y piezas verticales.",
+    eyebrow: "Salones / Barberías / Estudios de uñas",
+    h1: "Video para salones, barberías y estudios de uñas.",
+    lead:
+      "Graba la silla antes de empezar, dos o tres momentos del trabajo y la revelación desde el mismo punto. Esteban convierte esos clips en piezas verticales con el color corregido para que el resultado en pantalla se parezca al del espejo. Envía una semana de material y una nota de qué clientes dieron permiso.",
+    keyword: "marketing de video para salones y barberías",
+    location: "Miami-Dade / Broward",
+    availability: "confirmed",
+    icon: Scissors,
+    bestFor: [
+      "Salones de belleza que quieren mostrar transformaciones de color.",
+      "Barberías que graban entre clientes y no alcanzan a editar.",
+      "Estudios de uñas que necesitan primeros planos realmente nítidos.",
+      "Locales con agenda que publican para llenar huecos de la semana.",
+    ],
+    scopingQuestions: [
+      "¿Existe ya un punto fijo del local para grabar antes y después?",
+      "¿Los clientes que aparecen dieron permiso para publicar?",
+      "¿El contenido muestra color, corte, uñas o el ambiente del local?",
+      "¿Dónde se publica y con qué frecuencia quieres sostenerlo?",
+    ],
+    projectFit:
+      "Esta ruta parte de material grabado entre clientes y entrega piezas verticales. No promete cantidad de publicaciones ni resultados de agenda.",
+    sections: [
+      {
+        heading: "¿Dónde debe vivir la cámara dentro del local?",
+        paragraphs: [
+          "En un solo lugar elegido, siempre el mismo. Fijar una estación y una posición de cámara convierte la grabación en un hábito en lugar de una decisión, y es también lo que hace comparables el antes y el después, porque lo único que debería cambiar entre las dos tomas es el cabello.",
+          "El lugar que conviene elegir es el de luz más constante. Una estación junto a la ventana da una luz favorecedora pero cambia de color a lo largo del día y pelea con los focos cálidos del techo; una estación iluminada sobre todo por las lámparas del local es menos bonita pero repetible. Cualquiera de las dos funciona, siempre que se elija una y el balance de blancos se fije para ella en lugar de dejar que la cámara adivine. Un teléfono apoyado en un estante o sujeto al espejo a la altura del pecho es más estable que cualquier toma a pulso.",
+        ],
+        bullets: [
+          "Una estación y una posición de cámara marcadas, siempre las mismas",
+          "Balance de blancos fijado para la luz dominante, no automático",
+          "Teléfono apoyado o sujeto, a la altura del pecho",
+          "El antes se graba antes de tocar el cabello, no se recuerda después",
+        ],
+      },
+      {
+        heading: "¿Cuáles son las tres formas que vale la pena grabar cada semana?",
+        paragraphs: [
+          "La transformación, el detalle y la explicación. La transformación son dos tomas desde la misma posición, una antes de empezar y otra en la revelación, con dos o tres momentos breves del trabajo en medio. El detalle es el primer plano cerrado: el acabado de las uñas, la línea del degradado, el patrón del rizo, grabado con la mano apoyada porque a esa distancia la profundidad enfocada es mínima y las manos se mueven.",
+          "La explicación es alguien del equipo diciendo algo útil a cámara: por qué se eligió un tono, cómo mantenerlo en casa, qué pedir la próxima vez. Cada forma toma menos de un minuto de la jornada y ninguna exige cerrar el local. Lo único no negociable es el permiso: quien se sienta en la silla no aceptó aparecer en una cuenta de negocio por sentarse, así que conviene preguntar antes de grabar y enviar la nota de quién dijo sí junto con los clips.",
+        ],
+        bullets: [
+          "Transformación: dos tomas desde el mismo punto, con momentos breves en medio",
+          "Detalle: primer plano con la mano apoyada para que salga nítido",
+          "Explicación: una frase útil del estilista a cámara",
+          "Permiso preguntado antes de grabar y anotado junto a los clips",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Qué debe grabar un salón en un día normal de trabajo?",
+        answer:
+          "Las piezas de una transformación, en orden: el cliente en la silla antes de empezar, dos o tres momentos breves del trabajo y el resultado final grabado desde la misma posición que la primera toma. Agrega unos segundos del local y una frase del estilista sobre lo que se hizo. Nada de eso exige cerrar el local.",
+      },
+      {
+        question: "¿Hace falta permiso del cliente antes de publicar su corte?",
+        answer:
+          "Sí, y conviene pedirlo antes de grabar y no después. Alguien sentado con la capa puesta no aceptó aparecer en una cuenta de negocio solo por estar ahí, y un cliente que dice no más tarde deja un montaje construido alrededor de una cara que no se puede mostrar. Una nota de quién dio permiso, enviada con el material, evita esa situación.",
+      },
+      {
+        question: "¿Por qué el color del cabello se ve distinto en cámara?",
+        answer:
+          "Casi siempre porque la luz está mezclada. La luz de la ventana es azul comparada con los focos cálidos de la estación, y cuando ambas caen sobre la misma cabeza la cámara tiene que elegir una, así que la otra tiñe todo lo que toca. Grabar siempre en el mismo punto, con la silla orientada hacia la luz dominante, se acerca mucho más al resultado real que cualquier corrección posterior.",
+      },
+    ],
+  },
+  {
+    slug: "marketing-de-video-para-detallado-y-wraps-miami",
+    title: "Marketing de video para detallado, polarizado y wraps en Miami",
+    metadataTitle: "Video para Detallado y Wraps Miami",
+    description:
+      "Edición de video para talleres de detallado, polarizado y wrap de vinilo en el sur de Florida: reflejos controlados y comparaciones antes y después honestas.",
+    eyebrow: "Detallado / Polarizado / Wrap de vinilo",
+    h1: "Video para talleres de detallado, polarizado y wraps.",
+    lead:
+      "Una lámina corregida se comporta como un espejo, así que la toma trata en realidad de lo que se refleja en ella. Marca un punto fijo en la bahía, graba unos segundos al inicio y al final de cada trabajo, y Esteban monta comparaciones donde lo único que cambió es el trabajo. Envía los clips y el servicio al que corresponde cada uno.",
+    keyword: "marketing de video para detallado y wraps",
+    location: "Miami-Dade / Broward",
+    availability: "confirmed",
+    icon: Car,
+    bestFor: [
+      "Talleres de detallado y corrección de pintura que quieren mostrar el antes y después.",
+      "Instaladores de polarizado que necesitan explicar lo que se ve desde dentro.",
+      "Talleres de wrap de vinilo que viven de los bordes y los acabados.",
+      "Negocios automotrices de servicio, distintos de un concesionario.",
+    ],
+    scopingQuestions: [
+      "¿Ya existe un punto marcado en la bahía para grabar siempre igual?",
+      "¿El contenido muestra corrección de pintura, recubrimiento, polarizado o wrap?",
+      "¿Hay una fuente de luz dura disponible para levantar los defectos del antes?",
+      "¿Qué quieres que haga quien lo vea: pedir cotización, escribir o pasar al taller?",
+    ],
+    projectFit:
+      "Esta ruta parte de material grabado en la bahía y entrega comparaciones y piezas verticales. Las cifras de rechazo de calor o durabilidad quedan con el fabricante de la lámina.",
+    sections: [
+      {
+        heading: "¿Cómo se controla el reflejo dentro de una bahía de trabajo?",
+        paragraphs: [
+          "Decidiendo qué le permites ver a la pintura. Una lámina terminada es un espejo, así que una toma de un auto en una bahía desordenada es una toma del desorden. Mover el auto a un punto que mire al cielo abierto, a una pared lisa o a una cortina metálica cerrada cambia la imagen más que cualquier ajuste posterior.",
+          "El segundo control es la luz. Las luminarias amplias del techo envuelven la lámina de manera uniforme, y por eso las marcas de remolino y los hologramas desaparecen en cámara aunque sean evidentes en persona. Una sola luz dura, o el sol bajo, rasante sobre la superficie, devuelve los defectos para la toma del antes; y la misma técnica después de la corrección es lo que hace que el acabado se vea profundo en lugar de plano. Las dos tomas quieren el mismo tratamiento, porque una comparación donde solo cambió la luz no es una comparación.",
+        ],
+        bullets: [
+          "Elegir qué se refleja: cielo abierto, pared lisa o cortina cerrada",
+          "Una luz dura rasante para levantar remolinos en la toma del antes",
+          "La misma luz después de la corrección, para que la comparación valga",
+          "Revisar la pantalla en las tomas de polarizado antes de mover el auto",
+        ],
+      },
+      {
+        heading: "¿Qué se queda fuera de un video de detallado o polarizado?",
+        paragraphs: [
+          "Las cifras de desempeño que pertenecen a otro. El rechazo de calor, la protección ultravioleta y los años de durabilidad son afirmaciones del fabricante de la lámina o del recubrimiento, y un taller que las repite en su propia voz está respaldando datos que no generó. El camino más seguro y más convincente es mostrar lo que la cámara sí puede registrar: un borde instalado con un corte limpio, la vista desde dentro de un vidrio tratado frente a uno sin tratar, el agua comportándose distinto sobre una lámina recubierta.",
+          "La misma disciplina aplica a la comparación. Un antes y después es honesto cuando coinciden posición, altura, distancia y luz, y deja de serlo en silencio cuando el después se graba con mejor luz. Marcar la posición de grabación en el piso es un hábito pequeño que convierte cada auto que pasa por la bahía en material usable y mantiene la afirmación dentro de lo que el video muestra.",
+        ],
+        bullets: [
+          "Las cifras de calor y durabilidad se dejan al fabricante de la lámina",
+          "Se muestra el borde instalado, el corte y la vista desde dentro",
+          "El después se graba con la misma luz y la misma posición que el antes",
+          "Posición de grabación marcada en el piso de la bahía",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Cómo se graba un antes y después en el taller?",
+        answer:
+          "Mismo punto, misma altura de cámara, misma luz, las dos veces. Una corrección se ve dramática en persona porque cambió el reflejo, y la única forma de mostrarlo en pantalla es dejar que quien mira compare dos tomas que no se diferencian en nada excepto la pintura. Marcar la posición en el piso es la forma más simple de hacerlo repetible.",
+      },
+      {
+        question: "¿Por qué las marcas de remolino desaparecen en cámara?",
+        answer:
+          "Porque solo se ven bajo una luz dura y única, y la mayoría de los talleres está iluminada por luminarias amplias que envuelven la lámina y esconden justo lo que quieres mostrar. Una luz direccional, o el sol en ángulo bajo, rasante sobre la pintura, devuelve los defectos. La misma técnica después de la corrección es lo que hace que la lámina se vea profunda.",
+      },
+      {
+        question: "¿Se puede grabar sin cerrar la bahía?",
+        answer:
+          "Sí, siempre que la posición de cámara se decida una vez y se reutilice. Un teléfono en trípode sobre un punto marcado, un fondo limpio detrás del auto y unos segundos capturados al inicio y al final de cada trabajo alcanzan para sostener publicaciones. Lo que arruina el material no es la falta de estudio, sino un reflejo desordenado y un ángulo distinto cada vez.",
+      },
+    ],
+  },
 ];
 
 
@@ -3079,7 +3461,44 @@ export const spanishCoreRoutes = [
   "/es/evaluacion",
 ];
 
+/**
+ * The 2026-10-06 niche batch, paired in both directions.
+ *
+ * hreflang is discarded unless both documents point at each other, so each new
+ * page appears twice here: once under its English path and once under its
+ * Spanish one, with identical values.
+ */
+const nicheBatch20261006 = Object.fromEntries(
+  (
+    [
+      [
+        "/services/medical-practice-video-marketing-miami",
+        "/es/marketing-de-video-para-consultorios-medicos-miami",
+      ],
+      [
+        "/services/content-creator-video-editing-miami",
+        "/es/edicion-de-video-para-creadores-de-contenido-miami",
+      ],
+      [
+        "/services/white-label-video-editing-for-agencies",
+        "/es/edicion-de-video-marca-blanca-para-agencias",
+      ],
+      [
+        "/services/salon-barbershop-video-marketing-miami",
+        "/es/marketing-de-video-para-salones-y-barberias-miami",
+      ],
+      [
+        "/services/auto-detailing-tint-wrap-video-marketing-miami",
+        "/es/marketing-de-video-para-detallado-y-wraps-miami",
+      ],
+    ] as const
+  ).flatMap(([en, es]) =>
+    [en, es].map((path) => [path, { "en-US": en, "es-US": es, "x-default": en }] as const),
+  ),
+);
+
 export const languageAlternates: Record<string, Record<string, string>> = {
+  ...nicheBatch20261006,
   ...Object.fromEntries(Object.values(packageRoutes).flatMap(({ en, es }) => [en, es].map((path) => [path, { "en-US": en, "es-US": es, "x-default": en }]))),
   "/pricing/real-estate": {
     "en-US": "/pricing/real-estate",

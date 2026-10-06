@@ -30,6 +30,7 @@
     media_play: ["media_id", "media_type"], search: ["search_term"],
     filter_apply: ["filter_name", "filter_value"],
     item_view: ["item_id", "item_category"], item_click: ["item_id", "list_name"],
+    content_interaction: ["interaction_id", "interaction_type"],
     share_click: ["channel"], experiment_exposure: ["experiment_id", "variant"],
     error_shown: ["error_code", "surface"]
   };

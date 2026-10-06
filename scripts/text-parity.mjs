@@ -318,6 +318,23 @@ for (const word of [
   "YouTube", "edicion", "entregado,", "hace", "limite", "sin",
 ]) ROUTE_ALLOWED_ADDITIONS["es/guias.html"].add(word);
 
+// The two Spanish DIRECTORIES - /es/servicios and /es/areas - render one card
+// per niche page, so adding a page necessarily adds that page's title and
+// coverage line to both. These are the words the five pairs of 2026-10-06
+// brought with them: five titles, their locations, and nothing else. Written
+// down rather than re-snapshotted, so the gate still fails if a future edit
+// changes a sentence on those hubs.
+for (const route of ["es/servicios.html", "es/areas.html"]) {
+  const existing = ROUTE_ALLOWED_ADDITIONS[route] ?? new Set();
+  for (const word of [
+    "/", "Broward", "Edición", "Florida", "Marketing", "Miami-Dade",
+    "Remoto", "South", "agencias", "barberías", "blanca", "consultorios",
+    "contenido", "creadores", "detallado,", "en", "fotógrafos", "marca",
+    "médicos", "para", "polarizado", "salones", "video", "wraps", "y",
+  ]) existing.add(word);
+  ROUTE_ALLOWED_ADDITIONS[route] = existing;
+}
+
 const baseline = JSON.parse(readFileSync(file, "utf8"));
 const problems = [];
 

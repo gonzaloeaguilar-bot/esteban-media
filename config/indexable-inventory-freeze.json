@@ -1,9 +1,9 @@
 {
   "status": "demand_gated",
   "effectiveDate": "2026-08-28",
-  "baselineRevisedOn": "2026-10-01",
-  "approvedSitemapUrlCount": 267,
-  "approvedSitemapUrlSetSha256": "a6f15307d407a5b1dd1f6afced2c45775d60753461ee05806985fffc9eef43ff",
+  "baselineRevisedOn": "2026-10-06",
+  "approvedSitemapUrlCount": 277,
+  "approvedSitemapUrlSetSha256": "9031d4858041189139e562e94b1e9bfe546896e678b935396f078e288850438a",
   "allowedNewIndexableUrls": 4,
   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {
@@ -82,7 +82,7 @@
       ],
       "orderedBy": "Gonzalo (in-session), from Esteban's own rate card",
       "kind": "published-rates",
-      "demandEvidence": "Demand-backed, unlike /desk-recommendations. Search Console 2026-08-30..09-26 already shows this intent reaching the site WITHOUT a page to receive it: 'video production miami cost' at position 18 and 'corporate video production cost miami' earning impressions on a GUIDE, not on a price page. The AI-citation run the same week measured 0 citations for the brand on generic agency queries where clutch, designrush and productionhub win \u2014 queries a small studio does not take. A page publishing exact figures by home size competes on a question those directories do not answer. Source of every figure: Esteban's public rate card, September 2026, in lib/services-config.ts.",
+      "demandEvidence": "Demand-backed, unlike /desk-recommendations. Search Console 2026-08-30..09-26 already shows this intent reaching the site WITHOUT a page to receive it: 'video production miami cost' at position 18 and 'corporate video production cost miami' earning impressions on a GUIDE, not on a price page. The AI-citation run the same week measured 0 citations for the brand on generic agency queries where clutch, designrush and productionhub win — queries a small studio does not take. A page publishing exact figures by home size competes on a question those directories do not answer. Source of every figure: Esteban's public rate card, September 2026, in lib/services-config.ts.",
       "followUpDate": "2026-10-29",
       "followUp": "Check GSC for impressions and position on /pricing/real-estate and /es/precios/inmobiliaria, and re-run the citation tracker for 'real estate photography miami cost'. Zero impressions at 30 days means the intent is not there and the pair should be merged into /pricing."
     },
@@ -139,6 +139,27 @@
       "demandEvidence": "Live index-watch status on 2026-10-01 reported 264 watched URLs, 466 all-data impressions, average position 14.0923, 199 pass, 65 neutral, 0 fail. Same-session GSC query/page evidence identified Spanish demand gaps for 'editor de reels fort lauderdale', 'editor de video miami', and 'editor de reels miami', while 'fort lauderdale video production' already reached the site through broad pages. These three Spanish URLs give Spanish-first buyers direct service answers with shared inquiry rails, portfolio proof links, FAQ schema, and crawl-watch coverage.",
       "followUpDate": "2026-11-01",
       "followUp": "Check GSC impressions, indexed status, CTA clicks, and query/page split for the three Spanish GEO URLs. If any page earns zero impressions and zero contact intent after 30 days, merge it into the nearest Spanish service page or remove it from the sitemap."
+    },
+    {
+      "on": "2026-10-06",
+      "url": [
+        "/services/medical-practice-video-marketing-miami",
+        "/es/marketing-de-video-para-consultorios-medicos-miami",
+        "/services/content-creator-video-editing-miami",
+        "/es/edicion-de-video-para-creadores-de-contenido-miami",
+        "/services/white-label-video-editing-for-agencies",
+        "/es/edicion-de-video-marca-blanca-para-agencias",
+        "/services/salon-barbershop-video-marketing-miami",
+        "/es/marketing-de-video-para-salones-y-barberias-miami",
+        "/services/auto-detailing-tint-wrap-video-marketing-miami",
+        "/es/marketing-de-video-para-detallado-y-wraps-miami"
+      ],
+      "orderedBy": "Gonzalo (in-session, named each of the five gaps)",
+      "kind": "buyer-gap niche pairs",
+      "demandEvidence": "NO GSC QUERY CITED FOR FOUR OF THE FIVE PAIRS, and that is stated rather than dressed up. The gaps are buyer gaps the owner named directly: the site already has dental, med spa and plastic surgery pages but nothing for a clinic that is none of those (chiropractic, physical therapy, functional medicine, walk-in); nothing for creators and influencers, who are their own buyer rather than a business; nothing for an agency or photographer who sells the shoot and subcontracts post-production; nothing for salons, barbershops and nail studios; and an automotive page aimed at dealerships rather than at detail, tint and wrap shops. The white-label pair is the one with a surface behind it: the repo's own niche prospect scraper treats agencies and photographers as the highest contact-quality segment in the outbound lane, which is the segment this page answers. Each pair ships with title, meta description, FAQPage and Service schema built from the visible copy, a breadcrumb trail, inbound links from the English and Spanish services hubs, and three outbound links to sibling services.",
+      "note": "TEN URLs, which is five bilingual pairs and more than one demand-wave allowance of 4. Recorded as one owner-ordered batch rather than split across invented waves, so the exception stays visible. allowedNewIndexableUrls is left at 4; the per-wave bound is unchanged.",
+      "followUpDate": "2026-11-06",
+      "followUp": "Check GSC impressions, indexed status and inquiry-rail CTA clicks for all ten URLs. Any pair at zero impressions and zero contact intent after 30 days is not a real gap: merge it into the nearest service page or drop it from the sitemap. The white-label pair also gets checked against the outbound lane: if those prospects arrive through outreach rather than search, keep the page as a sales asset and drop it from the sitemap."
     }
   ]
 }

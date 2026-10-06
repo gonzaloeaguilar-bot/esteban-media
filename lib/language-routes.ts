@@ -36,6 +36,17 @@ const pairedLanguageRoutes: Record<string, string> = {
   "/daily-shot-list-planner": "/es/planificador-de-tomas-de-video",
   "/daily-script-pacing-calculator": "/es/calculadora-de-ritmo-de-video",
   "/daily-script-timer": "/es/temporizador-de-guiones-de-video",
+  // 2026-10-06 niche batch.
+  "/services/medical-practice-video-marketing-miami":
+    "/es/marketing-de-video-para-consultorios-medicos-miami",
+  "/services/content-creator-video-editing-miami":
+    "/es/edicion-de-video-para-creadores-de-contenido-miami",
+  "/services/white-label-video-editing-for-agencies":
+    "/es/edicion-de-video-marca-blanca-para-agencias",
+  "/services/salon-barbershop-video-marketing-miami":
+    "/es/marketing-de-video-para-salones-y-barberias-miami",
+  "/services/auto-detailing-tint-wrap-video-marketing-miami":
+    "/es/marketing-de-video-para-detallado-y-wraps-miami",
 };
 
 for (const [englishPath, spanishPath] of Object.entries({

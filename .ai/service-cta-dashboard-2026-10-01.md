@@ -4,9 +4,9 @@ Generated: 2026-10-01
 
 This is the zero-cost source inventory for quote, call, email, WhatsApp, and proof actions. The site analytics layer records `data-cta` clicks and link-based contact events; this file names the IDs to watch in GA4 or any exported report.
 
-- Total CTA IDs found: 106
-- Service quote CTA IDs found: 96
-- Contact-like CTA IDs found: 78
+- Total CTA IDs found: 159
+- Service quote CTA IDs found: 136
+- Contact-like CTA IDs found: 113
 
 ## Service quote actions
 
@@ -20,6 +20,14 @@ This is the zero-cost source inventory for quote, call, email, WhatsApp, and pro
 | `service_ai_real_estate_photos_phone` | `components/service-depth.tsx` |
 | `service_ai_real_estate_photos_proof` | `components/service-depth.tsx` |
 | `service_ai_real_estate_photos_whatsapp` | `components/service-depth.tsx` |
+| `service_auto_detailing_video_email` | `components/service-depth.tsx` |
+| `service_auto_detailing_video_phone` | `components/service-depth.tsx` |
+| `service_auto_detailing_video_proof` | `components/service-depth.tsx` |
+| `service_auto_detailing_video_whatsapp` | `components/service-depth.tsx` |
+| `service_content_creator_video_email` | `components/service-depth.tsx` |
+| `service_content_creator_video_phone` | `components/service-depth.tsx` |
+| `service_content_creator_video_proof` | `components/service-depth.tsx` |
+| `service_content_creator_video_whatsapp` | `components/service-depth.tsx` |
 | `service_ecommerce_product_video_email` | `components/service-depth.tsx` |
 | `service_ecommerce_product_video_phone` | `components/service-depth.tsx` |
 | `service_ecommerce_product_video_proof` | `components/service-depth.tsx` |
@@ -32,10 +40,22 @@ This is the zero-cost source inventory for quote, call, email, WhatsApp, and pro
 | `service_es_ai_real_estate_photo_phone` | `components/service-depth.tsx` |
 | `service_es_ai_real_estate_photo_proof` | `components/service-depth.tsx` |
 | `service_es_ai_real_estate_photo_whatsapp` | `components/service-depth.tsx` |
+| `service_es_auto_detailing_video_email` | `components/service-depth.tsx` |
+| `service_es_auto_detailing_video_phone` | `components/service-depth.tsx` |
+| `service_es_auto_detailing_video_proof` | `components/service-depth.tsx` |
+| `service_es_auto_detailing_video_whatsapp` | `components/service-depth.tsx` |
+| `service_es_content_creator_video_email` | `components/service-depth.tsx` |
+| `service_es_content_creator_video_phone` | `components/service-depth.tsx` |
+| `service_es_content_creator_video_proof` | `components/service-depth.tsx` |
+| `service_es_content_creator_video_whatsapp` | `components/service-depth.tsx` |
 | `service_es_ecommerce_product_video_email` | `components/service-depth.tsx` |
 | `service_es_ecommerce_product_video_phone` | `components/service-depth.tsx` |
 | `service_es_ecommerce_product_video_proof` | `components/service-depth.tsx` |
 | `service_es_ecommerce_product_video_whatsapp` | `components/service-depth.tsx` |
+| `service_es_medical_practice_video_email` | `components/service-depth.tsx` |
+| `service_es_medical_practice_video_phone` | `components/service-depth.tsx` |
+| `service_es_medical_practice_video_proof` | `components/service-depth.tsx` |
+| `service_es_medical_practice_video_whatsapp` | `components/service-depth.tsx` |
 | `service_es_reels_editor_fort_lauderdale_email` | `components/service-depth.tsx` |
 | `service_es_reels_editor_fort_lauderdale_phone` | `components/service-depth.tsx` |
 | `service_es_reels_editor_fort_lauderdale_proof` | `components/service-depth.tsx` |
@@ -48,6 +68,10 @@ This is the zero-cost source inventory for quote, call, email, WhatsApp, and pro
 | `service_es_restaurant_promo_video_phone` | `components/service-depth.tsx` |
 | `service_es_restaurant_promo_video_proof` | `components/service-depth.tsx` |
 | `service_es_restaurant_promo_video_whatsapp` | `components/service-depth.tsx` |
+| `service_es_salon_barbershop_video_email` | `components/service-depth.tsx` |
+| `service_es_salon_barbershop_video_phone` | `components/service-depth.tsx` |
+| `service_es_salon_barbershop_video_proof` | `components/service-depth.tsx` |
+| `service_es_salon_barbershop_video_whatsapp` | `components/service-depth.tsx` |
 | `service_es_short_form_video_email` | `components/service-depth.tsx` |
 | `service_es_short_form_video_phone` | `components/service-depth.tsx` |
 | `service_es_short_form_video_proof` | `components/service-depth.tsx` |
@@ -64,6 +88,10 @@ This is the zero-cost source inventory for quote, call, email, WhatsApp, and pro
 | `service_es_video_production_fort_lauderdale_phone` | `components/service-depth.tsx` |
 | `service_es_video_production_fort_lauderdale_proof` | `components/service-depth.tsx` |
 | `service_es_video_production_fort_lauderdale_whatsapp` | `components/service-depth.tsx` |
+| `service_es_white_label_video_editing_email` | `components/service-depth.tsx` |
+| `service_es_white_label_video_editing_phone` | `components/service-depth.tsx` |
+| `service_es_white_label_video_editing_proof` | `components/service-depth.tsx` |
+| `service_es_white_label_video_editing_whatsapp` | `components/service-depth.tsx` |
 | `service_es_youtube_video_editing_email` | `components/service-depth.tsx` |
 | `service_es_youtube_video_editing_phone` | `components/service-depth.tsx` |
 | `service_es_youtube_video_editing_proof` | `components/service-depth.tsx` |
@@ -72,6 +100,10 @@ This is the zero-cost source inventory for quote, call, email, WhatsApp, and pro
 | `service_fort_lauderdale_video_production_phone` | `components/service-depth.tsx` |
 | `service_fort_lauderdale_video_production_proof` | `components/service-depth.tsx` |
 | `service_fort_lauderdale_video_production_whatsapp` | `components/service-depth.tsx` |
+| `service_medical_practice_video_email` | `components/service-depth.tsx` |
+| `service_medical_practice_video_phone` | `components/service-depth.tsx` |
+| `service_medical_practice_video_proof` | `components/service-depth.tsx` |
+| `service_medical_practice_video_whatsapp` | `components/service-depth.tsx` |
 | `service_real_estate_reels_email` | `components/service-depth.tsx` |
 | `service_real_estate_reels_phone` | `components/service-depth.tsx` |
 | `service_real_estate_reels_proof` | `components/service-depth.tsx` |
@@ -92,6 +124,10 @@ This is the zero-cost source inventory for quote, call, email, WhatsApp, and pro
 | `service_restaurant_promo_video_phone` | `components/service-depth.tsx` |
 | `service_restaurant_promo_video_proof` | `components/service-depth.tsx` |
 | `service_restaurant_promo_video_whatsapp` | `components/service-depth.tsx` |
+| `service_salon_barbershop_video_email` | `components/service-depth.tsx` |
+| `service_salon_barbershop_video_phone` | `components/service-depth.tsx` |
+| `service_salon_barbershop_video_proof` | `components/service-depth.tsx` |
+| `service_salon_barbershop_video_whatsapp` | `components/service-depth.tsx` |
 | `service_short_form_video_email` | `components/service-depth.tsx` |
 | `service_short_form_video_phone` | `components/service-depth.tsx` |
 | `service_short_form_video_proof` | `components/service-depth.tsx` |
@@ -104,6 +140,10 @@ This is the zero-cost source inventory for quote, call, email, WhatsApp, and pro
 | `service_ugc_ecommerce_video_phone` | `components/service-depth.tsx` |
 | `service_ugc_ecommerce_video_proof` | `components/service-depth.tsx` |
 | `service_ugc_ecommerce_video_whatsapp` | `components/service-depth.tsx` |
+| `service_white_label_video_editing_email` | `components/service-depth.tsx` |
+| `service_white_label_video_editing_phone` | `components/service-depth.tsx` |
+| `service_white_label_video_editing_proof` | `components/service-depth.tsx` |
+| `service_white_label_video_editing_whatsapp` | `components/service-depth.tsx` |
 | `service_youtube_video_editing_email` | `components/service-depth.tsx` |
 | `service_youtube_video_editing_phone` | `components/service-depth.tsx` |
 | `service_youtube_video_editing_proof` | `components/service-depth.tsx` |
@@ -113,18 +153,28 @@ This is the zero-cost source inventory for quote, call, email, WhatsApp, and pro
 
 | CTA ID | Source file |
 |---|---|
+| `auto_detailing_hero_contact` | `app/(english)/services/auto-detailing-tint-wrap-video-marketing-miami/page.tsx` |
 | `closing_whatsapp` | `components/packages-section.tsx` |
 | `contact_whatsapp` | `app/(english)/contact/page.tsx` |
 | `contact_whatsapp` | `app/(spanish)/es/contacto/page.tsx` |
+| `content_creator_hero_contact` | `app/(english)/services/content-creator-video-editing-miami/page.tsx` |
+| `medical_practice_hero_contact` | `app/(english)/services/medical-practice-video-marketing-miami/page.tsx` |
 | `real_estate_whatsapp` | `components/real-estate-pricing.tsx` |
 | `remote_editor_contact` | `app/(english)/services/hire-remote-video-editor/page.tsx` |
 | `resource_video_brief_contact` | `app/(english)/resources/video-project-brief-template/page.tsx` |
+| `salon_hero_contact` | `app/(english)/services/salon-barbershop-video-marketing-miami/page.tsx` |
 | `service_ai_product_photography_email` | `components/service-depth.tsx` |
 | `service_ai_product_photography_phone` | `components/service-depth.tsx` |
 | `service_ai_product_photography_whatsapp` | `components/service-depth.tsx` |
 | `service_ai_real_estate_photos_email` | `components/service-depth.tsx` |
 | `service_ai_real_estate_photos_phone` | `components/service-depth.tsx` |
 | `service_ai_real_estate_photos_whatsapp` | `components/service-depth.tsx` |
+| `service_auto_detailing_video_email` | `components/service-depth.tsx` |
+| `service_auto_detailing_video_phone` | `components/service-depth.tsx` |
+| `service_auto_detailing_video_whatsapp` | `components/service-depth.tsx` |
+| `service_content_creator_video_email` | `components/service-depth.tsx` |
+| `service_content_creator_video_phone` | `components/service-depth.tsx` |
+| `service_content_creator_video_whatsapp` | `components/service-depth.tsx` |
 | `service_ecommerce_product_video_email` | `components/service-depth.tsx` |
 | `service_ecommerce_product_video_phone` | `components/service-depth.tsx` |
 | `service_ecommerce_product_video_whatsapp` | `components/service-depth.tsx` |
@@ -134,9 +184,18 @@ This is the zero-cost source inventory for quote, call, email, WhatsApp, and pro
 | `service_es_ai_real_estate_photo_email` | `components/service-depth.tsx` |
 | `service_es_ai_real_estate_photo_phone` | `components/service-depth.tsx` |
 | `service_es_ai_real_estate_photo_whatsapp` | `components/service-depth.tsx` |
+| `service_es_auto_detailing_video_email` | `components/service-depth.tsx` |
+| `service_es_auto_detailing_video_phone` | `components/service-depth.tsx` |
+| `service_es_auto_detailing_video_whatsapp` | `components/service-depth.tsx` |
+| `service_es_content_creator_video_email` | `components/service-depth.tsx` |
+| `service_es_content_creator_video_phone` | `components/service-depth.tsx` |
+| `service_es_content_creator_video_whatsapp` | `components/service-depth.tsx` |
 | `service_es_ecommerce_product_video_email` | `components/service-depth.tsx` |
 | `service_es_ecommerce_product_video_phone` | `components/service-depth.tsx` |
 | `service_es_ecommerce_product_video_whatsapp` | `components/service-depth.tsx` |
+| `service_es_medical_practice_video_email` | `components/service-depth.tsx` |
+| `service_es_medical_practice_video_phone` | `components/service-depth.tsx` |
+| `service_es_medical_practice_video_whatsapp` | `components/service-depth.tsx` |
 | `service_es_reels_editor_fort_lauderdale_email` | `components/service-depth.tsx` |
 | `service_es_reels_editor_fort_lauderdale_phone` | `components/service-depth.tsx` |
 | `service_es_reels_editor_fort_lauderdale_whatsapp` | `components/service-depth.tsx` |
@@ -146,6 +205,9 @@ This is the zero-cost source inventory for quote, call, email, WhatsApp, and pro
 | `service_es_restaurant_promo_video_email` | `components/service-depth.tsx` |
 | `service_es_restaurant_promo_video_phone` | `components/service-depth.tsx` |
 | `service_es_restaurant_promo_video_whatsapp` | `components/service-depth.tsx` |
+| `service_es_salon_barbershop_video_email` | `components/service-depth.tsx` |
+| `service_es_salon_barbershop_video_phone` | `components/service-depth.tsx` |
+| `service_es_salon_barbershop_video_whatsapp` | `components/service-depth.tsx` |
 | `service_es_short_form_video_email` | `components/service-depth.tsx` |
 | `service_es_short_form_video_phone` | `components/service-depth.tsx` |
 | `service_es_short_form_video_whatsapp` | `components/service-depth.tsx` |
@@ -158,12 +220,18 @@ This is the zero-cost source inventory for quote, call, email, WhatsApp, and pro
 | `service_es_video_production_fort_lauderdale_email` | `components/service-depth.tsx` |
 | `service_es_video_production_fort_lauderdale_phone` | `components/service-depth.tsx` |
 | `service_es_video_production_fort_lauderdale_whatsapp` | `components/service-depth.tsx` |
+| `service_es_white_label_video_editing_email` | `components/service-depth.tsx` |
+| `service_es_white_label_video_editing_phone` | `components/service-depth.tsx` |
+| `service_es_white_label_video_editing_whatsapp` | `components/service-depth.tsx` |
 | `service_es_youtube_video_editing_email` | `components/service-depth.tsx` |
 | `service_es_youtube_video_editing_phone` | `components/service-depth.tsx` |
 | `service_es_youtube_video_editing_whatsapp` | `components/service-depth.tsx` |
 | `service_fort_lauderdale_video_production_email` | `components/service-depth.tsx` |
 | `service_fort_lauderdale_video_production_phone` | `components/service-depth.tsx` |
 | `service_fort_lauderdale_video_production_whatsapp` | `components/service-depth.tsx` |
+| `service_medical_practice_video_email` | `components/service-depth.tsx` |
+| `service_medical_practice_video_phone` | `components/service-depth.tsx` |
+| `service_medical_practice_video_whatsapp` | `components/service-depth.tsx` |
 | `service_real_estate_reels_email` | `components/service-depth.tsx` |
 | `service_real_estate_reels_phone` | `components/service-depth.tsx` |
 | `service_real_estate_reels_whatsapp` | `components/service-depth.tsx` |
@@ -179,6 +247,9 @@ This is the zero-cost source inventory for quote, call, email, WhatsApp, and pro
 | `service_restaurant_promo_video_email` | `components/service-depth.tsx` |
 | `service_restaurant_promo_video_phone` | `components/service-depth.tsx` |
 | `service_restaurant_promo_video_whatsapp` | `components/service-depth.tsx` |
+| `service_salon_barbershop_video_email` | `components/service-depth.tsx` |
+| `service_salon_barbershop_video_phone` | `components/service-depth.tsx` |
+| `service_salon_barbershop_video_whatsapp` | `components/service-depth.tsx` |
 | `service_short_form_video_email` | `components/service-depth.tsx` |
 | `service_short_form_video_phone` | `components/service-depth.tsx` |
 | `service_short_form_video_whatsapp` | `components/service-depth.tsx` |
@@ -188,6 +259,10 @@ This is the zero-cost source inventory for quote, call, email, WhatsApp, and pro
 | `service_ugc_ecommerce_video_email` | `components/service-depth.tsx` |
 | `service_ugc_ecommerce_video_phone` | `components/service-depth.tsx` |
 | `service_ugc_ecommerce_video_whatsapp` | `components/service-depth.tsx` |
+| `service_white_label_video_editing_email` | `components/service-depth.tsx` |
+| `service_white_label_video_editing_phone` | `components/service-depth.tsx` |
+| `service_white_label_video_editing_whatsapp` | `components/service-depth.tsx` |
 | `service_youtube_video_editing_email` | `components/service-depth.tsx` |
 | `service_youtube_video_editing_phone` | `components/service-depth.tsx` |
 | `service_youtube_video_editing_whatsapp` | `components/service-depth.tsx` |
+| `white_label_hero_contact` | `app/(english)/services/white-label-video-editing-for-agencies/page.tsx` |
