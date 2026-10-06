@@ -39,6 +39,25 @@ const content: GeoServicePageContent = {
         "A business Reel gets weaker when it asks for a visit, a call, a follow, a menu click, and a quote in the same few seconds. One clip should usually push one action. That makes the ending easier to write and gives the business a clearer way to judge whether the video is useful.",
     },
   ],
+  // Citable depth, translated from copy Esteban already publishes in Spanish at
+  // /es/editor-de-reels-fort-lauderdale. Nothing new is claimed here.
+  depth: [
+    {
+      question: "What makes a business Reel useful?",
+      body:
+        "A business Reel does not need to tell the whole brand story. It should open on the clearest thing it has — the problem, the result, or the most immediate visual moment — and then carry the viewer to one simple action: message, call, visit, book, or look at more work. The edit decides what stays out, and that is most of the job. Long silences, repeated takes, slow intros and small text all cost attention before the offer has been explained. Cutting those is not a stylistic preference; it is what keeps the clip watchable long enough to make its point.",
+    },
+    {
+      question: "What should the footage you send include?",
+      body:
+        "The useful package is original clips, a style reference, the main text or idea, a logo if one applies, and the platform it will be published on. If there is a voice-over or a testimonial, the audio should be shared at the best quality available rather than pulled from a compressed copy. It also helps to say what must not be used. An editor chooses better when they know which scenes are mandatory, which takes are repeats, and which part of the product, the room or the person has to stay visible throughout. That note usually saves a revision round on its own.",
+    },
+    {
+      question: "How does the edit adapt to Instagram, TikTok and Shorts?",
+      body:
+        "Vertical platforms place buttons, captions and comments on top of the video. Subtitles and anything that matters therefore have to stay inside the safe zones, without covering faces, products, food, properties or tools. The same video can also need small changes per platform: a different cover frame, a different length, a different opening line, or a version with no music. Deciding the first channel before editing works better than trying to correct for it at export, because the crop, the pacing and the text placement all follow from where the clip is going to run.",
+    },
+  ],
   faqHeading: "Questions before sending Fort Lauderdale Reels footage.",
   faqs: [
     {
