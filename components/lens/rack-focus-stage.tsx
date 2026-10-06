@@ -29,6 +29,8 @@ export interface LensFrame {
 
 interface RackFocusStageProps {
   frames: readonly LensFrame[];
+  /** Rendered as the fallback layer inside LensStage rather than on its own. */
+  embedded?: boolean;
 }
 
 /** Iris blade count. Six reads as a camera; more reads as a circle. */
@@ -108,7 +110,7 @@ function seams(open: number): readonly (readonly [number, number, number, number
   });
 }
 
-export function RackFocusStage({ frames }: RackFocusStageProps) {
+export function RackFocusStage({ frames, embedded = false }: RackFocusStageProps) {
   const hostRef = useRef<HTMLDivElement | null>(null);
   /** 0 at the top of the scroll track, 1 at the bottom. */
   const [progress, setProgress] = useState(0);
@@ -179,9 +181,11 @@ export function RackFocusStage({ frames }: RackFocusStageProps) {
   return (
     <div
       ref={hostRef}
-      data-lens-stage
-      data-lens-open={open.toFixed(2)}
-      className="sticky top-0 flex h-[100svh] w-full items-start justify-center overflow-hidden bg-[#101214] pt-[6svh] sm:items-center sm:justify-end sm:pr-[7vw] sm:pt-0"
+      {...(embedded ? {} : { "data-lens-stage": "", "data-lens-open": open.toFixed(2) })}
+      className={
+        (embedded ? "absolute inset-0 " : "sticky top-0 ") +
+        "flex h-[100svh] w-full items-start justify-center overflow-hidden bg-[#101214] pt-[6svh] sm:items-center sm:justify-end sm:pr-[7vw] sm:pt-0"
+      }
       onPointerDown={() => setNudge(0.12)}
       onPointerUp={() => setNudge(0)}
       onPointerCancel={() => setNudge(0)}

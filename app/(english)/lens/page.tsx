@@ -1,7 +1,8 @@
 import Link from "next/link";
 
 import { LensTelemetry } from "@/components/lens/lens-telemetry";
-import { RackFocusStage, type LensFrame } from "@/components/lens/rack-focus-stage";
+import { LensStage } from "@/components/lens/lens-stage";
+import type { LensFrame } from "@/components/lens/rack-focus-stage";
 import { buildPageMetadata } from "@/lib/site-metadata";
 
 const description =
@@ -84,7 +85,7 @@ export default function LensPage() {
         crawlers execute no JavaScript, and collapsed is not removed.
       */}
       <div data-lens-track className="relative">
-        <RackFocusStage frames={frames} />
+        <LensStage frames={frames} />
 
         <div className="relative -mt-[100svh]">
           {/* First screen. The promise, and one obvious action. */}
@@ -117,7 +118,7 @@ export default function LensPage() {
               className="flex min-h-[100svh] flex-col justify-start px-6 pb-36 pt-[40svh] sm:justify-end sm:px-10 sm:pb-40 sm:pt-0 lg:px-16"
             >
               <div data-lens-card
-                className="max-w-xl sm:max-w-[40vw] rounded-2xl bg-[#101214]/80 p-5 backdrop-blur-sm transition-opacity duration-200 sm:p-8">
+                className="max-w-xl sm:max-w-[40vw] rounded-2xl bg-[#101214]/92 p-5 backdrop-blur-md transition-opacity duration-200 sm:p-8">
                 <p className="text-xs uppercase tracking-[0.2em] text-[#f0b384]">
                   {stop.eyebrow}
                 </p>
