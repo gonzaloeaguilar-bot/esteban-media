@@ -68,3 +68,7 @@ data/outreach/morning-campaign-send-ledger.jsonl
 .serena/
 
 esteban-qa-report.md
+
+# Outbound lane: harvested third-party contact data never enters this public repo
+data/outreach/prospect-ledger.jsonl
+data/outreach/drafts/
