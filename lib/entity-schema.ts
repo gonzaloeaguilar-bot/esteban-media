@@ -69,7 +69,12 @@ export const localBusinessEntityJsonLd = {
     "@type": area.schemaType,
     name: area.name,
   })),
-  sameAs: [site.instagram, site.youtube, site.googleBusinessProfile],
+  sameAs: [
+    site.instagram,
+    site.youtube,
+    site.googleBusinessProfile,
+    site.bingPlaces,
+  ],
   availableLanguage: ["Spanish", "English (intermediate)"],
   contactPoint: {
     "@type": "ContactPoint",
