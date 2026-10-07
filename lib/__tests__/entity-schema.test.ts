@@ -57,6 +57,19 @@ describe("shared entity graph", () => {
 });
 
 describe("Google Business Profile entity link", () => {
+  it("lists the brand Instagram on the business only", () => {
+    // @estebanmorenomedia is the business account; @steeban1 stays the person's.
+    expect(localBusinessEntityJsonLd.sameAs).toContain(site.instagramBusiness);
+    expect(personEntityJsonLd.sameAs).not.toContain(site.instagramBusiness);
+    expect(personEntityJsonLd.sameAs).toContain(site.instagram);
+  });
+
+  it("lists the Bing Places listing on the business only", () => {
+    // Bing imported the Google profile; verified live 2026-10-07.
+    expect(localBusinessEntityJsonLd.sameAs).toContain(site.bingPlaces);
+    expect(personEntityJsonLd.sameAs).not.toContain(site.bingPlaces);
+  });
+
   it("lists the verified profile in sameAs on both the person and the business", () => {
     // The profile that carries the reviews. Read live from the Business
     // Information API 2026-08-14: locations/9465569364777265733,

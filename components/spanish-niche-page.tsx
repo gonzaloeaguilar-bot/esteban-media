@@ -11,7 +11,9 @@ import { KeepReading } from "@/components/keep-reading";
 import { Container } from "@/components/ui/container";
 import { Cartel, Figure, NumberedList } from "@/components/em-surface";
 import { ProjectRail, ServiceRail } from "@/components/em-rails";
-import { ServiceInquiryRail, type ServiceInquiry } from "@/components/service-depth";
+import { ServiceInquiryRail, buildServiceFaqSchema, type ServiceInquiry } from "@/components/service-depth";
+import { ArranqueWeeklySection } from "@/components/arranque-weekly-section";
+import { ARRANQUE_WEEKLY_SPANISH_SLUGS, arranqueWeeklyFaq, arranqueWeeklyOfferJsonLd } from "@/lib/arranque-weekly";
 import {
   buildSpanishNicheStructuredData,
   getSpanishNichePage,
@@ -19,7 +21,7 @@ import {
   spanishServices,
 } from "@/lib/spanish-site";
 import { buildPageMetadata } from "@/lib/site-metadata";
-import { site } from "@/lib/site";
+import { absoluteUrl, site } from "@/lib/site";
 
 
 type NicheLinkContext = {
@@ -515,13 +517,13 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
   "videografo-para-eventos-corporativos-miami": {
     areaHref: "/es/areas#miami-dade",
     areaLabel: "Ver cobertura en Miami-Dade",
-    note: "Cobertura de eventos corporativos y edición de resúmenes.",
+    note: "El evento grabado y publicado es una boda; no hay un evento corporativo publicado todavía.",
     serviceIds: ["videografia", "edicion"],
     projects: [
       {
-        href: "/es/portafolio/my-dler",
-        title: "My D'ler",
-        detail: "Grabación corporativa.",
+        href: "/es/portafolio/diana-jack",
+        title: "Diana & Jack",
+        detail: "Película de boda en Boston: videografía y edición, 20 minutos más tráiler.",
       },
     ],
   },
@@ -547,7 +549,7 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
       {
         href: "/es/portafolio/bar-door-monkey",
         title: "Bar Door Monkey Miami",
-        detail: "Producción de hospitalidad.",
+        detail: "Spot para redes de un restaurante de Miami, grabado en locación. Aún no hay un hotel publicado.",
       },
     ],
   },
@@ -708,7 +710,7 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
       {
         href: "/es/portafolio/bar-door-monkey",
         title: "Bar Door Monkey Miami",
-        detail: "Cortes promocionales nocturnos.",
+        detail: "Spot para redes de un restaurante de Miami, grabado en locación; no es una noche de discoteca.",
       },
     ],
   },
@@ -1240,7 +1242,23 @@ export function SpanishNichePage({ slug }: { slug: string }) {
         linkContext.serviceIds.includes(service.id),
       )
     : spanishServices;
-  const jsonLd = buildSpanishNicheStructuredData(page);
+  const hasArranqueWeekly = ARRANQUE_WEEKLY_SPANISH_SLUGS.has(page.slug);
+  const baseJsonLd = buildSpanishNicheStructuredData(page);
+  // The weekly plan's questions join the page's ONE FAQPage (same strings as
+  // rendered), and its prices ride as an OfferCatalog in the same graph.
+  const jsonLd = hasArranqueWeekly
+    ? {
+        ...baseJsonLd,
+        "@graph": [
+          ...baseJsonLd["@graph"].map((node) =>
+            node["@type"] === "FAQPage"
+              ? { ...node, mainEntity: buildServiceFaqSchema(absoluteUrl(`/es/${page.slug}`), [...page.faqs, ...arranqueWeeklyFaq("es")]).mainEntity }
+              : node,
+          ),
+          arranqueWeeklyOfferJsonLd("es", absoluteUrl(`/es/${page.slug}`), absoluteUrl("/#business")),
+        ],
+      }
+    : baseJsonLd;
   const contactHref =
     page.slug === "video-para-pequenos-negocios-pembroke-pines"
       ? "/es/contacto?source=pembroke-pines-small-business-video"
@@ -1381,6 +1399,8 @@ export function SpanishNichePage({ slug }: { slug: string }) {
         </Container>
       </section>
 
+      {hasArranqueWeekly ? <ArranqueWeeklySection locale="es" /> : null}
+
       <section className="py-12 sm:py-16">
         <Container size="xl">
           <div className="grid gap-8 lg:grid-cols-2">
@@ -1399,7 +1419,7 @@ export function SpanishNichePage({ slug }: { slug: string }) {
           <Container size="xl">
             <div className="mx-auto max-w-4xl space-y-12">
               {page.sectionsDisclosure ? (
-                <KeepReading className="em-reading-paper" id="detalles-del-servicio" title={page.sectionsDisclosure} destinations="Formatos, primer mes, tomas, colaboraciones y ejemplos publicados">
+                <KeepReading className="em-reading-paper" id="detalles-del-servicio" title={page.sectionsDisclosure} destinations={page.sectionsDestinations ?? "Formatos, primer mes, tomas, colaboraciones y ejemplos publicados"}>
                   <div className="mt-8 space-y-10">{sectionArticles}</div>
                 </KeepReading>
               ) : (

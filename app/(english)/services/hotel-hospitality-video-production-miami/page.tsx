@@ -2,6 +2,8 @@ import Link from "next/link";
 import { ArrowRight, Building2, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { ServiceDeepDive } from "@/components/service-depth";
+import { HOTEL_DEEP_DIVE } from "@/lib/hospitality-deep-dive-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -88,16 +90,23 @@ export default function HotelHospitalityVideoProductionMiamiPage() {
 
             <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
               <Building2 className="size-8 text-[#e85d3e]" aria-hidden="true" />
-              <h2 className="mt-5 font-serif text-3xl">Hospitality video proof</h2>
+              <h2 className="mt-5 font-serif text-3xl">What hospitality work is published?</h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                Our portfolio project <strong>Bar Door Monkey Miami</strong> proves published venue hospitality video production and post-production.
+                <strong>Bar Door Monkey Miami</strong>: a social promo spot for a Miami restaurant, filmed on location and edited by Esteban. There is no published hotel project yet. <Link href="/portfolio/bar-door-monkey" className="underline decoration-[#e85d3e] underline-offset-4">See the project</Link>.
               </p>
             </div>
           </div>
         </Container>
       </section>
 
-      <section className="pb-12 sm:pb-16">
+      <ServiceDeepDive
+        id={HOTEL_DEEP_DIVE.id}
+        title={HOTEL_DEEP_DIVE.title}
+        destinations={HOTEL_DEEP_DIVE.destinations}
+        sections={HOTEL_DEEP_DIVE.sections}
+      />
+
+      <section className="pb-12 sm:pb-16 pt-12">
         <Container size="xl">
           <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6 sm:p-8">
             <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">

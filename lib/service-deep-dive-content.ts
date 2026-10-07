@@ -74,13 +74,13 @@ export const CREATOR_DEEP_DIVE: DeepDive = {
   ],
 };
 
-const starterPrice = PACKAGE_PRICES.arranque;
-const starterFrom = starterPrice.kind === "from" ? usd(starterPrice.amount) : "a custom quote";
-const socialBand = PRICING_BANDS.social;
-const youtubeBand = PRICING_BANDS.youtube;
-const monthly15Mult = VOLUME_MULTIPLIERS["monthly-15"];
-const monthlyMin = usd(Math.round((socialBand.baseMin * monthly15Mult.multMin) / 25) * 25);
-const monthlyMax = usd(Math.round((socialBand.baseMax * monthly15Mult.multMax) / 25) * 25);
+const wlStarterPrice = PACKAGE_PRICES.arranque;
+const wlStarterFrom = wlStarterPrice.kind === "from" ? usd(wlStarterPrice.amount) : "a custom quote";
+const wlSocialBand = PRICING_BANDS.social;
+const wlYoutubeBand = PRICING_BANDS.youtube;
+const wlMonthly15Mult = VOLUME_MULTIPLIERS["monthly-15"];
+const wlMonthlyMin = usd(Math.round((wlSocialBand.baseMin * wlMonthly15Mult.multMin) / 25) * 25);
+const wlMonthlyMax = usd(Math.round((wlSocialBand.baseMax * wlMonthly15Mult.multMax) / 25) * 25);
 
 export const WHITE_LABEL_DEEP_DIVE: DeepDive = {
   id: "white-label-workflow",
@@ -90,8 +90,8 @@ export const WHITE_LABEL_DEEP_DIVE: DeepDive = {
     {
       heading: "How much does white-label video editing cost?",
       paragraphs: [
-        `Esteban's [Starter package](/pricing/starter), remote editing of footage you already have, starts from ${starterFrom} per project with one revision round included. For a scoped estimate, the calculator's short-form band is ${usd(socialBand.baseMin)}–${usd(socialBand.baseMax)} per project and its YouTube band is ${usd(youtubeBand.baseMin)}–${usd(youtubeBand.baseMax)} per edit. Both are editing-led freelancer ranges with a 10% introductory discount, checked against published market rates of ${usd(socialBand.marketMin)}–${usd(socialBand.marketMax)} and ${usd(youtubeBand.marketMin)}–${usd(youtubeBand.marketMax)}.`,
-        `A studio sending regular volume can price 15 short-form videos a month at ${monthlyMin}–${monthlyMax} in the same calculator. None of these is a quote. The price of a white-label job is set once Esteban has seen the footage, the deliverable list and the number of revision rounds the studio sold to its own client, so send one representative project first and price the rest from it.`,
+        `Esteban's [Starter package](/pricing/starter), remote editing of footage you already have, starts from ${wlStarterFrom} per project with one revision round included. For a scoped estimate, the calculator's short-form band is ${usd(wlSocialBand.baseMin)}–${usd(wlSocialBand.baseMax)} per project and its YouTube band is ${usd(wlYoutubeBand.baseMin)}–${usd(wlYoutubeBand.baseMax)} per edit. Both are editing-led freelancer ranges with a 10% introductory discount, checked against published market rates of ${usd(wlSocialBand.marketMin)}–${usd(wlSocialBand.marketMax)} and ${usd(wlYoutubeBand.marketMin)}–${usd(wlYoutubeBand.marketMax)}.`,
+        `A studio sending regular volume can price 15 short-form videos a month at ${wlMonthlyMin}–${wlMonthlyMax} in the same calculator. None of these is a quote. The price of a white-label job is set once Esteban has seen the footage, the deliverable list and the number of revision rounds the studio sold to its own client, so send one representative project first and price the rest from it.`,
       ],
     },
     {
@@ -205,4 +205,123 @@ export const CORPORATE_EVENT_DEEP_DIVE: DeepDive = {
           ],
         },
       ],
+};
+
+// Fitness & beauty cost answers (2026-10-07). Google's AI Overview for "how much
+// does a gym promo video cost in miami" cites small-studio cost pages; these
+// pages answer it with the figures in lib/pricing.ts and nothing else. The
+// fitness projects in the portfolio are web and AI-bot work, and say so.
+const fromPrice = (price: (typeof PACKAGE_PRICES)[keyof typeof PACKAGE_PRICES]) =>
+  price.kind === "from" ? usd(price.amount) : "a custom quote";
+const starterFrom = fromPrice(PACKAGE_PRICES.arranque);
+const growthFrom = fromPrice(PACKAGE_PRICES.crecimiento);
+const socialBand = `${usd(PRICING_BANDS.social.baseMin)}–${usd(PRICING_BANDS.social.baseMax)}`;
+const halfDayBand = `${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)}`;
+
+export const GYM_DEEP_DIVE: DeepDive = {
+  id: "gym-cost",
+  title: "How much does gym and studio video cost, and what should you film first?",
+  destinations: "Editing and filming prices, a monthly plan, what to film first, and the fitness work in the portfolio.",
+  sections: [
+    {
+      heading: "How much does a gym promo video cost in Miami?",
+      paragraphs: [
+        `If your trainers already film on their phones, editing starts from ${starterFrom} per project on the [Starter package](/pricing/starter): remote editing, a cut formatted for Reels, TikTok, YouTube or the web, and one revision round. For a short promo or a social ad, the calculator's short-form editing band is ${socialBand} per project. Both figures are indicative: they are editing-led freelancer rates with an introductory discount applied, and the written quote sets the actual scope.`,
+        "The price moves with three things: how much raw footage there is, how many finished versions you need (a 30-second ad and three vertical cuts are four deliverables, not one), and whether anything has to be filmed. A gym that sends organised clips and a clear brief sits at the bottom of the band. A studio that needs the shoot as well belongs in the next section.",
+      ],
+    },
+    {
+      heading: "What does it cost to film at the gym or studio?",
+      paragraphs: [
+        `On-site work runs through [Local Presence](/pricing/local-presence), from ${localPresenceFrom} per production day. It covers pre-production, on-location capture, post-capture editing and deliverables in the formats you need, for Fort Lauderdale, Broward and selected Miami-Dade projects. A half-day capture add-on has an indicative range of ${halfDayBand} on the same discounted basis. Do not add the two together; they are different ways of scoping the same need.`,
+        "A gym shoot is easier to price when the schedule is fixed in advance: which class, which hour, which trainers, and whether members will be in frame. Quiet hours make filming faster and remove most permission questions. Send that schedule with the request, and the proposal can say exactly what will be filmed and what will be delivered.",
+      ],
+    },
+    {
+      heading: "What does a monthly content plan for a gym cost?",
+      paragraphs: [
+        `For a gym that wants to post every week rather than once, the [Growth plan](/pricing/growth) starts from ${growthFrom} per month. It includes a content plan, a publishing calendar, editing and a monthly report. It suits a studio that already films classes and trainers but has nobody responsible for turning those clips into a steady schedule of posts.`,
+        "A monthly plan only works if footage keeps arriving. The simplest routine is one filming block a week, collected in a shared folder, with a line per clip saying who is in it and whether they agreed to appear. If you are unsure which route fits, compare them in the [budget calculator](/calculator) and then ask for a written quote through [contact](/contact).",
+      ],
+    },
+    {
+      heading: "What should a gym, trainer or pilates studio film first?",
+      paragraphs: [
+        "The thing a new member is nervous about. For a gym that is usually the space at a normal hour and what a first session looks like; for a personal trainer it is how a session actually runs; for a yoga or pilates studio it is the class format and the equipment. Film one of each from a fixed, steady position rather than chasing moments handheld.",
+        "Two rules save most edits. First, ask before filming anyone: a member working out has not agreed to appear on a business account by walking in, so keep a note of who said yes and send it with the clips. Second, send original files straight from the phone or camera, not copies saved out of a messaging app, which have already lost detail the edit cannot restore.",
+      ],
+    },
+    {
+      heading: "Which fitness work is in Esteban's portfolio?",
+      paragraphs: [
+        "Two fitness coaching brands, and both are web projects, not video. [Gains From Geebs](/portfolio/gains-from-geebs) is an interactive fitness web platform with an Instagram DM bot that answers questions about training plans and nutrition and qualifies leads. [TitanForge](/portfolio/titanforge) is a web platform with a conversational AI bot for lead qualification, scheduling and client registration. They show web and lead-handling work in the fitness market, not a gym shoot.",
+        "The closest filmed proof is [Healthy Smile Miami](/portfolio/healthy-smile): social-media videos for a Miami dental clinic, where Esteban filmed on location, video and sound, then edited and delivered the pieces. A working clinic and a working gym share the same constraints: real clients, limited time, and a room that cannot close for the day. Review it next to your own footage before deciding.",
+      ],
+    },
+  ],
+};
+
+export const SALON_COST_DEEP_DIVE: DeepDive = {
+  id: "salon-cost",
+  title: "How much does salon and barbershop video cost in Miami?",
+  destinations: "Editing from your own clips, filming in the shop, and a monthly posting plan.",
+  sections: [
+    {
+      heading: "How much does salon or barbershop video cost in Miami?",
+      paragraphs: [
+        `If the shop already films transformations on a phone, editing starts from ${starterFrom} per project on the [Starter package](/pricing/starter): remote editing, vertical cuts for Reels or TikTok, and one revision round. A finished promo or social ad sits in the calculator's short-form band of ${socialBand} per project. Both are indicative, editing-led freelancer figures with an introductory discount applied; the written quote sets the real scope.`,
+        "What moves the number is volume and order. A week of before, during and reveal clips, filmed from the same marked spot, edits quickly. Unlabelled clips from several stations, in mixed light, take longer, because colour has to be matched before the cut can even start. A note of which clients agreed to appear is part of the brief, not an extra.",
+      ],
+    },
+    {
+      heading: "What does filming inside the salon cost?",
+      paragraphs: [
+        `When the shop wants someone to come and film, [Local Presence](/pricing/local-presence) starts from ${localPresenceFrom} per production day and includes pre-production, on-location capture, post-capture editing and deliverables in the formats you need, in Fort Lauderdale, Broward and selected Miami-Dade projects. A half-day capture add-on has an indicative range of ${halfDayBand} on the same basis; the two are alternatives, not a sum.`,
+        "A salon shoot goes faster when it is booked around the appointment book rather than against it. Pick a block when a stylist or barber has a willing client, a chair near consistent light, and a few minutes free for one useful line to camera. Send that plan with the request so the proposal can state what will be filmed and delivered.",
+      ],
+    },
+    {
+      heading: "What does a monthly posting plan for a salon cost?",
+      paragraphs: [
+        `The [Growth plan](/pricing/growth) starts from ${growthFrom} per month and includes a content plan, a publishing calendar, editing and a monthly report. It fits a salon or barbershop that films every week but has nobody responsible for turning the clips into a steady posting schedule, and that would rather spend the time with clients in the chair.`,
+        "The plan depends on footage arriving on time. A shared folder, one filming block a week, and a line per clip saying which service it shows and who agreed to appear is usually enough. Nail studios should add the close-ups separately, braced so they are sharp. Compare the options in the [budget calculator](/calculator) before asking for a written quote through [contact](/contact).",
+      ],
+    },
+  ],
+};
+
+export const SPA_DEEP_DIVE: DeepDive = {
+  id: "spa-cost",
+  title: "How much does spa video cost, and how do you film without guests?",
+  destinations: "Editing and filming prices, filming the place instead of the people, and a monthly plan.",
+  sections: [
+    {
+      heading: "How much does a spa promotional video cost in Miami?",
+      paragraphs: [
+        `Editing footage the spa already has starts from ${starterFrom} per project on the [Starter package](/pricing/starter), with the cut formatted for Reels, TikTok, YouTube or the web and one revision round. A finished promotional piece or social ad falls in the calculator's short-form band of ${socialBand} per project. Both are indicative editing-led freelancer figures with an introductory discount applied, and the written quote sets the scope.`,
+        "A spa promo usually needs less footage than people expect and more care in the edit: slower pacing, steady shots of rooms, water, textures and light, and sound that does not jar. The number moves with how many versions you need (a website header, a vertical post and a short ad are three deliverables) and with whether anything has to be filmed.",
+      ],
+    },
+    {
+      heading: "What does filming at the spa cost?",
+      paragraphs: [
+        `On-site filming runs through [Local Presence](/pricing/local-presence), from ${localPresenceFrom} per production day: pre-production, on-location capture, post-capture editing and deliverables in the formats you need, for Fort Lauderdale, Broward and selected Miami-Dade projects. A half-day capture add-on has an indicative range of ${halfDayBand} on the same discounted basis. They are two ways to scope the work, not amounts to add together.`,
+        "Most spas are easiest to film before opening or in a quiet block between bookings, when rooms are set and nobody is waiting. Send the hours available, the rooms to show, and whether any staff member will speak to camera. The proposal can then state what will be filmed, what will be delivered, and what stays out of frame.",
+      ],
+    },
+    {
+      heading: "How does a spa film without showing guests?",
+      paragraphs: [
+        "By filming the place and the preparation instead of the people. Empty treatment rooms, water, folded linens, products on a shelf and a therapist's hands setting up a table all say what a visit feels like without putting a guest on a business account. Shot from a steady position in consistent light, those clips stay usable across months of posts.",
+        "When a person does appear, it should be staff or someone who agreed in advance, never a guest who happened to walk past. Ask before filming, keep a note of who said yes, and send it with the clips. Send original files from the phone or camera rather than copies saved from a messaging app, which have already lost detail the edit cannot restore.",
+      ],
+    },
+    {
+      heading: "What does a monthly content plan for a spa cost?",
+      paragraphs: [
+        `The [Growth plan](/pricing/growth) starts from ${growthFrom} per month and includes a content plan, a publishing calendar, editing and a monthly report. It suits a spa or wellness centre that wants a steady posting schedule but has nobody responsible for it, and that can supply new footage every week or two.`,
+        "Seasonal treatments, a refreshed room or a new team member give the calendar something new to say, and the same quiet room footage can carry it in between. Compare the routes in the [budget calculator](/calculator), then ask for a written quote through [contact](/contact) that states what is filmed, edited and delivered each month, so nothing is assumed on either side.",
+      ],
+    },
+  ],
 };

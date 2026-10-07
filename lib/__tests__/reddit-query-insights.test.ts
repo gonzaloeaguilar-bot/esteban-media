@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 
+import { getGuides } from "../guides";
 import { redditQueryInsights } from "../reddit-query-insights";
 
 describe("Reddit-sourced query insights", () => {
@@ -36,6 +37,26 @@ describe("Reddit-sourced query insights", () => {
       for (const link of insight.internalLinks) {
         expect(link.en).toMatch(/^\//);
         expect(link.es).toMatch(/^\/es\//);
+      }
+    }
+  });
+
+  it("points all guide internal links to valid published guide slugs", () => {
+    const publishedEnGuidePaths = new Set(
+      getGuides("en").map((guide) => `/guides/${guide.slug}`),
+    );
+    const publishedEsGuidePaths = new Set(
+      getGuides("es").map((guide) => `/es/guias/${guide.slug}`),
+    );
+
+    for (const insight of redditQueryInsights) {
+      for (const link of insight.internalLinks) {
+        if (link.en.startsWith("/guides/")) {
+          expect(publishedEnGuidePaths.has(link.en)).toBe(true);
+        }
+        if (link.es.startsWith("/es/guias/")) {
+          expect(publishedEsGuidePaths.has(link.es)).toBe(true);
+        }
       }
     }
   });
