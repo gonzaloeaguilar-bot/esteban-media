@@ -2224,7 +2224,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Flujo de trabajo bilingüe claro",
           paragraphs: [
-            "Elige un editor que comunique los requerimientos con precisión tanto en español como en inglés para el mercado de South Florida. Trabajos reales de clientes como el [proyecto Healthy Smile Miami](/es/portafolio/healthy-smile) (y su [caso de estudio](/es/casos-de-estudio/healthy-smile)) demuestran coordinación bilingüe de producción en locación y edición en Miami.",
+            "Elige un editor que comunique los requerimientos con precisión tanto en español como en inglés para el mercado de South Florida. Trabajos reales de clientes como el [proyecto Healthy Smile Miami](/es/portafolio/healthy-smile) (y su [caso de estudio](/es/casos-de-estudio/healthy-smile)) demuestran coordinación bilingüe de producción en locación y edición en Miami. Para conocer opciones de edición remota en español para negocios de la zona, consulta nuestro servicio como [editor de video en Miami](/es/editor-de-video-miami).",
           ],
         },
       ],
@@ -2475,8 +2475,8 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "¿Cómo eliges un editor de reels en Fort Lauderdale?",
           paragraphs: [
-            "Contratar un editor de video para Instagram Reels, TikTok y YouTube Shorts en Fort Lauderdale depende de si tu negocio ya graba material interno o necesita rodaje en locación. Para restaurantes, concesionarios, clínicas y empresas de servicios locales que registran video con smartphone o cámaras propias, contratar un especialista enfocado en edición elimina los altos costos de alquiler de estudios.",
-            "Un editor profesional de formato corto transforma tomas en bruto en videos verticales 9:16 de alta retención mediante ganchos visuales en los primeros 3 segundos, ritmo sincronizado con la pista musical, subtítulos dinámicos en zonas seguras, balance de color y diseño de sonido. Conoce cómo transformamos tomas de agencia en piezas dinámicas en el [proyecto Homeowners](/es/portafolio/homeowners) (y su [caso de estudio](/es/casos-de-estudio/homeowners)).",
+            "Contratar un editor de video para Reels, TikTok y Shorts en Fort Lauderdale depende de si tu negocio ya graba material interno o necesita rodaje en locación. Para negocios locales que registran video con teléfono o cámaras propias, contratar un especialista en edición elimina altos costos de estudio.",
+            "Un editor profesional transforma tomas en bruto en videos verticales 9:16 de alta retención con ganchos en los primeros 3 segundos, subtítulos en zonas seguras, color y sonido. Revisa cómo editamos tomas de agencia en el [proyecto Homeowners](/es/portafolio/homeowners) (y su [caso de estudio](/es/casos-de-estudio/homeowners)). Para consultar el alcance directo con material existente, revisa nuestra página de [editor de Reels en Fort Lauderdale](/es/editor-de-reels-fort-lauderdale).",
           ],
           bullets: [
             "Flujo centrado en edición: Tú grabas los videos; el editor se encarga del ritmo, ganchos, subtítulos, color y audio",
