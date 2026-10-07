@@ -4,9 +4,9 @@ Generated: 2026-10-01
 
 This is the zero-cost source inventory for quote, call, email, WhatsApp, and proof actions. The site analytics layer records `data-cta` clicks and link-based contact events; this file names the IDs to watch in GA4 or any exported report.
 
-- Total CTA IDs found: 159
-- Service quote CTA IDs found: 136
-- Contact-like CTA IDs found: 113
+- Total CTA IDs found: 173
+- Service quote CTA IDs found: 144
+- Contact-like CTA IDs found: 122
 
 ## Service quote actions
 
@@ -52,6 +52,10 @@ This is the zero-cost source inventory for quote, call, email, WhatsApp, and pro
 | `service_es_ecommerce_product_video_phone` | `components/service-depth.tsx` |
 | `service_es_ecommerce_product_video_proof` | `components/service-depth.tsx` |
 | `service_es_ecommerce_product_video_whatsapp` | `components/service-depth.tsx` |
+| `service_es_food_places_creator_video_email` | `components/service-depth.tsx` |
+| `service_es_food_places_creator_video_phone` | `components/service-depth.tsx` |
+| `service_es_food_places_creator_video_proof` | `components/service-depth.tsx` |
+| `service_es_food_places_creator_video_whatsapp` | `components/service-depth.tsx` |
 | `service_es_medical_practice_video_email` | `components/service-depth.tsx` |
 | `service_es_medical_practice_video_phone` | `components/service-depth.tsx` |
 | `service_es_medical_practice_video_proof` | `components/service-depth.tsx` |
@@ -96,6 +100,10 @@ This is the zero-cost source inventory for quote, call, email, WhatsApp, and pro
 | `service_es_youtube_video_editing_phone` | `components/service-depth.tsx` |
 | `service_es_youtube_video_editing_proof` | `components/service-depth.tsx` |
 | `service_es_youtube_video_editing_whatsapp` | `components/service-depth.tsx` |
+| `service_food_places_creator_video_email` | `components/service-depth.tsx` |
+| `service_food_places_creator_video_phone` | `components/service-depth.tsx` |
+| `service_food_places_creator_video_proof` | `components/service-depth.tsx` |
+| `service_food_places_creator_video_whatsapp` | `components/service-depth.tsx` |
 | `service_fort_lauderdale_video_production_email` | `components/service-depth.tsx` |
 | `service_fort_lauderdale_video_production_phone` | `components/service-depth.tsx` |
 | `service_fort_lauderdale_video_production_proof` | `components/service-depth.tsx` |
@@ -158,6 +166,9 @@ This is the zero-cost source inventory for quote, call, email, WhatsApp, and pro
 | `contact_whatsapp` | `app/(english)/contact/page.tsx` |
 | `contact_whatsapp` | `app/(spanish)/es/contacto/page.tsx` |
 | `content_creator_hero_contact` | `app/(english)/services/content-creator-video-editing-miami/page.tsx` |
+| `food_creator_hero_contact` | `app/(english)/services/food-and-places-creator-video-editing-miami/page.tsx` |
+| `lens-footer-contact` | `app/(english)/lens/page.tsx` |
+| `lens-hero-contact` | `app/(english)/lens/page.tsx` |
 | `medical_practice_hero_contact` | `app/(english)/services/medical-practice-video-marketing-miami/page.tsx` |
 | `real_estate_whatsapp` | `components/real-estate-pricing.tsx` |
 | `remote_editor_contact` | `app/(english)/services/hire-remote-video-editor/page.tsx` |
@@ -193,6 +204,9 @@ This is the zero-cost source inventory for quote, call, email, WhatsApp, and pro
 | `service_es_ecommerce_product_video_email` | `components/service-depth.tsx` |
 | `service_es_ecommerce_product_video_phone` | `components/service-depth.tsx` |
 | `service_es_ecommerce_product_video_whatsapp` | `components/service-depth.tsx` |
+| `service_es_food_places_creator_video_email` | `components/service-depth.tsx` |
+| `service_es_food_places_creator_video_phone` | `components/service-depth.tsx` |
+| `service_es_food_places_creator_video_whatsapp` | `components/service-depth.tsx` |
 | `service_es_medical_practice_video_email` | `components/service-depth.tsx` |
 | `service_es_medical_practice_video_phone` | `components/service-depth.tsx` |
 | `service_es_medical_practice_video_whatsapp` | `components/service-depth.tsx` |
@@ -226,6 +240,9 @@ This is the zero-cost source inventory for quote, call, email, WhatsApp, and pro
 | `service_es_youtube_video_editing_email` | `components/service-depth.tsx` |
 | `service_es_youtube_video_editing_phone` | `components/service-depth.tsx` |
 | `service_es_youtube_video_editing_whatsapp` | `components/service-depth.tsx` |
+| `service_food_places_creator_video_email` | `components/service-depth.tsx` |
+| `service_food_places_creator_video_phone` | `components/service-depth.tsx` |
+| `service_food_places_creator_video_whatsapp` | `components/service-depth.tsx` |
 | `service_fort_lauderdale_video_production_email` | `components/service-depth.tsx` |
 | `service_fort_lauderdale_video_production_phone` | `components/service-depth.tsx` |
 | `service_fort_lauderdale_video_production_whatsapp` | `components/service-depth.tsx` |

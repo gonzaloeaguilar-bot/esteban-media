@@ -102,7 +102,7 @@ describe("niche batch 2026-10-06 — structure", () => {
       expect(src).toContain(`const path = "${path}"`);
       expect(depth.faqs).toHaveLength(4);
       expect(depth.craft).toHaveLength(3);
-      expect(depth.related).toHaveLength(3);
+      expect(depth.related).toHaveLength(depth === CREATOR_DEPTH ? 4 : 3);
     },
   );
 

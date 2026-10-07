@@ -1,3 +1,5 @@
+import { priceSentence } from "@/lib/packages";
+import { buildServiceFaqSchema } from "@/components/service-depth";
 import { isConsolidatedPath } from "@/lib/consolidation";
 import { packageRoutes } from "@/lib/package-routes";
 import type { LucideIcon } from "lucide-react";
@@ -159,10 +161,83 @@ export type SpanishNichePage = {
   scopingQuestions: string[];
   projectFit: string;
   sections?: readonly SpanishNicheSection[];
+  sectionsDisclosure?: string;
+  updated?: string;
+  heroMedia?: { src: string; alt: string; caption: string };
   faqs: { question: string; answer: string }[];
 };
 
 export const spanishNichePages: SpanishNichePage[] = [
+  {
+    slug: "edicion-de-video-para-creadores-de-comida-y-lugares-miami",
+    title: "Creadores de comida y lugares",
+    metadataTitle: "Creadores de Comida y Lugares Miami",
+    description: "Edición para creadores que recomiendan comida y lugares en Miami y Fort Lauderdale. Envía tus videos o consulta un mes de contenido para lanzar tu cuenta.",
+    eyebrow: "Comida / Lugares / Creadores",
+    h1: "Tú descubres el lugar. Esteban edita la historia.",
+    lead: "Edición para cuentas que recomiendan comida y lugares en Miami y Fort Lauderdale. Envía tus videos o consulta un mes de contenido para lanzar tu cuenta.",
+    keyword: "Edición para creadores",
+    location: "Broward / Miami-Dade / Remoto",
+    availability: "confirmed",
+    icon: UtensilsCrossed,
+    updated: "2026-10-07",
+    heroMedia: { src: "/portfolio/bar-door-monkey.jpg", alt: "Fotograma del video publicado de Bar Door Monkey Miami", caption: "Bar Door Monkey Miami · 2020 · 55 segundos. Promoción de un local con videografía y edición, no una cuenta de recomendaciones." },
+    sectionsDisclosure: "Prepara tus primeros videos de comida y lugares",
+    bestFor: [
+      "Cuentas nuevas con visitas grabadas y ganas de empezar a publicar.",
+      "Creadores que recomiendan restaurantes, cafés y otros lugares.",
+      "Videos grabados con celular que necesitan edición y subtítulos.",
+    ],
+    scopingQuestions: [
+      "¿Qué material tienes y dónde quieres publicarlo?",
+      "¿Qué ritmo de publicación buscas para el primer mes?",
+      "¿Qué visitas fueron pagadas o incluyeron comida de cortesía?",
+    ],
+    projectFit: `Crecimiento: ${priceSentence("es", "crecimiento")}. Incluye plan de contenido, calendario, edición y reporte mensual. El material disponible y el ritmo que buscas definen la cotización. Esteban tiene su base en Fort Lauderdale; la edición puede ser remota y la grabación se acuerda por proyecto.`,
+    sections: [
+      {
+        heading: "¿Qué edita Esteban para una cuenta de recomendaciones?",
+        paragraphs: [
+          "Esteban convierte tus visitas a restaurantes y otros lugares en videos verticales de 1080x1920, con subtítulos incrustados dentro de la zona segura. El nombre del plato o del local y el barrio aparecen en pantalla para que quien descubre tu cuenta sepa de qué lugar hablas. Las portadas se sacan de tus propias tomas. También se puede acordar una versión horizontal cuando la visita tenga material para un video más largo.",
+          "Envía los archivos originales, la cuenta y las plataformas donde vas a publicar. Explica qué quieres recomendar y qué detalles no deben quedar por fuera. El servicio une la [edición para creadores de contenido](/es/edicion-de-video-para-creadores-de-contenido-miami) con el cuidado del plato y el ambiente de la [edición promocional para restaurantes](/es/edicion-de-video-promocional-para-restaurantes-miami), conservando tu manera de contar la experiencia.",
+        ],
+      },
+      {
+        heading: "¿Cómo se organiza el primer mes de la cuenta?",
+        paragraphs: [
+          `El paquete Crecimiento incluye plan de contenido, calendario de publicación, edición y reporte mensual. ${priceSentence("es", "crecimiento")}. Es un precio de partida: el primer mes se define en una llamada según el material que tengas y el ritmo que quieras mantener. Lleva tu cuenta, los lugares que piensas visitar y referencias de estilo. La cantidad de publicaciones y los plazos se acuerdan después de revisar el alcance.`,
+          "La conversación separa las visitas que ya grabaste de las ideas que todavía necesitan tomas. También sirve para decidir qué piezas van juntas y qué nombres, observaciones o textos debes enviar. No necesitas tener una cuenta consolidada para consultar. El plan parte de tu material y de lo que quieres comunicar, sin prometer seguidores, visualizaciones ni resultados de crecimiento.",
+        ],
+      },
+      {
+        heading: "¿Qué conviene grabar durante una visita al restaurante?",
+        paragraphs: [
+          "Graba manos, ingredientes, texturas, el salón y el letrero o la fachada. Esas tomas conectan el plato con el lugar y evitan que todo el video dependa de primeros planos de comida. Organiza los originales en carpetas con el nombre del local y la fecha. Incluye la escritura correcta de los platos del menú y una nota breve sobre lo que quieres recomendar, sin dejar que el editor tenga que adivinar tu opinión.",
+          "La [guía de ideas de video para restaurantes](/es/guias/ideas-de-contenido-de-video-para-restaurantes) te ayuda a preparar las tomas; la [guía de entrega para edición remota](/es/guias/entrega-para-edicion-remota-de-video) explica cómo organizar el envío. Si el contenido es para la cuenta del negocio, consulta también [video para restaurantes en Miami](/es/video-para-restaurantes-miami) y aclara ese uso antes de editar.",
+        ],
+      },
+      {
+        heading: "¿Cómo se identifican las visitas pagadas y las comidas de cortesía?",
+        paragraphs: [
+          "Dile a Esteban qué visitas son colaboraciones pagadas y en cuáles el local te ofreció la comida. La práctica publicada para creadores es incorporar esa información dentro del video, sin depender únicamente de una descripción que el público tenga que desplegar. Envía el contexto junto a los clips correspondientes, el nombre del restaurante y cualquier texto que ya hayas acordado. Así se tiene en cuenta desde el inicio de la edición.",
+          "Al revisar el montaje, comprueba que el aviso se lea y acompañe la visita correcta. Revisa también los nombres del local y los platos, los subtítulos y tus comentarios sobre la experiencia. Si una carpeta mezcla visitas pagadas, invitaciones y comidas que pagaste tú, identifica cada una por separado. Esa distinción permite editar con información concreta y conservar lo que realmente quisiste recomendar.",
+        ],
+      },
+      {
+        heading: "¿Qué trabajos publicados puedes ver antes de consultar?",
+        paragraphs: [
+          "[Bar Door Monkey Miami](/es/portafolio/bar-door-monkey) es un video promocional de un restaurante de Miami, realizado en 2020 con videografía y edición. La pieza publicada dura 55 segundos. [ML Colombia](/es/portafolio/ml-colombia) es una pieza de contenido social de 24 segundos. Son una promoción de un local y un video social; no se presentan como una cuenta de recomendaciones de comida ni como resultados de un creador.",
+          "Míralos pensando en tu propio material: el orden de las tomas, la relación entre personas y espacios y la información que cabe en una pieza corta. Señala qué partes quieres tomar como referencia y qué cambiarías para que el video se sienta tuyo. La consulta parte de trabajos que puedes ver y de tus grabaciones, sin atribuirles una audiencia o un resultado que no está documentado.",
+        ],
+      },
+    ],
+    faqs: [
+      { question: "¿Puedes editar a distancia lo que grabé con el celular?", answer: `Sí. Envía los archivos originales, no videos descargados de una aplicación. Arranque cubre la edición remota: ${priceSentence("es", "arranque").toLowerCase()}. El formato, el volumen y los plazos se confirman para tu proyecto.` },
+      { question: "¿El plan mensual incluye ir a grabar?", answer: "Crecimiento incluye plan de contenido, calendario, edición y reporte mensual. La grabación en locación se acuerda por separado, proyecto por proyecto, en Broward y Miami-Dade desde la base de Esteban en Fort Lauderdale." },
+      { question: "¿Los ejemplos son de una cuenta de recomendaciones?", answer: "No. Bar Door Monkey Miami es una promoción de un local con videografía y edición; ML Colombia es una pieza social. Muestran trabajo publicado, no una cuenta de recomendaciones ni sus resultados." },
+    ],
+  },
+
   {
     slug: "diseno-web-fort-lauderdale",
     title: "Diseño Web y Chatbots en Fort Lauderdale",
@@ -474,6 +549,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         heading: "Estrategia de video gastronómico y dinámicas de restaurantes en Miami",
         paragraphs: [
+          "Si publicas recomendaciones desde tu propia cuenta, consulta la [edición para creadores de comida y lugares](/es/edicion-de-video-para-creadores-de-comida-y-lugares-miami).",
           "El sector de restaurantes en Miami-Dade —desde Wynwood hasta Coral Gables, Doral y Miami Beach— compite en un entorno visual sumamente dinámico donde los comensales deciden dónde comer a través de videos cortos en Instagram y TikTok. Un video gastronómico efectivo no busca abarcar todo el menú en 30 segundos, sino despertar el apetito enfocándose en la preparación de platos estrella, la textura de los ingredientes y la atmósfera viva del salón.",
           "Para marcas gastronómicas que evalúan [video para restaurantes en Miami](/es/video-para-restaurantes-miami), estructurar el contenido con ganchos visuales en los primeros 3 segundos (como el corte de una carne jugosa, el vertido de una salsa o el humo saliendo de la parrilla) multiplica la retención de audiencia. Revisa nuestra [guía de ideas de video para restaurantes](/es/guias/ideas-de-contenido-de-video-para-restaurantes) para explorar formatos probados.",
         ],
@@ -1761,6 +1837,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         heading: "Estructura de un reel de platillo o menú",
         paragraphs: [
+          "Si publicas recomendaciones desde tu propia cuenta, consulta la [edición para creadores de comida y lugares](/es/edicion-de-video-para-creadores-de-comida-y-lugares-miami).",
           "Un reel gastronómico puede partir de una sola idea clara: un platillo insignia, una bebida, una preparación, el ambiente del salón o un mensaje breve del equipo. La edición puede abrir con el detalle visual más inmediato —vapor, corte, salsa, emplatado o vertido— y luego ordenar los planos para que el espectador entienda qué se ofrece y cuál es el siguiente paso que el restaurante desea comunicar.",
           "No existe una secuencia única para todos los locales. Los primeros planos de ingredientes, manos y textura pueden alternarse con planos más abiertos del servicio o la sala. El ritmo se define por el material disponible y por el mensaje, sin acelerar una toma hasta que el plato deje de apreciarse. Para planificar material antes de grabar, consulta la [guía de ideas de video para restaurantes](/es/guias/ideas-de-contenido-de-video-para-restaurantes).",
         ],
@@ -3180,6 +3257,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         heading: "¿Cómo se planea una sesión que rinda varias publicaciones?",
         paragraphs: [
+          "Si publicas recomendaciones desde tu propia cuenta, consulta la [edición para creadores de comida y lugares](/es/edicion-de-video-para-creadores-de-comida-y-lugares-miami).",
           "Escribiendo la lista antes de tomar la cámara. Una sesión que rinde una pila de piezas publicables nace como una lista de ideas separadas, cada una con su propia primera frase, porque cada publicación es el primer contacto de alguien con la cuenta y no puede depender de la anterior.",
           "De ahí en adelante se trata de reiniciar algo visible entre ideas: otra chaqueta, una segunda pared, pasar de sentado a de pie. Cambios pequeños que evitan que cinco piezas se lean como cinco rebanadas del mismo clip. Mantener fija la iluminación durante todo el bloque es la decisión opuesta, y es deliberada: una luz constante permite ordenar los clips después en cualquier secuencia. Lo último que vale la pena grabar son unos segundos de sala en silencio y dos planos de apoyo, que son los que rescatan una toma con un tropiezo en el medio.",
         ],
@@ -3559,6 +3637,16 @@ const nicheBatch20261006Hreflang = Object.fromEntries(
 );
 
 const languageAlternatesRaw: Record<string, Record<string, string>> = {
+  "/services/food-and-places-creator-video-editing-miami": {
+    "en-US": "/services/food-and-places-creator-video-editing-miami",
+    "es-US": "/es/edicion-de-video-para-creadores-de-comida-y-lugares-miami",
+    "x-default": "/services/food-and-places-creator-video-editing-miami",
+  },
+  "/es/edicion-de-video-para-creadores-de-comida-y-lugares-miami": {
+    "en-US": "/services/food-and-places-creator-video-editing-miami",
+    "es-US": "/es/edicion-de-video-para-creadores-de-comida-y-lugares-miami",
+    "x-default": "/services/food-and-places-creator-video-editing-miami",
+  },
   ...nicheBatch20261006,
   ...nicheBatch20261006Hreflang,
   ...Object.fromEntries(Object.values(packageRoutes).flatMap(({ en, es }) => [en, es].map((path) => [path, { "en-US": en, "es-US": es, "x-default": en }]))),
@@ -4294,14 +4382,7 @@ export function buildSpanishNicheStructuredData(page: SpanishNichePage) {
         "@id": absoluteUrl(`${path}#faq`),
         inLanguage: "es-US",
         isPartOf: { "@id": absoluteUrl("/#website") },
-        mainEntity: page.faqs.map((faq) => ({
-          "@type": "Question",
-          name: faq.question,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: faq.answer,
-          },
-        })),
+        mainEntity: buildServiceFaqSchema(absoluteUrl(path), page.faqs).mainEntity,
       },
     ],
   };

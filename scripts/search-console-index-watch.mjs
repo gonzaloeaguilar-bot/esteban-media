@@ -42,6 +42,9 @@ export const LEGACY_V1_WATCH_URLS = [
 ];
 export const WATCH_URLS = [
   ...LEGACY_V1_WATCH_URLS,
+  // Food and places creator pair, explicitly requested 2026-10-07.
+  "https://estebanmorenomedia.com/services/food-and-places-creator-video-editing-miami",
+  "https://estebanmorenomedia.com/es/edicion-de-video-para-creadores-de-comida-y-lugares-miami",
   "https://estebanmorenomedia.com/assessment",
   "https://estebanmorenomedia.com/calculator",
   // Added 2026-09-16 with the owner-ordered affiliate page; the watch set must

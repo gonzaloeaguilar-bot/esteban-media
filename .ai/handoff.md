@@ -1,3 +1,9 @@
+# Food and places creator pair — 2026-10-07
+
+Branch `feat/food-places-creator-launch`. New EN/ES service routes (`/services/food-and-places-creator-video-editing-miami`, `/es/edicion-de-video-para-creadores-de-comida-y-lugares-miami`) join creator editing and restaurant editing: reciprocal body/related links, hreflang pair, sitemap + inventory freeze + index-watch entries, package-derived prices (never hardcoded), FAQ schema, real portfolio proof (Bar Door Monkey, ML Colombia). Service-interest tracking is opt-in for this pair; lens telemetry gained its two missing `cta_click` params so the repo analytics gate passes. Local gates: 1,086 tests, build, analytics gate PASS, dual-audience gate PASS (EN 5 in-band / ES 5 in-band).
+
+---
+
 # Lead persistence — 2026-10-07 (local, uncommitted)
 
 `lib/lead-store.ts` now maps lead fields into `esteban_leads`, inserts through Supabase before optional Resend delivery, and marks accepted email best-effort. `/api/lead` returns 503 in EN/ES if neither storage nor email accepts the submission; successful persistence returns the database row ID. Rejected submissions no longer emit a successful CDP ingestion event. JSON validation, network timeouts, test-row tagging and privacy-safe failure logging are covered.

@@ -209,6 +209,10 @@ const ALLOWED_ADDITIONS = new Set([
 ]);
 
 const ROUTE_ALLOWED_ADDITIONS = {
+  // The 2026-10-07 creator route is listed automatically by both Spanish hubs.
+  // Only its new routing words are permitted; all existing copy stays checked.
+  "es/areas.html": new Set(["Creadores", "comida", "lugares"]),
+  "es/servicios.html": new Set(["Creadores", "comida", "lugares"]),
   "es/guias.html": new Set([
     // Spanish guide-index helper cards. These are routing labels/descriptions
     // from lib/guides.ts that point readers from a guide topic to the relevant

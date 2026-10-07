@@ -260,6 +260,16 @@ export default function RestaurantPromoVideoEditingMiamiPage() {
           </h2>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             <Link
+              href="/services/food-and-places-creator-video-editing-miami"
+              data-cta="restaurant_food_creator_related"
+              className="group rounded-xl border border-[#ddd4c8] bg-[#fbf6ef] p-6 transition hover:border-[#e85d3e]"
+            >
+              <h3 className="font-serif text-2xl">Food &amp; Places Creator Editing</h3>
+              <p className="mt-2 text-sm leading-6 text-[#5a6066]">Editing restaurant visits and local recommendations for your own creator account.</p>
+              <span className="mt-4 inline-flex text-sm font-medium text-[#9f3c27] group-hover:underline">Explore creator editing</span>
+            </Link>
+
+            <Link
               href="/services/ai-food-photography-restaurants"
               className="group rounded-xl border border-[#ddd4c8] bg-[#fbf6ef] p-6 transition hover:border-[#e85d3e]"
             >

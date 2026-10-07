@@ -1,5 +1,8 @@
 # Esteban Moreno Media — Backlog
 
+- [x] Implement the bilingual food/places creator service pair locally, with reciprocal links, package-derived prices, FAQ schema and sitemap/watch-list registration.
+- [ ] 2026-10-21: compare GSC impressions/clicks and qualified inquiries for both food/places creator URLs (14 and 28 days after publication).
+
 Production is live. This file tracks repository implementation; account/access work is also tracked in Obsidian.
 
 ## P0 — Lead persistence (2026-10-07)

@@ -28,6 +28,7 @@ export function KeepReading({
   destinations,
   id,
   children,
+  className = "",
 }: {
   /** The promise: what the visitor gets by opening it. */
   title: string;
@@ -35,6 +36,7 @@ export function KeepReading({
   destinations: string;
   id: string;
   children: React.ReactNode;
+  className?: string;
 }) {
   const ref = useRef<HTMLDetailsElement>(null);
 
@@ -48,7 +50,7 @@ export function KeepReading({
   }, []);
 
   return (
-    <details ref={ref} className="wk-keep-reading" id={id} data-section={id}>
+    <details ref={ref} className={`wk-keep-reading ${className}`} id={id} data-section={id}>
       <summary data-cta={`keep_reading_${id}`}>
         <span>
           <strong>{title}</strong>
