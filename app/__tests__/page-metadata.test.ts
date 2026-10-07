@@ -104,7 +104,7 @@ describe("complete page metadata", () => {
 
     expect(metadata.title).toBe("TikTok Ad Video Editor Miami");
     expect(metadata.description).toBe(
-      "Professional TikTok ad video editor in Miami. High-converting direct-response edits, 3-second hooks, dynamic captions & paid social video ads for brands.",
+      "TikTok ad video editor in Miami, working from your footage: 3-second hooks, captions, safe-zone framing and paid-social cuts. Spanish-first, English available.",
     );
     expect(metadata.description?.length).toBeGreaterThanOrEqual(120);
     expect(metadata.description?.length).toBeLessThanOrEqual(160);
@@ -119,6 +119,22 @@ describe("complete page metadata", () => {
       "es-US": "/es/editor-de-video-para-anuncios-de-tiktok-miami",
       "x-default": "/services/tiktok-ad-video-editor-miami",
     });
+  });
+
+  it("verifies Spanish restaurant video metadata and snippet CTR criteria", () => {
+    const metadata = buildSpanishNicheMetadata(
+      "video-para-restaurantes-miami",
+    );
+
+    expect(metadata.title).toBe("Video para Restaurantes en Miami");
+    expect(metadata.description).toBe(
+      "Edición de Reels y videos promocionales para restaurantes de Miami-Dade: platos estrella, ambiente del salón y promociones. Atención en español.",
+    );
+    expect(metadata.description?.length).toBeGreaterThanOrEqual(70);
+    expect(metadata.description?.length).toBeLessThanOrEqual(160);
+    expect(metadata.alternates?.canonical).toBe(
+      "/es/video-para-restaurantes-miami",
+    );
   });
 
   it("verifies desk recommendations page metadata and self-canonical", async () => {

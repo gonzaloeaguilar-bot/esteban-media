@@ -47,8 +47,9 @@ const faqs = [
 
 export const metadata = buildPageMetadata({
   title: "TikTok Ad Video Editor Miami",
+  // SNIPPET TEST 2026-10-07 (GSC: tiktok ad video editor miami, 5 impr, pos 11.2, 0 clicks). Read GSC after 2026-11-10; if still 0 clicks, revert rather than iterate.
   description:
-    "Professional TikTok ad video editor in Miami. High-converting direct-response edits, 3-second hooks, dynamic captions & paid social video ads for brands.",
+    "TikTok ad video editor in Miami, working from your footage: 3-second hooks, captions, safe-zone framing and paid-social cuts. Spanish-first, English available.",
   path: "/services/tiktok-ad-video-editor-miami",
   locale: "en",
 });
@@ -61,8 +62,9 @@ export default function TiktokAdVideoEditorMiamiPage() {
         "@type": "Service",
         "@id": absoluteUrl("/services/tiktok-ad-video-editor-miami#service"),
         name: "TikTok Ad Video Editor Miami",
+        // SNIPPET TEST 2026-10-07 (GSC: tiktok ad video editor miami, 5 impr, pos 11.2, 0 clicks). Read GSC after 2026-11-10; if still 0 clicks, revert rather than iterate.
         description:
-          "Professional TikTok ad video editor in Miami. High-converting direct-response edits, 3-second hooks, dynamic captions & paid social video ads for brands.",
+          "TikTok ad video editor in Miami, working from your footage: 3-second hooks, captions, safe-zone framing and paid-social cuts. Spanish-first, English available.",
         provider: {
           "@type": "LocalBusiness",
           "@id": absoluteUrl("/#business"),
