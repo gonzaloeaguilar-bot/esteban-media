@@ -53,6 +53,38 @@ describe("confirmed lead instrumentation", () => {
     }
   });
 
+  it("adds only the found_via slug, never the visitor's typed words", () => {
+    const gtag = vi.fn();
+    (globalThis as { window?: unknown }).window = { gtag };
+
+    trackLeadSubmit("contact", "en", "chatgpt");
+
+    expect(gtag).toHaveBeenNthCalledWith(1, "event", "lead_submit", {
+      lead_source: "contact",
+      locale: "en",
+      found_via: "chatgpt",
+    });
+    expect(gtag).toHaveBeenNthCalledWith(2, "event", "contact_intent", {
+      contact_method: "form_submit",
+      lead_source: "contact",
+      locale: "en",
+      found_via: "chatgpt",
+    });
+    for (const event of gtag.mock.calls) {
+      expect(Object.keys(event[2] as object)).not.toContain("found_query");
+    }
+  });
+
+  it("the homepage form asks how the visitor found Esteban, optionally", () => {
+    const contact = source("components/contact-cta.tsx");
+    expect(contact).toContain("How did you find us?");
+    expect(contact).toContain('name="foundVia"');
+    expect(contact).toContain('name="foundQuery"');
+    expect(contact).toContain('trackLeadSubmit("contact", "en", foundVia || "not_answered")');
+    // Optional: the select must not be required.
+    expect(contact).not.toMatch(/id="homepage-found-via"[\s\S]{0,200}required/);
+  });
+
   it("does nothing when gtag is unavailable rather than throwing", () => {
     expect(() => trackLeadSubmit("script-kit", "en")).not.toThrow();
   });
@@ -103,7 +135,7 @@ describe("confirmed lead instrumentation", () => {
     expect(intake).toContain('name="projectNeed"');
     expect(intake).toContain('trackLeadSubmit("hero-intake", locale)');
     expect(contact).toContain('source: "contact"');
-    expect(contact).toContain('trackLeadSubmit("contact", "en")');
+    expect(contact).toContain('trackLeadSubmit("contact", "en", foundVia');
   });
 
   it("places a tracked direct intake on both website-design commercial routes", () => {

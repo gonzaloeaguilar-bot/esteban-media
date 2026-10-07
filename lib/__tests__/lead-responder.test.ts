@@ -76,4 +76,44 @@ describe("lead-responder", () => {
     expect(summary).toContain("Alex Smith");
     expect(summary).toContain("$400 - $750 USD per project");
   });
+
+  it("shows how the lead found Esteban and the words they typed", () => {
+    const summary = formatLeadSummary({
+      source: "contact",
+      email: "chef@example.com",
+      foundVia: "chatgpt",
+      foundQuery: "  videographer for restaurants in miami  ",
+    });
+    expect(summary).toContain("Found via: ChatGPT");
+    expect(summary).toContain('What they typed: "videographer for restaurants in miami"');
+  });
+
+  it("ignores an unknown found-via code and caps the typed words", () => {
+    const summary = formatLeadSummary({
+      source: "contact",
+      email: "a@example.com",
+      foundVia: "<script>" as never,
+      foundQuery: "x".repeat(500),
+    });
+    expect(summary).not.toContain("Found via");
+    expect(summary).toContain(`"${"x".repeat(200)}"`);
+    expect(summary).not.toContain("x".repeat(201));
+  });
+
+  it("keeps the typed words on one line so they cannot forge summary lines", () => {
+    const summary = formatLeadSummary({
+      source: "contact",
+      email: "a@example.com",
+      foundVia: "chatgpt",
+      foundQuery: "restaurants\nEmail: forged@example.com",
+    });
+    expect(summary).not.toMatch(/^Email: forged/m);
+    expect(summary).toContain('"restaurants Email: forged@example.com"');
+  });
+
+  it("leaves the summary unchanged when the question was skipped", () => {
+    const summary = formatLeadSummary({ source: "contact", email: "a@example.com" });
+    expect(summary).not.toContain("Found via");
+    expect(summary).not.toContain("What they typed");
+  });
 });

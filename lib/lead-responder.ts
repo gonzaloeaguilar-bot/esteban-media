@@ -34,6 +34,48 @@ const LEAD_SOURCES = new Set<LeadSource>([
   "pembroke-pines-small-business-video",
 ]);
 
+/**
+ * "How did you find us?" answers. ChatGPT is the best-converting source in GA4
+ * but callers and form leads leave no trace of which prompt sent them, so the
+ * form asks. Codes are lowercase slugs so the same value can ride to GA4 as
+ * `found_via`; the visitor's own words (`foundQuery`) never leave the payload.
+ */
+export const FOUND_VIA_OPTIONS = [
+  "chatgpt",
+  "other_ai",
+  "google_search",
+  "google_maps",
+  "instagram",
+  "referral",
+  "other",
+] as const;
+
+export type FoundVia = (typeof FOUND_VIA_OPTIONS)[number];
+
+const FOUND_VIA_LABELS: Record<FoundVia, string> = {
+  chatgpt: "ChatGPT",
+  other_ai: "Otra IA / Other AI assistant",
+  google_search: "Búsqueda en Google / Google search",
+  google_maps: "Google Maps",
+  instagram: "Instagram",
+  referral: "Recomendación / Referral",
+  other: "Otro / Other",
+};
+
+/** Answers where the exact words typed are worth asking for. */
+export const FOUND_VIA_ASKS_QUERY: ReadonlySet<FoundVia> = new Set<FoundVia>([
+  "chatgpt",
+  "other_ai",
+  "google_search",
+  "google_maps",
+]);
+
+export const FOUND_QUERY_MAX = 200;
+
+export function isFoundVia(value: unknown): value is FoundVia {
+  return typeof value === "string" && (FOUND_VIA_OPTIONS as readonly string[]).includes(value);
+}
+
 export interface LeadPayload {
   source: LeadSource;
   locale?: "en" | "es";
@@ -47,6 +89,8 @@ export interface LeadPayload {
   priceRange?: string;
   score?: number;
   notes?: string;
+  foundVia?: FoundVia;
+  foundQuery?: string;
 }
 
 export interface LeadResponse {
@@ -90,6 +134,17 @@ export function formatLeadSummary(payload: LeadPayload): string {
   if (payload.formatNeeds) lines.push(`Formatos Requeridos / Formats: ${payload.formatNeeds}`);
   if (payload.priceRange) lines.push(`Estimación de Presupuesto / Estimated Scope: ${payload.priceRange}`);
   if (payload.score !== undefined) lines.push(`Puntaje de Estrategia / Strategy Score: ${payload.score}/100`);
+
+  if (isFoundVia(payload.foundVia)) {
+    lines.push(`Cómo nos encontró / Found via: ${FOUND_VIA_LABELS[payload.foundVia]}`);
+  }
+  if (typeof payload.foundQuery === "string" && payload.foundQuery.trim()) {
+    lines.push(
+      // One line only: collapsing whitespace stops a direct API caller from
+      // forging extra summary lines (a fake "Email:") with embedded newlines.
+      `Lo que escribió / What they typed: "${payload.foundQuery.replace(/\s+/g, " ").trim().slice(0, FOUND_QUERY_MAX)}"`,
+    );
+  }
 
   if (payload.notes) {
     lines.push(`\nNotas / Notes:\n${payload.notes}`);

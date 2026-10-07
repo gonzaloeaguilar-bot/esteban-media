@@ -11,7 +11,7 @@
  * identity and locale go to GA4; the PII stays in the /api/lead payload.
  */
 
-import type { LeadSource } from "@/lib/lead-responder";
+import type { FoundVia, LeadSource } from "@/lib/lead-responder";
 
 type Gtag = (command: "event", name: string, params?: Record<string, unknown>) => void;
 /**
@@ -42,7 +42,13 @@ export function trackServiceInterest(service: string, locale: string): void {
  * the shared, configured conversion event so submitted forms and direct contact
  * links use one conversion family without sending personal data to GA4.
  */
-export function trackLeadSubmit(leadSource: LeadSource, locale: string): void {
+export function trackLeadSubmit(
+  leadSource: LeadSource,
+  locale: string,
+  // Only the answer's slug ("chatgpt", "google_search"…), never the words the
+  // visitor typed. Forms without the question omit it entirely.
+  foundVia?: FoundVia | "not_answered",
+): void {
   if (typeof window === "undefined") return;
   const gtag = (window as unknown as { gtag?: Gtag }).gtag;
   if (typeof gtag !== "function") return;
@@ -50,10 +56,12 @@ export function trackLeadSubmit(leadSource: LeadSource, locale: string): void {
   const emit = typeof send === "function"
     ? (name: string, params: Record<string, unknown>) => send(name, params)
     : (name: string, params: Record<string, unknown>) => gtag("event", name, params);
-  emit("lead_submit", { lead_source: leadSource, locale });
+  const found = foundVia ? { found_via: foundVia } : {};
+  emit("lead_submit", { lead_source: leadSource, locale, ...found });
   emit("contact_intent", {
     contact_method: "form_submit",
     lead_source: leadSource,
     locale,
+    ...found,
   });
 }
