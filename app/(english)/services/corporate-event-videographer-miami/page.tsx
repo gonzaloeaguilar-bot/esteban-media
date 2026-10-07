@@ -2,6 +2,8 @@ import Link from "next/link";
 import { ArrowRight, Camera, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { ServiceDeepDive } from "@/components/service-depth";
+import { CORPORATE_EVENT_DEEP_DIVE } from "@/lib/service-deep-dive-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -88,9 +90,9 @@ export default function CorporateEventVideographerMiamiPage() {
 
             <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
               <Camera className="size-8 text-[#e85d3e]" aria-hidden="true" />
-              <h2 className="mt-5 font-serif text-3xl">Event video proof</h2>
+              <h2 className="mt-5 font-serif text-3xl">What published event video proof is available?</h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                Our portfolio project <strong>Healthy Smile</strong> proves published commercial video production, on-location event recording, and editing in Miami.
+                <strong>Healthy Smile Miami</strong>: social-media videos for a Miami dental clinic. Esteban filmed on location, video and sound, then edited and delivered the finished pieces. For a filmed event, see the <Link href="/portfolio/diana-jack" className="underline decoration-[#e85d3e] underline-offset-4">Diana &amp; Jack</Link> wedding film.
               </p>
               <Link
                 href="/portfolio/healthy-smile"
@@ -104,7 +106,14 @@ export default function CorporateEventVideographerMiamiPage() {
         </Container>
       </section>
 
-      <section className="pb-12 sm:pb-16">
+      <ServiceDeepDive
+        id={CORPORATE_EVENT_DEEP_DIVE.id}
+        title={CORPORATE_EVENT_DEEP_DIVE.title}
+        destinations={CORPORATE_EVENT_DEEP_DIVE.destinations}
+        sections={CORPORATE_EVENT_DEEP_DIVE.sections}
+      />
+
+      <section className="pb-12 sm:pb-16 pt-12">
         <Container size="xl">
           <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6 sm:p-8">
             <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
