@@ -2,16 +2,22 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { ServiceDeepDive } from "@/components/service-depth";
+import { GYM_DEEP_DIVE } from "@/lib/service-deep-dive-content";
+import { PACKAGE_PRICES, usd } from "@/lib/pricing";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
 export const metadata = buildPageMetadata({
   title: "Fitness Gym Video Marketing Miami",
   description:
-    "High-energy video editing and social ad content creation for gyms, CrossFit boxes, and Pilates studios in Miami.",
+    "Gym, trainer and pilates studio video in Miami: what editing, on-site filming and a monthly plan cost, with prices from the published rate card.",
   path: "/services/fitness-gym-video-marketing-miami",
   locale: "en",
 });
+
+const starter = PACKAGE_PRICES.arranque;
+const starterFrom = starter.kind === "from" ? usd(starter.amount) : "a custom quote";
 
 export default function FitnessGymVideoMarketingMiamiPage() {
   const jsonLd = {
@@ -73,7 +79,11 @@ export default function FitnessGymVideoMarketingMiamiPage() {
                 Fitness & Gym Video Marketing in Miami.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-                Fast-paced video editing, licensed workout audio, and high-converting Reels for gym owners and personal trainers in Miami.
+                Video for gyms, personal trainers and yoga or pilates studios in
+                Miami and Fort Lauderdale. Send phone clips and get vertical posts
+                and short ads back, or book on-site filming. Editing starts from{" "}
+                {starterFrom} per project; the prices below come from the published
+                rate card.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
@@ -88,15 +98,15 @@ export default function FitnessGymVideoMarketingMiamiPage() {
 
             <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
               <Video className="size-8 text-[#e85d3e]" aria-hidden="true" />
-              <h2 className="mt-5 font-serif text-3xl">Fitness video proof</h2>
+              <h2 className="mt-5 font-serif text-3xl">What published work can a gym review?</h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                Our portfolio project <strong>Healthy Smile</strong> proves published local establishment video marketing, on-location shooting, and editing in Miami.
+                The fitness projects in the portfolio, <Link href="/portfolio/gains-from-geebs" className="underline decoration-[#e85d3e] underline-offset-4">Gains From Geebs</Link> and <Link href="/portfolio/titanforge" className="underline decoration-[#e85d3e] underline-offset-4">TitanForge</Link>, are web platforms and AI DM bots for coaching brands, not video. The closest filmed work is <strong>Healthy Smile Miami</strong>: social-media videos for a Miami dental clinic, filmed on location (video and sound) and edited by Esteban.
               </p>
               <Link
                 href="/portfolio/healthy-smile"
                 className="group mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27]"
               >
-                Review Healthy Smile Local Business Video Proof
+                Review Healthy Smile Miami (dental clinic)
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
             </div>
@@ -104,7 +114,14 @@ export default function FitnessGymVideoMarketingMiamiPage() {
         </Container>
       </section>
 
-      <section className="pb-12 sm:pb-16">
+      <ServiceDeepDive
+        id={GYM_DEEP_DIVE.id}
+        title={GYM_DEEP_DIVE.title}
+        destinations={GYM_DEEP_DIVE.destinations}
+        sections={GYM_DEEP_DIVE.sections}
+      />
+
+      <section className="pb-12 sm:pb-16 pt-12">
         <Container size="xl">
           <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6 sm:p-8">
             <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">

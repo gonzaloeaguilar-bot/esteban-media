@@ -3,7 +3,7 @@ import { buildServiceFaqSchema } from "@/components/service-depth";
 import { isConsolidatedPath } from "@/lib/consolidation";
 import { packageRoutes } from "@/lib/package-routes";
 import type { LucideIcon } from "lucide-react";
-import { PACKAGE_PRICES, usd } from "@/lib/pricing";
+import { PACKAGE_PRICES, PRICING_BANDS, usd } from "@/lib/pricing";
 import {
   Anchor,
   Building2,
@@ -166,6 +166,16 @@ export type SpanishNichePage = {
   heroMedia?: { src: string; alt: string; caption: string };
   faqs: { question: string; answer: string }[];
 };
+
+// Precios de las páginas de gimnasios, salones y spas (2026-10-07): todos salen
+// de lib/pricing.ts, así que un cambio de tarifa se propaga solo.
+const esFrom = (price: (typeof PACKAGE_PRICES)[keyof typeof PACKAGE_PRICES]) =>
+  price.kind === "from" ? usd(price.amount) : "una cotización a medida";
+const esStarterFrom = esFrom(PACKAGE_PRICES.arranque);
+const esGrowthFrom = esFrom(PACKAGE_PRICES.crecimiento);
+const esLocalFrom = esFrom(PACKAGE_PRICES["presencia-local"]);
+const esSocialBand = `${usd(PRICING_BANDS.social.baseMin)}–${usd(PRICING_BANDS.social.baseMax)}`;
+const esHalfDayBand = `${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)}`;
 
 export const spanishNichePages: SpanishNichePage[] = [
   {
@@ -1481,11 +1491,50 @@ export const spanishNichePages: SpanishNichePage[] = [
     ],
     projectFit:
       "Edición rítmica con música de alta energía y títulos dinámicos.",
+    sectionsDisclosure: "Precios y qué grabar primero",
+    updated: "2026-10-07",
+    sections: [
+      {
+        heading: "¿Cuánto cuesta un video promocional para un gimnasio en Miami?",
+        paragraphs: [
+          `Si tus entrenadores ya graban con el teléfono, la edición empieza desde ${esStarterFrom} por proyecto con el [paquete Arranque](/es/precios/arranque): edición remota, formato para Reels, TikTok, YouTube o web y una ronda de revisión. Para un promocional corto o un anuncio para redes, la banda de edición corta de la calculadora es de ${esSocialBand} por proyecto. Las dos cifras son orientativas: son tarifas de un editor independiente con un descuento de introducción aplicado, y la cotización por escrito fija el alcance real.`,
+          "El precio cambia con tres cosas: cuánto material bruto hay, cuántas versiones terminadas necesitas (un anuncio de 30 segundos y tres cortes verticales son cuatro entregables, no uno) y si hay que grabar algo. Un gimnasio que envía clips ordenados y una indicación clara queda en la parte baja de la banda.",
+        ],
+      },
+      {
+        heading: "¿Cuánto cuesta grabar en el gimnasio o el estudio?",
+        paragraphs: [
+          `La grabación en sitio va por [Presencia Local](/es/precios/presencia-local), desde ${esLocalFrom} por día de producción. Incluye preproducción, captura en locación, edición posterior y entregables según formato, en Fort Lauderdale, Broward y proyectos seleccionados en Miami-Dade. Existe además un complemento de media jornada de captura con un rango orientativo de ${esHalfDayBand}, con la misma base. No se suman: son dos maneras distintas de cotizar la misma necesidad.`,
+          "Una grabación en un gimnasio es más fácil de cotizar cuando el horario está decidido de antemano: qué clase, a qué hora, qué entrenadores y si habrá miembros en cuadro. Las horas tranquilas hacen la grabación más rápida y eliminan casi todas las dudas de permiso. Envía ese horario con la solicitud.",
+        ],
+      },
+      {
+        heading: "¿Cuánto cuesta un plan mensual de contenido para un gimnasio?",
+        paragraphs: [
+          `Para un gimnasio que quiere publicar cada semana y no una sola vez, el [plan Crecimiento](/es/precios/crecimiento) empieza desde ${esGrowthFrom} al mes. Incluye plan de contenido, calendario de publicación, edición y reporte mensual. Encaja con un estudio que ya graba clases y entrenadores pero no tiene a nadie encargado de convertir esos clips en publicaciones constantes.`,
+          "Un plan mensual solo funciona si el material sigue llegando. La rutina más simple es un bloque de grabación por semana, reunido en una carpeta compartida, con una línea por clip que diga quién aparece y si dio permiso. Si no sabes qué ruta te conviene, compáralas en la [calculadora](/es/calculadora) y luego pide una cotización por escrito en [contacto](/es/contacto).",
+        ],
+      },
+      {
+        heading: "¿Qué debe grabar primero un gimnasio, un entrenador o un estudio de pilates?",
+        paragraphs: [
+          "Lo que pone nervioso a un miembro nuevo. Para un gimnasio suele ser el espacio a una hora normal y cómo es la primera sesión; para un entrenador personal, cómo transcurre de verdad una sesión; para un estudio de yoga o pilates, el formato de la clase y el equipo. Graba una toma de cada cosa desde una posición fija y estable, sin perseguir momentos a pulso.",
+          "Dos reglas ahorran casi todas las correcciones. Primero, pregunta antes de grabar a alguien: quien entrena no aceptó aparecer en una cuenta de negocio por entrar al gimnasio, así que anota quién dijo sí y envía la nota con los clips. Segundo, envía los archivos originales del teléfono o la cámara, no copias guardadas desde una app de mensajería, que ya perdieron detalle.",
+        ],
+      },
+      {
+        heading: "¿Qué trabajos de fitness hay en el portafolio de Esteban?",
+        paragraphs: [
+          "Dos marcas de entrenamiento, y los dos proyectos son web, no son video. [Gains From Geebs](/es/portafolio/gains-from-geebs) es una plataforma web interactiva de fitness con un bot de IA para Instagram DM que atiende consultas sobre planes de entrenamiento y nutrición y califica prospectos. [TitanForge](/es/portafolio/titanforge) es una plataforma web con un bot conversacional para calificar prospectos, agendar y registrar clientes.",
+          "El trabajo grabado más cercano es [Healthy Smile Miami](/es/portafolio/healthy-smile): videos para redes de una clínica dental de Miami, donde Esteban grabó en el lugar, video y sonido, y luego editó y entregó las piezas. Una clínica en funcionamiento y un gimnasio abierto comparten las mismas limitaciones: clientes reales, poco tiempo y un espacio que no puede cerrar.",
+        ],
+      },
+    ],
     faqs: [
       {
         question: "¿Incluyen música libre de derechos para redes sociales?",
         answer:
-          "Sí. Seleccionamos pistas musicales comerciales licenciadas sin riesgo de bloqueo en plataformas digitales.",
+          "Sí. La música se elige para la plataforma donde se publicará el video, y para anuncios pagados el negocio confirma los derechos de uso antes de publicar.",
       },
     ],
   },
@@ -1705,11 +1754,43 @@ export const spanishNichePages: SpanishNichePage[] = [
     ],
     projectFit:
       "Estética visual limpia con edición fluida y sonido envolvente.",
+    sectionsDisclosure: "Precios y cómo grabar sin mostrar clientes",
+    updated: "2026-10-07",
+    sections: [
+      {
+        heading: "¿Cuánto cuesta un video promocional para un spa en Miami?",
+        paragraphs: [
+          `Editar el material que el spa ya tiene empieza desde ${esStarterFrom} por proyecto con el [paquete Arranque](/es/precios/arranque), con formato para Reels, TikTok, YouTube o web y una ronda de revisión. Una pieza promocional terminada o un anuncio para redes cae en la banda de edición corta de la calculadora, de ${esSocialBand} por proyecto. Las dos cifras son orientativas, de un editor independiente con un descuento de introducción aplicado, y la cotización por escrito fija el alcance.`,
+          "Un promocional de spa suele pedir menos material del que se espera y más cuidado en la edición: ritmo pausado, tomas estables de las salas, el agua, las texturas y la luz, y un sonido que no moleste. El número cambia con cuántas versiones necesitas y con si hay que grabar algo.",
+        ],
+      },
+      {
+        heading: "¿Cuánto cuesta grabar en el spa?",
+        paragraphs: [
+          `La grabación en sitio va por [Presencia Local](/es/precios/presencia-local), desde ${esLocalFrom} por día de producción: preproducción, captura en locación, edición posterior y entregables según formato, en Fort Lauderdale, Broward y proyectos seleccionados en Miami-Dade. El complemento de media jornada de captura tiene un rango orientativo de ${esHalfDayBand}, con la misma base. Son dos formas de cotizar el trabajo, no cantidades que se suman.`,
+          "Casi todos los spas son más fáciles de grabar antes de abrir o en un bloque tranquilo entre reservas, con las salas listas y nadie esperando. Envía las horas disponibles, las salas que quieres mostrar y si alguien del equipo hablará a cámara, para que la propuesta diga qué se graba y qué queda fuera.",
+        ],
+      },
+      {
+        heading: "¿Cómo graba un spa sin mostrar a sus clientes?",
+        paragraphs: [
+          "Grabando el lugar y la preparación en vez de a las personas. Las salas vacías, el agua, las toallas dobladas, los productos en un estante y las manos de una terapeuta preparando la camilla cuentan cómo se siente la visita sin poner a un cliente en una cuenta de negocio. Grabadas desde una posición fija y con luz constante, esas tomas sirven durante meses.",
+          "Cuando aparece una persona, debe ser alguien del equipo o alguien que aceptó de antemano, nunca un cliente que pasaba por ahí. Pregunta antes de grabar, anota quién dijo sí y envía la nota con los clips. Envía los archivos originales del teléfono o la cámara, no copias de una app de mensajería, que ya perdieron detalle.",
+        ],
+      },
+      {
+        heading: "¿Cuánto cuesta un plan mensual de contenido para un spa?",
+        paragraphs: [
+          `El [plan Crecimiento](/es/precios/crecimiento) empieza desde ${esGrowthFrom} al mes e incluye plan de contenido, calendario de publicación, edición y reporte mensual. Sirve a un spa o centro de bienestar que quiere publicar con constancia pero no tiene a nadie encargado, y que puede enviar material nuevo cada una o dos semanas.`,
+          "Los tratamientos de temporada, una sala renovada o una persona nueva en el equipo le dan al calendario algo nuevo que contar, y las mismas tomas tranquilas de las salas lo sostienen entre una novedad y otra. Compara las rutas en la [calculadora](/es/calculadora) y pide una cotización por escrito en [contacto](/es/contacto) que diga qué se graba, edita y entrega cada mes.",
+        ],
+      },
+    ],
     faqs: [
       {
         question: "¿Incluye diseño de sonido ambiente de spa?",
         answer:
-          "Sí. Integramos texturas sonoras naturales y música ambiental licenciada que transmite relajación.",
+          "Sí. Integramos texturas sonoras naturales y música ambiental elegida para la plataforma donde se publicará el video.",
       },
     ],
   },
@@ -3402,7 +3483,29 @@ export const spanishNichePages: SpanishNichePage[] = [
     ],
     projectFit:
       "Esta ruta parte de material grabado entre clientes y entrega piezas verticales. No promete cantidad de publicaciones ni resultados de agenda.",
+    updated: "2026-10-07",
     sections: [
+      {
+        heading: "¿Cuánto cuesta el video para un salón o una barbería en Miami?",
+        paragraphs: [
+          `Si el local ya graba transformaciones con el teléfono, la edición empieza desde ${esStarterFrom} por proyecto con el [paquete Arranque](/es/precios/arranque): edición remota, cortes verticales para Reels o TikTok y una ronda de revisión. Un promocional terminado o un anuncio para redes queda en la banda de edición corta de la calculadora, de ${esSocialBand} por proyecto. Son cifras orientativas de un editor independiente con un descuento de introducción aplicado; la cotización por escrito fija el alcance real.`,
+          "Lo que mueve el número es el volumen y el orden. Una semana de clips del antes, el trabajo y la revelación, grabados desde el mismo punto marcado, se edita rápido. Clips sin nombre de varias estaciones, con luz mezclada, toman más tiempo porque primero hay que igualar el color.",
+        ],
+      },
+      {
+        heading: "¿Cuánto cuesta grabar dentro del salón?",
+        paragraphs: [
+          `Cuando el local quiere que alguien venga a grabar, [Presencia Local](/es/precios/presencia-local) empieza desde ${esLocalFrom} por día de producción e incluye preproducción, captura en locación, edición posterior y entregables según formato, en Fort Lauderdale, Broward y proyectos seleccionados en Miami-Dade. El complemento de media jornada de captura tiene un rango orientativo de ${esHalfDayBand}, con la misma base; son alternativas, no una suma.`,
+          "Una grabación en el salón avanza más rápido cuando se agenda junto con las citas y no en contra de ellas. Elige un bloque en que un estilista o barbero tenga un cliente dispuesto, una silla con luz constante y unos minutos libres para decir algo útil a cámara.",
+        ],
+      },
+      {
+        heading: "¿Cuánto cuesta un plan mensual de publicaciones para un salón?",
+        paragraphs: [
+          `El [plan Crecimiento](/es/precios/crecimiento) empieza desde ${esGrowthFrom} al mes e incluye plan de contenido, calendario de publicación, edición y reporte mensual. Encaja con un salón o una barbería que graba cada semana pero no tiene a nadie encargado de convertir los clips en publicaciones constantes, y que prefiere dedicar ese tiempo a los clientes en la silla.`,
+          "El plan depende de que el material llegue a tiempo. Una carpeta compartida, un bloque de grabación por semana y una línea por clip que diga qué servicio muestra y quién dio permiso suele bastar. Los estudios de uñas deben enviar aparte los primeros planos, con la mano apoyada para que salgan nítidos. Compara opciones en la [calculadora](/es/calculadora) antes de pedir cotización en [contacto](/es/contacto).",
+        ],
+      },
       {
         heading: "¿Dónde debe vivir la cámara dentro del local?",
         paragraphs: [

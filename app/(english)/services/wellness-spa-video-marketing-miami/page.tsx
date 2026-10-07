@@ -2,16 +2,22 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { ServiceDeepDive } from "@/components/service-depth";
+import { SPA_DEEP_DIVE } from "@/lib/service-deep-dive-content";
+import { PACKAGE_PRICES, usd } from "@/lib/pricing";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
 export const metadata = buildPageMetadata({
   title: "Wellness Spa Video Marketing Miami",
   description:
-    "Atmospheric video editing, soothing sound design, and promotional video content for luxury spas and wellness centers in Miami.",
+    "Spa and wellness video in Miami: what a promotional video, on-site filming and a monthly plan cost, and how to film without showing guests.",
   path: "/services/wellness-spa-video-marketing-miami",
   locale: "en",
 });
+
+const starter = PACKAGE_PRICES.arranque;
+const starterFrom = starter.kind === "from" ? usd(starter.amount) : "a custom quote";
 
 export default function WellnessSpaVideoMarketingMiamiPage() {
   const jsonLd = {
@@ -73,7 +79,11 @@ export default function WellnessSpaVideoMarketingMiamiPage() {
                 Wellness & Spa Video Marketing in Miami.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-                Serene video pacing, ambient sound design, and elegant visual edits for luxury spas and wellness retreats in Miami.
+                Promotional video for spas and wellness centres in Miami and Fort
+                Lauderdale, built from the rooms, water and light rather than your
+                guests. Send footage you already have or book on-site filming.
+                Editing starts from {starterFrom} per project; the prices below come
+                from the published rate card.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
@@ -88,15 +98,15 @@ export default function WellnessSpaVideoMarketingMiamiPage() {
 
             <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
               <Video className="size-8 text-[#e85d3e]" aria-hidden="true" />
-              <h2 className="mt-5 font-serif text-3xl">Wellness video proof</h2>
+              <h2 className="mt-5 font-serif text-3xl">What published work can a spa review?</h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                Our portfolio project <strong>Healthy Smile</strong> proves published clinic and wellness practice video marketing and on-location shooting in Miami.
+                <strong>Healthy Smile Miami</strong>: social-media videos for a Miami dental clinic, not a spa. Esteban filmed on location (video and sound) in a working practice, then edited and delivered the pieces.
               </p>
               <Link
                 href="/portfolio/healthy-smile"
                 className="group mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27]"
               >
-                Review Healthy Smile Miami Clinical Video Proof
+                Review Healthy Smile Miami (dental clinic)
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
             </div>
@@ -104,7 +114,14 @@ export default function WellnessSpaVideoMarketingMiamiPage() {
         </Container>
       </section>
 
-      <section className="pb-12 sm:pb-16">
+      <ServiceDeepDive
+        id={SPA_DEEP_DIVE.id}
+        title={SPA_DEEP_DIVE.title}
+        destinations={SPA_DEEP_DIVE.destinations}
+        sections={SPA_DEEP_DIVE.sections}
+      />
+
+      <section className="pb-12 sm:pb-16 pt-12">
         <Container size="xl">
           <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6 sm:p-8">
             <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
