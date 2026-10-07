@@ -145,7 +145,7 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Keep the source material clear",
+          heading: "How should the source material be organised before editing?",
           paragraphs: [
             "Keep the original video and audio files available. Group files by shoot, scene, date, or camera when that distinction will help someone understand what belongs together.",
             "Use short folder and file labels that describe the content. A simple structure is more useful than renaming every clip or building a complicated archive. See how supplied clips were structured and edited in the [Homeowners real estate editing project](/portfolio/homeowners) (and the [Homeowners case study](/case-studies/homeowners)).",
@@ -158,10 +158,11 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Explain the result you need",
+          heading: "What should you explain about the result you need?",
           paragraphs: [
             "The footage does not explain the business goal by itself. Include the main message, where the video will be published, the requested format, and the deadline that matters to the project.",
             "Flag must-use moments and anything that should not be used. If there are several deliverables, name each one instead of assuming a single edit can cover every placement.",
+            "Say who will watch it and what they should do afterwards: book, call, visit, buy, or simply recognise the brand next time. An editor chooses the opening, the pacing and the ending around that action, so naming it changes the cut more than any style reference does.",
           ],
           bullets: [
             "Goal and intended audience",
@@ -172,7 +173,7 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Finish with one handoff note",
+          heading: "What goes in the final handoff note?",
           paragraphs: [
             "Put the essential context in one message or document: what is included, what is missing, who will consolidate feedback, and which date or launch matters to the request.",
             "Treat the note as preparation, not as an assumed production policy. Scope, timing, review method, file transfer, and deliverables still need to be agreed for the individual project.",
@@ -197,10 +198,11 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Mantén claro el material original",
+          heading: "¿Cómo se organiza el material original antes de editar?",
           paragraphs: [
             "Conserva los archivos originales de video y audio. Agrúpalos por grabación, escena, fecha o cámara cuando esa separación ayude a entender qué material pertenece al mismo momento.",
             "Usa nombres cortos que describan el contenido. Una estructura sencilla sirve más que renombrar cada clip o crear un archivo complicado. Revisa cómo se organizó y editó el material entregado en el [proyecto Homeowners](/es/portafolio/homeowners) (y su [caso de estudio](/es/casos-de-estudio/homeowners)).",
+            "Envía los archivos tal como salieron de la cámara o del teléfono, no copias guardadas desde una aplicación de mensajes, que llegan comprimidas.",
           ],
           bullets: [
             "Videos originales agrupados por grabación o escena",
@@ -210,10 +212,11 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Explica el resultado que necesitas",
+          heading: "¿Qué debes explicar sobre el resultado que necesitas?",
           paragraphs: [
             "El material por sí solo no explica la meta del negocio. Indica el mensaje principal, dónde se publicará el video, el formato solicitado y la fecha relevante para el proyecto.",
             "Marca los momentos obligatorios y lo que no debe usarse. Si necesitas varias piezas, nombra cada entrega en lugar de asumir que un solo corte funcionará en todos los canales.",
+            "Di quién lo verá y qué debería hacer después: reservar, llamar, visitar, comprar o recordar la marca. El editor elige la apertura, el ritmo y el cierre alrededor de esa acción.",
           ],
           bullets: [
             "Meta y audiencia principal",
@@ -224,7 +227,7 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Cierra con una sola nota de entrega",
+          heading: "¿Qué incluye la nota final de entrega?",
           paragraphs: [
             "Reúne el contexto esencial en un mensaje o documento: qué está incluido, qué falta, quién consolidará los comentarios y qué fecha o lanzamiento importa para la solicitud.",
             "Usa la nota como preparación, no como una política de producción asumida. El alcance, los plazos, el método de revisión, la transferencia de archivos y los entregables todavía deben acordarse para cada proyecto.",
@@ -252,10 +255,11 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Start with the decision the video should support",
+          heading: "What decision should the video support?",
           paragraphs: [
             "Describe what the viewer should understand or do after watching. That answer is more actionable than asking for a video that is simply polished, dynamic, or engaging.",
             "Add the audience and publishing destination because pacing, framing, captions, and the call to action depend on how the piece will be used.",
+            "Write that answer in one sentence at the top of the brief. If two people on your side would write a different sentence, settle it before the edit starts, because the editor can only build toward one decision at a time and the disagreement will otherwise surface in the review.",
           ],
           bullets: [
             "Goal: what should change after someone watches?",
@@ -264,7 +268,7 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Name the material and deliverables",
+          heading: "Which materials and deliverables should the brief name?",
           paragraphs: [
             "List what already exists: footage, voice-over, music direction, logos, copy, product details, and references. Then list the requested pieces separately, including their orientation when it is known. For an example of how on-location requirements and deliverable definitions come together in a local business shoot, review the [Healthy Smile Miami dental video project](/portfolio/healthy-smile) (detailed in the [Healthy Smile case study](/case-studies/healthy-smile)).",
             "If an item is undecided, label it as an open question. That is more useful than hiding uncertainty inside a vague request.",
@@ -277,10 +281,11 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Make review and timing explicit",
+          heading: "How do you make review and timing explicit?",
           paragraphs: [
             "Include the deadline, the date the video will be used, and the person responsible for collecting feedback. These can be different facts, so write each one clearly.",
             "Use the brief to surface open questions instead of turning assumptions into promises. The eventual scope can define deliverables, timing, and review responsibilities for the individual project.",
+            "Say also how feedback will be sent — one consolidated list or a shared document — so the first round does not arrive in pieces from several people.",
           ],
           bullets: [
             "Project deadline and any fixed publish date",
@@ -307,10 +312,11 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Empieza por la decisión que debe apoyar el video",
+          heading: "¿Qué decisión debe apoyar el video?",
           paragraphs: [
             "Explica qué debe entender o hacer la persona después de ver la pieza. Esa respuesta orienta mejor que pedir un video solamente dinámico, profesional o atractivo.",
             "Agrega la audiencia y el lugar de publicación porque el ritmo, el encuadre, los subtítulos y el llamado a la acción dependen del uso final.",
+            "Escribe esa respuesta en una sola oración al inicio del brief. Si dos personas de tu equipo escribirían una oración distinta, resuélvanlo antes de editar, porque el editor solo puede construir hacia una decisión a la vez.",
           ],
           bullets: [
             "Meta: ¿qué debería cambiar después de ver el video?",
@@ -319,7 +325,7 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Nombra el material y los entregables",
+          heading: "¿Qué materiales y entregables debe nombrar el brief?",
           paragraphs: [
             "Enumera lo que ya existe: videos, voz en off, dirección musical, logos, textos, datos del producto y referencias. Después enumera cada pieza solicitada e indica su orientación cuando ya esté definida. Como ejemplo de estructuración de entregables para un negocio local, revisa el [proyecto Healthy Smile Miami](/es/portafolio/healthy-smile) (y su [caso de estudio](/es/casos-de-estudio/healthy-smile)).",
             "Si algo todavía no está decidido, márcalo como pregunta pendiente. Es más útil que esconder la duda dentro de una solicitud general.",
@@ -332,10 +338,11 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Aclara la revisión y las fechas",
+          heading: "¿Cómo se aclaran la revisión y las fechas?",
           paragraphs: [
             "Incluye la fecha límite, la fecha en que se usará el video y la persona responsable de reunir los comentarios. Pueden ser datos diferentes, por eso conviene escribir cada uno.",
             "Usa el brief para mostrar las preguntas pendientes en vez de convertir supuestos en promesas. El alcance de cada proyecto puede definir los entregables, los plazos y la responsabilidad de revisión.",
+            "Indica también cómo se enviarán los comentarios — una lista consolidada o un documento compartido — para que la primera ronda no llegue a pedazos.",
           ],
           bullets: [
             "Fecha límite y cualquier día fijo de publicación",
@@ -365,17 +372,18 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Let the placement choose the first format",
+          heading: "Which placement should choose the first format?",
           paragraphs: [
             "A 9:16 vertical frame and a 16:9 horizontal frame show different parts of the same shot. Decide which placement matters most before choosing the primary edit.",
             "Vertical video is commonly used in full-screen short-form feeds. Horizontal video is commonly used on YouTube, websites, presentations, and wider displays. Confirm the actual destination instead of exporting by habit.",
           ],
         },
         {
-          heading: "Treat each reframe as a composition decision",
+          heading: "Why is each reframe a composition decision?",
           paragraphs: [
             "A horizontal cut cannot always be cropped into a useful vertical piece. People, products, captions, and movement may need a different position or a different shot.",
             "When both orientations are requested, identify the priority version and list the secondary version separately. Do not assume one automatic crop will work; framing, text placement, and requested outputs still need to be defined for that project.",
+            "When the vertical version matters most, say so before filming, so the subject is framed with room to crop rather than rescued later.",
           ],
           bullets: [
             "Keep the main subject readable in the narrower frame",
@@ -385,10 +393,11 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Use safe zones without inventing one permanent template",
+          heading: "How do you use safe zones without one permanent template?",
           paragraphs: [
             "Platform controls, captions, account labels, and crop behavior can cover the outer parts of a frame. Keep essential information comfortably inside the composition and check the current platform preview before publishing.",
             "Avoid relying on one set of pixel measurements for every channel because interfaces can change. Save the exact wording and graphics separately so they can be repositioned when needed.",
+            "A draft post or the platform's own preview shows the overlays as they are today, which no saved template can promise.",
           ],
           bullets: [
             "Keep names and calls to action away from the top and bottom edges",
@@ -416,14 +425,14 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Deja que el uso final defina el primer formato",
+          heading: "¿Qué uso final debe definir el primer formato?",
           paragraphs: [
             "Un cuadro vertical 9:16 y uno horizontal 16:9 muestran partes diferentes de la misma toma. Decide qué canal es prioritario antes de elegir la edición principal.",
             "El video vertical se usa con frecuencia en canales de video corto a pantalla completa como [reels para negocios en Miami](/es/reels-para-negocios-miami) y [video para restaurantes en Miami](/es/video-para-restaurantes-miami). Para empresas y marcas que evalúan estos formatos, el encuadre 9:16 asegura máxima visibilidad en feeds móviles. El horizontal es común en YouTube, sitios web, presentaciones y pantallas anchas. Confirma el destino real en vez de exportar por costumbre.",
           ],
         },
         {
-          heading: "Trata cada reencuadre como una nueva composición",
+          heading: "¿Por qué cada reencuadre es una nueva composición?",
           paragraphs: [
             "Un corte horizontal no siempre se puede recortar y convertir en una pieza vertical útil. Personas, productos, subtítulos y movimientos pueden necesitar otra posición o una toma diferente.",
             "Cuando solicites ambas orientaciones, identifica la versión prioritaria y anota la secundaria por separado. No asumas que un recorte automático funcionará; el encuadre, la posición del texto y los exportes solicitados todavía deben definirse para ese proyecto.",
@@ -436,7 +445,7 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Usa zonas seguras sin inventar una plantilla permanente",
+          heading: "¿Cómo se usan las zonas seguras sin una plantilla permanente?",
           paragraphs: [
             "Los controles, subtítulos, nombres de cuenta y recortes de cada plataforma pueden cubrir las partes exteriores. Mantén la información esencial dentro de la composición y revisa la vista previa actual antes de publicar.",
             "No dependas de una sola medida en píxeles para todos los canales porque las interfaces pueden cambiar. Guarda textos y gráficos por separado para poder moverlos cuando sea necesario.",
@@ -470,17 +479,19 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Package files and context together",
+          heading: "How do you package files and context together?",
           paragraphs: [
             "Place the original footage, audio, approved graphics, copy, and references in a structure that another person can follow. Add one brief that explains the goal, intended use, deadline, and requested deliverables. For a real-world example of remote video post-production from supplied footage, explore the [Homeowners real estate editing project](/portfolio/homeowners) (and [Homeowners case study](/case-studies/homeowners)).",
             "Keep assumptions separate from confirmed facts. This preparation does not decide which files an editor will accept or what the eventual scope, transfer method, schedule, or deliverables will include.",
+            "Send the original files through a transfer link or a shared drive rather than a messaging app, which recompresses video, and keep the folder structure from each camera card so clips stay matched to their audio and their day.",
           ],
         },
         {
-          heading: "Make feedback easy to locate",
+          heading: "How do you make feedback easy to locate?",
           paragraphs: [
             "When reviewing any shared draft, identify the exact moment or element that needs attention. Write what should change and, when useful, why it matters to the message or placement.",
             "A timestamp can help when the chosen review method supports one, but no tool, number of review rounds, or feedback process is assumed here. Collecting comments before sending them can still reduce conflicting requests.",
+            "Note which version you reviewed, such as v1 or v2, so a comment on an older export is not applied to the newer one by mistake.",
           ],
           bullets: [
             "Name the exact moment or element",
@@ -490,7 +501,7 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "List the requested output needs",
+          heading: "Which output needs should the handoff list?",
           paragraphs: [
             "List the versions requested for web, social, or archive. Orientation, captions, text placement, and file naming may differ across those uses.",
             "Treat that list as an input to the conversation, not a promise of delivery. File transfer, schedule, accepted deliverables, and review points remain open until they are agreed for the individual project.",
@@ -520,17 +531,19 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Entrega juntos los archivos y el contexto",
+          heading: "¿Cómo se entregan juntos los archivos y el contexto?",
           paragraphs: [
             "Organiza videos originales, audio, gráficos aprobados, textos y referencias de una forma que otra persona pueda seguir. Agrega un brief con la meta, el uso final, la fecha y los entregables solicitados. Como ejemplo práctico de postproducción remota con material externo, explora el [proyecto Homeowners](/es/portafolio/homeowners) (y su [caso de estudio](/es/casos-de-estudio/homeowners)).",
             "Separa los supuestos de los datos confirmados. Esta preparación no decide qué archivos aceptará un editor ni qué incluirán el alcance, la transferencia, el calendario o los entregables finales.",
+            "Envía los archivos originales por un enlace de transferencia o una carpeta compartida, no por una aplicación de mensajes, que vuelve a comprimir el video, y conserva la estructura de cada tarjeta de cámara.",
           ],
         },
         {
-          heading: "Haz que los comentarios sean fáciles de ubicar",
+          heading: "¿Cómo se hacen comentarios fáciles de ubicar?",
           paragraphs: [
             "Al revisar cualquier versión compartida, identifica el momento o elemento exacto que necesita atención. Escribe qué debe cambiar y, cuando ayude, por qué importa para el mensaje o el canal.",
             "Una marca de tiempo puede ayudar cuando el método de revisión elegido la permite, pero esta guía no supone una herramienta, cantidad de rondas ni proceso de comentarios. Reunir las observaciones antes de enviarlas puede reducir solicitudes contradictorias.",
+            "Anota qué versión revisaste, como v1 o v2, para que un comentario sobre una exportación anterior no se aplique por error a la nueva.",
           ],
           bullets: [
             "Nombra el momento o elemento exacto",
@@ -540,7 +553,7 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Enumera los formatos solicitados",
+          heading: "¿Qué formatos solicitados debe enumerar la entrega?",
           paragraphs: [
             "Enumera las versiones solicitadas para el sitio web, las redes o el archivo. La orientación, los subtítulos, la posición del texto y los nombres de archivo pueden cambiar según el uso.",
             "Trata esa lista como información para la conversación, no como una promesa de entrega. La transferencia, el calendario, los entregables aceptados y los puntos de revisión siguen pendientes hasta acordarlos para cada proyecto.",
@@ -573,29 +586,30 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Focus on one clear message per Reel",
+          heading: "Why should each Reel carry one clear message?",
           paragraphs: [
-            "Short-form video works best when each piece addresses a single decision, question, or feature. Avoid packing an entire company overview into 30 seconds.",
-            "Start with a strong hook in the first two seconds: show the product in action, state the customer problem, or ask a direct question. For culinary concepts and dining spots, specialized [restaurant promo video editing in Miami](/services/restaurant-promo-video-editing-miami) showcases signature dishes and lively dining atmosphere within the first seconds.",
+            "Short-form video works best when each piece answers a single question, shows a single feature or makes a single offer. A viewer gives a Reel a few seconds before deciding whether to keep watching, and a video that tries to cover the whole company in thirty seconds gives them nothing to hold on to.",
+            "Start with a strong opening: show the product in action, name the customer's problem, or ask a direct question. For restaurants and other places people visit, the [restaurant promo video editing page](/services/restaurant-promo-video-editing-miami) shows how a dish or a room can carry that first moment on its own.",
           ],
           bullets: [
             "One core point or offer per video",
-            "Hook in the first 2 seconds",
-            "Clear vertical 9:16 framing",
-            "On-screen text or auto-captions for silent viewing",
+            "A strong opening in the first seconds",
+            "Vertical 9:16 framing",
+            "On-screen text or captions for viewers watching without sound",
           ],
         },
         {
-          heading: "Record clean audio and intentional visuals",
+          heading: "How do you record clean audio and purposeful visuals for Reels?",
           paragraphs: [
-            "Good lighting and clear audio matter more than expensive camera gear. Position yourself near natural light and use a lapel or directional microphone whenever voice is recorded.",
-            "Keep clips moving with quick cuts every 2 to 4 seconds to maintain viewer pacing without overwhelming the message.",
+            "Good light and clear sound matter more than an expensive camera. Stand facing a window or another soft light source rather than with it behind you, and use a lapel or directional microphone whenever someone speaks, because the phone's own microphone at a distance records the room as loudly as the voice.",
+            "Plan the shots before pressing record. A short list — the opening image, two or three supporting shots, the closing frame — keeps the filming quick and gives the editor material that fits together. Change the angle or distance every few seconds in the edit so the pace holds, but let any shot that explains something stay on screen long enough to be understood.",
           ],
         },
         {
-          heading: "Include a direct call to action",
+          heading: "What makes a call to action work at the end of a Reel?",
           paragraphs: [
-            "Tell the viewer what step to take next: visit your location, check the link in your bio, or comment for details. A clear call to action connects views to business inquiries.",
+            "Being specific and singular. Tell the viewer exactly one next step — visit the location, tap the link in the profile, send a message with a keyword, or book through the website — and both say it and show it as text, so sound-off viewers see it too. Several requests at once usually produce none.",
+            "Match the request to how warm the viewer is. Someone who has never heard of the business is more likely to follow or save than to book; someone watching a video about a specific service may be ready to ask a price. Make sure the step works before you publish: the link opens, the keyword is answered, the booking page loads on a phone. Then the views a Reel earns have somewhere to go.",
           ],
         },
       ],
@@ -617,29 +631,30 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Enfoca un solo mensaje claro por Reel",
+          heading: "¿Por qué cada Reel debe llevar un solo mensaje claro?",
           paragraphs: [
-            "El video corto funciona mejor cuando cada pieza responde a una sola duda, decisión o función. Evita resumir toda la empresa en 30 segundos y enfócate en un solo beneficio. Para marcas y negocios locales que estructuran campañas de [reels para negocios en Miami](/es/reels-para-negocios-miami), el objetivo inicial es transmitir valor con claridad inmediata.",
-            "Comienza con un gancho fuerte en los primeros dos segundos: muestra el producto en acción, menciona la necesidad del cliente o plantea una pregunta directa. En hostelería y gastronomía, la [edición de video promocional para restaurantes en Miami](/es/edicion-de-video-promocional-para-restaurantes-miami) destaca platos y ambiente desde el primer segundo.",
+            "El video corto funciona mejor cuando cada pieza responde una sola duda, muestra una sola función o hace una sola oferta. La persona le da a un Reel unos segundos antes de decidir si sigue mirando, y un video que intenta resumir toda la empresa en treinta segundos no le deja nada a qué aferrarse. Para negocios locales, la página de [reels para negocios en Miami](/es/reels-para-negocios-miami) explica cómo se plantea una serie.",
+            "Empieza con una apertura fuerte: muestra el producto en acción, nombra el problema del cliente o haz una pregunta directa. En gastronomía, la [edición de video promocional para restaurantes en Miami](/es/edicion-de-video-promocional-para-restaurantes-miami) muestra cómo un plato o un salón sostienen ese primer momento.",
           ],
           bullets: [
-            "Un punto clave u oferta por video",
-            "Gancho en los primeros 2 segundos",
-            "Encuadre vertical 9:16 claro",
-            "Texto en pantalla o subtítulos para reproducción en silencio",
+            "Un solo punto u oferta por video",
+            "Una apertura fuerte en los primeros segundos",
+            "Formato vertical 9:16",
+            "Texto en pantalla o subtítulos para ver sin sonido",
           ],
         },
         {
-          heading: "Graba audio limpio y tomas intencionales",
+          heading: "¿Cómo se graban audio limpio y tomas con intención para Reels?",
           paragraphs: [
-            "La buena iluminación y el audio claro importan más que equipos costosos. Ubícate cerca de luz natural y usa un micrófono lavalier o direccional cuando grabes voz. En gastronomía y hospitalidad, este enfoque se aplica en [video para restaurantes en Miami](/es/video-para-restaurantes-miami) para registrar la preparación de alimentos con luz óptima y sonido nítido.",
-            "Mantén el ritmo con cortes cada 2 a 4 segundos para sostener la atención sin saturar el mensaje.",
+            "La buena luz y el sonido claro importan más que una cámara costosa. Ponte de frente a una ventana u otra luz suave, no de espaldas a ella, y usa un micrófono de solapa o direccional siempre que alguien hable, porque el micrófono del teléfono a distancia graba el cuarto tan fuerte como la voz. En gastronomía, la página de [video para restaurantes en Miami](/es/video-para-restaurantes-miami) aplica esto a la cocina.",
+            "Planea las tomas antes de grabar. Una lista corta — la imagen inicial, dos o tres tomas de apoyo y el cuadro final — hace la grabación rápida y le da al editor material que encaja. En la edición, cambia el ángulo o la distancia cada pocos segundos para sostener el ritmo, pero deja que una toma que explica algo dure lo suficiente para entenderse.",
           ],
         },
         {
-          heading: "Incluye un llamado a la acción directo",
+          heading: "¿Qué hace funcionar el llamado a la acción al final de un Reel?",
           paragraphs: [
-            "Indica al espectador qué paso dar después: visitar la locación, revisar el enlace en la biografía o comentar para más detalles. Un llamado claro conecta vistas con consultas reales. Si quieres preparar un proyecto con material propio o captura selectiva, consulta nuestra página de [reels para negocios en Miami](/es/reels-para-negocios-miami).",
+            "Ser concreto y único. Dile a la persona un solo paso siguiente — visitar el local, tocar el enlace del perfil, enviar un mensaje con una palabra clave o reservar en el sitio web — y dilo y muéstralo como texto, para que también lo vea quien mira sin sonido. Varias peticiones a la vez suelen terminar en ninguna.",
+            "Ajusta la petición a qué tan cerca está la persona de decidir. Alguien que nunca ha oído del negocio es más probable que lo siga o lo guarde que reservar; alguien que mira un video sobre un servicio concreto quizá ya quiera preguntar un precio. Comprueba que el paso funcione antes de publicar: el enlace abre, la palabra clave recibe respuesta, la página de reservas carga en el teléfono.",
           ],
         },
       ],
@@ -664,27 +679,23 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Showcase signature dish preparation",
+          heading: "How should a restaurant film its signature dishes?",
           paragraphs: [
-            "Close-up video of sizzling food, plating, and fresh ingredients performs exceptionally well on Instagram and TikTok. Focus on sensory details like steam, crunch, and sauce pours. For culinary brands looking to elevate their menu marketing, dedicated [restaurant promo video editing in Miami](/services/restaurant-promo-video-editing-miami) turns raw kitchen clips into high-converting promotional reels.",
+            "Close, in good light, and while something is happening. Steam rising, a sauce being poured, a crust being cut, a garnish placed by hand: movement and texture are what make food read on a phone screen, and they disappear in a wide shot of a finished plate. Film near a window or under the kitchen's brightest even light, and keep the background simple so the dish is the only thing the eye looks for.",
+            "Shoot the same dish from two or three distances — the full plate, a close detail, the moment of serving — so the editor can build a short sequence instead of one still image. Record a few seconds of natural sound too; a sizzle or a pour says more than music alone. The [restaurant promo video editing page](/services/restaurant-promo-video-editing-miami) shows how kitchen clips like these are cut into short pieces.",
           ],
           bullets: [
-            "Signature dish close-ups and plating formatted for [restaurant promo video editing](/services/restaurant-promo-video-editing-miami)",
-            "Chef's special or house creation backstory",
+            "Signature dish close-ups and plating",
+            "The story behind a house speciality",
             "Cocktail preparation and pouring",
-            "Customer reaction and table atmosphere",
+            "Guests at the table, with their permission",
           ],
         },
         {
-          heading: "Capture peak dining atmosphere",
+          heading: "How do you capture a restaurant's atmosphere without disturbing guests?",
           paragraphs: [
-            "Show prospective diners what it feels like to visit during busy evening service or weekend brunch. Natural lighting and ambient sound bring the space to life. Combining atmospheric venue b-roll with [short-form video editing](/services/short-form-video-editor-miami) drives weekend table bookings.",
-          ],
-        },
-        {
-          heading: "Highlight weekly specials and events",
-          paragraphs: [
-            "Create short, reusable 15-second templates to announce Happy Hour, weekend specials, or private dining availability.",
+            "Plan the timing and keep the camera discreet. A busy evening or a weekend brunch shows what visiting actually feels like, but guests did not come to be filmed, so favour wide shots where no one is recognisable, hands and plates rather than faces, and the room from the bar or a corner. Anyone who will appear clearly should be asked first.",
+            "Film the room both empty and full: the empty shots, taken before opening with the lights set the way they are at service, give clean views of the space, and the full ones give the energy. Natural light and the room's own sound bring it to life, while a separate short clip of each special or event can be reused for weeks. For editing that material into vertical clips, see [short-form video editing](/services/short-form-video-editor-miami).",
           ],
         },
       ],
@@ -706,27 +717,23 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Destaca la preparación de tus platos estrella",
+          heading: "¿Cómo debe grabar un restaurante sus platos estrella?",
           paragraphs: [
-            "Los videos en primer plano de comida recién servida, el emplatado y los ingredientes frescos funcionan muy bien en Instagram y TikTok. Enfócate en detalles sensoriales como vapor, texturas y salsas. Si buscas postproducción especializada para tu local, consulta nuestro servicio de [video para restaurantes en Miami](/es/video-para-restaurantes-miami). Para negocios gastronómicos, la [edición de video promocional para restaurantes en Miami](/es/edicion-de-video-promocional-para-restaurantes-miami) convierte material de cocina en reels comerciales atractivos.",
+            "De cerca, con buena luz y mientras pasa algo. El vapor que sube, una salsa que se sirve, un corte en la costra, una guarnición puesta a mano: el movimiento y la textura son lo que hace que la comida se vea bien en un teléfono, y desaparecen en un plano general de un plato ya servido. Graba cerca de una ventana, con un fondo sencillo.",
+            "Graba el mismo plato a dos o tres distancias — el plato completo, un detalle cercano, el momento de servir — para que el editor arme una secuencia corta y no una sola imagen. Para ver cómo se edita este material, revisa la [edición de video promocional para restaurantes en Miami](/es/edicion-de-video-promocional-para-restaurantes-miami) y el servicio de [video para restaurantes en Miami](/es/video-para-restaurantes-miami).",
           ],
           bullets: [
-            "Primeros planos de platos estrella y emplatado con [edición de video para restaurantes](/es/edicion-de-video-promocional-para-restaurantes-miami)",
-            "Historia detrás del plato del chef o especialidad",
-            "Preparación de cocteles y servicio de bebidas",
-            "Reacciones de clientes y ambiente en mesa",
+            "Primeros planos de platos estrella y emplatado",
+            "La historia detrás de una especialidad de la casa",
+            "Preparación y servicio de cócteles",
+            "Comensales en la mesa, con su permiso",
           ],
         },
         {
-          heading: "Captura el ambiente real en horas concurridas",
+          heading: "¿Cómo se capta el ambiente de un restaurante sin molestar a los clientes?",
           paragraphs: [
-            "Muestra a los futuros comensales cómo se siente visitar el restaurante durante la cena o el brunch del fin de semana. La luz adecuada y el ambiente real dan vida al espacio. Para planificar tomas o editar material capturado, revisa nuestra página de [video para restaurantes en Miami](/es/video-para-restaurantes-miami).",
-          ],
-        },
-        {
-          heading: "Resalta promociones semanales y eventos",
-          paragraphs: [
-            "Crea plantillas cortas de 15 segundos para anunciar el Happy Hour, platillos de temporada o la disponibilidad de salones privados.",
+            "Planificando el momento y con una cámara discreta. Una noche concurrida o un brunch de fin de semana muestran cómo se siente visitar el lugar, pero los clientes no vinieron a ser grabados, así que conviene preferir planos abiertos donde nadie sea reconocible, manos y platos en vez de caras, y el salón desde la barra o una esquina. A quien vaya a aparecer con claridad se le pide permiso antes.",
+            "Graba el salón vacío y lleno: las tomas vacías, hechas antes de abrir con las luces como están en el servicio, muestran el espacio limpio, y las llenas aportan la energía. La luz natural y el sonido propio del lugar le dan vida, y un clip corto de cada promoción o evento se puede reutilizar durante semanas. Para planear tomas o editar material grabado, revisa la página de [video para restaurantes en Miami](/es/video-para-restaurantes-miami).",
           ],
         },
       ],
@@ -751,7 +758,7 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Create high-impact property walkthroughs",
+          heading: "How do you film a property walkthrough that holds attention?",
           paragraphs: [
             "Open with the single best feature of the property (e.g., waterfront view, chef's kitchen, or master suite) rather than the front door. Keep clips under 3 seconds per room, as demonstrated in the [Homeowners real estate editing project](/portfolio/homeowners) (and [Homeowners case study](/case-studies/homeowners)), where balanced pacing and neutral lighting highlight residential spaces.",
           ],
@@ -763,19 +770,19 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Share educational homebuyer and seller advice",
+          heading: "Which buyer and seller advice works as a Reel?",
           paragraphs: [
             "Answer one common buyer or seller question per video (e.g., closing cost surprises, inspection tips, or staging mistakes). Position yourself as the trusted local expert.",
           ],
         },
         {
-          heading: "Feature local neighborhood guides",
+          heading: "Why feature local neighbourhood guides?",
           paragraphs: [
             "Showcase local coffee shops, parks, and dining spots near your active listings. Buyers invest in the lifestyle, not just the square footage.",
           ],
         },
         {
-          heading: "Plan the two things South Florida listings stop you on",
+          heading: "What two things stop a South Florida listing shoot?",
           paragraphs: [
             "Most South Florida inventory is in a building somebody else controls, and most of it sits under controlled airspace. A condo or HOA generally has to approve filming in common areas, and some buildings ask for a certificate of insurance before a camera comes through the lobby — a question worth asking when the listing appointment is booked, not on shoot day. Separately, Fort Lauderdale, Miami and Opa-locka put a lot of the county under controlled airspace, where a drone flight needs FAA authorisation (LAANC) rather than just a licensed pilot. Both are scheduling facts, and both are why an aerial shot that was promised sometimes cannot be flown.",
           ],
@@ -786,7 +793,7 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Cut it twice when half your buyers read Spanish",
+          heading: "Why cut it twice when many buyers read Spanish?",
           paragraphs: [
             "South Florida is a bilingual market, and a reel captioned only in English asks a large share of the audience to work harder than they will. The cheapest version of this is not a second shoot: it is the same footage with a second caption track and a Spanish-first hook, because the first line is what decides whether anyone watches the rest. Where an agent speaks Spanish, a short piece to camera in Spanish tends to outperform a translated caption over English audio — the language of the voice is itself the signal that this agent can represent that buyer.",
           ],
@@ -837,7 +844,7 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Crea recorridos de propiedades de alto impacto",
+          heading: "¿Cómo se graba un recorrido de propiedad que retenga la atención?",
           paragraphs: [
             "Abre con la mejor característica de la propiedad (vista al agua, cocina equipada o suite principal) en lugar de la puerta de entrada. Mantén clips de menos de 3 segundos por espacio, tal como se implementó en el [proyecto Homeowners](/es/portafolio/homeowners) (y su [caso de estudio](/es/casos-de-estudio/homeowners)), logrando un ritmo dinámico y equilibrado.",
           ],
@@ -849,18 +856,18 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Comparte consejos para compradores y vendedores",
+          heading: "¿Qué consejos para compradores y vendedores funcionan como Reel?",
           paragraphs: [
             "Responde una duda frecuente por video (gastos de cierre, inspecciones o errores de preparación). Posiciónate como el experto local de confianza.",
           ],
         },
         {
-          heading: "Publica guías del vecindario local",
+          heading: "¿Por qué publicar guías del vecindario?",
           paragraphs: [
             "Muestra cafeterías, parques y restaurantes cerca de tus propiedades activas. Los compradores eligen el estilo de vida, no solo los metros cuadrados.",
           ],        },
         {
-          heading: "Planea las dos cosas que detienen una grabación en South Florida",
+          heading: "¿Qué dos cosas detienen una grabación en South Florida?",
           paragraphs: [
             "Casi todo el inventario de South Florida está en un edificio que controla alguien más, y buena parte queda bajo espacio aéreo controlado. Un condominio o HOA normalmente tiene que aprobar la grabación en áreas comunes, y varios edificios piden un certificado de seguro antes de que una cámara entre al lobby: conviene preguntarlo al firmar el listing, no el día de la grabación. Aparte, Fort Lauderdale, Miami y Opa-locka dejan gran parte del condado en espacio aéreo controlado, donde volar un dron exige autorización de la FAA (LAANC) y no solo un piloto con licencia. Las dos cosas son de agenda, y son la razón por la que a veces la toma aérea prometida no se puede volar.",
           ],
@@ -871,7 +878,7 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Córtalo dos veces cuando la mitad de tus compradores lee en español",
+          heading: "¿Por qué cortarlo dos veces cuando muchos compradores leen en español?",
           paragraphs: [
             "South Florida es un mercado bilingüe, y un reel subtitulado solo en inglés le pide a una parte grande de la audiencia más esfuerzo del que va a hacer. La versión más económica de esto no es una segunda grabación: es el mismo material con una segunda pista de subtítulos y un gancho pensado en español, porque la primera línea es la que decide si alguien ve el resto. Cuando el agente habla español, un fragmento corto a cámara en español suele rendir más que un subtítulo traducido sobre audio en inglés — el idioma de la voz es en sí la señal de que ese agente puede representar a ese comprador.",
           ],
@@ -925,28 +932,29 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Use real product photos as reference anchors",
+          heading: "Why should AI product images start from real product photos?",
           paragraphs: [
-            "AI product imagery works best when rooted in clean, original photos of the actual product. Feeding real product angles ensures logos, colors, and key details stay accurate.",
-            "Avoid generating 100% synthetic products from scratch when selling physical items, as minor discrepancies can lead to customer returns.",
+            "Because the product a customer receives has to match the picture they bought from. AI image tools are good at inventing surroundings and unreliable at reproducing exact details: a logo can come out misspelled, a colour shifted, a proportion changed, a button moved. Starting from clean, well-lit photos of the actual product, taken from the angles you need, anchors those details so the AI only changes what it is allowed to change.",
+            "For physical goods, avoid generating the product itself from a text prompt. Small differences between the image and the item tend to surface as questions, complaints and returns. Use the real photo for the product and let AI handle the background, the setting and the light.",
           ],
           bullets: [
             "Start with high-resolution reference photos",
-            "Maintain true product proportions and colors",
-            "Use AI primarily for backgrounds, lighting, and environments",
+            "Keep true product proportions and colours",
+            "Use AI mainly for backgrounds, lighting and environments",
           ],
         },
         {
-          heading: "Generate context-rich backgrounds and lighting",
+          heading: "How do AI tools create backgrounds and lighting around a real product?",
           paragraphs: [
-            "Rather than staging an expensive studio set for every lifestyle environment, AI image tools can place clean product cutouts into marble countertops, outdoor sunlight, or cozy kitchen settings. For dining and culinary brands, pairing AI product imagery with dynamic [restaurant promo video editing in Miami](/services/restaurant-promo-video-editing-miami) offers a complete visual suite for menus and social feeds.",
-            "Refine prompt direction to match your brand aesthetic, ensuring shadows and reflections look natural.",
+            "They place a clean cut-out of the product into a generated setting — a marble counter, outdoor sunlight, a kitchen, a seasonal scene — instead of building a physical set for each one. The quality depends on how well the light in the new setting matches the light in the original photo, so it helps to photograph the product with soft, even light and to describe in the prompt where the light should come from.",
+            "Check every result at full size before using it: shadows should fall in one direction, reflections should belong to the scene, and the product's edges should not blur into the background. Keep a short written description of your brand's look so that images made weeks apart still feel like one set. For restaurants pairing menu images with video, see [restaurant promo video editing](/services/restaurant-promo-video-editing-miami).",
           ],
         },
         {
-          heading: "Maintain honest brand presentation",
+          heading: "How do you keep AI-assisted brand images honest?",
           paragraphs: [
-            "Be transparent when AI assistance is used for mockups or concepts. Highlighting creative design support builds trust while delivering modern, polished brand imagery.",
+            "Be clear about what the image is. A generated lifestyle background around a real product photo is a presentation choice; an image that implies a product looks, works or is sized differently from reality is a misleading one. Keep the product itself accurate and say when an image is a mockup or a concept.",
+            "Where people appear, prefer real photography or clearly illustrative imagery over invented faces presented as customers. Check the terms of the AI tool you use for commercial rights, and keep the original reference photos with the generated files, so it is always possible to show what the real product looks like. Customers forgive a styled setting; they do not forgive receiving something different from what they saw.",
           ],
         },
       ],
@@ -968,10 +976,10 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Usa fotos reales del producto como ancla de referencia",
+          heading: "¿Por qué las imágenes de producto con IA deben partir de fotos reales?",
           paragraphs: [
-            "Las imágenes de producto con IA funcionan mejor cuando se basan en fotos originales y limpias del producto real. Proveer ángulos reales garantiza que los logos, colores y detalles clave sigan siendo exactos.",
-            "Evita generar productos 100% sintéticos desde cero al vender artículos físicos, ya que pequeñas diferencias pueden causar devoluciones de clientes.",
+            "Porque el producto que recibe el cliente tiene que coincidir con la imagen con la que lo compró. Las herramientas de IA son buenas inventando entornos y poco confiables reproduciendo detalles exactos: un logo puede salir mal escrito, un color cambiado, una proporción distinta, un botón movido. Partir de fotos limpias y bien iluminadas del producto real, tomadas desde los ángulos que necesitas, fija esos detalles para que la IA solo cambie lo que se le permite.",
+            "Para productos físicos, evita generar el producto mismo a partir de un texto. Las pequeñas diferencias entre la imagen y el artículo suelen aparecer después como preguntas, quejas y devoluciones. Usa la foto real para el producto y deja a la IA el fondo, el entorno y la luz.",
           ],
           bullets: [
             "Comienza con fotos de referencia en alta resolución",
@@ -980,16 +988,17 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Genera fondos y entornos llenos de contexto",
+          heading: "¿Cómo crean las herramientas de IA fondos e iluminación alrededor de un producto real?",
           paragraphs: [
-            "En lugar de armar un set de estudio costoso para cada ambiente, las herramientas de IA pueden ubicar el producto en superficies de mármol, luz natural de exterior o ambientes cálidos. En el sector gastronómico, las marcas combinan estas piezas visuales con [video para restaurantes en Miami](/es/video-para-restaurantes-miami) para mostrar platos y ambiente con dinamismo. Combinar imágenes de menú con [edición de video promocional para restaurantes en Miami](/es/edicion-de-video-promocional-para-restaurantes-miami) ofrece una estrategia visual integral.",
-            "Ajusta las instrucciones creativas para que coincidan con la estética de tu marca, cuidando que las sombras y reflejos se vean naturales.",
+            "Colocan un recorte limpio del producto dentro de un entorno generado — una encimera de mármol, luz de sol al aire libre, una cocina, una escena de temporada — en lugar de armar un set físico para cada uno. La calidad depende de qué tan bien coincida la luz del nuevo entorno con la de la foto original, así que ayuda fotografiar el producto con luz suave y pareja, y describir en las instrucciones de dónde debe venir la luz.",
+            "Revisa cada resultado a tamaño completo antes de usarlo: las sombras deben caer hacia un mismo lado, los reflejos deben pertenecer a la escena y los bordes del producto no deben confundirse con el fondo. Para restaurantes que combinan imágenes de menú con video, revisa el servicio de [video para restaurantes en Miami](/es/video-para-restaurantes-miami) y la [edición de video promocional para restaurantes](/es/edicion-de-video-promocional-para-restaurantes-miami).",
           ],
         },
         {
-          heading: "Mantén una presentación de marca honesta",
+          heading: "¿Cómo se mantienen honestas las imágenes de marca hechas con ayuda de IA?",
           paragraphs: [
-            "Sé transparente cuando la IA se use para mockups o conceptos. Destacar el apoyo creativo genera confianza mientras entrega piezas modernas y pulidas para la marca.",
+            "Siendo claros sobre qué es la imagen. Un fondo de estilo de vida generado alrededor de una foto real del producto es una decisión de presentación; una imagen que da a entender que el producto se ve, funciona o mide distinto de la realidad es engañosa. Mantén el producto exacto y di cuándo una imagen es un mockup o un concepto.",
+            "Cuando aparecen personas, prefiere fotografía real o imágenes claramente ilustrativas antes que caras inventadas presentadas como clientes. Revisa las condiciones de uso comercial de la herramienta de IA y guarda las fotos de referencia originales junto a los archivos generados, para poder mostrar siempre cómo es el producto real. Los clientes perdonan un entorno estilizado; no perdonan recibir algo distinto de lo que vieron.",
           ],
         },
       ],
@@ -1014,7 +1023,7 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Key variables that shape product photography costs",
+          heading: "Which variables shape product photography costs?",
           paragraphs: [
             "Commercial product visual pricing depends directly on operational scope. In professional visual production, projects are quoted by evaluating specific scope parameters before establishing a final estimate. You can estimate an indicative reference based on your project parameters using the [budget calculator](/calculator).",
             "Critical cost variables include total SKU volume, number of retouched angles per product, and set staging complexity.",
@@ -1028,14 +1037,14 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Industry pricing models and market context",
+          heading: "Which pricing models and market context apply?",
           paragraphs: [
             "Commercial creators and studios typically use three pricing models: per-image rates, day rates, or complete project package pricing. Standard e-commerce catalog photos are usually billed per photo for larger volumes, while custom lifestyle launches are quoted on a project scope basis.",
             `As general South Florida market context, simple white-background catalog images are commonly quoted around ${usd(PRODUCT_PHOTO_MARKET.perImageMin)} to ${usd(PRODUCT_PHOTO_MARKET.perImageMax)} USD each, with Miami studios advertising entry rates near ${usd(PRODUCT_PHOTO_MARKET.miamiEntryPerImage)} per image; styled lifestyle work with props or models is quoted far higher per image, and half-day sessions in Miami commonly run ${usd(PRODUCT_PHOTO_MARKET.halfDayMin)} to ${usd(PRODUCT_PHOTO_MARKET.halfDayMax)} USD plus production expenses. These figures are published market rates for the area, not a price commitment from Esteban Moreno Media, and the ranges move with volume, retouching depth and usage rights. For a figure tied to your actual scope use the [budget estimator](/calculator), and for a written quote reach out via [contact](/contact).`,
           ],
         },
         {
-          heading: "How to define scope for an accurate quote",
+          heading: "How do you define scope for an accurate quote?",
           paragraphs: [
             "There is no responsible single price before project scope is defined. To receive an accurate quote without surprises, specify technical requirements before production begins.",
             "Define your exact SKU count, required angles (such as packaging or 45-degree detail shots), publishing channels, and visual reference examples. You can calculate an instant estimate with our [budget calculator](/calculator) or send a message via [contact](/contact) to discuss your brand's requirements.",
@@ -1087,10 +1096,15 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Variables técnicas que determinan el costo y precio por fotografía de producto",
+          heading: "¿Qué variables técnicas determinan el precio por fotografía de producto?",
           paragraphs: [
             "El precio por fotografía de producto depende directamente del alcance operativo y la complejidad técnica del proyecto. En la producción comercial para e-commerce y catálogos de marca, el presupuesto final no se calcula con una cifra fija arbitraria, sino evaluando parámetros concretos antes de encender la primera luz en el estudio. Para marcas que buscan integrar tecnologías modernas de visualización, opciones como la [fotografía de producto con IA en Miami](/es/fotografia-de-producto-con-ia-miami) permiten generar entornos contextuales hiperrealistas sin los sobrecostos de construir escenografías físicas complejas.",
             "La primera variable determinante es el volumen total de productos o SKUs (Stock Keeping Units) y la cantidad de ángulos necesarios por artículo. No requiere el mismo tiempo de preparación fotografiar un lote uniforme de 50 suplementos alimenticios sobre fondo blanco estándar que capturar 10 piezas de joyería fina con superficies reflectantes que exigen difusores polarizados, macrofotografía milimétrica y apilamiento de enfoque (focus stacking) para mantener nitidez de borde a borde.",
+          ],
+        },
+        {
+          heading: "¿Cómo cambian el precio el tipo de imagen, el retoque y las licencias?",
+          paragraphs: [
             "El segundo factor esencial es la tipología visual: fotografía de catálogo puro frente a fotografía de estilo de vida (lifestyle). Las tomas de catálogo sobre fondo blanco puro (RGB 255, 255, 255) o gris neutro están estandarizadas para marketplaces como Amazon, Shopify o Walmart. En contraste, las imágenes lifestyle requieren composición escénica, atrezzo temático, coordinación de iluminación ambiental y, en ocasiones, contratación de modelos de manos o locaciones específicas.",
             "Finalmente, la profundidad del retoque digital y la cesión de licencias de uso comercial completan la estructura de costo. Mientras que un revelado digital básico incluye corrección de color neutro, balance de blancos y eliminación de motas menores, el retoque comercial avanzado abarca trazados de recorte vectorial (clipping paths), reconstrucción de texturas de producto, sombras proyectadas naturales o flotantes y entrega en perfiles de color específicos (sRGB para web y Adobe RGB o CMYK para catálogos impresos).",
           ],
@@ -1103,10 +1117,15 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Modelos de cotización en el mercado y referencias de tarifas en South Florida",
+          heading: "¿Qué modelos de cotización se usan en fotografía de producto?",
           paragraphs: [
             "En la industria audiovisual y fotográfica comercial existen tres modelos habituales para estructurar los presupuestos de fotografía de producto: costo por imagen unitaria, tarifa por jornada de producción (day rate o half-day rate) y tarifa por paquete de proyecto cerrado.",
             "El modelo de costo por imagen unitaria es el estándar preferido en proyectos de catálogo e-commerce de mediano y alto volumen. Permite a las marcas calcular con exactitud su costo de adquisición visual por producto. En producciones donde los requisitos de iluminación y set cambian constantemente entre artículos, los fotógrafos y estudios suelen optar por tarifas de jornada, donde se reserva el estudio, el equipamiento de iluminación y el equipo humano por bloques de tiempo.",
+          ],
+        },
+        {
+          heading: "¿Qué referencias de tarifas hay en South Florida?",
+          paragraphs: [
             `Como contexto general del mercado de South Florida, las fotos simples de catálogo con fondo blanco se cotizan por lo común entre ${usd(PRODUCT_PHOTO_MARKET.perImageMin)} y ${usd(PRODUCT_PHOTO_MARKET.perImageMax)} USD por imagen, y hay estudios de Miami que publican tarifas de entrada cercanas a ${usd(PRODUCT_PHOTO_MARKET.miamiEntryPerImage)} por imagen; el trabajo de estilo de vida con ambientación o modelos se cotiza bastante más alto por imagen, y las sesiones de medio día en Miami suelen ubicarse entre ${usd(PRODUCT_PHOTO_MARKET.halfDayMin)} y ${usd(PRODUCT_PHOTO_MARKET.halfDayMax)} USD más costos de producción. Son tarifas publicadas del mercado local y los rangos se mueven según volumen, nivel de retoque y derechos de uso.`,
             "Como referencia directa de Esteban Moreno Media: las sesiones de fotografía de producto parten desde $280 por sesión. Es un precio inicial, nunca una cifra cerrada — el presupuesto final depende de la cantidad de productos y ángulos, del estilo requerido (catálogo sobre fondo limpio vs estilo de vida) y del formato de entrega acordado para tus canales. Para una cifra atada a tu alcance real usa la [calculadora de presupuesto](/es/calculadora), y para una cotización escrita escríbenos por [contacto](/es/contacto) o llama al (305) 497-4478.",
           ],
@@ -1117,10 +1136,15 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Estructura técnica de un presupuesto: qué incluye cada fase operativa",
+          heading: "¿Qué incluye la preproducción en un presupuesto de fotografía?",
           paragraphs: [
             "Un presupuesto profesional y transparente desglosa el costo del proyecto a través de sus fases operativas para que el cliente comprenda con total claridad el valor entregado y no enfrente sorpresas financieras durante la producción.",
             "La fase de preproducción incluye la revisión del brief técnico, la creación de la lista de tomas prioritaria (shot list), el armado de moodboards visuales y la planificación de las directrices de iluminación. Esta etapa garantiza que tanto el fotógrafo como la marca compartan la misma expectativa antes de manipular cualquier producto físico.",
+          ],
+        },
+        {
+          heading: "¿Qué incluyen la captura y la postproducción en un presupuesto?",
+          paragraphs: [
             "La fase de captura y produccion cubre el tiempo de sesion, el uso de opticas de producto y esquemas de iluminacion tecnica pensados para resaltar los materiales y las texturas sin reflejos no deseados.",
             "La fase de postproducción y entrega abarca el revelado RAW en software profesional (como Capture One o Lightroom), la alineación de perspectiva, la corrección cromática exacta contra muestras físicas de producto, la limpieza de micro-imperfecciones de fábrica y la exportación en resoluciones optimizadas para carga rápida en tiendas online y visualización en pantallas Retina y 4K.",
           ],
@@ -1132,7 +1156,7 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Cómo preparar un brief técnico para recibir una cotización precisa sin sobrecostos",
+          heading: "¿Cómo se prepara un brief técnico para recibir una cotización precisa?",
           paragraphs: [
             "Dado que no existe una tarifa única responsable antes de definir el brief técnico, la mejor forma de asegurar una cotización ajustada a tus necesidades reales es proporcionar especificaciones claras desde el primer contacto. Las [guías prácticas de video](/es/guias) ayudan a definir y revisar las decisiones de contenido antes de preparar ese brief.",
             "Te recomendamos preparar un inventario con el número exacto de SKUs clasificados por tipo de material (mate, reflectante, translúcido o textil), los ángulos obligatorios por artículo, los canales donde se publicarán las imágenes y ejemplos visuales de referencia que reflejen el tono estético deseado.",
@@ -1203,27 +1227,22 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Speed and turnaround comparison",
+          heading: "How do AI-assisted visuals and studio shoots compare on time and effort?",
           paragraphs: [
-            "Traditional studio shoots require physical set staging, lighting setup, model scheduling, and location permits, often taking weeks from concept to final edit.",
-            "AI-assisted product visual creation leverages real reference photos to render lifestyle backgrounds in days, drastically shortening launch timelines.",
+            "A studio shoot puts the whole cost up front: building or renting a set, lighting it, scheduling people and props, sometimes securing a location, then editing the results. Every new environment means another setup. AI-assisted visuals move most of that effort to after a single, simpler shoot of the product itself, because new backgrounds and settings are generated around the real photos rather than built.",
+            "That makes AI assistance useful when a brand needs many variations of the same product — seasonal scenes, several colours of backdrop, versions for different campaigns — and comparatively less useful when it needs one definitive image. Either way, the starting point is the same: accurate photos of the real product, without which neither approach produces images a customer can trust.",
           ],
           bullets: [
-            "Faster campaign iteration and A/B testing visuals",
-            "Unlimited environment variations without set construction costs",
-            "Consistent product accuracy when anchored with real product photos",
+            "Faster iteration on campaign visuals",
+            "Environment variations without building a set",
+            "Product accuracy only when anchored to real photos",
           ],
         },
         {
-          heading: "When to choose traditional studio photography",
+          heading: "When is traditional studio photography the better choice?",
           paragraphs: [
-            "Opt for traditional studio shoots when intricate physical hands, complex liquid splashes, or strict tactile texture interactions are critical to product demonstration.",
-          ],
-        },
-        {
-          heading: "The hybrid approach: best of both worlds",
-          paragraphs: [
-            "Many modern e-commerce brands take high-resolution studio reference photos of the product and use AI tools to generate seasonal lifestyle environments for advertising campaigns.",
+            "When the image depends on something physically happening. Hands using the product, a liquid splashing, fabric draping, food being cut, a texture that has to be felt through the screen: these interactions are where generated images most often look wrong, and where a camera simply records what is real. The same goes for products whose value is in fine detail, such as jewellery, where any invented reflection or edge is noticeable.",
+            "A hybrid approach combines both. Photograph the product carefully in a studio, including the shots that need real interaction, then use AI tools to place those clean photos into additional settings for advertising and social media. Keep the studio images for the product page, where accuracy matters most, and use the AI-assisted variations where atmosphere matters more than exactness. Label which is which in your files.",
           ],
         },
       ],
@@ -1245,27 +1264,22 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Comparativa de velocidad y tiempos de entrega",
+          heading: "¿Cómo se comparan en tiempo y esfuerzo las imágenes con IA y una sesión de estudio?",
           paragraphs: [
-            "Las sesiones de estudio tradicionales requieren ambientación de sets, iluminación y permisos de locación, lo que suele tomar semanas entre producción y entrega final.",
-            "La creación asistida por IA utiliza fotos reales de referencia para generar entornos de estilo de vida en días, reduciendo tiempos de lanzamiento.",
+            "Una sesión de estudio concentra todo el costo al principio: armar o alquilar un set, iluminarlo, coordinar personas y utilería, a veces conseguir una locación, y luego editar los resultados. Cada ambiente nuevo implica otro montaje. Las imágenes con ayuda de IA trasladan la mayor parte de ese esfuerzo a después de una sola sesión más sencilla del producto, porque los fondos y entornos nuevos se generan alrededor de las fotos reales en lugar de construirse.",
+            "Eso hace útil la IA cuando una marca necesita muchas variaciones del mismo producto — escenas de temporada, varios fondos, versiones para distintas campañas — y menos útil cuando necesita una sola imagen definitiva. En ambos casos el punto de partida es el mismo: fotos exactas del producto real.",
           ],
           bullets: [
-            "Iteración rápida de campañas y pruebas visuales A/B",
-            "Variaciones de entorno sin costos de construcción de set",
-            "Precisión del producto garantizada mediante fotos reales de ancla",
+            "Iteración más rápida de imágenes de campaña",
+            "Variaciones de entorno sin construir un set",
+            "Precisión del producto solo cuando parte de fotos reales",
           ],
         },
         {
-          heading: "Cuándo elegir la fotografía de estudio tradicional",
+          heading: "¿Cuándo conviene más la fotografía tradicional de estudio?",
           paragraphs: [
-            "Elige fotografía tradicional de estudio cuando la interacción física directa con manos o salpicaduras complejas sea indispensable para mostrar el producto.",
-          ],
-        },
-        {
-          heading: "El enfoque híbrido: lo mejor de ambos mundos",
-          paragraphs: [
-            "Muchas marcas de e-commerce toman fotos limpias de estudio y usan IA para generar fondos de temporada y piezas publicitarias para redes sociales.",
+            "Cuando la imagen depende de algo que ocurre físicamente. Manos usando el producto, un líquido que salpica, una tela que cae, comida que se corta, una textura que debe sentirse a través de la pantalla: en esas interacciones es donde las imágenes generadas suelen verse mal, y donde la cámara simplemente registra lo real. Lo mismo pasa con productos cuyo valor está en el detalle fino, como la joyería, donde cualquier reflejo o borde inventado se nota.",
+            "El enfoque híbrido combina ambos. Fotografía el producto con cuidado en estudio, incluidas las tomas que necesitan interacción real, y luego usa la IA para colocar esas fotos limpias en otros entornos para publicidad y redes. Reserva las imágenes de estudio para la página del producto, donde la exactitud importa más, y marca en tus archivos cuál es cuál.",
           ],
         },
       ],
@@ -1290,10 +1304,15 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Core differences in responsibilities and physical vs post-production skills",
+          heading: "What does a videographer do on location?",
           paragraphs: [
             "Choosing between a video editor and a videographer begins with identifying where your project currently stands in the production lifecycle. While both roles are essential to professional video production, they require distinct skill sets, hardware environments, and technical disciplines.",
             "A videographer is an on-location production specialist. Their responsibility centers on the physical environment: scouting locations, configuring camera sensors, selecting optical focal lengths, rigging three-point lighting setups, positioning wireless lavaliers or boom microphones to control room acoustics, and directing on-camera talent. A videographer solves physical challenges in real time, capturing high-quality raw footage that provides the necessary creative coverage for the story.",
+          ],
+        },
+        {
+          heading: "What does a video editor do in post-production?",
+          paragraphs: [
             "A video editor is a post-production narrative architect. Working in a specialized studio workstation environment, an editor ingests raw footage, synchronizes multi-camera audio tracks, selects the most compelling takes, establishes narrative flow, cuts out hesitation, cleans background noise, balances dialogue levels to web standards (-14 to -16 LUFS), applies color grading transforms, animates on-screen typography, and formats deliverables for vertical feeds (9:16) and widescreen platforms (16:9).",
             "Tooling highlights the operational divide. A videographer deploys cinema cameras, prime lenses, gimbals, C-stands, softboxes, field monitors, and audio recorders. An editor utilizes high-performance editing systems, color-accurate displays, DaVinci Resolve Studio, Adobe Premiere Pro, After Effects, sound design libraries, and digital audio workstations.",
           ],
@@ -1305,10 +1324,15 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Cost structures: On-location day rates vs per-project editing fees",
+          heading: "How do videographers price their time?",
           paragraphs: [
             "Understanding how each professional prices their services helps marketing teams and business owners allocate their production budgets efficiently without paying premium on-set rates for desk-based post-production tasks.",
             "Videographers typically bill using half-day (4 to 5 hours) or full-day (8 to 10 hours) day rates. These rates cover not only their time on set, but also capital depreciation on expensive camera packages, lighting gear, transport, and insurance. Adding extra shoot days or specialized crew members immediately scales on-location expenses.",
+          ],
+        },
+        {
+          heading: "How do video editors price their work?",
+          paragraphs: [
             "Video editors generally price their work on a per-project basis, per-deliverable package (such as monthly social media retainers or batch packs), or hourly post-production rates. Because remote editing eliminates travel time and on-location crew overhead, it allows creative budgets to go directly into editing quality, sound design, and rapid revision turnarounds.",
             "For businesses that already record internal video using high-end smartphones (such as iPhone ProRes/Log) or in-house studio cameras, hiring a dedicated remote editor is significantly more cost-effective than hiring a full production crew. Review how supplied agency footage was shaped into a refined real estate cut in the [Homeowners portfolio project](/portfolio/homeowners) (and [Homeowners case study](/case-studies/homeowners)). To explore dedicated post-production packages, view our [short-form video editing services](/services/short-form-video-editor-miami), or check our [corporate event videographer in Miami](/services/corporate-event-videographer-miami) if you require selective local camera capture.",
           ],
@@ -1319,7 +1343,7 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "When to hire an editor, when to hire a videographer, and when you need both",
+          heading: "When should you hire an editor, a videographer, or both?",
           paragraphs: [
             "Evaluating your available assets and production goals clarifies the exact hiring path for your business.",
             "Hire ONLY a Video Editor when: You already possess recorded footage from previous events, interviews, webinars, customer testimonials, or smartphone recordings; you want to repurpose long-form videos into high-retention short-form clips; or you need animated graphics, captions, and professional color grading applied to existing assets.",
@@ -1333,10 +1357,15 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Use a simple decision brief before requesting a quote",
+          heading: "What decision brief should you write before requesting a quote?",
           paragraphs: [
             "Before asking for pricing, write down what already exists and what still needs to be created. If the footage already exists, the conversation can focus on editing style, deliverables, pacing, captions, sound, color, and the platform where the video will appear. If the footage does not exist, the conversation needs to cover location access, people on camera, schedule, lighting, audio capture, and whether local production is realistic for the project.",
             "A useful brief does not need to be long. It should separate editing inputs from filming inputs so the person reviewing the request can tell whether you need post-production, on-location capture, or both. That prevents a vague request like \"we need a video\" from turning into a quote that includes the wrong role.",
+          ],
+        },
+        {
+          heading: "What should an editing-first or filming-first request include?",
+          paragraphs: [
             "For an editing-first request, send the current footage, the desired output length, target platform, reference style, required words or graphics, and one person responsible for feedback. For a filming request, add the location, date range, people or products involved, access limits, and whether your team already has a separate editor.",
           ],
           bullets: [
@@ -1346,10 +1375,15 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "How raw footage handoff changes the role you should hire",
+          heading: "How does the state of your raw footage change the role you should hire?",
           paragraphs: [
             "The strongest signal is whether your raw footage is already usable. If you have clear audio, stable framing, enough angles, and footage that covers the story from beginning to end, a video editor can usually turn those assets into a finished piece without sending a camera team back into the field.",
             "If the available footage is missing essential moments, has unusable audio, lacks close-ups or establishing shots, or does not include the people and products the video needs to show, an editor can improve the material but cannot create true coverage that was never captured. That is when a videographer, or a combined production plan, becomes the more honest choice.",
+          ],
+        },
+        {
+          heading: "Why do partial assets make this boundary matter for business content?",
+          paragraphs: [
             "For business content, this boundary matters because many projects start with partial assets: a phone recording from an event, a webinar replay, a few customer clips, or footage from a previous contractor. An editor-first workflow can work well when those assets need structure, captions, cleanup, and platform formatting. A videographer-first workflow fits when the business needs new images, controlled lighting, interviews, and intentional sound captured on location.",
           ],
           bullets: [
@@ -1359,7 +1393,7 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Common production pitfalls and how to brief each role effectively",
+          heading: "Which production pitfalls should you avoid, and how do you brief each role?",
           paragraphs: [
             "A frequent and expensive mistake in video marketing is relying on the assumption that filming flaws can easily be fixed in post-production. While modern digital tools can improve imperfect footage, severe audio reverberation, clipped microphone distortion, or out-of-focus subjects cannot be magically restored without sacrificing quality. Capturing clean source media on set protects the entire project.",
             "To get the best results from a videographer, prepare a detailed shot list, schedule timeline, location access permits, and lighting expectations. To get the best results from a video editor, provide brand guidelines, typography preferences, target aspect ratios, platform delivery deadlines, and reference links demonstrating the desired pacing and aesthetic style.",
@@ -1422,10 +1456,15 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Diferencias fundamentales de responsabilidades: set de grabación vs estación de postproducción",
+          heading: "¿Qué hace un videógrafo en el set de grabación?",
           paragraphs: [
             "Elegir con precisión entre un editor de video y un videógrafo comienza por identificar en qué etapa del proceso audiovisual se encuentra tu proyecto. Aunque ambas disciplinas se complementan para crear piezas de alto nivel, operan en entornos técnicos, con herramientas y habilidades totalmente diferenciadas.",
             "Un videógrafo es el especialista técnico y creativo en el set de grabación. Su labor se concentra en el mundo físico: evaluar la acústica del espacio, diseñar esquemas de iluminación de tres puntos, seleccionar distancias focales y lentes adecuados, calibrar la exposición y perfiles de color del sensor, colocar micrófonos de solapa o direccionales y dirigir a las personas frente a cámara. El videógrafo resuelve contingencias en tiempo real para garantizar tomas nítidas, estables y bien iluminadas.",
+          ],
+        },
+        {
+          heading: "¿Qué hace un editor de video en la postproducción?",
+          paragraphs: [
             "Un editor de video es el arquitecto narrativo en la fase de postproducción. Desde una estación de trabajo optimizada, el editor organiza el material en bruto, sincroniza pistas de audio multipista, selecciona las mejores tomas, define el ritmo de corte, limpia ruidos de fondo, nivela el audio a estándares de distribución (-14 a -16 LUFS para redes sociales), realiza el etalonaje de color para dar coherencia visual, añade subtítulos dinámicos y anima gráficos en pantalla.",
             "El equipamiento define la diferencia operativa: el videógrafo utiliza cámaras de cine o mirrorless, estabilizadores (gimbals), trípodes pesados, paneles LED, grabadoras portátiles y modificadores de luz. El editor trabaja con procesadores de alto rendimiento, monitores calibrados con precisión de color, software como DaVinci Resolve Studio, Adobe Premiere Pro, After Effects y librerías de diseño sonoro.",
           ],
@@ -1437,10 +1476,15 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Estructura de costos: tarifas por jornada de rodaje vs proyectos de edición",
+          heading: "¿Cómo cobran los videógrafos su tiempo?",
           paragraphs: [
             "Comprender los modelos de tarificación de cada profesional permite a negocios y marcas distribuir su inversión audiovisual con máxima eficiencia, evitando pagar costos de producción en locación para tareas que corresponden a postproducción.",
             "Los videógrafos suelen cobrar mediante tarifas por media jornada (half-day, 4 a 5 horas) o jornada completa (full-day, 8 a 10 horas). Estas tarifas amortizan la inversión en equipos de cámara, iluminación, transporte, seguros y tiempo en set. Añadir días adicionales de rodaje o asistentes técnicos incrementa directamente el presupuesto del proyecto.",
+          ],
+        },
+        {
+          heading: "¿Cómo cobran los editores de video su trabajo?",
+          paragraphs: [
             "Los editores de video, en cambio, estructuran sus honorarios por proyecto cerrado, por paquete de piezas (como planes mensuales de contenido para redes sociales) o por horas de postproducción. Al no requerir traslados ni despliegue físico de equipo, la edición remota permite que el presupuesto se destine íntegramente al perfeccionamiento narrativo, la animación gráfica y entregas ágiles.",
             "Para empresas que ya capturan contenido con teléfonos de última generación (como iPhone en formato ProRes/Log) o cámaras propias, contratar un editor remoto especializado resulta considerablemente más rentable que coordinar grabaciones presenciales continuas. Revisa cómo se transformó el material suministrado por agencia en el [proyecto Homeowners](/es/portafolio/homeowners) (y su [caso de estudio](/es/casos-de-estudio/homeowners)). Si buscas un servicio de edición continua, consulta nuestro [editor de video corto para redes en Miami](/es/editor-de-video-corto-para-redes-miami), o explora opciones de captura presencial con nuestro [videógrafo en Miami](/es/videografo-en-miami).",
           ],
@@ -1451,7 +1495,7 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Guía de decisión: cuándo contratar solo videógrafo, solo editor o producción integral",
+          heading: "¿Cuándo contratar solo videógrafo, solo editor o producción integral?",
           paragraphs: [
             "Para elegir el perfil adecuado según las necesidades de tu empresa, evalúa los siguientes escenarios prácticos:",
             "Contrata SOLO a un Editor de Video cuando: Ya tienes grabaciones de conferencias, webinars, entrevistas de podcast, eventos pasados o videos grabados internamente con smartphone; necesitas transformar videos largos en clips verticales de alto impacto; o buscas mejorar la calidad de piezas existentes con subtítulos, música licenciada y color.",
@@ -1465,10 +1509,15 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Usa un brief sencillo antes de pedir una cotización",
+          heading: "¿Qué brief sencillo conviene escribir antes de pedir una cotización?",
           paragraphs: [
             "Antes de pedir precio, escribe qué material ya existe y qué falta crear. Si el material ya está grabado, la conversación puede concentrarse en estilo de edición, entregables, ritmo, subtítulos, sonido, color y plataforma de publicación. Si el material no existe, la conversación debe cubrir acceso a la locación, personas en cámara, fechas, iluminación, captura de audio y si la producción local es realista para ese proyecto.",
             "Un brief útil no tiene que ser largo. Debe separar los insumos de edición de los insumos de grabación para que quien revise la solicitud entienda si necesitas postproducción, captura en locación o ambas cosas. Así una petición general como \"necesitamos un video\" no termina en una cotización basada en el rol equivocado.",
+          ],
+        },
+        {
+          heading: "¿Qué debe incluir una solicitud de edición o de grabación?",
+          paragraphs: [
             "Para una solicitud de edición, envía el material actual, duración deseada, plataforma, estilo de referencia, textos o gráficos obligatorios y una persona responsable de consolidar comentarios. Para una solicitud de grabación, agrega locación, rango de fechas, personas o productos involucrados, límites de acceso y si tu equipo ya cuenta con editor aparte.",
           ],
           bullets: [
@@ -1478,7 +1527,7 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Errores comunes de planificación y cómo preparar el brief para cada profesional",
+          heading: "¿Qué errores de planificación evitar y cómo preparar el brief para cada profesional?",
           paragraphs: [
             "Uno de los errores más costosos en la producción audiovisual es confiar en que cualquier fallo en la grabación se puede corregir durante la postproducción. Aunque las herramientas digitales permiten estabilizar tomas o atenuar ruidos menores, un audio con distorsión severa, exceso de reverberación o un rostro desenfocado no pueden repararse sin una pérdida evidente de calidad.",
             "Para trabajar eficazmente con un videógrafo, prepara una lista de tomas requeridas (shot list), el cronograma del día, la locación confirmada y referencias visuales del estilo de encuadre. Para un editor de video, proporciona las fuentes tipográficas de marca, logotipos en vector, especificaciones de formato y ejemplos de ritmo que reflejen el tono deseado.",
@@ -1539,7 +1588,7 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Why remote editing accelerates turnaround and removes studio overhead",
+          heading: "Why can remote editing remove studio overhead?",
           paragraphs: [
             "Modern post-production no longer requires booking time in an expensive edit suite. By using high-speed cloud storage links and collaborative asset transfer tools (such as Dropbox, Frame.io, Google Drive, or MASV), footage handoff happens asynchronously without physical media transit delays.",
             "Eliminating the physical edit suite removes overhead costs associated with commercial studio real estate and equipment maintenance. This allows creative budgets to focus directly on narrative craft, audio mastering, color grading, and rapid revision turnarounds. Explore how remote workflows support dynamic content on our [short-form video editing services](/services/short-form-video-editor-miami) page, or learn how to transfer raw files efficiently in our guide on [how to send large video files to an editor](/guides/fastest-way-to-send-large-video-files-to-editor).",
@@ -1551,7 +1600,7 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Cost structures: Project-based post-production vs local studio day rates",
+          heading: "How do project-based post-production and studio day rates compare?",
           paragraphs: [
             "Understanding how local production facilities bill compared to dedicated remote editors helps marketing teams allocate creative spend predictably.",
             "Local production houses typically quote full-service day rates or half-day studio minimums to cover studio floor space, lighting grids, camera packages, and on-site engineering staff. These costs are essential when building physical sets or filming multi-camera live segments, but add unnecessary overhead when working purely with existing footage.",
@@ -1564,7 +1613,7 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Collaboration tools and review workflows for remote video teams",
+          heading: "Which collaboration tools and review workflows suit remote teams?",
           paragraphs: [
             "Effective remote post-production relies on standardized project handoff protocols and precision review platforms.",
             "Using timecode-accurate review tools (like Frame.io or Vimeo Review), marketing managers and creative directors can pause at any frame, draw annotations, and leave contextual notes directly on the timeline. This eliminates ambiguous email chains and ensures revision requests are addressed accurately in the next cut.",
@@ -1577,7 +1626,7 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "When a local production studio is required vs when remote editing is ideal",
+          heading: "When is a local studio required, and when does remote editing fit?",
           paragraphs: [
             "Choosing between a local production studio and a remote editor depends on whether your project requires on-location filming or post-production assembly.",
             "Choose a Local Production Studio when: You need to film on a physical soundstage, require custom lighting sets or cyclorama walls, or need in-person directing for multi-talent commercial shoots in South Florida.",
@@ -1630,7 +1679,7 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Por qué la edición remota acelera las entregas y reduce costos fijos",
+          heading: "¿Por qué la edición remota puede reducir costos fijos?",
           paragraphs: [
             "La postproducción moderna no requiere reservar horas en una sala de edición física. Mediante enlaces de almacenamiento en la nube y herramientas de transferencia colaborativa (como Dropbox, Frame.io, Google Drive o MASV), la entrega del material se realiza de forma asíncrona y sin demoras de traslado de discos.",
             "Prescindir de un estudio físico elimina costos fijos de instalaciones y mantenimiento de equipos. Esto permite canalizar el presupuesto directamente hacia la calidad narrativa, la masterización de audio, la corrección de color y revisiones ágiles. Explora nuestros [servicios de edición de video corto para redes en Miami](/es/editor-de-video-corto-para-redes-miami) o aprende a enviar archivos pesados en nuestra guía sobre [cómo enviar archivos pesados de video para edición](/es/guias/como-enviar-archivos-pesados-de-video-para-edicion).",
@@ -1642,7 +1691,7 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Estructura de costos: Paquetes de edición vs tarifas por jornada de estudio local",
+          heading: "¿Cómo se comparan los paquetes de edición y las tarifas por jornada de estudio?",
           paragraphs: [
             "Conocer la diferencia entre la facturación de una productora tradicional y un servicio de edición remota permite optimizar los recursos creativos de tu empresa.",
             "Los estudios locales suelen cobrar tarifas por jornada completa o media jornada para cubrir el espacio físico, los esquemas de iluminación en set, las cámaras de cine y el personal técnico en locación. Estos costos son indispensables para rodajes complejos, pero resultan redundantes cuando solo se requiere editar material ya grabado.",
@@ -1655,7 +1704,7 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Herramientas de colaboración y flujo de revisión para equipos remotos",
+          heading: "¿Qué herramientas y flujos de revisión sirven a equipos remotos?",
           paragraphs: [
             "Una postproducción remota eficiente depende de protocolos claros de entrega de archivos y plataformas de revisión precisa.",
             "A través de plataformas de revisión con código de tiempo (como Frame.io o Vimeo Review), directores creativos y responsables de marketing pueden pausar en cualquier fotograma, dibujar anotaciones y dejar comentarios exactos sobre la línea de tiempo. Esto evita cadenas interminables de correos y asegura que cada ajuste se aplique con exactitud en la siguiente versión.",
@@ -1668,7 +1717,7 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Cuándo se necesita un estudio local y cuándo conviene la edición remota",
+          heading: "¿Cuándo se necesita un estudio local y cuándo conviene la edición remota?",
           paragraphs: [
             "La elección entre contratar un estudio local o un editor remoto depende de si tu proyecto requiere filmación presencial o trabajo de postproducción sobre material existente.",
             "Contrata un Estudio Local cuando: Necesitas rodar en un set insonorizado o ciclorama, requieres iluminación compleja de estudio o precisas dirección presencial de actores o ponentes en el sur de Florida.",
@@ -1845,15 +1894,17 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Camera settings for clean footage",
+          heading: "Which iPhone camera settings give an editor clean footage?",
           paragraphs: [
-            "Set iPhone camera video format to 4K at 24fps or 30fps with Grid enabled to maintain steady composition.",
+            "Set the video format to 4K at 24 or 30 frames per second and leave it there for the whole shoot, because mixing frame rates in one project forces conversions that show up as stutter. Turn on the grid so the horizon and the speaker's eyes sit on the same lines from clip to clip. Lock focus and exposure by pressing and holding on the subject; otherwise the phone keeps re-measuring as people move and the brightness pulses through the take.",
+            "Use the main lens rather than the ultra-wide for anyone speaking to camera, since the wide lens stretches faces near the edges. Wipe the lens before every session: a thumbprint softens the whole image in a way no edit can sharpen. Finally, record a few seconds before and after each line so the editor has room to cut without clipping the first or last word.",
           ],
         },
         {
-          heading: "Audio & lighting tips before uploading",
+          heading: "How should you handle sound and light before uploading?",
           paragraphs: [
-            "Position key light facing the speaker and use a wireless lapel microphone to avoid echo during editing.",
+            "Face the speaker toward the main light — a window or a lamp in front of them, never behind — so the face is brighter than the background. A wireless lapel microphone clipped to clothing about a hand's width below the chin captures far cleaner speech than the phone's own microphone across the room, which also records echo from bare walls and floors.",
+            "Before you upload, check one clip with headphones; hum from a refrigerator or air conditioner is easy to miss in the room and hard to remove later. Send the original files from the phone through a file-transfer link or cable rather than through a messaging app, because messaging apps recompress video and throw away detail. Name the clips in the order they should appear, and add a short note on which takes you liked best.",
           ],
         },
       ],
@@ -1875,15 +1926,17 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Configuración recomendada de cámara",
+          heading: "¿Qué ajustes del iPhone le dan al editor un material limpio?",
           paragraphs: [
-            "Configura la cámara del iPhone en resolución 4K a 24fps o 30fps y activa la retícula para asegurar tomas niveladas.",
+            "Configura el formato de video en 4K a 24 o 30 cuadros por segundo y no lo cambies durante toda la grabación, porque mezclar velocidades en un mismo proyecto obliga a conversiones que se notan como saltos. Activa la cuadrícula para que el horizonte y los ojos de quien habla queden en las mismas líneas de un clip a otro. Fija el enfoque y la exposición manteniendo el dedo sobre el sujeto; si no, el teléfono vuelve a medir cada vez que alguien se mueve y el brillo late durante la toma.",
+            "Usa el lente principal y no el gran angular para quien habla a cámara, porque el gran angular estira las caras cerca de los bordes. Limpia el lente antes de cada sesión y graba unos segundos antes y después de cada frase para que el editor pueda cortar sin comerse la primera o la última palabra.",
           ],
         },
         {
-          heading: "Consejos de audio e iluminación",
+          heading: "¿Cómo se cuidan el sonido y la luz antes de enviar los archivos?",
           paragraphs: [
-            "Orienta la luz principal hacia la persona y utiliza un micrófono de solapa inalámbrico para evitar reverberación.",
+            "Pon a la persona de frente a la luz principal — una ventana o una lámpara delante, nunca detrás — para que la cara quede más iluminada que el fondo. Un micrófono de solapa inalámbrico, sujeto a la ropa más o menos a una mano por debajo de la barbilla, capta la voz mucho más limpia que el micrófono del teléfono al otro lado del cuarto, que además graba el eco de paredes y pisos.",
+            "Antes de enviar, revisa un clip con audífonos: el zumbido de una nevera o del aire acondicionado pasa desapercibido en el lugar y es difícil de quitar después. Envía los archivos originales del teléfono por un enlace de transferencia o por cable, no por una aplicación de mensajes, que vuelve a comprimir el video. Nombra los clips en el orden en que deben ir.",
           ],
         },
       ],
@@ -1908,15 +1961,17 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Format specs and safe zones",
+          heading: "Do Reels, TikTok and Shorts need different video files?",
           paragraphs: [
-            "All vertical platforms use 9:16 aspect ratio (1080x1920), but safe zones differ near bottom captions and side buttons.",
+            "Usually not. All three are vertical platforms built around a 9:16 frame, commonly exported at 1080x1920, so one well-made master can serve all of them. What differs is the interface laid over the video: each app places its caption, profile name and buttons in slightly different spots near the bottom and right edge, and those overlays move as the apps update.",
+            "The practical answer is to design for the overlap rather than for one app. Keep faces, product shots and on-screen text inside the central area of the frame, away from the bottom strip and the right-hand column, and the same file will read cleanly wherever it is posted. If one platform matters far more to your business than the others, check the final cut on that app's own preview before publishing, since a preview is the only reliable test of what a viewer will actually see.",
           ],
         },
         {
-          heading: "Cross-posting workflow for local SMBs",
+          heading: "How can a local business cross-post one video without it looking recycled?",
           paragraphs: [
-            "Editing one master vertical video with clean audio allows simultaneous deployment across Instagram, TikTok, and Shorts.",
+            "Edit one master with clean audio and captions burned into the safe area, then export it without any platform's watermark. Uploading a file downloaded from one app to another carries that app's logo across, which looks second-hand and gives viewers a reason to scroll past.",
+            "Write the caption separately for each platform even when the video is identical. A TikTok caption tends to be short and conversational, an Instagram caption can carry the address and the booking line, and a YouTube Shorts title is searched, so it should name the thing people would type. Add the location and the business name in each one; a local viewer deciding where to eat or whom to call needs both. Keep a simple sheet of what was posted where and when, so that a video that does well on one app can be scheduled for the others.",
           ],
         },
       ],
@@ -1938,15 +1993,19 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Especificaciones y zonas seguras",
+          heading: "¿Reels, TikTok y Shorts necesitan archivos de video distintos?",
           paragraphs: [
-            "Cada plataforma usa formato 9:16 (1080x1920), pero las áreas de botones y texto varían según la interfaz. Al planificar campañas de [reels para negocios en Miami](/es/reels-para-negocios-miami), respetar estas medidas previene que elementos clave queden ocultos.",
+            "Por lo general, no. Las tres son plataformas verticales pensadas para un cuadro 9:16, normalmente exportado en 1080x1920, así que un buen archivo maestro puede servir para todas. Lo que cambia es la interfaz que se superpone al video: cada aplicación pone el texto, el nombre del perfil y los botones en lugares un poco distintos cerca del borde inferior y del lado derecho, y esas capas se mueven cuando las aplicaciones se actualizan.",
+            "La respuesta práctica es diseñar para la zona que comparten y no para una sola. Mantén caras, productos y textos en el centro del cuadro, lejos de la franja de abajo y de la columna derecha, y el mismo archivo se verá bien en cualquier lado. Si una plataforma pesa mucho más que las otras para tu negocio, revisa el corte final en la vista previa de esa aplicación antes de publicar.",
+            "Para negocios locales, la página de [reels para negocios en Miami](/es/reels-para-negocios-miami) explica cómo se plantea una serie.",
           ],
         },
         {
-          heading: "Flujo de publicación multiplataforma",
+          heading: "¿Cómo publica un negocio local el mismo video en varias redes sin que parezca reciclado?",
           paragraphs: [
-            "Editar un video vertical maestro permite distribuir el contenido simultáneamente en Instagram, TikTok y YouTube Shorts. Si buscas optimizar el contenido para audiencias locales en el sur de la Florida, revisa [reels para negocios en Miami](/es/reels-para-negocios-miami). Para locales gastronómicos que promocionan especialidades y eventos, consultar [video para restaurantes en Miami](/es/video-para-restaurantes-miami) permite preparar piezas verticales optimizadas para comensales.",
+            "Edita un solo maestro con audio limpio y subtítulos dentro de la zona segura, y expórtalo sin la marca de agua de ninguna plataforma. Subir a una red un archivo descargado de otra arrastra el logo de esa aplicación, se ve de segunda mano y le da al público una razón para seguir de largo.",
+            "Escribe el texto de cada publicación por separado aunque el video sea idéntico. En TikTok suele funcionar un texto corto y conversacional, en Instagram cabe la dirección y la forma de reservar, y el título de un Short de YouTube se busca, así que debe nombrar lo que la gente escribiría. Incluye la ubicación y el nombre del negocio en cada una: quien decide dónde comer o a quién llamar necesita ambos datos. Lleva una hoja sencilla de qué se publicó, dónde y cuándo.",
+            "Para locales de comida, revisa el servicio de [video para restaurantes en Miami](/es/video-para-restaurantes-miami).",
           ],
         },
       ],
@@ -1971,7 +2030,7 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Where automated AI video tools save time in post-production",
+          heading: "Where do automated AI video tools save time in post-production?",
           paragraphs: [
             "Automated video editing software has advanced significantly in handling repetitive, time-intensive utility tasks. Algorithms can ingest raw interview footage, transcribe speech to text, flag silent pauses, and generate timestamped subtitle files in minutes.",
             "For content creators and businesses managing high volumes of raw footage, AI tools provide practical speed for preliminary rough assemblies. Automated transcript searching allows creators to locate specific spoken phrases across multiple takes without manually scrubbing through hours of footage.",
@@ -1984,7 +2043,7 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Where automated tools struggle: Narrative pacing, emotion, and context",
+          heading: "Where do automated tools struggle with pacing, emotion and context?",
           paragraphs: [
             "While AI tools can follow mechanical rules like deleting silence, they lack creative judgment. Effective video editing is built on rhythm, comedic timing, emotional tension, and intentional pauses that allow important points to resonate with viewers.",
             "Algorithmic tools often insert generic stock B-roll based on literal keyword matches rather than contextual narrative meaning. In contrast, experienced human editors craft narrative momentum, shape character arcs, and design multi-layered sound environments that keep audiences engaged throughout the video.",
@@ -1998,7 +2057,7 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "The modern hybrid workflow: How professional editors leverage AI",
+          heading: "How do professional editors use AI in a hybrid workflow?",
           paragraphs: [
             "The most effective approach is not choosing between human creativity and AI efficiency, but combining both. Professional editors use AI utilities as accelerator tools within established editing workstations (such as DaVinci Resolve Studio and Premiere Pro).",
             "By offloading speech transcription, automated rotoscoping, voice isolation, and initial scene detection to AI assistants, editors gain more focused time to dedicate toward narrative pacing, bespoke sound design, custom motion graphics, and strategic storytelling. A similar balance applies to visual assets, where [AI product photography in Miami](/services/ai-product-photography-miami) combines computational enhancement with professional creative direction.",
@@ -2011,7 +2070,7 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Choosing between AI software and a professional editor based on project stakes",
+          heading: "How do you choose between AI software and a professional editor?",
           paragraphs: [
             "Selecting the appropriate editing approach depends on the business stakes, audience, and distribution goals of your video assets.",
             "Low-stakes content—such as internal team updates, raw webinar replays, or simple personal vlog drafts—often benefits from the speed and low cost of automated AI apps. In these cases, functional clarity outweighs cinematic polish.",
@@ -2024,7 +2083,7 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Preparing your footage brief for human editing or hybrid workflows",
+          heading: "How should you prepare a footage brief for human or hybrid editing?",
           paragraphs: [
             "Whether you work with an automated editing tool or hire a dedicated post-production specialist, organizing your source footage and project brief upfront prevents costly revisions.",
             "Ensure raw camera files and separate microphone audio are compiled in structured cloud folders. Outline target platforms, desired video length, aspect ratios, and reference links demonstrating the style and energy you want to achieve. If you are evaluating strategic video options for your business, complete our [video strategy assessment](/assessment) or connect directly through our [contact](/contact) page.",
@@ -2077,7 +2136,7 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Áreas donde las herramientas automatizadas de IA ahorran tiempo",
+          heading: "¿Dónde ahorran tiempo las herramientas automatizadas de IA?",
           paragraphs: [
             "El software de edición automatizada ha progresado notablemente en la resolución de tareas mecánicas y repetitivas. Los algoritmos actuales pueden procesar grabaciones en bruto, transcribir diálogos a texto, detectar pausas de silencio y generar subtítulos sincronizados en cuestión de minutos.",
             "Para creadores de contenido y empresas con grandes volúmenes de material grabado, las herramientas de IA ofrecen velocidad práctica para ensamblajes preliminares. La búsqueda en transcripciones permite ubicar declaraciones específicas entre múltiples tomas sin revisar manualmente horas de grabación.",
@@ -2090,7 +2149,7 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Límites del software automatizado: Narrativa, emoción y contexto",
+          heading: "¿Dónde falla el software automatizado en narrativa, emoción y contexto?",
           paragraphs: [
             "Aunque las herramientas de IA ejecutan reglas mecánicas como recortar silencios, carecen de criterio creativo. La edición de video efectiva se fundamenta en el ritmo, la intención dramática o cómica y las pausas deliberadas que permiten al espectador asimilar mensajes clave.",
             "Los programas automatizados suelen insertar planos de apoyo (B-roll) genéricos basados en coincidencias literales de palabras sin entender el contexto del relato. En cambio, un editor profesional estructura la progresión narrativa, define el arco emocional y diseña una atmósfera sonora que mantiene la atención del público.",
@@ -2104,7 +2163,7 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "El flujo de trabajo híbrido: Cómo los editores profesionales integran la IA",
+          heading: "¿Cómo integran la IA los editores profesionales en un flujo híbrido?",
           paragraphs: [
             "El enfoque más eficaz no consiste en elegir entre creatividad humana o automatización de IA, sino en integrar ambas. Los editores profesionales utilizan herramientas de IA como aceleradores dentro de suites de postproducción consolidadas (como DaVinci Resolve Studio y Premiere Pro).",
             "Al delegar la transcripción de diálogos, la rotoscopía automática, el aislamiento de voces y la detección de cambios de plano en asistentes de IA, el editor dispone de más tiempo para la narrativa, el diseño sonoro y los gráficos en movimiento. Un balance similar ocurre en fotografía comercial, donde la [fotografía de producto con IA en Miami](/es/fotografia-de-producto-con-ia-miami) combina asistencia computacional con dirección creativa humana.",
@@ -2117,7 +2176,7 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Cómo elegir entre software automatizado y un editor profesional según el proyecto",
+          heading: "¿Cómo elegir entre software automatizado y un editor profesional?",
           paragraphs: [
             "La decisión sobre qué método utilizar depende de la visibilidad, los objetivos comerciales y la audiencia de cada video.",
             "El contenido de bajo compromiso—como actualizaciones internas de equipo, grabaciones de seminarios web o borradores informales—aprovecha la rapidez y bajo costo de las aplicaciones de IA. En estos casos, la claridad funcional prima sobre el acabado cinemático.",
@@ -2130,7 +2189,7 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Recomendaciones para preparar el material antes de iniciar la edición",
+          heading: "¿Cómo se prepara el material antes de iniciar la edición?",
           paragraphs: [
             "Tanto si utilizas herramientas automatizadas como si contratas a un editor profesional, estructurar los archivos originales y definir el brief previene revisiones innecesarias.",
             "Organiza los archivos de video y las pistas de audio independientes en carpetas en la nube sin compresión. Detalla las plataformas de destino, la duración esperada, las proporciones de aspecto y enlaces de referencia con el estilo visual deseado. Para evaluar la estrategia audiovisual de tu negocio, realiza nuestra [evaluación de estrategia de video](/es/evaluacion) o ponte en contacto mediante nuestra página de [contacto](/es/contacto).",
@@ -2186,15 +2245,17 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Verifying real portfolio credits",
+          heading: "How do you verify an editor's portfolio credits?",
           paragraphs: [
-            "Look for named client credits and published project links rather than generic stock footage reels. For instance, the [Homeowners real estate editing project](/portfolio/homeowners) (and [Homeowners case study](/case-studies/homeowners)) provides verifiable proof of client post-production with agency-supplied footage.",
+            "Look for named projects with a stated role, not a reel of unlabeled clips. A reel can mix stock footage, other people's shots and the editor's own work in a way nobody can untangle; a project page that names the client, the year and exactly what the editor did can be checked. The [Homeowners project](/portfolio/homeowners) is an example of that format: a social video Esteban edited from footage supplied by the agency 300 Bees, and its [case study](/case-studies/homeowners) says so rather than implying he filmed it.",
+            "When you review any editor, ask which parts of a piece were theirs — filming, editing, colour, sound, motion graphics — and whether the footage was supplied. Then ask for one project close to yours in format and length. A strong portfolio is one where the credits are specific enough that you could contact the client to confirm them.",
           ],
         },
         {
-          heading: "Communication & bilingual workflow",
+          heading: "What should communication with an editor look like before you hire?",
           paragraphs: [
-            "Choose an editor who provides clear scoping questions and fluent communication in both English and Spanish for South Florida campaigns. Real client work like the [Healthy Smile Miami dental project](/portfolio/healthy-smile) (and its [Healthy Smile case study](/case-studies/healthy-smile)) demonstrates end-to-end local production coordination in English and Spanish.",
+            "Good scoping questions arrive before any price does: what the video is for, where it will be published, how long it should run, what footage exists, who approves it and when it is needed. An editor who quotes without asking those is guessing, and the guess usually shows up later as extra rounds or a surprise invoice.",
+            "Language matters in South Florida, so confirm it plainly instead of assuming. Esteban works Spanish-first with intermediate English: briefs, calls and notes in Spanish are his strongest channel, and English-language projects are handled in writing where it helps precision. For a published example of on-location work, see [Healthy Smile Miami](/portfolio/healthy-smile), a dental clinic's social videos filmed and edited on assignment with 300 Bees, and its [case study](/case-studies/healthy-smile). Agree in writing on the number of revision rounds and how feedback will be sent.",
           ],
         },
       ],
@@ -2216,15 +2277,17 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Verificación de créditos reales",
+          heading: "¿Cómo se verifican los créditos del portafolio de un editor?",
           paragraphs: [
-            "Revisa proyectos públicos aprobados con nombres de clientes reales en lugar de resúmenes genéricos con material de stock. Por ejemplo, el [proyecto Homeowners](/es/portafolio/homeowners) y su [caso de estudio](/es/casos-de-estudio/homeowners) muestran una postproducción verificada a partir de material suministrado por agencia.",
+            "Busca proyectos con nombre y con el rol indicado, no un reel de clips sin etiqueta. Un reel puede mezclar material de stock, tomas de otras personas y trabajo propio sin que nadie pueda separarlos; una página de proyecto que nombra al cliente, el año y lo que hizo exactamente el editor se puede comprobar. El [proyecto Homeowners](/es/portafolio/homeowners) es un ejemplo: un video social que Esteban editó con material de la agencia 300 Bees, y su [caso de estudio](/es/casos-de-estudio/homeowners) lo dice en lugar de dar a entender que él lo grabó.",
+            "Con cualquier editor, pregunta qué partes de una pieza fueron suyas — grabación, edición, color, sonido, gráficos — y si el material le fue entregado. Luego pide un proyecto parecido al tuyo en formato y duración. Un buen portafolio es aquel cuyos créditos son tan concretos que podrías confirmarlos con el cliente.",
           ],
         },
         {
-          heading: "Flujo de trabajo bilingüe claro",
+          heading: "¿Cómo debería ser la comunicación con un editor antes de contratarlo?",
           paragraphs: [
-            "Elige un editor que comunique los requerimientos con precisión tanto en español como en inglés para el mercado de South Florida. Trabajos reales de clientes como el [proyecto Healthy Smile Miami](/es/portafolio/healthy-smile) (y su [caso de estudio](/es/casos-de-estudio/healthy-smile)) demuestran coordinación bilingüe de producción en locación y edición en Miami. Para conocer opciones de edición remota en español para negocios de la zona, consulta nuestro servicio como [editor de video en Miami](/es/editor-de-video-miami).",
+            "Las buenas preguntas de alcance llegan antes que el precio: para qué es el video, dónde se publicará, cuánto debe durar, qué material existe, quién lo aprueba y para cuándo se necesita. Un editor que cotiza sin preguntar eso está adivinando, y la adivinanza suele aparecer después como rondas extra o una factura inesperada.",
+            "En South Florida el idioma importa, así que confírmalo sin suponer. Esteban trabaja primero en español y tiene un inglés intermedio: los briefs, las llamadas y las notas en español son su canal más fuerte, y los proyectos en inglés se apoyan en lo escrito para ganar precisión. Como ejemplo de trabajo en locación, mira [Healthy Smile Miami](/es/portafolio/healthy-smile), videos para redes de una clínica dental grabados y editados por encargo de 300 Bees, y su [caso de estudio](/es/casos-de-estudio/healthy-smile). Para edición remota en español, revisa el servicio de [editor de video en Miami](/es/editor-de-video-miami).",
           ],
         },
       ],
@@ -2249,15 +2312,17 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Standardizing folder structures for agency handoff",
+          heading: "How should an agency structure folders for an editing handoff?",
           paragraphs: [
-            "Organize raw footage by camera angle, audio tracks, logos, and brand guidelines before sharing cloud folders. For an example of working seamlessly with agency-supplied assets, review the [Homeowners real estate editing project](/portfolio/homeowners) (commissioned via 300 Bees and detailed in the [Homeowners case study](/case-studies/homeowners)).",
+            "One top folder per project, with the same sub-folders every time: camera files by camera or angle, separate audio, brand assets, music, references, and a brief. Keep the original folder structure from each card instead of flattening everything into one list, because the file names and metadata are how an editor matches a clip to the right audio and the right day.",
+            "Brand assets should be vectors or layered files, not a logo copied from a website, and the brief should name each deliverable with its aspect ratio, length, destination and file name. If the footage was shot in a log profile or with a set look, include the camera model and any LUT. For an example of editing agency-supplied material, see the [Homeowners project](/portfolio/homeowners), edited from footage the agency 300 Bees provided, and the [Homeowners case study](/case-studies/homeowners).",
           ],
         },
         {
-          heading: "Managing revision rounds efficiently",
+          heading: "How do you keep revision rounds under control on client campaigns?",
           paragraphs: [
-            "Use frame-accurate video review tools and batch feedback to minimize turn-around cycles for client campaigns.",
+            "Consolidate. Every round should be one list of notes, gathered from everyone who has a say, with timecodes and a clear instruction per note. Feedback that arrives in pieces from several people tends to contradict itself, and each contradiction costs another pass over the timeline.",
+            "Agree before the edit starts how many rounds are included and who gives final approval; on agency work that person is usually on the agency side, so the end client's comments travel through one named contact. A review tool that pins comments to a frame removes the guesswork of notes like \"the part near the end\". Mark each round as a version — v1, v2, v3 — and keep the previous exports, so a change can be undone without rebuilding it. When a note asks for something outside the brief, say so then, not at delivery.",
           ],
         },
       ],
@@ -2279,15 +2344,17 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Estandarización de carpetas de proyecto",
+          heading: "¿Cómo debe organizar sus carpetas una agencia para entregar material a edición?",
           paragraphs: [
-            "Clasifica los clips por cámara, fuentes de audio y logotipos antes de compartir la carpeta en la nube. Como ejemplo de trabajo con material entregado por agencias, revisa el [proyecto Homeowners](/es/portafolio/homeowners) (gestionado con la agencia 300 Bees y detallado en su [caso de estudio](/es/casos-de-estudio/homeowners)).",
+            "Una carpeta principal por proyecto, con las mismas subcarpetas siempre: archivos de cámara por cámara o ángulo, audio separado, recursos de marca, música, referencias y un brief. Conserva la estructura original de cada tarjeta en vez de aplanar todo en una sola lista, porque los nombres y los metadatos son los que permiten unir cada clip con su audio y su día de grabación.",
+            "Los recursos de marca deben ir en vector o en archivos por capas, no como un logo copiado de un sitio web, y el brief debe nombrar cada entregable con su formato, duración, destino y nombre de archivo. Si se grabó en perfil log o con un look definido, incluye el modelo de cámara y la LUT. Como ejemplo de edición con material de agencia, mira el [proyecto Homeowners](/es/portafolio/homeowners), editado con material de 300 Bees, y su [caso de estudio](/es/casos-de-estudio/homeowners).",
           ],
         },
         {
-          heading: "Gestión eficiente de revisiones",
+          heading: "¿Cómo se mantienen bajo control las rondas de revisión en campañas de clientes?",
           paragraphs: [
-            "Agrupa las observaciones de cambios en listas específicas con marcas de tiempo para agilizar la entrega final.",
+            "Consolidando. Cada ronda debe ser una sola lista de notas, reunida entre todas las personas que opinan, con códigos de tiempo y una instrucción clara por nota. Los comentarios que llegan a pedazos desde varias personas suelen contradecirse, y cada contradicción cuesta otra pasada por la línea de tiempo.",
+            "Acuerda antes de empezar cuántas rondas incluye el trabajo y quién da la aprobación final; en trabajos de agencia esa persona suele estar del lado de la agencia, así que los comentarios del cliente final pasan por un solo contacto. Una herramienta de revisión que fija cada comentario en un cuadro elimina notas como \"la parte cerca del final\". Marca cada ronda como versión — v1, v2, v3 — y guarda las exportaciones anteriores. Si una nota pide algo fuera del brief, dilo en ese momento.",
           ],
         },
       ],
@@ -2312,15 +2379,17 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Identifying high-performing clip moments",
+          heading: "Which moments in a long video or podcast make good Reels?",
           paragraphs: [
-            "Look for standalone insights, strong opinions, or story climaxes in podcast recordings that make viewers pause. For food and hospitality shows, our [restaurant promo video editing in Miami](/services/restaurant-promo-video-editing-miami) extracts culinary highlights and chef interviews into dynamic short-form reels.",
+            "Moments that make sense to someone who has not heard the rest of the episode. A clip works as a Reel when it holds one complete thought: a clear opinion, a surprising answer, a short story with its own ending, or a practical tip that can be used immediately. Anything that depends on \"as I said earlier\" will confuse a viewer arriving from a feed.",
+            "The quickest way to find them is a transcript. Read it with a highlighter and mark every passage under about a minute that starts strong and ends cleanly, then watch only those. A strong opening line matters most, because the first seconds decide whether the viewer stays; sometimes the best clip starts in the middle of an answer. For food and hospitality shows, the [restaurant promo video editing page](/services/restaurant-promo-video-editing-miami) shows how kitchen moments and chef interviews become short pieces.",
           ],
         },
         {
-          heading: "Formatting for vertical mobile screens",
+          heading: "How is horizontal podcast footage reformatted for vertical screens?",
           paragraphs: [
-            "Crop to 9:16 ratio, place speaker face centered, and overlay dynamic subtitles in the lower-third safe zone.",
+            "Reframe each shot to 9:16 around the person speaking, with the face in the upper-middle of the frame and the eyes roughly a third of the way down. On a two-person conversation, cut between speakers rather than shrinking both into one tiny frame, which is unreadable on a phone. If the original was filmed wide enough, each speaker can be cropped from the same camera.",
+            "Captions carry most of the message, since many people watch with the sound off. Place them in the central safe area, above the strip where the app shows its own text, and keep each line short enough to read at a glance. Add the episode or show name at the start or the end so the clip leads somewhere. Export at 1080x1920 from the original files, not from a compressed upload of the full episode, so the crop stays sharp.",
           ],
         },
       ],
@@ -2342,15 +2411,19 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Identificación de momentos clave",
+          heading: "¿Qué momentos de un video largo o un podcast sirven para Reels?",
           paragraphs: [
-            "Selecciona fragmentos con ideas potentes o respuestas directas que funcionen de forma independiente. En restaurantes y negocios de comida, grabaciones de cocina completa o entrevistas con el chef se pueden dividir en múltiples clips promocionales mediante [video para restaurantes en Miami](/es/video-para-restaurantes-miami). En gastronomía, la [edición de video promocional para restaurantes en Miami](/es/edicion-de-video-promocional-para-restaurantes-miami) transforma grabaciones largas en clips sociales ágiles.",
+            "Los que se entienden sin haber escuchado el resto del episodio. Un clip funciona como Reel cuando contiene una idea completa: una opinión clara, una respuesta sorprendente, una historia corta con su propio final o un consejo práctico que se puede usar de inmediato. Todo lo que dependa de \"como dije antes\" confunde a quien llega desde el feed.",
+            "La forma más rápida de encontrarlos es una transcripción. Léela con un resaltador y marca cada pasaje de menos de un minuto que empiece fuerte y termine limpio; después mira solo esos. La primera frase es lo que más pesa, porque los primeros segundos deciden si la persona se queda, y a veces el mejor clip empieza a mitad de una respuesta. Para programas de comida y hospitalidad, la página de [edición de video promocional para restaurantes](/es/edicion-de-video-promocional-para-restaurantes-miami) muestra cómo una cocina y una entrevista se vuelven piezas cortas.",
+            "Para restaurantes, también está el servicio de [video para restaurantes en Miami](/es/video-para-restaurantes-miami).",
           ],
         },
         {
-          heading: "Adaptación al formato 9:16 vertical",
+          heading: "¿Cómo se adapta el material horizontal de un podcast a pantallas verticales?",
           paragraphs: [
-            "Ajusta el encuadre móvil, centra la imagen del hablante y añade subtítulos llamativos en la zona segura. Para proyectos comerciales locales, consulta nuestra página de [reels para negocios en Miami](/es/reels-para-negocios-miami) para definir ganchos y llamados a la acción efectivos y mantener presencia continua con costos de producción eficientes.",
+            "Reencuadra cada toma a 9:16 alrededor de quien habla, con la cara en la parte media alta del cuadro y los ojos más o menos a un tercio desde arriba. En una conversación de dos personas, corta entre ellas en lugar de meter a ambas en un cuadro diminuto, que en el teléfono no se lee. Si el original se grabó lo bastante abierto, cada persona puede recortarse de la misma cámara.",
+            "Los subtítulos llevan buena parte del mensaje, porque mucha gente mira sin sonido. Colócalos en la zona segura central, por encima de la franja donde la aplicación muestra su propio texto, con líneas cortas que se lean de un vistazo. Agrega el nombre del programa al inicio o al final para que el clip lleve a algún lado, y exporta en 1080x1920 desde los archivos originales.",
+            "Para negocios que publican seguido, revisa [reels para negocios en Miami](/es/reels-para-negocios-miami).",
           ],
         },
       ],
@@ -2574,9 +2647,17 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "The 3-Second Hook Rule",
+          heading: "What makes the first three seconds of a social ad work?",
           paragraphs: [
-            "Capture immediate scroll attention with high-energy movement or an intriguing statement in the opening 3 seconds, such as the hook-driven patient clinic concept in the [Healthy Smile Miami video project](/portfolio/healthy-smile) (detailed in the [Healthy Smile case study](/case-studies/healthy-smile)). For hospitality campaigns, specialized [restaurant promo video editing in Miami](/services/restaurant-promo-video-editing-miami) pairs sensory soundscapes with fast-paced dish reveals to maximize reservation conversion.",
+            "The first seconds have one job: give the viewer a reason not to scroll. That reason can be movement, a surprising image, or a sentence that names a problem the viewer already has. What it cannot be is a logo, a slow fade-in, or a greeting, because none of those tells the viewer why this video is for them.",
+            "Write the opening line before the rest of the script and test it out loud: if it only makes sense after the second sentence, it is not an opening. Show the product or the result in the same moment the line is spoken, so sound-off viewers get the point from the picture. For hospitality, the [restaurant promo video editing page](/services/restaurant-promo-video-editing-miami) shows how dish and kitchen shots carry an opening without narration. Keep a few alternative first lines; swapping only the hook is the cheapest test an ad can run.",
+          ],
+        },
+        {
+          heading: "How should the rest of a short ad script be structured?",
+          paragraphs: [
+            "After the hook, a short ad usually needs three beats: what the offer is, why it is believable, and what to do next. Each beat should be one or two sentences, written the way people speak, and matched to a shot that shows it. A script that describes things the camera never shows leaves the editor filling the gap with generic footage.",
+            "The believable part is where most scripts go wrong. A real detail — a named dish, the actual room, the person who does the work — persuades more than a superlative, and it does not promise anything the business cannot back up. End with one action stated plainly, such as booking, calling or visiting, and put it on screen as text as well as in the voice. Read the full script against a timer: if it runs long, cut a beat rather than speeding up the delivery. For on-location example work, see [Healthy Smile Miami](/portfolio/healthy-smile).",
           ],
         },
       ],
@@ -2598,9 +2679,18 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "La regla del gancho de 3 segundos",
+          heading: "¿Qué hace que funcionen los primeros tres segundos de un anuncio en redes?",
           paragraphs: [
-            "Detén el desplazamiento en redes con movimiento enérgico o una frase impactante durante los primeros 3 segundos, tal como se estructuró el guion de clínica en el [proyecto Healthy Smile Miami](/es/portafolio/healthy-smile) (y su [caso de estudio](/es/casos-de-estudio/healthy-smile)). Para anuncios de comida y bebidas, la [edición de video promocional para restaurantes en Miami](/es/edicion-de-video-promocional-para-restaurantes-miami) utiliza ganchos visuales sensoriales que impulsan visitas al local, y para locales comerciales puedes revisar los formatos aplicados en [video para restaurantes en Miami](/es/video-para-restaurantes-miami).",
+            "Los primeros segundos tienen una sola tarea: darle a la persona una razón para no seguir de largo. Esa razón puede ser movimiento, una imagen sorprendente o una frase que nombre un problema que ya tiene. Lo que no puede ser es un logo, un fundido lento o un saludo, porque nada de eso le dice por qué el video es para ella.",
+            "Escribe la frase inicial antes que el resto del guion y pruébala en voz alta: si solo se entiende después de la segunda oración, no es una apertura. Muestra el producto o el resultado en el mismo momento en que se dice la frase, para que quien mira sin sonido entienda por la imagen. Para hospitalidad, la página de [edición de video promocional para restaurantes](/es/edicion-de-video-promocional-para-restaurantes-miami) muestra cómo los platos y la cocina sostienen una apertura sin narración. Ten varias primeras frases alternativas: cambiar solo el gancho es la prueba más barata.",
+            "Para locales de comida, revisa también el servicio de [video para restaurantes en Miami](/es/video-para-restaurantes-miami).",
+          ],
+        },
+        {
+          heading: "¿Cómo se estructura el resto del guion de un anuncio corto?",
+          paragraphs: [
+            "Después del gancho, un anuncio corto suele necesitar tres momentos: cuál es la oferta, por qué es creíble y qué hacer después. Cada momento debe ser una o dos oraciones, escritas como habla la gente, y unidas a una toma que lo muestre. Un guion que describe cosas que la cámara nunca enseña obliga al editor a rellenar con material genérico.",
+            "La parte creíble es donde más fallan los guiones. Un detalle real — un plato con nombre, el lugar de verdad, la persona que hace el trabajo — convence más que un superlativo y no promete nada que el negocio no pueda respaldar. Cierra con una sola acción dicha con claridad, como reservar, llamar o visitar, y ponla también en pantalla como texto. Lee el guion completo con cronómetro: si se pasa, quita un momento en vez de hablar más rápido. Como ejemplo de trabajo en locación, mira [Healthy Smile Miami](/es/portafolio/healthy-smile).",
           ],
         },
       ],
@@ -2625,9 +2715,17 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Microphone Placement for Clear Dialogue",
+          heading: "Where should the microphone go for clear interview dialogue?",
           paragraphs: [
-            "Attach lavalier mics firmly to clothing to eliminate rustle and isolate speech from room echo. For an example of crisp on-location clinical dialog capture, review the [Healthy Smile Miami dental video project](/portfolio/healthy-smile) (detailed in the [Healthy Smile case study](/case-studies/healthy-smile)).",
+            "Close to the mouth and away from anything that moves. A lavalier clipped to the shirt or jacket about a hand's width below the chin picks up the voice strongly and the room weakly, which is exactly the balance an editor needs. Run the cable under the clothing and tape a small loop near the clip so the microphone does not tug or rub when the person shifts; rustle is the most common lavalier problem and it cannot be filtered out cleanly.",
+            "If a lavalier is not available, a directional microphone just outside the frame and pointed at the mouth is the next best option, far better than the camera's own microphone across the room. Record a test sentence at the level the person will actually speak, play it back on headphones, and check for hum, rustle and echo before the real interview starts. On location, see how a clinic setting was handled in [Healthy Smile Miami](/portfolio/healthy-smile), filmed with video and sound by Esteban.",
+          ],
+        },
+        {
+          heading: "How do you light an interview at home without special equipment?",
+          paragraphs: [
+            "Use the biggest soft light you have, which is usually a window. Place the person so the window is in front of them and slightly to one side, never behind them, and turn off overhead lights that put shadows under the eyes and mix colours. A plain lamp on the other side, bounced off a white wall, can fill in the darker half of the face.",
+            "Keep the background simple and a little darker than the face, so the eye goes to the speaker. Avoid mixing daylight with warm bulbs in the same shot, because no single colour setting can make both look right. Sit the camera at eye level, a little above if anything, and frame with some space above the head. Record a few seconds of the empty room with nobody speaking; that room tone lets the editor smooth over cuts without a sudden change in background sound.",
           ],
         },
       ],
@@ -2649,9 +2747,17 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Colocación de micrófono para voz nítida",
+          heading: "¿Dónde se coloca el micrófono para un diálogo claro en una entrevista?",
           paragraphs: [
-            "Fija los micrófonos de solapa firmemente en la ropa para evitar roces y aislar el habla del eco ambiental. Como ejemplo de captura de audio y diálogo en locación clínica, revisa el [proyecto Healthy Smile Miami](/es/portafolio/healthy-smile) (y su [caso de estudio](/es/casos-de-estudio/healthy-smile)).",
+            "Cerca de la boca y lejos de todo lo que se mueve. Un micrófono de solapa sujeto a la camisa o la chaqueta, más o menos a una mano por debajo de la barbilla, capta la voz con fuerza y el cuarto con poca, que es justo el equilibrio que necesita un editor. Pasa el cable por debajo de la ropa y deja un pequeño bucle con cinta cerca del clip para que el micrófono no se jale ni roce cuando la persona se mueve; el roce es el problema más común y no se limpia bien después.",
+            "Si no hay micrófono de solapa, uno direccional justo fuera del cuadro y apuntando a la boca es la siguiente opción, muy superior al micrófono de la cámara al otro lado del cuarto. Graba una frase de prueba al volumen real, escúchala con audífonos y revisa zumbidos, roces y eco antes de empezar. Como ejemplo en locación, mira [Healthy Smile Miami](/es/portafolio/healthy-smile), con video y sonido grabados por Esteban.",
+          ],
+        },
+        {
+          heading: "¿Cómo se ilumina una entrevista en casa sin equipo especial?",
+          paragraphs: [
+            "Con la luz suave más grande que tengas, que normalmente es una ventana. Ubica a la persona con la ventana delante y un poco a un lado, nunca detrás, y apaga las luces del techo que dejan sombras bajo los ojos y mezclan colores. Una lámpara sencilla al otro lado, rebotada en una pared blanca, puede aclarar la mitad más oscura de la cara.",
+            "Mantén el fondo simple y un poco más oscuro que la cara, para que la mirada vaya a quien habla. Evita mezclar luz de día con bombillas cálidas en la misma toma, porque ningún ajuste de color hace que ambas se vean bien. Pon la cámara a la altura de los ojos, si acaso un poco más arriba, y deja algo de aire sobre la cabeza. Graba unos segundos del cuarto vacío y en silencio: ese tono de sala le permite al editor suavizar los cortes.",
           ],
         },
       ],
@@ -2676,13 +2782,13 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Maintaining Text Safe Zones",
+          heading: "How do you keep captions inside the safe zone?",
           paragraphs: [
             "Keep subtitles away from bottom Instagram UI buttons and top account headers to ensure full legibility. When formatting dynamic text for dining reels, [restaurant promo video editing in Miami](/services/restaurant-promo-video-editing-miami) balances animated captions with mouth-watering food visuals.",
           ],
         },
         {
-          heading: "Choose caption styles by viewing context",
+          heading: "How do you choose a caption style for the viewing context?",
           paragraphs: [
             "Reels, Shorts, and TikTok clips are often watched without sound, but the right subtitle treatment depends on how much the viewer needs to understand. Talking-head clips usually need clean sentence captions; food, product, and event reels often work better with short emphasis words that support the visuals instead of repeating every frame.",
             "For a business account, keep one recognizable type style for recurring content, then adjust weight, placement, and animation speed by format. A menu reel, founder tip, customer walkthrough, and service explanation can share a brand look without using the same caption rhythm.",
@@ -2695,7 +2801,7 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Balance highlighting with readability",
+          heading: "How do you balance word highlighting with readability?",
           paragraphs: [
             "Word-by-word highlighting can help pacing, but too much movement makes a useful video feel noisy. Highlight only the word or phrase that changes the meaning, and keep the rest of the line stable enough for a muted viewer to follow.",
             "Before publishing, preview the captioned cut at phone size and check the first three seconds, the strongest visual moment, and the final action line. Those moments decide whether the caption style supports the video or competes with it.",
@@ -2743,13 +2849,13 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Zonas seguras de texto en pantalla",
+          heading: "¿Cómo se mantienen los subtítulos dentro de la zona segura?",
           paragraphs: [
             "Evita colocar texto sobre los botones inferiores de Instagram o el encabezado superior para garantizar lectura completa. Mantener los textos en la zona central es indispensable en [reels para negocios en Miami](/es/reels-para-negocios-miami) y [video para restaurantes en Miami](/es/video-para-restaurantes-miami) donde la mayoría de reproducciones ocurre en silencio. En reels gastronómicos, la [edición de video promocional para restaurantes en Miami](/es/edicion-de-video-promocional-para-restaurantes-miami) mantiene subtítulos limpios que no tapan los platos.",
           ],
         },
         {
-          heading: "Elige el estilo según cómo se verá el video",
+          heading: "¿Cómo se elige el estilo según cómo se verá el video?",
           paragraphs: [
             "Reels, Shorts y TikToks muchas veces se ven sin sonido, pero el subtítulo correcto depende de cuánto necesita entender la persona. Un video hablado suele necesitar frases completas; un reel de comida, producto o evento puede funcionar mejor con palabras cortas de énfasis que acompañan la imagen.",
             "Para una cuenta de negocio, conviene mantener una línea visual reconocible y ajustar peso, ubicación y velocidad según el formato. Un plato, un consejo del fundador, un recorrido y una explicación de servicio pueden compartir estilo sin tener el mismo ritmo de texto.",
@@ -2762,7 +2868,7 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Resalta sin perder legibilidad",
+          heading: "¿Cómo se resalta sin perder legibilidad?",
           paragraphs: [
             "El resaltado palabra por palabra puede ayudar al ritmo, pero demasiado movimiento vuelve confuso un video útil. Resalta solo la palabra o frase que cambia el sentido y deja el resto de la línea estable para que se pueda seguir sin sonido.",
             "Antes de publicar, revisa el corte con subtítulos en tamaño de celular: los primeros tres segundos, el momento visual más fuerte y la línea final de acción. Esos puntos muestran si el texto ayuda al video o compite con él.",
@@ -2813,10 +2919,15 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Bandwidth realities and choosing the fastest transfer method",
+          heading: "Why is upload speed the real limit when sending large video files?",
           paragraphs: [
             "Transferring large video files to a remote video editor without multi-day upload delays requires matching your transfer method to total project data volume and actual internet connection speeds. Modern digital cinema and mirrorless cameras capture substantial bitrates: standard 4K 10-bit Apple ProRes 422 HQ generates approximately 110 GB per hour of recorded footage, Sony XAVC-I reaches 240 to 600 Mbps, and raw formats like Canon Cinema RAW Light or REDCODE RAW can easily generate 500 GB to over 1 TB across a single multi-camera commercial shoot.",
             "Internet speed bottlenecks usually occur on the upload side. While commercial facilities may have symmetrical 1 Gbps fiber connections (capable of transferring 100 GB in roughly 15 to 20 minutes), typical office and residential broadband operates on asymmetric cable connections offering 300 to 500 Mbps download but only 20 to 35 Mbps upload. At 30 Mbps upload, a 150 GB raw footage folder requires over 11 hours of uninterrupted bandwidth, making unoptimized uploads a common project bottleneck.",
+          ],
+        },
+        {
+          heading: "Which transfer method fits each project size?",
+          paragraphs: [
             "For packages under 100 GB, dedicated cloud transfer platforms like MASV offer browser-based accelerated UDP protocols that utilize your full available bandwidth without requiring complex client software installations. For ongoing collaborative post-production, established shared folders in Google Drive or Dropbox Business allow background folder synchronization. For an example of a streamlined remote post-production workflow handling supplied agency assets, review the [Homeowners real estate editing project](/portfolio/homeowners) (and [Homeowners case study](/case-studies/homeowners)). When working on fast-paced social edits, explore our [short-form video editing services](/services/short-form-video-editor-miami) and general [post-production services](/services), or get in touch through our [contact](/contact) page to discuss project scope.",
             "When total raw project archives run to hundreds of gigabytes or more on a connection with slow upload speed, handing over a physical drive is often faster than any online transfer. Copying to an external SSD and shipping the encrypted drive by overnight courier gives a more predictable arrival time than an upload that can stall for hours.",
           ],
@@ -2828,10 +2939,15 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "The proxy editing workflow: moving a fraction of the bytes",
+          heading: "What is a proxy file and why does it help remote editing?",
           paragraphs: [
             "The industry-standard solution for editing high-resolution 4K and 6K productions remotely without moving hundreds of gigabytes across the internet is the offline/online proxy workflow. Instead of uploading bulky raw camera masters, the on-set production team generates lightweight, edit-friendly proxy files locally before uploading.",
             "A proxy file is a low-bitrate duplicate of the raw footage encoded in an efficient intra-frame codec, such as Apple ProRes Proxy on macOS or Avid DNxHR LB cross-platform. Generating 1080p proxies produces a far lighter set of files that transfers in a fraction of the time, while strictly preserving original camera timecode, frame rate, reel names, clip file names, and multi-channel audio tracks, so the edit relinks cleanly to the originals at the end.",
+          ],
+        },
+        {
+          heading: "How does a proxy workflow move from offline edit to final master?",
+          paragraphs: [
             "Under this workflow, a 200 GB raw camera shoot compresses to approximately 15 to 25 GB of clean proxy media, which uploads in minutes rather than hours. The remote video editor performs all narrative assembly, multi-camera audio sync, pacing cuts, title animations, and sound design using the proxies. Once the edit is approved and picture locked, the editor sends back a lightweight project file (such as a DaVinci Resolve Project DRP, Adobe Premiere Pro PRPROJ, or standard XML/EDL). The local producer then relinks the timeline back to the original raw 4K masters on their local drive for final color grading and high-resolution master export.",
           ],
           bullets: [
@@ -2842,10 +2958,15 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Standardized folder hierarchy and checksum verification",
+          heading: "Which folder hierarchy should footage follow before upload?",
           paragraphs: [
             "Organizing assets into an unambiguous folder structure before uploading eliminates missing file errors, relinking failures, and confusion over which takes are current. Never dump loose video clips, voice memos, and graphics into a single root folder.",
             "A professional folder architecture organizes source material logically from day one: `01_Footage` (subdivided by camera angle `Cam_A`, `Cam_B`, or date/card number), `02_Audio` (separate 24-bit 48kHz WAV multi-track microphone stems, boom recordings, and lavaliers), `03_Assets` (vector SVG/AI logos, brand guideline PDFs, approved graphics, and fonts), and `04_Briefs` (project summary, platform specifications, and target delivery dates).",
+          ],
+        },
+        {
+          heading: "Why avoid one giant zip file, and how do checksums help?",
+          paragraphs: [
             "Avoid archiving large multi-gigabyte folder trees into a single massive .zip file. If a single byte drops or connection drops during download of a 50 GB .zip file, the entire archive often fails extraction and corrupts. Instead, upload structured folders directly using desktop sync applications or specialized transfer tools. Before clearing camera memory cards, verify transfers using checksum utilities (such as ShotPut Pro, Silverstack, or command-line `shasum -a 256`) to ensure the copied files match the source media byte for byte.",
           ],
           bullets: [
@@ -2857,7 +2978,7 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Structuring handoff documentation and technical metadata",
+          heading: "Which technical metadata belongs in the handoff document?",
           paragraphs: [
             "Alongside the media files, include a concise project handoff document summarizing key technical metadata. Note the recorded frame rates (e.g., 23.976 fps base dialogue vs 59.94 fps high-frame-rate b-roll intended for smooth slow motion) and camera color science profiles (such as Sony S-Log3, Canon C-Log3, Apple Log, or standard Rec.709).",
             "This technical clarity enables the editor to establish accurate color management color spaces (such as DaVinci Wide Gamut or ACEScc) from the beginning of the project, avoiding unwanted color shifts during grading. Clear preparation ensures a seamless remote collaboration and keeps the focus entirely on storytelling, pacing, and visual impact.",
@@ -2915,9 +3036,17 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Organización de carpetas de material",
+          heading: "¿Cómo se organiza el material antes de subirlo?",
           paragraphs: [
-            "Agrupa archivos por fecha, ángulo de cámara y pistas de audio antes de subir para evitar retrasos por activos faltantes. Para revisar cómo funciona una entrega remota de material de agencia, consulta el [proyecto Homeowners](/es/portafolio/homeowners) (y su [caso de estudio](/es/casos-de-estudio/homeowners)).",
+            "Con una carpeta principal por proyecto y las mismas subcarpetas siempre: video por cámara o por día de grabación, audio aparte, recursos de marca y un brief. Conserva la estructura y los nombres originales de cada tarjeta de cámara; esos nombres y sus códigos de tiempo son los que permiten unir cada clip con su audio. Renombrar todo a mano o mezclar tarjetas en una sola carpeta es la causa más común de archivos que no se vuelven a enlazar.",
+            "Antes de borrar o reformatear una tarjeta, comprueba que la copia esté completa. Un programa que genera sumas de verificación (checksums) compara cada archivo copiado con el original y avisa si alguno llegó dañado. Para revisar cómo se trabaja con material entregado por una agencia, consulta el [proyecto Homeowners](/es/portafolio/homeowners) y su [caso de estudio](/es/casos-de-estudio/homeowners).",
+          ],
+        },
+        {
+          heading: "¿Cuál es la forma más rápida de enviar archivos de video pesados a un editor?",
+          paragraphs: [
+            "Depende del volumen total y de tu velocidad de subida, que en muchas conexiones domésticas es bastante menor que la de bajada. Para carpetas moderadas, un servicio de transferencia en la nube o una carpeta compartida (Google Drive, Dropbox, Frame.io o WeTransfer Pro) funciona bien: sube las carpetas tal como están, no un único archivo .zip gigante, porque si la conexión se corta a mitad hay que volver a empezar todo el envío.",
+            "Cuando el material es muy pesado y la subida es lenta, dos opciones ahorran tiempo. La primera son los archivos proxy: copias livianas del material que permiten editar la historia y, al final, volver a enlazar con los originales para el color y la exportación final. La segunda es enviar un disco físico. En ambos casos, avisa al editor qué enviaste y por qué medio.",
           ],
         },
       ],
@@ -2942,9 +3071,17 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Capturing Dual-Language Search Intent",
+          heading: "Why publish separate English and Spanish videos in South Florida?",
           paragraphs: [
-            "Publishing dedicated Spanish and English video assets allows brands to rank in both language search indexes simultaneously, a strategy exemplified by local business projects like the [Healthy Smile Miami dental campaign](/portfolio/healthy-smile) (detailed in the [Healthy Smile case study](/case-studies/healthy-smile)).",
+            "Because people search, read captions and decide in the language they are most comfortable in, and in South Florida that is often Spanish. A Spanish-speaking customer who types a question in Spanish is matched to pages and videos in Spanish; an English-only video with Spanish subtitles added as an afterthought rarely reaches that search at all.",
+            "Separate versions also let each audience get its own opening line, its own examples and its own call to action, instead of a compromise that fits neither. The practical rule is to publish each version as its own asset: its own title, description and captions in that language, and on a website its own page linked to the other. That is how search engines understand that two pages are translations of each other rather than duplicates, and how a viewer lands on the right one. Esteban works Spanish-first, so Spanish versions are written natively rather than translated word for word.",
+          ],
+        },
+        {
+          heading: "How do you produce two language versions without doubling the work?",
+          paragraphs: [
+            "Plan both at the shoot. If the speaker can deliver the key lines in each language, record both back to back with the same framing and light; if not, record in one language and build the other version with captions or a separate voice-over, decided before filming rather than after.",
+            "Keep the visuals language-neutral where possible: product shots, the space, people at work, and on-screen text added in the edit rather than written on signs or slides. Then the same picture edit can carry two sets of captions and two end cards. Have someone fluent in each language read the captions before publishing, because automatic translation often gets local terms, prices and names wrong. Finally, track the two versions separately; whichever language responds better is information about your customers, not a reason to drop the other.",
           ],
         },
       ],
@@ -2966,9 +3103,18 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Captación de búsquedas en ambos idiomas",
+          heading: "¿Por qué publicar videos separados en inglés y en español en South Florida?",
           paragraphs: [
-            "Publicar activos de video dedicados en español e inglés permite posicionarse en ambos índices de búsqueda de forma simultánea, una estrategia respaldada en proyectos locales como la campaña de [Healthy Smile Miami](/es/portafolio/healthy-smile) (y su [caso de estudio](/es/casos-de-estudio/healthy-smile)). En el mercado restaurantero y gastronómico de Miami, las piezas de [video para restaurantes en Miami](/es/video-para-restaurantes-miami) conectan de manera directa con comensales locales y turistas internacionales.",
+            "Porque la gente busca, lee subtítulos y decide en el idioma en que se siente más cómoda, y en South Florida muchas veces ese idioma es el español. Quien escribe una pregunta en español recibe páginas y videos en español; un video solo en inglés con subtítulos agregados al final rara vez llega a esa búsqueda.",
+            "Las versiones separadas también permiten que cada público tenga su propia frase inicial, sus propios ejemplos y su propia llamada a la acción, en vez de un punto medio que no le sirve a ninguno. La regla práctica es publicar cada versión como un recurso propio: título, descripción y subtítulos en ese idioma y, en un sitio web, su propia página enlazada con la otra. Así los buscadores entienden que son traducciones y no duplicados, y cada persona llega a la suya. Esteban trabaja primero en español, así que las versiones en español se escriben de origen y no se traducen palabra por palabra.",
+          ],
+        },
+        {
+          heading: "¿Cómo se hacen dos versiones de idioma sin duplicar el trabajo?",
+          paragraphs: [
+            "Planificándolas desde la grabación. Si quien habla puede decir las frases clave en ambos idiomas, grábalas una tras otra con el mismo encuadre y la misma luz; si no, graba en un idioma y arma la otra versión con subtítulos o una voz en off aparte, decidido antes de grabar y no después.",
+            "Mantén las imágenes neutras en cuanto a idioma siempre que puedas: productos, el lugar, personas trabajando y textos agregados en la edición en lugar de escritos en carteles o diapositivas. Así un mismo montaje sirve para dos juegos de subtítulos y dos cierres. Pide que alguien con dominio de cada idioma lea los subtítulos antes de publicar, porque la traducción automática suele equivocarse con términos locales, precios y nombres. Y mide cada versión por separado: el idioma que mejor responde te dice algo de tus clientes.",
+            "Para restaurantes con clientela en ambos idiomas, revisa el servicio de [video para restaurantes en Miami](/es/video-para-restaurantes-miami).",
           ],
         },
       ],
@@ -2993,9 +3139,17 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Selecting Dimensions per Destination Platform",
+          heading: "Which aspect ratio should each destination get?",
           paragraphs: [
-            "Tailor export resolutions to native platform specs to prevent unwanted cropping or letterboxing.",
+            "Start from where the video will be watched. Full-screen vertical feeds — Reels, TikTok, YouTube Shorts and Stories — use 9:16, commonly exported at 1080x1920. A YouTube video, a website header or a presentation uses horizontal 16:9, commonly 1920x1080. Feed posts that sit between other posts often work better at 4:5, which takes up more of a phone screen than a square without being cropped.",
+            "Exporting to the native shape matters because the platform otherwise decides for you: it crops a horizontal video into a vertical frame, or surrounds it with black or blurred bars, and either way the composition you approved is not what people see. If one shoot has to serve several destinations, list them before filming so the camera operator leaves room around the subject, and name each export with its ratio so the right file goes to the right place.",
+          ],
+        },
+        {
+          heading: "What is a safe zone, and how much of the frame should stay clear?",
+          paragraphs: [
+            "A safe zone is the part of the frame no app interface will cover. On vertical platforms the account name, caption, music line and buttons sit over the bottom of the video and along the right edge, so text placed there gets hidden behind them. Those overlays differ between apps and change with updates, which is why there is no single exact measurement that holds everywhere.",
+            "The workable approach is to keep anything that must be read or seen — faces, product, prices, captions, a phone number — in the central part of the frame, with generous margins at the bottom and on the right. Check the final export in each app's own preview or a draft post before publishing; that is the only reliable test of what a viewer will actually see. On horizontal video, keep titles away from the very edges, where some players place controls.",
           ],
         },
       ],
@@ -3017,9 +3171,17 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Selección de dimensiones por plataforma de destino",
+          heading: "¿Qué relación de aspecto conviene para cada destino?",
           paragraphs: [
-            "Adapta las resoluciones de exportación a las especificaciones nativas de cada plataforma para evitar recortes no deseados.",
+            "Empieza por dónde se va a ver el video. Los feeds verticales a pantalla completa — Reels, TikTok, YouTube Shorts e Historias — usan 9:16, normalmente exportado en 1080x1920. Un video de YouTube, el encabezado de un sitio web o una presentación usan 16:9 horizontal, normalmente 1920x1080. Las publicaciones que aparecen entre otras en el feed suelen funcionar mejor en 4:5, que ocupa más pantalla que un cuadrado sin recortarse.",
+            "Exportar en la forma nativa importa porque, si no, la plataforma decide por ti: recorta un video horizontal dentro de un cuadro vertical o lo rodea de barras negras o borrosas, y en ambos casos lo que aprobaste no es lo que la gente ve. Si una sola grabación debe servir a varios destinos, haz la lista antes de grabar para que quien filma deje espacio alrededor del sujeto, y nombra cada archivo con su formato.",
+          ],
+        },
+        {
+          heading: "¿Qué es una zona segura y cuánto del cuadro conviene dejar libre?",
+          paragraphs: [
+            "La zona segura es la parte del cuadro que ninguna interfaz va a tapar. En las plataformas verticales, el nombre de la cuenta, el texto, la línea de música y los botones van encima de la parte de abajo del video y a lo largo del borde derecho, así que un texto puesto ahí queda oculto. Esas capas cambian entre aplicaciones y con cada actualización, por eso no existe una medida exacta que sirva en todos lados.",
+            "Lo práctico es mantener todo lo que se debe leer o ver — caras, producto, precios, subtítulos, un teléfono — en la parte central del cuadro, con márgenes amplios abajo y a la derecha. Revisa la exportación final en la vista previa de cada aplicación o en un borrador antes de publicar; es la única prueba confiable de lo que verá la gente. En video horizontal, aleja los títulos de los bordes, donde algunos reproductores ponen controles.",
           ],
         },
       ],
@@ -3044,9 +3206,17 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "The Two-Step Color Workflow",
+          heading: "What is the difference between color correction and color grading?",
           paragraphs: [
-            "Always normalize LOG/RAW footage through color correction before applying creative LUTs or color grades.",
+            "Correction makes the footage accurate; grading makes it look a particular way. Correction comes first and is technical: setting white balance so white things look white, bringing exposure to a sensible level, recovering detail in highlights and shadows, and matching clips from different cameras or different times of day so they cut together without a jump.",
+            "Grading comes second and is a creative decision: warmer or cooler, more or less contrast, a muted or saturated palette, a look that suits the brand. Doing them in that order matters. A creative look or LUT applied to uncorrected footage amplifies whatever was wrong underneath — a blue cast becomes a stronger blue cast — and every clip ends up needing its own fix. Footage shot in a LOG or RAW profile looks flat on purpose and always needs the correction step before it resembles the scene.",
+          ],
+        },
+        {
+          heading: "What can you do during filming to make colour work easier?",
+          paragraphs: [
+            "Set white balance manually instead of leaving it on automatic, which shifts as the camera moves between windows and lamps and leaves the editor matching drifting colour clip by clip. Avoid mixing light sources of different colours on the same face; daylight from a window and warm bulbs overhead pull skin in two directions at once, and no setting fixes both.",
+            "Expose for the skin and protect the brightest areas. A white shirt, a sky or a polished surface that is blown out to pure white has no detail left to recover. If you have several cameras, set them to the same profile, frame rate and white balance before the shoot, and film a few seconds of the same scene on all of them for reference. Tell the editor which profile was used and send any LUT supplied by the camera maker, so the correction starts from the right place.",
           ],
         },
       ],
@@ -3068,9 +3238,17 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "El proceso de color en dos pasos",
+          heading: "¿Cuál es la diferencia entre corrección de color y colorimetría?",
           paragraphs: [
-            "Normaliza siempre tomas en formato LOG/RAW mediante corrección técnica antes de aplicar estilos creativos finales.",
+            "La corrección hace que el material sea fiel; la colorimetría le da un aspecto concreto. La corrección va primero y es técnica: ajustar el balance de blancos para que lo blanco se vea blanco, llevar la exposición a un nivel razonable, recuperar detalle en luces y sombras, y igualar clips de distintas cámaras o distintas horas para que se corten sin saltos.",
+            "La colorimetría va después y es una decisión creativa: más cálido o más frío, más o menos contraste, una paleta apagada o saturada, un aspecto que vaya con la marca. El orden importa. Un look o una LUT aplicados sobre material sin corregir amplifican lo que estaba mal debajo — un tono azul se vuelve más azul — y cada clip termina necesitando su propio arreglo. El material grabado en perfil LOG o RAW se ve plano a propósito y siempre necesita la corrección antes de parecerse a la escena.",
+          ],
+        },
+        {
+          heading: "¿Qué se puede hacer al grabar para facilitar el trabajo de color?",
+          paragraphs: [
+            "Ajusta el balance de blancos de forma manual en vez de dejarlo en automático, que cambia cuando la cámara pasa de una ventana a una lámpara y obliga al editor a igualar un color que se mueve clip por clip. Evita mezclar fuentes de luz de colores distintos sobre una misma cara: la luz de día de una ventana y las bombillas cálidas del techo tiran de la piel en dos direcciones y ningún ajuste corrige ambas.",
+            "Expón para la piel y protege las zonas más brillantes. Una camisa blanca, un cielo o una superficie pulida que queda en blanco puro ya no tiene detalle que recuperar. Si hay varias cámaras, configúralas con el mismo perfil, la misma velocidad y el mismo balance antes de grabar, y filma unos segundos de la misma escena con todas como referencia. Dile al editor qué perfil usaste y envía la LUT del fabricante si la hay.",
           ],
         },
       ],
@@ -3095,9 +3273,17 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Audio Ducking Techniques",
+          heading: "How do you keep music from burying speech in a social video?",
           paragraphs: [
-            "Automatically lower background music volume whenever dialogue is spoken to maintain 100% vocal clarity, as demonstrated in the dialogue balancing for the [Healthy Smile Miami video project](/portfolio/healthy-smile) (detailed in the [Healthy Smile case study](/case-studies/healthy-smile)).",
+            "By ducking: lowering the music every time someone speaks and letting it rise again in the pauses. Editing software can do this automatically from the dialogue track, but it is worth checking by ear, because automatic ducking can pump up and down awkwardly between short phrases. The goal is that every word is understood on a phone speaker, which is where most social video is heard and where low voices disappear first.",
+            "Choose music that leaves room for a voice. Tracks with prominent vocals or busy melodies in the same range as speech compete with it no matter how far they are lowered, while instrumental tracks with a steady rhythm sit underneath more easily. Make sure the track is licensed for the platform and the use; music that is fine for a personal post can be blocked or muted on a business account. Listen to the final mix once on headphones and once on a phone before publishing.",
+          ],
+        },
+        {
+          heading: "Where do sound effects and natural sound fit in the mix?",
+          paragraphs: [
+            "Use them to support what the picture already shows, and sparingly. A sizzle on a grill, a door, a pour, the click of a product closing: short natural sounds make a cut feel real and help sound-on viewers notice the moment. Added effects such as whooshes on every transition quickly turn into noise and pull attention away from the message.",
+            "Keep a clear order of importance in the mix. Speech comes first, then the sounds that carry meaning, then music as the bed underneath. Levels should be consistent from clip to clip, so a viewer is not reaching for the volume when the scene changes. Record a few seconds of room tone on location; it lets the editor fill gaps between cuts with the same background sound instead of silence. On location, see the clinic example in [Healthy Smile Miami](/portfolio/healthy-smile), recorded with video and sound by Esteban.",
           ],
         },
       ],
@@ -3119,9 +3305,17 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Técnicas de atenuación de música (ducking)",
+          heading: "¿Cómo se evita que la música tape la voz en un video para redes?",
           paragraphs: [
-            "Reduce automáticamente el volumen de la pista musical cada vez que el hablante interviene para garantizar la máxima nitidez, tal como se aprecia en el balance de diálogos del [proyecto Healthy Smile Miami](/es/portafolio/healthy-smile) (y su [caso de estudio](/es/casos-de-estudio/healthy-smile)).",
+            "Con ducking: bajando la música cada vez que alguien habla y dejándola subir en las pausas. Los programas de edición pueden hacerlo de forma automática a partir de la pista de diálogo, pero conviene revisarlo de oído, porque el ducking automático puede subir y bajar de forma torpe entre frases cortas. La meta es que cada palabra se entienda en el altavoz de un teléfono, que es donde se escucha la mayoría del video para redes y donde las voces bajas desaparecen primero.",
+            "Elige música que deje espacio a la voz. Las canciones con letra o con melodías muy cargadas en el mismo rango que el habla compiten con ella aunque las bajes mucho; las instrumentales con ritmo constante se acomodan mejor debajo. Asegúrate de que la música tenga licencia para esa plataforma y ese uso, y escucha la mezcla final una vez con audífonos y otra en un teléfono.",
+          ],
+        },
+        {
+          heading: "¿Dónde encajan los efectos y el sonido natural en la mezcla?",
+          paragraphs: [
+            "Úsalos para reforzar lo que la imagen ya muestra, y con moderación. El chisporroteo de una parrilla, una puerta, algo que se sirve, el clic de un producto al cerrarse: los sonidos naturales cortos hacen que un corte se sienta real y ayudan a que quien tiene el sonido activado note el momento. Los efectos agregados, como un silbido en cada transición, se vuelven ruido rápidamente y distraen del mensaje.",
+            "Mantén un orden claro en la mezcla. Primero la voz, luego los sonidos que llevan significado y después la música como base. Los niveles deben ser parejos de un clip a otro para que nadie tenga que tocar el volumen cuando cambia la escena. Graba unos segundos de tono de sala en el lugar; así el editor llena los huecos entre cortes con el mismo fondo y no con silencio. Como ejemplo en locación, mira [Healthy Smile Miami](/es/portafolio/healthy-smile).",
           ],
         },
       ],
@@ -3146,9 +3340,17 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Matching Action to Narrative",
+          heading: "How do you choose B-roll that supports what the speaker is saying?",
           paragraphs: [
-            "Cut away to action clips precisely on natural sentence pauses to support the speaker's core points seamlessly.",
+            "Match each cutaway to a specific sentence. B-roll works when it shows the thing being described at the moment it is described: the warehouse when the speaker mentions shipping, the team at a whiteboard when they talk about planning, a customer at the counter when they talk about service. Generic shots of hands on keyboards or city skylines fill time without adding information, and viewers learn to ignore them.",
+            "Cut to B-roll on a natural pause or the start of a phrase, and come back to the speaker for the sentence that carries the main point, so the audience sees who is making the claim. Build a shot list from the script before filming: underline every noun and action the speaker mentions and plan one or two shots for each. That list is what turns a talking-head recording into a corporate video that explains rather than simply records.",
+          ],
+        },
+        {
+          heading: "What B-roll should a company film so the editor has enough to work with?",
+          paragraphs: [
+            "More variety than seems necessary, in short, steady clips. For each location, film a wide shot that shows the whole space, a medium shot of people working, and several close details — hands, products, screens, tools, signage. Hold each shot still for around ten seconds; short clips with movement in the first and last second are difficult to use.",
+            "Film people doing their real work rather than posing, and get permission from anyone who will be recognisable. Avoid screens showing confidential information and whiteboards with client names. Capture a few moments with movement through the space, such as a slow walk down a corridor or someone opening a door, which help the editor move between ideas. Label the folders by location and send a short note naming any shot that must not be used, so nothing sensitive reaches the final cut.",
           ],
         },
       ],
@@ -3170,9 +3372,18 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Coincidencia de acción y narrativa",
+          heading: "¿Cómo se elige el material de apoyo que refuerza lo que dice quien habla?",
           paragraphs: [
-            "Inserta tomas de apoyo en las pausas naturales de las frases para respaldar las ideas del portavoz de forma fluida. En producciones de hospitalidad y gastronomía, este ritmo de cortes B-roll con planos detalle se aplica ampliamente en [video para restaurantes en Miami](/es/video-para-restaurantes-miami).",
+            "Uniendo cada toma de apoyo a una frase concreta. El B-roll funciona cuando muestra lo que se describe en el momento en que se describe: el almacén cuando se habla de envíos, el equipo frente a una pizarra cuando se habla de planificación, un cliente en el mostrador cuando se habla de servicio. Las tomas genéricas de manos en un teclado o de edificios llenan tiempo sin aportar nada, y el público aprende a ignorarlas.",
+            "Corta al material de apoyo en una pausa natural o al inicio de una frase, y vuelve a la persona para la oración que lleva la idea principal, así el público ve quién lo afirma. Arma una lista de tomas a partir del guion antes de grabar: subraya cada sustantivo y cada acción que menciona quien habla y planea una o dos tomas para cada uno. Esa lista convierte una cabeza parlante en un video corporativo que explica en vez de solo registrar.",
+          ],
+        },
+        {
+          heading: "¿Qué material de apoyo debe grabar una empresa para que el editor tenga suficiente?",
+          paragraphs: [
+            "Más variedad de la que parece necesaria, en clips cortos y estables. En cada lugar, graba un plano general que muestre todo el espacio, un plano medio de personas trabajando y varios detalles cercanos: manos, productos, pantallas, herramientas, letreros. Sostén cada toma quieta unos diez segundos; los clips cortos con movimiento al principio y al final son difíciles de usar.",
+            "Graba a las personas haciendo su trabajo real en lugar de posar, y pide permiso a cualquiera que vaya a ser reconocible. Evita pantallas con información confidencial y pizarras con nombres de clientes. Captura algunos momentos con movimiento por el espacio, como caminar despacio por un pasillo o abrir una puerta, que ayudan al editor a pasar de una idea a otra. Nombra las carpetas por lugar y avisa qué tomas no se deben usar.",
+            "Para cocinas y salones, mira el servicio de [video para restaurantes en Miami](/es/video-para-restaurantes-miami).",
           ],
         },
       ],
@@ -3197,9 +3408,17 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Platform Retention Curves",
+          heading: "How long should a social video be?",
           paragraphs: [
-            "Mobile feed viewers drop off rapidly after 30 seconds unless the narrative constantly introduces new visual stimuli.",
+            "As long as the idea needs and not a second longer. There is no single ideal length that holds across platforms or topics; what holds is that viewers on a mobile feed decide in the first few seconds and leave the moment a video stops giving them something new. A fifteen-second clip that drags loses people faster than a ninety-second clip where every few seconds something changes or a new point lands.",
+            "A practical way to set length is to write the message as a list of beats — the hook, each point, the call to action — and give each beat only the time it needs to be understood. If a beat can be cut without the viewer missing anything, cut it. Short vertical feeds reward single ideas; a longer explanation usually belongs on YouTube or a website, with a short clip pointing to it rather than trying to contain it.",
+          ],
+        },
+        {
+          heading: "How can you tell whether a video is too long?",
+          paragraphs: [
+            "Check where people stop watching. Instagram, TikTok and YouTube all show a retention graph for each video in their analytics, and the shape is more useful than the average: a steep drop in the first seconds means the opening did not earn attention, while a sudden fall later points to the exact moment the video lost its way.",
+            "Compare a few of your own videos rather than an industry rule. If people consistently leave at the same kind of moment — a long introduction, a pause while the speaker thinks, a repeated point — that is what to cut next time. Before publishing, watch the edit once on a phone at normal speed without skipping; anything you are tempted to skip, a viewer will skip too, usually by leaving. Keep the important information early, so even viewers who leave before the end have the main point.",
           ],
         },
       ],
@@ -3221,9 +3440,18 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Curvas de retención en móviles",
+          heading: "¿Cuánto debe durar un video para redes?",
           paragraphs: [
-            "La audiencia en dispositivos móviles decae tras los 30 segundos si el video no introduce nuevos estímulos visuales. En formatos promocionales de comida y bebidas como en [video para restaurantes en Miami](/es/video-para-restaurantes-miami), duraciones de 15 a 25 segundos con ritmo ágil maximizan la tasa de visualización completa.",
+            "Lo que la idea necesite y ni un segundo más. No hay una duración ideal única que sirva para todas las plataformas o temas; lo que sí se cumple es que en un feed móvil la gente decide en los primeros segundos y se va en cuanto el video deja de darle algo nuevo.",
+            "Una forma práctica de fijar la duración es escribir el mensaje como una lista de momentos — el gancho, cada punto, la llamada a la acción — y darle a cada uno solo el tiempo que necesita para entenderse. Si un momento se puede quitar sin que la persona se pierda nada, quítalo. Los feeds verticales premian una sola idea; una explicación larga suele ir en YouTube o en un sitio web, con un clip corto que lleve hacia allí.",
+            "Para locales de comida, revisa el servicio de [video para restaurantes en Miami](/es/video-para-restaurantes-miami).",
+          ],
+        },
+        {
+          heading: "¿Cómo saber si un video es demasiado largo?",
+          paragraphs: [
+            "Mirando dónde deja de verlo la gente. Instagram, TikTok y YouTube muestran en sus estadísticas una gráfica de retención para cada video, y su forma dice más que el promedio: una caída fuerte en los primeros segundos indica que la apertura no ganó atención, y una caída repentina más adelante señala el momento exacto en que el video perdió el rumbo.",
+            "Compara varios de tus propios videos en lugar de seguir una regla general. Si la gente se va siempre en el mismo tipo de momento — una introducción larga, una pausa mientras alguien piensa, una idea repetida — eso es lo que hay que cortar la próxima vez. Antes de publicar, mira la edición una vez en el teléfono, a velocidad normal y sin adelantar: lo que tengas ganas de saltar, el público también lo saltará, normalmente yéndose. Pon la información importante al principio.",
           ],
         },
       ],
@@ -3248,9 +3476,17 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "The 3-Element Rule",
+          heading: "What makes a video thumbnail clear on a small screen?",
           paragraphs: [
-            "Limit thumbnail visual clutter to no more than 3 distinct focus elements to maintain instant clarity on small mobile screens.",
+            "Few elements and strong contrast. Most thumbnails are seen at the size of a fingertip in a feed or a search result, so anything beyond about three focal points — usually a face, an object and a few words — turns into clutter. Pick one main subject, make it large, and separate it from the background with light, colour or a clean edge.",
+            "Text should be short enough to read at a glance and say something the title does not; repeating the title wastes the space. Use a heavy, simple font and keep letters away from the bottom-right corner on YouTube, where the video length is displayed. A face showing a clear expression draws attention, but only if it relates to the video's subject. Design at full resolution, then check the thumbnail shrunk down to phone size next to other videos before you decide.",
+          ],
+        },
+        {
+          heading: "How do you make a thumbnail that matches the video and gets clicked for the right reasons?",
+          paragraphs: [
+            "Build it from a real frame or a photo taken during the shoot, not a promise the video does not keep. A thumbnail that shows something the viewer never sees produces the click and then the immediate exit, which tells the platform the video disappointed people. Planning a thumbnail shot during filming — the product held up to camera, the finished result, the speaker reacting — gives you a sharp, well-lit image instead of a blurry still pulled from motion.",
+            "Keep a consistent layout across a series, such as the same position for text and the same brand colour, so returning viewers recognise your videos in a crowded feed. On YouTube you can test alternatives over time; on Instagram and TikTok, choose the cover frame deliberately rather than accepting whatever the app picks. Save the layered design file so the next thumbnail starts from it.",
           ],
         },
       ],
@@ -3272,9 +3508,17 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Regla de los 3 elementos visuales",
+          heading: "¿Qué hace que una miniatura de video se vea clara en una pantalla pequeña?",
           paragraphs: [
-            "Limita la composición a un máximo de 3 elementos principales para asegurar legibilidad inmediata en dispositivos móviles.",
+            "Pocos elementos y mucho contraste. La mayoría de las miniaturas se ven del tamaño de la yema de un dedo en un feed o en un resultado de búsqueda, así que más de unos tres puntos de atención — normalmente una cara, un objeto y pocas palabras — se convierte en desorden. Elige un sujeto principal, hazlo grande y sepáralo del fondo con luz, color o un borde limpio.",
+            "El texto debe ser lo bastante corto para leerse de un vistazo y decir algo que el título no dice; repetir el título desperdicia el espacio. Usa una letra gruesa y sencilla, y en YouTube aleja el texto de la esquina inferior derecha, donde aparece la duración. Una cara con una expresión clara llama la atención, pero solo si tiene que ver con el tema. Diseña a resolución completa y luego revisa la miniatura reducida al tamaño de un teléfono junto a otros videos.",
+          ],
+        },
+        {
+          heading: "¿Cómo se hace una miniatura que coincida con el video y reciba clics por las razones correctas?",
+          paragraphs: [
+            "Partiendo de un cuadro real o de una foto tomada en la grabación, no de una promesa que el video no cumple. Una miniatura que muestra algo que la persona nunca ve consigue el clic y luego la salida inmediata, y eso le indica a la plataforma que el video decepcionó. Planear una toma para la miniatura durante la grabación — el producto frente a la cámara, el resultado terminado, la reacción de quien habla — te da una imagen nítida y bien iluminada en vez de un cuadro borroso sacado de un movimiento.",
+            "Mantén un diseño constante en una serie, con el texto en el mismo lugar y el mismo color de marca, para que quien vuelve reconozca tus videos. En Instagram y TikTok, elige la portada a propósito en lugar de aceptar la que propone la aplicación, y guarda el archivo de diseño por capas para la siguiente.",
           ],
         },
       ],
@@ -3299,9 +3543,17 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Applying Pattern Interrupts",
+          heading: "What are pattern interrupts, and how do they keep people watching?",
           paragraphs: [
-            "Use subtle zooms, text pop-ups, or angle shifts to re-engage viewer attention throughout the video timeline.",
+            "A pattern interrupt is a small visual or audio change that resets attention: a cut to a closer angle, a gentle zoom on a key word, a text label appearing, a cutaway to what the speaker is describing, a short sound accent. Attention fades when a shot stays the same for too long, especially on a phone, and a change every few seconds gives the eye a new reason to stay.",
+            "The change should mean something. Zooming in on the sentence that matters, or cutting to the product as it is named, keeps viewers and helps them follow; random effects on every line feel restless and make the message harder to absorb. Filming with this in mind helps the editor a great deal: two camera angles, a few close-ups and some B-roll of the subject give natural interrupts that do not have to be manufactured with digital zooms.",
+          ],
+        },
+        {
+          heading: "Which editing choices raise retention more than effects do?",
+          paragraphs: [
+            "Cutting dead air and getting to the point. The largest gains usually come from removing the slow start, the repeated sentence and the pause while someone searches for a word, not from adding motion graphics. Start on the most interesting moment, then explain; viewers forgive a fast opening far more readily than a slow one.",
+            "Captions keep sound-off viewers following along, and a clear structure helps everyone: say what the video will cover, deliver it in order, and signal when a new point begins. Avoid announcing the ending too early, since a viewer who thinks the video is finished leaves. After publishing, check the retention graph in the platform's analytics and look for the exact second people drop; the next edit can fix that kind of moment. Small, repeated improvements to openings and pacing outlast any single trick.",
           ],
         },
       ],
@@ -3323,9 +3575,17 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Aplicación de interrupciones de patrón",
+          heading: "¿Qué son las interrupciones de patrón y cómo hacen que la gente siga mirando?",
           paragraphs: [
-            "Utiliza zooms sutiles, apariciones de texto o cambios de ángulo para mantener la atención a lo largo de la línea de tiempo.",
+            "Una interrupción de patrón es un pequeño cambio visual o de sonido que reinicia la atención: un corte a un ángulo más cercano, un zoom suave en una palabra clave, un texto que aparece, una toma de apoyo de lo que se describe, un acento sonoro breve. La atención baja cuando una toma se mantiene igual demasiado tiempo, sobre todo en el teléfono, y un cambio cada pocos segundos le da a la mirada una nueva razón para quedarse.",
+            "El cambio debe significar algo. Acercarse en la frase que importa, o cortar al producto cuando se nombra, retiene y ayuda a seguir el hilo; los efectos al azar en cada línea se sienten inquietos y dificultan entender el mensaje. Grabar pensando en esto ayuda mucho al editor: dos ángulos de cámara, algunos primeros planos y material de apoyo dan interrupciones naturales que no hay que fabricar con zooms digitales.",
+          ],
+        },
+        {
+          heading: "¿Qué decisiones de edición suben la retención más que los efectos?",
+          paragraphs: [
+            "Quitar los tiempos muertos e ir al grano. Las mayores mejoras suelen venir de eliminar el inicio lento, la frase repetida y la pausa mientras alguien busca una palabra, no de agregar gráficos animados. Empieza por el momento más interesante y luego explica: el público perdona mucho más una apertura rápida que una lenta.",
+            "Los subtítulos permiten seguir el video sin sonido, y una estructura clara ayuda a todos: di qué se va a ver, entrégalo en orden y marca cuándo empieza un punto nuevo. Evita anunciar el final demasiado pronto, porque quien cree que el video terminó se va. Después de publicar, revisa la gráfica de retención en las estadísticas de la plataforma y busca el segundo exacto en que la gente se va; la próxima edición puede corregir ese tipo de momento. Las mejoras pequeñas y repetidas duran más que cualquier truco.",
           ],
         },
       ],
@@ -3350,9 +3610,17 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Direct Collaborative Feedback",
+          heading: "When does a freelance editor fit better than a post-production agency?",
           paragraphs: [
-            "Working directly with a dedicated editor eliminates agency account manager gatekeeping and speeds up review turnarounds.",
+            "When the project needs one consistent hand and direct conversation more than it needs a large team. With a freelancer, the person who reads your notes is the person who makes the change, so nothing is lost passing between an account manager, a producer and an editor. That suits recurring social content, a single brand film, or a business that wants the same eye on every video month after month.",
+            "The trade-off is capacity. One editor has a finite calendar, so very large volumes, simultaneous projects or a sudden deadline can stretch further than a team would. Ask any freelancer how they schedule work, what happens if they are unavailable, and how files are stored and backed up. The direct relationship is the advantage, but only if those practical answers are clear before the first project starts.",
+          ],
+        },
+        {
+          heading: "When is a post-production agency the better choice?",
+          paragraphs: [
+            "When the work needs several specialists at once or a volume one person cannot carry. An agency can put a colourist, a sound mixer, a motion designer and several editors on the same campaign, run them in parallel and absorb holidays and sick days without the client noticing. Broadcast deliverables, large multi-language campaigns and projects with strict technical specifications often benefit from that structure.",
+            "The cost of the structure is distance and overhead. Notes usually travel through a producer, so it helps to agree how feedback is collected and how many rounds are included. When you compare quotes, compare what each one includes — editing, colour, sound, graphics, revisions, file formats — rather than the total alone. A freelancer and an agency can both be right; the deciding question is how many different skills the project needs at the same time.",
           ],
         },
       ],
@@ -3374,9 +3642,17 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Comunicación directa sin intermediarios",
+          heading: "¿Cuándo conviene más un editor independiente que una agencia de postproducción?",
           paragraphs: [
-            "Tratar directamente con el editor elimina gestores de cuentas e intermediarios, agilizando las revisiones de proyecto.",
+            "Cuando el proyecto necesita una mano constante y conversación directa más que un equipo grande. Con un editor independiente, quien lee tus notas es quien hace el cambio, así que nada se pierde entre un ejecutivo de cuenta, un productor y un editor. Eso encaja con contenido recurrente para redes, un video de marca puntual o un negocio que quiere la misma mirada en cada video, mes tras mes.",
+            "La contrapartida es la capacidad. Un solo editor tiene un calendario limitado, así que volúmenes muy grandes, varios proyectos simultáneos o una fecha límite repentina pueden tardar más de lo que tardaría un equipo. Pregúntale a cualquier editor independiente cómo organiza su agenda, qué pasa si no está disponible y cómo guarda y respalda los archivos. La relación directa es la ventaja, siempre que esas respuestas prácticas estén claras antes del primer proyecto.",
+          ],
+        },
+        {
+          heading: "¿Cuándo es mejor opción una agencia de postproducción?",
+          paragraphs: [
+            "Cuando el trabajo necesita varios especialistas a la vez o un volumen que una sola persona no puede llevar. Una agencia puede poner a un colorista, un mezclador de sonido, un diseñador de animación y varios editores en la misma campaña, trabajar en paralelo y cubrir vacaciones o ausencias sin que el cliente lo note. Las entregas para televisión, las campañas grandes en varios idiomas y los proyectos con especificaciones técnicas estrictas suelen aprovechar esa estructura.",
+            "El costo de esa estructura es la distancia y los gastos generales. Las notas suelen pasar por un productor, así que conviene acordar cómo se reúnen los comentarios y cuántas rondas se incluyen. Al comparar cotizaciones, compara lo que incluye cada una — edición, color, sonido, gráficos, revisiones, formatos — y no solo el total. La pregunta decisiva es cuántas habilidades distintas necesita el proyecto al mismo tiempo.",
           ],
         },
       ],
@@ -3401,9 +3677,17 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Stabilizing Flight Wobble",
+          heading: "How is wobbly drone footage stabilised in post-production?",
           paragraphs: [
-            "Use post-production warp stabilization to remove wind wobble and create silky-smooth cinematic aerial moves, similar to the property walkthrough sequencing in the [Homeowners real estate editing project](/portfolio/homeowners) (detailed in the [Homeowners case study](/case-studies/homeowners)).",
+            "With software stabilisation applied clip by clip, and with restraint. Wind and quick stick movements leave small shakes and jolts in aerial footage; a warp stabiliser analyses the motion and smooths it, which can turn a nervous pass into a calm glide. It works by cropping slightly into the frame, so it needs some spare resolution around the subject, and pushed too far it bends straight lines and makes buildings or horizons wobble like jelly.",
+            "This guide is about editing aerial footage that the client or their licensed pilot supplies. The flight itself, and the licence it requires, are the pilot's responsibility; the editor works only with the files. The best results come from original files straight from the drone rather than copies downloaded from social media, which are compressed and carry less detail in sky and water. For an example of editing supplied footage, see [Homeowners](/portfolio/homeowners) and its [case study](/case-studies/homeowners).",
+          ],
+        },
+        {
+          heading: "What else does an editor check before using aerial clips?",
+          paragraphs: [
+            "The horizon, the colour and the cut points. A tilted horizon is the first thing viewers notice, so each clip is levelled before anything else, which again uses some of the frame. Aerial footage is often filmed in a flat profile and with the sky much brighter than the ground, so colour correction balances the two and matches the aerials to the ground-level shots in the same video.",
+            "Aerial clips work best as openers, transitions and reveals rather than long sequences; a few seconds of a smooth move usually says more than a minute of circling. The editor also looks for problems that should not be published, such as recognisable people on private property or a propeller in the frame. Send the clips with a note of where and when each was filmed and who flew them, so any question about the footage can go to the person responsible for the flight.",
           ],
         },
       ],
@@ -3425,9 +3709,17 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Estabilización de oscilaciones por viento",
+          heading: "¿Cómo se estabiliza en postproducción un video de dron con temblores?",
           paragraphs: [
-            "Aplica estabilización de posproducción para corregir ráfagas de viento y lograr desplazamientos aéreos ultra-fluidos, como se aprecia en el montaje inmobiliario del [proyecto Homeowners](/es/portafolio/homeowners) (y su [caso de estudio](/es/casos-de-estudio/homeowners)).",
+            "Con estabilización por software aplicada clip por clip, y con moderación. El viento y los movimientos bruscos de los controles dejan pequeños temblores y sacudidas en las tomas aéreas; un estabilizador analiza el movimiento y lo suaviza, y puede convertir una pasada nerviosa en un deslizamiento tranquilo. Funciona recortando un poco el cuadro, así que necesita algo de resolución de sobra alrededor del sujeto, y si se fuerza demasiado dobla las líneas rectas y hace que edificios y horizontes se vean de gelatina.",
+            "Esta guía trata de editar material aéreo que entrega el cliente o su piloto con licencia. El vuelo, y la licencia que exige, son responsabilidad del piloto; el editor trabaja solo con los archivos. Los mejores resultados salen de los archivos originales del dron, no de copias descargadas de redes. Como ejemplo de edición con material entregado, mira [Homeowners](/es/portafolio/homeowners) y su [caso de estudio](/es/casos-de-estudio/homeowners).",
+          ],
+        },
+        {
+          heading: "¿Qué más revisa un editor antes de usar tomas aéreas?",
+          paragraphs: [
+            "El horizonte, el color y los puntos de corte. Un horizonte torcido es lo primero que nota el público, así que cada clip se nivela antes que nada, lo que también consume parte del cuadro. Las tomas aéreas suelen grabarse en un perfil plano y con el cielo mucho más brillante que el suelo, de modo que la corrección de color equilibra ambos y las iguala con las tomas a nivel de suelo del mismo video.",
+            "Las tomas aéreas funcionan mejor como aperturas, transiciones y revelaciones que como secuencias largas; unos segundos de un movimiento suave suelen decir más que un minuto dando vueltas. El editor también busca problemas que no deben publicarse, como personas reconocibles en una propiedad privada o una hélice dentro del cuadro. Envía los clips con una nota de dónde y cuándo se grabó cada uno y quién los voló.",
           ],
         },
       ],
@@ -3452,9 +3744,17 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Funnel-Stage Video Mapping",
+          heading: "Which videos belong at each stage of a B2B funnel?",
           paragraphs: [
-            "Deliver bite-sized social videos for awareness while keeping in-depth case study edits on high-converting landing pages. For an example of converting local clinic traffic through structured video, review the [Healthy Smile Miami dental project](/portfolio/healthy-smile) (detailed in the [Healthy Smile case study](/case-studies/healthy-smile)).",
+            "Short, problem-first videos at the top; proof and detail lower down. At the awareness stage a buyer does not yet know your company, so the video should name a problem they recognise in the first seconds and offer one useful idea, usually as a short clip on LinkedIn, YouTube or Instagram. At the consideration stage the buyer is comparing options, so explainers, demonstrations and a walk through how the work is done carry more weight.",
+            "At the decision stage the buyer wants evidence and a next step: a customer story told in the customer's own words, a clear outline of what working together involves, and a page where the call can be booked. Map the videos you already have to these stages before making new ones; most companies find several pieces at the top and nothing to help a buyer who is nearly ready to decide.",
+          ],
+        },
+        {
+          heading: "How do you connect funnel videos so viewers move to the next step?",
+          paragraphs: [
+            "Give every video one next step and make it match the stage. A short awareness clip should point to a longer explainer or an article, not straight to a sales call; a detailed demonstration can point to a booking page. When a video asks for too much too early, viewers simply leave.",
+            "Host the deeper videos on your own website pages, next to the text that explains the offer, so the person who arrives from a social clip finds the full answer in one place. Use the same names, colours and opening style across the series, so a viewer recognises your company from one video to the next. Then measure each stage separately: views and watch time at the top, clicks to the next piece in the middle, and enquiries at the end. A gap in that chain shows exactly which video to make next.",
           ],
         },
       ],
@@ -3476,9 +3776,17 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Mapeo de videos según etapa de compra",
+          heading: "¿Qué videos corresponden a cada etapa de un embudo B2B?",
           paragraphs: [
-            "Publica cápsulas cortas en redes para generar interés y reserva los videos detallados de casos para páginas de venta. Para revisar cómo un video promocional apoya la conversión en consultorios locales, consulta el [proyecto Healthy Smile Miami](/es/portafolio/healthy-smile) (y su [caso de estudio](/es/casos-de-estudio/healthy-smile)).",
+            "Videos cortos que empiezan por el problema arriba, y prueba y detalle más abajo. En la etapa de descubrimiento el comprador todavía no conoce tu empresa, así que el video debe nombrar en los primeros segundos un problema que reconozca y ofrecer una idea útil, normalmente como clip corto en LinkedIn, YouTube o Instagram. En la etapa de evaluación el comprador compara opciones, y ahí pesan más las explicaciones, las demostraciones y un recorrido por cómo se hace el trabajo.",
+            "En la etapa de decisión el comprador quiere evidencia y un siguiente paso: la historia de un cliente contada con sus propias palabras, un resumen claro de lo que implica trabajar juntos y una página donde reservar la llamada. Ubica los videos que ya tienes en estas etapas antes de hacer nuevos; muchas empresas tienen varias piezas arriba y nada para quien está a punto de decidir.",
+          ],
+        },
+        {
+          heading: "¿Cómo se conectan los videos del embudo para que la gente avance al siguiente paso?",
+          paragraphs: [
+            "Dándole a cada video un solo siguiente paso, acorde con su etapa. Un clip corto de descubrimiento debe llevar a una explicación más larga o a un artículo, no directo a una llamada de ventas; una demostración detallada sí puede llevar a una página de reservas. Cuando un video pide demasiado demasiado pronto, la gente simplemente se va.",
+            "Publica los videos más profundos en páginas de tu propio sitio, junto al texto que explica la oferta, para que quien llega desde un clip en redes encuentre la respuesta completa en un solo lugar. Usa los mismos nombres, colores y estilo de apertura en toda la serie, para que se reconozca tu empresa de un video a otro. Luego mide cada etapa por separado: reproducciones y tiempo de visualización arriba, clics a la siguiente pieza en el medio y solicitudes al final. Un hueco en esa cadena indica qué video hacer después.",
           ],
         },
       ],
@@ -3503,9 +3811,17 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Importance of Room Tone Recording",
+          heading: "Why should you record room tone on location?",
           paragraphs: [
-            "Record 10 seconds of silent room tone on location so your editor can sample background noise for clean audio subtraction, as applied to on-location dental clinic audio in the [Healthy Smile Miami video project](/portfolio/healthy-smile) (detailed in the [Healthy Smile case study](/case-studies/healthy-smile)).",
+            "Because every room has its own background sound, and the editor needs a clean sample of it. Before or after the interview, ask everyone to stay still and silent and record about ten seconds of the empty room with the same microphones in the same positions. That recording lets the editor fill gaps between cuts with matching background sound instead of dead silence, which the ear notices immediately as a jump.",
+            "Room tone also gives noise-reduction tools a reference: they can learn the hum of an air conditioner or a refrigerator and remove it from the dialogue more cleanly than when they have to guess. Record a fresh sample whenever something in the room changes, such as a fan switched on or a window opened. On location, see the clinic example in [Healthy Smile Miami](/portfolio/healthy-smile), where Esteban recorded video and sound, and the [Healthy Smile case study](/case-studies/healthy-smile).",
+          ],
+        },
+        {
+          heading: "How should audio files be organised before they go to the editor?",
+          paragraphs: [
+            "Keep every audio file exactly as the recorder made it, in a folder per recorder or per microphone, and never rename them in a way that removes the original name; that name and its timestamp are how an editor syncs sound to picture. If the recorder writes a separate file per channel, send all of them, even the ones that seem silent.",
+            "Add a simple note: which microphone was on which person, which recorder matches which camera, and any take where something went wrong, such as a dropped signal or a loud noise. A clap at the start of each take, visible on camera and audible on every recorder, makes syncing fast and reliable. Send music and voice-over as separate files rather than mixed into the video, at the highest quality you have, so the editor can balance levels instead of working around them.",
           ],
         },
       ],
@@ -3527,9 +3843,17 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Importancia del registro de tono de sala",
+          heading: "¿Por qué conviene grabar el tono de sala en el lugar?",
           paragraphs: [
-            "Graba 10 segundos de silencio ambiental en el lugar de rodaje para facilitar la eliminación digital de ruido de fondo, tal como se aplicó en el audio en locación del [proyecto Healthy Smile Miami](/es/portafolio/healthy-smile) (y su [caso de estudio](/es/casos-de-estudio/healthy-smile)).",
+            "Porque cada espacio tiene su propio sonido de fondo y el editor necesita una muestra limpia. Antes o después de la entrevista, pide a todos que se queden quietos y en silencio, y graba unos diez segundos del cuarto vacío con los mismos micrófonos en las mismas posiciones. Esa grabación permite rellenar los huecos entre cortes con el mismo fondo en lugar de con silencio total, que el oído nota de inmediato como un salto.",
+            "El tono de sala también sirve de referencia a las herramientas de reducción de ruido: aprenden el zumbido del aire acondicionado o de una nevera y lo quitan del diálogo con más limpieza que si tuvieran que adivinar. Graba una muestra nueva cada vez que cambie algo en el cuarto. Como ejemplo en locación, mira [Healthy Smile Miami](/es/portafolio/healthy-smile), donde Esteban grabó video y sonido, y su [caso de estudio](/es/casos-de-estudio/healthy-smile).",
+          ],
+        },
+        {
+          heading: "¿Cómo se organizan los archivos de audio antes de enviarlos al editor?",
+          paragraphs: [
+            "Conserva cada archivo de audio tal como lo creó la grabadora, en una carpeta por grabadora o por micrófono, y nunca lo renombres de forma que se pierda el nombre original: ese nombre y su marca de tiempo son los que permiten sincronizar el sonido con la imagen. Si la grabadora crea un archivo por canal, envíalos todos, incluso los que parezcan vacíos.",
+            "Agrega una nota sencilla: qué micrófono llevaba cada persona, qué grabadora corresponde a qué cámara y en qué toma algo salió mal, como una señal que se cortó o un ruido fuerte. Una palmada al inicio de cada toma, visible en cámara y audible en todas las grabadoras, hace la sincronización rápida y confiable. Envía la música y la voz en off como archivos separados y no mezclados en el video, con la mayor calidad que tengas, para que el editor pueda equilibrar los niveles.",
           ],
         },
       ],
@@ -3649,9 +3973,17 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Handling Widescreen Footage in Vertical Canvas",
+          heading: "How do you turn widescreen footage into a vertical video?",
           paragraphs: [
-            "Use styled background blur fills or pan-and-scan crops when adapting horizontal 16:9 footage into vertical 9:16 reels.",
+            "Reframe it shot by shot rather than applying one crop to everything. A 16:9 frame contains roughly three vertical frames side by side, so each shot needs a decision about which part matters: the speaker's face, the product, the action. When the subject moves across the frame, the crop can follow it with a slow pan so it never drifts out of view.",
+            "When a shot cannot be cropped without losing what matters — a wide group, a room, a landscape — place the full horizontal image in the middle of the vertical frame and fill the space above and below with a blurred or styled version of the same image, or with titles. Use that sparingly, because a small picture in the middle of a phone screen is harder to watch. If you know before filming that the video will be vertical, frame wider than usual and keep the subject near the centre.",
+          ],
+        },
+        {
+          heading: "What separates a good vertical edit from a cropped horizontal one?",
+          paragraphs: [
+            "Closeness, pace and text that belongs to the frame. Vertical video is watched at arm's length on a small screen, so closer shots read better than wide ones, and faces should fill more of the frame than they would on a television. Cuts tend to come more often, because each shot holds less information.",
+            "On-screen text and captions should be designed for the vertical frame: large enough to read on a phone, placed in the central safe area above the strip where the app shows its own caption and buttons, and short enough to read before the cut. Keep the important information in the upper two-thirds of the frame. Export at 1080x1920 from the original files rather than from a compressed horizontal export, and watch the finished video on a phone before publishing, since a desktop preview hides most vertical problems.",
           ],
         },
       ],
@@ -3673,9 +4005,17 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Adaptación de tomas horizontales a canvas vertical",
+          heading: "¿Cómo se convierte material horizontal en un video vertical?",
           paragraphs: [
-            "Utiliza rellenos de desenfoque o reencuadres dinámicos al adaptar material horizontal 16:9 a formato vertical 9:16.",
+            "Reencuadrando toma por toma en lugar de aplicar el mismo recorte a todo. Un cuadro 16:9 contiene más o menos tres cuadros verticales uno al lado del otro, así que cada toma necesita una decisión sobre qué parte importa: la cara de quien habla, el producto, la acción. Cuando el sujeto cruza el cuadro, el recorte puede seguirlo con un paneo lento para que nunca salga de la vista.",
+            "Cuando una toma no se puede recortar sin perder lo importante — un grupo amplio, un espacio, un paisaje — coloca la imagen horizontal completa en el centro del cuadro vertical y llena el espacio de arriba y de abajo con una versión desenfocada de la misma imagen o con títulos. Úsalo con moderación, porque una imagen pequeña en medio del teléfono cuesta más verla. Si sabes antes de grabar que el video será vertical, encuadra más abierto de lo normal y mantén al sujeto cerca del centro.",
+          ],
+        },
+        {
+          heading: "¿Qué distingue una buena edición vertical de un video horizontal recortado?",
+          paragraphs: [
+            "La cercanía, el ritmo y un texto pensado para el cuadro. El video vertical se mira a la distancia del brazo en una pantalla pequeña, así que los planos cercanos se leen mejor que los generales, y las caras deben ocupar más cuadro que en un televisor. Los cortes suelen llegar más seguido, porque cada toma contiene menos información.",
+            "Los textos y subtítulos deben diseñarse para el formato vertical: lo bastante grandes para leerse en el teléfono, ubicados en la zona segura central por encima de la franja donde la aplicación muestra su propio texto y sus botones, y lo bastante cortos para leerse antes del corte. Mantén la información importante en los dos tercios superiores del cuadro. Exporta en 1080x1920 desde los archivos originales y mira el video terminado en un teléfono antes de publicar.",
           ],
         },
       ],
@@ -3700,9 +4040,17 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Choosing Export Codecs per Destination",
+          heading: "What is the difference between RAW, LOG and standard video?",
           paragraphs: [
-            "Use Apple ProRes 422 for editing master archives and H.264 MP4 with AAC audio for web and social uploads, combining disparate camera codecs into a unified color-graded master as illustrated in the [Homeowners real estate editing project](/portfolio/homeowners) (detailed in the [Homeowners case study](/case-studies/homeowners)).",
+            "They differ in how much decision the camera makes for you. Standard video bakes in contrast, colour and sharpening at the moment of recording, so it looks finished straight away but has little room for adjustment. LOG profiles record a flat, low-contrast image that keeps more detail in highlights and shadows, leaving the final look to colour correction. RAW keeps even more of the sensor data, so white balance and exposure can be changed afterwards with fewer side effects.",
+            "More flexibility comes with larger files and more work. LOG and RAW footage must be corrected before anyone can judge it, and RAW files can fill drives quickly. For quick social content shot in good light, a standard profile is often the sensible choice; for a brand film, mixed lighting or footage that must match other cameras, LOG or RAW gives the editor room to make everything consistent.",
+          ],
+        },
+        {
+          heading: "Which export codec should each destination receive?",
+          paragraphs: [
+            "Two kinds of file serve most projects. A high-quality master, such as Apple ProRes 422, keeps the finished edit with very little loss and is the file to archive and to re-export from later. A delivery file, typically H.264 or H.265 in an MP4 with AAC audio, is small enough to upload and plays everywhere, which is what websites and social platforms expect.",
+            "Platforms recompress whatever you upload, so sending them a clean, well-made MP4 at the right resolution gives better results than sending a huge master and letting them shrink it. Keep the frame rate the same as the original footage, and name exports with the destination and the ratio so the right version reaches the right place. When footage from different cameras is combined into one graded master, as in the [Homeowners project](/portfolio/homeowners) edited from agency-supplied files, that master is the file worth keeping.",
           ],
         },
       ],
@@ -3724,9 +4072,17 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Elección de códecs según el destino final",
+          heading: "¿Qué diferencia hay entre RAW, LOG y el video estándar?",
           paragraphs: [
-            "Utiliza Apple ProRes 422 para archivos de edición master y H.264 MP4 con audio AAC para subir a sitios web y redes sociales, unificando tomas de múltiples cámaras en un master calibrado como en el [proyecto Homeowners](/es/portafolio/homeowners) (y su [caso de estudio](/es/casos-de-estudio/homeowners)).",
+            "Se diferencian en cuántas decisiones toma la cámara por ti. El video estándar fija el contraste, el color y la nitidez en el momento de grabar, así que se ve terminado de inmediato pero deja poco margen para ajustes. Los perfiles LOG graban una imagen plana y de bajo contraste que conserva más detalle en luces y sombras, y dejan el aspecto final a la corrección de color. El RAW guarda aún más información del sensor, de modo que el balance de blancos y la exposición se pueden cambiar después con menos efectos secundarios.",
+            "Más flexibilidad implica archivos más pesados y más trabajo. El material LOG y RAW debe corregirse antes de poder juzgarlo, y los archivos RAW llenan los discos rápido. Para contenido rápido en buena luz, un perfil estándar suele ser lo sensato; para un video de marca, luz mezclada o material que debe igualarse con otras cámaras, LOG o RAW dan margen al editor.",
+          ],
+        },
+        {
+          heading: "¿Qué códec de exportación necesita cada destino?",
+          paragraphs: [
+            "La mayoría de los proyectos se resuelven con dos tipos de archivo. Un maestro de alta calidad, como Apple ProRes 422, guarda la edición terminada casi sin pérdida y es el archivo para archivar y volver a exportar más adelante. Un archivo de entrega, normalmente H.264 o H.265 en MP4 con audio AAC, es lo bastante liviano para subirlo y se reproduce en todos lados, que es lo que esperan los sitios web y las redes.",
+            "Las plataformas vuelven a comprimir lo que subes, así que enviarles un MP4 limpio y bien hecho a la resolución correcta da mejor resultado que subir un maestro enorme y dejar que lo reduzcan. Mantén la misma velocidad de cuadro del material original y nombra cada exportación con su destino y su formato. Cuando se combina material de varias cámaras en un maestro corregido, como en el [proyecto Homeowners](/es/portafolio/homeowners), ese maestro es el archivo que vale la pena guardar.",
           ],
         },
       ],

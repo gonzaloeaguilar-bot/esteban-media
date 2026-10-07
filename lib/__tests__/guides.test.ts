@@ -350,11 +350,11 @@ describe("bilingual practical guides", () => {
 
     const enProse = JSON.stringify(enGuide.sections);
     const esProse = JSON.stringify(esGuide.sections);
-    expect(enProse).toContain("Choose caption styles by viewing context");
-    expect(enProse).toContain("Balance highlighting with readability");
+    expect(enProse).toContain("How do you choose a caption style for the viewing context?");
+    expect(enProse).toContain("How do you balance word highlighting with readability?");
     expect(enProse).toContain("/services/restaurant-promo-video-editing-miami");
-    expect(esProse).toContain("Elige el estilo según cómo se verá el video");
-    expect(esProse).toContain("Resalta sin perder legibilidad");
+    expect(esProse).toContain("¿Cómo se elige el estilo según cómo se verá el video?");
+    expect(esProse).toContain("¿Cómo se resalta sin perder legibilidad?");
     expect(esProse).toContain("/es/reels-para-negocios-miami");
 
     for (const guide of [enGuide, esGuide]) {
@@ -398,8 +398,8 @@ describe("bilingual practical guides", () => {
     expect(esGuide).toBeDefined();
     if (!enGuide || !esGuide) return;
 
-    expect(enGuide.sections).toHaveLength(6);
-    expect(esGuide.sections).toHaveLength(5);
+    expect(enGuide.sections).toHaveLength(10);
+    expect(esGuide.sections).toHaveLength(8);
     expect(enGuide.faqs).toHaveLength(7);
     expect(esGuide.faqs).toHaveLength(6);
 
@@ -407,12 +407,12 @@ describe("bilingual practical guides", () => {
     const esProse = JSON.stringify(esGuide.sections);
 
     expect(enProse).toContain(
-      "Use a simple decision brief before requesting a quote",
+      "What decision brief should you write before requesting a quote?",
     );
     expect(enProse).toContain("Editing-first: existing footage");
     expect(enProse).toContain("Filming-first: location");
     expect(enProse).toContain(
-      "How raw footage handoff changes the role you should hire",
+      "How does the state of your raw footage change the role you should hire?",
     );
     expect(enProse).toContain("Good editor handoff: clear speech");
     expect(enGuide.faqs?.map((faq) => faq.question)).toContain(
@@ -422,7 +422,7 @@ describe("bilingual practical guides", () => {
     expect(enProse).toContain("/services/corporate-event-videographer-miami");
 
     expect(esProse).toContain(
-      "Usa un brief sencillo antes de pedir una cotización",
+      "¿Qué brief sencillo conviene escribir antes de pedir una cotización?",
     );
     expect(esProse).toContain("Primero edición: material existente");
     expect(esProse).toContain("Primero grabación: locación");
@@ -479,10 +479,10 @@ describe("bilingual practical guides", () => {
     const esProse = JSON.stringify(esGuide.sections);
 
     expect(enProse).toContain(
-      "Where automated AI video tools save time in post-production",
+      "Where do automated AI video tools save time in post-production?",
     );
     expect(enProse).toContain(
-      "Where automated tools struggle: Narrative pacing, emotion, and context",
+      "Where do automated tools struggle with pacing, emotion and context?",
     );
     expect(enProse).toContain("/portfolio/my-dler");
     expect(enProse).toContain("/services/short-form-video-editor-miami");
@@ -492,10 +492,10 @@ describe("bilingual practical guides", () => {
     expect(enProse).toContain("/contact");
 
     expect(esProse).toContain(
-      "Áreas donde las herramientas automatizadas de IA ahorran tiempo",
+      "¿Dónde ahorran tiempo las herramientas automatizadas de IA?",
     );
     expect(esProse).toContain(
-      "Límites del software automatizado: Narrativa, emoción y contexto",
+      "¿Dónde falla el software automatizado en narrativa, emoción y contexto?",
     );
     expect(esProse).toContain("/es/portafolio/my-dler");
     expect(esProse).toContain("/es/editor-de-video-corto-para-redes-miami");
@@ -554,16 +554,16 @@ describe("bilingual practical guides", () => {
     const esProse = JSON.stringify(esGuide.sections);
 
     expect(enProse).toContain(
-      "Why remote editing accelerates turnaround and removes studio overhead",
+      "Why can remote editing remove studio overhead?",
     );
     expect(enProse).toContain(
-      "Cost structures: Project-based post-production vs local studio day rates",
+      "How do project-based post-production and studio day rates compare?",
     );
     expect(enProse).toContain(
-      "Collaboration tools and review workflows for remote video teams",
+      "Which collaboration tools and review workflows suit remote teams?",
     );
     expect(enProse).toContain(
-      "When a local production studio is required vs when remote editing is ideal",
+      "When is a local studio required, and when does remote editing fit?",
     );
     expect(enProse).toContain("/services/short-form-video-editor-miami");
     expect(enProse).toContain("/guides/fastest-way-to-send-large-video-files-to-editor");
@@ -576,16 +576,16 @@ describe("bilingual practical guides", () => {
     expect(enProse).toContain("/contact");
 
     expect(esProse).toContain(
-      "Por qué la edición remota acelera las entregas y reduce costos fijos",
+      "¿Por qué la edición remota puede reducir costos fijos?",
     );
     expect(esProse).toContain(
-      "Estructura de costos: Paquetes de edición vs tarifas por jornada de estudio local",
+      "¿Cómo se comparan los paquetes de edición y las tarifas por jornada de estudio?",
     );
     expect(esProse).toContain(
-      "Herramientas de colaboración y flujo de revisión para equipos remotos",
+      "¿Qué herramientas y flujos de revisión sirven a equipos remotos?",
     );
     expect(esProse).toContain(
-      "Cuándo se necesita un estudio local y cuándo conviene la edición remota",
+      "¿Cuándo se necesita un estudio local y cuándo conviene la edición remota?",
     );
     expect(esProse).toContain("/es/editor-de-video-corto-para-redes-miami");
     expect(esProse).toContain("/es/guias/como-enviar-archivos-pesados-de-video-para-edicion");

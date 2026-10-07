@@ -162,7 +162,7 @@ describe("demand pages depth and substance", () => {
       guide?.sections.some(
         (section) =>
           section.heading ===
-          "How raw footage handoff changes the role you should hire",
+          "How does the state of your raw footage change the role you should hire?",
       ),
     ).toBe(true);
     expect(

@@ -1,0 +1,413 @@
+{
+ "en:agency-video-editing-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "en:ai-product-photography-guide": {
+  "dollars": [],
+  "percents": [
+   "100%"
+  ]
+ },
+ "en:ai-vs-human-editor-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "en:ai-vs-traditional-photo-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "en:b2b-video-funnel-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "en:bilingual-video-strategy-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "en:caption-styles-reels-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "en:choose-video-editor-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "en:color-grading-vs-correction-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "en:corporate-video-cost-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "en:design-video-thumbnails-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "en:drone-video-editing-guidelines-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "en:editor-vs-videographer-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "en:formats-and-safe-zones": {
+  "dollars": [],
+  "percents": []
+ },
+ "en:fort-lauderdale-video-cost-guide": {
+  "dollars": [
+   "$10,000",
+   "$100",
+   "$150",
+   "$2,000",
+   "$2,500",
+   "$50",
+   "$640",
+   "$800"
+  ],
+  "percents": []
+ },
+ "en:freelance-vs-post-agency-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "en:ideal-video-length-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "en:improve-video-retention-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "en:interview-lighting-audio-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "en:mix-audio-social-video-guide": {
+  "dollars": [],
+  "percents": [
+   "100%"
+  ]
+ },
+ "en:prepare-audio-for-editing-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "en:prepare-footage": {
+  "dollars": [],
+  "percents": []
+ },
+ "en:product-photography-pricing-guide": {
+  "dollars": [
+   "$1,000",
+   "$25",
+   "$300",
+   "$35",
+   "$50"
+  ],
+  "percents": []
+ },
+ "en:raw-video-formats-explained-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "en:real-estate-reels": {
+  "dollars": [],
+  "percents": []
+ },
+ "en:real-estate-video-cost-guide": {
+  "dollars": [
+   "$1,250",
+   "$100",
+   "$149",
+   "$199",
+   "$200",
+   "$249",
+   "$299",
+   "$399",
+   "$450",
+   "$499",
+   "$700",
+   "$75"
+  ],
+  "percents": []
+ },
+ "en:record-with-iphone-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "en:reels-for-business": {
+  "dollars": [],
+  "percents": []
+ },
+ "en:reels-vs-tiktok-vs-shorts-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "en:remote-editing-handoff": {
+  "dollars": [],
+  "percents": []
+ },
+ "en:remote-vs-local-editing-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "en:repurpose-longform-to-reels-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "en:restaurant-video-cost-guide": {
+  "dollars": [
+   "$100",
+   "$350",
+   "$400",
+   "$640",
+   "$675",
+   "$775",
+   "$800"
+  ],
+  "percents": []
+ },
+ "en:restaurant-video-ideas": {
+  "dollars": [],
+  "percents": []
+ },
+ "en:script-social-ads-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "en:select-broll-corporate-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "en:testimonial-script-template-guide": {
+  "dollars": [],
+  "percents": [
+   "10%"
+  ]
+ },
+ "en:transfer-large-video-files-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "en:vertical-video-best-practices-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "en:video-aspect-ratios-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "en:video-brief": {
+  "dollars": [],
+  "percents": []
+ },
+ "es:agency-video-editing-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "es:ai-product-photography-guide": {
+  "dollars": [],
+  "percents": [
+   "100%"
+  ]
+ },
+ "es:ai-vs-human-editor-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "es:ai-vs-traditional-photo-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "es:b2b-video-funnel-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "es:bilingual-video-strategy-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "es:caption-styles-reels-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "es:choose-video-editor-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "es:color-grading-vs-correction-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "es:corporate-video-cost-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "es:design-video-thumbnails-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "es:drone-video-editing-guidelines-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "es:editor-vs-videographer-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "es:formats-and-safe-zones": {
+  "dollars": [],
+  "percents": []
+ },
+ "es:fort-lauderdale-video-cost-guide": {
+  "dollars": [
+   "$10,000",
+   "$100",
+   "$150",
+   "$2,000",
+   "$2,500",
+   "$50",
+   "$640",
+   "$800"
+  ],
+  "percents": []
+ },
+ "es:freelance-vs-post-agency-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "es:ideal-video-length-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "es:improve-video-retention-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "es:interview-lighting-audio-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "es:mix-audio-social-video-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "es:prepare-audio-for-editing-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "es:prepare-footage": {
+  "dollars": [],
+  "percents": []
+ },
+ "es:product-photography-pricing-guide": {
+  "dollars": [
+   "$1,000",
+   "$25",
+   "$280",
+   "$300",
+   "$35",
+   "$50"
+  ],
+  "percents": []
+ },
+ "es:raw-video-formats-explained-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "es:real-estate-reels": {
+  "dollars": [],
+  "percents": []
+ },
+ "es:real-estate-video-cost-guide": {
+  "dollars": [
+   "$1,250",
+   "$100",
+   "$149",
+   "$199",
+   "$200",
+   "$249",
+   "$299",
+   "$399",
+   "$450",
+   "$499",
+   "$700",
+   "$75"
+  ],
+  "percents": []
+ },
+ "es:record-with-iphone-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "es:reels-for-business": {
+  "dollars": [],
+  "percents": []
+ },
+ "es:reels-vs-tiktok-vs-shorts-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "es:remote-editing-handoff": {
+  "dollars": [],
+  "percents": []
+ },
+ "es:remote-vs-local-editing-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "es:repurpose-longform-to-reels-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "es:restaurant-video-cost-guide": {
+  "dollars": [
+   "$100",
+   "$350",
+   "$400",
+   "$640",
+   "$675",
+   "$775",
+   "$800"
+  ],
+  "percents": []
+ },
+ "es:restaurant-video-ideas": {
+  "dollars": [],
+  "percents": []
+ },
+ "es:script-social-ads-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "es:select-broll-corporate-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "es:testimonial-script-template-guide": {
+  "dollars": [],
+  "percents": [
+   "10 %"
+  ]
+ },
+ "es:transfer-large-video-files-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "es:vertical-video-best-practices-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "es:video-aspect-ratios-guide": {
+  "dollars": [],
+  "percents": []
+ },
+ "es:video-brief": {
+  "dollars": [],
+  "percents": []
+ }
+}
