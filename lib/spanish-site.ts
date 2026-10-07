@@ -30,7 +30,7 @@ export const spanishSite = {
   description:
     "Esteban Moreno Media: edición de video, contenido con IA y producción para redes en South Florida. Bilingüe Español/English. Fort Lauderdale — cotiza rápido.",
   /** The Spanish HOME only: anchored on the published starting price (lib/pricing.ts). */
-  homeDescription: `Esteban Moreno Media: edición de video, contenido con IA y producción para redes en Fort Lauderdale y Miami. Paquetes desde ${usd(PACKAGE_PRICES.arranque.kind === "from" ? PACKAGE_PRICES.arranque.amount : 0)}. Cotiza por WhatsApp.`,
+  homeDescription: `Esteban Moreno Media: edición de video, contenido con IA y producción para redes en Fort Lauderdale y Miami. Paquetes desde ${PACKAGE_PRICES.arranque.kind === "from" ? usd(PACKAGE_PRICES.arranque.amount) : "un precio a cotizar"}. Cotiza por WhatsApp.`,
   contactLead:
     "Comparte la meta, el condado, el material disponible, las referencias y el uso previsto. La atención es principalmente en español y también hay comunicación disponible en inglés intermedio.",
 };
@@ -58,7 +58,7 @@ export const spanishServices: SpanishService[] = [
       "El alcance parte del material disponible, la meta de publicación y las necesidades de formato.",
     icon: Scissors,
     tags: ["Remoto", "Material existente", "Postproducción"],
-    startingPrice: `Desde ${usd(PACKAGE_PRICES.arranque.kind === "from" ? PACKAGE_PRICES.arranque.amount : 0)}`,
+    startingPrice: `Desde ${PACKAGE_PRICES.arranque.kind === "from" ? usd(PACKAGE_PRICES.arranque.amount) : "un precio a cotizar"}`,
   },
   {
     id: "contenido-ia",
@@ -3332,7 +3332,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         heading: "¿Cuánto cuesta la edición de video en marca blanca?",
         paragraphs: [
-          `El [paquete Arranque](/es/precios/arranque) de Esteban, edición remota del material que ya grabaste, parte desde ${usd(PACKAGE_PRICES.arranque.kind === "from" ? PACKAGE_PRICES.arranque.amount : 0)} por proyecto e incluye una ronda de revisión. Para un estimado con alcance, la calculadora ubica los videos cortos entre ${usd(PRICING_BANDS.social.baseMin)} y ${usd(PRICING_BANDS.social.baseMax)} por proyecto y la edición para YouTube entre ${usd(PRICING_BANDS.youtube.baseMin)} y ${usd(PRICING_BANDS.youtube.baseMax)} por video. Son rangos de un editor independiente con un descuento introductorio del 10 %, comparados con tarifas de mercado publicadas de ${usd(PRICING_BANDS.social.marketMin)} a ${usd(PRICING_BANDS.social.marketMax)} y ${usd(PRICING_BANDS.youtube.marketMin)} a ${usd(PRICING_BANDS.youtube.marketMax)}.`,
+          `El [paquete Arranque](/es/precios/arranque) de Esteban, edición remota del material que ya grabaste, parte desde ${PACKAGE_PRICES.arranque.kind === "from" ? usd(PACKAGE_PRICES.arranque.amount) : "un precio a cotizar"} por proyecto e incluye una ronda de revisión. Para un estimado con alcance, la calculadora ubica los videos cortos entre ${usd(PRICING_BANDS.social.baseMin)} y ${usd(PRICING_BANDS.social.baseMax)} por proyecto y la edición para YouTube entre ${usd(PRICING_BANDS.youtube.baseMin)} y ${usd(PRICING_BANDS.youtube.baseMax)} por video. Son rangos de un editor independiente con un descuento introductorio del 10 %, comparados con tarifas de mercado publicadas de ${usd(PRICING_BANDS.social.marketMin)} a ${usd(PRICING_BANDS.social.marketMax)} y ${usd(PRICING_BANDS.youtube.marketMin)} a ${usd(PRICING_BANDS.youtube.marketMax)}.`,
           `Un estudio con volumen constante puede calcular 15 videos cortos al mes entre ${usd(Math.round((PRICING_BANDS.social.baseMin * VOLUME_MULTIPLIERS["monthly-15"].multMin) / 25) * 25)} y ${usd(Math.round((PRICING_BANDS.social.baseMax * VOLUME_MULTIPLIERS["monthly-15"].multMax) / 25) * 25)} en la misma calculadora. Nada de esto es una cotización. El precio de un trabajo en marca blanca se fija cuando Esteban ve el material, la lista de entregables y las rondas de revisión que el estudio vendió a su propio cliente; por eso conviene enviar primero un proyecto representativo y cotizar el resto a partir de él.`,
         ],
       },

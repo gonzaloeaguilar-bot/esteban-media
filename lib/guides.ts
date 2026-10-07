@@ -3550,7 +3550,7 @@ const guidePairs: readonly GuidePair[] = [
         href: "/portfolio/healthy-smile",
         title: "Healthy Smile Miami",
         description:
-          "Social-media videos for a Miami dental clinic, made on assignment with the agency 300 Bees: filmed on location with video and sound, then edited. Not a testimonial; linked as the published example of on-location filming with sound.",
+          "Social-media videos for a Miami dental clinic, made on assignment with the agency 300 Bees: filmed on location with video and sound, then edited. Not a testimonial: linked as a public sample of on-location filming with sound, not as evidence of testimonial work.",
       },
       sections: [
         {
@@ -3596,7 +3596,7 @@ const guidePairs: readonly GuidePair[] = [
         href: "/es/portafolio/healthy-smile",
         title: "Healthy Smile Miami",
         description:
-          "Videos para redes de un consultorio odontológico en Miami, por encargo de la agencia 300 Bees: grabados en locación con video y sonido, y luego editados. No es un testimonial; se enlaza como ejemplo publicado de grabación en locación con sonido.",
+          "Videos para redes de un consultorio odontológico en Miami, por encargo de la agencia 300 Bees: grabados en locación con video y sonido, y luego editados. No es un testimonial: se enlaza como ejemplo de grabación en locación con sonido, no como prueba de trabajo testimonial.",
       },
       sections: [
         {
