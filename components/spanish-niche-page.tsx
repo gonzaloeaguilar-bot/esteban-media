@@ -242,13 +242,13 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
   "marketing-de-video-para-dentistas-miami": {
     areaHref: "/es/areas#miami-dade",
     areaLabel: "Ver cobertura en Miami-Dade",
-    note: "El proyecto Healthy Smile demuestra videografía, guion tipo sketch y edición para el sector de salud dental en Miami.",
+    note: "Healthy Smile Miami: videos para redes de una clínica dental de Miami, grabados en locación (video y sonido) y editados por encargo de la agencia 300 Bees.",
     serviceIds: ["edicion", "videografia", "planificacion-social"],
     projects: [
       {
         href: "/es/portafolio/healthy-smile",
         title: "Healthy Smile Miami",
-        detail: "Guion tipo sketch, videografía y edición para clínica dental.",
+        detail: "Videografía, sonido y edición para una clínica dental · 2021.",
       },
     ],
   },
@@ -268,13 +268,13 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
   "marketing-de-video-para-clinicas-esteticas-miami": {
     areaHref: "/es/areas#miami-dade",
     areaLabel: "Ver cobertura en Miami-Dade y Broward",
-    note: "El proyecto Healthy Smile demuestra videografía y edición para servicios de estética y salud.",
+    note: "No hay un proyecto de clínica estética publicado; Healthy Smile Miami es el trabajo clínico más cercano.",
     serviceIds: ["edicion", "videografia", "planificacion-social"],
     projects: [
       {
         href: "/es/portafolio/healthy-smile",
         title: "Healthy Smile Miami",
-        detail: "Videografía y edición para clínica estética y dental.",
+        detail: "Videografía, sonido y edición para una clínica dental · 2021.",
       },
     ],
   },
@@ -530,13 +530,13 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
   "marketing-de-video-automotriz-miami": {
     areaHref: "/es/areas#miami-dade",
     areaLabel: "Ver cobertura en Miami-Dade y Broward",
-    note: "Edición estilo cinematográfico para autos de lujo y detailing.",
+    note: "Todavía no hay un video de vehículos publicado; el trabajo automotriz publicado es web y conserje con IA para un concesionario y un taller.",
     serviceIds: ["edicion"],
     projects: [
       {
         href: "/es/portafolio/homeowners",
         title: "Homeowners",
-        detail: "Corrección de color cinematográfica.",
+        detail: "Video social editado con material de la agencia 300 Bees.",
       },
     ],
   },
@@ -678,13 +678,13 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
   "marketing-de-video-para-alquiler-de-yates-miami": {
     areaHref: "/es/areas#miami-dade",
     areaLabel: "Ver cobertura en Miami Beach y Fort Lauderdale",
-    note: "Videos de estilo de vida náutico y chárters de yates.",
+    note: "Todavía no hay un proyecto de yates publicado; Bar Door Monkey es hospitalidad grabada en locación.",
     serviceIds: ["edicion"],
     projects: [
       {
-        href: "/es/portafolio/my-dler",
-        title: "My D'ler",
-        detail: "Edición de video de estilo de vida de lujo.",
+        href: "/es/portafolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        detail: "Promo social grabada en locación · 2020 · 55 segundos.",
       },
     ],
   },
