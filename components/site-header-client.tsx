@@ -113,14 +113,14 @@ export function SiteHeaderClient({ shortName }: { shortName: string }) {
             aria-expanded={isMenuOpen}
             aria-controls="mobile-primary-navigation"
             onClick={() => setIsMenuOpen((open) => !open)}
-            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-[#b9aa9a] px-4 text-sm font-medium text-[#252a2d] hover:border-[#e85d3e] lg:hidden"
+            className="em-header-menu inline-flex min-h-11 min-w-11 items-center justify-center gap-2 rounded-full border border-[#b9aa9a] px-3 text-sm font-medium text-[#252a2d] hover:border-[#e85d3e] lg:hidden sm:px-4"
           >
             {isMenuOpen ? (
               <X className="size-4" aria-hidden="true" />
             ) : (
               <Menu className="size-4" aria-hidden="true" />
             )}
-            {isSpanish ? "Menú" : "Menu"}
+            <span className="em-menu-label">{isSpanish ? "Menú" : "Menu"}</span>
           </button>
         </div>
       </div>

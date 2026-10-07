@@ -18,6 +18,7 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  preload: false,
 });
 
 const newsreader = Newsreader({
@@ -33,6 +34,7 @@ const oswald = Oswald({
   subsets: ["latin"],
   weight: ["500", "600", "700"],
   display: "swap",
+  preload: false,
 });
 
 export const siteBodyClassName = `${geistSans.variable} ${geistMono.variable} ${newsreader.variable} ${oswald.variable} antialiased`;
