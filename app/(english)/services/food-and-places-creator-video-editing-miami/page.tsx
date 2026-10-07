@@ -4,6 +4,8 @@ import { Container } from "@/components/ui/container";
 import { ServiceCraft, ServiceDeepDive, ServiceFaqs, ServiceInquiryRail, ServiceRelated, buildServiceFaqSchema } from "@/components/service-depth";
 import { FOOD_PLACES_CREATOR_DEPTH as depth, FOOD_PLACES_CREATOR_SECTIONS } from "@/lib/service-depth-content";
 import { priceSentence } from "@/lib/packages";
+import { ArranqueWeeklySection } from "@/components/arranque-weekly-section";
+import { arranqueWeeklyFaq, arranqueWeeklyOfferJsonLd } from "@/lib/arranque-weekly";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl } from "@/lib/site";
 
@@ -21,7 +23,8 @@ export default function FoodPlacesCreatorPage() {
     "@context": "https://schema.org",
     "@graph": [
       { "@type": "Service", "@id": absoluteUrl(`${path}#service`), name: "Food and Places Creator Video Editing", description: "Remote editing and launch-month content planning for food and places recommendation creators in Miami-Dade and Broward.", provider: { "@id": absoluteUrl("/#business") }, areaServed: "Miami-Dade / Broward / Remote", serviceType: "Food and places creator video editing" },
-      buildServiceFaqSchema(absoluteUrl(path), depth.faqs),
+      buildServiceFaqSchema(absoluteUrl(path), [...depth.faqs, ...arranqueWeeklyFaq("en")]),
+      arranqueWeeklyOfferJsonLd("en", absoluteUrl(path), absoluteUrl("/#business")),
       { "@type": "BreadcrumbList", "@id": absoluteUrl(`${path}#breadcrumbs`), itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl("/") },
         { "@type": "ListItem", position: 2, name: "Services", item: absoluteUrl("/services") },
@@ -56,6 +59,7 @@ export default function FoodPlacesCreatorPage() {
           </div>
         </Container>
       </section>
+      <ArranqueWeeklySection locale="en" />
       <ServiceCraft heading={depth.craftHeading} cards={depth.craft} sectionId="food-creator-craft" />
       <ServiceDeepDive id="food-creator-details" title="Plan your first food or places videos" destinations="Formats, launch month, what to film, paid visits and published examples" sections={FOOD_PLACES_CREATOR_SECTIONS} />
       <ServiceInquiryRail trackInterest sectionId="food-creator-inquiry" service={{ serviceId: "food_places_creator_video", serviceName: "food and places creator video editing", goalPrompt: "launch my recommendation account or edit my restaurant visits", assetPrompt: "original clips, venue and dish names, my account and any paid or comped visits", proofHref: "/portfolio/bar-door-monkey", proofLabel: "Watch the published venue promo" }} />

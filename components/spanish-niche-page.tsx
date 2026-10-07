@@ -11,7 +11,9 @@ import { KeepReading } from "@/components/keep-reading";
 import { Container } from "@/components/ui/container";
 import { Cartel, Figure, NumberedList } from "@/components/em-surface";
 import { ProjectRail, ServiceRail } from "@/components/em-rails";
-import { ServiceInquiryRail, type ServiceInquiry } from "@/components/service-depth";
+import { ServiceInquiryRail, buildServiceFaqSchema, type ServiceInquiry } from "@/components/service-depth";
+import { ArranqueWeeklySection } from "@/components/arranque-weekly-section";
+import { ARRANQUE_WEEKLY_SPANISH_SLUGS, arranqueWeeklyFaq, arranqueWeeklyOfferJsonLd } from "@/lib/arranque-weekly";
 import {
   buildSpanishNicheStructuredData,
   getSpanishNichePage,
@@ -19,7 +21,7 @@ import {
   spanishServices,
 } from "@/lib/spanish-site";
 import { buildPageMetadata } from "@/lib/site-metadata";
-import { site } from "@/lib/site";
+import { absoluteUrl, site } from "@/lib/site";
 
 
 type NicheLinkContext = {
@@ -1240,7 +1242,23 @@ export function SpanishNichePage({ slug }: { slug: string }) {
         linkContext.serviceIds.includes(service.id),
       )
     : spanishServices;
-  const jsonLd = buildSpanishNicheStructuredData(page);
+  const hasArranqueWeekly = ARRANQUE_WEEKLY_SPANISH_SLUGS.has(page.slug);
+  const baseJsonLd = buildSpanishNicheStructuredData(page);
+  // The weekly plan's questions join the page's ONE FAQPage (same strings as
+  // rendered), and its prices ride as an OfferCatalog in the same graph.
+  const jsonLd = hasArranqueWeekly
+    ? {
+        ...baseJsonLd,
+        "@graph": [
+          ...baseJsonLd["@graph"].map((node) =>
+            node["@type"] === "FAQPage"
+              ? { ...node, mainEntity: buildServiceFaqSchema(absoluteUrl(`/es/${page.slug}`), [...page.faqs, ...arranqueWeeklyFaq("es")]).mainEntity }
+              : node,
+          ),
+          arranqueWeeklyOfferJsonLd("es", absoluteUrl(`/es/${page.slug}`), absoluteUrl("/#business")),
+        ],
+      }
+    : baseJsonLd;
   const contactHref =
     page.slug === "video-para-pequenos-negocios-pembroke-pines"
       ? "/es/contacto?source=pembroke-pines-small-business-video"
@@ -1380,6 +1398,8 @@ export function SpanishNichePage({ slug }: { slug: string }) {
           </div>
         </Container>
       </section>
+
+      {hasArranqueWeekly ? <ArranqueWeeklySection locale="es" /> : null}
 
       <section className="py-12 sm:py-16">
         <Container size="xl">

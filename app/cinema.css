@@ -939,6 +939,20 @@ html {
   .em-pkcard__cta { margin-top: 12px; }
 }
 
+/* Arranque's one-line pointer to its weekly option on the creator pages. */
+.em-pkcard__weekly {
+  margin: 10px 0 0;
+  font-size: 13.5px;
+  line-height: 1.4;
+}
+.em-pkcard__weekly a {
+  display: inline-flex;
+  min-height: 24px;
+  align-items: center;
+  color: var(--cine-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 .em-pkcard__ideal {
   margin: 14px 0 18px;
   font-size: 13.5px;

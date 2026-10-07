@@ -88,7 +88,7 @@ describe("food and places creator pages", () => {
     const graph = buildSpanishNicheStructuredData(spanishPage)["@graph"];
     const faq = graph.find((node) => node["@type"] === "FAQPage") as { mainEntity: { name: string; acceptedAnswer: { text: string } }[] };
     expect(faq.mainEntity.map((item) => ({ question: item.name, answer: item.acceptedAnswer.text }))).toEqual(spanishPage.faqs);
-    expect(englishSource).toContain("buildServiceFaqSchema(absoluteUrl(path), depth.faqs)");
+    expect(englishSource).toContain("buildServiceFaqSchema(absoluteUrl(path), [...depth.faqs, ...arranqueWeeklyFaq(\"en\")])");
     expect(englishSource).toContain("collapsible");
   });
 });

@@ -1117,6 +1117,8 @@ nav[aria-label*="igas de pan" i] a,
 
 .em-package-detail { --rail-muted: #5a6066; }
 .em-package-detail .rail-price { gap: 0.5rem; }
+/* Light card: the kit's muted default is for dark surfaces (measured 0.65 white on #f6f1ea). */
+.em-weekly-plan .rail-price__unit { color: #51565a; }
 
 /* Service reading disclosures sit on paper, outside the dark home theme. */
 .em-reading-paper {

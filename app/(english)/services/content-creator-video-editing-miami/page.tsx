@@ -11,6 +11,8 @@ import {
   buildServiceFaqSchema,
 } from "@/components/service-depth";
 import { CREATOR_DEPTH } from "@/lib/service-depth-content";
+import { ArranqueWeeklySection } from "@/components/arranque-weekly-section";
+import { arranqueWeeklyFaq, arranqueWeeklyOfferJsonLd } from "@/lib/arranque-weekly";
 import { CREATOR_DEEP_DIVE } from "@/lib/service-deep-dive-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
@@ -29,7 +31,8 @@ export default function ContentCreatorVideoEditingPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
-      buildServiceFaqSchema(absoluteUrl(path), CREATOR_DEPTH.faqs),
+      buildServiceFaqSchema(absoluteUrl(path), [...CREATOR_DEPTH.faqs, ...arranqueWeeklyFaq("en")]),
+      arranqueWeeklyOfferJsonLd("en", absoluteUrl(path), absoluteUrl("/#business")),
       {
         "@type": "Service",
         "@id": absoluteUrl(`${path}#service`),
@@ -144,6 +147,7 @@ export default function ContentCreatorVideoEditingPage() {
         </Container>
       </section>
 
+      <ArranqueWeeklySection locale="en" />
       <ServiceCraft
         heading={CREATOR_DEPTH.craftHeading}
         cards={CREATOR_DEPTH.craft}
