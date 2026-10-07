@@ -3,12 +3,14 @@ import { ArrowRight, CheckCircle2, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import {
+  ServiceDeepDive,
   ServiceCraft,
   ServiceFaqs,
   ServiceRelated,
   buildServiceFaqSchema,
 } from "@/components/service-depth";
 import { MED_SPA_DEPTH } from "@/lib/service-depth-content";
+import { MED_SPA_DEEP_DIVE } from "@/lib/vertical-deep-dives";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -144,6 +146,13 @@ export default function MedSpaVideoMarketingPage() {
           </div>
         </Container>
       </section>
+
+      <ServiceDeepDive
+        id={MED_SPA_DEEP_DIVE.id}
+        title={MED_SPA_DEEP_DIVE.title}
+        destinations={MED_SPA_DEEP_DIVE.destinations}
+        sections={MED_SPA_DEEP_DIVE.sections}
+      />
 
       <section className="py-12 sm:py-16">
         <Container size="xl">

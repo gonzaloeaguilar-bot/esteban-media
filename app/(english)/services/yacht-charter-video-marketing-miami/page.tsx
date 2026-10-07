@@ -3,12 +3,14 @@ import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import {
+  ServiceDeepDive,
   ServiceCraft,
   ServiceFaqs,
   ServiceRelated,
   buildServiceFaqSchema,
 } from "@/components/service-depth";
 import { YACHT_DEPTH } from "@/lib/service-depth-content";
+import { YACHT_CHARTER_DEEP_DIVE } from "@/lib/vertical-deep-dives";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -98,12 +100,19 @@ export default function YachtCharterVideoMarketingMiamiPage() {
               <Video className="size-8 text-[#e85d3e]" aria-hidden="true" />
               <h2 className="mt-5 font-serif text-3xl">Yacht video proof</h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                Our portfolio project <strong>My D&apos;ler</strong> proves published luxury lifestyle and hospitality video editing.
+                No yacht project is published yet. The closest work is <strong>Bar Door Monkey Miami</strong>, a 55-second social promo filmed on location at a Miami venue and delivered for its Instagram.
               </p>
             </div>
           </div>
         </Container>
       </section>
+
+      <ServiceDeepDive
+        id={YACHT_CHARTER_DEEP_DIVE.id}
+        title={YACHT_CHARTER_DEEP_DIVE.title}
+        destinations={YACHT_CHARTER_DEEP_DIVE.destinations}
+        sections={YACHT_CHARTER_DEEP_DIVE.sections}
+      />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
