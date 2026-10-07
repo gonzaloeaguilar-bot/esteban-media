@@ -112,8 +112,9 @@ describe("consolidation arithmetic matches the published baseline", () => {
     // content creator, white label, salon/barbershop, detailing/tint/wrap).
     // +2 = food and places creator pair (2026-10-07).
     // +4 = the 2026-10-07 restaurant and real-estate cost-answer guide pairs.
+    // +1 = the 2026-10-07 /es/editor-de-video-miami page.
     // All owner-ordered, none of them consolidation changes.
-    expect(sitemap()).toHaveLength(269 - 26 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 2 + 4);
+    expect(sitemap()).toHaveLength(269 - 26 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 2 + 4 + 1);
   });
 
   it("never lists a redirect source in the sitemap", () => {

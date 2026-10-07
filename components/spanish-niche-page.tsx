@@ -100,7 +100,7 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
   "editor-de-reels-fort-lauderdale": {
     areaHref: "/es/areas#fort-lauderdale",
     areaLabel: "Ver cobertura en Fort Lauderdale y Broward",
-    note: "La edicion de Reels puede hacerse remoto con material existente; la captura local se revisa proyecto por proyecto.",
+    note: "La edición de Reels puede hacerse remoto con material existente; la captura local se revisa proyecto por proyecto.",
     serviceIds: ["edicion", "planificacion-social"],
     projects: [
       {
@@ -111,14 +111,14 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
       {
         href: "/es/portafolio/homeowners",
         title: "Homeowners",
-        detail: "Ejemplo publicado de edicion con material organizado.",
+        detail: "Ejemplo publicado de edición con material organizado.",
       },
     ],
   },
   "editor-de-reels-miami": {
     areaHref: "/es/areas#miami-dade",
     areaLabel: "Ver cobertura en Miami-Dade",
-    note: "Estos proyectos verifican experiencia en video social, promocional y edicion; los resultados comerciales no se inventan.",
+    note: "Estos proyectos verifican experiencia en video social, promocional y edición; los resultados comerciales no se inventan.",
     serviceIds: ["edicion", "planificacion-social", "videografia"],
     projects: [
       {
@@ -129,7 +129,25 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
       {
         href: "/es/portafolio/bar-door-monkey",
         title: "Bar Door Monkey Miami",
-        detail: "Video promocional en Miami con captura y edicion.",
+        detail: "Video promocional en Miami con captura y edición.",
+      },
+    ],
+  },
+  "editor-de-video-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade y Broward",
+    note: "Trabajos reales publicados como Bar Door Monkey Miami, Homeowners, ML Colombia y Healthy Smile demuestran capacidades verificables de edición y producción.",
+    serviceIds: ["edicion", "planificacion-social", "videografia"],
+    projects: [
+      {
+        href: "/es/portafolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        detail: "Promoción de local comercial · Locación y edición.",
+      },
+      {
+        href: "/es/portafolio/homeowners",
+        title: "Homeowners",
+        detail: "Edición de video a partir de material suministrado.",
       },
     ],
   },

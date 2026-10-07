@@ -104,6 +104,7 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/es/editor-de-reels-fort-lauderdale",
   "https://estebanmorenomedia.com/es/editor-de-reels-miami",
   "https://estebanmorenomedia.com/es/editor-de-video-corto-para-redes-miami",
+  "https://estebanmorenomedia.com/es/editor-de-video-miami",
   "https://estebanmorenomedia.com/es/editor-de-video-para-anuncios-de-tiktok-miami",
   "https://estebanmorenomedia.com/es/editor-de-video-para-campanas-de-crowdfunding",
   "https://estebanmorenomedia.com/es/editor-de-video-real-estate-miami",

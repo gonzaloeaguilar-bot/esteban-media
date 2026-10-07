@@ -1,3 +1,16 @@
+# US-Spanish Money Pages Deepening & /es/editor-de-video-miami — 2026-10-07 (local, uncommitted)
+
+Branch `feat/es-us-spanish-money-pages`. Deepened US-Spanish money pages (`/es/editor-de-reels-fort-lauderdale`, `/es/editor-de-reels-miami`, `/es/editor-de-video-corto-para-redes-miami`), added contextual cross-links and guide links, and created the Spanish-first landing page `/es/editor-de-video-miami` (sitemap count: 284).
+- Restored Spanish diacritics on Reels money pages and improved lead/descriptions.
+- Derived all price figures directly from `PRICING_BANDS` in `lib/pricing.ts` (social, youtube, corporate) with no hardcoded price literals.
+- Added cross-links between FTL Reels, Miami Reels, Short-form video hub, and Miami Editor.
+- Added contextual entry links in `/es/videografo-en-fort-lauderdale`, `/es/produccion-de-video-fort-lauderdale`, `/es/videografo-en-miami`, `/es/reels-para-negocios-miami`, and guides (`/es/guias/cuanto-cuesta-la-produccion-de-video-en-fort-lauderdale`, `/es/guias/como-elegir-un-editor-de-video-en-miami`).
+- Updated indexable inventory freeze (`approvedSitemapUrlCount: 284`), search console index watch (`WATCH_URLS` length: 284), and sitemap tests.
+- Dual-Audience Gate PASS on all 4 target pages: `es/editor-de-reels-fort-lauderdale.html` (4 in-band, 0 oversized), `es/editor-de-reels-miami.html` (4 in-band, 0 oversized), `es/editor-de-video-corto-para-redes-miami.html` (3 in-band, 0 oversized), `es/editor-de-video-miami.html` (6 in-band, 0 oversized).
+- Verification: `npm test` (106 files / 1160 tests PASS), `npx tsc --noEmit` (PASS), `npm run lint` (0 errors), `npm run text-parity` (97 routes PASS), `analytics-gate` (PASS).
+
+---
+
 # Food and places creator pair — 2026-10-07
 
 Branch `feat/food-places-creator-launch`. New EN/ES service routes (`/services/food-and-places-creator-video-editing-miami`, `/es/edicion-de-video-para-creadores-de-comida-y-lugares-miami`) join creator editing and restaurant editing: reciprocal body/related links, hreflang pair, sitemap + inventory freeze + index-watch entries, package-derived prices (never hardcoded), FAQ schema, real portfolio proof (Bar Door Monkey, ML Colombia). Service-interest tracking is opt-in for this pair; lens telemetry gained its two missing `cta_click` params so the repo analytics gate passes. Local gates: 1,086 tests, build, analytics gate PASS, dual-audience gate PASS (EN 5 in-band / ES 5 in-band).
