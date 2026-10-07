@@ -29,6 +29,8 @@ import {
 } from "@/lib/guides";
 import { redditQueryInsights } from "@/lib/reddit-query-insights";
 
+
+const RELATED_GUIDE_COUNT = 6;
 const detailCopy = {
   en: {
     breadcrumbHome: "Home",
@@ -534,8 +536,16 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
   const indexCopy = guidesIndexCopy[locale];
   const homePath = locale === "es" ? "/es" : "/";
   const companion = getGuideCompanion(guide);
-  const relatedGuides = getGuides(locale).filter(
-    (candidate) => candidate.id !== guide.id,
+  // Six neighbours, rotating through the list, instead of every other guide.
+  // Listing all 40 made a wall of cards for readers and, with no heading per
+  // card, one ~600-word "section" that failed the dual-audience gate on every
+  // guide. Rotation keeps inbound links spread evenly: each guide is linked from
+  // the six guides before it, and the /guides index still lists them all.
+  const allGuides = getGuides(locale);
+  const guideIndex = allGuides.findIndex((candidate) => candidate.id === guide.id);
+  const relatedGuides = Array.from(
+    { length: Math.min(RELATED_GUIDE_COUNT, allGuides.length - 1) },
+    (_, offset) => allGuides[(guideIndex + 1 + offset) % allGuides.length],
   );
 
   return (
@@ -787,9 +797,12 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
                 <span className="text-xs font-medium uppercase tracking-[0.14em] text-[#5a6066]">
                   {relatedGuide.eyebrow}
                 </span>
-                <span className="mt-4 font-serif text-2xl leading-tight">
+                {/* A real heading per card, not a span: without one, the dual-audience
+                    gate (and any passage splitter) reads the whole related-guides grid as
+                    a single ~600-word section, which failed every guide page. */}
+                <h3 className="mt-4 font-serif text-2xl font-normal leading-tight">
                   {relatedGuide.title}
-                </span>
+                </h3>
                 <span className="mt-auto inline-flex items-center gap-2 pt-6 font-medium text-[#9f3c27]">
                   {copy.relatedLinkLabel}
                   <ArrowRight
