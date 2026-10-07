@@ -24,6 +24,17 @@ import {
 } from "lucide-react";
 
 import { absoluteUrl, site } from "@/lib/site";
+import {
+  CORPORATE_EVENT_ES_DESTINATIONS,
+  CORPORATE_EVENT_ES_DISCLOSURE,
+  CORPORATE_EVENT_ES_SECTIONS,
+  HOTEL_ES_DESTINATIONS,
+  HOTEL_ES_DISCLOSURE,
+  HOTEL_ES_SECTIONS,
+  NIGHTLIFE_ES_DESTINATIONS,
+  NIGHTLIFE_ES_DISCLOSURE,
+  NIGHTLIFE_ES_SECTIONS,
+} from "@/lib/hospitality-deep-dive-content";
 
 export const spanishSite = {
   title: "Esteban Moreno Media | Sistemas de Growth y Producción Creativa",
@@ -162,6 +173,8 @@ export type SpanishNichePage = {
   projectFit: string;
   sections?: readonly SpanishNicheSection[];
   sectionsDisclosure?: string;
+  /** Summary line under the disclosure title; names what is inside the fold. */
+  sectionsDestinations?: string;
   updated?: string;
   heroMedia?: { src: string; alt: string; caption: string };
   faqs: { question: string; answer: string }[];
@@ -1562,11 +1575,15 @@ export const spanishNichePages: SpanishNichePage[] = [
     ],
     projectFit:
       "Cobertura limpia y profesional coordinada con la agenda de tu evento.",
+    updated: "2026-10-07",
+    sections: CORPORATE_EVENT_ES_SECTIONS,
+    sectionsDisclosure: CORPORATE_EVENT_ES_DISCLOSURE,
+    sectionsDestinations: CORPORATE_EVENT_ES_DESTINATIONS,
     faqs: [
       {
         question: "¿Pueden entregar un teaser el mismo día del evento?",
         answer:
-          "Sí. Ofrecemos servicio de edición rápida el mismo día para publicar actualizaciones inmediatas en redes sociales.",
+          "No se promete. La calculadora aplica un multiplicador exprés a la entrega rápida, pero el plazo real se confirma antes del evento según el material y la agenda. Indica la fecha de publicación que necesitas al pedir la cotización.",
       },
     ],
   },
@@ -1626,6 +1643,10 @@ export const spanishNichePages: SpanishNichePage[] = [
     ],
     projectFit:
       "Calidad cinematográfica que transmite lujo y hospitalidad.",
+    updated: "2026-10-07",
+    sections: HOTEL_ES_SECTIONS,
+    sectionsDisclosure: HOTEL_ES_DISCLOSURE,
+    sectionsDestinations: HOTEL_ES_DESTINATIONS,
     faqs: [
       {
         question: "¿Producen versiones optimizadas para Instagram y sitio web?",
@@ -2094,6 +2115,10 @@ export const spanishNichePages: SpanishNichePage[] = [
     ],
     projectFit:
       "Postproducción dinámica de alto impacto sensorial.",
+    updated: "2026-10-07",
+    sections: NIGHTLIFE_ES_SECTIONS,
+    sectionsDisclosure: NIGHTLIFE_ES_DISCLOSURE,
+    sectionsDestinations: NIGHTLIFE_ES_DESTINATIONS,
     faqs: [
       {
         question: "¿Pueden ajustar los cortes al ritmo exacto de la música?",

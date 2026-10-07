@@ -517,13 +517,13 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
   "videografo-para-eventos-corporativos-miami": {
     areaHref: "/es/areas#miami-dade",
     areaLabel: "Ver cobertura en Miami-Dade",
-    note: "Cobertura de eventos corporativos y edición de resúmenes.",
+    note: "El evento grabado y publicado es una boda; no hay un evento corporativo publicado todavía.",
     serviceIds: ["videografia", "edicion"],
     projects: [
       {
-        href: "/es/portafolio/my-dler",
-        title: "My D'ler",
-        detail: "Grabación corporativa.",
+        href: "/es/portafolio/diana-jack",
+        title: "Diana & Jack",
+        detail: "Película de boda en Boston: videografía y edición, 20 minutos más tráiler.",
       },
     ],
   },
@@ -549,7 +549,7 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
       {
         href: "/es/portafolio/bar-door-monkey",
         title: "Bar Door Monkey Miami",
-        detail: "Producción de hospitalidad.",
+        detail: "Spot para redes de un restaurante de Miami, grabado en locación. Aún no hay un hotel publicado.",
       },
     ],
   },
@@ -710,7 +710,7 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
       {
         href: "/es/portafolio/bar-door-monkey",
         title: "Bar Door Monkey Miami",
-        detail: "Cortes promocionales nocturnos.",
+        detail: "Spot para redes de un restaurante de Miami, grabado en locación; no es una noche de discoteca.",
       },
     ],
   },
@@ -1419,7 +1419,7 @@ export function SpanishNichePage({ slug }: { slug: string }) {
           <Container size="xl">
             <div className="mx-auto max-w-4xl space-y-12">
               {page.sectionsDisclosure ? (
-                <KeepReading className="em-reading-paper" id="detalles-del-servicio" title={page.sectionsDisclosure} destinations="Formatos, primer mes, tomas, colaboraciones y ejemplos publicados">
+                <KeepReading className="em-reading-paper" id="detalles-del-servicio" title={page.sectionsDisclosure} destinations={page.sectionsDestinations ?? "Formatos, primer mes, tomas, colaboraciones y ejemplos publicados"}>
                   <div className="mt-8 space-y-10">{sectionArticles}</div>
                 </KeepReading>
               ) : (
