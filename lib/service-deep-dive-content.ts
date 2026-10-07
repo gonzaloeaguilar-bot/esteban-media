@@ -1,4 +1,10 @@
 import type { DeepDiveSection } from "@/components/service-depth";
+import {
+  EXPRESS_MULTIPLIER,
+  PACKAGE_PRICES,
+  PRICING_BANDS,
+  usd,
+} from "@/lib/pricing";
 
 /**
  * The second reading on each 2026-10-06 niche page.
@@ -131,4 +137,49 @@ export const AUTO_DETAILING_DEEP_DIVE: DeepDive = {
       ],
     },
   ],
+};
+
+const localPresence = PACKAGE_PRICES["presencia-local"];
+// Owner-set "from" price; a "custom" package would have no figure to print.
+const localPresenceFrom = localPresence.kind === "from" ? usd(localPresence.amount) : "a custom quote";
+
+/**
+ * Corporate event page. Figures are imported from lib/pricing.ts; the proof is
+ * the Diana & Jack film exactly as messages/en.json describes it. No capture
+ * technique is claimed that the site does not already publish.
+ */
+export const CORPORATE_EVENT_DEEP_DIVE: DeepDive = {
+  id: "corporate-event-details",
+  title: "How much does event video cost, and what should a quote include?",
+  destinations: "Editing and on-location ranges, urgent delivery, and a published event film to compare.",
+  sections: [
+        {
+          heading: "How much does event videography cost in Miami?",
+          paragraphs: [
+            `For corporate or event material, the calculator's corporate editing band is ${usd(PRICING_BANDS.corporate.baseMin)}–${usd(PRICING_BANDS.corporate.baseMax)}. It is an indicative editing-led freelancer range with an introductory discount applied, not a promise of complete event coverage. If another videographer or your team already recorded the event, share the original material and explain the finished piece you want before treating that range as a quote.`,
+            "A short recap, a speaker presentation, and a longer event film require different editorial decisions. Specify which moments matter, whether dialogue must remain complete, and where the finished video will be published. The amount and condition of the source material also need review. Capture and editing can be discussed together, with the actual deliverables agreed for your event.",
+          ],
+        },
+        {
+          heading: "How should you budget for filming at the venue?",
+          paragraphs: [
+            `[Local Presence](/pricing/local-presence) starts from ${localPresenceFrom} per production day. The separate half-day capture add-on has an indicative range of ${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)} on the same discounted freelancer basis. These are different ways to scope work; do not add them together or assume either covers the entire event without checking the proposal. Full-crew production companies use a different model.`,
+            "Send the venue, schedule, access arrangements, and the parts of the event that must be recorded. Explain whether speeches, audience reactions, interviews, or venue details are priorities. If activities overlap, flag that before coverage is agreed. Ask the quote to identify filming, sound requirements, editing, final versions, and any separately priced needs. An event date and a package starting price alone cannot establish the coverage or availability for your specific booking.",
+          ],
+        },
+        {
+          heading: "How does an urgent delivery request change the estimate?",
+          paragraphs: [
+            `The calculator applies an express multiplier of ${EXPRESS_MULTIPLIER} to its estimate when express delivery is selected. That is a budgeting adjustment, not a guaranteed delivery window or confirmation that an urgent request can be accepted. Tell Esteban the date you need the finished video and why that date matters before making plans around a fast edit.`,
+            "Separate the event date from the requested publication date. Identify whether you need a recap first, a complete presentation, or different versions for different audiences, and name the person who can approve the work. Delayed assets or feedback can affect the schedule you are trying to arrange. Use the [budget calculator](/calculator) to compare the indicative options, then request written confirmation through [contact](/contact). The agreed scope should state the timing and review expectations for your actual event.",
+          ],
+        },
+        {
+          heading: "What does a published event film tell you before hiring?",
+          paragraphs: [
+            "The [Diana & Jack project](/portfolio/diana-jack) is a wedding film shot in Boston, Massachusetts. The published credits name Esteban as videographer and editor, with a full film and a highlight trailer. This is relevant event work to review, but it is not a Miami corporate-event case study and does not establish a current event price, venue relationship, or identical package for another client.",
+            "Use it to discuss how you want the day represented and whether you need both an extended film and a shorter piece. Share the moments that matter most, the audience, and any restrictions on filming or publishing. Then compare the proposed coverage and finished files against your request. A useful decision combines a relevant example with a written scope; the example alone cannot confirm availability, turnaround, or the total cost of your event.",
+          ],
+        },
+      ],
 };
