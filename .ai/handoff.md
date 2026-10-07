@@ -4,6 +4,14 @@ Branch `feat/food-places-creator-launch`. New EN/ES service routes (`/services/f
 
 ---
 
+# Lead persistence — 2026-10-07 (local, uncommitted)
+
+`lib/lead-store.ts` now maps lead fields into `esteban_leads`, inserts through Supabase before optional Resend delivery, and marks accepted email best-effort. `/api/lead` returns 503 in EN/ES if neither storage nor email accepts the submission; successful persistence returns the database row ID. Rejected submissions no longer emit a successful CDP ingestion event. JSON validation, network timeouts, test-row tagging and privacy-safe failure logging are covered.
+
+Verified in this worktree: targeted Vitest 64/64; `npx --no-install tsc --noEmit` exit 0; `npm test` 1,131/1,131 across 103 files; changed-file ESLint exit 0. No `.env.example` exists. Required server variables: `SUPABASE_URL`, `SUPABASE_SERVICE_KEY`; Resend remains optional.
+
+No commit, deployment, live database write, notification send or independent provider review occurred in this bounded implementation. The coordinator owns sibling Antigravity review, Claude/cto-qa-lead verification, remaining release checks and a tagged production submission/readback before claiming incident closure. External vault and registry writes are reserved for the coordinator under this dispatch's worktree-only policy. Full evidence and next actions: `.ai/lead-persistence-2026-10-07.md`.
+
 # Favicon cache refresh — 2026-10-03
 
 Owner reports the Vercel favicon again. Current live root assets already contain Esteban’s terracotta e; the head still declares the original /favicon.ico URL. This repair gives all browser icon declarations explicit brand-specific paths in both root locales while preserving byte-identical legacy assets for bookmarks/schema. scripts/generate-brand-icons.py owns both sets. Existing glyph legibility tests plus metadata/alias tests guard the recurrence. Browser cache is a plausible cause, not directly proven. Delivery and production evidence: Obsidian esteban-favicon-refresh-2026-10-03.

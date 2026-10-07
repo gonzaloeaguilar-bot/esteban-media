@@ -6,14 +6,21 @@ import {
   type LeadPayload,
 } from "@/lib/lead-responder";
 import { safeLeadEvent, type NotificationStatus } from "@/lib/cdp-event";
+import { buildLeadRow, insertLead, markEmailSent } from "@/lib/lead-store";
 
-const RESEND_API_KEY = process.env.RESEND_API_KEY || "";
-const NOTIFY_EMAIL = process.env.LEAD_NOTIFY_EMAIL || "esmolopez@gmail.com";
-const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "Esteban Moreno Media <contact@estebanmorenomedia.com>";
+export const runtime = "nodejs";
 
 export async function POST(request: Request) {
   try {
-    const body = (await request.json()) as Partial<LeadPayload>;
+    let body: Partial<LeadPayload>;
+    try {
+      body = await request.json();
+    } catch {
+      return NextResponse.json({ success: false, error: "Invalid JSON payload." }, { status: 400 });
+    }
+    if (!body || typeof body !== "object" || Array.isArray(body)) {
+      return NextResponse.json({ success: false, error: "Invalid lead payload." }, { status: 400 });
+    }
 
     const validation = validateLeadPayload(body);
     if (!validation.valid) {
@@ -24,39 +31,68 @@ export async function POST(request: Request) {
     }
 
     const payload = body as LeadPayload;
-    const leadId = generateLeadId();
+    const leadRef = generateLeadId();
+    const stored = await insertLead(buildLeadRow(payload, {
+      leadRef,
+      userAgent: request.headers.get("user-agent") || "",
+      isTest: request.headers.get("x-esteban-test") === "1",
+    }));
+    if (!stored.ok) {
+      console.error("Lead persistence failed:", { reason: stored.reason, status: stored.status });
+    }
+
+    const leadId = stored.ok ? stored.id : leadRef;
     const formattedBrief = formatLeadSummary(payload);
+    const resendApiKey = process.env.RESEND_API_KEY?.trim();
+    const notifyEmail = process.env.LEAD_NOTIFY_EMAIL || "esmolopez@gmail.com";
+    const fromEmail = process.env.RESEND_FROM_EMAIL || "Esteban Moreno Media <contact@estebanmorenomedia.com>";
 
     let notificationStatus: NotificationStatus = "not_configured";
 
     // If Resend API Key is set, send instant email notification to Esteban
-    if (RESEND_API_KEY) {
+    if (resendApiKey) {
       try {
         const response = await fetch("https://api.resend.com/emails", {
           method: "POST",
           headers: {
-            Authorization: `Bearer ${RESEND_API_KEY}`,
+            Authorization: `Bearer ${resendApiKey}`,
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            from: FROM_EMAIL,
-            to: [NOTIFY_EMAIL],
-            subject: `🔥 [NUEVO LEAD] ${payload.name || payload.email} (${payload.source.toUpperCase()})`,
+            from: fromEmail,
+            to: [notifyEmail],
+            subject: `[NUEVO LEAD] ${payload.name || payload.email} (${payload.source.toUpperCase()})`,
             text: formattedBrief,
           }),
+          signal: AbortSignal.timeout(8000),
         });
         notificationStatus = response.ok ? "accepted" : "failed";
-      } catch (resendErr) {
+        if (!response.ok) console.error("Resend API notification failed:", { status: response.status });
+      } catch {
         notificationStatus = "failed";
-        console.error("Resend API notification error:", resendErr);
+        console.error("Resend API notification failed:", { reason: "network_error" });
       }
+    }
+
+    const isEs = payload.locale === "es";
+    if (!stored.ok && notificationStatus !== "accepted") {
+      return NextResponse.json(
+        {
+          success: false,
+          error: isEs
+            ? "No pudimos recibir tu solicitud en este momento. Por favor, llámanos o escríbenos directamente por correo electrónico."
+            : "We could not receive your request right now. Please call or email directly.",
+        },
+        { status: 503 },
+      );
+    }
+    if (stored.ok && notificationStatus === "accepted") {
+      await markEmailSent(stored.id);
     }
 
     // Privacy-safe ingestion boundary. Never log formattedBrief or the raw
     // payload: they contain contact data and free-text notes.
     console.info("[CDP_EVENT_V1]", JSON.stringify(safeLeadEvent(leadId, payload, notificationStatus)));
-
-    const isEs = payload.locale === "es";
 
     return NextResponse.json(
       {
