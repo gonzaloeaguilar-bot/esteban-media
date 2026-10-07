@@ -169,3 +169,46 @@ export const REAL_ESTATE_PLAN_TERMS = {
   reportEveryDays: 14,
   cancelNoticeDays: 30,
 } as const;
+
+// Arranque (Starter) on a WEEKLY subscription. Same service as the Arranque
+// package — the client films, Esteban edits remotely — sold by videos per week.
+// Owner-approved 2026-10-07 from the client proposal
+// (~/code/esteban-propuesta/propuesta.html). Figures only; the words live in
+// lib/arranque-weekly.ts.
+//
+// No reference/"was" price and no discount badge: a permanent public discount
+// reads as a fake reference price. Whether Arranque's $100 is per VIDEO (the
+// site says "per project") is an open question, so no per-video comparison
+// against it is published.
+export type ArranqueWeeklyOptionId = "one-per-week" | "two-per-week";
+
+export type ArranqueWeeklyOption = {
+  id: ArranqueWeeklyOptionId;
+  videosPerWeek: number;
+  /** USD per week, paid at the start of each week. */
+  pricePerWeek: number;
+  changesPerVideo: number;
+};
+
+export const ARRANQUE_WEEKLY_OPTIONS: ArranqueWeeklyOption[] = [
+  { id: "one-per-week", videosPerWeek: 1, pricePerWeek: 85, changesPerVideo: 1 },
+  { id: "two-per-week", videosPerWeek: 2, pricePerWeek: 160, changesPerVideo: 2 },
+];
+
+export const ARRANQUE_WEEKLY_TERMS = {
+  maxVideoSeconds: 90,
+  /** Footage per video. */
+  maxFootageMinutes: 10,
+  deliveryHoursMin: 48,
+  deliveryHoursMax: 72,
+} as const;
+
+export function arranqueWeeklyPerVideo(option: ArranqueWeeklyOption): number {
+  return option.pricePerWeek / option.videosPerWeek;
+}
+
+/** Lowest weekly price and lowest per-video figure, for "desde" lines. */
+export const ARRANQUE_WEEKLY_FROM = {
+  perWeek: Math.min(...ARRANQUE_WEEKLY_OPTIONS.map((o) => o.pricePerWeek)),
+  perVideo: Math.min(...ARRANQUE_WEEKLY_OPTIONS.map(arranqueWeeklyPerVideo)),
+} as const;

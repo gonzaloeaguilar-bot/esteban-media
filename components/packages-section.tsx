@@ -1,5 +1,6 @@
 "use client";
 
+import { arranqueWeeklyCopy, arranqueWeeklyHref } from "@/lib/arranque-weekly";
 import Image from "next/image";
 import { packageRoutes } from "@/lib/package-routes";
 import { useState } from "react";
@@ -178,6 +179,14 @@ export function PackagesSection({ locale }: { locale: Locale }) {
                           </>
                         )}
                       </div>
+
+                      {pkg.id === "arranque" ? (
+                        <p className="em-pkcard__weekly">
+                          <a href={arranqueWeeklyHref(locale)} data-cta="package_arranque_weekly_plan">
+                            {arranqueWeeklyCopy(locale).packageCardLine}
+                          </a>
+                        </p>
+                      ) : null}
 
                       <p className="em-pkcard__ideal">{pkg.idealFor}</p>
 
