@@ -387,8 +387,8 @@ export function DailyScriptPacingCalculator({ locale = "en" }: { locale?: "en" |
           </h1>
           <p className="mt-2 text-sm leading-6 text-[#5a6066]">
             {isEs
-              ? "Calcula la duración exacta de tu guion, ajusta palabras por minuto y calibra la retención antes de grabar."
-              : "Calculate exact spoken video duration, dial in speaking cadence, and calibrate viewer retention before hitting record."}
+              ? "Estima la duración de tu guion, ajusta las palabras por minuto y comprueba el ritmo en voz alta antes de grabar."
+              : "Estimate your script duration, adjust words per minute, and check the pace aloud before recording."}
           </p>
         </div>
         <div className="shrink-0 rounded-xl bg-[#101214] px-4 py-3 text-center text-[#f6f1ea]">
@@ -473,8 +473,8 @@ export function DailyScriptPacingCalculator({ locale = "en" }: { locale?: "en" |
             onChange={(e) => setScriptText(e.target.value)}
             placeholder={
               isEs
-                ? "Escribe o pega aquí el guion de tu video para calcular el tiempo exacto..."
-                : "Type or paste your video script here to calculate exact spoken duration..."
+                ? "Escribe o pega aquí el guion de tu video para estimar su duración..."
+                : "Type or paste your video script here to estimate its spoken duration..."
             }
             className="w-full rounded-xl border border-[#ddd4c8] bg-white p-3.5 text-sm leading-relaxed text-[#101214] placeholder:text-[#8c827a] focus:border-[#c84a2c] focus:outline-none"
           />

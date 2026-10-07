@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { DailyScriptPacingCalculator } from "@/components/daily-script-pacing-calculator";
+import { ScriptPacingHelp } from "@/components/script-pacing-help";
 import { Container } from "@/components/ui/container";
 import { absoluteUrl } from "@/lib/site";
 import { buildPageMetadata } from "@/lib/site-metadata";
@@ -45,6 +46,7 @@ export default function DailyScriptPacingCalculatorEsPage() {
           </ol>
         </nav>
         <DailyScriptPacingCalculator locale="es" />
+        <ScriptPacingHelp locale="es" />
 
         <div className="mt-12 rounded-xl border border-[#ddd4c8] bg-[#fbf6ef] p-6 text-sm text-[#252a2d]">
           <p>
