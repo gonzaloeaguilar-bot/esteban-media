@@ -3,6 +3,7 @@ import {
   EXPRESS_MULTIPLIER,
   PACKAGE_PRICES,
   PRICING_BANDS,
+  VOLUME_MULTIPLIERS,
   usd,
 } from "@/lib/pricing";
 
@@ -73,11 +74,33 @@ export const CREATOR_DEEP_DIVE: DeepDive = {
   ],
 };
 
+const starterPrice = PACKAGE_PRICES.arranque;
+const starterFrom = starterPrice.kind === "from" ? usd(starterPrice.amount) : "a custom quote";
+const socialBand = PRICING_BANDS.social;
+const youtubeBand = PRICING_BANDS.youtube;
+const monthly15Mult = VOLUME_MULTIPLIERS["monthly-15"];
+const monthlyMin = usd(Math.round((socialBand.baseMin * monthly15Mult.multMin) / 25) * 25);
+const monthlyMax = usd(Math.round((socialBand.baseMax * monthly15Mult.multMax) / 25) * 25);
+
 export const WHITE_LABEL_DEEP_DIVE: DeepDive = {
   id: "white-label-workflow",
-  title: "How does a white-label edit fit into a studio's existing delivery?",
-  destinations: "The handoff package, colour and camera detail, and how revisions run.",
+  title: "What does a white-label edit cost, and how does it fit a studio's delivery?",
+  destinations: "Prices, published agency work, the handoff package, and how revisions run.",
   sections: [
+    {
+      heading: "How much does white-label video editing cost?",
+      paragraphs: [
+        `Esteban's [Starter package](/pricing/starter), remote editing of footage you already have, starts from ${starterFrom} per project with one revision round included. For a scoped estimate, the calculator's short-form band is ${usd(socialBand.baseMin)}–${usd(socialBand.baseMax)} per project and its YouTube band is ${usd(youtubeBand.baseMin)}–${usd(youtubeBand.baseMax)} per edit. Both are editing-led freelancer ranges with a 10% introductory discount, checked against published market rates of ${usd(socialBand.marketMin)}–${usd(socialBand.marketMax)} and ${usd(youtubeBand.marketMin)}–${usd(youtubeBand.marketMax)}.`,
+        `A studio sending regular volume can price 15 short-form videos a month at ${monthlyMin}–${monthlyMax} in the same calculator. None of these is a quote. The price of a white-label job is set once Esteban has seen the footage, the deliverable list and the number of revision rounds the studio sold to its own client, so send one representative project first and price the rest from it.`,
+      ],
+    },
+    {
+      heading: "Has Esteban edited for agencies before?",
+      paragraphs: [
+        "Yes, and the published examples say exactly what he did. For the agency 300 Bees, he edited a social-media video for [Homeowners](/portfolio/homeowners) from footage the agency supplied: editing only, the arrangement most studios want when they subcontract post-production. On another 300 Bees assignment he filmed on location, video and sound, for a Miami dental clinic, then edited and delivered the finished social pieces ([Healthy Smile Miami](/portfolio/healthy-smile)).",
+        "Both appear in the portfolio with the agency's name because that credit is already public. White-label work is not published unless the studio says so, which is why the public list is short. If the published work does not match your client's category, say so in the brief before the first project is scoped.",
+      ],
+    },
     {
       heading: "What belongs in the package a studio sends over?",
       paragraphs: [

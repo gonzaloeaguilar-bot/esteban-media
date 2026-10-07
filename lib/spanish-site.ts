@@ -3,7 +3,7 @@ import { buildServiceFaqSchema } from "@/components/service-depth";
 import { isConsolidatedPath } from "@/lib/consolidation";
 import { packageRoutes } from "@/lib/package-routes";
 import type { LucideIcon } from "lucide-react";
-import { PACKAGE_PRICES, usd } from "@/lib/pricing";
+import { PACKAGE_PRICES, PRICING_BANDS, VOLUME_MULTIPLIERS, usd } from "@/lib/pricing";
 import {
   Anchor,
   Building2,
@@ -3329,6 +3329,20 @@ export const spanishNichePages: SpanishNichePage[] = [
     projectFit:
       "Esta ruta es capacidad de postproducción para estudios: entrega sin marca, comunicación solo con el estudio y nada publicado como referencia sin su permiso.",
     sections: [
+      {
+        heading: "¿Cuánto cuesta la edición de video en marca blanca?",
+        paragraphs: [
+          `El [paquete Arranque](/es/precios/arranque) de Esteban, edición remota del material que ya grabaste, parte desde ${usd(PACKAGE_PRICES.arranque.kind === "from" ? PACKAGE_PRICES.arranque.amount : 0)} por proyecto e incluye una ronda de revisión. Para un estimado con alcance, la calculadora ubica los videos cortos entre ${usd(PRICING_BANDS.social.baseMin)} y ${usd(PRICING_BANDS.social.baseMax)} por proyecto y la edición para YouTube entre ${usd(PRICING_BANDS.youtube.baseMin)} y ${usd(PRICING_BANDS.youtube.baseMax)} por video. Son rangos de un editor independiente con un descuento introductorio del 10 %, comparados con tarifas de mercado publicadas de ${usd(PRICING_BANDS.social.marketMin)} a ${usd(PRICING_BANDS.social.marketMax)} y ${usd(PRICING_BANDS.youtube.marketMin)} a ${usd(PRICING_BANDS.youtube.marketMax)}.`,
+          `Un estudio con volumen constante puede calcular 15 videos cortos al mes entre ${usd(Math.round((PRICING_BANDS.social.baseMin * VOLUME_MULTIPLIERS["monthly-15"].multMin) / 25) * 25)} y ${usd(Math.round((PRICING_BANDS.social.baseMax * VOLUME_MULTIPLIERS["monthly-15"].multMax) / 25) * 25)} en la misma calculadora. Nada de esto es una cotización. El precio de un trabajo en marca blanca se fija cuando Esteban ve el material, la lista de entregables y las rondas de revisión que el estudio vendió a su propio cliente; por eso conviene enviar primero un proyecto representativo y cotizar el resto a partir de él.`,
+        ],
+      },
+      {
+        heading: "¿Esteban ya ha editado para agencias?",
+        paragraphs: [
+          "Sí, y los ejemplos publicados dicen exactamente qué hizo. Para la agencia 300 Bees editó un video para redes de [Homeowners](/es/portafolio/homeowners) a partir del material que entregó la agencia: solo edición, el arreglo que buscan la mayoría de los estudios cuando subcontratan la postproducción. En otro encargo de 300 Bees grabó en locación, video y sonido, para un consultorio odontológico en Miami, y luego editó y entregó las piezas finales ([Healthy Smile Miami](/es/portafolio/healthy-smile)).",
+          "Ambos aparecen en el portafolio con el nombre de la agencia porque ese crédito ya es público. El trabajo en marca blanca no se publica salvo que el estudio lo autorice, y por eso la lista pública es corta. Si lo publicado no coincide con la categoría de tu cliente, dilo en el brief antes de cotizar el primer proyecto.",
+        ],
+      },
       {
         heading: "¿Qué debe incluir el paquete que envía el estudio?",
         paragraphs: [

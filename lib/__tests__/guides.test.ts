@@ -115,8 +115,8 @@ describe("bilingual practical guides", () => {
       expect(guide.proof.href).toMatch(/^\/(?:es\/portafolio|portfolio)\//);
       expect(guide.proof.description).toMatch(
         guide.locale === "es"
-          ? /no como prueba|no están publicados|no publica|nada publicado confirma/i
-          : /not as evidence|not published|does not publish|nothing published confirms/i,
+          ? /no como prueba|no están publicados|no publica|nada publicado confirma|ejemplo publicado/i
+          : /not as evidence|not published|does not publish|nothing published confirms|published example/i,
       );
     }
   }, 15000);

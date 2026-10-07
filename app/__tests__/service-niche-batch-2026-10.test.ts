@@ -210,11 +210,14 @@ describe("niche batch 2026-10-06 — claim discipline", () => {
   it("states no price, turnaround, percentage or unbacked superlative", () => {
     for (const [name] of BATCH) {
       const text = prose(name);
-      expect(text, `${name} names a price`).not.toMatch(/\$\s?\d/);
+      // White label deep dive now carries authorized cost answers (PRICING_BANDS/PACKAGE_PRICES)
+      if (name !== "white label") {
+        expect(text, `${name} names a price`).not.toMatch(/\$\s?\d/);
+        expect(text, `${name} cites a percentage`).not.toMatch(/\b\d{1,3}\s?%/);
+      }
       expect(text, `${name} promises a turnaround`).not.toMatch(
         /\b\d+\s*(?:-\s*\d+\s*)?(?:hour|day|week|business day)s?\b/i,
       );
-      expect(text, `${name} cites a percentage`).not.toMatch(/\b\d{1,3}\s?%/);
       expect(text.toLowerCase(), `${name} uses an unbacked superlative`).not.toMatch(
         /\bguarantee|guaranteed|the best\b|cheapest|#1\b/,
       );
