@@ -338,8 +338,8 @@ export const redditQueryInsights: readonly RedditQueryInsight[] = [
         es: "/es/edicion-de-video-promocional-para-restaurantes-miami",
       },
       {
-        en: "/guides/restaurant-video-ideas",
-        es: "/es/guias/ideas-de-video-para-restaurantes",
+        en: "/guides/video-content-ideas-for-restaurants",
+        es: "/es/guias/ideas-de-contenido-de-video-para-restaurantes",
       },
       {
         en: "/portfolio/bar-door-monkey",
@@ -384,7 +384,7 @@ export const redditQueryInsights: readonly RedditQueryInsight[] = [
         es: "/es/contacto",
       },
       {
-        en: "/guides/bilingual-video-strategy-south-florida",
+        en: "/guides/bilingual-video-marketing-strategy-south-florida",
         es: "/es/guias/estrategia-de-video-bilingue-south-florida",
       },
       {
