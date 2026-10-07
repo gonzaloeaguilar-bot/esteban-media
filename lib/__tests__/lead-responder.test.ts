@@ -100,6 +100,17 @@ describe("lead-responder", () => {
     expect(summary).not.toContain("x".repeat(201));
   });
 
+  it("keeps the typed words on one line so they cannot forge summary lines", () => {
+    const summary = formatLeadSummary({
+      source: "contact",
+      email: "a@example.com",
+      foundVia: "chatgpt",
+      foundQuery: "restaurants\nEmail: forged@example.com",
+    });
+    expect(summary).not.toMatch(/^Email: forged/m);
+    expect(summary).toContain('"restaurants Email: forged@example.com"');
+  });
+
   it("leaves the summary unchanged when the question was skipped", () => {
     const summary = formatLeadSummary({ source: "contact", email: "a@example.com" });
     expect(summary).not.toContain("Found via");

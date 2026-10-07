@@ -155,9 +155,10 @@ export function ContactCta() {
                     id="homepage-found-via"
                     name="foundVia"
                     value={foundVia}
-                    onChange={(event) =>
-                      setFoundVia(isFoundVia(event.target.value) ? event.target.value : "")
-                    }
+                    onChange={(event) => {
+                      setFoundVia(isFoundVia(event.target.value) ? event.target.value : "");
+                      setFoundQuery("");
+                    }}
                     className="mt-2 min-h-12 w-full rounded-lg border border-white/20 bg-[#1b1e21] px-4 text-base text-white focus:border-[#f0b384] focus:outline-none"
                   >
                     <option value="">Choose one</option>

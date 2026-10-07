@@ -140,7 +140,9 @@ export function formatLeadSummary(payload: LeadPayload): string {
   }
   if (typeof payload.foundQuery === "string" && payload.foundQuery.trim()) {
     lines.push(
-      `Lo que escribió / What they typed: "${payload.foundQuery.trim().slice(0, FOUND_QUERY_MAX)}"`,
+      // One line only: collapsing whitespace stops a direct API caller from
+      // forging extra summary lines (a fake "Email:") with embedded newlines.
+      `Lo que escribió / What they typed: "${payload.foundQuery.replace(/\s+/g, " ").trim().slice(0, FOUND_QUERY_MAX)}"`,
     );
   }
 
