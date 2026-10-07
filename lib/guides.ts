@@ -3547,16 +3547,38 @@ const guidePairs: readonly GuidePair[] = [
       answer:
         "Ask client about their situation before working with you, their hesitation, the turning point, and specific measurable results achieved.",
       proof: {
-        href: "/portfolio/my-dler",
-        title: "My D'ler",
+        href: "/portfolio/healthy-smile",
+        title: "Healthy Smile Miami",
         description:
-          "Approved portfolio credits include published testimonial video editing. Linked as a public sample; not published as evidence of identical deliverables in every engagement.",
+          "Social-media videos for a Miami dental clinic, made on assignment with the agency 300 Bees: filmed on location with video and sound, then edited. Not a testimonial: linked as a public sample of on-location filming with sound, not as evidence of testimonial work.",
       },
       sections: [
         {
-          heading: "Eliciting Authentic Emotional Answers",
+          heading: "How much does a customer testimonial video cost in Miami?",
           paragraphs: [
-            "Ask open-ended questions focused on problem-solving rather than scripted product praise to ensure genuine audience trust. For an example of a patient story approach on location, review the [Healthy Smile Miami dental video project](/portfolio/healthy-smile) (detailed in the [Healthy Smile case study](/case-studies/healthy-smile)).",
+            `If the interview is already recorded, the editing is priced on the calculator's corporate band: ${usd(PRICING_BANDS.corporate.baseMin)}–${usd(PRICING_BANDS.corporate.baseMax)} per project, an editing-led freelancer range with a 10% introductory discount, checked against a published market of ${usd(PRICING_BANDS.corporate.marketMin)}–${usd(PRICING_BANDS.corporate.marketMax)}. If it still has to be filmed, the half-day on-location add-on is ${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)} on the same basis, or the [Local Presence](/pricing/local-presence) package starts from ${packageGuidePrice("presencia-local")} per production day, covering pre-production, capture and editing.`,
+            "These are budgeting starting points, not a quote. The price moves with how many customers are interviewed, how many short cut-downs are needed for social, and whether captions or a second language are part of the delivery. Full-crew Miami production companies quote on a different model, with a larger crew on set, so their ranges are not directly comparable.",
+          ],
+        },
+        {
+          heading: "What questions should a testimonial interview ask?",
+          paragraphs: [
+            "Five, asked in the order the story happened. What was the situation before you started working with the business? What almost stopped you from going ahead? What was the moment you decided, and why? What changed afterwards, in numbers if the customer has them and in plain words if not? And who would you tell to do the same?",
+            "The order matters because a testimonial is cut as a short before-and-after, and answers recorded in sequence fall into that shape with fewer jumps. Ask each question open-ended and ask the customer to answer in a full sentence that repeats the question, so the clip makes sense without your voice in it. Never hand the customer a script to read: a recited line sounds recited.",
+          ],
+        },
+        {
+          heading: "How long should a video testimonial be?",
+          paragraphs: [
+            "Plan two lengths from the same interview. The full version, usually one to three minutes, belongs on the website or a sales page, where the viewer chose to watch. The short versions, one answer each, go to Reels, TikTok and Shorts, where the first seconds decide whether anyone stays.",
+            `Planning both before the shoot changes the questions: each answer has to stand alone, so the customer should name the business and the problem inside the sentence. On the calculator, short social cuts sit in the short-form band, ${usd(PRICING_BANDS.social.baseMin)}–${usd(PRICING_BANDS.social.baseMax)} per project. List them in the brief so the quote covers them from the start instead of after the main cut is approved.`,
+          ],
+        },
+        {
+          heading: "What should you send before a testimonial is filmed or edited?",
+          paragraphs: [
+            "For an edit only: the original camera files, the separately recorded audio if a lavalier or recorder was used, the customer's name and title spelled correctly, the logo as a vector file, and the customer's signed permission to publish their face and words. For a shoot as well: the location, a quiet room, and a time slot long enough to set up light and sound before the customer arrives.",
+            "Sound decides a testimonial more than picture does; a soft image is forgiven before an echo is. For the agency 300 Bees, Esteban filmed social videos at a Miami dental clinic on location, recording video and sound, then edited and delivered them ([Healthy Smile Miami](/portfolio/healthy-smile)). It is not a testimonial, but it is the published example of the same on-location conditions.",
           ],
         },
       ],
@@ -3571,16 +3593,38 @@ const guidePairs: readonly GuidePair[] = [
       answer:
         "Pregunta sobre la situación previa, la duda inicial, el momento de cambio y los resultados específicos y medibles obtenidos.",
       proof: {
-        href: "/es/portafolio/my-dler",
-        title: "My D'ler",
+        href: "/es/portafolio/healthy-smile",
+        title: "Healthy Smile Miami",
         description:
-          "Los créditos aprobados del portafolio incluyen edición de testimoniales. Se enlaza como ejemplo publicado; nada publicado confirma entregables idénticos en cada caso.",
+          "Videos para redes de un consultorio odontológico en Miami, por encargo de la agencia 300 Bees: grabados en locación con video y sonido, y luego editados. No es un testimonial: se enlaza como ejemplo de grabación en locación con sonido, no como prueba de trabajo testimonial.",
       },
       sections: [
         {
-          heading: "Respuestas emotivas y genuinas",
+          heading: "¿Cuánto cuesta un video testimonial en Miami?",
           paragraphs: [
-            "Formula preguntas abiertas enfocadas en la resolución de problemas para lograr un testimonio cercano y creíble. Como referencia de narración y producción en locación, revisa el [proyecto Healthy Smile Miami](/es/portafolio/healthy-smile) (y su [caso de estudio](/es/casos-de-estudio/healthy-smile)).",
+            `Si la entrevista ya está grabada, la edición se calcula con la banda corporativa de la calculadora: ${usd(PRICING_BANDS.corporate.baseMin)}–${usd(PRICING_BANDS.corporate.baseMax)} por proyecto, un rango de editor independiente con un descuento introductorio del 10 %, comparado con un mercado publicado de ${usd(PRICING_BANDS.corporate.marketMin)}–${usd(PRICING_BANDS.corporate.marketMax)}. Si todavía hay que grabarla, el complemento de grabación en locación por media jornada va de ${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)} con la misma base, o el paquete [Presencia Local](/es/precios/presencia-local) parte desde ${packageGuidePrice("presencia-local")} por jornada de producción, con preproducción, grabación y edición.`,
+            "Son puntos de partida para presupuestar, no una cotización. El precio cambia según cuántos clientes se entrevisten, cuántos cortes breves se necesiten para redes y si la entrega incluye subtítulos o un segundo idioma. Las productoras de Miami con equipo completo cotizan con otro modelo, con más personas en el set, así que sus rangos no se comparan directamente.",
+          ],
+        },
+        {
+          heading: "¿Qué preguntas debe tener una entrevista testimonial?",
+          paragraphs: [
+            "Cinco, en el orden en que pasó la historia. ¿Cuál era la situación antes de trabajar con el negocio? ¿Qué casi te detuvo? ¿En qué momento decidiste y por qué? ¿Qué cambió después, con cifras si el cliente las tiene y con palabras sencillas si no? ¿Y a quién le dirías que haga lo mismo?",
+            "El orden importa porque un testimonial se monta como un antes y después breve, y las respuestas grabadas en secuencia caen en esa forma con menos saltos. Haz preguntas abiertas y pide al cliente que responda con una frase completa que repita la pregunta, para que el clip se entienda sin tu voz. Nunca le des un guion para leer: una frase recitada suena recitada.",
+          ],
+        },
+        {
+          heading: "¿Cuánto debe durar un video testimonial?",
+          paragraphs: [
+            "Planea dos duraciones a partir de la misma entrevista. La versión completa, normalmente de uno a tres minutos, va en la web o en una página de ventas, donde quien la ve eligió verla. Las versiones cortas, una respuesta cada una, van a Reels, TikTok y Shorts, donde los primeros segundos deciden si alguien se queda.",
+            `Planear ambas antes de grabar cambia las preguntas: cada respuesta tiene que sostenerse sola, así que el cliente debe nombrar el negocio y el problema dentro de la frase. En la calculadora, los cortes breves para redes están en la banda de video corto, ${usd(PRICING_BANDS.social.baseMin)}–${usd(PRICING_BANDS.social.baseMax)} por proyecto. Inclúyelos en el brief para que la cotización los cubra desde el inicio y no después de aprobar el corte principal.`,
+          ],
+        },
+        {
+          heading: "¿Qué debes enviar antes de grabar o editar un testimonial?",
+          paragraphs: [
+            "Solo para edición: los archivos originales de cámara, el audio grabado por separado si se usó corbatero o grabadora, el nombre y cargo del cliente bien escritos, el logo en vector y el permiso firmado del cliente para publicar su imagen y sus palabras. Si también hay grabación: el lugar, una sala silenciosa y un horario con tiempo para preparar luz y sonido antes de que llegue el cliente.",
+            "En un testimonial el sonido pesa más que la imagen: se perdona una imagen suave antes que un eco. Para la agencia 300 Bees, Esteban grabó videos para redes en un consultorio odontológico de Miami, en locación y con sonido, y luego los editó y entregó ([Healthy Smile Miami](/es/portafolio/healthy-smile)). No es un testimonial, pero es el ejemplo publicado de las mismas condiciones de grabación en locación.",
           ],
         },
       ],

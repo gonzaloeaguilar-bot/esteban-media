@@ -20,6 +20,7 @@ import {
 import { getSpanishNichePage, languageAlternates } from "@/lib/spanish-site";
 import { getPairedLanguageRoute } from "@/lib/language-routes";
 import { sitemapRoutes } from "@/app/sitemap";
+import { PACKAGE_PRICES, PRICING_BANDS, VOLUME_MULTIPLIERS, usd } from "@/lib/pricing";
 
 /**
  * The five buyer gaps shipped 2026-10-06.
@@ -35,6 +36,19 @@ import { sitemapRoutes } from "@/app/sitemap";
  * a sentence that was not about price — and the sentence was rewritten rather
  * than the pattern narrowed.
  */
+
+/** Every dollar figure lib/pricing.ts can put on a page, incl. the monthly-15 social estimate. */
+const publishedPriceFigures = () => {
+  const out: string[] = [];
+  for (const band of Object.values(PRICING_BANDS)) {
+    out.push(usd(band.baseMin), usd(band.baseMax), usd(band.marketMin), usd(band.marketMax));
+  }
+  for (const price of Object.values(PACKAGE_PRICES)) if (price.kind === "from") out.push(usd(price.amount));
+  const m = VOLUME_MULTIPLIERS["monthly-15"];
+  out.push(usd(Math.round((PRICING_BANDS.social.baseMin * m.multMin) / 25) * 25));
+  out.push(usd(Math.round((PRICING_BANDS.social.baseMax * m.multMax) / 25) * 25));
+  return out;
+};
 
 const source = (path: string) => readFileSync(join(process.cwd(), path), "utf8");
 
@@ -210,11 +224,24 @@ describe("niche batch 2026-10-06 — claim discipline", () => {
   it("states no price, turnaround, percentage or unbacked superlative", () => {
     for (const [name] of BATCH) {
       const text = prose(name);
-      expect(text, `${name} names a price`).not.toMatch(/\$\s?\d/);
+      if (name === "white label") {
+        // The white-label deep dive answers the cost question (2026-10-07). Every
+        // figure must be one lib/pricing.ts publishes, and the only percentage is
+        // the introductory discount documented there.
+        const allowed = new Set(publishedPriceFigures());
+        for (const figure of text.match(/\$[\d,]+/g) ?? []) {
+          expect(allowed.has(figure), `white label names ${figure}, not from lib/pricing.ts`).toBe(true);
+        }
+        expect(text.match(/\b\d{1,3}\s?%/g) ?? [], "white label percentages").toEqual(
+          (text.match(/\b\d{1,3}\s?%/g) ?? []).filter((p) => p.replace(/\s/g, "") === "10%"),
+        );
+      } else {
+        expect(text, `${name} names a price`).not.toMatch(/\$\s?\d/);
+        expect(text, `${name} cites a percentage`).not.toMatch(/\b\d{1,3}\s?%/);
+      }
       expect(text, `${name} promises a turnaround`).not.toMatch(
         /\b\d+\s*(?:-\s*\d+\s*)?(?:hour|day|week|business day)s?\b/i,
       );
-      expect(text, `${name} cites a percentage`).not.toMatch(/\b\d{1,3}\s?%/);
       expect(text.toLowerCase(), `${name} uses an unbacked superlative`).not.toMatch(
         /\bguarantee|guaranteed|the best\b|cheapest|#1\b/,
       );
