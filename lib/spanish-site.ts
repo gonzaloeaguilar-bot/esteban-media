@@ -35,6 +35,16 @@ import {
   NIGHTLIFE_ES_DISCLOSURE,
   NIGHTLIFE_ES_SECTIONS,
 } from "@/lib/hospitality-deep-dive-content";
+import {
+  AUTOMOTIVE_ES_SECTIONS,
+  AUTOMOTIVE_ES_DISCLOSURE,
+  DENTAL_ES_SECTIONS,
+  DENTAL_ES_DISCLOSURE,
+  MED_SPA_ES_SECTIONS,
+  MED_SPA_ES_DISCLOSURE,
+  YACHT_CHARTER_ES_SECTIONS,
+  YACHT_CHARTER_ES_DISCLOSURE,
+} from "@/lib/vertical-deep-dives";
 
 export const spanishSite = {
   title: "Esteban Moreno Media | Sistemas de Growth y Producción Creativa",
@@ -865,6 +875,9 @@ export const spanishNichePages: SpanishNichePage[] = [
     ],
     projectFit:
       "Resaltado por el proyecto Healthy Smile en nuestro portafolio. Conecta edición de video profesional con comunicación en salud dental.",
+    sections: DENTAL_ES_SECTIONS,
+    sectionsDisclosure: DENTAL_ES_DISCLOSURE,
+    sectionsDestinations: "Rangos publicados, el proyecto Healthy Smile Miami y tres decisiones antes de grabar",
     faqs: [
       {
         question: "¿Qué tipo de videos funcionan mejor para dentistas?",
@@ -933,6 +946,9 @@ export const spanishNichePages: SpanishNichePage[] = [
     ],
     projectFit:
       "Conecta postproducción de video profesional con comunicación ética en salud estética.",
+    sections: MED_SPA_ES_SECTIONS,
+    sectionsDisclosure: MED_SPA_ES_DISCLOSURE,
+    sectionsDestinations: "Rangos publicados, los proyectos más cercanos y qué hace seguro un video de tratamiento",
     faqs: [
       {
         question: "¿Qué formato de video funciona mejor para med spas?",
@@ -1744,6 +1760,9 @@ export const spanishNichePages: SpanishNichePage[] = [
     ],
     projectFit:
       "Corrección de color y diseño de sonido de alta fidelidad automotriz.",
+    sections: AUTOMOTIVE_ES_SECTIONS,
+    sectionsDisclosure: AUTOMOTIVE_ES_DISCLOSURE,
+    sectionsDestinations: "Rangos publicados, el trabajo automotriz del portafolio y qué enviar para cotizar",
     faqs: [
       {
         question: "¿Se puede agregar diseño de sonido de motores?",
@@ -2184,6 +2203,9 @@ export const spanishNichePages: SpanishNichePage[] = [
     ],
     projectFit:
       "Visuales deslumbrantes con ritmo fluido y sonido marino profesional.",
+    sections: YACHT_CHARTER_ES_SECTIONS,
+    sectionsDisclosure: YACHT_CHARTER_ES_DISCLOSURE,
+    sectionsDestinations: "Rangos de edición y grabación, el trabajo más cercano y la carpeta que conviene enviar",
     faqs: [
       {
         question: "¿Combinan tomas de dron con clips de interior de yates?",

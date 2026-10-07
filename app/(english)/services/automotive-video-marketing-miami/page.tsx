@@ -2,6 +2,8 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { ServiceDeepDive } from "@/components/service-depth";
+import { AUTOMOTIVE_DEEP_DIVE } from "@/lib/vertical-deep-dives";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -90,19 +92,26 @@ export default function AutomotiveVideoMarketingMiamiPage() {
               <Video className="size-8 text-[#e85d3e]" aria-hidden="true" />
               <h2 className="mt-5 font-serif text-3xl">Automotive video proof</h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                Our portfolio project <strong>Homeowners</strong> proves published cinematic color correction and video post-production.
+                No vehicle video is published yet. <strong>Homeowners</strong> is a social video Esteban edited from footage supplied by the agency 300 Bees; his dealership work is the Fort Lauderdale Auto Sale web system and AI concierge.
               </p>
               <Link
                 href="/portfolio/homeowners"
                 className="group mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27]"
               >
-                Review Homeowners Color Correction Proof
+                Review the Homeowners Edit
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
             </div>
           </div>
         </Container>
       </section>
+
+      <ServiceDeepDive
+        id={AUTOMOTIVE_DEEP_DIVE.id}
+        title={AUTOMOTIVE_DEEP_DIVE.title}
+        destinations={AUTOMOTIVE_DEEP_DIVE.destinations}
+        sections={AUTOMOTIVE_DEEP_DIVE.sections}
+      />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">

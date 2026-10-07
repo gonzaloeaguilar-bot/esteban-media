@@ -3,12 +3,14 @@ import { ArrowRight, CheckCircle2, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import {
+  ServiceDeepDive,
   ServiceCraft,
   ServiceFaqs,
   ServiceRelated,
   buildServiceFaqSchema,
 } from "@/components/service-depth";
 import { DENTAL_DEPTH } from "@/lib/service-depth-content";
+import { DENTAL_DEEP_DIVE } from "@/lib/vertical-deep-dives";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -128,7 +130,7 @@ export default function DentalVideoMarketingPage() {
               <Video className="size-8 text-[#e85d3e]" aria-hidden="true" />
               <h2 className="mt-5 font-serif text-3xl">Proven dental proof</h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                Our portfolio project <strong>Healthy Smile Miami</strong> proves on-location video, sketch script writing, and post-production editing for a South Florida dental clinic.
+                <strong>Healthy Smile Miami</strong>: social-media videos for a Miami dental clinic, on assignment with the agency 300 Bees. Esteban filmed on location, video and sound, then edited and delivered the finished pieces.
               </p>
               <dl className="mt-6 grid gap-3">
                 <div className="rounded-md border border-[#ddd4c8] p-3">
@@ -144,6 +146,13 @@ export default function DentalVideoMarketingPage() {
           </div>
         </Container>
       </section>
+
+      <ServiceDeepDive
+        id={DENTAL_DEEP_DIVE.id}
+        title={DENTAL_DEEP_DIVE.title}
+        destinations={DENTAL_DEEP_DIVE.destinations}
+        sections={DENTAL_DEEP_DIVE.sections}
+      />
 
       <section className="py-12 sm:py-16">
         <Container size="xl">
