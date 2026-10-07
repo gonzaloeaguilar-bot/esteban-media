@@ -1115,7 +1115,8 @@ nav[aria-label*="igas de pan" i] a,
 @media(max-width:429px) {
   .em-language-word { display:none; }
   .em-language-short { display:inline; }
-  .em-menu-label { display: none; }
+  /* Visually hidden, still the button's accessible name. */
+  .em-menu-label { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
   .em-header-menu { padding-left: 0.75rem; padding-right: 0.75rem; }
 }
 .em-package-detail-link { display:inline-flex; min-height:44px; align-items:center; padding:8px 14px; border:1px solid currentColor; border-radius:999px; font-size:0.875rem; }

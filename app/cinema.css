@@ -179,20 +179,24 @@ html.rail-anim .em-cine__rec-dot {
   left: 0;
   right: 0;
   z-index: 3;
-  height: min(13%, calc(var(--p) * 45%));
+  /* Drawn at its closed size and scaled, never resized: animating height moved
+     the bottom bar's edge and PageSpeed counted it as layout shift (0.08 of the
+     home's CLS). min(13%, p*45%) of the frame == min(0.2574, p*0.891) of 50.5%. */
+  height: 50.5%;
+  transform: scaleY(min(0.2574, calc(var(--p) * 0.891)));
   background: var(--cine-ink);
   pointer-events: none;
 }
-.em-cine__bar--top { top: 0; }
-.em-cine__bar--bottom { bottom: 0; }
+.em-cine__bar--top { top: 0; transform-origin: top; }
+.em-cine__bar--bottom { bottom: 0; transform-origin: bottom; }
 
 /* The opening: the shutter starts closed and opens once. Only with motion on. */
 html.rail-anim:not([data-brand-moment]) .em-cine__bar {
   animation: em-shutter 1.15s var(--cine-ease) 0.1s both;
 }
 @keyframes em-shutter {
-  from { height: 50.5%; }
-  to { height: min(13%, calc(var(--p) * 45%)); }
+  from { transform: scaleY(1); }
+  to { transform: scaleY(min(0.2574, calc(var(--p) * 0.891))); }
 }
 
 /* The opening credit. */
@@ -1547,6 +1551,8 @@ html.rail-anim .em-pk-steps__list.rail-reveal.is-in li:nth-child(3) { transition
   color: var(--cine-text);
   margin-top: 2px;
 }
+/* Open, the card shows the full price block; the face line would say it twice. */
+.em-pk-card[data-state="open"] .em-pk-card__price { display: none; }
 .em-pk-card__go {
   display: inline-flex;
   align-items: center;
