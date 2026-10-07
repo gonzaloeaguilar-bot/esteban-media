@@ -3739,14 +3739,20 @@ const nicheBatch20261006 = Object.fromEntries(
  *
  * Pages left unpaired on purpose: those with no unambiguous English twin
  * (videografo-en-miami, fotografo-en-fort-lauderdale, the Palm Beach County
- * pages, asesores-financieros) or where pairing would double-claim an English
- * page that already has a Spanish counterpart.
+ * pages) or where pairing would double-claim an English page that already has
+ * a Spanish counterpart. Note: on 2026-10-07 the served pages were compared and
+ * both target financial advisors / wealth managers in Miami, so
+ * asesores-financieros is paired now with wealth-management-video-production-miami
+ * (along with real-estate-reels-video-editor-south-florida and
+ * editor-de-video-real-estate-miami).
  */
 const nicheBatch20261006Hreflang = Object.fromEntries(
   (
     [
       ["/services/reels-editor-fort-lauderdale", "/es/editor-de-reels-fort-lauderdale"],
       ["/services/reels-editor-miami", "/es/editor-de-reels-miami"],
+      ["/services/real-estate-reels-video-editor-south-florida", "/es/editor-de-video-real-estate-miami"],
+      ["/services/wealth-management-video-production-miami", "/es/produccion-de-video-para-asesores-financieros-miami"],
       ["/services/med-spa-video-marketing-south-florida", "/es/marketing-de-video-para-clinicas-esteticas-miami"],
       ["/services/contractor-video-marketing-south-florida", "/es/marketing-de-video-para-contratistas-miami"],
       ["/services/dental-video-marketing-south-florida", "/es/marketing-de-video-para-dentistas-miami"],

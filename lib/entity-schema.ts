@@ -74,6 +74,7 @@ export const localBusinessEntityJsonLd = {
     site.youtube,
     site.googleBusinessProfile,
     site.bingPlaces,
+    site.instagramBusiness,
   ],
   availableLanguage: ["Spanish", "English (intermediate)"],
   contactPoint: {

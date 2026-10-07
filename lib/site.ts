@@ -44,6 +44,10 @@ export const site = {
   googleBusinessProfile: "https://maps.google.com/?cid=12305289738935181687",
   // Bing imported the Google profile; verified live 2026-10-07.
   bingPlaces: "https://www.bing.com/maps?ypid=YN6BD50BCE86C81774",
+  // The brand account, distinct from the personal @steeban1 above. Verified live
+  // 2026-10-07: display name "Esteban Moreno Media", bio lists video editing and
+  // the Fort Lauderdale / Broward / Miami-Dade / Palm Beach area, links this site.
+  instagramBusiness: "https://www.instagram.com/estebanmorenomedia/",
   googleSiteVerification: "I70vr7LMsVyZc_VO4grb6fDxQXPTbhB7LIIFjJUlvUs",
   googleAnalyticsMeasurementId: "G-W9CM4CE2MQ",
   location: "Fort Lauderdale, FL",
