@@ -544,8 +544,9 @@ export const spanishNichePages: SpanishNichePage[] = [
     slug: "video-para-restaurantes-miami",
     title: "Video para restaurantes en Miami",
     metadataTitle: "Video para Restaurantes en Miami",
+    // SNIPPET TEST 2026-10-07 (GSC: video para restaurantes miami, 7 impr, pos 6.9, 0 clicks). Read GSC after 2026-11-10; if still 0 clicks, revert rather than iterate.
     description:
-      "Información sobre edición y producción selectiva de video para restaurantes de Miami-Dade, con atención principal en español.",
+      "Edición de Reels y videos promocionales para restaurantes de Miami-Dade: platos estrella, ambiente del salón y promociones. Atención en español.",
     eyebrow: "Restaurantes / comida / hospitality",
     h1: "Video para restaurantes de Miami-Dade, evaluado proyecto por proyecto.",
     lead:
