@@ -21,18 +21,19 @@ import sitemap from "../sitemap";
 describe("portfolio sitemap entries", () => {
   const entries = sitemap();
 
-  it("publishes the exact 277-URL consolidated inventory, each URL once", () => {
+  it("publishes the exact 279-URL consolidated inventory, each URL once", () => {
     const urls = entries.map((entry) => entry.url);
 
-    // 277 = 243 consolidated + /desk-recommendations (owner-ordered
+    // 279 = 243 consolidated + /desk-recommendations (owner-ordered
     // 2026-09-16) + /pricing and /es/precios (owner-ordered 2026-09-27)
     // + /pricing/real-estate and /es/precios/inmobiliaria (owner-ordered
     // 2026-09-29, demand-backed) + three buyer-prep resources and the remote
     // editor service page added 2026-10-01 + four EN GEO pages and three ES
     // GEO pages added from same-day GSC query evidence + the five bilingual
-    // niche pairs added 2026-10-06 (ten URLs, owner-ordered).
-    expect(entries).toHaveLength(277);
-    expect(new Set(urls)).toHaveLength(277);
+    // niche pairs added 2026-10-06 (ten URLs, owner-ordered) and the
+    // food/places creator pair added 2026-10-07 (two URLs, owner-ordered).
+    expect(entries).toHaveLength(279);
+    expect(new Set(urls)).toHaveLength(279);
   });
 
   // This used to assert every entry carried lastModified 2026-07-19. That

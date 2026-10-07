@@ -1,4 +1,7 @@
 import Link from "next/link";
+import { ServiceInquiryLink } from "@/components/service-inquiry-link";
+import RailFaq from "@/vendor/rail-kit/RailFaq";
+import { renderFormattedText } from "@/components/formatted-text";
 import { ArrowRight, CheckCircle2, Mail, MessageCircle, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
@@ -199,10 +202,12 @@ export function ServiceFaqs({
   heading,
   faqs,
   sectionId = "service-faq",
+  collapsible = false,
 }: {
   heading: string;
   faqs: readonly ServiceFaq[];
   sectionId?: string;
+  collapsible?: boolean;
 }) {
   return (
     <section
@@ -217,6 +222,13 @@ export function ServiceFaqs({
         <h2 id={`${sectionId}-heading`} className="mt-4 max-w-3xl font-serif text-4xl leading-tight">
           {heading}
         </h2>
+        {collapsible ? (
+          <RailFaq
+            className="mt-8"
+            source={sectionId}
+            items={faqs.map((faq, index) => ({ id: `${sectionId}-${index}`, ...faq }))}
+          />
+        ) : (
         <div className="mt-8 grid gap-5 md:grid-cols-2">
           {faqs.map((faq) => (
             <article key={faq.question} className="rounded-lg border border-[#ddd4c8] bg-[#f6f1ea] p-5">
@@ -225,6 +237,7 @@ export function ServiceFaqs({
             </article>
           ))}
         </div>
+        )}
       </Container>
     </section>
   );
@@ -241,11 +254,13 @@ export function ServiceFaqs({
 export function ServiceInquiryRail({
   service,
   sectionId = "service-inquiry",
+  trackInterest = false,
   locale = "en",
 }: {
   service: ServiceInquiry;
   sectionId?: string;
   locale?: ServiceInquiryLocale;
+  trackInterest?: boolean;
 }) {
   const t = inquiryCopy[locale];
   const message = t.message(service);
@@ -254,6 +269,7 @@ export function ServiceInquiryRail({
 
   return (
     <section
+      id={sectionId}
       className="border-b border-[#ddd4c8] bg-[#101214] py-12 text-[#f6f1ea] sm:py-16"
       aria-labelledby={`${sectionId}-heading`}
       data-section={sectionId}
@@ -280,7 +296,9 @@ export function ServiceInquiryRail({
               {message}
             </p>
             <div className="mt-5 grid gap-3 sm:grid-cols-3">
-              <a
+              <ServiceInquiryLink
+                serviceId={trackInterest ? service.serviceId : undefined}
+                locale={locale}
                 href={whatsappHref(site.phone.e164, message)}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -289,23 +307,27 @@ export function ServiceInquiryRail({
               >
                 <MessageCircle className="size-4" aria-hidden="true" />
                 WhatsApp
-              </a>
-              <a
+              </ServiceInquiryLink>
+              <ServiceInquiryLink
+                serviceId={trackInterest ? service.serviceId : undefined}
+                locale={locale}
                 href={`mailto:${site.email}?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`}
                 data-cta={`service_${service.serviceId}_email`}
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/30 px-4 text-sm font-medium text-white hover:bg-white hover:text-[#101214]"
               >
                 <Mail className="size-4" aria-hidden="true" />
                 Email
-              </a>
-              <a
+              </ServiceInquiryLink>
+              <ServiceInquiryLink
+                serviceId={trackInterest ? service.serviceId : undefined}
+                locale={locale}
                 href={site.phone.href}
                 data-cta={`service_${service.serviceId}_phone`}
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/30 px-4 text-sm font-medium text-white hover:bg-white hover:text-[#101214]"
               >
                 <Phone className="size-4" aria-hidden="true" />
                 {t.phoneLabel}
-              </a>
+              </ServiceInquiryLink>
             </div>
             <Link
               href={service.proofHref}
@@ -356,14 +378,14 @@ export function ServiceDeepDive({
   return (
     <section className="border-b border-[#ddd4c8] py-12 sm:py-16" data-section={`${id}-wrap`}>
       <Container size="xl">
-        <KeepReading id={id} title={title} destinations={destinations}>
+        <KeepReading className="em-reading-paper" id={id} title={title} destinations={destinations}>
           <div className="mx-auto mt-8 max-w-3xl space-y-10">
             {sections.map((section) => (
               <article key={section.heading} className="space-y-4">
                 <h3 className="font-serif text-2xl sm:text-3xl">{section.heading}</h3>
                 {section.paragraphs.map((paragraph) => (
                   <p key={paragraph} className="text-base leading-8 text-[#252a2d]">
-                    {paragraph}
+                    {renderFormattedText(paragraph)}
                   </p>
                 ))}
               </article>

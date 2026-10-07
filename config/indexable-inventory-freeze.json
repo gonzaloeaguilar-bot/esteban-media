@@ -1,9 +1,9 @@
 {
   "status": "demand_gated",
   "effectiveDate": "2026-08-28",
-  "baselineRevisedOn": "2026-10-06",
-  "approvedSitemapUrlCount": 277,
-  "approvedSitemapUrlSetSha256": "9031d4858041189139e562e94b1e9bfe546896e678b935396f078e288850438a",
+  "baselineRevisedOn": "2026-10-07",
+  "approvedSitemapUrlCount": 279,
+  "approvedSitemapUrlSetSha256": "013c1277f9dd6b1fc97e5053f7e30213b753d26124d885d4fb1b66ed67781ae9",
   "allowedNewIndexableUrls": 4,
   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {
@@ -160,6 +160,18 @@
       "note": "TEN URLs, which is five bilingual pairs and more than one demand-wave allowance of 4. Recorded as one owner-ordered batch rather than split across invented waves, so the exception stays visible. allowedNewIndexableUrls is left at 4; the per-wave bound is unchanged.",
       "followUpDate": "2026-11-06",
       "followUp": "Check GSC impressions, indexed status and inquiry-rail CTA clicks for all ten URLs. Any pair at zero impressions and zero contact intent after 30 days is not a real gap: merge it into the nearest service page or drop it from the sitemap. The white-label pair also gets checked against the outbound lane: if those prospects arrive through outreach rather than search, keep the page as a sales asset and drop it from the sitemap."
+    },
+    {
+      "on": "2026-10-07",
+      "url": [
+        "/services/food-and-places-creator-video-editing-miami",
+        "/es/edicion-de-video-para-creadores-de-comida-y-lugares-miami"
+      ],
+      "orderedBy": "User-provided CTO dispatch, cto-seo-lead",
+      "kind": "food and places recommendation creator service pair",
+      "demandEvidence": "Explicit service-gap request connecting existing creator and restaurant pages. Parent-session GSC observation supplied in dispatch; not independently refreshed in this bounded build. No new ranking or customer-result claim published.",
+      "followUpDate": "2026-10-21",
+      "followUp": "cto-seo-lead: after publication compare GSC impressions/clicks and qualified inquiries per visit for both new URLs at 14 and 28 days; low volume remains inconclusive. Reconcile later follow-up dates to actual publication date."
     }
   ]
 }

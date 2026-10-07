@@ -1,6 +1,6 @@
 import { packageRoutes } from "@/lib/package-routes";
 
-const pairedLanguageRoutes: Record<string, string> = {
+export const pairedLanguageRoutes: Record<string, string> = {
   ...Object.fromEntries(Object.values(packageRoutes).map((route) => [route.en, route.es])),
   "/": "/es",
   "/services": "/es/servicios",
@@ -12,6 +12,8 @@ const pairedLanguageRoutes: Record<string, string> = {
   "/services/custom-operations-automation": "/es/automatizacion-de-operaciones",
   "/services/creative-production": "/es/produccion-creativa",
   "/services/website-design-fort-lauderdale": "/es/diseno-web-fort-lauderdale",
+  "/services/food-and-places-creator-video-editing-miami":
+    "/es/edicion-de-video-para-creadores-de-comida-y-lugares-miami",
   "/services/restaurant-promo-video-editing-miami":
     "/es/edicion-de-video-promocional-para-restaurantes-miami",
   "/portfolio": "/es/portafolio",

@@ -1117,3 +1117,10 @@ nav[aria-label*="igas de pan" i] a,
 
 .em-package-detail { --rail-muted: #5a6066; }
 .em-package-detail .rail-price { gap: 0.5rem; }
+
+/* Service reading disclosures sit on paper, outside the dark home theme. */
+.em-reading-paper {
+  --wk-ink: #101214;
+  --wk-muted: #5a6066;
+  --wk-line: #ddd4c8;
+}

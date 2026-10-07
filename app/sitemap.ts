@@ -71,6 +71,7 @@ export const sitemapRoutes = [
   { path: "/services/event-video-editing-miami", priority: 0.85 },
   { path: "/services/brand-video-production-miami", priority: 0.85 },
   { path: "/services/fitness-trainer-video-production-miami", priority: 0.85 },
+  { path: "/services/food-and-places-creator-video-editing-miami", priority: 0.85 },
   { path: "/services/restaurant-promo-video-editing-miami", priority: 0.85 },
   { path: "/services/law-firm-video-production-miami", priority: 0.85 },
   { path: "/services/yacht-charter-video-marketing-miami", priority: 0.85 },

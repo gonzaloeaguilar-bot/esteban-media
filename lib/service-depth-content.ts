@@ -1,4 +1,5 @@
 import type { CraftCard, RelatedService, ServiceFaq } from "@/components/service-depth";
+import { priceSentence } from "@/lib/packages";
 
 /**
  * The vertical-specific depth for the pilot pages.
@@ -866,6 +867,11 @@ export const CREATOR_DEPTH: Depth = {
   relatedHeading: "Related services for creators and personal brands.",
   related: [
     {
+      title: "Food & Places Creator Editing",
+      detail: "Restaurant visits and local recommendations, from footage to a launch month.",
+      href: "/services/food-and-places-creator-video-editing-miami",
+    },
+    {
       title: "Short-Form Video Editing",
       detail: "Vertical edits with burned-in captions from footage you already shot.",
       href: "/services/short-form-video-editor-miami",
@@ -1068,3 +1074,61 @@ export const AUTO_DETAILING_DEPTH: Depth = {
     },
   ],
 };
+
+export const FOOD_PLACES_CREATOR_DEPTH: Depth = {
+  craftHeading: "What makes a visit easy to follow?",
+  craft: [
+    { title: "The place", detail: "Dish, venue and neighbourhood on screen, so viewers know what you are recommending." },
+    { title: "Your voice", detail: "Burned-in captions kept clear of app controls and the food you came to show." },
+    { title: "The context", detail: "Tell Esteban which visits were paid or which meals were comped before editing starts." },
+  ],
+  faqHeading: "What should you know before sending clips?",
+  faqs: [
+    { question: "Can you edit phone footage remotely?", answer: `Yes. Send original phone files, not copies downloaded from a social app. The Starter package covers remote editing: ${priceSentence("en", "arranque").toLowerCase()}. Format, volume and timing are confirmed for your project.` },
+    { question: "Does a launch month include filming?", answer: "The Growth package includes a content plan, publishing calendar, editing and a monthly report. On-location filming is scoped separately, project by project, across Broward and Miami-Dade from Esteban's Fort Lauderdale base." },
+    { question: "Are these examples from recommendation accounts?", answer: "No. Bar Door Monkey Miami is a published venue promo with videography and editing; ML Colombia is a published social piece. They show editing work, not a food recommendation account or its results." },
+  ],
+  relatedHeading: "Which other editing service fits your project?",
+  related: [
+    { title: "Content Creator Video Editing", detail: "Editing and publishing support for a broader creator account.", href: "/services/content-creator-video-editing-miami" },
+    { title: "Restaurant Promo Video Editing", detail: "Promotional edits for the restaurant's own channels.", href: "/services/restaurant-promo-video-editing-miami" },
+  ],
+};
+
+export const FOOD_PLACES_CREATOR_SECTIONS = [
+  {
+    heading: "What does Esteban edit for a food or places recommendation account?",
+    paragraphs: [
+      "Esteban edits your restaurant visits and local discoveries into vertical 1080x1920 videos with burned-in captions inside the safe band. The dish or venue name and neighbourhood appear on screen, so someone who finds the video without knowing your account can still identify the place. Cover frames come from your footage. A horizontal cut can also be scoped when the same visit has enough material for a longer upload.",
+      "Send the original clips, your account and the platforms where you plan to publish. Explain what you liked and which details must stay in the cut. This combines [editing for content creators](/services/content-creator-video-editing-miami) with the food and venue detail of [restaurant promo editing](/services/restaurant-promo-video-editing-miami), while keeping the recommendation in your own voice.",
+    ],
+  },
+  {
+    heading: "How does a launch month work?",
+    paragraphs: [
+      `The Growth package includes a content plan, publishing calendar, editing and a monthly report. ${priceSentence("en", "crecimiento")}. That is a starting price, with the first month scoped on a call from the footage you have and the posting rhythm you want. Bring your account, the places you want to cover and examples of the style you like. There is no fixed post count or delivery promise before the material and scope are agreed.`,
+      "The conversation separates visits already filmed from ideas that still need footage. It also identifies which pieces belong together and what information each one needs from you. You can discuss a launch month even if the account is new; the plan is based on your material and goals, without promising followers, views or growth results.",
+    ],
+  },
+  {
+    heading: "What should a creator film at a restaurant so it edits well?",
+    paragraphs: [
+      "Capture hands, ingredients, texture, the room and the sign or exterior. Those views help connect the dish to the place instead of leaving the editor with only close-ups of a plate. Keep original files in folders named by venue and date, and include the correct menu spelling. Add a short note about what you want to recommend, plus any spoken observations that should stay in your own words.",
+      "The [restaurant video ideas guide](/guides/video-content-ideas-for-restaurants) can help you prepare a visit, while the [remote editing handoff guide](/guides/remote-video-editing-handoff) explains how to organise the files. If the video is being made for the venue's own account, review [restaurant promo video editing](/services/restaurant-promo-video-editing-miami) too. Explain that intended use before sending footage so the finished piece addresses the right audience.",
+    ],
+  },
+  {
+    heading: "How are paid visits and comped meals disclosed?",
+    paragraphs: [
+      "Tell Esteban which visits are paid partnerships and which meals were provided by the venue. This follows the published creator-editing practice of placing the disclosure in the cut itself, rather than relying only on an expandable caption. Send that context alongside the relevant clips, with the venue name and any wording you have already agreed. It belongs in the editing brief from the start, alongside the recommendation you want to make.",
+      "When reviewing the edit, check that the disclosure is readable and stays with the relevant visit. Also check the venue and dish names, your captions and the parts of the experience you chose to describe. If one folder mixes paid visits, comped meals and visits you paid for yourself, label each separately so that the editor does not have to guess.",
+    ],
+  },
+  {
+    heading: "What published work shows this kind of editing?",
+    paragraphs: [
+      "[Bar Door Monkey Miami](/portfolio/bar-door-monkey) is a promo for a Miami restaurant, from 2020, with videography and editing. Its published video runs 55 seconds. [ML Colombia](/portfolio/ml-colombia) is a published social content piece running 24 seconds. These are a venue promo and a social piece, not a food or places recommendation account. They are examples you can watch to discuss editing choices, not claims about a creator client's audience or results.",
+      "Watch them with your own footage in mind: the order of shots, the balance between people and surroundings, and how much information fits into a short piece. Send Esteban the parts you want to use as a reference and explain what should feel different for your account. The conversation starts from visible work and your own material.",
+    ],
+  },
+] as const;

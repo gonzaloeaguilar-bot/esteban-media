@@ -2,9 +2,12 @@ import React from "react";
 import type { CSSProperties } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ArrowRight, Mail, Phone, Send } from "lucide-react";
 
+import { renderFormattedText } from "@/components/formatted-text";
+import { KeepReading } from "@/components/keep-reading";
 import { Container } from "@/components/ui/container";
 import { Cartel, Figure, NumberedList } from "@/components/em-surface";
 import { ProjectRail, ServiceRail } from "@/components/em-rails";
@@ -18,52 +21,6 @@ import {
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { site } from "@/lib/site";
 
-function renderFormattedText(text: string) {
-  const parts: React.ReactNode[] = [];
-  const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
-  let lastIndex = 0;
-  let match: RegExpExecArray | null;
-
-  while ((match = regex.exec(text)) !== null) {
-    if (match.index > lastIndex) {
-      parts.push(text.substring(lastIndex, match.index));
-    }
-    const label = match[1];
-    const href = match[2];
-    const isExternal = href.startsWith("http");
-
-    if (isExternal) {
-      parts.push(
-        <a
-          key={`${href}-${match.index}`}
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]"
-        >
-          {label}
-        </a>,
-      );
-    } else {
-      parts.push(
-        <Link
-          key={`${href}-${match.index}`}
-          href={href}
-          className="font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]"
-        >
-          {label}
-        </Link>,
-      );
-    }
-    lastIndex = regex.lastIndex;
-  }
-
-  if (lastIndex < text.length) {
-    parts.push(text.substring(lastIndex));
-  }
-
-  return parts.length > 0 ? parts : text;
-}
 
 type NicheLinkContext = {
   areaHref: string;
@@ -74,6 +31,16 @@ type NicheLinkContext = {
 };
 
 const nicheLinkContext: Record<string, NicheLinkContext> = {
+  "edicion-de-video-para-creadores-de-comida-y-lugares-miami": {
+    areaHref: "/es/areas#broward",
+    areaLabel: "Ver cobertura en Broward y Miami-Dade",
+    note: "Bar Door Monkey Miami: promoción de un local de 2020, con videografía y edición, de 55 segundos. ML Colombia: pieza social de 24 segundos. No son cuentas de recomendaciones.",
+    serviceIds: ["edicion", "planificacion-social"],
+    projects: [
+      { href: "/es/portafolio/bar-door-monkey", title: "Bar Door Monkey Miami", detail: "Promoción de un local · 2020 · 55 segundos" },
+      { href: "/es/portafolio/ml-colombia", title: "ML Colombia", detail: "Contenido social publicado · 24 segundos" },
+    ],
+  },
   "videografo-en-miami": {
     areaHref: "/es/areas#miami-dade",
     areaLabel: "Ver cobertura en Miami-Dade",
@@ -1086,6 +1053,14 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
 };
 
 const spanishInquiryServices: Record<string, ServiceInquiry> = {
+  "edicion-de-video-para-creadores-de-comida-y-lugares-miami": {
+    serviceId: "es_food_places_creator_video",
+    serviceName: "edición para mi cuenta de comida y lugares",
+    goalPrompt: "lanzar la cuenta o editar mis visitas a restaurantes",
+    assetPrompt: "clips originales, nombres de locales y platos, mi cuenta y las visitas pagadas o de cortesía identificadas",
+    proofHref: "/es/portafolio/bar-door-monkey",
+    proofLabel: "Ver el video publicado del restaurante",
+  },
   // Lote de nichos 2026-10-06.
   "marketing-de-video-para-consultorios-medicos-miami": {
     serviceId: "es_medical_practice_video",
@@ -1271,6 +1246,21 @@ export function SpanishNichePage({ slug }: { slug: string }) {
       ? "/es/contacto?source=pembroke-pines-small-business-video"
       : "/es/contacto";
   const inquiryService = spanishInquiryServices[page.slug];
+  const sectionArticles = page.sections?.map((section) => (
+    <article key={section.heading} className="space-y-4">
+      <h3 className="font-serif text-2xl sm:text-3xl text-[#101214]">{section.heading}</h3>
+      <div className="space-y-4 text-base leading-8 text-[#252a2d]">
+        {section.paragraphs.map((paragraph, index) => (
+          <p key={index}>{renderFormattedText(paragraph)}</p>
+        ))}
+      </div>
+      {section.bullets && section.bullets.length > 0 ? (
+        <Cartel className="mt-4 p-5 sm:p-6" data-em-reveal>
+          <NumberedList items={section.bullets} className="mt-0" renderItem={renderFormattedText} />
+        </Cartel>
+      ) : null}
+    </article>
+  ));
 
   return (
     <main className="bg-[#f6f1ea] text-[#101214]">
@@ -1325,6 +1315,7 @@ export function SpanishNichePage({ slug }: { slug: string }) {
               <div className="mt-6 sm:mt-8 flex flex-wrap gap-3" data-em-hero-actions>
                 <Link
                   href={contactHref}
+                  data-cta={`${inquiryService?.serviceId ?? "es_niche"}_contact`}
                   className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)]"
                 >
                   {isPendingConfirmation
@@ -1334,17 +1325,20 @@ export function SpanishNichePage({ slug }: { slug: string }) {
                 </Link>
                 <Link
                   href="/es/servicios"
+                  data-cta={`${inquiryService?.serviceId ?? "es_niche"}_services`}
                   className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#101214] px-6 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"
                 >
                   Ver servicios
                 </Link>
                 <Link
                   href="/es/guias"
+                  data-cta={`${inquiryService?.serviceId ?? "es_niche"}_guides`}
                   className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#101214] px-6 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"
                 >
                   Ver guías de video
                 </Link>
               </div>
+              {page.updated ? <p className="mt-3 text-sm text-[#5a6066]">Actualizado: <time dateTime={page.updated}>{new Date(`${page.updated}T12:00:00Z`).toLocaleDateString("es-US", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })}</time></p> : null}
             </div>
 
             {/* The page's one moment of scale. What used to be here was a
@@ -1352,6 +1346,13 @@ export function SpanishNichePage({ slug }: { slug: string }) {
                 body size, the least looked-at object on the page despite
                 holding the two facts a visitor actually came to check. The
                 figures are sized against this card, not the window. */}
+            {page.heroMedia ? (
+              <figure>
+                <Image src={page.heroMedia.src} alt={page.heroMedia.alt} width={1280} height={720} className="h-auto w-full rounded-xl" priority />
+                <figcaption className="mt-3 text-sm leading-6 text-[#5a6066]">{page.heroMedia.caption}</figcaption>
+                <p className="mt-4 text-sm leading-6 text-[#252a2d]">{renderFormattedText(page.projectFit)}</p>
+              </figure>
+            ) : (
             <Cartel as="aside" className="overflow-hidden p-6">
               <Icon className="size-7 text-[#e85d3e]" aria-hidden="true" />
               <h2 className="mt-5 font-serif text-3xl">
@@ -1375,6 +1376,7 @@ export function SpanishNichePage({ slug }: { slug: string }) {
                 />
               </dl>
             </Cartel>
+            )}
           </div>
         </Container>
       </section>
@@ -1396,6 +1398,12 @@ export function SpanishNichePage({ slug }: { slug: string }) {
         <section className="border-t border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
           <Container size="xl">
             <div className="mx-auto max-w-4xl space-y-12">
+              {page.sectionsDisclosure ? (
+                <KeepReading className="em-reading-paper" id="detalles-del-servicio" title={page.sectionsDisclosure} destinations="Formatos, primer mes, tomas, colaboraciones y ejemplos publicados">
+                  <div className="mt-8 space-y-10">{sectionArticles}</div>
+                </KeepReading>
+              ) : (
+                <>
               <div className="border-b border-[#ddd4c8] pb-6">
                 <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">
                   Guía de alcance y criterios técnicos
@@ -1404,31 +1412,9 @@ export function SpanishNichePage({ slug }: { slug: string }) {
                   Estrategia, formato y edición de video corto para negocios
                 </h2>
               </div>
-              {page.sections.map((section) => (
-                <article key={section.heading} className="space-y-4">
-                  <h3 className="font-serif text-2xl sm:text-3xl text-[#101214]">
-                    {section.heading}
-                  </h3>
-                  <div className="space-y-4 text-base leading-8 text-[#252a2d]">
-                    {section.paragraphs.map((p, pIndex) => (
-                      <p key={pIndex}>{renderFormattedText(p)}</p>
-                    ))}
-                  </div>
-                  {/* The prose above stays prose — it is written to be read,
-                      and turning an argument into cards would only shred it.
-                      The bullets under it are a different thing: a scannable
-                      checklist, which is what gets the card treatment. */}
-                  {section.bullets && section.bullets.length > 0 ? (
-                    <Cartel className="mt-4 p-5 sm:p-6" data-em-reveal>
-                      <NumberedList
-                        items={section.bullets}
-                        className="mt-0"
-                        renderItem={renderFormattedText}
-                      />
-                    </Cartel>
-                  ) : null}
-                </article>
-              ))}
+                  {sectionArticles}
+                </>
+              )}
             </div>
           </Container>
         </section>
@@ -1451,6 +1437,7 @@ export function SpanishNichePage({ slug }: { slug: string }) {
                 <div className="mt-6 flex flex-wrap gap-3">
                   <Link
                     href={linkContext.areaHref}
+                    data-cta={`${inquiryService?.serviceId ?? "es_niche"}_area`}
                     className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-[#101214] px-5 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"
                   >
                     {linkContext.areaLabel}
@@ -1458,6 +1445,7 @@ export function SpanishNichePage({ slug }: { slug: string }) {
                   </Link>
                   <Link
                     href={contactHref}
+                    data-cta={`${inquiryService?.serviceId ?? "es_niche"}_contact`}
                     className="inline-flex min-h-11 items-center justify-center rounded-full bg-[var(--em-accent-ink)] px-5 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)]"
                   >
                     {isPendingConfirmation
@@ -1491,6 +1479,7 @@ export function SpanishNichePage({ slug }: { slug: string }) {
       {inquiryService ? (
         <ServiceInquiryRail
           service={inquiryService}
+          trackInterest={page.slug === "edicion-de-video-para-creadores-de-comida-y-lugares-miami"}
           locale="es"
           sectionId="consulta-de-servicio"
         />
@@ -1541,9 +1530,9 @@ export function SpanishNichePage({ slug }: { slug: string }) {
                   as="details"
                   key={faq.question}
                   className="em-qa p-5"
-                  data-em-reveal
+                  data-em-reveal={page.sectionsDisclosure ? undefined : true}
                   style={{ "--em-reveal-i": index } as CSSProperties}
-                  open
+                  open={page.sectionsDisclosure ? undefined : true}
                 >
                   <summary>
                     <h3 className="font-serif text-2xl">{faq.question}</h3>
@@ -1579,6 +1568,7 @@ export function SpanishNichePage({ slug }: { slug: string }) {
               <div className="flex flex-wrap gap-3">
                 <a
                   href={`mailto:${site.email}`}
+                  data-cta={`${inquiryService?.serviceId ?? "es_niche"}_closing_email`}
                   className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-5 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)]"
                 >
                   <Mail className="size-4" aria-hidden="true" />
@@ -1586,6 +1576,7 @@ export function SpanishNichePage({ slug }: { slug: string }) {
                 </a>
                 <a
                   href={site.phone.href}
+                  data-cta={`${inquiryService?.serviceId ?? "es_niche"}_closing_phone`}
                   className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-[#101214] px-5 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"
                 >
                   <Phone className="size-4" aria-hidden="true" />
@@ -1593,6 +1584,7 @@ export function SpanishNichePage({ slug }: { slug: string }) {
                 </a>
                 <a
                   href={site.instagram}
+                  data-cta={`${inquiryService?.serviceId ?? "es_niche"}_closing_instagram`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-[#101214] px-5 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"

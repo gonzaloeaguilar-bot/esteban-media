@@ -1,3 +1,9 @@
+# Food and places creator pair — 2026-10-07
+
+Branch `feat/food-places-creator-launch`. New EN/ES service routes (`/services/food-and-places-creator-video-editing-miami`, `/es/edicion-de-video-para-creadores-de-comida-y-lugares-miami`) join creator editing and restaurant editing: reciprocal body/related links, hreflang pair, sitemap + inventory freeze + index-watch entries, package-derived prices (never hardcoded), FAQ schema, real portfolio proof (Bar Door Monkey, ML Colombia). Service-interest tracking is opt-in for this pair; lens telemetry gained its two missing `cta_click` params so the repo analytics gate passes. Local gates: 1,086 tests, build, analytics gate PASS, dual-audience gate PASS (EN 5 in-band / ES 5 in-band).
+
+---
+
 # Favicon cache refresh — 2026-10-03
 
 Owner reports the Vercel favicon again. Current live root assets already contain Esteban’s terracotta e; the head still declares the original /favicon.ico URL. This repair gives all browser icon declarations explicit brand-specific paths in both root locales while preserving byte-identical legacy assets for bookmarks/schema. scripts/generate-brand-icons.py owns both sets. Existing glyph legibility tests plus metadata/alias tests guard the recurrence. Browser cache is a plausible cause, not directly proven. Delivery and production evidence: Obsidian esteban-favicon-refresh-2026-10-03.
