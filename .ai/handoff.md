@@ -1,6 +1,6 @@
 # Demand wave — pacing calculator guidance — 2026-10-07
 
-Bilingual content-depth candidate on the existing pacing calculator routes. New optional RailFaq answers explain the actual word-count formula, pauses and silent-shot limits, and checking a reading aloud; matching FAQPage JSON-LD uses the same answer source. The calculator introduction/placeholder now describes an estimate rather than promising exact timing or retention. No URL inventory, metadata, contact, price or service-scope changes.
+Draft PR #295: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/295. Bilingual content-depth candidate on the existing pacing calculator routes. New optional RailFaq answers explain the actual word-count formula, pauses and silent-shot limits, and checking a reading aloud; matching FAQPage JSON-LD uses the same answer source. The calculator introduction/placeholder now describes an estimate rather than promising exact timing or retention. No URL inventory, metadata, contact, price or service-scope changes.
 
 Demand signal: final web Search Console page data for 2026-09-07 through 2026-10-04 recorded 21 impressions, 0 clicks and position 7.380952 for `/es/calculadora-de-ritmo-de-video`. Query-level data did not expose a query for that page; none is claimed.
 
