@@ -1,5 +1,7 @@
 # Esteban Moreno Media — Backlog
 
+- [x] Prepare bilingual pacing calculator guidance from the 2026-10-07 live page signal: native optional FAQ answers and matching schema, estimator wording corrected, regression tests and local `pnpm check` passed. Draft review, production verification, IndexNow and T+14/T+28 outcome checks remain with the coordinator.
+
 Production is live. This file tracks repository implementation; account/access work is also tracked in Obsidian.
 
 ## P0 — Search establishment

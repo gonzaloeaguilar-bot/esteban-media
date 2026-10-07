@@ -1,0 +1,50 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-295",
+  "status": "review_pending",
+  "evidence": {
+    "obsidian_context": "Bounded demand-wave class 1: bilingual pacing calculator explanation and FAQ. Public content is based on the existing calculator, not invented client results.",
+    "project_routing": "codex/demand-wave-20261007 from fresh origin/main c1c3455; PR-295. Top-level cto-seo-lead request with cto-qa-lead verification; no recursive provider dispatch.",
+    "hard_stops_checked": "No new URLs, redirects, noindex, prices, testimonials, street address, delivery guarantee, percentages, aggregateRating, drone claim or service-scope change. EN/ES both changed. No merge or canonical-store write. Repository visibility mismatch is explicitly escalated to the coordinator; private evidence retained locally.",
+    "verification": "pnpm check exit 0: lint 0 errors (48 existing warnings), typecheck, 102 files / 1078 tests, 342 generated pages, 90 text-parity routes, pinned Rail checks. git diff --check clean. Chrome EN/ES at 375x667, 390x844 and 1440x900: touch/keyboard open-close, no horizontal overflow, 16px answers, reduced motion, zero scoped WCAG axe violations. Two no-JS cases preserve all FAQ answers/schema. 60 words at 120 WPM returns 30s. Real mobile clicks reach paired service routes above the dock. Raw served HTML retains answers, date, email and phone. Production destinations HTTP 200 with correct canonicals. Sitemap remains 277 URLs.",
+    "reviewer_ensemble": {
+      "builder": {
+        "status": "ok",
+        "note": "Codex implemented one bounded bilingual content-depth move and completed pnpm check, raw HTTP verification and real Chrome interaction/axe checks. No deployment or business uplift claimed."
+      },
+      "skeptic": {
+        "status": "pending",
+        "note": "Independent Antigravity review must be dispatched by the top-level coordinator. Builder checks found no banned new claims, route growth, raw HTML/schema mismatch or affected-section axe violation; these do not replace independent review."
+      },
+      "taste": {
+        "status": "pending",
+        "note": "Independent Claude fidelity verification and Antigravity rendered craft review are requested. Builder inspected phone/desktop closed/open screenshots. Portfolio human-consumption tool could not start because js-yaml is missing in its own repository."
+      }
+    },
+    "winner_rationale": "Move class 1: the existing Spanish calculator earned 21 impressions, 0 clicks and position 7.380952 in final page-level GSC data for 2026-09-07 through 2026-10-04, read 2026-10-07. Both production calculator pages lacked FAQPage and the formula explanation. Add accurate bilingual optional guidance instead of expanding URL inventory. No exposed query is attributed to this page.",
+    "reviewer_disagreement_reviewed": "Independent reviews are pending; no reviewer agreement is asserted. Builder fixed an ES2017-incompatible regex in the new test and corrected the browser harness Enter sequence before the final successful runs.",
+    "tests_or_validation": "pnpm check exit 0: lint 0 errors (48 existing warnings), typecheck, 102 files / 1078 tests, 342 generated pages, 90 text-parity routes, pinned Rail checks. git diff --check clean. Chrome EN/ES at 375x667, 390x844 and 1440x900: touch/keyboard open-close, no horizontal overflow, 16px answers, reduced motion, zero scoped WCAG axe violations. Two no-JS cases preserve all FAQ answers/schema. 60 words at 120 WPM returns 30s. Real mobile clicks reach paired service routes above the dock. Raw served HTML retains answers, date, email and phone. Production destinations HTTP 200 with correct canonicals. Sitemap remains 277 URLs.",
+    "debt_delta": "No new dependency, URL, scheduler or vendor modification. Adds a bilingual data source and wrapper around existing RailFaq/schema behavior, plus a regression test. Removes exact-timing/retention promises that the word-count formula cannot support.",
+    "obsidian_handoff": "Canonical stores are read-only under this bounded dispatch. A local handoff is prepared for cto-seo-lead to publish the durable note and hot/registry pointers this coordinator session. Request cto-qa-lead sibling reviews before marking this draft ready. GitHub reports PUBLIC despite the repository private instruction; raw analytics and internal dispatch records were not pushed. After authorized release: live verify, IndexNow, and existing-loop T+14/T+28 exact-page observation."
+  },
+  "reviewer_ensemble": {
+    "builder": {
+      "status": "ok",
+      "note": "Codex implemented one bounded bilingual content-depth move and completed pnpm check, raw HTTP verification and real Chrome interaction/axe checks. No deployment or business uplift claimed."
+    },
+    "skeptic": {
+      "status": "pending",
+      "note": "Independent Antigravity review must be dispatched by the top-level coordinator. Builder checks found no banned new claims, route growth, raw HTML/schema mismatch or affected-section axe violation; these do not replace independent review."
+    },
+    "taste": {
+      "status": "pending",
+      "note": "Independent Claude fidelity verification and Antigravity rendered craft review are requested. Builder inspected phone/desktop closed/open screenshots. Portfolio human-consumption tool could not start because js-yaml is missing in its own repository."
+    }
+  },
+  "winner_rationale": "Move class 1: the existing Spanish calculator earned 21 impressions, 0 clicks and position 7.380952 in final page-level GSC data for 2026-09-07 through 2026-10-04, read 2026-10-07. Both production calculator pages lacked FAQPage and the formula explanation. Add accurate bilingual optional guidance instead of expanding URL inventory. No exposed query is attributed to this page.",
+  "reviewer_disagreement_reviewed": "Independent reviews are pending; no reviewer agreement is asserted. Builder fixed an ES2017-incompatible regex in the new test and corrected the browser harness Enter sequence before the final successful runs.",
+  "tests_or_validation": "pnpm check exit 0: lint 0 errors (48 existing warnings), typecheck, 102 files / 1078 tests, 342 generated pages, 90 text-parity routes, pinned Rail checks. git diff --check clean. Chrome EN/ES at 375x667, 390x844 and 1440x900: touch/keyboard open-close, no horizontal overflow, 16px answers, reduced motion, zero scoped WCAG axe violations. Two no-JS cases preserve all FAQ answers/schema. 60 words at 120 WPM returns 30s. Real mobile clicks reach paired service routes above the dock. Raw served HTML retains answers, date, email and phone. Production destinations HTTP 200 with correct canonicals. Sitemap remains 277 URLs.",
+  "debt_delta": "No new dependency, URL, scheduler or vendor modification. Adds a bilingual data source and wrapper around existing RailFaq/schema behavior, plus a regression test. Removes exact-timing/retention promises that the word-count formula cannot support.",
+  "obsidian_handoff": "Canonical stores are read-only under this bounded dispatch. A local handoff is prepared for cto-seo-lead to publish the durable note and hot/registry pointers this coordinator session. Request cto-qa-lead sibling reviews before marking this draft ready. GitHub reports PUBLIC despite the repository private instruction; raw analytics and internal dispatch records were not pushed. After authorized release: live verify, IndexNow, and existing-loop T+14/T+28 exact-page observation."
+}

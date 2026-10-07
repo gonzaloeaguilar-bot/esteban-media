@@ -1,3 +1,11 @@
+# Demand wave — pacing calculator guidance — 2026-10-07
+
+Draft PR #295: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/295. Bilingual content-depth candidate on the existing pacing calculator routes. New optional RailFaq answers explain the actual word-count formula, pauses and silent-shot limits, and checking a reading aloud; matching FAQPage JSON-LD uses the same answer source. The calculator introduction/placeholder now describes an estimate rather than promising exact timing or retention. No URL inventory, metadata, contact, price or service-scope changes.
+
+Demand signal: final web Search Console page data for 2026-09-07 through 2026-10-04 recorded 21 impressions, 0 clicks and position 7.380952 for `/es/calculadora-de-ritmo-de-video`. Query-level data did not expose a query for that page; none is claimed.
+
+Local `pnpm check` passed: lint/typecheck, 102 test files / 1,078 tests, production build (342 pages), shared-kit/adoption checks and text parity across 90 routes. Built sitemap remains 277 URLs. Raw HTTP checks confirm three FAQ answers, update date and canonical contact links in both pages. Chrome verified EN/ES at 375x667, 390x844 and 1440x900: touch/keyboard disclosure controls, no horizontal overflow, zero scoped axe violations and 60 words at 120 WPM = 30s. No-JavaScript checks preserve all three answers and schema parity. Independent review and production delivery remain separate coordinator steps. This provider is prohibited from merging or writing to canonical vault stores.
+
 # Favicon cache refresh — 2026-10-03
 
 Owner reports the Vercel favicon again. Current live root assets already contain Esteban’s terracotta e; the head still declares the original /favicon.ico URL. This repair gives all browser icon declarations explicit brand-specific paths in both root locales while preserving byte-identical legacy assets for bookmarks/schema. scripts/generate-brand-icons.py owns both sets. Existing glyph legibility tests plus metadata/alias tests guard the recurrence. Browser cache is a plausible cause, not directly proven. Delivery and production evidence: Obsidian esteban-favicon-refresh-2026-10-03.
