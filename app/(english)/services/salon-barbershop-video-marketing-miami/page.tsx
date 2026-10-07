@@ -11,7 +11,7 @@ import {
   buildServiceFaqSchema,
 } from "@/components/service-depth";
 import { SALON_DEPTH } from "@/lib/service-depth-content";
-import { SALON_DEEP_DIVE } from "@/lib/service-deep-dive-content";
+import { SALON_COST_DEEP_DIVE, SALON_DEEP_DIVE } from "@/lib/service-deep-dive-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -147,6 +147,12 @@ export default function SalonBarbershopVideoMarketingPage() {
         heading={SALON_DEPTH.craftHeading}
         cards={SALON_DEPTH.craft}
         sectionId="salon-craft"
+      />
+      <ServiceDeepDive
+        id={SALON_COST_DEEP_DIVE.id}
+        title={SALON_COST_DEEP_DIVE.title}
+        destinations={SALON_COST_DEEP_DIVE.destinations}
+        sections={SALON_COST_DEEP_DIVE.sections}
       />
       <ServiceDeepDive
         id={SALON_DEEP_DIVE.id}
