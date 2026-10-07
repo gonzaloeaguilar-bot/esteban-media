@@ -3,7 +3,16 @@ import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl } from "@/lib/site";
 
-import { PRODUCT_PHOTO_MARKET, usd } from "@/lib/pricing";
+import {
+  PACKAGE_PRICES,
+  PRICING_BANDS,
+  PRODUCT_PHOTO_MARKET,
+  REAL_ESTATE_PLANS,
+  REAL_ESTATE_PLAN_TERMS,
+  usd,
+  type PackageId,
+} from "@/lib/pricing";
+import { REAL_ESTATE_MEDIA } from "@/lib/services-config";
 
 export const GUIDE_IDS = [
   "prepare-footage",
@@ -45,6 +54,8 @@ export const GUIDE_IDS = [
   "testimonial-script-template-guide",
   "vertical-video-best-practices-guide",
   "raw-video-formats-explained-guide",
+  "restaurant-video-cost-guide",
+  "real-estate-video-cost-guide",
 ] as const;
 
 export type GuideId = (typeof GUIDE_IDS)[number];
@@ -95,6 +106,24 @@ export const guidePolicyNotes: Record<GuideLocale, string> = {
   en: "This is general project-preparation guidance, not Esteban Moreno Media policy. Packages, process, review terms, timing, file transfer, and deliverables are defined for each project.",
   es: "Esta es una guía general para preparar un proyecto, no una política de Esteban Moreno Media. Los paquetes, el proceso, las revisiones, los plazos, la transferencia de archivos y los entregables se definen para cada proyecto.",
 };
+
+// Fail at build time if a cited starting price becomes custom-only. A guide
+// must then be rewritten, rather than quietly publishing a stale figure.
+function packageGuidePrice(id: PackageId): string {
+  const price = PACKAGE_PRICES[id];
+  if (price.kind !== "from") throw new Error(`Guide requires a starting price for ${id}`);
+  return usd(price.amount);
+}
+
+const listingVideo = REAL_ESTATE_MEDIA.addOns.find(({ id }) => id === "premium-listing-video")!;
+const listingTour = REAL_ESTATE_MEDIA.addOns.find(({ id }) => id === "zillow-3d-tour")!;
+const listingTravel = REAL_ESTATE_MEDIA.fees.find(({ id }) => id === "out-of-area")!;
+const listingReshoot = REAL_ESTATE_MEDIA.fees.find(({ id }) => id === "reshoot")!;
+const listingPhotoStart = REAL_ESTATE_MEDIA.photography[0];
+if (listingPhotoStart.amount === null || !listingTour.note) {
+  throw new Error("Cost guides require a published first photo tier and tour price conditions");
+}
+const listingPhotoStartingPrice = usd(listingPhotoStart.amount);
 
 const guidePairs: readonly GuidePair[] = [
   {
@@ -1695,10 +1724,12 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Start with the business job, not a package name",
+          heading: "Which corporate video and production approach do you need?",
           paragraphs: [
             "A recruiting film, customer story, service explainer, event recap, and batch of short social edits solve different problems. Define the audience, desired action, distribution channels, and useful shelf life before discussing cameras or edit length.",
             "Esteban Moreno Media does not publish a universal fixed package for corporate video. The written quote should define the project-specific scope, deliverables, timing, review terms, and responsibilities.",
+            "If your team already has usable footage, remote editing may be the cleanest scope. If the message depends on interviews, controlled sound, or consistent visual coverage, on-location production may be appropriate. A hybrid scope can combine a focused shoot with multiple edits for different channels.",
+            "The right choice depends on the footage and business goal—not on a generic promise that one workflow is always cheaper or faster.",
           ],
           bullets: [
             "Who needs to watch, and what should they understand or do next?",
@@ -1707,30 +1738,16 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "The scope factors that change a quote",
+          heading: "Which scope details should you send for a comparable quote?",
           paragraphs: [
             "The largest differences usually come from what must happen before the edit begins and how many finished versions the project needs. A quote is easier to evaluate when every assumption is written down.",
+            "A short, concrete brief reduces assumptions and makes competing estimates easier to compare. Include what is known and label what still needs recommendation.",
           ],
           bullets: [
             "Pre-production: brief, concept, script, interview prompts, schedule, and location planning.",
             "Capture: shoot time, locations, camera and audio needs, talent, travel, and any permits supplied by the client or production team.",
             "Post-production: footage volume, story edit, sound cleanup, color work, graphics, captions, licensed assets, and review rounds.",
             "Delivery: master length, cutdowns, aspect ratios, languages, file formats, deadlines, and usage requirements.",
-          ],
-        },
-        {
-          heading: "Choose the production path that matches what you already have",
-          paragraphs: [
-            "If your team already has usable footage, remote editing may be the cleanest scope. If the message depends on interviews, controlled sound, or consistent visual coverage, on-location production may be appropriate. A hybrid scope can combine a focused shoot with multiple edits for different channels.",
-            "The right choice depends on the footage and business goal—not on a generic promise that one workflow is always cheaper or faster.",
-          ],
-        },
-        {
-          heading: "Send these facts to receive a comparable quote",
-          paragraphs: [
-            "A short, concrete brief reduces assumptions and makes competing estimates easier to compare. Include what is known and label what still needs recommendation.",
-          ],
-          bullets: [
             "Business goal, audience, intended call to action, and target channels.",
             "Existing footage or assets, filming location, people on camera, and preferred dates.",
             "Requested master video, cutdowns, captions, language versions, and file formats.",
@@ -1738,7 +1755,7 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Compare quotes by exclusions and proof",
+          heading: "How can you compare exclusions and published work?",
           paragraphs: [
             "Check whether each proposal includes pre-production, capture, editing, audio, graphics, captions, revisions, travel, licensed assets, and final versions. Ask what triggers a change order and who owns each input.",
             "Then review published work whose credited scope resembles yours. For example, the [Healthy Smile Miami dental clinic project](/portfolio/healthy-smile) (detailed in the [Healthy Smile case study](/case-studies/healthy-smile)) proves on-location video, audio, and editing execution in South Florida. A portfolio page can prove the kind of work performed; it cannot prove an unpublished price, result, or identical process for your project.",
@@ -1769,23 +1786,37 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Empieza por la tarea de negocio, no por el nombre de un paquete",
+          heading: "¿Qué video corporativo y tipo de producción necesitas?",
           paragraphs: [
             "Un video de reclutamiento, testimonio, explicación de servicio, resumen de evento y lote de piezas sociales resuelven problemas distintos. Define audiencia, acción deseada, canales y vida útil antes de hablar de cámaras o duración.",
             "Esteban Moreno Media no publica un paquete fijo universal. La cotización escrita debe definir alcance, entregables, plazos, revisiones y responsabilidades para ese proyecto.",
+            "Si tu equipo ya tiene material usable, la edición remota puede ser el alcance más claro. Si el mensaje depende de entrevistas, sonido controlado o cobertura visual consistente, puede convenir producción en locación. Un alcance híbrido combina una grabación enfocada con varias ediciones.",
+            "La elección depende del material y la meta; no de una promesa genérica de que un flujo siempre será más barato o rápido.",
           ],
-          bullets: ["Quién verá el video y qué debe entender o hacer.", "Dónde se publicará: web, ventas, YouTube, pauta o redes.", "Si necesitas una pieza principal, una biblioteca reutilizable o ambas."],
+          bullets: [
+            "Quién verá el video y qué debe entender o hacer.",
+            "Dónde se publicará: web, ventas, YouTube, pauta o redes.",
+            "Si necesitas una pieza principal, una biblioteca reutilizable o ambas.",
+          ],
         },
         {
-          heading: "Factores de alcance que cambian una cotización",
+          heading: "¿Qué detalles debes enviar para comparar cotizaciones?",
           paragraphs: [
             "Las diferencias principales suelen venir de lo que debe ocurrir antes de editar y de cuántas versiones finales necesita el proyecto. Cada supuesto debe quedar por escrito.",
+            "Un brief corto y concreto reduce supuestos. Incluye lo conocido y marca lo que todavía necesita recomendación.",
           ],
-          bullets: ["Preproducción: brief, concepto, guion, preguntas, agenda y locación.", "Grabación: tiempo, locaciones, cámara, sonido, talento, traslados y permisos.", "Postproducción: volumen de material, narrativa, audio, color, gráficos, subtítulos, licencias y revisiones.", "Entrega: duración, recortes, formatos, idiomas, archivos, fechas y uso."],
+          bullets: [
+            "Preproducción: brief, concepto, guion, preguntas, agenda y locación.",
+            "Grabación: tiempo, locaciones, cámara, sonido, talento, traslados y permisos.",
+            "Postproducción: volumen de material, narrativa, audio, color, gráficos, subtítulos, licencias y revisiones.",
+            "Entrega: duración, recortes, formatos, idiomas, archivos, fechas y uso.",
+            "Meta, audiencia, llamada a la acción y canales.",
+            "Material existente, locación, personas en cámara y fechas preferidas.",
+            "Video principal, recortes, subtítulos, idiomas y formatos.",
+            "Referencias, responsable de aprobación, fecha objetivo y lenguaje obligatorio.",
+          ],
         },
-        { heading: "Elige la ruta según el material que ya tienes", paragraphs: ["Si tu equipo ya tiene material usable, la edición remota puede ser el alcance más claro. Si el mensaje depende de entrevistas, sonido controlado o cobertura visual consistente, puede convenir producción en locación. Un alcance híbrido combina una grabación enfocada con varias ediciones.", "La elección depende del material y la meta; no de una promesa genérica de que un flujo siempre será más barato o rápido."] },
-        { heading: "Envía estos datos para recibir una cotización comparable", paragraphs: ["Un brief corto y concreto reduce supuestos. Incluye lo conocido y marca lo que todavía necesita recomendación."], bullets: ["Meta, audiencia, llamada a la acción y canales.", "Material existente, locación, personas en cámara y fechas preferidas.", "Video principal, recortes, subtítulos, idiomas y formatos.", "Referencias, responsable de aprobación, fecha objetivo y lenguaje obligatorio."] },
-        { heading: "Compara exclusiones y prueba publicada", paragraphs: ["Revisa si cada propuesta incluye preproducción, grabación, edición, audio, gráficos, subtítulos, revisiones, traslados, licencias y versiones finales. Pregunta qué genera un cambio de alcance.", "Después revisa trabajos publicados con créditos similares. Por ejemplo, el [proyecto Healthy Smile Miami](/es/portafolio/healthy-smile) (y su [caso de estudio](/es/casos-de-estudio/healthy-smile)) acredita grabación en locación, captura de sonido y edición en South Florida. El portafolio demuestra el tipo de trabajo realizado; no un precio o resultado no publicado."] },
+        { heading: "¿Cómo comparas lo que no está incluido y los trabajos publicados?", paragraphs: ["Revisa si cada propuesta incluye preproducción, grabación, edición, audio, gráficos, subtítulos, revisiones, traslados, licencias y versiones finales. Pregunta qué genera un cambio de alcance.", "Después revisa trabajos publicados con créditos similares. Por ejemplo, el [proyecto Healthy Smile Miami](/es/portafolio/healthy-smile) (y su [caso de estudio](/es/casos-de-estudio/healthy-smile)) acredita grabación en locación, captura de sonido y edición en South Florida. El portafolio demuestra el tipo de trabajo realizado; no un precio o resultado no publicado."] },
       ],
       faqs: [
         { question: "¿Esteban Moreno Media publica paquetes fijos de video corporativo?", answer: "No hay un paquete universal publicado. El alcance, los entregables, los plazos, las revisiones y las responsabilidades se definen en cada cotización." },
@@ -2344,7 +2375,7 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "How small businesses in Fort Lauderdale should evaluate video editors for reels",
+          heading: "How should Fort Lauderdale businesses evaluate editors for reels?",
           paragraphs: [
             "Hiring a video editor for Instagram Reels, TikTok, and YouTube Shorts in Fort Lauderdale depends on whether your company already records internal footage or requires full on-location camera capture. For local restaurants, dealerships, retail shops, and professional firms that record video on smartphones or in-house cameras, hiring an editing-first specialist avoids the substantial overhead of commercial studio space.",
             "A qualified short-form video editor transforms raw footage into high-retention 9:16 vertical assets by crafting 3-second visual hooks, synchronizing rhythm to audio micro-beats, applying dynamic styled captions in safe zones, color grading footage, and adding sound design. Review how supplied agency assets were structured into finished client media in the [Homeowners real estate editing project](/portfolio/homeowners) (and the [Homeowners case study](/case-studies/homeowners)).",
@@ -2356,20 +2387,28 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Comparing video editing options in Fort Lauderdale and South Florida",
+          heading: "How do freelance editors and production agencies compare?",
           paragraphs: [
             "When small businesses compare local video editing and production providers in Fort Lauderdale, options range between freelance marketplaces, specialized boutique editors, and full-service commercial production agencies.",
             "Freelance platforms (like Thumbtack, Upwork, or Bark) provide wide directory listings of individual freelancers charging $50 to $150 per hour or per-clip rates, though quality consistency, turnaround discipline, and bilingual fluency vary widely. Traditional full-service video production companies in Broward County focus primarily on multi-person commercial film crews with day rates spanning $2,000 to $10,000+, which can be excessive when a business only needs consistent weekly social reels.",
-            "Esteban Moreno Media provides a focused, editing-led model based in Fort Lauderdale. With remote editing packages starting from $100 per project ([Starter package](/pricing/starter)) and ongoing monthly content management starting from $640/month ([Growth package](/pricing/growth)), small businesses get dedicated bilingual editing, sound design, and vertical formatting without studio markups. When physical filming is required, local production days start from $800 ([Local Presence package](/pricing/local-presence)).",
           ],
           bullets: [
             "Freelance marketplaces: Variable quality and communication; useful for one-off tasks with low strategic requirements",
             "Full-service production agencies: Built for high-budget broadcast commercials ($2,500-$10,000+ per shoot day)",
+          ],
+        },
+        {
+          heading: "What are Esteban’s package starting prices?",
+          paragraphs: [
+            "Esteban Moreno Media provides a focused, editing-led model based in Fort Lauderdale. With remote editing packages starting from $100 per project ([Starter package](/pricing/starter)) and ongoing monthly content management starting from $640/month ([Growth package](/pricing/growth)), small businesses get dedicated bilingual editing, sound design, and vertical formatting without studio markups. When physical filming is required, local production days start from $800 ([Local Presence package](/pricing/local-presence)).",
+            "Compare the named package with the work you actually need. Ask the written proposal to distinguish supplied footage, filming, editing, and final versions so that the starting price and the complete scope stay connected.",
+          ],
+          bullets: [
             "Editing-led boutique studio (Esteban Moreno Media): Clear starting packages ($100 project / $640 month), rapid turnaround, and bilingual English/Spanish delivery",
           ],
         },
         {
-          heading: "What footage and assets to send your editor for high-converting social reels",
+          heading: "What footage and assets should you send your editor for social reels?",
           paragraphs: [
             "To keep editing turnaround fast and avoid billing disputes, Fort Lauderdale business owners should prepare a simple handoff folder before post-production begins.",
             "Upload uncompressed raw video files (4K 24fps or 30fps recorded on iPhone ProRes or mirrorless cameras) via Google Drive, Dropbox, or MASV. Include separate audio tracks if recorded with wireless lavaliers, brand logo files with transparent backgrounds, font names or brand guidelines, and 1 to 2 reference links showing the pacing or editing style you desire. For detailed handoff preparation, explore our guide on [how to prepare footage for video editing](/guides/prepare-footage-for-video-editing) or check our [fastest way to send large video files guide](/guides/fastest-way-to-send-large-video-files-to-editor).",
@@ -2382,7 +2421,7 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Revision scope, deliverables, and turnaround expectations",
+          heading: "Which deliverables, revisions, and timing should you agree on?",
           paragraphs: [
             "A dependable editing engagement defines exact deliverable formats, aspect ratios, and revision parameters upfront so there are no unexpected surcharges.",
             "Standard social reel deliverables include full-resolution 1080x1920 MP4 files optimized for Instagram and TikTok compression, burned-in styled subtitles placed above platform UI safe zones, and master audio mixed to web standards (-14 LUFS). Package scopes include one consolidated round of timeline revisions to fine-tune pacing, text callouts, and music selection. For businesses ready to plan their next video project, get started through our [contact](/contact) page, browse our full [video services](/services), or review our dedicated [short-form video editing services](/services/short-form-video-editor-miami).",
@@ -2434,7 +2473,7 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Cómo evaluar editores de video en Fort Lauderdale para reels y redes sociales",
+          heading: "¿Cómo eliges un editor de reels en Fort Lauderdale?",
           paragraphs: [
             "Contratar un editor de video para Instagram Reels, TikTok y YouTube Shorts en Fort Lauderdale depende de si tu negocio ya graba material interno o necesita rodaje en locación. Para restaurantes, concesionarios, clínicas y empresas de servicios locales que registran video con smartphone o cámaras propias, contratar un especialista enfocado en edición elimina los altos costos de alquiler de estudios.",
             "Un editor profesional de formato corto transforma tomas en bruto en videos verticales 9:16 de alta retención mediante ganchos visuales en los primeros 3 segundos, ritmo sincronizado con la pista musical, subtítulos dinámicos en zonas seguras, balance de color y diseño de sonido. Conoce cómo transformamos tomas de agencia en piezas dinámicas en el [proyecto Homeowners](/es/portafolio/homeowners) (y su [caso de estudio](/es/casos-de-estudio/homeowners)).",
@@ -2446,20 +2485,28 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Comparativa de opciones de edición de video en Fort Lauderdale y South Florida",
+          heading: "¿Cómo se comparan los editores independientes y las productoras?",
           paragraphs: [
             "Al comparar proveedores de video en Fort Lauderdale, las opciones abarcan plataformas freelance, estudios boutique de edición y productoras tradicionales de cine publicitario.",
             "Las plataformas freelance (como Thumbtack, Upwork o Bark) ofrecen listados de editores independientes con tarifas de $50 a $150 por hora, aunque la consistencia de calidad y la comunicación bilingüe varían considerablemente. Las productoras tradicionales en Broward County cobran tarifas diarias de $2,000 a $10,000+ enfocadas en rodajes de gran escala, lo cual resulta innecesario para publicaciones semanales en redes.",
-            "Esteban Moreno Media ofrece un modelo directo y ágil desde Fort Lauderdale. Con paquetes de edición remota desde $100 por proyecto ([paquete Arranque](/es/precios/arranque)) y planes mensuales desde $640 al mes ([paquete Crecimiento](/es/precios/crecimiento)), los negocios obtienen postproducción profesional, diseño sonoro y entregas bilingües sin costos de agencia. Para rodajes presenciales, las jornadas de producción parten desde $800 ([paquete Presencia Local](/es/precios/presencia-local)).",
           ],
           bullets: [
-            "Directorios freelance: Calidad variable y gestión directa requerida por el cliente",
+            "Directorios freelance: Calidad variable y gestión directa requerida por el cliente al comparar propuestas y seleccionar al profesional",
             "Productoras comerciales tradicionales: Enfocadas en spots publicitarios de gran presupuesto ($2,500-$10,000+ por jornada)",
+          ],
+        },
+        {
+          heading: "¿Desde cuánto cuestan los paquetes de Esteban?",
+          paragraphs: [
+            "Esteban Moreno Media ofrece un modelo directo y ágil desde Fort Lauderdale. Con paquetes de edición remota desde $100 por proyecto ([paquete Arranque](/es/precios/arranque)) y planes mensuales desde $640 al mes ([paquete Crecimiento](/es/precios/crecimiento)), los negocios obtienen postproducción profesional, diseño sonoro y entregas bilingües sin costos de agencia. Para rodajes presenciales, las jornadas de producción parten desde $800 ([paquete Presencia Local](/es/precios/presencia-local)).",
+            "Compara el paquete con el trabajo que realmente necesitas para tu negocio. Pide que la propuesta escrita distinga el material que ya tienes, la grabación, la edición y las versiones finales. Así puedes relacionar el precio inicial con el pedido completo antes de contratar.",
+          ],
+          bullets: [
             "Estudio de edición especializado (Esteban Moreno Media): Paquetes claros ($100 proyecto / $640 mes), entregas rápidas y atención bilingüe en español e inglés",
           ],
         },
         {
-          heading: "Qué material entregar a tu editor para reels de alta conversión",
+          heading: "¿Qué material debes entregar a tu editor para los reels?",
           paragraphs: [
             "Para asegurar entregas ágiles y evitar retrasos, los dueños de negocios en Fort Lauderdale deben organizar los archivos antes de iniciar la postproducción.",
             "Sube los videos originales sin compresión (grabados en 4K 24fps o 30fps) en carpetas de Google Drive, Dropbox o MASV. Incluye archivos de audio independientes si usaste micrófonos inalámbricos, logotipos con fondo transparente (.PNG o .SVG), tipografías de marca y 1 o 2 enlaces de referencia del estilo deseado. Para preparar tu entrega en detalle, consulta nuestra guía sobre [cómo preparar el material para un editor de video](/es/guias/preparar-material-para-edicion-de-video) o la guía de [cómo enviar archivos pesados de video para edición](/es/guias/como-enviar-archivos-pesados-de-video-para-edicion).",
@@ -2472,7 +2519,7 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "Alcance de revisiones, entregables y tiempos de respuesta",
+          heading: "¿Qué entregables, revisiones y fechas debes acordar?",
           paragraphs: [
             "Un servicio de edición confiable define los entregables, formatos de archivo y rondas de revisión desde el inicio para garantizar transparencia total.",
             "Los entregables estándar para redes sociales incluyen archivos MP4 en 1080x1920 optimizados para compresión de Instagram y TikTok, subtítulos estilizados dentro de las zonas seguras de la interfaz y audio masterizado a estándares web (-14 LUFS). Los paquetes incluyen una ronda consolidada de revisiones para ajustar ritmo, textos y música. Para planificar tu próximo proyecto, contáctanos a través de nuestra página de [contacto](/es/contacto), explora la visión general de [servicios](/es/servicios) o revisa nuestros [servicios de edición de video corto para redes en Miami](/es/editor-de-video-corto-para-redes-miami).",
@@ -3638,6 +3685,212 @@ const guidePairs: readonly GuidePair[] = [
             "Utiliza Apple ProRes 422 para archivos de edición master y H.264 MP4 con audio AAC para subir a sitios web y redes sociales, unificando tomas de múltiples cámaras en un master calibrado como en el [proyecto Homeowners](/es/portafolio/homeowners) (y su [caso de estudio](/es/casos-de-estudio/homeowners)).",
           ],
         },
+      ],
+    },
+  },
+  {
+    id: "restaurant-video-cost-guide",
+    en: {
+      slug: "how-much-does-restaurant-video-cost-miami",
+      metadataTitle: "Restaurant Video Cost in Miami",
+      title: "How much does a restaurant video cost in Miami?",
+      description: "Compare Esteban's restaurant editing starting prices, indicative filming ranges, and monthly options before requesting a Miami restaurant video quote.",
+      eyebrow: "Restaurant video costs",
+      answer: `Esteban Moreno Media's Starter editing package starts from ${packageGuidePrice("arranque")} per project; restaurant filming can be scoped through Local Presence from ${packageGuidePrice("presencia-local")} per production day. Existing footage, filming needs, finished versions, and publishing frequency change the quote.`,
+      proof: {
+        href: "/portfolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        description: "A social-media promo spot for a Miami restaurant, with on-location videography and editing for the venue's Instagram. Nothing published confirms a price for this project.",
+      },
+      sections: [
+        {
+          heading: "What does restaurant video editing start from?",
+          paragraphs: [
+            `The [Starter package](/pricing/starter) starts from ${packageGuidePrice("arranque")} per project, while [Growth](/pricing/growth) starts from ${packageGuidePrice("crecimiento")} per month. These are Esteban's package starting points. They are useful when you already record your food, team, or dining room and need help turning that material into finished posts. A package name alone does not confirm the number of videos, filming, or every requested version.`,
+            `For a separately scoped short-form edit, the calculator's indicative band is ${usd(PRICING_BANDS.social.baseMin)}–${usd(PRICING_BANDS.social.baseMax)}. It reflects an editing-led freelancer model with an introductory discount already applied, rather than a binding quote. Do not add that range to a package automatically: ask which approach fits your footage and intended posts. Full-crew Miami production companies quote a different model, so their proposals should be compared by included work.`,
+          ],
+        },
+        {
+          heading: "How does filming at the restaurant change the budget?",
+          paragraphs: [
+            `The indicative half-day on-location capture add-on is ${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)}. The [Local Presence package](/pricing/local-presence) separately starts from ${packageGuidePrice("presencia-local")} per production day. The capture add-on and package describe different scopes; neither should be treated as an all-inclusive restaurant campaign or combined without reviewing what is included. The indicative capture range uses the same editing-led freelancer basis and introductory discount.`,
+            "Explain whether the camera needs to cover food preparation, plated dishes, staff speaking, or the dining room. Share the location, access arrangements, proposed filming window, and any restrictions during service. Those details help separate time spent filming from editing afterward. Review the [restaurant promo video service](/services/restaurant-promo-video-editing-miami), then ask for a written breakdown of capture, editing, final versions, and any additional expenses before agreeing to the shoot.",
+          ],
+        },
+        {
+          heading: "What can a published restaurant video help you compare?",
+          paragraphs: [
+            "The [Bar Door Monkey Miami project](/portfolio/bar-door-monkey) is a social-media promo spot for a Miami restaurant. Its published credits identify on-location videography and editing for the venue's Instagram. That makes it a relevant example when you want to discuss a restaurant social video. It does not establish what the restaurant paid, how long another shoot will take, or what results your own post will produce.",
+            "Use the example to explain what you want viewers to notice about your venue. Point to the atmosphere, food, or overall presentation that matters to you, without assuming that every visual choice belongs in your project. Bring examples of your existing posts too. Comparing the desired finished piece with footage you already have helps identify whether you need editing alone or additional filming before a price is confirmed.",
+          ],
+        },
+        {
+          heading: "What should you send for a restaurant video quote?",
+          paragraphs: [
+            `Start with your restaurant's location, the dishes or experience you want to feature, and where you plan to publish. State whether you have original footage or need filming. The ${packageGuidePrice("arranque")} Starter price is a starting point for an editing project, so include samples of the material instead of assuming that a menu description is enough to price the work.`,
+            "List the finished videos you need, language and caption preferences, requested delivery date, and who will approve the edit. If the content is intended for advertising, say so when discussing music and other assets. Use the [budget calculator](/calculator) for an indicative range, then send the information through [contact](/contact). The useful outcome is a written quote that identifies the work, versions, review terms, and agreed timing; a calculator result alone does not book production.",
+          ],
+        },
+      ],
+      faqs: [
+        { question: "What is Esteban's starting price for an editing project?", answer: `Starter begins from ${packageGuidePrice("arranque")} per project. The short-form calculator band is separately ${usd(PRICING_BANDS.social.baseMin)}–${usd(PRICING_BANDS.social.baseMax)}. The quote identifies which scope applies.` },
+        { question: "Is restaurant filming included in the editing price?", answer: `Do not assume it is included. The half-day capture add-on is an indicative ${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)}, while Local Presence starts from ${packageGuidePrice("presencia-local")} per production day.` },
+        { question: "Is there a monthly option?", answer: `Growth starts from ${packageGuidePrice("crecimiento")} per month. Confirm the content scope and whether filming is required before comparing it with a standalone edit.` },
+        { question: "Can I see a restaurant example?", answer: "See the [Bar Door Monkey project](/portfolio/bar-door-monkey), a Miami restaurant promo with videography and editing for Instagram. Its published credits do not establish your project's price." },
+      ],
+    },
+    es: {
+      slug: "cuanto-cuesta-un-video-para-restaurante-miami",
+      metadataTitle: "Video para Restaurantes: Costos",
+      title: "¿Cuánto cuesta un video para restaurante en Miami?",
+      description: "Revisa los precios iniciales de edición de Esteban, los rangos orientativos de grabación y las opciones mensuales para tu restaurante en Miami.",
+      eyebrow: "Precios para restaurantes",
+      answer: `El paquete Arranque de Esteban Moreno Media parte desde ${packageGuidePrice("arranque")} por proyecto de edición; para grabar en tu restaurante, Presencia Local parte desde ${packageGuidePrice("presencia-local")} por jornada de producción. El material disponible, la grabación, las versiones y la frecuencia de publicación cambian la cotización.`,
+      proof: {
+        href: "/es/portafolio/bar-door-monkey",
+        title: "Bar Door Monkey Miami",
+        description: "Video promocional para las redes de un restaurante de Miami, con grabación en locación y edición para su Instagram. Nada publicado confirma el precio de ese proyecto.",
+      },
+      sections: [
+        {
+          heading: "¿Cuánto cuesta editar material que ya tienes?",
+          paragraphs: [
+            `[Arranque](/es/precios/arranque) parte desde ${packageGuidePrice("arranque")} por proyecto y [Crecimiento](/es/precios/crecimiento) desde ${packageGuidePrice("crecimiento")} al mes. Son precios iniciales de los paquetes de Esteban. Si ya grabas platos, al equipo o el ambiente del local, sirven para empezar a conversar sobre la edición. El nombre del paquete no confirma por sí solo cuántos videos recibirás ni si incluye grabación.`,
+            `Para una edición de formato corto cotizada por separado, la calculadora muestra un rango orientativo de ${usd(PRICING_BANDS.social.baseMin)}–${usd(PRICING_BANDS.social.baseMax)}. Corresponde a un profesional independiente enfocado en edición, con el descuento introductorio aplicado; no es una cotización cerrada. No lo sumes automáticamente a un paquete. Las productoras de Miami con equipos completos trabajan con otro modelo: compara lo que incluye cada propuesta antes de comparar sus totales.`,
+          ],
+        },
+        {
+          heading: "¿Qué cambia si necesitas grabar en el restaurante?",
+          paragraphs: [
+            `El complemento de grabación en locación por media jornada tiene un rango orientativo de ${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)}. Por separado, [Presencia Local](/es/precios/presencia-local) parte desde ${packageGuidePrice("presencia-local")} por jornada de producción. No son servicios idénticos ni cantidades que debas sumar sin revisar lo incluido. El rango de grabación mantiene la misma base de profesional independiente y descuento introductorio.`,
+            "Explica si quieres mostrar la preparación de los platos, conversar con el equipo o recorrer el comedor. Comparte la dirección, el acceso disponible, el horario propuesto y las limitaciones durante el servicio. Así puedes separar la grabación de la edición posterior. Revisa el servicio de [video promocional para restaurantes](/es/edicion-de-video-promocional-para-restaurantes-miami) y pide que la propuesta detalle grabación, edición, versiones finales y gastos adicionales antes de acordar la sesión.",
+          ],
+        },
+        {
+          heading: "¿Qué puedes comparar con el video de Bar Door Monkey?",
+          paragraphs: [
+            "El [proyecto Bar Door Monkey Miami](/es/portafolio/bar-door-monkey) es un video promocional para las redes de un restaurante de Miami. Los créditos publicados incluyen grabación en locación y edición para el Instagram del establecimiento. Puedes usarlo como referencia del tipo de trabajo realizado, sin asumir cuánto pagó el restaurante ni qué resultados tendrá tu publicación.",
+            "Al compartirlo, explica qué quieres que se vea de tu negocio: la comida, el ambiente o la presentación del lugar. Señala qué te interesa del ejemplo y qué harías diferente para tu restaurante. Incluye también publicaciones tuyas y muestras del material que ya tienes. Esa comparación ayuda a conversar sobre la pieza final y a decidir si basta con editar o si hace falta grabar. El ejemplo orienta la conversación; la propuesta escrita define el trabajo que vas a contratar.",
+          ],
+        },
+        {
+          heading: "¿Qué necesitas enviar para recibir una cotización?",
+          paragraphs: [
+            `Comparte la ubicación del restaurante, los platos o la experiencia que quieres destacar y los canales donde publicarás. Aclara si tienes archivos originales o necesitas grabación. Arranque parte desde ${packageGuidePrice("arranque")} por proyecto de edición, pero ese precio inicial no sustituye revisar el material y acordar las piezas que necesitas. Adjunta muestras que permitan entender tu punto de partida.`,
+            "Indica las versiones finales, el idioma, los subtítulos, la fecha solicitada y quién aprobará los cambios. Si vas a pautar el video, menciónalo al conversar sobre música y otros recursos. Puedes usar la [calculadora de presupuesto](/es/calculadora) como orientación y enviar la información por [contacto](/es/contacto). Al terminar esta conversación, debes tener una cotización escrita con el trabajo incluido, las revisiones y las fechas acordadas. El resultado de la calculadora por sí solo no reserva una grabación.",
+          ],
+        },
+      ],
+      faqs: [
+        { question: "¿Cuál es el precio inicial de edición?", answer: `Arranque parte desde ${packageGuidePrice("arranque")} por proyecto. El rango de formato corto de la calculadora es, por separado, ${usd(PRICING_BANDS.social.baseMin)}–${usd(PRICING_BANDS.social.baseMax)}. La cotización indica cuál corresponde a tu pedido.` },
+        { question: "¿La edición incluye grabar en mi restaurante?", answer: `Debes confirmarlo. El complemento de media jornada tiene un rango orientativo de ${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)}; Presencia Local parte desde ${packageGuidePrice("presencia-local")} por jornada de producción.` },
+        { question: "¿Hay una opción mensual?", answer: `Crecimiento parte desde ${packageGuidePrice("crecimiento")} al mes. Confirma las piezas incluidas y si necesitas grabación antes de compararlo con un proyecto de edición individual.` },
+        { question: "¿Dónde puedo ver un ejemplo para restaurantes?", answer: "Mira el [proyecto Bar Door Monkey](/es/portafolio/bar-door-monkey), con grabación y edición para el Instagram de un restaurante de Miami. Sus créditos no establecen el precio de tu proyecto." },
+      ],
+    },
+  },
+  {
+    id: "real-estate-video-cost-guide",
+    en: {
+      slug: "how-much-does-real-estate-video-cost-miami",
+      metadataTitle: "Miami Real Estate Photo/Video Cost",
+      title: "How much does real estate photo and video cost in Miami?",
+      description: "Read Esteban's property photography tiers, listing video rate, Zillow tour starting price, travel fees, and monthly plans before booking Miami listing media.",
+      eyebrow: "Listing photo and video costs",
+      answer: `Esteban's listing photography starts at ${listingPhotoStartingPrice} for ${REAL_ESTATE_MEDIA.photography[0].label.en.toLowerCase()}, and premium listing video is ${usd(listingVideo.amount)} per minute. Property size, selected services, travel, and repeat visits determine the applicable charges.`,
+      proof: {
+        href: "/portfolio/homeowners",
+        title: "Homeowners",
+        description: "A social-media video edited by Esteban from agency-supplied footage. Nothing published confirms a listing shoot or price for that project.",
+      },
+      sections: [
+        {
+          heading: "What are the photography prices by property size?",
+          paragraphs: [
+            "Esteban's published listing photography card prices a shoot by the property's square footage. These are exact rates for the stated size tiers, rather than the broader calculator's indicative video-editing ranges. Confirm the property's size before selecting a tier and explain which spaces you need photographed. The largest tier requires a conversation rather than an assumed price.",
+            "Use the [real-estate rate card](/pricing/real-estate) to discuss photography as a separate line from video or a tour. A low photography figure should not be read as the price of every listing service together. Share the address and access arrangements with your request so the applicable travel charge can also be checked.",
+          ],
+          bullets: REAL_ESTATE_MEDIA.photography.map((tier) => `${tier.label.en}: ${tier.amount === null ? "call to discuss" : usd(tier.amount)}.`),
+        },
+        {
+          heading: "What do video, tours, and additional visits cost?",
+          paragraphs: [
+            `${listingVideo.name.en} is ${usd(listingVideo.amount)} per minute. A ${listingTour.name.en} starts from ${usd(listingTour.amount)}; ${listingTour.note.en.toLowerCase()} These are separate services, so specify whether you want photographs, a listing video, a tour, or a combination. Confirm the intended video length and finished files before treating a per-minute rate as a total project price.`,
+            `The out-of-area fee is ${usd(listingTravel.amount)}. ${listingTravel.note.en} That stated boundary matters for a Miami address: ask how it applies to your location before booking. A reshoot costs ${usd(listingReshoot.amount)}. ${listingReshoot.note.en} Make sure the property is ready and that access is arranged for the agreed visit. If conditions change, discuss the next visit rather than assuming that weather or a preparation issue creates a free replacement session.`,
+          ],
+        },
+        {
+          heading: "How do the monthly property plans compare?",
+          paragraphs: [
+            "Monthly property plans are a separate offer from the per-shoot photography card. Choose between them by the properties you expect to market and the work you need each month. Do not read a monthly fee as a discount automatically applied to every standalone service, or assume that unused work carries forward without an agreement.",
+            `The published minimum is ${REAL_ESTATE_PLAN_TERMS.minimumMonths} months. Review the [real-estate plans and prices](/pricing/real-estate) and confirm property eligibility, scheduled work, and any separately quoted services before choosing a plan. Share your likely listing schedule so the conversation starts with actual needs rather than the highest package. A written scope should make clear which monthly plan you selected and how additional requests will be handled.`,
+          ],
+          bullets: REAL_ESTATE_PLANS.map((plan) => `${plan.id.charAt(0).toUpperCase() + plan.id.slice(1)}: ${usd(plan.price)} per month; ${plan.properties} ${plan.properties === 1 ? "property" : "properties"} per month.`),
+        },
+        {
+          heading: "Which terms should you read before booking?",
+          paragraphs: [
+            `${REAL_ESTATE_MEDIA.terms.en} These are the terms printed with the rate card, and they should be considered alongside the prices rather than after selecting a service. The reshoot fee is ${usd(listingReshoot.amount)}, with the stated exceptions and limits described above. Clarify preparation, access, and the requested services before agreeing to the visit.`,
+            "Send the property size, address, requested photography or video services, and preferred date through [contact](/contact). Ask for the applicable rate, any travel charge, and the finished files to be confirmed together. The general [budget calculator](/calculator) can help with a separately scoped editing project, but it does not replace this property-size rate card. Your confirmed booking details should identify the service and conditions, without assuming that every package elsewhere on the site has the same pricing basis.",
+          ],
+        },
+      ],
+      faqs: [
+        { question: "What is the first photography tier?", answer: `${REAL_ESTATE_MEDIA.photography[0].label.en}: ${listingPhotoStartingPrice}. Larger properties use the remaining published size tiers; the largest tier says call to discuss.` },
+        { question: "Is listing video priced per minute?", answer: `Yes. ${listingVideo.name.en} is ${usd(listingVideo.amount)} per minute. Confirm the requested length and scope before calculating the total.` },
+        { question: "Is the Zillow tour a fixed price?", answer: `The ${listingTour.name.en} starts from ${usd(listingTour.amount)}. ${listingTour.note.en}` },
+        { question: "What commitment do monthly plans require?", answer: `The published minimum is ${REAL_ESTATE_PLAN_TERMS.minimumMonths} months. Confirm the selected plan and monthly work before booking. ${REAL_ESTATE_MEDIA.terms.en}` },
+      ],
+    },
+    es: {
+      slug: "cuanto-cuesta-video-inmobiliario-miami",
+      metadataTitle: "Foto y Video Inmobiliario: Costos",
+      title: "¿Cuánto cuesta el video y la foto inmobiliaria en Miami?",
+      description: "Consulta las tarifas de fotos por tamaño, video por minuto, recorridos Zillow, traslados y planes mensuales de Esteban para propiedades en Miami.",
+      eyebrow: "Precios de foto y video inmobiliario",
+      answer: `La fotografía inmobiliaria de Esteban empieza en ${listingPhotoStartingPrice} para propiedades de ${REAL_ESTATE_MEDIA.photography[0].label.es.toLowerCase()}, y el video premium cuesta ${usd(listingVideo.amount)} por minuto. El tamaño, los servicios elegidos, el traslado y las visitas adicionales determinan los cargos aplicables.`,
+      proof: {
+        href: "/es/portafolio/homeowners",
+        title: "Homeowners",
+        description: "Video para redes editado por Esteban con material entregado por la agencia. Nada publicado confirma una sesión inmobiliaria ni un precio para ese proyecto.",
+      },
+      sections: [
+        {
+          heading: "¿Cuánto cuestan las fotos según el tamaño de la propiedad?",
+          paragraphs: [
+            "La tarifa publicada de fotografía inmobiliaria depende del tamaño de la propiedad en pies cuadrados, indicado como SF. Son precios exactos para cada rango de tamaño, distintos de los estimados generales de edición de video. Confirma la superficie antes de elegir una tarifa y explica qué espacios necesitas fotografiar. Para la categoría más grande hay que conversar sobre el trabajo.",
+            "Revisa la [lista de precios inmobiliarios](/es/precios/inmobiliaria) separando las fotos del video y del recorrido virtual. El precio de fotografía no representa todos los servicios juntos. Comparte también la dirección y las condiciones de acceso: así puedes confirmar el traslado aplicable y preparar la propiedad para la visita acordada.",
+          ],
+          bullets: REAL_ESTATE_MEDIA.photography.map((tier) => `${tier.label.es}: ${tier.amount === null ? "llama para conversar" : usd(tier.amount)}.`),
+        },
+        {
+          heading: "¿Cuánto cuestan el video, el recorrido y las visitas adicionales?",
+          paragraphs: [
+            `El ${listingVideo.name.es.toLowerCase()} cuesta ${usd(listingVideo.amount)} por minuto. El ${listingTour.name.es.toLowerCase()} parte desde ${usd(listingTour.amount)}. ${listingTour.note.es} Son servicios separados: indica si necesitas fotos, video, recorrido o una combinación. Acuerda la duración del video y los archivos que recibirás antes de interpretar la tarifa por minuto como el total del trabajo.`,
+            `El cargo fuera del área es de ${usd(listingTravel.amount)}. ${listingTravel.note.es} Esa condición importa para una dirección en Miami; confirma cómo aplica a tu propiedad. Repetir la sesión cuesta ${usd(listingReshoot.amount)}. ${listingReshoot.note.es} Organiza el acceso y prepara los espacios antes de la visita. Si cambia el clima o la propiedad no está lista, conversa sobre la nueva sesión sin asumir que quedará incluida gratuitamente.`,
+          ],
+        },
+        {
+          heading: "¿Cómo se comparan los planes inmobiliarios mensuales?",
+          paragraphs: [
+            "Los planes mensuales son una oferta diferente de la tarifa de fotografía por sesión. Compáralos según las propiedades que esperas publicar y el trabajo que necesitas durante el mes. No supongas que el pago mensual reduce automáticamente cada servicio individual ni que el trabajo no utilizado se acumula sin un acuerdo.",
+            `El mínimo publicado es de ${REAL_ESTATE_PLAN_TERMS.minimumMonths} meses. Revisa los [planes y precios inmobiliarios](/es/precios/inmobiliaria) y confirma qué propiedades aplican, qué trabajo se programa y qué se cotiza aparte. Comparte tu calendario previsto de propiedades para escoger según necesidades concretas. La propuesta debe indicar el plan elegido y cómo se atenderán los pedidos adicionales, de modo que puedas comparar el compromiso mensual con contratar sesiones individuales.`,
+          ],
+          bullets: REAL_ESTATE_PLANS.map((plan) => `${({ essential: "Esencial", plus: "Plus", premium: "Premium" })[plan.id]}: ${usd(plan.price)} al mes; ${plan.properties} ${plan.properties === 1 ? "propiedad" : "propiedades"} al mes.`),
+        },
+        {
+          heading: "¿Qué condiciones debes revisar antes de reservar?",
+          paragraphs: [
+            `${REAL_ESTATE_MEDIA.terms.es} Son las condiciones impresas con las tarifas; conviene leerlas al elegir el servicio. Repetir una sesión cuesta ${usd(listingReshoot.amount)}, con las excepciones y los límites descritos arriba. Antes de acordar la visita, aclara la preparación de la propiedad, el acceso y los servicios solicitados para evitar supuestos sobre lo incluido.`,
+            "Envía el tamaño, la dirección, las fotos o el video que necesitas y tu fecha preferida por [contacto](/es/contacto). Pide confirmar juntos la tarifa aplicable, el traslado y los archivos finales. La [calculadora de presupuesto](/es/calculadora) sirve para orientar un proyecto de edición cotizado por separado; no reemplaza esta lista por tamaño de propiedad. Al reservar, debes tener claro qué servicio contratas y bajo qué condiciones, sin trasladar automáticamente los precios de otros paquetes a una sesión inmobiliaria.",
+          ],
+        },
+      ],
+      faqs: [
+        { question: "¿Cuál es la primera tarifa de fotografía?", answer: `${REAL_ESTATE_MEDIA.photography[0].label.es}: ${listingPhotoStartingPrice}. Para propiedades mayores aplican los demás rangos publicados; en la categoría más grande debes llamar para conversar.` },
+        { question: "¿El video inmobiliario se cobra por minuto?", answer: `Sí. El ${listingVideo.name.es.toLowerCase()} cuesta ${usd(listingVideo.amount)} por minuto. Confirma la duración y el trabajo incluido antes de calcular el total.` },
+        { question: "¿El recorrido de Zillow tiene un precio fijo?", answer: `El ${listingTour.name.es.toLowerCase()} parte desde ${usd(listingTour.amount)}. ${listingTour.note.es}` },
+        { question: "¿Cuál es el compromiso de los planes mensuales?", answer: `El mínimo publicado es de ${REAL_ESTATE_PLAN_TERMS.minimumMonths} meses. Confirma el plan y el trabajo mensual antes de reservar. ${REAL_ESTATE_MEDIA.terms.es}` },
       ],
     },
   },

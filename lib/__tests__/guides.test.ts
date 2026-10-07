@@ -13,17 +13,87 @@ import {
   guidesIndexCopy,
 } from "../guides";
 import { site } from "../site";
+import { PACKAGE_PRICES, PRICING_BANDS, REAL_ESTATE_PLANS, REAL_ESTATE_PLAN_TERMS, usd } from "../pricing";
+import { REAL_ESTATE_MEDIA } from "../services-config";
+
+const countWords = (text: string) => text
+  .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+  .trim()
+  .split(/\s+/)
+  .filter(Boolean).length;
 
 describe("bilingual practical guides", () => {
-  it("returns exactly 39 guides for English", () => {
+  it.each(["en", "es"] as const)("keeps %s niche cost answers concise, linked, and tied to published figures", (locale) => {
+    const ids = ["restaurant-video-cost-guide", "real-estate-video-cost-guide"];
+    const guides = getGuides(locale).filter(({ id }) => ids.includes(id));
+    expect(guides).toHaveLength(ids.length);
+
+    for (const guide of guides) {
+      expect(guide.sections.length).toBeGreaterThanOrEqual(4);
+      expect(guide.sections.length).toBeLessThanOrEqual(5);
+      for (const section of guide.sections) {
+        expect(section.heading).toMatch(/\?$/);
+        const words = countWords([...section.paragraphs, ...(section.bullets ?? [])].join(" "));
+        expect(words, `${guide.slug}: ${section.heading}`).toBeGreaterThanOrEqual(100);
+        expect(words, `${guide.slug}: ${section.heading}`).toBeLessThanOrEqual(180);
+      }
+      expect(guide.faqs!.length).toBeGreaterThanOrEqual(4);
+      expect(guide.faqs!.length).toBeLessThanOrEqual(5);
+      for (const faq of guide.faqs!) expect(countWords(faq.answer)).toBeLessThan(60);
+      const text = JSON.stringify(guide);
+      expect(text).toContain(locale === "es" ? "](/es/calculadora)" : "](/calculator)");
+      expect(text).toContain(locale === "es" ? "](/es/contacto)" : "](/contact)");
+    }
+
+    const restaurant = JSON.stringify(guides.find(({ id }) => id === "restaurant-video-cost-guide"));
+    expect(restaurant).toContain(locale === "es" ? "](/es/edicion-de-video-promocional-para-restaurantes-miami)" : "](/services/restaurant-promo-video-editing-miami)");
+    for (const id of ["arranque", "crecimiento", "presencia-local"] as const) {
+      const price = PACKAGE_PRICES[id];
+      expect(price.kind).toBe("from");
+      if (price.kind === "from") expect(restaurant).toContain(usd(price.amount));
+    }
+    for (const [text, band] of [[restaurant, PRICING_BANDS.social]] as const) {
+      expect(text).toContain(usd(band.baseMin));
+      expect(text).toContain(usd(band.baseMax));
+      expect(text).toContain(usd(PRICING_BANDS["on-location"].baseMin));
+      expect(text).toContain(usd(PRICING_BANDS["on-location"].baseMax));
+    }
+
+    const realEstate = guides.find(({ id }) => id === "real-estate-video-cost-guide")!;
+    const text = JSON.stringify(realEstate);
+    expect(text).toContain(usd(REAL_ESTATE_MEDIA.photography[0].amount!));
+    expect(text).not.toMatch(/drone|dron|aerial|aére/i);
+    expect(text).toContain(locale === "es" ? "](/es/precios/inmobiliaria)" : "](/pricing/real-estate)");
+    expect(realEstate.sections[0].bullets).toEqual(REAL_ESTATE_MEDIA.photography.map((tier) =>
+      `${tier.label[locale]}: ${tier.amount === null ? (locale === "es" ? "llama para conversar" : "call to discuss") : usd(tier.amount)}.`,
+    ));
+    for (const item of [...REAL_ESTATE_MEDIA.addOns.filter(({ id }) => id === "premium-listing-video" || id === "zillow-3d-tour"), ...REAL_ESTATE_MEDIA.fees]) {
+      expect(text).toContain(usd(item.amount));
+      if ("note" in item && item.note) expect(text.toLowerCase()).toContain(item.note[locale].toLowerCase());
+    }
+    for (const plan of REAL_ESTATE_PLANS) expect(text).toContain(usd(plan.price));
+    expect(text).toContain(`${REAL_ESTATE_PLAN_TERMS.minimumMonths} ${locale === "es" ? "meses" : "months"}`);
+    expect(text).toContain(REAL_ESTATE_MEDIA.terms[locale]);
+  });
+
+  it.each(["en", "es"] as const)("keeps existing %s cost-guide sections within the reading ceiling", (locale) => {
+    for (const guide of getGuides(locale).filter(({ id }) => ["corporate-video-cost-guide", "fort-lauderdale-video-cost-guide"].includes(id))) {
+      for (const section of guide.sections) {
+        expect(section.heading).toMatch(/\?$/);
+        expect(countWords([...section.paragraphs, ...(section.bullets ?? [])].join(" "))).toBeLessThanOrEqual(180);
+      }
+    }
+  });
+
+  it("returns exactly 41 guides for English", () => {
     const guides = getGuides("en");
-    expect(guides).toHaveLength(39);
+    expect(guides).toHaveLength(41);
     expect(guides.every((guide) => guide.locale === "en")).toBe(true);
   });
 
-  it("returns exactly 39 guides for Spanish", () => {
+  it("returns exactly 41 guides for Spanish", () => {
     const guides = getGuides("es");
-    expect(guides).toHaveLength(39);
+    expect(guides).toHaveLength(41);
     expect(guides.every((guide) => guide.locale === "es")).toBe(true);
   });
 
@@ -31,13 +101,13 @@ describe("bilingual practical guides", () => {
     const englishGuides = getGuides("en");
     const spanishGuides = getGuides("es");
 
-    expect(englishGuides).toHaveLength(39);
-    expect(spanishGuides).toHaveLength(39);
+    expect(englishGuides).toHaveLength(41);
+    expect(spanishGuides).toHaveLength(41);
     expect(englishGuides.map(({ id }) => id)).toEqual(
       spanishGuides.map(({ id }) => id),
     );
-    expect(new Set(englishGuides.map(({ slug }) => slug))).toHaveLength(39);
-    expect(new Set(spanishGuides.map(({ slug }) => slug))).toHaveLength(39);
+    expect(new Set(englishGuides.map(({ slug }) => slug))).toHaveLength(41);
+    expect(new Set(spanishGuides.map(({ slug }) => slug))).toHaveLength(41);
 
     for (const guide of [...englishGuides, ...spanishGuides]) {
       expect(guide.answer.length).toBeGreaterThan(60);
@@ -57,9 +127,9 @@ describe("bilingual practical guides", () => {
     const metadataTitles = allGuides.map(({ metadataTitle }) => metadataTitle);
     const descriptions = allGuides.map(({ description }) => description);
 
-    expect(new Set(canonicalPaths).size).toBe(78);
-    expect(new Set(metadataTitles).size).toBe(78);
-    expect(new Set(descriptions).size).toBe(78);
+    expect(new Set(canonicalPaths).size).toBe(82);
+    expect(new Set(metadataTitles).size).toBe(82);
+    expect(new Set(descriptions).size).toBe(82);
 
     for (const guide of allGuides) {
       const metadata = buildGuideMetadata(guide);

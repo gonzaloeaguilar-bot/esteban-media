@@ -240,7 +240,7 @@ describe("Search Console index watch", () => {
   it("keeps the fixed watch set identical to the application sitemap", () => {
     const urls = sitemap().map((entry) => entry.url).sort();
 
-    expect(WATCH_URLS).toHaveLength(279); // +/desk-recommendations, pricing/package pages, real-estate pair, 2026-10-01 remote/resource pages, EN GEO pages, ES GEO pages, the five 2026-10-06 niche pairs, and the food/places creator pair
+    expect(WATCH_URLS).toHaveLength(283); // +/desk-recommendations, pricing/package pages, real-estate pair, 2026-10-01 remote/resource pages, EN GEO pages, ES GEO pages, the five 2026-10-06 niche pairs, and the food/places creator pair, and the 2026-10-07 restaurant and real-estate cost-answer guide pairs
     expect([...WATCH_URLS].sort()).toEqual(urls);
     expect(validateWatchedSitemap(urls).hash).toBe(watchedUrlHash());
   });

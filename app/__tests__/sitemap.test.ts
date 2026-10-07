@@ -21,7 +21,7 @@ import sitemap from "../sitemap";
 describe("portfolio sitemap entries", () => {
   const entries = sitemap();
 
-  it("publishes the exact 279-URL consolidated inventory, each URL once", () => {
+  it("publishes the exact 283-URL consolidated inventory, each URL once", () => {
     const urls = entries.map((entry) => entry.url);
 
     // 279 = 243 consolidated + /desk-recommendations (owner-ordered
@@ -32,8 +32,9 @@ describe("portfolio sitemap entries", () => {
     // GEO pages added from same-day GSC query evidence + the five bilingual
     // niche pairs added 2026-10-06 (ten URLs, owner-ordered) and the
     // food/places creator pair added 2026-10-07 (two URLs, owner-ordered).
-    expect(entries).toHaveLength(279);
-    expect(new Set(urls)).toHaveLength(279);
+    // +4 = the 2026-10-07 restaurant and real-estate cost-answer guide pairs.
+    expect(entries).toHaveLength(283);
+    expect(new Set(urls)).toHaveLength(283);
   });
 
   // This used to assert every entry carried lastModified 2026-07-19. That
