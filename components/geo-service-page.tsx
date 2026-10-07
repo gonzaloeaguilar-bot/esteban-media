@@ -143,7 +143,7 @@ export function GeoServicePage({ content }: { content: GeoServicePageContent }) 
               </p>
               <Link
                 href={content.proofHref}
-                className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]"
+                className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]"
               >
                 {content.proofLabel}
                 <ArrowRight className="size-4" aria-hidden="true" />

@@ -84,7 +84,7 @@ export function PackagesSection({ locale }: { locale: Locale }) {
           <p className="em-pk-lead">{copy.chooser.lead}</p>
 
           <ol className="em-pk-cards" role="list" data-open={open ?? "none"}>
-            {packages.map((pkg) => {
+            {packages.map((pkg, index) => {
               const price = priceFor(pkg.id);
               const isOpen = open === pkg.id;
               const anchor = packageAnchor(pkg.id);
@@ -121,6 +121,7 @@ export function PackagesSection({ locale }: { locale: Locale }) {
                         src={pkg.image.src}
                         alt={pkg.image.alt}
                         fill
+                        priority={index === 0}
                         sizes="(min-width: 1024px) 560px, 92vw"
                         style={{ objectPosition: pkg.image.sceneFocal ?? pkg.image.focal }}
                       />
@@ -136,6 +137,13 @@ export function PackagesSection({ locale }: { locale: Locale }) {
                     <span className="em-pk-card__need">
                       <span className="em-pk-card__need-title">{pkg.need.title}</span>
                       <span className="em-pk-card__need-line">{pkg.need.line}</span>
+                      <span className="em-pk-card__price">
+                        {price.kind === "from"
+                          ? `${copy.price.from} $${price.amount.toLocaleString("en-US")} · ${copy.price.units[price.unit]}`
+                          : locale === "es"
+                            ? `${copy.price.customLine} ${copy.price.custom.toLowerCase()}`
+                            : `${copy.price.custom} ${copy.price.customLine.toLowerCase()}`}
+                      </span>
                       <span className="em-pk-card__go">
                         {isOpen ? copy.chooser.close : copy.chooser.cta(pkg.name)}
                         <ArrowRight className="size-4" aria-hidden="true" />
@@ -190,19 +198,21 @@ export function PackagesSection({ locale }: { locale: Locale }) {
 
                       <p className="em-pkcard__ideal">{pkg.idealFor}</p>
 
-                      <a
-                        href={whatsappHref(site.phone.e164, quoteText(pkg.name))}
-                        className="em-pkcard__cta"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        data-cta={`package_${pkg.id}_whatsapp`}
-                      >
-                        <MessageCircle className="size-4" aria-hidden="true" />
-                        {copy.packages.quote(pkg.name)}
-                      </a>
-                      <a href={packageRoutes[pkg.id][locale]} className="em-package-detail-link" data-cta={`package_${pkg.id}_details`}>
-                        {locale === "es" ? "Ver detalles del paquete" : "View package details"}
-                      </a>
+                      <div className="em-pkcard__actions">
+                        <a
+                          href={whatsappHref(site.phone.e164, quoteText(pkg.name))}
+                          className="em-pkcard__cta"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          data-cta={`package_${pkg.id}_whatsapp`}
+                        >
+                          <MessageCircle className="size-4" aria-hidden="true" />
+                          {`${copy.packages.quote(pkg.name)} ${locale === "es" ? "por WhatsApp" : "on WhatsApp"}`}
+                        </a>
+                        <a href={packageRoutes[pkg.id][locale]} className="em-package-detail-link" data-cta={`package_${pkg.id}_details`}>
+                          {locale === "es" ? "Ver detalles del paquete" : "View package details"}
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </li>
