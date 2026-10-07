@@ -6,13 +6,32 @@ import { ArrowRight, CheckCircle2, Mail, Phone, Send } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import { trackLeadSubmit } from "@/lib/analytics-events";
+import {
+  FOUND_QUERY_MAX,
+  FOUND_VIA_ASKS_QUERY,
+  isFoundVia,
+  type FoundVia,
+} from "@/lib/lead-responder";
 import { site } from "@/lib/site";
 
 type SubmitState = "idle" | "submitting" | "success" | "error";
 
+const FOUND_VIA_CHOICES: { value: FoundVia; label: string }[] = [
+  { value: "chatgpt", label: "ChatGPT" },
+  { value: "other_ai", label: "Another AI assistant (Gemini, Perplexity…)" },
+  { value: "google_search", label: "Google search" },
+  { value: "google_maps", label: "Google Maps" },
+  { value: "instagram", label: "Instagram" },
+  { value: "referral", label: "Someone recommended you" },
+  { value: "other", label: "Something else" },
+];
+
 export function ContactCta() {
   const [email, setEmail] = useState("");
   const [projectSummary, setProjectSummary] = useState("");
+  const [foundVia, setFoundVia] = useState<FoundVia | "">("");
+  const [foundQuery, setFoundQuery] = useState("");
+  const asksQuery = foundVia !== "" && FOUND_VIA_ASKS_QUERY.has(foundVia);
   const [submitState, setSubmitState] = useState<SubmitState>("idle");
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -28,6 +47,10 @@ export function ContactCta() {
           locale: "en",
           email,
           notes: projectSummary,
+          ...(foundVia ? { foundVia } : {}),
+          ...(asksQuery && foundQuery.trim()
+            ? { foundQuery: foundQuery.trim().slice(0, FOUND_QUERY_MAX) }
+            : {}),
         }),
       });
 
@@ -35,10 +58,12 @@ export function ContactCta() {
         throw new Error("Lead request failed");
       }
 
-      trackLeadSubmit("contact", "en");
+      trackLeadSubmit("contact", "en", foundVia || "not_answered");
       setSubmitState("success");
       setEmail("");
       setProjectSummary("");
+      setFoundVia("");
+      setFoundQuery("");
     } catch {
       setSubmitState("error");
     }
@@ -121,6 +146,46 @@ export function ContactCta() {
                     placeholder="What are you making, and what footage or assets do you already have?"
                   />
                 </div>
+                <div>
+                  <label htmlFor="homepage-found-via" className="text-sm font-medium text-white">
+                    How did you find us?{" "}
+                    <span className="font-normal text-[#aaa29a]">(optional)</span>
+                  </label>
+                  <select
+                    id="homepage-found-via"
+                    name="foundVia"
+                    value={foundVia}
+                    onChange={(event) =>
+                      setFoundVia(isFoundVia(event.target.value) ? event.target.value : "")
+                    }
+                    className="mt-2 min-h-12 w-full rounded-lg border border-white/20 bg-[#1b1e21] px-4 text-base text-white focus:border-[#f0b384] focus:outline-none"
+                  >
+                    <option value="">Choose one</option>
+                    {FOUND_VIA_CHOICES.map((choice) => (
+                      <option key={choice.value} value={choice.value}>
+                        {choice.label}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                {asksQuery && (
+                  <div>
+                    <label htmlFor="homepage-found-query" className="text-sm font-medium text-white">
+                      What did you type or ask?{" "}
+                      <span className="font-normal text-[#aaa29a]">(optional)</span>
+                    </label>
+                    <input
+                      id="homepage-found-query"
+                      name="foundQuery"
+                      type="text"
+                      maxLength={FOUND_QUERY_MAX}
+                      value={foundQuery}
+                      onChange={(event) => setFoundQuery(event.target.value)}
+                      className="mt-2 min-h-12 w-full rounded-lg border border-white/20 bg-white/10 px-4 text-base text-white placeholder:text-[#aaa29a] focus:border-[#f0b384] focus:outline-none"
+                      placeholder="e.g. videographer for restaurants in Miami"
+                    />
+                  </div>
+                )}
                 {submitState === "error" && (
                   <p role="alert" className="text-sm text-[#f7b9aa]">
                     The form could not be sent. Please try again or use the

@@ -49,6 +49,8 @@ export function LensTelemetry({ locale }: { locale: string }) {
       if (!target) return;
       track("cta_click", {
         cta_id: target.getAttribute("data-cta") ?? "unknown",
+        cta_text: (target.textContent ?? "").trim().slice(0, 80) || "unknown",
+        cta_position: target.closest("[data-lens-stop]")?.getAttribute("data-lens-stop") ?? "page",
         page_type: "experience",
         locale,
       });
