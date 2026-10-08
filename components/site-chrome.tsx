@@ -1,5 +1,5 @@
 import Script from "next/script";
-import { Geist, Geist_Mono, Newsreader, Oswald } from "next/font/google";
+import { Geist, Geist_Mono, Instrument_Serif, Newsreader, Oswald } from "next/font/google";
 
 import { GoogleAnalytics } from "@/components/google-analytics";
 import { MOTION_GATE_SCRIPT, RouteVeil, SiteMotion } from "@/components/site-motion";
@@ -37,7 +37,15 @@ const oswald = Oswald({
   preload: false,
 });
 
-export const siteBodyClassName = `${geistSans.variable} ${geistMono.variable} ${newsreader.variable} ${oswald.variable} antialiased`;
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-price",
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+  preload: false,
+});
+
+export const siteBodyClassName = `${geistSans.variable} ${geistMono.variable} ${newsreader.variable} ${oswald.variable} ${instrumentSerif.variable} antialiased`;
 
 // The web-kit brand moment, decided before first paint. Vendored unmodified
 // (vendor/web-kit/SOURCE.txt), compiled in as a string (boot.generated.ts,

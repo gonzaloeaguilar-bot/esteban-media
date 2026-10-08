@@ -743,16 +743,17 @@ html.rail-anim:not([data-brand-moment]) .em-cine__eyebrow {
   margin-top: 16px;
   font-size: 11px;
   font-weight: 600;
+  line-height: 1.4;
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.8);
 }
 .em-pkcard__name {
-  margin: 2px 0 0;
+  margin: 10px 0 0;
   font-family: var(--font-display), "Oswald", "Arial Narrow", sans-serif;
   font-weight: 700;
   font-size: clamp(2.1rem, 9.5vw, 2.6rem);
-  line-height: 0.95;
+  line-height: 1;
   text-transform: uppercase;
   letter-spacing: 0.005em;
 }
@@ -1471,16 +1472,19 @@ html.rail-anim .em-pk-steps__list.rail-reveal.is-in li:nth-child(3) { transition
   position: relative;
   overflow: hidden;
   border-radius: 18px;
-  background: var(--cine-card);
-  border: 1px solid var(--cine-line);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  background: #fbf6ef;
+  border: 1px solid #e4d9cb;
+  box-shadow: none;
   scroll-margin-top: 24px;
   transition:
-    box-shadow 0.4s var(--cine-ease),
     border-color 0.3s,
     transform 0.4s var(--cine-ease);
 }
-.em-pk-card[data-state="open"] { box-shadow: 0 26px 70px rgba(0, 0, 0, 0.16); border-color: #d6cec3; }
+.em-pk-card[data-state="open"] {
+  box-shadow: none;
+  border-color: #c84a2c;
+  background: #fbf6ef;
+}
 .em-pk-card:active { transform: scale(0.995); }
 
 /* The heading is the accordion's wrapper; it carries no type of its own. */
@@ -1545,11 +1549,48 @@ html.rail-anim .em-pk-steps__list.rail-reveal.is-in li:nth-child(3) { transition
 }
 .em-pk-card__need-line { font-size: 14px; line-height: 1.45; color: var(--cine-muted); }
 .em-pk-card__price {
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 1.35;
-  color: var(--cine-text);
-  margin-top: 2px;
+  margin-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.em-pk-card__price-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.em-pk-card__price-line {
+  display: inline-flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.em-pk-card__price-prefix {
+  font-family: var(--font-geist-sans), sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #6a625a;
+}
+.em-pk-card__price-num {
+  font-family: var(--font-price), "Instrument Serif", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(44px, 12vw, 52px);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: #1d1b19;
+}
+.em-pk-card__price-unit {
+  font-family: var(--font-geist-sans), sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #6a625a;
+}
+.em-pk-card__price-line--custom .em-pk-card__price-custom {
+  font-family: var(--font-price), "Instrument Serif", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(34px, 8vw, 42px);
+  line-height: 1.05;
+  color: #1d1b19;
 }
 /* Open, the card shows the full price block; the face line would say it twice. */
 .em-pk-card[data-state="open"] .em-pk-card__price { display: none; }
@@ -1557,11 +1598,11 @@ html.rail-anim .em-pk-steps__list.rail-reveal.is-in li:nth-child(3) { transition
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  margin-top: 6px;
+  margin-top: 8px;
   font: 600 12px/1 var(--font-geist-sans), sans-serif;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--cine-accent-deep);
+  color: #a8381d;
 }
 .em-pk-card__go svg { transition: transform 0.3s var(--cine-ease); }
 /* Open, the affordance becomes a close control on the scene. It used to sit in
@@ -1598,7 +1639,189 @@ html.rail-anim .em-pk-steps__list.rail-reveal.is-in li:nth-child(3) { transition
   opacity: 0;
   transition: opacity 0.3s linear;
 }
-.em-pk-card[data-state="open"] .em-pk-card__inner { opacity: 1; padding-bottom: 20px; }
+.em-pk-card[data-state="open"] .em-pk-card__inner { opacity: 1; padding-bottom: 24px; }
+
+/* Inclusions as chips */
+.em-pkcard__includes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.em-pkcard__includes li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid #e4d9cb;
+  font-family: var(--font-geist-sans), sans-serif;
+  font-weight: 500;
+  font-size: 12.5px;
+  line-height: 1.2;
+  color: #1d1b19;
+}
+.em-pkcard__includes svg {
+  display: none;
+}
+
+/* Open card prices for standard 3 packages */
+.em-pk-open-price {
+  margin-top: 20px;
+}
+.em-pk-open-price__box {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.em-pk-open-price__prefix {
+  font-family: var(--font-geist-sans), sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  color: #6a625a;
+}
+.em-pk-open-price__num {
+  font-family: var(--font-price), "Instrument Serif", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(48px, 11vw, 60px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #1d1b19;
+}
+.em-pk-open-price__unit {
+  font-family: var(--font-geist-sans), sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  color: #6a625a;
+}
+.em-pk-open-price__box--custom .em-pk-open-price__custom-line {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6a625a;
+}
+.em-pk-open-price__box--custom .em-pk-open-price__custom {
+  font-family: var(--font-price), "Instrument Serif", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(40px, 9vw, 52px);
+  line-height: 1.05;
+  color: #1d1b19;
+}
+
+/* Starter two-ways options tiles */
+.em-pk-starter-options {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-top: 20px;
+}
+@media (min-width: 640px) {
+  .em-pk-starter-options {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+}
+.em-pk-starter-tile {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 18px 18px;
+  border-radius: 16px;
+  background: #f6f1ea;
+  border: 1px solid #e4d9cb;
+}
+.em-pk-starter-tile--weekly {
+  background: #fbf6ef;
+  border-color: #e4d9cb;
+}
+.em-pk-starter-tile__name {
+  margin: 0;
+  font-family: var(--font-display), "Oswald", "Arial Narrow", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1d1b19;
+}
+.em-pk-starter-tile__price {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+.em-pk-starter-tile__from {
+  font-family: var(--font-geist-sans), sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #6a625a;
+}
+.em-pk-starter-tile__num {
+  font-family: var(--font-price), "Instrument Serif", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(48px, 12vw, 60px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #1d1b19;
+}
+.em-pk-starter-tile__unit {
+  font-family: var(--font-geist-sans), sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #6a625a;
+}
+.em-pk-starter-tile__rows {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+.em-pk-starter-tile__row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.em-pk-starter-tile__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+.em-pk-starter-chip {
+  font-family: var(--font-geist-sans), sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid #e4d9cb;
+  color: #1d1b19;
+}
+.em-pk-starter-pill {
+  font-family: var(--font-geist-sans), sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  background: #efe5d7;
+  color: #1d1b19;
+}
+.em-pk-starter-tile .em-pkcard__cta {
+  margin-top: 14px;
+  width: 100%;
+}
+.em-pk-starter-tile .em-pkcard__weekly {
+  margin-top: 6px;
+  text-align: center;
+}
+/* A secondary link is still a tap target: 44px tall, text unchanged. */
+.em-pk-starter-tile .em-pkcard__weekly a { min-height: 44px; }
 
 @media (prefers-reduced-motion: reduce) {
   .em-pk-card,
