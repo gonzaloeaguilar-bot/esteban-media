@@ -6,9 +6,9 @@ import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
 export const metadata = buildPageMetadata({
-  title: "Brand Video Production Miami",
+  title: "Miami Business Video Production | Brand Stories",
   description:
-    "Brand story videos, founder manifestos, and company overview video production for businesses in Miami.",
+    "Miami business video production for brand stories, founder videos, company overviews, and social-ready edits using scoped capture or supplied footage.",
   path: "/services/brand-video-production-miami",
   locale: "en",
 });
@@ -20,9 +20,9 @@ export default function BrandVideoProductionMiamiPage() {
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/brand-video-production-miami#service"),
-        name: "Brand Video Production Miami",
+        name: "Miami Business Video Production and Brand Video Production",
         description:
-          "Brand manifesto videos, founder story video production, and commercial brand positioning videos in Miami.",
+          "Business video production, brand manifesto videos, founder story videos, and company overview edits in Miami.",
         provider: {
           "@type": "LocalBusiness",
           "@id": absoluteUrl("/#business"),
@@ -31,7 +31,7 @@ export default function BrandVideoProductionMiamiPage() {
           telephone: site.phone.e164,
         },
         areaServed: "Miami / South Florida",
-        serviceType: "Brand video production",
+        serviceType: "Business video production",
       },
     ],
   };
@@ -67,13 +67,13 @@ export default function BrandVideoProductionMiamiPage() {
           <div className="grid gap-10 lg:grid-cols-[1fr_.8fr] lg:items-center">
             <div>
               <p className="text-xs font-medium uppercase text-[#5a6066]">
-                Miami / Brand Storytelling
+                Miami / Business Video
               </p>
               <h1 className="mt-4 max-w-4xl font-serif text-5xl leading-none sm:text-6xl">
-                Brand Video Production in Miami.
+                Miami Business Video Production for Brand Stories.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-                Connect your business mission with customers through cinematic founder stories, brand manifestos, and company intro videos.
+                Connect your business mission with customers through founder stories, company intro videos, short social edits, and brand-positioning cuts based on confirmed footage and project scope.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link

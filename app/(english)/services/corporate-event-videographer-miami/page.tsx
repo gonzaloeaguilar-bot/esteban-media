@@ -6,9 +6,9 @@ import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
 export const metadata = buildPageMetadata({
-  title: "Corporate Event Videographer Miami",
+  title: "Miami Event Photographer & Videographer",
   description:
-    "Event video coverage, convention highlight recaps, and conference video production for corporate events in Miami.",
+    "Miami event photographer and videographer support for corporate events, conference recap videos, highlight edits, and project-scoped on-location capture.",
   path: "/services/corporate-event-videographer-miami",
   locale: "en",
 });
@@ -20,9 +20,9 @@ export default function CorporateEventVideographerMiamiPage() {
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/corporate-event-videographer-miami#service"),
-        name: "Corporate Event Videographer Miami",
+        name: "Miami Event Photographer and Corporate Event Videographer",
         description:
-          "Corporate event video capture, convention highlight video editing, and conference recaps in Miami.",
+          "Project-scoped event photo and video capture, convention highlight video editing, and corporate event recaps in Miami.",
         provider: {
           "@type": "LocalBusiness",
           "@id": absoluteUrl("/#business"),
@@ -31,7 +31,7 @@ export default function CorporateEventVideographerMiamiPage() {
           telephone: site.phone.e164,
         },
         areaServed: "Miami / South Florida",
-        serviceType: "Event video production",
+        serviceType: "Event photography and video production",
       },
     ],
   };
@@ -67,20 +67,20 @@ export default function CorporateEventVideographerMiamiPage() {
           <div className="grid gap-10 lg:grid-cols-[1fr_.8fr] lg:items-center">
             <div>
               <p className="text-xs font-medium uppercase text-[#5a6066]">
-                Miami / Corporate Events
+                Miami / Event Photo & Video
               </p>
               <h1 className="mt-4 max-w-4xl font-serif text-5xl leading-none sm:text-6xl">
-                Corporate Event Videographer in Miami.
+                Miami Event Photographer & Corporate Videographer.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-                On-location video capture and rapid recap editing for corporate conferences, trade shows, and brand activations in Miami.
+                On-location event capture and recap editing for conferences, trade shows, brand activations, and business gatherings in Miami, with photo needs scoped before the date is confirmed.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/contact"
                   className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white hover:bg-[#a93e29]"
                 >
-                  Book Event Videography
+                  Request Event Coverage
                   <ArrowRight className="size-4" aria-hidden="true" />
                 </Link>
               </div>
@@ -88,9 +88,9 @@ export default function CorporateEventVideographerMiamiPage() {
 
             <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
               <Camera className="size-8 text-[#e85d3e]" aria-hidden="true" />
-              <h2 className="mt-5 font-serif text-3xl">Event video proof</h2>
+              <h2 className="mt-5 font-serif text-3xl">Event coverage scope</h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                Our portfolio project <strong>Healthy Smile</strong> proves published commercial video production, on-location event recording, and editing in Miami.
+                Our portfolio project <strong>Healthy Smile</strong> proves published commercial video production, on-location recording, and editing in Miami. For event work, share the run of show, venue, speaker moments, photo needs, and recap formats before booking.
               </p>
               <Link
                 href="/portfolio/healthy-smile"
@@ -113,10 +113,10 @@ export default function CorporateEventVideographerMiamiPage() {
                   Get Started
                 </p>
                 <h2 className="mt-3 font-serif text-4xl">
-                  Hosting an upcoming conference in Miami?
+                  Planning an event in Miami?
                 </h2>
                 <p className="mt-3 max-w-2xl text-sm leading-6 text-[#252a2d]">
-                  Email or call to reserve event video coverage dates.
+                  Email or call with the date, venue, schedule, desired photos, and video deliverables so the coverage plan can be confirmed.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">

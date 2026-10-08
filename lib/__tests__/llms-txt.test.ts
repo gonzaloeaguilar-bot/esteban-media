@@ -32,18 +32,35 @@ describe("public/llms.txt for AI crawlers", () => {
   });
 
   it("does not fabricate packages, prices, turnaround, or guaranteed results", () => {
-    // Photography/drone stay framed as pending, not confirmed services.
+    // Photography/drone stay scoped and do not become broad package claims.
     expect(llms).toContain(
-      "Photography and drone work are not currently published as confirmed services",
+      "Photography is described only on its specific scoped pages",
     );
+    expect(llms).toContain("no universal photo package");
     expect(llms).toContain("guaranteed views/rankings.");
     expect(llms).not.toMatch(/\$\d/);
     expect(llms.toLowerCase()).not.toContain("guaranteed results");
   });
 
+  it("exposes the current Miami service-intent pages for AI and search discovery", () => {
+    expect(llms).toContain("## Priority Miami Service-Intent Pages");
+    expect(llms).toContain(
+      "Miami brand photographer / headshots and business portraits: https://estebanmorenomedia.com/services/headshot-photographer-miami",
+    );
+    expect(llms).toContain(
+      "Miami event photographer and corporate videographer: https://estebanmorenomedia.com/services/corporate-event-videographer-miami",
+    );
+    expect(llms).toContain(
+      "Miami business video production for Brickell companies: https://estebanmorenomedia.com/services/corporate-video-production-brickell",
+    );
+    expect(llms).toContain(
+      "Miami business video production for brand stories: https://estebanmorenomedia.com/services/brand-video-production-miami",
+    );
+  });
+
   it("carries the correct current contact details", () => {
     expect(llms).toContain("Email: esmolopez@gmail.com");
     expect(llms).toContain("Phone: (305) 497-4478");
-    expect(llms).toContain("Last updated: 2026-07-29");
+    expect(llms).toContain("Last updated: 2026-09-14");
   });
 });

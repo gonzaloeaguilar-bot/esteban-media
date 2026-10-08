@@ -6,7 +6,7 @@ Canonical site: https://estebanmorenomedia.com/
 Owner / creator: Esteban Moreno López, who works publicly as Esteban Moreno
 Primary market: Fort Lauderdale, Broward County, and Miami-Dade County; Palm Beach County is an expansion/service area
 Languages: Spanish-first service; intermediate English communication available
-Last updated: 2026-07-29
+Last updated: 2026-09-14
 
 ## Core Pages
 
@@ -42,6 +42,13 @@ published portfolio proof. Browse the full set from the English services hub
 
 - Sitemap: https://estebanmorenomedia.com/sitemap.xml
 - Video sitemap: https://estebanmorenomedia.com/video-sitemap.xml
+
+## Priority Miami Service-Intent Pages
+
+- Miami brand photographer / headshots and business portraits: https://estebanmorenomedia.com/services/headshot-photographer-miami
+- Miami event photographer and corporate videographer: https://estebanmorenomedia.com/services/corporate-event-videographer-miami
+- Miami business video production for Brickell companies: https://estebanmorenomedia.com/services/corporate-video-production-brickell
+- Miami business video production for brand stories: https://estebanmorenomedia.com/services/brand-video-production-miami
 
 ## Selected Video Watch Pages
 
@@ -86,7 +93,7 @@ guidance rather than Esteban Moreno Media policy. Full indexes:
 - AI-assisted content.
 - Social media planning.
 - Selectively scoped on-location video production.
-- Photography and drone work are not currently published as confirmed services; their legacy Spanish routes remain available only as transparent educational resources pending confirmation.
+- Photography is described only on its specific scoped pages; no universal photo package, studio address, price, availability, or turnaround is published. Drone work is not currently published as a confirmed flight service; drone-related routes remain limited to editing or transparent educational resources pending partner verification.
 
 ## Service Areas
 

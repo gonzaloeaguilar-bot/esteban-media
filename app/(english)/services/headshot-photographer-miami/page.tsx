@@ -6,9 +6,9 @@ import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
 export const metadata = buildPageMetadata({
-  title: "Headshot Photographer Miami",
+  title: "Miami Brand Photographer | Headshots & Portraits",
   description:
-    "Professional headshots and executive portrait photography for business leaders, realtors, and attorneys in Miami and Fort Lauderdale.",
+    "Miami brand photographer for professional headshots, executive portraits, and social profile images, scoped per project in Miami and Fort Lauderdale.",
   path: "/services/headshot-photographer-miami",
   locale: "en",
 });
@@ -20,9 +20,9 @@ export default function HeadshotPhotographerPage() {
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/headshot-photographer-miami#service"),
-        name: "Headshot Photographer Miami",
+        name: "Miami Brand Photographer and Headshot Photographer",
         description:
-          "Professional corporate headshots, LinkedIn profile portraits, and business headshots in South Florida.",
+          "Project-scoped brand photography, professional corporate headshots, LinkedIn profile portraits, and business portraits in Miami and Fort Lauderdale.",
         provider: {
           "@type": "LocalBusiness",
           "@id": absoluteUrl("/#business"),
@@ -31,7 +31,7 @@ export default function HeadshotPhotographerPage() {
           telephone: site.phone.e164,
         },
         areaServed: "Miami-Dade / Fort Lauderdale",
-        serviceType: "Headshot photography",
+        serviceType: "Brand photography and headshot photography",
       },
     ],
   };
@@ -67,36 +67,36 @@ export default function HeadshotPhotographerPage() {
           <div className="grid gap-10 lg:grid-cols-[1fr_.8fr] lg:items-center">
             <div>
               <p className="text-xs font-medium uppercase text-[#5a6066]">
-                Corporate / Personal Brand
+                Miami / Brand Photography
               </p>
               <h1 className="mt-4 max-w-4xl font-serif text-5xl leading-none sm:text-6xl">
-                Professional Headshots & Business Portraits in Miami.
+                Miami Brand Photographer for Headshots & Business Portraits.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-                High-quality executive headshots for LinkedIn, corporate websites, and marketing materials with subtle skin retouching.
+                Professional portraits for LinkedIn, business websites, speaker profiles, and social channels, scoped around your real use case, location, and available schedule.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/contact"
                   className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white hover:bg-[#a93e29]"
                 >
-                  Book a Headshot Session
+                  Request Brand Photos
                   <ArrowRight className="size-4" aria-hidden="true" />
                 </Link>
                 <Link
                   href="/portfolio/my-dler"
                   className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#101214] px-6 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"
                 >
-                  View Branding Proof
+                  View Visual Proof
                 </Link>
               </div>
             </div>
 
             <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
               <Camera className="size-8 text-[#e85d3e]" aria-hidden="true" />
-              <h2 className="mt-5 font-serif text-3xl">Professional portraits</h2>
+              <h2 className="mt-5 font-serif text-3xl">Brand photo scope</h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                Scheduled per project for individuals, law firms, real estate teams, and corporate boards.
+                Start with where the images will be used, how many people need portraits, whether you need horizontal website crops or vertical social photos, and whether the shoot is in Miami, Fort Lauderdale, or handled with assets you already have.
               </p>
             </div>
           </div>
@@ -112,10 +112,10 @@ export default function HeadshotPhotographerPage() {
                   Get Started
                 </p>
                 <h2 className="mt-3 font-serif text-4xl">
-                  Update your professional image.
+                  Need brand photos for a Miami business profile?
                 </h2>
                 <p className="mt-3 max-w-2xl text-sm leading-6 text-[#252a2d]">
-                  Schedule a portrait session for your team or personal brand.
+                  Send the intended use, preferred location, number of people, and deadline so the photo scope can be confirmed before any date is reserved.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">

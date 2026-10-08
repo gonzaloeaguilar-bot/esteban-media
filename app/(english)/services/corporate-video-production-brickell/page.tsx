@@ -6,9 +6,9 @@ import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
 export const metadata = buildPageMetadata({
-  title: "Corporate Video Production Brickell Miami",
+  title: "Miami Business Video Production | Brickell",
   description:
-    "Corporate video editing, executive testimonials, and company overview videos for financial firms and tech startups in Brickell, Miami.",
+    "Miami business video production for company overviews, executive interviews, and social-ready corporate edits, scoped for Brickell and South Florida firms.",
   path: "/services/corporate-video-production-brickell",
   locale: "en",
 });
@@ -20,9 +20,9 @@ export default function CorporateVideoProductionBrickellPage() {
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/corporate-video-production-brickell#service"),
-        name: "Corporate Video Production Brickell Miami",
+        name: "Miami Business Video Production for Brickell Companies",
         description:
-          "Corporate video production, executive interview editing, and company videos for Brickell financial firms.",
+          "Business video production, executive interview editing, and company overview videos for Brickell and Miami firms.",
         provider: {
           "@type": "LocalBusiness",
           "@id": absoluteUrl("/#business"),
@@ -31,7 +31,7 @@ export default function CorporateVideoProductionBrickellPage() {
           telephone: site.phone.e164,
         },
         areaServed: "Brickell / Downtown Miami",
-        serviceType: "Corporate video production",
+        serviceType: "Business video production",
       },
     ],
   };
@@ -67,20 +67,20 @@ export default function CorporateVideoProductionBrickellPage() {
           <div className="grid gap-10 lg:grid-cols-[1fr_.8fr] lg:items-center">
             <div>
               <p className="text-xs font-medium uppercase text-[#5a6066]">
-                Brickell / Corporate Finance
+                Miami / Business Video Production
               </p>
               <h1 className="mt-4 max-w-4xl font-serif text-5xl leading-none sm:text-6xl">
-                Corporate Video Production in Brickell, Miami.
+                Miami Business Video Production for Brickell Companies.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-                Professional video editing and bilingual corporate storytelling for financial institutions, law practices, and tech startups in Brickell.
+                Professional video editing and scoped production for company overviews, executive interviews, recruiting content, and social-ready business videos in Brickell and Miami.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/contact"
                   className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-6 text-sm font-medium text-white hover:bg-[#a93e29]"
                 >
-                  Start a Corporate Video
+                  Scope a Business Video
                   <ArrowRight className="size-4" aria-hidden="true" />
                 </Link>
               </div>
@@ -88,9 +88,9 @@ export default function CorporateVideoProductionBrickellPage() {
 
             <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
               <Building2 className="size-8 text-[#e85d3e]" aria-hidden="true" />
-              <h2 className="mt-5 font-serif text-3xl">Corporate proof</h2>
+              <h2 className="mt-5 font-serif text-3xl">Business video scope</h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                Our portfolio project <strong>My D&apos;ler</strong> proves published brand visual design and corporate assets.
+                Start by defining whether the video needs interviews, supplied footage, on-location capture, Spanish-first messaging, cutdowns for social channels, or a website hero edit. Our portfolio project <strong>My D&apos;ler</strong> proves published brand visual design and corporate assets.
               </p>
             </div>
           </div>
@@ -106,10 +106,10 @@ export default function CorporateVideoProductionBrickellPage() {
                   Get Started
                 </p>
                 <h2 className="mt-3 font-serif text-4xl">
-                  Need executive video content in Brickell?
+                  Need business video content in Miami?
                 </h2>
                 <p className="mt-3 max-w-2xl text-sm leading-6 text-[#252a2d]">
-                  Email or call to outline your corporate scope.
+                  Email or call with the goal, audience, location, existing assets, and desired formats so the project can be scoped accurately.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
