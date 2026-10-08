@@ -1,4 +1,16 @@
-# US-Spanish Money Pages Deepening & /es/editor-de-video-miami — 2026-10-07 (local, uncommitted)
+# Starter Card UI: Two Ways to Buy (Proposal Style) — 2026-10-08
+
+Branch `ui/esteban-starter-two-ways-20261008115141`. Implemented the proposal style for package cards:
+- Starter card (`arranque`) shows two ways to buy: per-project ($100 / proyecto) and weekly plan ($85 / semana, $160 / semana).
+- Open starter card displays side-by-side option tiles (stacked on phone) with Instrument Serif price figures, Geist units, inclusion chips ("1 revisión"), and "Pago semanal" pill.
+- Clean per-tile WhatsApp CTAs (`package_arranque_project_whatsapp`, `package_arranque_weekly_whatsapp`) and direct weekly plan link (`package_arranque_weekly_plan`).
+- Restyled all 4 package cards (closed face and open view) to use Instrument Serif 400 for numbers and Geist 500 for units. Removed card blur shadows.
+- Resolved hydration consistency, motion timing, tap target sizes, and text overlaps.
+- Verification: `ui-change-gate` PASS (phone & desktop, motion & reduced-motion, 0 console errors, 0 overlaps, 0 clipped text, 0 small tap targets), `npm test` (112 test files / 1478 tests PASS), `analytics-gate` PASS.
+
+---
+
+
 
 Branch `feat/es-us-spanish-money-pages`. Deepened US-Spanish money pages (`/es/editor-de-reels-fort-lauderdale`, `/es/editor-de-reels-miami`, `/es/editor-de-video-corto-para-redes-miami`), added contextual cross-links and guide links, and created the Spanish-first landing page `/es/editor-de-video-miami` (sitemap count: 284).
 - Restored Spanish diacritics on Reels money pages and improved lead/descriptions.
