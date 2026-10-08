@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  arranqueWeeklyCopy,
   arranqueWeeklyHref,
   arranqueWeeklyOptionName,
   arranqueWeeklyWhatsapp,
