@@ -39,7 +39,7 @@ type Copy = {
   aLaCarte: { eyebrow: string; title: string; lead: string; items: ALaCarteItem[] };
   process: { eyebrow: string; title: string; lead: string; steps: { title: string; body: string }[]; note: string };
   closing: { title: string; lead: string; whatsapp: string; call: string; email: string };
-  price: { from: string; custom: string; customLine: string; units: Record<"project" | "month" | "production-day", string> };
+  price: { from: string; custom: string; customLine: string; units: Record<"video" | "month" | "production-day", string> };
 };
 
 const IMAGES = {
@@ -229,7 +229,7 @@ const COPY: Record<Locale, Copy> = {
       from: "Desde",
       custom: "Personalizada",
       customLine: "Cotización",
-      units: { project: "por proyecto", month: "al mes", "production-day": "por día de producción" },
+      units: { video: "por video", month: "al mes", "production-day": "por día de producción" },
     },
   },
   en: {
@@ -282,7 +282,7 @@ const COPY: Record<Locale, Copy> = {
       from: "From",
       custom: "Custom",
       customLine: "Quote",
-      units: { project: "per project", month: "per month", "production-day": "per production day" },
+      units: { video: "per video", month: "per month", "production-day": "per production day" },
     },
   },
 };

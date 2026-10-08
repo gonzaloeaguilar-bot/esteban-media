@@ -82,7 +82,7 @@ export default function FitnessGymVideoMarketingMiamiPage() {
                 Video for gyms, personal trainers and yoga or pilates studios in
                 Miami and Fort Lauderdale. Send phone clips and get vertical posts
                 and short ads back, or book on-site filming. Editing starts from{" "}
-                {starterFrom} per project; the prices below come from the published
+                {starterFrom} per video; the prices below come from the published
                 rate card.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">

@@ -44,6 +44,7 @@ export function ArranqueWeeklySection({ locale }: { locale: Locale }) {
           {c.heading}
         </h2>
         <p className="mt-4 max-w-2xl text-base leading-7 text-[#252a2d]">{c.answer}</p>
+        <p className="mt-2 max-w-2xl text-base leading-7 text-[#252a2d]">{c.comparison}</p>
 
         <div className="mt-8 grid gap-5 md:grid-cols-2">
           {ARRANQUE_WEEKLY_OPTIONS.map((option) => {

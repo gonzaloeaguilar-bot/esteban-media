@@ -126,11 +126,11 @@ export function usd(n: number): string {
 export type PackageId = "arranque" | "crecimiento" | "presencia-local" | "todo-incluido";
 
 export type PackagePrice =
-  | { kind: "from"; amount: number; unit: "project" | "month" | "production-day" }
+  | { kind: "from"; amount: number; unit: "video" | "month" | "production-day" }
   | { kind: "custom" };
 
 export const PACKAGE_PRICES: Record<PackageId, PackagePrice> = {
-  arranque: { kind: "from", amount: 100, unit: "project" },
+  arranque: { kind: "from", amount: 100, unit: "video" },
   crecimiento: { kind: "from", amount: 640, unit: "month" },
   "presencia-local": { kind: "from", amount: 800, unit: "production-day" },
   "todo-incluido": { kind: "custom" },
@@ -177,9 +177,9 @@ export const REAL_ESTATE_PLAN_TERMS = {
 // lib/arranque-weekly.ts.
 //
 // No reference/"was" price and no discount badge: a permanent public discount
-// reads as a fake reference price. Whether Arranque's $100 is per VIDEO (the
-// site says "per project") is an open question, so no per-video comparison
-// against it is published.
+// reads as a fake reference price. The owner confirmed on 2026-10-08 that
+// Arranque is one video edit, so its $100 is per video, and the plain
+// comparison (from $80 per video weekly vs $100 for a single video) is published.
 export type ArranqueWeeklyOptionId = "one-per-week" | "two-per-week";
 
 export type ArranqueWeeklyOption = {

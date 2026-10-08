@@ -44,7 +44,7 @@ export const AUTOMOTIVE_DEEP_DIVE: DeepDive = {
     {
       heading: "How much does car dealership video cost in Miami?",
       paragraphs: [
-        `Esteban publishes his ranges instead of hiding them. Editing a short vertical video falls in the calculator's social band of ${social} per project, and a longer walkaround edited for YouTube sits in the ${youtube} band. If the dealership already records its own inventory clips, the [Starter package](/pricing/starter) starts from ${starter} per project: you send the footage and get it back formatted for Reels, TikTok, YouTube or web, with one revision round.`,
+        `Esteban publishes his ranges instead of hiding them. Editing a short vertical video falls in the calculator's social band of ${social} per project, and a longer walkaround edited for YouTube sits in the ${youtube} band. If the dealership already records its own inventory clips, the [Starter package](/pricing/starter) starts from ${starter} per video: you send the footage and get it back formatted for Reels, TikTok, YouTube or web, with one revision round.`,
         `Filming at the lot is scoped separately. [Local Presence](/pricing/local-presence) starts from ${local} per production day and covers pre-production, filming at your business and the editing afterwards, across Fort Lauderdale, Broward and selected Miami-Dade projects. Every figure is an indicative starting point: the [budget calculator](/calculator) shows the range for your mix, and a written quote confirms it.`,
       ],
     },
@@ -73,7 +73,7 @@ export const DENTAL_DEEP_DIVE: DeepDive = {
     {
       heading: "How much does dental video marketing cost in Miami?",
       paragraphs: [
-        `For a clinic that films on its own phones, the [Starter package](/pricing/starter) starts from ${starter} per project: you send the footage and receive it edited and formatted for Reels, TikTok, YouTube or web, with one revision round. A fuller short-form edit sits in the calculator's social band of ${social} per project, and a longer treatment explainer for YouTube or the clinic website in the ${youtube} band.`,
+        `For a clinic that films on its own phones, the [Starter package](/pricing/starter) starts from ${starter} per video: you send the footage and receive it edited and formatted for Reels, TikTok, YouTube or web, with one revision round. A fuller short-form edit sits in the calculator's social band of ${social} per project, and a longer treatment explainer for YouTube or the clinic website in the ${youtube} band.`,
         `When the practice wants Esteban to film on site, [Local Presence](/pricing/local-presence) starts from ${local} per production day and covers pre-production, filming at the clinic and the editing afterwards. A clinic that wants a steady monthly rhythm can look at [Growth](/pricing/growth), from ${growth} a month with a content plan, a publishing calendar, editing and a monthly report. These are published starting points; the quote states the actual scope.`,
       ],
     },
@@ -102,7 +102,7 @@ export const MED_SPA_DEEP_DIVE: DeepDive = {
     {
       heading: "How much does med spa video marketing cost in South Florida?",
       paragraphs: [
-        `Most med spas start with footage they already film between appointments. Editing it is the cheapest route: the [Starter package](/pricing/starter) starts from ${starter} per project and returns your clips formatted for Reels, TikTok, YouTube or web, with one revision round, while a fuller short-form edit falls in the calculator's social band of ${social} per project.`,
+        `Most med spas start with footage they already film between appointments. Editing it is the cheapest route: the [Starter package](/pricing/starter) starts from ${starter} per video and returns your clips formatted for Reels, TikTok, YouTube or web, with one revision round, while a fuller short-form edit falls in the calculator's social band of ${social} per project.`,
         `A spa that wants a planned month rather than one-off edits can compare [Growth](/pricing/growth), from ${growth} a month with a content plan, a publishing calendar, editing and a monthly report. Filming in the treatment rooms is scoped on its own: [Local Presence](/pricing/local-presence) starts from ${local} per production day, with pre-production, filming at your business and editing, and a half-day capture add-on has an indicative range of ${onLocation}. Use the [budget calculator](/calculator) for your mix; the written quote is what confirms it.`,
       ],
     },
@@ -131,7 +131,7 @@ export const YACHT_CHARTER_DEEP_DIVE: DeepDive = {
     {
       heading: "How much does yacht charter video cost in Miami?",
       paragraphs: [
-        `It depends mostly on whether someone has already filmed the boat. If the charter company or broker has footage — cruising, cabins, guests boarding — the edit is priced on its own: the calculator's social band runs ${social} for a short-form project and the YouTube band ${youtube} for a longer walkthrough. The [Starter package](/pricing/starter) starts from ${starter} per project for remote editing of footage you send, formatted for Reels, TikTok, YouTube or web, with one revision round.`,
+        `It depends mostly on whether someone has already filmed the boat. If the charter company or broker has footage — cruising, cabins, guests boarding — the edit is priced on its own: the calculator's social band runs ${social} for a short-form project and the YouTube band ${youtube} for a longer walkthrough. The [Starter package](/pricing/starter) starts from ${starter} per video for remote editing of footage you send, formatted for Reels, TikTok, YouTube or web, with one revision round.`,
         `Filming is separate. A half-day of on-location capture has an indicative range of ${onLocation}, and [Local Presence](/pricing/local-presence) starts from ${local} per production day with pre-production, filming and editing, across Fort Lauderdale, Broward and selected Miami-Dade projects. Aerial shots are edited from files you supply. The written quote confirms the scope.`,
       ],
     },
@@ -159,7 +159,7 @@ export const AUTOMOTIVE_ES_SECTIONS: readonly SpanishNicheSection[] = [
   {
     heading: "¿Cuánto cuesta un video para un concesionario de autos en Miami?",
     paragraphs: [
-      `Esteban publica sus rangos en lugar de esconderlos. Editar un video vertical corto cae en la banda social de la calculadora, de ${social} por proyecto, y un recorrido más largo editado para YouTube está en la banda de ${youtube}. Si el concesionario ya graba sus propios clips del inventario, el [paquete Arranque](/es/precios/arranque) parte de ${starter} por proyecto: envías el material y lo recibes con formato para Reels, TikTok, YouTube o web, con una ronda de revisión.`,
+      `Esteban publica sus rangos en lugar de esconderlos. Editar un video vertical corto cae en la banda social de la calculadora, de ${social} por proyecto, y un recorrido más largo editado para YouTube está en la banda de ${youtube}. Si el concesionario ya graba sus propios clips del inventario, el [paquete Arranque](/es/precios/arranque) parte de ${starter} por video: envías el material y lo recibes con formato para Reels, TikTok, YouTube o web, con una ronda de revisión.`,
       `Grabar en el lote se cotiza aparte. [Presencia Local](/es/precios/presencia-local) parte de ${local} por día de producción e incluye la preproducción, la captura en tu negocio y la edición posterior, en Fort Lauderdale, Broward y proyectos seleccionados en Miami-Dade. Cada cifra es un punto de partida indicativo: la [calculadora](/es/calculadora) muestra el rango de tu combinación y la cotización escrita lo confirma.`,
     ],
   },
@@ -184,7 +184,7 @@ export const DENTAL_ES_SECTIONS: readonly SpanishNicheSection[] = [
   {
     heading: "¿Cuánto cuesta el marketing de video para dentistas en Miami?",
     paragraphs: [
-      `Para una clínica que graba con sus propios teléfonos, el [paquete Arranque](/es/precios/arranque) parte de ${starter} por proyecto: envías el material y lo recibes editado con formato para Reels, TikTok, YouTube o web, con una ronda de revisión. Una edición corta más completa está en la banda social de la calculadora, de ${social} por proyecto, y un video explicativo más largo para YouTube o el sitio de la clínica en la banda de ${youtube}.`,
+      `Para una clínica que graba con sus propios teléfonos, el [paquete Arranque](/es/precios/arranque) parte de ${starter} por video: envías el material y lo recibes editado con formato para Reels, TikTok, YouTube o web, con una ronda de revisión. Una edición corta más completa está en la banda social de la calculadora, de ${social} por proyecto, y un video explicativo más largo para YouTube o el sitio de la clínica en la banda de ${youtube}.`,
       `Cuando la consulta quiere que Esteban grabe en el lugar, [Presencia Local](/es/precios/presencia-local) parte de ${local} por día de producción e incluye preproducción, captura en la clínica y edición. Para un ritmo mensual estable está [Crecimiento](/es/precios/crecimiento), desde ${growth} al mes, con plan de contenido, calendario de publicación, edición y reporte mensual. Son puntos de partida publicados; la cotización fija el alcance real.`,
     ],
   },
@@ -209,7 +209,7 @@ export const MED_SPA_ES_SECTIONS: readonly SpanishNicheSection[] = [
   {
     heading: "¿Cuánto cuesta el marketing de video para una clínica estética en Miami?",
     paragraphs: [
-      `La mayoría de las clínicas estéticas empieza con el material que ya graba entre citas. Editarlo es la vía más económica: el [paquete Arranque](/es/precios/arranque) parte de ${starter} por proyecto y devuelve tus clips con formato para Reels, TikTok, YouTube o web, con una ronda de revisión, mientras que una edición corta más completa cae en la banda social de la calculadora, de ${social} por proyecto.`,
+      `La mayoría de las clínicas estéticas empieza con el material que ya graba entre citas. Editarlo es la vía más económica: el [paquete Arranque](/es/precios/arranque) parte de ${starter} por video y devuelve tus clips con formato para Reels, TikTok, YouTube o web, con una ronda de revisión, mientras que una edición corta más completa cae en la banda social de la calculadora, de ${social} por proyecto.`,
       `Si prefieres un mes planificado en vez de ediciones sueltas, compara [Crecimiento](/es/precios/crecimiento), desde ${growth} al mes, con plan de contenido, calendario de publicación, edición y reporte mensual. Grabar en las salas se cotiza aparte: [Presencia Local](/es/precios/presencia-local) parte de ${local} por día de producción, y la captura de medio día tiene un rango indicativo de ${onLocation}. La [calculadora](/es/calculadora) da tu rango; la cotización escrita lo confirma.`,
     ],
   },
@@ -234,7 +234,7 @@ export const YACHT_CHARTER_ES_SECTIONS: readonly SpanishNicheSection[] = [
   {
     heading: "¿Cuánto cuesta un video para alquiler de yates en Miami?",
     paragraphs: [
-      `Depende sobre todo de si alguien ya grabó el barco. Si la empresa de alquiler o el bróker tiene material — navegación, cabinas, invitados abordando — la edición se cotiza sola: la banda social de la calculadora va de ${social} por proyecto corto y la banda de YouTube de ${youtube} para un recorrido más largo. El [paquete Arranque](/es/precios/arranque) parte de ${starter} por proyecto para editar a distancia el material que envías, con formato para Reels, TikTok, YouTube o web y una ronda de revisión.`,
+      `Depende sobre todo de si alguien ya grabó el barco. Si la empresa de alquiler o el bróker tiene material — navegación, cabinas, invitados abordando — la edición se cotiza sola: la banda social de la calculadora va de ${social} por proyecto corto y la banda de YouTube de ${youtube} para un recorrido más largo. El [paquete Arranque](/es/precios/arranque) parte de ${starter} por video para editar a distancia el material que envías, con formato para Reels, TikTok, YouTube o web y una ronda de revisión.`,
       `La grabación va aparte. Medio día de captura en locación tiene un rango indicativo de ${onLocation}, y [Presencia Local](/es/precios/presencia-local) parte de ${local} por día de producción, con preproducción, captura y edición, en Fort Lauderdale, Broward y proyectos seleccionados en Miami-Dade. Las tomas aéreas se editan a partir de archivos que tú envías.`,
     ],
   },

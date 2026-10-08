@@ -7,14 +7,15 @@
 // (~/code/esteban-propuesta/propuesta.html), with the proposal's internal
 // option names replaced by "1 video por semana" / "2 videos por semana".
 //
-// Deliberately absent: discount badges, "valor normal", a struck reference
-// price, and a per-video comparison against Arranque's $100 (the site prices
-// Arranque "per project"; whether that is per video is unconfirmed).
+// Deliberately absent: discount badges, "valor normal" and a struck reference
+// price. Arranque is one video edit (owner, 2026-10-08), so the only comparison
+// is the plain per-video line from arranqueWeeklyComparisonLine().
 
 import {
   ARRANQUE_WEEKLY_FROM,
   ARRANQUE_WEEKLY_OPTIONS,
   ARRANQUE_WEEKLY_TERMS as T,
+  PACKAGE_PRICES,
   arranqueWeeklyPerVideo,
   usd,
   type ArranqueWeeklyOption,
@@ -100,6 +101,19 @@ export function arranqueWeeklyPerVideoLine(option: ArranqueWeeklyOption, locale:
   return locale === "es" ? `${each} por video` : `${each} per video`;
 }
 
+/**
+ * The honest comparison: weekly from $80 per video vs $100 for one video on its
+ * own. Plain text, no badge, no "save", no percentage. Figures from lib/pricing.ts.
+ */
+export function arranqueWeeklyComparisonLine(locale: Locale): string {
+  const single = PACKAGE_PRICES.arranque;
+  const singleUsd = usd(single.kind === "from" ? single.amount : 0);
+  const fromVideo = usd(ARRANQUE_WEEKLY_FROM.perVideo);
+  return locale === "es"
+    ? `desde ${fromVideo} por video vs ${singleUsd} un video suelto`
+    : `from ${fromVideo} per video vs ${singleUsd} for a single video`;
+}
+
 export function arranqueWeeklyWhatsapp(phoneE164: string, option: ArranqueWeeklyOption, locale: Locale): string {
   const name = `${arranqueWeeklyName(locale)}: ${arranqueWeeklyOptionName(option, locale)}`;
   const price = usd(option.pricePerWeek);
@@ -123,6 +137,7 @@ export function arranqueWeeklyCopy(locale: Locale) {
     answer: es
       ? `${arranqueWeeklyName("es")} es el paquete Arranque por semana: tú grabas, Esteban edita. ${capital(arranqueWeeklyOptionName(one, "es"))} cuesta ${usd(one.pricePerWeek)} y ${arranqueWeeklyOptionName(two, "es")} cuesta ${usd(two.pricePerWeek)}, desde ${fromVideo} por video.`
       : `${arranqueWeeklyName("en")} is the Starter package by the week: you film, Esteban edits. ${capital(arranqueWeeklyOptionName(one, "en"))} is ${usd(one.pricePerWeek)} and ${arranqueWeeklyOptionName(two, "en")} is ${usd(two.pricePerWeek)}, from ${fromVideo} per video.`,
+    comparison: arranqueWeeklyComparisonLine(locale),
     perWeek: es ? "/ semana" : "/ week",
     paidWeekly: es ? "Pago semanal, al inicio de cada semana" : "Paid weekly, at the start of each week",
     includesLabel: es ? "Incluye" : "Includes",

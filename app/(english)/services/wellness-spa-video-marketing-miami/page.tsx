@@ -82,7 +82,7 @@ export default function WellnessSpaVideoMarketingMiamiPage() {
                 Promotional video for spas and wellness centres in Miami and Fort
                 Lauderdale, built from the rooms, water and light rather than your
                 guests. Send footage you already have or book on-site filming.
-                Editing starts from {starterFrom} per project; the prices below come
+                Editing starts from {starterFrom} per video; the prices below come
                 from the published rate card.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">

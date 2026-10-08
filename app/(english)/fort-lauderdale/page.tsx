@@ -49,7 +49,7 @@ const questions = [
   {
     question: "How much does video editing cost for Fort Lauderdale businesses?",
     answer:
-      "Remote video editing packages start from $100 per project (Starter package), ongoing monthly social video plans start from $640/month (Growth package), and on-location production days start from $800 (Local Presence package).",
+      "Remote video editing packages start from $100 per video (Starter package), ongoing monthly social video plans start from $640/month (Growth package), and on-location production days start from $800 (Local Presence package).",
   },
   {
     question: "Can Fort Lauderdale clients work with Esteban remotely?",
