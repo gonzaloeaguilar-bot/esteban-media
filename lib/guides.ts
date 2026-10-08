@@ -2515,10 +2515,10 @@ const guidePairs: readonly GuidePair[] = [
       metadataTitle: "Cómo Enviar Archivos Grandes de Video",
       title: "Cómo enviar archivos de video pesados en 4K para edición remota",
       description:
-        "Guía para transferir carpetas de video 4K mediante plataformas en la nube y archivos proxy para tu editor de video.",
+        "Aprende las formas más rápidas de transferir material 4K y archivos pesados a un editor de video remoto mediante proxies y plataformas en la nube.",
       eyebrow: "Flujo / Transferencia de Archivos",
       answer:
-        "Utiliza Google Drive, Frame.io o WeTransfer Pro con nombres de carpeta estructurados y proxies para una entrega fluida.",
+        "La forma más rápida de enviar archivos de video depende del volumen total: utiliza sincronización en la nube (MASV, Google Drive, Dropbox o Frame.io) para paquetes menores a 100 GB, genera proxies ligeros (1080p ProRes Proxy o DNxHR) para proyectos multicámara en 4K, y envía un disco SSD NVMe encriptado para archivos de producción de varios terabytes.",
       proof: {
         href: "/es/portafolio/homeowners",
         title: "Homeowners",
@@ -2527,10 +2527,88 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
-          heading: "Organización de carpetas de material",
+          heading: "Realidad del ancho de banda y elección del método de transferencia",
           paragraphs: [
-            "Agrupa archivos por fecha, ángulo de cámara y pistas de audio antes de subir para evitar retrasos por activos faltantes. Para revisar cómo funciona una entrega remota de material de agencia, consulta el [proyecto Homeowners](/es/portafolio/homeowners) (y su [caso de estudio](/es/casos-de-estudio/homeowners)).",
+            "Transferir archivos grandes de video a un editor remoto sin demoras de varios días requiere adaptar el método de envío al volumen de datos y a la velocidad real de conexión a internet. Las cámaras de cine digital y sin espejo actuales generan tasas de bits considerables: el formato Apple ProRes 422 HQ en 4K a 10 bits genera aproximadamente 110 GB por hora de grabación, Sony XAVC-I alcanza de 240 a 600 Mbps, y formatos RAW como Canon Cinema RAW Light o REDCODE RAW pueden superar fácilmente 500 GB a más de 1 TB en una sola jornada comercial multicámara.",
+            "El cuello de botella habitual radica en la velocidad de subida. Mientras que las instalaciones con fibra óptica simétrica de 1 Gbps pueden transferir 100 GB en 15 a 20 minutos, las conexiones residenciales o de oficina típicas ofrecen descargas de 300 a 500 Mbps pero solo 20 a 35 Mbps de subida. A 30 Mbps de subida, una carpeta de 150 GB requiere más de 11 horas ininterrumpidas, lo que convierte a las cargas directas sin optimizar en un retraso operativo frecuente.",
+            "Para paquetes de menos de 100 GB, plataformas de transferencia en la nube como MASV utilizan protocolos UDP acelerados que aprovechan todo el ancho de banda disponible sin instalaciones complejas. Para colaboraciones continuas, carpetas compartidas en Google Drive o Dropbox Business permiten sincronización en segundo plano. Para conocer un flujo de trabajo de posproducción remota con material suministrado por agencia, revisa el proyecto inmobiliario [Homeowners](/es/portafolio/homeowners) (y su [caso de estudio](/es/casos-de-estudio/homeowners)). En proyectos de redes sociales de ritmo ágil, consulta nuestros servicios de [editor de video corto para redes en Miami](/es/editor-de-video-corto-para-redes-miami) y la oferta general de [servicios](/es/servicios), o contáctanos a través de nuestra página de [contacto](/es/contacto).",
+            "Cuando el volumen total del material sin procesar alcanza cientos de gigabytes o varios terabytes y la velocidad de subida es limitada, la entrega física de un disco externo suele ser más rápida y predecible que una transferencia digital. Copiar los archivos a un disco SSD externo y enviarlo por mensajería garantiza tiempos de llegada definidos.",
           ],
+          bullets: [
+            "MASV: transferencia acelerada por navegador sin límite de tamaño de archivo, ideal para envíos puntuales de gran volumen",
+            "Google Drive / Dropbox: sincronización continua en segundo plano para carpetas de menos de 100 GB en equipos recurrentes",
+            "Frame.io: carga fluida de proxies, revisión de versiones e integración directa con DaVinci Resolve y Premiere Pro",
+            "Disco SSD NVMe por mensajería: el método más rápido y seguro para archivos de cámara de cine de varios terabytes",
+          ],
+        },
+        {
+          heading: "El flujo de trabajo con proxies: transferir una fracción del peso",
+          paragraphs: [
+            "La solución estándar en la industria para editar producciones en 4K y 6K de forma remota sin mover cientos de gigabytes por internet es el flujo de trabajo offline/online mediante archivos proxy. En lugar de subir los pesados archivos originales de cámara, el equipo local genera archivos proxy ligeros y optimizados para edición antes de la transferencia.",
+            "Un archivo proxy es un duplicado de baja tasa de bits codificado en un formato intra-cuadro eficiente, como Apple ProRes Proxy en macOS o Avid DNxHR LB en entornos multiplataforma. Generar proxies en 1080p produce archivos considerablemente más ligeros que se transfieren en minutos, manteniendo exactamente el código de tiempo, la velocidad de fotogramas, los nombres de archivo y las pistas de audio originales para que el proyecto se reconecte con precisión al finalizar.",
+            "Con este método, una grabación de 200 GB se reduce a unos 15 a 25 GB de material proxy, que se suben rápidamente. El editor de video remoto realiza el montaje narrativo, la sincronización de audio, el ritmo de cortes y el diseño sonoro trabajando con estos proxies. Una vez aprobado el corte definitivo, el editor envía un archivo de proyecto ligero (como DaVinci Resolve Project DRP, Premiere Pro PRPROJ o XML). El productor local reconecta la línea de tiempo a los archivos originales 4K en su disco local para la corrección de color y la exportación final de alta resolución.",
+          ],
+          bullets: [
+            "ProRes Proxy / DNxHR LB: códecs intra-cuadro ligeros que se reproducen con fluidez en computadoras de edición portátiles o de escritorio",
+            "Preservación exacta de metadatos: nombres de archivo, códigos de tiempo y canales de audio idénticos a los originales",
+            "Edición offline: montaje narrativo ágil sobre proxies ligeros sin pérdida de cuadros ni saturación de almacenamiento",
+            "Reconexión online: vinculación del archivo XML/DRP con los archivos de cámara originales para corrección de color y exportación 4K",
+          ],
+        },
+        {
+          heading: "Estructura estándar de carpetas y verificación de integridad",
+          paragraphs: [
+            "Organizar los archivos en una estructura de carpetas clara antes de iniciar la carga evita errores de archivos faltantes, fallas de reconexión y confusiones sobre qué tomas son definitivas. Evita colocar videos sueltos, notas de voz y gráficos en una sola carpeta raíz sin clasificar.",
+            "Una arquitectura profesional de carpetas organiza el material desde el inicio: `01_Footage` (subdividido por cámara `Cam_A`, `Cam_B` o por tarjeta/fecha), `02_Audio` (archivos WAV multipista a 24 bits y 48 kHz para micrófonos lavalier y boom), `03_Assets` (logotipos vectoriales SVG/AI, manuales de marca, gráficos aprobados y tipografías) y `04_Briefs` (documento de alcance, especificaciones de entrega y enlaces de referencia).",
+            "Evita comprimir árboles de carpetas de muchos gigabytes en un único archivo .zip gigante. Si la conexión se interrumpe durante la descarga de un archivo comprimido de 50 GB, el archivo puede dañarse por completo al descomprimir. Es preferible subir carpetas estructuradas directamente mediante aplicaciones de sincronización o herramientas especializadas. Antes de formatear las tarjetas de memoria de la cámara, verifica las transferencias con utilidades de suma de comprobación (checksum) como ShotPut Pro, Silverstack o comandos de terminal `shasum -a 256` para garantizar que los datos coincidan byte por byte.",
+          ],
+          bullets: [
+            "01_Footage: organizado por tarjeta de cámara o fecha de rodaje sin modificar las extensiones originales de los archivos",
+            "02_Audio: carpeta dedicada para audio sincronizado, grabaciones de campo en WAV y pistas de micrófonos externos",
+            "03_Assets: gráficos vectoriales, tipografías, referencias visuales y logotipos aprobados de la marca",
+            "04_Briefs: documento de alcance, requisitos técnicos de entrega y marcas de tiempo de tomas obligatorias",
+            "Verificación por suma de comprobación: genera registros MD5 o xxHash antes de reutilizar las tarjetas de la cámara",
+          ],
+        },
+        {
+          heading: "Documentación de entrega y metadatos técnicos",
+          paragraphs: [
+            "Junto a los archivos multimedia, incluye una nota concisa con los metadatos técnicos clave. Indica las velocidades de fotogramas registradas (por ejemplo, 23.976 fps para entrevistas principales frente a 59.94 fps para tomas de apoyo destinadas a cámara lenta) y los perfiles de color utilizados (como Sony S-Log3, Canon C-Log3, Apple Log o Rec.709 estándar).",
+            "Esta información técnica permite al editor configurar correctamente el espacio de trabajo de gestión de color (como DaVinci Wide Gamut o ACEScc) desde el inicio del proyecto, evitando desviaciones cromáticas no deseadas durante el etalonaje. Una preparación clara garantiza una colaboración remota eficiente y permite concentrar el esfuerzo en la narrativa, el ritmo visual y el acabado estético.",
+            "Tanto si necesitas edición por lotes para redes sociales, posproducción para YouTube o montaje de piezas comerciales, una entrega ordenada de archivos es el punto de partida para una producción ágil. Visita nuestra página de [contacto](/es/contacto) para coordinar los requerimientos de transferencia de tu próximo proyecto audiovisual.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          question: "¿Cuál es el servicio en la nube más rápido para enviar archivos pesados de video en 4K?",
+          answer:
+            "MASV y Frame.io ofrecen altas velocidades de transferencia para paquetes pesados mediante protocolos acelerados que aprovechan el ancho de banda disponible sin límites estrictos por archivo.",
+        },
+        {
+          question: "¿Cómo ayudan los proxies a acelerar el envío de material a un editor remoto?",
+          answer:
+            "Los proxies comprimen los archivos pesados de cámara en formatos ligeros de edición, reduciendo significativamente el tamaño de subida y manteniendo códigos de tiempo y audio para reconectar con los originales al final.",
+        },
+        {
+          question: "¿Se deben comprimir los videos en un archivo ZIP antes de subirlos a la nube?",
+          answer:
+            "No es recomendable. Los archivos ZIP gigantes suelen dañarse si hay microcortes en la conexión. Es más seguro subir las carpetas estructuradas de forma directa mediante aplicaciones de sincronización de escritorio.",
+        },
+        {
+          question: "¿Cuándo conviene enviar un disco físico en lugar de subir los archivos a internet?",
+          answer:
+            "Cuando el material original supera los 500 GB a 1 TB y la velocidad de subida es inferior a 40 Mbps, copiar los datos en un disco SSD rápido y enviarlo por mensajería resulta más rápido y seguro que días continuos de carga en la nube.",
+        },
+        {
+          question: "¿Cómo influye la velocidad de subida a internet en los tiempos de entrega de un proyecto?",
+          answer:
+            "Las conexiones asimétricas comunes ofrecen solo 20 a 35 Mbps de subida, por lo que 100 GB pueden tardar entre 8 y 12 horas en subirse. Una conexión de fibra óptica simétrica de 1 Gbps completa la misma transferencia en menos de 20 minutos.",
+        },
+        {
+          question: "¿Qué estructura de carpetas prefieren los editores de video profesionales?",
+          answer:
+            "Se recomienda dividir el material en 01_Footage (por tarjeta de cámara o fecha), 02_Audio (pistas de audio WAV separadas), 03_Assets (logos, tipografías y guías de marca) y 04_Briefs (resumen del proyecto y referencias).",
         },
       ],
     },

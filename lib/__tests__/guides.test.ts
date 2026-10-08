@@ -461,4 +461,77 @@ describe("bilingual practical guides", () => {
       );
     }
   });
+
+  it("deepens the fastest way to send large video files guide pair with FAQPage schema and contextual links", () => {
+    const enGuide = getGuides("en").find(
+      (g) => g.slug === "fastest-way-to-send-large-video-files-to-editor",
+    );
+    const esGuide = getGuides("es").find(
+      (g) => g.slug === "como-enviar-archivos-pesados-de-video-para-edicion",
+    );
+
+    expect(enGuide).toBeDefined();
+    expect(esGuide).toBeDefined();
+    if (!enGuide || !esGuide) return;
+
+    expect(enGuide.sections).toHaveLength(4);
+    expect(esGuide.sections).toHaveLength(4);
+    expect(enGuide.faqs).toHaveLength(6);
+    expect(esGuide.faqs).toHaveLength(6);
+
+    const enProse = JSON.stringify(enGuide.sections);
+    const esProse = JSON.stringify(esGuide.sections);
+
+    expect(enProse).toContain(
+      "Bandwidth realities and choosing the fastest transfer method",
+    );
+    expect(enProse).toContain(
+      "The proxy editing workflow: moving a fraction of the bytes",
+    );
+    expect(enProse).toContain("/portfolio/homeowners");
+    expect(enProse).toContain("/case-studies/homeowners");
+    expect(enProse).toContain("/services/short-form-video-editor-miami");
+    expect(enProse).toContain("/services");
+    expect(enProse).toContain("/contact");
+
+    expect(esProse).toContain(
+      "Realidad del ancho de banda y elección del método de transferencia",
+    );
+    expect(esProse).toContain(
+      "El flujo de trabajo con proxies: transferir una fracción del peso",
+    );
+    expect(esProse).toContain("/es/portafolio/homeowners");
+    expect(esProse).toContain("/es/casos-de-estudio/homeowners");
+    expect(esProse).toContain("/es/editor-de-video-corto-para-redes-miami");
+    expect(esProse).toContain("/es/servicios");
+    expect(esProse).toContain("/es/contacto");
+
+    for (const guide of [enGuide, esGuide]) {
+      const structuredData = buildGuideStructuredData(guide);
+      const faqNode = structuredData["@graph"].find(
+        (
+          node,
+        ): node is {
+          "@type": string;
+          "@id": string;
+          mainEntity: {
+            "@type": string;
+            name: string;
+            acceptedAnswer: { "@type": string; text: string };
+          }[];
+        } => node["@type"] === "FAQPage" && "mainEntity" in node,
+      );
+      expect(faqNode).toBeDefined();
+      expect(faqNode?.["@id"]).toBe(
+        `https://estebanmorenomedia.com${getGuidePath(guide)}#faq`,
+      );
+      expect(faqNode?.mainEntity).toEqual(
+        guide.faqs?.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: { "@type": "Answer", text: faq.answer },
+        })),
+      );
+    }
+  });
 });
