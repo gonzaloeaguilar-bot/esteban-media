@@ -125,7 +125,9 @@ export default function AreasPage() {
             Fort Lauderdale and Broward are the local base, with selected work
             available in Miami-Dade. Palm Beach County remains an expansion
             area considered by project. Esteban operates as a service-area
-            business and does not publish a studio address.
+            business and does not publish a studio address. The Spanish-first
+            <Link href="/es/areas" className="underline underline-offset-4 hover:text-[#9f3c27]">Fort Lauderdale-based, three-county service area</Link>{" "}
+            covers the same service-area context.
           </p>
 
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">

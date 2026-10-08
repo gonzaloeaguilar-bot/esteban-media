@@ -79,9 +79,17 @@ export function HeroVideo({ locale = "en" }: HeroVideoProps) {
                     href="/guides"
                     className="underline decoration-[#ffb49e] underline-offset-4 hover:text-[#ffb49e]"
                   >
-                    practical video guides
-                  </Link>{" "}
-                  to plan content before production.
+                  practical video guides
+                </Link>{" "}
+                  to plan content before production. For a Fort Lauderdale-based,
+                  three-county service area, see our{" "}
+                  <Link
+                    href="/es/areas"
+                    className="underline decoration-[#ffb49e] underline-offset-4 hover:text-[#ffb49e]"
+                  >
+                    service-area overview
+                  </Link>
+                  .
                 </>
               )}
             </p>

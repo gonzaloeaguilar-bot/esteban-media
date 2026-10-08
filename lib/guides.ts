@@ -1379,7 +1379,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Why remote editing accelerates turnaround",
           paragraphs: [
-            "By using cloud storage links (Dropbox, Frame.io, Google Drive), footage handoff happens instantly, eliminating physical drive shipping delays.",
+            "By using cloud storage links (Dropbox, Frame.io, Google Drive), footage handoff happens instantly, eliminating physical drive shipping delays. For projects that also need local capture, the [Fort Lauderdale-based, three-county service area](/es/areas) explains where that conversation begins.",
           ],
         },
         {
