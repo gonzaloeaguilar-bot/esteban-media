@@ -3,7 +3,7 @@ import { buildServiceFaqSchema } from "@/components/service-depth";
 import { isConsolidatedPath } from "@/lib/consolidation";
 import { packageRoutes } from "@/lib/package-routes";
 import type { LucideIcon } from "lucide-react";
-import { PACKAGE_PRICES, PRICING_BANDS, VOLUME_MULTIPLIERS, usd } from "@/lib/pricing";
+import { PACKAGE_PRICES, PRICING_BANDS, SHORT_FORM, shortFormPriceText, shortFormWeeklyText, usd } from "@/lib/pricing";
 import {
   Anchor,
   Building2,
@@ -197,7 +197,8 @@ const esFrom = (price: (typeof PACKAGE_PRICES)[keyof typeof PACKAGE_PRICES]) =>
 const esStarterFrom = esFrom(PACKAGE_PRICES.arranque);
 const esGrowthFrom = esFrom(PACKAGE_PRICES.crecimiento);
 const esLocalFrom = esFrom(PACKAGE_PRICES["presencia-local"]);
-const esSocialBand = `${usd(PRICING_BANDS.social.baseMin)}–${usd(PRICING_BANDS.social.baseMax)}`;
+const esShortForm = shortFormPriceText("es");
+const esWeekly = shortFormWeeklyText("es");
 const esHalfDayBand = `${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)}`;
 
 export const spanishNichePages: SpanishNichePage[] = [
@@ -1281,7 +1282,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         heading: "¿Cuánto cuesta contratar un editor de video en Miami?",
         paragraphs: [
-          `Las tarifas base indicativas de edición se estructuran por tipo de proyecto como referencia de un profesional independiente enfocado en edición, con el descuento introductorio aplicado. Para videos cortos de redes sociales, el rango base va de ${usd(PRICING_BANDS.social.baseMin)} a ${usd(PRICING_BANDS.social.baseMax)}; para videos de YouTube, de ${usd(PRICING_BANDS.youtube.baseMin)} a ${usd(PRICING_BANDS.youtube.baseMax)}; y para piezas corporativas o comerciales, de ${usd(PRICING_BANDS.corporate.baseMin)} a ${usd(PRICING_BANDS.corporate.baseMax)} por proyecto.`,
+          `Las tarifas base indicativas de edición se estructuran por tipo de proyecto como referencia de un profesional independiente enfocado en edición, con el descuento introductorio aplicado. Los videos cortos de redes se cotizan como el paquete Arranque, ${esShortForm}; para videos de YouTube, de ${usd(PRICING_BANDS.youtube.baseMin)} a ${usd(PRICING_BANDS.youtube.baseMax)}; y para piezas corporativas o comerciales, de ${usd(PRICING_BANDS.corporate.baseMin)} a ${usd(PRICING_BANDS.corporate.baseMax)} por proyecto.`,
           "Estos valores son rangos de referencia para postproducción con material suministrado. El presupuesto definitivo requiere una cotización adaptada al volumen de tomas, la complejidad técnica y los tiempos de entrega. Puedes consultar todos los planes y paquetes mensuales en nuestra sección de [precios](/es/precios), incluyendo el paquete [Arranque](/es/precios/arranque) y el plan [Crecimiento](/es/precios/crecimiento).",
         ],
       },
@@ -1659,7 +1660,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         heading: "¿Cuánto cuesta un video promocional para un gimnasio en Miami?",
         paragraphs: [
-          `Si tus entrenadores ya graban con el teléfono, la edición empieza desde ${esStarterFrom} por video con el [paquete Arranque](/es/precios/arranque): edición remota, formato para Reels, TikTok, YouTube o web y una ronda de revisión. Para un promocional corto o un anuncio para redes, la banda de edición corta de la calculadora es de ${esSocialBand} por proyecto. Las dos cifras son orientativas: son tarifas de un editor independiente con un descuento de introducción aplicado, y la cotización por escrito fija el alcance real.`,
+          `Si tus entrenadores ya graban con el teléfono, la edición empieza desde ${esStarterFrom} por video con el [paquete Arranque](/es/precios/arranque): edición remota, formato para Reels, TikTok, YouTube o web y una ronda de revisión. Si el gimnasio publica cada semana, la calculadora pone el video corto en ${esWeekly}. Las dos cifras son precios de partida, y la cotización por escrito fija el alcance real.`,
           "El precio cambia con tres cosas: cuánto material bruto hay, cuántas versiones terminadas necesitas (un anuncio de 30 segundos y tres cortes verticales son cuatro entregables, no uno) y si hay que grabar algo. Un gimnasio que envía clips ordenados y una indicación clara queda en la parte baja de la banda.",
         ],
       },
@@ -1933,7 +1934,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         heading: "¿Cuánto cuesta un video promocional para un spa en Miami?",
         paragraphs: [
-          `Editar el material que el spa ya tiene empieza desde ${esStarterFrom} por video con el [paquete Arranque](/es/precios/arranque), con formato para Reels, TikTok, YouTube o web y una ronda de revisión. Una pieza promocional terminada o un anuncio para redes cae en la banda de edición corta de la calculadora, de ${esSocialBand} por proyecto. Las dos cifras son orientativas, de un editor independiente con un descuento de introducción aplicado, y la cotización por escrito fija el alcance.`,
+          `Editar el material que el spa ya tiene empieza desde ${esStarterFrom} por video con el [paquete Arranque](/es/precios/arranque), con formato para Reels, TikTok, YouTube o web y una ronda de revisión. Si el spa publica cada semana, la calculadora pone el video corto en ${esWeekly}. Las dos cifras son precios de partida, y la cotización por escrito fija el alcance.`,
           "Un promocional de spa suele pedir menos material del que se espera y más cuidado en la edición: ritmo pausado, tomas estables de las salas, el agua, las texturas y la luz, y un sonido que no moleste. El número cambia con cuántas versiones necesitas y con si hay que grabar algo.",
         ],
       },
@@ -3309,7 +3310,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         heading: "¿Cuánto cuesta editar Reels en Fort Lauderdale?",
         paragraphs: [
-          `Para proyectos de video corto y redes sociales, el rango base indicativo para edición parte de ${usd(PRICING_BANDS.social.baseMin)} a ${usd(PRICING_BANDS.social.baseMax)} por proyecto según el alcance, la cantidad de tomas en bruto, el diseño de subtítulos y las versiones requeridas. Este valor representa un marco de referencia para edición profesional con material existente y no constituye un precio cerrado.`,
+          `Para video corto y redes sociales, la edición con material existente se cotiza como el paquete Arranque: ${esShortForm}. El alcance, la cantidad de tomas en bruto, el diseño de subtítulos y las versiones requeridas ajustan la cotización final; es un precio de partida, no un precio cerrado.`,
           "El costo final se define mediante una cotización personalizada después de evaluar el volumen de material, la complejidad de postproducción y los plazos de entrega solicitados. Para negocios que necesitan continuidad mensual o paquetes combinados de contenido, puedes revisar todos los paquetes publicados en nuestra sección de [precios](/es/precios) o consultar las opciones de [Arranque](/es/precios/arranque) y [Crecimiento](/es/precios/crecimiento).",
         ],
       },
@@ -3390,7 +3391,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         heading: "¿Cuánto cuesta editar Reels en Miami?",
         paragraphs: [
-          `La edición de video corto y Reels en Miami tiene una tarifa base indicativa que va desde ${usd(PRICING_BANDS.social.baseMin)} hasta ${usd(PRICING_BANDS.social.baseMax)} por proyecto para un profesional independiente enfocado en edición, con el descuento introductorio aplicado. Este rango cubre la postproducción de clips a partir de material suministrado.`,
+          `La edición de video corto y Reels en Miami parte de ${usd(SHORT_FORM.perVideoFrom)} por video con el paquete Arranque, o ${esWeekly} si publicas cada semana. Ese precio cubre la postproducción de clips a partir de material suministrado.`,
           "Dado que cada proyecto varía según la cantidad de material en bruto, el ritmo de cortes, los subtítulos dinámicos y los formatos de entrega, el presupuesto final requiere una cotización a la medida. Puedes consultar las tarifas y detalles de nuestros planes en la página de [precios](/es/precios), incluyendo el paquete de edición [Arranque](/es/precios/arranque) y el plan mensual [Crecimiento](/es/precios/crecimiento).",
         ],
       },
@@ -3607,8 +3608,8 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         heading: "¿Cuánto cuesta la edición de video en marca blanca?",
         paragraphs: [
-          `El [paquete Arranque](/es/precios/arranque) de Esteban, edición remota del material que ya grabaste, parte desde ${PACKAGE_PRICES.arranque.kind === "from" ? usd(PACKAGE_PRICES.arranque.amount) : "un precio a cotizar"} por video e incluye una ronda de revisión. Para un estimado con alcance, la calculadora ubica los videos cortos entre ${usd(PRICING_BANDS.social.baseMin)} y ${usd(PRICING_BANDS.social.baseMax)} por proyecto y la edición para YouTube entre ${usd(PRICING_BANDS.youtube.baseMin)} y ${usd(PRICING_BANDS.youtube.baseMax)} por video. Son rangos de un editor independiente con un descuento introductorio del 10 %, comparados con tarifas de mercado publicadas de ${usd(PRICING_BANDS.social.marketMin)} a ${usd(PRICING_BANDS.social.marketMax)} y ${usd(PRICING_BANDS.youtube.marketMin)} a ${usd(PRICING_BANDS.youtube.marketMax)}.`,
-          `Un estudio con volumen constante puede calcular 15 videos cortos al mes entre ${usd(Math.round((PRICING_BANDS.social.baseMin * VOLUME_MULTIPLIERS["monthly-15"].multMin) / 25) * 25)} y ${usd(Math.round((PRICING_BANDS.social.baseMax * VOLUME_MULTIPLIERS["monthly-15"].multMax) / 25) * 25)} en la misma calculadora. Nada de esto es una cotización. El precio de un trabajo en marca blanca se fija cuando Esteban ve el material, la lista de entregables y las rondas de revisión que el estudio vendió a su propio cliente; por eso conviene enviar primero un proyecto representativo y cotizar el resto a partir de él.`,
+          `El [paquete Arranque](/es/precios/arranque) de Esteban, edición remota del material que ya grabaste, parte desde ${PACKAGE_PRICES.arranque.kind === "from" ? usd(PACKAGE_PRICES.arranque.amount) : "un precio a cotizar"} por video e incluye una ronda de revisión. La calculadora cotiza los videos cortos igual, dentro de un mercado publicado de ${usd(SHORT_FORM.marketMin)} a ${usd(SHORT_FORM.marketMax)} por video, y ubica la edición para YouTube entre ${usd(PRICING_BANDS.youtube.baseMin)} y ${usd(PRICING_BANDS.youtube.baseMax)} por video: un rango de editor independiente con un descuento introductorio del 10 %, comparado con tarifas de mercado publicadas de ${usd(PRICING_BANDS.youtube.marketMin)} a ${usd(PRICING_BANDS.youtube.marketMax)}.`,
+          `Un estudio que envía trabajo cada semana puede usar la tarifa semanal, ${esWeekly}; los volúmenes mensuales mayores se cotizan directamente y no se publican. Nada de esto es una cotización. El precio de un trabajo en marca blanca se fija cuando Esteban ve el material, la lista de entregables y las rondas de revisión que el estudio vendió a su propio cliente; por eso conviene enviar primero un proyecto representativo y cotizar el resto a partir de él.`,
         ],
       },
       {
@@ -3696,7 +3697,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         heading: "¿Cuánto cuesta el video para un salón o una barbería en Miami?",
         paragraphs: [
-          `Si el local ya graba transformaciones con el teléfono, la edición empieza desde ${esStarterFrom} por video con el [paquete Arranque](/es/precios/arranque): edición remota, cortes verticales para Reels o TikTok y una ronda de revisión. Un promocional terminado o un anuncio para redes queda en la banda de edición corta de la calculadora, de ${esSocialBand} por proyecto. Son cifras orientativas de un editor independiente con un descuento de introducción aplicado; la cotización por escrito fija el alcance real.`,
+          `Si el local ya graba transformaciones con el teléfono, la edición empieza desde ${esStarterFrom} por video con el [paquete Arranque](/es/precios/arranque): edición remota, cortes verticales para Reels o TikTok y una ronda de revisión. Si el local publica cada semana, la calculadora pone el video corto en ${esWeekly}. Son precios de partida; la cotización por escrito fija el alcance real.`,
           "Lo que mueve el número es el volumen y el orden. Una semana de clips del antes, el trabajo y la revelación, grabados desde el mismo punto marcado, se edita rápido. Clips sin nombre de varias estaciones, con luz mezclada, toman más tiempo porque primero hay que igualar el color.",
         ],
       },

@@ -4,6 +4,7 @@ import {
   EXPRESS_MULTIPLIER,
   PACKAGE_PRICES,
   PRICING_BANDS,
+  shortFormWeeklyText,
   usd,
 } from "@/lib/pricing";
 
@@ -31,7 +32,8 @@ const localPresence = PACKAGE_PRICES["presencia-local"];
 // Owner-set "from" prices; a "custom" package has no figure to print.
 const fromOr = (p: typeof starter, fallback: string) => (p.kind === "from" ? usd(p.amount) : fallback);
 
-const social = `${usd(PRICING_BANDS.social.baseMin)}–${usd(PRICING_BANDS.social.baseMax)}`;
+const weeklyEn = shortFormWeeklyText("en");
+const weeklyEs = shortFormWeeklyText("es");
 const corporate = `${usd(PRICING_BANDS.corporate.baseMin)}–${usd(PRICING_BANDS.corporate.baseMax)}`;
 const onLocation = `${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)}`;
 
@@ -50,7 +52,7 @@ export const NIGHTLIFE_DEEP_DIVE: DeepDive = {
     {
       heading: "How much does a nightclub or bar promo video cost in Miami?",
       paragraphs: [
-        `If you already have the footage, the [Starter](/pricing/starter) package is remote editing from ${starterEn} per video, with one round of revisions and a format for Reels, TikTok, YouTube or the web. The calculator's short-form social band is ${social} per project, an indicative editing-led freelancer range with an introductory discount applied.`,
+        `If you already have the footage, the [Starter](/pricing/starter) package is remote editing from ${starterEn} per video, with one round of revisions and a format for Reels, TikTok, YouTube or the web. If you post every week, the calculator prices short-form at ${weeklyEn}.`,
         "Neither figure is a quote. The price moves with how much footage there is, how many versions you need (a vertical reel and a horizontal cut are two edits), and whether the music you want can legally be used on the platform. Send a link to the raw files and one sentence on where the video will run, and the estimate becomes a scoped price.",
       ],
     },
@@ -86,7 +88,7 @@ export const HOTEL_DEEP_DIVE: DeepDive = {
     {
       heading: "How much does hotel video production cost in Miami?",
       paragraphs: [
-        `For a property film built from existing material, the calculator's corporate band is ${corporate} per project, and its short-form social band is ${social} per project for reels and stories. Both are indicative editing-led freelancer ranges with an introductory discount applied, checked against published market rates; they are not full-crew production-company prices, which run on a different model.`,
+        `For a property film built from existing material, the calculator's corporate band is ${corporate} per project, and reels and stories are priced like Starter, from ${starterEn} per video or ${weeklyEn}. The corporate band is an indicative editing-led freelancer range with an introductory discount applied, checked against published market rates; these are not full-crew production-company prices, which run on a different model.`,
         "What moves the number is the scope, not the star rating: how many spaces are shown (rooms, pool, restaurant, lobby, events space), how many versions are needed (a horizontal film for the website and vertical cuts for Instagram are separate edits), and whether staff or guests appear on camera. A scoped quote lists each deliverable, so you can drop one before you approve it.",
       ],
     },
@@ -121,7 +123,7 @@ export const NIGHTLIFE_ES_SECTIONS: readonly SpanishNicheSection[] = [
   {
     heading: "¿Cuánto cuesta un video promocional para una discoteca o un bar en Miami?",
     paragraphs: [
-      `Si ya tienes el material grabado, el paquete [Arranque](/es/precios/arranque) es edición remota desde ${starterEs} por video, con una ronda de revisión y formato para Reels, TikTok, YouTube o web. La banda de video corto para redes de la calculadora es ${social} por proyecto: un rango indicativo de editor independiente, con un descuento de introducción ya aplicado.`,
+      `Si ya tienes el material grabado, el paquete [Arranque](/es/precios/arranque) es edición remota desde ${starterEs} por video, con una ronda de revisión y formato para Reels, TikTok, YouTube o web. Si publicas cada semana, la calculadora pone el video corto en ${weeklyEs}.`,
       "Ninguna de las dos cifras es una cotización. El precio cambia según cuánto material hay, cuántas versiones necesitas (un reel vertical y un corte horizontal son dos ediciones) y si la música que quieres se puede usar legalmente en la plataforma. Manda el enlace a los archivos originales y una frase sobre dónde se va a publicar el video, y el estimado se convierte en un precio con alcance definido.",
     ],
   },
@@ -155,7 +157,7 @@ export const HOTEL_ES_SECTIONS: readonly SpanishNicheSection[] = [
   {
     heading: "¿Cuánto cuesta la producción de video para un hotel en Miami?",
     paragraphs: [
-      `Para una película de la propiedad hecha con material existente, la banda corporativa de la calculadora es ${corporate} por proyecto, y la banda de video corto para redes es ${social} por proyecto para reels e historias. Las dos son rangos indicativos de editor independiente con un descuento de introducción aplicado, contrastados con tarifas de mercado publicadas; no son precios de una productora con equipo completo, que trabaja con otro modelo.`,
+      `Para una película de la propiedad hecha con material existente, la banda corporativa de la calculadora es ${corporate} por proyecto, y los reels e historias se cotizan como el Arranque, desde ${starterEs} por video o ${weeklyEs}. La banda corporativa es un rango indicativo de editor independiente con un descuento de introducción aplicado, contrastado con tarifas de mercado publicadas; no son precios de una productora con equipo completo, que trabaja con otro modelo.`,
       "Lo que mueve el número es el alcance, no las estrellas del hotel: cuántos espacios se muestran (habitaciones, piscina, restaurante, lobby, salón de eventos), cuántas versiones se necesitan (una película horizontal para la web y cortes verticales para Instagram son ediciones separadas) y si aparecen empleados o huéspedes. Una cotización con alcance lista cada entregable, para que puedas quitar uno antes de aprobarla.",
     ],
   },

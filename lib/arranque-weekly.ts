@@ -49,8 +49,13 @@ export function arranqueWeeklyHref(locale: Locale): string {
   return `${page}#${arranqueWeeklyAnchor(locale)}`;
 }
 
+/**
+ * One Starter, one name (owner, 2026-10-08: the site seemed to have "2
+ * starters"). Paying weekly is a way to buy Arranque, not a separate product,
+ * so the name everywhere a visitor or a crawler reads it is just the package.
+ */
 export function arranqueWeeklyName(locale: Locale): string {
-  return locale === "es" ? "Arranque semanal" : "Weekly Starter";
+  return locale === "es" ? "Arranque" : "Starter";
 }
 
 export function arranqueWeeklyOptionName(option: ArranqueWeeklyOption, locale: Locale): string {
@@ -123,27 +128,25 @@ export function arranqueWeeklyWhatsapp(phoneE164: string, option: ArranqueWeekly
   return whatsappHref(phoneE164, text);
 }
 
-function capital(s: string): string {
-  return s.charAt(0).toUpperCase() + s.slice(1);
-}
-
 export function arranqueWeeklyCopy(locale: Locale) {
   const es = locale === "es";
   const [one, two] = ARRANQUE_WEEKLY_OPTIONS;
-  const fromVideo = usd(ARRANQUE_WEEKLY_FROM.perVideo);
+  const single = PACKAGE_PRICES.arranque;
+  const onceUsd = usd(single.kind === "from" ? single.amount : 0);
   return {
-    eyebrow: es ? "Pago semanal" : "Paid weekly",
-    heading: es ? "¿Cuánto cuesta editar tus videos cada semana?" : "What does it cost to have your videos edited every week?",
+    eyebrow: es ? "Paquete Arranque" : "Starter package",
+    heading: es ? "¿Cómo se paga el Arranque?" : "How do you pay for Starter?",
     answer: es
-      ? `${arranqueWeeklyName("es")} es el paquete Arranque por semana: tú grabas, Esteban edita. ${capital(arranqueWeeklyOptionName(one, "es"))} cuesta ${usd(one.pricePerWeek)} y ${arranqueWeeklyOptionName(two, "es")} cuesta ${usd(two.pricePerWeek)}, desde ${fromVideo} por video.`
-      : `${arranqueWeeklyName("en")} is the Starter package by the week: you film, Esteban edits. ${capital(arranqueWeeklyOptionName(one, "en"))} is ${usd(one.pricePerWeek)} and ${arranqueWeeklyOptionName(two, "en")} is ${usd(two.pricePerWeek)}, from ${fromVideo} per video.`,
+      ? `Según cada cuánto necesitas videos. Una sola vez: ${onceUsd} por video. Cada semana: ${usd(one.pricePerWeek)} por ${one.videosPerWeek} video o ${usd(two.pricePerWeek)} por ${two.videosPerWeek} videos. Tú grabas, Esteban edita.`
+      : `It depends on how often you need videos. Just once: ${onceUsd} per video. Every week: ${usd(one.pricePerWeek)} for ${one.videosPerWeek} video or ${usd(two.pricePerWeek)} for ${two.videosPerWeek} videos. You film, Esteban edits.`,
     comparison: arranqueWeeklyComparisonLine(locale),
     perWeek: es ? "/ semana" : "/ week",
     paidWeekly: es ? "Pago semanal, al inicio de cada semana" : "Paid weekly, at the start of each week",
     includesLabel: es ? "Incluye" : "Includes",
     cta: (option: ArranqueWeeklyOption) =>
       es ? `Empezar con ${arranqueWeeklyOptionName(option, "es")}` : `Start with ${arranqueWeeklyOptionName(option, "en")}`,
-    termsHeading: es ? "¿Qué condiciones tiene el plan semanal?" : "What are the weekly plan's terms?",
+    termsHeading: es ? "¿Qué condiciones tiene el pago semanal?" : "What are the terms when you pay weekly?",
+    includesHeading: es ? "¿Qué incluye cada semana?" : "What does each week include?",
     terms: es
       ? [
           `Videos de hasta ${T.maxVideoSeconds} segundos, a partir de hasta ${T.maxFootageMinutes} minutos de material por video.`,
@@ -159,7 +162,7 @@ export function arranqueWeeklyCopy(locale: Locale) {
           "The videos are yours. Filming and posting stay with you.",
           "You add the trending song in Instagram or TikTok when you post: that audio is only licensed inside the app. The video comes back cut to its beat.",
         ],
-    faqHeading: es ? "Preguntas frecuentes del plan semanal" : "Weekly plan questions",
+    faqHeading: es ? "Preguntas frecuentes del Arranque" : "Starter questions",
     packageCardLine: es
       ? `¿Publicas cada semana? Plan semanal desde ${usd(ARRANQUE_WEEKLY_FROM.perWeek)}/semana`
       : `Posting every week? Weekly plan from ${usd(ARRANQUE_WEEKLY_FROM.perWeek)}/week`,

@@ -13,7 +13,7 @@ import {
   guidesIndexCopy,
 } from "../guides";
 import { site } from "../site";
-import { PACKAGE_PRICES, PRICING_BANDS, REAL_ESTATE_PLANS, REAL_ESTATE_PLAN_TERMS, usd } from "../pricing";
+import { PACKAGE_PRICES, PRICING_BANDS, REAL_ESTATE_PLANS, REAL_ESTATE_PLAN_TERMS, SHORT_FORM, usd } from "../pricing";
 import { REAL_ESTATE_MEDIA } from "../services-config";
 
 const countWords = (text: string) => text
@@ -52,9 +52,9 @@ describe("bilingual practical guides", () => {
       expect(price.kind).toBe("from");
       if (price.kind === "from") expect(restaurant).toContain(usd(price.amount));
     }
-    for (const [text, band] of [[restaurant, PRICING_BANDS.social]] as const) {
-      expect(text).toContain(usd(band.baseMin));
-      expect(text).toContain(usd(band.baseMax));
+    // Short-form is priced like Starter (2026-10-08): the calculator line quotes the weekly rate.
+    for (const text of [restaurant]) {
+      for (const o of SHORT_FORM.weekly) expect(text).toContain(usd(o.pricePerWeek));
       expect(text).toContain(usd(PRICING_BANDS["on-location"].baseMin));
       expect(text).toContain(usd(PRICING_BANDS["on-location"].baseMax));
     }

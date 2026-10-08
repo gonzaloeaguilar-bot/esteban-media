@@ -9,6 +9,8 @@ import {
   PRODUCT_PHOTO_MARKET,
   REAL_ESTATE_PLANS,
   REAL_ESTATE_PLAN_TERMS,
+  shortFormPriceText,
+  shortFormWeeklyText,
   usd,
   type PackageId,
 } from "@/lib/pricing";
@@ -3895,7 +3897,7 @@ const guidePairs: readonly GuidePair[] = [
           heading: "How long should a video testimonial be?",
           paragraphs: [
             "Plan two lengths from the same interview. The full version, usually one to three minutes, belongs on the website or a sales page, where the viewer chose to watch. The short versions, one answer each, go to Reels, TikTok and Shorts, where the first seconds decide whether anyone stays.",
-            `Planning both before the shoot changes the questions: each answer has to stand alone, so the customer should name the business and the problem inside the sentence. On the calculator, short social cuts sit in the short-form band, ${usd(PRICING_BANDS.social.baseMin)}–${usd(PRICING_BANDS.social.baseMax)} per project. List them in the brief so the quote covers them from the start instead of after the main cut is approved.`,
+            `Planning both before the shoot changes the questions: each answer has to stand alone, so the customer should name the business and the problem inside the sentence. On the calculator, short social cuts are priced like Starter, ${shortFormPriceText("en")}. List them in the brief so the quote covers them from the start instead of after the main cut is approved.`,
           ],
         },
         {
@@ -3941,7 +3943,7 @@ const guidePairs: readonly GuidePair[] = [
           heading: "¿Cuánto debe durar un video testimonial?",
           paragraphs: [
             "Planea dos duraciones a partir de la misma entrevista. La versión completa, normalmente de uno a tres minutos, va en la web o en una página de ventas, donde quien la ve eligió verla. Las versiones cortas, una respuesta cada una, van a Reels, TikTok y Shorts, donde los primeros segundos deciden si alguien se queda.",
-            `Planear ambas antes de grabar cambia las preguntas: cada respuesta tiene que sostenerse sola, así que el cliente debe nombrar el negocio y el problema dentro de la frase. En la calculadora, los cortes breves para redes están en la banda de video corto, ${usd(PRICING_BANDS.social.baseMin)}–${usd(PRICING_BANDS.social.baseMax)} por proyecto. Inclúyelos en el brief para que la cotización los cubra desde el inicio y no después de aprobar el corte principal.`,
+            `Planear ambas antes de grabar cambia las preguntas: cada respuesta tiene que sostenerse sola, así que el cliente debe nombrar el negocio y el problema dentro de la frase. En la calculadora, los cortes breves para redes se cotizan como el Arranque, ${shortFormPriceText("es")}. Inclúyelos en el brief para que la cotización los cubra desde el inicio y no después de aprobar el corte principal.`,
           ],
         },
         {
@@ -4107,7 +4109,7 @@ const guidePairs: readonly GuidePair[] = [
           heading: "What does restaurant video editing start from?",
           paragraphs: [
             `The [Starter package](/pricing/starter) starts from ${packageGuidePrice("arranque")} per video, while [Growth](/pricing/growth) starts from ${packageGuidePrice("crecimiento")} per month. These are Esteban's package starting points. They are useful when you already record your food, team, or dining room and need help turning that material into finished posts. A package name alone does not confirm the number of videos, filming, or every requested version.`,
-            `For a separately scoped short-form edit, the calculator's indicative band is ${usd(PRICING_BANDS.social.baseMin)}–${usd(PRICING_BANDS.social.baseMax)}. It reflects an editing-led freelancer model with an introductory discount already applied, rather than a binding quote. Do not add that range to a package automatically: ask which approach fits your footage and intended posts. Full-crew Miami production companies quote a different model, so their proposals should be compared by included work.`,
+            `The calculator prices short-form the same way as Starter: one video at a time, or ${shortFormWeeklyText("en")} if you post every week. These are starting points rather than a binding quote, so ask which approach fits your footage and intended posts. Full-crew Miami production companies quote a different model, so their proposals should be compared by included work.`,
           ],
         },
         {
@@ -4133,7 +4135,7 @@ const guidePairs: readonly GuidePair[] = [
         },
       ],
       faqs: [
-        { question: "What is Esteban's starting price for an editing project?", answer: `Starter begins from ${packageGuidePrice("arranque")} per video. The short-form calculator band is separately ${usd(PRICING_BANDS.social.baseMin)}–${usd(PRICING_BANDS.social.baseMax)}. The quote identifies which scope applies.` },
+        { question: "What is Esteban's starting price for an editing project?", answer: `Starter begins from ${packageGuidePrice("arranque")} per video. Posting every week, it is ${shortFormWeeklyText("en")}. The quote identifies which scope applies.` },
         { question: "Is restaurant filming included in the editing price?", answer: `Do not assume it is included. The half-day capture add-on is an indicative ${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)}, while Local Presence starts from ${packageGuidePrice("presencia-local")} per production day.` },
         { question: "Is there a monthly option?", answer: `Growth starts from ${packageGuidePrice("crecimiento")} per month. Confirm the content scope and whether filming is required before comparing it with a standalone edit.` },
         { question: "Can I see a restaurant example?", answer: "See the [Bar Door Monkey project](/portfolio/bar-door-monkey), a Miami restaurant promo with videography and editing for Instagram. Its published credits do not establish your project's price." },
@@ -4156,7 +4158,7 @@ const guidePairs: readonly GuidePair[] = [
           heading: "¿Cuánto cuesta editar material que ya tienes?",
           paragraphs: [
             `[Arranque](/es/precios/arranque) parte desde ${packageGuidePrice("arranque")} por video y [Crecimiento](/es/precios/crecimiento) desde ${packageGuidePrice("crecimiento")} al mes. Son precios iniciales de los paquetes de Esteban. Si ya grabas platos, al equipo o el ambiente del local, sirven para empezar a conversar sobre la edición. El nombre del paquete no confirma por sí solo cuántos videos recibirás ni si incluye grabación.`,
-            `Para una edición de formato corto cotizada por separado, la calculadora muestra un rango orientativo de ${usd(PRICING_BANDS.social.baseMin)}–${usd(PRICING_BANDS.social.baseMax)}. Corresponde a un profesional independiente enfocado en edición, con el descuento introductorio aplicado; no es una cotización cerrada. No lo sumes automáticamente a un paquete. Las productoras de Miami con equipos completos trabajan con otro modelo: compara lo que incluye cada propuesta antes de comparar sus totales.`,
+            `La calculadora cotiza el formato corto igual que el Arranque: un video a la vez, o ${shortFormWeeklyText("es")} si publicas cada semana. Son precios de partida, no una cotización cerrada; pregunta qué opción encaja con tu material y tus publicaciones. Las productoras de Miami con equipos completos trabajan con otro modelo: compara lo que incluye cada propuesta antes de comparar sus totales.`,
           ],
         },
         {
@@ -4182,7 +4184,7 @@ const guidePairs: readonly GuidePair[] = [
         },
       ],
       faqs: [
-        { question: "¿Cuál es el precio inicial de edición?", answer: `Arranque parte desde ${packageGuidePrice("arranque")} por video. El rango de formato corto de la calculadora es, por separado, ${usd(PRICING_BANDS.social.baseMin)}–${usd(PRICING_BANDS.social.baseMax)}. La cotización indica cuál corresponde a tu pedido.` },
+        { question: "¿Cuál es el precio inicial de edición?", answer: `Arranque parte desde ${packageGuidePrice("arranque")} por video. Si publicas cada semana, es ${shortFormWeeklyText("es")}. La cotización indica cuál corresponde a tu pedido.` },
         { question: "¿La edición incluye grabar en mi restaurante?", answer: `Debes confirmarlo. El complemento de media jornada tiene un rango orientativo de ${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)}; Presencia Local parte desde ${packageGuidePrice("presencia-local")} por jornada de producción.` },
         { question: "¿Hay una opción mensual?", answer: `Crecimiento parte desde ${packageGuidePrice("crecimiento")} al mes. Confirma las piezas incluidas y si necesitas grabación antes de compararlo con un proyecto de edición individual.` },
         { question: "¿Dónde puedo ver un ejemplo para restaurantes?", answer: "Mira el [proyecto Bar Door Monkey](/es/portafolio/bar-door-monkey), con grabación y edición para el Instagram de un restaurante de Miami. Sus créditos no establecen el precio de tu proyecto." },

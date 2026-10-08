@@ -20,7 +20,7 @@ import {
 import { getSpanishNichePage, languageAlternates } from "@/lib/spanish-site";
 import { getPairedLanguageRoute } from "@/lib/language-routes";
 import { sitemapRoutes } from "@/app/sitemap";
-import { PACKAGE_PRICES, PRICING_BANDS, VOLUME_MULTIPLIERS, usd } from "@/lib/pricing";
+import { PACKAGE_PRICES, PRICING_BANDS, SHORT_FORM, usd } from "@/lib/pricing";
 
 /**
  * The five buyer gaps shipped 2026-10-06.
@@ -37,16 +37,15 @@ import { PACKAGE_PRICES, PRICING_BANDS, VOLUME_MULTIPLIERS, usd } from "@/lib/pr
  * than the pattern narrowed.
  */
 
-/** Every dollar figure lib/pricing.ts can put on a page, incl. the monthly-15 social estimate. */
+/** Every dollar figure lib/pricing.ts can put on a page, incl. short-form per-video and weekly prices. */
 const publishedPriceFigures = () => {
   const out: string[] = [];
   for (const band of Object.values(PRICING_BANDS)) {
     out.push(usd(band.baseMin), usd(band.baseMax), usd(band.marketMin), usd(band.marketMax));
   }
   for (const price of Object.values(PACKAGE_PRICES)) if (price.kind === "from") out.push(usd(price.amount));
-  const m = VOLUME_MULTIPLIERS["monthly-15"];
-  out.push(usd(Math.round((PRICING_BANDS.social.baseMin * m.multMin) / 25) * 25));
-  out.push(usd(Math.round((PRICING_BANDS.social.baseMax * m.multMax) / 25) * 25));
+  out.push(usd(SHORT_FORM.perVideoFrom), usd(SHORT_FORM.marketMin), usd(SHORT_FORM.marketMax));
+  for (const o of SHORT_FORM.weekly) out.push(usd(o.pricePerWeek));
   return out;
 };
 

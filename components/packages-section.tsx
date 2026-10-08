@@ -1,10 +1,5 @@
 "use client";
 
-import {
-  arranqueWeeklyComparisonLine,
-  arranqueWeeklyHref,
-  arranqueWeeklyWhatsapp,
-} from "@/lib/arranque-weekly";
 import Image from "next/image";
 import { packageRoutes } from "@/lib/package-routes";
 import { useState } from "react";
@@ -14,6 +9,7 @@ import RailFaq from "@/vendor/rail-kit/RailFaq";
 import { ALaCarteSection } from "@/components/a-la-carte-section";
 import { Container } from "@/components/ui/container";
 import { RealEstatePlansSection } from "@/components/real-estate-plans-section";
+import { StarterOptions } from "@/components/starter-options";
 import {
   packageAnchor,
   packageFaq,
@@ -26,7 +22,7 @@ import {
   type PackageContent,
 } from "@/lib/packages";
 import { entityIds } from "@/lib/entity-schema";
-import { ARRANQUE_WEEKLY_FROM, ARRANQUE_WEEKLY_OPTIONS, usd } from "@/lib/pricing";
+import { ARRANQUE_WEEKLY_FROM, usd } from "@/lib/pricing";
 import { absoluteUrl, site } from "@/lib/site";
 
 export function PackagesSection({ locale }: { locale: Locale }) {
@@ -150,9 +146,14 @@ export function PackagesSection({ locale }: { locale: Locale }) {
                               <span className="em-pk-card__price-unit">{price.kind === "from" ? copy.price.units[price.unit] : ""}</span>
                             </span>
                             <span className="em-pk-card__price-line em-pk-card__price-line--alt">
-                              <span className="em-pk-card__price-prefix">{locale === "es" ? "o desde" : "or from"}</span>{" "}
-                              <span className="em-pk-card__price-num">${ARRANQUE_WEEKLY_FROM.perWeek.toLocaleString("en-US")}</span>{" "}
-                              <span className="em-pk-card__price-unit">{locale === "es" ? "por semana" : "per week"}</span>
+                              <span className="em-pk-card__price-prefix">
+                                <span className="sr-only">· </span>
+                                {locale === "es" ? "o" : "or"}
+                              </span>{" "}
+                              <span className="em-pk-card__price-num">{usd(ARRANQUE_WEEKLY_FROM.perWeek)}</span>
+                              <span className="em-pk-card__price-unit">
+                                {locale === "es" ? "/semana si publicas cada semana" : "/week if you post weekly"}
+                              </span>
                             </span>
                           </span>
                         ) : price.kind === "from" ? (
@@ -197,77 +198,7 @@ export function PackagesSection({ locale }: { locale: Locale }) {
                       </ul>
 
                       {pkg.id === "arranque" ? (
-                        <div className="em-pk-starter-options">
-                          {/* Tile 1: Single video */}
-                          <div className="em-pk-starter-tile">
-                            <p className="em-pk-starter-tile__name">
-                              {locale === "es" ? "1 video" : "Single video"}
-                            </p>
-                            <div className="em-pk-starter-tile__price">
-                              <span className="em-pk-starter-tile__from">{copy.price.from}</span>
-                              <span className="em-pk-starter-tile__num">${price.kind === "from" ? price.amount.toLocaleString("en-US") : ""}</span>
-                              <span className="em-pk-starter-tile__unit">{price.kind === "from" ? copy.price.units[price.unit] : ""}</span>
-                            </div>
-                            <div className="em-pk-starter-tile__chips">
-                              <span className="em-pk-starter-chip">
-                                {locale === "es" ? "1 revisión" : "1 revision"}
-                              </span>
-                            </div>
-                            <a
-                              href={whatsappHref(
-                                site.phone.e164,
-                                locale === "es"
-                                  ? `Hola Esteban, me interesa el paquete Arranque, 1 video (${price.kind === "from" ? `${usd(price.amount)} ${copy.price.units[price.unit]}` : copy.price.custom}).`
-                                  : `Hi Esteban, I'm interested in the Starter package, single video (${price.kind === "from" ? `${usd(price.amount)} ${copy.price.units[price.unit]}` : copy.price.custom}).`
-                              )}
-                              className="em-pkcard__cta"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              data-cta="package_arranque_project_whatsapp"
-                            >
-                              <MessageCircle className="size-4" aria-hidden="true" />
-                              {locale === "es" ? "Cotizar por WhatsApp" : "Quote on WhatsApp"}
-                            </a>
-                          </div>
-
-                          {/* Tile 2: Weekly */}
-                          <div className="em-pk-starter-tile em-pk-starter-tile--weekly">
-                            <p className="em-pk-starter-tile__name">
-                              {locale === "es" ? "Semanal" : "Weekly"}
-                            </p>
-                            <div className="em-pk-starter-tile__rows">
-                              {ARRANQUE_WEEKLY_OPTIONS.map((opt) => (
-                                <div key={opt.id} className="em-pk-starter-tile__row">
-                                  <span className="em-pk-starter-tile__num">${opt.pricePerWeek.toLocaleString("en-US")}</span>
-                                  <span className="em-pk-starter-tile__unit">
-                                    {locale === "es" ? "/ semana" : "/ week"} · {opt.videosPerWeek} {opt.videosPerWeek === 1 ? "video" : "videos"}
-                                  </span>
-                                </div>
-                              ))}
-                            </div>
-                            <p className="em-pk-starter-tile__compare">{arranqueWeeklyComparisonLine(locale)}</p>
-                            <div className="em-pk-starter-tile__chips">
-                              <span className="em-pk-starter-pill">
-                                {locale === "es" ? "Pago semanal" : "Paid weekly"}
-                              </span>
-                            </div>
-                            <a
-                              href={arranqueWeeklyWhatsapp(site.phone.e164, ARRANQUE_WEEKLY_OPTIONS[0], locale)}
-                              className="em-pkcard__cta"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              data-cta="package_arranque_weekly_whatsapp"
-                            >
-                              <MessageCircle className="size-4" aria-hidden="true" />
-                              {locale === "es" ? "Empezar por WhatsApp" : "Start on WhatsApp"}
-                            </a>
-                            <p className="em-pkcard__weekly">
-                              <a href={arranqueWeeklyHref(locale)} data-cta="package_arranque_weekly_plan">
-                                {locale === "es" ? "Ver el plan semanal" : "See the weekly plan"}
-                              </a>
-                            </p>
-                          </div>
-                        </div>
+                        <StarterOptions locale={locale} />
                       ) : (
                         <div className="em-pk-open-price">
                           {price.kind === "from" ? (

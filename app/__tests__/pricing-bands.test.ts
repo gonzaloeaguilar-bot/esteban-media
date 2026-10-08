@@ -5,6 +5,7 @@ import {
   EXPRESS_MULTIPLIER,
   PRICING_BANDS,
   PRODUCT_PHOTO_MARKET,
+  SHORT_FORM,
   VOLUME_MULTIPLIERS,
 } from "@/lib/pricing";
 
@@ -23,7 +24,6 @@ describe("pricing module bands", () => {
   const pricingSource = source("lib/pricing.ts");
 
   const BANDS: Array<[keyof typeof PRICING_BANDS, number, number]> = [
-    ["social", 350, 675],
     ["youtube", 450, 850],
     ["corporate", 725, 1450],
     ["realestate", 575, 1075],
@@ -35,6 +35,23 @@ describe("pricing module bands", () => {
       expect(PRICING_BANDS[id].baseMin, `${id} baseMin`).toBe(min);
       expect(PRICING_BANDS[id].baseMax, `${id} baseMax`).toBe(max);
     }
+  });
+
+  // 2026-10-08: short-form is priced like Starter, not by a band. A $350-675
+  // "single video" band contradicted Starter's $100 per video on the same site.
+  it("prices short-form like Starter: $100 per video, $85 / $160 a week", () => {
+    expect("social" in PRICING_BANDS).toBe(false);
+    expect(SHORT_FORM.perVideoFrom).toBe(100);
+    expect(SHORT_FORM.packOf).toBe(5);
+    expect(SHORT_FORM.weekly.map((o) => [o.videosPerWeek, o.pricePerWeek])).toEqual([[1, 85], [2, 160]]);
+    expect(basis).toMatch(/Short-form social \| \$100–500 per video \| \*\*from \$100 per video; \$85\/week \(1 video\) or \$160\/week \(2 videos\)\*\*/);
+  });
+
+  it("keeps the calculator's short-form path on the Starter numbers", () => {
+    const estimator = source("components/video-budget-estimator.tsx");
+    expect(estimator).toContain("SHORT_FORM.perVideoFrom");
+    expect(estimator).toContain("SHORT_FORM.weekly");
+    expect(estimator).not.toMatch(/PRICING_BANDS\.social|PRICING_BANDS\["social"\]/);
   });
 
   it("keeps the on-location capture add-on at the documented figures", () => {

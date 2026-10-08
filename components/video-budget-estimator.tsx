@@ -5,13 +5,35 @@ import { Calculator, CheckCircle2, DollarSign, Send, Sparkles, Clock, ShieldChec
 import { site } from "@/lib/site";
 import { trackLeadSubmit } from "@/lib/analytics-events";
 import {
+  ARRANQUE_WEEKLY_TERMS,
   EXPRESS_MULTIPLIER,
   PRICING_BANDS,
+  SHORT_FORM,
   VOLUME_MULTIPLIERS,
+  usd,
   type PricingBandId,
 } from "@/lib/pricing";
 
 type Locale = "en" | "es";
+
+// Short-form follows Starter: one video, five single videos, or the weekly
+// Arranque cadence. The 15/30-a-month options stay for the other categories
+// only: no owner-set short-form price exists at that volume.
+const shortFormVolumes = [
+  { id: "single", es: "1 Video (una sola vez)", en: "1 Video (just once)" },
+  { id: "pack-5", es: "5 Videos (5 × 1 video)", en: "5 Videos (5 × 1 video)" },
+  ...SHORT_FORM.weekly.map((o) => ({
+    id: `weekly-${o.videosPerWeek}`,
+    es: `${o.videosPerWeek} ${o.videosPerWeek === 1 ? "Video" : "Videos"} / Semana`,
+    en: `${o.videosPerWeek} ${o.videosPerWeek === 1 ? "Video" : "Videos"} / Week`,
+  })),
+];
+const otherVolumes = [
+  { id: "single", es: "1 Video Individual", en: "1 Single Video" },
+  { id: "pack-5", es: "Paquete de 5 Videos", en: "5-Video Starter Pack" },
+  { id: "monthly-15", es: "15 Videos / Mes (Popular)", en: "15 Videos / Month (Popular)" },
+  { id: "monthly-30", es: "30 Videos / Mes (Retainer)", en: "30 Videos / Month (Retainer)" },
+];
 
 interface VideoBudgetEstimatorProps {
   locale?: Locale;
@@ -21,7 +43,7 @@ export function VideoBudgetEstimator({ locale = "en" }: VideoBudgetEstimatorProp
   const isEs = locale === "es";
 
   const [serviceType, setServiceType] = useState<string>("social");
-  const [volume, setVolume] = useState<string>("monthly-15");
+  const [volume, setVolume] = useState<string>("single");
   const [footageSource, setFootageSource] = useState<string>("supplied");
   const [speed, setSpeed] = useState<string>("standard");
 
@@ -35,11 +57,77 @@ export function VideoBudgetEstimator({ locale = "en" }: VideoBudgetEstimatorProp
   // All figures come from lib/pricing.ts — the single source of truth for
   // published prices (bands, provenance, multipliers). Do not inline numbers
   // here; see that module and docs/pricing-basis.md.
+  const isShortForm = serviceType === "social";
+  const weeklyOption = SHORT_FORM.weekly.find((o) => `weekly-${o.videosPerWeek}` === volume);
+
+  // Short-form is priced like Starter (lib/pricing.ts SHORT_FORM): from $100
+  // per video, a 5-pack is five single videos, and the weekly cadence is the
+  // Arranque weekly price. Paying weekly is for footage you film, delivered in
+  // 48-72 hours, so it carries no on-location or express surcharge.
+  const pickVolume = (id: string) => {
+    setVolume(id);
+    if (id.startsWith("weekly-")) {
+      setFootageSource("supplied");
+      setSpeed("standard");
+    }
+  };
+  const pickService = (id: string) => {
+    setServiceType(id);
+    const valid = (id === "social" ? shortFormVolumes : otherVolumes).some((v) => v.id === volume);
+    if (!valid) setVolume("single");
+  };
+  const pickFootage = (id: string) => {
+    setFootageSource(id);
+    if (id === "shoot" && volume.startsWith("weekly-")) setVolume("single");
+  };
+  const pickSpeed = (id: string) => {
+    setSpeed(id);
+    if (id === "express" && volume.startsWith("weekly-")) setVolume("single");
+  };
+
   const calculateEstimate = () => {
+    const standardTurnaround = isEs ? "3 - 5 Días Hábiles" : "3 - 5 Business Days";
+    const expressTurnaround = isEs ? "24 - 48 Horas" : "24 - 48 Hours";
+
+    if (isShortForm && weeklyOption) {
+      const n = weeklyOption.videosPerWeek;
+      return {
+        priceRange: `${usd(weeklyOption.pricePerWeek)} USD`,
+        period: isEs
+          ? `por semana (${n} ${n === 1 ? "video" : "videos"})`
+          : `per week (${n} ${n === 1 ? "video" : "videos"})`,
+        turnaround: isEs
+          ? `${ARRANQUE_WEEKLY_TERMS.deliveryHoursMin} - ${ARRANQUE_WEEKLY_TERMS.deliveryHoursMax} Horas por video`
+          : `${ARRANQUE_WEEKLY_TERMS.deliveryHoursMin} - ${ARRANQUE_WEEKLY_TERMS.deliveryHoursMax} Hours per video`,
+      };
+    }
+
+    if (isShortForm) {
+      const videos = volume === "pack-5" ? SHORT_FORM.packOf : 1;
+      let min = SHORT_FORM.perVideoFrom * videos;
+      let max: number | null = null;
+      if (footageSource === "shoot") {
+        // Half-day on-location capture add-on, once per job.
+        max = min + PRICING_BANDS["on-location"].baseMax;
+        min += PRICING_BANDS["on-location"].baseMin;
+      }
+      const mult = speed === "express" ? EXPRESS_MULTIPLIER : 1;
+      const lo = Math.round((min * mult) / 25) * 25;
+      const hi = max === null ? null : Math.round((max * mult) / 25) * 25;
+      return {
+        priceRange: hi === null ? `${isEs ? "Desde" : "From"} ${usd(lo)} USD` : `${usd(lo)} - ${usd(hi)} USD`,
+        period:
+          volume === "pack-5"
+            ? isEs ? "por paquete de 5 videos" : "per 5-video pack"
+            : isEs ? "por video" : "per video",
+        turnaround: speed === "express" ? expressTurnaround : standardTurnaround,
+      };
+    }
+
     const bandId: PricingBandId =
       serviceType in PRICING_BANDS && serviceType !== "on-location"
         ? (serviceType as PricingBandId)
-        : "social";
+        : "youtube";
     const band = PRICING_BANDS[bandId];
     let baseMin = band.baseMin;
     let baseMax = band.baseMax;
@@ -73,12 +161,11 @@ export function VideoBudgetEstimator({ locale = "en" }: VideoBudgetEstimatorProp
 
     const finalMin = Math.round((baseMin * multMin) / 25) * 25;
     const finalMax = Math.round((baseMax * multMax) / 25) * 25;
-    const turnaround = speed === "express" ? (isEs ? "24 - 48 Horas" : "24 - 48 Hours") : (isEs ? "3 - 5 Días Hábiles" : "3 - 5 Business Days");
 
     return {
-      priceRange: `$${finalMin.toLocaleString()} - $${finalMax.toLocaleString()} USD`,
+      priceRange: `${usd(finalMin)} - ${usd(finalMax)} USD`,
       period,
-      turnaround,
+      turnaround: speed === "express" ? expressTurnaround : standardTurnaround,
     };
   };
 
@@ -168,7 +255,7 @@ export function VideoBudgetEstimator({ locale = "en" }: VideoBudgetEstimatorProp
                 <button
                   key={item.id}
                   type="button"
-                  onClick={() => setServiceType(item.id)}
+                  onClick={() => pickService(item.id)}
                   className={`rounded-xl border p-3 font-medium transition-all ${
                     serviceType === item.id
                       ? "border-[#c84a2c] bg-[#c84a2c]/10 text-[var(--em-accent-ink)]"
@@ -187,23 +274,18 @@ export function VideoBudgetEstimator({ locale = "en" }: VideoBudgetEstimatorProp
               {isEs ? "2. Volumen de Contenido" : "2. Content Volume & Cadence"}
             </label>
             <div className="mt-2 grid grid-cols-2 gap-2 text-xs">
-              {[
-                { id: "single", label: isEs ? "1 Video Individual" : "1 Single Video" },
-                { id: "pack-5", label: isEs ? "Paquete de 5 Videos" : "5-Video Starter Pack" },
-                { id: "monthly-15", label: isEs ? "15 Videos / Mes (Popular)" : "15 Videos / Month (Popular)" },
-                { id: "monthly-30", label: isEs ? "30 Videos / Mes (Retainer)" : "30 Videos / Month (Retainer)" },
-              ].map((item) => (
+              {(isShortForm ? shortFormVolumes : otherVolumes).map((item) => (
                 <button
                   key={item.id}
                   type="button"
-                  onClick={() => setVolume(item.id)}
+                  onClick={() => pickVolume(item.id)}
                   className={`rounded-xl border p-3 font-medium transition-all ${
                     volume === item.id
                       ? "border-[#c84a2c] bg-[#c84a2c]/10 text-[var(--em-accent-ink)]"
                       : "border-[#ddd4c8] bg-[#f6f1ea] text-[#252a2d] hover:border-[#a93e29]"
                   }`}
                 >
-                  {item.label}
+                  {isEs ? item.es : item.en}
                 </button>
               ))}
             </div>
@@ -222,7 +304,7 @@ export function VideoBudgetEstimator({ locale = "en" }: VideoBudgetEstimatorProp
                 <button
                   key={item.id}
                   type="button"
-                  onClick={() => setFootageSource(item.id)}
+                  onClick={() => pickFootage(item.id)}
                   className={`rounded-xl border p-3 font-medium transition-all ${
                     footageSource === item.id
                       ? "border-[#c84a2c] bg-[#c84a2c]/10 text-[var(--em-accent-ink)]"
@@ -248,7 +330,7 @@ export function VideoBudgetEstimator({ locale = "en" }: VideoBudgetEstimatorProp
                 <button
                   key={item.id}
                   type="button"
-                  onClick={() => setSpeed(item.id)}
+                  onClick={() => pickSpeed(item.id)}
                   className={`rounded-xl border p-3 font-medium transition-all ${
                     speed === item.id
                       ? "border-[#c84a2c] bg-[#c84a2c]/10 text-[var(--em-accent-ink)]"

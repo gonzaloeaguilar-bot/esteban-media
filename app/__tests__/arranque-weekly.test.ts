@@ -47,8 +47,29 @@ describe("Arranque weekly plan", () => {
     for (const banned of [/Crecimiento/, /Esencial/, /Growth/, /Essential/, /Edici[oó]n para creadores/i, /Creator editing/i, /cortes[ií]a/i, /\d+\s?%/, /ahorr/i, /descuento/i, /discount/i, /valor normal/i, /\bsave\b/i]) {
       expect(text, String(banned)).not.toMatch(banned);
     }
-    expect(text).toMatch(locale === "es" ? /Arranque semanal/ : /Weekly Starter/);
+    // ONE Starter (owner, 2026-10-08): paying weekly is a way to buy Arranque,
+    // never a second product with its own name.
+    expect(text).not.toMatch(/Arranque semanal|Weekly Starter/i);
+    expect(text).toMatch(locale === "es" ? /Arranque/ : /Starter/);
     expect(text).toMatch(locale === "es" ? /desde \$80 por video/ : /from \$80 per video/);
+  });
+
+  it("names no second Starter anywhere a visitor or crawler reads it", () => {
+    for (const path of ["components/starter-options.tsx", "components/arranque-weekly-section.tsx", "components/packages-section.tsx", "lib/arranque-weekly.ts"]) {
+      const code = source(path).replace(/\/\/.*$|\/\*[\s\S]*?\*\//gm, "");
+      expect(code, path).not.toMatch(/Arranque semanal|Weekly Starter/);
+    }
+    for (const locale of locales) {
+      const node = arranqueWeeklyOfferJsonLd(locale, "https://x.test/p", "https://x.test/#business");
+      expect(JSON.stringify(node)).not.toMatch(/"name":"[^"]*(?:Arranque semanal|Weekly Starter)/);
+    }
+  });
+
+  it.each(locales)("%s: the creator section answers how Starter is paid, framed by how often", (locale) => {
+    const c = arranqueWeeklyCopy(locale);
+    expect(c.heading).toBe(locale === "es" ? "¿Cómo se paga el Arranque?" : "How do you pay for Starter?");
+    expect(c.answer).toContain(locale === "es" ? "Una sola vez: $100 por video" : "Just once: $100 per video");
+    expect(c.answer).toContain(locale === "es" ? "Cada semana: $85 por 1 video o $160 por 2 videos" : "Every week: $85 for 1 video or $160 for 2 videos");
   });
 
   // Arranque is one video edit (owner, 2026-10-08): the honest comparison is published.
@@ -61,11 +82,15 @@ describe("Arranque weekly plan", () => {
     expect(body).not.toMatch(/\b(?:80|100)\b/);
   });
 
-  it("renders the comparison in the weekly section and on the Starter weekly tile, with no badge or strikethrough", () => {
-    expect(source("components/arranque-weekly-section.tsx")).toContain("{c.comparison}");
-    const card = source("components/packages-section.tsx");
-    expect(card).toContain("arranqueWeeklyComparisonLine(locale)");
-    expect(card).not.toMatch(/line-through|<s>|<del>|badge/i);
+  it("pricing card and creator pages render the SAME Starter options, with the comparison and no badge", () => {
+    const options = source("components/starter-options.tsx");
+    expect(options).toContain("arranqueWeeklyComparisonLine(locale)");
+    for (const words of ["¿Cada cuánto necesitas videos?", "How often do you need videos?", "Una sola vez", "Just once", "Cada semana", "Every week", "Pago semanal · cancela cualquier semana", "Paid weekly · stop any week"]) {
+      expect(options).toContain(words);
+    }
+    expect(options).not.toMatch(/line-through|<s>|<del>|badge/i);
+    expect(source("components/packages-section.tsx")).toContain("<StarterOptions locale={locale} />");
+    expect(source("components/arranque-weekly-section.tsx")).toContain("<StarterOptions locale={locale}");
   });
 
   it.each(locales)("%s: ten FAQs from the proposal, numbers from the terms", (locale) => {

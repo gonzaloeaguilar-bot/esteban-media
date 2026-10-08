@@ -7,7 +7,7 @@ import {
   NIGHTLIFE_DEEP_DIVE,
   NIGHTLIFE_ES_SECTIONS,
 } from "@/lib/hospitality-deep-dive-content";
-import { EXPRESS_MULTIPLIER, PACKAGE_PRICES, PRICING_BANDS, usd } from "@/lib/pricing";
+import { EXPRESS_MULTIPLIER, PACKAGE_PRICES, PRICING_BANDS, SHORT_FORM, usd } from "@/lib/pricing";
 import { getSpanishNichePage, languageAlternates } from "@/lib/spanish-site";
 
 const countWords = (text: string) =>
@@ -53,8 +53,8 @@ describe("hospitality, nightlife and event cost answers", () => {
 
     const nightlife = JSON.stringify([NIGHTLIFE_DEEP_DIVE, NIGHTLIFE_ES_SECTIONS]);
     for (const figure of [
-      usd(PRICING_BANDS.social.baseMin),
-      usd(PRICING_BANDS.social.baseMax),
+      usd(SHORT_FORM.weekly[0].pricePerWeek),
+      usd(SHORT_FORM.weekly[1].pricePerWeek),
       usd(PRICING_BANDS["on-location"].baseMin),
       fromAmount("arranque"),
       fromAmount("crecimiento"),
@@ -68,7 +68,7 @@ describe("hospitality, nightlife and event cost answers", () => {
     for (const figure of [
       usd(PRICING_BANDS.corporate.baseMin),
       usd(PRICING_BANDS.corporate.baseMax),
-      usd(PRICING_BANDS.social.baseMin),
+      usd(SHORT_FORM.weekly[0].pricePerWeek),
       fromAmount("presencia-local"),
     ]) {
       expect(hotel).toContain(figure);
