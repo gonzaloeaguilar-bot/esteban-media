@@ -1,0 +1,668 @@
+{
+  "retrievedAt": "2026-10-07T04:24:01.037718+00:00",
+  "site": "https://estebanmorenomedia.com/",
+  "request": {
+    "startDate": "2026-09-07",
+    "endDate": "2026-10-04",
+    "type": "web",
+    "dataState": "final",
+    "rowLimit": 25000,
+    "dimensions": [
+      "page"
+    ],
+    "aggregationType": "auto"
+  },
+  "response": {
+    "rows": [
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/"
+        ],
+        "clicks": 3,
+        "impressions": 182,
+        "ctr": 0.016483516483516484,
+        "position": 6.5054945054945055
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/about"
+        ],
+        "clicks": 2,
+        "impressions": 34,
+        "ctr": 0.058823529411764705,
+        "position": 13.323529411764707
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/guides/best-caption-styles-for-instagram-reels"
+        ],
+        "clicks": 2,
+        "impressions": 25,
+        "ctr": 0.08,
+        "position": 8.8
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/portfolio"
+        ],
+        "clicks": 2,
+        "impressions": 18,
+        "ctr": 0.1111111111111111,
+        "position": 5.444444444444445
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/areas"
+        ],
+        "clicks": 1,
+        "impressions": 28,
+        "ctr": 0.03571428571428571,
+        "position": 30.5
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/areas/palm-beach-county"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 30.333333333333332
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/calculator"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 11
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/case-studies/flas-concierge"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 7.5
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/case-studies/homeowners"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/contact"
+        ],
+        "clicks": 0,
+        "impressions": 38,
+        "ctr": 0,
+        "position": 40.63157894736842
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/daily-publish-prompt"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 9.666666666666666
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/daily-script-timer"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 85
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/daily-shot-list-planner"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 8
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/desk-recommendations"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 16
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/es"
+        ],
+        "clicks": 0,
+        "impressions": 15,
+        "ctr": 0,
+        "position": 4.133333333333333
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/es/calculadora-de-ritmo-de-video"
+        ],
+        "clicks": 0,
+        "impressions": 21,
+        "ctr": 0,
+        "position": 7.380952380952381
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/es/contacto"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 7
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/es/fotografo-en-fort-lauderdale"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 12
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/es/guias/como-escribir-un-brief-util-de-video"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 6
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/es/guias/como-seleccionar-broll-para-video-corporativo"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/es/guias/correccion-de-color-vs-colorimetria-guia"
+        ],
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 4.4
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/es/guias/cuanto-cuesta-la-fotografia-de-producto"
+        ],
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 71.2
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/es/guias/cuanto-cuesta-la-produccion-de-video-en-fort-lauderdale"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 3
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/es/guias/edicion-de-video-con-ia-vs-editor-profesional"
+        ],
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 5
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/es/guias/editor-de-video-freelance-vs-agencia-de-postproduccion"
+        ],
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 46.6
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/es/guias/editor-de-video-vs-videografo"
+        ],
+        "clicks": 0,
+        "impressions": 11,
+        "ctr": 0,
+        "position": 5.7272727272727275
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/es/guias/estrategia-de-embudo-de-video-marketing-b2b"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/es/guias/fotografia-de-producto-con-ia-vs-estudio-tradicional"
+        ],
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 9.25
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/es/guias/ideas-de-reels-para-agentes-de-bienes-raices"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 7
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/es/guias/mejores-estilos-de-subtitulos-para-reels"
+        ],
+        "clicks": 0,
+        "impressions": 29,
+        "ctr": 0,
+        "position": 9.172413793103448
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/es/guias/reels-vs-tiktok-vs-shorts-para-negocios-locales"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 11
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/es/guias/video-vertical-horizontal-y-zonas-seguras"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 8.5
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/es/portafolio/flas-concierge"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 8
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/es/portafolio/gonzalo-tech-chatbots"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/es/reels-para-negocios-miami"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 15
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/es/servicios"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 7
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/es/sobre-esteban"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 3.5
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/es/temporizador-de-guiones-de-video"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 7.5
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/guides"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 11.5
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/guides/ai-video-editing-vs-human-editor"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/guides/corporate-video-production-cost-miami"
+        ],
+        "clicks": 0,
+        "impressions": 12,
+        "ctr": 0,
+        "position": 25.916666666666668
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/guides/customer-testimonial-video-script-template"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 73
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/guides/fastest-way-to-send-large-video-files-to-editor"
+        ],
+        "clicks": 0,
+        "impressions": 32,
+        "ctr": 0,
+        "position": 9.1875
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/guides/how-to-mix-audio-for-social-video"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 7
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/guides/how-to-prepare-audio-for-video-editing"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 6.666666666666667
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/guides/how-to-use-instagram-reels-for-business"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/guides/instagram-reels-ideas-for-real-estate"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/guides/prepare-footage-for-video-editing"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 4.5
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/guides/record-video-with-iphone-for-professional-editing"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/guides/remote-vs-local-video-editing"
+        ],
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 7.2
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/guides/vertical-video-editing-best-practices"
+        ],
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 10.166666666666666
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/guides/video-aspect-ratios-cheat-sheet"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/guides/video-editor-vs-videographer"
+        ],
+        "clicks": 0,
+        "impressions": 28,
+        "ctr": 0,
+        "position": 9.392857142857142
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/guides/video-editor-vs-videographer/"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/portfolio/banacol"
+        ],
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 12
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/portfolio/diana-jack"
+        ],
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 7.285714285714286
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/portfolio/flas-concierge"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 7
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/portfolio/gains-from-geebs"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 6
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/portfolio/gonzalo-tech-chatbots"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/pricing/all-in"
+        ],
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 9.75
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/pricing/growth"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 13
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/services"
+        ],
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0,
+        "position": 21.11111111111111
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/services/ai-product-photography-miami"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/services/crowdfunding-video-editor-miami"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/services/headshot-photographer-miami"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/services/reels-editor-fort-lauderdale"
+        ],
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 5.25
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/services/restaurant-promo-video-editing-miami"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 7.5
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/services/small-business-video-hollywood-fl"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 7
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/services/tiktok-ad-video-editor-miami"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/services/video-production-fort-lauderdale"
+        ],
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 4.8
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/services/website-design-fort-lauderdale"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 40.666666666666664
+      },
+      {
+        "keys": [
+          "https://estebanmorenomedia.com/services/yacht-hospitality-video-fort-lauderdale"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 7
+      }
+    ],
+    "responseAggregationType": "byPage"
+  }
+}

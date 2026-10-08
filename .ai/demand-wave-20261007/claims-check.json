@@ -1,0 +1,11 @@
+{
+  "source": "lib/script-pacing-help.ts",
+  "forbiddenClaimMatches": {
+    "aggregate_rating": false,
+    "percentage_claim": false,
+    "currency_claim": false,
+    "drone_credential": false,
+    "delivery_promise": false
+  },
+  "test": "Raw server render and FAQ/schema equality covered by script-pacing-help.test.ts"
+}

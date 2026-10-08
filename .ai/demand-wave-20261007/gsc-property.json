@@ -1,0 +1,24 @@
+{
+  "retrievedAt": "2026-10-07T04:24:00.875819+00:00",
+  "site": "https://estebanmorenomedia.com/",
+  "request": {
+    "startDate": "2026-09-07",
+    "endDate": "2026-10-04",
+    "type": "web",
+    "dataState": "final",
+    "rowLimit": 25000,
+    "dimensions": [],
+    "aggregationType": "byProperty"
+  },
+  "response": {
+    "rows": [
+      {
+        "clicks": 9,
+        "impressions": 521,
+        "ctr": 0.01727447216890595,
+        "position": 13.886756238003839
+      }
+    ],
+    "responseAggregationType": "byProperty"
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "schema": 2,
+  "project": "esteban-media",
+  "intent": "Daily demand wave for esteban-media: pick and ship ONE bounded demand move from fresh evidence per the standing charter",
+  "phase": "review",
+  "visual_evidence": {
+    "scope": "local_repair",
+    "scope_reason": "Bilingual explanatory content below an existing calculator; no new scene, motion system, route or layout redesign.",
+    "target": "candidate",
+    "owner_status": "unreviewed",
+    "capture_kind": "rendered",
+    "spec_sha256": "062560e27e621ab0a8b060d57d35c2372d44dedc1de679e120b03e1a8bdb883a",
+    "taste_sha256": "185b0adad6bb89ca5031e4fb3fdc4a98f3634231bcf19367eff1610b205659a8",
+    "correction_excerpt": "Información adicional detrás de «Más», un acordeón o una hoja. La explicación no bloquea la experiencia ni aparece obligatoriamente.",
+    "comparison": "Existing calculator pages have no FAQ answers in their initial HTML. Candidate appends closed native disclosures with the existing Esteban skin; screenshots show the affected section at phone and desktop sizes. Builder inspection is not independent craft approval.",
+    "references": [],
+    "candidate_frames": [
+      {
+        "path": "en-375-closed.png",
+        "sha256": "96a262acd015c4778e9c81ab82f3dc94e373cdab4cb52c0da4de74fed638e957",
+        "viewport": "short_phone",
+        "moment": "closed"
+      },
+      {
+        "path": "en-375-open.png",
+        "sha256": "e670c3edd7ad9b799f1bc3d42a08c5acfdeba24f189c8c5fd8aabd2cf2854356",
+        "viewport": "short_phone",
+        "moment": "opened"
+      },
+      {
+        "path": "es-375-closed.png",
+        "sha256": "0466c972d806e67def73f661e39a75996b197f3cfefc375abae5f666d187e206",
+        "viewport": "short_phone",
+        "moment": "Spanish closed"
+      },
+      {
+        "path": "es-390-open.png",
+        "sha256": "2caf7dcf462ab536d1fa020f5fe65b77a71a9284a7ad84abfbd6f8921ff11d6b",
+        "viewport": "phone",
+        "moment": "Spanish opened"
+      },
+      {
+        "path": "en-1440-open.png",
+        "sha256": "a61c5ce4e0c12b9afc25e4ab612e900b44b5dedbe8279d56ce81332aba70a428",
+        "viewport": "desktop",
+        "moment": "keyboard focus"
+      }
+    ]
+  },
+  "brief": {
+    "visitor": "A creator checking whether a spoken script fits a video.",
+    "promise": "Explain the existing estimator and help the visitor check it aloud.",
+    "primary_action": "Paste spoken words, pick a pace and compare a timed reading.",
+    "friction": "The page promises exact timing although it only divides word count by selected pace.",
+    "kpi": {
+      "outcome": "Useful organic visits that can lead to a scoped editing inquiry.",
+      "event": "Existing delegated cta_click for the service link; no new lead event.",
+      "denominator": "Same page-level Search Console impressions; not aggregate property impressions.",
+      "baseline": "Spanish calculator: 21 impressions, 0 clicks, position 7.380952 for 2026-09-07 through 2026-10-04.",
+      "evidence": "gsc-page.json is an authenticated final-data read this session.",
+      "readout": "cto-seo-lead: compare T+14 and T+28 after actual deployment.",
+      "decision_rule": "Low samples remain inconclusive; repair inaccurate guidance immediately; do not claim rank causation."
+    },
+    "concept": {
+      "idea": "Calculator first, optional guidance after it.",
+      "brand_reason": "Reuse the current cream/terracotta surface and native RailFaq with existing typography.",
+      "interaction": "Open a question with touch or keyboard.",
+      "visible_response": "The answer appears directly under that question.",
+      "direct_path": "Calculator remains usable without opening an answer.",
+      "alternatives": "Rejected adding a new guide URL because the current tool has demand and lacks its own explanation."
+    },
+    "story": {
+      "opening": "Estimate the length of your spoken script.",
+      "action": "Paste the words and select a pace.",
+      "consequence": "See an estimate, then learn its limits if needed.",
+      "next_step": "Read aloud or explore the matching Reels editing page."
+    },
+    "content": {
+      "visible": "One short instruction, updated date and three question labels.",
+      "optional_html": "Three native details answers present in raw served HTML.",
+      "linked_depth": "Existing EN/ES Reels editing pages, no additional guide."
+    },
+    "references": {
+      "borrow": "Pinned RailFaq disclosure behavior and current Esteban type/color tokens.",
+      "avoid": "Do not add a wall of text, decorative artwork or a new visual world for a calculation explanation."
+    },
+    "components": {
+      "reuse": "Unmodified vendor/rail-kit/RailFaq.tsx and shared buildServiceFaqSchema.",
+      "local_reason": "The brand wrapper and bilingual formula explanation apply only to this calculator."
+    },
+    "verification": {
+      "rendered_states": "375x667, 390x844 and 1440x900, EN/ES, FAQ closed/open and service link.",
+      "motion": "No new motion; exercise reduced motion and native details behavior.",
+      "accessibility_performance": "Keyboard/touch opening, no horizontal overflow, 16px answer text; build and existing shared component checks.",
+      "raw_html": "FAQ answers must equal schema and remain present with scripts disabled.",
+      "conversion_boundary": "Verify real service destinations; no form sends or claimed leads for this content change."
+    },
+    "reviewers": {
+      "craft": "Independent Antigravity review requested from top-level coordinator; local screenshots are builder evidence only.",
+      "behavior": "Codex checks plus cto-qa-lead final verification.",
+      "outcome": "cto-seo-lead measures after deployment."
+    }
+  }
+}

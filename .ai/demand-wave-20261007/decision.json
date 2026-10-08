@@ -1,0 +1,29 @@
+{
+  "decisionRecord": "20261007T042206Z-cto-seo-lead-esteban-media-1791346928206330000-54256-84b045d26cad14fd",
+  "requestingLead": "cto-seo-lead",
+  "verifierLead": "cto-qa-lead",
+  "moveClass": "1_content_depth_and_faq",
+  "baseCommit": "c1c3455",
+  "reviewSource": "/Users/gonzalo/.local/state/esteban-media-seo-geo/review-2026-10-07.json",
+  "reviewSha256": "e5fb90a1ac916b3e8c94a3a6357a94f0bfb194faa7a744205f8e14e75833097c",
+  "search": {
+    "window": "2026-09-07 .. 2026-10-04",
+    "clicks": 9,
+    "impressions": 521,
+    "position": 13.9,
+    "brand_position": 5.5,
+    "brand_clicks": 2
+  },
+  "graphifyRead": {
+    "sha256": "702222bbe9df59f063e3b3556a6f8dad90ac9c2ec6ca7adda58417ed6b771985",
+    "builtAtCommit": "bc1e162ff766075682dbc2d886baee5200f0715f",
+    "scope": "Sitemap depends on site, guides, portfolio-watch and Spanish route data. Metadata depends on site/Spanish-site. Supplied graph lacks current pacing route nodes, so direct current route imports were read; no inventory or global metadata edit is needed."
+  },
+  "sharedContextRead": {
+    "sha256": "b711ebbf93651ddba3d87d58c38b8821badffdfb947501a9dd3741fedffd0979",
+    "capabilityLabs": "Observation-only; not invoked"
+  },
+  "sourceOfContent": "Existing calculator implementation: whitespace word count, rounded words/WPM*60, target comparison and selectable pace settings. Arithmetic examples, not published client outcomes.",
+  "validationBoundary": "Local build and affected-page browser verification; independent review and production belong to the top-level coordinator.",
+  "canonicalStoreBoundary": "Workspace-only write policy: Obsidian hot note/durable note/registry handoff is prepared inside this repo for the top-level coordinator to publish."
+}

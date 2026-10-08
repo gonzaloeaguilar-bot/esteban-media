@@ -1,0 +1,7 @@
+{
+  "sha256": "793344eca4705d382ee46d280099c907f96dfb9f40ce7e0d1e1889e2adc1fd43",
+  "nodes": 3369,
+  "links": 7617,
+  "pacingHelpNodes": 5,
+  "mode": "graphify update . --no-cluster; deterministic AST, no LLM"
+}

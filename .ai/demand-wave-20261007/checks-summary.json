@@ -1,0 +1,14 @@
+{
+  "pnpmCheck": {
+    "exitCode": 0,
+    "testFiles": 102,
+    "tests": 1078,
+    "lintErrors": 0,
+    "lintWarnings": 48,
+    "textParityRoutes": 90,
+    "staticPages": 342
+  },
+  "sitemapUrlCount": 277,
+  "configUnchanged": true,
+  "logSha256": "55b24cfa3c7db7d2d6b6710693efea340d59100e318b011708e1074e22d3395b"
+}

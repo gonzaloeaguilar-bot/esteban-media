@@ -1,0 +1,58 @@
+{
+  "checkedAt": "2026-10-07T04:43:32.045839+00:00",
+  "headRefName": "codex/demand-wave-20261007",
+  "headRefOid": "bfea267638e628692fe11efcadf6e29ba9eb1ccf",
+  "isDraft": true,
+  "number": 295,
+  "state": "OPEN",
+  "statusCheckRollup": [
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-07T04:42:54Z",
+      "conclusion": "FAILURE",
+      "detailsUrl": "https://github.com/gonzaloeaguilar-bot/esteban-media/actions/runs/37572763334/job/112634874273",
+      "name": "Cortex quality evidence",
+      "startedAt": "2026-10-07T04:42:46Z",
+      "status": "COMPLETED",
+      "workflowName": "Cortex Quality Required"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-07T04:43:07Z",
+      "conclusion": "FAILURE",
+      "detailsUrl": "https://github.com/gonzaloeaguilar-bot/esteban-media/actions/runs/37572778814/job/112634920777",
+      "name": "Cortex quality evidence",
+      "startedAt": "2026-10-07T04:43:02Z",
+      "status": "COMPLETED",
+      "workflowName": "Cortex Quality Required"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "0001-01-01T00:00:00Z",
+      "conclusion": "",
+      "detailsUrl": "https://github.com/gonzaloeaguilar-bot/esteban-media/actions/runs/37572763352/job/112635024006",
+      "name": "validate",
+      "startedAt": "2026-10-07T04:43:22Z",
+      "status": "IN_PROGRESS",
+      "workflowName": "CI"
+    },
+    {
+      "__typename": "StatusContext",
+      "context": "Vercel",
+      "startedAt": "2026-10-07T04:42:46Z",
+      "state": "SUCCESS",
+      "targetUrl": "https://vercel.com/agora-tech/esteban-media/5mAt55rQxLP3peSPUp1jUFwPWqR9"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-07T04:42:49Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://vercel.com/github",
+      "name": "Vercel Preview Comments",
+      "startedAt": "2026-10-07T04:42:49Z",
+      "status": "COMPLETED",
+      "workflowName": ""
+    }
+  ],
+  "url": "https://github.com/gonzaloeaguilar-bot/esteban-media/pull/295"
+}

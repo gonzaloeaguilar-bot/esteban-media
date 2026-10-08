@@ -1,0 +1,18 @@
+[
+  {
+    "locale": "en",
+    "route": "/daily-script-pacing-calculator",
+    "status": 200,
+    "faqAnswersInRawHtml": 3,
+    "phoneAndEmailPreserved": true,
+    "updatedDatePresent": true
+  },
+  {
+    "locale": "es",
+    "route": "/es/calculadora-de-ritmo-de-video",
+    "status": 200,
+    "faqAnswersInRawHtml": 3,
+    "phoneAndEmailPreserved": true,
+    "updatedDatePresent": true
+  }
+]

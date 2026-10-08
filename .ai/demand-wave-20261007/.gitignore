@@ -1,0 +1,4 @@
+*.html
+*.log
+chrome-profile/
+tmp/

@@ -1,0 +1,192 @@
+{
+  "checkedAt": "2026-10-07T04:39:36.582Z",
+  "base": "http://127.0.0.1:4417",
+  "records": [
+    {
+      "locale": "en",
+      "width": 375,
+      "height": 667,
+      "initial": {
+        "details": 3,
+        "open": 0,
+        "title": "Daily Video Script Pacing Calculator | Esteban Moreno Media",
+        "width": 375,
+        "viewport": 375
+      },
+      "estimate": "EST. DURATION\n30s",
+      "target": {
+        "x": 187.5,
+        "y": 328.4375,
+        "width": 301,
+        "height": 78.375
+      },
+      "opened": {
+        "open": true,
+        "text": "The calculator divides the number of words by the selected words per minute and multiplies by 60, then rounds to the nearest second. For example, 60 words at 120 words per minute gives an estimate of 30 seconds. It counts groups of characters separated by spaces, so a stage direction such as [pause] also counts if you leave it in the text. Paste spoken words only when checking duration. Changing the target duration changes the comparison with your estimate; it does not speed up the speaker or rewrite the script. Use the estimate to prepare a first read, then time that read before deciding what to cut.",
+        "size": "16px",
+        "lineHeight": "28px",
+        "width": 375,
+        "viewport": 375
+      },
+      "keyboardClose": true,
+      "scopedAxeViolations": []
+    },
+    {
+      "locale": "en",
+      "width": 390,
+      "height": 844,
+      "initial": {
+        "details": 3,
+        "open": 0,
+        "title": "Daily Video Script Pacing Calculator | Esteban Moreno Media",
+        "width": 390,
+        "viewport": 390
+      },
+      "estimate": "EST. DURATION\n30s",
+      "target": {
+        "x": 195,
+        "y": 328.4375,
+        "width": 316,
+        "height": 78.375
+      },
+      "opened": {
+        "open": true,
+        "text": "The calculator divides the number of words by the selected words per minute and multiplies by 60, then rounds to the nearest second. For example, 60 words at 120 words per minute gives an estimate of 30 seconds. It counts groups of characters separated by spaces, so a stage direction such as [pause] also counts if you leave it in the text. Paste spoken words only when checking duration. Changing the target duration changes the comparison with your estimate; it does not speed up the speaker or rewrite the script. Use the estimate to prepare a first read, then time that read before deciding what to cut.",
+        "size": "16px",
+        "lineHeight": "28px",
+        "width": 390,
+        "viewport": 390
+      },
+      "keyboardClose": true,
+      "scopedAxeViolations": []
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "height": 900,
+      "initial": {
+        "details": 3,
+        "open": 0,
+        "title": "Daily Video Script Pacing Calculator | Esteban Moreno Media",
+        "width": 1440,
+        "viewport": 1440
+      },
+      "estimate": "EST. DURATION\n30s",
+      "target": {
+        "x": 720,
+        "y": 270.75,
+        "width": 630,
+        "height": 76
+      },
+      "opened": {
+        "open": true,
+        "text": "The calculator divides the number of words by the selected words per minute and multiplies by 60, then rounds to the nearest second. For example, 60 words at 120 words per minute gives an estimate of 30 seconds. It counts groups of characters separated by spaces, so a stage direction such as [pause] also counts if you leave it in the text. Paste spoken words only when checking duration. Changing the target duration changes the comparison with your estimate; it does not speed up the speaker or rewrite the script. Use the estimate to prepare a first read, then time that read before deciding what to cut.",
+        "size": "16px",
+        "lineHeight": "28px",
+        "width": 1440,
+        "viewport": 1440
+      },
+      "keyboardClose": true,
+      "scopedAxeViolations": []
+    },
+    {
+      "locale": "en",
+      "noJs": true,
+      "details": 3,
+      "faqSchemaParity": true
+    },
+    {
+      "locale": "es",
+      "width": 375,
+      "height": 667,
+      "initial": {
+        "details": 3,
+        "open": 0,
+        "title": "Calculadora de Ritmo de Video y Guion Diario | Esteban Moreno Media",
+        "width": 375,
+        "viewport": 375
+      },
+      "estimate": "TIEMPO ESTIMADO\n30s",
+      "target": {
+        "x": 187.5,
+        "y": 296.4375,
+        "width": 301,
+        "height": 78.375
+      },
+      "opened": {
+        "open": true,
+        "text": "La calculadora divide la cantidad de palabras entre las palabras por minuto elegidas y multiplica por 60; después redondea al segundo más cercano. Por ejemplo, 60 palabras a 120 palabras por minuto dan una estimación de 30 segundos. Cuenta grupos de caracteres separados por espacios, así que una indicación como [pausa] también cuenta si la dejas en el texto. Pega solo las palabras que vas a decir al comprobar la duración. Cambiar la duración objetivo modifica la comparación con tu estimación; no acelera la voz ni reescribe el guion. Usa el resultado para preparar una primera lectura y cronómetrala antes de decidir qué recortar.",
+        "size": "16px",
+        "lineHeight": "28px",
+        "width": 375,
+        "viewport": 375
+      },
+      "keyboardClose": true,
+      "scopedAxeViolations": []
+    },
+    {
+      "locale": "es",
+      "width": 390,
+      "height": 844,
+      "initial": {
+        "details": 3,
+        "open": 0,
+        "title": "Calculadora de Ritmo de Video y Guion Diario | Esteban Moreno Media",
+        "width": 390,
+        "viewport": 390
+      },
+      "estimate": "TIEMPO ESTIMADO\n30s",
+      "target": {
+        "x": 195,
+        "y": 296.4375,
+        "width": 316,
+        "height": 78.375
+      },
+      "opened": {
+        "open": true,
+        "text": "La calculadora divide la cantidad de palabras entre las palabras por minuto elegidas y multiplica por 60; después redondea al segundo más cercano. Por ejemplo, 60 palabras a 120 palabras por minuto dan una estimación de 30 segundos. Cuenta grupos de caracteres separados por espacios, así que una indicación como [pausa] también cuenta si la dejas en el texto. Pega solo las palabras que vas a decir al comprobar la duración. Cambiar la duración objetivo modifica la comparación con tu estimación; no acelera la voz ni reescribe el guion. Usa el resultado para preparar una primera lectura y cronómetrala antes de decidir qué recortar.",
+        "size": "16px",
+        "lineHeight": "28px",
+        "width": 390,
+        "viewport": 390
+      },
+      "keyboardClose": true,
+      "scopedAxeViolations": []
+    },
+    {
+      "locale": "es",
+      "width": 1440,
+      "height": 900,
+      "initial": {
+        "details": 3,
+        "open": 0,
+        "title": "Calculadora de Ritmo de Video y Guion Diario | Esteban Moreno Media",
+        "width": 1440,
+        "viewport": 1440
+      },
+      "estimate": "TIEMPO ESTIMADO\n30s",
+      "target": {
+        "x": 720,
+        "y": 270.75,
+        "width": 630,
+        "height": 76
+      },
+      "opened": {
+        "open": true,
+        "text": "La calculadora divide la cantidad de palabras entre las palabras por minuto elegidas y multiplica por 60; después redondea al segundo más cercano. Por ejemplo, 60 palabras a 120 palabras por minuto dan una estimación de 30 segundos. Cuenta grupos de caracteres separados por espacios, así que una indicación como [pausa] también cuenta si la dejas en el texto. Pega solo las palabras que vas a decir al comprobar la duración. Cambiar la duración objetivo modifica la comparación con tu estimación; no acelera la voz ni reescribe el guion. Usa el resultado para preparar una primera lectura y cronómetrala antes de decidir qué recortar.",
+        "size": "16px",
+        "lineHeight": "28px",
+        "width": 1440,
+        "viewport": 1440
+      },
+      "keyboardClose": true,
+      "scopedAxeViolations": []
+    },
+    {
+      "locale": "es",
+      "noJs": true,
+      "details": 3,
+      "faqSchemaParity": true
+    }
+  ]
+}

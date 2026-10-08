@@ -1,0 +1,631 @@
+{
+  "retrievedAt": "2026-10-07T04:24:01.020726+00:00",
+  "site": "https://estebanmorenomedia.com/",
+  "request": {
+    "startDate": "2026-09-07",
+    "endDate": "2026-10-04",
+    "type": "web",
+    "dataState": "final",
+    "rowLimit": 25000,
+    "dimensions": [
+      "query",
+      "page"
+    ],
+    "aggregationType": "auto"
+  },
+  "response": {
+    "rows": [
+      {
+        "keys": [
+          "esteban moreno media",
+          "https://estebanmorenomedia.com/"
+        ],
+        "clicks": 2,
+        "impressions": 17,
+        "ctr": 0.11764705882352941,
+        "position": 8.941176470588236
+      },
+      {
+        "keys": [
+          "banacol",
+          "https://estebanmorenomedia.com/portfolio/banacol"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 39
+      },
+      {
+        "keys": [
+          "client testimonial video script",
+          "https://estebanmorenomedia.com/guides/customer-testimonial-video-script-template"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 73
+      },
+      {
+        "keys": [
+          "content editing services",
+          "https://estebanmorenomedia.com/"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
+      },
+      {
+        "keys": [
+          "crowdfunding video editor miami",
+          "https://estebanmorenomedia.com/services/crowdfunding-video-editor-miami"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "keys": [
+          "editor de reels fort lauderdale",
+          "https://estebanmorenomedia.com/areas"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 35.5
+      },
+      {
+        "keys": [
+          "editor de reels fort lauderdale",
+          "https://estebanmorenomedia.com/services/reels-editor-fort-lauderdale"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 15
+      },
+      {
+        "keys": [
+          "editor de reels miami",
+          "https://estebanmorenomedia.com/areas"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 74
+      },
+      {
+        "keys": [
+          "editor de video miami",
+          "https://estebanmorenomedia.com/"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 4
+      },
+      {
+        "keys": [
+          "editor de video miami",
+          "https://estebanmorenomedia.com/areas"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 42
+      },
+      {
+        "keys": [
+          "editor de videos cortos fort lauderdale",
+          "https://estebanmorenomedia.com/areas"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 86.5
+      },
+      {
+        "keys": [
+          "editor de videos cortos fort lauderdale",
+          "https://estebanmorenomedia.com/es/guias/editor-de-video-vs-videografo"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 4.5
+      },
+      {
+        "keys": [
+          "editor de videos cortos fort lauderdale",
+          "https://estebanmorenomedia.com/services/reels-editor-fort-lauderdale"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "keys": [
+          "editor de youtube miami",
+          "https://estebanmorenomedia.com/areas"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 53
+      },
+      {
+        "keys": [
+          "editora v\u00eddeo freelance",
+          "https://estebanmorenomedia.com/es/guias/editor-de-video-freelance-vs-agencia-de-postproduccion"
+        ],
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 46.25
+      },
+      {
+        "keys": [
+          "esteban",
+          "https://estebanmorenomedia.com/"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 11
+      },
+      {
+        "keys": [
+          "esteban moreno",
+          "https://estebanmorenomedia.com/"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 6
+      },
+      {
+        "keys": [
+          "esteban moreno",
+          "https://estebanmorenomedia.com/about"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 13.333333333333334
+      },
+      {
+        "keys": [
+          "esteban moreno media",
+          "https://estebanmorenomedia.com/about"
+        ],
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 2.6
+      },
+      {
+        "keys": [
+          "esteban moreno media",
+          "https://estebanmorenomedia.com/areas"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 1.3333333333333333
+      },
+      {
+        "keys": [
+          "esteban moreno media",
+          "https://estebanmorenomedia.com/case-studies/homeowners"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "keys": [
+          "esteban moreno media",
+          "https://estebanmorenomedia.com/contact"
+        ],
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 3.8333333333333335
+      },
+      {
+        "keys": [
+          "esteban moreno media",
+          "https://estebanmorenomedia.com/daily-publish-prompt"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 9.5
+      },
+      {
+        "keys": [
+          "esteban moreno media",
+          "https://estebanmorenomedia.com/es"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "keys": [
+          "esteban moreno media",
+          "https://estebanmorenomedia.com/portfolio"
+        ],
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 4.5
+      },
+      {
+        "keys": [
+          "esteban moreno media",
+          "https://estebanmorenomedia.com/portfolio/banacol"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 7
+      },
+      {
+        "keys": [
+          "esteban moreno media",
+          "https://estebanmorenomedia.com/portfolio/diana-jack"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "keys": [
+          "esteban moreno media",
+          "https://estebanmorenomedia.com/services"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 7.333333333333333
+      },
+      {
+        "keys": [
+          "esteban moreno media fort lauderdale",
+          "https://estebanmorenomedia.com/"
+        ],
+        "clicks": 0,
+        "impressions": 17,
+        "ctr": 0,
+        "position": 12
+      },
+      {
+        "keys": [
+          "film production miami cost",
+          "https://estebanmorenomedia.com/guides/corporate-video-production-cost-miami"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 78
+      },
+      {
+        "keys": [
+          "fort lauderdale video production",
+          "https://estebanmorenomedia.com/"
+        ],
+        "clicks": 0,
+        "impressions": 14,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "keys": [
+          "fotografia ecommerce tarifas",
+          "https://estebanmorenomedia.com/es/guias/cuanto-cuesta-la-fotografia-de-producto"
+        ],
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 65.5
+      },
+      {
+        "keys": [
+          "media",
+          "https://estebanmorenomedia.com/"
+        ],
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 3.5714285714285716
+      },
+      {
+        "keys": [
+          "moreno",
+          "https://estebanmorenomedia.com/"
+        ],
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 3
+      },
+      {
+        "keys": [
+          "moreno-media.com",
+          "https://estebanmorenomedia.com/areas"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 6
+      },
+      {
+        "keys": [
+          "moreno-media.com",
+          "https://estebanmorenomedia.com/portfolio"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "keys": [
+          "moreno-media.com",
+          "https://estebanmorenomedia.com/services/video-production-fort-lauderdale"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 3
+      },
+      {
+        "keys": [
+          "reel editor fort lauderdale",
+          "https://estebanmorenomedia.com/"
+        ],
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 2.25
+      },
+      {
+        "keys": [
+          "reel editor fort lauderdale",
+          "https://estebanmorenomedia.com/areas"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 46
+      },
+      {
+        "keys": [
+          "reel editor fort lauderdale",
+          "https://estebanmorenomedia.com/services/reels-editor-fort-lauderdale"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 2.5
+      },
+      {
+        "keys": [
+          "reel editor miami",
+          "https://estebanmorenomedia.com/areas"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 87
+      },
+      {
+        "keys": [
+          "remote video production company fort lauderdale",
+          "https://estebanmorenomedia.com/services/video-production-fort-lauderdale"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
+      },
+      {
+        "keys": [
+          "restaurant promo video editing miami",
+          "https://estebanmorenomedia.com/services/restaurant-promo-video-editing-miami"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "keys": [
+          "social media video production",
+          "https://estebanmorenomedia.com/"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "keys": [
+          "ugc video editor fort lauderdale",
+          "https://estebanmorenomedia.com/areas"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 14
+      },
+      {
+        "keys": [
+          "ugc video editor fort lauderdale",
+          "https://estebanmorenomedia.com/services"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 64
+      },
+      {
+        "keys": [
+          "video editing",
+          "https://estebanmorenomedia.com/"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 7.5
+      },
+      {
+        "keys": [
+          "video editing services",
+          "https://estebanmorenomedia.com/"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "keys": [
+          "video editing services fort lauderdale",
+          "https://estebanmorenomedia.com/"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "keys": [
+          "video editing services fort lauderdale",
+          "https://estebanmorenomedia.com/areas"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 95
+      },
+      {
+        "keys": [
+          "video editor fort lauderdale",
+          "https://estebanmorenomedia.com/"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "keys": [
+          "video editor fort lauderdale",
+          "https://estebanmorenomedia.com/areas"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 35
+      },
+      {
+        "keys": [
+          "video marketing",
+          "https://estebanmorenomedia.com/"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 6
+      },
+      {
+        "keys": [
+          "video production fort lauderdale",
+          "https://estebanmorenomedia.com/services/video-production-fort-lauderdale"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 5.333333333333333
+      },
+      {
+        "keys": [
+          "video production miami cost",
+          "https://estebanmorenomedia.com/guides/corporate-video-production-cost-miami"
+        ],
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 18.857142857142858
+      },
+      {
+        "keys": [
+          "video production service",
+          "https://estebanmorenomedia.com/"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "keys": [
+          "video production services",
+          "https://estebanmorenomedia.com/"
+        ],
+        "clicks": 0,
+        "impressions": 18,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "keys": [
+          "videographer",
+          "https://estebanmorenomedia.com/"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "keys": [
+          "vido editing",
+          "https://estebanmorenomedia.com/"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "keys": [
+          "web content fort lauderdale",
+          "https://estebanmorenomedia.com/"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 41
+      },
+      {
+        "keys": [
+          "youtube editor miami",
+          "https://estebanmorenomedia.com/areas"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 33
+      }
+    ],
+    "responseAggregationType": "byPage"
+  }
+}

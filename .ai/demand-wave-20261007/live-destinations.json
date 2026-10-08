@@ -1,0 +1,25 @@
+{
+  "checkedAt": "2026-10-07T04:34:36.542744+00:00",
+  "rows": [
+    {
+      "path": "/services/reels-editor-fort-lauderdale",
+      "status": 200,
+      "finalUrl": "https://estebanmorenomedia.com/services/reels-editor-fort-lauderdale",
+      "canonical": [
+        "https://estebanmorenomedia.com/services/reels-editor-fort-lauderdale"
+      ],
+      "hasEmail": true,
+      "hasPhone": true
+    },
+    {
+      "path": "/es/editor-de-reels-fort-lauderdale",
+      "status": 200,
+      "finalUrl": "https://estebanmorenomedia.com/es/editor-de-reels-fort-lauderdale",
+      "canonical": [
+        "https://estebanmorenomedia.com/es/editor-de-reels-fort-lauderdale"
+      ],
+      "hasEmail": true,
+      "hasPhone": true
+    }
+  ]
+}

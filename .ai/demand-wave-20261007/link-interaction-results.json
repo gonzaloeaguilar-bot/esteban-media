@@ -1,0 +1,24 @@
+[
+  {
+    "locale": "en",
+    "link": {
+      "x": 162.6875,
+      "y": 371.375,
+      "href": "/services/reels-editor-fort-lauderdale",
+      "hit": true,
+      "height": 44
+    },
+    "destination": "/services/reels-editor-fort-lauderdale"
+  },
+  {
+    "locale": "es",
+    "link": {
+      "x": 162.7109375,
+      "y": 371.375,
+      "href": "/es/editor-de-reels-fort-lauderdale",
+      "hit": true,
+      "height": 44
+    },
+    "destination": "/es/editor-de-reels-fort-lauderdale"
+  }
+]
