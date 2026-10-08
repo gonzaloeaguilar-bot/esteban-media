@@ -94,8 +94,8 @@ export function VideoBudgetEstimator({ locale = "en" }: VideoBudgetEstimatorProp
       return {
         priceRange: `${usd(weeklyOption.pricePerWeek)} USD`,
         period: isEs
-          ? `por semana (${n} ${n === 1 ? "video" : "videos"})`
-          : `per week (${n} ${n === 1 ? "video" : "videos"})`,
+          ? `por semana (${n} ${n === 1 ? "video" : "videos"}) · mínimo ${ARRANQUE_WEEKLY_TERMS.minimumWeeks} semanas, luego cancelas cuando quieras`
+          : `per week (${n} ${n === 1 ? "video" : "videos"}) · ${ARRANQUE_WEEKLY_TERMS.minimumWeeks}-week minimum, then cancel anytime`,
         turnaround: isEs
           ? `${ARRANQUE_WEEKLY_TERMS.deliveryHoursMin} - ${ARRANQUE_WEEKLY_TERMS.deliveryHoursMax} Horas por video`
           : `${ARRANQUE_WEEKLY_TERMS.deliveryHoursMin} - ${ARRANQUE_WEEKLY_TERMS.deliveryHoursMax} Hours per video`,

@@ -195,6 +195,8 @@ export const ARRANQUE_WEEKLY_TERMS = {
   maxFootageMinutes: 10,
   deliveryHoursMin: 48,
   deliveryHoursMax: 72,
+  /** Owner-approved 2026-10-08: weekly payment, 4-week minimum, then cancel any week. */
+  minimumWeeks: 4,
 } as const;
 
 export function arranqueWeeklyPerVideo(option: ArranqueWeeklyOption): number {
