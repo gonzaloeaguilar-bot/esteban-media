@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  arranqueWeeklyComparisonLine,
   arranqueWeeklyHref,
   arranqueWeeklyWhatsapp,
 } from "@/lib/arranque-weekly";
@@ -197,10 +198,10 @@ export function PackagesSection({ locale }: { locale: Locale }) {
 
                       {pkg.id === "arranque" ? (
                         <div className="em-pk-starter-options">
-                          {/* Tile 1: Per project */}
+                          {/* Tile 1: Single video */}
                           <div className="em-pk-starter-tile">
                             <p className="em-pk-starter-tile__name">
-                              {locale === "es" ? "Por proyecto" : "Per project"}
+                              {locale === "es" ? "1 video" : "Single video"}
                             </p>
                             <div className="em-pk-starter-tile__price">
                               <span className="em-pk-starter-tile__from">{copy.price.from}</span>
@@ -216,8 +217,8 @@ export function PackagesSection({ locale }: { locale: Locale }) {
                               href={whatsappHref(
                                 site.phone.e164,
                                 locale === "es"
-                                  ? `Hola Esteban, me interesa el paquete Arranque por proyecto (${usd(price.kind === "from" ? price.amount : 0)} por proyecto).`
-                                  : `Hi Esteban, I'm interested in the Starter package per project (${usd(price.kind === "from" ? price.amount : 0)} per project).`
+                                  ? `Hola Esteban, me interesa el paquete Arranque, 1 video (${price.kind === "from" ? `${usd(price.amount)} ${copy.price.units[price.unit]}` : copy.price.custom}).`
+                                  : `Hi Esteban, I'm interested in the Starter package, single video (${price.kind === "from" ? `${usd(price.amount)} ${copy.price.units[price.unit]}` : copy.price.custom}).`
                               )}
                               className="em-pkcard__cta"
                               target="_blank"
@@ -244,6 +245,7 @@ export function PackagesSection({ locale }: { locale: Locale }) {
                                 </div>
                               ))}
                             </div>
+                            <p className="em-pk-starter-tile__compare">{arranqueWeeklyComparisonLine(locale)}</p>
                             <div className="em-pk-starter-tile__chips">
                               <span className="em-pk-starter-pill">
                                 {locale === "es" ? "Pago semanal" : "Paid weekly"}

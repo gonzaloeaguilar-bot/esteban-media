@@ -50,7 +50,7 @@ export const NIGHTLIFE_DEEP_DIVE: DeepDive = {
     {
       heading: "How much does a nightclub or bar promo video cost in Miami?",
       paragraphs: [
-        `If you already have the footage, the [Starter](/pricing/starter) package is remote editing from ${starterEn} per project, with one round of revisions and a format for Reels, TikTok, YouTube or the web. The calculator's short-form social band is ${social} per project, an indicative editing-led freelancer range with an introductory discount applied.`,
+        `If you already have the footage, the [Starter](/pricing/starter) package is remote editing from ${starterEn} per video, with one round of revisions and a format for Reels, TikTok, YouTube or the web. The calculator's short-form social band is ${social} per project, an indicative editing-led freelancer range with an introductory discount applied.`,
         "Neither figure is a quote. The price moves with how much footage there is, how many versions you need (a vertical reel and a horizontal cut are two edits), and whether the music you want can legally be used on the platform. Send a link to the raw files and one sentence on where the video will run, and the estimate becomes a scoped price.",
       ],
     },
@@ -101,7 +101,7 @@ export const HOTEL_DEEP_DIVE: DeepDive = {
       heading: "What should a hotel or rental host send before asking for a quote?",
       paragraphs: [
         "Four things make a quote exact. First, where the video will live: the booking page, Instagram, a listing on a rental platform, or a sales deck for events. Second, the spaces, in order of importance, with any that are off limits. Third, whether you already hold footage or photos, as original files rather than copies saved from a messaging app, which have already lost detail.",
-        `Fourth, who must approve the final cut and how many rounds of changes that usually takes; Starter includes one round of revisions on remote edits from ${starterEn} per project. A boutique hotel or short-term rental with a phone full of clips can often start there, and only book a filmed day once it knows which spaces actually earn bookings.`,
+        `Fourth, who must approve the final cut and how many rounds of changes that usually takes; Starter includes one round of revisions on remote edits from ${starterEn} per video. A boutique hotel or short-term rental with a phone full of clips can often start there, and only book a filmed day once it knows which spaces actually earn bookings.`,
       ],
     },
     {
@@ -121,7 +121,7 @@ export const NIGHTLIFE_ES_SECTIONS: readonly SpanishNicheSection[] = [
   {
     heading: "¿Cuánto cuesta un video promocional para una discoteca o un bar en Miami?",
     paragraphs: [
-      `Si ya tienes el material grabado, el paquete [Arranque](/es/precios/arranque) es edición remota desde ${starterEs} por proyecto, con una ronda de revisión y formato para Reels, TikTok, YouTube o web. La banda de video corto para redes de la calculadora es ${social} por proyecto: un rango indicativo de editor independiente, con un descuento de introducción ya aplicado.`,
+      `Si ya tienes el material grabado, el paquete [Arranque](/es/precios/arranque) es edición remota desde ${starterEs} por video, con una ronda de revisión y formato para Reels, TikTok, YouTube o web. La banda de video corto para redes de la calculadora es ${social} por proyecto: un rango indicativo de editor independiente, con un descuento de introducción ya aplicado.`,
       "Ninguna de las dos cifras es una cotización. El precio cambia según cuánto material hay, cuántas versiones necesitas (un reel vertical y un corte horizontal son dos ediciones) y si la música que quieres se puede usar legalmente en la plataforma. Manda el enlace a los archivos originales y una frase sobre dónde se va a publicar el video, y el estimado se convierte en un precio con alcance definido.",
     ],
   },
@@ -170,7 +170,7 @@ export const HOTEL_ES_SECTIONS: readonly SpanishNicheSection[] = [
     heading: "¿Qué debe enviar un hotel o un anfitrión de alquiler antes de pedir cotización?",
     paragraphs: [
       "Cuatro cosas hacen exacta una cotización. Primero, dónde va a vivir el video: la página de reservas, Instagram, un anuncio en una plataforma de alquiler o una presentación de ventas para eventos. Segundo, los espacios por orden de importancia, con los que no se pueden grabar. Tercero, si ya tienes videos o fotos, como archivos originales y no copias guardadas desde una app de mensajería, que ya perdieron detalle.",
-      `Cuarto, quién aprueba el corte final y cuántas rondas de cambios suele tomar; Arranque incluye una ronda de revisión en ediciones remotas desde ${starterEs} por proyecto. Un hotel boutique o un alquiler de corta estancia con el teléfono lleno de clips puede empezar ahí, y reservar un día de grabación solo cuando sepa qué espacios de verdad generan reservas.`,
+      `Cuarto, quién aprueba el corte final y cuántas rondas de cambios suele tomar; Arranque incluye una ronda de revisión en ediciones remotas desde ${starterEs} por video. Un hotel boutique o un alquiler de corta estancia con el teléfono lleno de clips puede empezar ahí, y reservar un día de grabación solo cuando sepa qué espacios de verdad generan reservas.`,
     ],
   },
   {

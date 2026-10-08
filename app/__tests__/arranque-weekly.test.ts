@@ -4,6 +4,7 @@ import { describe, expect, it } from "vitest";
 import {
   ARRANQUE_WEEKLY_PAGES,
   ARRANQUE_WEEKLY_SPANISH_SLUGS,
+  arranqueWeeklyComparisonLine,
   arranqueWeeklyCopy,
   arranqueWeeklyCtaId,
   arranqueWeeklyFaq,
@@ -41,13 +42,30 @@ describe("Arranque weekly plan", () => {
     expect(ARRANQUE_WEEKLY_TERMS).toEqual({ maxVideoSeconds: 90, maxFootageMinutes: 10, deliveryHoursMin: 48, deliveryHoursMax: 72 });
   });
 
-  it.each(locales)("%s: no separate package name, no discount framing, no per-video comparison", (locale) => {
-    const text = allCopy(locale).join("\n");
-    for (const banned of [/Crecimiento/, /Esencial/, /Growth/, /Essential/, /Edici[oó]n para creadores/i, /Creator editing/i, /cortes[ií]a/i, /[-−]\s?\d+\s?%/, /ahorr/i, /valor normal/i, /\bsave\b/i, /\$100/, /suelto/i]) {
+  it.each(locales)("%s: no separate package name, no discount framing", (locale) => {
+    const text = [...allCopy(locale), arranqueWeeklyCopy(locale).comparison].join("\n");
+    for (const banned of [/Crecimiento/, /Esencial/, /Growth/, /Essential/, /Edici[oó]n para creadores/i, /Creator editing/i, /cortes[ií]a/i, /\d+\s?%/, /ahorr/i, /descuento/i, /discount/i, /valor normal/i, /\bsave\b/i]) {
       expect(text, String(banned)).not.toMatch(banned);
     }
     expect(text).toMatch(locale === "es" ? /Arranque semanal/ : /Weekly Starter/);
     expect(text).toMatch(locale === "es" ? /desde \$80 por video/ : /from \$80 per video/);
+  });
+
+  // Arranque is one video edit (owner, 2026-10-08): the honest comparison is published.
+  it("compares weekly per-video price with a single video, computed from lib/pricing.ts", () => {
+    expect(arranqueWeeklyComparisonLine("es")).toBe("desde $80 por video vs $100 un video suelto");
+    expect(arranqueWeeklyComparisonLine("en")).toBe("from $80 per video vs $100 for a single video");
+    expect(arranqueWeeklyCopy("es").comparison).toBe(arranqueWeeklyComparisonLine("es"));
+    const body = source("lib/arranque-weekly.ts").match(/export function arranqueWeeklyComparisonLine[\s\S]*?\n}\n/)?.[0] ?? "";
+    expect(body).toContain("PACKAGE_PRICES.arranque");
+    expect(body).not.toMatch(/\b(?:80|100)\b/);
+  });
+
+  it("renders the comparison in the weekly section and on the Starter weekly tile, with no badge or strikethrough", () => {
+    expect(source("components/arranque-weekly-section.tsx")).toContain("{c.comparison}");
+    const card = source("components/packages-section.tsx");
+    expect(card).toContain("arranqueWeeklyComparisonLine(locale)");
+    expect(card).not.toMatch(/line-through|<s>|<del>|badge/i);
   });
 
   it.each(locales)("%s: ten FAQs from the proposal, numbers from the terms", (locale) => {

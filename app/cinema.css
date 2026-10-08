@@ -1787,6 +1787,15 @@ html.rail-anim .em-pk-steps__list.rail-reveal.is-in li:nth-child(3) { transition
   gap: 8px;
   flex-wrap: wrap;
 }
+.em-pk-starter-tile__compare {
+  margin: 10px 0 0;
+  font-family: var(--font-geist-sans), sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.4;
+  text-wrap: balance;
+  color: #3d3732;
+}
 .em-pk-starter-tile__chips {
   display: flex;
   flex-wrap: wrap;

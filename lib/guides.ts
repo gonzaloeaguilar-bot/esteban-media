@@ -2439,7 +2439,7 @@ const guidePairs: readonly GuidePair[] = [
         "Compare Fort Lauderdale video editors and production studios for social media reels. Review published rates, deliverables, footage requirements, and workflows.",
       eyebrow: "Budgeting / Fort Lauderdale",
       answer:
-        "For small businesses in Fort Lauderdale hiring video editors for social media videos and Instagram Reels, dedicated remote editing packages start from $100 per project or $640 monthly, whereas full on-location commercial production days start from $800 to $2,500.",
+        "For small businesses in Fort Lauderdale hiring video editors for social media videos and Instagram Reels, dedicated remote editing packages start from $100 per video or $640 monthly, whereas full on-location commercial production days start from $800 to $2,500.",
       proof: {
         href: "/portfolio/my-dler",
         title: "My D'ler",
@@ -2473,11 +2473,11 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "What are Esteban’s package starting prices?",
           paragraphs: [
-            "Esteban Moreno Media provides a focused, editing-led model based in Fort Lauderdale. With remote editing packages starting from $100 per project ([Starter package](/pricing/starter)) and ongoing monthly content management starting from $640/month ([Growth package](/pricing/growth)), small businesses get dedicated bilingual editing, sound design, and vertical formatting without studio markups. When physical filming is required, local production days start from $800 ([Local Presence package](/pricing/local-presence)).",
+            "Esteban Moreno Media provides a focused, editing-led model based in Fort Lauderdale. With remote editing packages starting from $100 per video ([Starter package](/pricing/starter)) and ongoing monthly content management starting from $640/month ([Growth package](/pricing/growth)), small businesses get dedicated bilingual editing, sound design, and vertical formatting without studio markups. When physical filming is required, local production days start from $800 ([Local Presence package](/pricing/local-presence)).",
             "Compare the named package with the work you actually need. Ask the written proposal to distinguish supplied footage, filming, editing, and final versions so that the starting price and the complete scope stay connected.",
           ],
           bullets: [
-            "Editing-led boutique studio (Esteban Moreno Media): Clear starting packages ($100 project / $640 month), rapid turnaround, and bilingual English/Spanish delivery",
+            "Editing-led boutique studio (Esteban Moreno Media): Clear starting packages ($100 per video / $640 per month), rapid turnaround, and bilingual English/Spanish delivery",
           ],
         },
         {
@@ -2510,7 +2510,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           question: "How much does it cost to hire a video editor in Fort Lauderdale for social media reels?",
           answer:
-            "Remote editing for single social media reels starts from $100 per project (Starter package), while ongoing monthly editing packages start from $640 per month (Growth package). On-location filming with post-production starts from $800 per production day.",
+            "Remote editing for single social media reels starts from $100 per video (Starter package), while ongoing monthly editing packages start from $640 per month (Growth package). On-location filming with post-production starts from $800 per production day.",
         },
         {
           question: "What is the difference between hiring a freelance editor and a full video production company?",
@@ -2537,7 +2537,7 @@ const guidePairs: readonly GuidePair[] = [
         "Compara opciones de edición de video y productoras en Fort Lauderdale para reels de Instagram y TikTok. Conoce tarifas publicadas, entregables y flujos de trabajo.",
       eyebrow: "Presupuesto / Fort Lauderdale",
       answer:
-        "Para pequeños negocios en Fort Lauderdale que buscan editores de video para redes sociales y reels de Instagram, los paquetes de edición remota parten desde $100 por proyecto o $640 al mes, mientras que las jornadas de producción en locación parten desde $800 a $2,500.",
+        "Para pequeños negocios en Fort Lauderdale que buscan editores de video para redes sociales y reels de Instagram, los paquetes de edición remota parten desde $100 por video o $640 al mes, mientras que las jornadas de producción en locación parten desde $800 a $2,500.",
       proof: {
         href: "/es/portafolio/my-dler",
         title: "My D'ler",
@@ -2571,11 +2571,11 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "¿Desde cuánto cuestan los paquetes de Esteban?",
           paragraphs: [
-            "Esteban Moreno Media ofrece un modelo directo y ágil desde Fort Lauderdale. Con paquetes de edición remota desde $100 por proyecto ([paquete Arranque](/es/precios/arranque)) y planes mensuales desde $640 al mes ([paquete Crecimiento](/es/precios/crecimiento)), los negocios obtienen postproducción profesional, diseño sonoro y entregas bilingües sin costos de agencia. Para rodajes presenciales, las jornadas de producción parten desde $800 ([paquete Presencia Local](/es/precios/presencia-local)).",
+            "Esteban Moreno Media ofrece un modelo directo y ágil desde Fort Lauderdale. Con paquetes de edición remota desde $100 por video ([paquete Arranque](/es/precios/arranque)) y planes mensuales desde $640 al mes ([paquete Crecimiento](/es/precios/crecimiento)), los negocios obtienen postproducción profesional, diseño sonoro y entregas bilingües sin costos de agencia. Para rodajes presenciales, las jornadas de producción parten desde $800 ([paquete Presencia Local](/es/precios/presencia-local)).",
             "Compara el paquete con el trabajo que realmente necesitas para tu negocio. Pide que la propuesta escrita distinga el material que ya tienes, la grabación, la edición y las versiones finales. Así puedes relacionar el precio inicial con el pedido completo antes de contratar.",
           ],
           bullets: [
-            "Estudio de edición especializado (Esteban Moreno Media): Paquetes claros ($100 proyecto / $640 mes), entregas rápidas y atención bilingüe en español e inglés",
+            "Estudio de edición especializado (Esteban Moreno Media): Paquetes claros ($100 por video / $640 al mes), entregas rápidas y atención bilingüe en español e inglés",
           ],
         },
         {
@@ -2608,7 +2608,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           question: "¿Cuánto cuesta contratar un editor de video en Fort Lauderdale para reels y redes sociales?",
           answer:
-            "La edición remota de videos individuales para redes sociales parte desde $100 por proyecto (paquete Arranque), mientras que los planes mensuales de contenido parten desde $640 al mes (paquete Crecimiento). Las grabaciones en locación con edición incluida parten desde $800 por día de producción.",
+            "La edición remota de videos individuales para redes sociales parte desde $100 por video (paquete Arranque), mientras que los planes mensuales de contenido parten desde $640 al mes (paquete Crecimiento). Las grabaciones en locación con edición incluida parten desde $800 por día de producción.",
         },
         {
           question: "¿Cuál es la diferencia entre contratar un freelancer y una productora de video?",
@@ -4096,7 +4096,7 @@ const guidePairs: readonly GuidePair[] = [
       title: "How much does a restaurant video cost in Miami?",
       description: "Compare Esteban's restaurant editing starting prices, indicative filming ranges, and monthly options before requesting a Miami restaurant video quote.",
       eyebrow: "Restaurant video costs",
-      answer: `Esteban Moreno Media's Starter editing package starts from ${packageGuidePrice("arranque")} per project; restaurant filming can be scoped through Local Presence from ${packageGuidePrice("presencia-local")} per production day. Existing footage, filming needs, finished versions, and publishing frequency change the quote.`,
+      answer: `Esteban Moreno Media's Starter editing package starts from ${packageGuidePrice("arranque")} per video; restaurant filming can be scoped through Local Presence from ${packageGuidePrice("presencia-local")} per production day. Existing footage, filming needs, finished versions, and publishing frequency change the quote.`,
       proof: {
         href: "/portfolio/bar-door-monkey",
         title: "Bar Door Monkey Miami",
@@ -4106,7 +4106,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "What does restaurant video editing start from?",
           paragraphs: [
-            `The [Starter package](/pricing/starter) starts from ${packageGuidePrice("arranque")} per project, while [Growth](/pricing/growth) starts from ${packageGuidePrice("crecimiento")} per month. These are Esteban's package starting points. They are useful when you already record your food, team, or dining room and need help turning that material into finished posts. A package name alone does not confirm the number of videos, filming, or every requested version.`,
+            `The [Starter package](/pricing/starter) starts from ${packageGuidePrice("arranque")} per video, while [Growth](/pricing/growth) starts from ${packageGuidePrice("crecimiento")} per month. These are Esteban's package starting points. They are useful when you already record your food, team, or dining room and need help turning that material into finished posts. A package name alone does not confirm the number of videos, filming, or every requested version.`,
             `For a separately scoped short-form edit, the calculator's indicative band is ${usd(PRICING_BANDS.social.baseMin)}–${usd(PRICING_BANDS.social.baseMax)}. It reflects an editing-led freelancer model with an introductory discount already applied, rather than a binding quote. Do not add that range to a package automatically: ask which approach fits your footage and intended posts. Full-crew Miami production companies quote a different model, so their proposals should be compared by included work.`,
           ],
         },
@@ -4133,7 +4133,7 @@ const guidePairs: readonly GuidePair[] = [
         },
       ],
       faqs: [
-        { question: "What is Esteban's starting price for an editing project?", answer: `Starter begins from ${packageGuidePrice("arranque")} per project. The short-form calculator band is separately ${usd(PRICING_BANDS.social.baseMin)}–${usd(PRICING_BANDS.social.baseMax)}. The quote identifies which scope applies.` },
+        { question: "What is Esteban's starting price for an editing project?", answer: `Starter begins from ${packageGuidePrice("arranque")} per video. The short-form calculator band is separately ${usd(PRICING_BANDS.social.baseMin)}–${usd(PRICING_BANDS.social.baseMax)}. The quote identifies which scope applies.` },
         { question: "Is restaurant filming included in the editing price?", answer: `Do not assume it is included. The half-day capture add-on is an indicative ${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)}, while Local Presence starts from ${packageGuidePrice("presencia-local")} per production day.` },
         { question: "Is there a monthly option?", answer: `Growth starts from ${packageGuidePrice("crecimiento")} per month. Confirm the content scope and whether filming is required before comparing it with a standalone edit.` },
         { question: "Can I see a restaurant example?", answer: "See the [Bar Door Monkey project](/portfolio/bar-door-monkey), a Miami restaurant promo with videography and editing for Instagram. Its published credits do not establish your project's price." },
@@ -4145,7 +4145,7 @@ const guidePairs: readonly GuidePair[] = [
       title: "¿Cuánto cuesta un video para restaurante en Miami?",
       description: "Revisa los precios iniciales de edición de Esteban, los rangos orientativos de grabación y las opciones mensuales para tu restaurante en Miami.",
       eyebrow: "Precios para restaurantes",
-      answer: `El paquete Arranque de Esteban Moreno Media parte desde ${packageGuidePrice("arranque")} por proyecto de edición; para grabar en tu restaurante, Presencia Local parte desde ${packageGuidePrice("presencia-local")} por jornada de producción. El material disponible, la grabación, las versiones y la frecuencia de publicación cambian la cotización.`,
+      answer: `El paquete Arranque de Esteban Moreno Media parte desde ${packageGuidePrice("arranque")} por video; para grabar en tu restaurante, Presencia Local parte desde ${packageGuidePrice("presencia-local")} por jornada de producción. El material disponible, la grabación, las versiones y la frecuencia de publicación cambian la cotización.`,
       proof: {
         href: "/es/portafolio/bar-door-monkey",
         title: "Bar Door Monkey Miami",
@@ -4155,7 +4155,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "¿Cuánto cuesta editar material que ya tienes?",
           paragraphs: [
-            `[Arranque](/es/precios/arranque) parte desde ${packageGuidePrice("arranque")} por proyecto y [Crecimiento](/es/precios/crecimiento) desde ${packageGuidePrice("crecimiento")} al mes. Son precios iniciales de los paquetes de Esteban. Si ya grabas platos, al equipo o el ambiente del local, sirven para empezar a conversar sobre la edición. El nombre del paquete no confirma por sí solo cuántos videos recibirás ni si incluye grabación.`,
+            `[Arranque](/es/precios/arranque) parte desde ${packageGuidePrice("arranque")} por video y [Crecimiento](/es/precios/crecimiento) desde ${packageGuidePrice("crecimiento")} al mes. Son precios iniciales de los paquetes de Esteban. Si ya grabas platos, al equipo o el ambiente del local, sirven para empezar a conversar sobre la edición. El nombre del paquete no confirma por sí solo cuántos videos recibirás ni si incluye grabación.`,
             `Para una edición de formato corto cotizada por separado, la calculadora muestra un rango orientativo de ${usd(PRICING_BANDS.social.baseMin)}–${usd(PRICING_BANDS.social.baseMax)}. Corresponde a un profesional independiente enfocado en edición, con el descuento introductorio aplicado; no es una cotización cerrada. No lo sumes automáticamente a un paquete. Las productoras de Miami con equipos completos trabajan con otro modelo: compara lo que incluye cada propuesta antes de comparar sus totales.`,
           ],
         },
@@ -4176,13 +4176,13 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "¿Qué necesitas enviar para recibir una cotización?",
           paragraphs: [
-            `Comparte la ubicación del restaurante, los platos o la experiencia que quieres destacar y los canales donde publicarás. Aclara si tienes archivos originales o necesitas grabación. Arranque parte desde ${packageGuidePrice("arranque")} por proyecto de edición, pero ese precio inicial no sustituye revisar el material y acordar las piezas que necesitas. Adjunta muestras que permitan entender tu punto de partida.`,
+            `Comparte la ubicación del restaurante, los platos o la experiencia que quieres destacar y los canales donde publicarás. Aclara si tienes archivos originales o necesitas grabación. Arranque parte desde ${packageGuidePrice("arranque")} por video, pero ese precio inicial no sustituye revisar el material y acordar las piezas que necesitas. Adjunta muestras que permitan entender tu punto de partida.`,
             "Indica las versiones finales, el idioma, los subtítulos, la fecha solicitada y quién aprobará los cambios. Si vas a pautar el video, menciónalo al conversar sobre música y otros recursos. Puedes usar la [calculadora de presupuesto](/es/calculadora) como orientación y enviar la información por [contacto](/es/contacto). Al terminar esta conversación, debes tener una cotización escrita con el trabajo incluido, las revisiones y las fechas acordadas. El resultado de la calculadora por sí solo no reserva una grabación.",
           ],
         },
       ],
       faqs: [
-        { question: "¿Cuál es el precio inicial de edición?", answer: `Arranque parte desde ${packageGuidePrice("arranque")} por proyecto. El rango de formato corto de la calculadora es, por separado, ${usd(PRICING_BANDS.social.baseMin)}–${usd(PRICING_BANDS.social.baseMax)}. La cotización indica cuál corresponde a tu pedido.` },
+        { question: "¿Cuál es el precio inicial de edición?", answer: `Arranque parte desde ${packageGuidePrice("arranque")} por video. El rango de formato corto de la calculadora es, por separado, ${usd(PRICING_BANDS.social.baseMin)}–${usd(PRICING_BANDS.social.baseMax)}. La cotización indica cuál corresponde a tu pedido.` },
         { question: "¿La edición incluye grabar en mi restaurante?", answer: `Debes confirmarlo. El complemento de media jornada tiene un rango orientativo de ${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)}; Presencia Local parte desde ${packageGuidePrice("presencia-local")} por jornada de producción.` },
         { question: "¿Hay una opción mensual?", answer: `Crecimiento parte desde ${packageGuidePrice("crecimiento")} al mes. Confirma las piezas incluidas y si necesitas grabación antes de compararlo con un proyecto de edición individual.` },
         { question: "¿Dónde puedo ver un ejemplo para restaurantes?", answer: "Mira el [proyecto Bar Door Monkey](/es/portafolio/bar-door-monkey), con grabación y edición para el Instagram de un restaurante de Miami. Sus créditos no establecen el precio de tu proyecto." },

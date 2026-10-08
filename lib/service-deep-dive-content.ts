@@ -90,7 +90,7 @@ export const WHITE_LABEL_DEEP_DIVE: DeepDive = {
     {
       heading: "How much does white-label video editing cost?",
       paragraphs: [
-        `Esteban's [Starter package](/pricing/starter), remote editing of footage you already have, starts from ${wlStarterFrom} per project with one revision round included. For a scoped estimate, the calculator's short-form band is ${usd(wlSocialBand.baseMin)}–${usd(wlSocialBand.baseMax)} per project and its YouTube band is ${usd(wlYoutubeBand.baseMin)}–${usd(wlYoutubeBand.baseMax)} per edit. Both are editing-led freelancer ranges with a 10% introductory discount, checked against published market rates of ${usd(wlSocialBand.marketMin)}–${usd(wlSocialBand.marketMax)} and ${usd(wlYoutubeBand.marketMin)}–${usd(wlYoutubeBand.marketMax)}.`,
+        `Esteban's [Starter package](/pricing/starter), remote editing of footage you already have, starts from ${wlStarterFrom} per video with one revision round included. For a scoped estimate, the calculator's short-form band is ${usd(wlSocialBand.baseMin)}–${usd(wlSocialBand.baseMax)} per project and its YouTube band is ${usd(wlYoutubeBand.baseMin)}–${usd(wlYoutubeBand.baseMax)} per edit. Both are editing-led freelancer ranges with a 10% introductory discount, checked against published market rates of ${usd(wlSocialBand.marketMin)}–${usd(wlSocialBand.marketMax)} and ${usd(wlYoutubeBand.marketMin)}–${usd(wlYoutubeBand.marketMax)}.`,
         `A studio sending regular volume can price 15 short-form videos a month at ${wlMonthlyMin}–${wlMonthlyMax} in the same calculator. None of these is a quote. The price of a white-label job is set once Esteban has seen the footage, the deliverable list and the number of revision rounds the studio sold to its own client, so send one representative project first and price the rest from it.`,
       ],
     },
@@ -226,7 +226,7 @@ export const GYM_DEEP_DIVE: DeepDive = {
     {
       heading: "How much does a gym promo video cost in Miami?",
       paragraphs: [
-        `If your trainers already film on their phones, editing starts from ${starterFrom} per project on the [Starter package](/pricing/starter): remote editing, a cut formatted for Reels, TikTok, YouTube or the web, and one revision round. For a short promo or a social ad, the calculator's short-form editing band is ${socialBand} per project. Both figures are indicative: they are editing-led freelancer rates with an introductory discount applied, and the written quote sets the actual scope.`,
+        `If your trainers already film on their phones, editing starts from ${starterFrom} per video on the [Starter package](/pricing/starter): remote editing, a cut formatted for Reels, TikTok, YouTube or the web, and one revision round. For a short promo or a social ad, the calculator's short-form editing band is ${socialBand} per project. Both figures are indicative: they are editing-led freelancer rates with an introductory discount applied, and the written quote sets the actual scope.`,
         "The price moves with three things: how much raw footage there is, how many finished versions you need (a 30-second ad and three vertical cuts are four deliverables, not one), and whether anything has to be filmed. A gym that sends organised clips and a clear brief sits at the bottom of the band. A studio that needs the shoot as well belongs in the next section.",
       ],
     },
@@ -269,7 +269,7 @@ export const SALON_COST_DEEP_DIVE: DeepDive = {
     {
       heading: "How much does salon or barbershop video cost in Miami?",
       paragraphs: [
-        `If the shop already films transformations on a phone, editing starts from ${starterFrom} per project on the [Starter package](/pricing/starter): remote editing, vertical cuts for Reels or TikTok, and one revision round. A finished promo or social ad sits in the calculator's short-form band of ${socialBand} per project. Both are indicative, editing-led freelancer figures with an introductory discount applied; the written quote sets the real scope.`,
+        `If the shop already films transformations on a phone, editing starts from ${starterFrom} per video on the [Starter package](/pricing/starter): remote editing, vertical cuts for Reels or TikTok, and one revision round. A finished promo or social ad sits in the calculator's short-form band of ${socialBand} per project. Both are indicative, editing-led freelancer figures with an introductory discount applied; the written quote sets the real scope.`,
         "What moves the number is volume and order. A week of before, during and reveal clips, filmed from the same marked spot, edits quickly. Unlabelled clips from several stations, in mixed light, take longer, because colour has to be matched before the cut can even start. A note of which clients agreed to appear is part of the brief, not an extra.",
       ],
     },
@@ -298,7 +298,7 @@ export const SPA_DEEP_DIVE: DeepDive = {
     {
       heading: "How much does a spa promotional video cost in Miami?",
       paragraphs: [
-        `Editing footage the spa already has starts from ${starterFrom} per project on the [Starter package](/pricing/starter), with the cut formatted for Reels, TikTok, YouTube or the web and one revision round. A finished promotional piece or social ad falls in the calculator's short-form band of ${socialBand} per project. Both are indicative editing-led freelancer figures with an introductory discount applied, and the written quote sets the scope.`,
+        `Editing footage the spa already has starts from ${starterFrom} per video on the [Starter package](/pricing/starter), with the cut formatted for Reels, TikTok, YouTube or the web and one revision round. A finished promotional piece or social ad falls in the calculator's short-form band of ${socialBand} per project. Both are indicative editing-led freelancer figures with an introductory discount applied, and the written quote sets the scope.`,
         "A spa promo usually needs less footage than people expect and more care in the edit: slower pacing, steady shots of rooms, water, textures and light, and sound that does not jar. The number moves with how many versions you need (a website header, a vertical post and a short ad are three deliverables) and with whether anything has to be filmed.",
       ],
     },
