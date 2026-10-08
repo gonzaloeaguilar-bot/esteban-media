@@ -5,7 +5,7 @@ import { describe, expect, it } from "vitest";
 import sitemap from "@/app/sitemap";
 import { getGuides } from "@/lib/guides";
 import { getSpanishNichePage } from "@/lib/spanish-site";
-import { PRICING_BANDS, usd } from "@/lib/pricing";
+import { PRICING_BANDS, SHORT_FORM, usd } from "@/lib/pricing";
 
 describe("US-Spanish money pages & contextual linking", () => {
   const source = readFileSync(join(process.cwd(), "lib/spanish-site.ts"), "utf8");
@@ -58,8 +58,8 @@ describe("US-Spanish money pages & contextual linking", () => {
     expect(miami).toBeDefined();
     expect(miamiEditor).toBeDefined();
 
-    const expectedSocialMin = usd(PRICING_BANDS.social.baseMin);
-    const expectedSocialMax = usd(PRICING_BANDS.social.baseMax);
+    const expectedSocialMin = usd(SHORT_FORM.weekly[0].pricePerWeek);
+    const expectedSocialMax = usd(SHORT_FORM.weekly[1].pricePerWeek);
 
     const ftlPriceSection = ftl?.sections?.find((s) => s.heading.includes("Cuánto cuesta"));
     expect(ftlPriceSection).toBeDefined();

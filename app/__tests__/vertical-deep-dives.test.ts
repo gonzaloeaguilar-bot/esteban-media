@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { PACKAGE_PRICES, PRICING_BANDS, usd } from "@/lib/pricing";
+import { PACKAGE_PRICES, PRICING_BANDS, SHORT_FORM, usd } from "@/lib/pricing";
 import { getSpanishNichePage } from "@/lib/spanish-site";
 import {
   AUTOMOTIVE_DEEP_DIVE,
@@ -45,8 +45,8 @@ describe("vertical deep dives (automotive, dental, med spa, yacht charter)", () 
       const [cost] = sections;
       expect(cost.heading).toMatch(/cost|cuesta/i);
       const text = cost.paragraphs.join(" ");
-      expect(text).toContain(usd(PRICING_BANDS.social.baseMin));
-      expect(text).toContain(usd(PRICING_BANDS.social.baseMax));
+      // Short-form is priced like Starter (2026-10-08): per video, and weekly.
+      for (const o of SHORT_FORM.weekly) expect(text).toContain(usd(o.pricePerWeek));
       const starter = PACKAGE_PRICES.arranque;
       if (starter.kind === "from") expect(text).toContain(usd(starter.amount));
     });
@@ -62,6 +62,7 @@ describe("vertical deep dives (automotive, dental, med spa, yacht charter)", () 
         published.add(usd(band.baseMax));
       }
       for (const p of Object.values(PACKAGE_PRICES)) if (p.kind === "from") published.add(usd(p.amount));
+      for (const o of SHORT_FORM.weekly) published.add(usd(o.pricePerWeek));
       for (const figure of text.match(/\$\d{1,3}(?:,\d{3})*/g) ?? []) expect(published, figure).toContain(figure);
     });
   }

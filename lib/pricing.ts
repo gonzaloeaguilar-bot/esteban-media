@@ -12,8 +12,10 @@
 //
 // Output stays an indicative range; the UI requires a scoped quote.
 
+// Short-form social is NOT a band any more: it is priced like Starter (see
+// SHORT_FORM below), because a $350-675 "single video" band contradicted the
+// owner-confirmed Starter ($100 per video) on the same site (2026-10-08).
 export type PricingBandId =
-  | "social"
   | "youtube"
   | "corporate"
   | "realestate"
@@ -33,14 +35,6 @@ export type PricingBand = {
 };
 
 export const PRICING_BANDS: Record<PricingBandId, PricingBand> = {
-  social: {
-    id: "social",
-    baseMin: 350,
-    baseMax: 675,
-    marketMin: 100,
-    marketMax: 500,
-    source: "market $100-500 per short-form project",
-  },
   youtube: {
     id: "youtube",
     baseMin: 450,
@@ -212,3 +206,41 @@ export const ARRANQUE_WEEKLY_FROM = {
   perWeek: Math.min(...ARRANQUE_WEEKLY_OPTIONS.map((o) => o.pricePerWeek)),
   perVideo: Math.min(...ARRANQUE_WEEKLY_OPTIONS.map(arranqueWeeklyPerVideo)),
 } as const;
+
+// Short-form / social video, priced the way Starter is sold (owner, 2026-10-08:
+// "Starter is really just 1 video edit"). One price model for the package
+// card, the calculator and every guide that quotes the calculator:
+//   - once: from $100 per video (PACKAGE_PRICES.arranque);
+//   - every week: $85 for 1 video, $160 for 2 (ARRANQUE_WEEKLY_OPTIONS);
+//   - a 5-video pack is 5 single videos, with no invented discount.
+// The 15- and 30-video monthly calculator options are not offered for
+// short-form: no owner-set price exists for that volume, and deriving one
+// would publish a commitment nobody made. They remain for the other bands.
+// Market context ($100-500 per short-form video) is unchanged.
+const ARRANQUE_PRICE = PACKAGE_PRICES.arranque;
+
+export const SHORT_FORM = {
+  perVideoFrom: ARRANQUE_PRICE.kind === "from" ? ARRANQUE_PRICE.amount : 0,
+  packOf: 5,
+  weekly: ARRANQUE_WEEKLY_OPTIONS,
+  marketMin: 100,
+  marketMax: 500,
+  source: "market $100-500 per short-form video",
+} as const;
+
+/** "$85 a week for 1 video or $160 a week for 2 videos". */
+export function shortFormWeeklyText(locale: "en" | "es"): string {
+  const [one, two] = SHORT_FORM.weekly;
+  return locale === "es"
+    ? `${usd(one.pricePerWeek)} por semana por ${one.videosPerWeek} video o ${usd(two.pricePerWeek)} por semana por ${two.videosPerWeek} videos`
+    : `${usd(one.pricePerWeek)} a week for ${one.videosPerWeek} video or ${usd(two.pricePerWeek)} a week for ${two.videosPerWeek} videos`;
+}
+
+/** "from $100 per video, or $85 a week for 1 video and $160 a week for 2 videos". */
+export function shortFormPriceText(locale: "en" | "es"): string {
+  const [one, two] = SHORT_FORM.weekly;
+  const from = usd(SHORT_FORM.perVideoFrom);
+  return locale === "es"
+    ? `desde ${from} por video, o ${usd(one.pricePerWeek)} por semana por ${one.videosPerWeek} video y ${usd(two.pricePerWeek)} por semana por ${two.videosPerWeek} videos`
+    : `from ${from} per video, or ${usd(one.pricePerWeek)} a week for ${one.videosPerWeek} video and ${usd(two.pricePerWeek)} a week for ${two.videosPerWeek} videos`;
+}

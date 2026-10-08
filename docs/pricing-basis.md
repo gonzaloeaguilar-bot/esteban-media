@@ -32,7 +32,7 @@ band is that range narrowed to Esteban's typical scope, less 10%, rounded to $25
 
 | Service | Market band (2026) | Applied band | In market range? |
 |---|---|---|---|
-| Short-form social | $100–500 per project | **$350–675** | high end sits above the single-clip band; the market figure is per clip, this is a multi-deliverable project |
+| Short-form social | $100–500 per video | **from $100 per video; $85/week (1 video) or $160/week (2 videos)** | 2026-10-08: priced like Starter (owner: "Starter is really just 1 video edit"); the old $350–675 band contradicted it. 5-pack = 5 × $100; no 15/30-a-month short-form price is published. See `SHORT_FORM` in lib/pricing.ts |
 | YouTube edit | $300–1,500 | **$450–850** | yes |
 | Corporate / explainer | $500–2,500 | **$725–1,450** | yes |
 | Real-estate video | $250–1,200 | **$575–1,075** | yes |

@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 import { WHITE_LABEL_DEEP_DIVE } from "@/lib/service-deep-dive-content";
 import { spanishNichePages } from "@/lib/spanish-site";
 import { getGuideById } from "@/lib/guides";
-import { PRICING_BANDS, VOLUME_MULTIPLIERS, usd } from "@/lib/pricing";
+import { PRICING_BANDS, SHORT_FORM, usd } from "@/lib/pricing";
 
 const countWords = (text: string) =>
   text.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1").trim().split(/\s+/).filter(Boolean).length;
@@ -62,18 +62,16 @@ describe("B2B cost answers & testimonial guide verification", () => {
     }
   });
 
-  it("white-label EN+ES text contains pricing constants, monthly min/max, and portfolio links", () => {
-    const monthly15Mult = VOLUME_MULTIPLIERS["monthly-15"];
-    const monthlyMin = usd(
-      Math.round((PRICING_BANDS.social.baseMin * monthly15Mult.multMin) / 25) * 25
-    );
-    const monthlyMax = usd(
-      Math.round((PRICING_BANDS.social.baseMax * monthly15Mult.multMax) / 25) * 25
-    );
+  it("white-label EN+ES text contains pricing constants, the weekly short-form rate, and portfolio links", () => {
+    // Short-form is priced like Starter (2026-10-08): a studio sending weekly
+    // work gets the weekly rate; no 15-a-month short-form price is published.
+    const [weeklyOne, weeklyTwo] = SHORT_FORM.weekly;
+    const monthlyMin = usd(weeklyOne.pricePerWeek);
+    const monthlyMax = usd(weeklyTwo.pricePerWeek);
 
     // EN check
     const enText = JSON.stringify(WHITE_LABEL_DEEP_DIVE);
-    expect(enText).toContain(usd(PRICING_BANDS.social.baseMin));
+    expect(enText).toContain(usd(SHORT_FORM.marketMin));
     expect(enText).toContain(usd(PRICING_BANDS.youtube.baseMax));
     expect(enText).toContain(monthlyMin);
     expect(enText).toContain(monthlyMax);
@@ -82,7 +80,7 @@ describe("B2B cost answers & testimonial guide verification", () => {
 
     // ES check
     const esText = JSON.stringify(whiteLabelEs);
-    expect(esText).toContain(usd(PRICING_BANDS.social.baseMin));
+    expect(esText).toContain(usd(SHORT_FORM.marketMin));
     expect(esText).toContain(usd(PRICING_BANDS.youtube.baseMax));
     expect(esText).toContain(monthlyMin);
     expect(esText).toContain(monthlyMax);

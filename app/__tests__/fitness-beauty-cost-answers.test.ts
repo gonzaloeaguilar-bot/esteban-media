@@ -8,7 +8,7 @@ import {
   SALON_COST_DEEP_DIVE,
   SPA_DEEP_DIVE,
 } from "@/lib/service-deep-dive-content";
-import { PACKAGE_PRICES, PRICING_BANDS, usd } from "@/lib/pricing";
+import { PACKAGE_PRICES, SHORT_FORM, usd } from "@/lib/pricing";
 import { spanishNichePages } from "@/lib/spanish-site";
 
 // Fitness & beauty niche pages (2026-10-07). Evidence: the Google AI Overview
@@ -95,8 +95,8 @@ describe("fitness & beauty cost answers (EN)", () => {
 
     it(`${name}: prices come from lib/pricing.ts and no unpublished claim appears`, () => {
       const text = JSON.stringify(dive);
-      expect(text).toContain(usd(PRICING_BANDS.social.baseMin));
-      expect(text).toContain(usd(PRICING_BANDS.social.baseMax));
+      expect(text).toContain(usd(SHORT_FORM.weekly[0].pricePerWeek));
+      expect(text).toContain(usd(SHORT_FORM.weekly[1].pricePerWeek));
       expect(text).toContain(fromPrice("arranque"));
       expect(text).toContain(fromPrice("presencia-local"));
       expect(text).toContain(fromPrice("crecimiento"));
@@ -143,8 +143,8 @@ describe("fitness & beauty cost answers (ES)", () => {
 
     it(`${slug}: prices come from lib/pricing.ts and no unpublished claim appears`, () => {
       const text = JSON.stringify(page);
-      expect(text).toContain(usd(PRICING_BANDS.social.baseMin));
-      expect(text).toContain(usd(PRICING_BANDS.social.baseMax));
+      expect(text).toContain(usd(SHORT_FORM.weekly[0].pricePerWeek));
+      expect(text).toContain(usd(SHORT_FORM.weekly[1].pricePerWeek));
       expect(text).toContain(fromPrice("arranque"));
       expect(text).toContain(fromPrice("presencia-local"));
       expect(text).toContain(fromPrice("crecimiento"));

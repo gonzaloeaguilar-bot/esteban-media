@@ -1623,6 +1623,12 @@ html.rail-anim .em-pk-steps__list.rail-reveal.is-in li:nth-child(3) { transition
 }
 .em-pk-card[data-state="open"] .em-pk-card__go svg { transform: rotate(180deg); }
 .em-pk-card[data-state="folded"] .em-pk-card__need-line { display: none; }
+/* Folded, the scene is a 104px band. Number + "Paquete" + name + subtitle need
+   ~130px, so the band cut the name in half ("CRECIMIENTO" at 375px). Folded, it
+   carries the number and the full name only; "Paquete" stays in the button's
+   aria-label and the subtitle comes back when the card opens. */
+.em-pk-card[data-state="folded"] .em-pkcard__word,
+.em-pk-card[data-state="folded"] .em-pkcard__subtitle { display: none; }
 
 /* The body opens in place. Always in the DOM — the four packages are the page's
    substance and the schema describes all four, so none of this is rendered
@@ -1715,11 +1721,20 @@ html.rail-anim .em-pk-steps__list.rail-reveal.is-in li:nth-child(3) { transition
 }
 
 /* Starter two-ways options tiles */
+.em-pk-starter { margin-top: 20px; }
+.em-pk-starter__ask {
+  margin: 0;
+  font-family: var(--font-geist-sans), sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.3;
+  color: #1d1b19;
+}
 .em-pk-starter-options {
   display: grid;
   grid-template-columns: 1fr;
   gap: 14px;
-  margin-top: 20px;
+  margin-top: 12px;
 }
 @media (min-width: 640px) {
   .em-pk-starter-options {
