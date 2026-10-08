@@ -110,8 +110,9 @@ describe("consolidation arithmetic matches the published baseline", () => {
     // +4 = the remote editor page and three buyer-prep resources (2026-10-01).
     // +10 = the five bilingual niche pairs of 2026-10-06 (medical practice,
     // content creator, white label, salon/barbershop, detailing/tint/wrap).
+    // +4 = the 2026-10-07 restaurant and real-estate cost-answer guide pairs.
     // All owner-ordered, none of them consolidation changes.
-    expect(sitemap()).toHaveLength(269 - 26 + 3 + 8 + 2 + 4 + 4 + 3 + 10);
+    expect(sitemap()).toHaveLength(269 - 26 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 4);
   });
 
   it("never lists a redirect source in the sitemap", () => {
