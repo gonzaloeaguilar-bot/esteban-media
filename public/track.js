@@ -272,7 +272,7 @@
   var CONTACT = [
     [/^tel:/i, "phone"], [/^sms:/i, "sms"], [/^mailto:/i, "email"],
     [/wa\.me|whatsapp/i, "whatsapp"], [/calendly|cal\.com|booking|agenda/i, "booking"],
-    [/maps\.(google|apple)|goo\.gl\/maps|\/directions/i, "directions"]
+    [/maps\.(google|apple)|google\.[a-z.]+\/maps(\/(dir|search|place)|\?[^#]*\b(q|daddr|saddr|destination|api)=)|maps\.app\.goo\.gl|goo\.gl\/maps|\/directions/i, "directions"]
   ];
 
   function onClick(ev) {

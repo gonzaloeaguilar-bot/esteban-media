@@ -1,6 +1,11 @@
 "use client";
 
-import { arranqueWeeklyCopy, arranqueWeeklyHref } from "@/lib/arranque-weekly";
+import {
+  arranqueWeeklyCopy,
+  arranqueWeeklyHref,
+  arranqueWeeklyOptionName,
+  arranqueWeeklyWhatsapp,
+} from "@/lib/arranque-weekly";
 import Image from "next/image";
 import { packageRoutes } from "@/lib/package-routes";
 import { useState } from "react";
@@ -8,7 +13,6 @@ import { ArrowRight, Check, Mail, MessageCircle, Phone } from "lucide-react";
 
 import RailFaq from "@/vendor/rail-kit/RailFaq";
 import { ALaCarteSection } from "@/components/a-la-carte-section";
-import RailPrice from "@/vendor/rail-kit/RailPrice";
 import { Container } from "@/components/ui/container";
 import { RealEstatePlansSection } from "@/components/real-estate-plans-section";
 import {
@@ -23,6 +27,7 @@ import {
   type PackageContent,
 } from "@/lib/packages";
 import { entityIds } from "@/lib/entity-schema";
+import { ARRANQUE_WEEKLY_FROM, ARRANQUE_WEEKLY_OPTIONS, usd } from "@/lib/pricing";
 import { absoluteUrl, site } from "@/lib/site";
 
 export function PackagesSection({ locale }: { locale: Locale }) {
@@ -138,11 +143,34 @@ export function PackagesSection({ locale }: { locale: Locale }) {
                       <span className="em-pk-card__need-title">{pkg.need.title}</span>
                       <span className="em-pk-card__need-line">{pkg.need.line}</span>
                       <span className="em-pk-card__price">
-                        {price.kind === "from"
-                          ? `${copy.price.from} $${price.amount.toLocaleString("en-US")} · ${copy.price.units[price.unit]}`
-                          : locale === "es"
-                            ? `${copy.price.customLine} ${copy.price.custom.toLowerCase()}`
-                            : `${copy.price.custom} ${copy.price.customLine.toLowerCase()}`}
+                        {pkg.id === "arranque" ? (
+                          <span className="em-pk-card__price-lines">
+                            <span className="em-pk-card__price-line">
+                              <span className="em-pk-card__price-prefix">{copy.price.from}</span>{" "}
+                              <span className="em-pk-card__price-num">${price.kind === "from" ? price.amount.toLocaleString("en-US") : ""}</span>{" "}
+                              <span className="em-pk-card__price-unit">{price.kind === "from" ? copy.price.units[price.unit] : ""}</span>
+                            </span>
+                            <span className="em-pk-card__price-line em-pk-card__price-line--alt">
+                              <span className="em-pk-card__price-prefix">{locale === "es" ? "o desde" : "or from"}</span>{" "}
+                              <span className="em-pk-card__price-num">${ARRANQUE_WEEKLY_FROM.perWeek.toLocaleString("en-US")}</span>{" "}
+                              <span className="em-pk-card__price-unit">{locale === "es" ? "por semana" : "per week"}</span>
+                            </span>
+                          </span>
+                        ) : price.kind === "from" ? (
+                          <span className="em-pk-card__price-line">
+                            <span className="em-pk-card__price-prefix">{copy.price.from}</span>{" "}
+                            <span className="em-pk-card__price-num">${price.amount.toLocaleString("en-US")}</span>{" "}
+                            <span className="em-pk-card__price-unit">{copy.price.units[price.unit]}</span>
+                          </span>
+                        ) : (
+                          <span className="em-pk-card__price-line em-pk-card__price-line--custom">
+                            <span className="em-pk-card__price-custom">
+                              {locale === "es"
+                                ? `${copy.price.customLine} ${copy.price.custom.toLowerCase()}`
+                                : `${copy.price.custom} ${copy.price.customLine.toLowerCase()}`}
+                            </span>
+                          </span>
+                        )}
                       </span>
                       <span className="em-pk-card__go">
                         {isOpen ? copy.chooser.close : copy.chooser.cta(pkg.name)}
@@ -169,46 +197,109 @@ export function PackagesSection({ locale }: { locale: Locale }) {
                         ))}
                       </ul>
 
-                      <div className="em-pkcard__price">
-                        {price.kind === "from" ? (
-                          <>
-                            <RailPrice
-                              now={price.amount.toLocaleString("en-US")}
-                              prefix={copy.price.from}
-                              size="lg"
-                              source={`package_${pkg.id}`}
-                            />
-                            <span className="em-pkcard__unit">{copy.price.units[price.unit]}</span>
-                          </>
-                        ) : (
-                          <>
-                            <span className="em-pkcard__custom-line">{copy.price.customLine}</span>
-                            <span className="em-pkcard__custom">{copy.price.custom}</span>
-                          </>
-                        )}
-                      </div>
-
                       {pkg.id === "arranque" ? (
-                        <p className="em-pkcard__weekly">
-                          <a href={arranqueWeeklyHref(locale)} data-cta="package_arranque_weekly_plan">
-                            {arranqueWeeklyCopy(locale).packageCardLine}
-                          </a>
-                        </p>
-                      ) : null}
+                        <div className="em-pk-starter-options">
+                          {/* Tile 1: Per project */}
+                          <div className="em-pk-starter-tile">
+                            <p className="em-pk-starter-tile__name">
+                              {locale === "es" ? "Por proyecto" : "Per project"}
+                            </p>
+                            <div className="em-pk-starter-tile__price">
+                              <span className="em-pk-starter-tile__from">{copy.price.from}</span>
+                              <span className="em-pk-starter-tile__num">${price.kind === "from" ? price.amount.toLocaleString("en-US") : ""}</span>
+                              <span className="em-pk-starter-tile__unit">{price.kind === "from" ? copy.price.units[price.unit] : ""}</span>
+                            </div>
+                            <div className="em-pk-starter-tile__chips">
+                              <span className="em-pk-starter-chip">
+                                {locale === "es" ? "1 revisión" : "1 revision"}
+                              </span>
+                            </div>
+                            <a
+                              href={whatsappHref(
+                                site.phone.e164,
+                                locale === "es"
+                                  ? `Hola Esteban, me interesa el paquete Arranque por proyecto (${usd(price.kind === "from" ? price.amount : 100)} por proyecto).`
+                                  : `Hi Esteban, I'm interested in the Starter package per project (${usd(price.kind === "from" ? price.amount : 100)} per project).`
+                              )}
+                              className="em-pkcard__cta"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              data-cta="package_arranque_project_whatsapp"
+                            >
+                              <MessageCircle className="size-4" aria-hidden="true" />
+                              {`${copy.packages.quote(locale === "es" ? "por proyecto" : "per project")} ${locale === "es" ? "por WhatsApp" : "on WhatsApp"}`}
+                            </a>
+                          </div>
+
+                          {/* Tile 2: Weekly */}
+                          <div className="em-pk-starter-tile em-pk-starter-tile--weekly">
+                            <p className="em-pk-starter-tile__name">
+                              {locale === "es" ? "Semanal" : "Weekly"}
+                            </p>
+                            <div className="em-pk-starter-tile__rows">
+                              {ARRANQUE_WEEKLY_OPTIONS.map((opt) => (
+                                <div key={opt.id} className="em-pk-starter-tile__row">
+                                  <span className="em-pk-starter-tile__num">${opt.pricePerWeek.toLocaleString("en-US")}</span>
+                                  <span className="em-pk-starter-tile__unit">
+                                    {locale === "es" ? "/ semana" : "/ week"} · {arranqueWeeklyOptionName(opt, locale)}
+                                  </span>
+                                </div>
+                              ))}
+                            </div>
+                            <div className="em-pk-starter-tile__chips">
+                              <span className="em-pk-starter-pill">
+                                {locale === "es" ? "Pago semanal" : "Paid weekly"}
+                              </span>
+                            </div>
+                            <a
+                              href={arranqueWeeklyWhatsapp(site.phone.e164, ARRANQUE_WEEKLY_OPTIONS[0], locale)}
+                              className="em-pkcard__cta"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              data-cta="package_arranque_weekly_whatsapp"
+                            >
+                              <MessageCircle className="size-4" aria-hidden="true" />
+                              {`${copy.packages.quote(locale === "es" ? "plan semanal" : "weekly plan")} ${locale === "es" ? "por WhatsApp" : "on WhatsApp"}`}
+                            </a>
+                            <p className="em-pkcard__weekly">
+                              <a href={arranqueWeeklyHref(locale)} data-cta="package_arranque_weekly_plan">
+                                {locale === "es" ? "Ver el plan semanal" : "See the weekly plan"}
+                              </a>
+                            </p>
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="em-pk-open-price">
+                          {price.kind === "from" ? (
+                            <div className="em-pk-open-price__box">
+                              <span className="em-pk-open-price__prefix">{copy.price.from}</span>
+                              <span className="em-pk-open-price__num">${price.amount.toLocaleString("en-US")}</span>
+                              <span className="em-pk-open-price__unit">{copy.price.units[price.unit]}</span>
+                            </div>
+                          ) : (
+                            <div className="em-pk-open-price__box em-pk-open-price__box--custom">
+                              <span className="em-pk-open-price__custom-line">{copy.price.customLine}</span>
+                              <span className="em-pk-open-price__custom">{copy.price.custom}</span>
+                            </div>
+                          )}
+                        </div>
+                      )}
 
                       <p className="em-pkcard__ideal">{pkg.idealFor}</p>
 
                       <div className="em-pkcard__actions">
-                        <a
-                          href={whatsappHref(site.phone.e164, quoteText(pkg.name))}
-                          className="em-pkcard__cta"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          data-cta={`package_${pkg.id}_whatsapp`}
-                        >
-                          <MessageCircle className="size-4" aria-hidden="true" />
-                          {`${copy.packages.quote(pkg.name)} ${locale === "es" ? "por WhatsApp" : "on WhatsApp"}`}
-                        </a>
+                        {pkg.id !== "arranque" && (
+                          <a
+                            href={whatsappHref(site.phone.e164, quoteText(pkg.name))}
+                            className="em-pkcard__cta"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            data-cta={`package_${pkg.id}_whatsapp`}
+                          >
+                            <MessageCircle className="size-4" aria-hidden="true" />
+                            {`${copy.packages.quote(pkg.name)} ${locale === "es" ? "por WhatsApp" : "on WhatsApp"}`}
+                          </a>
+                        )}
                         <a href={packageRoutes[pkg.id][locale]} className="em-package-detail-link" data-cta={`package_${pkg.id}_details`}>
                           {locale === "es" ? "Ver detalles del paquete" : "View package details"}
                         </a>
