@@ -1,0 +1,69 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-266",
+  "status": "review_complete",
+  "evidence": {
+    "obsidian_context": "PR #266 adds a public Real Estate monthly plans section under package cards on English and Spanish home/pricing surfaces.",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, PR branch feat/real-estate-monthly-plans, head 3e2856bedcfe7bfc8fb8d0e60d7a8e513ceb353f.",
+    "hard_stops_checked": "Pricing is public business-owner material from Esteban's 2026-09-30 Real Estate price guide. Private photo ladder, size surcharge, and 'extra properties charged at above prices' wording were intentionally excluded and remain guarded by tests.",
+    "reviewer_ensemble": "builder pass, skeptic pass, taste pass.",
+    "reviewer_disagreement_reviewed": "No disagreement. The only business concern was whether public monthly prices were owner-approved; Gonzalo clarified Esteban is the business owner, so Esteban-authored/approved price guide content is acceptable while private client-specific terms remain blocked.",
+    "winner_rationale": "Centralizes the monthly real estate plan figures in lib/pricing.ts, keeps copy in lib/real-estate-plans.ts, and renders the section additively below existing package cards in both locales.",
+    "tests_or_validation": "GitHub PR #266 validate check passed on 2026-09-30T21:58:23Z. Vercel status passed for preview D5nTJnf5VorXqvPAJ567mSsZuhmd. PR body reports pnpm lint, pnpm typecheck, pnpm test (89 suites, 883 tests), and pnpm build passed.",
+    "ci_passed": "GitHub PR #266 validate check passed in 2m6s; Vercel preview status passed. Live command: gh pr checks 266 --repo gonzaloeaguilar-bot/esteban-media.",
+    "pr_review_complete": "Reviewed changed files and PR scope: lib/pricing.ts, lib/real-estate-plans.ts, components/real-estate-plans-section.tsx, components/packages-section.tsx, app/__tests__/real-estate-plans.test.ts, cinema.css, and Spanish text parity fixture. No private per-shoot rate ladder was added.",
+    "debt_delta": "neutral",
+    "obsidian_handoff": "Pending durable vault entry before final merge closeout; PR body and .ai/handoff.md contain the implementation handoff.",
+    "claim_hygiene_checked": "Public prices are limited to Essential $450, Plus $700, Premium $1,250 monthly real estate plans. Excluded private per-shoot terms are explicitly not rendered.",
+    "data_sources_current": "Live GitHub checks read for PR #266 this session: validate success, Vercel success, only Cortex quality evidence missing before this payload.",
+    "booking_or_authority_thesis": "Publishing owner-approved real estate monthly plans lets realtor prospects understand recurring media and social management options without exposing private client-specific pricing."
+  },
+  "project_routing": {
+    "canonical_repo": "/Users/gonzalo/code/esteban-media",
+    "worktree": "/Users/gonzalo/code/esteban-pr266",
+    "branch": "feat/real-estate-monthly-plans",
+    "move_class": "pricing_section"
+  },
+  "hard_stops_checked": {
+    "pricing_or_offers": "owner-approved public monthly real estate prices only: Essential 450, Plus 700, Premium 1250 USD/month",
+    "private_client_terms": "not included; private per-shoot ladder and size surcharge remain out of this PR",
+    "factual_business_claims": "limited to plan inclusions from Esteban's Real Estate price guide",
+    "secrets_or_credentials": "none accessed or modified",
+    "deployment": "not merged to production yet",
+    "third_party_services_or_backends": "none added",
+    "external_outreach": "none performed",
+    "url_inventory": "no new routes; existing home and pricing/package surfaces render an additive section"
+  },
+  "reviewer_ensemble": {
+    "builder": {
+      "status": "pass",
+      "note": "Implemented centralized pricing constants, locale copy, a reusable plan section, and tests."
+    },
+    "skeptic": {
+      "status": "pass",
+      "note": "Verified PR checks: validate and Vercel passed; private pricing terms were excluded and remain test-guarded."
+    },
+    "taste": {
+      "status": "pass",
+      "note": "Section is additive, readable, bilingual, and avoids leaking private client-specific terms."
+    }
+  },
+  "tests_or_validation": {
+    "commands": [
+      "gh pr checks 266 --repo gonzaloeaguilar-bot/esteban-media",
+      "gh pr view 266 --repo gonzaloeaguilar-bot/esteban-media --json statusCheckRollup,headRefOid,body"
+    ],
+    "results": "validate passed in 2m6s; Vercel passed; Cortex evidence failed only because PR body lacked quality-enforce JSON.",
+    "known_failure": "Cortex quality evidence missing before this payload; no code/test failure reported.",
+    "browser": "PR body reports desktop and mobile visual smoke checks in English and Spanish."
+  },
+  "source_material_checked": "lib/pricing.ts, lib/real-estate-plans.ts, components/real-estate-plans-section.tsx, components/packages-section.tsx, app/__tests__/real-estate-plans.test.ts, PR #266 checks.",
+  "data_sources_current": {
+    "github_pr": "https://github.com/gonzaloeaguilar-bot/esteban-media/pull/266",
+    "head_sha": "3e2856bedcfe7bfc8fb8d0e60d7a8e513ceb353f",
+    "validate_check": "success",
+    "vercel_check": "success"
+  },
+  "booking_or_authority_thesis": "Owner-approved monthly real estate plans reduce buyer friction for realtor prospects while preserving boundaries around private client-specific rates."
+}
