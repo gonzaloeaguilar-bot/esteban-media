@@ -461,4 +461,69 @@ describe("bilingual practical guides", () => {
       );
     }
   });
+
+  it("deepens the remote vs local video editing guide pair with FAQPage schema and contextual links", () => {
+    const enGuide = getGuides("en").find(
+      (g) => g.slug === "remote-vs-local-video-editing",
+    );
+    const esGuide = getGuides("es").find(
+      (g) => g.slug === "edicion-remota-vs-estudio-local",
+    );
+
+    expect(enGuide).toBeDefined();
+    expect(esGuide).toBeDefined();
+    if (!enGuide || !esGuide) return;
+
+    expect(enGuide.sections).toHaveLength(5);
+    expect(esGuide.sections).toHaveLength(5);
+    expect(enGuide.faqs).toHaveLength(5);
+    expect(esGuide.faqs).toHaveLength(5);
+
+    const enProse = JSON.stringify(enGuide.sections);
+    const esProse = JSON.stringify(esGuide.sections);
+
+    expect(enProse).toContain("Turnaround velocity and cloud-based file handoff");
+    expect(enProse).toContain("Cost structures: Facility overhead vs focused post-production");
+    expect(enProse).toContain("/portfolio/homeowners");
+    expect(enProse).toContain("/case-studies/homeowners");
+    expect(enProse).toContain("/services/short-form-video-editor-miami");
+    expect(enProse).toContain("/services");
+    expect(enProse).toContain("/contact");
+
+    expect(esProse).toContain("Velocidad de entrega y transferencia de archivos en la nube");
+    expect(esProse).toContain("Estructura de costos: Gastos de instalaciones vs postproducción enfocada");
+    expect(esProse).toContain("/es/portafolio/homeowners");
+    expect(esProse).toContain("/es/casos-de-estudio/homeowners");
+    expect(esProse).toContain("/es/video-para-restaurantes-miami");
+    expect(esProse).toContain("/es/servicios");
+    expect(esProse).toContain("/es/contacto");
+
+    for (const guide of [enGuide, esGuide]) {
+      const structuredData = buildGuideStructuredData(guide);
+      const faqNode = structuredData["@graph"].find(
+        (
+          node,
+        ): node is {
+          "@type": string;
+          "@id": string;
+          mainEntity: {
+            "@type": string;
+            name: string;
+            acceptedAnswer: { "@type": string; text: string };
+          }[];
+        } => node["@type"] === "FAQPage" && "mainEntity" in node,
+      );
+      expect(faqNode).toBeDefined();
+      expect(faqNode?.["@id"]).toBe(
+        `https://estebanmorenomedia.com${getGuidePath(guide)}#faq`,
+      );
+      expect(faqNode?.mainEntity).toEqual(
+        guide.faqs?.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: { "@type": "Answer", text: faq.answer },
+        })),
+      );
+    }
+  });
 });

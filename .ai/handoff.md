@@ -1,3 +1,10 @@
+## Remote vs local video editing guide depth and FAQ schema — 2026-09-17
+
+- Fresh Search Console analytics in index-watch state for 2026-08-18..2026-09-14 selected the existing bilingual guide pair 'Remote vs Local Video Editing' (`/guides/remote-vs-local-video-editing` and `/es/guias/edicion-remota-vs-estudio-local`): the English guide earned 4 impressions at average position 8.8 and 1 live click, falling directly into charter Priority 1 (rank band 6-15 with live user demand).
+- Deepened both English and Spanish entries in `lib/guides.ts` with 5 substantive sections, bullet points, contextual internal links (`/services/short-form-video-editor-miami`, `/services`, `/portfolio/homeowners`, `/case-studies/homeowners`, `/contact` and Spanish counterparts `/es/video-para-restaurantes-miami`, `/es/servicios`, `/es/portafolio/homeowners`, `/es/casos-de-estudio/homeowners`, `/es/contacto`), and 5 visible FAQs per locale emitting structured `FAQPage` JSON-LD.
+- Maintained hard guardrails: no new routes, no sitemap/canonical/hreflang/inventory changes, no invented clients/prices/stats/reviews/guarantees, truthful scope and portfolio attribution.
+- Regression coverage in `lib/__tests__/guides.test.ts` validates section counts, FAQ counts, contextual links, and structured data schema. Full acceptance test suite (`pnpm lint`, `pnpm typecheck`, `pnpm test`, `git diff --check`) verified.
+
 ## AI video editing vs human editor guide depth and FAQ schema — 2026-09-16
 
 - Fresh Search Console analytics in index-watch state for 2026-08-19..2026-09-15 selected the existing bilingual guide pair 'AI Video Editing vs Human Editor' (`/guides/ai-video-editing-vs-human-editor` and `/es/guias/edicion-de-video-con-ia-vs-editor-profesional`): the Spanish guide earned 4 impressions at average position 7.5 (0 clicks) and the English guide earned 3 impressions at average position 9.0 (0 clicks), falling directly into charter Priority 1 (rank band 6-15).

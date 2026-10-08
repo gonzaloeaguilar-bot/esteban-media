@@ -1,0 +1,50 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-208",
+  "status": "review_pending",
+  "evidence": {
+    "obsidian_context": "Daily demand wave selected content depth + FAQPage JSON-LD for the existing bilingual guide pair 'Remote vs Local Video Editing' (/guides/remote-vs-local-video-editing and /es/guias/edicion-remota-vs-estudio-local). Fresh Search Console analytics in index-watch state report /guides/remote-vs-local-video-editing at 4 impressions, 1 click, average position 8.8 (in the charter priority 1 rank band of 6-15). Total 28-day property window reports 535 impressions and 2 clicks.",
+    "project_routing": "Repo gonzaloeaguilar-bot/esteban-media, worktree .worktrees/demand-wave-caption-styles-depth-20260917, branch feat/demand-wave-remote-vs-local-editing-depth-20260917, move class content_depth + FAQPage JSON-LD. CTO decision record 20260917T054637Z-cto-seo-lead-esteban-media-1789624016426898000-61530-da7a7d3ca43aa665.json.",
+    "hard_stops_checked": "Checked and clear. No invented clients/prices/reviews/stats/guarantees, no street address, no drone/Part 107 claims, no aggregateRating, no % figures, no delivery-time promises, no new URL, no redirect, no noindex, no canonical/hreflang/sitemap change, and no inventory config change. EN/ES parity maintained by updating both locale entries with 5 substantive sections, contextual internal links, and 5 visible FAQs per locale.",
+    "verification": "pnpm lint, pnpm typecheck, pnpm test, and git diff --check all exited 0.",
+    "reviewer_ensemble": {
+      "builder": {
+        "status": "ok",
+        "note": "Antigravity deepened the GSC-backed bilingual guide pair in lib/guides.ts and added regression coverage in lib/__tests__/guides.test.ts on branch feat/demand-wave-remote-vs-local-editing-depth-20260917."
+      },
+      "skeptic": {
+        "status": "ok",
+        "note": "Diff is restricted to lib/guides.ts, lib/__tests__/guides.test.ts, .cortex quality payload, and handoff/backlog docs. No new URLs created and inventory freeze remains untouched."
+      },
+      "taste": {
+        "status": "ok",
+        "note": "Prose remains objective, professional, and practical: explains turnaround advantages, facility overhead vs focused post-production, selection criteria between local studios and remote editors, timecoded review workflows, and structured briefing requirements."
+      }
+    },
+    "reviewer_disagreement_reviewed": "No reviewer disagreement. Residual risk is measurement-only: GSC post-crawl observation is required before claiming rank or CTR changes.",
+    "winner_rationale": "Chosen because /guides/remote-vs-local-video-editing earns impressions and a live click in the top 10 (position 8.8, within rank band 6-15), yet previously lacked depth (only 2 short paragraphs) and lacked FAQ schema. Content depth plus visible FAQPage JSON-LD was the top-priority demand move under the charter.",
+    "tests_or_validation": "pnpm lint exit 0; pnpm typecheck exit 0; pnpm test exit 0; git diff --check exit 0. New regression test in lib/__tests__/guides.test.ts asserts section counts, FAQ counts, contextual links, and FAQPage schema.",
+    "debt_delta": "Net negative debt: adds focused regression coverage for the guide pair and enhances structured data without introducing new dependencies or configuration churn.",
+    "obsidian_handoff": "Repo-local .ai/handoff.md and backlog.md updated. External Obsidian/registry writes confined per workspace policy."
+  },
+  "reviewer_ensemble": {
+    "builder": {
+      "status": "ok",
+      "note": "Antigravity deepened the GSC-backed bilingual guide pair in lib/guides.ts and added regression coverage in lib/__tests__/guides.test.ts on branch feat/demand-wave-remote-vs-local-editing-depth-20260917."
+    },
+    "skeptic": {
+      "status": "ok",
+      "note": "Diff is restricted to lib/guides.ts, lib/__tests__/guides.test.ts, .cortex quality payload, and handoff/backlog docs. No new URLs created and inventory freeze remains untouched."
+    },
+    "taste": {
+      "status": "ok",
+      "note": "Prose remains objective, professional, and practical: explains turnaround advantages, facility overhead vs focused post-production, selection criteria between local studios and remote editors, timecoded review workflows, and structured briefing requirements."
+    }
+  },
+  "winner_rationale": "Chosen because /guides/remote-vs-local-video-editing earns impressions and a live click in the top 10 (position 8.8, within rank band 6-15), yet previously lacked depth (only 2 short paragraphs) and lacked FAQ schema. Content depth plus visible FAQPage JSON-LD was the top-priority demand move under the charter.",
+  "reviewer_disagreement_reviewed": "No reviewer disagreement. Residual risk is measurement-only: GSC post-crawl observation is required before claiming rank or CTR changes.",
+  "tests_or_validation": "pnpm lint exit 0; pnpm typecheck exit 0; pnpm test exit 0; git diff --check exit 0. New regression test in lib/__tests__/guides.test.ts asserts section counts, FAQ counts, contextual links, and FAQPage schema.",
+  "debt_delta": "Net negative debt: adds focused regression coverage for the guide pair and enhances structured data without introducing new dependencies or configuration churn.",
+  "obsidian_handoff": "Repo-local .ai/handoff.md and backlog.md updated. External Obsidian/registry writes confined per workspace policy."
+}
