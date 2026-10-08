@@ -1,22 +1,24 @@
 import Link from "next/link";
-import { ArrowRight, Scissors, Mail, Phone } from "lucide-react";
+import { ArrowRight, MessageCircle, Scissors, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import {
   ServiceCraft,
+  ServiceDeepDive,
   ServiceFaqs,
   ServiceInquiryRail,
   ServiceRelated,
   buildServiceFaqSchema,
 } from "@/components/service-depth";
 import { SHORT_FORM_DEPTH } from "@/lib/service-depth-content";
+import { SHORT_FORM_DEEP_DIVE_EN, shortFormServiceJsonLd, shortFormWhatsappHref } from "@/lib/short-form-recs";
+import { SHORT_FORM, usd } from "@/lib/pricing";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
 export const metadata = buildPageMetadata({
   title: "Short Form Video Editor Miami",
-  description:
-    "Short-form video editing for Instagram Reels, TikTok, and YouTube Shorts for creators and businesses in South Florida.",
+  description: `Short-form video editing for Instagram Reels, TikTok, and YouTube Shorts for influencers, creators and businesses in Miami and Fort Lauderdale. From ${usd(SHORT_FORM.perVideoFrom)} per video.`,
   path: "/services/short-form-video-editor-miami",
   locale: "en",
 });
@@ -26,22 +28,7 @@ export default function ShortFormVideoEditorPage() {
     "@context": "https://schema.org",
     "@graph": [
       buildServiceFaqSchema(absoluteUrl("/services/short-form-video-editor-miami"), SHORT_FORM_DEPTH.faqs),
-      {
-        "@type": "Service",
-        "@id": absoluteUrl("/services/short-form-video-editor-miami#service"),
-        name: "Short Form Video Editor Miami",
-        description:
-          "Short-form 9:16 video editing with dynamic captions, pacing, and sound design in South Florida.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
-        areaServed: "Miami-Dade / Fort Lauderdale / Remote",
-        serviceType: "Short form video editing",
-      },
+      shortFormServiceJsonLd("en"),
     ],
   };
 
@@ -99,6 +86,9 @@ export default function ShortFormVideoEditorPage() {
                   View ML Colombia Reel Proof
                 </Link>
               </div>
+              <p className="mt-3 text-sm text-[#5a6066]">
+                Updated: <time dateTime="2026-10-08">October 8, 2026</time>
+              </p>
             </div>
 
             <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
@@ -130,7 +120,8 @@ export default function ShortFormVideoEditorPage() {
                   Scale your short-form content output.
                 </h2>
                 <p className="mt-3 max-w-2xl text-sm leading-6 text-[#252a2d]">
-                  Send raw video files to start short-form editing packages.
+                  Send raw video files to start short-form editing packages. Call, text or WhatsApp{" "}
+                  <strong>{site.phone.display}</strong>, or email <strong>{site.email}</strong>.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
@@ -148,6 +139,16 @@ export default function ShortFormVideoEditorPage() {
                   <Phone className="size-4" aria-hidden="true" />
                   Call
                 </a>
+                <a
+                  href={shortFormWhatsappHref("en")}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cta="short_form_video_whatsapp"
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-[#101214] px-5 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"
+                >
+                  <MessageCircle className="size-4" aria-hidden="true" />
+                  WhatsApp
+                </a>
               </div>
             </div>
           </div>
@@ -157,6 +158,12 @@ export default function ShortFormVideoEditorPage() {
         heading={SHORT_FORM_DEPTH.craftHeading}
         cards={SHORT_FORM_DEPTH.craft}
         sectionId="short-form-craft"
+      />
+      <ServiceDeepDive
+        id={SHORT_FORM_DEEP_DIVE_EN.id}
+        title={SHORT_FORM_DEEP_DIVE_EN.title}
+        destinations={SHORT_FORM_DEEP_DIVE_EN.destinations}
+        sections={SHORT_FORM_DEEP_DIVE_EN.sections}
       />
       <ServiceFaqs heading={SHORT_FORM_DEPTH.faqHeading} faqs={SHORT_FORM_DEPTH.faqs} />
       <ServiceInquiryRail

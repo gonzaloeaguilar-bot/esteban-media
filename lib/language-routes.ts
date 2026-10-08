@@ -31,8 +31,9 @@ export const pairedLanguageRoutes: Record<string, string> = {
     "/es/guias/video-vertical-horizontal-y-zonas-seguras",
   "/guides/remote-video-editing-handoff":
     "/es/guias/entrega-para-edicion-remota-de-video",
+  // Same pair as the hreflang map in lib/spanish-site.ts.
   "/services/short-form-video-editor-miami":
-    "/es/reels-para-negocios-miami",
+    "/es/editor-de-video-corto-para-redes-miami",
   "/daily-publish-prompt": "/es/prompt-de-publicacion-diaria",
   "/daily-hook-planner": "/es/planificador-de-ganchos-de-video",
   "/daily-shot-list-planner": "/es/planificador-de-tomas-de-video",
@@ -67,6 +68,8 @@ for (const [englishPath, spanishPath] of Object.entries({
 // these only declare Spanish -> English so the page still resolves a counterpart.
 pairedLanguageRoutes["/es/video-para-restaurantes-miami"] =
   "/services/restaurant-promo-video-editing-miami";
+pairedLanguageRoutes["/es/reels-para-negocios-miami"] =
+  "/services/short-form-video-editor-miami";
 
 export function getPairedLanguageRoute(pathname: string) {
   const exactMatch = pairedLanguageRoutes[pathname];
