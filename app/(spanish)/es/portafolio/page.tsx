@@ -6,6 +6,7 @@ import {
   PortfolioGrid,
   resolvePortfolioItemCopy,
 } from "@/components/portfolio-grid";
+import { CaseStudyIndex } from "@/components/case-study-index";
 import { Container } from "@/components/ui/container";
 import { PORTFOLIO_ITEMS } from "@/lib/portfolio";
 import { buildPortfolioCollectionSchema } from "@/lib/portfolio-schema";
@@ -259,6 +260,9 @@ export default function SpanishPortfolioPage() {
           </div>
         </Container>
       </section>
+
+      <CaseStudyIndex locale="es" />
+
     </main>
   );
 }
