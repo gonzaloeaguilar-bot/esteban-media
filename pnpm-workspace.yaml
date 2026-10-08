@@ -1,5 +1,5 @@
 packages:
-  - "."
+  - .
 
 allowBuilds:
   esbuild: true
@@ -11,3 +11,6 @@ onlyBuiltDependencies:
   - esbuild
   - sharp
   - unrs-resolver
+
+patchedDependencies:
+  next@15.5.18: patches/next@15.5.18.patch

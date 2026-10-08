@@ -1,0 +1,92 @@
+[
+  {
+    "width": 320,
+    "overflow": 0,
+    "language": {
+      "x": 147.75,
+      "y": 14,
+      "width": 57.578125,
+      "height": 36
+    },
+    "overlaps": []
+  },
+  {
+    "width": 375,
+    "overflow": 0,
+    "language": {
+      "x": 173.03125,
+      "y": 14,
+      "width": 87.296875,
+      "height": 36
+    },
+    "overlaps": []
+  },
+  {
+    "width": 414,
+    "overflow": 0,
+    "language": {
+      "x": 212.03125,
+      "y": 14,
+      "width": 87.296875,
+      "height": 36
+    },
+    "overlaps": []
+  },
+  {
+    "width": 768,
+    "overflow": -15,
+    "language": {
+      "x": 341,
+      "y": 14,
+      "width": 87.296875,
+      "height": 36
+    },
+    "overlaps": []
+  },
+  {
+    "width": 1024,
+    "overflow": -15,
+    "language": {
+      "x": 691.671875,
+      "y": 14,
+      "width": 87.296875,
+      "height": 36
+    },
+    "overlaps": []
+  },
+  {
+    "width": 1440,
+    "overflow": -15,
+    "language": {
+      "x": 1035.171875,
+      "y": 14,
+      "width": 87.296875,
+      "height": 36
+    },
+    "overlaps": []
+  },
+  {
+    "href": "/es/precios/arranque",
+    "height": 36,
+    "width": 182.1875,
+    "open": "open"
+  },
+  {
+    "href": "/es/precios/crecimiento",
+    "height": 36,
+    "width": 182.1875,
+    "open": "open"
+  },
+  {
+    "href": "/es/precios/presencia-local",
+    "height": 36,
+    "width": 182.1875,
+    "open": "open"
+  },
+  {
+    "href": "/es/precios/todo-incluido",
+    "height": 36,
+    "width": 182.1875,
+    "open": "open"
+  }
+]

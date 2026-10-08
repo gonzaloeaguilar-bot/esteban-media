@@ -120,3 +120,9 @@ Production is live. This file tracks repository implementation; account/access w
       ~16 times in that window (PRs #145,#148,#151,#154,#155,#157-#165,#168,
       #170,#172-#174), 8 of them within a single hour on 2026-09-03. Filed as
       the evidenced finding in the PR description.
+
+## 2026-09-28 — Header language and package detail pages
+
+- Implemented in `feat/lang-switch-and-package-detail`: persistent language button, saved preference and root-only detection, four paired package pages, card links and sitemap/watch registration.
+- Verification evidence: `.ai/evidence/README.md`.
+- Next: cto-qa-lead independent review via the top-level coordinator before merge; production validation after delivery.

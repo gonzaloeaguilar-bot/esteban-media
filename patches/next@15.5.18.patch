@@ -1,0 +1,30 @@
+diff --git a/dist/build/templates/app-page.js b/dist/build/templates/app-page.js
+index e69cf2b2c0496351f73255552fe07acd306f6f22..5ded38fba055f8d476dd39f81161c886282b7e32 100644
+--- a/dist/build/templates/app-page.js
++++ b/dist/build/templates/app-page.js
+@@ -290,7 +290,9 @@ async function handler(req, res, ctx) {
+     const activeSpan = tracer.getActiveScopeSpan();
+     try {
+         const varyHeader = routeModule.getVaryHeader(resolvedPathname, interceptionRoutePatterns);
+-        res.setHeader('Vary', varyHeader);
++        // Preserve middleware cache dimensions (for example Accept-Language).
++        const existingVaryHeader = res.getHeader('Vary');
++        res.setHeader('Vary', [existingVaryHeader, varyHeader].filter(Boolean).join(', '));
+         const invokeRouteModule = async (span, context)=>{
+             const nextReq = new _node.NodeNextRequest(req);
+             const nextRes = new _node.NodeNextResponse(res);
+diff --git a/dist/esm/build/templates/app-page.js b/dist/esm/build/templates/app-page.js
+index 608080693a2ee86c94438eacaa7ca0345c79de61..6d248250abef2e09998f35d1b52f702c22aaad10 100644
+--- a/dist/esm/build/templates/app-page.js
++++ b/dist/esm/build/templates/app-page.js
+@@ -212,7 +212,9 @@ export async function handler(req, res, ctx) {
+     const activeSpan = tracer.getActiveScopeSpan();
+     try {
+         const varyHeader = routeModule.getVaryHeader(resolvedPathname, interceptionRoutePatterns);
+-        res.setHeader('Vary', varyHeader);
++        // Preserve middleware cache dimensions (for example Accept-Language).
++        const existingVaryHeader = res.getHeader('Vary');
++        res.setHeader('Vary', [existingVaryHeader, varyHeader].filter(Boolean).join(', '));
+         const invokeRouteModule = async (span, context)=>{
+             const nextReq = new NodeNextRequest(req);
+             const nextRes = new NodeNextResponse(res);

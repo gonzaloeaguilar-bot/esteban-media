@@ -48,6 +48,14 @@ export const WATCH_URLS = [
   // stay identical to app/sitemap.ts or index-watch reports false drift.
   "https://estebanmorenomedia.com/desk-recommendations",
   // Added 2026-09-27 with the owner-ordered pricing pages (bilingual pair).
+  "https://estebanmorenomedia.com/pricing/starter",
+  "https://estebanmorenomedia.com/pricing/growth",
+  "https://estebanmorenomedia.com/pricing/local-presence",
+  "https://estebanmorenomedia.com/pricing/all-in",
+  "https://estebanmorenomedia.com/es/precios/arranque",
+  "https://estebanmorenomedia.com/es/precios/crecimiento",
+  "https://estebanmorenomedia.com/es/precios/presencia-local",
+  "https://estebanmorenomedia.com/es/precios/todo-incluido",
   "https://estebanmorenomedia.com/pricing",
   "https://estebanmorenomedia.com/es/precios",
   "https://estebanmorenomedia.com/case-studies/banacol",

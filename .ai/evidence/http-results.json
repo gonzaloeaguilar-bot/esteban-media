@@ -1,0 +1,93 @@
+[
+  {
+    "path": "/",
+    "headers": {
+      "Accept-Language": "es-CO"
+    },
+    "status": 307,
+    "vary": "Accept-Language, Cookie, X-Vercel-IP-Country, User-Agent"
+  },
+  {
+    "path": "/",
+    "headers": {
+      "Accept-Language": "en-US",
+      "x-vercel-ip-country": "CO"
+    },
+    "status": 200,
+    "vary": "Accept-Language, Cookie, X-Vercel-IP-Country, User-Agent,rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding"
+  },
+  {
+    "path": "/",
+    "headers": {
+      "Cookie": "em_lang=en",
+      "Accept-Language": "es"
+    },
+    "status": 200,
+    "vary": "Accept-Language, Cookie, X-Vercel-IP-Country, User-Agent,rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding"
+  },
+  {
+    "path": "/",
+    "headers": {
+      "Cookie": "em_lang=es"
+    },
+    "status": 307,
+    "vary": "Accept-Language, Cookie, X-Vercel-IP-Country, User-Agent"
+  },
+  {
+    "path": "/",
+    "headers": {
+      "User-Agent": "Googlebot",
+      "Accept-Language": "es"
+    },
+    "status": 200,
+    "vary": "Accept-Language, Cookie, X-Vercel-IP-Country, User-Agent,rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding"
+  },
+  {
+    "path": "/pricing",
+    "headers": {
+      "Accept-Language": "es"
+    },
+    "status": 200,
+    "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding"
+  },
+  {
+    "path": "/pricing/starter",
+    "status": 200,
+    "hreflang": true
+  },
+  {
+    "path": "/es/precios/arranque",
+    "status": 200,
+    "hreflang": true
+  },
+  {
+    "path": "/pricing/growth",
+    "status": 200,
+    "hreflang": true
+  },
+  {
+    "path": "/es/precios/crecimiento",
+    "status": 200,
+    "hreflang": true
+  },
+  {
+    "path": "/pricing/local-presence",
+    "status": 200,
+    "hreflang": true
+  },
+  {
+    "path": "/es/precios/presencia-local",
+    "status": 200,
+    "hreflang": true
+  },
+  {
+    "path": "/pricing/all-in",
+    "status": 200,
+    "hreflang": true
+  },
+  {
+    "path": "/es/precios/todo-incluido",
+    "status": 200,
+    "hreflang": true
+  }
+]

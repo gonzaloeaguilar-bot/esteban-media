@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowRight, Menu, X } from "lucide-react";
+import { ArrowRight, Globe, Menu, X } from "lucide-react";
 
 import { SiteSearch } from "@/components/site-search";
 
@@ -31,10 +31,7 @@ export function SiteHeaderClient({ shortName }: { shortName: string }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const languageHref = getPairedLanguageRoute(pathname);
-  const nav = [
-    ...(isSpanish ? spanishNav : englishNav),
-    { href: languageHref, label: isSpanish ? "English" : "Español" },
-  ];
+  const nav = isSpanish ? spanishNav : englishNav;
 
   useEffect(() => {
     setIsMenuOpen(false);
@@ -58,8 +55,8 @@ export function SiteHeaderClient({ shortName }: { shortName: string }) {
 
   return (
     <header className="sticky top-0 z-40 border-b border-[#ddd4c8] bg-[#f6f1ea]/92 backdrop-blur">
-      <div className="mx-auto flex min-h-16 w-full max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-        <Link href={isSpanish ? "/es" : "/"} className="flex min-w-0 items-center gap-3">
+      <div className="mx-auto flex min-h-16 w-full max-w-7xl items-center justify-between gap-2 px-3 sm:px-6 lg:px-8">
+        <Link href={isSpanish ? "/es" : "/"} className="flex min-w-0 items-center gap-2">
           <span className="grid size-8 shrink-0 place-items-center rounded-md bg-[#c84a2c] font-serif text-lg italic text-white">
             e
           </span>
@@ -88,6 +85,21 @@ export function SiteHeaderClient({ shortName }: { shortName: string }) {
 
         <div className="flex shrink-0 items-center gap-2">
           <SiteSearch />
+          <a
+            href={languageHref}
+            hrefLang={isSpanish ? "en" : "es"}
+            aria-label={isSpanish ? "English" : "Español"}
+            data-cta="header_language"
+            data-section="header"
+            className="em-language-control"
+            onClick={() => {
+              document.cookie = `em_lang=${isSpanish ? "en" : "es"}; Path=/; Max-Age=31536000; SameSite=Lax${location.protocol === "https:" ? "; Secure" : ""}`;
+            }}
+          >
+            <Globe className="size-4" aria-hidden="true" />
+            <span className="em-language-word">{isSpanish ? "English" : "Español"}</span>
+            <span className="em-language-short" aria-hidden="true">{isSpanish ? "EN" : "ES"}</span>
+          </a>
           <Link
             href={isSpanish ? "/es/contacto" : "/contact"}
             className="hidden items-center justify-center gap-2 rounded-full bg-[#c84a2c] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#a93e29] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c84a2c] sm:inline-flex"
