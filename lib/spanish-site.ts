@@ -444,7 +444,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Instagram / TikTok / Shorts",
     h1: "Reels para negocios de Miami-Dade, con alcance por proyecto.",
     lead:
-      "La edición de video corto es una prioridad confirmada de Esteban. Si una idea requiere grabación en Miami-Dade, la producción se considera de forma selectiva después de conocer la meta y la locación.",
+      "La edición de video corto es una prioridad confirmada de Esteban. Si una idea requiere grabación en Miami-Dade, la producción se considera de forma selectiva después de conocer la meta y la locación dentro de las [áreas de servicio](/es/areas).",
     keyword: "reels para negocios Miami",
     location: "Miami-Dade",
     availability: "confirmed",
@@ -1325,7 +1325,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Palm Beach County",
     h1: "Producción de video y contenido comercial en Palm Beach.",
     lead:
-      "Ofrecemos planificación, videografía y postproducción para marcas, empresas inmobiliarias y negocios locales en el condado de Palm Beach.",
+      "Ofrecemos planificación, videografía y postproducción para marcas, empresas inmobiliarias y negocios locales en el condado de Palm Beach dentro de nuestras [áreas de servicio](/es/areas).",
     keyword: "producción de video en Palm Beach",
     location: "Palm Beach County",
     availability: "confirmed",
@@ -1339,7 +1339,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       "¿Cuáles son los entregables finales necesarios?",
     ],
     projectFit:
-      "Cobertura directa en Palm Beach County respaldada por portafolio publicado.",
+      "Consulta nuestras [áreas de servicio de video](/es/areas) para conocer el alcance y cobertura en Palm Beach County respaldado por portafolio publicado.",
     faqs: [
       {
         question: "¿Tienen cobertura en el condado de Palm Beach?",

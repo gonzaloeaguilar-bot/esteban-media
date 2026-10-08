@@ -204,8 +204,15 @@ export default function SpanishPalmBeachCountyPage() {
               <h2 className="mt-5 font-serif text-3xl">Área de expansión a nivel de condado</h2>
               <p className="mt-3 text-sm leading-6 text-[#252a2d]">
                 Palm Beach County sigue siendo un mercado de expansión considerado
-                proyecto por proyecto. No se enumeran ciudades hasta que Esteban
-                confirme dónde es práctica la producción local actualmente.
+                proyecto por proyecto dentro de nuestras{" "}
+                <Link
+                  href="/es/areas"
+                  className="underline underline-offset-4 hover:text-[#9f3c27]"
+                >
+                  áreas de servicio con base en Fort Lauderdale
+                </Link>
+                . No se enumeran ciudades hasta que Esteban confirme dónde es
+                práctica la producción local actualmente.
               </p>
             </div>
           </div>
