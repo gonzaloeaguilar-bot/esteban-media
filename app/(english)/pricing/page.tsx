@@ -80,11 +80,11 @@ export default function PricingPage() {
           </p>
           <p className="mt-3 max-w-2xl text-sm text-[#5a6066]">
             Want a number for your specific project right now? Use the{" "}
-            <Link href="/calculator" className="underline hover:text-[#9f3c27]">
+            <Link href="/calculator" className="inline-block py-1 underline hover:text-[#9f3c27]">
               budget calculator
             </Link>
             , or see{" "}
-            <Link href="/services" className="underline hover:text-[#9f3c27]">
+            <Link href="/services" className="inline-block py-1 underline hover:text-[#9f3c27]">
               every service
             </Link>
             .

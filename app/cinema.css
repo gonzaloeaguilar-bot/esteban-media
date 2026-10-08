@@ -743,16 +743,17 @@ html.rail-anim:not([data-brand-moment]) .em-cine__eyebrow {
   margin-top: 16px;
   font-size: 11px;
   font-weight: 600;
+  line-height: 1.4;
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.8);
 }
 .em-pkcard__name {
-  margin: 2px 0 0;
+  margin: 10px 0 0;
   font-family: var(--font-display), "Oswald", "Arial Narrow", sans-serif;
   font-weight: 700;
   font-size: clamp(2.1rem, 9.5vw, 2.6rem);
-  line-height: 0.95;
+  line-height: 1;
   text-transform: uppercase;
   letter-spacing: 0.005em;
 }
@@ -1551,12 +1552,12 @@ html.rail-anim .em-pk-steps__list.rail-reveal.is-in li:nth-child(3) { transition
   margin-top: 6px;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 6px;
 }
 .em-pk-card__price-lines {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 12px;
 }
 .em-pk-card__price-line {
   display: inline-flex;
@@ -1574,7 +1575,7 @@ html.rail-anim .em-pk-steps__list.rail-reveal.is-in li:nth-child(3) { transition
   font-family: var(--font-price), "Instrument Serif", Georgia, serif;
   font-weight: 400;
   font-size: clamp(44px, 12vw, 52px);
-  line-height: 1;
+  line-height: 1.15;
   letter-spacing: -0.03em;
   color: #1d1b19;
 }

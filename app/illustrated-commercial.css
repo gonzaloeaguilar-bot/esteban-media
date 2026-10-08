@@ -49,7 +49,7 @@
 .em-plan-choice .rail-segmented__segment{flex:1;min-height:44px;padding:10px 8px;border:0;border-radius:99px;color:#39332e;background:transparent;font-size:15px;font-weight:600;white-space:nowrap;transition:transform 140ms ease,box-shadow 140ms ease}
 .em-plan-choice .rail-segmented__segment[data-active]{background:#101214;color:#fffdf9}
 .em-plan-choice .rail-segmented__segment:active{transform:scale(.97)}
-.em-visual-plan{display:grid;grid-template-columns:1.15fr 1fr;grid-template-areas:"art overview" "art content";color:#101214;background:#fffdf9;border:1px solid #d9d1c7;border-radius:20px;overflow:hidden}
+.em-visual-plan{display:grid;grid-template-columns:1.15fr 1fr;grid-template-areas:"art overview" "art content";color:#101214;background:#fffdf9;border:1px solid #d9d1c7;border-radius:20px}
 .em-visual-plan[hidden]{display:none}
 .em-plan-art{grid-area:art;background:#f4ebdf;display:flex;flex-direction:column;justify-content:center}
 .em-plan-art>img{width:100%;height:auto;display:block;aspect-ratio:3/2}
