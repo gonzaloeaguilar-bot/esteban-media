@@ -2,7 +2,6 @@
 
 import {
   arranqueWeeklyHref,
-  arranqueWeeklyOptionName,
   arranqueWeeklyWhatsapp,
 } from "@/lib/arranque-weekly";
 import Image from "next/image";
@@ -217,8 +216,8 @@ export function PackagesSection({ locale }: { locale: Locale }) {
                               href={whatsappHref(
                                 site.phone.e164,
                                 locale === "es"
-                                  ? `Hola Esteban, me interesa el paquete Arranque por proyecto (${usd(price.kind === "from" ? price.amount : 100)} por proyecto).`
-                                  : `Hi Esteban, I'm interested in the Starter package per project (${usd(price.kind === "from" ? price.amount : 100)} per project).`
+                                  ? `Hola Esteban, me interesa el paquete Arranque por proyecto (${usd(price.kind === "from" ? price.amount : 0)} por proyecto).`
+                                  : `Hi Esteban, I'm interested in the Starter package per project (${usd(price.kind === "from" ? price.amount : 0)} per project).`
                               )}
                               className="em-pkcard__cta"
                               target="_blank"
@@ -226,7 +225,7 @@ export function PackagesSection({ locale }: { locale: Locale }) {
                               data-cta="package_arranque_project_whatsapp"
                             >
                               <MessageCircle className="size-4" aria-hidden="true" />
-                              {`${copy.packages.quote(locale === "es" ? "por proyecto" : "per project")} ${locale === "es" ? "por WhatsApp" : "on WhatsApp"}`}
+                              {locale === "es" ? "Cotizar por WhatsApp" : "Quote on WhatsApp"}
                             </a>
                           </div>
 
@@ -240,7 +239,7 @@ export function PackagesSection({ locale }: { locale: Locale }) {
                                 <div key={opt.id} className="em-pk-starter-tile__row">
                                   <span className="em-pk-starter-tile__num">${opt.pricePerWeek.toLocaleString("en-US")}</span>
                                   <span className="em-pk-starter-tile__unit">
-                                    {locale === "es" ? "/ semana" : "/ week"} · {arranqueWeeklyOptionName(opt, locale)}
+                                    {locale === "es" ? "/ semana" : "/ week"} · {opt.videosPerWeek} {opt.videosPerWeek === 1 ? "video" : "videos"}
                                   </span>
                                 </div>
                               ))}
@@ -258,7 +257,7 @@ export function PackagesSection({ locale }: { locale: Locale }) {
                               data-cta="package_arranque_weekly_whatsapp"
                             >
                               <MessageCircle className="size-4" aria-hidden="true" />
-                              {`${copy.packages.quote(locale === "es" ? "plan semanal" : "weekly plan")} ${locale === "es" ? "por WhatsApp" : "on WhatsApp"}`}
+                              {locale === "es" ? "Empezar por WhatsApp" : "Start on WhatsApp"}
                             </a>
                             <p className="em-pkcard__weekly">
                               <a href={arranqueWeeklyHref(locale)} data-cta="package_arranque_weekly_plan">

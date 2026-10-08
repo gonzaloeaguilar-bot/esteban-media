@@ -1817,9 +1817,11 @@ html.rail-anim .em-pk-steps__list.rail-reveal.is-in li:nth-child(3) { transition
   width: 100%;
 }
 .em-pk-starter-tile .em-pkcard__weekly {
-  margin-top: 10px;
+  margin-top: 6px;
   text-align: center;
 }
+/* A secondary link is still a tap target: 44px tall, text unchanged. */
+.em-pk-starter-tile .em-pkcard__weekly a { min-height: 44px; }
 
 @media (prefers-reduced-motion: reduce) {
   .em-pk-card,

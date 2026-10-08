@@ -88,11 +88,11 @@ export default function SpanishPricingPage() {
           </p>
           <p className="mt-3 max-w-2xl text-sm text-[#5a6066]">
             ¿Quieres un número para tu proyecto ahora mismo? Usa la{" "}
-            <Link href="/es/calculadora" className="inline-block py-1 underline hover:text-[#9f3c27]">
+            <Link href="/es/calculadora" className="underline hover:text-[#9f3c27]">
               calculadora de presupuesto
             </Link>
             , o mira{" "}
-            <Link href="/es/servicios" className="inline-block py-1 underline hover:text-[#9f3c27]">
+            <Link href="/es/servicios" className="underline hover:text-[#9f3c27]">
               todos los servicios
             </Link>
             .
