@@ -19,12 +19,29 @@ function collectStrings(node: React.ReactNode): string {
   return collectStrings((node.props as { children?: React.ReactNode }).children);
 }
 
+function collectHrefs(node: React.ReactNode): string[] {
+  if (Array.isArray(node)) {
+    return node.flatMap(collectHrefs);
+  }
+  if (!React.isValidElement(node)) {
+    return [];
+  }
+
+  const props = node.props as { children?: React.ReactNode; href?: string };
+
+  return [
+    ...(typeof props.href === "string" ? [props.href] : []),
+    ...collectHrefs(props.children),
+  ];
+}
+
 describe("portfolio content depth and technical specifications", () => {
   it("renders the portfolio page with enhanced technical delivery and commercial format sections", () => {
     const page = PortfolioPage();
     expect(page).toBeDefined();
 
     const text = collectStrings(page);
+    const hrefs = collectHrefs(page);
 
     expect(text).toContain(
       "Browse real video editing work from Esteban Moreno Media, including restaurant, real estate, brand, social, event, animation, and narrative projects.",
@@ -65,6 +82,19 @@ describe("portfolio content depth and technical specifications", () => {
     expect(text).toContain("Retention & Hook Pacing");
     expect(text).toContain("Kinetic Captions & Safe Zones");
     expect(text).toContain("Content Repurposing & Batching");
+    expect(text).toContain(
+      "Spanish-first editing with English subtitling and localized messaging scoped to the project.",
+    );
+
+    // Verifies local project fit and inquiry routing
+    expect(text).toContain(
+      "Browse the proof, then match it to a Miami or Fort Lauderdale need.",
+    );
+    expect(text).toContain("Fort Lauderdale, Broward, and Miami-Dade");
+    expect(text).toContain("Palm Beach projects are reviewed individually");
+    expect(hrefs).toEqual(
+      expect.arrayContaining(["/areas", "/services", "/assessment"]),
+    );
 
     // Verifies all 14 FAQ entries
     expect(text).toContain("What types of video projects can be edited from client-provided footage?");

@@ -108,7 +108,7 @@ const portfolioFaqItems = [
     question:
       "Does Esteban Moreno Media handle bilingual English and Spanish content?",
     answer:
-      "Yes. Esteban Moreno Media is a bilingual production practice based in Fort Lauderdale. Video projects can be edited, scripted, titled, and subtitled in Spanish, English, or both to engage South Florida audiences and broader regional markets.",
+      "Yes. Esteban Moreno Media is Spanish-first and can support English project materials by scope. Video projects can be edited, scripted, titled, and subtitled in Spanish, English, or both to engage South Florida audiences and broader regional markets.",
   },
   {
     question: "Are on-location filming sessions available in South Florida?",
@@ -545,8 +545,8 @@ export default function PortfolioPage() {
                     aria-hidden="true"
                   />
                   <span>
-                    Bilingual Spanish and English editing, subtitling, and
-                    localized messaging.
+                    Spanish-first editing with English subtitling and
+                    localized messaging scoped to the project.
                   </span>
                 </div>
               </div>
@@ -1195,6 +1195,80 @@ export default function PortfolioPage() {
                 Repurposing service
                 <ArrowRight className="size-3.5" aria-hidden="true" />
               </Link>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section
+        className="border-t border-[#d6ccc0] py-14 sm:py-18"
+        aria-labelledby="local-fit-heading"
+      >
+        <Container size="xl">
+          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+            <div>
+              <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">
+                Local project fit
+              </p>
+              <h2
+                id="local-fit-heading"
+                className="mt-4 max-w-xl font-serif text-4xl leading-tight sm:text-5xl"
+              >
+                Browse the proof, then match it to a Miami or Fort Lauderdale need.
+              </h2>
+              <p className="mt-5 max-w-xl text-base leading-7 text-[#3f4548]">
+                If you are comparing editors for a South Florida business, use
+                the portfolio to choose the closest project type, then send the
+                goal, location, publishing channel, and footage status. Remote
+                editing can start from supplied material, while on-location
+                capture is scoped for Fort Lauderdale, Broward, and Miami-Dade;
+                Palm Beach projects are reviewed individually.
+              </p>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-3">
+              {[
+                {
+                  title: "Check service areas",
+                  detail:
+                    "Confirm whether your shoot or business market fits the current South Florida coverage.",
+                  href: "/areas",
+                  label: "View areas",
+                },
+                {
+                  title: "Compare services",
+                  detail:
+                    "Match the portfolio example to editing, AI-assisted content, social planning, or scoped production.",
+                  href: "/services",
+                  label: "View services",
+                },
+                {
+                  title: "Send the brief",
+                  detail:
+                    "Share the project goal and existing material so Esteban can ask the right scoping questions.",
+                  href: "/assessment",
+                  label: "Start diagnostic",
+                },
+              ].map(({ title: itemTitle, detail, href, label }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className="group flex min-h-56 flex-col justify-between rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6 transition hover:border-[#e85d3e]"
+                >
+                  <span>
+                    <span className="font-serif text-2xl leading-tight">
+                      {itemTitle}
+                    </span>
+                    <span className="mt-3 block text-sm leading-6 text-[#3f4548]">
+                      {detail}
+                    </span>
+                  </span>
+                  <span className="mt-5 inline-flex items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition group-hover:text-[#7f2f20]">
+                    {label}
+                    <ArrowRight className="size-3.5" aria-hidden="true" />
+                  </span>
+                </Link>
+              ))}
             </div>
           </div>
         </Container>
