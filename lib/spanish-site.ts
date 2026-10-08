@@ -24,6 +24,7 @@ import {
 } from "lucide-react";
 
 import { absoluteUrl, site } from "@/lib/site";
+import { SHORT_FORM_SECTIONS_ES, shortFormServiceJsonLd } from "@/lib/short-form-recs";
 import {
   CORPORATE_EVENT_ES_DESTINATIONS,
   CORPORATE_EVENT_ES_DISCLOSURE,
@@ -1157,9 +1158,11 @@ export const spanishNichePages: SpanishNichePage[] = [
     slug: "editor-de-video-corto-para-redes-miami",
     title: "Editor de video corto para redes en Miami",
     metadataTitle: "Editor de Video Corto Reels Miami",
-    description:
-      "Edición especializada en Reels, Shorts y TikTok para creadores, marcas y empresas en South Florida.",
+    description: `Editor de videos cortos y reels para influencers, creadores y negocios en Miami y Fort Lauderdale. Reels, TikTok y Shorts desde ${usd(SHORT_FORM.perVideoFrom)} por video.`,
     eyebrow: "Video Corto / Reels",
+    updated: "2026-10-08",
+    sectionsDisclosure: "Videos cortos para influencers y negocios: costo, grabar con el celular y contacto",
+    sectionsDestinations: "Formato y zonas seguras, edición remota, influencers que empiezan, grabar con el celular, precios en Miami y cómo contactar a Esteban",
     h1: "Edición de Reels, TikToks y YouTube Shorts.",
     lead:
       "Editamos videos verticales en formato 9:16 con cortes dinámicos, subtítulos legibles y ritmos que mantienen la retención de audiencia.",
@@ -1203,6 +1206,7 @@ export const spanishNichePages: SpanishNichePage[] = [
           "El proceso comienza reuniendo los archivos originales en una carpeta compartida en la nube con notas breves sobre el objetivo de cada clip. La edición recorta silencios, unifica color y sonido, y prepara versiones verticales adaptadas. Si necesitas atención enfocada en Miami-Dade, consulta con un [editor de Reels en Miami](/es/editor-de-reels-miami) para revisar el alcance de tus publicaciones.",
         ],
       },
+      ...SHORT_FORM_SECTIONS_ES,
     ],
     faqs: [
       {
@@ -4649,7 +4653,9 @@ export function buildSpanishNicheStructuredData(page: SpanishNichePage) {
         about: page.keyword,
         isPartOf: { "@id": absoluteUrl("/#website") },
       }
-    : {
+    : page.slug === "editor-de-video-corto-para-redes-miami"
+      ? shortFormServiceJsonLd("es")
+      : {
         "@type": "Service",
         "@id": absoluteUrl(`${path}#service`),
         name: page.title,
