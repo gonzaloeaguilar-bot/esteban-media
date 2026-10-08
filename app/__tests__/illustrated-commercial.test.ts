@@ -2,7 +2,8 @@ import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 import { AudienceRouter } from "@/components/audience-router";
-import { RealEstatePlansSection } from "@/components/real-estate-plans-section";
+import { NeedsChooser } from "@/components/needs-chooser";
+import { DOOR_ORDER } from "@/lib/needs-doors";
 import { AUDIENCE_LANES } from "@/lib/audience-lanes";
 import { REAL_ESTATE_PLANS } from "@/lib/pricing";
 import { realEstatePlansCopy, realEstateTerms, realEstatePlanName } from "@/lib/real-estate-plans";
@@ -46,19 +47,26 @@ describe.each(["en", "es"] as const)("illustrated commercial content (%s)", loca
   });
 
   it("serves all plan prices, terms and exact quote messages before JavaScript", () => {
-    const html = renderToStaticMarkup(React.createElement(RealEstatePlansSection, { locale }));
+    // Since 2026-10-08 the monthly plans live behind the first door of the
+    // needs chooser. A closed door only hides them visually: every price,
+    // term and quote link is in the server HTML.
+    const html = renderToStaticMarkup(React.createElement(NeedsChooser, { locale }));
     const c = realEstatePlansCopy(locale);
     for (const plan of REAL_ESTATE_PLANS) {
       expect(html).toContain(`data-plan="${plan.id}"`);
       expect(html).toContain(plan.price.toLocaleString("en-US"));
       expect(html).toContain(escape(whatsappHref(site.phone.e164, c.whatsapp(realEstatePlanName(plan.id)))));
       expect(html).toContain(`data-cta="real_estate_plan_${plan.id}_whatsapp"`);
+      expect(html).toContain(encodeURIComponent(REAL_ESTATE_PLAN_VISUALS[plan.id].image));
     }
     for (const term of [...realEstateTerms(locale), ...c.everyPlan.items]) expect(html).toContain(escape(term));
-    expect(html.match(/class="em-plan-details"/g)).toHaveLength(3);
     expect(html).not.toMatch(/<article[^>]*hidden/); // All plans work without hydration.
-    expect(html).toContain(locale === "es" ? "Planes mensuales de bienes raíces." : "Monthly real estate plans.");
-    expect(html).toContain(locale === "es" ? "Solo para bienes raíces" : "Real estate only");
+    // Real estate is the first door and the only highlighted one.
+    const doors = [...html.matchAll(/data-door="([\w-]+)"/g)].map((m) => m[1]);
+    expect(doors).toEqual(DOOR_ORDER);
+    expect(html.match(/data-specialty="true"/g)).toHaveLength(1);
+    expect(html.indexOf('data-specialty="true"')).toBeLessThan(html.indexOf('data-door="business"'));
+    for (const id of DOOR_ORDER) expect(html).toContain(`data-cta="door_open_${id}"`);
   });
 });
 

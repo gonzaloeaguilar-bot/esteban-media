@@ -47,10 +47,14 @@ describe("packages", () => {
     // test failing on a rename while the behaviour it guards was untouched.
     // What has to stay true is that each card carries an id derived from
     // packageAnchor, and that the section still owns the four anchors.
-    const src = source("components/packages-section.tsx");
-    expect(src).toMatch(/const anchor = packageAnchor\(pkg\.id\)/);
-    expect(src).toMatch(/id=\{anchor\}/);
-    expect(src).toMatch(/aria-controls=\{`\$\{anchor\}-body`\}/);
+    // Since the 2026-10-08 needs-first chooser, the package cards live inside
+    // the doors: three in "I have a business", Starter's single video in
+    // "I just need editing". Each still carries its packageAnchor id, so old
+    // links (and the JSON-LD offer urls) land on the right card.
+    const src = source("components/needs-chooser.tsx");
+    expect(src).toMatch(/id=\{packageAnchor\(id\)\}/);
+    expect(src).toMatch(/id=\{packageAnchor\("arranque"\)\}/);
+    expect(src).toMatch(/\["crecimiento", "presencia-local", "todo-incluido"\]/);
   });
 
   it("only links a la carte items to routes that exist", () => {

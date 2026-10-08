@@ -55,7 +55,7 @@ describe("Arranque weekly plan", () => {
   });
 
   it("names no second Starter anywhere a visitor or crawler reads it", () => {
-    for (const path of ["components/starter-options.tsx", "components/arranque-weekly-section.tsx", "components/packages-section.tsx", "lib/arranque-weekly.ts"]) {
+    for (const path of ["components/starter-options.tsx", "components/arranque-weekly-section.tsx", "components/packages-section.tsx", "components/needs-chooser.tsx", "lib/needs-doors.ts", "lib/arranque-weekly.ts"]) {
       const code = source(path).replace(/\/\/.*$|\/\*[\s\S]*?\*\//gm, "");
       expect(code, path).not.toMatch(/Arranque semanal|Weekly Starter/);
     }
@@ -89,8 +89,16 @@ describe("Arranque weekly plan", () => {
       expect(options).toContain(words);
     }
     expect(options).not.toMatch(/line-through|<s>|<del>|badge/i);
-    expect(source("components/packages-section.tsx")).toContain("<StarterOptions locale={locale} />");
     expect(source("components/arranque-weekly-section.tsx")).toContain("<StarterOptions locale={locale}");
+    // Pricing and home (2026-10-08 needs-first chooser): the same two ways to
+    // buy Starter, behind two doors — weekly from ARRANQUE_WEEKLY_OPTIONS with
+    // the same comparison line, and the single video from priceFor("arranque").
+    const chooser = source("components/needs-chooser.tsx");
+    expect(source("components/packages-section.tsx")).toContain("<NeedsChooser locale={locale} />");
+    expect(chooser).toContain("ARRANQUE_WEEKLY_OPTIONS.map(");
+    expect(chooser).toContain("arranqueWeeklyComparisonLine(locale)");
+    expect(chooser).toContain('priceFor("arranque")');
+    expect(chooser).not.toMatch(/line-through|<s>|<del>|badge/i);
   });
 
   it.each(locales)("%s: ten FAQs from the proposal, numbers from the terms", (locale) => {
@@ -125,8 +133,8 @@ describe("Arranque weekly plan", () => {
     }
     expect([...ARRANQUE_WEEKLY_SPANISH_SLUGS]).toEqual(ARRANQUE_WEEKLY_PAGES.es.map((p) => p.slice(4)));
     expect(source("components/spanish-niche-page.tsx")).toContain('<ArranqueWeeklySection locale="es" />');
-    const pk = source("components/packages-section.tsx");
-    expect(pk).toContain('pkg.id === "arranque"');
+    const pk = source("components/needs-chooser.tsx");
+    expect(pk).toContain("arranqueWeeklyHref(locale)");
     expect(pk).not.toContain("ArranqueWeeklySection");
     expect(arranqueWeeklyHref("es")).toBe("/es/edicion-de-video-para-creadores-de-contenido-miami#arranque-semanal");
     expect(arranqueWeeklyHref("en")).toBe("/services/content-creator-video-editing-miami#weekly-starter");

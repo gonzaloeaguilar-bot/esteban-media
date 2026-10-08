@@ -48,7 +48,7 @@ describe("real estate monthly plans", () => {
   });
 
   it("never inlines a price figure in the component or the copy", () => {
-    for (const path of ["components/real-estate-plans-section.tsx", "lib/real-estate-plans.ts"]) {
+    for (const path of ["components/needs-chooser.tsx", "lib/needs-doors.ts", "lib/real-estate-plans.ts"]) {
       const text = source(path);
       expect(text).not.toMatch(/\$\d/);
       for (const n of ["450", "700", "1250", "1,250"]) expect(text).not.toContain(n);
@@ -56,6 +56,10 @@ describe("real estate monthly plans", () => {
   });
 
   it("is rendered by the packages section on every page that shows packages", () => {
-    expect(source("components/packages-section.tsx")).toContain("RealEstatePlansSection");
+    // Behind the first, highlighted door of the needs chooser (2026-10-08).
+    expect(source("components/packages-section.tsx")).toContain("<NeedsChooser locale={locale} />");
+    const chooser = source("components/needs-chooser.tsx");
+    expect(chooser).toContain('door.id === "real-estate" && <RealEstatePanel');
+    expect(chooser).toContain("realEstatePlans().map(");
   });
 });
