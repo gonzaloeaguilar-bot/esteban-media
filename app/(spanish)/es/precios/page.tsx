@@ -76,9 +76,15 @@ export default function SpanishPricingPage() {
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#40474d] sm:text-lg">
             Cada paquete muestra su precio de partida para que sepas el orden de
             magnitud antes de escribirme. La cifra final depende de cuánto video
-            necesitas, de si hay grabación presencial y de qué tan rápido lo
-            necesitas — por eso siempre recibes una cotización por escrito para
-            tu proyecto.
+            necesitas, de si hay grabación presencial en nuestras{" "}
+            <Link
+              href="/es/areas"
+              className="underline underline-offset-4 hover:text-[#9f3c27]"
+            >
+              áreas de servicio de Fort Lauderdale, Broward y Miami-Dade
+            </Link>{" "}
+            y de qué tan rápido lo necesitas — por eso siempre recibes una
+            cotización por escrito para tu proyecto.
           </p>
           <p className="mt-3 max-w-2xl text-sm text-[#5a6066]">
             ¿Quieres un número para tu proyecto ahora mismo? Usa la{" "}
