@@ -323,7 +323,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Miami-Dade / atención en español",
     h1: "Video en Miami-Dade, definido proyecto por proyecto.",
     lead:
-      "Esteban tiene proyectos publicados y verificables realizados en Miami. Para una nueva idea en locación, la disponibilidad y el alcance se conversan de forma individual según nuestras [áreas de servicio](/es/areas); la atención es principalmente en español y su inglés es intermedio.",
+      "Esteban tiene proyectos publicados y verificables realizados en Miami. Para una nueva idea en locación, la disponibilidad y el alcance se conversan de forma individual según [Fort Lauderdale como base, tres condados como área de servicio](/es/areas); la atención es principalmente en español y su inglés es intermedio.",
     keyword: "videógrafo en Miami",
     location: "Miami-Dade",
     availability: "confirmed",
@@ -1394,7 +1394,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Doral / B2B Commercial",
     h1: "Producción de video y contenido comercial en Doral.",
     lead:
-      "Ofrecemos servicios de producción, videografía corporativa y edición remota para distribuidores, agencias de logística y marcas comerciales en Doral.",
+      "Ofrecemos servicios de producción, videografía corporativa y edición remota para distribuidores, agencias de logística y marcas comerciales en Doral, dentro de nuestras [áreas de servicio de edición y producción de video](/es/areas).",
     keyword: "producción de video en Doral",
     location: "Doral / Miami-Dade",
     availability: "confirmed",
@@ -2584,7 +2584,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Weston / Broward County",
     h1: "Edición de video corporativo para empresas en Weston, FL.",
     lead:
-      "Produce comunicados institucionales, videos de capacitación y promocionales de alta credibilidad para corporativos en Weston.",
+      "Produce comunicados institucionales, videos de capacitación y promocionales de alta credibilidad para corporativos en Weston, con cobertura dentro de [Fort Lauderdale como base, tres condados como área de servicio](/es/areas).",
     keyword: "video corporativo en Weston FL",
     location: "Weston / Broward County",
     availability: "confirmed",
@@ -3178,7 +3178,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Fort Lauderdale / Broward",
     h1: "Producción de video en Fort Lauderdale para negocios que necesitan explicar su oferta.",
     lead:
-      "Fort Lauderdale es la base de Esteban Moreno Media. Esta página ayuda a preparar una consulta de video para negocios de Broward: qué se debe grabar, qué material ya existe, dónde se publicará y si el proyecto requiere captura local o solo edición remota.",
+      "Fort Lauderdale es la base de Esteban Moreno Media. Esta página ayuda a preparar una consulta de video para negocios de Broward: qué se debe grabar, qué material ya existe, dónde se publicará y si el proyecto requiere captura local dentro de [Fort Lauderdale como base, tres condados como área de servicio](/es/areas) o solo edición remota.",
     keyword: "producción de video Fort Lauderdale",
     location: "Fort Lauderdale / Broward County",
     availability: "confirmed",
