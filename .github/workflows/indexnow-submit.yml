@@ -1,0 +1,55 @@
+name: IndexNow submit
+
+# WHY: Bing/IndexNow only learns about new or changed URLs when they are pushed
+# to it. Relying on a human to run `node scripts/indexnow-submit.mjs run` after
+# each deploy means it silently stops happening. This job runs the exact same
+# script on every push to main, which is when the production deploy lands.
+#
+# The IndexNow key is PUBLIC, not a secret: engines verify ownership by fetching
+#   https://<host>/<key>.txt
+# so the key must be served from the site itself. It lives in-repo at
+#   public/7935c8701eedf6b0bee7ab5ba869ec41.txt
+# and is hardcoded in scripts/indexnow-submit.mjs (HOST + KEY). The script reads
+# no environment variables, so there is no secret to wire via ${{ secrets.* }}.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: indexnow-submit
+  cancel-in-progress: false
+
+jobs:
+  indexnow:
+    name: Submit sitemap URLs to IndexNow
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # Fail-safe: the key file is public and version-controlled, so this should
+      # always be present. If it ever goes missing, report it and succeed with a
+      # notice rather than failing the deploy pipeline over a non-code problem.
+      - name: Detect IndexNow key file
+        id: key
+        run: |
+          if [ -f "public/7935c8701eedf6b0bee7ab5ba869ec41.txt" ]; then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "present=false" >> "$GITHUB_OUTPUT"
+            echo "::notice title=IndexNow skipped::public/7935c8701eedf6b0bee7ab5ba869ec41.txt is missing; skipping IndexNow submission."
+          fi
+
+      - name: Submit to IndexNow
+        if: steps.key.outputs.present == 'true'
+        run: node scripts/indexnow-submit.mjs run
