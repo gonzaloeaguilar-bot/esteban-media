@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { ArrowRight, CheckCircle2, MapPin } from "lucide-react";
 
 import {
@@ -75,7 +76,21 @@ export function buildGeoServiceSchema(content: GeoServicePageContent) {
   };
 }
 
-export function GeoServicePage({ content }: { content: GeoServicePageContent }) {
+export function GeoServicePage({
+  content,
+  showcase,
+}: {
+  content: GeoServicePageContent;
+  /**
+   * Optional proof strip rendered under the scope section, above the FAQ.
+   *
+   * Additive and opt-in: a page that does not pass a showcase renders exactly
+   * what it rendered before. Used here for the real-estate reel shelf, which
+   * belongs beside the craft copy it demonstrates rather than as a bolt-on
+   * after the page has already asked the visitor to leave.
+   */
+  showcase?: ReactNode;
+}) {
   const jsonLd = buildGeoServiceSchema(content);
 
   return (
@@ -200,6 +215,8 @@ export function GeoServicePage({ content }: { content: GeoServicePageContent }) 
           </Container>
         </section>
       ) : null}
+
+      {showcase}
 
       <ServiceFaqs heading={content.faqHeading} faqs={content.faqs} />
       <ServiceInquiryRail service={content.inquiry} />

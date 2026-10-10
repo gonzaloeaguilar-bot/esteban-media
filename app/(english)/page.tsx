@@ -10,6 +10,7 @@ import { SignalIntro } from "@/components/signal-intro";
 import { ClosingCredits, PackagesSection } from "@/components/packages-section";
 import { KeepReading } from "@/components/keep-reading";
 import { PortfolioTeaser } from "@/components/portfolio-teaser";
+import { RealEstateReels } from "@/components/real-estate-reels";
 import { ServicesStrip } from "@/components/services-strip";
 
 export const metadata: Metadata = {
@@ -64,6 +65,10 @@ export default function Home() {
       <AudienceRouter locale="en" />
       <PackagesSection locale="en" />
       <PortfolioTeaser locale="en" />
+      {/* The conversion strip the social traffic needs: property reels in a
+          streaming-style shelf. Posters lazy-load up front; the MP4s load only
+          when a visitor opens one. */}
+      <RealEstateReels locale="en" />
       <ClientReviews locale="en" />
       <KeepReading id="more" className="em-fold" title="Want to see everything?" destinations="Services, areas, guides and more about Esteban.">
         <HomeAuthorityHub />

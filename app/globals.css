@@ -1337,3 +1337,158 @@ div.relative:has(> .em-carousel-track) {
     scroll-behavior: auto;
   }
 }
+
+/* ── Real-estate reel shelf ───────────────────────────────────────────────
+   Vertical 9:16 property reels, narrower than the catalogue card, on the dark
+   band. Everything hangs off the rail's own custom properties; the vendored
+   kit is not touched.
+
+   Scoped to `.em-reel .rail` rather than to the wrapper alone, on purpose:
+   `.rail` sets --rail-media-aspect and the card widths on ITSELF, so an
+   inherited value from a parent would lose to that self-declaration. */
+.em-reel .rail {
+  --rail-card-width: 300px;
+  --rail-card-width-lg: 264px;
+  --rail-card-width-sm: 220px;
+  --rail-media-aspect: 9 / 16;
+  --rail-poster-aspect: 9 / 16;
+  --rail-card-radius: 16px;
+  /* A vertical poster already carries its own bottom scrim; the kit's panel
+     fade would only wash the picture into the card. Off here. */
+  --rail-poster-fade: none;
+}
+.em-reel .rail-card__figure {
+  background: #0d0d0d;
+}
+/* The play button owns the whole figure box; its whole surface is the tap
+   target, so the gesture works anywhere on the poster, not just on the dot. */
+.em-reel .em-reel-play img {
+  object-fit: cover;
+}
+
+/* ── Full-bleed shelf ─────────────────────────────────────────────────────
+   The wrapper leaves the max-w-7xl container and spans the dark band edge to
+   edge, so the strip runs off the right side of the screen like a streaming
+   row: the poster cut by the viewport IS the affordance that there is more.
+
+   The inset that re-aligns the first card, the counter and the arrows with
+   the content column is computed against the wrapper's own width — a plain
+   percentage, not vw — so a scrollbar can never skew the alignment, and the
+   floor at zero keeps the arithmetic honest below 80rem:
+
+     inset = gutter + max(0, (width − 80rem) / 2)
+
+   which is exactly the mx-auto + px-* rhythm the headline above uses. */
+.em-reel {
+  --em-rail-gutter: 1rem; /* px-4 */
+}
+@media (min-width: 40rem) {
+  .em-reel {
+    --em-rail-gutter: 1.5rem; /* sm:px-6 */
+  }
+}
+@media (min-width: 64rem) {
+  .em-reel {
+    --em-rail-gutter: 2rem; /* lg:px-8 */
+  }
+}
+.em-reel .rail__scroller {
+  padding-inline: calc(var(--em-rail-gutter) + max(0px, (100% - 80rem) / 2));
+  scroll-padding-inline-start: calc(
+    var(--em-rail-gutter) + max(0px, (100% - 80rem) / 2)
+  );
+  /* The strip now follows the headline by the wrapper's own margin alone; the
+     kit's 24px top gap belonged to the header band that no longer exists. */
+  margin-top: 0;
+}
+
+/* The shelf's counter and arrows, docked in the headline row instead of a
+   header band of their own. Light-on-dark because they sit inside the reel
+   band, matching the poster chrome rather than the page's card nav. */
+.em-reel-arrow {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 9999px;
+  border: 1px solid rgb(255 255 255 / 0.22);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  transition:
+    border-color 150ms,
+    background-color 150ms,
+    opacity 150ms;
+}
+@media (hover: hover) {
+  .em-reel-arrow:hover:not(:disabled) {
+    border-color: rgb(255 255 255 / 0.5);
+    background: rgb(255 255 255 / 0.08);
+  }
+}
+.em-reel-arrow:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.em-reel-arrow:focus-visible {
+  outline: 2px solid #ffb49e;
+  outline-offset: 2px;
+}
+
+/* The kit fades both ends of the strip. Here the left end is the aligned
+   content edge, and between 768 and 1023px the first card's inset (24px)
+   sits inside the kit's 28px ramp — a fade there would ghost the card that
+   is supposed to line up with the headline. Keep only the right fade, and
+   cap it under the smallest inset so a card resting at scroll-end is never
+   faded: the soft cut belongs to the bleeding edge only. */
+@supports (mask-image: linear-gradient(to right, transparent, black)) {
+  @media (min-width: 768px) {
+    .em-reel .rail__scroller {
+      mask-image: linear-gradient(to right, black calc(100% - 24px), transparent 100%);
+      -webkit-mask-image: linear-gradient(
+        to right,
+        black calc(100% - 24px),
+        transparent 100%
+      );
+    }
+  }
+}
+
+/* Spotlight preview: the inline hover video fades in over the poster (the
+   component mounts it only while the pointer dwells, so the file itself is
+   fetched on hover, never on load). The card lifts with a shadow, and the
+   poster pushes in a touch under it — the streaming-row tell that this card
+   is the live one. The zoom lives INSIDE the play button's overflow-hidden
+   box, so nothing pokes out of the strip; only the picture moves, never the
+   card. */
+.em-reel-preview {
+  animation: em-reel-preview-in 220ms ease-out both;
+}
+@keyframes em-reel-preview-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .em-reel-preview {
+    animation: none;
+  }
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .em-reel .rail-card {
+    transition: box-shadow 180ms ease;
+  }
+  .em-reel .rail-card:hover {
+    box-shadow: 0 16px 40px rgb(0 0 0 / 0.45);
+  }
+  .em-reel .em-reel-play img {
+    transition: transform 450ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .em-reel .rail-card:hover .em-reel-play img,
+  .em-reel .rail-card:focus-within .em-reel-play img {
+    transform: scale(1.06);
+  }
+}
