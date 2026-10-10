@@ -83,6 +83,14 @@ describe("Google Business Profile entity link", () => {
     );
   });
 
+  it("publishes a price range spanning only the published starting prices", () => {
+    // Published starting prices (lib/pricing.ts): the lowest is Arranque /
+    // Starter from $100 per video; the highest fixed starting price is
+    // Presencia Local / Local Presence from $800 per production day, with
+    // Todo Incluido / All-In quoted per project. "+" marks the custom ceiling.
+    expect(localBusinessEntityJsonLd.priceRange).toBe("$100-$800+");
+  });
+
   it("gives the Organization/LocalBusiness node a logo so it's eligible for rich results", () => {
     expect(localBusinessEntityJsonLd.logo).toMatchObject({
       "@type": "ImageObject",

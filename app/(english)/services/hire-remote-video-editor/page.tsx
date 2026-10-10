@@ -3,7 +3,11 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 import { ClientReviews } from "@/components/client-reviews";
 import { Container } from "@/components/ui/container";
-import { ServiceInquiryRail } from "@/components/service-depth";
+import {
+  ServiceFaqs,
+  ServiceInquiryRail,
+  buildServiceFaqSchema,
+} from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, serviceAreas } from "@/lib/site";
 import { entityIds } from "@/lib/entity-schema";
@@ -40,17 +44,51 @@ const process = [
   },
 ];
 
+const REMOTE_EDITOR_DEPTH = {
+  faqHeading: "Remote editing questions, answered before you send files",
+  faqs: [
+    {
+      question: "What footage can Esteban edit remotely?",
+      answer:
+        "Remote editing works from original files the client already has: phone or camera footage, screen recordings, product clips, and separately recorded audio. Files should be sent as originals rather than clips re-saved out of a messaging app, because a message-app copy is already compressed and the detail cannot be restored.",
+    },
+    {
+      question: "Does Esteban work with businesses outside South Florida?",
+      answer:
+        "Yes for remote editing, AI-assisted content, social planning, and asset-based visual work when source files can be shared online. On-location capture is a separate decision and is only considered for South Florida projects.",
+    },
+    {
+      question: "What does remote video editing cost?",
+      answer:
+        "The Starter package, remote editing of footage you already have, starts from $100 per video with one revision round included. Every project is priced from the actual footage, the deliverable list, and the number of revision rounds, so the package price is a starting point rather than a fixed rate.",
+    },
+    {
+      question: "What languages does Esteban work in?",
+      answer:
+        "Esteban works in Spanish first, with intermediate English communication available, so a bilingual brief or a Spanish-language video is straightforward. He does not claim full fluency in English, and this is not a translation service for other languages.",
+    },
+  ],
+} as const;
+
 export default function HireRemoteVideoEditorPage() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    "@id": absoluteUrl("/services/hire-remote-video-editor#service"),
-    name: "Remote video editing service",
-    description:
-      "Remote video editing for supplied footage, short-form social video, YouTube, product videos, and bilingual content.",
-    provider: { "@id": entityIds.business },
-    areaServed: serviceAreas.map((area) => area.name),
-    url: absoluteUrl("/services/hire-remote-video-editor"),
+    "@graph": [
+      buildServiceFaqSchema(
+        absoluteUrl("/services/hire-remote-video-editor"),
+        REMOTE_EDITOR_DEPTH.faqs,
+      ),
+      {
+        "@type": "Service",
+        "@id": absoluteUrl("/services/hire-remote-video-editor#service"),
+        name: "Remote video editing service",
+        description:
+          "Remote video editing for supplied footage, short-form social video, YouTube, product videos, and bilingual content.",
+        provider: { "@id": entityIds.business },
+        areaServed: serviceAreas.map((area) => area.name),
+        url: absoluteUrl("/services/hire-remote-video-editor"),
+      },
+    ],
   };
 
   return (
@@ -135,6 +173,8 @@ export default function HireRemoteVideoEditorPage() {
       </section>
 
       <ClientReviews locale="en" />
+
+      <ServiceFaqs heading={REMOTE_EDITOR_DEPTH.faqHeading} faqs={REMOTE_EDITOR_DEPTH.faqs} />
 
       <ServiceInquiryRail
         service={{
