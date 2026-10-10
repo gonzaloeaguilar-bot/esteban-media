@@ -321,6 +321,18 @@ export default function ServicesPage() {
               Explore the current website and AI lead-capture work
               <ArrowRight className="size-4" aria-hidden="true" />
             </Link>
+            <p className="mt-5 max-w-3xl leading-7 text-[#252a2d]">
+              Running a creative agency or production studio that needs another
+              editing bench?{" "}
+              <Link
+                href="/services/white-label-video-editing-for-agencies"
+                className="font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#7f2f20]"
+              >
+                White-label video editing for agencies
+              </Link>{" "}
+              explains how overflow production is scoped, priced, and handed
+              back under your brand.
+            </p>
           </section>
 
           <section className="mt-14" aria-labelledby="creative-production-heading">
