@@ -1,4 +1,5 @@
 import { GeoServicePage, type GeoServicePageContent } from "@/components/geo-service-page";
+import { RealEstateReels } from "@/components/real-estate-reels";
 import { buildPageMetadata } from "@/lib/site-metadata";
 
 const content: GeoServicePageContent = {
@@ -99,5 +100,10 @@ export const metadata = buildPageMetadata({
 });
 
 export default function RealEstateReelsVideoEditorSouthFloridaPage() {
-  return <GeoServicePage content={content} />;
+  return (
+    <GeoServicePage
+      content={content}
+      showcase={<RealEstateReels locale="en" />}
+    />
+  );
 }
