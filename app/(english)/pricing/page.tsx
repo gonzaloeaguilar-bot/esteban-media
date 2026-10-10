@@ -83,9 +83,16 @@ export default function PricingPage() {
             <Link href="/calculator" className="underline hover:text-[#9f3c27]">
               budget calculator
             </Link>
-            , or see{" "}
+            , see{" "}
             <Link href="/services" className="underline hover:text-[#9f3c27]">
               every service
+            </Link>
+            , or review the{" "}
+            <Link
+              href="/services/white-label-video-editing-for-agencies"
+              className="underline hover:text-[#9f3c27]"
+            >
+              white-label editing terms for agencies
             </Link>
             .
           </p>

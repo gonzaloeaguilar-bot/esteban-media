@@ -133,7 +133,9 @@ describe("confirmed lead instrumentation", () => {
     expect(intake).toContain('source: "hero-intake"');
     expect(intake).toContain('name="email"');
     expect(intake).toContain('name="projectNeed"');
-    expect(intake).toContain('trackLeadSubmit("hero-intake", locale)');
+    expect(intake).toContain('trackLeadSubmit("hero-intake", locale, foundVia || "not_answered")');
+    expect(intake).toContain('name="foundVia"');
+    expect(intake).toContain('name="foundQuery"');
     expect(contact).toContain('source: "contact"');
     expect(contact).toContain('trackLeadSubmit("contact", "en", foundVia');
   });
