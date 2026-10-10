@@ -773,6 +773,7 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
           internal linking a crawler follows is untouched. */}
       <KeepReading
         id="related-guides"
+        className="em-fold"
         title={copy.relatedFoldSummary}
         destinations={copy.relatedFoldHint}
       >
