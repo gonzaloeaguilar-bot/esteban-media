@@ -1,3 +1,9 @@
+# Home: proof before pricing — 2026-10-10
+
+Branch `fix/home-proof-before-pricing`. Both homes (`/`, `/es`) now render Hero → AudienceRouter → PortfolioTeaser → RealEstateReels (EN only; `/es` never had the shelf) → ClientReviews → PackagesSection (which still bundles real-estate plans, à-la-carte, 3 steps, FAQ + FAQPage JSON-LD) → KeepReading fold → ClosingCredits. Ordering only, no copy changes. `#packages` / `#paquetes` still live inside PackagesSection, so the hero CTA works. `app/__tests__/home-proof-before-pricing.test.ts` locks the order.
+
+---
+
 # US-Spanish Money Pages Deepening & /es/editor-de-video-miami — 2026-10-07 (local, uncommitted)
 
 Branch `feat/es-us-spanish-money-pages`. Deepened US-Spanish money pages (`/es/editor-de-reels-fort-lauderdale`, `/es/editor-de-reels-miami`, `/es/editor-de-video-corto-para-redes-miami`), added contextual cross-links and guide links, and created the Spanish-first landing page `/es/editor-de-video-miami` (sitemap count: 284).

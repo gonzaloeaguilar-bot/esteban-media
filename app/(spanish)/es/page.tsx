@@ -36,9 +36,14 @@ export default function SpanishHomePage() {
           linked to none of them. Above the fold on purpose — a visitor from an
           Instagram bio link should not have to open a fold-out to find their lane. */}
       <AudienceRouter locale="es" />
-      <PackagesSection locale="es" />
+      {/* Proof before pricing. The work and the Google reviews used to sit
+          after ~7,000px of packages, plans, steps and FAQ, under an eyebrow
+          that already said "Primero, el trabajo". Now a visitor sees what
+          Esteban makes, and what clients say, before any price. The hero's
+          "#paquetes" CTA still jumps straight to the prices. */}
       <PortfolioTeaser locale="es" />
       <ClientReviews locale="es" />
+      <PackagesSection locale="es" />
       <KeepReading
         id="mas"
         className="em-fold"

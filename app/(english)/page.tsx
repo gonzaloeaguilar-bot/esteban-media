@@ -63,13 +63,18 @@ export default function Home() {
           linked to none of them. Above the fold on purpose — a visitor from an
           Instagram bio link should not have to open a fold-out to find their lane. */}
       <AudienceRouter locale="en" />
-      <PackagesSection locale="en" />
+      {/* Proof before pricing. The work, the property reels and the Google
+          reviews used to sit after ~7,000px of packages, plans, steps and FAQ,
+          under an eyebrow that already said "First, the work". Now a visitor
+          sees what Esteban makes, and what clients say, before any price. The
+          hero's "#packages" CTA still jumps straight to the prices. */}
       <PortfolioTeaser locale="en" />
       {/* The conversion strip the social traffic needs: property reels in a
           streaming-style shelf. Posters lazy-load up front; the MP4s load only
           when a visitor opens one. */}
       <RealEstateReels locale="en" />
       <ClientReviews locale="en" />
+      <PackagesSection locale="en" />
       <KeepReading id="more" className="em-fold" title="Want to see everything?" destinations="Services, areas, guides and more about Esteban.">
         <HomeAuthorityHub />
         <ServicesStrip />
