@@ -1,6 +1,6 @@
 import { MessageCircle } from "lucide-react";
 
-import { arranqueWeeklyComparisonLine, arranqueWeeklyHref, arranqueWeeklyWhatsapp } from "@/lib/arranque-weekly";
+import { arranqueWeeklyComparisonLine, arranqueWeeklyHref, arranqueWeeklyTermsLine, arranqueWeeklyWhatsapp } from "@/lib/arranque-weekly";
 import { packagesCopy, priceFor, whatsappHref, type Locale } from "@/lib/packages";
 import { ARRANQUE_WEEKLY_OPTIONS, usd } from "@/lib/pricing";
 import { site } from "@/lib/site";
@@ -66,7 +66,7 @@ export function StarterOptions({ locale, showTermsLink = true }: { locale: Local
           </div>
           <p className="em-pk-starter-tile__compare">{arranqueWeeklyComparisonLine(locale)}</p>
           <div className="em-pk-starter-tile__chips">
-            <span className="em-pk-starter-pill">{es ? "Pago semanal · cancela cualquier semana" : "Paid weekly · stop any week"}</span>
+            <span className="em-pk-starter-pill">{arranqueWeeklyTermsLine(locale)}</span>
           </div>
           <a
             href={arranqueWeeklyWhatsapp(site.phone.e164, ARRANQUE_WEEKLY_OPTIONS[0], locale)}

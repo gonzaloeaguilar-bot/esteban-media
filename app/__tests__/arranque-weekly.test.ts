@@ -11,6 +11,7 @@ import {
   arranqueWeeklyHref,
   arranqueWeeklyIncludes,
   arranqueWeeklyOfferJsonLd,
+  arranqueWeeklyTermsLine,
   arranqueWeeklyWhatsapp,
 } from "@/lib/arranque-weekly";
 import {
@@ -39,7 +40,7 @@ describe("Arranque weekly plan", () => {
     expect(ARRANQUE_WEEKLY_OPTIONS.map((o) => [o.videosPerWeek, o.pricePerWeek, o.changesPerVideo])).toEqual([[1, 85, 1], [2, 160, 2]]);
     expect(ARRANQUE_WEEKLY_OPTIONS.map(arranqueWeeklyPerVideo)).toEqual([85, 80]);
     expect(ARRANQUE_WEEKLY_FROM).toEqual({ perWeek: 85, perVideo: 80 });
-    expect(ARRANQUE_WEEKLY_TERMS).toEqual({ maxVideoSeconds: 90, maxFootageMinutes: 10, deliveryHoursMin: 48, deliveryHoursMax: 72 });
+    expect(ARRANQUE_WEEKLY_TERMS).toEqual({ maxVideoSeconds: 90, maxFootageMinutes: 10, deliveryHoursMin: 48, deliveryHoursMax: 72, minimumWeeks: 4 });
   });
 
   it.each(locales)("%s: no separate package name, no discount framing", (locale) => {
@@ -85,9 +86,12 @@ describe("Arranque weekly plan", () => {
   it("pricing card and creator pages render the SAME Starter options, with the comparison and no badge", () => {
     const options = source("components/starter-options.tsx");
     expect(options).toContain("arranqueWeeklyComparisonLine(locale)");
-    for (const words of ["¿Cada cuánto necesitas videos?", "How often do you need videos?", "Una sola vez", "Just once", "Cada semana", "Every week", "Pago semanal · cancela cualquier semana", "Paid weekly · stop any week"]) {
+    for (const words of ["¿Cada cuánto necesitas videos?", "How often do you need videos?", "Una sola vez", "Just once", "Cada semana", "Every week", "arranqueWeeklyTermsLine(locale)"]) {
       expect(options).toContain(words);
     }
+    expect(arranqueWeeklyTermsLine("es")).toBe("Pago semanal · mínimo 4 semanas, luego cancelas cuando quieras");
+    expect(arranqueWeeklyTermsLine("en")).toBe("Paid weekly · 4-week minimum, then cancel anytime");
+    expect(options).not.toMatch(/cualquier semana|stop any week/);
     expect(options).not.toMatch(/line-through|<s>|<del>|badge/i);
     expect(source("components/packages-section.tsx")).toContain("<StarterOptions locale={locale} />");
     expect(source("components/arranque-weekly-section.tsx")).toContain("<StarterOptions locale={locale}");
@@ -98,6 +102,7 @@ describe("Arranque weekly plan", () => {
     expect(faqs).toHaveLength(10);
     expect(faqs[4].answer).toContain(`${ARRANQUE_WEEKLY_TERMS.maxFootageMinutes} min`);
     expect(faqs[9].answer).toMatch(locale === "es" ? /^No, nadie puede/ : /^No, nobody can/);
+    expect(faqs[1].answer).toMatch(locale === "es" ? /^Sí, después de las primeras 4 semanas\./ : /^Yes, after the first 4 weeks\./);
   });
 
   it.each(locales)("%s: WhatsApp message names the option and its weekly price", (locale) => {
