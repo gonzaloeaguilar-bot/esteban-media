@@ -1,0 +1,76 @@
+{
+  "project": "esteban-media",
+  "mode": "pr",
+  "target_type": "pr",
+  "target_id": "PR-327",
+  "requires_pr": true,
+  "goal": "feat(home): real-estate reel shelf with controls docked in the headline row",
+  "summary": "Adds a streaming-style real-estate reel shelf that surfaces Esteban's property video work on the homepage and on the real-estate reels video editor (South Florida) service page, aimed at routing social traffic to WhatsApp or the inquiry path. The reported visual issue is fixed: the shelf counter and arrows no longer float in an orphan rail-header band between the headline and the strip, they are docked into the headline row. Components/real-estate-reels.tsx renders the shelf with posters lazy-loaded up front and MP4s fetched only on hover/open, so no video bytes load on first paint. lib/real-estate-reels.ts holds the reel data source and emits VideoObject JSON-LD for SEO/GEO. components/geo-service-page.tsx gains an additive, opt-in `showcase` prop rendered under the scope section and above the FAQ; a page that passes nothing renders exactly as before. app/globals.css adds 155 lines, purely additive, scoped to the new .em-reel class names (full-bleed strip aligned to the content column, right-edge-only fade, spotlight hover preview, reduced-motion guards).",
+  "risk": "Presentational addition plus one new client component, one data/lib module, six media assets, six poster assets, one additive optional prop on a shared service-page component, and an additive stylesheet slice. No routing, pricing, offer, or customer-data change. The reel shelf is the only new client-side JavaScript and it is inert without the reel data it is handed. Merge remains gated on all GitHub checks being green.",
+  "changed_paths": [
+    "app/(english)/page.tsx",
+    "app/(english)/services/real-estate-reels-video-editor-south-florida/page.tsx",
+    "app/globals.css",
+    "components/geo-service-page.tsx",
+    "components/real-estate-reels.tsx",
+    "lib/real-estate-reels.ts",
+    "public/real-estate-reels/reel-01.jpg",
+    "public/real-estate-reels/reel-01.mp4",
+    "public/real-estate-reels/reel-02.jpg",
+    "public/real-estate-reels/reel-02.mp4",
+    "public/real-estate-reels/reel-03.jpg",
+    "public/real-estate-reels/reel-03.mp4",
+    "public/real-estate-reels/reel-04.jpg",
+    "public/real-estate-reels/reel-04.mp4",
+    "public/real-estate-reels/reel-05.jpg",
+    "public/real-estate-reels/reel-05.mp4",
+    "public/real-estate-reels/reel-06.jpg",
+    "public/real-estate-reels/reel-06.mp4",
+    ".cortex/quality-payloads/PR-327.json"
+  ],
+  "requested_actions": [
+    "merge only after all GitHub checks are green"
+  ],
+  "public_claims": [
+    "The homepage and the real-estate reels service page now show Esteban's real-estate video work in a streaming-style shelf, with a click routing the visitor toward WhatsApp or the inquiry path.",
+    "The reel shelf loads no video bytes on first paint (posters only) and ships VideoObject structured data for the reels."
+  ],
+  "evidence": {
+    "obsidian_context": "esteban-media repository context; this change delivers the reel shelf the operator asked to add to showcase the property reels and convert social traffic (2026-10-10).",
+    "project_routing": "Branch feat/real-estate-reel-shelf in gonzaloeaguilar-bot/esteban-media, PR #327, based on origin/main 8119f59.",
+    "hard_stops_checked": "No hard stop triggered: no pricing, offer, discount, guarantee, testimonial-text authorship, medical or outcome claim, money path, DNS entry, or account mutation is touched. Evidence asserts no authorization and sets no *_authorized key.",
+    "reviewer_ensemble": "Builder, skeptic and taste review. Builder: implemented the reel shelf, the data module and the additive showcase slot. Skeptic: verified the shelf loads no video on first paint, keeps reduced-motion guards, and that the shared geo-service-page change is additive and opt-in. Taste: the counter and arrows now sit in the headline row instead of an orphan header band, so the seam between the headline and the strip is gone.",
+    "reviewer_disagreement_reviewed": "No blocking disagreement between builder, skeptic and taste on scope. The shelf intentionally bleeds past the right edge so a cut poster signals there is more; the left fade is dropped so the first card lines up with the headline column.",
+    "winner_rationale": "Chose a native scroll-snapped scroller with controls docked in the headline row over a JS slider, because the platform already does momentum and snapping and the extra JavaScript would re-implement them worse. No autoplay: moving social proof steals reading time from a visitor mid-sentence.",
+    "tests_or_validation": "pnpm check green locally on the reconstructed branch based on origin/main 8119f59: rail-kit:check (100 files match), rail-adoption:check (3/3), lint (0 errors, 50 pre-existing warnings), typecheck (clean), test (119 files / 1523 tests passed), production build (succeeded), and text-parity (97 routes OK). Built SSR output verified to contain em-reel markers and VideoObject JSON-LD on both the homepage and the reel service page, with all six reels referenced.",
+    "debt_delta": "neutral",
+    "obsidian_handoff": "Handoff updated with the shipped reel shelf, the additive showcase slot on geo-service-page, and the reel-only globals.css slice kept separate from the concurrent reviews-carousel work.",
+    "ci_passed": "GitHub CI 'validate' plus the Cortex quality-evidence check run on PR #327; merge is gated on both being green.",
+    "pr_review_complete": "Reviewed the scoped diff: the new shelf component, the reel data module, the six clips and six posters, the additive optional showcase prop on the shared service page, and the +155-line additive globals.css slice. The shelf loads no video bytes on first paint, ships VideoObject structured data, and adds no autoplay. No customer-facing factual claim beyond surfacing the operator's own video work was added."
+  },
+  "reviewers": {
+    "builder": {
+      "status": "ok",
+      "note": "Implemented the real-estate reel shelf, the reel data module, and the additive showcase slot on the shared service page on PR #327."
+    },
+    "skeptic": {
+      "status": "ok",
+      "note": "Verified the shelf fetches MP4s only on hover/open (posters on first paint), honors prefers-reduced-motion, and that the geo-service-page change is additive and opt-in so every page without a showcase renders exactly as before."
+    },
+    "taste": {
+      "status": "ok",
+      "note": "The counter and arrows are docked in the headline row, so the orphan rail-header band that read as a seam between the headline and the video strip is gone."
+    }
+  },
+  "scores": {
+    "source_fidelity": 5,
+    "architecture_soundness": 4,
+    "implementation_quality": 4,
+    "review_completeness": 4,
+    "debt_posture": 4,
+    "verification_strength": 4,
+    "taste_fit": 5
+  },
+  "disagreements": [],
+  "winner_rationale": "Ship the native scroll-snapped reel shelf with controls docked in the headline row; the repository's own checks are the arbiter of correctness and merge stays gated on all checks green."
+}
