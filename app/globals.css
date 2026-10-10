@@ -177,10 +177,18 @@
     0 1px 2px rgba(16, 18, 20, 0.04), 0 6px 16px -8px rgba(16, 18, 20, 0.14);
   /* A cartel is a POSTER, and a poster is not 288px wide. These are the
      danielzea-site numbers, which is the build this language comes from:
-     420 / 560 / 300 with a 26px gutter. The previous values (288/332/244)
-     were the kit's own editorial defaults and read, in review, as "tiny". */
+     420 / 380 / 300 with a 26px gutter. The previous values (288/332/244)
+     were the kit's own editorial defaults and read, in review, as "tiny".
+
+     The lg value was 560px until 2026-10-10. Measured on the homepage rail
+     against the container it actually renders in (max-w-7xl = 1216px of
+     content after Container's gutters): 2×560 + 26 = 1146 left only 70px, so
+     the third card clipped to a ~44px sliver and the rail showed TWO cards
+     with a hint of a third. 3×380 + 2×26 = 1192 ≤ 1216 puts THREE cards in
+     view, which is what a streaming shelf is. The danielzea reasoning — a
+     catalogue card is not a sidebar chip — still holds at 380. */
   --rail-card-width: 420px;
-  --rail-card-width-lg: 560px;
+  --rail-card-width-lg: 380px;
   --rail-card-width-sm: 300px;
   --rail-gap: 26px;
   /* 4px was the editorial rule ("radio casi recto") applied to the wrong
@@ -338,12 +346,21 @@
 
    A 16:9 picture cannot dominate a tall card; that is geometry, not taste. So
    the poster is the classic one built around a wide still: picture full-bleed
-   across the top at its true aspect, then a tall typographic field. The height
-   comes from the type, the way a film poster's does.
+   across the top at its true aspect, then a typographic field.
 
-   The composition is a three-row grid so nothing can ever collide: title at
-   the top, space in the middle, place at the foot behind a rule — title up
-   top, credits at the bottom.
+   THE HEIGHT IS CONTENT-DRIVEN as of 2026-10-10. It used to be forced by
+   `aspect-ratio: 1 / 1.45` on the card plus a `1fr` slack row inside the
+   body. On the homepage rail — lg cards, no description, only a title and
+   the credits — the fixed ratio made a 560px card 812px tall while its
+   content needed ~430px, and the surplus landed as ~380px of empty dark
+   panel under the credits. Measured, rendered, and called out in review as
+   the thing that made the section look broken. Height now comes from what
+   the card carries: the 16:9 still plus the panel, exactly as tall as its
+   content.
+
+   The composition is still a two-child grid so nothing can ever collide:
+   the picture in row 1, the panel in row 2 — no absolute positioning, no
+   magic pie height that breaks the day someone writes a second line.
    --------------------------------------------------------------------------- */
 .em-cartel .rail-card[data-rail-kind="media"] .rail-card__body {
   min-height: 0;
@@ -402,17 +419,17 @@
   overflow: hidden; /* the photo has to respect the card's corner */
   background: #101214;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 0 14px 34px -18px rgba(0, 0, 0, 0.9);
-  /* One column, four rows. The picture cannot overlap the copy because they
+  /* One column, two rows. The picture cannot overlap the copy because they
      occupy different rows — no absolute positioning, no magic pie height that
-     breaks the day someone writes a second line. */
+     breaks the day someone writes a second line.
+
+     Both rows are `auto`: the card is as tall as its picture and its panel.
+     The former `auto 1fr auto auto` + `aspect-ratio: 1 / 1.45` pair is
+     documented in the block header above — that combination is what poured
+     ~380px of dead panel under the credits at 560px width. */
   display: grid;
   grid-template-columns: 1fr;
-  /* The BODY takes the free space, not a spare row after it. With `auto auto
-     auto 1fr` the leftover 101px sat below everything as a void, which is what
-     made a 1.45 card look unfinished rather than tall. */
-  grid-template-rows: auto 1fr auto auto;
-  /* The poster proportion. */
-  aspect-ratio: 1 / 1.45;
+  grid-template-rows: auto auto;
 }
 /* THE PHOTO IS MATTED, AND THAT IS WHAT MAKES THE CARD TALL.
 
@@ -766,6 +783,23 @@ html.em-returning #em-intro {
 /* Two pages carry a larger desktop ceiling; same curve, higher cap. */
 .em-display--xl {
   font-size: clamp(32px, 9.375vw, 72px);
+}
+
+/* The rating figure on the reviews band.
+
+   Same grammar, smaller band: `clamp(floor, vw, ceiling)`, never a fixed step.
+   It was `text-5xl leading-none` — a hard 48px at every width — which is the
+   exact pattern the hero fixed-step guard exists to catch, and it caught it:
+   app/__tests__/hero-display-type.test.ts scans every .ts/.tsx source file for
+   that pair. The guard is right to be blunt about it; the answer is a fluid
+   figure, not an exemption for this file.
+
+   3.4vw reaches 48px at 1412px, so the desktop figure is the size it always
+   was and only the phone steps down.
+   --------------------------------------------------------------------------- */
+.em-rating {
+  font-size: clamp(36px, 3.4vw, 48px);
+  line-height: 1;
 }
 
 /* ---------------------------------------------------------------------------
@@ -1131,4 +1165,77 @@ nav[aria-label*="igas de pan" i] a,
   --wk-ink: #101214;
   --wk-muted: #5a6066;
   --wk-line: #ddd4c8;
+}
+
+/* ---------------------------------------------------------------------------
+   The bare fold-out.
+
+   On "/" the <details> is mounted DIRECTLY under <main>, whose only chrome is
+   a background colour. The vendor rule gives the summary 4px of side padding
+   and its top/bottom rules run the full element width, so on the one page
+   that mounts it bare the title sat on the viewport edge and the whole block
+   read as a hairline of chrome rather than a section — the bug caught in
+   review on 2026-10-10.
+
+   Every other mount (/services, /areas, /portfolio, the niche and guide
+   pages) already sits inside a component that owns a Container, so this
+   targets bare mounts only — a `.wk-keep-reading` that is a DIRECT CHILD of
+   <main> — and gives the summary exactly the container's geometry:
+   max-w-7xl (80rem) with Container's own 1rem / 1.5rem / 2rem gutters.
+
+   The SUMMARY is what gets constrained, not the <details>: the fold's
+   content (HomeAuthorityHub, ServicesStrip, AboutTeaser, ContactCta) each
+   bring their own Container, and wrapping the details would double-pad
+   every one of them.
+
+   The rules stay full-bleed on purpose — a hairline that runs edge to edge
+   is what separates sections; only the TYPE was wrong.
+   --------------------------------------------------------------------------- */
+main > .wk-keep-reading > summary {
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+@media (min-width: 640px) {
+  main > .wk-keep-reading > summary {
+    padding-inline: 1.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  main > .wk-keep-reading > summary {
+    padding-inline: 2rem;
+  }
+}
+/* "Barely see" was also a size problem: the vendor strong is 16–19px, which
+   next to the site's 36px section headings reads as boilerplate. Bare mounts
+   get the heading treatment instead — same size band as the sections around
+   them, and a hover affordance so the row reads as the control it is. */
+main > .wk-keep-reading > summary strong {
+  /* The site's section-heading face — the same Newsreader stack every other
+     h2 uses (see the tokens block in this file). */
+  font-family: var(--font-newsreader), ui-serif, Georgia, serif;
+  font-size: clamp(24px, 2.6vw, 30px);
+  font-weight: 600;
+  line-height: 1.15;
+}
+@media (hover: hover) and (pointer: fine) {
+  main > .wk-keep-reading > summary:hover strong {
+    text-decoration: underline;
+    text-decoration-color: var(--wk-accent, currentColor);
+    text-underline-offset: 4px;
+  }
+}
+main > .wk-keep-reading > summary {
+  transition: background-color 0.2s ease;
+  border-radius: 10px;
+}
+@media (hover: hover) and (pointer: fine) {
+  main > .wk-keep-reading > summary:hover {
+    background: rgba(16, 18, 20, 0.03);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  main > .wk-keep-reading > summary {
+    transition: none;
+  }
 }

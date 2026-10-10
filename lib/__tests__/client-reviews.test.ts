@@ -45,9 +45,19 @@ describe("published client reviews", () => {
       rating: 5,
       reviewCount: 11,
       sampledReviews: 5,
-      readAt: "2026-09-30",
+      readAt: "2026-10-08",
       sourceCommand: "python3 ~/.claude/durable/esteban-review-watch.py --json",
     });
+    // The Places API sample is a rotating ~5-review window, not a roster, so
+    // this is PROVENANCE — who was in the latest read, names exactly as
+    // Google publishes them — and the UI may only present it as that.
+    expect(googleReviewSnapshot.sampledAuthors).toEqual([
+      "Dawid Scierka",
+      "Caro Suarez",
+      "Die Coro",
+      "andres otero",
+      "Alejandro Navarro",
+    ]);
   });
 
   it("reproduces the Google review text verbatim, typos included", () => {

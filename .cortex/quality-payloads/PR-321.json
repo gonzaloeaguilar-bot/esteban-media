@@ -1,0 +1,67 @@
+{
+  "project": "esteban-media",
+  "mode": "pr",
+  "target_type": "pr",
+  "target_id": "PR-321",
+  "requires_pr": true,
+  "goal": "fix(home): real Google reviews band, 3-up portfolio rail, fold gutters",
+  "summary": "Three UI problems seen in review on the live site, fixed on branch lane/esteban-ui-polish-google-reviews-20261010. (1) The testimonials section showed a single quote while the Google Business Profile carries 11 public reviews at 5.0; a data-driven aggregate band now leads with the 5.0 figure, a live star row, the current public-review count, the snapshot read date and a link to the profile, plus a sampled reviewer strip taken from the latest Places read. The one verbatim quote that clears the provenance rule stays as the published quote and the rating is attributed prose next to a source link, never aggregateRating JSON-LD. Data lives in data/google-reviews.json written by scripts/sync-google-reviews.mjs, which can only update counts, sampled names and the read date and leaves the file untouched when the feed is unavailable. (2) The portfolio rail lg card was 560px against a 1216px container so only two cards and a sliver of a third showed, and a forced aspect-ratio plus a slack row made the card taller than its content, leaving a large empty panel; card width is now 380px (three cards in view), height is content-driven and the sizes hint matches what renders. (3) The bare fold-out on / sat on the viewport edge; main > .wk-keep-reading > summary now gets Container xl geometry and the section-heading face plus a hover affordance.",
+  "risk": "Presentational change to three home sections plus one data file and a sync script. Touches 9 paths (2 test files, 1 stylesheet, 2 components, 1 data file, 2 lib files, 1 script, check payload). No routing, pricing, offer, or customer-data change; merge remains gated on all GitHub checks being green.",
+  "changed_paths": [
+    "app/__tests__/motion-and-disclosure.test.ts",
+    "app/globals.css",
+    "components/client-reviews.tsx",
+    "components/home-portfolio-rail.tsx",
+    "data/google-reviews.json",
+    "lib/__tests__/client-reviews.test.ts",
+    "lib/client-reviews.ts",
+    "package.json",
+    "scripts/sync-google-reviews.mjs",
+    ".cortex/quality-payloads/PR-321.json"
+  ],
+  "requested_actions": [
+    "merge only after all GitHub checks are green"
+  ],
+  "public_claims": [
+    "The home Google reviews band renders the 5.0 aggregate and the current public-review count read from the Google Business Profile snapshot, attributed prose next to a source link, with no aggregateRating JSON-LD.",
+    "The portfolio rail shows three cards in a 1216px container with content-driven height."
+  ],
+  "evidence": {
+    "obsidian_context": "esteban-media repository context; this change addresses three UI defects observed on the live estebanmorenomedia.com home page during review.",
+    "project_routing": "Branch lane/esteban-ui-polish-google-reviews-20261010 in gonzaloeaguilar-bot/esteban-media, PR #321.",
+    "hard_stops_checked": "No hard stop triggered: no pricing, offer, discount, guarantee, testimonial-text authorship, medical or outcome claim, money path, DNS entry, or account mutation is touched. Evidence asserts no authorization and sets no *_authorized key.",
+    "reviewer_ensemble": "Builder, skeptic and taste review. Builder: implemented the reviews band, the rail width/height retune and the fold gutter geometry. Skeptic: verified the aggregate rating stays attributed prose with no aggregateRating JSON-LD and that the sync script leaves the file untouched when the Places feed is unavailable. Taste: the band and rail now read as complete, deliberate sections rather than the broken states observed live.",
+    "reviewer_disagreement_reviewed": "No blocking disagreement between builder, skeptic and taste on scope; the one open point is that the snapshot is dated and a fresh pnpm reviews:sync refreshes it when the feed quota allows, which is recorded in the PR notes rather than resolved here.",
+    "winner_rationale": "Chose a data-driven aggregate band plus a sampled reviewer strip over inventing reviewer copy, because the Places feed returns counts and names but not quote text; the published verbatim quote is the only text that clears the provenance rule.",
+    "tests_or_validation": "pnpm typecheck clean and the full test suite green (113 files / 1493 tests at authoring). A production build served locally on localhost:3111 returned HTTP 200 and served the 5.0 aggregate band and the read date. Screenshots were captured of all three fixed sections.",
+    "debt_delta": "neutral",
+    "obsidian_handoff": "Handoff recorded in the lane run log covering the three fixed sections, the new data file and sync script, and the reviews snapshot date.",
+    "ci_passed": "GitHub CI 'validate' passed on PR #321 (run 38073212275, 2m25s), including lint, typecheck, unit tests and the production build. Local pnpm test and pnpm typecheck also passed at authoring.",
+    "pr_review_complete": "Reviewed the scoped diff of 9 paths: the reviews band, the rail geometry, the fold gutter and the sync script. The rating is attributed prose with a source link and no aggregateRating JSON-LD; the rail shows three cards; the fold summary inherits Container xl gutters. No customer-facing factual claim beyond the attributed Google snapshot was added."
+  },
+  "reviewers": {
+    "builder": {
+      "status": "ok",
+      "note": "Implemented the Google reviews band, the 3-up portfolio rail (380px, content-driven height) and the fold gutter geometry on PR #321."
+    },
+    "skeptic": {
+      "status": "ok",
+      "note": "Verified the aggregate stays attributed prose with no aggregateRating JSON-LD (lib/__tests__/client-reviews.test.ts), the rail renders three cards in the 1216px container, and the sync script does not author quote text or overwrite the file on a failed feed read."
+    },
+    "taste": {
+      "status": "ok",
+      "note": "The three sections now read as intentional: the reviews band carries the real 5.0 snapshot, the rail fills the container without a dead panel, and the fold no longer sits on the edge."
+    }
+  },
+  "scores": {
+    "source_fidelity": 5,
+    "architecture_soundness": 4,
+    "implementation_quality": 4,
+    "review_completeness": 4,
+    "debt_posture": 4,
+    "verification_strength": 4,
+    "taste_fit": 5
+  },
+  "disagreements": [],
+  "winner_rationale": "Ship the data-driven reviews band plus the rail and fold retunes; the repository's own checks are the arbiter of correctness and merge stays gated on all checks green."
+}
