@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import { languageAlternates, spanishNichePages } from "@/lib/spanish-site";
+import { pairedLanguageRoutes } from "@/lib/language-routes";
 import { buildSpanishNicheMetadata } from "@/components/spanish-niche-page";
 import sitemap from "@/app/sitemap";
 
@@ -107,5 +108,75 @@ describe("hreflang reciprocity", () => {
       expect(langs["en-US"], `${path} must advertise en-US`).toBeTruthy();
       expect(langs["x-default"], `${path} must advertise x-default`).toBeTruthy();
     }
+  });
+});
+
+/**
+ * The runtime EN<->ES pairing behind the language switcher and canonical
+ * targeting lives in lib/language-routes.ts (pairedLanguageRoutes). Every
+ * English route must map to exactly one Spanish route that maps back, or the
+ * toggle sends a visitor to a page that never points home.
+ *
+ * The two entries at the bottom of that file (video-para-restaurantes-miami and
+ * reels-para-negocios-miami) are documented shared-demand aliases: they declare
+ * only Spanish -> English and deliberately share one canonical counterpart.
+ * They are the sole allowed exceptions, and the last test pins that so a new
+ * one-way entry cannot slip in unnoticed.
+ */
+describe("language-routes reciprocity", () => {
+  const SHARED_SPANISH_ALIASES = [
+    "/es/video-para-restaurantes-miami",
+    "/es/reels-para-negocios-miami",
+  ];
+
+  const entries = Object.entries(pairedLanguageRoutes);
+  const isSpanish = (route: string) => route === "/es" || route.startsWith("/es/");
+
+  it("declares both directions for every pair", () => {
+    const missing = entries
+      .filter(([, target]) => !(target in pairedLanguageRoutes))
+      .map(([route, target]) => `${route} -> ${target} but ${target} is not declared`);
+    expect(missing, missing.join("\n")).toEqual([]);
+  });
+
+  it("maps every English route to exactly one Spanish route, reciprocally", () => {
+    const broken: string[] = [];
+    const spanishTargets = new Map<string, string>();
+    for (const [route, target] of entries) {
+      if (isSpanish(route)) continue;
+      if (!isSpanish(target)) broken.push(`${route} -> ${target} is not a Spanish route`);
+      if (pairedLanguageRoutes[target] !== route) {
+        broken.push(
+          `${route} -> ${target} is not reciprocated (${target} -> ${pairedLanguageRoutes[target]})`,
+        );
+      }
+      const clash = spanishTargets.get(target);
+      if (clash) broken.push(`${route} and ${clash} both map to ${target}`);
+      spanishTargets.set(target, route);
+    }
+    expect(broken, broken.join("\n")).toEqual([]);
+  });
+
+  it("maps every Spanish route to exactly one English route", () => {
+    const broken: string[] = [];
+    for (const [route, target] of entries) {
+      if (!isSpanish(route)) continue;
+      if (isSpanish(target)) broken.push(`${route} -> ${target} is not an English route`);
+      if (!(target in pairedLanguageRoutes)) broken.push(`${route} -> ${target} is not declared`);
+      if (pairedLanguageRoutes[target] !== route && !SHARED_SPANISH_ALIASES.includes(route)) {
+        broken.push(
+          `${route} is not reciprocated (${target} -> ${pairedLanguageRoutes[target]})`,
+        );
+      }
+    }
+    expect(broken, broken.join("\n")).toEqual([]);
+  });
+
+  it("keeps the shared-demand aliases as the only non-reciprocal entries", () => {
+    const nonReciprocal = entries
+      .filter(([route, target]) => isSpanish(route) && pairedLanguageRoutes[target] !== route)
+      .map(([route]) => route)
+      .sort();
+    expect(nonReciprocal).toEqual([...SHARED_SPANISH_ALIASES].sort());
   });
 });
