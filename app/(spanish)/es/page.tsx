@@ -41,6 +41,7 @@ export default function SpanishHomePage() {
       <ClientReviews locale="es" />
       <KeepReading
         id="mas"
+        className="em-fold"
         title="¿Quieres ver todo?"
         destinations="Servicios, zonas, guías y las 70 páginas por nicho."
       >

@@ -392,6 +392,7 @@ export default function PortfolioPage() {
           the fold. */}
       <KeepReading
         id="portfolio-standards"
+        className="em-fold"
         title="How this work gets made"
         destinations="Post-production standards, technical specifications, delivery formats and the disciplines behind each project."
       >

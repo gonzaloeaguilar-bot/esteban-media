@@ -1885,22 +1885,42 @@ html.rail-anim .em-pk-steps__list.rail-reveal.is-in li:nth-child(3) { transition
 }
 
 /* ------------------------------------------------------- the fold-out ---- */
+/* For the folds that render FULL-BLEED — a direct child of <main>: both home
+   pages, the portfolio page, and the guide article's related-guides fold.
+   Without it the kit's summary keeps its 4px gutter, so the title lands on
+   the viewport edge while the panel's own content sits inside a Container,
+   and the focus ring paints two rules across the full viewport width. */
 .em-fold {
-  --wk-line: rgba(16, 18, 20, 0.12);
+  /* The site's own separator tone, not the kit's 12% ink: on the paper
+     background that hairline was nearly invisible. */
+  --wk-line: #ddd4c8;
   --wk-ink: var(--cine-text);
   --wk-muted: var(--cine-muted);
-  margin: 0;
-  background: var(--cine-paper);
+  /* Inherit, not var(--cine-paper): the portfolio and guide pages sit on
+     #f6f1ea, and a hard-coded paper tone would show as a band. */
+  background: inherit;
 }
 .em-fold > summary {
-  padding: 22px 20px;
-  max-width: 1280px;
+  /* 80rem = the Container size="xl" max-width; the gutters below match its
+     px-4 / sm:px-6 / lg:px-8, so the summary text lines up exactly with the
+     content inside the panel. Vertical padding stays the kit's 18px. */
+  max-width: 80rem;
   margin: 0 auto;
+  padding: 18px 1rem;
   color: var(--cine-text);
   transition: background-color 0.2s;
 }
+@media (min-width: 640px) {
+  .em-fold > summary { padding-left: 1.5rem; padding-right: 1.5rem; }
+}
+@media (min-width: 1024px) {
+  .em-fold > summary { padding-left: 2rem; padding-right: 2rem; }
+}
 .em-fold > summary:active { background: rgba(16, 18, 20, 0.04); }
 .em-fold > summary small { color: var(--cine-muted); }
+/* The kit draws the focus ring 2px OUTSIDE the summary box; on a full-bleed
+   summary that is two rules across the whole viewport. Keep it inside. */
+.em-fold > summary:focus-visible { outline-offset: -2px; }
 
 .wk-keep-reading {
   --wk-line: rgba(16, 18, 20, 0.12);
