@@ -116,6 +116,15 @@
   * {
     @apply border-border;
   }
+  /* `overflow-x: clip` must live on the ROOT element. With it only on `body`,
+     the body's overflow propagates to the viewport and never clips, so any
+     wide descendant (e.g. the review carousel track) makes the whole page
+     pan sideways on touch and lets pinch-zoom drift. `clip` (not `hidden`)
+     avoids creating a scroll container, so it does not break `position:
+     sticky`/`fixed` children. */
+  html {
+    overflow-x: clip;
+  }
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-sans), Arial, Helvetica, sans-serif;
@@ -1265,6 +1274,17 @@ main > .wk-keep-reading > summary {
    No autoplay anywhere: social proof that moves on its own steals reading time
    from a visitor mid-sentence.
    --------------------------------------------------------------------------- */
+/* Chromium folds a horizontal scroller's scrollable overflow into its
+   ancestors' scrollWidth, so the review band leaked ~1900px up to `main` and
+   the page panned sideways (and pinch-zoom behaved oddly). Clip the wrapper
+   that OWNS the track, not the track itself: the track keeps its own momentum
+   scroll and the document stops overflowing at the source. `clip` (not
+   `hidden`) so no scroll container is created and sticky/fixed children are
+   unaffected. */
+div.relative:has(> .em-carousel-track) {
+  overflow-x: clip;
+}
+
 .em-carousel-track {
   display: flex;
   gap: 1rem;
