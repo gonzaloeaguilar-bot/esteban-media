@@ -56,7 +56,7 @@ describe("public/llms.txt for AI crawlers", () => {
   it("carries the correct current contact details", () => {
     expect(llms).toContain("Email: esmolopez@gmail.com");
     expect(llms).toContain("Phone: (305) 497-4478");
-    expect(llms).toContain("Last updated: 2026-10-01");
+    expect(llms).toContain("Last updated: 2026-10-10");
   });
 
   it("lists high-intent quote prompts for the priority service pages", () => {
@@ -64,5 +64,19 @@ describe("public/llms.txt for AI crawlers", () => {
     expect(llms).toContain("How much does a video editor cost in Miami or Fort Lauderdale?");
     expect(llms).toContain("/services/short-form-video-editor-miami");
     expect(llms).toContain("/services/ai-product-photography-miami");
+  });
+
+  it("lists the winner white-label, short-form, creator and food-and-places pages in both languages", () => {
+    expect(llms).toContain(
+      "/services/white-label-video-editing-for-agencies",
+    );
+    expect(llms).toContain(
+      "/es/edicion-de-video-marca-blanca-para-agencias",
+    );
+    expect(llms).toContain("/es/editor-de-video-corto-para-redes-miami");
+    expect(llms).toContain("/services/content-creator-video-editing-miami");
+    expect(llms).toContain(
+      "/services/food-and-places-creator-video-editing-miami",
+    );
   });
 });

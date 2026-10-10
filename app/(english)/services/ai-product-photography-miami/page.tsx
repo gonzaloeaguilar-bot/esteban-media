@@ -131,6 +131,16 @@ export default function AIProductPhotographyPage() {
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
                 AI-assisted image production keeps real products accurate while unlocking unlimited lifestyle settings, seasonal scenes, and creative lighting.
               </p>
+              <p className="mt-3 text-sm leading-6 text-[#252a2d]">
+                Producing this imagery for client accounts?{" "}
+                <Link
+                  href="/services/white-label-video-editing-for-agencies"
+                  className="font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#7f2f20]"
+                >
+                  White-label video editing for agencies
+                </Link>{" "}
+                covers recurring production you can hand back under your own brand.
+              </p>
               <dl className="mt-6 grid gap-3">
                 <div className="rounded-md border border-[#ddd4c8] p-3">
                   <dt className="text-xs uppercase text-[#5a6066]">Service</dt>

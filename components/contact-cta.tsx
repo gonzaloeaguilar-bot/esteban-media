@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { ArrowRight, CheckCircle2, Mail, Phone, Send } from "lucide-react";
+import { ArrowRight, CheckCircle2, Mail, MessageCircle, Phone, Send } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import { trackLeadSubmit } from "@/lib/analytics-events";
@@ -12,6 +12,7 @@ import {
   isFoundVia,
   type FoundVia,
 } from "@/lib/lead-responder";
+import { whatsappHref } from "@/lib/packages";
 import { site } from "@/lib/site";
 
 type SubmitState = "idle" | "submitting" | "success" | "error";
@@ -188,10 +189,35 @@ export function ContactCta() {
                   </div>
                 )}
                 {submitState === "error" && (
-                  <p role="alert" className="text-sm text-[#f7b9aa]">
-                    The form could not be sent. Please try again or use the
-                    email link beside it.
-                  </p>
+                  <div role="alert" className="rounded-lg border border-[#f7b9aa]/40 bg-white/5 px-4 py-3">
+                    <p className="text-sm text-[#f7b9aa]">
+                      The form could not be sent. Message Esteban directly and
+                      continue there.
+                    </p>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      <a
+                        href={whatsappHref(
+                          site.phone.e164,
+                          "Hi Esteban, the form did not send and I'd like to ask about a project.",
+                        )}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-cta="contact_error_whatsapp"
+                        className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#f6f1ea] px-4 text-sm font-medium text-[#101214] hover:bg-white"
+                      >
+                        <MessageCircle className="size-4" aria-hidden="true" />
+                        WhatsApp
+                      </a>
+                      <a
+                        href={site.phone.href}
+                        data-cta="contact_error_phone"
+                        className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-white/30 px-4 text-sm font-medium text-white hover:bg-white hover:text-[#101214]"
+                      >
+                        <Phone className="size-4" aria-hidden="true" />
+                        Call {site.phone.display}
+                      </a>
+                    </div>
+                  </div>
                 )}
                 <div className="flex flex-wrap items-center gap-4">
                   <button

@@ -34,5 +34,9 @@ export default function robots(): MetadataRoute.Robots {
       })),
     ],
     sitemap: [absoluteUrl("/sitemap.xml"), absoluteUrl("/video-sitemap.xml")],
+    // Absolute origin this robots.txt describes (RFC 9309 / Yandex `Host`).
+    // Next's MetadataRoute.Robots supports `host` in this version; it makes the
+    // preferred canonical origin explicit instead of inferred from request HDRs.
+    host: absoluteUrl("/"),
   };
 }

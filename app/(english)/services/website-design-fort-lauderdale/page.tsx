@@ -204,6 +204,16 @@ export default function WebsiteDesignFortLauderdalePage() {
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
                 We build high-converting custom websites, interactive web applications, and intelligent 24/7 AI lead capture chatbots for businesses in Fort Lauderdale, Miami, and South Florida. Turn site visitors into booked clients automatically.
               </p>
+              <p className="mt-4 max-w-2xl text-sm leading-6 text-[#5a6066]">
+                Agency or studio handling this for a client?{" "}
+                <Link
+                  href="/services/white-label-video-editing-for-agencies"
+                  className="font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#7f2f20]"
+                >
+                  White-label production for agencies
+                </Link>{" "}
+                covers the recurring work you deliver under your own name.
+              </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/contact"

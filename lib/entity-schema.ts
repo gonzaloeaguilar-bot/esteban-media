@@ -43,6 +43,11 @@ export const localBusinessEntityJsonLd = {
   url: absoluteUrl("/"),
   email: site.email,
   telephone: site.phone.e164,
+  // Published starting prices only: Arranque / Starter from $100 per video (low)
+  // to Presencia Local / Local Presence from $800 per production day (high), with
+  // Todo Incluido / All-In quoted per project. "+" signals the custom-quote
+  // ceiling rather than inventing a fixed maximum.
+  priceRange: "$100-$800+",
   description: site.description,
   // 180x180 app icon, the only square brand mark the repo ships (public/
   // has no separate logo asset). Meets Google's minimum recommended

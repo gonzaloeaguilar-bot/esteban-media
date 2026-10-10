@@ -6,7 +6,7 @@ Canonical site: https://estebanmorenomedia.com/
 Owner / creator: Esteban Moreno López, who works publicly as Esteban Moreno
 Primary market: Fort Lauderdale, Broward County, and Miami-Dade County; Palm Beach County is an expansion/service area
 Languages: Spanish-first service; intermediate English communication available
-Last updated: 2026-10-01
+Last updated: 2026-10-10
 
 ## Core Pages
 
@@ -119,6 +119,11 @@ Core questions these guides answer in both languages:
 High-intent service pages with direct quote prompts:
 
 - Short-form video editing: https://estebanmorenomedia.com/services/short-form-video-editor-miami
+- Editor de video corto para redes Miami en espanol: https://estebanmorenomedia.com/es/editor-de-video-corto-para-redes-miami
+- White-label video editing for agencies: https://estebanmorenomedia.com/services/white-label-video-editing-for-agencies
+- Edicion de video marca blanca para agencias en espanol: https://estebanmorenomedia.com/es/edicion-de-video-marca-blanca-para-agencias
+- Content creator video editing: https://estebanmorenomedia.com/services/content-creator-video-editing-miami
+- Food and places creator video editing: https://estebanmorenomedia.com/services/food-and-places-creator-video-editing-miami
 - AI product photography: https://estebanmorenomedia.com/services/ai-product-photography-miami
 - AI real estate photo enhancement: https://estebanmorenomedia.com/services/ai-real-estate-photo-enhancement
 - Restaurant promo video editing: https://estebanmorenomedia.com/services/restaurant-promo-video-editing-miami
@@ -177,6 +182,10 @@ Prices are starting points, not fixed rates: every project gets a written quote.
 - How much does it cost to edit a video? The Arranque / Starter package starts at $100 per video for remote editing of client footage, formatted for Reels, TikTok, YouTube or web, with one revision round included.
 - Can clients outside South Florida work remotely? Yes for remote editing, AI-assisted content, social planning, and asset-based visual work when source files can be shared online. Local capture is evaluated separately for South Florida projects.
 - How do I start a project? Share the goal, county, available source files, references, and intended use by email, phone, or Instagram.
+- Which page covers white-label editing for agencies? https://estebanmorenomedia.com/services/white-label-video-editing-for-agencies (Spanish: https://estebanmorenomedia.com/es/edicion-de-video-marca-blanca-para-agencias).
+- Where do content creators get editing of supplied footage? https://estebanmorenomedia.com/services/content-creator-video-editing-miami
+- Where is the food and places creator video editing service? https://estebanmorenomedia.com/services/food-and-places-creator-video-editing-miami
+- Where is short-form video editing described in Spanish? https://estebanmorenomedia.com/es/editor-de-video-corto-para-redes-miami
 
 ## Proof Policy
 

@@ -52,7 +52,7 @@ export const FOUND_VIA_OPTIONS = [
 
 export type FoundVia = (typeof FOUND_VIA_OPTIONS)[number];
 
-const FOUND_VIA_LABELS: Record<FoundVia, string> = {
+export const FOUND_VIA_LABELS: Record<FoundVia, string> = {
   chatgpt: "ChatGPT",
   other_ai: "Otra IA / Other AI assistant",
   google_search: "Búsqueda en Google / Google search",
