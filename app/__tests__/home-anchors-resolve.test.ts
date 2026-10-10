@@ -22,6 +22,8 @@ describe("home in-page anchors resolve", () => {
   const files = [
     "components/hero-video.tsx",
     "components/packages-section.tsx",
+    // The packages section renders the needs chooser, which owns #paquetes / #packages.
+    "components/needs-chooser.tsx",
     "components/site-header-client.tsx",
   ].map((f) => [f, source(f)] as const);
 
@@ -54,7 +56,8 @@ describe("home in-page anchors resolve", () => {
   it("the hero's primary call to action points at the packages section", () => {
     const hero = source("components/hero-video.tsx");
     expect(hero).toMatch(/href=\{isSpanish \? "#paquetes" : "#packages"\}/);
-    const section = source("components/packages-section.tsx");
+    expect(source("components/packages-section.tsx")).toMatch(/<NeedsChooser locale=\{locale\} \/>/);
+    const section = source("components/needs-chooser.tsx");
     expect(section).toMatch(/id=\{locale === "es" \? "paquetes" : "packages"\}/);
   });
 });
