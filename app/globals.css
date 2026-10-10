@@ -785,21 +785,33 @@ html.em-returning #em-intro {
   font-size: clamp(32px, 9.375vw, 72px);
 }
 
-/* The rating figure on the reviews band.
+/* The rating figure and the star row on the reviews band.
 
-   Same grammar, smaller band: `clamp(floor, vw, ceiling)`, never a fixed step.
-   It was `text-5xl leading-none` — a hard 48px at every width — which is the
-   exact pattern the hero fixed-step guard exists to catch, and it caught it:
-   app/__tests__/hero-display-type.test.ts scans every .ts/.tsx source file for
-   that pair. The guard is right to be blunt about it; the answer is a fluid
-   figure, not an exemption for this file.
+   The figure was `text-5xl leading-none` — a hard 48px at every width — which
+   is the exact pattern the hero fixed-step guard exists to catch, and it
+   caught it: app/__tests__/hero-display-type.test.ts scans every .ts/.tsx
+   source file for that pair. The answer is a fluid `clamp(floor, vw, ceiling)`
+   figure, never a fixed step.
 
-   3.4vw reaches 48px at 1412px, so the desktop figure is the size it always
-   was and only the phone steps down.
+   It is now much larger on purpose: the operator asked for the five stars to
+   read as the proof (2026-10-10), so the figure and the star row lead the band
+   instead of sitting in a line of prose. The stars are sized on the same
+   fluid curve (`em-stars`) so the figure and the row scale together as one
+   object and the icons can stay plain lucide components in the markup.
    --------------------------------------------------------------------------- */
 .em-rating {
-  font-size: clamp(36px, 3.4vw, 48px);
-  line-height: 1;
+  font-size: clamp(56px, 8vw, 112px);
+  line-height: 0.9;
+}
+.em-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(6px, 1vw, 14px);
+  color: #e85d3e;
+}
+.em-stars svg {
+  width: clamp(30px, 4.6vw, 64px);
+  height: clamp(30px, 4.6vw, 64px);
 }
 
 /* ---------------------------------------------------------------------------
@@ -1237,5 +1249,71 @@ main > .wk-keep-reading > summary {
 @media (prefers-reduced-motion: reduce) {
   main > .wk-keep-reading > summary {
     transition: none;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   The review carousel.
+
+   A native horizontal scroller with scroll-snap and a hidden scrollbar — the
+   platform already knows how to do momentum and snapping, so the component
+   only adds what it does not: the arrows, the dot rail, and the active-index
+   readout. `scroll-snap-stop: always` keeps a fast flick from skipping cards,
+   which on six reviews of very different lengths is the difference between
+   "one at a time" and "landed somewhere random".
+
+   No autoplay anywhere: social proof that moves on its own steals reading time
+   from a visitor mid-sentence.
+   --------------------------------------------------------------------------- */
+.em-carousel-track {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  padding: 0.25rem 0.25rem 0.5rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.em-carousel-track::-webkit-scrollbar {
+  display: none;
+}
+.em-carousel-slide {
+  display: flex;
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+
+.em-carousel-nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  justify-self: center;
+  border-radius: 9999px;
+  border: 1px solid #ddd4c8;
+  background: #ffffff;
+  color: #101214;
+  box-shadow: 0 1px 2px rgba(16, 18, 20, 0.08);
+  transition:
+    border-color 150ms,
+    color 150ms,
+    opacity 150ms;
+}
+@media (hover: hover) {
+  .em-carousel-nav:hover:not(:disabled) {
+    border-color: #e85d3e;
+    color: #9f3c27;
+  }
+}
+.em-carousel-nav:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+@media (prefers-reduced-motion: reduce) {
+  .em-carousel-track {
+    scroll-behavior: auto;
   }
 }
