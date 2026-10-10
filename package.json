@@ -26,6 +26,7 @@
     "seo:indexnow:dry-run": "node scripts/indexnow-submit.mjs dry-run",
     "seo:indexnow:run": "node scripts/indexnow-submit.mjs run",
     "seo:indexnow:status": "node scripts/indexnow-submit.mjs status",
+    "reviews:sync": "node scripts/sync-google-reviews.mjs",
     "check": "pnpm rail-kit:check && pnpm rail-adoption:check && pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm text-parity",
     "rail-kit:check": "node scripts/sync-rail-kit.mjs --check",
     "rail-adoption:check": "vitest run app/__tests__/rail-adoption.test.ts",

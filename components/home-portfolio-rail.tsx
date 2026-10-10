@@ -81,7 +81,11 @@ export function HomePortfolioRail({
           // reader, not help.
           alt=""
           fill
-          sizes="(min-width: 1280px) 332px, (min-width: 768px) 332px, 288px"
+          // The card renders at min(380px, 78vw) on this rail — the lg width
+          // set in globals.css — so the srcset hint matches what is actually
+          // shown (the previous 332px values described a layout two
+          // generations back).
+          sizes="(min-width: 768px) 380px, 78vw"
           className="object-cover"
         />
         <span

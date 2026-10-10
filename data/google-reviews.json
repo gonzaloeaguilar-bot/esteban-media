@@ -1,0 +1,26 @@
+{
+  "$comment": "Snapshot of Esteban Moreno's public Google Business Profile (Google Maps), read with the Places API. The counts and reviewer names are facts read at the source; the quotes are verbatim reproductions governed by the provenance rules in lib/client-reviews.ts. Refresh with `pnpm reviews:sync`, which keeps this file unchanged whenever the Places API is unavailable (429/403) rather than writing a worse snapshot.",
+  "readAt": "2026-10-08",
+  "sourceCommand": "python3 ~/.claude/durable/esteban-review-watch.py --json",
+  "profile": {
+    "rating": 5,
+    "reviewCount": 11,
+    "reviewsSampled": 5
+  },
+  "sampledAuthors": [
+    "Dawid Scierka",
+    "Caro Suarez",
+    "Die Coro",
+    "andres otero",
+    "Alejandro Navarro"
+  ],
+  "quotes": [
+    {
+      "author": "Fort Lauderdale Auto Sales",
+      "quote": "Esteban has done great Media work for our company i highly recommend him for any project you have hes highly knowledgeable and very detail oriented",
+      "publishedAt": "2026-08-14",
+      "portfolioId": "flas-concierge",
+      "readAt": "2026-08-14"
+    }
+  ]
+}

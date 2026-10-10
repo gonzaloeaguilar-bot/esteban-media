@@ -22,6 +22,27 @@ const template = readFileSync(
 );
 const globals = readFileSync(join(root, "app/globals.css"), "utf8");
 
+/**
+ * The poster card's own declarations, brace to brace.
+ *
+ * The tests below used `globals.slice(indexOf(...), +900)` and hoped the block
+ * ended inside the window. This cuts at the rule's own closing brace instead,
+ * so a comment added above the declarations cannot move a `}` into or out of
+ * the slice and quietly change what is being asserted.
+ */
+function cartelCard(): string {
+  const start = globals.indexOf(
+    '.em-cartel .rail-card[data-rail-kind="media"] {',
+  );
+  expect(start).toBeGreaterThan(-1);
+  const block = globals.slice(start, globals.indexOf("}", start) + 1);
+  // The rule documents the two declarations it replaced, by name, in its own
+  // comment. An assertion like `not.toMatch(/aspect-ratio:/)` would otherwise
+  // fail on the prose that explains why there is no aspect-ratio. Strip
+  // comments so these guards read declarations and only declarations.
+  return block.replace(/\/\*[\s\S]*?\*\//g, "");
+}
+
 describe("motion", () => {
   it("the reveal class is never authored into markup", () => {
     // Only components/site-motion.tsx may add it, and only at runtime.
@@ -275,22 +296,41 @@ describe("the poster card", () => {
     expect(figure.slice(0, 900)).toMatch(/margin: 0;/);
   });
 
-  it("is a poster, not a tile", () => {
-    const card = globals.slice(
-      globals.indexOf('.em-cartel .rail-card[data-rail-kind="media"] {'),
-    );
-    const ratio = card.match(/aspect-ratio: 1 \/ ([\d.]+);/);
-    expect(ratio).not.toBeNull();
-    expect(Number(ratio![1])).toBeGreaterThanOrEqual(1.4);
+  it("takes its height from its content, not from a forced ratio", () => {
+    // 2026-10-10. The card carried `aspect-ratio: 1 / 1.45`. A ratio cannot
+    // know how much copy a card holds: on the homepage rail — lg cards, a title
+    // and the credits, no description — it forced 812px of card around ~430px
+    // of content, and the surplus landed as ~380px of empty dark panel under
+    // the credits. Measured, rendered, and called out in review as the thing
+    // that made the section look broken.
+    //
+    // So the earlier "the card has a poster ratio" guard is RETIRED WITH ITS
+    // MECHANISM, not relaxed: height now comes from the two things that do
+    // know how tall the card is — the 16:9 still (guarded above) and the panel.
+    // The poster READ is guarded below, where it now lives.
+    expect(cartelCard()).not.toMatch(/aspect-ratio:/);
   });
 
-  it("gives the free space to the body, not to a spare row after it", () => {
-    // `auto auto auto 1fr` left 101px sitting below everything as a void, which
-    // is what made a tall card look unfinished instead of composed.
-    const card = globals.slice(
-      globals.indexOf('.em-cartel .rail-card[data-rail-kind="media"] {'),
+  it("puts no slack row in the card, so nothing can pool as empty panel", () => {
+    // The retired pair was `aspect-ratio` on the card PLUS a `1fr` slack row:
+    // with the height already decided by the ratio, the `1fr` row absorbed
+    // every pixel the content did not use. Two children, two rows, no slack.
+    const card = cartelCard();
+    expect(card).toMatch(/grid-template-rows: auto auto;/);
+    // Rows only: the card legitimately carries `grid-template-columns: 1fr`
+    // (one column), so a bare /\d+fr/ would fail on the declaration that is
+    // not the problem.
+    expect(card).not.toMatch(/grid-template-rows:[^;]*fr/);
+  });
+
+  it("keeps the poster read in the panel, which is what knows the height", () => {
+    // The card is not a tile because the panel carries the composition past the
+    // picture. A card with only a title and a place used to end one pixel under
+    // its last line — text touching its own edge reads as unfinished however
+    // good the photograph above it is. That bottom air is a floor on the panel.
+    expect(globals).toMatch(
+      /\.rail-card\[data-rail-kind="media"\]:not\(:has\(\.rail-card__description\)\)\s*\.rail-card__body \{\s*padding-bottom: clamp\(/,
     );
-    expect(card.slice(0, 900)).toMatch(/grid-template-rows: auto 1fr auto auto;/);
   });
 
   // Negative controls.
@@ -298,8 +338,13 @@ describe("the poster card", () => {
     expect(/aspect-ratio: 16 \/ 9;/.test("aspect-ratio: 1 / 1;")).toBe(false);
   });
 
-  it("would notice the poster flattening to a tile", () => {
-    const tile = "aspect-ratio: 1 / 1.2;";
-    expect(Number(tile.match(/1 \/ ([\d.]+)/)![1])).toBeLessThan(1.4);
+  it("would notice the forced ratio and the slack row coming back", () => {
+    // The two declarations this block retired, as they were written. Both
+    // guards above are one line of regex, so they get a negative control each:
+    // a rule that is not the card's own must not be able to pass them.
+    const forced = "aspect-ratio: 1 / 1.45;";
+    const slack = "grid-template-rows: auto 1fr auto auto;";
+    expect(forced).toMatch(/aspect-ratio:/);
+    expect(slack).toMatch(/grid-template-rows:[^;]*fr/);
   });
 });

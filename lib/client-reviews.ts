@@ -1,7 +1,15 @@
 import { site } from "@/lib/site";
 
+import googleReviewsData from "@/data/google-reviews.json";
+
 /**
  * Reviews published on Esteban's verified Google Business Profile.
+ *
+ * The DATA lives in data/google-reviews.json, written by
+ * scripts/sync-google-reviews.mjs (`pnpm reviews:sync`). The script can only
+ * ever update counts, the sampled-reviewer names, and the read date of a
+ * quote it can verify verbatim at the source — it never authors text, so
+ * nothing here can drift into a paraphrase.
  *
  * Provenance rules, enforced by lib/__tests__/client-reviews.test.ts:
  *
@@ -16,20 +24,16 @@ import { site } from "@/lib/site";
  *    is never emitted as `aggregateRating` JSON-LD; a rating collected on
  *    Google and asserted here about ourselves is self-serving markup.
  *
- * COUNT, read live from the public profile on 2026-09-30 with
- * `python3 ~/.claude/durable/esteban-review-watch.py --json`:
- * **11 reviews, 5.0 rating**. The Places sample returned 5 review authors,
- * but not the Fort Lauderdale Auto Sales quote, so only the existing
- * portfolio-matched quote remains published below.
- *
- * Exactly ONE of those eleven clears rule 2, which is why this file has one
- * entry while Google shows eleven. That gap is a CONTENT decision, not a bug:
- * closing it means publishing the other reviewers' projects in lib/portfolio.ts
- * so they become verifiable clients, or changing rule 2 — and rule 2 is the
- * thing keeping friends-and-family testimonials off a page that claims every
- * quote is from a published client. Add more when a reviewer's work is
- * published, not before.
+ * COUNT: 11 reviews at 5.0 as of 2026-10-08, read live from the public
+ * profile with `python3 ~/.claude/durable/esteban-review-watch.py --json`.
+ * The Places API returns a rotating sample of ~5 reviews per call (verified
+ * 2026-08-14: two calls minutes apart returned different fives), so
+ * `sampledAuthors` is who happened to be in the latest sample — it is a
+ * provenance record, not a roster. Only quotes that clear rule 2 are
+ * published below; that gap is a CONTENT decision, not a bug. Add more when
+ * a reviewer's work is published in lib/portfolio.ts, not before.
  */
+
 export type ClientReview = {
   /** Reviewer name exactly as Google publishes it. */
   author: string;
@@ -49,26 +53,28 @@ export type GoogleReviewSnapshot = {
   sampledReviews: number;
   readAt: string;
   sourceCommand: string;
+  /** Reviewer display names in the latest Places API sample. */
+  sampledAuthors: string[];
 };
 
 export const googleReviewSnapshot: GoogleReviewSnapshot = {
-  rating: 5,
-  reviewCount: 11,
-  sampledReviews: 5,
-  readAt: "2026-09-30",
-  sourceCommand: "python3 ~/.claude/durable/esteban-review-watch.py --json",
+  rating: googleReviewsData.profile.rating,
+  reviewCount: googleReviewsData.profile.reviewCount,
+  sampledReviews: googleReviewsData.profile.reviewsSampled,
+  readAt: googleReviewsData.readAt,
+  sourceCommand: googleReviewsData.sourceCommand,
+  sampledAuthors: [...googleReviewsData.sampledAuthors],
 };
 
-export const clientReviews: ClientReview[] = [
-  {
-    author: "Fort Lauderdale Auto Sales",
-    quote:
-      "Esteban has done great Media work for our company i highly recommend him for any project you have hes highly knowledgeable and very detail oriented",
-    publishedAt: "2026-08-14",
-    portfolioId: "flas-concierge",
-    readAt: "2026-08-14",
-  },
-];
+export const clientReviews: ClientReview[] = googleReviewsData.quotes.map(
+  (quote) => ({
+    author: quote.author,
+    quote: quote.quote,
+    publishedAt: quote.publishedAt,
+    portfolioId: quote.portfolioId,
+    readAt: quote.readAt,
+  }),
+);
 
 /** Where a reader can verify every quote above. */
 export const reviewSourceUrl = site.googleBusinessProfile;
