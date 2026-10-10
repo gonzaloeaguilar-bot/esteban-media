@@ -161,6 +161,7 @@ export function buildGoogleAnalyticsScript({
           o.cta_position = String(p.section || p.link_context || 'page').slice(0, 60);
         } else if (event === 'contact_click') {
           o.method = p.contact_method || p.method || 'unknown';
+          o.contact_source = p.contact_source || 'unknown';
         } else if (event === 'lead') {
           o.form_id = String(p.lead_source || 'lead_form').slice(0, 60);
           o.lead_type = String(p.lead_source || 'form_submit').slice(0, 60);
@@ -266,6 +267,123 @@ export function buildGoogleAnalyticsScript({
         return null;
       }
 
+      // Attribution for the WhatsApp / phone / email click path. The form path
+      // already answers "how did you find us?" (found_via on lead_submit); the
+      // direct-contact path did not, so a visitor who called Esteban after an AI
+      // answer arrived at GA4 as a bare contact_intent with contact_method:
+      // whatsapp and no source. First touch is resolved once and kept in
+      // sessionStorage so three pages of browsing before messaging does not lose
+      // the channel.
+      var FIRST_TOUCH_SOURCE_KEY = 'esteban-media:first-touch-source';
+      var AI_SOURCE_NAMES = ['chatgpt', 'gemini', 'perplexity', 'copilot', 'claude'];
+
+      function classifyReferralSource() {
+        if (!document.referrer) {
+          return null;
+        }
+
+        try {
+          var referrerUrl = new URL(document.referrer);
+          var aiSource = classifyAiHost(referrerUrl.hostname);
+          if (aiSource) {
+            return 'ai:' + aiSource;
+          }
+
+          var host = referrerUrl.hostname.toLowerCase().replace(/^www\\./, '');
+          if (host.indexOf('google.') > -1) {
+            return 'google';
+          }
+          if (host.indexOf('bing.') > -1) {
+            return 'bing';
+          }
+          if (host === 'instagram.com' || host.slice(-14) === '.instagram.com') {
+            return 'instagram';
+          }
+          return 'referral:' + host.slice(0, 40);
+        } catch (_error) {
+          return null;
+        }
+      }
+
+      function firstTouchContactSource() {
+        var stored = null;
+        try {
+          stored = window.sessionStorage.getItem(FIRST_TOUCH_SOURCE_KEY);
+        } catch (_error) {
+          stored = null;
+        }
+        if (stored) {
+          return stored;
+        }
+
+        // The privacy gate forbids reading the raw query string anywhere in this
+        // file because it can carry PII, so first touch resolves from the
+        // referrer and prior storage only, never from the page query string.
+        var resolved = classifyReferralSource() || 'direct';
+        try {
+          window.sessionStorage.setItem(FIRST_TOUCH_SOURCE_KEY, resolved);
+        } catch (_error) {
+          // Storage unavailable: attribution degrades to per-click, never throws.
+        }
+        return resolved;
+      }
+
+      function contactSourceAiName(source) {
+        if (!source) {
+          return null;
+        }
+        var separator = source.indexOf(':');
+        var tail = separator > -1 ? source.slice(separator + 1) : source;
+        return AI_SOURCE_NAMES.indexOf(tail) > -1 ? tail : null;
+      }
+
+      // Carries the first-touch channel into the WhatsApp message itself, so
+      // Esteban reads where the lead came from in the chat, not only in GA4.
+      function decorateWhatsappLinks() {
+        if (typeof document.querySelectorAll !== 'function') {
+          return;
+        }
+
+        var source = firstTouchContactSource();
+        var aiName = contactSourceAiName(source);
+        if (!aiName) {
+          return;
+        }
+
+        var labels = { chatgpt: 'ChatGPT', gemini: 'Gemini', perplexity: 'Perplexity', copilot: 'Copilot', claude: 'Claude' };
+        var label = labels[aiName] || aiName;
+        var spanish = document.documentElement && String(document.documentElement.lang || '').toLowerCase().indexOf('es') === 0;
+        var suffix = spanish ? ' (v\u00eda ' + label + ')' : ' (via ' + label + ')';
+        var anchors = document.querySelectorAll('a[href^="https://wa.me/"], a[href^="https://api.whatsapp.com/"]');
+
+        for (var index = 0; index < anchors.length; index += 1) {
+          var anchor = anchors[index];
+          var href = anchor.getAttribute('href') || '';
+          if (href.indexOf('text=') === -1) {
+            continue;
+          }
+          try {
+            var url = new URL(href);
+            var existing = url.searchParams.get('text');
+            // Skip a link with no prefilled text or one already attributed by
+            // an earlier run, so a second pass cannot double the suffix.
+            if (existing === null || existing.indexOf('(via ') > -1 || existing.indexOf('(v\u00eda ') > -1) {
+              continue;
+            }
+            url.searchParams.set('text', existing + suffix);
+            anchor.setAttribute('href', url.toString());
+          } catch (_error) {
+            // A malformed link is left exactly as rendered.
+          }
+        }
+      }
+
+      if (typeof document.readyState === 'string' && document.readyState === 'loading' && typeof document.addEventListener === 'function') {
+        document.addEventListener('DOMContentLoaded', decorateWhatsappLinks);
+      } else {
+        decorateWhatsappLinks();
+      }
+
       if (document.referrer) {
         try {
           var referrerUrl = new URL(document.referrer);
@@ -326,9 +444,16 @@ export function buildGoogleAnalyticsScript({
           return;
         }
 
+        var source = firstTouchContactSource();
+        var aiName = contactSourceAiName(source);
+        var intentParams = { contact_method: method, contact_source: source };
+        if (aiName) {
+          intentParams.ai_source = aiName;
+        }
+
         sendEvent(
           method === 'contact_page' ? 'contact_cta_click' : 'contact_intent',
-          { contact_method: method }
+          intentParams
         );
       }, true);
     })();
