@@ -16,12 +16,18 @@
  *   · profile.rating / profile.reviewCount / profile.reviewsSampled
  *   · sampledAuthors — who happened to be in this call's sample
  *   · readAt — the date this reading happened
- *   · an existing quote's readAt — ONLY when its text is verifiably present
+ *   · a NEW review whose full text and author this call returned verbatim —
+ *     added to `reviews` exactly as Google wrote it (typos included), dated
+ *     from publishTime, attributed to the author. This is the one place new
+ *     review text can enter the snapshot, and it can only ever be Google's.
+ *   · an existing review's readAt — ONLY when its text is verifiably present
  *     in the live sample (first 60 chars matched, the same rule
- *     esteban-review-watch.py uses). Absence from the sample is NOT evidence
- *     of deletion, so a missing quote is left untouched, never removed.
+ *     esteban-review-watch.py uses). Existing quote text is never rewritten:
+ *     absence from the sample is NOT evidence of deletion, and a live re-read
+ *     must not clobber a quote that was already captured verbatim. A missing
+ *     quote is left untouched, never removed.
  *
- * It never authors, edits, or adds review text. Provenance stays mechanical:
+ * It never authors or edits review text. Provenance stays mechanical:
  * lib/__tests__/client-reviews.test.ts gates what the site may publish.
  *
  * GRACEFUL BY DESIGN
@@ -137,11 +143,27 @@ function todayIso() {
   return new Date().toISOString().slice(0, 10);
 }
 
+/** One review from a Places API sample, or null when it lacks author/text. */
+function normaliseReview(review, readAt) {
+  const author = (review?.authorAttribution?.displayName ?? "").trim();
+  const quote = (review?.text?.text ?? "").trim();
+  if (!author || !quote) return null;
+  return {
+    author,
+    rating: typeof review?.rating === "number" ? review.rating : 5,
+    quote,
+    publishedAt: (review?.publishTime ?? "").slice(0, 10) || readAt,
+    readAt,
+  };
+}
+
 /** The merged next snapshot, or null when nothing should change. */
 function merge(previous, live) {
+  const today = todayIso();
   const next = structuredClone(previous);
   const profile = live ?? {};
-  next.readAt = todayIso();
+
+  next.readAt = today;
   next.profile = {
     rating: profile.rating ?? previous.profile.rating,
     reviewCount: profile.userRatingCount ?? previous.profile.reviewCount,
@@ -155,21 +177,40 @@ function merge(previous, live) {
       )
     : next.sampledAuthors;
 
-  const sampleText = Array.isArray(profile.reviews)
-    ? profile.reviews
-        .map((review) => review?.text?.text ?? "")
-        .join(" ")
-    : "";
+  const existing = Array.isArray(next.reviews) ? next.reviews : [];
+  const existingByAuthor = new Map(existing.map((review) => [review.author, review]));
 
-  let quotesReverified = 0;
-  next.quotes = next.quotes.map((quote) => {
-    if (sampleText && sampleText.includes(quote.quote.slice(0, QUOTE_MATCH_CHARS))) {
-      quotesReverified += 1;
-      return { ...quote, readAt: todayIso() };
+  const normalised = Array.isArray(profile.reviews)
+    ? profile.reviews
+        .map((review) => normaliseReview(review, today))
+        .filter(Boolean)
+    : [];
+  const sampleText = normalised.map((review) => review.quote).join(" ");
+  const sampleByAuthor = new Map(normalised.map((review) => [review.author, review]));
+
+  // 1. Existing reviews: refresh readAt only, and only when the live sample
+  //    still shows the text (first 60 chars). Quote text is never rewritten.
+  let reverified = 0;
+  next.reviews = existing.map((review) => {
+    if (
+      sampleText &&
+      sampleText.includes(review.quote.slice(0, QUOTE_MATCH_CHARS))
+    ) {
+      reverified += 1;
+      return { ...review, readAt: today };
     }
-    // Absence from a rotating ~5-review sample is not deletion. Leave it.
-    return quote;
+    return review;
   });
+
+  // 2. New reviews from this sample: full verbatim records, carrying any
+  //    portfolioId the same author already had (a cross-link is durable even
+  //    when the review falls out of the rotating sample).
+  const added = normalised.filter(
+    (review) => !existingByAuthor.has(review.author),
+  );
+  if (added.length > 0) {
+    next.reviews = [...next.reviews, ...added];
+  }
 
   const unchanged =
     previous.readAt === next.readAt &&
@@ -177,9 +218,10 @@ function merge(previous, live) {
     previous.profile.reviewCount === next.profile.reviewCount &&
     previous.profile.reviewsSampled === next.profile.reviewsSampled &&
     JSON.stringify(previous.sampledAuthors) === JSON.stringify(next.sampledAuthors) &&
-    quotesReverified === 0;
+    reverified === 0 &&
+    added.length === 0;
 
-  return { next, quotesReverified, unchanged };
+  return { next, reverified, added: added.length, unchanged };
 }
 
 async function main() {
@@ -204,7 +246,7 @@ async function main() {
     return; // exit 0: a failed read must never clobber good data
   }
 
-  const { next, quotesReverified, unchanged } = merge(previous, live);
+  const { next, reverified, added, unchanged } = merge(previous, live);
 
   if (unchanged) {
     console.log(`Snapshot already current as of ${next.readAt}. Nothing to write.`);
@@ -214,7 +256,8 @@ async function main() {
   console.log(
     `Snapshot ${previous.readAt} -> ${next.readAt}: rating ${next.profile.rating}, ` +
       `${next.profile.reviewCount} reviews, sample ${next.profile.reviewsSampled}, ` +
-      `${next.sampledAuthors.length} sampled authors, ${quotesReverified} quote(s) reverified at source.`,
+      `${next.sampledAuthors.length} sampled authors, ${reverified} review(s) reverified, ` +
+      `${added} new review(s) captured, ${next.reviews.length} total.`,
   );
 
   if (DRY_RUN) {

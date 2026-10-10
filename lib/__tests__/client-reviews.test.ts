@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import {
-  clientReviews,
+  googleReviews,
   googleReviewSnapshot,
   reviewSourceUrl,
 } from "../client-reviews";
@@ -10,28 +10,45 @@ import { PORTFOLIO_ITEMS } from "../portfolio";
 import { site } from "../site";
 
 describe("published client reviews", () => {
-  it("only quotes reviewers whose work is already published in the portfolio", () => {
-    // AGENTS.md: never invent clients. The mechanical form of that rule is that
-    // a quote may only run if the reviewer's project is on the site already.
-    //
-    // This is the gate that keeps the operator's friends and family off a
-    // client's public page. The profile took 7 ratings on 2026-08-14; several
-    // came from people with no published project here, and they stay out.
+  it("publishes the verbatim Google reviews the operator asked to surface", () => {
+    // The band used to show one gated quote out of eleven. The operator asked
+    // for the public reviews themselves (2026-10-10); the six whose full text
+    // has been read at the source run, attributed to Google and linked there.
+    expect(googleReviews.map((review) => review.author)).toEqual([
+      "Caro Suarez",
+      "Dawid Scierka",
+      "Fort Lauderdale Auto Sales",
+      "Alejandro Navarro",
+      "Die Coro",
+      "andres otero",
+    ]);
+  });
+
+  it("cross-links a project only when the reviewer's work is published", () => {
+    // portfolioId is now an OPTIONAL cross-link, not a gate: a review may run
+    // without one, but any portfolioId that IS present must name a real,
+    // published project — this is still what stops an invented client.
     const publishedIds = new Set(PORTFOLIO_ITEMS.map((item) => item.id));
 
-    expect(clientReviews.length).toBeGreaterThan(0);
-    for (const review of clientReviews) {
+    for (const review of googleReviews) {
+      if (review.portfolioId === undefined) continue;
       expect(
         publishedIds.has(review.portfolioId),
-        `${review.author} has no published project (portfolioId "${review.portfolioId}")`,
+        `${review.author} points at unpublished project "${review.portfolioId}"`,
       ).toBe(true);
     }
+
+    const flas = googleReviews.find(
+      (review) => review.author === "Fort Lauderdale Auto Sales",
+    );
+    expect(flas?.portfolioId).toBe("flas-concierge");
   });
 
   it("carries the provenance needed to check every quote at the source", () => {
-    for (const review of clientReviews) {
+    for (const review of googleReviews) {
       expect(review.author.trim()).not.toBe("");
       expect(review.quote.trim()).not.toBe("");
+      expect(review.rating).toBe(5);
       // A quote with no read date cannot be re-verified, and a review that
       // Google later filters would otherwise sit here unnoticed.
       expect(review.readAt).toMatch(/^\d{4}-\d{2}-\d{2}$/);
@@ -61,20 +78,29 @@ describe("published client reviews", () => {
   });
 
   it("reproduces the Google review text verbatim, typos included", () => {
-    // The one published quote as the Places API returns it. Cleaning up "hes"
-    // or the missing punctuation would make it a paraphrase we authored, which
-    // is exactly what a testimonial must never be.
-    const flas = clientReviews.find(
+    // The quotes as the Places API returns them. Cleaning up "hes" or the
+    // missing punctuation would make them a paraphrase we authored, which is
+    // exactly what a testimonial must never be.
+    const flas = googleReviews.find(
       (review) => review.author === "Fort Lauderdale Auto Sales",
     );
-
     expect(flas?.quote).toBe(
       "Esteban has done great Media work for our company i highly recommend him for any project you have hes highly knowledgeable and very detail oriented",
     );
+
+    const caro = googleReviews.find(
+      (review) => review.author === "Caro Suarez",
+    );
+    // Paragraph breaks preserved: this is the real-estate proof the niche is
+    // starving for, and it must not be flattened into one run-on sentence.
+    expect(caro?.quote).toContain(
+      "real estate photography and videography needs",
+    );
+    expect(caro?.quote).toContain("\n\n");
   });
 
   it("still refuses to assert a rating about the business in markup", () => {
-    // Publishing quotes does not change reference-no-self-serving-aggregaterating.
+    // Publishing more quotes does not change reference-no-self-serving-aggregaterating.
     // The stars in the UI are attributed to Google and linked to the source;
     // structured data stays silent about the rating.
     expect(localBusinessEntityJsonLd).not.toHaveProperty("aggregateRating");

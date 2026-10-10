@@ -1,5 +1,5 @@
 {
-  "$comment": "Snapshot of Esteban Moreno's public Google Business Profile (Google Maps), read with the Places API. The counts and reviewer names are facts read at the source; the quotes are verbatim reproductions governed by the provenance rules in lib/client-reviews.ts. Refresh with `pnpm reviews:sync`, which keeps this file unchanged whenever the Places API is unavailable (429/403) rather than writing a worse snapshot.",
+  "$comment": "Snapshot of Esteban Moreno's public Google Business Profile (Google Maps). The counts, the reviewer names and the review text are facts read at the source; the reviews below are VERBATIM reproductions governed by the provenance rules in lib/client-reviews.ts. Refresh with `pnpm reviews:sync`, which keeps this file unchanged whenever the Places API is unavailable (429/403) rather than writing a worse snapshot. The Places API returns a rotating sample of ~5 reviews per call, so `reviews` is every review whose full text has been read at the source so far (6 of the 11), not the whole profile.",
   "readAt": "2026-10-08",
   "sourceCommand": "python3 ~/.claude/durable/esteban-review-watch.py --json",
   "profile": {
@@ -14,13 +14,49 @@
     "andres otero",
     "Alejandro Navarro"
   ],
-  "quotes": [
+  "reviews": [
+    {
+      "author": "Caro Suarez",
+      "rating": 5,
+      "quote": "I've had an amazing experience working with this media company for my real estate photography and videography needs! The quality of the photos and videos was exceptional, Esteban really knows how to showcase a property in a way that makes it stand out.\n\nProfessional, creative, responsive, and easy to work with from start to finish. The final content exceeded my expectations and made my listings look absolutely incredible.\n\nI highly recommend them to any real estate professional looking for high-quality photography and videography services. I'll definitely be using them again! 📸🎥🏡",
+      "publishedAt": "2026-08-16",
+      "readAt": "2026-09-30"
+    },
+    {
+      "author": "Dawid Scierka",
+      "rating": 5,
+      "quote": "Esteban Moreno Media made my birthday shoot at Vizcaya unforgettable and fun with my friends. He knew exactly where and when to shoot for the best light, found gorgeous spots away from the crowds for both my friends and I, and directed me so naturally that I actually relaxed in front of the camera. Beautiful editing, fast turnaround, and photos I'll keep forever. Highly recommend for anything in Miami.",
+      "publishedAt": "2026-08-24",
+      "readAt": "2026-09-30"
+    },
     {
       "author": "Fort Lauderdale Auto Sales",
+      "rating": 5,
       "quote": "Esteban has done great Media work for our company i highly recommend him for any project you have hes highly knowledgeable and very detail oriented",
       "publishedAt": "2026-08-14",
-      "portfolioId": "flas-concierge",
-      "readAt": "2026-08-14"
+      "readAt": "2026-08-14",
+      "portfolioId": "flas-concierge"
+    },
+    {
+      "author": "Alejandro Navarro",
+      "rating": 5,
+      "quote": "Needed some last minute video editing and shooting for some of my social posts and Esteban came through! Very professional, highly recommended!!",
+      "publishedAt": "2026-08-15",
+      "readAt": "2026-09-30"
+    },
+    {
+      "author": "Die Coro",
+      "rating": 5,
+      "quote": "Very professional and great service. Recommending to all my friends",
+      "publishedAt": "2026-08-15",
+      "readAt": "2026-09-30"
+    },
+    {
+      "author": "andres otero",
+      "rating": 5,
+      "quote": "All I got to say is 10/10. Extremely helpful and very professional.",
+      "publishedAt": "2026-08-15",
+      "readAt": "2026-09-30"
     }
   ]
 }
