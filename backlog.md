@@ -26,6 +26,13 @@ Production is live. This file tracks repository implementation; account/access w
 
 ## P1 — Technical SEO / GEO / ALOHA
 
+- [x] 2026-10-11: SEO/GEO audit wave on `fix/seo-geo-audit-wave` — the audit's 15 mechanical fixes (fix 8 partial), sitemap 284 → 310 by owner decision, `/llms.txt` generated from sitemap sources, 37 ported EN FAQs, answer-first blocks, sibling links. Details: `.ai/handoff.md`.
+- [ ] 2026-11-10: check GSC indexed status and impressions for the 26 URLs added to the sitemap on 2026-10-10 (see `ownerOrderedAdditions` in `config/indexable-inventory-freeze.json`).
+- [ ] Owner: decide guide bylines (Esteban as author of record?) and a date policy (`published`/`updated` fields) — unlocks visible dates, `dateModified` and sitemap `lastmod`.
+- [ ] Owner-approved non-additive text-parity refresh: drop the 31 remaining links from `/es/servicios`, `/es/areas`, `/es/guias` and `/es/editor-de-video-miami` into noindexed pages, replace the templated `¿Para qué proyecto encaja?` H2, and apply the title brand-suffix rule to `/es/<slug>` pages.
+- [ ] After `feat/es-real-estate-reel-shelf` merges: add the 6 reels to `video-sitemap.xml` and point the reels VideoObject `publisher` at `#business`.
+- [ ] Copy: `/areas` Palm Beach County card still says "sub-city coverage is not yet published" while Palm Beach city pages are indexed; reword without strengthening Palm Beach positioning.
+
 - [x] Prepare 2026-10-11 local `/es/areas` contextual links from the existing Coral Gables property-video and Fort Lauderdale yacht/hospitality pages; preserve all claims and existing target return links. Validation and review handoff: `.ai/handoff.md`.
 - [ ] Coordinator/cto-qa-lead, before release: independently review and verify the two links; after release, confirm production HTML and update the vault/registry. Coordinator/cto-seo-lead, before the next starvation run: correct the recurring orphan classification and supply verified earning-page evidence.
 
