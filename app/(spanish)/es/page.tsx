@@ -63,6 +63,8 @@ export default function SpanishHomePage() {
               const href =
                 service.id === "diseno-web"
                   ? "/es/diseno-web-fort-lauderdale"
+                  : service.id === "videografia"
+                    ? "/es/produccion-de-video-fort-lauderdale"
                   : `/es/servicios#${service.id}`;
               return (
                 <Link

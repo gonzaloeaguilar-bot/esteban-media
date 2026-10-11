@@ -560,9 +560,9 @@ export const spanishNichePages: SpanishNichePage[] = [
     description:
       "Edición de Reels y videos promocionales para restaurantes de Miami-Dade: platos estrella, ambiente del salón y promociones. Atención en español.",
     eyebrow: "Restaurantes / comida / hospitality",
-    h1: "Video para restaurantes de Miami-Dade, evaluado proyecto por proyecto.",
+    h1: "Video para restaurantes en Miami: edición de reels y promociones.",
     lead:
-      "Esta página explica cómo iniciar una consulta de video para un restaurante. La edición está confirmada — los videos promocionales parten desde $240 por proyecto, con cotización a la medida — y una posible captura en locación se considera de forma selectiva; la fotografía no se presenta como servicio disponible.",
+      "Envía las tomas de tus platos, cocina o salón para editar un reel o video promocional desde $240 por proyecto, con cotización a la medida. Si necesitas grabación en Miami-Dade, cuéntanos la idea y se evaluará la disponibilidad y el alcance por separado.",
     keyword: "video para restaurantes Miami",
     location: "Miami-Dade",
     availability: "confirmed",
@@ -586,8 +586,8 @@ export const spanishNichePages: SpanishNichePage[] = [
         heading: "Estrategia de video gastronómico y dinámicas de restaurantes en Miami",
         paragraphs: [
           "Si publicas recomendaciones desde tu propia cuenta, consulta la [edición para creadores de comida y lugares](/es/edicion-de-video-para-creadores-de-comida-y-lugares-miami).",
-          "El sector de restaurantes en Miami-Dade —desde Wynwood hasta Coral Gables, Doral y Miami Beach— compite en un entorno visual sumamente dinámico donde los comensales deciden dónde comer a través de videos cortos en Instagram y TikTok. Un video gastronómico efectivo no busca abarcar todo el menú en 30 segundos, sino despertar el apetito enfocándose en la preparación de platos estrella, la textura de los ingredientes y la atmósfera viva del salón.",
-          "Para marcas gastronómicas que evalúan [video para restaurantes en Miami](/es/video-para-restaurantes-miami), estructurar el contenido con ganchos visuales en los primeros 3 segundos (como el corte de una carne jugosa, el vertido de una salsa o el humo saliendo de la parrilla) multiplica la retención de audiencia. Revisa nuestra [guía de ideas de video para restaurantes](/es/guias/ideas-de-contenido-de-video-para-restaurantes) para explorar formatos probados.",
+          "Un restaurante de Miami-Dade puede centrar cada video en un plato, una bebida, la preparación o el ambiente del salón. Ese enfoque ayuda a que la persona entienda qué se ofrece sin intentar mostrar todo el menú en una sola pieza. Antes de editar, indica el nombre correcto del plato, dónde se publicará el video y qué quieres que haga la persona después de verlo.",
+          "Las tomas de ingredientes, manos, emplatado y servicio pueden ordenarse según el material que ya tengas. Si todavía vas a grabar, la [guía de ideas de video para restaurantes](/es/guias/ideas-de-contenido-de-video-para-restaurantes) ayuda a preparar una lista breve de escenas. Mira también [Bar Door Monkey Miami](/es/portafolio/bar-door-monkey): un video promocional publicado de 55 segundos, grabado y editado por Esteban en 2020; no se le atribuyen reservas ni ventas.",
         ],
         bullets: [
           "Enfoque en 1 o 2 platos insignia con primeros planos de emplatado y texturas",
@@ -612,7 +612,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         heading: "Flujo de postproducción remota con material propio del restaurante",
         paragraphs: [
-          "Muchos restaurantes y chefs en Miami ya acumulan horas de grabaciones en alta calidad capturadas con teléfonos inteligentes o cámaras durante servicios, catas o eventos. A través de un flujo de edición remota, seleccionamos las mejores tomas, eliminamos partes innecesarias, aplicamos transiciones fluidas y añadimos subtítulos llamativos.",
+          "Si ya grabaste con teléfono o cámara durante la preparación, el servicio o un evento, puedes pedir edición remota. Esteban selecciona las tomas útiles y acuerda contigo ritmo, texto, color y formatos según el material disponible. No necesitas contratar un rodaje para consultar por una edición.",
           "El proceso comienza reuniendo los clips en una carpeta de Google Drive o Dropbox y compartiendo las prioridades del local. Para organizar tus archivos antes de enviarlos, revisa nuestra [guía de entrega para edición remota de video](/es/guias/entrega-para-edicion-remota-de-video).",
         ],
         bullets: [
@@ -2075,9 +2075,9 @@ export const spanishNichePages: SpanishNichePage[] = [
     description:
       "Edición de video para restaurantes en Miami: reels de platillos, promociones, subtítulos y cortes sociales desde material del cliente.",
     eyebrow: "Gastronomía / Restaurantes",
-    h1: "Edición de video apetitosa para restaurantes en Miami.",
+    h1: "Edición de video promocional para restaurantes en Miami.",
     lead:
-      "Destaca detalles culinarios, ambiente de comedor y preparación de bebidas con videos cortos pensados para redes, menú digital o sitio web. Desde $240 por video promocional; cada proyecto recibe una cotización a la medida. Consulta todos los alcances de servicio en [video para restaurantes en Miami](/es/video-para-restaurantes-miami) y las [áreas de servicio](/es/areas) cuando el brief incluya rodaje.",
+      "Envía tus videos de cocina, platos, bebidas o salón para editar un reel o una promoción para redes desde $240 por proyecto, con cotización a la medida. Mira el [video publicado de Bar Door Monkey Miami](/es/portafolio/bar-door-monkey) y consulta [video para restaurantes en Miami](/es/video-para-restaurantes-miami) si también necesitas grabación.",
     keyword: "edición de video para restaurantes en Miami",
     location: "Miami / Wynwood",
     availability: "confirmed",

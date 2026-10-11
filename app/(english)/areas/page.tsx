@@ -191,6 +191,9 @@ export default function AreasPage() {
                   <Link className="font-medium text-[#9f3c27] underline underline-offset-4" href="/services/short-form-video-editor-miami">
                     Short-form editing
                   </Link>
+                  <Link className="font-medium text-[#9f3c27] underline underline-offset-4" href="/services/reels-editor-fort-lauderdale">
+                    Fort Lauderdale Reels editing
+                  </Link>
                   <Link className="font-medium text-[#9f3c27] underline underline-offset-4" href="/services/ai-product-photography-miami">
                     AI product visuals
                   </Link>
@@ -208,10 +211,10 @@ export default function AreasPage() {
                   Lauderdale is the local base for that conversation.
                 </p>
                 <Link
-                  href="/services#on-location"
+                  href="/services/video-production-fort-lauderdale"
                   className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27]"
                 >
-                  Review on-location services
+                  Explore Fort Lauderdale video production
                   <ArrowRight className="size-4" aria-hidden="true" />
                 </Link>
               </article>
