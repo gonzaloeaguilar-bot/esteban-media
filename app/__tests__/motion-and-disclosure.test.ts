@@ -203,6 +203,45 @@ describe("reading progress", () => {
   });
 });
 
+/**
+ * Horizontal overflow is contained at its SOURCE.
+ *
+ * Regression, measured on production 2026-10-11 at 390px: `html { overflow-x:
+ * clip }` was added as a root safety net, but Chromium then makes the document
+ * a clip container and `position: sticky` silently stops working — the header
+ * scrolled away (`getBoundingClientRect().top` was -8201 of an 8201 scroll)
+ * and the fixed reading-progress bar at `top: 65px` was left floating over the
+ * content as a stray orange line. The clip belongs on the wrapper that owns the
+ * horizontal track, never on the root.
+ */
+describe("horizontal overflow containment", () => {
+  // Read declarations only: the block above documents the retired root clip by
+  // name in prose, and a raw regex would match the explanation, not the CSS.
+  const css = globals.replace(/\/\*[\s\S]*?\*\//g, "");
+
+  it("is clipped at the source, on the wrapper that owns the track", () => {
+    const start = css.indexOf("div.relative:has(> .em-carousel-track) {");
+    expect(start).toBeGreaterThan(-1);
+    const block = css.slice(start, css.indexOf("}", start) + 1);
+    expect(block).toMatch(/overflow-x:\s*clip;/);
+  });
+
+  it("never clips at the root, which would break the sticky header", () => {
+    // Any `overflow-x` other than `visible` on the root breaks `position:
+    // sticky` in Chromium, which is exactly the bug this guards against.
+    const rootBlocks = css.match(/\n\s*html\s*\{[^}]*\}/g) ?? [];
+    for (const block of rootBlocks) {
+      expect(block).not.toMatch(/overflow-x:\s*(clip|hidden)/);
+    }
+  });
+
+  it("keeps the body's own overflow-x as the last-resort net", () => {
+    const bodyRule = /\n\s*body\s*\{[^}]*\}/.exec(css);
+    expect(bodyRule).not.toBeNull();
+    expect(bodyRule![0]).toMatch(/overflow-x:\s*hidden/);
+  });
+});
+
 describe("the way back to the top", () => {
   // The old action bar carried an icon-only "back to top". The app bar keeps
   // that job on its Home tab: tapping Home while already home returns to top.
