@@ -187,13 +187,16 @@ describe("sitemap inventory freeze is respected", () => {
     );
   });
 
-  it("does not add the hub URLs to the sitemap while the freeze holds", () => {
+  // The hubs were held out of the sitemap while the freeze applied. On
+  // 2026-10-10 Esteban ordered them in (SEO/GEO audit finding 8): the 10
+  // case studies were advertised while the hub that lists them was not.
+  it("advertises both hub URLs now that the owner ordered them in", () => {
     const urls = sitemap().map((entry) => entry.url);
 
-    expect(urls).not.toContain(
+    expect(urls).toContain(
       `https://estebanmorenomedia.com${caseStudiesIndexCopy.en.path}`,
     );
-    expect(urls).not.toContain(
+    expect(urls).toContain(
       `https://estebanmorenomedia.com${caseStudiesIndexCopy.es.path}`,
     );
   });

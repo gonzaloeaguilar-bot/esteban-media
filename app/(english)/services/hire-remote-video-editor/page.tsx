@@ -4,9 +4,11 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { ClientReviews } from "@/components/client-reviews";
 import { Container } from "@/components/ui/container";
 import {
+  ServiceAnswerFirst,
   ServiceFaqs,
   ServiceInquiryRail,
   buildServiceFaqSchema,
+  buildServicePageNodes,
 } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, serviceAreas } from "@/lib/site";
@@ -74,6 +76,13 @@ export default function HireRemoteVideoEditorPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/hire-remote-video-editor",
+        name: "Hire a Remote Video Editor",
+        description:
+          "Hire Esteban Moreno Media for remote video editing, reels, YouTube editing, product videos, and bilingual social content from South Florida.",
+        crumb: "Remote video editor",
+      }),
       buildServiceFaqSchema(
         absoluteUrl("/services/hire-remote-video-editor"),
         REMOTE_EDITOR_DEPTH.faqs,
@@ -124,6 +133,7 @@ export default function HireRemoteVideoEditorPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="remote video editing" />
 
       <section className="py-12 sm:py-16">
         <Container size="xl">
@@ -160,7 +170,7 @@ export default function HireRemoteVideoEditorPage() {
           <div className="mt-8 grid gap-4 md:grid-cols-3">
             {[
               { href: "/services/short-form-video-editor-miami", title: "Short-form video", detail: "For supplied footage that needs reels, Shorts, TikTok, captions, and crops." },
-              { href: "/services/youtube-video-editing-service-miami", title: "YouTube editing", detail: "For long-form structure, audio cleanup, pacing, and clips from one main edit." },
+              { href: "/services/content-creator-video-editing-miami", title: "Creator editing", detail: "For creators who need edits and clips cut from footage they already filmed." },
               { href: "/resources/video-project-brief-template", title: "Brief template", detail: "Copy a message that makes the quote easier to answer." },
             ].map((item) => (
               <Link key={item.href} href={item.href} className="rounded-lg border border-[#ddd4c8] bg-white p-5 hover:border-[#e85d3e]">

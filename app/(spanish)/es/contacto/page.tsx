@@ -62,14 +62,12 @@ const faqs = [
   },
 ] as const;
 
-export default async function SpanishContactPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ source?: string }>;
-}) {
-  const { source } = await searchParams;
-  const leadSource =
-    source === PEMBROKE_PINES_SOURCE ? PEMBROKE_PINES_SOURCE : "brief-builder";
+// Static on purpose. Reading ?source= on the server through searchParams made
+// this route render on demand, so for many user agents the canonical, hreflang
+// and robots tags streamed into <body> (SEO/GEO audit 2026-10-10, fix 14). The
+// allowlisted attribution value is now read in the browser by the brief
+// builder; every other value still falls back to "brief-builder".
+export default function SpanishContactPage() {
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -208,7 +206,11 @@ export default async function SpanishContactPage({
             </div>
 
             <div className="space-y-6">
-              <VideoBriefBuilder locale="es" source={leadSource} />
+              <VideoBriefBuilder
+                locale="es"
+                source="brief-builder"
+                querySources={[PEMBROKE_PINES_SOURCE]}
+              />
 
               <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
                 <MessageSquareText

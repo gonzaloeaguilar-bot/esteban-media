@@ -14,7 +14,9 @@ export const personEntityJsonLd = {
   description:
     "Spanish-first video editor and content creator based in Fort Lauderdale, with intermediate English communication available.",
   url: absoluteUrl("/about"),
-  sameAs: [site.instagram, site.youtube, site.googleBusinessProfile],
+  // The Google Business Profile is the business listing, not the person; it
+  // stays on the #business sameAs only (SEO/GEO audit 2026-10-10, fix 7).
+  sameAs: [site.instagram, site.youtube],
   jobTitle: "Video editor and content creator",
   worksFor: {
     "@id": entityIds.business,

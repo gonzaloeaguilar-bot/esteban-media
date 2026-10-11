@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Building2, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,19 +18,20 @@ export default function RoofingContractorVideoMarketingSouthFloridaPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/roofing-contractor-video-marketing-south-florida",
+        name: "Roofing Contractor Video Marketing South Florida",
+        description:
+          "Roofing installation video marketing, jobsite walkthroughs, impact window promos, and contractor video editing in South Florida.",
+        crumb: "Roofing Contractor Video Marketing",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/roofing-contractor-video-marketing-south-florida#service"),
         name: "Roofing Contractor Video Marketing South Florida",
         description:
           "Roofing contractor video editing, jobsite before-and-after reels, hurricane impact window promos, and contractor videos in South Florida.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami-Dade / Broward",
         serviceType: "Contractor video marketing",
       },

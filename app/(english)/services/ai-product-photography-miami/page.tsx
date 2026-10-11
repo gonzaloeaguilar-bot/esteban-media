@@ -32,13 +32,7 @@ export default function AIProductPhotographyPage() {
         name: "AI Product Photography Miami",
         description:
           "AI-assisted product photography, background generation, and visual mockups for South Florida e-commerce brands and local businesses.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami-Dade / Broward / Fort Lauderdale",
         serviceType: "AI product photography",
       },

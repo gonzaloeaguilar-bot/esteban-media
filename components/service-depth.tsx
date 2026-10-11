@@ -7,7 +7,8 @@ import { ArrowRight, CheckCircle2, Mail, MessageCircle, Phone } from "lucide-rea
 import { Container } from "@/components/ui/container";
 import { KeepReading } from "@/components/keep-reading";
 import { whatsappHref } from "@/lib/packages";
-import { site } from "@/lib/site";
+import { PACKAGE_PRICES, usd } from "@/lib/pricing";
+import { absoluteUrl, site } from "@/lib/site";
 
 /**
  * The depth a service page needs to earn anything — as shared components.
@@ -106,6 +107,114 @@ export function buildServiceFaqSchema(pageUrl: string, faqs: readonly ServiceFaq
 }
 
 /**
+ * WebPage + BreadcrumbList nodes for an English /services/* page.
+ *
+ * 49 sitemapped service pages showed a visible "Home / Services / <page>"
+ * trail with no BreadcrumbList and no WebPage node (SEO/GEO audit 2026-10-10,
+ * fix 3). `crumb` must be the label the visible trail shows, so the schema
+ * mirrors the page rather than restating it.
+ */
+export function buildServicePageNodes({
+  path,
+  name,
+  description,
+  crumb,
+}: {
+  path: string;
+  name: string;
+  description: string;
+  crumb: string;
+}) {
+  const pageUrl = absoluteUrl(path);
+  return [
+    {
+      "@type": "WebPage",
+      "@id": `${pageUrl}#webpage`,
+      url: pageUrl,
+      name,
+      description,
+      inLanguage: "en-US",
+      isPartOf: { "@id": absoluteUrl("/#website") },
+      breadcrumb: { "@id": `${pageUrl}#breadcrumbs` },
+      mainEntity: { "@id": `${pageUrl}#service` },
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${pageUrl}#breadcrumbs`,
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl("/") },
+        { "@type": "ListItem", position: 2, name: "Services", item: absoluteUrl("/services") },
+        { "@type": "ListItem", position: 3, name: crumb, item: pageUrl },
+      ],
+    },
+  ] as const;
+}
+
+function packageFrom(id: "arranque" | "presencia-local"): string {
+  const price = PACKAGE_PRICES[id];
+  return price.kind === "from" ? usd(price.amount) : "";
+}
+
+const answerFirstCopy = {
+  en: {
+    eyebrow: "In short",
+    question: (service: string) => `How does ${service} with Esteban Moreno Media work?`,
+    answer: () =>
+      `Esteban Moreno Media is a Fort Lauderdale-based service-area business run by Esteban Moreno, working with businesses across Broward and Miami-Dade. Projects can start remotely: you share footage, photos or references online and Esteban edits them, with no visit needed. On-location filming or photography is available as a paid service, scoped and quoted per project. Communication is Spanish-first, with intermediate English available. Remote editing starts from ${packageFrom("arranque")} per video (Starter package) and on-location production days start from ${packageFrom("presencia-local")} (Local Presence package); every project gets a written quote.`,
+  },
+  es: {
+    eyebrow: "En corto",
+    question: (service: string) => `¿Cómo funciona el servicio de ${service} con Esteban Moreno Media?`,
+    answer: () =>
+      `Esteban Moreno Media es un negocio de servicio con base en Fort Lauderdale, dirigido por Esteban Moreno, que trabaja con negocios en Broward y Miami-Dade. Los proyectos pueden empezar en remoto: compartes el material, las fotos o las referencias en línea y Esteban los edita, sin necesidad de visita. La grabación o la fotografía en locación está disponible como servicio pagado, con alcance y cotización por proyecto. La atención es en español primero, con inglés intermedio disponible. La edición remota parte desde ${packageFrom("arranque")} por video (paquete Arranque) y los días de producción en locación desde ${packageFrom("presencia-local")} (paquete Presencia Local); cada proyecto recibe una cotización por escrito.`,
+  },
+} as const;
+
+/** Lower-case the first letter unless the word is an acronym or brand (TikTok, UGC). */
+function inSentence(phrase: string): string {
+  return /^[A-Z][a-z]/.test(phrase) && !/^(TikTok|YouTube|Reels|Instagram)\b/.test(phrase)
+    ? phrase.charAt(0).toLowerCase() + phrase.slice(1)
+    : phrase;
+}
+
+/**
+ * Answer-first block: one question H2 and a 60-120-word answer near the top.
+ *
+ * SEO/GEO audit 2026-10-10, fix 9: most service pages opened without a direct
+ * answer, so an answer engine had to assemble who/what/where/price from the
+ * whole page. Every sentence here is an already-published fact (base, markets,
+ * languages, the remote/on-location split the owner confirmed on 2026-10-10)
+ * and both prices come from PACKAGE_PRICES. No turnaround or availability
+ * promise is made.
+ */
+export function ServiceAnswerFirst({
+  service,
+  locale = "en",
+  sectionId = "answer-first",
+}: {
+  service: string;
+  locale?: "en" | "es";
+  sectionId?: string;
+}) {
+  const copy = answerFirstCopy[locale];
+  return (
+    <section
+      className="border-b border-[#ddd4c8] py-10 sm:py-12"
+      aria-labelledby={`${sectionId}-heading`}
+      data-section={sectionId}
+    >
+      <Container size="xl">
+        <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">{copy.eyebrow}</p>
+        <h2 id={`${sectionId}-heading`} className="mt-3 max-w-3xl font-serif text-3xl sm:text-4xl">
+          {copy.question(inSentence(service))}
+        </h2>
+        <p className="mt-4 max-w-3xl text-base leading-8 text-[#252a2d]">{copy.answer()}</p>
+      </Container>
+    </section>
+  );
+}
+
+/**
  * Three craft specifics. What this vertical's footage actually demands.
  *
  * Three, not a long list: the earning pages all use three, and a card that says
@@ -149,10 +258,12 @@ export function ServiceRelated({
   heading,
   services,
   sectionId = "related-services",
+  readMoreLabel = "Read more",
 }: {
   heading: string;
   services: readonly RelatedService[];
   sectionId?: string;
+  readMoreLabel?: string;
 }) {
   return (
     <section
@@ -175,7 +286,7 @@ export function ServiceRelated({
               <h3 className="font-serif text-2xl">{service.title}</h3>
               <p className="mt-3 text-sm leading-6 text-[#252a2d]">{service.detail}</p>
               <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27]">
-                Read more
+                {readMoreLabel}
                 <ArrowRight
                   className="size-4 transition-transform group-hover:translate-x-0.5"
                   aria-hidden="true"

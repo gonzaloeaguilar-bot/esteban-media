@@ -22,6 +22,7 @@ const content: GeoServicePageContent = {
     "Real estate Reels, listing video editing, property walkthrough cuts, and social clips for South Florida and remote real estate teams.",
   serviceType: "Real estate video editing",
   areaServed: "Miami / Fort Lauderdale / Palm Beach / Remote",
+  answerService: "real estate Reels editing",
   craftHeading: "What property Reels need from the edit.",
   craft: [
     {

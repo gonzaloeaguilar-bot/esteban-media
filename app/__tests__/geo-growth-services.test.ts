@@ -2,6 +2,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 import { describe, expect, it } from "vitest";
+import { buildLlmsTxt } from "@/lib/llms-txt";
 
 import { sitemapRoutes } from "@/app/sitemap";
 
@@ -67,7 +68,7 @@ describe("GEO growth service pages", () => {
 
   it("links the new GEO pages from the services hub and llms.txt", () => {
     const servicesHub = source("app/(english)/services/page.tsx");
-    const llms = source("public/llms.txt");
+    const llms = buildLlmsTxt();
 
     for (const [route] of geoPages) {
       expect(servicesHub).toContain(route);
@@ -79,7 +80,7 @@ describe("GEO growth service pages", () => {
     const text = source(file);
     const spanishSite = source("lib/spanish-site.ts");
     const spanishComponent = source("components/spanish-niche-page.tsx");
-    const llms = source("public/llms.txt");
+    const llms = buildLlmsTxt();
 
     expect(text).toContain("SpanishNichePage");
     expect(text).toContain(`const slug = "${slug}"`);

@@ -113,8 +113,10 @@ describe("consolidation arithmetic matches the published baseline", () => {
     // +2 = food and places creator pair (2026-10-07).
     // +4 = the 2026-10-07 restaurant and real-estate cost-answer guide pairs.
     // +1 = the 2026-10-07 /es/editor-de-video-miami page.
+    // +26 = the 2026-10-10 owner-ordered additions (growth systems, daily
+    // tools, case-study hubs, /lens, /fort-lauderdale).
     // All owner-ordered, none of them consolidation changes.
-    expect(sitemap()).toHaveLength(269 - 26 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 2 + 4 + 1);
+    expect(sitemap()).toHaveLength(269 - 26 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 2 + 4 + 1 + 26);
   });
 
   it("never lists a redirect source in the sitemap", () => {

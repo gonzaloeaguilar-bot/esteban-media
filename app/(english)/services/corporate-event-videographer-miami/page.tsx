@@ -2,7 +2,14 @@ import Link from "next/link";
 import { ArrowRight, Camera, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { ServiceDeepDive } from "@/components/service-depth";
+import { PORTED_SERVICE_FAQS } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceDeepDive,
+  ServiceFaqs,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { CORPORATE_EVENT_DEEP_DIVE } from "@/lib/service-deep-dive-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
@@ -19,19 +26,21 @@ export default function CorporateEventVideographerMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/corporate-event-videographer-miami"), PORTED_SERVICE_FAQS["/services/corporate-event-videographer-miami"]),
+      ...buildServicePageNodes({
+        path: "/services/corporate-event-videographer-miami",
+        name: "Corporate Event Videographer Miami",
+        description:
+          "Event video coverage, convention highlight recaps, and conference video production for corporate events in Miami.",
+        crumb: "Corporate Event Videographer",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/corporate-event-videographer-miami#service"),
         name: "Corporate Event Videographer Miami",
         description:
           "Corporate event video capture, convention highlight video editing, and conference recaps in Miami.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami / South Florida",
         serviceType: "Event video production",
       },
@@ -105,6 +114,7 @@ export default function CorporateEventVideographerMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="corporate event videography" />
 
       <ServiceDeepDive
         id={CORPORATE_EVENT_DEEP_DIVE.id}
@@ -148,6 +158,11 @@ export default function CorporateEventVideographerMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/corporate-event-videographer-miami"]}
+        sectionId="ported-faq"
+      />
     </main>
   );
 }

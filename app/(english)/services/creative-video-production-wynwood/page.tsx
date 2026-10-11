@@ -2,6 +2,13 @@ import Link from "next/link";
 import { ArrowRight, WandSparkles, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { PORTED_SERVICE_FAQS } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceFaqs,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,19 +24,21 @@ export default function CreativeVideoProductionWynwoodPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/creative-video-production-wynwood"), PORTED_SERVICE_FAQS["/services/creative-video-production-wynwood"]),
+      ...buildServicePageNodes({
+        path: "/services/creative-video-production-wynwood",
+        name: "Creative Video Production Wynwood",
+        description:
+          "Creative video editing and production in Wynwood: streetwear fashion, art gallery reels, agency post-production, and edgy social content.",
+        crumb: "Creative Video Production Wynwood",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/creative-video-production-wynwood#service"),
         name: "Creative Video Production Wynwood",
         description:
           "Wynwood creative video editing service, streetwear brand promo videos, art gallery video reels, and agency post-production.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Wynwood / Design District",
         serviceType: "Creative video production",
       },
@@ -103,6 +112,7 @@ export default function CreativeVideoProductionWynwoodPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="Creative video production" />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
@@ -139,6 +149,11 @@ export default function CreativeVideoProductionWynwoodPage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/creative-video-production-wynwood"]}
+        sectionId="ported-faq"
+      />
     </main>
   );
 }

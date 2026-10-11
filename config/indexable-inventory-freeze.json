@@ -1,9 +1,9 @@
 {
   "status": "demand_gated",
   "effectiveDate": "2026-08-28",
-  "baselineRevisedOn": "2026-10-07",
-  "approvedSitemapUrlCount": 284,
-  "approvedSitemapUrlSetSha256": "bc3bbdbecbfdc7909841df79d5cae5be741b5513a5aab339bf7e40a7b294b1a1",
+  "baselineRevisedOn": "2026-10-10",
+  "approvedSitemapUrlCount": 310,
+  "approvedSitemapUrlSetSha256": "05e61a02612a73732cdf3d7923416ba5f514e5b3eebe42d1a5c3ba0b39cd23d0",
   "allowedNewIndexableUrls": 4,
   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {
@@ -195,6 +195,43 @@
       "demandEvidence": "GSC USA 'editor de video miami' 7 impr pos 42-58 with no target page; AI probe 0/9 citations for Esteban on 'editor de video en miami'. Spanish-first landing page with no English twin.",
       "followUpDate": "2026-11-06",
       "followUp": "Check GSC impressions and rankings for 'editor de video miami' and re-run AI probe 'editor de video en miami' at 30 days."
+    },
+    {
+      "on": "2026-10-10",
+      "url": [
+        "/services/conversion-websites",
+        "/es/sitios-web-de-conversion",
+        "/services/ai-lead-capture-automation",
+        "/es/captura-y-automatizacion-de-clientes-con-ia",
+        "/services/local-presence-seo",
+        "/es/presencia-local-seo",
+        "/services/growth-funnel-audit",
+        "/es/auditoria-de-funnel-y-datos",
+        "/services/custom-operations-automation",
+        "/es/automatizacion-de-operaciones",
+        "/services/creative-production",
+        "/es/produccion-creativa",
+        "/daily-publish-prompt",
+        "/es/prompt-de-publicacion-diaria",
+        "/daily-hook-planner",
+        "/es/planificador-de-ganchos-de-video",
+        "/daily-shot-list-planner",
+        "/es/planificador-de-tomas-de-video",
+        "/daily-script-pacing-calculator",
+        "/es/calculadora-de-ritmo-de-video",
+        "/daily-script-timer",
+        "/es/temporizador-de-guiones-de-video",
+        "/case-studies",
+        "/es/casos-de-estudio",
+        "/lens",
+        "/fort-lauderdale"
+      ],
+      "orderedBy": "Esteban (owner decision on the 2026-10-10 SEO/GEO code audit, relayed in-session)",
+      "kind": "indexable-but-unadvertised pages",
+      "demandEvidence": "NO NEW GSC QUERY CITED, and none is claimed. These 26 URLs are not new pages: every one was already built, returning 200, 'index, follow' and self-canonical (after the /fort-lauderdale canonical fix in the same change), and crawlable through internal links, but deliberately left out of the sitemap. The audit (.ai/seo-geo-code-audit-2026-10-10.md, finding 8) flagged that as a mixed signal: indexable but not advertised, and the 10 case studies were sitemapped while their hub was not. The owner chose to advertise them rather than noindex them. Hreflang is emitted for every pair that has a counterpart, including the four daily tool pairs that previously had only language-switcher pairing.",
+      "note": "TWENTY-SIX URLs, far more than one demand-wave allowance of 4. Recorded as one owner-ordered batch, like the 2026-10-06 niche batch, so the exception stays visible. allowedNewIndexableUrls is left at 4; the per-wave bound is unchanged.",
+      "followUpDate": "2026-11-10",
+      "followUp": "Check GSC indexed status and impressions for all 26. Any tool page or growth-system pair at zero impressions after 30 days goes back out of the sitemap (keep it internally linked) rather than being noindexed; /fort-lauderdale is compared against /services/video-production-fort-lauderdale for cannibalisation on 'fort lauderdale video production'."
     }
   ]
 }

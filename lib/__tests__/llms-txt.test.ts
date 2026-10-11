@@ -1,13 +1,58 @@
-import { readFileSync } from "node:fs";
-import { join } from "node:path";
-
 import { describe, expect, it } from "vitest";
 
+import sitemap from "@/app/sitemap";
+import { isConsolidatedPath } from "@/lib/consolidation";
+import { buildLlmsTxt } from "@/lib/llms-txt";
 import { PACKAGE_PRICES } from "@/lib/pricing";
 
-const llms = readFileSync(join(process.cwd(), "public/llms.txt"), "utf8");
+// /llms.txt is served by app/llms.txt/route.ts: the hand-written facts in
+// lib/llms-base.txt plus a page index generated from the sitemap sources.
+const llms = buildLlmsTxt();
+const SITE = "https://estebanmorenomedia.com";
 
-describe("public/llms.txt for AI crawlers", () => {
+function siteUrls(text: string): string[] {
+  return [...text.matchAll(/https:\/\/estebanmorenomedia\.com[^\s)·,]*/g)].map((match) =>
+    match[0].replace(/[.;:]+$/, ""),
+  );
+}
+
+describe("llms.txt stays in step with the sitemap (audit 2026-10-10, fix 4)", () => {
+  const sitemapUrls = new Set(sitemap().map((entry) => entry.url));
+  const discovery = new Set([`${SITE}/sitemap.xml`, `${SITE}/video-sitemap.xml`]);
+
+  it("only links URLs the sitemap advertises", () => {
+    for (const url of siteUrls(llms)) {
+      if (discovery.has(url)) continue;
+      expect(sitemapUrls.has(url), url).toBe(true);
+    }
+  });
+
+  it("lists every sitemap URL, including every case study, guide and the real-estate rate card", () => {
+    const listed = new Set(siteUrls(llms));
+    for (const url of sitemapUrls) expect(listed.has(url), url).toBe(true);
+    expect(listed.has(`${SITE}/pricing/real-estate`)).toBe(true);
+    expect(listed.has(`${SITE}/es/precios/inmobiliaria`)).toBe(true);
+    expect(listed.has(`${SITE}/es/editor-de-video-miami`)).toBe(true);
+  });
+
+  it("never lists a consolidated (noindexed or merged) page", () => {
+    for (const url of siteUrls(llms)) {
+      const path = new URL(url).pathname.replace(/\/$/, "") || "/";
+      expect(isConsolidatedPath(path), url).toBe(false);
+    }
+    expect(llms).not.toContain("/services/ecommerce-product-video-editor-miami");
+    expect(llms).not.toContain("/services/social-media-video-batching-miami");
+    expect(llms).not.toContain("/services/youtube-video-editing-service-miami");
+  });
+
+  it("describes the existing Palm Beach pages without claiming more than project-by-project scope", () => {
+    expect(llms).not.toContain("no sub-city coverage is currently published");
+    expect(llms).toContain("Palm Beach County is an expansion area considered project by project.");
+    expect(llms).toContain("they do not mean a local office");
+  });
+});
+
+describe("/llms.txt for AI crawlers", () => {
   it("keeps the canonical identity and confirmed service scope", () => {
     expect(llms).toContain("# Esteban Moreno Media");
     expect(llms).toContain("Canonical site: https://estebanmorenomedia.com/");

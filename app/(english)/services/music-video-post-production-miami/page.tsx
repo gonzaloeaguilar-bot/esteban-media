@@ -2,6 +2,14 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { PORTED_SERVICE_FAQS, serviceSiblings } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceFaqs,
+  ServiceRelated,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,19 +25,21 @@ export default function MusicVideoPostProductionMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/music-video-post-production-miami"), PORTED_SERVICE_FAQS["/services/music-video-post-production-miami"]),
+      ...buildServicePageNodes({
+        path: "/services/music-video-post-production-miami",
+        name: "Music Video Post Production Miami",
+        description:
+          "Music video post-production in Miami: lip-sync assembly, cinematic color grading, visual effects, and rhythm cuts for artists & directors.",
+        crumb: "Music Video Post Production",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/music-video-post-production-miami#service"),
         name: "Music Video Post Production Miami",
         description:
           "Music video post-production, lip-sync assembly, multi-take syncing, cinematic color grading, and creative music video editing in Miami.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Wynwood / Miami Beach",
         serviceType: "Music video post-production",
       },
@@ -96,6 +106,7 @@ export default function MusicVideoPostProductionMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="Music video post-production" />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
@@ -132,6 +143,16 @@ export default function MusicVideoPostProductionMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/music-video-post-production-miami"]}
+        sectionId="ported-faq"
+      />
+      <ServiceRelated
+        heading="Related services nearby."
+        services={serviceSiblings("/services/music-video-post-production-miami")}
+        sectionId="sibling-services"
+      />
     </main>
   );
 }

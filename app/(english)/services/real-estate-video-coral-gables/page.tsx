@@ -2,6 +2,14 @@ import Link from "next/link";
 import { ArrowRight, Building2, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { PORTED_SERVICE_FAQS, serviceSiblings } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceFaqs,
+  ServiceRelated,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,19 +25,21 @@ export default function RealEstateVideoCoralGablesPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/real-estate-video-coral-gables"), PORTED_SERVICE_FAQS["/services/real-estate-video-coral-gables"]),
+      ...buildServicePageNodes({
+        path: "/services/real-estate-video-coral-gables",
+        name: "Real Estate Video Coral Gables",
+        description:
+          "Luxury real estate video editing and tour formatting for realtors and properties in Coral Gables and South Miami.",
+        crumb: "Coral Gables Real Estate",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/real-estate-video-coral-gables#service"),
         name: "Real Estate Video Coral Gables",
         description:
           "Luxury property video editing, walkthrough formatting, and social Reels for Coral Gables realtors.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Coral Gables / Miami-Dade",
         serviceType: "Real estate video production",
       },
@@ -103,6 +113,7 @@ export default function RealEstateVideoCoralGablesPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="real estate video in Coral Gables" />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
@@ -139,6 +150,16 @@ export default function RealEstateVideoCoralGablesPage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/real-estate-video-coral-gables"]}
+        sectionId="ported-faq"
+      />
+      <ServiceRelated
+        heading="Related services nearby."
+        services={serviceSiblings("/services/real-estate-video-coral-gables")}
+        sectionId="sibling-services"
+      />
     </main>
   );
 }

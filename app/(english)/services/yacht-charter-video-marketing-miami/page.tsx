@@ -8,6 +8,7 @@ import {
   ServiceFaqs,
   ServiceRelated,
   buildServiceFaqSchema,
+  buildServicePageNodes,
 } from "@/components/service-depth";
 import { YACHT_DEPTH } from "@/lib/service-depth-content";
 import { YACHT_CHARTER_DEEP_DIVE } from "@/lib/vertical-deep-dives";
@@ -26,6 +27,13 @@ export default function YachtCharterVideoMarketingMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/yacht-charter-video-marketing-miami",
+        name: "Yacht Charter Video Marketing Miami",
+        description:
+          "Luxury yacht video editing, marine charter promos, aerial boat footage color grading, and deck walkthroughs in Miami.",
+        crumb: "Yacht Charter Video Marketing",
+      }),
       buildServiceFaqSchema(absoluteUrl("/services/yacht-charter-video-marketing-miami"), YACHT_DEPTH.faqs),
       {
         "@type": "Service",
@@ -33,13 +41,7 @@ export default function YachtCharterVideoMarketingMiamiPage() {
         name: "Yacht Charter Video Marketing Miami",
         description:
           "Yacht video editing, luxury marine charter promotional reels, drone boat video grading, and lifestyle edits in Miami.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami Beach / Fort Lauderdale",
         serviceType: "Yacht video marketing",
       },

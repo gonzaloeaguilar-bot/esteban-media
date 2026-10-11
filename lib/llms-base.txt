@@ -127,10 +127,7 @@ High-intent service pages with direct quote prompts:
 - AI product photography: https://estebanmorenomedia.com/services/ai-product-photography-miami
 - AI real estate photo enhancement: https://estebanmorenomedia.com/services/ai-real-estate-photo-enhancement
 - Restaurant promo video editing: https://estebanmorenomedia.com/services/restaurant-promo-video-editing-miami
-- Ecommerce product video editing: https://estebanmorenomedia.com/services/ecommerce-product-video-editor-miami
 - UGC ecommerce video editing: https://estebanmorenomedia.com/services/ugc-video-editor-ecommerce
-- Social media video batching: https://estebanmorenomedia.com/services/social-media-video-batching-miami
-- YouTube video editing: https://estebanmorenomedia.com/services/youtube-video-editing-service-miami
 - Remote video editor: https://estebanmorenomedia.com/services/hire-remote-video-editor
 - Fort Lauderdale video production: https://estebanmorenomedia.com/services/video-production-fort-lauderdale
 - Fort Lauderdale Reels editor: https://estebanmorenomedia.com/services/reels-editor-fort-lauderdale
@@ -154,6 +151,7 @@ Prices are starting points, not fixed rates: every project gets a written quote.
   Page: https://estebanmorenomedia.com/pricing/local-presence · https://estebanmorenomedia.com/es/precios/presencia-local
 - Todo Incluido / All-In — digital ecosystem: custom quote. Conversion website, AI chatbot and lead capture, local profile and presence (Google Business, Maps), content and editing, reporting across channels.
   Page: https://estebanmorenomedia.com/pricing/all-in · https://estebanmorenomedia.com/es/precios/todo-incluido
+- Real estate media rate card (published per-shoot rates by property size): https://estebanmorenomedia.com/pricing/real-estate · https://estebanmorenomedia.com/es/precios/inmobiliaria
 - A la carte: AI-assisted content, product or real estate photography, AI photo enhancement, local SEO and AI-search visibility, website/funnel/competitor audit, operations automation.
 - How to get a quote: 1) share the goal and available material, 2) confirm format, volume, deliverables, location and timing, 3) receive a project-specific quote. WhatsApp or phone: (305) 497-4478.
 
@@ -161,13 +159,14 @@ Prices are starting points, not fixed rates: every project gets a written quote.
 
 - Fort Lauderdale is the operating base.
 - Broward County and Miami-Dade County are the normal local markets.
-- Palm Beach County is a county-level expansion area considered project by project; no sub-city coverage is currently published.
+- Palm Beach County is an expansion area considered project by project. The site has a county page (https://estebanmorenomedia.com/areas/palm-beach-county, https://estebanmorenomedia.com/es/areas/palm-beach-county) and a few existing city-named Palm Beach County service pages, listed in the page index below. Those pages describe the same project-by-project scope; they do not mean a local office, a studio, or broader availability there than in the county as a whole.
 - Remote editing, AI-assisted content, and social planning do not require an on-location visit.
 - Remote work can support clients outside South Florida when the project uses supplied footage, product images, brand references, or other assets that can be shared online.
 
 ## Project Scope
 
 - Esteban Moreno Media is a remote-first service-area business with no client-facing studio.
+- On-location filming is available as a paid service, scoped and quoted per project; it is not included in remote-editing work.
 - General scoping questions can cover the goal, intended use, county, available source files, and references.
 - Availability, scope, timing, and format needs are discussed for the individual project; no specific workflow is published as universal.
 - Four packages with starting prices are published (see Packages). Turnaround times are not published; every project still receives a specific quote.
@@ -186,6 +185,12 @@ Prices are starting points, not fixed rates: every project gets a written quote.
 - Where do content creators get editing of supplied footage? https://estebanmorenomedia.com/services/content-creator-video-editing-miami
 - Where is the food and places creator video editing service? https://estebanmorenomedia.com/services/food-and-places-creator-video-editing-miami
 - Where is short-form video editing described in Spanish? https://estebanmorenomedia.com/es/editor-de-video-corto-para-redes-miami
+
+## Case Studies
+
+Written case studies of published projects, in English and Spanish, are indexed at
+https://estebanmorenomedia.com/case-studies and https://estebanmorenomedia.com/es/casos-de-estudio;
+every case study is listed in the page index below.
 
 ## Proof Policy
 

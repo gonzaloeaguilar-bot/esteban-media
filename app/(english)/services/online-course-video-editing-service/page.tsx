@@ -2,6 +2,14 @@ import Link from "next/link";
 import { ArrowRight, WandSparkles, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { PORTED_SERVICE_FAQS, serviceSiblings } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceFaqs,
+  ServiceRelated,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,19 +25,21 @@ export default function OnlineCourseVideoEditingServicePage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/online-course-video-editing-service"), PORTED_SERVICE_FAQS["/services/online-course-video-editing-service"]),
+      ...buildServicePageNodes({
+        path: "/services/online-course-video-editing-service",
+        name: "Online Course Video Editing Service",
+        description:
+          "Online course video editing: educational module polish, slide overlays, clear audio enhancement, and webinar lesson post-production.",
+        crumb: "Online Course Video Editing Service",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/online-course-video-editing-service#service"),
         name: "Online Course Video Editing Service",
         description:
           "Online course module video editing, slide presentation syncing, audio noise reduction, and educational video post-production.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami-Dade / Broward",
         serviceType: "Online course video editing",
       },
@@ -96,6 +106,7 @@ export default function OnlineCourseVideoEditingServicePage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="Online course video editing" />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
@@ -132,6 +143,16 @@ export default function OnlineCourseVideoEditingServicePage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/online-course-video-editing-service"]}
+        sectionId="ported-faq"
+      />
+      <ServiceRelated
+        heading="Related services nearby."
+        services={serviceSiblings("/services/online-course-video-editing-service")}
+        sectionId="sibling-services"
+      />
     </main>
   );
 }

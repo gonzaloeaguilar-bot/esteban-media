@@ -56,7 +56,8 @@ describe("customer-facing ranking pages", () => {
       source("app/(spanish)/es/areas/palm-beach-county/page.tsx"),
       source("app/(english)/contact/page.tsx"),
       source("app/(spanish)/es/contacto/page.tsx"),
-      source("public/llms.txt"),
+      // The hand-written llms.txt copy; the generated page index is URLs only.
+      source("lib/llms-base.txt"),
     ].join("\n");
 
     for (const gatedCopy of [
@@ -186,7 +187,8 @@ describe("customer-facing ranking pages", () => {
       source("lib/site.ts"),
       source("lib/spanish-site.ts"),
       source("lib/entity-schema.ts"),
-      source("public/llms.txt"),
+      // The hand-written llms.txt copy; the generated page index is URLs only.
+      source("lib/llms-base.txt"),
       source("components/about-teaser.tsx"),
       source("components/services-strip.tsx"),
       source("components/spanish-niche-page.tsx"),

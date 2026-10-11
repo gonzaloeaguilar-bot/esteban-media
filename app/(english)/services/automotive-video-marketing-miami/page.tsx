@@ -2,7 +2,14 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { ServiceDeepDive } from "@/components/service-depth";
+import { PORTED_SERVICE_FAQS } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceDeepDive,
+  ServiceFaqs,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { AUTOMOTIVE_DEEP_DIVE } from "@/lib/vertical-deep-dives";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
@@ -19,19 +26,21 @@ export default function AutomotiveVideoMarketingMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/automotive-video-marketing-miami"), PORTED_SERVICE_FAQS["/services/automotive-video-marketing-miami"]),
+      ...buildServicePageNodes({
+        path: "/services/automotive-video-marketing-miami",
+        name: "Automotive Video Marketing Miami",
+        description:
+          "Cinematic video editing and promo content for auto detailing shops, ceramic coating, and exotic car dealerships in Miami.",
+        crumb: "Automotive Video Marketing",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/automotive-video-marketing-miami#service"),
         name: "Automotive Video Marketing Miami",
         description:
           "Exotic car video editing, auto detailing promo edits, and cinematic vehicle showcases in Miami.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami / Fort Lauderdale",
         serviceType: "Automotive video production",
       },
@@ -105,6 +114,7 @@ export default function AutomotiveVideoMarketingMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="automotive video marketing" />
 
       <ServiceDeepDive
         id={AUTOMOTIVE_DEEP_DIVE.id}
@@ -148,6 +158,11 @@ export default function AutomotiveVideoMarketingMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/automotive-video-marketing-miami"]}
+        sectionId="ported-faq"
+      />
     </main>
   );
 }

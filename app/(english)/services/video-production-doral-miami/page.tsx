@@ -2,6 +2,14 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { PORTED_SERVICE_FAQS, serviceSiblings } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceFaqs,
+  ServiceRelated,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,19 +25,21 @@ export default function VideoProductionDoralPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/video-production-doral-miami"), PORTED_SERVICE_FAQS["/services/video-production-doral-miami"]),
+      ...buildServicePageNodes({
+        path: "/services/video-production-doral-miami",
+        name: "Video Production Doral Miami",
+        description:
+          "B2B video production, commercial videography, and remote editing for businesses and distributors in Doral, Florida.",
+        crumb: "Doral Video Production",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/video-production-doral-miami#service"),
         name: "Video Production Doral Miami",
         description:
           "Commercial video production, B2B product videos, and remote editing for Doral distributors and businesses.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Doral / Miami-Dade",
         serviceType: "Video production",
       },
@@ -96,6 +106,7 @@ export default function VideoProductionDoralPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="video production in Doral" />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
@@ -132,6 +143,16 @@ export default function VideoProductionDoralPage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/video-production-doral-miami"]}
+        sectionId="ported-faq"
+      />
+      <ServiceRelated
+        heading="Related services nearby."
+        services={serviceSiblings("/services/video-production-doral-miami")}
+        sectionId="sibling-services"
+      />
     </main>
   );
 }

@@ -5,16 +5,18 @@ import { ArrowRight, CheckCircle2, MapPin } from "lucide-react";
 import {
   ServiceCraft,
   ServiceFaqs,
+  ServiceAnswerFirst,
   ServiceInquiryRail,
   ServiceRelated,
   buildServiceFaqSchema,
+  buildServicePageNodes,
   type CraftCard,
   type RelatedService,
   type ServiceFaq,
   type ServiceInquiry,
 } from "@/components/service-depth";
 import { Container } from "@/components/ui/container";
-import { absoluteUrl, site } from "@/lib/site";
+import { absoluteUrl } from "@/lib/site";
 
 export type GeoServicePageContent = {
   path: string;
@@ -34,6 +36,10 @@ export type GeoServicePageContent = {
   serviceType: string;
   areaServed: string;
   craftHeading: string;
+  /** H2 over the depth section; must differ from craftHeading (no duplicate H2s). */
+  depthHeading?: string;
+  /** Noun phrase for the answer-first question; defaults to serviceType. */
+  answerService?: string;
   craft: readonly CraftCard[];
   /**
    * Citable depth: 100-180 words under a question-shaped heading.
@@ -57,18 +63,18 @@ export function buildGeoServiceSchema(content: GeoServicePageContent) {
     "@context": "https://schema.org",
     "@graph": [
       buildServiceFaqSchema(absoluteUrl(content.path), content.faqs),
+      ...buildServicePageNodes({
+        path: content.path,
+        name: content.serviceName,
+        description: content.serviceDescription,
+        crumb: content.serviceName,
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl(`${content.path}#service`),
         name: content.serviceName,
         description: content.serviceDescription,
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: content.areaServed,
         serviceType: content.serviceType,
       },
@@ -167,6 +173,7 @@ export function GeoServicePage({
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service={content.answerService ?? content.serviceType} />
 
       <section className="border-b border-[#ddd4c8] py-10">
         <Container size="xl">
@@ -202,7 +209,7 @@ export function GeoServicePage({
                   Scope and technical criteria
                 </p>
                 <h2 className="mt-3 font-serif text-3xl sm:text-4xl">
-                  {content.craftHeading}
+                  {content.depthHeading ?? `${content.serviceName}: questions to settle first.`}
                 </h2>
               </div>
               {content.depth.map((entry) => (

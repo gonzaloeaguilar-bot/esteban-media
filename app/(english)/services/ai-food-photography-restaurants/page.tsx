@@ -2,6 +2,13 @@ import Link from "next/link";
 import { ArrowRight, UtensilsCrossed, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { PORTED_SERVICE_FAQS } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceFaqs,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,19 +24,21 @@ export default function AIFoodPhotographyPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/ai-food-photography-restaurants"), PORTED_SERVICE_FAQS["/services/ai-food-photography-restaurants"]),
+      ...buildServicePageNodes({
+        path: "/services/ai-food-photography-restaurants",
+        name: "AI Food Photography Restaurants Miami",
+        description:
+          "AI-assisted food photography and lifestyle menu image creation for restaurants and culinary brands in Miami.",
+        crumb: "AI Food Photography",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/ai-food-photography-restaurants#service"),
         name: "AI Food Photography Restaurants Miami",
         description:
           "AI-assisted food photography, table setting rendering, and menu visual creation for Miami restaurants.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami-Dade / Fort Lauderdale",
         serviceType: "AI food photography",
       },
@@ -115,6 +124,7 @@ export default function AIFoodPhotographyPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="AI food photography" />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
@@ -151,6 +161,11 @@ export default function AIFoodPhotographyPage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/ai-food-photography-restaurants"]}
+        sectionId="ported-faq"
+      />
     </main>
   );
 }

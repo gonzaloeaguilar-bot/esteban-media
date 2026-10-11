@@ -21,6 +21,7 @@ const content: GeoServicePageContent = {
     "Video production, videography, and video editing for Fort Lauderdale and Broward County businesses.",
   serviceType: "Video production",
   areaServed: "Fort Lauderdale / Broward County / Remote",
+  answerService: "video production in Fort Lauderdale",
   craftHeading: "What Fort Lauderdale business video needs to show clearly.",
   craft: [
     {

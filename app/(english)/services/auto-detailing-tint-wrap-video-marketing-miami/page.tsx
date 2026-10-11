@@ -3,6 +3,7 @@ import { ArrowRight, Car } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import {
+  ServiceAnswerFirst,
   ServiceCraft,
   ServiceDeepDive,
   ServiceFaqs,
@@ -10,10 +11,10 @@ import {
   ServiceRelated,
   buildServiceFaqSchema,
 } from "@/components/service-depth";
-import { AUTO_DETAILING_DEPTH } from "@/lib/service-depth-content";
+import { AUTO_DETAILING_DEPTH, withServiceSiblings } from "@/lib/service-depth-content";
 import { AUTO_DETAILING_DEEP_DIVE } from "@/lib/service-deep-dive-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
-import { absoluteUrl, site } from "@/lib/site";
+import { absoluteUrl } from "@/lib/site";
 
 const path = "/services/auto-detailing-tint-wrap-video-marketing-miami";
 
@@ -36,13 +37,7 @@ export default function AutoDetailingVideoMarketingPage() {
         name: "Auto Detailing, Tint & Wrap Video Marketing Miami",
         description:
           "Video editing and selective production for detailing, paint correction, ceramic coating, window tint, and vinyl wrap shops in Miami-Dade and Broward.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami-Dade / Broward",
         serviceType: "Automotive service video marketing",
       },
@@ -143,6 +138,7 @@ export default function AutoDetailingVideoMarketingPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="detailing, tint and wrap video marketing" />
 
       <ServiceCraft
         heading={AUTO_DETAILING_DEPTH.craftHeading}
@@ -171,7 +167,7 @@ export default function AutoDetailingVideoMarketingPage() {
       />
       <ServiceRelated
         heading={AUTO_DETAILING_DEPTH.relatedHeading}
-        services={AUTO_DETAILING_DEPTH.related}
+        services={withServiceSiblings("/services/auto-detailing-tint-wrap-video-marketing-miami", AUTO_DETAILING_DEPTH.related)}
       />
     </main>
   );

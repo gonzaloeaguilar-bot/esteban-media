@@ -14,6 +14,7 @@ import {
   ServiceFaqs,
   ServiceRelated,
   buildServiceFaqSchema,
+  buildServicePageNodes,
 } from "@/components/service-depth";
 import { YACHT_HOSPITALITY_DEPTH } from "@/lib/service-depth-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
@@ -31,6 +32,13 @@ export default function YachtHospitalityVideoFortLauderdalePage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/yacht-hospitality-video-fort-lauderdale",
+        name: "Yacht Hospitality Video Fort Lauderdale | Marine Editing",
+        description:
+          "Fort Lauderdale yacht video editing and promotional marine post-production. Turn charter, broker, and waterfront hospitality footage into engaging video.",
+        crumb: "Fort Lauderdale Yacht Video",
+      }),
       buildServiceFaqSchema(
         absoluteUrl("/services/yacht-hospitality-video-fort-lauderdale"),
         YACHT_HOSPITALITY_DEPTH.faqs,
@@ -41,13 +49,7 @@ export default function YachtHospitalityVideoFortLauderdalePage() {
         name: "Yacht Hospitality Video Fort Lauderdale",
         description:
           "Fort Lauderdale yacht video editing, marine drone footage formatting, and luxury charter promotional video post-production.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Fort Lauderdale / Broward",
         serviceType: "Marine video production",
       },

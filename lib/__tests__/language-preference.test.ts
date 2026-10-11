@@ -16,7 +16,7 @@ describe('root language preference', () => {
     expect(run({cookie:'em_lang=es','accept-language':'en-US'}).status).toBe(307);
   });
   it('never redirects crawlers or other routes', () => {
-    for (const agent of ['Googlebot','bingbot','Applebot','GPTBot','ClaudeBot','PerplexityBot','AhrefsBot','SemrushBot']) expect(run({'user-agent':agent,'accept-language':'es'}).headers.get('location')).toBeNull();
+    for (const agent of ['Googlebot','bingbot','Applebot','GPTBot','ClaudeBot','PerplexityBot','AhrefsBot','SemrushBot','Mozilla/5.0 (compatible; ChatGPT-User/1.0)','Claude-User','Perplexity-User/1.0']) expect(run({'user-agent':agent,'accept-language':'es'}).headers.get('location')).toBeNull();
     for (const path of ['/es','/pricing','/pricing/growth','/es/precios']) expect(run({'accept-language':'es'},path).headers.get('location')).toBeNull();
   });
 });

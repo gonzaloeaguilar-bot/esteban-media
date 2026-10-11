@@ -2,6 +2,13 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { PORTED_SERVICE_FAQS } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceFaqs,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,19 +24,21 @@ export default function VideoEditingWestPalmBeachPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/video-editing-west-palm-beach"), PORTED_SERVICE_FAQS["/services/video-editing-west-palm-beach"]),
+      ...buildServicePageNodes({
+        path: "/services/video-editing-west-palm-beach",
+        name: "Video Editing West Palm Beach",
+        description:
+          "Remote video editing services for creators, agencies, and businesses in West Palm Beach and Palm Beach County.",
+        crumb: "West Palm Beach Editing",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/video-editing-west-palm-beach#service"),
         name: "Video Editing West Palm Beach",
         description:
           "Remote video post-production, editing, and content formatting for West Palm Beach and Palm Beach County businesses.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "West Palm Beach / Palm Beach County",
         serviceType: "Video editing",
       },
@@ -102,6 +111,7 @@ export default function VideoEditingWestPalmBeachPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="remote video editing for Palm Beach County projects" />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
@@ -138,6 +148,11 @@ export default function VideoEditingWestPalmBeachPage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/video-editing-west-palm-beach"]}
+        sectionId="ported-faq"
+      />
     </main>
   );
 }

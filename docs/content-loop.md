@@ -34,7 +34,7 @@ Rank each page by **Value = monetization (CPC) × winnability (low KD) × servic
 ### GEO (AI-answer optimization)
 - **Answer-first:** first 2 sentences directly and completely answer the page's core question → an extractable, citable passage.
 - **Chunkable:** self-contained sections; each H2 answers one query; short quotable sentences with a concrete fact/number where truthful.
-- **Entity consistency:** the string `Esteban Moreno López — Esteban Moreno Media — Fort Lauderdale, FL` on every page (fixes the baseline name-collision); consistent NAP; keep `public/llms.txt` updated with new pages.
+- **Entity consistency:** the string `Esteban Moreno López — Esteban Moreno Media — Fort Lauderdale, FL` on every page (fixes the baseline name-collision); consistent NAP; `/llms.txt` lists new sitemap pages automatically (facts live in `lib/llms-base.txt`).
 - **Structured data:** matching JSON-LD (`Service`/`WebPage`/`HowTo`/`FAQPage`, plus existing `VideoObject`/`BreadcrumbList`).
 
 ### ALOHA (intent-page coverage — tag every page)

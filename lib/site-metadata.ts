@@ -19,6 +19,8 @@ type PageMetadataOptions = {
   languages?: Record<string, string>;
   type?: "website" | "profile";
   images?: SocialMetadataImage[];
+  /** Description ceiling; defaults to clampDescription's 170. */
+  descriptionMax?: number;
 };
 
 // The root layouts (english + spanish) set a `title.template` of
@@ -54,6 +56,38 @@ export function clampDescription(value: string, max = 170): string {
   return /[.!?]$/.test(body) ? body : `${body}…`;
 }
 
+/**
+ * Google shows roughly 60 characters of a title. The template's
+ * " | Esteban Moreno Media" suffix is 23 of them, and on 51 sitemap pages it
+ * pushed the title past the cut (SEO/GEO audit 2026-10-10, fix 12), so the
+ * page's own words were what got truncated. When the branded title would run
+ * past the budget, the page title is used on its own; the brand is still in
+ * og:site_name and the entity graph on every page.
+ */
+export const TITLE_BUDGET = 60;
+
+/**
+ * Top-level Spanish routes (/es/<slug>) are pinned word-for-word by the
+ * text-parity baseline, including the <title>. Dropping the suffix there
+ * removes words, which that gate only accepts for additive changes, so those
+ * titles keep the brand for now.
+ */
+function isParityPinned(path: string, locale: "en" | "es"): boolean {
+  return locale === "es" && /^\/es\/[^/]+$/.test(path);
+}
+
+export function shouldDropBrandSuffix(
+  title: string,
+  path: string,
+  locale: "en" | "es",
+): boolean {
+  return (
+    !containsBrand(title) &&
+    !isParityPinned(path, locale) &&
+    `${title} | ${site.name}`.length > TITLE_BUDGET
+  );
+}
+
 export function buildPageMetadata({
   title,
   description,
@@ -62,13 +96,15 @@ export function buildPageMetadata({
   languages = languageAlternates[path],
   type = "website",
   images = [socialImage],
+  descriptionMax,
 }: PageMetadataOptions): Metadata {
   const titleAlreadyBranded = containsBrand(title);
-  const socialTitle = titleAlreadyBranded ? title : `${title} | ${site.name}`;
-  const metaDescription = clampDescription(description);
+  const dropBrand = shouldDropBrandSuffix(title, path, locale);
+  const socialTitle = titleAlreadyBranded || dropBrand ? title : `${title} | ${site.name}`;
+  const metaDescription = clampDescription(description, descriptionMax);
 
   return {
-    title: titleAlreadyBranded ? { absolute: title } : title,
+    title: titleAlreadyBranded || dropBrand ? { absolute: title } : title,
     description: metaDescription,
     alternates: {
       canonical: path,

@@ -3,6 +3,7 @@ import { ArrowRight, Scissors } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import {
+  ServiceAnswerFirst,
   ServiceCraft,
   ServiceDeepDive,
   ServiceFaqs,
@@ -10,10 +11,10 @@ import {
   ServiceRelated,
   buildServiceFaqSchema,
 } from "@/components/service-depth";
-import { SALON_DEPTH } from "@/lib/service-depth-content";
+import { SALON_DEPTH, withServiceSiblings } from "@/lib/service-depth-content";
 import { SALON_COST_DEEP_DIVE, SALON_DEEP_DIVE } from "@/lib/service-deep-dive-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
-import { absoluteUrl, site } from "@/lib/site";
+import { absoluteUrl } from "@/lib/site";
 
 const path = "/services/salon-barbershop-video-marketing-miami";
 
@@ -36,13 +37,7 @@ export default function SalonBarbershopVideoMarketingPage() {
         name: "Salon & Barbershop Video Marketing Miami",
         description:
           "Video editing and selective production for hair salons, barbershops, and nail studios in Miami-Dade and Broward, built around transformation footage.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami-Dade / Broward",
         serviceType: "Salon and barbershop video marketing",
       },
@@ -142,6 +137,7 @@ export default function SalonBarbershopVideoMarketingPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="Salon and barbershop video marketing" />
 
       <ServiceCraft
         heading={SALON_DEPTH.craftHeading}
@@ -173,7 +169,7 @@ export default function SalonBarbershopVideoMarketingPage() {
       />
       <ServiceRelated
         heading={SALON_DEPTH.relatedHeading}
-        services={SALON_DEPTH.related}
+        services={withServiceSiblings("/services/salon-barbershop-video-marketing-miami", SALON_DEPTH.related)}
       />
     </main>
   );

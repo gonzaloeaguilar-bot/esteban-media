@@ -2,6 +2,12 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2, Scissors, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { PORTED_SERVICE_FAQS } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceFaqs,
+  buildServiceFaqSchema,
+} from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,19 +23,14 @@ export default function ContentRepurposingPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/content-repurposing-service-miami"), PORTED_SERVICE_FAQS["/services/content-repurposing-service-miami"]),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/content-repurposing-service-miami#service"),
         name: "Content Repurposing Service Miami",
         description:
           "Video repurposing service turning long videos, webinars, and podcasts into short vertical social clips in Miami and Fort Lauderdale.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami-Dade / Fort Lauderdale / Remote",
         serviceType: "Content repurposing service",
       },
@@ -136,6 +137,7 @@ export default function ContentRepurposingPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="Content repurposing service" />
 
       <section className="py-12 sm:py-16">
         <Container size="xl">
@@ -210,6 +212,11 @@ export default function ContentRepurposingPage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/content-repurposing-service-miami"]}
+        sectionId="ported-faq"
+      />
     </main>
   );
 }

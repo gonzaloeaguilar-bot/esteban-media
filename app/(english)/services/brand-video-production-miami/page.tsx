@@ -2,6 +2,13 @@ import Link from "next/link";
 import { ArrowRight, WandSparkles, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { PORTED_SERVICE_FAQS } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceFaqs,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,19 +24,21 @@ export default function BrandVideoProductionMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/brand-video-production-miami"), PORTED_SERVICE_FAQS["/services/brand-video-production-miami"]),
+      ...buildServicePageNodes({
+        path: "/services/brand-video-production-miami",
+        name: "Brand Video Production Miami",
+        description:
+          "Brand story videos, founder manifestos, and company overview video production for businesses in Miami.",
+        crumb: "Brand Video Production",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/brand-video-production-miami#service"),
         name: "Brand Video Production Miami",
         description:
           "Brand manifesto videos, founder story video production, and commercial brand positioning videos in Miami.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami / South Florida",
         serviceType: "Brand video production",
       },
@@ -110,6 +119,7 @@ export default function BrandVideoProductionMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="Brand video production" />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
@@ -146,6 +156,11 @@ export default function BrandVideoProductionMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/brand-video-production-miami"]}
+        sectionId="ported-faq"
+      />
     </main>
   );
 }
