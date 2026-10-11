@@ -1,0 +1,66 @@
+{
+  "project": "esteban-media",
+  "mode": "pr",
+  "target_type": "pr",
+  "target_id": "PR-363",
+  "requires_pr": true,
+  "goal": "Correct Palm Beach area copy that denies published city service pages while preserving project-specific filming availability.",
+  "summary": "Updated English and Spanish area cards and county landing pages, regression test, and Spanish text parity fixture.",
+  "risk": "Low reversible copy change; incorrect area claims can mislead visitors. Six live city service URLs and local raw HTML were checked.",
+  "changed_paths": [
+    "app/(english)/areas/palm-beach-county/page.tsx",
+    "app/(spanish)/es/areas/palm-beach-county/page.tsx",
+    "app/__tests__/customer-ranking-pages.test.ts",
+    "app/__tests__/fixtures/spanish-niche-text-baseline.json",
+    "lib/site.ts",
+    "lib/spanish-site.ts",
+    ".cortex/quality-payloads/PR-363.json"
+  ],
+  "requested_actions": [
+    "Obtain independent exact-diff review",
+    "Run exact-head GitHub checks",
+    "Verify four canonical production area pages after merge"
+  ],
+  "public_claims": [
+    "Published Palm Beach city service pages exist: six sitemap city URLs returned 200 on 2026-10-11.",
+    "On-location availability remains project-specific; no new city availability guarantee."
+  ],
+  "evidence": {
+    "obsidian_context": "Parent owns shared vault and backlog update.",
+    "project_routing": "PR #363 rebased cleanly onto origin/main 7416ff7; independent review of local 29876b6 PASS. Exact-head CI required.",
+    "hard_stops_checked": "No external account edits, new price, testimonial, or availability guarantee.",
+    "reviewer_ensemble": "Builder scoped checks PASS; independent read-only agent pr_351 reviewed exact local 29876b6 and reported PASS/no blocker. Antigravity CTO dispatch attempted but refused exit 3 by contract gate.",
+    "review_handoff": "Independent reviewer PASS on 29876b6; exact-head CI and production check pending.",
+    "pr_review_complete": "Independent read-only review PASS/no blocker on 29876b6; follow latest exact-head after payload push.",
+    "debt_delta": "neutral",
+    "obsidian_handoff": "Parent owns same-session vault update.",
+    "reviewer_disagreement_reviewed": "No disagreement: builder and independent read-only reviewer agree on EN/ES city-page truth and availability caveat.",
+    "winner_rationale": "The scoped copy corrects a live contradiction while preserving project-by-project on-location confirmation; no city guarantee or new offer.",
+    "tests_or_validation": "Rebased local head 29876b6: Vitest 130 files and 1839 tests passed, pnpm build passed, text-parity 107 routes passed, typecheck and lint 0 errors, raw built HTML four area pages contains updated copy.",
+    "ci_passed": "Pending exact-head GitHub CI; do not merge until current head is green."
+  },
+  "reviewers": {
+    "builder": {
+      "status": "ok",
+      "note": "Scoped diff; Vitest 1833/1833, build, typecheck, lint 0 errors, 107-route parity, four raw HTML pages."
+    },
+    "skeptic": {
+      "status": "ok",
+      "note": "Independent read-only agent pr_351 PASS/no blocker on exact local head 29876b6; live city pages checked."
+    },
+    "taste": {
+      "status": "ok",
+      "note": "Copy-only change preserves short answer-first EN/ES copy."
+    }
+  },
+  "scores": {
+    "source_fidelity": 4,
+    "architecture_soundness": 4,
+    "implementation_quality": 4,
+    "review_completeness": 4,
+    "debt_posture": 4,
+    "verification_strength": 4,
+    "taste_fit": 4
+  },
+  "debt_delta": "neutral"
+}
