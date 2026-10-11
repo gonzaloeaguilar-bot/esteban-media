@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
+import { buildLlmsTxt } from "@/lib/llms-txt";
 
 import {
   packageDetailJsonLd,
@@ -117,7 +118,7 @@ describe("package page GEO", () => {
   });
 
   it("lists all eight pages in llms.txt, with both languages paired", () => {
-    const llms = readFileSync(join(process.cwd(), "public/llms.txt"), "utf8");
+    const llms = buildLlmsTxt();
     for (const id of IDS) {
       for (const locale of LOCALES) {
         expect(llms).toContain(`https://estebanmorenomedia.com${packageRoutes[id][locale]}`);
