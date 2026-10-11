@@ -290,11 +290,8 @@ function QueryInsights({ locale }: { locale: GuideLocale }) {
                     {copy.sourceLabel}
                   </a>
                   {insight.internalLinks
-                    // Never link the guides hub into a noindexed page (SEO/GEO
-                    // audit 2026-10-10, fix 5). English only for now: the
-                    // Spanish hub is pinned by the text-parity baseline, which
-                    // is refreshed for additive changes only.
-                    .filter((link) => locale === "es" || !isConsolidatedPath(link.en))
+                    // Keep both language hubs focused on indexable destinations.
+                    .filter((link) => !isConsolidatedPath(link[locale]))
                     .slice(0, 2)
                     .map((link) => (
                     <Link

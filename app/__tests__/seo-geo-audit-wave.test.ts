@@ -142,10 +142,9 @@ describe("title and description length (fix 12)", () => {
     expect((built.openGraph as { title: string }).title).toBe(long);
   });
 
-  it("keeps the suffix on parity-pinned top-level Spanish routes", () => {
+  it("applies the same title budget to top-level Spanish routes", () => {
     const long = "Un título bastante largo para pasar el límite";
-    expect(shouldDropBrandSuffix(long, "/es/algo", "es")).toBe(false);
-    expect(shouldDropBrandSuffix(long, "/es/portafolio/algo", "es")).toBe(true);
+    expect(shouldDropBrandSuffix(long)).toBe(true);
   });
 
   it("localises Spanish portfolio titles and trims watch-page descriptions to 155", async () => {

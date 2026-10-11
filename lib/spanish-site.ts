@@ -1803,7 +1803,7 @@ export const spanishNichePages: SpanishNichePage[] = [
         heading: "¿Qué tipos de video edita Esteban para negocios de Miami?",
         paragraphs: [
           "La oferta de postproducción cubre los principales formatos que utilizan los negocios para promocionarse y vender. Para redes sociales verticales, editamos contenido corto como [editor de Reels en Miami](/es/editor-de-reels-miami), opciones en Broward como [editor de Reels en Fort Lauderdale](/es/editor-de-reels-fort-lauderdale) y el servicio general de [editor de video corto para redes en Miami](/es/editor-de-video-corto-para-redes-miami).",
-          "Para canales horizontales y plataformas de contenido largo, ofrecemos edición de video para YouTube, así como [edición de video de productos para ecommerce](/es/editor-de-video-de-productos-para-ecommerce) y creativos publicitarios tipo [editor de video UGC](/es/editor-de-video-ugc-para-ecommerce). Cada tipo de video se edita con el ritmo, formato y llamadas a la acción adecuados para su canal.",
+          "Para canales horizontales y plataformas de contenido largo, ofrecemos edición de video para YouTube y creativos publicitarios tipo [editor de video UGC](/es/editor-de-video-ugc-para-ecommerce). Cada tipo de video se edita con el ritmo, formato y llamadas a la acción adecuados para su canal.",
         ],
       },
       {

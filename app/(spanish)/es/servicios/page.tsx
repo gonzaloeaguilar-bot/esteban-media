@@ -4,6 +4,7 @@ import { EventSeasonLinks } from "@/components/event-content-page";
 import { ArrowRight, Bot, CheckCircle2, ChartLine, ClipboardCheck, Laptop, MapPin, Workflow } from "lucide-react";
 
 import { KeepReading } from "@/components/keep-reading";
+import { isConsolidatedPath } from "@/lib/consolidation";
 import { spanishServiceImages } from "@/lib/service-images";
 import { ServicesScene } from "@/components/services-scene";
 import { Container } from "@/components/ui/container";
@@ -429,7 +430,7 @@ export default function SpanishServicesPage() {
             Revisa servicios confirmados y rutas heredadas con su estado visible.
           </h2>
           <div className="mt-8 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
-            {spanishNichePages.map((page) => (
+            {spanishNichePages.filter((page) => !isConsolidatedPath(`/es/${page.slug}`)).map((page) => (
               <Link
                 key={page.slug}
                 href={`/es/${page.slug}`}
