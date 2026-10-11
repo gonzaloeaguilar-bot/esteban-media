@@ -354,21 +354,21 @@ export default function WebsiteDesignFortLauderdalePage() {
 
       <section className="border-b border-[#ddd4c8] py-14 sm:py-20" aria-labelledby="digital-systems-heading">
         <Container size="xl">
-          <p className="text-xs font-medium uppercase text-[#5a6066]">Digital systems, scoped to your business</p>
+          <p className="text-xs font-medium uppercase text-[#5a6066]">Website, search, messages, and follow-up</p>
           <h2 id="digital-systems-heading" className="mt-3 max-w-4xl font-serif text-4xl leading-tight sm:text-5xl">
-            One connected presence—from the profile a customer finds to the follow-up they receive.
+            Help people find your business, ask a question, and get a clear next step.
           </h2>
           <p className="mt-5 max-w-3xl leading-7 text-[#252a2d]">
-            We scope the stack around your actual channels, permissions, and customer journey. Each module can stand alone or connect to the website and lead flow; platform setup, access, and ongoing operations are confirmed before work begins.
+            Start with the part that needs attention: your business listings, website, messages, follow-up, or reporting. We review the channels and accounts you already use, then agree on what to connect and who will respond to each inquiry. The work and any ongoing support are quoted after that review.
           </p>
           <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {[
-              { icon: MapPinned, title: "Local profiles & marketplace presence", body: "Google Business Profile and Google Maps profile cleanup, Yelp profile support, and a channel-by-channel marketplace checklist. For real-estate teams, that can include profile setup or cleanup for Zillow, Homes.com, Realtor.com, and the platforms that fit the market and permissions." },
-              { icon: MessagesSquare, title: "Social business profiles & DM funnels", body: "Instagram, Facebook Page, TikTok Business, ManyChat setup, and mapped DM funnels—from keyword or ad response through qualification, handoff, and follow-up." },
-              { icon: Workflow, title: "Custom automation & agent flows", body: "End-to-end workflows for forms, lead routing, appointment steps, email, SMS through Twilio, address autocomplete, and custom agent-assisted flows. Every automation is mapped with its trigger, owner, fallback, and consent requirements." },
-              { icon: BarChart3, title: "Content, video & measurement", body: "Photo and video editing, video analysis, content testing hypotheses, and Metricool setup for channel reporting. Performance data informs decisions; it is not a guarantee that a post will go viral." },
-              { icon: Search, title: "SEO, local SEO & AI-search readiness", body: "Technical SEO, on-page improvements, local-profile consistency, structured data where eligible, and clearer source material for search engines and AI assistants. We measure observed visibility instead of promising placement in Google, ChatGPT, Perplexity, or Claude." },
-              { icon: ShieldCheck, title: "Audits, research & resilience", body: "Digital-presence mapping, competitor and market research, funnel and cost audits, user-journey simulations, security-oriented pressure testing, and recommendations for reducing repetitive manual work. Testing is authorized, scoped, and never substitutes for a formal security certification." },
+              { icon: MapPinned, title: "Help nearby customers find you", body: "Check that your Google Business Profile, Google Maps, and Yelp listings show accurate services and contact details. For real-estate teams, review Zillow, Homes.com, and Realtor.com when those accounts are relevant and accessible.", href: "/services/local-presence-seo", link: "Explore local presence" },
+              { icon: MessagesSquare, title: "Respond to social inquiries", body: "Connect Instagram, Facebook, or TikTok messages to a clear response and a person on your team. ManyChat can help organize replies when your account and the platform allow it.", href: "/services/ai-lead-capture-automation", link: "Explore inquiry follow-up" },
+              { icon: Workflow, title: "Get each request to the right person", body: "Connect website forms, appointment requests, email, and consented SMS through tools such as Twilio. Agree on who receives each request and what happens when an automated step fails.", href: "/services/custom-operations-automation", link: "Explore operations support" },
+              { icon: BarChart3, title: "See which content brings inquiries", body: "Use photo and video work alongside channel reports from tools such as Metricool. Review what people watch and where they contact you before planning the next piece of content.", href: "/services/creative-production", link: "Explore creative work" },
+              { icon: Search, title: "Make your services easier to understand in search", body: "Review service pages, local listings, and the technical details that help search engines read your site. Report observed search and AI-assistant visibility; placement is never guaranteed.", href: "/services/local-presence-seo", link: "Explore search support" },
+              { icon: ShieldCheck, title: "Find the gaps before buying more tools", body: "Review where inquiries arrive, where they stop, and which tasks your team repeats. You receive a prioritized list of fixes based on the access and data available; any security testing requires written permission and a defined scope.", href: "/services/growth-funnel-audit", link: "Explore the assessment" },
             ].map((service) => {
               const Icon = service.icon;
               return (
@@ -376,6 +376,7 @@ export default function WebsiteDesignFortLauderdalePage() {
                   <Icon className="size-7 text-[#e85d3e]" aria-hidden="true" />
                   <h3 className="mt-4 font-serif text-2xl">{service.title}</h3>
                   <p className="mt-3 text-sm leading-6 text-[#252a2d]">{service.body}</p>
+                  <Link href={service.href} className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-[#7f2f20] underline underline-offset-4 hover:text-[#101214]">{service.link}<ArrowRight className="size-4" aria-hidden="true" /></Link>
                 </article>
               );
             })}

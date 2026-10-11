@@ -18,8 +18,9 @@ describe("digital-systems service catalog", () => {
       "ManyChat",
       "Twilio",
       "Metricool",
-      "SEO, local SEO & AI-search readiness",
-      "Audits, research & resilience",
+      "Make your services easier to understand in search",
+      "Find the gaps before buying more tools",
+      'href: "/services/growth-funnel-audit"',
     ]) {
       expect(english).toContain(label);
     }
@@ -31,8 +32,9 @@ describe("digital-systems service catalog", () => {
       "ManyChat",
       "Twilio",
       "Metricool",
-      "SEO, SEO local y preparación para búsqueda con IA",
-      "Auditorías, research y resiliencia",
+      "Explica mejor tus servicios en buscadores",
+      "Encuentra las fallas antes de comprar más herramientas",
+      'href: "/es/auditoria-de-funnel-y-datos"',
     ]) {
       expect(spanish).toContain(label);
     }
@@ -42,7 +44,10 @@ describe("digital-systems service catalog", () => {
     const catalog = `${english}\n${spanish}`.toLowerCase();
 
     expect(catalog).toContain("no provider controls placement in ai answers");
-    expect(catalog).toContain("no garantizan que una publicación se vuelva viral");
+    expect(catalog).toContain("placement is never guaranteed");
+    expect(catalog).toContain("nadie puede garantizar una posición");
+    expect(catalog).not.toContain("/growth-systems/");
+    expect(catalog).not.toContain("/es/sistemas-de-crecimiento/");
     expect(catalog).not.toContain("2 to 3 weeks");
     expect(catalog).not.toContain("2 y 3 semanas");
   });
