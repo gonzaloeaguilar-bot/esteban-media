@@ -27,10 +27,10 @@
   ],
   "evidence": {
     "obsidian_context": "Parent owns shared vault and backlog update.",
-    "project_routing": "PR #363 rebased cleanly onto origin/main 7416ff7; independent review of local 29876b6 PASS. Exact-head CI required.",
+    "project_routing": "PR #363 rebased cleanly onto origin/main 86bbc6d after #361 merged. Independent review of identical source diff at 29876b6 PASS. Exact-head CI required.",
     "hard_stops_checked": "No external account edits, new price, testimonial, or availability guarantee.",
     "reviewer_ensemble": "Builder scoped checks PASS; independent read-only agent pr_351 reviewed exact local 29876b6 and reported PASS/no blocker. Antigravity CTO dispatch attempted but refused exit 3 by contract gate.",
-    "review_handoff": "Independent reviewer PASS on 29876b6; exact-head CI and production check pending.",
+    "review_handoff": "Independent reviewer PASS on source diff; rebased source diff unchanged, latest head requires exact-head CI and production check.",
     "pr_review_complete": "Independent read-only review PASS/no blocker on 29876b6; follow latest exact-head after payload push.",
     "debt_delta": "neutral",
     "obsidian_handoff": "Parent owns same-session vault update.",
