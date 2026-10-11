@@ -158,48 +158,10 @@ describe("the phone app bar", () => {
   });
 });
 
-/**
- * Reading progress. Built rather than taken from the kit: `rail-progress` is a
- * labelled card with a value, and every word of it would be a new claim on 91
- * routes. This one adds no text at all.
- */
-const progress = readFileSync(
-  join(root, "components/em-reading-progress.tsx"),
-  "utf8",
-);
-
-describe("reading progress", () => {
-  it("contributes no text", () => {
-    // Anything between tags other than an expression would be a word on 91
-    // routes. The only child is a styled div.
-    expect(progress).not.toMatch(/>\s*[A-Za-zÀ-ÿ]{2,}\s*</);
-  });
-
-  it("is decoration, and says so", () => {
-    // A live progress value announced on every scroll tick is hostile; a
-    // screen reader already reports position.
-    expect(progress).toMatch(/aria-hidden="true"/);
-  });
-
-  it("only appears on a page long enough to need it", () => {
-    expect(progress).toMatch(/innerHeight \* 2/);
-    expect(progress).toMatch(/if \(!long\) return null;/);
-  });
-
-  it("is fixed, so it cannot shift the document", () => {
-    // The site measures CLS 0.
-    expect(globals).toMatch(/\.em-progress \{[^}]*position: fixed;/);
-  });
-
-  it("never transitions its width", () => {
-    // It reports a scroll position; animating it would make it lag the thing
-    // it reports, and need a second version for reduced motion.
-    const rule = globals.slice(globals.indexOf(".em-progress__fill"));
-    expect(rule.slice(0, 120)).not.toContain("transition");
-  });
-
-  it("would notice text creeping in", () => {
-    expect(/>\s*[A-Za-zÀ-ÿ]{2,}\s*</.test("<div>Progreso</div>")).toBe(true);
+describe("the rejected floating progress line", () => {
+  it("does not mount a page-level reading progress bar", () => {
+    expect(chrome).not.toContain("ReadingProgress");
+    expect(globals).not.toMatch(/\.em-progress(?:__fill)?\s*\{/);
   });
 });
 
@@ -210,8 +172,7 @@ describe("reading progress", () => {
  * clip }` was added as a root safety net, but Chromium then makes the document
  * a clip container and `position: sticky` silently stops working — the header
  * scrolled away (`getBoundingClientRect().top` was -8201 of an 8201 scroll)
- * and the fixed reading-progress bar at `top: 65px` was left floating over the
- * content as a stray orange line. The clip belongs on the wrapper that owns the
+ * while the content kept moving. The clip belongs on the wrapper that owns the
  * horizontal track, never on the root.
  */
 describe("horizontal overflow containment", () => {
