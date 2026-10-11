@@ -1,6 +1,9 @@
 # Home: proof before pricing — 2026-10-10
 
 Branch `fix/home-proof-before-pricing`. Both homes (`/`, `/es`) now render Hero → AudienceRouter → PortfolioTeaser → RealEstateReels (EN only; `/es` never had the shelf) → ClientReviews → PackagesSection (which still bundles real-estate plans, à-la-carte, 3 steps, FAQ + FAQPage JSON-LD) → KeepReading fold → ClosingCredits. Ordering only, no copy changes. `#packages` / `#paquetes` still live inside PackagesSection, so the hero CTA works. `app/__tests__/home-proof-before-pricing.test.ts` locks the order.
+# Home unified type system — 2026-10-11
+
+Branch `style/home-unified-type` (draft PR). UX review fix #3: the home pages used three headline voices (Oswald condensed caps, Geist 700 grotesk, Newsreader serif) and two price faces (Instrument Serif vs bold sans RailPrice). Now there is one of each, set from shared tokens declared on `body` in `app/globals.css`: `.em-h2` (Newsreader 400, `clamp(36px, ..., 52px)`), `.em-eyebrow` / `.em-eyebrow--inverted` (Geist 600 12px, 0.2em, `--em-accent-ink`), and `.em-price-figure` / `--words` (Instrument Serif 400 via the `Instrument_Serif` `--font-price` loader, 48–64px / words 36–48px, unit small in Geist beside it — owner choice, matching PR #318). Oswald is left only on the hero brand mark and the opening ident. The real-estate RailPrice is mapped through kit variables, so `vendor/` is untouched. Copy, order, imagery and CTAs are unchanged. Guard: `app/__tests__/home-type-system.test.ts`. Gates: rail-kit, rail-adoption, lint (0 errors), typecheck, build, text-parity (97 routes) pass. The only failing vitest is `prospect-auditor-verifier`, which needs live egress the container blocks.
 
 # Spanish service-area contextual links — 2026-10-11 (local, uncommitted)
 

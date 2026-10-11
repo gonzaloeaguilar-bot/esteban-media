@@ -33,8 +33,8 @@ export function AudienceRouter({ locale }: { locale: AudienceLocale }) {
   return (
     <section id="audience" aria-labelledby="audience-heading" className="em-visual-audience" data-section="audience-router">
       <Container size="xl">
-        <p className="em-visual-eyebrow">{v.eyebrow}</p>
-        <h2 id="audience-heading" className="em-visual-heading">{v.heading}</h2>
+        <p className="em-visual-eyebrow em-eyebrow">{v.eyebrow}</p>
+        <h2 id="audience-heading" className="em-visual-heading em-h2">{v.heading}</h2>
         <p className="em-visual-intro">{v.intro}</p>
         <div className="em-audience-cards">
           {copy.lanes.map((lane, index) => (

@@ -2,8 +2,9 @@
 .em-visual-audience,.em-visual-plans{--em-art-accent:#9f3c27;--rail-media-aspect:3/2;color:#101214}
 .em-visual-audience{background:#fbf6ef;border-bottom:1px solid #ddd4c8;padding:56px 0}
 .em-visual-plans{background:#182424;padding:56px 0 64px;border-block:5px solid #bd694d;color:#fffaf4}
-.em-visual-eyebrow{font-size:12px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:#62574e;margin:0 0 12px}
-.em-visual-heading{font-family:var(--font-serif,Georgia,serif);font-size:clamp(38px,4.3vw,60px);line-height:1.06;letter-spacing:-.035em;max-width:760px;margin:0 0 18px}
+/* Type: .em-eyebrow / .em-h2 (globals.css). These keep spacing and measure only. */
+.em-visual-eyebrow{margin:0 0 12px}
+.em-visual-heading{max-width:760px;margin:0 0 18px}
 .em-visual-intro{font-size:16px;line-height:1.6;max-width:660px;color:#51565a;margin:0}
 .em-audience-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:32px;align-items:start}
 .em-audience-card{min-width:0;border:1px solid #d6ccc0;border-radius:18px;background:#fffaf4;overflow:hidden}
@@ -60,8 +61,13 @@
 .em-plan-name h3{font:32px/1.1 var(--font-serif,Georgia,serif);margin:0}
 .em-plan-name>span{font-size:12px;color:#625a52}
 .em-plan-overview .rail-price{margin:0;padding:0;background:transparent;border:0}
-.em-plan-overview .rail-price__now{font-size:48px}
-.em-plan-overview .rail-price__unit{font-size:14px}
+/* The plan price is the shared .em-price-figure, expressed through the kit's own
+   RailPrice variables so the vendored component stays untouched. The currency
+   sits inline at full size, like the package prices, not small and raised. */
+.em-plan-overview .rail-price{--rail-stat-font:var(--em-price-font);--rail-price-size-lg:var(--em-price-size);--rail-weight-bold:var(--em-price-weight);--rail-price-color:var(--em-price-color);--rail-tracking-tight:var(--em-price-tracking);--rail-price-currency-size:1em}
+.em-plan-overview .rail-price__now{font-family:var(--em-price-font);font-size:var(--em-price-size);font-weight:var(--em-price-weight);line-height:var(--em-price-leading)}
+.em-plan-overview .rail-price__currency{align-self:baseline;padding-top:0}
+.em-plan-overview .rail-price__unit{font-family:var(--font-geist-sans),sans-serif;font-size:14px;letter-spacing:0}
 .em-plan-promise{font-size:16px;line-height:1.5;color:#51565a;margin:8px 0 18px}
 .em-plan-highlights{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:14px 0;border-block:1px solid #ddd4c8}
 .em-plan-highlights>div{display:flex;align-items:center;gap:10px}
@@ -85,12 +91,10 @@
  .em-audience-body{padding:21px}
  .em-audience-body h3{font-size:31px}
  .em-audience-category{padding:14px 21px}
- .em-visual-heading{font-size:39px}
  .em-visual-plan{grid-template-columns:1fr;grid-template-areas:"overview" "art" "content";max-width:540px;margin-inline:auto}
  .em-plan-overview{padding:21px 21px 4px}.em-plan-content{padding:8px 21px 21px}
  .em-plan-art>p{padding:8px 21px;font-size:11px}
  .em-plan-name h3{font-size:29px}
- .em-plan-overview .rail-price__now{font-size:43px}
  .em-plan-choice{margin:24px 0 18px}
  .em-plan-highlights{gap:12px}
 }
@@ -103,7 +107,7 @@
 .em-audience-video .rail-player:hover .rail-player__mark{transform:translate(-50%,-50%)}
 
 /* This chapter is explicitly for real estate; the general packages remain above. */
-.em-property-category{display:inline-flex;align-items:center;gap:9px;border:1px solid #ab7562;background:#293433;color:#ffd4bd;border-radius:99px;padding:9px 15px;margin:0 0 20px;font-size:14px;font-weight:600;letter-spacing:.035em}
+.em-property-category{display:inline-flex;align-items:center;gap:9px;border:1px solid #ab7562;background:#293433;color:#ffd4bd;border-radius:99px;padding:9px 15px;margin:0 0 20px;font-family:var(--em-eyebrow-font);font-size:var(--em-eyebrow-size);font-weight:var(--em-eyebrow-weight);letter-spacing:var(--em-eyebrow-tracking);text-transform:uppercase}
 .em-visual-plans .em-visual-heading{max-width:680px;color:#fffaf4}
 .em-visual-plans .em-visual-intro{color:#dedbd1;max-width:650px}
 .em-visual-plans .em-package-detail-link{color:#ffd4bd}

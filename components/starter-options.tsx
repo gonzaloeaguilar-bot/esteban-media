@@ -32,7 +32,7 @@ export function StarterOptions({ locale, showTermsLink = true }: { locale: Local
         <div className="em-pk-starter-tile" data-plan="once">
           <p className="em-pk-starter-tile__name">{es ? "Una sola vez" : "Just once"}</p>
           <div className="em-pk-starter-tile__price">
-            <span className="em-pk-starter-tile__num">{once === null ? copy.price.custom : usd(once)}</span>
+            <span className={`em-pk-starter-tile__num em-price-figure${once === null ? " em-price-figure--words" : ""}`}>{once === null ? copy.price.custom : usd(once)}</span>
             <span className="em-pk-starter-tile__unit">{unit}</span>
           </div>
           <a
@@ -57,7 +57,7 @@ export function StarterOptions({ locale, showTermsLink = true }: { locale: Local
           <div className="em-pk-starter-tile__rows">
             {ARRANQUE_WEEKLY_OPTIONS.map((opt) => (
               <div key={opt.id} className="em-pk-starter-tile__row">
-                <span className="em-pk-starter-tile__num">{usd(opt.pricePerWeek)}</span>
+                <span className="em-pk-starter-tile__num em-price-figure">{usd(opt.pricePerWeek)}</span>
                 <span className="em-pk-starter-tile__unit">
                   {es ? "/semana" : "/week"} · {opt.videosPerWeek} {opt.videosPerWeek === 1 ? "video" : "videos"}
                 </span>

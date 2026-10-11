@@ -39,8 +39,8 @@ export function ALaCarteSection({ locale }: { locale: Locale }) {
   return <section ref={root} id={es ? "a-la-carta" : "a-la-carte"} className="em-carte" aria-labelledby="em-pk-carte-title" data-section="a_la_carte">
     <Container size="xl">
       <div className="em-carte-intro">
-        <p className="em-pk-eyebrow">{copy.eyebrow}</p>
-        <h2 id="em-pk-carte-title" className="em-pk-title">{copy.title}</h2>
+        <p className="em-pk-eyebrow em-eyebrow">{copy.eyebrow}</p>
+        <h2 id="em-pk-carte-title" className="em-pk-title em-h2">{copy.title}</h2>
         <p className="em-pk-lead">{copy.lead} {es ? "Toca una ilustración para saber qué enviarme." : "Tap an illustration to see what to send me."}</p>
       </div>
       <ul className="em-carte-grid" role="list">
