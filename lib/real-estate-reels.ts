@@ -43,6 +43,18 @@ export type RealEstateReel = {
 export const REAL_ESTATE_REELS_PATH =
   "/services/real-estate-reels-video-editor-south-florida";
 
+/**
+ * The Spanish twin of that service page (hreflang-paired in
+ * lib/language-routes.ts), so the Spanish shelf links into the Spanish page
+ * instead of sending a Spanish reader to English copy.
+ */
+export const REAL_ESTATE_REELS_PATH_ES = "/es/editor-de-video-real-estate-miami";
+
+/** The service page a shelf in this locale should link to. */
+export function realEstateReelsPath(locale: "en" | "es" = "en"): string {
+  return locale === "es" ? REAL_ESTATE_REELS_PATH_ES : REAL_ESTATE_REELS_PATH;
+}
+
 export const REAL_ESTATE_REELS: readonly RealEstateReel[] = [
   {
     id: "listing-opener",
@@ -143,15 +155,20 @@ export const REAL_ESTATE_REELS_PUBLISHED = "2026-10-10";
  * page it appears on, so a search engine can surface the video and the page
  * together. `contentUrl` is the file that actually plays; `thumbnailUrl` is the
  * poster that actually renders — never a URL the page does not serve.
+ *
+ * The name and description follow the locale of the page the shelf sits on, so
+ * a Spanish page describes its videos with the same Spanish titles and captions
+ * it shows. The English output is unchanged.
  */
-export function buildRealEstateReelsJsonLd() {
+export function buildRealEstateReelsJsonLd(locale: "en" | "es" = "en") {
+  const isEs = locale === "es";
   return {
     "@context": "https://schema.org",
     "@graph": REAL_ESTATE_REELS.map((reel) => ({
       "@type": "VideoObject",
       "@id": absoluteUrl(`${reel.src}#video`),
-      name: reel.title,
-      description: reel.caption,
+      name: isEs ? reel.titleEs : reel.title,
+      description: isEs ? reel.captionEs : reel.caption,
       thumbnailUrl: [absoluteUrl(reel.poster)],
       uploadDate: REAL_ESTATE_REELS_PUBLISHED,
       duration: iso8601Duration(reel.durationSeconds),
@@ -159,7 +176,7 @@ export function buildRealEstateReelsJsonLd() {
       width: reel.width,
       height: reel.height,
       isFamilyFriendly: true,
-      inLanguage: ["en", "es"],
+      inLanguage: isEs ? "es" : ["en", "es"],
       publisher: {
         "@type": "Organization",
         name: "Esteban Moreno Media",
