@@ -73,23 +73,23 @@ export default async function SpanishContactPage({
             <a href={whatsappHref(site.phone.e164, "Hola Esteban, vi tu página y quiero hablar sobre un proyecto de video.")} target="_blank" rel="noopener noreferrer" data-cta="contact_whatsapp" data-section="contact" className="flex min-h-14 items-center justify-center gap-3 rounded-full bg-[#c84a2c] px-5 text-sm font-medium text-white hover:bg-[#a93e29]"><MessageCircle className="size-5" aria-hidden="true" /> Escribir por WhatsApp</a>
             <a href={`mailto:${site.email}`} data-cta="contact_email_es" data-section="contact" className="flex min-h-14 items-center justify-center gap-3 rounded-full border border-[#b9aa9a] px-5 text-sm font-medium text-[#252a2d] hover:border-[#c84a2c]"><Mail className="size-5" aria-hidden="true" /> Enviar un email</a>
           </div>
-          <p className="mt-3 text-sm text-[#5a6066]">O llama al <a href={site.phone.href} className="underline underline-offset-4">{site.phone.display}</a>.</p>
+          <p className="mt-3 text-sm text-[#5a6066]">O llama al <a href={site.phone.href} className="inline-flex min-h-11 items-center underline underline-offset-4">{site.phone.display}</a>.</p>
           <details className="mt-8 border-t border-[#d6ccc0] pt-5">
-            <summary className="cursor-pointer font-medium text-[#9f3c27] underline underline-offset-4">¿Qué información conviene enviar?</summary>
+            <summary className="flex min-h-11 cursor-pointer items-center font-medium text-[#9f3c27] underline underline-offset-4">¿Qué información conviene enviar?</summary>
             <div className="mt-5 max-w-2xl space-y-3 text-sm leading-6 text-[#3f4548]">
               <p>Indica el tipo de proyecto, la ciudad si necesitas grabación, la fecha deseada y dónde se publicará el video. Si ya tienes material, cuenta qué tienes.</p>
               <p>Esteban Moreno Media hace edición a distancia y considera cada grabación en el sur de Florida según el proyecto. No tiene un estudio abierto al público.</p>
             </div>
           </details>
           <details className="mt-5 border-t border-[#d6ccc0] pt-5">
-            <summary className="cursor-pointer font-medium text-[#9f3c27] underline underline-offset-4">Guías para preparar tu proyecto</summary>
+            <summary className="flex min-h-11 cursor-pointer items-center font-medium text-[#9f3c27] underline underline-offset-4">Guías para preparar tu proyecto</summary>
             <div className="mt-5 max-w-2xl space-y-3 text-sm leading-6 text-[#3f4548]">
               <p>La <Link href="/es/guias/como-escribir-un-brief-util-de-video" className="underline">guía para escribir un brief</Link> te ayuda a explicar el público, la plataforma, la fecha y el formato de entrega. La <Link href="/es/guias/preparar-material-para-edicion-de-video" className="underline">guía para preparar el material</Link> sirve para reunir clips y archivos antes de empezar la edición.</p>
               <p>Si el trabajo será a distancia, consulta la <Link href="/es/guias/entrega-para-edicion-remota-de-video" className="underline">guía de entrega remota</Link> para organizar archivos y comentarios. También puedes visitar la <Link href="/es/calculadora" className="underline">calculadora de presupuesto</Link> y revisar las <Link href="/es/areas" className="underline">áreas de servicio</Link> antes de escribir.</p>
             </div>
           </details>
           <details className="mt-5 border-t border-[#d6ccc0] pt-5">
-            <summary className="cursor-pointer font-medium text-[#9f3c27] underline underline-offset-4">Preguntas frecuentes</summary>
+            <summary className="flex min-h-11 cursor-pointer items-center font-medium text-[#9f3c27] underline underline-offset-4">Preguntas frecuentes</summary>
             <div className="mt-5 max-w-3xl space-y-5">
               {faqs.map((item) => (
                 <section key={item.question}>
@@ -100,7 +100,7 @@ export default async function SpanishContactPage({
             </div>
           </details>
           <details className="mt-5 border-t border-[#d6ccc0] pt-5">
-            <summary className="cursor-pointer font-medium text-[#9f3c27] underline underline-offset-4">Preparar un brief más detallado</summary>
+            <summary className="flex min-h-11 cursor-pointer items-center font-medium text-[#9f3c27] underline underline-offset-4">Preparar un brief más detallado</summary>
             <div className="mt-5 max-w-2xl"><VideoBriefBuilder locale="es" source={leadSource} /></div>
           </details>
         </Container>

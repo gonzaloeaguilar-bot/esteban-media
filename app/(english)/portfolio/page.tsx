@@ -243,7 +243,7 @@ export default function PortfolioPage() {
       ) : null}
       <section className="py-12 sm:py-16 lg:py-20">
         <Container size="xl">
-          <PortfolioGrid items={PORTFOLIO_ITEMS} locale="en" />
+          <PortfolioGrid items={PORTFOLIO_ITEMS.filter((item) => item.id !== liveItems[0]?.id)} locale="en" />
         </Container>
       </section>
 
@@ -541,7 +541,7 @@ export default function PortfolioPage() {
               </div>
               <Link
                 href="/guides/vertical-horizontal-video-exports-and-safe-zones"
-                className="mt-5 inline-flex items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
+                className="mt-5 inline-flex min-h-11 items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
               >
                 Safe-zone & export guide
                 <ArrowRight className="size-3.5" aria-hidden="true" />
@@ -564,7 +564,7 @@ export default function PortfolioPage() {
               </div>
               <Link
                 href="/guides/how-to-mix-audio-for-social-video"
-                className="mt-5 inline-flex items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
+                className="mt-5 inline-flex min-h-11 items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
               >
                 Social audio mixing guide
                 <ArrowRight className="size-3.5" aria-hidden="true" />
@@ -608,7 +608,7 @@ export default function PortfolioPage() {
               </div>
               <Link
                 href="/guides/fastest-way-to-send-large-video-files-to-editor"
-                className="mt-5 inline-flex items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
+                className="mt-5 inline-flex min-h-11 items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
               >
                 Footage handoff guide
                 <ArrowRight className="size-3.5" aria-hidden="true" />
@@ -658,7 +658,7 @@ export default function PortfolioPage() {
               </div>
               <Link
                 href="/services/real-estate-video-aventura-miami"
-                className="mt-5 inline-flex items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
+                className="mt-5 inline-flex min-h-11 items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
               >
                 Real estate video service
                 <ArrowRight className="size-3.5" aria-hidden="true" />
@@ -681,7 +681,7 @@ export default function PortfolioPage() {
               </div>
               <Link
                 href="/services/cosmetic-dentistry-video-marketing-miami"
-                className="mt-5 inline-flex items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
+                className="mt-5 inline-flex min-h-11 items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
               >
                 Dental marketing service
                 <ArrowRight className="size-3.5" aria-hidden="true" />
@@ -704,7 +704,7 @@ export default function PortfolioPage() {
               </div>
               <Link
                 href="/services/contractor-video-marketing-south-florida"
-                className="mt-5 inline-flex items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
+                className="mt-5 inline-flex min-h-11 items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
               >
                 Contractor video service
                 <ArrowRight className="size-3.5" aria-hidden="true" />
@@ -727,7 +727,7 @@ export default function PortfolioPage() {
               </div>
               <Link
                 href="/services/interview-video-editing-service"
-                className="mt-5 inline-flex items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
+                className="mt-5 inline-flex min-h-11 items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
               >
                 Interview editing service
                 <ArrowRight className="size-3.5" aria-hidden="true" />
@@ -804,7 +804,7 @@ export default function PortfolioPage() {
                 </div>
                 <Link
                   href="/services/restaurant-promo-video-editing-miami"
-                  className="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
+                  className="mt-4 inline-flex min-h-11 items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
                 >
                   Restaurant video service
                   <ArrowRight className="size-3.5" aria-hidden="true" />
@@ -823,7 +823,7 @@ export default function PortfolioPage() {
                 </div>
                 <Link
                   href="/services/short-form-video-editor-miami"
-                  className="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
+                  className="mt-4 inline-flex min-h-11 items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
                 >
                   Short-form editing service
                   <ArrowRight className="size-3.5" aria-hidden="true" />
@@ -842,7 +842,7 @@ export default function PortfolioPage() {
                 </div>
                 <Link
                   href="/services/brand-video-production-miami"
-                  className="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
+                  className="mt-4 inline-flex min-h-11 items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
                 >
                   Brand video service
                   <ArrowRight className="size-3.5" aria-hidden="true" />
@@ -861,7 +861,7 @@ export default function PortfolioPage() {
                 </div>
                 <Link
                   href="/services/website-design-fort-lauderdale"
-                  className="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
+                  className="mt-4 inline-flex min-h-11 items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
                 >
                   Web & AI chatbot service
                   <ArrowRight className="size-3.5" aria-hidden="true" />
@@ -1014,7 +1014,7 @@ export default function PortfolioPage() {
               </div>
               <Link
                 href="/guides/raw-video-file-formats-explained"
-                className="mt-5 inline-flex items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
+                className="mt-5 inline-flex min-h-11 items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
               >
                 Log & raw format guide
                 <ArrowRight className="size-3.5" aria-hidden="true" />
@@ -1037,7 +1037,7 @@ export default function PortfolioPage() {
               </div>
               <Link
                 href="/guides/how-to-improve-video-retention-rate"
-                className="mt-5 inline-flex items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
+                className="mt-5 inline-flex min-h-11 items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
               >
                 Audience retention guide
                 <ArrowRight className="size-3.5" aria-hidden="true" />
@@ -1060,7 +1060,7 @@ export default function PortfolioPage() {
               </div>
               <Link
                 href="/guides/best-caption-styles-for-instagram-reels"
-                className="mt-5 inline-flex items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
+                className="mt-5 inline-flex min-h-11 items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
               >
                 Reels caption style guide
                 <ArrowRight className="size-3.5" aria-hidden="true" />
@@ -1083,7 +1083,7 @@ export default function PortfolioPage() {
               </div>
               <Link
                 href="/services/content-repurposing-service-miami"
-                className="mt-5 inline-flex items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
+                className="mt-5 inline-flex min-h-11 items-center gap-1.5 text-xs font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
               >
                 Repurposing service
                 <ArrowRight className="size-3.5" aria-hidden="true" />
@@ -1170,7 +1170,7 @@ export default function PortfolioPage() {
               </h2>
               <p className="mt-5 max-w-xl text-base leading-7 text-[#3f4548]">
                 Esteban&apos;s core service is{" "}
-                <Link href="/services#editing">post-production</Link>. You send
+                <Link href="/services#editing" className="inline-flex min-h-11 items-center underline underline-offset-4">post-production</Link>. You send
                 the
                 footage you&apos;ve already captured &mdash; phone clips, event
                 coverage, product shots, or footage from a shoot &mdash; and he
@@ -1256,10 +1256,9 @@ export default function PortfolioPage() {
         </Container>
       </section>
 
-      {/* Primero se ve, luego se lee: la tira antes de la cuadrícula. */}
-      <PortfolioFilmstrip locale="en" heading="The work, frame by frame" />
-
       </details>
+
+      <PortfolioFilmstrip locale="en" heading="The work, frame by frame" />
       <section className="border-t border-[#d6ccc0] py-14 sm:py-18">
         <Container size="xl">
           <div className="grid gap-8 rounded-2xl bg-[#e7ded2] p-7 sm:p-10 lg:grid-cols-[1fr_auto] lg:items-end">

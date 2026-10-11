@@ -95,7 +95,7 @@ export default function SpanishPortfolioPage() {
       ) : null}
       <section className="py-12 sm:py-16 lg:py-20">
         <Container size="xl">
-          <PortfolioGrid items={PORTFOLIO_ITEMS} locale="es" />
+          <PortfolioGrid items={PORTFOLIO_ITEMS.filter((item) => item.id !== liveItems[0]?.id)} locale="es" />
         </Container>
       </section>
 
@@ -111,12 +111,7 @@ export default function SpanishPortfolioPage() {
               </h2>
               <p className="mt-4 max-w-2xl text-sm leading-6 text-[#3f4548] sm:text-base sm:leading-7">
                 Revisa las{" "}
-                <Link
-                  href="/es/areas"
-                  className="underline underline-offset-4 hover:text-[#9f3c27]"
-                >
-                  áreas de servicio
-                </Link>{" "}
+                áreas de servicio{" "}
                 para Fort Lauderdale, Broward, Miami-Dade y Palm Beach antes de
                 consultar por una producción en locación.
               </p>
@@ -247,10 +242,9 @@ export default function SpanishPortfolioPage() {
         </Container>
       </section>
 
-      {/* Primero se ve, luego se lee: la tira antes de la cuadrícula. */}
-      <PortfolioFilmstrip locale="es" heading="El trabajo, fotograma a fotograma" />
-
       </details>
+
+      <PortfolioFilmstrip locale="es" heading="El trabajo, fotograma a fotograma" />
       <section className="border-t border-[#d6ccc0] py-14 sm:py-18">
         <Container size="xl">
           <div className="grid gap-8 rounded-2xl bg-[#e7ded2] p-7 sm:p-10 lg:grid-cols-[1fr_auto] lg:items-end">

@@ -61,23 +61,23 @@ export default function ContactPage() {
             <a href={whatsappHref(site.phone.e164, "Hi Esteban, I saw your site and want to discuss a video project.")} target="_blank" rel="noopener noreferrer" data-cta="contact_whatsapp" data-section="contact" className="flex min-h-14 items-center justify-center gap-3 rounded-full bg-[#c84a2c] px-5 text-sm font-medium text-white hover:bg-[#a93e29]"><MessageCircle className="size-5" aria-hidden="true" /> Message on WhatsApp</a>
             <a href={`mailto:${site.email}`} data-cta="contact_email" data-section="contact" className="flex min-h-14 items-center justify-center gap-3 rounded-full border border-[#b9aa9a] px-5 text-sm font-medium text-[#252a2d] hover:border-[#c84a2c]"><Mail className="size-5" aria-hidden="true" /> Email Esteban</a>
           </div>
-          <p className="mt-3 text-sm text-[#5a6066]">Or call <a href={site.phone.href} className="underline underline-offset-4">{site.phone.display}</a>.</p>
+          <p className="mt-3 text-sm text-[#5a6066]">Or call <a href={site.phone.href} className="inline-flex min-h-11 items-center underline underline-offset-4">{site.phone.display}</a>.</p>
           <details className="mt-8 border-t border-[#d6ccc0] pt-5">
-            <summary className="cursor-pointer font-medium text-[#9f3c27] underline underline-offset-4">Want help writing your message?</summary>
+            <summary className="flex min-h-11 cursor-pointer items-center font-medium text-[#9f3c27] underline underline-offset-4">Want help writing your message?</summary>
             <div className="mt-5 max-w-2xl space-y-3 text-sm leading-6 text-[#3f4548]">
               <p>Include your project type, location if filming is needed, desired date, and where the finished video will be used. If you already have footage, say what you have.</p>
               <p>Esteban Moreno Media works remotely on editing and considers South Florida filming project by project. There is no public studio.</p>
             </div>
           </details>
           <details className="mt-5 border-t border-[#d6ccc0] pt-5">
-            <summary className="cursor-pointer font-medium text-[#9f3c27] underline underline-offset-4">Planning a project? Read these guides</summary>
+            <summary className="flex min-h-11 cursor-pointer items-center font-medium text-[#9f3c27] underline underline-offset-4">Planning a project? Read these guides</summary>
             <div className="mt-5 max-w-2xl space-y-3 text-sm leading-6 text-[#3f4548]">
               <p>Start with the <Link href="/guides/write-a-useful-video-brief" className="underline">video brief guide</Link> if you need help describing the audience, platform, timing, and finished format. The <Link href="/guides/prepare-footage-for-video-editing" className="underline">footage preparation guide</Link> helps you gather raw clips before editing starts.</p>
               <p>For a remote project, read the <Link href="/guides/remote-video-editing-handoff" className="underline">handoff guide</Link> for organizing files and feedback. You can also explore the <Link href="/calculator" className="underline">project budget calculator</Link> and the <Link href="/areas" className="underline">service areas</Link> before you write.</p>
             </div>
           </details>
           <details className="mt-5 border-t border-[#d6ccc0] pt-5">
-            <summary className="cursor-pointer font-medium text-[#9f3c27] underline underline-offset-4">Common questions</summary>
+            <summary className="flex min-h-11 cursor-pointer items-center font-medium text-[#9f3c27] underline underline-offset-4">Common questions</summary>
             <div className="mt-5 max-w-3xl space-y-5">
               {faqs.map((item) => (
                 <section key={item.question}>
@@ -88,7 +88,7 @@ export default function ContactPage() {
             </div>
           </details>
           <details className="mt-5 border-t border-[#d6ccc0] pt-5">
-            <summary className="cursor-pointer font-medium text-[#9f3c27] underline underline-offset-4">Build a more detailed video brief</summary>
+            <summary className="flex min-h-11 cursor-pointer items-center font-medium text-[#9f3c27] underline underline-offset-4">Build a more detailed video brief</summary>
             <div className="mt-5 max-w-2xl"><VideoBriefBuilder locale="en" /></div>
           </details>
         </Container>
