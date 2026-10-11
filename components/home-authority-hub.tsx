@@ -12,7 +12,7 @@ const copy = {
   en: {
     eyebrow: "Services",
     title: "After the work, see the services that support it.",
-    intro: "Esteban Moreno Media helps businesses with video, websites, profiles, follow-up tools, reporting, and the creative content that keeps everything clear.",
+    intro: "I help businesses with video, websites, profiles, follow-up tools, reporting, and the creative content that keeps everything clear.",
     label: "View services",
     href: "/services",
     cards: [
@@ -27,7 +27,7 @@ const copy = {
   es: {
     eyebrow: "Servicios",
     title: "Después del trabajo, mira los servicios que lo sostienen.",
-    intro: "Esteban Moreno Media ayuda con video, sitios web, perfiles, seguimiento, reportes y contenido creativo para que el proyecto sea fácil de entender.",
+    intro: "Ayudo con video, sitios web, perfiles, seguimiento, reportes y contenido creativo para que el proyecto sea fácil de entender.",
     label: "Ver servicios",
     href: "/es/servicios",
     cards: [
@@ -48,8 +48,8 @@ export function HomeAuthorityHub({ locale = "en" }: { locale?: Locale }) {
     <section className="border-b border-[#ddd4c8] bg-[#101214] py-14 text-[#f6f1ea] sm:py-20" aria-labelledby={`authority-hub-${locale}`}>
       <Container size="xl">
         <div className="max-w-4xl">
-          <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#ffb49e]">{content.eyebrow}</p>
-          <h2 id={`authority-hub-${locale}`} className="mt-4 font-serif text-4xl leading-tight sm:text-5xl">{content.title}</h2>
+          <p className="em-eyebrow em-eyebrow--inverted">{content.eyebrow}</p>
+          <h2 id={`authority-hub-${locale}`} className="mt-4 em-h2">{content.title}</h2>
           <p className="mt-5 text-base leading-8 text-[#d8d0c7]">{content.intro}</p>
         </div>
         <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">

@@ -137,7 +137,8 @@ export const serviceAreas = [
     name: "Fort Lauderdale",
     county: "Broward County, FL",
     schemaType: "City" as const,
-    href: "/areas",
+    // The base-city page; it had zero inbound links before 2026-10-10.
+    href: "/fort-lauderdale",
     description:
       "Home base for entrepreneurs, restaurants, real estate, and local business content.",
   },

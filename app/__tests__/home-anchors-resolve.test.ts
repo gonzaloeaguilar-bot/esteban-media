@@ -51,9 +51,19 @@ describe("home in-page anchors resolve", () => {
     expect(missing, `dead in-page anchors: ${missing.join(", ")}`).toEqual([]);
   });
 
-  it("the hero's primary call to action points at the packages section", () => {
+  it("the hero's primary call to action is the site-wide WhatsApp quote", () => {
+    // 2026-10-10: the hero's primary action changed from "See packages &
+    // prices" (#packages) to the one quote action every section uses
+    // (lib/quote-cta.ts). The packages section is the next section down.
     const hero = source("components/hero-video.tsx");
-    expect(hero).toMatch(/href=\{isSpanish \? "#paquetes" : "#packages"\}/);
+    expect(hero).toContain('data-cta="hero_whatsapp"');
+    expect(hero).toContain("quoteCtaLabel(locale)");
+    expect(hero).toContain("whatsappHref(");
+  });
+
+  it("the packages section still declares the id its OfferCatalog schema points at", () => {
+    // lib/packages.ts packagesJsonLd emits `${homeUrl}#packages` / `#paquetes`;
+    // that URL has to land on the section even with no in-page link to it.
     const section = source("components/packages-section.tsx");
     expect(section).toMatch(/id=\{locale === "es" \? "paquetes" : "packages"\}/);
   });

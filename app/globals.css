@@ -803,6 +803,103 @@ html.em-returning #em-intro {
   font-size: clamp(32px, 9.375vw, 72px);
 }
 
+/* ---------------------------------------------------------------------------
+   Home type system: ONE section heading, ONE eyebrow, ONE price.
+
+   A UX review (2026-10) counted three competing headline voices on the home
+   pages — condensed all-caps (Oswald), heavy grotesk (Geist 700) and the
+   editorial serif — plus two price faces (Instrument Serif on the packages,
+   bold sans on the real-estate plans). Each section had grown its own one-off.
+
+   The rule now:
+     · Oswald is the hero BRAND MARK only (.em-cine__brand) and the opening
+       ident. Nothing else on the page is set in it.
+     · Every section h2 is `.em-h2`: Newsreader 400, the serif the majority of
+       sections (and the rail kit's --rail-heading-font) already used.
+     · Every section eyebrow is `.em-eyebrow` (`--inverted` on dark ground).
+     · Every price figure is `.em-price-figure`: Instrument Serif 400, big,
+       with the unit set small in Geist beside it — the client-proposal price
+       treatment the owner chose (PR #318, needs-first packages). $100, $640
+       and $450 read as one system.
+
+   The tokens live on `body` because that is where next/font puts
+   --font-newsreader and --font-price (Instrument_Serif in
+   components/site-chrome.tsx); declared on :root the var() would resolve to
+   nothing.
+   Sizes follow the kit's clamp(floor, vw, ceiling) grammar. The 36px floor
+   keeps the longest Spanish heading word inside a 360px phone with its 16px
+   gutters; the ceilings sit between the old 48px serif and 60px steps.
+
+   Contrast (WCAG AA, 4.5:1 for the 12px eyebrow):
+     --em-accent-ink #a8381d on paper #f7f5f1   5.9:1
+     --em-accent-ink #a8381d on band  #f6f1ea   5.7:1
+     inverted #ffb49e on ink #101214            11.0:1
+     real-estate pill #ffd4bd on #293433         9.4:1
+   Headings inherit the section's text colour, which is ink on paper and
+   #f6f1ea/#fffaf4/#fff on the dark bands (all > 15:1).
+   --------------------------------------------------------------------------- */
+body {
+  --em-heading-font: var(--font-newsreader), ui-serif, Georgia, serif;
+  --em-h2-size: clamp(36px, 1.7rem + 2.2vw, 52px);
+  --em-h2-weight: 400;
+  --em-h2-leading: 1.06;
+  --em-h2-tracking: -0.02em;
+
+  --em-eyebrow-font: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --em-eyebrow-size: 12px;
+  --em-eyebrow-weight: 600;
+  --em-eyebrow-tracking: 0.2em;
+  --em-eyebrow-color: var(--em-accent-ink);
+  --em-eyebrow-color-inverted: #ffb49e;
+
+  /* Sized like PR #318: 64px plan figures on desktop, 48px on a phone. */
+  --em-price-font: var(--font-price), "Instrument Serif", Georgia, serif;
+  --em-price-size: clamp(48px, 2.5rem + 1.7vw, 64px);
+  /* "Custom quote" is words, not a figure: same face, one step down (#318: 48px). */
+  --em-price-size-words: clamp(36px, 1.9rem + 1.2vw, 48px);
+  --em-price-weight: 400;
+  --em-price-leading: 1.05;
+  --em-price-tracking: -0.03em;
+  --em-price-color: #101214;
+}
+
+.em-h2 {
+  font-family: var(--em-heading-font);
+  font-size: var(--em-h2-size);
+  font-weight: var(--em-h2-weight);
+  line-height: var(--em-h2-leading);
+  letter-spacing: var(--em-h2-tracking);
+  text-transform: none;
+  overflow-wrap: break-word;
+  text-wrap: balance;
+}
+
+.em-eyebrow {
+  font-family: var(--em-eyebrow-font);
+  font-size: var(--em-eyebrow-size);
+  font-weight: var(--em-eyebrow-weight);
+  line-height: 1.3;
+  letter-spacing: var(--em-eyebrow-tracking);
+  text-transform: uppercase;
+  color: var(--em-eyebrow-color);
+}
+.em-eyebrow--inverted {
+  color: var(--em-eyebrow-color-inverted);
+}
+
+.em-price-figure {
+  font-family: var(--em-price-font);
+  font-size: var(--em-price-size);
+  font-weight: var(--em-price-weight);
+  line-height: var(--em-price-leading);
+  letter-spacing: var(--em-price-tracking);
+  color: var(--em-price-color);
+}
+.em-price-figure--words {
+  font-size: var(--em-price-size-words);
+  line-height: 1.05;
+}
+
 /* The rating figure and the star row on the reviews band.
 
    The figure was `text-5xl leading-none` — a hard 48px at every width — which
@@ -1365,6 +1462,65 @@ div.relative:has(> .em-carousel-track) {
   /* A vertical poster already carries its own bottom scrim; the kit's panel
      fade would only wash the picture into the card. Off here. */
   --rail-poster-fade: none;
+  /* The kit's default panel is 4.3% white over the band, i.e. translucent,
+     which leaves the poster fade below nothing solid to fade INTO. This is
+     that same colour made opaque (#ffffff0b over #101214), so the card looks
+     exactly as before and the fade lands on the real panel tone. */
+  --rail-poster-bg: #1a1c1e;
+  /* How far the title block rises onto the faded bottom of the poster. */
+  --em-reel-title-lift: 3.5rem;
+}
+
+/* ── Poster-to-title transition ───────────────────────────────────────────
+   Each poster used to end on a hard edge with the title starting under it.
+   Now the bottom ~45% of the picture fades into the panel colour, the lowest
+   band is softly blurred, and the title block rises onto that fade.
+
+   - Contrast: the title occupies the bottom 3.5rem of the poster, which is
+     the last ~27% of the fade, where the panel colour is at 88% or more.
+     Over a pure white frame that composites to about #353637, against which
+     the #f6f1ea title is over 10:1 (AA at any size).
+   - The layers sit inside the play button at z-2, above the hover preview
+     video (z-1), so the same fade covers the playing preview. The duration
+     chip moved to the top corner, and the play button stays centred, so
+     neither collides with the text.
+   - No layout shift: the lift is a fixed negative margin in CSS, present from
+     first paint. Nothing animates, so reduced motion has nothing to stop.
+   - The blur is progressive enhancement; without backdrop-filter the band is
+     simply not drawn and the colour fade carries the transition alone. */
+.em-reel .rail-card[data-rail-kind="media"] .rail-card__body {
+  margin-top: calc(var(--em-reel-title-lift) * -1);
+}
+.em-reel-fade,
+.em-reel-fade-blur {
+  position: absolute;
+  inset-inline: 0;
+  bottom: -1px;
+  z-index: 2;
+  pointer-events: none;
+}
+.em-reel-fade {
+  height: 45%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    color-mix(in srgb, var(--rail-poster-bg, #1a1c1e) 50%, transparent) 45%,
+    color-mix(in srgb, var(--rail-poster-bg, #1a1c1e) 88%, transparent) 72%,
+    var(--rail-poster-bg, #1a1c1e) 100%
+  );
+}
+.em-reel-fade-blur {
+  display: none;
+  height: 30%;
+}
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .em-reel-fade-blur {
+    display: block;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 65%);
+    mask-image: linear-gradient(to bottom, transparent, black 65%);
+  }
 }
 .em-reel .rail-card__figure {
   background: #0d0d0d;
@@ -1409,6 +1565,149 @@ div.relative:has(> .em-carousel-track) {
   /* The strip now follows the headline by the wrapper's own margin alone; the
      kit's 24px top gap belonged to the header band that no longer exists. */
   margin-top: 0;
+}
+
+/* ── Headline-to-strip transition ─────────────────────────────────────────
+   The strip used to start a flat 2rem under the headline, so the headline
+   block and the posters read as two separate things. Now the strip rises
+   UNDER the bottom of the headline row (the row carries z-index 2): about
+   40px on a phone, 64px from 640px up. A gradient in the band's own colour
+   sits over the top of the strip, so the posters surface out of the band
+   instead of starting at a hard edge. On purpose:
+
+   - Contrast. Inside the overlap, where the description, the counter and the
+     arrows sit, the gradient never drops below 80% band colour. Over a pure
+     white poster that composites to roughly #404143, against which the
+     shelf's #c9c1b8 body copy is about 5:1, so the text stays AA however
+     bright a poster's sky is; the white headline and the filled WhatsApp
+     button sit well above that. Below the row the ramp runs 80% to clear.
+   - Clicks. The headline row is layered above the strip, so its links and
+     buttons stay on top; the overlay has pointer-events: none, so the
+     posters under the ramp stay tappable.
+   - Motion. The ramp is a static gradient, not an animation, so there is
+     nothing for prefers-reduced-motion to switch off.
+   - Overflow. The overlay is absolutely positioned inside the wrapper with
+     inset-inline 0, never wider than it, so it cannot reintroduce sideways
+     panning. It lives on the wrapper, not the scroller, so the scroller's
+     right-edge mask below is untouched. */
+.em-reel--rise {
+  --em-reel-band: #101214; /* the section's own bg-[#101214] */
+  --em-reel-overlap: 2.5rem;
+  --em-reel-ramp: 4rem;
+  position: relative;
+  z-index: 1;
+  /* The old 2rem gap is gone: the strip climbs into the headline row by the
+     overlap. */
+  margin-top: calc(var(--em-reel-overlap) * -1);
+}
+@media (min-width: 40rem) {
+  .em-reel--rise {
+    --em-reel-overlap: 4rem;
+    --em-reel-ramp: 6rem;
+  }
+}
+.em-reel--rise::before {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: calc(var(--em-reel-overlap) + var(--em-reel-ramp));
+  z-index: 3;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    var(--em-reel-band) 0,
+    color-mix(in srgb, var(--em-reel-band) 80%, transparent)
+      var(--em-reel-overlap),
+    color-mix(in srgb, var(--em-reel-band) 35%, transparent)
+      calc(var(--em-reel-overlap) + var(--em-reel-ramp) * 0.5),
+    transparent 100%
+  );
+}
+
+/* ── Plans under the reels ────────────────────────────────────────────────
+   On the homepages the monthly real-estate plans sit directly under the shelf
+   behind one button, so "here is the work" and "here is what it costs" are a
+   single block. It is the site's one fold-out (KeepReading, a <details>), so
+   the plans stay in the server HTML while collapsed and the anchors script
+   opens it for #real-estate-plans / #real-estate links. Styled here as the
+   reel band's closing row rather than as the page-level hairline fold. */
+.em-re-block > section:first-child {
+  /* The fold row below continues this band; no hairline between them, and
+     only a short step, so the button reads as the strip's own next action. */
+  border-bottom-width: 0;
+  padding-bottom: 1.5rem;
+}
+.em-re-block > .em-re-plans-fold {
+  margin: 0;
+  border: 0;
+  background: #101214;
+  color: #f6f1ea;
+}
+.em-re-block > .em-re-plans-fold > summary {
+  justify-content: center;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding: 0 1rem 2.5rem;
+  text-align: center;
+}
+@media (min-width: 40rem) {
+  .em-re-block > .em-re-plans-fold > summary {
+    padding: 0 1.5rem 3.5rem;
+  }
+}
+.em-re-block > .em-re-plans-fold > summary > span {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+.em-re-block > .em-re-plans-fold > summary strong {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 1.5rem;
+  border: 1px solid rgb(255 255 255 / 0.4);
+  border-radius: 9999px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition:
+    background-color 150ms,
+    border-color 150ms;
+}
+.em-re-block > .em-re-plans-fold > summary small {
+  /* #c9c1b8 on #101214 is the shelf's own body-copy pairing (AA). */
+  color: #c9c1b8;
+}
+.em-re-block > .em-re-plans-fold > summary::after,
+.em-re-block > .em-re-plans-fold[open] > summary::after {
+  /* The +/– moves inside the pill (below); the kit's edge marker is off. */
+  content: none;
+}
+.em-re-block > .em-re-plans-fold > summary strong::after {
+  content: "+";
+  margin-left: 0.6rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  color: #ffb49e;
+}
+.em-re-block > .em-re-plans-fold[open] > summary strong::after {
+  content: "–";
+}
+@media (hover: hover) {
+  .em-re-block > .em-re-plans-fold > summary:hover strong {
+    border-color: rgb(255 255 255 / 0.7);
+    background: rgb(255 255 255 / 0.08);
+  }
+}
+.em-re-block > .em-re-plans-fold > summary:focus-visible {
+  outline: 2px solid #ffb49e;
+  outline-offset: -2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .em-re-block > .em-re-plans-fold > summary strong {
+    transition: none;
+  }
 }
 
 /* The shelf's counter and arrows, docked in the headline row instead of a
