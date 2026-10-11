@@ -29,8 +29,8 @@ const fortLauderdaleServices = [
     description:
       "A confirmed priority for projects that begin with existing footage and a publishing goal.",
     icon: Scissors,
-    href: "/services/reels-editor-fort-lauderdale",
-    linkText: "Explore local Reels editing",
+    href: "/services/hire-remote-video-editor",
+    linkText: "Explore remote video editing",
   },
   {
     name: "AI-assisted content",
