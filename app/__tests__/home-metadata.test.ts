@@ -78,6 +78,26 @@ describe("localized home metadata", () => {
     expect(englishHomeSource).toContain("twitter:");
   });
 
+  // Next replaces (never merges) a page's nested openGraph/twitter object, so a
+  // homepage that only overrode title/description silently dropped og:image,
+  // og:url, og:type, og:site_name, og:locale and the large twitter card
+  // (SEO/GEO audit 2026-10-10, finding 1). Every social visit lands on "/".
+  it("keeps the full social card on the English homepage", async () => {
+    const { metadata: englishHomeMetadata } = await import("../(english)/page");
+    const og = englishHomeMetadata.openGraph as Record<string, unknown>;
+    const twitter = englishHomeMetadata.twitter as Record<string, unknown>;
+
+    expect(og.images).toEqual([socialImage]);
+    expect(og.url).toBe("https://estebanmorenomedia.com/");
+    expect(og.type).toBe("website");
+    expect(og.siteName).toBe(site.name);
+    expect(og.locale).toBe("en_US");
+    expect(og.title).toBe("Fort Lauderdale Video Production & Editing | Esteban Moreno");
+    expect(twitter.card).toBe("summary_large_image");
+    expect(twitter.images).toEqual([socialImage.url]);
+    expect(twitter.title).toBe("Fort Lauderdale Video Production & Editing | Esteban Moreno");
+  });
+
   it("verifies brand entity presence and optimal character bounds for CTR", () => {
     expect(site.description.startsWith("Esteban Moreno")).toBe(true);
     expect(spanishSite.description.startsWith("Esteban Moreno")).toBe(true);

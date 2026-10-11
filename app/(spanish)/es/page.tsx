@@ -9,6 +9,7 @@ import { SignalIntro } from "@/components/signal-intro";
 import { PackagesSection, ClosingCredits } from "@/components/packages-section";
 import { KeepReading } from "@/components/keep-reading";
 import { PortfolioTeaser } from "@/components/portfolio-teaser";
+import { RealEstateShowcase } from "@/components/real-estate-showcase";
 import { Container } from "@/components/ui/container";
 import {
   spanishNichePages,
@@ -36,7 +37,15 @@ export default function SpanishHomePage() {
           linked to none of them. Above the fold on purpose — a visitor from an
           Instagram bio link should not have to open a fold-out to find their lane. */}
       <AudienceRouter locale="es" />
-      <PackagesSection locale="es" />
+      {/* Work before price, on this home as well.
+
+          This page had the monthly real-estate plans and NO reels at all, so a
+          Spanish visitor — the audience the evidence says converts, since the
+          only contact click in the measured window came from a Spanish reel
+          page — saw a property price with no property work above it. The shelf
+          and the plans now sit together right after the lanes. */}
+      <RealEstateShowcase locale="es" />
+      <PackagesSection locale="es" realEstatePlans={false} />
       <PortfolioTeaser locale="es" />
       <ClientReviews locale="es" />
       <KeepReading

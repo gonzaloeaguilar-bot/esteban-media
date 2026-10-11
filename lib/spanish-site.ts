@@ -1427,7 +1427,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Coral Gables / Real Estate",
     h1: "Videos de propiedades de lujo en Coral Gables.",
     lead:
-      "Editamos y estructuramos recorridos visuales de alta calidad para agentes de bienes raíces y firmas inmobiliarias en Coral Gables.",
+      "Editamos y estructuramos recorridos visuales de alta calidad para agentes de bienes raíces y firmas inmobiliarias en Coral Gables. Consulta el [área de servicio](/es/areas) al preparar tu proyecto.",
     keyword: "video inmobiliario en Coral Gables",
     location: "Coral Gables / Miami-Dade",
     availability: "confirmed",
@@ -1459,7 +1459,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Fort Lauderdale / Náutica",
     h1: "Videos promocionales para yates, marinos y hospitalidad.",
     lead:
-      "Fort Lauderdale es la capital náutica de Florida. Editamos y producimos contenido audiovisual para servicios de chárter, brokers marinos, hoteles y marcas náuticas a partir de material suministrado por el cliente. Consulta guías especializadas como [guías de edición de video con dron en Florida](/es/guias/guias-de-edicion-de-video-con-dron-florida) y [entrega para edición remota de video](/es/guias/entrega-para-edicion-remota-de-video).",
+      "Fort Lauderdale es la capital náutica de Florida. Editamos y producimos contenido audiovisual para servicios de chárter, brokers marinos, hoteles y marcas náuticas a partir de material suministrado por el cliente. Revisa el [área de servicio](/es/areas) al preparar tu proyecto. Consulta guías especializadas como [guías de edición de video con dron en Florida](/es/guias/guias-de-edicion-de-video-con-dron-florida) y [entrega para edición remota de video](/es/guias/entrega-para-edicion-remota-de-video).",
     keyword: "video para yates en Fort Lauderdale",
     location: "Fort Lauderdale / Broward",
     availability: "confirmed",
