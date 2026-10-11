@@ -120,4 +120,19 @@ describe("complete page metadata", () => {
       "x-default": "/services/tiktok-ad-video-editor-miami",
     });
   });
+
+  it("verifies desk recommendations page metadata and self-canonical", async () => {
+    const { metadata } = await import(
+      "../(english)/desk-recommendations/page"
+    );
+
+    expect(metadata.title).toBe("Shared desk recommendations");
+    expect(metadata.description).toBe(
+      "Shared, real-use recommendations from Esteban and Gonzalo for production and desk work.",
+    );
+    expect(metadata.alternates?.canonical).toBe("/desk-recommendations");
+    expect(metadata.openGraph?.url).toBe(
+      "https://estebanmorenomedia.com/desk-recommendations",
+    );
+  });
 });

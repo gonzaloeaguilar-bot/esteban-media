@@ -49,6 +49,11 @@ export const pairedLanguageRoutes: Record<string, string> = {
     "/es/marketing-de-video-para-salones-y-barberias-miami",
   "/services/auto-detailing-tint-wrap-video-marketing-miami":
     "/es/marketing-de-video-para-detallado-y-wraps-miami",
+  // 2026-10-07 niche batch.
+  "/services/real-estate-reels-video-editor-south-florida":
+    "/es/editor-de-video-real-estate-miami",
+  "/services/wealth-management-video-production-miami":
+    "/es/produccion-de-video-para-asesores-financieros-miami",
 };
 
 for (const [englishPath, spanishPath] of Object.entries({

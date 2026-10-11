@@ -1,9 +1,15 @@
-import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/site-metadata";
 
 const products=[
 ["Logitech Wave Keys","B0BTNZSXLG","https://amzn.to/4ttElSo","A keyboard designed to make a long desk day feel less rigid."],["VAYDEER wrist rest","B08C56DKS5","https://amzn.to/4cKtL3y","A small buffer between a sharp desk edge and repetitive work."],["EKO Fandy mini bin","B0C73F1KB1","https://www.amazon.com/dp/B0C73F1KB1?tag=gonzalotech-20","A designated place for the tiny interruptions that collect on a desk."],["Soundcore P40i","B0CQXM1FXT","https://www.amazon.com/dp/B0CQXM1FXT?tag=gonzalotech-20","Useful when a workday keeps changing locations or shape."],["Amazon Basics ergonomic mouse pad","B06X3W3TM4","https://www.amazon.com/dp/B06X3W3TM4?tag=gonzalotech-20","A small desk-comfort improvement worth trying before a larger overhaul."],["cinnkeyi PC speakers","B0DYDPMWGB","https://www.amazon.com/dp/B0DYDPMWGB?tag=gonzalotech-20","Compact desktop sound without building a full audio setup."],["Highwings USB-C to HDMI adapter","B08GC1K9TF","https://www.amazon.com/dp/B08GC1K9TF?tag=gonzalotech-20","One clear link between laptop work and an external display."],["Sceptre 27-inch curved monitor","B0D2JM3NQG","https://www.amazon.com/dp/B0D2JM3NQG?tag=gonzalotech-20","More room to keep the few things that belong together visible."],["DIMONCOAT phone stand","B0C37P1YXH","https://www.amazon.com/dp/B0C37P1YXH?tag=gonzalotech-20","A predictable home for a phone during a working block."],["iPad Air 13 keyboard case","B0F489SNSL","https://www.amazon.com/dp/B0F489SNSL?tag=gonzalotech-20","Turns a large iPad into a more usable portable work surface."],["PANPEO right-angle HDMI adapters","B0F18XT8KP","https://www.amazon.com/dp/B0F18XT8KP?tag=gonzalotech-20","A practical fix when cable direction decides too much about a desk."],["RedLemon L-shaped standing desk","B0DZC9N816","https://www.amazon.com/dp/B0DZC9N816?tag=gonzalotech-20","A larger adjustable surface when the room and workflow have been measured first."],["Addtam power strip","B0GS5BWWVM","https://www.amazon.com/dp/B0GS5BWWVM?tag=gonzalotech-20","Puts power for a working desk in one reachable place."],["K&F CONCEPT phone tripod","B0FWBHDJMM","https://www.amazon.com/dp/B0FWBHDJMM?tag=gonzalotech-20","Makes quick recording less dependent on improvised phone balancing."],["JSADZKJ C8 to C7 adapter","B0CSW35Z2W","https://www.amazon.com/dp/B0CSW35Z2W?tag=gonzalotech-20","For the specific power-cable angle that needs a clean solution."],["MOUNT PRO laptop arm","B0C65LM31H","https://www.amazon.com/dp/B0C65LM31H?tag=gonzalotech-20","Reclaims desk space when an elevated screen actually clarifies the setup."],["DYSANKY water bottle","B0DLCRD5GF","https://www.amazon.com/dp/B0DLCRD5GF?tag=gonzalotech-20","Keeps water within reach through long production and editing sessions."],["EUCOS 62-inch phone tripod","B09XHZ8F7F","https://www.amazon.com/dp/B09XHZ8F7F?tag=gonzalotech-20","A stable option for calls, framing checks, and simple recordings."]
 ] as const;
-export const metadata:Metadata={title:{absolute:"Shared desk recommendations | Esteban Moreno Media"},description:"Shared, real-use recommendations from Esteban and Gonzalo for production and desk work."};
+export const metadata = buildPageMetadata({
+  title: "Shared desk recommendations",
+  description:
+    "Shared, real-use recommendations from Esteban and Gonzalo for production and desk work.",
+  path: "/desk-recommendations",
+  locale: "en",
+});
 
 const itemListSchema={
   "@context":"https://schema.org",
