@@ -237,21 +237,21 @@ export default function DisenoWebFortLauderdalePage() {
 
       <section className="border-b border-[#ddd4c8] py-14 sm:py-20" aria-labelledby="digital-systems-heading">
         <Container size="xl">
-          <p className="text-xs font-medium uppercase text-[#5a6066]">Sistemas digitales, definidos para tu negocio</p>
+          <p className="text-xs font-medium uppercase text-[#5a6066]">Sitio web, búsqueda, mensajes y seguimiento</p>
           <h2 id="digital-systems-heading" className="mt-3 max-w-4xl font-serif text-4xl leading-tight sm:text-5xl">
-            Una presencia conectada: desde el perfil donde te encuentran hasta el seguimiento que reciben.
+            Ayuda a que te encuentren, te consulten y sepan cuál es el siguiente paso.
           </h2>
           <p className="mt-5 max-w-3xl leading-7 text-[#252a2d]">
-            Definimos el stack según tus canales, permisos y recorrido del cliente. Cada módulo puede funcionar por separado o conectarse con el sitio y el flujo de clientes; el acceso a plataformas y la operación continua se confirman antes de empezar.
+            Podemos empezar por lo que necesita atención: tus perfiles, tu sitio, los mensajes, el seguimiento o los reportes. Revisamos los canales y las cuentas que ya usas; después acordamos qué conectar y quién responde cada consulta. El trabajo y cualquier apoyo continuo se cotizan tras esa revisión.
           </p>
           <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {[
-              { icon: MapPinned, title: "Perfiles locales y marketplaces", body: "Optimización de Google Business Profile y Google Maps, apoyo con Yelp y un checklist de marketplaces por canal. Para equipos inmobiliarios puede incluir configuración o limpieza de Zillow, Homes.com, Realtor.com y las plataformas adecuadas para su mercado y permisos." },
-              { icon: MessagesSquare, title: "Perfiles sociales y embudo de DM", body: "Instagram, Facebook Page, TikTok Business, configuración de ManyChat y flujos de DM: desde una respuesta por keyword o anuncio hasta calificación, entrega y seguimiento." },
-              { icon: Workflow, title: "Automatización personalizada y agent flows", body: "Flujos end-to-end para formularios, distribución de leads, pasos de citas, correo, SMS con Twilio, autocompletado de dirección y agentes asistidos. Cada automatización se documenta con trigger, responsable, fallback y requisitos de consentimiento." },
-              { icon: BarChart3, title: "Contenido, video y medición", body: "Edición de foto y video, análisis de videos, hipótesis de pruebas de contenido y configuración de Metricool para reportes de canales. Los datos guían decisiones; no garantizan que una publicación se vuelva viral." },
-              { icon: Search, title: "SEO, SEO local y preparación para búsqueda con IA", body: "SEO técnico, mejoras on-page, consistencia de perfiles locales, datos estructurados cuando correspondan y material fuente más claro para buscadores y asistentes. Medimos visibilidad observada sin prometer posiciones en Google, ChatGPT, Perplexity o Claude." },
-              { icon: ShieldCheck, title: "Auditorías, research y resiliencia", body: "Mapeo de presencia digital, investigación de mercado y competencia, auditorías de funnels y costos, simulaciones de experiencia de usuario y pressure testing orientado a seguridad. Toda prueba es autorizada, con alcance definido, y no reemplaza una certificación formal de ciberseguridad." },
+              { icon: MapPinned, title: "Ayuda a que te encuentren cerca", body: "Revisa que Google Business Profile, Google Maps y Yelp muestren tus servicios y datos de contacto correctos. Si trabajas en bienes raíces, revisa Zillow, Homes.com y Realtor.com cuando esas cuentas sean pertinentes y tengas acceso.", href: "/es/presencia-local-seo", link: "Ver presencia local" },
+              { icon: MessagesSquare, title: "Responde las consultas en redes", body: "Conecta los mensajes de Instagram, Facebook o TikTok con una respuesta clara y una persona de tu equipo. ManyChat puede ayudar a organizar respuestas si tu cuenta y la plataforma lo permiten.", href: "/es/captura-y-automatizacion-de-clientes-con-ia", link: "Ver seguimiento de consultas" },
+              { icon: Workflow, title: "Envía cada solicitud a la persona indicada", body: "Conecta formularios web, solicitudes de citas, correo y SMS con consentimiento mediante herramientas como Twilio. Acordamos quién recibe cada solicitud y qué ocurre si falla un paso automático.", href: "/es/automatizacion-de-operaciones", link: "Ver apoyo operativo" },
+              { icon: BarChart3, title: "Mira qué contenido genera consultas", body: "Combina el trabajo de foto y video con reportes de herramientas como Metricool. Revisa qué ve la gente y dónde te contacta antes de planear el próximo contenido.", href: "/es/produccion-creativa", link: "Ver producción creativa" },
+              { icon: Search, title: "Explica mejor tus servicios en buscadores", body: "Revisa las páginas de servicio, los perfiles locales y los detalles técnicos que ayudan a los buscadores a leer tu sitio. Reportamos la visibilidad observada en buscadores y asistentes de IA; nadie puede garantizar una posición.", href: "/es/presencia-local-seo", link: "Ver apoyo en búsquedas" },
+              { icon: ShieldCheck, title: "Encuentra las fallas antes de comprar más herramientas", body: "Revisa de dónde llegan las consultas, dónde se detienen y qué tareas repite tu equipo. Recibes una lista de arreglos por prioridad según los accesos y datos disponibles; toda prueba de seguridad requiere permiso por escrito y un alcance definido.", href: "/es/auditoria-de-funnel-y-datos", link: "Ver evaluación" },
             ].map((service) => {
               const Icon = service.icon;
               return (
@@ -259,6 +259,7 @@ export default function DisenoWebFortLauderdalePage() {
                   <Icon className="size-7 text-[#e85d3e]" aria-hidden="true" />
                   <h3 className="mt-4 font-serif text-2xl">{service.title}</h3>
                   <p className="mt-3 text-sm leading-6 text-[#252a2d]">{service.body}</p>
+                  <Link href={service.href} className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-[#7f2f20] underline underline-offset-4 hover:text-[#101214]">{service.link}<ArrowRight className="size-4" aria-hidden="true" /></Link>
                 </article>
               );
             })}
