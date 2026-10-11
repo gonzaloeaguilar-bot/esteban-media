@@ -1,0 +1,25 @@
+/* Homepage-only touch geometry. The shared carousel also appears on service
+   pages, so these selectors stay under the home wrapper. */
+@media (max-width: 1023px) {
+  .em-home .em-cine__cta--ghost {
+    min-height: 44px;
+  }
+}
+
+.em-home-review-controls button[aria-label^="Go to review"],
+.em-home-review-controls button[aria-label^="Ir a la reseña"] {
+  width: 40px;
+  height: 40px;
+}
+
+.em-home-review-controls div:has(> button[aria-label^="Go to review"]),
+.em-home-review-controls div:has(> button[aria-label^="Ir a la reseña"]) {
+  gap: 0;
+}
+
+.em-home-review-controls [aria-roledescription="carousel"] > p a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  padding-inline: 4px;
+}

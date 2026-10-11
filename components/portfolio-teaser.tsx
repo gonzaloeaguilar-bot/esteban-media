@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-import { getFeaturedPortfolioItems, type PortfolioItem } from "@/lib/portfolio";
+import { getPortfolioItemById, type PortfolioItem } from "@/lib/portfolio";
+import { REAL_ESTATE_REELS, realEstateReelsPath } from "@/lib/real-estate-reels";
 import { HomePortfolioRail } from "@/components/home-portfolio-rail";
 
 type PortfolioTeaserProps = {
@@ -42,11 +43,16 @@ function getPoster(item: PortfolioItem) {
 }
 
 export function PortfolioTeaser({ locale }: PortfolioTeaserProps) {
-  const items = getFeaturedPortfolioItems(6).filter(
-    (item) => item.status === "live",
-  );
+  // Lead with work that reflects the three visible video routes, rather than
+  // the general portfolio's featured order (which starts with web projects).
+  const items = ["bar-door-monkey", "diana-jack"]
+    .map(getPortfolioItemById)
+    .filter((item): item is PortfolioItem => item?.status === "live");
   const isSpanish = locale === "es";
   const href = isSpanish ? "/es/portafolio" : "/portfolio";
+  const propertyReel = REAL_ESTATE_REELS.find(
+    (reel) => reel.id === "waterfront-tower-aerial",
+  ) ?? REAL_ESTATE_REELS[0];
 
   if (items.length === 0) {
     return null;
@@ -73,8 +79,8 @@ export function PortfolioTeaser({ locale }: PortfolioTeaserProps) {
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-7 text-[#c9c1b8]">
               {isSpanish
-                ? "Una muestra rápida de mi trabajo publicado: videos, sitios web y chatbots con IA para evaluar estilo, ritmo y calidad desde el inicio."
-                : "A fast look at my published work: videos, custom websites, and AI chatbots, so you can judge style, pace, and quality right away."}
+                ? "Mira un ejemplo inmobiliario, un video de negocio y una celebración antes de elegir qué necesitas."
+                : "Watch a property reel, a business video, and an event before choosing what you need."}
             </p>
           </div>
           <Link
@@ -99,7 +105,13 @@ export function PortfolioTeaser({ locale }: PortfolioTeaserProps) {
         <div className="em-on-dark em-cartel mt-8" data-em-reveal>
           <HomePortfolioRail
             locale={locale}
-            items={items.map((item) => {
+            items={[{
+              id: propertyReel.id,
+              href: realEstateReelsPath(locale),
+              title: isSpanish ? propertyReel.titleEs : propertyReel.title,
+              eyebrow: isSpanish ? "Video inmobiliario" : "Property video",
+              poster: propertyReel.poster,
+            }, ...items.map((item) => {
               const poster = getPoster(item);
               const targetHref =
                 item.category === "web-design"
@@ -115,7 +127,7 @@ export function PortfolioTeaser({ locale }: PortfolioTeaserProps) {
                 location: item.location,
                 poster,
               };
-            })}
+            })]}
           />
         </div>
       </div>

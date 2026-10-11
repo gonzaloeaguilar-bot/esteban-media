@@ -28,6 +28,8 @@ export function VideoBriefBuilder({
   const [clientPhone, setClientPhone] = useState<string>("");
   const [notes, setNotes] = useState<string>("");
   const [submitted, setSubmitted] = useState<boolean>(false);
+  const [submitting, setSubmitting] = useState<boolean>(false);
+  const [submitError, setSubmitError] = useState<boolean>(false);
 
   const projectTypeOptions = isEs
     ? [
@@ -73,6 +75,9 @@ export function VideoBriefBuilder({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (submitting) return;
+    setSubmitting(true);
+    setSubmitError(false);
     try {
       const response = await fetch("/api/lead", {
       method: "POST",
@@ -94,6 +99,9 @@ export function VideoBriefBuilder({
       setSubmitted(true);
     } catch (err) {
       console.error("Lead submission error:", err);
+      setSubmitError(true);
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -126,6 +134,7 @@ export function VideoBriefBuilder({
     setClientPhone("");
     setNotes("");
     setSubmitted(false);
+    setSubmitError(false);
   };
 
   // The data-section is what makes this tool's events attributable: without it
@@ -140,7 +149,7 @@ export function VideoBriefBuilder({
             {isEs ? "Planificador de Proyectos de Video" : "Interactive Video Brief Builder"}
           </span>
           <h3 className="mt-1 font-serif text-2xl font-semibold text-[#101214]">
-            {isEs ? "Define tu proyecto en 3 simples pasos" : "Scope your video project in 3 simple steps"}
+            {isEs ? "Define tu proyecto en 4 pasos" : "Describe your video project in 4 steps"}
           </h3>
         </div>
 
@@ -170,22 +179,15 @@ export function VideoBriefBuilder({
             <CheckCircle2 className="size-8" aria-hidden="true" />
           </div>
           <h4 className="mt-4 font-serif text-2xl font-semibold text-[#101214]">
-            {isEs ? "¡Brief de Proyecto Listo!" : "Project Brief Ready!"}
+            {isEs ? "Recibimos los datos de tu proyecto" : "We received your project details"}
           </h4>
           <p className="mx-auto mt-2 max-w-md text-sm text-[#252a2d]">
             {isEs
-              ? "Hemos estructurado la información de tu proyecto. Haz clic a continuación para enviar tu brief por correo a Esteban Moreno."
-              : "Your project scope has been structured. Click below to send your brief directly to Esteban Moreno."}
+              ? "Esteban puede revisar lo que enviaste y responder sobre el siguiente paso. No necesitas enviarlo otra vez."
+              : "Esteban can review what you sent and follow up about the next step. You do not need to send it again."}
           </p>
 
           <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <a
-              href={getMailtoUrl()}
-              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)]"
-            >
-              <Send className="size-4" aria-hidden="true" />
-              {isEs ? "Enviar Brief por Email" : "Send Brief via Email"}
-            </a>
             <button
               onClick={resetForm}
               type="button"
@@ -330,7 +332,7 @@ export function VideoBriefBuilder({
           {step === 4 && (
             <form onSubmit={handleSubmit} className="space-y-4">
               <p className="text-sm font-medium text-[#252a2d]">
-                {isEs ? "Paso 4: Ingresa tus datos de contacto para enviarte la propuesta" : "Step 4: Enter your contact details to receive your scoping quote"}
+                {isEs ? "Paso 4: Deja tus datos para que Esteban pueda responder" : "Step 4: Add your contact details so Esteban can reply"}
               </p>
 
               <div className="grid gap-4 sm:grid-cols-2">
@@ -388,6 +390,16 @@ export function VideoBriefBuilder({
                 />
               </div>
 
+              {submitError ? (
+                <div role="alert" className="rounded-xl border border-[#c84a2c] bg-[#fff3ed] p-4 text-sm leading-6 text-[#4d241a]">
+                  <p>{isEs ? "No pudimos recibir tu solicitud. Puedes intentar de nuevo o enviarla por correo." : "We could not receive your request. Try again or send it by email."}</p>
+                  <a href={getMailtoUrl()} className="mt-2 inline-flex min-h-11 items-center gap-2 font-medium underline underline-offset-4">
+                    {isEs ? "Enviar por correo" : "Send by email"}
+                    <ArrowRight className="size-4" aria-hidden="true" />
+                  </a>
+                </div>
+              ) : null}
+
               <div className="mt-6 flex justify-between">
                 <button
                   type="button"
@@ -398,10 +410,11 @@ export function VideoBriefBuilder({
                 </button>
                 <button
                   type="submit"
-                  className="inline-flex min-h-11 items-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)]"
+                  disabled={submitting}
+                  className="inline-flex min-h-11 items-center gap-2 whitespace-nowrap rounded-full bg-[var(--em-accent-ink)] px-5 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)] disabled:opacity-60"
                 >
                   <Send className="size-4" aria-hidden="true" />
-                  {isEs ? "Generar Brief de Proyecto" : "Generate Project Brief"}
+                  {submitting ? (isEs ? "Enviando…" : "Sending…") : (isEs ? "Enviar proyecto" : "Send my project")}
                 </button>
               </div>
             </form>

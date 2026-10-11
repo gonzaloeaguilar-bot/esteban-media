@@ -14,29 +14,34 @@ import { describe, expect, it } from "vitest";
  */
 const source = (p: string) => readFileSync(join(process.cwd(), p), "utf8");
 const HOMES = ["app/(english)/page.tsx", "app/(spanish)/es/page.tsx"] as const;
-const PROOF = ["<PortfolioTeaser", "<RealEstateReels", "<ClientReviews"] as const;
+const PROOF = ["<PortfolioTeaser", "<ClientReviews"] as const;
 
 describe("home — proof before pricing", () => {
-  it.each(HOMES)("%s renders the proof after the router and before the packages", (page) => {
+  it.each(HOMES)("%s shows work and reviews before the optional detail", (page) => {
     const src = source(page);
-    const router = src.indexOf("<AudienceRouter");
+    const hero = src.indexOf("<HeroVideo");
+    const path = src.indexOf("<HomeProjectPath");
+    const fold = src.indexOf("<KeepReading");
     const packages = src.indexOf("<PackagesSection");
-    expect(router).toBeGreaterThan(-1);
+    expect(hero).toBeGreaterThan(-1);
+    expect(path).toBeGreaterThan(hero);
+    expect(fold).toBeGreaterThan(path);
     expect(packages).toBeGreaterThan(-1);
 
     const present = PROOF.map((tag) => [tag, src.indexOf(tag)] as const).filter(([, i]) => i > -1);
     // The work and the reviews are on both homes; the reel shelf is optional.
     expect(present.map(([tag]) => tag)).toEqual(expect.arrayContaining(["<PortfolioTeaser", "<ClientReviews"]));
     for (const [tag, i] of present) {
-      expect(i, `${tag} must come after <AudienceRouter`).toBeGreaterThan(router);
-      expect(i, `${tag} must come before <PackagesSection`).toBeLessThan(packages);
+      expect(i, `${tag} must come after the hero`).toBeGreaterThan(hero);
+      expect(i, `${tag} must come before the long detail`).toBeLessThan(fold);
     }
+    expect(src.indexOf("<PortfolioTeaser")).toBeLessThan(path);
   });
 
-  it.each(HOMES)("%s keeps the packages outside and ahead of the reading-path fold", (page) => {
+  it.each(HOMES)("%s keeps full packages in server-rendered optional detail", (page) => {
     const src = source(page);
     const packages = src.indexOf("<PackagesSection");
     const fold = src.indexOf("<KeepReading");
-    expect(fold).toBeGreaterThan(packages);
+    expect(packages).toBeGreaterThan(fold);
   });
 });

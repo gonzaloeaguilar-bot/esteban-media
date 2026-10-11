@@ -120,25 +120,35 @@ export default function SpanishServicesPage() {
             Servicios en español
           </p>
           <h1 className="mt-4 max-w-4xl font-serif em-display">
-            Sistemas de growth que llevan una idea a un recorrido digital funcional.
+            ¿Necesitas video, un sitio web o más consultas para tu negocio?
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-            Empezamos por el resultado: más consultas calificadas, una presencia
-            local clara, menos seguimiento manual o una mejor forma de entender
-            qué funciona. Esteban Media combina web, captura medida, automatización
-            y producción creativa alrededor de un alcance confirmado.
+            Cuéntale a Esteban qué quieres lograr. Puede editar el material que
+            ya tienes, planificar una grabación en el sur de Florida o crear un
+            sitio web con una forma clara de atender nuevas consultas.
           </p>
-          <p className="mt-4 max-w-2xl leading-7 text-[#252a2d]">
-            ¿Buscas cuánto cuesta? En la{" "}
-            <Link
-              href="/es/precios"
-              className="font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#7f2f20]"
-            >
-              página de precios y paquetes
-            </Link>{" "}
-            está el precio de partida de cada paquete.
-          </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link href="/es/contacto" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)]">Contar mi proyecto <ArrowRight className="size-4" aria-hidden="true" /></Link>
+            <Link href="/es/precios" className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#101214]/30 px-6 text-sm font-medium text-[#101214] hover:bg-[#101214] hover:text-white">Ver precios iniciales</Link>
+          </div>
 
+          <nav className="mt-10 grid gap-3 md:grid-cols-3" aria-label="Elige lo que necesitas">
+            {[
+              { href: "#edicion", title: "Tengo videos para editar", detail: "Transforma tus clips en videos listos para publicar." },
+              { href: "#videografia", title: "Necesito una grabación", detail: "Planea una sesión local para una propiedad, negocio o evento." },
+              { href: "/es/diseno-web-fort-lauderdale", title: "Necesito un sitio web", detail: "Explora una web y una forma más clara de atender consultas." },
+            ].map((choice) => (
+              <Link key={choice.title} href={choice.href} className="group flex min-h-36 flex-col justify-between rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5 hover:border-[#e85d3e]">
+                <span className="font-serif text-2xl leading-tight">{choice.title}</span>
+                <span className="mt-3 text-sm leading-6 text-[#252a2d]">{choice.detail}</span>
+                <span className="mt-3 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27]">Ver cómo funciona <ArrowRight className="size-4" aria-hidden="true" /></span>
+              </Link>
+            ))}
+          </nav>
+
+          <details id="sistemas-para-negocios" className="mt-8 rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5">
+            <summary className="cursor-pointer font-serif text-2xl">¿Qué otros sistemas puede crear Esteban?</summary>
+            <p className="mt-2 text-sm leading-6 text-[#252a2d]">Sitios web, atención de consultas, presencia local, medición y automatización.</p>
           <section className="mt-12" aria-labelledby="sistemas-growth-heading">
             <p className="text-xs font-medium uppercase text-[#5a6066]">Sistemas de growth 0→1</p>
             <h2 id="sistemas-growth-heading" className="mt-4 max-w-3xl font-serif text-4xl leading-tight">
@@ -167,6 +177,7 @@ export default function SpanishServicesPage() {
               Explorar el trabajo actual de sitios web y captura con IA <ArrowRight className="size-4" aria-hidden="true" />
             </Link>
           </section>
+          </details>
 
           <div className="mt-10 grid gap-4 md:grid-cols-2">
             {spanishServices.map((service) => {
@@ -210,33 +221,20 @@ export default function SpanishServicesPage() {
                     />
                     {service.detail}
                   </p>
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    {service.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full border border-[#ddd4c8] px-3 py-1 text-xs uppercase text-[#5a6066]"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
                   {service.id === "diseno-web" || service.id === "website-design" ? (
                     <Link
                       href="/es/diseno-web-fort-lauderdale"
-                      className="group mt-6 block rounded-lg border border-[#c84a2c] bg-[var(--em-accent-ink)] p-5 text-white shadow-sm transition hover:bg-[var(--em-accent-ink-hover)]"
+                      className="group mt-6 block rounded-md border border-[#ddd4c8] bg-white/50 p-4 hover:border-[#e85d3e]"
                     >
-                      <span className="text-xs font-bold uppercase tracking-wider text-[#f0b384]">
-                        Centro Destacado de Diseño Web & IA
+                      <span className="text-xs font-medium uppercase text-[#5a6066]">
+                        Servicios web
                       </span>
-                      <span className="mt-2 flex items-center justify-between gap-3 font-serif text-xl font-bold text-white">
-                        Explorar Centro de Diseño Web & Chatbots con IA
+                      <span className="mt-2 flex items-center justify-between gap-3 font-serif text-xl">
+                        Ver sitios web y chatbots
                         <ArrowRight
-                          className="size-5 shrink-0 transition-transform group-hover:translate-x-1"
+                          className="size-4 shrink-0 text-[#9f3c27] transition-transform group-hover:translate-x-0.5"
                           aria-hidden="true"
                         />
-                      </span>
-                      <span className="mt-2 block text-sm leading-6 text-[#f6f1ea]">
-                        Ver aplicaciones web personalizadas, motores para concesionarios y chatbots de captura con IA para TitanForge, Geebs, FLAS y Frontline Auto.
                       </span>
                     </Link>
                   ) : proof ? (
@@ -267,6 +265,9 @@ export default function SpanishServicesPage() {
           {/* Un respiro entre dos tramos largos de texto. */}
           <ServicesScene locale="es" />
 
+          <details id="como-trabajamos" className="mt-12 rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5">
+            <summary className="cursor-pointer font-serif text-2xl">¿Cómo funciona el trabajo remoto o en locación?</summary>
+            <p className="mt-2 text-sm leading-6 text-[#252a2d]">Compara ambas formas de trabajar y las preguntas que definen cada proyecto.</p>
           <section className="mt-14" aria-labelledby="modalidad-heading">
             <p className="text-xs font-medium uppercase text-[#5a6066]">
               Remoto o en locación
@@ -355,10 +356,15 @@ export default function SpanishServicesPage() {
               ))}
             </ul>
           </section>
+          </details>
 
-          <div className="mt-12">
+          <details id="guia-para-mi-video" className="mt-12 rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5">
+            <summary className="cursor-pointer font-serif text-2xl">¿Prefieres definir tu video paso a paso?</summary>
+            <p className="mt-2 text-sm leading-6 text-[#252a2d]">Responde cuatro preguntas sobre material, formato y datos de contacto.</p>
+          <div className="mt-6">
             <VideoBriefBuilder locale="es" />
           </div>
+          </details>
 
           <div className="mt-14 rounded-lg bg-[#101214] p-6 text-[#f6f1ea] sm:p-8">
             <h2 className="font-serif text-4xl">¿No sabes cuál servicio encaja?</h2>

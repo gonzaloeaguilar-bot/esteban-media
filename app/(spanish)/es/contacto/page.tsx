@@ -1,20 +1,8 @@
 import Link from "next/link";
-import {
-  ArrowRight,
-  Calculator,
-  HelpCircle,
-  Mail,
-  MapPin,
-  MessageCircle,
-  MessageSquareText,
-  Phone,
-  Send,
-} from "lucide-react";
-
-import { whatsappHref } from "@/lib/packages";
+import { Mail, MessageCircle } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { VideoBriefBuilder } from "@/components/video-brief-builder";
-import { spanishServices, spanishSite } from "@/lib/spanish-site";
+import { whatsappHref } from "@/lib/packages";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -68,316 +56,53 @@ export default async function SpanishContactPage({
   searchParams: Promise<{ source?: string }>;
 }) {
   const { source } = await searchParams;
-  const leadSource =
-    source === PEMBROKE_PINES_SOURCE ? PEMBROKE_PINES_SOURCE : "brief-builder";
-
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "ContactPage",
-        "@id": absoluteUrl("/es/contacto#webpage"),
-        url: absoluteUrl("/es/contacto"),
-        name: "Contacto en Español | Esteban Moreno Media",
-        description: contactDescriptionEs,
-        isPartOf: { "@id": absoluteUrl("/#website") },
-        inLanguage: "es-US",
-      },
-      {
-        "@type": "FAQPage",
-        "@id": absoluteUrl("/es/contacto#faq"),
-        inLanguage: "es-US",
-        isPartOf: { "@id": absoluteUrl("/#website") },
-        mainEntity: faqs.map((faq) => ({
-          "@type": "Question",
-          name: faq.question,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: faq.answer,
-          },
-        })),
-      },
-    ],
-  };
-
+  const leadSource = source === PEMBROKE_PINES_SOURCE ? PEMBROKE_PINES_SOURCE : "brief-builder";
+  const jsonLd = { "@context": "https://schema.org", "@graph": [
+    { "@type": "ContactPage", "@id": absoluteUrl("/es/contacto#webpage"), url: absoluteUrl("/es/contacto"), name: "Contacto en Español | Esteban Moreno Media", description: contactDescriptionEs, inLanguage: "es-US" },
+    { "@type": "FAQPage", "@id": absoluteUrl("/es/contacto#faq"), inLanguage: "es-US", mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })) },
+  ] };
   return (
     <main className="bg-[#f6f1ea] text-[#101214]">
-      <script
-        type="application/ld+json"
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <section className="py-12 sm:py-16">
+      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <section className="py-8 sm:py-14">
         <Container size="xl">
-          <nav aria-label="Breadcrumbs" className="mb-8 text-sm text-[#5a6066]">
-            <ol className="flex flex-wrap items-center gap-2">
-              <li>
-                <Link href="/es" className="hover:text-[#9f3c27]">
-                  Inicio
-                </Link>
-              </li>
-              <li aria-hidden="true">/</li>
-              <li aria-current="page" className="text-[#252a2d]">
-                Contacto
-              </li>
-            </ol>
-          </nav>
-          <div className="grid gap-10 lg:grid-cols-[1fr_.9fr]">
-            <div>
-              <p className="text-xs font-medium uppercase text-[#5a6066]">
-                Consulta directa
-              </p>
-              <h1 className="mt-4 max-w-3xl font-serif em-display">
-                Manda el brief en español.
-              </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-                {spanishSite.contactLead}
-              </p>
-              <p className="mt-4 max-w-2xl text-sm leading-6 text-[#5a6066]">
-                <Link
-                  href="/es"
-                  className="underline underline-offset-4 hover:text-[#9f3c27]"
-                >
-                  Esteban Moreno Media
-                </Link>{" "}
-                es un negocio de área de servicio en Fort Lauderdale con
-                atención remota. No hay un estudio abierto al público. Las
-                consultas pueden comenzar por WhatsApp, teléfono, email o Instagram, y la
-                disponibilidad local se considera para cada proyecto.
-              </p>
-
-              <div className="mt-8 grid gap-3">
-                {/* WhatsApp first: every package CTA on this site already sends people
-                    here, and the contact page — the one page whose whole job is contact —
-                    was the only place that did not offer it. */}
-                <a
-                  href={whatsappHref(site.phone.e164, 'Hola Esteban, quiero hablar de un proyecto.')}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-cta="contact_whatsapp"
-                  className="flex min-h-16 items-center gap-4 rounded-lg border border-[#c84a2c] bg-[#fff4ee] p-4 hover:border-[#9f3c27]"
-                >
-                  <MessageCircle className="size-5 text-[#9f3c27]" aria-hidden="true" />
-                  <span>
-                    <span className="block text-xs uppercase text-[#5a6066]">
-                      WhatsApp · Respuesta más rápida
-                    </span>
-                    <span>{site.phone.display}</span>
-                  </span>
-                </a>
-                <a
-                  href={`mailto:${site.email}`}
-                  className="flex min-h-16 items-center gap-4 rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-4 hover:border-[#e85d3e]"
-                >
-                  <Mail className="size-5 text-[#e85d3e]" aria-hidden="true" />
-                  <span>
-                    <span className="block text-xs uppercase text-[#5a6066]">
-                      Email
-                    </span>
-                    <span>{site.email}</span>
-                  </span>
-                </a>
-                <a
-                  href={site.phone.href}
-                  className="flex min-h-16 items-center gap-4 rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-4 hover:border-[#e85d3e]"
-                >
-                  <Phone className="size-5 text-[#e85d3e]" aria-hidden="true" />
-                  <span>
-                    <span className="block text-xs uppercase text-[#5a6066]">
-                      Teléfono
-                    </span>
-                    <span>{site.phone.display}</span>
-                  </span>
-                </a>
-                <a
-                  href={site.instagram}
-                  className="flex min-h-16 items-center gap-4 rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-4 hover:border-[#e85d3e]"
-                >
-                  <Send
-                    className="size-5 text-[#e85d3e]"
-                    aria-hidden="true"
-                  />
-                  <span>
-                    <span className="block text-xs uppercase text-[#5a6066]">
-                      Instagram
-                    </span>
-                    <span>@steeban1</span>
-                  </span>
-                </a>
-              </div>
-            </div>
-
-            <div className="space-y-6">
-              <VideoBriefBuilder locale="es" source={leadSource} />
-
-              <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
-                <MessageSquareText
-                  className="size-6 text-[#e85d3e]"
-                  aria-hidden="true"
-                />
-                <h2 className="mt-5 font-serif text-3xl">Qué incluir</h2>
-                <ul className="mt-6 space-y-4 text-sm leading-6 text-[#252a2d]">
-                  <li>
-                    <strong className="text-[#101214]">Tipo de proyecto:</strong>{" "}
-                    {spanishServices.map((service) => service.shortName).join(", ")}.
-                  </li>
-                  <li>
-                    <strong className="text-[#101214]">Ciudad:</strong> Miami,
-                    Fort Lauderdale, Palm Beach County, venue, propiedad o
-                    dirección si ya existe. Antes de pedir trabajo en locación,
-                    revisa las{" "}
-                    <Link
-                      href="/es/areas"
-                      className="underline underline-offset-4 hover:text-[#9f3c27]"
-                    >
-                      áreas de servicio
-                    </Link>{" "}
-                    y comparte cualquier detalle de acceso que pueda afectar el
-                    alcance.
-                  </li>
-                  <li>
-                    <strong className="text-[#101214]">Fecha:</strong> día de
-                    rodaje o entrega de edición.
-                  </li>
-                  <li>
-                    <strong className="text-[#101214]">Resultado:</strong> dónde
-                    se publica el material y qué resultado comercial buscas.
-                  </li>
-                </ul>
-              </div>
-            </div>
+          <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">Contacto</p>
+          <h1 className="mt-3 max-w-3xl font-serif text-4xl leading-tight sm:text-6xl">Cuéntale a Esteban sobre tu video.</h1>
+          <p className="mt-3 max-w-2xl text-base leading-7 text-[#3f4548]">Envía un mensaje breve: qué necesitas, para cuándo y si ya tienes material grabado.</p>
+          <div className="mt-6 grid gap-3 sm:grid-cols-2">
+            <a href={whatsappHref(site.phone.e164, "Hola Esteban, vi tu página y quiero hablar sobre un proyecto de video.")} target="_blank" rel="noopener noreferrer" data-cta="contact_whatsapp" data-section="contact" className="flex min-h-14 items-center justify-center gap-3 rounded-full bg-[#c84a2c] px-5 text-sm font-medium text-white hover:bg-[#a93e29]"><MessageCircle className="size-5" aria-hidden="true" /> Escribir por WhatsApp</a>
+            <a href={`mailto:${site.email}`} data-cta="contact_email_es" data-section="contact" className="flex min-h-14 items-center justify-center gap-3 rounded-full border border-[#b9aa9a] px-5 text-sm font-medium text-[#252a2d] hover:border-[#c84a2c]"><Mail className="size-5" aria-hidden="true" /> Enviar un email</a>
           </div>
-        </Container>
-      </section>
-
-      <section className="border-t border-[#ddd4c8] py-12 sm:py-16">
-        <Container size="xl">
-          <div className="mx-auto max-w-4xl">
-            <p className="text-xs font-medium uppercase text-[#5a6066]">
-              Guía de preparación del proyecto
-            </p>
-            <h2 className="mt-3 font-serif text-3xl sm:text-4xl">
-              Prepara los detalles de tu proyecto antes de enviar.
-            </h2>
-            <div className="mt-8 space-y-6 text-base leading-8 text-[#252a2d]">
-              <p>
-                Organizar el contexto de tu video antes de comenzar la edición
-                ahorra tiempo y evita dudas. Ya sea que necesites reels
-                verticales para redes sociales o cortes horizontales para tu
-                sitio web, contar con archivos claros y objetivos definidos
-                asegura un inicio ágil.
-              </p>
-              <p>
-                Revisa nuestras guías prácticas para optimizar tu entrega:
-                aprende{" "}
-                <Link
-                  href="/es/guias/como-escribir-un-brief-util-de-video"
-                  className="underline underline-offset-4 hover:text-[#9f3c27]"
-                >
-                  cómo escribir un brief útil de video
-                </Link>
-                , consulta{" "}
-                <Link
-                  href="/es/guias/preparar-material-para-edicion-de-video"
-                  className="underline underline-offset-4 hover:text-[#9f3c27]"
-                >
-                  cómo preparar material para edición
-                </Link>
-                , y sigue nuestras recomendaciones para una{" "}
-                <Link
-                  href="/es/guias/entrega-para-edicion-remota-de-video"
-                  className="underline underline-offset-4 hover:text-[#9f3c27]"
-                >
-                  entrega para edición remota de video
-                </Link>
-                .
-              </p>
+          <p className="mt-3 text-sm text-[#5a6066]">O llama al <a href={site.phone.href} className="inline-flex min-h-11 items-center underline underline-offset-4">{site.phone.display}</a>.</p>
+          <details className="mt-8 border-t border-[#d6ccc0] pt-5">
+            <summary className="flex min-h-11 cursor-pointer items-center font-medium text-[#9f3c27] underline underline-offset-4">¿Qué información conviene enviar?</summary>
+            <div className="mt-5 max-w-2xl space-y-3 text-sm leading-6 text-[#3f4548]">
+              <p>Indica el tipo de proyecto, la ciudad si necesitas grabación, la fecha deseada y dónde se publicará el video. Si ya tienes material, cuenta qué tienes.</p>
+              <p>Esteban Moreno Media hace edición a distancia y considera cada grabación en el sur de Florida según el proyecto. No tiene un estudio abierto al público.</p>
             </div>
-
-            <div className="mt-8 grid gap-6 sm:grid-cols-2">
-              <Link
-                href="/es/calculadora"
-                className="group rounded-xl border border-[#ddd4c8] bg-[#fbf6ef] p-6 transition hover:border-[#e85d3e]"
-              >
-                <Calculator
-                  className="size-6 text-[#e85d3e]"
-                  aria-hidden="true"
-                />
-                <h3 className="mt-4 font-serif text-2xl">
-                  Calculadora de presupuesto
-                </h3>
-                <p className="mt-2 text-sm leading-6 text-[#5a6066]">
-                  Estima rangos de costos y variables de alcance en línea antes
-                  de enviar tu consulta.
-                </p>
-                <span className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold uppercase text-[#9f3c27] group-hover:underline">
-                  Calcular presupuesto
-                  <ArrowRight className="size-3.5" aria-hidden="true" />
-                </span>
-              </Link>
-
-              <Link
-                href="/es/areas"
-                className="group rounded-xl border border-[#ddd4c8] bg-[#fbf6ef] p-6 transition hover:border-[#e85d3e]"
-              >
-                <MapPin
-                  className="size-6 text-[#e85d3e]"
-                  aria-hidden="true"
-                />
-                <h3 className="mt-4 font-serif text-2xl">
-                  Áreas de servicio y cobertura
-                </h3>
-                <p className="mt-2 text-sm leading-6 text-[#5a6066]">
-                  Consulta opciones de postproducción remota y cobertura selectiva
-                  para rodajes en el sur de la Florida.
-                </p>
-                <span className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold uppercase text-[#9f3c27] group-hover:underline">
-                  Ver áreas de servicio
-                  <ArrowRight className="size-3.5" aria-hidden="true" />
-                </span>
-              </Link>
+          </details>
+          <details className="mt-5 border-t border-[#d6ccc0] pt-5">
+            <summary className="flex min-h-11 cursor-pointer items-center font-medium text-[#9f3c27] underline underline-offset-4">Guías para preparar tu proyecto</summary>
+            <div className="mt-5 max-w-2xl space-y-3 text-sm leading-6 text-[#3f4548]">
+              <p>La <Link href="/es/guias/como-escribir-un-brief-util-de-video" className="underline">guía para escribir un brief</Link> te ayuda a explicar el público, la plataforma, la fecha y el formato de entrega. La <Link href="/es/guias/preparar-material-para-edicion-de-video" className="underline">guía para preparar el material</Link> sirve para reunir clips y archivos antes de empezar la edición.</p>
+              <p>Si el trabajo será a distancia, consulta la <Link href="/es/guias/entrega-para-edicion-remota-de-video" className="underline">guía de entrega remota</Link> para organizar archivos y comentarios. También puedes visitar la <Link href="/es/calculadora" className="underline">calculadora de presupuesto</Link> y revisar las <Link href="/es/areas" className="underline">áreas de servicio</Link> antes de escribir.</p>
             </div>
-          </div>
-        </Container>
-      </section>
-
-      <section className="border-t border-[#ddd4c8] bg-[#fbf6ef] py-12 sm:py-16">
-        <Container size="xl">
-          <div className="grid gap-8 lg:grid-cols-[.8fr_1fr]">
-            <div>
-              <p className="text-xs font-medium uppercase text-[#5a6066]">
-                Preguntas frecuentes
-              </p>
-              <h2 className="mt-4 font-serif text-4xl leading-tight">
-                Preguntas comunes antes de iniciar un proyecto.
-              </h2>
-              <p className="mt-4 text-sm leading-6 text-[#5a6066]">
-                Respuestas sobre entrega de archivos, atención en español y
-                alcance de servicio.
-              </p>
-            </div>
-            <div className="grid gap-4">
-              {faqs.map((faq) => (
-                <article
-                  key={faq.question}
-                  className="rounded-lg border border-[#ddd4c8] bg-[#f6f1ea] p-6"
-                >
-                  <div className="flex items-start gap-3">
-                    <HelpCircle
-                      className="mt-1 size-5 shrink-0 text-[#9f3c27]"
-                      aria-hidden="true"
-                    />
-                    <h3 className="font-serif text-2xl leading-tight">
-                      {faq.question}
-                    </h3>
-                  </div>
-                  <p className="mt-3 text-sm leading-6 text-[#252a2d]">
-                    {faq.answer}
-                  </p>
-                </article>
+          </details>
+          <details className="mt-5 border-t border-[#d6ccc0] pt-5">
+            <summary className="flex min-h-11 cursor-pointer items-center font-medium text-[#9f3c27] underline underline-offset-4">Preguntas frecuentes</summary>
+            <div className="mt-5 max-w-3xl space-y-5">
+              {faqs.map((item) => (
+                <section key={item.question}>
+                  <h2 className="font-serif text-xl">{item.question}</h2>
+                  <p className="mt-2 text-sm leading-6 text-[#3f4548]">{item.answer}</p>
+                </section>
               ))}
             </div>
-          </div>
+          </details>
+          <details className="mt-5 border-t border-[#d6ccc0] pt-5">
+            <summary className="flex min-h-11 cursor-pointer items-center font-medium text-[#9f3c27] underline underline-offset-4">Preparar un brief más detallado</summary>
+            <div className="mt-5 max-w-2xl"><VideoBriefBuilder locale="es" source={leadSource} /></div>
+          </details>
         </Container>
       </section>
     </main>
