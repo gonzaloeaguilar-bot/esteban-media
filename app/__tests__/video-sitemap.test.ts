@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import robots from "../robots";
 import { GET } from "../video-sitemap.xml/route";
+import videoInventory from "@/config/video-sitemap-inventory.json";
 
 import {
   getPortfolioWatchItems,
@@ -23,8 +24,17 @@ describe("video sitemap", () => {
     const localizedVideoCount = getPortfolioWatchItems().filter(
       (item) => item.media.kind === "youtube",
     ).length * 2;
+    expect(getPortfolioWatchItems().filter((item) => item.media.kind === "youtube").map((item) => item.id).sort()).toEqual(
+      [...videoInventory.videoPortfolioIds].sort(),
+    );
     expect(xml.match(/<url>/g)).toHaveLength(localizedVideoCount);
     expect(xml.match(/<video:video>/g)).toHaveLength(localizedVideoCount);
+    const actualUrls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]).sort();
+    const expectedUrls = videoInventory.videoPortfolioIds.flatMap((id) => [
+      `https://estebanmorenomedia.com/portfolio/${id}`,
+      `https://estebanmorenomedia.com/es/portafolio/${id}`,
+    ]).sort();
+    expect(actualUrls).toEqual(expectedUrls);
 
     for (const item of getPortfolioWatchItems()) {
       if (item.media.kind !== "youtube") continue;

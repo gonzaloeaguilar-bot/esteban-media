@@ -416,12 +416,13 @@ try {
   const watchUrlSet = new Set(watchUrls.map((url) => new URL(url).toString()));
   const videoPathnames = videoUrls.map((url) => new URL(url).pathname);
   verifyLocalizedPairs(videoPathnames, "/portfolio/", "/es/portafolio/", "video inventory");
-  const expectedVideoUrls = new Set((await Promise.all(watchPathnames.map(async (pathname) => {
-    const { html } = await fetchHtml(pathname);
-    return /<iframe\b[^>]*\bsrc="https:\/\/www\.youtube-nocookie\.com\/embed\//i.test(html)
-      ? new URL(pathname, canonicalOrigin).toString()
-      : null;
-  }))).filter(Boolean));
+  const videoInventory = JSON.parse(
+    await readFile(new URL("../config/video-sitemap-inventory.json", import.meta.url), "utf8"),
+  );
+  const expectedVideoUrls = new Set(videoInventory.videoPortfolioIds.flatMap((id) => [
+    `${canonicalOrigin}/portfolio/${id}`,
+    `${canonicalOrigin}/es/portafolio/${id}`,
+  ]));
   if (
     videoUrlSet.size !== videoUrls.length ||
     [...videoUrlSet].some((url) => !watchUrlSet.has(url)) ||
