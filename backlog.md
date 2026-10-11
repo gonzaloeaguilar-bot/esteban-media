@@ -1,5 +1,8 @@
 # Esteban Moreno Media — Backlog
 
+- [x] 2026-10-11: release EN/ES Miami restaurant search copy and contextual links to existing Fort Lauderdale production/Reels pages. PR #353 merged; exact-head CI and Cortex evidence green; production HTML/mobile/IndexNow verified. See `esteban-local-keyword-demand-gaps-2026-10-11` in the client vault.
+- [ ] 2026-11-08: compare 28-day GSC clicks, impressions, and query-to-page routing for `restaurant promo video editing miami`, `video para restaurantes miami`, `fort lauderdale video production`, and EN/ES Reels terms; check qualified leads before calling the release an outcome win.
+
 - [x] Implement the bilingual food/places creator service pair locally, with reciprocal links, package-derived prices, FAQ schema and sitemap/watch-list registration.
 - [ ] 2026-10-21: compare GSC impressions/clicks and qualified inquiries for both food/places creator URLs (14 and 28 days after publication).
 
