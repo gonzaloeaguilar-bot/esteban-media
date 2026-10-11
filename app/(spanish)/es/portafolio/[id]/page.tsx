@@ -40,8 +40,11 @@ export async function generateMetadata({
   const posterUrl = getPoster(item) ?? "";
 
   return buildPageMetadata({
-    title: copy.title,
+    // Localised so the EN/ES watch pages stop sharing one <title> (9
+    // duplicate titles, SEO/GEO audit 2026-10-10, fix 12).
+    title: `Portafolio: ${copy.title}`,
     description: copy.summary,
+    descriptionMax: 155,
     path,
     locale: "es",
     languages: getPortfolioWatchLanguages(item.id),

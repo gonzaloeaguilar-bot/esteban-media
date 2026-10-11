@@ -5,6 +5,10 @@ import { buildGuideStructuredData, getGuides } from "@/lib/guides";
 import { isConsolidatedPath } from "@/lib/consolidation";
 import * as depthContent from "@/lib/service-depth-content";
 import { ServiceLandingDirectory } from "@/components/service-landing-directory";
+import { getPortfolioWatchItems } from "@/lib/portfolio-watch";
+import { buildPageMetadata, shouldDropBrandSuffix } from "@/lib/site-metadata";
+import { generateMetadata as enWatchMetadata } from "../(english)/portfolio/[id]/page";
+import { generateMetadata as esWatchMetadata } from "../(spanish)/es/portafolio/[id]/page";
 import { join } from "node:path";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
@@ -117,6 +121,36 @@ describe("English hubs and related cards never link a consolidated page (fix 5)"
       )
       .filter((entry) => !/^(SOCIAL_BATCHING|YOUTUBE_EDITING|ECOMMERCE_VIDEO)_DEPTH/.test(entry));
     expect(offenders).toEqual([]);
+  });
+});
+
+describe("title and description length (fix 12)", () => {
+  it("drops the brand suffix only when the branded title would pass 60 characters", () => {
+    const short = buildPageMetadata({ title: "Short title", description: "d", path: "/x", locale: "en" });
+    expect(short.title).toBe("Short title");
+
+    const long = "A title that is long enough to overflow";
+    const built = buildPageMetadata({ title: long, description: "d", path: "/x", locale: "en" });
+    expect(built.title).toEqual({ absolute: long });
+    expect((built.openGraph as { title: string }).title).toBe(long);
+  });
+
+  it("keeps the suffix on parity-pinned top-level Spanish routes", () => {
+    const long = "Un título bastante largo para pasar el límite";
+    expect(shouldDropBrandSuffix(long, "/es/algo", "es")).toBe(false);
+    expect(shouldDropBrandSuffix(long, "/es/portafolio/algo", "es")).toBe(true);
+  });
+
+  it("localises Spanish portfolio titles and trims watch-page descriptions to 155", async () => {
+    for (const item of getPortfolioWatchItems()) {
+      const es = await esWatchMetadata({ params: Promise.resolve({ id: item.id }) });
+      const en = await enWatchMetadata({ params: Promise.resolve({ id: item.id }) });
+      const esTitle = typeof es.title === "string" ? es.title : (es.title as { absolute: string }).absolute;
+      expect(esTitle.startsWith("Portafolio: ")).toBe(true);
+      expect(es.title).not.toEqual(en.title);
+      expect(es.description!.length).toBeLessThanOrEqual(155);
+      expect(en.description!.length).toBeLessThanOrEqual(155);
+    }
   });
 });
 

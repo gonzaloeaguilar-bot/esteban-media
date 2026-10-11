@@ -19,11 +19,13 @@ function wordCount(markup: string) {
 describe("Yacht Hospitality Video Fort Lauderdale depth, guide links, and FAQPage schema", () => {
   it("renders substantive English yacht hospitality video page with guidance, links, and FAQPage JSON-LD", () => {
     // Metadata check
-    expect(enMetadata.title).toBe(
-      "Yacht Hospitality Video Fort Lauderdale | Marine Editing",
-    );
-    expect(enMetadata.title?.toString().length).toBeGreaterThanOrEqual(50);
-    expect(enMetadata.title?.toString().length).toBeLessThanOrEqual(60);
+    // Over 60 characters with the brand suffix, so it renders unbranded (fix 12).
+    expect(enMetadata.title).toEqual({
+      absolute: "Yacht Hospitality Video Fort Lauderdale | Marine Editing",
+    });
+    const enTitleText = (enMetadata.title as { absolute: string }).absolute;
+    expect(enTitleText.length).toBeGreaterThanOrEqual(50);
+    expect(enTitleText.length).toBeLessThanOrEqual(60);
     expect(enMetadata.description).toBe(
       "Fort Lauderdale yacht video editing and promotional marine post-production. Turn charter, broker, and waterfront hospitality footage into engaging video.",
     );
