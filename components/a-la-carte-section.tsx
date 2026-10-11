@@ -51,7 +51,7 @@ export function ALaCarteSection({ locale }: { locale: Locale }) {
             <h3 id={`carte-${item.id}-title`} className="sr-only">{item.title}</h3>
             <RailDisclosure source={`carte-${item.id}`} className="em-carte-disclosure" summary={<>
               <span className="em-carte-art" aria-hidden="true">
-                <Image src={scene.image} alt="" width={1536} height={1024} sizes="(min-width: 1024px) 400px, (min-width: 600px) 50vw, 44vw" />
+                <Image src={scene.image} alt="" width={1536} height={1024} sizes="(min-width: 1024px) 190px, (min-width: 600px) 230px, 264px" />
                 <span className="em-carte-effect"><i /><i /><i /></span>
               </span>
               <span className="em-carte-copy">

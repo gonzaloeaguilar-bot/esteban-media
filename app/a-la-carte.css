@@ -1,29 +1,32 @@
 /* Esteban's tactile service collection. Disclosure behavior stays in Rail. */
-.em-carte{padding:60px 0 48px;background:#f7f0e6;color:#172322;scroll-margin-top:100px}
+/* Compact collection (2026-10-10): every illustration stays, as a smaller
+   thumbnail beside its name, so the six fit in two rows on desktop and one
+   contained swipe row on phones. */
+.em-carte{padding:48px 0 40px;background:#f7f0e6;color:#172322;scroll-margin-top:100px}
 .em-carte-intro{max-width:720px}
-.em-carte-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;list-style:none;padding:0;margin:30px 0 0;align-items:start}
-.em-carte-card{min-width:0;background:#fffaf3;border:1px solid #d6cabc;border-radius:20px;overflow:hidden;box-shadow:0 5px 0 #e6dacb}
+.em-carte-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;list-style:none;padding:0;margin:24px 0 0;align-items:start}
+.em-carte-card{position:relative;min-width:0;background:#fffaf3;border:1px solid #d6cabc;border-radius:16px;overflow:hidden;box-shadow:0 4px 0 #e6dacb}
 .em-carte-disclosure{padding:0;margin:0;border:0;border-radius:0;background:transparent}
 .em-carte-disclosure .rail-disclosure__head{padding:0;border:0}
 .em-carte-disclosure .rail-disclosure__toggle{display:block;width:100%;padding:0;border:0;border-radius:0;background:transparent;color:inherit;text-align:left;cursor:pointer;touch-action:pan-y}
-.em-carte-disclosure .rail-disclosure__summary{display:block;width:100%;white-space:normal}
+.em-carte-disclosure .rail-disclosure__summary{display:grid;grid-template-columns:46% minmax(0,1fr);align-items:center;width:100%;white-space:normal}
 .em-carte-disclosure .rail-disclosure__chevron{display:none}
-.em-carte-art{display:block;position:relative;overflow:hidden;background:#f4eade;isolation:isolate}
+.em-carte-art{display:block;position:relative;overflow:hidden;background:#f4eade;isolation:isolate;border-radius:12px;margin:12px 0 12px 12px}
 .em-carte-art img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:contain;transform-origin:50% 70%}
-.em-carte-copy{display:flex;flex-direction:column;padding:18px 20px 12px;gap:10px;min-height:177px}
-.em-carte-title{font:25px/1.16 var(--font-serif,Georgia,serif);letter-spacing:-.02em}
-.em-carte-note{font-size:14px;font-weight:400;line-height:1.5;color:#655b53}
-.em-carte-hint{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:44px;font-size:14px;line-height:1.4;color:#5b5046;margin-top:auto}
+.em-carte-copy{display:flex;flex-direction:column;padding:12px 14px 6px;gap:4px;min-height:132px}
+.em-carte-title{font:20px/1.18 var(--font-serif,Georgia,serif);letter-spacing:-.02em}
+.em-carte-note{font-size:13px;font-weight:400;line-height:1.45;color:#655b53}
+.em-carte-hint{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:36px;font-size:13px;line-height:1.4;color:#5b5046;margin-top:auto}
 .em-carte-hint svg{flex-shrink:0}
 .em-carte-disclosure[data-rail-open] .em-carte-hint svg{transform:rotate(45deg)}
 .em-carte-disclosure .rail-disclosure__panel{padding:0}
 .em-carte-disclosure .rail-disclosure__panel[hidden]{display:none}
-.em-carte-preparation{padding:16px 20px;background:#e7eee6;border-top:1px solid #cbd7c8}
-.em-carte-preparation p{margin:0;font-size:16px;line-height:1.55;color:#233b31}
-.em-carte-link{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:49px;margin:0 20px;padding:12px 0;color:#9f3c27;border-top:1px solid #ded3c5;text-decoration:none;font-size:15px;font-weight:600;line-height:1.4}
+.em-carte-preparation{padding:14px 16px;background:#e7eee6;border-top:1px solid #cbd7c8}
+.em-carte-preparation p{margin:0;font-size:15px;line-height:1.5;color:#233b31}
+.em-carte-link{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:44px;margin:0 14px;padding:10px 0;color:#9f3c27;border-top:1px solid #ded3c5;text-decoration:none;font-size:14px;font-weight:600;line-height:1.4}
 .em-carte-link svg{flex-shrink:0}
 .em-carte :is(button,a):focus-visible{outline:3px solid #9f3c27;outline-offset:-4px;border-radius:8px}
-.em-carte-credit{margin:24px 0 0;font-size:12px;line-height:1.6;color:#685b51}
+.em-carte-credit{margin:18px 0 0;font-size:12px;line-height:1.6;color:#685b51}
 .em-carte-credit time{white-space:nowrap}
 .em-carte-effect{position:absolute;inset:0;pointer-events:none;opacity:0}
 .em-carte-disclosure[data-rail-open] .em-carte-effect{opacity:1}
@@ -39,17 +42,19 @@
 .em-carte-card[data-kind=connect] .em-carte-effect i:nth-child(2){left:48%}
 .em-carte-card[data-kind=connect] .em-carte-effect i:nth-child(3){left:72%}
 @media(max-width:1023px){.em-carte-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* Phones: one swipe row. The overflow stays inside the list (the page never
+   scrolls sideways), the next card peeks in, and each card snaps to the gutter. */
 @media(max-width:599px){
- .em-carte{padding:42px 0}
- .em-carte-grid{grid-template-columns:1fr;gap:18px;margin-top:24px}
- .em-carte-disclosure .rail-disclosure__summary{display:grid;grid-template-columns:44% minmax(0,1fr);align-items:center}
- .em-carte-art{border-radius:12px;margin:10px 0 10px 10px}
- .em-carte-copy{padding:15px 14px 7px;gap:6px;min-height:170px}
- .em-carte-title{font-size:21px;line-height:1.16}
- .em-carte-note{font-size:13px;line-height:1.45}
- .em-carte-hint{font-size:13px;min-height:38px}
- .em-carte-link{margin:0 16px}
- .em-carte-preparation{padding:15px 16px}
+ .em-carte{padding:36px 0 32px}
+ .em-carte-grid{position:relative;display:flex;gap:12px;margin:20px -16px 0;padding:2px 16px 14px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scroll-padding-inline:16px;scrollbar-width:thin;scrollbar-color:#cdbfae transparent}
+ .em-carte-card{flex:0 0 min(68vw,264px);scroll-snap-align:start}
+ .em-carte-disclosure .rail-disclosure__toggle{touch-action:manipulation}
+ .em-carte-disclosure .rail-disclosure__summary{display:block}
+ .em-carte-art{margin:8px 8px 0;border-radius:10px}
+ .em-carte-copy{padding:10px 14px 4px;min-height:124px}
+ .em-carte-title{font-size:19px}
+ .em-carte-preparation{padding:12px 14px}
+ .em-carte-credit{margin-top:10px}
 }
 @media(prefers-reduced-motion:no-preference){
  .em-carte-card[data-arrived=true] .em-carte-art img{animation:em-carte-arrive 2100ms ease-in-out 2}
