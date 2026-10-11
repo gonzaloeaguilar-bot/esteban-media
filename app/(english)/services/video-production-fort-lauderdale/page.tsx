@@ -8,11 +8,11 @@ const content: GeoServicePageContent = {
   description:
     "Commercial video production, short-form content, and editing support for Fort Lauderdale businesses, service companies, real estate teams, and hospitality brands.",
   locationLabel: "Fort Lauderdale / Broward County",
-  proofTitle: "Plan the right production scope",
+  proofTitle: "See a finished business video",
   proofText:
-    "Start with the kind of video you need, the footage you already have, and where the finished piece will be used. Esteban can assess editing from supplied files or quote a selective on-location production scope.",
-  proofHref: "/guides/video-production-cost-fort-lauderdale",
-  proofLabel: "Read the Fort Lauderdale cost guide",
+    "Watch the published Bar Door Monkey project to see a finished business video. That project was filmed in Miami. For a Fort Lauderdale project, share the kind of video you need, your location, and the footage you already have so Esteban can scope filming and editing separately.",
+  proofHref: "/portfolio/bar-door-monkey",
+  proofLabel: "Watch the Bar Door Monkey video",
   primaryCta: "Ask about a Fort Lauderdale project",
   secondaryHref: "/areas",
   secondaryLabel: "View South Florida coverage",
