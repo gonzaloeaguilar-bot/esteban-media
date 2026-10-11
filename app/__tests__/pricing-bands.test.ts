@@ -3,21 +3,23 @@ import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import {
   EXPRESS_MULTIPLIER,
+  PACKAGE_PRICES,
   PRICING_BANDS,
   PRODUCT_PHOTO_MARKET,
   SHORT_FORM,
   VOLUME_MULTIPLIERS,
 } from "@/lib/pricing";
+import { getGuides } from "@/lib/guides";
 
 function source(path: string) {
   return readFileSync(join(process.cwd(), path), "utf8");
 }
 
 /**
- * The estimator publishes numbers on a live client site while Esteban has no
- * confirmed price list. lib/pricing.ts is the single source of truth; these
- * tests pin the module to its documented basis so a figure cannot drift
- * without someone also updating docs/pricing-basis.md.
+ * The estimator uses market bands, while Esteban's owner-set package starting
+ * prices live in lib/pricing.ts. These tests pin the bands to their documented
+ * basis and prevent a production-day package price from being presented as a
+ * complete corporate-video quote.
  */
 describe("pricing module bands", () => {
   const basis = source("docs/pricing-basis.md");
@@ -116,8 +118,17 @@ describe("pricing module bands", () => {
     expect(guides).not.toMatch(/\$25 to \$50|\$25 y \$50|\$300 to \$1,000|\$300 y \$1,000/);
   });
 
-  it("keeps the cost guides free of asserted prices", () => {
-    const guides = source("lib/guides.ts");
-    expect(guides).toContain("no responsible one-price answer");
+  it("separates the published production-day starting price from a full corporate quote", () => {
+    const price = PACKAGE_PRICES["presencia-local"];
+    expect(price).toMatchObject({ kind: "from", unit: "production-day" });
+    if (price.kind !== "from") throw new Error("Local Presence needs a published starting price");
+
+    const english = getGuides("en").find(({ id }) => id === "corporate-video-cost-guide")!;
+    const spanish = getGuides("es").find(({ id }) => id === "corporate-video-cost-guide")!;
+    expect(english.answer).toContain(`$${price.amount}`);
+    expect(english.answer).toContain("not a complete corporate-video price");
+    expect(spanish.answer).toContain(`$${price.amount}`);
+    expect(spanish.answer).toContain("no el precio completo de un video corporativo");
+    expect(source("lib/guides.ts")).toContain('packageGuidePrice("presencia-local")');
   });
 });

@@ -2,6 +2,7 @@
 
 - Branch: `codex/esteban-demand-links-20261011` from current `origin/main`. Scope: `lib/guides.ts`, two English Fort Lauderdale service pages. EN/ES guide uses `packageGuidePrice("presencia-local")`, with explicit production-day vs full-project price distinction and verified links. No new route.
 - Evidence: BigQuery Esteban query table ends Oct 5; `video production miami cost` 7 impressions/0 clicks since Sep 1. Direct GSC API available through Oct 9. BigQuery sync log rejects DML because billing is disabled.
+- CI correction: the first PR run failed a legacy phrase assertion in `app/__tests__/pricing-bands.test.ts` that required the old no-price answer. Replaced it with a stronger assertion tying the answer to `PACKAGE_PRICES["presencia-local"]` while requiring the full-quote disclaimer. The complete `pnpm check` then passed at the final diff.
 - Gates: `pnpm check` passed before final dynamic price addition; targeted 267 guide tests and build passed after. The Spanish guides index reused the changed answer, so only its word fingerprint was refreshed; text parity now passes 97 routes. Analytics gate passed. Raw generated HTML link checks passed. Independent CTO-dispatched review attempted but provider rerouting ended in unsupported Codex CLI model; manual diff and source/route review completed. See vault [[esteban-bq-expansion-review-2026-10-11]].
 
 # Spanish service-area contextual links — 2026-10-11 (local, uncommitted)
