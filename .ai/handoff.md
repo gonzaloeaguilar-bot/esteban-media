@@ -1,3 +1,9 @@
+# Home unified type system — 2026-10-11
+
+Branch `style/home-unified-type` (draft PR). UX review fix #3: the home pages used three headline voices (Oswald condensed caps, Geist 700 grotesk, Newsreader serif) and two price faces (Instrument Serif vs bold sans RailPrice). Now there is one of each, set from shared tokens declared on `body` in `app/globals.css`: `.em-h2` (Newsreader 400, `clamp(36px, ..., 52px)`), `.em-eyebrow` / `.em-eyebrow--inverted` (Geist 600 12px, 0.2em, `--em-accent-ink`), and `.em-price-figure` / `--words` (Newsreader 500, lining tabular, 40–52px). Oswald is left only on the hero brand mark and the opening ident. The real-estate RailPrice is mapped through kit variables, so `vendor/` is untouched. Copy, order, imagery and CTAs are unchanged. Guard: `app/__tests__/home-type-system.test.ts`. Gates: rail-kit, rail-adoption, lint (0 errors), typecheck, build, text-parity (97 routes) pass. The only failing vitest is `prospect-auditor-verifier`, which needs live egress the container blocks. Follow-up: `Instrument_Serif` in `components/site-chrome.tsx` is now unused and can be removed.
+
+---
+
 # US-Spanish Money Pages Deepening & /es/editor-de-video-miami — 2026-10-07 (local, uncommitted)
 
 Branch `feat/es-us-spanish-money-pages`. Deepened US-Spanish money pages (`/es/editor-de-reels-fort-lauderdale`, `/es/editor-de-reels-miami`, `/es/editor-de-video-corto-para-redes-miami`), added contextual cross-links and guide links, and created the Spanish-first landing page `/es/editor-de-video-miami` (sitemap count: 284).

@@ -794,6 +794,100 @@ html.em-returning #em-intro {
   font-size: clamp(32px, 9.375vw, 72px);
 }
 
+/* ---------------------------------------------------------------------------
+   Home type system: ONE section heading, ONE eyebrow, ONE price.
+
+   A UX review (2026-10) counted three competing headline voices on the home
+   pages — condensed all-caps (Oswald), heavy grotesk (Geist 700) and the
+   editorial serif — plus two price faces (thin Instrument Serif on the
+   packages, bold sans on the real-estate plans). Each section had grown its
+   own one-off.
+
+   The rule now:
+     · Oswald is the hero BRAND MARK only (.em-cine__brand) and the opening
+       ident. Nothing else on the page is set in it.
+     · Every section h2 is `.em-h2`: Newsreader 400, the serif the majority of
+       sections (and the rail kit's --rail-heading-font) already used.
+     · Every section eyebrow is `.em-eyebrow` (`--inverted` on dark ground).
+     · Every price figure is `.em-price-figure`: the same serif at 500 with
+       lining, tabular numerals, so $100, $640 and $450 read as one system.
+
+   The tokens live on `body` because that is where next/font puts
+   --font-newsreader; declared on :root the var() would resolve to nothing.
+   Sizes follow the kit's clamp(floor, vw, ceiling) grammar. The 36px floor
+   keeps the longest Spanish heading word inside a 360px phone with its 16px
+   gutters; the ceilings sit between the old 48px serif and 60px steps.
+
+   Contrast (WCAG AA, 4.5:1 for the 12px eyebrow):
+     --em-accent-ink #a8381d on paper #f7f5f1   5.9:1
+     --em-accent-ink #a8381d on band  #f6f1ea   5.7:1
+     inverted #ffb49e on ink #101214            11.0:1
+     real-estate pill #ffd4bd on #293433         9.4:1
+   Headings inherit the section's text colour, which is ink on paper and
+   #f6f1ea/#fffaf4/#fff on the dark bands (all > 15:1).
+   --------------------------------------------------------------------------- */
+body {
+  --em-heading-font: var(--font-newsreader), ui-serif, Georgia, serif;
+  --em-h2-size: clamp(36px, 1.7rem + 2.2vw, 52px);
+  --em-h2-weight: 400;
+  --em-h2-leading: 1.06;
+  --em-h2-tracking: -0.02em;
+
+  --em-eyebrow-font: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --em-eyebrow-size: 12px;
+  --em-eyebrow-weight: 600;
+  --em-eyebrow-tracking: 0.2em;
+  --em-eyebrow-color: var(--em-accent-ink);
+  --em-eyebrow-color-inverted: #ffb49e;
+
+  --em-price-font: var(--font-newsreader), ui-serif, Georgia, serif;
+  --em-price-size: clamp(40px, 2.1rem + 1.4vw, 52px);
+  /* "Custom quote" is words, not a figure: same face, one step down. */
+  --em-price-size-words: clamp(32px, 1.7rem + 1.1vw, 42px);
+  --em-price-weight: 500;
+  --em-price-leading: 1;
+  --em-price-tracking: -0.02em;
+  --em-price-color: #101214;
+}
+
+.em-h2 {
+  font-family: var(--em-heading-font);
+  font-size: var(--em-h2-size);
+  font-weight: var(--em-h2-weight);
+  line-height: var(--em-h2-leading);
+  letter-spacing: var(--em-h2-tracking);
+  text-transform: none;
+  overflow-wrap: break-word;
+  text-wrap: balance;
+}
+
+.em-eyebrow {
+  font-family: var(--em-eyebrow-font);
+  font-size: var(--em-eyebrow-size);
+  font-weight: var(--em-eyebrow-weight);
+  line-height: 1.3;
+  letter-spacing: var(--em-eyebrow-tracking);
+  text-transform: uppercase;
+  color: var(--em-eyebrow-color);
+}
+.em-eyebrow--inverted {
+  color: var(--em-eyebrow-color-inverted);
+}
+
+.em-price-figure {
+  font-family: var(--em-price-font);
+  font-size: var(--em-price-size);
+  font-weight: var(--em-price-weight);
+  line-height: var(--em-price-leading);
+  letter-spacing: var(--em-price-tracking);
+  font-variant-numeric: lining-nums tabular-nums;
+  color: var(--em-price-color);
+}
+.em-price-figure--words {
+  font-size: var(--em-price-size-words);
+  line-height: 1.05;
+}
+
 /* The rating figure and the star row on the reviews band.
 
    The figure was `text-5xl leading-none` — a hard 48px at every width — which

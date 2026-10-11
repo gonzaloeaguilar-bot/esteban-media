@@ -72,12 +72,12 @@ export function AboutTeaser() {
       <Container size="xl">
         <div className="grid gap-10 lg:grid-cols-[1.1fr_.9fr] lg:items-center lg:gap-16">
           <div className="max-w-2xl">
-            <p className="text-xs font-medium uppercase tracking-wide text-[#5a6066]">
+            <p className="em-eyebrow">
               About Esteban
             </p>
             <h2
               id="about-heading"
-              className="mt-3 font-serif text-4xl leading-tight sm:text-5xl"
+              className="mt-3 em-h2"
             >
               An editor who understands the business behind the content.
             </h2>

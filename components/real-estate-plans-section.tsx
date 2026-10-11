@@ -24,7 +24,7 @@ export function RealEstatePlansSection({ locale }: { locale: Locale }) {
     <section id={es ? "real-estate" : "real-estate-plans"} className="em-visual-plans" aria-labelledby="em-re-title" data-section="real_estate_plans">
       <Container size="xl">
         <p className="em-property-category"><House size={20} aria-hidden="true" />{es ? "Solo para bienes raíces" : "Real estate only"}</p>
-        <h2 id="em-re-title" className="em-visual-heading">{es ? "Planes mensuales de bienes raíces." : "Monthly real estate plans."}</h2>
+        <h2 id="em-re-title" className="em-visual-heading em-h2">{es ? "Planes mensuales de bienes raíces." : "Monthly real estate plans."}</h2>
         <p className="em-visual-intro">{es ? "Para agentes e inmobiliarias: fotografía de propiedades y contenido para Instagram y TikTok." : "For agents and brokerages: property photography and content for Instagram and TikTok."}</p>
         <div className="em-plan-choice" hidden={!enhanced}>
           <p>{es ? "¿Cuántas propiedades al mes?" : "How many properties per month?"}</p>

@@ -143,14 +143,10 @@ function SectionIntro({
 }) {
   return (
     <div className="max-w-3xl">
-      <p
-        className={`text-xs font-medium uppercase ${
-          inverted ? "text-[#ffb49e]" : "text-[#5a6066]"
-        }`}
-      >
+      <p className={`em-eyebrow${inverted ? " em-eyebrow--inverted" : ""}`}>
         {eyebrow}
       </p>
-      <h2 className="mt-4 text-4xl font-bold leading-[1.04] tracking-tight sm:text-5xl">
+      <h2 className="mt-4 em-h2">
         {title}
       </h2>
       <p

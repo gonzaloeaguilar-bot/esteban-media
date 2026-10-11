@@ -67,14 +67,13 @@ export function ClientReviews({ locale = "en" }: { locale?: "en" | "es" }) {
       className="border-b border-[#ddd4c8] bg-[#f6f1ea] py-14 sm:py-20"
     >
       <Container size="xl">
-        <p className="text-xs font-medium uppercase tracking-wide text-[#5a6066]">
+        <p className="em-eyebrow">
           {t.eyebrow}
         </p>
         <h2
           id="client-reviews-heading"
-          /* Matched to the site's H2 system (Newsreader 36/400), not the
-             ui-sans-serif 24/600 it used to be. */
-          className="mt-2 max-w-2xl font-serif text-4xl leading-tight text-[#101214]"
+          /* The shared section heading (.em-h2), like every home h2. */
+          className="mt-2 max-w-2xl em-h2 text-[#101214]"
         >
           {t.title}
         </h2>

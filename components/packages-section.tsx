@@ -77,8 +77,8 @@ export function PackagesSection({ locale }: { locale: Locale }) {
         data-section="packages"
       >
         <Container size="xl">
-          <p className="em-pk-eyebrow">{copy.chooser.eyebrow}</p>
-          <h2 id="em-pk-guide-title" className="em-pk-title">
+          <p className="em-pk-eyebrow em-eyebrow">{copy.chooser.eyebrow}</p>
+          <h2 id="em-pk-guide-title" className="em-pk-title em-h2">
             {copy.chooser.title}
           </h2>
           <p className="em-pk-lead">{copy.chooser.lead}</p>
@@ -142,7 +142,7 @@ export function PackagesSection({ locale }: { locale: Locale }) {
                           <span className="em-pk-card__price-lines">
                             <span className="em-pk-card__price-line">
                               <span className="em-pk-card__price-prefix">{copy.price.from}</span>{" "}
-                              <span className="em-pk-card__price-num">${price.kind === "from" ? price.amount.toLocaleString("en-US") : ""}</span>{" "}
+                              <span className="em-pk-card__price-num em-price-figure">${price.kind === "from" ? price.amount.toLocaleString("en-US") : ""}</span>{" "}
                               <span className="em-pk-card__price-unit">{price.kind === "from" ? copy.price.units[price.unit] : ""}</span>
                             </span>
                             <span className="em-pk-card__price-line em-pk-card__price-line--alt">
@@ -150,7 +150,7 @@ export function PackagesSection({ locale }: { locale: Locale }) {
                                 <span className="sr-only">· </span>
                                 {locale === "es" ? "o" : "or"}
                               </span>{" "}
-                              <span className="em-pk-card__price-num">{usd(ARRANQUE_WEEKLY_FROM.perWeek)}</span>
+                              <span className="em-pk-card__price-num em-price-figure">{usd(ARRANQUE_WEEKLY_FROM.perWeek)}</span>
                               <span className="em-pk-card__price-unit">
                                 {locale === "es" ? "/semana si publicas cada semana" : "/week if you post weekly"}
                               </span>
@@ -159,12 +159,12 @@ export function PackagesSection({ locale }: { locale: Locale }) {
                         ) : price.kind === "from" ? (
                           <span className="em-pk-card__price-line">
                             <span className="em-pk-card__price-prefix">{copy.price.from}</span>{" "}
-                            <span className="em-pk-card__price-num">${price.amount.toLocaleString("en-US")}</span>{" "}
+                            <span className="em-pk-card__price-num em-price-figure">${price.amount.toLocaleString("en-US")}</span>{" "}
                             <span className="em-pk-card__price-unit">{copy.price.units[price.unit]}</span>
                           </span>
                         ) : (
                           <span className="em-pk-card__price-line em-pk-card__price-line--custom">
-                            <span className="em-pk-card__price-custom">
+                            <span className="em-pk-card__price-custom em-price-figure em-price-figure--words">
                               {locale === "es"
                                 ? `${copy.price.customLine} ${copy.price.custom.toLowerCase()}`
                                 : `${copy.price.custom} ${copy.price.customLine.toLowerCase()}`}
@@ -204,13 +204,13 @@ export function PackagesSection({ locale }: { locale: Locale }) {
                           {price.kind === "from" ? (
                             <div className="em-pk-open-price__box">
                               <span className="em-pk-open-price__prefix">{copy.price.from}</span>
-                              <span className="em-pk-open-price__num">${price.amount.toLocaleString("en-US")}</span>
+                              <span className="em-pk-open-price__num em-price-figure">${price.amount.toLocaleString("en-US")}</span>
                               <span className="em-pk-open-price__unit">{copy.price.units[price.unit]}</span>
                             </div>
                           ) : (
                             <div className="em-pk-open-price__box em-pk-open-price__box--custom">
                               <span className="em-pk-open-price__custom-line">{copy.price.customLine}</span>
-                              <span className="em-pk-open-price__custom">{copy.price.custom}</span>
+                              <span className="em-pk-open-price__custom em-price-figure em-price-figure--words">{copy.price.custom}</span>
                             </div>
                           )}
                         </div>
@@ -253,8 +253,8 @@ export function PackagesSection({ locale }: { locale: Locale }) {
       {/* 4. The three steps. */}
       <section className="em-pk-steps" aria-labelledby="em-pk-steps-title" data-section="quote_process">
         <Container size="xl">
-          <p className="em-pk-eyebrow">{copy.process.eyebrow}</p>
-          <h2 id="em-pk-steps-title" className="em-pk-title">
+          <p className="em-pk-eyebrow em-eyebrow">{copy.process.eyebrow}</p>
+          <h2 id="em-pk-steps-title" className="em-pk-title em-h2">
             {copy.process.title}
           </h2>
           <p className="em-pk-lead">{copy.process.lead}</p>
@@ -279,8 +279,8 @@ export function PackagesSection({ locale }: { locale: Locale }) {
           quote exactly what a visitor reads. */}
       <section className="em-pk-faq" aria-labelledby="em-pk-faq-title" data-section="package_faq">
         <Container size="xl">
-          <p className="em-pk-eyebrow">{locale === "es" ? "Preguntas rápidas" : "Quick answers"}</p>
-          <h2 id="em-pk-faq-title" className="em-pk-title">
+          <p className="em-pk-eyebrow em-eyebrow">{locale === "es" ? "Preguntas rápidas" : "Quick answers"}</p>
+          <h2 id="em-pk-faq-title" className="em-pk-title em-h2">
             {locale === "es" ? "Lo que todos preguntan." : "What everyone asks."}
           </h2>
           <RailFaq
@@ -321,7 +321,7 @@ export function ClosingCredits({ locale, children }: { locale: Locale; children?
         className="em-close__image"
       />
       <Container size="xl" className="em-close__inner">
-        <h2 id="em-close-title" className="em-close__title">
+        <h2 id="em-close-title" className="em-close__title em-h2">
           {copy.title}
         </h2>
         <p className="em-close__lead">{copy.lead}</p>
