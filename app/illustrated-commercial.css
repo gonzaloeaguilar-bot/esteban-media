@@ -65,7 +65,7 @@
    RailPrice variables so the vendored component stays untouched. The currency
    sits inline at full size, like the package prices, not small and raised. */
 .em-plan-overview .rail-price{--rail-stat-font:var(--em-price-font);--rail-price-size-lg:var(--em-price-size);--rail-weight-bold:var(--em-price-weight);--rail-price-color:var(--em-price-color);--rail-tracking-tight:var(--em-price-tracking);--rail-price-currency-size:1em}
-.em-plan-overview .rail-price__now{font-family:var(--em-price-font);font-size:var(--em-price-size);font-weight:var(--em-price-weight);font-variant-numeric:lining-nums tabular-nums;line-height:var(--em-price-leading)}
+.em-plan-overview .rail-price__now{font-family:var(--em-price-font);font-size:var(--em-price-size);font-weight:var(--em-price-weight);line-height:var(--em-price-leading)}
 .em-plan-overview .rail-price__currency{align-self:baseline;padding-top:0}
 .em-plan-overview .rail-price__unit{font-family:var(--font-geist-sans),sans-serif;font-size:14px;letter-spacing:0}
 .em-plan-promise{font-size:16px;line-height:1.5;color:#51565a;margin:8px 0 18px}

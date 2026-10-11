@@ -799,9 +799,8 @@ html.em-returning #em-intro {
 
    A UX review (2026-10) counted three competing headline voices on the home
    pages — condensed all-caps (Oswald), heavy grotesk (Geist 700) and the
-   editorial serif — plus two price faces (thin Instrument Serif on the
-   packages, bold sans on the real-estate plans). Each section had grown its
-   own one-off.
+   editorial serif — plus two price faces (Instrument Serif on the packages,
+   bold sans on the real-estate plans). Each section had grown its own one-off.
 
    The rule now:
      · Oswald is the hero BRAND MARK only (.em-cine__brand) and the opening
@@ -809,11 +808,15 @@ html.em-returning #em-intro {
      · Every section h2 is `.em-h2`: Newsreader 400, the serif the majority of
        sections (and the rail kit's --rail-heading-font) already used.
      · Every section eyebrow is `.em-eyebrow` (`--inverted` on dark ground).
-     · Every price figure is `.em-price-figure`: the same serif at 500 with
-       lining, tabular numerals, so $100, $640 and $450 read as one system.
+     · Every price figure is `.em-price-figure`: Instrument Serif 400, big,
+       with the unit set small in Geist beside it — the client-proposal price
+       treatment the owner chose (PR #318, needs-first packages). $100, $640
+       and $450 read as one system.
 
    The tokens live on `body` because that is where next/font puts
-   --font-newsreader; declared on :root the var() would resolve to nothing.
+   --font-newsreader and --font-price (Instrument_Serif in
+   components/site-chrome.tsx); declared on :root the var() would resolve to
+   nothing.
    Sizes follow the kit's clamp(floor, vw, ceiling) grammar. The 36px floor
    keeps the longest Spanish heading word inside a 360px phone with its 16px
    gutters; the ceilings sit between the old 48px serif and 60px steps.
@@ -840,13 +843,14 @@ body {
   --em-eyebrow-color: var(--em-accent-ink);
   --em-eyebrow-color-inverted: #ffb49e;
 
-  --em-price-font: var(--font-newsreader), ui-serif, Georgia, serif;
-  --em-price-size: clamp(40px, 2.1rem + 1.4vw, 52px);
-  /* "Custom quote" is words, not a figure: same face, one step down. */
-  --em-price-size-words: clamp(32px, 1.7rem + 1.1vw, 42px);
-  --em-price-weight: 500;
-  --em-price-leading: 1;
-  --em-price-tracking: -0.02em;
+  /* Sized like PR #318: 64px plan figures on desktop, 48px on a phone. */
+  --em-price-font: var(--font-price), "Instrument Serif", Georgia, serif;
+  --em-price-size: clamp(48px, 2.5rem + 1.7vw, 64px);
+  /* "Custom quote" is words, not a figure: same face, one step down (#318: 48px). */
+  --em-price-size-words: clamp(36px, 1.9rem + 1.2vw, 48px);
+  --em-price-weight: 400;
+  --em-price-leading: 1.05;
+  --em-price-tracking: -0.03em;
   --em-price-color: #101214;
 }
 
@@ -880,7 +884,6 @@ body {
   font-weight: var(--em-price-weight);
   line-height: var(--em-price-leading);
   letter-spacing: var(--em-price-tracking);
-  font-variant-numeric: lining-nums tabular-nums;
   color: var(--em-price-color);
 }
 .em-price-figure--words {

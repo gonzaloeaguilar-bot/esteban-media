@@ -59,9 +59,35 @@ describe("home type system", () => {
     for (const selector of selectors) expect(selector).toMatch(/^\.em-(cine__brand|signal__)/);
   });
 
-  it("no home price is set in a second price face", () => {
-    for (const path of ["app/cinema.css", "app/illustrated-commercial.css"]) {
-      expect(read(path)).not.toMatch(/var\(--font-price\)/);
+  it("sets every price in Instrument Serif, from the one shared token", () => {
+    // Owner choice (PR #318): big Instrument Serif figures, unit small beside.
+    const globals = read("app/globals.css");
+    expect(globals).toMatch(/--em-price-font:\s*var\(--font-price\),\s*"Instrument Serif"/);
+    // The token must sit where next/font defines --font-price (body), never on
+    // :root, where the var() resolves to nothing.
+    const bodyBlock = globals.match(/\nbody\s*\{([^}]*)\}/)?.[1] ?? "";
+    expect(bodyBlock).toMatch(/--em-price-font:/);
+    expect(read("components/site-chrome.tsx")).toMatch(/Instrument_Serif\(\{[^}]*variable:\s*"--font-price"/);
+    expect(globals).toMatch(/\.em-price-figure\s*\{[^}]*font-family:\s*var\(--em-price-font\)/);
+  });
+
+  it("no home price figure declares its own font stack", () => {
+    // The home figures take their face from .em-price-figure / the token only.
+    const css = read("app/cinema.css") + read("app/illustrated-commercial.css");
+    const figures = [
+      ".em-pk-card__price-num",
+      ".em-pk-card__price-custom",
+      ".em-pk-open-price__num",
+      ".em-pk-open-price__custom",
+      ".em-pk-starter-tile__num",
+      ".em-plan-overview .rail-price__now",
+    ];
+    for (const selector of figures) {
+      const escaped = selector.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      for (const [, body] of css.matchAll(new RegExp(`${escaped}\\s*\\{([^}]*)\\}`, "g"))) {
+        const font = body.match(/font-family:\s*([^;]+)/)?.[1]?.trim();
+        if (font) expect(font).toBe("var(--em-price-font)");
+      }
     }
   });
 

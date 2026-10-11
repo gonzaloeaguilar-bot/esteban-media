@@ -1088,7 +1088,6 @@ a.em-pk-carte__item:focus-visible { outline: 2px solid var(--cine-accent-deep); 
   font-size: 40px;
   line-height: 1;
   letter-spacing: var(--em-price-tracking);
-  font-variant-numeric: lining-nums tabular-nums;
   color: var(--cine-accent-deep);
 }
 .em-pk-steps__title {
