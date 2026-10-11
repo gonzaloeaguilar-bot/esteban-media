@@ -1291,10 +1291,10 @@ const guidePairs: readonly GuidePair[] = [
     id: "editor-vs-videographer-guide",
     en: {
       slug: "video-editor-vs-videographer",
-      metadataTitle: "Video Editor vs Videographer",
+      metadataTitle: "Video Editor or Videographer?",
       title: "Video editor vs videographer: which role do you need?",
       description:
-        "Understand the difference between hiring a video editor for existing footage versus hiring a videographer for on-location camera capture.",
+        "Already have footage? Choose an editor. Need filming on location? Choose a videographer. Compare the work, then find the right service.",
       eyebrow: "Role & Workflow Comparison",
       answer:
         "Hire a videographer when you need physical camera operation, lighting, audio capture, and on-location direction. Hire a video editor when you already have recorded raw footage and need narrative pacing, sound design, color grading, motion graphics, and platform-specific formatting.",
@@ -1308,7 +1308,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "What does a videographer do on location?",
           paragraphs: [
-            "Choosing between a video editor and a videographer begins with identifying where your project currently stands in the production lifecycle. While both roles are essential to professional video production, they require distinct skill sets, hardware environments, and technical disciplines.",
+            "Start with the footage. If your team already recorded the scenes, a [video editing service](/services/short-form-video-editor-miami) can shape them into finished videos. If the footage does not exist, you need someone to plan and capture it on location; see [video production in Fort Lauderdale](/services/video-production-fort-lauderdale). A project that needs both filming and a finished cut needs both kinds of work in its quote.",
             "A videographer is an on-location production specialist. Their responsibility centers on the physical environment: scouting locations, configuring camera sensors, selecting optical focal lengths, rigging three-point lighting setups, positioning wireless lavaliers or boom microphones to control room acoustics, and directing on-camera talent. A videographer solves physical challenges in real time, capturing high-quality raw footage that provides the necessary creative coverage for the story.",
           ],
         },
@@ -1443,10 +1443,10 @@ const guidePairs: readonly GuidePair[] = [
     },
     es: {
       slug: "editor-de-video-vs-videografo",
-      metadataTitle: "Editor de Video vs Videógrafo",
+      metadataTitle: "Editor de video o videógrafo",
       title: "Editor de video vs videógrafo: ¿cuál rol necesitas?",
       description:
-        "Entiende la diferencia entre contratar un editor de video para material existente versus un videógrafo para grabación en locación.",
+        "¿Ya tienes material grabado? Busca un editor. ¿Falta grabarlo? Busca un videógrafo. Compara los trabajos y elige el servicio adecuado.",
       eyebrow: "Comparación de Roles y Flujo",
       answer:
         "Contrata un videógrafo cuando requieras presencia física, operación de cámaras, iluminación y captura de audio en locación. Contrata un editor de video cuando ya dispongas de material grabado y necesites estructurar la narrativa, corrección de color, mezcla de sonido, ritmo dinámico y adaptación a formatos verticales u horizontales.",
@@ -1460,7 +1460,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "¿Qué hace un videógrafo en el set de grabación?",
           paragraphs: [
-            "Elegir con precisión entre un editor de video y un videógrafo comienza por identificar en qué etapa del proceso audiovisual se encuentra tu proyecto. Aunque ambas disciplinas se complementan para crear piezas de alto nivel, operan en entornos técnicos, con herramientas y habilidades totalmente diferenciadas.",
+            "Empieza por el material. Si tu equipo ya grabó las escenas, un [editor de video para redes](/es/editor-de-video-corto-para-redes-miami) puede convertirlas en piezas terminadas. Si el material aún no existe, necesitas planear y grabar en locación; mira la [producción de video en Fort Lauderdale](/es/produccion-de-video-fort-lauderdale). Si necesitas grabación y edición, pide que ambas etapas aparezcan en la cotización.",
             "Un videógrafo es el especialista técnico y creativo en el set de grabación. Su labor se concentra en el mundo físico: evaluar la acústica del espacio, diseñar esquemas de iluminación de tres puntos, seleccionar distancias focales y lentes adecuados, calibrar la exposición y perfiles de color del sensor, colocar micrófonos de solapa o direccionales y dirigir a las personas frente a cámara. El videógrafo resuelve contingencias en tiempo real para garantizar tomas nítidas, estables y bien iluminadas.",
           ],
         },
@@ -2904,13 +2904,13 @@ const guidePairs: readonly GuidePair[] = [
     id: "transfer-large-video-files-guide",
     en: {
       slug: "fastest-way-to-send-large-video-files-to-editor",
-      metadataTitle: "Fastest Way to Send Large Video Files",
-      title: "Fastest ways to transfer raw 4K video files to remote editors",
+      metadataTitle: "Send Large Videos to an Editor",
+      title: "How to send large video files to an editor",
       description:
-        "Learn the fastest ways to transfer raw 4K video footage and multi-gigabyte project archives to a remote video editor using cloud tools, proxies, and checksum verification.",
+        "Send original footage in organized cloud folders, use proxies when uploads are slow, and verify the copy before clearing camera cards.",
       eyebrow: "Workflow / File Transfer",
       answer:
-        "The fastest way to send large video files to an editor depends on total volume: use high-speed cloud sync (MASV, Google Drive, Dropbox, or Frame.io) for folders under 100 GB, generate lightweight editing proxies (1080p ProRes Proxy or DNxHR) for multi-camera 4K shoots, and ship an encrypted NVMe SSD for multi-terabyte production archives.",
+        "Check the folder size and your upload speed first. Send the original files in organized cloud folders when the upload fits your schedule; use smaller editing proxies when it does not. For a very large archive on a slow connection, agree with your editor on a physical drive. Verify the copy before clearing camera cards.",
       proof: {
         href: "/portfolio/homeowners",
         title: "Homeowners",
@@ -2928,7 +2928,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Which transfer method fits each project size?",
           paragraphs: [
-            "For packages under 100 GB, dedicated cloud transfer platforms like MASV offer browser-based accelerated UDP protocols that utilize your full available bandwidth without requiring complex client software installations. For ongoing collaborative post-production, established shared folders in Google Drive or Dropbox Business allow background folder synchronization. For an example of a streamlined remote post-production workflow handling supplied agency assets, review the [Homeowners real estate editing project](/portfolio/homeowners) (and [Homeowners case study](/case-studies/homeowners)). When working on fast-paced social edits, explore our [short-form video editing services](/services/short-form-video-editor-miami) and general [post-production services](/services), or get in touch through our [contact](/contact) page to discuss project scope.",
+            "For a manageable folder, use a cloud transfer service or a shared folder that your editor can access without requesting each file. Keep the camera folders and original filenames intact. The [Homeowners project](/portfolio/homeowners) and its [case study](/case-studies/homeowners) show published editing work with supplied agency footage. If you already have footage and want finished social videos, see our [short-form video editing service](/services/short-form-video-editor-miami) or [all services](/services). Include the folder size, deadline and intended videos when you [contact us](/contact), so we can agree on a handoff method.",
             "When total raw project archives run to hundreds of gigabytes or more on a connection with slow upload speed, handing over a physical drive is often faster than any online transfer. Copying to an external SSD and shipping the encrypted drive by overnight courier gives a more predictable arrival time than an upload that can stall for hours.",
           ],
           bullets: [
@@ -3021,13 +3021,13 @@ const guidePairs: readonly GuidePair[] = [
     },
     es: {
       slug: "como-enviar-archivos-pesados-de-video-para-edicion",
-      metadataTitle: "Cómo Enviar Archivos Grandes de Video",
-      title: "Cómo enviar archivos de video pesados en 4K para edición remota",
+      metadataTitle: "Enviar videos pesados a un editor",
+      title: "Cómo enviar archivos de video pesados a un editor",
       description:
-        "Guía para transferir carpetas de video 4K mediante plataformas en la nube y archivos proxy para tu editor de video.",
+        "Envía los videos originales en carpetas organizadas, usa archivos proxy si la subida es lenta y verifica la copia antes de borrar las tarjetas.",
       eyebrow: "Flujo / Transferencia de Archivos",
       answer:
-        "Utiliza Google Drive, Frame.io o WeTransfer Pro con nombres de carpeta estructurados y proxies para una entrega fluida.",
+        "Primero revisa el tamaño de la carpeta y tu velocidad de subida. Envía los archivos originales en carpetas organizadas si llegan a tiempo; si la subida es lenta, acuerda con tu editor el uso de archivos proxy o un disco físico. Verifica la copia antes de borrar las tarjetas.",
       proof: {
         href: "/es/portafolio/homeowners",
         title: "Homeowners",
@@ -3046,7 +3046,7 @@ const guidePairs: readonly GuidePair[] = [
           heading: "¿Cuál es la forma más rápida de enviar archivos de video pesados a un editor?",
           paragraphs: [
             "Depende del volumen total y de tu velocidad de subida, que en muchas conexiones domésticas es bastante menor que la de bajada. Para carpetas moderadas, un servicio de transferencia en la nube o una carpeta compartida (Google Drive, Dropbox, Frame.io o WeTransfer Pro) funciona bien: sube las carpetas tal como están, no un único archivo .zip gigante, porque si la conexión se corta a mitad hay que volver a empezar todo el envío.",
-            "Cuando el material es muy pesado y la subida es lenta, dos opciones ahorran tiempo. La primera son los archivos proxy: copias livianas del material que permiten editar la historia y, al final, volver a enlazar con los originales para el color y la exportación final. La segunda es enviar un disco físico. En ambos casos, avisa al editor qué enviaste y por qué medio.",
+            "Cuando el material es muy pesado y la subida es lenta, dos opciones pueden ayudar. La primera son los archivos proxy: copias livianas del material que permiten editar la historia y, al final, volver a enlazar con los originales para el color y la exportación final. La segunda es enviar un disco físico. En ambos casos, avisa al editor qué enviaste y por qué medio. Si ya tienes las grabaciones y necesitas videos para redes, revisa el [servicio de edición de video corto](/es/editor-de-video-corto-para-redes-miami). Al escribir por [contacto](/es/contacto), incluye el tamaño de la carpeta, la fecha necesaria y las piezas que quieres recibir.",
           ],
         },
       ],
