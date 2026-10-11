@@ -427,7 +427,8 @@ describe("bilingual practical guides", () => {
     expect(esProse).toContain("Primero edición: material existente");
     expect(esProse).toContain("Primero grabación: locación");
     expect(esProse).toContain("/es/editor-de-video-corto-para-redes-miami");
-    expect(esProse).toContain("/es/videografo-en-miami");
+    expect(esProse).toContain("/es/editor-de-reels-fort-lauderdale");
+    expect(esProse).toContain("/es/produccion-de-video-fort-lauderdale");
 
     for (const guide of [enGuide, esGuide]) {
       const structuredData = buildGuideStructuredData(guide);

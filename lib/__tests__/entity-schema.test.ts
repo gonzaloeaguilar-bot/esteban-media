@@ -18,8 +18,8 @@ describe("shared entity graph", () => {
     });
     expect(personEntityJsonLd).toMatchObject({
       "@id": entityIds.person,
-      name: "Esteban Moreno",
-      alternateName: "Esteban Moreno López",
+      name: "Esteban Moreno López",
+      alternateName: "Esteban Moreno",
       sameAs: [site.instagram, site.youtube],
       worksFor: { "@id": entityIds.business },
       jobTitle: "Video editor and content creator",
@@ -70,9 +70,7 @@ describe("Google Business Profile entity link", () => {
     expect(personEntityJsonLd.sameAs).not.toContain(site.bingPlaces);
   });
 
-  // The profile is the BUSINESS listing; on the Person it claimed the person
-  // was the listing (SEO/GEO audit 2026-10-10, fix 7). Business only.
-  it("lists the verified profile in sameAs on the business, not the person", () => {
+  it("lists the verified business profile on the business, not the person", () => {
     // The profile that carries the reviews. Read live from the Business
     // Information API 2026-08-14: locations/9465569364777265733,
     // place ChIJz5tunn0FmqERd6F9Q9Irxao.
