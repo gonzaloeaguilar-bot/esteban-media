@@ -2,8 +2,8 @@
   "status": "demand_gated",
   "effectiveDate": "2026-08-28",
   "baselineRevisedOn": "2026-10-11",
-  "approvedSitemapUrlCount": 343,
-  "approvedSitemapUrlSetSha256": "939ca3b3db5a9544394adaeda5aef1f430914595b183d9bbb432a43f709ac055",
+  "approvedSitemapUrlCount": 344,
+  "approvedSitemapUrlSetSha256": "68a3fe899216033e98884af4df3bdf01c64bd472c0515e507aacd0f537259bbd",
   "allowedNewIndexableUrls": 4,
   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {
@@ -304,6 +304,15 @@
       "demandEvidence": "Direct authenticated GSC read for 2026-07-01..2026-10-08: 'miami product photographer' had 3 US impressions and 0 clicks and landed on /services/ai-product-photography-miami at average position 60.7. This is Esteban site visibility, not local market search volume. Gonzalo confirmed Esteban offers photography, and Esteban's 2026-07-16 interview names product photography. The new page distinguishes a real product shoot from AI visuals based on existing references.",
       "followUpDate": "2026-11-11",
       "followUp": "Compare GSC query/page impressions and clicks for 'miami product photographer' and the new page; check qualified photography inquiries and repeat the ChatGPT/Gemini buyer prompt. If no discovery or inquiries, review indexing and buyer wording before adding any more location pages."
+    },
+    {
+      "on": "2026-10-11",
+      "url": "/es/fotografia-de-producto-miami",
+      "orderedBy": "Gonzalo (active bilingual SEO release)",
+      "kind": "Spanish companion for the real product photography service page",
+      "demandEvidence": "The live English product-photography page was added from the direct authenticated GSC query 'miami product photographer' (3 US site impressions, 0 clicks, July 1–October 8) and Esteban's interview confirms product photography. The Spanish route gives a reciprocal language path to the same real-shoot offer; no separate Spanish search volume is claimed.",
+      "followUpDate": "2026-11-11",
+      "followUp": "Check Spanish route indexed status, impressions and qualified photography inquiries, plus reciprocal EN/ES alternate tags. Revise the page if no qualified discovery appears; do not add more location pages from this signal alone."
     }
   ]
 }

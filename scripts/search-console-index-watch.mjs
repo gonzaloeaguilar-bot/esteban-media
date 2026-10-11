@@ -147,6 +147,7 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/es/fotografia-de-comida-con-ia-restaurantes",
   "https://estebanmorenomedia.com/es/fotografia-de-joyas-y-lujo-miami",
   "https://estebanmorenomedia.com/es/fotografia-de-producto-con-ia-miami",
+  "https://estebanmorenomedia.com/es/fotografia-de-producto-miami",
   "https://estebanmorenomedia.com/es/fotografo-de-retratos-y-headshots-miami",
   "https://estebanmorenomedia.com/es/fotos-con-ia-para-bienes-raices-miami",
   "https://estebanmorenomedia.com/es/guias",
