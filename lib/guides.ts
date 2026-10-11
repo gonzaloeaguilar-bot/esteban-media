@@ -1765,8 +1765,7 @@ const guidePairs: readonly GuidePair[] = [
       description:
         "Plan a Miami video production budget: compare scope, filming, editing, deliverables, and quote inputs before choosing a production path.",
       eyebrow: "Video Pricing Guide",
-      answer:
-        "There is no responsible one-price answer before the scope is defined. A useful quote separates pre-production, capture, post-production, deliverables, review terms, and usage so you can compare like with like.",
+      answer: `Esteban's Local Presence offer starts from ${packageGuidePrice("presencia-local")} per production day. That is a filming starting price, not a complete corporate-video price: editing, deliverables, review terms, and usage need a project-specific written quote.`,
       proof: {
         href: "/portfolio/healthy-smile",
         title: "Healthy Smile Miami",
@@ -1779,7 +1778,7 @@ const guidePairs: readonly GuidePair[] = [
           paragraphs: [
             "A recruiting film, customer story, service explainer, event recap, and batch of short social edits solve different problems. Define the audience, desired action, distribution channels, and useful shelf life before discussing cameras or edit length.",
             "Esteban Moreno Media does not publish a universal fixed package for corporate video. The written quote should define the project-specific scope, deliverables, timing, review terms, and responsibilities.",
-            "If your team already has usable footage, remote editing may be the cleanest scope. If the message depends on interviews, controlled sound, or consistent visual coverage, on-location production may be appropriate. A hybrid scope can combine a focused shoot with multiple edits for different channels.",
+            "If your team already has usable footage, [remote video editing](/services/hire-remote-video-editor) may be the clearest scope. If the message depends on interviews, controlled sound, or consistent visual coverage, [on-location video production](/services/video-production-fort-lauderdale) may be appropriate. A hybrid scope can combine a focused shoot with multiple edits for different channels.",
             "The right choice depends on the footage and business goal—not on a generic promise that one workflow is always cheaper or faster.",
           ],
           bullets: [
@@ -1791,7 +1790,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "Which scope details should you send for a comparable quote?",
           paragraphs: [
-            "The largest differences usually come from what must happen before the edit begins and how many finished versions the project needs. A quote is easier to evaluate when every assumption is written down.",
+            "The largest differences usually come from what must happen before the edit begins and how many finished versions the project needs. A quote is easier to evaluate when every assumption is written down. [Local Presence](/pricing/local-presence) starts at a production-day price; it is not an all-in corporate-video quote.",
             "A short, concrete brief reduces assumptions and makes competing estimates easier to compare. Include what is known and label what still needs recommendation.",
           ],
           bullets: [
@@ -1827,8 +1826,7 @@ const guidePairs: readonly GuidePair[] = [
       description:
         "Guía de costos, presupuestos y factores de alcance para la producción y edición de video corporativo en Miami.",
       eyebrow: "Guía de Precios",
-      answer:
-        "No existe una respuesta responsable de precio único antes de definir el alcance. Una cotización útil separa preproducción, grabación, postproducción, entregables, revisiones y uso.",
+      answer: `Presencia Local de Esteban parte desde ${packageGuidePrice("presencia-local")} por jornada de producción. Es un precio inicial de grabación, no el precio completo de un video corporativo: edición, entregables, revisiones y uso necesitan una cotización escrita para el proyecto.`,
       proof: {
         href: "/es/portafolio/healthy-smile",
         title: "Healthy Smile Miami",
@@ -1841,7 +1839,7 @@ const guidePairs: readonly GuidePair[] = [
           paragraphs: [
             "Un video de reclutamiento, testimonio, explicación de servicio, resumen de evento y lote de piezas sociales resuelven problemas distintos. Define audiencia, acción deseada, canales y vida útil antes de hablar de cámaras o duración.",
             "Esteban Moreno Media no publica un paquete fijo universal. La cotización escrita debe definir alcance, entregables, plazos, revisiones y responsabilidades para ese proyecto.",
-            "Si tu equipo ya tiene material usable, la edición remota puede ser el alcance más claro. Si el mensaje depende de entrevistas, sonido controlado o cobertura visual consistente, puede convenir producción en locación. Un alcance híbrido combina una grabación enfocada con varias ediciones.",
+            "Si tu equipo ya tiene material usable, la [edición de video a distancia](/es/editor-de-video-miami) puede ser el alcance más claro. Si el mensaje depende de entrevistas, sonido controlado o cobertura visual consistente, puede convenir [producción en locación](/es/produccion-de-video-fort-lauderdale). Un alcance híbrido combina una grabación enfocada con varias ediciones.",
             "La elección depende del material y la meta; no de una promesa genérica de que un flujo siempre será más barato o rápido.",
           ],
           bullets: [
@@ -1853,7 +1851,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "¿Qué detalles debes enviar para comparar cotizaciones?",
           paragraphs: [
-            "Las diferencias principales suelen venir de lo que debe ocurrir antes de editar y de cuántas versiones finales necesita el proyecto. Cada supuesto debe quedar por escrito.",
+            "Las diferencias principales suelen venir de lo que debe ocurrir antes de editar y de cuántas versiones finales necesita el proyecto. Cada supuesto debe quedar por escrito. [Presencia Local](/es/precios/presencia-local) parte desde un precio por jornada de producción; no es una cotización completa para un video corporativo.",
             "Un brief corto y concreto reduce supuestos. Incluye lo conocido y marca lo que todavía necesita recomendación.",
           ],
           bullets: [

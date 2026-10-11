@@ -8,9 +8,9 @@ const content: GeoServicePageContent = {
   description:
     "Commercial video production, short-form content, and editing support for Fort Lauderdale businesses, service companies, real estate teams, and hospitality brands.",
   locationLabel: "Fort Lauderdale / Broward County",
-  proofTitle: "Built for local searches",
+  proofTitle: "Plan the right production scope",
   proofText:
-    "This page gives Fort Lauderdale buyers a direct place to land instead of sending every video production query to the home page or a broad areas page.",
+    "Start with the kind of video you need, the footage you already have, and where the finished piece will be used. Esteban can assess editing from supplied files or quote a selective on-location production scope.",
   proofHref: "/guides/video-production-cost-fort-lauderdale",
   proofLabel: "Read the Fort Lauderdale cost guide",
   primaryCta: "Ask about a Fort Lauderdale project",
