@@ -122,7 +122,7 @@ export default function SpanishHomePage() {
           <Link href="/es/areas">áreas de servicio</Link> si necesitas
           grabación local, las{" "}
           <Link href="/es/guias">guías prácticas de video</Link>, conoce{" "}
-          <Link href="/es/sobre-esteban">a Esteban</Link> o síguelo en{" "}
+          <Link href="/es/sobre-esteban">más sobre mí</Link> o sígueme en{" "}
           <a href={site.instagram}>Instagram</a>.
         </p>
       </ClosingCredits>

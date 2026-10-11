@@ -88,8 +88,8 @@ export function ContactCta() {
               Send the goal and what you already have.
             </h2>
             <p className="mt-5 text-base leading-7 text-[#d8d0c7] sm:text-lg sm:leading-8">
-              Share your email and a short project summary. Esteban can use it
-              to start a conversation about scope, availability, timing, and
+              Share your email and a short project summary. I&apos;ll use it to
+              start a conversation about scope, availability, timing, and
               format needs.
             </p>
 
@@ -103,7 +103,7 @@ export function ContactCta() {
                   Project details received.
                 </p>
                 <p className="mt-2 text-sm leading-6 text-[#d8d0c7]">
-                  Thank you. Esteban now has the details needed to review your
+                  Thank you. I now have the details I need to review your
                   request.
                 </p>
                 <button
@@ -149,7 +149,7 @@ export function ContactCta() {
                 </div>
                 <div>
                   <label htmlFor="homepage-found-via" className="text-sm font-medium text-white">
-                    How did you find us?{" "}
+                    How did you find me?{" "}
                     <span className="font-normal text-[#aaa29a]">(optional)</span>
                   </label>
                   <select
@@ -191,7 +191,7 @@ export function ContactCta() {
                 {submitState === "error" && (
                   <div role="alert" className="rounded-lg border border-[#f7b9aa]/40 bg-white/5 px-4 py-3">
                     <p className="text-sm text-[#f7b9aa]">
-                      The form could not be sent. Message Esteban directly and
+                      The form could not be sent. Message me directly and
                       continue there.
                     </p>
                     <div className="mt-3 flex flex-wrap gap-2">

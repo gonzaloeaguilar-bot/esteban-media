@@ -12,7 +12,7 @@ const copy = {
   en: {
     eyebrow: "Services",
     title: "After the work, see the services that support it.",
-    intro: "Esteban Moreno Media helps businesses with video, websites, profiles, follow-up tools, reporting, and the creative content that keeps everything clear.",
+    intro: "I help businesses with video, websites, profiles, follow-up tools, reporting, and the creative content that keeps everything clear.",
     label: "View services",
     href: "/services",
     cards: [
@@ -27,7 +27,7 @@ const copy = {
   es: {
     eyebrow: "Servicios",
     title: "Después del trabajo, mira los servicios que lo sostienen.",
-    intro: "Esteban Moreno Media ayuda con video, sitios web, perfiles, seguimiento, reportes y contenido creativo para que el proyecto sea fácil de entender.",
+    intro: "Ayudo con video, sitios web, perfiles, seguimiento, reportes y contenido creativo para que el proyecto sea fácil de entender.",
     label: "Ver servicios",
     href: "/es/servicios",
     cards: [

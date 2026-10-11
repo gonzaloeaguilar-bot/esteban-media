@@ -15,7 +15,7 @@ export function ServicesStrip() {
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-2xl">
             <p className="text-xs font-medium uppercase tracking-wide text-[#5a6066]">
-              What Esteban does
+              What I do
             </p>
             <h2
               id="services-heading"

@@ -70,7 +70,7 @@ export default function Home() {
           when a visitor opens one. */}
       <RealEstateReels locale="en" />
       <ClientReviews locale="en" />
-      <KeepReading id="more" className="em-fold" title="Want to see everything?" destinations="Services, areas, guides and more about Esteban.">
+      <KeepReading id="more" className="em-fold" title="Want to see everything?" destinations="Services, areas, guides and more about me.">
         <HomeAuthorityHub />
         <ServicesStrip />
         <AboutTeaser />
