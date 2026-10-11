@@ -77,7 +77,8 @@ describe("confirmed lead instrumentation", () => {
 
   it("the homepage form asks how the visitor found Esteban, optionally", () => {
     const contact = source("components/contact-cta.tsx");
-    expect(contact).toContain("How did you find us?");
+    // First person singular, like the rest of the home (2026-10-10).
+    expect(contact).toContain("How did you find me?");
     expect(contact).toContain('name="foundVia"');
     expect(contact).toContain('name="foundQuery"');
     expect(contact).toContain('trackLeadSubmit("contact", "en", foundVia || "not_answered")');

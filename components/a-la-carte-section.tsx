@@ -3,10 +3,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
-import { ArrowRight, Plus } from "lucide-react";
+import { ArrowRight, MessageCircle, Plus } from "lucide-react";
 import RailDisclosure from "@/vendor/rail-kit/RailDisclosure";
 import { Container } from "@/components/ui/container";
-import { packagesCopy, type Locale } from "@/lib/packages";
+import { packagesCopy, whatsappHref, type Locale } from "@/lib/packages";
+import { quoteCtaLabel } from "@/lib/quote-cta";
+import { site } from "@/lib/site";
 import { aLaCarteVisual } from "@/lib/a-la-carte-visuals";
 
 /** Brand-specific art direction over the pinned shared disclosure behavior. */
@@ -46,7 +48,13 @@ export function ALaCarteSection({ locale }: { locale: Locale }) {
       <ul className="em-carte-grid" role="list">
         {copy.items.map(item => {
           const scene = aLaCarteVisual(item.id, locale);
-          const href = item.href ?? (es ? "/es/contacto" : "/contact");
+          // A service with its own page links there (navigation). One without
+          // a page is a quote request, so it gets the same WhatsApp action as
+          // every other quote on the page, with the service already named.
+          const quoteHref = whatsappHref(
+            site.phone.e164,
+            es ? `Hola Esteban, quiero una cotización para: ${item.title}.` : `Hi Esteban, I'd like a quote for: ${item.title}.`,
+          );
           return <li key={item.id} className="em-carte-card" data-service={item.id} data-kind={scene.kind}>
             <h3 id={`carte-${item.id}-title`} className="sr-only">{item.title}</h3>
             <RailDisclosure source={`carte-${item.id}`} className="em-carte-disclosure" summary={<>
@@ -62,13 +70,19 @@ export function ALaCarteSection({ locale }: { locale: Locale }) {
             </>}>
               <div className="em-carte-preparation"><p>{scene.preparation}</p></div>
             </RailDisclosure>
-            <Link href={href} className="em-carte-link" data-cta={`a_la_carte_${item.id}`} aria-label={`${item.href ? (es ? "Ver servicio" : "Explore service") : (es ? "Consultar proyecto" : "Ask about a project")}: ${item.title}`}>
-              {item.href ? (es ? "Ver servicio" : "Explore service") : (es ? "Consultar proyecto" : "Ask about a project")}<ArrowRight size={18} aria-hidden="true" />
-            </Link>
+            {item.href ? (
+              <Link href={item.href} className="em-carte-link" data-cta={`a_la_carte_${item.id}`} aria-label={`${es ? "Ver servicio" : "Explore service"}: ${item.title}`}>
+                {es ? "Ver servicio" : "Explore service"}<ArrowRight size={18} aria-hidden="true" />
+              </Link>
+            ) : (
+              <a href={quoteHref} target="_blank" rel="noopener noreferrer" className="em-carte-link" data-cta={`a_la_carte_${item.id}_whatsapp`} aria-label={`${quoteCtaLabel(locale)}: ${item.title}`}>
+                {quoteCtaLabel(locale)}<MessageCircle size={18} aria-hidden="true" />
+              </a>
+            )}
           </li>;
         })}
       </ul>
-      <p className="em-carte-credit">{es ? "Ilustraciones conceptuales creadas con IA." : "Concept illustrations created with AI."} <time dateTime="2026-10-03">{es ? "Actualizado: 3 de octubre de 2026." : "Updated October 3, 2026."}</time></p>
+      <p className="em-carte-credit">{es ? "Ilustraciones conceptuales creadas con IA." : "Concept illustrations created with AI."}</p>
     </Container>
     <noscript><style>{`@layer base{.em-carte .rail-disclosure__panel[hidden]{display:block!important}}.em-carte-hint{display:none!important}.em-carte .rail-disclosure__toggle{pointer-events:none;cursor:default}`}</style></noscript>
   </section>;

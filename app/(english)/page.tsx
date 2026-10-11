@@ -86,7 +86,7 @@ export default function Home() {
       <PortfolioTeaser locale="en" />
       <ClientReviews locale="en" />
       <PackagesSection locale="en" realEstatePlans={false} />
-      <KeepReading id="more" className="em-fold" title="Want to see everything?" destinations="Services, areas, guides and more about Esteban.">
+      <KeepReading id="more" className="em-fold" title="Want to see everything?" destinations="Services, areas, guides and more about me.">
         <HomeAuthorityHub />
         <ServicesStrip />
         <AboutTeaser />

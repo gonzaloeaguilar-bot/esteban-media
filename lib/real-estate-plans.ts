@@ -24,7 +24,6 @@ type PlanCopy = {
     report: string;
   };
   values: { yes: string; addOn: string; included: string; everyTwoWeeks: string };
-  quote: (name: string) => string;
   whatsapp: (name: string) => string;
   perShoot: string;
   everyPlan: { title: string; items: string[] };
@@ -46,7 +45,6 @@ const COPY: Record<Locale, PlanCopy> = {
       report: "Reporte de Metricool",
     },
     values: { yes: "Sí", addOn: "Adicional", included: "Incluida", everyTwoWeeks: "Cada 2 semanas" },
-    quote: (name) => `Cotizar ${name}`,
     whatsapp: (name) => `Hola Esteban, me interesa el plan mensual de Real Estate ${name}.`,
     perShoot: "Ver precios por sesión",
     everyPlan: {
@@ -77,7 +75,6 @@ const COPY: Record<Locale, PlanCopy> = {
       report: "Metricool report",
     },
     values: { yes: "Yes", addOn: "Add-on", included: "Included", everyTwoWeeks: "Every 2 weeks" },
-    quote: (name) => `Quote ${name}`,
     whatsapp: (name) => `Hi Esteban, I'm interested in the ${name} real estate monthly plan.`,
     perShoot: "See per-shoot prices",
     everyPlan: {

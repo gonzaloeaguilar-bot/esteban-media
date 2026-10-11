@@ -73,8 +73,8 @@ export function PortfolioTeaser({ locale }: PortfolioTeaserProps) {
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-7 text-[#c9c1b8]">
               {isSpanish
-                ? "Una muestra rápida del trabajo publicado de Esteban: videos, sitios web y chatbots con IA para evaluar estilo, ritmo y calidad desde el inicio."
-                : "A fast look at Esteban's published work: videos, custom websites, and AI chatbots so people can judge style, pace, and quality right away."}
+                ? "Una muestra rápida de mi trabajo publicado: videos, sitios web y chatbots con IA para evaluar estilo, ritmo y calidad desde el inicio."
+                : "A fast look at my published work: videos, custom websites, and AI chatbots, so you can judge style, pace, and quality right away."}
             </p>
           </div>
           <Link
