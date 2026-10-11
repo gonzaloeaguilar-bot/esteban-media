@@ -1,0 +1,53 @@
+{
+  "project": "esteban-media",
+  "mode": "pr",
+  "target_type": "pr",
+  "target_id": "PR-362",
+  "requires_pr": true,
+  "goal": "Make the existing bilingual digital systems service hub easier to choose and navigate",
+  "summary": "Rewrites six English and Spanish service cards around customer tasks and links each card to an existing published service page. No route or sitemap URL was added.",
+  "risk": "Low, reversible service-page copy and internal links. Search outcomes are not promised.",
+  "changed_paths": [
+    "app/(english)/services/website-design-fort-lauderdale/page.tsx",
+    "app/(spanish)/es/diseno-web-fort-lauderdale/page.tsx",
+    "app/__tests__/digital-systems-catalog.test.ts",
+    ".cortex/quality-payloads/PR-362.json"
+  ],
+  "requested_actions": [
+    "Run exact-head GitHub validation and independent Cortex evidence attachment",
+    "Merge only after independent review and required checks pass",
+    "Verify raw English and Spanish production HTML and published links after deployment"
+  ],
+  "public_claims": [
+    "The copy names established platforms and existing site services; it adds no client result, price, turnaround, credential, location, or guaranteed placement claim.",
+    "Google Business Profile, Google Maps, Yelp, Zillow, Homes.com, Realtor.com, ManyChat, Twilio and Metricool are described as conditional review or integration examples, not confirmed client accounts."
+  ],
+  "evidence": {
+    "obsidian_context": "The coordinating agent owns Esteban hot.md and durable SEO goal note updates in this session.",
+    "project_routing": "gonzaloeaguilar-bot/esteban-media PR #362, branch codex/esteban-digital-systems-hub-20261011, rebased onto main f2f6c14 before this payload commit.",
+    "hard_stops_checked": "No new account access, platform action, SMS send, price, client result, location, or search-placement promise. The work is restricted to existing service URLs.",
+    "reviewer_ensemble": "Builder checked site routes and raw local production HTML. Independent pr_352 agent reviewed the exact three-file patch after each rebase and returned PASS with no blockers. CTO Antigravity review dispatch produced a decision record but provider returned RESOURCE_EXHAUSTED, so it is not counted as a review.",
+    "reviewer_disagreement_reviewed": "An initial link prefix did not match the real app routes; it was corrected to /services/[growthSystem] and /es/[growthSystem] before the final test and independent review.",
+    "winner_rationale": "The existing service page had 6 impressions and 0 clicks in settled GSC data for 2026-07-11 through 2026-10-09. Task-first cards give a reader a clear next step and pass internal authority to the six already published service pages without expanding the URL inventory.",
+    "tests_or_validation": "At source head 284e529 before this payload commit: pnpm test passed 130 files / 1840 tests; pnpm typecheck, pnpm build and analytics-gate.py passed. Local production server returned HTTP 200 for both language pages and all 12 card links, with correct canonicals; phone screenshots at 390x844 showed no horizontal overflow and readable card actions. Payload-only commit does not change rendered source.",
+    "ci_passed": "Exact-head GitHub CI remains required after this payload commit; do not merge until the new check passes.",
+    "pr_review_complete": "Independent read-only pr_352 reviewer PASS on the bilingual copy, existing route targets, truthful boundaries, and final byte-identical rebased patch. Exact-head CI and Cortex evidence attachment remain required.",
+    "debt_delta": "neutral",
+    "obsidian_handoff": "The coordinating root agent owns the shared Esteban vault and backlog; send PR and production evidence for same-session update."
+  },
+  "reviewers": {
+    "builder": {"status": "ok", "note": "Built and checked bilingual customer-task cards, route links, raw HTML, phone layout and local checks."},
+    "skeptic": {"status": "ok", "note": "Independent pr_352 review PASS on final rebased source patch; no invented outcome or broken service path."},
+    "taste": {"status": "ok", "note": "Phone screenshots at 390x844 confirm visible answer, readable spacing and card links after motion settles."}
+  },
+  "scores": {
+    "source_fidelity": 4,
+    "architecture_soundness": 4,
+    "implementation_quality": 4,
+    "review_completeness": 4,
+    "debt_posture": 4,
+    "verification_strength": 4,
+    "taste_fit": 4
+  },
+  "debt_delta": "neutral"
+}
