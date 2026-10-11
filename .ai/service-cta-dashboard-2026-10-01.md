@@ -4,9 +4,9 @@ Generated: 2026-10-01
 
 This is the zero-cost source inventory for quote, call, email, WhatsApp, and proof actions. The site analytics layer records `data-cta` clicks and link-based contact events; this file names the IDs to watch in GA4 or any exported report.
 
-- Total CTA IDs found: 180
-- Service quote CTA IDs found: 144
-- Contact-like CTA IDs found: 127
+- Total CTA IDs found: 275
+- Service quote CTA IDs found: 208
+- Contact-like CTA IDs found: 188
 
 ## Service quote actions
 
@@ -24,10 +24,18 @@ This is the zero-cost source inventory for quote, call, email, WhatsApp, and pro
 | `service_auto_detailing_video_phone` | `components/service-depth.tsx` |
 | `service_auto_detailing_video_proof` | `components/service-depth.tsx` |
 | `service_auto_detailing_video_whatsapp` | `components/service-depth.tsx` |
+| `service_church_sermon_clips_email` | `components/service-depth.tsx` |
+| `service_church_sermon_clips_phone` | `components/service-depth.tsx` |
+| `service_church_sermon_clips_proof` | `components/service-depth.tsx` |
+| `service_church_sermon_clips_whatsapp` | `components/service-depth.tsx` |
 | `service_content_creator_video_email` | `components/service-depth.tsx` |
 | `service_content_creator_video_phone` | `components/service-depth.tsx` |
 | `service_content_creator_video_proof` | `components/service-depth.tsx` |
 | `service_content_creator_video_whatsapp` | `components/service-depth.tsx` |
+| `service_dance_music_school_video_email` | `components/service-depth.tsx` |
+| `service_dance_music_school_video_phone` | `components/service-depth.tsx` |
+| `service_dance_music_school_video_proof` | `components/service-depth.tsx` |
+| `service_dance_music_school_video_whatsapp` | `components/service-depth.tsx` |
 | `service_ecommerce_product_video_email` | `components/service-depth.tsx` |
 | `service_ecommerce_product_video_phone` | `components/service-depth.tsx` |
 | `service_ecommerce_product_video_proof` | `components/service-depth.tsx` |
@@ -44,10 +52,18 @@ This is the zero-cost source inventory for quote, call, email, WhatsApp, and pro
 | `service_es_auto_detailing_video_phone` | `components/service-depth.tsx` |
 | `service_es_auto_detailing_video_proof` | `components/service-depth.tsx` |
 | `service_es_auto_detailing_video_whatsapp` | `components/service-depth.tsx` |
+| `service_es_church_sermon_clips_email` | `components/service-depth.tsx` |
+| `service_es_church_sermon_clips_phone` | `components/service-depth.tsx` |
+| `service_es_church_sermon_clips_proof` | `components/service-depth.tsx` |
+| `service_es_church_sermon_clips_whatsapp` | `components/service-depth.tsx` |
 | `service_es_content_creator_video_email` | `components/service-depth.tsx` |
 | `service_es_content_creator_video_phone` | `components/service-depth.tsx` |
 | `service_es_content_creator_video_proof` | `components/service-depth.tsx` |
 | `service_es_content_creator_video_whatsapp` | `components/service-depth.tsx` |
+| `service_es_dance_music_school_video_email` | `components/service-depth.tsx` |
+| `service_es_dance_music_school_video_phone` | `components/service-depth.tsx` |
+| `service_es_dance_music_school_video_proof` | `components/service-depth.tsx` |
+| `service_es_dance_music_school_video_whatsapp` | `components/service-depth.tsx` |
 | `service_es_ecommerce_product_video_email` | `components/service-depth.tsx` |
 | `service_es_ecommerce_product_video_phone` | `components/service-depth.tsx` |
 | `service_es_ecommerce_product_video_proof` | `components/service-depth.tsx` |
@@ -56,10 +72,30 @@ This is the zero-cost source inventory for quote, call, email, WhatsApp, and pro
 | `service_es_food_places_creator_video_phone` | `components/service-depth.tsx` |
 | `service_es_food_places_creator_video_proof` | `components/service-depth.tsx` |
 | `service_es_food_places_creator_video_whatsapp` | `components/service-depth.tsx` |
+| `service_es_immigration_attorney_video_email` | `components/service-depth.tsx` |
+| `service_es_immigration_attorney_video_phone` | `components/service-depth.tsx` |
+| `service_es_immigration_attorney_video_proof` | `components/service-depth.tsx` |
+| `service_es_immigration_attorney_video_whatsapp` | `components/service-depth.tsx` |
+| `service_es_insurance_agency_video_email` | `components/service-depth.tsx` |
+| `service_es_insurance_agency_video_phone` | `components/service-depth.tsx` |
+| `service_es_insurance_agency_video_proof` | `components/service-depth.tsx` |
+| `service_es_insurance_agency_video_whatsapp` | `components/service-depth.tsx` |
 | `service_es_medical_practice_video_email` | `components/service-depth.tsx` |
 | `service_es_medical_practice_video_phone` | `components/service-depth.tsx` |
 | `service_es_medical_practice_video_proof` | `components/service-depth.tsx` |
 | `service_es_medical_practice_video_whatsapp` | `components/service-depth.tsx` |
+| `service_es_mortgage_broker_video_email` | `components/service-depth.tsx` |
+| `service_es_mortgage_broker_video_phone` | `components/service-depth.tsx` |
+| `service_es_mortgage_broker_video_proof` | `components/service-depth.tsx` |
+| `service_es_mortgage_broker_video_whatsapp` | `components/service-depth.tsx` |
+| `service_es_preconstruction_condo_video_email` | `components/service-depth.tsx` |
+| `service_es_preconstruction_condo_video_phone` | `components/service-depth.tsx` |
+| `service_es_preconstruction_condo_video_proof` | `components/service-depth.tsx` |
+| `service_es_preconstruction_condo_video_whatsapp` | `components/service-depth.tsx` |
+| `service_es_quinceanera_video_email` | `components/service-depth.tsx` |
+| `service_es_quinceanera_video_phone` | `components/service-depth.tsx` |
+| `service_es_quinceanera_video_proof` | `components/service-depth.tsx` |
+| `service_es_quinceanera_video_whatsapp` | `components/service-depth.tsx` |
 | `service_es_reels_editor_fort_lauderdale_email` | `components/service-depth.tsx` |
 | `service_es_reels_editor_fort_lauderdale_phone` | `components/service-depth.tsx` |
 | `service_es_reels_editor_fort_lauderdale_proof` | `components/service-depth.tsx` |
@@ -88,6 +124,10 @@ This is the zero-cost source inventory for quote, call, email, WhatsApp, and pro
 | `service_es_ugc_video_ecommerce_phone` | `components/service-depth.tsx` |
 | `service_es_ugc_video_ecommerce_proof` | `components/service-depth.tsx` |
 | `service_es_ugc_video_ecommerce_whatsapp` | `components/service-depth.tsx` |
+| `service_es_vacation_rental_video_email` | `components/service-depth.tsx` |
+| `service_es_vacation_rental_video_phone` | `components/service-depth.tsx` |
+| `service_es_vacation_rental_video_proof` | `components/service-depth.tsx` |
+| `service_es_vacation_rental_video_whatsapp` | `components/service-depth.tsx` |
 | `service_es_video_production_fort_lauderdale_email` | `components/service-depth.tsx` |
 | `service_es_video_production_fort_lauderdale_phone` | `components/service-depth.tsx` |
 | `service_es_video_production_fort_lauderdale_proof` | `components/service-depth.tsx` |
@@ -108,10 +148,30 @@ This is the zero-cost source inventory for quote, call, email, WhatsApp, and pro
 | `service_fort_lauderdale_video_production_phone` | `components/service-depth.tsx` |
 | `service_fort_lauderdale_video_production_proof` | `components/service-depth.tsx` |
 | `service_fort_lauderdale_video_production_whatsapp` | `components/service-depth.tsx` |
+| `service_immigration_attorney_video_email` | `components/service-depth.tsx` |
+| `service_immigration_attorney_video_phone` | `components/service-depth.tsx` |
+| `service_immigration_attorney_video_proof` | `components/service-depth.tsx` |
+| `service_immigration_attorney_video_whatsapp` | `components/service-depth.tsx` |
+| `service_insurance_agency_video_email` | `components/service-depth.tsx` |
+| `service_insurance_agency_video_phone` | `components/service-depth.tsx` |
+| `service_insurance_agency_video_proof` | `components/service-depth.tsx` |
+| `service_insurance_agency_video_whatsapp` | `components/service-depth.tsx` |
 | `service_medical_practice_video_email` | `components/service-depth.tsx` |
 | `service_medical_practice_video_phone` | `components/service-depth.tsx` |
 | `service_medical_practice_video_proof` | `components/service-depth.tsx` |
 | `service_medical_practice_video_whatsapp` | `components/service-depth.tsx` |
+| `service_mortgage_broker_video_email` | `components/service-depth.tsx` |
+| `service_mortgage_broker_video_phone` | `components/service-depth.tsx` |
+| `service_mortgage_broker_video_proof` | `components/service-depth.tsx` |
+| `service_mortgage_broker_video_whatsapp` | `components/service-depth.tsx` |
+| `service_preconstruction_condo_video_email` | `components/service-depth.tsx` |
+| `service_preconstruction_condo_video_phone` | `components/service-depth.tsx` |
+| `service_preconstruction_condo_video_proof` | `components/service-depth.tsx` |
+| `service_preconstruction_condo_video_whatsapp` | `components/service-depth.tsx` |
+| `service_quinceanera_video_email` | `components/service-depth.tsx` |
+| `service_quinceanera_video_phone` | `components/service-depth.tsx` |
+| `service_quinceanera_video_proof` | `components/service-depth.tsx` |
+| `service_quinceanera_video_whatsapp` | `components/service-depth.tsx` |
 | `service_real_estate_reels_email` | `components/service-depth.tsx` |
 | `service_real_estate_reels_phone` | `components/service-depth.tsx` |
 | `service_real_estate_reels_proof` | `components/service-depth.tsx` |
@@ -148,6 +208,10 @@ This is the zero-cost source inventory for quote, call, email, WhatsApp, and pro
 | `service_ugc_ecommerce_video_phone` | `components/service-depth.tsx` |
 | `service_ugc_ecommerce_video_proof` | `components/service-depth.tsx` |
 | `service_ugc_ecommerce_video_whatsapp` | `components/service-depth.tsx` |
+| `service_vacation_rental_video_email` | `components/service-depth.tsx` |
+| `service_vacation_rental_video_phone` | `components/service-depth.tsx` |
+| `service_vacation_rental_video_proof` | `components/service-depth.tsx` |
+| `service_vacation_rental_video_whatsapp` | `components/service-depth.tsx` |
 | `service_white_label_video_editing_email` | `components/service-depth.tsx` |
 | `service_white_label_video_editing_phone` | `components/service-depth.tsx` |
 | `service_white_label_video_editing_proof` | `components/service-depth.tsx` |
@@ -162,6 +226,9 @@ This is the zero-cost source inventory for quote, call, email, WhatsApp, and pro
 | CTA ID | Source file |
 |---|---|
 | `auto_detailing_hero_contact` | `app/(english)/services/auto-detailing-tint-wrap-video-marketing-miami/page.tsx` |
+| `church_hero_whatsapp` | `app/(english)/services/church-sermon-clip-editing-miami/page.tsx` |
+| `closing_email` | `components/packages-section.tsx` |
+| `closing_phone` | `components/packages-section.tsx` |
 | `closing_whatsapp` | `components/packages-section.tsx` |
 | `contact_error_phone` | `components/contact-cta.tsx` |
 | `contact_error_whatsapp` | `components/contact-cta.tsx` |
@@ -169,11 +236,19 @@ This is the zero-cost source inventory for quote, call, email, WhatsApp, and pro
 | `contact_whatsapp` | `app/(spanish)/es/contacto/page.tsx` |
 | `content_creator_hero_contact` | `app/(english)/services/content-creator-video-editing-miami/page.tsx` |
 | `food_creator_hero_contact` | `app/(english)/services/food-and-places-creator-video-editing-miami/page.tsx` |
+| `header_menu_whatsapp` | `components/site-header-client.tsx` |
+| `header_whatsapp` | `components/site-header-client.tsx` |
+| `hero_whatsapp` | `components/hero-video.tsx` |
+| `immigration_hero_whatsapp` | `app/(english)/services/immigration-attorney-video-marketing-miami/page.tsx` |
+| `insurance_hero_whatsapp` | `app/(english)/services/insurance-agency-video-marketing-miami/page.tsx` |
 | `lens-footer-contact` | `app/(english)/lens/page.tsx` |
 | `lens-hero-contact` | `app/(english)/lens/page.tsx` |
 | `medical_practice_hero_contact` | `app/(english)/services/medical-practice-video-marketing-miami/page.tsx` |
+| `mortgage_hero_whatsapp` | `app/(english)/services/mortgage-broker-video-marketing-miami/page.tsx` |
 | `package_arranque_project_whatsapp` | `components/starter-options.tsx` |
 | `package_arranque_weekly_whatsapp` | `components/starter-options.tsx` |
+| `preconstruction_hero_whatsapp` | `app/(english)/services/pre-construction-condo-video-marketing-miami/page.tsx` |
+| `quinceanera_hero_whatsapp` | `app/(english)/services/quinceanera-video-miami/page.tsx` |
 | `real_estate_whatsapp` | `components/real-estate-pricing.tsx` |
 | `remote_editor_contact` | `app/(english)/services/hire-remote-video-editor/page.tsx` |
 | `resource_video_brief_contact` | `app/(english)/resources/video-project-brief-template/page.tsx` |
@@ -187,9 +262,15 @@ This is the zero-cost source inventory for quote, call, email, WhatsApp, and pro
 | `service_auto_detailing_video_email` | `components/service-depth.tsx` |
 | `service_auto_detailing_video_phone` | `components/service-depth.tsx` |
 | `service_auto_detailing_video_whatsapp` | `components/service-depth.tsx` |
+| `service_church_sermon_clips_email` | `components/service-depth.tsx` |
+| `service_church_sermon_clips_phone` | `components/service-depth.tsx` |
+| `service_church_sermon_clips_whatsapp` | `components/service-depth.tsx` |
 | `service_content_creator_video_email` | `components/service-depth.tsx` |
 | `service_content_creator_video_phone` | `components/service-depth.tsx` |
 | `service_content_creator_video_whatsapp` | `components/service-depth.tsx` |
+| `service_dance_music_school_video_email` | `components/service-depth.tsx` |
+| `service_dance_music_school_video_phone` | `components/service-depth.tsx` |
+| `service_dance_music_school_video_whatsapp` | `components/service-depth.tsx` |
 | `service_ecommerce_product_video_email` | `components/service-depth.tsx` |
 | `service_ecommerce_product_video_phone` | `components/service-depth.tsx` |
 | `service_ecommerce_product_video_whatsapp` | `components/service-depth.tsx` |
@@ -202,18 +283,39 @@ This is the zero-cost source inventory for quote, call, email, WhatsApp, and pro
 | `service_es_auto_detailing_video_email` | `components/service-depth.tsx` |
 | `service_es_auto_detailing_video_phone` | `components/service-depth.tsx` |
 | `service_es_auto_detailing_video_whatsapp` | `components/service-depth.tsx` |
+| `service_es_church_sermon_clips_email` | `components/service-depth.tsx` |
+| `service_es_church_sermon_clips_phone` | `components/service-depth.tsx` |
+| `service_es_church_sermon_clips_whatsapp` | `components/service-depth.tsx` |
 | `service_es_content_creator_video_email` | `components/service-depth.tsx` |
 | `service_es_content_creator_video_phone` | `components/service-depth.tsx` |
 | `service_es_content_creator_video_whatsapp` | `components/service-depth.tsx` |
+| `service_es_dance_music_school_video_email` | `components/service-depth.tsx` |
+| `service_es_dance_music_school_video_phone` | `components/service-depth.tsx` |
+| `service_es_dance_music_school_video_whatsapp` | `components/service-depth.tsx` |
 | `service_es_ecommerce_product_video_email` | `components/service-depth.tsx` |
 | `service_es_ecommerce_product_video_phone` | `components/service-depth.tsx` |
 | `service_es_ecommerce_product_video_whatsapp` | `components/service-depth.tsx` |
 | `service_es_food_places_creator_video_email` | `components/service-depth.tsx` |
 | `service_es_food_places_creator_video_phone` | `components/service-depth.tsx` |
 | `service_es_food_places_creator_video_whatsapp` | `components/service-depth.tsx` |
+| `service_es_immigration_attorney_video_email` | `components/service-depth.tsx` |
+| `service_es_immigration_attorney_video_phone` | `components/service-depth.tsx` |
+| `service_es_immigration_attorney_video_whatsapp` | `components/service-depth.tsx` |
+| `service_es_insurance_agency_video_email` | `components/service-depth.tsx` |
+| `service_es_insurance_agency_video_phone` | `components/service-depth.tsx` |
+| `service_es_insurance_agency_video_whatsapp` | `components/service-depth.tsx` |
 | `service_es_medical_practice_video_email` | `components/service-depth.tsx` |
 | `service_es_medical_practice_video_phone` | `components/service-depth.tsx` |
 | `service_es_medical_practice_video_whatsapp` | `components/service-depth.tsx` |
+| `service_es_mortgage_broker_video_email` | `components/service-depth.tsx` |
+| `service_es_mortgage_broker_video_phone` | `components/service-depth.tsx` |
+| `service_es_mortgage_broker_video_whatsapp` | `components/service-depth.tsx` |
+| `service_es_preconstruction_condo_video_email` | `components/service-depth.tsx` |
+| `service_es_preconstruction_condo_video_phone` | `components/service-depth.tsx` |
+| `service_es_preconstruction_condo_video_whatsapp` | `components/service-depth.tsx` |
+| `service_es_quinceanera_video_email` | `components/service-depth.tsx` |
+| `service_es_quinceanera_video_phone` | `components/service-depth.tsx` |
+| `service_es_quinceanera_video_whatsapp` | `components/service-depth.tsx` |
 | `service_es_reels_editor_fort_lauderdale_email` | `components/service-depth.tsx` |
 | `service_es_reels_editor_fort_lauderdale_phone` | `components/service-depth.tsx` |
 | `service_es_reels_editor_fort_lauderdale_whatsapp` | `components/service-depth.tsx` |
@@ -235,6 +337,9 @@ This is the zero-cost source inventory for quote, call, email, WhatsApp, and pro
 | `service_es_ugc_video_ecommerce_email` | `components/service-depth.tsx` |
 | `service_es_ugc_video_ecommerce_phone` | `components/service-depth.tsx` |
 | `service_es_ugc_video_ecommerce_whatsapp` | `components/service-depth.tsx` |
+| `service_es_vacation_rental_video_email` | `components/service-depth.tsx` |
+| `service_es_vacation_rental_video_phone` | `components/service-depth.tsx` |
+| `service_es_vacation_rental_video_whatsapp` | `components/service-depth.tsx` |
 | `service_es_video_production_fort_lauderdale_email` | `components/service-depth.tsx` |
 | `service_es_video_production_fort_lauderdale_phone` | `components/service-depth.tsx` |
 | `service_es_video_production_fort_lauderdale_whatsapp` | `components/service-depth.tsx` |
@@ -250,9 +355,24 @@ This is the zero-cost source inventory for quote, call, email, WhatsApp, and pro
 | `service_fort_lauderdale_video_production_email` | `components/service-depth.tsx` |
 | `service_fort_lauderdale_video_production_phone` | `components/service-depth.tsx` |
 | `service_fort_lauderdale_video_production_whatsapp` | `components/service-depth.tsx` |
+| `service_immigration_attorney_video_email` | `components/service-depth.tsx` |
+| `service_immigration_attorney_video_phone` | `components/service-depth.tsx` |
+| `service_immigration_attorney_video_whatsapp` | `components/service-depth.tsx` |
+| `service_insurance_agency_video_email` | `components/service-depth.tsx` |
+| `service_insurance_agency_video_phone` | `components/service-depth.tsx` |
+| `service_insurance_agency_video_whatsapp` | `components/service-depth.tsx` |
 | `service_medical_practice_video_email` | `components/service-depth.tsx` |
 | `service_medical_practice_video_phone` | `components/service-depth.tsx` |
 | `service_medical_practice_video_whatsapp` | `components/service-depth.tsx` |
+| `service_mortgage_broker_video_email` | `components/service-depth.tsx` |
+| `service_mortgage_broker_video_phone` | `components/service-depth.tsx` |
+| `service_mortgage_broker_video_whatsapp` | `components/service-depth.tsx` |
+| `service_preconstruction_condo_video_email` | `components/service-depth.tsx` |
+| `service_preconstruction_condo_video_phone` | `components/service-depth.tsx` |
+| `service_preconstruction_condo_video_whatsapp` | `components/service-depth.tsx` |
+| `service_quinceanera_video_email` | `components/service-depth.tsx` |
+| `service_quinceanera_video_phone` | `components/service-depth.tsx` |
+| `service_quinceanera_video_whatsapp` | `components/service-depth.tsx` |
 | `service_real_estate_reels_email` | `components/service-depth.tsx` |
 | `service_real_estate_reels_phone` | `components/service-depth.tsx` |
 | `service_real_estate_reels_whatsapp` | `components/service-depth.tsx` |
@@ -280,6 +400,9 @@ This is the zero-cost source inventory for quote, call, email, WhatsApp, and pro
 | `service_ugc_ecommerce_video_email` | `components/service-depth.tsx` |
 | `service_ugc_ecommerce_video_phone` | `components/service-depth.tsx` |
 | `service_ugc_ecommerce_video_whatsapp` | `components/service-depth.tsx` |
+| `service_vacation_rental_video_email` | `components/service-depth.tsx` |
+| `service_vacation_rental_video_phone` | `components/service-depth.tsx` |
+| `service_vacation_rental_video_whatsapp` | `components/service-depth.tsx` |
 | `service_white_label_video_editing_email` | `components/service-depth.tsx` |
 | `service_white_label_video_editing_phone` | `components/service-depth.tsx` |
 | `service_white_label_video_editing_whatsapp` | `components/service-depth.tsx` |
@@ -287,4 +410,6 @@ This is the zero-cost source inventory for quote, call, email, WhatsApp, and pro
 | `service_youtube_video_editing_phone` | `components/service-depth.tsx` |
 | `service_youtube_video_editing_whatsapp` | `components/service-depth.tsx` |
 | `short_form_video_whatsapp` | `app/(english)/services/short-form-video-editor-miami/page.tsx` |
+| `studio_hero_whatsapp` | `app/(english)/services/dance-studio-music-school-video-marketing-miami/page.tsx` |
+| `vacation-rental_hero_whatsapp` | `app/(english)/services/vacation-rental-video-marketing-fort-lauderdale/page.tsx` |
 | `white_label_hero_contact` | `app/(english)/services/white-label-video-editing-for-agencies/page.tsx` |

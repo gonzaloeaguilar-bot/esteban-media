@@ -323,3 +323,182 @@ export const SPA_DEEP_DIVE: DeepDive = {
     },
   ],
 };
+
+// Niche wave 8 (2026-10-11). Same rules as above: question-shaped headings,
+// 100-180 words a section, no price, turnaround, result or regulatory detail
+// that was not verified, and every regulated duty attributed to the client.
+export const PRECONSTRUCTION_DEEP_DIVE: DeepDive = {
+  id: "preconstruction-launch",
+  title: "How does a pre-construction launch turn into a reel series?",
+  destinations: "Building the series from renderings, and preparing Spanish and English versions.",
+  sections: [
+    {
+      heading: "How many kinds of reels does a pre-construction launch need?",
+      paragraphs: [
+        "Usually four, released in order. The teaser uses the strongest exterior rendering and one line about the location, and it exists to make people ask for the brochure. Amenity reels take one feature at a time, the pool deck, the lobby, the gym, so each post has a single subject a viewer can remember. The sales-gallery walkthrough shows the finishes and the model unit, which is the closest a buyer gets to touching a product that does not exist yet. Construction updates come later and show that the project is moving.",
+        "Planning the four together means renderings are cut once and reused across the series instead of being re-edited every month, and it gives the sales team a calendar of what goes out and when. That calendar is what the [Growth plan](/pricing/growth) is built to hold.",
+      ],
+    },
+    {
+      heading: "What changes between the Spanish and English version of the same reel?",
+      paragraphs: [
+        "The picture usually stays the same and the words change. On-screen text is rewritten rather than translated word for word, because a phrase that sells in English can sound stiff in Spanish, and Spanish text runs longer, so titles are re-timed and resized to stay inside the safe area of a vertical frame. Units, currency and the call to action are checked for each audience, since an international buyer needs to know whom to contact and in which language.",
+        "If a sales agent speaks on camera, the clip can carry subtitles in the other language rather than a dub. Every version goes back to the developer for approval, and nothing about pricing, availability or completion dates appears unless the developer supplies the exact wording.",
+      ],
+    },
+  ],
+};
+
+export const VACATION_RENTAL_DEEP_DIVE: DeepDive = {
+  id: "rental-tour",
+  title: "How does a host or manager get tour footage worth editing?",
+  destinations: "One shot list for every unit, and what to send with the clips.",
+  sections: [
+    {
+      heading: "What shot list works for every rental unit?",
+      paragraphs: [
+        "The same one, every time. Start outside with the building or front door, so a guest can recognise it on arrival. Walk in and pause in the living area, then the kitchen, with one close shot of anything guests ask about, such as the coffee maker. Move through each bedroom and bathroom, then the outdoor space and the view, and finish with what the listing already mentions nearby, such as beach access or the pool.",
+        "Keeping the order fixed means a cleaner or co-host can film it without direction, and a manager with many units ends up with tours that look like they belong to one brand. Film in daylight with every light on, and keep personal items and guest belongings out of frame.",
+      ],
+    },
+    {
+      heading: "What should a property manager send along with the footage?",
+      paragraphs: [
+        "A folder per property, named the way the listing names it, with the original clips straight from the phone and a short note of the facts that can appear on screen: bedrooms and bathrooms, the feature that matters most and the wording of the booking link. Anything that changes, such as nightly rates or availability, belongs in the caption rather than the video, so a reel does not go out of date.",
+        "Say where each cut will live: a vertical reel for social, a horizontal version for the listing or a direct-booking site, or both. Add the logo if the properties carry a brand. The [real estate reels](/services/real-estate-reels-video-editor-south-florida) page shows the pacing these tours follow.",
+      ],
+    },
+  ],
+};
+
+export const INSURANCE_AGENCY_DEEP_DIVE: DeepDive = {
+  id: "insurance-explainers",
+  title: "How does an agency build a Spanish explainer library?",
+  destinations: "Choosing topics from real client questions, and filming agents without a studio.",
+  sections: [
+    {
+      heading: "Which topics should an insurance explainer series start with?",
+      paragraphs: [
+        "The questions the front desk answers every week. Ask each agent to write down the questions clients ask most, in the words clients use, and the list usually repeats: what a premium and a deductible are, whether a family member can be added, what documents to bring, what happens if income changes, how to use the plan to see a doctor. Each becomes one video of under a minute, titled with the question itself, because that is what someone types into a search bar or asks a voice assistant.",
+        "Medicare topics are kept apart from Marketplace topics, so each series can carry the disclaimers its compliance review requires. The result is a set the agency can post, pin and share by WhatsApp whenever a client asks the same question again.",
+      ],
+    },
+    {
+      heading: "How can agents film explainers without a studio or a crew?",
+      paragraphs: [
+        "Book one quiet block in the calendar, not a production day. The agent sits facing a window, the phone sits on a stand at eye level, and each topic is recorded as a short answer to a question read aloud by a colleague, which sounds more natural than a memorised script. A lapel microphone connected to the phone makes the biggest difference, because office air conditioning and street noise are what make phone audio hard to follow.",
+        "Record a couple of takes of each answer and keep going. The edit picks the clearest one, adds Spanish captions and the agency's branding, and leaves space at the end for the approved disclaimer. One session like that can cover a month of topics in the [short-form](/services/short-form-video-editor-miami) format.",
+      ],
+    },
+  ],
+};
+
+export const MORTGAGE_BROKER_DEEP_DIVE: DeepDive = {
+  id: "loan-officer-videos",
+  title: "How does a loan officer plan a month of videos?",
+  destinations: "Turning buyer questions into a series, and recording a batch in one sitting.",
+  sections: [
+    {
+      heading: "Which buyer questions make useful mortgage explainers?",
+      paragraphs: [
+        "The ones that come up before a buyer is ready to apply. First-time buyers ask how much they need to save, what their credit means for them and why pre-approval matters before making an offer. Self-employed buyers ask which tax documents a lender looks at. Buyers who are new to the country ask whether they can buy with an ITIN or with income from abroad. Each becomes one video with the question as its title, answered in plain Spanish by the loan officer, with the general process explained and the specific terms left for a conversation.",
+        "Sorting the questions by stage, from saving to closing, gives the calendar an order, so a follower who watches the series learns the process in the order they will live it.",
+      ],
+    },
+    {
+      heading: "How can one recording session supply a month of posts?",
+      paragraphs: [
+        "By recording answers, not shows. Write eight to twelve buyer questions on cards, sit at eye level to a phone on a stand with window light in front of you, and answer each one in under a minute as if a client had just asked it. A colleague reading the question aloud keeps the tone conversational. Change shirts or move to a second spot halfway through, so the feed does not look like a single afternoon.",
+        "Send the clips with the list of questions, the approved disclosure text and the link where viewers should book a call. The edit trims each answer, adds captions and the disclosure in its fixed position, and returns a set that can be scheduled across the month on the [Growth plan](/pricing/growth).",
+      ],
+    },
+  ],
+};
+
+export const IMMIGRATION_ATTORNEY_DEEP_DIVE: DeepDive = {
+  id: "attorney-education",
+  title: "How does a firm plan educational reels that stay within the rules?",
+  destinations: "Choosing general topics, and the review passes before anything is published.",
+  sections: [
+    {
+      heading: "Which immigration topics work as general education?",
+      paragraphs: [
+        "Topics about process and preparation rather than outcomes. How to prepare for a first consultation and what papers to bring. Why a notario público, a trusted figure in much of Latin America, is not authorised to give legal advice in the United States. How to check that an attorney is licensed by looking up the name in The Florida Bar's directory. What a scam call or message tends to look like, and why keeping copies of every document matters.",
+        "Each of these helps a viewer without touching the facts of their own case, and each ends with the same invitation to book a consultation. Topics that depend on individual circumstances, or on policy that is changing, belong in a consultation rather than a reel, and the firm decides where that line sits.",
+      ],
+    },
+    {
+      heading: "What review should happen before an attorney's reel is published?",
+      paragraphs: [
+        "Three passes. First, the attorney approves the outline before filming, so the recording already says what the firm is comfortable saying. Second, after the edit, the firm watches the cut as a viewer would: the Spanish captions, any on-screen text, the attorney's name and title, and the disclaimer the firm supplies. Third, the firm confirms the caption and the link that will go out with the post.",
+        "Esteban's part is the edit and the placement of approved text; the firm owns compliance with The Florida Bar's advertising rules and any filing or review those rules require. Building the passes into the calendar keeps the series moving without skipping a check. Firms with other practice areas can also see [law firm video production](/services/law-firm-video-production-miami).",
+      ],
+    },
+  ],
+};
+
+export const CHURCH_SERMON_DEEP_DIVE: DeepDive = {
+  id: "sermon-clips",
+  title: "How does a sermon become a week of clips?",
+  destinations: "Choosing the moments, and a weekly rhythm a media team can keep.",
+  sections: [
+    {
+      heading: "Which parts of a sermon work as clips?",
+      paragraphs: [
+        "Passages with a beginning and an end inside the same minute: a single clear statement of the main point, a short story that illustrates it, the explanation of one verse, a practical application the listener can act on that week, or a question the pastor asks the room. Moments that depend on something said much earlier usually do not work alone, and neither do announcements, which go out of date.",
+        "A good habit is for the pastor or a media volunteer to note a few moments right after the service, with the approximate time in the recording, while they are fresh. The edit starts from those notes, adds a title card with the theme and the reference, and keeps the pastor's words intact rather than rearranging them into something that was never said.",
+      ],
+    },
+    {
+      heading: "What weekly rhythm can a church media team actually keep?",
+      paragraphs: [
+        "One that starts with the Sunday recording and ends with clips scheduled through the week. The recording is shared once the service ends, the selection is agreed with the pastor, and the finished clips are spread across the following days, with the strongest one first. A clip in the middle of the week reminds people of the message, and the last one can point to the next service or an event.",
+        "Spanish and English clips can alternate when the church holds services in both languages. The Growth plan holds that calendar and a monthly report, and the [content repurposing service](/services/content-repurposing-service-miami) applies the same method to any long recording, such as a conference, a retreat or a podcast.",
+      ],
+    },
+  ],
+};
+
+export const QUINCEANERA_DEEP_DIVE: DeepDive = {
+  id: "quinceanera-planning",
+  title: "How does a family plan the video of a quinceañera?",
+  destinations: "The shot list for the night, and deciding what gets shared.",
+  sections: [
+    {
+      heading: "Which moments of a quinceañera belong on the shot list?",
+      paragraphs: [
+        "The ones the family will want to see again. Getting ready at home or at the salon, the portrait session if there is one, the Mass or blessing when the family includes it, the arrival at the venue, the entrance with the chambelanes and damas, the father-daughter waltz, the change from flats to heels, the last doll if the family keeps that tradition, the surprise dance and the toast.",
+        "Give the videographer the running order with approximate times and the names of the people who matter most, such as the godparents and grandparents, so they are filmed on purpose rather than by chance. The highlight is built from that list, which is also how the family can check that nothing important was missed.",
+      ],
+    },
+    {
+      heading: "Who decides what is posted on social media?",
+      paragraphs: [
+        "The parents. The quinceañera is fifteen, so the family approves every clip before it is shared and decides whether it goes on the family's accounts, on her own or nowhere at all. Guests who appear clearly, and especially other children, should be comfortable being shown; when in doubt, the edit uses wider shots or leaves them out.",
+        "Venues sometimes have their own rules about filming and posting, and the family confirms them with the venue. For public posts, music needs to be licensed or chosen from the platform's library, while the private highlight can keep the songs from the party. Agreeing those points before the date avoids re-editing later. The [event video editing](/services/event-video-editing-miami) page covers recaps of other celebrations.",
+      ],
+    },
+  ],
+};
+
+export const DANCE_MUSIC_STUDIO_DEEP_DIVE: DeepDive = {
+  id: "studio-content",
+  title: "How does a studio keep posting through the whole season?",
+  destinations: "A filming routine for regular classes, and planning around recitals and enrollment.",
+  sections: [
+    {
+      heading: "How can teachers film classes without interrupting them?",
+      paragraphs: [
+        "Pick one spot in each room, usually a back corner at chest height, and leave a phone on a small stand there during the last minutes of class, when students run the combination or the piece they have been practising. That is the moment worth filming: the progress, not the warm-up. Keep the lighting consistent and check that the mirror does not show the phone.",
+        "Once a month, record a short clip of a teacher explaining what the class is working on, which helps parents understand what they are paying for. Name each file with the class and the date, mark which students are cleared to appear, and share the folder. The edit turns each batch into posts without anyone stopping a lesson.",
+      ],
+    },
+    {
+      heading: "How should a studio plan content around recitals and enrollment?",
+      paragraphs: [
+        "Work backwards from the dates that already exist. A few weeks before a new session opens, run reminders with class clips and a teacher introduction for each level. Before a recital, post rehearsal moments that build anticipation without giving away the whole routine. After the show, release the highlight first, then a short clip per group over the following weeks, so every family sees their child's moment.",
+        "In the quieter months, progress pieces and behind-the-scenes clips carry the account. The [Growth plan](/pricing/growth) holds this calendar, the editing and a monthly report, and the same approach works for martial arts, swim, art or tutoring businesses that run on terms and showcases.",
+      ],
+    },
+  ],
+};

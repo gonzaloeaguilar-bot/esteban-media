@@ -62,6 +62,23 @@ export const pairedLanguageRoutes: Record<string, string> = {
     "/es/editor-de-video-real-estate-miami",
   "/services/wealth-management-video-production-miami":
     "/es/produccion-de-video-para-asesores-financieros-miami",
+  // 2026-10-11 niche wave 8 (owner-approved).
+  "/services/pre-construction-condo-video-marketing-miami":
+    "/es/video-para-preventa-de-condominios-miami",
+  "/services/vacation-rental-video-marketing-fort-lauderdale":
+    "/es/video-para-alquileres-vacacionales-fort-lauderdale",
+  "/services/insurance-agency-video-marketing-miami":
+    "/es/marketing-de-video-para-agencias-de-seguros-miami",
+  "/services/mortgage-broker-video-marketing-miami":
+    "/es/marketing-de-video-para-brokers-hipotecarios-miami",
+  "/services/immigration-attorney-video-marketing-miami":
+    "/es/marketing-de-video-para-abogados-de-inmigracion-miami",
+  "/services/church-sermon-clip-editing-miami":
+    "/es/edicion-de-clips-de-predicas-para-iglesias-miami",
+  "/services/quinceanera-video-miami":
+    "/es/video-para-quinceaneras-miami",
+  "/services/dance-studio-music-school-video-marketing-miami":
+    "/es/video-para-academias-de-baile-y-musica-miami",
 };
 
 for (const [englishPath, spanishPath] of Object.entries({

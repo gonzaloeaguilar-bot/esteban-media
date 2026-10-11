@@ -42,6 +42,81 @@ type NicheLinkContext = {
 };
 
 const nicheLinkContext: Record<string, NicheLinkContext> = {
+  // Ola de nichos 8 (2026-10-11). Prueba real del portafolio, nombrada por lo
+  // que es: ninguno de estos proyectos se presenta como trabajo del nicho.
+  "video-para-preventa-de-condominios-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade y Broward",
+    note: "My D'ler: un video 3D y maquetas de producto para la presentación de una app. Además, la página de [reels inmobiliarios](/services/real-estate-reels-video-editor-south-florida) (en inglés) muestra seis reels de propiedades que editó Esteban. Ninguno es un proyecto de condominios en preventa.",
+    serviceIds: ["edicion", "planificacion-social", "videografia"],
+    projects: [
+      { href: "/es/portafolio/my-dler", title: "My D'ler", detail: "Video 3D y maquetas para la presentación de una app." },
+    ],
+  },
+  "video-para-alquileres-vacacionales-fort-lauderdale": {
+    areaHref: "/es/areas#broward",
+    areaLabel: "Ver cobertura en Broward y Miami-Dade",
+    note: "La página de [reels inmobiliarios](/services/real-estate-reels-video-editor-south-florida) (en inglés) muestra seis reels verticales de propiedades que editó Esteban para anuncios. No son de un cliente de alquiler vacacional.",
+    serviceIds: ["edicion", "planificacion-social", "videografia"],
+    projects: [
+      { href: "/es/portafolio/homeowners", title: "Homeowners", detail: "Video para redes editado con material entregado por una agencia." },
+    ],
+  },
+  "marketing-de-video-para-agencias-de-seguros-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade y Broward",
+    note: "Healthy Smile Miami: videos para redes de una clínica dental, grabados en locación con sonido y editados por Esteban para una agencia. No es una agencia de seguros; muestra un consultorio presentado a cámara.",
+    serviceIds: ["edicion", "planificacion-social", "videografia"],
+    projects: [
+      { href: "/es/portafolio/healthy-smile", title: "Healthy Smile Miami", detail: "Videos para redes grabados en locación y editados." },
+    ],
+  },
+  "marketing-de-video-para-brokers-hipotecarios-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade y Broward",
+    note: "ML Colombia: pieza corta para redes de una marca de cosméticos que Esteban fundó y dirigió. No es una cuenta hipotecaria; muestra cómo edita contenido corto para los canales de una marca.",
+    serviceIds: ["edicion", "planificacion-social", "videografia"],
+    projects: [
+      { href: "/es/portafolio/ml-colombia", title: "ML Colombia", detail: "Pieza social de 24 segundos para una marca propia." },
+    ],
+  },
+  "marketing-de-video-para-abogados-de-inmigracion-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade y Broward",
+    note: "Healthy Smile Miami: videos para redes de una clínica, grabados en locación con sonido y editados por Esteban para una agencia. No es una firma de abogados; muestra un consultorio profesional presentado a cámara.",
+    serviceIds: ["edicion", "planificacion-social", "videografia"],
+    projects: [
+      { href: "/es/portafolio/healthy-smile", title: "Healthy Smile Miami", detail: "Videos para redes grabados en locación y editados." },
+    ],
+  },
+  "edicion-de-clips-de-predicas-para-iglesias-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade y Broward",
+    note: "Diana & Jack: una boda que Esteban grabó y editó en una película de 20 minutos y un tráiler de un minuto y medio, aproximadamente. No es un servicio religioso; muestra un evento largo condensado en una pieza corta.",
+    serviceIds: ["edicion", "reutilizacion-redes", "planificacion-social"],
+    projects: [
+      { href: "/es/portafolio/diana-jack", title: "Diana & Jack", detail: "Película de boda y tráiler de momentos destacados." },
+    ],
+  },
+  "video-para-quinceaneras-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade y Broward",
+    note: "Diana & Jack: una boda en Boston que Esteban grabó y editó, con una película de 20 minutos y un tráiler de un minuto y medio, aproximadamente. Es una boda, no una quinceañera; muestra cómo cubre una celebración familiar.",
+    serviceIds: ["videografia", "edicion"],
+    projects: [
+      { href: "/es/portafolio/diana-jack", title: "Diana & Jack", detail: "Película de boda y tráiler de momentos destacados." },
+    ],
+  },
+  "video-para-academias-de-baile-y-musica-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade y Broward",
+    note: "Diana & Jack: un evento en vivo grabado y editado en una película y un tráiler. ML Colombia: pieza social de 24 segundos. Ninguno es un recital ni una academia.",
+    serviceIds: ["edicion", "planificacion-social", "videografia"],
+    projects: [
+      { href: "/es/portafolio/diana-jack", title: "Diana & Jack", detail: "Evento en vivo condensado en una película y un tráiler." },
+      { href: "/es/portafolio/ml-colombia", title: "ML Colombia", detail: "Pieza social corta para redes." },
+    ],
+  },
   "edicion-de-video-para-creadores-de-comida-y-lugares-miami": {
     areaHref: "/es/areas#broward",
     areaLabel: "Ver cobertura en Broward y Miami-Dade",
@@ -1082,6 +1157,71 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
 };
 
 const spanishInquiryServices: Record<string, ServiceInquiry> = {
+  // Ola de nichos 8 (2026-10-11).
+  "video-para-preventa-de-condominios-miami": {
+    serviceId: "es_preconstruction_condo_video",
+    serviceName: "reels para la preventa de un condominio",
+    goalPrompt: "convertir renders y el sales gallery en reels en español e inglés",
+    assetPrompt: "renders aprobados, animaciones, clips del sales gallery y el texto legal aprobado",
+    proofHref: "/es/portafolio/my-dler",
+    proofLabel: "Ver un proyecto 3D publicado",
+  },
+  "video-para-alquileres-vacacionales-fort-lauderdale": {
+    serviceId: "es_vacation_rental_video",
+    serviceName: "reels de recorrido para un alquiler vacacional",
+    goalPrompt: "mostrar la propiedad con claridad antes de que el huésped reserve",
+    assetPrompt: "clips de cada espacio grabados después de la limpieza, los datos del anuncio y el enlace de reserva",
+    proofHref: "/es/editor-de-video-real-estate-miami",
+    proofLabel: "Ver edición inmobiliaria",
+  },
+  "marketing-de-video-para-agencias-de-seguros-miami": {
+    serviceId: "es_insurance_agency_video",
+    serviceName: "videos en español para una agencia de seguros",
+    goalPrompt: "explicar dudas de ACA y Medicare antes de la temporada de inscripción",
+    assetPrompt: "clips de los agentes, las preguntas frecuentes y los avisos aprobados por la agencia",
+    proofHref: "/es/portafolio/healthy-smile",
+    proofLabel: "Ver videos de un consultorio publicados",
+  },
+  "marketing-de-video-para-brokers-hipotecarios-miami": {
+    serviceId: "es_mortgage_broker_video",
+    serviceName: "videos de marca personal para un broker hipotecario",
+    goalPrompt: "explicar el proceso de compra con mi propia voz",
+    assetPrompt: "clips grabados con el celular, mi NMLS y los avisos aprobados por cumplimiento",
+    proofHref: "/es/portafolio/ml-colombia",
+    proofLabel: "Ver una pieza social publicada",
+  },
+  "marketing-de-video-para-abogados-de-inmigracion-miami": {
+    serviceId: "es_immigration_attorney_video",
+    serviceName: "reels educativos para una firma de inmigración",
+    goalPrompt: "mostrar a nuestros abogados reales explicando temas generales",
+    assetPrompt: "clips de los abogados, los temas aprobados y el texto de avisos de la firma",
+    proofHref: "/es/portafolio/healthy-smile",
+    proofLabel: "Ver videos de un consultorio publicados",
+  },
+  "edicion-de-clips-de-predicas-para-iglesias-miami": {
+    serviceId: "es_church_sermon_clips",
+    serviceName: "clips de la prédica para nuestra iglesia",
+    goalPrompt: "publicar el mensaje del domingo durante toda la semana",
+    assetPrompt: "la grabación del servicio, el título de la prédica y los minutos elegidos",
+    proofHref: "/es/portafolio/diana-jack",
+    proofLabel: "Ver un evento largo convertido en tráiler",
+  },
+  "video-para-quinceaneras-miami": {
+    serviceId: "es_quinceanera_video",
+    serviceName: "el video de una quinceañera",
+    goalPrompt: "tener la película de la fiesta y clips para compartir en redes",
+    assetPrompt: "la fecha, el salón, quién graba y los momentos más importantes",
+    proofHref: "/es/portafolio/diana-jack",
+    proofLabel: "Ver una celebración publicada",
+  },
+  "video-para-academias-de-baile-y-musica-miami": {
+    serviceId: "es_dance_music_school_video",
+    serviceName: "contenido para una academia de baile o de música",
+    goalPrompt: "publicar clips de clase y recitales durante toda la temporada",
+    assetPrompt: "clips de clase, las fechas de recitales e inscripciones y la lista de alumnos con permiso",
+    proofHref: "/es/portafolio/ml-colombia",
+    proofLabel: "Ver una pieza social publicada",
+  },
   "edicion-de-video-para-creadores-de-comida-y-lugares-miami": {
     serviceId: "es_food_places_creator_video",
     serviceName: "edición para mi cuenta de comida y lugares",
@@ -1423,7 +1563,7 @@ export function SpanishNichePage({
               <h2 className="mt-5 font-serif text-3xl">
                 {isPendingConfirmation
                   ? "¿Qué explica esta página?"
-                  : "¿Para qué proyecto encaja?"}
+                  : (page.fitQuestion ?? "¿Para qué proyecto encaja?")}
               </h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
                 {renderFormattedText(page.projectFit)}

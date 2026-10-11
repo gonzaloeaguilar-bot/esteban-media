@@ -1554,3 +1554,455 @@ export function withServiceSiblings(
   const seen = new Set(related.map((card) => card.href));
   return [...related, ...serviceSiblings(path).filter((card) => !seen.has(card.href))];
 }
+// ---------------------------------------------------------------------------
+// Niche wave 8 (2026-10-11, owner-approved): eight buyers with no page yet.
+//
+// Each entry adds two things the earlier Depth shape did not carry: the
+// answer-first block rendered as the hero's question-shaped <h2>, and the
+// honest proof line. Proof is only real portfolio work, named for what it is
+// (a wedding is called a wedding, not a quinceañera). Prices only ever reach
+// these strings through priceSentence(), i.e. lib/pricing.ts. Regulated duties
+// (disclaimers, NMLS, Florida Bar review, carrier language, consent for
+// minors) are stated as the client's, never Esteban's.
+// ---------------------------------------------------------------------------
+
+export type NicheWave8Depth = Depth & {
+  answer: { question: string; answer: string };
+  proof: { href: string; label: string; note: string };
+};
+
+const enStarter = () => priceSentence("en", "arranque").toLowerCase();
+const enGrowth = () => priceSentence("en", "crecimiento").toLowerCase();
+const enLocal = () => priceSentence("en", "presencia-local").toLowerCase();
+
+export const PRECONSTRUCTION_DEPTH: NicheWave8Depth = {
+  answer: {
+    question: "Can renderings and sales-gallery footage become reels for a pre-construction launch?",
+    answer:
+      "Yes. Esteban edits the material a pre-construction project already has, such as approved renderings, animated fly-throughs, model-unit and sales-gallery footage, and on-camera clips from the sales team, into vertical reels for Instagram, TikTok and YouTube Shorts. Each reel can be delivered in a Spanish version and an English version, with captions in each language, so one launch can speak to local buyers and to buyers in Latin America. Renderings stay labelled as renderings, and the developer's team approves every claim, disclaimer and translation before anything is published. Editing is remote and is the core of the service. When the sales gallery or the model unit needs to be filmed, on-location filming in Miami-Dade or Broward is a paid add-on, scoped per project.",
+  },
+  proof: {
+    href: "/services/real-estate-reels-video-editor-south-florida",
+    label: "Watch the property reels",
+    note: "Published proof for this kind of edit: six vertical property reels Esteban edited, shown on the real estate reels page, and My D'ler, a 3D video and mockups made for an app pitch. Neither is a pre-construction condo project.",
+  },
+  craftHeading: "What a pre-construction reel has to get right.",
+  craft: [
+    {
+      title: "A rendering is not the building",
+      detail:
+        "Animated renderings and finished-unit footage look alike in a vertical crop. The edit keeps on-screen labels such as \"artist's rendering\" wherever your counsel requires them, so a buyer never mistakes a visualisation for a completed residence.",
+    },
+    {
+      title: "Two languages, one cut",
+      detail:
+        "The Spanish and English versions share one picture edit, so the sales team is not managing two different stories. Captions, on-screen text and the call to action change per language, and your team signs off the final wording in both.",
+    },
+    {
+      title: "Built for the sales cycle",
+      detail:
+        "A launch needs different pieces at different stages: the first teaser, amenity reels, a sales-gallery walkthrough, construction updates. Planning them as a series keeps the feed consistent while the project moves from presale to groundbreaking.",
+    },
+  ],
+  faqHeading: "Questions before a developer sends launch material.",
+  faqs: [
+    {
+      question: "What should a developer send for pre-construction reels?",
+      answer:
+        "The approved rendering files and animations at full resolution, any site or aerial footage you already own, sales-gallery and model-unit clips, the logo and brand guide, and the exact wording your legal team has cleared, including disclaimers. Add a short note naming the buyers each piece is for, local, domestic or international, so the Spanish and English versions are written for the right audience from the start.",
+    },
+    {
+      question: "Who approves the disclaimers and the English and Spanish copy?",
+      answer:
+        "The developer does. Esteban places disclaimers, rendering labels and sales claims exactly as your counsel or marketing team supplies them, and he does not write legal language. He works Spanish first, with intermediate English, so the English captions should be checked by someone on your side before publishing. That review is part of the plan, and it keeps every version consistent with the sales materials.",
+    },
+    {
+      question: "Can Esteban film the sales gallery or the model unit?",
+      answer: `Yes, as a paid add-on scoped per project in Miami-Dade and Broward. The Local Presence package, ${enLocal()}, covers pre-production, filming on site and the edit afterwards. If you only need existing renderings and footage edited, the Starter package is ${enStarter()}, and a written quote confirms the scope.`,
+    },
+  ],
+  relatedHeading: "Related services for property marketing.",
+  related: [
+    { title: "Real Estate Reels", detail: "Vertical edits of finished homes and listings, with six published examples.", href: "/services/real-estate-reels-video-editor-south-florida" },
+    { title: "Architecture & Design Video", detail: "Video for studios and firms whose subject is the space itself.", href: "/services/architecture-design-video-miami" },
+    { title: "Aerial Real Estate Editing", detail: "Editing supplied aerial footage into property pieces.", href: "/services/real-estate-drone-video-editing-miami" },
+  ],
+};
+
+export const VACATION_RENTAL_DEPTH: NicheWave8Depth = {
+  answer: {
+    question: "What does a vacation rental tour reel need to show?",
+    answer:
+      "The rooms a guest will actually use, in the order they would walk through them, plus the one feature that justifies the booking: a pool, a water view, a short walk to the beach. Esteban edits footage from hosts and short-term rental managers into vertical tour reels for Instagram and TikTok, and horizontal cuts for a listing or a direct-booking site, with captions and room labels so the tour reads without sound. The edit shows the property as it is, with no added amenities, no borrowed views and no shots of guests. Editing is remote, so a host can film between stays with a phone. For managers with several units in Broward or Miami-Dade who want the filming handled as well, on-location filming is a paid add-on scoped per project.",
+  },
+  proof: {
+    href: "/services/real-estate-reels-video-editor-south-florida",
+    label: "Watch the property reels",
+    note: "The six reels on the real estate reels page are property reels Esteban edited for listings, not for a vacation rental host. They show the pacing and vertical cropping described here.",
+  },
+  craftHeading: "What a short-term rental tour needs from the edit.",
+  craft: [
+    {
+      title: "One walk, not a montage",
+      detail:
+        "Guests are checking whether the place fits their trip. A tour that moves from the door to the living room, kitchen, bedrooms and outdoor space answers that faster than a montage of pretty corners, and it doubles as a pre-arrival video.",
+    },
+    {
+      title: "Accurate beats flattering",
+      detail:
+        "A very wide lens can make a bedroom look larger than it is, and a misleading tour turns into a disappointed review. The edit keeps proportions honest and labels each room, so the video sets expectations the stay can meet.",
+    },
+    {
+      title: "Ready between turnovers",
+      detail:
+        "Filming happens after cleaning and before the next check-in, often in a short window. A fixed shot list, the same for every unit, lets a host or cleaner capture usable clips quickly and lets a manager compare properties side by side.",
+    },
+  ],
+  faqHeading: "Questions before a host or manager sends footage.",
+  faqs: [
+    {
+      question: "What should a host film for a vacation rental reel?",
+      answer:
+        "Film right after cleaning, with the lights on and blinds open: the entrance, a slow pass through each room at chest height, the kitchen, the bathrooms, the bedrooms with beds made and the outdoor space. Add the view, the pool or the walk to the beach at the time of day guests use them. Hold each shot for several seconds and keep the phone in one orientation for the whole set.",
+    },
+    {
+      question: "Can one shoot cover several units for a property manager?",
+      answer: `Yes, when the units are scheduled back to back between stays. On-location filming is a paid add-on scoped per project; the Local Presence package is ${enLocal()} and covers pre-production, filming and editing. Managers who already have footage can send it for remote editing on the Starter package, ${enStarter()}.`,
+    },
+    {
+      question: "Is there published property work to look at?",
+      answer:
+        "Yes. The real estate reels page shows six vertical property reels Esteban edited: an outdoor opener, bedroom walkthroughs and other room-by-room pieces. They are listing-style reels, not vacation rental clients, and they show how a property tour is paced and cropped for a phone screen.",
+    },
+  ],
+  relatedHeading: "Related services for property hosts and managers.",
+  related: [
+    { title: "Real Estate Reels", detail: "Room-by-room vertical edits, with six published property reels.", href: "/services/real-estate-reels-video-editor-south-florida" },
+    { title: "Fort Lauderdale Reels Editor", detail: "Short vertical edits for local businesses near the base.", href: "/services/reels-editor-fort-lauderdale" },
+    { title: "AI Real Estate Photo Enhancement", detail: "Listing photo clean-up that keeps the property truthful.", href: "/services/ai-real-estate-photo-enhancement" },
+  ],
+};
+
+export const INSURANCE_AGENCY_DEPTH: NicheWave8Depth = {
+  answer: {
+    question: "What short videos can a Latino insurance agency publish in Spanish?",
+    answer:
+      "Explainers that answer one question clients already ask at the desk: what a deductible is, how a Marketplace plan differs from Medicaid, what changes when someone turns 65, which documents to bring to an appointment. Esteban edits agents' phone clips or filmed sessions into short Spanish videos, with English versions when the agency needs them, and plans the calendar around the fall enrollment season so the right topics go out before clients start calling. The agency supplies and approves every disclaimer and any carrier-required language. The videos explain and invite people to book an appointment; they do not promise enrollment, savings, approval or a particular plan. Editing and planning are remote, and filming at the agency is a paid add-on scoped per project.",
+  },
+  proof: {
+    href: "/portfolio/healthy-smile",
+    label: "Watch the clinic social videos",
+    note: "Healthy Smile Miami is a set of social videos for a dental clinic that Esteban filmed on location, with sound, and edited, on assignment with an agency. It is not an insurance agency; it shows a local practice presented on camera.",
+  },
+  craftHeading: "What an insurance explainer needs to work.",
+  craft: [
+    {
+      title: "One question per video",
+      detail:
+        "Insurance confuses people because every answer opens three more questions. A short video that handles one term or one situation is easier to follow and easier to find again, and a series of them becomes a library the agency can send by WhatsApp.",
+    },
+    {
+      title: "Plain Spanish, approved wording",
+      detail:
+        "Clients want the explanation the way an agent gives it across the desk, not in policy language. The agent speaks naturally, the captions follow, and the agency checks that each sentence and every disclaimer matches what it is allowed to say.",
+    },
+    {
+      title: "A calendar shaped by the season",
+      detail:
+        "Questions bunch up around the enrollment periods. Planning ahead means explainers are ready in early fall, reminders run during the windows, and the quieter months carry evergreen topics such as reading a bill or filing a claim.",
+    },
+  ],
+  faqHeading: "Questions before an insurance agency sends footage.",
+  faqs: [
+    {
+      question: "Who is responsible for compliance in insurance videos?",
+      answer:
+        "The agency and its carriers. Medicare-related marketing in particular has rules on what can be said and which disclaimers must appear, and those rules are applied through the agency's own compliance process. Esteban places the approved disclaimer text exactly as supplied and does not draft regulatory language or give insurance advice. Send the required wording with the footage so it is built into the edit, not added at the last minute.",
+    },
+    {
+      question: "When should an agency start preparing enrollment-season videos?",
+      answer:
+        "Before the season starts. Medicare's annual enrollment period runs from October 15 to December 7, and Marketplace open enrollment for Florida residents usually opens on November 1, so explainers are most useful when they are filmed and approved by early fall. The agency should confirm each year's dates. The Growth plan's content calendar can map topics to those weeks without promising any enrollment numbers.",
+    },
+    {
+      question: "Do agents need a studio to film explainers?",
+      answer: `No. A quiet office, a phone at eye level and window light are enough for a clear explainer, and Esteban edits that footage remotely; the Starter package is ${enStarter()}. If the agency wants a batch of explainers filmed on site, that is a paid add-on scoped per project, with the Local Presence package at ${enLocal()}.`,
+    },
+  ],
+  relatedHeading: "Related services for advisory businesses.",
+  related: [
+    { title: "Wealth Management Video", detail: "Video for advisors whose clients need trust before numbers.", href: "/services/wealth-management-video-production-miami" },
+    { title: "Short-Form Video Editing", detail: "Vertical edits for Reels, TikTok and Shorts from supplied clips.", href: "/services/short-form-video-editor-miami" },
+    { title: "Small Business Video", detail: "Video for a local office with one location and a booking page.", href: "/services/small-business-video-production-miami" },
+  ],
+};
+
+export const MORTGAGE_BROKER_DEPTH: NicheWave8Depth = {
+  answer: {
+    question: "What videos help a Spanish-speaking loan officer build a personal brand?",
+    answer:
+      "Short videos in which the loan officer explains, in their own voice, the steps buyers find confusing: pre-qualification versus pre-approval, what documents a self-employed buyer needs, what an ITIN loan is, how closing costs work. Esteban edits those clips into vertical reels and longer explainers in Spanish, with English versions when the audience needs them, and helps plan a posting calendar so the account keeps a steady voice. Compliance stays with the client: the NMLS number, the company name and any disclosure the lender or compliance team requires are supplied and approved by the broker, and the edit places them exactly as written. Nothing promises a rate, an approval or a closing date. Filming at an office or an open house is a paid add-on scoped per project.",
+  },
+  proof: {
+    href: "/portfolio/ml-colombia",
+    label: "Watch a published social piece",
+    note: "ML Colombia is a short social piece for a cosmetics brand Esteban founded and ran. It is not a mortgage account; it shows how he edits short content for a brand's own channels.",
+  },
+  craftHeading: "What a loan officer's videos have to get right.",
+  craft: [
+    {
+      title: "The person is the brand",
+      detail:
+        "Borrowers choose a loan officer they trust before they compare products. Videos with the same face, the same tone and a consistent look make the officer recognisable, which matters more than any single post that travels far.",
+    },
+    {
+      title: "Disclosures built into the template",
+      detail:
+        "Licensing details and required disclosures should not be squeezed in at the end. The edit reserves one consistent spot for them on every video, using the exact text the compliance team approves, so nothing goes out without it.",
+    },
+    {
+      title: "Explain, do not quote",
+      detail:
+        "Rates move constantly and a number in a video goes out of date fast. Explainers focus on the process and the documents, and send viewers to book a call for figures, which keeps the content useful for months and publishes no terms nobody approved.",
+    },
+  ],
+  faqHeading: "Questions before a loan officer sends footage.",
+  faqs: [
+    {
+      question: "Who provides the NMLS number and disclosures on mortgage videos?",
+      answer:
+        "The broker or loan officer, together with the lender's compliance team. Esteban does not decide which disclosures apply or how they must be worded; he places the NMLS identifier, company name and any required text exactly as supplied, in the same position on every video. Send the approved wording with the first batch of footage, and flag any video that mentions a product or terms so your compliance team reviews it before it is published.",
+    },
+    {
+      question: "Can a loan officer film everything with a phone?",
+      answer: `Yes. A phone at eye level, window light and a lapel microphone give clean results, and the clips can be edited remotely on the Starter package, ${enStarter()}. For a monthly rhythm with a content plan and calendar, the Growth plan is ${enGrowth()}. Filming at an office or an open house is a paid add-on scoped per project.`,
+    },
+    {
+      question: "Should mortgage videos be in Spanish, English or both?",
+      answer:
+        "In the language your clients use when they call you. Many South Florida loan officers serve Spanish-speaking families first, so Spanish-first videos with English captions, or separate English cuts, are common. Esteban works Spanish first, with intermediate English, so English scripts and captions should be reviewed by someone on your team before they go out.",
+    },
+  ],
+  relatedHeading: "Related services for financial professionals.",
+  related: [
+    { title: "Wealth Management Video", detail: "Video for advisors and planners in Miami.", href: "/services/wealth-management-video-production-miami" },
+    { title: "Real Estate Reels", detail: "Listing reels for the agents a loan officer works beside.", href: "/services/real-estate-reels-video-editor-south-florida" },
+    { title: "Miami Reels Editor", detail: "Vertical edits of talking-head clips for Instagram and TikTok.", href: "/services/reels-editor-miami" },
+  ],
+};
+
+export const IMMIGRATION_ATTORNEY_DEPTH: NicheWave8Depth = {
+  answer: {
+    question: "Why should an immigration law firm publish videos of its real attorneys?",
+    answer:
+      "Because Spanish-speaking families are being targeted by fake lawyer profiles, some with AI-generated faces and voices, and the clearest answer is to show the real, licensed attorney speaking. Esteban edits short educational reels in which the firm's own attorneys explain general topics, such as how to prepare for a consultation, which documents to keep, or why a notario público is not a lawyer in the United States. Each video names the attorney, so a viewer can look the name up in The Florida Bar's public member directory. The videos are general information, not legal advice, and the firm reviews and approves every script, caption and disclaimer under the Florida Bar's advertising rules. Editing is remote; filming at the office is a paid add-on scoped per project.",
+  },
+  proof: {
+    href: "/portfolio/healthy-smile",
+    label: "Watch the clinic social videos",
+    note: "Healthy Smile Miami is a set of clinic social videos Esteban filmed on location with sound and edited, on assignment with an agency. It is not a law firm; it shows a professional practice presented on camera.",
+  },
+  craftHeading: "What an attorney's educational reel has to get right.",
+  craft: [
+    {
+      title: "A face viewers can verify",
+      detail:
+        "The attorney appears on camera, says their own name and the firm's name, and the same person shows up across the series. That consistency is what separates a real practice from an impersonation account built on a stock face or a synthetic voice.",
+    },
+    {
+      title: "General information, clearly framed",
+      detail:
+        "Each reel explains a process or a warning sign without advising anyone on their own case. On-screen text and the closing line make that distinction plain, and invite viewers to book a consultation rather than act on a video.",
+    },
+    {
+      title: "The firm approves every word",
+      detail:
+        "Lawyer advertising in Florida is regulated, and the firm is responsible for compliance. Scripts, captions and disclaimers go through the firm's review before publishing, and the edit uses the approved wording exactly as supplied.",
+    },
+  ],
+  faqHeading: "Questions before a law firm sends footage.",
+  faqs: [
+    {
+      question: "Does Esteban give legal advice or check Florida Bar compliance?",
+      answer:
+        "No. He edits video. The firm and its attorneys decide what is said, apply The Florida Bar's lawyer advertising rules and approve every script, caption and disclaimer before anything is published. If a video needs a disclaimer, the firm supplies the exact wording and the edit places it as written. Topics stay general, so no viewer mistakes a reel for advice on their own case.",
+    },
+    {
+      question: "Why do fake lawyer profiles matter to a real firm?",
+      answer:
+        "Impersonation accounts copy the look of legitimate firms, sometimes with AI-generated people, and the families they target often search in Spanish. A firm whose real attorneys appear by name, consistently, gives viewers something to compare against and something to verify. Videos can also teach the warning signs directly: requests for payment by gift card, promises that a case will certainly be approved, or a notario offering legal services.",
+    },
+    {
+      question: "Can the attorneys film with a phone?",
+      answer: `Yes. A quiet office, a phone at eye level and a lapel microphone are enough, and the footage is edited remotely; the Starter package is ${enStarter()}. If the firm wants a batch of videos filmed at the office in Miami-Dade or Broward, that is a paid add-on scoped per project, with the Local Presence package at ${enLocal()}.`,
+    },
+  ],
+  relatedHeading: "Related services for law firms.",
+  related: [
+    { title: "Law Firm Video Production", detail: "Video for firms across practice areas in Miami.", href: "/services/law-firm-video-production-miami" },
+    { title: "Interview Video Editing", detail: "Edits of seated interviews and talking-head recordings.", href: "/services/interview-video-editing-service" },
+    { title: "Short-Form Video Editing", detail: "Vertical edits for Reels, TikTok and Shorts.", href: "/services/short-form-video-editor-miami" },
+  ],
+};
+
+export const CHURCH_SERMON_DEPTH: NicheWave8Depth = {
+  answer: {
+    question: "How can a church turn a Sunday sermon into short clips?",
+    answer:
+      "By choosing the moments in the message that stand on their own, a clear point, a story, a verse explained, and cutting each into a vertical clip of under a minute with captions, so people can watch it during the week and share it. Esteban edits the church's own recording, from a livestream file or a camera, into clips for Instagram, Facebook, TikTok and YouTube Shorts, in Spanish, English or both, and can plan which clips go out on which days. The pastor or the media team approves the selection. Editing is remote, so the church only needs to share the recording. If the church wants a service or a special event filmed, on-location filming is a paid add-on scoped per project.",
+  },
+  proof: {
+    href: "/portfolio/diana-jack",
+    label: "Watch a long event cut into a highlight",
+    note: "Diana & Jack is a wedding Esteban filmed and edited into a 20-minute film and a highlight trailer of about a minute and a half. It is not a church service; it shows a long event condensed into a short piece.",
+  },
+  craftHeading: "What a sermon clip needs from the edit.",
+  craft: [
+    {
+      title: "The clip has to stand alone",
+      detail:
+        "A sermon builds over half an hour or more; a clip has seconds. The edit looks for passages that make sense without the build-up and trims the lead-in, so someone who never attended still understands the point.",
+    },
+    {
+      title: "Captions for silent scrolling",
+      detail:
+        "Most clips are watched without sound. Burned-in captions in Spanish or English, with Bible references written out correctly, make the message readable on a phone in a waiting room or on a bus.",
+    },
+    {
+      title: "Respect for the room",
+      detail:
+        "Worship moments and congregation shots involve people who did not agree to be on social media. The edit favours the pulpit and the stage, and leaves out identifiable members, especially children, unless the church has permission.",
+    },
+  ],
+  faqHeading: "Questions before a church sends a recording.",
+  faqs: [
+    {
+      question: "What recording does a church need to send?",
+      answer:
+        "The highest-quality file you have: the original camera or livestream recording, not a copy downloaded from social media, with the sermon audio taken from the soundboard if possible. Add the date, the sermon title and the passages or timestamps the pastor wants considered. If several services are recorded, say which one is the main version, so the clips come from the clearest take.",
+    },
+    {
+      question: "Can the clips include worship music?",
+      answer:
+        "Only if the church has the rights to use it on social platforms. Songs performed in a service are often under copyright, and licences for streaming or reposting are the church's to hold and confirm. When that is not clear, the clips focus on the spoken message, which avoids most music claims and keeps the attention on the sermon.",
+    },
+    {
+      question: "How much does sermon clip editing cost?",
+      answer: `Remote editing starts with the Starter package, ${enStarter()}, and a church that wants a weekly rhythm with a content calendar can look at the Growth plan, ${enGrowth()}. Filming a service or an event on site is a paid add-on scoped per project. A written quote sets the number of clips and the scope.`,
+    },
+  ],
+  relatedHeading: "Related services for long recordings.",
+  related: [
+    { title: "Content Repurposing", detail: "One long recording turned into the clips each platform wants.", href: "/services/content-repurposing-service-miami" },
+    { title: "Video Podcast Editing", detail: "Multi-camera conversations edited for YouTube and clips.", href: "/services/video-podcast-editing-service-miami" },
+    { title: "Webinar Clip Editing", detail: "Short clips cut from long talks and presentations.", href: "/services/webinar-clip-editing-service" },
+  ],
+};
+
+export const QUINCEANERA_DEPTH: NicheWave8Depth = {
+  answer: {
+    question: "What does a quinceañera video include?",
+    answer:
+      "Usually two things: a highlight film of a few minutes that the family will watch and share for years, and short vertical edits for social media, such as the entrance, the waltz, the surprise dance and the toast. Esteban edits footage from the family's videographer, the photographer's video clips or guests' phones, and he can also film the celebration in person in Miami-Dade or Broward as a paid add-on scoped per project. The family decides what is published, since the quinceañera is a minor, and the venue's own filming rules apply. Music for public social posts has to be licensed or chosen from the platform's library, so the edit plans for that from the start. A written quote sets the deliverables before the date.",
+  },
+  proof: {
+    href: "/portfolio/diana-jack",
+    label: "Watch a published celebration film",
+    note: "Diana & Jack is a wedding in Boston that Esteban filmed and edited: a 20-minute film of the day and a highlight trailer of about a minute and a half. It is a wedding, not a quinceañera, and shows how he covers a family celebration.",
+  },
+  craftHeading: "What a quinceañera edit has to get right.",
+  craft: [
+    {
+      title: "The moments in order",
+      detail:
+        "A quinceañera has a running order: the arrival, the entrance with the court, the father-daughter waltz, the change of shoes, the surprise dance, the toast. The highlight follows that order, so the film tells the night the way the family lived it.",
+    },
+    {
+      title: "Social edits the family approves",
+      detail:
+        "Short vertical clips for Instagram and TikTok are cut from the same footage. The family approves each one before it is shared, and guests or children who should not appear are left out.",
+    },
+    {
+      title: "Music that will not be muted",
+      detail:
+        "A song in a private highlight may be blocked when posted publicly. The social edits use music the platform allows or tracks the family has rights to, while the private film can keep the songs from the night.",
+    },
+  ],
+  faqHeading: "Questions before a family books the video.",
+  faqs: [
+    {
+      question: "Can Esteban film the quinceañera in person?",
+      answer: `Yes. On-location filming in Miami-Dade or Broward is a paid add-on scoped per project, based on the venue, the hours of coverage and the moments the family wants. The Local Presence package is ${enLocal()} and includes pre-production, filming and editing. If another videographer already films the event, Esteban can edit that footage remotely; the Starter package is ${enStarter()}.`,
+    },
+    {
+      question: "Can guests' phone videos be edited into the highlight?",
+      answer:
+        "Yes, and they often catch moments a single camera misses, such as the grandparents' reaction or the dance floor from inside. Ask guests to send the original files through a shared folder, not videos downloaded from a chat app. Vertical and horizontal clips can be mixed, and the edit evens out colour and sound so the film still feels like one piece.",
+    },
+    {
+      question: "When should the family book the edit?",
+      answer:
+        "Before the date, so the shot list, the deliverables and the songs are agreed while there is still time to plan. If the party has already happened, send the footage and a list of the moments that matter most; the edit is scoped from what was recorded. Delivery dates are confirmed in the written quote rather than promised in advance.",
+    },
+  ],
+  relatedHeading: "Related services for celebrations and events.",
+  related: [
+    { title: "Event Video Editing", detail: "Recaps and highlights edited from event footage.", href: "/services/event-video-editing-miami" },
+    { title: "Short-Form Video Editing", detail: "Vertical clips for Reels and TikTok from the same footage.", href: "/services/short-form-video-editor-miami" },
+    { title: "Fort Lauderdale Reels Editor", detail: "Short vertical edits close to the Fort Lauderdale base.", href: "/services/reels-editor-fort-lauderdale" },
+  ],
+};
+
+export const DANCE_MUSIC_STUDIO_DEPTH: NicheWave8Depth = {
+  answer: {
+    question: "What recurring video content works for dance studios and music academies?",
+    answer:
+      "Content that follows the calendar the studio already has: short clips from regular classes, progress pieces that show a student learning a routine or a song over a term, teacher introductions, enrollment reminders before each new session and a highlight of every recital or showcase. Esteban edits the studio's own phone footage into vertical reels and horizontal recaps and helps plan a monthly calendar, so posting does not depend on someone having a free afternoon. The same method suits other kids' activity businesses, such as martial arts, art or swim schools. Because most students are minors, the studio works only with footage that families have agreed to share. Editing is remote; filming a recital or a class on site is a paid add-on scoped per project.",
+  },
+  proof: {
+    href: "/portfolio/diana-jack",
+    label: "Watch a published event film",
+    note: "Diana & Jack is a wedding Esteban filmed and edited into a full film and a highlight trailer. It is not a recital; it shows how a live event is covered and condensed. ML Colombia, a 24-second social piece, shows his short-form editing.",
+  },
+  craftHeading: "What studio content needs to keep going.",
+  craft: [
+    {
+      title: "Classes are the steady supply",
+      detail:
+        "A recital happens a few times a year; classes happen every week. Short clips from class, filmed from the same corner of the room, keep the account active between big events and show parents what a normal session looks like.",
+    },
+    {
+      title: "Permission before posting",
+      detail:
+        "Students are children, so the studio needs to know which families agreed to appear online. The edit uses only approved students, and wide or back-facing shots cover the rest, so a great moment is not lost to one missing form.",
+    },
+    {
+      title: "Recitals as a highlight and a series",
+      detail:
+        "One recital can produce a full recording for families, a highlight of a few minutes and a set of short clips per group. Planning all three before the show means the camera captures what each piece needs.",
+    },
+  ],
+  faqHeading: "Questions before a studio sends footage.",
+  faqs: [
+    {
+      question: "What permission does a studio need to post students?",
+      answer:
+        "Written consent from a parent or guardian for each student who appears identifiably, kept by the studio; many studios add it to the enrollment form. Send Esteban a list of approved students, or mark which clips are cleared, and the edit uses only those, with wide shots or back-to-camera framing for the rest. The studio decides what is posted and where.",
+    },
+    {
+      question: "Can Esteban film a recital?",
+      answer: `Yes, as a paid add-on scoped per project in Miami-Dade or Broward, depending on the venue, the length of the show and whether the theatre allows filming. The Local Presence package is ${enLocal()}, with pre-production, filming and editing. If the studio or a parent already records the show, that footage can be edited remotely on the Starter package, ${enStarter()}.`,
+    },
+    {
+      question: "What about the music in dance videos?",
+      answer:
+        "Choreography is usually set to commercial music, which may be blocked or muted in public social posts. For public clips, the studio can use songs from the platform's own library or tracks it has licensed, while the full recital recording for families is handled separately. Music schools face the same question with the pieces students perform, and public-domain repertoire avoids it.",
+    },
+  ],
+  relatedHeading: "Related services for studios and class-based businesses.",
+  related: [
+    { title: "Fitness Trainer Video", detail: "Video for coaches and class-based fitness businesses.", href: "/services/fitness-trainer-video-production-miami" },
+    { title: "Event Video Editing", detail: "Recital and showcase recaps edited from event footage.", href: "/services/event-video-editing-miami" },
+    { title: "Social Media Video Batching", detail: "A month of clips edited in one batch.", href: "/services/social-media-video-batching-miami" },
+  ],
+};

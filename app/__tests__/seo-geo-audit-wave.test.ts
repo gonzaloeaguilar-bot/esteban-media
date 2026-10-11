@@ -5,7 +5,7 @@ import { buildGuideStructuredData, getGuides } from "@/lib/guides";
 import { isConsolidatedPath } from "@/lib/consolidation";
 import * as depthContent from "@/lib/service-depth-content";
 import { ServiceLandingDirectory } from "@/components/service-landing-directory";
-import { ServiceAnswerFirst } from "@/components/service-depth";
+import { ServiceAnswerFirst, ServiceRelated, linkableRelated } from "@/components/service-depth";
 import { spanishNichePages } from "@/lib/spanish-site";
 import { getPortfolioWatchItems } from "@/lib/portfolio-watch";
 import { buildPageMetadata, shouldDropBrandSuffix } from "@/lib/site-metadata";
@@ -111,18 +111,21 @@ describe("English hubs and related cards never link a consolidated page (fix 5)"
     expect(paths.filter(isConsolidatedPath)).toEqual([]);
   });
 
-  it("no shared service-depth related card points at a consolidated page", () => {
-    // Depth objects that belong to a consolidated page may link anywhere; the
-    // ones rendered on indexable pages may not.
-    const offenders = Object.entries(depthContent)
-      .filter(([, value]) => value && typeof value === "object" && "related" in value)
-      .flatMap(([name, value]) =>
-        (value as unknown as { related: { href: string }[] }).related
-          .filter((card) => isConsolidatedPath(card.href))
-          .map((card) => `${name} -> ${card.href}`),
-      )
-      .filter((entry) => !/^(SOCIAL_BATCHING|YOUTUBE_EDITING|ECOMMERCE_VIDEO)_DEPTH/.test(entry));
-    expect(offenders).toEqual([]);
+  it("no rendered related card points at a consolidated page", () => {
+    // ServiceRelated drops consolidated hrefs itself (linkableRelated), so a
+    // depth object written later cannot reintroduce a link into a noindexed
+    // page. Checked on the rendered markup of every depth object's cards.
+    const depths = Object.entries(depthContent).filter(
+      ([, value]) => value && typeof value === "object" && "related" in value,
+    ) as unknown as [string, { related: { title: string; detail: string; href: string }[] }][];
+    expect(depths.length).toBeGreaterThan(10);
+    for (const [name, depth] of depths) {
+      const markup = renderToStaticMarkup(ServiceRelated({ heading: "h", services: depth.related }));
+      expect(linkedPaths(markup).filter(isConsolidatedPath), name).toEqual([]);
+    }
+    expect(
+      linkableRelated([{ title: "t", detail: "d", href: "/services/law-firm-video-production-miami" }]),
+    ).toEqual([]);
   });
 });
 

@@ -21,7 +21,7 @@ import sitemap, { inventoryAdditions20261010Paths } from "../sitemap";
 describe("portfolio sitemap entries", () => {
   const entries = sitemap();
 
-  it("publishes the exact 326-URL consolidated inventory, each URL once", () => {
+  it("publishes the exact 342-URL consolidated inventory, each URL once", () => {
     const urls = entries.map((entry) => entry.url);
 
     // 279 = 243 consolidated + /desk-recommendations (owner-ordered
@@ -39,8 +39,9 @@ describe("portfolio sitemap entries", () => {
     // case-study hubs, /lens and /fort-lauderdale.
     // +6 = the annual-events hub pair plus the Fort Lauderdale boat show and Art Basel Miami Beach pairs (2026-10-10, owner-approved).
     // +10 = the five remaining annual-event pairs: Miami International Boat Show, South Beach Wine & Food Festival, eMerge Americas, Miami Music Week and Miami Spice (2026-10-10, owner-approved).
-    expect(entries).toHaveLength(326);
-    expect(new Set(urls)).toHaveLength(326);
+    // +16 = niche wave 8 (2026-10-11, owner-approved bilingual pairs).
+    expect(entries).toHaveLength(342);
+    expect(new Set(urls)).toHaveLength(342);
   });
 
   it("advertises every 2026-10-10 owner-ordered addition with matching hreflang", () => {

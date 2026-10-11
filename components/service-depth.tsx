@@ -9,6 +9,7 @@ import { KeepReading } from "@/components/keep-reading";
 import { whatsappHref } from "@/lib/packages";
 import { PACKAGE_PRICES, usd } from "@/lib/pricing";
 import { absoluteUrl, site } from "@/lib/site";
+import { isConsolidatedPath } from "@/lib/consolidation";
 
 /**
  * The depth a service page needs to earn anything — as shared components.
@@ -271,6 +272,17 @@ export function ServiceCraft({
   );
 }
 
+/**
+ * Related cards minus any that point at a consolidated (noindexed or merged)
+ * page: an indexable page never links into one (SEO/GEO audit 2026-10-10,
+ * fix 5). Applied inside ServiceRelated so new pages inherit it.
+ */
+export function linkableRelated(services: readonly RelatedService[]): RelatedService[] {
+  return services.filter(
+    (service) => !isConsolidatedPath(service.href.replace(/[#?].*$/, "").replace(/\/$/, "")),
+  );
+}
+
 /** Sibling services, so a page that does not fit the visitor still leads somewhere. */
 export function ServiceRelated({
   heading,
@@ -295,7 +307,7 @@ export function ServiceRelated({
           {heading}
         </h2>
         <div className="mt-8 grid gap-5 md:grid-cols-3">
-          {services.map((service) => (
+          {linkableRelated(services).map((service) => (
             <Link
               key={service.href}
               href={service.href}

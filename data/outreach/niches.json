@@ -1,6 +1,6 @@
 {
   "note": "Niche definitions for the Esteban Moreno Media outbound lane. Each niche = a Google Maps search query set (`queries`) plus optional Instagram user-search terms (`ig_terms`, used by scripts/ig-prospect-scraper.mjs; falls back to `queries`) that produces REAL local businesses with a visual-content need. `angle` is an OFFER-SAFE observation about the vertical: no prices, no packages, no turnaround promises, no guarantees, no drone, no claims about the prospect's results. Discovery is live (Apify Google Maps); emails are harvested from the business's real website at runtime. Nothing here stores a contact address.",
-  "updated": "2026-10-06",
+  "updated": "2026-10-11",
   "metros": [
     "Fort Lauderdale FL",
     "Miami FL",
@@ -310,6 +310,153 @@
       "angle_en": "Patient-explainer video is the gap in most clinics here, and it is simple footage to capture.",
       "angle_es": "El video que le explica algo al paciente es el hueco de casi todos estos consultorios, y grabarlo es sencillo.",
       "priority": 2
+    },
+    {
+      "id": "pre-construction-condos",
+      "label": "Pre-construction condo developers and sales galleries",
+      "queries": [
+        "pre-construction condos",
+        "condo sales gallery",
+        "new construction condo developer"
+      ],
+      "ig_terms": [
+        "preconstruction",
+        "pre construction miami",
+        "preventa miami"
+      ],
+      "why": "Owner-approved wave 8. Launches already own renderings, animations and sales-gallery footage, and sell to Spanish- and English-speaking buyers; page: /services/pre-construction-condo-video-marketing-miami.",
+      "angle_en": "Pre-construction launches usually have approved renderings and gallery footage that never get cut into short Spanish and English versions.",
+      "angle_es": "Los lanzamientos en preventa suelen tener renders y material del sales gallery aprobados que nunca se convierten en videos cortos en español e inglés.",
+      "priority": 2
+    },
+    {
+      "id": "vacation-rentals",
+      "label": "Vacation-rental hosts and short-term-rental managers",
+      "queries": [
+        "vacation rental management",
+        "short term rental management",
+        "airbnb property management"
+      ],
+      "ig_terms": [
+        "vacation rental",
+        "airbnb host",
+        "short term rental"
+      ],
+      "why": "Owner-approved wave 8. Hosts film units between stays and rarely edit a clear room-by-room tour; page: /services/vacation-rental-video-marketing-fort-lauderdale.",
+      "angle_en": "Most rental listings have photos but no short tour that walks a guest through the place in order.",
+      "angle_es": "La mayoría de los anuncios de alquiler tienen fotos, pero no un recorrido corto que lleve al huésped por la propiedad en orden.",
+      "priority": 2
+    },
+    {
+      "id": "insurance-agencies",
+      "label": "Latino insurance agencies (ACA / Medicare agents)",
+      "queries": [
+        "insurance agency",
+        "health insurance agent",
+        "medicare insurance agent",
+        "obamacare insurance agency"
+      ],
+      "ig_terms": [
+        "seguros",
+        "agente de seguros",
+        "obamacare",
+        "medicare"
+      ],
+      "why": "Owner-approved wave 8. Agents answer the same Spanish questions every day and the fall enrollment season is predictable; page: /services/insurance-agency-video-marketing-miami.",
+      "angle_en": "Agents answer the same client questions every week, and few agencies have them as short Spanish videos ready before enrollment season.",
+      "angle_es": "Los agentes responden las mismas preguntas cada semana, y pocas agencias las tienen en videos cortos en español listos antes de la temporada de inscripción.",
+      "priority": 2
+    },
+    {
+      "id": "mortgage-brokers",
+      "label": "Spanish-speaking mortgage brokers and loan officers",
+      "queries": [
+        "mortgage broker",
+        "mortgage loan officer",
+        "mortgage company"
+      ],
+      "ig_terms": [
+        "mortgage broker",
+        "loan officer",
+        "prestamos hipotecarios"
+      ],
+      "why": "Owner-approved wave 8. Loan officers sell on personal trust and already film talking-head clips; compliance text is theirs to supply; page: /services/mortgage-broker-video-marketing-miami.",
+      "angle_en": "Loan officers who explain the buying process on camera in Spanish are still rare, and most have more phone clips than edited videos.",
+      "angle_es": "Todavía son pocos los oficiales de préstamos que explican el proceso de compra en español frente a cámara, y la mayoría tiene más clips en el celular que videos editados.",
+      "priority": 2
+    },
+    {
+      "id": "immigration-attorneys",
+      "label": "Spanish-language immigration attorneys",
+      "queries": [
+        "immigration attorney",
+        "immigration lawyer",
+        "abogado de inmigracion"
+      ],
+      "ig_terms": [
+        "abogado de inmigracion",
+        "immigration lawyer",
+        "inmigracion miami"
+      ],
+      "why": "Owner-approved wave 8. Families are targeted by fake lawyer profiles, so a real, named attorney on camera is the trust signal; Florida Bar review stays with the firm; page: /services/immigration-attorney-video-marketing-miami.",
+      "angle_en": "Showing the real, named attorney on camera is one of the few things an impersonation account cannot copy.",
+      "angle_es": "Mostrar al abogado real, con su nombre, frente a cámara es algo que una cuenta falsa no puede copiar.",
+      "priority": 2
+    },
+    {
+      "id": "churches",
+      "label": "Churches and iglesias",
+      "queries": [
+        "church",
+        "iglesia cristiana",
+        "spanish church"
+      ],
+      "ig_terms": [
+        "iglesia",
+        "church miami",
+        "ministerio"
+      ],
+      "why": "Owner-approved wave 8. Every week produces a full sermon recording and most churches post it only as a long livestream; page: /services/church-sermon-clip-editing-miami.",
+      "angle_en": "Most churches record the whole sermon every week and post it only as one long video.",
+      "angle_es": "Casi todas las iglesias graban la prédica completa cada semana y la publican solo como un video largo.",
+      "priority": 3
+    },
+    {
+      "id": "quinceaneras",
+      "label": "Quinceañera planners, venues and families",
+      "queries": [
+        "quinceanera planner",
+        "quinceanera venue",
+        "quinceanera dresses"
+      ],
+      "ig_terms": [
+        "quinceañera",
+        "quince miami",
+        "xv años"
+      ],
+      "why": "Owner-approved wave 8. Every party produces footage from several phones and cameras that needs a highlight and social cuts; filming in person is a paid add-on; page: /services/quinceanera-video-miami.",
+      "angle_en": "A quinceañera leaves footage on many phones and cameras, and few families end up with one edited film of the night.",
+      "angle_es": "Una quinceañera deja material en muchos celulares y cámaras, y pocas familias terminan con una sola película editada de la noche.",
+      "priority": 3
+    },
+    {
+      "id": "dance-music-kids",
+      "label": "Dance studios, music academies and kids' activity businesses",
+      "queries": [
+        "dance studio",
+        "music school",
+        "kids martial arts",
+        "swim school for kids"
+      ],
+      "ig_terms": [
+        "dance studio",
+        "academia de baile",
+        "music lessons"
+      ],
+      "why": "Owner-approved wave 8. Weekly classes and seasonal recitals give a steady, predictable supply of footage; parental consent stays with the studio; page: /services/dance-studio-music-school-video-marketing-miami.",
+      "angle_en": "Studios film classes and recitals all year, and the clips usually stay on a teacher's phone.",
+      "angle_es": "Las academias graban clases y recitales todo el año, y los clips suelen quedarse en el celular del profesor.",
+      "priority": 3
     }
   ]
 }

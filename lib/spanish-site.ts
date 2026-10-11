@@ -11,13 +11,19 @@ import {
   CalendarRange,
   Camera,
   Car,
+  Church,
   Handshake,
   Home,
   Languages,
+  Landmark,
   Laptop,
   MapPin,
+  Music,
   Megaphone,
+  PartyPopper,
+  Scale,
   Scissors,
+  ShieldCheck,
   Stethoscope,
   UtensilsCrossed,
   Video,
@@ -190,6 +196,8 @@ export type SpanishNichePage = {
   sectionsDestinations?: string;
   updated?: string;
   heroMedia?: { src: string; alt: string; caption: string };
+  /** Question-shaped heading for the answer-first card (defaults to "¿Para qué proyecto encaja?"). */
+  fitQuestion?: string;
   faqs: { question: string; answer: string }[];
 };
 
@@ -203,6 +211,514 @@ const esLocalFrom = esFrom(PACKAGE_PRICES["presencia-local"]);
 const esShortForm = shortFormPriceText("es");
 const esWeekly = shortFormWeeklyText("es");
 const esHalfDayBand = `${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)}`;
+
+// Ola de nichos 8 (2026-10-11, aprobada por el dueño). Ocho compradores sin
+// página propia. Precios solo vía priceSentence() (lib/pricing.ts); la grabación
+// en locación es un servicio adicional pagado que se cotiza por proyecto; las
+// obligaciones reguladas (avisos legales, NMLS, revisión de la Florida Bar,
+// textos de aseguradoras, permiso para menores) son del cliente.
+const esArranque = () => priceSentence("es", "arranque").toLowerCase();
+const esCrecimiento = () => priceSentence("es", "crecimiento").toLowerCase();
+const esPresencia = () => priceSentence("es", "presencia-local").toLowerCase();
+
+const nicheWave8Pages: SpanishNichePage[] = [
+  {
+    slug: "video-para-preventa-de-condominios-miami",
+    title: "Video para preventa de condominios en Miami",
+    metadataTitle: "Video para Preventa de Condominios",
+    description:
+      "Reels verticales a partir de renders y del sales gallery para lanzamientos de condominios en preventa en Miami y Fort Lauderdale, en versión en español e inglés.",
+    eyebrow: "Desarrolladores / Equipos de venta / Preventa",
+    h1: "Reels para lanzamientos de condominios en preventa, en español e inglés.",
+    lead:
+      "Envía los renders aprobados, los recorridos animados y los clips del sales gallery. Esteban los convierte en reels verticales con versión en español y en inglés para compradores locales e internacionales, y tu equipo aprueba cada afirmación y cada aviso legal.",
+    keyword: "video para preventa de condominios",
+    location: "Miami-Dade / Broward / Remoto",
+    availability: "confirmed",
+    icon: Building2,
+    updated: "2026-10-11",
+    fitQuestion: "¿Se pueden convertir los renders y el sales gallery en reels para una preventa?",
+    projectFit: `Sí. Esteban edita el material que ya tiene el proyecto, como renders aprobados, recorridos animados, tomas del apartamento modelo y del sales gallery, y clips del equipo de ventas hablando a cámara, y lo convierte en reels verticales para Instagram, TikTok y YouTube Shorts. Cada reel puede entregarse en una versión en español y otra en inglés, con subtítulos en cada idioma, para que un mismo lanzamiento hable con compradores de Miami y de América Latina. Los renders se identifican como renders, y el equipo del desarrollador aprueba cada texto, aviso y traducción antes de publicar. La edición es remota: ${esArranque()}. Si hay que grabar el sales gallery o el modelo, la grabación en locación es un servicio adicional pagado que se cotiza por proyecto; el paquete Presencia Local es ${esPresencia()}.`,
+    sectionsDisclosure: "Arma la serie de reels de tu preventa",
+    sectionsDestinations: "La serie de lanzamiento y las versiones en español e inglés",
+    bestFor: [
+      "Desarrolladores que lanzan un proyecto en preventa con renders ya aprobados.",
+      "Equipos de venta que atienden compradores locales e internacionales.",
+      "Agencias de marketing inmobiliario que necesitan edición sin sumar personal.",
+    ],
+    scopingQuestions: [
+      "¿Qué renders, animaciones y clips del sales gallery están aprobados para publicar?",
+      "¿Para qué compradores es cada pieza: locales, del resto del país o internacionales?",
+      "¿Quién del equipo revisa los avisos legales y los textos en español y en inglés?",
+    ],
+    sections: [
+      {
+        heading: "¿Qué reels necesita un lanzamiento en preventa?",
+        paragraphs: [
+          "Casi siempre cuatro tipos, publicados en orden. El adelanto usa el render exterior más fuerte y una frase sobre la ubicación, y su trabajo es que la gente pida el brochure. Los reels de amenidades muestran una sola cosa a la vez, la piscina, el lobby, el gimnasio, para que cada publicación deje una idea clara. El recorrido del sales gallery enseña los acabados y el apartamento modelo, lo más cerca que un comprador puede estar de tocar algo que todavía no existe. Las actualizaciones de obra llegan después y muestran que el proyecto avanza.",
+          "Planear los cuatro juntos permite editar los renders una sola vez y reutilizarlos en toda la serie. Es el tipo de calendario que sostiene el [plan Crecimiento](/es/precios/crecimiento); los [reels inmobiliarios](/es/editor-de-video-real-estate-miami) cubren las propiedades terminadas.",
+        ],
+      },
+      {
+        heading: "¿Qué cambia entre la versión en español y la versión en inglés?",
+        paragraphs: [
+          "La imagen suele quedarse igual y cambian las palabras. Los textos en pantalla se reescriben en lugar de traducirse palabra por palabra, porque una frase que vende en inglés puede sonar rígida en español, y el español ocupa más espacio, así que los títulos se ajustan para no salir de la zona segura del formato vertical. También se revisan las medidas, la moneda y la llamada a la acción para cada público: un comprador del exterior necesita saber a quién escribir y en qué idioma.",
+          "Si un asesor habla a cámara, el clip puede llevar subtítulos en el otro idioma en vez de doblaje. Esteban trabaja primero en español, con inglés intermedio, así que alguien del equipo revisa el inglés final. Ningún precio, disponibilidad ni fecha de entrega aparece si el desarrollador no entrega el texto exacto.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Qué material debe enviar el desarrollador?",
+        answer:
+          "Los renders y animaciones aprobados en resolución completa, las tomas aéreas o de obra que ya tenga, los clips del sales gallery y del modelo, el logo y la guía de marca, y el texto exacto que aprobó el equipo legal, incluidos los avisos. Agrega una nota que diga para qué comprador es cada pieza.",
+      },
+      {
+        question: "¿Quién aprueba los avisos legales y las traducciones?",
+        answer:
+          "El desarrollador. Esteban coloca los avisos, las etiquetas de render y las afirmaciones de venta tal como las entrega tu equipo legal o de marketing, y no redacta lenguaje legal. Esa revisión forma parte del plan desde el principio.",
+      },
+      {
+        question: "¿Esteban puede grabar el sales gallery o el apartamento modelo?",
+        answer: `Sí, como servicio adicional pagado que se cotiza por proyecto en Miami-Dade y Broward. El paquete Presencia Local es ${esPresencia()} e incluye preproducción, grabación y edición. Si solo necesitas editar el material existente, Arranque es ${esArranque()}.`,
+      },
+    ],
+  },
+  {
+    slug: "video-para-alquileres-vacacionales-fort-lauderdale",
+    title: "Video para alquileres vacacionales en Fort Lauderdale",
+    metadataTitle: "Video para Alquileres Vacacionales",
+    description:
+      "Reels de recorrido para anfitriones de Airbnb y administradores de alquileres de corto plazo en Fort Lauderdale y Miami, editados desde el celular.",
+    eyebrow: "Anfitriones / Administradores de alquiler de corto plazo",
+    h1: "Reels de recorrido para alquileres vacacionales, con tu propio material.",
+    lead:
+      "Graba la propiedad después de la limpieza, cuarto por cuarto. Esteban la convierte en un reel vertical y en un corte para el anuncio que muestran el lugar tal como es, con subtítulos y nombres de cada espacio para verlo sin sonido.",
+    keyword: "video para alquileres vacacionales",
+    location: "Broward / Miami-Dade / Remoto",
+    availability: "confirmed",
+    icon: Home,
+    updated: "2026-10-11",
+    fitQuestion: "¿Qué tiene que mostrar el reel de un alquiler vacacional?",
+    projectFit: `Los espacios que el huésped va a usar, en el orden en que los recorrería, y la razón principal para reservar: la piscina, la vista al agua, la playa a pocos pasos. Esteban edita el material de anfitriones y administradores de alquileres de corto plazo y lo convierte en reels verticales para Instagram y TikTok, y en cortes horizontales para el anuncio o el sitio de reservas directas, con subtítulos y el nombre de cada espacio para que el recorrido se entienda sin sonido. La edición muestra la propiedad como es, sin amenidades agregadas, sin vistas prestadas y sin huéspedes en cámara. La edición es remota: ${esArranque()}. Si administras varias unidades en Broward o Miami-Dade y quieres que alguien grabe, la grabación en locación es un servicio adicional pagado que se cotiza por proyecto.`,
+    sectionsDisclosure: "Prepara el material de cada unidad",
+    sectionsDestinations: "Una lista de tomas para cada unidad y qué enviar con los clips",
+    bestFor: [
+      "Anfitriones que graban su propiedad con el celular entre estadías.",
+      "Administradores con varias unidades que necesitan recorridos con el mismo estilo.",
+      "Propiedades con sitio de reservas directas que necesitan un video horizontal.",
+    ],
+    scopingQuestions: [
+      "¿Cuántas unidades son y ya tienen material grabado?",
+      "¿Dónde se publicará cada video: redes, el anuncio o el sitio de reservas?",
+      "¿Qué datos de la propiedad pueden aparecer en pantalla?",
+    ],
+    sections: [
+      {
+        heading: "¿Qué lista de tomas sirve para cualquier unidad?",
+        paragraphs: [
+          "La misma, siempre. Empieza afuera, con el edificio o la puerta, para que el huésped lo reconozca al llegar. Entra y detente en la sala, luego en la cocina, con una toma cerrada de lo que los huéspedes suelen preguntar, como la cafetera. Recorre cada habitación y cada baño, después el espacio exterior y la vista, y termina con lo que el anuncio ya menciona cerca, como el acceso a la playa o la piscina.",
+          "Mantener el orden fijo permite que quien limpia o un coanfitrión grabe sin instrucciones, y un administrador con muchas unidades termina con recorridos que parecen de una misma marca. Graba de día, con todas las luces encendidas, y deja fuera de cuadro los objetos personales y las pertenencias de huéspedes. Los [reels inmobiliarios](/es/editor-de-video-real-estate-miami) siguen el mismo ritmo de recorrido.",
+        ],
+      },
+      {
+        heading: "¿Qué debe enviar el administrador junto con los videos?",
+        paragraphs: [
+          "Una carpeta por propiedad, con el mismo nombre que usa el anuncio, los archivos originales del celular y una nota breve con los datos que pueden aparecer en pantalla: habitaciones, baños, la característica más importante y el texto del enlace de reserva. Lo que cambia, como la tarifa por noche o la disponibilidad, va en la descripción y no en el video, para que el reel no quede desactualizado.",
+          "Indica dónde se publicará cada corte: un reel vertical para redes, una versión horizontal para el anuncio o el sitio de reservas directas, o ambos. Agrega el logo si las propiedades tienen marca. Si prefieres publicar con un calendario fijo, el [plan Crecimiento](/es/precios/crecimiento) incluye plan de contenido, calendario, edición y reporte mensual.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Qué debe grabar un anfitrión para el reel?",
+        answer:
+          "Graba justo después de la limpieza, con luces encendidas y cortinas abiertas: la entrada, un paso lento por cada espacio a la altura del pecho, la cocina, los baños, las habitaciones con las camas hechas y el exterior. Sostén cada toma varios segundos y usa una sola orientación del celular.",
+      },
+      {
+        question: "¿Una sola grabación puede cubrir varias unidades?",
+        answer: `Sí, si las unidades se agendan seguidas entre estadías. La grabación en locación es un servicio adicional pagado que se cotiza por proyecto; el paquete Presencia Local es ${esPresencia()}. Si ya tienes material, se edita a distancia con Arranque, ${esArranque()}.`,
+      },
+      {
+        question: "¿Hay trabajo inmobiliario publicado para ver?",
+        answer:
+          "Sí. La página de reels inmobiliarios en inglés muestra seis reels verticales de propiedades que editó Esteban. Son reels de anuncios, no de un cliente de alquiler vacacional, y muestran cómo se arma un recorrido para la pantalla del celular.",
+      },
+    ],
+  },
+  {
+    slug: "marketing-de-video-para-agencias-de-seguros-miami",
+    title: "Marketing de video para agencias de seguros en Miami",
+    metadataTitle: "Video para Agencias de Seguros Miami",
+    description:
+      "Videos cortos en español para agencias de seguros latinas en Miami y Fort Lauderdale: explicaciones de ACA y Medicare y un calendario para la temporada de inscripción.",
+    eyebrow: "Agencias de seguros / Agentes de ACA y Medicare",
+    h1: "Videos cortos en español para agencias de seguros.",
+    lead:
+      "Graba a tus agentes respondiendo las preguntas que los clientes hacen en la oficina. Esteban las convierte en explicaciones cortas en español y organiza el calendario para la temporada de inscripción, con los avisos que tu agencia aprueba.",
+    keyword: "marketing de video para agencias de seguros",
+    location: "Miami-Dade / Broward / Remoto",
+    availability: "confirmed",
+    icon: ShieldCheck,
+    updated: "2026-10-11",
+    fitQuestion: "¿Qué videos cortos puede publicar en español una agencia de seguros latina?",
+    projectFit: `Explicaciones que responden una sola pregunta que los clientes ya hacen en el escritorio: qué es un deducible, en qué se diferencia un plan del Mercado de Medicaid, qué cambia al cumplir 65 años, qué documentos llevar a la cita. Esteban edita los clips de celular de tus agentes en videos cortos en español, con versión en inglés cuando hace falta, y planea el calendario alrededor de la temporada de inscripción de otoño. La agencia entrega y aprueba cada aviso legal y el lenguaje que exigen las aseguradoras. Los videos explican e invitan a pedir una cita; no prometen inscripción, ahorro, aprobación ni un plan determinado. La edición es remota: ${esArranque()}. Grabar en la agencia es un servicio adicional pagado que se cotiza por proyecto.`,
+    sectionsDisclosure: "Arma la biblioteca de explicaciones de tu agencia",
+    sectionsDestinations: "Temas que salen de las preguntas reales y cómo grabar sin estudio",
+    bestFor: [
+      "Agencias que atienden clientes hispanos en planes del Mercado y Medicare.",
+      "Agentes que responden las mismas preguntas todos los días por teléfono y WhatsApp.",
+      "Oficinas que quieren publicar con orden antes y durante la inscripción.",
+    ],
+    scopingQuestions: [
+      "¿Qué preguntas escuchan más tus agentes, con las palabras que usan los clientes?",
+      "¿Qué avisos legales y textos de las aseguradoras deben aparecer en los videos?",
+      "¿Quién de la agencia revisa cada video antes de publicarlo?",
+    ],
+    sections: [
+      {
+        heading: "¿Con qué temas conviene empezar una serie de explicaciones de seguros?",
+        paragraphs: [
+          "Con las preguntas que la recepción contesta cada semana. Pide a cada agente que anote lo que los clientes preguntan más, con sus propias palabras, y la lista se repite: qué son la prima y el deducible, si se puede agregar a un familiar, qué papeles llevar, qué pasa si cambian los ingresos, cómo usar el plan para ver a un médico. Cada pregunta se vuelve un video de menos de un minuto, con la pregunta como título, porque así la escribe alguien en el buscador o se la pregunta a un asistente de voz.",
+          "Los temas de Medicare se separan de los del Mercado, para que cada serie lleve los avisos que exige su revisión. La agencia termina con piezas para publicar, fijar y mandar por WhatsApp. Para el formato vertical, revisa el [editor de video corto](/es/editor-de-video-corto-para-redes-miami).",
+        ],
+      },
+      {
+        heading: "¿Cómo se prepara la agencia para la temporada de inscripción?",
+        paragraphs: [
+          "Con tiempo. El período anual de inscripción de Medicare va del 15 de octubre al 7 de diciembre, y la inscripción abierta del Mercado para residentes de Florida suele empezar el 1 de noviembre, así que las explicaciones sirven más si están grabadas y aprobadas a comienzos del otoño. La agencia debe confirmar las fechas de cada año.",
+          "Una sola sesión tranquila alcanza: el agente frente a una ventana, el celular a la altura de los ojos y un micrófono de solapa, respondiendo la pregunta que lee un compañero. El [plan Crecimiento](/es/precios/crecimiento) reparte esos videos en un calendario, con edición y reporte mensual, sin prometer cifras de inscripción. En los meses tranquilos, temas como leer una factura o presentar un reclamo mantienen la cuenta activa.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Quién responde por el cumplimiento normativo de los videos?",
+        answer:
+          "La agencia y sus aseguradoras. El marketing relacionado con Medicare tiene reglas sobre lo que se puede decir y los avisos que deben aparecer, y la agencia las aplica con su propio proceso de revisión. Esteban coloca el texto aprobado tal como lo recibe y no redacta lenguaje regulatorio ni da asesoría de seguros.",
+      },
+      {
+        question: "¿Los agentes necesitan un estudio para grabar?",
+        answer: `No. Una oficina tranquila, el celular a la altura de los ojos y luz de ventana bastan, y la edición es remota: Arranque es ${esArranque()}. Si la agencia quiere que Esteban grabe en la oficina, es un servicio adicional pagado que se cotiza por proyecto.`,
+      },
+      {
+        question: "¿Los videos prometen resultados de inscripción?",
+        answer:
+          "No. Explican términos y pasos e invitan a pedir una cita. No prometen inscripción, aprobación, ahorro ni un plan específico, y cada video pasa por la revisión de la agencia antes de publicarse.",
+      },
+    ],
+  },
+  {
+    slug: "marketing-de-video-para-brokers-hipotecarios-miami",
+    title: "Marketing de video para brokers hipotecarios en Miami",
+    metadataTitle: "Video para Brokers Hipotecarios Miami",
+    description:
+      "Reels de marca personal y explicaciones en español para brokers hipotecarios y oficiales de préstamos en Miami y Fort Lauderdale. Los avisos y el NMLS los aprueba el cliente.",
+    eyebrow: "Brokers hipotecarios / Oficiales de préstamos",
+    h1: "Videos de marca personal para brokers hipotecarios que atienden en español.",
+    lead:
+      "Explica el proceso de compra con tu propia voz y Esteban convierte esos clips en reels y explicaciones con un estilo constante. Tú entregas y apruebas el NMLS y los avisos que exige tu prestamista.",
+    keyword: "marketing de video para brokers hipotecarios",
+    location: "Miami-Dade / Broward / Remoto",
+    availability: "confirmed",
+    icon: Landmark,
+    updated: "2026-10-11",
+    fitQuestion: "¿Qué videos ayudan a un oficial de préstamos hispano a construir su marca personal?",
+    projectFit: `Videos cortos en los que el oficial de préstamos explica, con su propia voz, los pasos que confunden a los compradores: la diferencia entre precalificación y preaprobación, qué documentos necesita alguien que trabaja por cuenta propia, qué es un préstamo con ITIN, cómo funcionan los costos de cierre. Esteban edita esos clips en reels verticales y explicaciones más largas en español, con versión en inglés cuando el público lo pide, y ayuda a planear un calendario de publicación. El cumplimiento es del cliente: el número NMLS, el nombre de la empresa y cualquier aviso que pida el prestamista los entrega y aprueba el broker. Ningún video promete una tasa, una aprobación ni una fecha de cierre. Edición remota: ${esArranque()}; grabar en la oficina es un servicio adicional pagado que se cotiza por proyecto.`,
+    sectionsDisclosure: "Planea un mes de videos hipotecarios",
+    sectionsDestinations: "Las preguntas de los compradores y una sola sesión de grabación",
+    bestFor: [
+      "Oficiales de préstamos que atienden familias hispanas en South Florida.",
+      "Brokers que quieren una cuenta con la misma cara, el mismo tono y avisos en orden.",
+      "Equipos que trabajan con agentes inmobiliarios y necesitan contenido para compartir.",
+    ],
+    scopingQuestions: [
+      "¿Qué número NMLS, nombre de empresa y avisos deben aparecer en cada video?",
+      "¿Quién del equipo de cumplimiento revisa los videos antes de publicarlos?",
+      "¿Tus clientes prefieren contenido en español, en inglés o en ambos?",
+    ],
+    sections: [
+      {
+        heading: "¿Qué preguntas de compradores sirven para explicar el proceso hipotecario?",
+        paragraphs: [
+          "Las que aparecen antes de que el comprador esté listo para aplicar. Quien compra por primera vez pregunta cuánto debe ahorrar, qué significa su crédito y por qué conviene la preaprobación antes de hacer una oferta. Quien trabaja por cuenta propia pregunta qué declaraciones de impuestos revisa el prestamista. Quien llegó hace poco al país pregunta si puede comprar con ITIN o con ingresos del exterior. Cada pregunta se vuelve un video con la pregunta como título, respondido en un español sencillo por el oficial de préstamos.",
+          "El video explica el proceso general y deja las condiciones específicas para una conversación. Ordenar las preguntas por etapa, del ahorro al cierre, le da orden al calendario y enseña el proceso en el orden en que el seguidor lo va a vivir.",
+        ],
+      },
+      {
+        heading: "¿Cómo rinde una sola sesión de grabación para todo un mes?",
+        paragraphs: [
+          "Grabando respuestas, no programas. Escribe entre ocho y doce preguntas en tarjetas, siéntate frente al celular con luz de ventana y responde cada una en menos de un minuto, como si un cliente acabara de preguntarte. Un compañero que lee la pregunta en voz alta mantiene el tono natural. Cambia de camisa o de lugar a mitad de la sesión para que no parezca todo de la misma tarde.",
+          "Envía los clips con la lista de preguntas, el texto de avisos aprobado y el enlace donde la gente debe agendar. La edición recorta cada respuesta, agrega subtítulos y deja el aviso siempre en el mismo lugar. El [plan Crecimiento](/es/precios/crecimiento) reparte esos videos en el mes, y los [reels inmobiliarios](/es/editor-de-video-real-estate-miami) sirven para los agentes con los que trabajas.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Quién entrega el número NMLS y los avisos?",
+        answer:
+          "El broker o el oficial de préstamos, junto con el equipo de cumplimiento del prestamista. Esteban no decide qué avisos aplican ni cómo se redactan; coloca el NMLS, el nombre de la empresa y el texto requerido tal como lo recibe, en el mismo lugar de cada video.",
+      },
+      {
+        question: "¿Se puede grabar todo con el celular?",
+        answer: `Sí. Celular a la altura de los ojos, luz de ventana y micrófono de solapa. La edición remota con Arranque es ${esArranque()}, y el plan Crecimiento, con plan de contenido y calendario, es ${esCrecimiento()}. Grabar en la oficina o en un open house es un servicio adicional pagado que se cotiza por proyecto.`,
+      },
+      {
+        question: "¿Los videos deben ser en español, en inglés o en ambos?",
+        answer:
+          "En el idioma en que te llaman tus clientes. Muchos oficiales de préstamos de South Florida atienden primero a familias hispanas. Esteban trabaja primero en español, con inglés intermedio, así que alguien de tu equipo revisa los textos en inglés antes de publicar.",
+      },
+    ],
+  },
+  {
+    slug: "marketing-de-video-para-abogados-de-inmigracion-miami",
+    title: "Marketing de video para abogados de inmigración en Miami",
+    metadataTitle: "Video para Abogados de Inmigración",
+    description:
+      "Reels educativos en español con los abogados reales de tu firma de inmigración en Miami y Fort Lauderdale. Información general, no asesoría legal; la firma aprueba todo.",
+    eyebrow: "Abogados de inmigración / Firmas en español",
+    h1: "Reels educativos con el abogado real de tu firma de inmigración.",
+    lead:
+      "Tus abogados explican temas generales a cámara, con su nombre y el de la firma. Esteban edita los reels en español y la firma revisa y aprueba cada guion, subtítulo y aviso según las reglas de publicidad de la Florida Bar.",
+    keyword: "marketing de video para abogados de inmigración",
+    location: "Miami-Dade / Broward / Remoto",
+    availability: "confirmed",
+    icon: Scale,
+    updated: "2026-10-11",
+    fitQuestion: "¿Por qué una firma de inmigración debería publicar videos de sus abogados reales?",
+    projectFit: `Porque hay perfiles falsos de abogados, algunos con caras y voces generadas con IA, que buscan a familias hispanas, y la respuesta más clara es mostrar al abogado real, con licencia, hablando. Esteban edita reels educativos cortos en los que los abogados de la firma explican temas generales: cómo prepararse para una consulta, qué documentos guardar o por qué un notario público no es abogado en Estados Unidos. Cada video dice el nombre del abogado, para que cualquiera pueda buscarlo en el directorio público de miembros de la Florida Bar. Son información general, no asesoría legal, y la firma revisa y aprueba cada guion, subtítulo y aviso según las reglas de publicidad de la Florida Bar. La edición es remota: ${esArranque()}. Grabar en la oficina es un servicio adicional pagado que se cotiza por proyecto.`,
+    sectionsDisclosure: "Planea los reels educativos de la firma",
+    sectionsDestinations: "Temas generales que sí sirven y la revisión antes de publicar",
+    bestFor: [
+      "Firmas de inmigración que atienden a familias en español.",
+      "Abogados que quieren que su cara y su nombre sean fáciles de verificar.",
+      "Equipos que necesitan publicar con orden sin descuidar la revisión interna.",
+    ],
+    scopingQuestions: [
+      "¿Qué abogados aparecerán en cámara y con qué nombre y título?",
+      "¿Quién de la firma aprueba los guiones, subtítulos y avisos?",
+      "¿Qué temas generales quiere tratar la firma y cuáles prefiere dejar para la consulta?",
+    ],
+    sections: [
+      {
+        heading: "¿Qué temas de inmigración sirven como educación general?",
+        paragraphs: [
+          "Los que tratan del proceso y la preparación, no de resultados. Cómo prepararse para la primera consulta y qué papeles llevar. Por qué un notario público, una figura de confianza en buena parte de América Latina, no está autorizado para dar asesoría legal en Estados Unidos. Cómo comprobar que un abogado tiene licencia buscando su nombre en el directorio de la Florida Bar. Cómo suele verse una llamada o un mensaje de estafa, y por qué conviene guardar copia de cada documento.",
+          "Cada tema ayuda sin tocar los hechos del caso de nadie y termina con la misma invitación a pedir una consulta. Lo que depende de circunstancias personales o de políticas que están cambiando va mejor en la consulta que en un reel, y la firma decide dónde está esa línea.",
+        ],
+      },
+      {
+        heading: "¿Qué revisión necesita un reel antes de publicarse?",
+        paragraphs: [
+          "Tres pasos. Primero, el abogado aprueba el esquema antes de grabar, para que la grabación ya diga lo que la firma está dispuesta a decir. Segundo, después de la edición, la firma mira el corte como lo vería el público: los subtítulos en español, el texto en pantalla, el nombre y el título del abogado y el aviso que entrega la firma. Tercero, la firma confirma la descripción y el enlace que acompañan la publicación.",
+          "La parte de Esteban es la edición y la colocación del texto aprobado; el cumplimiento de las reglas de publicidad de la Florida Bar es de la firma. Para otras áreas de práctica, revisa el [marketing de video para abogados](/es/marketing-de-video-para-abogados-miami) y la [producción de video para firmas de abogados](/es/produccion-de-video-para-firmas-de-abogados-miami).",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Esteban da asesoría legal o revisa el cumplimiento de la Florida Bar?",
+        answer:
+          "No. Edita video. La firma y sus abogados deciden qué se dice, aplican las reglas de publicidad de la Florida Bar y aprueban cada guion, subtítulo y aviso antes de publicar. Si un video necesita un aviso, la firma entrega el texto exacto.",
+      },
+      {
+        question: "¿Por qué importan los perfiles falsos de abogados?",
+        answer:
+          "Las cuentas que suplantan a firmas reales copian su imagen, a veces con personas generadas con IA, y suelen buscar a familias que se informan en español. Una firma cuyos abogados aparecen siempre con su nombre le da al público algo que comparar y verificar.",
+      },
+      {
+        question: "¿Los abogados pueden grabar con el celular?",
+        answer: `Sí. Una oficina tranquila, el celular a la altura de los ojos y un micrófono de solapa bastan; la edición remota con Arranque es ${esArranque()}. Si la firma quiere grabar una tanda de videos en su oficina, es un servicio adicional pagado que se cotiza por proyecto, con Presencia Local ${esPresencia()}.`,
+      },
+    ],
+  },
+  {
+    slug: "edicion-de-clips-de-predicas-para-iglesias-miami",
+    title: "Edición de clips de prédicas para iglesias en Miami",
+    metadataTitle: "Clips de Prédicas para Iglesias Miami",
+    description:
+      "Edición de clips cortos a partir de la prédica del domingo para iglesias en Miami y Fort Lauderdale, en español, inglés o ambos, con subtítulos y un calendario semanal.",
+    eyebrow: "Iglesias / Ministerios / Equipos de medios",
+    h1: "La prédica del domingo, convertida en clips para toda la semana.",
+    lead:
+      "Comparte la grabación del servicio. Esteban elige con tu equipo los momentos que se entienden solos y los convierte en clips verticales con subtítulos, en español, inglés o ambos.",
+    keyword: "edición de clips de prédicas para iglesias",
+    location: "Miami-Dade / Broward / Remoto",
+    availability: "confirmed",
+    icon: Church,
+    updated: "2026-10-11",
+    fitQuestion: "¿Cómo convierte una iglesia la prédica del domingo en clips cortos?",
+    projectFit: `Eligiendo los momentos del mensaje que se sostienen solos, una idea clara, una historia, un versículo explicado, y convirtiendo cada uno en un clip vertical de menos de un minuto con subtítulos, para que la gente lo vea durante la semana y lo comparta. Esteban edita la grabación de la iglesia, del archivo de la transmisión o de una cámara, en clips para Instagram, Facebook, TikTok y YouTube Shorts, en español, inglés o ambos, y puede planear qué clip sale cada día. El pastor o el equipo de medios aprueba la selección. La edición es remota: ${esArranque()}. Si la iglesia quiere grabar un servicio o un evento especial, la grabación en locación es un servicio adicional pagado que se cotiza por proyecto.`,
+    sectionsDisclosure: "Arma una semana de clips desde la prédica",
+    sectionsDestinations: "Qué momentos elegir y un ritmo semanal que el equipo pueda sostener",
+    bestFor: [
+      "Iglesias que transmiten o graban el servicio y no tienen quien edite.",
+      "Ministerios con servicios en español, en inglés o en ambos idiomas.",
+      "Equipos de medios voluntarios que necesitan un proceso semanal sencillo.",
+    ],
+    scopingQuestions: [
+      "¿De dónde sale la grabación: la transmisión, una cámara o la consola de sonido?",
+      "¿Quién aprueba los momentos elegidos antes de publicar?",
+      "¿La iglesia tiene derechos para usar la música de alabanza en redes?",
+    ],
+    sections: [
+      {
+        heading: "¿Qué partes de una prédica funcionan como clip?",
+        paragraphs: [
+          "Los pasajes que empiezan y terminan dentro del mismo minuto: una frase clara con la idea principal, una historia corta que la ilustra, la explicación de un versículo, una aplicación práctica para esa semana o una pregunta que el pastor le hace a la congregación. Los momentos que dependen de algo dicho mucho antes casi nunca funcionan solos, y tampoco los anuncios, que pierden vigencia.",
+          "Un buen hábito es que el pastor o un voluntario de medios anote algunos momentos al terminar el servicio, con el minuto aproximado en la grabación. La edición parte de esas notas, agrega una portada con el tema y la cita bíblica y respeta las palabras del pastor, sin reordenarlas para que digan algo que no se dijo.",
+        ],
+      },
+      {
+        heading: "¿Qué ritmo semanal puede sostener un equipo de medios?",
+        paragraphs: [
+          "Uno que empieza con la grabación del domingo y termina con los clips programados durante la semana. La grabación se comparte al terminar el servicio, la selección se acuerda con el pastor y los clips se reparten en los días siguientes, con el más fuerte primero. Un clip a mitad de semana recuerda el mensaje y el último puede invitar al próximo servicio o a un evento.",
+          "Si la iglesia tiene servicios en dos idiomas, los clips en español e inglés pueden alternarse. Cuida a la congregación: los niños y los miembros que se reconocen en cámara solo aparecen con permiso. La [reutilización de contenido para redes](/es/reutilizacion-de-contenido-para-redes-miami) aplica el mismo método a conferencias y retiros, y el [plan Crecimiento](/es/precios/crecimiento) sostiene el calendario.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Qué grabación debe enviar la iglesia?",
+        answer:
+          "El archivo de mejor calidad que tengan: la grabación original de la cámara o de la transmisión, no una copia descargada de redes, con el audio de la consola si es posible. Agrega la fecha, el título de la prédica y los minutos que el pastor quiere considerar.",
+      },
+      {
+        question: "¿Los clips pueden llevar música de alabanza?",
+        answer:
+          "Solo si la iglesia tiene los derechos para usarla en redes. Muchas canciones tienen derechos de autor, y las licencias para transmitir o volver a publicar las debe tener y confirmar la iglesia. Si no está claro, los clips se centran en el mensaje hablado.",
+      },
+      {
+        question: "¿Cuánto cuesta editar clips de prédicas?",
+        answer: `La edición remota empieza con Arranque, ${esArranque()}, y una iglesia que quiere un ritmo semanal con calendario puede ver el plan Crecimiento, ${esCrecimiento()}. Grabar un servicio o un evento es un servicio adicional pagado que se cotiza por proyecto.`,
+      },
+    ],
+  },
+  {
+    slug: "video-para-quinceaneras-miami",
+    title: "Video para quinceañeras en Miami",
+    metadataTitle: "Video para Quinceañeras Miami",
+    description:
+      "Película de momentos destacados y clips para redes de tu quinceañera en Miami y Fort Lauderdale. Edición de tu material y grabación en el lugar como servicio adicional.",
+    eyebrow: "Quinceañeras / Familias / Celebraciones",
+    h1: "El video de la quinceañera: la película de la noche y los clips para redes.",
+    lead:
+      "Esteban edita el material del videógrafo, del fotógrafo o de los invitados en una película de momentos destacados y clips verticales que la familia aprueba. También puede grabar la fiesta en persona.",
+    keyword: "video para quinceañeras",
+    location: "Miami-Dade / Broward",
+    availability: "confirmed",
+    icon: PartyPopper,
+    updated: "2026-10-11",
+    fitQuestion: "¿Qué incluye el video de una quinceañera?",
+    projectFit: `Normalmente dos cosas: una película de momentos destacados de pocos minutos, para que la familia la vea y la comparta durante años, y clips verticales para redes, como la entrada, el vals, el baile sorpresa y el brindis. Esteban edita el material del videógrafo de la familia, los clips de video del fotógrafo o los celulares de los invitados, y también puede grabar la celebración en persona en Miami-Dade o Broward como servicio adicional pagado que se cotiza por proyecto; Presencia Local es ${esPresencia()}. La familia decide qué se publica, porque la quinceañera es menor de edad, y se respetan las reglas del salón sobre grabación. La música de las publicaciones públicas debe tener licencia o salir de la biblioteca de cada plataforma. La cotización por escrito fija los entregables antes de la fecha.`,
+    sectionsDisclosure: "Planea el video de la quinceañera",
+    sectionsDestinations: "La lista de momentos de la noche y qué se comparte en redes",
+    bestFor: [
+      "Familias que quieren una película de la fiesta y clips para compartir.",
+      "Quinceañeras grabadas por otro videógrafo que necesitan edición.",
+      "Celebraciones en Miami-Dade o Broward que necesitan quien grabe en persona.",
+    ],
+    scopingQuestions: [
+      "¿Quién graba la fiesta y qué material habrá?",
+      "¿Qué momentos son imprescindibles para la familia?",
+      "¿Qué clips se pueden publicar y en qué cuentas?",
+    ],
+    sections: [
+      {
+        heading: "¿Qué momentos de una quinceañera deben estar en la lista?",
+        paragraphs: [
+          "Los que la familia va a querer ver otra vez. La preparación en casa o en el salón de belleza, la sesión de fotos si la hay, la misa o la bendición cuando la familia la incluye, la llegada al salón, la entrada con los chambelanes y las damas, el vals con el papá, el cambio de zapatos, la última muñeca si la familia mantiene esa tradición, el baile sorpresa y el brindis.",
+          "Entrega al videógrafo el orden de la noche con horarios aproximados y los nombres de las personas más importantes, como los padrinos y los abuelos, para que se graben a propósito y no por casualidad. La película se arma con esa lista, y con ella la familia puede comprobar que no faltó nada importante.",
+        ],
+      },
+      {
+        heading: "¿Quién decide qué se publica en redes?",
+        paragraphs: [
+          "Los padres. La quinceañera tiene quince años, así que la familia aprueba cada clip antes de compartirlo y decide si va en las cuentas de la familia, en la de ella o en ninguna. Los invitados que se reconocen, y sobre todo otros niños, deben estar de acuerdo en aparecer; si hay duda, la edición usa planos más abiertos o los deja fuera.",
+          "Algunos salones tienen reglas propias sobre grabar y publicar, y la familia las confirma con el lugar. Para las publicaciones públicas, la música debe tener licencia o salir de la biblioteca de la plataforma; la película privada puede conservar las canciones de la fiesta. La [edición de video para eventos](/es/edicion-de-video-para-eventos-miami) cubre otras celebraciones, y el [editor de video corto](/es/editor-de-video-corto-para-redes-miami) los clips verticales.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Esteban puede grabar la quinceañera en persona?",
+        answer: `Sí. La grabación en Miami-Dade o Broward es un servicio adicional pagado que se cotiza por proyecto, según el salón, las horas de cobertura y los momentos que quiere la familia. Si otro videógrafo ya graba la fiesta, Esteban puede editar ese material a distancia; Arranque es ${esArranque()}.`,
+      },
+      {
+        question: "¿Se pueden usar los videos que grabaron los invitados?",
+        answer:
+          "Sí, y muchas veces captan momentos que una sola cámara no ve, como la reacción de los abuelos. Pide a los invitados los archivos originales en una carpeta compartida, no videos descargados de un chat.",
+      },
+      {
+        question: "¿Cuándo conviene reservar la edición?",
+        answer:
+          "Antes de la fecha, para acordar la lista de momentos, los entregables y las canciones con tiempo. Si la fiesta ya pasó, envía el material y la lista de momentos más importantes. Las fechas de entrega se confirman en la cotización por escrito.",
+      },
+    ],
+  },
+  {
+    slug: "video-para-academias-de-baile-y-musica-miami",
+    title: "Video para academias de baile y música en Miami",
+    metadataTitle: "Video para Escuelas de Baile y Música",
+    description:
+      "Contenido constante para academias de baile, escuelas de música y actividades infantiles en Miami y Fort Lauderdale: clips de clase, recitales y un calendario mensual.",
+    eyebrow: "Academias de baile / Escuelas de música / Actividades infantiles",
+    h1: "Contenido para academias de baile y música durante toda la temporada.",
+    lead:
+      "Graba las clases con el celular desde un mismo rincón. Esteban convierte ese material en reels y resúmenes de recitales con un calendario mensual, usando solo a los alumnos cuyas familias dieron permiso.",
+    keyword: "video para academias de baile y música",
+    location: "Miami-Dade / Broward / Remoto",
+    availability: "confirmed",
+    icon: Music,
+    updated: "2026-10-11",
+    fitQuestion: "¿Qué contenido constante funciona para academias de baile y escuelas de música?",
+    projectFit: `Contenido que sigue el calendario que la academia ya tiene: clips cortos de las clases, piezas de progreso que muestran a un alumno aprendiendo una coreografía o una canción durante el ciclo, presentaciones de los profesores, recordatorios de inscripción antes de cada sesión nueva y un resumen de cada recital o muestra. Esteban edita el material de celular de la academia en reels verticales y resúmenes horizontales y ayuda a planear un calendario mensual; el plan Crecimiento es ${esCrecimiento()}. El mismo método sirve para otras actividades infantiles, como artes marciales, arte o natación. Como la mayoría de los alumnos son menores, la academia trabaja solo con material que las familias aceptaron compartir. La edición es remota; grabar un recital o una clase en el lugar es un servicio adicional pagado que se cotiza por proyecto.`,
+    sectionsDisclosure: "Mantén la cuenta activa toda la temporada",
+    sectionsDestinations: "Una rutina para grabar clases y el plan alrededor de recitales e inscripciones",
+    bestFor: [
+      "Academias de baile con clases semanales y recitales durante el año.",
+      "Escuelas de música que quieren mostrar el progreso de sus alumnos.",
+      "Negocios de actividades infantiles que funcionan por ciclos y muestras.",
+    ],
+    scopingQuestions: [
+      "¿Qué familias firmaron permiso para que sus hijos aparezcan en redes?",
+      "¿Cuándo son los próximos recitales y las próximas inscripciones?",
+      "¿El teatro o el salón del recital permite grabar?",
+    ],
+    sections: [
+      {
+        heading: "¿Cómo pueden los profesores grabar sin interrumpir la clase?",
+        paragraphs: [
+          "Elige un solo lugar en cada salón, normalmente un rincón del fondo a la altura del pecho, y deja el celular en un soporte durante los últimos minutos de la clase, cuando los alumnos repasan la coreografía o la pieza que están practicando. Ese es el momento que vale la pena: el progreso, no el calentamiento. Mantén la luz constante y revisa que el espejo no refleje el celular.",
+          "Una vez al mes, graba a un profesor explicando en qué está trabajando el grupo, para que los padres entiendan lo que están pagando. Nombra cada archivo con la clase y la fecha, marca qué alumnos tienen permiso y comparte la carpeta. La edición convierte cada tanda en publicaciones sin detener ninguna clase.",
+        ],
+      },
+      {
+        heading: "¿Cómo se planea el contenido alrededor de recitales e inscripciones?",
+        paragraphs: [
+          "Trabajando hacia atrás desde las fechas que ya existen. Antes de abrir una sesión nueva, publica recordatorios con clips de clase y una presentación del profesor de cada nivel. Antes de un recital, muestra momentos del ensayo que generen expectativa sin revelar toda la coreografía. Después de la función, publica primero el resumen y luego un clip corto por grupo, para que cada familia vea el momento de su hijo.",
+          "En los meses tranquilos, las piezas de progreso y el detrás de cámaras mantienen la cuenta activa. La [producción masiva de video para redes](/es/produccion-masiva-de-video-para-redes-miami) permite editar un mes completo en una sola tanda, y la [edición de video para eventos](/es/edicion-de-video-para-eventos-miami) cubre los recitales.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Qué permiso necesita la academia para publicar a sus alumnos?",
+        answer:
+          "Un consentimiento por escrito del padre, la madre o el tutor de cada alumno que se reconozca en cámara, guardado por la academia; muchas lo incluyen en la inscripción. La edición usa solo los clips aprobados y planos abiertos o de espaldas para el resto.",
+      },
+      {
+        question: "¿Esteban puede grabar un recital?",
+        answer: `Sí, como servicio adicional pagado que se cotiza por proyecto en Miami-Dade o Broward, según el teatro, la duración de la función y si el lugar permite grabar. Presencia Local es ${esPresencia()}. Si la academia ya graba la función, ese material se edita a distancia con Arranque, ${esArranque()}.`,
+      },
+      {
+        question: "¿Qué pasa con la música de los videos de baile?",
+        answer:
+          "Las coreografías suelen usar música comercial, que puede quedar bloqueada o silenciada en publicaciones públicas. Para los clips públicos conviene usar la biblioteca de la plataforma o canciones con licencia; la grabación completa para las familias se maneja aparte.",
+      },
+    ],
+  },
+];
 
 export const spanishNichePages: SpanishNichePage[] = [
   {
@@ -3840,6 +4356,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       },
     ],
   },
+  ...nicheWave8Pages,
 ];
 
 
@@ -3985,6 +4502,24 @@ const inventoryAdditions20261010Hreflang = Object.fromEntries(
   ),
 );
 
+/** The 2026-10-11 niche wave 8 (owner-approved), paired in both directions. */
+const nicheWave8Hreflang = Object.fromEntries(
+  (
+    [
+      ["/services/pre-construction-condo-video-marketing-miami", "/es/video-para-preventa-de-condominios-miami"],
+      ["/services/vacation-rental-video-marketing-fort-lauderdale", "/es/video-para-alquileres-vacacionales-fort-lauderdale"],
+      ["/services/insurance-agency-video-marketing-miami", "/es/marketing-de-video-para-agencias-de-seguros-miami"],
+      ["/services/mortgage-broker-video-marketing-miami", "/es/marketing-de-video-para-brokers-hipotecarios-miami"],
+      ["/services/immigration-attorney-video-marketing-miami", "/es/marketing-de-video-para-abogados-de-inmigracion-miami"],
+      ["/services/church-sermon-clip-editing-miami", "/es/edicion-de-clips-de-predicas-para-iglesias-miami"],
+      ["/services/quinceanera-video-miami", "/es/video-para-quinceaneras-miami"],
+      ["/services/dance-studio-music-school-video-marketing-miami", "/es/video-para-academias-de-baile-y-musica-miami"],
+    ] as const
+  ).flatMap(([en, es]) =>
+    [en, es].map((path) => [path, { "en-US": en, "es-US": es, "x-default": en }] as const),
+  ),
+);
+
 const languageAlternatesRaw: Record<string, Record<string, string>> = {
   ...inventoryAdditions20261010Hreflang,
   "/services/food-and-places-creator-video-editing-miami": {
@@ -4001,6 +4536,7 @@ const languageAlternatesRaw: Record<string, Record<string, string>> = {
   ...nicheBatch20261006Hreflang,
   // Annual-events section (2026-10-10), both directions, from lib/events.ts.
   ...eventLanguageAlternates(),
+  ...nicheWave8Hreflang,
   ...Object.fromEntries(Object.values(packageRoutes).flatMap(({ en, es }) => [en, es].map((path) => [path, { "en-US": en, "es-US": es, "x-default": en }]))),
   "/pricing/real-estate": {
     "en-US": "/pricing/real-estate",
