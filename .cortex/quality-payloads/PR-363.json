@@ -28,16 +28,16 @@
   ],
   "evidence": {
     "obsidian_context": "Parent owns shared vault and backlog update.",
-    "project_routing": "PR #363 rebased onto origin/main a37568e after #362 merged. Independent #363 source review PASS; exact-head CI required. One fixture entry tracks #362 intended Spanish web-design rewrite; no #363 web-design route change.",
+    "project_routing": "PR #363 rebased cleanly onto origin/main 2437edb after #364/#365 merged. Independent review of unchanged Palm Beach source diff PASS; exact-head CI required.",
     "hard_stops_checked": "No external account edits, new price, testimonial, or availability guarantee.",
     "reviewer_ensemble": "Builder scoped checks PASS; independent read-only agent pr_351 reviewed exact local 29876b6 and reported PASS/no blocker. Antigravity CTO dispatch attempted but refused exit 3 by contract gate.",
-    "review_handoff": "Independent reviewer PASS/no blocker on source diff; latest head is rebased on a37568e and requires exact-head CI plus production check.",
+    "review_handoff": "Independent reviewer PASS/no blocker on Palm Beach source diff; latest head rebased on 2437edb requires exact-head CI and production check.",
     "pr_review_complete": "Independent read-only review PASS/no blocker on 29876b6; follow latest exact-head after payload push.",
     "debt_delta": "neutral",
     "obsidian_handoff": "Parent owns vault; backlog line 86 checked after #362 canonical EN/ES production raw HTTP 200 verification from independent agent pr_351.",
     "reviewer_disagreement_reviewed": "No disagreement: builder and independent read-only reviewer agree on EN/ES city-page truth and availability caveat.",
     "winner_rationale": "The scoped copy corrects a live contradiction while preserving project-by-project on-location confirmation; no city guarantee or new offer.",
-    "tests_or_validation": "Latest rebased local head on a37568e: pnpm check passed (rail-kit, adoption, lint 0 errors, typecheck, full Vitest, build, Spanish text-parity 107 routes). #362 intentionally rewrote the Spanish web-design page; its stale fixture entry was refreshed after EN/ES source review.",
+    "tests_or_validation": "Latest rebased local source on 2437edb: pnpm build and Spanish text-parity 107 routes pass; prior full pnpm check on a37568e passed 1841 Vitest tests, lint, typecheck, build, parity. GitHub exact-head full CI required.",
     "ci_passed": "Pending exact-head GitHub CI; do not merge until current head is green."
   },
   "reviewers": {
