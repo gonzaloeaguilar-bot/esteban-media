@@ -173,3 +173,9 @@
 @keyframes em-art-develop{from{transform:translateY(-9px);opacity:.5}to{transform:translateY(0);opacity:1}}
 @keyframes em-art-cut{from{left:4%}to{left:75%}}
 @keyframes em-art-route{from{stroke-dashoffset:650}to{stroke-dashoffset:0}}
+/* Real-estate showcase (components/real-estate-showcase.tsx). The reel shelf and
+   the monthly plans are one block now, so the shelf gives up its own hairline at
+   the seam: the plans' 5px terracotta top edge is the single divider between
+   "see the work" and "what it costs", instead of a 1px warm grey rule sitting
+   immediately on top of a 5px terracotta one. */
+.em-re-showcase__work{border-bottom-width:0!important}
