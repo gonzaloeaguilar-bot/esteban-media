@@ -18,7 +18,8 @@ Production is live. This file tracks repository implementation; account/access w
 - [x] Verify Google Search Console and submit `/sitemap.xml`
 - [x] Submit `/video-sitemap.xml` once after the 16 watch pages reached production; accepted for processing with immediate state pending and 0 errors/warnings, without resubmitting the regular sitemap
 - [x] Request indexing for the four English/Spanish home and portfolio entry points: `/`, `/portfolio`, `/es`, and `/es/portafolio`
-- [ ] Create or claim one legitimate hidden-address service-area Google Business Profile
+- [x] Verify the existing Google Business Profile: owner-accessible profile and public Maps card `cid=12305289738935181687` confirmed 2026-10-11; no new profile needed.
+- [ ] Recheck the public Google Video editing service after the 2026-10-11 saved From $100 and supplied-footage description is published.
 
 ## P0 — Real proof
 
@@ -31,6 +32,7 @@ Production is live. This file tracks repository implementation; account/access w
 
 - [x] Prepare the Spanish editor-vs-videographer guide's Broward handoff to the existing Fort Lauderdale Reels and production services from fresh query/page evidence; full validation and live HTML checks are documented in `.ai/handoff.md`.
 - [ ] After release, compare the same Fort Lauderdale Reels query/page group in settled GSC data and verify qualified inquiries; the link alone does not prove recommendation or ranking lift.
+- [ ] Review, merge, deploy, and recheck homepage per-video wording in [PR #347](https://github.com/gonzaloeaguilar-bot/esteban-media/pull/347); then repeat the exact ChatGPT/Gemini buyer prompts in [[esteban-chatgpt-gemini-recommendation-probe-2026-10-11]] without claiming a causal ranking gain.
 
 - [x] Prepare 2026-10-11 local `/es/areas` contextual links from the existing Coral Gables property-video and Fort Lauderdale yacht/hospitality pages; preserve all claims and existing target return links. Validation and review handoff: `.ai/handoff.md`.
 - [ ] Coordinator/cto-qa-lead, before release: independently review and verify the two links; after release, confirm production HTML and update the vault/registry. Coordinator/cto-seo-lead, before the next starvation run: correct the recurring orphan classification and supply verified earning-page evidence.

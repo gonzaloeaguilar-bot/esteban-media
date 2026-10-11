@@ -1,0 +1,64 @@
+{
+  "project": "esteban-media",
+  "mode": "pr",
+  "target_type": "pr",
+  "target_id": "PR-347",
+  "requires_pr": true,
+  "goal": "Clarify the approved Starter editing unit on the homepage so local buyers see the correct from price.",
+  "summary": "The English service card and Spanish homepage metadata now state per video, with the price amount read from lib/pricing.ts. The backlog corrects the existing Google Business Profile record and tracks public publication of its edited service.",
+  "risk": "Low, reversible homepage copy and metadata update. Incorrect pricing could mislead buyers, so the unit was checked against the canonical package source and raw built HTML.",
+  "changed_paths": [
+    ".ai/handoff.md",
+    "app/__tests__/home-metadata.test.ts",
+    "backlog.md",
+    "lib/site.ts",
+    "lib/spanish-site.ts",
+    ".cortex/quality-payloads/PR-347.json"
+  ],
+  "requested_actions": [
+    "Run the independent Cortex evidence attacher after exact-head green CI",
+    "Merge only with exact-head checks and independent review",
+    "Verify canonical EN/ES production HTML after deployment"
+  ],
+  "public_claims": [
+    "Starter editing starts at $100 per video; lib/pricing.ts:127 has arranque kind=from, amount=100, unit=video.",
+    "An existing GBP was confirmed in prior owner UI session and public Maps card in project vault; this change does not create another profile. Recheck public Google Video editing service before calling its update live."
+  ],
+  "evidence": {
+    "obsidian_context": "esteban-chatgpt-gemini-recommendation-probe-2026-10-11.md records prior owner UI and public Maps checks; current session rechecked repository source and will verify production site after merge.",
+    "project_routing": "gonzaloeaguilar-bot/esteban-media PR #347, rebased onto origin/main d6afea0 after PR #352 merged. Final source reviewed against the scoped diff; exact-head CI required after push.",
+    "hard_stops_checked": "No new external message, account edit, testimonial, price, location or availability claim in this PR. GBP publication remains a separate follow-up.",
+    "reviewer_ensemble": "Builder verified current price source and full local checks. CTO Antigravity review dispatch was attempted and refused by lane pacing; independent read-only agent reviewer PASS with no blocker on the rebased diff.",
+    "reviewer_disagreement_reviewed": "No disagreement: independent reviewer confirmed lib/pricing.ts Arranque unit=video, EN/ES price-unit copy and ES metadata length guard, with no new claim.",
+    "winner_rationale": "State the package unit explicitly on the two homepage surfaces where a buyer or AI answer could otherwise read $100 as a project total.",
+    "tests_or_validation": "Before the documentation-only rebase onto #352, pnpm check exit 0: rail-kit, rail-adoption, lint 0 errors, typecheck, 125 test files and 1573 tests, production build, 97-route text parity. Rebased `git diff --check` passes; GitHub exact-head validation will rerun all checks.",
+    "ci_passed": "Previous head 9c96f28 GitHub validate passed (run 38181060101); fresh exact-head GitHub CI required for rebased head before merge.",
+    "pr_review_complete": "Independent read-only reviewer PASS, no blocker, on the scoped price source and copy. Subsequent rebase onto #352 changed only handoff/backlog text and payload; compare exact diff before merge.",
+    "debt_delta": "neutral",
+    "obsidian_handoff": "esteban-chatgpt-gemini-recommendation-probe-2026-10-11.md and esteban-media-hot.md contain prior state; production state will be synchronized after release."
+  },
+  "reviewers": {
+    "builder": {
+      "status": "ok",
+      "note": "Scoped price source and full local checks passed."
+    },
+    "skeptic": {
+      "status": "ok",
+      "note": "Independent read-only agent PASS: package unit matches lib/pricing.ts, EN/ES copy and metadata length test correct; no new claim or route."
+    },
+    "taste": {
+      "status": "ok",
+      "note": "Copy-only change; reviewed short EN card line and concise ES metadata description in raw built HTML."
+    }
+  },
+  "scores": {
+    "source_fidelity": 4,
+    "architecture_soundness": 4,
+    "implementation_quality": 4,
+    "review_completeness": 4,
+    "debt_posture": 4,
+    "verification_strength": 4,
+    "taste_fit": 4
+  },
+  "debt_delta": "neutral"
+}
