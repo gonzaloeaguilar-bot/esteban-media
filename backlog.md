@@ -29,6 +29,9 @@ Production is live. This file tracks repository implementation; account/access w
 
 ## P1 — Technical SEO / GEO / ALOHA
 
+- [x] Prepare the Spanish editor-vs-videographer guide's Broward handoff to the existing Fort Lauderdale Reels and production services from fresh query/page evidence; full validation and live HTML checks are documented in `.ai/handoff.md`.
+- [ ] After release, compare the same Fort Lauderdale Reels query/page group in settled GSC data and verify qualified inquiries; the link alone does not prove recommendation or ranking lift.
+
 - [x] Prepare 2026-10-11 local `/es/areas` contextual links from the existing Coral Gables property-video and Fort Lauderdale yacht/hospitality pages; preserve all claims and existing target return links. Validation and review handoff: `.ai/handoff.md`.
 - [ ] Coordinator/cto-qa-lead, before release: independently review and verify the two links; after release, confirm production HTML and update the vault/registry. Coordinator/cto-seo-lead, before the next starvation run: correct the recurring orphan classification and supply verified earning-page evidence.
 
