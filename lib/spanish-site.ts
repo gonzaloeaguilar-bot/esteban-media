@@ -1091,7 +1091,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Restaurantes / comida / hospitality",
     h1: "Video para restaurantes en Miami: edición de reels y promociones.",
     lead:
-      "Envía las tomas de tus platos, cocina o salón para editar un reel o video promocional desde $240 por proyecto, con cotización a la medida. Si necesitas grabación en Miami-Dade, cuéntanos la idea y se evaluará la disponibilidad y el alcance por separado.",
+      "¿Ya tienes clips? Edición de Reels desde $240 por proyecto, con cotización a la medida. ¿Necesitas video nuevo? Consulta por grabación selectiva. ¿También necesitas fotos reales? Cuéntanos qué, dónde y para qué: la sesión se cotiza por separado.",
     keyword: "video para restaurantes Miami",
     location: "Miami-Dade",
     availability: "confirmed",

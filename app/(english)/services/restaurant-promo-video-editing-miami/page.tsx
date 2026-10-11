@@ -138,9 +138,11 @@ export default function RestaurantPromoVideoEditingMiamiPage() {
                 Restaurant promo edits start at $240 — every project gets a
                 scoped quote.
               </p>
-              <p className="mt-4 max-w-2xl text-base leading-7 text-[#252a2d]">
-                Have clips already? Ask for a Reel edit. Need new video from the restaurant? Describe the location and shoot for a separate filming quote. Need real still photos of dishes or the space? Tell us what to photograph and how you will use the images so Esteban can scope a photography session separately.
-              </p>
+              <ul className="mt-4 max-w-2xl space-y-1.5 text-sm leading-6 text-[#252a2d]">
+                <li><strong>Already have clips?</strong> Ask for a Reel edit.</li>
+                <li><strong>Need new video?</strong> Tell us the location and what to film.</li>
+                <li><strong>Need real still photos?</strong> Describe the dishes or space; the session is quoted separately.</li>
+              </ul>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/contact"
