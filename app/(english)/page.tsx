@@ -12,6 +12,7 @@ import { KeepReading } from "@/components/keep-reading";
 import { PortfolioTeaser } from "@/components/portfolio-teaser";
 import { RealEstateShowcase } from "@/components/real-estate-showcase";
 import { ServicesStrip } from "@/components/services-strip";
+import { englishRootMetadata } from "@/lib/site-metadata";
 
 export const metadata: Metadata = {
   // Keep the observed homepage intent in one bounded contract: video editing,
@@ -40,12 +41,19 @@ export const metadata: Metadata = {
   },
   description:
     "Video editing, on-location capture and social content for businesses in Fort Lauderdale, Broward and Miami-Dade. Spanish-first, English available.",
+  // Next REPLACES a nested openGraph/twitter object instead of merging it with
+  // the root layout's, so spreading the root defaults is what keeps og:image,
+  // og:url, og:type, og:site_name, og:locale and the large twitter card on "/".
+  // Without the spread the homepage (where all social traffic lands) shared
+  // with no image and a "summary" card (SEO/GEO audit 2026-10-10, finding 1).
   openGraph: {
+    ...englishRootMetadata.openGraph,
     title: "Fort Lauderdale Video Production & Editing | Esteban Moreno",
     description:
       "Video editing, on-location capture and social content for businesses in Fort Lauderdale, Broward and Miami-Dade. Spanish-first, English available.",
   },
   twitter: {
+    ...englishRootMetadata.twitter,
     title: "Fort Lauderdale Video Production & Editing | Esteban Moreno",
     description:
       "Video editing, on-location capture and social content for businesses in Fort Lauderdale, Broward and Miami-Dade. Spanish-first, English available.",

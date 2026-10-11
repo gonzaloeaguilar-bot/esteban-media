@@ -12,6 +12,16 @@ import {
 import { Container } from "@/components/ui/container";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl } from "@/lib/site";
+import { PACKAGE_PRICES, usd } from "@/lib/pricing";
+
+// The served path. This page used to canonicalise to /areas/fort-lauderdale,
+// which 404s (SEO/GEO audit 2026-10-10, finding 2).
+const path = "/fort-lauderdale";
+
+function fromAmount(id: keyof typeof PACKAGE_PRICES): string {
+  const price = PACKAGE_PRICES[id];
+  return price.kind === "from" ? usd(price.amount) : "";
+}
 
 const fortLauderdaleServices = [
   {
@@ -49,7 +59,7 @@ const questions = [
   {
     question: "How much does video editing cost for Fort Lauderdale businesses?",
     answer:
-      "Remote video editing packages start from $100 per video (Starter package), ongoing monthly social video plans start from $640/month (Growth package), and on-location production days start from $800 (Local Presence package).",
+      `Remote video editing packages start from ${fromAmount("arranque")} per video (Starter package), ongoing monthly social video plans start from ${fromAmount("crecimiento")}/month (Growth package), and on-location production days start from ${fromAmount("presencia-local")} (Local Presence package).`,
   },
   {
     question: "Can Fort Lauderdale clients work with Esteban remotely?",
@@ -82,12 +92,12 @@ export const metadata = buildPageMetadata({
   title: "Video Editing & Content Support in Fort Lauderdale",
   description:
     "Remote video editing, social media reels, AI-assisted content, and selective on-location capture for Fort Lauderdale and Broward County businesses.",
-  path: "/areas/fort-lauderdale",
+  path,
   locale: "en",
 });
 
 export default function FortLauderdalePage() {
-  const pageUrl = absoluteUrl("/areas/fort-lauderdale");
+  const pageUrl = absoluteUrl(path);
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
@@ -189,7 +199,7 @@ export default function FortLauderdalePage() {
                   <ArrowRight className="size-4" aria-hidden="true" />
                 </Link>
                 <Link
-                  href="/es/areas/fort-lauderdale"
+                  href="/es/videografo-en-fort-lauderdale"
                   className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-[#101214] px-6 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"
                 >
                   <Languages className="size-4" aria-hidden="true" />
@@ -202,7 +212,7 @@ export default function FortLauderdalePage() {
               <MapPin className="size-6 text-[#e85d3e]" aria-hidden="true" />
               <h2 className="mt-5 font-serif text-3xl">Local base in Broward County</h2>
               <p className="mt-3 text-sm leading-6 text-[#252a2d]">
-                Fort Lauderdale is our home base. Local businesses can start with remote video editing of existing smartphone and camera footage from $100, or schedule on-location capture for original content creation.
+                Fort Lauderdale is our home base. Local businesses can start with remote video editing of existing smartphone and camera footage from {fromAmount("arranque")}, or schedule on-location capture for original content creation.
               </p>
             </div>
           </div>
@@ -273,7 +283,7 @@ export default function FortLauderdalePage() {
           <div className="rounded-lg bg-[#101214] p-6 text-[#f6f1ea] sm:p-8">
             <h2 className="font-serif text-4xl">Have a Fort Lauderdale project in mind?</h2>
             <p className="mt-4 max-w-2xl leading-7 text-[#d8d0c7]">
-              Share the location, project goal, intended use, and visual references to see if our expansion-area availability fits your needs.
+              Share the location, project goal, intended use, and visual references to see how the project can be scoped for remote editing, paid on-location capture, or both.
             </p>
             <Link
               href="/contact"
