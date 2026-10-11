@@ -1,3 +1,9 @@
+# Local keyword demand release — 2026-10-11
+
+PR #353 merged at `285af4530d31b9b36ef9ee8c44224ba0e6cec232` and Vercel production reached Ready. Direct canonical-domain checks returned HTTP 200 with the new English and Spanish restaurant copy, the Fort Lauderdale production/Reels links, canonical metadata, and working destination/contact links. A live phone screenshot confirmed a single home illustration caption after the rebase repair. IndexNow accepted 284 sitemap URLs (HTTP 200). The measurable input was 90-day Search Console site impressions, not local-market search volume; click/lead outcome is due 2026-11-08. Source and evidence: `~/obsidian-wiki/client-esteban-media/wiki/esteban-local-keyword-demand-gaps-2026-10-11.md`.
+
+---
+
 # Fort Lauderdale Reels search handoff — 2026-10-11
 
 Branch `codex/esteban-reels-seo` updates the existing English `/services/reels-editor-fort-lauderdale` and Spanish `/es/editor-de-reels-fort-lauderdale` pages. Both now give a concrete, clearly hypothetical restaurant clip brief, distinguish editing supplied footage from separately scoped local capture, and point to published ML Colombia content without claiming customer results. The English Fort Lauderdale cost guide now links directly to the English Reels service; the Spanish guide already linked to its counterpart. The changed Spanish page alone was refreshed in the text-parity fixture. Source for the ML Colombia reference: `lib/portfolio.ts` (published social video, 24-second duration) and `messages/en.json` / `messages/es.json` (Esteban founded and led digital content for his own brand). No identical deliverable or performance result is asserted. Local gates: rail-kit, rail adoption, lint (0 errors), typecheck, all 1,576 tests, production build, and 97-route text parity passed; final raw HTML and independent review are recorded in the PR. Search clicks and leads remain future observations, not claimed outcomes.
