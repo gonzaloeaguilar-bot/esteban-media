@@ -10,8 +10,9 @@ import { SignalIntro } from "@/components/signal-intro";
 import { ClosingCredits, PackagesSection } from "@/components/packages-section";
 import { KeepReading } from "@/components/keep-reading";
 import { PortfolioTeaser } from "@/components/portfolio-teaser";
-import { RealEstateReels } from "@/components/real-estate-reels";
+import { RealEstateShowcase } from "@/components/real-estate-showcase";
 import { ServicesStrip } from "@/components/services-strip";
+import { englishRootMetadata } from "@/lib/site-metadata";
 
 export const metadata: Metadata = {
   // Keep the observed homepage intent in one bounded contract: video editing,
@@ -40,12 +41,19 @@ export const metadata: Metadata = {
   },
   description:
     "Video editing, on-location capture and social content for businesses in Fort Lauderdale, Broward and Miami-Dade. Spanish-first, English available.",
+  // Next REPLACES a nested openGraph/twitter object instead of merging it with
+  // the root layout's, so spreading the root defaults is what keeps og:image,
+  // og:url, og:type, og:site_name, og:locale and the large twitter card on "/".
+  // Without the spread the homepage (where all social traffic lands) shared
+  // with no image and a "summary" card (SEO/GEO audit 2026-10-10, finding 1).
   openGraph: {
+    ...englishRootMetadata.openGraph,
     title: "Fort Lauderdale Video Production & Editing | Esteban Moreno",
     description:
       "Video editing, on-location capture and social content for businesses in Fort Lauderdale, Broward and Miami-Dade. Spanish-first, English available.",
   },
   twitter: {
+    ...englishRootMetadata.twitter,
     title: "Fort Lauderdale Video Production & Editing | Esteban Moreno",
     description:
       "Video editing, on-location capture and social content for businesses in Fort Lauderdale, Broward and Miami-Dade. Spanish-first, English available.",
@@ -63,12 +71,20 @@ export default function Home() {
           linked to none of them. Above the fold on purpose — a visitor from an
           Instagram bio link should not have to open a fold-out to find their lane. */}
       <AudienceRouter locale="en" />
-      <PackagesSection locale="en" />
+      {/* Work before price, and both before the general packages.
+
+          The router's first lane is real estate, so the lane a visitor picks
+          here is the shelf that answers it. The monthly plans ride directly
+          under the shelf they belong to, instead of sitting in the middle of
+          the packages track: from here on, no price is ever shown above the
+          work that justifies it.
+
+          The shelf is the same conversion strip the social traffic needs —
+          posters lazy-load, the MP4s mount only when a card is opened — it
+          has just moved out of the bottom third of the page. */}
+      <RealEstateShowcase locale="en" />
+      <PackagesSection locale="en" realEstatePlans={false} />
       <PortfolioTeaser locale="en" />
-      {/* The conversion strip the social traffic needs: property reels in a
-          streaming-style shelf. Posters lazy-load up front; the MP4s load only
-          when a visitor opens one. */}
-      <RealEstateReels locale="en" />
       <ClientReviews locale="en" />
       <KeepReading id="more" className="em-fold" title="Want to see everything?" destinations="Services, areas, guides and more about Esteban.">
         <HomeAuthorityHub />
