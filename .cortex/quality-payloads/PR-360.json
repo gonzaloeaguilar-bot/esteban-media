@@ -1,0 +1,57 @@
+{
+  "project": "esteban-media",
+  "mode": "pr",
+  "target_type": "pr",
+  "target_id": "PR-360",
+  "requires_pr": true,
+  "goal": "Restore reliable production SEO verification and audit its scheduled loop",
+  "summary": "Replaces stale sitemap counts with the approved inventory contract, verifies real pages and video roster, and schedules a daily production check plus a weekly loop audit.",
+  "risk": "Low to moderate. Verification and GitHub Actions only; no public copy or route changes. The scheduled checks will surface production drift.",
+  "changed_paths": [
+    "scripts/verify-technical-seo.mjs",
+    "scripts/verify-technical-seo-inventory.mjs",
+    "scripts/verify-technical-seo-inventory.test.mjs",
+    "scripts/audit-seo-verifier-runs.mjs",
+    "scripts/audit-seo-verifier-runs.test.mjs",
+    "config/video-sitemap-inventory.json",
+    "app/__tests__/video-sitemap.test.ts",
+    ".github/workflows/seo-production-verify.yml",
+    ".github/workflows/seo-production-audit.yml",
+    "package.json",
+    ".cortex/quality-payloads/PR-360.json"
+  ],
+  "requested_actions": [
+    "Merge only after exact-head CI and independent quality evidence pass",
+    "Run both workflows manually after merge and inspect their completed results",
+    "Confirm canonical production sitemap matches the approved inventory"
+  ],
+  "public_claims": [],
+  "evidence": {
+    "obsidian_context": "Esteban SEO goal note and hot.md are owned by the coordinating agent in this session.",
+    "project_routing": "gonzaloeaguilar-bot/esteban-media PR #360, branch codex/esteban-seo-verifier-20261011, rebased onto main f6b7865.",
+    "hard_stops_checked": "No client-facing content, account settings, spending, outreach, user data, or credentials added. GitHub's read token is supplied by Actions only for the weekly audit.",
+    "reviewer_ensemble": "Independent PR #351 agent reviewed the verifier diff and found three coverage gaps; all were repaired, followed by a separate video-roster omission fix. Reviewer returned PASS on the final roster design.",
+    "reviewer_disagreement_reviewed": "Verifier now requires the approved video roster rather than inferring the expected set from both production surfaces, requires first-screen brand/service/location, and compares paired guide/watch hreflang to sitemap declarations.",
+    "winner_rationale": "The approved sitemap count and URL hash are an existing demand-gated source. A separate video roster prevents two surfaces from silently losing the same video. Separate audit workflow cannot mask a stopped daily verifier.",
+    "tests_or_validation": "On rebased f6b7865, pnpm check passed: 1,838 tests, 382-page build, 107-route text parity, lint 0 errors and typecheck. Nine targeted verifier/audit/video-sitemap tests passed. Canonical pnpm seo:verify exited 0 after the 342-URL deployment: 342 indexable URLs, 16 video URLs, 84 guide URLs, 2 privacy pages, and 3 localized 404 routes.",
+    "ci_passed": "Exact-head GitHub CI is pending the rebased push and payload commit; check before merge.",
+    "pr_review_complete": "Independent source review PASS after addressing video omission, paired alternate and first-screen checks. Final exact-head CI and post-deploy workflow runs remain required.",
+    "debt_delta": "neutral",
+    "obsidian_handoff": "The coordinating agent owns same-session vault hot/durable note and repo backlog/handoff updates."
+  },
+  "reviewers": {
+    "builder": {"status": "ok", "note": "Repaired verifier, added approved video roster, daily check, weekly audit, and targeted tests."},
+    "skeptic": {"status": "ok", "note": "Independent reviewer challenged three weak checks and the video dual-removal hole; all fixed and reviewed."},
+    "taste": {"status": "ok", "note": "No rendered UI or customer-facing copy changed; production page reading checks remain in the verifier."}
+  },
+  "scores": {
+    "source_fidelity": 4,
+    "architecture_soundness": 4,
+    "implementation_quality": 4,
+    "review_completeness": 4,
+    "debt_posture": 4,
+    "verification_strength": 4,
+    "taste_fit": 4
+  },
+  "debt_delta": "neutral"
+}
