@@ -82,14 +82,14 @@ export default function Page() {
               <li aria-hidden="true">/</li>
               <li><Link href="/services" className="hover:text-[#9f3c27]">Services</Link></li>
               <li aria-hidden="true">/</li>
-              <li aria-current="page" className="text-[#252a2d]">Quinceañera Video</li>
+              <li aria-current="page" className="text-[#252a2d]">{"Quinceañera Video"}</li>
             </ol>
           </nav>
           <div className="grid gap-10 lg:grid-cols-[1fr_.9fr] lg:items-start">
             <div>
-              <p className="text-xs font-medium uppercase text-[#5a6066]">Quinceañeras / Families / Celebrations</p>
-              <h1 className="mt-4 max-w-4xl font-serif em-display">Quinceañera video: the film of the night and the clips to share.</h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">Esteban edits footage from the videographer, the photographer or the guests into a highlight film and vertical social clips the family approves. He can also film the celebration in person.</p>
+              <p className="text-xs font-medium uppercase text-[#5a6066]">{"Quinceañeras / Families / Celebrations"}</p>
+              <h1 className="mt-4 max-w-4xl font-serif em-display">{"Quinceañera video: the film of the night and the clips to share."}</h1>
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">{"Esteban edits footage from the videographer, the photographer or the guests into a highlight film and vertical social clips the family approves. He can also film the celebration in person."}</p>
               <div className="mt-8 flex flex-wrap gap-3" data-em-hero-actions>
                 <a
                   href={whatsappHref(site.phone.e164, "Hi Esteban, I'd like a quote for a quinceañera video.")}

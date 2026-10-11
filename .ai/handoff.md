@@ -1,3 +1,23 @@
+# Niche wave 8 — eight bilingual pairs — 2026-10-11
+
+Branch `feat/niche-wave-8` (pushed, no PR). Owner-approved buyer gaps, 16 new indexable URLs:
+pre-construction condos, vacation rentals, insurance agencies (ACA/Medicare), mortgage brokers/loan officers,
+immigration attorneys, churches (sermon clips), quinceañeras, dance studios/music academies/kids' activities.
+- EN pages: `app/(english)/services/<slug>/page.tsx` on service-depth (`ServiceCraft`, `ServiceDeepDive`, `ServiceFaqs`,
+  `ServiceInquiryRail`, `ServiceRelated`, `buildServiceFaqSchema`); hero carries a question `<h2>` with a 40–180-word answer
+  (`NicheWave8Depth.answer`) and an honest proof line. Copy in `lib/service-depth-content.ts` / `lib/service-deep-dive-content.ts` (wave-8 blocks at the end).
+- ES pages: `nicheWave8Pages` in `lib/spanish-site.ts`, rendered by `SpanishNichePage`; new optional `fitQuestion` replaces the generic
+  "¿Para qué proyecto encaja?" heading. Proof/inquiry entries in `components/spanish-niche-page.tsx`.
+- Prices only via `priceSentence()`; on-location filming stated as "paid add-on scoped per project" / "servicio adicional pagado que se cotiza por proyecto".
+  Regulated duties (NMLS, carrier/Medicare disclaimers, Florida Bar review, minors' consent, music rights) attributed to the client.
+- Wiring (grouped "niche wave 8" blocks): sitemap 284 → 300, freeze count/hash + ownerOrderedAdditions entry (follow-up 2026-11-11),
+  index-watch `WATCH_URLS`, `lib/language-routes.ts`, `nicheWave8Hreflang`, `public/llms.txt` group, text-parity hub allowlist + 8 new baseline routes,
+  `data/outreach/niches.json` (+8), CTA dashboard. Tests: `app/__tests__/niche-wave-8.test.ts`.
+- Gates: pnpm check steps all pass except the known sandbox-only `prospect-auditor-verifier.test.ts` (live network); dual-audience gate 16/16 PASS.
+- Expect conflicts with the concurrent llms.txt-generation and event-pages branches in sitemap/freeze/watch/llms/text-parity files.
+
+---
+
 # Spanish service-area contextual links — 2026-10-11 (local, uncommitted)
 
 - Bounded dispatch: `cto-seo-lead` → implementation; verification owner `cto-qa-lead`. Base commit `94a63bb6dd6233fcad66339b6892d29f8933893c`.

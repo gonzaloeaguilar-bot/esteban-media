@@ -223,7 +223,7 @@ const nicheWave8Pages: SpanishNichePage[] = [
   {
     slug: "video-para-preventa-de-condominios-miami",
     title: "Video para preventa de condominios en Miami",
-    metadataTitle: "Video para Preventa de Condominios Miami",
+    metadataTitle: "Video para Preventa de Condominios",
     description:
       "Reels verticales a partir de renders y del sales gallery para lanzamientos de condominios en preventa en Miami y Fort Lauderdale, en versión en español e inglés.",
     eyebrow: "Desarrolladores / Equipos de venta / Preventa",
@@ -471,7 +471,7 @@ const nicheWave8Pages: SpanishNichePage[] = [
   {
     slug: "marketing-de-video-para-abogados-de-inmigracion-miami",
     title: "Marketing de video para abogados de inmigración en Miami",
-    metadataTitle: "Video para Abogados de Inmigración Miami",
+    metadataTitle: "Video para Abogados de Inmigración",
     description:
       "Reels educativos en español con los abogados reales de tu firma de inmigración en Miami y Fort Lauderdale. Información general, no asesoría legal; la firma aprueba todo.",
     eyebrow: "Abogados de inmigración / Firmas en español",
@@ -657,7 +657,7 @@ const nicheWave8Pages: SpanishNichePage[] = [
   {
     slug: "video-para-academias-de-baile-y-musica-miami",
     title: "Video para academias de baile y música en Miami",
-    metadataTitle: "Video para Academias de Baile y Música",
+    metadataTitle: "Video para Escuelas de Baile y Música",
     description:
       "Contenido constante para academias de baile, escuelas de música y actividades infantiles en Miami y Fort Lauderdale: clips de clase, recitales y un calendario mensual.",
     eyebrow: "Academias de baile / Escuelas de música / Actividades infantiles",

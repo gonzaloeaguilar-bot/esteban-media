@@ -19,7 +19,7 @@ import { absoluteUrl, site } from "@/lib/site";
 const path = "/services/insurance-agency-video-marketing-miami";
 
 export const metadata = buildPageMetadata({
-  title: "Insurance Agency Video Marketing Miami",
+  title: "Insurance Agency Video Miami",
   description: "Spanish short-form explainers for Latino insurance agencies and ACA or Medicare agents in Miami and Fort Lauderdale, planned around enrollment season.",
   path,
   locale: "en",
@@ -82,14 +82,14 @@ export default function Page() {
               <li aria-hidden="true">/</li>
               <li><Link href="/services" className="hover:text-[#9f3c27]">Services</Link></li>
               <li aria-hidden="true">/</li>
-              <li aria-current="page" className="text-[#252a2d]">Insurance Agency Video</li>
+              <li aria-current="page" className="text-[#252a2d]">{"Insurance Agency Video"}</li>
             </ol>
           </nav>
           <div className="grid gap-10 lg:grid-cols-[1fr_.9fr] lg:items-start">
             <div>
-              <p className="text-xs font-medium uppercase text-[#5a6066]">Insurance agencies / ACA and Medicare agents</p>
-              <h1 className="mt-4 max-w-4xl font-serif em-display">Spanish explainer videos for insurance agencies.</h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">Film your agents answering the questions clients ask at the desk. Esteban edits them into short Spanish explainers and plans the calendar around enrollment season, with the disclaimers your agency approves.</p>
+              <p className="text-xs font-medium uppercase text-[#5a6066]">{"Insurance agencies / ACA and Medicare agents"}</p>
+              <h1 className="mt-4 max-w-4xl font-serif em-display">{"Spanish explainer videos for insurance agencies."}</h1>
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">{"Film your agents answering the questions clients ask at the desk. Esteban edits them into short Spanish explainers and plans the calendar around enrollment season, with the disclaimers your agency approves."}</p>
               <div className="mt-8 flex flex-wrap gap-3" data-em-hero-actions>
                 <a
                   href={whatsappHref(site.phone.e164, "Hi Esteban, I'd like a quote for Spanish explainer videos for an insurance agency.")}

@@ -19,7 +19,7 @@ import { absoluteUrl, site } from "@/lib/site";
 const path = "/services/immigration-attorney-video-marketing-miami";
 
 export const metadata = buildPageMetadata({
-  title: "Immigration Attorney Video Marketing Miami",
+  title: "Immigration Attorney Video Miami",
   description: "Spanish educational reels featuring your firm's real immigration attorneys in Miami and Fort Lauderdale. General information, not legal advice; the firm approves all.",
   path,
   locale: "en",
@@ -82,14 +82,14 @@ export default function Page() {
               <li aria-hidden="true">/</li>
               <li><Link href="/services" className="hover:text-[#9f3c27]">Services</Link></li>
               <li aria-hidden="true">/</li>
-              <li aria-current="page" className="text-[#252a2d]">Immigration Attorney Video</li>
+              <li aria-current="page" className="text-[#252a2d]">{"Immigration Attorney Video"}</li>
             </ol>
           </nav>
           <div className="grid gap-10 lg:grid-cols-[1fr_.9fr] lg:items-start">
             <div>
-              <p className="text-xs font-medium uppercase text-[#5a6066]">Immigration attorneys / Spanish-language firms</p>
-              <h1 className="mt-4 max-w-4xl font-serif em-display">Educational reels that show your firm's real immigration attorneys.</h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">Your attorneys explain general topics on camera, by name and with the firm's name. Esteban edits the reels in Spanish, and the firm reviews and approves every script, caption and disclaimer under the Florida Bar's advertising rules.</p>
+              <p className="text-xs font-medium uppercase text-[#5a6066]">{"Immigration attorneys / Spanish-language firms"}</p>
+              <h1 className="mt-4 max-w-4xl font-serif em-display">{"Educational reels that show your firm's real immigration attorneys."}</h1>
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">{"Your attorneys explain general topics on camera, by name and with the firm's name. Esteban edits the reels in Spanish, and the firm reviews and approves every script, caption and disclaimer under the Florida Bar's advertising rules."}</p>
               <div className="mt-8 flex flex-wrap gap-3" data-em-hero-actions>
                 <a
                   href={whatsappHref(site.phone.e164, "Hi Esteban, I'd like a quote for educational reels for an immigration law firm.")}

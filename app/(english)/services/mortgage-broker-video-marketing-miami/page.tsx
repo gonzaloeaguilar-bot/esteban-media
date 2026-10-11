@@ -19,7 +19,7 @@ import { absoluteUrl, site } from "@/lib/site";
 const path = "/services/mortgage-broker-video-marketing-miami";
 
 export const metadata = buildPageMetadata({
-  title: "Mortgage Broker Video Marketing Miami",
+  title: "Mortgage Broker Video Miami",
   description: "Personal-brand reels and Spanish explainers for mortgage brokers and loan officers in Miami and Fort Lauderdale. NMLS and disclosures are supplied by the client.",
   path,
   locale: "en",
@@ -82,14 +82,14 @@ export default function Page() {
               <li aria-hidden="true">/</li>
               <li><Link href="/services" className="hover:text-[#9f3c27]">Services</Link></li>
               <li aria-hidden="true">/</li>
-              <li aria-current="page" className="text-[#252a2d]">Mortgage Broker Video</li>
+              <li aria-current="page" className="text-[#252a2d]">{"Mortgage Broker Video"}</li>
             </ol>
           </nav>
           <div className="grid gap-10 lg:grid-cols-[1fr_.9fr] lg:items-start">
             <div>
-              <p className="text-xs font-medium uppercase text-[#5a6066]">Mortgage brokers / Loan officers</p>
-              <h1 className="mt-4 max-w-4xl font-serif em-display">Personal-brand videos for loan officers who serve clients in Spanish.</h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">Explain the buying process in your own voice and Esteban turns those clips into reels and explainers with one consistent look. You supply and approve the NMLS details and every disclosure your lender requires.</p>
+              <p className="text-xs font-medium uppercase text-[#5a6066]">{"Mortgage brokers / Loan officers"}</p>
+              <h1 className="mt-4 max-w-4xl font-serif em-display">{"Personal-brand videos for loan officers who serve clients in Spanish."}</h1>
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">{"Explain the buying process in your own voice and Esteban turns those clips into reels and explainers with one consistent look. You supply and approve the NMLS details and every disclosure your lender requires."}</p>
               <div className="mt-8 flex flex-wrap gap-3" data-em-hero-actions>
                 <a
                   href={whatsappHref(site.phone.e164, "Hi Esteban, I'd like a quote for loan officer videos.")}
