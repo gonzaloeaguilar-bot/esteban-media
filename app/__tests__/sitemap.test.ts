@@ -21,7 +21,7 @@ import sitemap from "../sitemap";
 describe("portfolio sitemap entries", () => {
   const entries = sitemap();
 
-  it("publishes the exact 296-URL consolidated inventory, each URL once", () => {
+  it("publishes the exact 300-URL consolidated inventory, each URL once", () => {
     const urls = entries.map((entry) => entry.url);
 
     // 279 = 243 consolidated + /desk-recommendations (owner-ordered
@@ -34,9 +34,9 @@ describe("portfolio sitemap entries", () => {
     // food/places creator pair added 2026-10-07 (two URLs, owner-ordered).
     // +4 = the 2026-10-07 restaurant and real-estate cost-answer guide pairs.
     // +1 = /es/editor-de-video-miami (2026-10-07, Spanish-first demand-backed).
-    // +12 = niche wave 8 (2026-10-11, owner-approved bilingual pairs).
-    expect(entries).toHaveLength(296);
-    expect(new Set(urls)).toHaveLength(296);
+    // +16 = niche wave 8 (2026-10-11, owner-approved bilingual pairs).
+    expect(entries).toHaveLength(300);
+    expect(new Set(urls)).toHaveLength(300);
   });
 
   // This used to assert every entry carried lastModified 2026-07-19. That

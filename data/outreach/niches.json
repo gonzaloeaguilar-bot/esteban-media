@@ -420,6 +420,43 @@
       "angle_en": "Most churches record the whole sermon every week and post it only as one long video.",
       "angle_es": "Casi todas las iglesias graban la prédica completa cada semana y la publican solo como un video largo.",
       "priority": 3
+    },
+    {
+      "id": "quinceaneras",
+      "label": "Quinceañera planners, venues and families",
+      "queries": [
+        "quinceanera planner",
+        "quinceanera venue",
+        "quinceanera dresses"
+      ],
+      "ig_terms": [
+        "quinceañera",
+        "quince miami",
+        "xv años"
+      ],
+      "why": "Owner-approved wave 8. Every party produces footage from several phones and cameras that needs a highlight and social cuts; filming in person is a paid add-on; page: /services/quinceanera-video-miami.",
+      "angle_en": "A quinceañera leaves footage on many phones and cameras, and few families end up with one edited film of the night.",
+      "angle_es": "Una quinceañera deja material en muchos celulares y cámaras, y pocas familias terminan con una sola película editada de la noche.",
+      "priority": 3
+    },
+    {
+      "id": "dance-music-kids",
+      "label": "Dance studios, music academies and kids' activity businesses",
+      "queries": [
+        "dance studio",
+        "music school",
+        "kids martial arts",
+        "swim school for kids"
+      ],
+      "ig_terms": [
+        "dance studio",
+        "academia de baile",
+        "music lessons"
+      ],
+      "why": "Owner-approved wave 8. Weekly classes and seasonal recitals give a steady, predictable supply of footage; parental consent stays with the studio; page: /services/dance-studio-music-school-video-marketing-miami.",
+      "angle_en": "Studios film classes and recitals all year, and the clips usually stay on a teacher's phone.",
+      "angle_es": "Las academias graban clases y recitales todo el año, y los clips suelen quedarse en el celular del profesor.",
+      "priority": 3
     }
   ]
 }

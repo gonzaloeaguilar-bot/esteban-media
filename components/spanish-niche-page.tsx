@@ -89,7 +89,25 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
       { href: "/es/portafolio/diana-jack", title: "Diana & Jack", detail: "Película de boda y tráiler de momentos destacados." },
     ],
   },
-  // @@WAVE8-CONTEXT@@
+  "video-para-quinceaneras-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade y Broward",
+    note: "Diana & Jack: una boda en Boston que Esteban grabó y editó, con una película de 20 minutos y un tráiler de un minuto y medio, aproximadamente. Es una boda, no una quinceañera; muestra cómo cubre una celebración familiar.",
+    serviceIds: ["videografia", "edicion"],
+    projects: [
+      { href: "/es/portafolio/diana-jack", title: "Diana & Jack", detail: "Película de boda y tráiler de momentos destacados." },
+    ],
+  },
+  "video-para-academias-de-baile-y-musica-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade y Broward",
+    note: "Diana & Jack: un evento en vivo grabado y editado en una película y un tráiler. ML Colombia: pieza social de 24 segundos. Ninguno es un recital ni una academia.",
+    serviceIds: ["edicion", "planificacion-social", "videografia"],
+    projects: [
+      { href: "/es/portafolio/diana-jack", title: "Diana & Jack", detail: "Evento en vivo condensado en una película y un tráiler." },
+      { href: "/es/portafolio/ml-colombia", title: "ML Colombia", detail: "Pieza social corta para redes." },
+    ],
+  },
   "edicion-de-video-para-creadores-de-comida-y-lugares-miami": {
     areaHref: "/es/areas#broward",
     areaLabel: "Ver cobertura en Broward y Miami-Dade",
@@ -1179,7 +1197,22 @@ const spanishInquiryServices: Record<string, ServiceInquiry> = {
     proofHref: "/es/portafolio/diana-jack",
     proofLabel: "Ver un evento largo convertido en tráiler",
   },
-  // @@WAVE8-INQUIRY@@
+  "video-para-quinceaneras-miami": {
+    serviceId: "es_quinceanera_video",
+    serviceName: "el video de una quinceañera",
+    goalPrompt: "tener la película de la fiesta y clips para compartir en redes",
+    assetPrompt: "la fecha, el salón, quién graba y los momentos más importantes",
+    proofHref: "/es/portafolio/diana-jack",
+    proofLabel: "Ver una celebración publicada",
+  },
+  "video-para-academias-de-baile-y-musica-miami": {
+    serviceId: "es_dance_music_school_video",
+    serviceName: "contenido para una academia de baile o de música",
+    goalPrompt: "publicar clips de clase y recitales durante toda la temporada",
+    assetPrompt: "clips de clase, las fechas de recitales e inscripciones y la lista de alumnos con permiso",
+    proofHref: "/es/portafolio/ml-colombia",
+    proofLabel: "Ver una pieza social publicada",
+  },
   "edicion-de-video-para-creadores-de-comida-y-lugares-miami": {
     serviceId: "es_food_places_creator_video",
     serviceName: "edición para mi cuenta de comida y lugares",

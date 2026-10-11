@@ -91,7 +91,10 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/es/marketing-de-video-para-abogados-de-inmigracion-miami",
   "https://estebanmorenomedia.com/services/church-sermon-clip-editing-miami",
   "https://estebanmorenomedia.com/es/edicion-de-clips-de-predicas-para-iglesias-miami",
-  // @@WAVE8-WATCH@@
+  "https://estebanmorenomedia.com/services/quinceanera-video-miami",
+  "https://estebanmorenomedia.com/es/video-para-quinceaneras-miami",
+  "https://estebanmorenomedia.com/services/dance-studio-music-school-video-marketing-miami",
+  "https://estebanmorenomedia.com/es/video-para-academias-de-baile-y-musica-miami",
   "https://estebanmorenomedia.com/es/precios",
   "https://estebanmorenomedia.com/case-studies/banacol",
   "https://estebanmorenomedia.com/case-studies/flas-concierge",

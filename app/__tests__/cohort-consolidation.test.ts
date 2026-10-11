@@ -113,9 +113,9 @@ describe("consolidation arithmetic matches the published baseline", () => {
     // +2 = food and places creator pair (2026-10-07).
     // +4 = the 2026-10-07 restaurant and real-estate cost-answer guide pairs.
     // +1 = the 2026-10-07 /es/editor-de-video-miami page.
-    // +12 = niche wave 8 (2026-10-11, owner-approved bilingual pairs).
+    // +16 = niche wave 8 (2026-10-11, owner-approved bilingual pairs).
     // All owner-ordered, none of them consolidation changes.
-    expect(sitemap()).toHaveLength(269 - 26 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 2 + 4 + 1 + 12);
+    expect(sitemap()).toHaveLength(269 - 26 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 2 + 4 + 1 + 16);
   });
 
   it("never lists a redirect source in the sitemap", () => {

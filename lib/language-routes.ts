@@ -68,7 +68,10 @@ export const pairedLanguageRoutes: Record<string, string> = {
     "/es/marketing-de-video-para-abogados-de-inmigracion-miami",
   "/services/church-sermon-clip-editing-miami":
     "/es/edicion-de-clips-de-predicas-para-iglesias-miami",
-  // @@WAVE8-ROUTES@@
+  "/services/quinceanera-video-miami":
+    "/es/video-para-quinceaneras-miami",
+  "/services/dance-studio-music-school-video-marketing-miami":
+    "/es/video-para-academias-de-baile-y-musica-miami",
 };
 
 for (const [englishPath, spanishPath] of Object.entries({

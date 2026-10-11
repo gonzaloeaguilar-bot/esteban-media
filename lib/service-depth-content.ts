@@ -1477,3 +1477,111 @@ export const CHURCH_SERMON_DEPTH: NicheWave8Depth = {
     { title: "Webinar Clip Editing", detail: "Short clips cut from long talks and presentations.", href: "/services/webinar-clip-editing-service" },
   ],
 };
+
+export const QUINCEANERA_DEPTH: NicheWave8Depth = {
+  answer: {
+    question: "What does a quinceañera video include?",
+    answer:
+      "Usually two things: a highlight film of a few minutes that the family will watch and share for years, and short vertical edits for social media, such as the entrance, the waltz, the surprise dance and the toast. Esteban edits footage from the family's videographer, the photographer's video clips or guests' phones, and he can also film the celebration in person in Miami-Dade or Broward as a paid add-on scoped per project. The family decides what is published, since the quinceañera is a minor, and the venue's own filming rules apply. Music for public social posts has to be licensed or chosen from the platform's library, so the edit plans for that from the start. A written quote sets the deliverables before the date.",
+  },
+  proof: {
+    href: "/portfolio/diana-jack",
+    label: "Watch a published celebration film",
+    note: "Diana & Jack is a wedding in Boston that Esteban filmed and edited: a 20-minute film of the day and a highlight trailer of about a minute and a half. It is a wedding, not a quinceañera, and shows how he covers a family celebration.",
+  },
+  craftHeading: "What a quinceañera edit has to get right.",
+  craft: [
+    {
+      title: "The moments in order",
+      detail:
+        "A quinceañera has a running order: the arrival, the entrance with the court, the father-daughter waltz, the change of shoes, the surprise dance, the toast. The highlight follows that order, so the film tells the night the way the family lived it.",
+    },
+    {
+      title: "Social edits the family approves",
+      detail:
+        "Short vertical clips for Instagram and TikTok are cut from the same footage. The family approves each one before it is shared, and guests or children who should not appear are left out.",
+    },
+    {
+      title: "Music that will not be muted",
+      detail:
+        "A song in a private highlight may be blocked when posted publicly. The social edits use music the platform allows or tracks the family has rights to, while the private film can keep the songs from the night.",
+    },
+  ],
+  faqHeading: "Questions before a family books the video.",
+  faqs: [
+    {
+      question: "Can Esteban film the quinceañera in person?",
+      answer: `Yes. On-location filming in Miami-Dade or Broward is a paid add-on scoped per project, based on the venue, the hours of coverage and the moments the family wants. The Local Presence package is ${enLocal()} and includes pre-production, filming and editing. If another videographer already films the event, Esteban can edit that footage remotely; the Starter package is ${enStarter()}.`,
+    },
+    {
+      question: "Can guests' phone videos be edited into the highlight?",
+      answer:
+        "Yes, and they often catch moments a single camera misses, such as the grandparents' reaction or the dance floor from inside. Ask guests to send the original files through a shared folder, not videos downloaded from a chat app. Vertical and horizontal clips can be mixed, and the edit evens out colour and sound so the film still feels like one piece.",
+    },
+    {
+      question: "When should the family book the edit?",
+      answer:
+        "Before the date, so the shot list, the deliverables and the songs are agreed while there is still time to plan. If the party has already happened, send the footage and a list of the moments that matter most; the edit is scoped from what was recorded. Delivery dates are confirmed in the written quote rather than promised in advance.",
+    },
+  ],
+  relatedHeading: "Related services for celebrations and events.",
+  related: [
+    { title: "Event Video Editing", detail: "Recaps and highlights edited from event footage.", href: "/services/event-video-editing-miami" },
+    { title: "Short-Form Video Editing", detail: "Vertical clips for Reels and TikTok from the same footage.", href: "/services/short-form-video-editor-miami" },
+    { title: "Fort Lauderdale Reels Editor", detail: "Short vertical edits close to the Fort Lauderdale base.", href: "/services/reels-editor-fort-lauderdale" },
+  ],
+};
+
+export const DANCE_MUSIC_STUDIO_DEPTH: NicheWave8Depth = {
+  answer: {
+    question: "What recurring video content works for dance studios and music academies?",
+    answer:
+      "Content that follows the calendar the studio already has: short clips from regular classes, progress pieces that show a student learning a routine or a song over a term, teacher introductions, enrollment reminders before each new session and a highlight of every recital or showcase. Esteban edits the studio's own phone footage into vertical reels and horizontal recaps and helps plan a monthly calendar, so posting does not depend on someone having a free afternoon. The same method suits other kids' activity businesses, such as martial arts, art or swim schools. Because most students are minors, the studio works only with footage that families have agreed to share. Editing is remote; filming a recital or a class on site is a paid add-on scoped per project.",
+  },
+  proof: {
+    href: "/portfolio/diana-jack",
+    label: "Watch a published event film",
+    note: "Diana & Jack is a wedding Esteban filmed and edited into a full film and a highlight trailer. It is not a recital; it shows how a live event is covered and condensed. ML Colombia, a 24-second social piece, shows his short-form editing.",
+  },
+  craftHeading: "What studio content needs to keep going.",
+  craft: [
+    {
+      title: "Classes are the steady supply",
+      detail:
+        "A recital happens a few times a year; classes happen every week. Short clips from class, filmed from the same corner of the room, keep the account active between big events and show parents what a normal session looks like.",
+    },
+    {
+      title: "Permission before posting",
+      detail:
+        "Students are children, so the studio needs to know which families agreed to appear online. The edit uses only approved students, and wide or back-facing shots cover the rest, so a great moment is not lost to one missing form.",
+    },
+    {
+      title: "Recitals as a highlight and a series",
+      detail:
+        "One recital can produce a full recording for families, a highlight of a few minutes and a set of short clips per group. Planning all three before the show means the camera captures what each piece needs.",
+    },
+  ],
+  faqHeading: "Questions before a studio sends footage.",
+  faqs: [
+    {
+      question: "What permission does a studio need to post students?",
+      answer:
+        "Written consent from a parent or guardian for each student who appears identifiably, kept by the studio; many studios add it to the enrollment form. Send Esteban a list of approved students, or mark which clips are cleared, and the edit uses only those, with wide shots or back-to-camera framing for the rest. The studio decides what is posted and where.",
+    },
+    {
+      question: "Can Esteban film a recital?",
+      answer: `Yes, as a paid add-on scoped per project in Miami-Dade or Broward, depending on the venue, the length of the show and whether the theatre allows filming. The Local Presence package is ${enLocal()}, with pre-production, filming and editing. If the studio or a parent already records the show, that footage can be edited remotely on the Starter package, ${enStarter()}.`,
+    },
+    {
+      question: "What about the music in dance videos?",
+      answer:
+        "Choreography is usually set to commercial music, which may be blocked or muted in public social posts. For public clips, the studio can use songs from the platform's own library or tracks it has licensed, while the full recital recording for families is handled separately. Music schools face the same question with the pieces students perform, and public-domain repertoire avoids it.",
+    },
+  ],
+  relatedHeading: "Related services for studios and class-based businesses.",
+  related: [
+    { title: "Fitness Trainer Video", detail: "Video for coaches and class-based fitness businesses.", href: "/services/fitness-trainer-video-production-miami" },
+    { title: "Event Video Editing", detail: "Recital and showcase recaps edited from event footage.", href: "/services/event-video-editing-miami" },
+    { title: "Social Media Video Batching", detail: "A month of clips edited in one batch.", href: "/services/social-media-video-batching-miami" },
+  ],
+};

@@ -2,8 +2,8 @@
   "status": "demand_gated",
   "effectiveDate": "2026-08-28",
   "baselineRevisedOn": "2026-10-11",
-  "approvedSitemapUrlCount": 296,
-  "approvedSitemapUrlSetSha256": "eb9bd3b4bd43ded2b70dbc9b9488342dca20e07d022df91599842d6ffd5e6789",
+  "approvedSitemapUrlCount": 300,
+  "approvedSitemapUrlSetSha256": "67d97614fddd6e130b869fc579d2305ed372dbb151d2194895067ba99c10d7ce",
   "allowedNewIndexableUrls": 4,
   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {
@@ -210,7 +210,11 @@
         "/services/immigration-attorney-video-marketing-miami",
         "/es/marketing-de-video-para-abogados-de-inmigracion-miami",
         "/services/church-sermon-clip-editing-miami",
-        "/es/edicion-de-clips-de-predicas-para-iglesias-miami"
+        "/es/edicion-de-clips-de-predicas-para-iglesias-miami",
+        "/services/quinceanera-video-miami",
+        "/es/video-para-quinceaneras-miami",
+        "/services/dance-studio-music-school-video-marketing-miami",
+        "/es/video-para-academias-de-baile-y-musica-miami"
       ],
       "orderedBy": "Owner (Esteban), relayed by the project coordinator in-session",
       "kind": "buyer-gap niche pairs (wave 8)",

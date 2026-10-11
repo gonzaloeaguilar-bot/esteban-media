@@ -17,7 +17,9 @@ import {
   Landmark,
   Laptop,
   MapPin,
+  Music,
   Megaphone,
+  PartyPopper,
   Scale,
   Scissors,
   ShieldCheck,
@@ -590,7 +592,130 @@ const nicheWave8Pages: SpanishNichePage[] = [
       },
     ],
   },
-  // @@WAVE8@@
+  {
+    slug: "video-para-quinceaneras-miami",
+    title: "Video para quinceañeras en Miami",
+    metadataTitle: "Video para Quinceañeras Miami",
+    description:
+      "Película de momentos destacados y clips para redes de tu quinceañera en Miami y Fort Lauderdale. Edición de tu material y grabación en el lugar como servicio adicional.",
+    eyebrow: "Quinceañeras / Familias / Celebraciones",
+    h1: "El video de la quinceañera: la película de la noche y los clips para redes.",
+    lead:
+      "Esteban edita el material del videógrafo, del fotógrafo o de los invitados en una película de momentos destacados y clips verticales que la familia aprueba. También puede grabar la fiesta en persona.",
+    keyword: "video para quinceañeras",
+    location: "Miami-Dade / Broward",
+    availability: "confirmed",
+    icon: PartyPopper,
+    updated: "2026-10-11",
+    fitQuestion: "¿Qué incluye el video de una quinceañera?",
+    projectFit: `Normalmente dos cosas: una película de momentos destacados de pocos minutos, para que la familia la vea y la comparta durante años, y clips verticales para redes, como la entrada, el vals, el baile sorpresa y el brindis. Esteban edita el material del videógrafo de la familia, los clips de video del fotógrafo o los celulares de los invitados, y también puede grabar la celebración en persona en Miami-Dade o Broward como servicio adicional pagado que se cotiza por proyecto; Presencia Local es ${esPresencia()}. La familia decide qué se publica, porque la quinceañera es menor de edad, y se respetan las reglas del salón sobre grabación. La música de las publicaciones públicas debe tener licencia o salir de la biblioteca de cada plataforma. La cotización por escrito fija los entregables antes de la fecha.`,
+    sectionsDisclosure: "Planea el video de la quinceañera",
+    sectionsDestinations: "La lista de momentos de la noche y qué se comparte en redes",
+    bestFor: [
+      "Familias que quieren una película de la fiesta y clips para compartir.",
+      "Quinceañeras grabadas por otro videógrafo que necesitan edición.",
+      "Celebraciones en Miami-Dade o Broward que necesitan quien grabe en persona.",
+    ],
+    scopingQuestions: [
+      "¿Quién graba la fiesta y qué material habrá?",
+      "¿Qué momentos son imprescindibles para la familia?",
+      "¿Qué clips se pueden publicar y en qué cuentas?",
+    ],
+    sections: [
+      {
+        heading: "¿Qué momentos de una quinceañera deben estar en la lista?",
+        paragraphs: [
+          "Los que la familia va a querer ver otra vez. La preparación en casa o en el salón de belleza, la sesión de fotos si la hay, la misa o la bendición cuando la familia la incluye, la llegada al salón, la entrada con los chambelanes y las damas, el vals con el papá, el cambio de zapatos, la última muñeca si la familia mantiene esa tradición, el baile sorpresa y el brindis.",
+          "Entrega al videógrafo el orden de la noche con horarios aproximados y los nombres de las personas más importantes, como los padrinos y los abuelos, para que se graben a propósito y no por casualidad. La película se arma con esa lista, y con ella la familia puede comprobar que no faltó nada importante.",
+        ],
+      },
+      {
+        heading: "¿Quién decide qué se publica en redes?",
+        paragraphs: [
+          "Los padres. La quinceañera tiene quince años, así que la familia aprueba cada clip antes de compartirlo y decide si va en las cuentas de la familia, en la de ella o en ninguna. Los invitados que se reconocen, y sobre todo otros niños, deben estar de acuerdo en aparecer; si hay duda, la edición usa planos más abiertos o los deja fuera.",
+          "Algunos salones tienen reglas propias sobre grabar y publicar, y la familia las confirma con el lugar. Para las publicaciones públicas, la música debe tener licencia o salir de la biblioteca de la plataforma; la película privada puede conservar las canciones de la fiesta. La [edición de video para eventos](/es/edicion-de-video-para-eventos-miami) cubre otras celebraciones, y el [editor de video corto](/es/editor-de-video-corto-para-redes-miami) los clips verticales.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Esteban puede grabar la quinceañera en persona?",
+        answer: `Sí. La grabación en Miami-Dade o Broward es un servicio adicional pagado que se cotiza por proyecto, según el salón, las horas de cobertura y los momentos que quiere la familia. Si otro videógrafo ya graba la fiesta, Esteban puede editar ese material a distancia; Arranque es ${esArranque()}.`,
+      },
+      {
+        question: "¿Se pueden usar los videos que grabaron los invitados?",
+        answer:
+          "Sí, y muchas veces captan momentos que una sola cámara no ve, como la reacción de los abuelos. Pide a los invitados los archivos originales en una carpeta compartida, no videos descargados de un chat.",
+      },
+      {
+        question: "¿Cuándo conviene reservar la edición?",
+        answer:
+          "Antes de la fecha, para acordar la lista de momentos, los entregables y las canciones con tiempo. Si la fiesta ya pasó, envía el material y la lista de momentos más importantes. Las fechas de entrega se confirman en la cotización por escrito.",
+      },
+    ],
+  },
+  {
+    slug: "video-para-academias-de-baile-y-musica-miami",
+    title: "Video para academias de baile y música en Miami",
+    metadataTitle: "Video para Academias de Baile y Música",
+    description:
+      "Contenido constante para academias de baile, escuelas de música y actividades infantiles en Miami y Fort Lauderdale: clips de clase, recitales y un calendario mensual.",
+    eyebrow: "Academias de baile / Escuelas de música / Actividades infantiles",
+    h1: "Contenido para academias de baile y música durante toda la temporada.",
+    lead:
+      "Graba las clases con el celular desde un mismo rincón. Esteban convierte ese material en reels y resúmenes de recitales con un calendario mensual, usando solo a los alumnos cuyas familias dieron permiso.",
+    keyword: "video para academias de baile y música",
+    location: "Miami-Dade / Broward / Remoto",
+    availability: "confirmed",
+    icon: Music,
+    updated: "2026-10-11",
+    fitQuestion: "¿Qué contenido constante funciona para academias de baile y escuelas de música?",
+    projectFit: `Contenido que sigue el calendario que la academia ya tiene: clips cortos de las clases, piezas de progreso que muestran a un alumno aprendiendo una coreografía o una canción durante el ciclo, presentaciones de los profesores, recordatorios de inscripción antes de cada sesión nueva y un resumen de cada recital o muestra. Esteban edita el material de celular de la academia en reels verticales y resúmenes horizontales y ayuda a planear un calendario mensual; el plan Crecimiento es ${esCrecimiento()}. El mismo método sirve para otras actividades infantiles, como artes marciales, arte o natación. Como la mayoría de los alumnos son menores, la academia trabaja solo con material que las familias aceptaron compartir. La edición es remota; grabar un recital o una clase en el lugar es un servicio adicional pagado que se cotiza por proyecto.`,
+    sectionsDisclosure: "Mantén la cuenta activa toda la temporada",
+    sectionsDestinations: "Una rutina para grabar clases y el plan alrededor de recitales e inscripciones",
+    bestFor: [
+      "Academias de baile con clases semanales y recitales durante el año.",
+      "Escuelas de música que quieren mostrar el progreso de sus alumnos.",
+      "Negocios de actividades infantiles que funcionan por ciclos y muestras.",
+    ],
+    scopingQuestions: [
+      "¿Qué familias firmaron permiso para que sus hijos aparezcan en redes?",
+      "¿Cuándo son los próximos recitales y las próximas inscripciones?",
+      "¿El teatro o el salón del recital permite grabar?",
+    ],
+    sections: [
+      {
+        heading: "¿Cómo pueden los profesores grabar sin interrumpir la clase?",
+        paragraphs: [
+          "Elige un solo lugar en cada salón, normalmente un rincón del fondo a la altura del pecho, y deja el celular en un soporte durante los últimos minutos de la clase, cuando los alumnos repasan la coreografía o la pieza que están practicando. Ese es el momento que vale la pena: el progreso, no el calentamiento. Mantén la luz constante y revisa que el espejo no refleje el celular.",
+          "Una vez al mes, graba a un profesor explicando en qué está trabajando el grupo, para que los padres entiendan lo que están pagando. Nombra cada archivo con la clase y la fecha, marca qué alumnos tienen permiso y comparte la carpeta. La edición convierte cada tanda en publicaciones sin detener ninguna clase.",
+        ],
+      },
+      {
+        heading: "¿Cómo se planea el contenido alrededor de recitales e inscripciones?",
+        paragraphs: [
+          "Trabajando hacia atrás desde las fechas que ya existen. Antes de abrir una sesión nueva, publica recordatorios con clips de clase y una presentación del profesor de cada nivel. Antes de un recital, muestra momentos del ensayo que generen expectativa sin revelar toda la coreografía. Después de la función, publica primero el resumen y luego un clip corto por grupo, para que cada familia vea el momento de su hijo.",
+          "En los meses tranquilos, las piezas de progreso y el detrás de cámaras mantienen la cuenta activa. La [producción masiva de video para redes](/es/produccion-masiva-de-video-para-redes-miami) permite editar un mes completo en una sola tanda, y la [edición de video para eventos](/es/edicion-de-video-para-eventos-miami) cubre los recitales.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Qué permiso necesita la academia para publicar a sus alumnos?",
+        answer:
+          "Un consentimiento por escrito del padre, la madre o el tutor de cada alumno que se reconozca en cámara, guardado por la academia; muchas lo incluyen en la inscripción. La edición usa solo los clips aprobados y planos abiertos o de espaldas para el resto.",
+      },
+      {
+        question: "¿Esteban puede grabar un recital?",
+        answer: `Sí, como servicio adicional pagado que se cotiza por proyecto en Miami-Dade o Broward, según el teatro, la duración de la función y si el lugar permite grabar. Presencia Local es ${esPresencia()}. Si la academia ya graba la función, ese material se edita a distancia con Arranque, ${esArranque()}.`,
+      },
+      {
+        question: "¿Qué pasa con la música de los videos de baile?",
+        answer:
+          "Las coreografías suelen usar música comercial, que puede quedar bloqueada o silenciada en publicaciones públicas. Para los clips públicos conviene usar la biblioteca de la plataforma o canciones con licencia; la grabación completa para las familias se maneja aparte.",
+      },
+    ],
+  },
 ];
 
 export const spanishNichePages: SpanishNichePage[] = [
@@ -4360,7 +4485,8 @@ const nicheWave8Hreflang = Object.fromEntries(
       ["/services/mortgage-broker-video-marketing-miami", "/es/marketing-de-video-para-brokers-hipotecarios-miami"],
       ["/services/immigration-attorney-video-marketing-miami", "/es/marketing-de-video-para-abogados-de-inmigracion-miami"],
       ["/services/church-sermon-clip-editing-miami", "/es/edicion-de-clips-de-predicas-para-iglesias-miami"],
-      // @@WAVE8-HREFLANG@@
+      ["/services/quinceanera-video-miami", "/es/video-para-quinceaneras-miami"],
+      ["/services/dance-studio-music-school-video-marketing-miami", "/es/video-para-academias-de-baile-y-musica-miami"],
     ] as const
   ).flatMap(([en, es]) =>
     [en, es].map((path) => [path, { "en-US": en, "es-US": es, "x-default": en }] as const),

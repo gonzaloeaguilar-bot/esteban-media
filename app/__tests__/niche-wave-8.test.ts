@@ -28,6 +28,8 @@ const WAVE = [
   ["mortgage brokers", "MORTGAGE_BROKER_DEPTH", "MORTGAGE_BROKER_DEEP_DIVE", "/services/mortgage-broker-video-marketing-miami", "marketing-de-video-para-brokers-hipotecarios-miami"],
   ["immigration attorneys", "IMMIGRATION_ATTORNEY_DEPTH", "IMMIGRATION_ATTORNEY_DEEP_DIVE", "/services/immigration-attorney-video-marketing-miami", "marketing-de-video-para-abogados-de-inmigracion-miami"],
   ["churches", "CHURCH_SERMON_DEPTH", "CHURCH_SERMON_DEEP_DIVE", "/services/church-sermon-clip-editing-miami", "edicion-de-clips-de-predicas-para-iglesias-miami"],
+  ["quincea\u00f1eras", "QUINCEANERA_DEPTH", "QUINCEANERA_DEEP_DIVE", "/services/quinceanera-video-miami", "video-para-quinceaneras-miami"],
+  ["dance and music studios", "DANCE_MUSIC_STUDIO_DEPTH", "DANCE_MUSIC_STUDIO_DEEP_DIVE", "/services/dance-studio-music-school-video-marketing-miami", "video-para-academias-de-baile-y-musica-miami"],
 ] as const;
 
 const source = (path: string) => readFileSync(join(process.cwd(), path), "utf8");
@@ -183,6 +185,52 @@ describe("niche wave 8 — claim discipline", () => {
       for (let b = a + 1; b < bodies.length; b += 1) {
         const shared = [...bodies[a][1]].filter((s) => bodies[b][1].has(s));
         expect(shared, `${bodies[a][0]} / ${bodies[b][0]}: "${shared[0] ?? ""}"`).toEqual([]);
+      }
+    }
+  });
+});
+
+describe("niche wave 8 — regulated duties stay with the client", () => {
+  const both = (name: string) => {
+    const row = WAVE.find(([n]) => n === name)!;
+    return `${english(name)} ${spanish(row[4])}`;
+  };
+
+  it("leaves NMLS and disclosures with the mortgage broker", () => {
+    expect(both("mortgage brokers")).toContain("NMLS");
+    expect(english("mortgage brokers")).toContain("supplied and approved by the broker");
+    expect(english("mortgage brokers")).toMatch(/Nothing promises a rate, an approval or a closing date/);
+  });
+
+  it("leaves Florida Bar review with the firm and gives no legal advice", () => {
+    expect(english("immigration attorneys")).toContain("not legal advice");
+    expect(english("immigration attorneys")).toContain("Florida Bar's advertising rules");
+    expect(spanish("marketing-de-video-para-abogados-de-inmigracion-miami")).toContain("no asesoría legal");
+  });
+
+  it("promises no enrollment outcome for insurance agencies", () => {
+    expect(english("insurance agencies")).toContain("they do not promise enrollment");
+    expect(spanish("marketing-de-video-para-agencias-de-seguros-miami")).toContain("no prometen inscripción");
+  });
+
+  it("puts consent for minors with the family or studio", () => {
+    expect(english("quinceañeras")).toContain("The family decides what is published");
+    expect(english("dance and music studios")).toContain("Written consent from a parent or guardian");
+  });
+
+  it("names honest proof rather than claiming niche clients", () => {
+    expect(depthOf("QUINCEANERA_DEPTH").proof.note).toContain("It is a wedding, not a quinceañera");
+    expect(depthOf("PRECONSTRUCTION_DEPTH").proof.note).toContain("Neither is a pre-construction condo project");
+    expect(depthOf("CHURCH_SERMON_DEPTH").proof.note).toContain("It is not a church service");
+  });
+
+  it("adds each niche to the outreach lane without prices or promises", () => {
+    const niches = JSON.parse(source("data/outreach/niches.json")).niches as { id: string; angle_en: string; angle_es: string }[];
+    for (const id of ["pre-construction-condos", "vacation-rentals", "insurance-agencies", "mortgage-brokers", "immigration-attorneys", "churches", "quinceaneras", "dance-music-kids"]) {
+      const niche = niches.find((n) => n.id === id);
+      expect(niche, id).toBeDefined();
+      for (const angle of [niche!.angle_en, niche!.angle_es]) {
+        expect(angle).not.toMatch(/\$|\d+\s?%|guarant|garantiz/i);
       }
     }
   });

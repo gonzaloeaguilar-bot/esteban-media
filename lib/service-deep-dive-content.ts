@@ -458,3 +458,47 @@ export const CHURCH_SERMON_DEEP_DIVE: DeepDive = {
     },
   ],
 };
+
+export const QUINCEANERA_DEEP_DIVE: DeepDive = {
+  id: "quinceanera-planning",
+  title: "How does a family plan the video of a quinceañera?",
+  destinations: "The shot list for the night, and deciding what gets shared.",
+  sections: [
+    {
+      heading: "Which moments of a quinceañera belong on the shot list?",
+      paragraphs: [
+        "The ones the family will want to see again. Getting ready at home or at the salon, the portrait session if there is one, the Mass or blessing when the family includes it, the arrival at the venue, the entrance with the chambelanes and damas, the father-daughter waltz, the change from flats to heels, the last doll if the family keeps that tradition, the surprise dance and the toast.",
+        "Give the videographer the running order with approximate times and the names of the people who matter most, such as the godparents and grandparents, so they are filmed on purpose rather than by chance. The highlight is built from that list, which is also how the family can check that nothing important was missed.",
+      ],
+    },
+    {
+      heading: "Who decides what is posted on social media?",
+      paragraphs: [
+        "The parents. The quinceañera is fifteen, so the family approves every clip before it is shared and decides whether it goes on the family's accounts, on her own or nowhere at all. Guests who appear clearly, and especially other children, should be comfortable being shown; when in doubt, the edit uses wider shots or leaves them out.",
+        "Venues sometimes have their own rules about filming and posting, and the family confirms them with the venue. For public posts, music needs to be licensed or chosen from the platform's library, while the private highlight can keep the songs from the party. Agreeing those points before the date avoids re-editing later. The [event video editing](/services/event-video-editing-miami) page covers recaps of other celebrations.",
+      ],
+    },
+  ],
+};
+
+export const DANCE_MUSIC_STUDIO_DEEP_DIVE: DeepDive = {
+  id: "studio-content",
+  title: "How does a studio keep posting through the whole season?",
+  destinations: "A filming routine for regular classes, and planning around recitals and enrollment.",
+  sections: [
+    {
+      heading: "How can teachers film classes without interrupting them?",
+      paragraphs: [
+        "Pick one spot in each room, usually a back corner at chest height, and leave a phone on a small stand there during the last minutes of class, when students run the combination or the piece they have been practising. That is the moment worth filming: the progress, not the warm-up. Keep the lighting consistent and check that the mirror does not show the phone.",
+        "Once a month, record a short clip of a teacher explaining what the class is working on, which helps parents understand what they are paying for. Name each file with the class and the date, mark which students are cleared to appear, and share the folder. The edit turns each batch into posts without anyone stopping a lesson.",
+      ],
+    },
+    {
+      heading: "How should a studio plan content around recitals and enrollment?",
+      paragraphs: [
+        "Work backwards from the dates that already exist. A few weeks before a new session opens, run reminders with class clips and a teacher introduction for each level. Before a recital, post rehearsal moments that build anticipation without giving away the whole routine. After the show, release the highlight first, then a short clip per group over the following weeks, so every family sees their child's moment.",
+        "In the quieter months, progress pieces and behind-the-scenes clips carry the account. The [Growth plan](/pricing/growth) holds this calendar, the editing and a monthly report, and the same approach works for martial arts, swim, art or tutoring businesses that run on terms and showcases.",
+      ],
+    },
+  ],
+};
