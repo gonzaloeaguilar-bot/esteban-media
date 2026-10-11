@@ -24,27 +24,28 @@ import { AUDIENCE_LANES } from "@/lib/audience-lanes";
 const source = (p: string) => readFileSync(join(process.cwd(), p), "utf8");
 const HOMES = ["app/(english)/page.tsx", "app/(spanish)/es/page.tsx"] as const;
 
-describe("audience router — on both home pages, above the fold", () => {
+describe("audience paths — on both home pages", () => {
   it.each(HOMES)("%s renders it", (page) => {
     expect(source(page)).toContain("<AudienceRouter");
   });
 
-  it.each(HOMES)("%s puts it OUTSIDE the reading-path fold", (page) => {
+  it.each(HOMES)("%s keeps short destination links visible before the reading-path fold", (page) => {
     const src = source(page);
-    const router = src.indexOf("<AudienceRouter");
+    const path = src.indexOf("<HomeProjectPath");
     const fold = src.indexOf("<KeepReading");
-    expect(router).toBeGreaterThan(-1);
-    // Social traffic must not need a click to find its lane. If the router ever
-    // moves inside the fold this goes red.
-    if (fold > -1) expect(router).toBeLessThan(fold);
+    expect(path).toBeGreaterThan(-1);
+    if (fold > -1) expect(path).toBeLessThan(fold);
+    const component = source("components/home-project-path.tsx");
+    expect(component).toContain("AUDIENCE_LANES[locale].lanes");
+    expect(component).toContain("href={lane.href}");
   });
 
-  it.each(HOMES)("%s places it right after the hero, before the packages", (page) => {
+  it.each(HOMES)("%s keeps the full audience explanation in optional detail", (page) => {
     const src = source(page);
-    const hero = src.indexOf("<HeroVideo");
+    const fold = src.indexOf("<KeepReading");
     const router = src.indexOf("<AudienceRouter");
     const packages = src.indexOf("<PackagesSection");
-    expect(hero).toBeLessThan(router);
+    expect(fold).toBeLessThan(router);
     if (packages > -1) expect(router).toBeLessThan(packages);
   });
 });
