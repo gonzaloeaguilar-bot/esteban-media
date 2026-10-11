@@ -10,6 +10,7 @@
   "changed_paths": [
     ".ai/handoff.md",
     ".ai/service-cta-dashboard-2026-10-01.md",
+    ".cortex/quality-payloads/PR-348.json",
     ".github/workflows/followups-due.yml",
     "AGENTS.md",
     "app/(english)/assessment/page.tsx",
@@ -183,8 +184,7 @@
     "scripts/events-check.mjs",
     "scripts/search-console-index-watch.mjs",
     "scripts/search-console-index-watch.test.mjs",
-    "scripts/text-parity.mjs",
-    ".cortex/quality-payloads/PR-348.json"
+    "scripts/text-parity.mjs"
   ],
   "requested_actions": [
     "Require exact-head validation and independent quality evidence before merge",
@@ -199,12 +199,12 @@
     "obsidian_context": "Esteban vault esteban-seo-backlog-goal-2026-10-11.md records direct Search Console query/page demand and release checklist. Backlog.md and .ai/seo-geo-code-audit-2026-10-10.md identify the audit wave.",
     "project_routing": "gonzaloeaguilar-bot/esteban-media PR #348 from integration/seo-events-niches-20261011; merged released #351, #352 and #347 main changes locally before push.",
     "hard_stops_checked": "No invented project results or event affiliation. Official event source dates checked. High-stakes niche copy removed changing deadlines and unsupported guarantees. Pricing is sourced from lib/pricing.ts.",
-    "reviewer_ensemble": "Independent agent /root/pr_351 reviewed #348 at bc3362d: 110 focused tests, typecheck, raw built HTML and schema, with no release blocker; flagged event expiry and current branch adds one-day ISR. Independent /root/backlog_audit reviewed previous head and identified the date/high-stakes copy issues now fixed. CTO Antigravity dispatch decision exists, but provider lanes were paced and returned no verdict.",
-    "reviewer_disagreement_reviewed": "Art Basel public fair dates and potentially unsupported legal/insurance/music wording were challenged by reviewer and corrected; event ISR is being rechecked at exact head.",
+    "reviewer_ensemble": "Independent /root/pr_351 reviewer inspected current 73032e3 code and built EN/ES HTML: PASS, 110 focused tests plus typecheck, reciprocal canonical/hreflang/schema, Person mapping and official Art Basel date. Reviewer verified both event layouts and prerender manifest use 86,400-second ISR; one stale response can precede regeneration. /root/backlog_audit found date/high-stakes copy and stale backlog items; fixed or reconciled. CTO Antigravity dispatch decision exists, but provider lanes were paced and returned no verdict.",
+    "reviewer_disagreement_reviewed": "Art Basel public fair dates and unsupported legal/insurance/music wording were challenged and corrected. ISR expiry caveat was resolved to a one-day regeneration window, with a possible single stale response. Three stale backlog items were updated from current production evidence.",
     "winner_rationale": "Shared templates and authoritative pricing support eight bilingual niche pairs; source-tracked event data supports a seven-pair hub without invented affiliation or Event schema.",
     "tests_or_validation": "At bc3362d: pnpm check passed 1,832 tests and production build 382 routes; text parity passed for 107 Spanish routes with no lost headings/links. At 73032e3 after #347 merge: 85 focused tests, production build, 107-route text parity and events:check all passed. Raw local EN/ES Art Basel HTML returned 200 and 390px phone screenshots showed readable first screen without horizontal overflow. Exact-head CI remains required.",
     "ci_passed": "Pending exact-head GitHub validate; do not merge until it succeeds.",
-    "pr_review_complete": "Independent branch review complete; final exact-head CI and current ISR readback pending.",
+    "pr_review_complete": "Independent source/build/phone review PASS on current code; exact-head GitHub CI and production proof remain release gates.",
     "debt_delta": "neutral",
     "obsidian_handoff": "esteban-seo-backlog-goal-2026-10-11.md and hot.md; update with merge SHA and production evidence after release."
   },

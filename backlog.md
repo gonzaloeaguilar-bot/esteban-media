@@ -45,7 +45,8 @@ Production is live. This file tracks repository implementation; account/access w
 - [ ] Copy: `/areas` Palm Beach County card still says "sub-city coverage is not yet published" while Palm Beach city pages are indexed; reword without strengthening Palm Beach positioning.
 - [x] Prepare the Spanish editor-vs-videographer guide's Broward handoff to the existing Fort Lauderdale Reels and production services from fresh query/page evidence; full validation and live HTML checks are documented in `.ai/handoff.md`.
 - [ ] After release, compare the same Fort Lauderdale Reels query/page group in settled GSC data and verify qualified inquiries; the link alone does not prove recommendation or ranking lift.
-- [ ] Review, merge, deploy, and recheck homepage per-video wording in [PR #347](https://github.com/gonzaloeaguilar-bot/esteban-media/pull/347); then repeat the exact ChatGPT/Gemini buyer prompts in [[esteban-chatgpt-gemini-recommendation-probe-2026-10-11]] without claiming a causal ranking gain.
+- [x] 2026-10-11: [PR #347](https://github.com/gonzaloeaguilar-bot/esteban-media/pull/347) merged after exact-head validation and Cortex evidence; production `/` and `/es` raw HTML returned 200 with the clarified "$100 per video" wording.
+- [ ] Repeat the exact ChatGPT/Gemini buyer prompts in [[esteban-chatgpt-gemini-recommendation-probe-2026-10-11]] and compare settled GSC query/page results without claiming a causal ranking gain.
 
 - [x] Prepare 2026-10-11 local `/es/areas` contextual links from the existing Coral Gables property-video and Fort Lauderdale yacht/hospitality pages; preserve all claims and existing target return links. Validation and review handoff: `.ai/handoff.md`.
 - [ ] Coordinator/cto-qa-lead, before release: independently review and verify the two links; after release, confirm production HTML and update the vault/registry. Coordinator/cto-seo-lead, before the next starvation run: correct the recurring orphan classification and supply verified earning-page evidence.
@@ -90,7 +91,7 @@ Production is live. This file tracks repository implementation; account/access w
 - [x] Add one direct entity/service/location sentence above the homepage fold
 - [x] Run three mobile and three desktop Lighthouse audits on `/`, `/es`, `/portfolio`, and `/es/portafolio`; record medians and remediate the semantic/accessibility findings (mobile performance 95/93/95/94, desktop 100s, final accessibility/SEO/best-practices 100)
 - [x] Add truthful localized `VideoObject` data on all 16 dedicated watch pages and represent collection entries as links to those `WebPage` entities
-- [ ] Add `ImageObject`/logo schema when approved brand photography and logo files are available
+- [x] Add an `ImageObject` for the existing square brand icon to the LocalBusiness entity; production homepage JSON-LD contains the logo URL. Replace it with an approved dedicated logo asset when one is supplied.
 - [ ] Add English priority-service pages when distinct, verified content is ready
 - [x] Strengthen the homepage, bilingual service/area hubs, internal proof links, and Esteban entity graph using only approved facts
 - [x] Add contextual inbound links to the existing Spanish practical-video guide hub from earning content and service-area pages
@@ -99,7 +100,8 @@ Production is live. This file tracks repository implementation; account/access w
 - [x] Freeze the 259-URL sitemap until the current inventory is classified; CI now rejects URL-count growth or duplication
 - [x] Publish four practical bilingual guide pairs with explicit general-guidance and evidence caveats
 - [x] Use click-to-load YouTube facades on both collection pages while keeping every watch-page iframe rendered and discoverable
-- [ ] Release ESTEBAN-03 after the fail-closed 3-LLM/build/preview boundary: factual Pembroke Pines copy, reciprocal hreflang, and attributed brief source are implemented locally; Claude spec, full build, preview, production, and fresh rank evidence remain required
+- [x] Release ESTEBAN-03 Pembroke Pines EN/ES pages; both production URLs returned 200 with reciprocal language links on 2026-10-11.
+- [ ] Compare settled GSC query/page and qualified inquiries for the Pembroke Pines pair before claiming a search outcome.
 
 ## P1 — Product and measurement
 
