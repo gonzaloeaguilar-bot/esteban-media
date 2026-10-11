@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Film, Mail, Play, Upload } from "lucide-react";
+import { PortfolioVideo } from "@/components/portfolio-video";
 
 import {
   getLiveYouTubePortfolioItems,
@@ -70,42 +71,69 @@ export default function SpanishPortfolioPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(portfolioSchema) }}
       />
 
-      <section className="overflow-hidden bg-[#101214] py-14 text-[#f6f1ea] sm:py-20">
+      <section className="bg-[#101214] py-8 text-[#f6f1ea] sm:py-12">
         <Container size="xl">
-          <div className="grid gap-10 lg:grid-cols-[1fr_.46fr] lg:items-end">
+          <p className="text-xs font-medium uppercase tracking-[0.18em] text-[#f0b384]">Trabajos seleccionados</p>
+          <h1 className="mt-3 max-w-3xl font-serif text-4xl leading-tight sm:text-6xl">Mira el trabajo.</h1>
+          <p className="mt-3 max-w-2xl text-base leading-7 text-[#d8d0c7]">Edición, campañas, eventos e historias de Esteban Moreno Media. Abre cada proyecto para ver su descripción y sus créditos.</p>
+        </Container>
+      </section>
+      {liveItems[0] ? (
+        <section className="border-b border-[#d6ccc0] py-6 sm:py-10" aria-labelledby="featured-work-heading">
+          <Container size="xl">
+            <div className="grid gap-5 lg:grid-cols-[1.25fr_.75fr] lg:items-center">
+              <PortfolioVideo videoId={liveItems[0].media.videoId} url={liveItems[0].media.url} poster={liveItems[0].media.poster} title={resolvePortfolioItemCopy(liveItems[0], "es").title} locale="es" />
+              <div>
+                <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">Proyecto destacado</p>
+                <h2 id="featured-work-heading" className="mt-2 font-serif text-3xl leading-tight sm:text-4xl">{resolvePortfolioItemCopy(liveItems[0], "es").title}</h2>
+                <p className="mt-3 text-sm leading-6 text-[#3f4548]">{resolvePortfolioItemCopy(liveItems[0], "es").summary}</p>
+                <Link href={`/es/portafolio/${liveItems[0].id}`} className="mt-4 inline-flex min-h-11 items-center gap-2 font-medium text-[#9f3c27] underline underline-offset-4">Ver proyecto y créditos <ArrowRight className="size-4" aria-hidden="true" /></Link>
+              </div>
+            </div>
+          </Container>
+        </section>
+      ) : null}
+      <section className="py-12 sm:py-16 lg:py-20">
+        <Container size="xl">
+          <PortfolioGrid items={PORTFOLIO_ITEMS} locale="es" />
+        </Container>
+      </section>
+
+      <section className="border-t border-[#d6ccc0] bg-[#efe7db] py-12 sm:py-16">
+        <Container size="xl">
+          <div className="grid gap-6 rounded-2xl border border-[#d6ccc0] bg-[#fbf6ef] p-7 sm:grid-cols-[1fr_auto] sm:items-end sm:p-10">
             <div>
-              <p className="text-xs font-medium uppercase tracking-[0.18em] text-[#f0b384]">
-                Trabajos seleccionados
+              <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">
+                Producción en locación
               </p>
-              <h1 className="mt-4 max-w-4xl font-serif em-display em-display--xl">
-                Proyectos reales, presentados en su formato original.
-              </h1>
-              <p className="mt-6 max-w-2xl text-base leading-7 text-[#d8d0c7] sm:text-lg sm:leading-8">
-                Una colección del portafolio aprobado de Esteban. Cada ficha
-                muestra la descripción y los créditos disponibles; cuando el
-                portafolio original no especificó un rol individual, se indica
-                con claridad.
+              <h2 className="mt-3 max-w-3xl font-serif text-4xl leading-tight">
+                ¿Tu proyecto necesita una grabación en South Florida?
+              </h2>
+              <p className="mt-4 max-w-2xl text-sm leading-6 text-[#3f4548] sm:text-base sm:leading-7">
+                Revisa las{" "}
+                <Link
+                  href="/es/areas"
+                  className="underline underline-offset-4 hover:text-[#9f3c27]"
+                >
+                  áreas de servicio
+                </Link>{" "}
+                para Fort Lauderdale, Broward, Miami-Dade y Palm Beach antes de
+                consultar por una producción en locación.
               </p>
             </div>
-            <div className="border-l border-white/15 pl-6">
-              <p className="font-serif text-5xl text-[#f0b384]">
-                {liveItems.length.toString().padStart(2, "0")}
-              </p>
-              <p className="mt-2 max-w-xs text-sm leading-6 text-[#b9b2aa]">
-                Proyectos publicados, agrupados por tipo de historia o producción.
-              </p>
-              <a
-                href="#portfolio-collection"
-                className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-white underline decoration-[#e85d3e] underline-offset-4"
-              >
-                Explorar la colección
-                <ArrowRight className="size-4" aria-hidden="true" />
-              </a>
-            </div>
+            <Link
+              href="/es/areas"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-[#101214] px-6 text-sm font-medium text-[#252a2d] transition hover:bg-[#101214] hover:text-[#f6f1ea]"
+            >
+              Ver áreas de servicio
+              <ArrowRight className="size-4" aria-hidden="true" />
+            </Link>
           </div>
         </Container>
       </section>
 
+      <details className="border-t border-[#d6ccc0] bg-[#efe7db]">
+        <summary className="mx-auto max-w-7xl cursor-pointer px-4 py-6 text-lg font-medium underline underline-offset-4 sm:px-6">Cómo funciona la edición remota</summary>
       {/*
         Banda del servicio principal — el argumento de edición remota.
         Todo el texto se limita a hechos CONFIRMADOS (nota de oferta 2026-07-25
@@ -222,45 +250,7 @@ export default function SpanishPortfolioPage() {
       {/* Primero se ve, luego se lee: la tira antes de la cuadrícula. */}
       <PortfolioFilmstrip locale="es" heading="El trabajo, fotograma a fotograma" />
 
-      <section className="py-12 sm:py-16 lg:py-20">
-        <Container size="xl">
-          <PortfolioGrid items={PORTFOLIO_ITEMS} locale="es" />
-        </Container>
-      </section>
-
-      <section className="border-t border-[#d6ccc0] bg-[#efe7db] py-12 sm:py-16">
-        <Container size="xl">
-          <div className="grid gap-6 rounded-2xl border border-[#d6ccc0] bg-[#fbf6ef] p-7 sm:grid-cols-[1fr_auto] sm:items-end sm:p-10">
-            <div>
-              <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">
-                Producción en locación
-              </p>
-              <h2 className="mt-3 max-w-3xl font-serif text-4xl leading-tight">
-                ¿Tu proyecto necesita una grabación en South Florida?
-              </h2>
-              <p className="mt-4 max-w-2xl text-sm leading-6 text-[#3f4548] sm:text-base sm:leading-7">
-                Revisa las{" "}
-                <Link
-                  href="/es/areas"
-                  className="underline underline-offset-4 hover:text-[#9f3c27]"
-                >
-                  áreas de servicio
-                </Link>{" "}
-                para Fort Lauderdale, Broward, Miami-Dade y Palm Beach antes de
-                consultar por una producción en locación.
-              </p>
-            </div>
-            <Link
-              href="/es/areas"
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-[#101214] px-6 text-sm font-medium text-[#252a2d] transition hover:bg-[#101214] hover:text-[#f6f1ea]"
-            >
-              Ver áreas de servicio
-              <ArrowRight className="size-4" aria-hidden="true" />
-            </Link>
-          </div>
-        </Container>
-      </section>
-
+      </details>
       <section className="border-t border-[#d6ccc0] py-14 sm:py-18">
         <Container size="xl">
           <div className="grid gap-8 rounded-2xl bg-[#e7ded2] p-7 sm:p-10 lg:grid-cols-[1fr_auto] lg:items-end">

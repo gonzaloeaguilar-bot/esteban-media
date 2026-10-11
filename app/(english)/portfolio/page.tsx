@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { PortfolioVideo } from "@/components/portfolio-video";
 import {
   ArrowRight,
   Building2,
@@ -218,160 +219,28 @@ export default function PortfolioPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(pageJsonLd) }}
       />
 
-      <section className="overflow-hidden bg-[#101214] py-14 text-[#f6f1ea] sm:py-20">
+      <section className="bg-[#101214] py-8 text-[#f6f1ea] sm:py-12">
         <Container size="xl">
-          <div className="grid gap-10 lg:grid-cols-[1fr_.46fr] lg:items-end">
-            <div>
-              <p className="text-xs font-medium uppercase tracking-[0.18em] text-[#f0b384]">
-                Selected work
-              </p>
-              <h1 className="mt-4 max-w-4xl font-serif em-display em-display--xl">
-                Real projects, shown exactly as they were delivered.
-              </h1>
-              <p className="mt-6 max-w-2xl text-base leading-7 text-[#d8d0c7] sm:text-lg sm:leading-8">
-                Browse real video editing work from Esteban Moreno Media,
-                including restaurant, real estate, brand, social, event,
-                animation, and narrative projects. Each published card shows
-                the available project description and credits, and says plainly
-                when an individual role was not specified.
-              </p>
-            </div>
-            <div className="border-l border-white/15 pl-6">
-              <p className="font-serif text-5xl text-[#f0b384]">
-                {liveItems.length.toString().padStart(2, "0")}
-              </p>
-              <p className="mt-2 max-w-xs text-sm leading-6 text-[#b9b2aa]">
-                Published projects, grouped by the kind of story or production.
-              </p>
-              <a
-                href="#portfolio-collection"
-                className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-white underline decoration-[#e85d3e] underline-offset-4"
-              >
-                Browse the collection
-                <ArrowRight className="size-4" aria-hidden="true" />
-              </a>
-            </div>
-          </div>
+          <p className="text-xs font-medium uppercase tracking-[0.18em] text-[#f0b384]">Selected work</p>
+          <h1 className="mt-3 max-w-3xl font-serif text-4xl leading-tight sm:text-6xl">See the work.</h1>
+          <p className="mt-3 max-w-2xl text-base leading-7 text-[#d8d0c7]">Video editing, campaigns, events, and stories from Esteban Moreno Media. Open a project for its description and credits.</p>
         </Container>
       </section>
-
-      {/*
-        Anchor-service band — the remote-editing case for the portfolio.
-        All copy here is limited to CONFIRMED facts (offer note 2026-07-25 +
-        the real editing-only "Homeowners" project). No prices, turnaround,
-        revision counts, testimonials, or metrics — those stay gated behind
-        Esteban's confirmation.
-        [PLACEHOLDER — Esteban to supply] a full client case study
-        (brief -> deliverable -> measurable outcome -> quotable testimonial)
-        can drop in below the proof callout once he confirms real material.
-      */}
-      <section
-        className="border-b border-[#d6ccc0] bg-[#efe7db] py-14 sm:py-16"
-        aria-labelledby="anchor-service-heading"
-      >
-        <Container size="xl">
-          <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
-            <div>
-              <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">
-                Anchor service
-              </p>
-              <h2
-                id="anchor-service-heading"
-                className="mt-4 max-w-xl font-serif text-4xl leading-tight sm:text-5xl"
-              >
-                Remote editing, from the footage you already have.
-              </h2>
-              <p className="mt-5 max-w-xl text-base leading-7 text-[#3f4548]">
-                Esteban&apos;s core service is{" "}
-                <Link href="/services#editing">post-production</Link>. You send
-                the
-                footage you&apos;ve already captured &mdash; phone clips, event
-                coverage, product shots, or footage from a shoot &mdash; and he
-                shapes it into a finished, publish-ready video. The work is
-                remote-first, so you don&apos;t need to be in South Florida to
-                work together.
-              </p>
-              <Link
-                href="/services#editing"
-                className="mt-6 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
-              >
-                See how editing works
-                <ArrowRight className="size-4" aria-hidden="true" />
-              </Link>
+      {liveItems[0] ? (
+        <section className="border-b border-[#d6ccc0] py-6 sm:py-10" aria-labelledby="featured-work-heading">
+          <Container size="xl">
+            <div className="grid gap-5 lg:grid-cols-[1.25fr_.75fr] lg:items-center">
+              <PortfolioVideo videoId={liveItems[0].media.videoId} url={liveItems[0].media.url} poster={liveItems[0].media.poster} title={resolvePortfolioItemCopy(liveItems[0], "en").title} locale="en" />
+              <div>
+                <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">Featured project</p>
+                <h2 id="featured-work-heading" className="mt-2 font-serif text-3xl leading-tight sm:text-4xl">{resolvePortfolioItemCopy(liveItems[0], "en").title}</h2>
+                <p className="mt-3 text-sm leading-6 text-[#3f4548]">{resolvePortfolioItemCopy(liveItems[0], "en").summary}</p>
+                <Link href={`/portfolio/${liveItems[0].id}`} className="mt-4 inline-flex min-h-11 items-center gap-2 font-medium text-[#9f3c27] underline underline-offset-4">See project and credits <ArrowRight className="size-4" aria-hidden="true" /></Link>
+              </div>
             </div>
-
-            <div>
-              <ol className="grid gap-4 sm:grid-cols-3">
-                {[
-                  {
-                    Icon: Upload,
-                    step: "Step 1",
-                    title: "You send the footage",
-                    detail:
-                      "Share what you already have: raw clips, an event, a shoot, or a folder of assets.",
-                  },
-                  {
-                    Icon: Film,
-                    step: "Step 2",
-                    title: "Esteban edits it",
-                    detail:
-                      "Post-production shaped around your goal and where the video will be published.",
-                  },
-                  {
-                    Icon: Play,
-                    step: "Step 3",
-                    title: "You get a publish-ready cut",
-                    detail:
-                      "A finished video, edited for the platform and story you have in mind.",
-                  },
-                ].map(({ Icon, step, title: stepTitle, detail }) => (
-                  <li
-                    key={stepTitle}
-                    className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5"
-                  >
-                    <span className="grid size-10 place-items-center rounded-lg bg-[#101214] text-[#e85d3e]">
-                      <Icon className="size-5" aria-hidden="true" />
-                    </span>
-                    <p className="mt-4 text-xs font-medium uppercase tracking-[0.12em] text-[#9f3c27]">
-                      {step}
-                    </p>
-                    <h3 className="mt-2 font-serif text-2xl leading-tight">
-                      {stepTitle}
-                    </h3>
-                    <p className="mt-2 text-sm leading-6 text-[#3f4548]">
-                      {detail}
-                    </p>
-                  </li>
-                ))}
-              </ol>
-
-              <Link
-                href="/portfolio/homeowners"
-                className="group mt-4 block rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5 transition hover:border-[#e85d3e]"
-              >
-                <span className="text-xs font-medium uppercase tracking-[0.12em] text-[#5a6066]">
-                  Editing-only proof
-                </span>
-                <span className="mt-2 flex items-center justify-between gap-3 font-serif text-2xl leading-tight">
-                  Homeowners
-                  <ArrowRight
-                    className="size-5 shrink-0 text-[#9f3c27] transition-transform group-hover:translate-x-0.5"
-                    aria-hidden="true"
-                  />
-                </span>
-                <span className="mt-2 block text-sm leading-6 text-[#5a6066]">
-                  A social video Esteban edited entirely from footage supplied
-                  by the agency 300 Bees &mdash; the anchor service in action.
-                </span>
-              </Link>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* Primero se ve, luego se lee: la tira antes de la cuadrícula. */}
-      <PortfolioFilmstrip locale="en" heading="The work, frame by frame" />
-
+          </Container>
+        </section>
+      ) : null}
       <section className="py-12 sm:py-16 lg:py-20">
         <Container size="xl">
           <PortfolioGrid items={PORTFOLIO_ITEMS} locale="en" />
@@ -396,6 +265,7 @@ export default function PortfolioPage() {
         title="How this work gets made"
         destinations="Post-production standards, technical specifications, delivery formats and the disciplines behind each project."
       >
+      <p className="mx-auto max-w-7xl px-4 text-sm leading-6 text-[#3f4548] sm:px-6">Browse real video editing work from Esteban Moreno Media, including restaurant, real estate, brand, social, event, animation, and narrative projects.</p>
       {/* Production Disciplines & Capabilities */}
       <section
         className="border-t border-[#d6ccc0] bg-[#efe7db] py-14 sm:py-16"
@@ -1270,6 +1140,126 @@ export default function PortfolioPage() {
         </Container>
       </section>
 
+      <details className="border-t border-[#d6ccc0] bg-[#efe7db]">
+        <summary className="mx-auto max-w-7xl cursor-pointer px-4 py-6 text-lg font-medium underline underline-offset-4 sm:px-6">How remote editing works</summary>
+      {/*
+        Anchor-service band — the remote-editing case for the portfolio.
+        All copy here is limited to CONFIRMED facts (offer note 2026-07-25 +
+        the real editing-only "Homeowners" project). No prices, turnaround,
+        revision counts, testimonials, or metrics — those stay gated behind
+        Esteban's confirmation.
+        [PLACEHOLDER — Esteban to supply] a full client case study
+        (brief -> deliverable -> measurable outcome -> quotable testimonial)
+        can drop in below the proof callout once he confirms real material.
+      */}
+      <section
+        className="border-b border-[#d6ccc0] bg-[#efe7db] py-14 sm:py-16"
+        aria-labelledby="anchor-service-heading"
+      >
+        <Container size="xl">
+          <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+            <div>
+              <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">
+                Anchor service
+              </p>
+              <h2
+                id="anchor-service-heading"
+                className="mt-4 max-w-xl font-serif text-4xl leading-tight sm:text-5xl"
+              >
+                Remote editing, from the footage you already have.
+              </h2>
+              <p className="mt-5 max-w-xl text-base leading-7 text-[#3f4548]">
+                Esteban&apos;s core service is{" "}
+                <Link href="/services#editing">post-production</Link>. You send
+                the
+                footage you&apos;ve already captured &mdash; phone clips, event
+                coverage, product shots, or footage from a shoot &mdash; and he
+                shapes it into a finished, publish-ready video. The work is
+                remote-first, so you don&apos;t need to be in South Florida to
+                work together.
+              </p>
+              <Link
+                href="/services#editing"
+                className="mt-6 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-[#9f3c27] underline decoration-[#c84a2c]/40 underline-offset-4 transition hover:text-[#7f2f20]"
+              >
+                See how editing works
+                <ArrowRight className="size-4" aria-hidden="true" />
+              </Link>
+            </div>
+
+            <div>
+              <ol className="grid gap-4 sm:grid-cols-3">
+                {[
+                  {
+                    Icon: Upload,
+                    step: "Step 1",
+                    title: "You send the footage",
+                    detail:
+                      "Share what you already have: raw clips, an event, a shoot, or a folder of assets.",
+                  },
+                  {
+                    Icon: Film,
+                    step: "Step 2",
+                    title: "Esteban edits it",
+                    detail:
+                      "Post-production shaped around your goal and where the video will be published.",
+                  },
+                  {
+                    Icon: Play,
+                    step: "Step 3",
+                    title: "You get a publish-ready cut",
+                    detail:
+                      "A finished video, edited for the platform and story you have in mind.",
+                  },
+                ].map(({ Icon, step, title: stepTitle, detail }) => (
+                  <li
+                    key={stepTitle}
+                    className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5"
+                  >
+                    <span className="grid size-10 place-items-center rounded-lg bg-[#101214] text-[#e85d3e]">
+                      <Icon className="size-5" aria-hidden="true" />
+                    </span>
+                    <p className="mt-4 text-xs font-medium uppercase tracking-[0.12em] text-[#9f3c27]">
+                      {step}
+                    </p>
+                    <h3 className="mt-2 font-serif text-2xl leading-tight">
+                      {stepTitle}
+                    </h3>
+                    <p className="mt-2 text-sm leading-6 text-[#3f4548]">
+                      {detail}
+                    </p>
+                  </li>
+                ))}
+              </ol>
+
+              <Link
+                href="/portfolio/homeowners"
+                className="group mt-4 block rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5 transition hover:border-[#e85d3e]"
+              >
+                <span className="text-xs font-medium uppercase tracking-[0.12em] text-[#5a6066]">
+                  Editing-only proof
+                </span>
+                <span className="mt-2 flex items-center justify-between gap-3 font-serif text-2xl leading-tight">
+                  Homeowners
+                  <ArrowRight
+                    className="size-5 shrink-0 text-[#9f3c27] transition-transform group-hover:translate-x-0.5"
+                    aria-hidden="true"
+                  />
+                </span>
+                <span className="mt-2 block text-sm leading-6 text-[#5a6066]">
+                  A social video Esteban edited entirely from footage supplied
+                  by the agency 300 Bees &mdash; the anchor service in action.
+                </span>
+              </Link>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Primero se ve, luego se lee: la tira antes de la cuadrícula. */}
+      <PortfolioFilmstrip locale="en" heading="The work, frame by frame" />
+
+      </details>
       <section className="border-t border-[#d6ccc0] py-14 sm:py-18">
         <Container size="xl">
           <div className="grid gap-8 rounded-2xl bg-[#e7ded2] p-7 sm:p-10 lg:grid-cols-[1fr_auto] lg:items-end">
