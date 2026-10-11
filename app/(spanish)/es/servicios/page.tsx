@@ -221,33 +221,20 @@ export default function SpanishServicesPage() {
                     />
                     {service.detail}
                   </p>
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    {service.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full border border-[#ddd4c8] px-3 py-1 text-xs uppercase text-[#5a6066]"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
                   {service.id === "diseno-web" || service.id === "website-design" ? (
                     <Link
                       href="/es/diseno-web-fort-lauderdale"
-                      className="group mt-6 block rounded-lg border border-[#c84a2c] bg-[var(--em-accent-ink)] p-5 text-white shadow-sm transition hover:bg-[var(--em-accent-ink-hover)]"
+                      className="group mt-6 block rounded-md border border-[#ddd4c8] bg-white/50 p-4 hover:border-[#e85d3e]"
                     >
-                      <span className="text-xs font-bold uppercase tracking-wider text-[#f0b384]">
-                        Centro Destacado de Diseño Web & IA
+                      <span className="text-xs font-medium uppercase text-[#5a6066]">
+                        Servicios web
                       </span>
-                      <span className="mt-2 flex items-center justify-between gap-3 font-serif text-xl font-bold text-white">
-                        Explorar Centro de Diseño Web & Chatbots con IA
+                      <span className="mt-2 flex items-center justify-between gap-3 font-serif text-xl">
+                        Ver sitios web y chatbots
                         <ArrowRight
-                          className="size-5 shrink-0 transition-transform group-hover:translate-x-1"
+                          className="size-4 shrink-0 text-[#9f3c27] transition-transform group-hover:translate-x-0.5"
                           aria-hidden="true"
                         />
-                      </span>
-                      <span className="mt-2 block text-sm leading-6 text-[#f6f1ea]">
-                        Ver aplicaciones web personalizadas, motores para concesionarios y chatbots de captura con IA para TitanForge, Geebs, FLAS y Frontline Auto.
                       </span>
                     </Link>
                   ) : proof ? (
@@ -278,6 +265,9 @@ export default function SpanishServicesPage() {
           {/* Un respiro entre dos tramos largos de texto. */}
           <ServicesScene locale="es" />
 
+          <details id="como-trabajamos" className="mt-12 rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5">
+            <summary className="cursor-pointer font-serif text-2xl">¿Cómo funciona el trabajo remoto o en locación?</summary>
+            <p className="mt-2 text-sm leading-6 text-[#252a2d]">Compara ambas formas de trabajar y las preguntas que definen cada proyecto.</p>
           <section className="mt-14" aria-labelledby="modalidad-heading">
             <p className="text-xs font-medium uppercase text-[#5a6066]">
               Remoto o en locación
@@ -366,10 +356,15 @@ export default function SpanishServicesPage() {
               ))}
             </ul>
           </section>
+          </details>
 
-          <div className="mt-12">
+          <details id="guia-para-mi-video" className="mt-12 rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5">
+            <summary className="cursor-pointer font-serif text-2xl">¿Prefieres definir tu video paso a paso?</summary>
+            <p className="mt-2 text-sm leading-6 text-[#252a2d]">Responde cuatro preguntas sobre material, formato y datos de contacto.</p>
+          <div className="mt-6">
             <VideoBriefBuilder locale="es" />
           </div>
+          </details>
 
           <div className="mt-14 rounded-lg bg-[#101214] p-6 text-[#f6f1ea] sm:p-8">
             <h2 className="font-serif text-4xl">¿No sabes cuál servicio encaja?</h2>
