@@ -23,6 +23,7 @@
     "weekly-digest:status": "node scripts/esteban-media-weekly-digest.mjs status",
     "cta-dashboard": "node scripts/service-cta-dashboard.mjs",
     "seo:verify": "node scripts/verify-technical-seo.mjs",
+    "seo:verify:local": "node scripts/verify-technical-seo.mjs http://localhost:3000",
     "seo:indexnow:dry-run": "node scripts/indexnow-submit.mjs dry-run",
     "seo:indexnow:run": "node scripts/indexnow-submit.mjs run",
     "seo:indexnow:status": "node scripts/indexnow-submit.mjs status",

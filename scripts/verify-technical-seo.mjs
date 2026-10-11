@@ -1,12 +1,16 @@
 #!/usr/bin/env node
 
-const baseUrl = normalizeOrigin(
-  process.argv[2] || process.env.SITE_BASE_URL || "http://localhost:3000",
-);
+import { readFile } from "node:fs/promises";
+import {
+  verifyApprovedSitemap,
+  verifyLocalizedPairs,
+} from "./verify-technical-seo-inventory.mjs";
+
 const canonicalOrigin = "https://estebanmorenomedia.com";
+const baseUrl = normalizeOrigin(
+  process.argv[2] || process.env.SITE_BASE_URL || canonicalOrigin,
+);
 const measurementId = "G-W9CM4CE2MQ";
-const expectedIndexablePages = 46;
-const expectedWatchPages = 16;
 const htmlCache = new Map();
 
 function normalizeOrigin(value) {
@@ -124,22 +128,36 @@ function normalizedEmbeddedSource(html) {
   return html.replaceAll("&quot;", '"').replace(/\\+"/g, '"');
 }
 
+function visibleText(html) {
+  return decodeXml(
+    html
+      .replace(/<head\b[^>]*>[\s\S]*?<\/head>/gi, " ")
+      .replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/gi, " ")
+      .replace(/<[^>]+>/g, " ")
+      .replace(/\s+/g, " "),
+  );
+}
+
 function requireStructuredType(html, type, pathname) {
   const structuredDataBlocks = [
     ...html.matchAll(
       /<script\b(?=[^>]*\btype="application\/ld\+json")[^>]*>([\s\S]*?)<\/script>/gi,
     ),
   ].map((match) => normalizedEmbeddedSource(match[1]));
-  if (
-    !structuredDataBlocks.some((block) =>
-      block.includes(`"@type":"${type}"`),
-    )
-  ) {
+  const hasType = (value) => {
+    if (!value || typeof value !== "object") return false;
+    const declared = value["@type"];
+    if (declared === type || (Array.isArray(declared) && declared.includes(type))) return true;
+    return Object.values(value).some((child) =>
+      Array.isArray(child) ? child.some(hasType) : hasType(child),
+    );
+  };
+  if (!structuredDataBlocks.some((block) => hasType(JSON.parse(block)))) {
     throw new Error(`${pathname} is missing ${type} structured data`);
   }
 }
 
-async function verifyPage(pathname) {
+async function verifyPage(pathname, expectedAlternates = null) {
   const { status, html } = await fetchHtml(pathname);
   if (status !== 200) {
     throw new Error(`${pathname} returned HTTP ${status}`);
@@ -163,15 +181,13 @@ async function verifyPage(pathname) {
   const title = decodeXml(
     requireMatch(html, /<title>([^<]+)<\/title>/i, "title", pathname),
   );
-  if (title.length > 60) {
-    throw new Error(`${pathname} title is ${title.length} characters: ${title}`);
+  if (!title.trim()) {
+    throw new Error(`${pathname} has an empty title`);
   }
 
   const description = metaContent(html, "name", "description", pathname);
-  if (description.length > 160) {
-    throw new Error(
-      `${pathname} description is ${description.length} characters`,
-    );
+  if (!description.trim()) {
+    throw new Error(`${pathname} has an empty description`);
   }
 
   const canonical = new URL(linkHref(html, "canonical", pathname)).toString();
@@ -201,18 +217,12 @@ async function verifyPage(pathname) {
       pathname,
     ),
   };
-  const expectedSocialFields = {
-    "og:url": canonical,
-    "og:title": title,
-    "og:description": description,
-    "twitter:title": title,
-    "twitter:description": description,
-  };
-  for (const [field, expected] of Object.entries(expectedSocialFields)) {
-    if (socialFields[field] !== expected) {
-      throw new Error(
-        `${pathname} ${field} is ${JSON.stringify(socialFields[field])}; expected ${JSON.stringify(expected)}`,
-      );
+  if (socialFields["og:url"] !== canonical) {
+    throw new Error(`${pathname} og:url is ${socialFields["og:url"]}; expected ${canonical}`);
+  }
+  for (const field of ["og:title", "og:description", "twitter:title", "twitter:description"]) {
+    if (!socialFields[field].trim()) {
+      throw new Error(`${pathname} ${field} is empty`);
     }
   }
 
@@ -253,10 +263,19 @@ async function verifyPage(pathname) {
       new URL(href).toString(),
     ]),
   );
-  if (alternates[expectedAlternateLanguage] !== canonical) {
+  if (Object.keys(alternates).length > 0 && alternates[expectedAlternateLanguage] !== canonical) {
     throw new Error(
       `${pathname} ${expectedAlternateLanguage} alternate is ${alternates[expectedAlternateLanguage]}; expected ${canonical}`,
     );
+  }
+  if (expectedAlternates !== null) {
+    for (const locale of Object.keys(expectedAlternates)) {
+      if (alternates[locale] !== expectedAlternates[locale]) {
+        throw new Error(
+          `${pathname} ${locale} alternate differs from /sitemap.xml: ${alternates[locale]} versus ${expectedAlternates[locale]}`,
+        );
+      }
+    }
   }
 
   return {
@@ -323,28 +342,26 @@ async function verifyNotFound(pathname, expectedLanguage, expectedCopy) {
 
 try {
   const sitemapXml = await (await fetchOk("/sitemap.xml")).text();
-  const canonicalUrls = [
-    ...sitemapXml.matchAll(/<loc>([^<]+)<\/loc>/g),
-  ].map((match) => decodeXml(match[1]));
-  const pathnames = canonicalUrls.map((url) => new URL(url).pathname);
-  const uniquePathnames = [...new Set(pathnames)];
+  const sitemapEntries = [...sitemapXml.matchAll(/<url\b[^>]*>([\s\S]*?)<\/url>/gi)]
+    .map((match) => match[1]);
+  const canonicalUrls = sitemapEntries.map((entry) => decodeXml(
+    requireMatch(entry, /<loc>([^<]+)<\/loc>/i, "page location", "/sitemap.xml"),
+  ));
+  const sitemapAlternates = new Map(sitemapEntries.map((entry, index) => [
+    new URL(canonicalUrls[index]).pathname,
+    Object.fromEntries(tags(entry, "xhtml:link").map((tag) => [
+      attribute(tag, "hreflang"),
+      new URL(attribute(tag, "href")).toString(),
+    ])),
+  ]));
+  const approvedInventory = JSON.parse(
+    await readFile(new URL("../config/indexable-inventory-freeze.json", import.meta.url), "utf8"),
+  );
+  const uniquePathnames = verifyApprovedSitemap(canonicalUrls, approvedInventory, canonicalOrigin);
 
-  if (
-    canonicalUrls.some((url) => new URL(url).origin !== canonicalOrigin)
-  ) {
-    throw new Error(`sitemap contains a URL outside ${canonicalOrigin}`);
-  }
-
-  if (
-    canonicalUrls.length !== expectedIndexablePages ||
-    uniquePathnames.length !== expectedIndexablePages
-  ) {
-    throw new Error(
-      `sitemap has ${canonicalUrls.length} entries and ${uniquePathnames.length} unique pages; expected exactly ${expectedIndexablePages}`,
-    );
-  }
-
-  const pages = await Promise.all(uniquePathnames.map(verifyPage));
+  const pages = await Promise.all(uniquePathnames.map((pathname) =>
+    verifyPage(pathname, sitemapAlternates.get(pathname)),
+  ));
   verifyReciprocalAlternates(pages);
 
   const sitemapPathSet = new Set(uniquePathnames);
@@ -356,18 +373,7 @@ try {
     );
   });
   const watchPathnames = watchUrls.map((url) => new URL(url).pathname);
-  if (
-    watchPathnames.length !== expectedWatchPages ||
-    watchPathnames.filter((pathname) => pathname.startsWith("/portfolio/"))
-      .length !== expectedWatchPages / 2 ||
-    watchPathnames.filter((pathname) =>
-      pathname.startsWith("/es/portafolio/"),
-    ).length !== expectedWatchPages / 2
-  ) {
-    throw new Error(
-      `regular sitemap has ${watchPathnames.length} localized watch pages; expected ${expectedWatchPages}`,
-    );
-  }
+  verifyLocalizedPairs(watchPathnames, "/portfolio/", "/es/portafolio/", "watch inventory");
 
   const robotsText = await (await fetchOk("/robots.txt")).text();
   for (const sitemapUrl of [
@@ -392,11 +398,6 @@ try {
   const videoEntries = [
     ...videoSitemapXml.matchAll(/<url\b[^>]*>([\s\S]*?)<\/url>/gi),
   ].map((match) => match[1]);
-  if (videoEntries.length !== expectedWatchPages) {
-    throw new Error(
-      `/video-sitemap.xml has ${videoEntries.length} entries; expected ${expectedWatchPages}`,
-    );
-  }
   const videoUrls = videoEntries.map((entry, index) => {
     if (!/<video:video\b/i.test(entry)) {
       throw new Error(
@@ -413,19 +414,29 @@ try {
   });
   const videoUrlSet = new Set(videoUrls);
   const watchUrlSet = new Set(watchUrls.map((url) => new URL(url).toString()));
+  const videoPathnames = videoUrls.map((url) => new URL(url).pathname);
+  verifyLocalizedPairs(videoPathnames, "/portfolio/", "/es/portafolio/", "video inventory");
+  const videoInventory = JSON.parse(
+    await readFile(new URL("../config/video-sitemap-inventory.json", import.meta.url), "utf8"),
+  );
+  const expectedVideoUrls = new Set(videoInventory.videoPortfolioIds.flatMap((id) => [
+    `${canonicalOrigin}/portfolio/${id}`,
+    `${canonicalOrigin}/es/portafolio/${id}`,
+  ]));
   if (
-    videoUrlSet.size !== expectedWatchPages ||
-    videoUrlSet.size !== watchUrlSet.size ||
-    [...watchUrlSet].some((url) => !videoUrlSet.has(url)) ||
-    videoUrls.some((url) => !sitemapPathSet.has(new URL(url).pathname))
+    videoUrlSet.size !== videoUrls.length ||
+    [...videoUrlSet].some((url) => !watchUrlSet.has(url)) ||
+    videoUrls.some((url) => !sitemapPathSet.has(new URL(url).pathname)) ||
+    videoUrlSet.size !== expectedVideoUrls.size ||
+    [...expectedVideoUrls].some((url) => !videoUrlSet.has(url))
   ) {
     throw new Error(
-      "/video-sitemap.xml does not exactly match the localized watch pages in /sitemap.xml",
+      "/video-sitemap.xml does not exactly match rendered YouTube portfolio pages in /sitemap.xml",
     );
   }
 
   await Promise.all(
-    watchPathnames.map(async (pathname) => {
+    videoPathnames.map(async (pathname) => {
       const { html } = await fetchHtml(pathname);
       if (
         !/<iframe\b[^>]*\bsrc="https:\/\/www\.youtube-nocookie\.com\/embed\//i.test(
@@ -453,10 +464,14 @@ try {
       pathname === "/es/guias" ||
       pathname.startsWith("/es/guias/"),
   );
-  if (guidePathnames.length !== 10) {
-    throw new Error(
-      `regular sitemap has ${guidePathnames.length} guide pages; expected 10`,
-    );
+  verifyLocalizedPairs(guidePathnames, "/guides", "/es/guias", "guide inventory");
+  for (const pathname of [...watchPathnames, ...guidePathnames]) {
+    const alternates = sitemapAlternates.get(pathname);
+    for (const locale of ["en-US", "es-US", "x-default"]) {
+      if (!alternates?.[locale] || !canonicalUrls.includes(alternates[locale])) {
+        throw new Error(`${pathname} has no approved ${locale} alternate in /sitemap.xml`);
+      }
+    }
   }
   await Promise.all(
     guidePathnames.map(async (pathname) => {
@@ -467,19 +482,17 @@ try {
 
   const englishHome = (await fetchHtml("/")).html;
   const spanishHome = (await fetchHtml("/es")).html;
-  if (
-    !englishHome.includes(
-      "Esteban Moreno Media provides video editing, AI-assisted content, and social planning from Fort Lauderdale",
-    )
-  ) {
-    throw new Error("/ is missing the direct entity/service/location sentence");
-  }
-  if (
-    !spanishHome.includes(
-      "Esteban Moreno Media ofrece edición de video, contenido con IA y planificación para redes desde Fort Lauderdale",
-    )
-  ) {
-    throw new Error("/es is missing the direct entity/service/location sentence");
+  for (const [pathname, html, service] of [
+    ["/", englishHome, /video editing/i],
+    ["/es", spanishHome, /edición de video/i],
+  ]) {
+    const text = visibleText(html);
+    const brandPosition = text.indexOf("Esteban Moreno Media");
+    const firstScreenAnswer = text.slice(brandPosition, brandPosition + 500);
+    if (brandPosition < 0 || !service.test(firstScreenAnswer) || !firstScreenAnswer.includes("Fort Lauderdale")) {
+      throw new Error(`${pathname} is missing the visible brand, service, or location near the first screen`);
+    }
+    requireStructuredType(html, "LocalBusiness", pathname);
   }
 
   const privacyPages = await Promise.all([

@@ -1,0 +1,26 @@
+# Deterministic production SEO boundary and weekly loop-health audit.
+# KPI: qualified organic discovery; operational signal: approved pages remain
+# crawlable with correct canonicals, alternates, video metadata, and GA4 wiring.
+# $0: Node fetch + GitHub Actions, no LLM or paid keyword API.
+name: Production SEO verify
+
+on:
+  schedule:
+    - cron: "50 11 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Production SEO boundary
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - name: Verify canonical production
+        run: node scripts/verify-technical-seo.mjs
