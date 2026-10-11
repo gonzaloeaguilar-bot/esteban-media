@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { ClientReviews } from "@/components/client-reviews";
 import { HeroVideo } from "@/components/hero-video";
 import { HomeAuthorityHub } from "@/components/home-authority-hub";
+import { HomeProjectPath } from "@/components/home-project-path";
 import { SignalIntro } from "@/components/signal-intro";
 import { PackagesSection, ClosingCredits } from "@/components/packages-section";
 import { KeepReading } from "@/components/keep-reading";
@@ -31,34 +32,18 @@ export default function SpanishHomePage() {
     <main className="bg-[#f7f5f1] text-[#101214]">
       <SignalIntro locale="es" />
       <HeroVideo locale="es" />
-      {/* Social traffic ALL lands here: 36 sessions from Facebook and Instagram in
-          30 days, every one of them on "/", and all three of the site's form starts
-          came from m.facebook.com. The pages that convert existed and the homepage
-          linked to none of them. Above the fold on purpose — a visitor from an
-          Instagram bio link should not have to open a fold-out to find their lane. */}
-      <AudienceRouter locale="es" />
-      {/* Real estate is the router's first lane, so its block comes straight
-          after it: the reel shelf, then the monthly plans behind one button.
-          The plans moved here from PackagesSection (showRealEstatePlans off),
-          so they render once; the VideoObject JSON-LD is emitted once.
-
-          Proof before pricing, on this home as well. This page had the monthly
-          real-estate plans and NO reels at all, so a Spanish visitor — the
-          audience the evidence says converts, since the only contact click in
-          the measured window came from a Spanish reel page — saw a property
-          price with no property work above it. The shelf and the plans now sit
-          together right after the lanes, with the portfolio and the reviews
-          between them and the general packages. */}
-      <RealEstateBlock locale="es" />
       <PortfolioTeaser locale="es" />
+      <HomeProjectPath locale="es" />
       <ClientReviews locale="es" />
-      <PackagesSection locale="es" showRealEstatePlans={false} />
       <KeepReading
         id="mas"
         className="em-fold"
-        title="¿Quieres ver todo?"
-        destinations="Servicios, zonas, guías y las 70 páginas por nicho."
+        title="Explora los detalles"
+        destinations="Reels inmobiliarios, planes, servicios, zonas y guías."
       >
+      <AudienceRouter locale="es" />
+      <RealEstateBlock locale="es" />
+      <PackagesSection locale="es" showRealEstatePlans={false} />
       <HomeAuthorityHub locale="es" />
 
       <section className="py-12 sm:py-16">
