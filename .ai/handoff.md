@@ -1,3 +1,7 @@
+# Home: proof before pricing — 2026-10-10
+
+Branch `fix/home-proof-before-pricing`. Both homes (`/`, `/es`) now render Hero → AudienceRouter → PortfolioTeaser → RealEstateReels (EN only; `/es` never had the shelf) → ClientReviews → PackagesSection (which still bundles real-estate plans, à-la-carte, 3 steps, FAQ + FAQPage JSON-LD) → KeepReading fold → ClosingCredits. Ordering only, no copy changes. `#packages` / `#paquetes` still live inside PackagesSection, so the hero CTA works. `app/__tests__/home-proof-before-pricing.test.ts` locks the order.
+
 # Spanish service-area contextual links — 2026-10-11 (local, uncommitted)
 
 - Bounded dispatch: `cto-seo-lead` → implementation; verification owner `cto-qa-lead`. Base commit `94a63bb6dd6233fcad66339b6892d29f8933893c`.

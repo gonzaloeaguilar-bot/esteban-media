@@ -83,9 +83,9 @@ export default function Home() {
           posters lazy-load, the MP4s mount only when a card is opened — it
           has just moved out of the bottom third of the page. */}
       <RealEstateShowcase locale="en" />
-      <PackagesSection locale="en" realEstatePlans={false} />
       <PortfolioTeaser locale="en" />
       <ClientReviews locale="en" />
+      <PackagesSection locale="en" realEstatePlans={false} />
       <KeepReading id="more" className="em-fold" title="Want to see everything?" destinations="Services, areas, guides and more about Esteban.">
         <HomeAuthorityHub />
         <ServicesStrip />

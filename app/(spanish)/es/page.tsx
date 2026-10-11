@@ -45,9 +45,9 @@ export default function SpanishHomePage() {
           page — saw a property price with no property work above it. The shelf
           and the plans now sit together right after the lanes. */}
       <RealEstateShowcase locale="es" />
-      <PackagesSection locale="es" realEstatePlans={false} />
       <PortfolioTeaser locale="es" />
       <ClientReviews locale="es" />
+      <PackagesSection locale="es" realEstatePlans={false} />
       <KeepReading
         id="mas"
         className="em-fold"
