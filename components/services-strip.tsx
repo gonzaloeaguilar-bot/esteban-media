@@ -42,6 +42,8 @@ export function ServicesStrip() {
             const href =
               service.id === "website-design"
                 ? "/services/website-design-fort-lauderdale"
+                : service.id === "on-location"
+                  ? "/services/video-production-fort-lauderdale"
                 : `/services#${service.id}`;
             return (
               <li key={service.id} className="h-full">

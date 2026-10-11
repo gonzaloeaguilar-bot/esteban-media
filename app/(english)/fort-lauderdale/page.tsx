@@ -29,24 +29,32 @@ const fortLauderdaleServices = [
     description:
       "A confirmed priority for projects that begin with existing footage and a publishing goal.",
     icon: Scissors,
+    href: "/services/reels-editor-fort-lauderdale",
+    linkText: "Explore local Reels editing",
   },
   {
     name: "AI-assisted content",
     description:
       "AI-assisted creative is a confirmed priority, scoped around the project goal and intended use.",
     icon: WandSparkles,
+    href: null,
+    linkText: null,
   },
   {
     name: "Social media planning",
     description:
       "A confirmed priority for discussing audience, channels, publishing goals, and content needs.",
     icon: CalendarRange,
+    href: null,
+    linkText: null,
   },
   {
     name: "On-location content capture",
     description:
       "Local video production is considered selectively after the location, goal, and capture needs are known.",
     icon: Video,
+    href: "/services/video-production-fort-lauderdale",
+    linkText: "Explore local video production",
   },
 ];
 
@@ -240,6 +248,12 @@ export default function FortLauderdalePage() {
                   <p className="mt-3 text-sm leading-6 text-[#252a2d]">
                     {service.description}
                   </p>
+                  {service.href && service.linkText ? (
+                    <Link href={service.href} className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-[#9f3c27] underline underline-offset-4">
+                      {service.linkText}
+                      <ArrowRight className="size-4" aria-hidden="true" />
+                    </Link>
+                  ) : null}
                 </article>
               );
             })}

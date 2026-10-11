@@ -28,6 +28,10 @@ const copy = {
     from: "From",
     custom: "Custom quote",
     units: { video: "/video", month: "/month", "production-day": "/production day" },
+    localLinks: [
+      { href: "/services/video-production-fort-lauderdale", label: "Film a video in Fort Lauderdale" },
+      { href: "/services/reels-editor-fort-lauderdale", label: "Edit Reels in Fort Lauderdale" },
+    ],
   },
   es: {
     eyebrow: "Encuentra por dónde empezar",
@@ -48,6 +52,10 @@ const copy = {
     from: "Desde",
     custom: "Cotización personalizada",
     units: { video: "/video", month: "/mes", "production-day": "/día de producción" },
+    localLinks: [
+      { href: "/es/produccion-de-video-fort-lauderdale", label: "Grabar video en Fort Lauderdale" },
+      { href: "/es/editor-de-reels-fort-lauderdale", label: "Editar Reels en Fort Lauderdale" },
+    ],
   },
 } as const;
 
@@ -78,6 +86,14 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
             </Link>
           ))}
         </div>
+        <p className="mt-2 text-xs leading-5 text-[#6a625a]">{c.illustrationNote}</p>
+        <nav aria-label={locale === "es" ? "Servicios locales" : "Local services"} className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+          {c.localLinks.map((link) => (
+            <Link key={link.href} href={link.href} className="min-h-11 inline-flex items-center text-[#9d3d2b] underline underline-offset-4" data-cta="home-local-service">
+              {link.label}
+            </Link>
+          ))}
+        </nav>
         <p className="mt-2 text-xs leading-5 text-[#6a625a]">{c.illustrationNote}</p>
         <div className="mt-6 border-t border-[#ddd4c8] pt-5">
           <p className="text-sm leading-6 text-[#4d5358]"><strong className="text-[#101214]">{c.pricing}</strong> {c.pricingDetail}</p>
