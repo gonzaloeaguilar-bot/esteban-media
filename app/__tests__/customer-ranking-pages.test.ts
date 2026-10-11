@@ -224,6 +224,18 @@ describe("customer-facing ranking pages", () => {
     expect(publicCopy.toLowerCase()).toContain("ruta educativa heredada");
   });
 
+  it("acknowledges published Palm Beach city pages without promising local filming", () => {
+    const english = [source("lib/site.ts"), source("app/(english)/areas/palm-beach-county/page.tsx")].join("\n");
+    const spanish = [source("lib/spanish-site.ts"), source("app/(spanish)/es/areas/palm-beach-county/page.tsx")].join("\n");
+
+    expect(english).toContain("City-specific service pages are published");
+    expect(english).toContain("on-location availability is confirmed for each inquiry");
+    expect(english).not.toMatch(/no individual city coverage|sub-city coverage is not yet published|Individual cities are not listed/);
+    expect(spanish).toContain("Hay páginas de servicios por ciudad");
+    expect(spanish).toContain("disponibilidad para grabar en locación se confirma en cada consulta");
+    expect(spanish).not.toMatch(/todavía no se publica cobertura por ciudad|No se enumeran ciudades|se publica solo como área de expansión a nivel de condado/);
+  });
+
   it("bridges priority service pages to matching published case studies and contact paths in EN and ES", () => {
     const cosmeticDentistry = source("app/(english)/services/cosmetic-dentistry-video-marketing-miami/page.tsx");
     const videoEditingPb = source("app/(english)/services/video-editing-palm-beach-gardens/page.tsx");

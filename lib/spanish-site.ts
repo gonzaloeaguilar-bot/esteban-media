@@ -176,7 +176,7 @@ export const spanishAreas = [
     county: "Palm Beach County",
     href: "/es/areas/palm-beach-county",
     description:
-      "Palm Beach County es un área de expansión considerada proyecto por proyecto; todavía no se publica cobertura por ciudad.",
+      "Palm Beach County es un área de expansión que se evalúa proyecto por proyecto. Hay páginas de servicios por ciudad; la disponibilidad para grabar en locación se confirma en cada consulta.",
   },
 ];
 
