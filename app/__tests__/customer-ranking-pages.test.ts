@@ -16,22 +16,22 @@ describe("customer-facing ranking pages", () => {
       "Video editing, AI-assisted content, and social production.",
     );
     expect(hero).toContain(
-      "Clear creative support, from your footage to ready-to-publish content.",
+      "Video editing and content production for businesses, agents, and creators.",
     );
     // The H1 already says "Video editing, AI-assisted content, and social
     // production"; the caption under it used to repeat that sentence almost
     // word for word (2026-10-10 UX review), so it now says it once.
-    expect(hero).toContain("Bring your footage or just an idea.");
+    expect(hero).toContain("Send footage you already have or an idea that needs filming.");
     expect(hero).not.toContain(
       "Video editing, AI-assisted content, and social planning for businesses",
     );
-    expect(hero).toContain("For local filming, review the");
+    expect(hero).toContain("Fort Lauderdale, Broward, Miami-Dade, and Palm Beach");
     expect(hero).toContain('href="/areas"');
     expect(hero).toContain(
       "Esteban Moreno Media · Video, IA y redes.",
     );
-    expect(hero).toContain("Trae tu material o solo una idea.");
-    expect(hero).toContain("Si necesitas grabación local");
+    expect(hero).toContain("Envía el material que ya tienes o una idea que necesita grabación.");
+    expect(hero).toContain("Fort Lauderdale, Broward, Miami-Dade y Palm Beach");
     expect(hero).toContain('href="/es/areas"');
     expect(services).toContain("website-design");
     expect(services).toContain("Digital systems");

@@ -6,6 +6,7 @@ import { ClientReviews } from "@/components/client-reviews";
 import { ContactCta } from "@/components/contact-cta";
 import { HeroVideo } from "@/components/hero-video";
 import { HomeAuthorityHub } from "@/components/home-authority-hub";
+import { HomeContactStrip } from "@/components/home-contact-strip";
 import { HomeProjectPath } from "@/components/home-project-path";
 import { SignalIntro } from "@/components/signal-intro";
 import { ClosingCredits, PackagesSection } from "@/components/packages-section";
@@ -68,12 +69,14 @@ export default function Home() {
       <SignalIntro locale="en" />
       <HeroVideo />
       <PortfolioTeaser locale="en" />
+      <div className="em-home-review-controls"><ClientReviews locale="en" compact /></div>
       <HomeProjectPath locale="en" />
+      <HomeContactStrip locale="en" />
       <RealEstateBlock locale="en" />
-      <PackagesSection locale="en" showRealEstatePlans={false} />
-      <div className="em-home-review-controls"><ClientReviews locale="en" /></div>
       <KeepReading id="more" className="em-fold" title="Explore more services" destinations="Service details, areas, guides and how Esteban works.">
         <AudienceRouter locale="en" />
+        <PackagesSection locale="en" showRealEstatePlans={false} />
+        <ClientReviews locale="en" />
         <HomeAuthorityHub />
         <ServicesStrip />
         <AboutTeaser />

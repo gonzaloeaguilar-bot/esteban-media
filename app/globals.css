@@ -1674,8 +1674,8 @@ div.relative:has(> .em-carousel-track) {
 .em-reel-arrow {
   display: grid;
   place-items: center;
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   border-radius: 9999px;
   border: 1px solid rgb(255 255 255 / 0.22);
   background: transparent;

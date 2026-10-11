@@ -74,13 +74,13 @@ export function PortfolioTeaser({ locale }: PortfolioTeaserProps) {
               className="mt-3 em-h2"
             >
               {isSpanish
-                ? "Proyectos reales, fáciles de ver."
-                : "Real projects, easy to watch."}
+                ? "Mira tres proyectos terminados."
+                : "See three finished projects."}
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-7 text-[#c9c1b8]">
               {isSpanish
-                ? "Mira un ejemplo inmobiliario, un video de negocio y una celebración antes de elegir qué necesitas."
-                : "Watch a property reel, a business video, and an event before choosing what you need."}
+                ? "Un Reel inmobiliario, un video de negocio y una celebración. Abre cualquiera para verlo."
+                : "A property Reel, a business video, and an event film. Open any project to watch."}
             </p>
           </div>
           <Link

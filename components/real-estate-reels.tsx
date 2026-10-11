@@ -11,7 +11,6 @@ import { whatsappHref } from "@/lib/packages";
 import { quoteCtaLabel } from "@/lib/quote-cta";
 import {
   REAL_ESTATE_REELS,
-  REAL_ESTATE_REELS_PATH,
   buildRealEstateReelsJsonLd,
   formatClock,
   realEstateReelsPath,
@@ -345,8 +344,8 @@ export function RealEstateReels({
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-7 text-[#c9c1b8]">
               {isEs
-                ? "Seis videos cortos de propiedades que edité para agentes y listados. Pasa el cursor para ver un adelanto, toca una portada para abrirlo. Cuando tengas tu propio material, mándamelo por WhatsApp."
-                : "Six short property videos I edited for agents and listings. Hover a poster for a preview, tap to open it. When you have footage of your own, send it to me on WhatsApp."}
+                ? "Seis videos de propiedades terminados. Toca una portada para verlos."
+                : "Six finished property videos. Tap any poster to watch."}
             </p>
           </div>
           <div className="flex shrink-0 flex-col gap-4 sm:items-end">
@@ -365,7 +364,7 @@ export function RealEstateReels({
               {quoteCtaLabel(locale)}
             </a>
             <a
-              href={REAL_ESTATE_REELS_PATH}
+              href={realEstateReelsPath(locale)}
               data-cta={`real_estate_reels_${locale}_service`}
               className="text-sm font-medium text-[#ffb49e] underline-offset-4 hover:underline"
             >

@@ -45,6 +45,12 @@ describe("real-estate reel shelf, Spanish parity", () => {
       source("app/(spanish)/es/editor-de-video-real-estate-miami/page.tsx"),
     ).toContain('<RealEstateReels locale="es" />');
   });
+
+  it("keeps the reel service link in the visitor's language", () => {
+    const reels = source("components/real-estate-reels.tsx");
+    expect(reels).toContain("href={realEstateReelsPath(locale)}");
+    expect(reels).not.toContain("href={REAL_ESTATE_REELS_PATH}");
+  });
 });
 
 describe("homepage real-estate block", () => {
@@ -53,15 +59,14 @@ describe("homepage real-estate block", () => {
     ["app/(spanish)/es/page.tsx", "es"],
   ] as const;
 
-  it.each(homes)("%s keeps the visible real-estate block before the packages and optional detail", (page, locale) => {
+  it.each(homes)("%s keeps the visible real-estate block before optional package detail", (page, locale) => {
     const src = source(page);
     const block = src.indexOf(`<RealEstateBlock locale="${locale}" />`);
     const packages = src.indexOf("<PackagesSection");
     const fold = src.indexOf("<KeepReading");
     expect(block).toBeGreaterThan(-1);
-    expect(packages).toBeGreaterThan(block);
     expect(block).toBeLessThan(fold);
-    expect(packages).toBeLessThan(fold);
+    expect(packages).toBeGreaterThan(fold);
   });
 
   it.each(homes)("%s renders the shelf and the plans exactly once", (page) => {

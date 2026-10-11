@@ -49,7 +49,7 @@ function BigStars() {
   );
 }
 
-export function ClientReviews({ locale = "en" }: { locale?: "en" | "es" }) {
+export function ClientReviews({ locale = "en", compact = false }: { locale?: "en" | "es"; compact?: boolean }) {
   if (googleReviews.length === 0) {
     return null;
   }
@@ -60,7 +60,7 @@ export function ClientReviews({ locale = "en" }: { locale?: "en" | "es" }) {
   return (
     <section
       aria-labelledby="client-reviews-heading"
-      className="border-b border-[#ddd4c8] bg-[#f6f1ea] py-14 sm:py-20"
+      className={`border-b border-[#ddd4c8] bg-[#f6f1ea] ${compact ? "py-10 sm:py-14" : "py-14 sm:py-20"}`}
     >
       <Container size="xl">
         <p className="em-eyebrow">
@@ -71,10 +71,14 @@ export function ClientReviews({ locale = "en" }: { locale?: "en" | "es" }) {
           /* The shared section heading (.em-h2), like every home h2. */
           className="mt-2 max-w-2xl em-h2 text-[#101214]"
         >
-          {t.title}
+          {compact
+            ? (locale === "es" ? "Reseñas verificadas en Google." : "Verified Google reviews.")
+            : t.title}
         </h2>
         <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[#41474d] sm:text-base">
-          {t.lead}
+          {compact
+            ? (locale === "es" ? "Reseñas públicas enlazadas directamente a su fuente." : "Public reviews linked directly to their source.")
+            : t.lead}
         </p>
 
         {/* The aggregate hero. This is the number the visitor is actually asking
@@ -114,21 +118,23 @@ export function ClientReviews({ locale = "en" }: { locale?: "en" | "es" }) {
           </span>
         </a>
 
-        <div className="mt-8">
+        {!compact && <div className="mt-8">
           <ReviewCarousel
             reviews={googleReviews}
             locale={locale}
             sourceUrl={reviewSourceUrl}
             sourceLabel={t.verify}
           />
-        </div>
+        </div>}
 
         {/* Visible copy stays customer-facing. The provenance rules did not
             move: quotes stay verbatim and dated in lib/client-reviews.ts, and
             no aggregateRating/review markup is emitted about the business
             (lib/__tests__/client-reviews.test.ts). */}
         <p className="mt-8 text-xs leading-relaxed text-[#5a6066]">
-          {t.summaryNote(googleReviews.length, reviewCount)}
+          {compact
+            ? (locale === "es" ? "Lee todas las reseñas verificadas en Google." : "Read every verified review on Google.")
+            : t.summaryNote(googleReviews.length, reviewCount)}
         </p>
       </Container>
     </section>
