@@ -1,3 +1,9 @@
+# Home CTA, voice and fine print — 2026-10-11
+
+Branch `fix/home-cta-voice-fineprint` (draft PR). One primary action, worded once: every quote/contact action on the home (header, hero, package cards, Starter tiles, real estate plans, à la carte items without a page, reel section + reel detail, closing credit) is a wa.me link labelled from `lib/quote-cta.ts` ("Get a quote on WhatsApp" / "Cotizar por WhatsApp") with a `data-cta` ending in `_whatsapp`. Per-card reel WhatsApp buttons removed (service link moved to the reel section header). Header CTA now opens WhatsApp site-wide (was /contact; /contact stays in the footer) — GA4 sees `contact_intent` (whatsapp) instead of `contact_cta_click` for that button. Removed SEO-facing review fine print and the visible "Updated <date>" stamps on illustration captions (illustrations and AI disclosure kept). Home copy standardized to first person singular; package FAQ questions now "you"-addressed (schema derives from the same strings). Hero caption no longer repeats the H1. `spanish-niche-text-baseline.json` refreshed for 97 routes: diff verified to be only the header label on 94 routes, plus Starter labels on 2 creator routes and the package/FAQ/CTA copy on `es/precios`. Gates: lint 0 errors, typecheck, build, text-parity PASS; vitest 1533/1534 (only `prospect-auditor-verifier` fails — live fetch blocked by the sandbox proxy, untouched by this branch). Obsidian notes not updated from this container.
+
+---
+
 # US-Spanish Money Pages Deepening & /es/editor-de-video-miami — 2026-10-07 (local, uncommitted)
 
 Branch `feat/es-us-spanish-money-pages`. Deepened US-Spanish money pages (`/es/editor-de-reels-fort-lauderdale`, `/es/editor-de-reels-miami`, `/es/editor-de-video-corto-para-redes-miami`), added contextual cross-links and guide links, and created the Spanish-first landing page `/es/editor-de-video-miami` (sitemap count: 284).
