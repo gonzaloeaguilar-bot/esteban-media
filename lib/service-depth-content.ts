@@ -358,9 +358,9 @@ export const SHORT_FORM_DEPTH: Depth = {
   relatedHeading: "Related services for social video output.",
   related: [
     {
-      title: "Social Media Video Batching",
-      detail: "Turn one recording session or folder of clips into a planned set of posts.",
-      href: "/services/social-media-video-batching-miami",
+      title: "Content Repurposing",
+      detail: "Turn one long video, podcast or shoot into a set of short social clips.",
+      href: "/services/content-repurposing-service-miami",
     },
     {
       title: "TikTok Ad Video Editor",
@@ -420,9 +420,9 @@ export const AI_PRODUCT_DEPTH: Depth = {
   relatedHeading: "Related services for product and ecommerce visuals.",
   related: [
     {
-      title: "Ecommerce Product Video Editor",
-      detail: "Product videos assembled from demos, phone clips, UGC, and brand assets.",
-      href: "/services/ecommerce-product-video-editor-miami",
+      title: "AI Product Photo Truth Checklist",
+      detail: "What to check before an AI product image goes on a store or an ad.",
+      href: "/resources/ai-product-photo-truth-checklist",
     },
     {
       title: "UGC Ecommerce Video Editor",
@@ -487,9 +487,9 @@ export const AI_REAL_ESTATE_DEPTH: Depth = {
       href: "/services/real-estate-drone-video-editing-miami",
     },
     {
-      title: "Real Estate Video Aventura",
-      detail: "Video production and editing for Aventura real estate marketing.",
-      href: "/services/real-estate-video-aventura-miami",
+      title: "Real Estate Reels Editor",
+      detail: "Short-form property videos edited from listing footage for South Florida agents.",
+      href: "/services/real-estate-reels-video-editor-south-florida",
     },
     {
       title: "Real Estate Pricing",
@@ -606,14 +606,14 @@ export const UGC_ECOMMERCE_DEPTH: Depth = {
   relatedHeading: "Related services for creator-style product video.",
   related: [
     {
-      title: "Ecommerce Product Video Editor",
-      detail: "Product-page and ad-ready videos made from product demos and brand clips.",
-      href: "/services/ecommerce-product-video-editor-miami",
+      title: "AI Product Photography",
+      detail: "Product images for stores and ads, built from real product references.",
+      href: "/services/ai-product-photography-miami",
     },
     {
-      title: "Social Media Video Batching",
-      detail: "Batch social edits from one folder of creator or founder footage.",
-      href: "/services/social-media-video-batching-miami",
+      title: "Content Repurposing",
+      detail: "Turn one long video, podcast or shoot into a set of short social clips.",
+      href: "/services/content-repurposing-service-miami",
     },
     {
       title: "Remote Editing Handoff",
@@ -877,14 +877,14 @@ export const CREATOR_DEPTH: Depth = {
       href: "/services/short-form-video-editor-miami",
     },
     {
-      title: "Social Video Batching",
-      detail: "Turning one filming block into a stack of separate posts.",
-      href: "/services/social-media-video-batching-miami",
+      title: "Content Repurposing",
+      detail: "Turn one long video, podcast or shoot into a set of short social clips.",
+      href: "/services/content-repurposing-service-miami",
     },
     {
-      title: "YouTube Editing",
-      detail: "Long-form structure for the channel the clips point back to.",
-      href: "/services/youtube-video-editing-service-miami",
+      title: "Remote Video Editor",
+      detail: "Long-form and short-form edits from supplied footage, handed off remotely.",
+      href: "/services/hire-remote-video-editor",
     },
   ],
 };

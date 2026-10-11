@@ -69,7 +69,7 @@ export default function RemoteEditingHandoffChecklistPage() {
           <div className="mt-8 grid gap-4 md:grid-cols-3">
             {[
               { href: "/services/short-form-video-editor-miami", title: "Short-form editing", detail: "For reels, TikTok, Shorts, captions, pacing, and safe crops." },
-              { href: "/services/youtube-video-editing-service-miami", title: "YouTube editing", detail: "For longer edits that need structure, audio cleanup, and clips." },
+              { href: "/services/hire-remote-video-editor", title: "Remote video editor", detail: "For long-form or short-form edits handed off remotely." },
               { href: "/guides/fastest-way-to-send-large-video-files-to-editor", title: "Large file transfer", detail: "For preparing original footage before remote editing starts." },
             ].map((item) => (
               <Link key={item.href} href={item.href} className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5 hover:border-[#e85d3e]">

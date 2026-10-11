@@ -2,6 +2,9 @@ import { readdirSync, readFileSync } from "node:fs";
 
 import { buildCaseStudyStructuredData, getCaseStudies } from "@/lib/case-studies";
 import { buildGuideStructuredData, getGuides } from "@/lib/guides";
+import { isConsolidatedPath } from "@/lib/consolidation";
+import * as depthContent from "@/lib/service-depth-content";
+import { ServiceLandingDirectory } from "@/components/service-landing-directory";
 import { join } from "node:path";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
@@ -87,6 +90,32 @@ describe("entity hygiene (fix 7)", () => {
       // The sitewide entity itself, and files owned by another branch.
       .filter((file) => !["lib/entity-schema.ts", "lib/real-estate-reels.ts"].includes(file))
       .filter((file) => readFileSync(file, "utf8").includes('"@type": "LocalBusiness"'));
+    expect(offenders).toEqual([]);
+  });
+});
+
+describe("English hubs and related cards never link a consolidated page (fix 5)", () => {
+  function linkedPaths(markup: string): string[] {
+    return [...markup.matchAll(/href="(\/[^"#?]*)/g)].map((m) => m[1].replace(/\/$/, "") || "/");
+  }
+
+  it("the services/areas directory skips noindexed and merged pages", () => {
+    const paths = linkedPaths(renderToStaticMarkup(ServiceLandingDirectory()));
+    expect(paths.length).toBeGreaterThan(40);
+    expect(paths.filter(isConsolidatedPath)).toEqual([]);
+  });
+
+  it("no shared service-depth related card points at a consolidated page", () => {
+    // Depth objects that belong to a consolidated page may link anywhere; the
+    // ones rendered on indexable pages may not.
+    const offenders = Object.entries(depthContent)
+      .filter(([, value]) => value && typeof value === "object" && "related" in value)
+      .flatMap(([name, value]) =>
+        (value as unknown as { related: { href: string }[] }).related
+          .filter((card) => isConsolidatedPath(card.href))
+          .map((card) => `${name} -> ${card.href}`),
+      )
+      .filter((entry) => !/^(SOCIAL_BATCHING|YOUTUBE_EDITING|ECOMMERCE_VIDEO)_DEPTH/.test(entry));
     expect(offenders).toEqual([]);
   });
 });

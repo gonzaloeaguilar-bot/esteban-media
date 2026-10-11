@@ -17,6 +17,7 @@ import {
   spanishSite,
 } from "@/lib/spanish-site";
 import { buildPageMetadata } from "@/lib/site-metadata";
+import { isConsolidatedPath } from "@/lib/consolidation";
 import { site } from "@/lib/site";
 
 export const metadata = buildPageMetadata({
@@ -109,7 +110,10 @@ export default function SpanishHomePage() {
             inverted
           />
           <ul className="em-index-compact" role="list">
-            {spanishNichePages.map((page) => (
+            {/* No links into noindexed pages (SEO/GEO audit 2026-10-10, fix 5). */}
+            {spanishNichePages
+              .filter((page) => !isConsolidatedPath(`/es/${page.slug}`))
+              .map((page) => (
               <li key={page.slug}>
                 <Link href={`/es/${page.slug}`}>
                   {page.title}

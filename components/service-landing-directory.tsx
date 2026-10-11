@@ -2,9 +2,13 @@ import Link from "next/link";
 import React from "react";
 
 import { sitemapRoutes } from "@/app/sitemap";
+import { isConsolidatedPath } from "@/lib/consolidation";
 
 const serviceLandingRoutes = sitemapRoutes.filter(
-  ({ path }) => path.startsWith("/services/") && path !== "/services",
+  // Consolidated (noindexed/merged) pages are not linked from the hubs
+  // (SEO/GEO audit 2026-10-10, fix 5).
+  ({ path }) =>
+    path.startsWith("/services/") && path !== "/services" && !isConsolidatedPath(path),
 );
 
 function labelFromPath(path: string) {

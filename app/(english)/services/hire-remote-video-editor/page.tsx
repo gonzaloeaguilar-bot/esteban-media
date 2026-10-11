@@ -160,7 +160,7 @@ export default function HireRemoteVideoEditorPage() {
           <div className="mt-8 grid gap-4 md:grid-cols-3">
             {[
               { href: "/services/short-form-video-editor-miami", title: "Short-form video", detail: "For supplied footage that needs reels, Shorts, TikTok, captions, and crops." },
-              { href: "/services/youtube-video-editing-service-miami", title: "YouTube editing", detail: "For long-form structure, audio cleanup, pacing, and clips from one main edit." },
+              { href: "/services/content-creator-video-editing-miami", title: "Creator editing", detail: "For creators who need edits and clips cut from footage they already filmed." },
               { href: "/resources/video-project-brief-template", title: "Brief template", detail: "Copy a message that makes the quote easier to answer." },
             ].map((item) => (
               <Link key={item.href} href={item.href} className="rounded-lg border border-[#ddd4c8] bg-white p-5 hover:border-[#e85d3e]">
