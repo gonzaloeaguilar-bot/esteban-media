@@ -82,7 +82,7 @@ export const services: Service[] = [
       "Scoping starts with the source footage, publishing goal, and format needs for the project.",
     icon: Scissors,
     tags: ["Remote", "Supplied footage", "Post-production"],
-    startingPrice: `Starts at ${startingPackagePrice}`,
+    startingPrice: `Starts at ${startingPackagePrice} per video`,
   },
   {
     id: "ai-content",

@@ -60,7 +60,7 @@ export const spanishSite = {
   description:
     "Esteban Moreno Media: edición de video, contenido con IA y producción para redes en South Florida. Bilingüe Español/English. Fort Lauderdale — cotiza rápido.",
   /** The Spanish HOME only: anchored on the published starting price (lib/pricing.ts). */
-  homeDescription: `Esteban Moreno Media: edición de video, contenido con IA y producción para redes en Fort Lauderdale y Miami. Paquetes desde ${PACKAGE_PRICES.arranque.kind === "from" ? usd(PACKAGE_PRICES.arranque.amount) : "un precio a cotizar"}. Cotiza por WhatsApp.`,
+  homeDescription: `Esteban Moreno Media: edita videos para negocios en Fort Lauderdale y Miami desde ${PACKAGE_PRICES.arranque.kind === "from" ? usd(PACKAGE_PRICES.arranque.amount) : "un precio a cotizar"} por video. Atención en español. Cotiza por WhatsApp.`,
   contactLead:
     "Comparte la meta, el condado, el material disponible, las referencias y el uso previsto. La atención es principalmente en español y también hay comunicación disponible en inglés intermedio.",
 };
