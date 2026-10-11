@@ -1,3 +1,9 @@
+# Root <html> hydration warning — 2026-10-11
+
+Branch `fix/html-hydration-warning`. Every route logged "A tree hydrated but some attributes of the server rendered HTML didn't match" (the dev overlay's "1 Issue"): SiteChrome's motion gate and brand-moment boot set `class="rail-anim"` / `data-brand-moment` on `<html>` before React hydrates. Added `suppressHydrationWarning` to `<html>` in both locale root layouts and `global-not-found.tsx` (it covers that element's own attributes only). Reproduced on `/`, `/es`, `/pricing` and a 404 before the fix, 0 after. New guard `app/__tests__/html-hydration.test.ts`; `localized-layouts.test.ts` now matches the lang attribute instead of the exact tag string.
+
+---
+
 # Spanish service-area contextual links — 2026-10-11 (local, uncommitted)
 
 - Bounded dispatch: `cto-seo-lead` → implementation; verification owner `cto-qa-lead`. Base commit `94a63bb6dd6233fcad66339b6892d29f8933893c`.
