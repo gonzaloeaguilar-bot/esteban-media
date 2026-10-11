@@ -116,15 +116,24 @@
   * {
     @apply border-border;
   }
-  /* `overflow-x: clip` must live on the ROOT element. With it only on `body`,
-     the body's overflow propagates to the viewport and never clips, so any
-     wide descendant (e.g. the review carousel track) makes the whole page
-     pan sideways on touch and lets pinch-zoom drift. `clip` (not `hidden`)
-     avoids creating a scroll container, so it does not break `position:
-     sticky`/`fixed` children. */
-  html {
-    overflow-x: clip;
-  }
+  /* Horizontal overflow is contained at its SOURCE, never at the root.
+
+     A horizontal scroller's scrollable overflow (e.g. the review carousel
+     track) is folded into its ancestors' scrollWidth, so the wrapper that
+     OWNS the track is clipped — see `div:has(> .em-carousel-track)` further
+     down — before the leak can reach `main`.
+
+     Clipping the ROOT instead, `html { overflow-x: clip }`, does stop the
+     pan — but in Chromium it makes the document a clip container and quietly
+     breaks `position: sticky`. The header then scrolls away instead of
+     pinning, and the fixed reading-progress bar (`.em-progress`, `top: 65px`,
+     written to sit directly under a pinned 65px header) is left floating over
+     the content as a stray orange line. Measured on production 2026-10-11 at
+     390px: with the root clip, `header.getBoundingClientRect().top` was -8201
+     of a 8201 scroll; forcing the root back to `visible` restored it to 0.
+
+     `body { overflow-x: hidden }` stays as the last-resort net; unlike the
+     root clip it does not break the sticky header. */
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-sans), Arial, Helvetica, sans-serif;
