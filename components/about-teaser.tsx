@@ -2,7 +2,6 @@ import Link from "next/link";
 import { ArrowRight, BriefcaseBusiness, Languages, Laptop, MapPin } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { site } from "@/lib/site";
 
 const highlights = [
   {
@@ -72,27 +71,26 @@ export function AboutTeaser() {
       <Container size="xl">
         <div className="grid gap-10 lg:grid-cols-[1.1fr_.9fr] lg:items-center lg:gap-16">
           <div className="max-w-2xl">
-            <p className="text-xs font-medium uppercase tracking-wide text-[#5a6066]">
-              About Esteban
+            <p className="em-eyebrow">
+              About me
             </p>
             <h2
               id="about-heading"
-              className="mt-3 font-serif text-4xl leading-tight sm:text-5xl"
+              className="mt-3 em-h2"
             >
               An editor who understands the business behind the content.
             </h2>
             <p className="mt-5 text-base leading-7 text-[#252a2d] sm:text-lg sm:leading-8">
-              {site.shortName} brings editing, AI-assisted creative, social
-              planning, and scoped production into one direct relationship. The
-              conversation focuses on what the client needs to communicate and
-              where the content would be published.
+              I bring editing, AI-assisted creative, social planning, and
+              scoped production into one direct relationship. I start from what
+              you need to communicate and where the content will be published.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Link
                 href="/about"
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#101214] px-6 text-sm font-medium text-[#f6f1ea] hover:bg-[#2a2e32]"
               >
-                More about Esteban
+                More about me
                 <ArrowRight className="size-4" aria-hidden="true" />
               </Link>
               <Link

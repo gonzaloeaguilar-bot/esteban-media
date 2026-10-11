@@ -14,6 +14,7 @@ import { readFileSync } from "node:fs";
 import { ALaCarteSection } from "@/components/a-la-carte-section";
 import { packagesCopy } from "@/lib/packages";
 import { aLaCarteVisual } from "@/lib/a-la-carte-visuals";
+import { quoteCtaLabel } from "@/lib/quote-cta";
 
 const escape = (s: string) => s.replace(/&/g, "&amp;").replace(/'/g, "&#x27;").replace(/"/g, "&quot;");
 
@@ -24,8 +25,18 @@ describe.each(["en", "es"] as const)("illustrated commercial content (%s)", loca
       const scene = aLaCarteVisual(item.id, locale);
       expect(html).toContain(escape(item.title));
       if (item.note) expect(html).toContain(escape(item.note));
-      expect(html).toContain(`href="${item.href ?? (locale === "es" ? "/es/contacto" : "/contact")}"`);
-      expect(html).toContain(`data-cta="a_la_carte_${item.id}"`);
+      // A service with its own page links there; one without a page is a
+      // quote request and opens WhatsApp with the service already named, like
+      // every other quote action on the home (lib/quote-cta.ts). The `_whatsapp`
+      // suffix is what scripts/service-cta-dashboard.mjs reads as a contact CTA.
+      if (item.href) {
+        expect(html).toContain(`href="${item.href}"`);
+        expect(html).toContain(`data-cta="a_la_carte_${item.id}"`);
+      } else {
+        expect(html).toContain('href="https://wa.me/13054974478?text=');
+        expect(html).toContain(`data-cta="a_la_carte_${item.id}_whatsapp"`);
+        expect(html).toContain(escape(`${quoteCtaLabel(locale)}: ${item.title}`));
+      }
       expect(html).toContain(escape(scene.preparation));
       return createHash("sha256").update(readFileSync(`public${scene.image}`)).digest("hex");
     });

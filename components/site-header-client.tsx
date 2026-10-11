@@ -3,11 +3,14 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowRight, Globe, Menu, X } from "lucide-react";
+import { Globe, Menu, MessageCircle, X } from "lucide-react";
 
 import { SiteSearch } from "@/components/site-search";
 
 import { getPairedLanguageRoute } from "@/lib/language-routes";
+import { whatsappHref } from "@/lib/packages";
+import { quoteCtaLabel } from "@/lib/quote-cta";
+import { site } from "@/lib/site";
 
 export const englishNav = [
   { href: "/services", label: "Services" },
@@ -100,13 +103,24 @@ export function SiteHeaderClient({ shortName }: { shortName: string }) {
             <span className="em-language-word">{isSpanish ? "English" : "Español"}</span>
             <span className="em-language-short" aria-hidden="true">{isSpanish ? "EN" : "ES"}</span>
           </a>
-          <Link
-            href={isSpanish ? "/es/contacto" : "/contact"}
+          {/* The site's one primary action, worded the same everywhere (see
+              lib/quote-cta.ts). The greeting is the phone app bar's, so the
+              two entry points open the same conversation. /contact stays in
+              the footer for visitors who prefer the form. */}
+          <a
+            href={whatsappHref(
+              site.phone.e164,
+              isSpanish ? "Hola Esteban, vi tu página." : "Hi Esteban, I saw your site.",
+            )}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-cta="header_whatsapp"
+            data-section="header"
             className="hidden items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[var(--em-accent-ink-hover)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c84a2c] sm:inline-flex"
           >
-            {isSpanish ? "Consultar proyecto de video" : "Start a video project"}
-            <ArrowRight className="size-4" aria-hidden="true" />
-          </Link>
+            <MessageCircle className="size-4" aria-hidden="true" />
+            {quoteCtaLabel(isSpanish ? "es" : "en")}
+          </a>
           <button
             ref={menuButtonRef}
             type="button"
@@ -142,14 +156,21 @@ export function SiteHeaderClient({ shortName }: { shortName: string }) {
                 {item.label}
               </Link>
             ))}
-            <Link
-              href={isSpanish ? "/es/contacto" : "/contact"}
+            <a
+              href={whatsappHref(
+                site.phone.e164,
+                isSpanish ? "Hola Esteban, vi tu página." : "Hi Esteban, I saw your site.",
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setIsMenuOpen(false)}
+              data-cta="header_menu_whatsapp"
+              data-section="header"
               className="mt-2 inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-5 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)] sm:col-span-2"
             >
-              {isSpanish ? "Consultar un proyecto" : "Start a project"}
-              <ArrowRight className="size-4" aria-hidden="true" />
-            </Link>
+              <MessageCircle className="size-4" aria-hidden="true" />
+              {quoteCtaLabel(isSpanish ? "es" : "en")}
+            </a>
           </div>
         </nav>
       ) : null}

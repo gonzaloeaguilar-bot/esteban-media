@@ -9,8 +9,8 @@ const scenes = {
   },
   foto: {
     image: "photography", kind: "capture",
-    en: "Tell me what we’re photographing, the location, and where you’ll use the photos. Share a reference if you have one.",
-    es: "Cuéntame qué vamos a fotografiar, la ubicación y dónde usarás las fotos. Comparte una referencia si tienes una.",
+    en: "Tell me what I’ll be photographing, the location, and where you’ll use the photos. Share a reference if you have one.",
+    es: "Cuéntame qué voy a fotografiar, la ubicación y dónde usarás las fotos. Comparte una referencia si tienes una.",
   },
   mejora: {
     image: "enhancement", kind: "enhance",

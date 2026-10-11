@@ -1,9 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowDown, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 import { CinemaHeroMotion } from "@/components/cinema-hero-motion";
 import { Container } from "@/components/ui/container";
+import { whatsappHref } from "@/lib/packages";
+import { QUOTE_CTA_GREETING, quoteCtaLabel } from "@/lib/quote-cta";
+import { site } from "@/lib/site";
 
 type HeroVideoProps = {
   locale?: "en" | "es";
@@ -102,18 +105,27 @@ export function HeroVideo({ locale = "en" }: HeroVideoProps) {
               {isSpanish ? "Contenido que mueve tu marca." : "Content that moves your brand."}
             </p>
 
-            <div className="em-cine__actions" data-em-hero-actions>
+            {/* One primary action: the same WhatsApp quote the header, the
+                packages and the closing credit offer (lib/quote-cta.ts). The
+                portfolio stays as the one secondary, navigational link; the
+                packages are the next section down the page. */}
+            <div className="em-cine__actions" data-em-hero-actions data-section="hero">
               <a
-                href={isSpanish ? "#paquetes" : "#packages"}
+                href={whatsappHref(site.phone.e164, QUOTE_CTA_GREETING[locale])}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="em-cine__cta em-cine__cta--primary"
-                data-em-cta="hero_packages"
+                data-cta="hero_whatsapp"
               >
-                {isSpanish ? "Ver paquetes y precios" : "See packages & prices"}
-                <ArrowDown className="size-4" aria-hidden="true" />
+                {/* No icon here: at 360px the pair has to end inside the
+                    gutter, and the WhatsApp glyph pushed "View portfolio"
+                    past it. */}
+                {quoteCtaLabel(locale)}
               </a>
               <Link
                 href={isSpanish ? "/es/portafolio" : "/portfolio"}
                 className="em-cine__cta em-cine__cta--ghost"
+                data-cta="hero_portfolio"
               >
                 {isSpanish ? "Ver portafolio" : "View portfolio"}
                 <ArrowRight className="size-4" aria-hidden="true" />
@@ -126,7 +138,7 @@ export function HeroVideo({ locale = "en" }: HeroVideoProps) {
       {/* The subtitle band. The sentences search and the tests rely on, set as
           a caption under the film rather than a paragraph inside the credit,
           so the first screen stays a title card. */}
-      <section className="em-cine-caption" aria-label={isSpanish ? "Qué hace Esteban" : "What Esteban does"}>
+      <section className="em-cine-caption" aria-label={isSpanish ? "Qué hago" : "What I do"}>
         <Container size="xl">
           <p className="em-cine-caption__lead">
             {isSpanish
@@ -136,17 +148,17 @@ export function HeroVideo({ locale = "en" }: HeroVideoProps) {
           <p className="em-cine-caption__body">
             {isSpanish ? (
               <>
-                Edición de video, contenido asistido por IA y planificación para redes. Si necesitas grabación local, revisa las{" "}
+                Trae tu material o solo una idea. Si necesitas grabación local, revisa las{" "}
                 <Link href="/es/areas">áreas de servicio</Link>
-                . Consulta nuestras{" "}
+                . Consulta mis{" "}
                 <Link href="/es/guias">guías prácticas de video</Link>{" "}
                 para preparar el contenido.
               </>
             ) : (
               <>
-                Video editing, AI-assisted content, and social planning for businesses with footage or a new idea. For local filming, review the{" "}
+                Bring your footage or just an idea. For local filming, review the{" "}
                 <Link href="/areas">service area</Link>
-                . Browse our{" "}
+                . Browse my{" "}
                 <Link href="/guides">practical video guides</Link>{" "}
                 before production.
               </>
