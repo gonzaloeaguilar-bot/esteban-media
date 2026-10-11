@@ -83,6 +83,7 @@ export const sitemapRoutes = [
   { path: "/services/real-estate-reels-video-editor-south-florida", priority: 0.88 },
   { path: "/services/website-design-fort-lauderdale", priority: 0.85 },
   { path: "/services/ai-product-photography-miami", priority: 0.85 },
+  { path: "/services/product-photography-miami", priority: 0.85 },
   { path: "/services/dental-video-marketing-south-florida", priority: 0.85 },
   { path: "/services/med-spa-video-marketing-south-florida", priority: 0.85 },
   { path: "/services/content-repurposing-service-miami", priority: 0.85 },

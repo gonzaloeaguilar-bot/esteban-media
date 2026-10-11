@@ -2,8 +2,8 @@
   "status": "demand_gated",
   "effectiveDate": "2026-08-28",
   "baselineRevisedOn": "2026-10-11",
-  "approvedSitemapUrlCount": 342,
-  "approvedSitemapUrlSetSha256": "5a862f5dfb801901fa47080cd6fa52236676c790deaac5dd455d62726fd7ec31",
+  "approvedSitemapUrlCount": 343,
+  "approvedSitemapUrlSetSha256": "939ca3b3db5a9544394adaeda5aef1f430914595b183d9bbb432a43f709ac055",
   "allowedNewIndexableUrls": 4,
   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {
@@ -295,6 +295,15 @@
       "note": "Owner-approved batch larger than one demand-wave allowance of 4; recorded as one batch so the exception stays visible. allowedNewIndexableUrls is unchanged.",
       "followUpDate": "2026-11-11",
       "followUp": "Check GSC impressions, indexed status and inquiry-rail CTA clicks for every URL in this wave. A pair at zero impressions and zero contact intent after 30 days is merged into the nearest service page or dropped from the sitemap."
+    },
+    {
+      "on": "2026-10-11",
+      "url": "/services/product-photography-miami",
+      "orderedBy": "Gonzalo (active GEO demand-gap release)",
+      "kind": "real product photography service page",
+      "demandEvidence": "Direct authenticated GSC read for 2026-07-01..2026-10-08: 'miami product photographer' had 3 US impressions and 0 clicks and landed on /services/ai-product-photography-miami at average position 60.7. This is Esteban site visibility, not local market search volume. Gonzalo confirmed Esteban offers photography, and Esteban's 2026-07-16 interview names product photography. The new page distinguishes a real product shoot from AI visuals based on existing references.",
+      "followUpDate": "2026-11-11",
+      "followUp": "Compare GSC query/page impressions and clicks for 'miami product photographer' and the new page; check qualified photography inquiries and repeat the ChatGPT/Gemini buyer prompt. If no discovery or inquiries, review indexing and buyer wording before adding any more location pages."
     }
   ]
 }

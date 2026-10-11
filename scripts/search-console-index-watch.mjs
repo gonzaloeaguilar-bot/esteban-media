@@ -293,6 +293,7 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/resources/ai-product-photo-truth-checklist",
   "https://estebanmorenomedia.com/services/ai-food-photography-restaurants",
   "https://estebanmorenomedia.com/services/ai-product-photography-miami",
+  "https://estebanmorenomedia.com/services/product-photography-miami",
   "https://estebanmorenomedia.com/services/ai-real-estate-photo-enhancement",
   "https://estebanmorenomedia.com/services/architecture-design-video-miami",
   "https://estebanmorenomedia.com/services/automotive-video-marketing-miami",

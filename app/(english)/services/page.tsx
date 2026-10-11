@@ -252,6 +252,12 @@ export default function ServicesPage() {
                     "Ecommerce product images and lifestyle concepts built from accurate product references.",
                 },
                 {
+                  href: "/services/product-photography-miami",
+                  title: "Photograph real products",
+                  detail:
+                    "Plan a product shoot for ecommerce, website, and social images in Miami or Broward.",
+                },
+                {
                   href: "/services/ai-real-estate-photo-enhancement",
                   title: "Enhance real estate photos",
                   detail:
