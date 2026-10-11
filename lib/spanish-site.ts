@@ -71,6 +71,17 @@ export type SpanishService = {
 
 export const spanishServices: SpanishService[] = [
   {
+    id: "fotografia",
+    name: "Fotografía comercial",
+    shortName: "Fotografía",
+    description:
+      "Fotografía de producto y otros proyectos comerciales, con alcance definido según lo que necesitas mostrar, la locación y el uso de las imágenes.",
+    detail:
+      "Comparte qué se va a fotografiar, dónde será la sesión y cómo usarás las fotos para recibir una propuesta.",
+    icon: Camera,
+    tags: ["Producto", "Según proyecto", "Fort Lauderdale"],
+  },
+  {
     id: "edicion",
     name: "Edición de video",
     shortName: "Edición",
@@ -401,39 +412,39 @@ export const spanishNichePages: SpanishNichePage[] = [
     title: "Fotógrafo en Fort Lauderdale",
     metadataTitle: "Fotógrafo en Fort Lauderdale",
     description:
-      "Ruta educativa heredada sobre fotografía en Fort Lauderdale. La fotografía no se publica actualmente como servicio confirmado de Esteban Moreno Media.",
-    eyebrow: "Ruta heredada / confirmación pendiente",
-    h1: "Fotografía en Fort Lauderdale: disponibilidad pendiente de confirmación.",
+      "Fotografía comercial y de producto en Fort Lauderdale con Esteban Moreno Media. Cuéntanos qué necesitas fotografiar para definir el alcance.",
+    eyebrow: "Fort Lauderdale / fotografía comercial",
+    h1: "Fotografía comercial en Fort Lauderdale, según tu proyecto.",
     lead:
-      "Esta URL se conserva para evitar confusión y explicar el estado real: la disponibilidad de fotografía sigue pendiente de confirmación con Esteban. La página no ofrece una sesión ni promete imágenes, equipo o entregables.",
+      "Esteban ofrece fotografía, incluida fotografía de producto. Comparte qué necesitas mostrar, dónde será la sesión y cómo usarás las imágenes para definir la producción y recibir una propuesta.",
     keyword: "fotógrafo en Fort Lauderdale",
     location: "Fort Lauderdale / Broward County",
-    availability: "pending-confirmation",
+    availability: "confirmed",
     icon: Camera,
     bestFor: [
-      "Entender por qué esta ruta heredada continúa publicada.",
-      "Distinguir trabajo visual verificado de una sesión fotográfica.",
-      "Revisar los servicios que sí están confirmados actualmente.",
-      "Preparar preguntas para una futura confirmación de disponibilidad.",
+      "Negocios que necesitan fotografías reales de sus productos.",
+      "Marcas que quieren definir imágenes para su sitio y redes.",
+      "Equipos que prefieren explicar su proyecto en español.",
+      "Personas que quieren consultar alcance y uso antes de contratar.",
     ],
     scopingQuestions: [
-      "¿La fotografía forma parte de los servicios actuales? Aún está pendiente de confirmación.",
-      "¿Qué prueba publicada corresponde realmente a fotografía? Ninguna se presenta como sesión confirmada.",
-      "¿Qué prioridades sí están publicadas? Edición, contenido con IA, planificación y producción selectiva de video.",
-      "¿Cómo consultar sin asumir disponibilidad? Pregunta por los servicios confirmados y describe la meta visual.",
+      "¿Qué producto o aspecto de tu negocio necesitas fotografiar?",
+      "¿Dónde se realizaría la sesión y cuándo necesitas las imágenes?",
+      "¿Dónde se publicarán las fotos y qué formatos necesitas?",
+      "¿Tienes ejemplos del estilo visual que buscas?",
     ],
     projectFit:
-      "Es un recurso de transparencia, no una página de reserva. Mantiene la ruta mientras Esteban confirma si la fotografía debe ofrecerse públicamente.",
+      "Cuéntanos qué se va a fotografiar, dónde y para qué usarás las imágenes. Esteban confirmará las tomas, los archivos finales y el presupuesto antes de agendar la sesión.",
     faqs: [
       {
         question: "¿Se puede reservar fotografía con Esteban?",
         answer:
-          "La fotografía no se publica actualmente como servicio confirmado. Su disponibilidad sigue pendiente de una respuesta directa de Esteban.",
+          "Sí puedes consultar un proyecto de fotografía. Envía qué necesitas fotografiar, la locación, el uso previsto y las fechas; Esteban confirmará el alcance y la disponibilidad antes de cotizar.",
       },
       {
-        question: "¿My D'ler demuestra una sesión fotográfica?",
+        question: "¿Dónde puedo ver ejemplos de fotografía?",
         answer:
-          "No. Ese proyecto verifica trabajo visual de marca, diseños sociales, video 3D y mockups; no se presenta como una sesión de fotografía.",
+          "El portafolio público muestra principalmente video y diseño. Si necesitas comprobar experiencia fotográfica antes de contratar, pide ejemplos disponibles durante la consulta.",
       },
     ],
   },
@@ -665,7 +676,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         question: "¿Esta página ofrece fotografía de alimentos o sesiones fotográficas?",
         answer:
-          "No. La fotografía de alimentos tradicional sigue pendiente de confirmación y no se publica actualmente como servicio disponible. Para alternativas visuales digitales, puedes revisar [fotografía de comida con IA para restaurantes](/es/fotografia-de-comida-con-ia-restaurantes).",
+          "Esteban ofrece fotografía. Si necesitas fotos reales de platos, bebidas o del local además del video, describe la locación, las tomas y el uso previsto para confirmar el alcance de la sesión. También puedes consultar [fotografía en Fort Lauderdale](/es/fotografo-en-fort-lauderdale).",
       },
     ],
   },

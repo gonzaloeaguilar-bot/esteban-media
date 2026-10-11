@@ -221,6 +221,11 @@ export default function SpanishServicesPage() {
                     />
                     {service.detail}
                   </p>
+                  {service.id === "fotografia" ? (
+                    <Link href="/es/fotografo-en-fort-lauderdale" className="mt-5 inline-flex min-h-11 items-center text-sm font-medium text-[#9f3c27] underline underline-offset-4">
+                      Consultar fotografía en Fort Lauderdale
+                    </Link>
+                  ) : null}
                   {service.id === "diseno-web" || service.id === "website-design" ? (
                     <Link
                       href="/es/diseno-web-fort-lauderdale"
