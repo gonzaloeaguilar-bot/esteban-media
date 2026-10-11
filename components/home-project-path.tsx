@@ -2,13 +2,14 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { AUDIENCE_LANES, type AudienceLocale } from "@/lib/audience-lanes";
+import { realEstateReelsPath } from "@/lib/real-estate-reels";
 
 const copy = {
   en: {
     eyebrow: "Find your starting point",
     heading: "What do you need made?",
     intro: "Choose a project to see the relevant work and next steps.",
-    labels: ["Film a property", "Content for a business", "Edit existing footage"],
+    labels: ["Edit a property Reel", "Content for a business", "Edit existing footage"],
     pricing: "Need a starting price?",
     pricingDetail: "See packages and what each one includes before asking for a quote.",
     pricingAction: "Explore packages",
@@ -18,7 +19,7 @@ const copy = {
     eyebrow: "Encuentra por dónde empezar",
     heading: "¿Qué necesitas crear?",
     intro: "Elige un proyecto para ver trabajo relacionado y los próximos pasos.",
-    labels: ["Video para una propiedad", "Contenido para un negocio", "Editar material existente"],
+    labels: ["Editar un Reel inmobiliario", "Contenido para un negocio", "Editar material existente"],
     pricing: "¿Quieres ver precios para empezar?",
     pricingDetail: "Consulta los paquetes y lo que incluye cada uno antes de pedir una cotización.",
     pricingAction: "Ver paquetes",
@@ -38,7 +39,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
         <p className="mt-2 max-w-2xl text-base leading-7 text-[#4d5358]">{c.intro}</p>
         <div className="mt-6 grid gap-3 md:grid-cols-3">
           {lanes.map((lane, index) => (
-            <Link key={lane.id} href={lane.href} data-cta={`home-path-${lane.id}`} className="group flex min-h-20 items-center justify-between gap-4 rounded-xl border border-[#ddd4c8] bg-white px-5 py-4 text-lg font-medium leading-snug transition hover:border-[#a93e29] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a93e29]">
+            <Link key={lane.id} href={index === 0 ? realEstateReelsPath(locale) : lane.href} data-cta={`home-path-${lane.id}`} className="group flex min-h-20 items-center justify-between gap-4 rounded-xl border border-[#ddd4c8] bg-white px-5 py-4 text-lg font-medium leading-snug transition hover:border-[#a93e29] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a93e29]">
               <span>{c.labels[index]}</span>
               <ArrowRight className="size-5 shrink-0 text-[#a93e29] transition-transform group-hover:translate-x-1" aria-hidden="true" />
             </Link>
