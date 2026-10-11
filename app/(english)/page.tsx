@@ -10,7 +10,7 @@ import { SignalIntro } from "@/components/signal-intro";
 import { ClosingCredits, PackagesSection } from "@/components/packages-section";
 import { KeepReading } from "@/components/keep-reading";
 import { PortfolioTeaser } from "@/components/portfolio-teaser";
-import { RealEstateReels } from "@/components/real-estate-reels";
+import { RealEstateBlock } from "@/components/real-estate-block";
 import { ServicesStrip } from "@/components/services-strip";
 
 export const metadata: Metadata = {
@@ -63,12 +63,13 @@ export default function Home() {
           linked to none of them. Above the fold on purpose — a visitor from an
           Instagram bio link should not have to open a fold-out to find their lane. */}
       <AudienceRouter locale="en" />
-      <PackagesSection locale="en" />
+      {/* Real estate is the router's first lane, so its block comes straight
+          after it: the reel shelf, then the monthly plans behind one button.
+          The plans moved here from PackagesSection (showRealEstatePlans off),
+          so they render once; the VideoObject JSON-LD is emitted once. */}
+      <RealEstateBlock locale="en" />
+      <PackagesSection locale="en" showRealEstatePlans={false} />
       <PortfolioTeaser locale="en" />
-      {/* The conversion strip the social traffic needs: property reels in a
-          streaming-style shelf. Posters lazy-load up front; the MP4s load only
-          when a visitor opens one. */}
-      <RealEstateReels locale="en" />
       <ClientReviews locale="en" />
       <KeepReading id="more" className="em-fold" title="Want to see everything?" destinations="Services, areas, guides and more about Esteban.">
         <HomeAuthorityHub />

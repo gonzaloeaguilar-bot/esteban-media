@@ -1,5 +1,5 @@
 import React from "react";
-import type { CSSProperties } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
@@ -1244,7 +1244,18 @@ export function buildSpanishNicheMetadata(slug: string): Metadata {
   });
 }
 
-export function SpanishNichePage({ slug }: { slug: string }) {
+export function SpanishNichePage({
+  slug,
+  showcase,
+}: {
+  slug: string;
+  /**
+   * Optional proof strip rendered above the FAQ, mirroring the English
+   * GeoServicePage `showcase` slot. Additive and opt-in: a page that does not
+   * pass one renders exactly what it rendered before.
+   */
+  showcase?: ReactNode;
+}) {
   const page = getSpanishNichePage(slug);
 
   if (!page) {
@@ -1550,6 +1561,8 @@ export function SpanishNichePage({ slug }: { slug: string }) {
           </div>
         </Container>
       </section>
+
+      {showcase}
 
       <section className="py-12 sm:py-16">
         <Container size="xl">

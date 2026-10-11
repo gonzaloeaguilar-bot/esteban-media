@@ -10,9 +10,9 @@ import { site } from "@/lib/site";
 import { whatsappHref } from "@/lib/packages";
 import {
   REAL_ESTATE_REELS,
-  REAL_ESTATE_REELS_PATH,
   buildRealEstateReelsJsonLd,
   formatClock,
+  realEstateReelsPath,
 } from "@/lib/real-estate-reels";
 
 /**
@@ -74,6 +74,7 @@ export function RealEstateReels({
   const reels = REAL_ESTATE_REELS;
   const len = reels.length;
   const headingId = "real-estate-reels-heading";
+  const servicePath = realEstateReelsPath(locale);
 
   const [active, setActive] = useState<number | null>(null);
   const [previewing, setPreviewing] = useState<number | null>(null);
@@ -224,7 +225,7 @@ export function RealEstateReels({
       id: reel.id,
       // The title links here: the page that sells this work, so the rail is an
       // internal link into the service, not a closed loop.
-      href: REAL_ESTATE_REELS_PATH,
+      href: servicePath,
       title,
       subtitle: isEs ? "Reel de propiedad" : "Listing reel",
       meta: formatClock(reel.durationSeconds),
@@ -266,10 +267,12 @@ export function RealEstateReels({
               className="em-reel-preview pointer-events-none absolute inset-0 z-[1] h-full w-full object-cover"
             />
           )}
-          <span
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-t from-black/45 via-transparent to-transparent"
-          />
+          {/* The poster (and the hover preview, which sits under these at
+              z-1) fades and softly blurs into the card panel, so the title
+              below rises onto the picture instead of starting at a hard
+              edge. Static layers: nothing here animates. */}
+          <span aria-hidden="true" className="em-reel-fade-blur" />
+          <span aria-hidden="true" className="em-reel-fade" />
           {!isPreviewing && (
             <span
               aria-hidden="true"
@@ -280,12 +283,10 @@ export function RealEstateReels({
               </span>
             </span>
           )}
-          <span
-            aria-hidden="true"
-            className="pointer-events-none absolute bottom-3 left-3 z-[3] rounded-full bg-black/65 px-2.5 py-1 text-xs font-medium text-white"
-          >
-            {formatClock(reel.durationSeconds)}
-          </span>
+          {/* No duration chip on the poster: the card head already shows the
+              duration beside the title, and a chip in the bottom corner would
+              sit under the title that now rises onto the fade (in the top
+              corner it collided with the shelf counter on a phone). */}
         </button>
       ),
       actions: [
@@ -303,7 +304,7 @@ export function RealEstateReels({
   });
 
   const current = active === null ? null : reels[active];
-  const jsonLd = buildRealEstateReelsJsonLd();
+  const jsonLd = buildRealEstateReelsJsonLd(locale);
 
   return (
     <section
@@ -315,7 +316,10 @@ export function RealEstateReels({
         suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+      {/* The headline row sits ABOVE the strip (z-index): the strip rises a
+          little under it and fades in out of the band's own colour, so the
+          eye reads one continuous move from headline into reels. */}
+      <div className="relative z-[2] mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-3xl">
             <p className="text-xs font-medium uppercase text-[#ffb49e]">
@@ -390,7 +394,7 @@ export function RealEstateReels({
           plays the spotlight. */}
       <div
         ref={shelfRef}
-        className="em-on-dark em-reel mt-8"
+        className="em-on-dark em-reel em-reel--rise"
         onMouseOver={(event) => {
           const index = cardIndexFrom(event.target);
           if (index === null || index === hoveredRef.current) return;
@@ -537,7 +541,7 @@ export function RealEstateReels({
                       </button>
                     </div>
                     <a
-                      href={REAL_ESTATE_REELS_PATH}
+                      href={servicePath}
                       className="text-sm font-medium text-[#ffb49e] underline-offset-4 hover:underline"
                     >
                       {isEs ? "Conoce el servicio de reels" : "About the reel service"}

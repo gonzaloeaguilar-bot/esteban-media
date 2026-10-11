@@ -29,6 +29,7 @@ export function KeepReading({
   id,
   children,
   className = "",
+  cta,
 }: {
   /** The promise: what the visitor gets by opening it. */
   title: string;
@@ -37,6 +38,12 @@ export function KeepReading({
   id: string;
   children: React.ReactNode;
   className?: string;
+  /**
+   * Optional analytics id for the summary. Defaults to `keep_reading_<id>`;
+   * a fold that is a conversion control (e.g. the real-estate plans under the
+   * reel shelf) can name itself so its clicks are attributable.
+   */
+  cta?: string;
 }) {
   const ref = useRef<HTMLDetailsElement>(null);
 
@@ -51,7 +58,7 @@ export function KeepReading({
 
   return (
     <details ref={ref} className={`wk-keep-reading ${className}`} id={id} data-section={id}>
-      <summary data-cta={`keep_reading_${id}`}>
+      <summary data-cta={cta ?? `keep_reading_${id}`}>
         <span>
           <strong>{title}</strong>
           <small>{destinations}</small>

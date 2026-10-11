@@ -25,7 +25,19 @@ import { entityIds } from "@/lib/entity-schema";
 import { ARRANQUE_WEEKLY_FROM, usd } from "@/lib/pricing";
 import { absoluteUrl, site } from "@/lib/site";
 
-export function PackagesSection({ locale }: { locale: Locale }) {
+export function PackagesSection({
+  locale,
+  showRealEstatePlans = true,
+}: {
+  locale: Locale;
+  /**
+   * The monthly real-estate plans render here by default (the pricing pages).
+   * The homepages pass false because they show the plans inside the
+   * real-estate block under the reel shelf instead, and must not show them
+   * twice.
+   */
+  showRealEstatePlans?: boolean;
+}) {
   const copy = packagesCopy(locale);
   const packages = packagesFor(locale);
   const [open, setOpen] = useState<PackageContent["id"] | null>(null);
@@ -246,7 +258,7 @@ export function PackagesSection({ locale }: { locale: Locale }) {
 
       {/* 2b. Real estate: its own buyer and its own plan sizes, so its own
           section directly under the four packages. */}
-      <RealEstatePlansSection locale={locale} />
+      {showRealEstatePlans ? <RealEstatePlansSection locale={locale} /> : null}
 
       <ALaCarteSection locale={locale} />
 

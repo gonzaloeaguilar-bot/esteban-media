@@ -9,6 +9,7 @@ import { SignalIntro } from "@/components/signal-intro";
 import { PackagesSection, ClosingCredits } from "@/components/packages-section";
 import { KeepReading } from "@/components/keep-reading";
 import { PortfolioTeaser } from "@/components/portfolio-teaser";
+import { RealEstateBlock } from "@/components/real-estate-block";
 import { Container } from "@/components/ui/container";
 import {
   spanishNichePages,
@@ -36,7 +37,12 @@ export default function SpanishHomePage() {
           linked to none of them. Above the fold on purpose — a visitor from an
           Instagram bio link should not have to open a fold-out to find their lane. */}
       <AudienceRouter locale="es" />
-      <PackagesSection locale="es" />
+      {/* Real estate is the router's first lane, so its block comes straight
+          after it: the reel shelf, then the monthly plans behind one button.
+          The plans moved here from PackagesSection (showRealEstatePlans off),
+          so they render once; the VideoObject JSON-LD is emitted once. */}
+      <RealEstateBlock locale="es" />
+      <PackagesSection locale="es" showRealEstatePlans={false} />
       <PortfolioTeaser locale="es" />
       <ClientReviews locale="es" />
       <KeepReading
