@@ -69,11 +69,11 @@ export default function Home() {
       <HeroVideo />
       <PortfolioTeaser locale="en" />
       <HomeProjectPath locale="en" />
+      <RealEstateBlock locale="en" />
+      <PackagesSection locale="en" showRealEstatePlans={false} />
       <div className="em-home-review-controls"><ClientReviews locale="en" /></div>
-      <KeepReading id="more" className="em-fold" title="Explore the details" destinations="Real estate Reels, plans, services, areas and guides.">
+      <KeepReading id="more" className="em-fold" title="Explore more services" destinations="Service details, areas, guides and how Esteban works.">
         <AudienceRouter locale="en" />
-        <RealEstateBlock locale="en" />
-        <PackagesSection locale="en" showRealEstatePlans={false} />
         <HomeAuthorityHub />
         <ServicesStrip />
         <AboutTeaser />

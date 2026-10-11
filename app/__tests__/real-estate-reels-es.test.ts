@@ -53,14 +53,15 @@ describe("homepage real-estate block", () => {
     ["app/(spanish)/es/page.tsx", "es"],
   ] as const;
 
-  it.each(homes)("%s puts the block right after the audience router, before the packages", (page, locale) => {
+  it.each(homes)("%s keeps the visible real-estate block before the packages and optional detail", (page, locale) => {
     const src = source(page);
-    const router = src.indexOf("<AudienceRouter");
     const block = src.indexOf(`<RealEstateBlock locale="${locale}" />`);
     const packages = src.indexOf("<PackagesSection");
-    expect(router).toBeGreaterThan(-1);
-    expect(block).toBeGreaterThan(router);
+    const fold = src.indexOf("<KeepReading");
+    expect(block).toBeGreaterThan(-1);
     expect(packages).toBeGreaterThan(block);
+    expect(block).toBeLessThan(fold);
+    expect(packages).toBeLessThan(fold);
   });
 
   it.each(homes)("%s renders the shelf and the plans exactly once", (page) => {
@@ -73,10 +74,9 @@ describe("homepage real-estate block", () => {
     expect(src.split("<RealEstateBlock").length - 1).toBe(1);
   });
 
-  it("keeps the plans in the server HTML behind an attributable fold-out", () => {
+  it("keeps reels and prices visibly together in the server HTML", () => {
     const block = source("components/real-estate-block.tsx");
-    expect(block).toContain("<KeepReading");
-    expect(block).toContain('cta="real_estate_plans_expand"');
+    expect(block).not.toContain("<KeepReading");
     expect(block).toContain("<RealEstatePlansSection locale={locale} />");
     expect(block).toContain("<RealEstateReels locale={locale} />");
   });

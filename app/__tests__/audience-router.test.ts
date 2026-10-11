@@ -47,7 +47,7 @@ describe("audience paths — on both home pages", () => {
     const router = src.indexOf("<AudienceRouter");
     const packages = src.indexOf("<PackagesSection");
     expect(fold).toBeLessThan(router);
-    if (packages > -1) expect(router).toBeLessThan(packages);
+    if (packages > -1) expect(packages).toBeLessThan(fold);
   });
 });
 

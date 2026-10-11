@@ -35,16 +35,16 @@ export default function SpanishHomePage() {
       <HeroVideo locale="es" />
       <PortfolioTeaser locale="es" />
       <HomeProjectPath locale="es" />
+      <RealEstateBlock locale="es" />
+      <PackagesSection locale="es" showRealEstatePlans={false} />
       <div className="em-home-review-controls"><ClientReviews locale="es" /></div>
       <KeepReading
         id="mas"
         className="em-fold"
-        title="Explora los detalles"
-        destinations="Reels inmobiliarios, planes, servicios, zonas y guías."
+        title="Explora más servicios"
+        destinations="Detalles de servicios, zonas, guías y cómo trabaja Esteban."
       >
       <AudienceRouter locale="es" />
-      <RealEstateBlock locale="es" />
-      <PackagesSection locale="es" showRealEstatePlans={false} />
       <HomeAuthorityHub locale="es" />
 
       <section className="py-12 sm:py-16">

@@ -38,10 +38,10 @@ describe("home — proof before pricing", () => {
     expect(src.indexOf("<PortfolioTeaser")).toBeLessThan(path);
   });
 
-  it.each(HOMES)("%s keeps full packages in server-rendered optional detail", (page) => {
+  it.each(HOMES)("%s keeps full package prices visible before optional detail", (page) => {
     const src = source(page);
     const packages = src.indexOf("<PackagesSection");
     const fold = src.indexOf("<KeepReading");
-    expect(packages).toBeGreaterThan(fold);
+    expect(packages).toBeLessThan(fold);
   });
 });

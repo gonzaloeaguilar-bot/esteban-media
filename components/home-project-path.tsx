@@ -2,7 +2,9 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { AUDIENCE_LANES, type AudienceLocale } from "@/lib/audience-lanes";
+import { packagesFor, priceFor } from "@/lib/packages";
 import { realEstateReelsPath } from "@/lib/real-estate-reels";
+import { usd } from "@/lib/pricing";
 
 const copy = {
   en: {
@@ -14,6 +16,9 @@ const copy = {
     pricingDetail: "See packages and what each one includes before asking for a quote.",
     pricingAction: "Explore packages",
     pricingHref: "/pricing",
+    from: "From",
+    custom: "Custom quote",
+    units: { video: "/video", month: "/month", "production-day": "/production day" },
   },
   es: {
     eyebrow: "Encuentra por dónde empezar",
@@ -24,12 +29,16 @@ const copy = {
     pricingDetail: "Consulta los paquetes y lo que incluye cada uno antes de pedir una cotización.",
     pricingAction: "Ver paquetes",
     pricingHref: "/es/precios",
+    from: "Desde",
+    custom: "Cotización personalizada",
+    units: { video: "/video", month: "/mes", "production-day": "/día de producción" },
   },
 } as const;
 
 export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
   const c = copy[locale];
   const lanes = AUDIENCE_LANES[locale].lanes;
+  const packages = packagesFor(locale);
 
   return (
     <section id="start" aria-labelledby={`home-path-${locale}`} data-section="home-project-path" className="bg-[#f7f5f1] py-10 sm:py-14">
@@ -45,9 +54,24 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
             </Link>
           ))}
         </div>
-        <div className="mt-6 flex flex-col gap-2 border-t border-[#ddd4c8] pt-5 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-6 border-t border-[#ddd4c8] pt-5">
           <p className="text-sm leading-6 text-[#4d5358]"><strong className="text-[#101214]">{c.pricing}</strong> {c.pricingDetail}</p>
-          <Link href={c.pricingHref} data-cta="home-pricing" className="inline-flex min-h-11 shrink-0 items-center gap-2 self-start font-medium text-[#9d3d2b] underline underline-offset-4 sm:self-auto">
+          <ul className="mt-4 grid grid-cols-2 gap-2 lg:grid-cols-4" aria-label={c.pricing}>
+            {packages.map((pkg) => {
+              const price = priceFor(pkg.id);
+              return (
+                <li key={pkg.id} className="rounded-xl border border-[#ddd4c8] bg-white px-4 py-3">
+                  <span className="block text-sm font-medium leading-snug text-[#101214]">{pkg.name}</span>
+                  <span className="mt-1 block text-sm leading-snug text-[#9d3d2b]">
+                    {price.kind === "custom"
+                      ? c.custom
+                      : `${c.from} ${usd(price.amount)}${c.units[price.unit]}`}
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
+          <Link href={c.pricingHref} data-cta="home-pricing" className="mt-3 inline-flex min-h-11 shrink-0 items-center gap-2 self-start font-medium text-[#9d3d2b] underline underline-offset-4 sm:self-auto">
             {c.pricingAction}<ArrowRight className="size-4" aria-hidden="true" />
           </Link>
         </div>
