@@ -13,7 +13,7 @@ const copy = {
   en: {
     eyebrow: "Client reviews",
     title: "What clients have said publicly.",
-    lead: "Real reviews from Esteban's verified Google profile, reproduced word for word — typos and all. Nothing on this page is written for the site.",
+    lead: "Real reviews from my verified Google profile, word for word.",
     ratingKicker: "Google rating",
     ratingAria: `${googleReviewSnapshot.rating.toFixed(1)} out of 5 on Google, from ${googleReviewSnapshot.reviewCount} reviews`,
     reviewCount: (count: number) =>
@@ -21,14 +21,12 @@ const copy = {
     verifiedBadge: "Verified on Google",
     verify: reviewSourceLabel.en,
     summaryNote: (shown: number, total: number) =>
-      `Showing ${shown} of ${total} reviews — the ones whose full text has been read at the source so far. The rest live on Google.`,
-    sourceNote:
-      "Attributed to Google, linked to the profile, and never emitted as rating markup about ourselves.",
+      `Showing ${shown} of ${total} reviews. The rest are on Google.`,
   },
   es: {
     eyebrow: "Reseñas de clientes",
     title: "Lo que los clientes han dicho públicamente.",
-    lead: "Reseñas reales del perfil verificado de Google de Esteban, reproducidas palabra por palabra — con erratas incluidas. Nada en esta página se escribe para el sitio.",
+    lead: "Reseñas reales de mi perfil verificado de Google, palabra por palabra.",
     ratingKicker: "Calificación de Google",
     ratingAria: `${googleReviewSnapshot.rating.toFixed(1)} de 5 en Google, con ${googleReviewSnapshot.reviewCount} reseñas`,
     reviewCount: (count: number) =>
@@ -36,9 +34,7 @@ const copy = {
     verifiedBadge: "Verificado en Google",
     verify: reviewSourceLabel.es,
     summaryNote: (shown: number, total: number) =>
-      `Mostrando ${shown} de ${total} reseñas — aquellas cuyo texto completo se ha leído en la fuente hasta ahora. El resto vive en Google.`,
-    sourceNote:
-      "Atribuidas a Google, enlazadas al perfil y nunca emitidas como markup de calificación sobre nosotros mismos.",
+      `Mostrando ${shown} de ${total} reseñas. El resto está en Google.`,
   },
 } as const;
 
@@ -59,7 +55,7 @@ export function ClientReviews({ locale = "en" }: { locale?: "en" | "es" }) {
   }
 
   const t = copy[locale];
-  const { rating, reviewCount, readAt } = googleReviewSnapshot;
+  const { rating, reviewCount } = googleReviewSnapshot;
 
   return (
     <section
@@ -128,12 +124,12 @@ export function ClientReviews({ locale = "en" }: { locale?: "en" | "es" }) {
           />
         </div>
 
+        {/* Visible copy stays customer-facing. The provenance rules did not
+            move: quotes stay verbatim and dated in lib/client-reviews.ts, and
+            no aggregateRating/review markup is emitted about the business
+            (lib/__tests__/client-reviews.test.ts). */}
         <p className="mt-8 text-xs leading-relaxed text-[#5a6066]">
-          {t.summaryNote(googleReviews.length, reviewCount)}{" "}
-          {t.sourceNote} <span aria-hidden="true">·</span>{" "}
-          {locale === "es"
-            ? `Instantánea del perfil leída el ${readAt}`
-            : `Profile snapshot read ${readAt}`}
+          {t.summaryNote(googleReviews.length, reviewCount)}
         </p>
       </Container>
     </section>
