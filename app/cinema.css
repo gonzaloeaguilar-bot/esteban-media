@@ -1058,22 +1058,36 @@ a.em-pk-carte__item:focus-visible { outline: 2px solid var(--cine-accent-deep); 
   color: var(--cine-accent-deep);
 }
 
-/* ------------------------------------------------------------- 3 steps ---- */
+/* ------------------------------------------------- 3 steps + answers ---- */
 
-.em-pk-steps {
+/* One block: the three steps beside the quick answers on desktop, stacked
+   below 1024px. Both halves keep their own <section> and data-section. */
+.em-pk-qa {
   background: var(--cine-paper);
-  padding: 20px 0 64px;
+  padding: 24px 0 56px;
+}
+.em-pk-qa__grid {
+  display: grid;
+  gap: 40px;
+}
+@media (min-width: 1024px) {
+  .em-pk-qa__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 56px;
+    align-items: start;
+  }
 }
 .em-pk-steps__list {
   position: relative;
   display: grid;
-  gap: 12px;
-  margin: 26px 0 0;
+  gap: 0;
+  margin: 20px 0 0;
   padding: 0;
   list-style: none;
   counter-reset: none;
 }
-@media (min-width: 768px) {
+/* Tablet: the full-width block has room for the steps as one row. */
+@media (min-width: 768px) and (max-width: 1023px) {
   .em-pk-steps__list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 }
 .em-pk-steps__list li {
@@ -1082,15 +1096,16 @@ a.em-pk-carte__item:focus-visible { outline: 2px solid var(--cine-accent-deep); 
   grid-template-columns: auto minmax(0, 1fr);
   column-gap: 16px;
   align-items: baseline;
-  padding: 14px 0 16px;
+  padding: 10px 0 12px;
   border-bottom: 1px solid var(--cine-line);
 }
 .em-pk-steps__list li:last-child { border-bottom: 0; }
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 1023px) {
   .em-pk-steps__list li { border-bottom: 0; padding: 0; }
 }
 .em-pk-steps__n {
   grid-row: 1 / span 2;
+  min-width: 1.15em; /* "01"–"03" differ in width; keep the titles aligned. */
   font-family: var(--font-display), "Oswald", "Arial Narrow", sans-serif;
   font-weight: 700;
   font-size: 40px;
@@ -1119,16 +1134,17 @@ html.rail-anim .em-pk-steps__list.rail-reveal.is-in li { opacity: 1; transform: 
 html.rail-anim .em-pk-steps__list.rail-reveal.is-in li:nth-child(2) { transition-delay: 0.15s; }
 html.rail-anim .em-pk-steps__list.rail-reveal.is-in li:nth-child(3) { transition-delay: 0.3s; }
 .em-pk-steps__note {
-  margin: 18px 0 0;
+  margin: 14px 0 0;
   font-size: 13.5px;
   color: var(--cine-muted);
 }
 
-.em-pk-faq {
-  background: var(--cine-paper);
-  padding: 8px 0 64px;
-}
+/* Tighter question rows; each summary still clears the 44px tap target. */
 .em-pk-faq__list { margin-top: 20px; max-width: 760px; }
+.rail-faq.em-pk-faq__list {
+  --rail-faq-padding: 0.875rem 0;
+  --rail-faq-gap: 0.5rem;
+}
 
 /* ------------------------------------------------------ closing credit ---- */
 

@@ -24,46 +24,49 @@ export function PackagesSection({ locale }: { locale: Locale }) {
 
       <ALaCarteSection locale={locale} />
 
-      {/* 4. The three steps. */}
-      <section className="em-pk-steps" aria-labelledby="em-pk-steps-title" data-section="quote_process">
-        <Container size="xl">
-          <p className="em-pk-eyebrow">{copy.process.eyebrow}</p>
-          <h2 id="em-pk-steps-title" className="em-pk-title">
-            {copy.process.title}
-          </h2>
-          <p className="em-pk-lead">{copy.process.lead}</p>
-          <ol className="em-pk-steps__list" data-em-reveal>
-            {copy.process.steps.map((step, i) => (
-              <li key={step.title}>
-                <span className="em-pk-steps__n" aria-hidden="true">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span className="em-pk-steps__title">{step.title}</span>
-                <span className="em-pk-steps__body">{step.body}</span>
-              </li>
-            ))}
-          </ol>
-          <p className="em-pk-steps__note">{copy.process.note}</p>
-        </Container>
-      </section>
+      {/* 4 + 5. One compact block: the three steps beside the quick answers on
+          desktop, stacked on mobile. Both stay their own <section> so the
+          headings, anchors and data-section attribution are unchanged. */}
+      <div className="em-pk-qa">
+        <Container size="xl" className="em-pk-qa__grid">
+          {/* 4. The three steps. */}
+          <section className="em-pk-steps" aria-labelledby="em-pk-steps-title" data-section="quote_process">
+            <p className="em-pk-eyebrow">{copy.process.eyebrow}</p>
+            <h2 id="em-pk-steps-title" className="em-pk-title">
+              {copy.process.title}
+            </h2>
+            <p className="em-pk-lead">{copy.process.lead}</p>
+            <ol className="em-pk-steps__list" data-em-reveal>
+              {copy.process.steps.map((step, i) => (
+                <li key={step.title}>
+                  <span className="em-pk-steps__n" aria-hidden="true">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="em-pk-steps__title">{step.title}</span>
+                  <span className="em-pk-steps__body">{step.body}</span>
+                </li>
+              ))}
+            </ol>
+            <p className="em-pk-steps__note">{copy.process.note}</p>
+          </section>
 
-      {/* 5. Quick answers — the questions people actually ask ("¿cuánto cobras
-          por editar?"), answered first, from the same data as the cards. The
-          same text feeds the FAQPage schema below, so search and AI answers
-          quote exactly what a visitor reads. */}
-      <section className="em-pk-faq" aria-labelledby="em-pk-faq-title" data-section="package_faq">
-        <Container size="xl">
-          <p className="em-pk-eyebrow">{locale === "es" ? "Preguntas rápidas" : "Quick answers"}</p>
-          <h2 id="em-pk-faq-title" className="em-pk-title">
-            {locale === "es" ? "Lo que todos preguntan." : "What everyone asks."}
-          </h2>
-          <RailFaq
-            className="em-pk-faq__list"
-            source="package_faq"
-            items={packageFaq(locale).map((q) => ({ id: q.id, question: q.question, answer: q.answer }))}
-          />
+          {/* 5. Quick answers — the questions people actually ask ("¿cuánto cobras
+              por editar?"), answered first, from the same data as the cards. The
+              same text feeds the FAQPage schema below, so search and AI answers
+              quote exactly what a visitor reads. */}
+          <section className="em-pk-faq" aria-labelledby="em-pk-faq-title" data-section="package_faq">
+            <p className="em-pk-eyebrow">{locale === "es" ? "Preguntas rápidas" : "Quick answers"}</p>
+            <h2 id="em-pk-faq-title" className="em-pk-title">
+              {locale === "es" ? "Lo que todos preguntan." : "What everyone asks."}
+            </h2>
+            <RailFaq
+              className="em-pk-faq__list"
+              source="package_faq"
+              items={packageFaq(locale).map((q) => ({ id: q.id, question: q.question, answer: q.answer }))}
+            />
+          </section>
         </Container>
-      </section>
+      </div>
       <script
         type="application/ld+json"
         suppressHydrationWarning
