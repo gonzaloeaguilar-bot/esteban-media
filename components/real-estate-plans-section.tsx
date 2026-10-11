@@ -9,6 +9,7 @@ import { REAL_ESTATE_PLAN_TERMS } from "@/lib/pricing";
 import { realEstatePlanName, realEstatePlans, realEstatePlansCopy, realEstateTerms } from "@/lib/real-estate-plans";
 import RailPrice from "@/vendor/rail-kit/RailPrice";
 import RailSegmented from "@/vendor/rail-kit/RailSegmented";
+import { quoteCtaLabel } from "@/lib/quote-cta";
 import { site } from "@/lib/site";
 import { REAL_ESTATE_PLAN_VISUALS } from "@/lib/real-estate-plan-visuals";
 import { IllustratedScene } from "@/components/illustrated-scene";
@@ -24,7 +25,7 @@ export function RealEstatePlansSection({ locale }: { locale: Locale }) {
     <section id={es ? "real-estate" : "real-estate-plans"} className="em-visual-plans" aria-labelledby="em-re-title" data-section="real_estate_plans">
       <Container size="xl">
         <p className="em-property-category"><House size={20} aria-hidden="true" />{es ? "Solo para bienes raíces" : "Real estate only"}</p>
-        <h2 id="em-re-title" className="em-visual-heading">{es ? "Planes mensuales de bienes raíces." : "Monthly real estate plans."}</h2>
+        <h2 id="em-re-title" className="em-visual-heading em-h2">{es ? "Planes mensuales de bienes raíces." : "Monthly real estate plans."}</h2>
         <p className="em-visual-intro">{es ? "Para agentes e inmobiliarias: fotografía de propiedades y contenido para Instagram y TikTok." : "For agents and brokerages: property photography and content for Instagram and TikTok."}</p>
         <div className="em-plan-choice" hidden={!enhanced}>
           <p>{es ? "¿Cuántas propiedades al mes?" : "How many properties per month?"}</p>
@@ -44,7 +45,7 @@ export function RealEstatePlansSection({ locale }: { locale: Locale }) {
                   `${plan.postsPerWeek} ${es ? "posts o Reels por semana" : "posts or Reels per week"}`,
                   `${c.rows.drone}: ${plan.drone === "included" ? c.values.included : c.values.addOn}`,
                 ]} />
-              <p>{es ? "Ilustración conceptual · Actualizado " : "Concept illustration · Updated "}<time dateTime="2026-10-03">{es ? "3 oct 2026" : "Oct 3, 2026"}</time></p>
+              <p>{es ? "Ilustración conceptual" : "Concept illustration"}</p>
             </div>
             <div className="em-plan-overview">
               <div className="em-plan-name"><h3>{name}</h3><span>{plan.properties} {es ? (plan.properties === 1 ? "propiedad / mes" : "propiedades / mes") : (plan.properties === 1 ? "property / month" : "properties / month")}</span></div>
@@ -60,8 +61,8 @@ export function RealEstatePlansSection({ locale }: { locale: Locale }) {
               <p className="em-plan-terms">{es
                 ? `Mínimo de ${REAL_ESTATE_PLAN_TERMS.minimumMonths} meses. Hasta 3,000 SF por propiedad. Aviso de ${REAL_ESTATE_PLAN_TERMS.cancelNoticeDays} días para cancelar. Cargos por zona aparte.`
                 : `${REAL_ESTATE_PLAN_TERMS.minimumMonths}-month minimum. Up to 3,000 SF per property. ${REAL_ESTATE_PLAN_TERMS.cancelNoticeDays} days’ notice to cancel. Out-of-area fees extra.`}</p>
-              <a href={whatsappHref(site.phone.e164, c.whatsapp(name))} className="em-plan-quote" target="_blank" rel="noopener noreferrer" data-cta={`real_estate_plan_${plan.id}_whatsapp`}>
-                <MessageCircle size={18} aria-hidden="true" />{c.quote(name)}<ArrowRight size={18} aria-hidden="true" />
+              <a href={whatsappHref(site.phone.e164, c.whatsapp(name))} className="em-plan-quote" target="_blank" rel="noopener noreferrer" aria-label={`${quoteCtaLabel(locale)}: ${name}`} data-cta={`real_estate_plan_${plan.id}_whatsapp`}>
+                <MessageCircle size={18} aria-hidden="true" />{quoteCtaLabel(locale)}<ArrowRight size={18} aria-hidden="true" />
               </a>
               <details className="em-plan-details">
                 <summary>{es ? "Ver todo lo incluido" : "See everything included"}</summary>

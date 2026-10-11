@@ -3,6 +3,7 @@ import { MessageCircle } from "lucide-react";
 import { arranqueWeeklyComparisonLine, arranqueWeeklyHref, arranqueWeeklyWhatsapp } from "@/lib/arranque-weekly";
 import { packagesCopy, priceFor, whatsappHref, type Locale } from "@/lib/packages";
 import { ARRANQUE_WEEKLY_OPTIONS, usd } from "@/lib/pricing";
+import { quoteCtaLabel } from "@/lib/quote-cta";
 import { site } from "@/lib/site";
 
 /**
@@ -32,7 +33,7 @@ export function StarterOptions({ locale, showTermsLink = true }: { locale: Local
         <div className="em-pk-starter-tile" data-plan="once">
           <p className="em-pk-starter-tile__name">{es ? "Una sola vez" : "Just once"}</p>
           <div className="em-pk-starter-tile__price">
-            <span className="em-pk-starter-tile__num">{once === null ? copy.price.custom : usd(once)}</span>
+            <span className={`em-pk-starter-tile__num em-price-figure${once === null ? " em-price-figure--words" : ""}`}>{once === null ? copy.price.custom : usd(once)}</span>
             <span className="em-pk-starter-tile__unit">{unit}</span>
           </div>
           <a
@@ -46,9 +47,10 @@ export function StarterOptions({ locale, showTermsLink = true }: { locale: Local
             target="_blank"
             rel="noopener noreferrer"
             data-cta="package_arranque_project_whatsapp"
+            aria-label={`${quoteCtaLabel(locale)}: ${es ? "Una sola vez" : "Just once"}`}
           >
             <MessageCircle className="size-4" aria-hidden="true" />
-            {es ? "Cotizar por WhatsApp" : "Quote on WhatsApp"}
+            {quoteCtaLabel(locale)}
           </a>
         </div>
 
@@ -57,7 +59,7 @@ export function StarterOptions({ locale, showTermsLink = true }: { locale: Local
           <div className="em-pk-starter-tile__rows">
             {ARRANQUE_WEEKLY_OPTIONS.map((opt) => (
               <div key={opt.id} className="em-pk-starter-tile__row">
-                <span className="em-pk-starter-tile__num">{usd(opt.pricePerWeek)}</span>
+                <span className="em-pk-starter-tile__num em-price-figure">{usd(opt.pricePerWeek)}</span>
                 <span className="em-pk-starter-tile__unit">
                   {es ? "/semana" : "/week"} · {opt.videosPerWeek} {opt.videosPerWeek === 1 ? "video" : "videos"}
                 </span>
@@ -74,9 +76,10 @@ export function StarterOptions({ locale, showTermsLink = true }: { locale: Local
             target="_blank"
             rel="noopener noreferrer"
             data-cta="package_arranque_weekly_whatsapp"
+            aria-label={`${quoteCtaLabel(locale)}: ${es ? "Cada semana" : "Every week"}`}
           >
             <MessageCircle className="size-4" aria-hidden="true" />
-            {es ? "Empezar por WhatsApp" : "Start on WhatsApp"}
+            {quoteCtaLabel(locale)}
           </a>
           {showTermsLink ? (
             <p className="em-pkcard__weekly">
