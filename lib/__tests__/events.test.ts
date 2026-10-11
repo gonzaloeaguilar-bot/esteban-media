@@ -13,31 +13,22 @@ import {
   eventSectionPaths,
   formatDateRange,
   parseIsoDate,
+  staleEditions,
 } from "@/lib/events";
 import { getPairedLanguageRoute } from "@/lib/language-routes";
 import { languageAlternates } from "@/lib/spanish-site";
 import { absoluteUrl } from "@/lib/site";
 
-/**
- * The date the check runs against. Defaults to "now" (the CI/build clock);
- * EVENTS_DATE_CHECK=YYYY-MM-DD pins it for a reproducible run.
- */
-const checkDate = process.env.EVENTS_DATE_CHECK
-  ? parseIsoDate(process.env.EVENTS_DATE_CHECK)
-  : new Date();
-
 const pageFile = (path: string) =>
   join(process.cwd(), "app", path.startsWith("/es") ? "(spanish)" : "(english)", path, "page.tsx");
 
 describe("annual event dates (lib/events.ts)", () => {
-  it("has no nextEdition that has already ended — refresh the dates every year", () => {
-    const stale = EVENTS.filter((event) => event.nextEdition)
-      .filter((event) => parseIsoDate(event.nextEdition!.end).getTime() + 86_400_000 <= checkDate.getTime())
-      .map(
-        (event) =>
-          `${event.id}: nextEdition ended ${event.nextEdition!.end}. Update lib/events.ts with the next listed edition (or set nextEdition to null until one is listed) and bump lastChecked.`,
-      );
-    expect(stale, stale.join("\n")).toEqual([]);
+  it("reports ended editions through staleEditions(), not as a test failure", () => {
+    // Staleness is a scheduled reminder (pnpm events:check), never a merge blocker.
+    const event = EVENTS[0];
+    const end = parseIsoDate(event.nextEdition!.end);
+    expect(staleEditions(new Date(end.getTime() - 86_400_000)).map((s) => s.id)).not.toContain(event.id);
+    expect(staleEditions(new Date(end.getTime() + 2 * 86_400_000)).map((s) => s.id)).toContain(event.id);
   });
 
   it("keeps every edition well formed", () => {

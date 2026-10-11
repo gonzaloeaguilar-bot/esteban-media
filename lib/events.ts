@@ -377,3 +377,16 @@ export const EVENT_CROSSLINKS: Record<string, readonly EventId[]> = {
   "/es/edicion-de-video-para-eventos-miami": ["flibs", "art-basel", "emerge-americas", "miami-music-week"],
   "/es/videografo-para-eventos-corporativos-miami": ["emerge-americas", "flibs"],
 };
+
+/**
+ * Listed editions that have ended relative to `now`. Not a test failure:
+ * `pnpm events:check` (scheduled in .github/workflows/followups-due.yml)
+ * reports these as a weekly reminder, and the pages already hide them.
+ */
+export function staleEditions(now: Date = new Date()): { id: EventId; end: string; lastChecked: string }[] {
+  return EVENTS.filter((event) => event.nextEdition && !displayEdition(event, now)).map((event) => ({
+    id: event.id,
+    end: event.nextEdition!.end,
+    lastChecked: event.nextEdition!.lastChecked,
+  }));
+}

@@ -31,6 +31,7 @@
     "rail-kit:check": "node scripts/sync-rail-kit.mjs --check",
     "rail-adoption:check": "vitest run app/__tests__/rail-adoption.test.ts",
     "followups": "node scripts/followup-due.mjs",
+    "events:check": "node --experimental-strip-types --no-warnings scripts/events-check.mjs",
     "text-parity": "node scripts/text-parity.mjs check .next/server/app app/__tests__/fixtures/spanish-niche-text-baseline.json"
   },
   "dependencies": {
