@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +18,13 @@ export default function PlasticSurgeryVideoMarketingPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/plastic-surgery-video-marketing-miami",
+        name: "Plastic Surgery Video Marketing Miami",
+        description:
+          "Confidential, high-end video editing and patient education video content for plastic surgeons and cosmetic practices in Miami.",
+        crumb: "Plastic Surgery Video",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/plastic-surgery-video-marketing-miami#service"),

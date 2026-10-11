@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { ServiceDeepDive } from "@/components/service-depth";
+import { ServiceDeepDive, buildServicePageNodes } from "@/components/service-depth";
 import { GYM_DEEP_DIVE } from "@/lib/service-deep-dive-content";
 import { PACKAGE_PRICES, usd } from "@/lib/pricing";
 import { buildPageMetadata } from "@/lib/site-metadata";
@@ -23,6 +23,13 @@ export default function FitnessGymVideoMarketingMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/fitness-gym-video-marketing-miami",
+        name: "Fitness Gym Video Marketing Miami",
+        description:
+          "Gym, trainer and pilates studio video in Miami: what editing, on-site filming and a monthly plan cost, with prices from the published rate card.",
+        crumb: "Fitness Gym Video",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/fitness-gym-video-marketing-miami#service"),

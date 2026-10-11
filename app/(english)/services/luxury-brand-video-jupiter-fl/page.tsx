@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +18,13 @@ export default function LuxuryBrandVideoJupiterFlPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/luxury-brand-video-jupiter-fl",
+        name: "Luxury Brand Video Jupiter FL",
+        description:
+          "Luxury brand video editing in Jupiter & Palm Beach Gardens: country club videos, yachting lifestyle reels, and high-net-worth brand storytelling.",
+        crumb: "Luxury Brand Video Jupiter",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/luxury-brand-video-jupiter-fl#service"),

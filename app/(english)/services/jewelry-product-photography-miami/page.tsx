@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Camera, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +18,13 @@ export default function JewelryProductPhotographyMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/jewelry-product-photography-miami",
+        name: "Jewelry Product Photography Miami",
+        description:
+          "AI-enhanced product photography and high-resolution retouching for jewelry brands and luxury e-commerce in Miami.",
+        crumb: "Jewelry Photography",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/jewelry-product-photography-miami#service"),

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Building2, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +18,13 @@ export default function CorporateVideoProductionBrickellPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/corporate-video-production-brickell",
+        name: "Corporate Video Production Brickell Miami",
+        description:
+          "Corporate video editing, executive testimonials, and company overview videos for financial firms and tech startups in Brickell, Miami.",
+        crumb: "Brickell Corporate Video",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/corporate-video-production-brickell#service"),

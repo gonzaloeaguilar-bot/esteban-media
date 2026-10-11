@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +18,13 @@ export default function VideoProductionDoralPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/video-production-doral-miami",
+        name: "Video Production Doral Miami",
+        description:
+          "B2B video production, commercial videography, and remote editing for businesses and distributors in Doral, Florida.",
+        crumb: "Doral Video Production",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/video-production-doral-miami#service"),

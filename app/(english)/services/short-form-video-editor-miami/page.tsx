@@ -9,6 +9,7 @@ import {
   ServiceInquiryRail,
   ServiceRelated,
   buildServiceFaqSchema,
+  buildServicePageNodes,
 } from "@/components/service-depth";
 import { SHORT_FORM_DEPTH } from "@/lib/service-depth-content";
 import { SHORT_FORM_DEEP_DIVE_EN, shortFormServiceJsonLd, shortFormWhatsappHref } from "@/lib/short-form-recs";
@@ -29,6 +30,12 @@ export default function ShortFormVideoEditorPage() {
     "@graph": [
       buildServiceFaqSchema(absoluteUrl("/services/short-form-video-editor-miami"), SHORT_FORM_DEPTH.faqs),
       shortFormServiceJsonLd("en"),
+      ...buildServicePageNodes({
+        path: "/services/short-form-video-editor-miami",
+        name: "Short Form Video Editor Miami",
+        description: String(metadata.description),
+        crumb: "Short-Form Editor",
+      }),
     ],
   };
 

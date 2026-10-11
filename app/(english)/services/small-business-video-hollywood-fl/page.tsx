@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Building2, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +18,13 @@ export default function SmallBusinessVideoHollywoodFlPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/small-business-video-hollywood-fl",
+        name: "Small Business Video Hollywood FL",
+        description:
+          "Small business video production & editing in Hollywood & Hallandale FL: Instagram reels, storefront promos, and customer review clips.",
+        crumb: "Small Business Video Hollywood",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/small-business-video-hollywood-fl#service"),

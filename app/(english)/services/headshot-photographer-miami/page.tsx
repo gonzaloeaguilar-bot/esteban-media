@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Camera, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +18,13 @@ export default function HeadshotPhotographerPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/headshot-photographer-miami",
+        name: "Headshot Photographer Miami",
+        description:
+          "Professional headshots and executive portrait photography for business leaders, realtors, and attorneys in Miami and Fort Lauderdale.",
+        crumb: "Headshots",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/headshot-photographer-miami#service"),

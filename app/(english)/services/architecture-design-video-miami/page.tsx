@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Building2, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +18,13 @@ export default function ArchitectureDesignVideoMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/architecture-design-video-miami",
+        name: "Architecture Design Video Miami",
+        description:
+          "Architectural video editing, interior design walkthroughs, and portfolio video production for design firms in Miami.",
+        crumb: "Architecture Design Video",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/architecture-design-video-miami#service"),

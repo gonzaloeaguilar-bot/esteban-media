@@ -7,6 +7,7 @@ import {
   ServiceFaqs,
   ServiceInquiryRail,
   buildServiceFaqSchema,
+  buildServicePageNodes,
 } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, serviceAreas } from "@/lib/site";
@@ -74,6 +75,13 @@ export default function HireRemoteVideoEditorPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/hire-remote-video-editor",
+        name: "Hire a Remote Video Editor",
+        description:
+          "Hire Esteban Moreno Media for remote video editing, reels, YouTube editing, product videos, and bilingual social content from South Florida.",
+        crumb: "Remote video editor",
+      }),
       buildServiceFaqSchema(
         absoluteUrl("/services/hire-remote-video-editor"),
         REMOTE_EDITOR_DEPTH.faqs,

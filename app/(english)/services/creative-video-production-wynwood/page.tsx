@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, WandSparkles, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +18,13 @@ export default function CreativeVideoProductionWynwoodPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/creative-video-production-wynwood",
+        name: "Creative Video Production Wynwood",
+        description:
+          "Creative video editing and production in Wynwood: streetwear fashion, art gallery reels, agency post-production, and edgy social content.",
+        crumb: "Creative Video Production Wynwood",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/creative-video-production-wynwood#service"),

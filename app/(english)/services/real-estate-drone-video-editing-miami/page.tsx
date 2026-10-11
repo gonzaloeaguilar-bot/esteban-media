@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Building2, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +18,13 @@ export default function RealEstateDroneVideoEditingMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/real-estate-drone-video-editing-miami",
+        name: "Real Estate Drone Video Editing Miami",
+        description:
+          "Real estate drone video editing, aerial property walkthroughs, estate boundary graphics, and 4K horizon color grading in Miami.",
+        crumb: "Real Estate Drone Video Editing",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/real-estate-drone-video-editing-miami#service"),

@@ -8,6 +8,7 @@ import {
   ServiceInquiryRail,
   ServiceRelated,
   buildServiceFaqSchema,
+  buildServicePageNodes,
 } from "@/components/service-depth";
 import { AI_REAL_ESTATE_DEPTH } from "@/lib/service-depth-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
@@ -25,6 +26,13 @@ export default function AIRealEstatePhotoPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/ai-real-estate-photo-enhancement",
+        name: "AI Real Estate Photo Enhancement Miami",
+        description:
+          "AI-assisted real estate photo enhancement and virtual environment retouching for realtors and properties in Miami and Fort Lauderdale.",
+        crumb: "AI Real Estate Photos",
+      }),
       buildServiceFaqSchema(absoluteUrl("/services/ai-real-estate-photo-enhancement"), AI_REAL_ESTATE_DEPTH.faqs),
       {
         "@type": "Service",

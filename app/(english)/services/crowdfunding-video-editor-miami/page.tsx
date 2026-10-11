@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, WandSparkles, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +18,13 @@ export default function CrowdfundingVideoEditorMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/crowdfunding-video-editor-miami",
+        name: "Crowdfunding Video Editor Miami",
+        description:
+          "Crowdfunding video editor in Miami: Kickstarter launch videos, Indiegogo product pitch edits, and backer conversion video post-production.",
+        crumb: "Crowdfunding Video Editor",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/crowdfunding-video-editor-miami#service"),

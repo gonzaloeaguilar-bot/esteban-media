@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, UtensilsCrossed, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +18,13 @@ export default function AIFoodPhotographyPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/ai-food-photography-restaurants",
+        name: "AI Food Photography Restaurants Miami",
+        description:
+          "AI-assisted food photography and lifestyle menu image creation for restaurants and culinary brands in Miami.",
+        crumb: "AI Food Photography",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/ai-food-photography-restaurants#service"),

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { ServiceDeepDive } from "@/components/service-depth";
+import { ServiceDeepDive, buildServicePageNodes } from "@/components/service-depth";
 import { AUTOMOTIVE_DEEP_DIVE } from "@/lib/vertical-deep-dives";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
@@ -19,6 +19,13 @@ export default function AutomotiveVideoMarketingMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/automotive-video-marketing-miami",
+        name: "Automotive Video Marketing Miami",
+        description:
+          "Cinematic video editing and promo content for auto detailing shops, ceramic coating, and exotic car dealerships in Miami.",
+        crumb: "Automotive Video Marketing",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/automotive-video-marketing-miami#service"),

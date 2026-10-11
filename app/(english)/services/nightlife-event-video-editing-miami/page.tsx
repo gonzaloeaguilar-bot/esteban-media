@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { ServiceDeepDive } from "@/components/service-depth";
+import { ServiceDeepDive, buildServicePageNodes } from "@/components/service-depth";
 import { NIGHTLIFE_DEEP_DIVE } from "@/lib/hospitality-deep-dive-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
@@ -19,6 +19,13 @@ export default function NightlifeEventVideoEditingMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/nightlife-event-video-editing-miami",
+        name: "Nightlife Event Video Editing Miami",
+        description:
+          "Nightclub video editing, DJ promo reels, VIP party recap videos, and fast-paced event post-production in Miami.",
+        crumb: "Nightlife Event Video Editing",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/nightlife-event-video-editing-miami#service"),

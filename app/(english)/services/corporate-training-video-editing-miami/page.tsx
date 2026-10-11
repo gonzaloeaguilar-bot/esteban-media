@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Building2, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +18,13 @@ export default function CorporateTrainingVideoEditingMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/corporate-training-video-editing-miami",
+        name: "Corporate Training Video Editing Miami",
+        description:
+          "Corporate training video editing in Miami: employee onboarding videos, SOP procedure walkthroughs, and internal policy video edits.",
+        crumb: "Corporate Training Video Editing",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/corporate-training-video-editing-miami#service"),

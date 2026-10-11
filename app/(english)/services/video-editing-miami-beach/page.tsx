@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +18,13 @@ export default function VideoEditingMiamiBeachPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/video-editing-miami-beach",
+        name: "Video Editing Miami Beach",
+        description:
+          "Professional video editing in Miami Beach: hospitality, luxury real estate walkthroughs, lifestyle reels, and nightclub event recaps.",
+        crumb: "Video Editing Miami Beach",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/video-editing-miami-beach#service"),

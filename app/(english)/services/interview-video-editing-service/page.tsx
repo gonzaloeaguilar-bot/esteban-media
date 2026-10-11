@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +18,13 @@ export default function InterviewVideoEditingServicePage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/interview-video-editing-service",
+        name: "Interview Video Editing Service",
+        description:
+          "Interview video editing service: multi-camera conversation assembly, audio noise reduction, dynamic framing, and B-roll integration.",
+        crumb: "Interview Video Editing Service",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/interview-video-editing-service#service"),

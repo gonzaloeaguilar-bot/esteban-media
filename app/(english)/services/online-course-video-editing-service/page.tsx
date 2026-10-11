@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, WandSparkles, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +18,13 @@ export default function OnlineCourseVideoEditingServicePage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/online-course-video-editing-service",
+        name: "Online Course Video Editing Service",
+        description:
+          "Online course video editing: educational module polish, slide overlays, clear audio enhancement, and webinar lesson post-production.",
+        crumb: "Online Course Video Editing Service",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/online-course-video-editing-service#service"),

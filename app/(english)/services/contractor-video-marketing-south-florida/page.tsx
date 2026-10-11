@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +18,13 @@ export default function ContractorVideoMarketingPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/contractor-video-marketing-south-florida",
+        name: "Contractor Video Marketing South Florida",
+        description:
+          "Video editing and project showcase videos for general contractors, remodelers, and home service businesses in Miami and Fort Lauderdale.",
+        crumb: "Contractor Video Marketing",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/contractor-video-marketing-south-florida#service"),

@@ -7,7 +7,7 @@ import { ArrowRight, CheckCircle2, Mail, MessageCircle, Phone } from "lucide-rea
 import { Container } from "@/components/ui/container";
 import { KeepReading } from "@/components/keep-reading";
 import { whatsappHref } from "@/lib/packages";
-import { site } from "@/lib/site";
+import { absoluteUrl, site } from "@/lib/site";
 
 /**
  * The depth a service page needs to earn anything — as shared components.
@@ -103,6 +103,50 @@ export function buildServiceFaqSchema(pageUrl: string, faqs: readonly ServiceFaq
       acceptedAnswer: { "@type": "Answer", text: faq.answer },
     })),
   };
+}
+
+/**
+ * WebPage + BreadcrumbList nodes for an English /services/* page.
+ *
+ * 49 sitemapped service pages showed a visible "Home / Services / <page>"
+ * trail with no BreadcrumbList and no WebPage node (SEO/GEO audit 2026-10-10,
+ * fix 3). `crumb` must be the label the visible trail shows, so the schema
+ * mirrors the page rather than restating it.
+ */
+export function buildServicePageNodes({
+  path,
+  name,
+  description,
+  crumb,
+}: {
+  path: string;
+  name: string;
+  description: string;
+  crumb: string;
+}) {
+  const pageUrl = absoluteUrl(path);
+  return [
+    {
+      "@type": "WebPage",
+      "@id": `${pageUrl}#webpage`,
+      url: pageUrl,
+      name,
+      description,
+      inLanguage: "en-US",
+      isPartOf: { "@id": absoluteUrl("/#website") },
+      breadcrumb: { "@id": `${pageUrl}#breadcrumbs` },
+      mainEntity: { "@id": `${pageUrl}#service` },
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${pageUrl}#breadcrumbs`,
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl("/") },
+        { "@type": "ListItem", position: 2, name: "Services", item: absoluteUrl("/services") },
+        { "@type": "ListItem", position: 3, name: crumb, item: pageUrl },
+      ],
+    },
+  ] as const;
 }
 
 /**

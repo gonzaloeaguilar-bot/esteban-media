@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, WandSparkles, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +18,13 @@ export default function WealthManagementVideoProductionMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/wealth-management-video-production-miami",
+        name: "Wealth Management Video Production Miami",
+        description:
+          "Financial advisor video production, wealth management authority reels, market update edits, and corporate financial video in Miami.",
+        crumb: "Wealth Management Video Production",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/wealth-management-video-production-miami#service"),

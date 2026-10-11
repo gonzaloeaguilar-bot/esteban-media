@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Building2, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +18,13 @@ export default function RealEstateVideoSunnyIslesPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/real-estate-video-sunny-isles",
+        name: "Real Estate Video Sunny Isles",
+        description:
+          "Sunny Isles Beach luxury real estate video editing: oceanfront tower walkthroughs, penthouse tours, and high-rise property promos.",
+        crumb: "Real Estate Video Sunny Isles",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/real-estate-video-sunny-isles#service"),

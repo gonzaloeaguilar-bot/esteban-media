@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +18,13 @@ export default function VideoPodcastEditingServiceMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/video-podcast-editing-service-miami",
+        name: "Video Podcast Editing Service Miami",
+        description:
+          "Professional video podcast editing, multi-cam switching, audio cleanup, and social media clip creation for creators in Miami.",
+        crumb: "Video Podcast Editing",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/video-podcast-editing-service-miami#service"),

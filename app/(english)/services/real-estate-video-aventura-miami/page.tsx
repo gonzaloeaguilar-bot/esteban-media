@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Building2, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +18,13 @@ export default function RealEstateVideoAventuraMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/real-estate-video-aventura-miami",
+        name: "Real Estate Video Aventura Miami",
+        description:
+          "Luxury real estate video editing in Aventura & Sunny Isles: penthouse walkthroughs, intracoastal water views, and condo promos.",
+        crumb: "Real Estate Video Aventura",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/real-estate-video-aventura-miami#service"),

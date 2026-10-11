@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, WandSparkles, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +18,13 @@ export default function WebinarClipEditingServicePage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/webinar-clip-editing-service",
+        name: "Webinar Clip Editing Service",
+        description:
+          "Webinar clip editing service: extracting key takeaway clips from virtual events, formatting into 9:16 vertical reels with captions.",
+        crumb: "Webinar Clip Editing Service",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/webinar-clip-editing-service#service"),

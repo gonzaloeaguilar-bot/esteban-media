@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -22,6 +23,13 @@ export default function SmallBusinessVideoPembrokePinesPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/small-business-video-pembroke-pines",
+        name: "Small Business Video Pembroke Pines",
+        description:
+          "Promotional video editing and social content creation for small businesses in Pembroke Pines and Miramar, Florida.",
+        crumb: "Pembroke Pines Video",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/small-business-video-pembroke-pines#service"),

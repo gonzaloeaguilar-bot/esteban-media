@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Camera, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { ServiceDeepDive } from "@/components/service-depth";
+import { ServiceDeepDive, buildServicePageNodes } from "@/components/service-depth";
 import { CORPORATE_EVENT_DEEP_DIVE } from "@/lib/service-deep-dive-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
@@ -19,6 +19,13 @@ export default function CorporateEventVideographerMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/corporate-event-videographer-miami",
+        name: "Corporate Event Videographer Miami",
+        description:
+          "Event video coverage, convention highlight recaps, and conference video production for corporate events in Miami.",
+        crumb: "Corporate Event Videographer",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/corporate-event-videographer-miami#service"),

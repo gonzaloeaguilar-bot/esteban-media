@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +18,13 @@ export default function DroneVideoEditingServiceMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/drone-video-editing-service-miami",
+        name: "Drone Video Editing Service Miami",
+        description:
+          "Drone video editing service in Miami: 4K aerial footage post-production, horizon color grading, video stabilization, and speed ramping.",
+        crumb: "Drone Video Editing Service",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/drone-video-editing-service-miami#service"),

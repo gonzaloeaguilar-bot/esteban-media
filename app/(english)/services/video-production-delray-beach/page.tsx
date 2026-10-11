@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +18,13 @@ export default function VideoProductionDelrayBeachPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/video-production-delray-beach",
+        name: "Video Production Delray Beach",
+        description:
+          "Video production & editing in Delray Beach FL: Atlantic Avenue dining promos, boutique retail reels, and professional service videos.",
+        crumb: "Video Production Delray Beach",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/video-production-delray-beach#service"),

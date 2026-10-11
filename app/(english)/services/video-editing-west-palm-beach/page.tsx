@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +18,13 @@ export default function VideoEditingWestPalmBeachPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/video-editing-west-palm-beach",
+        name: "Video Editing West Palm Beach",
+        description:
+          "Remote video editing services for creators, agencies, and businesses in West Palm Beach and Palm Beach County.",
+        crumb: "West Palm Beach Editing",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/video-editing-west-palm-beach#service"),

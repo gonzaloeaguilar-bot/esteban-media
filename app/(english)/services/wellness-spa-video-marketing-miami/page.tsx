@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { ServiceDeepDive } from "@/components/service-depth";
+import { ServiceDeepDive, buildServicePageNodes } from "@/components/service-depth";
 import { SPA_DEEP_DIVE } from "@/lib/service-deep-dive-content";
 import { PACKAGE_PRICES, usd } from "@/lib/pricing";
 import { buildPageMetadata } from "@/lib/site-metadata";
@@ -23,6 +23,13 @@ export default function WellnessSpaVideoMarketingMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/wellness-spa-video-marketing-miami",
+        name: "Wellness Spa Video Marketing Miami",
+        description:
+          "Spa and wellness video in Miami: what a promotional video, on-site filming and a monthly plan cost, and how to film without showing guests.",
+        crumb: "Wellness Spa Video",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/wellness-spa-video-marketing-miami#service"),

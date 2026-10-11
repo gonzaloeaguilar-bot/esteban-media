@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Building2, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { ServiceDeepDive } from "@/components/service-depth";
+import { ServiceDeepDive, buildServicePageNodes } from "@/components/service-depth";
 import { HOTEL_DEEP_DIVE } from "@/lib/hospitality-deep-dive-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
@@ -19,6 +19,13 @@ export default function HotelHospitalityVideoProductionMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/hotel-hospitality-video-production-miami",
+        name: "Hotel Hospitality Video Production Miami",
+        description:
+          "Promotional video production, room walkthroughs, and guest experience videos for hotels and resorts in Miami Beach.",
+        crumb: "Hotel Video Production",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/hotel-hospitality-video-production-miami#service"),

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, WandSparkles, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +18,13 @@ export default function CosmeticDentistryVideoMarketingMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/cosmetic-dentistry-video-marketing-miami",
+        name: "Cosmetic Dentistry Video Marketing Miami",
+        description:
+          "Smile makeover video marketing, patient transformation reels, before-and-after edits, and cosmetic dentist videos in Miami.",
+        crumb: "Cosmetic Dentistry Video Marketing",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/cosmetic-dentistry-video-marketing-miami#service"),

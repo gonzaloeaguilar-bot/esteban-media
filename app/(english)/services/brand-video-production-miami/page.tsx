@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, WandSparkles, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +18,13 @@ export default function BrandVideoProductionMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/brand-video-production-miami",
+        name: "Brand Video Production Miami",
+        description:
+          "Brand story videos, founder manifestos, and company overview video production for businesses in Miami.",
+        crumb: "Brand Video Production",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/brand-video-production-miami#service"),

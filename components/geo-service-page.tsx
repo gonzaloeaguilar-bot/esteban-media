@@ -8,6 +8,7 @@ import {
   ServiceInquiryRail,
   ServiceRelated,
   buildServiceFaqSchema,
+  buildServicePageNodes,
   type CraftCard,
   type RelatedService,
   type ServiceFaq,
@@ -59,6 +60,12 @@ export function buildGeoServiceSchema(content: GeoServicePageContent) {
     "@context": "https://schema.org",
     "@graph": [
       buildServiceFaqSchema(absoluteUrl(content.path), content.faqs),
+      ...buildServicePageNodes({
+        path: content.path,
+        name: content.serviceName,
+        description: content.serviceDescription,
+        crumb: content.serviceName,
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl(`${content.path}#service`),

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, WandSparkles, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +18,13 @@ export default function VideoEditingPalmBeachGardensPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/video-editing-palm-beach-gardens",
+        name: "Video Editing Palm Beach Gardens",
+        description:
+          "Video editing in Palm Beach Gardens FL: executive services, medical clinics, architectural firms, and estate video marketing.",
+        crumb: "Video Editing Palm Beach Gardens",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/video-editing-palm-beach-gardens#service"),

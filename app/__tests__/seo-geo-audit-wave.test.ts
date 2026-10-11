@@ -163,6 +163,24 @@ describe("AI user-initiated fetchers skip the language redirect (fix 15)", () =>
   });
 });
 
+describe("every English service page has WebPage + BreadcrumbList (fix 3)", () => {
+  const dir = "app/(english)/services";
+  const pages = readdirSync(dir).filter((name) => !name.startsWith("[") && !name.includes("."));
+
+  it.each(pages)("%s", (name) => {
+    const source = readFileSync(`${dir}/${name}/page.tsx`, "utf8");
+    const shared = source.includes("buildServicePageNodes") || source.includes("GeoServicePage");
+    expect(shared || source.includes('"@type": "BreadcrumbList"')).toBe(true);
+
+    // The schema crumb must be the label the visible trail shows.
+    const crumb = source.match(/crumb: "([^"]+)"/)?.[1];
+    if (crumb) {
+      const visible = source.match(/aria-current="page"[^>]*>\s*([^<]+?)\s*</)?.[1];
+      expect(visible?.replace(/&amp;/g, "&")).toBe(crumb);
+    }
+  });
+});
+
 describe("case studies that embed YouTube carry a VideoObject (fix 8, partial)", () => {
   it("reuses the portfolio item's video data on all 8 embedding pages", () => {
     let withVideo = 0;

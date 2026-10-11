@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, WandSparkles, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +18,13 @@ export default function CorporateVideoEditingWestonFlPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/corporate-video-editing-weston-fl",
+        name: "Corporate Video Editing Weston FL",
+        description:
+          "Corporate video editing in Weston & Davie FL: executive announcements, internal SOP video training, and company overview post-production.",
+        crumb: "Corporate Video Editing Weston",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/corporate-video-editing-weston-fl#service"),

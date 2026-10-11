@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Building2, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +18,13 @@ export default function VideoProductionDavieFlPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/video-production-davie-fl",
+        name: "Video Production Davie FL",
+        description:
+          "Video production & editing in Davie FL: local commercial promos, educational institution clips, equestrian estates, and contractor videos.",
+        crumb: "Video Production Davie",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/video-production-davie-fl#service"),

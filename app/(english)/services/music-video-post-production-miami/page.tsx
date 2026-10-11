@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +18,13 @@ export default function MusicVideoPostProductionMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/music-video-post-production-miami",
+        name: "Music Video Post Production Miami",
+        description:
+          "Music video post-production in Miami: lip-sync assembly, cinematic color grading, visual effects, and rhythm cuts for artists & directors.",
+        crumb: "Music Video Post Production",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/music-video-post-production-miami#service"),

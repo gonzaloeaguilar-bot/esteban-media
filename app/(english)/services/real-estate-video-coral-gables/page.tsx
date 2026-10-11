@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Building2, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +18,13 @@ export default function RealEstateVideoCoralGablesPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/real-estate-video-coral-gables",
+        name: "Real Estate Video Coral Gables",
+        description:
+          "Luxury real estate video editing and tour formatting for realtors and properties in Coral Gables and South Miami.",
+        crumb: "Coral Gables Real Estate",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/real-estate-video-coral-gables#service"),

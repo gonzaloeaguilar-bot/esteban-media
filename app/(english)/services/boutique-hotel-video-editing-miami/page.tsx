@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +18,13 @@ export default function BoutiqueHotelVideoEditingMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/boutique-hotel-video-editing-miami",
+        name: "Boutique Hotel Video Editing Miami",
+        description:
+          "Boutique hotel video editing, resort amenity walkthroughs, luxury hospitality reels, and booking video promos in Miami.",
+        crumb: "Boutique Hotel Video Editing",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/boutique-hotel-video-editing-miami#service"),

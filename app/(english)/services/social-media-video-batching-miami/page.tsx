@@ -8,6 +8,7 @@ import {
   ServiceInquiryRail,
   ServiceRelated,
   buildServiceFaqSchema,
+  buildServicePageNodes,
 } from "@/components/service-depth";
 import { SOCIAL_BATCHING_DEPTH } from "@/lib/service-depth-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
@@ -25,6 +26,13 @@ export default function SocialMediaVideoBatchingMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/social-media-video-batching-miami",
+        name: "Social Media Video Batching Miami",
+        description:
+          "Social media video batching service in Miami: edit 15-30+ vertical reels from concentrated shoot days for monthly content calendars.",
+        crumb: "Social Media Video Batching",
+      }),
       buildServiceFaqSchema(absoluteUrl("/services/social-media-video-batching-miami"), SOCIAL_BATCHING_DEPTH.faqs),
       {
         "@type": "Service",
