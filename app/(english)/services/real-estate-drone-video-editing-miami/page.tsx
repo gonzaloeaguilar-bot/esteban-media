@@ -2,6 +2,13 @@ import Link from "next/link";
 import { ArrowRight, Building2, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { PORTED_SERVICE_FAQS } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceFaqs,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,19 +24,21 @@ export default function RealEstateDroneVideoEditingMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/real-estate-drone-video-editing-miami"), PORTED_SERVICE_FAQS["/services/real-estate-drone-video-editing-miami"]),
+      ...buildServicePageNodes({
+        path: "/services/real-estate-drone-video-editing-miami",
+        name: "Real Estate Drone Video Editing Miami",
+        description:
+          "Real estate drone video editing, aerial property walkthroughs, estate boundary graphics, and 4K horizon color grading in Miami.",
+        crumb: "Real Estate Drone Video Editing",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/real-estate-drone-video-editing-miami#service"),
         name: "Real Estate Drone Video Editing Miami",
         description:
           "Real estate drone video editing, aerial footage stabilization, estate boundary graphics, and luxury property video edits.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami-Dade / Broward / Palm Beach",
         serviceType: "Drone video editing",
       },
@@ -103,6 +112,7 @@ export default function RealEstateDroneVideoEditingMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="real estate drone video editing" />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
@@ -139,6 +149,11 @@ export default function RealEstateDroneVideoEditingMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/real-estate-drone-video-editing-miami"]}
+        sectionId="ported-faq"
+      />
     </main>
   );
 }

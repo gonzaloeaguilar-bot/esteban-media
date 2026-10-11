@@ -1,3 +1,25 @@
+# Integration: SEO/GEO wave + events hub + niche wave 8 — 2026-10-11
+
+Branch `integration/seo-events-niches-20261011` from main `c17fd51`, merge commits only: `fix/seo-geo-audit-wave` → `feat/events-hub` (#339) → `feat/niche-wave-8`. Sitemap 284 + 26 + 16 + 16 = **342** (counted in the built sitemap); one freeze count/hash with all three dated owner-ordered entries; `WATCH_URLS`, sitemap/cohort/index-watch tests at 342. Event facts carried into `lib/llms-base.txt` (the generated `/llms.txt` route lists every URL). Wave 8 pages got the `#business` provider reference; `ServiceRelated` now drops cards into consolidated pages (5 wave 8 cards). Text-parity baseline regenerated after build: 0 words/links/headings lost vs main on 97 routes, 10 new routes. CTA dashboard regenerated. Gates: rail-kit, rail-adoption, lint (0 errors), typecheck, vitest (only `prospect-auditor-verifier`), build, text-parity (107 routes), events:check, dual-audience 32/32.
+
+---
+
+# SEO/GEO audit wave — 2026-10-11 (branch `fix/seo-geo-audit-wave`, pushed, no PR)
+
+Implements the 15 "safe mechanical fixes" in `.ai/seo-geo-code-audit-2026-10-10.md` plus Esteban's owner decisions. Fixes 1-2 also shipped to main as #334; this branch is merged with main.
+
+- **Sitemap 284 → 310** (owner decision): the 26 indexable-but-unsitemapped pages (12 growth-system, 10 daily tools, 2 case-study hubs, `/lens`, `/fort-lauderdale`) are listed via `inventoryAdditions20261010Paths` in `app/sitemap.ts`. Freeze count/hash + `ownerOrderedAdditions` entry (follow-up 2026-11-10), `WATCH_URLS`, sitemap/hub/consolidation tests updated. Hreflang declared in `languageAlternates` for every pair, including the 4 daily tool pairs that had only switcher pairing.
+- **`/llms.txt` is now a static route** (`app/llms.txt/route.ts`): hand-written facts in `lib/llms-base.txt` + a page index generated from `sitemap()`. New sitemap pages (the niche/event pages other agents are adding) appear automatically; edit only the facts file. Tests: llms URLs ⊆ sitemap, every sitemap URL listed. Palm Beach line reworded to describe the existing pages without strengthening them; on-location filming stated as paid, scoped per project.
+- **Schema**: WebPage + BreadcrumbList on every EN `/services/*` page (`buildServicePageNodes`); 70 inline `LocalBusiness` stubs → `{ "@id": "#business" }`; guides author/publisher → `#business` (no bylines yet, owner decision pending) + Article image; case studies author `#esteban` (body names him) / publisher `#business`; GBP URL removed from Person `sameAs`; VideoObject on the 8 case studies that embed YouTube.
+- **Content (no new claims)**: `ServiceAnswerFirst` ("In short" / "En corto", prices from `PACKAGE_PRICES`) on GeoServicePage, the Spanish niche renderer and 47 EN pages; FAQs on 37 hand-written EN pages ported from their Spanish twins (`PORTED_SERVICE_FAQS`); contractor and plastic-surgery skipped (their ES FAQ makes a performance / security claim). Sibling rings for 23 EN + 40 ES hub-only pages; Palm Beach pages deliberately excluded.
+- **Other**: hubs/related cards stop linking noindexed pages (82 → 31 links; the 31 left are on `/es/servicios`, `/es/areas`, `/es/guias`, `/es/editor-de-video-miami`, which text-parity pins, so removing links there needs an owner-approved non-additive baseline refresh); `/es/contacto` prerenders (`?source` read client-side); H1 on 6 tool pages; unique Reels H2s; brand suffix dropped when a title would pass 60 chars (not on parity-pinned `/es/<slug>`); portfolio descriptions ≤155 and `Portafolio:` ES titles; ChatGPT-User/Claude-User/Perplexity-User skip the `/`→`/es` redirect.
+- **Text-parity baseline refreshed** with `node scripts/text-parity.mjs snapshot` after a full diff: 0 words/alt/headings/links lost on 97 routes; additions + JSON-LD hash changes only; `/es/contacto` added.
+- **Left for later / other owners**: reels video-sitemap entries, reels `publisher` and the ES reel shelf (branch `feat/es-real-estate-reel-shelf`); visible bylines and page dates (owner decision pending); the templated `¿Para qué proyecto encaja?` H2 replacement and the ES-hub link removals (non-additive parity changes); `/areas`'s Palm Beach card copy still says "sub-city coverage is not yet published".
+- Build note: `next/font` needs `NODE_USE_ENV_PROXY=1 pnpm build` in the sandbox. `app/__tests__/prospect-auditor-verifier.test.ts` fails only because the proxy blocks its live fetch.
+
+
+---
+
 # Local keyword demand release — 2026-10-11
 
 PR #353 merged at `285af4530d31b9b36ef9ee8c44224ba0e6cec232` and Vercel production reached Ready. Direct canonical-domain checks returned HTTP 200 with the new English and Spanish restaurant copy, the Fort Lauderdale production/Reels links, canonical metadata, and working destination/contact links. A live phone screenshot confirmed a single home illustration caption after the rebase repair. IndexNow accepted 284 sitemap URLs (HTTP 200). The measurable input was 90-day Search Console site impressions, not local-market search volume; click/lead outcome is due 2026-11-08. Source and evidence: `~/obsidian-wiki/client-esteban-media/wiki/esteban-local-keyword-demand-gaps-2026-10-11.md`.
@@ -31,6 +53,33 @@ Branch `style/home-unified-type` (draft PR). UX review fix #3: the home pages us
 # Home CTA, voice and fine print — 2026-10-11
 
 Branch `fix/home-cta-voice-fineprint` (draft PR). One primary action, worded once: every quote/contact action on the home (header, hero, package cards, Starter tiles, real estate plans, à la carte items without a page, reel section + reel detail, closing credit) is a wa.me link labelled from `lib/quote-cta.ts` ("Get a quote on WhatsApp" / "Cotizar por WhatsApp") with a `data-cta` ending in `_whatsapp`. Per-card reel WhatsApp buttons removed (service link moved to the reel section header). Header CTA now opens WhatsApp site-wide (was /contact; /contact stays in the footer) — GA4 sees `contact_intent` (whatsapp) instead of `contact_cta_click` for that button. Removed SEO-facing review fine print and the visible "Updated <date>" stamps on illustration captions (illustrations and AI disclosure kept). Home copy standardized to first person singular; package FAQ questions now "you"-addressed (schema derives from the same strings). Hero caption no longer repeats the H1. `spanish-niche-text-baseline.json` refreshed for 97 routes: diff verified to be only the header label on 94 routes, plus Starter labels on 2 creator routes and the package/FAQ/CTA copy on `es/precios`. Gates: lint 0 errors, typecheck, build, text-parity PASS; vitest 1533/1534 (only `prospect-auditor-verifier` fails — live fetch blocked by the sandbox proxy, untouched by this branch). Obsidian notes not updated from this container.
+
+# Annual events content section — 2026-10-10
+
+Branch `feat/events-hub` (owner-approved by Esteban). New bilingual section for small businesses that exhibit at, sponsor or sell around recurring South Florida events: hub `/events` ↔ `/es/eventos` plus one EN/ES pair per event, rendered by the shared `components/event-content-page.tsx` (ServiceCraft, ServiceFaqs, ServiceInquiryRail, ServiceRelated, NumberedList, `buildServiceFaqSchema`). Page files are thin wrappers.
+- **All event dates live in `lib/events.ts`** (`typicalWindow` + `nextEdition {start,end,confirmedSource,lastChecked}`), labelled as event-guide listings. Staleness is a reminder, not a merge blocker: `pnpm events:check [YYYY-MM-DD]` lists ended editions and exits 1; it runs weekly in `.github/workflows/followups-due.yml` (not in `pnpm check`), and pages hide ended editions at build time. Refresh every year; set `nextEdition: null` when the next edition is not listed yet. Miami Spice (ends 2026-10-31) and FLIBS (ends 2026-11-01) will show up in the weekly run first.
+- Copy in `lib/event-content.ts`: no date literals, no hand-typed prices (priceSentence only), every page states non-affiliation and that Esteban has not filmed the event; on-location filming is a paid add-on scoped per project. Schema is WebPage/CollectionPage + Service + FAQPage + BreadcrumbList, never `Event`.
+- Additive `EventSeasonLinks` cross-links (map `EVENT_CROSSLINKS` in `lib/events.ts`) on /services, /es/servicios and the yacht, restaurant, nightlife, event-video and corporate-event pages (EN + ES). Shared components gained optional `eyebrow`/`linkLabel` props and an opt-in accented Spanish inquiry copy (`accentedSpanish`); existing pages render unchanged.
+- Inventory: sitemap, freeze count+hash, WATCH_URLS, llms.txt block and the 8 affected Spanish text-parity baselines updated (additive only).
+# Niche wave 8 — eight bilingual pairs — 2026-10-11
+
+Branch `feat/niche-wave-8` (pushed, no PR). Owner-approved buyer gaps, 16 new indexable URLs:
+pre-construction condos, vacation rentals, insurance agencies (ACA/Medicare), mortgage brokers/loan officers,
+immigration attorneys, churches (sermon clips), quinceañeras, dance studios/music academies/kids' activities.
+- EN pages: `app/(english)/services/<slug>/page.tsx` on service-depth (`ServiceCraft`, `ServiceDeepDive`, `ServiceFaqs`,
+  `ServiceInquiryRail`, `ServiceRelated`, `buildServiceFaqSchema`); hero carries a question `<h2>` with a 40–180-word answer
+  (`NicheWave8Depth.answer`) and an honest proof line. Copy in `lib/service-depth-content.ts` / `lib/service-deep-dive-content.ts` (wave-8 blocks at the end).
+- ES pages: `nicheWave8Pages` in `lib/spanish-site.ts`, rendered by `SpanishNichePage`; new optional `fitQuestion` replaces the generic
+  "¿Para qué proyecto encaja?" heading. Proof/inquiry entries in `components/spanish-niche-page.tsx`.
+- Prices only via `priceSentence()`; on-location filming stated as "paid add-on scoped per project" / "servicio adicional pagado que se cotiza por proyecto".
+  Regulated duties (NMLS, carrier/Medicare disclaimers, Florida Bar review, minors' consent, music rights) attributed to the client.
+- Wiring (grouped "niche wave 8" blocks): sitemap 284 → 300, freeze count/hash + ownerOrderedAdditions entry (follow-up 2026-11-11),
+  index-watch `WATCH_URLS`, `lib/language-routes.ts`, `nicheWave8Hreflang`, `public/llms.txt` group, text-parity hub allowlist + 8 new baseline routes,
+  `data/outreach/niches.json` (+8), CTA dashboard. Tests: `app/__tests__/niche-wave-8.test.ts`.
+- Gates: pnpm check steps all pass except the known sandbox-only `prospect-auditor-verifier.test.ts` (live network); dual-audience gate 16/16 PASS.
+- Expect conflicts with the concurrent llms.txt-generation and event-pages branches in sitemap/freeze/watch/llms/text-parity files.
+
+---
 
 # Spanish service-area contextual links — 2026-10-11 (local, uncommitted)
 

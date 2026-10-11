@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, WandSparkles, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,19 +18,20 @@ export default function LawFirmVideoProductionMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/law-firm-video-production-miami",
+        name: "Law Firm Video Production Miami",
+        description:
+          "Law firm video marketing, attorney profile videos, case story post-production, and testimonial editing for legal practices in Miami.",
+        crumb: "Law Firm Video Production",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/law-firm-video-production-miami#service"),
         name: "Law Firm Video Production Miami",
         description:
           "Attorney testimonial editing, legal brand storytelling, partner overview video post-production, and social video marketing in Miami.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Downtown Miami / Financial District",
         serviceType: "Law firm video production",
       },

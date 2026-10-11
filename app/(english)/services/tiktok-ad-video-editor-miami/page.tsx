@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -58,6 +59,13 @@ export default function TiktokAdVideoEditorMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/tiktok-ad-video-editor-miami",
+        name: "TikTok Ad Video Editor Miami",
+        description:
+          "TikTok ad video editor in Miami, working from your footage: 3-second hooks, captions, safe-zone framing and paid-social cuts. Spanish-first, English available.",
+        crumb: "TikTok Ad Video Editor",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/tiktok-ad-video-editor-miami#service"),
@@ -65,13 +73,7 @@ export default function TiktokAdVideoEditorMiamiPage() {
         // SNIPPET TEST 2026-10-07 (GSC: tiktok ad video editor miami, 5 impr, pos 11.2, 0 clicks). Read GSC after 2026-11-10; if still 0 clicks, revert rather than iterate.
         description:
           "TikTok ad video editor in Miami, working from your footage: 3-second hooks, captions, safe-zone framing and paid-social cuts. Spanish-first, English available.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami-Dade / Broward",
         serviceType: "TikTok ad video editing",
       },

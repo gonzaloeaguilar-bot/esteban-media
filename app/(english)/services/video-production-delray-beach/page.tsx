@@ -2,6 +2,13 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { PORTED_SERVICE_FAQS } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceFaqs,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,19 +24,21 @@ export default function VideoProductionDelrayBeachPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/video-production-delray-beach"), PORTED_SERVICE_FAQS["/services/video-production-delray-beach"]),
+      ...buildServicePageNodes({
+        path: "/services/video-production-delray-beach",
+        name: "Video Production Delray Beach",
+        description:
+          "Video production & editing in Delray Beach FL: Atlantic Avenue dining promos, boutique retail reels, and professional service videos.",
+        crumb: "Video Production Delray Beach",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/video-production-delray-beach#service"),
         name: "Video Production Delray Beach",
         description:
           "Delray Beach video production & editing, Atlantic Avenue restaurant promo reels, boutique video marketing, and local business edits.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Delray Beach / Palm Beach County",
         serviceType: "Video production",
       },
@@ -103,6 +112,7 @@ export default function VideoProductionDelrayBeachPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="video production and editing" />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
@@ -139,6 +149,11 @@ export default function VideoProductionDelrayBeachPage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/video-production-delray-beach"]}
+        sectionId="ported-faq"
+      />
     </main>
   );
 }

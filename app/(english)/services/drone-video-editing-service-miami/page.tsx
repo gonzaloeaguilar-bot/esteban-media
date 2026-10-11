@@ -2,6 +2,13 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { PORTED_SERVICE_FAQS } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceFaqs,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,19 +24,21 @@ export default function DroneVideoEditingServiceMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/drone-video-editing-service-miami"), PORTED_SERVICE_FAQS["/services/drone-video-editing-service-miami"]),
+      ...buildServicePageNodes({
+        path: "/services/drone-video-editing-service-miami",
+        name: "Drone Video Editing Service Miami",
+        description:
+          "Drone video editing service in Miami: 4K aerial footage post-production, horizon color grading, video stabilization, and speed ramping.",
+        crumb: "Drone Video Editing Service",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/drone-video-editing-service-miami#service"),
         name: "Drone Video Editing Service Miami",
         description:
           "Aerial drone video post-production service, 4K horizon color correction, aerial footage stabilization, and drone video edits in Miami.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami-Dade / Broward / Palm Beach",
         serviceType: "Drone video editing service",
       },
@@ -110,6 +119,7 @@ export default function DroneVideoEditingServiceMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="Drone video editing service" />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
@@ -146,6 +156,11 @@ export default function DroneVideoEditingServiceMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/drone-video-editing-service-miami"]}
+        sectionId="ported-faq"
+      />
     </main>
   );
 }

@@ -3,8 +3,9 @@ import { ArrowRight, CheckCircle2, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import {
-  ServiceDeepDive,
+  ServiceAnswerFirst,
   ServiceCraft,
+  ServiceDeepDive,
   ServiceFaqs,
   ServiceRelated,
   buildServiceFaqSchema,
@@ -33,13 +34,7 @@ export default function MedSpaVideoMarketingPage() {
         name: "Med Spa Video Marketing South Florida",
         description:
           "Video editing, treatment explanation Reels, and social video marketing for med spas and aesthetic practices in South Florida.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami-Dade / Fort Lauderdale / Broward",
         serviceType: "Med spa video marketing",
       },
@@ -146,6 +141,7 @@ export default function MedSpaVideoMarketingPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="Med spa video marketing" />
 
       <ServiceDeepDive
         id={MED_SPA_DEEP_DIVE.id}

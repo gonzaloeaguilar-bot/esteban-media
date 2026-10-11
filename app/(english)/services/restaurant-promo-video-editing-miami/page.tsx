@@ -14,9 +14,10 @@ import {
 } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { ServiceInquiryRail } from "@/components/service-depth";
+import { ServiceInquiryRail, buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
+import { EventSeasonLinks } from "@/components/event-content-page";
 
 const faqs = [
   {
@@ -58,19 +59,20 @@ export default function RestaurantPromoVideoEditingMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/restaurant-promo-video-editing-miami",
+        name: "Restaurant Promo Video Editing Miami | From $240",
+        description:
+          "Restaurant promo video editing in Miami from $240. Food reels, dish spotlight cuts, captions, and social promo edits for South Florida restaurants.",
+        crumb: "Restaurant Promo Video",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/restaurant-promo-video-editing-miami#service"),
         name: "Restaurant Promo Video Editing Miami",
         description:
           "Restaurant promo video editing in Miami for food reels, dish spotlight cuts, captions, and social promo edits tailored to South Florida dining.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami / Wynwood",
         serviceType: "Restaurant video marketing",
       },
@@ -510,6 +512,7 @@ export default function RestaurantPromoVideoEditingMiamiPage() {
           </div>
         </Container>
       </section>
+      <EventSeasonLinks locale="en" path="/services/restaurant-promo-video-editing-miami" />
     </main>
   );
 }

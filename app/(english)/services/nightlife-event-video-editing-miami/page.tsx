@@ -2,10 +2,19 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { ServiceDeepDive } from "@/components/service-depth";
+import { PORTED_SERVICE_FAQS, serviceSiblings } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceDeepDive,
+  ServiceFaqs,
+  ServiceRelated,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { NIGHTLIFE_DEEP_DIVE } from "@/lib/hospitality-deep-dive-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
+import { EventSeasonLinks } from "@/components/event-content-page";
 
 export const metadata = buildPageMetadata({
   title: "Nightlife Event Video Editing Miami",
@@ -19,19 +28,21 @@ export default function NightlifeEventVideoEditingMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/nightlife-event-video-editing-miami"), PORTED_SERVICE_FAQS["/services/nightlife-event-video-editing-miami"]),
+      ...buildServicePageNodes({
+        path: "/services/nightlife-event-video-editing-miami",
+        name: "Nightlife Event Video Editing Miami",
+        description:
+          "Nightclub video editing, DJ promo reels, VIP party recap videos, and fast-paced event post-production in Miami.",
+        crumb: "Nightlife Event Video Editing",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/nightlife-event-video-editing-miami#service"),
         name: "Nightlife Event Video Editing Miami",
         description:
           "Nightclub event recap editing, fast-paced rhythm syncing, DJ promo video editing, and VIP party reels in Miami.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami Beach / Wynwood",
         serviceType: "Nightlife video editing",
       },
@@ -98,6 +109,7 @@ export default function NightlifeEventVideoEditingMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="Nightlife video editing" />
 
       <ServiceDeepDive
         id={NIGHTLIFE_DEEP_DIVE.id}
@@ -141,6 +153,17 @@ export default function NightlifeEventVideoEditingMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/nightlife-event-video-editing-miami"]}
+        sectionId="ported-faq"
+      />
+      <ServiceRelated
+        heading="Related services nearby."
+        services={serviceSiblings("/services/nightlife-event-video-editing-miami")}
+        sectionId="sibling-services"
+      />
+      <EventSeasonLinks locale="en" path="/services/nightlife-event-video-editing-miami" />
     </main>
   );
 }

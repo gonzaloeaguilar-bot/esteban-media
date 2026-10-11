@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, WandSparkles, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,19 +18,20 @@ export default function LuxuryJewelryVideoEditingMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/luxury-jewelry-video-editing-miami",
+        name: "Luxury Jewelry Video Editing Miami",
+        description:
+          "Luxury jewelry video editing, diamond shimmer color grading, watch showcase promos, and high-end accessory video in Miami.",
+        crumb: "Luxury Jewelry Video Editing",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/luxury-jewelry-video-editing-miami#service"),
         name: "Luxury Jewelry Video Editing Miami",
         description:
           "Fine jewelry video editing, diamond macro showcase grading, luxury watch video promos, and high-end jewelry brand video edits.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Design District / Coral Gables",
         serviceType: "Jewelry video marketing",
       },

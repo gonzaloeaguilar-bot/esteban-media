@@ -2,8 +2,10 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
+import { EventSeasonLinks } from "@/components/event-content-page";
 
 export const metadata = buildPageMetadata({
   title: "Event Video Editing Miami",
@@ -17,19 +19,20 @@ export default function EventVideoEditingMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/event-video-editing-miami",
+        name: "Event Video Editing Miami",
+        description:
+          "Remote event video editing, gala recaps, corporate party video assembly, and highlight reel creation in Miami.",
+        crumb: "Event Video Editing",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/event-video-editing-miami#service"),
         name: "Event Video Editing Miami",
         description:
           "Event video post-production, multi-cam assembly, gala recaps, and fast turnaround highlight videos in Miami.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami-Dade / Broward",
         serviceType: "Event video editing",
       },
@@ -132,6 +135,7 @@ export default function EventVideoEditingMiamiPage() {
           </div>
         </Container>
       </section>
+      <EventSeasonLinks locale="en" path="/services/event-video-editing-miami" />
     </main>
   );
 }

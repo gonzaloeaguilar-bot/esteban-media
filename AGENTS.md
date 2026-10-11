@@ -36,7 +36,7 @@ Never invent clients, results, reviews, prices, turnaround, credentials, address
 - `app/` — Next.js routes, metadata, sitemap, robots, and page-level schema
 - `components/` — shared site UI
 - `lib/` — canonical site data and tests
-- `public/llms.txt` — agent-readable public facts; useful, not a Google ranking shortcut
+- `lib/llms-base.txt` + `app/llms.txt/route.ts` — agent-readable public facts served at `/llms.txt`; the page index is generated from the sitemap sources, so edit only the hand-written facts. Useful, not a Google ranking shortcut
 - `docs/` — private project/content-source material; this repository must remain private
 - `.ai/handoff.md` — compact current engineering status
 - `backlog.md` — repo-local implementation queue

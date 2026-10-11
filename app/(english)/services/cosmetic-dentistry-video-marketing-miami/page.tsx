@@ -2,6 +2,13 @@ import Link from "next/link";
 import { ArrowRight, WandSparkles, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { PORTED_SERVICE_FAQS } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceFaqs,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,19 +24,21 @@ export default function CosmeticDentistryVideoMarketingMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/cosmetic-dentistry-video-marketing-miami"), PORTED_SERVICE_FAQS["/services/cosmetic-dentistry-video-marketing-miami"]),
+      ...buildServicePageNodes({
+        path: "/services/cosmetic-dentistry-video-marketing-miami",
+        name: "Cosmetic Dentistry Video Marketing Miami",
+        description:
+          "Smile makeover video marketing, patient transformation reels, before-and-after edits, and cosmetic dentist videos in Miami.",
+        crumb: "Cosmetic Dentistry Video Marketing",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/cosmetic-dentistry-video-marketing-miami#service"),
         name: "Cosmetic Dentistry Video Marketing Miami",
         description:
           "Cosmetic dentist video editing, smile design before-and-after reels, patient testimonial editing, and dental video ads in Miami.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Coral Gables / Miami",
         serviceType: "Dental video marketing",
       },
@@ -110,6 +119,7 @@ export default function CosmeticDentistryVideoMarketingMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="cosmetic dentistry video marketing" />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
@@ -146,6 +156,11 @@ export default function CosmeticDentistryVideoMarketingMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/cosmetic-dentistry-video-marketing-miami"]}
+        sectionId="ported-faq"
+      />
     </main>
   );
 }

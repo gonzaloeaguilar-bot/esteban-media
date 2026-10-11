@@ -2,6 +2,14 @@ import Link from "next/link";
 import { ArrowRight, Building2, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { PORTED_SERVICE_FAQS, serviceSiblings } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceFaqs,
+  ServiceRelated,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,19 +25,21 @@ export default function CorporateVideoProductionBrickellPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/corporate-video-production-brickell"), PORTED_SERVICE_FAQS["/services/corporate-video-production-brickell"]),
+      ...buildServicePageNodes({
+        path: "/services/corporate-video-production-brickell",
+        name: "Corporate Video Production Brickell Miami",
+        description:
+          "Corporate video editing, executive testimonials, and company overview videos for financial firms and tech startups in Brickell, Miami.",
+        crumb: "Brickell Corporate Video",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/corporate-video-production-brickell#service"),
         name: "Corporate Video Production Brickell Miami",
         description:
           "Corporate video production, executive interview editing, and company videos for Brickell financial firms.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Brickell / Downtown Miami",
         serviceType: "Corporate video production",
       },
@@ -96,6 +106,7 @@ export default function CorporateVideoProductionBrickellPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="Corporate video production" />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
@@ -132,6 +143,16 @@ export default function CorporateVideoProductionBrickellPage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/corporate-video-production-brickell"]}
+        sectionId="ported-faq"
+      />
+      <ServiceRelated
+        heading="Related services nearby."
+        services={serviceSiblings("/services/corporate-video-production-brickell")}
+        sectionId="sibling-services"
+      />
     </main>
   );
 }

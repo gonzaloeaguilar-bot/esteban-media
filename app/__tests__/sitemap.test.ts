@@ -16,12 +16,12 @@ import {
   getPortfolioWatchPath,
 } from "@/lib/portfolio-watch";
 
-import sitemap from "../sitemap";
+import sitemap, { inventoryAdditions20261010Paths } from "../sitemap";
 
 describe("portfolio sitemap entries", () => {
   const entries = sitemap();
 
-  it("publishes the exact 284-URL consolidated inventory, each URL once", () => {
+  it("publishes the exact 342-URL consolidated inventory, each URL once", () => {
     const urls = entries.map((entry) => entry.url);
 
     // 279 = 243 consolidated + /desk-recommendations (owner-ordered
@@ -34,8 +34,43 @@ describe("portfolio sitemap entries", () => {
     // food/places creator pair added 2026-10-07 (two URLs, owner-ordered).
     // +4 = the 2026-10-07 restaurant and real-estate cost-answer guide pairs.
     // +1 = /es/editor-de-video-miami (2026-10-07, Spanish-first demand-backed).
-    expect(entries).toHaveLength(284);
-    expect(new Set(urls)).toHaveLength(284);
+    // +26 = the indexable-but-unsitemapped pages Esteban ordered in on
+    // 2026-10-10: 12 growth-system pages, 10 daily tool pages, the 2
+    // case-study hubs, /lens and /fort-lauderdale.
+    // +6 = the annual-events hub pair plus the Fort Lauderdale boat show and Art Basel Miami Beach pairs (2026-10-10, owner-approved).
+    // +10 = the five remaining annual-event pairs: Miami International Boat Show, South Beach Wine & Food Festival, eMerge Americas, Miami Music Week and Miami Spice (2026-10-10, owner-approved).
+    // +16 = niche wave 8 (2026-10-11, owner-approved bilingual pairs).
+    expect(entries).toHaveLength(342);
+    expect(new Set(urls)).toHaveLength(342);
+  });
+
+  it("advertises every 2026-10-10 owner-ordered addition with matching hreflang", () => {
+    const byUrl = new Map(entries.map((entry) => [entry.url, entry]));
+    const paired: Record<string, string> = {
+      "/daily-hook-planner": "/es/planificador-de-ganchos-de-video",
+      "/daily-publish-prompt": "/es/prompt-de-publicacion-diaria",
+      "/daily-script-timer": "/es/temporizador-de-guiones-de-video",
+      "/daily-shot-list-planner": "/es/planificador-de-tomas-de-video",
+      "/daily-script-pacing-calculator": "/es/calculadora-de-ritmo-de-video",
+      "/case-studies": "/es/casos-de-estudio",
+      "/services/conversion-websites": "/es/sitios-web-de-conversion",
+      "/services/creative-production": "/es/produccion-creativa",
+    };
+
+    for (const path of inventoryAdditions20261010Paths) {
+      expect(byUrl.has(`https://estebanmorenomedia.com${path}`), path).toBe(true);
+    }
+    expect(inventoryAdditions20261010Paths).toHaveLength(26);
+
+    for (const [en, es] of Object.entries(paired)) {
+      const expected = {
+        "en-US": `https://estebanmorenomedia.com${en}`,
+        "es-US": `https://estebanmorenomedia.com${es}`,
+        "x-default": `https://estebanmorenomedia.com${en}`,
+      };
+      expect(byUrl.get(`https://estebanmorenomedia.com${en}`)?.alternates?.languages).toEqual(expected);
+      expect(byUrl.get(`https://estebanmorenomedia.com${es}`)?.alternates?.languages).toEqual(expected);
+    }
   });
 
   // This used to assert every entry carried lastModified 2026-07-19. That

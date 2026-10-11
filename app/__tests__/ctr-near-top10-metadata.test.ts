@@ -31,15 +31,16 @@ function collectHrefs(node: React.ReactNode): string[] {
 
 describe("near-top-10 CTR metadata and canonical service targeting", () => {
   it("renders click-focused, localized areas and portfolio metadata", () => {
-    expect(englishAreasMetadata.title).toBe(
-      "Miami & Fort Lauderdale Video Editing Services",
-    );
+    // Over 60 characters with the brand suffix, so it renders unbranded (fix 12).
+    expect(englishAreasMetadata.title).toEqual({
+      absolute: "Miami & Fort Lauderdale Video Editing Services",
+    });
     expect(englishAreasMetadata.description).toBe(
       "Explore video editing, AI-assisted content, and social planning for Fort Lauderdale, Broward, and Miami-Dade. Palm Beach projects are scoped individually.",
     );
-    expect(englishPortfolioMetadata.title).toBe(
-      "Miami Video Editing Portfolio | Real Work",
-    );
+    expect(englishPortfolioMetadata.title).toEqual({
+      absolute: "Miami Video Editing Portfolio | Real Work",
+    });
     expect(englishPortfolioMetadata.description).toBe(
       "See real restaurant, real estate, brand, social, event, and animation video work from Esteban Moreno Media in Miami and Fort Lauderdale, with project details.",
     );
@@ -62,9 +63,15 @@ describe("near-top-10 CTR metadata and canonical service targeting", () => {
       spanishAreasMetadata,
       spanishPortfolioMetadata,
     ]) {
-      // Raw page title only — the site template appends " | Esteban Moreno Media" at render.
-      expect(String(metadata.title).length).toBeGreaterThanOrEqual(40);
-      expect(String(metadata.title).length).toBeLessThanOrEqual(60);
+      // Raw page title only. The template appends " | Esteban Moreno Media"
+      // unless that would pass 60 characters, in which case the title is
+      // emitted { absolute } (SEO/GEO audit 2026-10-10, fix 12).
+      const raw =
+        typeof metadata.title === "string"
+          ? metadata.title
+          : (metadata.title as { absolute: string }).absolute;
+      expect(raw.length).toBeGreaterThanOrEqual(40);
+      expect(raw.length).toBeLessThanOrEqual(60);
       expect(metadata.description?.length).toBeGreaterThanOrEqual(120);
       expect(metadata.description?.length).toBeLessThanOrEqual(160);
     }

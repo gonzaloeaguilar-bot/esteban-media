@@ -36,3 +36,8 @@ jobs:
       # No install step: the script reads one JSON file with the standard library.
       - name: Report follow-ups due
         run: node scripts/followup-due.mjs --within 7
+      # Annual-event dates in lib/events.ts: goes red once a listed edition has
+      # ended, as a refresh reminder. Runs even if the step above is red.
+      - name: Report stale annual-event dates
+        if: always()
+        run: node --experimental-strip-types --no-warnings scripts/events-check.mjs

@@ -2,6 +2,14 @@ import Link from "next/link";
 import { ArrowRight, Building2, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { PORTED_SERVICE_FAQS, serviceSiblings } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceFaqs,
+  ServiceRelated,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,19 +25,21 @@ export default function CorporateTrainingVideoEditingMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/corporate-training-video-editing-miami"), PORTED_SERVICE_FAQS["/services/corporate-training-video-editing-miami"]),
+      ...buildServicePageNodes({
+        path: "/services/corporate-training-video-editing-miami",
+        name: "Corporate Training Video Editing Miami",
+        description:
+          "Corporate training video editing in Miami: employee onboarding videos, SOP procedure walkthroughs, and internal policy video edits.",
+        crumb: "Corporate Training Video Editing",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/corporate-training-video-editing-miami#service"),
         name: "Corporate Training Video Editing Miami",
         description:
           "Corporate onboarding video editing, employee training video post-production, SOP walkthrough editing, and internal communications in Miami.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Financial District / Doral / Miami",
         serviceType: "Corporate training video editing",
       },
@@ -96,6 +106,7 @@ export default function CorporateTrainingVideoEditingMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="Corporate training video editing" />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
@@ -132,6 +143,16 @@ export default function CorporateTrainingVideoEditingMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/corporate-training-video-editing-miami"]}
+        sectionId="ported-faq"
+      />
+      <ServiceRelated
+        heading="Related services nearby."
+        services={serviceSiblings("/services/corporate-training-video-editing-miami")}
+        sectionId="sibling-services"
+      />
     </main>
   );
 }

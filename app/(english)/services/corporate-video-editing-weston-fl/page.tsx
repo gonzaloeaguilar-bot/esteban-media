@@ -2,6 +2,14 @@ import Link from "next/link";
 import { ArrowRight, WandSparkles, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { PORTED_SERVICE_FAQS, serviceSiblings } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceFaqs,
+  ServiceRelated,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,19 +25,21 @@ export default function CorporateVideoEditingWestonFlPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/corporate-video-editing-weston-fl"), PORTED_SERVICE_FAQS["/services/corporate-video-editing-weston-fl"]),
+      ...buildServicePageNodes({
+        path: "/services/corporate-video-editing-weston-fl",
+        name: "Corporate Video Editing Weston FL",
+        description:
+          "Corporate video editing in Weston & Davie FL: executive announcements, internal SOP video training, and company overview post-production.",
+        crumb: "Corporate Video Editing Weston",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/corporate-video-editing-weston-fl#service"),
         name: "Corporate Video Editing Weston FL",
         description:
           "Corporate video editing service in Weston and Davie, executive interview polish, internal company video edits, and corporate storytelling.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Weston / Broward County",
         serviceType: "Corporate video editing",
       },
@@ -96,6 +106,7 @@ export default function CorporateVideoEditingWestonFlPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="Corporate video editing" />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
@@ -132,6 +143,16 @@ export default function CorporateVideoEditingWestonFlPage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/corporate-video-editing-weston-fl"]}
+        sectionId="ported-faq"
+      />
+      <ServiceRelated
+        heading="Related services nearby."
+        services={serviceSiblings("/services/corporate-video-editing-weston-fl")}
+        sectionId="sibling-services"
+      />
     </main>
   );
 }

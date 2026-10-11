@@ -231,7 +231,9 @@ describe("the service shelf", () => {
     // is the one that cannot alter what the gate would have checked. Verified
     // by diffing the built HTML: 0 words, 0 links, 0 headings changed.
     expect(home).toContain('className="em-shelf mt-8 grid gap-4');
-    expect(home).toContain("spanishNichePages.map");
+    // The niche list is filtered to indexable pages before mapping (SEO/GEO
+    // audit 2026-10-10, fix 5); the shelf still renders from that one list.
+    expect(home).toMatch(/spanishNichePages\s*\.filter\(\(page\) => !isConsolidatedPath\([^\n]*\)\)\s*\.map\(/);
   });
 
   it("is phone only", () => {

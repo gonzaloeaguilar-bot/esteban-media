@@ -21,7 +21,9 @@ const content: GeoServicePageContent = {
     "Instagram Reels, TikTok, and YouTube Shorts editing for Fort Lauderdale businesses and remote clients.",
   serviceType: "Short form video editing",
   areaServed: "Fort Lauderdale / Broward County / Remote",
+  answerService: "Reels editing in Fort Lauderdale",
   craftHeading: "What Fort Lauderdale Reels need from the edit.",
+  depthHeading: "Fort Lauderdale Reels editing questions, answered.",
   craft: [
     {
       title: "The first line has a job",
@@ -94,9 +96,9 @@ const content: GeoServicePageContent = {
       href: "/services/reels-editor-miami",
     },
     {
-      title: "Social Media Video Batching",
-      detail: "Turn one folder or shoot into a usable set of social clips.",
-      href: "/services/social-media-video-batching-miami",
+      title: "Content Repurposing",
+      detail: "Turn one long video, podcast or shoot into a set of short social clips.",
+      href: "/services/content-repurposing-service-miami",
     },
   ],
   inquiry: {

@@ -50,17 +50,42 @@ const faqs = [
   },
 ] as const;
 
-export default async function SpanishContactPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ source?: string }>;
-}) {
-  const { source } = await searchParams;
-  const leadSource = source === PEMBROKE_PINES_SOURCE ? PEMBROKE_PINES_SOURCE : "brief-builder";
-  const jsonLd = { "@context": "https://schema.org", "@graph": [
-    { "@type": "ContactPage", "@id": absoluteUrl("/es/contacto#webpage"), url: absoluteUrl("/es/contacto"), name: "Contacto en Español | Esteban Moreno Media", description: contactDescriptionEs, inLanguage: "es-US" },
-    { "@type": "FAQPage", "@id": absoluteUrl("/es/contacto#faq"), inLanguage: "es-US", mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })) },
-  ] };
+// Static on purpose. Reading ?source= on the server through searchParams made
+// this route render on demand, so for many user agents the canonical, hreflang
+// and robots tags streamed into <body> (SEO/GEO audit 2026-10-10, fix 14). The
+// allowlisted attribution value is now read in the browser by the brief
+// builder; every other value still falls back to "brief-builder".
+export default function SpanishContactPage() {
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ContactPage",
+        "@id": absoluteUrl("/es/contacto#webpage"),
+        url: absoluteUrl("/es/contacto"),
+        name: "Contacto en Español | Esteban Moreno Media",
+        description: contactDescriptionEs,
+        isPartOf: { "@id": absoluteUrl("/#website") },
+        inLanguage: "es-US",
+      },
+      {
+        "@type": "FAQPage",
+        "@id": absoluteUrl("/es/contacto#faq"),
+        inLanguage: "es-US",
+        isPartOf: { "@id": absoluteUrl("/#website") },
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      },
+    ],
+  };
+
   return (
     <main className="bg-[#f6f1ea] text-[#101214]">
       <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
@@ -101,7 +126,7 @@ export default async function SpanishContactPage({
           </details>
           <details className="mt-5 border-t border-[#d6ccc0] pt-5">
             <summary className="flex min-h-11 cursor-pointer items-center font-medium text-[#9f3c27] underline underline-offset-4">Preparar un brief más detallado</summary>
-            <div className="mt-5 max-w-2xl"><VideoBriefBuilder locale="es" source={leadSource} /></div>
+            <div className="mt-5 max-w-2xl"><VideoBriefBuilder locale="es" source="brief-builder" querySources={[PEMBROKE_PINES_SOURCE]} /></div>
           </details>
         </Container>
       </section>

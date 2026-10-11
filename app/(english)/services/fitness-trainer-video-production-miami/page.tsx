@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,19 +18,20 @@ export default function FitnessTrainerVideoProductionMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/fitness-trainer-video-production-miami",
+        name: "Fitness Trainer Video Production Miami",
+        description:
+          "High-energy video editing, workout routine reels, and transformation story post-production for personal trainers in Miami.",
+        crumb: "Fitness Trainer Video",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/fitness-trainer-video-production-miami#service"),
         name: "Fitness Trainer Video Production Miami",
         description:
           "Personal trainer video editing, fitness workout reel formatting, and client transformation video post-production in Miami.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami / Brickell",
         serviceType: "Fitness video production",
       },

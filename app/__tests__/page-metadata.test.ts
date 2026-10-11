@@ -75,9 +75,10 @@ describe("complete page metadata", () => {
       "../(english)/services/restaurant-promo-video-editing-miami/page"
     );
 
-    expect(metadata.title).toBe(
-      "Restaurant Promo Video Editing in Miami | From $240",
-    );
+    // Over 60 characters with the brand suffix, so it renders unbranded (fix 12).
+    expect(metadata.title).toEqual({
+      absolute: "Restaurant Promo Video Editing in Miami | From $240",
+    });
     expect(metadata.description).toBe(
       "Restaurant promo video editing in Miami from $240 per project. Send food or dining-room footage for scoped reels, captions, and social cuts. See published work.",
     );

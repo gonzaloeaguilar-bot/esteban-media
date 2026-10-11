@@ -28,6 +28,7 @@ import {
   type GuideLocale,
 } from "@/lib/guides";
 import { redditQueryInsights } from "@/lib/reddit-query-insights";
+import { isConsolidatedPath } from "@/lib/consolidation";
 
 
 const RELATED_GUIDE_COUNT = 6;
@@ -288,7 +289,14 @@ function QueryInsights({ locale }: { locale: GuideLocale }) {
                   >
                     {copy.sourceLabel}
                   </a>
-                  {insight.internalLinks.slice(0, 2).map((link) => (
+                  {insight.internalLinks
+                    // Never link the guides hub into a noindexed page (SEO/GEO
+                    // audit 2026-10-10, fix 5). English only for now: the
+                    // Spanish hub is pinned by the text-parity baseline, which
+                    // is refreshed for additive changes only.
+                    .filter((link) => locale === "es" || !isConsolidatedPath(link.en))
+                    .slice(0, 2)
+                    .map((link) => (
                     <Link
                       key={link[locale]}
                       href={link[locale]}

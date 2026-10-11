@@ -2,6 +2,13 @@ import Link from "next/link";
 import { ArrowRight, Building2, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { PORTED_SERVICE_FAQS } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceFaqs,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,19 +24,21 @@ export default function RealEstateVideoSunnyIslesPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/real-estate-video-sunny-isles"), PORTED_SERVICE_FAQS["/services/real-estate-video-sunny-isles"]),
+      ...buildServicePageNodes({
+        path: "/services/real-estate-video-sunny-isles",
+        name: "Real Estate Video Sunny Isles",
+        description:
+          "Sunny Isles Beach luxury real estate video editing: oceanfront tower walkthroughs, penthouse tours, and high-rise property promos.",
+        crumb: "Real Estate Video Sunny Isles",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/real-estate-video-sunny-isles#service"),
         name: "Real Estate Video Sunny Isles",
         description:
           "Sunny Isles Beach real estate video editing, oceanfront condo tower walkthroughs, luxury penthouse videos, and realtor marketing.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Sunny Isles Beach / Aventura",
         serviceType: "Real estate video editing",
       },
@@ -103,6 +112,7 @@ export default function RealEstateVideoSunnyIslesPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="real estate video in Sunny Isles" />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
@@ -139,6 +149,11 @@ export default function RealEstateVideoSunnyIslesPage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/real-estate-video-sunny-isles"]}
+        sectionId="ported-faq"
+      />
     </main>
   );
 }

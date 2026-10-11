@@ -8,6 +8,7 @@ import {
   ServiceInquiryRail,
   ServiceRelated,
   buildServiceFaqSchema,
+  buildServicePageNodes,
 } from "@/components/service-depth";
 import { ECOMMERCE_VIDEO_DEPTH } from "@/lib/service-depth-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
@@ -25,6 +26,13 @@ export default function EcommerceProductVideoEditorMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/ecommerce-product-video-editor-miami",
+        name: "E-Commerce Product Video Editor Miami",
+        description:
+          "Product video editing for Shopify stores, Amazon listing videos, D2C brand video ads, and feature callout edits in Miami.",
+        crumb: "E-Commerce Product Video Editor",
+      }),
       buildServiceFaqSchema(absoluteUrl("/services/ecommerce-product-video-editor-miami"), ECOMMERCE_VIDEO_DEPTH.faqs),
       {
         "@type": "Service",
@@ -32,13 +40,7 @@ export default function EcommerceProductVideoEditorMiamiPage() {
         name: "E-Commerce Product Video Editor Miami",
         description:
           "E-commerce product demo video editing, Shopify store video ads, Amazon product listing video edits, and D2C brand videos.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami-Dade / Broward",
         serviceType: "E-commerce video editing",
       },

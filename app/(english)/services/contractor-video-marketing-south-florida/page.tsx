@@ -2,6 +2,10 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import {
+  ServiceAnswerFirst,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,19 +21,20 @@ export default function ContractorVideoMarketingPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/contractor-video-marketing-south-florida",
+        name: "Contractor Video Marketing South Florida",
+        description:
+          "Video editing and project showcase videos for general contractors, remodelers, and home service businesses in Miami and Fort Lauderdale.",
+        crumb: "Contractor Video Marketing",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/contractor-video-marketing-south-florida#service"),
         name: "Contractor Video Marketing South Florida",
         description:
           "Video editing, before-and-after project Reels, and client testimonial videos for South Florida home service contractors.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami-Dade / Fort Lauderdale / Broward",
         serviceType: "Contractor video marketing",
       },
@@ -109,6 +114,7 @@ export default function ContractorVideoMarketingPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="Contractor video marketing" />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">

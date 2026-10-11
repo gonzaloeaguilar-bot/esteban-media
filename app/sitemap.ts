@@ -19,8 +19,49 @@ import {
   type PortfolioWatchLocale,
 } from "@/lib/portfolio-watch";
 import { isConsolidatedPath } from "@/lib/consolidation";
+import { growthSystems } from "@/lib/growth-systems";
+import { eventSectionPaths } from "@/lib/events";
 import { languageAlternates, spanishRoutes } from "@/lib/spanish-site";
 import { absoluteUrl } from "@/lib/site";
+
+/**
+ * The 2026-10-10 inventory additions, both languages: six growth-system pairs,
+ * five daily tool pairs, the two case-study hubs, /lens and /fort-lauderdale.
+ */
+export const inventoryAdditions20261010Paths: readonly string[] = [
+  ...growthSystems.flatMap((system) => [
+    `/services/${system.slug}`,
+    `/es/${system.spanishSlug}`,
+  ]),
+  "/daily-publish-prompt",
+  "/daily-hook-planner",
+  "/daily-shot-list-planner",
+  "/daily-script-pacing-calculator",
+  "/daily-script-timer",
+  "/es/prompt-de-publicacion-diaria",
+  "/es/planificador-de-ganchos-de-video",
+  "/es/planificador-de-tomas-de-video",
+  "/es/calculadora-de-ritmo-de-video",
+  "/es/temporizador-de-guiones-de-video",
+  "/case-studies",
+  "/es/casos-de-estudio",
+  "/lens",
+  "/fort-lauderdale",
+];
+
+function inventoryAdditionPriority(path: string): number {
+  if (path === "/fort-lauderdale") return 0.85;
+  if (path.startsWith("/services/") || growthSystems.some((s) => path === `/es/${s.spanishSlug}`)) {
+    return 0.8;
+  }
+  if (path === "/case-studies" || path === "/es/casos-de-estudio") return 0.75;
+  return 0.6;
+}
+
+const inventoryAdditions20261010 = inventoryAdditions20261010Paths.map((path) => ({
+  path,
+  priority: inventoryAdditionPriority(path),
+}));
 
 export const sitemapRoutes = [
   ...Object.values(packageRoutes).map((route) => ({ path: route.en, priority: 0.8 })),
@@ -109,13 +150,29 @@ export const sitemapRoutes = [
   { path: "/services/white-label-video-editing-for-agencies", priority: 0.85 },
   { path: "/services/salon-barbershop-video-marketing-miami", priority: 0.85 },
   { path: "/services/auto-detailing-tint-wrap-video-marketing-miami", priority: 0.85 },
+  // 2026-10-11 niche wave 8 (owner-approved).
+  { path: "/services/pre-construction-condo-video-marketing-miami", priority: 0.85 },
+  { path: "/services/vacation-rental-video-marketing-fort-lauderdale", priority: 0.85 },
+  { path: "/services/insurance-agency-video-marketing-miami", priority: 0.85 },
+  { path: "/services/mortgage-broker-video-marketing-miami", priority: 0.85 },
+  { path: "/services/immigration-attorney-video-marketing-miami", priority: 0.85 },
+  { path: "/services/church-sermon-clip-editing-miami", priority: 0.85 },
+  { path: "/services/quinceanera-video-miami", priority: 0.85 },
+  { path: "/services/dance-studio-music-school-video-marketing-miami", priority: 0.85 },
   { path: "/desk-recommendations", priority: 0.85 },
   { path: "/portfolio", priority: 0.9 },
   { path: "/areas", priority: 0.85 },
   { path: "/areas/palm-beach-county", priority: 0.85 },
   { path: "/about", priority: 0.7 },
   { path: "/contact", priority: 0.8 },
+  // 2026-10-10, owner decision (Esteban): the 26 pages that were indexable and
+  // self-canonical but not advertised (SEO/GEO audit finding 8) join the
+  // sitemap. See ownerOrderedAdditions in config/indexable-inventory-freeze.json.
+  ...inventoryAdditions20261010,
+  // Annual-events section (2026-10-10, owner-approved): hub + event pairs, EN and ES.
+  ...eventSectionPaths().map((path) => ({ path, priority: 0.8 })),
 ];
+
 
 function sitemapAlternates(path: string) {
   const languages = languageAlternates[path];

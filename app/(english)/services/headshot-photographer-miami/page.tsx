@@ -2,6 +2,14 @@ import Link from "next/link";
 import { ArrowRight, Camera, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { PORTED_SERVICE_FAQS, serviceSiblings } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceFaqs,
+  ServiceRelated,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,19 +25,21 @@ export default function HeadshotPhotographerPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/headshot-photographer-miami"), PORTED_SERVICE_FAQS["/services/headshot-photographer-miami"]),
+      ...buildServicePageNodes({
+        path: "/services/headshot-photographer-miami",
+        name: "Headshot Photographer Miami",
+        description:
+          "Professional headshots and executive portrait photography for business leaders, realtors, and attorneys in Miami and Fort Lauderdale.",
+        crumb: "Headshots",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/headshot-photographer-miami#service"),
         name: "Headshot Photographer Miami",
         description:
           "Professional corporate headshots, LinkedIn profile portraits, and business headshots in South Florida.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami-Dade / Fort Lauderdale",
         serviceType: "Headshot photography",
       },
@@ -102,6 +112,7 @@ export default function HeadshotPhotographerPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="Headshot photography" />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
@@ -138,6 +149,16 @@ export default function HeadshotPhotographerPage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/headshot-photographer-miami"]}
+        sectionId="ported-faq"
+      />
+      <ServiceRelated
+        heading="Related services nearby."
+        services={serviceSiblings("/services/headshot-photographer-miami")}
+        sectionId="sibling-services"
+      />
     </main>
   );
 }

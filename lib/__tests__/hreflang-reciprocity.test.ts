@@ -4,6 +4,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 
 import { isConsolidatedPath } from "@/lib/consolidation";
+import { growthSystems } from "@/lib/growth-systems";
 import { languageAlternates } from "@/lib/spanish-site";
 
 /**
@@ -90,9 +91,17 @@ describe("hreflang map", () => {
       "/es/portafolio",
     ]);
 
+    // Exact paths rendered by the [growthSystem] segments under /services and
+    // /es, taken from the same data generateStaticParams uses. Exact paths,
+    // not parents, so an unknown /es/<slug> still fails.
+    const generatedPaths = new Set(
+      growthSystems.flatMap((s) => [`/services/${s.slug}`, `/es/${s.spanishSlug}`]),
+    );
+
     const routeExists = (p: string) => {
       const group = p.startsWith("/es") ? "(spanish)" : "(english)";
       if (existsSync(path.join(root, group, p === "/" ? "" : p, "page.tsx"))) return true;
+      if (generatedPaths.has(p)) return true;
       return generatedParents.has(path.posix.dirname(p));
     };
 

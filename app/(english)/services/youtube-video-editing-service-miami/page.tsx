@@ -8,6 +8,7 @@ import {
   ServiceInquiryRail,
   ServiceRelated,
   buildServiceFaqSchema,
+  buildServicePageNodes,
 } from "@/components/service-depth";
 import { YOUTUBE_EDITING_DEPTH } from "@/lib/service-depth-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
@@ -25,6 +26,13 @@ export default function YoutubeVideoEditingServiceMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/youtube-video-editing-service-miami",
+        name: "YouTube Video Editing Service Miami",
+        description:
+          "YouTube video editing service in Miami: long-form video pacing, chaptering, explanatory graphic overlays, audio mastering, and thumbnail visuals.",
+        crumb: "YouTube Video Editing Service",
+      }),
       buildServiceFaqSchema(absoluteUrl("/services/youtube-video-editing-service-miami"), YOUTUBE_EDITING_DEPTH.faqs),
       {
         "@type": "Service",
@@ -32,13 +40,7 @@ export default function YoutubeVideoEditingServiceMiamiPage() {
         name: "YouTube Video Editing Service Miami",
         description:
           "YouTube channel video editing in Miami, long-form audience retention pacing, chapter markers, motion graphics overlays, and audio mastering.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami-Dade / Broward",
         serviceType: "YouTube video editing",
       },

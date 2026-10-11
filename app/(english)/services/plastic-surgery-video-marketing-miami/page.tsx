@@ -2,6 +2,10 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import {
+  ServiceAnswerFirst,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,19 +21,20 @@ export default function PlasticSurgeryVideoMarketingPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/plastic-surgery-video-marketing-miami",
+        name: "Plastic Surgery Video Marketing Miami",
+        description:
+          "Confidential, high-end video editing and patient education video content for plastic surgeons and cosmetic practices in Miami.",
+        crumb: "Plastic Surgery Video",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/plastic-surgery-video-marketing-miami#service"),
         name: "Plastic Surgery Video Marketing Miami",
         description:
           "High-end cosmetic surgery video editing, patient testimonial editing, and educational videos for Miami plastic surgeons.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami / Coral Gables",
         serviceType: "Medical video marketing",
       },
@@ -103,6 +108,7 @@ export default function PlasticSurgeryVideoMarketingPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="plastic surgery video marketing" />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">

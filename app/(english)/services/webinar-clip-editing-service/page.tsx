@@ -2,6 +2,14 @@ import Link from "next/link";
 import { ArrowRight, WandSparkles, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { PORTED_SERVICE_FAQS, serviceSiblings } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceFaqs,
+  ServiceRelated,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,19 +25,21 @@ export default function WebinarClipEditingServicePage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/webinar-clip-editing-service"), PORTED_SERVICE_FAQS["/services/webinar-clip-editing-service"]),
+      ...buildServicePageNodes({
+        path: "/services/webinar-clip-editing-service",
+        name: "Webinar Clip Editing Service",
+        description:
+          "Webinar clip editing service: extracting key takeaway clips from virtual events, formatting into 9:16 vertical reels with captions.",
+        crumb: "Webinar Clip Editing Service",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/webinar-clip-editing-service#service"),
         name: "Webinar Clip Editing Service",
         description:
           "Webinar snippet video editing, long Zoom/recording clip extraction, vertical social video reel formatting, and animated subtitle overlays.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami-Dade / Broward",
         serviceType: "Webinar clip editing",
       },
@@ -96,6 +106,7 @@ export default function WebinarClipEditingServicePage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="Webinar clip editing" />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
@@ -132,6 +143,16 @@ export default function WebinarClipEditingServicePage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/webinar-clip-editing-service"]}
+        sectionId="ported-faq"
+      />
+      <ServiceRelated
+        heading="Related services nearby."
+        services={serviceSiblings("/services/webinar-clip-editing-service")}
+        sectionId="sibling-services"
+      />
     </main>
   );
 }

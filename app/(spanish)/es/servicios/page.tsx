@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { EventSeasonLinks } from "@/components/event-content-page";
 import { ArrowRight, Bot, CheckCircle2, ChartLine, ClipboardCheck, Laptop, MapPin, Workflow } from "lucide-react";
 
 import { KeepReading } from "@/components/keep-reading";
@@ -446,6 +447,7 @@ export default function SpanishServicesPage() {
       </section>
       </KeepReading>
 
+      <EventSeasonLinks locale="es" path="/es/servicios" />
     </main>
   );
 }

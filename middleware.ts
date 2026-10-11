@@ -1,7 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 
 const spanishCountries = new Set(["AR", "BO", "CL", "CO", "CR", "CU", "DO", "EC", "SV", "GQ", "GT", "HN", "MX", "NI", "PA", "PY", "PE", "PR", "ES", "UY", "VE"]);
-const crawler = /bot|crawler|spider|slurp|ahrefs|semrush|facebookexternalhit|headlesschrome/i;
+// ChatGPT-User, Claude-User and Perplexity-User are user-initiated AI fetchers
+// that do not contain "bot"; without them a Spanish Accept-Language fetch got a
+// 307 to /es instead of the page it asked for (SEO/GEO audit 2026-10-10, fix 15).
+const crawler = /bot|crawler|spider|slurp|ahrefs|semrush|facebookexternalhit|headlesschrome|chatgpt-user|claude-user|perplexity-user/i;
 
 export function middleware(request: NextRequest) {
   if (request.nextUrl.pathname !== "/") return NextResponse.next();

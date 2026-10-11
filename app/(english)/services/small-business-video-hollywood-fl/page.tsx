@@ -2,6 +2,14 @@ import Link from "next/link";
 import { ArrowRight, Building2, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { PORTED_SERVICE_FAQS, serviceSiblings } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceFaqs,
+  ServiceRelated,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,19 +25,21 @@ export default function SmallBusinessVideoHollywoodFlPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/small-business-video-hollywood-fl"), PORTED_SERVICE_FAQS["/services/small-business-video-hollywood-fl"]),
+      ...buildServicePageNodes({
+        path: "/services/small-business-video-hollywood-fl",
+        name: "Small Business Video Hollywood FL",
+        description:
+          "Small business video production & editing in Hollywood & Hallandale FL: Instagram reels, storefront promos, and customer review clips.",
+        crumb: "Small Business Video Hollywood",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/small-business-video-hollywood-fl#service"),
         name: "Small Business Video Hollywood FL",
         description:
           "Small business video production & editing in Hollywood FL, local storefront promo videos, Instagram reels, and customer testimonial edits.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Hollywood / Hallandale Beach",
         serviceType: "Small business video production",
       },
@@ -110,6 +120,7 @@ export default function SmallBusinessVideoHollywoodFlPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="small business video in Hollywood, FL" />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
@@ -146,6 +157,16 @@ export default function SmallBusinessVideoHollywoodFlPage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/small-business-video-hollywood-fl"]}
+        sectionId="ported-faq"
+      />
+      <ServiceRelated
+        heading="Related services nearby."
+        services={serviceSiblings("/services/small-business-video-hollywood-fl")}
+        sectionId="sibling-services"
+      />
     </main>
   );
 }

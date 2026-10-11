@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { buildPageMetadata } from "@/lib/site-metadata";
-import { absoluteUrl } from "@/lib/site";
+import { absoluteUrl, socialImage } from "@/lib/site";
 
 import {
   PACKAGE_PRICES,
@@ -4544,16 +4544,13 @@ export function buildGuideStructuredData(guide: Guide) {
         description: guide.description,
         inLanguage: guide.locale === "es" ? "es-US" : "en-US",
         mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
-        author: {
-          "@type": "Person",
-          name: "Esteban Moreno",
-          url: absoluteUrl(guide.locale === "es" ? "/es/sobre-esteban" : "/about"),
-        },
-        publisher: {
-          "@type": "Organization",
-          name: "Esteban Moreno Media",
-          url: absoluteUrl(guide.locale === "es" ? "/es" : "/"),
-        },
+        // No guide shows a byline, so the Article does not name a person as
+        // author; both nodes point at the sitewide business entity instead of
+        // anonymous Person/Organization stubs (SEO/GEO audit 2026-10-10, fix 7).
+        // Bylines are an open owner decision.
+        author: { "@id": absoluteUrl("/#business") },
+        publisher: { "@id": absoluteUrl("/#business") },
+        image: socialImage.url,
       },
       buildBreadcrumbList(breadcrumbsId, [
         {

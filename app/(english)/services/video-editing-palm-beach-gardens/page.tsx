@@ -2,6 +2,13 @@ import Link from "next/link";
 import { ArrowRight, WandSparkles, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { PORTED_SERVICE_FAQS } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceFaqs,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,19 +24,21 @@ export default function VideoEditingPalmBeachGardensPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/video-editing-palm-beach-gardens"), PORTED_SERVICE_FAQS["/services/video-editing-palm-beach-gardens"]),
+      ...buildServicePageNodes({
+        path: "/services/video-editing-palm-beach-gardens",
+        name: "Video Editing Palm Beach Gardens",
+        description:
+          "Video editing in Palm Beach Gardens FL: executive services, medical clinics, architectural firms, and estate video marketing.",
+        crumb: "Video Editing Palm Beach Gardens",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/video-editing-palm-beach-gardens#service"),
         name: "Video Editing Palm Beach Gardens",
         description:
           "Palm Beach Gardens video editing service, medical clinic video marketing, executive firm overview edits, and luxury estate videos.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Palm Beach Gardens / Jupiter",
         serviceType: "Video editing",
       },
@@ -110,6 +119,7 @@ export default function VideoEditingPalmBeachGardensPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="remote video editing" />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
@@ -146,6 +156,11 @@ export default function VideoEditingPalmBeachGardensPage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/video-editing-palm-beach-gardens"]}
+        sectionId="ported-faq"
+      />
     </main>
   );
 }

@@ -1,5 +1,12 @@
 # Esteban Moreno Media — Backlog
 
+- [x] 2026-10-10: ship the annual-events section (hub + FLIBS + Art Basel first, then Miami boat show, SOBEWFF, eMerge Americas, Miami Music Week, Miami Spice) on `feat/events-hub`.
+- [ ] 2026-11-01: refresh lib/events.ts — Miami Spice 2026 ends 2026-10-31 (`pnpm events:check` and the weekly follow-ups workflow go red until updated or set to null); FLIBS 2026 ends 2026-11-01.
+- [ ] 2026-11-10: GSC impressions/indexed status and event_* / service_event_* CTA clicks for the events section URLs.
+
+- [x] 2026-10-11: niche wave 8 — eight owner-approved EN/ES pairs (16 URLs, sitemap 300) on `feat/niche-wave-8`.
+- [ ] 2026-11-11: GSC impressions, index status and inquiry CTA clicks for the 16 wave-8 URLs; merge or drop any pair at zero.
+
 - [x] 2026-10-11: release EN/ES Miami restaurant search copy and contextual links to existing Fort Lauderdale production/Reels pages. PR #353 merged; exact-head CI and Cortex evidence green; production HTML/mobile/IndexNow verified. See `esteban-local-keyword-demand-gaps-2026-10-11` in the client vault.
 - [ ] 2026-11-08: compare 28-day GSC clicks, impressions, and query-to-page routing for `restaurant promo video editing miami`, `video para restaurantes miami`, `fort lauderdale video production`, and EN/ES Reels terms; check qualified leads before calling the release an outcome win.
 
@@ -30,9 +37,16 @@ Production is live. This file tracks repository implementation; account/access w
 
 ## P1 — Technical SEO / GEO / ALOHA
 
+- [x] 2026-10-11: SEO/GEO audit wave on `fix/seo-geo-audit-wave` — the audit's 15 mechanical fixes (fix 8 partial), sitemap 284 → 310 by owner decision, `/llms.txt` generated from sitemap sources, 37 ported EN FAQs, answer-first blocks, sibling links. Details: `.ai/handoff.md`.
+- [ ] 2026-11-10: check GSC indexed status and impressions for the 26 URLs added to the sitemap on 2026-10-10 (see `ownerOrderedAdditions` in `config/indexable-inventory-freeze.json`).
+- [ ] Owner: decide guide bylines (Esteban as author of record?) and a date policy (`published`/`updated` fields) — unlocks visible dates, `dateModified` and sitemap `lastmod`.
+- [ ] Owner-approved non-additive text-parity refresh: drop the 31 remaining links from `/es/servicios`, `/es/areas`, `/es/guias` and `/es/editor-de-video-miami` into noindexed pages, replace the templated `¿Para qué proyecto encaja?` H2, and apply the title brand-suffix rule to `/es/<slug>` pages.
+- [ ] After `feat/es-real-estate-reel-shelf` merges: add the 6 reels to `video-sitemap.xml` and point the reels VideoObject `publisher` at `#business`.
+- [ ] Copy: `/areas` Palm Beach County card still says "sub-city coverage is not yet published" while Palm Beach city pages are indexed; reword without strengthening Palm Beach positioning.
 - [x] Prepare the Spanish editor-vs-videographer guide's Broward handoff to the existing Fort Lauderdale Reels and production services from fresh query/page evidence; full validation and live HTML checks are documented in `.ai/handoff.md`.
 - [ ] After release, compare the same Fort Lauderdale Reels query/page group in settled GSC data and verify qualified inquiries; the link alone does not prove recommendation or ranking lift.
-- [ ] Review, merge, deploy, and recheck homepage per-video wording in [PR #347](https://github.com/gonzaloeaguilar-bot/esteban-media/pull/347); then repeat the exact ChatGPT/Gemini buyer prompts in [[esteban-chatgpt-gemini-recommendation-probe-2026-10-11]] without claiming a causal ranking gain.
+- [x] 2026-10-11: [PR #347](https://github.com/gonzaloeaguilar-bot/esteban-media/pull/347) merged after exact-head validation and Cortex evidence; production `/` and `/es` raw HTML returned 200 with the clarified "$100 per video" wording.
+- [ ] Repeat the exact ChatGPT/Gemini buyer prompts in [[esteban-chatgpt-gemini-recommendation-probe-2026-10-11]] and compare settled GSC query/page results without claiming a causal ranking gain.
 
 - [x] Prepare 2026-10-11 local `/es/areas` contextual links from the existing Coral Gables property-video and Fort Lauderdale yacht/hospitality pages; preserve all claims and existing target return links. Validation and review handoff: `.ai/handoff.md`.
 - [ ] Coordinator/cto-qa-lead, before release: independently review and verify the two links; after release, confirm production HTML and update the vault/registry. Coordinator/cto-seo-lead, before the next starvation run: correct the recurring orphan classification and supply verified earning-page evidence.
@@ -77,7 +91,7 @@ Production is live. This file tracks repository implementation; account/access w
 - [x] Add one direct entity/service/location sentence above the homepage fold
 - [x] Run three mobile and three desktop Lighthouse audits on `/`, `/es`, `/portfolio`, and `/es/portafolio`; record medians and remediate the semantic/accessibility findings (mobile performance 95/93/95/94, desktop 100s, final accessibility/SEO/best-practices 100)
 - [x] Add truthful localized `VideoObject` data on all 16 dedicated watch pages and represent collection entries as links to those `WebPage` entities
-- [ ] Add `ImageObject`/logo schema when approved brand photography and logo files are available
+- [x] Add an `ImageObject` for the existing square brand icon to the LocalBusiness entity; production homepage JSON-LD contains the logo URL. Replace it with an approved dedicated logo asset when one is supplied.
 - [ ] Add English priority-service pages when distinct, verified content is ready
 - [x] Strengthen the homepage, bilingual service/area hubs, internal proof links, and Esteban entity graph using only approved facts
 - [x] Add contextual inbound links to the existing Spanish practical-video guide hub from earning content and service-area pages
@@ -86,7 +100,8 @@ Production is live. This file tracks repository implementation; account/access w
 - [x] Freeze the 259-URL sitemap until the current inventory is classified; CI now rejects URL-count growth or duplication
 - [x] Publish four practical bilingual guide pairs with explicit general-guidance and evidence caveats
 - [x] Use click-to-load YouTube facades on both collection pages while keeping every watch-page iframe rendered and discoverable
-- [ ] Release ESTEBAN-03 after the fail-closed 3-LLM/build/preview boundary: factual Pembroke Pines copy, reciprocal hreflang, and attributed brief source are implemented locally; Claude spec, full build, preview, production, and fresh rank evidence remain required
+- [x] Release ESTEBAN-03 Pembroke Pines EN/ES pages; both production URLs returned 200 with reciprocal language links on 2026-10-11.
+- [ ] Compare settled GSC query/page and qualified inquiries for the Pembroke Pines pair before claiming a search outcome.
 
 ## P1 — Product and measurement
 

@@ -8,6 +8,7 @@ import {
   ServiceInquiryRail,
   ServiceRelated,
   buildServiceFaqSchema,
+  buildServicePageNodes,
 } from "@/components/service-depth";
 import { UGC_ECOMMERCE_DEPTH } from "@/lib/service-depth-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
@@ -25,6 +26,13 @@ export default function UGCVideoEditorEcommercePage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/ugc-video-editor-ecommerce",
+        name: "UGC Video Editor E-Commerce Miami",
+        description:
+          "High-converting UGC video editing, TikTok & Meta ad variations, animated captions, and visual hooks for e-commerce brands.",
+        crumb: "UGC Video Editor",
+      }),
       buildServiceFaqSchema(absoluteUrl("/services/ugc-video-editor-ecommerce"), UGC_ECOMMERCE_DEPTH.faqs),
       {
         "@type": "Service",
@@ -32,13 +40,7 @@ export default function UGCVideoEditorEcommercePage() {
         name: "UGC Video Editor E-Commerce Miami",
         description:
           "User-generated content (UGC) video editing, Meta/TikTok ad variations, hook testing, and animated captions for e-commerce.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami / Remote E-Commerce",
         serviceType: "UGC video editing",
       },

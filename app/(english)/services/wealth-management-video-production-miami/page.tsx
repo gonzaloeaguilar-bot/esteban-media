@@ -2,6 +2,14 @@ import Link from "next/link";
 import { ArrowRight, WandSparkles, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { PORTED_SERVICE_FAQS, serviceSiblings } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceFaqs,
+  ServiceRelated,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,19 +25,21 @@ export default function WealthManagementVideoProductionMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/wealth-management-video-production-miami"), PORTED_SERVICE_FAQS["/services/wealth-management-video-production-miami"]),
+      ...buildServicePageNodes({
+        path: "/services/wealth-management-video-production-miami",
+        name: "Wealth Management Video Production Miami",
+        description:
+          "Financial advisor video production, wealth management authority reels, market update edits, and corporate financial video in Miami.",
+        crumb: "Wealth Management Video Production",
+      }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/wealth-management-video-production-miami#service"),
         name: "Wealth Management Video Production Miami",
         description:
           "Financial advisor authority video editing, wealth management video marketing, and corporate financial video production in Miami.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Financial District / Brickell",
         serviceType: "Financial video production",
       },
@@ -96,6 +106,7 @@ export default function WealthManagementVideoProductionMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="Financial video production" />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
@@ -132,6 +143,16 @@ export default function WealthManagementVideoProductionMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/wealth-management-video-production-miami"]}
+        sectionId="ported-faq"
+      />
+      <ServiceRelated
+        heading="Related services nearby."
+        services={serviceSiblings("/services/wealth-management-video-production-miami")}
+        sectionId="sibling-services"
+      />
     </main>
   );
 }

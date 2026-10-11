@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 
 import { buildPageMetadata } from "@/lib/site-metadata";
-import { absoluteUrl, site } from "@/lib/site";
+import { absoluteUrl } from "@/lib/site";
+import { getPortfolioItemById, isYouTubeSource } from "@/lib/portfolio";
 
 export const CASE_STUDY_IDS = [
   "banacol",
@@ -1076,9 +1077,36 @@ export function buildCaseStudyMetadata(caseStudy: CaseStudy): Metadata {
  * Emits an Article and BreadcrumbList JSON-LD graph.
  * STRICTLY OMITS aggregateRating and review nodes (per AGENTS.md & QA rules).
  */
+/**
+ * VideoObject for a case study that embeds the project's YouTube video.
+ *
+ * The page renders the same embed as the portfolio watch page, from the same
+ * portfolio item, so the upload date, duration and video id are reused rather
+ * than restated (SEO/GEO audit 2026-10-10, fix 8). Case studies without a
+ * YouTube source (a website build) get no VideoObject.
+ */
+function buildCaseStudyVideoObject(caseStudy: CaseStudy, path: string) {
+  const item = getPortfolioItemById(caseStudy.id);
+  if (!item || !isYouTubeSource(item.media)) return undefined;
+  return {
+    "@type": "VideoObject",
+    "@id": absoluteUrl(`${path}#video`),
+    name: `${caseStudy.title} video`,
+    description: caseStudy.summary,
+    thumbnailUrl: absoluteUrl(caseStudy.posterUrl),
+    uploadDate: item.media.uploadDate,
+    duration: item.media.duration,
+    embedUrl: `https://www.youtube-nocookie.com/embed/${item.media.videoId}`,
+    sameAs: item.media.url,
+    inLanguage: caseStudy.locale === "es" ? "es-US" : "en-US",
+    publisher: { "@id": absoluteUrl("/#business") },
+  };
+}
+
 export function buildCaseStudyStructuredData(caseStudy: CaseStudy) {
   const path = getCaseStudyPath(caseStudy);
   const isSpanish = caseStudy.locale === "es";
+  const video = buildCaseStudyVideoObject(caseStudy, path);
 
   return {
     "@context": "https://schema.org",
@@ -1093,24 +1121,19 @@ export function buildCaseStudyStructuredData(caseStudy: CaseStudy) {
         inLanguage: isSpanish ? "es-US" : "en-US",
         mainEntityOfPage: absoluteUrl(path),
         image: absoluteUrl(caseStudy.posterUrl),
-        author: {
-          "@type": "Person",
-          name: site.name,
-          url: absoluteUrl(isSpanish ? "/es/sobre-esteban" : "/about"),
-        },
-        publisher: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl(isSpanish ? "/es" : "/"),
-          telephone: site.phone.e164,
-          email: site.email,
-        },
+        // author typed the business name as a Person. Every case study names
+        // Esteban in its body as the person who did the work, so author is the
+        // sitewide #esteban entity and publisher the #business entity
+        // (SEO/GEO audit 2026-10-10, fix 7).
+        author: { "@id": absoluteUrl("/#esteban") },
+        publisher: { "@id": absoluteUrl("/#business") },
         about: {
           "@type": "CreativeWork",
           name: caseStudy.client,
         },
+        ...(video ? { video: { "@id": video["@id"] } } : {}),
       },
+      ...(video ? [video] : []),
       {
         "@type": "BreadcrumbList",
         "@id": absoluteUrl(`${path}#breadcrumbs`),

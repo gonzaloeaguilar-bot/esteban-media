@@ -339,6 +339,22 @@ for (const route of ["es/servicios.html", "es/areas.html"]) {
   ROUTE_ALLOWED_ADDITIONS[route] = existing;
 }
 
+// Niche wave 8 (2026-10-11): the same two DIRECTORIES gain one card per new
+// Spanish niche page. These are the words those eight titles and their
+// coverage lines bring, and nothing else; every existing sentence on the hubs
+// is still checked.
+for (const route of ["es/servicios.html", "es/areas.html"]) {
+  const existing = ROUTE_ALLOWED_ADDITIONS[route] ?? new Set();
+  for (const word of [
+    "/", "Broward", "Edición", "Fort", "Lauderdale", "Marketing", "Miami",
+    "Miami-Dade", "Remoto", "Video", "abogados", "academias", "agencias",
+    "alquileres", "baile", "brokers", "clips", "condominios", "de", "en",
+    "hipotecarios", "iglesias", "inmigración", "música", "para", "preventa",
+    "prédicas", "quinceañeras", "seguros", "vacacionales", "video", "y",
+  ]) existing.add(word);
+  ROUTE_ALLOWED_ADDITIONS[route] = existing;
+}
+
 const baseline = JSON.parse(readFileSync(file, "utf8"));
 const problems = [];
 

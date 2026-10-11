@@ -8,6 +8,7 @@ import {
   ServiceInquiryRail,
   ServiceRelated,
   buildServiceFaqSchema,
+  buildServicePageNodes,
 } from "@/components/service-depth";
 import { AI_REAL_ESTATE_DEPTH } from "@/lib/service-depth-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
@@ -25,6 +26,13 @@ export default function AIRealEstatePhotoPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...buildServicePageNodes({
+        path: "/services/ai-real-estate-photo-enhancement",
+        name: "AI Real Estate Photo Enhancement Miami",
+        description:
+          "AI-assisted real estate photo enhancement and virtual environment retouching for realtors and properties in Miami and Fort Lauderdale.",
+        crumb: "AI Real Estate Photos",
+      }),
       buildServiceFaqSchema(absoluteUrl("/services/ai-real-estate-photo-enhancement"), AI_REAL_ESTATE_DEPTH.faqs),
       {
         "@type": "Service",
@@ -32,13 +40,7 @@ export default function AIRealEstatePhotoPage() {
         name: "AI Real Estate Photo Enhancement Miami",
         description:
           "AI-assisted real estate photo retouching, sky replacement, and lighting enhancement for South Florida real estate listings.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami-Dade / Fort Lauderdale / Broward",
         serviceType: "AI real estate photo enhancement",
       },
