@@ -1,9 +1,9 @@
 {
   "status": "demand_gated",
   "effectiveDate": "2026-08-28",
-  "baselineRevisedOn": "2026-10-07",
-  "approvedSitemapUrlCount": 284,
-  "approvedSitemapUrlSetSha256": "bc3bbdbecbfdc7909841df79d5cae5be741b5513a5aab339bf7e40a7b294b1a1",
+  "baselineRevisedOn": "2026-10-11",
+  "approvedSitemapUrlCount": 288,
+  "approvedSitemapUrlSetSha256": "4d6d773f657dc2c464b2a64ada041f1dc3ddaafae733316405ec5bbafb194594",
   "allowedNewIndexableUrls": 4,
   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {
@@ -195,6 +195,21 @@
       "demandEvidence": "GSC USA 'editor de video miami' 7 impr pos 42-58 with no target page; AI probe 0/9 citations for Esteban on 'editor de video en miami'. Spanish-first landing page with no English twin.",
       "followUpDate": "2026-11-06",
       "followUp": "Check GSC impressions and rankings for 'editor de video miami' and re-run AI probe 'editor de video en miami' at 30 days."
+    },
+    {
+      "on": "2026-10-11",
+      "url": [
+        "/services/pre-construction-condo-video-marketing-miami",
+        "/es/video-para-preventa-de-condominios-miami",
+        "/services/vacation-rental-video-marketing-fort-lauderdale",
+        "/es/video-para-alquileres-vacacionales-fort-lauderdale"
+      ],
+      "orderedBy": "Owner (Esteban), relayed by the project coordinator in-session",
+      "kind": "buyer-gap niche pairs (wave 8)",
+      "demandEvidence": "NO GSC QUERY CITED, stated rather than dressed up. Owner-approved buyer gaps: pre-construction condo developers and sales teams, Spanish-speaking mortgage brokers and loan officers, Latino insurance agencies (ACA / Medicare), Spanish-language immigration attorneys, vacation-rental hosts and short-term-rental managers, churches, quinceañeras, and dance studios / music academies / kids' activity businesses. Each pair ships with title, meta description, Service + FAQPage + BreadcrumbList schema built from the visible copy, an answer-first question heading, hreflang in both directions, inbound links from both services hubs, related links to existing sibling services and honest proof from lib/portfolio.ts only.",
+      "note": "Owner-approved batch larger than one demand-wave allowance of 4; recorded as one batch so the exception stays visible. allowedNewIndexableUrls is unchanged.",
+      "followUpDate": "2026-11-11",
+      "followUp": "Check GSC impressions, indexed status and inquiry-rail CTA clicks for every URL in this wave. A pair at zero impressions and zero contact intent after 30 days is merged into the nearest service page or dropped from the sitemap."
     }
   ]
 }

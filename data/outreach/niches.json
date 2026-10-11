@@ -1,6 +1,6 @@
 {
   "note": "Niche definitions for the Esteban Moreno Media outbound lane. Each niche = a Google Maps search query set (`queries`) plus optional Instagram user-search terms (`ig_terms`, used by scripts/ig-prospect-scraper.mjs; falls back to `queries`) that produces REAL local businesses with a visual-content need. `angle` is an OFFER-SAFE observation about the vertical: no prices, no packages, no turnaround promises, no guarantees, no drone, no claims about the prospect's results. Discovery is live (Apify Google Maps); emails are harvested from the business's real website at runtime. Nothing here stores a contact address.",
-  "updated": "2026-10-06",
+  "updated": "2026-10-11",
   "metros": [
     "Fort Lauderdale FL",
     "Miami FL",
@@ -309,6 +309,42 @@
       "why": "Hueco real: el sitio ya tiene dental, med spa y cirugía plástica, pero no consultorio médico general. Dueño-operador, paciente local, y el video corto en español casi no existe en esta categoría en el sur de Florida.",
       "angle_en": "Patient-explainer video is the gap in most clinics here, and it is simple footage to capture.",
       "angle_es": "El video que le explica algo al paciente es el hueco de casi todos estos consultorios, y grabarlo es sencillo.",
+      "priority": 2
+    },
+    {
+      "id": "pre-construction-condos",
+      "label": "Pre-construction condo developers and sales galleries",
+      "queries": [
+        "pre-construction condos",
+        "condo sales gallery",
+        "new construction condo developer"
+      ],
+      "ig_terms": [
+        "preconstruction",
+        "pre construction miami",
+        "preventa miami"
+      ],
+      "why": "Owner-approved wave 8. Launches already own renderings, animations and sales-gallery footage, and sell to Spanish- and English-speaking buyers; page: /services/pre-construction-condo-video-marketing-miami.",
+      "angle_en": "Pre-construction launches usually have approved renderings and gallery footage that never get cut into short Spanish and English versions.",
+      "angle_es": "Los lanzamientos en preventa suelen tener renders y material del sales gallery aprobados que nunca se convierten en videos cortos en español e inglés.",
+      "priority": 2
+    },
+    {
+      "id": "vacation-rentals",
+      "label": "Vacation-rental hosts and short-term-rental managers",
+      "queries": [
+        "vacation rental management",
+        "short term rental management",
+        "airbnb property management"
+      ],
+      "ig_terms": [
+        "vacation rental",
+        "airbnb host",
+        "short term rental"
+      ],
+      "why": "Owner-approved wave 8. Hosts film units between stays and rarely edit a clear room-by-room tour; page: /services/vacation-rental-video-marketing-fort-lauderdale.",
+      "angle_en": "Most rental listings have photos but no short tour that walks a guest through the place in order.",
+      "angle_es": "La mayoría de los anuncios de alquiler tienen fotos, pero no un recorrido corto que lleve al huésped por la propiedad en orden.",
       "priority": 2
     }
   ]

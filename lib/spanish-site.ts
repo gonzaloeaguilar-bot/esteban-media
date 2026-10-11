@@ -188,6 +188,8 @@ export type SpanishNichePage = {
   sectionsDestinations?: string;
   updated?: string;
   heroMedia?: { src: string; alt: string; caption: string };
+  /** Question-shaped heading for the answer-first card (defaults to "¿Para qué proyecto encaja?"). */
+  fitQuestion?: string;
   faqs: { question: string; answer: string }[];
 };
 
@@ -201,6 +203,143 @@ const esLocalFrom = esFrom(PACKAGE_PRICES["presencia-local"]);
 const esShortForm = shortFormPriceText("es");
 const esWeekly = shortFormWeeklyText("es");
 const esHalfDayBand = `${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)}`;
+
+// Ola de nichos 8 (2026-10-11, aprobada por el dueño). Ocho compradores sin
+// página propia. Precios solo vía priceSentence() (lib/pricing.ts); la grabación
+// en locación es un servicio adicional pagado que se cotiza por proyecto; las
+// obligaciones reguladas (avisos legales, NMLS, revisión de la Florida Bar,
+// textos de aseguradoras, permiso para menores) son del cliente.
+const esArranque = () => priceSentence("es", "arranque").toLowerCase();
+const esCrecimiento = () => priceSentence("es", "crecimiento").toLowerCase();
+const esPresencia = () => priceSentence("es", "presencia-local").toLowerCase();
+
+const nicheWave8Pages: SpanishNichePage[] = [
+  {
+    slug: "video-para-preventa-de-condominios-miami",
+    title: "Video para preventa de condominios en Miami",
+    metadataTitle: "Video para Preventa de Condominios Miami",
+    description:
+      "Reels verticales a partir de renders y del sales gallery para lanzamientos de condominios en preventa en Miami y Fort Lauderdale, en versión en español e inglés.",
+    eyebrow: "Desarrolladores / Equipos de venta / Preventa",
+    h1: "Reels para lanzamientos de condominios en preventa, en español e inglés.",
+    lead:
+      "Envía los renders aprobados, los recorridos animados y los clips del sales gallery. Esteban los convierte en reels verticales con versión en español y en inglés para compradores locales e internacionales, y tu equipo aprueba cada afirmación y cada aviso legal.",
+    keyword: "video para preventa de condominios",
+    location: "Miami-Dade / Broward / Remoto",
+    availability: "confirmed",
+    icon: Building2,
+    updated: "2026-10-11",
+    fitQuestion: "¿Se pueden convertir los renders y el sales gallery en reels para una preventa?",
+    projectFit: `Sí. Esteban edita el material que ya tiene el proyecto, como renders aprobados, recorridos animados, tomas del apartamento modelo y del sales gallery, y clips del equipo de ventas hablando a cámara, y lo convierte en reels verticales para Instagram, TikTok y YouTube Shorts. Cada reel puede entregarse en una versión en español y otra en inglés, con subtítulos en cada idioma, para que un mismo lanzamiento hable con compradores de Miami y de América Latina. Los renders se identifican como renders, y el equipo del desarrollador aprueba cada texto, aviso y traducción antes de publicar. La edición es remota: ${esArranque()}. Si hay que grabar el sales gallery o el modelo, la grabación en locación es un servicio adicional pagado que se cotiza por proyecto; el paquete Presencia Local es ${esPresencia()}.`,
+    sectionsDisclosure: "Arma la serie de reels de tu preventa",
+    sectionsDestinations: "La serie de lanzamiento y las versiones en español e inglés",
+    bestFor: [
+      "Desarrolladores que lanzan un proyecto en preventa con renders ya aprobados.",
+      "Equipos de venta que atienden compradores locales e internacionales.",
+      "Agencias de marketing inmobiliario que necesitan edición sin sumar personal.",
+    ],
+    scopingQuestions: [
+      "¿Qué renders, animaciones y clips del sales gallery están aprobados para publicar?",
+      "¿Para qué compradores es cada pieza: locales, del resto del país o internacionales?",
+      "¿Quién del equipo revisa los avisos legales y los textos en español y en inglés?",
+    ],
+    sections: [
+      {
+        heading: "¿Qué reels necesita un lanzamiento en preventa?",
+        paragraphs: [
+          "Casi siempre cuatro tipos, publicados en orden. El adelanto usa el render exterior más fuerte y una frase sobre la ubicación, y su trabajo es que la gente pida el brochure. Los reels de amenidades muestran una sola cosa a la vez, la piscina, el lobby, el gimnasio, para que cada publicación deje una idea clara. El recorrido del sales gallery enseña los acabados y el apartamento modelo, lo más cerca que un comprador puede estar de tocar algo que todavía no existe. Las actualizaciones de obra llegan después y muestran que el proyecto avanza.",
+          "Planear los cuatro juntos permite editar los renders una sola vez y reutilizarlos en toda la serie. Es el tipo de calendario que sostiene el [plan Crecimiento](/es/precios/crecimiento); los [reels inmobiliarios](/es/editor-de-video-real-estate-miami) cubren las propiedades terminadas.",
+        ],
+      },
+      {
+        heading: "¿Qué cambia entre la versión en español y la versión en inglés?",
+        paragraphs: [
+          "La imagen suele quedarse igual y cambian las palabras. Los textos en pantalla se reescriben en lugar de traducirse palabra por palabra, porque una frase que vende en inglés puede sonar rígida en español, y el español ocupa más espacio, así que los títulos se ajustan para no salir de la zona segura del formato vertical. También se revisan las medidas, la moneda y la llamada a la acción para cada público: un comprador del exterior necesita saber a quién escribir y en qué idioma.",
+          "Si un asesor habla a cámara, el clip puede llevar subtítulos en el otro idioma en vez de doblaje. Esteban trabaja primero en español, con inglés intermedio, así que alguien del equipo revisa el inglés final. Ningún precio, disponibilidad ni fecha de entrega aparece si el desarrollador no entrega el texto exacto.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Qué material debe enviar el desarrollador?",
+        answer:
+          "Los renders y animaciones aprobados en resolución completa, las tomas aéreas o de obra que ya tenga, los clips del sales gallery y del modelo, el logo y la guía de marca, y el texto exacto que aprobó el equipo legal, incluidos los avisos. Agrega una nota que diga para qué comprador es cada pieza.",
+      },
+      {
+        question: "¿Quién aprueba los avisos legales y las traducciones?",
+        answer:
+          "El desarrollador. Esteban coloca los avisos, las etiquetas de render y las afirmaciones de venta tal como las entrega tu equipo legal o de marketing, y no redacta lenguaje legal. Esa revisión forma parte del plan desde el principio.",
+      },
+      {
+        question: "¿Esteban puede grabar el sales gallery o el apartamento modelo?",
+        answer: `Sí, como servicio adicional pagado que se cotiza por proyecto en Miami-Dade y Broward. El paquete Presencia Local es ${esPresencia()} e incluye preproducción, grabación y edición. Si solo necesitas editar el material existente, Arranque es ${esArranque()}.`,
+      },
+    ],
+  },
+  {
+    slug: "video-para-alquileres-vacacionales-fort-lauderdale",
+    title: "Video para alquileres vacacionales en Fort Lauderdale",
+    metadataTitle: "Video para Alquileres Vacacionales",
+    description:
+      "Reels de recorrido para anfitriones de Airbnb y administradores de alquileres de corto plazo en Fort Lauderdale y Miami, editados desde el celular.",
+    eyebrow: "Anfitriones / Administradores de alquiler de corto plazo",
+    h1: "Reels de recorrido para alquileres vacacionales, con tu propio material.",
+    lead:
+      "Graba la propiedad después de la limpieza, cuarto por cuarto. Esteban la convierte en un reel vertical y en un corte para el anuncio que muestran el lugar tal como es, con subtítulos y nombres de cada espacio para verlo sin sonido.",
+    keyword: "video para alquileres vacacionales",
+    location: "Broward / Miami-Dade / Remoto",
+    availability: "confirmed",
+    icon: Home,
+    updated: "2026-10-11",
+    fitQuestion: "¿Qué tiene que mostrar el reel de un alquiler vacacional?",
+    projectFit: `Los espacios que el huésped va a usar, en el orden en que los recorrería, y la razón principal para reservar: la piscina, la vista al agua, la playa a pocos pasos. Esteban edita el material de anfitriones y administradores de alquileres de corto plazo y lo convierte en reels verticales para Instagram y TikTok, y en cortes horizontales para el anuncio o el sitio de reservas directas, con subtítulos y el nombre de cada espacio para que el recorrido se entienda sin sonido. La edición muestra la propiedad como es, sin amenidades agregadas, sin vistas prestadas y sin huéspedes en cámara. La edición es remota: ${esArranque()}. Si administras varias unidades en Broward o Miami-Dade y quieres que alguien grabe, la grabación en locación es un servicio adicional pagado que se cotiza por proyecto.`,
+    sectionsDisclosure: "Prepara el material de cada unidad",
+    sectionsDestinations: "Una lista de tomas para cada unidad y qué enviar con los clips",
+    bestFor: [
+      "Anfitriones que graban su propiedad con el celular entre estadías.",
+      "Administradores con varias unidades que necesitan recorridos con el mismo estilo.",
+      "Propiedades con sitio de reservas directas que necesitan un video horizontal.",
+    ],
+    scopingQuestions: [
+      "¿Cuántas unidades son y ya tienen material grabado?",
+      "¿Dónde se publicará cada video: redes, el anuncio o el sitio de reservas?",
+      "¿Qué datos de la propiedad pueden aparecer en pantalla?",
+    ],
+    sections: [
+      {
+        heading: "¿Qué lista de tomas sirve para cualquier unidad?",
+        paragraphs: [
+          "La misma, siempre. Empieza afuera, con el edificio o la puerta, para que el huésped lo reconozca al llegar. Entra y detente en la sala, luego en la cocina, con una toma cerrada de lo que los huéspedes suelen preguntar, como la cafetera. Recorre cada habitación y cada baño, después el espacio exterior y la vista, y termina con lo que el anuncio ya menciona cerca, como el acceso a la playa o la piscina.",
+          "Mantener el orden fijo permite que quien limpia o un coanfitrión grabe sin instrucciones, y un administrador con muchas unidades termina con recorridos que parecen de una misma marca. Graba de día, con todas las luces encendidas, y deja fuera de cuadro los objetos personales y las pertenencias de huéspedes. Los [reels inmobiliarios](/es/editor-de-video-real-estate-miami) siguen el mismo ritmo de recorrido.",
+        ],
+      },
+      {
+        heading: "¿Qué debe enviar el administrador junto con los videos?",
+        paragraphs: [
+          "Una carpeta por propiedad, con el mismo nombre que usa el anuncio, los archivos originales del celular y una nota breve con los datos que pueden aparecer en pantalla: habitaciones, baños, la característica más importante y el texto del enlace de reserva. Lo que cambia, como la tarifa por noche o la disponibilidad, va en la descripción y no en el video, para que el reel no quede desactualizado.",
+          "Indica dónde se publicará cada corte: un reel vertical para redes, una versión horizontal para el anuncio o el sitio de reservas directas, o ambos. Agrega el logo si las propiedades tienen marca. Si prefieres publicar con un calendario fijo, el [plan Crecimiento](/es/precios/crecimiento) incluye plan de contenido, calendario, edición y reporte mensual.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Qué debe grabar un anfitrión para el reel?",
+        answer:
+          "Graba justo después de la limpieza, con luces encendidas y cortinas abiertas: la entrada, un paso lento por cada espacio a la altura del pecho, la cocina, los baños, las habitaciones con las camas hechas y el exterior. Sostén cada toma varios segundos y usa una sola orientación del celular.",
+      },
+      {
+        question: "¿Una sola grabación puede cubrir varias unidades?",
+        answer: `Sí, si las unidades se agendan seguidas entre estadías. La grabación en locación es un servicio adicional pagado que se cotiza por proyecto; el paquete Presencia Local es ${esPresencia()}. Si ya tienes material, se edita a distancia con Arranque, ${esArranque()}.`,
+      },
+      {
+        question: "¿Hay trabajo inmobiliario publicado para ver?",
+        answer:
+          "Sí. La página de reels inmobiliarios en inglés muestra seis reels verticales de propiedades que editó Esteban. Son reels de anuncios, no de un cliente de alquiler vacacional, y muestran cómo se arma un recorrido para la pantalla del celular.",
+      },
+    ],
+  },
+  // @@WAVE8@@
+];
 
 export const spanishNichePages: SpanishNichePage[] = [
   {
@@ -3838,6 +3977,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       },
     ],
   },
+  ...nicheWave8Pages,
 ];
 
 
@@ -3958,6 +4098,19 @@ const nicheBatch20261006Hreflang = Object.fromEntries(
   ),
 );
 
+/** The 2026-10-11 niche wave 8 (owner-approved), paired in both directions. */
+const nicheWave8Hreflang = Object.fromEntries(
+  (
+    [
+      ["/services/pre-construction-condo-video-marketing-miami", "/es/video-para-preventa-de-condominios-miami"],
+      ["/services/vacation-rental-video-marketing-fort-lauderdale", "/es/video-para-alquileres-vacacionales-fort-lauderdale"],
+      // @@WAVE8-HREFLANG@@
+    ] as const
+  ).flatMap(([en, es]) =>
+    [en, es].map((path) => [path, { "en-US": en, "es-US": es, "x-default": en }] as const),
+  ),
+);
+
 const languageAlternatesRaw: Record<string, Record<string, string>> = {
   "/services/food-and-places-creator-video-editing-miami": {
     "en-US": "/services/food-and-places-creator-video-editing-miami",
@@ -3971,6 +4124,7 @@ const languageAlternatesRaw: Record<string, Record<string, string>> = {
   },
   ...nicheBatch20261006,
   ...nicheBatch20261006Hreflang,
+  ...nicheWave8Hreflang,
   ...Object.fromEntries(Object.values(packageRoutes).flatMap(({ en, es }) => [en, es].map((path) => [path, { "en-US": en, "es-US": es, "x-default": en }]))),
   "/pricing/real-estate": {
     "en-US": "/pricing/real-estate",

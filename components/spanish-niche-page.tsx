@@ -33,6 +33,27 @@ type NicheLinkContext = {
 };
 
 const nicheLinkContext: Record<string, NicheLinkContext> = {
+  // Ola de nichos 8 (2026-10-11). Prueba real del portafolio, nombrada por lo
+  // que es: ninguno de estos proyectos se presenta como trabajo del nicho.
+  "video-para-preventa-de-condominios-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade y Broward",
+    note: "My D'ler: un video 3D y maquetas de producto para la presentación de una app. Además, la página de [reels inmobiliarios](/services/real-estate-reels-video-editor-south-florida) (en inglés) muestra seis reels de propiedades que editó Esteban. Ninguno es un proyecto de condominios en preventa.",
+    serviceIds: ["edicion", "planificacion-social", "videografia"],
+    projects: [
+      { href: "/es/portafolio/my-dler", title: "My D'ler", detail: "Video 3D y maquetas para la presentación de una app." },
+    ],
+  },
+  "video-para-alquileres-vacacionales-fort-lauderdale": {
+    areaHref: "/es/areas#broward",
+    areaLabel: "Ver cobertura en Broward y Miami-Dade",
+    note: "La página de [reels inmobiliarios](/services/real-estate-reels-video-editor-south-florida) (en inglés) muestra seis reels verticales de propiedades que editó Esteban para anuncios. No son de un cliente de alquiler vacacional.",
+    serviceIds: ["edicion", "planificacion-social", "videografia"],
+    projects: [
+      { href: "/es/portafolio/homeowners", title: "Homeowners", detail: "Video para redes editado con material entregado por una agencia." },
+    ],
+  },
+  // @@WAVE8-CONTEXT@@
   "edicion-de-video-para-creadores-de-comida-y-lugares-miami": {
     areaHref: "/es/areas#broward",
     areaLabel: "Ver cobertura en Broward y Miami-Dade",
@@ -1073,6 +1094,24 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
 };
 
 const spanishInquiryServices: Record<string, ServiceInquiry> = {
+  // Ola de nichos 8 (2026-10-11).
+  "video-para-preventa-de-condominios-miami": {
+    serviceId: "es_preconstruction_condo_video",
+    serviceName: "reels para la preventa de un condominio",
+    goalPrompt: "convertir renders y el sales gallery en reels en español e inglés",
+    assetPrompt: "renders aprobados, animaciones, clips del sales gallery y el texto legal aprobado",
+    proofHref: "/es/portafolio/my-dler",
+    proofLabel: "Ver un proyecto 3D publicado",
+  },
+  "video-para-alquileres-vacacionales-fort-lauderdale": {
+    serviceId: "es_vacation_rental_video",
+    serviceName: "reels de recorrido para un alquiler vacacional",
+    goalPrompt: "mostrar la propiedad con claridad antes de que el huésped reserve",
+    assetPrompt: "clips de cada espacio grabados después de la limpieza, los datos del anuncio y el enlace de reserva",
+    proofHref: "/es/editor-de-video-real-estate-miami",
+    proofLabel: "Ver edición inmobiliaria",
+  },
+  // @@WAVE8-INQUIRY@@
   "edicion-de-video-para-creadores-de-comida-y-lugares-miami": {
     serviceId: "es_food_places_creator_video",
     serviceName: "edición para mi cuenta de comida y lugares",
@@ -1394,7 +1433,7 @@ export function SpanishNichePage({ slug }: { slug: string }) {
               <h2 className="mt-5 font-serif text-3xl">
                 {isPendingConfirmation
                   ? "¿Qué explica esta página?"
-                  : "¿Para qué proyecto encaja?"}
+                  : (page.fitQuestion ?? "¿Para qué proyecto encaja?")}
               </h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
                 {renderFormattedText(page.projectFit)}

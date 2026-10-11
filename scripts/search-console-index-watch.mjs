@@ -78,6 +78,12 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/es/guias/cuanto-cuesta-un-video-para-restaurante-miami",
   "https://estebanmorenomedia.com/guides/how-much-does-real-estate-video-cost-miami",
   "https://estebanmorenomedia.com/es/guias/cuanto-cuesta-video-inmobiliario-miami",
+  // Added 2026-10-11 with niche wave 8 (owner-approved).
+  "https://estebanmorenomedia.com/services/pre-construction-condo-video-marketing-miami",
+  "https://estebanmorenomedia.com/es/video-para-preventa-de-condominios-miami",
+  "https://estebanmorenomedia.com/services/vacation-rental-video-marketing-fort-lauderdale",
+  "https://estebanmorenomedia.com/es/video-para-alquileres-vacacionales-fort-lauderdale",
+  // @@WAVE8-WATCH@@
   "https://estebanmorenomedia.com/es/precios",
   "https://estebanmorenomedia.com/case-studies/banacol",
   "https://estebanmorenomedia.com/case-studies/flas-concierge",

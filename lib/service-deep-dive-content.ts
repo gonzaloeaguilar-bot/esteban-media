@@ -323,3 +323,50 @@ export const SPA_DEEP_DIVE: DeepDive = {
     },
   ],
 };
+
+// Niche wave 8 (2026-10-11). Same rules as above: question-shaped headings,
+// 100-180 words a section, no price, turnaround, result or regulatory detail
+// that was not verified, and every regulated duty attributed to the client.
+export const PRECONSTRUCTION_DEEP_DIVE: DeepDive = {
+  id: "preconstruction-launch",
+  title: "How does a pre-construction launch turn into a reel series?",
+  destinations: "Building the series from renderings, and preparing Spanish and English versions.",
+  sections: [
+    {
+      heading: "How many kinds of reels does a pre-construction launch need?",
+      paragraphs: [
+        "Usually four, released in order. The teaser uses the strongest exterior rendering and one line about the location, and it exists to make people ask for the brochure. Amenity reels take one feature at a time, the pool deck, the lobby, the gym, so each post has a single subject a viewer can remember. The sales-gallery walkthrough shows the finishes and the model unit, which is the closest a buyer gets to touching a product that does not exist yet. Construction updates come later and show that the project is moving.",
+        "Planning the four together means renderings are cut once and reused across the series instead of being re-edited every month, and it gives the sales team a calendar of what goes out and when. That calendar is what the [Growth plan](/pricing/growth) is built to hold.",
+      ],
+    },
+    {
+      heading: "What changes between the Spanish and English version of the same reel?",
+      paragraphs: [
+        "The picture usually stays the same and the words change. On-screen text is rewritten rather than translated word for word, because a phrase that sells in English can sound stiff in Spanish, and Spanish text runs longer, so titles are re-timed and resized to stay inside the safe area of a vertical frame. Units, currency and the call to action are checked for each audience, since an international buyer needs to know whom to contact and in which language.",
+        "If a sales agent speaks on camera, the clip can carry subtitles in the other language rather than a dub. Every version goes back to the developer for approval, and nothing about pricing, availability or completion dates appears unless the developer supplies the exact wording.",
+      ],
+    },
+  ],
+};
+
+export const VACATION_RENTAL_DEEP_DIVE: DeepDive = {
+  id: "rental-tour",
+  title: "How does a host or manager get tour footage worth editing?",
+  destinations: "One shot list for every unit, and what to send with the clips.",
+  sections: [
+    {
+      heading: "What shot list works for every rental unit?",
+      paragraphs: [
+        "The same one, every time. Start outside with the building or front door, so a guest can recognise it on arrival. Walk in and pause in the living area, then the kitchen, with one close shot of anything guests ask about, such as the coffee maker. Move through each bedroom and bathroom, then the outdoor space and the view, and finish with what the listing already mentions nearby, such as beach access or the pool.",
+        "Keeping the order fixed means a cleaner or co-host can film it without direction, and a manager with many units ends up with tours that look like they belong to one brand. Film in daylight with every light on, and keep personal items and guest belongings out of frame.",
+      ],
+    },
+    {
+      heading: "What should a property manager send along with the footage?",
+      paragraphs: [
+        "A folder per property, named the way the listing names it, with the original clips straight from the phone and a short note of the facts that can appear on screen: bedrooms and bathrooms, the feature that matters most and the wording of the booking link. Anything that changes, such as nightly rates or availability, belongs in the caption rather than the video, so a reel does not go out of date.",
+        "Say where each cut will live: a vertical reel for social, a horizontal version for the listing or a direct-booking site, or both. Add the logo if the properties carry a brand. The [real estate reels](/services/real-estate-reels-video-editor-south-florida) page shows the pacing these tours follow.",
+      ],
+    },
+  ],
+};

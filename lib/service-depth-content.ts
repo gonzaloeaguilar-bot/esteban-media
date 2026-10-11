@@ -1132,3 +1132,132 @@ export const FOOD_PLACES_CREATOR_SECTIONS = [
     ],
   },
 ] as const;
+
+// ---------------------------------------------------------------------------
+// Niche wave 8 (2026-10-11, owner-approved): eight buyers with no page yet.
+//
+// Each entry adds two things the earlier Depth shape did not carry: the
+// answer-first block rendered as the hero's question-shaped <h2>, and the
+// honest proof line. Proof is only real portfolio work, named for what it is
+// (a wedding is called a wedding, not a quinceañera). Prices only ever reach
+// these strings through priceSentence(), i.e. lib/pricing.ts. Regulated duties
+// (disclaimers, NMLS, Florida Bar review, carrier language, consent for
+// minors) are stated as the client's, never Esteban's.
+// ---------------------------------------------------------------------------
+
+export type NicheWave8Depth = Depth & {
+  answer: { question: string; answer: string };
+  proof: { href: string; label: string; note: string };
+};
+
+const enStarter = () => priceSentence("en", "arranque").toLowerCase();
+const enGrowth = () => priceSentence("en", "crecimiento").toLowerCase();
+const enLocal = () => priceSentence("en", "presencia-local").toLowerCase();
+
+export const PRECONSTRUCTION_DEPTH: NicheWave8Depth = {
+  answer: {
+    question: "Can renderings and sales-gallery footage become reels for a pre-construction launch?",
+    answer:
+      "Yes. Esteban edits the material a pre-construction project already has, such as approved renderings, animated fly-throughs, model-unit and sales-gallery footage, and on-camera clips from the sales team, into vertical reels for Instagram, TikTok and YouTube Shorts. Each reel can be delivered in a Spanish version and an English version, with captions in each language, so one launch can speak to local buyers and to buyers in Latin America. Renderings stay labelled as renderings, and the developer's team approves every claim, disclaimer and translation before anything is published. Editing is remote and is the core of the service. When the sales gallery or the model unit needs to be filmed, on-location filming in Miami-Dade or Broward is a paid add-on, scoped per project.",
+  },
+  proof: {
+    href: "/services/real-estate-reels-video-editor-south-florida",
+    label: "Watch the property reels",
+    note: "Published proof for this kind of edit: six vertical property reels Esteban edited, shown on the real estate reels page, and My D'ler, a 3D video and mockups made for an app pitch. Neither is a pre-construction condo project.",
+  },
+  craftHeading: "What a pre-construction reel has to get right.",
+  craft: [
+    {
+      title: "A rendering is not the building",
+      detail:
+        "Animated renderings and finished-unit footage look alike in a vertical crop. The edit keeps on-screen labels such as \"artist's rendering\" wherever your counsel requires them, so a buyer never mistakes a visualisation for a completed residence.",
+    },
+    {
+      title: "Two languages, one cut",
+      detail:
+        "The Spanish and English versions share one picture edit, so the sales team is not managing two different stories. Captions, on-screen text and the call to action change per language, and your team signs off the final wording in both.",
+    },
+    {
+      title: "Built for the sales cycle",
+      detail:
+        "A launch needs different pieces at different stages: the first teaser, amenity reels, a sales-gallery walkthrough, construction updates. Planning them as a series keeps the feed consistent while the project moves from presale to groundbreaking.",
+    },
+  ],
+  faqHeading: "Questions before a developer sends launch material.",
+  faqs: [
+    {
+      question: "What should a developer send for pre-construction reels?",
+      answer:
+        "The approved rendering files and animations at full resolution, any site or aerial footage you already own, sales-gallery and model-unit clips, the logo and brand guide, and the exact wording your legal team has cleared, including disclaimers. Add a short note naming the buyers each piece is for, local, domestic or international, so the Spanish and English versions are written for the right audience from the start.",
+    },
+    {
+      question: "Who approves the disclaimers and the English and Spanish copy?",
+      answer:
+        "The developer does. Esteban places disclaimers, rendering labels and sales claims exactly as your counsel or marketing team supplies them, and he does not write legal language. He works Spanish first, with intermediate English, so the English captions should be checked by someone on your side before publishing. That review is part of the plan, and it keeps every version consistent with the sales materials.",
+    },
+    {
+      question: "Can Esteban film the sales gallery or the model unit?",
+      answer: `Yes, as a paid add-on scoped per project in Miami-Dade and Broward. The Local Presence package, ${enLocal()}, covers pre-production, filming on site and the edit afterwards. If you only need existing renderings and footage edited, the Starter package is ${enStarter()}, and a written quote confirms the scope.`,
+    },
+  ],
+  relatedHeading: "Related services for property marketing.",
+  related: [
+    { title: "Real Estate Reels", detail: "Vertical edits of finished homes and listings, with six published examples.", href: "/services/real-estate-reels-video-editor-south-florida" },
+    { title: "Architecture & Design Video", detail: "Video for studios and firms whose subject is the space itself.", href: "/services/architecture-design-video-miami" },
+    { title: "Aerial Real Estate Editing", detail: "Editing supplied aerial footage into property pieces.", href: "/services/real-estate-drone-video-editing-miami" },
+  ],
+};
+
+export const VACATION_RENTAL_DEPTH: NicheWave8Depth = {
+  answer: {
+    question: "What does a vacation rental tour reel need to show?",
+    answer:
+      "The rooms a guest will actually use, in the order they would walk through them, plus the one feature that justifies the booking: a pool, a water view, a short walk to the beach. Esteban edits footage from hosts and short-term rental managers into vertical tour reels for Instagram and TikTok, and horizontal cuts for a listing or a direct-booking site, with captions and room labels so the tour reads without sound. The edit shows the property as it is, with no added amenities, no borrowed views and no shots of guests. Editing is remote, so a host can film between stays with a phone. For managers with several units in Broward or Miami-Dade who want the filming handled as well, on-location filming is a paid add-on scoped per project.",
+  },
+  proof: {
+    href: "/services/real-estate-reels-video-editor-south-florida",
+    label: "Watch the property reels",
+    note: "The six reels on the real estate reels page are property reels Esteban edited for listings, not for a vacation rental host. They show the pacing and vertical cropping described here.",
+  },
+  craftHeading: "What a short-term rental tour needs from the edit.",
+  craft: [
+    {
+      title: "One walk, not a montage",
+      detail:
+        "Guests are checking whether the place fits their trip. A tour that moves from the door to the living room, kitchen, bedrooms and outdoor space answers that faster than a montage of pretty corners, and it doubles as a pre-arrival video.",
+    },
+    {
+      title: "Accurate beats flattering",
+      detail:
+        "A very wide lens can make a bedroom look larger than it is, and a misleading tour turns into a disappointed review. The edit keeps proportions honest and labels each room, so the video sets expectations the stay can meet.",
+    },
+    {
+      title: "Ready between turnovers",
+      detail:
+        "Filming happens after cleaning and before the next check-in, often in a short window. A fixed shot list, the same for every unit, lets a host or cleaner capture usable clips quickly and lets a manager compare properties side by side.",
+    },
+  ],
+  faqHeading: "Questions before a host or manager sends footage.",
+  faqs: [
+    {
+      question: "What should a host film for a vacation rental reel?",
+      answer:
+        "Film right after cleaning, with the lights on and blinds open: the entrance, a slow pass through each room at chest height, the kitchen, the bathrooms, the bedrooms with beds made and the outdoor space. Add the view, the pool or the walk to the beach at the time of day guests use them. Hold each shot for several seconds and keep the phone in one orientation for the whole set.",
+    },
+    {
+      question: "Can one shoot cover several units for a property manager?",
+      answer: `Yes, when the units are scheduled back to back between stays. On-location filming is a paid add-on scoped per project; the Local Presence package is ${enLocal()} and covers pre-production, filming and editing. Managers who already have footage can send it for remote editing on the Starter package, ${enStarter()}.`,
+    },
+    {
+      question: "Is there published property work to look at?",
+      answer:
+        "Yes. The real estate reels page shows six vertical property reels Esteban edited: an outdoor opener, bedroom walkthroughs and other room-by-room pieces. They are listing-style reels, not vacation rental clients, and they show how a property tour is paced and cropped for a phone screen.",
+    },
+  ],
+  relatedHeading: "Related services for property hosts and managers.",
+  related: [
+    { title: "Real Estate Reels", detail: "Room-by-room vertical edits, with six published property reels.", href: "/services/real-estate-reels-video-editor-south-florida" },
+    { title: "Fort Lauderdale Reels Editor", detail: "Short vertical edits for local businesses near the base.", href: "/services/reels-editor-fort-lauderdale" },
+    { title: "AI Real Estate Photo Enhancement", detail: "Listing photo clean-up that keeps the property truthful.", href: "/services/ai-real-estate-photo-enhancement" },
+  ],
+};

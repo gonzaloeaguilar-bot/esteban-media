@@ -55,6 +55,12 @@ export const pairedLanguageRoutes: Record<string, string> = {
     "/es/editor-de-video-real-estate-miami",
   "/services/wealth-management-video-production-miami":
     "/es/produccion-de-video-para-asesores-financieros-miami",
+  // 2026-10-11 niche wave 8 (owner-approved).
+  "/services/pre-construction-condo-video-marketing-miami":
+    "/es/video-para-preventa-de-condominios-miami",
+  "/services/vacation-rental-video-marketing-fort-lauderdale":
+    "/es/video-para-alquileres-vacacionales-fort-lauderdale",
+  // @@WAVE8-ROUTES@@
 };
 
 for (const [englishPath, spanishPath] of Object.entries({
