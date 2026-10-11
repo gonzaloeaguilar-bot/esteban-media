@@ -142,25 +142,19 @@ export function HeroVideo({ locale = "en" }: HeroVideoProps) {
         <Container size="xl">
           <p className="em-cine-caption__lead">
             {isSpanish
-              ? "Apoyo creativo claro, desde tu material hasta contenido listo para publicar."
-              : "Clear creative support, from your footage to ready-to-publish content."}
+              ? "Edición de video y producción de contenido para negocios, agentes y creadores."
+              : "Video editing and content production for businesses, agents, and creators."}
           </p>
           <p className="em-cine-caption__body">
             {isSpanish ? (
               <>
-                Trae tu material o solo una idea. Si necesitas grabación local, revisa las{" "}
-                <Link href="/es/areas">áreas de servicio</Link>
-                . Consulta mis{" "}
-                <Link href="/es/guias">guías prácticas de video</Link>{" "}
-                para preparar el contenido.
+                Envía el material que ya tienes o una idea que necesita grabación. Trabajo remoto y grabo proyectos seleccionados en{" "}
+                <Link href="/es/areas">Fort Lauderdale, Broward, Miami-Dade y Palm Beach</Link>.
               </>
             ) : (
               <>
-                Bring your footage or just an idea. For local filming, review the{" "}
-                <Link href="/areas">service area</Link>
-                . Browse my{" "}
-                <Link href="/guides">practical video guides</Link>{" "}
-                before production.
+                Send footage you already have or an idea that needs filming. I edit remotely and film selected projects across{" "}
+                <Link href="/areas">Fort Lauderdale, Broward, Miami-Dade, and Palm Beach</Link>.
               </>
             )}
           </p>

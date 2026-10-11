@@ -48,9 +48,9 @@ const faqs = [
 ] as const;
 
 export const metadata = buildPageMetadata({
-  title: "Restaurant Promo Video Editing Miami | From $240",
+  title: "Restaurant Promo Video Editing in Miami | From $240",
   description:
-    "Restaurant promo video editing in Miami from $240. Food reels, dish spotlight cuts, captions, and social promo edits for South Florida restaurants.",
+    "Restaurant promo video editing in Miami from $240 per project. Send food or dining-room footage for scoped reels, captions, and social cuts. See published work.",
   path: "/services/restaurant-promo-video-editing-miami",
   locale: "en",
 });
@@ -167,7 +167,7 @@ export default function RestaurantPromoVideoEditingMiamiPage() {
                 >
                   portfolio
                 </Link>{" "}
-                project <strong>Bar Door Monkey Miami</strong> proves published promotional hospitality videography and editing.
+                project <strong>Bar Door Monkey Miami</strong> is a published 55-second restaurant promo from 2020. Esteban filmed and edited it for the venue. Watch the piece to judge the work; it does not establish a booking or sales result.
               </p>
               <div className="mt-5 border-t border-[#ddd4c8] pt-4">
                 <Link

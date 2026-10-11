@@ -238,8 +238,8 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
   "fotografo-en-fort-lauderdale": {
     areaHref: "/es/areas#fort-lauderdale",
     areaLabel: "Ver cobertura en Fort Lauderdale y Broward",
-    note: "La disponibilidad de fotografía sigue pendiente de confirmación. My D'ler verifica trabajo visual de marca, no una sesión fotográfica.",
-    serviceIds: ["edicion", "contenido-ia", "planificacion-social", "videografia"],
+    note: "Esteban ofrece fotografía. Comparte qué necesitas fotografiar, dónde será la sesión y cómo usarás las imágenes. El proyecto My D'ler muestra trabajo visual de marca, no una sesión fotográfica.",
+    serviceIds: ["fotografia"],
     projects: [
       {
         href: "/es/portafolio/my-dler",

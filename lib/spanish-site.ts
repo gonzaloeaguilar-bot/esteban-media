@@ -79,6 +79,17 @@ export type SpanishService = {
 
 export const spanishServices: SpanishService[] = [
   {
+    id: "fotografia",
+    name: "Fotografía comercial",
+    shortName: "Fotografía",
+    description:
+      "Fotografía de producto y otros proyectos comerciales, con alcance definido según lo que necesitas mostrar, la locación y el uso de las imágenes.",
+    detail:
+      "Comparte qué se va a fotografiar, dónde será la sesión y cómo usarás las fotos para recibir una propuesta.",
+    icon: Camera,
+    tags: ["Producto", "Según proyecto", "Fort Lauderdale"],
+  },
+  {
     id: "edicion",
     name: "Edición de video",
     shortName: "Edición",
@@ -919,39 +930,39 @@ export const spanishNichePages: SpanishNichePage[] = [
     title: "Fotógrafo en Fort Lauderdale",
     metadataTitle: "Fotógrafo en Fort Lauderdale",
     description:
-      "Ruta educativa heredada sobre fotografía en Fort Lauderdale. La fotografía no se publica actualmente como servicio confirmado de Esteban Moreno Media.",
-    eyebrow: "Ruta heredada / confirmación pendiente",
-    h1: "Fotografía en Fort Lauderdale: disponibilidad pendiente de confirmación.",
+      "Fotografía comercial y de producto en Fort Lauderdale con Esteban Moreno Media. Cuéntanos qué necesitas fotografiar para definir el alcance.",
+    eyebrow: "Fort Lauderdale / fotografía comercial",
+    h1: "Fotografía comercial en Fort Lauderdale, según tu proyecto.",
     lead:
-      "Esta URL se conserva para evitar confusión y explicar el estado real: la disponibilidad de fotografía sigue pendiente de confirmación con Esteban. La página no ofrece una sesión ni promete imágenes, equipo o entregables.",
+      "Esteban ofrece fotografía, incluida fotografía de producto. Comparte qué necesitas mostrar, dónde será la sesión y cómo usarás las imágenes para definir la producción y recibir una propuesta.",
     keyword: "fotógrafo en Fort Lauderdale",
     location: "Fort Lauderdale / Broward County",
-    availability: "pending-confirmation",
+    availability: "confirmed",
     icon: Camera,
     bestFor: [
-      "Entender por qué esta ruta heredada continúa publicada.",
-      "Distinguir trabajo visual verificado de una sesión fotográfica.",
-      "Revisar los servicios que sí están confirmados actualmente.",
-      "Preparar preguntas para una futura confirmación de disponibilidad.",
+      "Negocios que necesitan fotografías reales de sus productos.",
+      "Marcas que quieren definir imágenes para su sitio y redes.",
+      "Equipos que prefieren explicar su proyecto en español.",
+      "Personas que quieren consultar alcance y uso antes de contratar.",
     ],
     scopingQuestions: [
-      "¿La fotografía forma parte de los servicios actuales? Aún está pendiente de confirmación.",
-      "¿Qué prueba publicada corresponde realmente a fotografía? Ninguna se presenta como sesión confirmada.",
-      "¿Qué prioridades sí están publicadas? Edición, contenido con IA, planificación y producción selectiva de video.",
-      "¿Cómo consultar sin asumir disponibilidad? Pregunta por los servicios confirmados y describe la meta visual.",
+      "¿Qué producto o aspecto de tu negocio necesitas fotografiar?",
+      "¿Dónde se realizaría la sesión y cuándo necesitas las imágenes?",
+      "¿Dónde se publicarán las fotos y qué formatos necesitas?",
+      "¿Tienes ejemplos del estilo visual que buscas?",
     ],
     projectFit:
-      "Es un recurso de transparencia, no una página de reserva. Mantiene la ruta mientras Esteban confirma si la fotografía debe ofrecerse públicamente.",
+      "Cuéntanos qué se va a fotografiar, dónde y para qué usarás las imágenes. Esteban confirmará las tomas, los archivos finales y el presupuesto antes de agendar la sesión.",
     faqs: [
       {
         question: "¿Se puede reservar fotografía con Esteban?",
         answer:
-          "La fotografía no se publica actualmente como servicio confirmado. Su disponibilidad sigue pendiente de una respuesta directa de Esteban.",
+          "Sí puedes consultar un proyecto de fotografía. Envía qué necesitas fotografiar, la locación, el uso previsto y las fechas; Esteban confirmará el alcance y la disponibilidad antes de cotizar.",
       },
       {
-        question: "¿My D'ler demuestra una sesión fotográfica?",
+        question: "¿Dónde puedo ver ejemplos de fotografía?",
         answer:
-          "No. Ese proyecto verifica trabajo visual de marca, diseños sociales, video 3D y mockups; no se presenta como una sesión de fotografía.",
+          "El portafolio público muestra principalmente video y diseño. Si necesitas comprobar experiencia fotográfica antes de contratar, pide ejemplos disponibles durante la consulta.",
       },
     ],
   },
@@ -1078,9 +1089,9 @@ export const spanishNichePages: SpanishNichePage[] = [
     description:
       "Edición de Reels y videos promocionales para restaurantes de Miami-Dade: platos estrella, ambiente del salón y promociones. Atención en español.",
     eyebrow: "Restaurantes / comida / hospitality",
-    h1: "Video para restaurantes de Miami-Dade, evaluado proyecto por proyecto.",
+    h1: "Video para restaurantes en Miami: edición de reels y promociones.",
     lead:
-      "Esta página explica cómo iniciar una consulta de video para un restaurante. La edición está confirmada — los videos promocionales parten desde $240 por proyecto, con cotización a la medida — y una posible captura en locación se considera de forma selectiva; la fotografía no se presenta como servicio disponible.",
+      "Envía las tomas de tus platos, cocina o salón para editar un reel o video promocional desde $240 por proyecto, con cotización a la medida. Si necesitas grabación en Miami-Dade, cuéntanos la idea y se evaluará la disponibilidad y el alcance por separado.",
     keyword: "video para restaurantes Miami",
     location: "Miami-Dade",
     availability: "confirmed",
@@ -1104,8 +1115,8 @@ export const spanishNichePages: SpanishNichePage[] = [
         heading: "Estrategia de video gastronómico y dinámicas de restaurantes en Miami",
         paragraphs: [
           "Si publicas recomendaciones desde tu propia cuenta, consulta la [edición para creadores de comida y lugares](/es/edicion-de-video-para-creadores-de-comida-y-lugares-miami).",
-          "El sector de restaurantes en Miami-Dade —desde Wynwood hasta Coral Gables, Doral y Miami Beach— compite en un entorno visual sumamente dinámico donde los comensales deciden dónde comer a través de videos cortos en Instagram y TikTok. Un video gastronómico efectivo no busca abarcar todo el menú en 30 segundos, sino despertar el apetito enfocándose en la preparación de platos estrella, la textura de los ingredientes y la atmósfera viva del salón.",
-          "Para marcas gastronómicas que evalúan [video para restaurantes en Miami](/es/video-para-restaurantes-miami), estructurar el contenido con ganchos visuales en los primeros 3 segundos (como el corte de una carne jugosa, el vertido de una salsa o el humo saliendo de la parrilla) multiplica la retención de audiencia. Revisa nuestra [guía de ideas de video para restaurantes](/es/guias/ideas-de-contenido-de-video-para-restaurantes) para explorar formatos probados.",
+          "Un restaurante de Miami-Dade puede centrar cada video en un plato, una bebida, la preparación o el ambiente del salón. Ese enfoque ayuda a que la persona entienda qué se ofrece sin intentar mostrar todo el menú en una sola pieza. Antes de editar, indica el nombre correcto del plato, dónde se publicará el video y qué quieres que haga la persona después de verlo.",
+          "Las tomas de ingredientes, manos, emplatado y servicio pueden ordenarse según el material que ya tengas. Si todavía vas a grabar, la [guía de ideas de video para restaurantes](/es/guias/ideas-de-contenido-de-video-para-restaurantes) ayuda a preparar una lista breve de escenas. Mira también [Bar Door Monkey Miami](/es/portafolio/bar-door-monkey): un video promocional publicado de 55 segundos, grabado y editado por Esteban en 2020; no se le atribuyen reservas ni ventas.",
         ],
         bullets: [
           "Enfoque en 1 o 2 platos insignia con primeros planos de emplatado y texturas",
@@ -1130,7 +1141,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         heading: "Flujo de postproducción remota con material propio del restaurante",
         paragraphs: [
-          "Muchos restaurantes y chefs en Miami ya acumulan horas de grabaciones en alta calidad capturadas con teléfonos inteligentes o cámaras durante servicios, catas o eventos. A través de un flujo de edición remota, seleccionamos las mejores tomas, eliminamos partes innecesarias, aplicamos transiciones fluidas y añadimos subtítulos llamativos.",
+          "Si ya grabaste con teléfono o cámara durante la preparación, el servicio o un evento, puedes pedir edición remota. Esteban selecciona las tomas útiles y acuerda contigo ritmo, texto, color y formatos según el material disponible. No necesitas contratar un rodaje para consultar por una edición.",
           "El proceso comienza reuniendo los clips en una carpeta de Google Drive o Dropbox y compartiendo las prioridades del local. Para organizar tus archivos antes de enviarlos, revisa nuestra [guía de entrega para edición remota de video](/es/guias/entrega-para-edicion-remota-de-video).",
         ],
         bullets: [
@@ -1183,7 +1194,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         question: "¿Esta página ofrece fotografía de alimentos o sesiones fotográficas?",
         answer:
-          "No. La fotografía de alimentos tradicional sigue pendiente de confirmación y no se publica actualmente como servicio disponible. Para alternativas visuales digitales, puedes revisar [fotografía de comida con IA para restaurantes](/es/fotografia-de-comida-con-ia-restaurantes).",
+          "Esteban ofrece fotografía. Si necesitas fotos reales de platos, bebidas o del local además del video, describe la locación, las tomas y el uso previsto para confirmar el alcance de la sesión. También puedes consultar [fotografía en Fort Lauderdale](/es/fotografo-en-fort-lauderdale).",
       },
     ],
   },
@@ -2593,9 +2604,9 @@ export const spanishNichePages: SpanishNichePage[] = [
     description:
       "Edición de video para restaurantes en Miami: reels de platillos, promociones, subtítulos y cortes sociales desde material del cliente.",
     eyebrow: "Gastronomía / Restaurantes",
-    h1: "Edición de video apetitosa para restaurantes en Miami.",
+    h1: "Edición de video promocional para restaurantes en Miami.",
     lead:
-      "Destaca detalles culinarios, ambiente de comedor y preparación de bebidas con videos cortos pensados para redes, menú digital o sitio web. Desde $240 por video promocional; cada proyecto recibe una cotización a la medida. Consulta todos los alcances de servicio en [video para restaurantes en Miami](/es/video-para-restaurantes-miami) y las [áreas de servicio](/es/areas) cuando el brief incluya rodaje.",
+      "Envía tus videos de cocina, platos, bebidas o salón para editar un reel o una promoción para redes desde $240 por proyecto, con cotización a la medida. Mira el [video publicado de Bar Door Monkey Miami](/es/portafolio/bar-door-monkey) y consulta [video para restaurantes en Miami](/es/video-para-restaurantes-miami) si también necesitas grabación.",
     keyword: "edición de video para restaurantes en Miami",
     location: "Miami / Wynwood",
     availability: "confirmed",
@@ -3800,12 +3811,12 @@ export const spanishNichePages: SpanishNichePage[] = [
       "¿En qué plataforma se publicará primero?",
     ],
     projectFit:
-      "Esta ruta responde la búsqueda de editor de Reels en Fort Lauderdale y enlaza con la página en inglés [Reels Editor Fort Lauderdale](/services/reels-editor-fort-lauderdale).",
+      "Si ya tienes clips, revisa el [video social publicado de ML Colombia](/es/portafolio/ml-colombia) para ver una pieza de contenido de la marca que Esteban dirigió. La versión en inglés de este servicio está en [Reels Editor Fort Lauderdale](/services/reels-editor-fort-lauderdale).",
     sections: [
       {
         heading: "¿Qué hace útil a un Reel de negocio?",
         paragraphs: [
-          "Un Reel de negocio no necesita contar toda la historia de la marca. Debe abrir con lo más claro que tiene —el problema, el resultado o el momento visual más inmediato— y después llevar al espectador a una sola acción sencilla: escribir un mensaje, llamar, visitar el local, reservar o revisar más trabajos publicados. La edición decide qué se queda fuera, y esa es la mayor parte del trabajo.",
+          "Por ejemplo, un restaurante puede enviar clips grabados con teléfono del plato, el local y una presentación corta del dueño. Una edición posible muestra primero el plato, explica qué lo distingue y termina con una sola invitación a reservar. Esteban revisa el material disponible con el negocio antes de definir la pieza; este ejemplo describe cómo preparar una consulta, no un resultado atribuido a un cliente publicado.",
           "Silencios largos, tomas repetidas, intros lentas con logotipos y textos pequeños hacen que el video pierda la atención antes de que la oferta haya sido explicada. Eliminar esos elementos no es una preferencia de estilo, sino lo que mantiene la pieza comprensible y atractiva. Si tu proyecto necesita una coordinación más amplia en la región, puedes comparar con un [editor de Reels en Miami](/es/editor-de-reels-miami) o consultar nuestro servicio como [editor de video en Miami](/es/editor-de-video-miami).",
         ],
       },

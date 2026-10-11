@@ -126,11 +126,9 @@
      Clipping the ROOT instead, `html { overflow-x: clip }`, does stop the
      pan — but in Chromium it makes the document a clip container and quietly
      breaks `position: sticky`. The header then scrolls away instead of
-     pinning, and the fixed reading-progress bar (`.em-progress`, `top: 65px`,
-     written to sit directly under a pinned 65px header) is left floating over
-     the content as a stray orange line. Measured on production 2026-10-11 at
-     390px: with the root clip, `header.getBoundingClientRect().top` was -8201
-     of a 8201 scroll; forcing the root back to `visible` restored it to 0.
+     pinning. Measured on production 2026-10-11 at 390px: with the root clip,
+     `header.getBoundingClientRect().top` was -8201 of an 8201 scroll; forcing
+     the root back to `visible` restored it to 0.
 
      `body { overflow-x: hidden }` stays as the last-resort net; unlike the
      root clip it does not break the sticky header. */
@@ -1060,33 +1058,6 @@ nav[aria-label*="igas de pan" i] a,
 }
 
 /* ---------------------------------------------------------------------------
-   Reading progress.
-
-   Sits directly under the sticky header, which is 65px tall. Fixed rather than
-   sticky so it cannot participate in the document flow and shift anything:
-   the site measures CLS 0 and this must not spend it.
-
-   No transition on the width. It tracks a scroll position, so animating it
-   would make it lag the thing it reports, and a reduced-motion visitor would
-   have to be given a second version.
-   --------------------------------------------------------------------------- */
-.em-progress {
-  position: fixed;
-  top: 65px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  z-index: 39;
-  background: transparent;
-  pointer-events: none;
-}
-.em-progress__fill {
-  height: 100%;
-  background: #c84a2c;
-}
-
-
-/* ---------------------------------------------------------------------------
    The service shelf, on a phone.
 
    Measured: this one block is 20,990px — 31.5 of the Spanish home's 44.6
@@ -1674,8 +1645,8 @@ div.relative:has(> .em-carousel-track) {
 .em-reel-arrow {
   display: grid;
   place-items: center;
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   border-radius: 9999px;
   border: 1px solid rgb(255 255 255 / 0.22);
   background: transparent;

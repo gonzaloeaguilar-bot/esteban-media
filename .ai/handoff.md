@@ -17,6 +17,25 @@ Implements the 15 "safe mechanical fixes" in `.ai/seo-geo-code-audit-2026-10-10.
 - **Left for later / other owners**: reels video-sitemap entries, reels `publisher` and the ES reel shelf (branch `feat/es-real-estate-reel-shelf`); visible bylines and page dates (owner decision pending); the templated `¿Para qué proyecto encaja?` H2 replacement and the ES-hub link removals (non-additive parity changes); `/areas`'s Palm Beach card copy still says "sub-city coverage is not yet published".
 - Build note: `next/font` needs `NODE_USE_ENV_PROXY=1 pnpm build` in the sandbox. `app/__tests__/prospect-auditor-verifier.test.ts` fails only because the proxy blocks its live fetch.
 
+
+---
+
+# Local keyword demand release — 2026-10-11
+
+PR #353 merged at `285af4530d31b9b36ef9ee8c44224ba0e6cec232` and Vercel production reached Ready. Direct canonical-domain checks returned HTTP 200 with the new English and Spanish restaurant copy, the Fort Lauderdale production/Reels links, canonical metadata, and working destination/contact links. A live phone screenshot confirmed a single home illustration caption after the rebase repair. IndexNow accepted 284 sitemap URLs (HTTP 200). The measurable input was 90-day Search Console site impressions, not local-market search volume; click/lead outcome is due 2026-11-08. Source and evidence: `~/obsidian-wiki/client-esteban-media/wiki/esteban-local-keyword-demand-gaps-2026-10-11.md`.
+
+---
+
+# Fort Lauderdale Reels search handoff — 2026-10-11
+
+Branch `codex/esteban-reels-seo` updates the existing English `/services/reels-editor-fort-lauderdale` and Spanish `/es/editor-de-reels-fort-lauderdale` pages. Both now give a concrete, clearly hypothetical restaurant clip brief, distinguish editing supplied footage from separately scoped local capture, and point to published ML Colombia content without claiming customer results. The English Fort Lauderdale cost guide now links directly to the English Reels service; the Spanish guide already linked to its counterpart. The changed Spanish page alone was refreshed in the text-parity fixture. Source for the ML Colombia reference: `lib/portfolio.ts` (published social video, 24-second duration) and `messages/en.json` / `messages/es.json` (Esteban founded and led digital content for his own brand). No identical deliverable or performance result is asserted. Local gates: rail-kit, rail adoption, lint (0 errors), typecheck, all 1,576 tests, production build, and 97-route text parity passed; final raw HTML and independent review are recorded in the PR. Search clicks and leads remain future observations, not claimed outcomes.
+
+# Cost guide and Fort Lauderdale expansion — 2026-10-11
+
+- Branch: `codex/esteban-demand-links-20261011` from current `origin/main`. Scope: `lib/guides.ts`, two English Fort Lauderdale service pages. EN/ES guide uses `packageGuidePrice("presencia-local")`, with explicit production-day vs full-project price distinction and verified links. No new route.
+- Evidence: BigQuery Esteban query table ends Oct 5; `video production miami cost` 7 impressions/0 clicks since Sep 1. Direct GSC API available through Oct 9. BigQuery sync log rejects DML because billing is disabled.
+- CI correction: the first PR run failed a legacy phrase assertion in `app/__tests__/pricing-bands.test.ts` that required the old no-price answer. Replaced it with a stronger assertion tying the answer to `PACKAGE_PRICES["presencia-local"]` while requiring the full-quote disclaimer. The complete `pnpm check` then passed at the final diff.
+- Gates: `pnpm check` passed before final dynamic price addition; targeted 267 guide tests and build passed after. The Spanish guides index reused the changed answer, so only its word fingerprint was refreshed; text parity now passes 97 routes. Analytics gate passed. Raw generated HTML link checks passed. Independent CTO-dispatched review attempted but provider rerouting ended in unsupported Codex CLI model; manual diff and source/route review completed. See vault [[esteban-bq-expansion-review-2026-10-11]].
 ---
 
 # Root <html> hydration warning — 2026-10-11
@@ -230,6 +249,15 @@ Owner correction after PR279: real-estate chapter needs explicit identity; every
 
 # Illustrated à la carte — 2026-10-03
 Owner requested extending the playful illustration treatment to single-project services, using the current workflow. ALaCarteSection composes pinned RailDisclosure with six distinct generated miniatures, service-specific finite touch effects and preparation guidance. Exact labels/notes/hrefs remain sourced from lib/packages.ts; direct links work without opening a card. EN/ES, no-JS visibility and reduced motion are covered. No commercial facts changed. Provenance: .ai/illustrated-commercial/carte-assets.json. Full local and production verification/review links are recorded in the project vault note esteban-a-la-carte-illustrations-2026-10-03.
+# Fort Lauderdale production page search handoff — 2026-10-11
+
+The 2026-09-10 through 2026-10-09 live Search Console query/page read showed 18 impressions/0 clicks for `video production services` and 17/0 for `fort lauderdale video production`, both on `/`. The exact `video production fort lauderdale` query had 3 impressions/0 clicks on `/services/video-production-fort-lauderdale`. The homepage already carries a service-first title test from October 6, while PR #343 changes its visual path; this branch only fixes the production service page. Its hero previously exposed an internal SEO explanation. It now points to the published Bar Door Monkey portfolio video, states that project was filmed in Miami, and gives a Fort Lauderdale visitor a concrete way to start a quote. The Spanish counterpart already links to published projects and needs no source change. Verification and PR state are in the Esteban SEO gap plan note.
+
 # Homepage reel carousel visual pass — 2026-10-11
 
 In this worktree, `components/real-estate-reels.tsx` and `app/globals.css` now present the sharp waterfront tower reel first, remove the dark wash over the poster row, and give cards a subtle border/depth. The separate homepage/page and portfolio edits already present in the worktree were not changed for this pass. Local phone browser inspection covered EN/ES at 390×844; the first reel player opened and closed. After restoring the original intro copy, `pnpm check` passed 1,576 tests, build, and 97-route text parity. Commit `640e1c9` is pushed to open PR #343. CTO Antigravity review dispatch rerouted and failed before returning a review; independent review and production verification remain pending. See Obsidian `esteban-reel-carousel-visual-pass-2026-10-11.md`.
+# Photography offer truth correction — 2026-10-11
+
+Branch `codex/photo-offer-truth-20261011` corrects the live Spanish photographer page's false pending statement after owner confirmation, adds a scoped photography item to shared Spanish services, and links that item to the photographer page. My D'ler remains labeled visual brand work, not a photo shoot. Full `pnpm check` on Node 22 passed: 1,572 tests, lint 0 errors, typecheck, build 349 pages, text parity 97 routes. Generated raw HTML has offer and service link with no stale pending statement; both JSON-LD graphs lack stale text. Independent read-only source review passed. Antigravity CTO review dispatch was refused at provider cooldown. PR, merge, and live production verification remain.
+
+---

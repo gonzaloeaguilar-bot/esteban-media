@@ -243,10 +243,10 @@ export default function SpanishAreasPage() {
                   servicios están disponibles fuera de South Florida.
                 </p>
                 <Link
-                  href="/es/servicios#edicion"
+                  href="/es/editor-de-reels-fort-lauderdale"
                   className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27]"
                 >
-                  Explorar edición de video remota
+                  Explorar edición de Reels en Fort Lauderdale
                   <ArrowRight className="size-4" aria-hidden="true" />
                 </Link>
               </article>
@@ -259,10 +259,10 @@ export default function SpanishAreasPage() {
                   de captura. Fort Lauderdale es la base local de esa conversación.
                 </p>
                 <Link
-                  href="/es/servicios#videografia"
+                  href="/es/produccion-de-video-fort-lauderdale"
                   className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27]"
                 >
-                  Revisar servicios en locación
+                  Explorar producción de video en Fort Lauderdale
                   <ArrowRight className="size-4" aria-hidden="true" />
                 </Link>
               </article>

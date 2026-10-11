@@ -25,8 +25,8 @@ const TARGET_PAGES = [
     contactLink: "/contact",
     companionSlug: "como-enviar-archivos-pesados-de-video-para-edicion",
     companionPath: "/es/guias/como-enviar-archivos-pesados-de-video-para-edicion",
-    metadataTitle: "Fastest Way to Send Large Video Files",
-    companionMetadataTitle: "Cómo Enviar Archivos Grandes de Video",
+    metadataTitle: "Send Large Videos to an Editor",
+    companionMetadataTitle: "Enviar videos pesados a un editor",
   },
   {
     locale: "en" as const,
@@ -463,4 +463,3 @@ describe("Spanish niche page depth: video-para-restaurantes-miami", () => {
     ).toBe("/es/edicion-de-video-promocional-para-restaurantes-miami");
   });
 });
-

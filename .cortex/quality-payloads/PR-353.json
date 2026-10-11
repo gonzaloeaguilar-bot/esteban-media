@@ -1,0 +1,69 @@
+{
+  "project": "esteban-media",
+  "mode": "pr",
+  "target_type": "pr",
+  "target_id": "PR-353",
+  "requires_pr": true,
+  "goal": "Improve click opportunity for observed local restaurant, Fort Lauderdale production and Reels queries on existing pages",
+  "summary": "Updates EN/ES restaurant service copy and metadata; links already-live Fort Lauderdale production and Reels pages from relevant home and area paths. No new niche page or unverified performance claim.",
+  "risk": "Low, reversible copy and internal-link change. Published Bar Door Monkey project and existing restaurant price are cited from current source. Forms, schema, URL inventory and account access are unchanged.",
+  "changed_paths": [
+    "app/(english)/areas/page.tsx",
+    "app/(english)/fort-lauderdale/page.tsx",
+    "app/(english)/services/restaurant-promo-video-editing-miami/page.tsx",
+    "app/(spanish)/es/areas/page.tsx",
+    "app/(spanish)/es/page.tsx",
+    "app/__tests__/fixtures/spanish-niche-text-baseline.json",
+    "app/__tests__/page-metadata.test.ts",
+    "components/home-project-path.tsx",
+    "components/services-strip.tsx",
+    "lib/spanish-site.ts",
+    ".cortex/quality-payloads/PR-353.json"
+  ],
+  "requested_actions": [
+    "Run the independent Cortex evidence attacher after the payload commit has green CI",
+    "Merge only with matching-head green checks and verified quality record",
+    "Verify live EN/ES HTML and links after production deploy"
+  ],
+  "public_claims": [
+    "Restaurant promo editing starts from $240 per project, already published and supported by docs/pricing-basis.md:104.",
+    "Bar Door Monkey is a published 55-second 2020 Miami restaurant promo; video and editing credits are recorded in lib/portfolio.ts and lib/guides.ts."
+  ],
+  "evidence": {
+    "obsidian_context": "/Users/gonzalo/obsidian-wiki/client-esteban-media/wiki/esteban-local-keyword-demand-gaps-2026-10-11.md records direct GSC query/page rows through 2026-10-08 and the exact observed local impressions; not market volume.",
+    "project_routing": "gonzaloeaguilar-bot/esteban-media PR #353, branch codex/esteban-local-demand-20261011, based on main a8222cb.",
+    "hard_stops_checked": "External messages, account access, transactions, private address, new testimonials and new prices are outside this change. Existing $240 restaurant price checked against docs/pricing-basis.md:104 and existing public page; published project proof checked against lib/portfolio.ts:198-216 and lib/guides.ts:4110-4124.",
+    "reviewer_ensemble": "Builder agents owned restaurant copy and local links; independent read-only Codex reviewer passed 1930f19 predecessor diff and flagged one broad-editing link, which was fixed; taste pass used phone screenshots of EN/ES restaurant pages and home, found and removed a duplicated caption.",
+    "reviewer_disagreement_reviewed": "Skeptic flagged broad remote-editing card pointing at narrow Reels page. Changed destination to the broad remote-editor page in 9ef2e09. Phone review found duplicate illustration caption on rebased home; removed in 1930f19.",
+    "winner_rationale": "Use existing proven service pages and direct contextual links rather than new thin local pages; keep restaurant copy answer-first with published proof and scoped capture caveat.",
+    "tests_or_validation": "Rebased pnpm check passed at 1930f19: rail-kit, rail adoption, lint, typecheck, 1576 tests, production build and 97-route text parity. Raw built HTML checked EN/ES headings/links; phone screenshots inspected. One-line duplicate-caption correction had typecheck pass and exact source occurrence check.",
+    "ci_passed": "GitHub CI validate succeeded for PR #353 head 1930f19857a3199bc76accd0fb816b0ba53e6595: https://github.com/gonzaloeaguilar-bot/esteban-media/actions/runs/38178965649 . This payload-only commit will be independently checked again before merge.",
+    "pr_review_complete": "Independent read-only code reviewer reported no release-blocking issue on commit 96060ac; its link-scope issue was corrected and rebase conflict was manually reviewed. Phone check of current 1930f19 detected a duplicate caption; fixed and verified as one occurrence in components/home-project-path.tsx. Final CI on exact head passed.",
+    "debt_delta": "neutral",
+    "obsidian_handoff": "esteban-local-keyword-demand-gaps-2026-10-11.md and esteban-media-hot.md updated with measured demand, implementation, checks and pending production state."
+  },
+  "reviewers": {
+    "builder": {
+      "status": "ok",
+      "note": "Scoped EN/ES restaurant copy, internal links, source checks, full local gates and GitHub CI passed."
+    },
+    "skeptic": {
+      "status": "ok",
+      "note": "Independent read-only reviewer found no blocking issue; broad-editing destination concern was fixed and verified."
+    },
+    "taste": {
+      "status": "ok",
+      "note": "Phone screenshots of EN/ES restaurant pages and home inspected; duplicate caption caught and removed; first-screen wording and actions remain legible."
+    }
+  },
+  "scores": {
+    "source_fidelity": 4,
+    "architecture_soundness": 4,
+    "implementation_quality": 4,
+    "review_completeness": 4,
+    "debt_posture": 4,
+    "verification_strength": 4,
+    "taste_fit": 4
+  },
+  "debt_delta": "neutral"
+}

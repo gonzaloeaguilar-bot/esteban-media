@@ -98,6 +98,12 @@ export function SignalIntro({ locale }: { locale: "es" | "en" }) {
       const moment = document.querySelector<HTMLElement>(".wk-moment");
       if (!moment) return giveUp();
 
+      // The kit marks the whole visual moment aria-hidden, which also hides
+      // its visible Skip button from assistive technology. Keep the animation
+      // decorative while exposing that button as a real control.
+      moment.removeAttribute("aria-hidden");
+      moment.querySelector<HTMLElement>(".em-signal")?.setAttribute("aria-hidden", "true");
+
       // The picture locks and the site is what was behind it.
       const lock = () => {
         moment.classList.add("is-through");

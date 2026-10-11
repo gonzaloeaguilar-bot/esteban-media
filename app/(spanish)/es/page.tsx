@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { ClientReviews } from "@/components/client-reviews";
 import { HeroVideo } from "@/components/hero-video";
 import { HomeAuthorityHub } from "@/components/home-authority-hub";
+import { HomeContactStrip } from "@/components/home-contact-strip";
 import { HomeProjectPath } from "@/components/home-project-path";
 import { SignalIntro } from "@/components/signal-intro";
 import { PackagesSection, ClosingCredits } from "@/components/packages-section";
@@ -20,6 +21,7 @@ import {
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { isConsolidatedPath } from "@/lib/consolidation";
 import { site } from "@/lib/site";
+import "../../homepage-visual.css";
 
 export const metadata = buildPageMetadata({
   title: spanishSite.title,
@@ -30,21 +32,23 @@ export const metadata = buildPageMetadata({
 
 export default function SpanishHomePage() {
   return (
-    <main className="bg-[#f7f5f1] text-[#101214]">
+    <main className="em-home bg-[#f7f5f1] text-[#101214]">
       <SignalIntro locale="es" />
       <HeroVideo locale="es" />
       <PortfolioTeaser locale="es" />
+      <div className="em-home-review-controls"><ClientReviews locale="es" compact /></div>
       <HomeProjectPath locale="es" />
-      <ClientReviews locale="es" />
+      <HomeContactStrip locale="es" />
+      <RealEstateBlock locale="es" />
       <KeepReading
         id="mas"
         className="em-fold"
-        title="Explora los detalles"
-        destinations="Reels inmobiliarios, planes, servicios, zonas y guías."
+        title="Explora más servicios"
+        destinations="Detalles de servicios, zonas, guías y cómo trabaja Esteban."
       >
       <AudienceRouter locale="es" />
-      <RealEstateBlock locale="es" />
       <PackagesSection locale="es" showRealEstatePlans={false} />
+      <ClientReviews locale="es" />
       <HomeAuthorityHub locale="es" />
 
       <section className="py-12 sm:py-16">
@@ -60,6 +64,8 @@ export default function SpanishHomePage() {
               const href =
                 service.id === "diseno-web"
                   ? "/es/diseno-web-fort-lauderdale"
+                  : service.id === "videografia"
+                    ? "/es/produccion-de-video-fort-lauderdale"
                   : `/es/servicios#${service.id}`;
               return (
                 <Link

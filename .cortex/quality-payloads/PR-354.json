@@ -1,0 +1,56 @@
+{
+  "project": "esteban-media",
+  "mode": "pr",
+  "target_type": "pr",
+  "target_id": "PR-354",
+  "requires_pr": true,
+  "goal": "Record the shipped local keyword release and its 2026-11-08 outcome check in repository handoff and backlog",
+  "summary": "Docs-only follow-up to merged PR #353. Adds exact release evidence to .ai/handoff.md and marks a dated GSC/lead outcome read in backlog.md. No public page or runtime change.",
+  "risk": "Low. This changes internal notes only; public site, forms, accounts and product behavior are unchanged.",
+  "changed_paths": [
+    ".ai/handoff.md",
+    "backlog.md",
+    ".cortex/quality-payloads/PR-354.json"
+  ],
+  "requested_actions": [
+    "Merge after exact-head validation and independent evidence pass"
+  ],
+  "public_claims": [],
+  "evidence": {
+    "obsidian_context": "/Users/gonzalo/obsidian-wiki/client-esteban-media/wiki/esteban-local-keyword-demand-gaps-2026-10-11.md records direct GSC query/page data, PR #353 merge evidence, live HTML, phone screenshot, IndexNow and November 8 outcome date.",
+    "project_routing": "gonzaloeaguilar-bot/esteban-media PR #354, branch codex/esteban-local-demand-handoff-20261011, based on main at PR #353 merge 285af4530d31b9b36ef9ee8c44224ba0e6cec232.",
+    "hard_stops_checked": "Internal documentation only. No external message, account-access change, transaction flow, private address, new testimonial, or public price/offer change.",
+    "reviewer_ensemble": "Builder updated the required handoff and backlog from live checked evidence. Independent read-only reviewer verified PR #353 merge SHA, exact-head checks, Vercel status, canonical production content and vault note. Taste pass checked concise task wording and explicit November date.",
+    "reviewer_disagreement_reviewed": "No discrepancy found in the independent docs review; outcome task stays unchecked because no November search/lead result exists yet.",
+    "winner_rationale": "Record release state in the repository source of truth and preserve the future measurement task instead of leaving it only in chat or the vault.",
+    "tests_or_validation": "GitHub CI validate succeeded on a264ee96ed1db33e907d034b60239febe84fa9d1; git diff --check passed locally. Docs-only diff was independently read and compared with live PR/site/vault evidence.",
+    "ci_passed": "GitHub CI validate succeeded for PR #354 head a264ee96ed1db33e907d034b60239febe84fa9d1: https://github.com/gonzaloeaguilar-bot/esteban-media/actions/runs/38179595061 . Payload-only commit will be checked again before merge.",
+    "pr_review_complete": "Independent read-only reviewer reported PASS for a264ee9. PR #353 merge SHA, green exact-head checks, live canonical content, IndexNow note and unchecked 2026-11-08 task matched current sources.",
+    "debt_delta": "neutral",
+    "obsidian_handoff": "esteban-local-keyword-demand-gaps-2026-10-11.md, esteban-media-hot.md, esteban-media-index.md and Project_Registry.md updated in the same session."
+  },
+  "reviewers": {
+    "builder": {
+      "status": "ok",
+      "note": "Docs-only handoff and backlog status recorded from checked release sources."
+    },
+    "skeptic": {
+      "status": "ok",
+      "note": "Independent read-only reviewer compared claims against GitHub, production and vault; no inaccuracies."
+    },
+    "taste": {
+      "status": "ok",
+      "note": "Backlog clearly names the November 8 measurement and leaves the outcome task open."
+    }
+  },
+  "scores": {
+    "source_fidelity": 4,
+    "architecture_soundness": 4,
+    "implementation_quality": 4,
+    "review_completeness": 4,
+    "debt_posture": 4,
+    "verification_strength": 4,
+    "taste_fit": 4
+  },
+  "debt_delta": "neutral"
+}
