@@ -1709,7 +1709,7 @@ export const INSURANCE_AGENCY_DEPTH: NicheWave8Depth = {
     {
       title: "A calendar shaped by the season",
       detail:
-        "Questions bunch up around the enrollment periods. Planning ahead means explainers are ready in early fall, reminders run during the windows, and the quieter months carry evergreen topics such as reading a bill or filing a claim.",
+        "Questions bunch up around enrollment periods. Plan against the current dates published by Medicare and HealthCare.gov, then have the agency approve each seasonal explainer before it is posted. In quieter months, evergreen topics can cover reading a bill or filing a claim.",
     },
   ],
   faqHeading: "Questions before an insurance agency sends footage.",
@@ -1722,7 +1722,7 @@ export const INSURANCE_AGENCY_DEPTH: NicheWave8Depth = {
     {
       question: "When should an agency start preparing enrollment-season videos?",
       answer:
-        "Before the season starts. Medicare's annual enrollment period runs from October 15 to December 7, and Marketplace open enrollment for Florida residents usually opens on November 1, so explainers are most useful when they are filmed and approved by early fall. The agency should confirm each year's dates. The Growth plan's content calendar can map topics to those weeks without promising any enrollment numbers.",
+        "Before the season starts. The agency should confirm current enrollment dates directly with Medicare and HealthCare.gov, then record and approve explainers ahead of its publishing window. The Growth plan's content calendar can map topics to those dates without promising any enrollment numbers.",
     },
     {
       question: "Do agents need a studio to film explainers?",
@@ -1741,7 +1741,7 @@ export const MORTGAGE_BROKER_DEPTH: NicheWave8Depth = {
   answer: {
     question: "What videos help a Spanish-speaking loan officer build a personal brand?",
     answer:
-      "Short videos in which the loan officer explains, in their own voice, the steps buyers find confusing: pre-qualification versus pre-approval, what documents a self-employed buyer needs, what an ITIN loan is, how closing costs work. Esteban edits those clips into vertical reels and longer explainers in Spanish, with English versions when the audience needs them, and helps plan a posting calendar so the account keeps a steady voice. Compliance stays with the client: the NMLS number, the company name and any disclosure the lender or compliance team requires are supplied and approved by the broker, and the edit places them exactly as written. Nothing promises a rate, an approval or a closing date. Filming at an office or an open house is a paid add-on scoped per project.",
+      "Short videos in which the loan officer explains, in their own voice, the steps buyers find confusing: pre-qualification versus pre-approval, what documents to ask about when self-employed, which loan questions require an individual conversation, and how closing costs are discussed. Esteban edits those clips into vertical reels and longer explainers in Spanish, with English versions when the audience needs them, and helps plan a posting calendar so the account keeps a steady voice. Compliance stays with the client: the NMLS number, the company name and any disclosure the lender or compliance team requires are supplied and approved by the broker, and the edit places them exactly as written. Nothing promises a rate, an approval or a closing date. Filming at an office or an open house is a paid add-on scoped per project.",
   },
   proof: {
     href: "/portfolio/ml-colombia",
@@ -1795,7 +1795,7 @@ export const IMMIGRATION_ATTORNEY_DEPTH: NicheWave8Depth = {
   answer: {
     question: "Why should an immigration law firm publish videos of its real attorneys?",
     answer:
-      "Because Spanish-speaking families are being targeted by fake lawyer profiles, some with AI-generated faces and voices, and the clearest answer is to show the real, licensed attorney speaking. Esteban edits short educational reels in which the firm's own attorneys explain general topics, such as how to prepare for a consultation, which documents to keep, or why a notario público is not a lawyer in the United States. Each video names the attorney, so a viewer can look the name up in The Florida Bar's public member directory. The videos are general information, not legal advice, and the firm reviews and approves every script, caption and disclaimer under the Florida Bar's advertising rules. Editing is remote; filming at the office is a paid add-on scoped per project.",
+      "Showing the firm's own attorney on camera helps a viewer recognize who is speaking and check the name in The Florida Bar's public directory. Esteban edits short educational reels in which the attorneys explain general topics, such as how to prepare for a consultation and which documents to bring. The videos are general information, not legal advice about a viewer's case. The firm reviews and approves every script, caption and disclaimer before publication. Editing is remote; filming at the office is a paid add-on scoped per project.",
   },
   proof: {
     href: "/portfolio/healthy-smile",
@@ -1830,7 +1830,7 @@ export const IMMIGRATION_ATTORNEY_DEPTH: NicheWave8Depth = {
     {
       question: "Why do fake lawyer profiles matter to a real firm?",
       answer:
-        "Impersonation accounts copy the look of legitimate firms, sometimes with AI-generated people, and the families they target often search in Spanish. A firm whose real attorneys appear by name, consistently, gives viewers something to compare against and something to verify. Videos can also teach the warning signs directly: requests for payment by gift card, promises that a case will certainly be approved, or a notario offering legal services.",
+        "A firm can help viewers identify its real attorneys by showing them on camera with their names and the firm's name. The team can link its public attorney profiles and choose any consumer-safety topics it wants to explain. The attorney approves the legal wording before a video is published.",
     },
     {
       question: "Can the attorneys film with a phone?",
@@ -1923,9 +1923,9 @@ export const QUINCEANERA_DEPTH: NicheWave8Depth = {
         "Short vertical clips for Instagram and TikTok are cut from the same footage. The family approves each one before it is shared, and guests or children who should not appear are left out.",
     },
     {
-      title: "Music that will not be muted",
+      title: "Music approved for each use",
       detail:
-        "A song in a private highlight may be blocked when posted publicly. The social edits use music the platform allows or tracks the family has rights to, while the private film can keep the songs from the night.",
+        "Music captured at the event and music added to a public clip can have different usage rights. The family supplies tracks it has approved for each delivery and publication channel; Esteban edits with those choices rather than promising that a song will remain available on every platform.",
     },
   ],
   faqHeading: "Questions before a family books the video.",
@@ -1987,7 +1987,7 @@ export const DANCE_MUSIC_STUDIO_DEPTH: NicheWave8Depth = {
     {
       question: "What permission does a studio need to post students?",
       answer:
-        "Written consent from a parent or guardian for each student who appears identifiably, kept by the studio; many studios add it to the enrollment form. Send Esteban a list of approved students, or mark which clips are cleared, and the edit uses only those, with wide shots or back-to-camera framing for the rest. The studio decides what is posted and where.",
+        "The studio obtains parent or guardian permission under its own policies before sharing identifiable student footage. Send Esteban a list of approved students, or mark which clips are cleared, and the edit uses only those, with wide shots or back-to-camera framing for the rest. The studio decides what is posted and where.",
     },
     {
       question: "Can Esteban film a recital?",
@@ -1996,7 +1996,7 @@ export const DANCE_MUSIC_STUDIO_DEPTH: NicheWave8Depth = {
     {
       question: "What about the music in dance videos?",
       answer:
-        "Choreography is usually set to commercial music, which may be blocked or muted in public social posts. For public clips, the studio can use songs from the platform's own library or tracks it has licensed, while the full recital recording for families is handled separately. Music schools face the same question with the pieces students perform, and public-domain repertoire avoids it.",
+        "The studio needs to confirm music rights for each publication channel. It can provide tracks it has approved or choose audio available to its account for that particular use; a family recording and a public clip need separate decisions. Esteban can make alternate audio cuts after the studio confirms the choices.",
     },
   ],
   relatedHeading: "Related services for studios and class-based businesses.",

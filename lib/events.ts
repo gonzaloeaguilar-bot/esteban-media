@@ -120,18 +120,16 @@ export const EVENTS: readonly AnnualEvent[] = [
       es: "Normalmente la primera semana de diciembre, durante la Miami Art Week",
     },
     nextEdition: {
-      start: "2026-11-30",
+      start: "2026-12-04",
       end: "2026-12-06",
-      confirmedSource: GUIDE_LISTING,
+      confirmedSource: "Art Basel official Miami Beach 2026 fair dates",
       lastChecked: EVENT_DATES_LAST_CHECKED,
       windows: [
-        { label: { en: "Miami Art Week", es: "Miami Art Week" }, start: "2026-11-30", end: "2026-12-06" },
-        { label: { en: "VIP days", es: "Días VIP" }, start: "2026-12-02", end: "2026-12-03" },
         { label: { en: "Public fair days", es: "Días abiertos al público" }, start: "2026-12-04", end: "2026-12-06" },
       ],
       where: {
-        en: "Miami Beach, with satellite fairs and activations across Miami",
-        es: "Miami Beach, con ferias satélite y activaciones por todo Miami",
+        en: "Miami Beach Convention Center",
+        es: "Miami Beach Convention Center",
       },
     },
     paths: {

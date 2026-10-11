@@ -45,9 +45,9 @@ const UI = {
   en: {
     home: "Home",
     typical: "Typical window",
-    next: "Next edition (check the official site)",
+    listedYear: (year: string) => `Listed dates for ${year} (check the official site)`,
     noNext: "The next edition has not been listed yet. Check the official site.",
-    listed: (checked: string) => `Dates listed by event guides, last checked ${checked}. Confirm on the official site before you plan around them.`,
+    listed: (checked: string) => `Dates last checked ${checked}. Confirm current dates on the official site before you plan around them.`,
     official: "Official event site",
     notAffiliated: (name: string) =>
       `Esteban Moreno Media is not affiliated with or endorsed by ${name}, or by the organizers. The event name is used only to describe timing; no event logos are used.`,
@@ -66,9 +66,9 @@ const UI = {
   es: {
     home: "Inicio",
     typical: "Temporada habitual",
-    next: "Próxima edición (confírmala en el sitio oficial)",
+    listedYear: (year: string) => `Fechas publicadas para ${year} (confírmalas en el sitio oficial)`,
     noNext: "La próxima edición todavía no se ha publicado. Revisa el sitio oficial.",
-    listed: (checked: string) => `Fechas publicadas por guías de eventos, revisadas el ${checked}. Confírmalas en el sitio oficial antes de planear alrededor de ellas.`,
+    listed: (checked: string) => `Fechas revisadas el ${checked}. Confirma las fechas vigentes en el sitio oficial antes de planear alrededor de ellas.`,
     official: "Sitio oficial del evento",
     notAffiliated: (name: string) =>
       `Esteban Moreno Media no está afiliado a ${name} ni a sus organizadores, y no cuenta con su respaldo. El nombre del evento se usa solo para describir las fechas; no se usan logos del evento.`,
@@ -151,7 +151,7 @@ function EventDates({ event, locale }: { event: AnnualEvent; locale: EventLocale
       <CalendarDays className="size-7 text-[#e85d3e]" aria-hidden="true" />
       <p className="mt-4 text-xs font-medium uppercase tracking-[0.14em] text-[#9f3c27]">{t.typical}</p>
       <p className="mt-2 font-serif text-3xl leading-tight">{event.typicalWindow[locale]}</p>
-      <p className="mt-5 text-xs font-medium uppercase tracking-[0.14em] text-[#5a6066]">{t.next}</p>
+      <p className="mt-5 text-xs font-medium uppercase tracking-[0.14em] text-[#5a6066]">{edition ? t.listedYear(edition.start.slice(0, 4)) : t.noNext}</p>
       {edition ? (
         <>
           <p className="mt-2 text-base font-medium leading-7">
@@ -169,9 +169,7 @@ function EventDates({ event, locale }: { event: AnnualEvent; locale: EventLocale
           {edition.where ? <p className="mt-2 text-sm leading-6 text-[#252a2d]">{edition.where[locale]}</p> : null}
           <p className="mt-3 text-xs leading-5 text-[#5a6066]">{t.listed(formatIsoDate(edition.lastChecked, locale))}</p>
         </>
-      ) : (
-        <p className="mt-2 text-sm leading-6">{t.noNext}</p>
-      )}
+      ) : null}
       <a
         href={event.officialSite}
         target="_blank"
@@ -461,8 +459,9 @@ export function EventsHubPage({ locale }: { locale: EventLocale }) {
                       <strong>{t.typical}:</strong> {event.typicalWindow[locale]}
                     </p>
                     <p className="mt-2 text-sm leading-6 text-[#252a2d]">
-                      <strong>{t.next}:</strong>{" "}
-                      {edition ? shownRange(edition.start, edition.end, locale) : t.noNext}
+                      {edition ? (
+                        <><strong>{t.listedYear(edition.start.slice(0, 4))}:</strong>{" "}{shownRange(edition.start, edition.end, locale)}</>
+                      ) : t.noNext}
                     </p>
                     <Link
                       href={event.paths[locale]}

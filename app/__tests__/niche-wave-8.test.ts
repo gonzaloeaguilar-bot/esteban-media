@@ -215,7 +215,7 @@ describe("niche wave 8 — regulated duties stay with the client", () => {
 
   it("puts consent for minors with the family or studio", () => {
     expect(english("quinceañeras")).toContain("The family decides what is published");
-    expect(english("dance and music studios")).toContain("Written consent from a parent or guardian");
+    expect(english("dance and music studios")).toContain("The studio obtains parent or guardian permission");
   });
 
   it("names honest proof rather than claiming niche clients", () => {

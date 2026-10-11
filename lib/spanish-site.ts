@@ -397,7 +397,7 @@ const nicheWave8Pages: SpanishNichePage[] = [
       {
         heading: "¿Cómo se prepara la agencia para la temporada de inscripción?",
         paragraphs: [
-          "Con tiempo. El período anual de inscripción de Medicare va del 15 de octubre al 7 de diciembre, y la inscripción abierta del Mercado para residentes de Florida suele empezar el 1 de noviembre, así que las explicaciones sirven más si están grabadas y aprobadas a comienzos del otoño. La agencia debe confirmar las fechas de cada año.",
+          "Con tiempo. La agencia confirma las fechas vigentes directamente con Medicare y HealthCare.gov, y luego graba y aprueba las explicaciones antes de publicarlas. El calendario se ajusta a esas fechas sin prometer cifras de inscripción.",
           "Una sola sesión tranquila alcanza: el agente frente a una ventana, el celular a la altura de los ojos y un micrófono de solapa, respondiendo la pregunta que lee un compañero. El [plan Crecimiento](/es/precios/crecimiento) reparte esos videos en un calendario, con edición y reporte mensual, sin prometer cifras de inscripción. En los meses tranquilos, temas como leer una factura o presentar un reclamo mantienen la cuenta activa.",
         ],
       },
@@ -435,7 +435,7 @@ const nicheWave8Pages: SpanishNichePage[] = [
     icon: Landmark,
     updated: "2026-10-11",
     fitQuestion: "¿Qué videos ayudan a un oficial de préstamos hispano a construir su marca personal?",
-    projectFit: `Videos cortos en los que el oficial de préstamos explica, con su propia voz, los pasos que confunden a los compradores: la diferencia entre precalificación y preaprobación, qué documentos necesita alguien que trabaja por cuenta propia, qué es un préstamo con ITIN, cómo funcionan los costos de cierre. Esteban edita esos clips en reels verticales y explicaciones más largas en español, con versión en inglés cuando el público lo pide, y ayuda a planear un calendario de publicación. El cumplimiento es del cliente: el número NMLS, el nombre de la empresa y cualquier aviso que pida el prestamista los entrega y aprueba el broker. Ningún video promete una tasa, una aprobación ni una fecha de cierre. Edición remota: ${esArranque()}; grabar en la oficina es un servicio adicional pagado que se cotiza por proyecto.`,
+    projectFit: `Videos cortos en los que el oficial de préstamos explica, con su propia voz, los pasos que confunden a los compradores: la diferencia entre precalificación y preaprobación, qué documentos conviene consultar si alguien trabaja por cuenta propia, qué preguntas requieren una conversación individual y cómo se explican los costos de cierre. Esteban edita esos clips en reels verticales y explicaciones más largas en español, con versión en inglés cuando el público lo pide, y ayuda a planear un calendario de publicación. El cumplimiento es del cliente: el número NMLS, el nombre de la empresa y cualquier aviso que pida el prestamista los entrega y aprueba el broker. Ningún video promete una tasa, una aprobación ni una fecha de cierre. Edición remota: ${esArranque()}; grabar en la oficina es un servicio adicional pagado que se cotiza por proyecto.`,
     sectionsDisclosure: "Planea un mes de videos hipotecarios",
     sectionsDestinations: "Las preguntas de los compradores y una sola sesión de grabación",
     bestFor: [
@@ -452,7 +452,7 @@ const nicheWave8Pages: SpanishNichePage[] = [
       {
         heading: "¿Qué preguntas de compradores sirven para explicar el proceso hipotecario?",
         paragraphs: [
-          "Las que aparecen antes de que el comprador esté listo para aplicar. Quien compra por primera vez pregunta cuánto debe ahorrar, qué significa su crédito y por qué conviene la preaprobación antes de hacer una oferta. Quien trabaja por cuenta propia pregunta qué declaraciones de impuestos revisa el prestamista. Quien llegó hace poco al país pregunta si puede comprar con ITIN o con ingresos del exterior. Cada pregunta se vuelve un video con la pregunta como título, respondido en un español sencillo por el oficial de préstamos.",
+          "Las que aparecen antes de que el comprador esté listo para aplicar. Quien compra por primera vez pregunta cuánto debe ahorrar y qué significa su crédito. Quien trabaja por cuenta propia pregunta qué documentos revisa el prestamista. Otras situaciones requieren una conversación individual con el oficial de préstamos antes de describir opciones. Cada pregunta general puede convertirse en un video con la pregunta como título, respondido en un español sencillo por el profesional.",
           "El video explica el proceso general y deja las condiciones específicas para una conversación. Ordenar las preguntas por etapa, del ahorro al cierre, le da orden al calendario y enseña el proceso en el orden en que el seguidor lo va a vivir.",
         ],
       },
@@ -497,7 +497,7 @@ const nicheWave8Pages: SpanishNichePage[] = [
     icon: Scale,
     updated: "2026-10-11",
     fitQuestion: "¿Por qué una firma de inmigración debería publicar videos de sus abogados reales?",
-    projectFit: `Porque hay perfiles falsos de abogados, algunos con caras y voces generadas con IA, que buscan a familias hispanas, y la respuesta más clara es mostrar al abogado real, con licencia, hablando. Esteban edita reels educativos cortos en los que los abogados de la firma explican temas generales: cómo prepararse para una consulta, qué documentos guardar o por qué un notario público no es abogado en Estados Unidos. Cada video dice el nombre del abogado, para que cualquiera pueda buscarlo en el directorio público de miembros de la Florida Bar. Son información general, no asesoría legal, y la firma revisa y aprueba cada guion, subtítulo y aviso según las reglas de publicidad de la Florida Bar. La edición es remota: ${esArranque()}. Grabar en la oficina es un servicio adicional pagado que se cotiza por proyecto.`,
+    projectFit: `Mostrar al abogado de la firma en cámara ayuda a reconocer quién habla y a comprobar su nombre en el directorio público de la Florida Bar. Esteban edita reels educativos cortos en los que los abogados explican temas generales, como preparar una consulta o reunir documentos. Son información general, no asesoría legal sobre el caso de quien mira. La firma revisa y aprueba cada guion, subtítulo y aviso antes de publicar. La edición es remota: ${esArranque()}. Grabar en la oficina es un servicio adicional pagado que se cotiza por proyecto.`,
     sectionsDisclosure: "Planea los reels educativos de la firma",
     sectionsDestinations: "Temas generales que sí sirven y la revisión antes de publicar",
     bestFor: [
@@ -514,7 +514,7 @@ const nicheWave8Pages: SpanishNichePage[] = [
       {
         heading: "¿Qué temas de inmigración sirven como educación general?",
         paragraphs: [
-          "Los que tratan del proceso y la preparación, no de resultados. Cómo prepararse para la primera consulta y qué papeles llevar. Por qué un notario público, una figura de confianza en buena parte de América Latina, no está autorizado para dar asesoría legal en Estados Unidos. Cómo comprobar que un abogado tiene licencia buscando su nombre en el directorio de la Florida Bar. Cómo suele verse una llamada o un mensaje de estafa, y por qué conviene guardar copia de cada documento.",
+          "Los que tratan del proceso y la preparación, no de resultados. Cómo prepararse para la primera consulta y qué papeles llevar. Cómo comprobar el nombre de un abogado en el directorio público de la Florida Bar. La firma puede elegir otros temas de prevención que quiera explicar y revisar el lenguaje legal antes de publicar.",
           "Cada tema ayuda sin tocar los hechos del caso de nadie y termina con la misma invitación a pedir una consulta. Lo que depende de circunstancias personales o de políticas que están cambiando va mejor en la consulta que en un reel, y la firma decide dónde está esa línea.",
         ],
       },
@@ -533,9 +533,9 @@ const nicheWave8Pages: SpanishNichePage[] = [
           "No. Edita video. La firma y sus abogados deciden qué se dice, aplican las reglas de publicidad de la Florida Bar y aprueban cada guion, subtítulo y aviso antes de publicar. Si un video necesita un aviso, la firma entrega el texto exacto.",
       },
       {
-        question: "¿Por qué importan los perfiles falsos de abogados?",
+        question: "¿Cómo puede una firma identificar a sus abogados en video?",
         answer:
-          "Las cuentas que suplantan a firmas reales copian su imagen, a veces con personas generadas con IA, y suelen buscar a familias que se informan en español. Una firma cuyos abogados aparecen siempre con su nombre le da al público algo que comparar y verificar.",
+          "Puede mostrar a sus abogados reales con nombre y cargo, enlazar sus perfiles públicos y revisar cada texto antes de publicar. Así el público sabe quién está hablando y puede consultar la información de la firma.",
       },
       {
         question: "¿Los abogados pueden grabar con el celular?",
@@ -716,7 +716,7 @@ const nicheWave8Pages: SpanishNichePage[] = [
       {
         question: "¿Qué permiso necesita la academia para publicar a sus alumnos?",
         answer:
-          "Un consentimiento por escrito del padre, la madre o el tutor de cada alumno que se reconozca en cámara, guardado por la academia; muchas lo incluyen en la inscripción. La edición usa solo los clips aprobados y planos abiertos o de espaldas para el resto.",
+          "La academia obtiene permiso del padre, la madre o el tutor según sus propias políticas antes de compartir imágenes en las que se reconoce a un alumno. La edición usa solo los clips aprobados y planos abiertos o de espaldas para el resto.",
       },
       {
         question: "¿Esteban puede grabar un recital?",
@@ -725,7 +725,7 @@ const nicheWave8Pages: SpanishNichePage[] = [
       {
         question: "¿Qué pasa con la música de los videos de baile?",
         answer:
-          "Las coreografías suelen usar música comercial, que puede quedar bloqueada o silenciada en publicaciones públicas. Para los clips públicos conviene usar la biblioteca de la plataforma o canciones con licencia; la grabación completa para las familias se maneja aparte.",
+          "La academia confirma los derechos de la música para cada canal donde publicará. Puede aportar pistas que aprobó o elegir audio disponible para ese uso en su cuenta; un video familiar y un clip público se revisan por separado. Esteban prepara versiones alternativas después de recibir esas decisiones.",
       },
     ],
   },
