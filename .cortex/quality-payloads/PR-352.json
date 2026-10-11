@@ -1,0 +1,52 @@
+{
+  "project": "esteban-media",
+  "mode": "pr",
+  "target_type": "pr",
+  "target_id": "PR-352",
+  "requires_pr": true,
+  "goal": "Connect Spanish guide readers choosing editing to the relevant Fort Lauderdale Reels service",
+  "summary": "Changes one Spanish guide paragraph to link existing Fort Lauderdale Reels editing and production services, with a focused link assertion.",
+  "risk": "Low. No route, price, schema, business claim, or conversion endpoint changes.",
+  "changed_paths": [
+    "lib/guides.ts",
+    "lib/__tests__/guides.test.ts",
+    "backlog.md",
+    ".ai/handoff.md",
+    ".cortex/quality-payloads/PR-352.json"
+  ],
+  "requested_actions": [
+    "Merge only after exact-head CI and independent quality evidence pass",
+    "Check the changed guide and both destination routes in production raw HTML"
+  ],
+  "public_claims": [
+    "The new links distinguish supplied-footage Reels editing from on-location production in Fort Lauderdale; both are existing published services."
+  ],
+  "evidence": {
+    "obsidian_context": "esteban-geo-niche-citation-opportunities-2026-10-11.md records the query/page rationale; current status is checked against GitHub and production in this release.",
+    "project_routing": "gonzaloeaguilar-bot/esteban-media PR #352, branch codex/esteban-reels-guide-link-20261011, rebased on main f81fb66 at c6f3423.",
+    "hard_stops_checked": "No external account action, outreach, transaction, address, price, review, testimonial or client result is introduced.",
+    "reviewer_ensemble": "Independent PR #351 agent inspected the exact c6f3423 diff and existing target URLs; returned PASS with no blocker. CTO Antigravity review was dispatched through the gate but all agentic lanes were paced until 18:50 EDT and no provider verdict was returned.",
+    "reviewer_disagreement_reviewed": "No disagreement. The reviewer confirmed the guide retains its separate Miami editor path.",
+    "winner_rationale": "Use an existing Broward service page relevant to the guide's visitor task instead of creating another local page.",
+    "tests_or_validation": "Rebased pnpm check passed at c6f3423: rail-kit, rail adoption, lint, typecheck, 1573 tests, 349-page build and 97-route text parity. Parsed built Spanish guide HTML contains the target anchors. git diff --check passed.",
+    "ci_passed": "GitHub validate run 38180902977 succeeded for c6f3423cd4037ecf091d2f9e9cc28703f2143174. This payload-only commit requires a new exact-head check before merge.",
+    "pr_review_complete": "Independent exact-head source review PASS; no blocker. Final CI and production checks remain release gates.",
+    "debt_delta": "neutral",
+    "obsidian_handoff": "esteban-geo-niche-citation-opportunities-2026-10-11.md and esteban-media-hot.md record the draft; release outcome update follows production check."
+  },
+  "reviewers": {
+    "builder": {"status": "ok", "note": "Scoped shared guide paragraph and test; full local check passed."},
+    "skeptic": {"status": "ok", "note": "Independent exact-head agent review PASS; existing target URLs checked live."},
+    "taste": {"status": "ok", "note": "Existing guide layout and component are unchanged; new Spanish anchors retain the paragraph's task distinction."}
+  },
+  "scores": {
+    "source_fidelity": 4,
+    "architecture_soundness": 4,
+    "implementation_quality": 4,
+    "review_completeness": 4,
+    "debt_posture": 4,
+    "verification_strength": 4,
+    "taste_fit": 4
+  },
+  "debt_delta": "neutral"
+}
