@@ -134,7 +134,7 @@ describe("Palm Beach County coverage", () => {
 });
 
 describe("approved public facts", () => {
-  it("publishes only the four confirmed service priorities", () => {
+  it("publishes confirmed services without unsupported promises", () => {
     expect(services.map((service) => service.id)).toEqual([
       "editing",
       "ai-content",
@@ -143,6 +143,7 @@ describe("approved public facts", () => {
       "website-design",
     ]);
     expect(spanishServices.map((service) => service.id)).toEqual([
+      "fotografia",
       "edicion",
       "contenido-ia",
       "planificacion-social",
@@ -153,7 +154,6 @@ describe("approved public facts", () => {
     const publishedServices = JSON.stringify({ services, spanishServices });
     for (const gatedPhrase of [
       "product photography",
-      "fotografía de producto",
       "aerial options",
       "opciones aéreas",
       "first cut",
@@ -184,7 +184,7 @@ describe("approved public facts", () => {
     }
   });
 
-  it("marks photography and drone routes as pending educational resources", () => {
+  it("publishes photography while keeping drone pending", () => {
     const photography = spanishNichePages.find(
       (page) => page.slug === "fotografo-en-fort-lauderdale",
     );
@@ -192,11 +192,12 @@ describe("approved public facts", () => {
       (page) => page.slug === "drone-real-estate-miami",
     );
 
-    for (const legacyPage of [photography, drone]) {
-      expect(legacyPage?.availability).toBe("pending-confirmation");
-      expect(legacyPage?.description).toContain("Ruta educativa heredada");
-      expect(legacyPage?.lead).toContain("no ofrece");
-    }
+    expect(photography?.availability).toBe("confirmed");
+    expect(photography?.description).toContain("Fotografía comercial y de producto");
+    expect(photography?.lead).toContain("Esteban ofrece fotografía");
+    expect(drone?.availability).toBe("pending-confirmation");
+    expect(drone?.description).toContain("Ruta educativa heredada");
+    expect(drone?.lead).toContain("no ofrece");
   });
 });
 
