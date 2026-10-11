@@ -80,7 +80,7 @@ export function RealEstatePlansSection({ locale }: { locale: Locale }) {
             </div>
           </article>;
         })}
-        <Link href={es ? "/es/precios/inmobiliaria" : "/pricing/real-estate"} className="em-package-detail-link" data-cta="real_estate_plans_per_shoot">{c.perShoot}<ArrowRight className="size-4" aria-hidden="true" /></Link>
+        <Link href={es ? "/es/precios/inmobiliaria" : "/pricing/real-estate"} className="em-plan-pricing-link" data-cta="real_estate_plans_per_shoot">{c.perShoot}<ArrowRight className="size-4" aria-hidden="true" /></Link>
       </Container>
     </section>
   );

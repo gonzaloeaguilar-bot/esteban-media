@@ -17,6 +17,7 @@ import { aLaCarteVisual } from "@/lib/a-la-carte-visuals";
 import { quoteCtaLabel } from "@/lib/quote-cta";
 
 const escape = (s: string) => s.replace(/&/g, "&amp;").replace(/'/g, "&#x27;").replace(/"/g, "&quot;");
+const illustratedCss = readFileSync("app/illustrated-commercial.css", "utf8");
 
 describe.each(["en", "es"] as const)("illustrated commercial content (%s)", locale => {
   it("retains all single-service names, notes, destinations and preparation without client rendering", () => {
@@ -70,7 +71,16 @@ describe.each(["en", "es"] as const)("illustrated commercial content (%s)", loca
     expect(html).not.toMatch(/<article[^>]*hidden/); // All plans work without hydration.
     expect(html).toContain(locale === "es" ? "Planes mensuales de bienes raíces." : "Monthly real estate plans.");
     expect(html).toContain(locale === "es" ? "Solo para bienes raíces" : "Real estate only");
+    expect(html).toContain('class="em-plan-pricing-link"');
   });
+});
+
+it("keeps the secondary per-shoot action compact and removes the decorative chapter stripe", () => {
+  const start = illustratedCss.indexOf(".em-plan-pricing-link{");
+  const rule = illustratedCss.slice(start, illustratedCss.indexOf("}", start) + 1);
+  expect(start).toBeGreaterThan(-1);
+  expect(rule).not.toMatch(/border(?:-radius)?:/);
+  expect(illustratedCss).not.toContain("border-block:5px solid #bd694d");
 });
 
 it("ties three different creative files to the source property counts and drone inclusion", () => {

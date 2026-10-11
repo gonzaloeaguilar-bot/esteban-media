@@ -1,7 +1,7 @@
 /* Esteban's illustrated commercial composition. Shared components stay pinned. */
 .em-visual-audience,.em-visual-plans{--em-art-accent:#9f3c27;--rail-media-aspect:3/2;color:#101214}
 .em-visual-audience{background:#fbf6ef;border-bottom:1px solid #ddd4c8;padding:56px 0}
-.em-visual-plans{background:#182424;padding:56px 0 64px;border-block:5px solid #bd694d;color:#fffaf4}
+.em-visual-plans{background:#182424;padding:56px 0 64px;color:#fffaf4}
 /* Type: .em-eyebrow / .em-h2 (globals.css). These keep spacing and measure only. */
 .em-visual-eyebrow{margin:0 0 12px}
 .em-visual-heading{max-width:760px;margin:0 0 18px}
@@ -110,7 +110,9 @@
 .em-property-category{display:inline-flex;align-items:center;gap:9px;border:1px solid #ab7562;background:#293433;color:#ffd4bd;border-radius:99px;padding:9px 15px;margin:0 0 20px;font-family:var(--em-eyebrow-font);font-size:var(--em-eyebrow-size);font-weight:var(--em-eyebrow-weight);letter-spacing:var(--em-eyebrow-tracking);text-transform:uppercase}
 .em-visual-plans .em-visual-heading{max-width:680px;color:#fffaf4}
 .em-visual-plans .em-visual-intro{color:#dedbd1;max-width:650px}
-.em-visual-plans .em-package-detail-link{color:#ffd4bd}
+.em-plan-pricing-link{display:inline-flex;align-items:center;gap:8px;min-height:44px;margin-top:16px;padding:8px 2px;color:#fffaf4;font-size:15px;font-weight:600;text-decoration:underline;text-decoration-color:#bc6648;text-underline-offset:5px}
+.em-plan-pricing-link svg{flex-shrink:0;transition:transform 160ms ease}
+.em-plan-pricing-link:hover svg{transform:translateX(3px)}
 .em-visual-plans .em-plan-choice>p{color:#f5eadb}
 .em-visual-plans .em-plan-choice .rail-segmented{border-color:#89938c;background:#263534}
 .em-visual-plans .em-plan-choice .rail-segmented__segment{color:#e9e6dd;white-space:pre-line;line-height:1.5;font-size:14px;padding:9px 4px;min-width:0}
