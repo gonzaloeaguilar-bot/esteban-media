@@ -10,7 +10,7 @@ const content: GeoServicePageContent = {
   locationLabel: "Fort Lauderdale / Broward County",
   proofTitle: "See a finished business video",
   proofText:
-    "Watch the published Bar Door Monkey project to see a finished business video. That project was filmed in Miami; for a Fort Lauderdale project, share your location and the footage you already have so Esteban can scope the work.",
+    "Watch the published Bar Door Monkey project to see a finished business video. That project was filmed in Miami. For a Fort Lauderdale project, share the kind of video you need, your location, and the footage you already have so Esteban can scope filming and editing separately.",
   proofHref: "/portfolio/bar-door-monkey",
   proofLabel: "Watch the Bar Door Monkey video",
   primaryCta: "Ask about a Fort Lauderdale project",

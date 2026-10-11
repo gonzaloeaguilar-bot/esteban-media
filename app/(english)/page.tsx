@@ -14,6 +14,7 @@ import { PortfolioTeaser } from "@/components/portfolio-teaser";
 import { RealEstateBlock } from "@/components/real-estate-block";
 import { ServicesStrip } from "@/components/services-strip";
 import { englishRootMetadata } from "@/lib/site-metadata";
+import "../homepage-visual.css";
 
 export const metadata: Metadata = {
   // Keep the observed homepage intent in one bounded contract: video editing,
@@ -63,12 +64,12 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="bg-[#f7f5f1] text-[#101214]">
+    <main className="em-home bg-[#f7f5f1] text-[#101214]">
       <SignalIntro locale="en" />
       <HeroVideo />
       <PortfolioTeaser locale="en" />
       <HomeProjectPath locale="en" />
-      <ClientReviews locale="en" />
+      <div className="em-home-review-controls"><ClientReviews locale="en" /></div>
       <KeepReading id="more" className="em-fold" title="Explore the details" destinations="Real estate Reels, plans, services, areas and guides.">
         <AudienceRouter locale="en" />
         <RealEstateBlock locale="en" />

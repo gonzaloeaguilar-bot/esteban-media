@@ -82,6 +82,12 @@ export function PortfolioFilmstrip({
 
   return (
     <section className="em-film-strip" data-section="portfolio_filmstrip">
+      <style>{`
+        .em-film-strip .rail-coverflow__slot:not([data-current]) .em-film__link { pointer-events: none; }
+        @media (max-width: 639px) {
+          .em-film-strip .rail-coverflow__slot { transform: translateX(calc(var(--_i, 0) * 86%)) !important; }
+        }
+      `}</style>
       <h2 className="em-film-strip__title">{heading}</h2>
       <RailCoverflow
         items={items}

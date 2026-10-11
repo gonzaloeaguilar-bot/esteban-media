@@ -45,12 +45,14 @@ function getPoster(item: PortfolioItem) {
 export function PortfolioTeaser({ locale }: PortfolioTeaserProps) {
   // Lead with work that reflects the three visible video routes, rather than
   // the general portfolio's featured order (which starts with web projects).
-  const items = ["bar-door-monkey", "healthy-smile"]
+  const items = ["bar-door-monkey", "diana-jack"]
     .map(getPortfolioItemById)
     .filter((item): item is PortfolioItem => item?.status === "live");
   const isSpanish = locale === "es";
   const href = isSpanish ? "/es/portafolio" : "/portfolio";
-  const propertyReel = REAL_ESTATE_REELS[0];
+  const propertyReel = REAL_ESTATE_REELS.find(
+    (reel) => reel.id === "waterfront-tower-aerial",
+  ) ?? REAL_ESTATE_REELS[0];
 
   if (items.length === 0) {
     return null;
@@ -77,8 +79,8 @@ export function PortfolioTeaser({ locale }: PortfolioTeaserProps) {
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-7 text-[#c9c1b8]">
               {isSpanish
-                ? "Mira un ejemplo inmobiliario y dos proyectos de video para negocios antes de elegir qué necesitas."
-                : "Watch a property example and two business videos before choosing what you need."}
+                ? "Mira un ejemplo inmobiliario, un video de negocio y una celebración antes de elegir qué necesitas."
+                : "Watch a property reel, a business video, and an event before choosing what you need."}
             </p>
           </div>
           <Link

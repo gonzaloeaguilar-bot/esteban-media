@@ -142,23 +142,18 @@ export default function ServicesPage() {
       />
       <section className="py-12 sm:py-16">
         <Container size="xl">
+          <div className="xl:grid xl:grid-cols-2 xl:items-center xl:gap-10">
+          <div>
           <p className="text-xs font-medium uppercase text-[#5a6066]">
             Services
           </p>
           <h1 className="mt-4 max-w-3xl font-serif em-display">
-            Growth systems that turn an idea into a working digital customer journey.
+            Need video, a website, or help getting more inquiries?
           </h1>
-          {/* THE FIRST SCREEN SAYS WHAT THIS IS AND WHAT TO DO (2026-09-29).
-              Measured on the served page before this pass: 1,397 words, one
-              image, 20 phone screens, and two paragraphs of prose before a
-              single action. Now: one sentence, one action, one real frame of
-              his work. The rest of the page is sectioned under the questions
-              a client actually asks, and everything that only supports
-              reading is folded — collapsed, never removed. */}
           <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-            Websites, measured lead capture, automation, and creative production,
-            built around one confirmed scope so you get more qualified inquiries
-            and less manual follow-up.
+            Send Esteban the result you need. He can edit footage you have,
+            plan a South Florida shoot, or build a website and follow-up system
+            around your business.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
@@ -175,6 +170,7 @@ export default function ServicesPage() {
               See starting prices
             </Link>
           </div>
+          </div>
           {serviceImages["on-location"] ? (
             <Image
               src={serviceImages["on-location"].src}
@@ -182,12 +178,30 @@ export default function ServicesPage() {
               width={1600}
               height={900}
               priority
-              sizes="(min-width: 1024px) 960px, 100vw"
-              className="mt-8 aspect-[16/9] w-full max-w-4xl rounded-lg object-cover"
+              sizes="(min-width: 1280px) 45vw, (min-width: 1024px) 960px, 100vw"
+              className="mt-8 aspect-[16/9] w-full rounded-lg object-cover xl:mt-0"
               style={{ objectPosition: serviceImages["on-location"].focal }}
             />
           ) : null}
+          </div>
 
+          <nav className="mt-10 grid gap-3 md:grid-cols-3" aria-label="Choose what you need">
+            {[
+              { href: "#editing", title: "I have footage to edit", detail: "Turn existing clips into videos ready to publish." },
+              { href: "#on-location", title: "I need something filmed", detail: "Plan a local shoot for a property, business, or event." },
+              { href: "/services/website-design-fort-lauderdale", title: "I need a website or follow-up help", detail: "Explore a site and a clearer path for new inquiries." },
+            ].map((choice) => (
+              <Link key={choice.title} href={choice.href} className="group flex min-h-36 flex-col justify-between rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5 hover:border-[#e85d3e]">
+                <span className="font-serif text-2xl leading-tight">{choice.title}</span>
+                <span className="mt-3 text-sm leading-6 text-[#252a2d]">{choice.detail}</span>
+                <span className="mt-3 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27]">See how it works <ArrowRight className="size-4" aria-hidden="true" /></span>
+              </Link>
+            ))}
+          </nav>
+
+          <details id="specific-service-pages" className="mt-8 rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5">
+            <summary className="cursor-pointer font-serif text-2xl">Looking for a specific type of video or photo?</summary>
+            <p className="mt-2 text-sm leading-6 text-[#252a2d]">Reels, real estate, local production, product visuals, and other focused service pages.</p>
           <section className="mt-10" aria-labelledby="quick-service-paths-heading">
             <p className="text-xs font-medium uppercase text-[#5a6066]">
               Fast paths
@@ -263,7 +277,11 @@ export default function ServicesPage() {
               ))}
             </div>
           </section>
+          </details>
 
+          <details id="business-systems" className="mt-8 rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5">
+            <summary className="cursor-pointer font-serif text-2xl">Need a wider business system?</summary>
+            <p className="mt-2 text-sm leading-6 text-[#252a2d]">Explore websites, inquiry follow-up, local presence, measurement, and automation.</p>
           <section className="mt-12" aria-labelledby="growth-systems-heading">
             <p className="text-xs font-medium uppercase text-[#5a6066]">
               0→1 Growth Systems
@@ -334,6 +352,7 @@ export default function ServicesPage() {
               back under your brand.
             </p>
           </section>
+          </details>
 
           <section className="mt-14" aria-labelledby="creative-production-heading">
             <p className="text-xs font-medium uppercase text-[#5a6066]">
@@ -407,33 +426,20 @@ export default function ServicesPage() {
                       <span>{service.detail}</span>
                     </li>
                   </ul>
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    {service.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full border border-[#ddd4c8] px-3 py-1 text-xs uppercase text-[#5a6066]"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
                   {service.id === "website-design" ? (
                     <Link
                       href="/services/website-design-fort-lauderdale"
-                      className="group mt-6 block rounded-lg border border-[#c84a2c] bg-[var(--em-accent-ink)] p-5 text-white shadow-sm transition hover:bg-[var(--em-accent-ink-hover)]"
+                      className="group mt-6 block rounded-md border border-[#ddd4c8] bg-white/50 p-4 hover:border-[#e85d3e]"
                     >
-                      <span className="text-xs font-bold uppercase tracking-wider text-[#f0b384]">
-                        Featured Web & AI Service Hub
+                      <span className="text-xs font-medium uppercase text-[#5a6066]">
+                        Website services
                       </span>
-                      <span className="mt-2 flex items-center justify-between gap-3 font-serif text-xl font-bold text-white">
-                        Explore Website Design & AI Chatbots Hub
+                      <span className="mt-2 flex items-center justify-between gap-3 font-serif text-xl">
+                        See websites and chatbots
                         <ArrowRight
-                          className="size-5 shrink-0 transition-transform group-hover:translate-x-1"
+                          className="size-4 shrink-0 text-[#9f3c27] transition-transform group-hover:translate-x-0.5"
                           aria-hidden="true"
                         />
-                      </span>
-                      <span className="mt-2 block text-sm leading-6 text-[#f6f1ea]">
-                        View custom web applications, dealership engines, and AI lead capture chatbots for TitanForge, Geebs, FLAS, and Frontline Auto.
                       </span>
                     </Link>
                   ) : proof ? (
@@ -462,9 +468,13 @@ export default function ServicesPage() {
             </div>
           </section>
 
-          <div className="mt-12">
+          <details id="guided-video-brief" className="mt-12 rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5">
+            <summary className="cursor-pointer font-serif text-2xl">Want help describing your video project?</summary>
+            <p className="mt-2 text-sm leading-6 text-[#252a2d]">Answer four questions about your footage, format, and contact details.</p>
+          <div className="mt-6">
             <VideoBriefBuilder locale="en" />
           </div>
+          </details>
           {/* Un respiro entre dos tramos largos de texto. Queda FUERA del
               plegado: es la parte que se mira, no la que se lee. */}
           <ServicesScene locale="en" />

@@ -19,6 +19,7 @@ import {
 } from "@/lib/spanish-site";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { site } from "@/lib/site";
+import "../../homepage-visual.css";
 
 export const metadata = buildPageMetadata({
   title: spanishSite.title,
@@ -29,12 +30,12 @@ export const metadata = buildPageMetadata({
 
 export default function SpanishHomePage() {
   return (
-    <main className="bg-[#f7f5f1] text-[#101214]">
+    <main className="em-home bg-[#f7f5f1] text-[#101214]">
       <SignalIntro locale="es" />
       <HeroVideo locale="es" />
       <PortfolioTeaser locale="es" />
       <HomeProjectPath locale="es" />
-      <ClientReviews locale="es" />
+      <div className="em-home-review-controls"><ClientReviews locale="es" /></div>
       <KeepReading
         id="mas"
         className="em-fold"

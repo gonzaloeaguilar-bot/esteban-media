@@ -10,7 +10,7 @@ const content: GeoServicePageContent = {
   locationLabel: "Fort Lauderdale / Remote",
   proofTitle: "Short-form focus",
   proofText:
-    "Fort Lauderdale searches already reach the site through broad pages. This page gives Reels buyers one direct service page with the exact handoff Esteban needs.",
+    "Send original clips, a short description of the offer, and one example of the style you like. Esteban can review the material and scope captions, pacing, and versions for the channels you use.",
   proofHref: "/services/short-form-video-editor-miami",
   proofLabel: "Compare short-form editing",
   primaryCta: "Ask about Reels editing",
