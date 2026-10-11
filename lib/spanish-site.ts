@@ -24,6 +24,7 @@ import {
 } from "lucide-react";
 
 import { absoluteUrl, site } from "@/lib/site";
+import { growthSystems } from "@/lib/growth-systems";
 import { SHORT_FORM_SECTIONS_ES, shortFormServiceJsonLd } from "@/lib/short-form-recs";
 import {
   CORPORATE_EVENT_ES_DESTINATIONS,
@@ -3958,7 +3959,33 @@ const nicheBatch20261006Hreflang = Object.fromEntries(
   ),
 );
 
+/**
+ * Pairs for the pages Esteban ordered into the sitemap on 2026-10-10 (SEO/GEO
+ * audit finding 8): the six growth-system pairs, the case-study hubs and the
+ * daily tool pairs. The growth-system and hub pages already emitted these
+ * alternates in their HTML; declaring them here makes the sitemap emit the
+ * same set. Four of the daily tool pairs had only language-switcher pairing
+ * and no hreflang at all (audit fix 13).
+ */
+const inventoryAdditions20261010Hreflang = Object.fromEntries(
+  (
+    [
+      ...growthSystems.map(
+        (system) => [`/services/${system.slug}`, `/es/${system.spanishSlug}`] as const,
+      ),
+      ["/case-studies", "/es/casos-de-estudio"],
+      ["/daily-hook-planner", "/es/planificador-de-ganchos-de-video"],
+      ["/daily-publish-prompt", "/es/prompt-de-publicacion-diaria"],
+      ["/daily-script-timer", "/es/temporizador-de-guiones-de-video"],
+      ["/daily-shot-list-planner", "/es/planificador-de-tomas-de-video"],
+    ] as const
+  ).flatMap(([en, es]) =>
+    [en, es].map((path) => [path, { "en-US": en, "es-US": es, "x-default": en }] as const),
+  ),
+);
+
 const languageAlternatesRaw: Record<string, Record<string, string>> = {
+  ...inventoryAdditions20261010Hreflang,
   "/services/food-and-places-creator-video-editing-miami": {
     "en-US": "/services/food-and-places-creator-video-editing-miami",
     "es-US": "/es/edicion-de-video-para-creadores-de-comida-y-lugares-miami",
