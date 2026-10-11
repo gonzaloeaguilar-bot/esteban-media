@@ -20,6 +20,7 @@ import {
 } from "@/lib/portfolio-watch";
 import { isConsolidatedPath } from "@/lib/consolidation";
 import { growthSystems } from "@/lib/growth-systems";
+import { eventSectionPaths } from "@/lib/events";
 import { languageAlternates, spanishRoutes } from "@/lib/spanish-site";
 import { absoluteUrl } from "@/lib/site";
 
@@ -159,6 +160,8 @@ export const sitemapRoutes = [
   // self-canonical but not advertised (SEO/GEO audit finding 8) join the
   // sitemap. See ownerOrderedAdditions in config/indexable-inventory-freeze.json.
   ...inventoryAdditions20261010,
+  // Annual-events section (2026-10-10, owner-approved): hub + event pairs, EN and ES.
+  ...eventSectionPaths().map((path) => ({ path, priority: 0.8 })),
 ];
 
 

@@ -4,9 +4,9 @@ Generated: 2026-10-01
 
 This is the zero-cost source inventory for quote, call, email, WhatsApp, and proof actions. The site analytics layer records `data-cta` clicks and link-based contact events; this file names the IDs to watch in GA4 or any exported report.
 
-- Total CTA IDs found: 173
+- Total CTA IDs found: 180
 - Service quote CTA IDs found: 144
-- Contact-like CTA IDs found: 122
+- Contact-like CTA IDs found: 127
 
 ## Service quote actions
 
@@ -163,6 +163,8 @@ This is the zero-cost source inventory for quote, call, email, WhatsApp, and pro
 |---|---|
 | `auto_detailing_hero_contact` | `app/(english)/services/auto-detailing-tint-wrap-video-marketing-miami/page.tsx` |
 | `closing_whatsapp` | `components/packages-section.tsx` |
+| `contact_error_phone` | `components/contact-cta.tsx` |
+| `contact_error_whatsapp` | `components/contact-cta.tsx` |
 | `contact_whatsapp` | `app/(english)/contact/page.tsx` |
 | `contact_whatsapp` | `app/(spanish)/es/contacto/page.tsx` |
 | `content_creator_hero_contact` | `app/(english)/services/content-creator-video-editing-miami/page.tsx` |
@@ -170,6 +172,8 @@ This is the zero-cost source inventory for quote, call, email, WhatsApp, and pro
 | `lens-footer-contact` | `app/(english)/lens/page.tsx` |
 | `lens-hero-contact` | `app/(english)/lens/page.tsx` |
 | `medical_practice_hero_contact` | `app/(english)/services/medical-practice-video-marketing-miami/page.tsx` |
+| `package_arranque_project_whatsapp` | `components/starter-options.tsx` |
+| `package_arranque_weekly_whatsapp` | `components/starter-options.tsx` |
 | `real_estate_whatsapp` | `components/real-estate-pricing.tsx` |
 | `remote_editor_contact` | `app/(english)/services/hire-remote-video-editor/page.tsx` |
 | `resource_video_brief_contact` | `app/(english)/resources/video-project-brief-template/page.tsx` |
@@ -282,4 +286,5 @@ This is the zero-cost source inventory for quote, call, email, WhatsApp, and pro
 | `service_youtube_video_editing_email` | `components/service-depth.tsx` |
 | `service_youtube_video_editing_phone` | `components/service-depth.tsx` |
 | `service_youtube_video_editing_whatsapp` | `components/service-depth.tsx` |
+| `short_form_video_whatsapp` | `app/(english)/services/short-form-video-editor-miami/page.tsx` |
 | `white_label_hero_contact` | `app/(english)/services/white-label-video-editing-for-agencies/page.tsx` |

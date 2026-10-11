@@ -115,8 +115,10 @@ describe("consolidation arithmetic matches the published baseline", () => {
     // +1 = the 2026-10-07 /es/editor-de-video-miami page.
     // +26 = the 2026-10-10 owner-ordered additions (growth systems, daily
     // tools, case-study hubs, /lens, /fort-lauderdale).
+    // +6 = the annual-events hub pair plus the Fort Lauderdale boat show and Art Basel Miami Beach pairs (2026-10-10, owner-approved).
+    // +10 = the five remaining annual-event pairs: Miami International Boat Show, South Beach Wine & Food Festival, eMerge Americas, Miami Music Week and Miami Spice (2026-10-10, owner-approved).
     // All owner-ordered, none of them consolidation changes.
-    expect(sitemap()).toHaveLength(269 - 26 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 2 + 4 + 1 + 26);
+    expect(sitemap()).toHaveLength(269 - 26 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 2 + 4 + 1 + 26 + 6 + 10);
   });
 
   it("never lists a redirect source in the sitemap", () => {

@@ -19,6 +19,7 @@ import {
 import { YACHT_HOSPITALITY_DEPTH } from "@/lib/service-depth-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
+import { EventSeasonLinks } from "@/components/event-content-page";
 
 export const metadata = buildPageMetadata({
   title: "Yacht Hospitality Video Fort Lauderdale | Marine Editing",
@@ -271,6 +272,7 @@ export default function YachtHospitalityVideoFortLauderdalePage() {
           </div>
         </Container>
       </section>
+      <EventSeasonLinks locale="en" path="/services/yacht-hospitality-video-fort-lauderdale" />
     </main>
   );
 }

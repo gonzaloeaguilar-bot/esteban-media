@@ -14,6 +14,7 @@ import {
 import { NIGHTLIFE_DEEP_DIVE } from "@/lib/hospitality-deep-dive-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
+import { EventSeasonLinks } from "@/components/event-content-page";
 
 export const metadata = buildPageMetadata({
   title: "Nightlife Event Video Editing Miami",
@@ -162,6 +163,7 @@ export default function NightlifeEventVideoEditingMiamiPage() {
         services={serviceSiblings("/services/nightlife-event-video-editing-miami")}
         sectionId="sibling-services"
       />
+      <EventSeasonLinks locale="en" path="/services/nightlife-event-video-editing-miami" />
     </main>
   );
 }

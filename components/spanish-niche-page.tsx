@@ -21,6 +21,7 @@ import {
 import { SPANISH_SIBLING_CLUSTERS, ringSiblings } from "@/lib/service-depth-content";
 import { isConsolidatedPath } from "@/lib/consolidation";
 import { ArranqueWeeklySection } from "@/components/arranque-weekly-section";
+import { EventSeasonLinks } from "@/components/event-content-page";
 import { ARRANQUE_WEEKLY_SPANISH_SLUGS, arranqueWeeklyFaq, arranqueWeeklyOfferJsonLd } from "@/lib/arranque-weekly";
 import {
   buildSpanishNicheStructuredData,
@@ -1549,6 +1550,8 @@ export function SpanishNichePage({
         </section>
       ) : null}
 
+      <EventSeasonLinks locale="es" path={`/es/${page.slug}`} />
+
       {inquiryService ? (
         <ServiceInquiryRail
           service={inquiryService}
@@ -1679,7 +1682,7 @@ export function SpanishNichePage({
           heading="Servicios relacionados."
           services={siblingPages}
           sectionId="servicios-relacionados"
-          readMoreLabel="Ver el servicio"
+          linkLabel="Ver el servicio"
         />
       ) : null}
     </main>

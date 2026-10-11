@@ -1,6 +1,7 @@
 import { priceSentence } from "@/lib/packages";
 import { buildServiceFaqSchema } from "@/components/service-depth";
 import { isConsolidatedPath } from "@/lib/consolidation";
+import { eventLanguageAlternates } from "@/lib/events";
 import { packageRoutes } from "@/lib/package-routes";
 import type { LucideIcon } from "lucide-react";
 import { PACKAGE_PRICES, PRICING_BANDS, SHORT_FORM, shortFormPriceText, shortFormWeeklyText, usd } from "@/lib/pricing";
@@ -3998,6 +3999,8 @@ const languageAlternatesRaw: Record<string, Record<string, string>> = {
   },
   ...nicheBatch20261006,
   ...nicheBatch20261006Hreflang,
+  // Annual-events section (2026-10-10), both directions, from lib/events.ts.
+  ...eventLanguageAlternates(),
   ...Object.fromEntries(Object.values(packageRoutes).flatMap(({ en, es }) => [en, es].map((path) => [path, { "en-US": en, "es-US": es, "x-default": en }]))),
   "/pricing/real-estate": {
     "en-US": "/pricing/real-estate",

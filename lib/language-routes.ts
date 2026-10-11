@@ -1,7 +1,14 @@
+import { eventLanguageAlternates } from "@/lib/events";
 import { packageRoutes } from "@/lib/package-routes";
 
 export const pairedLanguageRoutes: Record<string, string> = {
   ...Object.fromEntries(Object.values(packageRoutes).map((route) => [route.en, route.es])),
+  // Annual-events section (2026-10-10): hub and per-event pairs from lib/events.ts.
+  ...Object.fromEntries(
+    Object.entries(eventLanguageAlternates())
+      .filter(([path]) => !path.startsWith("/es"))
+      .map(([path, langs]) => [path, langs["es-US"]]),
+  ),
   "/": "/es",
   "/services": "/es/servicios",
   "/pricing": "/es/precios",
