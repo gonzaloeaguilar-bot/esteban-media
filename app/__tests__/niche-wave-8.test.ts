@@ -26,6 +26,8 @@ const WAVE = [
   ["vacation rentals", "VACATION_RENTAL_DEPTH", "VACATION_RENTAL_DEEP_DIVE", "/services/vacation-rental-video-marketing-fort-lauderdale", "video-para-alquileres-vacacionales-fort-lauderdale"],
   ["insurance agencies", "INSURANCE_AGENCY_DEPTH", "INSURANCE_AGENCY_DEEP_DIVE", "/services/insurance-agency-video-marketing-miami", "marketing-de-video-para-agencias-de-seguros-miami"],
   ["mortgage brokers", "MORTGAGE_BROKER_DEPTH", "MORTGAGE_BROKER_DEEP_DIVE", "/services/mortgage-broker-video-marketing-miami", "marketing-de-video-para-brokers-hipotecarios-miami"],
+  ["immigration attorneys", "IMMIGRATION_ATTORNEY_DEPTH", "IMMIGRATION_ATTORNEY_DEEP_DIVE", "/services/immigration-attorney-video-marketing-miami", "marketing-de-video-para-abogados-de-inmigracion-miami"],
+  ["churches", "CHURCH_SERMON_DEPTH", "CHURCH_SERMON_DEEP_DIVE", "/services/church-sermon-clip-editing-miami", "edicion-de-clips-de-predicas-para-iglesias-miami"],
 ] as const;
 
 const source = (path: string) => readFileSync(join(process.cwd(), path), "utf8");

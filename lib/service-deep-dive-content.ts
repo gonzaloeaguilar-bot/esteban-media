@@ -414,3 +414,47 @@ export const MORTGAGE_BROKER_DEEP_DIVE: DeepDive = {
     },
   ],
 };
+
+export const IMMIGRATION_ATTORNEY_DEEP_DIVE: DeepDive = {
+  id: "attorney-education",
+  title: "How does a firm plan educational reels that stay within the rules?",
+  destinations: "Choosing general topics, and the review passes before anything is published.",
+  sections: [
+    {
+      heading: "Which immigration topics work as general education?",
+      paragraphs: [
+        "Topics about process and preparation rather than outcomes. How to prepare for a first consultation and what papers to bring. Why a notario público, a trusted figure in much of Latin America, is not authorised to give legal advice in the United States. How to check that an attorney is licensed by looking up the name in The Florida Bar's directory. What a scam call or message tends to look like, and why keeping copies of every document matters.",
+        "Each of these helps a viewer without touching the facts of their own case, and each ends with the same invitation to book a consultation. Topics that depend on individual circumstances, or on policy that is changing, belong in a consultation rather than a reel, and the firm decides where that line sits.",
+      ],
+    },
+    {
+      heading: "What review should happen before an attorney's reel is published?",
+      paragraphs: [
+        "Three passes. First, the attorney approves the outline before filming, so the recording already says what the firm is comfortable saying. Second, after the edit, the firm watches the cut as a viewer would: the Spanish captions, any on-screen text, the attorney's name and title, and the disclaimer the firm supplies. Third, the firm confirms the caption and the link that will go out with the post.",
+        "Esteban's part is the edit and the placement of approved text; the firm owns compliance with The Florida Bar's advertising rules and any filing or review those rules require. Building the passes into the calendar keeps the series moving without skipping a check. Firms with other practice areas can also see [law firm video production](/services/law-firm-video-production-miami).",
+      ],
+    },
+  ],
+};
+
+export const CHURCH_SERMON_DEEP_DIVE: DeepDive = {
+  id: "sermon-clips",
+  title: "How does a sermon become a week of clips?",
+  destinations: "Choosing the moments, and a weekly rhythm a media team can keep.",
+  sections: [
+    {
+      heading: "Which parts of a sermon work as clips?",
+      paragraphs: [
+        "Passages with a beginning and an end inside the same minute: a single clear statement of the main point, a short story that illustrates it, the explanation of one verse, a practical application the listener can act on that week, or a question the pastor asks the room. Moments that depend on something said much earlier usually do not work alone, and neither do announcements, which go out of date.",
+        "A good habit is for the pastor or a media volunteer to note a few moments right after the service, with the approximate time in the recording, while they are fresh. The edit starts from those notes, adds a title card with the theme and the reference, and keeps the pastor's words intact rather than rearranging them into something that was never said.",
+      ],
+    },
+    {
+      heading: "What weekly rhythm can a church media team actually keep?",
+      paragraphs: [
+        "One that starts with the Sunday recording and ends with clips scheduled through the week. The recording is shared once the service ends, the selection is agreed with the pastor, and the finished clips are spread across the following days, with the strongest one first. A clip in the middle of the week reminds people of the message, and the last one can point to the next service or an event.",
+        "Spanish and English clips can alternate when the church holds services in both languages. The Growth plan holds that calendar and a monthly report, and the [content repurposing service](/services/content-repurposing-service-miami) applies the same method to any long recording, such as a conference, a retreat or a podcast.",
+      ],
+    },
+  ],
+};

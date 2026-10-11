@@ -384,6 +384,42 @@
       "angle_en": "Loan officers who explain the buying process on camera in Spanish are still rare, and most have more phone clips than edited videos.",
       "angle_es": "Todavía son pocos los oficiales de préstamos que explican el proceso de compra en español frente a cámara, y la mayoría tiene más clips en el celular que videos editados.",
       "priority": 2
+    },
+    {
+      "id": "immigration-attorneys",
+      "label": "Spanish-language immigration attorneys",
+      "queries": [
+        "immigration attorney",
+        "immigration lawyer",
+        "abogado de inmigracion"
+      ],
+      "ig_terms": [
+        "abogado de inmigracion",
+        "immigration lawyer",
+        "inmigracion miami"
+      ],
+      "why": "Owner-approved wave 8. Families are targeted by fake lawyer profiles, so a real, named attorney on camera is the trust signal; Florida Bar review stays with the firm; page: /services/immigration-attorney-video-marketing-miami.",
+      "angle_en": "Showing the real, named attorney on camera is one of the few things an impersonation account cannot copy.",
+      "angle_es": "Mostrar al abogado real, con su nombre, frente a cámara es algo que una cuenta falsa no puede copiar.",
+      "priority": 2
+    },
+    {
+      "id": "churches",
+      "label": "Churches and iglesias",
+      "queries": [
+        "church",
+        "iglesia cristiana",
+        "spanish church"
+      ],
+      "ig_terms": [
+        "iglesia",
+        "church miami",
+        "ministerio"
+      ],
+      "why": "Owner-approved wave 8. Every week produces a full sermon recording and most churches post it only as a long livestream; page: /services/church-sermon-clip-editing-miami.",
+      "angle_en": "Most churches record the whole sermon every week and post it only as one long video.",
+      "angle_es": "Casi todas las iglesias graban la prédica completa cada semana y la publican solo como un video largo.",
+      "priority": 3
     }
   ]
 }

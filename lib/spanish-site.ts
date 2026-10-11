@@ -10,6 +10,7 @@ import {
   CalendarRange,
   Camera,
   Car,
+  Church,
   Handshake,
   Home,
   Languages,
@@ -17,6 +18,7 @@ import {
   Laptop,
   MapPin,
   Megaphone,
+  Scale,
   Scissors,
   ShieldCheck,
   Stethoscope,
@@ -461,6 +463,130 @@ const nicheWave8Pages: SpanishNichePage[] = [
         question: "¿Los videos deben ser en español, en inglés o en ambos?",
         answer:
           "En el idioma en que te llaman tus clientes. Muchos oficiales de préstamos de South Florida atienden primero a familias hispanas. Esteban trabaja primero en español, con inglés intermedio, así que alguien de tu equipo revisa los textos en inglés antes de publicar.",
+      },
+    ],
+  },
+  {
+    slug: "marketing-de-video-para-abogados-de-inmigracion-miami",
+    title: "Marketing de video para abogados de inmigración en Miami",
+    metadataTitle: "Video para Abogados de Inmigración Miami",
+    description:
+      "Reels educativos en español con los abogados reales de tu firma de inmigración en Miami y Fort Lauderdale. Información general, no asesoría legal; la firma aprueba todo.",
+    eyebrow: "Abogados de inmigración / Firmas en español",
+    h1: "Reels educativos con el abogado real de tu firma de inmigración.",
+    lead:
+      "Tus abogados explican temas generales a cámara, con su nombre y el de la firma. Esteban edita los reels en español y la firma revisa y aprueba cada guion, subtítulo y aviso según las reglas de publicidad de la Florida Bar.",
+    keyword: "marketing de video para abogados de inmigración",
+    location: "Miami-Dade / Broward / Remoto",
+    availability: "confirmed",
+    icon: Scale,
+    updated: "2026-10-11",
+    fitQuestion: "¿Por qué una firma de inmigración debería publicar videos de sus abogados reales?",
+    projectFit: `Porque hay perfiles falsos de abogados, algunos con caras y voces generadas con IA, que buscan a familias hispanas, y la respuesta más clara es mostrar al abogado real, con licencia, hablando. Esteban edita reels educativos cortos en los que los abogados de la firma explican temas generales: cómo prepararse para una consulta, qué documentos guardar o por qué un notario público no es abogado en Estados Unidos. Cada video dice el nombre del abogado, para que cualquiera pueda buscarlo en el directorio público de miembros de la Florida Bar. Son información general, no asesoría legal, y la firma revisa y aprueba cada guion, subtítulo y aviso según las reglas de publicidad de la Florida Bar. La edición es remota: ${esArranque()}. Grabar en la oficina es un servicio adicional pagado que se cotiza por proyecto.`,
+    sectionsDisclosure: "Planea los reels educativos de la firma",
+    sectionsDestinations: "Temas generales que sí sirven y la revisión antes de publicar",
+    bestFor: [
+      "Firmas de inmigración que atienden a familias en español.",
+      "Abogados que quieren que su cara y su nombre sean fáciles de verificar.",
+      "Equipos que necesitan publicar con orden sin descuidar la revisión interna.",
+    ],
+    scopingQuestions: [
+      "¿Qué abogados aparecerán en cámara y con qué nombre y título?",
+      "¿Quién de la firma aprueba los guiones, subtítulos y avisos?",
+      "¿Qué temas generales quiere tratar la firma y cuáles prefiere dejar para la consulta?",
+    ],
+    sections: [
+      {
+        heading: "¿Qué temas de inmigración sirven como educación general?",
+        paragraphs: [
+          "Los que tratan del proceso y la preparación, no de resultados. Cómo prepararse para la primera consulta y qué papeles llevar. Por qué un notario público, una figura de confianza en buena parte de América Latina, no está autorizado para dar asesoría legal en Estados Unidos. Cómo comprobar que un abogado tiene licencia buscando su nombre en el directorio de la Florida Bar. Cómo suele verse una llamada o un mensaje de estafa, y por qué conviene guardar copia de cada documento.",
+          "Cada tema ayuda sin tocar los hechos del caso de nadie y termina con la misma invitación a pedir una consulta. Lo que depende de circunstancias personales o de políticas que están cambiando va mejor en la consulta que en un reel, y la firma decide dónde está esa línea.",
+        ],
+      },
+      {
+        heading: "¿Qué revisión necesita un reel antes de publicarse?",
+        paragraphs: [
+          "Tres pasos. Primero, el abogado aprueba el esquema antes de grabar, para que la grabación ya diga lo que la firma está dispuesta a decir. Segundo, después de la edición, la firma mira el corte como lo vería el público: los subtítulos en español, el texto en pantalla, el nombre y el título del abogado y el aviso que entrega la firma. Tercero, la firma confirma la descripción y el enlace que acompañan la publicación.",
+          "La parte de Esteban es la edición y la colocación del texto aprobado; el cumplimiento de las reglas de publicidad de la Florida Bar es de la firma. Para otras áreas de práctica, revisa el [marketing de video para abogados](/es/marketing-de-video-para-abogados-miami) y la [producción de video para firmas de abogados](/es/produccion-de-video-para-firmas-de-abogados-miami).",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Esteban da asesoría legal o revisa el cumplimiento de la Florida Bar?",
+        answer:
+          "No. Edita video. La firma y sus abogados deciden qué se dice, aplican las reglas de publicidad de la Florida Bar y aprueban cada guion, subtítulo y aviso antes de publicar. Si un video necesita un aviso, la firma entrega el texto exacto.",
+      },
+      {
+        question: "¿Por qué importan los perfiles falsos de abogados?",
+        answer:
+          "Las cuentas que suplantan a firmas reales copian su imagen, a veces con personas generadas con IA, y suelen buscar a familias que se informan en español. Una firma cuyos abogados aparecen siempre con su nombre le da al público algo que comparar y verificar.",
+      },
+      {
+        question: "¿Los abogados pueden grabar con el celular?",
+        answer: `Sí. Una oficina tranquila, el celular a la altura de los ojos y un micrófono de solapa bastan; la edición remota con Arranque es ${esArranque()}. Si la firma quiere grabar una tanda de videos en su oficina, es un servicio adicional pagado que se cotiza por proyecto, con Presencia Local ${esPresencia()}.`,
+      },
+    ],
+  },
+  {
+    slug: "edicion-de-clips-de-predicas-para-iglesias-miami",
+    title: "Edición de clips de prédicas para iglesias en Miami",
+    metadataTitle: "Clips de Prédicas para Iglesias Miami",
+    description:
+      "Edición de clips cortos a partir de la prédica del domingo para iglesias en Miami y Fort Lauderdale, en español, inglés o ambos, con subtítulos y un calendario semanal.",
+    eyebrow: "Iglesias / Ministerios / Equipos de medios",
+    h1: "La prédica del domingo, convertida en clips para toda la semana.",
+    lead:
+      "Comparte la grabación del servicio. Esteban elige con tu equipo los momentos que se entienden solos y los convierte en clips verticales con subtítulos, en español, inglés o ambos.",
+    keyword: "edición de clips de prédicas para iglesias",
+    location: "Miami-Dade / Broward / Remoto",
+    availability: "confirmed",
+    icon: Church,
+    updated: "2026-10-11",
+    fitQuestion: "¿Cómo convierte una iglesia la prédica del domingo en clips cortos?",
+    projectFit: `Eligiendo los momentos del mensaje que se sostienen solos, una idea clara, una historia, un versículo explicado, y convirtiendo cada uno en un clip vertical de menos de un minuto con subtítulos, para que la gente lo vea durante la semana y lo comparta. Esteban edita la grabación de la iglesia, del archivo de la transmisión o de una cámara, en clips para Instagram, Facebook, TikTok y YouTube Shorts, en español, inglés o ambos, y puede planear qué clip sale cada día. El pastor o el equipo de medios aprueba la selección. La edición es remota: ${esArranque()}. Si la iglesia quiere grabar un servicio o un evento especial, la grabación en locación es un servicio adicional pagado que se cotiza por proyecto.`,
+    sectionsDisclosure: "Arma una semana de clips desde la prédica",
+    sectionsDestinations: "Qué momentos elegir y un ritmo semanal que el equipo pueda sostener",
+    bestFor: [
+      "Iglesias que transmiten o graban el servicio y no tienen quien edite.",
+      "Ministerios con servicios en español, en inglés o en ambos idiomas.",
+      "Equipos de medios voluntarios que necesitan un proceso semanal sencillo.",
+    ],
+    scopingQuestions: [
+      "¿De dónde sale la grabación: la transmisión, una cámara o la consola de sonido?",
+      "¿Quién aprueba los momentos elegidos antes de publicar?",
+      "¿La iglesia tiene derechos para usar la música de alabanza en redes?",
+    ],
+    sections: [
+      {
+        heading: "¿Qué partes de una prédica funcionan como clip?",
+        paragraphs: [
+          "Los pasajes que empiezan y terminan dentro del mismo minuto: una frase clara con la idea principal, una historia corta que la ilustra, la explicación de un versículo, una aplicación práctica para esa semana o una pregunta que el pastor le hace a la congregación. Los momentos que dependen de algo dicho mucho antes casi nunca funcionan solos, y tampoco los anuncios, que pierden vigencia.",
+          "Un buen hábito es que el pastor o un voluntario de medios anote algunos momentos al terminar el servicio, con el minuto aproximado en la grabación. La edición parte de esas notas, agrega una portada con el tema y la cita bíblica y respeta las palabras del pastor, sin reordenarlas para que digan algo que no se dijo.",
+        ],
+      },
+      {
+        heading: "¿Qué ritmo semanal puede sostener un equipo de medios?",
+        paragraphs: [
+          "Uno que empieza con la grabación del domingo y termina con los clips programados durante la semana. La grabación se comparte al terminar el servicio, la selección se acuerda con el pastor y los clips se reparten en los días siguientes, con el más fuerte primero. Un clip a mitad de semana recuerda el mensaje y el último puede invitar al próximo servicio o a un evento.",
+          "Si la iglesia tiene servicios en dos idiomas, los clips en español e inglés pueden alternarse. Cuida a la congregación: los niños y los miembros que se reconocen en cámara solo aparecen con permiso. La [reutilización de contenido para redes](/es/reutilizacion-de-contenido-para-redes-miami) aplica el mismo método a conferencias y retiros, y el [plan Crecimiento](/es/precios/crecimiento) sostiene el calendario.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Qué grabación debe enviar la iglesia?",
+        answer:
+          "El archivo de mejor calidad que tengan: la grabación original de la cámara o de la transmisión, no una copia descargada de redes, con el audio de la consola si es posible. Agrega la fecha, el título de la prédica y los minutos que el pastor quiere considerar.",
+      },
+      {
+        question: "¿Los clips pueden llevar música de alabanza?",
+        answer:
+          "Solo si la iglesia tiene los derechos para usarla en redes. Muchas canciones tienen derechos de autor, y las licencias para transmitir o volver a publicar las debe tener y confirmar la iglesia. Si no está claro, los clips se centran en el mensaje hablado.",
+      },
+      {
+        question: "¿Cuánto cuesta editar clips de prédicas?",
+        answer: `La edición remota empieza con Arranque, ${esArranque()}, y una iglesia que quiere un ritmo semanal con calendario puede ver el plan Crecimiento, ${esCrecimiento()}. Grabar un servicio o un evento es un servicio adicional pagado que se cotiza por proyecto.`,
       },
     ],
   },
@@ -4232,6 +4358,8 @@ const nicheWave8Hreflang = Object.fromEntries(
       ["/services/vacation-rental-video-marketing-fort-lauderdale", "/es/video-para-alquileres-vacacionales-fort-lauderdale"],
       ["/services/insurance-agency-video-marketing-miami", "/es/marketing-de-video-para-agencias-de-seguros-miami"],
       ["/services/mortgage-broker-video-marketing-miami", "/es/marketing-de-video-para-brokers-hipotecarios-miami"],
+      ["/services/immigration-attorney-video-marketing-miami", "/es/marketing-de-video-para-abogados-de-inmigracion-miami"],
+      ["/services/church-sermon-clip-editing-miami", "/es/edicion-de-clips-de-predicas-para-iglesias-miami"],
       // @@WAVE8-HREFLANG@@
     ] as const
   ).flatMap(([en, es]) =>

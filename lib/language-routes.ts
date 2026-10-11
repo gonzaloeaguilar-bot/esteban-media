@@ -64,6 +64,10 @@ export const pairedLanguageRoutes: Record<string, string> = {
     "/es/marketing-de-video-para-agencias-de-seguros-miami",
   "/services/mortgage-broker-video-marketing-miami":
     "/es/marketing-de-video-para-brokers-hipotecarios-miami",
+  "/services/immigration-attorney-video-marketing-miami":
+    "/es/marketing-de-video-para-abogados-de-inmigracion-miami",
+  "/services/church-sermon-clip-editing-miami":
+    "/es/edicion-de-clips-de-predicas-para-iglesias-miami",
   // @@WAVE8-ROUTES@@
 };
 

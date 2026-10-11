@@ -71,6 +71,24 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
       { href: "/es/portafolio/ml-colombia", title: "ML Colombia", detail: "Pieza social de 24 segundos para una marca propia." },
     ],
   },
+  "marketing-de-video-para-abogados-de-inmigracion-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade y Broward",
+    note: "Healthy Smile Miami: videos para redes de una clínica, grabados en locación con sonido y editados por Esteban para una agencia. No es una firma de abogados; muestra un consultorio profesional presentado a cámara.",
+    serviceIds: ["edicion", "planificacion-social", "videografia"],
+    projects: [
+      { href: "/es/portafolio/healthy-smile", title: "Healthy Smile Miami", detail: "Videos para redes grabados en locación y editados." },
+    ],
+  },
+  "edicion-de-clips-de-predicas-para-iglesias-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade y Broward",
+    note: "Diana & Jack: una boda que Esteban grabó y editó en una película de 20 minutos y un tráiler de un minuto y medio, aproximadamente. No es un servicio religioso; muestra un evento largo condensado en una pieza corta.",
+    serviceIds: ["edicion", "reutilizacion-redes", "planificacion-social"],
+    projects: [
+      { href: "/es/portafolio/diana-jack", title: "Diana & Jack", detail: "Película de boda y tráiler de momentos destacados." },
+    ],
+  },
   // @@WAVE8-CONTEXT@@
   "edicion-de-video-para-creadores-de-comida-y-lugares-miami": {
     areaHref: "/es/areas#broward",
@@ -1144,6 +1162,22 @@ const spanishInquiryServices: Record<string, ServiceInquiry> = {
     assetPrompt: "clips grabados con el celular, mi NMLS y los avisos aprobados por cumplimiento",
     proofHref: "/es/portafolio/ml-colombia",
     proofLabel: "Ver una pieza social publicada",
+  },
+  "marketing-de-video-para-abogados-de-inmigracion-miami": {
+    serviceId: "es_immigration_attorney_video",
+    serviceName: "reels educativos para una firma de inmigración",
+    goalPrompt: "mostrar a nuestros abogados reales explicando temas generales",
+    assetPrompt: "clips de los abogados, los temas aprobados y el texto de avisos de la firma",
+    proofHref: "/es/portafolio/healthy-smile",
+    proofLabel: "Ver videos de un consultorio publicados",
+  },
+  "edicion-de-clips-de-predicas-para-iglesias-miami": {
+    serviceId: "es_church_sermon_clips",
+    serviceName: "clips de la prédica para nuestra iglesia",
+    goalPrompt: "publicar el mensaje del domingo durante toda la semana",
+    assetPrompt: "la grabación del servicio, el título de la prédica y los minutos elegidos",
+    proofHref: "/es/portafolio/diana-jack",
+    proofLabel: "Ver un evento largo convertido en tráiler",
   },
   // @@WAVE8-INQUIRY@@
   "edicion-de-video-para-creadores-de-comida-y-lugares-miami": {

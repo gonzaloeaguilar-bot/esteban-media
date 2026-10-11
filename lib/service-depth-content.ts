@@ -1369,3 +1369,111 @@ export const MORTGAGE_BROKER_DEPTH: NicheWave8Depth = {
     { title: "Miami Reels Editor", detail: "Vertical edits of talking-head clips for Instagram and TikTok.", href: "/services/reels-editor-miami" },
   ],
 };
+
+export const IMMIGRATION_ATTORNEY_DEPTH: NicheWave8Depth = {
+  answer: {
+    question: "Why should an immigration law firm publish videos of its real attorneys?",
+    answer:
+      "Because Spanish-speaking families are being targeted by fake lawyer profiles, some with AI-generated faces and voices, and the clearest answer is to show the real, licensed attorney speaking. Esteban edits short educational reels in which the firm's own attorneys explain general topics, such as how to prepare for a consultation, which documents to keep, or why a notario público is not a lawyer in the United States. Each video names the attorney, so a viewer can look the name up in The Florida Bar's public member directory. The videos are general information, not legal advice, and the firm reviews and approves every script, caption and disclaimer under the Florida Bar's advertising rules. Editing is remote; filming at the office is a paid add-on scoped per project.",
+  },
+  proof: {
+    href: "/portfolio/healthy-smile",
+    label: "Watch the clinic social videos",
+    note: "Healthy Smile Miami is a set of clinic social videos Esteban filmed on location with sound and edited, on assignment with an agency. It is not a law firm; it shows a professional practice presented on camera.",
+  },
+  craftHeading: "What an attorney's educational reel has to get right.",
+  craft: [
+    {
+      title: "A face viewers can verify",
+      detail:
+        "The attorney appears on camera, says their own name and the firm's name, and the same person shows up across the series. That consistency is what separates a real practice from an impersonation account built on a stock face or a synthetic voice.",
+    },
+    {
+      title: "General information, clearly framed",
+      detail:
+        "Each reel explains a process or a warning sign without advising anyone on their own case. On-screen text and the closing line make that distinction plain, and invite viewers to book a consultation rather than act on a video.",
+    },
+    {
+      title: "The firm approves every word",
+      detail:
+        "Lawyer advertising in Florida is regulated, and the firm is responsible for compliance. Scripts, captions and disclaimers go through the firm's review before publishing, and the edit uses the approved wording exactly as supplied.",
+    },
+  ],
+  faqHeading: "Questions before a law firm sends footage.",
+  faqs: [
+    {
+      question: "Does Esteban give legal advice or check Florida Bar compliance?",
+      answer:
+        "No. He edits video. The firm and its attorneys decide what is said, apply The Florida Bar's lawyer advertising rules and approve every script, caption and disclaimer before anything is published. If a video needs a disclaimer, the firm supplies the exact wording and the edit places it as written. Topics stay general, so no viewer mistakes a reel for advice on their own case.",
+    },
+    {
+      question: "Why do fake lawyer profiles matter to a real firm?",
+      answer:
+        "Impersonation accounts copy the look of legitimate firms, sometimes with AI-generated people, and the families they target often search in Spanish. A firm whose real attorneys appear by name, consistently, gives viewers something to compare against and something to verify. Videos can also teach the warning signs directly: requests for payment by gift card, promises that a case will certainly be approved, or a notario offering legal services.",
+    },
+    {
+      question: "Can the attorneys film with a phone?",
+      answer: `Yes. A quiet office, a phone at eye level and a lapel microphone are enough, and the footage is edited remotely; the Starter package is ${enStarter()}. If the firm wants a batch of videos filmed at the office in Miami-Dade or Broward, that is a paid add-on scoped per project, with the Local Presence package at ${enLocal()}.`,
+    },
+  ],
+  relatedHeading: "Related services for law firms.",
+  related: [
+    { title: "Law Firm Video Production", detail: "Video for firms across practice areas in Miami.", href: "/services/law-firm-video-production-miami" },
+    { title: "Interview Video Editing", detail: "Edits of seated interviews and talking-head recordings.", href: "/services/interview-video-editing-service" },
+    { title: "Short-Form Video Editing", detail: "Vertical edits for Reels, TikTok and Shorts.", href: "/services/short-form-video-editor-miami" },
+  ],
+};
+
+export const CHURCH_SERMON_DEPTH: NicheWave8Depth = {
+  answer: {
+    question: "How can a church turn a Sunday sermon into short clips?",
+    answer:
+      "By choosing the moments in the message that stand on their own, a clear point, a story, a verse explained, and cutting each into a vertical clip of under a minute with captions, so people can watch it during the week and share it. Esteban edits the church's own recording, from a livestream file or a camera, into clips for Instagram, Facebook, TikTok and YouTube Shorts, in Spanish, English or both, and can plan which clips go out on which days. The pastor or the media team approves the selection. Editing is remote, so the church only needs to share the recording. If the church wants a service or a special event filmed, on-location filming is a paid add-on scoped per project.",
+  },
+  proof: {
+    href: "/portfolio/diana-jack",
+    label: "Watch a long event cut into a highlight",
+    note: "Diana & Jack is a wedding Esteban filmed and edited into a 20-minute film and a highlight trailer of about a minute and a half. It is not a church service; it shows a long event condensed into a short piece.",
+  },
+  craftHeading: "What a sermon clip needs from the edit.",
+  craft: [
+    {
+      title: "The clip has to stand alone",
+      detail:
+        "A sermon builds over half an hour or more; a clip has seconds. The edit looks for passages that make sense without the build-up and trims the lead-in, so someone who never attended still understands the point.",
+    },
+    {
+      title: "Captions for silent scrolling",
+      detail:
+        "Most clips are watched without sound. Burned-in captions in Spanish or English, with Bible references written out correctly, make the message readable on a phone in a waiting room or on a bus.",
+    },
+    {
+      title: "Respect for the room",
+      detail:
+        "Worship moments and congregation shots involve people who did not agree to be on social media. The edit favours the pulpit and the stage, and leaves out identifiable members, especially children, unless the church has permission.",
+    },
+  ],
+  faqHeading: "Questions before a church sends a recording.",
+  faqs: [
+    {
+      question: "What recording does a church need to send?",
+      answer:
+        "The highest-quality file you have: the original camera or livestream recording, not a copy downloaded from social media, with the sermon audio taken from the soundboard if possible. Add the date, the sermon title and the passages or timestamps the pastor wants considered. If several services are recorded, say which one is the main version, so the clips come from the clearest take.",
+    },
+    {
+      question: "Can the clips include worship music?",
+      answer:
+        "Only if the church has the rights to use it on social platforms. Songs performed in a service are often under copyright, and licences for streaming or reposting are the church's to hold and confirm. When that is not clear, the clips focus on the spoken message, which avoids most music claims and keeps the attention on the sermon.",
+    },
+    {
+      question: "How much does sermon clip editing cost?",
+      answer: `Remote editing starts with the Starter package, ${enStarter()}, and a church that wants a weekly rhythm with a content calendar can look at the Growth plan, ${enGrowth()}. Filming a service or an event on site is a paid add-on scoped per project. A written quote sets the number of clips and the scope.`,
+    },
+  ],
+  relatedHeading: "Related services for long recordings.",
+  related: [
+    { title: "Content Repurposing", detail: "One long recording turned into the clips each platform wants.", href: "/services/content-repurposing-service-miami" },
+    { title: "Video Podcast Editing", detail: "Multi-camera conversations edited for YouTube and clips.", href: "/services/video-podcast-editing-service-miami" },
+    { title: "Webinar Clip Editing", detail: "Short clips cut from long talks and presentations.", href: "/services/webinar-clip-editing-service" },
+  ],
+};

@@ -114,6 +114,8 @@ export const sitemapRoutes = [
   { path: "/services/vacation-rental-video-marketing-fort-lauderdale", priority: 0.85 },
   { path: "/services/insurance-agency-video-marketing-miami", priority: 0.85 },
   { path: "/services/mortgage-broker-video-marketing-miami", priority: 0.85 },
+  { path: "/services/immigration-attorney-video-marketing-miami", priority: 0.85 },
+  { path: "/services/church-sermon-clip-editing-miami", priority: 0.85 },
   // @@WAVE8-SITEMAP@@
   { path: "/desk-recommendations", priority: 0.85 },
   { path: "/portfolio", priority: 0.9 },
