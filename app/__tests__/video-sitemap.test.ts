@@ -20,8 +20,11 @@ describe("video sitemap", () => {
     expect(xml).toContain(
       'xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"',
     );
-    expect(xml.match(/<url>/g)).toHaveLength(16);
-    expect(xml.match(/<video:video>/g)).toHaveLength(16);
+    const localizedVideoCount = getPortfolioWatchItems().filter(
+      (item) => item.media.kind === "youtube",
+    ).length * 2;
+    expect(xml.match(/<url>/g)).toHaveLength(localizedVideoCount);
+    expect(xml.match(/<video:video>/g)).toHaveLength(localizedVideoCount);
 
     for (const item of getPortfolioWatchItems()) {
       if (item.media.kind !== "youtube") continue;
