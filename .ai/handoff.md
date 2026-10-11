@@ -6,6 +6,12 @@
 - Gates: `pnpm check` passed before final dynamic price addition; targeted 267 guide tests and build passed after. The Spanish guides index reused the changed answer, so only its word fingerprint was refreshed; text parity now passes 97 routes. Analytics gate passed. Raw generated HTML link checks passed. Independent CTO-dispatched review attempted but provider rerouting ended in unsupported Codex CLI model; manual diff and source/route review completed. See vault [[esteban-bq-expansion-review-2026-10-11]].
 ---
 
+# Root <html> hydration warning — 2026-10-11
+
+Branch `fix/html-hydration-warning`. Every route logged "A tree hydrated but some attributes of the server rendered HTML didn't match" (the dev overlay's "1 Issue"): SiteChrome's motion gate and brand-moment boot set `class="rail-anim"` / `data-brand-moment` on `<html>` before React hydrates. Added `suppressHydrationWarning` to `<html>` in both locale root layouts and `global-not-found.tsx` (it covers that element's own attributes only). Reproduced on `/`, `/es`, `/pricing` and a 404 before the fix, 0 after. New guard `app/__tests__/html-hydration.test.ts`; `localized-layouts.test.ts` now matches the lang attribute instead of the exact tag string.
+
+---
+
 # Home: proof before pricing — 2026-10-10
 
 Branch `fix/home-proof-before-pricing`. Both homes (`/`, `/es`) now render Hero → AudienceRouter → PortfolioTeaser → RealEstateReels (EN only; `/es` never had the shelf) → ClientReviews → PackagesSection (which still bundles real-estate plans, à-la-carte, 3 steps, FAQ + FAQPage JSON-LD) → KeepReading fold → ClosingCredits. Ordering only, no copy changes. `#packages` / `#paquetes` still live inside PackagesSection, so the hero CTA works. `app/__tests__/home-proof-before-pricing.test.ts` locks the order.

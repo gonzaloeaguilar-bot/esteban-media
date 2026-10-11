@@ -14,7 +14,7 @@ export default function EnglishRootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-US">
+    <html lang="en-US" suppressHydrationWarning>
       <body className={siteBodyClassName}>
         <SiteChrome>{children}</SiteChrome>
         {/* In-page links must still land when their target is collapsed: a
