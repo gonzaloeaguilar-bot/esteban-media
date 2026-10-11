@@ -2,7 +2,14 @@ import Link from "next/link";
 import { ArrowRight, Building2, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { buildServicePageNodes } from "@/components/service-depth";
+import { PORTED_SERVICE_FAQS, serviceSiblings } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceFaqs,
+  ServiceRelated,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -18,6 +25,7 @@ export default function ArchitectureDesignVideoMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/architecture-design-video-miami"), PORTED_SERVICE_FAQS["/services/architecture-design-video-miami"]),
       ...buildServicePageNodes({
         path: "/services/architecture-design-video-miami",
         name: "Architecture Design Video Miami",
@@ -105,6 +113,7 @@ export default function ArchitectureDesignVideoMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="Architectural video production" />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
@@ -141,6 +150,16 @@ export default function ArchitectureDesignVideoMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/architecture-design-video-miami"]}
+        sectionId="ported-faq"
+      />
+      <ServiceRelated
+        heading="Related services nearby."
+        services={serviceSiblings("/services/architecture-design-video-miami")}
+        sectionId="sibling-services"
+      />
     </main>
   );
 }

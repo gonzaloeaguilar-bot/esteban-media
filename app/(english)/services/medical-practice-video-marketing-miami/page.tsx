@@ -3,6 +3,7 @@ import { ArrowRight, Stethoscope } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import {
+  ServiceAnswerFirst,
   ServiceCraft,
   ServiceDeepDive,
   ServiceFaqs,
@@ -10,7 +11,7 @@ import {
   ServiceRelated,
   buildServiceFaqSchema,
 } from "@/components/service-depth";
-import { MEDICAL_PRACTICE_DEPTH } from "@/lib/service-depth-content";
+import { MEDICAL_PRACTICE_DEPTH, withServiceSiblings } from "@/lib/service-depth-content";
 import { MEDICAL_PRACTICE_DEEP_DIVE } from "@/lib/service-deep-dive-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl } from "@/lib/site";
@@ -138,6 +139,7 @@ export default function MedicalPracticeVideoMarketingPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="Medical practice video marketing" />
 
       <ServiceCraft
         heading={MEDICAL_PRACTICE_DEPTH.craftHeading}
@@ -166,7 +168,7 @@ export default function MedicalPracticeVideoMarketingPage() {
       />
       <ServiceRelated
         heading={MEDICAL_PRACTICE_DEPTH.relatedHeading}
-        services={MEDICAL_PRACTICE_DEPTH.related}
+        services={withServiceSiblings("/services/medical-practice-video-marketing-miami", MEDICAL_PRACTICE_DEPTH.related)}
       />
     </main>
   );

@@ -1132,3 +1132,425 @@ export const FOOD_PLACES_CREATOR_SECTIONS = [
     ],
   },
 ] as const;
+
+
+/* ---------------------------------------------------------------------------
+ * SEO/GEO audit wave, 2026-10-10.
+ *
+ * PORTED_SERVICE_FAQS — FAQ copy for hand-written English service pages that
+ * had none (audit finding 3). Each entry is the English meaning of the FAQ the
+ * matching Spanish page already publishes (spanishNichePages[].faqs in
+ * lib/spanish-site.ts), so no new fact is introduced. Two pages are left out on
+ * purpose because their Spanish FAQ makes a claim the site cannot back:
+ *   - contractor-video-marketing-south-florida: "before-and-after videos are
+ *     the highest-converting format for contractors" (a performance claim);
+ *   - plastic-surgery-video-marketing-miami: "all clinical footage is processed
+ *     in encrypted storage" (a security claim with no published basis).
+ * On-location answers follow the owner's 2026-10-10 rule: on-location filming
+ * is a paid service, scoped per project. No turnaround or price is added.
+ * ------------------------------------------------------------------------- */
+
+export const PORTED_SERVICE_FAQS: Readonly<Record<string, readonly ServiceFaq[]>> = {
+  "/services/content-repurposing-service-miami": [
+    {
+      question: "What kinds of long videos can be repurposed?",
+      answer: "Webinars, interviews, conference talks, podcast episodes and long YouTube videos.",
+    },
+  ],
+  "/services/small-business-video-production-miami": [
+    {
+      question: "Do I need professional equipment to film?",
+      answer:
+        "Not always. A modern smartphone with good natural light can capture usable footage, which is then shaped with professional editing.",
+    },
+  ],
+  "/services/ai-food-photography-restaurants": [
+    {
+      question: "Does the dish still look real?",
+      answer:
+        "Yes. The real photo of the plated dish is the anchor, and only the table or restaurant setting around it is generated.",
+    },
+  ],
+  "/services/headshot-photographer-miami": [
+    {
+      question: "Is digital retouching included?",
+      answer: "Yes. Each final selected portrait includes subtle skin and color retouching.",
+    },
+  ],
+  "/services/video-editing-west-palm-beach": [
+    {
+      question: "How are large files sent from Palm Beach County?",
+      answer: "Footage is transferred through secure Dropbox or Frame.io links.",
+    },
+  ],
+  "/services/video-production-doral-miami": [
+    {
+      question: "Are corporate projects in Doral covered?",
+      answer:
+        "Yes. Remote editing is available for businesses in Doral and western Miami-Dade, and on-location filming there is available as a paid service, scoped per project.",
+    },
+  ],
+  "/services/real-estate-video-coral-gables": [
+    {
+      question: "Does the edit include music and luxury color work?",
+      answer:
+        "Yes. Each real estate video is delivered with professional color correction and sound design suited to high-value properties.",
+    },
+  ],
+  "/services/corporate-video-production-brickell": [
+    {
+      question: "Are bilingual subtitles available?",
+      answer: "Yes. Files can be delivered with synchronized subtitles in both English and Spanish for corporate distribution.",
+    },
+  ],
+  "/services/small-business-video-pembroke-pines": [
+    {
+      question: "How does the service work if I am in Pembroke Pines?",
+      answer:
+        "You can start with a brief and footage you have already filmed. Esteban works from Fort Lauderdale; any on-location filming is a paid service, scoped per project.",
+    },
+    {
+      question: "Does the portfolio include a project made in Pembroke Pines?",
+      answer:
+        "No Pembroke Pines project is presented. Bar Door Monkey is a published Miami example that shows videography and editing for a local business promo video, without claiming business results.",
+    },
+  ],
+  "/services/jewelry-product-photography-miami": [
+    {
+      question: "Can luxury backgrounds be created with AI without sending the physical piece?",
+      answer:
+        "Yes. With sharp base photos of the jewelry, editorial-level backgrounds and lighting can be composed with AI.",
+    },
+  ],
+  "/services/fitness-gym-video-marketing-miami": [
+    {
+      question: "Is royalty-free music included for social media?",
+      answer:
+        "Yes. Music is chosen for the platform where the video will be published, and for paid ads the business confirms the usage rights before publishing.",
+    },
+  ],
+  "/services/corporate-event-videographer-miami": [
+    {
+      question: "Can a teaser be delivered on the day of the event?",
+      answer:
+        "That is not promised. The calculator applies an express multiplier to rush delivery, but the real timeline is confirmed before the event based on the footage and the schedule. State the publishing date you need when you ask for a quote.",
+    },
+  ],
+  "/services/automotive-video-marketing-miami": [
+    {
+      question: "Can engine sound design be added?",
+      answer: "Yes. The edit can be enhanced with professional engine and ambient sound effects.",
+    },
+  ],
+  "/services/hotel-hospitality-video-production-miami": [
+    {
+      question: "Are versions made for Instagram and the website?",
+      answer: "Yes. A horizontal version is delivered for the website, with vertical adaptations for Reels and Stories.",
+    },
+  ],
+  "/services/video-podcast-editing-service-miami": [
+    {
+      question: "Are cover designs and animated intros included?",
+      answer: "Yes. Opening animations, guest name lower thirds and brand graphics can be added.",
+    },
+  ],
+  "/services/architecture-design-video-miami": [
+    {
+      question: "Can high-resolution architecture photos be animated?",
+      answer: "Yes. Parallax and virtual camera movement are used to bring photo portfolios to life.",
+    },
+  ],
+  "/services/wellness-spa-video-marketing-miami": [
+    {
+      question: "Is spa ambient sound design included?",
+      answer:
+        "Yes. Natural sound textures and ambient music chosen for the platform where the video will be published are built into the edit.",
+    },
+  ],
+  "/services/brand-video-production-miami": [
+    {
+      question: "Is help available with the voiceover and background music?",
+      answer:
+        "Yes. Bilingual commercial voiceover and music are selected to represent the personality of the brand.",
+    },
+  ],
+  "/services/cosmetic-dentistry-video-marketing-miami": [
+    {
+      question: "How are smile makeover results highlighted?",
+      answer: "With split-screen comparisons and high-definition zooms that bring out the dental aesthetics.",
+    },
+  ],
+  "/services/nightlife-event-video-editing-miami": [
+    {
+      question: "Can the cuts follow the exact rhythm of the music?",
+      answer: "Yes. Every shot change is synced to the beats of the track.",
+    },
+  ],
+  "/services/wealth-management-video-production-miami": [
+    {
+      question: "Can slides and market charts be integrated?",
+      answer: "Yes. Clean on-screen graphics are designed to accompany the advisor's explanation.",
+    },
+  ],
+  "/services/boutique-hotel-video-editing-miami": [
+    {
+      question: "Are formats delivered for booking sites and Instagram?",
+      answer: "Yes. Versions are delivered in 16:9 for the web and 9:16 vertical for social media.",
+    },
+  ],
+  "/services/real-estate-drone-video-editing-miami": [
+    {
+      question: "Can a drone flight be booked?",
+      answer:
+        "Drone flying is not currently published as a confirmed service. Availability for aerial work is still pending a direct answer from Esteban; this page covers editing drone footage you supply.",
+    },
+  ],
+  "/services/video-editing-miami-beach": [
+    {
+      question: "How is color handled for outdoor Miami Beach footage?",
+      answer: "Turquoise water and sunny skies are balanced while skin tones stay natural.",
+    },
+  ],
+  "/services/creative-video-production-wynwood": [
+    {
+      question: "Are visual effects and rhythmic creative transitions supported?",
+      answer: "Yes. Fast transitions, texture effects and urban typography are applied to match the client's style.",
+    },
+  ],
+  "/services/corporate-video-editing-weston-fl": [
+    {
+      question: "Can recorded corporate conferences or presentations be edited?",
+      answer: "Yes. Pauses are removed, explanatory slides are inserted and audio clarity is improved.",
+    },
+  ],
+  "/services/small-business-video-hollywood-fl": [
+    {
+      question: "Are calls to action with phone and website included?",
+      answer: "Yes. End graphics are designed with contact buttons, location and the business's direct details.",
+    },
+  ],
+  "/services/video-production-delray-beach": [
+    {
+      question: "Is the video adapted for local Instagram and Meta ads?",
+      answer: "Yes. The cuts required for targeted ad campaigns are delivered.",
+    },
+  ],
+  "/services/real-estate-video-sunny-isles": [
+    {
+      question: "Can footage already filmed of a Sunny Isles property be edited?",
+      answer:
+        "Yes. Esteban can edit footage supplied by the client; scope, formats and intended use are confirmed for each project.",
+    },
+  ],
+  "/services/video-editing-palm-beach-gardens": [
+    {
+      question: "Is content optimized for executive LinkedIn?",
+      answer: "Yes. Horizontal clips are formatted with burned-in subtitles suited to LinkedIn audiences.",
+    },
+  ],
+  "/services/online-course-video-editing-service": [
+    {
+      question: "Are background noise and instructor hesitations cleaned up?",
+      answer:
+        "Yes. The audio is edited to remove ambient noise and unnecessary pauses while keeping the speech natural.",
+    },
+  ],
+  "/services/corporate-training-video-editing-miami": [
+    {
+      question: "Can quizzes or on-screen prompts be added?",
+      answer: "Yes. Text cards and review pauses are added to reinforce what learners take in.",
+    },
+  ],
+  "/services/crowdfunding-video-editor-miami": [
+    {
+      question: "Is a closing call to action with the funding goals included?",
+      answer: "Yes. End graphics are designed with the campaign rewards and a call to back the project.",
+    },
+  ],
+  "/services/drone-video-editing-service-miami": [
+    {
+      question: "How are drone flicker and abrupt movements corrected?",
+      answer: "High-precision digital stabilization is applied to smooth the camera path.",
+    },
+  ],
+  "/services/music-video-post-production-miami": [
+    {
+      question: "Are multiple performance takes synced with the master track?",
+      answer: "Yes. Multicam edits are synced to the master audio track so the cut can move between setups.",
+    },
+  ],
+  "/services/webinar-clip-editing-service": [
+    {
+      question: "Can you choose the best parts of the webinar?",
+      answer: "Yes. The recording is reviewed to find the moments with the strongest hook and the most useful information.",
+    },
+  ],
+  "/services/interview-video-editing-service": [
+    {
+      question: "Is audio recorded separately on lavalier mics synced?",
+      answer: "Yes. Separate audio tracks are synced to the camera video.",
+    },
+  ],
+};
+
+/** Hand-written pages left without a FAQ because no published fact supports one. */
+export const FAQ_SKIPPED_NO_FACTUAL_SOURCE = [
+  "/services/contractor-video-marketing-south-florida",
+  "/services/plastic-surgery-video-marketing-miami",
+] as const;
+
+/* ---------------------------------------------------------------------------
+ * Sibling links for service pages that were linked only from the hubs (audit
+ * finding 7 / fix 6). Each cluster is a ring: every page links the next three,
+ * so every page in the cluster also gains three inbound links. Card copy is
+ * each page's own published breadcrumb label and meta description. Palm Beach
+ * County pages are deliberately not in any cluster: AGENTS.md forbids
+ * strengthening Palm Beach positioning without local evidence.
+ * ------------------------------------------------------------------------- */
+
+const SERVICE_CARD_COPY: Readonly<Record<string, Omit<RelatedService, "href">>> = {
+  "/services/corporate-training-video-editing-miami": { title: "Corporate Training Video Editing", detail: "Corporate training video editing in Miami: employee onboarding videos, SOP procedure walkthroughs, and internal policy video edits." },
+  "/services/corporate-video-editing-weston-fl": { title: "Corporate Video Editing Weston", detail: "Corporate video editing in Weston & Davie FL: executive announcements, internal SOP video training, and company overview post-production." },
+  "/services/corporate-video-production-brickell": { title: "Brickell Corporate Video", detail: "Corporate video editing, executive testimonials, and company overview videos for financial firms and tech startups in Brickell, Miami." },
+  "/services/wealth-management-video-production-miami": { title: "Wealth Management Video Production", detail: "Financial advisor video production, wealth management authority reels, market update edits, and corporate financial video in Miami." },
+  "/services/webinar-clip-editing-service": { title: "Webinar Clip Editing Service", detail: "Webinar clip editing service: extracting key takeaway clips from virtual events, formatting into 9:16 vertical reels with captions." },
+  "/services/online-course-video-editing-service": { title: "Online Course Video Editing Service", detail: "Online course video editing: educational module polish, slide overlays, clear audio enhancement, and webinar lesson post-production." },
+  "/services/boutique-hotel-video-editing-miami": { title: "Boutique Hotel Video Editing", detail: "Boutique hotel video editing, resort amenity walkthroughs, luxury hospitality reels, and booking video promos in Miami." },
+  "/services/nightlife-event-video-editing-miami": { title: "Nightlife Event Video Editing", detail: "Nightclub video editing, DJ promo reels, VIP party recap videos, and fast-paced event post-production in Miami." },
+  "/services/music-video-post-production-miami": { title: "Music Video Post Production", detail: "Music video post-production in Miami: lip-sync assembly, cinematic color grading, visual effects, and rhythm cuts for artists & directors." },
+  "/services/video-podcast-editing-service-miami": { title: "Video Podcast Editing", detail: "Professional video podcast editing, multi-cam switching, audio cleanup, and social media clip creation for creators in Miami." },
+  "/services/small-business-video-hollywood-fl": { title: "Small Business Video Hollywood", detail: "Small business video production & editing in Hollywood & Hallandale FL: Instagram reels, storefront promos, and customer review clips." },
+  "/services/small-business-video-pembroke-pines": { title: "Pembroke Pines Video", detail: "Promotional video editing and social content creation for small businesses in Pembroke Pines and Miramar, Florida." },
+  "/services/video-editing-miami-beach": { title: "Video Editing Miami Beach", detail: "Professional video editing in Miami Beach: hospitality, luxury real estate walkthroughs, lifestyle reels, and nightclub event recaps." },
+  "/services/video-production-doral-miami": { title: "Doral Video Production", detail: "B2B video production, commercial videography, and remote editing for businesses and distributors in Doral, Florida." },
+  "/services/fitness-gym-video-marketing-miami": { title: "Fitness Gym Video", detail: "Gym, trainer and pilates studio video in Miami: what editing, on-site filming and a monthly plan cost, with prices from the published rate card." },
+  "/services/salon-barbershop-video-marketing-miami": { title: "Salon & Barbershop Video", detail: "Video marketing for salons, barbershops, and nail studios in Miami and Fort Lauderdale: transformations, detail close-ups, and vertical posts from phone clips." },
+  "/services/medical-practice-video-marketing-miami": { title: "Medical Practice Video", detail: "Video editing and selective production for chiropractors, physical therapists, functional medicine clinics, and urgent care in Miami and Broward." },
+  "/services/auto-detailing-tint-wrap-video-marketing-miami": { title: "Detailing, Tint & Wrap Video", detail: "Video marketing for auto detailing, window tint, and vinyl wrap shops in South Florida: controlled reflections, honest before-and-afters, vertical posts." },
+  "/services/headshot-photographer-miami": { title: "Headshots", detail: "Professional headshots and executive portrait photography for business leaders, realtors, and attorneys in Miami and Fort Lauderdale." },
+  "/services/architecture-design-video-miami": { title: "Architecture Design Video", detail: "Architectural video editing, interior design walkthroughs, and portfolio video production for design firms in Miami." },
+  "/services/real-estate-video-coral-gables": { title: "Coral Gables Real Estate", detail: "Luxury real estate video editing and tour formatting for realtors and properties in Coral Gables and South Miami." },
+  "/services/jewelry-product-photography-miami": { title: "Jewelry Photography", detail: "AI-enhanced product photography and high-resolution retouching for jewelry brands and luxury e-commerce in Miami." },
+  "/services/crowdfunding-video-editor-miami": { title: "Crowdfunding Video Editor", detail: "Crowdfunding video editor in Miami: Kickstarter launch videos, Indiegogo product pitch edits, and backer conversion video post-production." },
+};
+
+export const SERVICE_SIBLING_CLUSTERS: readonly (readonly string[])[] = [
+  [
+    "/services/corporate-training-video-editing-miami",
+    "/services/corporate-video-editing-weston-fl",
+    "/services/corporate-video-production-brickell",
+    "/services/wealth-management-video-production-miami",
+    "/services/webinar-clip-editing-service",
+    "/services/online-course-video-editing-service",
+  ],
+  [
+    "/services/boutique-hotel-video-editing-miami",
+    "/services/nightlife-event-video-editing-miami",
+    "/services/music-video-post-production-miami",
+    "/services/video-podcast-editing-service-miami",
+  ],
+  [
+    "/services/small-business-video-hollywood-fl",
+    "/services/small-business-video-pembroke-pines",
+    "/services/video-editing-miami-beach",
+    "/services/video-production-doral-miami",
+  ],
+  [
+    "/services/fitness-gym-video-marketing-miami",
+    "/services/salon-barbershop-video-marketing-miami",
+    "/services/medical-practice-video-marketing-miami",
+    "/services/auto-detailing-tint-wrap-video-marketing-miami",
+    "/services/headshot-photographer-miami",
+  ],
+  [
+    "/services/architecture-design-video-miami",
+    "/services/real-estate-video-coral-gables",
+    "/services/jewelry-product-photography-miami",
+    "/services/crowdfunding-video-editor-miami",
+  ],
+];
+
+/** Spanish clusters, same ring rule; card copy comes from spanishNichePages. */
+export const SPANISH_SIBLING_CLUSTERS: readonly (readonly string[])[] = [
+  [
+    "edicion-de-video-corporativo-weston",
+    "edicion-de-video-de-capacitacion-corporativa-miami",
+    "video-corporativo-distrito-financiero-miami",
+    "produccion-de-video-para-asesores-financieros-miami",
+    "marketing-de-video-para-abogados-miami",
+    "edicion-de-video-para-cursos-online",
+  ],
+  [
+    "edicion-de-video-para-hoteles-boutique-miami",
+    "produccion-de-video-para-hoteles-miami",
+    "edicion-de-video-para-discotecas-y-eventos-miami",
+    "postproduccion-de-videos-musicales-miami",
+    "edicion-de-video-podcast-miami",
+    "marketing-de-video-para-alquiler-de-yates-miami",
+  ],
+  [
+    "edicion-de-video-miami-beach",
+    "produccion-de-video-doral-miami",
+    "video-para-pequenos-negocios-pembroke-pines",
+    "video-creativo-wynwood-miami",
+    "produccion-de-video-fort-lauderdale",
+  ],
+  [
+    "marketing-de-video-para-gimnasios-miami",
+    "marketing-de-video-para-spas-y-bienestar-miami",
+    "marketing-de-video-para-clinicas-esteticas-miami",
+    "marketing-de-video-para-cirugia-plastica-miami",
+    "marketing-de-video-para-odontologia-estetica-miami",
+    "marketing-de-video-para-consultorios-medicos-miami",
+    "marketing-de-video-para-salones-y-barberias-miami",
+    "produccion-de-video-para-entrenadores-personales-miami",
+  ],
+  [
+    "marketing-de-video-automotriz-miami",
+    "marketing-de-video-para-detallado-y-wraps-miami",
+    "marketing-de-video-para-contratistas-miami",
+    "marketing-de-video-para-contratistas-de-techos-florida",
+    "video-para-arquitectura-y-diseno-miami",
+    "video-inmobiliario-coral-gables",
+    "video-inmobiliario-sunny-isles",
+    "edicion-de-video-con-dron-miami",
+  ],
+  [
+    "reutilizacion-de-contenido-para-redes-miami",
+    "produccion-masiva-de-video-para-redes-miami",
+    "edicion-de-video-marca-blanca-para-agencias",
+    "editor-de-video-para-campanas-de-crowdfunding",
+    "fotografia-de-joyas-y-lujo-miami",
+    "fotografo-de-retratos-y-headshots-miami",
+    "imagenes-con-ia-para-ecommerce-miami",
+  ],
+];
+
+/** The next `count` members of a ring cluster after `member`, or [] if absent. */
+export function ringSiblings(
+  clusters: readonly (readonly string[])[],
+  member: string,
+  count = 3,
+): string[] {
+  const cluster = clusters.find((candidate) => candidate.includes(member));
+  if (!cluster) return [];
+  const start = cluster.indexOf(member);
+  const take = Math.min(count, cluster.length - 1);
+  return Array.from({ length: take }, (_, offset) => cluster[(start + offset + 1) % cluster.length]);
+}
+
+export function serviceSiblings(path: string): RelatedService[] {
+  return ringSiblings(SERVICE_SIBLING_CLUSTERS, path).map((href) => ({
+    href,
+    ...SERVICE_CARD_COPY[href],
+  }));
+}
+
+/** An existing related list plus the page's ring siblings, without duplicates. */
+export function withServiceSiblings(
+  path: string,
+  related: readonly RelatedService[],
+): RelatedService[] {
+  const seen = new Set(related.map((card) => card.href));
+  return [...related, ...serviceSiblings(path).filter((card) => !seen.has(card.href))];
+}

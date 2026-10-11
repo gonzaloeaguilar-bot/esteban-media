@@ -3,6 +3,7 @@ import { ArrowRight, MessageCircle, Scissors, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import {
+  ServiceAnswerFirst,
   ServiceCraft,
   ServiceDeepDive,
   ServiceFaqs,
@@ -114,6 +115,7 @@ export default function ShortFormVideoEditorPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="short-form video editing" />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">

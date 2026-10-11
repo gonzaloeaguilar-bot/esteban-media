@@ -2,7 +2,14 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { ServiceDeepDive, buildServicePageNodes } from "@/components/service-depth";
+import { PORTED_SERVICE_FAQS } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceDeepDive,
+  ServiceFaqs,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { SPA_DEEP_DIVE } from "@/lib/service-deep-dive-content";
 import { PACKAGE_PRICES, usd } from "@/lib/pricing";
 import { buildPageMetadata } from "@/lib/site-metadata";
@@ -23,6 +30,7 @@ export default function WellnessSpaVideoMarketingMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/wellness-spa-video-marketing-miami"), PORTED_SERVICE_FAQS["/services/wellness-spa-video-marketing-miami"]),
       ...buildServicePageNodes({
         path: "/services/wellness-spa-video-marketing-miami",
         name: "Wellness Spa Video Marketing Miami",
@@ -114,6 +122,7 @@ export default function WellnessSpaVideoMarketingMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="Spa video marketing" />
 
       <ServiceDeepDive
         id={SPA_DEEP_DIVE.id}
@@ -157,6 +166,11 @@ export default function WellnessSpaVideoMarketingMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/wellness-spa-video-marketing-miami"]}
+        sectionId="ported-faq"
+      />
     </main>
   );
 }

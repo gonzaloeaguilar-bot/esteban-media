@@ -2,7 +2,14 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { ServiceDeepDive, buildServicePageNodes } from "@/components/service-depth";
+import { PORTED_SERVICE_FAQS } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceDeepDive,
+  ServiceFaqs,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { AUTOMOTIVE_DEEP_DIVE } from "@/lib/vertical-deep-dives";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
@@ -19,6 +26,7 @@ export default function AutomotiveVideoMarketingMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/automotive-video-marketing-miami"), PORTED_SERVICE_FAQS["/services/automotive-video-marketing-miami"]),
       ...buildServicePageNodes({
         path: "/services/automotive-video-marketing-miami",
         name: "Automotive Video Marketing Miami",
@@ -106,6 +114,7 @@ export default function AutomotiveVideoMarketingMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="automotive video marketing" />
 
       <ServiceDeepDive
         id={AUTOMOTIVE_DEEP_DIVE.id}
@@ -149,6 +158,11 @@ export default function AutomotiveVideoMarketingMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/automotive-video-marketing-miami"]}
+        sectionId="ported-faq"
+      />
     </main>
   );
 }

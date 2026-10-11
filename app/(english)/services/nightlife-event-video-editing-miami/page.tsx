@@ -2,7 +2,15 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { ServiceDeepDive, buildServicePageNodes } from "@/components/service-depth";
+import { PORTED_SERVICE_FAQS, serviceSiblings } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceDeepDive,
+  ServiceFaqs,
+  ServiceRelated,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { NIGHTLIFE_DEEP_DIVE } from "@/lib/hospitality-deep-dive-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
@@ -19,6 +27,7 @@ export default function NightlifeEventVideoEditingMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/nightlife-event-video-editing-miami"), PORTED_SERVICE_FAQS["/services/nightlife-event-video-editing-miami"]),
       ...buildServicePageNodes({
         path: "/services/nightlife-event-video-editing-miami",
         name: "Nightlife Event Video Editing Miami",
@@ -99,6 +108,7 @@ export default function NightlifeEventVideoEditingMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="Nightlife video editing" />
 
       <ServiceDeepDive
         id={NIGHTLIFE_DEEP_DIVE.id}
@@ -142,6 +152,16 @@ export default function NightlifeEventVideoEditingMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/nightlife-event-video-editing-miami"]}
+        sectionId="ported-faq"
+      />
+      <ServiceRelated
+        heading="Related services nearby."
+        services={serviceSiblings("/services/nightlife-event-video-editing-miami")}
+        sectionId="sibling-services"
+      />
     </main>
   );
 }

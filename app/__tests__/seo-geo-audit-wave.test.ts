@@ -5,6 +5,8 @@ import { buildGuideStructuredData, getGuides } from "@/lib/guides";
 import { isConsolidatedPath } from "@/lib/consolidation";
 import * as depthContent from "@/lib/service-depth-content";
 import { ServiceLandingDirectory } from "@/components/service-landing-directory";
+import { ServiceAnswerFirst } from "@/components/service-depth";
+import { spanishNichePages } from "@/lib/spanish-site";
 import { getPortfolioWatchItems } from "@/lib/portfolio-watch";
 import { buildPageMetadata, shouldDropBrandSuffix } from "@/lib/site-metadata";
 import { generateMetadata as enWatchMetadata } from "../(english)/portfolio/[id]/page";
@@ -177,6 +179,76 @@ describe("every English service page has WebPage + BreadcrumbList (fix 3)", () =
     if (crumb) {
       const visible = source.match(/aria-current="page"[^>]*>\s*([^<]+?)\s*</)?.[1];
       expect(visible?.replace(/&amp;/g, "&")).toBe(crumb);
+    }
+  });
+});
+
+describe("ported FAQs on hand-written English service pages (owner decision)", () => {
+  const entries = Object.entries(depthContent.PORTED_SERVICE_FAQS);
+
+  it("covers 37 pages and skips only the two with no factual source", () => {
+    expect(entries).toHaveLength(37);
+    for (const skipped of depthContent.FAQ_SKIPPED_NO_FACTUAL_SOURCE) {
+      expect(depthContent.PORTED_SERVICE_FAQS[skipped]).toBeUndefined();
+    }
+  });
+
+  it.each(entries)("%s shows every FAQ and emits the same FAQPage", async (path, faqs) => {
+    const { default: Page } = await import(
+      /* @vite-ignore */ join(process.cwd(), "app/(english)", path, "page.tsx")
+    );
+    const markup = renderToStaticMarkup(Page());
+    const ld = [...markup.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+      .map((m) => JSON.parse(m[1]) as { "@graph"?: Array<Record<string, unknown>> })
+      .flatMap((blob) => blob["@graph"] ?? []);
+    const faqPage = ld.find((node) => node["@type"] === "FAQPage") as
+      | { mainEntity: { name: string; acceptedAnswer: { text: string } }[] }
+      | undefined;
+    expect(faqPage?.mainEntity.map((q) => q.name)).toEqual(faqs.map((faq) => faq.question));
+    const text = markup.replace(/&#x27;/g, "'").replace(/&amp;/g, "&");
+    for (const faq of faqs) {
+      expect(text).toContain(faq.question);
+      expect(text).toContain(faq.answer);
+    }
+    // No price or turnaround figure enters through a ported answer.
+    expect(faqs.map((faq) => faq.answer).join(" ")).not.toMatch(/\$\d|\b\d+\s*(hours?|days?|weeks?)\b/i);
+  });
+});
+
+describe("answer-first block (fix 9)", () => {
+  it.each(["en", "es"] as const)("%s answer is 60-120 words and quotes PACKAGE_PRICES", (locale) => {
+    const markup = renderToStaticMarkup(ServiceAnswerFirst({ service: "Video editing", locale }));
+    const answer = markup.match(/<p class="mt-4[^"]*">([\s\S]*?)<\/p>/)![1];
+    const words = answer.split(/\s+/).filter(Boolean).length;
+    expect(words).toBeGreaterThanOrEqual(60);
+    expect(words).toBeLessThanOrEqual(120);
+    expect(answer).toContain("$100");
+    expect(answer).toContain("$800");
+    expect(headings(markup, 2)[0]).toMatch(locale === "es" ? /^¿.*\?$/ : /\?$/);
+  });
+});
+
+describe("sibling clusters for hub-only pages (fix 6)", () => {
+  it("only link indexable pages, never Palm Beach County pages, and give each member 3 inbound links", () => {
+    for (const cluster of depthContent.SERVICE_SIBLING_CLUSTERS) {
+      for (const path of cluster) {
+        expect(isConsolidatedPath(path), path).toBe(false);
+        expect(path).not.toMatch(/palm-beach|delray|jupiter/);
+        expect(depthContent.serviceSiblings(path).every((card) => card.title && card.detail)).toBe(true);
+        const inbound = cluster.filter((other) =>
+          depthContent.ringSiblings(depthContent.SERVICE_SIBLING_CLUSTERS, other).includes(path),
+        );
+        expect(inbound.length).toBe(Math.min(3, cluster.length - 1));
+      }
+    }
+    for (const cluster of depthContent.SPANISH_SIBLING_CLUSTERS) {
+      for (const slug of cluster) {
+        const page = spanishNichePages.find((candidate) => candidate.slug === slug);
+        expect(page, slug).toBeDefined();
+        expect(page!.availability).toBe("confirmed");
+        expect(isConsolidatedPath(`/es/${slug}`), slug).toBe(false);
+        expect(slug).not.toMatch(/palm-beach|delray|jupiter/);
+      }
     }
   });
 });

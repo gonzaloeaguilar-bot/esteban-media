@@ -3,6 +3,7 @@ import { ArrowRight, Handshake } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import {
+  ServiceAnswerFirst,
   ServiceCraft,
   ServiceDeepDive,
   ServiceFaqs,
@@ -136,6 +137,7 @@ export default function WhiteLabelVideoEditingPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="White label video post-production" />
 
       <ServiceCraft
         heading={WHITE_LABEL_DEPTH.craftHeading}

@@ -21,6 +21,7 @@ const content: GeoServicePageContent = {
     "Instagram Reels, TikTok, and YouTube Shorts editing for Miami businesses, creators, products, and remote teams.",
   serviceType: "Reels editing",
   areaServed: "Miami / Miami-Dade / Remote",
+  answerService: "Reels editing in Miami",
   craftHeading: "What Miami Reels need to do quickly.",
   depthHeading: "Miami Reels editing questions, answered.",
   craft: [

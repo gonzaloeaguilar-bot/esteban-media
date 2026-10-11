@@ -5,6 +5,7 @@ import { ArrowRight, CheckCircle2, MapPin } from "lucide-react";
 import {
   ServiceCraft,
   ServiceFaqs,
+  ServiceAnswerFirst,
   ServiceInquiryRail,
   ServiceRelated,
   buildServiceFaqSchema,
@@ -37,6 +38,8 @@ export type GeoServicePageContent = {
   craftHeading: string;
   /** H2 over the depth section; must differ from craftHeading (no duplicate H2s). */
   depthHeading?: string;
+  /** Noun phrase for the answer-first question; defaults to serviceType. */
+  answerService?: string;
   craft: readonly CraftCard[];
   /**
    * Citable depth: 100-180 words under a question-shaped heading.
@@ -170,6 +173,7 @@ export function GeoServicePage({
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service={content.answerService ?? content.serviceType} />
 
       <section className="border-b border-[#ddd4c8] py-10">
         <Container size="xl">

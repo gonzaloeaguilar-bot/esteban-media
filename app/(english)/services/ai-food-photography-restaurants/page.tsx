@@ -2,7 +2,13 @@ import Link from "next/link";
 import { ArrowRight, UtensilsCrossed, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { buildServicePageNodes } from "@/components/service-depth";
+import { PORTED_SERVICE_FAQS } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceFaqs,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -18,6 +24,7 @@ export default function AIFoodPhotographyPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/ai-food-photography-restaurants"), PORTED_SERVICE_FAQS["/services/ai-food-photography-restaurants"]),
       ...buildServicePageNodes({
         path: "/services/ai-food-photography-restaurants",
         name: "AI Food Photography Restaurants Miami",
@@ -117,6 +124,7 @@ export default function AIFoodPhotographyPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="AI food photography" />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
@@ -153,6 +161,11 @@ export default function AIFoodPhotographyPage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/ai-food-photography-restaurants"]}
+        sectionId="ported-faq"
+      />
     </main>
   );
 }

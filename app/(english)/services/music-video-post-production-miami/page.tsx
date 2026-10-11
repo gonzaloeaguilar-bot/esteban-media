@@ -2,7 +2,14 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { buildServicePageNodes } from "@/components/service-depth";
+import { PORTED_SERVICE_FAQS, serviceSiblings } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceFaqs,
+  ServiceRelated,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -18,6 +25,7 @@ export default function MusicVideoPostProductionMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/music-video-post-production-miami"), PORTED_SERVICE_FAQS["/services/music-video-post-production-miami"]),
       ...buildServicePageNodes({
         path: "/services/music-video-post-production-miami",
         name: "Music Video Post Production Miami",
@@ -98,6 +106,7 @@ export default function MusicVideoPostProductionMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="Music video post-production" />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
@@ -134,6 +143,16 @@ export default function MusicVideoPostProductionMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/music-video-post-production-miami"]}
+        sectionId="ported-faq"
+      />
+      <ServiceRelated
+        heading="Related services nearby."
+        services={serviceSiblings("/services/music-video-post-production-miami")}
+        sectionId="sibling-services"
+      />
     </main>
   );
 }

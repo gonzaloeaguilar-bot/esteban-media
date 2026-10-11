@@ -2,7 +2,14 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { buildServicePageNodes } from "@/components/service-depth";
+import { PORTED_SERVICE_FAQS, serviceSiblings } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceFaqs,
+  ServiceRelated,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -23,6 +30,7 @@ export default function SmallBusinessVideoPembrokePinesPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/small-business-video-pembroke-pines"), PORTED_SERVICE_FAQS["/services/small-business-video-pembroke-pines"]),
       ...buildServicePageNodes({
         path: "/services/small-business-video-pembroke-pines",
         name: "Small Business Video Pembroke Pines",
@@ -110,6 +118,7 @@ export default function SmallBusinessVideoPembrokePinesPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="small business video in Pembroke Pines" />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
@@ -146,6 +155,16 @@ export default function SmallBusinessVideoPembrokePinesPage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/small-business-video-pembroke-pines"]}
+        sectionId="ported-faq"
+      />
+      <ServiceRelated
+        heading="Related services nearby."
+        services={serviceSiblings("/services/small-business-video-pembroke-pines")}
+        sectionId="sibling-services"
+      />
     </main>
   );
 }

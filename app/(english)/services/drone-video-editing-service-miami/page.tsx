@@ -2,7 +2,13 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { buildServicePageNodes } from "@/components/service-depth";
+import { PORTED_SERVICE_FAQS } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceFaqs,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -18,6 +24,7 @@ export default function DroneVideoEditingServiceMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/drone-video-editing-service-miami"), PORTED_SERVICE_FAQS["/services/drone-video-editing-service-miami"]),
       ...buildServicePageNodes({
         path: "/services/drone-video-editing-service-miami",
         name: "Drone Video Editing Service Miami",
@@ -112,6 +119,7 @@ export default function DroneVideoEditingServiceMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="Drone video editing service" />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
@@ -148,6 +156,11 @@ export default function DroneVideoEditingServiceMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/drone-video-editing-service-miami"]}
+        sectionId="ported-faq"
+      />
     </main>
   );
 }

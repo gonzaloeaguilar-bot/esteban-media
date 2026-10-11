@@ -4,6 +4,7 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { ClientReviews } from "@/components/client-reviews";
 import { Container } from "@/components/ui/container";
 import {
+  ServiceAnswerFirst,
   ServiceFaqs,
   ServiceInquiryRail,
   buildServiceFaqSchema,
@@ -132,6 +133,7 @@ export default function HireRemoteVideoEditorPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="remote video editing" />
 
       <section className="py-12 sm:py-16">
         <Container size="xl">

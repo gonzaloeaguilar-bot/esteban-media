@@ -2,7 +2,14 @@ import Link from "next/link";
 import { ArrowRight, WandSparkles, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { buildServicePageNodes } from "@/components/service-depth";
+import { PORTED_SERVICE_FAQS, serviceSiblings } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceFaqs,
+  ServiceRelated,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -18,6 +25,7 @@ export default function CrowdfundingVideoEditorMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/crowdfunding-video-editor-miami"), PORTED_SERVICE_FAQS["/services/crowdfunding-video-editor-miami"]),
       ...buildServicePageNodes({
         path: "/services/crowdfunding-video-editor-miami",
         name: "Crowdfunding Video Editor Miami",
@@ -112,6 +120,7 @@ export default function CrowdfundingVideoEditorMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="Crowdfunding video editing" />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
@@ -148,6 +157,16 @@ export default function CrowdfundingVideoEditorMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/crowdfunding-video-editor-miami"]}
+        sectionId="ported-faq"
+      />
+      <ServiceRelated
+        heading="Related services nearby."
+        services={serviceSiblings("/services/crowdfunding-video-editor-miami")}
+        sectionId="sibling-services"
+      />
     </main>
   );
 }

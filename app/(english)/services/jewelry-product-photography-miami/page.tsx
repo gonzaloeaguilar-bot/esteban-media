@@ -2,7 +2,14 @@ import Link from "next/link";
 import { ArrowRight, Camera, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { buildServicePageNodes } from "@/components/service-depth";
+import { PORTED_SERVICE_FAQS, serviceSiblings } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceFaqs,
+  ServiceRelated,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -18,6 +25,7 @@ export default function JewelryProductPhotographyMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/jewelry-product-photography-miami"), PORTED_SERVICE_FAQS["/services/jewelry-product-photography-miami"]),
       ...buildServicePageNodes({
         path: "/services/jewelry-product-photography-miami",
         name: "Jewelry Product Photography Miami",
@@ -98,6 +106,7 @@ export default function JewelryProductPhotographyMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="jewelry product photography" />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
@@ -134,6 +143,16 @@ export default function JewelryProductPhotographyMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/jewelry-product-photography-miami"]}
+        sectionId="ported-faq"
+      />
+      <ServiceRelated
+        heading="Related services nearby."
+        services={serviceSiblings("/services/jewelry-product-photography-miami")}
+        sectionId="sibling-services"
+      />
     </main>
   );
 }

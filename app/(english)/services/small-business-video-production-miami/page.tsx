@@ -2,6 +2,12 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { PORTED_SERVICE_FAQS } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceFaqs,
+  buildServiceFaqSchema,
+} from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -17,6 +23,7 @@ export default function SmallBusinessVideoPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/small-business-video-production-miami"), PORTED_SERVICE_FAQS["/services/small-business-video-production-miami"]),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/small-business-video-production-miami#service"),
@@ -130,6 +137,7 @@ export default function SmallBusinessVideoPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="small business video production in Miami" />
 
       <section className="py-12 sm:py-16">
         <Container size="xl">
@@ -204,6 +212,11 @@ export default function SmallBusinessVideoPage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/small-business-video-production-miami"]}
+        sectionId="ported-faq"
+      />
     </main>
   );
 }

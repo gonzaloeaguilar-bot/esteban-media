@@ -2,7 +2,13 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { buildServicePageNodes } from "@/components/service-depth";
+import { PORTED_SERVICE_FAQS } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceFaqs,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -18,6 +24,7 @@ export default function VideoEditingWestPalmBeachPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/video-editing-west-palm-beach"), PORTED_SERVICE_FAQS["/services/video-editing-west-palm-beach"]),
       ...buildServicePageNodes({
         path: "/services/video-editing-west-palm-beach",
         name: "Video Editing West Palm Beach",
@@ -104,6 +111,7 @@ export default function VideoEditingWestPalmBeachPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="remote video editing for Palm Beach County projects" />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
@@ -140,6 +148,11 @@ export default function VideoEditingWestPalmBeachPage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/video-editing-west-palm-beach"]}
+        sectionId="ported-faq"
+      />
     </main>
   );
 }

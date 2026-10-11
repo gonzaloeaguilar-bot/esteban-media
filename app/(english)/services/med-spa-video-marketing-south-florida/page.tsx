@@ -3,8 +3,9 @@ import { ArrowRight, CheckCircle2, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import {
-  ServiceDeepDive,
+  ServiceAnswerFirst,
   ServiceCraft,
+  ServiceDeepDive,
   ServiceFaqs,
   ServiceRelated,
   buildServiceFaqSchema,
@@ -140,6 +141,7 @@ export default function MedSpaVideoMarketingPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="Med spa video marketing" />
 
       <ServiceDeepDive
         id={MED_SPA_DEEP_DIVE.id}

@@ -3,6 +3,7 @@ import { ArrowRight, Car } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import {
+  ServiceAnswerFirst,
   ServiceCraft,
   ServiceDeepDive,
   ServiceFaqs,
@@ -10,7 +11,7 @@ import {
   ServiceRelated,
   buildServiceFaqSchema,
 } from "@/components/service-depth";
-import { AUTO_DETAILING_DEPTH } from "@/lib/service-depth-content";
+import { AUTO_DETAILING_DEPTH, withServiceSiblings } from "@/lib/service-depth-content";
 import { AUTO_DETAILING_DEEP_DIVE } from "@/lib/service-deep-dive-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl } from "@/lib/site";
@@ -137,6 +138,7 @@ export default function AutoDetailingVideoMarketingPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="detailing, tint and wrap video marketing" />
 
       <ServiceCraft
         heading={AUTO_DETAILING_DEPTH.craftHeading}
@@ -165,7 +167,7 @@ export default function AutoDetailingVideoMarketingPage() {
       />
       <ServiceRelated
         heading={AUTO_DETAILING_DEPTH.relatedHeading}
-        services={AUTO_DETAILING_DEPTH.related}
+        services={withServiceSiblings("/services/auto-detailing-tint-wrap-video-marketing-miami", AUTO_DETAILING_DEPTH.related)}
       />
     </main>
   );

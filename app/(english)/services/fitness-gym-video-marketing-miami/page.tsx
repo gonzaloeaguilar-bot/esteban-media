@@ -2,7 +2,15 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { ServiceDeepDive, buildServicePageNodes } from "@/components/service-depth";
+import { PORTED_SERVICE_FAQS, serviceSiblings } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceDeepDive,
+  ServiceFaqs,
+  ServiceRelated,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { GYM_DEEP_DIVE } from "@/lib/service-deep-dive-content";
 import { PACKAGE_PRICES, usd } from "@/lib/pricing";
 import { buildPageMetadata } from "@/lib/site-metadata";
@@ -23,6 +31,7 @@ export default function FitnessGymVideoMarketingMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/fitness-gym-video-marketing-miami"), PORTED_SERVICE_FAQS["/services/fitness-gym-video-marketing-miami"]),
       ...buildServicePageNodes({
         path: "/services/fitness-gym-video-marketing-miami",
         name: "Fitness Gym Video Marketing Miami",
@@ -114,6 +123,7 @@ export default function FitnessGymVideoMarketingMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="Fitness video production" />
 
       <ServiceDeepDive
         id={GYM_DEEP_DIVE.id}
@@ -157,6 +167,16 @@ export default function FitnessGymVideoMarketingMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/fitness-gym-video-marketing-miami"]}
+        sectionId="ported-faq"
+      />
+      <ServiceRelated
+        heading="Related services nearby."
+        services={serviceSiblings("/services/fitness-gym-video-marketing-miami")}
+        sectionId="sibling-services"
+      />
     </main>
   );
 }

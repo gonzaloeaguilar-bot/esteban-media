@@ -11,7 +11,15 @@ import { KeepReading } from "@/components/keep-reading";
 import { Container } from "@/components/ui/container";
 import { Cartel, Figure, NumberedList } from "@/components/em-surface";
 import { ProjectRail, ServiceRail } from "@/components/em-rails";
-import { ServiceInquiryRail, buildServiceFaqSchema, type ServiceInquiry } from "@/components/service-depth";
+import {
+  ServiceAnswerFirst,
+  ServiceInquiryRail,
+  ServiceRelated,
+  buildServiceFaqSchema,
+  type ServiceInquiry,
+} from "@/components/service-depth";
+import { SPANISH_SIBLING_CLUSTERS, ringSiblings } from "@/lib/service-depth-content";
+import { isConsolidatedPath } from "@/lib/consolidation";
 import { ArranqueWeeklySection } from "@/components/arranque-weekly-section";
 import { ARRANQUE_WEEKLY_SPANISH_SLUGS, arranqueWeeklyFaq, arranqueWeeklyOfferJsonLd } from "@/lib/arranque-weekly";
 import {
@@ -1282,6 +1290,15 @@ export function SpanishNichePage({ slug }: { slug: string }) {
       ? "/es/contacto?source=pembroke-pines-small-business-video"
       : "/es/contacto";
   const inquiryService = spanishInquiryServices[page.slug];
+  const siblingPages = ringSiblings(SPANISH_SIBLING_CLUSTERS, page.slug)
+    .map((siblingSlug) => getSpanishNichePage(siblingSlug))
+    .filter((sibling) => sibling !== undefined)
+    .filter((sibling) => !isConsolidatedPath(`/es/${sibling.slug}`))
+    .map((sibling) => ({
+      title: sibling.title,
+      detail: sibling.description,
+      href: `/es/${sibling.slug}`,
+    }));
   const sectionArticles = page.sections?.map((section) => (
     <article key={section.heading} className="space-y-4">
       <h3 className="font-serif text-2xl sm:text-3xl text-[#101214]">{section.heading}</h3>
@@ -1416,6 +1433,13 @@ export function SpanishNichePage({ slug }: { slug: string }) {
           </div>
         </Container>
       </section>
+      {/* Answer-first block (SEO/GEO audit 2026-10-10, fix 9). Added, not
+          substituted: the existing first H2 stays, because these routes are
+          pinned by the text-parity baseline. Skipped on pages whose service
+          is still pending confirmation. */}
+      {isPendingConfirmation ? null : (
+        <ServiceAnswerFirst service={page.keyword} locale="es" sectionId="en-corto" />
+      )}
 
       {hasArranqueWeekly ? <ArranqueWeeklySection locale="es" /> : null}
 
@@ -1635,6 +1659,16 @@ export function SpanishNichePage({ slug }: { slug: string }) {
           </Cartel>
         </Container>
       </section>
+      {/* Sibling niche pages, so a page linked only from the hubs gains
+          inbound links from its cluster (SEO/GEO audit 2026-10-10, fix 6). */}
+      {siblingPages.length > 0 ? (
+        <ServiceRelated
+          heading="Servicios relacionados."
+          services={siblingPages}
+          sectionId="servicios-relacionados"
+          readMoreLabel="Ver el servicio"
+        />
+      ) : null}
     </main>
   );
 }

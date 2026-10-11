@@ -2,7 +2,14 @@ import Link from "next/link";
 import { ArrowRight, WandSparkles, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { buildServicePageNodes } from "@/components/service-depth";
+import { PORTED_SERVICE_FAQS, serviceSiblings } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceFaqs,
+  ServiceRelated,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -18,6 +25,7 @@ export default function WebinarClipEditingServicePage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/webinar-clip-editing-service"), PORTED_SERVICE_FAQS["/services/webinar-clip-editing-service"]),
       ...buildServicePageNodes({
         path: "/services/webinar-clip-editing-service",
         name: "Webinar Clip Editing Service",
@@ -98,6 +106,7 @@ export default function WebinarClipEditingServicePage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="Webinar clip editing" />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
@@ -134,6 +143,16 @@ export default function WebinarClipEditingServicePage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/webinar-clip-editing-service"]}
+        sectionId="ported-faq"
+      />
+      <ServiceRelated
+        heading="Related services nearby."
+        services={serviceSiblings("/services/webinar-clip-editing-service")}
+        sectionId="sibling-services"
+      />
     </main>
   );
 }

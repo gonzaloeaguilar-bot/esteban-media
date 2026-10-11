@@ -2,7 +2,14 @@ import Link from "next/link";
 import { ArrowRight, Building2, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { buildServicePageNodes } from "@/components/service-depth";
+import { PORTED_SERVICE_FAQS, serviceSiblings } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceFaqs,
+  ServiceRelated,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -18,6 +25,7 @@ export default function RealEstateVideoCoralGablesPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/real-estate-video-coral-gables"), PORTED_SERVICE_FAQS["/services/real-estate-video-coral-gables"]),
       ...buildServicePageNodes({
         path: "/services/real-estate-video-coral-gables",
         name: "Real Estate Video Coral Gables",
@@ -105,6 +113,7 @@ export default function RealEstateVideoCoralGablesPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="real estate video in Coral Gables" />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
@@ -141,6 +150,16 @@ export default function RealEstateVideoCoralGablesPage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/real-estate-video-coral-gables"]}
+        sectionId="ported-faq"
+      />
+      <ServiceRelated
+        heading="Related services nearby."
+        services={serviceSiblings("/services/real-estate-video-coral-gables")}
+        sectionId="sibling-services"
+      />
     </main>
   );
 }

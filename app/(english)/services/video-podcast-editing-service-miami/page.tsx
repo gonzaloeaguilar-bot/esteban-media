@@ -2,7 +2,14 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { buildServicePageNodes } from "@/components/service-depth";
+import { PORTED_SERVICE_FAQS, serviceSiblings } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceFaqs,
+  ServiceRelated,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -18,6 +25,7 @@ export default function VideoPodcastEditingServiceMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/video-podcast-editing-service-miami"), PORTED_SERVICE_FAQS["/services/video-podcast-editing-service-miami"]),
       ...buildServicePageNodes({
         path: "/services/video-podcast-editing-service-miami",
         name: "Video Podcast Editing Service Miami",
@@ -112,6 +120,7 @@ export default function VideoPodcastEditingServiceMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="Podcast video editing" />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
@@ -148,6 +157,16 @@ export default function VideoPodcastEditingServiceMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/video-podcast-editing-service-miami"]}
+        sectionId="ported-faq"
+      />
+      <ServiceRelated
+        heading="Related services nearby."
+        services={serviceSiblings("/services/video-podcast-editing-service-miami")}
+        sectionId="sibling-services"
+      />
     </main>
   );
 }

@@ -2,7 +2,13 @@ import Link from "next/link";
 import { ArrowRight, WandSparkles, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { buildServicePageNodes } from "@/components/service-depth";
+import { PORTED_SERVICE_FAQS } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceFaqs,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -18,6 +24,7 @@ export default function CreativeVideoProductionWynwoodPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/creative-video-production-wynwood"), PORTED_SERVICE_FAQS["/services/creative-video-production-wynwood"]),
       ...buildServicePageNodes({
         path: "/services/creative-video-production-wynwood",
         name: "Creative Video Production Wynwood",
@@ -105,6 +112,7 @@ export default function CreativeVideoProductionWynwoodPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="Creative video production" />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
@@ -141,6 +149,11 @@ export default function CreativeVideoProductionWynwoodPage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/creative-video-production-wynwood"]}
+        sectionId="ported-faq"
+      />
     </main>
   );
 }

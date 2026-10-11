@@ -2,7 +2,14 @@ import Link from "next/link";
 import { ArrowRight, Building2, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { ServiceDeepDive, buildServicePageNodes } from "@/components/service-depth";
+import { PORTED_SERVICE_FAQS } from "@/lib/service-depth-content";
+import {
+  ServiceAnswerFirst,
+  ServiceDeepDive,
+  ServiceFaqs,
+  buildServiceFaqSchema,
+  buildServicePageNodes,
+} from "@/components/service-depth";
 import { HOTEL_DEEP_DIVE } from "@/lib/hospitality-deep-dive-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
@@ -19,6 +26,7 @@ export default function HotelHospitalityVideoProductionMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      buildServiceFaqSchema(absoluteUrl("/services/hotel-hospitality-video-production-miami"), PORTED_SERVICE_FAQS["/services/hotel-hospitality-video-production-miami"]),
       ...buildServicePageNodes({
         path: "/services/hotel-hospitality-video-production-miami",
         name: "Hotel Hospitality Video Production Miami",
@@ -99,6 +107,7 @@ export default function HotelHospitalityVideoProductionMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceAnswerFirst service="Hospitality video production" />
 
       <ServiceDeepDive
         id={HOTEL_DEEP_DIVE.id}
@@ -142,6 +151,11 @@ export default function HotelHospitalityVideoProductionMiamiPage() {
           </div>
         </Container>
       </section>
+      <ServiceFaqs
+        heading="Common questions before you start."
+        faqs={PORTED_SERVICE_FAQS["/services/hotel-hospitality-video-production-miami"]}
+        sectionId="ported-faq"
+      />
     </main>
   );
 }
