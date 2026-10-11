@@ -64,10 +64,17 @@ describe("Contact page depth, guides integration, and FAQPage schema", () => {
     expect(esMetadata.description?.length).toBeGreaterThanOrEqual(120);
     expect(esMetadata.description?.length).toBeLessThanOrEqual(160);
 
-    const resolvedPage = await SpanishContactPage({
-      searchParams: Promise.resolve({}),
-    });
+    // Synchronous and argument-free: reading searchParams on the server made
+    // /es/contacto render on demand (SEO/GEO audit 2026-10-10, fix 14).
+    expect(SpanishContactPage.length).toBe(0);
+    const resolvedPage = SpanishContactPage();
+    expect(resolvedPage).not.toBeInstanceOf(Promise);
     const markup = renderToStaticMarkup(resolvedPage);
+    // The allowlisted ?source= attribution survives, now resolved client-side.
+    const { readFileSync } = await import("node:fs");
+    expect(readFileSync("app/(spanish)/es/contacto/page.tsx", "utf8")).toContain(
+      "querySources={[PEMBROKE_PINES_SOURCE]}",
+    );
     expect(wordCount(markup)).toBeGreaterThanOrEqual(450);
 
     // Internal guide & tool links

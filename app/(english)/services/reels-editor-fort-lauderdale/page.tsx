@@ -22,6 +22,7 @@ const content: GeoServicePageContent = {
   serviceType: "Short form video editing",
   areaServed: "Fort Lauderdale / Broward County / Remote",
   craftHeading: "What Fort Lauderdale Reels need from the edit.",
+  depthHeading: "Fort Lauderdale Reels editing questions, answered.",
   craft: [
     {
       title: "The first line has a job",

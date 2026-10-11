@@ -34,6 +34,8 @@ export type GeoServicePageContent = {
   serviceType: string;
   areaServed: string;
   craftHeading: string;
+  /** H2 over the depth section; must differ from craftHeading (no duplicate H2s). */
+  depthHeading?: string;
   craft: readonly CraftCard[];
   /**
    * Citable depth: 100-180 words under a question-shaped heading.
@@ -202,7 +204,7 @@ export function GeoServicePage({
                   Scope and technical criteria
                 </p>
                 <h2 className="mt-3 font-serif text-3xl sm:text-4xl">
-                  {content.craftHeading}
+                  {content.depthHeading ?? `${content.serviceName}: questions to settle first.`}
                 </h2>
               </div>
               {content.depth.map((entry) => (

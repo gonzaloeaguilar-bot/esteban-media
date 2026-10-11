@@ -22,6 +22,7 @@ const content: GeoServicePageContent = {
   serviceType: "Reels editing",
   areaServed: "Miami / Miami-Dade / Remote",
   craftHeading: "What Miami Reels need to do quickly.",
+  depthHeading: "Miami Reels editing questions, answered.",
   craft: [
     {
       title: "Show the useful moment first",

@@ -46,6 +46,11 @@ export default function SpanishAssessmentPage() {
               </li>
             </ol>
           </nav>
+          {/* Server-rendered H1: the tool below is a client component whose
+              headings start at h3 (SEO/GEO audit 2026-10-10, fix 11). */}
+          <h1 className="mb-8 max-w-4xl font-serif text-4xl leading-tight sm:text-5xl">
+            Diagnóstico de Estrategia de Video
+          </h1>
 
           <VideoStrategyAssessment locale="es" />
 

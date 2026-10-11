@@ -11,11 +11,27 @@ type Locale = "en" | "es";
 interface VideoBriefBuilderProps {
   locale?: Locale;
   source?: LeadSource;
+  /**
+   * Lead sources a `?source=` query value may select, read in the browser at
+   * submit time so the page that renders this stays statically prerendered.
+   * Any value not listed here falls back to `source`.
+   */
+  querySources?: readonly LeadSource[];
+}
+
+function resolveLeadSource(
+  fallback: LeadSource,
+  allowed: readonly LeadSource[],
+): LeadSource {
+  if (allowed.length === 0 || typeof window === "undefined") return fallback;
+  const requested = new URLSearchParams(window.location.search).get("source");
+  return allowed.find((candidate) => candidate === requested) ?? fallback;
 }
 
 export function VideoBriefBuilder({
   locale = "en",
-  source = "brief-builder",
+  source: fallbackSource = "brief-builder",
+  querySources = [],
 }: VideoBriefBuilderProps) {
   const isEs = locale === "es";
 
@@ -73,6 +89,7 @@ export function VideoBriefBuilder({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const source = resolveLeadSource(fallbackSource, querySources);
     try {
       const response = await fetch("/api/lead", {
       method: "POST",
