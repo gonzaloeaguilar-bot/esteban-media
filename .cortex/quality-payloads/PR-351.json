@@ -1,0 +1,53 @@
+{
+  "project": "esteban-media",
+  "mode": "pr",
+  "target_type": "pr",
+  "target_id": "PR-351",
+  "requires_pr": true,
+  "goal": "Make the owner Person entity unambiguous without attributing the business Google profile to him personally",
+  "summary": "Sets the Person name to Esteban Moreno López, retains Esteban Moreno as alternateName, and keeps the Google Business Profile solely on LocalBusiness. Rebased on main f81fb66 and regenerated only Spanish JSON-LD parity hashes.",
+  "risk": "Low, reversible structured-data correction. No new route, public price, review, service, or private address.",
+  "changed_paths": [
+    "lib/entity-schema.ts",
+    "lib/__tests__/entity-schema.test.ts",
+    "app/__tests__/fixtures/spanish-niche-text-baseline.json",
+    ".cortex/quality-payloads/PR-351.json"
+  ],
+  "requested_actions": [
+    "Run independent Cortex evidence attacher after green CI on the payload commit",
+    "Merge only when exact-head validate and quality checks pass",
+    "Read raw production EN/ES JSON-LD after Vercel is Ready"
+  ],
+  "public_claims": [
+    "Owner legal/public names match lib/site.ts and visible EN/ES About pages.",
+    "Business Google profile association remains on the LocalBusiness entity."
+  ],
+  "evidence": {
+    "obsidian_context": "/Users/gonzalo/obsidian-wiki/client-esteban-media/wiki/esteban-identity-disambiguation-2026-10-11.md records the source and proposal.",
+    "project_routing": "gonzaloeaguilar-bot/esteban-media PR #351, codex/esteban-person-identity-20261011, rebased on origin/main f81fb66.",
+    "hard_stops_checked": "Only existing founder and Google Business Profile data are re-associated. No address, review, account, money or outreach action.",
+    "reviewer_ensemble": "Builder ran local gates and semantic fixture comparison. Independent sibling agent reviewed the rebased PR diff and EN/ES About identity copy; PASS, no blockers. Antigravity review was dispatched through CTO gate and refused because all agentic lanes were paced (decision record 20261011T223338Z).",
+    "reviewer_disagreement_reviewed": "No disagreement. Independent reviewer confirmed the business profile remains on LocalBusiness and is removed from Person sameAs.",
+    "winner_rationale": "Use full owner name as Person name, retain public shorter name as alternateName, and avoid treating a business listing as the person's social profile.",
+    "tests_or_validation": "After rebase: 125 Vitest files and 1,573 tests passed; typecheck, production build (349 pages), lint (0 errors), rail-kit check, rail-adoption check, and 97-route text parity passed. JSON fixture semantic comparison against main: 97 JSON-LD hashes changed, zero words/alt/headings/links changed.",
+    "ci_passed": "Pending exact-head GitHub validate on payload commit; required before merge.",
+    "pr_review_complete": "Independent sibling agent reviewed exact rebased source and visible EN/ES About copy; PASS with no blocker. Exact-head CI and production are still pending.",
+    "debt_delta": "neutral",
+    "obsidian_handoff": "Esteban identity note and hot status will be updated after production verification."
+  },
+  "reviewers": {
+    "builder": {"status": "ok", "note": "Scoped source, test, full local gates and fixture semantics verified."},
+    "skeptic": {"status": "ok", "note": "Independent read-only agent found no blocker on current rebased diff."},
+    "taste": {"status": "ok", "note": "No layout change; visible EN/ES About identity matches schema names."}
+  },
+  "scores": {
+    "source_fidelity": 4,
+    "architecture_soundness": 4,
+    "implementation_quality": 4,
+    "review_completeness": 4,
+    "debt_posture": 4,
+    "verification_strength": 4,
+    "taste_fit": 4
+  },
+  "debt_delta": "neutral"
+}

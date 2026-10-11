@@ -9,12 +9,12 @@ export const entityIds = {
 export const personEntityJsonLd = {
   "@type": "Person",
   "@id": entityIds.person,
-  name: site.founder.name,
-  alternateName: site.founder.fullName,
+  name: site.founder.fullName,
+  alternateName: site.founder.name,
   description:
     "Spanish-first video editor and content creator based in Fort Lauderdale, with intermediate English communication available.",
   url: absoluteUrl("/about"),
-  sameAs: [site.instagram, site.youtube, site.googleBusinessProfile],
+  sameAs: [site.instagram, site.youtube],
   jobTitle: "Video editor and content creator",
   worksFor: {
     "@id": entityIds.business,

@@ -18,9 +18,9 @@ describe("shared entity graph", () => {
     });
     expect(personEntityJsonLd).toMatchObject({
       "@id": entityIds.person,
-      name: "Esteban Moreno",
-      alternateName: "Esteban Moreno López",
-      sameAs: [site.instagram, site.youtube, site.googleBusinessProfile],
+      name: "Esteban Moreno López",
+      alternateName: "Esteban Moreno",
+      sameAs: [site.instagram, site.youtube],
       worksFor: { "@id": entityIds.business },
       jobTitle: "Video editor and content creator",
     });
@@ -70,14 +70,14 @@ describe("Google Business Profile entity link", () => {
     expect(personEntityJsonLd.sameAs).not.toContain(site.bingPlaces);
   });
 
-  it("lists the verified profile in sameAs on both the person and the business", () => {
+  it("lists the verified business profile on the business, not the person", () => {
     // The profile that carries the reviews. Read live from the Business
     // Information API 2026-08-14: locations/9465569364777265733,
     // place ChIJz5tunn0FmqERd6F9Q9Irxao.
     expect(site.googleBusinessProfile).toBe(
       "https://maps.google.com/?cid=12305289738935181687",
     );
-    expect(personEntityJsonLd.sameAs).toContain(site.googleBusinessProfile);
+    expect(personEntityJsonLd.sameAs).not.toContain(site.googleBusinessProfile);
     expect(localBusinessEntityJsonLd.sameAs).toContain(
       site.googleBusinessProfile,
     );
