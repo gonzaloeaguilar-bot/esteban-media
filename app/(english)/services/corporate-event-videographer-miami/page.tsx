@@ -6,6 +6,7 @@ import { ServiceDeepDive } from "@/components/service-depth";
 import { CORPORATE_EVENT_DEEP_DIVE } from "@/lib/service-deep-dive-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
+import { EventSeasonLinks } from "@/components/event-content-page";
 
 export const metadata = buildPageMetadata({
   title: "Corporate Event Videographer Miami",
@@ -148,6 +149,7 @@ export default function CorporateEventVideographerMiamiPage() {
           </div>
         </Container>
       </section>
+      <EventSeasonLinks locale="en" path="/services/corporate-event-videographer-miami" />
     </main>
   );
 }

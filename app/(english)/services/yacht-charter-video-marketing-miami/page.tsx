@@ -13,6 +13,7 @@ import { YACHT_DEPTH } from "@/lib/service-depth-content";
 import { YACHT_CHARTER_DEEP_DIVE } from "@/lib/vertical-deep-dives";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
+import { EventSeasonLinks } from "@/components/event-content-page";
 
 export const metadata = buildPageMetadata({
   title: "Yacht Charter Video Marketing Miami",
@@ -161,6 +162,7 @@ export default function YachtCharterVideoMarketingMiamiPage() {
       />
       <ServiceFaqs heading={YACHT_DEPTH.faqHeading} faqs={YACHT_DEPTH.faqs} />
       <ServiceRelated heading={YACHT_DEPTH.relatedHeading} services={YACHT_DEPTH.related} />
+      <EventSeasonLinks locale="en" path="/services/yacht-charter-video-marketing-miami" />
     </main>
   );
 }

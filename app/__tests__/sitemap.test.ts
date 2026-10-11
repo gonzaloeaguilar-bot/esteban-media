@@ -21,7 +21,7 @@ import sitemap from "../sitemap";
 describe("portfolio sitemap entries", () => {
   const entries = sitemap();
 
-  it("publishes the exact 284-URL consolidated inventory, each URL once", () => {
+  it("publishes the exact 290-URL consolidated inventory, each URL once", () => {
     const urls = entries.map((entry) => entry.url);
 
     // 279 = 243 consolidated + /desk-recommendations (owner-ordered
@@ -34,8 +34,9 @@ describe("portfolio sitemap entries", () => {
     // food/places creator pair added 2026-10-07 (two URLs, owner-ordered).
     // +4 = the 2026-10-07 restaurant and real-estate cost-answer guide pairs.
     // +1 = /es/editor-de-video-miami (2026-10-07, Spanish-first demand-backed).
-    expect(entries).toHaveLength(284);
-    expect(new Set(urls)).toHaveLength(284);
+    // +6 = the annual-events hub pair plus the Fort Lauderdale boat show and Art Basel Miami Beach pairs (2026-10-10, owner-approved).
+    expect(entries).toHaveLength(290);
+    expect(new Set(urls)).toHaveLength(290);
   });
 
   // This used to assert every entry carried lastModified 2026-07-19. That

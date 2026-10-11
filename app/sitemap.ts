@@ -19,6 +19,7 @@ import {
   type PortfolioWatchLocale,
 } from "@/lib/portfolio-watch";
 import { isConsolidatedPath } from "@/lib/consolidation";
+import { eventSectionPaths } from "@/lib/events";
 import { languageAlternates, spanishRoutes } from "@/lib/spanish-site";
 import { absoluteUrl } from "@/lib/site";
 
@@ -115,6 +116,8 @@ export const sitemapRoutes = [
   { path: "/areas/palm-beach-county", priority: 0.85 },
   { path: "/about", priority: 0.7 },
   { path: "/contact", priority: 0.8 },
+  // Annual-events section (2026-10-10, owner-approved): hub + event pairs, EN and ES.
+  ...eventSectionPaths().map((path) => ({ path, priority: 0.8 })),
 ];
 
 function sitemapAlternates(path: string) {

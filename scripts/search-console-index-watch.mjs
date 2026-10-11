@@ -42,6 +42,13 @@ export const LEGACY_V1_WATCH_URLS = [
 ];
 export const WATCH_URLS = [
   ...LEGACY_V1_WATCH_URLS,
+  // Annual-events section (owner-approved 2026-10-10).
+  "https://estebanmorenomedia.com/events",
+  "https://estebanmorenomedia.com/es/eventos",
+  "https://estebanmorenomedia.com/events/fort-lauderdale-boat-show-video",
+  "https://estebanmorenomedia.com/es/eventos/video-para-el-boat-show-de-fort-lauderdale",
+  "https://estebanmorenomedia.com/events/art-basel-miami-beach-video",
+  "https://estebanmorenomedia.com/es/eventos/video-para-art-basel-miami-beach",
   // Food and places creator pair, explicitly requested 2026-10-07.
   "https://estebanmorenomedia.com/services/food-and-places-creator-video-editing-miami",
   "https://estebanmorenomedia.com/es/edicion-de-video-para-creadores-de-comida-y-lugares-miami",

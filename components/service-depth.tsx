@@ -84,6 +84,24 @@ const inquiryCopy = {
     mailBodySuffix: "Nombre:\nNegocio:\nFecha:\nMejor numero para llamar:",
     phoneLabel: "Llamar",
   },
+  /**
+   * The same Spanish copy with its accents. The unaccented "es" strings above
+   * are pinned by the text-parity baseline on the routes that already render
+   * them, so new pages opt in here and the existing routes migrate in their
+   * own change.
+   */
+  esAccented: {
+    eyebrow: "Pedir cotización",
+    heading: "Envía el proyecto en un solo mensaje útil.",
+    lead:
+      "Incluye el servicio, la meta, los archivos disponibles, la fecha y dónde se va a publicar. Así Esteban puede responder con un siguiente paso claro sin alargar la conversación.",
+    copyLabel: "Copia esto",
+    message: (service: ServiceInquiry) =>
+      `Hola Esteban, necesito ayuda con ${service.serviceName}. Meta: ${service.goalPrompt}. Tengo ${service.assetPrompt}. ¿Me puedes cotizar esto?`,
+    mailSubject: (service: ServiceInquiry) => `Cotización para ${service.serviceName}`,
+    mailBodySuffix: "Nombre:\nNegocio:\nFecha:\nMejor número para llamar:",
+    phoneLabel: "Llamar",
+  },
 } as const;
 
 /**
@@ -149,10 +167,13 @@ export function ServiceRelated({
   heading,
   services,
   sectionId = "related-services",
+  linkLabel = "Read more",
 }: {
   heading: string;
   services: readonly RelatedService[];
   sectionId?: string;
+  /** Card call to action; Spanish pages pass their own. */
+  linkLabel?: string;
 }) {
   return (
     <section
@@ -175,7 +196,7 @@ export function ServiceRelated({
               <h3 className="font-serif text-2xl">{service.title}</h3>
               <p className="mt-3 text-sm leading-6 text-[#252a2d]">{service.detail}</p>
               <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27]">
-                Read more
+                {linkLabel}
                 <ArrowRight
                   className="size-4 transition-transform group-hover:translate-x-0.5"
                   aria-hidden="true"
@@ -203,11 +224,14 @@ export function ServiceFaqs({
   faqs,
   sectionId = "service-faq",
   collapsible = false,
+  eyebrow = "Before you send footage",
 }: {
   heading: string;
   faqs: readonly ServiceFaq[];
   sectionId?: string;
   collapsible?: boolean;
+  /** Small label above the heading; Spanish pages pass their own. */
+  eyebrow?: string;
 }) {
   return (
     <section
@@ -217,7 +241,7 @@ export function ServiceFaqs({
     >
       <Container size="xl">
         <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">
-          Before you send footage
+          {eyebrow}
         </p>
         <h2 id={`${sectionId}-heading`} className="mt-4 max-w-3xl font-serif text-4xl leading-tight">
           {heading}
@@ -256,13 +280,16 @@ export function ServiceInquiryRail({
   sectionId = "service-inquiry",
   trackInterest = false,
   locale = "en",
+  accentedSpanish = false,
 }: {
   service: ServiceInquiry;
   sectionId?: string;
   locale?: ServiceInquiryLocale;
   trackInterest?: boolean;
+  /** Spanish copy with accents; see inquiryCopy.esAccented. */
+  accentedSpanish?: boolean;
 }) {
-  const t = inquiryCopy[locale];
+  const t = locale === "es" && accentedSpanish ? inquiryCopy.esAccented : inquiryCopy[locale];
   const message = t.message(service);
   const mailSubject = t.mailSubject(service);
   const mailBody = `${message}\n\n${t.mailBodySuffix}`;

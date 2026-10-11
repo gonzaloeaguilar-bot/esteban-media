@@ -1,5 +1,9 @@
 # Esteban Moreno Media — Backlog
 
+- [x] 2026-10-10: ship the annual-events section (hub + FLIBS + Art Basel first, then Miami boat show, SOBEWFF, eMerge Americas, Miami Music Week, Miami Spice) on `feat/events-hub`.
+- [ ] 2026-11-01: refresh lib/events.ts — Miami Spice 2026 ends 2026-10-31 (events test fails until updated or set to null); FLIBS 2026 ends 2026-11-01.
+- [ ] 2026-11-10: GSC impressions/indexed status and event_* / service_event_* CTA clicks for the events section URLs.
+
 - [x] Implement the bilingual food/places creator service pair locally, with reciprocal links, package-derived prices, FAQ schema and sitemap/watch-list registration.
 - [ ] 2026-10-21: compare GSC impressions/clicks and qualified inquiries for both food/places creator URLs (14 and 28 days after publication).
 

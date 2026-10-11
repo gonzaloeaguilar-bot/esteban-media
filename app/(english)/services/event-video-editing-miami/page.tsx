@@ -4,6 +4,7 @@ import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
+import { EventSeasonLinks } from "@/components/event-content-page";
 
 export const metadata = buildPageMetadata({
   title: "Event Video Editing Miami",
@@ -132,6 +133,7 @@ export default function EventVideoEditingMiamiPage() {
           </div>
         </Container>
       </section>
+      <EventSeasonLinks locale="en" path="/services/event-video-editing-miami" />
     </main>
   );
 }

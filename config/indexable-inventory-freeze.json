@@ -1,9 +1,9 @@
 {
   "status": "demand_gated",
   "effectiveDate": "2026-08-28",
-  "baselineRevisedOn": "2026-10-07",
-  "approvedSitemapUrlCount": 284,
-  "approvedSitemapUrlSetSha256": "bc3bbdbecbfdc7909841df79d5cae5be741b5513a5aab339bf7e40a7b294b1a1",
+  "baselineRevisedOn": "2026-10-10",
+  "approvedSitemapUrlCount": 290,
+  "approvedSitemapUrlSetSha256": "0ad898892dc4430d1248008b5c4c4da0dbf64a47db0ba5b8171656b1fd94274e",
   "allowedNewIndexableUrls": 4,
   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {
@@ -195,6 +195,22 @@
       "demandEvidence": "GSC USA 'editor de video miami' 7 impr pos 42-58 with no target page; AI probe 0/9 citations for Esteban on 'editor de video en miami'. Spanish-first landing page with no English twin.",
       "followUpDate": "2026-11-06",
       "followUp": "Check GSC impressions and rankings for 'editor de video miami' and re-run AI probe 'editor de video en miami' at 30 days."
+    },
+    {
+      "on": "2026-10-10",
+      "url": [
+        "/events",
+        "/es/eventos",
+        "/events/fort-lauderdale-boat-show-video",
+        "/es/eventos/video-para-el-boat-show-de-fort-lauderdale",
+        "/events/art-basel-miami-beach-video",
+        "/es/eventos/video-para-art-basel-miami-beach"
+      ],
+      "orderedBy": "Owner-approved (Esteban), relayed in the CTO dispatch for the annual-events section",
+      "kind": "annual South Florida events content section: the annual-events hub pair plus the Fort Lauderdale boat show and Art Basel Miami Beach pairs (2026-10-10, owner-approved)",
+      "demandEvidence": "Owner-approved intent gap: small businesses that exhibit at, sponsor or sell around recurring South Florida events (boat shows, Art Week, food festivals, tech conference, music week, restaurant months) need pre-event content calendars and recap edits; no existing page answers that. Event dates live in lib/events.ts and are labelled as event-guide listings; pages state non-affiliation and make no claim that Esteban filmed any event. Exceeds the per-wave allowance of 4 as one owner-approved section, recorded here so the exception stays visible.",
+      "followUpDate": "2026-11-10",
+      "followUp": "Check GSC impressions, indexed status and inquiry CTA clicks (data-cta event_* and service_event_*) for every URL 30 days after publication. An event pair with zero impressions and zero contact intent after its event window has passed is merged into the hub. Refresh lib/events.ts dates each year (the events test fails once a listed edition has ended)."
     }
   ]
 }

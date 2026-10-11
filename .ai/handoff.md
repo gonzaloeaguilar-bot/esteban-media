@@ -1,3 +1,13 @@
+# Annual events content section — 2026-10-10
+
+Branch `feat/events-hub` (owner-approved by Esteban). New bilingual section for small businesses that exhibit at, sponsor or sell around recurring South Florida events: hub `/events` ↔ `/es/eventos` plus one EN/ES pair per event, rendered by the shared `components/event-content-page.tsx` (ServiceCraft, ServiceFaqs, ServiceInquiryRail, ServiceRelated, NumberedList, `buildServiceFaqSchema`). Page files are thin wrappers.
+- **All event dates live in `lib/events.ts`** (`typicalWindow` + `nextEdition {start,end,confirmedSource,lastChecked}`), labelled as event-guide listings. `lib/__tests__/events.test.ts` fails once any `nextEdition` has ended relative to the test clock (`EVENTS_DATE_CHECK=YYYY-MM-DD` pins it). Refresh every year; set `nextEdition: null` when the next edition is not listed yet. Miami Spice (when shipped) ends 2026-10-31 and will trip the test on 2026-11-01 by design.
+- Copy in `lib/event-content.ts`: no date literals, no hand-typed prices (priceSentence only), every page states non-affiliation and that Esteban has not filmed the event; on-location filming is a paid add-on scoped per project. Schema is WebPage/CollectionPage + Service + FAQPage + BreadcrumbList, never `Event`.
+- Additive `EventSeasonLinks` cross-links (map `EVENT_CROSSLINKS` in `lib/events.ts`) on /services, /es/servicios and the yacht, restaurant, nightlife, event-video and corporate-event pages (EN + ES). Shared components gained optional `eyebrow`/`linkLabel` props and an opt-in accented Spanish inquiry copy (`accentedSpanish`); existing pages render unchanged.
+- Inventory: sitemap, freeze count+hash, WATCH_URLS, llms.txt block and the 8 affected Spanish text-parity baselines updated (additive only).
+
+---
+
 # US-Spanish Money Pages Deepening & /es/editor-de-video-miami — 2026-10-07 (local, uncommitted)
 
 Branch `feat/es-us-spanish-money-pages`. Deepened US-Spanish money pages (`/es/editor-de-reels-fort-lauderdale`, `/es/editor-de-reels-miami`, `/es/editor-de-video-corto-para-redes-miami`), added contextual cross-links and guide links, and created the Spanish-first landing page `/es/editor-de-video-miami` (sitemap count: 284).

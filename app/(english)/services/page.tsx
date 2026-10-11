@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { EventSeasonLinks } from "@/components/event-content-page";
 import {
   ArrowRight,
   Bot,
@@ -612,6 +613,7 @@ export default function ServicesPage() {
           </div>
         </Container>
       </section>
+      <EventSeasonLinks locale="en" path="/services" />
     </main>
   );
 }

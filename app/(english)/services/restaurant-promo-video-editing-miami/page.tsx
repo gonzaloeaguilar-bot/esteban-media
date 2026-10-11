@@ -17,6 +17,7 @@ import { Container } from "@/components/ui/container";
 import { ServiceInquiryRail } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
+import { EventSeasonLinks } from "@/components/event-content-page";
 
 const faqs = [
   {
@@ -510,6 +511,7 @@ export default function RestaurantPromoVideoEditingMiamiPage() {
           </div>
         </Container>
       </section>
+      <EventSeasonLinks locale="en" path="/services/restaurant-promo-video-editing-miami" />
     </main>
   );
 }

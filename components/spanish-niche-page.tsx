@@ -13,6 +13,7 @@ import { Cartel, Figure, NumberedList } from "@/components/em-surface";
 import { ProjectRail, ServiceRail } from "@/components/em-rails";
 import { ServiceInquiryRail, buildServiceFaqSchema, type ServiceInquiry } from "@/components/service-depth";
 import { ArranqueWeeklySection } from "@/components/arranque-weekly-section";
+import { EventSeasonLinks } from "@/components/event-content-page";
 import { ARRANQUE_WEEKLY_SPANISH_SLUGS, arranqueWeeklyFaq, arranqueWeeklyOfferJsonLd } from "@/lib/arranque-weekly";
 import {
   buildSpanishNicheStructuredData,
@@ -1513,6 +1514,8 @@ export function SpanishNichePage({ slug }: { slug: string }) {
           </Container>
         </section>
       ) : null}
+
+      <EventSeasonLinks locale="es" path={`/es/${page.slug}`} />
 
       {inquiryService ? (
         <ServiceInquiryRail
