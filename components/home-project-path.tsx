@@ -94,7 +94,6 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
             </Link>
           ))}
         </nav>
-        <p className="mt-2 text-xs leading-5 text-[#6a625a]">{c.illustrationNote}</p>
         <div className="mt-6 border-t border-[#ddd4c8] pt-5">
           <p className="text-sm leading-6 text-[#4d5358]"><strong className="text-[#101214]">{c.pricing}</strong> {c.pricingDetail}</p>
           <ul className="mt-4 grid grid-cols-2 gap-2 lg:grid-cols-4" aria-label={c.pricing}>
