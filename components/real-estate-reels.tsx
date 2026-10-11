@@ -49,6 +49,17 @@ import {
 /** Netflix delays its previews about half a second so a pass-over never fires. */
 const PREVIEW_DELAY_MS = 450;
 
+// Open with the sharp architectural frame; the original first poster is a
+// motion-blurred frame and made the entire shelf feel less finished on phones.
+const REEL_DISPLAY_ORDER = [
+  "waterfront-tower-aerial",
+  "waterfront-condo-views",
+  "primary-suite-pool-view",
+  "agent-intro-living-room",
+  "staged-bedroom-tour",
+  "listing-opener",
+];
+
 function prefersReducedMotion(): boolean {
   return (
     typeof window !== "undefined" &&
@@ -75,7 +86,9 @@ export function RealEstateReels({
   className?: string;
 }) {
   const isEs = locale === "es";
-  const reels = REAL_ESTATE_REELS;
+  const reels = [...REAL_ESTATE_REELS].sort(
+    (a, b) => REEL_DISPLAY_ORDER.indexOf(a.id) - REEL_DISPLAY_ORDER.indexOf(b.id),
+  );
   const len = reels.length;
   const headingId = "real-estate-reels-heading";
   const servicePath = realEstateReelsPath(locale);
@@ -562,4 +575,3 @@ export function RealEstateReels({
     </section>
   );
 }
-

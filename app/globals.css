@@ -1525,10 +1525,18 @@ div.relative:has(> .em-carousel-track) {
 .em-reel .rail-card__figure {
   background: #0d0d0d;
 }
+.em-reel .rail-card[data-rail-kind="media"] {
+  border: 1px solid rgb(255 255 255 / 0.18);
+  box-shadow: 0 18px 40px rgb(0 0 0 / 0.32);
+}
+.em-reel .rail-card[data-rail-kind="media"]:focus-within {
+  border-color: #ffb49e;
+}
 /* The play button owns the whole figure box; its whole surface is the tap
    target, so the gesture works anywhere on the poster, not just on the dot. */
 .em-reel .em-reel-play img {
   object-fit: cover;
+  filter: brightness(1.12) saturate(1.08);
 }
 
 /* ── Full-bleed shelf ─────────────────────────────────────────────────────
@@ -1567,62 +1575,12 @@ div.relative:has(> .em-carousel-track) {
   margin-top: 0;
 }
 
-/* ── Headline-to-strip transition ─────────────────────────────────────────
-   The strip used to start a flat 2rem under the headline, so the headline
-   block and the posters read as two separate things. Now the strip rises
-   UNDER the bottom of the headline row (the row carries z-index 2): about
-   40px on a phone, 64px from 640px up. A gradient in the band's own colour
-   sits over the top of the strip, so the posters surface out of the band
-   instead of starting at a hard edge. On purpose:
-
-   - Contrast. Inside the overlap, where the description, the counter and the
-     arrows sit, the gradient never drops below 80% band colour. Over a pure
-     white poster that composites to roughly #404143, against which the
-     shelf's #c9c1b8 body copy is about 5:1, so the text stays AA however
-     bright a poster's sky is; the white headline and the filled WhatsApp
-     button sit well above that. Below the row the ramp runs 80% to clear.
-   - Clicks. The headline row is layered above the strip, so its links and
-     buttons stay on top; the overlay has pointer-events: none, so the
-     posters under the ramp stay tappable.
-   - Motion. The ramp is a static gradient, not an animation, so there is
-     nothing for prefers-reduced-motion to switch off.
-   - Overflow. The overlay is absolutely positioned inside the wrapper with
-     inset-inline 0, never wider than it, so it cannot reintroduce sideways
-     panning. It lives on the wrapper, not the scroller, so the scroller's
-     right-edge mask below is untouched. */
+/* Keep the poster row below the controls. The old dark overlap covered the
+   strongest part of each frame, especially on phones. */
 .em-reel--rise {
-  --em-reel-band: #101214; /* the section's own bg-[#101214] */
-  --em-reel-overlap: 2.5rem;
-  --em-reel-ramp: 4rem;
   position: relative;
   z-index: 1;
-  /* The old 2rem gap is gone: the strip climbs into the headline row by the
-     overlap. */
-  margin-top: calc(var(--em-reel-overlap) * -1);
-}
-@media (min-width: 40rem) {
-  .em-reel--rise {
-    --em-reel-overlap: 4rem;
-    --em-reel-ramp: 6rem;
-  }
-}
-.em-reel--rise::before {
-  content: "";
-  position: absolute;
-  inset-inline: 0;
-  top: 0;
-  height: calc(var(--em-reel-overlap) + var(--em-reel-ramp));
-  z-index: 3;
-  pointer-events: none;
-  background: linear-gradient(
-    to bottom,
-    var(--em-reel-band) 0,
-    color-mix(in srgb, var(--em-reel-band) 80%, transparent)
-      var(--em-reel-overlap),
-    color-mix(in srgb, var(--em-reel-band) 35%, transparent)
-      calc(var(--em-reel-overlap) + var(--em-reel-ramp) * 0.5),
-    transparent 100%
-  );
+  margin-top: 1.5rem;
 }
 
 /* ── Plans under the reels ────────────────────────────────────────────────
