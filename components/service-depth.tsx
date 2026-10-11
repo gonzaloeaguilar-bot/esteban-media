@@ -178,16 +178,24 @@ const answerFirstCopy = {
   en: {
     eyebrow: "In short",
     question: (service: string) => `How does ${service} with Esteban Moreno Media work?`,
-    answer: () =>
+    answer: (service: string) => isPhotographyService(service)
+      ? `Esteban Moreno Media is based in Fort Lauderdale and serves businesses across Broward and Miami-Dade. For a real photo shoot, describe the products or people, location, number of images and intended use; Esteban scopes the photography and sends a written quote. For AI-assisted images, send accurate original photos and identify which backgrounds or settings may change. The two services have different deliverables, and any on-location photography is scoped per project. Communication is Spanish-first, with intermediate English available.`
+      :
       `Esteban Moreno Media is a Fort Lauderdale-based service-area business run by Esteban Moreno, working with businesses across Broward and Miami-Dade. Projects can start remotely: you share footage, photos or references online and Esteban edits them, with no visit needed. On-location filming or photography is available as a paid service, scoped and quoted per project. Communication is Spanish-first, with intermediate English available. Remote editing starts from ${packageFrom("arranque")} per video (Starter package) and on-location production days start from ${packageFrom("presencia-local")} (Local Presence package); every project gets a written quote.`,
   },
   es: {
     eyebrow: "En corto",
     question: (service: string) => `¿Cómo funciona el servicio de ${service} con Esteban Moreno Media?`,
-    answer: () =>
+    answer: (service: string) => isPhotographyService(service)
+      ? `Esteban Moreno Media tiene base en Fort Lauderdale y atiende negocios en Broward y Miami-Dade. Para una sesión de fotos reales, indica los productos o personas, la ubicación, la cantidad de imágenes y su uso; Esteban define el alcance y envía una cotización por escrito. Para imágenes asistidas con IA, comparte fotos originales fieles al producto e indica qué fondos o ambientes pueden cambiar. Son servicios con entregables distintos, y la fotografía en locación se cotiza por proyecto. La atención es en español primero, con inglés intermedio disponible.`
+      :
       `Esteban Moreno Media es un negocio de servicio con base en Fort Lauderdale, dirigido por Esteban Moreno, que trabaja con negocios en Broward y Miami-Dade. Los proyectos pueden empezar en remoto: compartes el material, las fotos o las referencias en línea y Esteban los edita, sin necesidad de visita. La grabación o la fotografía en locación está disponible como servicio pagado, con alcance y cotización por proyecto. La atención es en español primero, con inglés intermedio disponible. La edición remota parte desde ${packageFrom("arranque")} por video (paquete Arranque) y los días de producción en locación desde ${packageFrom("presencia-local")} (paquete Presencia Local); cada proyecto recibe una cotización por escrito.`,
   },
 } as const;
+
+function isPhotographyService(service: string): boolean {
+  return /photograph|headshot|portrait|fotograf|fotógraf|retrato|fotos? con ia|imágenes? con ia/i.test(service);
+}
 
 /** Lower-case the first letter unless the word is an acronym or brand (TikTok, UGC). */
 function inSentence(phrase: string): string {
@@ -203,8 +211,8 @@ function inSentence(phrase: string): string {
  * answer, so an answer engine had to assemble who/what/where/price from the
  * whole page. Every sentence here is an already-published fact (base, markets,
  * languages, the remote/on-location split the owner confirmed on 2026-10-10)
- * and both prices come from PACKAGE_PRICES. No turnaround or availability
- * promise is made.
+ * and video prices come from PACKAGE_PRICES. Photography has its own scoped
+ * answer so video package prices are never presented as photo rates.
  */
 export function ServiceAnswerFirst({
   service,
@@ -227,7 +235,7 @@ export function ServiceAnswerFirst({
         <h2 id={`${sectionId}-heading`} className="mt-3 max-w-3xl font-serif text-3xl sm:text-4xl">
           {copy.question(inSentence(service))}
         </h2>
-        <p className="mt-4 max-w-3xl text-base leading-8 text-[#252a2d]">{copy.answer()}</p>
+        <p className="mt-4 max-w-3xl text-base leading-8 text-[#252a2d]">{copy.answer(service)}</p>
       </Container>
     </section>
   );

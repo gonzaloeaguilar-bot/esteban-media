@@ -16,7 +16,7 @@ import { absoluteUrl, site } from "@/lib/site";
 export const metadata = buildPageMetadata({
   title: "Jewelry Product Photography Miami",
   description:
-    "AI-enhanced product photography and high-resolution retouching for jewelry brands and luxury e-commerce in Miami.",
+    "Real jewelry product photography, separately scoped AI-assisted backgrounds, and retouching for Miami brands.",
   path: "/services/jewelry-product-photography-miami",
   locale: "en",
 });
@@ -30,7 +30,7 @@ export default function JewelryProductPhotographyMiamiPage() {
         path: "/services/jewelry-product-photography-miami",
         name: "Jewelry Product Photography Miami",
         description:
-          "AI-enhanced product photography and high-resolution retouching for jewelry brands and luxury e-commerce in Miami.",
+          "Real jewelry product photography, separately scoped AI-assisted backgrounds, and retouching for Miami brands.",
         crumb: "Jewelry Photography",
       }),
       {
@@ -38,7 +38,7 @@ export default function JewelryProductPhotographyMiamiPage() {
         "@id": absoluteUrl("/services/jewelry-product-photography-miami#service"),
         name: "Jewelry Product Photography Miami",
         description:
-          "High-end jewelry product photography, AI image generation, and commercial retouching for luxury brands.",
+          "Real jewelry product photography, separately scoped AI-assisted backgrounds, and commercial retouching for luxury brands.",
         provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami / Doral",
         serviceType: "Product photography",
@@ -83,7 +83,7 @@ export default function JewelryProductPhotographyMiamiPage() {
                 Jewelry Product Photography in Miami.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-                High-definition product visuals and AI background enhancement for fine jewelry designers and luxury e-commerce brands.
+                Ask about a real jewelry product shoot, subject to scope and availability, or send accurate product photos for separately scoped retouching and AI-assisted backgrounds.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
@@ -98,9 +98,9 @@ export default function JewelryProductPhotographyMiamiPage() {
 
             <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
               <Camera className="size-8 text-[#e85d3e]" aria-hidden="true" />
-              <h2 className="mt-5 font-serif text-3xl">Luxury product proof</h2>
+              <h2 className="mt-5 font-serif text-3xl">Related product visual work</h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                Our portfolio project <strong>My D&apos;ler</strong> proves published commercial product retouching and brand visuals.
+                <strong>My D&apos;ler</strong> shows published product retouching and brand visuals. It is not presented as a jewelry photo shoot.
               </p>
             </div>
           </div>
@@ -120,7 +120,7 @@ export default function JewelryProductPhotographyMiamiPage() {
                   Launching a new jewelry collection?
                 </h2>
                 <p className="mt-3 max-w-2xl text-sm leading-6 text-[#252a2d]">
-                  Send product photos for AI rendering.
+                  For a real shoot, share the jewelry pieces, location, image count and intended use. For AI-assisted backgrounds, send accurate existing photos. Esteban will quote each option separately.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
