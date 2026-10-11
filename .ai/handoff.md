@@ -1,3 +1,9 @@
+# Integration: SEO/GEO wave + events hub + niche wave 8 — 2026-10-11
+
+Branch `integration/seo-events-niches-20261011` from main `c17fd51`, merge commits only: `fix/seo-geo-audit-wave` → `feat/events-hub` (#339) → `feat/niche-wave-8`. Sitemap 284 + 26 + 16 + 16 = **342** (counted in the built sitemap); one freeze count/hash with all three dated owner-ordered entries; `WATCH_URLS`, sitemap/cohort/index-watch tests at 342. Event facts carried into `lib/llms-base.txt` (the generated `/llms.txt` route lists every URL). Wave 8 pages got the `#business` provider reference; `ServiceRelated` now drops cards into consolidated pages (5 wave 8 cards). Text-parity baseline regenerated after build: 0 words/links/headings lost vs main on 97 routes, 10 new routes. CTA dashboard regenerated. Gates: rail-kit, rail-adoption, lint (0 errors), typecheck, vitest (only `prospect-auditor-verifier`), build, text-parity (107 routes), events:check, dual-audience 32/32.
+
+---
+
 # SEO/GEO audit wave — 2026-10-11 (branch `fix/seo-geo-audit-wave`, pushed, no PR)
 
 Implements the 15 "safe mechanical fixes" in `.ai/seo-geo-code-audit-2026-10-10.md` plus Esteban's owner decisions. Fixes 1-2 also shipped to main as #334; this branch is merged with main.
