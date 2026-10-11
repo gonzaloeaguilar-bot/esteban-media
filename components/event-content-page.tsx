@@ -18,6 +18,7 @@ import {
   EVENTS_HUB_PATHS,
   EVENT_CROSSLINKS,
   EVENT_SEASON_ORDER,
+  affiliationLabel,
   displayEdition,
   formatDateRange,
   formatIsoDate,
@@ -49,7 +50,7 @@ const UI = {
     listed: (checked: string) => `Dates listed by event guides, last checked ${checked}. Confirm on the official site before you plan around them.`,
     official: "Official event site",
     notAffiliated: (name: string) =>
-      `Esteban Moreno Media is not affiliated with or endorsed by ${name} or its organizers. The event name is used only to describe timing; no event logos are used.`,
+      `Esteban Moreno Media is not affiliated with or endorsed by ${name}, or by the organizers. The event name is used only to describe timing; no event logos are used.`,
     hubNotAffiliated:
       "Esteban Moreno Media is not affiliated with or endorsed by any event listed here. Event names describe timing only; no event logos are used.",
     whatsapp: "Message on WhatsApp",
@@ -298,7 +299,7 @@ export function EventContentPage({ id, locale }: { id: EventId; locale: EventLoc
               <h1 className="mt-4 max-w-4xl font-serif em-display">{copy.h1}</h1>
               <p className="mt-4 max-w-2xl text-lg leading-7">{copy.lead}</p>
               <HeroActions locale={locale} prefix={prefix} eventLabel={event.name} inquiryId={inquiryId} />
-              <p className="mt-5 max-w-2xl text-sm leading-6 text-[#5a6066]">{t.notAffiliated(event.name)}</p>
+              <p className="mt-5 max-w-2xl text-sm leading-6 text-[#5a6066]">{t.notAffiliated(affiliationLabel(event, locale))}</p>
             </div>
             <EventDates event={event} locale={locale} />
           </div>

@@ -61,6 +61,8 @@ export type AnnualEvent = {
   id: EventId;
   /** The event's own name, used descriptively. */
   name: string;
+  /** Every name the page uses, for the non-affiliation statement (defaults to [name]). */
+  affiliationNames?: readonly string[];
   season: EventSeason;
   /** 1-12, for ordering inside the hub. */
   typicalMonth: number;
@@ -70,6 +72,13 @@ export type AnnualEvent = {
   nextEdition: EventEdition | null;
   paths: Localized;
 };
+
+/** "A or B" for the non-affiliation statement. */
+export function affiliationLabel(event: AnnualEvent, locale: EventLocale): string {
+  const names = event.affiliationNames ?? [event.name];
+  const joiner = locale === "es" ? " ni " : " or ";
+  return names.map((name) => (locale === "es" ? name.replace(/^the /, "") : name)).join(joiner);
+}
 
 export const EVENT_DATES_LAST_CHECKED = "2026-10-10";
 const GUIDE_LISTING = "Event-guide listings (not confirmed with the organizer)";
@@ -128,6 +137,129 @@ export const EVENTS: readonly AnnualEvent[] = [
     paths: {
       en: "/events/art-basel-miami-beach-video",
       es: "/es/eventos/video-para-art-basel-miami-beach",
+    },
+  },
+  {
+    id: "miami-boat-show",
+    name: "Miami International Boat Show",
+    season: "winter",
+    typicalMonth: 2,
+    officialSite: "https://www.miamiboatshow.com",
+    typicalWindow: {
+      en: "Usually mid-February",
+      es: "Normalmente a mediados de febrero",
+    },
+    nextEdition: {
+      start: "2027-02-10",
+      end: "2027-02-14",
+      confirmedSource: GUIDE_LISTING,
+      lastChecked: EVENT_DATES_LAST_CHECKED,
+    },
+    paths: {
+      en: "/events/miami-boat-show-video",
+      es: "/es/eventos/video-para-el-miami-boat-show",
+    },
+  },
+  {
+    id: "sobewff",
+    name: "South Beach Wine & Food Festival",
+    season: "winter",
+    typicalMonth: 2,
+    officialSite: "https://sobewff.org",
+    typicalWindow: {
+      en: "Usually late February",
+      es: "Normalmente a finales de febrero",
+    },
+    nextEdition: {
+      start: "2027-02-25",
+      end: "2027-02-28",
+      confirmedSource: GUIDE_LISTING,
+      lastChecked: EVENT_DATES_LAST_CHECKED,
+    },
+    paths: {
+      en: "/events/south-beach-wine-food-festival-video",
+      es: "/es/eventos/video-para-el-south-beach-wine-food-festival",
+    },
+  },
+  {
+    id: "emerge-americas",
+    name: "eMerge Americas",
+    season: "spring",
+    typicalMonth: 3,
+    officialSite: "https://emergeamericas.com",
+    typicalWindow: {
+      en: "Usually in spring (historically April; the next edition is listed earlier)",
+      es: "Normalmente en primavera (históricamente en abril; la próxima edición aparece antes)",
+    },
+    nextEdition: {
+      start: "2027-03-02",
+      end: "2027-03-04",
+      confirmedSource: GUIDE_LISTING,
+      lastChecked: EVENT_DATES_LAST_CHECKED,
+      where: {
+        en: "Miami Beach Convention Center",
+        es: "Miami Beach Convention Center",
+      },
+    },
+    paths: {
+      en: "/events/emerge-americas-video",
+      es: "/es/eventos/video-para-emerge-americas",
+    },
+  },
+  {
+    id: "miami-music-week",
+    name: "Miami Music Week",
+    affiliationNames: ["Miami Music Week", "the Ultra Music Festival"],
+    season: "spring",
+    typicalMonth: 3,
+    officialSite: "https://www.miamimusicweek.com",
+    typicalWindow: {
+      en: "Usually the second half of March, with Ultra on the closing weekend",
+      es: "Normalmente la segunda mitad de marzo, con Ultra el último fin de semana",
+    },
+    nextEdition: {
+      start: "2027-03-22",
+      end: "2027-03-28",
+      confirmedSource: GUIDE_LISTING,
+      lastChecked: EVENT_DATES_LAST_CHECKED,
+      windows: [
+        { label: { en: "Miami Music Week", es: "Miami Music Week" }, start: "2027-03-22", end: "2027-03-28" },
+        { label: { en: "Ultra Music Festival", es: "Ultra Music Festival" }, start: "2027-03-26", end: "2027-03-28" },
+      ],
+      where: {
+        en: "Venues across Miami and Miami Beach",
+        es: "Locales en Miami y Miami Beach",
+      },
+    },
+    paths: {
+      en: "/events/miami-music-week-video",
+      es: "/es/eventos/video-para-miami-music-week",
+    },
+  },
+  {
+    id: "miami-spice",
+    name: "Miami Spice",
+    season: "summer",
+    typicalMonth: 8,
+    officialSite: "https://www.miamiandbeaches.com",
+    typicalWindow: {
+      en: "Usually August and September",
+      es: "Normalmente en agosto y septiembre",
+    },
+    nextEdition: {
+      // Listed as extended through October 31 for 2026.
+      start: "2026-08-01",
+      end: "2026-10-31",
+      confirmedSource: GUIDE_LISTING,
+      lastChecked: EVENT_DATES_LAST_CHECKED,
+      where: {
+        en: "Participating restaurants across Miami-Dade",
+        es: "Restaurantes participantes en Miami-Dade",
+      },
+    },
+    paths: {
+      en: "/events/miami-spice-restaurant-video",
+      es: "/es/eventos/video-para-restaurantes-en-miami-spice",
     },
   },
 ];

@@ -43,6 +43,16 @@ export const LEGACY_V1_WATCH_URLS = [
 export const WATCH_URLS = [
   ...LEGACY_V1_WATCH_URLS,
   // Annual-events section (owner-approved 2026-10-10).
+  "https://estebanmorenomedia.com/events/miami-boat-show-video",
+  "https://estebanmorenomedia.com/es/eventos/video-para-el-miami-boat-show",
+  "https://estebanmorenomedia.com/events/south-beach-wine-food-festival-video",
+  "https://estebanmorenomedia.com/es/eventos/video-para-el-south-beach-wine-food-festival",
+  "https://estebanmorenomedia.com/events/emerge-americas-video",
+  "https://estebanmorenomedia.com/es/eventos/video-para-emerge-americas",
+  "https://estebanmorenomedia.com/events/miami-music-week-video",
+  "https://estebanmorenomedia.com/es/eventos/video-para-miami-music-week",
+  "https://estebanmorenomedia.com/events/miami-spice-restaurant-video",
+  "https://estebanmorenomedia.com/es/eventos/video-para-restaurantes-en-miami-spice",
   "https://estebanmorenomedia.com/events",
   "https://estebanmorenomedia.com/es/eventos",
   "https://estebanmorenomedia.com/events/fort-lauderdale-boat-show-video",
