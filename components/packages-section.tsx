@@ -26,7 +26,24 @@ import { ARRANQUE_WEEKLY_FROM, usd } from "@/lib/pricing";
 import { quoteCtaLabel } from "@/lib/quote-cta";
 import { absoluteUrl, site } from "@/lib/site";
 
-export function PackagesSection({ locale }: { locale: Locale }) {
+export function PackagesSection({
+  locale,
+  realEstatePlans = true,
+}: {
+  locale: Locale;
+  /**
+   * Whether this section renders the monthly real-estate plans under the four
+   * packages. Default true, so /pricing, /es/precios and anything else that
+   * shows packages keeps them with no change.
+   *
+   * The home pages opt out: there the plans are stacked under the reel shelf
+   * instead (see components/real-estate-showcase.tsx), because on the home a
+   * visitor needs to see the work before the price, and a price stranded in
+   * the middle of the packages track is the price with no work above it.
+   * The plans still render on the home — once, in the showcase.
+   */
+  realEstatePlans?: boolean;
+}) {
   const copy = packagesCopy(locale);
   const packages = packagesFor(locale);
   const [open, setOpen] = useState<PackageContent["id"] | null>(null);
@@ -249,8 +266,9 @@ export function PackagesSection({ locale }: { locale: Locale }) {
       </section>
 
       {/* 2b. Real estate: its own buyer and its own plan sizes, so its own
-          section directly under the four packages. */}
-      <RealEstatePlansSection locale={locale} />
+          section directly under the four packages — unless the page already
+          shows them, as the home pages do under the reel shelf. */}
+      {realEstatePlans && <RealEstatePlansSection locale={locale} />}
 
       <ALaCarteSection locale={locale} />
 
