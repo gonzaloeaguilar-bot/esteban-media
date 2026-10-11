@@ -41,6 +41,11 @@ const faqs = [
       "Captions or subtitles can be added for spoken lines, menu context, or calls to action supplied by the restaurant. This helps a viewer follow the message when audio is muted, while keeping text clear of platform interface areas and the featured dish.",
   },
   {
+    question: "Can I ask for still photographs as well as restaurant video?",
+    answer:
+      "Yes. Esteban offers photography, and a still-photo session should be scoped separately from editing footage or filming new video. Share what needs to be photographed, the location, intended use, and dates so he can confirm the session scope and availability. The published Bar Door Monkey project demonstrates video work, not a food photography portfolio.",
+  },
+  {
     question: "How does feedback and revision work on a restaurant video edit?",
     answer:
       "After a draft is shared, the restaurant can consolidate time-stamped feedback on pacing, selected shots, text, and supplied calls to action. Revision scope is discussed with the project so feedback can be handled in an organized review cycle without assuming a fixed number of rounds.",
@@ -133,6 +138,11 @@ export default function RestaurantPromoVideoEditingMiamiPage() {
                 Restaurant promo edits start at $240 — every project gets a
                 scoped quote.
               </p>
+              <ul className="mt-4 max-w-2xl space-y-1.5 text-sm leading-6 text-[#252a2d]">
+                <li><strong>Already have clips?</strong> Ask for a Reel edit.</li>
+                <li><strong>Need new video?</strong> Tell us the location and what to film.</li>
+                <li><strong>Need real still photos?</strong> Describe the dishes or space; the session is quoted separately.</li>
+              </ul>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/contact"
@@ -261,6 +271,14 @@ export default function RestaurantPromoVideoEditingMiamiPage() {
             Complete visual production for hospitality & dining.
           </h2>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <Link
+              href="/contact"
+              className="group rounded-xl border border-[#ddd4c8] bg-[#fbf6ef] p-6 transition hover:border-[#e85d3e]"
+            >
+              <h3 className="font-serif text-2xl">Real Still Photography</h3>
+              <p className="mt-2 text-sm leading-6 text-[#5a6066]">Ask about a separately scoped session for dishes, drinks, or the restaurant space. Share location, intended use, and dates; availability and deliverables are confirmed before booking.</p>
+              <span className="mt-4 inline-flex text-sm font-medium text-[#9f3c27] group-hover:underline">Describe the photo brief</span>
+            </Link>
             <Link
               href="/services/food-and-places-creator-video-editing-miami"
               data-cta="restaurant_food_creator_related"

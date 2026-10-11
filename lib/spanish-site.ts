@@ -1091,13 +1091,14 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Restaurantes / comida / hospitality",
     h1: "Video para restaurantes en Miami: edición de reels y promociones.",
     lead:
-      "Envía las tomas de tus platos, cocina o salón para editar un reel o video promocional desde $240 por proyecto, con cotización a la medida. Si necesitas grabación en Miami-Dade, cuéntanos la idea y se evaluará la disponibilidad y el alcance por separado.",
+      "¿Ya tienes clips? Edición de Reels desde $240 por proyecto, con cotización a la medida. ¿Necesitas video nuevo? Consulta por grabación selectiva. ¿También necesitas fotos reales? Cuéntanos qué, dónde y para qué: la sesión se cotiza por separado.",
     keyword: "video para restaurantes Miami",
     location: "Miami-Dade",
     availability: "confirmed",
     icon: UtensilsCrossed,
     bestFor: [
       "Restaurantes con material existente que necesita edición profesional.",
+      "Restaurantes que necesitan fotos reales y quieren definir una sesión por separado.",
       "Dueños que quieren definir la meta antes de producir contenido nuevo.",
       "Equipos que prefieren explicar el proyecto en español.",
       "Ideas que requieren una captura local seleccionada en Miami-Dade.",
@@ -1109,7 +1110,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       "¿Qué uso, formato y disponibilidad deben confirmarse?",
     ],
     projectFit:
-      "Es una guía para preparar una consulta sobre edición o producción selectiva de video para restaurantes. Para ideas de contenido gastronómico, consulta nuestra [guía de ideas de video para restaurantes](/es/guias/ideas-de-contenido-de-video-para-restaurantes) o nuestra sección de [reels para negocios en Miami](/es/reels-para-negocios-miami).",
+      "¿Ya tienes clips? Pide edición de Reels. ¿Necesitas tomas nuevas en el local? Consulta por grabación selectiva. ¿Necesitas imágenes fijas reales de platos o del espacio? Describe las fotos y la locación para definir una sesión de [fotografía](/es/fotografo-en-fort-lauderdale) por separado. Para planear el video, consulta la [guía de ideas para restaurantes](/es/guias/ideas-de-contenido-de-video-para-restaurantes) y los [Reels para negocios](/es/reels-para-negocios-miami).",
     sections: [
       {
         heading: "Estrategia de video gastronómico y dinámicas de restaurantes en Miami",
@@ -1194,7 +1195,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         question: "¿Esta página ofrece fotografía de alimentos o sesiones fotográficas?",
         answer:
-          "Esteban ofrece fotografía. Si necesitas fotos reales de platos, bebidas o del local además del video, describe la locación, las tomas y el uso previsto para confirmar el alcance de la sesión. También puedes consultar [fotografía en Fort Lauderdale](/es/fotografo-en-fort-lauderdale).",
+          "Esteban ofrece fotografía. Si necesitas fotos reales de platos, bebidas o del local además del video, describe la locación, las tomas y el uso previsto para confirmar el alcance y la disponibilidad de la sesión por separado. Consulta [fotografía en Fort Lauderdale](/es/fotografo-en-fort-lauderdale); el video publicado de Bar Door Monkey no se presenta como muestra de fotos.",
       },
     ],
   },
