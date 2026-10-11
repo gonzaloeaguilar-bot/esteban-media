@@ -102,9 +102,9 @@ export default function RestaurantPromoVideoEditingMiamiPage() {
         suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
+      <section className="border-b border-[#ddd4c8] py-5 sm:py-16 lg:py-20">
         <Container size="xl">
-          <nav aria-label="Breadcrumbs" className="mb-8 text-sm text-[#5a6066]">
+          <nav aria-label="Breadcrumbs" className="mb-3 text-sm text-[#5a6066] sm:mb-8">
             <ol className="flex flex-wrap items-center gap-2">
               <li>
                 <Link href="/" className="hover:text-[#9f3c27]">
@@ -128,22 +128,22 @@ export default function RestaurantPromoVideoEditingMiamiPage() {
               <p className="text-xs font-medium uppercase text-[#5a6066]">
                 Miami / Culinary & Hospitality
               </p>
-              <h1 className="mt-4 max-w-4xl font-serif em-display">
+              <h1 className="mt-2 max-w-4xl font-serif em-display sm:mt-4">
                 Restaurant Promo Video Editing in Miami.
               </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-                Food-focused video edits, dish spotlight cuts, captioned restaurant reels, and social promo versions for Instagram, TikTok, digital menus, and web pages.
+              <p className="mt-3 max-w-2xl text-lg leading-7 text-[#252a2d] sm:mt-6 sm:leading-8">
+                Reels and promo edits from your restaurant footage.
               </p>
-              <p className="mt-4 text-base font-medium text-[#9f3c27]">
+              <p className="mt-3 text-base font-medium text-[#9f3c27] sm:mt-4">
                 Restaurant promo edits start at $240 — every project gets a
                 scoped quote.
               </p>
-              <ul className="mt-4 max-w-2xl space-y-1.5 text-sm leading-6 text-[#252a2d]">
+              <ul className="mt-3 max-w-2xl space-y-1 text-sm leading-6 text-[#252a2d] sm:mt-4 sm:space-y-1.5">
                 <li><strong>Already have clips?</strong> Ask for a Reel edit.</li>
                 <li><strong>Need new video?</strong> Tell us the location and what to film.</li>
                 <li><strong>Need real still photos?</strong> Describe the dishes or space; the session is quoted separately.</li>
               </ul>
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className="mt-3 flex flex-wrap gap-3 sm:mt-8">
                 <Link
                   href="/contact"
                   className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)]"
