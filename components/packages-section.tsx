@@ -23,6 +23,7 @@ import {
 } from "@/lib/packages";
 import { entityIds } from "@/lib/entity-schema";
 import { ARRANQUE_WEEKLY_FROM, usd } from "@/lib/pricing";
+import { quoteCtaLabel } from "@/lib/quote-cta";
 import { absoluteUrl, site } from "@/lib/site";
 
 export function PackagesSection({ locale }: { locale: Locale }) {
@@ -71,6 +72,8 @@ export function PackagesSection({ locale }: { locale: Locale }) {
         // has always pointed at. Merging the chooser into this section deleted
         // the element that carried those ids, and the main call to action on
         // the home page quietly led nowhere — no error, no jump, nothing.
+        // The hero now leads with the WhatsApp quote instead (2026-10-10), but
+        // the OfferCatalog schema still points at these ids, so they stay.
         id={locale === "es" ? "paquetes" : "packages"}
         className="em-pk-guide"
         aria-labelledby="em-pk-guide-title"
@@ -226,9 +229,10 @@ export function PackagesSection({ locale }: { locale: Locale }) {
                             target="_blank"
                             rel="noopener noreferrer"
                             data-cta={`package_${pkg.id}_whatsapp`}
+                            aria-label={`${quoteCtaLabel(locale)}: ${copy.packages.packageWord} ${pkg.name}`}
                           >
                             <MessageCircle className="size-4" aria-hidden="true" />
-                            {`${copy.packages.quote(pkg.name)} ${locale === "es" ? "por WhatsApp" : "on WhatsApp"}`}
+                            {quoteCtaLabel(locale)}
                           </a>
                         )}
                         <a href={packageRoutes[pkg.id][locale]} className="em-package-detail-link" data-cta={`package_${pkg.id}_details`}>
@@ -334,13 +338,15 @@ export function ClosingCredits({ locale, children }: { locale: Locale; children?
             data-cta="closing_whatsapp"
           >
             <MessageCircle className="size-4" aria-hidden="true" />
-            {copy.whatsapp}
+            {quoteCtaLabel(locale)}
           </a>
-          <a href={site.phone.href} className="em-cine__cta em-cine__cta--ghost">
+          {/* Call and email stay, as quiet text links: the WhatsApp quote is
+              the one primary action here, as everywhere on the page. */}
+          <a href={site.phone.href} className="em-close__textlink" data-cta="closing_phone">
             <Phone className="size-4" aria-hidden="true" />
             {copy.call}
           </a>
-          <a href={`mailto:${site.email}`} className="em-close__textlink">
+          <a href={`mailto:${site.email}`} className="em-close__textlink" data-cta="closing_email">
             <Mail className="size-4" aria-hidden="true" />
             {copy.email}
           </a>

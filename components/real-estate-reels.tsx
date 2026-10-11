@@ -8,6 +8,7 @@ import { Rail, type RailItem } from "@/vendor/rail-kit";
 import { RAIL_LABELS_EN, RAIL_LABELS_ES } from "@/components/em-rails";
 import { site } from "@/lib/site";
 import { whatsappHref } from "@/lib/packages";
+import { quoteCtaLabel } from "@/lib/quote-cta";
 import {
   REAL_ESTATE_REELS,
   REAL_ESTATE_REELS_PATH,
@@ -29,11 +30,13 @@ import {
  *  its player only while open.
  *
  *  CONVERSION. The visitor arrives to see the work; the next thing they should
- *  be able to do is talk to Esteban. Every card carries a WhatsApp action, and
- *  the detail view carries the big one — pre-filled with the reel it came
- *  from, so the first message is never blank.
+ *  be able to do is talk to Esteban. ONE quote button sits above the shelf and
+ *  the detail view carries the other — pre-filled with the reel it came from,
+ *  so the first message is never blank. Both use the site-wide label from
+ *  lib/quote-cta.ts. The cards themselves carry no button (2026-10-10 UX
+ *  review: six identical "WhatsApp" buttons were noise, not conversion).
  *
- *  SEO/GEO. Each card's title links to the service page that sells this work
+ *  SEO/GEO. The section header links to the service page that sells this work
  *  (an internal link, not a dead end), and the whole shelf emits one
  *  VideoObject per reel so the videos are eligible for video rich results.
  *  The schema is built from the same records the cards render.
@@ -222,9 +225,6 @@ export function RealEstateReels({
     return {
       kind: "media" as const,
       id: reel.id,
-      // The title links here: the page that sells this work, so the rail is an
-      // internal link into the service, not a closed loop.
-      href: REAL_ESTATE_REELS_PATH,
       title,
       subtitle: isEs ? "Reel de propiedad" : "Listing reel",
       meta: formatClock(reel.durationSeconds),
@@ -288,17 +288,14 @@ export function RealEstateReels({
           </span>
         </button>
       ),
-      actions: [
-        {
-          // A different destination than the card href, so the card becomes a
-          // plain container and both the title link and this WhatsApp button
-          // stay real, keyboard-reachable links instead of nested anchors.
-          label: "WhatsApp",
-          href: whatsappHref(site.phone.e164, whatsappMessage(title)),
-          id: "whatsapp",
-          variant: "secondary" as const,
-        },
-      ],
+      // No per-card action and no card link. Six identical "WhatsApp" buttons
+      // under six posters were the noisiest thing on the home; the section's
+      // one quote button (above the shelf) and the detail view carry the
+      // action instead. The card stays a plain container because its poster
+      // is a <button> (it opens the player): with an href and no competing
+      // action the kit would wrap the whole card in an <a>, nesting a button
+      // inside a link. The service-page link moved to the section header.
+      href: "",
     };
   });
 
@@ -309,6 +306,7 @@ export function RealEstateReels({
     <section
       className={`border-y border-[#ddd4c8] bg-[#101214] pb-10 pt-14 text-[#f6f1ea] sm:pb-14 sm:pt-20 ${className}`}
       aria-labelledby={headingId}
+      data-section="real_estate_reels"
     >
       <script
         type="application/ld+json"
@@ -329,8 +327,8 @@ export function RealEstateReels({
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-7 text-[#c9c1b8]">
               {isEs
-                ? "Seis videos cortos de propiedades que editó Esteban para agentes y listados. Pasa el cursor para ver un adelanto, toca una portada para abrirlo. Cuando tengas tu propio material, mándalo por WhatsApp."
-                : "Six short property videos Esteban edited for agents and listings. Hover a poster for a preview, tap to open it. When you have footage of your own, send it over on WhatsApp."}
+                ? "Seis videos cortos de propiedades que edité para agentes y listados. Pasa el cursor para ver un adelanto, toca una portada para abrirlo. Cuando tengas tu propio material, mándamelo por WhatsApp."
+                : "Six short property videos I edited for agents and listings. Hover a poster for a preview, tap to open it. When you have footage of your own, send it to me on WhatsApp."}
             </p>
           </div>
           <div className="flex shrink-0 flex-col gap-4 sm:items-end">
@@ -346,7 +344,14 @@ export function RealEstateReels({
               data-cta={`real_estate_reels_${locale}_whatsapp`}
               className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-5 text-sm font-medium text-white transition-colors hover:bg-[var(--em-accent-ink-hover)]"
             >
-              {isEs ? "Cotizar por WhatsApp" : "Get a quote on WhatsApp"}
+              {quoteCtaLabel(locale)}
+            </a>
+            <a
+              href={REAL_ESTATE_REELS_PATH}
+              data-cta={`real_estate_reels_${locale}_service`}
+              className="text-sm font-medium text-[#ffb49e] underline-offset-4 hover:underline"
+            >
+              {isEs ? "Conoce el servicio de reels" : "About the reel service"}
             </a>
             {/* The strip's counter and arrows, docked under the quote button
                 instead of in a header band of their own — that band was the
@@ -508,7 +513,7 @@ export function RealEstateReels({
                       className="inline-flex min-h-12 w-full items-center justify-center gap-2.5 rounded-full bg-[var(--em-accent-ink)] px-7 text-base font-semibold text-white transition-colors hover:bg-[var(--em-accent-ink-hover)]"
                     >
                       <MessageCircle className="size-5" aria-hidden="true" />
-                      {isEs ? "Mándale un WhatsApp a Esteban" : "Text Esteban"}
+                      {quoteCtaLabel(locale)}
                     </a>
                     <p className="text-xs leading-5 text-[#8a8378]">
                       {isEs
