@@ -164,7 +164,7 @@ export const serviceAreas = [
     schemaType: "AdministrativeArea" as const,
     href: "/areas/palm-beach-county",
     description:
-      "Palm Beach County is an expansion area considered project by project; sub-city coverage is not yet published.",
+      "Palm Beach County is an expansion area considered project by project. City-specific service pages are published; on-location availability is confirmed for each inquiry.",
   },
 ];
 

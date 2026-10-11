@@ -47,9 +47,9 @@ const questions = [
       "Palm Beach County is an expansion area. Esteban is based in Fort Lauderdale and considers selected projects after learning the county, project goal, and general needs.",
   },
   {
-    question: "Is sub-city coverage published for Palm Beach County?",
+    question: "Are city-specific service pages published for Palm Beach County?",
     answer:
-      "No. Palm Beach County is published only as a county-level expansion area until Esteban confirms individual city availability.",
+      "Yes. City-specific service pages describe possible work. Esteban confirms on-location availability, schedule, and scope for each inquiry.",
   },
   {
     question: "Can Palm Beach County clients work with Esteban remotely?",
@@ -178,7 +178,8 @@ export default function PalmBeachCountyPage() {
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
                 <strong>Quick answer:</strong> Palm Beach County is an expansion
                 area for Esteban Moreno Media. Availability is considered by
-                project, and no individual city coverage is published yet.
+                project. City-specific service pages are published, while
+                on-location availability is confirmed for each inquiry.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
@@ -200,11 +201,11 @@ export default function PalmBeachCountyPage() {
 
             <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
               <MapPin className="size-6 text-[#e85d3e]" aria-hidden="true" />
-              <h2 className="mt-5 font-serif text-3xl">County-level expansion area</h2>
+              <h2 className="mt-5 font-serif text-3xl">Project-by-project expansion area</h2>
               <p className="mt-3 text-sm leading-6 text-[#252a2d]">
                 Palm Beach County remains an expansion market considered project
-                by project. Individual cities are not listed until Esteban confirms
-                where local production is currently practical.
+                by project. Published city service pages describe possible work;
+                Esteban confirms whether local production is practical for each inquiry.
               </p>
             </div>
           </div>

@@ -47,9 +47,9 @@ const questions = [
       "Palm Beach County es un área de expansión. Esteban está basado en Fort Lauderdale y considera proyectos seleccionados después de conocer la zona, la meta y las necesidades generales.",
   },
   {
-    question: "¿Se publica cobertura por ciudad en Palm Beach County?",
+    question: "¿Hay páginas de servicios por ciudad en Palm Beach County?",
     answer:
-      "No. Palm Beach County se publica solo como área de expansión a nivel de condado hasta que Esteban confirme la disponibilidad en ciudades específicas.",
+      "Sí. Las páginas de servicios por ciudad describen posibles proyectos. Esteban confirma la disponibilidad para grabar en locación, las fechas y el alcance de cada consulta.",
   },
   {
     question: "¿Un cliente en Palm Beach County puede trabajar de forma remota?",
@@ -178,8 +178,8 @@ export default function SpanishPalmBeachCountyPage() {
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
                 <strong>Respuesta rápida:</strong> Palm Beach County es un área
                 de expansión para Esteban Moreno Media. La disponibilidad se
-                considera por proyecto y todavía no se publica cobertura por
-                ciudad.
+                considera por proyecto. Hay páginas de servicios por ciudad y la
+                disponibilidad para grabar en locación se confirma en cada consulta.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
@@ -201,7 +201,7 @@ export default function SpanishPalmBeachCountyPage() {
 
             <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
               <MapPin className="size-6 text-[#e85d3e]" aria-hidden="true" />
-              <h2 className="mt-5 font-serif text-3xl">Área de expansión a nivel de condado</h2>
+              <h2 className="mt-5 font-serif text-3xl">Área de expansión por proyecto</h2>
               <p className="mt-3 text-sm leading-6 text-[#252a2d]">
                 Palm Beach County sigue siendo un mercado de expansión considerado
                 proyecto por proyecto dentro de nuestras{" "}
@@ -211,8 +211,8 @@ export default function SpanishPalmBeachCountyPage() {
                 >
                   áreas de servicio con base en Fort Lauderdale
                 </Link>
-                . No se enumeran ciudades hasta que Esteban confirme dónde es
-                práctica la producción local actualmente.
+                . Las páginas de servicios por ciudad describen posibles proyectos;
+                Esteban confirma si la producción local es práctica para cada consulta.
               </p>
             </div>
           </div>
