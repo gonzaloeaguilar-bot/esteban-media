@@ -23,6 +23,8 @@ import EsEvaluacion from "../(spanish)/es/evaluacion/page";
 import EsKit from "../(spanish)/es/recursos/kit-video-social/page";
 import ReelsMiami from "../(english)/services/reels-editor-miami/page";
 import ReelsFtl from "../(english)/services/reels-editor-fort-lauderdale/page";
+import JewelryPhoto from "../(english)/services/jewelry-product-photography-miami/page";
+import AIFoodPhoto from "../(english)/services/ai-food-photography-restaurants/page";
 
 // Mechanical fixes from .ai/seo-geo-code-audit-2026-10-10.md.
 
@@ -228,6 +230,38 @@ describe("answer-first block (fix 9)", () => {
     expect(answer).toContain("$100");
     expect(answer).toContain("$800");
     expect(headings(markup, 2)[0]).toMatch(locale === "es" ? /^¿.*\?$/ : /\?$/);
+  });
+
+  it.each([
+    ["jewelry product photography", "en"],
+    ["headshot photography", "en"],
+    ["AI food photography", "en"],
+    ["fotografía de producto", "es"],
+    ["fotógrafo de retratos y headshots", "es"],
+    ["fotos con IA", "es"],
+  ] as const)("%s in %s describes photography without quoting video rates", (service, locale) => {
+    const markup = renderToStaticMarkup(ServiceAnswerFirst({ service, locale }));
+    expect(markup).not.toContain("$100");
+    expect(markup).not.toContain("$800");
+    expect(markup).toMatch(locale === "es" ? /cotizaci[oó]n por escrito/ : /written quote/);
+  });
+});
+
+describe("photography offer proof", () => {
+  it("distinguishes a real jewelry shoot from AI-assisted backgrounds and labels the related portfolio accurately", () => {
+    const markup = renderToStaticMarkup(JewelryPhoto());
+    expect(markup).toContain("subject to scope and availability");
+    expect(markup).toContain("For a real shoot");
+    expect(markup).toContain("For AI-assisted backgrounds");
+    expect(markup).toContain("not presented as a jewelry photo shoot");
+    expect(markup).not.toContain("$100");
+  });
+
+  it("describes Bar Door Monkey as restaurant video work, not food photography proof", () => {
+    const markup = renderToStaticMarkup(AIFoodPhoto());
+    expect(markup).toContain("on-location restaurant promo video");
+    expect(markup).toContain("not a food photography sample");
+    expect(markup).not.toContain("food post-production");
   });
 });
 
