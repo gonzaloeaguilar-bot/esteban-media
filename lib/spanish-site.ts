@@ -23,7 +23,7 @@ import {
   WandSparkles,
 } from "lucide-react";
 
-import { absoluteUrl, site } from "@/lib/site";
+import { absoluteUrl } from "@/lib/site";
 import { growthSystems } from "@/lib/growth-systems";
 import { SHORT_FORM_SECTIONS_ES, shortFormServiceJsonLd } from "@/lib/short-form-recs";
 import {
@@ -4687,14 +4687,7 @@ export function buildSpanishNicheStructuredData(page: SpanishNichePage) {
         "@id": absoluteUrl(`${path}#service`),
         name: page.title,
         description: page.description,
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          email: site.email,
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: page.location,
         availableLanguage: ["Spanish", "English"],
         serviceType: page.keyword,

@@ -13,7 +13,7 @@ import {
 import { AUTO_DETAILING_DEPTH } from "@/lib/service-depth-content";
 import { AUTO_DETAILING_DEEP_DIVE } from "@/lib/service-deep-dive-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
-import { absoluteUrl, site } from "@/lib/site";
+import { absoluteUrl } from "@/lib/site";
 
 const path = "/services/auto-detailing-tint-wrap-video-marketing-miami";
 
@@ -36,13 +36,7 @@ export default function AutoDetailingVideoMarketingPage() {
         name: "Auto Detailing, Tint & Wrap Video Marketing Miami",
         description:
           "Video editing and selective production for detailing, paint correction, ceramic coating, window tint, and vinyl wrap shops in Miami-Dade and Broward.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami-Dade / Broward",
         serviceType: "Automotive service video marketing",
       },

@@ -23,13 +23,7 @@ export default function DroneVideoEditingServiceMiamiPage() {
         name: "Drone Video Editing Service Miami",
         description:
           "Aerial drone video post-production service, 4K horizon color correction, aerial footage stabilization, and drone video edits in Miami.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami-Dade / Broward / Palm Beach",
         serviceType: "Drone video editing service",
       },

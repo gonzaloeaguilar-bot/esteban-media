@@ -23,13 +23,7 @@ export default function EventVideoEditingMiamiPage() {
         name: "Event Video Editing Miami",
         description:
           "Event video post-production, multi-cam assembly, gala recaps, and fast turnaround highlight videos in Miami.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami-Dade / Broward",
         serviceType: "Event video editing",
       },

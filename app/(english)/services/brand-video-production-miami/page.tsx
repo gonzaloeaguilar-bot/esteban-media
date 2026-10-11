@@ -23,13 +23,7 @@ export default function BrandVideoProductionMiamiPage() {
         name: "Brand Video Production Miami",
         description:
           "Brand manifesto videos, founder story video production, and commercial brand positioning videos in Miami.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami / South Florida",
         serviceType: "Brand video production",
       },

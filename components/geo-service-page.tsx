@@ -14,7 +14,7 @@ import {
   type ServiceInquiry,
 } from "@/components/service-depth";
 import { Container } from "@/components/ui/container";
-import { absoluteUrl, site } from "@/lib/site";
+import { absoluteUrl } from "@/lib/site";
 
 export type GeoServicePageContent = {
   path: string;
@@ -64,13 +64,7 @@ export function buildGeoServiceSchema(content: GeoServicePageContent) {
         "@id": absoluteUrl(`${content.path}#service`),
         name: content.serviceName,
         description: content.serviceDescription,
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: content.areaServed,
         serviceType: content.serviceType,
       },

@@ -25,13 +25,7 @@ export default function WebsiteDesignFortLauderdalePage() {
         name: "Website Design Fort Lauderdale & Custom AI Chatbots",
         description:
           "High-converting custom website design, web applications, and 24/7 AI lead capture chatbots for Fort Lauderdale and South Florida businesses.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Fort Lauderdale / Broward County / Miami-Dade / South Florida",
         serviceType: "Website Design & AI Chatbot Integration",
       },

@@ -23,13 +23,7 @@ export default function RealEstateDroneVideoEditingMiamiPage() {
         name: "Real Estate Drone Video Editing Miami",
         description:
           "Real estate drone video editing, aerial footage stabilization, estate boundary graphics, and luxury property video edits.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami-Dade / Broward / Palm Beach",
         serviceType: "Drone video editing",
       },

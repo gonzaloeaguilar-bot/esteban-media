@@ -32,13 +32,7 @@ export default function YoutubeVideoEditingServiceMiamiPage() {
         name: "YouTube Video Editing Service Miami",
         description:
           "YouTube channel video editing in Miami, long-form audience retention pacing, chapter markers, motion graphics overlays, and audio mastering.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami-Dade / Broward",
         serviceType: "YouTube video editing",
       },

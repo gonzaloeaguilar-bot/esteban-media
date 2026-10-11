@@ -25,13 +25,7 @@ export default function HotelHospitalityVideoProductionMiamiPage() {
         name: "Hotel Hospitality Video Production Miami",
         description:
           "Boutique hotel video editing, resort promotional videos, and hospitality content formatting in Miami.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami Beach / South Florida",
         serviceType: "Hospitality video production",
       },

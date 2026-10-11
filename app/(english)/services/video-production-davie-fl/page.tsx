@@ -23,13 +23,7 @@ export default function VideoProductionDavieFlPage() {
         name: "Video Production Davie FL",
         description:
           "Davie FL video production & editing service, local business promotional reels, educational video edits, and property tour post-production.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Davie / Plantation / Broward",
         serviceType: "Video production",
       },

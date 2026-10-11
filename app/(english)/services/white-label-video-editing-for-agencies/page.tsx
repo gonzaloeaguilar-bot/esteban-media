@@ -13,7 +13,7 @@ import {
 import { WHITE_LABEL_DEPTH } from "@/lib/service-depth-content";
 import { WHITE_LABEL_DEEP_DIVE } from "@/lib/service-deep-dive-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
-import { absoluteUrl, site } from "@/lib/site";
+import { absoluteUrl } from "@/lib/site";
 
 const path = "/services/white-label-video-editing-for-agencies";
 
@@ -36,13 +36,7 @@ export default function WhiteLabelVideoEditingPage() {
         name: "White Label Video Editing for Agencies",
         description:
           "Unbranded, subcontracted video post-production for marketing agencies, photographers, and production studios, delivered under the studio's own name.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "South Florida / Remote",
         serviceType: "White label video post-production",
       },

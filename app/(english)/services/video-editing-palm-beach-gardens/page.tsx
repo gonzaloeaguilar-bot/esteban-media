@@ -23,13 +23,7 @@ export default function VideoEditingPalmBeachGardensPage() {
         name: "Video Editing Palm Beach Gardens",
         description:
           "Palm Beach Gardens video editing service, medical clinic video marketing, executive firm overview edits, and luxury estate videos.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Palm Beach Gardens / Jupiter",
         serviceType: "Video editing",
       },

@@ -23,13 +23,7 @@ export default function VideoProductionBocaRatonPage() {
         name: "Video Production Boca Raton",
         description:
           "Video production, commercial videography, and social content editing for Boca Raton and Palm Beach County businesses.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Boca Raton / Palm Beach County",
         serviceType: "Video production",
       },

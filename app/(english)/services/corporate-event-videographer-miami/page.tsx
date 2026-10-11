@@ -25,13 +25,7 @@ export default function CorporateEventVideographerMiamiPage() {
         name: "Corporate Event Videographer Miami",
         description:
           "Corporate event video capture, convention highlight video editing, and conference recaps in Miami.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami / South Florida",
         serviceType: "Event video production",
       },

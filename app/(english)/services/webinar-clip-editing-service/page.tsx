@@ -23,13 +23,7 @@ export default function WebinarClipEditingServicePage() {
         name: "Webinar Clip Editing Service",
         description:
           "Webinar snippet video editing, long Zoom/recording clip extraction, vertical social video reel formatting, and animated subtitle overlays.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami-Dade / Broward",
         serviceType: "Webinar clip editing",
       },

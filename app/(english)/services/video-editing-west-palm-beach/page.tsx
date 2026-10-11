@@ -23,13 +23,7 @@ export default function VideoEditingWestPalmBeachPage() {
         name: "Video Editing West Palm Beach",
         description:
           "Remote video post-production, editing, and content formatting for West Palm Beach and Palm Beach County businesses.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "West Palm Beach / Palm Beach County",
         serviceType: "Video editing",
       },

@@ -33,13 +33,7 @@ export default function YachtCharterVideoMarketingMiamiPage() {
         name: "Yacht Charter Video Marketing Miami",
         description:
           "Yacht video editing, luxury marine charter promotional reels, drone boat video grading, and lifestyle edits in Miami.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami Beach / Fort Lauderdale",
         serviceType: "Yacht video marketing",
       },

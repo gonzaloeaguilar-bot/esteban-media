@@ -23,13 +23,7 @@ export default function VideoEditingMiamiBeachPage() {
         name: "Video Editing Miami Beach",
         description:
           "Miami Beach video editing service, luxury hospitality reels, oceanfront estate walkthrough edits, and nightlife video post-production.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami Beach / South Beach",
         serviceType: "Video editing",
       },

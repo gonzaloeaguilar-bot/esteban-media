@@ -23,13 +23,7 @@ export default function WealthManagementVideoProductionMiamiPage() {
         name: "Wealth Management Video Production Miami",
         description:
           "Financial advisor authority video editing, wealth management video marketing, and corporate financial video production in Miami.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Financial District / Brickell",
         serviceType: "Financial video production",
       },

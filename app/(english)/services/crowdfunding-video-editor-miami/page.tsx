@@ -23,13 +23,7 @@ export default function CrowdfundingVideoEditorMiamiPage() {
         name: "Crowdfunding Video Editor Miami",
         description:
           "Kickstarter campaign video editing, Indiegogo product launch videos, founder story editing, and backer conversion videos in Miami.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Wynwood / Miami-Dade",
         serviceType: "Crowdfunding video editing",
       },

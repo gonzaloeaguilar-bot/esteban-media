@@ -23,13 +23,7 @@ export default function MusicVideoPostProductionMiamiPage() {
         name: "Music Video Post Production Miami",
         description:
           "Music video post-production, lip-sync assembly, multi-take syncing, cinematic color grading, and creative music video editing in Miami.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Wynwood / Miami Beach",
         serviceType: "Music video post-production",
       },

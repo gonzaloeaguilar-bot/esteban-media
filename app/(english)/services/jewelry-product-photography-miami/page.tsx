@@ -23,13 +23,7 @@ export default function JewelryProductPhotographyMiamiPage() {
         name: "Jewelry Product Photography Miami",
         description:
           "High-end jewelry product photography, AI image generation, and commercial retouching for luxury brands.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami / Doral",
         serviceType: "Product photography",
       },

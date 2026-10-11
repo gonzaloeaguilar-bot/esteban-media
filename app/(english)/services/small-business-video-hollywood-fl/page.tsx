@@ -23,13 +23,7 @@ export default function SmallBusinessVideoHollywoodFlPage() {
         name: "Small Business Video Hollywood FL",
         description:
           "Small business video production & editing in Hollywood FL, local storefront promo videos, Instagram reels, and customer testimonial edits.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Hollywood / Hallandale Beach",
         serviceType: "Small business video production",
       },

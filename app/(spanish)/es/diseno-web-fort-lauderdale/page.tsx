@@ -25,13 +25,7 @@ export default function DisenoWebFortLauderdalePage() {
         name: "Diseño Web Fort Lauderdale & Chatbots con IA",
         description:
           "Diseño de sitios web personalizados de alta conversión, aplicaciones web y chatbots de atención 24/7 con IA para empresas en Fort Lauderdale y South Florida.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/es"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Fort Lauderdale / Broward / Miami-Dade / South Florida",
         serviceType: "Diseño Web e Integración de Chatbots con IA",
       },

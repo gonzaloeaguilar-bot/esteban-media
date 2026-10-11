@@ -29,13 +29,7 @@ export default function FitnessGymVideoMarketingMiamiPage() {
         name: "Fitness Gym Video Marketing Miami",
         description:
           "Dynamic gym video editing, fitness trainer Reels, and ad cuts for Miami health clubs and studios.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami-Dade / Broward",
         serviceType: "Fitness video production",
       },

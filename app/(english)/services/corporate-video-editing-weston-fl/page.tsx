@@ -23,13 +23,7 @@ export default function CorporateVideoEditingWestonFlPage() {
         name: "Corporate Video Editing Weston FL",
         description:
           "Corporate video editing service in Weston and Davie, executive interview polish, internal company video edits, and corporate storytelling.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Weston / Broward County",
         serviceType: "Corporate video editing",
       },

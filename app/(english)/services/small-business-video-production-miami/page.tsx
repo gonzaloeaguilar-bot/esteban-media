@@ -23,13 +23,7 @@ export default function SmallBusinessVideoPage() {
         name: "Small Business Video Production Miami",
         description:
           "Video editing, brand story videos, and promotional content for small businesses and local shops in Miami and Broward County.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami-Dade / Fort Lauderdale / Broward",
         serviceType: "Small business video production",
       },

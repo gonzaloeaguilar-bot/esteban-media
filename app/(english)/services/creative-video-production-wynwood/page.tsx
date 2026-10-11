@@ -23,13 +23,7 @@ export default function CreativeVideoProductionWynwoodPage() {
         name: "Creative Video Production Wynwood",
         description:
           "Wynwood creative video editing service, streetwear brand promo videos, art gallery video reels, and agency post-production.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Wynwood / Design District",
         serviceType: "Creative video production",
       },

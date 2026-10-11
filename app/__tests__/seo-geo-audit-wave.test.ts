@@ -1,4 +1,7 @@
-import { readFileSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
+
+import { buildCaseStudyStructuredData, getCaseStudies } from "@/lib/case-studies";
+import { buildGuideStructuredData, getGuides } from "@/lib/guides";
 import { join } from "node:path";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
@@ -42,6 +45,49 @@ describe("Reels pages have no duplicate H2 (fix 10)", () => {
     const h2s = headings(renderToStaticMarkup(Page()), 2);
     expect(h2s.length).toBeGreaterThan(2);
     expect(new Set(h2s).size).toBe(h2s.length);
+  });
+});
+
+describe("entity hygiene (fix 7)", () => {
+  const business = { "@id": "https://estebanmorenomedia.com/#business" };
+  const person = { "@id": "https://estebanmorenomedia.com/#esteban" };
+
+  function articleOf(graph: { "@graph": Array<Record<string, unknown>> }) {
+    return graph["@graph"].find((node) => node["@type"] === "Article")!;
+  }
+
+  it("guides reference #business (no visible byline) and carry an image", () => {
+    for (const locale of ["en", "es"] as const) {
+      for (const guide of getGuides(locale)) {
+        const article = articleOf(buildGuideStructuredData(guide));
+        expect(article.author).toEqual(business);
+        expect(article.publisher).toEqual(business);
+        expect(article.image).toBe("https://estebanmorenomedia.com/social-card");
+      }
+    }
+  });
+
+  it("case studies reference #esteban (named in the body) and #business", () => {
+    for (const locale of ["en", "es"] as const) {
+      for (const study of getCaseStudies(locale)) {
+        const article = articleOf(buildCaseStudyStructuredData(study));
+        expect(article.author).toEqual(person);
+        expect(article.publisher).toEqual(business);
+      }
+    }
+  });
+
+  it("no page source re-declares the business as an inline LocalBusiness stub", () => {
+    const offenders = ["app", "components", "lib"]
+      .flatMap((dir) =>
+        readdirSync(dir, { recursive: true, encoding: "utf8" }).map((file) => `${dir}/${file}`),
+      )
+      .filter((file) => /\.tsx?$/.test(file))
+      .filter((file) => !file.includes("__tests__"))
+      // The sitewide entity itself, and files owned by another branch.
+      .filter((file) => !["lib/entity-schema.ts", "lib/real-estate-reels.ts"].includes(file))
+      .filter((file) => readFileSync(file, "utf8").includes('"@type": "LocalBusiness"'));
+    expect(offenders).toEqual([]);
   });
 });
 

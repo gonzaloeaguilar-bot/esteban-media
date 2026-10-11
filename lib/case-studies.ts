@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { buildPageMetadata } from "@/lib/site-metadata";
-import { absoluteUrl, site } from "@/lib/site";
+import { absoluteUrl } from "@/lib/site";
 
 export const CASE_STUDY_IDS = [
   "banacol",
@@ -1093,19 +1093,12 @@ export function buildCaseStudyStructuredData(caseStudy: CaseStudy) {
         inLanguage: isSpanish ? "es-US" : "en-US",
         mainEntityOfPage: absoluteUrl(path),
         image: absoluteUrl(caseStudy.posterUrl),
-        author: {
-          "@type": "Person",
-          name: site.name,
-          url: absoluteUrl(isSpanish ? "/es/sobre-esteban" : "/about"),
-        },
-        publisher: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl(isSpanish ? "/es" : "/"),
-          telephone: site.phone.e164,
-          email: site.email,
-        },
+        // author typed the business name as a Person. Every case study names
+        // Esteban in its body as the person who did the work, so author is the
+        // sitewide #esteban entity and publisher the #business entity
+        // (SEO/GEO audit 2026-10-10, fix 7).
+        author: { "@id": absoluteUrl("/#esteban") },
+        publisher: { "@id": absoluteUrl("/#business") },
         about: {
           "@type": "CreativeWork",
           name: caseStudy.client,

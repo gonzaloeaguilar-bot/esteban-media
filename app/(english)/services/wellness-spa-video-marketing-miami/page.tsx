@@ -29,13 +29,7 @@ export default function WellnessSpaVideoMarketingMiamiPage() {
         name: "Wellness Spa Video Marketing Miami",
         description:
           "Day spa promotional video editing, wellness center video marketing, and relaxing sound design in Miami.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami Beach / Brickell",
         serviceType: "Spa video marketing",
       },

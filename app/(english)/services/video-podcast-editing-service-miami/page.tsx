@@ -23,13 +23,7 @@ export default function VideoPodcastEditingServiceMiamiPage() {
         name: "Video Podcast Editing Service Miami",
         description:
           "Video podcast editing, multi-camera angle editing, sound mastering, and short vertical clip exports for creators in Miami.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami-Dade / Remote",
         serviceType: "Podcast video editing",
       },

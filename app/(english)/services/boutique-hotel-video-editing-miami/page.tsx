@@ -23,13 +23,7 @@ export default function BoutiqueHotelVideoEditingMiamiPage() {
         name: "Boutique Hotel Video Editing Miami",
         description:
           "Boutique hotel promotional video editing, suite tour video reels, and resort hospitality video marketing in Miami.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami Beach / South Beach",
         serviceType: "Hotel video marketing",
       },

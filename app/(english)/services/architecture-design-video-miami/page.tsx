@@ -23,13 +23,7 @@ export default function ArchitectureDesignVideoMiamiPage() {
         name: "Architecture Design Video Miami",
         description:
           "Architectural video editing, interior design walkthroughs, and parallax photo animation for Miami design studios.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami / Coral Gables",
         serviceType: "Architectural video production",
       },

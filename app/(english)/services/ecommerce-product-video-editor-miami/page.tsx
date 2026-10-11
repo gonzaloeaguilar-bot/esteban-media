@@ -32,13 +32,7 @@ export default function EcommerceProductVideoEditorMiamiPage() {
         name: "E-Commerce Product Video Editor Miami",
         description:
           "E-commerce product demo video editing, Shopify store video ads, Amazon product listing video edits, and D2C brand videos.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami-Dade / Broward",
         serviceType: "E-commerce video editing",
       },

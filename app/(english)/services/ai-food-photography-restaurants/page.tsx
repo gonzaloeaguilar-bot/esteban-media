@@ -23,13 +23,7 @@ export default function AIFoodPhotographyPage() {
         name: "AI Food Photography Restaurants Miami",
         description:
           "AI-assisted food photography, table setting rendering, and menu visual creation for Miami restaurants.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami-Dade / Fort Lauderdale",
         serviceType: "AI food photography",
       },

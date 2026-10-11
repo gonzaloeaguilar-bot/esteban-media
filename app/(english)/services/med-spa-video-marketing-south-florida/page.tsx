@@ -33,13 +33,7 @@ export default function MedSpaVideoMarketingPage() {
         name: "Med Spa Video Marketing South Florida",
         description:
           "Video editing, treatment explanation Reels, and social video marketing for med spas and aesthetic practices in South Florida.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami-Dade / Fort Lauderdale / Broward",
         serviceType: "Med spa video marketing",
       },

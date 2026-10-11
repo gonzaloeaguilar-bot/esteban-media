@@ -23,13 +23,7 @@ export default function ContentRepurposingPage() {
         name: "Content Repurposing Service Miami",
         description:
           "Video repurposing service turning long videos, webinars, and podcasts into short vertical social clips in Miami and Fort Lauderdale.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami-Dade / Fort Lauderdale / Remote",
         serviceType: "Content repurposing service",
       },

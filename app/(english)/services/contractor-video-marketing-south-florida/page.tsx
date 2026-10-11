@@ -23,13 +23,7 @@ export default function ContractorVideoMarketingPage() {
         name: "Contractor Video Marketing South Florida",
         description:
           "Video editing, before-and-after project Reels, and client testimonial videos for South Florida home service contractors.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami-Dade / Fort Lauderdale / Broward",
         serviceType: "Contractor video marketing",
       },

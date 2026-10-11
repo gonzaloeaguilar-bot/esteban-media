@@ -64,13 +64,7 @@ export default function RestaurantPromoVideoEditingMiamiPage() {
         name: "Restaurant Promo Video Editing Miami",
         description:
           "Restaurant promo video editing in Miami for food reels, dish spotlight cuts, captions, and social promo edits tailored to South Florida dining.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami / Wynwood",
         serviceType: "Restaurant video marketing",
       },

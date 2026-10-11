@@ -23,13 +23,7 @@ export default function LuxuryJewelryVideoEditingMiamiPage() {
         name: "Luxury Jewelry Video Editing Miami",
         description:
           "Fine jewelry video editing, diamond macro showcase grading, luxury watch video promos, and high-end jewelry brand video edits.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Design District / Coral Gables",
         serviceType: "Jewelry video marketing",
       },

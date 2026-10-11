@@ -23,13 +23,7 @@ export default function VideoProductionDelrayBeachPage() {
         name: "Video Production Delray Beach",
         description:
           "Delray Beach video production & editing, Atlantic Avenue restaurant promo reels, boutique video marketing, and local business edits.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Delray Beach / Palm Beach County",
         serviceType: "Video production",
       },

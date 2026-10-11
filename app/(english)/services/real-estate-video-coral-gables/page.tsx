@@ -23,13 +23,7 @@ export default function RealEstateVideoCoralGablesPage() {
         name: "Real Estate Video Coral Gables",
         description:
           "Luxury property video editing, walkthrough formatting, and social Reels for Coral Gables realtors.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Coral Gables / Miami-Dade",
         serviceType: "Real estate video production",
       },

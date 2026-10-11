@@ -23,13 +23,7 @@ export default function PlasticSurgeryVideoMarketingPage() {
         name: "Plastic Surgery Video Marketing Miami",
         description:
           "High-end cosmetic surgery video editing, patient testimonial editing, and educational videos for Miami plastic surgeons.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami / Coral Gables",
         serviceType: "Medical video marketing",
       },

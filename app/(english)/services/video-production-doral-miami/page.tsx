@@ -23,13 +23,7 @@ export default function VideoProductionDoralPage() {
         name: "Video Production Doral Miami",
         description:
           "Commercial video production, B2B product videos, and remote editing for Doral distributors and businesses.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Doral / Miami-Dade",
         serviceType: "Video production",
       },

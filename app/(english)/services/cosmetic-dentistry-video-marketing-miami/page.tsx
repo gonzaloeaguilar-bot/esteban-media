@@ -23,13 +23,7 @@ export default function CosmeticDentistryVideoMarketingMiamiPage() {
         name: "Cosmetic Dentistry Video Marketing Miami",
         description:
           "Cosmetic dentist video editing, smile design before-and-after reels, patient testimonial editing, and dental video ads in Miami.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Coral Gables / Miami",
         serviceType: "Dental video marketing",
       },

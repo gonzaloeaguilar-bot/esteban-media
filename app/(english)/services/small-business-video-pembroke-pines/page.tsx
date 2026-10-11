@@ -28,13 +28,7 @@ export default function SmallBusinessVideoPembrokePinesPage() {
         name: "Small Business Video Pembroke Pines",
         description:
           "Small business video editing, social promo videos, and content packages for Pembroke Pines local shops.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Pembroke Pines / Broward",
         serviceType: "Small business video production",
       },

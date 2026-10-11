@@ -15,7 +15,7 @@ import { ArranqueWeeklySection } from "@/components/arranque-weekly-section";
 import { arranqueWeeklyFaq, arranqueWeeklyOfferJsonLd } from "@/lib/arranque-weekly";
 import { CREATOR_DEEP_DIVE } from "@/lib/service-deep-dive-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
-import { absoluteUrl, site } from "@/lib/site";
+import { absoluteUrl } from "@/lib/site";
 
 const path = "/services/content-creator-video-editing-miami";
 
@@ -39,13 +39,7 @@ export default function ContentCreatorVideoEditingPage() {
         name: "Content Creator Video Editing Miami",
         description:
           "Vertical video editing, caption work, and publishing cadence support for content creators and influencers, remotely or in South Florida.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami-Dade / Broward / Remote",
         serviceType: "Content creator video editing",
       },

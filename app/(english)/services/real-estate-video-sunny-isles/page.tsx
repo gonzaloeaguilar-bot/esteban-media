@@ -23,13 +23,7 @@ export default function RealEstateVideoSunnyIslesPage() {
         name: "Real Estate Video Sunny Isles",
         description:
           "Sunny Isles Beach real estate video editing, oceanfront condo tower walkthroughs, luxury penthouse videos, and realtor marketing.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Sunny Isles Beach / Aventura",
         serviceType: "Real estate video editing",
       },

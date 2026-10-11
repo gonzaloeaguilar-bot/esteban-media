@@ -13,7 +13,7 @@ import {
 import { SALON_DEPTH } from "@/lib/service-depth-content";
 import { SALON_COST_DEEP_DIVE, SALON_DEEP_DIVE } from "@/lib/service-deep-dive-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
-import { absoluteUrl, site } from "@/lib/site";
+import { absoluteUrl } from "@/lib/site";
 
 const path = "/services/salon-barbershop-video-marketing-miami";
 
@@ -36,13 +36,7 @@ export default function SalonBarbershopVideoMarketingPage() {
         name: "Salon & Barbershop Video Marketing Miami",
         description:
           "Video editing and selective production for hair salons, barbershops, and nail studios in Miami-Dade and Broward, built around transformation footage.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami-Dade / Broward",
         serviceType: "Salon and barbershop video marketing",
       },

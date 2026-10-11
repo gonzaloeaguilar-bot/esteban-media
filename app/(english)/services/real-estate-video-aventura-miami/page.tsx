@@ -23,13 +23,7 @@ export default function RealEstateVideoAventuraMiamiPage() {
         name: "Real Estate Video Aventura Miami",
         description:
           "Luxury condo real estate video editing in Aventura and Sunny Isles, oceanfront penthouse walkthroughs, and realtor video marketing.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Aventura / Sunny Isles Beach",
         serviceType: "Real estate video editing",
       },

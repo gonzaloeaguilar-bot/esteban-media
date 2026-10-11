@@ -23,13 +23,7 @@ export default function RoofingContractorVideoMarketingSouthFloridaPage() {
         name: "Roofing Contractor Video Marketing South Florida",
         description:
           "Roofing contractor video editing, jobsite before-and-after reels, hurricane impact window promos, and contractor videos in South Florida.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami-Dade / Broward",
         serviceType: "Contractor video marketing",
       },

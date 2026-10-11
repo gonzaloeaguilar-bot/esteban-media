@@ -23,13 +23,7 @@ export default function LawFirmVideoProductionMiamiPage() {
         name: "Law Firm Video Production Miami",
         description:
           "Attorney testimonial editing, legal brand storytelling, partner overview video post-production, and social video marketing in Miami.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Downtown Miami / Financial District",
         serviceType: "Law firm video production",
       },

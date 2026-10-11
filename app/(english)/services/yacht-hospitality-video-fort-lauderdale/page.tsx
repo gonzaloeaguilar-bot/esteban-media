@@ -41,13 +41,7 @@ export default function YachtHospitalityVideoFortLauderdalePage() {
         name: "Yacht Hospitality Video Fort Lauderdale",
         description:
           "Fort Lauderdale yacht video editing, marine drone footage formatting, and luxury charter promotional video post-production.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Fort Lauderdale / Broward",
         serviceType: "Marine video production",
       },

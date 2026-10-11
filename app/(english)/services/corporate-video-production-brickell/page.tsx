@@ -23,13 +23,7 @@ export default function CorporateVideoProductionBrickellPage() {
         name: "Corporate Video Production Brickell Miami",
         description:
           "Corporate video production, executive interview editing, and company videos for Brickell financial firms.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Brickell / Downtown Miami",
         serviceType: "Corporate video production",
       },

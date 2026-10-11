@@ -13,7 +13,7 @@ import {
 import { MEDICAL_PRACTICE_DEPTH } from "@/lib/service-depth-content";
 import { MEDICAL_PRACTICE_DEEP_DIVE } from "@/lib/service-deep-dive-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
-import { absoluteUrl, site } from "@/lib/site";
+import { absoluteUrl } from "@/lib/site";
 
 const path = "/services/medical-practice-video-marketing-miami";
 
@@ -36,13 +36,7 @@ export default function MedicalPracticeVideoMarketingPage() {
         name: "Medical Practice Video Marketing Miami",
         description:
           "Video editing and selective video production for chiropractic, physical therapy, functional medicine, and walk-in clinics in Miami-Dade and Broward.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami-Dade / Broward",
         serviceType: "Medical practice video marketing",
       },

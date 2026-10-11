@@ -23,13 +23,7 @@ export default function InterviewVideoEditingServicePage() {
         name: "Interview Video Editing Service",
         description:
           "Multi-cam interview video editing service, audio cleaning, narrative pacing, lower third graphics, and B-roll insertion.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami-Dade / Broward",
         serviceType: "Interview video editing",
       },

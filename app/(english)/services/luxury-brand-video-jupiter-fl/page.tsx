@@ -23,13 +23,7 @@ export default function LuxuryBrandVideoJupiterFlPage() {
         name: "Luxury Brand Video Jupiter FL",
         description:
           "Luxury brand video editing in Jupiter and Palm Beach Gardens, country club lifestyle video promos, and luxury marine video edits.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Jupiter / Palm Beach Gardens",
         serviceType: "Luxury brand video",
       },

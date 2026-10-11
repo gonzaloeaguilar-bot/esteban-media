@@ -25,13 +25,7 @@ export default function NightlifeEventVideoEditingMiamiPage() {
         name: "Nightlife Event Video Editing Miami",
         description:
           "Nightclub event recap editing, fast-paced rhythm syncing, DJ promo video editing, and VIP party reels in Miami.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami Beach / Wynwood",
         serviceType: "Nightlife video editing",
       },

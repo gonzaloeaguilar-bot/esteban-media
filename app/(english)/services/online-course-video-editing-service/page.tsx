@@ -23,13 +23,7 @@ export default function OnlineCourseVideoEditingServicePage() {
         name: "Online Course Video Editing Service",
         description:
           "Online course module video editing, slide presentation syncing, audio noise reduction, and educational video post-production.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami-Dade / Broward",
         serviceType: "Online course video editing",
       },

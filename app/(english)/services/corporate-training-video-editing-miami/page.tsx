@@ -23,13 +23,7 @@ export default function CorporateTrainingVideoEditingMiamiPage() {
         name: "Corporate Training Video Editing Miami",
         description:
           "Corporate onboarding video editing, employee training video post-production, SOP walkthrough editing, and internal communications in Miami.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Financial District / Doral / Miami",
         serviceType: "Corporate training video editing",
       },

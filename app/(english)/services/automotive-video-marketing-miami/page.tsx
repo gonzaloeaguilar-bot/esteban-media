@@ -25,13 +25,7 @@ export default function AutomotiveVideoMarketingMiamiPage() {
         name: "Automotive Video Marketing Miami",
         description:
           "Exotic car video editing, auto detailing promo edits, and cinematic vehicle showcases in Miami.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami / Fort Lauderdale",
         serviceType: "Automotive video production",
       },

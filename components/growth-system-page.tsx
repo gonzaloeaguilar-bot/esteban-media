@@ -3,7 +3,7 @@ import { ArrowRight, CheckCircle2, ShieldCheck } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import type { GrowthSystem } from "@/lib/growth-systems";
-import { absoluteUrl, site } from "@/lib/site";
+import { absoluteUrl } from "@/lib/site";
 
 export function GrowthSystemPage({
   system,
@@ -35,13 +35,7 @@ export function GrowthSystemPage({
         name: title,
         description: spanish ? system.spanishDescription : system.description,
         serviceType: title,
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Fort Lauderdale, Broward County, Miami-Dade, and Palm Beach County",
       },
       {

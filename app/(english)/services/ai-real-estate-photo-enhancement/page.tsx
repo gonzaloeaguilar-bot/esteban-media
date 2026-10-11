@@ -32,13 +32,7 @@ export default function AIRealEstatePhotoPage() {
         name: "AI Real Estate Photo Enhancement Miami",
         description:
           "AI-assisted real estate photo retouching, sky replacement, and lighting enhancement for South Florida real estate listings.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami-Dade / Fort Lauderdale / Broward",
         serviceType: "AI real estate photo enhancement",
       },

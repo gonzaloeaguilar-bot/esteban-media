@@ -23,13 +23,7 @@ export default function FitnessTrainerVideoProductionMiamiPage() {
         name: "Fitness Trainer Video Production Miami",
         description:
           "Personal trainer video editing, fitness workout reel formatting, and client transformation video post-production in Miami.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami / Brickell",
         serviceType: "Fitness video production",
       },

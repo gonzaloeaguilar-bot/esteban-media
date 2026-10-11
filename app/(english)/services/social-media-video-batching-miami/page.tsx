@@ -32,13 +32,7 @@ export default function SocialMediaVideoBatchingMiamiPage() {
         name: "Social Media Video Batching Miami",
         description:
           "Social media video batch editing in Miami, monthly content calendar video editing, batch Reels/Shorts post-production, and brand video retainer.",
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": absoluteUrl("/#business"),
-          name: site.name,
-          url: absoluteUrl("/"),
-          telephone: site.phone.e164,
-        },
+        provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami-Dade / Broward / Palm Beach",
         serviceType: "Social media video batching",
       },
