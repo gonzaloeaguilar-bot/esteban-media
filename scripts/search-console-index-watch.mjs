@@ -83,6 +83,10 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/es/video-para-preventa-de-condominios-miami",
   "https://estebanmorenomedia.com/services/vacation-rental-video-marketing-fort-lauderdale",
   "https://estebanmorenomedia.com/es/video-para-alquileres-vacacionales-fort-lauderdale",
+  "https://estebanmorenomedia.com/services/insurance-agency-video-marketing-miami",
+  "https://estebanmorenomedia.com/es/marketing-de-video-para-agencias-de-seguros-miami",
+  "https://estebanmorenomedia.com/services/mortgage-broker-video-marketing-miami",
+  "https://estebanmorenomedia.com/es/marketing-de-video-para-brokers-hipotecarios-miami",
   // @@WAVE8-WATCH@@
   "https://estebanmorenomedia.com/es/precios",
   "https://estebanmorenomedia.com/case-studies/banacol",

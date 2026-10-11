@@ -60,6 +60,10 @@ export const pairedLanguageRoutes: Record<string, string> = {
     "/es/video-para-preventa-de-condominios-miami",
   "/services/vacation-rental-video-marketing-fort-lauderdale":
     "/es/video-para-alquileres-vacacionales-fort-lauderdale",
+  "/services/insurance-agency-video-marketing-miami":
+    "/es/marketing-de-video-para-agencias-de-seguros-miami",
+  "/services/mortgage-broker-video-marketing-miami":
+    "/es/marketing-de-video-para-brokers-hipotecarios-miami",
   // @@WAVE8-ROUTES@@
 };
 

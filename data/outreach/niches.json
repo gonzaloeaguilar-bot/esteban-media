@@ -346,6 +346,44 @@
       "angle_en": "Most rental listings have photos but no short tour that walks a guest through the place in order.",
       "angle_es": "La mayoría de los anuncios de alquiler tienen fotos, pero no un recorrido corto que lleve al huésped por la propiedad en orden.",
       "priority": 2
+    },
+    {
+      "id": "insurance-agencies",
+      "label": "Latino insurance agencies (ACA / Medicare agents)",
+      "queries": [
+        "insurance agency",
+        "health insurance agent",
+        "medicare insurance agent",
+        "obamacare insurance agency"
+      ],
+      "ig_terms": [
+        "seguros",
+        "agente de seguros",
+        "obamacare",
+        "medicare"
+      ],
+      "why": "Owner-approved wave 8. Agents answer the same Spanish questions every day and the fall enrollment season is predictable; page: /services/insurance-agency-video-marketing-miami.",
+      "angle_en": "Agents answer the same client questions every week, and few agencies have them as short Spanish videos ready before enrollment season.",
+      "angle_es": "Los agentes responden las mismas preguntas cada semana, y pocas agencias las tienen en videos cortos en español listos antes de la temporada de inscripción.",
+      "priority": 2
+    },
+    {
+      "id": "mortgage-brokers",
+      "label": "Spanish-speaking mortgage brokers and loan officers",
+      "queries": [
+        "mortgage broker",
+        "mortgage loan officer",
+        "mortgage company"
+      ],
+      "ig_terms": [
+        "mortgage broker",
+        "loan officer",
+        "prestamos hipotecarios"
+      ],
+      "why": "Owner-approved wave 8. Loan officers sell on personal trust and already film talking-head clips; compliance text is theirs to supply; page: /services/mortgage-broker-video-marketing-miami.",
+      "angle_en": "Loan officers who explain the buying process on camera in Spanish are still rare, and most have more phone clips than edited videos.",
+      "angle_es": "Todavía son pocos los oficiales de préstamos que explican el proceso de compra en español frente a cámara, y la mayoría tiene más clips en el celular que videos editados.",
+      "priority": 2
     }
   ]
 }

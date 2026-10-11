@@ -53,6 +53,24 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
       { href: "/es/portafolio/homeowners", title: "Homeowners", detail: "Video para redes editado con material entregado por una agencia." },
     ],
   },
+  "marketing-de-video-para-agencias-de-seguros-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade y Broward",
+    note: "Healthy Smile Miami: videos para redes de una clínica dental, grabados en locación con sonido y editados por Esteban para una agencia. No es una agencia de seguros; muestra un consultorio presentado a cámara.",
+    serviceIds: ["edicion", "planificacion-social", "videografia"],
+    projects: [
+      { href: "/es/portafolio/healthy-smile", title: "Healthy Smile Miami", detail: "Videos para redes grabados en locación y editados." },
+    ],
+  },
+  "marketing-de-video-para-brokers-hipotecarios-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade y Broward",
+    note: "ML Colombia: pieza corta para redes de una marca de cosméticos que Esteban fundó y dirigió. No es una cuenta hipotecaria; muestra cómo edita contenido corto para los canales de una marca.",
+    serviceIds: ["edicion", "planificacion-social", "videografia"],
+    projects: [
+      { href: "/es/portafolio/ml-colombia", title: "ML Colombia", detail: "Pieza social de 24 segundos para una marca propia." },
+    ],
+  },
   // @@WAVE8-CONTEXT@@
   "edicion-de-video-para-creadores-de-comida-y-lugares-miami": {
     areaHref: "/es/areas#broward",
@@ -1110,6 +1128,22 @@ const spanishInquiryServices: Record<string, ServiceInquiry> = {
     assetPrompt: "clips de cada espacio grabados después de la limpieza, los datos del anuncio y el enlace de reserva",
     proofHref: "/es/editor-de-video-real-estate-miami",
     proofLabel: "Ver edición inmobiliaria",
+  },
+  "marketing-de-video-para-agencias-de-seguros-miami": {
+    serviceId: "es_insurance_agency_video",
+    serviceName: "videos en español para una agencia de seguros",
+    goalPrompt: "explicar dudas de ACA y Medicare antes de la temporada de inscripción",
+    assetPrompt: "clips de los agentes, las preguntas frecuentes y los avisos aprobados por la agencia",
+    proofHref: "/es/portafolio/healthy-smile",
+    proofLabel: "Ver videos de un consultorio publicados",
+  },
+  "marketing-de-video-para-brokers-hipotecarios-miami": {
+    serviceId: "es_mortgage_broker_video",
+    serviceName: "videos de marca personal para un broker hipotecario",
+    goalPrompt: "explicar el proceso de compra con mi propia voz",
+    assetPrompt: "clips grabados con el celular, mi NMLS y los avisos aprobados por cumplimiento",
+    proofHref: "/es/portafolio/ml-colombia",
+    proofLabel: "Ver una pieza social publicada",
   },
   // @@WAVE8-INQUIRY@@
   "edicion-de-video-para-creadores-de-comida-y-lugares-miami": {

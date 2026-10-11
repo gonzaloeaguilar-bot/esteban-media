@@ -13,10 +13,12 @@ import {
   Handshake,
   Home,
   Languages,
+  Landmark,
   Laptop,
   MapPin,
   Megaphone,
   Scissors,
+  ShieldCheck,
   Stethoscope,
   UtensilsCrossed,
   Video,
@@ -335,6 +337,130 @@ const nicheWave8Pages: SpanishNichePage[] = [
         question: "¿Hay trabajo inmobiliario publicado para ver?",
         answer:
           "Sí. La página de reels inmobiliarios en inglés muestra seis reels verticales de propiedades que editó Esteban. Son reels de anuncios, no de un cliente de alquiler vacacional, y muestran cómo se arma un recorrido para la pantalla del celular.",
+      },
+    ],
+  },
+  {
+    slug: "marketing-de-video-para-agencias-de-seguros-miami",
+    title: "Marketing de video para agencias de seguros en Miami",
+    metadataTitle: "Video para Agencias de Seguros Miami",
+    description:
+      "Videos cortos en español para agencias de seguros latinas en Miami y Fort Lauderdale: explicaciones de ACA y Medicare y un calendario para la temporada de inscripción.",
+    eyebrow: "Agencias de seguros / Agentes de ACA y Medicare",
+    h1: "Videos cortos en español para agencias de seguros.",
+    lead:
+      "Graba a tus agentes respondiendo las preguntas que los clientes hacen en la oficina. Esteban las convierte en explicaciones cortas en español y organiza el calendario para la temporada de inscripción, con los avisos que tu agencia aprueba.",
+    keyword: "marketing de video para agencias de seguros",
+    location: "Miami-Dade / Broward / Remoto",
+    availability: "confirmed",
+    icon: ShieldCheck,
+    updated: "2026-10-11",
+    fitQuestion: "¿Qué videos cortos puede publicar en español una agencia de seguros latina?",
+    projectFit: `Explicaciones que responden una sola pregunta que los clientes ya hacen en el escritorio: qué es un deducible, en qué se diferencia un plan del Mercado de Medicaid, qué cambia al cumplir 65 años, qué documentos llevar a la cita. Esteban edita los clips de celular de tus agentes en videos cortos en español, con versión en inglés cuando hace falta, y planea el calendario alrededor de la temporada de inscripción de otoño. La agencia entrega y aprueba cada aviso legal y el lenguaje que exigen las aseguradoras. Los videos explican e invitan a pedir una cita; no prometen inscripción, ahorro, aprobación ni un plan determinado. La edición es remota: ${esArranque()}. Grabar en la agencia es un servicio adicional pagado que se cotiza por proyecto.`,
+    sectionsDisclosure: "Arma la biblioteca de explicaciones de tu agencia",
+    sectionsDestinations: "Temas que salen de las preguntas reales y cómo grabar sin estudio",
+    bestFor: [
+      "Agencias que atienden clientes hispanos en planes del Mercado y Medicare.",
+      "Agentes que responden las mismas preguntas todos los días por teléfono y WhatsApp.",
+      "Oficinas que quieren publicar con orden antes y durante la inscripción.",
+    ],
+    scopingQuestions: [
+      "¿Qué preguntas escuchan más tus agentes, con las palabras que usan los clientes?",
+      "¿Qué avisos legales y textos de las aseguradoras deben aparecer en los videos?",
+      "¿Quién de la agencia revisa cada video antes de publicarlo?",
+    ],
+    sections: [
+      {
+        heading: "¿Con qué temas conviene empezar una serie de explicaciones de seguros?",
+        paragraphs: [
+          "Con las preguntas que la recepción contesta cada semana. Pide a cada agente que anote lo que los clientes preguntan más, con sus propias palabras, y la lista se repite: qué son la prima y el deducible, si se puede agregar a un familiar, qué papeles llevar, qué pasa si cambian los ingresos, cómo usar el plan para ver a un médico. Cada pregunta se vuelve un video de menos de un minuto, con la pregunta como título, porque así la escribe alguien en el buscador o se la pregunta a un asistente de voz.",
+          "Los temas de Medicare se separan de los del Mercado, para que cada serie lleve los avisos que exige su revisión. La agencia termina con piezas para publicar, fijar y mandar por WhatsApp. Para el formato vertical, revisa el [editor de video corto](/es/editor-de-video-corto-para-redes-miami).",
+        ],
+      },
+      {
+        heading: "¿Cómo se prepara la agencia para la temporada de inscripción?",
+        paragraphs: [
+          "Con tiempo. El período anual de inscripción de Medicare va del 15 de octubre al 7 de diciembre, y la inscripción abierta del Mercado para residentes de Florida suele empezar el 1 de noviembre, así que las explicaciones sirven más si están grabadas y aprobadas a comienzos del otoño. La agencia debe confirmar las fechas de cada año.",
+          "Una sola sesión tranquila alcanza: el agente frente a una ventana, el celular a la altura de los ojos y un micrófono de solapa, respondiendo la pregunta que lee un compañero. El [plan Crecimiento](/es/precios/crecimiento) reparte esos videos en un calendario, con edición y reporte mensual, sin prometer cifras de inscripción. En los meses tranquilos, temas como leer una factura o presentar un reclamo mantienen la cuenta activa.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Quién responde por el cumplimiento normativo de los videos?",
+        answer:
+          "La agencia y sus aseguradoras. El marketing relacionado con Medicare tiene reglas sobre lo que se puede decir y los avisos que deben aparecer, y la agencia las aplica con su propio proceso de revisión. Esteban coloca el texto aprobado tal como lo recibe y no redacta lenguaje regulatorio ni da asesoría de seguros.",
+      },
+      {
+        question: "¿Los agentes necesitan un estudio para grabar?",
+        answer: `No. Una oficina tranquila, el celular a la altura de los ojos y luz de ventana bastan, y la edición es remota: Arranque es ${esArranque()}. Si la agencia quiere que Esteban grabe en la oficina, es un servicio adicional pagado que se cotiza por proyecto.`,
+      },
+      {
+        question: "¿Los videos prometen resultados de inscripción?",
+        answer:
+          "No. Explican términos y pasos e invitan a pedir una cita. No prometen inscripción, aprobación, ahorro ni un plan específico, y cada video pasa por la revisión de la agencia antes de publicarse.",
+      },
+    ],
+  },
+  {
+    slug: "marketing-de-video-para-brokers-hipotecarios-miami",
+    title: "Marketing de video para brokers hipotecarios en Miami",
+    metadataTitle: "Video para Brokers Hipotecarios Miami",
+    description:
+      "Reels de marca personal y explicaciones en español para brokers hipotecarios y oficiales de préstamos en Miami y Fort Lauderdale. Los avisos y el NMLS los aprueba el cliente.",
+    eyebrow: "Brokers hipotecarios / Oficiales de préstamos",
+    h1: "Videos de marca personal para brokers hipotecarios que atienden en español.",
+    lead:
+      "Explica el proceso de compra con tu propia voz y Esteban convierte esos clips en reels y explicaciones con un estilo constante. Tú entregas y apruebas el NMLS y los avisos que exige tu prestamista.",
+    keyword: "marketing de video para brokers hipotecarios",
+    location: "Miami-Dade / Broward / Remoto",
+    availability: "confirmed",
+    icon: Landmark,
+    updated: "2026-10-11",
+    fitQuestion: "¿Qué videos ayudan a un oficial de préstamos hispano a construir su marca personal?",
+    projectFit: `Videos cortos en los que el oficial de préstamos explica, con su propia voz, los pasos que confunden a los compradores: la diferencia entre precalificación y preaprobación, qué documentos necesita alguien que trabaja por cuenta propia, qué es un préstamo con ITIN, cómo funcionan los costos de cierre. Esteban edita esos clips en reels verticales y explicaciones más largas en español, con versión en inglés cuando el público lo pide, y ayuda a planear un calendario de publicación. El cumplimiento es del cliente: el número NMLS, el nombre de la empresa y cualquier aviso que pida el prestamista los entrega y aprueba el broker. Ningún video promete una tasa, una aprobación ni una fecha de cierre. Edición remota: ${esArranque()}; grabar en la oficina es un servicio adicional pagado que se cotiza por proyecto.`,
+    sectionsDisclosure: "Planea un mes de videos hipotecarios",
+    sectionsDestinations: "Las preguntas de los compradores y una sola sesión de grabación",
+    bestFor: [
+      "Oficiales de préstamos que atienden familias hispanas en South Florida.",
+      "Brokers que quieren una cuenta con la misma cara, el mismo tono y avisos en orden.",
+      "Equipos que trabajan con agentes inmobiliarios y necesitan contenido para compartir.",
+    ],
+    scopingQuestions: [
+      "¿Qué número NMLS, nombre de empresa y avisos deben aparecer en cada video?",
+      "¿Quién del equipo de cumplimiento revisa los videos antes de publicarlos?",
+      "¿Tus clientes prefieren contenido en español, en inglés o en ambos?",
+    ],
+    sections: [
+      {
+        heading: "¿Qué preguntas de compradores sirven para explicar el proceso hipotecario?",
+        paragraphs: [
+          "Las que aparecen antes de que el comprador esté listo para aplicar. Quien compra por primera vez pregunta cuánto debe ahorrar, qué significa su crédito y por qué conviene la preaprobación antes de hacer una oferta. Quien trabaja por cuenta propia pregunta qué declaraciones de impuestos revisa el prestamista. Quien llegó hace poco al país pregunta si puede comprar con ITIN o con ingresos del exterior. Cada pregunta se vuelve un video con la pregunta como título, respondido en un español sencillo por el oficial de préstamos.",
+          "El video explica el proceso general y deja las condiciones específicas para una conversación. Ordenar las preguntas por etapa, del ahorro al cierre, le da orden al calendario y enseña el proceso en el orden en que el seguidor lo va a vivir.",
+        ],
+      },
+      {
+        heading: "¿Cómo rinde una sola sesión de grabación para todo un mes?",
+        paragraphs: [
+          "Grabando respuestas, no programas. Escribe entre ocho y doce preguntas en tarjetas, siéntate frente al celular con luz de ventana y responde cada una en menos de un minuto, como si un cliente acabara de preguntarte. Un compañero que lee la pregunta en voz alta mantiene el tono natural. Cambia de camisa o de lugar a mitad de la sesión para que no parezca todo de la misma tarde.",
+          "Envía los clips con la lista de preguntas, el texto de avisos aprobado y el enlace donde la gente debe agendar. La edición recorta cada respuesta, agrega subtítulos y deja el aviso siempre en el mismo lugar. El [plan Crecimiento](/es/precios/crecimiento) reparte esos videos en el mes, y los [reels inmobiliarios](/es/editor-de-video-real-estate-miami) sirven para los agentes con los que trabajas.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Quién entrega el número NMLS y los avisos?",
+        answer:
+          "El broker o el oficial de préstamos, junto con el equipo de cumplimiento del prestamista. Esteban no decide qué avisos aplican ni cómo se redactan; coloca el NMLS, el nombre de la empresa y el texto requerido tal como lo recibe, en el mismo lugar de cada video.",
+      },
+      {
+        question: "¿Se puede grabar todo con el celular?",
+        answer: `Sí. Celular a la altura de los ojos, luz de ventana y micrófono de solapa. La edición remota con Arranque es ${esArranque()}, y el plan Crecimiento, con plan de contenido y calendario, es ${esCrecimiento()}. Grabar en la oficina o en un open house es un servicio adicional pagado que se cotiza por proyecto.`,
+      },
+      {
+        question: "¿Los videos deben ser en español, en inglés o en ambos?",
+        answer:
+          "En el idioma en que te llaman tus clientes. Muchos oficiales de préstamos de South Florida atienden primero a familias hispanas. Esteban trabaja primero en español, con inglés intermedio, así que alguien de tu equipo revisa los textos en inglés antes de publicar.",
       },
     ],
   },
@@ -4104,6 +4230,8 @@ const nicheWave8Hreflang = Object.fromEntries(
     [
       ["/services/pre-construction-condo-video-marketing-miami", "/es/video-para-preventa-de-condominios-miami"],
       ["/services/vacation-rental-video-marketing-fort-lauderdale", "/es/video-para-alquileres-vacacionales-fort-lauderdale"],
+      ["/services/insurance-agency-video-marketing-miami", "/es/marketing-de-video-para-agencias-de-seguros-miami"],
+      ["/services/mortgage-broker-video-marketing-miami", "/es/marketing-de-video-para-brokers-hipotecarios-miami"],
       // @@WAVE8-HREFLANG@@
     ] as const
   ).flatMap(([en, es]) =>

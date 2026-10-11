@@ -112,6 +112,8 @@ export const sitemapRoutes = [
   // 2026-10-11 niche wave 8 (owner-approved).
   { path: "/services/pre-construction-condo-video-marketing-miami", priority: 0.85 },
   { path: "/services/vacation-rental-video-marketing-fort-lauderdale", priority: 0.85 },
+  { path: "/services/insurance-agency-video-marketing-miami", priority: 0.85 },
+  { path: "/services/mortgage-broker-video-marketing-miami", priority: 0.85 },
   // @@WAVE8-SITEMAP@@
   { path: "/desk-recommendations", priority: 0.85 },
   { path: "/portfolio", priority: 0.9 },

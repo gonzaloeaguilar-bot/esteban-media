@@ -2,8 +2,8 @@
   "status": "demand_gated",
   "effectiveDate": "2026-08-28",
   "baselineRevisedOn": "2026-10-11",
-  "approvedSitemapUrlCount": 288,
-  "approvedSitemapUrlSetSha256": "4d6d773f657dc2c464b2a64ada041f1dc3ddaafae733316405ec5bbafb194594",
+  "approvedSitemapUrlCount": 292,
+  "approvedSitemapUrlSetSha256": "9d9e0ad4e1861ec762a5f5961dbfc9790c2927e0956ac922ebc45f84bf9c093e",
   "allowedNewIndexableUrls": 4,
   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {
@@ -202,7 +202,11 @@
         "/services/pre-construction-condo-video-marketing-miami",
         "/es/video-para-preventa-de-condominios-miami",
         "/services/vacation-rental-video-marketing-fort-lauderdale",
-        "/es/video-para-alquileres-vacacionales-fort-lauderdale"
+        "/es/video-para-alquileres-vacacionales-fort-lauderdale",
+        "/services/insurance-agency-video-marketing-miami",
+        "/es/marketing-de-video-para-agencias-de-seguros-miami",
+        "/services/mortgage-broker-video-marketing-miami",
+        "/es/marketing-de-video-para-brokers-hipotecarios-miami"
       ],
       "orderedBy": "Owner (Esteban), relayed by the project coordinator in-session",
       "kind": "buyer-gap niche pairs (wave 8)",

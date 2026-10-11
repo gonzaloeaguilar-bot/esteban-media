@@ -370,3 +370,47 @@ export const VACATION_RENTAL_DEEP_DIVE: DeepDive = {
     },
   ],
 };
+
+export const INSURANCE_AGENCY_DEEP_DIVE: DeepDive = {
+  id: "insurance-explainers",
+  title: "How does an agency build a Spanish explainer library?",
+  destinations: "Choosing topics from real client questions, and filming agents without a studio.",
+  sections: [
+    {
+      heading: "Which topics should an insurance explainer series start with?",
+      paragraphs: [
+        "The questions the front desk answers every week. Ask each agent to write down the questions clients ask most, in the words clients use, and the list usually repeats: what a premium and a deductible are, whether a family member can be added, what documents to bring, what happens if income changes, how to use the plan to see a doctor. Each becomes one video of under a minute, titled with the question itself, because that is what someone types into a search bar or asks a voice assistant.",
+        "Medicare topics are kept apart from Marketplace topics, so each series can carry the disclaimers its compliance review requires. The result is a set the agency can post, pin and share by WhatsApp whenever a client asks the same question again.",
+      ],
+    },
+    {
+      heading: "How can agents film explainers without a studio or a crew?",
+      paragraphs: [
+        "Book one quiet block in the calendar, not a production day. The agent sits facing a window, the phone sits on a stand at eye level, and each topic is recorded as a short answer to a question read aloud by a colleague, which sounds more natural than a memorised script. A lapel microphone connected to the phone makes the biggest difference, because office air conditioning and street noise are what make phone audio hard to follow.",
+        "Record a couple of takes of each answer and keep going. The edit picks the clearest one, adds Spanish captions and the agency's branding, and leaves space at the end for the approved disclaimer. One session like that can cover a month of topics in the [short-form](/services/short-form-video-editor-miami) format.",
+      ],
+    },
+  ],
+};
+
+export const MORTGAGE_BROKER_DEEP_DIVE: DeepDive = {
+  id: "loan-officer-videos",
+  title: "How does a loan officer plan a month of videos?",
+  destinations: "Turning buyer questions into a series, and recording a batch in one sitting.",
+  sections: [
+    {
+      heading: "Which buyer questions make useful mortgage explainers?",
+      paragraphs: [
+        "The ones that come up before a buyer is ready to apply. First-time buyers ask how much they need to save, what their credit means for them and why pre-approval matters before making an offer. Self-employed buyers ask which tax documents a lender looks at. Buyers who are new to the country ask whether they can buy with an ITIN or with income from abroad. Each becomes one video with the question as its title, answered in plain Spanish by the loan officer, with the general process explained and the specific terms left for a conversation.",
+        "Sorting the questions by stage, from saving to closing, gives the calendar an order, so a follower who watches the series learns the process in the order they will live it.",
+      ],
+    },
+    {
+      heading: "How can one recording session supply a month of posts?",
+      paragraphs: [
+        "By recording answers, not shows. Write eight to twelve buyer questions on cards, sit at eye level to a phone on a stand with window light in front of you, and answer each one in under a minute as if a client had just asked it. A colleague reading the question aloud keeps the tone conversational. Change shirts or move to a second spot halfway through, so the feed does not look like a single afternoon.",
+        "Send the clips with the list of questions, the approved disclosure text and the link where viewers should book a call. The edit trims each answer, adds captions and the disclosure in its fixed position, and returns a set that can be scheduled across the month on the [Growth plan](/pricing/growth).",
+      ],
+    },
+  ],
+};

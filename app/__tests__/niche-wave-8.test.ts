@@ -24,6 +24,8 @@ import { PACKAGE_PRICES, PRICING_BANDS, SHORT_FORM, usd } from "@/lib/pricing";
 const WAVE = [
   ["pre-construction condos", "PRECONSTRUCTION_DEPTH", "PRECONSTRUCTION_DEEP_DIVE", "/services/pre-construction-condo-video-marketing-miami", "video-para-preventa-de-condominios-miami"],
   ["vacation rentals", "VACATION_RENTAL_DEPTH", "VACATION_RENTAL_DEEP_DIVE", "/services/vacation-rental-video-marketing-fort-lauderdale", "video-para-alquileres-vacacionales-fort-lauderdale"],
+  ["insurance agencies", "INSURANCE_AGENCY_DEPTH", "INSURANCE_AGENCY_DEEP_DIVE", "/services/insurance-agency-video-marketing-miami", "marketing-de-video-para-agencias-de-seguros-miami"],
+  ["mortgage brokers", "MORTGAGE_BROKER_DEPTH", "MORTGAGE_BROKER_DEEP_DIVE", "/services/mortgage-broker-video-marketing-miami", "marketing-de-video-para-brokers-hipotecarios-miami"],
 ] as const;
 
 const source = (path: string) => readFileSync(join(process.cwd(), path), "utf8");

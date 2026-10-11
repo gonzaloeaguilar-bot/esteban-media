@@ -1261,3 +1261,111 @@ export const VACATION_RENTAL_DEPTH: NicheWave8Depth = {
     { title: "AI Real Estate Photo Enhancement", detail: "Listing photo clean-up that keeps the property truthful.", href: "/services/ai-real-estate-photo-enhancement" },
   ],
 };
+
+export const INSURANCE_AGENCY_DEPTH: NicheWave8Depth = {
+  answer: {
+    question: "What short videos can a Latino insurance agency publish in Spanish?",
+    answer:
+      "Explainers that answer one question clients already ask at the desk: what a deductible is, how a Marketplace plan differs from Medicaid, what changes when someone turns 65, which documents to bring to an appointment. Esteban edits agents' phone clips or filmed sessions into short Spanish videos, with English versions when the agency needs them, and plans the calendar around the fall enrollment season so the right topics go out before clients start calling. The agency supplies and approves every disclaimer and any carrier-required language. The videos explain and invite people to book an appointment; they do not promise enrollment, savings, approval or a particular plan. Editing and planning are remote, and filming at the agency is a paid add-on scoped per project.",
+  },
+  proof: {
+    href: "/portfolio/healthy-smile",
+    label: "Watch the clinic social videos",
+    note: "Healthy Smile Miami is a set of social videos for a dental clinic that Esteban filmed on location, with sound, and edited, on assignment with an agency. It is not an insurance agency; it shows a local practice presented on camera.",
+  },
+  craftHeading: "What an insurance explainer needs to work.",
+  craft: [
+    {
+      title: "One question per video",
+      detail:
+        "Insurance confuses people because every answer opens three more questions. A short video that handles one term or one situation is easier to follow and easier to find again, and a series of them becomes a library the agency can send by WhatsApp.",
+    },
+    {
+      title: "Plain Spanish, approved wording",
+      detail:
+        "Clients want the explanation the way an agent gives it across the desk, not in policy language. The agent speaks naturally, the captions follow, and the agency checks that each sentence and every disclaimer matches what it is allowed to say.",
+    },
+    {
+      title: "A calendar shaped by the season",
+      detail:
+        "Questions bunch up around the enrollment periods. Planning ahead means explainers are ready in early fall, reminders run during the windows, and the quieter months carry evergreen topics such as reading a bill or filing a claim.",
+    },
+  ],
+  faqHeading: "Questions before an insurance agency sends footage.",
+  faqs: [
+    {
+      question: "Who is responsible for compliance in insurance videos?",
+      answer:
+        "The agency and its carriers. Medicare-related marketing in particular has rules on what can be said and which disclaimers must appear, and those rules are applied through the agency's own compliance process. Esteban places the approved disclaimer text exactly as supplied and does not draft regulatory language or give insurance advice. Send the required wording with the footage so it is built into the edit, not added at the last minute.",
+    },
+    {
+      question: "When should an agency start preparing enrollment-season videos?",
+      answer:
+        "Before the season starts. Medicare's annual enrollment period runs from October 15 to December 7, and Marketplace open enrollment for Florida residents usually opens on November 1, so explainers are most useful when they are filmed and approved by early fall. The agency should confirm each year's dates. The Growth plan's content calendar can map topics to those weeks without promising any enrollment numbers.",
+    },
+    {
+      question: "Do agents need a studio to film explainers?",
+      answer: `No. A quiet office, a phone at eye level and window light are enough for a clear explainer, and Esteban edits that footage remotely; the Starter package is ${enStarter()}. If the agency wants a batch of explainers filmed on site, that is a paid add-on scoped per project, with the Local Presence package at ${enLocal()}.`,
+    },
+  ],
+  relatedHeading: "Related services for advisory businesses.",
+  related: [
+    { title: "Wealth Management Video", detail: "Video for advisors whose clients need trust before numbers.", href: "/services/wealth-management-video-production-miami" },
+    { title: "Short-Form Video Editing", detail: "Vertical edits for Reels, TikTok and Shorts from supplied clips.", href: "/services/short-form-video-editor-miami" },
+    { title: "Small Business Video", detail: "Video for a local office with one location and a booking page.", href: "/services/small-business-video-production-miami" },
+  ],
+};
+
+export const MORTGAGE_BROKER_DEPTH: NicheWave8Depth = {
+  answer: {
+    question: "What videos help a Spanish-speaking loan officer build a personal brand?",
+    answer:
+      "Short videos in which the loan officer explains, in their own voice, the steps buyers find confusing: pre-qualification versus pre-approval, what documents a self-employed buyer needs, what an ITIN loan is, how closing costs work. Esteban edits those clips into vertical reels and longer explainers in Spanish, with English versions when the audience needs them, and helps plan a posting calendar so the account keeps a steady voice. Compliance stays with the client: the NMLS number, the company name and any disclosure the lender or compliance team requires are supplied and approved by the broker, and the edit places them exactly as written. Nothing promises a rate, an approval or a closing date. Filming at an office or an open house is a paid add-on scoped per project.",
+  },
+  proof: {
+    href: "/portfolio/ml-colombia",
+    label: "Watch a published social piece",
+    note: "ML Colombia is a short social piece for a cosmetics brand Esteban founded and ran. It is not a mortgage account; it shows how he edits short content for a brand's own channels.",
+  },
+  craftHeading: "What a loan officer's videos have to get right.",
+  craft: [
+    {
+      title: "The person is the brand",
+      detail:
+        "Borrowers choose a loan officer they trust before they compare products. Videos with the same face, the same tone and a consistent look make the officer recognisable, which matters more than any single post that travels far.",
+    },
+    {
+      title: "Disclosures built into the template",
+      detail:
+        "Licensing details and required disclosures should not be squeezed in at the end. The edit reserves one consistent spot for them on every video, using the exact text the compliance team approves, so nothing goes out without it.",
+    },
+    {
+      title: "Explain, do not quote",
+      detail:
+        "Rates move constantly and a number in a video goes out of date fast. Explainers focus on the process and the documents, and send viewers to book a call for figures, which keeps the content useful for months and publishes no terms nobody approved.",
+    },
+  ],
+  faqHeading: "Questions before a loan officer sends footage.",
+  faqs: [
+    {
+      question: "Who provides the NMLS number and disclosures on mortgage videos?",
+      answer:
+        "The broker or loan officer, together with the lender's compliance team. Esteban does not decide which disclosures apply or how they must be worded; he places the NMLS identifier, company name and any required text exactly as supplied, in the same position on every video. Send the approved wording with the first batch of footage, and flag any video that mentions a product or terms so your compliance team reviews it before it is published.",
+    },
+    {
+      question: "Can a loan officer film everything with a phone?",
+      answer: `Yes. A phone at eye level, window light and a lapel microphone give clean results, and the clips can be edited remotely on the Starter package, ${enStarter()}. For a monthly rhythm with a content plan and calendar, the Growth plan is ${enGrowth()}. Filming at an office or an open house is a paid add-on scoped per project.`,
+    },
+    {
+      question: "Should mortgage videos be in Spanish, English or both?",
+      answer:
+        "In the language your clients use when they call you. Many South Florida loan officers serve Spanish-speaking families first, so Spanish-first videos with English captions, or separate English cuts, are common. Esteban works Spanish first, with intermediate English, so English scripts and captions should be reviewed by someone on your team before they go out.",
+    },
+  ],
+  relatedHeading: "Related services for financial professionals.",
+  related: [
+    { title: "Wealth Management Video", detail: "Video for advisors and planners in Miami.", href: "/services/wealth-management-video-production-miami" },
+    { title: "Real Estate Reels", detail: "Listing reels for the agents a loan officer works beside.", href: "/services/real-estate-reels-video-editor-south-florida" },
+    { title: "Miami Reels Editor", detail: "Vertical edits of talking-head clips for Instagram and TikTok.", href: "/services/reels-editor-miami" },
+  ],
+};

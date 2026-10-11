@@ -240,7 +240,7 @@ describe("Search Console index watch", () => {
   it("keeps the fixed watch set identical to the application sitemap", () => {
     const urls = sitemap().map((entry) => entry.url).sort();
 
-    expect(WATCH_URLS).toHaveLength(288); // niche wave 8 (2026-10-11) + +/desk-recommendations, pricing/package pages, real-estate pair, 2026-10-01 remote/resource pages, EN GEO pages, ES GEO pages, the five 2026-10-06 niche pairs, the food/places creator pair, the 2026-10-07 restaurant and real-estate cost-answer guide pairs, and /es/editor-de-video-miami
+    expect(WATCH_URLS).toHaveLength(292); // niche wave 8 (2026-10-11) + +/desk-recommendations, pricing/package pages, real-estate pair, 2026-10-01 remote/resource pages, EN GEO pages, ES GEO pages, the five 2026-10-06 niche pairs, the food/places creator pair, the 2026-10-07 restaurant and real-estate cost-answer guide pairs, and /es/editor-de-video-miami
     expect([...WATCH_URLS].sort()).toEqual(urls);
     expect(validateWatchedSitemap(urls).hash).toBe(watchedUrlHash());
   });
