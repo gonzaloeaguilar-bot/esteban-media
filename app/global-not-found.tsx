@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function GlobalNotFound() {
   return (
-    <html lang="en-US">
+    <html lang="en-US" suppressHydrationWarning>
       <body className={siteBodyClassName}>
         <SiteChrome>
           <main className="bg-[#f6f1ea] py-20 text-[#101214] sm:py-28">

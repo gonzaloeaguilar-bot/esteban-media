@@ -38,7 +38,7 @@ type Copy = {
   packages: { eyebrow: string; title: string; packageWord: string; includesLabel: string; quote: (name: string) => string };
   aLaCarte: { eyebrow: string; title: string; lead: string; items: ALaCarteItem[] };
   process: { eyebrow: string; title: string; lead: string; steps: { title: string; body: string }[]; note: string };
-  closing: { title: string; lead: string; whatsapp: string; call: string; email: string };
+  closing: { title: string; lead: string; call: string; email: string };
   price: { from: string; custom: string; customLine: string; units: Record<"video" | "month" | "production-day", string> };
 };
 
@@ -213,7 +213,7 @@ const COPY: Record<Locale, Copy> = {
       lead: "Sin formularios largos. Una conversación corta.",
       steps: [
         { title: "Cuéntame tu objetivo", body: "Envíame el material que tienes y dime qué quieres lograr." },
-        { title: "Confirmamos el alcance", body: "Formato, volumen, entregables, ubicación si aplica y plazos." },
+        { title: "Confirmo contigo el alcance", body: "Formato, volumen, entregables, ubicación si aplica y plazos." },
         { title: "Recibes tu cotización", body: "Específica para tu proyecto." },
       ],
       note: "Los precios de esta guía son puntos de partida, no tarifas fijas.",
@@ -221,7 +221,6 @@ const COPY: Record<Locale, Copy> = {
     closing: {
       title: "¿Listo para crear algo increíble?",
       lead: "Hablemos de tu proyecto.",
-      whatsapp: "Escribir por WhatsApp",
       call: "Llamar",
       email: "Enviar email",
     },
@@ -266,7 +265,7 @@ const COPY: Record<Locale, Copy> = {
       lead: "No long forms. One short conversation.",
       steps: [
         { title: "Tell me your goal", body: "Send the material you have and what you want to achieve." },
-        { title: "We confirm the scope", body: "Format, volume, deliverables, location if needed, and timing." },
+        { title: "I confirm the scope with you", body: "Format, volume, deliverables, location if needed, and timing." },
         { title: "You get your quote", body: "Specific to your project." },
       ],
       note: "Prices in this guide are starting points, not fixed rates.",
@@ -274,7 +273,6 @@ const COPY: Record<Locale, Copy> = {
     closing: {
       title: "Ready to make something great?",
       lead: "Let's talk about your project.",
-      whatsapp: "Message on WhatsApp",
       call: "Call",
       email: "Send email",
     },
@@ -327,21 +325,21 @@ export function packageFaq(locale: Locale): { id: string; question: string; answ
   return [
     {
       id: "cuanto-edicion",
-      question: es ? "¿Cuánto cobra Esteban por editar un video?" : "How much does Esteban charge to edit a video?",
+      question: es ? "¿Cuánto cobras por editar un video?" : "How much do you charge to edit a video?",
       answer: es
         ? `El paquete ${by("arranque").name} (edición remota de tu material) es ${priceSentence("es", "arranque").toLowerCase()}, con formato para Reels, TikTok, YouTube o web y una ronda de revisión.`
         : `The ${by("arranque").name} package (remote editing of your footage) is ${priceSentence("en", "arranque").toLowerCase()}, formatted for Reels, TikTok, YouTube or web, with one revision round.`,
     },
     {
       id: "plan-mensual",
-      question: es ? "¿Tiene un plan mensual para redes sociales?" : "Is there a monthly social media plan?",
+      question: es ? "¿Tienes un plan mensual para redes sociales?" : "Do you have a monthly social media plan?",
       answer: es
         ? `Sí: ${by("crecimiento").name}, ${priceSentence("es", "crecimiento").toLowerCase()}. Incluye plan de contenido, calendario, edición y reporte mensual.`
         : `Yes: ${by("crecimiento").name}, ${priceSentence("en", "crecimiento").toLowerCase()}. It includes a content plan, calendar, editing and a monthly report.`,
     },
     {
       id: "grabar-negocio",
-      question: es ? "¿Puede venir a grabar a mi negocio en Fort Lauderdale o Miami?" : "Can he film at my business in Fort Lauderdale or Miami?",
+      question: es ? "¿Puedes venir a grabar a mi negocio en Fort Lauderdale o Miami?" : "Can you film at my business in Fort Lauderdale or Miami?",
       answer: es
         ? `Sí, con ${by("presencia-local").name}: ${priceSentence("es", "presencia-local").toLowerCase()}, en Fort Lauderdale, Broward y proyectos seleccionados en Miami-Dade.`
         : `Yes, with ${by("presencia-local").name}: ${priceSentence("en", "presencia-local").toLowerCase()}, in Fort Lauderdale, Broward and selected Miami-Dade projects.`,

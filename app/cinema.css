@@ -4,7 +4,9 @@
  *
  * Palette: film-stock black, near-white paper, ONE accent (terracotta, white
  * text 4.6:1). No brown surfaces — owner rule 2026-09-25.
- * Type: Oswald (--font-display) only for credits and package names.
+ * Type: Oswald (--font-display) only for the hero brand mark and the opening
+ * ident. Section h2s, eyebrows and prices use the shared .em-h2, .em-eyebrow
+ * and .em-price-figure tokens in globals.css.
  * ========================================================================== */
 
 :root {
@@ -481,21 +483,12 @@ html.rail-anim:not([data-brand-moment]) .em-cine__eyebrow {
 
 /* ------------------------------------------------------ shared headings -- */
 
-.em-pk-eyebrow {
-  margin: 0;
-  font: 600 11.5px/1.2 var(--font-geist-sans), sans-serif;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--cine-accent-deep);
-}
+/* Type comes from .em-eyebrow / .em-h2 (globals.css); these keep only the
+   section's spacing and colour. */
+.em-pk-eyebrow { margin: 0; }
 .em-pk-eyebrow--light { color: var(--cine-accent-soft); }
 .em-pk-title {
   margin: 10px 0 0;
-  font-family: var(--font-geist-sans), sans-serif;
-  font-weight: 700;
-  font-size: clamp(2rem, 7.4vw, 3.4rem);
-  line-height: 1.02;
-  letter-spacing: -0.03em;
   color: var(--cine-text);
 }
 .em-pk-title--light { color: #fff; }
@@ -750,12 +743,11 @@ html.rail-anim:not([data-brand-moment]) .em-cine__eyebrow {
 }
 .em-pkcard__name {
   margin: 10px 0 0;
-  font-family: var(--font-display), "Oswald", "Arial Narrow", sans-serif;
-  font-weight: 700;
+  font-family: var(--em-heading-font);
+  font-weight: var(--em-h2-weight);
   font-size: clamp(2.1rem, 9.5vw, 2.6rem);
   line-height: 1;
-  text-transform: uppercase;
-  letter-spacing: 0.005em;
+  letter-spacing: var(--em-h2-tracking);
 }
 @media (min-width: 1024px) {
   .em-pkcard__name { font-size: clamp(1.7rem, 2.3vw, 2.3rem); }
@@ -1091,11 +1083,11 @@ a.em-pk-carte__item:focus-visible { outline: 2px solid var(--cine-accent-deep); 
 }
 .em-pk-steps__n {
   grid-row: 1 / span 2;
-  font-family: var(--font-display), "Oswald", "Arial Narrow", sans-serif;
-  font-weight: 700;
+  font-family: var(--em-price-font);
+  font-weight: var(--em-price-weight);
   font-size: 40px;
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--em-price-tracking);
   color: var(--cine-accent-deep);
 }
 .em-pk-steps__title {
@@ -1155,12 +1147,7 @@ html.rail-anim .em-pk-steps__list.rail-reveal.is-in li:nth-child(3) { transition
 }
 .em-close__title {
   margin: 0;
-  max-width: 14ch;
-  font-family: var(--font-display), "Oswald", "Arial Narrow", sans-serif;
-  font-weight: 700;
-  font-size: clamp(2.6rem, 11vw, 5.6rem);
-  line-height: 1.06;
-  text-transform: uppercase;
+  max-width: 18ch;
 }
 .em-close__lead {
   margin: 14px 0 0;
@@ -1571,27 +1558,14 @@ html.rail-anim .em-pk-steps__list.rail-reveal.is-in li:nth-child(3) { transition
   font-size: 14px;
   color: #6a625a;
 }
-.em-pk-card__price-num {
-  font-family: var(--font-price), "Instrument Serif", Georgia, serif;
-  font-weight: 400;
-  font-size: clamp(44px, 12vw, 52px);
-  line-height: 1.15;
-  letter-spacing: -0.03em;
-  color: #1d1b19;
-}
+.em-pk-card__price-num { line-height: 1.15; }
 .em-pk-card__price-unit {
   font-family: var(--font-geist-sans), sans-serif;
   font-weight: 500;
   font-size: 14px;
   color: #6a625a;
 }
-.em-pk-card__price-line--custom .em-pk-card__price-custom {
-  font-family: var(--font-price), "Instrument Serif", Georgia, serif;
-  font-weight: 400;
-  font-size: clamp(34px, 8vw, 42px);
-  line-height: 1.05;
-  color: #1d1b19;
-}
+
 /* Open, the card shows the full price block; the face line would say it twice. */
 .em-pk-card[data-state="open"] .em-pk-card__price { display: none; }
 .em-pk-card__go {
@@ -1690,14 +1664,6 @@ html.rail-anim .em-pk-steps__list.rail-reveal.is-in li:nth-child(3) { transition
   font-size: 15px;
   color: #6a625a;
 }
-.em-pk-open-price__num {
-  font-family: var(--font-price), "Instrument Serif", Georgia, serif;
-  font-weight: 400;
-  font-size: clamp(48px, 11vw, 60px);
-  line-height: 1;
-  letter-spacing: -0.03em;
-  color: #1d1b19;
-}
 .em-pk-open-price__unit {
   font-family: var(--font-geist-sans), sans-serif;
   font-weight: 500;
@@ -1711,13 +1677,6 @@ html.rail-anim .em-pk-steps__list.rail-reveal.is-in li:nth-child(3) { transition
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #6a625a;
-}
-.em-pk-open-price__box--custom .em-pk-open-price__custom {
-  font-family: var(--font-price), "Instrument Serif", Georgia, serif;
-  font-weight: 400;
-  font-size: clamp(40px, 9vw, 52px);
-  line-height: 1.05;
-  color: #1d1b19;
 }
 
 /* Starter two-ways options tiles */
@@ -1756,10 +1715,10 @@ html.rail-anim .em-pk-steps__list.rail-reveal.is-in li:nth-child(3) { transition
 }
 .em-pk-starter-tile__name {
   margin: 0;
-  font-family: var(--font-display), "Oswald", "Arial Narrow", sans-serif;
-  font-weight: 600;
-  font-size: 18px;
-  letter-spacing: 0.08em;
+  font-family: var(--em-eyebrow-font);
+  font-weight: var(--em-eyebrow-weight);
+  font-size: 13px;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #1d1b19;
 }
@@ -1775,14 +1734,6 @@ html.rail-anim .em-pk-steps__list.rail-reveal.is-in li:nth-child(3) { transition
   font-weight: 500;
   font-size: 14px;
   color: #6a625a;
-}
-.em-pk-starter-tile__num {
-  font-family: var(--font-price), "Instrument Serif", Georgia, serif;
-  font-weight: 400;
-  font-size: clamp(48px, 12vw, 60px);
-  line-height: 1;
-  letter-spacing: -0.03em;
-  color: #1d1b19;
 }
 .em-pk-starter-tile__unit {
   font-family: var(--font-geist-sans), sans-serif;

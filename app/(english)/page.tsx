@@ -10,7 +10,7 @@ import { SignalIntro } from "@/components/signal-intro";
 import { ClosingCredits, PackagesSection } from "@/components/packages-section";
 import { KeepReading } from "@/components/keep-reading";
 import { PortfolioTeaser } from "@/components/portfolio-teaser";
-import { RealEstateShowcase } from "@/components/real-estate-showcase";
+import { RealEstateBlock } from "@/components/real-estate-block";
 import { ServicesStrip } from "@/components/services-strip";
 import { englishRootMetadata } from "@/lib/site-metadata";
 
@@ -71,22 +71,19 @@ export default function Home() {
           linked to none of them. Above the fold on purpose — a visitor from an
           Instagram bio link should not have to open a fold-out to find their lane. */}
       <AudienceRouter locale="en" />
-      {/* Work before price, and both before the general packages.
+      {/* Real estate is the router's first lane, so its block comes straight
+          after it: the reel shelf, then the monthly plans behind one button.
+          The plans moved here from PackagesSection (showRealEstatePlans off),
+          so they render once; the VideoObject JSON-LD is emitted once.
 
-          The router's first lane is real estate, so the lane a visitor picks
-          here is the shelf that answers it. The monthly plans ride directly
-          under the shelf they belong to, instead of sitting in the middle of
-          the packages track: from here on, no price is ever shown above the
-          work that justifies it.
-
-          The shelf is the same conversion strip the social traffic needs —
-          posters lazy-load, the MP4s mount only when a card is opened — it
-          has just moved out of the bottom third of the page. */}
-      <RealEstateShowcase locale="en" />
-      <PackagesSection locale="en" realEstatePlans={false} />
+          Proof before pricing, on this home as well: the portfolio rail and
+          the reviews come between the real-estate block and the general
+          packages, so no general price is shown above the work behind it. */}
+      <RealEstateBlock locale="en" />
       <PortfolioTeaser locale="en" />
       <ClientReviews locale="en" />
-      <KeepReading id="more" className="em-fold" title="Want to see everything?" destinations="Services, areas, guides and more about Esteban.">
+      <PackagesSection locale="en" showRealEstatePlans={false} />
+      <KeepReading id="more" className="em-fold" title="Want to see everything?" destinations="Services, areas, guides and more about me.">
         <HomeAuthorityHub />
         <ServicesStrip />
         <AboutTeaser />

@@ -14,7 +14,7 @@ export default function SpanishRootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
+    <html lang="es" suppressHydrationWarning>
       <body className={siteBodyClassName}>
         <SiteChrome>{children}</SiteChrome>
         {/* In-page links must still land when their target is collapsed: a

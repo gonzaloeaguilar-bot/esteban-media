@@ -9,7 +9,7 @@ import { SignalIntro } from "@/components/signal-intro";
 import { PackagesSection, ClosingCredits } from "@/components/packages-section";
 import { KeepReading } from "@/components/keep-reading";
 import { PortfolioTeaser } from "@/components/portfolio-teaser";
-import { RealEstateShowcase } from "@/components/real-estate-showcase";
+import { RealEstateBlock } from "@/components/real-estate-block";
 import { Container } from "@/components/ui/container";
 import {
   spanishNichePages,
@@ -38,17 +38,22 @@ export default function SpanishHomePage() {
           linked to none of them. Above the fold on purpose — a visitor from an
           Instagram bio link should not have to open a fold-out to find their lane. */}
       <AudienceRouter locale="es" />
-      {/* Work before price, on this home as well.
+      {/* Real estate is the router's first lane, so its block comes straight
+          after it: the reel shelf, then the monthly plans behind one button.
+          The plans moved here from PackagesSection (showRealEstatePlans off),
+          so they render once; the VideoObject JSON-LD is emitted once.
 
-          This page had the monthly real-estate plans and NO reels at all, so a
-          Spanish visitor — the audience the evidence says converts, since the
-          only contact click in the measured window came from a Spanish reel
-          page — saw a property price with no property work above it. The shelf
-          and the plans now sit together right after the lanes. */}
-      <RealEstateShowcase locale="es" />
-      <PackagesSection locale="es" realEstatePlans={false} />
+          Proof before pricing, on this home as well. This page had the monthly
+          real-estate plans and NO reels at all, so a Spanish visitor — the
+          audience the evidence says converts, since the only contact click in
+          the measured window came from a Spanish reel page — saw a property
+          price with no property work above it. The shelf and the plans now sit
+          together right after the lanes, with the portfolio and the reviews
+          between them and the general packages. */}
+      <RealEstateBlock locale="es" />
       <PortfolioTeaser locale="es" />
       <ClientReviews locale="es" />
+      <PackagesSection locale="es" showRealEstatePlans={false} />
       <KeepReading
         id="mas"
         className="em-fold"
@@ -135,7 +140,7 @@ export default function SpanishHomePage() {
           <Link href="/es/areas">áreas de servicio</Link> si necesitas
           grabación local, las{" "}
           <Link href="/es/guias">guías prácticas de video</Link>, conoce{" "}
-          <Link href="/es/sobre-esteban">a Esteban</Link> o síguelo en{" "}
+          <Link href="/es/sobre-esteban">más sobre mí</Link> o sígueme en{" "}
           <a href={site.instagram}>Instagram</a>.
         </p>
       </ClosingCredits>
@@ -156,14 +161,10 @@ function SectionIntro({
 }) {
   return (
     <div className="max-w-3xl">
-      <p
-        className={`text-xs font-medium uppercase ${
-          inverted ? "text-[#ffb49e]" : "text-[#5a6066]"
-        }`}
-      >
+      <p className={`em-eyebrow${inverted ? " em-eyebrow--inverted" : ""}`}>
         {eyebrow}
       </p>
-      <h2 className="mt-4 text-4xl font-bold leading-[1.04] tracking-tight sm:text-5xl">
+      <h2 className="mt-4 em-h2">
         {title}
       </h2>
       <p

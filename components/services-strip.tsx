@@ -14,12 +14,12 @@ export function ServicesStrip() {
       <Container size="xl">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-2xl">
-            <p className="text-xs font-medium uppercase tracking-wide text-[#5a6066]">
-              What Esteban does
+            <p className="em-eyebrow">
+              What I do
             </p>
             <h2
               id="services-heading"
-              className="mt-3 font-serif text-4xl leading-tight sm:text-5xl"
+              className="mt-3 em-h2"
             >
               Content, profiles, websites, and automation connected around how customers find and contact you.
             </h2>

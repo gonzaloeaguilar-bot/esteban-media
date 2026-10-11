@@ -23,25 +23,21 @@ import {
 } from "@/lib/packages";
 import { entityIds } from "@/lib/entity-schema";
 import { ARRANQUE_WEEKLY_FROM, usd } from "@/lib/pricing";
+import { quoteCtaLabel } from "@/lib/quote-cta";
 import { absoluteUrl, site } from "@/lib/site";
 
 export function PackagesSection({
   locale,
-  realEstatePlans = true,
+  showRealEstatePlans = true,
 }: {
   locale: Locale;
   /**
-   * Whether this section renders the monthly real-estate plans under the four
-   * packages. Default true, so /pricing, /es/precios and anything else that
-   * shows packages keeps them with no change.
-   *
-   * The home pages opt out: there the plans are stacked under the reel shelf
-   * instead (see components/real-estate-showcase.tsx), because on the home a
-   * visitor needs to see the work before the price, and a price stranded in
-   * the middle of the packages track is the price with no work above it.
-   * The plans still render on the home — once, in the showcase.
+   * The monthly real-estate plans render here by default (the pricing pages).
+   * The homepages pass false because they show the plans inside the
+   * real-estate block under the reel shelf instead, and must not show them
+   * twice.
    */
-  realEstatePlans?: boolean;
+  showRealEstatePlans?: boolean;
 }) {
   const copy = packagesCopy(locale);
   const packages = packagesFor(locale);
@@ -88,14 +84,16 @@ export function PackagesSection({
         // has always pointed at. Merging the chooser into this section deleted
         // the element that carried those ids, and the main call to action on
         // the home page quietly led nowhere — no error, no jump, nothing.
+        // The hero now leads with the WhatsApp quote instead (2026-10-10), but
+        // the OfferCatalog schema still points at these ids, so they stay.
         id={locale === "es" ? "paquetes" : "packages"}
         className="em-pk-guide"
         aria-labelledby="em-pk-guide-title"
         data-section="packages"
       >
         <Container size="xl">
-          <p className="em-pk-eyebrow">{copy.chooser.eyebrow}</p>
-          <h2 id="em-pk-guide-title" className="em-pk-title">
+          <p className="em-pk-eyebrow em-eyebrow">{copy.chooser.eyebrow}</p>
+          <h2 id="em-pk-guide-title" className="em-pk-title em-h2">
             {copy.chooser.title}
           </h2>
           <p className="em-pk-lead">{copy.chooser.lead}</p>
@@ -159,7 +157,7 @@ export function PackagesSection({
                           <span className="em-pk-card__price-lines">
                             <span className="em-pk-card__price-line">
                               <span className="em-pk-card__price-prefix">{copy.price.from}</span>{" "}
-                              <span className="em-pk-card__price-num">${price.kind === "from" ? price.amount.toLocaleString("en-US") : ""}</span>{" "}
+                              <span className="em-pk-card__price-num em-price-figure">${price.kind === "from" ? price.amount.toLocaleString("en-US") : ""}</span>{" "}
                               <span className="em-pk-card__price-unit">{price.kind === "from" ? copy.price.units[price.unit] : ""}</span>
                             </span>
                             <span className="em-pk-card__price-line em-pk-card__price-line--alt">
@@ -167,7 +165,7 @@ export function PackagesSection({
                                 <span className="sr-only">· </span>
                                 {locale === "es" ? "o" : "or"}
                               </span>{" "}
-                              <span className="em-pk-card__price-num">{usd(ARRANQUE_WEEKLY_FROM.perWeek)}</span>
+                              <span className="em-pk-card__price-num em-price-figure">{usd(ARRANQUE_WEEKLY_FROM.perWeek)}</span>
                               <span className="em-pk-card__price-unit">
                                 {locale === "es" ? "/semana si publicas cada semana" : "/week if you post weekly"}
                               </span>
@@ -176,12 +174,12 @@ export function PackagesSection({
                         ) : price.kind === "from" ? (
                           <span className="em-pk-card__price-line">
                             <span className="em-pk-card__price-prefix">{copy.price.from}</span>{" "}
-                            <span className="em-pk-card__price-num">${price.amount.toLocaleString("en-US")}</span>{" "}
+                            <span className="em-pk-card__price-num em-price-figure">${price.amount.toLocaleString("en-US")}</span>{" "}
                             <span className="em-pk-card__price-unit">{copy.price.units[price.unit]}</span>
                           </span>
                         ) : (
                           <span className="em-pk-card__price-line em-pk-card__price-line--custom">
-                            <span className="em-pk-card__price-custom">
+                            <span className="em-pk-card__price-custom em-price-figure em-price-figure--words">
                               {locale === "es"
                                 ? `${copy.price.customLine} ${copy.price.custom.toLowerCase()}`
                                 : `${copy.price.custom} ${copy.price.customLine.toLowerCase()}`}
@@ -221,13 +219,13 @@ export function PackagesSection({
                           {price.kind === "from" ? (
                             <div className="em-pk-open-price__box">
                               <span className="em-pk-open-price__prefix">{copy.price.from}</span>
-                              <span className="em-pk-open-price__num">${price.amount.toLocaleString("en-US")}</span>
+                              <span className="em-pk-open-price__num em-price-figure">${price.amount.toLocaleString("en-US")}</span>
                               <span className="em-pk-open-price__unit">{copy.price.units[price.unit]}</span>
                             </div>
                           ) : (
                             <div className="em-pk-open-price__box em-pk-open-price__box--custom">
                               <span className="em-pk-open-price__custom-line">{copy.price.customLine}</span>
-                              <span className="em-pk-open-price__custom">{copy.price.custom}</span>
+                              <span className="em-pk-open-price__custom em-price-figure em-price-figure--words">{copy.price.custom}</span>
                             </div>
                           )}
                         </div>
@@ -243,9 +241,10 @@ export function PackagesSection({
                             target="_blank"
                             rel="noopener noreferrer"
                             data-cta={`package_${pkg.id}_whatsapp`}
+                            aria-label={`${quoteCtaLabel(locale)}: ${copy.packages.packageWord} ${pkg.name}`}
                           >
                             <MessageCircle className="size-4" aria-hidden="true" />
-                            {`${copy.packages.quote(pkg.name)} ${locale === "es" ? "por WhatsApp" : "on WhatsApp"}`}
+                            {quoteCtaLabel(locale)}
                           </a>
                         )}
                         <a href={packageRoutes[pkg.id][locale]} className="em-package-detail-link" data-cta={`package_${pkg.id}_details`}>
@@ -262,17 +261,16 @@ export function PackagesSection({
       </section>
 
       {/* 2b. Real estate: its own buyer and its own plan sizes, so its own
-          section directly under the four packages — unless the page already
-          shows them, as the home pages do under the reel shelf. */}
-      {realEstatePlans && <RealEstatePlansSection locale={locale} />}
+          section directly under the four packages. */}
+      {showRealEstatePlans ? <RealEstatePlansSection locale={locale} /> : null}
 
       <ALaCarteSection locale={locale} />
 
       {/* 4. The three steps. */}
       <section className="em-pk-steps" aria-labelledby="em-pk-steps-title" data-section="quote_process">
         <Container size="xl">
-          <p className="em-pk-eyebrow">{copy.process.eyebrow}</p>
-          <h2 id="em-pk-steps-title" className="em-pk-title">
+          <p className="em-pk-eyebrow em-eyebrow">{copy.process.eyebrow}</p>
+          <h2 id="em-pk-steps-title" className="em-pk-title em-h2">
             {copy.process.title}
           </h2>
           <p className="em-pk-lead">{copy.process.lead}</p>
@@ -297,8 +295,8 @@ export function PackagesSection({
           quote exactly what a visitor reads. */}
       <section className="em-pk-faq" aria-labelledby="em-pk-faq-title" data-section="package_faq">
         <Container size="xl">
-          <p className="em-pk-eyebrow">{locale === "es" ? "Preguntas rápidas" : "Quick answers"}</p>
-          <h2 id="em-pk-faq-title" className="em-pk-title">
+          <p className="em-pk-eyebrow em-eyebrow">{locale === "es" ? "Preguntas rápidas" : "Quick answers"}</p>
+          <h2 id="em-pk-faq-title" className="em-pk-title em-h2">
             {locale === "es" ? "Lo que todos preguntan." : "What everyone asks."}
           </h2>
           <RailFaq
@@ -339,7 +337,7 @@ export function ClosingCredits({ locale, children }: { locale: Locale; children?
         className="em-close__image"
       />
       <Container size="xl" className="em-close__inner">
-        <h2 id="em-close-title" className="em-close__title">
+        <h2 id="em-close-title" className="em-close__title em-h2">
           {copy.title}
         </h2>
         <p className="em-close__lead">{copy.lead}</p>
@@ -352,13 +350,15 @@ export function ClosingCredits({ locale, children }: { locale: Locale; children?
             data-cta="closing_whatsapp"
           >
             <MessageCircle className="size-4" aria-hidden="true" />
-            {copy.whatsapp}
+            {quoteCtaLabel(locale)}
           </a>
-          <a href={site.phone.href} className="em-cine__cta em-cine__cta--ghost">
+          {/* Call and email stay, as quiet text links: the WhatsApp quote is
+              the one primary action here, as everywhere on the page. */}
+          <a href={site.phone.href} className="em-close__textlink" data-cta="closing_phone">
             <Phone className="size-4" aria-hidden="true" />
             {copy.call}
           </a>
-          <a href={`mailto:${site.email}`} className="em-close__textlink">
+          <a href={`mailto:${site.email}`} className="em-close__textlink" data-cta="closing_email">
             <Mail className="size-4" aria-hidden="true" />
             {copy.email}
           </a>
