@@ -6,6 +6,7 @@ import { ClientReviews } from "@/components/client-reviews";
 import { ContactCta } from "@/components/contact-cta";
 import { HeroVideo } from "@/components/hero-video";
 import { HomeAuthorityHub } from "@/components/home-authority-hub";
+import { HomeProjectPath } from "@/components/home-project-path";
 import { SignalIntro } from "@/components/signal-intro";
 import { ClosingCredits, PackagesSection } from "@/components/packages-section";
 import { KeepReading } from "@/components/keep-reading";
@@ -65,25 +66,13 @@ export default function Home() {
     <main className="bg-[#f7f5f1] text-[#101214]">
       <SignalIntro locale="en" />
       <HeroVideo />
-      {/* Social traffic ALL lands here: 36 sessions from Facebook and Instagram in
-          30 days, every one of them on "/", and all three of the site's form starts
-          came from m.facebook.com. The pages that convert existed and the homepage
-          linked to none of them. Above the fold on purpose — a visitor from an
-          Instagram bio link should not have to open a fold-out to find their lane. */}
-      <AudienceRouter locale="en" />
-      {/* Real estate is the router's first lane, so its block comes straight
-          after it: the reel shelf, then the monthly plans behind one button.
-          The plans moved here from PackagesSection (showRealEstatePlans off),
-          so they render once; the VideoObject JSON-LD is emitted once.
-
-          Proof before pricing, on this home as well: the portfolio rail and
-          the reviews come between the real-estate block and the general
-          packages, so no general price is shown above the work behind it. */}
-      <RealEstateBlock locale="en" />
       <PortfolioTeaser locale="en" />
+      <HomeProjectPath locale="en" />
       <ClientReviews locale="en" />
-      <PackagesSection locale="en" showRealEstatePlans={false} />
-      <KeepReading id="more" className="em-fold" title="Want to see everything?" destinations="Services, areas, guides and more about me.">
+      <KeepReading id="more" className="em-fold" title="Explore the details" destinations="Real estate Reels, plans, services, areas and guides.">
+        <AudienceRouter locale="en" />
+        <RealEstateBlock locale="en" />
+        <PackagesSection locale="en" showRealEstatePlans={false} />
         <HomeAuthorityHub />
         <ServicesStrip />
         <AboutTeaser />
