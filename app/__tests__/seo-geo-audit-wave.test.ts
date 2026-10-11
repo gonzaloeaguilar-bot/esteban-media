@@ -162,3 +162,23 @@ describe("AI user-initiated fetchers skip the language redirect (fix 15)", () =>
     }
   });
 });
+
+describe("case studies that embed YouTube carry a VideoObject (fix 8, partial)", () => {
+  it("reuses the portfolio item's video data on all 8 embedding pages", () => {
+    let withVideo = 0;
+    for (const locale of ["en", "es"] as const) {
+      for (const study of getCaseStudies(locale)) {
+        const graph = buildCaseStudyStructuredData(study)["@graph"] as Array<Record<string, unknown>>;
+        const video = graph.find((node) => node["@type"] === "VideoObject");
+        const article = graph.find((node) => node["@type"] === "Article")!;
+        if (!video) continue;
+        withVideo += 1;
+        expect(video.uploadDate).toMatch(/^\d{4}-\d{2}-\d{2}/);
+        expect(video.duration).toMatch(/^PT/);
+        expect(String(video.embedUrl)).toContain("youtube-nocookie.com/embed/");
+        expect(article.video).toEqual({ "@id": video["@id"] });
+      }
+    }
+    expect(withVideo).toBe(8);
+  });
+});
