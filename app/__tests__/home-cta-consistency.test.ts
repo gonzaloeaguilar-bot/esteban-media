@@ -59,7 +59,9 @@ describe.each(["en", "es"] as const)("home quote actions (%s)", (locale) => {
   it("drops the per-card WhatsApp buttons from the reel shelf, keeping one section CTA", () => {
     expect(sections.reels).not.toContain('data-rail-cta="secondary"');
     expect(sections.reels.match(new RegExp(`>${label}<`, "g"))).toHaveLength(1);
-    expect(sections.reels).toContain('href="/services/real-estate-reels-video-editor-south-florida"');
+    expect(sections.reels).toContain(
+      `href="${locale === "es" ? "/es/editor-de-video-real-estate-miami" : "/services/real-estate-reels-video-editor-south-florida"}"`,
+    );
   });
 
   it("keeps the FAQ in first/second person, matching its FAQPage schema", () => {

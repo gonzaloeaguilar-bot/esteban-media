@@ -38,10 +38,15 @@ describe("home — proof before pricing", () => {
     expect(src.indexOf("<PortfolioTeaser")).toBeLessThan(path);
   });
 
-  it.each(HOMES)("%s keeps full packages in server-rendered optional detail", (page) => {
+  it.each(HOMES)("%s keeps starting prices visible and full package detail optional", (page) => {
     const src = source(page);
     const packages = src.indexOf("<PackagesSection");
     const fold = src.indexOf("<KeepReading");
+    const path = src.indexOf("<HomeProjectPath");
+    expect(path).toBeLessThan(fold);
     expect(packages).toBeGreaterThan(fold);
+    const component = source("components/home-project-path.tsx");
+    expect(component).toContain("packagesFor(locale)");
+    expect(component).toContain("priceFor(pkg.id)");
   });
 });

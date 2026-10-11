@@ -27,6 +27,6 @@ export function quoteCtaLabel(locale: QuoteCtaLocale): string {
 
 /** The generic first message, when the action is not about one package. */
 export const QUOTE_CTA_GREETING: Record<QuoteCtaLocale, string> = {
-  en: "Hi Esteban, I saw your site and I'd like a quote.",
-  es: "Hola Esteban, vi tu página y quiero una cotización.",
+  en: "Hi Esteban, I need [project]. I have [footage or none]. Filming city (if needed): [city]. Target date: [date].",
+  es: "Hola Esteban, necesito [proyecto]. Tengo [material o ninguno]. Ciudad de grabación (si aplica): [ciudad]. Fecha deseada: [fecha].",
 };

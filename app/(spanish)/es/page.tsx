@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { ClientReviews } from "@/components/client-reviews";
 import { HeroVideo } from "@/components/hero-video";
 import { HomeAuthorityHub } from "@/components/home-authority-hub";
+import { HomeContactStrip } from "@/components/home-contact-strip";
 import { HomeProjectPath } from "@/components/home-project-path";
 import { SignalIntro } from "@/components/signal-intro";
 import { PackagesSection, ClosingCredits } from "@/components/packages-section";
@@ -34,17 +35,19 @@ export default function SpanishHomePage() {
       <SignalIntro locale="es" />
       <HeroVideo locale="es" />
       <PortfolioTeaser locale="es" />
+      <div className="em-home-review-controls"><ClientReviews locale="es" compact /></div>
       <HomeProjectPath locale="es" />
-      <div className="em-home-review-controls"><ClientReviews locale="es" /></div>
+      <HomeContactStrip locale="es" />
+      <RealEstateBlock locale="es" />
       <KeepReading
         id="mas"
         className="em-fold"
-        title="Explora los detalles"
-        destinations="Reels inmobiliarios, planes, servicios, zonas y guías."
+        title="Explora más servicios"
+        destinations="Detalles de servicios, zonas, guías y cómo trabaja Esteban."
       >
       <AudienceRouter locale="es" />
-      <RealEstateBlock locale="es" />
       <PackagesSection locale="es" showRealEstatePlans={false} />
+      <ClientReviews locale="es" />
       <HomeAuthorityHub locale="es" />
 
       <section className="py-12 sm:py-16">

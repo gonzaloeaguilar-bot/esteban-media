@@ -45,6 +45,12 @@ describe("real-estate reel shelf, Spanish parity", () => {
       source("app/(spanish)/es/editor-de-video-real-estate-miami/page.tsx"),
     ).toContain('<RealEstateReels locale="es" />');
   });
+
+  it("keeps the reel service link in the visitor's language", () => {
+    const reels = source("components/real-estate-reels.tsx");
+    expect(reels).toContain("href={realEstateReelsPath(locale)}");
+    expect(reels).not.toContain("href={REAL_ESTATE_REELS_PATH}");
+  });
 });
 
 describe("homepage real-estate block", () => {
@@ -53,14 +59,14 @@ describe("homepage real-estate block", () => {
     ["app/(spanish)/es/page.tsx", "es"],
   ] as const;
 
-  it.each(homes)("%s puts the block right after the audience router, before the packages", (page, locale) => {
+  it.each(homes)("%s keeps the visible real-estate block before optional package detail", (page, locale) => {
     const src = source(page);
-    const router = src.indexOf("<AudienceRouter");
     const block = src.indexOf(`<RealEstateBlock locale="${locale}" />`);
     const packages = src.indexOf("<PackagesSection");
-    expect(router).toBeGreaterThan(-1);
-    expect(block).toBeGreaterThan(router);
-    expect(packages).toBeGreaterThan(block);
+    const fold = src.indexOf("<KeepReading");
+    expect(block).toBeGreaterThan(-1);
+    expect(block).toBeLessThan(fold);
+    expect(packages).toBeGreaterThan(fold);
   });
 
   it.each(homes)("%s renders the shelf and the plans exactly once", (page) => {
@@ -73,10 +79,9 @@ describe("homepage real-estate block", () => {
     expect(src.split("<RealEstateBlock").length - 1).toBe(1);
   });
 
-  it("keeps the plans in the server HTML behind an attributable fold-out", () => {
+  it("keeps reels and prices visibly together in the server HTML", () => {
     const block = source("components/real-estate-block.tsx");
-    expect(block).toContain("<KeepReading");
-    expect(block).toContain('cta="real_estate_plans_expand"');
+    expect(block).not.toContain("<KeepReading");
     expect(block).toContain("<RealEstatePlansSection locale={locale} />");
     expect(block).toContain("<RealEstateReels locale={locale} />");
   });
