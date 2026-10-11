@@ -6,13 +6,13 @@ const content: GeoServicePageContent = {
   eyebrow: "Fort Lauderdale reels editor",
   title: "Reels editor in Fort Lauderdale for short videos that explain the offer fast.",
   description:
-    "Editing for Instagram Reels, TikTok, and YouTube Shorts using supplied footage, clean captions, tighter pacing, and clear local business calls to action.",
+    "Send existing clips for a focused Reel, TikTok, or Short: one message, legible captions, and a final action. Esteban can review a local shoot separately if new footage is needed.",
   locationLabel: "Fort Lauderdale / Remote",
-  proofTitle: "Short-form focus",
+  proofTitle: "A published example",
   proofText:
-    "Send original clips, a short description of the offer, and one example of the style you like. Esteban can review the material and scope captions, pacing, and versions for the channels you use.",
-  proofHref: "/services/short-form-video-editor-miami",
-  proofLabel: "Compare short-form editing",
+    "Watch the published 24-second ML Colombia video from Esteban’s own brand. Send your clips and goals so he can recommend an edit for your project.",
+  proofHref: "/portfolio/ml-colombia",
+  proofLabel: "Watch ML Colombia social video",
   primaryCta: "Ask about Reels editing",
   secondaryHref: "/resources/remote-editing-handoff-checklist",
   secondaryLabel: "Prepare your footage",
@@ -26,7 +26,7 @@ const content: GeoServicePageContent = {
     {
       title: "The first line has a job",
       detail:
-        "A local Reel should open with the viewer's problem or the visible result, not with a logo animation. The first seconds decide whether the rest of the footage gets watched. A strong edit chooses the most specific opening and trims anything that delays the reason to care.",
+        "For example, a restaurant could send phone clips of a dish, the dining room, and a short owner introduction. One edit might show the dish first, explain what makes it distinct, and end with one reservation action. Esteban selects usable footage with the business; this is an example of a possible brief, not a claim about a published client project.",
     },
     {
       title: "Captions that do not cover the product",

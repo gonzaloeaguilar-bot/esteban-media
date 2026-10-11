@@ -2451,7 +2451,7 @@ const guidePairs: readonly GuidePair[] = [
           heading: "How should Fort Lauderdale businesses evaluate editors for reels?",
           paragraphs: [
             "Hiring a video editor for Instagram Reels, TikTok, and YouTube Shorts in Fort Lauderdale depends on whether your company already records internal footage or requires full on-location camera capture. For local restaurants, dealerships, retail shops, and professional firms that record video on smartphones or in-house cameras, hiring an editing-first specialist avoids the substantial overhead of commercial studio space.",
-            "A qualified short-form video editor transforms raw footage into high-retention 9:16 vertical assets by crafting 3-second visual hooks, synchronizing rhythm to audio micro-beats, applying dynamic styled captions in safe zones, color grading footage, and adding sound design. Review how supplied agency assets were structured into finished client media in the [Homeowners real estate editing project](/portfolio/homeowners) (and the [Homeowners case study](/case-studies/homeowners)).",
+            "A short-form editor turns raw footage into vertical videos with pacing, captions, color, and sound. See the supplied-footage [Homeowners editing project](/portfolio/homeowners) and its [case study](/case-studies/homeowners). If you already have clips, see [Reels editing in Fort Lauderdale](/services/reels-editor-fort-lauderdale).",
           ],
           bullets: [
             "Editing-first workflow: You record raw clips on smartphone or camera; the editor handles pacing, hooks, captions, color, and audio mastering",

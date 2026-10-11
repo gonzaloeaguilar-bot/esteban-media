@@ -3282,12 +3282,12 @@ export const spanishNichePages: SpanishNichePage[] = [
       "¿En qué plataforma se publicará primero?",
     ],
     projectFit:
-      "Esta ruta responde la búsqueda de editor de Reels en Fort Lauderdale y enlaza con la página en inglés [Reels Editor Fort Lauderdale](/services/reels-editor-fort-lauderdale).",
+      "Si ya tienes clips, revisa el [video social publicado de ML Colombia](/es/portafolio/ml-colombia) para ver una pieza de contenido de la marca que Esteban dirigió. La versión en inglés de este servicio está en [Reels Editor Fort Lauderdale](/services/reels-editor-fort-lauderdale).",
     sections: [
       {
         heading: "¿Qué hace útil a un Reel de negocio?",
         paragraphs: [
-          "Un Reel de negocio no necesita contar toda la historia de la marca. Debe abrir con lo más claro que tiene —el problema, el resultado o el momento visual más inmediato— y después llevar al espectador a una sola acción sencilla: escribir un mensaje, llamar, visitar el local, reservar o revisar más trabajos publicados. La edición decide qué se queda fuera, y esa es la mayor parte del trabajo.",
+          "Por ejemplo, un restaurante puede enviar clips grabados con teléfono del plato, el local y una presentación corta del dueño. Una edición posible muestra primero el plato, explica qué lo distingue y termina con una sola invitación a reservar. Esteban revisa el material disponible con el negocio antes de definir la pieza; este ejemplo describe cómo preparar una consulta, no un resultado atribuido a un cliente publicado.",
           "Silencios largos, tomas repetidas, intros lentas con logotipos y textos pequeños hacen que el video pierda la atención antes de que la oferta haya sido explicada. Eliminar esos elementos no es una preferencia de estilo, sino lo que mantiene la pieza comprensible y atractiva. Si tu proyecto necesita una coordinación más amplia en la región, puedes comparar con un [editor de Reels en Miami](/es/editor-de-reels-miami) o consultar nuestro servicio como [editor de video en Miami](/es/editor-de-video-miami).",
         ],
       },

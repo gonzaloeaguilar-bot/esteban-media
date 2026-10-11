@@ -1,3 +1,7 @@
+# Fort Lauderdale Reels search handoff — 2026-10-11
+
+Branch `codex/esteban-reels-seo` updates the existing English `/services/reels-editor-fort-lauderdale` and Spanish `/es/editor-de-reels-fort-lauderdale` pages. Both now give a concrete, clearly hypothetical restaurant clip brief, distinguish editing supplied footage from separately scoped local capture, and point to published ML Colombia content without claiming customer results. The English Fort Lauderdale cost guide now links directly to the English Reels service; the Spanish guide already linked to its counterpart. The changed Spanish page alone was refreshed in the text-parity fixture. Source for the ML Colombia reference: `lib/portfolio.ts` (published social video, 24-second duration) and `messages/en.json` / `messages/es.json` (Esteban founded and led digital content for his own brand). No identical deliverable or performance result is asserted. Local gates: rail-kit, rail adoption, lint (0 errors), typecheck, all 1,576 tests, production build, and 97-route text parity passed; final raw HTML and independent review are recorded in the PR. Search clicks and leads remain future observations, not claimed outcomes.
+
 # Cost guide and Fort Lauderdale expansion — 2026-10-11
 
 - Branch: `codex/esteban-demand-links-20261011` from current `origin/main`. Scope: `lib/guides.ts`, two English Fort Lauderdale service pages. EN/ES guide uses `packageGuidePrice("presencia-local")`, with explicit production-day vs full-project price distinction and verified links. No new route.
