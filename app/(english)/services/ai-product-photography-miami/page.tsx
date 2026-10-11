@@ -116,6 +116,12 @@ export default function AIProductPhotographyPage() {
                 >
                   Read AI Product Photo Guide
                 </Link>
+                <Link
+                  href="/services/product-photography-miami"
+                  className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#101214] px-6 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"
+                >
+                  Need new real product photos?
+                </Link>
               </div>
             </div>
 
