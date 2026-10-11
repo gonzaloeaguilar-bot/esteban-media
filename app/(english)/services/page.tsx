@@ -146,7 +146,7 @@ export default function ServicesPage() {
             Services
           </p>
           <h1 className="mt-4 max-w-3xl font-serif em-display">
-            Growth systems that turn an idea into a working digital customer journey.
+            Need video, a website, or help getting more inquiries?
           </h1>
           {/* THE FIRST SCREEN SAYS WHAT THIS IS AND WHAT TO DO (2026-09-29).
               Measured on the served page before this pass: 1,397 words, one
@@ -156,9 +156,9 @@ export default function ServicesPage() {
               a client actually asks, and everything that only supports
               reading is folded — collapsed, never removed. */}
           <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-            Websites, measured lead capture, automation, and creative production,
-            built around one confirmed scope so you get more qualified inquiries
-            and less manual follow-up.
+            Send Esteban the result you need. He can edit footage you have,
+            plan a South Florida shoot, or build a website and follow-up system
+            around your business.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
@@ -188,6 +188,23 @@ export default function ServicesPage() {
             />
           ) : null}
 
+          <nav className="mt-10 grid gap-3 md:grid-cols-3" aria-label="Choose what you need">
+            {[
+              { href: "#editing", title: "I have footage to edit", detail: "Turn existing clips into videos ready to publish." },
+              { href: "#on-location", title: "I need something filmed", detail: "Plan a local shoot for a property, business, or event." },
+              { href: "/services/website-design-fort-lauderdale", title: "I need a website or follow-up help", detail: "Explore a site and a clearer path for new inquiries." },
+            ].map((choice) => (
+              <Link key={choice.title} href={choice.href} className="group flex min-h-36 flex-col justify-between rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5 hover:border-[#e85d3e]">
+                <span className="font-serif text-2xl leading-tight">{choice.title}</span>
+                <span className="mt-3 text-sm leading-6 text-[#252a2d]">{choice.detail}</span>
+                <span className="mt-3 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27]">See how it works <ArrowRight className="size-4" aria-hidden="true" /></span>
+              </Link>
+            ))}
+          </nav>
+
+          <details id="specific-service-pages" className="mt-8 rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5">
+            <summary className="cursor-pointer font-serif text-2xl">Looking for a specific type of video or photo?</summary>
+            <p className="mt-2 text-sm leading-6 text-[#252a2d]">Reels, real estate, local production, product visuals, and other focused service pages.</p>
           <section className="mt-10" aria-labelledby="quick-service-paths-heading">
             <p className="text-xs font-medium uppercase text-[#5a6066]">
               Fast paths
@@ -263,7 +280,11 @@ export default function ServicesPage() {
               ))}
             </div>
           </section>
+          </details>
 
+          <details id="business-systems" className="mt-8 rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5">
+            <summary className="cursor-pointer font-serif text-2xl">Need a wider business system?</summary>
+            <p className="mt-2 text-sm leading-6 text-[#252a2d]">Explore websites, inquiry follow-up, local presence, measurement, and automation.</p>
           <section className="mt-12" aria-labelledby="growth-systems-heading">
             <p className="text-xs font-medium uppercase text-[#5a6066]">
               0→1 Growth Systems
@@ -334,6 +355,7 @@ export default function ServicesPage() {
               back under your brand.
             </p>
           </section>
+          </details>
 
           <section className="mt-14" aria-labelledby="creative-production-heading">
             <p className="text-xs font-medium uppercase text-[#5a6066]">
