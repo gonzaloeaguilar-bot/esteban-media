@@ -71,10 +71,15 @@ export function ClientReviews({ locale = "en", compact = false }: { locale?: "en
      and nothing is edited — an excerpt would be us authoring a testimonial,
      which lib/client-reviews.ts exists to prevent. */
   if (compact) {
-    const shortest = [...googleReviews]
-      .sort((a, b) => a.quote.length - b.quote.length)
-      .slice(0, 2)
-      .map((r) => ({ author: r.author, quote: r.quote, publishedAt: r.publishedAt }));
+    /* ALL of them. The band shows the reviews as an end-credit roll, and
+       credits name everyone who worked on the thing — picking two would be
+       an edit, and an edit of testimony is the thing lib/client-reviews.ts
+       exists to prevent. Verbatim, in the order the source lists them. */
+    const rolling = googleReviews.map((r) => ({
+      author: r.author,
+      quote: r.quote,
+      publishedAt: r.publishedAt,
+    }));
 
     return (
       <ReviewsBand
@@ -83,7 +88,7 @@ export function ClientReviews({ locale = "en", compact = false }: { locale?: "en
         heading={locale === "es" ? "Reseñas verificadas en Google." : "Verified Google reviews."}
         rating={rating}
         reviewCount={reviewCount}
-        quotes={shortest}
+        quotes={rolling}
         action={
           locale === "es"
             ? `Leer las ${reviewCount} en Google`
