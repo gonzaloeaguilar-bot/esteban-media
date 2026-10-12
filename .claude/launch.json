@@ -2,10 +2,10 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "esteban-media",
+      "name": "esteban-needs-first",
       "runtimeExecutable": "pnpm",
-      "runtimeArgs": ["dev"],
-      "port": 3000
+      "runtimeArgs": ["exec", "next", "dev", "-p", "3217"],
+      "port": 3217
     }
   ]
 }
