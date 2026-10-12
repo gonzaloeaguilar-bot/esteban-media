@@ -183,3 +183,32 @@
    "see the work" and "what it costs", instead of a 1px warm grey rule sitting
    immediately on top of a 5px terracotta one. */
 .em-re-showcase__work{border-bottom-width:0!important}
+
+/* The chooser's control. Same treatment the monthly plans already use — the
+   kit ships the control unstyled, and bare it wrapped onto two rows at 390px
+   with the inactive labels nearly invisible on this cream background. */
+.em-path-choice .rail-segmented{width:100%;max-width:560px;background:#e7dfd5;border:1px solid #c8beb3;padding:5px;border-radius:99px;display:flex;gap:4px}
+.em-path-choice .rail-segmented__segment{flex:1;min-height:44px;padding:10px 6px;border:0;border-radius:99px;color:#39332e;background:transparent;font-size:14px;font-weight:600;line-height:1.2;transition:transform 140ms ease}
+.em-path-choice .rail-segmented__segment[data-active]{background:#101214;color:#fffdf9}
+.em-path-choice .rail-segmented__segment:active{transform:scale(.97)}
+
+/* The price fold. Collapsed by default; the whole list still ships in the HTML. */
+.em-pricefold{margin-top:18px;border-top:1px solid #ddd4c8;padding-top:16px}
+.em-pricefold>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:.5rem;min-height:48px;padding:0 20px;border-radius:99px;background:#9d3d2b;color:#fff;font-size:15px;font-weight:600}
+.em-pricefold>summary::-webkit-details-marker{display:none}
+.em-pricefold__chev{width:.5rem;height:.5rem;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);margin-top:-.2rem}
+.em-pricefold[open]>summary .em-pricefold__chev{transform:rotate(-135deg);margin-top:.2rem}
+.em-pricefold__body{margin-top:16px;max-width:620px}
+.em-pricefold__note{font-size:13px;color:#6a625a;margin:0 0 14px}
+.em-pricefold__h{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#6a625a;margin:18px 0 8px}
+.em-pricefold__h:first-of-type{margin-top:0}
+.em-pricefold__list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.em-pricefold__list>li{border:1px solid #ddd4c8;border-radius:12px;background:#fff}
+.em-pricefold__list>li,.em-pricefold__row{display:grid;grid-template-columns:1fr auto;align-items:center;gap:4px 12px;padding:12px 14px;min-height:56px}
+.em-pricefold__row{padding:0;border:0;min-height:0}
+.em-pricefold__name{font-size:15px;font-weight:600;color:#101214}
+.em-pricefold__meta{grid-column:1;font-size:12.5px;color:#6a625a}
+.em-pricefold__price{grid-row:1/3;grid-column:2;font-size:15px;font-weight:600;color:#9d3d2b;text-align:right}
+.em-pricefold__price>span{font-size:12px;font-weight:500;color:#6a625a}
+.em-pricefold__cta{display:inline-flex;align-items:center;min-height:44px;margin-top:14px;font-weight:600;color:#9d3d2b;text-decoration:underline;text-underline-offset:4px}
+@media (prefers-reduced-motion:reduce){.em-path-choice .rail-segmented__segment{transition:none}}

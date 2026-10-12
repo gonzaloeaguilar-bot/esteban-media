@@ -45,8 +45,26 @@ describe("home — proof before pricing", () => {
     const path = src.indexOf("<HomeProjectPath");
     expect(path).toBeLessThan(fold);
     expect(packages).toBeGreaterThan(fold);
+    // The chooser still carries starting prices on the home page — but they
+    // moved from an inline four-card grid into a fold, at the owner's request
+    // (2026-10-12: "the prices should show up after, in some modal or sheet,
+    // cause the pages that come after are so long I get lost trying to find
+    // pricing").
+    //
+    // This used to assert that home-project-path.tsx called packagesFor and
+    // priceFor — a file-location proxy for the real requirement, which is that
+    // the prices are ON the home page and in its SERVER HTML. Asserting the
+    // proxy would now be satisfied by dead code, so it asserts the property:
+    // the chooser renders the price fold, and the fold reads the shared
+    // sources rather than typing any figure of its own.
     const component = source("components/home-project-path.tsx");
-    expect(component).toContain("packagesFor(locale)");
-    expect(component).toContain("priceFor(pkg.id)");
+    expect(component).toContain("<PriceSheet");
+    const priceFold = source("components/price-sheet.tsx");
+    expect(priceFold).toContain("packagesFor(locale)");
+    expect(priceFold).toContain("priceFor(pkg.id)");
+    // A native <details>: collapsed is not removed, unmounted is. A client
+    // sheet would take every figure out of the server HTML.
+    expect(priceFold).toContain("<details");
+    expect(priceFold).not.toContain('"use client"');
   });
 });
