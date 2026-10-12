@@ -438,9 +438,11 @@ html.rail-anim:not([data-brand-moment]) .em-cine__eyebrow {
 .em-cine-caption {
   background: var(--cine-ink);
   color: rgba(255, 255, 255, 0.84);
-  /* No top padding: the hero already ends on about 120px of black, and the
-     hairline plus this padding read as an empty band, not as a join. */
-  padding: 0 0 40px;
+  /* The hero ends on black and this block used to start immediately under
+     the hairline, so the two read as one dense slab. Owner request, 2026-10-12:
+     "heavy on the eye... give it space to breathe between the section on the
+     top". The join now has air above it, and the type below is bigger. */
+  padding: clamp(28px, 7vw, 56px) 0 44px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 .em-cine-caption__lead {
@@ -448,15 +450,22 @@ html.rail-anim:not([data-brand-moment]) .em-cine__eyebrow {
   max-width: 38ch;
   font-family: var(--font-newsreader), Georgia, serif;
   font-style: italic;
-  font-size: clamp(1.15rem, 3.8vw, 1.6rem);
+  font-size: clamp(1.45rem, 4.9vw, 2.1rem);
   line-height: 1.3;
+  /* Owner request, 2026-10-12: "bold of bigger so easy to read". Newsreader
+     italic at 400 goes thin on a dark background; 600 holds the stroke. */
+  font-weight: 600;
   color: #fff;
 }
 .em-cine-caption__body {
-  margin: 12px 0 0;
-  max-width: 62ch;
-  font-size: 15px;
-  line-height: 1.65;
+  margin: 16px 0 0;
+  max-width: 58ch;
+  font-size: 17.5px;
+  font-weight: 500;
+  line-height: 1.7;
+  /* The block sets .84 white; at body size on #05070a that is the thing that
+     reads as hard work. Full-strength text, same ink. */
+  color: rgba(255, 255, 255, 0.95);
 }
 .em-cine-caption__body a {
   color: #fff;
@@ -468,7 +477,7 @@ html.rail-anim:not([data-brand-moment]) .em-cine__eyebrow {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin: 20px 0 0;
+  margin: 26px 0 0;
   padding: 0;
   list-style: none;
 }
@@ -2225,3 +2234,42 @@ a.em-pk-carte__item:active .em-pk-carte__go,
 }
 .em-re-terms li + li { margin-top: 4px; }
 .em-re .em-package-detail-link { gap: 8px; margin-top: 22px; }
+
+/* The fold control. Big enough to hit with a thumb, heavy enough to read as
+   the one thing to tap in this block. */
+.em-cine-caption__more > summary {
+  list-style: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  min-height: 44px;
+  margin-top: 4px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: .01em;
+  color: #fff;
+}
+.em-cine-caption__more > summary::-webkit-details-marker { display: none; }
+.em-cine-caption__more > summary::after {
+  content: "";
+  width: .5rem;
+  height: .5rem;
+  border-right: 2px solid var(--cine-accent-soft, #ffb49e);
+  border-bottom: 2px solid var(--cine-accent-soft, #ffb49e);
+  transform: rotate(45deg);
+  margin-top: -.3rem;
+  transition: transform .2s ease;
+}
+.em-cine-caption__more[open] > summary::after {
+  transform: rotate(-135deg);
+  margin-top: .25rem;
+}
+.em-cine-caption__more > summary:focus-visible {
+  outline: 2px solid var(--cine-accent-soft, #ffb49e);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .em-cine-caption__more > summary::after { transition: none; }
+}

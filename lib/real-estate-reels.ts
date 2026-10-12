@@ -185,3 +185,27 @@ export function buildRealEstateReelsJsonLd(locale: "en" | "es" = "en") {
     })),
   };
 }
+
+/**
+ * The order these reels are shown in, everywhere.
+ *
+ * Open with the sharp architectural frame: the authored first clip
+ * ("listing-opener") begins on a motion-blurred frame, and leading with it
+ * made the whole shelf feel unfinished on a phone. This lived inside the
+ * shelf component until the homepage rail started rendering the same reels —
+ * at which point two surfaces disagreed about which poster leads, and the
+ * homepage led with the blurred one. One record, one order.
+ */
+export const REEL_DISPLAY_ORDER: readonly string[] = [
+  "waterfront-tower-aerial",
+  "waterfront-condo-views",
+  "primary-suite-pool-view",
+  "agent-intro-living-room",
+  "staged-bedroom-tour",
+  "listing-opener",
+];
+
+/** REAL_ESTATE_REELS in the curated display order. */
+export const REELS_IN_DISPLAY_ORDER = [...REAL_ESTATE_REELS].sort(
+  (a, b) => REEL_DISPLAY_ORDER.indexOf(a.id) - REEL_DISPLAY_ORDER.indexOf(b.id),
+);

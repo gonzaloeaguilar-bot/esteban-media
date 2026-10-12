@@ -11,6 +11,7 @@ import { whatsappHref } from "@/lib/packages";
 import { quoteCtaLabel } from "@/lib/quote-cta";
 import {
   REAL_ESTATE_REELS,
+  REEL_DISPLAY_ORDER,
   buildRealEstateReelsJsonLd,
   formatClock,
   realEstateReelsPath,
@@ -48,16 +49,6 @@ import {
 /** Netflix delays its previews about half a second so a pass-over never fires. */
 const PREVIEW_DELAY_MS = 450;
 
-// Open with the sharp architectural frame; the original first poster is a
-// motion-blurred frame and made the entire shelf feel less finished on phones.
-const REEL_DISPLAY_ORDER = [
-  "waterfront-tower-aerial",
-  "waterfront-condo-views",
-  "primary-suite-pool-view",
-  "agent-intro-living-room",
-  "staged-bedroom-tour",
-  "listing-opener",
-];
 
 function prefersReducedMotion(): boolean {
   return (

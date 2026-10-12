@@ -1729,3 +1729,59 @@ div.relative:has(> .em-carousel-track) {
     transform: scale(1.06);
   }
 }
+
+/* ── Home work rail: taller cards + a spotlight on the one in view ──────────
+   Owner request, 2026-10-12: "taller cards with a spotlight glow for the one in
+   view". The posters are a mix of 9:16 reels and landscape stills, so the
+   card box is set to 3/4 and object-cover decides the crop — taller than the
+   4/3 default without letterboxing either source. */
+/* TALLER CARDS — but only where taller is honest.
+   The rule above deliberately mats every still at 16:9 and CONTAINS it,
+   because most of these posters are website screenshots and `cover` eats
+   their headline text ("Inspected by a mechanic." became "pected by a /
+   chanic."). That stays.
+   The six property reels are different: they are 720x1280 PHOTOGRAPHS with
+   no text to destroy, so they get a tall 4:5 frame and fill it. The result
+   is the taller card the owner asked for, on the cards that can take it,
+   without mutilating the ones that cannot. */
+/* EVERY card in this rail now uses the tall 4:5 frame, not just the reels.
+   Mixing heights left a short 16:9 still sitting in a tall row with a black
+   void beneath it, which read as broken rather than as framing.
+   What differs is what happens INSIDE the frame:
+     reels  — 720x1280 photographs, so they FILL it;
+     stills — mostly website screenshots, so they stay CONTAINED in a mat,
+              exactly as the rule above requires. Cropping them would eat
+              their headline text, which is the defect that rule exists for. */
+.em-cartel .rail-card[data-rail-kind="media"] .rail-card__figure {
+  aspect-ratio: 4 / 5;
+}
+.em-cartel .rail-card[data-em-reel] .rail-card__figure :is(img, picture) {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.em-cartel .rail-card[data-rail-kind="media"] {
+  transition: transform .34s cubic-bezier(.22,.61,.36,1), box-shadow .34s ease, opacity .34s ease;
+}
+
+/* The rest sit back so the spotlight means something. */
+.em-cartel .rail-card[data-rail-kind="media"]:not([data-em-spotlight]) {
+  opacity: .82;
+}
+
+.em-cartel .rail-card[data-em-spotlight] {
+  opacity: 1;
+  transform: translateY(-6px);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, .16),
+    0 18px 44px -12px rgba(0, 0, 0, .75),
+    0 0 46px -8px rgba(232, 93, 62, .42);
+}
+
+/* The glow is decoration; motion is not required to read the rail. */
+@media (prefers-reduced-motion: reduce) {
+  .em-cartel .rail-card[data-rail-kind="media"] { transition: none; }
+  .em-cartel .rail-card[data-em-spotlight] { transform: none; }
+}
