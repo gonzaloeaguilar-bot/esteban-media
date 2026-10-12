@@ -412,7 +412,7 @@ export function RealEstateReels({
             <a
               href={realEstateReelsPath(locale)}
               data-cta={`real_estate_reels_${locale}_service`}
-              className="text-sm font-medium text-[#ffb49e] underline-offset-4 hover:underline"
+              className="inline-flex min-h-11 items-center text-sm font-medium text-[#ffb49e] underline-offset-4 hover:underline"
             >
               {isEs ? "Conoce el servicio de reels" : "About the reel service"}
             </a>
@@ -606,7 +606,7 @@ export function RealEstateReels({
                     </div>
                     <a
                       href={servicePath}
-                      className="text-sm font-medium text-[#ffb49e] underline-offset-4 hover:underline"
+                      className="inline-flex min-h-11 items-center text-sm font-medium text-[#ffb49e] underline-offset-4 hover:underline"
                     >
                       {isEs ? "Conoce el servicio de reels" : "About the reel service"}
                     </a>

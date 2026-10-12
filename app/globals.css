@@ -1386,6 +1386,11 @@ div.relative:has(> .em-carousel-track) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  /* width:44px alone is a suggestion inside a flex row — these sit in one and
+     were being SHRUNK to 31px wide while still reporting 44 in the stylesheet.
+     Measured on a 390px phone, not read off the rule. */
+  flex: 0 0 44px;
+  min-width: 44px;
   width: 44px;
   height: 44px;
   justify-self: center;
