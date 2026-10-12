@@ -47,6 +47,7 @@ export function HomePortfolioRail({
   const isSpanish = locale === "es";
   const wrapRef = useRef<HTMLDivElement | null>(null);
   const [openReel, setOpenReel] = useState<ReelFunnelReel | null>(null);
+  const [litId, setLitId] = useState<string | null>(null);
 
   /** A reel card PLAYS instead of navigating.
       It used to be a link to the reels service page: the visitor asked to see
@@ -95,6 +96,7 @@ export function HomePortfolioRail({
     let frame = 0;
     const mark = () => {
       frame = 0;
+      if (!railVisible) return;
       const box = scroller.getBoundingClientRect();
       const mid = box.left + box.width / 2;
       let best: HTMLElement | null = null;
@@ -109,17 +111,48 @@ export function HomePortfolioRail({
         if (card === best) card.setAttribute("data-em-spotlight", "true");
         else card.removeAttribute("data-em-spotlight");
       }
+      setLitId(best?.getAttribute("data-rail-card") ?? null);
     };
+    /* The spotlight is measured INSIDE the scroller, so a card is "most
+       centred" even while the whole rail is far off screen — which mounted a
+       clip on page load and broke the promise that nothing is fetched until
+       you arrive. The lit id is therefore gated on the RAIL being in the
+       viewport; off screen there is no lit card and no video. */
+    let railVisible = false;
+    const railIO = new IntersectionObserver(
+      ([entry]) => {
+        railVisible = entry.isIntersecting;
+        if (!railVisible) {
+          setLitId(null);
+          for (const card of cards) card.removeAttribute("data-em-spotlight");
+        } else {
+          mark();
+        }
+      },
+      { threshold: 0.15 },
+    );
+    railIO.observe(scroller);
+
     const onScroll = () => { if (!frame) frame = requestAnimationFrame(mark); };
-    mark();
     scroller.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll, { passive: true });
     return () => {
       if (frame) cancelAnimationFrame(frame);
+      railIO.disconnect();
       scroller.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
     };
   }, [items]);
+
+  /** THE SPOTLIT CARD PLAYS.
+      A rail of still posters on a video editor's homepage is the same defect
+      the reel shelf had: the work does not move. So the card currently in the
+      spotlight mounts its own clip — ONE at a time, only the lit one, and only
+      where there is a file. Every other card stays a poster, so the shelf is
+      still never fetched up front. Skipped entirely under reduced motion. */
+  const reduced =
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const railItems: RailItem[] = items.map((item) => ({
     kind: "media",
@@ -146,6 +179,21 @@ export function HomePortfolioRail({
             wallpaper — and on a rail of six it would be six things moving at
             once. The kit guards it behind prefers-reduced-motion. */}
         <span data-rail-shimmer aria-hidden="true" className="absolute inset-0 z-[1]" />
+        {item.videoSrc && item.id === litId && !reduced ? (
+          <video
+            key={`${item.id}-spot`}
+            src={item.videoSrc}
+            poster={item.poster}
+            muted
+            loop
+            autoPlay
+            playsInline
+            preload="auto"
+            tabIndex={-1}
+            aria-hidden="true"
+            className="em-cartel-spot-video pointer-events-none absolute inset-0 z-[1] h-full w-full object-cover"
+          />
+        ) : null}
         {/* The grid this replaces opened each card link with a screen-reader
             -only verb, so the link announced "Watch <title>" rather than just
             the title. Dropping it was a real loss — caught by diffing the
