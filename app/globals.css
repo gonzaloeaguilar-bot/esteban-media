@@ -1776,13 +1776,45 @@ div.relative:has(> .em-carousel-track) {
   opacity: .82;
 }
 
+/* HEADROOM FOR THE LIFT.
+   The spotlight raises the card, but the rail's scroller has overflow:auto —
+   so the lift was being SLICED at the top edge. Measured on production: the
+   card's top sat at 183 while the scroller's top was 189, six pixels of card
+   cut off, which is exactly what reads as a broken top edge.
+   A transform inside clipped overflow is a layout change, not an effect.
+   The scroller now carries padding for the lift and its glow, and pulls the
+   same amount back as negative margin so nothing else on the page moves. */
+.em-cartel .rail__scroller {
+  /* Pad for the lift, but only pull PART of it back: clawing the full 26px
+     back dragged the rail up into the "1 of 14" counter, which then sat
+     against the lifted card. The remainder is breathing room above the cards,
+     which is what the top edge was missing in the first place. */
+  padding-top: 26px;
+  margin-top: 6px;
+  padding-bottom: 26px;
+  margin-bottom: -18px;
+}
+
 .em-cartel .rail-card[data-em-spotlight] {
   opacity: 1;
-  transform: translateY(-6px);
+  /* A POP, not a nudge: it rises further and grows very slightly, which is
+     what makes the card read as picked up rather than shifted. */
+  transform: translateY(-12px) scale(1.035);
   box-shadow:
-    0 0 0 1px rgba(255, 255, 255, .16),
-    0 18px 44px -12px rgba(0, 0, 0, .75),
-    0 0 46px -8px rgba(232, 93, 62, .42);
+    0 0 0 1px rgba(255, 255, 255, .22),
+    0 26px 60px -14px rgba(0, 0, 0, .85),
+    0 0 72px -10px rgba(232, 93, 62, .55);
+}
+
+/* The pop has a spring to it. A card that simply slides up reads as a layout
+   shift; the slight overshoot is what makes it read as a thing being lifted. */
+@media (prefers-reduced-motion: no-preference) {
+  .em-cartel .rail-card[data-rail-kind="media"] {
+    transition:
+      transform .42s cubic-bezier(.34, 1.56, .64, 1),
+      box-shadow .34s ease,
+      opacity .34s ease;
+  }
 }
 
 /* The glow is decoration; motion is not required to read the rail. */
