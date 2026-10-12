@@ -1,7 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { X } from "lucide-react";
+import Image from "next/image";
+import { Play, X } from "lucide-react";
 
 import { whatsappHref } from "@/lib/packages";
 import { site } from "@/lib/site";
@@ -29,6 +30,13 @@ export type ReelFunnelReel = {
  * blank and never generic. No form, no fields, no email capture: the message
  * IS the lead, and it arrives in the channel this site already uses for every
  * other contact action.
+ *
+ * AND YOU CAN KEEP BROWSING. Owner, 2026-10-12: "i kind of wanted to be able
+ * to scroll also and see other work whole on this view (like Netflix does)."
+ * So the takeover carries the rest of the shelf under the question, the way a
+ * streaming detail view carries More Like This: pick another and the player
+ * swaps in place rather than closing and reopening. Posters only — no second
+ * MP4 is fetched until you choose one, so browsing costs nothing.
  */
 const COPY = {
   en: {
@@ -36,6 +44,7 @@ const COPY = {
     hint: "Pick one and it opens WhatsApp with your answer already written.",
     close: "Close",
     watching: "Watching",
+    more: "More work",
     needs: [
       // Short enough to sit two-up without wrapping to three lines: four
       // full-width pills needed a scroll on a real phone.
@@ -52,6 +61,7 @@ const COPY = {
     hint: "Elige una y se abre WhatsApp con tu respuesta ya escrita.",
     close: "Cerrar",
     watching: "Viendo",
+    more: "Más trabajo",
     needs: [
       { id: "same", label: "Un reel como este", said: "un reel como este" },
       { id: "business", label: "Video de negocio", said: "un video para mi negocio" },
@@ -65,18 +75,30 @@ const COPY = {
 
 export function ReelFunnel({
   reel,
+  playlist = [],
   locale,
   onClose,
+  onSelect,
 }: {
   reel: ReelFunnelReel | null;
+  /** The rest of the shelf, shown under the question. Posters only. */
+  playlist?: ReelFunnelReel[];
   locale: "en" | "es";
   onClose: () => void;
+  onSelect?: (next: ReelFunnelReel) => void;
 }) {
-  const t = COPY[locale];
   const closeRef = useRef<HTMLButtonElement | null>(null);
   const [mounted, setMounted] = useState(false);
 
+  const panelRef = useRef<HTMLDivElement | null>(null);
+
   useEffect(() => setMounted(true), []);
+
+  /** Swapping reels returns you to the player. Without this you pick a new
+      one from the bottom of the list and the video is off-screen above. */
+  useEffect(() => {
+    if (reel) panelRef.current?.scrollTo({ top: 0, behavior: "smooth" });
+  }, [reel?.id]);
 
   const onKey = useCallback(
     (event: KeyboardEvent) => {
@@ -101,6 +123,9 @@ export function ReelFunnel({
 
   if (!reel || !mounted) return null;
 
+  const t = COPY[locale];
+  const others = playlist.filter((item) => item.id !== reel.id);
+
   return (
     <div
       className="em-funnel"
@@ -111,7 +136,7 @@ export function ReelFunnel({
         if (event.target === event.currentTarget) onClose();
       }}
     >
-      <div className="em-funnel__panel">
+      <div className="em-funnel__panel" ref={panelRef}>
         <button
           ref={closeRef}
           type="button"
@@ -158,6 +183,34 @@ export function ReelFunnel({
             ))}
           </div>
           <p className="em-funnel__hint">{t.hint}</p>
+
+          {others.length > 0 ? (
+            <section className="em-funnel__more" aria-label={t.more}>
+              <h3 className="em-funnel__more-h">{t.more}</h3>
+              <div className="em-funnel__grid">
+                {others.map((other) => (
+                  <button
+                    key={other.id}
+                    type="button"
+                    className="em-funnel__thumb"
+                    onClick={() => onSelect?.(other)}
+                  >
+                    <Image
+                      src={other.poster}
+                      alt=""
+                      fill
+                      sizes="33vw"
+                      className="object-cover"
+                    />
+                    <span className="em-funnel__thumb-play" aria-hidden="true">
+                      <Play className="size-3.5 fill-current" />
+                    </span>
+                    <span className="em-funnel__thumb-t">{other.title}</span>
+                  </button>
+                ))}
+              </div>
+            </section>
+          ) : null}
         </div>
       </div>
     </div>

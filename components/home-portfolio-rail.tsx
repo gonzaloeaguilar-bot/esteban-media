@@ -198,7 +198,15 @@ export function HomePortfolioRail({
       labels={isSpanish ? RAIL_LABELS_ES : RAIL_LABELS_EN}
       showControls
     />
-    <ReelFunnel reel={openReel} locale={locale} onClose={() => setOpenReel(null)} />
+    <ReelFunnel
+      reel={openReel}
+      playlist={items
+        .filter((i) => i.videoSrc && i.poster)
+        .map((i) => ({ id: i.id, title: i.title, src: i.videoSrc!, poster: i.poster! }))}
+      locale={locale}
+      onClose={() => setOpenReel(null)}
+      onSelect={setOpenReel}
+    />
     </div>
   );
 }
