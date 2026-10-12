@@ -145,6 +145,14 @@ export function HeroVideo({ locale = "en" }: HeroVideoProps) {
               ? "Edición de video y producción de contenido para negocios, agentes y creadores."
               : "Video editing and content production for businesses, agents, and creators."}
           </p>
+          {/* The detail folds. The lead sentence above stays visible, so the
+              block still says what this is; the long explanation and the
+              area list open on tap. Native <details>, so the full text ships
+              in the HTML and AI crawlers still read it — collapsed is not
+              removed, unmounted would be. This is what pays back the screen
+              the new air costs. */}
+          <details className="em-cine-caption__more">
+          <summary>{isSpanish ? "Cómo funciona" : "How it works"}</summary>
           <p className="em-cine-caption__body">
             {isSpanish ? (
               <>
@@ -166,6 +174,7 @@ export function HeroVideo({ locale = "en" }: HeroVideoProps) {
               <li key={fact}>{fact}</li>
             ))}
           </ul>
+          </details>
         </Container>
       </section>
     </>
