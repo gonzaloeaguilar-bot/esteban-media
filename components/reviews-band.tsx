@@ -121,14 +121,20 @@ export function ReviewsBand({
       <span className="em-revband__veil" aria-hidden="true" />
 
       <div className="em-revband__inner">
+        {/* THE NUMBER LEADS. Owner, 2026-10-12: "should the word reviews be
+            under the 5.0? I read the 5.0 before anything, then I went down."
+            He is describing what the type already does — the figure is by far
+            the largest thing here, so the eye lands on it first and the
+            heading above it was read second, out of order. The words now sit
+            where they are actually read: under the number they describe. */}
         <p className="em-eyebrow em-eyebrow--inverted">{eyebrow}</p>
-        <h2 id="client-reviews-heading" className="em-revband__h">
-          {heading}
-        </h2>
 
         <p className="em-revband__figure">
           <span className="em-revband__num">{rating.toFixed(1)}</span>
         </p>
+        <h2 id="client-reviews-heading" className="em-revband__h">
+          {heading}
+        </h2>
         <p className="em-revband__meta">
           {locale === "es"
             ? `${reviewCount} reseñas públicas · verificadas en Google`
