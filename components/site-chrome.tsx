@@ -4,6 +4,7 @@ import { Geist, Geist_Mono, Instrument_Serif, Newsreader, Oswald } from "next/fo
 import { GoogleAnalytics } from "@/components/google-analytics";
 import { MOTION_GATE_SCRIPT, RouteVeil, SiteMotion } from "@/components/site-motion";
 import { AppNav } from "@/components/app-nav";
+import { ContactRibbon } from "@/components/contact-ribbon";
 import { BRAND_MOMENT_BOOT_JS } from "@/vendor/web-kit/brand-moment/boot.generated";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -92,6 +93,7 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
       </div>
       <SiteFooter />
       <SiteMotion />
+      <ContactRibbon />
       <AppNav />
       {/* beforeInteractive, not after: the veil is up from first paint, and the
           opening cannot mount until this script exists. Measured at 390x844 on

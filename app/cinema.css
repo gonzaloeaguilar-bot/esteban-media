@@ -2273,3 +2273,125 @@ a.em-pk-carte__item:active .em-pk-carte__go,
 @media (prefers-reduced-motion: reduce) {
   .em-cine-caption__more > summary::after { transition: none; }
 }
+
+/* ── Contact ribbon, riding on top of the dock ────────────────────────────
+   components/contact-ribbon.tsx. Sits above .em-appnav because the thumb is
+   already in that corner; hidden from lg up, where there is no dock and the
+   header carries its own quote button. */
+.em-ribbon {
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  /* clears the floating dock: its lift + its own height. */
+  bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+  z-index: 48;
+  display: flex;
+  /* REVERSE: the bar is anchored to the bottom, so the choices have to open
+     UPWARD. Opening down pushed them into the dock and wrapped the fourth
+     chip onto its own row over the page. */
+  flex-direction: column-reverse;
+  gap: 8px;
+  pointer-events: none;
+}
+.em-ribbon > * { pointer-events: auto; }
+
+.em-ribbon__card {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  border-radius: 999px;
+  background: linear-gradient(100deg, #a8381d 0%, #c84a2c 58%, #e85d3e 100%);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.14);
+  overflow: hidden;
+}
+.em-ribbon__lead {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex: 1 1 auto;
+  min-height: 48px;
+  padding: 0 6px 0 16px;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-size: 14.5px;
+  font-weight: 650;
+  text-align: left;
+}
+.em-ribbon__text { flex: 1 1 auto; }
+.em-ribbon__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #fff;
+  flex: 0 0 8px;
+}
+.em-ribbon__chev {
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid rgba(255, 255, 255, 0.9);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.9);
+  transform: rotate(-45deg);
+  margin-right: 6px;
+  flex: 0 0 8px;
+}
+.em-ribbon__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* 44px, and not shrinkable: a declared width inside a flex row is only a
+     suggestion, which is how the carousel arrows ended up 31px wide. */
+  flex: 0 0 44px;
+  min-width: 44px;
+  min-height: 48px;
+  border: 0;
+  background: rgba(0, 0, 0, 0.18);
+  color: #fff;
+}
+.em-ribbon__choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  /* right-aligned under the bar's own edge so the stack reads as one object */
+  justify-content: flex-end;
+}
+.em-ribbon__choice {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: rgba(11, 12, 13, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-size: 13.5px;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+}
+
+/* The shine. One slow pass, three times, then it stops — a highlight that
+   never ends is wallpaper. Nothing moves for a visitor who asked it not to. */
+@media (prefers-reduced-motion: no-preference) {
+  .em-ribbon__sweep { position: relative; }
+  .em-ribbon__sweep::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      100deg,
+      transparent 35%,
+      rgba(255, 255, 255, 0.34) 50%,
+      transparent 65%
+    );
+    transform: translateX(-100%);
+    animation: em-ribbon-sweep 1.9s ease-in-out 0.4s 3;
+  }
+  @keyframes em-ribbon-sweep {
+    to { transform: translateX(100%); }
+  }
+}
+
+@media (min-width: 1024px) {
+  .em-ribbon { display: none; }
+}
