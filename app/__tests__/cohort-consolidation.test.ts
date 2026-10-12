@@ -119,8 +119,9 @@ describe("consolidation arithmetic matches the published baseline", () => {
     // +10 = the five remaining annual-event pairs: Miami International Boat Show, South Beach Wine & Food Festival, eMerge Americas, Miami Music Week and Miami Spice (2026-10-10, owner-approved).
     // +16 = niche wave 8 (2026-10-11, owner-approved bilingual pairs).
     // +1 = real product photography path (2026-10-11 US buyer query).
+    // +1 = Spanish companion for the same real product photography offer.
     // All owner-ordered, none of them consolidation changes.
-    expect(sitemap()).toHaveLength(269 - 26 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 2 + 4 + 1 + 26 + 6 + 10 + 16 + 1);
+    expect(sitemap()).toHaveLength(269 - 26 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 2 + 4 + 1 + 26 + 6 + 10 + 16 + 1 + 1);
   });
 
   it("never lists a redirect source in the sitemap", () => {

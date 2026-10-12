@@ -223,9 +223,14 @@ export default function SpanishServicesPage() {
                     {service.detail}
                   </p>
                   {service.id === "fotografia" ? (
-                    <Link href="/es/fotografo-en-fort-lauderdale" className="mt-5 inline-flex min-h-11 items-center text-sm font-medium text-[#9f3c27] underline underline-offset-4">
-                      Consultar fotografía en Fort Lauderdale
-                    </Link>
+                    <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm font-medium text-[#9f3c27]">
+                      <Link href="/es/fotografia-de-producto-miami" className="inline-flex min-h-11 items-center underline underline-offset-4">
+                        Ver fotografía de producto en Miami
+                      </Link>
+                      <Link href="/es/fotografo-en-fort-lauderdale" className="inline-flex min-h-11 items-center underline underline-offset-4">
+                        Consultar fotografía en Fort Lauderdale
+                      </Link>
+                    </div>
                   ) : null}
                   {service.id === "diseno-web" || service.id === "website-design" ? (
                     <Link

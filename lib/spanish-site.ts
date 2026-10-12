@@ -4375,6 +4375,7 @@ export const spanishNichePages: SpanishNichePage[] = [
 
 export const spanishCoreRoutes = [
   "/es",
+  "/es/fotografia-de-producto-miami",
   "/es/servicios",
   "/es/precios",
   "/es/portafolio",
@@ -4670,6 +4671,16 @@ const languageAlternatesRaw: Record<string, Record<string, string>> = {
     "en-US": "/services/ai-product-photography-miami",
     "es-US": "/es/fotografia-de-producto-con-ia-miami",
     "x-default": "/services/ai-product-photography-miami",
+  },
+  "/services/product-photography-miami": {
+    "en-US": "/services/product-photography-miami",
+    "es-US": "/es/fotografia-de-producto-miami",
+    "x-default": "/services/product-photography-miami",
+  },
+  "/es/fotografia-de-producto-miami": {
+    "en-US": "/services/product-photography-miami",
+    "es-US": "/es/fotografia-de-producto-miami",
+    "x-default": "/services/product-photography-miami",
   },
   "/services/ai-real-estate-photo-enhancement": {
     "en-US": "/services/ai-real-estate-photo-enhancement",
