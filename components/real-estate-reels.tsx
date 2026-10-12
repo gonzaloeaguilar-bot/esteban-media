@@ -80,14 +80,18 @@ function cardIndexFrom(target: EventTarget | null): number | null {
 export function RealEstateReels({
   locale = "en",
   className = "",
+  featuredCount,
 }: {
   locale?: "en" | "es";
   className?: string;
+  /** Homepage can show a short proof set; the service page keeps all six. */
+  featuredCount?: number;
 }) {
   const isEs = locale === "es";
-  const reels = [...REAL_ESTATE_REELS].sort(
+  const allReels = [...REAL_ESTATE_REELS].sort(
     (a, b) => REEL_DISPLAY_ORDER.indexOf(a.id) - REEL_DISPLAY_ORDER.indexOf(b.id),
   );
+  const reels = featuredCount ? allReels.slice(0, featuredCount) : allReels;
   const len = reels.length;
   const headingId = "real-estate-reels-heading";
   const servicePath = realEstateReelsPath(locale);
@@ -344,8 +348,8 @@ export function RealEstateReels({
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-7 text-[#c9c1b8]">
               {isEs
-                ? "Seis videos de propiedades terminados. Toca una portada para verlos."
-                : "Six finished property videos. Tap any poster to watch."}
+                ? `${len} videos de propiedades terminados. Toca una portada para verlos.`
+                : `${len} finished property videos. Tap any poster to watch.`}
             </p>
           </div>
           <div className="flex shrink-0 flex-col gap-4 sm:items-end">
@@ -368,7 +372,9 @@ export function RealEstateReels({
               data-cta={`real_estate_reels_${locale}_service`}
               className="text-sm font-medium text-[#ffb49e] underline-offset-4 hover:underline"
             >
-              {isEs ? "Conoce el servicio de reels" : "About the reel service"}
+              {featuredCount
+                ? (isEs ? "Ver los 6 Reels de propiedades" : "Watch all 6 property Reels")
+                : (isEs ? "Conoce el servicio de reels" : "About the reel service")}
             </a>
             {/* The strip's counter and arrows, docked under the quote button
                 instead of in a header band of their own — that band was the

@@ -214,9 +214,11 @@ function FooterList({
   items: { href: string; label: string }[];
 }) {
   return (
-    <div>
-      <h2 className="text-xs font-medium uppercase text-[#9f978e]">{title}</h2>
-      <ul className="mt-4 space-y-2 text-sm">
+    <details className="em-footer-group">
+      <summary className="min-h-11 cursor-pointer list-none py-3 text-xs font-medium uppercase text-[#c9c1b8] marker:content-none">
+        <span>{title}</span><span className="em-footer-group__mark" aria-hidden="true">+</span>
+      </summary>
+      <ul className="space-y-1 pb-3 text-sm">
         {items.map((item) => (
           <li key={`${item.href}-${item.label}`}>
             <Link
@@ -228,6 +230,6 @@ function FooterList({
           </li>
         ))}
       </ul>
-    </div>
+    </details>
   );
 }

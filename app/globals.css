@@ -292,6 +292,19 @@
   --rail-cta-secondary-color: #f6f1ea;
 }
 
+/* Footer depth is voluntary on phones. Native details keep every link in the
+   served HTML; desktop shows the same lists without requiring a click. */
+.em-footer-group { border-top: 1px solid rgba(255,255,255,.12); }
+.em-footer-group > summary { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+.em-footer-group__mark { font-size:20px; font-weight:400; transition:transform .18s ease; }
+.em-footer-group[open] .em-footer-group__mark { transform:rotate(45deg); }
+@media (min-width: 1024px) {
+  .em-footer-group { border-top:0; }
+  .em-footer-group > summary { cursor:default; padding:0; min-height:0; pointer-events:none; color:#9f978e; }
+  .em-footer-group__mark { display:none; }
+  .em-footer-group > ul { display:block !important; margin-top:16px; padding-bottom:0; }
+}
+
 /* Numbered list: the numeral is a CSS counter, never DOM text. An `aria-hidden`
    span would still put "1 2 3 4" into the page's text where a crawler reads it,
    and this template changes presentation only. Drawn in the serif at a size the

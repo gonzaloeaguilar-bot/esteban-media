@@ -7,9 +7,9 @@ import RailDisclosure from "@/vendor/rail-kit/RailDisclosure";
 import type { AudienceLocale } from "@/lib/audience-lanes";
 
 /** Esteban's artwork composition, using the shared disclosure and tilt surface. */
-export function IllustratedScene({ image, alt, kind = "photo", label, facts, source, locale }: {
+export function IllustratedScene({ image, alt, kind = "photo", label, facts, source, locale, priority = false }: {
   image: string; alt: string; kind?: "photo" | "edit" | "aerial";
-  label: string; facts: string[]; source: string; locale: AudienceLocale;
+  label: string; facts: string[]; source: string; locale: AudienceLocale; priority?: boolean;
 }) {
   const root = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -28,7 +28,7 @@ export function IllustratedScene({ image, alt, kind = "photo", label, facts, sou
     <RailDisclosure source={`illustration-${source}`} className="em-art-disclosure" summary={<>
       <span className="em-art-scene">
         <span className="em-art-depth" data-rail-tilt="">
-          <Image src={image} alt={alt} width={1536} height={1024} sizes="(max-width: 850px) 90vw, 50vw" />
+          <Image src={image} alt={alt} width={1536} height={1024} sizes="(max-width: 850px) 90vw, 50vw" priority={priority} />
           <span className="em-art-viewfinder" aria-hidden="true"><i /><i /><i /><i /></span>
           <span className="em-art-record" aria-hidden="true" />
           <span className="em-art-film" aria-hidden="true"><i /><i /><i /><b /></span>

@@ -1328,8 +1328,8 @@ html.rail-anim .em-pk-steps__list.rail-reveal.is-in li:nth-child(3) { transition
   grid-area: 1 / 1;
   position: relative;
 }
-.em-signal__w--es { animation: em-sg-word-a 2.4s steps(1, end) infinite; }
-.em-signal__w--en { animation: em-sg-word-b 2.4s steps(1, end) infinite; }
+.em-signal__w--es { animation: em-sg-word-a 1.2s steps(1, end) 1 forwards; }
+.em-signal__w--en { animation: em-sg-word-b 1.2s steps(1, end) 1 forwards; }
 @keyframes em-sg-word-a {
   0%, 48% { opacity: 1; }
   49%, 100% { opacity: 0; }
@@ -1350,9 +1350,9 @@ html.rail-anim .em-pk-steps__list.rail-reveal.is-in li:nth-child(3) { transition
 .em-signal__w::before { color: #57e0ff; }
 .em-signal__w::after { color: #ff4d3d; }
 .em-signal__w--es::before,
-.em-signal__w--es::after { animation: em-sg-tear 2.4s linear infinite; }
+.em-signal__w--es::after { animation: em-sg-tear 1.2s linear 1 forwards; }
 .em-signal__w--en::before,
-.em-signal__w--en::after { animation: em-sg-tear 2.4s linear infinite; animation-delay: 1.2s; }
+.em-signal__w--en::after { animation: em-sg-tear 1.2s linear 1 forwards; animation-delay: .6s; }
 .em-signal__w::before { animation-direction: normal; }
 @keyframes em-sg-tear {
   0%, 40% { opacity: 0; transform: translate(0, 0); clip-path: inset(0 0 0 0); }
@@ -1389,7 +1389,7 @@ html.rail-anim .em-pk-steps__list.rail-reveal.is-in li:nth-child(3) { transition
   top: 0;
   height: 24%;
   background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.18), transparent);
-  animation: em-sg-roll 0.7s cubic-bezier(0.3, 0, 0.2, 1) 0.42s forwards;
+  animation: em-sg-roll 0.55s cubic-bezier(0.3, 0, 0.2, 1) 0.2s forwards;
 }
 @keyframes em-sg-roll {
   0% { transform: translateY(-120%); opacity: 0; }
@@ -1903,8 +1903,11 @@ header .rail-finder__trigger {
 .em-appnav {
   transition: transform 0.24s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
-.em-appnav[data-hidden] {
+.em-appnav[data-hidden],
+.em-appnav[data-overlay-hidden="1"],
+html[data-em-menu-open="true"] .em-appnav {
   transform: translateY(calc(100% + var(--rail-bottomnav-floating-lift) + 24px));
+  pointer-events: none;
 }
 @media (prefers-reduced-motion: reduce) {
   .em-appnav { transition: none; }

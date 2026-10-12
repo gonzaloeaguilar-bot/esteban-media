@@ -60,6 +60,27 @@ export function AppNav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, [pathname]);
 
+  // Only one mobile navigation surface can own the screen. The header marks
+  // its menu on <html>; native dialogs expose their open state. Observe both
+  // so the dock cannot compete with either the menu or the search sheet.
+  useEffect(() => {
+    const nav = document.querySelector<HTMLElement>(".em-appnav");
+    if (!nav) return;
+    const sync = () => {
+      const covered = Boolean(
+        document.documentElement.dataset.emMenuOpen ||
+        document.querySelector("dialog[open]"),
+      );
+      if (covered) nav.dataset.overlayHidden = "1";
+      else delete nav.dataset.overlayHidden;
+    };
+    const observer = new MutationObserver(sync);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-em-menu-open"] });
+    observer.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ["open"] });
+    sync();
+    return () => observer.disconnect();
+  }, [pathname]);
+
   // The closing section offers the same three actions the bar does, and on a
   // phone the floating bar sat over the package price. `data-em-hides-sticky`
   // was already in the markup and nothing read it, so the bar never moved.
