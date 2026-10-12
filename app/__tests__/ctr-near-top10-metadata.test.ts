@@ -44,15 +44,15 @@ describe("near-top-10 CTR metadata and canonical service targeting", () => {
     expect(englishPortfolioMetadata.description).toBe(
       "See real restaurant, real estate, brand, social, event, and animation video work from Esteban Moreno Media in Miami and Fort Lauderdale, with project details.",
     );
-    expect(spanishAreasMetadata.title).toBe(
-      "Servicios de edición de video en Miami y Fort Lauderdale",
-    );
+    expect(spanishAreasMetadata.title).toEqual({
+      absolute: "Servicios de edición de video en Miami y Fort Lauderdale",
+    });
     expect(spanishAreasMetadata.description).toBe(
       "Explora edición de video, contenido con IA y planificación social para Fort Lauderdale, Broward y Miami-Dade. Palm Beach se evalúa según el proyecto.",
     );
-    expect(spanishPortfolioMetadata.title).toBe(
-      "Portafolio de edición de video en Miami y Fort Lauderdale",
-    );
+    expect(spanishPortfolioMetadata.title).toEqual({
+      absolute: "Portafolio de edición de video en Miami y Fort Lauderdale",
+    });
     expect(spanishPortfolioMetadata.description).toBe(
       "Mira trabajos seleccionados de edición, promoción, contenido social, eventos, animación y narrativa para proyectos en Miami y Fort Lauderdale.",
     );

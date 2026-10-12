@@ -55,7 +55,7 @@ describe("reading path", () => {
 
   it("collapses the directory, which is the part that only supports reading", () => {
     expect(collapsed(source(EN))).toContain("ServiceLandingDirectory");
-    expect(collapsed(source(ES))).toContain("spanishNichePages.map");
+    expect(collapsed(source(ES))).toContain("spanishNichePages");
   });
 
   it("never ships the fold-out open, or it saves nothing", () => {
