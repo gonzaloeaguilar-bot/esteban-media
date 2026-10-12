@@ -32,11 +32,15 @@ export type BandQuote = { author: string; quote: string; publishedAt?: string };
  * not, so it never animates behind your back, and reduced motion gets a plain
  * static list with no roll at all.
  *
+ * THE RATING IS STATIC. Owner, 2026-10-12: "should always show the overall
+ * rating, that number should not change." It renders at its real value on
+ * first paint and never counts up — motion plays ON the glyphs (the shine
+ * sweep), never a change OF the number itself.
+ *
  * WHAT MOVES, and for how long. Each fires once, on arrival, and stops:
- * the wall drifts up 60px over 2.4s; the numeral counts to its real value
- * over 900ms; one cream highlight sweeps across the glyphs over 1.1s. An
- * animation that never ends is wallpaper. Under prefers-reduced-motion the
- * band arrives settled, the numeral renders at its value, nothing sweeps —
+ * the wall drifts up 60px over 2.4s; one cream highlight sweeps across the
+ * glyphs over 1.1s. An animation that never ends is wallpaper. Under
+ * prefers-reduced-motion the band arrives settled, nothing sweeps —
  * the scale and the dark are the design, the timing is only the entrance.
  */
 export function ReviewsBand({
@@ -63,7 +67,6 @@ export function ReviewsBand({
   const ref = useRef<HTMLElement | null>(null);
   const [shown, setShown] = useState(false);
   const [rolling, setRolling] = useState(false);
-  const [display, setDisplay] = useState<number | null>(null);
 
   useEffect(() => {
     const el = ref.current;
@@ -71,7 +74,6 @@ export function ReviewsBand({
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduced) {
       setShown(true);
-      setDisplay(rating);
       return;
     }
 
@@ -90,16 +92,6 @@ export function ReviewsBand({
           if (!entry.isIntersecting) continue;
           setShown(true);
           io.disconnect();
-          const start = performance.now();
-          const DURATION = 900;
-          const tick = (now: number) => {
-            const p = Math.min(1, (now - start) / DURATION);
-            // ease-out, so it lands softly on the real number
-            setDisplay(rating * (1 - Math.pow(1 - p, 3)));
-            if (p < 1) requestAnimationFrame(tick);
-            else setDisplay(rating);
-          };
-          requestAnimationFrame(tick);
         }
       },
       { threshold: 0.4 },
@@ -109,7 +101,7 @@ export function ReviewsBand({
       io.disconnect();
       live.disconnect();
     };
-  }, [rating]);
+  }, []);
 
   return (
     <section
@@ -134,9 +126,7 @@ export function ReviewsBand({
         </h2>
 
         <p className="em-revband__figure">
-          <span className="em-revband__num">
-            {(display ?? rating).toFixed(1)}
-          </span>
+          <span className="em-revband__num">{rating.toFixed(1)}</span>
         </p>
         <p className="em-revband__meta">
           {locale === "es"
