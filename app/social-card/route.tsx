@@ -1,8 +1,32 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+
 import { ImageResponse } from "next/og";
 
 import { socialImageSize } from "@/lib/social-image";
 
 export const dynamic = "force-static";
+
+/**
+ * The share preview now SHOWS THE HERO.
+ *
+ * It was a typographic card — brand, headline, three service words, no
+ * picture. Shared to Google Business Profile that reads as a slide, not as
+ * work, which is a strange first impression for a video editor.
+ *
+ * Esteban on location, inlined at build time. It has to be inlined: this
+ * route is force-static, and ImageResponse cannot resolve a site-relative URL
+ * while the page is being generated.
+ *
+ * It sits in a PANEL on the right rather than full bleed. Every photograph of
+ * him is portrait or square (768x1366, 1170x1442, 1170x1146) and this card is
+ * 1200x630 — a full-bleed cover of any of them keeps a thin horizontal band
+ * through the middle, which is his torso, not his face or the camera. A panel
+ * crops far less and leaves the left clear for the words.
+ */
+const HERO_FRAME = `data:image/jpeg;base64,${readFileSync(
+  join(process.cwd(), "public/about/esteban-on-set-frame.jpg"),
+).toString("base64")}`;
 
 export function GET() {
   return new ImageResponse(
@@ -21,6 +45,35 @@ export function GET() {
           width: "100%",
         }}
       >
+        {/* The photograph, in a panel on the right. */}
+        <img
+          src={HERO_FRAME}
+          width={520}
+          height={socialImageSize.height}
+          style={{
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: "center 18%",
+            position: "absolute",
+            right: 0,
+            top: 0,
+            width: "520px",
+          }}
+        />
+        {/* The panel's edge is a fade, not a cut, so the picture joins the
+            card instead of being pasted onto it — and the words stay on solid
+            ink however bright the photograph is behind them. */}
+        <div
+          style={{
+            background:
+              "linear-gradient(90deg, #101214 0%, #101214 48%, rgba(16,18,20,0.92) 60%, rgba(16,18,20,0.12) 78%, rgba(16,18,20,0.0) 100%)",
+            height: "100%",
+            left: 0,
+            position: "absolute",
+            top: 0,
+            width: "100%",
+          }}
+        />
         <div
           style={{
             background: "#e85d3e",
