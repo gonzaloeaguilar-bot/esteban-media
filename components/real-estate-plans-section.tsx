@@ -39,6 +39,7 @@ export function RealEstatePlansSection({ locale }: { locale: Locale }) {
           return <article key={plan.id} hidden={enhanced && active !== plan.id} className="em-visual-plan" aria-label={name} data-plan={plan.id}>
             <div className="em-plan-art">
               <IllustratedScene image={visual.image} alt={visual[locale].alt} kind={plan.drone === "included" ? "aerial" : "photo"} locale={locale} source={`plan-${plan.id}`}
+                priority={plan.id === plans[0].id}
                 label={es ? `Explora ${name}` : `Explore ${name}`}
                 facts={[
                   `${plan.properties} ${es ? (plan.properties === 1 ? "propiedad al mes" : "propiedades al mes") : (plan.properties === 1 ? "property per month" : "properties per month")}`,

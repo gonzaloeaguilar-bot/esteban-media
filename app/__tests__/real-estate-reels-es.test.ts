@@ -83,7 +83,7 @@ describe("homepage real-estate block", () => {
     const block = source("components/real-estate-block.tsx");
     expect(block).not.toContain("<KeepReading");
     expect(block).toContain("<RealEstatePlansSection locale={locale} />");
-    expect(block).toContain("<RealEstateReels locale={locale} />");
+    expect(block).toContain("<RealEstateReels locale={locale} featuredCount={3} />");
   });
 
   it("leaves the plans visible by default where PackagesSection is used elsewhere", () => {

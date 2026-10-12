@@ -13,7 +13,7 @@ import type { Locale } from "@/lib/packages";
 export function RealEstateBlock({ locale }: { locale: Locale }) {
   return (
     <div className="em-re-block" data-section="real_estate_block">
-      <RealEstateReels locale={locale} />
+      <RealEstateReels locale={locale} featuredCount={3} />
       <RealEstatePlansSection locale={locale} />
     </div>
   );

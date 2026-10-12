@@ -37,7 +37,10 @@ export function SiteSearch() {
         className="rail-finder__trigger rail-finder__trigger--icon em-search"
         data-rail-finder="site_search"
         aria-label={label}
-        onClick={() => setArmed(true)}
+        onClick={() => {
+          window.dispatchEvent(new Event("em:overlay-open"));
+          setArmed(true);
+        }}
       >
         <span className="rail-finder__glyph">
           <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
@@ -50,6 +53,10 @@ export function SiteSearch() {
   }
 
   return (
+    <span
+      className="contents"
+      onClickCapture={() => window.dispatchEvent(new Event("em:overlay-open"))}
+    >
     <RailFinder
       className="em-search"
       entries={entries}
@@ -62,6 +69,8 @@ export function SiteSearch() {
       countLabel={(n) => (es ? `${n} resultados` : `${n} results`)}
       closeLabel={es ? "Cerrar" : "Close"}
       source="site_search"
+      onSelect={() => window.dispatchEvent(new Event("em:overlay-close"))}
     />
+    </span>
   );
 }

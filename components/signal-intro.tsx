@@ -67,7 +67,7 @@ export function SignalIntro({ locale }: { locale: "es" | "en" }) {
 
       mount({
         name: "signal_opening",
-        // The ceiling, not the plan: the opening locks itself at 2.4s (below).
+        // The ceiling, not the plan: the opening locks itself at 1.2s (below).
         // The kit's own timer is what actually removes the element, so it stays
         // the LONGER of the two — but only just. It used to be 6000 so that a
         // visitor reaching for the language choice INSIDE this card could not be
@@ -76,7 +76,7 @@ export function SignalIntro({ locale }: { locale: "es" | "en" }) {
         // over the card cancelled the 2.4s dismiss and stranded the visitor
         // behind the overlay until this ceiling — 6.4s on a marketing home whose
         // biggest word was LOADING.
-        runMs: 2800,
+        runMs: 1400,
         skipLabel: es ? "Saltar" : "Skip",
         html:
           '<div class="em-signal">' +
@@ -109,7 +109,7 @@ export function SignalIntro({ locale }: { locale: "es" | "en" }) {
         moment.classList.add("is-through");
         root.removeAttribute(ATTR);
       };
-      const through = window.setTimeout(lock, 2400);
+      const through = window.setTimeout(lock, 1200);
 
       // No pointer hold any more. It existed so a finger already on the card
       // could reach the language links without the 2.4s dismiss beating it —

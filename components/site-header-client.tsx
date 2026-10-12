@@ -41,6 +41,25 @@ export function SiteHeaderClient({ shortName }: { shortName: string }) {
   }, [pathname]);
 
   useEffect(() => {
+    const root = document.documentElement;
+    if (isMenuOpen) {
+      root.dataset.emMenuOpen = "true";
+      document.querySelector<HTMLDialogElement>("dialog[open]")?.close();
+    } else {
+      delete root.dataset.emMenuOpen;
+    }
+    return () => {
+      delete root.dataset.emMenuOpen;
+    };
+  }, [isMenuOpen]);
+
+  useEffect(() => {
+    const closeForOverlay = () => setIsMenuOpen(false);
+    window.addEventListener("em:overlay-open", closeForOverlay);
+    return () => window.removeEventListener("em:overlay-open", closeForOverlay);
+  }, []);
+
+  useEffect(() => {
     if (!isMenuOpen) {
       return;
     }

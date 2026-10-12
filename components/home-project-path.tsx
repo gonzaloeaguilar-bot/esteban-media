@@ -5,7 +5,6 @@ import { ArrowRight } from "lucide-react";
 import { AUDIENCE_LANES, type AudienceLocale } from "@/lib/audience-lanes";
 import { packagesFor, priceFor } from "@/lib/packages";
 import { packageRoutes } from "@/lib/package-routes";
-import { realEstateReelsPath } from "@/lib/real-estate-reels";
 import { usd } from "@/lib/pricing";
 
 const copy = {
@@ -23,7 +22,8 @@ const copy = {
     pricingDetail: "Choose a package to see everything included. Final pricing depends on the project scope.",
     pricingAction: "Compare packages",
     swipe: "Swipe to see all three options.",
-    illustrationNote: "Illustrated service choices. Finished client work appears above.",
+    illustrationNote: "Homeowners is published work. The other two service choices are concept illustrations.",
+    propertyProof: "Watch 6 property Reels",
     pricingHref: "/pricing",
     from: "From",
     custom: "Custom quote",
@@ -47,7 +47,8 @@ const copy = {
     pricingDetail: "Elige un paquete para ver todo lo incluido. El precio final depende del alcance del proyecto.",
     pricingAction: "Comparar paquetes",
     swipe: "Desliza para ver las tres opciones.",
-    illustrationNote: "Opciones de servicio ilustradas. El trabajo terminado aparece arriba.",
+    illustrationNote: "Homeowners es trabajo publicado. Las otras dos opciones son ilustraciones conceptuales.",
+    propertyProof: "Ver 6 Reels de propiedades",
     pricingHref: "/es/precios",
     from: "Desde",
     custom: "Cotización personalizada",
@@ -75,12 +76,12 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
         <p className="mt-3 text-sm font-medium text-[#9d3d2b] sm:hidden">{c.swipe}</p>
         <div className="-mx-4 mt-6 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-3 sm:overflow-visible sm:px-0">
           {lanes.map((lane, index) => (
-            <Link key={lane.id} href={index === 0 ? realEstateReelsPath(locale) : lane.href} data-cta={`home-path-${lane.id}`} className="group min-w-[78%] snap-start overflow-hidden rounded-2xl border border-[#d3c3b2] bg-white transition hover:border-[#a93e29] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a93e29] sm:min-w-0">
+            <Link key={lane.id} href={index === 0 ? "#real-estate-reels-heading" : lane.href} data-cta={`home-path-${lane.id}`} className="group min-w-[78%] snap-start overflow-hidden rounded-2xl border border-[#d3c3b2] bg-white transition hover:border-[#a93e29] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a93e29] sm:min-w-0">
               <span className="block overflow-hidden bg-[#f4ebdf]">
-                <Image src={`/illustrations/${artwork[index]}.webp`} alt={c.artAlts[index]} width={1536} height={1024} className="aspect-[3/2] w-full object-contain transition duration-500 group-hover:scale-[1.02]" sizes="(min-width: 640px) 33vw, 78vw" />
+                <Image src={index === 0 ? "/portfolio/homeowners.jpg" : `/illustrations/${artwork[index]}.webp`} alt={index === 0 ? (locale === "es" ? "Fotograma del proyecto publicado Homeowners" : "Still from the published Homeowners project") : c.artAlts[index]} width={1536} height={1024} className={`aspect-[3/2] w-full transition duration-500 group-hover:scale-[1.02] ${index === 0 ? "object-cover" : "object-contain"}`} sizes="(min-width: 640px) 33vw, 78vw" />
               </span>
               <span className="flex min-h-16 items-center justify-between gap-4 border-t border-[#e2d5c7] bg-[#fffaf4] px-5 py-4 text-lg font-medium leading-snug">
-                <span><span className="block">{c.labels[index]}</span><span className="mt-1 block text-xs font-normal uppercase tracking-wide text-[#6a625a]">{lane.who}</span></span>
+                <span><span className="block">{c.labels[index]}</span><span className="mt-1 block text-xs font-normal uppercase tracking-wide text-[#6a625a]">{lane.who}</span>{index === 0 && <span className="mt-2 block text-sm font-medium normal-case tracking-normal text-[#9d3d2b] underline underline-offset-4">{c.propertyProof}</span>}</span>
                 <ArrowRight className="size-5 shrink-0 text-[#a93e29] transition-transform group-hover:translate-x-1" aria-hidden="true" />
               </span>
             </Link>
@@ -96,7 +97,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
         </nav>
         <div className="mt-6 border-t border-[#ddd4c8] pt-5">
           <p className="text-sm leading-6 text-[#4d5358]"><strong className="text-[#101214]">{c.pricing}</strong> {c.pricingDetail}</p>
-          <ul className="mt-4 grid grid-cols-2 gap-2 lg:grid-cols-4" aria-label={c.pricing}>
+          <ul className="em-home-price-rows mt-4 grid gap-2 lg:grid-cols-4" aria-label={c.pricing}>
             {packages.map((pkg) => {
               const price = priceFor(pkg.id);
               return (

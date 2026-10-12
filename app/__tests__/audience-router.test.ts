@@ -37,7 +37,7 @@ describe("audience paths — on both home pages", () => {
     if (fold > -1) expect(path).toBeLessThan(fold);
     const component = source("components/home-project-path.tsx");
     expect(component).toContain("AUDIENCE_LANES[locale].lanes");
-    expect(component).toContain("realEstateReelsPath(locale)");
+    expect(component).toContain('"#real-estate-reels-heading"');
     expect(component).toContain("lane.href");
   });
 
