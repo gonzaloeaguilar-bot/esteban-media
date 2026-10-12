@@ -37,10 +37,12 @@ const COPY = {
     close: "Close",
     watching: "Watching",
     needs: [
-      { id: "same", label: "A reel like this" },
-      { id: "business", label: "A video for my business" },
-      { id: "event", label: "An event filmed" },
-      { id: "editing", label: "Editing for footage I have" },
+      // Short enough to sit two-up without wrapping to three lines: four
+      // full-width pills needed a scroll on a real phone.
+      { id: "same", label: "A reel like this", said: "a reel like this" },
+      { id: "business", label: "Business video", said: "a video for my business" },
+      { id: "event", label: "Event filming", said: "an event filmed" },
+      { id: "editing", label: "Editing only", said: "editing for footage I already have" },
     ],
     line: (reel: string, need: string) =>
       `Hi Esteban, I just watched "${reel}" on your site. I need: ${need}.`,
@@ -51,10 +53,10 @@ const COPY = {
     close: "Cerrar",
     watching: "Viendo",
     needs: [
-      { id: "same", label: "Un reel como este" },
-      { id: "business", label: "Un video para mi negocio" },
-      { id: "event", label: "Grabar un evento" },
-      { id: "editing", label: "Edición del material que tengo" },
+      { id: "same", label: "Un reel como este", said: "un reel como este" },
+      { id: "business", label: "Video de negocio", said: "un video para mi negocio" },
+      { id: "event", label: "Grabar un evento", said: "grabar un evento" },
+      { id: "editing", label: "Solo edición", said: "edición del material que ya tengo" },
     ],
     line: (reel: string, need: string) =>
       `Hola Esteban, acabo de ver "${reel}" en tu página. Necesito: ${need}.`,
@@ -143,7 +145,7 @@ export function ReelFunnel({
                 key={need.id}
                 href={whatsappHref(
                   site.phone.e164,
-                  t.line(reel.title, need.label.toLowerCase()),
+                  t.line(reel.title, need.said),
                 )}
                 target="_blank"
                 rel="noopener noreferrer"

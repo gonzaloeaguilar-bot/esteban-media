@@ -2280,6 +2280,11 @@ a.em-pk-carte__item:active .em-pk-carte__go,
 .em-funnel {
   position: fixed;
   inset: 0;
+  /* dvh, not vh: in mobile Safari `vh` is the viewport WITHOUT the address bar
+     and toolbar, so a panel sized in vh is taller than the space the visitor
+     can actually see and the answers fall below the fold. Reported from a real
+     iPhone, 2026-10-12. */
+  height: 100dvh;
   z-index: 70;
   display: flex;
   align-items: center;
@@ -2320,12 +2325,14 @@ a.em-pk-carte__item:active .em-pk-carte__go,
   width: 100%;
   /* the reels are 720x1280; give them their own shape rather than letterbox */
   aspect-ratio: 9 / 16;
-  max-height: 58vh;
+  /* The reel is the draw, but it must not push the question off the screen.
+     Capped so the ask always fits under it on the shortest common phone. */
+  max-height: min(48dvh, 420px);
   object-fit: cover;
   background: #000;
   display: block;
 }
-.em-funnel__ask { padding: 16px 16px 20px; }
+.em-funnel__ask { padding: 14px 14px 16px; }
 .em-funnel__watching {
   margin: 0;
   font-size: 12px;
@@ -2335,37 +2342,46 @@ a.em-pk-carte__item:active .em-pk-carte__go,
 }
 .em-funnel__watching strong { color: #fff; font-weight: 600; }
 .em-funnel__q {
-  margin: 8px 0 0;
+  margin: 6px 0 0;
   font-family: var(--em-heading-font, Georgia, serif);
-  font-size: 23px;
+  font-size: 21px;
   font-weight: 500;
   color: #fff;
 }
 .em-funnel__needs {
-  display: flex;
-  flex-direction: column;
+  /* TWO COLUMNS. Four stacked full-width pills needed a scroll on a real
+     phone; as a 2x2 they are one glance. Still >=44px tall, so nothing is
+     traded for the thumb. */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 8px;
-  margin-top: 14px;
+  margin-top: 12px;
 }
 .em-funnel__need {
   display: inline-flex;
   align-items: center;
-  min-height: 48px;
-  padding: 0 16px;
-  border-radius: 999px;
+  justify-content: center;
+  text-align: center;
+  min-height: 46px;
+  padding: 6px 12px;
+  border-radius: 14px;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: #fff;
-  font-size: 15px;
+  font-size: 13.5px;
+  line-height: 1.25;
   font-weight: 600;
 }
+/* All four the same size, in a 2x2. The first keeps the accent so it still
+   reads as the likely answer, but it no longer spans the row: spanning left
+   the fourth chip alone in the left column with an empty cell beside it. */
 .em-funnel__need:first-child {
   background: var(--em-accent-ink, #a8381d);
   border-color: transparent;
 }
 .em-funnel__hint {
-  margin: 12px 0 0;
-  font-size: 12.5px;
-  line-height: 1.5;
+  margin: 10px 0 0;
+  font-size: 12px;
+  line-height: 1.45;
   color: rgba(255, 255, 255, 0.62);
 }
