@@ -21,6 +21,17 @@ export type BandQuote = { author: string; quote: string; publishedAt?: string };
  * "5.0" does not), the green "verified" pill (green is Google's colour, not
  * his, and the word carries it), and the caption repeating the link.
  *
+ * THE REVIEWS ROLL LIKE END CREDITS. Owner, 2026-10-12: "the reviews should
+ * just show like end credits rolling down." It is the right form for a video
+ * editor: the people who worked on the thing, named, scrolling past. All six
+ * real reviews run, not an edited two — credits do not pick favourites.
+ *
+ * The roll is the ONE exception to this file's no-endless-motion rule, because
+ * a credit roll that stops is not a credit roll. It is bounded another way:
+ * it runs only while the band is on screen and is PAUSED the moment it is
+ * not, so it never animates behind your back, and reduced motion gets a plain
+ * static list with no roll at all.
+ *
  * WHAT MOVES, and for how long. Each fires once, on arrival, and stops:
  * the wall drifts up 60px over 2.4s; the numeral counts to its real value
  * over 900ms; one cream highlight sweeps across the glyphs over 1.1s. An
@@ -51,6 +62,7 @@ export function ReviewsBand({
 }) {
   const ref = useRef<HTMLElement | null>(null);
   const [shown, setShown] = useState(false);
+  const [rolling, setRolling] = useState(false);
   const [display, setDisplay] = useState<number | null>(null);
 
   useEffect(() => {
@@ -62,6 +74,16 @@ export function ReviewsBand({
       setDisplay(rating);
       return;
     }
+
+    /* The roll runs ONLY while the band is on screen. `shown` latches on for
+       the one-shot entrance; this does not — a credit roll turning behind
+       your back for the rest of the session is the wallpaper this file keeps
+       arguing against. */
+    const live = new IntersectionObserver(
+      ([entry]) => setRolling(entry.isIntersecting),
+      { threshold: 0 },
+    );
+    live.observe(el);
     const io = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -83,7 +105,10 @@ export function ReviewsBand({
       { threshold: 0.4 },
     );
     io.observe(el);
-    return () => io.disconnect();
+    return () => {
+      io.disconnect();
+      live.disconnect();
+    };
   }, [rating]);
 
   return (
@@ -119,14 +144,23 @@ export function ReviewsBand({
             : `${reviewCount} public reviews · verified on Google`}
         </p>
 
-        <ul className="em-revband__quotes">
-          {quotes.map((q) => (
-            <li key={q.author}>
-              <blockquote>{q.quote}</blockquote>
-              <cite>{q.author}</cite>
-            </li>
-          ))}
-        </ul>
+        <div className="em-revband__roll" data-rolling={rolling ? "true" : undefined}>
+          {/* The track is rendered TWICE so the loop has no seam: when the
+              first copy has travelled its own height the second is exactly
+              where the first began, and the animation restarts invisibly. */}
+          <div className="em-revband__track">
+            {[0, 1].map((copy) => (
+              <ul key={copy} aria-hidden={copy === 1 ? "true" : undefined}>
+                {quotes.map((q) => (
+                  <li key={`${copy}-${q.author}`}>
+                    <blockquote>{q.quote}</blockquote>
+                    <cite>{q.author}</cite>
+                  </li>
+                ))}
+              </ul>
+            ))}
+          </div>
+        </div>
 
         <a
           href={sourceUrl}

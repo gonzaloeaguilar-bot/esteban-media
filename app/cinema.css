@@ -2468,25 +2468,40 @@ a.em-pk-carte__item:active .em-pk-carte__go,
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.7);
 }
-.em-revband__quotes {
-  list-style: none;
+/* The credit roll. A window with a track that travels its own height and
+   restarts — the track is rendered twice, so the restart lands exactly where
+   the eye already was and there is no seam. */
+.em-revband__roll {
+  position: relative;
   margin: 26px 0 0;
+  height: clamp(180px, 34vh, 260px);
+  overflow: hidden;
+  /* the roll fades in and out at the edges instead of being cut by a hard
+     line, which is what makes it read as a roll rather than as a scrollbox */
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 16%, #000 84%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 16%, #000 84%, transparent 100%);
+}
+.em-revband__track {
+  display: flex;
+  flex-direction: column;
+}
+.em-revband__track ul {
+  list-style: none;
+  margin: 0;
   padding: 0;
   display: grid;
-  gap: 14px;
+  gap: 22px;
 }
-@media (min-width: 768px) {
-  .em-revband__quotes { grid-template-columns: 1fr 1fr; }
-}
-.em-revband__quotes blockquote {
+.em-revband__track ul + ul { margin-top: 22px; }
+.em-revband__roll blockquote {
   margin: 0;
   font-size: 15px;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.92);
 }
-.em-revband__quotes blockquote::before { content: "\201C"; }
-.em-revband__quotes blockquote::after { content: "\201D"; }
-.em-revband__quotes cite {
+.em-revband__roll blockquote::before { content: "\201C"; }
+.em-revband__roll blockquote::after { content: "\201D"; }
+.em-revband__roll cite {
   display: block;
   margin-top: 7px;
   font-style: normal;
@@ -2495,6 +2510,7 @@ a.em-pk-carte__item:active .em-pk-carte__go,
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.6);
 }
+
 .em-revband__cta {
   display: inline-flex;
   align-items: center;
@@ -2542,8 +2558,28 @@ a.em-pk-carte__item:active .em-pk-carte__go,
     to { background-position: -60% 0; }
   }
 }
+@media (prefers-reduced-motion: no-preference) {
+  /* 50% is one full copy of the list; at that point copy two sits exactly
+     where copy one started, so resetting to 0 is invisible. */
+  .em-revband__roll[data-rolling="true"] .em-revband__track {
+    animation: em-revband-roll 34s linear infinite;
+  }
+  @keyframes em-revband-roll {
+    from { transform: translateY(0); }
+    to { transform: translateY(-50%); }
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .em-revband__wall { transform: none; opacity: 1; }
+  /* No roll at all: the window opens up and the list simply sits there. */
+  .em-revband__roll {
+    height: auto;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  /* the duplicate copy is decoration for the loop; with no loop it is noise */
+  .em-revband__track ul[aria-hidden="true"] { display: none; }
 }
 
 /* "More work", inside the takeover — the streaming detail-view pattern:
