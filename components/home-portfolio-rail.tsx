@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Play } from "lucide-react";
 
 import { Rail, type RailItem } from "@/vendor/rail-kit";
+import { ReelFunnel, type ReelFunnelReel } from "@/components/reel-funnel";
 import { RAIL_LABELS_EN, RAIL_LABELS_ES } from "@/components/em-rails";
 
 /**
@@ -25,6 +26,8 @@ export type HomePortfolioCard = {
   id: string;
   /** Portrait reel photograph: may fill a tall frame (see globals.css). */
   isReel?: boolean;
+  /** The reel's MP4. Present only on reels; makes the card open a player. */
+  videoSrc?: string;
   href: string;
   title: string;
   eyebrow: string;
@@ -43,6 +46,32 @@ export function HomePortfolioRail({
 }) {
   const isSpanish = locale === "es";
   const wrapRef = useRef<HTMLDivElement | null>(null);
+  const [openReel, setOpenReel] = useState<ReelFunnelReel | null>(null);
+
+  /** A reel card PLAYS instead of navigating.
+      It used to be a link to the reels service page: the visitor asked to see
+      the video and got a page. The anchor stays in the markup — it is the
+      crawlable route to that page and the no-JS fallback — and the click is
+      intercepted only when we have a file to play. */
+  useEffect(() => {
+    const root = wrapRef.current;
+    if (!root) return;
+    const byId = new Map(items.filter((i) => i.videoSrc).map((i) => [i.id, i]));
+    if (byId.size === 0) return;
+
+    function onClick(event: MouseEvent) {
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.button !== 0) return;
+      const card = (event.target as HTMLElement)?.closest<HTMLElement>(".rail-card");
+      const id = card?.getAttribute("data-rail-card");
+      const item = id ? byId.get(id) : undefined;
+      if (!item?.videoSrc || !item.poster) return;
+      event.preventDefault();
+      setOpenReel({ id: item.id, title: item.title, src: item.videoSrc, poster: item.poster });
+    }
+
+    root.addEventListener("click", onClick);
+    return () => root.removeEventListener("click", onClick);
+  }, [items]);
 
   /** SPOTLIGHT. On a strip you push sideways, the card under your thumb is the
       one you are actually looking at, and every other card competes with it.
@@ -169,6 +198,7 @@ export function HomePortfolioRail({
       labels={isSpanish ? RAIL_LABELS_ES : RAIL_LABELS_EN}
       showControls
     />
+    <ReelFunnel reel={openReel} locale={locale} onClose={() => setOpenReel(null)} />
     </div>
   );
 }

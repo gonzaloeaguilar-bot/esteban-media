@@ -123,6 +123,7 @@ export function PortfolioTeaser({ locale }: PortfolioTeaserProps) {
               eyebrow: isSpanish ? "Video inmobiliario" : "Property video",
               poster: reel.poster,
               isReel: true,
+              videoSrc: reel.src,
             })), ...items.map((item) => {
               const poster = getPoster(item);
               const targetHref =
