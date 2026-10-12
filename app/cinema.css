@@ -2442,27 +2442,37 @@ a.em-pk-carte__item:active .em-pk-carte__go,
   text-align: center;
 }
 .em-revband__h {
-  margin: 10px 0 0;
+  /* it now follows the figure, so it needs less air above and a little below */
+  margin: 6px 0 0;
   font-family: var(--em-heading-font, Georgia, serif);
   font-weight: 400;
   font-size: clamp(26px, 6.4vw, 40px);
   line-height: 1.12;
   color: #fff;
 }
-.em-revband__figure { margin: 18px 0 0; }
+.em-revband__figure { margin: 14px 0 0; }
 .em-revband__num {
   display: inline-block;
   font-family: var(--em-heading-font, Georgia, serif);
   font-weight: 400;
   /* the largest numeral on the site: this is the one fact being stated */
   font-size: clamp(96px, 34vw, 190px);
-  line-height: 0.88;
+  /* line-height 0.88 made the LINE BOX shorter than the glyph: measured on
+     production the box was 116.7px tall and the ink 132px, overflowing 8px
+     above and 7.3px below. On its own that would merely overlap, but the
+     shine paints with background-clip:text — and the gradient only exists
+     inside the element's box, so the ink sticking out above it had no paint
+     at all. That is the top of the number reading as cut off.
+     The box now contains the glyph, and the padding gives the gradient a
+     little margin so the sweep never ends exactly on an edge. */
+  line-height: 1.02;
+  padding: 0.04em 0.03em;
   letter-spacing: -0.04em;
   color: #f6f1ea;
   font-variant-numeric: tabular-nums;
 }
 .em-revband__meta {
-  margin: 14px 0 0;
+  margin: 10px 0 0;
   font-size: 13px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
