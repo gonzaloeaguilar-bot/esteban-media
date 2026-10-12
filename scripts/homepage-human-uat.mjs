@@ -215,9 +215,29 @@ async function evaluateRoute(page, route, viewport) {
   );
 
   const checks = [
-    assert(result.heroButtons[0]?.href === route.portfolioHref, "Hero first CTA opens portfolio", {
-      firstHeroButton: result.heroButtons[0],
-    }),
+    assert(
+      // The hero's ONE primary action is the WhatsApp quote, and the portfolio
+      // is the secondary navigational link. That is a deliberate decision
+      // (d07ca2a6 "make the WhatsApp quote the one primary action, worded
+      // once"), documented in components/hero-video.tsx. This check used to
+      // demand the portfolio be FIRST, which asserted the design we replaced.
+      // What still matters to a buyer is that the work is reachable from the
+      // hero without hunting, so require the portfolio to be present as one of
+      // the hero's buttons — not that it outrank the quote.
+      // Judge the property a human cares about: the portfolio is reachable from
+      // the hero and big enough to tap. Do NOT require it to look "button-like"
+      // — it ships as a ghost button whose padding differs by viewport, so a
+      // style heuristic marks it present on desktop and missing on a phone,
+      // inventing a mobile defect that is not there.
+      result.heroLinks.some(
+        (link) =>
+          link.href === route.portfolioHref &&
+          link.rect.width >= 44 &&
+          link.rect.height >= 44,
+      ),
+      "Hero offers a way into the work",
+      { heroLinks: result.heroLinks },
+    ),
     assert(
       // Esteban's contact channel IS WhatsApp — every contact action on the
       // site is a wa.me link, and the Spanish copy says "Cotiza por WhatsApp".
