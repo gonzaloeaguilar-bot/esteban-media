@@ -66,7 +66,9 @@ describe("Daily Script Pacing Calculator surface", () => {
     expect(enPage.metadata.alternates?.canonical).toBe("/daily-script-pacing-calculator");
 
     const esPage = await import("../(spanish)/es/calculadora-de-ritmo-de-video/page");
-    expect(esPage.metadata.title).toBe("Calculadora de Ritmo de Video y Guion Diario");
+    expect(esPage.metadata.title).toEqual({
+      absolute: "Calculadora de Ritmo de Video y Guion Diario",
+    });
     expect(esPage.metadata.alternates?.canonical).toBe("/es/calculadora-de-ritmo-de-video");
   });
 

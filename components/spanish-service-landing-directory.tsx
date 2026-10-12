@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 
 import { spanishNichePages } from "@/lib/spanish-site";
+import { isConsolidatedPath } from "@/lib/consolidation";
 
 export function SpanishServiceLandingDirectory() {
   return (
@@ -21,7 +22,7 @@ export function SpanishServiceLandingDirectory() {
         y Palm Beach County.
       </p>
       <ul className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {spanishNichePages.map((page) => (
+        {spanishNichePages.filter((page) => !isConsolidatedPath(`/es/${page.slug}`)).map((page) => (
           <li key={page.slug}>
             <Link
               href={`/es/${page.slug}`}

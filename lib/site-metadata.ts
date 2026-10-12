@@ -66,24 +66,9 @@ export function clampDescription(value: string, max = 170): string {
  */
 export const TITLE_BUDGET = 60;
 
-/**
- * Top-level Spanish routes (/es/<slug>) are pinned word-for-word by the
- * text-parity baseline, including the <title>. Dropping the suffix there
- * removes words, which that gate only accepts for additive changes, so those
- * titles keep the brand for now.
- */
-function isParityPinned(path: string, locale: "en" | "es"): boolean {
-  return locale === "es" && /^\/es\/[^/]+$/.test(path);
-}
-
-export function shouldDropBrandSuffix(
-  title: string,
-  path: string,
-  locale: "en" | "es",
-): boolean {
+export function shouldDropBrandSuffix(title: string): boolean {
   return (
     !containsBrand(title) &&
-    !isParityPinned(path, locale) &&
     `${title} | ${site.name}`.length > TITLE_BUDGET
   );
 }
@@ -99,7 +84,7 @@ export function buildPageMetadata({
   descriptionMax,
 }: PageMetadataOptions): Metadata {
   const titleAlreadyBranded = containsBrand(title);
-  const dropBrand = shouldDropBrandSuffix(title, path, locale);
+  const dropBrand = shouldDropBrandSuffix(title);
   const socialTitle = titleAlreadyBranded || dropBrand ? title : `${title} | ${site.name}`;
   const metaDescription = clampDescription(description, descriptionMax);
 

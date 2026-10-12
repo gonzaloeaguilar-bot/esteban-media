@@ -28,7 +28,7 @@
     "seo:indexnow:run": "node scripts/indexnow-submit.mjs run",
     "seo:indexnow:status": "node scripts/indexnow-submit.mjs status",
     "reviews:sync": "node scripts/sync-google-reviews.mjs",
-    "check": "pnpm rail-kit:check && pnpm rail-adoption:check && pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm text-parity",
+    "check": "pnpm rail-kit:check && pnpm rail-adoption:check && pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm text-parity && python3 scripts/verify-spanish-hub-indexability.py .next/server/app",
     "rail-kit:check": "node scripts/sync-rail-kit.mjs --check",
     "rail-adoption:check": "vitest run app/__tests__/rail-adoption.test.ts",
     "followups": "node scripts/followup-due.mjs",
