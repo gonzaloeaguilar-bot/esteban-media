@@ -236,7 +236,7 @@ export function ReviewCarousel({
             <ChevronLeft className="size-5" aria-hidden="true" />
           </button>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center">
             {reviews.map((review, index) => (
               <button
                 key={`${review.author}-${review.publishedAt}-dot`}
@@ -244,9 +244,12 @@ export function ReviewCarousel({
                 aria-label={t.dot(index + 1)}
                 aria-current={index === active ? "true" : undefined}
                 onClick={() => scrollToIndex(index)}
-                /* 24px target (WCAG 2.5.8) with the dot drawn inside it, so the
-                   control is tappable without the marker itself growing. */
-                className="grid size-6 place-items-center rounded-full"
+                /* 44px target with the 10px dot drawn inside it, so the marker
+                   never grows. 24px cleared WCAG 2.5.8 (AA) and that is what
+                   this was; 44 is the AAA / platform thumb guidance, and these
+                   six dots sit in a row where a miss lands on the neighbour.
+                   The container drops its gap to keep the row the same width. */
+                className="grid size-11 place-items-center rounded-full"
               >
                 <span
                   aria-hidden="true"
