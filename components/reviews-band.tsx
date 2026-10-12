@@ -109,6 +109,7 @@ export function ReviewsBand({
       aria-labelledby="client-reviews-heading"
       className="em-revband"
       data-shown={shown ? "true" : undefined}
+      data-live={rolling ? "true" : undefined}
     >
       <div className="em-revband__wall" aria-hidden="true">
         {posters.map((src) => (
