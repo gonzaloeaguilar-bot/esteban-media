@@ -2385,3 +2385,163 @@ a.em-pk-carte__item:active .em-pk-carte__go,
   line-height: 1.45;
   color: rgba(255, 255, 255, 0.62);
 }
+
+/* ── Reviews band ─────────────────────────────────────────────────────────
+   components/reviews-band.tsx. Full-bleed ink, so the proof belongs to the
+   same film as the hero instead of looking like a pasted-in review widget. */
+.em-revband {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #0b0c0d;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: clamp(44px, 11vw, 92px) 0;
+}
+.em-revband__wall {
+  position: absolute;
+  inset: -8% -2% -14%;
+  z-index: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  transform: translateY(42px);
+  opacity: 0;
+  /* BLURRED, for two reasons that are not decoration. The reels carry client
+     SUBTITLES burned into the picture, and at veil strength they were still
+     legible behind the number — someone else's captions reading through a
+     section about Esteban. And the tile grid showed seams where the rows met,
+     which read as a collage rather than as depth. Blur solves both: the wall
+     becomes texture, which is all it was ever meant to be. */
+  filter: blur(14px) saturate(1.1);
+  transform-origin: center;
+}
+@media (min-width: 768px) {
+  .em-revband__wall { grid-template-columns: repeat(6, 1fr); }
+}
+.em-revband__tile {
+  position: relative;
+  display: block;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+}
+.em-revband__veil {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(120% 90% at 18% 112%, rgba(200, 74, 44, 0.32) 0%, transparent 62%),
+    linear-gradient(180deg, rgba(11, 12, 13, 0.9) 0%, rgba(11, 12, 13, 0.82) 42%, rgba(11, 12, 13, 0.93) 100%);
+}
+.em-revband__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+.em-revband__h {
+  margin: 10px 0 0;
+  font-family: var(--em-heading-font, Georgia, serif);
+  font-weight: 400;
+  font-size: clamp(26px, 6.4vw, 40px);
+  line-height: 1.12;
+  color: #fff;
+}
+.em-revband__figure { margin: 18px 0 0; }
+.em-revband__num {
+  display: inline-block;
+  font-family: var(--em-heading-font, Georgia, serif);
+  font-weight: 400;
+  /* the largest numeral on the site: this is the one fact being stated */
+  font-size: clamp(96px, 34vw, 190px);
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+  color: #f6f1ea;
+  font-variant-numeric: tabular-nums;
+}
+.em-revband__meta {
+  margin: 14px 0 0;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+.em-revband__quotes {
+  list-style: none;
+  margin: 26px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+@media (min-width: 768px) {
+  .em-revband__quotes { grid-template-columns: 1fr 1fr; }
+}
+.em-revband__quotes blockquote {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.92);
+}
+.em-revband__quotes blockquote::before { content: "\201C"; }
+.em-revband__quotes blockquote::after { content: "\201D"; }
+.em-revband__quotes cite {
+  display: block;
+  margin-top: 7px;
+  font-style: normal;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+.em-revband__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 28px;
+  min-height: 56px;
+  padding: 0 26px;
+  border-radius: 999px;
+  border: 1px solid var(--em-accent, #c84a2c);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  transition: background-color 150ms, transform 120ms;
+}
+.em-revband__cta:active { transform: translateY(2px); }
+@media (hover: hover) {
+  .em-revband__cta:hover { background: var(--em-accent-ink, #a8381d); }
+}
+
+/* Motion: each fires once on arrival, then stops. */
+@media (prefers-reduced-motion: no-preference) {
+  .em-revband__wall {
+    transition: transform 2.4s cubic-bezier(.16, 1, .3, 1), opacity 1.4s ease-out;
+  }
+  .em-revband[data-shown="true"] .em-revband__wall {
+    transform: translateY(-18px) scale(1.04);
+    opacity: 1;
+  }
+  /* the one shine, across the glyphs of the number only */
+  .em-revband[data-shown="true"] .em-revband__num {
+    background-image: linear-gradient(
+      100deg,
+      #f6f1ea 38%,
+      #ffffff 50%,
+      #f6f1ea 62%
+    );
+    background-size: 280% 100%;
+    background-position: 160% 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: em-revband-shine 1.1s ease-in-out 1.2s 1 forwards;
+  }
+  @keyframes em-revband-shine {
+    to { background-position: -60% 0; }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .em-revband__wall { transform: none; opacity: 1; }
+}

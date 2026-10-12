@@ -1,5 +1,7 @@
 import { ExternalLink, Star } from "lucide-react";
 
+import { ReviewsBand } from "@/components/reviews-band";
+import { REELS_IN_DISPLAY_ORDER } from "@/lib/real-estate-reels";
 import { ReviewCarousel } from "@/components/review-carousel";
 import { Container } from "@/components/ui/container";
 import {
@@ -56,6 +58,42 @@ export function ClientReviews({ locale = "en", compact = false }: { locale?: "en
 
   const t = copy[locale];
   const { rating, reviewCount } = googleReviewSnapshot;
+
+  /* The HOME band. `compact` is the homepage variant and it used to render the
+     aggregate card with the carousel switched OFF — so the six real, verbatim,
+     attributed five-star reviews only existed further down, inside the
+     collapsed keep-reading fold. The number was in front of the visitor and
+     the words people actually respond to were behind a fold. Two of the real
+     quotes now ride in the band itself; the full set still lives in the
+     carousel below, unchanged.
+
+     The two chosen are the SHORTEST verbatim quotes, so nothing is truncated
+     and nothing is edited — an excerpt would be us authoring a testimonial,
+     which lib/client-reviews.ts exists to prevent. */
+  if (compact) {
+    const shortest = [...googleReviews]
+      .sort((a, b) => a.quote.length - b.quote.length)
+      .slice(0, 2)
+      .map((r) => ({ author: r.author, quote: r.quote, publishedAt: r.publishedAt }));
+
+    return (
+      <ReviewsBand
+        locale={locale}
+        eyebrow={t.eyebrow}
+        heading={locale === "es" ? "Reseñas verificadas en Google." : "Verified Google reviews."}
+        rating={rating}
+        reviewCount={reviewCount}
+        quotes={shortest}
+        action={
+          locale === "es"
+            ? `Leer las ${reviewCount} en Google`
+            : `Read all ${reviewCount} on Google`
+        }
+        sourceUrl={reviewSourceUrl}
+        posters={REELS_IN_DISPLAY_ORDER.map((reel) => reel.poster)}
+      />
+    );
+  }
 
   return (
     <section
