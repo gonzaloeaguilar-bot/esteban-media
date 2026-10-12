@@ -69,10 +69,10 @@ export default function Home() {
       <SignalIntro locale="en" />
       <HeroVideo />
       <PortfolioTeaser locale="en" />
-      <div className="em-home-review-controls"><ClientReviews locale="en" compact /></div>
       <HomeProjectPath locale="en" />
       <HomeContactStrip locale="en" />
       <RealEstateBlock locale="en" />
+      <div className="em-home-review-controls"><ClientReviews locale="en" compact /></div>
       <KeepReading id="more" className="em-fold" title="Explore more services" destinations="Service details, areas, guides and how Esteban works.">
         <AudienceRouter locale="en" />
         <PackagesSection locale="en" showRealEstatePlans={false} />
