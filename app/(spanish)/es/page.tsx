@@ -36,10 +36,10 @@ export default function SpanishHomePage() {
       <SignalIntro locale="es" />
       <HeroVideo locale="es" />
       <PortfolioTeaser locale="es" />
+      <div className="em-home-review-controls"><ClientReviews locale="es" compact /></div>
       <HomeProjectPath locale="es" />
       <HomeContactStrip locale="es" />
       <RealEstateBlock locale="es" />
-      <div className="em-home-review-controls"><ClientReviews locale="es" compact /></div>
       <KeepReading
         id="mas"
         className="em-fold"
