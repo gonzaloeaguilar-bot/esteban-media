@@ -243,7 +243,17 @@ export function HomePortfolioRail({
       // The whole card is already a link, so a button would be a second way in
       // rather than a new one. `none` keeps the card quiet and clickable.
       ariaLabel={isSpanish ? "Trabajo seleccionado" : "Selected work"}
-      labels={isSpanish ? RAIL_LABELS_ES : RAIL_LABELS_EN}
+      /* No "1 of 14". Owner, 2026-10-12: "remove also the counter for the
+         scrolling, we don't need it for the project carousel." The kit only
+         renders the counter when labels.position exists, so it is dropped
+         here rather than by editing vendor/rail-kit — that directory is
+         synced from the shared library and a local edit would be overwritten
+         on the next sync, and would silently remove the counter from every
+         other brand that vendors the kit. The arrows and their accessible
+         labels are untouched. */
+      labels={(({ position: _drop, ...rest }) => rest)(
+        isSpanish ? RAIL_LABELS_ES : RAIL_LABELS_EN,
+      )}
       showControls
     />
     <ReelFunnel

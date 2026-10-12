@@ -101,7 +101,14 @@ async function evaluateRoute(page, route, viewport) {
       const main = document.querySelector("main");
       const hero = document.querySelector('section[aria-labelledby="hero-heading"]');
       const portfolio = document.querySelector('[aria-labelledby^="selected-work"]');
+      // A CARD, not any portfolio-ish link. This used to match the first
+      // anchor whose href merely contained "portfolio" — which was the
+      // section's own "View portfolio" button sitting ABOVE the rail, so the
+      // check reported how far down the BUTTON was and never measured a
+      // project at all. Removing that button made the number jump 1.43 ->
+      // 1.53 with no layout change, which is how the proxy was caught.
       const firstProject =
+        portfolio?.querySelector(".rail-card") ??
         portfolio?.querySelector('a[href*="portfolio"], a[href*="portafolio"], a[href*="services"]') ??
         null;
       const heroLinks = [...(hero?.querySelectorAll("a") ?? [])].map((link) => ({
