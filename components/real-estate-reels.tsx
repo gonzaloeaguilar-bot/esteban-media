@@ -136,6 +136,60 @@ export function RealEstateReels({
 
   useEffect(() => stopPreviewTimer, [stopPreviewTimer]);
 
+  /** TOUCH. Everything above is driven by hover, which a phone does not have:
+      on a touch device the shelf is six still posters and the work never
+      moves, which is the one thing a video editor's page has to prove. So on
+      hover-less pointers the reel that is actually ON SCREEN previews itself.
+
+      This keeps every promise the hover path makes. ONE video is mounted at a
+      time (the most-visible card), so the 26MB shelf is still never fetched up
+      front — only the file you are looking at. Reduced motion skips it
+      entirely. Opening the detail view suspends it, so there are never two
+      players. */
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (window.matchMedia("(hover: hover)").matches) return;
+    if (prefersReducedMotion()) return;
+    if (active !== null) {
+      setPreviewing(null);
+      return;
+    }
+    // The cards are generated records handed to <Rail>, so there is no ref to
+    // hang on each one; the play surface that already wraps every poster is
+    // the card, and it is one per reel in shelf order.
+    const cards = Array.from(
+      shelfRef.current?.querySelectorAll<HTMLElement>(".em-reel-play") ?? [],
+    );
+    if (cards.length === 0) return;
+
+    const visibility = new Map<number, number>();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          // REEL_DISPLAY_ORDER means DOM position is NOT the reel index, so
+          // read the index the card was rendered with. Trusting DOM order
+          // previewed reel-05 while card 1 sat still on screen.
+          const attr = (entry.target as HTMLElement).dataset.reelIndex;
+          if (attr === undefined) continue;
+          visibility.set(Number(attr), entry.intersectionRatio);
+        }
+        let best = -1;
+        let bestRatio = 0;
+        for (const [index, ratio] of visibility) {
+          if (ratio > bestRatio) {
+            bestRatio = ratio;
+            best = index;
+          }
+        }
+        // Half the card has to be on screen before it earns the fetch.
+        setPreviewing(bestRatio >= 0.5 ? best : null);
+      },
+      { threshold: [0, 0.25, 0.5, 0.75, 1] },
+    );
+    cards.forEach((card) => observer.observe(card));
+    return () => observer.disconnect();
+  }, [active]);
+
   const close = useCallback(() => {
     setActive(null);
     triggerRef.current?.focus();
@@ -250,6 +304,7 @@ export function RealEstateReels({
         <button
           type="button"
           className="em-reel-play absolute inset-0 z-[1] block h-full w-full cursor-pointer overflow-hidden border-0 bg-transparent p-0"
+          data-reel-index={index}
           aria-label={`${isEs ? "Reproducir" : "Play"} ${title}`}
           onClick={(event) => {
             triggerRef.current = event.currentTarget;
