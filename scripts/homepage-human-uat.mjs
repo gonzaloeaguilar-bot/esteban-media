@@ -1,10 +1,29 @@
 import { createRequire } from "node:module";
 
 const require = createRequire(import.meta.url);
-const workspaceNodeModules =
-  process.env.WORKSPACE_NODE_MODULES ||
-  "/Users/gonzalo/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules";
-const { chromium } = require(`${workspaceNodeModules}/playwright`);
+// Resolve playwright from the repo first. The old hard-coded codex-runtime
+// path is reaped by the disk janitor, and when it vanishes this script dies on
+// import — which, piped through `2>/dev/null`, looks exactly like a clean run.
+const playwrightCandidates = [
+  process.env.WORKSPACE_NODE_MODULES && `${process.env.WORKSPACE_NODE_MODULES}/playwright`,
+  "playwright",
+  "/Users/gonzalo/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright",
+].filter(Boolean);
+let chromium;
+for (const candidate of playwrightCandidates) {
+  try {
+    ({ chromium } = require(candidate));
+    break;
+  } catch {
+    // try the next one
+  }
+}
+if (!chromium) {
+  throw new Error(
+    `playwright not resolvable. Tried: ${playwrightCandidates.join(", ")}. ` +
+      "Install it in the repo with `pnpm add -D playwright`.",
+  );
+}
 
 const baseUrl = process.env.UAT_BASE_URL || "http://localhost:3107";
 const executablePath =
@@ -51,6 +70,31 @@ async function evaluateRoute(page, route, viewport) {
     timeout: 45_000,
   });
 
+  // REFUSE to measure an unstyled page. Every distance this script reports —
+  // "portfolio sits N screens down" — is a statement about layout, and layout
+  // does not exist until the stylesheets apply. A Next DEV server injects CSS
+  // through its JS runtime, so a dev capture can return fully-formed numbers
+  // for a page rendering as Times New Roman with blue underlined links. Those
+  // numbers look exactly like real ones and are worthless. Fail loudly instead:
+  // an unstyled measurement is not a smaller truth, it is a different page.
+  const styling = await page.evaluate(() => ({
+    sheets: document.styleSheets.length,
+    rules: [...document.styleSheets].reduce((n, sheet) => {
+      try {
+        return n + sheet.cssRules.length;
+      } catch {
+        return n; // cross-origin sheet, still counts as loaded
+      }
+    }, 0),
+  }));
+  if (styling.sheets === 0) {
+    throw new Error(
+      `${baseUrl}${route.path} rendered with ZERO stylesheets — refusing to report ` +
+        "layout measurements for an unstyled page. If this is a Next dev server, run the " +
+        "probe against `next build && next start`, or against production.",
+    );
+  }
+
   const result = await page.evaluate(
     ({ viewport, internalTerms }) => {
       const norm = (value) => (value || "").trim().replace(/\s+/g, " ");
@@ -65,7 +109,23 @@ async function evaluateRoute(page, route, viewport) {
         href: link.getAttribute("href"),
         rect: link.getBoundingClientRect().toJSON(),
         inlineTextLink: Boolean(link.closest("p")),
-        buttonLike: link.className.includes("rounded-full"),
+        // Button-like is a RENDERED property, not a class name. The hero moved
+        // from Tailwind `rounded-full` pills to `em-cine__cta` and this check
+        // silently matched nothing, which made the hero assertions below
+        // permanently unsatisfiable. Measure what the browser paints: a padded,
+        // filled, rounded box that is not an inline link inside a paragraph.
+        buttonLike: (() => {
+          if (link.closest("p")) return false;
+          const cs = getComputedStyle(link);
+          const radius = Number.parseFloat(cs.borderTopLeftRadius) || 0;
+          const padX =
+            (Number.parseFloat(cs.paddingLeft) || 0) + (Number.parseFloat(cs.paddingRight) || 0);
+          const filled =
+            cs.backgroundColor !== "rgba(0, 0, 0, 0)" && cs.backgroundColor !== "transparent";
+          const bordered = (Number.parseFloat(cs.borderTopWidth) || 0) > 0;
+          const box = cs.display.includes("flex") || cs.display.includes("block");
+          return box && radius >= 4 && padX >= 16 && (filled || bordered);
+        })(),
       }));
       const heroButtons = heroLinks.filter((link) => link.buttonLike);
       const visibleText = norm(document.body.innerText);
@@ -159,7 +219,17 @@ async function evaluateRoute(page, route, viewport) {
       firstHeroButton: result.heroButtons[0],
     }),
     assert(
-      result.heroLinks.some((link) => link.href === route.contactHref),
+      // Esteban's contact channel IS WhatsApp — every contact action on the
+      // site is a wa.me link, and the Spanish copy says "Cotiza por WhatsApp".
+      // Demanding /contact in the hero asserted a page we deliberately do not
+      // ship. What matters to a human is that the hero offers SOME way to reach
+      // him, so accept the real channels.
+      result.heroLinks.some(
+        (link) =>
+          link.href === route.contactHref ||
+          /^https:\/\/wa\.me\//.test(link.href || "") ||
+          /^(tel:|mailto:)/.test(link.href || ""),
+      ),
       "Hero still keeps a contact path",
       { heroLinks: result.heroLinks },
     ),
