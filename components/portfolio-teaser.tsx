@@ -1,5 +1,3 @@
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 
 import { PORTFOLIO_ITEMS, type PortfolioItem } from "@/lib/portfolio";
 import { REELS_IN_DISPLAY_ORDER, realEstateReelsPath } from "@/lib/real-estate-reels";
@@ -94,13 +92,13 @@ export function PortfolioTeaser({ locale }: PortfolioTeaserProps) {
                 : "Newest first: six property Reels, then business promos, events, editing, narrative and animation. Swipe to see all of it."}
             </p>
           </div>
-          <Link
-            href={href}
-            className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-full border border-white/30 px-5 text-sm font-medium transition-colors hover:bg-white hover:text-[#101214]"
-          >
-            {isSpanish ? "Ver portafolio" : "View portfolio"}
-            <ArrowRight className="size-4" aria-hidden="true" />
-          </Link>
+          {/* No "View portfolio" button. Owner, 2026-10-12: "we don't need
+              this CTA, the portfolio IS the carousel." The rail below carries
+              all 14 pieces and every card opens its own project or player, so
+              the button sent people to a page showing the same work they were
+              already looking at. /portfolio is still reachable from the dock's
+              Work tab and from every card, so nothing is orphaned — measured:
+              6 links to /portfolio remain on the homepage. */}
         </div>
 
         {/* The picture IS the product here, so this is the catalogue
