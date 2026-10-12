@@ -2273,3 +2273,99 @@ a.em-pk-carte__item:active .em-pk-carte__go,
 @media (prefers-reduced-motion: reduce) {
   .em-cine-caption__more > summary::after { transition: none; }
 }
+
+/* ── Reel funnel: watch it here, then say what you need ───────────────────
+   components/reel-funnel.tsx. A takeover, because the visitor asked to see a
+   video and a page is not a video. */
+.em-funnel {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(5, 7, 10, 0.86);
+  backdrop-filter: blur(8px);
+}
+.em-funnel__panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: min(420px, 100%);
+  max-height: 100%;
+  overflow: auto;
+  border-radius: 16px;
+  background: #0b0c0d;
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+.em-funnel__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* not shrinkable: a declared width inside a flex row is only a suggestion */
+  flex: 0 0 44px;
+  min-width: 44px;
+  min-height: 44px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+}
+.em-funnel__video {
+  width: 100%;
+  /* the reels are 720x1280; give them their own shape rather than letterbox */
+  aspect-ratio: 9 / 16;
+  max-height: 58vh;
+  object-fit: cover;
+  background: #000;
+  display: block;
+}
+.em-funnel__ask { padding: 16px 16px 20px; }
+.em-funnel__watching {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.62);
+}
+.em-funnel__watching strong { color: #fff; font-weight: 600; }
+.em-funnel__q {
+  margin: 8px 0 0;
+  font-family: var(--em-heading-font, Georgia, serif);
+  font-size: 23px;
+  font-weight: 500;
+  color: #fff;
+}
+.em-funnel__needs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 14px;
+}
+.em-funnel__need {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+}
+.em-funnel__need:first-child {
+  background: var(--em-accent-ink, #a8381d);
+  border-color: transparent;
+}
+.em-funnel__hint {
+  margin: 12px 0 0;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.62);
+}
