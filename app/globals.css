@@ -345,10 +345,37 @@
    the top, space in the middle, place at the foot behind a rule — title up
    top, credits at the bottom.
    --------------------------------------------------------------------------- */
+/* The homepage rail joins the site's standard card width.
+
+   The homepage is the only rail that asks for size="lg", which resolved to
+   --rail-card-width-lg (560px): at the cartel's 1/1.45 proportion that is an
+   812px-tall card, and a 1920px viewport fit two and a half of them — the
+   section header was shorter than one card. Every other rail on the site
+   runs at 420px, the width this language was measured at.
+
+   The selector targets the .rail ELEMENT, not the wrapper: the Esteban skin
+   sets --rail-card-width-lg on `.rail` (line 183), and a value set on an
+   element always beats one inherited from an ancestor — measured: 420px on
+   the wrapper while the rail inside it still computed 560px. Two classes
+   also beat the single-class skin rule position-independently. */
+.em-home-cartel .rail {
+  --rail-card-width-lg: 420px;
+}
+
 .em-cartel .rail-card[data-rail-kind="media"] .rail-card__body {
   min-height: 0;
   padding: 24px 22px;
   display: grid;
+  /* ONE EXPLICIT COLUMN. The template only declared rows, and two of the
+     children name row 3 — the description by explicit grid-area, the credits
+     by `grid-row: 3`. Auto-placement put the credits in the first FREE cell of
+     row 3, and column 1 was taken, so the grid invented an implicit column 2:
+     measured 216.5px/135.5px at every width. The description was crushed into
+     217px (mid-word breaks in "Lauderdale"), the title with it, and the
+     credits overflowed the card's right edge. Naming the column ends it.
+     Measured after: one column at 390/480/768/1280/1440, zero painted
+     overflow. */
+  grid-template-columns: minmax(0, 1fr);
   grid-template-rows: auto 1fr auto;
   align-content: stretch;
 }
@@ -370,7 +397,7 @@
    of the poster behind a rule. Title at the top, credits at the foot — the way
    a poster is set. */
 .em-cartel .rail-card[data-rail-kind="media"] .rail-card__value {
-  grid-row: 3;
+  grid-area: 3 / 1 / 4 / 2;
   align-self: end;
   display: grid;
   gap: 3px;
@@ -515,32 +542,57 @@
 .em-cartel .rail-card[data-rail-kind="media"] .rail-card__body {
   grid-area: 2 / 1 / 3 / 2;
   z-index: 2;
-  padding: clamp(24px, 2.3vw, 32px) clamp(20px, 2.1vw, 28px) 0;
+  /* The floor of air now lives HERE, on the panel, not on the description.
+     The description used to be the last block and carried the card's bottom
+     air in its own padding; it has moved into the middle row (see below), the
+     credits are last, and with the old `0` they measured ONE PIXEL off the
+     card's bottom border at every width — the same unfinished edge this file
+     already fixed once for cards without a description. */
+  padding: clamp(24px, 2.3vw, 32px) clamp(20px, 2.1vw, 28px) clamp(26px, 2.5vw, 34px);
   gap: 10px;
 }
 
-/* A card with no description has nothing in row 3, so the panel's `0` bottom
-   left the last line of type ONE PIXEL off the card's border — measured, on
-   the homepage rail, where the cards carry only a title and a place. Text
-   touching its own edge reads as unfinished however good the photograph above
-   it is.
+/* The panel carries the bottom floor of air for every card now, with or
+   without a description (see the body rule above), so the old
+   `:not(:has(.rail-card__description))` special case is gone with it.
 
-   The bottom air lives in the description for cards that have one, so this
-   gives it back only to the cards that do not, rather than double-spacing the
-   ones that do. The floor is what makes the card a POSTER: height belongs in
-   the panel, because the picture's rendered height is fixed by the card width
-   and a taller frame would only add dead mat. */
-.em-cartel
-  .rail-card[data-rail-kind="media"]:not(:has(.rail-card__description))
-  .rail-card__body {
-  padding-bottom: clamp(26px, 2.5vw, 34px);
-}
+   No `display: block` on the description either. The declaration was
+   redundant — a block is the default — and its only real effect was to beat
+   the kit's opt-in clamp (.rail[data-rail-clamp] .rail-card__description,
+   0,3,0 vs this 0,4,0), so a rail that asked for a description cap got
+   line-clamp computed onto a block box, where it does nothing. With it gone
+   the same rule keeps the cartel's own padding, size and colour, and the
+   homepage's 4-line clamp finally takes: measured 228px → 4 lines
+   before/after on the cartel rail. */
+
+/* THE DESCRIPTION FILLS THE MIDDLE ROW, full width.
+
+   It used to sit in row 3 NEXT TO the credits, which is where the implicit
+   second column came from (see the body rule above): 217px of width, a
+   mid-word break in "Lauderdale", and the title crushed beside it. Row 2 was
+   the panel's empty `1fr` — the void between title and credits that this rail
+   was complained about. The description is the thing that fills that void, so
+   it lives there: title at the top, description under it, breathing room, and
+   the credits pinned at the foot behind their rule — the way a poster is set.
+
+   No side padding: the panel already pads the card, and this block's own
+   `clamp(20px, 2.1vw, 28px)` stacked a SECOND 28px inset on top of it, so its
+   text started 28px right of the title above and the credits below.
+   Measured: description box 362px, its text 306px, title text 362px.
+
+   No bottom padding either. When this block was last on the card its 36px
+   floor was the card's bottom air and the clamp's cut edge sliced glyphs into
+   it; now the credits follow it and the panel carries the floor (see the body
+   rule above). The old clamp rule that moved that air from padding to margin
+   is gone with it — the cut edge now lands inside the panel, nowhere near the
+   card's border. The gap to the credits is the body's own 10px gap plus the
+   leftover of the `1fr` row, which is the poster's breathing room. */
 .em-cartel .rail-card[data-rail-kind="media"] .rail-card__description {
-  grid-area: 3 / 1 / 4 / 2;
+  grid-area: 2 / 1 / 3 / 2;
+  align-self: start;
   z-index: 2;
-  display: block;
   margin: 0;
-  padding: 12px clamp(20px, 2.1vw, 28px) clamp(28px, 2.6vw, 36px);
+  padding: 12px 0 0;
   font-size: 16px;
   line-height: 1.55;
   color: rgba(255, 255, 255, 0.82);
@@ -555,6 +607,41 @@
 }
 .em-cartel .rail-card[data-rail-kind="media"] .rail-card__meta {
   color: rgba(255, 255, 255, 0.72);
+}
+
+/* ── The description clamp, honoured here because the kit file cannot be
+   touched ─────────────────────────────────────────────────────────────────
+   vendor/rail-kit is pinned (rail-kit:check hashes every file against the
+   upstream lock), so these two corrections live at the app level. Both were
+   measured on the homepage cartel before being written down.
+
+   1. THE CAP. In current Chromium the legacy -webkit-box clamp normalises to
+      a block clamp: the box is SIZED to the clamp — 147px ≈ 4 lines plus the
+      old padding — but the clipped lines are still PAINTED below it
+      (scrollHeight 296, two lines running over the card's bottom edge).
+      Capping the box at N × 1lh, content-box so the element's own padding
+      stays outside the cap, gives exactly the box the clamp would hand a
+      compliant engine; engines that honour the classic box see no change.
+      Measured at 390px: box 111px (99.2 content + 12 pad), scrollHeight 161,
+      nothing painted past the card edge.
+
+   2. THE ACTIVATION. The kit's poster rule —
+      [data-rail-variant] .rail-card[data-rail-kind="media"]
+        .rail-card__description — carries `display: block` at (0,4,0), which
+      outranks the kit's opt-in clamp (.rail[data-rail-clamp] …, 0,3,0) and
+      forces the box back to block, so line-clamp parses, computes, and does
+      nothing: measured 228px ≈ nine lines where the rail asked for four.
+      Re-asserting the flex box at (0,5,0), gated on the same data-rail-clamp
+      opt-in, restores the requested cap without touching any rail that never
+      asked for one. Rails that do not carry the opt-in keep the kit's block
+      exactly as shipped. */
+.rail[data-rail-clamp] .rail-card .rail-card__description {
+  box-sizing: content-box;
+  max-height: calc(var(--rail-description-lines, 4) * 1lh);
+}
+.rail[data-rail-clamp] [data-rail-variant="poster"] .rail-card[data-rail-kind="media"] .rail-card__description,
+.rail[data-rail-clamp] .rail-card[data-rail-variant="poster"][data-rail-kind="media"] .rail-card__description {
+  display: -webkit-box;
 }
 
 /* The catalogue gesture: the cover breathes on hover. Fine pointers only — a

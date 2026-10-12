@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { getFeaturedPortfolioItems, type PortfolioItem } from "@/lib/portfolio";
+import { resolvePortfolioItemCopy } from "@/components/portfolio-grid";
 import { HomePortfolioRail } from "@/components/home-portfolio-rail";
 
 type PortfolioTeaserProps = {
@@ -96,11 +97,18 @@ export function PortfolioTeaser({ locale }: PortfolioTeaserProps) {
             exists precisely so a consumer keeps its framework's optimised
             image. Swapping to a bare <img> here would have traded LCP on the
             most-visited page of the site for a tidier diff. */}
-        <div className="em-on-dark em-cartel mt-8" data-em-reveal>
+        <div className="em-on-dark em-cartel em-home-cartel mt-8" data-em-reveal>
           <HomePortfolioRail
             locale={locale}
+            descriptionLines={4}
             items={items.map((item) => {
               const poster = getPoster(item);
+              // The poster panel was designed around a description under the
+              // title (see .em-cartel in globals.css) — the homepage rail was
+              // the one caller that left it out, which is why the panel read
+              // as a void. Same approved copy the grid shows, clamped by the
+              // kit so a long summary cannot renegotiate the card's height.
+              const { summary } = resolvePortfolioItemCopy(item, locale);
               const targetHref =
                 item.category === "web-design"
                   ? isSpanish
@@ -113,6 +121,7 @@ export function PortfolioTeaser({ locale }: PortfolioTeaserProps) {
                 title: item.title,
                 eyebrow: categoryLabels[locale][item.category],
                 location: item.location,
+                description: summary || undefined,
                 poster,
               };
             })}

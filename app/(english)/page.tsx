@@ -65,7 +65,11 @@ export default function Home() {
       <PackagesSection locale="en" />
       <PortfolioTeaser locale="en" />
       <ClientReviews locale="en" />
-      <KeepReading id="more" title="Want to see everything?" destinations="Services, areas, guides and more about Esteban.">
+      {/* em-home-fold: the homepage's fold-out sits full-bleed with the kit's
+          4px summary padding, so its type hugged the viewport edge and read as
+          wallpaper. The class centres the summary in the site container and
+          gives the promise real type (see .em-home-fold in cinema.css). */}
+      <KeepReading className="em-home-fold" id="more" title="Want to see everything?" destinations="Services, areas, guides and more about Esteban.">
         <HomeAuthorityHub />
         <ServicesStrip />
         <AboutTeaser />

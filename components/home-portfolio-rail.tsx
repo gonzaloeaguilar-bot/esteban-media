@@ -27,6 +27,9 @@ export type HomePortfolioCard = {
   eyebrow: string;
   /** Verified location context only; absent for items that have none. */
   location?: string;
+  /** One-sentence summary under the title; absent renders the poster panel
+      without it, the way the grid does when a project has no summary. */
+  description?: string;
   /** Local approved still; absent for items with no poster. */
   poster?: string;
 };
@@ -34,9 +37,13 @@ export type HomePortfolioCard = {
 export function HomePortfolioRail({
   locale,
   items,
+  descriptionLines,
 }: {
   locale: "en" | "es";
   items: HomePortfolioCard[];
+  /** Clamps each card's description to N lines (the kit's `data-rail-clamp`).
+      Omit and descriptions render unclamped. */
+  descriptionLines?: number;
 }) {
   const isSpanish = locale === "es";
 
@@ -54,6 +61,9 @@ export function HomePortfolioRail({
     metaPlacement: "block",
     // The grid showed the location under the title; keep it there.
     subtitle: item.location,
+    // The poster panel's fourth row is the description slot; the homepage was
+    // the only rail leaving it empty, which is what read as dead black space.
+    description: item.description,
     // `image` is required by the media shape, but the rail never renders it
     // when `media` is present — next/image owns the box instead, so the
     // homepage keeps its LCP optimisation, its srcset and its lazy loading.
@@ -81,7 +91,11 @@ export function HomePortfolioRail({
           // reader, not help.
           alt=""
           fill
-          sizes="(min-width: 1280px) 332px, (min-width: 768px) 332px, 288px"
+          // The card is --rail-card-width-lg (420px here, capped at 78vw on
+          // a phone), so the srcset hint names the box the image actually
+          // fills — 332px was the previous editorial width and made the
+          // browser under-fetch on the card's largest breakpoint.
+          sizes="(min-width: 768px) 420px, 78vw"
           className="object-cover"
         />
         <span
@@ -104,6 +118,7 @@ export function HomePortfolioRail({
       source={`home_portfolio_${locale}`}
       variant="poster"
       size="lg"
+      descriptionLines={descriptionLines}
       titleAs="h3"
       cta="none"
       // The whole card is already a link, so a button would be a second way in

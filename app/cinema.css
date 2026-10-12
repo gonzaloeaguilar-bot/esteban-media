@@ -1902,6 +1902,62 @@ html.rail-anim .em-pk-steps__list.rail-reveal.is-in li:nth-child(3) { transition
 .em-fold > summary:active { background: rgba(16, 18, 20, 0.04); }
 .em-fold > summary small { color: var(--cine-muted); }
 
+/* The homepage's fold-out.
+
+   The kit's summary is a content-width strip with 4px of horizontal padding —
+   right inside an article body, wrong for a page-level control on a light
+   page: the title sat against the viewport's very edge at 19px and read as
+   furniture ("can barely see this section and is by the edge"). The fix sits
+   on the summary, not the <details>: the kit's full-width hairlines stay, the
+   promise moves to the same centre line as every other homepage section
+   (max-w-7xl and its gutter), the type becomes the serif the section headings
+   use, and the plus becomes a 44px target — the kit's own tap floor — instead
+   of a glyph floating at the edge.
+
+   The double-class selector is load-bearing: the compiled bundle lands
+   reading-path.css AFTER cinema.css (verified in .next's layout.css), so an
+   equal-specificity `.em-home-fold > summary` lost to the kit's
+   `.wk-keep-reading > summary` and the 4px padding shipped anyway. Two
+   classes win the cascade on position-independent grounds. */
+.wk-keep-reading.em-home-fold > summary {
+  max-width: 1280px;
+  margin-inline: auto;
+  padding: 26px clamp(16px, 3vw, 32px);
+}
+.wk-keep-reading.em-home-fold > summary strong {
+  display: block;
+  font-family: var(--font-newsreader), ui-serif, Georgia, serif;
+  font-size: clamp(22px, 2.4vw, 28px);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+.wk-keep-reading.em-home-fold > summary small {
+  margin-top: 6px;
+  font-size: 15px;
+}
+.wk-keep-reading.em-home-fold > summary::after {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--wk-accent, #c84a2c);
+  border-radius: 999px;
+  font-size: 20px;
+  transition: background-color 0.2s var(--cine-ease), color 0.2s var(--cine-ease);
+}
+/* Hover answers a cursor, not a tap — a :hover on a phone sticks. The site's
+   cards already draw this line; the fold joins them. */
+@media (hover: hover) and (pointer: fine) {
+  .wk-keep-reading.em-home-fold > summary:hover { background-color: rgba(200, 74, 44, 0.06); }
+  .wk-keep-reading.em-home-fold > summary:hover::after {
+    background: var(--wk-accent, #c84a2c);
+    color: #ffffff;
+  }
+}
+.wk-keep-reading.em-home-fold > summary:active { background-color: rgba(200, 74, 44, 0.1); }
+
 .wk-keep-reading {
   --wk-line: rgba(16, 18, 20, 0.12);
   --wk-ink: var(--cine-text);

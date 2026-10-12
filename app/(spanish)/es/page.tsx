@@ -39,7 +39,10 @@ export default function SpanishHomePage() {
       <PackagesSection locale="es" />
       <PortfolioTeaser locale="es" />
       <ClientReviews locale="es" />
+      {/* em-home-fold: same container-centred fold-out as the English home
+          (see .em-home-fold in cinema.css). */}
       <KeepReading
+        className="em-home-fold"
         id="mas"
         title="¿Quieres ver todo?"
         destinations="Servicios, zonas, guías y las 70 páginas por nicho."
