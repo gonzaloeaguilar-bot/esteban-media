@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-import { getPortfolioItemById, type PortfolioItem } from "@/lib/portfolio";
-import { REAL_ESTATE_REELS, realEstateReelsPath } from "@/lib/real-estate-reels";
+import { PORTFOLIO_ITEMS, type PortfolioItem } from "@/lib/portfolio";
+import { REELS_IN_DISPLAY_ORDER, realEstateReelsPath } from "@/lib/real-estate-reels";
 import { HomePortfolioRail } from "@/components/home-portfolio-rail";
 
 type PortfolioTeaserProps = {
@@ -43,16 +43,27 @@ function getPoster(item: PortfolioItem) {
 }
 
 export function PortfolioTeaser({ locale }: PortfolioTeaserProps) {
-  // Lead with work that reflects the three visible video routes, rather than
-  // the general portfolio's featured order (which starts with web projects).
-  const items = ["bar-door-monkey", "diana-jack"]
-    .map(getPortfolioItemById)
-    .filter((item): item is PortfolioItem => item?.status === "live");
+  // The rail used to carry three cards. Owner request, 2026-10-12: "i need more
+  // content... prioritize the latest real estate ones and should just scroll
+  // all of them as i go to the right".
+  //
+  // LATEST is measured, not assumed: every real-estate reel entered the repo
+  // on 2026-10-10 and every other portfolio still on 2026-07-16 (git
+  // --diff-filter=A), so the reels are the newest body of work AS A SET. They
+  // lead. There is deliberately no per-clip date — lib/real-estate-reels.ts
+  // refuses to invent one because the VideoObject schema would then assert it
+  // — so within the set we keep the curated shelf order rather than guess.
+  //
+  // Web-design projects are excluded: this section is "first, the work" for a
+  // video buyer, and a website screenshot in a video rail is a different
+  // promise.
+  const items = PORTFOLIO_ITEMS.filter(
+    (item): item is PortfolioItem =>
+      item.status === "live" && item.category !== "web-design",
+  );
   const isSpanish = locale === "es";
   const href = isSpanish ? "/es/portafolio" : "/portfolio";
-  const propertyReel = REAL_ESTATE_REELS.find(
-    (reel) => reel.id === "waterfront-tower-aerial",
-  ) ?? REAL_ESTATE_REELS[0];
+  const reelHref = realEstateReelsPath(locale);
 
   if (items.length === 0) {
     return null;
@@ -73,14 +84,14 @@ export function PortfolioTeaser({ locale }: PortfolioTeaserProps) {
               id={`selected-work-${locale}`}
               className="mt-3 em-h2"
             >
-              {isSpanish
-                ? "Mira tres proyectos terminados."
-                : "See three finished projects."}
+              {/* The rail is no longer three cards, so the heading cannot
+                  say three. It names what is actually in the strip. */}
+              {isSpanish ? "Mira el trabajo terminado." : "See the finished work."}
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-7 text-[#c9c1b8]">
               {isSpanish
-                ? "Un Reel inmobiliario, un video de negocio y una celebración. Abre cualquiera para verlo."
-                : "A property Reel, a business video, and an event film. Open any project to watch."}
+                ? "Lo más reciente primero: seis Reels inmobiliarios, y después promociones de negocio, eventos, edición, narrativa y animación. Desliza para verlo todo."
+                : "Newest first: six property Reels, then business promos, events, editing, narrative and animation. Swipe to see all of it."}
             </p>
           </div>
           <Link
@@ -105,13 +116,14 @@ export function PortfolioTeaser({ locale }: PortfolioTeaserProps) {
         <div className="em-on-dark em-cartel mt-8" data-em-reveal>
           <HomePortfolioRail
             locale={locale}
-            items={[{
-              id: propertyReel.id,
-              href: realEstateReelsPath(locale),
-              title: isSpanish ? propertyReel.titleEs : propertyReel.title,
+            items={[...REELS_IN_DISPLAY_ORDER.map((reel) => ({
+              id: reel.id,
+              href: reelHref,
+              title: isSpanish ? reel.titleEs : reel.title,
               eyebrow: isSpanish ? "Video inmobiliario" : "Property video",
-              poster: propertyReel.poster,
-            }, ...items.map((item) => {
+              poster: reel.poster,
+              isReel: true,
+            })), ...items.map((item) => {
               const poster = getPoster(item);
               const targetHref =
                 item.category === "web-design"

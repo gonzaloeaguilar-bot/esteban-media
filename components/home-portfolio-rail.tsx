@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect, useRef } from "react";
 import { Play } from "lucide-react";
 
 import { Rail, type RailItem } from "@/vendor/rail-kit";
@@ -22,6 +23,8 @@ import { RAIL_LABELS_EN, RAIL_LABELS_ES } from "@/components/em-rails";
 
 export type HomePortfolioCard = {
   id: string;
+  /** Portrait reel photograph: may fill a tall frame (see globals.css). */
+  isReel?: boolean;
   href: string;
   title: string;
   eyebrow: string;
@@ -39,6 +42,55 @@ export function HomePortfolioRail({
   items: HomePortfolioCard[];
 }) {
   const isSpanish = locale === "es";
+  const wrapRef = useRef<HTMLDivElement | null>(null);
+
+  /** SPOTLIGHT. On a strip you push sideways, the card under your thumb is the
+      one you are actually looking at, and every other card competes with it.
+      The most-centred card in the scroller is marked so CSS can lift it and
+      let the rest sit back. Measured against the SCROLLER, not the viewport:
+      a horizontal rail's off-screen cards still intersect the page vertically,
+      so a viewport-rooted observer would light several at once. */
+  useEffect(() => {
+    const scroller = wrapRef.current?.querySelector<HTMLElement>(".rail__scroller");
+    if (!scroller) return;
+    const cards = Array.from(scroller.querySelectorAll<HTMLElement>(".rail-card"));
+    if (cards.length === 0) return;
+
+    // Mark the portrait reels so CSS can give them the tall frame.
+    const reelIds = new Set(items.filter((i) => i.isReel).map((i) => i.id));
+    cards.forEach((card) => {
+      const id = card.getAttribute("data-rail-card") ?? card.getAttribute("data-rail-id") ?? card.id;
+      if (id && reelIds.has(id)) card.setAttribute("data-em-reel", "");
+    });
+
+    let frame = 0;
+    const mark = () => {
+      frame = 0;
+      const box = scroller.getBoundingClientRect();
+      const mid = box.left + box.width / 2;
+      let best: HTMLElement | null = null;
+      let bestDist = Number.POSITIVE_INFINITY;
+      for (const card of cards) {
+        const r = card.getBoundingClientRect();
+        if (r.right < box.left || r.left > box.right) continue;
+        const d = Math.abs(r.left + r.width / 2 - mid);
+        if (d < bestDist) { bestDist = d; best = card; }
+      }
+      for (const card of cards) {
+        if (card === best) card.setAttribute("data-em-spotlight", "true");
+        else card.removeAttribute("data-em-spotlight");
+      }
+    };
+    const onScroll = () => { if (!frame) frame = requestAnimationFrame(mark); };
+    mark();
+    scroller.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    return () => {
+      if (frame) cancelAnimationFrame(frame);
+      scroller.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, [items]);
 
   const railItems: RailItem[] = items.map((item) => ({
     kind: "media",
@@ -103,6 +155,7 @@ export function HomePortfolioRail({
   }));
 
   return (
+    <div ref={wrapRef}>
     <Rail
       items={railItems}
       source={`home_portfolio_${locale}`}
@@ -116,5 +169,6 @@ export function HomePortfolioRail({
       labels={isSpanish ? RAIL_LABELS_ES : RAIL_LABELS_EN}
       showControls
     />
+    </div>
   );
 }
