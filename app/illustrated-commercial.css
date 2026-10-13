@@ -112,17 +112,22 @@
 .em-art-depth{display:block;position:relative;transform-origin:50% 70%}
 .em-art-depth>img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:contain}
 .em-art-invitation{display:flex;align-items:center;gap:9px;padding:10px 18px;min-height:46px;font-size:13px;font-weight:600;background:#f2e5d5;border-block:1px solid #dbcbb9}
-.em-art-invitation>svg{flex-shrink:0}.em-art-plus{margin-left:auto}
+.em-art-invitation>svg{flex-shrink:0}.em-art-invitation>span{flex:1 1 auto}.em-art-plus{margin-left:auto;flex-shrink:0}
 .em-art-disclosure[data-rail-open] .em-art-plus{transform:rotate(45deg)}
 .em-art-disclosure .rail-disclosure__panel{padding:0}
 .em-art-disclosure .rail-disclosure__panel[hidden]{display:none}
-.em-art-result{padding:17px 20px 18px;background:#e7efea;color:#213a32;border-bottom:1px solid #cad9d0}
+/* Cream/ink, not the mint green (#e7efea) nowhere else in the brand except
+   Google's verified pill (review item 2, 2026-10-13). #fffaf4/#101214/#6a625a
+   are the site's own paper/ink/muted colors (app/globals.css, a-la-carte.css).
+   Computed contrast on #fffaf4: #6a625a label 5.77:1, #101214 ink 18.09:1,
+   #9f3c27 terracotta link/bullet 6.42:1 — all pass WCAG AA for their size. */
+.em-art-result{padding:17px 20px 18px;background:#fffaf4;color:#101214;border-bottom:1px solid #ddd4c8}
 /* Owner, 2026-10-12: "i also wish i would right there tell me prices and
    tldr vs going into another page for more info". The price sits first,
    above the fact list, so the answer is the first thing read on open. */
-.em-art-price{display:flex;align-items:baseline;gap:8px;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid #cad9d0}
-.em-art-price-label{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#4a6457}
-.em-art-price-num{font-size:19px;font-weight:700;color:#172322}
+.em-art-price{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid #ddd4c8}
+.em-art-price-label{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#6a625a;flex:0 0 auto}
+.em-art-price-num{font-size:19px;font-weight:700;color:#101214;white-space:nowrap;flex:0 0 auto}
 .em-art-result-label{display:block;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
 .em-art-result ul{list-style:none;padding:0;margin:0;display:grid;gap:7px;font-size:14px;line-height:1.5}
 .em-art-result li{padding-left:14px;position:relative}
@@ -130,7 +135,7 @@
 /* Demoted, deliberately: this is the ONLY path to the full (long) service
    page from inside the disclosure, under the price + TLDR answer, not the
    first thing offered. */
-.em-art-details-link{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:13px;font-weight:600;text-decoration:underline;text-decoration-color:#9f3c27;text-underline-offset:3px;color:#213a32;min-height:24px}
+.em-art-details-link{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:13px;font-weight:600;text-decoration:underline;text-decoration-color:#9f3c27;text-underline-offset:3px;color:#101214;min-height:24px}
 .em-art-viewfinder{position:absolute;inset:15% 14%;opacity:0;pointer-events:none}
 .em-art-viewfinder i{position:absolute;width:25px;height:25px;border:solid #fffaf4;filter:drop-shadow(0 1px 2px #172322)}
 .em-art-viewfinder i:nth-child(1){top:0;left:0;border-width:3px 0 0 3px}.em-art-viewfinder i:nth-child(2){top:0;right:0;border-width:3px 3px 0 0}.em-art-viewfinder i:nth-child(3){bottom:0;right:0;border-width:0 3px 3px 0}.em-art-viewfinder i:nth-child(4){bottom:0;left:0;border-width:0 0 3px 3px}
@@ -211,15 +216,18 @@
    Scoped by ancestor so the 84 service-page template instances of this same
    `.em-pricefold`/`.em-art-scene` markup (PR #389) keep their own weight. */
 [data-section="home-project-path"] .em-art-scene{border-radius:16px 16px 0 0}
-[data-section="home-project-path"] .em-art-invitation{border-radius:0 0 16px 16px}
-/* The business lane shows a video (components/audience-media.tsx), which has
-   no rounded frame of its own, so its answer disclosure needs its own top
-   margin instead of inheriting the scene/invitation pairing above. */
-.em-lane-answer{display:block;margin-top:2px}
-[data-section="home-project-path"] .em-pricefold__list>li{border-radius:16px}
-[data-section="home-project-path"] .em-pricefold{margin-top:14px;padding-top:0;border-top:0}
-[data-section="home-project-path"] .em-pricefold>summary{background:transparent;color:#6a625a;padding:0;min-height:44px;border-radius:0;font-size:15px;font-weight:600;text-decoration:underline;text-underline-offset:4px}
-[data-section="home-project-path"] .em-pricefold__cta{color:#6a625a}
+/* The rounded bottom corners live wherever the card's visual bottom
+   currently is: the invitation row while CLOSED, the result panel once
+   OPEN (review item 3, 2026-10-13 — the panel used to be a hard 0 stapled
+   under this same 16px-radius card). */
+[data-section="home-project-path"] .em-art-disclosure:not([data-rail-open]) .em-art-invitation{border-radius:0 0 16px 16px}
+[data-section="home-project-path"] .em-art-disclosure[data-rail-open] .em-art-invitation{border-radius:0}
+[data-section="home-project-path"] .em-art-disclosure[data-rail-open] .em-art-result{border-radius:0 0 16px 16px}
+/* The business lane's answer now lives inside .em-path-card-info (same
+   column as the CTA button), not directly under the video, so it only
+   needs bottom spacing before that button — the flex column's own gap
+   already provides it. */
+.em-lane-answer{display:block}
 @media(min-width:1024px){
   /* Author display rules beat the UA [hidden]{display:none} rule at EQUAL
      specificity regardless of origin order quirks across browsers, so the

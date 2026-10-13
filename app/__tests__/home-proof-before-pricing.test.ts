@@ -45,26 +45,22 @@ describe("home — proof before pricing", () => {
     const path = src.indexOf("<HomeProjectPath");
     expect(path).toBeLessThan(fold);
     expect(packages).toBeGreaterThan(fold);
-    // The chooser still carries starting prices on the home page — but they
-    // moved from an inline four-card grid into a fold, at the owner's request
-    // (2026-10-12: "the prices should show up after, in some modal or sheet,
-    // cause the pages that come after are so long I get lost trying to find
-    // pricing").
-    //
-    // This used to assert that home-project-path.tsx called packagesFor and
-    // priceFor — a file-location proxy for the real requirement, which is that
-    // the prices are ON the home page and in its SERVER HTML. Asserting the
-    // proxy would now be satisfied by dead code, so it asserts the property:
-    // the chooser renders the price fold, and the fold reads the shared
-    // sources rather than typing any figure of its own.
+    // The chooser answers price ONCE, inside each lane's own `+` disclosure,
+    // at the owner's explicit request (2026-10-12: "i also wish i would right
+    // there tell me prices and tldr vs going into another page for more
+    // info"). It used to ALSO carry a second, full price breakdown
+    // (`<PriceSheet>`) directly below — the same figures in a different
+    // visual language in the same section — which the 2026-10-13
+    // art-direction review flagged as answering price twice. That second
+    // surface is gone from this component; the per-lane answer (read from
+    // the same lib/pricing.ts / lib/packages.ts source, never typed) is now
+    // the ONE price surface in the chooser's server HTML.
     const component = source("components/home-project-path.tsx");
-    expect(component).toContain("<PriceSheet");
-    const priceFold = source("components/price-sheet.tsx");
-    expect(priceFold).toContain("packagesFor(locale)");
-    expect(priceFold).toContain("priceFor(pkg.id)");
-    // A native <details>: collapsed is not removed, unmounted is. A client
-    // sheet would take every figure out of the server HTML.
-    expect(priceFold).toContain("<details");
-    expect(priceFold).not.toContain('"use client"');
+    expect(component).not.toContain("<PriceSheet");
+    expect(component).toContain("laneStartingPrice(locale,");
+    const laneAnswer = source("components/lane-answer.tsx");
+    expect(laneAnswer).toContain("{price}");
+    const illustratedScene = source("components/illustrated-scene.tsx");
+    expect(illustratedScene).toContain("{price}");
   });
 });
