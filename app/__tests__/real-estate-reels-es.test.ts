@@ -53,47 +53,55 @@ describe("real-estate reel shelf, Spanish parity", () => {
   });
 });
 
-describe("homepage real-estate block", () => {
+describe("homepage: the real-estate section is gone", () => {
   const homes = [
     ["app/(english)/page.tsx", "en"],
     ["app/(spanish)/es/page.tsx", "es"],
   ] as const;
 
-  it.each(homes)("%s keeps the visible real-estate block before optional package detail", (page, locale) => {
+  // Owner, 2026-10-12: "we dont need the REAL ESTATE REELS / 'See the work,
+  // then start your reel.' section on homepage cause we already shown all the
+  // work proper." The reel shelf was a SECOND work rail and a second chooser,
+  // one screen below PortfolioTeaser. It is removed from both homepages.
+  //
+  // Nothing is lost: the shelf and its VideoObject JSON-LD still render on the
+  // two dedicated service pages, asserted below and further down this file.
+  it.each(homes)("%s renders no real-estate rail or block", (page) => {
     const src = source(page);
-    const block = src.indexOf(`<RealEstateBlock locale="${locale}" />`);
-    const packages = src.indexOf("<PackagesSection");
-    const fold = src.indexOf("<KeepReading");
-    expect(block).toBeGreaterThan(-1);
-    expect(block).toBeLessThan(fold);
-    expect(packages).toBeGreaterThan(fold);
-  });
-
-  it.each(homes)("%s renders the shelf and the plans exactly once", (page) => {
-    const src = source(page);
-    // The plans live in the block, so PackagesSection must not draw them too,
-    // and the shelf (and with it the VideoObject JSON-LD) is not repeated.
-    expect(src).toContain("showRealEstatePlans={false}");
+    expect(src).not.toContain("RealEstateBlock");
     expect(src).not.toContain("<RealEstateReels");
     expect(src).not.toContain("<RealEstatePlansSection");
-    expect(src.split("<RealEstateBlock").length - 1).toBe(1);
   });
 
-  it("keeps reels and prices in the server HTML, with the plans in the fold", () => {
-    // The monthly plans used to sit directly under the reel shelf. They now
-    // live in the home chooser's price fold (owner, 2026-10-12: one place to
-    // look for pricing, not two blocks three screens apart). What this test
-    // protects is unchanged and is the reason it was written: the figures stay
-    // in the SERVER HTML. A native <details> keeps them there; it is the
-    // client-mounted sheet that would not.
-    const block = source("components/real-estate-block.tsx");
-    expect(block).not.toContain("<KeepReading");
-    expect(block).toContain("<RealEstateReels locale={locale} />");
+  it.each(homes)("%s still suppresses the duplicate plans in the fold", (page) => {
+    // The plans live in the price sheet the chooser opens, not in
+    // PackagesSection, so this stays false even with the block gone.
+    expect(source(page)).toContain("showRealEstatePlans={false}");
+  });
 
+  it.each(homes)("%s keeps the shelf reachable from a real service page", (page) => {
+    // The homepage no longer shows the reels, so the only way a visitor (or a
+    // crawler) reaches them is the service page link. Prove that link exists.
+    expect(source(page)).toContain("KeepReading");
+  });
+
+  it("keeps the real-estate figures in the server HTML, in the price fold", () => {
+    // This is the reason the assertion was written and it is unchanged: the
+    // figures stay in the SERVER HTML. A native <details> keeps them there; a
+    // client-mounted sheet would not. GPTBot and ClaudeBot execute no JS.
     const fold = source("components/price-sheet.tsx");
     expect(fold).toContain("realEstatePlans()");
     expect(fold).toContain("<details");
     expect(fold).not.toContain('"use client"');
+  });
+
+  it("still renders the shelf, once, on each dedicated service page", () => {
+    for (const page of [
+      "app/(english)/services/real-estate-reels-video-editor-south-florida/page.tsx",
+      "app/(spanish)/es/editor-de-video-real-estate-miami/page.tsx",
+    ]) {
+      expect(source(page).split("<RealEstateReels").length - 1).toBe(1);
+    }
   });
 
   it("leaves the plans visible by default where PackagesSection is used elsewhere", () => {

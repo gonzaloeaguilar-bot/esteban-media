@@ -11,7 +11,6 @@ import { SignalIntro } from "@/components/signal-intro";
 import { PackagesSection, ClosingCredits } from "@/components/packages-section";
 import { KeepReading } from "@/components/keep-reading";
 import { PortfolioTeaser } from "@/components/portfolio-teaser";
-import { RealEstateBlock } from "@/components/real-estate-block";
 import { Container } from "@/components/ui/container";
 import {
   spanishNichePages,
@@ -39,7 +38,6 @@ export default function SpanishHomePage() {
       <div className="em-home-review-controls"><ClientReviews locale="es" compact /></div>
       <HomeProjectPath locale="es" />
       <HomeContactStrip locale="es" />
-      <RealEstateBlock locale="es" />
       <KeepReading
         id="mas"
         className="em-fold"
