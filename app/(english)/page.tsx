@@ -71,7 +71,7 @@ export default function Home() {
           later. Owner, 2026-10-12: "be convinced" is half the ask — the
           reviews are the convincing, so they belong where the choice is
           made, once. */}
-      <ClientReviews locale="en" />
+      <ClientReviews locale="en" compact />
       <HomeContactStrip locale="en" />
       <ContactCta />
       <KeepReading id="more" className="em-fold" title="Explore more services" destinations="Package add-ons, process, FAQ, about and how Esteban works.">
