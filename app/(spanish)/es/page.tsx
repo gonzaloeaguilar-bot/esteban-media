@@ -3,7 +3,6 @@ import { ArrowRight } from "lucide-react";
 
 import { ClientReviews } from "@/components/client-reviews";
 import { HeroVideo } from "@/components/hero-video";
-import { HomeAuthorityHub } from "@/components/home-authority-hub";
 import { HomeContactStrip } from "@/components/home-contact-strip";
 import { HomeProjectPath } from "@/components/home-project-path";
 import { SignalIntro } from "@/components/signal-intro";
@@ -34,29 +33,36 @@ export default function SpanishHomePage() {
       <SignalIntro locale="es" />
       <HeroVideo locale="es" />
       <PortfolioTeaser locale="es" />
-      <div className="em-home-review-controls"><ClientReviews locale="es" compact /></div>
       <HomeProjectPath locale="es" />
+      {/* La prueba y el contacto van JUNTOS justo en la decisión, no una
+          mención breve antes del selector y una repetición completa tres
+          pantallas más abajo. El dueño, 2026-10-12: "ser convencido" es la
+          mitad del encargo — las reseñas son lo que convence, van donde se
+          decide, una sola vez. */}
+      <ClientReviews locale="es" />
       <HomeContactStrip locale="es" />
       <KeepReading
         id="mas"
         className="em-fold"
         title="Explora más servicios"
-        destinations="Detalles de servicios, zonas, guías y cómo trabaja Esteban."
+        destinations="Servicios a la carta, el proceso, preguntas frecuentes y zonas."
       >
-      <PackagesSection locale="es" showRealEstatePlans={false} quiet />
-      <ClientReviews locale="es" />
-      <HomeAuthorityHub locale="es" />
+      {/* showGuide=false: los cuatro paquetes y sus precios ya están en el
+          PriceSheet del selector. Esto deja los servicios a la carta, el
+          proceso de cotización en 3 pasos y las preguntas frecuentes — nada
+          de eso repite al selector. */}
+      <PackagesSection locale="es" showRealEstatePlans={false} quiet showGuide={false} />
 
-      <section className="py-12 sm:py-16">
+      {/* The five-icon display-card grid ("what I do") was removed — it
+          duplicated the chooser directly above. The internal link to every
+          service (including diseno-web-fort-lauderdale, which had no other
+          homepage inlink) stays, as one compact row instead of a grid of
+          cards. */}
+      <section className="py-8">
         <Container size="xl">
-          <SectionIntro
-            eyebrow="Servicios"
-            title="Contenido conectado con una meta de negocio."
-            lead="La meta es simple: editar con intención, organizar qué publicar y definir con claridad cuándo hace falta producir material nuevo."
-          />
-          <div className="em-shelf mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          <p className="em-eyebrow">Servicios</p>
+          <nav aria-label="Todos los servicios" className="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-sm">
             {spanishServices.map((service) => {
-              const Icon = service.icon;
               const href =
                 service.id === "diseno-web"
                   ? "/es/diseno-web-fort-lauderdale"
@@ -64,30 +70,12 @@ export default function SpanishHomePage() {
                     ? "/es/produccion-de-video-fort-lauderdale"
                   : `/es/servicios#${service.id}`;
               return (
-                <Link
-                  key={service.id}
-                  href={href}
-                  className="group flex h-full flex-col rounded-xl border border-[#e4e0da] bg-white p-5 transition hover:-translate-y-0.5 hover:border-[#a93e29] hover:shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a93e29]"
-                  aria-label={`Explorar ${service.name}`}
-                >
-                  <Icon className="size-7 text-[#a93e29]" aria-hidden="true" />
-                  <h2 className="mt-4 text-lg font-bold leading-tight tracking-tight">
-                    {service.shortName}
-                  </h2>
-                  <p className="mt-2 text-sm leading-6 text-[#4d5358]">
-                    {service.description}
-                  </p>
-                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-[#a93e29]">
-                    Explorar este servicio
-                    <ArrowRight
-                      className="size-4 transition-transform group-hover:translate-x-0.5"
-                      aria-hidden="true"
-                    />
-                  </span>
+                <Link key={service.id} href={href} className="min-h-11 inline-flex items-center text-[#6a625a] underline underline-offset-4 hover:text-[#a93e29]">
+                  {service.shortName}
                 </Link>
               );
             })}
-          </div>
+          </nav>
         </Container>
       </section>
 

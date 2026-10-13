@@ -4,14 +4,12 @@ import { AboutTeaser } from "@/components/about-teaser";
 import { ClientReviews } from "@/components/client-reviews";
 import { ContactCta } from "@/components/contact-cta";
 import { HeroVideo } from "@/components/hero-video";
-import { HomeAuthorityHub } from "@/components/home-authority-hub";
 import { HomeContactStrip } from "@/components/home-contact-strip";
 import { HomeProjectPath } from "@/components/home-project-path";
 import { SignalIntro } from "@/components/signal-intro";
 import { ClosingCredits, PackagesSection } from "@/components/packages-section";
 import { KeepReading } from "@/components/keep-reading";
 import { PortfolioTeaser } from "@/components/portfolio-teaser";
-import { ServicesStrip } from "@/components/services-strip";
 import { englishRootMetadata } from "@/lib/site-metadata";
 import "../homepage-visual.css";
 
@@ -67,16 +65,22 @@ export default function Home() {
       <SignalIntro locale="en" />
       <HeroVideo />
       <PortfolioTeaser locale="en" />
-      <div className="em-home-review-controls"><ClientReviews locale="en" compact /></div>
       <HomeProjectPath locale="en" />
+      {/* Proof and contact now sit TOGETHER right at the decision, not one
+          compact mention above the chooser plus a full repeat three screens
+          later. Owner, 2026-10-12: "be convinced" is half the ask — the
+          reviews are the convincing, so they belong where the choice is
+          made, once. */}
+      <ClientReviews locale="en" />
       <HomeContactStrip locale="en" />
-      <KeepReading id="more" className="em-fold" title="Explore more services" destinations="Service details, areas, guides and how Esteban works.">
-        <PackagesSection locale="en" showRealEstatePlans={false} quiet />
-        <ClientReviews locale="en" />
-        <HomeAuthorityHub />
-        <ServicesStrip />
+      <ContactCta />
+      <KeepReading id="more" className="em-fold" title="Explore more services" destinations="Package add-ons, process, FAQ, about and how Esteban works.">
+        {/* showGuide=false: the four packages and their prices already sit
+            at the chooser's PriceSheet. This keeps the à la carte add-ons,
+            the 3-step quote process and the FAQ — none of which duplicate
+            the chooser. */}
+        <PackagesSection locale="en" showRealEstatePlans={false} quiet showGuide={false} />
         <AboutTeaser />
-        <ContactCta />
       </KeepReading>
       <ClosingCredits locale="en" />
     </main>

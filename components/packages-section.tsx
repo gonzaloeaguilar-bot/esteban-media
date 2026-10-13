@@ -30,6 +30,7 @@ export function PackagesSection({
   locale,
   showRealEstatePlans = true,
   quiet = false,
+  showGuide = true,
 }: {
   locale: Locale;
   /**
@@ -48,6 +49,17 @@ export function PackagesSection({
    * version — it is their first WhatsApp CTA.
    */
   quiet?: boolean;
+  /**
+   * The homepages pass false. The four-package accordion duplicates the
+   * SAME packages (same prices, from the same source) the chooser's own
+   * `PriceSheet` already surfaces right at the decision — owner, 2026-10-12:
+   * "these 2 sections should be consolidated".À la carte, the 3-step quote
+   * process and the FAQ are NOT duplicates of the chooser (they are
+   * single-item add-ons, how-it-works, and answers), so they still render.
+   * /pricing and /es/precios, which have no chooser above them, keep the
+   * full guide.
+   */
+  showGuide?: boolean;
 }) {
   const copy = packagesCopy(locale);
   const packages = packagesFor(locale);
@@ -88,7 +100,12 @@ export function PackagesSection({
           picked BECOMES the package. It used to be two sections — a chooser,
           then a track of package cards — which showed the same four photos
           twice in a row and made the visitor navigate between them. Now the
-          photo appears once, on a card that grows. */}
+          photo appears once, on a card that grows.
+          showGuide=false (home pages only) skips this entire accordion: the
+          chooser's own PriceSheet already lists every package and price at
+          the decision itself, so repeating the four cards here would be the
+          exact redundancy the owner asked to remove. */}
+      {showGuide && (
       <section
         // #paquetes / #packages, because that is what the hero's primary CTA
         // has always pointed at. Merging the chooser into this section deleted
@@ -269,6 +286,7 @@ export function PackagesSection({
           </ol>
         </Container>
       </section>
+      )}
 
       {/* 2b. Real estate: its own buyer and its own plan sizes, so its own
           section directly under the four packages. */}

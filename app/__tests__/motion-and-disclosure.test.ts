@@ -226,14 +226,25 @@ describe("the way back to the top", () => {
 const home = readFileSync(join(root, "app/(spanish)/es/page.tsx"), "utf8");
 
 describe("the service shelf", () => {
-  it("changes presentation only, never markup", () => {
-    // The homepage is NOT covered by the text-parity gate, so the safe change
-    // is the one that cannot alter what the gate would have checked. Verified
-    // by diffing the built HTML: 0 words, 0 links, 0 headings changed.
-    expect(home).toContain('className="em-shelf mt-8 grid gap-4');
+  // 2026-10-13 homepage consolidation (owner: "take also a look at the
+  // explore more services section so we can combine it with what you need
+  // made section and remove redundancies"). The five-icon "what I do" shelf
+  // duplicated the chooser's own lanes and PriceSheet, so it was removed
+  // from the Spanish home entirely rather than re-presented — there is no
+  // markup left for the mobile horizontal-scroll fix below to apply to on
+  // THIS page. The CSS rules stay (components/services-strip.tsx, the
+  // English twin of this same shelf, still ships them) and are guarded by
+  // the CSS-level tests in this describe block.
+  it("no longer duplicates the chooser's service list on the Spanish home", () => {
+    expect(home).not.toContain('className="em-shelf mt-8 grid gap-4');
+  });
+
+  it("keeps the niche index as a compact filtered list, not display cards", () => {
     // The niche list is filtered to indexable pages before mapping (SEO/GEO
-    // audit 2026-10-10, fix 5); the shelf still renders from that one list.
+    // audit 2026-10-10, fix 5); it stays — it is informational (every niche
+    // page's link), not a repeat of "what can he do".
     expect(home).toMatch(/spanishNichePages\s*\.filter\(\(page\) => !isConsolidatedPath\([^\n]*\)\)\s*\.map\(/);
+    expect(home).toContain('className="em-index-compact"');
   });
 
   it("is phone only", () => {
