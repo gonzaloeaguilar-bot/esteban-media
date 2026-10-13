@@ -188,16 +188,27 @@ export function ContactCta({ locale = "en" }: { locale?: Locale }) {
               {c.promise}
             </p>
 
+            {/* The journey is the thing the owner asked to lead with ("this
+                should be a guided experience first like 3 steps kind of
+                situation calming"), so it must not be the smallest thing in
+                the section. Measured live 2026-10-13 at 390x844 before this
+                change: step text 14px/400 in a 24px row, badge 12px, while
+                the CTA labels below were 14px/600 in 48-62px rows — the
+                buttons out-weighted the journey they were the outcome of.
+                Owner: "this 1 2 3 line items are too small".
+                Now: 16px step text, 28px badge, and real row height so the
+                three steps read as the spine of the section. Still smaller
+                than the promise line above them, which stays the lead. */}
             <ol
-              className="mt-5 flex flex-col gap-2 text-sm text-[#d8d0c7] sm:flex-row sm:flex-wrap sm:gap-x-5"
+              className="mt-6 flex flex-col gap-3 text-base leading-7 text-[#e8e2da]"
               aria-label={locale === "es" ? "Qué pasa después" : "What happens next"}
             >
               {c.steps.map((step, index) => (
-                <li key={step} className="flex items-center gap-2">
-                  <span className="grid size-6 shrink-0 place-items-center rounded-full bg-white/10 text-xs font-semibold text-[#f0b384]">
+                <li key={step} className="flex items-center gap-3">
+                  <span className="grid size-7 shrink-0 place-items-center rounded-full bg-white/12 text-sm font-semibold text-[#f0b384]">
                     {index + 1}
                   </span>
-                  {step}
+                  <span>{step}</span>
                 </li>
               ))}
             </ol>
@@ -222,7 +233,13 @@ export function ContactCta({ locale = "en" }: { locale?: Locale }) {
               >
                 <Mail className="size-4" aria-hidden="true" />
                 <span className="flex flex-col text-left">
-                  <span>{c.emailLabel}</span>
+                  {/* A space between the two spans. They are separate blocks
+                      so they already LOOKED right, but textContent ran them
+                      together as "Email Estebanesmolopez@gmail.com" — which is
+                      what a text extraction, an AI crawler and some assistive
+                      tech actually read. Visual separation is not textual
+                      separation. */}
+                  <span>{c.emailLabel}</span>{" "}
                   <span className="text-xs font-normal text-[#aaa29a]">{site.email}</span>
                 </span>
               </a>
@@ -233,7 +250,10 @@ export function ContactCta({ locale = "en" }: { locale?: Locale }) {
               >
                 <Phone className="size-4" aria-hidden="true" />
                 <span className="flex flex-col text-left">
-                  <span>{c.callLabel}</span>
+                  {/* Same separator fix as the email above: "Call Esteban" and
+                      the number are separate block spans, so textContent ran
+                      them together as "Call Esteban(305) 497-4478". */}
+                  <span>{c.callLabel}</span>{" "}
                   <span className="text-xs font-normal text-[#aaa29a]">{site.phone.display}</span>
                 </span>
               </a>

@@ -4,6 +4,9 @@ import { describe, expect, it } from "vitest";
 
 import { ContactCta } from "@/components/contact-cta";
 
+/** Rendered TEXT, tags stripped — what a reader/crawler actually receives. */
+const textOf = (html: string) => html.replace(/<[^>]+>/g, "");
+
 /**
  * Owner, 2026-10-13, reacting to the live homepage contact section: "this
  * looks scary and intimidating". Before a visitor could say hello they met
@@ -92,16 +95,23 @@ describe("guided, not overwhelming", () => {
   it("the English email and phone labels don't run into the address/number (the pasted defect)", () => {
     const html = renderToStaticMarkup(React.createElement(ContactCta, { locale: "en" }));
     // The owner's paste showed "Email Estebanesmolopez@gmail.com" — label and
-    // address concatenated with no separator. Two sibling block spans fix it;
-    // the regression is a nested text-node-then-block-child, so assert the
-    // sibling shape, not just that the words appear.
-    expect(html).toMatch(/<span>Email Esteban<\/span><span[^>]*>esmolopez@gmail\.com<\/span>/);
-    expect(html).not.toContain("Email Estebanesmolopez@gmail.com");
+    // address concatenated with no separator.
+    //
+    // This assertion used to pin the MARKUP SHAPE (two adjacent sibling spans
+    // with nothing between them). That measured the proxy, not the property:
+    // sibling block spans look correct on screen while textContent STILL runs
+    // them together, which is what a text extraction, an AI crawler and some
+    // assistive tech actually read. Visual separation is not textual
+    // separation. So assert the rendered TEXT instead — it is the thing that
+    // was wrong, and it stays true however the spans are arranged.
+    expect(textOf(html)).toContain("Email Esteban esmolopez@gmail.com");
+    expect(textOf(html)).not.toContain("Email Estebanesmolopez@gmail.com");
   });
 
   it("the Spanish label and phone number don't run into each other either (same defect, same component)", () => {
     const html = renderToStaticMarkup(React.createElement(ContactCta, { locale: "es" }));
-    expect(html).toMatch(/<span>Llamar a Esteban<\/span><span[^>]*>\(305\) 497-4478<\/span>/);
-    expect(html).not.toContain("Llamar a Esteban(305) 497-4478");
+    // Same correction as the English case: assert the TEXT, not the markup shape.
+    expect(textOf(html)).toContain("Llamar a Esteban (305) 497-4478");
+    expect(textOf(html)).not.toContain("Llamar a Esteban(305) 497-4478");
   });
 });
