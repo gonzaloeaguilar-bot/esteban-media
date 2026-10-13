@@ -985,6 +985,28 @@ html {
 .em-pkcard__cta:active { transform: scale(0.97); }
 .em-pkcard__cta:focus-visible { outline: 2px solid var(--cine-accent-deep); outline-offset: 3px; }
 
+/* Same action, quiet weight: the home fold already shows the filled
+   "Get a quote on WhatsApp" button in the hero, the contact strip and the
+   closing section. A repeat here read as a wall of identical buttons
+   (owner audit, 2026-10-12) — same href, same data-cta, same label, just a
+   text link instead of a fourth-plus filled pill. /pricing and /es/precios
+   keep the filled version, since this is their first WhatsApp CTA. */
+.em-pkcard__cta-quiet {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  margin-top: auto;
+  padding: 10px 0;
+  color: var(--cine-ink);
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.em-pkcard__cta-quiet:hover { color: var(--cine-accent-deep); }
+.em-pkcard__cta-quiet:focus-visible { outline: 2px solid var(--cine-accent-deep); outline-offset: 3px; }
+
 .em-pkcard__actions {
   display: flex;
   flex-wrap: wrap;

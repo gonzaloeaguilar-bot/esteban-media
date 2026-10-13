@@ -28,6 +28,14 @@ const copy = {
   },
 } as const;
 
+/**
+ * Kept deliberately (homepage spine review, 2026-10-12): on a phone the
+ * header's WhatsApp button is hidden (`hidden sm:inline-flex`), so above
+ * this strip the only contact path is the hero's WhatsApp button. Removing
+ * this section would drop the email and phone options entirely until the
+ * KeepReading fold — reducing, not preserving, the contact paths available
+ * before the fold. It stays, at its current compact size (~0.6 screens).
+ */
 export function HomeContactStrip({ locale }: { locale: Locale }) {
   const c = copy[locale];
   const mailto = `mailto:${site.email}?subject=${encodeURIComponent(c.subject)}&body=${encodeURIComponent(c.message)}`;

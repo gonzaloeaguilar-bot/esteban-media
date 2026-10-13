@@ -1,4 +1,3 @@
-import { AudienceRouter } from "@/components/audience-router";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
@@ -44,8 +43,7 @@ export default function SpanishHomePage() {
         title="Explora más servicios"
         destinations="Detalles de servicios, zonas, guías y cómo trabaja Esteban."
       >
-      <AudienceRouter locale="es" />
-      <PackagesSection locale="es" showRealEstatePlans={false} />
+      <PackagesSection locale="es" showRealEstatePlans={false} quiet />
       <ClientReviews locale="es" />
       <HomeAuthorityHub locale="es" />
 

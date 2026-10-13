@@ -89,7 +89,11 @@ describe("Arranque weekly plan", () => {
       expect(options).toContain(words);
     }
     expect(options).not.toMatch(/line-through|<s>|<del>|badge/i);
-    expect(source("components/packages-section.tsx")).toContain("<StarterOptions locale={locale} />");
+    // `quiet` only changes the WhatsApp button's visual weight on the home
+    // page fold (owner audit 2026-10-12: nine identical filled buttons on
+    // one page) — it is still the SAME <StarterOptions> component, same
+    // props shape, same href/data-cta/copy.
+    expect(source("components/packages-section.tsx")).toContain("<StarterOptions locale={locale} quiet={quiet} />");
     expect(source("components/arranque-weekly-section.tsx")).toContain("<StarterOptions locale={locale}");
   });
 

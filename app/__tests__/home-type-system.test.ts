@@ -16,7 +16,6 @@ const read = (path: string) => readFileSync(join(root, path), "utf8");
 
 // Every component that renders a section h2 on "/" or "/es".
 const HOME_SECTIONS = [
-  "components/audience-router.tsx",
   "components/packages-section.tsx",
   "components/real-estate-plans-section.tsx",
   "components/a-la-carte-section.tsx",

@@ -29,6 +29,7 @@ import { absoluteUrl, site } from "@/lib/site";
 export function PackagesSection({
   locale,
   showRealEstatePlans = true,
+  quiet = false,
 }: {
   locale: Locale;
   /**
@@ -38,6 +39,15 @@ export function PackagesSection({
    * twice.
    */
   showRealEstatePlans?: boolean;
+  /**
+   * The homepages pass true: by the time a visitor reaches this section
+   * they have already seen the filled "Get a quote on WhatsApp" button in
+   * the hero, the contact strip and the closing section, so every package
+   * card's own WhatsApp action becomes a quiet text link instead of a
+   * fourth-plus filled button. /pricing and /es/precios keep the filled
+   * version — it is their first WhatsApp CTA.
+   */
+  quiet?: boolean;
 }) {
   const copy = packagesCopy(locale);
   const packages = packagesFor(locale);
@@ -213,7 +223,7 @@ export function PackagesSection({
                       </ul>
 
                       {pkg.id === "arranque" ? (
-                        <StarterOptions locale={locale} />
+                        <StarterOptions locale={locale} quiet={quiet} />
                       ) : (
                         <div className="em-pk-open-price">
                           {price.kind === "from" ? (
@@ -237,7 +247,7 @@ export function PackagesSection({
                         {pkg.id !== "arranque" && (
                           <a
                             href={whatsappHref(site.phone.e164, quoteText(pkg.name))}
-                            className="em-pkcard__cta"
+                            className={quiet ? "em-pkcard__cta-quiet" : "em-pkcard__cta"}
                             target="_blank"
                             rel="noopener noreferrer"
                             data-cta={`package_${pkg.id}_whatsapp`}
