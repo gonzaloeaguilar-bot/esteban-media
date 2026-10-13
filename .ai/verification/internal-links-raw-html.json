@@ -1,0 +1,11 @@
+{
+  "source": ".next/server/app/es/guias/editor-de-video-vs-videografo.html",
+  "target": "/es/areas",
+  "areas_anchor_labels": [
+    "Áreas",
+    "áreas de servicio de Esteban",
+    "Áreas"
+  ],
+  "new_anchor_count": 1,
+  "status": "PASS"
+}

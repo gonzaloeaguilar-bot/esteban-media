@@ -1460,7 +1460,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "¿Qué hace un videógrafo en el set de grabación?",
           paragraphs: [
-            "Empieza por el material. Si tu equipo ya grabó las escenas, un [editor de video para redes](/es/editor-de-video-corto-para-redes-miami) puede convertirlas en piezas terminadas. Si el material aún no existe, necesitas planear y grabar en locación; mira la [producción de video en Fort Lauderdale](/es/produccion-de-video-fort-lauderdale). Si necesitas grabación y edición, pide que ambas etapas aparezcan en la cotización.",
+            "Empieza por el material. Si tu equipo ya grabó las escenas, un [editor de video para redes](/es/editor-de-video-corto-para-redes-miami) puede convertirlas en piezas terminadas. Si el material aún no existe, necesitas planear y grabar en locación; mira la [producción de video en Fort Lauderdale](/es/produccion-de-video-fort-lauderdale). Antes de solicitar una grabación, revisa las [áreas de servicio de Esteban](/es/areas) e indica la ciudad del proyecto para consultar disponibilidad. Si necesitas grabación y edición, pide que ambas etapas aparezcan en la cotización.",
             "Un videógrafo es el especialista técnico y creativo en el set de grabación. Su labor se concentra en el mundo físico: evaluar la acústica del espacio, diseñar esquemas de iluminación de tres puntos, seleccionar distancias focales y lentes adecuados, calibrar la exposición y perfiles de color del sensor, colocar micrófonos de solapa o direccionales y dirigir a las personas frente a cámara. El videógrafo resuelve contingencias en tiempo real para garantizar tomas nítidas, estables y bien iluminadas.",
           ],
         },

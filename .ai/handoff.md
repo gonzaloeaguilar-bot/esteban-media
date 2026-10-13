@@ -1,3 +1,10 @@
+# 2026-10-13 — Spanish areas contextual inbound link
+
+- Local change: guide `editor-de-video-vs-videografo` links to `/es/areas` beside filming guidance.
+- Evidence, scope and coordinator follow-up: `.ai/internal-links-es-areas-2026-10-13.md`.
+- Typecheck, lint, 1,854 tests and build passed; generated HTML contains the new anchor exactly once.
+- Not deployed; sibling review and external vault updates belong to the owning coordinator.
+
 # Real product photography buyer path — 2026-10-11
 
 - PR #361 adds one English real-shoot page for product photography, links it from the AI page and services hub, and registers sitemap/watch/inventory follow-up for November 11. Direct GSC read had 3 US impressions / 0 clicks for `miami product photographer` landing on the AI page; this is site visibility, not market volume.

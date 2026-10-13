@@ -1,3 +1,7 @@
+## 2026-10-13 — Areas guide link
+
+- [ ] Release and verify the contextual `/es/areas` link from the Spanish editor-versus-videographer guide after sibling review; implementation and validation record: `.ai/internal-links-es-areas-2026-10-13.md`.
+
 # Esteban Moreno Media — Backlog
 
 - [x] 2026-10-10: ship the annual-events section (hub + FLIBS + Art Basel first, then Miami boat show, SOBEWFF, eMerge Americas, Miami Music Week, Miami Spice) on `feat/events-hub`.
