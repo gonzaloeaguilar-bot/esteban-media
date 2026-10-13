@@ -7,6 +7,7 @@ import { useState } from "react";
 import RailSegmented from "@/vendor/rail-kit/RailSegmented";
 import { PriceSheet } from "@/components/price-sheet";
 import { IllustratedScene } from "@/components/illustrated-scene";
+import { AudienceVideo, EditingPreview } from "@/components/audience-media";
 
 import { AUDIENCE_LANES, type AudienceLocale } from "@/lib/audience-lanes";
 import { packageRoutes } from "@/lib/package-routes";
@@ -47,6 +48,8 @@ const copy = {
       { href: "/services/video-production-fort-lauderdale", label: "Film a video in Fort Lauderdale" },
       { href: "/services/reels-editor-fort-lauderdale", label: "Edit Reels in Fort Lauderdale" },
     ],
+    process: "See the editing process",
+    videoAlt: "Concept illustration of a cafe being filmed on a phone",
   },
   es: {
     eyebrow: "Encuentra por dónde empezar",
@@ -78,6 +81,8 @@ const copy = {
       { href: "/es/produccion-de-video-fort-lauderdale", label: "Grabar video en Fort Lauderdale" },
       { href: "/es/editor-de-reels-fort-lauderdale", label: "Editar Reels en Fort Lauderdale" },
     ],
+    process: "Ver el proceso de edición",
+    videoAlt: "Ilustración conceptual de un café grabado con un celular",
   },
 } as const;
 
@@ -125,19 +130,29 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                   Composed exactly as AudienceRouter does it: the scene is its
                   own element, the link is the row beneath it, so a disclosure
                   is never nested inside an anchor. */}
-              <IllustratedScene
-                image={`/illustrations/${artwork[index]}.webp`}
-                alt={c.artAlts[index]}
-                kind={index === 2 ? "edit" : "photo"}
-                source={`home-path-${lane.id}`}
-                locale={locale}
-                label={c.sceneLabels[index]}
-                facts={[...c.sceneFacts[index]]}
-              />
+              {index === 1 ? (
+                <AudienceVideo locale={locale} alt={c.videoAlt} />
+              ) : (
+                <IllustratedScene
+                  image={`/illustrations/${artwork[index]}.webp`}
+                  alt={c.artAlts[index]}
+                  kind={index === 2 ? "edit" : "photo"}
+                  source={`home-path-${lane.id}`}
+                  locale={locale}
+                  label={c.sceneLabels[index]}
+                  facts={[...c.sceneFacts[index]]}
+                />
+              )}
               <Link href={index === 0 ? realEstateReelsPath(locale) : lane.href} data-cta={`home-path-${lane.id}`} className="group mt-3 flex min-h-16 items-center justify-between gap-4 rounded-2xl border border-[#d3c3b2] bg-[#fffaf4] px-5 py-4 text-lg font-medium leading-snug transition hover:border-[#a93e29] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a93e29]">
                 <span><span className="block">{c.labels[index]}</span><span className="mt-1 block text-xs font-normal uppercase tracking-wide text-[#6a625a]">{lane.who}</span></span>
                 <ArrowRight className="size-5 shrink-0 text-[#a93e29] transition-transform group-hover:translate-x-1" aria-hidden="true" />
               </Link>
+              {index === 2 && (
+                <details className="em-process-details">
+                  <summary>{c.process}</summary>
+                  <EditingPreview locale={locale} />
+                </details>
+              )}
             </div>
             );
           })}

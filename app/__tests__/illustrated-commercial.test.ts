@@ -1,9 +1,7 @@
 import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
-import { AudienceRouter } from "@/components/audience-router";
 import { RealEstatePlansSection } from "@/components/real-estate-plans-section";
-import { AUDIENCE_LANES } from "@/lib/audience-lanes";
 import { REAL_ESTATE_PLANS } from "@/lib/pricing";
 import { realEstatePlansCopy, realEstateTerms, realEstatePlanName } from "@/lib/real-estate-plans";
 import { whatsappHref } from "@/lib/packages";
@@ -44,17 +42,6 @@ describe.each(["en", "es"] as const)("illustrated commercial content (%s)", loca
     expect(new Set(hashes).size).toBe(6);
     expect(html).toContain("<noscript>");
     expect(html).toContain(locale === "es" ? "Ilustraciones conceptuales creadas con IA." : "Concept illustrations created with AI.");
-  });
-
-  it("keeps every audience destination and original explanation in served HTML", () => {
-    const html = renderToStaticMarkup(React.createElement(AudienceRouter, { locale }));
-    for (const lane of AUDIENCE_LANES[locale].lanes) {
-      expect(html).toContain(`href="${lane.href}"`);
-      expect(html).toContain(`data-cta="audience-${lane.id}"`);
-      expect(html).toContain(escape(lane.detail));
-    }
-    for (const name of ["property", "business", "editing"]) expect(decodeURIComponent(html)).toContain(`/illustrations/${name}.webp`);
-    expect(html).not.toContain("<iframe"); // Third-party video waits for an actual click.
   });
 
   it("serves all plan prices, terms and exact quote messages before JavaScript", () => {

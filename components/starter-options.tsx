@@ -16,7 +16,23 @@ import { site } from "@/lib/site";
  * with few words and big numbers. Prices come from lib/pricing.ts.
  * No "use client": it renders the same on the server and inside the client card.
  */
-export function StarterOptions({ locale, showTermsLink = true }: { locale: Locale; showTermsLink?: boolean }) {
+export function StarterOptions({
+  locale,
+  showTermsLink = true,
+  quiet = false,
+}: {
+  locale: Locale;
+  showTermsLink?: boolean;
+  /**
+   * The home page's fold already carries a filled "Get a quote on WhatsApp"
+   * button in HeroVideo, HomeContactStrip and ClosingCredits — a visitor who
+   * scrolls this far has already seen the same filled button three times.
+   * /pricing and /es/precios, where this card is the FIRST whatsapp CTA on
+   * the page, keep the filled treatment. Same href, same data-cta, same
+   * label — only the visual weight changes.
+   */
+  quiet?: boolean;
+}) {
   const es = locale === "es";
   const copy = packagesCopy(locale);
   const price = priceFor("arranque");
@@ -43,7 +59,7 @@ export function StarterOptions({ locale, showTermsLink = true }: { locale: Local
                 ? `Hola Esteban, me interesa el Arranque, una sola vez (${onceText}).`
                 : `Hi Esteban, I'm interested in Starter, just once (${onceText}).`,
             )}
-            className="em-pkcard__cta"
+            className={quiet ? "em-pkcard__cta-quiet" : "em-pkcard__cta"}
             target="_blank"
             rel="noopener noreferrer"
             data-cta="package_arranque_project_whatsapp"
@@ -72,7 +88,7 @@ export function StarterOptions({ locale, showTermsLink = true }: { locale: Local
           </div>
           <a
             href={arranqueWeeklyWhatsapp(site.phone.e164, ARRANQUE_WEEKLY_OPTIONS[0], locale)}
-            className="em-pkcard__cta"
+            className={quiet ? "em-pkcard__cta-quiet" : "em-pkcard__cta"}
             target="_blank"
             rel="noopener noreferrer"
             data-cta="package_arranque_weekly_whatsapp"

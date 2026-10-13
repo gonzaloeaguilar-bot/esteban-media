@@ -1,39 +1,32 @@
-import { readFileSync } from "node:fs";
+import { readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
-import { existsSync } from "node:fs";
 
 import { describe, expect, it } from "vitest";
 
 import { AUDIENCE_LANES } from "@/lib/audience-lanes";
 
 /**
- * The audience router closes a measured conversion leak.
- *
- * GA4, 30 days to 2026-09-30: 36 sessions arrived from Facebook and Instagram and
- * EVERY ONE landed on "/". All three of the site's form starts in that window came
- * from m.facebook.com. Meanwhile the only contact click came from
- * /es/reels-para-negocios-miami, and the 4th-biggest landing page was
- * /es/guias/ideas-de-reels-para-agentes-de-bienes-raices with ONE search
- * impression — social traffic again.
- *
- * The converting pages existed. `grep` for all four slugs in either home page
- * returned 0. Social sent people who wanted those pages to a homepage that did
- * not mention them.
+ * AUDIENCE_LANES is the shared lane data behind the ONE chooser on the home
+ * page, `components/home-project-path.tsx` (`<RailSegmented>` + the lane
+ * card beneath it). It used to also back a second, duplicate chooser
+ * (`AudienceRouter`, inside the KeepReading fold) that rendered the exact
+ * same three lanes with the exact same artwork — removed 2026-10-12: the
+ * visible chooser became animated in PR #388, so the fold copy had no
+ * reason to exist. These tests keep guarding the DATA, since
+ * `home-project-path.tsx` is still the only consumer and a bad lane there
+ * is now a single point of failure instead of two.
  */
 
 const source = (p: string) => readFileSync(join(process.cwd(), p), "utf8");
 const HOMES = ["app/(english)/page.tsx", "app/(spanish)/es/page.tsx"] as const;
 
-describe("audience paths — on both home pages", () => {
-  it.each(HOMES)("%s renders it", (page) => {
-    expect(source(page)).toContain("<AudienceRouter");
-  });
-
-  it.each(HOMES)("%s keeps short destination links visible before the reading-path fold", (page) => {
+describe("audience lanes — the one chooser on both home pages", () => {
+  it.each(HOMES)("%s renders the chooser before the reading-path fold", (page) => {
     const src = source(page);
     const path = src.indexOf("<HomeProjectPath");
     const fold = src.indexOf("<KeepReading");
     expect(path).toBeGreaterThan(-1);
+    expect(src).not.toContain("<AudienceRouter");
     if (fold > -1) expect(path).toBeLessThan(fold);
     const component = source("components/home-project-path.tsx");
     expect(component).toContain("AUDIENCE_LANES[locale].lanes");
@@ -41,13 +34,8 @@ describe("audience paths — on both home pages", () => {
     expect(component).toContain("lane.href");
   });
 
-  it.each(HOMES)("%s keeps the full audience explanation in optional detail", (page) => {
-    const src = source(page);
-    const fold = src.indexOf("<KeepReading");
-    const router = src.indexOf("<AudienceRouter");
-    const packages = src.indexOf("<PackagesSection");
-    expect(fold).toBeLessThan(router);
-    if (packages > -1) expect(router).toBeLessThan(packages);
+  it.each(HOMES)("%s never ships the removed duplicate fold chooser", (page) => {
+    expect(source(page)).not.toContain("audience-router");
   });
 });
 
@@ -55,7 +43,7 @@ describe("audience router — the lanes point at pages that exist and earn", () 
   it("every lane target is a real route in this repo", () => {
     for (const [locale, copy] of Object.entries(AUDIENCE_LANES)) {
       for (const lane of copy.lanes) {
-        // A router that 404s is worse than no router.
+        // A chooser that 404s is worse than no chooser.
         const guide = lane.href.match(/^\/(?:es\/guias|guides)\/([a-z0-9-]+)$/);
         if (guide) {
           expect(
@@ -104,12 +92,11 @@ describe("audience router — the lanes point at pages that exist and earn", () 
   });
 });
 
-describe("audience router — measurable, or it cannot be judged in 28 days", () => {
-  it("carries the section and per-lane click attributes track.js reads", () => {
-    const src = source("components/audience-router.tsx");
-    expect(src).toContain('data-section="audience-router"');
-    expect(src).toMatch(/data-cta=\{`audience-\$\{lane\.id\}`\}/);
-    // Never a hand-written gtag call — that double-counted once already.
-    expect(src).not.toMatch(/gtag\(|dataLayer\.push/);
+describe("home-project-path — the AudienceVideo and EditingPreview it inherited", () => {
+  it("still renders the business lane's real project video and the editing lane's live preview", () => {
+    const component = source("components/home-project-path.tsx");
+    expect(component).toContain("AudienceVideo");
+    expect(component).toContain("EditingPreview");
+    expect(component).toContain('data-section="home-project-path"');
   });
 });
