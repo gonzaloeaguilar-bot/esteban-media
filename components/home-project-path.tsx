@@ -33,7 +33,6 @@ const copy = {
     pricingDetail: "Choose a package to see everything included. Final pricing depends on the project scope.",
     pricingAction: "Compare packages",
     swipe: "Swipe to see all three options.",
-    illustrationNote: "Illustrated service choices. Finished client work appears above.",
     sceneLabels: ["Frame your listing", "Make people stop scrolling", "Bring the edit to life"],
     sceneFacts: [
       ["Walkthroughs and Reels.", "Edited from your footage."],
@@ -66,7 +65,6 @@ const copy = {
     pricingDetail: "Elige un paquete para ver todo lo incluido. El precio final depende del alcance del proyecto.",
     pricingAction: "Comparar paquetes",
     swipe: "Desliza para ver las tres opciones.",
-    illustrationNote: "Opciones de servicio ilustradas. El trabajo terminado aparece arriba.",
     sceneLabels: ["Encuadra tu propiedad", "Haz que dejen de deslizar", "Dale ritmo al material"],
     sceneFacts: [
       ["Recorridos y Reels.", "Editados a partir de tu material."],
@@ -96,7 +94,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
   return (
     <section id="start" aria-labelledby={`home-path-${locale}`} data-section="home-project-path" className="bg-[#f7f5f1] py-10 sm:py-14">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <p className="text-xs font-medium uppercase tracking-wider text-[#9d3d2b]">{c.eyebrow}</p>
+        <p className="text-xs font-medium uppercase tracking-wider text-[#6a625a]">{c.eyebrow}</p>
         <h2 id={`home-path-${locale}`} className="mt-2 font-serif text-4xl leading-tight sm:text-5xl">{c.heading}</h2>
         <p className="mt-2 max-w-2xl text-base leading-7 text-[#4d5358]">{c.intro}</p>
         {/* A CONTROL, not three cards to swipe. Owner, 2026-10-12: the real
@@ -115,7 +113,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
             onSelect={({ id }: { id: string }) => setActiveLane(id)}
           />
         </div>
-        <div className="mt-6">
+        <div className="mt-5">
           {lanes.filter((lane) => lane.id === activeLane).map((lane) => {
             const index = lanes.findIndex((l) => l.id === lane.id);
             return (
@@ -129,7 +127,11 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                   a visitor actually lands on was the only dead one.
                   Composed exactly as AudienceRouter does it: the scene is its
                   own element, the link is the row beneath it, so a disclosure
-                  is never nested inside an anchor. */}
+                  is never nested inside an anchor.
+                  Above 1024px the card is two columns (art left, capped at
+                  640px; link + process right) instead of one phone column
+                  stretched wide — 2026-10-12 review item 7: the illustration
+                  rendered at 1187px, the biggest object on the homepage. */}
               {index === 1 ? (
                 <AudienceVideo locale={locale} alt={c.videoAlt} />
               ) : (
@@ -143,29 +145,34 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                   facts={[...c.sceneFacts[index]]}
                 />
               )}
-              <Link href={index === 0 ? realEstateReelsPath(locale) : lane.href} data-cta={`home-path-${lane.id}`} className="group mt-3 flex min-h-16 items-center justify-between gap-4 rounded-2xl border border-[#d3c3b2] bg-[#fffaf4] px-5 py-4 text-lg font-medium leading-snug transition hover:border-[#a93e29] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a93e29]">
-                <span><span className="block">{c.labels[index]}</span><span className="mt-1 block text-xs font-normal uppercase tracking-wide text-[#6a625a]">{lane.who}</span></span>
-                <ArrowRight className="size-5 shrink-0 text-[#a93e29] transition-transform group-hover:translate-x-1" aria-hidden="true" />
-              </Link>
-              {index === 2 && (
-                <details className="em-process-details">
-                  <summary>{c.process}</summary>
-                  <EditingPreview locale={locale} />
-                </details>
-              )}
+              <div className="em-path-card-info mt-3 lg:mt-0 flex flex-col gap-3">
+                {/* The filled, terracotta row is now the ONE primary action in
+                    the section (review item 5: "the red button is currently
+                    the SECONDARY action"); starting prices is demoted below
+                    to the compact related-link treatment. */}
+                <Link href={index === 0 ? realEstateReelsPath(locale) : lane.href} data-cta={`home-path-${lane.id}`} className="group flex min-h-16 items-center justify-between gap-4 rounded-2xl bg-[#9d3d2b] px-5 py-4 text-lg font-medium leading-snug text-white transition hover:bg-[#86341f] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+                  <span><span className="block">{c.labels[index]}</span><span className="mt-1 block text-xs font-normal uppercase tracking-wide text-white">{lane.who}</span></span>
+                  <ArrowRight className="size-5 shrink-0 text-white transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                </Link>
+                {index === 2 && (
+                  <details className="em-process-details">
+                    <summary>{c.process}</summary>
+                    <EditingPreview locale={locale} />
+                  </details>
+                )}
+              </div>
             </div>
             );
           })}
         </div>
-        <p className="mt-2 text-xs leading-5 text-[#6a625a]">{c.illustrationNote}</p>
-        <nav aria-label={locale === "es" ? "Servicios locales" : "Local services"} className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+        <nav aria-label={locale === "es" ? "Servicios locales" : "Local services"} className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm">
           {c.localLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="min-h-11 inline-flex items-center text-[#9d3d2b] underline underline-offset-4" data-cta="home-local-service">
+            <Link key={link.href} href={link.href} className="min-h-11 inline-flex items-center text-[#6a625a] underline underline-offset-4" data-cta="home-local-service">
               {link.label}
             </Link>
           ))}
         </nav>
-        <div className="mt-6 border-t border-[#ddd4c8] pt-5">
+        <div className="mt-10 border-t border-[#ddd4c8] pt-5">
           {/* ONE button instead of a price grid. The four package cards used
               to sit here, and the monthly real-estate plans were a separate
               section three screens further down — so a visitor comparing cost
