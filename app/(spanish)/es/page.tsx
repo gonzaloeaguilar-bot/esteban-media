@@ -2,8 +2,8 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { ClientReviews } from "@/components/client-reviews";
+import { ContactCta } from "@/components/contact-cta";
 import { HeroVideo } from "@/components/hero-video";
-import { HomeContactStrip } from "@/components/home-contact-strip";
 import { HomeProjectPath } from "@/components/home-project-path";
 import { SignalIntro } from "@/components/signal-intro";
 import { PackagesSection, ClosingCredits } from "@/components/packages-section";
@@ -40,7 +40,13 @@ export default function SpanishHomePage() {
           mitad del encargo — las reseñas son lo que convence, van donde se
           decide, una sola vez. */}
       <ClientReviews locale="es" compact />
-      <HomeContactStrip locale="es" />
+      {/* Un solo momento de contacto, no dos casi idénticos (dueño,
+          2026-10-13, viendo la página en vivo: "these 2 sections are
+          basically the same"). ContactCta ahora lleva la forma calmada de
+          HomeContactStrip (frase de promesa, 1-2-3 numerado, tres toques
+          directos) como el pedido visible, con el formulario más largo
+          como profundidad voluntaria dentro de un <details> nativo. */}
+      <ContactCta locale="es" />
       <KeepReading
         id="mas"
         className="em-fold"
