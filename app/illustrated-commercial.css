@@ -240,3 +240,83 @@
   [data-section="home-project-path"] .em-path-card-info{margin-top:0!important}
 }
 @media (prefers-reduced-motion:reduce){.em-path-choice .rail-segmented__segment{transition:none}}
+
+/* Owner, 2026-10-13, twice: "I like the sheets for the extra info on the
+   packages." The mechanism stays native <details> — content ships closed in
+   the first byte, readable with JS off — but the OPEN state now presents as
+   a real bottom sheet instead of an inline fold that pushes the page down.
+   Applies to price-sheet.tsx (.em-pricefold) and the editing lane's "See
+   editing process" (.em-process-details) in home-project-path.tsx. */
+.em-sheet-details[open]{
+  display:flex;flex-direction:column;position:fixed;inset:auto 0 0 0;
+  z-index:70;max-height:85vh;background:#fffaf4;border-radius:20px 20px 0 0;
+  box-shadow:0 -12px 32px rgba(16,18,20,.25);margin:0;
+}
+.em-sheet-details[open]>summary{
+  position:sticky;top:0;background:#fffaf4;z-index:1;border-radius:20px 20px 0 0;margin:0;
+}
+.em-sheet-details[open]>:not(summary){
+  overflow-y:auto;flex:1 1 auto;min-height:0;
+  padding-bottom:max(20px,env(safe-area-inset-bottom));
+}
+.em-process-details.em-sheet-details[open]{padding:0 20px}
+.em-process-details.em-sheet-details[open]>summary{padding:16px 0;font-size:15px;font-weight:600;cursor:pointer}
+/* The scrim behind an open sheet — no extra element in the DOM, so a page
+   with zero sheets open carries zero extra markup for it. */
+html:has(.em-sheet-details[open]){overflow:hidden}
+body:has(.em-sheet-details[open])::after{content:"";position:fixed;inset:0;background:rgba(16,18,20,.5);z-index:65;animation:em-sheet-fade 160ms ease both}
+@media(min-width:768px){
+  .em-sheet-details[open]{left:50%;right:auto;bottom:40px;width:min(560px,92vw);max-height:80vh;transform:translateX(-50%);border-radius:20px}
+  .em-sheet-details[open]>summary{border-radius:20px 20px 0 0}
+}
+@media(prefers-reduced-motion:no-preference){
+  .em-sheet-details[open]{animation:em-sheet-up 220ms cubic-bezier(.2,.7,.2,1) both}
+}
+@media(prefers-reduced-motion:reduce){.em-sheet-details[open]{animation:none}body:has(.em-sheet-details[open])::after{animation:none}}
+@keyframes em-sheet-up{from{transform:translateY(16px);opacity:.6}to{transform:translateY(0);opacity:1}}
+@media(min-width:768px){@keyframes em-sheet-up{from{transform:translate(-50%,16px);opacity:.6}to{transform:translate(-50%,0);opacity:1}}}
+@keyframes em-sheet-fade{from{opacity:0}to{opacity:1}}
+
+/* The minimum-term qualifier (real estate) / turnaround floor (editing),
+   read-before-you-tap, ~14px above the filled CTA. */
+.em-path-qualifier{margin:0 0 14px;font-size:13px;line-height:1.4;color:#6a625a}
+
+/* The starting price gets motion so it marks what you are looking at — owner:
+   "the 5.0 number needs a shine or animation". transform/background-position
+   only, gated behind the same `data-visible` the scenes already use, never
+   starving the page's first analytics hit. */
+@media(prefers-reduced-motion:no-preference){
+  .em-illustration[data-visible=true] .em-art-price-num,
+  .em-lane-answer .em-art-price-num{
+    background-image:linear-gradient(100deg,#101214 40%,#c96b48 50%,#101214 60%);
+    background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;
+    animation:em-price-shine 3.2s ease-in-out infinite;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .em-illustration[data-visible=true] .em-art-price-num,
+  .em-lane-answer .em-art-price-num{color:#101214}
+}
+@keyframes em-price-shine{0%{background-position:160% 0}60%,100%{background-position:-60% 0}}
+
+/* The in-place funnel takeover (components/home-path-funnel.tsx). */
+.em-funnel-scrim{position:fixed;inset:0;z-index:80;background:rgba(16,18,20,.55);display:flex;align-items:flex-end;justify-content:center;padding:0}
+.em-funnel-panel{width:100%;max-width:560px;max-height:85vh;overflow-y:auto;background:#fffaf4;border-radius:20px 20px 0 0;padding:28px 22px calc(22px + env(safe-area-inset-bottom));position:relative}
+.em-funnel-close{position:absolute;top:14px;right:14px;min-height:40px;min-width:40px;display:grid;place-items:center;border-radius:50%;background:#e7dfd5;color:#101214}
+.em-funnel-h{font-size:22px;font-weight:600;margin:0 0 10px;display:flex;align-items:center;gap:8px}
+.em-funnel-chip{display:inline-flex;min-height:36px;align-items:center;padding:0 14px;border-radius:99px;background:#f2e5d5;font-size:14px;font-weight:600;margin:0 0 10px}
+.em-funnel-note{font-size:14px;color:#6a625a;margin:0 0 20px}
+.em-funnel-primary{width:100%;min-height:52px;border-radius:14px;background:#9d3d2b;color:#fff;font-size:16px;font-weight:600}
+.em-funnel-secondary{display:flex;align-items:center;gap:6px;min-height:52px;padding:0 16px;border-radius:14px;background:transparent;color:#101214;font-size:15px;font-weight:600}
+.em-funnel-row{display:flex;gap:10px;align-items:stretch}
+.em-funnel-row .em-funnel-primary{flex:1}
+.em-funnel-field{display:block;margin:0 0 14px;font-size:13px;font-weight:600;color:#6a625a}
+.em-funnel-field input{display:block;width:100%;margin-top:6px;min-height:48px;padding:0 14px;border:1px solid #ddd4c8;border-radius:10px;font-size:15px;color:#101214;background:#fff}
+@media(min-width:768px){
+  .em-funnel-scrim{align-items:center}
+  .em-funnel-panel{border-radius:20px}
+}
+@media(prefers-reduced-motion:no-preference){
+  .em-funnel-panel{animation:em-sheet-up 220ms cubic-bezier(.2,.7,.2,1) both}
+}
+@media(prefers-reduced-motion:reduce){.em-funnel-panel{animation:none}}

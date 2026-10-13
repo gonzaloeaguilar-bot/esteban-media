@@ -23,6 +23,25 @@ type Gtag = (command: "event", name: string, params?: Record<string, unknown>) =
  */
 type SiteTrack = (name: string, params?: Record<string, unknown>) => void;
 
+/**
+ * Emits one of the contract's own form-lifecycle names (`form_start`,
+ * `form_step`, `form_error`, `form_submit`, `lead`) directly — these are
+ * already contract names, not legacy ones, so the writer's shared block
+ * attaches with no CONTRACT_MAP dual-emit needed. Only non-PII parameters:
+ * the chosen lane rides as `lane`/`lead_type`, never name/email/whatsapp.
+ */
+export function trackFunnelEvent(
+  name: "form_start" | "form_step" | "form_error" | "form_submit" | "lead",
+  params: Record<string, unknown>,
+): void {
+  if (typeof window === "undefined") return;
+  const gtag = (window as unknown as { gtag?: Gtag }).gtag;
+  if (typeof gtag !== "function") return;
+  const send = (window as unknown as { __estebanTrack?: SiteTrack }).__estebanTrack;
+  if (typeof send === "function") return send(name, params);
+  gtag("event", name, params);
+}
+
 /** Records interest in a public service category; no visitor or form data is sent. */
 export function trackServiceInterest(service: string, locale: string): void {
   if (typeof window === "undefined") return;

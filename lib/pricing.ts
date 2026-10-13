@@ -164,6 +164,26 @@ export const REAL_ESTATE_PLAN_TERMS = {
   cancelNoticeDays: 30,
 } as const;
 
+// Owner, in session, 2026-10-13, verbatim: "a week min for turn around."
+// Scoped to editing (Arranque/per-video) only — the owner answered the
+// per-video question, not the monthly real-estate plan or the business
+// production-day lane, so no entry exists for those here. Worded as a FLOOR,
+// never a promised delivery date: see turnaroundFor() below and its callers.
+export type TurnaroundId = "arranque";
+
+export const TURNAROUND: Record<TurnaroundId, { minimumDays: number }> = {
+  arranque: { minimumDays: 7 },
+} as const;
+
+/**
+ * Reads the floor, never lets a caller type "one week" by hand. Mirrors
+ * priceFor()'s shape: one function, one source, so the UI cannot drift from
+ * the owner's actual answer.
+ */
+export function turnaroundFor(id: TurnaroundId): { minimumDays: number } {
+  return TURNAROUND[id];
+}
+
 // Arranque (Starter) on a WEEKLY subscription. Same service as the Arranque
 // package — the client films, Esteban edits remotely — sold by videos per week.
 // Owner-approved 2026-10-07 from the client proposal

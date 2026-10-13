@@ -12,6 +12,8 @@ import { AudienceVideo, EditingPreview } from "@/components/audience-media";
 import { AUDIENCE_LANES, type AudienceLocale } from "@/lib/audience-lanes";
 import { realEstateReelsPath } from "@/lib/real-estate-reels";
 import { laneStartingPrice, type ChooserLaneId } from "@/lib/chooser-lane-pricing";
+import { REAL_ESTATE_PLAN_TERMS, turnaroundFor } from "@/lib/pricing";
+import { HomePathFunnel } from "@/components/home-path-funnel";
 
 const copy = {
   en: {
@@ -47,6 +49,11 @@ const copy = {
     ],
     process: "See the editing process",
     videoAlt: "Concept illustration of a cafe being filmed on a phone",
+    minimumTerm: `${REAL_ESTATE_PLAN_TERMS.minimumMonths}-month minimum commitment — full terms below`,
+    turnaround: (days: number) =>
+      days === 7
+        ? "One week minimum turnaround — not a fixed delivery date"
+        : `${days}-day minimum turnaround — not a fixed delivery date`,
   },
   es: {
     eyebrow: "Encuentra por dónde empezar",
@@ -78,6 +85,11 @@ const copy = {
     ],
     process: "Ver el proceso de edición",
     videoAlt: "Ilustración conceptual de un café grabado con un celular",
+    minimumTerm: `Mínimo de ${REAL_ESTATE_PLAN_TERMS.minimumMonths} meses de compromiso — condiciones completas abajo`,
+    turnaround: (days: number) =>
+      days === 7
+        ? "Mínimo de una semana de entrega — no es una fecha fija"
+        : `Mínimo de ${days} días de entrega — no es una fecha fija`,
   },
 } as const;
 
@@ -91,6 +103,12 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
   const c = copy[locale];
   const lanes = AUDIENCE_LANES[locale].lanes;
   const [activeLane, setActiveLane] = useState(lanes[0].id);
+  const [funnelOpen, setFunnelOpen] = useState(false);
+  const [funnelLane, setFunnelLane] = useState<{ id: string; label: string }>({ id: lanes[0].id, label: c.labels[0] });
+  const openFunnel = (id: string, label: string) => {
+    setFunnelLane({ id, label });
+    setFunnelOpen(true);
+  };
 
   return (
     <section id="start" aria-labelledby={`home-path-${locale}`} data-section="home-project-path" className="bg-[#f7f5f1] py-10 sm:py-14">
@@ -181,18 +199,42 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                     detailsHref={lane.href}
                   />
                 )}
+                {/* Minimum-term qualifier (real estate) / turnaround floor
+                    (editing), sitting ~14px above the CTA so the condition is
+                    read before anyone commits. Both figures come from
+                    lib/pricing.ts, never typed here. */}
+                {index === 0 && (
+                  <p className="em-path-qualifier">{c.minimumTerm}</p>
+                )}
+                {index === 2 && (
+                  <p className="em-path-qualifier">{c.turnaround(turnaroundFor("arranque").minimumDays)}</p>
+                )}
                 {/* The filled, terracotta row is now the ONE primary action in
                     the section (review item 5: "the red button is currently
                     the SECONDARY action"); starting prices is demoted below
-                    to the compact related-link treatment. */}
-                <Link href={index === 0 ? realEstateReelsPath(locale) : lane.href} data-cta={`home-path-${lane.id}`} className="group flex min-h-16 items-center justify-between gap-4 rounded-2xl bg-[#9d3d2b] px-5 py-4 text-lg font-medium leading-snug text-white transition hover:bg-[#86341f] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+                    to the compact related-link treatment. Owner, 2026-10-13:
+                    the CTA (and the scene) open an in-place 2-step contact
+                    takeover instead of navigating away. The real href stays
+                    as the no-JS fallback and keeps every existing data-cta
+                    value unchanged. */}
+                <Link
+                  href={index === 0 ? realEstateReelsPath(locale) : lane.href}
+                  data-cta={`home-path-${lane.id}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    openFunnel(lane.id, c.labels[index]);
+                  }}
+                  className="group flex min-h-16 items-center justify-between gap-4 rounded-2xl bg-[#9d3d2b] px-5 py-4 text-lg font-medium leading-snug text-white transition hover:bg-[#86341f] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                >
                   <span><span className="block">{c.labels[index]}</span><span className="mt-1 block text-xs font-normal uppercase tracking-wide text-white">{lane.who}</span></span>
                   <ArrowRight className="size-5 shrink-0 text-white transition-transform group-hover:translate-x-1" aria-hidden="true" />
                 </Link>
                 {index === 2 && (
-                  <details className="em-process-details">
+                  <details className="em-process-details em-sheet-details">
                     <summary>{c.process}</summary>
-                    <EditingPreview locale={locale} />
+                    <div className="em-sheet-body">
+                      <EditingPreview locale={locale} />
+                    </div>
                   </details>
                 )}
               </div>
@@ -228,6 +270,13 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
           </Link>
         </div>
       </div>
+      <HomePathFunnel
+        locale={locale}
+        open={funnelOpen}
+        laneId={funnelLane.id}
+        laneLabel={funnelLane.label}
+        onClose={() => setFunnelOpen(false)}
+      />
     </section>
   );
 }
