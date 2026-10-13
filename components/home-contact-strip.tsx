@@ -41,11 +41,19 @@ export function HomeContactStrip({ locale }: { locale: Locale }) {
   const mailto = `mailto:${site.email}?subject=${encodeURIComponent(c.subject)}&body=${encodeURIComponent(c.message)}`;
 
   return (
-    <section className="border-y border-[#ddd4c8] bg-[#f0ebe3] py-8 sm:py-10" aria-labelledby={`home-contact-${locale}`} data-section="home-contact-strip">
+    <section className="border-y border-[#ddd4c8] bg-[#f7f5f1] py-10 sm:py-14" aria-labelledby={`home-contact-${locale}`} data-section="home-contact-strip">
       <div className="mx-auto grid max-w-7xl gap-6 px-4 sm:px-6 lg:grid-cols-[1fr_auto] lg:items-center lg:px-8">
         <div className="max-w-2xl">
           <p className="em-eyebrow">{c.eyebrow}</p>
-          <h2 id={`home-contact-${locale}`} className="mt-2 font-serif text-3xl leading-tight sm:text-4xl">{c.heading}</h2>
+          {/* Subordinate to the ClientReviews/ContactCta heading pair either
+              side of this strip: same shared heading system (.em-h2), one
+              size down (.em-h2--sub), instead of a one-off fixed Tailwind
+              step. Also repoints the section's background from a fourth,
+              near-duplicate cream (#f0ebe3) onto the page's own paper tone
+              (#f7f5f1, --cine-paper), and its padding from the site's
+              fifth rhythm (32/40px) onto the same compact step PortfolioTeaser,
+              ClientReviews and HomeProjectPath already use (40/56px). */}
+          <h2 id={`home-contact-${locale}`} className="mt-2 em-h2 em-h2--sub">{c.heading}</h2>
           <p className="mt-2 text-base leading-7 text-[#4d5358]">{c.detail}</p>
           <ol className="mt-4 flex flex-col gap-2 text-sm text-[#4d5358] sm:flex-row sm:flex-wrap sm:gap-x-5" aria-label={locale === "es" ? "Qué pasa después" : "What happens next"}>
             {c.steps.map((step, index) => <li key={step} className="flex items-center gap-2"><span className="grid size-6 shrink-0 place-items-center rounded-full bg-white text-xs font-semibold text-[#9d3d2b]">{index + 1}</span>{step}</li>)}
