@@ -20,7 +20,7 @@ const copy = {
     ratingAria: `${googleReviewSnapshot.rating.toFixed(1)} out of 5 on Google, from ${googleReviewSnapshot.reviewCount} reviews`,
     reviewCount: (count: number) =>
       `${count} public review${count === 1 ? "" : "s"} on Google`,
-    verifiedBadge: "Verified on Google",
+    verifiedBadge: "Google review",
     verify: reviewSourceLabel.en,
     summaryNote: (shown: number, total: number) =>
       `Showing ${shown} of ${total} reviews. The rest are on Google.`,
@@ -33,7 +33,7 @@ const copy = {
     ratingAria: `${googleReviewSnapshot.rating.toFixed(1)} de 5 en Google, con ${googleReviewSnapshot.reviewCount} reseñas`,
     reviewCount: (count: number) =>
       `${count} reseña${count === 1 ? "" : "s"} pública${count === 1 ? "" : "s"} en Google`,
-    verifiedBadge: "Verificado en Google",
+    verifiedBadge: "Reseña de Google",
     verify: reviewSourceLabel.es,
     summaryNote: (shown: number, total: number) =>
       `Mostrando ${shown} de ${total} reseñas. El resto está en Google.`,
@@ -85,7 +85,7 @@ export function ClientReviews({ locale = "en", compact = false }: { locale?: "en
       <ReviewsBand
         locale={locale}
         eyebrow={t.eyebrow}
-        heading={locale === "es" ? "Reseñas verificadas en Google." : "Verified Google reviews."}
+        heading={locale === "es" ? "Reseñas verificadas en Google: 5.0 perfecto." : "Verified Google reviews: a perfect 5.0."}
         rating={rating}
         reviewCount={reviewCount}
         quotes={rolling}
@@ -115,7 +115,7 @@ export function ClientReviews({ locale = "en", compact = false }: { locale?: "en
           className="mt-2 max-w-2xl em-h2 text-[#101214]"
         >
           {compact
-            ? (locale === "es" ? "Reseñas verificadas en Google." : "Verified Google reviews.")
+            ? (locale === "es" ? "Reseñas verificadas en Google: 5.0 perfecto." : "Verified Google reviews: a perfect 5.0.")
             : t.title}
         </h2>
         <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[#41474d] sm:text-base">

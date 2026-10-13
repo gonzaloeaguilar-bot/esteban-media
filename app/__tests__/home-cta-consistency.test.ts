@@ -8,6 +8,7 @@ import { HeroVideo } from "@/components/hero-video";
 import { ClosingCredits, PackagesSection } from "@/components/packages-section";
 import { RealEstatePlansSection } from "@/components/real-estate-plans-section";
 import { RealEstateReels } from "@/components/real-estate-reels";
+import { googleReviewSnapshot } from "@/lib/client-reviews";
 import { packageFaq } from "@/lib/packages";
 import { QUOTE_CTA_LABEL } from "@/lib/quote-cta";
 
@@ -75,7 +76,30 @@ describe.each(["en", "es"] as const)("home quote actions (%s)", (locale) => {
 describe.each(["en", "es"] as const)("client reviews fine print (%s)", (locale) => {
   const html = render(React.createElement(ClientReviews, { locale }));
   it("keeps the verification and the link, drops the copy written for search engines", () => {
-    expect(html).toContain(locale === "es" ? "Verificado en Google" : "Verified on Google");
+    // The verification claim moved into the HEADING so the page stops saying
+    // "verified ... on Google" twice (owner, 2026-10-13: "you say verified on
+    // google 2x basically"). What this test protects is unchanged: the page
+    // must still SAY the reviews are verified on Google, and each card must
+    // still name its source. Only the wording of each half changed.
+    expect(html).toContain(locale === "es" ? "perfil verificado de Google" : "my verified Google profile");
+    expect(html).toContain(locale === "es" ? "Reseña de Google" : "Google review");
+    // The perfect score is a fact from data/google-reviews.json (rating 5,
+    // 11 reviews, every individual review a 5, read 2026-10-08). If the real
+    // rating ever drops below 5, this assertion must fail loudly rather than
+    // let the page keep claiming a perfect score.
+    expect(googleReviewSnapshot.rating).toBe(5);
+  });
+
+  // The homepage band is a DIFFERENT variant of the same component, and it is
+  // the one the owner was looking at. Assert it separately: a variant fix is
+  // not a component fix.
+  it("states the verification and the perfect score once each, in the home band", () => {
+    const compactHtml = render(React.createElement(ClientReviews, { locale, compact: true }));
+    expect(compactHtml).toContain(locale === "es" ? "Reseñas verificadas en Google" : "Verified Google reviews");
+    expect(compactHtml).toContain(locale === "es" ? "5.0 perfecto" : "a perfect 5.0");
+    // Said ONCE: the old copy paired this heading with a "Verified on Google"
+    // badge on every card.
+    expect(compactHtml).not.toContain(locale === "es" ? "Verificado en Google" : "Verified on Google");
     for (const gone of ["typos and all", "written for the site", "rating markup", "Profile snapshot", "erratas", "markup de calificación", "Instantánea del perfil"]) {
       expect(html).not.toContain(gone);
     }
