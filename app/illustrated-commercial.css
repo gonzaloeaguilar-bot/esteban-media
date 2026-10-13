@@ -193,4 +193,22 @@
 .em-pricefold__price{grid-row:1/3;grid-column:2;font-size:15px;font-weight:600;color:#9d3d2b;text-align:right}
 .em-pricefold__price>span{font-size:12px;font-weight:500;color:#6a625a}
 .em-pricefold__cta{display:inline-flex;align-items:center;min-height:44px;margin-top:14px;font-weight:600;color:#9d3d2b;text-decoration:underline;text-underline-offset:4px}
+
+/* Chooser (components/home-project-path.tsx) only — the owner's exact fixes
+   from the 2026-10-12 art-direction review: one filled CTA instead of two,
+   two border-radii instead of four, #9d3d2b down from six jobs to two, and a
+   real desktop layout above 1024px instead of a phone column stretched wide.
+   Scoped by ancestor so the 84 service-page template instances of this same
+   `.em-pricefold`/`.em-art-scene` markup (PR #389) keep their own weight. */
+[data-section="home-project-path"] .em-art-scene{border-radius:16px 16px 0 0}
+[data-section="home-project-path"] .em-art-invitation{border-radius:0 0 16px 16px}
+[data-section="home-project-path"] .em-pricefold__list>li{border-radius:16px}
+[data-section="home-project-path"] .em-pricefold{margin-top:14px;padding-top:0;border-top:0}
+[data-section="home-project-path"] .em-pricefold>summary{background:transparent;color:#6a625a;padding:0;min-height:44px;border-radius:0;font-size:15px;font-weight:600;text-decoration:underline;text-underline-offset:4px}
+[data-section="home-project-path"] .em-pricefold__cta{color:#6a625a}
+@media(min-width:1024px){
+  [data-section="home-project-path"] .em-path-card{display:grid;grid-template-columns:minmax(0,640px) 1fr;column-gap:32px;align-items:start}
+  [data-section="home-project-path"] .em-path-card .em-illustration{max-width:636px}
+  [data-section="home-project-path"] .em-path-card-info{margin-top:0!important}
+}
 @media (prefers-reduced-motion:reduce){.em-path-choice .rail-segmented__segment{transition:none}}
