@@ -52,7 +52,14 @@ export function IllustratedScene({
   }, [source]);
 
   return <div ref={root} className="em-illustration" data-kind={kind} data-rail-tilt-scene="" data-cta={`illustration_${source}`}>
-    <RailDisclosure source={`illustration-${source}`} className="em-art-disclosure" summary={<>
+    {/* defaultOpen, same as LaneAnswer (components/lane-answer.tsx): the
+        price/TLDR answer must be visible on arrival with zero interaction.
+        Without it, RailDisclosure's useState(Boolean(defaultOpen)) starts
+        closed, so the real-estate and editing lanes' prices sat behind a
+        collapsed accordion while only the business lane (LaneAnswer) was
+        open -- the headline bug, measured on the real-estate lane which
+        loads active by default. */}
+    <RailDisclosure source={`illustration-${source}`} className="em-art-disclosure" defaultOpen summary={<>
       <span className="em-art-scene">
         <span className="em-art-depth" data-rail-tilt="">
           <Image src={image} alt={alt} width={1536} height={1024} sizes="(max-width: 850px) 90vw, 50vw" />
