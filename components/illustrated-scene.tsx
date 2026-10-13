@@ -7,9 +7,36 @@ import RailDisclosure from "@/vendor/rail-kit/RailDisclosure";
 import type { AudienceLocale } from "@/lib/audience-lanes";
 
 /** Esteban's artwork composition, using the shared disclosure and tilt surface. */
-export function IllustratedScene({ image, alt, kind = "photo", label, facts, source, locale }: {
+export function IllustratedScene({
+  image,
+  alt,
+  kind = "photo",
+  label,
+  facts,
+  source,
+  locale,
+  price,
+  detailsHref,
+  detailsLabel,
+}: {
   image: string; alt: string; kind?: "photo" | "edit" | "aerial";
   label: string; facts: string[]; source: string; locale: AudienceLocale;
+  /**
+   * The starting price for THIS lane, already formatted ("From $450/mo"),
+   * read by the caller from lib/pricing.ts / lib/packages.ts. Optional so
+   * every other IllustratedScene consumer (à la carte, service pages) keeps
+   * working unchanged.
+   */
+  price?: string;
+  /**
+   * Owner, 2026-10-12: "i also wish i would right there tell me prices and
+   * tldr vs going into another page for more info cause that other page is
+   * so much text." The disclosure now answers price + what-you-get in
+   * place; the full service/guide page becomes an optional link UNDER that
+   * answer, not the only way to learn anything.
+   */
+  detailsHref?: string;
+  detailsLabel?: string;
 }) {
   const root = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -41,8 +68,19 @@ export function IllustratedScene({ image, alt, kind = "photo", label, facts, sou
       </span>
     </>}>
       <div className="em-art-result">
+        {price && (
+          <span className="em-art-price">
+            <span className="em-art-price-label">{locale === "es" ? "Precio de referencia" : "Starting price"}</span>
+            <span className="em-art-price-num">{price}</span>
+          </span>
+        )}
         <span className="em-art-result-label">{locale === "es" ? "Tu contenido" : "Your content"}</span>
         <ul>{facts.map(fact => <li key={fact}>{fact}</li>)}</ul>
+        {detailsHref && (
+          <a href={detailsHref} className="em-art-details-link" data-cta={`illustration_${source}_details`}>
+            {detailsLabel ?? (locale === "es" ? "Ver los detalles completos" : "Read the full details")}
+          </a>
+        )}
       </div>
     </RailDisclosure>
   </div>;

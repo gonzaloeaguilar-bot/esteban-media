@@ -117,10 +117,20 @@
 .em-art-disclosure .rail-disclosure__panel{padding:0}
 .em-art-disclosure .rail-disclosure__panel[hidden]{display:none}
 .em-art-result{padding:17px 20px 18px;background:#e7efea;color:#213a32;border-bottom:1px solid #cad9d0}
+/* Owner, 2026-10-12: "i also wish i would right there tell me prices and
+   tldr vs going into another page for more info". The price sits first,
+   above the fact list, so the answer is the first thing read on open. */
+.em-art-price{display:flex;align-items:baseline;gap:8px;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid #cad9d0}
+.em-art-price-label{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#4a6457}
+.em-art-price-num{font-size:19px;font-weight:700;color:#172322}
 .em-art-result-label{display:block;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
 .em-art-result ul{list-style:none;padding:0;margin:0;display:grid;gap:7px;font-size:14px;line-height:1.5}
 .em-art-result li{padding-left:14px;position:relative}
 .em-art-result li:before{content:"";position:absolute;width:5px;height:5px;border-radius:50%;background:#9f3c27;top:.6em;left:0}
+/* Demoted, deliberately: this is the ONLY path to the full (long) service
+   page from inside the disclosure, under the price + TLDR answer, not the
+   first thing offered. */
+.em-art-details-link{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:13px;font-weight:600;text-decoration:underline;text-decoration-color:#9f3c27;text-underline-offset:3px;color:#213a32;min-height:24px}
 .em-art-viewfinder{position:absolute;inset:15% 14%;opacity:0;pointer-events:none}
 .em-art-viewfinder i{position:absolute;width:25px;height:25px;border:solid #fffaf4;filter:drop-shadow(0 1px 2px #172322)}
 .em-art-viewfinder i:nth-child(1){top:0;left:0;border-width:3px 0 0 3px}.em-art-viewfinder i:nth-child(2){top:0;right:0;border-width:3px 3px 0 0}.em-art-viewfinder i:nth-child(3){bottom:0;right:0;border-width:0 3px 3px 0}.em-art-viewfinder i:nth-child(4){bottom:0;left:0;border-width:0 0 3px 3px}
@@ -202,6 +212,10 @@
    `.em-pricefold`/`.em-art-scene` markup (PR #389) keep their own weight. */
 [data-section="home-project-path"] .em-art-scene{border-radius:16px 16px 0 0}
 [data-section="home-project-path"] .em-art-invitation{border-radius:0 0 16px 16px}
+/* The business lane shows a video (components/audience-media.tsx), which has
+   no rounded frame of its own, so its answer disclosure needs its own top
+   margin instead of inheriting the scene/invitation pairing above. */
+.em-lane-answer{display:block;margin-top:2px}
 [data-section="home-project-path"] .em-pricefold__list>li{border-radius:16px}
 [data-section="home-project-path"] .em-pricefold{margin-top:14px;padding-top:0;border-top:0}
 [data-section="home-project-path"] .em-pricefold>summary{background:transparent;color:#6a625a;padding:0;min-height:44px;border-radius:0;font-size:15px;font-weight:600;text-decoration:underline;text-underline-offset:4px}

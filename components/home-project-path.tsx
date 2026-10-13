@@ -7,12 +7,12 @@ import { useState } from "react";
 import RailSegmented from "@/vendor/rail-kit/RailSegmented";
 import { PriceSheet } from "@/components/price-sheet";
 import { IllustratedScene } from "@/components/illustrated-scene";
+import { LaneAnswer } from "@/components/lane-answer";
 import { AudienceVideo, EditingPreview } from "@/components/audience-media";
 
 import { AUDIENCE_LANES, type AudienceLocale } from "@/lib/audience-lanes";
-import { packageRoutes } from "@/lib/package-routes";
 import { realEstateReelsPath } from "@/lib/real-estate-reels";
-import { usd } from "@/lib/pricing";
+import { laneStartingPrice, type ChooserLaneId } from "@/lib/chooser-lane-pricing";
 
 const copy = {
   en: {
@@ -85,6 +85,10 @@ const copy = {
 } as const;
 
 const artwork = ["property", "business", "editing"] as const;
+/** lanes[index].id ("real-estate" | "local-business" | "agency") already
+ * matches ChooserLaneId 1:1 — this is just the type-narrowing cast point. */
+const laneIdAt = (index: number): ChooserLaneId =>
+  (["real-estate", "local-business", "agency"] as const)[index];
 
 export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
   const c = copy[locale];
@@ -133,7 +137,17 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                   stretched wide — 2026-10-12 review item 7: the illustration
                   rendered at 1187px, the biggest object on the homepage. */}
               {index === 1 ? (
-                <AudienceVideo locale={locale} alt={c.videoAlt} />
+                <>
+                  <AudienceVideo locale={locale} alt={c.videoAlt} />
+                  <LaneAnswer
+                    source={`home-path-${lane.id}`}
+                    locale={locale}
+                    label={c.sceneLabels[index]}
+                    price={laneStartingPrice(locale, laneIdAt(index))}
+                    facts={[...c.sceneFacts[index]]}
+                    detailsHref={lane.href}
+                  />
+                </>
               ) : (
                 <IllustratedScene
                   image={`/illustrations/${artwork[index]}.webp`}
@@ -143,6 +157,8 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                   locale={locale}
                   label={c.sceneLabels[index]}
                   facts={[...c.sceneFacts[index]]}
+                  price={laneStartingPrice(locale, laneIdAt(index))}
+                  detailsHref={index === 0 ? realEstateReelsPath(locale) : lane.href}
                 />
               )}
               <div className="em-path-card-info mt-3 lg:mt-0 flex flex-col gap-3">
