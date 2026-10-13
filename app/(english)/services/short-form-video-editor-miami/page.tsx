@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, MessageCircle, Scissors, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { PriceSheet } from "@/components/price-sheet";
 import {
   ServiceAnswerFirst,
   ServiceCraft,
@@ -115,6 +116,25 @@ export default function ShortFormVideoEditorPage() {
           </div>
         </Container>
       </section>
+
+      <section className="border-b border-[#ddd4c8] py-8" data-section="service-pricing">
+        <Container size="xl">
+          <div className="mx-auto max-w-4xl">
+            <h2 className="font-serif text-2xl sm:text-3xl">
+              How much does short-form video editing cost?
+            </h2>
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-[#252a2d]">
+              Starting prices for every package, read from the same figures
+              published on the pricing page. Final cost is always a scoped
+              quote.
+            </p>
+            <div className="mt-4">
+              <PriceSheet locale="en" showPlans={false} section="short_form_service_page" />
+            </div>
+          </div>
+        </Container>
+      </section>
+
       <ServiceAnswerFirst service="short-form video editing" />
 
       <section className="pb-12 sm:pb-16">

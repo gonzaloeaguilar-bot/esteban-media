@@ -1,7 +1,8 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { ArrowRight, CheckCircle2, MapPin } from "lucide-react";
+import { ArrowRight, MapPin } from "lucide-react";
 
+import { PriceSheet } from "@/components/price-sheet";
 import {
   ServiceCraft,
   ServiceFaqs,
@@ -173,24 +174,30 @@ export function GeoServicePage({
           </div>
         </Container>
       </section>
-      <ServiceAnswerFirst service={content.answerService ?? content.serviceType} />
 
-      <section className="border-b border-[#ddd4c8] py-10">
+      <section className="border-b border-[#ddd4c8] py-8" data-section="service-pricing">
         <Container size="xl">
-          <div className="grid gap-4 md:grid-cols-3">
-            {[
-              "You can see the service, city, and next step without hunting.",
-              "Common questions are answered on the page before you reach out.",
-              "The quote message asks for the details Esteban needs to respond clearly.",
-            ].map((item) => (
-              <div key={item} className="flex gap-3 rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5">
-                <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-[#e85d3e]" aria-hidden="true" />
-                <p className="text-sm leading-6 text-[#252a2d]">{item}</p>
-              </div>
-            ))}
+          <div className="mx-auto max-w-4xl">
+            <h2 className="font-serif text-2xl sm:text-3xl">
+              {`How much does ${content.serviceName.toLowerCase()} cost?`}
+            </h2>
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-[#252a2d]">
+              Starting prices for every package, read from the same figures
+              published on the pricing page. Final cost is always a scoped
+              quote.
+            </p>
+            <div className="mt-4">
+              <PriceSheet
+                locale="en"
+                showPlans={content.path.includes("real-estate")}
+                section="geo_service_page"
+              />
+            </div>
           </div>
         </Container>
       </section>
+
+      <ServiceAnswerFirst service={content.answerService ?? content.serviceType} />
 
       <ServiceCraft
         heading={content.craftHeading}
