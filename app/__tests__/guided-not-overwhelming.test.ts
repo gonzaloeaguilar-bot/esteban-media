@@ -21,6 +21,12 @@ import { ContactCta } from "@/components/contact-cta";
  * floor is zero outside <details> — not one. The rule still allows up to
  * one, in case a future revision adds a single always-visible field (e.g.
  * email) beside the taps; it must never allow the three-field wall back.
+ *
+ * Covers BOTH locales (2026-10-13 correction): ContactCta used to be
+ * English-only, so "/es" kept the old duplicate HomeContactStrip +
+ * HomeContactStrip shape untouched. It now takes a `locale` prop and
+ * renders on both "/" and "/es" — this file would have said nothing about
+ * the Spanish ask being calm, which is exactly the gap that let it slip.
  */
 
 function countFormControls(html: string, { outsideDetailsOnly = false } = {}): number {
@@ -56,38 +62,46 @@ describe("guided, not overwhelming", () => {
     expect(outside).toBeGreaterThan(1); // the rule this test protects
   });
 
-  it("the live ContactCta keeps at most one control outside voluntary depth", () => {
-    const html = renderToStaticMarkup(React.createElement(ContactCta));
-    const outside = countFormControls(html, { outsideDetailsOnly: true });
-    expect(outside).toBeLessThanOrEqual(1);
+  describe.each(["en", "es"] as const)("ContactCta (%s)", (locale) => {
+    it("keeps at most one control outside voluntary depth", () => {
+      const html = renderToStaticMarkup(React.createElement(ContactCta, { locale }));
+      const outside = countFormControls(html, { outsideDetailsOnly: true });
+      expect(outside).toBeLessThanOrEqual(1);
+    });
+
+    it("depth still exists — guiding never became deleting", () => {
+      const html = renderToStaticMarkup(React.createElement(ContactCta, { locale }));
+      const total = countFormControls(html);
+      expect(total).toBeGreaterThan(1);
+      // And it must actually be reachable: present in the raw server HTML,
+      // inside the one <details>, not stripped out.
+      expect(html).toContain("<details");
+      const insideDetailsOnly = html.match(/<details\b[\s\S]*?<\/details>/)?.[0] ?? "";
+      expect(countFormControls(insideDetailsOnly)).toBeGreaterThan(1);
+    });
+
+    it("the three quick-tap paths are links, not form controls, and stay outside <details>", () => {
+      const html = renderToStaticMarkup(React.createElement(ContactCta, { locale }));
+      const beforeDetails = html.split("<details")[0];
+      expect(beforeDetails).toContain('data-cta="home_contact_whatsapp"');
+      expect(beforeDetails).toContain('data-cta="home_contact_email"');
+      expect(beforeDetails).toContain('data-cta="home_contact_phone"');
+    });
   });
 
-  it("depth still exists — guiding never became deleting", () => {
-    const html = renderToStaticMarkup(React.createElement(ContactCta));
-    const total = countFormControls(html);
-    expect(total).toBeGreaterThan(1);
-    // And it must actually be reachable: present in the raw server HTML,
-    // inside the one <details>, not stripped out.
-    expect(html).toContain("<details");
-    const insideDetailsOnly = html.match(/<details\b[\s\S]*?<\/details>/)?.[0] ?? "";
-    expect(countFormControls(insideDetailsOnly)).toBeGreaterThan(1);
-  });
-
-  it("the three quick-tap paths are links, not form controls, and stay outside <details>", () => {
-    const html = renderToStaticMarkup(React.createElement(ContactCta));
-    const beforeDetails = html.split("<details")[0];
-    expect(beforeDetails).toContain('data-cta="home_contact_whatsapp"');
-    expect(beforeDetails).toContain('data-cta="home_contact_email"');
-    expect(beforeDetails).toContain('data-cta="home_contact_phone"');
-  });
-
-  it("the email and phone labels don't run into the address/number (the pasted defect)", () => {
-    const html = renderToStaticMarkup(React.createElement(ContactCta));
+  it("the English email and phone labels don't run into the address/number (the pasted defect)", () => {
+    const html = renderToStaticMarkup(React.createElement(ContactCta, { locale: "en" }));
     // The owner's paste showed "Email Estebanesmolopez@gmail.com" — label and
     // address concatenated with no separator. Two sibling block spans fix it;
     // the regression is a nested text-node-then-block-child, so assert the
     // sibling shape, not just that the words appear.
     expect(html).toMatch(/<span>Email Esteban<\/span><span[^>]*>esmolopez@gmail\.com<\/span>/);
     expect(html).not.toContain("Email Estebanesmolopez@gmail.com");
+  });
+
+  it("the Spanish label and phone number don't run into each other either (same defect, same component)", () => {
+    const html = renderToStaticMarkup(React.createElement(ContactCta, { locale: "es" }));
+    expect(html).toMatch(/<span>Llamar a Esteban<\/span><span[^>]*>\(305\) 497-4478<\/span>/);
+    expect(html).not.toContain("Llamar a Esteban(305) 497-4478");
   });
 });

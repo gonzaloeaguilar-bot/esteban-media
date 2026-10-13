@@ -75,15 +75,18 @@ describe("confirmed lead instrumentation", () => {
     }
   });
 
-  it("the homepage form asks how the visitor found Esteban, optionally", () => {
+  it("the homepage form asks how the visitor found Esteban, optionally, in both locales", () => {
     const contact = source("components/contact-cta.tsx");
-    // First person singular, like the rest of the home (2026-10-10).
+    // ContactCta now takes a locale prop (2026-10-13: it renders on both "/"
+    // and "/es"), so the EN/ES question text lives in its own COPY table
+    // rather than as one hardcoded English string.
     expect(contact).toContain("How did you find me?");
+    expect(contact).toContain("¿Cómo nos encontró?");
     expect(contact).toContain('name="foundVia"');
     expect(contact).toContain('name="foundQuery"');
-    expect(contact).toContain('trackLeadSubmit("contact", "en", foundVia || "not_answered")');
+    expect(contact).toContain('trackLeadSubmit("contact", locale, foundVia || "not_answered")');
     // Optional: the select must not be required.
-    expect(contact).not.toMatch(/id="homepage-found-via"[\s\S]{0,200}required/);
+    expect(contact).not.toMatch(/id={`homepage-found-via-\$\{locale\}`}[\s\S]{0,200}required/);
   });
 
   it("does nothing when gtag is unavailable rather than throwing", () => {
@@ -138,7 +141,7 @@ describe("confirmed lead instrumentation", () => {
     expect(intake).toContain('name="foundVia"');
     expect(intake).toContain('name="foundQuery"');
     expect(contact).toContain('source: "contact"');
-    expect(contact).toContain('trackLeadSubmit("contact", "en", foundVia');
+    expect(contact).toContain('trackLeadSubmit("contact", locale, foundVia');
   });
 
   it("places a tracked direct intake on both website-design commercial routes", () => {

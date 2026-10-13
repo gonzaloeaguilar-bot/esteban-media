@@ -3,7 +3,9 @@ import { Mail, MessageCircle, Phone } from "lucide-react";
 import { whatsappHref, type Locale } from "@/lib/packages";
 import { site } from "@/lib/site";
 
-const copy = {
+// Exported so ContactCta can reuse this exact copy verbatim instead of a
+// second, slightly different translation of the same promise.
+export const homeContactCopy = {
   en: {
     eyebrow: "Ready to talk?",
     heading: "Tell me about your project.",
@@ -37,7 +39,7 @@ const copy = {
  * before the fold. It stays, at its current compact size (~0.6 screens).
  */
 export function HomeContactStrip({ locale }: { locale: Locale }) {
-  const c = copy[locale];
+  const c = homeContactCopy[locale];
   const mailto = `mailto:${site.email}?subject=${encodeURIComponent(c.subject)}&body=${encodeURIComponent(c.message)}`;
 
   return (

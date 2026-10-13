@@ -78,7 +78,7 @@ export default function Home() {
           visible ask, with the longer form as voluntary depth under a
           native <details>. ClosingCredits below stays as the quiet closing
           tap. */}
-      <ContactCta />
+      <ContactCta locale="en" />
       <KeepReading id="more" className="em-fold" title="Explore more services" destinations="Package add-ons, process, FAQ, about and how Esteban works.">
         {/* showGuide=false: the four packages and their prices already sit
             at the chooser's PriceSheet. This keeps the à la carte add-ons,
