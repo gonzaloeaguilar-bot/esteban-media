@@ -106,7 +106,15 @@ export function SiteHeaderClient({ shortName }: { shortName: string }) {
           {/* The site's one primary action, worded the same everywhere (see
               lib/quote-cta.ts). The greeting is the phone app bar's, so the
               two entry points open the same conversation. /contact stays in
-              the footer for visitors who prefer the form. */}
+              the footer for visitors who prefer the form.
+
+              Outline, not filled: at >=640px this button and the hero's
+              WhatsApp CTA (em-cine__cta--primary) are both on screen at
+              once. Two filled buttons read as two competing primaries, and
+              they used to ship in two different reds besides. The hero CTA
+              stays the one filled action in the first screen at every
+              width; this one keeps the same red (--em-accent-ink) and the
+              same data-cta, just demoted to an outline. */}
           <a
             href={whatsappHref(
               site.phone.e164,
@@ -116,7 +124,7 @@ export function SiteHeaderClient({ shortName }: { shortName: string }) {
             rel="noopener noreferrer"
             data-cta="header_whatsapp"
             data-section="header"
-            className="hidden items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[var(--em-accent-ink-hover)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c84a2c] sm:inline-flex"
+            className="hidden items-center justify-center gap-2 rounded-full border border-[var(--em-accent-ink)] bg-transparent px-4 py-2.5 text-sm font-medium text-[var(--em-accent-ink)] transition-colors hover:bg-[var(--em-accent-ink)] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--em-accent-ink)] sm:inline-flex"
           >
             <MessageCircle className="size-4" aria-hidden="true" />
             {quoteCtaLabel(isSpanish ? "es" : "en")}
