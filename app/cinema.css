@@ -233,6 +233,13 @@ html.rail-anim:not([data-brand-moment]) .em-cine__bar {
 .em-cine__title {
   margin: 0;
   font-weight: inherit;
+  /* The <h1> element's OWN computed font-size, via the shared --em-h1-size
+     token (app/globals.css). Its children (.em-cine__brand,.em-cine__what)
+     each already set their own explicit font-size and win on specificity,
+     so nothing visually moves — this only fixes the element itself reading
+     as the inherited 16px body default, which is what an art-direction pass
+     measured directly on the node. */
+  font-size: var(--em-h1-size);
 }
 .em-cine__brand {
   display: block;

@@ -838,10 +838,28 @@ html.em-returning #em-intro {
    --------------------------------------------------------------------------- */
 body {
   --em-heading-font: var(--font-newsreader), ui-serif, Georgia, serif;
+
+  /* The H1 token. The home H1 (components/hero-video.tsx, .em-cine__title)
+     already renders enormous visually (its .em-cine__brand child sets its
+     own clamp(3.5rem, 18vw, 9.5rem)) — but the <h1> ELEMENT ITSELF carried no
+     font-size of its own, so its computed value fell back to the inherited
+     16px body default. That is the exact defect an art-direction pass caught
+     measuring the node directly: the page's most important element read as
+     its smallest. This token makes the element's own computed size the
+     largest on the page without touching its children's explicit sizes
+     (which win on specificity, so nothing visually moves). */
+  --em-h1-size: clamp(56px, 3rem + 3vw, 88px);
+
   --em-h2-size: clamp(36px, 1.7rem + 2.2vw, 52px);
   --em-h2-weight: 400;
   --em-h2-leading: 1.06;
   --em-h2-tracking: -0.02em;
+  /* Second H2 level. One scale, two steps: the primary step above is for a
+     section that leads (the reviews band, the closing contact ask); this
+     step is for a section that follows and supports one of those — on the
+     home page, the compact contact strip sitting right after ClientReviews
+     and before ContactCta. Still comfortably larger than body copy. */
+  --em-h2-sub-size: clamp(26px, 1.3rem + 1.3vw, 34px);
 
   --em-eyebrow-font: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --em-eyebrow-size: 12px;
@@ -870,6 +888,23 @@ body {
   text-transform: none;
   overflow-wrap: break-word;
   text-wrap: balance;
+}
+/* The subordinate step: same family/leading/tracking, one size down. */
+.em-h2--sub {
+  font-size: var(--em-h2-sub-size);
+}
+
+/* Price-fold <h3> fix, scoped to where it renders on the home page
+   (components/home-project-path.tsx -> components/price-sheet.tsx). The
+   shared rule in app/illustrated-commercial.css sets .em-pricefold__h at
+   12px, next to .em-pricefold__name body text at 15px — the smaller-than-
+   body <h3> an art-direction pass measured. home-project-path.tsx and
+   illustrated-commercial.css are owned by another agent working
+   concurrently, so the fix lands here as a scoped override (this selector
+   wins: same specificity count, declared later in the cascade) rather than
+   editing either file directly. */
+[data-section="home-project-path"] .em-pricefold__h {
+  font-size: 15px;
 }
 
 .em-eyebrow {
