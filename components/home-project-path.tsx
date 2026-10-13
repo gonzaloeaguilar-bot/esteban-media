@@ -1,12 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { useState } from "react";
 
 import RailSegmented from "@/vendor/rail-kit/RailSegmented";
 import { PriceSheet } from "@/components/price-sheet";
+import { IllustratedScene } from "@/components/illustrated-scene";
 
 import { AUDIENCE_LANES, type AudienceLocale } from "@/lib/audience-lanes";
 import { packageRoutes } from "@/lib/package-routes";
@@ -33,6 +33,12 @@ const copy = {
     pricingAction: "Compare packages",
     swipe: "Swipe to see all three options.",
     illustrationNote: "Illustrated service choices. Finished client work appears above.",
+    sceneLabels: ["Frame your listing", "Make people stop scrolling", "Bring the edit to life"],
+    sceneFacts: [
+      ["Walkthroughs and Reels.", "Edited from your footage."],
+      ["Turn the moments you already film into content.", "Short-form editing for Reels and TikTok."],
+      ["Cuts, captions and sound.", "Clear feedback for the next version."],
+    ],
     pricingHref: "/pricing",
     from: "From",
     custom: "Custom quote",
@@ -58,6 +64,12 @@ const copy = {
     pricingAction: "Comparar paquetes",
     swipe: "Desliza para ver las tres opciones.",
     illustrationNote: "Opciones de servicio ilustradas. El trabajo terminado aparece arriba.",
+    sceneLabels: ["Encuadra tu propiedad", "Haz que dejen de deslizar", "Dale ritmo al material"],
+    sceneFacts: [
+      ["Recorridos y Reels.", "Editados a partir de tu material."],
+      ["Convierte lo que ya grabas en contenido.", "Edición de formato corto para Reels y TikTok."],
+      ["Cortes, subtítulos y sonido.", "Comentarios organizados para la siguiente versión."],
+    ],
     pricingHref: "/es/precios",
     from: "Desde",
     custom: "Cotización personalizada",
@@ -102,15 +114,31 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
           {lanes.filter((lane) => lane.id === activeLane).map((lane) => {
             const index = lanes.findIndex((l) => l.id === lane.id);
             return (
-            <Link key={lane.id} href={index === 0 ? realEstateReelsPath(locale) : lane.href} data-cta={`home-path-${lane.id}`} className="group block overflow-hidden rounded-2xl border border-[#d3c3b2] bg-white transition hover:border-[#a93e29] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a93e29] sm:min-w-0">
-              <span className="block overflow-hidden bg-[#f4ebdf]">
-                <Image src={`/illustrations/${artwork[index]}.webp`} alt={c.artAlts[index]} width={1536} height={1024} className="aspect-[3/2] w-full object-contain transition duration-500 group-hover:scale-[1.02]" sizes="(min-width: 640px) 33vw, 78vw" />
-              </span>
-              <span className="flex min-h-16 items-center justify-between gap-4 border-t border-[#e2d5c7] bg-[#fffaf4] px-5 py-4 text-lg font-medium leading-snug">
+            <div key={lane.id} className="em-path-card">
+              {/* The flat .webp was the defect. Owner, 2026-10-12, on this
+                  exact card: "this is missing the animations, each had..." —
+                  the same three illustrations animate everywhere else on the
+                  site through IllustratedScene (viewfinder, record dot,
+                  filmstrip, tilt, and a disclosure that reveals what you get).
+                  The chooser rendered them as a still image, so the one card
+                  a visitor actually lands on was the only dead one.
+                  Composed exactly as AudienceRouter does it: the scene is its
+                  own element, the link is the row beneath it, so a disclosure
+                  is never nested inside an anchor. */}
+              <IllustratedScene
+                image={`/illustrations/${artwork[index]}.webp`}
+                alt={c.artAlts[index]}
+                kind={index === 2 ? "edit" : "photo"}
+                source={`home-path-${lane.id}`}
+                locale={locale}
+                label={c.sceneLabels[index]}
+                facts={[...c.sceneFacts[index]]}
+              />
+              <Link href={index === 0 ? realEstateReelsPath(locale) : lane.href} data-cta={`home-path-${lane.id}`} className="group mt-3 flex min-h-16 items-center justify-between gap-4 rounded-2xl border border-[#d3c3b2] bg-[#fffaf4] px-5 py-4 text-lg font-medium leading-snug transition hover:border-[#a93e29] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a93e29]">
                 <span><span className="block">{c.labels[index]}</span><span className="mt-1 block text-xs font-normal uppercase tracking-wide text-[#6a625a]">{lane.who}</span></span>
                 <ArrowRight className="size-5 shrink-0 text-[#a93e29] transition-transform group-hover:translate-x-1" aria-hidden="true" />
-              </span>
-            </Link>
+              </Link>
+            </div>
             );
           })}
         </div>

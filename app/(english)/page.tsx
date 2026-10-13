@@ -12,7 +12,6 @@ import { SignalIntro } from "@/components/signal-intro";
 import { ClosingCredits, PackagesSection } from "@/components/packages-section";
 import { KeepReading } from "@/components/keep-reading";
 import { PortfolioTeaser } from "@/components/portfolio-teaser";
-import { RealEstateBlock } from "@/components/real-estate-block";
 import { ServicesStrip } from "@/components/services-strip";
 import { englishRootMetadata } from "@/lib/site-metadata";
 import "../homepage-visual.css";
@@ -72,7 +71,6 @@ export default function Home() {
       <div className="em-home-review-controls"><ClientReviews locale="en" compact /></div>
       <HomeProjectPath locale="en" />
       <HomeContactStrip locale="en" />
-      <RealEstateBlock locale="en" />
       <KeepReading id="more" className="em-fold" title="Explore more services" destinations="Service details, areas, guides and how Esteban works.">
         <AudienceRouter locale="en" />
         <PackagesSection locale="en" showRealEstatePlans={false} />
