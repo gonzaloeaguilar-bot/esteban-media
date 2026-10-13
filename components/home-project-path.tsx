@@ -118,10 +118,26 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
           />
         </div>
         <div className="mt-5">
-          {lanes.filter((lane) => lane.id === activeLane).map((lane) => {
+          {/* All three lanes are server-rendered every time — never filtered
+              to the active one. GPTBot, ClaudeBot and PerplexityBot execute
+              no JavaScript, so a client-gated tab is ABSENT content, not
+              hidden content: the price/TLDR work just finished (#395) must
+              exist in the raw bytes for all three lanes, not just whichever
+              one `lanes[0]` happens to be. The native `hidden` attribute
+              keeps the inactive two in the DOM (curl sees them, Google
+              crawls them) while making them invisible, untabbable and
+              unreadable to a screen reader — the browser's built-in
+              equivalent of `display:none` + implicit `aria-hidden`. Every
+              animation in illustrated-commercial.css is already gated on
+              `[data-visible=true]` (IntersectionObserver) and/or
+              `[data-rail-open]`, and a `hidden` element can be neither
+              intersecting nor open, so the inactive lanes' scenes cannot
+              animate — verified by filming, see PR description. */}
+          {lanes.map((lane) => {
             const index = lanes.findIndex((l) => l.id === lane.id);
+            const isActive = lane.id === activeLane;
             return (
-            <div key={lane.id} className="em-path-card">
+            <div key={lane.id} className="em-path-card" hidden={!isActive}>
               {/* The flat .webp was the defect. Owner, 2026-10-12, on this
                   exact card: "this is missing the animations, each had..." —
                   the same three illustrations animate everywhere else on the
