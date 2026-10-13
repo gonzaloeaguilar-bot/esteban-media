@@ -39,7 +39,7 @@ export default function SpanishHomePage() {
           pantallas más abajo. El dueño, 2026-10-12: "ser convencido" es la
           mitad del encargo — las reseñas son lo que convence, van donde se
           decide, una sola vez. */}
-      <ClientReviews locale="es" />
+      <ClientReviews locale="es" compact />
       <HomeContactStrip locale="es" />
       <KeepReading
         id="mas"
