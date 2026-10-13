@@ -9,6 +9,7 @@ import RailFaq from "@/vendor/rail-kit/RailFaq";
 import { ALaCarteSection } from "@/components/a-la-carte-section";
 import { Container } from "@/components/ui/container";
 import { RealEstatePlansSection } from "@/components/real-estate-plans-section";
+import { REELS_IN_DISPLAY_ORDER } from "@/lib/real-estate-reels";
 import { StarterOptions } from "@/components/starter-options";
 import {
   packageAnchor,
@@ -357,8 +358,15 @@ export function ClosingCredits({ locale, children }: { locale: Locale; children?
       data-section="closing_cta"
       data-em-hides-sticky
     >
+      {/* The closing credit used to run over a wedding ceremony frame
+          (portfolio/diana-jack.jpg) on a brand selling real estate, local
+          business and editing work — not weddings. This is a real poster
+          already shipped on this page (PortfolioTeaser / ClientReviews read
+          the same REELS_IN_DISPLAY_ORDER list), an aerial waterfront tower
+          shot with no on-screen text or faces, so it reads cleanly under the
+          gradient. */}
       <Image
-        src="/portfolio/diana-jack.jpg"
+        src={REELS_IN_DISPLAY_ORDER[0].poster}
         alt=""
         fill
         sizes="100vw"

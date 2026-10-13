@@ -74,6 +74,7 @@ export function ContactCta() {
     <section
       aria-labelledby="contact-heading"
       className="bg-[#101214] py-16 text-[#f6f1ea] sm:py-20"
+      data-em-hides-sticky
     >
       <Container size="xl">
         <div className="grid gap-10 lg:grid-cols-[1.1fr_.9fr] lg:items-start lg:gap-16">

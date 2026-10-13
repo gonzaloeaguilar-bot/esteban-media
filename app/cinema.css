@@ -312,11 +312,18 @@ html.rail-anim:not([data-brand-moment]) .em-cine__eyebrow {
 }
 .em-cine__cta:active { transform: scale(0.97); }
 .em-cine__cta:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+/* One brand red, everywhere a filled CTA appears: the header's filled
+   WhatsApp button and this one used to ship two different reds in the same
+   first screen (rgb(168,56,29) vs rgb(200,74,44)). This now uses the same
+   --em-accent-ink token the header, ContactCta submit and package CTAs use,
+   so there is exactly one primary red on the page. See site-header-client.tsx
+   for the header side of this fix: that button is now an outline, so only
+   ONE filled CTA shows in the first screen at every width. */
 .em-cine__cta--primary {
-  background: var(--cine-accent);
+  background: var(--em-accent-ink, #a8381d);
   color: #fff;
 }
-.em-cine__cta--primary:hover { background: var(--cine-accent-deep); }
+.em-cine__cta--primary:hover { background: var(--em-accent-ink-hover, #8d2f18); }
 .em-cine__cta--ghost {
   border: 1px solid rgba(255, 255, 255, 0.4);
   background: rgba(255, 255, 255, 0.06);

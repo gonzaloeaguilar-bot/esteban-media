@@ -138,7 +138,16 @@ export function HeroVideo({ locale = "en" }: HeroVideoProps) {
       {/* The subtitle band. The sentences search and the tests rely on, set as
           a caption under the film rather than a paragraph inside the credit,
           so the first screen stays a title card. */}
-      <section className="em-cine-caption" aria-label={isSpanish ? "Qué hago" : "What I do"}>
+      {/* The phone app bar is fixed and lifts itself off the bottom edge with
+          a margin that offsetHeight does not report (rail-bottomnav--floating
+          margin-block-end). At the top of the page it never auto-hides on
+          scroll (AppNav never hides at y<120), so on a short real viewport
+          (375x600, 390x664) it clipped the bottom of this caption. The same
+          data-em-hides-sticky mechanism that already protects the price fold
+          (components/packages-section.tsx) and the closing credit force-hides
+          the bar whenever this section is in view, instead of padding every
+          brand's dock height into every page. */}
+      <section className="em-cine-caption" aria-label={isSpanish ? "Qué hago" : "What I do"} data-em-hides-sticky>
         <Container size="xl">
           <p className="em-cine-caption__lead">
             {isSpanish
