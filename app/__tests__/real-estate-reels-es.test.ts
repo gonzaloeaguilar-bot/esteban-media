@@ -79,11 +79,21 @@ describe("homepage real-estate block", () => {
     expect(src.split("<RealEstateBlock").length - 1).toBe(1);
   });
 
-  it("keeps reels and prices visibly together in the server HTML", () => {
+  it("keeps reels and prices in the server HTML, with the plans in the fold", () => {
+    // The monthly plans used to sit directly under the reel shelf. They now
+    // live in the home chooser's price fold (owner, 2026-10-12: one place to
+    // look for pricing, not two blocks three screens apart). What this test
+    // protects is unchanged and is the reason it was written: the figures stay
+    // in the SERVER HTML. A native <details> keeps them there; it is the
+    // client-mounted sheet that would not.
     const block = source("components/real-estate-block.tsx");
     expect(block).not.toContain("<KeepReading");
-    expect(block).toContain("<RealEstatePlansSection locale={locale} />");
     expect(block).toContain("<RealEstateReels locale={locale} />");
+
+    const fold = source("components/price-sheet.tsx");
+    expect(fold).toContain("realEstatePlans()");
+    expect(fold).toContain("<details");
+    expect(fold).not.toContain('"use client"');
   });
 
   it("leaves the plans visible by default where PackagesSection is used elsewhere", () => {

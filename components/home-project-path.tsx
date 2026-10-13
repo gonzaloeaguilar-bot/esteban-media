@@ -1,9 +1,14 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import { useState } from "react";
+
+import RailSegmented from "@/vendor/rail-kit/RailSegmented";
+import { PriceSheet } from "@/components/price-sheet";
 
 import { AUDIENCE_LANES, type AudienceLocale } from "@/lib/audience-lanes";
-import { packagesFor, priceFor } from "@/lib/packages";
 import { packageRoutes } from "@/lib/package-routes";
 import { realEstateReelsPath } from "@/lib/real-estate-reels";
 import { usd } from "@/lib/pricing";
@@ -14,6 +19,10 @@ const copy = {
     heading: "What do you need made?",
     intro: "Choose a project to see the relevant work and next steps.",
     labels: ["Reels for my properties", "Short videos for my business", "Edit footage I already have"],
+    /* The control needs two or three words, not a sentence: at full length the
+       three options stacked into one grey block with the inactive ones barely
+       legible. The full label still reads on the card below. */
+    tabs: ["Real estate", "Business", "Editing only"],
     artAlts: [
       "Concept illustration of a home, camera and property photographs",
       "Concept illustration of a cafe being filmed on a phone",
@@ -38,6 +47,7 @@ const copy = {
     heading: "¿Qué necesitas crear?",
     intro: "Elige un proyecto para ver trabajo relacionado y los próximos pasos.",
     labels: ["Reels para mis propiedades", "Videos cortos para mi negocio", "Editar videos que ya grabé"],
+    tabs: ["Inmobiliaria", "Negocio", "Solo edición"],
     artAlts: [
       "Ilustración conceptual de una casa, una cámara y fotografías de la propiedad",
       "Ilustración conceptual de un café grabado con un celular",
@@ -64,7 +74,7 @@ const artwork = ["property", "business", "editing"] as const;
 export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
   const c = copy[locale];
   const lanes = AUDIENCE_LANES[locale].lanes;
-  const packages = packagesFor(locale);
+  const [activeLane, setActiveLane] = useState(lanes[0].id);
 
   return (
     <section id="start" aria-labelledby={`home-path-${locale}`} data-section="home-project-path" className="bg-[#f7f5f1] py-10 sm:py-14">
@@ -72,10 +82,27 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
         <p className="text-xs font-medium uppercase tracking-wider text-[#9d3d2b]">{c.eyebrow}</p>
         <h2 id={`home-path-${locale}`} className="mt-2 font-serif text-4xl leading-tight sm:text-5xl">{c.heading}</h2>
         <p className="mt-2 max-w-2xl text-base leading-7 text-[#4d5358]">{c.intro}</p>
-        <p className="mt-3 text-sm font-medium text-[#9d3d2b] sm:hidden">{c.swipe}</p>
-        <div className="-mx-4 mt-6 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-3 sm:overflow-visible sm:px-0">
-          {lanes.map((lane, index) => (
-            <Link key={lane.id} href={index === 0 ? realEstateReelsPath(locale) : lane.href} data-cta={`home-path-${lane.id}`} className="group min-w-[78%] snap-start overflow-hidden rounded-2xl border border-[#d3c3b2] bg-white transition hover:border-[#a93e29] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a93e29] sm:min-w-0">
+        {/* A CONTROL, not three cards to swipe. Owner, 2026-10-12: the real
+            estate section "is truly nice on its own... feel we can combine
+            them if we have some sort of filter and control" — this is the
+            same RailSegmented the monthly plans already use, so the page
+            teaches the gesture once. Picking a lane swaps the card below and
+            decides what the price sheet opens on. */}
+        <div className="em-path-choice mt-5">
+          <RailSegmented
+            segments={lanes.map((lane, i) => ({ id: lane.id, label: c.tabs[i] }))}
+            activeId={activeLane}
+            label={locale === "es" ? "Tipo de proyecto" : "Project type"}
+            block
+            source={`home_project_path_${locale}`}
+            onSelect={({ id }: { id: string }) => setActiveLane(id)}
+          />
+        </div>
+        <div className="mt-6">
+          {lanes.filter((lane) => lane.id === activeLane).map((lane) => {
+            const index = lanes.findIndex((l) => l.id === lane.id);
+            return (
+            <Link key={lane.id} href={index === 0 ? realEstateReelsPath(locale) : lane.href} data-cta={`home-path-${lane.id}`} className="group block overflow-hidden rounded-2xl border border-[#d3c3b2] bg-white transition hover:border-[#a93e29] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a93e29] sm:min-w-0">
               <span className="block overflow-hidden bg-[#f4ebdf]">
                 <Image src={`/illustrations/${artwork[index]}.webp`} alt={c.artAlts[index]} width={1536} height={1024} className="aspect-[3/2] w-full object-contain transition duration-500 group-hover:scale-[1.02]" sizes="(min-width: 640px) 33vw, 78vw" />
               </span>
@@ -84,7 +111,8 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                 <ArrowRight className="size-5 shrink-0 text-[#a93e29] transition-transform group-hover:translate-x-1" aria-hidden="true" />
               </span>
             </Link>
-          ))}
+            );
+          })}
         </div>
         <p className="mt-2 text-xs leading-5 text-[#6a625a]">{c.illustrationNote}</p>
         <nav aria-label={locale === "es" ? "Servicios locales" : "Local services"} className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm">
@@ -95,28 +123,20 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
           ))}
         </nav>
         <div className="mt-6 border-t border-[#ddd4c8] pt-5">
-          <p className="text-sm leading-6 text-[#4d5358]"><strong className="text-[#101214]">{c.pricing}</strong> {c.pricingDetail}</p>
-          <ul className="mt-4 grid grid-cols-2 gap-2 lg:grid-cols-4" aria-label={c.pricing}>
-            {packages.map((pkg) => {
-              const price = priceFor(pkg.id);
-              return (
-                <li key={pkg.id}>
-                <Link href={packageRoutes[pkg.id][locale]} className="group block min-h-full rounded-xl border border-[#ddd4c8] bg-white px-4 py-3 transition hover:border-[#a93e29] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a93e29]">
-                  <span className="block text-sm font-medium leading-snug text-[#101214]">{pkg.name}</span>
-                  <span className="mt-1 block text-xs leading-snug text-[#6a625a]">{pkg.subtitle}</span>
-                  <span className="mt-1 block text-sm leading-snug text-[#9d3d2b]">
-                    {price.kind === "custom"
-                      ? c.custom
-                      : `${c.from} ${usd(price.amount)}${c.units[price.unit]}`}
-                  </span>
-                </Link>
-                </li>
-              );
-            })}
-          </ul>
-          <Link href={c.pricingHref} data-cta="home-pricing" className="mt-3 inline-flex min-h-11 shrink-0 items-center gap-2 self-start font-medium text-[#9d3d2b] underline underline-offset-4 sm:self-auto">
-            {c.pricingAction}<ArrowRight className="size-4" aria-hidden="true" />
-          </Link>
+          {/* ONE button instead of a price grid. The four package cards used
+              to sit here, and the monthly real-estate plans were a separate
+              section three screens further down — so a visitor comparing cost
+              had to hold two blocks in their head, far apart, with long pages
+              in between. Owner, 2026-10-12: "the prices should show up after,
+              in some modal or sheet, cause the pages that come after are so
+              long I get lost trying to find pricing."
+              The sheet reads the SAME sources the pricing pages read, so no
+              figure can drift, and it shows the monthly plans when the real
+              estate lane is the one selected. */}
+          <p className="text-sm leading-6 text-[#4d5358]">
+            <strong className="text-[#101214]">{c.pricing}</strong> {c.pricingDetail}
+          </p>
+          <PriceSheet locale={locale} showPlans={activeLane === "real-estate"} />
         </div>
       </div>
     </section>
