@@ -30,17 +30,26 @@ import { realEstatePlanName, realEstatePlans } from "@/lib/real-estate-plans";
 export function PriceSheet({
   locale,
   showPlans,
+  section = "home_project_path",
 }: {
   locale: Locale;
   /** The real-estate lane also gets its monthly plans. */
   showPlans: boolean;
+  /**
+   * data-section on the "Compare packages" CTA. Defaults to the home
+   * chooser's original value so that call site's analytics are unchanged.
+   * Callers outside the home chooser (a GEO service page, the short-form
+   * page) MUST pass their own section so this fold's clicks aren't
+   * miscategorized as home-page chooser activity.
+   */
+  section?: string;
 }) {
   const es = locale === "es";
   const packages = packagesFor(locale);
   const plans = realEstatePlans();
 
   return (
-    <details className="em-pricefold">
+    <details className="em-pricefold" data-em-hides-sticky>
       <summary>
         <span>{es ? "Ver precios de referencia" : "See starting prices"}</span>
         <span className="em-pricefold__chev" aria-hidden="true" />
@@ -106,7 +115,7 @@ export function PriceSheet({
         <Link
           href={es ? "/es/precios" : "/pricing"}
           data-cta="price_fold_compare"
-          data-section="home_project_path"
+          data-section={section}
           className="em-pricefold__cta"
         >
           {es ? "Comparar paquetes" : "Compare packages"}
