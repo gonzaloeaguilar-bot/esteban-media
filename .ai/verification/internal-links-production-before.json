@@ -1,0 +1,14 @@
+[
+  {
+    "route": "/es/guias/editor-de-video-vs-videografo",
+    "status": 200,
+    "areas_links": 2,
+    "new_anchor_present": false
+  },
+  {
+    "route": "/es/areas",
+    "status": 200,
+    "areas_links": 2,
+    "new_anchor_present": false
+  }
+]
