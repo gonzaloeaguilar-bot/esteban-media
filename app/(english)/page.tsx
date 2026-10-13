@@ -4,7 +4,6 @@ import { AboutTeaser } from "@/components/about-teaser";
 import { ClientReviews } from "@/components/client-reviews";
 import { ContactCta } from "@/components/contact-cta";
 import { HeroVideo } from "@/components/hero-video";
-import { HomeContactStrip } from "@/components/home-contact-strip";
 import { HomeProjectPath } from "@/components/home-project-path";
 import { SignalIntro } from "@/components/signal-intro";
 import { ClosingCredits, PackagesSection } from "@/components/packages-section";
@@ -72,7 +71,13 @@ export default function Home() {
           reviews are the convincing, so they belong where the choice is
           made, once. */}
       <ClientReviews locale="en" compact />
-      <HomeContactStrip locale="en" />
+      {/* One contact moment, not two near-duplicates (owner, 2026-10-13,
+          looking at the live page: "these 2 sections are basically the
+          same"). ContactCta now carries HomeContactStrip's calm, guided
+          shape (promise line, numbered 1-2-3, three direct taps) as the
+          visible ask, with the longer form as voluntary depth under a
+          native <details>. ClosingCredits below stays as the quiet closing
+          tap. */}
       <ContactCta />
       <KeepReading id="more" className="em-fold" title="Explore more services" destinations="Package add-ons, process, FAQ, about and how Esteban works.">
         {/* showGuide=false: the four packages and their prices already sit

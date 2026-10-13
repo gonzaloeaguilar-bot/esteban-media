@@ -64,10 +64,10 @@ export function HomeContactStrip({ locale }: { locale: Locale }) {
             <MessageCircle className="size-4" aria-hidden="true" />{c.whatsapp}
           </a>
           <a href={mailto} data-cta="home_contact_email" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-[#b9afa2] bg-white px-5 py-3 text-sm font-semibold text-[#101214] transition hover:border-[#9d3d2b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9d3d2b]">
-            <Mail className="size-4" aria-hidden="true" /><span>{c.email}<span className="mt-0.5 block text-xs font-normal text-[#5b5550]">{site.email}</span></span>
+            <Mail className="size-4" aria-hidden="true" /><span className="flex flex-col text-left"><span>{c.email}</span><span className="text-xs font-normal text-[#5b5550]">{site.email}</span></span>
           </a>
           <a href={site.phone.href} data-cta="home_contact_phone" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-[#b9afa2] bg-white px-5 py-3 text-sm font-semibold text-[#101214] transition hover:border-[#9d3d2b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9d3d2b]">
-            <Phone className="size-4" aria-hidden="true" /><span>{c.call}<span className="mt-0.5 block text-xs font-normal text-[#5b5550]">{site.phone.display}</span></span>
+            <Phone className="size-4" aria-hidden="true" /><span className="flex flex-col text-left"><span>{c.call}</span><span className="text-xs font-normal text-[#5b5550]">{site.phone.display}</span></span>
           </a>
         </div>
       </div>
