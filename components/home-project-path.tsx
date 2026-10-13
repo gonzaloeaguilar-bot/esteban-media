@@ -5,7 +5,6 @@ import { ArrowRight } from "lucide-react";
 import { useState } from "react";
 
 import RailSegmented from "@/vendor/rail-kit/RailSegmented";
-import { PriceSheet } from "@/components/price-sheet";
 import { IllustratedScene } from "@/components/illustrated-scene";
 import { LaneAnswer } from "@/components/lane-answer";
 import { AudienceVideo, EditingPreview } from "@/components/audience-media";
@@ -29,7 +28,6 @@ const copy = {
       "Concept illustration of a cafe being filmed on a phone",
       "Concept illustration of an editing desk with a monitor, filmstrip and headphones",
     ],
-    pricing: "Starting prices",
     pricingDetail: "Choose a package to see everything included. Final pricing depends on the project scope.",
     pricingAction: "Compare packages",
     swipe: "Swipe to see all three options.",
@@ -61,7 +59,6 @@ const copy = {
       "Ilustración conceptual de un café grabado con un celular",
       "Ilustración conceptual de una mesa de edición con monitor, película y audífonos",
     ],
-    pricing: "Precios para empezar",
     pricingDetail: "Elige un paquete para ver todo lo incluido. El precio final depende del alcance del proyecto.",
     pricingAction: "Comparar paquetes",
     swipe: "Desliza para ver las tres opciones.",
@@ -105,8 +102,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
             estate section "is truly nice on its own... feel we can combine
             them if we have some sort of filter and control" — this is the
             same RailSegmented the monthly plans already use, so the page
-            teaches the gesture once. Picking a lane swaps the card below and
-            decides what the price sheet opens on. */}
+            teaches the gesture once. Picking a lane swaps the card below. */}
         <div className="em-path-choice mt-5">
           <RailSegmented
             segments={lanes.map((lane, i) => ({ id: lane.id, label: c.tabs[i] }))}
@@ -153,17 +149,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                   stretched wide — 2026-10-12 review item 7: the illustration
                   rendered at 1187px, the biggest object on the homepage. */}
               {index === 1 ? (
-                <>
-                  <AudienceVideo locale={locale} alt={c.videoAlt} />
-                  <LaneAnswer
-                    source={`home-path-${lane.id}`}
-                    locale={locale}
-                    label={c.sceneLabels[index]}
-                    price={laneStartingPrice(locale, laneIdAt(index))}
-                    facts={[...c.sceneFacts[index]]}
-                    detailsHref={lane.href}
-                  />
-                </>
+                <AudienceVideo locale={locale} alt={c.videoAlt} />
               ) : (
                 <IllustratedScene
                   image={`/illustrations/${artwork[index]}.webp`}
@@ -178,6 +164,23 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                 />
               )}
               <div className="em-path-card-info mt-3 lg:mt-0 flex flex-col gap-3">
+                {/* The business lane's artwork is a video, not IllustratedScene,
+                    so its price/TLDR answer lives here instead — inside the
+                    SAME grid column as the CTA button. It used to sit as its
+                    own grid item beside the video, which pushed the three
+                    children of .em-path-card into a 2-column/3-item grid and
+                    left a second, empty row under the button at desktop
+                    (review item 6: 395px of dead cream at 1440). */}
+                {index === 1 && (
+                  <LaneAnswer
+                    source={`home-path-${lane.id}`}
+                    locale={locale}
+                    label={c.sceneLabels[index]}
+                    price={laneStartingPrice(locale, laneIdAt(index))}
+                    facts={[...c.sceneFacts[index]]}
+                    detailsHref={lane.href}
+                  />
+                )}
                 {/* The filled, terracotta row is now the ONE primary action in
                     the section (review item 5: "the red button is currently
                     the SECONDARY action"); starting prices is demoted below
@@ -205,20 +208,24 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
           ))}
         </nav>
         <div className="mt-10 border-t border-[#ddd4c8] pt-5">
-          {/* ONE button instead of a price grid. The four package cards used
-              to sit here, and the monthly real-estate plans were a separate
-              section three screens further down — so a visitor comparing cost
-              had to hold two blocks in their head, far apart, with long pages
-              in between. Owner, 2026-10-12: "the prices should show up after,
-              in some modal or sheet, cause the pages that come after are so
-              long I get lost trying to find pricing."
-              The sheet reads the SAME sources the pricing pages read, so no
-              figure can drift, and it shows the monthly plans when the real
-              estate lane is the one selected. */}
-          <p className="text-sm leading-6 text-[#4d5358]">
-            <strong className="text-[#101214]">{c.pricing}</strong> {c.pricingDetail}
-          </p>
-          <PriceSheet locale={locale} showPlans={activeLane === "real-estate"} />
+          {/* Price already answered ONCE, in the lane's own `+` disclosure
+              above (review item 1, 2026-10-13): opening any of the three
+              illustrations/video now shows the starting price before the
+              TLDR facts. The price fold that used to live here (a second,
+              full breakdown of every package) was the SAME figures in a
+              second visual language in the same section — this link is the
+              only thing left: an escape hatch to the full comparison page
+              for someone who wants every package side by side, not another
+              list of prices. */}
+          <p className="text-sm leading-6 text-[#4d5358]">{c.pricingDetail}</p>
+          <Link
+            href={c.pricingHref}
+            data-cta="home_path_compare_packages"
+            className="mt-2 inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold text-[#6a625a] underline underline-offset-4"
+          >
+            {c.pricingAction}
+            <ArrowRight className="size-4 shrink-0" aria-hidden="true" />
+          </Link>
         </div>
       </div>
     </section>
