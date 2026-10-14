@@ -321,3 +321,50 @@ body:has(.em-sheet-details[open])::after{content:"";position:fixed;inset:0;backg
   .em-funnel-panel{animation:em-sheet-up 220ms cubic-bezier(.2,.7,.2,1) both}
 }
 @media(prefers-reduced-motion:reduce){.em-funnel-panel{animation:none}}
+
+/* Single projects folded into the chooser (owner, 2026-10-14). Native
+   <details>, so every title, note and what-to-send sentence is in the first
+   byte of HTML and collapsed, not removed. */
+.em-path-card--single{display:block}
+@media(min-width:1024px){
+  [data-section="home-project-path"] .em-path-card--single:not([hidden]){display:block}
+}
+.em-single-lead{margin:0 0 14px;max-width:46ch;font-size:16px;line-height:1.55;color:#4d5358}
+.em-single-list{list-style:none;margin:0 0 14px;padding:0;display:grid;grid-template-columns:1fr;gap:10px;align-items:start}
+@media(min-width:768px){.em-single-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:1024px){.em-single-list{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.em-single-item{background:#fffaf3;border:1px solid #d6cabc;border-radius:16px;overflow:hidden}
+.em-single-item summary{display:flex;align-items:center;gap:12px;min-height:76px;padding:10px 14px 10px 10px;cursor:pointer;list-style:none}
+.em-single-item summary::-webkit-details-marker{display:none}
+.em-single-thumb{flex:none;width:64px;height:auto;aspect-ratio:3/2;object-fit:contain;border-radius:10px;background:#f4eade}
+.em-single-text{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}
+.em-single-title{font:19px/1.2 var(--font-serif,Georgia,serif);color:#101214}
+.em-single-note{font-size:13px;line-height:1.4;color:#655b53}
+.em-single-plus{flex:none;color:#5b5046;transition:transform 180ms ease}
+.em-single-item[open] .em-single-plus{transform:rotate(45deg)}
+.em-single-panel{padding:14px 16px 16px;background:#e7eee6;border-top:1px solid #cbd7c8}
+.em-single-panel p{margin:0 0 12px;font-size:15px;line-height:1.55;color:#233b31}
+.em-single-actions{display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px}
+.em-single-ask{min-height:44px;padding:0 18px;border:1.5px solid #9d3d2b;border-radius:12px;background:transparent;color:#9d3d2b;font-size:15px;font-weight:600;cursor:pointer}
+.em-single-service{display:inline-flex;align-items:center;min-height:44px;color:#233b31;font-size:15px;font-weight:600;text-decoration:underline;text-underline-offset:4px}
+.em-single-credit{margin:0 0 16px;font-size:12px;line-height:1.6;color:#685b51}
+.em-single-item :is(summary,button,a):focus-visible{outline:3px solid #9d3d2b;outline-offset:-3px;border-radius:12px}
+@media(prefers-reduced-motion:reduce){.em-single-plus{transition:none}}
+.em-funnel-recap{display:flex;flex-direction:column;gap:4px;font-size:15px;color:#101214}
+.em-funnel-wa{display:flex;align-items:center;justify-content:center;min-height:48px;margin-top:6px;color:#6a625a;font-size:15px;font-weight:600;text-decoration:underline;text-underline-offset:4px}
+
+/* Four options with their starting price ON the control: price is visible
+   with zero taps at the top of the chooser, and it is the ONE price surface
+   (the cards below no longer repeat it). RailSegmented caps at three and has
+   no second line, so this is a small group of real buttons. */
+.em-path-chips{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;width:100%;max-width:760px}
+@media(min-width:640px){.em-path-chips{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.em-path-chip{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:2px;min-height:64px;padding:10px 14px;border:1.5px solid #c8beb3;border-radius:16px;background:#fffaf3;color:#101214;text-align:left;cursor:pointer}
+.em-path-chip-label{font-size:15px;font-weight:700;line-height:1.2}
+.em-path-chip-price{font-size:13px;font-weight:600;line-height:1.3;color:#6a3a2e}
+.em-path-chip[data-active]{background:#101214;border-color:#101214;color:#fffdf9}
+.em-path-chip[data-active] .em-path-chip-price{color:#f0d9c9}
+.em-path-chip:focus-visible{outline:3px solid #9d3d2b;outline-offset:2px}
+.em-single-price{font-size:15px;font-weight:700;line-height:1.3;color:#101214}
+.em-funnel-price{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px;margin:0 0 12px;font-size:14px;color:#6a625a}
+.em-funnel-price strong{font-size:19px;color:#101214}

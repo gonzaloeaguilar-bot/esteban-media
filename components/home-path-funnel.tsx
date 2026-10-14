@@ -5,6 +5,8 @@ import { ArrowLeft, Check, X } from "lucide-react";
 
 import { trackFunnelEvent } from "@/lib/analytics-events";
 import type { AudienceLocale } from "@/lib/audience-lanes";
+import { whatsappHref } from "@/lib/packages";
+import { site } from "@/lib/site";
 
 /**
  * The in-place, 2-step contact takeover the chooser's CTA opens.
@@ -26,6 +28,7 @@ type Step = "confirm" | "contact" | "done" | "error";
 const COPY = {
   en: {
     confirmHeading: "Your project",
+    priceLabel: "Starting price",
     confirmFilled: "This is already filled in from your choice.",
     continue: "Continue",
     close: "Close",
@@ -35,14 +38,18 @@ const COPY = {
     reachLabel: "Email or WhatsApp number",
     send: "Send",
     sending: "Sending…",
-    doneHeading: "Got it.",
-    doneBody: "Esteban will follow up about this project.",
+    doneHeading: "Sent. Esteban has your request.",
+    doneProject: "Project",
+    doneReach: "He will contact you at",
+    doneNext: "Nothing else to fill in. If you would rather talk now, message him on WhatsApp.",
+    whatsappMessage: "Hi Esteban, I just sent my details on your site.",
     doneClose: "Close",
     errorMessage: "The form could not be sent. Message Esteban directly instead.",
     errorWhatsapp: "WhatsApp",
   },
   es: {
     confirmHeading: "Tu proyecto",
+    priceLabel: "Precio de referencia",
     confirmFilled: "Esto ya quedó lleno con tu elección.",
     continue: "Continuar",
     close: "Cerrar",
@@ -52,8 +59,11 @@ const COPY = {
     reachLabel: "Email o número de WhatsApp",
     send: "Enviar",
     sending: "Enviando…",
-    doneHeading: "Listo.",
-    doneBody: "Esteban dará seguimiento sobre este proyecto.",
+    doneHeading: "Enviado. Esteban tiene tu solicitud.",
+    doneProject: "Proyecto",
+    doneReach: "Te contactará al",
+    doneNext: "No tienes que llenar nada más. Si prefieres hablar ya, escríbele por WhatsApp.",
+    whatsappMessage: "Hola Esteban, acabo de enviar mis datos en tu página.",
     doneClose: "Cerrar",
     errorMessage: "No se pudo enviar el formulario. Escríbele directo por WhatsApp.",
     errorWhatsapp: "WhatsApp",
@@ -64,6 +74,7 @@ export function HomePathFunnel({
   locale,
   open,
   laneLabel,
+  price,
   laneId,
   onClose,
 }: {
@@ -71,6 +82,8 @@ export function HomePathFunnel({
   open: boolean;
   /** The CTA's own filled label ("Reels for my properties"…), already set. */
   laneLabel: string;
+  /** That lane's starting price, the same string the card showed. */
+  price: string;
   laneId: string;
   onClose: () => void;
 }) {
@@ -78,6 +91,7 @@ export function HomePathFunnel({
   const [step, setStep] = useState<Step>("confirm");
   const [name, setName] = useState("");
   const [reach, setReach] = useState("");
+  const [sentReach, setSentReach] = useState("");
   const panelRef = useRef<HTMLDivElement>(null);
   const triggerFocusTarget = useRef<HTMLElement | null>(null);
   const startedRef = useRef(false);
@@ -139,6 +153,7 @@ export function HomePathFunnel({
       if (!response.ok) throw new Error("lead request failed");
       trackFunnelEvent("form_submit", { form_id: "home_path_funnel", lane: laneId, locale });
       trackFunnelEvent("lead", { lead_source: "home-path-funnel", lead_type: "home-path-funnel", lane: laneId, locale });
+      setSentReach(trimmedReach);
       setStep("done");
     } catch {
       trackFunnelEvent("form_error", { form_id: "home_path_funnel", lane: laneId, locale });
@@ -164,6 +179,7 @@ export function HomePathFunnel({
           <>
             <h3 id="em-funnel-heading" className="em-funnel-h">{c.confirmHeading}</h3>
             <p className="em-funnel-chip">{laneLabel}</p>
+            <p className="em-funnel-price"><span>{c.priceLabel}</span> <strong>{price}</strong></p>
             <p className="em-funnel-note">{c.confirmFilled}</p>
             <button type="button" className="em-funnel-primary" onClick={handleConfirm} data-cta="home_path_funnel_continue">
               {c.continue}
@@ -197,10 +213,17 @@ export function HomePathFunnel({
         {step === "done" && (
           <>
             <h3 id="em-funnel-heading" className="em-funnel-h"><Check size={20} aria-hidden="true" /> {c.doneHeading}</h3>
-            <p className="em-funnel-note">{c.doneBody}</p>
+            <p className="em-funnel-note em-funnel-recap">
+              <span><strong>{c.doneProject}:</strong> {laneLabel}</span>
+              <span><strong>{c.doneReach}:</strong> {sentReach}</span>
+            </p>
+            <p className="em-funnel-note">{c.doneNext}</p>
             <button type="button" className="em-funnel-primary" onClick={onClose} data-cta="home_path_funnel_done_close">
               {c.doneClose}
             </button>
+            <a className="em-funnel-wa" href={whatsappHref(site.phone.e164, c.whatsappMessage)} target="_blank" rel="noopener noreferrer" data-cta="home_path_funnel_done_whatsapp">
+              {c.errorWhatsapp}
+            </a>
           </>
         )}
 
@@ -210,6 +233,9 @@ export function HomePathFunnel({
             <button type="button" className="em-funnel-primary" onClick={onClose} data-cta="home_path_funnel_error_close">
               {c.close}
             </button>
+            <a className="em-funnel-wa" href={whatsappHref(site.phone.e164, c.whatsappMessage)} target="_blank" rel="noopener noreferrer" data-cta="home_path_funnel_error_whatsapp">
+              {c.errorWhatsapp}
+            </a>
           </>
         )}
       </div>
