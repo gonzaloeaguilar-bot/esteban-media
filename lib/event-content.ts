@@ -28,7 +28,7 @@ import { SHORT_FORM, usd } from "@/lib/pricing";
 
 /**
  * Meta descriptions, answer-first snippet test (overnight SEO/GEO loop, round 2;
- * the dated record is in the vault loop log, row 32). The old ones ran 150-199
+ * the dated record is in the vault loop log, row 26). The old ones ran 150-199
  * characters and 8 of 16 were cut by Google or by clampDescription. Each now
  * says who, what and the starting price in under 160 characters. None of the
  * 16 URLs was indexed when this shipped (0 GSC rows in 90 days), so judge on

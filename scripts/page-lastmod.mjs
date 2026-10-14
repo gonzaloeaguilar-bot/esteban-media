@@ -103,9 +103,103 @@ export function contentBlocks(root, path) {
   return blocks;
 }
 
+/**
+ * The block from the first line matching `start` to the first later line
+ * matching `end` (inclusive), or undefined when `start` is absent.
+ */
+export function blockBetween(root, file, start, end) {
+  const abs = join(root, file);
+  if (!existsSync(abs)) return undefined;
+  const lines = readFileSync(abs, "utf8").split("\n");
+  const i = lines.findIndex((line) => start.test(line));
+  if (i < 0) return undefined;
+  const j = lines.findIndex((line, k) => k > i && end.test(line));
+  return { file, start: i + 1, end: j < 0 ? lines.length : j + 1 };
+}
+
+/**
+ * Declared sources (overnight loop row 28, 2026-10-14). Some pages take their
+ * copy from a content file by a key that is not their URL slug: an event page
+ * renders <EventContentPage id="flibs">, the study pages read
+ * restaurantIgStudyCopy.en/.es. contentBlocks() cannot see those, so a copy
+ * edit in lib/event-content.ts left the Boat Show page dated October 11.
+ * Each rule says which pages use a content file (by what their own route files
+ * import) and which blocks of it are theirs. The test fails when a page
+ * matches `uses` but resolves no block, so a renamed key cannot silently drop
+ * a page back to an undated source set.
+ */
+const EVENT_BUILDERS_FILE = "lib/event-content.ts";
+function eventBuilderName(root, id) {
+  const abs = join(root, EVENT_BUILDERS_FILE);
+  if (!existsSync(abs)) return undefined;
+  const map = readFileSync(abs, "utf8").match(/const BUILDERS[^=]*= \{([\s\S]*?)\n\};/);
+  if (!map) return undefined;
+  for (const entry of map[1].split(",").map((e) => e.trim()).filter(Boolean)) {
+    const [key, value] = entry.split(":").map((x) => x.trim().replace(/^"|"$/g, ""));
+    if (key === id) return value ?? key;
+  }
+  return undefined;
+}
+
+export const DECLARED_SOURCES = [
+  {
+    name: "event page copy (lib/event-content.ts + lib/events.ts)",
+    contentFile: EVENT_BUILDERS_FILE,
+    uses: /<EventContentPage\b/,
+    blocks(root, text) {
+      const id = text.match(/<EventContentPage[^>]*\bid="([^"]+)"/)?.[1];
+      if (!id) return [];
+      const builder = eventBuilderName(root, id);
+      return [
+        builder && blockBetween(root, EVENT_BUILDERS_FILE, new RegExp(`^const ${escape(builder)}: EventCopyBuilder`), /^\}\);$/),
+        // Copy every event page shows: the price section, the dates sentence, shared FAQs.
+        blockBetween(root, EVENT_BUILDERS_FILE, /^const FROM = /, /^type EventCopyBuilder/),
+        blockBetween(root, "lib/events.ts", new RegExp(`^\\s+id: "${escape(id)}",`), /^ {2}\},?$/),
+      ].filter(Boolean);
+    },
+  },
+  {
+    name: "events hub copy (EVENTS_HUB_COPY)",
+    contentFile: EVENT_BUILDERS_FILE,
+    uses: /<EventsHubPage\b/,
+    blocks(root) {
+      return [blockBetween(root, EVENT_BUILDERS_FILE, /^export const EVENTS_HUB_COPY = /, /^\} as const;$/)].filter(Boolean);
+    },
+  },
+  {
+    name: "restaurant Instagram study copy (lib/restaurant-ig-study.ts)",
+    contentFile: "lib/restaurant-ig-study.ts",
+    uses: /<RestaurantIgStudyPage\b/,
+    files: ["data/studies/miami-restaurant-instagram-2026.json"],
+    blocks(root, text) {
+      const locale = text.match(/<RestaurantIgStudyPage[^>]*\blocale="(en|es)"/)?.[1];
+      if (!locale) return [];
+      return [
+        blockBetween(root, "lib/restaurant-ig-study.ts", new RegExp(`^const ${locale}: StudyCopy = \\{`), /^\};$/),
+        // Numbers derived from the data file that both locales print.
+        blockBetween(root, "lib/restaurant-ig-study.ts", /^const s = study;/, /^export type StudySection/),
+      ].filter(Boolean);
+    },
+  },
+];
+
+/** The declared rules a page's own route files match, with what each resolved. */
+export function declaredSources(root, files) {
+  const text = files.map((f) => readFileSync(join(root, f), "utf8")).join("\n");
+  return DECLARED_SOURCES.filter((rule) => rule.uses.test(text)).map((rule) => ({
+    rule,
+    files: (rule.files ?? []).filter((f) => existsSync(join(root, f))),
+    blocks: rule.blocks(root, text),
+  }));
+}
+
 export function pageSources(root, path) {
   const files = routeDirs(root, path).flatMap(ownFiles).map((p) => relative(root, p));
-  return { files, blocks: contentBlocks(root, path) };
+  const declared = declaredSources(root, files);
+  return {
+    files: [...files, ...declared.flatMap((d) => d.files)],
+    blocks: [...contentBlocks(root, path), ...declared.flatMap((d) => d.blocks)],
+  };
 }
 
 export function hashSources(root, sources) {

@@ -1,10 +1,13 @@
-import { writeFileSync } from "node:fs";
+import { cpSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
 import { join } from "node:path";
 
 import { describe, expect, it } from "vitest";
 
 import sitemap from "@/app/sitemap";
 import {
+  DECLARED_SOURCES,
+  declaredSources,
   gitSeedDate,
   hashSources,
   pageSources,
@@ -86,5 +89,67 @@ describe("per-page lastmod ledger", () => {
       return s.files.length === 0 && s.blocks.length === 0;
     });
     expect(orphans).toEqual([]);
+  });
+
+  it("resolves a block for every page that renders copy from a declared content file", () => {
+    const unresolved: string[] = [];
+    for (const p of paths) {
+      const own = pageSources(root, p).files.filter((f) => f.startsWith("app/"));
+      for (const d of declaredSources(root, own)) {
+        if (d.blocks.length === 0) unresolved.push(`${p} (${d.rule.name})`);
+      }
+    }
+    expect(unresolved, "a declared rule matched but found no block: fix DECLARED_SOURCES in scripts/page-lastmod.mjs").toEqual([]);
+  });
+
+  it("covers the Boat Show, the events hubs and the study (row 28)", () => {
+    const fromFile = (p: string, file: string) => pageSources(root, p).blocks.some((b) => b.file === file);
+    expect(fromFile("/events/fort-lauderdale-boat-show-video", "lib/event-content.ts")).toBe(true);
+    expect(fromFile("/es/eventos/video-para-el-boat-show-de-fort-lauderdale", "lib/event-content.ts")).toBe(true);
+    expect(fromFile("/events", "lib/event-content.ts")).toBe(true);
+    expect(fromFile("/es/eventos", "lib/event-content.ts")).toBe(true);
+    expect(fromFile("/guides/miami-restaurant-instagram-study", "lib/restaurant-ig-study.ts")).toBe(true);
+    expect(fromFile("/es/guias/estudio-instagram-restaurantes-miami", "lib/restaurant-ig-study.ts")).toBe(true);
+    expect(DECLARED_SOURCES.length).toBeGreaterThanOrEqual(3);
+  });
+
+  it("changes a page's hash when its copy changes in a declared content file, and only that page's", () => {
+    // Copy the files these pages read into a scratch root, edit one builder,
+    // and check the hash moves for that event's pages and not for another's.
+    const tmp = mkdtempSync(join(tmpdir(), "lastmod-"));
+    try {
+      const rel = [
+        "lib",
+        "data/studies",
+        "app/(english)/events",
+        "app/(spanish)/es/eventos",
+        "app/(english)/guides/miami-restaurant-instagram-study",
+        "app/(spanish)/es/guias/estudio-instagram-restaurantes-miami",
+      ];
+      for (const r of rel) cpSync(join(root, r), join(tmp, r), { recursive: true });
+      const boat = "/events/fort-lauderdale-boat-show-video";
+      const boatEs = "/es/eventos/video-para-el-boat-show-de-fort-lauderdale";
+      const basel = "/events/art-basel-miami-beach-video";
+      const study = "/guides/miami-restaurant-instagram-study";
+      const before = Object.fromEntries([boat, boatEs, basel, study].map((p) => [p, hashSources(tmp, pageSources(tmp, p))]));
+
+      const file = join(tmp, "lib", "event-content.ts");
+      const src = readFileSync(file, "utf8");
+      const marker = 'metaTitle: "Fort Lauderdale Boat Show Content for Exhibitors"';
+      expect(src.includes(marker)).toBe(true);
+      writeFileSync(file, src.replace(marker, 'metaTitle: "Fort Lauderdale Boat Show Content, Edited"'));
+      expect(hashSources(tmp, pageSources(tmp, boat))).not.toBe(before[boat]);
+      expect(hashSources(tmp, pageSources(tmp, boatEs))).not.toBe(before[boatEs]);
+      expect(hashSources(tmp, pageSources(tmp, basel))).toBe(before[basel]);
+
+      const studyFile = join(tmp, "lib", "restaurant-ig-study.ts");
+      const studySrc = readFileSync(studyFile, "utf8");
+      const enStart = studySrc.indexOf("const en: StudyCopy = {");
+      expect(enStart).toBeGreaterThan(0);
+      writeFileSync(studyFile, studySrc.replace("const en: StudyCopy = {", "const en: StudyCopy = {\n  // edited"));
+      expect(hashSources(tmp, pageSources(tmp, study))).not.toBe(before[study]);
+    } finally {
+      rmSync(tmp, { recursive: true, force: true });
+    }
   });
 });
