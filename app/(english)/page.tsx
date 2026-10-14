@@ -84,7 +84,7 @@ export default function Home() {
             at the chooser's PriceSheet. This keeps the à la carte add-ons,
             the 3-step quote process and the FAQ — none of which duplicate
             the chooser. */}
-        <PackagesSection locale="en" showRealEstatePlans={false} quiet showGuide={false} />
+        <PackagesSection locale="en" showRealEstatePlans={false} quiet showGuide={false} showALaCarte={false} />
         <AboutTeaser />
       </KeepReading>
       <ClosingCredits locale="en" />

@@ -75,7 +75,7 @@ export default function SpanishHomePage() {
           PriceSheet del selector. Esto deja los servicios a la carta, el
           proceso de cotización en 3 pasos y las preguntas frecuentes — nada
           de eso repite al selector. */}
-      <PackagesSection locale="es" showRealEstatePlans={false} quiet showGuide={false} />
+      <PackagesSection locale="es" showRealEstatePlans={false} quiet showGuide={false} showALaCarte={false} />
 
       {/* The five-icon display-card grid ("what I do") was removed — it
           duplicated the chooser directly above. The internal link to every
