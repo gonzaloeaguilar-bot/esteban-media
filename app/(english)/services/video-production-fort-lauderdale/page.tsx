@@ -1,5 +1,7 @@
 import { GeoServicePage, type GeoServicePageContent } from "@/components/geo-service-page";
 import { buildPageMetadata } from "@/lib/site-metadata";
+import { priceSentence } from "@/lib/packages";
+import { filmingHourlyText, shortFormPriceText } from "@/lib/pricing";
 
 const content: GeoServicePageContent = {
   path: "/services/video-production-fort-lauderdale",
@@ -39,6 +41,15 @@ const content: GeoServicePageContent = {
       title: "Audio that can carry the message",
       detail:
         "A polished image does not save a noisy interview. Wind, traffic, music, and room echo are common around South Florida shoots, so the plan should name which lines must be recorded cleanly and which shots only need natural sound. Clear audio gives the editor something useful to build around.",
+    },
+  ],
+  depthHeading: "Remote or on location: how a Fort Lauderdale project is split.",
+  // Row 107 (2026-10-14): GSC "remote video production company fort lauderdale"
+  // 3 imp @9.3 on this page, and no question answered it.
+  depth: [
+    {
+      question: "Can a Fort Lauderdale video production company work remotely?",
+      body: `Yes, for most of the work. Esteban Moreno Media is based in Fort Lauderdale, and editing happens remotely: you send the footage, photos and references through a shared link, and the finished video comes back with captions and the sizes you need, with no visit. Remote editing is Starter, ${shortFormPriceText("en")}. A visit is needed when the footage does not exist yet, such as the owner explaining the service, the space itself or a product being used. On-location filming is a paid service scoped per project, ${filmingHourlyText("en")}, and a production day at your business, with planning, filming and the edit, is ${priceSentence("en", "presencia-local").toLowerCase()}. A project can mix both: one shoot in Broward or Miami-Dade, then remote edits from that footage for the weeks after. Communication is Spanish-first, with intermediate English for bilingual projects.`,
     },
   ],
   faqHeading: "Questions Fort Lauderdale businesses ask before starting video.",

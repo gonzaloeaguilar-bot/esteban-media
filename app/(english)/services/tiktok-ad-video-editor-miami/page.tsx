@@ -1,3 +1,4 @@
+import { PageQuestions } from "@/components/page-questions";
 import React from "react";
 import Link from "next/link";
 import {
@@ -181,6 +182,7 @@ export default function TiktokAdVideoEditorMiamiPage() {
           </div>
         </Container>
       </section>
+      <PageQuestions path="/services/tiktok-ad-video-editor-miami" />
 
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
         <Container size="xl">

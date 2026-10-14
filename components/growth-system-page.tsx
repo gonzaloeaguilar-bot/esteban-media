@@ -1,3 +1,4 @@
+import { PageQuestions } from "@/components/page-questions";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, ShieldCheck } from "lucide-react";
 
@@ -88,6 +89,7 @@ export function GrowthSystemPage({
           </div>
         </Container>
       </section>
+      <PageQuestions path={path} />
 
       <section className="border-b border-[#ddd4c8] py-14 sm:py-20">
         <Container size="xl">
