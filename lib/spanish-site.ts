@@ -322,7 +322,7 @@ const nicheWave8Pages: SpanishNichePage[] = [
     icon: Home,
     updated: "2026-10-11",
     fitQuestion: "¿Qué tiene que mostrar el reel de un alquiler vacacional?",
-    projectFit: `Los espacios que el huésped va a usar, en el orden en que los recorrería, y la razón principal para reservar: la piscina, la vista al agua, la playa a pocos pasos. Esteban edita el material de anfitriones y administradores de alquileres de corto plazo y lo convierte en reels verticales para Instagram y TikTok, y en cortes horizontales para el anuncio o el sitio de reservas directas, con subtítulos y el nombre de cada espacio para que el recorrido se entienda sin sonido. La edición muestra la propiedad como es, sin amenidades agregadas, sin vistas prestadas y sin huéspedes en cámara. La edición es remota: ${esArranque()}. Si administras varias unidades en Broward o Miami-Dade y quieres que alguien grabe, la grabación en locación es un servicio adicional pagado que se cotiza por proyecto.`,
+    projectFit: `Los espacios que el huésped va a usar, en el orden en que los recorrería, y la razón principal para reservar: la piscina, la vista al agua, la playa a pocos pasos. Esteban edita el material de anfitriones y administradores de alquileres de corto plazo y lo convierte en reels verticales para Instagram y TikTok, y en cortes horizontales para el anuncio o el sitio de reservas directas, con subtítulos y el nombre de cada espacio para que el recorrido se entienda sin sonido. La edición muestra la propiedad como es, sin amenidades agregadas, sin vistas prestadas y sin huéspedes en cámara. La edición es remota: ${esArranque()}. Si administras varias unidades en Broward o Miami-Dade y quieres que alguien grabe, la grabación en locación es un servicio adicional pagado que se cotiza por proyecto. Si ya tienes clips y tu negocio está en Broward, el [editor de Reels en Fort Lauderdale](/es/editor-de-reels-fort-lauderdale) los convierte en videos cortos con subtítulos.`,
     sectionsDisclosure: "Prepara el material de cada unidad",
     sectionsDestinations: "Una lista de tomas para cada unidad y qué enviar con los clips",
     bestFor: [
@@ -1123,7 +1123,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       "¿Tienes ejemplos del estilo visual que buscas?",
     ],
     projectFit:
-      "Cuéntanos qué se va a fotografiar, dónde y para qué usarás las imágenes. Esteban confirmará las tomas, los archivos finales y el presupuesto antes de agendar la sesión.",
+      "Cuéntanos qué se va a fotografiar, dónde y para qué usarás las imágenes. Esteban confirmará las tomas, los archivos finales y el presupuesto antes de agendar la sesión. Para fotos del producto físico, mira la [fotografía de producto en Miami](/es/fotografia-de-producto-miami); para videos cortos con tus clips, el [editor de Reels en Fort Lauderdale](/es/editor-de-reels-fort-lauderdale).",
     faqs: [
       {
         question: "¿Se puede reservar fotografía con Esteban?",
@@ -1164,7 +1164,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       "¿Qué formato, disponibilidad y alcance deben confirmarse?",
     ],
     projectFit:
-      "Esta ruta ayuda a preparar una conversación sobre edición o captura selectiva de video corto. Si buscas un servicio directo de edición para tus grabaciones, consulta como [editor de Reels en Miami](/es/editor-de-reels-miami). No fija duración, cantidad, formato ni fecha de entrega.",
+      "Esta ruta ayuda a preparar una conversación sobre edición o captura selectiva de video corto. Si buscas un servicio directo de edición para tus grabaciones, consulta como [editor de Reels en Miami](/es/editor-de-reels-miami). No fija duración, cantidad, formato ni fecha de entrega. Si ya tienes clips y tu negocio está en Broward, el [editor de Reels en Fort Lauderdale](/es/editor-de-reels-fort-lauderdale) los convierte en videos cortos con subtítulos.",
     sections: [
       {
         heading: "Estructura de video corto para captar atención en Miami",
@@ -1504,7 +1504,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       "¿Qué estilo o paleta de colores representa tu marca?",
     ],
     projectFit:
-      "Esta ruta explica el servicio de imágenes con IA combinando fotos reales del producto con generación asistida. No promete sesiones de fotografía tradicional en estudio a menos que se acuerden.",
+      "Esta ruta explica el servicio de imágenes con IA combinando fotos reales del producto con generación asistida. No promete sesiones de fotografía tradicional en estudio a menos que se acuerden. Si necesitas fotografiar el producto físico, mira la [fotografía de producto en Miami](/es/fotografia-de-producto-miami).",
     faqs: [
       {
         question: "¿Las imágenes con IA parecen reales?",
@@ -2173,7 +2173,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       "¿Requieres versiones verticales 9:16 para Instagram/TikTok y horizontales 16:9 para web?",
     ],
     projectFit:
-      "Postproducción y edición de estilo de vida náutico en Fort Lauderdale y South Florida. Demostrado por el proyecto [Banacol](/es/portafolio/banacol) con cinematografía aérea en mar abierto.",
+      "Postproducción y edición de estilo de vida náutico en Fort Lauderdale y South Florida. Demostrado por el proyecto [Banacol](/es/portafolio/banacol) con cinematografía aérea en mar abierto. Si ya tienes clips y tu negocio está en Broward, el [editor de Reels en Fort Lauderdale](/es/editor-de-reels-fort-lauderdale) los convierte en videos cortos con subtítulos.",
     faqs: [
       {
         question: "¿Qué tipo de material puede suministrar una empresa de chárter o corretaje náutico?",
@@ -2337,7 +2337,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       "¿En qué resolución e-commerce requieres las imágenes?",
     ],
     projectFit:
-      "Imágenes de producto impecables optimizadas con herramientas de IA.",
+      "Imágenes de producto impecables optimizadas con herramientas de IA. Si necesitas fotografiar el producto físico, mira la [fotografía de producto en Miami](/es/fotografia-de-producto-miami).",
     faqs: [
       {
         question: "¿Se pueden crear fondos de lujo con IA sin enviar la pieza física?",
