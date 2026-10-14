@@ -70,6 +70,9 @@ describe("niche answers (PR #316 pattern at template level)", () => {
     }
     expect(folded.some((s) => /^(Who can help me|¿Quién me ayuda)/.test(s.heading))).toBe(true);
     expect(folded.some((s) => /cost|cuesta/.test(s.heading))).toBe(entry.cost);
+    // Subjects carry their own article, so a template must never glue one on.
+    const all = [...folded, contact].flatMap((s) => [s.heading, ...s.paragraphs]).join(" ");
+    expect(all).not.toMatch(/\b(de|a) el\b|\bMost an? \b|\bcon la la\b|\bel el\b/);
     // Market rates and quote-only answers must not be called Esteban's prices.
     if (entry.model === "photo" || entry.model === "quote") {
       expect(folded.map((s) => s.paragraphs.join(" ")).join(" ")).not.toMatch(/starting point from the published price list|precios de partida de la lista publicada/);

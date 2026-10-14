@@ -132,7 +132,7 @@ const EN_ROWS: Row[] = [
   ["/services/salon-barbershop-video-marketing-miami", "a video for a salon or barbershop", "Miami", "social", false],
   ["/services/small-business-video-hollywood-fl", "small business video", "Hollywood, FL", "local"],
   ["/services/small-business-video-pembroke-pines", "small business video editing", "Pembroke Pines", "social"],
-  ["/services/small-business-video-production-miami", "small business video production", "Miami", "local"],
+  ["/services/small-business-video-production-miami", "small business video production", "Miami", "local", false],
   ["/services/tiktok-ad-video-editor-miami", "TikTok and Instagram ad editing", "Miami", "social"],
   ["/services/ugc-video-editor-ecommerce", "UGC video editing for an e-commerce brand", "Miami", "ecommerce"],
   ["/services/vacation-rental-video-marketing-fort-lauderdale", "vacation rental video", "Fort Lauderdale", "social"],
@@ -311,11 +311,11 @@ function costParagraphs(e: NicheEntry): string[] {
     case "social":
       return es
         ? [
-            `La mayoría de los proyectos de ${e.subject} empiezan con videos verticales cortos. El paquete Arranque va ${starter("es")}: tú grabas y Esteban edita un video para Reels, TikTok, Shorts o web, con una ronda de cambios. Si publicas cada semana, el Arranque se paga semana a semana: ${shortFormWeeklyText("es")}, es decir, desde ${weeklyFrom} por video, con un mínimo de ${T.minimumWeeks} semanas y luego cancelas cuando quieras. Un mes planificado, con plan de contenido, calendario, edición y reporte, es el paquete Crecimiento, ${growth("es")}.`,
+            `Para ${e.subject}, lo habitual es empezar con videos verticales cortos. El paquete Arranque va ${starter("es")}: tú grabas y Esteban edita un video para Reels, TikTok, Shorts o web, con una ronda de cambios. Si publicas cada semana, el Arranque se paga semana a semana: ${shortFormWeeklyText("es")}, es decir, desde ${weeklyFrom} por video, con un mínimo de ${T.minimumWeeks} semanas y luego cancelas cuando quieras. Un mes planificado, con plan de contenido, calendario, edición y reporte, es el paquete Crecimiento, ${growth("es")}.`,
             `${onLocation} ${close}`,
           ]
         : [
-            `Most ${e.subject} work starts with short vertical videos. The Starter package is ${starter("en")}: you film, Esteban edits one video for Reels, TikTok, Shorts or the web, with one revision round. If you post every week, Starter can be paid weekly: ${shortFormWeeklyText("en")}, which works out from ${weeklyFrom} per video, with a ${T.minimumWeeks}-week minimum and then cancel anytime. A planned month with a content plan, calendar, editing and a monthly report is the Growth package, ${growth("en")}.`,
+            `For ${e.subject}, most work starts with short vertical videos. The Starter package is ${starter("en")}: you film, Esteban edits one video for Reels, TikTok, Shorts or the web, with one revision round. If you post every week, Starter can be paid weekly: ${shortFormWeeklyText("en")}, which works out from ${weeklyFrom} per video, with a ${T.minimumWeeks}-week minimum and then cancel anytime. A planned month with a content plan, calendar, editing and a monthly report is the Growth package, ${growth("en")}.`,
             `${onLocation} ${close}`,
           ];
     case "realestate": {
