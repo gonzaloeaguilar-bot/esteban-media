@@ -1,4 +1,5 @@
 import { absoluteUrl } from "@/lib/site";
+import { pageLastModified } from "@/lib/page-lastmod";
 
 export interface PortfolioSchemaItem {
   id: string;
@@ -56,6 +57,7 @@ export function buildPortfolioCollectionSchema({
     "@id": absoluteUrl(`${path}#collection`),
     url: absoluteUrl(path),
     name: title,
+    ...(pageLastModified(path) ? { dateModified: pageLastModified(path) } : {}),
     description,
     inLanguage: locale,
     isPartOf: { "@id": absoluteUrl("/#website") },
@@ -111,6 +113,7 @@ export function buildPortfolioWatchSchema({
         "@id": `${pageUrl}#webpage`,
         url: pageUrl,
         name: title,
+        ...(pageLastModified(path) ? { dateModified: pageLastModified(path) } : {}),
         description: summary,
         inLanguage: locale,
         isPartOf: { "@id": absoluteUrl("/#website") },

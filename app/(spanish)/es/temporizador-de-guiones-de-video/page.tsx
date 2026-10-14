@@ -1,7 +1,10 @@
 import Link from "next/link";
 
 import { DailyScriptTimerEs } from "@/components/daily-script-timer-es";
+import { PageUpdated } from "@/components/page-updated";
+import { ScriptLengthAnswer } from "@/components/script-length-answer";
 import { Container } from "@/components/ui/container";
+import { pageLastModified } from "@/lib/page-lastmod";
 import { absoluteUrl } from "@/lib/site";
 import { buildPageMetadata } from "@/lib/site-metadata";
 
@@ -21,6 +24,7 @@ export default function DailyScriptTimerEsPage() {
     name: "Temporizador y Calculadora de Ritmo de Guiones",
     description: "Una calculadora interactiva de ritmo y lista de verificación diaria de ensayo para creadores de video vertical.",
     isPartOf: { "@id": absoluteUrl("/#website") },
+    ...(pageLastModified("/es/temporizador-de-guiones-de-video") ? { dateModified: pageLastModified("/es/temporizador-de-guiones-de-video") } : {}),
   };
 
   return (
@@ -45,6 +49,7 @@ export default function DailyScriptTimerEsPage() {
           </ol>
         </nav>
         <DailyScriptTimerEs />
+        <PageUpdated path="/es/temporizador-de-guiones-de-video" locale="es" />
 
         <div className="mt-12 rounded-xl border border-[#ddd4c8] bg-[#fbf6ef] p-6 text-sm text-[#252a2d]">
           <p>
@@ -59,6 +64,7 @@ export default function DailyScriptTimerEsPage() {
           </p>
         </div>
       </Container>
+      <ScriptLengthAnswer path="/es/temporizador-de-guiones-de-video" />
     </main>
   );
 }

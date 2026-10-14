@@ -12,10 +12,12 @@ export type DeclaredSourceRule = {
   contentFile: string;
   uses: RegExp;
   files?: string[];
-  blocks(root: string, text: string): PageSources["blocks"];
+  paths?: RegExp;
+  blocks(root: string, text: string, path?: string): PageSources["blocks"];
 };
 export const DECLARED_SOURCES: DeclaredSourceRule[];
 export function declaredSources(
   root: string,
   files: string[],
+  path?: string,
 ): { rule: DeclaredSourceRule; files: string[]; blocks: PageSources["blocks"] }[];

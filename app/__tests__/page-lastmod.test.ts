@@ -95,7 +95,7 @@ describe("per-page lastmod ledger", () => {
     const unresolved: string[] = [];
     for (const p of paths) {
       const own = pageSources(root, p).files.filter((f) => f.startsWith("app/"));
-      for (const d of declaredSources(root, own)) {
+      for (const d of declaredSources(root, own, p)) {
         if (d.blocks.length === 0) unresolved.push(`${p} (${d.rule.name})`);
       }
     }
@@ -111,6 +111,13 @@ describe("per-page lastmod ledger", () => {
     expect(fromFile("/guides/miami-restaurant-instagram-study", "lib/restaurant-ig-study.ts")).toBe(true);
     expect(fromFile("/es/guias/estudio-instagram-restaurantes-miami", "lib/restaurant-ig-study.ts")).toBe(true);
     expect(DECLARED_SOURCES.length).toBeGreaterThanOrEqual(3);
+  });
+
+  it("dates portfolio watch pages from their messages/*.json copy (row 70)", () => {
+    const fromFile = (p: string, file: string) => pageSources(root, p).blocks.some((b) => b.file === file);
+    expect(fromFile("/portfolio/banacol", "messages/en.json")).toBe(true);
+    expect(fromFile("/es/portafolio/banacol", "messages/es.json")).toBe(true);
+    expect(fromFile("/es/portafolio/banacol", "messages/en.json")).toBe(false);
   });
 
   it("changes a page's hash when its copy changes in a declared content file, and only that page's", () => {

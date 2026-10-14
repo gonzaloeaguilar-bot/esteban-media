@@ -71,7 +71,9 @@
   "percents": []
  },
  "en:freelance-vs-post-agency-guide": {
-  "dollars": [],
+  "dollars": [
+   "$149"
+  ],
   "percents": []
  },
  "en:ideal-video-length-guide": {
@@ -300,7 +302,9 @@
   "percents": []
  },
  "es:freelance-vs-post-agency-guide": {
-  "dollars": [],
+  "dollars": [
+   "$149"
+  ],
   "percents": []
  },
  "es:ideal-video-length-guide": {

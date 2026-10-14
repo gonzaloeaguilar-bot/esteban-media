@@ -25,27 +25,27 @@
  },
  "/case-studies": {
   "date": "2026-10-14",
-  "hash": "a96be9e8f288a567"
+  "hash": "4abd53d80c0b88fe"
  },
  "/case-studies/banacol": {
   "date": "2026-10-14",
-  "hash": "91b9278ae586802f"
+  "hash": "a67c45c52566e490"
  },
  "/case-studies/flas-concierge": {
   "date": "2026-10-14",
-  "hash": "e4d9dea33f2dde30"
+  "hash": "34aa4c9d32c2f65b"
  },
  "/case-studies/healthy-smile": {
   "date": "2026-10-14",
-  "hash": "3fb4d1a809ff141c"
+  "hash": "f925c0cac343fd20"
  },
  "/case-studies/homeowners": {
   "date": "2026-10-14",
-  "hash": "c6d3f44341042c4a"
+  "hash": "0013226fdd3b28d1"
  },
  "/case-studies/my-dler": {
   "date": "2026-10-14",
-  "hash": "73f26bb0cba39615"
+  "hash": "775c0108309a646a"
  },
  "/contact": {
   "date": "2026-10-11",
@@ -60,12 +60,12 @@
   "hash": "db7e0757de21b684"
  },
  "/daily-script-pacing-calculator": {
-  "date": "2026-08-20",
-  "hash": "78a344545696cf5e"
+  "date": "2026-10-14",
+  "hash": "cfc04c3a0fabb27b"
  },
  "/daily-script-timer": {
-  "date": "2026-08-21",
-  "hash": "bdd3b9fe8c7f892f"
+  "date": "2026-10-14",
+  "hash": "d1af8eecfddf5c79"
  },
  "/daily-shot-list-planner": {
   "date": "2026-08-19",
@@ -105,7 +105,7 @@
  },
  "/es/calculadora-de-ritmo-de-video": {
   "date": "2026-10-14",
-  "hash": "ac3eeeada646ccfb"
+  "hash": "8745c57d7c2e2e05"
  },
  "/es/captura-y-automatizacion-de-clientes-con-ia": {
   "date": "2026-08-26",
@@ -113,27 +113,27 @@
  },
  "/es/casos-de-estudio": {
   "date": "2026-10-14",
-  "hash": "946dc8bf93d54577"
+  "hash": "1fbae5d0f6844bd3"
  },
  "/es/casos-de-estudio/banacol": {
   "date": "2026-10-14",
-  "hash": "de6204c2636e1187"
+  "hash": "22f92aca4903e1ae"
  },
  "/es/casos-de-estudio/flas-concierge": {
   "date": "2026-10-14",
-  "hash": "1e2390d6ad91f011"
+  "hash": "c9207c7e24964fa0"
  },
  "/es/casos-de-estudio/healthy-smile": {
   "date": "2026-10-14",
-  "hash": "c71cb398fae1a073"
+  "hash": "2007a73a38e3ab03"
  },
  "/es/casos-de-estudio/homeowners": {
   "date": "2026-10-14",
-  "hash": "7cf22bced1027f16"
+  "hash": "1788c485787a12c5"
  },
  "/es/casos-de-estudio/my-dler": {
   "date": "2026-10-14",
-  "hash": "da3aac084c13dd39"
+  "hash": "45059992ccdcca5a"
  },
  "/es/contacto": {
   "date": "2026-10-11",
@@ -205,7 +205,7 @@
  },
  "/es/edicion-de-video-promocional-para-restaurantes-miami": {
   "date": "2026-10-14",
-  "hash": "b8d0dfd50b5128b8"
+  "hash": "db0e7829ad597c11"
  },
  "/es/editor-de-reels-boca-raton": {
   "date": "2026-10-14",
@@ -412,8 +412,8 @@
   "hash": "69412978bc73d23b"
  },
  "/es/guias/editor-de-video-freelance-vs-agencia-de-postproduccion": {
-  "date": "2026-10-07",
-  "hash": "4a39132d5633d317"
+  "date": "2026-10-14",
+  "hash": "a0f51a6387714544"
  },
  "/es/guias/editor-de-video-vs-videografo": {
   "date": "2026-10-14",
@@ -580,60 +580,60 @@
   "hash": "159f484a87704944"
  },
  "/es/portafolio": {
-  "date": "2026-10-11",
-  "hash": "688e3f81f110d0ae"
+  "date": "2026-10-14",
+  "hash": "20e73ff59e341cf1"
  },
  "/es/portafolio/ai-lead-automation": {
-  "date": "2026-08-22",
-  "hash": "21bfb55bac76119d"
+  "date": "2026-10-14",
+  "hash": "114a9671af81b545"
  },
  "/es/portafolio/banacol": {
   "date": "2026-10-14",
-  "hash": "fce1b70944e81f25"
+  "hash": "c652588191da0469"
  },
  "/es/portafolio/bar-door-monkey": {
   "date": "2026-10-14",
-  "hash": "0b9b6885450c75a1"
+  "hash": "29e7290f142f9a4c"
  },
  "/es/portafolio/diana-jack": {
-  "date": "2026-07-26",
-  "hash": "e73cf4af831090aa"
+  "date": "2026-10-14",
+  "hash": "4a5a930f2d56e953"
  },
  "/es/portafolio/flas-concierge": {
   "date": "2026-10-14",
-  "hash": "0e2a8b03a72d7dfc"
+  "hash": "e81281df386dacfc"
  },
  "/es/portafolio/front-line-auto": {
-  "date": "2026-07-26",
-  "hash": "2f4be1cd8106c6be"
+  "date": "2026-10-14",
+  "hash": "33a235ea1a3fc062"
  },
  "/es/portafolio/gains-from-geebs": {
-  "date": "2026-07-26",
-  "hash": "c003ddca15a71ec8"
+  "date": "2026-10-14",
+  "hash": "c7c39ed91c470c5d"
  },
  "/es/portafolio/healthy-smile": {
   "date": "2026-10-14",
-  "hash": "41a2710055ab4bc0"
+  "hash": "c003fe939fc310c4"
  },
  "/es/portafolio/homeowners": {
   "date": "2026-10-14",
-  "hash": "efcb030cd5cec585"
+  "hash": "ade81d82bfbf7d82"
  },
  "/es/portafolio/la-huelga": {
-  "date": "2026-07-17",
-  "hash": "c1f6d6d4f6068c6a"
+  "date": "2026-10-14",
+  "hash": "0c1be4c361f4b312"
  },
  "/es/portafolio/ml-colombia": {
   "date": "2026-10-14",
-  "hash": "b2dd03ab64158141"
+  "hash": "62d909b93aeec716"
  },
  "/es/portafolio/my-dler": {
   "date": "2026-10-14",
-  "hash": "5f62b1ae03a32035"
+  "hash": "5ee98c19a859ce25"
  },
  "/es/portafolio/titanforge": {
-  "date": "2026-07-26",
-  "hash": "72af7f005172e45b"
+  "date": "2026-10-14",
+  "hash": "7e0604fcf54b1c1a"
  },
  "/es/postproduccion-de-videos-musicales-miami": {
   "date": "2026-07-26",
@@ -736,8 +736,8 @@
   "hash": "4c6e33ed57b17158"
  },
  "/es/temporizador-de-guiones-de-video": {
-  "date": "2026-09-29",
-  "hash": "704e0c01f6ad03e5"
+  "date": "2026-10-14",
+  "hash": "c30eb74563380844"
  },
  "/es/video-corporativo-distrito-financiero-miami": {
   "date": "2026-07-26",
@@ -785,7 +785,7 @@
  },
  "/es/video-para-restaurantes-miami": {
   "date": "2026-10-14",
-  "hash": "715088d7d8ec59b7"
+  "hash": "ad9433c0aacb0fd5"
  },
  "/es/video-para-yates-y-hospitalidad-fort-lauderdale": {
   "date": "2026-10-11",
@@ -880,8 +880,8 @@
   "hash": "f00d71cb1a48f40b"
  },
  "/guides/freelance-video-editor-vs-post-agency": {
-  "date": "2026-10-07",
-  "hash": "0ea9f8871013e4c7"
+  "date": "2026-10-14",
+  "hash": "1a098b5675a2883f"
  },
  "/guides/how-many-reels-should-a-restaurant-post-per-week": {
   "date": "2026-10-14",
@@ -1028,60 +1028,60 @@
   "hash": "2d4f6f989971a2b4"
  },
  "/portfolio": {
-  "date": "2026-10-11",
-  "hash": "baa5576598ce7259"
+  "date": "2026-10-14",
+  "hash": "e01b93779e430609"
  },
  "/portfolio/ai-lead-automation": {
-  "date": "2026-08-22",
-  "hash": "21bfb55bac76119d"
+  "date": "2026-10-14",
+  "hash": "741ff16f0b6c4002"
  },
  "/portfolio/banacol": {
   "date": "2026-10-14",
-  "hash": "eebe3d5fdfa94f98"
+  "hash": "4f9ccbf704288538"
  },
  "/portfolio/bar-door-monkey": {
   "date": "2026-10-14",
-  "hash": "9f4e2c2827399352"
+  "hash": "f7750c022914edcb"
  },
  "/portfolio/diana-jack": {
   "date": "2026-10-14",
-  "hash": "4a6e93b2d6bc6087"
+  "hash": "dc90cd5d91666393"
  },
  "/portfolio/flas-concierge": {
   "date": "2026-10-14",
-  "hash": "4e3254338bad2028"
+  "hash": "1fcc2f6600364204"
  },
  "/portfolio/front-line-auto": {
-  "date": "2026-07-26",
-  "hash": "2f4be1cd8106c6be"
+  "date": "2026-10-14",
+  "hash": "318c7d7f50e4d3de"
  },
  "/portfolio/gains-from-geebs": {
-  "date": "2026-07-26",
-  "hash": "c003ddca15a71ec8"
+  "date": "2026-10-14",
+  "hash": "7ed39b4d409cea8a"
  },
  "/portfolio/healthy-smile": {
   "date": "2026-10-14",
-  "hash": "0a49e7f19186cd67"
+  "hash": "9334ecd6f6ec9b68"
  },
  "/portfolio/homeowners": {
   "date": "2026-10-14",
-  "hash": "4e52d7b812353ea4"
+  "hash": "2e4f5c823cadbdc8"
  },
  "/portfolio/la-huelga": {
-  "date": "2026-07-17",
-  "hash": "c1f6d6d4f6068c6a"
+  "date": "2026-10-14",
+  "hash": "38247f833dfb1e4b"
  },
  "/portfolio/ml-colombia": {
   "date": "2026-10-14",
-  "hash": "be0bda1ca19b7a6f"
+  "hash": "0253167a9ee9b1a9"
  },
  "/portfolio/my-dler": {
   "date": "2026-10-14",
-  "hash": "5558b0dc1a6dbc5d"
+  "hash": "6039eb203b9f927f"
  },
  "/portfolio/titanforge": {
-  "date": "2026-07-26",
-  "hash": "72af7f005172e45b"
+  "date": "2026-10-14",
+  "hash": "6846745c85c7096e"
  },
  "/pricing": {
   "date": "2026-10-14",
@@ -1353,7 +1353,7 @@
  },
  "/services/restaurant-promo-video-editing-miami": {
   "date": "2026-10-14",
-  "hash": "366ef82a4fdf6ca2"
+  "hash": "26fa125f8db27c5e"
  },
  "/services/salon-barbershop-video-marketing-miami": {
   "date": "2026-10-13",

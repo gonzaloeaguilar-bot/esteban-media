@@ -3660,6 +3660,12 @@ const guidePairs: readonly GuidePair[] = [
             "The cost of the structure is distance and overhead. Notes usually travel through a producer, so it helps to agree how feedback is collected and how many rounds are included. When you compare quotes, compare what each one includes — editing, colour, sound, graphics, revisions, file formats — rather than the total alone. A freelancer and an agency can both be right; the deciding question is how many different skills the project needs at the same time.",
           ],
         },
+        {
+          heading: "How much does a freelance video editor charge?",
+          paragraphs: [
+            `It depends on how the editor bills: per video, per hour or per project. Esteban Moreno Media, an independent editor based in Fort Lauderdale, edits one Reel, TikTok or Short from your own clips for ${usd(SHORT_FORM.perVideoFrom)} per video (Starter), so the price is fixed before the edit starts. Agencies more often bill by the hour: Clutch's video production pricing guide says most agencies charge $100 to $149 an hour. Before you compare quotes, ask each editor the same three questions: how many rounds of changes are included, who keeps the project files, and whether captions and extra sizes such as 9:16 and 1:1 cost more. A per-video price and an hourly rate only compare once you know how many hours a video takes. The [local editor vs Fiverr vs agency guide](/guides/local-editor-vs-fiverr-vs-agency-miami) has the full figures and their sources.`,
+          ],
+        },
       ],
     },
     es: {
@@ -3690,6 +3696,12 @@ const guidePairs: readonly GuidePair[] = [
           paragraphs: [
             "Cuando el trabajo necesita varios especialistas a la vez o un volumen que una sola persona no puede llevar. Una agencia puede poner a un colorista, un mezclador de sonido, un diseñador de animación y varios editores en la misma campaña, trabajar en paralelo y cubrir vacaciones o ausencias sin que el cliente lo note. Las entregas para televisión, las campañas grandes en varios idiomas y los proyectos con especificaciones técnicas estrictas suelen aprovechar esa estructura.",
             "El costo de esa estructura es la distancia y los gastos generales. Las notas suelen pasar por un productor, así que conviene acordar cómo se reúnen los comentarios y cuántas rondas se incluyen. Al comparar cotizaciones, compara lo que incluye cada una — edición, color, sonido, gráficos, revisiones, formatos — y no solo el total. La pregunta decisiva es cuántas habilidades distintas necesita el proyecto al mismo tiempo.",
+          ],
+        },
+        {
+          heading: "¿Cuánto cobra un editor de video freelance?",
+          paragraphs: [
+            `Depende de cómo cobra: por video, por hora o por proyecto. Esteban Moreno Media, un editor independiente con base en Fort Lauderdale, edita un Reel, TikTok o Short con tus propios clips por ${usd(SHORT_FORM.perVideoFrom)} por video (paquete Arranque), así que el precio queda fijo antes de empezar la edición. Las agencias cobran más a menudo por hora: la guía de precios de producción de video de Clutch dice que la mayoría cobra entre $100 y $149 por hora. Antes de comparar cotizaciones, hazle a cada editor las mismas tres preguntas: cuántas rondas de cambios incluye, quién se queda con los archivos del proyecto y si los subtítulos y los formatos extra, como 9:16 y 1:1, cuestan más. Un precio por video y una tarifa por hora solo se pueden comparar cuando sabes cuántas horas toma un video. La [guía de editor local vs Fiverr vs agencia](/es/guias/editor-local-vs-fiverr-vs-agencia-miami) tiene las cifras completas y sus fuentes.`,
           ],
         },
       ],

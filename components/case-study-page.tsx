@@ -11,10 +11,12 @@ import {
 } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { PageUpdated } from "@/components/page-updated";
 import { YouTubeFacade } from "@/components/youtube-facade";
 import {
   buildCaseStudyStructuredData,
   getCaseStudyAlternates,
+  getCaseStudyPath,
   type CaseStudy,
 } from "@/lib/case-studies";
 import { isYouTubeSource, getPortfolioItemById } from "@/lib/portfolio";
@@ -165,6 +167,11 @@ export function CaseStudyPage({ caseStudy }: CaseStudyPageProps) {
               <p className="mt-5 text-base leading-7 text-[#d8d0c7] sm:text-lg sm:leading-8">
                 {caseStudy.summary}
               </p>
+              <PageUpdated
+                path={getCaseStudyPath(caseStudy)}
+                locale={caseStudy.locale}
+                className="mt-4 text-xs text-[#b9b2aa]"
+              />
               <div className="mt-7 flex flex-wrap gap-3">
                 <Link
                   href={caseStudy.serviceLink.href}
@@ -204,6 +211,27 @@ export function CaseStudyPage({ caseStudy }: CaseStudyPageProps) {
                 </dd>
               </div>
             ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* Answer first (loop row 68): what Esteban did, in one citable section */}
+      <section
+        className="border-b border-[#d6ccc0] py-10 sm:py-12"
+        aria-labelledby="case-study-answer"
+        data-section="case_study_answer"
+      >
+        <Container size="xl">
+          <div className="max-w-3xl">
+            <h2
+              id="case-study-answer"
+              className="font-serif text-3xl leading-tight text-[#101214] sm:text-4xl"
+            >
+              {caseStudy.answer.question}
+            </h2>
+            <p className="mt-4 text-base leading-7 text-[#3f4548] sm:text-lg sm:leading-8">
+              {caseStudy.answer.text}
+            </p>
           </div>
         </Container>
       </section>
@@ -283,6 +311,12 @@ export function CaseStudyPage({ caseStudy }: CaseStudyPageProps) {
                     ? "Cada producción o desarrollo web parte de preguntas claras sobre el material existente, los objetivos del negocio y los entregables requeridos. No se establecen precios fijos antes de evaluar estas variables:"
                     : "Every video production or web development project begins with clear scoping questions regarding available assets, business objectives, and required deliverables. No fixed pricing is quoted before evaluating these factors:"}
                 </p>
+                <details className="group mt-5">
+                  <summary className="inline-flex min-h-11 cursor-pointer items-center gap-2 text-sm font-semibold text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4">
+                    {isSpanish
+                      ? `Ver las ${caseStudy.scopingQuestions.length} preguntas`
+                      : `See the ${caseStudy.scopingQuestions.length} questions`}
+                  </summary>
                 <ul className="mt-5 space-y-3">
                   {caseStudy.scopingQuestions.map((q, qIdx) => (
                     <li
@@ -296,6 +330,7 @@ export function CaseStudyPage({ caseStudy }: CaseStudyPageProps) {
                     </li>
                   ))}
                 </ul>
+                </details>
               </div>
             </article>
 

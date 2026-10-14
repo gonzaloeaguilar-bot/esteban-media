@@ -181,21 +181,39 @@ export const DECLARED_SOURCES = [
       ].filter(Boolean);
     },
   },
+  {
+    // Portfolio watch pages (overnight loop row 70): the title, summary and
+    // credits come from messages/<locale>.json Portfolio.items.<id>, keyed by
+    // the dynamic [id] segment, so contentBlocks() never saw them.
+    name: "portfolio watch copy (messages/<locale>.json Portfolio.items)",
+    contentFile: "messages/en.json",
+    // A dynamic [id] route has no static route folder, so the rule matches by path.
+    paths: /^\/(portfolio|es\/portafolio)\/[^/]+$/,
+    uses: /<PortfolioWatchPage\b/,
+    blocks(root, text, path) {
+      const locale = path?.startsWith("/es/") ? "es" : "en";
+      const id = path?.split("/").filter(Boolean).pop();
+      if (!id) return [];
+      return [
+        blockBetween(root, `messages/${locale}.json`, new RegExp(`^ {6}"${escape(id)}": \\{$`), /^ {6}\},?$/),
+      ].filter(Boolean);
+    },
+  },
 ];
 
 /** The declared rules a page's own route files match, with what each resolved. */
-export function declaredSources(root, files) {
+export function declaredSources(root, files, path) {
   const text = files.map((f) => readFileSync(join(root, f), "utf8")).join("\n");
-  return DECLARED_SOURCES.filter((rule) => rule.uses.test(text)).map((rule) => ({
+  return DECLARED_SOURCES.filter((rule) => rule.uses.test(text) || Boolean(path && rule.paths?.test(path))).map((rule) => ({
     rule,
     files: (rule.files ?? []).filter((f) => existsSync(join(root, f))),
-    blocks: rule.blocks(root, text),
+    blocks: rule.blocks(root, text, path),
   }));
 }
 
 export function pageSources(root, path) {
   const files = routeDirs(root, path).flatMap(ownFiles).map((p) => relative(root, p));
-  const declared = declaredSources(root, files);
+  const declared = declaredSources(root, files, path);
   return {
     files: [...files, ...declared.flatMap((d) => d.files)],
     blocks: [...contentBlocks(root, path), ...declared.flatMap((d) => d.blocks)],
