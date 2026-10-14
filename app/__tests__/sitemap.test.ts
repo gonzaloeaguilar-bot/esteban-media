@@ -21,7 +21,7 @@ import sitemap, { inventoryAdditions20261010Paths } from "../sitemap";
 describe("portfolio sitemap entries", () => {
   const entries = sitemap();
 
-  it("publishes the exact 358-URL consolidated inventory, each URL once", () => {
+  it("publishes the exact 360-URL consolidated inventory, each URL once", () => {
     const urls = entries.map((entry) => entry.url);
 
     // 279 = 243 consolidated + /desk-recommendations (owner-ordered
@@ -46,8 +46,10 @@ describe("portfolio sitemap entries", () => {
     // +4 = food-account and short-form cost guide hubs, EN+ES (2026-10-14).
     // +2 = Reels editing cost calculator, EN+ES (2026-10-14).
     // +4 = local vs Fiverr vs agency and restaurant Reels-per-week guides, EN+ES (2026-10-14).
-    expect(entries).toHaveLength(358);
-    expect(new Set(urls)).toHaveLength(358);
+    // +2 = Boca Raton pair (2026-10-14, owner decision): the EN page re-admitted
+    // from the cohort noindex list, plus its new Spanish twin.
+    expect(entries).toHaveLength(360);
+    expect(new Set(urls)).toHaveLength(360);
   });
 
   it("pairs real product photography pages with reciprocal language alternatives", () => {

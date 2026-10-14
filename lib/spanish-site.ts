@@ -9,7 +9,7 @@ import { isConsolidatedPath } from "@/lib/consolidation";
 import { eventLanguageAlternates } from "@/lib/events";
 import { packageRoutes } from "@/lib/package-routes";
 import type { LucideIcon } from "lucide-react";
-import { PACKAGE_PRICES, PRICING_BANDS, RESTAURANT_PROMO, SHORT_FORM, shortFormPriceText, shortFormWeeklyText, usd } from "@/lib/pricing";
+import { ARRANQUE_WEEKLY_TERMS, PACKAGE_PRICES, PRICING_BANDS, RESTAURANT_PROMO, SHORT_FORM, shortFormPriceText, shortFormWeeklyText, usd } from "@/lib/pricing";
 import {
   Anchor,
   Building2,
@@ -3330,6 +3330,82 @@ export const spanishNichePages: SpanishNichePage[] = [
       },
     ],
   },
+  // Gemela en español de /services/video-production-boca-raton (decisión del
+  // dueño, 2026-10-14: Boca Raton entró al área de servicio del perfil de
+  // Google ese día). Palm Beach County sigue "proyecto por proyecto" (AGENTS.md);
+  // los negocios de Boca aparecen solo como público, nunca como clientes.
+  {
+    slug: "editor-de-reels-boca-raton",
+    title: "Editor de Reels y video en Boca Raton",
+    metadataTitle: "Reels y Edición de Video Boca Raton",
+    description:
+      "Edición remota de Reels, TikTok y Shorts para negocios de Boca Raton con los clips que ya grabaste. La grabación en Palm Beach County se evalúa proyecto por proyecto.",
+    eyebrow: "Boca Raton / Palm Beach County",
+    h1: "Editor de Reels en Boca Raton para convertir tus clips en videos que se entienden rápido.",
+    lead:
+      "Esta página es para negocios y creadores de Boca Raton que ya tienen videos en el teléfono o de una grabación. Esteban edita a distancia desde Fort Lauderdale, en español, y te devuelve videos verticales con subtítulos legibles y una sola acción al final.",
+    keyword: "editor de reels Boca Raton",
+    location: "Boca Raton / Palm Beach County",
+    availability: "confirmed",
+    icon: Scissors,
+    bestFor: [
+      "Restaurantes y cafés, también los de la zona de Mizner Park, con clips sin editar.",
+      "Med spas, consultorios dentales y médicos, y agentes inmobiliarios con material de sus propiedades.",
+      "Boutiques, estudios de fitness y bienestar, y servicios profesionales que quieren un video corto que explique la oferta.",
+      "Dueños que prefieren explicar la idea y revisar el contenido en español.",
+    ],
+    scopingQuestions: [
+      "¿Cuántos clips tienes y con qué los grabaste?",
+      "¿El video debe vender, explicar, educar o mostrar un antes y después?",
+      "¿Necesitas subtítulos en español, en inglés o en los dos idiomas?",
+      "¿En qué plataforma se publicará primero?",
+    ],
+    projectFit:
+      "Si quieres ver una pieza publicada, revisa el [video social de ML Colombia](/es/portafolio/ml-colombia), de la marca de Esteban. En esta página no se presenta ningún cliente de Boca Raton. La versión en inglés está en [Reels & Video Editing Boca Raton](/services/video-production-boca-raton).",
+    sections: [
+      {
+        heading: "¿Quién edita Reels para negocios en Boca Raton?",
+        paragraphs: [
+          `Esteban Moreno Media edita Reels de Instagram, TikToks y YouTube Shorts para negocios y creadores de Boca Raton a partir de los clips que ellos mismos graban. Esteban Moreno es editor de video con base en Fort Lauderdale y trabaja a distancia: subes los archivos originales a una carpeta compartida, escribes una línea sobre lo que debe decir cada video y dónde se va a publicar, y recibes los cortes verticales con subtítulos dentro de las zonas seguras y una acción clara al final. Su idioma de trabajo es el español, con inglés intermedio, así que puedes explicar la idea y dar los cambios en español aunque los subtítulos vayan en inglés. Boca Raton queda en el extremo sur de Palm Beach County, al otro lado del canal Hillsboro desde Deerfield Beach, en Broward. Para ver cómo funciona la edición, revisa la página de [editor de Reels en Fort Lauderdale](/es/editor-de-reels-fort-lauderdale).`,
+        ],
+      },
+      {
+        heading: "¿Para qué negocios de Boca Raton es este servicio?",
+        paragraphs: [
+          "Está pensado para negocios de Boca Raton que ya graban con el teléfono o con una cámara y necesitan que esos clips se conviertan en videos cortos que la gente vea hasta el final. Los casos más comunes son restaurantes y cafés, incluidos los de la zona de Mizner Park; med spas, consultorios dentales y médicos; agentes inmobiliarios con clips de sus propiedades; boutiques y tiendas cerca de Town Center at Boca Raton; estudios de fitness, yoga y bienestar; firmas de servicios profesionales que quieren un video corto que explique lo que hacen; y creadores que están empezando, también los estudiantes de Florida Atlantic University. Son el tipo de negocio para el que se diseñó el servicio, no una lista de clientes: aquí no se presenta ningún proyecto en Boca Raton. Si tu negocio no aparece, el mismo proceso funciona igual.",
+        ],
+      },
+      {
+        heading: "¿Esteban va a Boca Raton a grabar?",
+        paragraphs: [
+          "La mayoría del trabajo en Boca Raton es edición a distancia, y eso no depende del viaje. Envías los clips originales, una referencia de un video que te guste y el texto principal, y apruebas la edición desde el teléfono. Boca Raton está a unas 20 millas al norte de Fort Lauderdale por la I-95, pero la grabación en locación en Palm Beach County se evalúa proyecto por proyecto: si una grabación tiene sentido y cuánto suma el traslado a la cotización se define para cada proyecto, cuando el objetivo está claro. No se promete disponibilidad fija para grabar en Boca Raton, así que pregunta antes de organizar un día de grabación alrededor de esa fecha. Si todavía no tienes material, la guía [cómo grabar video con iPhone para edición profesional](/es/guias/grabar-video-con-iphone-para-edicion-profesional) te ayuda a preparar los primeros clips antes de escribir.",
+        ],
+      },
+      {
+        heading: "¿Cuánto cuesta editar Reels para un negocio en Boca Raton?",
+        paragraphs: [
+          `Los precios para Boca Raton salen de la misma lista publicada que el resto del sitio. El paquete Arranque cuesta desde ${esStarterFrom} por video: tú grabas y Esteban edita un video vertical para Reels, TikTok, Shorts o la web, con una ronda de cambios. Si publicas cada semana, el Arranque se paga semana a semana: ${esWeekly}, con un mínimo de ${ARRANQUE_WEEKLY_TERMS.minimumWeeks} semanas, y después cancelas cualquier semana. Un mes planificado, con plan de contenido, calendario, edición y reporte, es el paquete Crecimiento, que aparece en la página de [precios](/es/precios). Cualquier grabación en locación en Palm Beach County se cotiza aparte, proyecto por proyecto, porque el traslado y el tiempo de grabación dependen del objetivo. Es un precio de partida, no un precio cerrado: la cantidad de material y las versiones que necesites ajustan la cotización final.`,
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Puedo contratar solo la edición si estoy en Boca Raton?",
+        answer:
+          "Sí. Si ya tienes clips, una referencia y un objetivo claro, el proyecto puede ser solo edición a distancia de Reels, TikTok o Shorts. No necesitas estar en Fort Lauderdale.",
+      },
+      {
+        question: "¿Qué material debo enviar?",
+        answer:
+          "Los clips originales, no copias descargadas de redes; los mejores momentos; cualquier toma hablando a cámara o voz en off; tu logo; un Reel de referencia y la plataforma donde se publicará.",
+      },
+      {
+        question: "¿También cubren Delray Beach y el resto de Palm Beach County?",
+        answer:
+          "Sí, en las mismas condiciones: edición a distancia del material que tengas y trabajo en locación en Palm Beach County evaluado proyecto por proyecto. Revisa [producción de video en Delray Beach](/es/produccion-de-video-delray-beach).",
+      },
+    ],
+  },
   {
     slug: "produccion-de-video-delray-beach",
     title: "Producción de video en Delray Beach",
@@ -3941,7 +4017,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       "¿En qué plataforma se publicará primero?",
     ],
     projectFit:
-      "Si ya tienes clips, revisa el [video social publicado de ML Colombia](/es/portafolio/ml-colombia) para ver una pieza de contenido de la marca que Esteban dirigió. La versión en inglés de este servicio está en [Reels Editor Fort Lauderdale](/services/reels-editor-fort-lauderdale).",
+      "Si ya tienes clips, revisa el [video social publicado de ML Colombia](/es/portafolio/ml-colombia) para ver una pieza de contenido de la marca que Esteban dirigió. La versión en inglés de este servicio está en [Reels Editor Fort Lauderdale](/services/reels-editor-fort-lauderdale). Si tu negocio está más al norte, revisa el [editor de Reels en Boca Raton](/es/editor-de-reels-boca-raton).",
     sections: [
       {
         heading: "¿Qué hace útil a un Reel de negocio?",
@@ -4603,6 +4679,7 @@ const nicheBatch20261006Hreflang = Object.fromEntries(
     [
       ["/services/reels-editor-fort-lauderdale", "/es/editor-de-reels-fort-lauderdale"],
       ["/services/reels-editor-miami", "/es/editor-de-reels-miami"],
+      ["/services/video-production-boca-raton", "/es/editor-de-reels-boca-raton"],
       ["/services/real-estate-reels-video-editor-south-florida", "/es/editor-de-video-real-estate-miami"],
       ["/services/wealth-management-video-production-miami", "/es/produccion-de-video-para-asesores-financieros-miami"],
       ["/services/med-spa-video-marketing-south-florida", "/es/marketing-de-video-para-clinicas-esteticas-miami"],

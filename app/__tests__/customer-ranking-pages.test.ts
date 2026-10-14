@@ -207,7 +207,12 @@ describe("customer-facing ranking pages", () => {
       "comunicador audiovisual",
       "five years",
       "cinco años",
-      "Boca Raton",
+      // "Boca Raton" was un-gated on 2026-10-14 by owner decision: Boca Raton
+      // joined the Google Business Profile service area that day and the page
+      // pair /services/video-production-boca-raton + /es/editor-de-reels-boca-raton
+      // was rebuilt and re-indexed (config/cohort-consolidation.json,
+      // reopenedByOwner). On-location work there stays "proyecto por proyecto",
+      // which the next test still enforces.
       "West Palm Beach",
       "Pompano Beach",
       "Brickell",

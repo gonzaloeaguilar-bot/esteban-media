@@ -115,6 +115,11 @@ const content: GeoServicePageContent = {
       detail: "Remote editing of the footage West Palm Beach businesses already have.",
       href: "/services/video-editing-west-palm-beach",
     },
+    {
+      title: "Reels and video editing in Boca Raton",
+      detail: "Remote Reels editing for Boca Raton businesses, at the south end of Palm Beach County.",
+      href: "/services/video-production-boca-raton",
+    },
   ],
   inquiry: {
     serviceId: "reels_editor_fort_lauderdale",

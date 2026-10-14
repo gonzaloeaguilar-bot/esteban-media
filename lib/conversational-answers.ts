@@ -139,9 +139,10 @@ export const ALL_CONVERSATIONAL_UNITS: readonly { key: string; heading: string; 
 // instead of a new thin city page (2026-08-12: 29 city pages, 33 impressions,
 // 0 clicks, 64% overlap). Palm Beach County stays "project by project"
 // (AGENTS.md: do not strengthen Palm Beach positioning without local evidence).
-// Boca Raton is left out on purpose: /services/video-production-boca-raton is
-// consolidated and noindexed (config/cohort-consolidation.json), so deepening it
-// changes nothing in search until a demand wave re-admits it to the sitemap.
+// Boca Raton was left out of the first pass because its page was noindexed.
+// The owner re-admitted /services/video-production-boca-raton on 2026-10-14
+// (config/cohort-consolidation.json, reopenedByOwner), so it now gets the same
+// answer on the same Palm Beach "project by project" terms.
 // ---------------------------------------------------------------------------
 
 type CityReels = { path: string; city: string; section: ConversationalSection };
@@ -170,6 +171,8 @@ export const CITY_REELS: readonly CityReels[] = [
     "Pembroke Pines is in southwest Broward County, west of Hollywood along Pines Boulevard."),
   cityReels("/services/video-editing-west-palm-beach", "West Palm Beach", "Palm Beach County", true,
     "West Palm Beach is the county seat of Palm Beach County, and remote editing does not depend on the drive from Broward."),
+  cityReels("/services/video-production-boca-raton", "Boca Raton", "Palm Beach County", true,
+    "Boca Raton is at the southern edge of Palm Beach County, across the Hillsboro Canal from Deerfield Beach in Broward."),
 ];
 
 export function cityReelsFor(path: string): CityReels {
