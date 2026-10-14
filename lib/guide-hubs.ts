@@ -168,7 +168,7 @@ export const guideHubPairs: readonly GuidePair[] = [
     id: "food-account-start-guide",
     en: {
       slug: "how-to-start-a-restaurant-recommendation-account-miami",
-      metadataTitle: "Start a Food Recommendation Account in Miami",
+      metadataTitle: "Start a Food Account in Miami",
       title: "How do you start a restaurant recommendation account in Miami?",
       description: "What a new food and places account in Miami needs before the first post, what to film at each restaurant, how often to post, and who can edit the videos.",
       eyebrow: "Food and places accounts",
@@ -223,7 +223,7 @@ export const guideHubPairs: readonly GuidePair[] = [
     },
     es: {
       slug: "como-empezar-una-cuenta-de-recomendaciones-de-restaurantes-miami",
-      metadataTitle: "Cuenta de Restaurantes en Miami: Cómo Empezar",
+      metadataTitle: "Cómo Empezar una Cuenta de Comida",
       title: "¿Cómo empezar una cuenta de recomendaciones de restaurantes en Miami?",
       description: "Qué necesita una cuenta nueva de comida y lugares en Miami antes de publicar, qué grabar en cada restaurante, cada cuánto publicar y quién edita los videos.",
       eyebrow: "Cuentas de comida y lugares",
@@ -281,7 +281,7 @@ export const guideHubPairs: readonly GuidePair[] = [
     id: "short-form-editor-cost-guide",
     en: {
       slug: "how-much-does-a-short-form-video-editor-cost",
-      metadataTitle: "Short-Form Video Editor Cost: Per Video vs Weekly",
+      metadataTitle: "Short-Form Editing Cost: Per Video",
       title: "How much does a short-form video editor cost, per video or weekly?",
       description: `What it costs to edit a Reel, TikTok or Short: Esteban's ${once} per-video Starter, the weekly option, when each one makes sense, and what changes the price.`,
       eyebrow: "Short-form editing costs",
@@ -330,7 +330,7 @@ export const guideHubPairs: readonly GuidePair[] = [
     },
     es: {
       slug: "cuanto-cuesta-un-editor-de-videos-cortos",
-      metadataTitle: "Editor de Videos Cortos: Precio por Video o Semanal",
+      metadataTitle: "Precio de Editar Videos Cortos",
       title: "¿Cuánto cuesta un editor de videos cortos, por video o por semana?",
       description: `Cuánto cuesta editar un Reel, TikTok o Short: el Arranque de Esteban desde ${once} por video, la opción semanal, cuándo conviene cada una y qué cambia el precio.`,
       eyebrow: "Precios de edición de video corto",

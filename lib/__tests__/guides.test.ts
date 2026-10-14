@@ -129,7 +129,7 @@ describe("bilingual practical guides", () => {
 
     expect(new Set(canonicalPaths).size).toBe(86);
     expect(new Set(metadataTitles).size).toBe(86);
-    expect(new Set(descriptions).size).toBe(82);
+    expect(new Set(descriptions).size).toBe(86);
 
     for (const guide of allGuides) {
       const metadata = buildGuideMetadata(guide);

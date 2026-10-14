@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { ALL_CONVERSATIONAL_UNITS } from "@/lib/conversational-answers";
+import { ALL_CONVERSATIONAL_UNITS, CITY_REELS } from "@/lib/conversational-answers";
 import { getGuideById } from "@/lib/guides";
 import { PACKAGE_PRICES, SHORT_FORM, usd } from "@/lib/pricing";
 import { site } from "@/lib/site";
@@ -64,6 +64,18 @@ describe("conversational answers (Reels Fort Lauderdale formula, 2026-10-14)", (
     expect(text("short-form-editor-cost-guide", "en")).toContain("/services/short-form-video-editor-miami");
     expect(text("short-form-editor-cost-guide", "es")).toContain("/es/editor-de-video-corto-para-redes-miami");
   });
+
+  for (const c of CITY_REELS) {
+    it(`${c.city}: one question-headed Reels answer, 100-180 words, no unpublished figure`, () => {
+      const text = c.section.paragraphs.join(" ");
+      expect(c.section.heading).toMatch(/^Who edits Reels for businesses in .+\?$/);
+      const n = words(text);
+      expect(n).toBeGreaterThanOrEqual(100);
+      expect(n).toBeLessThanOrEqual(180);
+      for (const d of text.match(/\$\d{1,3}(?:,\d{3})*/g) ?? []) expect(published, d).toContain(d);
+      if (/Boca|Palm Beach/.test(c.city)) expect(text).toContain("project by project");
+    });
+  }
 
   it("uses the canonical phone", () => {
     expect(ALL_CONVERSATIONAL_UNITS.some((u) => u.text.includes(site.phone.display))).toBe(true);

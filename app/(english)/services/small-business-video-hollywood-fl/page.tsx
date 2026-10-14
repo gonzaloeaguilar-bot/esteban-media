@@ -9,14 +9,16 @@ import {
   ServiceRelated,
   buildServiceFaqSchema,
   buildServicePageNodes,
+  ServiceDeepDive,
 } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
+import { cityReelsFor } from "@/lib/conversational-answers";
 import { absoluteUrl, site } from "@/lib/site";
 import { NicheAnswers } from "@/components/niche-answers";
 import { withNicheService } from "@/lib/niche-answers";
 
 export const metadata = buildPageMetadata({
-  title: "Small Business Video Hollywood FL",
+  title: "Reels & Small Business Video Hollywood FL",
   description:
     "Small business video production & editing in Hollywood & Hallandale FL: Instagram reels, storefront promos, and customer review clips.",
   path: "/services/small-business-video-hollywood-fl",
@@ -168,6 +170,12 @@ export default function SmallBusinessVideoHollywoodFlPage() {
         heading="Related services nearby."
         services={serviceSiblings("/services/small-business-video-hollywood-fl")}
         sectionId="sibling-services"
+      />
+      <ServiceDeepDive
+        id="city-reels"
+        title={cityReelsFor("/services/small-business-video-hollywood-fl").section.heading}
+        destinations="Remote Reels, TikTok and Shorts editing, the starting price and how to send footage."
+        sections={[cityReelsFor("/services/small-business-video-hollywood-fl").section]}
       />
       <NicheAnswers path="/services/small-business-video-hollywood-fl" fact={String(metadata.description ?? "")} />
     </main>

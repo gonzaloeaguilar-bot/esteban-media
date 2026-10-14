@@ -136,6 +136,7 @@ const EN_ROWS: Row[] = [
   ["/services/reels-editor-miami", "Reels editing", "Miami", "social", false],
   ["/services/restaurant-promo-video-editing-miami", "restaurant promo video editing", "Miami", "restaurant"],
   ["/services/salon-barbershop-video-marketing-miami", "a video for a salon or barbershop", "Miami", "social", false],
+  ["/services/video-production-boca-raton", "video production and Reels editing", "Boca Raton", "local"],
   ["/services/small-business-video-hollywood-fl", "small business video", "Hollywood, FL", "local"],
   ["/services/small-business-video-pembroke-pines", "small business video editing", "Pembroke Pines", "social"],
   ["/services/small-business-video-production-miami", "small business video production", "Miami", "local", false],
@@ -273,7 +274,7 @@ function sentence(text: string): string {
 const CORE_PLACES = ["Miami", "Fort Lauderdale", "Miami-Dade County", "Broward County"] as const;
 const COUNTY_LIKE = new Set(["Miami-Dade County", "Broward County", "Palm Beach County"]);
 const REGIONS = new Set(["South Florida"]);
-const PALM_BEACH = new Set(["Palm Beach", "Palm Beach Gardens", "West Palm Beach", "Jupiter", "Delray Beach"]);
+const PALM_BEACH = new Set(["Boca Raton", "Palm Beach", "Palm Beach Gardens", "West Palm Beach", "Jupiter", "Delray Beach"]);
 
 export function nicheAreas(place: string): string[] {
   const extra = place === "Palm Beach" ? "Palm Beach County" : place;

@@ -100,6 +100,26 @@ const content: GeoServicePageContent = {
       detail: "Turn one long video, podcast or shoot into a set of short social clips.",
       href: "/services/content-repurposing-service-miami",
     },
+    {
+      title: "Reels and video in Hollywood, FL",
+      detail: "Remote Reels editing for Hollywood businesses, between Fort Lauderdale and Miami.",
+      href: "/services/small-business-video-hollywood-fl",
+    },
+    {
+      title: "Reels and video in Pembroke Pines",
+      detail: "Short-form editing for southwest Broward businesses and creators.",
+      href: "/services/small-business-video-pembroke-pines",
+    },
+    {
+      title: "Reels and video in Boca Raton",
+      detail: "Remote Reels editing for Boca Raton; on-location work project by project.",
+      href: "/services/video-production-boca-raton",
+    },
+    {
+      title: "Reels and video editing in West Palm Beach",
+      detail: "Remote editing of the footage West Palm Beach businesses already have.",
+      href: "/services/video-editing-west-palm-beach",
+    },
   ],
   inquiry: {
     serviceId: "reels_editor_fort_lauderdale",

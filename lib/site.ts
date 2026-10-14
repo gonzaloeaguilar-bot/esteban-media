@@ -52,7 +52,7 @@ export const site = {
   googleAnalyticsMeasurementId: "G-W9CM4CE2MQ",
   location: "Fort Lauderdale, FL",
   description:
-    "Esteban Moreno Media: video editing, AI content & social production for South Florida businesses. Bilingual English/Español. Fort Lauderdale — get a fast quote.",
+    "Esteban Moreno Media: video editing, AI content & social production for South Florida businesses. Spanish-first, English available. Fort Lauderdale — get a fast quote.",
 };
 
 export type Service = {

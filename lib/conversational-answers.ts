@@ -130,3 +130,49 @@ export const ALL_CONVERSATIONAL_UNITS: readonly { key: string; heading: string; 
     text: s.paragraphs.join(" "),
   })),
 ];
+
+// ---------------------------------------------------------------------------
+// City Reels answers (parent brief 2026-10-14): the GBP service area now names
+// Hollywood, Pembroke Pines, Boca Raton and West Palm Beach, and live Google
+// did not show Esteban for "reels editor <city>" in any of them. Each existing
+// city page gets ONE question-headed Reels answer with a real geographic fact,
+// instead of a new thin city page (2026-08-12: 29 city pages, 33 impressions,
+// 0 clicks, 64% overlap). Palm Beach County stays "project by project"
+// (AGENTS.md: do not strengthen Palm Beach positioning without local evidence).
+// ---------------------------------------------------------------------------
+
+type CityReels = { path: string; city: string; section: ConversationalSection };
+
+function cityReels(path: string, city: string, county: string, palmBeach: boolean, fact: string): CityReels {
+  const onLocation = palmBeach
+    ? `On-location filming in ${county} is considered project by project; most Reels work there is remote editing of footage you already have.`
+    : `${city} is in ${county}, the same county as Esteban's Fort Lauderdale base, so an on-location shoot can be scoped when new footage is needed.`;
+  return {
+    path,
+    city,
+    section: {
+      heading: `Who edits Reels for businesses in ${city}?`,
+      paragraphs: [
+        `Esteban Moreno Media edits Instagram Reels, TikToks and YouTube Shorts for ${city} businesses and creators from the clips they film. ${fact} Esteban Moreno is a video editor based in Fort Lauderdale who works remotely: you send the original files and a line about each idea, and he returns vertical edits with readable captions inside the platforms' safe zones and one clear closing action. ${onLocation}`,
+        `His working language is Spanish, with intermediate English. Starter is from ${once} per video with one revision round, or ${shortFormWeeklyText("en")} with a ${T.minimumWeeks}-week minimum if you post weekly. Call or WhatsApp ${phone}, or read how the edit works on the [Reels editor in Fort Lauderdale](/services/reels-editor-fort-lauderdale) page.`,
+      ],
+    },
+  };
+}
+
+export const CITY_REELS: readonly CityReels[] = [
+  cityReels("/services/small-business-video-hollywood-fl", "Hollywood, FL", "Broward County", false,
+    "Hollywood sits between Fort Lauderdale and Miami, so the same Reels can speak to customers on both sides of the county line."),
+  cityReels("/services/small-business-video-pembroke-pines", "Pembroke Pines", "Broward County", false,
+    "Pembroke Pines is in southwest Broward County, west of Hollywood along Pines Boulevard."),
+  cityReels("/services/video-production-boca-raton", "Boca Raton", "Palm Beach County", true,
+    "Boca Raton is the southernmost large city in Palm Beach County, on the Broward line just north of Deerfield Beach."),
+  cityReels("/services/video-editing-west-palm-beach", "West Palm Beach", "Palm Beach County", true,
+    "West Palm Beach is the county seat of Palm Beach County, and remote editing does not depend on the drive from Broward."),
+];
+
+export function cityReelsFor(path: string): CityReels {
+  const entry = CITY_REELS.find((c) => c.path === path);
+  if (!entry) throw new Error(`No city Reels answer for ${path}`);
+  return entry;
+}

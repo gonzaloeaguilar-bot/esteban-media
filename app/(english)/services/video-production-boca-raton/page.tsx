@@ -2,12 +2,15 @@ import Link from "next/link";
 import { ArrowRight, Video, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { buildServicePageNodes } from "@/components/service-depth";
+import { ServiceDeepDive, buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
+import { cityReelsFor } from "@/lib/conversational-answers";
 import { absoluteUrl, site } from "@/lib/site";
+import { NicheAnswers } from "@/components/niche-answers";
+import { withNicheService } from "@/lib/niche-answers";
 
 export const metadata = buildPageMetadata({
-  title: "Video Production Boca Raton",
+  title: "Reels & Video Production Boca Raton",
   description:
     "Video production, commercial videography, and video editing services for businesses and real estate in Boca Raton and Palm Beach County.",
   path: "/services/video-production-boca-raton",
@@ -15,7 +18,7 @@ export const metadata = buildPageMetadata({
 });
 
 export default function VideoProductionBocaRatonPage() {
-  const jsonLd = {
+  const jsonLd = withNicheService("/services/video-production-boca-raton", {
     "@context": "https://schema.org",
     "@graph": [
       ...buildServicePageNodes({
@@ -36,7 +39,7 @@ export default function VideoProductionBocaRatonPage() {
         serviceType: "Video production",
       },
     ],
-  };
+  }, "Video Production Boca Raton");
 
   return (
     <main className="bg-[#f6f1ea] text-[#101214]">
@@ -140,6 +143,13 @@ export default function VideoProductionBocaRatonPage() {
           </div>
         </Container>
       </section>
+      <ServiceDeepDive
+        id="city-reels"
+        title={cityReelsFor("/services/video-production-boca-raton").section.heading}
+        destinations="Remote Reels, TikTok and Shorts editing, the starting price and how to send footage."
+        sections={[cityReelsFor("/services/video-production-boca-raton").section]}
+      />
+      <NicheAnswers path="/services/video-production-boca-raton" fact={String(metadata.description ?? "")} />
     </main>
   );
 }
