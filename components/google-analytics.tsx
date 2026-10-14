@@ -1,6 +1,7 @@
 import Script from "next/script";
 
 import sitemap from "@/app/sitemap";
+import { NOINDEX_DECISIONS } from "@/lib/consolidation";
 import { buildGoogleAnalyticsScript } from "@/lib/google-analytics-script";
 import { site } from "@/lib/site";
 
@@ -12,6 +13,11 @@ export function GoogleAnalytics() {
     ...sitemap().map((entry) => new URL(entry.url).pathname),
     "/privacy",
     "/es/privacidad",
+    // Live public pages kept out of the sitemap by the cohort noindex decisions
+    // (config/cohort-consolidation.json). Without them GA4 reported every visit
+    // to one as "/not-found": 11 views in 90 days, with internal referrers such
+    // as /es/sobre-esteban and /pricing/local-presence (round 2, 2026-10-14).
+    ...NOINDEX_DECISIONS.map((entry) => entry.path),
   ];
 
   return (

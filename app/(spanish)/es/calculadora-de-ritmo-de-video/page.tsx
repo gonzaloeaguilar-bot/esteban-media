@@ -2,7 +2,9 @@ import Link from "next/link";
 
 import { DailyScriptPacingCalculator } from "@/components/daily-script-pacing-calculator";
 import { PriorityLinks } from "@/components/priority-links";
+import { PageUpdated } from "@/components/page-updated";
 import { Container } from "@/components/ui/container";
+import { pageLastModified } from "@/lib/page-lastmod";
 import { absoluteUrl } from "@/lib/site";
 import { buildPageMetadata } from "@/lib/site-metadata";
 
@@ -13,6 +15,8 @@ export const metadata = buildPageMetadata({
   locale: "es",
 });
 
+const PATH = "/es/calculadora-de-ritmo-de-video";
+
 export default function DailyScriptPacingCalculatorEsPage() {
   const jsonLd = {
     "@context": "https://schema.org",
@@ -22,6 +26,7 @@ export default function DailyScriptPacingCalculatorEsPage() {
     name: "Calculadora de Ritmo de Video y Guion Diario",
     description: "Calculadora de ritmo de video, duración hablada estimada y ejercicios de teleprónter para creadores.",
     isPartOf: { "@id": absoluteUrl("/#website") },
+    ...(pageLastModified(PATH) ? { dateModified: pageLastModified(PATH) } : {}),
   };
 
   return (
@@ -46,6 +51,7 @@ export default function DailyScriptPacingCalculatorEsPage() {
           </ol>
         </nav>
         <DailyScriptPacingCalculator locale="es" />
+        <PageUpdated path={PATH} locale="es" />
 
         <div className="mt-12 rounded-xl border border-[#ddd4c8] bg-[#fbf6ef] p-6 text-sm text-[#252a2d]">
           <p>

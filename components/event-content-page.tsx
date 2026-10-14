@@ -1,4 +1,6 @@
 import type { ReactNode } from "react";
+import { PageUpdated } from "@/components/page-updated";
+import { withPageDate } from "@/lib/page-lastmod";
 import Link from "next/link";
 import { ArrowRight, CalendarDays, MessageCircle } from "lucide-react";
 
@@ -287,7 +289,7 @@ export function EventContentPage({ id, locale }: { id: EventId; locale: EventLoc
 
   return (
     <main className="bg-[#f6f1ea] text-[#101214]">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(withPageDate(path, jsonLd, absoluteUrl(path))) }} />
       <section className="border-b border-[#ddd4c8] py-8 sm:py-16" data-section={`${prefix}_hero`}>
         <Container size="xl">
           <Crumbs locale={locale} current={copy.breadcrumb} />
@@ -296,6 +298,7 @@ export function EventContentPage({ id, locale }: { id: EventId; locale: EventLoc
               <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#5a6066]">{copy.eyebrow}</p>
               <h1 className="mt-4 max-w-4xl font-serif em-display">{copy.h1}</h1>
               <p className="mt-4 max-w-2xl text-lg leading-7">{copy.lead}</p>
+              <PageUpdated path={path} locale={locale} className="mt-3 text-xs text-[#5a6066]" />
               <HeroActions locale={locale} prefix={prefix} eventLabel={event.name} inquiryId={inquiryId} />
               <p className="mt-5 max-w-2xl text-sm leading-6 text-[#5a6066]">{t.notAffiliated(affiliationLabel(event, locale))}</p>
             </div>
@@ -419,13 +422,14 @@ export function EventsHubPage({ locale }: { locale: EventLocale }) {
 
   return (
     <main className="bg-[#f6f1ea] text-[#101214]">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(withPageDate(path, jsonLd, absoluteUrl(path))) }} />
       <section className="border-b border-[#ddd4c8] py-8 sm:py-16" data-section={`${prefix}_hero`}>
         <Container size="xl">
           <Crumbs locale={locale} />
           <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#5a6066]">{copy.eyebrow}</p>
           <h1 className="mt-4 max-w-4xl font-serif em-display">{copy.h1}</h1>
           <p className="mt-4 max-w-2xl text-lg leading-7">{copy.lead}</p>
+          <PageUpdated path={path} locale={locale} className="mt-3 text-xs text-[#5a6066]" />
           <HeroActions
             locale={locale}
             prefix={prefix}
