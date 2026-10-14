@@ -101,6 +101,10 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/es/guias/cuanto-cuesta-un-editor-de-videos-cortos",
   "https://estebanmorenomedia.com/reels-editing-cost-calculator",
   "https://estebanmorenomedia.com/es/calculadora-de-costo-de-edicion-de-reels",
+  "https://estebanmorenomedia.com/guides/local-editor-vs-fiverr-vs-agency-miami",
+  "https://estebanmorenomedia.com/es/guias/editor-local-vs-fiverr-vs-agencia-miami",
+  "https://estebanmorenomedia.com/guides/how-many-reels-should-a-restaurant-post-per-week",
+  "https://estebanmorenomedia.com/es/guias/cuantos-reels-debe-publicar-un-restaurante-por-semana",
   // Added 2026-10-11 with niche wave 8 (owner-approved).
   "https://estebanmorenomedia.com/services/pre-construction-condo-video-marketing-miami",
   "https://estebanmorenomedia.com/es/video-para-preventa-de-condominios-miami",
