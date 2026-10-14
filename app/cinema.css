@@ -391,52 +391,28 @@ html.rail-anim:not([data-brand-moment]) .em-cine__eyebrow {
   .em-cine__eyebrow { margin-bottom: 10px; }
 }
 
-/* Desktop: a composed frame — the credit on black, the footage as a tall
-   monitor on the right at close to its native size, so it stays sharp. */
+/* Desktop: the same idea as the phone. The footage IS the first screen,
+   full-bleed, with the credit set inside it on a left scrim. It used to be a
+   434px monitor at the right edge with ~850px of near-black carrying only type
+   (art direction 2026-10-13, finding 6). The clip is 768px wide, so on a
+   1440 stage it is shown about 1.9x: the grain layer and the scrim carry that,
+   and the crop is aimed at the camera and the face. */
 @media (min-width: 1024px) {
   .em-cine__stage {
     min-height: min(calc(100svh - 72px), 920px);
     align-items: center;
   }
-  .em-cine__frame {
-    inset: auto;
-    top: 50%;
-    right: max(40px, calc((100vw - 1280px) / 2 + 80px));
-    /* Never taller than the stage: the monitor keeps all four corners. */
-    width: min(38vw, 540px, calc((min(100svh, 920px) - 190px) * 0.6));
-    aspect-ratio: 9 / 15;
-    translate: 0 -50%;
-    border-radius: 6px;
-    box-shadow: 0 40px 120px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.06);
-  }
+  .em-cine__poster,
+  .em-cine__video { object-position: 50% 38%; }
   .em-cine__frame::after {
-    background: linear-gradient(to top, rgba(8, 9, 10, 0.35), transparent 40%);
+    background:
+      linear-gradient(90deg, rgba(8, 9, 10, 0.9) 0%, rgba(8, 9, 10, 0.62) 38%, rgba(8, 9, 10, 0.08) 72%),
+      linear-gradient(to top, rgba(8, 9, 10, 0.55) 0%, transparent 38%),
+      /* the timecode sits on a white shirt at this crop */
+      linear-gradient(to bottom, rgba(8, 9, 10, 0.55) 0%, transparent 18%);
   }
-  /* The poster, blurred, as the light of the room the monitor sits in. */
-  .em-cine__stage::before {
-    content: "";
-    position: absolute;
-    inset: -60px;
-    background: url("/about/esteban-on-set-frame.jpg") 70% 30% / cover no-repeat;
-    filter: blur(48px) saturate(0.7);
-    opacity: 0.24;
-    pointer-events: none;
-  }
-  .em-cine__stage::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, rgba(11, 12, 13, 0.92) 0%, rgba(11, 12, 13, 0.55) 45%, rgba(11, 12, 13, 0.2) 100%);
-    pointer-events: none;
-  }
-  .em-cine__frame { z-index: 1; }
-  .em-cine__credit { z-index: 4; }
-  .em-cine__credit {
-    padding: 64px 40px;
-  }
-  .em-cine__credit > * {
-    max-width: calc(100% - min(38vw, 540px, calc((min(100svh, 920px) - 190px) * 0.6)) + 60px);
-  }
+  .em-cine__credit { z-index: 4; padding: 64px 40px; }
+  .em-cine__credit > * { max-width: min(100%, 46rem); }
   .em-cine__brand { text-shadow: 0 6px 40px rgba(0, 0, 0, 0.55); }
   .em-cine__brand { font-size: clamp(5rem, 9.2vw, 9rem); }
   .em-cine__tagline { font-size: clamp(2rem, 2.6vw, 2.6rem); }
@@ -1268,6 +1244,35 @@ html.rail-anim .em-pk-steps__list.rail-reveal.is-in li:nth-child(3) { transition
 .em-index-compact a:hover svg { transform: translateX(3px); }
 .em-index-compact svg { flex: none; color: var(--cine-accent-soft); transition: transform 0.2s; }
 
+/* The rest of the niche index folds into a native <details> (server-rendered,
+   so crawlers and no-JS visitors get every link). */
+.em-index-more { margin-top: 8px; }
+.em-index-more > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 48px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+.em-index-more > summary::-webkit-details-marker { display: none; }
+.em-index-more__chev {
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.2s;
+}
+.em-index-more[open] > summary .em-index-more__chev { transform: rotate(-135deg); }
+.em-index-more > .em-index-compact { margin-top: 0; }
+
 /* The 3D camera opening and its iris are gone with the component that used
    them (components/camera-intro.tsx, deleted). Their CSS outlived them by one
    commit and did real damage on the way out: the leftover
@@ -1364,10 +1369,15 @@ html.rail-anim .em-pk-steps__list.rail-reveal.is-in li:nth-child(3) { transition
   min-height: 1.05em;
   font-family: var(--font-display), "Oswald", "Arial Narrow", sans-serif;
   font-weight: 700;
-  font-size: clamp(2.2rem, 11vw, 5rem);
+  /* A status line, not the headline: the name is the largest word on this
+     card. "LOADING" at 44px was the biggest thing on the phone's first screen
+     (art direction 2026-09-28) and said the site was busy rather than whose it
+     was. The glitch swap is unchanged; only the scale moved. */
+  font-size: clamp(0.95rem, 3.6vw, 1.5rem);
   line-height: 1;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
+  order: 2;
 }
 .em-signal__w {
   grid-area: 1 / 1;
@@ -1414,10 +1424,12 @@ html.rail-anim .em-pk-steps__list.rail-reveal.is-in li:nth-child(3) { transition
   margin: 0;
   font-family: var(--font-display), "Oswald", "Arial Narrow", sans-serif;
   font-weight: 700;
-  font-size: clamp(0.95rem, 3.6vw, 1.5rem);
-  letter-spacing: 0.22em;
+  font-size: clamp(1.5rem, 7.2vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.92);
+  color: #fff;
+  order: 1;
 }
 .em-signal__sub {
   margin: 2px 0 0;

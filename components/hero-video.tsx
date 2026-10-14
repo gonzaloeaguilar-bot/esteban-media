@@ -51,7 +51,7 @@ export function HeroVideo({ locale = "en" }: HeroVideoProps) {
               alt={posterAlt}
               fill
               priority
-              sizes="(min-width: 1024px) 460px, 100vw"
+              sizes="100vw"
               className="em-cine__poster"
             />
             <video
