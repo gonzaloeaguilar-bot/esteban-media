@@ -19,6 +19,8 @@ export const pairedLanguageRoutes: Record<string, string> = {
   "/services/custom-operations-automation": "/es/automatizacion-de-operaciones",
   "/services/creative-production": "/es/produccion-creativa",
   "/services/website-design-fort-lauderdale": "/es/diseno-web-fort-lauderdale",
+  "/services/ai-chatbot-for-small-business": "/es/chatbot-con-ia-para-negocios",
+  "/services/landing-page-design": "/es/landing-page-para-negocios",
   "/services/food-and-places-creator-video-editing-miami":
     "/es/edicion-de-video-para-creadores-de-comida-y-lugares-miami",
   "/services/restaurant-promo-video-editing-miami":

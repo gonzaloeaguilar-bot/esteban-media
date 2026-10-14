@@ -132,6 +132,11 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/services/quinceanera-video-miami",
   "https://estebanmorenomedia.com/es/video-para-quinceaneras-miami",
   "https://estebanmorenomedia.com/services/wedding-videographer-fort-lauderdale",
+  // Web/landing/chatbot line (2026-10-14, vault esteban-web-chatbot-seo-geo-2026-10-14).
+  "https://estebanmorenomedia.com/services/ai-chatbot-for-small-business",
+  "https://estebanmorenomedia.com/es/chatbot-con-ia-para-negocios",
+  "https://estebanmorenomedia.com/services/landing-page-design",
+  "https://estebanmorenomedia.com/es/landing-page-para-negocios",
   "https://estebanmorenomedia.com/es/videografo-de-bodas-fort-lauderdale",
   "https://estebanmorenomedia.com/services/videographer-miami",
   "https://estebanmorenomedia.com/guides/how-to-start-as-an-influencer",

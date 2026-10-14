@@ -109,7 +109,7 @@
  },
  "/es/captura-y-automatizacion-de-clientes-con-ia": {
   "date": "2026-10-14",
-  "hash": "dfa3f9935f109857"
+  "hash": "755a09283e6894f2"
  },
  "/es/casos-de-estudio": {
   "date": "2026-10-14",
@@ -134,6 +134,10 @@
  "/es/casos-de-estudio/my-dler": {
   "date": "2026-10-14",
   "hash": "45059992ccdcca5a"
+ },
+ "/es/chatbot-con-ia-para-negocios": {
+  "date": "2026-10-14",
+  "hash": "1c5a8e15c4dff4e4"
  },
  "/es/contacto": {
   "date": "2026-10-11",
@@ -511,6 +515,10 @@
   "date": "2026-07-26",
   "hash": "76040bc8b9dfa9f0"
  },
+ "/es/landing-page-para-negocios": {
+  "date": "2026-10-14",
+  "hash": "de8df9331df2d258"
+ },
  "/es/marketing-de-video-automotriz-miami": {
   "date": "2026-10-07",
   "hash": "326d6cd398939d23"
@@ -733,7 +741,7 @@
  },
  "/es/servicios": {
   "date": "2026-10-14",
-  "hash": "5256dd55fe898404"
+  "hash": "eb1fdf5e20812eb5"
  },
  "/es/sitios-web-de-conversion": {
   "date": "2026-10-14",
@@ -1145,7 +1153,11 @@
  },
  "/services": {
   "date": "2026-10-14",
-  "hash": "628e2681dd0058b2"
+  "hash": "c9b2894926f26d3f"
+ },
+ "/services/ai-chatbot-for-small-business": {
+  "date": "2026-10-14",
+  "hash": "22ea9db9e7a4acc5"
  },
  "/services/ai-food-photography-restaurants": {
   "date": "2026-10-13",
@@ -1153,7 +1165,7 @@
  },
  "/services/ai-lead-capture-automation": {
   "date": "2026-10-14",
-  "hash": "934680d2435b6141"
+  "hash": "fa26b486dedd69f4"
  },
  "/services/ai-product-photography-miami": {
   "date": "2026-10-13",
@@ -1290,6 +1302,10 @@
  "/services/jewelry-product-photography-miami": {
   "date": "2026-10-13",
   "hash": "4dc065b062a250bc"
+ },
+ "/services/landing-page-design": {
+  "date": "2026-10-14",
+  "hash": "ccead9e66dba25e8"
  },
  "/services/local-presence-seo": {
   "date": "2026-10-14",

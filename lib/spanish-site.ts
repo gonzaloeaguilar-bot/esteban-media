@@ -4968,8 +4968,21 @@ const reelsCostCalculatorHreflang = Object.fromEntries(
   ),
 );
 
+/** 2026-10-14: chatbot and landing-page service pairs (lib/web-ai-services.ts). */
+const webAiServiceHreflang = Object.fromEntries(
+  (
+    [
+      ["/services/ai-chatbot-for-small-business", "/es/chatbot-con-ia-para-negocios"],
+      ["/services/landing-page-design", "/es/landing-page-para-negocios"],
+    ] as const
+  ).flatMap(([en, es]) =>
+    [en, es].map((path) => [path, { "en-US": en, "es-US": es, "x-default": en }] as const),
+  ),
+);
+
 const languageAlternatesRaw: Record<string, Record<string, string>> = {
   ...inventoryAdditions20261010Hreflang,
+  ...webAiServiceHreflang,
   ...reelsCostCalculatorHreflang,
   // Original-data study, 2026-10-14 (lib/restaurant-ig-study.ts).
   [restaurantIgStudyPaths.en]: { ...restaurantIgStudyAlternates },

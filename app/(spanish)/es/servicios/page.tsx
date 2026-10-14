@@ -171,7 +171,10 @@ export default function SpanishServicesPage() {
               <Link href="/es/portafolio/titanforge" className="font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#7f2f20]">TitanForge</Link>, <Link href="/es/portafolio/gains-from-geebs" className="font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#7f2f20]">Gains From Geebs</Link>, <Link href="/es/portafolio/front-line-auto" className="font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#7f2f20]">Frontline Auto</Link>, <Link href="/es/portafolio/flas-concierge" className="font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#7f2f20]">Fort Lauderdale Auto Sale</Link> y los{" "}
               <Link href="/es/portafolio/ai-lead-automation" className="font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#7f2f20]">dos chatbots de captación con IA</Link>. La{" "}
               <Link href="/es/diseno-web-fort-lauderdale" data-cta="servicios_web_line" className="font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#7f2f20]">página de diseño web y chatbots</Link>{" "}
-              explica qué incluye cada proyecto.
+              explica qué incluye cada proyecto. Para una sola pieza, mira el{" "}
+              <Link href="/es/chatbot-con-ia-para-negocios" data-cta="servicios_web_chatbot" className="font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#7f2f20]">chatbot con IA para negocios</Link>{" "}
+              o la{" "}
+              <Link href="/es/landing-page-para-negocios" data-cta="servicios_web_landing" className="font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#7f2f20]">landing page para negocios</Link>.
             </p>
             <p className="mt-3 max-w-3xl leading-7 text-[#252a2d]">
               Si todavía estás definiendo qué pedir, empieza con la{" "}

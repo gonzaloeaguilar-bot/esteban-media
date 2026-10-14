@@ -148,8 +148,8 @@ describe("confirmed lead instrumentation", () => {
   it("places a tracked direct intake on both website-design commercial routes", () => {
     const intake = source("components/website-project-intake.tsx");
 
-    expect(intake).toContain('source: "website-design-intake"');
-    expect(intake).toContain('trackLeadSubmit("website-design-intake", locale, foundVia || "not_answered")');
+    expect(intake).toContain('source = "website-design-intake"');
+    expect(intake).toContain('trackLeadSubmit(source, locale, foundVia || "not_answered")');
     expect(source("app/(english)/services/website-design-fort-lauderdale/page.tsx"))
       .toContain('<WebsiteProjectIntake locale="en" />');
     expect(source("app/(spanish)/es/diseno-web-fort-lauderdale/page.tsx"))

@@ -307,3 +307,47 @@ export function filmingHourlyText(locale: "en" | "es"): string {
     ? `desde ${price} por hora de grabación`
     : `from ${price} per hour of filming`;
 }
+
+/**
+ * Landing pages. Owner fact 2026-10-14 (relayed by the project operator; vault
+ * client-esteban-media/wiki/esteban-owner-facts-2026-10-14): a basic landing
+ * page starts at $1,500; larger custom builds run $7,000 and up. Applies to
+ * landing pages only. Full websites and chatbots have NO published price and
+ * stay "custom quote" until Esteban gives one. Change the numbers here only.
+ */
+export const LANDING_PAGE_PRICE = {
+  from: 1500,
+  typicalUpper: 7000,
+  currency: "USD",
+  source: "owner fact 2026-10-14 (relayed by the project operator): basic landing page from $1,500; larger custom builds $7,000+",
+} as const;
+
+/** The one answer-first price line for landing pages, EN or ES. */
+export function landingPagePriceText(locale: "en" | "es"): string {
+  const from = usd(LANDING_PAGE_PRICE.from);
+  const upper = usd(LANDING_PAGE_PRICE.typicalUpper);
+  return locale === "es"
+    ? `Una landing page básica empieza en ${from}; las páginas a la medida más grandes suelen costar ${upper} o más, según las páginas, los textos y las integraciones.`
+    : `A basic landing page starts at ${from}; larger custom builds usually run ${upper} or more depending on pages, copy and integrations.`;
+}
+
+/**
+ * AI chatbots. Owner fact 2026-10-14 (relayed by the project operator; vault
+ * client-esteban-media/wiki/esteban-owner-facts-2026-10-14): from $2,000 to set
+ * up, plus a monthly fee. The monthly amount was NOT given: never print a
+ * number for it, only "plus a monthly fee".
+ */
+export const CHATBOT_PRICE = {
+  from: 2000,
+  currency: "USD",
+  monthlyFee: true,
+  source: "owner fact 2026-10-14 (relayed by the project operator): AI chatbots from $2,000 setup plus a monthly fee (amount not given)",
+} as const;
+
+/** The one answer-first price line for chatbots, EN or ES. */
+export function chatbotPriceText(locale: "en" | "es"): string {
+  const from = usd(CHATBOT_PRICE.from);
+  return locale === "es"
+    ? `Un chatbot con IA empieza en ${from} de configuración, más una cuota mensual.`
+    : `An AI chatbot starts at ${from} to set up, plus a monthly fee.`;
+}
