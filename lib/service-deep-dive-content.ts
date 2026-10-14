@@ -483,6 +483,28 @@ export const QUINCEANERA_DEEP_DIVE: DeepDive = {
   ],
 };
 
+export const WEDDING_DEEP_DIVE: DeepDive = {
+  id: "wedding-planning",
+  title: "How does a couple plan the wedding video?",
+  destinations: "What to send for a quote, and the moments that belong on the shot list.",
+  sections: [
+    {
+      heading: "What should a couple send to get a wedding video quote?",
+      paragraphs: [
+        "Four things: the date, the location, the hours you want covered and what you want delivered. The date tells Esteban whether he is free. The location says whether the ceremony and the reception are in one venue or two, and how far apart they are. The hours set how much of the day is filmed, from getting ready to the last dance or only the ceremony and the toasts.",
+        "What you want delivered is the part couples most often leave vague. Say whether you want a full film of the day, a short highlight trailer, vertical clips for Instagram or TikTok, or a mix, and whether any speeches need captions. Add the venue's rules on filming if you already know them. With those details he sends a written quote, so you know what is covered before you book.",
+      ],
+    },
+    {
+      heading: "Which wedding moments belong on the shot list?",
+      paragraphs: [
+        "The ones you will want to see again in ten years. Getting ready, the first look if you plan one, the processional, the vows and the exchange of rings, the first kiss, the recessional, the family portraits, the grand entrance, the first dance, the parent dances, the toasts, the cake and the send-off. Not every wedding has all of them, and some families add their own traditions, such as the lazo or the arras.",
+        "Give the videographer the timeline from your planner with approximate times and the names of the people who matter most, so grandparents, the wedding party and anyone giving a speech are filmed on purpose. The film is built from that list. For short clips from the same day, see [short-form video editing](/services/short-form-video-editor-miami); for other celebrations, the [event video editing](/services/event-video-editing-miami) page.",
+      ],
+    },
+  ],
+};
+
 export const DANCE_MUSIC_STUDIO_DEEP_DIVE: DeepDive = {
   id: "studio-content",
   title: "How does a studio keep posting through the whole season?",

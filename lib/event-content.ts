@@ -1415,6 +1415,7 @@ export const EVENTS_HUB_COPY = {
     ] as ServiceFaq[],
     related: [
       { title: "All services", detail: "Editing, AI-assisted content, social planning and scoped on-location production.", href: "/services" },
+      { title: "Wedding videographer", detail: "Weddings filmed and edited in Fort Lauderdale and Miami, each quoted individually.", href: "/services/wedding-videographer-fort-lauderdale" },
       { title: "Yacht hospitality video", detail: "Editing for yacht charters, marine brokers and hospitality operators.", href: "/services/yacht-hospitality-video-fort-lauderdale" },
       { title: "Restaurant promo video editing", detail: "Menu, dish and atmosphere edits for restaurants.", href: "/services/restaurant-promo-video-editing-miami" },
     ] as RelatedService[],
@@ -1471,6 +1472,7 @@ export const EVENTS_HUB_COPY = {
     ] as ServiceFaq[],
     related: [
       { title: "Todos los servicios", detail: "Edición, contenido con IA, planificación de redes y producción en locación definida por proyecto.", href: "/es/servicios" },
+      { title: "Videógrafo de bodas", detail: "Bodas grabadas y editadas en Fort Lauderdale y Miami, cada una cotizada por separado.", href: "/es/videografo-de-bodas-fort-lauderdale" },
       { title: "Video para yates y hospitalidad", detail: "Edición para chárters, brokers náuticos y hospitalidad.", href: "/es/video-para-yates-y-hospitalidad-fort-lauderdale" },
       { title: "Video para restaurantes en Miami", detail: "Platos, menú y ambiente para restaurantes.", href: "/es/video-para-restaurantes-miami" },
     ] as RelatedService[],

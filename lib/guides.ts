@@ -1180,6 +1180,13 @@ const guidePairs: readonly GuidePair[] = [
             "Aclarar también las posibles exclusiones habituales —como la compra de utilería perecedera, modelos de manos o los costos de envío y devolución de las muestras físicas— permite estructurar una propuesta sin ambigüedades. Puedes explorar alternativas de producción visual y consultar nuestra [calculadora de presupuesto](/es/calculadora) o escribirnos directamente a través de [contacto](/es/contacto) para evaluar el alcance específico de tu catálogo comercial.",
           ],
         },
+        {
+          heading: "¿Trabajas con clientes en Latinoamérica?",
+          paragraphs: [
+            `Sí. Esteban Moreno trabaja a distancia con clientes de Latinoamérica, en español, que es su idioma principal de trabajo. Una sesión de fotos necesita tener el producto frente a la cámara, así que desde otro país lo que funciona a distancia son las [imágenes de producto con IA](/es/fotografia-de-producto-con-ia-miami), hechas a partir de las fotos que tú envías, y la edición de video de tus clips. El material llega por internet, con un enlace de Google Drive o Dropbox, y los archivos terminados vuelven de la misma forma.`,
+            `Los precios están en dólares estadounidenses (USD). Las imágenes con IA se cotizan según la cantidad de imágenes y su uso, y editar un video cuesta desde ${usd(SHORT_FORM.perVideoFrom)} con el paquete Arranque. Cada proyecto recibe una cotización por escrito antes de empezar, así que conoces el total en dólares desde el principio, sin sorpresas al final.`,
+          ],
+        },
       ],
       faqs: [
         {
@@ -3688,6 +3695,13 @@ const guidePairs: readonly GuidePair[] = [
             `It depends on how the editor bills: per video, per hour or per project. Esteban Moreno Media, an independent editor based in Fort Lauderdale, edits one Reel, TikTok or Short from your own clips for ${usd(SHORT_FORM.perVideoFrom)} per video (Starter), so the price is fixed before the edit starts. Agencies more often bill by the hour: Clutch's video production pricing guide says most agencies charge $100 to $149 an hour. Before you compare quotes, ask each editor the same three questions: how many rounds of changes are included, who keeps the project files, and whether captions and extra sizes such as 9:16 and 1:1 cost more. A per-video price and an hourly rate only compare once you know how many hours a video takes. The [local editor vs Fiverr vs agency guide](/guides/local-editor-vs-fiverr-vs-agency-miami) has the full figures and their sources.`,
           ],
         },
+        {
+          heading: "How much does a video editor charge per hour?",
+          paragraphs: [
+            `Many editors and agencies bill by the hour, but Esteban Moreno Media does not. Editing is priced per video, from ${usd(SHORT_FORM.perVideoFrom)} on the Starter package, not by the hour, so you know the price before work starts. With an hourly rate the total stays open until the end: it depends on how many hours the edit took, and a slow session or an extra round of changes adds to the bill. With a per-video price, what you pay for one finished video is fixed before the edit begins, and the written quote says how many rounds of changes are included.`,
+            "To compare an hourly quote with a per-video one, ask the hourly editor how many hours a video like yours usually takes, multiply by the rate, and then add the same extras to both: captions, extra sizes and revision rounds. That gives you two numbers for the same finished video.",
+          ],
+        },
       ],
     },
     es: {
@@ -3724,6 +3738,13 @@ const guidePairs: readonly GuidePair[] = [
           heading: "¿Cuánto cobra un editor de video freelance?",
           paragraphs: [
             `Depende de cómo cobra: por video, por hora o por proyecto. Esteban Moreno Media, un editor independiente con base en Fort Lauderdale, edita un Reel, TikTok o Short con tus propios clips por ${usd(SHORT_FORM.perVideoFrom)} por video (paquete Arranque), así que el precio queda fijo antes de empezar la edición. Las agencias cobran más a menudo por hora: la guía de precios de producción de video de Clutch dice que la mayoría cobra entre $100 y $149 por hora. Antes de comparar cotizaciones, hazle a cada editor las mismas tres preguntas: cuántas rondas de cambios incluye, quién se queda con los archivos del proyecto y si los subtítulos y los formatos extra, como 9:16 y 1:1, cuestan más. Un precio por video y una tarifa por hora solo se pueden comparar cuando sabes cuántas horas toma un video. La [guía de editor local vs Fiverr vs agencia](/es/guias/editor-local-vs-fiverr-vs-agencia-miami) tiene las cifras completas y sus fuentes.`,
+          ],
+        },
+        {
+          heading: "¿Cuánto cobra un editor de video por hora?",
+          paragraphs: [
+            `Muchos editores y agencias cobran por hora, pero Esteban Moreno Media no. La edición se cobra por video, desde ${usd(SHORT_FORM.perVideoFrom)} con el paquete Arranque, no por hora, así que sabes el precio antes de que empiece el trabajo. Con una tarifa por hora el total queda abierto hasta el final: depende de cuántas horas tomó la edición, y una sesión lenta o una ronda extra de cambios suben la cuenta. Con un precio por video, lo que pagas por un video terminado queda fijo antes de editar, y la cotización por escrito dice cuántas rondas de cambios incluye.`,
+            "Para comparar una cotización por hora con una por video, pregúntale al editor que cobra por hora cuántas horas suele tomar un video como el tuyo, multiplícalo por su tarifa y suma a los dos los mismos extras: subtítulos, formatos adicionales y rondas de cambios. Si estás en Latinoamérica, Esteban trabaja a distancia y en español, con precios en dólares estadounidenses (USD).",
           ],
         },
       ],

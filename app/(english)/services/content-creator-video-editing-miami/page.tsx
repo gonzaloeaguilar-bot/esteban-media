@@ -17,6 +17,7 @@ import { CREATOR_DEEP_DIVE } from "@/lib/service-deep-dive-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl } from "@/lib/site";
 import { NicheAnswers } from "@/components/niche-answers";
+import { OwnerFactAnswers } from "@/components/owner-fact-answers";
 import { withNicheService } from "@/lib/niche-answers";
 
 const path = "/services/content-creator-video-editing-miami";
@@ -143,6 +144,7 @@ export default function ContentCreatorVideoEditingPage() {
         </Container>
       </section>
 
+      <OwnerFactAnswers path={path} />
       <ArranqueWeeklySection locale="en" />
       <ServiceCraft
         heading={CREATOR_DEPTH.craftHeading}

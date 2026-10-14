@@ -143,7 +143,8 @@ describe("consolidation arithmetic matches the published baseline", () => {
     // +1 = Boca Raton re-admitted (2026-10-14, owner decision) and +1 = its
     // new Spanish twin /es/editor-de-reels-boca-raton.
     // +2 = Miami restaurant Instagram study pair (2026-10-14, original data).
-    expect(sitemap()).toHaveLength(269 - 25 + 1 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 2 + 4 + 1 + 26 + 6 + 10 + 16 + 1 + 1 + 4 + 4 + 2 + 4 + 2 + 1);
+    // +2 = wedding videographer pair (2026-10-14, owner fact: films weddings).
+    expect(sitemap()).toHaveLength(269 - 25 + 1 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 2 + 4 + 1 + 26 + 6 + 10 + 16 + 1 + 1 + 4 + 4 + 2 + 4 + 2 + 1 + 2);
   });
 
   it("never lists a redirect source in the sitemap", () => {

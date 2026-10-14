@@ -4,6 +4,7 @@ import { ArrowRight, CheckCircle2, Laptop, Mail, Phone, Bot, Sparkles, Layout, M
 
 import { Container } from "@/components/ui/container";
 import { WebsiteProjectIntake } from "@/components/website-project-intake";
+import { OwnerFactAnswers } from "@/components/owner-fact-answers";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -227,7 +228,7 @@ export default function WebsiteDesignFortLauderdalePage() {
 
             <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6 shadow-sm">
               <Laptop className="size-8 text-[#e85d3e]" aria-hidden="true" />
-              <h2 className="mt-5 font-serif text-3xl">More Than Static Websites</h2>
+              <h2 className="mt-5 font-serif text-3xl">What does a business website need besides pages?</h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
                 Modern business growth requires a complete digital engine: ultra-fast web pages, rich visual media, and intelligent AI lead chatbots that converse with customers 24/7.
               </p>
@@ -246,13 +247,15 @@ export default function WebsiteDesignFortLauderdalePage() {
         </Container>
       </section>
 
+      <OwnerFactAnswers path="/services/website-design-fort-lauderdale" />
+
       {/* Feature Pillar Breakdown */}
       <section className="border-b border-[#ddd4c8] py-14 sm:py-20">
         <Container size="xl">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <p className="text-xs font-medium uppercase text-[#5a6066]">Our Web Stack & Capabilities</p>
             <h2 className="mt-3 font-serif text-4xl leading-tight sm:text-5xl">
-              High-Converting Web Systems Engineered For Local Business
+              What goes into a web system for a local business?
             </h2>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
@@ -288,7 +291,7 @@ export default function WebsiteDesignFortLauderdalePage() {
             <div>
               <p className="text-xs font-medium uppercase text-[#5a6066]">Proven Portfolio Showcase</p>
               <h2 className="mt-3 font-serif text-4xl leading-tight sm:text-5xl">
-                Featured Web & AI Projects
+                Which web and AI projects has Esteban Moreno Media built?
               </h2>
             </div>
             <Link
@@ -389,7 +392,7 @@ export default function WebsiteDesignFortLauderdalePage() {
         <Container size="xl">
           <div className="grid gap-8 lg:grid-cols-2">
             <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6 sm:p-8">
-              <h2 className="font-serif text-3xl">Niche Industries We Serve</h2>
+              <h2 className="font-serif text-3xl">Which industries do you build websites for?</h2>
               <ul className="mt-6 space-y-4 text-sm leading-6 text-[#252a2d]">
                 <li className="flex gap-3">
                   <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-[#e85d3e]" />

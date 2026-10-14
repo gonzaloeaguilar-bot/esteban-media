@@ -1,3 +1,4 @@
+import { OwnerFactAnswers } from "@/components/owner-fact-answers";
 import React from "react";
 import type { CSSProperties, ReactNode } from "react";
 import type { Metadata } from "next";
@@ -118,6 +119,15 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
     areaLabel: "Ver cobertura en Miami-Dade y Broward",
     note: "Todavía no hay un podcast publicado en el portafolio de Esteban. Diana & Jack es una boda que grabó y editó en una película de 20 minutos y un tráiler de un minuto y medio, aproximadamente: muestra una grabación larga condensada en una pieza corta, no un podcast.",
     serviceIds: ["edicion", "reutilizacion-redes", "planificacion-social"],
+    projects: [
+      { href: "/es/portafolio/diana-jack", title: "Diana & Jack", detail: "Película de boda y tráiler de momentos destacados." },
+    ],
+  },
+  "videografo-de-bodas-fort-lauderdale": {
+    areaHref: "/es/areas#broward",
+    areaLabel: "Ver cobertura en Broward y Miami-Dade",
+    note: "Diana & Jack: una boda en Boston, Massachusetts. Los créditos publicados nombran a Esteban como videógrafo y editor; entregó una película de 20 minutos del día y un tráiler de un minuto y medio, aproximadamente.",
+    serviceIds: ["videografia", "edicion", "reutilizacion-redes"],
     projects: [
       { href: "/es/portafolio/diana-jack", title: "Diana & Jack", detail: "Película de boda y tráiler de momentos destacados." },
     ],
@@ -1246,6 +1256,14 @@ const spanishInquiryServices: Record<string, ServiceInquiry> = {
     proofHref: "/es/portafolio/diana-jack",
     proofLabel: "Ver una grabación larga convertida en tráiler",
   },
+  "videografo-de-bodas-fort-lauderdale": {
+    serviceId: "es_wedding_video",
+    serviceName: "el video de nuestra boda",
+    goalPrompt: "tener la película del día y un tráiler para compartir",
+    assetPrompt: "la fecha, el lugar, las horas que queremos cubrir y lo que queremos recibir",
+    proofHref: "/es/portafolio/diana-jack",
+    proofLabel: "Ver la boda publicada",
+  },
   "video-para-quinceaneras-miami": {
     serviceId: "es_quinceanera_video",
     serviceName: "el video de una quinceañera",
@@ -1646,7 +1664,10 @@ export function SpanishNichePage({
           pinned by the text-parity baseline. Skipped on pages whose service
           is still pending confirmation. */}
       <DefinitionAnswer path={`/es/${page.slug}`} />
-      {isPendingConfirmation ? null : (
+      {/* Quote-only pages (weddings, owner 2026-10-14) publish no figure, and the
+          generic answer below quotes the package prices, so they skip it; their
+          hero card already answers the question first. */}
+      {isPendingConfirmation || QUOTE_ONLY_SLUGS.has(page.slug) ? null : (
         <ServiceAnswerFirst service={page.keyword} locale="es" sectionId="en-corto" />
       )}
 
@@ -1672,6 +1693,7 @@ export function SpanishNichePage({
         </section>
       ) : null}
       {liftNicheCost ? <NicheCostAnswer path={`/es/${page.slug}`} fact={page.description} /> : null}
+      <OwnerFactAnswers path={`/es/${page.slug}`} />
 
       <section className="py-12 sm:py-16">
         <Container size="xl">
@@ -1918,8 +1940,11 @@ export function SpanishNichePage({
  * a repeated tick never allowed.
  */
 /** The page's first "¿Cuánto cuesta / cuestan…?" section, if it has one. */
+/** Pages whose owner gave no price: every one is quoted individually. */
+const QUOTE_ONLY_SLUGS: ReadonlySet<string> = new Set(["videografo-de-bodas-fort-lauderdale"]);
+
 export function spanishPriceSection<T extends { heading: string }>(sections: readonly T[] | undefined): T | undefined {
-  return sections?.find((section) => /^¿cu[aá]nto cuesta|^¿cu[aá]nto cuestan/i.test(section.heading.trim()));
+  return sections?.find((section) => /^¿cu[aá]nto cuesta|^¿cu[aá]nto cuestan|^¿cu[aá]nto cobra/i.test(section.heading.trim()));
 }
 
 function ContentList({

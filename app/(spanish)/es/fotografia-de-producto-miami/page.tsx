@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, Mail, Phone } from "lucide-react";
 
+import { OwnerFactAnswers } from "@/components/owner-fact-answers";
 import { PageUpdated } from "@/components/page-updated";
 import { Container } from "@/components/ui/container";
 import { withPageDate } from "@/lib/page-lastmod";
@@ -96,6 +97,8 @@ export default function FotografiaDeProductoMiamiPage() {
           </section>
         </Container>
       </section>
+
+      <OwnerFactAnswers path="/es/fotografia-de-producto-miami" />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">

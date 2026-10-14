@@ -130,6 +130,9 @@ const EN_ROWS: Row[] = [
   ["/services/podcast-clipping-service-miami", "podcast clipping", "Miami", "social", false],
   ["/services/product-photography-miami", "product photography", "Miami", "photoSession"],
   ["/services/quinceanera-video-miami", "a quinceañera video", "Miami", "local"],
+  // Weddings: the page carries its own "quoted individually" answer (owner,
+  // 2026-10-14); no wedding price exists, so this module must not add one.
+  ["/services/wedding-videographer-fort-lauderdale", "a wedding video", "Fort Lauderdale", "quote", false],
   ["/services/real-estate-drone-video-editing-miami", "real estate drone video editing", "Miami", "realestate"],
   ["/services/real-estate-reels-video-editor-south-florida", "real estate Reels editing", "South Florida", "realestate", false],
   ["/services/real-estate-video-coral-gables", "real estate video", "Coral Gables", "realestate"],
@@ -168,6 +171,7 @@ const ES_ROWS: Row[] = [
   ["/es/marketing-de-video-para-abogados-de-inmigracion-miami", "el video para una firma de abogados de inmigración", "Miami", "social"],
   ["/es/edicion-de-clips-de-predicas-para-iglesias-miami", "los clips de prédicas para una iglesia", "Miami", "social", false],
   ["/es/video-para-quinceaneras-miami", "el video de unos quince años", "Miami", "local"],
+  ["/es/videografo-de-bodas-fort-lauderdale", "el video de una boda", "Fort Lauderdale", "quote", false],
   ["/es/editor-de-video-para-marca-personal-miami", "la edición de videos de marca personal", "Miami", "social", false],
   ["/es/edicion-de-clips-de-podcast-miami", "los clips de un podcast", "Miami", "social", false],
   ["/es/video-para-academias-de-baile-y-musica-miami", "el video para una academia de baile o música", "Miami", "social"],

@@ -5,7 +5,7 @@ import { describe, expect, it } from "vitest";
 
 import { analyse, verdict } from "@/scripts/dual-audience-gate.mjs";
 import { AboutWhoIs } from "@/components/about-who-is";
-import { PricingAnswer } from "@/components/pricing-answer";
+import { PricingAnswer, pricingHubExtraFaq } from "@/components/pricing-answer";
 import { personEntityJsonLd } from "@/lib/entity-schema";
 import { NOINDEX_DECISIONS } from "@/lib/consolidation";
 import { priceSentence } from "@/lib/packages";
@@ -59,8 +59,11 @@ describe("pricing hubs answer the price question first", () => {
       expect(out).toContain(priceSentence(locale, id).toLowerCase());
     }
     const m = analyse(`<h1>x</h1>${out}`);
-    expect(m.questions).toBe(2);
-    expect(m.inBand).toBe(2);
+    // Two price sections plus the 2026-10-14 owner-fact answers (per video,
+    // not per hour; Latin America on the Spanish hub), each in the band.
+    const extra = pricingHubExtraFaq(locale).length;
+    expect(m.questions).toBe(2 + extra);
+    expect(m.inBand).toBe(2 + extra);
     expect(verdict(m)).toEqual([]);
   });
 });

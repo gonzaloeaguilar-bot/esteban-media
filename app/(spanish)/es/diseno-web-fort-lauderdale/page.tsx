@@ -4,6 +4,7 @@ import { ArrowRight, CheckCircle2, Laptop, Mail, Phone, Bot, Sparkles, Layout, M
 
 import { Container } from "@/components/ui/container";
 import { WebsiteProjectIntake } from "@/components/website-project-intake";
+import { OwnerFactAnswers } from "@/components/owner-fact-answers";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -216,7 +217,7 @@ export default function DisenoWebFortLauderdalePage() {
 
             <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6 shadow-sm">
               <Laptop className="size-8 text-[#e85d3e]" aria-hidden="true" />
-              <h2 className="mt-5 font-serif text-3xl">Más que Sitios Web Estáticos</h2>
+              <h2 className="mt-5 font-serif text-3xl">¿Qué necesita un sitio web de negocio además de páginas?</h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
                 El crecimiento de tu negocio requiere un sistema digital completo: páginas ultrarrápidas, contenido audiovisual de impacto y chatbots con IA que atienden clientes las 24 horas.
               </p>
@@ -234,6 +235,8 @@ export default function DisenoWebFortLauderdalePage() {
           </div>
         </Container>
       </section>
+
+      <OwnerFactAnswers path="/es/diseno-web-fort-lauderdale" />
 
       <section className="border-b border-[#ddd4c8] py-14 sm:py-20" aria-labelledby="digital-systems-heading">
         <Container size="xl">
@@ -273,7 +276,7 @@ export default function DisenoWebFortLauderdalePage() {
           <div className="text-center max-w-3xl mx-auto mb-12">
             <p className="text-xs font-medium uppercase text-[#5a6066]">Arquitectura y Capacidades Web</p>
             <h2 className="mt-3 font-serif text-4xl leading-tight sm:text-5xl">
-              Sistemas Web de Alta Conversión para Negocios Locales
+              ¿Qué incluye un sistema web para un negocio local?
             </h2>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
@@ -309,7 +312,7 @@ export default function DisenoWebFortLauderdalePage() {
             <div>
               <p className="text-xs font-medium uppercase text-[#5a6066]">Portafolio Comprobado</p>
               <h2 className="mt-3 font-serif text-4xl leading-tight sm:text-5xl">
-                Proyectos Web y de IA Destacados
+                ¿Qué proyectos web y de IA ha hecho Esteban Moreno Media?
               </h2>
             </div>
             <Link
@@ -378,7 +381,7 @@ export default function DisenoWebFortLauderdalePage() {
         <Container size="xl">
           <div className="grid gap-8 lg:grid-cols-2">
             <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6 sm:p-8">
-              <h2 className="font-serif text-3xl">Nicho e Industrias que Atendemos</h2>
+              <h2 className="font-serif text-3xl">¿Para qué industrias haces sitios web?</h2>
               <ul className="mt-6 space-y-4 text-sm leading-6 text-[#252a2d]">
                 <li className="flex gap-3">
                   <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-[#e85d3e]" />

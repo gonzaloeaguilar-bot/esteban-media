@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { cheapestRealEstatePlan, packagesFor, priceSentence, type Locale } from "@/lib/packages";
 import { packageRoutes } from "@/lib/package-routes";
+import { latamAnswer, perHourAnswer } from "@/lib/owner-fact-answers";
 import { REAL_ESTATE_PLAN_TERMS, shortFormWeeklyText, turnaroundFor, usd, type PackageId } from "@/lib/pricing";
 
 /**
@@ -15,6 +16,15 @@ import { REAL_ESTATE_PLAN_TERMS, shortFormWeeklyText, turnaroundFor, usd, type P
  * is shared with the home page and is left untouched; these two sections sit
  * above it. Every figure is read from lib/pricing.ts through lib/packages.ts.
  */
+/**
+ * Owner facts 2026-10-14: editing is priced per video, not per hour (both hubs),
+ * and Latin American clients work remotely in Spanish (Spanish hub). Exported so
+ * the hub's FAQPage JSON-LD carries the same strings that render.
+ */
+export function pricingHubExtraFaq(locale: Locale): { question: string; answer: string }[] {
+  return locale === "es" ? [perHourAnswer("es"), latamAnswer()] : [perHourAnswer("en")];
+}
+
 export function PricingAnswer({ locale }: { locale: Locale }) {
   const es = locale === "es";
   const pk = packagesFor(locale);
@@ -93,6 +103,12 @@ export function PricingAnswer({ locale }: { locale: Locale }) {
               </p>
             )}
           </div>
+          {pricingHubExtraFaq(locale).map((q) => (
+            <div key={q.question}>
+              <h2 className="font-serif text-2xl sm:text-3xl">{q.question}</h2>
+              <p className="mt-3">{q.answer}</p>
+            </div>
+          ))}
         </div>
       </Container>
     </section>
