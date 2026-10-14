@@ -31,7 +31,7 @@ import {
 } from "@/lib/spanish-site";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
-import { NicheAnswers } from "@/components/niche-answers";
+import { NicheAnswers, NicheCostAnswer, hasNicheCost } from "@/components/niche-answers";
 import { SeasonalAnswer } from "@/components/seasonal-answer";
 import { nicheEntry, withNicheService } from "@/lib/niche-answers";
 import { DefinitionAnswer } from "@/components/definition-answer";
@@ -1497,6 +1497,9 @@ export function SpanishNichePage({
   // as its own H2 near the top. The existing price section is lifted, word for
   // word, into its own H2 right after the short answer. No words are added.
   const priceSection = isPendingConfirmation ? undefined : spanishPriceSection(page.sections);
+  // No price section of its own: lift the niche cost answer (same words) from
+  // the bottom fold instead.
+  const liftNicheCost = !isPendingConfirmation && !priceSection && hasNicheCost(`/es/${page.slug}`, page.description);
   const depthSections = page.sections?.filter((section) => section !== priceSection) ?? [];
   const sectionArticles = depthSections.map((section) => (
     <article key={section.heading} className="space-y-4">
@@ -1668,6 +1671,7 @@ export function SpanishNichePage({
           </Container>
         </section>
       ) : null}
+      {liftNicheCost ? <NicheCostAnswer path={`/es/${page.slug}`} fact={page.description} /> : null}
 
       <section className="py-12 sm:py-16">
         <Container size="xl">
@@ -1900,7 +1904,7 @@ export function SpanishNichePage({
         />
       ) : null}
       <SeasonalAnswer path={`/es/${page.slug}`} />
-      <NicheAnswers path={`/es/${page.slug}`} fact={page.description} />
+      <NicheAnswers path={`/es/${page.slug}`} fact={page.description} omitCost={liftNicheCost} />
       <PriorityLinks path={`/es/${page.slug}`} locale="es" />
     </main>
   );
