@@ -200,6 +200,8 @@ export type SpanishNichePage = {
   title: string;
   metadataTitle: string;
   description: string;
+  /** Search snippet when the visible description runs past ~160 characters (loop row 27). */
+  metaDescription?: string;
   eyebrow: string;
   h1: string;
   lead: string;
@@ -372,6 +374,8 @@ const nicheWave8Pages: SpanishNichePage[] = [
     metadataTitle: "Video para Agencias de Seguros Miami",
     description:
       "Videos cortos en español para agencias de seguros latinas en Miami y Fort Lauderdale: explicaciones de ACA y Medicare y un calendario para la temporada de inscripción.",
+    metaDescription:
+      `Videos cortos en español para agencias de seguros en Miami y Fort Lauderdale: tus agentes explican ACA y Medicare. Edición desde ${usd(SHORT_FORM.perVideoFrom)} por video.`,
     eyebrow: "Agencias de seguros / Agentes de ACA y Medicare",
     h1: "Videos cortos en español para agencias de seguros.",
     lead:
@@ -434,6 +438,8 @@ const nicheWave8Pages: SpanishNichePage[] = [
     metadataTitle: "Video para Brokers Hipotecarios Miami",
     description:
       "Reels de marca personal y explicaciones en español para brokers hipotecarios y oficiales de préstamos en Miami y Fort Lauderdale. Los avisos y el NMLS los aprueba el cliente.",
+    metaDescription:
+      `Reels en español para brokers hipotecarios en Miami y Fort Lauderdale, editados desde ${usd(SHORT_FORM.perVideoFrom)} por video. Los avisos y el NMLS los aprueba el cliente.`,
     eyebrow: "Brokers hipotecarios / Oficiales de préstamos",
     h1: "Videos de marca personal para brokers hipotecarios que atienden en español.",
     lead:
@@ -496,6 +502,8 @@ const nicheWave8Pages: SpanishNichePage[] = [
     metadataTitle: "Video para Abogados de Inmigración",
     description:
       "Reels educativos en español con los abogados reales de tu firma de inmigración en Miami y Fort Lauderdale. Información general, no asesoría legal; la firma aprueba todo.",
+    metaDescription:
+      `Reels educativos con los abogados de tu firma de inmigración en Miami, desde ${usd(SHORT_FORM.perVideoFrom)} por video. Información general, no asesoría legal; la firma aprueba todo.`,
     eyebrow: "Abogados de inmigración / Firmas en español",
     h1: "Reels educativos con el abogado real de tu firma de inmigración.",
     lead:
@@ -558,6 +566,8 @@ const nicheWave8Pages: SpanishNichePage[] = [
     metadataTitle: "Clips de Prédicas para Iglesias Miami",
     description:
       "Edición de clips cortos a partir de la prédica del domingo para iglesias en Miami y Fort Lauderdale, en español, inglés o ambos, con subtítulos y un calendario semanal.",
+    metaDescription:
+      `Clips cortos de la prédica del domingo para iglesias en Miami y Fort Lauderdale, con subtítulos en español, inglés o ambos. Desde ${usd(SHORT_FORM.perVideoFrom)} por video.`,
     eyebrow: "Iglesias / Ministerios / Equipos de medios",
     h1: "La prédica del domingo, convertida en clips para toda la semana.",
     lead:
@@ -620,6 +630,8 @@ const nicheWave8Pages: SpanishNichePage[] = [
     metadataTitle: "Editor de Video Marca Personal Miami",
     description:
       "Edición de video para fundadores, coaches y consultores en Miami y Fort Lauderdale: Reels, TikToks, Shorts y videos para LinkedIn a partir de tus propias grabaciones.",
+    metaDescription:
+      `Edición de video para fundadores, coaches y consultores en Miami: Reels, TikToks, Shorts y videos de LinkedIn con tus grabaciones, desde ${usd(SHORT_FORM.perVideoFrom)} por video.`,
     eyebrow: "Fundadores / Coaches / Consultores",
     h1: "Lo que sabes, frente a la cámara, editado en videos que la gente termina de ver.",
     lead:
@@ -682,6 +694,8 @@ const nicheWave8Pages: SpanishNichePage[] = [
     metadataTitle: "Clips de Podcast para Redes Miami",
     description:
       "Edición de clips de podcast en Miami y Fort Lauderdale: episodios convertidos en clips verticales con subtítulos para Reels, TikTok y YouTube Shorts, encuadrados en quien habla.",
+    metaDescription:
+      "Clips de podcast en Miami y Fort Lauderdale: cada episodio convertido en clips verticales con subtítulos para Reels, TikTok y Shorts, encuadrados en quien habla.",
     eyebrow: "Podcasts / Entrevistas / Programas en video",
     h1: "Un episodio de podcast, convertido en clips para Reels, TikTok y Shorts.",
     lead:
@@ -744,6 +758,8 @@ const nicheWave8Pages: SpanishNichePage[] = [
     metadataTitle: "Video para Quinceañeras Miami",
     description:
       "Película de momentos destacados y clips para redes de tu quinceañera en Miami y Fort Lauderdale. Edición de tu material y grabación en el lugar como servicio adicional.",
+    metaDescription:
+      "Video de momentos destacados y clips para redes de tu quinceañera en Miami y Fort Lauderdale. Esteban edita tu material; grabar en el lugar es un adicional.",
     eyebrow: "Quinceañeras / Familias / Celebraciones",
     h1: "El video de la quinceañera: la película de la noche y los clips para redes.",
     lead:
@@ -806,6 +822,8 @@ const nicheWave8Pages: SpanishNichePage[] = [
     metadataTitle: "Video para Escuelas de Baile y Música",
     description:
       "Contenido constante para academias de baile, escuelas de música y actividades infantiles en Miami y Fort Lauderdale: clips de clase, recitales y un calendario mensual.",
+    metaDescription:
+      "Clips de clase y recitales para academias de baile y escuelas de música en Miami y Fort Lauderdale, con un calendario mensual de publicaciones.",
     eyebrow: "Academias de baile / Escuelas de música / Actividades infantiles",
     h1: "Contenido para academias de baile y música durante toda la temporada.",
     lead:
@@ -3344,6 +3362,8 @@ export const spanishNichePages: SpanishNichePage[] = [
     metadataTitle: "Reels y Edición de Video Boca Raton",
     description:
       "Edición remota de Reels, TikTok y Shorts para negocios de Boca Raton con los clips que ya grabaste. La grabación en Palm Beach County se evalúa proyecto por proyecto.",
+    metaDescription:
+      `Edición remota de Reels, TikTok y Shorts para negocios de Boca Raton, desde ${usd(SHORT_FORM.perVideoFrom)} por video, con los clips que ya grabaste.`,
     eyebrow: "Boca Raton / Palm Beach County",
     h1: "Editor de Reels en Boca Raton para convertir tus clips en videos que se entienden rápido.",
     lead:

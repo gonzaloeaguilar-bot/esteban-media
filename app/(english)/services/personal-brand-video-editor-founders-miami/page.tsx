@@ -22,7 +22,7 @@ const path = "/services/personal-brand-video-editor-founders-miami";
 
 export const metadata = buildPageMetadata({
   title: "Personal Brand Video Editor Miami",
-  description: "Video editing for founders, coaches and consultants in Miami and Fort Lauderdale: talking-head Reels, TikToks, Shorts and LinkedIn videos from your own recordings.",
+  description: "Video editing for founders, coaches and consultants in Miami: talking-head Reels, TikToks, Shorts and LinkedIn videos cut from your own recordings.",
   path,
   locale: "en",
 });

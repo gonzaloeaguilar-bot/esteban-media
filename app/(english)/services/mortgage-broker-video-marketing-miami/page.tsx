@@ -22,7 +22,7 @@ const path = "/services/mortgage-broker-video-marketing-miami";
 
 export const metadata = buildPageMetadata({
   title: "Mortgage Broker Video Miami",
-  description: "Personal-brand reels and Spanish explainers for mortgage brokers and loan officers in Miami and Fort Lauderdale. NMLS and disclosures are supplied by the client.",
+  description: "Personal-brand reels and Spanish explainers for mortgage brokers and loan officers in Miami and Fort Lauderdale. The client supplies NMLS and disclosures.",
   path,
   locale: "en",
 });

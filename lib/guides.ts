@@ -80,6 +80,8 @@ type GuideCopy = {
   metadataTitle: string;
   title: string;
   description: string;
+  /** Search snippet when the visible description runs past ~160 characters (loop row 27). */
+  metaDescription?: string;
   eyebrow: string;
   answer: string;
   proof: GuideProofLink;
@@ -929,6 +931,8 @@ const guidePairs: readonly GuidePair[] = [
       title: "How to use AI for product photography and e-commerce images",
       description:
         "Learn how AI-assisted image creation helps e-commerce brands, restaurants, and small businesses create high-quality product visuals faster without replacing real photography.",
+      metaDescription:
+        "How to use AI for product photography without faking the product: start from a real photo, then build the background and light. For stores and restaurants.",
       eyebrow: "AI image creation",
       answer:
         "Combine clean reference photos with AI-assisted background generation and scene rendering to produce high-impact product visuals while maintaining real product accuracy.",
@@ -973,6 +977,8 @@ const guidePairs: readonly GuidePair[] = [
       title: "Cómo usar IA para fotografía de producto e imágenes de e-commerce",
       description:
         "Aprende cómo la creación de imágenes asistida por IA ayuda a marcas de e-commerce, restaurantes y pequeños negocios a crear piezas visuales sin reemplazar la fotografía real.",
+      metaDescription:
+        "Cómo usar IA en la fotografía de producto sin falsear el producto: parte de una foto real y crea el fondo y la luz alrededor. Para tiendas y restaurantes.",
       eyebrow: "Creación de imágenes con IA",
       answer:
         "Combina fotos de referencia limpias con generación de fondos y entornos asistidos por IA para producir imágenes de producto de alto impacto manteniendo la precisión del producto real.",
@@ -4510,7 +4516,7 @@ export function getGuideStaticParams(locale: GuideLocale) {
 export function buildGuideMetadata(guide: Guide): Metadata {
   return buildPageMetadata({
     title: guide.metadataTitle,
-    description: guide.description,
+    description: guide.metaDescription ?? guide.description,
     path: getGuidePath(guide),
     locale: guide.locale,
     languages: getGuideAlternates(guide),

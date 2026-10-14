@@ -743,7 +743,7 @@ const sobewff: EventCopyBuilder = (event) => ({
     },
   },
   es: {
-    metaTitle: "Contenido para restaurantes en el South Beach Wine & Food Festival",
+    metaTitle: "South Beach Wine & Food Festival: contenido para restaurantes",
     metaDescription:
       `Contenido para el South Beach Wine & Food Festival: calendario previo, edición de tu material desde ${FROM} por video y resúmenes para restaurantes y chefs.`,
     breadcrumb: "South Beach Wine & Food Festival",
@@ -914,7 +914,7 @@ const emergeAmericas: EventCopyBuilder = (event) => ({
     },
   },
   es: {
-    metaTitle: "Contenido de eMerge Americas para startups y empresas de tecnología",
+    metaTitle: "Contenido de eMerge Americas para startups y tecnológicas",
     metaDescription:
       `Contenido para eMerge Americas: calendario previo, edición del material de tu stand desde ${FROM} por video y resúmenes para startups y patrocinadores.`,
     breadcrumb: "eMerge Americas",

@@ -205,7 +205,7 @@ export const reelsCostCalculatorCopy: Record<CalcLocale, CalcCopy> = {
   },
   es: {
     metadataTitle: "Calculadora: Cuánto Cuesta Editar Reels al Mes",
-    metadataDescription: `Cuánto cuesta editar tus reels cada 4 semanas: por video desde ${usd(PER_VIDEO)} o con el plan semanal de ${usd(ONE.pricePerWeek)} por 1 video y ${usd(TWO.pricePerWeek)} por 2. Calculadora gratis con el método a la vista.`,
+    metadataDescription: `Cuánto cuesta editar tus reels: desde ${usd(PER_VIDEO)} por video, o el plan semanal de ${usd(ONE.pricePerWeek)} por 1 video y ${usd(TWO.pricePerWeek)} por 2. Calcula tu mes gratis.`,
     breadcrumbHome: "Inicio",
     breadcrumbCurrent: "Calculadora de costo de edición de reels",
     eyebrow: "Calculadora gratis",

@@ -9,7 +9,7 @@ const PATH = "/es/precios/inmobiliaria";
 export const metadata = buildPageMetadata({
   title: "Precios de fotografía inmobiliaria — Fort Lauderdale y Miami",
   description:
-    "Cuánto cuesta la fotografía de propiedades en el sur de Florida, con precio por tamaño de la casa, más dron, recorrido 3D de Zillow y video premium. Tarifas publicadas, no un estimado.",
+    "Fotografía de propiedades en el sur de Florida con precio publicado por tamaño de la casa, más dron, recorrido 3D de Zillow y video premium. Tarifas, no estimados.",
   path: PATH,
   locale: "es",
 });

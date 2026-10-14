@@ -44,12 +44,22 @@ function containsBrand(value: string): boolean {
  * 150-160 by design, and clamping those would rewrite good copy to fix bad
  * copy. 170 leaves them untouched and still cuts the generated 179-280s.
  *
- * Cut on a word, never mid-word, and never add an ellipsis to something that
+ * Cut at the end of a sentence when one ends past half the budget; otherwise
+ * on a word, never mid-word, and never add an ellipsis to something that
  * already ends in punctuation.
  */
 export function clampDescription(value: string, max = 170): string {
   const text = value.replace(/\s+/g, " ").trim();
   if (text.length <= max) return text;
+  // Prefer a whole sentence (overnight loop 2026-10-14, round 3): 36 live
+  // snippets ended in "…" mid-thought, mostly portfolio and case-study pages
+  // whose summaries run two sentences. Ending on the first sentence keeps the
+  // snippet a complete answer. Only when no sentence ends past half the budget
+  // does the word cut below apply.
+  const head = text.slice(0, max);
+  let sentenceEnd = -1;
+  for (const m of head.matchAll(/[.!?](?=\s)/g)) sentenceEnd = (m.index ?? -1) + 1;
+  if (sentenceEnd >= max * 0.5) return head.slice(0, sentenceEnd);
   const cut = text.slice(0, max - 1);
   const atWord = cut.slice(0, cut.lastIndexOf(" "));
   const body = (atWord.length > max * 0.6 ? atWord : cut).replace(/[\s,;:—-]+$/, "");

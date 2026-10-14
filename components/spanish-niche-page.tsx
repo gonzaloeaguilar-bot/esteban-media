@@ -1424,7 +1424,7 @@ export function buildSpanishNicheMetadata(slug: string): Metadata {
 
   return buildPageMetadata({
     title: page.metadataTitle,
-    description: page.description,
+    description: page.metaDescription ?? page.description,
     path,
     locale: "es",
     languages,

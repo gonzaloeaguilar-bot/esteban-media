@@ -13,7 +13,9 @@ import { buildPageMetadata } from "@/lib/site-metadata";
 
 export function packageMetadata(id: PackageId, locale: Locale) {
   const pkg = packagesFor(locale).find((item) => item.id === id)!;
-  return buildPageMetadata({ title: `${pkg.name} — ${pkg.subtitle}`, description: `${pkg.headline.join(" ")} ${pkg.idealFor}`, path: packageRoutes[id][locale], locale });
+  // Answer-first snippet (overnight loop row 27): the page's own direct answer, which
+  // carries the price from lib/pricing.ts, instead of the tagline + "ideal for" line.
+  return buildPageMetadata({ title: `${pkg.name} — ${pkg.subtitle}`, description: packageDirectAnswer(id, locale).answer, path: packageRoutes[id][locale], locale });
 }
 
 export function PackageDetail({ id, locale }: { id: PackageId; locale: Locale }) {
