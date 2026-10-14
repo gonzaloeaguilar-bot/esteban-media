@@ -30,7 +30,7 @@ export function LaneAnswer({
   source: string;
   locale: AudienceLocale;
   label: string;
-  price: string;
+  price?: string;
   facts: string[];
   detailsHref: string;
   detailsLabel?: string;
@@ -53,10 +53,12 @@ export function LaneAnswer({
       }
     >
       <div className="em-art-result">
+        {price && (
         <span className="em-art-price">
           <span className="em-art-price-label">{locale === "es" ? "Precio de referencia" : "Starting price"}</span>
           <span className="em-art-price-num">{price}</span>
         </span>
+        )}
         <span className="em-art-result-label">{locale === "es" ? "Tu contenido" : "Your content"}</span>
         <ul>
           {facts.map((fact) => (

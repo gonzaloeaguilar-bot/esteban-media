@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, Plus } from "lucide-react";
 import { useState } from "react";
 
-import RailSegmented from "@/vendor/rail-kit/RailSegmented";
 import { IllustratedScene } from "@/components/illustrated-scene";
 import { LaneAnswer } from "@/components/lane-answer";
 import { AudienceVideo, EditingPreview } from "@/components/audience-media";
@@ -12,8 +12,12 @@ import { AudienceVideo, EditingPreview } from "@/components/audience-media";
 import { AUDIENCE_LANES, type AudienceLocale } from "@/lib/audience-lanes";
 import { realEstateReelsPath } from "@/lib/real-estate-reels";
 import { laneStartingPrice, type ChooserLaneId } from "@/lib/chooser-lane-pricing";
-import { REAL_ESTATE_PLAN_TERMS, turnaroundFor } from "@/lib/pricing";
+import { PRODUCT_PHOTO_SESSION, REAL_ESTATE_PLAN_TERMS, turnaroundFor, usd } from "@/lib/pricing";
 import { HomePathFunnel } from "@/components/home-path-funnel";
+import { packagesCopy, whatsappHref } from "@/lib/packages";
+import { aLaCarteVisual } from "@/lib/a-la-carte-visuals";
+import { quoteCtaLabel } from "@/lib/quote-cta";
+import { site } from "@/lib/site";
 
 const copy = {
   en: {
@@ -24,7 +28,19 @@ const copy = {
     /* The control needs two or three words, not a sentence: at full length the
        three options stacked into one grey block with the inactive ones barely
        legible. The full label still reads on the card below. */
-    tabs: ["Real estate", "Business", "Editing only"],
+    tabs: ["Real estate", "Business", "Editing only", "One thing"],
+    singleLead: "Tap one to see what to send me.",
+    singleAsk: "Ask about this",
+    singleService: "See service page",
+    singleSend: "What to send",
+    singleCta: "Start a single project",
+    singleWho: "One service, quoted for your project",
+    singleLabel: "Single project",
+    singleQuoted: "Quoted per project",
+    singleFrom: "From",
+    singleSession: "/session",
+    singleCredit: "Concept illustrations created with AI.",
+    singleWhatsapp: "Hi Esteban, I'd like a quote for a single project.",
     artAlts: [
       "Concept illustration of a home, camera and property photographs",
       "Concept illustration of a cafe being filmed on a phone",
@@ -60,7 +76,19 @@ const copy = {
     heading: "¿Qué necesitas crear?",
     intro: "Elige un proyecto para ver trabajo relacionado y los próximos pasos.",
     labels: ["Reels para mis propiedades", "Videos cortos para mi negocio", "Editar videos que ya grabé"],
-    tabs: ["Inmobiliaria", "Negocio", "Solo edición"],
+    tabs: ["Inmobiliaria", "Negocio", "Solo edición", "Algo puntual"],
+    singleLead: "Toca uno para saber qué enviarme.",
+    singleAsk: "Preguntar por esto",
+    singleService: "Ver página del servicio",
+    singleSend: "Qué enviarme",
+    singleCta: "Empezar un proyecto puntual",
+    singleWho: "Un servicio, cotizado a tu proyecto",
+    singleLabel: "Proyecto puntual",
+    singleQuoted: "Cotización por proyecto",
+    singleFrom: "Desde",
+    singleSession: "/sesión",
+    singleCredit: "Ilustraciones conceptuales creadas con IA.",
+    singleWhatsapp: "Hola Esteban, quiero una cotización para un proyecto puntual.",
     artAlts: [
       "Ilustración conceptual de una casa, una cámara y fotografías de la propiedad",
       "Ilustración conceptual de un café grabado con un celular",
@@ -102,11 +130,13 @@ const laneIdAt = (index: number): ChooserLaneId =>
 export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
   const c = copy[locale];
   const lanes = AUDIENCE_LANES[locale].lanes;
+  const single = packagesCopy(locale).aLaCarte;
+  const SINGLE_ID = "a-la-carte";
   const [activeLane, setActiveLane] = useState(lanes[0].id);
   const [funnelOpen, setFunnelOpen] = useState(false);
-  const [funnelLane, setFunnelLane] = useState<{ id: string; label: string }>({ id: lanes[0].id, label: c.labels[0] });
-  const openFunnel = (id: string, label: string) => {
-    setFunnelLane({ id, label });
+  const [funnelLane, setFunnelLane] = useState<{ id: string; label: string; price: string }>({ id: lanes[0].id, label: c.labels[0], price: laneStartingPrice(locale, "real-estate") });
+  const openFunnel = (id: string, label: string, price: string) => {
+    setFunnelLane({ id, label, price });
     setFunnelOpen(true);
   };
 
@@ -122,14 +152,22 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
             same RailSegmented the monthly plans already use, so the page
             teaches the gesture once. Picking a lane swaps the card below. */}
         <div className="em-path-choice mt-5">
-          <RailSegmented
-            segments={lanes.map((lane, i) => ({ id: lane.id, label: c.tabs[i] }))}
-            activeId={activeLane}
-            label={locale === "es" ? "Tipo de proyecto" : "Project type"}
-            block
-            source={`home_project_path_${locale}`}
-            onSelect={({ id }: { id: string }) => setActiveLane(id)}
-          />
+          <div className="em-path-chips" role="group" aria-label={locale === "es" ? "Tipo de proyecto" : "Project type"}>
+            {[...lanes.map((lane, i) => ({ id: lane.id, label: c.tabs[i], price: laneStartingPrice(locale, laneIdAt(i)) })), { id: SINGLE_ID, label: c.tabs[3], price: c.singleQuoted }].map((chip) => (
+              <button
+                key={chip.id}
+                type="button"
+                className="em-path-chip"
+                aria-pressed={chip.id === activeLane}
+                data-active={chip.id === activeLane ? "" : undefined}
+                data-cta={`home_project_path_${locale}_${chip.id}`}
+                onClick={() => setActiveLane(chip.id)}
+              >
+                <span className="em-path-chip-label">{chip.label}</span>
+                <span className="em-path-chip-price">{chip.price}</span>
+              </button>
+            ))}
+          </div>
         </div>
         <div className="mt-5">
           {/* All three lanes are server-rendered every time — never filtered
@@ -177,7 +215,6 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                   locale={locale}
                   label={c.sceneLabels[index]}
                   facts={[...c.sceneFacts[index]]}
-                  price={laneStartingPrice(locale, laneIdAt(index))}
                   detailsHref={index === 0 ? realEstateReelsPath(locale) : lane.href}
                 />
               )}
@@ -194,7 +231,6 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                     source={`home-path-${lane.id}`}
                     locale={locale}
                     label={c.sceneLabels[index]}
-                    price={laneStartingPrice(locale, laneIdAt(index))}
                     facts={[...c.sceneFacts[index]]}
                     detailsHref={lane.href}
                   />
@@ -222,7 +258,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                   data-cta={`home-path-${lane.id}`}
                   onClick={(e) => {
                     e.preventDefault();
-                    openFunnel(lane.id, c.labels[index]);
+                    openFunnel(lane.id, c.labels[index], laneStartingPrice(locale, laneIdAt(index)));
                   }}
                   className="group flex min-h-16 items-center justify-between gap-4 rounded-2xl bg-[#9d3d2b] px-5 py-4 text-lg font-medium leading-snug text-white transition hover:bg-[#86341f] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 >
@@ -241,6 +277,87 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
             </div>
             );
           })}
+          {/* Fourth lane: the single projects that used to be their own
+              "A la carte" section with a second, parallel WhatsApp entry.
+              Owner, 2026-10-14: "This other section needs to merge also
+              with the one about what you need." Same server-rendered words
+              (titles, notes, what-to-send, service links) behind native
+              details, and the same in-place funnel instead of a WhatsApp
+              row per card. */}
+          <div className="em-path-card em-path-card--single" hidden={activeLane !== SINGLE_ID}>
+            <p className="em-single-lead">{single.title} {single.lead} {c.singleLead}</p>
+            <ul className="em-single-list" role="list">
+              {single.items.map((item) => {
+                const scene = aLaCarteVisual(item.id, locale);
+                // Real figure only where lib/pricing has one (the photo
+                // session floor). Otherwise the item's own quote statement,
+                // or a plain "Quoted per project" — never an invented number.
+                const noteIsQuote = !!item.note && /^(quoted|cotizaci)/i.test(item.note);
+                const itemPrice =
+                  item.id === "foto"
+                    ? `${c.singleFrom} ${usd(PRODUCT_PHOTO_SESSION.from)}${c.singleSession}`
+                    : noteIsQuote ? item.note! : c.singleQuoted;
+                const showNote = !!item.note && !(item.id !== "foto" && noteIsQuote);
+                return (
+                  <li key={item.id}>
+                    <details className="em-single-item" data-service={item.id}>
+                      <summary data-cta={`home_path_single_${item.id}`}>
+                        <Image className="em-single-thumb" src={scene.image} alt="" width={96} height={64} sizes="64px" />
+                        <span className="em-single-text">
+                          <span className="em-single-title">{item.title}</span>
+                          <span className="em-single-price">{itemPrice}</span>
+                          {showNote && <span className="em-single-note">{item.note}</span>}
+                        </span>
+                        <Plus className="em-single-plus" size={18} aria-hidden="true" />
+                      </summary>
+                      <div className="em-single-panel">
+                        <p><strong>{c.singleSend}.</strong> {scene.preparation}</p>
+                        <div className="em-single-actions">
+                          <button
+                            type="button"
+                            className="em-single-ask"
+                            data-cta={`home_path_single_${item.id}_ask`}
+                            onClick={() => openFunnel(SINGLE_ID, `${c.singleLabel}: ${item.title}`, itemPrice)}
+                          >
+                            {c.singleAsk}
+                          </button>
+                          {item.href && (
+                            <Link href={item.href} className="em-single-service" data-cta={`home_path_single_${item.id}_service`}>
+                              {c.singleService}
+                            </Link>
+                          )}
+                        </div>
+                      </div>
+                    </details>
+                  </li>
+                );
+              })}
+            </ul>
+            <p className="em-single-credit">{c.singleCredit}</p>
+            <div className="em-path-card-info flex flex-col gap-3">
+              <Link
+                href={locale === "es" ? "/es/contacto" : "/contact"}
+                data-cta="home-path-a-la-carte"
+                onClick={(e) => {
+                  e.preventDefault();
+                  openFunnel(SINGLE_ID, c.singleLabel, c.singleQuoted);
+                }}
+                className="group flex min-h-16 items-center justify-between gap-4 rounded-2xl bg-[#9d3d2b] px-5 py-4 text-lg font-medium leading-snug text-white transition hover:bg-[#86341f] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              >
+                <span><span className="block">{c.singleCta}</span><span className="mt-1 block text-xs font-normal uppercase tracking-wide text-white">{c.singleWho}</span></span>
+                <ArrowRight className="size-5 shrink-0 text-white transition-transform group-hover:translate-x-1" aria-hidden="true" />
+              </Link>
+              <a
+                href={whatsappHref(site.phone.e164, c.singleWhatsapp)}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-cta="home_path_single_whatsapp"
+                className="inline-flex min-h-11 items-center text-sm font-semibold text-[#6a625a] underline underline-offset-4"
+              >
+                {quoteCtaLabel(locale)}
+              </a>
+            </div>
+          </div>
         </div>
         <nav aria-label={locale === "es" ? "Servicios locales" : "Local services"} className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm">
           {c.localLinks.map((link) => (
@@ -275,6 +392,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
         open={funnelOpen}
         laneId={funnelLane.id}
         laneLabel={funnelLane.label}
+        price={funnelLane.price}
         onClose={() => setFunnelOpen(false)}
       />
     </section>

@@ -32,6 +32,7 @@ export function PackagesSection({
   showRealEstatePlans = true,
   quiet = false,
   showGuide = true,
+  showALaCarte = true,
 }: {
   locale: Locale;
   /**
@@ -61,6 +62,8 @@ export function PackagesSection({
    * full guide.
    */
   showGuide?: boolean;
+  /** false on the home pages: single projects live in the chooser there. */
+  showALaCarte?: boolean;
 }) {
   const copy = packagesCopy(locale);
   const packages = packagesFor(locale);
@@ -293,7 +296,7 @@ export function PackagesSection({
           section directly under the four packages. */}
       {showRealEstatePlans ? <RealEstatePlansSection locale={locale} /> : null}
 
-      <ALaCarteSection locale={locale} />
+      {showALaCarte ? <ALaCarteSection locale={locale} /> : null}
 
       {/* 4. The three steps. */}
       <section className="em-pk-steps" aria-labelledby="em-pk-steps-title" data-section="quote_process">
