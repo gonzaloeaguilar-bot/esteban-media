@@ -90,6 +90,9 @@ export const localBusinessEntityJsonLd = {
     site.googleBusinessProfile,
     site.bingPlaces,
     site.instagramBusiness,
+    site.behance,
+    site.vimeo,
+    site.nextdoor,
   ],
   availableLanguage: ["Spanish", "English (intermediate)"],
   contactPoint: {

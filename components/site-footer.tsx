@@ -12,6 +12,11 @@ export function SiteFooter() {
       phoneHref={site.phone.href}
       instagram={site.instagram}
       youtube={site.youtube}
+      directories={[
+        { label: "Behance", href: site.behance },
+        { label: "Vimeo", href: site.vimeo },
+        { label: "Nextdoor", href: site.nextdoor },
+      ]}
       domain={site.domain}
       location={site.location}
       name={site.name}
