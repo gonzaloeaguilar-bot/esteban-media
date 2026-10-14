@@ -16,6 +16,7 @@ import { priceSentence, whatsappHref } from "@/lib/packages";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 import { NicheAnswers } from "@/components/niche-answers";
+import { OwnerFactAnswers } from "@/components/owner-fact-answers";
 import { withNicheService } from "@/lib/niche-answers";
 
 const path = "/services/podcast-clipping-service-miami";
@@ -126,6 +127,7 @@ export default function Page() {
         </Container>
       </section>
 
+      <OwnerFactAnswers path="/services/podcast-clipping-service-miami" />
       <ServiceCraft heading={depth.craftHeading} cards={depth.craft} sectionId="podclip-craft" />
       <ServiceDeepDive id={dive.id} title={dive.title} destinations={dive.destinations} sections={dive.sections} />
       <ServiceFaqs heading={depth.faqHeading} faqs={depth.faqs} sectionId="podclip-faq" />

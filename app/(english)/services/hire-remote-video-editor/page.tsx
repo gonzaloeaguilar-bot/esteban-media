@@ -14,6 +14,7 @@ import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, serviceAreas } from "@/lib/site";
 import { entityIds } from "@/lib/entity-schema";
 import { NicheAnswers } from "@/components/niche-answers";
+import { OwnerFactAnswers } from "@/components/owner-fact-answers";
 import { withNicheService } from "@/lib/niche-answers";
 
 export const metadata = buildPageMetadata({
@@ -136,6 +137,7 @@ export default function HireRemoteVideoEditorPage() {
         </Container>
       </section>
       <ServiceAnswerFirst service="remote video editing" />
+      <OwnerFactAnswers path="/services/hire-remote-video-editor" />
 
       <section className="py-12 sm:py-16">
         <Container size="xl">
