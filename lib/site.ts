@@ -37,6 +37,11 @@ export const site = {
   },
   instagram: "https://www.instagram.com/steeban1/",
   youtube: "https://www.youtube.com/@estebanmorenolopez3811",
+  // Esteban's personal LinkedIn, rebuilt 2026-10-14 (headline "Short-Form Video
+  // Editor (Reels, TikTok, Shorts) in Fort Lauderdale & Miami"). curl_cffi
+  // (impersonate=chrome) returned 999 on 2026-10-14, LinkedIn's bot wall, which
+  // is expected. Person sameAs only, never the business (PR #301, #436).
+  linkedin: "https://www.linkedin.com/in/esteban-moreno-l%C3%B3pez-a95290377/",
   // Verified Google Business Profile (place ChIJz5tunn0FmqERd6F9Q9Irxao, cid
   // 12305289738935181687). Read live from the Business Information API
   // 2026-08-14. This is the entity link between the site and the profile that

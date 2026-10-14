@@ -20,7 +20,7 @@ describe("shared entity graph", () => {
       "@id": entityIds.person,
       name: "Esteban Moreno López",
       alternateName: "Esteban Moreno",
-      sameAs: [site.instagram, site.youtube],
+      sameAs: [site.instagram, site.youtube, site.linkedin],
       worksFor: { "@id": entityIds.business },
       jobTitle: "Video editor and content creator",
     });
@@ -82,6 +82,17 @@ describe("Google Business Profile entity link", () => {
       expect(localBusinessEntityJsonLd.sameAs).toContain(url);
       expect(personEntityJsonLd.sameAs).not.toContain(url);
     }
+  });
+
+  it("lists Esteban's LinkedIn on the person only, never the business", () => {
+    // curl_cffi impersonate=chrome returned 999 (LinkedIn's bot wall) on 2026-10-14.
+    expect(site.linkedin).toBe(
+      "https://www.linkedin.com/in/esteban-moreno-l%C3%B3pez-a95290377/",
+    );
+    expect(personEntityJsonLd.sameAs).toContain(site.linkedin);
+    expect(localBusinessEntityJsonLd.sameAs).not.toContain(site.linkedin);
+    const businessSameAs = localBusinessEntityJsonLd.sameAs as string[];
+    expect(businessSameAs.some((url) => url.includes("linkedin.com"))).toBe(false);
   });
 
   it("never lists Clutch (under review) or a street address", () => {

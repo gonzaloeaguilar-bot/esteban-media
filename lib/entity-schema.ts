@@ -24,7 +24,7 @@ export const personEntityJsonLd = {
   image: absoluteUrl("/about/esteban-on-location.jpg"),
   // The Google Business Profile is the business listing, not the person; it
   // stays on the #business sameAs only (SEO/GEO audit 2026-10-10, fix 7).
-  sameAs: [site.instagram, site.youtube],
+  sameAs: [site.instagram, site.youtube, site.linkedin],
   jobTitle: "Video editor and content creator",
   worksFor: {
     "@id": entityIds.business,

@@ -1,5 +1,11 @@
 import Link from "next/link";
-import { ArrowRight, PlaySquare, Send, ShieldCheck } from "lucide-react";
+import {
+  ArrowRight,
+  BriefcaseBusiness,
+  PlaySquare,
+  Send,
+  ShieldCheck,
+} from "lucide-react";
 
 import { AboutWhoIs } from "@/components/about-who-is";
 import { OnSetMedia } from "@/components/on-set-media";
@@ -121,6 +127,14 @@ export default function AboutPage() {
                 >
                   <PlaySquare className="size-4" aria-hidden="true" />
                   YouTube
+                </a>
+                <a
+                  href={site.linkedin}
+                  rel="me"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-[#101214] px-5 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"
+                >
+                  <BriefcaseBusiness className="size-4" aria-hidden="true" />
+                  LinkedIn
                 </a>
               </div>
             </div>
