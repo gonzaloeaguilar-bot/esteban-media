@@ -305,6 +305,13 @@ export default function ServicesPage() {
               working. Esteban Media combines websites, measured lead capture,
               automation, and creative production around a confirmed scope.
             </p>
+            <p className="mt-3 max-w-3xl leading-7 text-[#252a2d]" data-section="web-line-proof">
+              Websites, landing pages and AI chatbots are a published part of the work:{" "}
+              <Link href="/portfolio/titanforge" className="font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#7f2f20]">TitanForge</Link>, <Link href="/portfolio/gains-from-geebs" className="font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#7f2f20]">Gains From Geebs</Link>, <Link href="/portfolio/front-line-auto" className="font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#7f2f20]">Frontline Auto</Link>, <Link href="/portfolio/flas-concierge" className="font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#7f2f20]">Fort Lauderdale Auto Sale</Link> and the{" "}
+              <Link href="/portfolio/ai-lead-automation" className="font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#7f2f20]">two AI lead chatbots</Link>. The{" "}
+              <Link href="/services/website-design-fort-lauderdale" data-cta="services_web_line" className="font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#7f2f20]">website and chatbot design page</Link>{" "}
+              explains what each project includes.
+            </p>
             <p className="mt-3 max-w-3xl leading-7 text-[#252a2d]">
               {growthPillars.length} scoped building blocks, one accountable system
               from first search to follow-up. Not a promise that every business

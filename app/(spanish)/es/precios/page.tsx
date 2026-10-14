@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { ClosingCredits, PackagesSection } from "@/components/packages-section";
 import { PageUpdated } from "@/components/page-updated";
-import { PricingAnswer } from "@/components/pricing-answer";
+import { PricingAnswer, pricingHubExtraFaq } from "@/components/pricing-answer";
 import { Container } from "@/components/ui/container";
 import { entityIds } from "@/lib/entity-schema";
 import { packagesJsonLd, priceSentence } from "@/lib/packages";
@@ -23,7 +23,20 @@ export const metadata = buildPageMetadata({
 
 export default function SpanishPricingPage() {
   const url = absoluteUrl(PATH);
-  const [catalog, faq] = packagesJsonLd("es", url, entityIds.business);
+  const [catalog, packageFaqLd] = packagesJsonLd("es", url, entityIds.business);
+  // The hub's own per-hour (and, in Spanish, Latin America) answers render in
+  // PricingAnswer; the same strings join the one FAQPage here.
+  const faq = {
+    ...packageFaqLd,
+    mainEntity: [
+      ...packageFaqLd.mainEntity,
+      ...pricingHubExtraFaq("es").map((q) => ({
+        "@type": "Question",
+        name: q.question,
+        acceptedAnswer: { "@type": "Answer", text: q.answer },
+      })),
+    ],
+  };
 
   const webPage = {
     "@context": "https://schema.org",

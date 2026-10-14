@@ -578,5 +578,5 @@ export function packagesJsonLd(locale: Locale, homeUrl: string, providerId: stri
       acceptedAnswer: { "@type": "Answer", text: q.answer },
     })),
   };
-  return [catalog, faq];
+  return [catalog, faq] as const;
 }

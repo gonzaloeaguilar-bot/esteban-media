@@ -1953,6 +1953,72 @@ export const QUINCEANERA_DEPTH: NicheWave8Depth = {
   ],
 };
 
+// Weddings (owner fact 2026-10-14, vault esteban-owner-facts-2026-10-14): he
+// films and edits weddings, and every wedding gets its own quote. No wedding
+// price was given, so no figure appears anywhere on the wedding pages.
+export const WEDDING_PRICE_ANSWER = {
+  question: "How much does a wedding videographer cost?",
+  answer:
+    "Each wedding is quoted individually because every wedding is different. Tell us the date, location, hours and what you want delivered, and we send a quote.",
+  detail:
+    "Those four answers are what change the work: how many hours of the day are covered, whether the ceremony and the reception are in one place or two, and whether you want a full film, a short highlight, vertical clips for social media or all three. A Saturday in peak season and a small weekday ceremony are different jobs, which is why there is no single package price. The quote lists the deliverables before the date, so both sides know exactly what is being filmed and what you get back.",
+} as const;
+
+export const WEDDING_DEPTH: NicheWave8Depth = {
+  answer: {
+    question: "Do you film weddings in Fort Lauderdale and Miami?",
+    answer:
+      "Yes. Esteban Moreno films and edits weddings. He is based in Fort Lauderdale and works on location across Broward and Miami-Dade, and he can also edit a wedding that another videographer filmed. His published wedding, Diana & Jack, was shot in Boston, Massachusetts: he was the videographer and the editor, and he delivered a full 20-minute film of the day plus a highlight trailer of about a minute and a half. Each wedding is quoted individually, because the hours, the venues and the deliverables change from one couple to the next. You can plan the whole video with him in Spanish, his first working language, or in English.",
+  },
+  proof: {
+    href: "/portfolio/diana-jack",
+    label: "Watch the Diana & Jack wedding film",
+    note: "Diana & Jack is a wedding in Boston, Massachusetts. The published credits name Esteban as videographer and editor; the deliverables were a 20-minute film of the day and a highlight trailer of about a minute and a half.",
+  },
+  craftHeading: "What a wedding film has to get right.",
+  craft: [
+    {
+      title: "The day, in the order it happened",
+      detail:
+        "Getting ready, the ceremony, the vows and rings, the first kiss, the entrance, the first dance, the toasts. A long film follows that sequence so the couple can relive the day as it unfolded, and the trailer compresses the same story into a minute or two.",
+    },
+    {
+      title: "Sound that carries the vows",
+      detail:
+        "The vows, the officiant and the toasts are the moments people replay, and they are only as good as the audio. Planning where the microphones go, and which speeches matter, is part of scoping the day rather than an afterthought in the edit.",
+    },
+    {
+      title: "A film and a trailer, cut for different viewers",
+      detail:
+        "The full film is for the couple and the family, watched start to finish. The highlight trailer is the piece that gets shared. Vertical clips for Instagram or TikTok can come from the same footage when the couple asks for them in the quote.",
+    },
+  ],
+  faqHeading: "Questions couples ask before they book.",
+  faqs: [
+    {
+      question: "Can Esteban edit footage another videographer filmed at our wedding?",
+      answer:
+        "Yes. Send the original camera files and the audio, not copies downloaded from a phone chat, along with the running order of the day and the moments you care about most. He edits remotely and the quote is based on how much footage there is and what you want delivered.",
+    },
+    {
+      question: "What do we receive after the wedding?",
+      answer:
+        "Whatever the written quote lists. As a reference, the published Diana & Jack wedding was delivered as a full 20-minute film of the day and a highlight trailer of about a minute and a half. Short vertical clips for social media can be added when you ask for them.",
+    },
+    {
+      question: "Can we plan our wedding video in Spanish?",
+      answer:
+        "Yes. Spanish is Esteban's first working language, and his English is intermediate, so bilingual families can plan in whichever language is easier. Tell him which speeches or vows are in which language so captions, if you want them, are planned from the start.",
+    },
+  ],
+  relatedHeading: "Related services for weddings and celebrations.",
+  related: [
+    { title: "Fort Lauderdale Video Production", detail: "On-location filming and editing from the Fort Lauderdale base.", href: "/services/video-production-fort-lauderdale" },
+    { title: "Quinceañera Video", detail: "Highlight films and social edits for quinceañeras.", href: "/services/quinceanera-video-miami" },
+    { title: "Short-Form Video Editing", detail: "Vertical clips for Reels and TikTok from the same footage.", href: "/services/short-form-video-editor-miami" },
+  ],
+};
+
 export const DANCE_MUSIC_STUDIO_DEPTH: NicheWave8Depth = {
   answer: {
     question: "What recurring video content works for dance studios and music academies?",

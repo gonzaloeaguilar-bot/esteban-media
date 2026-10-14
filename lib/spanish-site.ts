@@ -19,6 +19,7 @@ import {
   Car,
   Church,
   Handshake,
+  Heart,
   Home,
   Languages,
   Landmark,
@@ -815,6 +816,80 @@ const nicheWave8Pages: SpanishNichePage[] = [
         question: "¿Cuándo conviene reservar la edición?",
         answer:
           "Antes de la fecha, para acordar la lista de momentos, los entregables y las canciones con tiempo. Si la fiesta ya pasó, envía el material y la lista de momentos más importantes. Las fechas de entrega se confirman en la cotización por escrito.",
+      },
+    ],
+  },
+  {
+    // Bodas (dato del dueño 2026-10-14, vault esteban-owner-facts-2026-10-14):
+    // Esteban graba y edita bodas y cotiza cada boda por separado. No hay precio
+    // de bodas, así que esta página no publica ninguna cifra.
+    slug: "videografo-de-bodas-fort-lauderdale",
+    title: "Videógrafo de bodas en Fort Lauderdale y Miami",
+    metadataTitle: "Videógrafo de Bodas Fort Lauderdale",
+    description:
+      "Películas de boda y tráileres de momentos destacados que Esteban Moreno graba y edita en Fort Lauderdale y Miami. Cada boda se cotiza por separado.",
+    eyebrow: "Bodas / Parejas / Familias",
+    h1: "Videógrafo de bodas en Fort Lauderdale y Miami: la película de tu día.",
+    lead:
+      "Esteban Moreno graba y edita bodas: una película completa del día, un tráiler para compartir y, si los quieres, clips verticales para redes. También puede editar una boda que grabó otro videógrafo.",
+    keyword: "videógrafo de bodas",
+    location: "Broward / Miami-Dade",
+    availability: "confirmed",
+    icon: Heart,
+    updated: "2026-10-14",
+    fitQuestion: "¿Grabas bodas en Fort Lauderdale y Miami?",
+    projectFit:
+      "Sí. Esteban Moreno graba y edita bodas. Tiene su base en Fort Lauderdale y graba en locación en Broward y Miami-Dade, y también puede editar a distancia una boda que grabó otro videógrafo. Su boda publicada, [Diana & Jack](/es/portafolio/diana-jack), se grabó en Boston, Massachusetts: él fue el videógrafo y el editor, y entregó una película completa de 20 minutos del día y un tráiler de momentos destacados de un minuto y medio, aproximadamente. Cada boda se cotiza por separado, porque las horas, los lugares y los entregables cambian de una pareja a otra. Puedes planear todo el video en español, su idioma principal de trabajo.",
+    sectionsDisclosure: "Planea el video de tu boda",
+    sectionsDestinations: "Qué enviar para la cotización y los momentos que van en la lista",
+    bestFor: [
+      "Parejas que quieren una película del día y un tráiler para compartir.",
+      "Bodas grabadas por otro videógrafo que necesitan edición.",
+      "Bodas en Broward o Miami-Dade que necesitan quien grabe en persona.",
+    ],
+    scopingQuestions: [
+      "¿Cuál es la fecha y dónde son la ceremonia y la recepción?",
+      "¿Cuántas horas del día quieres cubrir?",
+      "¿Qué quieres recibir: película, tráiler, clips para redes?",
+    ],
+    sections: [
+      {
+        heading: "¿Cuánto cobra un videógrafo de bodas?",
+        paragraphs: [
+          "Cada boda se cotiza por separado, porque cada boda es distinta. Cuéntanos la fecha, el lugar, las horas y lo que quieres recibir, y te enviamos una cotización.",
+          "Esas cuatro respuestas son las que cambian el trabajo: cuántas horas del día se cubren, si la ceremonia y la recepción son en el mismo lugar o en dos, y si quieres una película completa, un tráiler corto, clips verticales para redes o las tres cosas. Un sábado de temporada alta y una ceremonia pequeña entre semana son trabajos distintos, y por eso no hay un precio único de paquete. La cotización enumera los entregables antes de la fecha, así los dos saben qué se graba y qué recibes.",
+        ],
+      },
+      {
+        heading: "¿Qué debe enviar una pareja para recibir la cotización?",
+        paragraphs: [
+          "Cuatro datos: la fecha, el lugar, las horas que quieres cubrir y lo que quieres recibir. La fecha dice si Esteban está libre. El lugar dice si la ceremonia y la recepción son en un mismo salón o en dos, y qué tan lejos quedan. Las horas fijan cuánto del día se graba, desde la preparación hasta el último baile o solo la ceremonia y los brindis.",
+          "Lo que quieres recibir es lo que las parejas suelen dejar en el aire. Di si quieres una película completa del día, un tráiler corto, clips verticales para Instagram o TikTok o una mezcla, y si algún discurso necesita subtítulos. Agrega las reglas del salón sobre grabación si ya las conoces. Con esos datos llega una cotización por escrito, y sabes qué incluye antes de reservar.",
+        ],
+      },
+      {
+        heading: "¿Qué momentos de la boda deben estar en la lista?",
+        paragraphs: [
+          "Los que vas a querer ver otra vez en diez años. La preparación, el primer encuentro si lo planean, la entrada a la ceremonia, los votos y el intercambio de anillos, el lazo o las arras si la familia mantiene esas tradiciones, el primer beso, la salida, las fotos familiares, la entrada a la recepción, el primer baile, los bailes con los padres, los brindis, el pastel y la despedida.",
+          "Entrega al videógrafo el horario del día con tiempos aproximados y los nombres de las personas más importantes, para que los abuelos, los padrinos y quien da un discurso se graben a propósito. La película se arma con esa lista. Para clips cortos del mismo día está el [editor de video corto](/es/editor-de-video-corto-para-redes-miami), y para otra celebración familiar el [video para quinceañeras](/es/video-para-quinceaneras-miami).",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Esteban puede editar el material que grabó otro videógrafo en nuestra boda?",
+        answer:
+          "Sí. Envía los archivos originales de cámara y el audio, no copias descargadas de un chat, junto con el horario del día y los momentos que más te importan. Él edita a distancia y la cotización se basa en cuánto material hay y en lo que quieres recibir.",
+      },
+      {
+        question: "¿Qué recibimos después de la boda?",
+        answer:
+          "Lo que diga la cotización por escrito. Como referencia, la boda publicada de Diana & Jack se entregó como una película completa de 20 minutos y un tráiler de un minuto y medio, aproximadamente. Los clips verticales para redes se agregan cuando los pides.",
+      },
+      {
+        question: "¿Podemos planear el video de la boda en español?",
+        answer:
+          "Sí. El español es el idioma principal de trabajo de Esteban, y su inglés es intermedio, así que las familias bilingües pueden planear en el idioma que les quede más fácil. Dile qué votos o discursos son en cada idioma para planear los subtítulos desde el principio, si los quieres.",
       },
     ],
   },
@@ -4872,6 +4947,7 @@ const nicheWave8Hreflang = Object.fromEntries(
       ["/services/immigration-attorney-video-marketing-miami", "/es/marketing-de-video-para-abogados-de-inmigracion-miami"],
       ["/services/church-sermon-clip-editing-miami", "/es/edicion-de-clips-de-predicas-para-iglesias-miami"],
       ["/services/quinceanera-video-miami", "/es/video-para-quinceaneras-miami"],
+      ["/services/wedding-videographer-fort-lauderdale", "/es/videografo-de-bodas-fort-lauderdale"],
       ["/services/dance-studio-music-school-video-marketing-miami", "/es/video-para-academias-de-baile-y-musica-miami"],
       ["/services/personal-brand-video-editor-founders-miami", "/es/editor-de-video-para-marca-personal-miami"],
       ["/services/podcast-clipping-service-miami", "/es/edicion-de-clips-de-podcast-miami"],

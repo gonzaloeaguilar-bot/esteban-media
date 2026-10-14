@@ -166,6 +166,13 @@ export default function SpanishServicesPage() {
             <p className="mt-4 max-w-3xl leading-7 text-[#252a2d]">
               Son bloques definidos por alcance, no la promesa de que cada negocio necesita todas las herramientas. El tiempo depende del alcance, materiales, accesos, consentimiento y ciclos de revisión confirmados.
             </p>
+            <p className="mt-3 max-w-3xl leading-7 text-[#252a2d]" data-section="web-line-proof">
+              Los sitios web, las landing pages y los chatbots con IA son parte publicada del trabajo:{" "}
+              <Link href="/es/portafolio/titanforge" className="font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#7f2f20]">TitanForge</Link>, <Link href="/es/portafolio/gains-from-geebs" className="font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#7f2f20]">Gains From Geebs</Link>, <Link href="/es/portafolio/front-line-auto" className="font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#7f2f20]">Frontline Auto</Link>, <Link href="/es/portafolio/flas-concierge" className="font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#7f2f20]">Fort Lauderdale Auto Sale</Link> y los{" "}
+              <Link href="/es/portafolio/ai-lead-automation" className="font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#7f2f20]">dos chatbots de captación con IA</Link>. La{" "}
+              <Link href="/es/diseno-web-fort-lauderdale" data-cta="servicios_web_line" className="font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#7f2f20]">página de diseño web y chatbots</Link>{" "}
+              explica qué incluye cada proyecto.
+            </p>
             <p className="mt-3 max-w-3xl leading-7 text-[#252a2d]">
               Si todavía estás definiendo qué pedir, empieza con la{" "}
               <Link

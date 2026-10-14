@@ -13,6 +13,7 @@ import {
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 import { NicheAnswers } from "@/components/niche-answers";
+import { OwnerFactAnswers } from "@/components/owner-fact-answers";
 import { withNicheService } from "@/lib/niche-answers";
 
 export const metadata = buildPageMetadata({
@@ -109,6 +110,7 @@ export default function VideoProductionDoralPage() {
         </Container>
       </section>
       <ServiceAnswerFirst service="video production in Doral" />
+      <OwnerFactAnswers path="/services/video-production-doral-miami" />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">

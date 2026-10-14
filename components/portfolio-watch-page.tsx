@@ -9,10 +9,13 @@ import {
 
 import { Container } from "@/components/ui/container";
 import { PageUpdated } from "@/components/page-updated";
+import { OwnerFactAnswers } from "@/components/owner-fact-answers";
 import { YouTubeFacade } from "@/components/youtube-facade";
 import { spanishServices } from "@/lib/spanish-site";
 import { services } from "@/lib/site";
 import { buildPortfolioWatchSchema } from "@/lib/portfolio-schema";
+import { googleReviews, reviewSourceUrl } from "@/lib/client-reviews";
+import { portfolioServiceLink } from "@/lib/portfolio-service-links";
 import {
   CASE_STUDY_IDS,
   getCaseStudyPath,
@@ -28,6 +31,13 @@ import {
   isoDurationToSeconds,
   type PortfolioWatchLocale,
 } from "@/lib/portfolio-watch";
+
+/** "August 2026" / "agosto de 2026" from a Places API publish time. */
+function reviewMonth(iso: string, locale: "en" | "es"): string {
+  const date = new Date(iso);
+  if (Number.isNaN(date.getTime())) return "";
+  return new Intl.DateTimeFormat(locale === "es" ? "es-US" : "en-US", { month: "long", year: "numeric", timeZone: "America/New_York" }).format(date);
+}
 
 type PortfolioWatchPageProps = {
   item: PortfolioItem;
@@ -156,10 +166,19 @@ export function PortfolioWatchPage({ item, locale }: PortfolioWatchPageProps) {
     ? "/es/diseno-web-fort-lauderdale"
     : "/services/website-design-fort-lauderdale";
 
+  // A dedicated service page (wedding, web and chatbot work) wins over the
+  // generic services-index anchor.
+  const serviceLink = portfolioServiceLink(item.id, locale);
   const servicePath =
-    locale === "es"
+    serviceLink?.href ??
+    (locale === "es"
       ? `/es/servicios#${service.id}`
-      : `/services#${service.id}`;
+      : `/services#${service.id}`);
+  const serviceTitle = serviceLink?.title ?? service.name;
+  const serviceDetail = serviceLink?.detail ?? service.description;
+  // Google reviews whose reviewer is this project's client (data/google-reviews.json
+  // portfolioId). Quoted verbatim and attributed; never emitted as Review markup.
+  const projectReviews = googleReviews.filter((review) => review.portfolioId === item.id);
   const homePath = locale === "es" ? "/es" : "/";
   const contactPath = locale === "es" ? "/es/contacto" : "/contact";
   const structuredData = buildPortfolioWatchSchema({
@@ -446,6 +465,56 @@ export function PortfolioWatchPage({ item, locale }: PortfolioWatchPageProps) {
         </section>
       ) : null}
 
+      <OwnerFactAnswers path={path} />
+
+      {projectReviews.length > 0 ? (
+        <section
+          className="border-t border-[#d6ccc0] py-12 sm:py-16"
+          aria-labelledby="project-review-heading"
+          data-section="portfolio_project_review"
+        >
+          <Container size="xl">
+            <div className="max-w-3xl">
+              <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">
+                {locale === "es" ? "Reseña de Google" : "Google review"}
+              </p>
+              <h2 id="project-review-heading" className="mt-3 font-serif text-3xl sm:text-4xl">
+                {locale === "es"
+                  ? `¿Qué dijo ${projectReviews[0].author} de Esteban Moreno Media?`
+                  : `What did ${projectReviews[0].author} say about Esteban Moreno Media?`}
+              </h2>
+              {projectReviews.map((review) => (
+                <figure key={review.publishedAt} className="mt-6">
+                  <blockquote className="border-l-4 border-[#e85d3e] pl-5 font-serif text-2xl leading-snug text-[#101214]">
+                    <p>&ldquo;{review.quote}&rdquo;</p>
+                  </blockquote>
+                  <figcaption className="mt-4 text-sm leading-6 text-[#5a6066]">
+                    {review.author},{" "}
+                    {locale === "es"
+                      ? `reseña de ${review.rating} estrellas en Google, ${reviewMonth(review.publishedAt, "es")}.`
+                      : `${review.rating}-star Google review, ${reviewMonth(review.publishedAt, "en")}.`}{" "}
+                    <a
+                      href={reviewSourceUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-cta="portfolio_review_source"
+                      className="font-medium text-[#9f3c27] underline underline-offset-4"
+                    >
+                      {locale === "es" ? "Ver en Google" : "Read on Google"}
+                    </a>
+                  </figcaption>
+                </figure>
+              ))}
+              <p className="mt-6 text-sm leading-6 text-[#252a2d]">
+                {locale === "es"
+                  ? "La reseña está publicada en el perfil de Google de Esteban Moreno Media y se reproduce palabra por palabra. Habla del trabajo de Esteban para el negocio; no describe un resultado medido de este proyecto."
+                  : "The review is published on Esteban Moreno Media's Google profile and is reproduced word for word. It speaks about Esteban's work for the business; it does not describe a measured result of this project."}
+              </p>
+            </div>
+          </Container>
+        </section>
+      ) : null}
+
       <section className="border-y border-[#d6ccc0] bg-[#e7ded2] py-12 sm:py-16">
         <Container size="xl">
           <div className="grid gap-5 lg:grid-cols-2">
@@ -457,12 +526,12 @@ export function PortfolioWatchPage({ item, locale }: PortfolioWatchPageProps) {
               <p className="mt-6 text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">
                 {text.relatedService}
               </p>
-              <h2 className="mt-2 font-serif text-3xl">{service.name}</h2>
+              <h2 className="mt-2 font-serif text-3xl">{serviceTitle}</h2>
               <p className="mt-3 text-sm leading-6 text-[#3f4548]">
-                {service.description}
+                {serviceDetail}
               </p>
               <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27] underline decoration-[#e85d3e]/40 underline-offset-4">
-                {service.name}
+                {serviceTitle}
                 <ArrowRight
                   className="size-4 transition group-hover:translate-x-1"
                   aria-hidden="true"

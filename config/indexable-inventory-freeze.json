@@ -2,8 +2,8 @@
   "status": "demand_gated",
   "effectiveDate": "2026-08-28",
   "baselineRevisedOn": "2026-10-14",
-  "approvedSitemapUrlCount": 363,
-  "approvedSitemapUrlSetSha256": "039d0f1606641516f0dfd697e3e9737f8bd3d19f9d02eab9d0d0f85255d768ff",
+  "approvedSitemapUrlCount": 365,
+  "approvedSitemapUrlSetSha256": "3e327aff4cb5bf8c776b1e7d1d828823e4630c28e058d1a113763d4e3e5594d5",
   "allowedNewIndexableUrls": 4,
   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {
@@ -402,6 +402,19 @@
       "demandEvidence": "Intent gap (overnight loop row 30): /services/hire-remote-video-editor had no es-US alternate. Google autocomplete hl=es gl=us on 2026-10-14 returns 'contratar editor de videos', 'contratar editor de videos para instagram', 'contratar editor de videos online', 'contratar editor de video freelance' and 'editor de video remoto'. Full translation of the EN page (fit, three-step process, four FAQs, Starter price from lib/pricing.ts); no new claim.",
       "followUpDate": "2026-11-14",
       "followUp": "Check GSC impressions/indexed status for the URL and Spanish 'contratar editor de video' queries. Zero impressions at 30 days: keep internally linked and paired, drop from the sitemap."
+    },
+    {
+      "on": "2026-10-14",
+      "url": [
+        "/services/wedding-videographer-fort-lauderdale",
+        "/es/videografo-de-bodas-fort-lauderdale"
+      ],
+      "orderedBy": "Gonzalo (in-session 2026-10-14, relaying Esteban: he films weddings; each wedding is quoted individually). Vault: client-esteban-media/wiki/esteban-owner-facts-2026-10-14",
+      "kind": "new service pair (owner-confirmed service with no page)",
+      "demandEvidence": "Owner-confirmed service with no page: the site's only wedding mention was the Diana & Jack portfolio film. Google autocomplete 2026-10-14 returns 'wedding videographer fort lauderdale', 'wedding videographer miami', 'wedding photographer and videographer miami', 'videografo de bodas' and 'cuanto cobra un videografo de boda' (row 33 parked the price question for lack of an owner answer; the owner answer is now 'quoted individually'). Own GSC 90d (2026-07-16..10-13) has 0 wedding/boda impressions, stated rather than dressed up: the site had nothing to rank.",
+      "followUpDate": "2026-10-28",
+      "followUp": "Re-run the esteban-search-sweep for 'wedding videographer fort lauderdale', 'videografo de bodas fort lauderdale' and 'cuanto cobra un videografo de boda', and GSC query+page plus URL Inspection for both URLs, on 2026-10-28 and 2026-11-14. If both are still unknown to Google with zero impressions on 2026-11-14, keep the pages (owner service) and add the wedding link to more event pages rather than adding URLs.",
+      "note": "2 URLs. With /es/contratar-editor-de-video-remoto (PR #433) this demand-wave run adds 3 URLs, within the allowance of 4. No wedding price is published (owner gave none)."
     }
   ]
 }

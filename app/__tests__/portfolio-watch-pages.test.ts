@@ -1,3 +1,4 @@
+import { portfolioServiceLink } from "@/lib/portfolio-service-links";
 import * as React from "react";
 import { afterAll, beforeAll, describe, expect, it, vi } from "vitest";
 
@@ -175,7 +176,9 @@ describe("rendered portfolio watch-page evidence", () => {
         expect(hrefs).toContain(
           getPortfolioWatchPath(item.id, locale === "es" ? "en" : "es"),
         );
-        expect(hrefs.some((href) => href.includes("/servicios#") || href.includes("/services#"))).toBe(true);
+        // A dedicated service page (wedding, web/chatbot) replaces the generic anchor.
+        const dedicated = portfolioServiceLink(item.id, locale === "es" ? "es" : "en")?.href;
+        expect(hrefs.some((href) => href.includes("/servicios#") || href.includes("/services#") || href === dedicated)).toBe(true);
         expect(hrefs.some((href) => href.includes("#portfolio-"))).toBe(true);
         expect(visibleText).toContain(copy.title);
         expect(visibleText).toContain(copy.summary);
