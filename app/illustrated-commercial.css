@@ -150,10 +150,10 @@
 .em-illustration[data-kind=aerial] .em-art-disclosure[data-rail-open] .em-art-flight{opacity:1}
 @media(prefers-reduced-motion:no-preference){
  .em-illustration[data-visible=true] .em-art-depth{animation:em-art-breathe 2.4s ease-in-out 2}
- .em-art-disclosure[data-rail-open] .em-art-depth{animation:em-art-capture 640ms ease-in-out both}
+ .em-art-disclosure[data-rail-open] .em-art-depth{animation:em-art-capture 760ms ease-out both}
  .em-art-disclosure[data-rail-open] .em-art-viewfinder{animation:em-art-focus 550ms ease-out both}
  .em-art-disclosure[data-rail-open] .em-art-result{animation:em-art-develop 450ms cubic-bezier(.2,.7,.2,1) both}
- .em-illustration[data-visible=true] .em-art-disclosure[data-rail-open] .em-art-record{animation:em-art-blink 1.4s steps(1) infinite}
+ .em-illustration[data-visible=true] .em-art-disclosure[data-rail-open] .em-art-record{animation:em-art-blink 1.4s ease-in-out infinite}
  .em-art-disclosure[data-rail-open] .em-art-film b{animation:em-art-cut 2.4s cubic-bezier(.4,0,.6,1) infinite alternate}
  .em-art-disclosure[data-rail-open] .em-art-flight path{stroke-dasharray:650;animation:em-art-route 1200ms ease-out both}
  .em-art-plus{transition:transform 220ms ease}
@@ -168,10 +168,11 @@
  .em-illustration[data-visible=true] .em-art-disclosure[data-rail-open] .em-art-record{animation:none;opacity:1}
 }
 @keyframes em-art-breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.035)}}
-@keyframes em-art-capture{0%{transform:scale(1)}34%{transform:scale(.94) rotate(-.6deg)}100%{transform:scale(1)}}
+/* Capture punches IN (>=1), never out: the depth layer sits in an overflow:hidden scene, so any scale<1 exposes the #f4ebdf backing (10px measured). */
+@keyframes em-art-capture{0%{transform:scale(1)}30%{transform:scale(1.05) rotate(-.6deg)}100%{transform:scale(1)}}
 @keyframes em-art-focus{from{transform:scale(1.15);opacity:0}to{transform:scale(1);opacity:1}}
 @keyframes em-art-develop{from{transform:translateY(-9px);opacity:.5}to{transform:translateY(0);opacity:1}}
-@keyframes em-art-blink{0%,40%{opacity:1}50%,90%{opacity:.15}100%{opacity:1}}
+@keyframes em-art-blink{0%,30%{opacity:1}50%{opacity:.55}65%,85%{opacity:.15}100%{opacity:1}}
 @keyframes em-art-cut{from{left:4%}to{left:96%}}
 @keyframes em-art-route{from{stroke-dashoffset:650}to{stroke-dashoffset:0}}
 /* Real-estate showcase (components/real-estate-showcase.tsx). The reel shelf and
