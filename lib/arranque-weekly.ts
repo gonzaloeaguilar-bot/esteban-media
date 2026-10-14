@@ -119,6 +119,13 @@ export function arranqueWeeklyComparisonLine(locale: Locale): string {
     : `from ${fromVideo} per video vs ${singleUsd} for a single video`;
 }
 
+/** The weekly plan's commitment, in one line: "Pago semanal · mínimo 4 semanas, luego cancelas cuando quieras". */
+export function arranqueWeeklyTermsLine(locale: Locale): string {
+  return locale === "es"
+    ? `Pago semanal · mínimo ${T.minimumWeeks} semanas, luego cancelas cuando quieras`
+    : `Paid weekly · ${T.minimumWeeks}-week minimum, then cancel anytime`;
+}
+
 export function arranqueWeeklyWhatsapp(phoneE164: string, option: ArranqueWeeklyOption, locale: Locale): string {
   const name = `${arranqueWeeklyName(locale)}: ${arranqueWeeklyOptionName(option, locale)}`;
   const price = usd(option.pricePerWeek);
@@ -151,14 +158,14 @@ export function arranqueWeeklyCopy(locale: Locale) {
       ? [
           `Videos de hasta ${T.maxVideoSeconds} segundos, a partir de hasta ${T.maxFootageMinutes} minutos de material por video.`,
           `Entrega de cada video en ${T.deliveryHoursMin}–${T.deliveryHoursMax} horas.`,
-          "Pagas al inicio de cada semana y puedes parar avisando antes de la semana siguiente.",
+          `Pagas al inicio de cada semana. El mínimo es de ${T.minimumWeeks} semanas; después cancelas cuando quieras, avisando antes de la semana siguiente.`,
           "Los videos son tuyos. La grabación y la publicación quedan a tu cargo.",
           "La canción en tendencia la agregas tú en Instagram o TikTok al publicar: ese audio solo tiene licencia dentro de la app. El video llega cortado a su ritmo.",
         ]
       : [
           `Videos up to ${T.maxVideoSeconds} seconds, from up to ${T.maxFootageMinutes} minutes of footage per video.`,
           `Each video delivered in ${T.deliveryHoursMin}–${T.deliveryHoursMax} hours.`,
-          "You pay at the start of each week and can stop by telling Esteban before the next week.",
+          `You pay at the start of each week. The minimum is ${T.minimumWeeks} weeks; after that you can cancel anytime by telling Esteban before the next week.`,
           "The videos are yours. Filming and posting stay with you.",
           "You add the trending song in Instagram or TikTok when you post: that audio is only licensed inside the app. The video comes back cut to its beat.",
         ],
@@ -174,7 +181,7 @@ export function arranqueWeeklyFaq(locale: Locale): { question: string; answer: s
   if (locale === "es") {
     return [
       { question: "¿Cómo se paga?", answer: "Semana a semana, al inicio de cada una. No pagas el mes completo de una vez." },
-      { question: "¿Puedo cancelar?", answer: "Sí. Avísame antes de la semana siguiente y no se cobra. La semana en curso no se devuelve." },
+      { question: "¿Puedo cancelar?", answer: `Sí, después de las primeras ${T.minimumWeeks} semanas. Avísame antes de la semana siguiente y no se cobra. La semana en curso no se devuelve.` },
       { question: "¿Y si no alcanzo a grabar 2 por semana?", answer: "Empieza con 1 video por semana. Pasas a 2 por semana cuando quieras." },
       { question: "¿Qué necesito para grabar?", answer: "Solo tu celular. Te digo qué grabar y cómo contar cada historia." },
       { question: "¿Cuánto material mando?", answer: `Hasta ${T.maxFootageMinutes} minutos por video, en una carpeta de Drive o Dropbox.` },
@@ -187,7 +194,7 @@ export function arranqueWeeklyFaq(locale: Locale): { question: string; answer: s
   }
   return [
     { question: "How do I pay?", answer: "Week by week, at the start of each one. You never pay a whole month up front." },
-    { question: "Can I cancel?", answer: "Yes. Tell me before the next week starts and it is not charged. The week in progress is not refunded." },
+    { question: "Can I cancel?", answer: `Yes, after the first ${T.minimumWeeks} weeks. Tell me before the next week starts and it is not charged. The week in progress is not refunded.` },
     { question: "What if I can't film 2 a week?", answer: "Start with 1 video a week. Move to 2 a week whenever you like." },
     { question: "What do I need to film?", answer: "Just your phone. I tell you what to film and how to tell each story." },
     { question: "How much footage do I send?", answer: `Up to ${T.maxFootageMinutes} minutes per video, in a Drive or Dropbox folder.` },
