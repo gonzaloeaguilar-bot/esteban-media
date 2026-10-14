@@ -197,6 +197,29 @@ function isPhotographyService(service: string): boolean {
   return /photograph|headshot|portrait|fotograf|fotógraf|retrato|fotos? con ia|imágenes? con ia/i.test(service);
 }
 
+/**
+ * The answer-first question is built from the page's SEO keyword, which read
+ * as keyword soup in a sentence (loop round 6, 2026-10-15, live crawl of 362
+ * pages): "¿Cómo funciona el servicio de editor de reels Fort Lauderdale…?",
+ * "servicio de servicio de edición de video con dron", "How does content
+ * repurposing service with…". These turn the keyword into the noun phrase a
+ * person would say. Only the visible question changes; the keyword, the answer
+ * and the photography check still read the original string.
+ */
+const ES_TRAILING_CITY = /\s+(Fort Lauderdale|Miami|Boca Raton)$/;
+
+export function esServicePhrase(keyword: string): string {
+  let phrase = keyword.trim().replace(/^servicio de\s+/i, "");
+  phrase = phrase.replace(/^editor de (video|reels)\b/i, (_, what: string) => `edición de ${what}`);
+  phrase = phrase.replace(/\breels\b/g, "Reels");
+  if (!/\ben\b/.test(phrase)) phrase = phrase.replace(ES_TRAILING_CITY, " en $1");
+  return phrase;
+}
+
+export function enServicePhrase(service: string): string {
+  return service.trim().replace(/\s+service$/i, "");
+}
+
 /** Lower-case the first letter unless the word is an acronym or brand (TikTok, UGC). */
 function inSentence(phrase: string): string {
   return /^[A-Z][a-z]/.test(phrase) && !/^(TikTok|YouTube|Reels|Instagram)\b/.test(phrase)
@@ -233,7 +256,7 @@ export function ServiceAnswerFirst({
       <Container size="xl">
         <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">{copy.eyebrow}</p>
         <h2 id={`${sectionId}-heading`} className="mt-3 max-w-3xl font-serif text-3xl sm:text-4xl">
-          {copy.question(inSentence(service))}
+          {copy.question(locale === "es" ? esServicePhrase(service) : enServicePhrase(inSentence(service)))}
         </h2>
         <p className="mt-4 max-w-3xl text-base leading-8 text-[#252a2d]">{copy.answer(service)}</p>
       </Container>
