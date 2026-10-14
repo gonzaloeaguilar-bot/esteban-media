@@ -2,7 +2,9 @@
 
 import { useState } from "react";
 
+import { FoundViaField, foundViaPayload } from "@/components/found-via-field";
 import { trackLeadSubmit } from "@/lib/analytics-events";
+import type { FoundVia } from "@/lib/lead-responder";
 
 type WebsiteProjectIntakeProps = {
   locale: "en" | "es";
@@ -13,6 +15,8 @@ type SubmitState = "idle" | "submitting" | "success" | "error";
 export function WebsiteProjectIntake({ locale }: WebsiteProjectIntakeProps) {
   const [email, setEmail] = useState("");
   const [projectNeed, setProjectNeed] = useState("");
+  const [foundVia, setFoundVia] = useState<FoundVia | "">("");
+  const [foundQuery, setFoundQuery] = useState("");
   const [submitState, setSubmitState] = useState<SubmitState>("idle");
   const isSpanish = locale === "es";
 
@@ -29,15 +33,18 @@ export function WebsiteProjectIntake({ locale }: WebsiteProjectIntakeProps) {
           locale,
           email,
           notes: projectNeed,
+          ...foundViaPayload(foundVia, foundQuery),
         }),
       });
 
       if (!response.ok) throw new Error("Lead request failed");
 
-      trackLeadSubmit("website-design-intake", locale);
+      trackLeadSubmit("website-design-intake", locale, foundVia || "not_answered");
       setSubmitState("success");
       setEmail("");
       setProjectNeed("");
+      setFoundVia("");
+      setFoundQuery("");
     } catch {
       setSubmitState("error");
     }
@@ -94,6 +101,18 @@ export function WebsiteProjectIntake({ locale }: WebsiteProjectIntakeProps) {
           ? isSpanish ? "Enviando…" : "Sending…"
           : isSpanish ? "Enviar proyecto" : "Send project"}
       </button>
+      <FoundViaField
+        locale={locale}
+        idPrefix="website-intake"
+        foundVia={foundVia}
+        foundQuery={foundQuery}
+        onFoundViaChange={setFoundVia}
+        onFoundQueryChange={setFoundQuery}
+        disabled={submitState === "submitting"}
+        className="sm:col-span-3"
+        labelClassName="text-sm font-medium text-[#252a2d]"
+        controlClassName="mt-1.5 min-h-11 w-full rounded-lg border border-[#b9afa2] bg-white px-3 text-base text-[#101214] placeholder:text-[#5a6066] focus:border-[#c84a2c] focus:outline-none disabled:opacity-70"
+      />
       {submitState === "error" && (
         <p role="alert" className="sm:col-span-3 text-sm text-[#9f3c27]">
           {isSpanish

@@ -2,6 +2,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it, vi, afterEach } from "vitest";
 
+import { foundViaPayload } from "@/components/found-via-field";
 import { trackLeadSubmit, trackServiceInterest } from "@/lib/analytics-events";
 
 function source(path: string) {
@@ -148,10 +149,41 @@ describe("confirmed lead instrumentation", () => {
     const intake = source("components/website-project-intake.tsx");
 
     expect(intake).toContain('source: "website-design-intake"');
-    expect(intake).toContain('trackLeadSubmit("website-design-intake", locale)');
+    expect(intake).toContain('trackLeadSubmit("website-design-intake", locale, foundVia || "not_answered")');
     expect(source("app/(english)/services/website-design-fort-lauderdale/page.tsx"))
       .toContain('<WebsiteProjectIntake locale="en" />');
     expect(source("app/(spanish)/es/diseno-web-fort-lauderdale/page.tsx"))
       .toContain('<WebsiteProjectIntake locale="es" />');
+  });
+
+  it("the /contact brief builder and the website intake ask how the visitor found Esteban", () => {
+    const field = source("components/found-via-field.tsx");
+    expect(field).toContain("How did you find us?");
+    expect(field).toContain("¿Cómo nos encontraste?");
+    expect(field).toContain("¿Qué escribiste o preguntaste?");
+    expect(field).toContain('name="foundVia"');
+    expect(field).toContain('name="foundQuery"');
+    // Optional: neither control may be required.
+    expect(field).not.toMatch(/\brequired\b/);
+
+    const brief = source("components/video-brief-builder.tsx");
+    expect(brief).toContain("<FoundViaField");
+    expect(brief).toContain("...foundViaPayload(foundVia, foundQuery)");
+    expect(brief).toContain('trackLeadSubmit(source, locale, foundVia || "not_answered")');
+
+    const website = source("components/website-project-intake.tsx");
+    expect(website).toContain("<FoundViaField");
+    expect(website).toContain("...foundViaPayload(foundVia, foundQuery)");
+  });
+
+  it("sends the typed words only to the lead payload, and only for AI/search answers", () => {
+    expect(foundViaPayload("", "anything")).toEqual({});
+    expect(foundViaPayload("instagram", "ignored words")).toEqual({ foundVia: "instagram" });
+    expect(foundViaPayload("chatgpt", "  ")).toEqual({ foundVia: "chatgpt" });
+    expect(foundViaPayload("chatgpt", "  video editor miami  ")).toEqual({
+      foundVia: "chatgpt",
+      foundQuery: "video editor miami",
+    });
+    expect(foundViaPayload("google_search", "x".repeat(500)).foundQuery).toHaveLength(200);
   });
 });

@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { ArrowRight, CheckCircle2, RotateCcw, Send, Sparkles } from "lucide-react";
-import type { LeadSource } from "@/lib/lead-responder";
+import { FoundViaField, foundViaPayload } from "@/components/found-via-field";
+import type { FoundVia, LeadSource } from "@/lib/lead-responder";
 import { site } from "@/lib/site";
 import { trackLeadSubmit } from "@/lib/analytics-events";
 
@@ -43,6 +44,8 @@ export function VideoBriefBuilder({
   const [clientEmail, setClientEmail] = useState<string>("");
   const [clientPhone, setClientPhone] = useState<string>("");
   const [notes, setNotes] = useState<string>("");
+  const [foundVia, setFoundVia] = useState<FoundVia | "">("");
+  const [foundQuery, setFoundQuery] = useState<string>("");
   const [submitted, setSubmitted] = useState<boolean>(false);
   const [submitting, setSubmitting] = useState<boolean>(false);
   const [submitError, setSubmitError] = useState<boolean>(false);
@@ -109,10 +112,11 @@ export function VideoBriefBuilder({
         footageStatus,
         formatNeeds,
         notes,
+        ...foundViaPayload(foundVia, foundQuery),
       }),
       });
       if (!response.ok) throw new Error("Lead submission failed");
-      trackLeadSubmit(source, locale);
+      trackLeadSubmit(source, locale, foundVia || "not_answered");
       setSubmitted(true);
     } catch (err) {
       console.error("Lead submission error:", err);
@@ -150,6 +154,8 @@ export function VideoBriefBuilder({
     setClientEmail("");
     setClientPhone("");
     setNotes("");
+    setFoundVia("");
+    setFoundQuery("");
     setSubmitted(false);
     setSubmitError(false);
   };
@@ -406,6 +412,18 @@ export function VideoBriefBuilder({
                   className="mt-1 w-full rounded-xl border border-[#ddd4c8] bg-[#f6f1ea] px-4 py-2.5 text-sm text-[#101214] focus:border-[#c84a2c] focus:outline-none"
                 />
               </div>
+
+              <FoundViaField
+                locale={locale}
+                idPrefix="brief"
+                foundVia={foundVia}
+                foundQuery={foundQuery}
+                onFoundViaChange={setFoundVia}
+                onFoundQueryChange={setFoundQuery}
+                disabled={submitting}
+                labelClassName="block text-xs font-semibold uppercase text-[#5a6066]"
+                controlClassName="mt-1 min-h-11 w-full rounded-xl border border-[#ddd4c8] bg-[#f6f1ea] px-4 py-2.5 text-sm text-[#101214] focus:border-[#c84a2c] focus:outline-none disabled:opacity-60"
+              />
 
               {submitError ? (
                 <div role="alert" className="rounded-xl border border-[#c84a2c] bg-[#fff3ed] p-4 text-sm leading-6 text-[#4d241a]">
