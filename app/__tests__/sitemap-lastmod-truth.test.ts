@@ -30,7 +30,7 @@ describe("sitemap lastmod truthfulness", () => {
     for (const d of days) counts.set(d, (counts.get(d) ?? 0) + 1);
     expect(counts.size).toBeGreaterThan(10);
     // The transitive-import approach (2026-10-14, aaa2f8ed) put 300/352 (85%) on one day.
-    // 0.6, not 0.5: on 2026-10-14 an overnight loop plus the owner-facts and
+    // Raised 0.5 -> 0.6 on 2026-10-14 (PR #439, accepted by the coordinator): that day an overnight loop plus the owner-facts and
     // demand-map PRs genuinely edited 180/365 pages (49.3%) before the demand-map
     // PR, every one substantiated by its own source hash in page-lastmod.test.ts.
     // The bulk-date bug sits far above this line; honest same-day edits sit below it.
