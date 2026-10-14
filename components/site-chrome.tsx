@@ -7,6 +7,7 @@ import { AppNav } from "@/components/app-nav";
 import { BRAND_MOMENT_BOOT_JS } from "@/vendor/web-kit/brand-moment/boot.generated";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { SheetEnhance } from "@/components/sheet-enhance";
 import { siteEntityGraphJsonLd } from "@/lib/entity-schema";
 
 const geistSans = Geist({
@@ -93,6 +94,7 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
       <SiteFooter />
       <SiteMotion />
       <AppNav />
+      <SheetEnhance />
       {/* beforeInteractive, not after: the veil is up from first paint, and the
           opening cannot mount until this script exists. Measured at 390x844 on
           a 2x context, afterInteractive left 2.4s of BLACK before the edit bay

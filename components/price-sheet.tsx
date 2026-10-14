@@ -49,7 +49,7 @@ export function PriceSheet({
   const plans = realEstatePlans();
 
   return (
-    <details className="em-pricefold" data-em-hides-sticky>
+    <details className="em-pricefold em-sheet-details" data-em-hides-sticky>
       <summary>
         <span>{es ? "Ver precios de referencia" : "See starting prices"}</span>
         <span className="em-pricefold__chev" aria-hidden="true" />
