@@ -30,6 +30,7 @@ const content: GeoServicePageContent = {
   secondaryHref: "/resources/remote-editing-handoff-checklist",
   secondaryLabel: "Prepare your footage",
   serviceName: "Reels & Video Boca Raton",
+  pricingQuestion: "How much does Reels and video editing in Boca Raton cost?",
   serviceDescription:
     "Remote Instagram Reels, TikTok, YouTube Shorts and short business video editing for Boca Raton businesses and creators, with on-location filming in Palm Beach County scoped project by project.",
   serviceType: "Short form video editing",

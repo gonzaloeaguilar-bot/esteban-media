@@ -18,6 +18,7 @@ const content: GeoServicePageContent = {
   secondaryHref: "/guides/instagram-reels-ideas-for-real-estate",
   secondaryLabel: "Read real estate Reel ideas",
   serviceName: "Real Estate Reels Video Editor South Florida",
+  pricingQuestion: "How much does a real estate Reels editor in South Florida cost?",
   serviceDescription:
     "Real estate Reels, listing video editing, property walkthrough cuts, and social clips for South Florida and remote real estate teams.",
   serviceType: "Real estate video editing",

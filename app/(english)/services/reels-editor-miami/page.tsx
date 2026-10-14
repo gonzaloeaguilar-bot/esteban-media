@@ -18,6 +18,7 @@ const content: GeoServicePageContent = {
   secondaryHref: "/guides/reels-vs-tiktok-vs-shorts-for-local-business",
   secondaryLabel: "Compare Reels, TikTok, and Shorts",
   serviceName: "Reels Editor Miami",
+  pricingQuestion: "How much does a Reels editor in Miami cost?",
   serviceDescription:
     "Instagram Reels, TikTok, and YouTube Shorts editing for Miami businesses, creators, products, and remote teams.",
   serviceType: "Reels editing",
