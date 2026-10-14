@@ -72,13 +72,13 @@ export function ReelsCostCalculator({ locale }: { locale: CalcLocale }) {
       </output>
 
       <div className="mt-8 overflow-x-auto">
-        <table className="w-full min-w-[32rem] border-collapse text-left text-sm sm:text-base">
+        <table className="w-full border-collapse text-left text-sm sm:text-base">
           <caption className="mb-3 text-left text-sm text-[#5a6066]">{c.tableCaption}</caption>
           <thead>
             <tr className="border-b border-[#d6ccc0]">
-              <th scope="col" className="py-2 pr-3 font-semibold">{c.colVideos}</th>
-              <th scope="col" className="py-2 pr-3 font-semibold">{c.colSingle}</th>
-              <th scope="col" className="py-2 pr-3 font-semibold">{c.colPlan}</th>
+              <th scope="col" className="py-2 pr-2 align-top sm:pr-3 font-semibold">{c.colVideos}</th>
+              <th scope="col" className="py-2 pr-2 align-top sm:pr-3 font-semibold">{c.colSingle}</th>
+              <th scope="col" className="py-2 pr-2 align-top sm:pr-3 font-semibold">{c.colPlan}</th>
               <th scope="col" className="py-2 font-semibold">{c.colDifference}</th>
             </tr>
           </thead>
@@ -89,14 +89,16 @@ export function ReelsCostCalculator({ locale }: { locale: CalcLocale }) {
                 aria-current={r.videosPerWeek === videosPerWeek ? "true" : undefined}
                 className={`border-b border-[#e3dace] ${r.videosPerWeek === videosPerWeek ? "bg-[#f1e6d8]" : ""}`}
               >
-                <th scope="row" className="py-2 pr-3 font-medium">{r.videosPerWeek}</th>
-                <td className="py-2 pr-3">
-                  {usd(r.singlePerPeriod)} <span className="text-[#5a6066]">({usd(r.singlePerWeek)} {c.perWeek})</span>
+                <th scope="row" className="py-2 pr-2 align-top sm:pr-3 font-medium">{r.videosPerWeek}</th>
+                <td className="py-2 pr-2 align-top sm:pr-3">
+                  {usd(r.singlePerPeriod)}{" "}
+                  <span className="block text-xs text-[#5a6066] sm:inline sm:text-sm">({usd(r.singlePerWeek)} {c.perWeek})</span>
                 </td>
-                <td className="py-2 pr-3">
+                <td className="py-2 pr-2 align-top sm:pr-3">
                   {r.planPerPeriod !== null ? (
                     <>
-                      {usd(r.planPerPeriod)} <span className="text-[#5a6066]">({usd(r.planPerWeek!)} {c.perWeek})</span>
+                      {usd(r.planPerPeriod)}{" "}
+                      <span className="block text-xs text-[#5a6066] sm:inline sm:text-sm">({usd(r.planPerWeek!)} {c.perWeek})</span>
                     </>
                   ) : (
                     c.noPlan
