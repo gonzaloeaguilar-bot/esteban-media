@@ -133,6 +133,7 @@ const EN_ROWS: Row[] = [
   // Weddings: the page carries its own "quoted individually" answer (owner,
   // 2026-10-14); no wedding price exists, so this module must not add one.
   ["/services/wedding-videographer-fort-lauderdale", "a wedding video", "Fort Lauderdale", "quote", false],
+  ["/services/videographer-miami", "a videographer", "Miami", "local", false],
   ["/services/real-estate-drone-video-editing-miami", "real estate drone video editing", "Miami", "realestate"],
   ["/services/real-estate-reels-video-editor-south-florida", "real estate Reels editing", "South Florida", "realestate", false],
   ["/services/real-estate-video-coral-gables", "real estate video", "Coral Gables", "realestate"],

@@ -4948,6 +4948,8 @@ const nicheWave8Hreflang = Object.fromEntries(
       ["/services/church-sermon-clip-editing-miami", "/es/edicion-de-clips-de-predicas-para-iglesias-miami"],
       ["/services/quinceanera-video-miami", "/es/video-para-quinceaneras-miami"],
       ["/services/wedding-videographer-fort-lauderdale", "/es/videografo-de-bodas-fort-lauderdale"],
+      // DM-16 (2026-10-14): the English twin now exists.
+      ["/services/videographer-miami", "/es/videografo-en-miami"],
       ["/services/dance-studio-music-school-video-marketing-miami", "/es/video-para-academias-de-baile-y-musica-miami"],
       ["/services/personal-brand-video-editor-founders-miami", "/es/editor-de-video-para-marca-personal-miami"],
       ["/services/podcast-clipping-service-miami", "/es/edicion-de-clips-de-podcast-miami"],

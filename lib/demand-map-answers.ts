@@ -59,7 +59,7 @@ const VIDEOGRAPHER_COST_FTL: OwnerFactSection = {
   heading: "How much does a videographer cost in Fort Lauderdale?",
   paragraphs: [
     `A videographer in Fort Lauderdale with Esteban Moreno Media costs ${filmingHourlyText("en")}, which is the minimum for time on location, and editing is priced separately, from ${perVideo} per video on the Starter package. A full production day at your business, with planning, filming and the edit, is the Local Presence package, ${enLocal()}. Every shoot gets a written quote before the date is booked, so the hours, the place and the finished files are agreed first.`,
-    `Two lines on the quote keep the price easy to read: filming time and editing. An hour of filming that becomes three short videos is billed as the filming plus three edits, not as a package with a vague total. If you already have footage, there is no filming line and you pay for editing only. Esteban works from Fort Lauderdale across Broward and Miami-Dade, in Spanish first with intermediate English.`,
+    `Two lines on the quote keep the price easy to read: filming time and editing. An hour of filming that becomes three short videos is billed as the filming plus three edits, not as a package with a vague total. If you already have footage, there is no filming line and you pay for editing only. Esteban works from Fort Lauderdale across Broward and Miami-Dade, in Spanish first with intermediate English; for a shoot in Miami-Dade, see the [videographer in Miami](/services/videographer-miami) page.`,
   ],
 };
 

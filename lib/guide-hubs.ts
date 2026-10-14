@@ -15,7 +15,7 @@
 // publishes (FTC: a material connection is disclosed where viewers notice it).
 
 import type { GuidePair, GuideSection } from "@/lib/guides";
-import { ARRANQUE_WEEKLY_TERMS as T, PACKAGE_PRICES, SHORT_FORM, shortFormWeeklyText, usd } from "@/lib/pricing";
+import { ARRANQUE_WEEKLY_TERMS as T, PACKAGE_PRICES, PRICING_BANDS, SHORT_FORM, shortFormWeeklyText, usd } from "@/lib/pricing";
 
 function from(id: keyof typeof PACKAGE_PRICES): string {
   const price = PACKAGE_PRICES[id];
@@ -32,6 +32,7 @@ const growth = from("crecimiento");
 export const GUIDE_HUB_IDS = [
   "food-account-start-guide",
   "short-form-editor-cost-guide",
+  "influencer-start-guide",
 ] as const;
 
 // "What should a business film on a phone for Reels?" deepens the existing
@@ -375,6 +376,157 @@ export const guideHubPairs: readonly GuidePair[] = [
         { question: "¿Cuánto cuesta el plan semanal?", answer: `${shortFormWeeklyText("es")}, con pago semanal y un mínimo de ${T.minimumWeeks} semanas; después puedes cancelar antes de la semana siguiente.` },
         { question: "¿La grabación está incluida?", answer: `No. Los precios de edición suponen que tú pones el material. La grabación se cotiza con Presencia Local, desde ${local} por jornada de producción.` },
         { question: "¿Cuánto cobran otros editores?", answer: `Las tarifas publicadas del mercado para editar un video corto van de ${market} por video. Compara cambios, duración y versiones, no solo el precio.` },
+      ],
+    },
+  },
+  {
+    // DM-21 / DM-22 (demand coverage map 2026-10-14): "como empezar a ser
+    // influencer" (+ "en tiktok", "de moda", "en facebook"), autocomplete x3
+    // each co+mx+us, UNANSWERED in Spanish; "how to start as an influencer (on
+    // instagram)", WEAK, best match a service page. Real callers asked ChatGPT
+    // this before asking who edits (vault esteban-what-drives-ai-recommendations-
+    // 2026-10-08). Also carries "how to start a vlog" (DM-9). No follower
+    // count, growth figure or influencer result is claimed; the disclosure rule
+    // is the FTC's own guidance, stated without numbers.
+    id: "influencer-start-guide",
+    en: {
+      slug: "how-to-start-as-an-influencer",
+      metadataTitle: "How to Start as an Influencer",
+      title: "How do you start as an influencer on Instagram?",
+      description: "How to start as an influencer from zero: picking a topic and a platform, what to film first on a phone, vlog or short videos, disclosing paid posts, and when an editor is worth it.",
+      eyebrow: "Starting as a creator",
+      answer: `Pick one topic a stranger understands in a line, post short vertical videos on a rhythm you can keep for months, and switch to a professional account so you can see what works. If editing is what stops you, Esteban Moreno Media edits your clips from ${once} per video, or ${shortFormWeeklyText("en")}.`,
+      proof: {
+        href: "/portfolio/ml-colombia",
+        title: "ML Colombia social video",
+        description: "A published 24-second vertical video from Esteban's own brand, edited for phones. It shows the format; nothing published confirms a result for an influencer account.",
+      },
+      sections: [
+        {
+          heading: "How do you start as an influencer from zero?",
+          paragraphs: [
+            "Start with one topic and one promise to the viewer, not with followers. \"Cheap outfits for work\", \"Colombian recipes in 60 seconds\" or \"weekend plans in Miami\" each tell a stranger why to follow after one video; \"my life\" does not, until people already know you. Write that promise in your bio, use a name that is easy to read and spell, and plan your first ten videos before you post the first one, so the account looks like a series and not a test.",
+            "Then post short vertical videos. Instagram Reels, TikTok and YouTube Shorts all use the same 9:16 format, so one video can go up on all three and you learn faster which one your audience uses. Keep a rhythm you can hold for months next to a job or school: two videos a week that never stop do more than a daily burst that ends in three weeks.",
+          ],
+        },
+        {
+          heading: "Which platform should you start on: Instagram, TikTok or Facebook?",
+          paragraphs: [
+            "Start where the people you want to reach already watch, and post the same video on the others. TikTok tends to show new accounts to strangers through its For You feed, Instagram is where many brands look for creators and where your friends already follow you, and Facebook Reels reaches an older audience, which suits topics like family, food or local services. None of them needs a different video: a 9:16 clip with captions works on all three.",
+            "On Instagram, switch to a professional account (creator or business) from the first day. It is free, and it is the only way to see Insights: which videos people watched to the end, which ones they shared, and where your viewers live. That data tells you what to film next far better than a guess. YouTube Studio shows the same kind of data for Shorts.",
+          ],
+        },
+        {
+          heading: "How do you start as a fashion influencer?",
+          paragraphs: [
+            "Show outfits people can actually buy, and say where they come from and what they cost. A fashion account grows on repeatable formats: one outfit three ways, a try-on from a store, what to wear to a specific event, or a weekly \"under fifty dollars\" look. Repeatable formats are easier to film, easier to recognise in a feed, and easier for a brand to picture its own product in later.",
+            `Film in daylight, facing a window, with the phone on a stand at chest height, and record each outfit as short separate clips: the full look, a slow turn, the details, and you saying one sentence about it. That gives the edit enough to cut a fast try-on. A try-on video under ${T.maxVideoSeconds} seconds fits one Starter edit with Esteban Moreno Media, from ${once} per video. If a store lends or gives you the clothes, say so in the video; the disclosure section below explains how.`,
+          ],
+        },
+        {
+          heading: "What should you film first, and do you need a camera?",
+          paragraphs: [
+            "No camera is needed to start: a recent phone filming in vertical is enough, as long as the light and the sound are good. Clean the lens, film facing a window or outdoors in the shade, and record your voice close to the phone or with a small clip-on microphone, because viewers forgive an average picture faster than sound they cannot understand.",
+            `For the first videos, film more than you need in short clips instead of one long take, so the edit has choices: an opening line that says what the video is about, the main moment, a reaction, and an ending that tells people what to do next. When you send footage to an editor, send the original files from the phone, not copies saved from WhatsApp, which compresses them. Esteban's weekly Starter takes up to ${T.maxFootageMinutes} minutes of footage per video. The [guide to filming on a phone for an editor](/guides/record-video-with-iphone-for-professional-editing) lists the shots in order.`,
+          ],
+        },
+        {
+          heading: "Should you start with a vlog or with short videos?",
+          paragraphs: [
+            "Start with short videos, and add a vlog once you know what your audience likes. A short video takes an hour to film and tells you within days whether the idea works; a vlog takes a day to film and an evening or more to edit, so a new account learns much more slowly from it. Many creators use the vlog as the source: they film the whole day, post the vlog on YouTube, and cut three or four short clips from the same footage for Reels and TikTok.",
+            `To start a vlog, pick a format you can repeat, such as a day at work, a trip or a weekly routine, and film the beginning, the middle and the end of the day so the story has a shape. Esteban Moreno Media films and edits vlogs: editing is priced per video, and a full YouTube vlog falls in the calculator's YouTube band, ${usd(PRICING_BANDS.youtube.baseMin)}–${usd(PRICING_BANDS.youtube.baseMax)} per edit.`,
+          ],
+        },
+        {
+          heading: "Do you have to say when a post is paid or a gift?",
+          paragraphs: [
+            "Yes. In the United States, the FTC's guidance for influencers says that any material connection to a brand, whether payment, a free product, a discount or an affiliate link, has to be disclosed clearly where viewers will notice it. In a video, that means saying it out loud and showing it on screen, not only adding a hashtag at the end of the caption where most people never look.",
+            "Use plain words such as \"ad\", \"sponsored\" or \"the brand sent me this\", and turn on Instagram's Paid partnership label or TikTok's content disclosure setting when a post is paid. Disclosing does not make a recommendation weaker; hiding it is what costs trust, and it is the creator's responsibility, not only the brand's. If you work with an editor, tell them which videos are sponsored so the on-screen disclosure is part of the edit from the start.",
+          ],
+        },
+        {
+          heading: "When is it worth paying a video editor, and what does it cost?",
+          paragraphs: [
+            `When you can keep filming but editing is what makes you miss weeks. Esteban Moreno Media edits short videos for creators and influencers, including accounts that are just starting: from ${once} per video on the [Starter package](/pricing/starter), or ${shortFormWeeklyText("en")} if you post every week, with a ${T.minimumWeeks}-week minimum and each weekly video delivered in ${T.deliveryHoursMin}–${T.deliveryHoursMax} hours. Published market rates for a short-form edit run ${market} per video, so compare what each offer includes, not only the price.`,
+            "Esteban is a video editor based in Fort Lauderdale who works remotely, in Spanish first with intermediate English, so you can send clips, voice notes and changes in Spanish. To start, send your topic, two or three videos' worth of original clips and where you post. The [content creator editing page](/services/content-creator-video-editing-miami) explains how a filming day becomes a week of posts.",
+          ],
+        },
+      ],
+      faqs: [
+        { question: "How many followers do you need to be an influencer?", answer: "There is no official number. What brands look at first is a clear topic, steady posting and viewers who watch and comment; a small account with an engaged audience can still be the right fit for a local brand." },
+        { question: "Do I need a camera to start?", answer: "No. A recent phone filming in vertical is enough. Good light and clear sound matter more than the camera." },
+        { question: "Do I have to disclose a free product?", answer: "Yes. The FTC's guidance treats a free product like payment: say it clearly in the video and on screen, not only in the caption." },
+        { question: "What does editing cost for a new creator?", answer: `Esteban's Starter is from ${once} per video, or ${shortFormWeeklyText("en")} with a ${T.minimumWeeks}-week minimum.` },
+      ],
+    },
+    es: {
+      slug: "como-empezar-a-ser-influencer",
+      metadataTitle: "Cómo Empezar a Ser Influencer",
+      title: "¿Cómo empezar a ser influencer en Instagram y TikTok?",
+      description: "Cómo empezar a ser influencer desde cero: elegir el tema y la red, qué grabar primero con el celular, influencer de moda, vlog o videos cortos, declarar colaboraciones y cuándo vale la pena un editor.",
+      eyebrow: "Empezar como creador",
+      answer: `Escoge un tema que un desconocido entienda en una línea, publica videos cortos en vertical a un ritmo que puedas mantener durante meses y cambia a una cuenta profesional para ver qué funciona. Si lo que te frena es editar, Esteban Moreno Media edita tus clips desde ${once} por video, o ${shortFormWeeklyText("es")}.`,
+      proof: {
+        href: "/es/portafolio/ml-colombia",
+        title: "Video para redes de ML Colombia",
+        description: "Un video vertical publicado de 24 segundos de la marca propia de Esteban, editado para celular. Muestra el formato; nada publicado confirma un resultado para una cuenta de influencer.",
+      },
+      sections: [
+        {
+          heading: "¿Cómo empezar a ser influencer desde cero?",
+          paragraphs: [
+            "Empieza con un tema y una promesa para el espectador, no con seguidores. \"Outfits baratos para la oficina\", \"recetas colombianas en 60 segundos\" o \"planes de fin de semana en Miami\" le dicen a un desconocido por qué seguirte después de un solo video; \"mi vida\" no lo hace, hasta que la gente ya te conoce. Escribe esa promesa en tu biografía, usa un nombre fácil de leer y planea tus primeros diez videos antes de publicar el primero, para que la cuenta se vea como una serie y no como una prueba.",
+            "Después publica videos cortos en vertical. Los Reels de Instagram, TikTok y YouTube Shorts usan el mismo formato 9:16, así que un video sirve para las tres redes y aprendes más rápido cuál usa tu público. Mantén un ritmo que puedas sostener durante meses junto al trabajo o el estudio: dos videos por semana que nunca paran rinden más que una racha diaria que termina en tres semanas.",
+          ],
+        },
+        {
+          heading: "¿En qué red empezar a ser influencer: Instagram, TikTok o Facebook?",
+          paragraphs: [
+            "Empieza donde ya mira la gente a la que quieres llegar, y publica el mismo video en las demás. TikTok suele mostrar las cuentas nuevas a desconocidos en su sección Para ti, Instagram es donde muchas marcas buscan creadores y donde ya te siguen tus amigos, y los Reels de Facebook llegan a un público mayor, que encaja con temas como familia, comida o servicios locales. Ninguna necesita un video distinto: un clip 9:16 con subtítulos funciona en las tres.",
+            "En Instagram, cambia a una cuenta profesional (de creador o de empresa) desde el primer día. Es gratis, y es la única forma de ver las estadísticas: qué videos vieron hasta el final, cuáles compartieron y dónde vive tu público. Esos datos dicen qué grabar después mucho mejor que una suposición. YouTube Studio muestra datos parecidos para los Shorts.",
+          ],
+        },
+        {
+          heading: "¿Cómo empezar a ser influencer de moda?",
+          paragraphs: [
+            "Muestra ropa que la gente pueda comprar, y di de dónde viene y cuánto cuesta. Una cuenta de moda crece con formatos que se repiten: un outfit de tres maneras, una prueba de ropa en una tienda, qué ponerse para un evento concreto o un look semanal \"por menos de cincuenta dólares\". Los formatos repetibles son más fáciles de grabar, más fáciles de reconocer en el feed y más fáciles de imaginar para una marca con su propio producto.",
+            `Graba con luz de día, frente a una ventana, con el celular en un soporte a la altura del pecho, y graba cada outfit en clips cortos separados: el look completo, una vuelta lenta, los detalles y tú diciendo una frase sobre él. Eso le da a la edición suficiente para un video ágil. Un video de prueba de ropa de menos de ${T.maxVideoSeconds} segundos entra en una edición del Arranque de Esteban Moreno Media, desde ${once} por video. Si una tienda te presta o te regala la ropa, dilo en el video; la sección sobre colaboraciones explica cómo.`,
+          ],
+        },
+        {
+          heading: "¿Qué grabar primero y hace falta una cámara?",
+          paragraphs: [
+            "No hace falta una cámara para empezar: un celular reciente grabando en vertical basta, siempre que la luz y el sonido sean buenos. Limpia el lente, graba frente a una ventana o al aire libre en la sombra, y graba tu voz cerca del celular o con un micrófono pequeño de solapa, porque el público perdona una imagen normal más rápido que un sonido que no se entiende.",
+            `Para los primeros videos, graba más de lo que necesitas en clips cortos y no en una sola toma larga, para que la edición tenga opciones: una frase inicial que diga de qué trata el video, el momento principal, una reacción y un cierre que diga qué hacer. Cuando envíes el material a un editor, manda los archivos originales del celular, no copias guardadas desde WhatsApp, que los comprime. El Arranque semanal de Esteban recibe hasta ${T.maxFootageMinutes} minutos de material por video. La [guía para grabar con el celular para un editor](/es/guias/grabar-video-con-iphone-para-edicion-profesional) lista las tomas en orden.`,
+          ],
+        },
+        {
+          heading: "¿Conviene empezar con un vlog o con videos cortos?",
+          paragraphs: [
+            "Empieza con videos cortos y agrega el vlog cuando sepas qué le gusta a tu público. Un video corto toma una hora de grabación y en pocos días te dice si la idea funciona; un vlog toma un día de grabación y una noche o más de edición, así que una cuenta nueva aprende mucho más despacio con él. Muchos creadores usan el vlog como fuente: graban el día completo, suben el vlog a YouTube y cortan tres o cuatro clips cortos del mismo material para Reels y TikTok.",
+            `Para empezar un vlog, elige un formato que puedas repetir, como un día de trabajo, un viaje o una rutina semanal, y graba el comienzo, la mitad y el final del día para que la historia tenga forma. Esteban Moreno Media graba y edita vlogs: la edición se cobra por video, y un vlog completo para YouTube entra en el rango de YouTube de la calculadora, de ${usd(PRICING_BANDS.youtube.baseMin)} a ${usd(PRICING_BANDS.youtube.baseMax)} por edición.`,
+          ],
+        },
+        {
+          heading: "¿Hay que decir cuando una publicación es pagada o un regalo?",
+          paragraphs: [
+            "Sí. En Estados Unidos, la guía de la FTC para influencers dice que cualquier relación con una marca, ya sea un pago, un producto gratis, un descuento o un enlace de afiliado, tiene que declararse con claridad donde el público la note. En un video, eso significa decirlo en voz alta y mostrarlo en pantalla, no solo poner un hashtag al final del texto, donde casi nadie mira.",
+            "Usa palabras sencillas como \"publicidad\", \"patrocinado\" o \"la marca me envió esto\", y activa la etiqueta de colaboración pagada de Instagram o el aviso de contenido de marca de TikTok cuando la publicación es pagada. Declararlo no le quita fuerza a una recomendación; ocultarlo es lo que cuesta confianza, y la responsabilidad es del creador, no solo de la marca. Si trabajas con un editor, dile qué videos son patrocinados para que el aviso en pantalla forme parte de la edición desde el principio.",
+          ],
+        },
+        {
+          heading: "¿Cuándo vale la pena pagar un editor de video y cuánto cuesta?",
+          paragraphs: [
+            `Cuando puedes seguir grabando pero la edición es lo que te hace perder semanas. Esteban Moreno Media edita videos cortos para creadores e influencers, también para cuentas que están empezando: desde ${once} por video con el [paquete Arranque](/es/precios/arranque), o ${shortFormWeeklyText("es")} si publicas cada semana, con un mínimo de ${T.minimumWeeks} semanas y cada video semanal entregado en ${T.deliveryHoursMin} a ${T.deliveryHoursMax} horas. Las tarifas publicadas del mercado para editar un video corto van de ${market} por video, así que compara lo que incluye cada oferta, no solo el precio.`,
+            "Esteban es editor de video con base en Fort Lauderdale, trabaja a distancia y su idioma de trabajo es el español, con inglés intermedio, así que puedes mandar clips, notas de voz y cambios en español. Para empezar, envía tu tema, los clips originales de dos o tres videos y dónde publicas. La página de [edición de video para creadores de contenido](/es/edicion-de-video-para-creadores-de-contenido-miami) explica cómo un día de grabación se convierte en una semana de publicaciones.",
+          ],
+        },
+      ],
+      faqs: [
+        { question: "¿Cuántos seguidores necesitas para ser influencer?", answer: "No hay un número oficial. Lo primero que miran las marcas es un tema claro, publicaciones constantes y un público que mira y comenta; una cuenta pequeña con un público activo puede encajar con una marca local." },
+        { question: "¿Necesito una cámara para empezar?", answer: "No. Un celular reciente grabando en vertical basta. La buena luz y el sonido claro importan más que la cámara." },
+        { question: "¿Tengo que declarar un producto gratis?", answer: "Sí. La guía de la FTC trata un producto gratis como un pago: dilo con claridad en el video y en pantalla, no solo en el texto." },
+        { question: "¿Cuánto cuesta la edición para un creador que empieza?", answer: `El Arranque de Esteban cuesta desde ${once} por video, o ${shortFormWeeklyText("es")} con un mínimo de ${T.minimumWeeks} semanas.` },
       ],
     },
   },
