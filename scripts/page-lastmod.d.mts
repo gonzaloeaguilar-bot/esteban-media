@@ -6,3 +6,16 @@ export function hashSources(root: string, sources: PageSources): string;
 export function gitSeedDate(root: string, sources: PageSources): string | undefined;
 export function todayNewYork(now?: Date): string;
 export function readLedger(root: string): Record<string, { date: string; hash: string }>;
+export function blockBetween(root: string, file: string, start: RegExp, end: RegExp): PageSources["blocks"][number] | undefined;
+export type DeclaredSourceRule = {
+  name: string;
+  contentFile: string;
+  uses: RegExp;
+  files?: string[];
+  blocks(root: string, text: string): PageSources["blocks"];
+};
+export const DECLARED_SOURCES: DeclaredSourceRule[];
+export function declaredSources(
+  root: string,
+  files: string[],
+): { rule: DeclaredSourceRule; files: string[]; blocks: PageSources["blocks"] }[];

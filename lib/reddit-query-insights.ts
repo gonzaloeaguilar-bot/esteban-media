@@ -1,3 +1,5 @@
+import { ARRANQUE_WEEKLY_TERMS, SHORT_FORM, shortFormWeeklyText, usd } from "@/lib/pricing";
+
 export type RedditQueryInsight = {
   id: string;
   sourceUrl: string;
@@ -10,7 +12,13 @@ export type RedditQueryInsight = {
     en: string;
     es: string;
   };
+  /** Research note for writers: how a page should answer. Not rendered. */
   contentAngle: {
+    en: string;
+    es: string;
+  };
+  /** What the reader sees on the guide hubs: the answer itself. */
+  answer: {
     en: string;
     es: string;
   };
@@ -32,7 +40,7 @@ export const redditQueryInsights: readonly RedditQueryInsight[] = [
     sourceLabel: "r/videography: monthly reels pricing",
     audienceQuestion: {
       en: "How much should a business budget for a month of edited reels?",
-      es: "Cuánto debe presupuestar un negocio para un mes de reels editados?",
+      es: "¿Cuánto debe presupuestar un negocio para un mes de reels editados?",
     },
     searchIntent: {
       en: "pricing, monthly reels, revisions, cutdowns, remote editing",
@@ -41,6 +49,10 @@ export const redditQueryInsights: readonly RedditQueryInsight[] = [
     contentAngle: {
       en: "Explain that the useful quote starts with scope: number of finished videos, raw footage volume, captions, music, revision rounds, turnaround, and whether the project is remote editing or local capture.",
       es: "Explicar que una cotizacion util empieza por alcance: cantidad de videos finales, volumen de material, subtitulos, musica, rondas de revision, plazo y si el proyecto es edicion remota o grabacion local.",
+    },
+    answer: {
+      en: `A month of edited reels is priced by scope: how many finished videos, how much raw footage, captions, music, rounds of changes and the deadline. Here one edited video starts at ${usd(SHORT_FORM.perVideoFrom)}, and weekly editing is ${shortFormWeeklyText("en")}, with a ${ARRANQUE_WEEKLY_TERMS.minimumWeeks}-week minimum. Filming on location is quoted separately.`,
+      es: `Un mes de reels se cotiza por alcance: cuántos videos finales, cuánto material, subtítulos, música, rondas de cambios y la fecha límite. Aquí un video editado cuesta desde ${usd(SHORT_FORM.perVideoFrom)}, y la edición semanal cuesta ${shortFormWeeklyText("es")}, con un mínimo de ${ARRANQUE_WEEKLY_TERMS.minimumWeeks} semanas. La grabación en locación se cotiza aparte.`,
     },
     keywordTargets: [
       {
@@ -78,7 +90,7 @@ export const redditQueryInsights: readonly RedditQueryInsight[] = [
     sourceLabel: "r/videography: first client scope",
     audienceQuestion: {
       en: "What does a remote editor need before quoting a video project?",
-      es: "Que necesita un editor remoto antes de cotizar un proyecto de video?",
+      es: "¿Qué necesita un editor remoto antes de cotizar un proyecto de video?",
     },
     searchIntent: {
       en: "brief, footage handoff, project-based quote, revision limit",
@@ -87,6 +99,10 @@ export const redditQueryInsights: readonly RedditQueryInsight[] = [
     contentAngle: {
       en: "Teach business owners to send the goal, platform, raw footage, must-use clips, brand assets, due date, and revision expectations before asking for a fixed project quote.",
       es: "Ensenar a los negocios a enviar objetivo, plataforma, material bruto, clips obligatorios, assets de marca, fecha limite y expectativas de revision antes de pedir una cotizacion fija.",
+    },
+    answer: {
+      en: "Send the goal and the platform, the raw footage, the clips that must appear, your logo and brand colors, the due date and how many rounds of changes you expect. With those, a remote editor can quote a fixed price instead of guessing, and the first cut needs fewer corrections.",
+      es: "Envía la meta y la plataforma, el material sin editar, los clips que tienen que aparecer, tu logo y colores de marca, la fecha de entrega y cuántas rondas de cambios esperas. Con eso, un editor remoto puede cotizar un precio fijo en vez de adivinar, y el primer corte necesita menos correcciones.",
     },
     keywordTargets: [
       {
@@ -124,7 +140,7 @@ export const redditQueryInsights: readonly RedditQueryInsight[] = [
     sourceLabel: "r/ecommerce: AI product lifestyle images",
     audienceQuestion: {
       en: "When should a store use AI product images instead of a photo shoot?",
-      es: "Cuando conviene usar imagenes de producto con IA en vez de una sesion de fotos?",
+      es: "¿Cuándo conviene usar imágenes de producto con IA en vez de una sesión de fotos?",
     },
     searchIntent: {
       en: "AI product photography, lifestyle images, ecommerce ads, color accuracy",
@@ -133,6 +149,10 @@ export const redditQueryInsights: readonly RedditQueryInsight[] = [
     contentAngle: {
       en: "Separate safe AI uses, like ad concepts and simple lifestyle backgrounds, from risky uses where packaging text, colors, reflective surfaces, or exact product dimensions must stay truthful.",
       es: "Separar usos seguros de IA, como conceptos para anuncios y fondos lifestyle simples, de usos riesgosos donde texto de empaque, colores, reflejos o dimensiones exactas deben mantenerse fieles.",
+    },
+    answer: {
+      en: "Use AI for ad concepts and simple lifestyle backgrounds built around a real photo of the product. Book a real shoot when the packaging text, exact colors, reflective surfaces or product size have to be accurate, because the buyer will compare the image with what arrives.",
+      es: "Usa IA para conceptos de anuncios y fondos sencillos alrededor de una foto real del producto. Haz una sesión de fotos cuando el texto del empaque, los colores exactos, los reflejos o el tamaño del producto tienen que ser fieles, porque el comprador va a comparar la imagen con lo que recibe.",
     },
     keywordTargets: [
       {
@@ -170,7 +190,7 @@ export const redditQueryInsights: readonly RedditQueryInsight[] = [
     sourceLabel: "r/RealEstatePhotography: AI editing concerns",
     audienceQuestion: {
       en: "How can real estate photos use AI without making a property look fake?",
-      es: "Como usar IA en fotos inmobiliarias sin que la propiedad se vea falsa?",
+      es: "¿Cómo usar IA en fotos inmobiliarias sin que la propiedad se vea falsa?",
     },
     searchIntent: {
       en: "real estate photo enhancement, AI editing, accurate colors, window pulls",
@@ -179,6 +199,10 @@ export const redditQueryInsights: readonly RedditQueryInsight[] = [
     contentAngle: {
       en: "Answer with a truth-first checklist: preserve room layout, window views, fixtures, colors, floors, ceilings, and anything a buyer could inspect in person.",
       es: "Responder con una lista de fidelidad: conservar distribucion, vistas por ventanas, acabados, colores, pisos, techos y cualquier detalle que el comprador pueda ver en persona.",
+    },
+    answer: {
+      en: "Keep everything a buyer could check in person unchanged: the room layout, the view from each window, fixtures, colors, floors and ceilings. If an edit changes what a visitor would see at the showing, it misrepresents the listing.",
+      es: "No cambies nada que el comprador pueda revisar en persona: la distribución, la vista de cada ventana, los acabados, los colores, los pisos y los techos. Si una edición cambia lo que un visitante vería en la visita, la publicación deja de ser fiel.",
     },
     keywordTargets: [
       {
@@ -216,7 +240,7 @@ export const redditQueryInsights: readonly RedditQueryInsight[] = [
     sourceLabel: "r/youtubers: finding an editor",
     audienceQuestion: {
       en: "What should I send before hiring a YouTube video editor?",
-      es: "Que debo enviar antes de contratar un editor de video para YouTube?",
+      es: "¿Qué debo enviar antes de contratar un editor de video para YouTube?",
     },
     searchIntent: {
       en: "YouTube editor, remote editing, long-form video, examples, revision workflow",
@@ -225,6 +249,10 @@ export const redditQueryInsights: readonly RedditQueryInsight[] = [
     contentAngle: {
       en: "Answer with a practical handoff: the goal of the channel, one sample finished video, raw footage, audio notes, must-keep moments, thumbnail direction, and how feedback will be collected.",
       es: "Responder con una entrega practica: meta del canal, un video final de referencia, material bruto, notas de audio, momentos obligatorios, direccion de miniatura y forma de consolidar comentarios.",
+    },
+    answer: {
+      en: "Send the goal of the channel, one finished video you like as a reference, the raw footage, notes on the audio, the moments that must stay, the thumbnail direction and who will collect feedback. One person gathering the comments keeps each round of changes to one clear list.",
+      es: "Envía la meta del canal, un video terminado que te guste como referencia, el material sin editar, notas sobre el audio, los momentos que tienen que quedar, la idea de la miniatura y quién va a reunir los comentarios. Una sola persona reuniendo los comentarios deja cada ronda de cambios en una lista clara.",
     },
     keywordTargets: [
       {
@@ -262,7 +290,7 @@ export const redditQueryInsights: readonly RedditQueryInsight[] = [
     sourceLabel: "r/PPC: UGC ad structure",
     audienceQuestion: {
       en: "What makes a UGC product video usable as an ad?",
-      es: "Que hace que un video UGC de producto funcione como anuncio?",
+      es: "¿Qué hace que un video UGC de producto funcione como anuncio?",
     },
     searchIntent: {
       en: "UGC video editor, ecommerce ad editing, product hooks, direct response creative",
@@ -271,6 +299,10 @@ export const redditQueryInsights: readonly RedditQueryInsight[] = [
     contentAngle: {
       en: "Focus on the edit structure: first-frame hook, visible product, problem, proof or use moment, offer, captions, safe zones, and separate versions for tests instead of one overstuffed ad.",
       es: "Enfocarse en estructura de edicion: gancho inicial, producto visible, problema, prueba o momento de uso, oferta, subtitulos, zonas seguras y versiones separadas para pruebas.",
+    },
+    answer: {
+      en: "A usable UGC ad shows the product in the first frame, names the problem, shows proof or the product in use, states the offer, and keeps captions inside the platform's safe zones. Cut separate versions to test different openings instead of one ad that tries to say everything.",
+      es: "Un anuncio UGC que funciona muestra el producto en el primer cuadro, nombra el problema, enseña una prueba o el producto en uso, dice la oferta y deja los subtítulos dentro de las zonas seguras de la plataforma. Corta versiones separadas para probar distintos inicios en vez de un solo anuncio que intenta decirlo todo.",
     },
     keywordTargets: [
       {
@@ -308,7 +340,7 @@ export const redditQueryInsights: readonly RedditQueryInsight[] = [
     sourceLabel: "r/restaurateur: social content operations",
     audienceQuestion: {
       en: "What restaurant footage is worth sending to an editor?",
-      es: "Que material de restaurante vale la pena enviar a un editor?",
+      es: "¿Qué material de restaurante vale la pena enviar a un editor?",
     },
     searchIntent: {
       en: "restaurant promo video editing, food reels, local restaurant social media",
@@ -317,6 +349,10 @@ export const redditQueryInsights: readonly RedditQueryInsight[] = [
     contentAngle: {
       en: "Teach owners to capture the food coming out, hands plating, the room, menu items, staff moments, and one clear offer, then package it into reels instead of trying to film a full commercial every week.",
       es: "Ensenar a dueños a capturar comida saliendo, manos emplatando, el local, items del menu, equipo y una oferta clara, para convertirlo en reels sin filmar un comercial completo cada semana.",
+    },
+    answer: {
+      en: "Send the food coming out of the kitchen, hands plating, the dining room, signature menu items, moments with the staff and one clear offer. A batch of short clips like these can become several reels, so there is no need to film a full commercial every week.",
+      es: "Envía la comida saliendo de la cocina, las manos emplatando, el salón, los platos estrella del menú, momentos con el equipo y una oferta clara. Un lote de clips cortos como estos se convierte en varios reels, así que no hace falta grabar un comercial completo cada semana.",
     },
     keywordTargets: [
       {
@@ -354,7 +390,7 @@ export const redditQueryInsights: readonly RedditQueryInsight[] = [
     sourceLabel: "r/smallbusiness: hiring freelancers",
     audienceQuestion: {
       en: "Can a business outside Florida hire Esteban for remote editing?",
-      es: "Puede un negocio fuera de Florida contratar a Esteban para edicion remota?",
+      es: "¿Puede un negocio fuera de Florida contratar a Esteban para edición remota?",
     },
     searchIntent: {
       en: "remote bilingual video editor, Spanish English video editing, hire editor out of state",
@@ -363,6 +399,10 @@ export const redditQueryInsights: readonly RedditQueryInsight[] = [
     contentAngle: {
       en: "Make the remote boundary clear: supplied footage, files, references, one approval owner, and direct contact work from anywhere; on-location capture remains scoped around South Florida availability.",
       es: "Aclarar el limite remoto: material entregado, archivos, referencias, un responsable de aprobacion y contacto directo funcionan desde cualquier lugar; grabacion local depende de disponibilidad en South Florida.",
+    },
+    answer: {
+      en: "Yes. Editing from footage you supply works from anywhere: you send the files and references, name one person who approves, and talk to Esteban directly, in Spanish first or in English. Filming on location is scoped only around South Florida availability.",
+      es: "Sí. La edición del material que envías funciona desde cualquier lugar: mandas los archivos y las referencias, nombras a una persona que aprueba y hablas directo con Esteban, en español o en inglés. La grabación en locación solo se define según la disponibilidad en el sur de Florida.",
     },
     keywordTargets: [
       {

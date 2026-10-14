@@ -80,22 +80,20 @@ const detailCopy = {
 
 const queryInsightCopy = {
   en: {
-    eyebrow: "Search questions",
-    title: "Core topics people ask before they hire help.",
+    eyebrow: "Questions before hiring",
+    title: "Questions people ask before they hire help.",
     intro:
       "These themes come from public Reddit discussions about video editing, reels, AI product images, and real estate photo editing. They are used here as topic research, not as testimonials.",
     sourceLabel: "Source discussion",
     linksLabel: "Related page",
-    keywordsLabel: "Keyword targets",
   },
   es: {
-    eyebrow: "Preguntas de busqueda",
-    title: "Temas clave que la gente pregunta antes de contratar ayuda.",
+    eyebrow: "Preguntas antes de contratar",
+    title: "Preguntas que la gente hace antes de contratar ayuda.",
     intro:
-      "Estos temas salen de conversaciones publicas en Reddit sobre edicion de video, reels, imagenes de producto con IA y edicion de fotos inmobiliarias. Se usan como investigacion de temas, no como testimonios.",
-    sourceLabel: "Conversacion fuente",
-    linksLabel: "Pagina relacionada",
-    keywordsLabel: "Palabras clave",
+      "Estos temas salen de conversaciones públicas en Reddit sobre edición de video, reels, imágenes de producto con IA y edición de fotos inmobiliarias. Se usan como investigación de temas, no como testimonios.",
+    sourceLabel: "Conversación fuente",
+    linksLabel: "Página relacionada",
   },
 } as const;
 
@@ -242,6 +240,34 @@ function SupportLinks({ locale }: { locale: GuideLocale }) {
   );
 }
 
+/**
+ * Answer-first sections for the guide hubs (overnight loop row 37): both hubs
+ * failed the dual-audience gate with 1 section in the 100-180 word band. Each
+ * answer is server-rendered text under a question heading, so a reader and a
+ * crawler get the same citable unit.
+ */
+function HubAnswers({ locale }: { locale: GuideLocale }) {
+  const answers = guidesIndexCopy[locale].answers;
+  return (
+    <section className="border-b border-[#ddd4c8] py-12 sm:py-16" aria-label={locale === "es" ? "Respuestas rápidas" : "Quick answers"}>
+      <Container size="xl">
+        <div className="grid gap-10 lg:grid-cols-2 lg:gap-14">
+          {answers.map((item) => (
+            <div key={item.question}>
+              <h2 className="max-w-2xl font-serif text-3xl leading-tight text-[#101214]">{item.question}</h2>
+              {item.paragraphs.map((paragraph) => (
+                <p key={paragraph.slice(0, 40)} className="mt-4 max-w-2xl leading-7 text-[#3f4548]">
+                  {renderFormattedText(paragraph)}
+                </p>
+              ))}
+            </div>
+          ))}
+        </div>
+      </Container>
+    </section>
+  );
+}
+
 function QueryInsights({ locale }: { locale: GuideLocale }) {
   const copy = queryInsightCopy[locale];
 
@@ -269,22 +295,12 @@ function QueryInsights({ locale }: { locale: GuideLocale }) {
                 <h3 className="text-base font-semibold leading-6 text-[#101214]">
                   {insight.audienceQuestion[locale]}
                 </h3>
+                {/* The reader's answer. contentAngle and keywordTargets are
+                    research notes, not copy: they were printed here as
+                    "Keyword targets" chips until loop round 3. */}
                 <p className="mt-3 text-sm leading-6 text-[#41474d]">
-                  {insight.contentAngle[locale]}
+                  {insight.answer[locale]}
                 </p>
-                <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-[#5a6066]">
-                  {copy.keywordsLabel}
-                </p>
-                <ul className="mt-2 flex flex-wrap gap-2">
-                  {insight.keywordTargets.map((target) => (
-                    <li
-                      key={target[locale]}
-                      className="rounded-full border border-[#ddd4c8] px-2.5 py-1 text-xs text-[#41474d]"
-                    >
-                      {target[locale]}
-                    </li>
-                  ))}
-                </ul>
                 <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs">
                   <a
                     href={insight.sourceUrl}
@@ -457,6 +473,7 @@ export function GuidesIndexPage({ locale }: { locale: GuideLocale }) {
         </Container>
       </section>
 
+      <HubAnswers locale={locale} />
       <OriginalResearch locale={locale} />
       <QueryInsights locale={locale} />
       <QuoteIntentQuestions locale={locale} />

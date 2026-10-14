@@ -743,7 +743,7 @@ const sobewff: EventCopyBuilder = (event) => ({
     },
   },
   es: {
-    metaTitle: "South Beach Wine & Food Festival: contenido para restaurantes",
+    metaTitle: "South Beach Wine & Food Festival: contenido de restaurantes",
     metaDescription:
       `Contenido para el South Beach Wine & Food Festival: calendario previo, edición de tu material desde ${FROM} por video y resúmenes para restaurantes y chefs.`,
     breadcrumb: "South Beach Wine & Food Festival",

@@ -15,6 +15,8 @@ import {
   usd,
   type PackageId,
   PRODUCT_PHOTO_SESSION,
+  ARRANQUE_WEEKLY_TERMS,
+  SHORT_FORM,
 } from "@/lib/pricing";
 import { REAL_ESTATE_MEDIA } from "@/lib/services-config";
 import { GUIDE_HUB_IDS, PHONE_FILMING_SECTIONS, guideHubPairs } from "@/lib/guide-hubs";
@@ -4354,6 +4356,20 @@ export const guidesIndexCopy = {
     listFoldHint:
       "The other {count} guides: formats, pricing, audio, delivery, social, real estate and restaurants.",
     languageLabel: "Leer las guías en español",
+    answers: [
+      {
+        question: "Which guide should you read first?",
+        paragraphs: [
+          "Pick the guide that matches the decision in front of you. Before filming, read [how to prepare footage for an editor](/guides/prepare-footage-for-video-editing) and [how to record on an iPhone for professional editing](/guides/record-video-with-iphone-for-professional-editing), so the clips you send are usable. Before hiring, read [how to write a video brief](/guides/write-a-useful-video-brief), [how a local editor compares with Fiverr and an agency](/guides/local-editor-vs-fiverr-vs-agency-miami), and the cost guides for [Fort Lauderdale](/guides/video-production-cost-fort-lauderdale) and [Miami](/guides/corporate-video-production-cost-miami). Before publishing, read the [safe-zone guide for vertical and horizontal exports](/guides/vertical-horizontal-video-exports-and-safe-zones) and the [caption styles guide](/guides/best-caption-styles-for-instagram-reels). Restaurants and real estate agents each have their own idea lists below. Every guide is free and written by Esteban Moreno Media in Fort Lauderdale, and none of them asks you to hire anyone.",
+        ],
+      },
+      {
+        question: "What do the cost guides say a video edit costs?",
+        paragraphs: [
+          `The cost guides quote the prices Esteban Moreno Media publishes. One edited short video starts at ${usd(SHORT_FORM.perVideoFrom)}. Weekly editing is ${shortFormWeeklyText("en")}, with a ${ARRANQUE_WEEKLY_TERMS.minimumWeeks}-week minimum, and each weekly video comes back in ${ARRANQUE_WEEKLY_TERMS.deliveryHoursMin} to ${ARRANQUE_WEEKLY_TERMS.deliveryHoursMax} hours. A monthly social media plan, with the content calendar and the editing, starts at ${PACKAGE_PRICES.crecimiento.kind === "from" ? usd(PACKAGE_PRICES.crecimiento.amount) : ""} a month. Filming at your business starts at ${PACKAGE_PRICES["presencia-local"].kind === "from" ? usd(PACKAGE_PRICES["presencia-local"].amount) : ""} per production day. The guides also show market ranges from other sources, such as ${usd(SHORT_FORM.marketMin)} to ${usd(SHORT_FORM.marketMax)} per short-form video, so you can compare before you ask anyone for a quote. Every project still gets a written quote before work starts. All prices are on [the pricing page](/pricing).`,
+        ],
+      },
+    ],
     relatedEyebrow: "From planning to proof",
     relatedTitle: "Use the guides with real services and published work.",
   },
@@ -4361,7 +4377,7 @@ export const guidesIndexCopy = {
     path: "/es/guias",
     metadataTitle: "Guías Prácticas de Video",
     description:
-      "Cuatro guías prácticas para preparar material, escribir un brief, elegir formatos y organizar una edición remota de video.",
+      "Guías prácticas en español para preparar material, escribir un brief, elegir formatos, entender los costos y planear video para redes, inmobiliaria y restaurantes.",
     breadcrumbHome: "Inicio",
     breadcrumbCurrent: "Guías",
     breadcrumbLabel: "Migas de pan",
@@ -4377,6 +4393,20 @@ export const guidesIndexCopy = {
     listFoldHint:
       "Las otras {count} guías: formatos, precios, audio, entrega, redes, inmobiliaria y restaurantes.",
     languageLabel: "Read the guides in English",
+    answers: [
+      {
+        question: "¿Qué guía conviene leer primero?",
+        paragraphs: [
+          "Elige la guía que corresponde a la decisión que tienes pendiente. Antes de grabar, lee [cómo preparar el material para un editor](/es/guias/preparar-material-para-edicion-de-video) y [cómo grabar con iPhone para una edición profesional](/es/guias/grabar-video-con-iphone-para-edicion-profesional), para que los clips que envíes sirvan. Antes de contratar, lee [cómo escribir un brief de video](/es/guias/como-escribir-un-brief-util-de-video), [en qué se diferencia un editor local de Fiverr y de una agencia](/es/guias/editor-local-vs-fiverr-vs-agencia-miami) y las guías de costos de [Fort Lauderdale](/es/guias/cuanto-cuesta-la-produccion-de-video-en-fort-lauderdale) y [Miami](/es/guias/cuanto-cuesta-la-produccion-de-video-corporativo-miami). Antes de publicar, lee la [guía de zonas seguras para video vertical y horizontal](/es/guias/video-vertical-horizontal-y-zonas-seguras) y la de [estilos de subtítulos](/es/guias/mejores-estilos-de-subtitulos-para-reels). Restaurantes y agentes inmobiliarios tienen sus propias listas de ideas más abajo. Todas las guías son gratis, están escritas por Esteban Moreno Media en Fort Lauderdale y ninguna te pide contratar a nadie.",
+        ],
+      },
+      {
+        question: "¿Cuánto cuesta editar un video según las guías de costos?",
+        paragraphs: [
+          `Las guías de costos citan los precios que publica Esteban Moreno Media. Un video corto editado cuesta desde ${usd(SHORT_FORM.perVideoFrom)}. La edición semanal cuesta ${shortFormWeeklyText("es")}, con un mínimo de ${ARRANQUE_WEEKLY_TERMS.minimumWeeks} semanas, y cada video semanal se entrega en ${ARRANQUE_WEEKLY_TERMS.deliveryHoursMin} a ${ARRANQUE_WEEKLY_TERMS.deliveryHoursMax} horas. Un plan mensual de redes, con el calendario de contenido y la edición, empieza en ${PACKAGE_PRICES.crecimiento.kind === "from" ? usd(PACKAGE_PRICES.crecimiento.amount) : ""} al mes. La grabación en tu negocio empieza en ${PACKAGE_PRICES["presencia-local"].kind === "from" ? usd(PACKAGE_PRICES["presencia-local"].amount) : ""} por día de producción. Las guías también muestran rangos del mercado de otras fuentes, como ${usd(SHORT_FORM.marketMin)} a ${usd(SHORT_FORM.marketMax)} por video corto, para que compares antes de pedir una cotización. Cada proyecto recibe una cotización por escrito antes de empezar. Todos los precios están en [la página de precios](/es/precios).`,
+        ],
+      },
+    ],
     relatedEyebrow: "De la planificación a la prueba",
     relatedTitle: "Conecta las guías con servicios reales y trabajos publicados.",
   },

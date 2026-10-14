@@ -39,7 +39,7 @@ describe("round 3 snippet rewrites", () => {
   it("case-study snippets fit and never end mid-sentence", () => {
     for (const id of ["banacol", "flas-concierge", "healthy-smile", "my-dler", "homeowners"] as const) {
       for (const locale of ["en", "es"] as const) {
-        const cs = getCaseStudyById(id, locale);
+        const cs = getCaseStudyById(locale, id);
         if (!cs) continue;
         const d = String(buildCaseStudyMetadata(cs).description);
         expect(d.length, `${id}/${locale}`).toBeLessThanOrEqual(BUDGET);
