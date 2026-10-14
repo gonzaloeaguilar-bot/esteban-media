@@ -12,6 +12,11 @@ const scenes = {
     en: "Tell me what I’ll be photographing, the location, and where you’ll use the photos. Share a reference if you have one.",
     es: "Cuéntame qué voy a fotografiar, la ubicación y dónde usarás las fotos. Comparte una referencia si tienes una.",
   },
+  grabacion: {
+    image: "photography", kind: "capture",
+    en: "Tell me what we’re filming, the location, schedule, and how you want the raw 4K files delivered (Drive, Dropbox or hard drive).",
+    es: "Cuéntame qué vamos a grabar, la locación, el horario y cómo quieres recibir los archivos 4K en bruto (Drive, Dropbox o disco).",
+  },
   mejora: {
     image: "enhancement", kind: "enhance",
     en: "Send the original photo and point out what you want to improve. Tell me where you’ll use the finished image.",

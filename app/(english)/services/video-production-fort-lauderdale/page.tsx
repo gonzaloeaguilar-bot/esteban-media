@@ -51,6 +51,10 @@ const content: GeoServicePageContent = {
       question: "Can a Fort Lauderdale video production company work remotely?",
       body: `Yes, for most of the work. Esteban Moreno Media is based in Fort Lauderdale, and editing happens remotely: you send the footage, photos and references through a shared link, and the finished video comes back with captions and the sizes you need, with no visit. Remote editing is Starter, ${shortFormPriceText("en")}. A visit is needed when the footage does not exist yet, such as the owner explaining the service, the space itself or a product being used. On-location filming is a paid service scoped per project, ${filmingHourlyText("en")}, and a production day at your business, with planning, filming and the edit, is ${priceSentence("en", "presencia-local").toLowerCase()}. A project can mix both: one shoot in Broward or Miami-Dade, then remote edits from that footage for the weeks after. Communication is Spanish-first, with intermediate English for bilingual projects.`,
     },
+    {
+      question: "Who does video production for small businesses in Fort Lauderdale?",
+      body: `Esteban Moreno Media provides small business video production across Fort Lauderdale and Broward County, specializing in commercial reels, website videos, and service showcases. The service covers creative direction, shot list preparation, on-location 4K recording, clean wireless audio, and post-production editing optimized for Instagram Reels, TikTok, and desktop websites. For local businesses that only need raw footage delivered to an internal marketing team, on-location video capture starts at $400 for a half-day session. When filming time is booked by the hour, on-location filming starts at an authorized floor of $80 per hour, while full-service remote video editing packages start at $280 per video. Projects typically turn around within 48 to 72 hours following review. Inquiries can be submitted directly with project goals, preferred locations, and target deadlines.`,
+    },
   ],
   faqHeading: "Questions Fort Lauderdale businesses ask before starting video.",
   faqs: [
