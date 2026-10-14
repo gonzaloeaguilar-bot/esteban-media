@@ -17,6 +17,7 @@ import {
 } from "@/lib/pricing";
 import { REAL_ESTATE_MEDIA } from "@/lib/services-config";
 import { GUIDE_HUB_IDS, PHONE_FILMING_SECTIONS, guideHubPairs } from "@/lib/guide-hubs";
+import { GUIDE_COMPARISON_IDS, guideComparisonPairs } from "@/lib/guide-comparisons";
 
 export const GUIDE_IDS = [
   "prepare-footage",
@@ -61,6 +62,7 @@ export const GUIDE_IDS = [
   "restaurant-video-cost-guide",
   "real-estate-video-cost-guide",
   ...GUIDE_HUB_IDS,
+  ...GUIDE_COMPARISON_IDS,
 ] as const;
 
 export type GuideId = (typeof GUIDE_IDS)[number];
@@ -4300,6 +4302,7 @@ const guidePairs: readonly GuidePair[] = [
     },
   },
   ...guideHubPairs,
+  ...guideComparisonPairs,
 ];
 
 export const guidesIndexCopy = {

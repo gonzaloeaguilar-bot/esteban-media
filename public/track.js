@@ -34,6 +34,10 @@
     share_click: ["channel"], experiment_exposure: ["experiment_id", "variant"],
     error_shown: ["error_code", "surface"]
   };
+  var CONTRACT_KEYS = Object.create(null);
+  Object.keys(CONTRACT).forEach(function (e) {
+    CONTRACT[e].forEach(function (p) { CONTRACT_KEYS[p] = 1; });
+  });
 
   var PII_KEYS = /(^|_)(email|phone|tel|name|address|ssn|dob|password|message|notes?|comment)s?($|_)/i;
   var PII_VALUE = /[\w.+-]+@[\w-]+\.\w{2,}|\+?\d[\d\s().-]{7,}\d/;
@@ -137,7 +141,11 @@
       if (!Object.prototype.hasOwnProperty.call(params, k)) continue;
       var v = params[k];
       if (v === undefined || v === null || v === "") continue;
-      if (PII_KEYS.test(k)) continue;
+      // Contract parameters are never PII by definition, and two of them end
+      // in "_name" (filter_apply.filter_name, item_click.list_name): the key
+      // filter stripped both, so every filter_apply reached GA4 as
+      // filter_name="unknown" (estebanmorenomedia.com, 2026-10-14).
+      if (PII_KEYS.test(k) && !CONTRACT_KEYS[k]) continue;
       if (typeof v === "string") {
         if (PII_VALUE.test(v) && k !== "cta_text") continue;
         v = v.slice(0, 120);

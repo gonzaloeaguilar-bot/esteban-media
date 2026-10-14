@@ -86,6 +86,17 @@
   "dollars": [],
   "percents": []
  },
+ "en:local-vs-fiverr-vs-agency-guide": {
+  "dollars": [
+   "$10,000",
+   "$149",
+   "$200",
+   "$3"
+  ],
+  "percents": [
+   "5.5%"
+  ]
+ },
  "en:mix-audio-social-video-guide": {
   "dollars": [],
   "percents": [
@@ -158,6 +169,18 @@
  "en:repurpose-longform-to-reels-guide": {
   "dollars": [],
   "percents": []
+ },
+ "en:restaurant-reels-per-week-guide": {
+  "dollars": [
+   "$240"
+  ],
+  "percents": [
+   "0.12%",
+   "0.26%",
+   "0.44%",
+   "0.66%",
+   "12%"
+  ]
  },
  "en:restaurant-video-cost-guide": {
   "dollars": [
@@ -292,6 +315,17 @@
   "dollars": [],
   "percents": []
  },
+ "es:local-vs-fiverr-vs-agency-guide": {
+  "dollars": [
+   "$10,000",
+   "$149",
+   "$200",
+   "$3"
+  ],
+  "percents": [
+   "5.5%"
+  ]
+ },
  "es:mix-audio-social-video-guide": {
   "dollars": [],
   "percents": []
@@ -363,6 +397,18 @@
  "es:repurpose-longform-to-reels-guide": {
   "dollars": [],
   "percents": []
+ },
+ "es:restaurant-reels-per-week-guide": {
+  "dollars": [
+   "$240"
+  ],
+  "percents": [
+   "0.12%",
+   "0.26%",
+   "0.44%",
+   "0.66%",
+   "12%"
+  ]
  },
  "es:restaurant-video-cost-guide": {
   "dollars": [

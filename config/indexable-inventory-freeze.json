@@ -2,8 +2,8 @@
   "status": "demand_gated",
   "effectiveDate": "2026-08-28",
   "baselineRevisedOn": "2026-10-14",
-  "approvedSitemapUrlCount": 354,
-  "approvedSitemapUrlSetSha256": "d170e735a64deb5bc92c0fc9fb8b9215e768a32a2e2ee00a852d454266bf7f71",
+  "approvedSitemapUrlCount": 358,
+  "approvedSitemapUrlSetSha256": "9dad24ddfb801ab24a7d0b0a8f933ace06a8a6d4a8fac238ab346a11e8482eda",
   "allowedNewIndexableUrls": 4,
   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {
@@ -352,6 +352,20 @@
       "demandEvidence": "Own data is thin, stated as such: GSC 90d (2026-07-14..2026-10-12, URL-prefix property, 119 query rows) has 0 reels-cost queries; nearest is 'editora vídeo freelance' (8 impr, pos 45.6). Outside demand, live 2026-10-14: Google autocomplete returns 'reels editing cost', 'reel editor cost', 'reels editing charges', 'reels editing price list', 'how much to charge for editing instagram reels', 'cuanto cuesta editar un reel', 'cuanto cobra un editor de reels'. Perplexity (sonar via OpenRouter, 2026-10-14) already names Esteban and quotes '$100 per video' for a Fort Lauderdale reels question, so the per-video vs weekly arithmetic is the sub-answer engines fan out to. Weekly sweep q48 'cuanto cuesta editar un reel' targets the ES cost guide; this tool answers the monthly-total version no page computed.",
       "followUpDate": "2026-10-28",
       "followUp": "GSC query+page for both URLs and sweep q59-q60; if 0 impressions at 30 days, fold the tool into the short-form cost guide pair and noindex."
+    },
+    {
+      "on": "2026-10-14",
+      "url": [
+        "/guides/local-editor-vs-fiverr-vs-agency-miami",
+        "/es/guias/editor-local-vs-fiverr-vs-agencia-miami",
+        "/guides/how-many-reels-should-a-restaurant-post-per-week",
+        "/es/guias/cuantos-reels-debe-publicar-un-restaurante-por-semana"
+      ],
+      "orderedBy": "Gonzalo (pre-approved organic work, video-schema-tools brief 2026-10-14)",
+      "kind": "sourced explainers cited as AI sub-answers, linking the Reels, restaurant and pricing money pages",
+      "demandEvidence": "Own data: GSC 90d (2026-07-14..2026-10-12, 119 query rows) has 0 Fiverr/agency/restaurant-frequency queries; nearest is 'editora vídeo freelance' (8 impr, pos 45.6). Outside demand, live 2026-10-14: Google autocomplete returns 'how often should a restaurant post on instagram', 'how often should you post content on instagram' and 'cuantos reels publicar a la semana'. The existing /guides/freelance-video-editor-vs-post-agency pair compares freelancer vs agency without Fiverr fees or any sourced figure; the restaurant ideas guide says what to film, not how often. Sources read live 2026-10-14: Fiverr Help Center (5.5% + $3.50 under $200; 72-hour auto-complete), Clutch pricing guide updated 2026-09-21 ($100-$149/hour; projects typically under $10,000), Buffer 2025-08-13 (2.1M posts, 102K accounts).",
+      "followUpDate": "2026-10-28",
+      "followUp": "GSC query+page for the 4 URLs and sweep q61-q64; re-read the Fiverr and Clutch figures before 2026-12-31 and update or remove them if the sources changed."
     }
   ]
 }
