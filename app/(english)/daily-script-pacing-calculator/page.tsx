@@ -1,7 +1,10 @@
 import Link from "next/link";
 
 import { DailyScriptPacingCalculator } from "@/components/daily-script-pacing-calculator";
+import { PageUpdated } from "@/components/page-updated";
+import { ScriptLengthAnswer } from "@/components/script-length-answer";
 import { Container } from "@/components/ui/container";
+import { pageLastModified } from "@/lib/page-lastmod";
 import { absoluteUrl } from "@/lib/site";
 import { buildPageMetadata } from "@/lib/site-metadata";
 
@@ -21,6 +24,7 @@ export default function DailyScriptPacingCalculatorPage() {
     name: "Daily Video Script Pacing Calculator",
     description: "A daily video script pacing calculator, spoken duration estimator, and teleprompter drills for creators.",
     isPartOf: { "@id": absoluteUrl("/#website") },
+    ...(pageLastModified("/daily-script-pacing-calculator") ? { dateModified: pageLastModified("/daily-script-pacing-calculator") } : {}),
   };
 
   return (
@@ -45,7 +49,9 @@ export default function DailyScriptPacingCalculatorPage() {
           </ol>
         </nav>
         <DailyScriptPacingCalculator locale="en" />
+        <PageUpdated path="/daily-script-pacing-calculator" locale="en" />
       </Container>
+      <ScriptLengthAnswer path="/daily-script-pacing-calculator" />
     </main>
   );
 }

@@ -27,20 +27,23 @@ import RailScene from "@/vendor/rail-kit/RailScene";
  */
 export function ServicesScene({ locale }: { locale: "en" | "es" }) {
   const es = locale === "es";
+  // One alt for both: the media override used to render alt="" (loop round 5),
+  // so the only photo of Esteban at work on /services had no text alternative.
+  const alt = es
+    ? "Esteban grabando desde el suelo con dos paraguas de luz montados y una mesa de producto preparada"
+    : "Esteban shooting from the floor with two umbrella lights set up and a product table dressed";
   return (
     <div className="em-scene" data-section="services_scene">
       <RailScene
         source="services_scene"
         image={{
           src: "/about/esteban-on-set.jpg",
-          alt: es
-            ? "Esteban grabando desde el suelo con dos paraguas de luz montados y una mesa de producto preparada"
-            : "Esteban shooting from the floor with two umbrella lights set up and a product table dressed",
+          alt,
         }}
         media={
           <Image
             src="/about/esteban-on-set.jpg"
-            alt=""
+            alt={alt}
             width={900}
             height={1200}
             sizes="(min-width: 1024px) 440px, 88vw"

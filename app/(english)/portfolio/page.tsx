@@ -31,6 +31,7 @@ import { KeepReading } from "@/components/keep-reading";
 import { PortfolioFilmstrip } from "@/components/portfolio-filmstrip";
 import { Container } from "@/components/ui/container";
 import { PORTFOLIO_ITEMS } from "@/lib/portfolio";
+import { PageUpdated } from "@/components/page-updated";
 import { buildPortfolioCollectionSchema } from "@/lib/portfolio-schema";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
@@ -224,6 +225,7 @@ export default function PortfolioPage() {
           <p className="text-xs font-medium uppercase tracking-[0.18em] text-[#f0b384]">Selected work</p>
           <h1 className="mt-3 max-w-3xl font-serif text-4xl leading-tight sm:text-6xl">See the work.</h1>
           <p className="mt-3 max-w-2xl text-base leading-7 text-[#d8d0c7]">Video editing, campaigns, events, and stories from Esteban Moreno Media. Open a project for its description and credits.</p>
+          <PageUpdated path="/portfolio" locale="en" className="mt-3 text-xs text-[#b9b2aa]" />
         </Container>
       </section>
       {liveItems[0] ? (

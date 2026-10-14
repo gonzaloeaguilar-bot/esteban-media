@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { PageUpdated } from "@/components/page-updated";
 import { YouTubeFacade } from "@/components/youtube-facade";
 import { spanishServices } from "@/lib/spanish-site";
 import { services } from "@/lib/site";
@@ -246,7 +247,7 @@ export function PortfolioWatchPage({ item, locale }: PortfolioWatchPageProps) {
               ) : (
                 <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/30 to-transparent p-6 text-white sm:p-8">
                   <span className="inline-flex items-center gap-2 self-start rounded-full bg-[var(--em-accent-ink)] px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-white">
-                    Web App & AI System
+                    {locale === "es" ? "Sistema web con IA" : "Web App & AI System"}
                   </span>
                   <p className="mt-2 font-serif text-2xl text-[#f6f1ea]">
                     {copy.title}
@@ -265,6 +266,7 @@ export function PortfolioWatchPage({ item, locale }: PortfolioWatchPageProps) {
               <p className="mt-5 text-base leading-7 text-[#d8d0c7] sm:text-lg sm:leading-8">
                 {copy.summary}
               </p>
+              <PageUpdated path={path} locale={locale} className="mt-4 text-xs text-[#b9b2aa]" />
               <div className="mt-7 flex flex-wrap gap-3">
                 {CASE_STUDY_IDS.includes(item.id as CaseStudyId) ? (
                   <Link

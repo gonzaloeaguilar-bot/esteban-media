@@ -52,7 +52,7 @@
     },
     "items": {
       "titanforge": {
-        "title": "TitanForge Platform & AI Bot",
+        "title": "Plataforma TitanForge y bot de IA",
         "summary": "Plataforma web de alto rendimiento y bot de IA conversacional para calificación automática de prospectos, agendas instantáneas y registro de clientes.",
         "credits": "Diseño web full-stack, arquitectura UI/UX y motor de bot de IA conversacional.",
         "results": [
@@ -71,7 +71,7 @@
         ]
       },
       "front-line-auto": {
-        "title": "Frontline Auto Repair & Concierge IA de Servicio",
+        "title": "Frontline Auto Repair: concierge de servicio con IA",
         "summary": "Sistema web para taller de reparación automotriz con chatbot concierge de IA 24/7 para agendamiento de reparaciones, cotizaciones de servicio y atención bilingüe.",
         "metaDescription": "Sitio web para un taller automotriz con chatbot concierge de IA 24/7 que agenda reparaciones, da cotizaciones de servicio y atiende en español e inglés.",
         "credits": "Plataforma web de taller mecánico, interfaz de reservas de servicio y bot concierge de IA para reparaciones.",

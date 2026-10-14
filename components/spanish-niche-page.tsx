@@ -32,6 +32,7 @@ import {
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 import { NicheAnswers } from "@/components/niche-answers";
+import { SeasonalAnswer } from "@/components/seasonal-answer";
 import { nicheEntry, withNicheService } from "@/lib/niche-answers";
 import { DefinitionAnswer } from "@/components/definition-answer";
 import { PageUpdated } from "@/components/page-updated";
@@ -1871,6 +1872,7 @@ export function SpanishNichePage({
           linkLabel="Ver el servicio"
         />
       ) : null}
+      <SeasonalAnswer path={`/es/${page.slug}`} />
       <NicheAnswers path={`/es/${page.slug}`} fact={page.description} />
       <PriorityLinks path={`/es/${page.slug}`} locale="es" />
     </main>

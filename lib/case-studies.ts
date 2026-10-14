@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { buildPageMetadata } from "@/lib/site-metadata";
+import { pageLastModified } from "@/lib/page-lastmod";
 import { absoluteUrl } from "@/lib/site";
 import { getPortfolioItemById, isYouTubeSource } from "@/lib/portfolio";
 
@@ -47,6 +48,11 @@ export type CaseStudy = {
   location?: string;
   deliverables: string;
   agencyContext?: string;
+  /** Answer-first section under the hero (loop row 68): facts already stated on the page, 100-180 words. */
+  answer: {
+    question: string;
+    text: string;
+  };
   mediaUrl: string;
   posterUrl: string;
   websiteUrl?: string;
@@ -93,6 +99,11 @@ export const caseStudyPairs: readonly CaseStudyPair[] = [
       location: "Urabá, Antioquia, Colombia",
       deliverables: "4K aerial drone master footage, offshore vessel tracking reels, facility establishing shots",
       agencyContext: "Produced on assignment with the Jungelbox creative agency based in Medellín, Colombia.",
+      answer: {
+        question: "What did Esteban do on the Banacol project?",
+        text:
+          "Esteban was the aerial drone cinematographer on a corporate overview that the Jungelbox creative agency in Medellín produced for Banacol, a Colombian exporter of bananas and plantains. The shoot ran three continuous days in 2021 in Urabá, Antioquia, on the Caribbean coast, and covered plantation fields, packing facilities, coastal loading docks and cargo barges offshore. Some flights were launched from, and caught by hand on, moving boats. He delivered 4K aerial master footage, vessel tracking shots and facility establishing shots. His role was aerial capture only: the agency's director and editors handled the edit, sound design and script, and the public cut runs 1 minute 48 seconds. It is shown here as past agency work in Colombia, with the role stated exactly as it was performed.",
+      },
       mediaUrl: "https://www.youtube.com/watch?v=DgeKWR8s80M",
       posterUrl: "/portfolio/banacol.jpg",
       serviceLink: {
@@ -187,6 +198,11 @@ export const caseStudyPairs: readonly CaseStudyPair[] = [
       location: "Urabá, Antioquia, Colombia",
       deliverables: "Tomas aéreas master en 4K, secuencias de seguimiento marítimo, planos generales de infraestructura",
       agencyContext: "Proyecto realizado por encargo de la agencia creativa Jungelbox, con sede en Medellín, Colombia.",
+      answer: {
+        question: "¿Qué hizo Esteban en el proyecto de Banacol?",
+        text:
+          "Esteban fue el cinematógrafo aéreo con dron de un video corporativo que la agencia creativa Jungelbox, de Medellín, produjo para Banacol, exportadora colombiana de banano y plátano. El rodaje duró tres días continuos en 2021 en Urabá, Antioquia, en la costa del Caribe, y cubrió plantaciones, plantas de empaque, muelles de carga y barcazas en mar abierto. Algunos vuelos despegaron desde lanchas en movimiento y se recuperaron a mano sobre ellas. Entregó tomas aéreas master en 4K, secuencias de seguimiento de embarcaciones y planos generales de las instalaciones. Su rol fue solo la captura aérea: el director y los editores de la agencia hicieron el montaje, el diseño de sonido y el guion, y el corte público dura 1 minuto 48 segundos. Se muestra aquí como trabajo pasado para una agencia en Colombia, con el rol declarado tal como se ejecutó.",
+      },
       mediaUrl: "https://www.youtube.com/watch?v=DgeKWR8s80M",
       posterUrl: "/portfolio/banacol.jpg",
       serviceLink: {
@@ -281,6 +297,11 @@ export const caseStudyPairs: readonly CaseStudyPair[] = [
       year: 2021,
       deliverables: "Dynamic 16:9 promotional video cut (23 seconds), color-balanced property walkthrough montage",
       agencyContext: "Post-production assignment commissioned by the 300 Bees creative agency.",
+      answer: {
+        question: "What did Esteban do on the Homeowners project?",
+        text:
+          "Esteban edited this real estate promo remotely in 2021 for the 300 Bees creative agency, working only from footage the agency supplied: interior, exterior and architectural walkthrough clips. He did no filming. The deliverable was a 16:9 promotional cut of 23 seconds that completes the whole walkthrough in a rapid sequence of cuts, plus a color-balanced montage of the property. The edit covered pacing, matching color across clips from more than one camera, clean transitions, and sound: lowering the music under the voice and cleaning up the natural ambient audio. It is the same kind of job as turning the clips an agent or a property owner already has into a listing video, with nobody from the editing side on location.",
+      },
       mediaUrl: "https://www.youtube.com/watch?v=2m3iHq0JrLM",
       posterUrl: "/portfolio/homeowners.jpg",
       serviceLink: {
@@ -373,6 +394,11 @@ export const caseStudyPairs: readonly CaseStudyPair[] = [
       year: 2021,
       deliverables: "Corte promocional dinámico en formato 16:9 (23 segundos), montaje balanceado de recorrido inmobiliario",
       agencyContext: "Encargo de postproducción realizado para la agencia creativa 300 Bees.",
+      answer: {
+        question: "¿Qué hizo Esteban en el proyecto de Homeowners?",
+        text:
+          "Esteban editó este video promocional inmobiliario de forma remota en 2021 para la agencia creativa 300 Bees, usando solo el material que la agencia le entregó: clips de interiores, exteriores y recorridos arquitectónicos. No hizo ninguna grabación. El entregable fue un corte promocional de 23 segundos en formato 16:9 que completa todo el recorrido en una secuencia ágil de cortes, más un montaje de la propiedad con el color balanceado. La edición cubrió el ritmo, la igualación de color entre clips de más de una cámara, transiciones limpias y el sonido: bajar la música debajo de la voz y limpiar el audio ambiente natural. Es el mismo tipo de trabajo que convertir los clips que ya tiene un agente o un propietario en un video para su anuncio, sin que nadie del lado de la edición vaya a la propiedad.",
+      },
       mediaUrl: "https://www.youtube.com/watch?v=2m3iHq0JrLM",
       posterUrl: "/portfolio/homeowners.jpg",
       serviceLink: {
@@ -468,6 +494,11 @@ export const caseStudyPairs: readonly CaseStudyPair[] = [
       year: 2026,
       location: "Fort Lauderdale, Broward County, Florida",
       deliverables: "Custom high-performance responsive web system, 24/7 AI financing concierge bot, inventory filtering UI",
+      answer: {
+        question: "What was built for Fort Lauderdale Auto Sale (FLAS)?",
+        text:
+          "For Fort Lauderdale Auto Sale (FLAS), an independent buy-here-pay-here dealership in Broward County, the work in 2026 was a full website plus a conversational AI concierge. The site is a mobile-first, responsive Next.js system with a structured vehicle catalog and inventory filtering. The concierge answers inventory and financing questions around the clock, and the intake handles shoppers in English and in Spanish. The role listed for this project is web designer and AI systems integrator, covering the web architecture and the concierge integration. Dealership management published a public Google Business review about the communication and the web work, and that review is the only client verification this page cites. No traffic, lead or sales figures are claimed here.",
+      },
       mediaUrl: "https://fortlauderdaleautosale.com",
       posterUrl: "/portfolio/ai-lead-automation.jpg",
       websiteUrl: "https://fortlauderdaleautosale.com",
@@ -562,6 +593,11 @@ export const caseStudyPairs: readonly CaseStudyPair[] = [
       year: 2026,
       location: "Fort Lauderdale, Broward County, Florida",
       deliverables: "Sistema web responsivo de alto rendimiento, bot concierge de IA para consultas 24/7, catálogo de inventario",
+      answer: {
+        question: "¿Qué se construyó para Fort Lauderdale Auto Sale (FLAS)?",
+        text:
+          "Para Fort Lauderdale Auto Sale (FLAS), un concesionario independiente de autos con financiamiento buy-here-pay-here en Broward County, el trabajo en 2026 fue un sitio web completo más un concierge conversacional con IA. El sitio es un sistema responsivo pensado primero para el celular, hecho en Next.js, con un catálogo estructurado de vehículos y filtros de inventario. El concierge responde preguntas sobre inventario y financiamiento a cualquier hora, y la atención recibe a compradores en inglés y en español. El rol de este proyecto es diseñador web e integrador de sistemas con IA, que cubre la arquitectura web y la integración del concierge. La gerencia del concesionario publicó una reseña pública en Google Business sobre la atención y el trabajo web, y esa reseña es la única verificación del cliente que cita esta página. Aquí no se declaran cifras de tráfico, prospectos ni ventas.",
+      },
       mediaUrl: "https://fortlauderdaleautosale.com",
       posterUrl: "/portfolio/ai-lead-automation.jpg",
       websiteUrl: "https://fortlauderdaleautosale.com",
@@ -660,6 +696,11 @@ export const caseStudyPairs: readonly CaseStudyPair[] = [
       location: "Miami, Florida",
       deliverables: "16:9 promotional video master (18 seconds), social media clips, on-location audio stems",
       agencyContext: "Produced on assignment with the 300 Bees creative agency for a local Miami dental clinic.",
+      answer: {
+        question: "What did Esteban do on the Healthy Smile Miami project?",
+        text:
+          "On assignment with the 300 Bees creative agency in 2021, Esteban filmed, recorded the sound and edited a short promo for Healthy Smile Miami, a dental clinic in Miami. The shoot took place inside the working clinic and its treatment rooms. Two problems shaped it: lighting sterile, reflective clinical surfaces without harsh glare, and recording clear dialogue with directional microphones in rooms that echo. The deliverables were an 18-second 16:9 promotional master made for social ad placement, social media clips, and the on-location audio stems. It is the one case study on this site where he covered the whole chain on location: camera, sound and edit. No patient or business results are claimed here.",
+      },
       mediaUrl: "https://www.youtube.com/watch?v=YTJW6zn14S8",
       posterUrl: "/portfolio/healthy-smile.jpg",
       serviceLink: {
@@ -755,6 +796,11 @@ export const caseStudyPairs: readonly CaseStudyPair[] = [
       location: "Miami, Florida",
       deliverables: "Master promocional en 16:9 (18 segundos), piezas para redes sociales, pistas de audio en locación",
       agencyContext: "Proyecto realizado por encargo de la agencia creativa 300 Bees para una clínica dental de Miami.",
+      answer: {
+        question: "¿Qué hizo Esteban en el proyecto de Healthy Smile Miami?",
+        text:
+          "Por encargo de la agencia creativa 300 Bees, en 2021 Esteban grabó, registró el sonido y editó un video promocional corto para Healthy Smile Miami, una clínica odontológica en Miami. El rodaje fue dentro de la clínica en funcionamiento y sus consultorios. Dos problemas marcaron el trabajo: iluminar superficies clínicas esterilizadas y reflectantes sin brillos fuertes, y grabar diálogo claro con micrófonos direccionales en salas con mucho eco. Los entregables fueron un master promocional de 18 segundos en 16:9 pensado para pauta en redes, piezas para redes sociales y las pistas de audio grabadas en locación. Es el único caso de estudio de este sitio en el que cubrió toda la cadena en el lugar: cámara, sonido y edición. Aquí no se declaran resultados de pacientes ni del negocio.",
+      },
       mediaUrl: "https://www.youtube.com/watch?v=YTJW6zn14S8",
       posterUrl: "/portfolio/healthy-smile.jpg",
       serviceLink: {
@@ -848,6 +894,11 @@ export const caseStudyPairs: readonly CaseStudyPair[] = [
       role: "Visual Designer & 3D Animator (Key visual, social graphics, 3D video, 2D animation, and product mockups)",
       deliverables: "3D animated video (11 seconds), 2D explainer animations, brand key visual suite, high-res device mockups",
       agencyContext: "Produced on assignment with an agency presenting a comprehensive brand and pitch deck to the client.",
+      answer: {
+        question: "What did Esteban do on the My D'ler project?",
+        text:
+          "My D'ler is a delivery app concept from Ecuador, and this project was an agency brand presentation and investor pitch package, not a campaign for a launched product. Working on assignment through the agency, Esteban was the visual designer and 3D animator. He produced the key visual identity, a social media graphic kit, 2D explainer animations, high-resolution device mockups, and an 11-second 3D animation of a smartphone that walks through the app's ordering flow with floating interface elements. Because it was a concept and pitch package, no post-launch user data is published, and none is claimed here. It is the reference case for anyone who needs 3D product visuals or motion graphics before the app or the product exists.",
+      },
       mediaUrl: "https://www.youtube.com/watch?v=vMvbC5yOzgs",
       posterUrl: "/portfolio/my-dler.jpg",
       serviceLink: {
@@ -938,6 +989,11 @@ export const caseStudyPairs: readonly CaseStudyPair[] = [
       role: "Diseñador Visual y Animador 3D (Key visual, gráficas para redes, video 3D, animación 2D y mockups)",
       deliverables: "Video animado en 3D (11 segundos), animaciones 2D, suite de key visual de marca, mockups en alta resolución",
       agencyContext: "Proyecto realizado por encargo de una agencia para presentar la propuesta de marca al cliente e inversionistas.",
+      answer: {
+        question: "¿Qué hizo Esteban en el proyecto de My D'ler?",
+        text:
+          "My D'ler es un concepto de app de domicilios de Ecuador, y este proyecto fue un paquete de presentación de marca y propuesta para inversionistas hecho a través de una agencia, no una campaña de un producto ya lanzado. Por encargo de la agencia, Esteban fue el diseñador visual y animador 3D. Produjo la identidad de key visual, un kit gráfico para redes sociales, animaciones 2D explicativas, mockups de dispositivos en alta resolución y una animación 3D de 11 segundos con un smartphone que recorre el flujo de pedido de la app con elementos de interfaz flotantes. Como fue un paquete conceptual de presentación, no se publican datos de usuarios después de un lanzamiento, y aquí no se declara ninguno. Es el caso de referencia para quien necesita visuales 3D de producto o gráficos en movimiento antes de que exista la app o el producto.",
+      },
       mediaUrl: "https://www.youtube.com/watch?v=vMvbC5yOzgs",
       posterUrl: "/portfolio/my-dler.jpg",
       serviceLink: {
@@ -1139,6 +1195,7 @@ export function buildCaseStudyStructuredData(caseStudy: CaseStudy) {
         inLanguage: isSpanish ? "es-US" : "en-US",
         mainEntityOfPage: absoluteUrl(path),
         image: absoluteUrl(caseStudy.posterUrl),
+        ...(pageLastModified(path) ? { dateModified: pageLastModified(path) } : {}),
         // author typed the business name as a Person. Every case study names
         // Esteban in its body as the person who did the work, so author is the
         // sitewide #esteban entity and publisher the #business entity
@@ -1244,7 +1301,25 @@ export const caseStudiesIndexCopy = {
         "3D motion, key visuals, and pitch assets produced on assignment.",
     },
     relatedEyebrow: "From proof to project",
-    relatedTitle: "Connect a case study to the service and the portfolio piece behind it.",
+    relatedTitle: "Which service and portfolio piece go with each case study?",
+    // Answer-first sections under the hero (loop row 68), facts from the five case studies.
+    answers: [
+      {
+        question: "What is in a case study on this site?",
+        text:
+          "A case study here is a written breakdown of one delivered project, longer than the portfolio entry for the same video or site. Each one states the client, the role Esteban actually performed, the year and place where known, the deliverables, the problems that shaped the work, and the scoping questions a comparable project would start with. There are five: Fort Lauderdale Auto Sale (web and AI systems, 2026), Banacol (aerial footage in Colombia, 2021), Homeowners (remote real estate editing, 2021), Healthy Smile Miami (on-location filming, sound and edit, 2021) and My D'ler (3D motion and pitch visuals). Four of the five were done on assignment for an agency: Jungelbox, 300 Bees twice, and the agency behind My D'ler. Where the role was partial, the page says so.",
+      },
+      {
+        question: "Which case study is closest to your project?",
+        text:
+          "Match the case to the material you already have. If you have clips from a phone or a camera and need them cut into a short promo, read Homeowners: it was edited entirely from supplied footage. If you need someone on site to film, record sound and edit, read Healthy Smile Miami, the only case where Esteban covered all three in one place. If the project is a website, a chatbot or lead intake, read Fort Lauderdale Auto Sale. If the product does not exist yet and you need 3D or animated visuals for a pitch, read My D'ler. Banacol shows aerial capture for an agency in Colombia, where the agency did the edit. Each case links to its portfolio video and to the related service page, so you can see the work and the scope side by side.",
+      },
+      {
+        question: "What do the case studies not claim?",
+        text:
+          "They do not claim results the client has not published. No page here gives traffic, lead, sales, view or conversion figures, and no testimonial is quoted; the one client verification cited is the Google Business review that the management of Fort Lauderdale Auto Sale published. Roles are stated as performed: on Banacol the agency handled the edit, sound and script, and Esteban's part was aerial capture; on Homeowners there was no filming on his side. My D'ler was a concept and pitch package, so it has no post-launch user data. Prices and turnaround are not quoted on the case studies either, because each project is scoped from its own material; the current prices are on the pricing page.",
+      },
+    ],
     roleLabel: "Role",
     deliverablesLabel: "Deliverables",
   },
@@ -1280,7 +1355,25 @@ export const caseStudiesIndexCopy = {
         "Animación 3D, piezas visuales clave y material de presentación producidos por encargo.",
     },
     relatedEyebrow: "De la prueba al proyecto",
-    relatedTitle: "Conecta cada caso de estudio con su servicio y su pieza de portafolio.",
+    relatedTitle: "¿Qué servicio y qué pieza del portafolio acompañan cada caso de estudio?",
+    // Answer-first sections under the hero (loop row 68), facts from the five case studies.
+    answers: [
+      {
+        question: "¿Qué incluye un caso de estudio en este sitio?",
+        text:
+          "Un caso de estudio aquí es el desglose escrito de un proyecto entregado, más largo que la ficha del mismo video o sitio en el portafolio. Cada uno indica el cliente, el rol que Esteban realmente cumplió, el año y el lugar cuando se conocen, los entregables, los problemas que marcaron el trabajo y las preguntas de alcance con las que empezaría un proyecto parecido. Son cinco: Fort Lauderdale Auto Sale (web y sistemas con IA, 2026), Banacol (tomas aéreas en Colombia, 2021), Homeowners (edición inmobiliaria remota, 2021), Healthy Smile Miami (grabación, sonido y edición en locación, 2021) y My D'ler (animación 3D y visuales para una presentación). Cuatro de los cinco se hicieron por encargo de una agencia: Jungelbox, 300 Bees dos veces y la agencia detrás de My D'ler. Cuando el rol fue parcial, la página lo dice.",
+      },
+      {
+        question: "¿Qué caso de estudio se parece más a tu proyecto?",
+        text:
+          "Compara el caso con el material que ya tienes. Si tienes clips del celular o de una cámara y necesitas convertirlos en un video promocional corto, lee Homeowners: se editó por completo con material entregado. Si necesitas a alguien en el lugar para grabar, registrar el sonido y editar, lee Healthy Smile Miami, el único caso en el que Esteban cubrió las tres cosas en un mismo sitio. Si el proyecto es un sitio web, un chatbot o la captura de prospectos, lee Fort Lauderdale Auto Sale. Si el producto todavía no existe y necesitas visuales 3D o animados para una presentación, lee My D'ler. Banacol muestra captura aérea para una agencia en Colombia, donde la agencia hizo la edición. Cada caso enlaza a su video del portafolio y a la página del servicio relacionado, para ver el trabajo y el alcance juntos.",
+      },
+      {
+        question: "¿Qué no afirman los casos de estudio?",
+        text:
+          "No afirman resultados que el cliente no haya publicado. Ninguna página aquí da cifras de tráfico, prospectos, ventas, vistas ni conversiones, y no se cita ningún testimonio; la única verificación del cliente es la reseña de Google Business que publicó la gerencia de Fort Lauderdale Auto Sale. Los roles se declaran tal como se cumplieron: en Banacol la agencia hizo la edición, el sonido y el guion, y la parte de Esteban fue la captura aérea; en Homeowners no hubo grabación de su lado. My D'ler fue un paquete conceptual de presentación, así que no tiene datos de usuarios después de un lanzamiento. Tampoco se publican precios ni plazos en los casos de estudio, porque cada proyecto se define con su propio material; los precios actuales están en la página de precios.",
+      },
+    ],
     roleLabel: "Rol",
     deliverablesLabel: "Entregables",
   },
@@ -1337,6 +1430,7 @@ export function buildCaseStudiesIndexStructuredData(locale: CaseStudyLocale) {
         "@type": "CollectionPage",
         "@id": `${pageUrl}#webpage`,
         url: pageUrl,
+        ...(pageLastModified(copy.path) ? { dateModified: pageLastModified(copy.path) } : {}),
         name: copy.metadataTitle,
         description: copy.description,
         inLanguage: locale === "es" ? "es-US" : "en-US",

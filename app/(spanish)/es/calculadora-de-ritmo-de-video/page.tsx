@@ -3,6 +3,7 @@ import Link from "next/link";
 import { DailyScriptPacingCalculator } from "@/components/daily-script-pacing-calculator";
 import { PriorityLinks } from "@/components/priority-links";
 import { PageUpdated } from "@/components/page-updated";
+import { ScriptLengthAnswer } from "@/components/script-length-answer";
 import { Container } from "@/components/ui/container";
 import { pageLastModified } from "@/lib/page-lastmod";
 import { absoluteUrl } from "@/lib/site";
@@ -52,6 +53,9 @@ export default function DailyScriptPacingCalculatorEsPage() {
         </nav>
         <DailyScriptPacingCalculator locale="es" />
         <PageUpdated path={PATH} locale="es" />
+      </Container>
+      <ScriptLengthAnswer path={PATH} />
+      <Container size="xl">
 
         <div className="mt-12 rounded-xl border border-[#ddd4c8] bg-[#fbf6ef] p-6 text-sm text-[#252a2d]">
           <p>
