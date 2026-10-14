@@ -52,7 +52,6 @@ export default function FoodPlacesCreatorPage() {
               </div>
               <p className="mt-5 text-sm leading-6 text-[#5a6066]">Based in Fort Lauderdale. Editing can be fully remote; filming across Broward and Miami-Dade is scoped project by project.</p>
               <p className="mt-3 text-sm leading-6">Growth: {priceSentence("en", "crecimiento")}. Content plan, publishing calendar, editing and monthly report; your footage and posting rhythm define the quote.</p>
-              <p className="mt-3 text-sm text-[#5a6066]">Updated <time dateTime="2026-10-07">October 7, 2026</time></p>
             </div>
             <figure>
               <Image src="/portfolio/bar-door-monkey.jpg" alt="Still from the published Bar Door Monkey Miami venue promo" width={1280} height={720} className="h-auto w-full rounded-xl" priority />

@@ -2,6 +2,7 @@ import * as React from "react";
 import { afterAll, beforeAll, describe, expect, it, vi } from "vitest";
 
 import { PortfolioWatchPage } from "@/components/portfolio-watch-page";
+import { YouTubeFacade } from "@/components/youtube-facade";
 import {
   getPortfolioWatchCopy,
   getPortfolioWatchItems,
@@ -155,11 +156,11 @@ describe("rendered portfolio watch-page evidence", () => {
         const visibleText = textContent(page);
 
         if (item.media.kind === "youtube") {
-          expect(iframe?.props).toMatchObject({
-            src: `https://www.youtube-nocookie.com/embed/${item.media.videoId}?playsinline=1&rel=0`,
-            loading: "eager",
-            allowFullScreen: true,
-          });
+          // Click-to-load (loop row 51): the server render carries the poster
+          // and a facade, never an eager iframe (588 KiB of unused JS).
+          const facade = elements.find((element) => element.type === YouTubeFacade);
+          expect(iframe).toBeUndefined();
+          expect(facade?.props).toMatchObject({ videoId: item.media.videoId });
         }
         expect(localPoster).toBeDefined();
         expect(

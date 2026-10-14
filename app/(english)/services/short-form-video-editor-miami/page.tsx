@@ -4,6 +4,7 @@ import { ArrowRight, MessageCircle, Scissors, Mail, Phone } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { PriceSheet } from "@/components/price-sheet";
 import { PriorityLinks } from "@/components/priority-links";
+import { DefinitionAnswer } from "@/components/definition-answer";
 import { PageUpdated } from "@/components/page-updated";
 import {
   ServiceAnswerFirst,
@@ -98,9 +99,6 @@ export default function ShortFormVideoEditorPage() {
                   View ML Colombia Reel Proof
                 </Link>
               </div>
-              <p className="mt-3 text-sm text-[#5a6066]">
-                Updated: <time dateTime="2026-10-08">October 8, 2026</time>
-              </p>
             </div>
 
             <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
@@ -119,6 +117,8 @@ export default function ShortFormVideoEditorPage() {
           </div>
         </Container>
       </section>
+
+      <DefinitionAnswer path="/services/short-form-video-editor-miami" />
 
       <section className="border-b border-[#ddd4c8] py-8" data-section="service-pricing">
         <Container size="xl">

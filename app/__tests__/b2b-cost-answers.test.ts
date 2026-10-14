@@ -44,7 +44,7 @@ describe("B2B cost answers & testimonial guide verification", () => {
     }
 
     // Guide EN sections (4)
-    expect(guideEn.sections).toHaveLength(4);
+    expect(guideEn.sections).toHaveLength(6); // + definition and script sections (loop round 4)
     for (const section of guideEn.sections) {
       expect(section.heading).toMatch(/\?$/);
       const words = countWords(section.paragraphs.join(" "));
@@ -53,7 +53,7 @@ describe("B2B cost answers & testimonial guide verification", () => {
     }
 
     // Guide ES sections (4)
-    expect(guideEs.sections).toHaveLength(4);
+    expect(guideEs.sections).toHaveLength(6);
     for (const section of guideEs.sections) {
       expect(section.heading).toMatch(/\?$/);
       const words = countWords(section.paragraphs.join(" "));

@@ -33,6 +33,7 @@ import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 import { NicheAnswers } from "@/components/niche-answers";
 import { nicheEntry, withNicheService } from "@/lib/niche-answers";
+import { DefinitionAnswer } from "@/components/definition-answer";
 import { PageUpdated } from "@/components/page-updated";
 import { PriorityLinks } from "@/components/priority-links";
 
@@ -1588,7 +1589,6 @@ export function SpanishNichePage({
                   Ver guías de video
                 </Link>
               </div>
-              {page.updated ? <p className="mt-3 text-sm text-[#5a6066]">Actualizado: <time dateTime={page.updated}>{new Date(`${page.updated}T12:00:00Z`).toLocaleDateString("es-US", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })}</time></p> : null}
             </div>
 
             {/* The page's one moment of scale. What used to be here was a
@@ -1634,6 +1634,7 @@ export function SpanishNichePage({
           substituted: the existing first H2 stays, because these routes are
           pinned by the text-parity baseline. Skipped on pages whose service
           is still pending confirmation. */}
+      <DefinitionAnswer path={`/es/${page.slug}`} />
       {isPendingConfirmation ? null : (
         <ServiceAnswerFirst service={page.keyword} locale="es" sectionId="en-corto" />
       )}
