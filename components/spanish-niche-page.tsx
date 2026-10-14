@@ -1491,7 +1491,14 @@ export function SpanishNichePage({
       detail: sibling.description,
       href: `/es/${sibling.slug}`,
     }));
-  const sectionArticles = page.sections?.map((section) => (
+  // Round 7 (2026-10-14): 73 Spanish pages answered "¿Cuánto cuesta…?" only
+  // as an h3 deep inside the scope guide (heading 4-25 of the page, often
+  // inside a collapsed <details>), while every English twin carries the price
+  // as its own H2 near the top. The existing price section is lifted, word for
+  // word, into its own H2 right after the short answer. No words are added.
+  const priceSection = isPendingConfirmation ? undefined : spanishPriceSection(page.sections);
+  const depthSections = page.sections?.filter((section) => section !== priceSection) ?? [];
+  const sectionArticles = depthSections.map((section) => (
     <article key={section.heading} className="space-y-4">
       <h3 className="font-serif text-2xl sm:text-3xl text-[#101214]">{section.heading}</h3>
       <div className="space-y-4 text-base leading-8 text-[#252a2d]">
@@ -1642,6 +1649,26 @@ export function SpanishNichePage({
 
       {hasArranqueWeekly ? <ArranqueWeeklySection locale="es" /> : null}
 
+      {priceSection ? (
+        <section className="border-t border-[#ddd4c8] py-12 sm:py-16" id="precio" data-section="es_niche_price">
+          <Container size="xl">
+            <div className="mx-auto max-w-4xl space-y-4">
+              <h2 className="font-serif text-3xl sm:text-4xl">{priceSection.heading}</h2>
+              <div className="space-y-4 text-base leading-8 text-[#252a2d]">
+                {priceSection.paragraphs.map((paragraph, index) => (
+                  <p key={index}>{renderFormattedText(paragraph)}</p>
+                ))}
+              </div>
+              {priceSection.bullets && priceSection.bullets.length > 0 ? (
+                <Cartel className="mt-4 p-5 sm:p-6" data-em-reveal>
+                  <NumberedList items={priceSection.bullets} className="mt-0" renderItem={renderFormattedText} />
+                </Cartel>
+              ) : null}
+            </div>
+          </Container>
+        </section>
+      ) : null}
+
       <section className="py-12 sm:py-16">
         <Container size="xl">
           <div className="grid gap-8 lg:grid-cols-2">
@@ -1655,7 +1682,7 @@ export function SpanishNichePage({
         </Container>
       </section>
 
-      {page.sections && page.sections.length > 0 ? (
+      {depthSections.length > 0 ? (
         <section className="border-t border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
           <Container size="xl">
             <div className="mx-auto max-w-4xl space-y-12">
@@ -1886,6 +1913,11 @@ export function SpanishNichePage({
  * row its own identity and lets someone count what they are looking at, which
  * a repeated tick never allowed.
  */
+/** The page's first "¿Cuánto cuesta / cuestan…?" section, if it has one. */
+export function spanishPriceSection<T extends { heading: string }>(sections: readonly T[] | undefined): T | undefined {
+  return sections?.find((section) => /^¿cu[aá]nto cuesta|^¿cu[aá]nto cuestan/i.test(section.heading.trim()));
+}
+
 function ContentList({
   title,
   items,
