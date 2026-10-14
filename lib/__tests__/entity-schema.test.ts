@@ -70,6 +70,29 @@ describe("Google Business Profile entity link", () => {
     expect(personEntityJsonLd.sameAs).not.toContain(site.bingPlaces);
   });
 
+  it("lists the Behance, Vimeo and Nextdoor profiles on the business only", () => {
+    // Each returned HTTP 200 to curl_cffi impersonate=chrome on 2026-10-14.
+    const directories = [site.behance, site.vimeo, site.nextdoor];
+    expect(directories).toEqual([
+      "https://www.behance.net/estebanmoreno15",
+      "https://vimeo.com/user175241719",
+      "https://nextdoor.com/pages/esteban-moreno-media-fort-lauderdale-fl/",
+    ]);
+    for (const url of directories) {
+      expect(localBusinessEntityJsonLd.sameAs).toContain(url);
+      expect(personEntityJsonLd.sameAs).not.toContain(url);
+    }
+  });
+
+  it("never lists Clutch (under review) or a street address", () => {
+    const sameAs = localBusinessEntityJsonLd.sameAs as string[];
+    expect(sameAs.some((url) => url.includes("clutch.co"))).toBe(false);
+    expect(new Set(sameAs).size).toBe(sameAs.length);
+    const json = JSON.stringify(localBusinessEntityJsonLd);
+    expect(json).not.toContain("streetAddress");
+    expect(json).not.toContain('"geo"');
+  });
+
   it("lists the verified business profile on the business, not the person", () => {
     // The profile that carries the reviews. Read live from the Business
     // Information API 2026-08-14: locations/9465569364777265733,

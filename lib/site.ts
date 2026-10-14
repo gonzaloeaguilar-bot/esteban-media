@@ -48,6 +48,13 @@ export const site = {
   // 2026-10-07: display name "Esteban Moreno Media", bio lists video editing and
   // the Fort Lauderdale / Broward / Miami-Dade / Palm Beach area, links this site.
   instagramBusiness: "https://www.instagram.com/estebanmorenomedia/",
+  // Directory and portfolio profiles. Each returned HTTP 200 to curl_cffi
+  // (impersonate=chrome) on 2026-10-14. Nextdoor 301s /page/... to the
+  // canonical /pages/.../ form, which is the one stored here. Business sameAs
+  // only, never the person (same rule as Bing Places, PR #301).
+  behance: "https://www.behance.net/estebanmoreno15",
+  vimeo: "https://vimeo.com/user175241719",
+  nextdoor: "https://nextdoor.com/pages/esteban-moreno-media-fort-lauderdale-fl/",
   googleSiteVerification: "I70vr7LMsVyZc_VO4grb6fDxQXPTbhB7LIIFjJUlvUs",
   googleAnalyticsMeasurementId: "G-W9CM4CE2MQ",
   location: "Fort Lauderdale, FL",
