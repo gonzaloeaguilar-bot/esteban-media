@@ -4,7 +4,7 @@ import { isConsolidatedPath } from "@/lib/consolidation";
 import { eventLanguageAlternates } from "@/lib/events";
 import { packageRoutes } from "@/lib/package-routes";
 import type { LucideIcon } from "lucide-react";
-import { PACKAGE_PRICES, PRICING_BANDS, SHORT_FORM, shortFormPriceText, shortFormWeeklyText, usd } from "@/lib/pricing";
+import { PACKAGE_PRICES, PRICING_BANDS, RESTAURANT_PROMO, SHORT_FORM, shortFormPriceText, shortFormWeeklyText, usd } from "@/lib/pricing";
 import {
   Anchor,
   Building2,
@@ -1215,7 +1215,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Restaurantes / comida / hospitality",
     h1: "Video para restaurantes en Miami: edición de reels y promociones.",
     lead:
-      "¿Ya tienes clips? Edición de Reels desde $240 por proyecto, con cotización a la medida. ¿Necesitas video nuevo? Consulta por grabación selectiva. ¿También necesitas fotos reales? Cuéntanos qué, dónde y para qué: la sesión se cotiza por separado.",
+      `¿Ya tienes clips? Edición de Reels desde ${usd(RESTAURANT_PROMO.from)} por proyecto, con cotización a la medida. ¿Necesitas video nuevo? Consulta por grabación selectiva. ¿También necesitas fotos reales? Cuéntanos qué, dónde y para qué: la sesión se cotiza por separado.`,
     keyword: "video para restaurantes Miami",
     location: "Miami-Dade",
     availability: "confirmed",
@@ -1394,7 +1394,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       "Esta ruta conecta prioridades de edición remota con trabajo publicado de bienes raíces. No garantiza vuelos con drone ni tomas aéreas a menos que se confirmen de forma independiente.",
     sections: [
       {
-        heading: "Las dos cosas que detienen una grabación inmobiliaria en South Florida",
+        heading: "¿Qué dos cosas detienen una grabación inmobiliaria en South Florida?",
         paragraphs: [
           "Casi todo el inventario de South Florida está en un edificio que controla alguien más, y buena parte queda bajo espacio aéreo controlado. Un condominio o HOA normalmente tiene que aprobar la grabación en áreas comunes, y varios edificios piden un certificado de seguro antes de que entre una cámara al lobby. Aparte, Fort Lauderdale, Miami y Opa-locka dejan gran parte del condado en espacio aéreo controlado, donde volar un dron exige autorización de la FAA por LAANC y no solo un piloto con licencia.",
         ],
@@ -1405,13 +1405,13 @@ export const spanishNichePages: SpanishNichePage[] = [
         ],
       },
       {
-        heading: "Dos cortes de una sola grabación, porque el mercado es bilingüe",
+        heading: "¿Por qué sacar dos cortes, en español y en inglés, de una sola grabación?",
         paragraphs: [
           "Un reel subtitulado solo en inglés le pide a una parte grande del comprador de South Florida más esfuerzo del que va a hacer. La versión económica no es una segunda grabación: es el mismo material con una segunda pista de subtítulos y un gancho pensado en español, porque la primera línea decide si se ve el resto. Cuando el agente habla español, un fragmento corto a cámara en español suele rendir más que un subtítulo traducido sobre audio en inglés.",
         ],
       },
       {
-        heading: "Un corte para el MLS y otro para redes",
+        heading: "¿Por qué hace falta un corte para el MLS y otro para redes?",
         paragraphs: [
           "Las reglas del material que se sindica por el MLS cambian según el MLS, y varios restringen la marca del agente, sus datos de contacto o llamados a la acción dentro del video del listing. Lo práctico son dos exportaciones de la misma edición: un corte sin marca para el listing y un corte con marca para redes. Decidirlo antes de editar evita reexportar una tanda completa después. Y en el contenido de vecindario conviene describir el lugar — amenidades, distancias, lo que físicamente hay — y no a la gente que vive ahí: la publicidad inmobiliaria está sujeta a las reglas de vivienda justa.",
         ],
@@ -2731,7 +2731,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Gastronomía / Restaurantes",
     h1: "Edición de video promocional para restaurantes en Miami.",
     lead:
-      "Envía tus videos de cocina, platos, bebidas o salón para editar un reel o una promoción para redes desde $240 por proyecto, con cotización a la medida. Mira el [video publicado de Bar Door Monkey Miami](/es/portafolio/bar-door-monkey) y consulta [video para restaurantes en Miami](/es/video-para-restaurantes-miami) si también necesitas grabación.",
+      `Envía tus videos de cocina, platos, bebidas o salón para editar un reel o una promoción para redes desde ${usd(RESTAURANT_PROMO.from)} por proyecto, con cotización a la medida. Mira el [video publicado de Bar Door Monkey Miami](/es/portafolio/bar-door-monkey) y consulta [video para restaurantes en Miami](/es/video-para-restaurantes-miami) si también necesitas grabación.`,
     keyword: "edición de video para restaurantes en Miami",
     location: "Miami / Wynwood",
     availability: "confirmed",

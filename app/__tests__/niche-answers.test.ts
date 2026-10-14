@@ -11,6 +11,7 @@ import {
   withNicheService,
 } from "@/lib/niche-answers";
 import { site } from "@/lib/site";
+import { PRODUCT_PHOTO_SESSION, RESTAURANT_PROMO, SHORT_FORM, usd } from "@/lib/pricing";
 import { spanishNichePages } from "@/lib/spanish-site";
 
 const root = process.cwd();
@@ -74,7 +75,7 @@ describe("niche answers (PR #316 pattern at template level)", () => {
     const all = [...folded, contact].flatMap((s) => [s.heading, ...s.paragraphs]).join(" ");
     expect(all).not.toMatch(/\b(de|a) el\b|\bMost an? \b|\bcon la la\b|\bel el\b/);
     // Market rates and quote-only answers must not be called Esteban's prices.
-    if (entry.model === "photo" || entry.model === "quote") {
+    if (entry.model === "photo" || entry.model === "photoSession" || entry.model === "quote") {
       expect(folded.map((s) => s.paragraphs.join(" ")).join(" ")).not.toMatch(/starting point from the published price list|precios de partida de la lista publicada/);
     }
   });
@@ -116,6 +117,30 @@ describe("niche answers (PR #316 pattern at template level)", () => {
     expect(head("/services/headshot-photographer-miami")).toMatch(/^How much do professional headshots cost/);
     expect(head("/es/imagenes-con-ia-para-ecommerce-miami")).toMatch(/^¿Cuánto cuestan las imágenes/);
     expect(head("/services/dental-video-marketing-south-florida".replace("dental-video-marketing-south-florida", "music-video-post-production-miami"))).toMatch(/^How much does /);
+  });
+
+  it("prices the restaurant pages from the owner's RESTAURANT_PROMO, never the video Starter", () => {
+    for (const path of [
+      "/services/restaurant-promo-video-editing-miami",
+      "/es/video-para-restaurantes-miami",
+      "/es/edicion-de-video-promocional-para-restaurantes-miami",
+    ]) {
+      const cost = nicheSections(nicheEntry(path, pageFact(path))!).folded.find((s) => /cost|cuest/.test(s.heading))!;
+      const text = cost.paragraphs.join(" ");
+      expect(text, path).toContain(usd(RESTAURANT_PROMO.from));
+      expect(text, path).not.toContain(usd(SHORT_FORM.perVideoFrom) + " per video");
+      expect(text, path).not.toContain(usd(SHORT_FORM.perVideoFrom) + " por video");
+    }
+  });
+
+  it("real product-shoot pages quote the owner's session floor; AI-image pages do not", () => {
+    const costOf = (p: string) => nicheSections(nicheEntry(p, pageFact(p))!).folded.find((s) => /cost|cuest/.test(s.heading))!.paragraphs.join(" ");
+    for (const p of ["/services/product-photography-miami", "/services/jewelry-product-photography-miami", "/es/fotografia-de-joyas-y-lujo-miami"]) {
+      expect(costOf(p), p).toContain(usd(PRODUCT_PHOTO_SESSION.from));
+    }
+    for (const p of ["/services/ai-product-photography-miami", "/es/imagenes-con-ia-para-ecommerce-miami"]) {
+      expect(costOf(p), p).not.toContain(usd(PRODUCT_PHOTO_SESSION.from));
+    }
   });
 
   it("does not touch pages outside the registry", () => {

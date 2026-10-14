@@ -110,3 +110,9 @@ Published at: `lib/site.ts` / `lib/spanish-site.ts` (`startingPrice` on canonica
 services, both derived from `PACKAGE_PRICES.arranque` in `lib/pricing.ts`), `/services/restaurant-promo-video-editing-miami`, the Spanish
 restaurant niche pages, and the Spanish product-photography pricing guide
 ("Desde $280 por sesión"). Do not change a figure without updating this table.
+
+2026-10-13: the restaurant promo floor ($240, re-confirmed by Gonzalo: "$240 +") and the
+product photography session floor ($280) now live in `lib/pricing.ts` as
+`RESTAURANT_PROMO` and `PRODUCT_PHOTO_SESSION`. The restaurant pages, the Spanish
+product-photo guide and the niche cost answers (`lib/niche-answers.ts`) read them;
+no page types these figures any more.

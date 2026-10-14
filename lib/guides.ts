@@ -13,6 +13,7 @@ import {
   shortFormWeeklyText,
   usd,
   type PackageId,
+  PRODUCT_PHOTO_SESSION,
 } from "@/lib/pricing";
 import { REAL_ESTATE_MEDIA } from "@/lib/services-config";
 
@@ -1089,7 +1090,7 @@ const guidePairs: readonly GuidePair[] = [
         "Entiende los modelos de precios de fotografía de producto (por imagen, por jornada o por proyecto) para marcas de e-commerce y negocios en South Florida.",
       eyebrow: "Guía de tarifas de producto",
       answer:
-        "Las sesiones de fotografía de producto de Esteban Moreno Media parten desde $280 por sesión. El presupuesto final depende del volumen de SKUs, los ángulos por producto, la complejidad del entorno (catálogo vs estilo de vida), el retoque y los derechos de uso; no existe una tarifa única cerrada sin definir el alcance técnico del proyecto.",
+        `Las sesiones de fotografía de producto de Esteban Moreno Media parten desde ${usd(PRODUCT_PHOTO_SESSION.from)} por sesión. El presupuesto final depende del volumen de SKUs, los ángulos por producto, la complejidad del entorno (catálogo vs estilo de vida), el retoque y los derechos de uso; no existe una tarifa única cerrada sin definir el alcance técnico del proyecto.`,
       proof: {
         href: "/es/portafolio/my-dler",
         title: "My D'ler",
@@ -1129,7 +1130,7 @@ const guidePairs: readonly GuidePair[] = [
           heading: "¿Qué referencias de tarifas hay en South Florida?",
           paragraphs: [
             `Como contexto general del mercado de South Florida, las fotos simples de catálogo con fondo blanco se cotizan por lo común entre ${usd(PRODUCT_PHOTO_MARKET.perImageMin)} y ${usd(PRODUCT_PHOTO_MARKET.perImageMax)} USD por imagen, y hay estudios de Miami que publican tarifas de entrada cercanas a ${usd(PRODUCT_PHOTO_MARKET.miamiEntryPerImage)} por imagen; el trabajo de estilo de vida con ambientación o modelos se cotiza bastante más alto por imagen, y las sesiones de medio día en Miami suelen ubicarse entre ${usd(PRODUCT_PHOTO_MARKET.halfDayMin)} y ${usd(PRODUCT_PHOTO_MARKET.halfDayMax)} USD más costos de producción. Son tarifas publicadas del mercado local y los rangos se mueven según volumen, nivel de retoque y derechos de uso.`,
-            "Como referencia directa de Esteban Moreno Media: las sesiones de fotografía de producto parten desde $280 por sesión. Es un precio inicial, nunca una cifra cerrada — el presupuesto final depende de la cantidad de productos y ángulos, del estilo requerido (catálogo sobre fondo limpio vs estilo de vida) y del formato de entrega acordado para tus canales. Para una cifra atada a tu alcance real usa la [calculadora de presupuesto](/es/calculadora), y para una cotización escrita escríbenos por [contacto](/es/contacto) o llama al (305) 497-4478.",
+            `Como referencia directa de Esteban Moreno Media: las sesiones de fotografía de producto parten desde ${usd(PRODUCT_PHOTO_SESSION.from)} por sesión. Es un precio inicial, nunca una cifra cerrada — el presupuesto final depende de la cantidad de productos y ángulos, del estilo requerido (catálogo sobre fondo limpio vs estilo de vida) y del formato de entrega acordado para tus canales. Para una cifra atada a tu alcance real usa la [calculadora de presupuesto](/es/calculadora), y para una cotización escrita escríbenos por [contacto](/es/contacto) o llama al (305) 497-4478.`,
           ],
           bullets: [
             "Tarifa por imagen (cost per image): ideal para catalogación masiva con iluminación constante",
