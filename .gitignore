@@ -72,3 +72,6 @@ esteban-qa-report.md
 # Outbound lane: harvested third-party contact data never enters this public repo
 data/outreach/prospect-ledger.jsonl
 data/outreach/drafts/
+
+# Generated at prebuild/pretest from git by scripts/page-dates.mjs
+/lib/generated/

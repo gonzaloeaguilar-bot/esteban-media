@@ -10,6 +10,8 @@ export default defineConfig({
   // shared with the other sites that use the kit.
   esbuild: { jsx: "automatic" },
   test: {
+    // lib/generated/page-dates.json is gitignored; make a bare `vitest` run work too.
+    globalSetup: ["./scripts/vitest-page-dates-setup.mjs"],
     environment: "node",
     include: [
       "**/__tests__/**/*.test.ts",

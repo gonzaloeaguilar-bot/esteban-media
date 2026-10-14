@@ -8,7 +8,11 @@
   },
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/unshallow-for-dates.mjs",
+    "dates": "node scripts/page-dates.mjs",
+    "predev": "node scripts/page-dates.mjs",
+    "prebuild": "node scripts/unshallow-for-dates.mjs && node scripts/page-dates.mjs",
+    "pretest": "node scripts/page-dates.mjs",
+    "pretypecheck": "node scripts/page-dates.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",

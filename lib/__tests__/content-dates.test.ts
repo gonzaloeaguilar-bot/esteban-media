@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 
 import sitemap from "@/app/sitemap";
 import { contentDateFor, isoDay, pageFileFor, updatedLabel } from "@/lib/content-dates";
+import { computePageDates } from "../../scripts/page-dates.mjs";
 
 const shallow = (() => {
   try {
@@ -19,11 +20,24 @@ describe("route dates are honest", () => {
     expect(isoDay("2026-10-14T00:39:38-04:00")).toBe("2026-10-14");
   });
 
-  it("finds the page file for static and dynamic routes", () => {
+  it.skipIf(shallow)("finds the page file for static and dynamic routes", () => {
     expect(pageFileFor("/")).toBe("app/(english)/page.tsx");
     expect(pageFileFor("/es")).toBe("app/(spanish)/es/page.tsx");
     expect(pageFileFor("/guides/anything")).toContain("guides/[slug]/page.tsx");
     expect(pageFileFor("/not-a-route-xyz")).toBeNull();
+  });
+
+  it.skipIf(shallow)("the generated file matches a fresh computation from git", () => {
+    const fresh = computePageDates(process.cwd());
+    expect(Object.keys(fresh).length).toBeGreaterThan(50);
+    expect(contentDateFor("/")).toBe((fresh as Record<string, string>)["app/(english)/page.tsx"]);
+  });
+
+  it("the module does no fs/git work (it would drag the project into every function's trace)", async () => {
+    const { readFileSync } = await import("node:fs");
+    const src = readFileSync("lib/content-dates.ts", "utf8");
+    expect(src).not.toMatch(/from "node:(fs|child_process)"/);
+    expect(src).not.toMatch(/process\.cwd\(\)/);
   });
 
   // A shallow clone reports its boundary commit as the author of every file;

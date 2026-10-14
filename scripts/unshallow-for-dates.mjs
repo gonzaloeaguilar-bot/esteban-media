@@ -14,8 +14,14 @@ const run = (args) =>
 try {
   if (process.env.VERCEL !== "1") process.exit(0);
   if (run(["rev-parse", "--is-shallow-repository"]) !== "true") process.exit(0);
-  run(["fetch", "--unshallow", "--quiet", "origin"]);
+  // Vercel's clone has no usable `origin` (the plain `git fetch --unshallow
+  // origin` failed there on 2026-10-14), so fetch by explicit URL. The repo is
+  // public; no credential is needed or used.
+  const owner = process.env.VERCEL_GIT_REPO_OWNER || "gonzaloeaguilar-bot";
+  const slug = process.env.VERCEL_GIT_REPO_SLUG || "esteban-media";
+  const ref = process.env.VERCEL_GIT_COMMIT_SHA || process.env.VERCEL_GIT_COMMIT_REF || "main";
+  run(["fetch", "--unshallow", "--quiet", `https://github.com/${owner}/${slug}.git`, ref]);
   console.log("[unshallow-for-dates] history deepened; lastmod will use real commit dates");
 } catch (error) {
-  console.warn(`[unshallow-for-dates] skipped, no lastmod will be emitted: ${String(error.message).split("\n")[0]}`);
+  console.warn(`[unshallow-for-dates] skipped, no lastmod will be emitted: ${String(error.stderr || error.message).trim().split("\n").slice(-2).join(" | ")}`);
 }
