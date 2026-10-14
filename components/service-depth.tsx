@@ -210,7 +210,11 @@ const ES_TRAILING_CITY = /\s+(Fort Lauderdale|Miami|Boca Raton)$/;
 
 export function esServicePhrase(keyword: string): string {
   let phrase = keyword.trim().replace(/^servicio de\s+/i, "");
+  // DM-18 (2026-10-14): "contratar editor de video remoto" read as "el servicio
+  // de contratar editor de video remoto"; the verb is the visitor's, not the service's.
+  phrase = phrase.replace(/^contratar\s+(un\s+|una\s+)?/i, "");
   phrase = phrase.replace(/^editor de (video|reels)\b/i, (_, what: string) => `edición de ${what}`);
+  phrase = phrase.replace(/^edición de video remoto$/i, "edición de video remota");
   phrase = phrase.replace(/\breels\b/g, "Reels");
   if (!/\ben\b/.test(phrase)) phrase = phrase.replace(ES_TRAILING_CITY, " en $1");
   return phrase;

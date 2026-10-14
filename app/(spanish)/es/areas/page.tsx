@@ -242,6 +242,24 @@ export default function SpanishAreasPage() {
                   para redes pueden empezar con archivos y referencias. Esos
                   servicios están disponibles fuera de South Florida.
                 </p>
+                {/* DM-5 / DM-7 (2026-10-14): GSC ranked this hub for "editor de
+                    video fort lauderdale" (@43) and "editor de videos ugc miami"
+                    (@52); these anchors point each query at the page that answers it. */}
+                <p className="mt-3 leading-7 text-[#252a2d]">
+                  Para empezar, revisa al{" "}
+                  <Link href="/es/editor-de-reels-fort-lauderdale" className="font-medium text-[#9f3c27] underline underline-offset-4">
+                    editor de video en Fort Lauderdale
+                  </Link>
+                  , al{" "}
+                  <Link href="/es/editor-de-video-ugc-para-ecommerce" className="font-medium text-[#9f3c27] underline underline-offset-4">
+                    editor de videos UGC en Miami
+                  </Link>{" "}
+                  o al{" "}
+                  <Link href="/es/editor-de-video-corto-para-redes-miami" className="font-medium text-[#9f3c27] underline underline-offset-4">
+                    editor de videos cortos en Miami
+                  </Link>
+                  .
+                </p>
                 <Link
                   href="/es/editor-de-reels-fort-lauderdale"
                   className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27]"

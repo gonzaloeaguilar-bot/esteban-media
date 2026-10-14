@@ -27,6 +27,7 @@ describe("answer-first question reads as a sentence (round 6)", () => {
     ["editor de video UGC en Miami", "edición de video UGC en Miami"],
     ["videógrafo en Miami", "videógrafo en Miami"],
     ["video para quinceañeras", "video para quinceañeras"],
+    ["contratar editor de video remoto", "edición de video remota"],
   ])("es: %s -> %s", (keyword, phrase) => {
     expect(esServicePhrase(keyword)).toBe(phrase);
   });
