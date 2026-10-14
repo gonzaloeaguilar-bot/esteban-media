@@ -121,7 +121,7 @@ describe("consolidation arithmetic matches the published baseline", () => {
     // +1 = real product photography path (2026-10-11 US buyer query).
     // +1 = Spanish companion for the same real product photography offer.
     // All owner-ordered, none of them consolidation changes.
-    expect(sitemap()).toHaveLength(269 - 26 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 2 + 4 + 1 + 26 + 6 + 10 + 16 + 1 + 1 + 4);
+    expect(sitemap()).toHaveLength(269 - 26 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 2 + 4 + 1 + 26 + 6 + 10 + 16 + 1 + 1 + 4 + 4);
   });
 
   it("never lists a redirect source in the sitemap", () => {

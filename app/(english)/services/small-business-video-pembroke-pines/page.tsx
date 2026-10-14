@@ -9,14 +9,16 @@ import {
   ServiceRelated,
   buildServiceFaqSchema,
   buildServicePageNodes,
+  ServiceDeepDive,
 } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
+import { cityReelsFor } from "@/lib/conversational-answers";
 import { absoluteUrl, site } from "@/lib/site";
 import { NicheAnswers } from "@/components/niche-answers";
 import { withNicheService } from "@/lib/niche-answers";
 
 export const metadata = buildPageMetadata({
-  title: "Small Business Video Pembroke Pines",
+  title: "Reels & Small Business Video Pembroke Pines",
   description:
     "Promotional video editing and social content creation for small businesses in Pembroke Pines and Miramar, Florida.",
   path: "/services/small-business-video-pembroke-pines",
@@ -166,6 +168,12 @@ export default function SmallBusinessVideoPembrokePinesPage() {
         heading="Related services nearby."
         services={serviceSiblings("/services/small-business-video-pembroke-pines")}
         sectionId="sibling-services"
+      />
+      <ServiceDeepDive
+        id="city-reels"
+        title={cityReelsFor("/services/small-business-video-pembroke-pines").section.heading}
+        destinations="Remote Reels, TikTok and Shorts editing, the starting price and how to send footage."
+        sections={[cityReelsFor("/services/small-business-video-pembroke-pines").section]}
       />
       <NicheAnswers path="/services/small-business-video-pembroke-pines" fact={String(metadata.description ?? "")} />
     </main>

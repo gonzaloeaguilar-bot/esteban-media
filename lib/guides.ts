@@ -16,6 +16,7 @@ import {
   PRODUCT_PHOTO_SESSION,
 } from "@/lib/pricing";
 import { REAL_ESTATE_MEDIA } from "@/lib/services-config";
+import { GUIDE_HUB_IDS, PHONE_FILMING_SECTIONS, guideHubPairs } from "@/lib/guide-hubs";
 
 export const GUIDE_IDS = [
   "prepare-footage",
@@ -59,6 +60,7 @@ export const GUIDE_IDS = [
   "raw-video-formats-explained-guide",
   "restaurant-video-cost-guide",
   "real-estate-video-cost-guide",
+  ...GUIDE_HUB_IDS,
 ] as const;
 
 export type GuideId = (typeof GUIDE_IDS)[number];
@@ -82,7 +84,7 @@ type GuideCopy = {
   faqs?: readonly { question: string; answer: string }[];
 };
 
-type GuidePair = {
+export type GuidePair = {
   id: GuideId;
   en: GuideCopy;
   es: GuideCopy;
@@ -1908,6 +1910,7 @@ const guidePairs: readonly GuidePair[] = [
             "Before you upload, check one clip with headphones; hum from a refrigerator or air conditioner is easy to miss in the room and hard to remove later. Send the original files from the phone through a file-transfer link or cable rather than through a messaging app, because messaging apps recompress video and throw away detail. Name the clips in the order they should appear, and add a short note on which takes you liked best.",
           ],
         },
+        ...PHONE_FILMING_SECTIONS.en,
       ],
     },
     es: {
@@ -1940,6 +1943,7 @@ const guidePairs: readonly GuidePair[] = [
             "Antes de enviar, revisa un clip con audífonos: el zumbido de una nevera o del aire acondicionado pasa desapercibido en el lugar y es difícil de quitar después. Envía los archivos originales del teléfono por un enlace de transferencia o por cable, no por una aplicación de mensajes, que vuelve a comprimir el video. Nombra los clips en el orden en que deben ir.",
           ],
         },
+        ...PHONE_FILMING_SECTIONS.es,
       ],
     },
   },
@@ -4295,6 +4299,7 @@ const guidePairs: readonly GuidePair[] = [
       ],
     },
   },
+  ...guideHubPairs,
 ];
 
 export const guidesIndexCopy = {

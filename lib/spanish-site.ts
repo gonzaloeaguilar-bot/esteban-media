@@ -1,4 +1,9 @@
 import { priceSentence } from "@/lib/packages";
+import {
+  ES_CREATOR_START_SECTION,
+  ES_REELS_FORT_LAUDERDALE_CONVERSATIONAL,
+  ES_REELS_MIAMI_CONVERSATIONAL,
+} from "@/lib/conversational-answers";
 import { buildServiceFaqSchema } from "@/components/service-depth";
 import { isConsolidatedPath } from "@/lib/consolidation";
 import { eventLanguageAlternates } from "@/lib/events";
@@ -58,7 +63,7 @@ import {
 export const spanishSite = {
   title: "Esteban Moreno Media | Sistemas de Growth y Producción Creativa",
   description:
-    "Esteban Moreno Media: edición de video, contenido con IA y producción para redes en South Florida. Bilingüe Español/English. Fort Lauderdale — cotiza rápido.",
+    "Esteban Moreno Media: edición de video, contenido con IA y producción para redes en South Florida. En español y en inglés. Fort Lauderdale — cotiza rápido.",
   /** The Spanish HOME only: anchored on the published starting price (lib/pricing.ts). */
   homeDescription: `Esteban Moreno Media: edita videos para negocios en Fort Lauderdale y Miami desde ${PACKAGE_PRICES.arranque.kind === "from" ? usd(PACKAGE_PRICES.arranque.amount) : "un precio a cotizar"} por video. Atención en español. Cotiza por WhatsApp.`,
   contactLead:
@@ -3972,6 +3977,7 @@ export const spanishNichePages: SpanishNichePage[] = [
           "El costo final se define mediante una cotización personalizada después de evaluar el volumen de material, la complejidad de postproducción y los plazos de entrega solicitados. Para negocios que necesitan continuidad mensual o paquetes combinados de contenido, puedes revisar todos los paquetes publicados en nuestra sección de [precios](/es/precios) o consultar las opciones de [Arranque](/es/precios/arranque) y [Crecimiento](/es/precios/crecimiento).",
         ],
       },
+      ...ES_REELS_FORT_LAUDERDALE_CONVERSATIONAL,
     ],
     faqs: [
       {
@@ -4053,6 +4059,7 @@ export const spanishNichePages: SpanishNichePage[] = [
           "Dado que cada proyecto varía según la cantidad de material en bruto, el ritmo de cortes, los subtítulos dinámicos y los formatos de entrega, el presupuesto final requiere una cotización a la medida. Puedes consultar las tarifas y detalles de nuestros planes en la página de [precios](/es/precios), incluyendo el paquete de edición [Arranque](/es/precios/arranque) y el plan mensual [Crecimiento](/es/precios/crecimiento).",
         ],
       },
+      ...ES_REELS_MIAMI_CONVERSATIONAL,
     ],
     faqs: [
       {
@@ -4215,6 +4222,7 @@ export const spanishNichePages: SpanishNichePage[] = [
           "Subtítulos incrustados, porque gran parte del feed se reproduce sin audio",
         ],
       },
+      ES_CREATOR_START_SECTION,
     ],
     faqs: [
       {

@@ -8,14 +8,16 @@ import {
   ServiceFaqs,
   buildServiceFaqSchema,
   buildServicePageNodes,
+  ServiceDeepDive,
 } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
+import { cityReelsFor } from "@/lib/conversational-answers";
 import { absoluteUrl, site } from "@/lib/site";
 import { NicheAnswers } from "@/components/niche-answers";
 import { withNicheService } from "@/lib/niche-answers";
 
 export const metadata = buildPageMetadata({
-  title: "Video Editing West Palm Beach",
+  title: "Reels & Video Editing West Palm Beach",
   description:
     "Remote video editing services for creators, agencies, and businesses in West Palm Beach and Palm Beach County.",
   path: "/services/video-editing-west-palm-beach",
@@ -154,6 +156,12 @@ export default function VideoEditingWestPalmBeachPage() {
         heading="Common questions before you start."
         faqs={PORTED_SERVICE_FAQS["/services/video-editing-west-palm-beach"]}
         sectionId="ported-faq"
+      />
+      <ServiceDeepDive
+        id="city-reels"
+        title={cityReelsFor("/services/video-editing-west-palm-beach").section.heading}
+        destinations="Remote Reels, TikTok and Shorts editing, the starting price and how to send footage."
+        sections={[cityReelsFor("/services/video-editing-west-palm-beach").section]}
       />
       <NicheAnswers path="/services/video-editing-west-palm-beach" fact={String(metadata.description ?? "")} />
     </main>
