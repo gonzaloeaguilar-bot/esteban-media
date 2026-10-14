@@ -25,7 +25,14 @@ export function GoogleAnalytics() {
       <Script
         id="google-tag-loader"
         src={`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(measurementId)}`}
-        strategy="afterInteractive"
+        // lazyOnload, not afterInteractive: afterInteractive emits a
+        // high-priority <link rel="preload"> for this 160 KB library, which
+        // then competed with the stylesheets for the first second of a phone
+        // connection and held first paint back (blocking it moved mobile FCP
+        // by ~0.3s, measured 2026-10-14). Nothing is lost: the inline config
+        // below defines window.gtag as a dataLayer queue, so every call made
+        // before the library arrives is replayed when it does.
+        strategy="lazyOnload"
       />
       {/* The shared cross-brand layer: section views, every button, the form
           lifecycle, media and on-page errors — none of which this site

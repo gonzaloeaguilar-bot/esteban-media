@@ -19,7 +19,6 @@ import {
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { isConsolidatedPath } from "@/lib/consolidation";
 import { site } from "@/lib/site";
-import "../../homepage-visual.css";
 
 export const metadata = buildPageMetadata({
   title: spanishSite.title,
