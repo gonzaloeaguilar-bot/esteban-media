@@ -1,3 +1,12 @@
+# 2026-10-14 — Overnight round 7 (branch `loop/round-7`)
+
+- 71 Spanish niche pages: the existing "¿Cuánto cuesta…?" answer is now its own H2 right after the short answer (was an h3 at heading 4-25, 55 of them inside the bottom fold). 16 lift their own `sections` entry (`spanishPriceSection`), 55 lift the niche cost answer (`NicheCostAnswer`, `NicheAnswers omitCost`). No words added; text-parity re-snapshotted after diffing: only the fold labels lost "y cuánto cuesta" / ", precios publicados", links/alt/JSON-LD unchanged.
+- 10 pricing detail pages (EN/ES packages + real estate): visible Home / Pricing / <page> trail, WebPage + BreadcrumbList JSON-LD with ledger dateModified, visible Updated line (`components/pricing-trail.tsx`).
+- `priceSentence` custom branch: "Quoted per project" / "Cotizado a medida" (was "Quote custom"); package meta falls back to whole include lines, not a bare price sentence.
+- Caption guide `metaDescription` answer-first. Round-6 notes re-dated 10-15 -> 10-14.
+
+---
+
 # 2026-10-14 — Overnight round 6 (branch `loop/round-6`)
 
 - Price H2 on the 5 GeoServicePage pages is now an explicit `pricingQuestion` ("How much does a Reels editor in Fort Lauderdale cost?"), not `serviceName.toLowerCase()`.
