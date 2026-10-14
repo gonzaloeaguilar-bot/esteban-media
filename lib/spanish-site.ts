@@ -10,7 +10,7 @@ import { isConsolidatedPath } from "@/lib/consolidation";
 import { eventLanguageAlternates } from "@/lib/events";
 import { packageRoutes } from "@/lib/package-routes";
 import type { LucideIcon } from "lucide-react";
-import { ARRANQUE_WEEKLY_TERMS, PACKAGE_PRICES, PRICING_BANDS, RESTAURANT_PROMO, SHORT_FORM, shortFormPriceText, shortFormWeeklyText, usd } from "@/lib/pricing";
+import { ARRANQUE_WEEKLY_TERMS, PACKAGE_PRICES, PRICING_BANDS, RESTAURANT_PROMO, SHORT_FORM, filmingHourlyText, shortFormPriceText, shortFormWeeklyText, usd } from "@/lib/pricing";
 import {
   Anchor,
   Building2,
@@ -1022,6 +1022,16 @@ export const spanishNichePages: SpanishNichePage[] = [
     ],
     projectFit:
       "Esta página reúne la edición y la producción selectiva en Miami con trabajos publicados. Para edición de video corto con material existente, consulta con un [editor de Reels en Miami](/es/editor-de-reels-miami). No promete disponibilidad, formatos ni un alcance universal.",
+    sections: [
+      {
+        // Row 72 (2026-10-14): autocomplete "videografo cerca de mi".
+        heading: "¿Cómo encontrar un videógrafo cerca de mí en Miami?",
+        paragraphs: [
+          `Si buscas un videógrafo cerca de mí en Miami, ten en cuenta que Esteban Moreno Media tiene su base en Fort Lauderdale y toma proyectos en Miami-Dade de forma seleccionada: la disponibilidad de cada locación se confirma al consultar. Hay trabajo publicado grabado en Miami, como el video de [Bar Door Monkey](/es/portafolio/bar-door-monkey), para que veas el estilo antes de escribir.`,
+          `La grabación en locación es un servicio pagado, ${filmingHourlyText("es")}, con alcance y cotización por proyecto, y un día de producción en tu negocio va ${priceSentence("es", "presencia-local").toLowerCase()}. Si ya tienes el material, la distancia no importa: la edición es remota, en español primero, y parte del paquete Arranque, ${esShortForm}. Para videos cortos con tus clips, mira el [editor de Reels en Miami](/es/editor-de-reels-miami).`,
+        ],
+      },
+    ],
     faqs: [
       {
         question: "¿Esteban trabaja en español?",
@@ -1063,6 +1073,16 @@ export const spanishNichePages: SpanishNichePage[] = [
     ],
     projectFit:
       "Esta ruta explica la base local y ayuda a preparar una consulta sobre edición o producción selectiva. Si ya tienes material grabado y buscas optimizarlo para redes, consulta como [editor de Reels en Fort Lauderdale](/es/editor-de-reels-fort-lauderdale). El alcance se confirma para cada proyecto.",
+    sections: [
+      {
+        // Row 72 (2026-10-14): autocomplete "videografo cerca de mi"; no page said "cerca de".
+        heading: "¿Cómo encontrar un videógrafo cerca de mí en Fort Lauderdale?",
+        paragraphs: [
+          `Si buscas un videógrafo cerca de mí desde Fort Lauderdale o Broward, Esteban Moreno Media tiene aquí su base y atiende en español primero, con inglés intermedio. No hay un estudio abierto al público: la grabación se hace en tu negocio o en la locación del proyecto, como servicio pagado con alcance y cotización por proyecto, ${filmingHourlyText("es")}. Un día de producción en tu negocio, con preproducción, grabación y edición, va ${priceSentence("es", "presencia-local").toLowerCase()}.`,
+          `Antes de contratar a un videógrafo cercano conviene confirmar tres cosas: si el material que ya tienes alcanza para editar sin grabar de nuevo, quién se queda con los archivos originales y cuántas rondas de cambios incluye la edición. Si ya tienes clips, la edición es remota y parte del paquete Arranque, ${esShortForm}; para videos cortos, mira el [editor de Reels en Fort Lauderdale](/es/editor-de-reels-fort-lauderdale).`,
+        ],
+      },
+    ],
     faqs: [
       {
         question: "¿Fort Lauderdale es la base principal?",
@@ -4054,6 +4074,15 @@ export const spanishNichePages: SpanishNichePage[] = [
     projectFit:
       "Si ya tienes clips, revisa el [video social publicado de ML Colombia](/es/portafolio/ml-colombia) para ver una pieza de contenido de la marca que Esteban dirigió. La versión en inglés de este servicio está en [Reels Editor Fort Lauderdale](/services/reels-editor-fort-lauderdale). Si tu negocio está más al norte, revisa el [editor de Reels en Boca Raton](/es/editor-de-reels-boca-raton).",
     sections: [
+      {
+        // Row 89 (2026-10-14): "editor de reels fort lauderdale" 9 imp @14.8
+        // was served by the EN page; this page did not answer its own query.
+        heading: "¿Dónde encontrar un editor de Reels en Fort Lauderdale?",
+        paragraphs: [
+          `Esteban Moreno Media es un editor de Reels en Fort Lauderdale: tiene aquí su base y atiende en español primero, con inglés intermedio para proyectos bilingües. Si buscas un editor de Reels cerca de mí desde Broward, la distancia importa menos de lo que parece, porque la edición es remota: envías los clips del teléfono por un enlace y recibes el Reel con subtítulos, ritmo y formato 9:16, sin visita. La edición de Reels parte del paquete Arranque, ${esShortForm}.`,
+          `La cercanía sí cuenta cuando hace falta grabar en tu negocio. La grabación en locación es un servicio pagado, ${filmingHourlyText("es")}, con alcance y cotización por proyecto, y un día de producción completo en tu negocio va ${priceSentence("es", "presencia-local").toLowerCase()}. Si tu negocio está en Miami-Dade, el [editor de Reels en Miami](/es/editor-de-reels-miami) explica lo mismo para esa zona.`,
+        ],
+      },
       {
         heading: "¿Qué hace útil a un Reel de negocio?",
         paragraphs: [
