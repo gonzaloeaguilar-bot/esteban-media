@@ -100,6 +100,24 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
       { href: "/es/portafolio/diana-jack", title: "Diana & Jack", detail: "Película de boda y tráiler de momentos destacados." },
     ],
   },
+  "editor-de-video-para-marca-personal-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade y Broward",
+    note: "ML Colombia: la marca de cosmética con CBD que Esteban fundó y dirigió como CEO durante unos seis años, llevando su contenido digital. Es su propia empresa, no la marca personal de un cliente.",
+    serviceIds: ["edicion", "planificacion-social", "videografia"],
+    projects: [
+      { href: "/es/portafolio/ml-colombia", title: "ML Colombia", detail: "Contenido social de la marca que Esteban fundó y dirigió." },
+    ],
+  },
+  "edicion-de-clips-de-podcast-miami": {
+    areaHref: "/es/areas#miami-dade",
+    areaLabel: "Ver cobertura en Miami-Dade y Broward",
+    note: "Todavía no hay un podcast publicado en el portafolio de Esteban. Diana & Jack es una boda que grabó y editó en una película de 20 minutos y un tráiler de un minuto y medio, aproximadamente: muestra una grabación larga condensada en una pieza corta, no un podcast.",
+    serviceIds: ["edicion", "reutilizacion-redes", "planificacion-social"],
+    projects: [
+      { href: "/es/portafolio/diana-jack", title: "Diana & Jack", detail: "Película de boda y tráiler de momentos destacados." },
+    ],
+  },
   "video-para-quinceaneras-miami": {
     areaHref: "/es/areas#miami-dade",
     areaLabel: "Ver cobertura en Miami-Dade y Broward",
@@ -1207,6 +1225,22 @@ const spanishInquiryServices: Record<string, ServiceInquiry> = {
     assetPrompt: "la grabación del servicio, el título de la prédica y los minutos elegidos",
     proofHref: "/es/portafolio/diana-jack",
     proofLabel: "Ver un evento largo convertido en tráiler",
+  },
+  "editor-de-video-para-marca-personal-miami": {
+    serviceId: "es_founder_personal_brand_video",
+    serviceName: "videos para mi marca personal",
+    goalPrompt: "publicar videos cortos sobre mi trabajo cada semana",
+    assetPrompt: "grabaciones del celular o de un estudio y una lista de temas",
+    proofHref: "/es/portafolio/ml-colombia",
+    proofLabel: "Ver la marca que Esteban fundó y dirigió",
+  },
+  "edicion-de-clips-de-podcast-miami": {
+    serviceId: "es_podcast_clipping",
+    serviceName: "clips de nuestro podcast",
+    goalPrompt: "convertir cada episodio en clips para Reels, TikTok y Shorts",
+    assetPrompt: "los archivos de cámara del episodio, el audio limpio y los minutos que nos gustaron",
+    proofHref: "/es/portafolio/diana-jack",
+    proofLabel: "Ver una grabación larga convertida en tráiler",
   },
   "video-para-quinceaneras-miami": {
     serviceId: "es_quinceanera_video",

@@ -118,6 +118,17 @@ export default function VideoPodcastEditingServiceMiamiPage() {
                 Review Homeowners Remote Editing Proof
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
+              <p className="mt-6 border-t border-[#ddd4c8] pt-4 text-sm leading-6 text-[#252a2d]">
+                Only need short clips from episodes you already edit? See{" "}
+                <Link
+                  href="/services/podcast-clipping-service-miami"
+                  data-cta="podcast_to_clipping"
+                  className="font-medium text-[#9f3c27] underline underline-offset-4"
+                >
+                  podcast clipping for Reels, TikTok and Shorts
+                </Link>
+                .
+              </p>
             </div>
           </div>
         </Container>

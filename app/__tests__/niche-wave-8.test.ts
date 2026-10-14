@@ -30,6 +30,8 @@ const WAVE = [
   ["churches", "CHURCH_SERMON_DEPTH", "CHURCH_SERMON_DEEP_DIVE", "/services/church-sermon-clip-editing-miami", "edicion-de-clips-de-predicas-para-iglesias-miami"],
   ["quincea\u00f1eras", "QUINCEANERA_DEPTH", "QUINCEANERA_DEEP_DIVE", "/services/quinceanera-video-miami", "video-para-quinceaneras-miami"],
   ["dance and music studios", "DANCE_MUSIC_STUDIO_DEPTH", "DANCE_MUSIC_STUDIO_DEEP_DIVE", "/services/dance-studio-music-school-video-marketing-miami", "video-para-academias-de-baile-y-musica-miami"],
+  ["founders and personal brands", "FOUNDER_BRAND_DEPTH", "FOUNDER_BRAND_DEEP_DIVE", "/services/personal-brand-video-editor-founders-miami", "editor-de-video-para-marca-personal-miami"],
+  ["podcast clipping", "PODCAST_CLIPPING_DEPTH", "PODCAST_CLIPPING_DEEP_DIVE", "/services/podcast-clipping-service-miami", "edicion-de-clips-de-podcast-miami"],
 ] as const;
 
 const source = (path: string) => readFileSync(join(process.cwd(), path), "utf8");

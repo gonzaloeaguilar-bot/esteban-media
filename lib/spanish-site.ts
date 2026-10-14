@@ -606,6 +606,130 @@ const nicheWave8Pages: SpanishNichePage[] = [
     ],
   },
   {
+    slug: "editor-de-video-para-marca-personal-miami",
+    title: "Editor de video para marca personal en Miami",
+    metadataTitle: "Editor de Video Marca Personal Miami",
+    description:
+      "Edición de video para fundadores, coaches y consultores en Miami y Fort Lauderdale: Reels, TikToks, Shorts y videos para LinkedIn a partir de tus propias grabaciones.",
+    eyebrow: "Fundadores / Coaches / Consultores",
+    h1: "Lo que sabes, frente a la cámara, editado en videos que la gente termina de ver.",
+    lead:
+      "Graba tus respuestas con el celular o en un estudio. Esteban las edita a distancia en videos verticales con subtítulos para Reels, TikTok y Shorts, y versiones para LinkedIn, en español o en inglés.",
+    keyword: "editor de video para marca personal",
+    location: "Miami-Dade / Broward / Remoto",
+    availability: "confirmed",
+    icon: Megaphone,
+    updated: "2026-10-13",
+    fitQuestion: "¿Quién edita videos de marca personal para fundadores, coaches y consultores en Miami?",
+    projectFit: `Esteban Moreno Media edita los videos que un fundador, un coach o un consultor graba sobre su propio trabajo: explicaciones a cámara, opiniones sobre su industria, preguntas de clientes respondidas en video y clips sacados de charlas o entrevistas. Tú grabas con el celular o en un estudio; Esteban edita a distancia en cortes verticales para Reels, TikTok y YouTube Shorts y versiones para LinkedIn, con subtítulos en español o en inglés. Conoce el otro lado de la cámara: fundó y dirigió su propia marca, ML Colombia, durante unos seis años y llevó su contenido digital como CEO. La edición es remota: ${esArranque()}. La grabación en locación es un servicio adicional pagado que se cotiza por proyecto.`,
+    sectionsDisclosure: "Arma un mes de videos desde una sola sesión",
+    sectionsDestinations: "Qué grabar en una sesión y un ritmo semanal que aguante una agenda llena",
+    bestFor: [
+      "Fundadores que venden su experiencia y no tienen equipo de producción.",
+      "Coaches y consultores que responden las mismas preguntas en cada llamada.",
+      "Profesionales que quieren publicar en español, en inglés o en ambos.",
+    ],
+    scopingQuestions: [
+      "¿Qué preguntas te hacen tus clientes en cada llamada de venta?",
+      "¿Dónde vas a publicar: Instagram, TikTok, YouTube, LinkedIn?",
+      "¿Cada cuánto puedes grabar: cada semana, cada dos semanas o una vez al mes?",
+    ],
+    sections: [
+      {
+        heading: "¿Qué debe grabar un fundador en una sola sesión?",
+        paragraphs: [
+          "Respuestas cortas a las preguntas que tus clientes ya te hacen. Anota entre cinco y ocho, las que respondes cada semana en llamadas de venta, y graba cada respuesta por separado en uno o dos minutos, mirando al lente. Suma una opinión sobre tu industria que defenderías en una reunión y una historia corta de tu propio trabajo. Esa lista suele alcanzar para dos a cuatro semanas de publicaciones.",
+          "Graba todo en una sola sentada para que la luz, el sonido y la ropa coincidan, y deja una pausa antes y después de cada respuesta para tener margen de corte. Manda los archivos originales, no exportados de una app, con una línea sobre de qué trata cada uno. Esteban respeta tus palabras: quita las pausas, los arranques en falso y las muletillas, y agrega subtítulos y un título.",
+        ],
+      },
+      {
+        heading: "¿Qué ritmo semanal puede sostener un fundador ocupado?",
+        paragraphs: [
+          "Una sesión de grabación cada dos a cuatro semanas y un número fijo de publicaciones por semana, no una promesa diaria. Un fundador que graba ocho respuestas un lunes y publica dos por semana tiene el mes cubierto, y las ediciones llegan en tandas y no de a una. Si publicas cada semana, el Arranque semanal encaja con ese ritmo, con un número fijo de videos cada semana.",
+          "Mide solo dos cosas: qué preguntas te traen mensajes o llamadas y cuáles la gente ve hasta el final. Eso decide la siguiente lista de grabación. Cuando quieras que el calendario y el reporte los lleve otra persona, ese es el [plan Crecimiento](/es/precios/crecimiento). Para los detalles de edición de videos cortos, mira el [editor de video corto para redes](/es/editor-de-video-corto-para-redes-miami).",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Necesito un estudio o un equipo de grabación?",
+        answer:
+          "No. Para empezar alcanzan un celular reciente, una ventana de frente, un micrófono de solapa y un cuarto callado. Graba unos minutos por idea, di el punto al principio y manda los archivos originales en una carpeta compartida. Si quieres un look de estudio o grabar en tu oficina, es un servicio adicional pagado que se cotiza por proyecto.",
+      },
+      {
+        question: "¿Los videos pueden ir en español y en inglés?",
+        answer:
+          "Sí. Esteban trabaja principalmente en español, con inglés intermedio para proyectos bilingües, y los subtítulos pueden ir en cualquiera de los dos idiomas. Si grabas la misma idea dos veces, una en cada idioma, cada versión se edita por separado en lugar de traducirse solo en subtítulos.",
+      },
+      {
+        question: "¿Cuánto cuesta editar videos de marca personal?",
+        answer: `Cada video editado se cobra como el paquete Arranque, ${esArranque()}. Si publicas cada semana, el Arranque se puede pagar semana a semana, y un mes planificado con calendario y reporte es el plan Crecimiento, ${esCrecimiento()}. Una cotización por escrito fija la cantidad de videos antes de empezar.`,
+      },
+    ],
+  },
+  {
+    slug: "edicion-de-clips-de-podcast-miami",
+    title: "Edición de clips de podcast en Miami",
+    metadataTitle: "Clips de Podcast para Redes Miami",
+    description:
+      "Edición de clips de podcast en Miami y Fort Lauderdale: episodios convertidos en clips verticales con subtítulos para Reels, TikTok y YouTube Shorts, encuadrados en quien habla.",
+    eyebrow: "Podcasts / Entrevistas / Programas en video",
+    h1: "Un episodio de podcast, convertido en clips para Reels, TikTok y Shorts.",
+    lead:
+      "Manda los archivos del episodio. Esteban encuentra los momentos que se entienden solos y convierte cada uno en un clip 9:16 con subtítulos, encuadrado en quien habla, listo para publicar.",
+    keyword: "edición de clips de podcast",
+    location: "Miami-Dade / Broward / Remoto",
+    availability: "confirmed",
+    icon: Music,
+    updated: "2026-10-13",
+    fitQuestion: "¿Cómo se convierte un episodio de podcast en clips para Reels, TikTok y Shorts?",
+    projectFit: `Buscando los momentos del episodio que se entienden sin el resto de la conversación, una respuesta clara, una opinión fuerte, una historia corta, y cortando cada uno en un clip vertical de menos de un minuto y medio con subtítulos incrustados. Esteban trabaja con los archivos de tu episodio, idealmente cada ángulo de cámara por separado y el audio limpio, reencuadra la conversación de 16:9 a 9:16 para que quien habla quede en cuadro y entrega cada clip listo para Reels, TikTok y YouTube Shorts. Tú o tu productor aprueban la selección antes de publicar. La edición es remota: ${esArranque()}. La edición del episodio completo es otro servicio: la edición de video podcast. Grabar un episodio en locación es un servicio adicional pagado que se cotiza por proyecto.`,
+    sectionsDisclosure: "Arma una semana de clips desde un episodio",
+    sectionsDestinations: "Qué momentos elegir y un ritmo de publicación que un podcast pequeño pueda sostener",
+    bestFor: [
+      "Podcasts y programas en video que graban con dos o más cámaras.",
+      "Shows en español, en inglés o bilingües que quieren crecer en redes.",
+      "Productores que ya editan el episodio y necesitan los clips aparte.",
+    ],
+    scopingQuestions: [
+      "¿Cada cuánto sale un episodio y cuánto dura?",
+      "¿Grabas con una cámara o con varias, y tienes el audio limpio por separado?",
+      "¿Cuántos clips por episodio quieres publicar?",
+    ],
+    sections: [
+      {
+        heading: "¿Qué momentos de un podcast funcionan como clip?",
+        paragraphs: [
+          "Los pasajes que empiezan y terminan dentro de más o menos el mismo minuto: una respuesta directa a una pregunta, una opinión dicha sin rodeos, una historia corta, un dato sorprendente con su fuente o un desacuerdo entre los anfitriones. Los momentos que dependen de algo dicho veinte minutos antes casi nunca funcionan solos, y tampoco las menciones de patrocinadores o los chistes internos, que confunden a quien nunca escuchó el programa.",
+          "La forma más rápida de llegar a una buena selección es que el anfitrión o el productor anote algunos minutos justo después de grabar, cuando la conversación está fresca. Con esas notas empieza la selección; cada clip lleva un título de una línea que dice de qué trata el clip y respeta las palabras de cada persona, sin pegar frases para que digan algo que nadie dijo.",
+        ],
+      },
+      {
+        heading: "¿Qué ritmo de publicación puede sostener un podcast pequeño?",
+        paragraphs: [
+          "Clips repartidos en los días después del episodio, no todos el día del estreno. Un ritmo común es el clip más fuerte junto con el episodio, dos o tres más durante la semana y el último invitando al siguiente episodio. Entre tres y cinco clips por episodio es un buen comienzo para un programa semanal; la cantidad se acuerda en la cotización según la duración del episodio y cada cuánto publicas.",
+          "Piensa en el invitado: mándale los clips donde aparece para que también los comparta, y confirma que la música y las intros tienen licencia para redes. Cuando el episodio completo también necesita edición, la [edición de video podcast](/es/edicion-de-video-podcast-miami) lo cubre, y para webinars y charlas sirve la [reutilización de contenido para redes](/es/reutilizacion-de-contenido-para-redes-miami).",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Qué archivos debe mandar un podcast para los clips?",
+        answer:
+          "Los originales de mejor calidad que tengas: cada ángulo de cámara en su propio archivo y el audio limpio de la grabadora o la consola, no una copia descargada de YouTube o Spotify. Agrega el título del episodio, los nombres de los invitados bien escritos y, si puedes, los minutos de los momentos que te gustaron.",
+      },
+      {
+        question: "¿Es lo mismo que la edición de podcast?",
+        answer:
+          "No. La edición de podcast produce el episodio completo para YouTube o las plataformas de audio; los clips son piezas verticales cortas que salen de un episodio que ya existe. Muchos programas necesitan las dos cosas. Para el episodio completo, mira la página de edición de video podcast; esta página cubre solo los clips.",
+      },
+      {
+        question: "¿Cuánto cuesta editar clips de podcast?",
+        answer: `Cada clip se cobra como el paquete Arranque, ${esArranque()}. Un programa que publica cada semana puede pagar el Arranque semana a semana, y un mes de clips con calendario y reporte es el plan Crecimiento, ${esCrecimiento()}. Una cotización por escrito fija la cantidad de clips por episodio.`,
+      },
+    ],
+  },
+  {
     slug: "video-para-quinceaneras-miami",
     title: "Video para quinceañeras en Miami",
     metadataTitle: "Video para Quinceañeras Miami",
@@ -2365,7 +2489,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       "¿Requieres clips cortos de momentos destacados para redes sociales?",
     ],
     projectFit:
-      "Edición bilingüe y optimización constante de episodios.",
+      "Edición bilingüe y optimización constante de episodios. Si ya editas el episodio y solo necesitas los clips cortos, mira la [edición de clips de podcast para Reels, TikTok y Shorts](/es/edicion-de-clips-de-podcast-miami).",
     faqs: [
       {
         question: "¿Incluye diseño de portadas e introducciones animadas?",
@@ -4527,6 +4651,8 @@ const nicheWave8Hreflang = Object.fromEntries(
       ["/services/church-sermon-clip-editing-miami", "/es/edicion-de-clips-de-predicas-para-iglesias-miami"],
       ["/services/quinceanera-video-miami", "/es/video-para-quinceaneras-miami"],
       ["/services/dance-studio-music-school-video-marketing-miami", "/es/video-para-academias-de-baile-y-musica-miami"],
+      ["/services/personal-brand-video-editor-founders-miami", "/es/editor-de-video-para-marca-personal-miami"],
+      ["/services/podcast-clipping-service-miami", "/es/edicion-de-clips-de-podcast-miami"],
     ] as const
   ).flatMap(([en, es]) =>
     [en, es].map((path) => [path, { "en-US": en, "es-US": es, "x-default": en }] as const),
