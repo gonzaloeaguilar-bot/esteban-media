@@ -402,6 +402,9 @@
   function onPlay(ev) {
     var el = ev.target;
     if (!el || (el.tagName !== "VIDEO" && el.tagName !== "AUDIO")) return;
+    // A muted background loop that resumes on its own is not a person choosing
+    // to watch. Pages mark it data-media-decorative and it never emits media_play.
+    if (el.hasAttribute && el.hasAttribute("data-media-decorative")) return;
     track("media_play", {
       media_id: slug(el.getAttribute("data-media-id") || el.id || (el.currentSrc || "").split("/").pop()),
       media_type: el.tagName.toLowerCase()

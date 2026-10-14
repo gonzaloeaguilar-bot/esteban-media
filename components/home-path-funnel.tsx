@@ -156,7 +156,7 @@ export function HomePathFunnel({
       setSentReach(trimmedReach);
       setStep("done");
     } catch {
-      trackFunnelEvent("form_error", { form_id: "home_path_funnel", lane: laneId, locale });
+      trackFunnelEvent("form_error", { form_id: "home_path_funnel", error_code: "request_failed", field: "submit", lane: laneId, locale });
       setStep("error");
     }
   }
