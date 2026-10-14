@@ -135,10 +135,13 @@ export const ALL_CONVERSATIONAL_UNITS: readonly { key: string; heading: string; 
 // City Reels answers (parent brief 2026-10-14): the GBP service area now names
 // Hollywood, Pembroke Pines, Boca Raton and West Palm Beach, and live Google
 // did not show Esteban for "reels editor <city>" in any of them. Each existing
-// city page gets ONE question-headed Reels answer with a real geographic fact,
+// INDEXABLE city page gets ONE question-headed Reels answer with a real geographic fact,
 // instead of a new thin city page (2026-08-12: 29 city pages, 33 impressions,
 // 0 clicks, 64% overlap). Palm Beach County stays "project by project"
 // (AGENTS.md: do not strengthen Palm Beach positioning without local evidence).
+// Boca Raton is left out on purpose: /services/video-production-boca-raton is
+// consolidated and noindexed (config/cohort-consolidation.json), so deepening it
+// changes nothing in search until a demand wave re-admits it to the sitemap.
 // ---------------------------------------------------------------------------
 
 type CityReels = { path: string; city: string; section: ConversationalSection };
@@ -165,8 +168,6 @@ export const CITY_REELS: readonly CityReels[] = [
     "Hollywood sits between Fort Lauderdale and Miami, so the same Reels can speak to customers on both sides of the county line."),
   cityReels("/services/small-business-video-pembroke-pines", "Pembroke Pines", "Broward County", false,
     "Pembroke Pines is in southwest Broward County, west of Hollywood along Pines Boulevard."),
-  cityReels("/services/video-production-boca-raton", "Boca Raton", "Palm Beach County", true,
-    "Boca Raton is the southernmost large city in Palm Beach County, on the Broward line just north of Deerfield Beach."),
   cityReels("/services/video-editing-west-palm-beach", "West Palm Beach", "Palm Beach County", true,
     "West Palm Beach is the county seat of Palm Beach County, and remote editing does not depend on the drive from Broward."),
 ];

@@ -111,11 +111,6 @@ const content: GeoServicePageContent = {
       href: "/services/small-business-video-pembroke-pines",
     },
     {
-      title: "Reels and video in Boca Raton",
-      detail: "Remote Reels editing for Boca Raton; on-location work project by project.",
-      href: "/services/video-production-boca-raton",
-    },
-    {
       title: "Reels and video editing in West Palm Beach",
       detail: "Remote editing of the footage West Palm Beach businesses already have.",
       href: "/services/video-editing-west-palm-beach",

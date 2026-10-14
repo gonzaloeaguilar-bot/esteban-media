@@ -46,10 +46,10 @@ describe("site contact details", () => {
 
   it("keeps homepage descriptions concise and source-faithful", () => {
     expect(site.description).toBe(
-      "Esteban Moreno Media: video editing, AI content & social production for South Florida businesses. Bilingual English/Español. Fort Lauderdale — get a fast quote.",
+      "Esteban Moreno Media: video editing, AI content & social production for South Florida businesses. Spanish-first, English too. Fort Lauderdale — fast quote.",
     );
     expect(spanishSite.description).toBe(
-      "Esteban Moreno Media: edición de video, contenido con IA y producción para redes en South Florida. Bilingüe Español/English. Fort Lauderdale — cotiza rápido.",
+      "Esteban Moreno Media: edición de video, contenido con IA y producción para redes en South Florida. En español y en inglés. Fort Lauderdale — cotiza rápido.",
     );
     expect(site.description.length).toBeLessThanOrEqual(160);
     expect(spanishSite.description.length).toBeLessThanOrEqual(160);
