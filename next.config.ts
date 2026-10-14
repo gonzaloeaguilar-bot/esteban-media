@@ -54,6 +54,27 @@ const nextConfig: NextConfig = {
   experimental: {
     globalNotFound: true,
   },
+  // http://www.estebanmorenomedia.com/ costs two hops (http->https on www, then
+  // www->apex). Vercel forces the first hop itself and it cannot be merged
+  // (https://vercel.com/docs/cdn-security/encryption; vercel.com shows the same
+  // 308 -> 308 chain). What we CAN do is let browsers skip it: Vercel's default
+  // HSTS covers the apex only, so a visitor who has been here once still made a
+  // network round trip for http://www. With includeSubDomains the browser
+  // upgrades www to https internally and only the www->apex 308 remains. Every
+  // subdomain we serve (apex, www) is HTTPS on Vercel, so nothing breaks.
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          {
+            key: "Strict-Transport-Security",
+            value: "max-age=63072000; includeSubDomains",
+          },
+        ],
+      },
+    ];
+  },
   async redirects() {
     return [
       {

@@ -11,7 +11,6 @@ import { ClosingCredits, PackagesSection } from "@/components/packages-section";
 import { KeepReading } from "@/components/keep-reading";
 import { PortfolioTeaser } from "@/components/portfolio-teaser";
 import { englishRootMetadata } from "@/lib/site-metadata";
-import "../homepage-visual.css";
 
 export const metadata: Metadata = {
   // Keep the observed homepage intent in one bounded contract: video editing,

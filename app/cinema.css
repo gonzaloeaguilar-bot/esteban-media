@@ -2773,3 +2773,35 @@ a.em-pk-carte__item:active .em-pk-carte__go,
 .em-close--links .em-close__more { margin-top: 0; }
 .em-close--links .em-close__hubs { margin-top: 0; }
 .em-close--links .em-close__sign { margin-top: 28px; }
+
+/* ── Homepage-only touch geometry ───────────────────────────────────────────
+   Moved here from app/homepage-visual.css (2026-10-14). As its own page-level
+   import it became a separate stylesheet that the router fetched by script on
+   EVERY page once the home link was prefetched — a stylesheet requested before
+   first paint and hanging off the JavaScript chain, which PageSpeed then
+   counted against first paint on every service page. The selectors are scoped
+   to the home wrappers, so carrying them in the shared bundle changes nothing
+   anywhere else; it sits last, where the page-level import used to cascade. */
+@media (max-width: 1023px) {
+  .em-home .em-cine__cta--ghost {
+    min-height: 44px;
+  }
+}
+
+.em-home-review-controls button[aria-label^="Go to review"],
+.em-home-review-controls button[aria-label^="Ir a la reseña"] {
+  width: 40px;
+  height: 40px;
+}
+
+.em-home-review-controls div:has(> button[aria-label^="Go to review"]),
+.em-home-review-controls div:has(> button[aria-label^="Ir a la reseña"]) {
+  gap: 0;
+}
+
+.em-home-review-controls [aria-roledescription="carousel"] > p a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  padding-inline: 4px;
+}
