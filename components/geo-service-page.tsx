@@ -18,6 +18,7 @@ import {
 } from "@/components/service-depth";
 import { Container } from "@/components/ui/container";
 import { absoluteUrl } from "@/lib/site";
+import { PACKAGE_PRICES, REAL_ESTATE_PLANS, usd } from "@/lib/pricing";
 import { NicheAnswers } from "@/components/niche-answers";
 import { withNicheService } from "@/lib/niche-answers";
 
@@ -100,6 +101,10 @@ export function GeoServicePage({
    */
   showcase?: ReactNode;
 }) {
+  const isRealEstate = content.path.includes("real-estate");
+  const video = PACKAGE_PRICES.arranque;
+  const startingVideo = video.kind === "from" ? video.amount : 0;
+  const startingPlan = Math.min(...REAL_ESTATE_PLANS.map((plan) => plan.price));
   const jsonLd = withNicheService(content.path, buildGeoServiceSchema(content), content.serviceName);
 
   return (
@@ -109,9 +114,9 @@ export function GeoServicePage({
         suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
+      <section className="border-b border-[#ddd4c8] py-8 sm:py-16 lg:py-20">
         <Container size="xl">
-          <nav aria-label="Breadcrumbs" className="mb-8 text-sm text-[#5a6066]">
+          <nav aria-label="Breadcrumbs" className="mb-5 sm:mb-8 text-sm text-[#5a6066]">
             <ol className="flex flex-wrap items-center gap-2">
               <li>
                 <Link href="/" className="hover:text-[#9f3c27]">
@@ -157,6 +162,18 @@ export function GeoServicePage({
                   {content.secondaryLabel}
                 </Link>
               </div>
+              <p className="mt-5 text-sm leading-6 text-[#252a2d]" data-section="service-price-line">
+                <span className="font-medium">
+                  From {usd(startingVideo)} per video
+                  {isRealEstate ? `, monthly plans from ${usd(startingPlan)}` : ""}.
+                </span>{" "}
+                <a
+                  href="#service-pricing"
+                  className="inline-flex min-h-11 items-center font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4"
+                >
+                  All starting prices
+                </a>
+              </p>
             </div>
 
             <aside className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
@@ -177,7 +194,7 @@ export function GeoServicePage({
         </Container>
       </section>
 
-      <section className="border-b border-[#ddd4c8] py-8" data-section="service-pricing">
+      <section className="scroll-mt-24 border-b border-[#ddd4c8] py-8" id="service-pricing" data-section="service-pricing">
         <Container size="xl">
           <div className="mx-auto max-w-4xl">
             <h2 className="font-serif text-2xl sm:text-3xl">
