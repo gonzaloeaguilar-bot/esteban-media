@@ -1,3 +1,7 @@
+## 2026-10-14 — Rescue /es/areas with contextual internal links
+
+- [x] Rescued `https://estebanmorenomedia.com/es/areas` from orphan/starvation status by adding 4 contextual internal links from high-earning pages: `/about`, `/` (via `AboutTeaser`), `/guides/best-caption-styles-for-instagram-reels`, and `/portfolio`. Validated with typecheck, vitest test suite (156 suites, 2939 tests), and `pnpm lastmod:update`.
+
 ## 2026-10-13 — Areas guide link
 
 - [ ] Release and verify the contextual `/es/areas` link from the Spanish editor-versus-videographer guide after sibling review; implementation and validation record: `.ai/internal-links-es-areas-2026-10-13.md`.

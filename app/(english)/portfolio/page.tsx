@@ -1178,7 +1178,12 @@ export default function PortfolioPage() {
                 coverage, product shots, or footage from a shoot &mdash; and he
                 shapes it into a finished, publish-ready video. The work is
                 remote-first, so you don&apos;t need to be in South Florida to
-                work together.
+                work together; on-location capture across Broward and Miami-Dade
+                is outlined in the Spanish{" "}
+                <Link href="/es/areas" className="inline-flex min-h-11 items-center underline underline-offset-4">
+                  áreas de servicio
+                </Link>{" "}
+                directory.
               </p>
               <Link
                 href="/services#editing"
