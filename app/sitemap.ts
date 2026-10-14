@@ -23,6 +23,7 @@ import { growthSystems } from "@/lib/growth-systems";
 import { eventSectionPaths } from "@/lib/events";
 import { languageAlternates, spanishRoutes } from "@/lib/spanish-site";
 import { absoluteUrl } from "@/lib/site";
+import { restaurantIgStudyPaths } from "@/lib/restaurant-ig-study";
 
 /**
  * The 2026-10-10 inventory additions, both languages: six growth-system pairs,
@@ -73,6 +74,8 @@ export const sitemapRoutes = [
   { path: "/resources/social-video-kit", priority: 0.9 },
   { path: "/resources/video-project-brief-template", priority: 0.85 },
   { path: "/resources/remote-editing-handoff-checklist", priority: 0.85 },
+  // Original data study (2026-10-14); the ES twin ships through spanishRoutes.
+  { path: restaurantIgStudyPaths.en, priority: 0.8 },
   { path: "/resources/ai-product-photo-truth-checklist", priority: 0.85 },
   { path: "/assessment", priority: 0.9 },
   { path: "/services", priority: 0.9 },
