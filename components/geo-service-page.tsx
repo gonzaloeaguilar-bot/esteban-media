@@ -45,6 +45,12 @@ export type GeoServicePageContent = {
   depthHeading?: string;
   /** Noun phrase for the answer-first question; defaults to serviceType. */
   answerService?: string;
+  /**
+   * H2 over the price sheet. Round 6 (2026-10-15): the old default lower-cased
+   * the SEO name into "How much does reels editor fort lauderdale cost?" on all
+   * five pages, the flagship included. Write the buyer's sentence instead.
+   */
+  pricingQuestion: string;
   craft: readonly CraftCard[];
   /**
    * Citable depth: 100-180 words under a question-shaped heading.
@@ -199,7 +205,7 @@ export function GeoServicePage({
         <Container size="xl">
           <div className="mx-auto max-w-4xl">
             <h2 className="font-serif text-2xl sm:text-3xl">
-              {`How much does ${content.serviceName.toLowerCase()} cost?`}
+              {content.pricingQuestion}
             </h2>
             <p className="mt-2 max-w-2xl text-sm leading-6 text-[#252a2d]">
               Starting prices for every package, read from the same figures

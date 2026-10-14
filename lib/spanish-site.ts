@@ -2238,6 +2238,17 @@ export const spanishNichePages: SpanishNichePage[] = [
     ],
     projectFit:
       "Edición de material entregado por el cliente y, según el alcance, planificación social o producción en locación evaluada por proyecto.",
+    // Round 6 (2026-10-15): the English twin carries the city Reels answer
+    // (CITY_REELS in lib/conversational-answers.ts); this page had none, so a
+    // Spanish search for a Reels editor in Pembroke Pines found no sentence to quote.
+    sections: [
+      {
+        heading: "¿Quién edita Reels para negocios en Pembroke Pines?",
+        paragraphs: [
+          `Esteban Moreno Media edita Reels de Instagram, TikToks y YouTube Shorts para negocios y creadores de Pembroke Pines a partir de los clips que ellos mismos graban. Esteban Moreno es editor de video con base en Fort Lauderdale y trabaja a distancia: envías los archivos originales y una línea sobre cada idea, y recibes los cortes verticales con subtítulos dentro de las zonas seguras y una acción clara al final. Pembroke Pines queda en el suroeste del condado de Broward, al oeste de Hollywood por Pines Boulevard, el mismo condado de su base, así que se puede cotizar una grabación en locación cuando haga falta material nuevo. Su idioma de trabajo es el español, con inglés intermedio. El paquete Arranque cuesta desde ${esStarterFrom} por video, con una ronda de cambios; si publicas cada semana, es ${esWeekly}, con un mínimo de ${ARRANQUE_WEEKLY_TERMS.minimumWeeks} semanas. Para ver cómo funciona la edición, revisa la página de [editor de Reels en Fort Lauderdale](/es/editor-de-reels-fort-lauderdale).`,
+        ],
+      },
+    ],
     faqs: [
       {
         question: "¿Cómo funciona el servicio si estoy en Pembroke Pines?",

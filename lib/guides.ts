@@ -2886,6 +2886,12 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
+          heading: "¿Cómo hacer subtítulos para Reels?",
+          paragraphs: [
+            "En cinco pasos, con el video ya editado. Primero, genera un borrador: Instagram, TikTok y CapCut tienen subtítulos automáticos, y sirven como punto de partida. Segundo, corrígelo palabra por palabra, porque la transcripción automática suele equivocarse con nombres propios, precios, direcciones y frases que mezclan español e inglés. Tercero, corta el texto en líneas cortas que sigan el ritmo de la voz, de dos a cinco palabras, en lugar de pegar oraciones largas. Cuarto, colócalo en la zona central del cuadro vertical 9:16, que normalmente se exporta en 1080x1920, por encima de la franja donde la aplicación pone su propio texto y sus botones. Quinto, mira el corte en el celular con el sonido apagado: si una idea no se entiende en silencio, falta un subtítulo o sobra movimiento. Para una cuenta de negocio conviene dejar los subtítulos quemados en el archivo final, así se ven igual en Instagram, TikTok y YouTube Shorts.",
+          ],
+        },
+        {
           heading: "¿Cómo se mantienen los subtítulos dentro de la zona segura?",
           paragraphs: [
             "Evita colocar texto sobre los botones inferiores de Instagram o el encabezado superior para garantizar lectura completa. Mantener los textos en la zona central es indispensable en [reels para negocios en Miami](/es/reels-para-negocios-miami) y [video para restaurantes en Miami](/es/video-para-restaurantes-miami) donde la mayoría de reproducciones ocurre en silencio. En reels gastronómicos, la [edición de video promocional para restaurantes en Miami](/es/edicion-de-video-promocional-para-restaurantes-miami) mantiene subtítulos limpios que no tapan los platos.",
@@ -2933,6 +2939,16 @@ const guidePairs: readonly GuidePair[] = [
           question: "¿Dónde se colocan los subtítulos en video vertical?",
           answer:
             "Colócalos dentro de la zona central segura para que botones, nombres de cuenta y recortes de cada plataforma no cubran palabras importantes. Revisa siempre la vista en celular antes de publicar.",
+        },
+        {
+          question: "¿Sirven los subtítulos automáticos para Reels?",
+          answer:
+            "Sirven como borrador. Instagram, TikTok y CapCut generan subtítulos automáticos, pero conviene revisarlos antes de publicar: los errores más comunes están en nombres, precios, direcciones y palabras en inglés dentro de una frase en español.",
+        },
+        {
+          question: "¿Qué fuentes funcionan mejor para subtítulos de Reels?",
+          answer:
+            "Las fuentes sin serifa y de trazo grueso, que se leen en tamaño de celular sobre tomas claras y oscuras. Un borde o una caja detrás del texto ayuda cuando el fondo cambia mucho. Usa una o dos fuentes como máximo y repite la misma en toda la serie para que la cuenta se reconozca.",
         },
       ],
     },

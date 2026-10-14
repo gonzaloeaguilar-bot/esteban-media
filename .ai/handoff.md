@@ -1,3 +1,12 @@
+# 2026-10-15 — Overnight round 6 (branch `loop/round-6`)
+
+- Price H2 on the 5 GeoServicePage pages is now an explicit `pricingQuestion` ("How much does a Reels editor in Fort Lauderdale cost?"), not `serviceName.toLowerCase()`.
+- `ServiceAnswerFirst` question: `esServicePhrase` (no "servicio de servicio de", "edición de Reels en <city>") and `enServicePhrase` (no trailing "service"); keyword and answer unchanged. Text-parity baseline re-snapshotted after reading the full diff (only those headings, Pembroke dates/section).
+- ES subtitles guide: "¿Cómo hacer subtítulos para Reels?" + 2 FAQs; Boat Show titles (FLIBS + Miami, EN/ES) say "Video"; /portfolio 2 headings as questions; ES Pembroke Pines city Reels answer.
+- Log rows 100+ in the vault page esteban-overnight-loop-2026-10-14.
+
+---
+
 # 2026-10-13 — Spanish areas contextual inbound link
 
 - Local change: guide `editor-de-video-vs-videografo` links to `/es/areas` beside filming guidance.

@@ -282,7 +282,7 @@ export default function PortfolioPage() {
               id="disciplines-heading"
               className="mt-4 font-serif text-4xl leading-tight sm:text-5xl"
             >
-              Creative disciplines represented in this collection.
+              What kind of work is in this portfolio?
             </h2>
             <p className="mt-4 text-base leading-7 text-[#3f4548] sm:text-lg sm:leading-8">
               Every project in this portfolio reflects a specific creative focus
@@ -405,7 +405,7 @@ export default function PortfolioPage() {
                 id="workflow-heading"
                 className="mt-4 max-w-xl font-serif text-4xl leading-tight sm:text-5xl"
               >
-                How projects move from raw footage to final delivery.
+                How does a project move from raw footage to final delivery?
               </h2>
               <p className="mt-5 max-w-xl text-base leading-7 text-[#3f4548]">
                 Whether you have phone recordings, drone files, professional

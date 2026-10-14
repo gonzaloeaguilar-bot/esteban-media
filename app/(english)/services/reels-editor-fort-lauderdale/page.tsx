@@ -17,6 +17,7 @@ const content: GeoServicePageContent = {
   secondaryHref: "/resources/remote-editing-handoff-checklist",
   secondaryLabel: "Prepare your footage",
   serviceName: "Reels Editor Fort Lauderdale",
+  pricingQuestion: "How much does a Reels editor in Fort Lauderdale cost?",
   serviceDescription:
     "Instagram Reels, TikTok, and YouTube Shorts editing for Fort Lauderdale businesses and remote clients.",
   serviceType: "Short form video editing",

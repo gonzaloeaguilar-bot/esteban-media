@@ -17,6 +17,7 @@ const content: GeoServicePageContent = {
   secondaryHref: "/areas",
   secondaryLabel: "View South Florida coverage",
   serviceName: "Video Production Fort Lauderdale",
+  pricingQuestion: "How much does video production in Fort Lauderdale cost?",
   serviceDescription:
     "Video production, videography, and video editing for Fort Lauderdale and Broward County businesses.",
   serviceType: "Video production",

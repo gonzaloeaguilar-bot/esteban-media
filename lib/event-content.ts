@@ -152,7 +152,7 @@ const hubLink = (locale: EventLocale): RelatedService =>
 
 const flibs: EventCopyBuilder = (event) => ({
   en: {
-    metaTitle: "Fort Lauderdale Boat Show Content for Exhibitors",
+    metaTitle: "Fort Lauderdale Boat Show Video & Content for Exhibitors",
     metaDescription:
       `Fort Lauderdale Boat Show content for yacht brokers, charters and marine brands: a pre-show calendar, your dock footage edited from ${FROM} per video, recaps.`,
     breadcrumb: "Fort Lauderdale boat show",
@@ -236,7 +236,7 @@ const flibs: EventCopyBuilder = (event) => ({
     },
   },
   es: {
-    metaTitle: "Contenido para expositores del boat show de Fort Lauderdale",
+    metaTitle: "Video para expositores del boat show de Fort Lauderdale",
     metaDescription:
       `Contenido para el boat show de Fort Lauderdale: calendario previo, edición de tu material en los muelles desde ${FROM} por video y resúmenes para brokers.`,
     breadcrumb: "Boat show de Fort Lauderdale",
@@ -494,7 +494,7 @@ const artBasel: EventCopyBuilder = (event) => ({
 
 const miamiBoatShow: EventCopyBuilder = (event) => ({
   en: {
-    metaTitle: "Miami Boat Show Content for Marine Exhibitors",
+    metaTitle: "Miami Boat Show Video & Content for Marine Exhibitors",
     metaDescription:
       `Miami International Boat Show content for dealers, brokers and charters: a pre-show calendar, your footage edited from ${FROM} per video, and post-show recaps.`,
     breadcrumb: "Miami International Boat Show",
@@ -578,7 +578,7 @@ const miamiBoatShow: EventCopyBuilder = (event) => ({
     },
   },
   es: {
-    metaTitle: "Contenido para expositores del Miami International Boat Show",
+    metaTitle: "Video para expositores del Miami International Boat Show",
     metaDescription:
       `Contenido para el Miami International Boat Show: calendario previo, edición de tu material desde ${FROM} por video y resúmenes para concesionarios y brokers.`,
     breadcrumb: "Miami International Boat Show",
