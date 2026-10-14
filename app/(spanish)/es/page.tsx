@@ -51,6 +51,25 @@ export default function SpanishHomePage() {
     <main className="em-home bg-[#f7f5f1] text-[#101214]">
       <SignalIntro locale="es" />
       <HeroVideo locale="es" />
+      <section className="py-12 sm:py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-[#101214]">Servicios de Edición de Video en Fort Lauderdale y Miami</h2>
+          <p className="text-lg text-[#5a6066] mb-4">
+            Esteban Moreno Media ofrece edición profesional de video, producción en locación, creación de contenido para redes sociales y edición remota para empresas en todo South Florida. Desde videos corporativos hasta reels para redes, manejamos preproducción, grabación, postproducción y entrega.
+          </p>
+          <p className="text-lg text-[#5a6066] mb-6">
+            ¿Necesitas saber precios? Consulta nuestra <a href="/es/guias/cuanto-cuesta-la-produccion-de-video-corporativo-miami" className="font-semibold text-blue-600 hover:text-blue-700">guía de costos de producción de video</a> para entender factores de precio, tarifas de edición y plazos.
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <a href="/es/servicios" className="inline-block px-6 py-3 bg-[#101214] text-white rounded hover:bg-gray-800 transition">
+              Explorar Todos los Servicios
+            </a>
+            <a href="/es/contacto" className="inline-block px-6 py-3 border-2 border-[#101214] text-[#101214] rounded hover:bg-[#f7f5f1] transition">
+              Solicitar Cotización
+            </a>
+          </div>
+        </div>
+      </section>
       <PortfolioTeaser locale="es" />
       <HomeProjectPath locale="es" />
       {/* La prueba y el contacto van JUNTOS justo en la decisión, no una

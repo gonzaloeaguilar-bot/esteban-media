@@ -180,9 +180,10 @@ describe("bilingual practical guides", () => {
       slug: "corporate-video-production-cost-miami",
       metadataTitle: "Miami Video Production Cost Guide",
       description:
-        "Plan a Miami video production budget: compare scope, filming, editing, deliverables, and quote inputs before choosing a production path.",
+        "Video production costs in Miami: understand pricing factors, filming and editing rates, delivery timelines, and get a transparent quote for your project budget.",
     });
-    expect(buildGuideMetadata(guide!).title).toBe(
+    const titleMeta = buildGuideMetadata(guide!).title;
+    expect(typeof titleMeta === "object" ? titleMeta.absolute : titleMeta).toBe(
       "Miami Video Production Cost Guide",
     );
   });

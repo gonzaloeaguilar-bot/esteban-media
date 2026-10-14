@@ -1769,7 +1769,7 @@ const guidePairs: readonly GuidePair[] = [
       metadataTitle: "Miami Video Production Cost Guide",
       title: "How much does corporate video production cost in Miami?",
       description:
-        "Plan a Miami video production budget: compare scope, filming, editing, deliverables, and quote inputs before choosing a production path.",
+        "Video production costs in Miami: understand pricing factors, filming and editing rates, delivery timelines, and get a transparent quote for your project budget.",
       eyebrow: "Video Pricing Guide",
       answer: `Esteban's Local Presence offer starts from ${packageGuidePrice("presencia-local")} per production day. That is a filming starting price, not a complete corporate-video price: editing, deliverables, review terms, and usage need a project-specific written quote.`,
       proof: {
@@ -1827,10 +1827,10 @@ const guidePairs: readonly GuidePair[] = [
     },
     es: {
       slug: "cuanto-cuesta-la-produccion-de-video-corporativo-miami",
-      metadataTitle: "Video Corporativo Costo Miami Guía",
+      metadataTitle: "Video Miami Costo: Guía de Precios",
       title: "¿Cuánto cuesta la producción de video corporativo en Miami?",
       description:
-        "Guía de costos, presupuestos y factores de alcance para la producción y edición de video corporativo en Miami.",
+        "Costos de producción de video en Miami: entiende factores de precio, tarifas de grabación y edición, plazos de entrega y solicita una cotización transparente para tu proyecto.",
       eyebrow: "Guía de Precios",
       answer: `Presencia Local de Esteban parte desde ${packageGuidePrice("presencia-local")} por jornada de producción. Es un precio inicial de grabación, no el precio completo de un video corporativo: edición, entregables, revisiones y uso necesitan una cotización escrita para el proyecto.`,
       proof: {

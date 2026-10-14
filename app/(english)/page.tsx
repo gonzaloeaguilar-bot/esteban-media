@@ -64,6 +64,25 @@ export default function Home() {
     <main className="em-home bg-[#f7f5f1] text-[#101214]">
       <SignalIntro locale="en" />
       <HeroVideo />
+      <section className="py-12 sm:py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-[#101214]">Video Production Services in Fort Lauderdale & Miami</h2>
+          <p className="text-lg text-[#5a6066] mb-4">
+            Esteban Moreno Media offers professional video editing, on-location production, social content creation, and remote editing for businesses across South Florida. From corporate videos to social reels, we handle pre-production, filming, post-production, and delivery.
+          </p>
+          <p className="text-lg text-[#5a6066] mb-6">
+            Need to know pricing? Check our <a href="/guides/corporate-video-production-cost-miami" className="font-semibold text-blue-600 hover:text-blue-700">video production cost guide</a> to understand pricing factors, editing rates, and filming timelines.
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <a href="/services" className="inline-block px-6 py-3 bg-[#101214] text-white rounded hover:bg-gray-800 transition">
+              Explore All Services
+            </a>
+            <a href="/contact" className="inline-block px-6 py-3 border-2 border-[#101214] text-[#101214] rounded hover:bg-[#f7f5f1] transition">
+              Get a Quote
+            </a>
+          </div>
+        </div>
+      </section>
       <PortfolioTeaser locale="en" />
       <HomeProjectPath locale="en" />
       {/* Proof and contact now sit TOGETHER right at the decision, not one
