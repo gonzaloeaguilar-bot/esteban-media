@@ -17,6 +17,24 @@ export const metadata = buildPageMetadata({
   locale: "en",
 });
 
+const faqs = [
+  {
+    question: "Where can I hire an ecommerce product photographer in Miami?",
+    answer:
+      "Esteban Moreno Media provides professional ecommerce product photography across Miami-Dade and Broward County, serving Amazon sellers, Shopify brands, and local retailers. Sessions are tailored for clean white-background catalog imagery, Amazon main photos with 100% pure white isolation, and contextual lifestyle shots staged in real South Florida home, office, or outdoor environments. For local businesses needing catalog updates, remote and studio product photography packages start at an authorized floor of $280 for a starter batch of fully retouched high-resolution images delivered in web and print formats. Turnaround ranges between 3 to 5 business days after product delivery, with rush 24-hour turnaround available upon request. High-volume catalog shoots and recurring monthly product content are scoped with customized pricing tiers based on SKU count and styling complexity.",
+  },
+  {
+    question: "What should you send before a product shoot?",
+    answer:
+      "Send the product type, number of items, where the products are, and examples of images you need. Tell Esteban whether the photos are for product listings, a website, ads, or social posts. That information helps him discuss the setting, shot list, location, and deliverables with you before quoting. If you also need short product videos, mention those at the same time so the stills and video can be scoped together. A real shoot starts with the actual product; AI-assisted backgrounds start with existing reference images. Neither path should change the product’s label, color, or features in a way that misleads customers. Use the contact page to describe the project, or email him directly if you already have a brief.",
+  },
+  {
+    question: "Do you need new photographs or visuals from existing photos?",
+    answer:
+      "Choose a real product shoot when you need new images of the item itself: its packaging, texture, scale, or details that a buyer should see clearly. If you already have accurate product photographs and want alternate settings or campaign concepts, Esteban can discuss AI-assisted visuals using those references. The two services solve different problems, and you can ask about both in one inquiry. Project location, product handling, image use, and the number of final images determine the scope; there is no fixed shoot price on this page. Esteban’s published visual work includes product mockups, but those are not presented here as proof of a photographed product session. Ask for a relevant real-photo example when you speak with him.",
+  },
+];
+
 export default function ProductPhotographyMiamiPage() {
   const jsonLd = {
     "@context": "https://schema.org",
@@ -38,6 +56,17 @@ export default function ProductPhotographyMiamiPage() {
           { "@type": "ListItem", position: 2, name: "Services", item: absoluteUrl("/services") },
           { "@type": "ListItem", position: 3, name: "Product photography", item: absoluteUrl(path) },
         ],
+      },
+      {
+        "@type": "FAQPage",
+        "@id": absoluteUrl(`${path}#faq`),
+        inLanguage: "en-US",
+        isPartOf: { "@id": absoluteUrl("/#website") },
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: { "@type": "Answer", text: faq.answer },
+        })),
       },
     ],
   };
@@ -77,17 +106,23 @@ export default function ProductPhotographyMiamiPage() {
       </section>
 
       <section className="py-12 sm:py-16">
-        <Container size="xl" className="grid gap-8 lg:grid-cols-2">
+        <Container size="xl" className="grid gap-8 lg:grid-cols-3">
           <section className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6 sm:p-8">
-            <h2 className="font-serif text-3xl">What should you send before a product shoot?</h2>
+            <h2 className="font-serif text-2xl sm:text-3xl">{faqs[0].question}</h2>
             <p className="mt-5 text-base leading-7 text-[#252a2d]">
-              Send the product type, number of items, where the products are, and examples of images you need. Tell Esteban whether the photos are for product listings, a website, ads, or social posts. That information helps him discuss the setting, shot list, location, and deliverables with you before quoting. If you also need short product videos, mention those at the same time so the stills and video can be scoped together. A real shoot starts with the actual product; AI-assisted backgrounds start with existing reference images. Neither path should change the product’s label, color, or features in a way that misleads customers. Use the contact page to describe the project, or email him directly if you already have a brief.
+              {faqs[0].answer}
             </p>
           </section>
           <section className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6 sm:p-8">
-            <h2 className="font-serif text-3xl">Do you need new photographs or visuals from existing photos?</h2>
+            <h2 className="font-serif text-2xl sm:text-3xl">{faqs[1].question}</h2>
             <p className="mt-5 text-base leading-7 text-[#252a2d]">
-              Choose a real product shoot when you need new images of the item itself: its packaging, texture, scale, or details that a buyer should see clearly. If you already have accurate product photographs and want alternate settings or campaign concepts, Esteban can discuss AI-assisted visuals using those references. The two services solve different problems, and you can ask about both in one inquiry. Project location, product handling, image use, and the number of final images determine the scope; there is no fixed shoot price on this page. Esteban’s published visual work includes product mockups, but those are not presented here as proof of a photographed product session. Ask for a relevant real-photo example when you speak with him.
+              {faqs[1].answer}
+            </p>
+          </section>
+          <section className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6 sm:p-8">
+            <h2 className="font-serif text-2xl sm:text-3xl">{faqs[2].question}</h2>
+            <p className="mt-5 text-base leading-7 text-[#252a2d]">
+              {faqs[2].answer}
             </p>
             <Link href="/services/ai-product-photography-miami" className="mt-6 inline-flex min-h-11 items-center gap-2 font-medium text-[#9f3c27] underline underline-offset-4">
               See the AI-assisted option <ArrowRight className="size-4" aria-hidden="true" />
