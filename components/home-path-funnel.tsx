@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ArrowLeft, Check, X } from "lucide-react";
+import { Check, X } from "lucide-react";
 
 import { trackFunnelEvent } from "@/lib/analytics-events";
 import type { AudienceLocale } from "@/lib/audience-lanes";
@@ -9,33 +9,32 @@ import { whatsappHref } from "@/lib/packages";
 import { site } from "@/lib/site";
 
 /**
- * The in-place, 2-step contact takeover the chooser's CTA opens.
+ * The in-place contact takeover the chooser's CTA opens.
  *
  * Owner, 2026-10-13: "take them to a very simplistic funnel to leave info to
  * be contacted that asks for what they need first" and "modal or takeover
  * not just go to another page." The lane is already answered by the tab the
- * visitor picked, so step 1 only CONFIRMS it (no re-asking, which would
- * rebuild the double-ask the contact section was just fixed to avoid) and
- * step 2 takes name + email-or-WhatsApp. 3 taps from an already-correct
- * lane to a submitted contact: open -> Continue -> Send.
+ * visitor picked, so the choice and its price sit as a header ABOVE the
+ * fields instead of getting a step of their own (2026-10-14 audit: the old
+ * step 1 only repeated the tap). 2 taps from an already-correct lane to a
+ * submitted contact: open -> Send.
  *
  * Deliberately not `video-brief-builder.tsx`'s 4-step flow — see
  * concept-1-v4-provenance.md "Design decision" for why.
  */
 
-type Step = "confirm" | "contact" | "done" | "error";
+type Step = "contact" | "done" | "error";
 
 const COPY = {
   en: {
-    confirmHeading: "Your project",
+    projectLabel: "Your choice",
     priceLabel: "Starting price",
-    confirmFilled: "This is already filled in from your choice.",
-    continue: "Continue",
     close: "Close",
-    back: "Back",
     contactHeading: "How should Esteban reach you?",
+    contactHint: "Fill in one: email or WhatsApp.",
     nameLabel: "Name",
-    reachLabel: "Email or WhatsApp number",
+    emailLabel: "Email",
+    phoneLabel: "WhatsApp number",
     send: "Send",
     sending: "Sending…",
     doneHeading: "Sent. Esteban has your request.",
@@ -46,19 +45,18 @@ const COPY = {
     doneClose: "Close",
     errorMessage: "The form could not be sent. Message Esteban directly instead.",
     errorWhatsapp: "WhatsApp",
-    recRecording: "Recording",
-    recStopped: "Captured",
+    stepLabel: "Your details",
+    stepDone: "Sent",
   },
   es: {
-    confirmHeading: "Tu proyecto",
+    projectLabel: "Tu elección",
     priceLabel: "Precio de referencia",
-    confirmFilled: "Esto ya quedó lleno con tu elección.",
-    continue: "Continuar",
     close: "Cerrar",
-    back: "Atrás",
     contactHeading: "¿Cómo te contacta Esteban?",
+    contactHint: "Llena uno: email o WhatsApp.",
     nameLabel: "Nombre",
-    reachLabel: "Email o número de WhatsApp",
+    emailLabel: "Email",
+    phoneLabel: "Número de WhatsApp",
     send: "Enviar",
     sending: "Enviando…",
     doneHeading: "Enviado. Esteban tiene tu solicitud.",
@@ -69,8 +67,8 @@ const COPY = {
     doneClose: "Cerrar",
     errorMessage: "No se pudo enviar el formulario. Escríbele directo por WhatsApp.",
     errorWhatsapp: "WhatsApp",
-    recRecording: "Grabando",
-    recStopped: "Capturado",
+    stepLabel: "Tus datos",
+    stepDone: "Enviado",
   },
 } as const;
 
@@ -92,9 +90,10 @@ export function HomePathFunnel({
   onClose: () => void;
 }) {
   const c = COPY[locale];
-  const [step, setStep] = useState<Step>("confirm");
+  const [step, setStep] = useState<Step>("contact");
   const [name, setName] = useState("");
-  const [reach, setReach] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [sentReach, setSentReach] = useState("");
   const panelRef = useRef<HTMLDivElement>(null);
   const triggerFocusTarget = useRef<HTMLElement | null>(null);
@@ -103,9 +102,10 @@ export function HomePathFunnel({
   useEffect(() => {
     if (!open) return;
     triggerFocusTarget.current = document.activeElement as HTMLElement | null;
-    setStep("confirm");
+    setStep("contact");
     setName("");
-    setReach("");
+    setEmail("");
+    setPhone("");
     document.body.style.overflow = "hidden";
     if (!startedRef.current) {
       startedRef.current = true;
@@ -131,15 +131,11 @@ export function HomePathFunnel({
 
   if (!open) return null;
 
-  async function handleConfirm() {
-    trackFunnelEvent("form_step", { form_id: "home_path_funnel", step: 2, lane: laneId, locale });
-    setStep("contact");
-  }
-
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const trimmedReach = reach.trim();
-    const isEmail = trimmedReach.includes("@");
+    const trimmedEmail = email.trim();
+    const trimmedPhone = phone.trim();
+    const trimmedReach = trimmedEmail || trimmedPhone;
     try {
       const response = await fetch("/api/lead", {
         method: "POST",
@@ -148,8 +144,8 @@ export function HomePathFunnel({
           source: "home-path-funnel",
           locale,
           name: name.trim(),
-          email: isEmail ? trimmedReach : `${trimmedReach.replace(/[^0-9+]/g, "")}@whatsapp.lead`,
-          phone: isEmail ? undefined : trimmedReach,
+          email: trimmedEmail || `${trimmedPhone.replace(/[^0-9+]/g, "")}@whatsapp.lead`,
+          phone: trimmedPhone || undefined,
           projectType: laneId,
           notes: `Lane: ${laneLabel}`,
         }),
@@ -189,48 +185,69 @@ export function HomePathFunnel({
           <>
             <span className="em-funnel-rec" data-recording={step !== "done"} data-done={step === "done"}>
               <i aria-hidden="true" />
-              {step === "done" ? c.recStopped : c.recRecording}
+              {step === "done" ? c.stepDone : c.stepLabel}
             </span>
             <span className="em-funnel-strip" aria-hidden="true">
               <i data-lit="true" />
-              <i data-lit={step !== "confirm"} />
               <i data-lit={step === "done"} />
             </span>
-          </>
-        )}
-
-        {step === "confirm" && (
-          <>
-            <h3 id="em-funnel-heading" className="em-funnel-h">{c.confirmHeading}</h3>
-            <p className="em-funnel-chip">{laneLabel}</p>
-            <p className="em-funnel-price"><span>{c.priceLabel}</span> <strong>{price}</strong></p>
-            <p className="em-funnel-note">{c.confirmFilled}</p>
-            <button type="button" className="em-funnel-primary" onClick={handleConfirm} data-cta="home_path_funnel_continue">
-              {c.continue}
-            </button>
           </>
         )}
 
         {step === "contact" && (
           <form onSubmit={handleSubmit}>
             <h3 id="em-funnel-heading" className="em-funnel-h">{c.contactHeading}</h3>
+            <div className="em-funnel-summary">
+              <p className="em-funnel-chip"><span className="em-funnel-chip-k">{c.projectLabel}</span> {laneLabel}</p>
+              <p className="em-funnel-price"><span>{c.priceLabel}</span>{price.split(" · ").map((line) => <strong key={line}>{line}</strong>)}</p>
+            </div>
+            <p className="em-funnel-note">{c.contactHint}</p>
             <label className="em-funnel-field">
               <span>{c.nameLabel}</span>
-              <input value={name} onChange={(e) => setName(e.target.value)} required minLength={1} />
+              <input
+                name="name"
+                type="text"
+                autoComplete="name"
+                autoCapitalize="words"
+                enterKeyHint="next"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+                minLength={1}
+              />
             </label>
             <label className="em-funnel-field">
-              <span>{c.reachLabel}</span>
-              <input value={reach} onChange={(e) => setReach(e.target.value)} required minLength={5} />
+              <span>{c.emailLabel}</span>
+              <input
+                name="email"
+                type="email"
+                inputMode="email"
+                autoComplete="email"
+                autoCapitalize="none"
+                spellCheck={false}
+                enterKeyHint="next"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required={!phone.trim()}
+              />
             </label>
-            <div className="em-funnel-row">
-              <button type="button" className="em-funnel-secondary" onClick={() => setStep("confirm")} data-cta="home_path_funnel_back">
-                <ArrowLeft size={16} aria-hidden="true" />
-                {c.back}
-              </button>
-              <button type="submit" className="em-funnel-primary" data-cta="home_path_funnel_send">
-                {c.send}
-              </button>
-            </div>
+            <label className="em-funnel-field">
+              <span>{c.phoneLabel}</span>
+              <input
+                name="phone"
+                type="tel"
+                inputMode="tel"
+                autoComplete="tel"
+                enterKeyHint="send"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                required={!email.trim()}
+                minLength={7}
+              />
+            </label>
+            <button type="submit" className="em-funnel-primary" data-cta="home_path_funnel_send">
+              {c.send}
+            </button>
           </form>
         )}
 

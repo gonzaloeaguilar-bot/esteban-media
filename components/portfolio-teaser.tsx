@@ -120,6 +120,9 @@ export function PortfolioTeaser({ locale }: PortfolioTeaserProps) {
               title: isSpanish ? reel.titleEs : reel.title,
               eyebrow: isSpanish ? "Video inmobiliario" : "Property video",
               poster: reel.poster,
+              posterAlt: isSpanish
+                ? `Fotograma de un video de propiedad: ${reel.titleEs}`
+                : `Frame from a property video: ${reel.title}`,
               isReel: true,
               videoSrc: reel.src,
             })), ...items.map((item) => {
@@ -137,6 +140,7 @@ export function PortfolioTeaser({ locale }: PortfolioTeaserProps) {
                 eyebrow: categoryLabels[locale][item.category],
                 location: item.location,
                 poster,
+                posterAlt: isSpanish ? `Fotograma del video ${item.title}` : `Frame from the video ${item.title}`,
               };
             })]}
           />

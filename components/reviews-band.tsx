@@ -52,6 +52,7 @@ export function ReviewsBand({
   action,
   sourceUrl,
   posters,
+  posterAlts,
   locale,
 }: {
   eyebrow: string;
@@ -62,6 +63,8 @@ export function ReviewsBand({
   action: string;
   sourceUrl: string;
   posters: string[];
+  /** One description per poster, same order. */
+  posterAlts?: string[];
   locale: "en" | "es";
 }) {
   const ref = useRef<HTMLElement | null>(null);
@@ -112,9 +115,9 @@ export function ReviewsBand({
       data-live={rolling ? "true" : undefined}
     >
       <div className="em-revband__wall" aria-hidden="true">
-        {posters.map((src) => (
+        {posters.map((src, i) => (
           <span key={src} className="em-revband__tile">
-            <Image src={src} alt="" fill sizes="33vw" className="object-cover" />
+            <Image src={src} alt={posterAlts?.[i] ?? ""} fill sizes="33vw" className="object-cover" />
           </span>
         ))}
       </div>

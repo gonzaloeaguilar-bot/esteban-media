@@ -57,11 +57,8 @@ async function filmRoute(route, locale) {
     };
   `);
 
-  await page.eval(`
-    const btn = document.querySelector('[data-cta="home_path_funnel_continue"]');
-    if (btn) btn.click();
-  `);
-  await sleep(350);
+  // One step since 2026-10-14: the choice and price are the header above the
+  // fields, there is no Continue tap.
   await shot("02-contact");
 
   const contactState = await page.eval(`
@@ -83,8 +80,8 @@ async function filmRoute(route, locale) {
 
   // Fill and submit.
   await page.eval(`
-    const name = document.querySelector('.em-funnel-field input');
-    const reach = document.querySelectorAll('.em-funnel-field input')[1];
+    const name = document.querySelector('input[name="name"]');
+    const reach = document.querySelector('input[name="email"]');
     name.value = 'Test Visitor';
     name.dispatchEvent(new Event('input', { bubbles: true }));
     reach.value = 'test@example.com';

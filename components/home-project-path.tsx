@@ -11,7 +11,7 @@ import { AudienceVideo, EditingPreview } from "@/components/audience-media";
 
 import { AUDIENCE_LANES, type AudienceLocale } from "@/lib/audience-lanes";
 import { realEstateReelsPath } from "@/lib/real-estate-reels";
-import { laneStartingPrice, type ChooserLaneId } from "@/lib/chooser-lane-pricing";
+import { laneFunnelPrice, laneOffers, laneStartingPrice, type ChooserLaneId } from "@/lib/chooser-lane-pricing";
 import { PRODUCT_PHOTO_SESSION, REAL_ESTATE_PLAN_TERMS, turnaroundFor, usd } from "@/lib/pricing";
 import { HomePathFunnel } from "@/components/home-path-funnel";
 import { packagesCopy, whatsappHref } from "@/lib/packages";
@@ -46,8 +46,11 @@ const copy = {
       "Concept illustration of a cafe being filmed on a phone",
       "Concept illustration of an editing desk with a monitor, filmstrip and headphones",
     ],
-    pricingDetail: "Choose a package to see everything included. Final pricing depends on the project scope.",
-    pricingAction: "Compare packages",
+    pricingDetail: "These are starting prices. The final price depends on the project scope.",
+    pricingAction: "See everything each package includes",
+    offersLabel: "What this includes",
+    morePlans: "More listings? Plus and Premium are on the pricing page.",
+    thumbAlt: (title: string) => `Concept illustration for ${title}`,
     swipe: "Swipe to see all three options.",
     sceneLabels: ["Frame your listing", "Make people stop scrolling", "Bring the edit to life"],
     sceneFacts: [
@@ -65,7 +68,8 @@ const copy = {
     ],
     process: "See the editing process",
     videoAlt: "Concept illustration of a cafe being filmed on a phone",
-    minimumTerm: `${REAL_ESTATE_PLAN_TERMS.minimumMonths}-month minimum commitment — full terms below`,
+    minimumTerm: `${REAL_ESTATE_PLAN_TERMS.minimumMonths}-month minimum commitment.`,
+    termsLink: "Full terms are on the pricing page",
     turnaround: (days: number) =>
       days === 7
         ? "One week minimum turnaround — not a fixed delivery date"
@@ -94,8 +98,11 @@ const copy = {
       "Ilustración conceptual de un café grabado con un celular",
       "Ilustración conceptual de una mesa de edición con monitor, película y audífonos",
     ],
-    pricingDetail: "Elige un paquete para ver todo lo incluido. El precio final depende del alcance del proyecto.",
-    pricingAction: "Comparar paquetes",
+    pricingDetail: "Son precios de partida. El precio final depende del alcance del proyecto.",
+    pricingAction: "Ver todo lo que incluye cada paquete",
+    offersLabel: "Qué incluye",
+    morePlans: "¿Más propiedades? Plus y Premium están en la página de precios.",
+    thumbAlt: (title: string) => `Ilustración conceptual de ${title}`,
     swipe: "Desliza para ver las tres opciones.",
     sceneLabels: ["Encuadra tu propiedad", "Haz que dejen de deslizar", "Dale ritmo al material"],
     sceneFacts: [
@@ -113,7 +120,8 @@ const copy = {
     ],
     process: "Ver el proceso de edición",
     videoAlt: "Ilustración conceptual de un café grabado con un celular",
-    minimumTerm: `Mínimo de ${REAL_ESTATE_PLAN_TERMS.minimumMonths} meses de compromiso — condiciones completas abajo`,
+    minimumTerm: `Mínimo de ${REAL_ESTATE_PLAN_TERMS.minimumMonths} meses de compromiso.`,
+    termsLink: "Las condiciones completas están en la página de precios",
     turnaround: (days: number) =>
       days === 7
         ? "Mínimo de una semana de entrega — no es una fecha fija"
@@ -134,7 +142,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
   const SINGLE_ID = "a-la-carte";
   const [activeLane, setActiveLane] = useState(lanes[0].id);
   const [funnelOpen, setFunnelOpen] = useState(false);
-  const [funnelLane, setFunnelLane] = useState<{ id: string; label: string; price: string }>({ id: lanes[0].id, label: c.labels[0], price: laneStartingPrice(locale, "real-estate") });
+  const [funnelLane, setFunnelLane] = useState<{ id: string; label: string; price: string }>({ id: lanes[0].id, label: c.labels[0], price: laneFunnelPrice(locale, "real-estate") });
   const openFunnel = (id: string, label: string, price: string) => {
     setFunnelLane({ id, label, price });
     setFunnelOpen(true);
@@ -240,7 +248,10 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                     read before anyone commits. Both figures come from
                     lib/pricing.ts, never typed here. */}
                 {index === 0 && (
-                  <p className="em-path-qualifier">{c.minimumTerm}</p>
+                  <p className="em-path-qualifier">
+                    {c.minimumTerm}{" "}
+                    <Link href={laneOffers(locale, "real-estate")[0].href} data-cta="home_path_terms">{c.termsLink}</Link>.
+                  </p>
                 )}
                 {index === 2 && (
                   <p className="em-path-qualifier">{c.turnaround(turnaroundFor("arranque").minimumDays)}</p>
@@ -258,13 +269,29 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                   data-cta={`home-path-${lane.id}`}
                   onClick={(e) => {
                     e.preventDefault();
-                    openFunnel(lane.id, c.labels[index], laneStartingPrice(locale, laneIdAt(index)));
+                    openFunnel(lane.id, c.labels[index], laneFunnelPrice(locale, laneIdAt(index)));
                   }}
                   className="group flex min-h-16 items-center justify-between gap-4 rounded-2xl bg-[#9d3d2b] px-5 py-4 text-lg font-medium leading-snug text-white transition hover:bg-[#86341f] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 >
                   <span><span className="block">{c.labels[index]}</span><span className="mt-1 block text-xs font-normal uppercase tracking-wide text-white">{lane.who}</span></span>
                   <ArrowRight className="size-5 shrink-0 text-white transition-transform group-hover:translate-x-1" aria-hidden="true" />
                 </Link>
+                <ul className="em-path-offers" role="list" aria-label={c.offersLabel} data-lane={lane.id}>
+                  {laneOffers(locale, laneIdAt(index)).map((offer) => (
+                    <li key={offer.name} className="em-path-offer">
+                      <p className="em-path-offer-head">
+                        <strong className="em-path-offer-name">{offer.name}</strong>
+                        <span className="em-path-offer-price">{offer.price}</span>
+                      </p>
+                      <p className="em-path-offer-inc">{offer.includes}</p>
+                    </li>
+                  ))}
+                  {index === 0 && (
+                    <li className="em-path-offer-more">
+                      <Link href={laneOffers(locale, "real-estate")[0].href} data-cta="home_path_more_plans">{c.morePlans}</Link>
+                    </li>
+                  )}
+                </ul>
                 {index === 2 && (
                   <details className="em-process-details em-sheet-details">
                     <summary>{c.process}</summary>
@@ -302,7 +329,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                   <li key={item.id}>
                     <details className="em-single-item" data-service={item.id}>
                       <summary data-cta={`home_path_single_${item.id}`}>
-                        <Image className="em-single-thumb" src={scene.image} alt="" width={96} height={64} sizes="64px" />
+                        <Image className="em-single-thumb" src={scene.image} alt={c.thumbAlt(item.title)} width={96} height={64} sizes="64px" />
                         <span className="em-single-text">
                           <span className="em-single-title">{item.title}</span>
                           <span className="em-single-price">{itemPrice}</span>

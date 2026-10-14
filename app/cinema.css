@@ -2766,3 +2766,10 @@ a.em-pk-carte__item:active .em-pk-carte__go,
   line-height: 1.4;
   color: rgba(255, 255, 255, 0.62);
 }
+
+/* Home closing without the second ask: just the hub links, the date and the
+   signature, on the page's ink. No backdrop photo, so nothing sits under text. */
+.em-close--links { padding: 36px 0 32px; }
+.em-close--links .em-close__more { margin-top: 0; }
+.em-close--links .em-close__hubs { margin-top: 0; }
+.em-close--links .em-close__sign { margin-top: 28px; }

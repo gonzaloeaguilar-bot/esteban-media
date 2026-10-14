@@ -1,7 +1,7 @@
 {
  "/": {
   "date": "2026-10-14",
-  "hash": "90e73f1ffa14ffb0"
+  "hash": "ee90f971c5d4365a"
  },
  "/about": {
   "date": "2026-10-11",
@@ -77,7 +77,7 @@
  },
  "/es": {
   "date": "2026-10-14",
-  "hash": "f5e643911fc5c0c1"
+  "hash": "298b5d5e3cc5ffb3"
  },
  "/es/areas": {
   "date": "2026-10-11",
@@ -644,8 +644,8 @@
   "hash": "fd5184b2b2aa2ac4"
  },
  "/es/precios/arranque": {
-  "date": "2026-09-29",
-  "hash": "2d6e1d06be2527c7"
+  "date": "2026-10-14",
+  "hash": "f190cb8491bed3e0"
  },
  "/es/precios/crecimiento": {
   "date": "2026-09-29",
@@ -724,8 +724,8 @@
   "hash": "8041cef2255c1e5c"
  },
  "/es/servicios": {
-  "date": "2026-10-13",
-  "hash": "efa742e0cd307336"
+  "date": "2026-10-14",
+  "hash": "a5de4de6c77f17dc"
  },
  "/es/sitios-web-de-conversion": {
   "date": "2026-08-26",
@@ -1104,8 +1104,8 @@
   "hash": "76b30d28f90ab2ab"
  },
  "/pricing/starter": {
-  "date": "2026-09-29",
-  "hash": "69c2e0d74b75b286"
+  "date": "2026-10-14",
+  "hash": "7a4415da26fbf4f0"
  },
  "/reels-editing-cost-calculator": {
   "date": "2026-10-14",
@@ -1128,8 +1128,8 @@
   "hash": "f13b633ddbb729ef"
  },
  "/services": {
-  "date": "2026-10-11",
-  "hash": "9ec27ab3b44ad783"
+  "date": "2026-10-14",
+  "hash": "3544fbc9d376d500"
  },
  "/services/ai-food-photography-restaurants": {
   "date": "2026-10-13",
