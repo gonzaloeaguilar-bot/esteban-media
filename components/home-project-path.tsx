@@ -12,7 +12,7 @@ import { AudienceVideo, EditingPreview } from "@/components/audience-media";
 import { AUDIENCE_LANES, type AudienceLocale } from "@/lib/audience-lanes";
 import { realEstateReelsPath } from "@/lib/real-estate-reels";
 import { laneFunnelPrice, laneOffers, laneStartingPrice, type ChooserLaneId } from "@/lib/chooser-lane-pricing";
-import { PRODUCT_PHOTO_SESSION, REAL_ESTATE_PLAN_TERMS, turnaroundFor, usd } from "@/lib/pricing";
+import { ON_LOCATION_CAPTURE, PRODUCT_PHOTO_SESSION, REAL_ESTATE_PLAN_TERMS, turnaroundFor, usd } from "@/lib/pricing";
 import { HomePathFunnel } from "@/components/home-path-funnel";
 import { packagesCopy, whatsappHref } from "@/lib/packages";
 import { aLaCarteVisual } from "@/lib/a-la-carte-visuals";
@@ -39,6 +39,7 @@ const copy = {
     singleQuoted: "Quoted per project",
     singleFrom: "From",
     singleSession: "/session",
+    singleHalfDay: "/half-day",
     singleCredit: "Concept illustrations created with AI.",
     singleWhatsapp: "Hi Esteban, I'd like a quote for a single project.",
     artAlts: [
@@ -91,6 +92,7 @@ const copy = {
     singleQuoted: "Cotización por proyecto",
     singleFrom: "Desde",
     singleSession: "/sesión",
+    singleHalfDay: "/medio día",
     singleCredit: "Ilustraciones conceptuales creadas con IA.",
     singleWhatsapp: "Hola Esteban, quiero una cotización para un proyecto puntual.",
     artAlts: [
@@ -323,6 +325,8 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                 const itemPrice =
                   item.id === "foto"
                     ? `${c.singleFrom} ${usd(PRODUCT_PHOTO_SESSION.from)}${c.singleSession}`
+                    : item.id === "grabacion"
+                    ? `${c.singleFrom} ${usd(ON_LOCATION_CAPTURE.from)}${c.singleHalfDay}`
                     : noteIsQuote ? item.note! : c.singleQuoted;
                 const showNote = !!item.note && !(item.id !== "foto" && noteIsQuote);
                 return (

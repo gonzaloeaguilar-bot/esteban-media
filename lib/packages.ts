@@ -208,6 +208,7 @@ const COPY: Record<Locale, Copy> = {
       items: [
         { id: "ia", title: "Contenido asistido por IA", note: "Cotización según referencia y objetivo", icon: "sparkles" },
         { id: "foto", title: "Fotografía de producto o inmobiliaria", href: "/es/fotografo-en-fort-lauderdale", icon: "camera" },
+        { id: "grabacion", title: "Grabación en locación sin edición", note: "Material 4K en bruto para tu equipo", href: "/es/produccion-de-video-fort-lauderdale", icon: "camera" },
         { id: "mejora", title: "Mejora de fotos con IA", note: "Inmobiliaria y producto", href: "/es/fotos-con-ia-para-bienes-raices-miami", icon: "wand" },
         { id: "seo", title: "SEO local y visibilidad en buscadores de IA", href: "/es/presencia-local-seo", icon: "map" },
         { id: "auditoria", title: "Auditoría de sitio, embudo y competencia", href: "/es/auditoria-de-funnel-y-datos", icon: "gauge" },
@@ -260,6 +261,7 @@ const COPY: Record<Locale, Copy> = {
       items: [
         { id: "ia", title: "AI-assisted content", note: "Quoted from your reference and goal", icon: "sparkles" },
         { id: "foto", title: "Product or real estate photography", note: "Quoted per shoot", icon: "camera" },
+        { id: "grabacion", title: "On-location raw video capture", note: "Raw 4K footage delivered unedited", href: "/services/video-production-fort-lauderdale", icon: "camera" },
         { id: "mejora", title: "AI photo enhancement", note: "Real estate and product", href: "/services/ai-real-estate-photo-enhancement", icon: "wand" },
         { id: "seo", title: "Local SEO and AI-search visibility", href: "/services/local-presence-seo", icon: "map" },
         { id: "auditoria", title: "Website, funnel and competitor audit", href: "/services/growth-funnel-audit", icon: "gauge" },

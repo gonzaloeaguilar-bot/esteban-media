@@ -35,6 +35,7 @@ describe("single projects live inside the chooser, once", () => {
       expect(html).toMatch(/em-path-offer-name[^>]*>(Starter|Arranque)</);
       expect(html).toMatch(/em-path-offer-name[^>]*>Essential</);
       expect(html).toMatch(/em-single-price[^>]*>(From|Desde) \$280/);
+      expect(html).toMatch(/em-single-price[^>]*>(From|Desde) \$400/);
       // the lane cards still do not repeat a "Starting price" label
       expect(html).not.toMatch(/em-art-price-label/);
     });
