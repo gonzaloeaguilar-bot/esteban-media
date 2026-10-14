@@ -2511,7 +2511,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "What are Esteban’s package starting prices?",
           paragraphs: [
-            "Esteban Moreno Media provides a focused, editing-led model based in Fort Lauderdale. With remote editing packages starting from $100 per video ([Starter package](/pricing/starter)) and ongoing monthly content management starting from $640/month ([Growth package](/pricing/growth)), small businesses get dedicated bilingual editing, sound design, and vertical formatting without studio markups. When physical filming is required, local production days start from $800 ([Local Presence package](/pricing/local-presence)).",
+            "Esteban Moreno Media provides a focused, editing-led model based in Fort Lauderdale. With remote editing packages starting from $100 per video ([Starter package](/pricing/starter)) and ongoing monthly content management starting from $640/month ([Growth package](/pricing/growth)), small businesses get dedicated bilingual editing, sound design, and vertical formatting without studio markups. When physical filming is required, local production days start from $800 ([Local Presence package](/pricing/local-presence)). The [Fort Lauderdale service area page](/fort-lauderdale) lists what is available close to the base.",
             "Compare the named package with the work you actually need. Ask the written proposal to distinguish supplied footage, filming, editing, and final versions so that the starting price and the complete scope stay connected.",
           ],
           bullets: [
