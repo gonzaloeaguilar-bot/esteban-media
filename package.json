@@ -8,7 +8,6 @@
   },
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/unshallow-for-dates.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
@@ -34,7 +33,8 @@
     "rail-adoption:check": "vitest run app/__tests__/rail-adoption.test.ts",
     "followups": "node scripts/followup-due.mjs",
     "events:check": "node --experimental-strip-types --no-warnings scripts/events-check.mjs",
-    "text-parity": "node scripts/text-parity.mjs check .next/server/app app/__tests__/fixtures/spanish-niche-text-baseline.json"
+    "text-parity": "node scripts/text-parity.mjs check .next/server/app app/__tests__/fixtures/spanish-niche-text-baseline.json",
+    "lastmod:update": "PAGE_LASTMOD_UPDATE=1 vitest run app/__tests__/page-lastmod.test.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.4.1",

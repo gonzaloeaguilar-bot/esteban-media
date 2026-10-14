@@ -53,7 +53,9 @@ pnpm rail-adoption:check
 pnpm check
 ```
 
-All five validation gates must pass before merge or production deployment. After deployment, smoke-test changed routes and the canonical contact links.
+All five validation gates must pass before merge or production deployment.
+
+**Page dates:** after changing any page's copy (its route folder or its entry in `lib/*.ts`), run `pnpm lastmod:update` and commit `config/page-lastmod.json`. It sets that page's sitemap `<lastmod>`, JSON-LD `dateModified` and visible "Updated" line to today; `app/__tests__/page-lastmod.test.ts` fails until you do. Never hand-edit the dates. After deployment, smoke-test changed routes and the canonical contact links.
 
 ## Shared components for public pages
 

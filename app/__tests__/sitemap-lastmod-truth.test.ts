@@ -1,45 +1,35 @@
-import { execFileSync } from "node:child_process";
 import { describe, expect, it } from "vitest";
 
 import sitemap from "@/app/sitemap";
 import { contentDateFor } from "@/lib/content-dates";
+import { pageLastModified } from "@/lib/page-lastmod";
 
-// A shallow clone (CI's default, Vercel's default) cannot be dated honestly, so
-// there lastmod must be ABSENT. On a full clone every date must trace to a real
-// commit. Either way the old failure stays impossible: one bulk date on every URL.
-const shallow = (() => {
-  try {
-    return execFileSync("git", ["rev-parse", "--is-shallow-repository"], { encoding: "utf8" }).trim() !== "false";
-  } catch {
-    return true;
-  }
-})();
-
+// Every sitemap date comes from the per-page ledger (config/page-lastmod.json),
+// which needs no git at build time, so shallow and full clones emit the same
+// dates. app/__tests__/page-lastmod.test.ts keeps the ledger true to each
+// page's own sources. The old failure stays impossible: one bulk date on every URL.
 describe("sitemap lastmod truthfulness", () => {
   const entries = sitemap();
-  const dated = entries.filter((entry) => entry.lastModified !== undefined);
 
   it("emits the full inventory", () => {
     expect(entries.length).toBeGreaterThan(230);
   });
 
-  it("only asserts a lastModified it can trace to a git commit for that route's source", () => {
-    if (shallow) {
-      expect(dated, "a shallow clone cannot be dated; lastmod must be absent, not guessed").toHaveLength(0);
-      return;
-    }
-    expect(dated.length).toBeGreaterThan(0);
-    for (const entry of dated) {
+  it("asserts only dates the per-page ledger substantiates, on every URL", () => {
+    for (const entry of entries) {
       const path = new URL(entry.url).pathname.replace(/\/$/, "") || "/";
-      expect(entry.lastModified, `${path} has a date git cannot account for`).toBe(contentDateFor(path));
+      expect(entry.lastModified, entry.url).toBe(pageLastModified(path));
+      expect(contentDateFor(path)).toBe(pageLastModified(path));
     }
+    expect(entries.filter((entry) => entry.lastModified === undefined)).toHaveLength(0);
   });
 
-  it("would reject a single bulk date across the inventory", () => {
-    // Guards the specific regression: every URL stamped with one shared date.
-    const dates = dated.map((entry) => new Date(entry.lastModified as string).toISOString().slice(0, 10));
-    const unique = new Set(dates);
-    const isBulkStamped = dates.length > 50 && unique.size === 1;
-    expect(isBulkStamped).toBe(false);
+  it("is not one bulk date, and no single day holds most of the site", () => {
+    const days = entries.map((entry) => String(entry.lastModified).slice(0, 10));
+    const counts = new Map<string, number>();
+    for (const d of days) counts.set(d, (counts.get(d) ?? 0) + 1);
+    expect(counts.size).toBeGreaterThan(10);
+    // The transitive-import approach (2026-10-14, aaa2f8ed) put 300/352 on one day.
+    expect(Math.max(...counts.values()) / days.length).toBeLessThan(0.5);
   });
 });

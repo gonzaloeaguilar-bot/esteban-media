@@ -1,9 +1,11 @@
 import Link from "next/link";
 
 import { ClosingCredits, PackagesSection } from "@/components/packages-section";
+import { PageUpdated } from "@/components/page-updated";
 import { Container } from "@/components/ui/container";
 import { entityIds } from "@/lib/entity-schema";
 import { packagesJsonLd } from "@/lib/packages";
+import { pageLastModified } from "@/lib/page-lastmod";
 import { absoluteUrl } from "@/lib/site";
 import { buildPageMetadata } from "@/lib/site-metadata";
 
@@ -30,6 +32,7 @@ export default function PricingPage() {
     description:
       "Starting prices for Esteban Moreno Media packages and individual services, plus the three-step quote process.",
     isPartOf: { "@id": absoluteUrl("/#website") },
+    ...(pageLastModified(PATH) ? { dateModified: pageLastModified(PATH) } : {}),
     breadcrumb: { "@id": `${url}#breadcrumbs` },
   };
 
@@ -78,6 +81,7 @@ export default function PricingPage() {
             you need, whether I film on location, and how fast you need it — so
             you always get a written quote for your own project.
           </p>
+          <PageUpdated path={PATH} locale="en" className="mt-3 text-xs text-[#5a6066]" />
           <p className="mt-3 max-w-2xl text-sm text-[#5a6066]">
             Want a number for your specific project right now? Use the{" "}
             <Link href="/calculator" className="underline hover:text-[#9f3c27]">

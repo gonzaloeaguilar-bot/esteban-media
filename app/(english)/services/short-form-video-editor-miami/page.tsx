@@ -3,6 +3,8 @@ import { ArrowRight, MessageCircle, Scissors, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import { PriceSheet } from "@/components/price-sheet";
+import { PriorityLinks } from "@/components/priority-links";
+import { PageUpdated } from "@/components/page-updated";
 import {
   ServiceAnswerFirst,
   ServiceCraft,
@@ -16,6 +18,7 @@ import {
 import { SHORT_FORM_DEPTH } from "@/lib/service-depth-content";
 import { SHORT_FORM_DEEP_DIVE_EN, shortFormServiceJsonLd, shortFormWhatsappHref } from "@/lib/short-form-recs";
 import { SHORT_FORM, usd } from "@/lib/pricing";
+import { withPageDate } from "@/lib/page-lastmod";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -46,7 +49,7 @@ export default function ShortFormVideoEditorPage() {
       <script
         type="application/ld+json"
         suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(withPageDate("/services/short-form-video-editor-miami", jsonLd, absoluteUrl("/services/short-form-video-editor-miami"))) }}
       />
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
         <Container size="xl">
@@ -206,6 +209,10 @@ export default function ShortFormVideoEditorPage() {
         }}
       />
       <ServiceRelated heading={SHORT_FORM_DEPTH.relatedHeading} services={SHORT_FORM_DEPTH.related} />
+      <PriorityLinks path="/services/short-form-video-editor-miami" locale="en" />
+      <Container size="xl">
+        <PageUpdated path="/services/short-form-video-editor-miami" locale="en" className="pb-10 text-xs text-[#5a6066]" />
+      </Container>
     </main>
   );
 }

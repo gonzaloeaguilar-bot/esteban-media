@@ -1224,7 +1224,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Restaurantes / comida / hospitality",
     h1: "Video para restaurantes en Miami: edición de reels y promociones.",
     lead:
-      `¿Ya tienes clips? Edición de Reels desde ${usd(RESTAURANT_PROMO.from)} por proyecto, con cotización a la medida. ¿Necesitas video nuevo? Consulta por grabación selectiva. ¿También necesitas fotos reales? Cuéntanos qué, dónde y para qué: la sesión se cotiza por separado.`,
+      `¿Ya tienes clips? Un proyecto promocional para tu restaurante, con alcance y cotización a la medida de tu local, va desde ${usd(RESTAURANT_PROMO.from)}. ¿Solo necesitas un reel editado con tus propios clips? Es ${usd(SHORT_FORM.perVideoFrom)} por video (paquete Arranque). ¿Necesitas video nuevo? Consulta por grabación selectiva. ¿También necesitas fotos reales? Cuéntanos qué, dónde y para qué: la sesión se cotiza por separado.`,
     keyword: "video para restaurantes Miami",
     location: "Miami-Dade",
     availability: "confirmed",
@@ -2740,7 +2740,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Gastronomía / Restaurantes",
     h1: "Edición de video promocional para restaurantes en Miami.",
     lead:
-      `Envía tus videos de cocina, platos, bebidas o salón para editar un reel o una promoción para redes desde ${usd(RESTAURANT_PROMO.from)} por proyecto, con cotización a la medida. Mira el [video publicado de Bar Door Monkey Miami](/es/portafolio/bar-door-monkey) y consulta [video para restaurantes en Miami](/es/video-para-restaurantes-miami) si también necesitas grabación.`,
+      `Envía tus videos de cocina, platos, bebidas o salón para editar una promoción para redes desde ${usd(RESTAURANT_PROMO.from)} por proyecto, con cotización a la medida. Un solo reel editado con tus clips es ${usd(SHORT_FORM.perVideoFrom)} por video (paquete Arranque). Mira el [video publicado de Bar Door Monkey Miami](/es/portafolio/bar-door-monkey) y consulta [video para restaurantes en Miami](/es/video-para-restaurantes-miami) si también necesitas grabación.`,
     keyword: "edición de video para restaurantes en Miami",
     location: "Miami / Wynwood",
     availability: "confirmed",
