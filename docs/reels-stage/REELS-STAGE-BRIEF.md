@@ -16,3 +16,7 @@ Deliverable: a storyboard file STORYBOARD.md plus a frame sheet (PNG per beat, p
 Constraints: rail-kit first (check ~/.claude/rail-kit/.components for rail, card, sticky, billboard before any bespoke markup); web-kit engagement instrumentation; analytics contract events cta_click / media_play / item_view / section_view with the shared block; text in the served HTML, motion only on containers; prefers-reduced-motion shows the three posters still. Read ~/obsidian-wiki/_shared/gonzalo-design-taste.md and ~/.claude/rail-kit/REVIEW.md first.
 
 Stop condition: Gonzalo sees the storyboard and frame sheet and accepts or redirects before any build. Write the storyboard into this worktree and commit it on this branch.
+
+## Live reference row (added 2026-10-14)
+
+From ~/obsidian-wiki/_shared/live-reference-bank.md: CreatorCut, https://creatorcut.framer.website/ (open and scroll it; verified HTTP 200 on 2026-10-14). Borrow only how it stages video work and sequences its first three screens; do not copy its palette or copy. The REV Productions page remains the motion reference.
