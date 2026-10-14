@@ -1,3 +1,4 @@
+import { filmingHourlyText } from "@/lib/pricing";
 import Link from "next/link";
 
 import { ClosingCredits, PackagesSection } from "@/components/packages-section";
@@ -79,7 +80,7 @@ export default function SpanishPricingPage() {
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#40474d] sm:text-lg">
             Editar un video cuesta {priceSentence("es", "arranque").toLowerCase()}, y un día de producción en tu
-            negocio, {priceSentence("es", "presencia-local").toLowerCase()}. Cada paquete muestra su precio de partida para que sepas el orden de
+            negocio, {priceSentence("es", "presencia-local").toLowerCase()}. La grabación por horas va {filmingHourlyText("es")}. Cada paquete muestra su precio de partida para que sepas el orden de
             magnitud antes de escribirme. La cifra final depende de cuánto video
             necesitas, de si hay grabación presencial en nuestras{" "}
             <Link

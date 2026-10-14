@@ -17,6 +17,7 @@ import {
   PRODUCT_PHOTO_SESSION,
   ARRANQUE_WEEKLY_TERMS,
   SHORT_FORM,
+  filmingHourlyText,
 } from "@/lib/pricing";
 import { REAL_ESTATE_MEDIA } from "@/lib/services-config";
 import { GUIDE_HUB_IDS, PHONE_FILMING_SECTIONS, guideHubPairs } from "@/lib/guide-hubs";
@@ -1350,9 +1351,9 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "How do videographers price their time?",
+          heading: "How much does a videographer charge per hour?",
           paragraphs: [
-            "Understanding how each professional prices their services helps marketing teams and business owners allocate their production budgets efficiently without paying premium on-set rates for desk-based post-production tasks.",
+            `Esteban Moreno Media films ${filmingHourlyText("en")}, the minimum for time on location, and every shoot still gets a written quote before the date is booked. Editing is priced separately, per video or per project, so an hour of filming and the edit that follows are two lines on the quote.`,
             "Videographers typically bill using half-day (4 to 5 hours) or full-day (8 to 10 hours) day rates. These rates cover not only their time on set, but also capital depreciation on expensive camera packages, lighting gear, transport, and insurance. Adding extra shoot days or specialized crew members immediately scales on-location expenses.",
           ],
         },
@@ -1513,9 +1514,9 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "¿Cómo cobran los videógrafos su tiempo?",
+          heading: "¿Cuánto cobra un videógrafo por hora?",
           paragraphs: [
-            "Comprender los modelos de tarificación de cada profesional permite a negocios y marcas distribuir su inversión audiovisual con máxima eficiencia, evitando pagar costos de producción en locación para tareas que corresponden a postproducción.",
+            `Esteban Moreno Media graba ${filmingHourlyText("es")}, el mínimo por tiempo en locación, y cada grabación recibe una cotización por escrito antes de reservar la fecha. La edición se cobra aparte, por video o por proyecto, así que la hora de grabación y la edición que viene después son dos líneas distintas en la cotización.`,
             "Los videógrafos suelen cobrar mediante tarifas por media jornada (half-day, 4 a 5 horas) o jornada completa (full-day, 8 a 10 horas). Estas tarifas amortizan la inversión en equipos de cámara, iluminación, transporte, seguros y tiempo en set. Añadir días adicionales de rodaje o asistentes técnicos incrementa directamente el presupuesto del proyecto.",
           ],
         },
