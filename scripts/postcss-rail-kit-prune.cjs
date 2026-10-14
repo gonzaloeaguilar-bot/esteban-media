@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports -- a CommonJS PostCSS plugin: Next loads PostCSS plugins with require(). */
 // PostCSS: drop the rail-kit rules for components this site never renders.
 //
 // Why: app/globals.css imports the whole vendored kit (vendor/rail-kit/rail.css,
