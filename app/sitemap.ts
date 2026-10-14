@@ -172,6 +172,10 @@ export const sitemapRoutes = [
   // self-canonical but not advertised (SEO/GEO audit finding 8) join the
   // sitemap. See ownerOrderedAdditions in config/indexable-inventory-freeze.json.
   ...inventoryAdditions20261010,
+  // 2026-10-14: the free Reels editing cost calculator, EN + ES (demand
+  // evidence in config/indexable-inventory-freeze.json ownerOrderedAdditions).
+  { path: "/reels-editing-cost-calculator", priority: 0.8 },
+  { path: "/es/calculadora-de-costo-de-edicion-de-reels", priority: 0.8 },
   // Annual-events section (2026-10-10, owner-approved): hub + event pairs, EN and ES.
   ...eventSectionPaths().map((path) => ({ path, priority: 0.8 })),
 ];
