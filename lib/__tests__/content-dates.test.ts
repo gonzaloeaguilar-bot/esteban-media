@@ -1,16 +1,9 @@
-import { execFileSync } from "node:child_process";
 import { describe, expect, it } from "vitest";
 
 import sitemap from "@/app/sitemap";
 import { contentDateFor, isoDay, pageFileFor, updatedLabel } from "@/lib/content-dates";
+import { pageLastModified } from "@/lib/page-lastmod";
 
-const shallow = (() => {
-  try {
-    return execFileSync("git", ["rev-parse", "--is-shallow-repository"], { encoding: "utf8" }).trim() !== "false";
-  } catch {
-    return true;
-  }
-})();
 
 describe("route dates are honest", () => {
   it("formats the visible line in both languages", () => {
@@ -26,24 +19,19 @@ describe("route dates are honest", () => {
     expect(pageFileFor("/not-a-route-xyz")).toBeNull();
   });
 
-  // A shallow clone reports its boundary commit as the author of every file;
-  // the module must refuse to date anything there instead of inventing dates.
-  it.skipIf(!shallow)("emits nothing on a shallow clone", () => {
-    expect(contentDateFor("/")).toBeUndefined();
-    expect(sitemap().some((entry) => entry.lastModified)).toBe(false);
-  });
-
-  it.skipIf(shallow)("sitemap lastmod is real: present, past, varied, never a blanket date", () => {
+  // Dates now come from the per-page ledger, so a shallow clone (Vercel, CI)
+  // emits the same real dates as a full one; nothing is read from git at build.
+  it("dates come from the per-page ledger, present, past and varied", () => {
     const entries = sitemap();
     const dated = entries.filter((entry) => entry.lastModified);
-    expect(dated.length).toBeGreaterThan(entries.length * 0.9);
+    expect(dated.length).toBe(entries.length);
     const days = new Set(dated.map((entry) => String(entry.lastModified).slice(0, 10)));
-    expect(days.size).toBeGreaterThan(2);
+    expect(days.size).toBeGreaterThan(10);
     for (const entry of dated) {
       expect(Date.parse(String(entry.lastModified))).toBeLessThanOrEqual(Date.now() + 86_400_000);
     }
-    // Each date equals a real commit date for the route's source files.
     const home = entries.find((e) => new URL(e.url).pathname === "/")!;
     expect(home.lastModified).toBe(contentDateFor("/"));
+    expect(contentDateFor("/")).toBe(pageLastModified("/"));
   });
 });

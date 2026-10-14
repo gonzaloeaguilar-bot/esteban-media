@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { DailyScriptPacingCalculator } from "@/components/daily-script-pacing-calculator";
+import { PriorityLinks } from "@/components/priority-links";
 import { Container } from "@/components/ui/container";
 import { absoluteUrl } from "@/lib/site";
 import { buildPageMetadata } from "@/lib/site-metadata";
@@ -59,6 +60,7 @@ export default function DailyScriptPacingCalculatorEsPage() {
           </p>
         </div>
       </Container>
+      <PriorityLinks path="/es/calculadora-de-ritmo-de-video" locale="es" />
     </main>
   );
 }

@@ -1,28 +1,23 @@
-import { execFileSync } from "node:child_process";
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { dirname, join, relative } from "node:path";
 
+import { pageLastModified } from "@/lib/page-lastmod";
+
 /**
  * Honest "last changed" dates for routes: sitemap `lastmod`, the visible
- * "Updated" line on the home pages and `dateModified` in JSON-LD all read from
- * here, so the three can never disagree.
+ * "Updated" lines and `dateModified` in JSON-LD all read the same date, so they
+ * can never disagree.
  *
- * Source: the date of the newest git commit that touched any file the route
- * renders from (its page file plus the lib/ and components/ modules it imports,
- * followed transitively). That is the truthful statement "the source this page
- * is built from last changed on this day". It is NOT build time and NOT a
- * blanket date: a uniform lastmod is what suppressed recrawl on the DuPont
- * site, and a fabricated one is forbidden.
+ * Since 2026-10-14 (PR #423) contentDateFor() reads the per-page ledger,
+ * config/page-lastmod.json (lib/page-lastmod.ts, scripts/page-lastmod.mjs): a
+ * page's date moves only when its OWN route folder or its own entry in lib/*.ts
+ * changes, and a test fails when content changes without the ledger. No git is
+ * read at build time, so shallow clones (Vercel, CI) emit the same real dates.
  *
- * It can be later than the true edit to one page when the page shares a
- * content module with its siblings (every guide shares lib/guides.ts). It is
- * never earlier than a real change to the rendered source.
- *
- * Fail closed: with no git, or a SHALLOW clone (where git reports the clone
- * boundary commit as the author of every file, which would invent a date), this
- * returns nothing. A missing lastmod means "unknown"; callers must not
- * substitute today's date. See scripts/unshallow-for-dates.mjs, which deepens
- * the clone on Vercel before the build.
+ * The transitive-import mapping below (pageFileFor, sourceFilesFor) was the
+ * first source (PR #422). It dated a route by the newest commit to any module it
+ * imports, which put 300 of 352 sitemap paths on one day because every Spanish
+ * page imports lib/spanish-site.ts. It stays as a navigation aid only.
  */
 
 const ROOT = process.cwd();
@@ -41,52 +36,7 @@ const SITE_WIDE: readonly RegExp[] = [
   /^app\/(layout|globals\.css|robots|sitemap)/,
 ];
 
-type DateMap = Map<string, string>;
-
-let cachedDates: DateMap | null | undefined;
 const importCache = new Map<string, string[]>();
-const warned = new Set<string>();
-
-function warnOnce(message: string) {
-  if (warned.has(message)) return;
-  warned.add(message);
-  console.warn(`[content-dates] ${message}`);
-}
-
-function git(args: string[]): string {
-  return execFileSync("git", args, {
-    cwd: ROOT,
-    encoding: "utf8",
-    maxBuffer: 512 * 1024 * 1024,
-    stdio: ["ignore", "pipe", "ignore"],
-  });
-}
-
-/** file -> ISO date of the newest commit touching it, or null when unknowable. */
-function loadGitDates(): DateMap | null {
-  if (cachedDates !== undefined) return cachedDates;
-  try {
-    if (git(["rev-parse", "--is-shallow-repository"]).trim() !== "false") {
-      warnOnce("shallow clone: git dates would be wrong, so no lastmod is emitted");
-      return (cachedDates = null);
-    }
-    const out = git(["log", "--no-renames", "--name-only", "--format=%x00%cI"]);
-    const dates: DateMap = new Map();
-    let current = "";
-    for (const line of out.split("\n")) {
-      if (line.startsWith("\u0000")) {
-        current = line.slice(1).trim();
-      } else if (line.trim() && current && !dates.has(line.trim())) {
-        // git log is newest-first, so the first sighting is the newest commit.
-        dates.set(line.trim(), current);
-      }
-    }
-    return (cachedDates = dates.size > 0 ? dates : null);
-  } catch {
-    warnOnce("git history unavailable: no lastmod is emitted");
-    return (cachedDates = null);
-  }
-}
 
 function resolveModule(spec: string, fromFile: string): string | null {
   let base: string;
@@ -178,18 +128,20 @@ export function sourceFilesFor(routePath: string): string[] {
 }
 
 /**
- * ISO 8601 date-time of the newest commit touching the route's rendered
- * source, or undefined when it cannot be dated honestly.
+ * The route's date, from the per-page ledger (config/page-lastmod.json, see
+ * lib/page-lastmod.ts). Since 2026-10-14 the ledger is the one source for the
+ * sitemap lastmod, JSON-LD dateModified and every visible "Updated" line.
+ *
+ * Why not the transitive git date above: every Spanish niche page imports
+ * lib/spanish-site.ts and every guide imports lib/guides.ts, so one commit to
+ * either file re-dated ~85% of the site to the same day (measured on main at
+ * aaa2f8ed: 300 of 352 sitemap paths on 2026-10-14, 6 distinct dates). The
+ * ledger dates each page by its OWN entry inside those files, needs no git at
+ * build time, and still never emits a date for a path it does not know.
+ * sourceFilesFor() stays as a navigation aid.
  */
 export function contentDateFor(routePath: string): string | undefined {
-  const dates = loadGitDates();
-  if (!dates) return undefined;
-  let newest: string | undefined;
-  for (const file of sourceFilesFor(routePath)) {
-    const date = dates.get(file);
-    if (date && (!newest || Date.parse(date) > Date.parse(newest))) newest = date;
-  }
-  return newest;
+  return pageLastModified(routePath);
 }
 
 /** "2026-10-14" from an ISO date-time (the commit's own calendar day). */

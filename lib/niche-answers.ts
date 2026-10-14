@@ -35,10 +35,12 @@ import {
   REAL_ESTATE_PLANS,
   REAL_ESTATE_PLAN_TERMS,
   RESTAURANT_PROMO,
+  SHORT_FORM,
   shortFormWeeklyText,
   usd,
   type PricingBandId,
 } from "@/lib/pricing";
+import { withPageDate } from "@/lib/page-lastmod";
 import { realEstatePlanName } from "@/lib/real-estate-plans";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -322,11 +324,11 @@ function costParagraphs(e: NicheEntry): string[] {
       const from = usd(RESTAURANT_PROMO.from);
       return es
         ? [
-            `La edición de un video promocional para un restaurante, un bar o un café empieza desde ${from} por proyecto. Esteban edita tus tomas de cocina, platos, bebidas o salón en un reel o una promoción para Instagram, TikTok o la web, con subtítulos y el nombre del plato o del local en pantalla. El precio final depende de cuántas piezas necesitas, cuánto material hay y dónde se va a publicar, y queda por escrito antes de empezar.`,
+            `La edición de un video promocional para un restaurante, un bar o un café empieza desde ${from} por proyecto. Esteban edita tus tomas de cocina, platos, bebidas o salón en un reel o una promoción para Instagram, TikTok o la web, con subtítulos y el nombre del plato o del local en pantalla. El precio final depende de cuántas piezas necesitas, cuánto material hay y dónde se va a publicar, y queda por escrito antes de empezar. Si solo necesitas un reel editado con tus propios clips, eso es el paquete Arranque: ${usd(SHORT_FORM.perVideoFrom)} por video.`,
             `${onLocation} ${close}`,
           ]
         : [
-            `A restaurant, bar or café promo edit starts from ${from} per project. Esteban edits your kitchen, dish, drink or dining-room footage into a reel or promo for Instagram, TikTok or the web, with captions and the dish or venue name on screen. The final price depends on how many pieces you need, how much footage there is and where it will run, and it is set in writing before work begins.`,
+            `A restaurant, bar or café promo edit starts from ${from} per project. Esteban edits your kitchen, dish, drink or dining-room footage into a reel or promo for Instagram, TikTok or the web, with captions and the dish or venue name on screen. The final price depends on how many pieces you need, how much footage there is and where it will run, and it is set in writing before work begins. If you only need one Reel edited from your own clips, that is the Starter edit: ${usd(SHORT_FORM.perVideoFrom)} per video.`,
             `${onLocation} ${close}`,
           ];
     }
@@ -550,6 +552,10 @@ function isService(node: JsonNode): boolean {
  * no registry entry are returned untouched.
  */
 export function withNicheService<T extends JsonNode>(path: string, jsonLd: T, name?: string): T {
+  return withPageDate(path, withNicheServiceFields(path, jsonLd, name), absoluteUrl(path));
+}
+
+function withNicheServiceFields<T extends JsonNode>(path: string, jsonLd: T, name?: string): T {
   const hit = ROWS[path];
   if (!hit) return jsonLd;
   const e = nicheEntry(path, "")!;

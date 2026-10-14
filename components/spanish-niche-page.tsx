@@ -33,6 +33,7 @@ import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 import { NicheAnswers } from "@/components/niche-answers";
 import { withNicheService } from "@/lib/niche-answers";
+import { PriorityLinks } from "@/components/priority-links";
 
 
 type NicheLinkContext = {
@@ -1862,6 +1863,7 @@ export function SpanishNichePage({
         />
       ) : null}
       <NicheAnswers path={`/es/${page.slug}`} fact={page.description} />
+      <PriorityLinks path={`/es/${page.slug}`} locale="es" />
     </main>
   );
 }

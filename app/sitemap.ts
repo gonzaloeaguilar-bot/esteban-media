@@ -239,10 +239,10 @@ function allSitemapEntries(): MetadataRoute.Sitemap {
   // anything shipped, so lastmod was removed (and then Google had no change
   // signal at all: 0 lastmod on 354 URLs, audit 2026-10-14).
   //
-  // Now each route's date is the newest git commit that touched any file the
-  // route renders from (lib/content-dates.ts). Never build time, never "today".
-  // A route that cannot be dated (no page file, or a shallow clone with no
-  // history) gets NO lastmod, which means "unknown" and is honest.
+  // Now each route's date comes from the per-page ledger (config/page-lastmod.json
+  // via lib/content-dates.ts -> lib/page-lastmod.ts): moved only when that
+  // page's own sources change, checked by app/__tests__/page-lastmod.test.ts.
+  // A path the ledger does not know gets NO lastmod, which means "unknown".
   const dated = <T extends { url: string }>(entry: T) => {
     const lastModified = contentDateFor(new URL(entry.url).pathname.replace(/\/$/, "") || "/");
     return lastModified ? { ...entry, lastModified } : entry;
@@ -313,8 +313,9 @@ function allSitemapEntries(): MetadataRoute.Sitemap {
  * signal, and leaving them listed is exactly what kept the inventory frozen.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
-  return allSitemapEntries().filter((entry) => {
-    const path = new URL(entry.url).pathname.replace(/\/$/, "") || "/";
-    return !isConsolidatedPath(path);
-  });
+  return allSitemapEntries()
+    .filter((entry) => {
+      const path = new URL(entry.url).pathname.replace(/\/$/, "") || "/";
+      return !isConsolidatedPath(path);
+    });
 }

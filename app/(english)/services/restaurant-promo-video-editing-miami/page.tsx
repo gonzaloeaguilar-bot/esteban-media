@@ -16,9 +16,10 @@ import {
 import { Container } from "@/components/ui/container";
 import { ServiceInquiryRail, buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
-import { RESTAURANT_PROMO, usd } from "@/lib/pricing";
+import { RESTAURANT_PROMO, SHORT_FORM, usd } from "@/lib/pricing";
 
 const restaurantFrom = usd(RESTAURANT_PROMO.from);
+const singleReelFrom = usd(SHORT_FORM.perVideoFrom);
 import { absoluteUrl, site } from "@/lib/site";
 import { EventSeasonLinks } from "@/components/event-content-page";
 import { NicheAnswers } from "@/components/niche-answers";
@@ -140,8 +141,9 @@ export default function RestaurantPromoVideoEditingMiamiPage() {
                 Reels and promo edits from your restaurant footage.
               </p>
               <p className="mt-3 text-base font-medium text-[#9f3c27] sm:mt-4">
-                Restaurant promo edits start at {restaurantFrom} — every project gets a
-                scoped quote.
+                A restaurant promo project, scoped and quoted for your venue from your
+                footage, starts at {restaurantFrom}. Just one Reel edited from your own
+                clips? That is {singleReelFrom} per video (Starter).
               </p>
               <ul className="mt-3 max-w-2xl space-y-1 text-sm leading-6 text-[#252a2d] sm:mt-4 sm:space-y-1.5">
                 <li><strong>Already have clips?</strong> Ask for a Reel edit.</li>

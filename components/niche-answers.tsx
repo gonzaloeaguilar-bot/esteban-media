@@ -2,6 +2,7 @@ import { Mail, MessageCircle, Phone } from "lucide-react";
 
 import { renderFormattedText } from "@/components/formatted-text";
 import { KeepReading } from "@/components/keep-reading";
+import { PageUpdated } from "@/components/page-updated";
 import { Container } from "@/components/ui/container";
 import { nicheEntry, nicheSections, nicheWhatsappHref, type NicheSection } from "@/lib/niche-answers";
 import { site } from "@/lib/site";
@@ -72,6 +73,7 @@ export function NicheAnswers({ path, fact }: { path: string; fact: string }) {
                 Email
               </a>
             </div>
+            <PageUpdated path={path} locale={es ? "es" : "en"} />
           </div>
         </div>
       </Container>

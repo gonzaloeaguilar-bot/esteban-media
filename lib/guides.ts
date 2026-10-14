@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { buildPageMetadata } from "@/lib/site-metadata";
+import { pageLastModified } from "@/lib/page-lastmod";
 import { absoluteUrl, socialImage } from "@/lib/site";
 
 import {
@@ -4531,6 +4532,7 @@ export function buildGuideStructuredData(guide: Guide) {
   const path = getGuidePath(guide);
   const pageUrl = absoluteUrl(path);
   const breadcrumbsId = `${pageUrl}#breadcrumbs`;
+  const modified = pageLastModified(path);
 
   return {
     "@context": "https://schema.org",
@@ -4544,6 +4546,7 @@ export function buildGuideStructuredData(guide: Guide) {
         inLanguage: guide.locale === "es" ? "es-US" : "en-US",
         isPartOf: { "@id": absoluteUrl("/#website") },
         breadcrumb: { "@id": breadcrumbsId },
+        ...(modified ? { dateModified: modified } : {}),
       },
       {
         "@type": "Article",
@@ -4553,6 +4556,7 @@ export function buildGuideStructuredData(guide: Guide) {
         description: guide.description,
         inLanguage: guide.locale === "es" ? "es-US" : "en-US",
         mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
+        ...(modified ? { dateModified: modified } : {}),
         // No guide shows a byline, so the Article does not name a person as
         // author; both nodes point at the sitewide business entity instead of
         // anonymous Person/Organization stubs (SEO/GEO audit 2026-10-10, fix 7).

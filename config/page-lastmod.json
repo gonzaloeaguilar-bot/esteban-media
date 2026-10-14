@@ -1,0 +1,1442 @@
+{
+ "/": {
+  "date": "2026-10-14",
+  "hash": "90e73f1ffa14ffb0"
+ },
+ "/about": {
+  "date": "2026-10-11",
+  "hash": "3a49815ee16cb21c"
+ },
+ "/areas": {
+  "date": "2026-10-11",
+  "hash": "eb7023e40fe152ce"
+ },
+ "/areas/palm-beach-county": {
+  "date": "2026-10-11",
+  "hash": "42d2d15e9cc71292"
+ },
+ "/assessment": {
+  "date": "2026-10-11",
+  "hash": "9654083a28a6cc98"
+ },
+ "/calculator": {
+  "date": "2026-10-11",
+  "hash": "aab6ec1e0e00aca8"
+ },
+ "/case-studies": {
+  "date": "2026-10-11",
+  "hash": "20b9e495658564ad"
+ },
+ "/case-studies/banacol": {
+  "date": "2026-08-15",
+  "hash": "98b5fa8b1331286a"
+ },
+ "/case-studies/flas-concierge": {
+  "date": "2026-08-22",
+  "hash": "c53c645ab44cf1f1"
+ },
+ "/case-studies/healthy-smile": {
+  "date": "2026-08-15",
+  "hash": "e0875a583c067ffb"
+ },
+ "/case-studies/homeowners": {
+  "date": "2026-08-15",
+  "hash": "c67fdd234496ba35"
+ },
+ "/case-studies/my-dler": {
+  "date": "2026-08-15",
+  "hash": "cff41fc411d63e6e"
+ },
+ "/contact": {
+  "date": "2026-10-11",
+  "hash": "946c444789e1844a"
+ },
+ "/daily-hook-planner": {
+  "date": "2026-08-12",
+  "hash": "b49f2f02034557b1"
+ },
+ "/daily-publish-prompt": {
+  "date": "2026-08-11",
+  "hash": "db7e0757de21b684"
+ },
+ "/daily-script-pacing-calculator": {
+  "date": "2026-08-20",
+  "hash": "78a344545696cf5e"
+ },
+ "/daily-script-timer": {
+  "date": "2026-08-21",
+  "hash": "bdd3b9fe8c7f892f"
+ },
+ "/daily-shot-list-planner": {
+  "date": "2026-08-19",
+  "hash": "5fcb7c949b847feb"
+ },
+ "/desk-recommendations": {
+  "date": "2026-10-07",
+  "hash": "ac64f0afb33064b1"
+ },
+ "/es": {
+  "date": "2026-10-14",
+  "hash": "f5e643911fc5c0c1"
+ },
+ "/es/areas": {
+  "date": "2026-10-11",
+  "hash": "d1fbad87f3d7aa91"
+ },
+ "/es/areas/palm-beach-county": {
+  "date": "2026-10-11",
+  "hash": "baa9d7c8f2f8e06d"
+ },
+ "/es/auditoria-de-funnel-y-datos": {
+  "date": "2026-08-26",
+  "hash": "fe472c9a5cae275d"
+ },
+ "/es/automatizacion-de-operaciones": {
+  "date": "2026-08-26",
+  "hash": "7935c4f66c66d398"
+ },
+ "/es/calculadora": {
+  "date": "2026-10-11",
+  "hash": "3ddfa61f872ce608"
+ },
+ "/es/calculadora-de-costo-de-edicion-de-reels": {
+  "date": "2026-10-14",
+  "hash": "188e2c47d523fb15"
+ },
+ "/es/calculadora-de-ritmo-de-video": {
+  "date": "2026-10-14",
+  "hash": "46463c5e2b93f998"
+ },
+ "/es/captura-y-automatizacion-de-clientes-con-ia": {
+  "date": "2026-08-26",
+  "hash": "3415ab6ce0f2b41e"
+ },
+ "/es/casos-de-estudio": {
+  "date": "2026-10-11",
+  "hash": "ef24294c9ff52d70"
+ },
+ "/es/casos-de-estudio/banacol": {
+  "date": "2026-08-15",
+  "hash": "70a32a082bdcb0c3"
+ },
+ "/es/casos-de-estudio/flas-concierge": {
+  "date": "2026-08-22",
+  "hash": "12b8a4d5699dbe20"
+ },
+ "/es/casos-de-estudio/healthy-smile": {
+  "date": "2026-08-15",
+  "hash": "f9588627413ef308"
+ },
+ "/es/casos-de-estudio/homeowners": {
+  "date": "2026-08-15",
+  "hash": "c2c7f4da14b8fe85"
+ },
+ "/es/casos-de-estudio/my-dler": {
+  "date": "2026-08-15",
+  "hash": "8116e37fff14abca"
+ },
+ "/es/contacto": {
+  "date": "2026-10-11",
+  "hash": "a620c8953747c209"
+ },
+ "/es/diseno-web-fort-lauderdale": {
+  "date": "2026-10-11",
+  "hash": "7a5d0f290008d568"
+ },
+ "/es/drone-real-estate-miami": {
+  "date": "2026-08-14",
+  "hash": "a3719ea60ea71e5b"
+ },
+ "/es/edicion-de-clips-de-podcast-miami": {
+  "date": "2026-10-14",
+  "hash": "53a9cff0cfe387e4"
+ },
+ "/es/edicion-de-clips-de-predicas-para-iglesias-miami": {
+  "date": "2026-10-11",
+  "hash": "ae4b653de4655658"
+ },
+ "/es/edicion-de-video-con-dron-miami": {
+  "date": "2026-08-14",
+  "hash": "f4b106c48fda6916"
+ },
+ "/es/edicion-de-video-corporativo-weston": {
+  "date": "2026-10-09",
+  "hash": "1e1687d2b2e27a3a"
+ },
+ "/es/edicion-de-video-de-capacitacion-corporativa-miami": {
+  "date": "2026-08-14",
+  "hash": "0431adf1896a2e01"
+ },
+ "/es/edicion-de-video-marca-blanca-para-agencias": {
+  "date": "2026-10-08",
+  "hash": "55d6da6f182f26ae"
+ },
+ "/es/edicion-de-video-miami-beach": {
+  "date": "2026-08-14",
+  "hash": "8e6534bf612dd05d"
+ },
+ "/es/edicion-de-video-palm-beach-gardens": {
+  "date": "2026-08-14",
+  "hash": "53887a7c6d2d819d"
+ },
+ "/es/edicion-de-video-para-creadores-de-comida-y-lugares-miami": {
+  "date": "2026-10-11",
+  "hash": "1949d4295e382dad"
+ },
+ "/es/edicion-de-video-para-creadores-de-contenido-miami": {
+  "date": "2026-10-14",
+  "hash": "dfb8d3d646eb5a75"
+ },
+ "/es/edicion-de-video-para-cursos-online": {
+  "date": "2026-08-14",
+  "hash": "ed5070e363cffe3c"
+ },
+ "/es/edicion-de-video-para-discotecas-y-eventos-miami": {
+  "date": "2026-10-11",
+  "hash": "98ba6006632cb6de"
+ },
+ "/es/edicion-de-video-para-hoteles-boutique-miami": {
+  "date": "2026-08-14",
+  "hash": "c5f23e94bacc5d64"
+ },
+ "/es/edicion-de-video-podcast-miami": {
+  "date": "2026-10-14",
+  "hash": "7e11289f8d23e654"
+ },
+ "/es/edicion-de-video-promocional-para-restaurantes-miami": {
+  "date": "2026-10-14",
+  "hash": "b8d0dfd50b5128b8"
+ },
+ "/es/editor-de-reels-boca-raton": {
+  "date": "2026-10-14",
+  "hash": "0f9c375510365e32"
+ },
+ "/es/editor-de-reels-fort-lauderdale": {
+  "date": "2026-10-14",
+  "hash": "fa1bd0c5b6ca6e2b"
+ },
+ "/es/editor-de-reels-miami": {
+  "date": "2026-10-14",
+  "hash": "4f0b09a8761c9e31"
+ },
+ "/es/editor-de-video-corto-para-redes-miami": {
+  "date": "2026-10-14",
+  "hash": "9fb75b874afd45bf"
+ },
+ "/es/editor-de-video-miami": {
+  "date": "2026-10-12",
+  "hash": "a0e4bf8af2ee04ea"
+ },
+ "/es/editor-de-video-para-anuncios-de-tiktok-miami": {
+  "date": "2026-08-28",
+  "hash": "f5b1fa02742c0ee6"
+ },
+ "/es/editor-de-video-para-campanas-de-crowdfunding": {
+  "date": "2026-08-14",
+  "hash": "47005fbf054ca61e"
+ },
+ "/es/editor-de-video-para-marca-personal-miami": {
+  "date": "2026-10-14",
+  "hash": "cd60647e3af3d132"
+ },
+ "/es/editor-de-video-real-estate-miami": {
+  "date": "2026-10-14",
+  "hash": "d2f29faaa9eede3e"
+ },
+ "/es/editor-de-video-ugc-para-ecommerce": {
+  "date": "2026-08-14",
+  "hash": "93bc8749b5cfab1c"
+ },
+ "/es/evaluacion": {
+  "date": "2026-10-11",
+  "hash": "7a2e023ba1602af9"
+ },
+ "/es/eventos": {
+  "date": "2026-10-11",
+  "hash": "7a19ed8803e1efe6"
+ },
+ "/es/eventos/video-para-art-basel-miami-beach": {
+  "date": "2026-10-11",
+  "hash": "1bf9944929826ffa"
+ },
+ "/es/eventos/video-para-el-boat-show-de-fort-lauderdale": {
+  "date": "2026-10-11",
+  "hash": "fc596d15510bd2d1"
+ },
+ "/es/eventos/video-para-el-miami-boat-show": {
+  "date": "2026-10-11",
+  "hash": "a3e57a3c1ac381af"
+ },
+ "/es/eventos/video-para-el-south-beach-wine-food-festival": {
+  "date": "2026-10-11",
+  "hash": "77c7a3f65db642e6"
+ },
+ "/es/eventos/video-para-emerge-americas": {
+  "date": "2026-10-11",
+  "hash": "13a1023d595ef22d"
+ },
+ "/es/eventos/video-para-miami-music-week": {
+  "date": "2026-10-11",
+  "hash": "fb375e19d428c38b"
+ },
+ "/es/eventos/video-para-restaurantes-en-miami-spice": {
+  "date": "2026-10-11",
+  "hash": "d6964aa7ade60870"
+ },
+ "/es/fotografia-de-comida-con-ia-restaurantes": {
+  "date": "2026-08-15",
+  "hash": "a7b430c4e67b5bff"
+ },
+ "/es/fotografia-de-joyas-y-lujo-miami": {
+  "date": "2026-08-14",
+  "hash": "bac7bda41155ae18"
+ },
+ "/es/fotografia-de-producto-con-ia-miami": {
+  "date": "2026-10-01",
+  "hash": "35257377f1667495"
+ },
+ "/es/fotografia-de-producto-miami": {
+  "date": "2026-10-12",
+  "hash": "a958951839e5864a"
+ },
+ "/es/fotografo-de-retratos-y-headshots-miami": {
+  "date": "2026-08-14",
+  "hash": "32ee98434c50a5e9"
+ },
+ "/es/fotografo-en-fort-lauderdale": {
+  "date": "2026-10-11",
+  "hash": "d64be20919e878d3"
+ },
+ "/es/fotos-con-ia-para-bienes-raices-miami": {
+  "date": "2026-08-18",
+  "hash": "c4be65397a1674fa"
+ },
+ "/es/guias": {
+  "date": "2026-10-11",
+  "hash": "44c806014f102cec"
+ },
+ "/es/guias/como-disenar-miniaturas-de-video-atractivas": {
+  "date": "2026-10-07",
+  "hash": "706b03332f5ab28f"
+ },
+ "/es/guias/como-elegir-un-editor-de-video-en-miami": {
+  "date": "2026-10-07",
+  "hash": "20f533cb0154f5a1"
+ },
+ "/es/guias/como-empezar-una-cuenta-de-recomendaciones-de-restaurantes-miami": {
+  "date": "2026-10-14",
+  "hash": "d9024c1c108104f6"
+ },
+ "/es/guias/como-enviar-archivos-pesados-de-video-para-edicion": {
+  "date": "2026-10-11",
+  "hash": "544dec798d4ddccd"
+ },
+ "/es/guias/como-escribir-guiones-para-anuncios-de-video": {
+  "date": "2026-10-07",
+  "hash": "ad957cafd9d12cf9"
+ },
+ "/es/guias/como-escribir-un-brief-util-de-video": {
+  "date": "2026-10-07",
+  "hash": "47b044190bb14b16"
+ },
+ "/es/guias/como-mejorar-la-retencion-de-audiencia-en-video": {
+  "date": "2026-10-07",
+  "hash": "6e9cfd0c4ff54092"
+ },
+ "/es/guias/como-mezclar-audio-para-videos-en-redes": {
+  "date": "2026-10-07",
+  "hash": "3389bf4cfaf37242"
+ },
+ "/es/guias/como-preparar-audio-para-edicion-de-video": {
+  "date": "2026-10-07",
+  "hash": "58585d803752f48f"
+ },
+ "/es/guias/como-reutilizar-video-largo-en-reels": {
+  "date": "2026-10-07",
+  "hash": "8e3af5c622c01021"
+ },
+ "/es/guias/como-seleccionar-broll-para-video-corporativo": {
+  "date": "2026-10-07",
+  "hash": "e209799709e28d85"
+ },
+ "/es/guias/como-usar-instagram-reels-para-tu-negocio": {
+  "date": "2026-10-07",
+  "hash": "1ac53b77aaa6f938"
+ },
+ "/es/guias/como-usar-inteligencia-artificial-para-fotografia-de-producto": {
+  "date": "2026-10-07",
+  "hash": "9c832a53392fb86d"
+ },
+ "/es/guias/correccion-de-color-vs-colorimetria-guia": {
+  "date": "2026-10-07",
+  "hash": "1ddf87a051e12727"
+ },
+ "/es/guias/cuanto-cuesta-la-fotografia-de-producto": {
+  "date": "2026-10-14",
+  "hash": "dbbc12bbc5360533"
+ },
+ "/es/guias/cuanto-cuesta-la-produccion-de-video-corporativo-miami": {
+  "date": "2026-10-11",
+  "hash": "b3e144f104f3da71"
+ },
+ "/es/guias/cuanto-cuesta-la-produccion-de-video-en-fort-lauderdale": {
+  "date": "2026-10-08",
+  "hash": "051ce3ae31008789"
+ },
+ "/es/guias/cuanto-cuesta-un-editor-de-videos-cortos": {
+  "date": "2026-10-14",
+  "hash": "7aaeecd6b3bf4714"
+ },
+ "/es/guias/cuanto-cuesta-un-video-para-restaurante-miami": {
+  "date": "2026-10-08",
+  "hash": "541a129d2cde037b"
+ },
+ "/es/guias/cuanto-cuesta-video-inmobiliario-miami": {
+  "date": "2026-10-07",
+  "hash": "f57c86d3188bf639"
+ },
+ "/es/guias/cuantos-reels-debe-publicar-un-restaurante-por-semana": {
+  "date": "2026-10-14",
+  "hash": "d859ca7aae217e0f"
+ },
+ "/es/guias/duracion-ideal-de-video-para-redes-sociales": {
+  "date": "2026-10-07",
+  "hash": "d4a39c77410af9d5"
+ },
+ "/es/guias/edicion-de-video-con-ia-vs-editor-profesional": {
+  "date": "2026-10-07",
+  "hash": "158ba3c0ca1af52f"
+ },
+ "/es/guias/edicion-remota-vs-estudio-local": {
+  "date": "2026-10-07",
+  "hash": "69412978bc73d23b"
+ },
+ "/es/guias/editor-de-video-freelance-vs-agencia-de-postproduccion": {
+  "date": "2026-10-07",
+  "hash": "4a39132d5633d317"
+ },
+ "/es/guias/editor-de-video-vs-videografo": {
+  "date": "2026-10-14",
+  "hash": "7489665874775359"
+ },
+ "/es/guias/editor-local-vs-fiverr-vs-agencia-miami": {
+  "date": "2026-10-14",
+  "hash": "2edc15c05cf6f43b"
+ },
+ "/es/guias/entrega-para-edicion-remota-de-video": {
+  "date": "2026-10-07",
+  "hash": "0bb274f16f1198aa"
+ },
+ "/es/guias/estrategia-de-embudo-de-video-marketing-b2b": {
+  "date": "2026-10-07",
+  "hash": "a7de5d7dcf5ff452"
+ },
+ "/es/guias/estrategia-de-video-bilingue-south-florida": {
+  "date": "2026-10-07",
+  "hash": "25cfe10b35ed1c73"
+ },
+ "/es/guias/flujo-de-edicion-de-video-para-agencias-miami": {
+  "date": "2026-10-07",
+  "hash": "20c2db9a7b5957e1"
+ },
+ "/es/guias/formatos-de-archivo-de-video-raw-explicados": {
+  "date": "2026-10-07",
+  "hash": "bc1db7a994725934"
+ },
+ "/es/guias/fotografia-de-producto-con-ia-vs-estudio-tradicional": {
+  "date": "2026-10-07",
+  "hash": "7333cf8ad183a3b3"
+ },
+ "/es/guias/grabar-video-con-iphone-para-edicion-profesional": {
+  "date": "2026-10-14",
+  "hash": "cef6d2e7d26f6c72"
+ },
+ "/es/guias/guia-de-relaciones-de-aspecto-de-video": {
+  "date": "2026-10-07",
+  "hash": "cd3540eea2fb9c98"
+ },
+ "/es/guias/guias-de-edicion-de-video-con-dron-florida": {
+  "date": "2026-10-07",
+  "hash": "98a960f3bcc4b934"
+ },
+ "/es/guias/ideas-de-contenido-de-video-para-restaurantes": {
+  "date": "2026-10-07",
+  "hash": "c083dcb2d9838a91"
+ },
+ "/es/guias/ideas-de-reels-para-agentes-de-bienes-raices": {
+  "date": "2026-10-07",
+  "hash": "f14162fdd4284898"
+ },
+ "/es/guias/iluminacion-y-configuracion-para-entrevistas-de-video": {
+  "date": "2026-10-07",
+  "hash": "dc26cfe86e5e5c6b"
+ },
+ "/es/guias/mejores-estilos-de-subtitulos-para-reels": {
+  "date": "2026-10-14",
+  "hash": "79411c1cf3bd2683"
+ },
+ "/es/guias/mejores-practicas-de-edicion-de-video-vertical": {
+  "date": "2026-10-07",
+  "hash": "43d01a3ac0d8b797"
+ },
+ "/es/guias/plantilla-de-guion-para-video-testimonial": {
+  "date": "2026-10-08",
+  "hash": "7493dd8a12952ede"
+ },
+ "/es/guias/preparar-material-para-edicion-de-video": {
+  "date": "2026-10-07",
+  "hash": "b97a0891e3c3d5ea"
+ },
+ "/es/guias/reels-vs-tiktok-vs-shorts-para-negocios-locales": {
+  "date": "2026-10-07",
+  "hash": "13f84e27f41a6b3b"
+ },
+ "/es/guias/video-vertical-horizontal-y-zonas-seguras": {
+  "date": "2026-10-07",
+  "hash": "5658a2f79a3d6b1d"
+ },
+ "/es/imagenes-con-ia-para-ecommerce-miami": {
+  "date": "2026-07-26",
+  "hash": "76040bc8b9dfa9f0"
+ },
+ "/es/marketing-de-video-automotriz-miami": {
+  "date": "2026-10-07",
+  "hash": "326d6cd398939d23"
+ },
+ "/es/marketing-de-video-para-abogados-de-inmigracion-miami": {
+  "date": "2026-10-11",
+  "hash": "8e571d01552516d9"
+ },
+ "/es/marketing-de-video-para-abogados-miami": {
+  "date": "2026-07-26",
+  "hash": "301e251603cdcfd8"
+ },
+ "/es/marketing-de-video-para-agencias-de-seguros-miami": {
+  "date": "2026-10-11",
+  "hash": "64f492dbb2a385be"
+ },
+ "/es/marketing-de-video-para-alquiler-de-yates-miami": {
+  "date": "2026-10-11",
+  "hash": "a6f27f6614b55ceb"
+ },
+ "/es/marketing-de-video-para-brokers-hipotecarios-miami": {
+  "date": "2026-10-11",
+  "hash": "5aad5118d0a141dc"
+ },
+ "/es/marketing-de-video-para-cirugia-plastica-miami": {
+  "date": "2026-08-14",
+  "hash": "88e76e2487769138"
+ },
+ "/es/marketing-de-video-para-clinicas-esteticas-miami": {
+  "date": "2026-10-07",
+  "hash": "b331989a8d0359ef"
+ },
+ "/es/marketing-de-video-para-consultorios-medicos-miami": {
+  "date": "2026-10-06",
+  "hash": "028ac10f6abb854e"
+ },
+ "/es/marketing-de-video-para-contratistas-de-techos-florida": {
+  "date": "2026-07-26",
+  "hash": "55fdfdc83d43d557"
+ },
+ "/es/marketing-de-video-para-contratistas-miami": {
+  "date": "2026-07-26",
+  "hash": "d29ebf4c9c7f86bc"
+ },
+ "/es/marketing-de-video-para-dentistas-miami": {
+  "date": "2026-10-07",
+  "hash": "168e2354fc94bc44"
+ },
+ "/es/marketing-de-video-para-detallado-y-wraps-miami": {
+  "date": "2026-10-06",
+  "hash": "4e7b450e91df2298"
+ },
+ "/es/marketing-de-video-para-gimnasios-miami": {
+  "date": "2026-10-08",
+  "hash": "77415978e0a648d6"
+ },
+ "/es/marketing-de-video-para-odontologia-estetica-miami": {
+  "date": "2026-07-26",
+  "hash": "c282e941dc22e94a"
+ },
+ "/es/marketing-de-video-para-salones-y-barberias-miami": {
+  "date": "2026-10-08",
+  "hash": "dac6afa876a6851c"
+ },
+ "/es/marketing-de-video-para-spas-y-bienestar-miami": {
+  "date": "2026-10-08",
+  "hash": "a18da33b0bb62f4b"
+ },
+ "/es/planificador-de-ganchos-de-video": {
+  "date": "2026-09-29",
+  "hash": "03f7e6ea74d96952"
+ },
+ "/es/planificador-de-tomas-de-video": {
+  "date": "2026-09-29",
+  "hash": "159f484a87704944"
+ },
+ "/es/portafolio": {
+  "date": "2026-10-11",
+  "hash": "688e3f81f110d0ae"
+ },
+ "/es/portafolio/ai-lead-automation": {
+  "date": "2026-08-22",
+  "hash": "21bfb55bac76119d"
+ },
+ "/es/portafolio/banacol": {
+  "date": "2026-08-15",
+  "hash": "db0934593161a555"
+ },
+ "/es/portafolio/bar-door-monkey": {
+  "date": "2026-10-14",
+  "hash": "0b9b6885450c75a1"
+ },
+ "/es/portafolio/diana-jack": {
+  "date": "2026-07-26",
+  "hash": "e73cf4af831090aa"
+ },
+ "/es/portafolio/flas-concierge": {
+  "date": "2026-08-22",
+  "hash": "6b0a829ec06ea170"
+ },
+ "/es/portafolio/front-line-auto": {
+  "date": "2026-07-26",
+  "hash": "2f4be1cd8106c6be"
+ },
+ "/es/portafolio/gains-from-geebs": {
+  "date": "2026-07-26",
+  "hash": "c003ddca15a71ec8"
+ },
+ "/es/portafolio/healthy-smile": {
+  "date": "2026-10-07",
+  "hash": "8dd61e9fdc218454"
+ },
+ "/es/portafolio/homeowners": {
+  "date": "2026-10-11",
+  "hash": "13ba69ea6c2ef234"
+ },
+ "/es/portafolio/la-huelga": {
+  "date": "2026-07-17",
+  "hash": "c1f6d6d4f6068c6a"
+ },
+ "/es/portafolio/ml-colombia": {
+  "date": "2026-10-14",
+  "hash": "b2dd03ab64158141"
+ },
+ "/es/portafolio/my-dler": {
+  "date": "2026-09-30",
+  "hash": "66efe6119d6b1fde"
+ },
+ "/es/portafolio/titanforge": {
+  "date": "2026-07-26",
+  "hash": "72af7f005172e45b"
+ },
+ "/es/postproduccion-de-videos-musicales-miami": {
+  "date": "2026-07-26",
+  "hash": "2f0c94ff1fd3c57b"
+ },
+ "/es/precios": {
+  "date": "2026-10-14",
+  "hash": "fd5184b2b2aa2ac4"
+ },
+ "/es/precios/arranque": {
+  "date": "2026-09-29",
+  "hash": "2d6e1d06be2527c7"
+ },
+ "/es/precios/crecimiento": {
+  "date": "2026-09-29",
+  "hash": "552ea2f037eb0159"
+ },
+ "/es/precios/inmobiliaria": {
+  "date": "2026-09-29",
+  "hash": "50f1d9ad4aaeafc6"
+ },
+ "/es/precios/presencia-local": {
+  "date": "2026-09-29",
+  "hash": "167e35e568ada890"
+ },
+ "/es/precios/todo-incluido": {
+  "date": "2026-09-29",
+  "hash": "c3f9943d7d63d3d4"
+ },
+ "/es/presencia-local-seo": {
+  "date": "2026-08-26",
+  "hash": "7e5e717515a04797"
+ },
+ "/es/produccion-creativa": {
+  "date": "2026-08-26",
+  "hash": "aa30a84449b4bb47"
+ },
+ "/es/produccion-de-video-de-marca-miami": {
+  "date": "2026-08-15",
+  "hash": "209a984cf9851bee"
+ },
+ "/es/produccion-de-video-delray-beach": {
+  "date": "2026-08-14",
+  "hash": "9782b0eea118ec21"
+ },
+ "/es/produccion-de-video-doral-miami": {
+  "date": "2026-10-09",
+  "hash": "18bc42540f800ecf"
+ },
+ "/es/produccion-de-video-fort-lauderdale": {
+  "date": "2026-10-09",
+  "hash": "1ac37c2255f063ef"
+ },
+ "/es/produccion-de-video-palm-beach-county": {
+  "date": "2026-10-08",
+  "hash": "7f4e42156204b966"
+ },
+ "/es/produccion-de-video-para-asesores-financieros-miami": {
+  "date": "2026-07-26",
+  "hash": "d4affad798da9771"
+ },
+ "/es/produccion-de-video-para-entrenadores-personales-miami": {
+  "date": "2026-07-26",
+  "hash": "fbf33db0d21440bb"
+ },
+ "/es/produccion-de-video-para-hoteles-miami": {
+  "date": "2026-10-07",
+  "hash": "d26d39418e23a24c"
+ },
+ "/es/produccion-masiva-de-video-para-redes-miami": {
+  "date": "2026-07-26",
+  "hash": "5b587729722edba8"
+ },
+ "/es/prompt-de-publicacion-diaria": {
+  "date": "2026-09-29",
+  "hash": "7837d48e261c2537"
+ },
+ "/es/recursos/kit-video-social": {
+  "date": "2026-10-11",
+  "hash": "c76c635d2d08770b"
+ },
+ "/es/reels-para-negocios-miami": {
+  "date": "2026-10-08",
+  "hash": "fafd2b09b6ac3552"
+ },
+ "/es/reutilizacion-de-contenido-para-redes-miami": {
+  "date": "2026-07-26",
+  "hash": "8041cef2255c1e5c"
+ },
+ "/es/servicios": {
+  "date": "2026-10-13",
+  "hash": "efa742e0cd307336"
+ },
+ "/es/sitios-web-de-conversion": {
+  "date": "2026-08-26",
+  "hash": "4f85d90c97ca32c3"
+ },
+ "/es/sobre-esteban": {
+  "date": "2026-10-11",
+  "hash": "60223fdd55bb7bf5"
+ },
+ "/es/temporizador-de-guiones-de-video": {
+  "date": "2026-09-29",
+  "hash": "704e0c01f6ad03e5"
+ },
+ "/es/video-corporativo-distrito-financiero-miami": {
+  "date": "2026-07-26",
+  "hash": "7762e6b83d1c11de"
+ },
+ "/es/video-creativo-wynwood-miami": {
+  "date": "2026-08-14",
+  "hash": "1c43c1782862ed41"
+ },
+ "/es/video-de-marca-de-lujo-jupiter": {
+  "date": "2026-07-26",
+  "hash": "111279094ec41b16"
+ },
+ "/es/video-inmobiliario-coral-gables": {
+  "date": "2026-10-11",
+  "hash": "aa95d91b20b416cc"
+ },
+ "/es/video-inmobiliario-sunny-isles": {
+  "date": "2026-09-15",
+  "hash": "cfce623695359302"
+ },
+ "/es/video-para-academias-de-baile-y-musica-miami": {
+  "date": "2026-10-11",
+  "hash": "e34f66081b243538"
+ },
+ "/es/video-para-alquileres-vacacionales-fort-lauderdale": {
+  "date": "2026-10-11",
+  "hash": "305f4e79e2bfaf38"
+ },
+ "/es/video-para-arquitectura-y-diseno-miami": {
+  "date": "2026-08-14",
+  "hash": "a7d23d4209021f2e"
+ },
+ "/es/video-para-pequenos-negocios-pembroke-pines": {
+  "date": "2026-08-14",
+  "hash": "da273ffd1a4bbd43"
+ },
+ "/es/video-para-preventa-de-condominios-miami": {
+  "date": "2026-10-11",
+  "hash": "0cefea2d7ab87428"
+ },
+ "/es/video-para-quinceaneras-miami": {
+  "date": "2026-10-11",
+  "hash": "86be98402c556348"
+ },
+ "/es/video-para-restaurantes-miami": {
+  "date": "2026-10-14",
+  "hash": "51914c7a9055b239"
+ },
+ "/es/video-para-yates-y-hospitalidad-fort-lauderdale": {
+  "date": "2026-10-11",
+  "hash": "ee5d742f00fb98a6"
+ },
+ "/es/videografo-en-fort-lauderdale": {
+  "date": "2026-10-07",
+  "hash": "cac75ae6074c2a1e"
+ },
+ "/es/videografo-en-miami": {
+  "date": "2026-10-09",
+  "hash": "6049e0788dbf9581"
+ },
+ "/events": {
+  "date": "2026-10-11",
+  "hash": "e05d86b2e63ba0ce"
+ },
+ "/events/art-basel-miami-beach-video": {
+  "date": "2026-10-11",
+  "hash": "d75e5098d0b6a8cc"
+ },
+ "/events/emerge-americas-video": {
+  "date": "2026-10-11",
+  "hash": "97b898dfec57b632"
+ },
+ "/events/fort-lauderdale-boat-show-video": {
+  "date": "2026-10-11",
+  "hash": "ce1fe3124095c5ec"
+ },
+ "/events/miami-boat-show-video": {
+  "date": "2026-10-11",
+  "hash": "08a28202d6c4978d"
+ },
+ "/events/miami-music-week-video": {
+  "date": "2026-10-11",
+  "hash": "6503bcb83cf8f997"
+ },
+ "/events/miami-spice-restaurant-video": {
+  "date": "2026-10-11",
+  "hash": "95b431624bf0ed15"
+ },
+ "/events/south-beach-wine-food-festival-video": {
+  "date": "2026-10-11",
+  "hash": "3625dcd455b58abd"
+ },
+ "/fort-lauderdale": {
+  "date": "2026-10-11",
+  "hash": "f13c425a47a73694"
+ },
+ "/guides": {
+  "date": "2026-10-11",
+  "hash": "f230e2e2e361cd32"
+ },
+ "/guides/ai-product-photography-vs-traditional-studio": {
+  "date": "2026-10-07",
+  "hash": "f66986cc23fd575a"
+ },
+ "/guides/ai-video-editing-vs-human-editor": {
+  "date": "2026-10-07",
+  "hash": "269e128ef4c783f4"
+ },
+ "/guides/b2b-video-marketing-funnel-strategy": {
+  "date": "2026-10-07",
+  "hash": "b67d4c4fff2c00fb"
+ },
+ "/guides/best-caption-styles-for-instagram-reels": {
+  "date": "2026-10-14",
+  "hash": "a0f6b1e7764be62b"
+ },
+ "/guides/bilingual-video-marketing-strategy-south-florida": {
+  "date": "2026-10-07",
+  "hash": "ca218abab005605d"
+ },
+ "/guides/color-grading-vs-color-correction-guide": {
+  "date": "2026-10-07",
+  "hash": "be75bc5353c1fe8b"
+ },
+ "/guides/corporate-video-production-cost-miami": {
+  "date": "2026-10-11",
+  "hash": "af4b68316c2e63e6"
+ },
+ "/guides/customer-testimonial-video-script-template": {
+  "date": "2026-10-08",
+  "hash": "400421648374ec48"
+ },
+ "/guides/drone-video-editing-guidelines-florida": {
+  "date": "2026-10-07",
+  "hash": "6ce073464c5b3254"
+ },
+ "/guides/fastest-way-to-send-large-video-files-to-editor": {
+  "date": "2026-10-14",
+  "hash": "f00d71cb1a48f40b"
+ },
+ "/guides/freelance-video-editor-vs-post-agency": {
+  "date": "2026-10-07",
+  "hash": "0ea9f8871013e4c7"
+ },
+ "/guides/how-many-reels-should-a-restaurant-post-per-week": {
+  "date": "2026-10-14",
+  "hash": "a0014af34cc777c5"
+ },
+ "/guides/how-much-does-a-short-form-video-editor-cost": {
+  "date": "2026-10-14",
+  "hash": "e3978ed7d794d754"
+ },
+ "/guides/how-much-does-product-photography-cost": {
+  "date": "2026-10-07",
+  "hash": "ef7697908d825358"
+ },
+ "/guides/how-much-does-real-estate-video-cost-miami": {
+  "date": "2026-10-07",
+  "hash": "5059de5cbbb96688"
+ },
+ "/guides/how-much-does-restaurant-video-cost-miami": {
+  "date": "2026-10-08",
+  "hash": "9399d43751d38364"
+ },
+ "/guides/how-to-choose-a-video-editor-in-miami": {
+  "date": "2026-10-07",
+  "hash": "629f0605ca0021ec"
+ },
+ "/guides/how-to-design-clickable-video-thumbnails": {
+  "date": "2026-10-07",
+  "hash": "84e0376a18dd8ed4"
+ },
+ "/guides/how-to-improve-video-retention-rate": {
+  "date": "2026-10-07",
+  "hash": "3357d44053700f67"
+ },
+ "/guides/how-to-mix-audio-for-social-video": {
+  "date": "2026-10-07",
+  "hash": "02ef29aefe36954c"
+ },
+ "/guides/how-to-prepare-audio-for-video-editing": {
+  "date": "2026-10-07",
+  "hash": "dd43b1712d37ab66"
+ },
+ "/guides/how-to-repurpose-long-form-video-into-reels": {
+  "date": "2026-10-07",
+  "hash": "647d81ff26c71bb3"
+ },
+ "/guides/how-to-script-social-video-ads": {
+  "date": "2026-10-07",
+  "hash": "319fb3240b7f0d44"
+ },
+ "/guides/how-to-select-broll-for-corporate-video": {
+  "date": "2026-10-07",
+  "hash": "491159f33fd789f1"
+ },
+ "/guides/how-to-start-a-restaurant-recommendation-account-miami": {
+  "date": "2026-10-14",
+  "hash": "ad305c196c336e4a"
+ },
+ "/guides/how-to-use-ai-for-product-photography": {
+  "date": "2026-10-07",
+  "hash": "e28bc0ce22f15585"
+ },
+ "/guides/how-to-use-instagram-reels-for-business": {
+  "date": "2026-10-07",
+  "hash": "97b340f668b72d5f"
+ },
+ "/guides/ideal-video-length-for-social-platforms": {
+  "date": "2026-10-07",
+  "hash": "7d2797e28a978960"
+ },
+ "/guides/instagram-reels-ideas-for-real-estate": {
+  "date": "2026-10-07",
+  "hash": "7d4177f6f2876f27"
+ },
+ "/guides/lighting-setup-for-video-interviews-at-home": {
+  "date": "2026-10-07",
+  "hash": "8c4dd9854e52ae06"
+ },
+ "/guides/local-editor-vs-fiverr-vs-agency-miami": {
+  "date": "2026-10-14",
+  "hash": "98e2946f6c50777e"
+ },
+ "/guides/prepare-footage-for-video-editing": {
+  "date": "2026-10-07",
+  "hash": "636c53f30cd62b5d"
+ },
+ "/guides/raw-video-file-formats-explained": {
+  "date": "2026-10-07",
+  "hash": "41c02627e822ab18"
+ },
+ "/guides/record-video-with-iphone-for-professional-editing": {
+  "date": "2026-10-14",
+  "hash": "6c7f35a6f9ed4721"
+ },
+ "/guides/reels-vs-tiktok-vs-shorts-for-local-business": {
+  "date": "2026-10-07",
+  "hash": "a0b4bd62c2dfa183"
+ },
+ "/guides/remote-video-editing-handoff": {
+  "date": "2026-10-07",
+  "hash": "a6c3410442082266"
+ },
+ "/guides/remote-vs-local-video-editing": {
+  "date": "2026-10-07",
+  "hash": "8c02108b2b39ba6b"
+ },
+ "/guides/vertical-horizontal-video-exports-and-safe-zones": {
+  "date": "2026-10-07",
+  "hash": "1d18264740f03b10"
+ },
+ "/guides/vertical-video-editing-best-practices": {
+  "date": "2026-10-07",
+  "hash": "6ff38594f5cb3825"
+ },
+ "/guides/video-aspect-ratios-cheat-sheet": {
+  "date": "2026-10-07",
+  "hash": "501581b46e8469aa"
+ },
+ "/guides/video-content-ideas-for-restaurants": {
+  "date": "2026-10-07",
+  "hash": "1b87bda3b8b991b7"
+ },
+ "/guides/video-editing-workflow-for-agencies-miami": {
+  "date": "2026-10-07",
+  "hash": "f1f31c8f4d8cc63f"
+ },
+ "/guides/video-editor-vs-videographer": {
+  "date": "2026-10-14",
+  "hash": "f5e2aeff8a1579fa"
+ },
+ "/guides/video-production-cost-fort-lauderdale": {
+  "date": "2026-10-11",
+  "hash": "e5f1ac0482d9b7a0"
+ },
+ "/guides/write-a-useful-video-brief": {
+  "date": "2026-10-07",
+  "hash": "66752ea49e8b4959"
+ },
+ "/lens": {
+  "date": "2026-10-06",
+  "hash": "2d4f6f989971a2b4"
+ },
+ "/portfolio": {
+  "date": "2026-10-11",
+  "hash": "baa5576598ce7259"
+ },
+ "/portfolio/ai-lead-automation": {
+  "date": "2026-08-22",
+  "hash": "21bfb55bac76119d"
+ },
+ "/portfolio/banacol": {
+  "date": "2026-08-15",
+  "hash": "721362de1644a140"
+ },
+ "/portfolio/bar-door-monkey": {
+  "date": "2026-10-14",
+  "hash": "9f4e2c2827399352"
+ },
+ "/portfolio/diana-jack": {
+  "date": "2026-10-14",
+  "hash": "4a6e93b2d6bc6087"
+ },
+ "/portfolio/flas-concierge": {
+  "date": "2026-08-22",
+  "hash": "e882cfb7a55582c2"
+ },
+ "/portfolio/front-line-auto": {
+  "date": "2026-07-26",
+  "hash": "2f4be1cd8106c6be"
+ },
+ "/portfolio/gains-from-geebs": {
+  "date": "2026-07-26",
+  "hash": "c003ddca15a71ec8"
+ },
+ "/portfolio/healthy-smile": {
+  "date": "2026-10-11",
+  "hash": "4453ea98c74db64f"
+ },
+ "/portfolio/homeowners": {
+  "date": "2026-10-11",
+  "hash": "bf23f388a63bc10e"
+ },
+ "/portfolio/la-huelga": {
+  "date": "2026-07-17",
+  "hash": "c1f6d6d4f6068c6a"
+ },
+ "/portfolio/ml-colombia": {
+  "date": "2026-10-14",
+  "hash": "be0bda1ca19b7a6f"
+ },
+ "/portfolio/my-dler": {
+  "date": "2026-09-30",
+  "hash": "b3a06fc737700f2b"
+ },
+ "/portfolio/titanforge": {
+  "date": "2026-07-26",
+  "hash": "72af7f005172e45b"
+ },
+ "/pricing": {
+  "date": "2026-10-14",
+  "hash": "86946568575aca3d"
+ },
+ "/pricing/all-in": {
+  "date": "2026-09-29",
+  "hash": "d0b021275a436790"
+ },
+ "/pricing/growth": {
+  "date": "2026-09-29",
+  "hash": "b5abc006da9e88e7"
+ },
+ "/pricing/local-presence": {
+  "date": "2026-09-29",
+  "hash": "42b1c80f3e2ea81a"
+ },
+ "/pricing/real-estate": {
+  "date": "2026-10-01",
+  "hash": "76b30d28f90ab2ab"
+ },
+ "/pricing/starter": {
+  "date": "2026-09-29",
+  "hash": "69c2e0d74b75b286"
+ },
+ "/reels-editing-cost-calculator": {
+  "date": "2026-10-14",
+  "hash": "f666a7126767ea58"
+ },
+ "/resources/ai-product-photo-truth-checklist": {
+  "date": "2026-10-11",
+  "hash": "e9044fcfc0ce1e9a"
+ },
+ "/resources/remote-editing-handoff-checklist": {
+  "date": "2026-10-11",
+  "hash": "2b6b632f38100678"
+ },
+ "/resources/social-video-kit": {
+  "date": "2026-10-11",
+  "hash": "98f0b8693140e551"
+ },
+ "/resources/video-project-brief-template": {
+  "date": "2026-10-01",
+  "hash": "f13b633ddbb729ef"
+ },
+ "/services": {
+  "date": "2026-10-11",
+  "hash": "9ec27ab3b44ad783"
+ },
+ "/services/ai-food-photography-restaurants": {
+  "date": "2026-10-13",
+  "hash": "31475ba53f41702c"
+ },
+ "/services/ai-lead-capture-automation": {
+  "date": "2026-08-26",
+  "hash": "dc84c54c956c8b49"
+ },
+ "/services/ai-product-photography-miami": {
+  "date": "2026-10-13",
+  "hash": "07a9ca2a4e0d8e25"
+ },
+ "/services/ai-real-estate-photo-enhancement": {
+  "date": "2026-10-13",
+  "hash": "402471880c588e1b"
+ },
+ "/services/architecture-design-video-miami": {
+  "date": "2026-10-13",
+  "hash": "f7fc18077fddaccc"
+ },
+ "/services/auto-detailing-tint-wrap-video-marketing-miami": {
+  "date": "2026-10-13",
+  "hash": "e63d7b93b03808e6"
+ },
+ "/services/automotive-video-marketing-miami": {
+  "date": "2026-10-13",
+  "hash": "422c3b140d3069df"
+ },
+ "/services/boutique-hotel-video-editing-miami": {
+  "date": "2026-10-13",
+  "hash": "6823faf5b5d2610b"
+ },
+ "/services/brand-video-production-miami": {
+  "date": "2026-10-13",
+  "hash": "8939ef720a795ca1"
+ },
+ "/services/church-sermon-clip-editing-miami": {
+  "date": "2026-10-13",
+  "hash": "09a037731b8e0b17"
+ },
+ "/services/content-creator-video-editing-miami": {
+  "date": "2026-10-13",
+  "hash": "9ad50464e171bb0e"
+ },
+ "/services/content-repurposing-service-miami": {
+  "date": "2026-10-13",
+  "hash": "04f91ca3a81ca008"
+ },
+ "/services/contractor-video-marketing-south-florida": {
+  "date": "2026-10-13",
+  "hash": "3877081a43d7d60c"
+ },
+ "/services/conversion-websites": {
+  "date": "2026-08-26",
+  "hash": "9d1c7797c4ad155a"
+ },
+ "/services/corporate-event-videographer-miami": {
+  "date": "2026-10-13",
+  "hash": "d32a63e9cd0a7573"
+ },
+ "/services/corporate-training-video-editing-miami": {
+  "date": "2026-10-13",
+  "hash": "27f77f5d3fb54f1f"
+ },
+ "/services/corporate-video-editing-weston-fl": {
+  "date": "2026-10-13",
+  "hash": "a47bea17db8dd72d"
+ },
+ "/services/corporate-video-production-brickell": {
+  "date": "2026-10-13",
+  "hash": "1d5a07f563beb38d"
+ },
+ "/services/cosmetic-dentistry-video-marketing-miami": {
+  "date": "2026-10-13",
+  "hash": "421af6c454b2dcb6"
+ },
+ "/services/creative-production": {
+  "date": "2026-08-26",
+  "hash": "b94c972942ab25ea"
+ },
+ "/services/creative-video-production-wynwood": {
+  "date": "2026-10-13",
+  "hash": "39cb12aa1939f7cd"
+ },
+ "/services/crowdfunding-video-editor-miami": {
+  "date": "2026-10-13",
+  "hash": "3ef88a5453e1f936"
+ },
+ "/services/custom-operations-automation": {
+  "date": "2026-08-26",
+  "hash": "d9b034dc8461185e"
+ },
+ "/services/dance-studio-music-school-video-marketing-miami": {
+  "date": "2026-10-13",
+  "hash": "b4b9bbe0a4d083a2"
+ },
+ "/services/dental-video-marketing-south-florida": {
+  "date": "2026-10-13",
+  "hash": "07013d514fe11441"
+ },
+ "/services/drone-video-editing-service-miami": {
+  "date": "2026-10-13",
+  "hash": "1c6ec7836aa9b2a2"
+ },
+ "/services/fitness-gym-video-marketing-miami": {
+  "date": "2026-10-13",
+  "hash": "7fdeca4af6307ed2"
+ },
+ "/services/food-and-places-creator-video-editing-miami": {
+  "date": "2026-10-13",
+  "hash": "cf75bcce1d5f2d02"
+ },
+ "/services/growth-funnel-audit": {
+  "date": "2026-08-26",
+  "hash": "e6190437f9eb5ded"
+ },
+ "/services/headshot-photographer-miami": {
+  "date": "2026-10-13",
+  "hash": "1c4f65f7111e50c9"
+ },
+ "/services/hire-remote-video-editor": {
+  "date": "2026-10-13",
+  "hash": "ab5725341be96f50"
+ },
+ "/services/hotel-hospitality-video-production-miami": {
+  "date": "2026-10-13",
+  "hash": "20ed4c3a283ae19d"
+ },
+ "/services/immigration-attorney-video-marketing-miami": {
+  "date": "2026-10-13",
+  "hash": "296e06f14a7afcbe"
+ },
+ "/services/insurance-agency-video-marketing-miami": {
+  "date": "2026-10-13",
+  "hash": "69678bd52a840a7d"
+ },
+ "/services/interview-video-editing-service": {
+  "date": "2026-10-13",
+  "hash": "6939bee03ce2091d"
+ },
+ "/services/jewelry-product-photography-miami": {
+  "date": "2026-10-13",
+  "hash": "4dc065b062a250bc"
+ },
+ "/services/local-presence-seo": {
+  "date": "2026-08-26",
+  "hash": "1a9fbaec61667dff"
+ },
+ "/services/med-spa-video-marketing-south-florida": {
+  "date": "2026-10-13",
+  "hash": "570143b20a436b8b"
+ },
+ "/services/medical-practice-video-marketing-miami": {
+  "date": "2026-10-13",
+  "hash": "f11fb7f07be6b0db"
+ },
+ "/services/mortgage-broker-video-marketing-miami": {
+  "date": "2026-10-13",
+  "hash": "a5e6976b4ae94c22"
+ },
+ "/services/music-video-post-production-miami": {
+  "date": "2026-10-13",
+  "hash": "56460dd7f17ded83"
+ },
+ "/services/nightlife-event-video-editing-miami": {
+  "date": "2026-10-13",
+  "hash": "e9ade01c1d0fd8c2"
+ },
+ "/services/online-course-video-editing-service": {
+  "date": "2026-10-13",
+  "hash": "3c4618efdb213812"
+ },
+ "/services/personal-brand-video-editor-founders-miami": {
+  "date": "2026-10-13",
+  "hash": "1633fb8a7b9beb0c"
+ },
+ "/services/plastic-surgery-video-marketing-miami": {
+  "date": "2026-10-13",
+  "hash": "0ad6823f6f8c41b1"
+ },
+ "/services/podcast-clipping-service-miami": {
+  "date": "2026-10-13",
+  "hash": "54c3a2c8e59b1028"
+ },
+ "/services/pre-construction-condo-video-marketing-miami": {
+  "date": "2026-10-13",
+  "hash": "be2039ed1365e1ae"
+ },
+ "/services/product-photography-miami": {
+  "date": "2026-10-13",
+  "hash": "0abd339434e86efd"
+ },
+ "/services/quinceanera-video-miami": {
+  "date": "2026-10-13",
+  "hash": "af7d3503a42a87c0"
+ },
+ "/services/real-estate-drone-video-editing-miami": {
+  "date": "2026-10-13",
+  "hash": "762d39751aa02d2e"
+ },
+ "/services/real-estate-reels-video-editor-south-florida": {
+  "date": "2026-10-11",
+  "hash": "8451fa2fa1202da9"
+ },
+ "/services/real-estate-video-coral-gables": {
+  "date": "2026-10-13",
+  "hash": "3505eee75d53026b"
+ },
+ "/services/real-estate-video-sunny-isles": {
+  "date": "2026-10-13",
+  "hash": "cf7fbe22027e7ced"
+ },
+ "/services/reels-editor-fort-lauderdale": {
+  "date": "2026-10-14",
+  "hash": "75dba5ee0b9c7011"
+ },
+ "/services/reels-editor-miami": {
+  "date": "2026-10-14",
+  "hash": "d6c9b96e48c68bec"
+ },
+ "/services/restaurant-promo-video-editing-miami": {
+  "date": "2026-10-14",
+  "hash": "2949597de40cc4c0"
+ },
+ "/services/salon-barbershop-video-marketing-miami": {
+  "date": "2026-10-13",
+  "hash": "7fe15c1e91652250"
+ },
+ "/services/short-form-video-editor-miami": {
+  "date": "2026-10-14",
+  "hash": "7183c9c583d16c4a"
+ },
+ "/services/small-business-video-hollywood-fl": {
+  "date": "2026-10-14",
+  "hash": "74ce858a19fed7bc"
+ },
+ "/services/small-business-video-pembroke-pines": {
+  "date": "2026-10-14",
+  "hash": "d34ae01927c98750"
+ },
+ "/services/small-business-video-production-miami": {
+  "date": "2026-10-13",
+  "hash": "fd89dffce3f37465"
+ },
+ "/services/tiktok-ad-video-editor-miami": {
+  "date": "2026-10-13",
+  "hash": "2af5b42140e918c0"
+ },
+ "/services/ugc-video-editor-ecommerce": {
+  "date": "2026-10-13",
+  "hash": "3baf3fb05707df99"
+ },
+ "/services/vacation-rental-video-marketing-fort-lauderdale": {
+  "date": "2026-10-13",
+  "hash": "5908ad608261aa43"
+ },
+ "/services/video-editing-miami-beach": {
+  "date": "2026-10-13",
+  "hash": "c509d4d7e71ef6fb"
+ },
+ "/services/video-editing-palm-beach-gardens": {
+  "date": "2026-10-13",
+  "hash": "2cc86cece1e375f8"
+ },
+ "/services/video-editing-west-palm-beach": {
+  "date": "2026-10-14",
+  "hash": "50241679410ca847"
+ },
+ "/services/video-podcast-editing-service-miami": {
+  "date": "2026-10-13",
+  "hash": "af3e983b20926673"
+ },
+ "/services/video-production-boca-raton": {
+  "date": "2026-10-14",
+  "hash": "8de95aa2e10b9dc6"
+ },
+ "/services/video-production-delray-beach": {
+  "date": "2026-10-13",
+  "hash": "445ee46f185278ac"
+ },
+ "/services/video-production-doral-miami": {
+  "date": "2026-10-13",
+  "hash": "b9649d893fe0b6d8"
+ },
+ "/services/video-production-fort-lauderdale": {
+  "date": "2026-10-11",
+  "hash": "306fb58cd03bf23a"
+ },
+ "/services/wealth-management-video-production-miami": {
+  "date": "2026-10-13",
+  "hash": "7132e3b37d931053"
+ },
+ "/services/webinar-clip-editing-service": {
+  "date": "2026-10-13",
+  "hash": "56a468cfeb965c79"
+ },
+ "/services/website-design-fort-lauderdale": {
+  "date": "2026-10-11",
+  "hash": "ab53e6231008de23"
+ },
+ "/services/wellness-spa-video-marketing-miami": {
+  "date": "2026-10-13",
+  "hash": "56255c03491aae86"
+ },
+ "/services/white-label-video-editing-for-agencies": {
+  "date": "2026-10-13",
+  "hash": "722959904f8b3204"
+ },
+ "/services/yacht-charter-video-marketing-miami": {
+  "date": "2026-10-13",
+  "hash": "130c473d8f641bbc"
+ },
+ "/services/yacht-hospitality-video-fort-lauderdale": {
+  "date": "2026-10-13",
+  "hash": "2939df0b97b71163"
+ }
+}

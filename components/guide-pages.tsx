@@ -3,6 +3,8 @@ import { GuideIllustration } from "@/components/guide-illustration";
 import { KeepReading } from "@/components/keep-reading";
 import RailFaq from "@/vendor/rail-kit/RailFaq";
 import Link from "next/link";
+import { PriorityLinks } from "@/components/priority-links";
+import { PageUpdated } from "@/components/page-updated";
 import {
   ArrowRight,
   BookOpenText,
@@ -731,9 +733,11 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
                 <VideoStrategyAssessment locale={locale} />
               </div>
             )}
+            <PageUpdated path={getGuidePath(guide)} locale={locale} />
           </div>
         </Container>
       </article>
+      <PriorityLinks path={getGuidePath(guide)} locale={locale} />
 
       <section className="border-y border-[#d6ccc0] bg-[#e7ded2] py-12 sm:py-16">
         <Container size="xl">

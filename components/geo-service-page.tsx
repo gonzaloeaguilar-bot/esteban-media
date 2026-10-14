@@ -20,6 +20,7 @@ import { Container } from "@/components/ui/container";
 import { absoluteUrl } from "@/lib/site";
 import { PACKAGE_PRICES, REAL_ESTATE_PLANS, usd } from "@/lib/pricing";
 import { NicheAnswers } from "@/components/niche-answers";
+import { PriorityLinks } from "@/components/priority-links";
 import { withNicheService } from "@/lib/niche-answers";
 
 export type GeoServicePageContent = {
@@ -255,6 +256,7 @@ export function GeoServicePage({
       <ServiceInquiryRail service={content.inquiry} />
       <ServiceRelated heading={content.relatedHeading} services={content.related} />
       <NicheAnswers path={content.path} fact={content.description} />
+      <PriorityLinks path={content.path} locale="en" />
     </main>
   );
 }

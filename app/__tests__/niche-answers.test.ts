@@ -128,8 +128,15 @@ describe("niche answers (PR #316 pattern at template level)", () => {
       const cost = nicheSections(nicheEntry(path, pageFact(path))!).folded.find((s) => /cost|cuest/.test(s.heading))!;
       const text = cost.paragraphs.join(" ");
       expect(text, path).toContain(usd(RESTAURANT_PROMO.from));
-      expect(text, path).not.toContain(usd(SHORT_FORM.perVideoFrom) + " per video");
-      expect(text, path).not.toContain(usd(SHORT_FORM.perVideoFrom) + " por video");
+      // The Starter per-video price may appear only as the separate single-Reel
+      // edit (2026-10-14: buyers saw "$240" and "$100 per video" as two prices
+      // for one thing), never as the restaurant price itself.
+      for (const sentence of text.split(/(?<=\.)\s+/)) {
+        if (sentence.includes(usd(SHORT_FORM.perVideoFrom))) {
+          expect(sentence, path).toMatch(/Starter|Arranque/);
+          expect(sentence, path).not.toContain(usd(RESTAURANT_PROMO.from));
+        }
+      }
     }
   });
 
@@ -145,7 +152,12 @@ describe("niche answers (PR #316 pattern at template level)", () => {
 
   it("does not touch pages outside the registry", () => {
     const input = { "@context": "https://schema.org", "@graph": [{ "@type": "Service" }] };
-    expect(withNicheService("/services/website-design-fort-lauderdale", input)).toBe(input);
+    const out = withNicheService("/services/website-design-fort-lauderdale", input) as { "@graph": object[] };
+    // The Service node is untouched; only the ledger's page date may be added.
+    expect(out["@graph"][0]).toBe(input["@graph"][0]);
+    expect(out["@graph"].slice(1)).toEqual(
+      out["@graph"].slice(1).map(() => expect.objectContaining({ "@type": "WebPage", dateModified: expect.any(String) })),
+    );
   });
 
   it("never prints a price that is not computed from lib/pricing.ts", () => {

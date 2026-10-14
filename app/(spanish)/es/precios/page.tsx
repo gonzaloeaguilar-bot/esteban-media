@@ -1,9 +1,11 @@
 import Link from "next/link";
 
 import { ClosingCredits, PackagesSection } from "@/components/packages-section";
+import { PageUpdated } from "@/components/page-updated";
 import { Container } from "@/components/ui/container";
 import { entityIds } from "@/lib/entity-schema";
 import { packagesJsonLd } from "@/lib/packages";
+import { pageLastModified } from "@/lib/page-lastmod";
 import { absoluteUrl } from "@/lib/site";
 import { buildPageMetadata } from "@/lib/site-metadata";
 
@@ -30,6 +32,7 @@ export default function SpanishPricingPage() {
     description:
       "Precios de partida de los paquetes y servicios de Esteban Moreno Media, y el proceso de cotización en tres pasos.",
     isPartOf: { "@id": absoluteUrl("/#website") },
+    ...(pageLastModified(PATH) ? { dateModified: pageLastModified(PATH) } : {}),
     breadcrumb: { "@id": `${url}#breadcrumbs` },
     inLanguage: "es-US",
   };
@@ -86,6 +89,7 @@ export default function SpanishPricingPage() {
             y de qué tan rápido lo necesitas — por eso siempre recibes una
             cotización por escrito para tu proyecto.
           </p>
+          <PageUpdated path={PATH} locale="es" className="mt-3 text-xs text-[#5a6066]" />
           <p className="mt-3 max-w-2xl text-sm text-[#5a6066]">
             ¿Quieres un número para tu proyecto ahora mismo? Usa la{" "}
             <Link href="/es/calculadora" className="underline hover:text-[#9f3c27]">
