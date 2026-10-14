@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import { OWNER_FACT_ANSWERS, latamAnswer, perHourAnswer } from "@/lib/owner-fact-answers";
-import { SHORT_FORM, usd } from "@/lib/pricing";
+import { SHORT_FORM, filmingHourlyText, usd } from "@/lib/pricing";
 import { WEDDING_DEPTH, WEDDING_PRICE_ANSWER } from "@/lib/service-depth-content";
 import { WEDDING_DEEP_DIVE } from "@/lib/service-deep-dive-content";
 import { getSpanishNichePage } from "@/lib/spanish-site";
@@ -44,8 +44,9 @@ describe("editing is per video, not per hour", () => {
   it.each(["en", "es"] as const)("reads the per-video price from lib/pricing and names no hourly rate (%s)", (locale) => {
     const { answer } = perHourAnswer(locale);
     expect(answer).toContain(usd(SHORT_FORM.perVideoFrom));
-    expect(answer).toMatch(locale === "es" ? /no cobra por hora/ : /does not charge by the hour/);
-    expect(answer).not.toMatch(/\$\s?\d+\s*(\/|per|an|a|por)\s*(h|hour|hora)/i);
+    expect(answer).toMatch(locale === "es" ? /no cobra la edición por hora/ : /does not charge for editing by the hour/);
+    // The only hourly figure allowed is the owner's filming rate, via its helper (PR #433).
+    expect(answer.replace(filmingHourlyText(locale), "")).not.toMatch(/\$\s?\d+\s*(\/|per|an|a|por)\s*(h|hour|hora)/i);
     expect(words(answer)).toBeGreaterThanOrEqual(80);
   });
 
@@ -68,9 +69,12 @@ describe("owner-fact sections", () => {
     }
   });
 
-  it("never states an hourly rate or the parked filming rate", () => {
-    const all = JSON.stringify(OWNER_FACT_ANSWERS);
-    expect(all).not.toMatch(/\$80(?!\d)|per hour of filming|por hora de grabación/);
+  it("states no hourly figure except the owner's filming rate, read from its helper", () => {
+    const all = JSON.stringify(OWNER_FACT_ANSWERS)
+      .split(filmingHourlyText("en")).join("")
+      .split(filmingHourlyText("es")).join("");
+    expect(all).not.toMatch(/\$\s?\d+\s*(\/|per|an|a|por)\s*(h|hour|hora)/i);
+    expect(all).not.toMatch(/per hour of filming|por hora de grabación/);
   });
 });
 

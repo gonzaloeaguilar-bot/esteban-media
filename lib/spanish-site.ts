@@ -871,7 +871,7 @@ const nicheWave8Pages: SpanishNichePage[] = [
         heading: "¿Qué momentos de la boda deben estar en la lista?",
         paragraphs: [
           "Los que vas a querer ver otra vez en diez años. La preparación, el primer encuentro si lo planean, la entrada a la ceremonia, los votos y el intercambio de anillos, el lazo o las arras si la familia mantiene esas tradiciones, el primer beso, la salida, las fotos familiares, la entrada a la recepción, el primer baile, los bailes con los padres, los brindis, el pastel y la despedida.",
-          "Entrega al videógrafo el horario del día con tiempos aproximados y los nombres de las personas más importantes, para que los abuelos, los padrinos y quien da un discurso se graben a propósito. La película se arma con esa lista. Para clips cortos del mismo día está el [editor de video corto](/es/editor-de-video-corto-para-redes-miami), y para otras celebraciones la [edición de video para eventos](/es/edicion-de-video-para-eventos-miami).",
+          "Entrega al videógrafo el horario del día con tiempos aproximados y los nombres de las personas más importantes, para que los abuelos, los padrinos y quien da un discurso se graben a propósito. La película se arma con esa lista. Para clips cortos del mismo día está el [editor de video corto](/es/editor-de-video-corto-para-redes-miami), y para otra celebración familiar el [video para quinceañeras](/es/video-para-quinceaneras-miami).",
         ],
       },
     ],

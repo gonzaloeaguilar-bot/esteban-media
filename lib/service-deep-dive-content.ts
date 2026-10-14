@@ -499,7 +499,7 @@ export const WEDDING_DEEP_DIVE: DeepDive = {
       heading: "Which wedding moments belong on the shot list?",
       paragraphs: [
         "The ones you will want to see again in ten years. Getting ready, the first look if you plan one, the processional, the vows and the exchange of rings, the first kiss, the recessional, the family portraits, the grand entrance, the first dance, the parent dances, the toasts, the cake and the send-off. Not every wedding has all of them, and some families add their own traditions, such as the lazo or the arras.",
-        "Give the videographer the timeline from your planner with approximate times and the names of the people who matter most, so grandparents, the wedding party and anyone giving a speech are filmed on purpose. The film is built from that list. For short clips from the same day, see [short-form video editing](/services/short-form-video-editor-miami); for other celebrations, the [event video editing](/services/event-video-editing-miami) page.",
+        "Give the videographer the timeline from your planner with approximate times and the names of the people who matter most, so grandparents, the wedding party and anyone giving a speech are filmed on purpose. The film is built from that list. For short clips from the same day, see [short-form video editing](/services/short-form-video-editor-miami); for another family celebration, the [quinceañera video](/services/quinceanera-video-miami) page.",
       ],
     },
   ],

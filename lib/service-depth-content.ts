@@ -2013,7 +2013,7 @@ export const WEDDING_DEPTH: NicheWave8Depth = {
   ],
   relatedHeading: "Related services for weddings and celebrations.",
   related: [
-    { title: "Event Video Editing", detail: "Recaps and highlights edited from event footage.", href: "/services/event-video-editing-miami" },
+    { title: "Fort Lauderdale Video Production", detail: "On-location filming and editing from the Fort Lauderdale base.", href: "/services/video-production-fort-lauderdale" },
     { title: "Quinceañera Video", detail: "Highlight films and social edits for quinceañeras.", href: "/services/quinceanera-video-miami" },
     { title: "Short-Form Video Editing", detail: "Vertical clips for Reels and TikTok from the same footage.", href: "/services/short-form-video-editor-miami" },
   ],

@@ -3698,7 +3698,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "How much does a video editor charge per hour?",
           paragraphs: [
-            `Many editors and agencies bill by the hour, but Esteban Moreno Media does not. Editing is priced per video, from ${usd(SHORT_FORM.perVideoFrom)} on the Starter package, not by the hour, so you know the price before work starts. With an hourly rate the total stays open until the end: it depends on how many hours the edit took, and a slow session or an extra round of changes adds to the bill. With a per-video price, what you pay for one finished video is fixed before the edit begins, and the written quote says how many rounds of changes are included.`,
+            `Many editors and agencies bill editing by the hour, but Esteban Moreno Media does not. Editing is priced per video, from ${usd(SHORT_FORM.perVideoFrom)} on the Starter package, not by the hour, so you know the price before work starts; only filming is billed by time, ${filmingHourlyText("en")}. With an hourly rate the total stays open until the end: it depends on how many hours the edit took, and a slow session or an extra round of changes adds to the bill. With a per-video price, what you pay for one finished video is fixed before the edit begins, and the written quote says how many rounds of changes are included.`,
             "To compare an hourly quote with a per-video one, ask the hourly editor how many hours a video like yours usually takes, multiply by the rate, and then add the same extras to both: captions, extra sizes and revision rounds. That gives you two numbers for the same finished video.",
           ],
         },
@@ -3743,7 +3743,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "¿Cuánto cobra un editor de video por hora?",
           paragraphs: [
-            `Muchos editores y agencias cobran por hora, pero Esteban Moreno Media no. La edición se cobra por video, desde ${usd(SHORT_FORM.perVideoFrom)} con el paquete Arranque, no por hora, así que sabes el precio antes de que empiece el trabajo. Con una tarifa por hora el total queda abierto hasta el final: depende de cuántas horas tomó la edición, y una sesión lenta o una ronda extra de cambios suben la cuenta. Con un precio por video, lo que pagas por un video terminado queda fijo antes de editar, y la cotización por escrito dice cuántas rondas de cambios incluye.`,
+            `Muchos editores y agencias cobran la edición por hora, pero Esteban Moreno Media no. La edición se cobra por video, desde ${usd(SHORT_FORM.perVideoFrom)} con el paquete Arranque, no por hora, así que sabes el precio antes de que empiece el trabajo; solo la grabación se cobra por tiempo, ${filmingHourlyText("es")}. Con una tarifa por hora el total queda abierto hasta el final: depende de cuántas horas tomó la edición, y una sesión lenta o una ronda extra de cambios suben la cuenta. Con un precio por video, lo que pagas por un video terminado queda fijo antes de editar, y la cotización por escrito dice cuántas rondas de cambios incluye.`,
             "Para comparar una cotización por hora con una por video, pregúntale al editor que cobra por hora cuántas horas suele tomar un video como el tuyo, multiplícalo por su tarifa y suma a los dos los mismos extras: subtítulos, formatos adicionales y rondas de cambios. Si estás en Latinoamérica, Esteban trabaja a distancia y en español, con precios en dólares estadounidenses (USD).",
           ],
         },

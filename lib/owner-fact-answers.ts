@@ -14,7 +14,7 @@
 // run no JavaScript still read it).
 
 import { priceSentence } from "@/lib/packages";
-import { SHORT_FORM, usd } from "@/lib/pricing";
+import { SHORT_FORM, filmingHourlyText, usd } from "@/lib/pricing";
 
 export type OwnerFactSection = {
   id: string;
@@ -37,7 +37,7 @@ const VLOG_EN_DORAL: OwnerFactSection = {
   heading: "Do you film and edit vlogs in Doral and Miami?",
   paragraphs: [
     `Yes. Esteban Moreno films and edits vlogs. If you already record your own vlog on a phone or a camera, send the original files and he edits them remotely: he cuts the dead time, keeps your voice and the story in order, and adds captions, music and a title for YouTube, Instagram or TikTok. Editing is priced per video, from ${perVideo} on the Starter package, so you know the price before the edit starts; a long vlog is quoted by its length and what it needs.`,
-    `If you want him behind the camera, filming in Doral or anywhere else in Miami-Dade is on-location work scoped per project. The Local Presence package is ${enLocal()}, and the written quote sets the location, the hours and what you get back before the date. You can brief him in Spanish or English.`,
+    `If you want him behind the camera, filming in Doral or anywhere else in Miami-Dade is on-location work scoped per project: filming is ${filmingHourlyText("en")}, a full production day is the Local Presence package, ${enLocal()}, and the written quote sets the location, the hours and what you get back before the date. You can brief him in Spanish or English.`,
   ],
 };
 
@@ -46,7 +46,7 @@ const VLOG_EN_CREATOR: OwnerFactSection = {
   heading: "Do you film and edit vlogs?",
   paragraphs: [
     `Yes. Esteban Moreno films and edits vlogs as well as short vertical posts. Most creators record the vlog themselves and send the original files; he edits remotely, cutting the pauses and restarts, keeping the story in the order you lived it, and adding captions, music and a title. The same footage can also give you short clips for Reels, TikTok and Shorts, so one vlog feeds the rest of the week.`,
-    `Editing is priced per video, from ${perVideo} on the Starter package, so the price is fixed before the edit starts; a long vlog is quoted by its length and what it needs. If you would rather have him film, on-location work in Miami-Dade or Broward is scoped per project and the Local Presence package is ${enLocal()}.`,
+    `Editing is priced per video, from ${perVideo} on the Starter package, so the price is fixed before the edit starts; a long vlog is quoted by its length and what it needs. If you would rather have him film, on-location work in Miami-Dade or Broward is scoped per project: filming is ${filmingHourlyText("en")}, and a full production day is the Local Presence package, ${enLocal()}.`,
   ],
 };
 
@@ -55,7 +55,7 @@ const VLOG_ES_DORAL: OwnerFactSection = {
   heading: "¿Grabas y editas vlogs en Doral y Miami?",
   paragraphs: [
     `Sí. Esteban Moreno graba y edita vlogs. Si ya grabas tu vlog con el celular o con una cámara, envía los archivos originales y él lo edita a distancia: quita los tiempos muertos, mantiene tu voz y el orden de la historia, y agrega subtítulos, música y un título para YouTube, Instagram o TikTok. La edición se cobra por video, desde ${perVideo} con el paquete Arranque, así que sabes el precio antes de empezar; un vlog largo se cotiza según su duración y lo que necesita.`,
-    `Si prefieres que él grabe, la grabación en Doral o en cualquier parte de Miami-Dade es trabajo en locación que se define por proyecto. El paquete Presencia Local es ${esLocal()}, y la cotización por escrito fija el lugar, las horas y lo que recibes antes de la fecha. Puedes explicar tu proyecto en español.`,
+    `Si prefieres que él grabe, la grabación en Doral o en cualquier parte de Miami-Dade es trabajo en locación que se define por proyecto: la grabación va ${filmingHourlyText("es")}, un día completo de producción es el paquete Presencia Local, ${esLocal()}, y la cotización por escrito fija el lugar, las horas y lo que recibes antes de la fecha. Puedes explicar tu proyecto en español.`,
   ],
 };
 
@@ -64,7 +64,7 @@ const VLOG_ES_CREATOR: OwnerFactSection = {
   heading: "¿Grabas y editas vlogs?",
   paragraphs: [
     `Sí. Esteban Moreno graba y edita vlogs, además de videos cortos verticales. La mayoría de los creadores graba el vlog por su cuenta y envía los archivos originales; él edita a distancia, quita pausas y repeticiones, mantiene la historia en el orden en que la viviste y agrega subtítulos, música y un título. Del mismo material salen también clips cortos para Reels, TikTok y Shorts, así un vlog alimenta el resto de la semana.`,
-    `La edición se cobra por video, desde ${perVideo} con el paquete Arranque, así que el precio queda fijo antes de empezar; un vlog largo se cotiza según su duración y lo que necesita. Si prefieres que él grabe, el trabajo en locación en Miami-Dade o Broward se define por proyecto y el paquete Presencia Local es ${esLocal()}.`,
+    `La edición se cobra por video, desde ${perVideo} con el paquete Arranque, así que el precio queda fijo antes de empezar; un vlog largo se cotiza según su duración y lo que necesita. Si prefieres que él grabe, el trabajo en locación en Miami-Dade o Broward se define por proyecto: la grabación va ${filmingHourlyText("es")}, y un día completo de producción es el paquete Presencia Local, ${esLocal()}.`,
   ],
 };
 
@@ -207,11 +207,11 @@ export function perHourAnswer(locale: "en" | "es"): { question: string; answer: 
   return locale === "es"
     ? {
         question: "¿Cuánto cobra un editor de video por hora?",
-        answer: `Esteban no cobra por hora: la edición se cobra por video, desde ${perVideo} con el paquete Arranque, así que sabes el precio antes de que empiece el trabajo. Con una tarifa por hora el total queda abierto hasta el final, porque depende de cuántas horas tomó el video; con un precio por video, lo que pagas por un video terminado queda fijo antes de editar, y la cotización por escrito dice cuántas rondas de cambios incluye. Para comparar con un editor que cobra por hora, pregúntale cuántas horas suele tomar un video como el tuyo y multiplícalo por su tarifa.`,
+        answer: `Esteban no cobra la edición por hora: la edición se cobra por video, desde ${perVideo} con el paquete Arranque, así que sabes el precio antes de que empiece el trabajo. Lo único que se cobra por tiempo es la grabación, ${filmingHourlyText("es")}. Con una tarifa de edición por hora el total queda abierto hasta el final, porque depende de cuántas horas tomó el video; con un precio por video, lo que pagas por un video terminado queda fijo antes de editar, y la cotización por escrito dice cuántas rondas de cambios incluye. Para comparar, pregúntale al editor que cobra por hora cuántas horas suele tomar un video como el tuyo.`,
       }
     : {
         question: "How much does a video editor charge per hour?",
-        answer: `Esteban does not charge by the hour: editing is priced per video, from ${perVideo} on the Starter package, so you know the price before work starts. With an hourly rate the total stays open until the end, because it depends on how many hours the video took; with a per-video price, what you pay for one finished video is fixed before the edit, and the written quote says how many rounds of changes are included. To compare with an editor who bills hourly, ask how many hours a video like yours usually takes and multiply by the rate.`,
+        answer: `Esteban does not charge for editing by the hour: editing is priced per video, from ${perVideo} on the Starter package, so you know the price before work starts. Only filming is billed by time, ${filmingHourlyText("en")}. With an hourly editing rate the total stays open until the end, because it depends on how many hours the video took; with a per-video price, what you pay for one finished video is fixed before the edit, and the written quote says how many rounds of changes are included. To compare, ask an hourly editor how many hours a video like yours usually takes.`,
       };
 }
 
