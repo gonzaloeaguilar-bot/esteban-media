@@ -10,7 +10,7 @@ import { isConsolidatedPath } from "@/lib/consolidation";
 import { eventLanguageAlternates } from "@/lib/events";
 import { packageRoutes } from "@/lib/package-routes";
 import type { LucideIcon } from "lucide-react";
-import { ARRANQUE_WEEKLY_TERMS, PACKAGE_PRICES, PRICING_BANDS, RESTAURANT_PROMO, SHORT_FORM, shortFormPriceText, shortFormWeeklyText, usd } from "@/lib/pricing";
+import { ARRANQUE_WEEKLY_TERMS, PACKAGE_PRICES, PRICING_BANDS, RESTAURANT_PROMO, SHORT_FORM, filmingHourlyText, shortFormPriceText, shortFormWeeklyText, usd } from "@/lib/pricing";
 import {
   Anchor,
   Building2,
@@ -214,6 +214,8 @@ export type SpanishNichePage = {
   projectFit: string;
   sections?: readonly SpanishNicheSection[];
   sectionsDisclosure?: string;
+  /** H2 over visible (unfolded) sections; the default names short-form video, wrong for a videographer page. */
+  sectionsHeading?: string;
   /** Summary line under the disclosure title; names what is inside the fold. */
   sectionsDestinations?: string;
   updated?: string;
@@ -322,7 +324,7 @@ const nicheWave8Pages: SpanishNichePage[] = [
     icon: Home,
     updated: "2026-10-11",
     fitQuestion: "¿Qué tiene que mostrar el reel de un alquiler vacacional?",
-    projectFit: `Los espacios que el huésped va a usar, en el orden en que los recorrería, y la razón principal para reservar: la piscina, la vista al agua, la playa a pocos pasos. Esteban edita el material de anfitriones y administradores de alquileres de corto plazo y lo convierte en reels verticales para Instagram y TikTok, y en cortes horizontales para el anuncio o el sitio de reservas directas, con subtítulos y el nombre de cada espacio para que el recorrido se entienda sin sonido. La edición muestra la propiedad como es, sin amenidades agregadas, sin vistas prestadas y sin huéspedes en cámara. La edición es remota: ${esArranque()}. Si administras varias unidades en Broward o Miami-Dade y quieres que alguien grabe, la grabación en locación es un servicio adicional pagado que se cotiza por proyecto.`,
+    projectFit: `Los espacios que el huésped va a usar, en el orden en que los recorrería, y la razón principal para reservar: la piscina, la vista al agua, la playa a pocos pasos. Esteban edita el material de anfitriones y administradores de alquileres de corto plazo y lo convierte en reels verticales para Instagram y TikTok, y en cortes horizontales para el anuncio o el sitio de reservas directas, con subtítulos y el nombre de cada espacio para que el recorrido se entienda sin sonido. La edición muestra la propiedad como es, sin amenidades agregadas, sin vistas prestadas y sin huéspedes en cámara. La edición es remota: ${esArranque()}. Si administras varias unidades en Broward o Miami-Dade y quieres que alguien grabe, la grabación en locación es un servicio adicional pagado que se cotiza por proyecto. Si ya tienes clips y tu negocio está en Broward, el [editor de Reels en Fort Lauderdale](/es/editor-de-reels-fort-lauderdale) los convierte en videos cortos con subtítulos.`,
     sectionsDisclosure: "Prepara el material de cada unidad",
     sectionsDestinations: "Una lista de tomas para cada unidad y qué enviar con los clips",
     bestFor: [
@@ -539,7 +541,7 @@ const nicheWave8Pages: SpanishNichePage[] = [
         heading: "¿Qué revisión necesita un reel antes de publicarse?",
         paragraphs: [
           "Tres pasos. Primero, el abogado aprueba el esquema antes de grabar, para que la grabación ya diga lo que la firma está dispuesta a decir. Segundo, después de la edición, la firma mira el corte como lo vería el público: los subtítulos en español, el texto en pantalla, el nombre y el título del abogado y el aviso que entrega la firma. Tercero, la firma confirma la descripción y el enlace que acompañan la publicación.",
-          "La parte de Esteban es la edición y la colocación del texto aprobado; el cumplimiento de las reglas de publicidad de la Florida Bar es de la firma. Para otras áreas de práctica, revisa el [marketing de video para abogados](/es/marketing-de-video-para-abogados-miami) y la [producción de video para firmas de abogados](/es/produccion-de-video-para-firmas-de-abogados-miami).",
+          "La parte de Esteban es la edición y la colocación del texto aprobado; el cumplimiento de las reglas de publicidad de la Florida Bar es de la firma. Para otras áreas de práctica, revisa el [marketing de video para abogados](/es/marketing-de-video-para-abogados-miami).",
         ],
       },
     ],
@@ -795,7 +797,7 @@ const nicheWave8Pages: SpanishNichePage[] = [
         heading: "¿Quién decide qué se publica en redes?",
         paragraphs: [
           "Los padres. La quinceañera tiene quince años, así que la familia aprueba cada clip antes de compartirlo y decide si va en las cuentas de la familia, en la de ella o en ninguna. Los invitados que se reconocen, y sobre todo otros niños, deben estar de acuerdo en aparecer; si hay duda, la edición usa planos más abiertos o los deja fuera.",
-          "Algunos salones tienen reglas propias sobre grabar y publicar, y la familia las confirma con el lugar. Para las publicaciones públicas, la música debe tener licencia o salir de la biblioteca de la plataforma; la película privada puede conservar las canciones de la fiesta. La [edición de video para eventos](/es/edicion-de-video-para-eventos-miami) cubre otras celebraciones, y el [editor de video corto](/es/editor-de-video-corto-para-redes-miami) los clips verticales.",
+          "Algunos salones tienen reglas propias sobre grabar y publicar, y la familia las confirma con el lugar. Para las publicaciones públicas, la música debe tener licencia o salir de la biblioteca de la plataforma; la película privada puede conservar las canciones de la fiesta. La [edición de video para discotecas y eventos](/es/edicion-de-video-para-discotecas-y-eventos-miami) cubre otros eventos, y el [editor de video corto](/es/editor-de-video-corto-para-redes-miami) los clips verticales.",
         ],
       },
     ],
@@ -859,7 +861,7 @@ const nicheWave8Pages: SpanishNichePage[] = [
         heading: "¿Cómo se planea el contenido alrededor de recitales e inscripciones?",
         paragraphs: [
           "Trabajando hacia atrás desde las fechas que ya existen. Antes de abrir una sesión nueva, publica recordatorios con clips de clase y una presentación del profesor de cada nivel. Antes de un recital, muestra momentos del ensayo que generen expectativa sin revelar toda la coreografía. Después de la función, publica primero el resumen y luego un clip corto por grupo, para que cada familia vea el momento de su hijo.",
-          "En los meses tranquilos, las piezas de progreso y el detrás de cámaras mantienen la cuenta activa. La [producción masiva de video para redes](/es/produccion-masiva-de-video-para-redes-miami) permite editar un mes completo en una sola tanda, y la [edición de video para eventos](/es/edicion-de-video-para-eventos-miami) cubre los recitales.",
+          "En los meses tranquilos, las piezas de progreso y el detrás de cámaras mantienen la cuenta activa. La [producción masiva de video para redes](/es/produccion-masiva-de-video-para-redes-miami) permite editar un mes completo en una sola tanda, y los resúmenes de eventos tienen su propia página: [video de eventos y discotecas en Miami](/es/edicion-de-video-para-discotecas-y-eventos-miami).",
         ],
       },
     ],
@@ -1022,6 +1024,17 @@ export const spanishNichePages: SpanishNichePage[] = [
     ],
     projectFit:
       "Esta página reúne la edición y la producción selectiva en Miami con trabajos publicados. Para edición de video corto con material existente, consulta con un [editor de Reels en Miami](/es/editor-de-reels-miami). No promete disponibilidad, formatos ni un alcance universal.",
+    sectionsHeading: "Antes de contratar un videógrafo cerca de ti",
+    sections: [
+      {
+        // Row 72 (2026-10-14): autocomplete "videografo cerca de mi".
+        heading: "¿Cómo encontrar un videógrafo cerca de mí en Miami?",
+        paragraphs: [
+          `Si buscas un videógrafo cerca de mí en Miami, ten en cuenta que Esteban Moreno Media tiene su base en Fort Lauderdale y toma proyectos en Miami-Dade de forma seleccionada: la disponibilidad de cada locación se confirma al consultar. Hay trabajo publicado grabado en Miami, como el video de [Bar Door Monkey](/es/portafolio/bar-door-monkey), para que veas el estilo antes de escribir.`,
+          `La grabación en locación es un servicio pagado, ${filmingHourlyText("es")}, con alcance y cotización por proyecto, y un día de producción en tu negocio va ${priceSentence("es", "presencia-local").toLowerCase()}. Si ya tienes el material, la distancia no importa: la edición es remota, en español primero, y parte del paquete Arranque, ${esShortForm}. Para videos cortos con tus clips, mira el [editor de Reels en Miami](/es/editor-de-reels-miami).`,
+        ],
+      },
+    ],
     faqs: [
       {
         question: "¿Esteban trabaja en español?",
@@ -1063,6 +1076,17 @@ export const spanishNichePages: SpanishNichePage[] = [
     ],
     projectFit:
       "Esta ruta explica la base local y ayuda a preparar una consulta sobre edición o producción selectiva. Si ya tienes material grabado y buscas optimizarlo para redes, consulta como [editor de Reels en Fort Lauderdale](/es/editor-de-reels-fort-lauderdale). El alcance se confirma para cada proyecto.",
+    sectionsHeading: "Antes de contratar un videógrafo cerca de ti",
+    sections: [
+      {
+        // Row 72 (2026-10-14): autocomplete "videografo cerca de mi"; no page said "cerca de".
+        heading: "¿Cómo encontrar un videógrafo cerca de mí en Fort Lauderdale?",
+        paragraphs: [
+          `Si buscas un videógrafo cerca de mí desde Fort Lauderdale o Broward, Esteban Moreno Media tiene aquí su base y atiende en español primero, con inglés intermedio. No hay un estudio abierto al público: la grabación se hace en tu negocio o en la locación del proyecto, como servicio pagado con alcance y cotización por proyecto, ${filmingHourlyText("es")}. Un día de producción en tu negocio, con preproducción, grabación y edición, va ${priceSentence("es", "presencia-local").toLowerCase()}.`,
+          `Antes de contratar a un videógrafo cercano conviene confirmar tres cosas: si el material que ya tienes alcanza para editar sin grabar de nuevo, quién se queda con los archivos originales y cuántas rondas de cambios incluye la edición. Si ya tienes clips, la edición es remota y parte del paquete Arranque, ${esShortForm}; para videos cortos, mira el [editor de Reels en Fort Lauderdale](/es/editor-de-reels-fort-lauderdale).`,
+        ],
+      },
+    ],
     faqs: [
       {
         question: "¿Fort Lauderdale es la base principal?",
@@ -1103,7 +1127,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       "¿Tienes ejemplos del estilo visual que buscas?",
     ],
     projectFit:
-      "Cuéntanos qué se va a fotografiar, dónde y para qué usarás las imágenes. Esteban confirmará las tomas, los archivos finales y el presupuesto antes de agendar la sesión.",
+      "Cuéntanos qué se va a fotografiar, dónde y para qué usarás las imágenes. Esteban confirmará las tomas, los archivos finales y el presupuesto antes de agendar la sesión. Para fotos del producto físico, mira la [fotografía de producto en Miami](/es/fotografia-de-producto-miami); para videos cortos con tus clips, el [editor de Reels en Fort Lauderdale](/es/editor-de-reels-fort-lauderdale).",
     faqs: [
       {
         question: "¿Se puede reservar fotografía con Esteban?",
@@ -1144,7 +1168,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       "¿Qué formato, disponibilidad y alcance deben confirmarse?",
     ],
     projectFit:
-      "Esta ruta ayuda a preparar una conversación sobre edición o captura selectiva de video corto. Si buscas un servicio directo de edición para tus grabaciones, consulta como [editor de Reels en Miami](/es/editor-de-reels-miami). No fija duración, cantidad, formato ni fecha de entrega.",
+      "Esta ruta ayuda a preparar una conversación sobre edición o captura selectiva de video corto. Si buscas un servicio directo de edición para tus grabaciones, consulta como [editor de Reels en Miami](/es/editor-de-reels-miami). No fija duración, cantidad, formato ni fecha de entrega. Si ya tienes clips y tu negocio está en Broward, el [editor de Reels en Fort Lauderdale](/es/editor-de-reels-fort-lauderdale) los convierte en videos cortos con subtítulos.",
     sections: [
       {
         heading: "Estructura de video corto para captar atención en Miami",
@@ -1484,7 +1508,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       "¿Qué estilo o paleta de colores representa tu marca?",
     ],
     projectFit:
-      "Esta ruta explica el servicio de imágenes con IA combinando fotos reales del producto con generación asistida. No promete sesiones de fotografía tradicional en estudio a menos que se acuerden.",
+      "Esta ruta explica el servicio de imágenes con IA combinando fotos reales del producto con generación asistida. No promete sesiones de fotografía tradicional en estudio a menos que se acuerden. Si necesitas fotografiar el producto físico, mira la [fotografía de producto en Miami](/es/fotografia-de-producto-miami).",
     faqs: [
       {
         question: "¿Las imágenes con IA parecen reales?",
@@ -2153,7 +2177,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       "¿Requieres versiones verticales 9:16 para Instagram/TikTok y horizontales 16:9 para web?",
     ],
     projectFit:
-      "Postproducción y edición de estilo de vida náutico en Fort Lauderdale y South Florida. Demostrado por el proyecto [Banacol](/es/portafolio/banacol) con cinematografía aérea en mar abierto.",
+      "Postproducción y edición de estilo de vida náutico en Fort Lauderdale y South Florida. Demostrado por el proyecto [Banacol](/es/portafolio/banacol) con cinematografía aérea en mar abierto. Si ya tienes clips y tu negocio está en Broward, el [editor de Reels en Fort Lauderdale](/es/editor-de-reels-fort-lauderdale) los convierte en videos cortos con subtítulos.",
     faqs: [
       {
         question: "¿Qué tipo de material puede suministrar una empresa de chárter o corretaje náutico?",
@@ -2317,7 +2341,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       "¿En qué resolución e-commerce requieres las imágenes?",
     ],
     projectFit:
-      "Imágenes de producto impecables optimizadas con herramientas de IA.",
+      "Imágenes de producto impecables optimizadas con herramientas de IA. Si necesitas fotografiar el producto físico, mira la [fotografía de producto en Miami](/es/fotografia-de-producto-miami).",
     faqs: [
       {
         question: "¿Se pueden crear fondos de lujo con IA sin enviar la pieza física?",
@@ -4055,6 +4079,15 @@ export const spanishNichePages: SpanishNichePage[] = [
       "Si ya tienes clips, revisa el [video social publicado de ML Colombia](/es/portafolio/ml-colombia) para ver una pieza de contenido de la marca que Esteban dirigió. La versión en inglés de este servicio está en [Reels Editor Fort Lauderdale](/services/reels-editor-fort-lauderdale). Si tu negocio está más al norte, revisa el [editor de Reels en Boca Raton](/es/editor-de-reels-boca-raton).",
     sections: [
       {
+        // Row 89 (2026-10-14): "editor de reels fort lauderdale" 9 imp @14.8
+        // was served by the EN page; this page did not answer its own query.
+        heading: "¿Dónde encontrar un editor de Reels en Fort Lauderdale?",
+        paragraphs: [
+          `Esteban Moreno Media es un editor de Reels en Fort Lauderdale: tiene aquí su base y atiende en español primero, con inglés intermedio para proyectos bilingües. Si buscas un editor de Reels cerca de mí desde Broward, la distancia importa menos de lo que parece, porque la edición es remota: envías los clips del teléfono por un enlace y recibes el Reel con subtítulos, ritmo y formato 9:16, sin visita. La edición de Reels parte del paquete Arranque, ${esShortForm}.`,
+          `La cercanía sí cuenta cuando hace falta grabar en tu negocio. La grabación en locación es un servicio pagado, ${filmingHourlyText("es")}, con alcance y cotización por proyecto, y un día de producción completo en tu negocio va ${priceSentence("es", "presencia-local").toLowerCase()}. Si tu negocio está en Miami-Dade, el [editor de Reels en Miami](/es/editor-de-reels-miami) explica lo mismo para esa zona.`,
+        ],
+      },
+      {
         heading: "¿Qué hace útil a un Reel de negocio?",
         paragraphs: [
           "Por ejemplo, un restaurante puede enviar clips grabados con teléfono del plato, el local y una presentación corta del dueño. Una edición posible muestra primero el plato, explica qué lo distingue y termina con una sola invitación a reservar. Esteban revisa el material disponible con el negocio antes de definir la pieza; este ejemplo describe cómo preparar una consulta, no un resultado atribuido a un cliente publicado.",
@@ -4350,6 +4383,73 @@ export const spanishNichePages: SpanishNichePage[] = [
         question: "¿Una sola sesión puede cubrir una semana de publicaciones?",
         answer:
           "Puede, cuando la sesión se planea como una lista de ideas distintas y no como una sola toma larga. Cada idea necesita su propia frase de apertura, porque quien llega a la cuarta publicación no vio las tres anteriores. Cambiar una prenda o moverse a otra pared entre bloques evita que el conjunto se note grabado de una sola vez.",
+      },
+    ],
+  },
+  {
+    // Row 30 (2026-10-14): ES twin of /services/hire-remote-video-editor, a
+    // full translation, no new claims. Intent gap: Google autocomplete (hl=es,
+    // gl=us) "contratar editor de videos", "contratar editor de videos para
+    // instagram", "contratar editor de videos online", "editor de video remoto".
+    slug: "contratar-editor-de-video-remoto",
+    title: "Contratar un editor de video remoto",
+    metadataTitle: "Contratar un Editor de Video Remoto",
+    description:
+      "Contrata a Esteban Moreno Media para edición de video remota: Reels, YouTube, videos de producto y contenido bilingüe desde el sur de Florida.",
+    eyebrow: "Edición de video remota",
+    h1: "Contrata un editor de video remoto para Reels, YouTube, anuncios y videos de tu negocio.",
+    lead:
+      "Esteban trabaja con el material que le envías, los archivos de tu marca y notas claras, así que un negocio en el sur de Florida o en otro estado puede pedir la edición sin reservar una grabación local.",
+    keyword: "contratar editor de video remoto",
+    location: "Remoto / sur de Florida",
+    availability: "confirmed",
+    icon: Scissors,
+    bestFor: [
+      "Ya tienes el material y necesitas convertirlo en Reels, Shorts, videos de YouTube, anuncios o clips para tu sitio web.",
+      "Tu equipo está fuera del sur de Florida pero puede enviar los archivos originales, los materiales de marca, las referencias y los comentarios agrupados.",
+      "Quieres que un solo editor entienda la meta, el ritmo, los subtítulos, los formatos y la entrega final antes de cortar.",
+    ],
+    scopingQuestions: [
+      "¿Cuál es la meta del video y en qué plataforma se publica?",
+      "¿Dónde está la carpeta con el material original y qué clips son obligatorios?",
+      "¿Qué referencias, logotipo o tipografías debe seguir la edición?",
+      "¿Para qué fecha necesitas la entrega y quién da los comentarios?",
+    ],
+    fitQuestion: "¿Cuándo encaja la edición remota?",
+    projectFit:
+      "La edición remota funciona mejor cuando el material ya existe y quien decide puede explicar qué debe lograr el video terminado. Para videos cortos con subtítulos y recortes verticales, mira el [editor de video corto para redes](/es/editor-de-video-corto-para-redes-miami); para creadores con material ya grabado, la [edición de video para creadores de contenido](/es/edicion-de-video-para-creadores-de-contenido-miami). Si el proyecto necesita grabación, la [producción de video en Fort Lauderdale](/es/produccion-de-video-fort-lauderdale) explica cómo se cotiza aparte.",
+    sections: [
+      {
+        heading: "¿Cómo se contrata a un editor de video remoto?",
+        paragraphs: [
+          `En tres pasos. Primero, envía un brief útil: la meta del negocio, la plataforma, la carpeta con el material, los clips que no pueden faltar, las referencias y la fecha límite; un traspaso claro hace que la primera respuesta sirva. Segundo, confirma el alcance antes de editar: la cotización debe nombrar los entregables, los formatos, el camino de revisión y los tiempos, para que un lote de Reels, una edición de YouTube y un corte para anuncio no se traten como un solo video genérico. Tercero, revisa en un solo lugar: elige a una persona responsable de los comentarios y agrupa las notas por video o por minuto, porque el trabajo remoto avanza más rápido cuando las correcciones no se contradicen. La edición remota parte del paquete Arranque, ${esShortForm}.`,
+        ],
+        bullets: [
+          "Envía el brief útil",
+          "Confirma el alcance antes de editar",
+          "Revisa en un solo lugar",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Qué material puede editar Esteban a distancia?",
+        answer:
+          "La edición remota trabaja con los archivos originales que el cliente ya tiene: material de teléfono o de cámara, grabaciones de pantalla, clips de producto y audio grabado por separado. Los archivos deben enviarse como originales y no como clips guardados de nuevo desde una app de mensajería, porque esa copia ya está comprimida y el detalle no se puede recuperar.",
+      },
+      {
+        question: "¿Esteban trabaja con negocios fuera del sur de Florida?",
+        answer:
+          "Sí, para edición remota, contenido asistido por IA, planificación de redes y trabajo visual a partir de materiales, siempre que los archivos se puedan compartir en línea. La grabación en locación es una decisión aparte y solo se considera para proyectos en el sur de Florida.",
+      },
+      {
+        question: "¿Cuánto cuesta la edición de video remota?",
+        answer: `El paquete Arranque, edición remota de material que ya tienes, va ${esArranque()} con una ronda de cambios incluida. Cada proyecto se cotiza según el material real, la lista de entregables y la cantidad de rondas de cambios, así que el precio del paquete es un punto de partida y no una tarifa fija.`,
+      },
+      {
+        question: "¿En qué idiomas trabaja Esteban?",
+        answer:
+          "Esteban trabaja en español primero, con comunicación en inglés intermedio, así que un brief bilingüe o un video en español es sencillo. No dice tener fluidez completa en inglés, y no es un servicio de traducción a otros idiomas.",
       },
     ],
   },
@@ -4728,6 +4828,8 @@ const nicheBatch20261006Hreflang = Object.fromEntries(
       ["/services/video-production-fort-lauderdale", "/es/produccion-de-video-fort-lauderdale"],
       ["/services/hotel-hospitality-video-production-miami", "/es/produccion-de-video-para-hoteles-miami"],
       ["/services/content-repurposing-service-miami", "/es/reutilizacion-de-contenido-para-redes-miami"],
+      // Row 30 (2026-10-14): the new ES twin.
+      ["/services/hire-remote-video-editor", "/es/contratar-editor-de-video-remoto"],
     ] as const
   ).flatMap(([en, es]) =>
     [en, es].map((path) => [path, { "en-US": en, "es-US": es, "x-default": en }] as const),

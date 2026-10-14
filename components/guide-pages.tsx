@@ -583,6 +583,21 @@ export function GuidesIndexPage({ locale }: { locale: GuideLocale }) {
             {copy.relatedTitle}
           </h2>
           <SupportLinks locale={locale} />
+          {/* Row 94 (2026-10-14): /lens and /desk-recommendations had 0
+              inbound links. English-only pages, so the link is too. */}
+          {locale === "en" ? (
+            <p className="mt-8 max-w-3xl text-sm leading-7 text-[#3f4548]">
+              Two more pages for people planning their own shoots:{" "}
+              <Link href="/lens" className="font-medium text-[#9f3c27] underline underline-offset-4">
+                how a shoot is planned
+              </Link>
+              , the questions settled before filming, from the message to the size of the crew, and the{" "}
+              <Link href="/desk-recommendations" className="font-medium text-[#9f3c27] underline underline-offset-4">
+                desk recommendations
+              </Link>
+              , a short list of desk gear with Amazon links.
+            </p>
+          ) : null}
         </Container>
       </section>
     </main>

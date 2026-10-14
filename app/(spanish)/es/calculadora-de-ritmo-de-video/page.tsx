@@ -7,6 +7,7 @@ import { ScriptLengthAnswer } from "@/components/script-length-answer";
 import { Container } from "@/components/ui/container";
 import { pageLastModified } from "@/lib/page-lastmod";
 import { absoluteUrl } from "@/lib/site";
+import { toolApplicationNode } from "@/lib/tool-schema";
 import { buildPageMetadata } from "@/lib/site-metadata";
 
 export const metadata = buildPageMetadata({
@@ -27,6 +28,12 @@ export default function DailyScriptPacingCalculatorEsPage() {
     name: "Calculadora de Ritmo de Video y Guion Diario",
     description: "Calculadora de ritmo de video, duración hablada estimada y ejercicios de teleprónter para creadores.",
     isPartOf: { "@id": absoluteUrl("/#website") },
+    mainEntity: toolApplicationNode({
+      path: "/es/calculadora-de-ritmo-de-video",
+      name: "Calculadora de Ritmo de Video y Guion Diario",
+      description: "Calculadora de ritmo de video, duración hablada estimada y ejercicios de teleprónter para creadores.",
+      locale: "es",
+    }),
     ...(pageLastModified(PATH) ? { dateModified: pageLastModified(PATH) } : {}),
   };
 

@@ -17,6 +17,7 @@ import {
   PRODUCT_PHOTO_SESSION,
   ARRANQUE_WEEKLY_TERMS,
   SHORT_FORM,
+  filmingHourlyText,
 } from "@/lib/pricing";
 import { REAL_ESTATE_MEDIA } from "@/lib/services-config";
 import { GUIDE_HUB_IDS, PHONE_FILMING_SECTIONS, guideHubPairs } from "@/lib/guide-hubs";
@@ -1143,7 +1144,7 @@ const guidePairs: readonly GuidePair[] = [
           heading: "¿Qué referencias de tarifas hay en South Florida?",
           paragraphs: [
             `Como contexto general del mercado de South Florida, las fotos simples de catálogo con fondo blanco se cotizan por lo común entre ${usd(PRODUCT_PHOTO_MARKET.perImageMin)} y ${usd(PRODUCT_PHOTO_MARKET.perImageMax)} USD por imagen, y hay estudios de Miami que publican tarifas de entrada cercanas a ${usd(PRODUCT_PHOTO_MARKET.miamiEntryPerImage)} por imagen; el trabajo de estilo de vida con ambientación o modelos se cotiza bastante más alto por imagen, y las sesiones de medio día en Miami suelen ubicarse entre ${usd(PRODUCT_PHOTO_MARKET.halfDayMin)} y ${usd(PRODUCT_PHOTO_MARKET.halfDayMax)} USD más costos de producción. Son tarifas publicadas del mercado local y los rangos se mueven según volumen, nivel de retoque y derechos de uso.`,
-            `Como referencia directa de Esteban Moreno Media: las sesiones de fotografía de producto parten desde ${usd(PRODUCT_PHOTO_SESSION.from)} por sesión. Es un precio inicial, nunca una cifra cerrada — el presupuesto final depende de la cantidad de productos y ángulos, del estilo requerido (catálogo sobre fondo limpio vs estilo de vida) y del formato de entrega acordado para tus canales. Para una cifra atada a tu alcance real usa la [calculadora de presupuesto](/es/calculadora), y para una cotización escrita escríbenos por [contacto](/es/contacto) o llama al (305) 497-4478.`,
+            `Como referencia directa de Esteban Moreno Media: las sesiones de fotografía de producto parten desde ${usd(PRODUCT_PHOTO_SESSION.from)} por sesión. Es un precio inicial, nunca una cifra cerrada — el presupuesto final depende de la cantidad de productos y ángulos, del estilo requerido (catálogo sobre fondo limpio vs estilo de vida) y del formato de entrega acordado para tus canales. Para una cifra atada a tu alcance real usa la [calculadora de presupuesto](/es/calculadora), y para una cotización escrita escríbenos por [contacto](/es/contacto) o llama al (305) 497-4478. Los detalles de la sesión están en la página de [fotografía de producto en Miami](/es/fotografia-de-producto-miami).`,
           ],
           bullets: [
             "Tarifa por imagen (cost per image): ideal para catalogación masiva con iluminación constante",
@@ -1350,9 +1351,9 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "How do videographers price their time?",
+          heading: "How much does a videographer charge per hour?",
           paragraphs: [
-            "Understanding how each professional prices their services helps marketing teams and business owners allocate their production budgets efficiently without paying premium on-set rates for desk-based post-production tasks.",
+            `Esteban Moreno Media films ${filmingHourlyText("en")}, the minimum for time on location, and every shoot still gets a written quote before the date is booked. Editing is priced separately, per video or per project, so an hour of filming and the edit that follows are two lines on the quote.`,
             "Videographers typically bill using half-day (4 to 5 hours) or full-day (8 to 10 hours) day rates. These rates cover not only their time on set, but also capital depreciation on expensive camera packages, lighting gear, transport, and insurance. Adding extra shoot days or specialized crew members immediately scales on-location expenses.",
           ],
         },
@@ -1513,9 +1514,9 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
-          heading: "¿Cómo cobran los videógrafos su tiempo?",
+          heading: "¿Cuánto cobra un videógrafo por hora?",
           paragraphs: [
-            "Comprender los modelos de tarificación de cada profesional permite a negocios y marcas distribuir su inversión audiovisual con máxima eficiencia, evitando pagar costos de producción en locación para tareas que corresponden a postproducción.",
+            `Esteban Moreno Media graba ${filmingHourlyText("es")}, el mínimo por tiempo en locación, y cada grabación recibe una cotización por escrito antes de reservar la fecha. La edición se cobra aparte, por video o por proyecto, así que la hora de grabación y la edición que viene después son dos líneas distintas en la cotización.`,
             "Los videógrafos suelen cobrar mediante tarifas por media jornada (half-day, 4 a 5 horas) o jornada completa (full-day, 8 a 10 horas). Estas tarifas amortizan la inversión en equipos de cámara, iluminación, transporte, seguros y tiempo en set. Añadir días adicionales de rodaje o asistentes técnicos incrementa directamente el presupuesto del proyecto.",
           ],
         },
@@ -2510,7 +2511,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "What are Esteban’s package starting prices?",
           paragraphs: [
-            "Esteban Moreno Media provides a focused, editing-led model based in Fort Lauderdale. With remote editing packages starting from $100 per video ([Starter package](/pricing/starter)) and ongoing monthly content management starting from $640/month ([Growth package](/pricing/growth)), small businesses get dedicated bilingual editing, sound design, and vertical formatting without studio markups. When physical filming is required, local production days start from $800 ([Local Presence package](/pricing/local-presence)).",
+            "Esteban Moreno Media provides a focused, editing-led model based in Fort Lauderdale. With remote editing packages starting from $100 per video ([Starter package](/pricing/starter)) and ongoing monthly content management starting from $640/month ([Growth package](/pricing/growth)), small businesses get dedicated bilingual editing, sound design, and vertical formatting without studio markups. When physical filming is required, local production days start from $800 ([Local Presence package](/pricing/local-presence)). The [Fort Lauderdale service area page](/fort-lauderdale) lists what is available close to the base.",
             "Compare the named package with the work you actually need. Ask the written proposal to distinguish supplied footage, filming, editing, and final versions so that the starting price and the complete scope stay connected.",
           ],
           bullets: [

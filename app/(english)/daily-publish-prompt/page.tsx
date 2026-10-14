@@ -3,6 +3,7 @@ import Link from "next/link";
 import { DailyPublishPrompt } from "@/components/daily-publish-prompt";
 import { Container } from "@/components/ui/container";
 import { absoluteUrl } from "@/lib/site";
+import { toolApplicationNode } from "@/lib/tool-schema";
 import { buildPageMetadata } from "@/lib/site-metadata";
 
 export const metadata = buildPageMetadata({
@@ -21,6 +22,12 @@ export default function DailyPublishPromptPage() {
     name: "Daily Video Publishing Prompt",
     description: "A daily prompt and local checklist for a video publishing pass.",
     isPartOf: { "@id": absoluteUrl("/#website") },
+    mainEntity: toolApplicationNode({
+      path: "/daily-publish-prompt",
+      name: "Daily Video Publishing Prompt",
+      description: "A daily prompt and local checklist for a video publishing pass.",
+      locale: "en",
+    }),
   };
 
   return (

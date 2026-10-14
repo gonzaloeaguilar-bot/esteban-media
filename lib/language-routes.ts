@@ -47,6 +47,8 @@ export const pairedLanguageRoutes: Record<string, string> = {
   "/daily-script-pacing-calculator": "/es/calculadora-de-ritmo-de-video",
   "/daily-script-timer": "/es/temporizador-de-guiones-de-video",
   "/reels-editing-cost-calculator": "/es/calculadora-de-costo-de-edicion-de-reels",
+  // Row 30 (2026-10-14): ES twin (same pair as the hreflang map).
+  "/services/hire-remote-video-editor": "/es/contratar-editor-de-video-remoto",
   // 2026-10-06 niche batch.
   "/services/medical-practice-video-marketing-miami":
     "/es/marketing-de-video-para-consultorios-medicos-miami",

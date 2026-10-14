@@ -2,8 +2,8 @@
   "status": "demand_gated",
   "effectiveDate": "2026-08-28",
   "baselineRevisedOn": "2026-10-14",
-  "approvedSitemapUrlCount": 362,
-  "approvedSitemapUrlSetSha256": "7c5359219a9c5e77c3364702ef6d2694e89d8626cc333c1ead1e608e188fd9db",
+  "approvedSitemapUrlCount": 363,
+  "approvedSitemapUrlSetSha256": "039d0f1606641516f0dfd697e3e9737f8bd3d19f9d02eab9d0d0f85255d768ff",
   "allowedNewIndexableUrls": 4,
   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {
@@ -391,6 +391,17 @@
       "demandEvidence": "Owner-ordered original-data asset, not a GSC-query page. Adjacent demand is real: the restaurant cluster ('restaurant promo video editing miami' 21 impressions at position 7.2, 'video para restaurantes miami' 7 at 6.9, GSC 90d read 2026-10-07, see the 2026-10-07 cost-guide entry) is the site's best non-brand cluster, and both pages link into it. The study is measured data (45 accounts, 486 posts, collected 2026-10-14 via Apify for $0.35) that AI answers and blogs can cite; no ranking or customer-result claim is made.",
       "followUpDate": "2026-11-14",
       "followUp": "Check GSC impressions/indexed status for both URLs, referring domains and AI-answer citations for 'Miami restaurant Instagram Reels' style queries, plus study_restaurant_ig_* CTA clicks. Zero impressions and zero citations at 30 days: keep internally linked, drop from the sitemap."
+    },
+    {
+      "on": "2026-10-14",
+      "url": [
+        "/es/contratar-editor-de-video-remoto"
+      ],
+      "orderedBy": "Gonzalo (in-session brief 2026-10-14: ship the parked content gaps; row 30 ES twins, at most 4 new URLs, real translations)",
+      "kind": "Spanish twin of an existing EN service page",
+      "demandEvidence": "Intent gap (overnight loop row 30): /services/hire-remote-video-editor had no es-US alternate. Google autocomplete hl=es gl=us on 2026-10-14 returns 'contratar editor de videos', 'contratar editor de videos para instagram', 'contratar editor de videos online', 'contratar editor de video freelance' and 'editor de video remoto'. Full translation of the EN page (fit, three-step process, four FAQs, Starter price from lib/pricing.ts); no new claim.",
+      "followUpDate": "2026-11-14",
+      "followUp": "Check GSC impressions/indexed status for the URL and Spanish 'contratar editor de video' queries. Zero impressions at 30 days: keep internally linked and paired, drop from the sitemap."
     }
   ]
 }

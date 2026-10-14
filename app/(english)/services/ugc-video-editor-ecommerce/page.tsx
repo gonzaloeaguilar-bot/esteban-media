@@ -1,3 +1,4 @@
+import { PageQuestions } from "@/components/page-questions";
 import Link from "next/link";
 import { ArrowRight, WandSparkles, Mail, Phone } from "lucide-react";
 
@@ -112,6 +113,7 @@ export default function UGCVideoEditorEcommercePage() {
       </section>
 
       <DefinitionAnswer path="/services/ugc-video-editor-ecommerce" />
+      <PageQuestions path="/services/ugc-video-editor-ecommerce" />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">

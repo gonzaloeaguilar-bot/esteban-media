@@ -1839,7 +1839,7 @@ export const IMMIGRATION_ATTORNEY_DEPTH: NicheWave8Depth = {
   ],
   relatedHeading: "Related services for law firms.",
   related: [
-    { title: "Law Firm Video Production", detail: "Video for firms across practice areas in Miami.", href: "/services/law-firm-video-production-miami" },
+    { title: "Webinar Clip Editing", detail: "Short clips cut from recorded webinars and talks.", href: "/services/webinar-clip-editing-service" },
     { title: "Interview Video Editing", detail: "Edits of seated interviews and talking-head recordings.", href: "/services/interview-video-editing-service" },
     { title: "Short-Form Video Editing", detail: "Vertical edits for Reels, TikTok and Shorts.", href: "/services/short-form-video-editor-miami" },
   ],
@@ -1947,7 +1947,7 @@ export const QUINCEANERA_DEPTH: NicheWave8Depth = {
   ],
   relatedHeading: "Related services for celebrations and events.",
   related: [
-    { title: "Event Video Editing", detail: "Recaps and highlights edited from event footage.", href: "/services/event-video-editing-miami" },
+    { title: "Nightlife and Event Video Editing", detail: "Recaps and highlights edited from event footage.", href: "/services/nightlife-event-video-editing-miami" },
     { title: "Short-Form Video Editing", detail: "Vertical clips for Reels and TikTok from the same footage.", href: "/services/short-form-video-editor-miami" },
     { title: "Fort Lauderdale Reels Editor", detail: "Short vertical edits close to the Fort Lauderdale base.", href: "/services/reels-editor-fort-lauderdale" },
   ],
@@ -2002,7 +2002,7 @@ export const DANCE_MUSIC_STUDIO_DEPTH: NicheWave8Depth = {
   relatedHeading: "Related services for studios and class-based businesses.",
   related: [
     { title: "Fitness Trainer Video", detail: "Video for coaches and class-based fitness businesses.", href: "/services/fitness-trainer-video-production-miami" },
-    { title: "Event Video Editing", detail: "Recital and showcase recaps edited from event footage.", href: "/services/event-video-editing-miami" },
+    { title: "Nightlife and Event Video Editing", detail: "Recital and showcase recaps edited from event footage.", href: "/services/nightlife-event-video-editing-miami" },
     { title: "Social Media Video Batching", detail: "A month of clips edited in one batch.", href: "/services/social-media-video-batching-miami" },
   ],
 };

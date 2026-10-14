@@ -128,6 +128,7 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/es/edicion-de-clips-de-podcast-miami",
   "https://estebanmorenomedia.com/guides/miami-restaurant-instagram-study",
   "https://estebanmorenomedia.com/es/guias/estudio-instagram-restaurantes-miami",
+  "https://estebanmorenomedia.com/es/contratar-editor-de-video-remoto",
   "https://estebanmorenomedia.com/services/quinceanera-video-miami",
   "https://estebanmorenomedia.com/es/video-para-quinceaneras-miami",
   "https://estebanmorenomedia.com/services/dance-studio-music-school-video-marketing-miami",

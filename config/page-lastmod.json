@@ -52,24 +52,24 @@
   "hash": "946c444789e1844a"
  },
  "/daily-hook-planner": {
-  "date": "2026-08-12",
-  "hash": "b49f2f02034557b1"
+  "date": "2026-10-14",
+  "hash": "268ea88d18065912"
  },
  "/daily-publish-prompt": {
-  "date": "2026-08-11",
-  "hash": "db7e0757de21b684"
+  "date": "2026-10-14",
+  "hash": "1a50b38b63ad02ea"
  },
  "/daily-script-pacing-calculator": {
   "date": "2026-10-14",
-  "hash": "cfc04c3a0fabb27b"
+  "hash": "03e70eecdc5b1de6"
  },
  "/daily-script-timer": {
   "date": "2026-10-14",
-  "hash": "d1af8eecfddf5c79"
+  "hash": "6c29469bfd6bd782"
  },
  "/daily-shot-list-planner": {
-  "date": "2026-08-19",
-  "hash": "5fcb7c949b847feb"
+  "date": "2026-10-14",
+  "hash": "21db6b0987119988"
  },
  "/desk-recommendations": {
   "date": "2026-10-14",
@@ -88,12 +88,12 @@
   "hash": "389b500d6ef2cff9"
  },
  "/es/auditoria-de-funnel-y-datos": {
-  "date": "2026-08-26",
-  "hash": "fe472c9a5cae275d"
+  "date": "2026-10-14",
+  "hash": "af3da3b48ff16cbc"
  },
  "/es/automatizacion-de-operaciones": {
-  "date": "2026-08-26",
-  "hash": "7935c4f66c66d398"
+  "date": "2026-10-14",
+  "hash": "ea29080072e2d014"
  },
  "/es/calculadora": {
   "date": "2026-10-11",
@@ -105,11 +105,11 @@
  },
  "/es/calculadora-de-ritmo-de-video": {
   "date": "2026-10-14",
-  "hash": "8745c57d7c2e2e05"
+  "hash": "053e081b1abe2d66"
  },
  "/es/captura-y-automatizacion-de-clientes-con-ia": {
-  "date": "2026-08-26",
-  "hash": "3415ab6ce0f2b41e"
+  "date": "2026-10-14",
+  "hash": "755a09283e6894f2"
  },
  "/es/casos-de-estudio": {
   "date": "2026-10-14",
@@ -138,6 +138,10 @@
  "/es/contacto": {
   "date": "2026-10-11",
   "hash": "a620c8953747c209"
+ },
+ "/es/contratar-editor-de-video-remoto": {
+  "date": "2026-10-14",
+  "hash": "dfee1460046c2eb4"
  },
  "/es/diseno-web-fort-lauderdale": {
   "date": "2026-10-11",
@@ -213,7 +217,7 @@
  },
  "/es/editor-de-reels-fort-lauderdale": {
   "date": "2026-10-14",
-  "hash": "fa1bd0c5b6ca6e2b"
+  "hash": "2ecfdf00950d0697"
  },
  "/es/editor-de-reels-miami": {
   "date": "2026-10-14",
@@ -288,12 +292,12 @@
   "hash": "a7b430c4e67b5bff"
  },
  "/es/fotografia-de-joyas-y-lujo-miami": {
-  "date": "2026-08-14",
-  "hash": "bac7bda41155ae18"
+  "date": "2026-10-14",
+  "hash": "b8cd58b0fc09faa3"
  },
  "/es/fotografia-de-producto-con-ia-miami": {
-  "date": "2026-10-01",
-  "hash": "35257377f1667495"
+  "date": "2026-10-14",
+  "hash": "f237b45f26c958fd"
  },
  "/es/fotografia-de-producto-miami": {
   "date": "2026-10-14",
@@ -304,8 +308,8 @@
   "hash": "32ee98434c50a5e9"
  },
  "/es/fotografo-en-fort-lauderdale": {
-  "date": "2026-10-11",
-  "hash": "d64be20919e878d3"
+  "date": "2026-10-14",
+  "hash": "1de08a6b30a1ecec"
  },
  "/es/fotos-con-ia-para-bienes-raices-miami": {
   "date": "2026-08-18",
@@ -373,7 +377,7 @@
  },
  "/es/guias/cuanto-cuesta-la-fotografia-de-producto": {
   "date": "2026-10-14",
-  "hash": "dbbc12bbc5360533"
+  "hash": "b5498c73ed364db4"
  },
  "/es/guias/cuanto-cuesta-la-produccion-de-video-corporativo-miami": {
   "date": "2026-10-11",
@@ -417,7 +421,7 @@
  },
  "/es/guias/editor-de-video-vs-videografo": {
   "date": "2026-10-14",
-  "hash": "11a0d98861ab9da9"
+  "hash": "2baaaa1eda734221"
  },
  "/es/guias/editor-local-vs-fiverr-vs-agencia-miami": {
   "date": "2026-10-14",
@@ -509,7 +513,7 @@
  },
  "/es/marketing-de-video-para-abogados-de-inmigracion-miami": {
   "date": "2026-10-14",
-  "hash": "537abf3137537084"
+  "hash": "d1999c92699508cf"
  },
  "/es/marketing-de-video-para-abogados-miami": {
   "date": "2026-07-26",
@@ -572,12 +576,12 @@
   "hash": "a18da33b0bb62f4b"
  },
  "/es/planificador-de-ganchos-de-video": {
-  "date": "2026-09-29",
-  "hash": "03f7e6ea74d96952"
+  "date": "2026-10-14",
+  "hash": "5c7d7a7f303fa82e"
  },
  "/es/planificador-de-tomas-de-video": {
-  "date": "2026-09-29",
-  "hash": "159f484a87704944"
+  "date": "2026-10-14",
+  "hash": "d74d81e801a1289f"
  },
  "/es/portafolio": {
   "date": "2026-10-14",
@@ -641,7 +645,7 @@
  },
  "/es/precios": {
   "date": "2026-10-14",
-  "hash": "ead8d6383cc28b80"
+  "hash": "90b8bcdfb86bca0a"
  },
  "/es/precios/arranque": {
   "date": "2026-10-14",
@@ -664,12 +668,12 @@
   "hash": "c3f9943d7d63d3d4"
  },
  "/es/presencia-local-seo": {
-  "date": "2026-08-26",
-  "hash": "7e5e717515a04797"
+  "date": "2026-10-14",
+  "hash": "572d9a6c19ebcceb"
  },
  "/es/produccion-creativa": {
-  "date": "2026-08-26",
-  "hash": "aa30a84449b4bb47"
+  "date": "2026-10-14",
+  "hash": "632b13b1ea4bc2ab"
  },
  "/es/produccion-de-video-de-marca-miami": {
   "date": "2026-08-15",
@@ -708,8 +712,8 @@
   "hash": "5b587729722edba8"
  },
  "/es/prompt-de-publicacion-diaria": {
-  "date": "2026-09-29",
-  "hash": "7837d48e261c2537"
+  "date": "2026-10-14",
+  "hash": "eacaec1f125dd895"
  },
  "/es/recursos/kit-video-social": {
   "date": "2026-10-11",
@@ -717,7 +721,7 @@
  },
  "/es/reels-para-negocios-miami": {
   "date": "2026-10-14",
-  "hash": "562a564052c87816"
+  "hash": "c8352634da010bdd"
  },
  "/es/reutilizacion-de-contenido-para-redes-miami": {
   "date": "2026-10-14",
@@ -728,8 +732,8 @@
   "hash": "a5de4de6c77f17dc"
  },
  "/es/sitios-web-de-conversion": {
-  "date": "2026-08-26",
-  "hash": "4f85d90c97ca32c3"
+  "date": "2026-10-14",
+  "hash": "44ae4fd057f01852"
  },
  "/es/sobre-esteban": {
   "date": "2026-10-14",
@@ -737,7 +741,7 @@
  },
  "/es/temporizador-de-guiones-de-video": {
   "date": "2026-10-14",
-  "hash": "c30eb74563380844"
+  "hash": "905e456f12ac7c2e"
  },
  "/es/video-corporativo-distrito-financiero-miami": {
   "date": "2026-07-26",
@@ -761,11 +765,11 @@
  },
  "/es/video-para-academias-de-baile-y-musica-miami": {
   "date": "2026-10-14",
-  "hash": "4be7e4631e8eec9c"
+  "hash": "43c61111a9726b0d"
  },
  "/es/video-para-alquileres-vacacionales-fort-lauderdale": {
-  "date": "2026-10-11",
-  "hash": "305f4e79e2bfaf38"
+  "date": "2026-10-14",
+  "hash": "d7f6a0f33e203cda"
  },
  "/es/video-para-arquitectura-y-diseno-miami": {
   "date": "2026-08-14",
@@ -781,23 +785,23 @@
  },
  "/es/video-para-quinceaneras-miami": {
   "date": "2026-10-14",
-  "hash": "2d784a146d53437b"
+  "hash": "1607acf52a844c27"
  },
  "/es/video-para-restaurantes-miami": {
   "date": "2026-10-14",
   "hash": "ad9433c0aacb0fd5"
  },
  "/es/video-para-yates-y-hospitalidad-fort-lauderdale": {
-  "date": "2026-10-11",
-  "hash": "ee5d742f00fb98a6"
+  "date": "2026-10-14",
+  "hash": "eb8b3faf43dbb3a1"
  },
  "/es/videografo-en-fort-lauderdale": {
   "date": "2026-10-14",
-  "hash": "4eef74deb6764dc8"
+  "hash": "822555f11cf084b0"
  },
  "/es/videografo-en-miami": {
   "date": "2026-10-14",
-  "hash": "7b0de335760cffeb"
+  "hash": "c668720aa51eb9c0"
  },
  "/events": {
   "date": "2026-10-14",
@@ -1013,11 +1017,11 @@
  },
  "/guides/video-editor-vs-videographer": {
   "date": "2026-10-14",
-  "hash": "28758fc2149dd5ac"
+  "hash": "06eec205580395a5"
  },
  "/guides/video-production-cost-fort-lauderdale": {
-  "date": "2026-10-11",
-  "hash": "e5f1ac0482d9b7a0"
+  "date": "2026-10-14",
+  "hash": "be0447b6d6b7ae29"
  },
  "/guides/write-a-useful-video-brief": {
   "date": "2026-10-07",
@@ -1029,7 +1033,7 @@
  },
  "/portfolio": {
   "date": "2026-10-14",
-  "hash": "89b815d403bdcb7a"
+  "hash": "ab55c5567658571b"
  },
  "/portfolio/ai-lead-automation": {
   "date": "2026-10-14",
@@ -1085,7 +1089,7 @@
  },
  "/pricing": {
   "date": "2026-10-14",
-  "hash": "27ef1625712e3f10"
+  "hash": "a07dd5aa24fa4d3a"
  },
  "/pricing/all-in": {
   "date": "2026-09-29",
@@ -1109,7 +1113,7 @@
  },
  "/reels-editing-cost-calculator": {
   "date": "2026-10-14",
-  "hash": "f666a7126767ea58"
+  "hash": "5a48a1bdf20a7528"
  },
  "/resources/ai-product-photo-truth-checklist": {
   "date": "2026-10-11",
@@ -1136,8 +1140,8 @@
   "hash": "31475ba53f41702c"
  },
  "/services/ai-lead-capture-automation": {
-  "date": "2026-08-26",
-  "hash": "dc84c54c956c8b49"
+  "date": "2026-10-14",
+  "hash": "fa26b486dedd69f4"
  },
  "/services/ai-product-photography-miami": {
   "date": "2026-10-13",
@@ -1184,8 +1188,8 @@
   "hash": "3877081a43d7d60c"
  },
  "/services/conversion-websites": {
-  "date": "2026-08-26",
-  "hash": "9d1c7797c4ad155a"
+  "date": "2026-10-14",
+  "hash": "e521e3160e5bfb58"
  },
  "/services/corporate-event-videographer-miami": {
   "date": "2026-10-13",
@@ -1208,8 +1212,8 @@
   "hash": "421af6c454b2dcb6"
  },
  "/services/creative-production": {
-  "date": "2026-08-26",
-  "hash": "b94c972942ab25ea"
+  "date": "2026-10-14",
+  "hash": "80c9ded8f8df22f6"
  },
  "/services/creative-video-production-wynwood": {
   "date": "2026-10-13",
@@ -1220,8 +1224,8 @@
   "hash": "3ef88a5453e1f936"
  },
  "/services/custom-operations-automation": {
-  "date": "2026-08-26",
-  "hash": "d9b034dc8461185e"
+  "date": "2026-10-14",
+  "hash": "d93b26dc73c3c2b7"
  },
  "/services/dance-studio-music-school-video-marketing-miami": {
   "date": "2026-10-13",
@@ -1241,19 +1245,19 @@
  },
  "/services/food-and-places-creator-video-editing-miami": {
   "date": "2026-10-14",
-  "hash": "7a33d774f5b1a33e"
+  "hash": "45b644f3c60a24b2"
  },
  "/services/growth-funnel-audit": {
-  "date": "2026-08-26",
-  "hash": "e6190437f9eb5ded"
+  "date": "2026-10-14",
+  "hash": "c5fad712a5686657"
  },
  "/services/headshot-photographer-miami": {
   "date": "2026-10-13",
   "hash": "1c4f65f7111e50c9"
  },
  "/services/hire-remote-video-editor": {
-  "date": "2026-10-13",
-  "hash": "ab5725341be96f50"
+  "date": "2026-10-14",
+  "hash": "56c82120dc732eab"
  },
  "/services/hotel-hospitality-video-production-miami": {
   "date": "2026-10-13",
@@ -1276,8 +1280,8 @@
   "hash": "4dc065b062a250bc"
  },
  "/services/local-presence-seo": {
-  "date": "2026-08-26",
-  "hash": "1a9fbaec61667dff"
+  "date": "2026-10-14",
+  "hash": "78cad296cfc19d9d"
  },
  "/services/med-spa-video-marketing-south-florida": {
   "date": "2026-10-13",
@@ -1376,12 +1380,12 @@
   "hash": "fd89dffce3f37465"
  },
  "/services/tiktok-ad-video-editor-miami": {
-  "date": "2026-10-13",
-  "hash": "2af5b42140e918c0"
+  "date": "2026-10-14",
+  "hash": "7b1794a09e7ed035"
  },
  "/services/ugc-video-editor-ecommerce": {
   "date": "2026-10-14",
-  "hash": "40a7458f67a36697"
+  "hash": "7d0e6d7a8e68a8f2"
  },
  "/services/vacation-rental-video-marketing-fort-lauderdale": {
   "date": "2026-10-13",
@@ -1417,7 +1421,7 @@
  },
  "/services/video-production-fort-lauderdale": {
   "date": "2026-10-14",
-  "hash": "38e9f8c2b3b50e40"
+  "hash": "997a24bcf394a680"
  },
  "/services/wealth-management-video-production-miami": {
   "date": "2026-10-13",

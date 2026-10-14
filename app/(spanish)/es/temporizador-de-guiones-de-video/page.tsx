@@ -6,6 +6,7 @@ import { ScriptLengthAnswer } from "@/components/script-length-answer";
 import { Container } from "@/components/ui/container";
 import { pageLastModified } from "@/lib/page-lastmod";
 import { absoluteUrl } from "@/lib/site";
+import { toolApplicationNode } from "@/lib/tool-schema";
 import { buildPageMetadata } from "@/lib/site-metadata";
 
 export const metadata = buildPageMetadata({
@@ -24,6 +25,12 @@ export default function DailyScriptTimerEsPage() {
     name: "Temporizador y Calculadora de Ritmo de Guiones",
     description: "Una calculadora interactiva de ritmo y lista de verificación diaria de ensayo para creadores de video vertical.",
     isPartOf: { "@id": absoluteUrl("/#website") },
+    mainEntity: toolApplicationNode({
+      path: "/es/temporizador-de-guiones-de-video",
+      name: "Temporizador y Calculadora de Ritmo de Guiones",
+      description: "Una calculadora interactiva de ritmo y lista de verificación diaria de ensayo para creadores de video vertical.",
+      locale: "es",
+    }),
     ...(pageLastModified("/es/temporizador-de-guiones-de-video") ? { dateModified: pageLastModified("/es/temporizador-de-guiones-de-video") } : {}),
   };
 

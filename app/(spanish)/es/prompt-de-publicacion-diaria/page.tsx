@@ -3,6 +3,7 @@ import Link from "next/link";
 import { DailyPublishPromptEs } from "@/components/daily-publish-prompt-es";
 import { Container } from "@/components/ui/container";
 import { absoluteUrl } from "@/lib/site";
+import { toolApplicationNode } from "@/lib/tool-schema";
 import { buildPageMetadata } from "@/lib/site-metadata";
 
 export const metadata = buildPageMetadata({
@@ -21,6 +22,12 @@ export default function DailyPublishPromptEsPage() {
     name: "Prompt de Publicación Diaria",
     description: "Idea diaria y lista de verificación local para la publicación de videos cortos.",
     isPartOf: { "@id": absoluteUrl("/#website") },
+    mainEntity: toolApplicationNode({
+      path: "/es/prompt-de-publicacion-diaria",
+      name: "Prompt de Publicación Diaria",
+      description: "Idea diaria y lista de verificación local para la publicación de videos cortos.",
+      locale: "es",
+    }),
     inLanguage: "es-US",
   };
 

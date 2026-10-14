@@ -1,3 +1,4 @@
+import { PageQuestions } from "@/components/page-questions";
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/container";
@@ -60,6 +61,7 @@ export default function FoodPlacesCreatorPage() {
           </div>
         </Container>
       </section>
+      <PageQuestions path="/services/food-and-places-creator-video-editing-miami" />
       <ArranqueWeeklySection locale="en" />
       <ServiceCraft heading={depth.craftHeading} cards={depth.craft} sectionId="food-creator-craft" />
       <ServiceDeepDive id="food-creator-details" title="Plan your first food or places videos" destinations="Formats, launch month, what to film, paid visits and published examples" sections={FOOD_PLACES_CREATOR_SECTIONS} />

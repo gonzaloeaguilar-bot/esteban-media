@@ -1,3 +1,4 @@
+import { filmingHourlyText } from "@/lib/pricing";
 import Link from "next/link";
 
 import { ClosingCredits, PackagesSection } from "@/components/packages-section";
@@ -78,7 +79,7 @@ export default function PricingPage() {
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#40474d] sm:text-lg">
             Editing one video starts {priceSentence("en", "arranque").toLowerCase()}, and a production day at
-            your business {priceSentence("en", "presencia-local").toLowerCase()}. Every package below shows a starting price so you know the ballpark
+            your business {priceSentence("en", "presencia-local").toLowerCase()}. Filming by the hour is {filmingHourlyText("en")}. Every package below shows a starting price so you know the ballpark
             before you write to me. The final number depends on how much video
             you need, whether I film on location, and how fast you need it — so
             you always get a written quote for your own project.
