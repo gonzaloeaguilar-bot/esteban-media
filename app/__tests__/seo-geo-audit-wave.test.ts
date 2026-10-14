@@ -152,7 +152,11 @@ describe("title and description length (fix 12)", () => {
       const es = await esWatchMetadata({ params: Promise.resolve({ id: item.id }) });
       const en = await enWatchMetadata({ params: Promise.resolve({ id: item.id }) });
       const esTitle = typeof es.title === "string" ? es.title : (es.title as { absolute: string }).absolute;
-      expect(esTitle.startsWith("Portafolio: ")).toBe(true);
+      // The prefix stays unless it would push the title past ~60 characters
+      // (loop round 3, row 31: two titles ran 66 and 68).
+      expect(esTitle.length).toBeLessThanOrEqual(60);
+      const bare = esTitle.replace(/^Portafolio: /, "");
+      if (`Portafolio: ${bare}`.length <= 60) expect(esTitle).toBe(`Portafolio: ${bare}`);
       expect(es.title).not.toEqual(en.title);
       expect(es.description!.length).toBeLessThanOrEqual(155);
       expect(en.description!.length).toBeLessThanOrEqual(155);
