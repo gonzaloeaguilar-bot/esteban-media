@@ -502,3 +502,47 @@ export const DANCE_MUSIC_STUDIO_DEEP_DIVE: DeepDive = {
     },
   ],
 };
+
+export const FOUNDER_BRAND_DEEP_DIVE: DeepDive = {
+  id: "founder-videos",
+  title: "How does a founder keep posting without a production team?",
+  destinations: "What to record in one session, and a weekly rhythm that survives a busy calendar.",
+  sections: [
+    {
+      heading: "What should a founder record in one session?",
+      paragraphs: [
+        "Short answers to the questions your clients already ask. Write down five to eight of them, the ones you answer on sales calls every week, and record each answer separately in one or two minutes, looking at the lens. Add one opinion about your industry that you would defend in a meeting, and one short story from your own work. That list is usually enough for two to four weeks of posts.",
+        "Record in one sitting so the light, the sound and your clothes match, and leave a pause before and after each answer so there is room to cut. Send the original files, not exports from an app, with a line on what each one is about. Esteban keeps your phrasing; he removes the pauses, the restarts and the filler, then adds captions and a title.",
+      ],
+    },
+    {
+      heading: "What weekly rhythm can a busy founder actually keep?",
+      paragraphs: [
+        "One recording session every two to four weeks and a fixed number of posts a week, not a daily promise. A founder who records eight answers on a Monday and publishes two a week has a month covered, and the edits arrive in batches instead of one at a time. If you post every week, the weekly Starter plan fits that rhythm with a set number of videos each week.",
+        "Track two things only: which questions bring messages or calls, and which ones people watch to the end. Those decide the next recording list. When the calendar and the reporting need to be handled for you, that is the Growth package. For the editing details of short clips, see [short-form video editing](/services/short-form-video-editor-miami).",
+      ],
+    },
+  ],
+};
+
+export const PODCAST_CLIPPING_DEEP_DIVE: DeepDive = {
+  id: "podcast-clips",
+  title: "How does one episode become a week of clips?",
+  destinations: "Choosing the moments, and a release rhythm a small show can keep.",
+  sections: [
+    {
+      heading: "Which moments of a podcast work as clips?",
+      paragraphs: [
+        "Passages that start and finish inside the same minute or so: a direct answer to a question, a strong opinion said plainly, a short story, a surprising number with its source, or a disagreement between the hosts. Moments that depend on something said twenty minutes earlier rarely work alone, and neither do sponsor reads or inside jokes, which confuse people who have never heard the show.",
+        "The fastest way to a good selection is for the host or producer to note a few timestamps right after recording, while the conversation is fresh. Those notes are where the selection begins; each clip then gets a one-line title saying what it is about, and keeps each speaker's words intact rather than splicing sentences into something nobody said.",
+      ],
+    },
+    {
+      heading: "What release rhythm can a small podcast keep?",
+      paragraphs: [
+        "Clips spread across the days after the episode, not all on launch day. A common rhythm is the strongest clip with the episode, two or three more during the week, and the last one pointing to the next episode. Three to five clips per episode is a reasonable start for a weekly show; the number is agreed in the quote from the length of the episode and how often you publish.",
+        "Keep the guest in mind: send them the clips they appear in, so they can share them too, and confirm that music beds and intros are licensed for social platforms. When the full episode also needs editing, [video podcast editing](/services/video-podcast-editing-service-miami) covers it, and [content repurposing](/services/content-repurposing-service-miami) applies the same method to webinars and talks.",
+      ],
+    },
+  ],
+};

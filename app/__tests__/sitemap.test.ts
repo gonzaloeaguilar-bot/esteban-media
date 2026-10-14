@@ -21,7 +21,7 @@ import sitemap, { inventoryAdditions20261010Paths } from "../sitemap";
 describe("portfolio sitemap entries", () => {
   const entries = sitemap();
 
-  it("publishes the exact 344-URL consolidated inventory, each URL once", () => {
+  it("publishes the exact 348-URL consolidated inventory, each URL once", () => {
     const urls = entries.map((entry) => entry.url);
 
     // 279 = 243 consolidated + /desk-recommendations (owner-ordered
@@ -42,8 +42,9 @@ describe("portfolio sitemap entries", () => {
     // +16 = niche wave 8 (2026-10-11, owner-approved bilingual pairs).
     // +1 = the 2026-10-11 real product photography buyer page.
     // +1 = the Spanish companion to the real product photography buyer page.
-    expect(entries).toHaveLength(344);
-    expect(new Set(urls)).toHaveLength(344);
+    // +4 = founder/personal-brand and podcast-clipping pairs (2026-10-13, round 3).
+    expect(entries).toHaveLength(348);
+    expect(new Set(urls)).toHaveLength(348);
   });
 
   it("pairs real product photography pages with reciprocal language alternatives", () => {

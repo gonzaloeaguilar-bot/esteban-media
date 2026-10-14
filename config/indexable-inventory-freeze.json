@@ -1,9 +1,9 @@
 {
   "status": "demand_gated",
   "effectiveDate": "2026-08-28",
-  "baselineRevisedOn": "2026-10-11",
-  "approvedSitemapUrlCount": 344,
-  "approvedSitemapUrlSetSha256": "68a3fe899216033e98884af4df3bdf01c64bd472c0515e507aacd0f537259bbd",
+  "baselineRevisedOn": "2026-10-13",
+  "approvedSitemapUrlCount": 348,
+  "approvedSitemapUrlSetSha256": "f0666132e86a12bd2245ace2f3cb59b4a138e8c50e679d8de5b0def8ad61624d",
   "allowedNewIndexableUrls": 4,
   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {
@@ -313,6 +313,19 @@
       "demandEvidence": "The live English product-photography page was added from the direct authenticated GSC query 'miami product photographer' (3 US site impressions, 0 clicks, July 1–October 8) and Esteban's interview confirms product photography. The Spanish route gives a reciprocal language path to the same real-shoot offer; no separate Spanish search volume is claimed.",
       "followUpDate": "2026-11-11",
       "followUp": "Check Spanish route indexed status, impressions and qualified photography inquiries, plus reciprocal EN/ES alternate tags. Revise the page if no qualified discovery appears; do not add more location pages from this signal alone."
+    },
+    {
+      "on": "2026-10-13",
+      "url": [
+        "/services/personal-brand-video-editor-founders-miami",
+        "/es/editor-de-video-para-marca-personal-miami",
+        "/services/podcast-clipping-service-miami",
+        "/es/edicion-de-clips-de-podcast-miami"
+      ],
+      "orderedBy": "Gonzalo (pre-approved content work in the 2026-10-08 niche round 3 brief)",
+      "kind": "demand-backed niche pairs (round 3)",
+      "demandEvidence": "Own data is ZERO, stated rather than dressed up: GSC 90d (2026-07-13..2026-10-12, 183 query rows) has 0 founder/personal-brand queries and 1 podcast query (podcast editor miami, 2 impr, pos 80.5); Bing GetQueryStats 0. Outside demand: Google autocomplete returns 'personal brand video editor', 'personal branding video editing', 'personal brand reel video editor', 'video editing for coaches', 'podcast clip editor', 'podcast clipping service', 'podcast clips for tiktok', 'podcast to reels'. Live Bing 2026-10-13: 'personal brand video editor for founders linkedin' top results are service pages (kometmedia.com, increditors.com founder-linkedin page, ariyankhan.com video-editor-for-founders); 'podcast clipping service reels tiktok' top 8 are all clipping agencies. The 2026-10-08 live Google check found the competitors winning 'short form video editor miami' target founders (Komet Media) and offer podcast clipping (Short Form Media).",
+      "note": "4 URLs = exactly one demand-wave allowance. Musicians, course creators: not now (existing pages cover them; GSC/Bing 0). Churches: built 2026-10-11. GSC follow-up 2026-10-22 and 2026-11-12."
     }
   ]
 }

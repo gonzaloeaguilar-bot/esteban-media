@@ -240,7 +240,7 @@ describe("Search Console index watch", () => {
   it("keeps the fixed watch set identical to the application sitemap", () => {
     const urls = sitemap().map((entry) => entry.url).sort();
 
-    expect(WATCH_URLS).toHaveLength(344); // includes the 2026-10-11 Spanish real product photography companion
+    expect(WATCH_URLS).toHaveLength(348); // +4 founder and podcast-clipping pairs (2026-10-13); includes the 2026-10-11 Spanish real product photography companion
     expect([...WATCH_URLS].sort()).toEqual(urls);
     expect(validateWatchedSitemap(urls).hash).toBe(watchedUrlHash());
   });

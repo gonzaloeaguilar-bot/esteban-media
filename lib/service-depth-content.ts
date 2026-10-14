@@ -2006,3 +2006,119 @@ export const DANCE_MUSIC_STUDIO_DEPTH: NicheWave8Depth = {
     { title: "Social Media Video Batching", detail: "A month of clips edited in one batch.", href: "/services/social-media-video-batching-miami" },
   ],
 };
+
+// ---------------------------------------------------------------------------
+// Niche round 3 (2026-10-13): founders / personal brands, and podcast clipping.
+// Demand evidence and the "not now" niches: vault esteban-niches-round-3-2026-10-08.
+// Proof is limited to what the portfolio publishes: ML Colombia is Esteban's own
+// founder-led brand (messages/en.json Portfolio.items.ml-colombia); no podcast
+// project is published, so the clipping page says so.
+// ---------------------------------------------------------------------------
+
+export const FOUNDER_BRAND_DEPTH: NicheWave8Depth = {
+  answer: {
+    question: "Who edits personal brand videos for founders, coaches and consultants in Miami?",
+    answer:
+      "Esteban Moreno Media edits the videos a founder, coach or consultant records about their own work: talking-head explainers, opinions on the industry, client questions answered on camera, and clips cut from talks or interviews. You record on your phone or in a studio; Esteban edits remotely into vertical cuts for Instagram Reels, TikTok and YouTube Shorts and versions sized for the LinkedIn feed, with captions in English or Spanish. He has been on the other side of the camera: he founded and ran his own brand, ML Colombia, for about six years and led its digital content as CEO. He is based in Fort Lauderdale and works across Miami-Dade and Broward. On-location filming is a paid add-on scoped per project.",
+  },
+  proof: {
+    href: "/portfolio/ml-colombia",
+    label: "See the founder-led brand Esteban ran",
+    note: "ML Colombia is Esteban's own CBD-cosmetics brand, which he founded and ran as CEO for about six years, leading its digital content. It is his own company, not a client founder's personal brand.",
+  },
+  craftHeading: "What a founder video needs from the edit.",
+  craft: [
+    {
+      title: "The point in the first sentence",
+      detail:
+        "People decide in a second or two whether to keep watching someone they do not know. The edit cuts the warm-up, opens on the claim or the question, and saves the background for after the hook.",
+    },
+    {
+      title: "Your words, not a script you never said",
+      detail:
+        "Trust is the reason a personal brand works. The edit tightens pauses and repetition but keeps your phrasing and your accent, and it never rearranges sentences into an opinion you did not give.",
+    },
+    {
+      title: "One recording, several platforms",
+      detail:
+        "A ten-minute session can hold several short ideas. Each becomes a vertical cut for Reels, TikTok and Shorts and a version sized for the LinkedIn feed, with captions, because most of these videos are watched without sound.",
+    },
+  ],
+  faqHeading: "Questions before a founder sends the first recording.",
+  faqs: [
+    {
+      question: "Do I need a studio or a camera crew?",
+      answer:
+        "No. A recent phone, a window in front of you, a clip-on microphone and a quiet room are enough to start. Record a few minutes per idea, say the point early, and send the original files through a shared folder. If you want a studio look or an on-location shoot at your office, that is a paid add-on scoped per project.",
+    },
+    {
+      question: "Can the videos be in Spanish and in English?",
+      answer:
+        "Yes. Esteban works mainly in Spanish, with intermediate English for bilingual projects, and captions can go in either language. If you record the same idea twice, once in each language, each version is edited on its own rather than translated in subtitles only.",
+    },
+    {
+      question: "How much does founder video editing cost?",
+      answer: `Each edited video is priced like the Starter package, ${enStarter()}. A founder who posts every week can pay Starter weekly, and a planned month with a content calendar and a monthly report is the Growth package, ${enGrowth()}. A written quote sets the number of videos before work starts.`,
+    },
+  ],
+  relatedHeading: "Related services for founders and experts.",
+  related: [
+    { title: "Short-Form Video Editing", detail: "Vertical edits for Reels, TikTok and Shorts.", href: "/services/short-form-video-editor-miami" },
+    { title: "Podcast Clip Editing", detail: "Short clips cut from a podcast or a long interview.", href: "/services/podcast-clipping-service-miami" },
+    { title: "Interview Video Editing", detail: "Multi-camera conversations edited into one clear piece.", href: "/services/interview-video-editing-service" },
+  ],
+};
+
+export const PODCAST_CLIPPING_DEPTH: NicheWave8Depth = {
+  answer: {
+    question: "How does a podcast episode become clips for Reels, TikTok and Shorts?",
+    answer:
+      "By finding the moments in the episode that make sense without the rest of the conversation, a clear answer, a strong opinion, a short story, and cutting each into a vertical clip of under a minute and a half with burned-in captions. Esteban works from your episode files, ideally the separate camera angles and the clean audio, reframes the conversation from 16:9 to 9:16 so the person speaking stays in frame, and delivers each clip ready for Instagram Reels, TikTok and YouTube Shorts. You or your producer approve the selection before anything is published. Editing the full episode is a separate service: see video podcast editing. Esteban is based in Fort Lauderdale and edits remotely for shows in Miami-Dade and Broward; filming an episode on location is a paid add-on scoped per project.",
+  },
+  proof: {
+    href: "/portfolio/diana-jack",
+    label: "Watch a long recording cut into a short piece",
+    note: "No podcast project is published in Esteban's portfolio yet. Diana & Jack is a wedding he filmed and edited into a 20-minute film and a trailer of about a minute and a half; it shows a long recording condensed into a short piece, not a podcast.",
+  },
+  craftHeading: "What a podcast clip needs from the edit.",
+  craft: [
+    {
+      title: "A clip that stands alone",
+      detail:
+        "A conversation builds over an hour; a clip has seconds. The edit picks passages with a beginning and an end, trims the lead-in, and adds a one-line title so someone who never heard the show understands the point.",
+    },
+    {
+      title: "Reframed for a vertical screen",
+      detail:
+        "A wide two-shot does not fit a phone. Each clip is reframed to 9:16 around whoever is speaking, switching between camera angles when you send them, so faces stay centred and readable.",
+    },
+    {
+      title: "Captions people can read",
+      detail:
+        "Most clips are watched on mute. Burned-in captions in English or Spanish, placed where the app interface does not cover them, carry the clip when the sound is off.",
+    },
+  ],
+  faqHeading: "Questions before a show sends its first episode.",
+  faqs: [
+    {
+      question: "What files should a podcast send for clips?",
+      answer:
+        "The highest-quality originals you have: each camera angle as its own file and the clean audio from the recorder or the mixer, not a copy downloaded from YouTube or Spotify. Add the episode title, guest names spelled correctly and, if you can, the timestamps of the moments you liked. That note makes the first selection faster and closer to your taste.",
+    },
+    {
+      question: "Is this the same as podcast editing?",
+      answer:
+        "No. Podcast editing produces the full episode for YouTube or audio platforms; clipping produces short vertical pieces from an episode that already exists. Many shows need both. For the full episode, see the video podcast editing page linked below; this page covers only the clips.",
+    },
+    {
+      question: "How much does podcast clipping cost?",
+      answer: `Each clip is priced like the Starter package, ${enStarter()}. A show that publishes every week can pay Starter weekly, and a planned month of clips with a posting calendar and a monthly report is the Growth package, ${enGrowth()}. A written quote sets the number of clips per episode.`,
+    },
+  ],
+  relatedHeading: "Related services for long recordings.",
+  related: [
+    { title: "Video Podcast Editing", detail: "The full episode, multi-camera, edited for YouTube.", href: "/services/video-podcast-editing-service-miami" },
+    { title: "Content Repurposing", detail: "Any long recording turned into the clips each platform wants.", href: "/services/content-repurposing-service-miami" },
+    { title: "Founder Video Editing", detail: "Personal brand videos for founders, coaches and consultants.", href: "/services/personal-brand-video-editor-founders-miami" },
+  ],
+};

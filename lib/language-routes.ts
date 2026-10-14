@@ -75,6 +75,10 @@ export const pairedLanguageRoutes: Record<string, string> = {
     "/es/marketing-de-video-para-abogados-de-inmigracion-miami",
   "/services/church-sermon-clip-editing-miami":
     "/es/edicion-de-clips-de-predicas-para-iglesias-miami",
+  "/services/personal-brand-video-editor-founders-miami":
+    "/es/editor-de-video-para-marca-personal-miami",
+  "/services/podcast-clipping-service-miami":
+    "/es/edicion-de-clips-de-podcast-miami",
   "/services/quinceanera-video-miami":
     "/es/video-para-quinceaneras-miami",
   "/services/dance-studio-music-school-video-marketing-miami":
