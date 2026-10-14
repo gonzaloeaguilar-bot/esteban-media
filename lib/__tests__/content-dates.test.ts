@@ -1,7 +1,8 @@
 import { describe, expect, it } from "vitest";
 
 import sitemap from "@/app/sitemap";
-import { contentDateFor, isoDay, pageFileFor, updatedLabel } from "@/lib/content-dates";
+import { readFileSync } from "node:fs";
+import { contentDateFor, isoDay, updatedLabel } from "@/lib/content-dates";
 import { pageLastModified } from "@/lib/page-lastmod";
 
 
@@ -12,11 +13,13 @@ describe("route dates are honest", () => {
     expect(isoDay("2026-10-14T00:39:38-04:00")).toBe("2026-10-14");
   });
 
-  it("finds the page file for static and dynamic routes", () => {
-    expect(pageFileFor("/")).toBe("app/(english)/page.tsx");
-    expect(pageFileFor("/es")).toBe("app/(spanish)/es/page.tsx");
-    expect(pageFileFor("/guides/anything")).toContain("guides/[slug]/page.tsx");
-    expect(pageFileFor("/not-a-route-xyz")).toBeNull();
+  // A computed fs path under process.cwd() makes Next's tracer bundle the whole
+  // project into every function importing this module: llms.txt.rsc hit 386 MB
+  // against Vercel's 250 MB limit and three production deploys failed.
+  it("does no fs or git work (it would drag the project into every function's trace)", () => {
+    const code = readFileSync("lib/content-dates.ts", "utf8").replace(/\/\*[\s\S]*?\*\//g, "");
+    expect(code).not.toMatch(/node:(fs|child_process|path)/);
+    expect(code).not.toMatch(/process\.cwd\(\)/);
   });
 
   // Dates now come from the per-page ledger, so a shallow clone (Vercel, CI)
