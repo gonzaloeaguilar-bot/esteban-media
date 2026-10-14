@@ -27,7 +27,7 @@ const fortLauderdaleServices = [
   {
     name: "Remote video editing",
     description:
-      "A confirmed priority for projects that begin with existing footage and a publishing goal.",
+      "For projects that begin with existing footage and a publishing goal.",
     icon: Scissors,
     href: "/services/hire-remote-video-editor",
     linkText: "Explore remote video editing",
@@ -35,7 +35,7 @@ const fortLauderdaleServices = [
   {
     name: "AI-assisted content",
     description:
-      "AI-assisted creative is a confirmed priority, scoped around the project goal and intended use.",
+      "AI-assisted creative, scoped around the project goal and intended use.",
     icon: WandSparkles,
     href: null,
     linkText: null,
@@ -43,7 +43,7 @@ const fortLauderdaleServices = [
   {
     name: "Social media planning",
     description:
-      "A confirmed priority for discussing audience, channels, publishing goals, and content needs.",
+      "For discussing audience, channels, publishing goals, and content needs.",
     icon: CalendarRange,
     href: null,
     linkText: null,
@@ -230,7 +230,7 @@ export default function FortLauderdalePage() {
       <section className="py-12 sm:py-16" aria-labelledby="fort-lauderdale-services">
         <Container size="xl">
           <p className="text-xs font-medium uppercase text-[#5a6066]">
-            Confirmed priorities
+            Core services
           </p>
           <h2 id="fort-lauderdale-services" className="mt-4 max-w-3xl font-serif text-4xl leading-tight sm:text-5xl">
             Services that can be discussed without assuming a fixed package.

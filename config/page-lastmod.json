@@ -12,8 +12,8 @@
   "hash": "eb7023e40fe152ce"
  },
  "/areas/palm-beach-county": {
-  "date": "2026-10-11",
-  "hash": "42d2d15e9cc71292"
+  "date": "2026-10-14",
+  "hash": "f2127bf93cac3f69"
  },
  "/assessment": {
   "date": "2026-10-11",
@@ -72,8 +72,8 @@
   "hash": "5fcb7c949b847feb"
  },
  "/desk-recommendations": {
-  "date": "2026-10-07",
-  "hash": "ac64f0afb33064b1"
+  "date": "2026-10-14",
+  "hash": "0135f80e80d9613c"
  },
  "/es": {
   "date": "2026-10-14",
@@ -84,8 +84,8 @@
   "hash": "d1fbad87f3d7aa91"
  },
  "/es/areas/palm-beach-county": {
-  "date": "2026-10-11",
-  "hash": "baa9d7c8f2f8e06d"
+  "date": "2026-10-14",
+  "hash": "389b500d6ef2cff9"
  },
  "/es/auditoria-de-funnel-y-datos": {
   "date": "2026-08-26",
@@ -217,7 +217,7 @@
  },
  "/es/editor-de-reels-miami": {
   "date": "2026-10-14",
-  "hash": "4f0b09a8761c9e31"
+  "hash": "65892ee9e090ce1b"
  },
  "/es/editor-de-video-corto-para-redes-miami": {
   "date": "2026-10-14",
@@ -241,7 +241,7 @@
  },
  "/es/editor-de-video-real-estate-miami": {
   "date": "2026-10-14",
-  "hash": "d2f29faaa9eede3e"
+  "hash": "04ca052a197b020d"
  },
  "/es/editor-de-video-ugc-para-ecommerce": {
   "date": "2026-08-14",
@@ -684,8 +684,8 @@
   "hash": "18bc42540f800ecf"
  },
  "/es/produccion-de-video-fort-lauderdale": {
-  "date": "2026-10-09",
-  "hash": "1ac37c2255f063ef"
+  "date": "2026-10-14",
+  "hash": "d347cdff43005865"
  },
  "/es/produccion-de-video-palm-beach-county": {
   "date": "2026-10-08",
@@ -716,12 +716,12 @@
   "hash": "c76c635d2d08770b"
  },
  "/es/reels-para-negocios-miami": {
-  "date": "2026-10-08",
-  "hash": "fafd2b09b6ac3552"
+  "date": "2026-10-14",
+  "hash": "562a564052c87816"
  },
  "/es/reutilizacion-de-contenido-para-redes-miami": {
-  "date": "2026-07-26",
-  "hash": "8041cef2255c1e5c"
+  "date": "2026-10-14",
+  "hash": "c7b3936fff463bd5"
  },
  "/es/servicios": {
   "date": "2026-10-14",
@@ -792,12 +792,12 @@
   "hash": "ee5d742f00fb98a6"
  },
  "/es/videografo-en-fort-lauderdale": {
-  "date": "2026-10-07",
-  "hash": "cac75ae6074c2a1e"
+  "date": "2026-10-14",
+  "hash": "4eef74deb6764dc8"
  },
  "/es/videografo-en-miami": {
-  "date": "2026-10-09",
-  "hash": "6049e0788dbf9581"
+  "date": "2026-10-14",
+  "hash": "7b0de335760cffeb"
  },
  "/events": {
   "date": "2026-10-14",
@@ -832,8 +832,8 @@
   "hash": "5f2788b222f3b9b2"
  },
  "/fort-lauderdale": {
-  "date": "2026-10-11",
-  "hash": "f13c425a47a73694"
+  "date": "2026-10-14",
+  "hash": "215ffb6f17f34c19"
  },
  "/guides": {
   "date": "2026-10-14",

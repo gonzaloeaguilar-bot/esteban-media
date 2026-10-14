@@ -60,3 +60,45 @@ describe("round 3 snippet rewrites", () => {
     expect(src).not.toContain("vault loop log, row 32");
   });
 });
+
+describe("round 3 client-facing language and schema", () => {
+  const root = join(__dirname, "..", "..");
+  const read = (p: string) => readFileSync(join(root, p), "utf8");
+
+  it("no page prints the internal 'confirmed priority' label", () => {
+    const files = [
+      "lib/spanish-site.ts",
+      "components/spanish-niche-page.tsx",
+      "app/(spanish)/es/areas/palm-beach-county/page.tsx",
+      "app/(english)/areas/palm-beach-county/page.tsx",
+      "app/(english)/fort-lauderdale/page.tsx",
+    ];
+    for (const f of files) {
+      expect(read(f), f).not.toMatch(/confirmed priorit|prioridad(es)? confirmada/i);
+    }
+  });
+
+  it("the guide hubs print answers, not keyword-target chips", () => {
+    const src = read("components/guide-pages.tsx");
+    expect(src).not.toContain("keywordsLabel");
+    expect(src).toContain("insight.answer[locale]");
+  });
+
+  it("Spanish hub questions open with ¿ and carry their accents", async () => {
+    const { redditQueryInsights } = await import("@/lib/reddit-query-insights");
+    for (const insight of redditQueryInsights) {
+      expect(insight.audienceQuestion.es.startsWith("¿"), insight.id).toBe(true);
+      expect(insight.audienceQuestion.es).not.toMatch(/^¿(Que|Como|Cuando|Cuanto) /);
+      expect(insight.answer.en.length).toBeGreaterThan(150);
+      expect(insight.answer.es.length).toBeGreaterThan(150);
+    }
+  });
+
+  it("desk recommendations carry no Product nodes without offers", () => {
+    expect(read("app/(english)/desk-recommendations/page.tsx")).not.toContain('"@type":"Product"');
+  });
+
+  it("Spanish inquiry rails default to the accented copy", () => {
+    expect(read("components/service-depth.tsx")).toContain("accentedSpanish = true");
+  });
+});

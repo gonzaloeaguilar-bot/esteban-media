@@ -17,10 +17,15 @@ const itemListSchema={
   name:"Shared desk and production recommendations",
   description:"Products Esteban Moreno and Gonzalo Aguilar have bought and use for video production and desk work.",
   numberOfItems:products.length,
-  itemListElement:products.map(([name,asin,href,note],i)=>({
+  // Plain ListItems, not Product nodes (loop round 3): Google requires offers,
+  // review or aggregateRating on a Product, and this page has none to give, so
+  // 18 Product nodes were invalid structured data.
+  itemListElement:products.map(([name,,href,note],i)=>({
     "@type":"ListItem",
     position:i+1,
-    item:{"@type":"Product",name,sku:asin,description:note,url:href}
+    name,
+    description:note,
+    url:href
   }))
 };
 

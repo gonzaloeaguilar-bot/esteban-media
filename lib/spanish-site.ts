@@ -1021,7 +1021,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       "¿Qué disponibilidad, formatos y alcance deben confirmarse para este proyecto?",
     ],
     projectFit:
-      "Esta página conecta las prioridades confirmadas de edición y producción selectiva con prueba publicada en Miami. Para edición de video corto con material existente, consulta con un [editor de Reels en Miami](/es/editor-de-reels-miami). No promete disponibilidad, formatos ni un alcance universal.",
+      "Esta página reúne la edición y la producción selectiva en Miami con trabajos publicados. Para edición de video corto con material existente, consulta con un [editor de Reels en Miami](/es/editor-de-reels-miami). No promete disponibilidad, formatos ni un alcance universal.",
     faqs: [
       {
         question: "¿Esteban trabaja en español?",
@@ -1044,7 +1044,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Fort Lauderdale / Broward County",
     h1: "Video desde Fort Lauderdale, con alcance definido por proyecto.",
     lead:
-      "Fort Lauderdale es la base de Esteban Moreno Media. La edición, la planificación y la producción local de video forman parte de sus prioridades confirmadas; cada idea en locación se considera de forma selectiva dentro de [tres condados como área de servicio](/es/areas).",
+      "Fort Lauderdale es la base de Esteban Moreno Media. La edición, la planificación y la producción local de video son sus servicios principales; cada idea en locación se considera de forma selectiva dentro de [tres condados como área de servicio](/es/areas).",
     keyword: "videógrafo en Fort Lauderdale",
     location: "Fort Lauderdale",
     availability: "confirmed",
@@ -1126,7 +1126,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Instagram / TikTok / Shorts",
     h1: "Reels para negocios de Miami-Dade, con alcance por proyecto.",
     lead:
-      "La edición de video corto es una prioridad confirmada de Esteban. Si una idea requiere grabación en Miami-Dade, la producción se considera de forma selectiva después de conocer la meta y la locación dentro de las [áreas de servicio](/es/areas).",
+      "La edición de video corto es uno de los servicios principales de Esteban. Si una idea requiere grabación en Miami-Dade, la producción se considera de forma selectiva después de conocer la meta y la locación dentro de las [áreas de servicio](/es/areas).",
     keyword: "reels para negocios Miami",
     location: "Miami-Dade",
     availability: "confirmed",
@@ -1203,7 +1203,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         question: "¿Puedo pedir solo edición de reels si ya tengo los videos grabados?",
         answer:
-          "Sí. La edición de video con material existente es una prioridad confirmada de Esteban. Puedes enviar tus grabaciones en vertical u horizontal a través de almacenamiento en la nube, y el alcance de edición, subtítulos y formato se define para cada proyecto.",
+          "Sí. La edición de video con material existente es uno de los servicios principales de Esteban. Puedes enviar tus grabaciones en vertical u horizontal a través de almacenamiento en la nube, y el alcance de edición, subtítulos y formato se define para cada proyecto.",
       },
       {
         question: "¿Qué formato y resolución se entregan los Reels?",
@@ -1400,7 +1400,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Real Estate / Bienes Raíces",
     h1: "Edición de video y Reels para real estate en South Florida.",
     lead:
-      "La edición de video y contenido para redes es una prioridad confirmada de Esteban. Ayudamos a agentes y agencias inmobiliarias a estructurar recorridos y videos de propiedades a partir de su material grabado en nuestras [áreas de servicio](/es/areas).",
+      "La edición de video y contenido para redes es uno de los servicios principales de Esteban. Ayudamos a agentes y agencias inmobiliarias a estructurar recorridos y videos de propiedades a partir de su material grabado en nuestras [áreas de servicio](/es/areas).",
     keyword: "editor de video para real estate",
     location: "South Florida / Miami-Dade / Broward",
     availability: "confirmed",
@@ -1649,7 +1649,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Repurposing / Edición",
     h1: "Transforma videos largos en decenas de clips para redes sociales.",
     lead:
-      "La reutilización de contenido (repurposing) es una prioridad confirmada de Esteban. Convertimos ponencias, podcasts y videos de YouTube en piezas verticales optimizadas para Reels y TikTok.",
+      "La reutilización de contenido (repurposing) es uno de los servicios principales de Esteban. Convertimos ponencias, podcasts y videos de YouTube en piezas verticales optimizadas para Reels y TikTok.",
     keyword: "reutilización de contenido de video",
     location: "Miami-Dade / Fort Lauderdale / Remote",
     availability: "confirmed",
@@ -4000,7 +4000,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         question: "¿Puedo pedir solo edición si ya tengo material?",
         answer:
-          "Sí. La edición remota con material existente es una prioridad confirmada. Puedes enviar clips originales, referencias, textos y la plataforma de publicación para recibir una respuesta más precisa.",
+          "Sí. La edición remota con material existente es uno de los servicios principales. Puedes enviar clips originales, referencias, textos y la plataforma de publicación para recibir una respuesta más precisa.",
       },
       {
         question: "¿La producción local está disponible para cualquier idea?",
@@ -4165,7 +4165,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         question: "¿Editan Reels para negocios de Miami con material existente?",
         answer:
-          "Sí. La edición con material existente es una prioridad confirmada. Comparte clips originales, referencias, plataforma y meta para revisar el alcance.",
+          "Sí. La edición con material existente es uno de los servicios principales. Comparte clips originales, referencias, plataforma y meta para revisar el alcance.",
       },
       {
         question: "¿Puede un video largo convertirse en varios Reels?",
