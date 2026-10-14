@@ -14,6 +14,7 @@ type FooterProps = {
   phoneHref: string;
   instagram: string;
   youtube: string;
+  directories: { label: string; href: string }[];
   domain: string;
   location: string;
   name: string;
@@ -188,6 +189,21 @@ export function SiteFooterClient(props: FooterProps) {
               YouTube
             </a>
           </div>
+          <p className="mt-4 text-sm text-[#c9c1b8]">
+            <span>{isSpanish ? "También en" : "Also on"}</span>{" "}
+            {props.directories.map((directory, index) => (
+              <span key={directory.href}>
+                {index > 0 ? " · " : null}
+                <a
+                  href={directory.href}
+                  rel="me"
+                  className="underline decoration-[#f6f1ea]/30 underline-offset-4 hover:text-[#f6f1ea]"
+                >
+                  {directory.label}
+                </a>
+              </span>
+            ))}
+          </p>
         </div>
 
         {groups.map((group) => (
