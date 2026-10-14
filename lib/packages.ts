@@ -8,7 +8,14 @@
 // Prices are NOT written here. They live in lib/pricing.ts PACKAGE_PRICES so
 // one edit changes every surface.
 
-import { PACKAGE_PRICES, usd, type PackageId, type PackagePrice } from "@/lib/pricing";
+import {
+  PACKAGE_PRICES,
+  PRODUCT_PHOTO_SESSION,
+  REAL_ESTATE_PLANS,
+  usd,
+  type PackageId,
+  type PackagePrice,
+} from "@/lib/pricing";
 
 export type Locale = "en" | "es";
 
@@ -317,6 +324,62 @@ export function priceSentence(locale: Locale, id: PackageId): string {
   return p.kind === "from" ? `${c.from} ${usd(p.amount)} ${c.units[p.unit]}` : `${c.customLine} ${c.custom.toLowerCase()}`;
 }
 
+/**
+ * The cheapest real estate monthly plan, as the chooser prints it ("From
+ * $X/mo"). Growth (a social-media plan) and the real estate plans are two
+ * different products that both bill monthly; the FAQ names both so no reader
+ * or model has to guess which monthly price is which.
+ * Both figures come from lib/pricing.ts.
+ */
+export function cheapestRealEstatePlan() {
+  return REAL_ESTATE_PLANS.reduce((lowest, plan) => (plan.price < lowest.price ? plan : lowest));
+}
+
+function realEstateFromText(locale: Locale): string {
+  const price = usd(cheapestRealEstatePlan().price);
+  return locale === "es" ? `desde ${price} al mes` : `from ${price} a month`;
+}
+
+/**
+ * Offers for the two prices the home chooser prints that are not packages:
+ * the real estate monthly plan and the photography session
+ * (the chooser's two non-package prices). Same constants the chooser reads, so the JSON-LD and
+ * the visible text cannot drift (see app/__tests__/home-price-parity.test.ts).
+ */
+export function chooserOffers(locale: Locale, providerId: string, startPosition: number) {
+  const es = locale === "es";
+  const plan = cheapestRealEstatePlan();
+  const offer = (position: number, name: string, amount: number, unitText: string, serviceName: string) => ({
+    "@type": "Offer",
+    position,
+    name,
+    availableAtOrFrom: { "@type": "Place", name: "Fort Lauderdale, FL" },
+    itemOffered: { "@type": "Service", name: serviceName, provider: { "@id": providerId } },
+    priceSpecification: {
+      "@type": "UnitPriceSpecification",
+      minPrice: amount,
+      priceCurrency: "USD",
+      unitText,
+    },
+  });
+  return [
+    offer(
+      startPosition,
+      es ? "Plan mensual inmobiliario" : "Real estate monthly plan",
+      plan.price,
+      es ? "al mes" : "per month",
+      es ? "Reels y media para propiedades" : "Reels and listing media for properties",
+    ),
+    offer(
+      startPosition + 1,
+      es ? "Sesión de fotografía de producto" : "Product photography session",
+      PRODUCT_PHOTO_SESSION.from,
+      es ? "por sesión" : "per session",
+      es ? "Fotografía de producto" : "Product photography",
+    ),
+  ];
+}
+
 /** Short, answer-first questions for the page and for FAQPage schema. */
 export function packageFaq(locale: Locale): { id: string; question: string; answer: string }[] {
   const pk = packagesFor(locale);
@@ -334,8 +397,8 @@ export function packageFaq(locale: Locale): { id: string; question: string; answ
       id: "plan-mensual",
       question: es ? "¿Tienes un plan mensual para redes sociales?" : "Do you have a monthly social media plan?",
       answer: es
-        ? `Sí: ${by("crecimiento").name}, ${priceSentence("es", "crecimiento").toLowerCase()}. Incluye plan de contenido, calendario, edición y reporte mensual.`
-        : `Yes: ${by("crecimiento").name}, ${priceSentence("en", "crecimiento").toLowerCase()}. It includes a content plan, calendar, editing and a monthly report.`,
+        ? `Sí: ${by("crecimiento").name}, ${priceSentence("es", "crecimiento").toLowerCase()}. Incluye plan de contenido, calendario, edición y reporte mensual. Inmobiliaria tiene sus propios planes mensuales, ${realEstateFromText("es")}.`
+        : `Yes: ${by("crecimiento").name}, ${priceSentence("en", "crecimiento").toLowerCase()}. It includes a content plan, calendar, editing and a monthly report. Real estate has its own monthly plans, ${realEstateFromText("en")}.`,
     },
     {
       id: "grabar-negocio",
@@ -471,12 +534,14 @@ export function packageDetailJsonLd(
 /** OfferCatalog + FAQPage, from the rendered content. */
 export function packagesJsonLd(locale: Locale, homeUrl: string, providerId: string) {
   const es = locale === "es";
+  const packageList = packagesFor(locale);
   const catalog = {
     "@context": "https://schema.org",
     "@type": "OfferCatalog",
     name: es ? "Paquetes de Esteban Moreno Media" : "Esteban Moreno Media packages",
     url: `${homeUrl}#${es ? "paquetes" : "packages"}`,
-    itemListElement: packagesFor(locale).map((pkg, i) => {
+    itemListElement: [
+      ...packageList.map((pkg, i) => {
       const price = PACKAGE_PRICES[pkg.id];
       return {
         "@type": "Offer",
@@ -497,7 +562,9 @@ export function packagesJsonLd(locale: Locale, homeUrl: string, providerId: stri
             }
           : {}),
       };
-    }),
+      }),
+      ...chooserOffers(locale, providerId, packageList.length + 1),
+    ],
   };
   const faq = {
     "@context": "https://schema.org",

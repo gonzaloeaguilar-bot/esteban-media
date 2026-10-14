@@ -61,7 +61,10 @@ import {
 } from "@/lib/vertical-deep-dives";
 
 export const spanishSite = {
-  title: "Esteban Moreno Media | Sistemas de Growth y Producción Creativa",
+  // Matches the /es h1 ("Video, IA y redes") and the meta description (edits video
+  // for businesses in Fort Lauderdale and Miami); the old title promised "Sistemas
+  // de Growth", which nothing on the page says (audit 2026-10-14, item 6).
+  title: "Esteban Moreno Media | Edición de Video en Fort Lauderdale",
   description:
     "Esteban Moreno Media: edición de video, contenido con IA y producción para redes en South Florida. En español y en inglés. Fort Lauderdale — cotiza rápido.",
   /** The Spanish HOME only: anchored on the published starting price (lib/pricing.ts). */
