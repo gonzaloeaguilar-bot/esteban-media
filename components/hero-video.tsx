@@ -6,6 +6,7 @@ import { CinemaHeroMotion } from "@/components/cinema-hero-motion";
 import { Container } from "@/components/ui/container";
 import { whatsappHref } from "@/lib/packages";
 import { QUOTE_CTA_GREETING, quoteCtaLabel } from "@/lib/quote-cta";
+import { PACKAGE_PRICES, usd } from "@/lib/pricing";
 import { site } from "@/lib/site";
 
 type HeroVideoProps = {
@@ -16,6 +17,14 @@ type HeroVideoProps = {
 // still reads, and is indexed as, this one sentence.
 const H1_EN = "Esteban Moreno Media · Video editing, AI-assisted content, and social production.";
 const H1_ES = "Esteban Moreno Media · Video, IA y redes.";
+
+function answerLine(locale: "en" | "es"): string {
+  const price = PACKAGE_PRICES.arranque;
+  const from = price.kind === "from" ? usd(price.amount) : "";
+  return locale === "es"
+    ? `Desde ${from} por video · Fort Lauderdale y Miami · WhatsApp`
+    : `From ${from} a video · Fort Lauderdale & Miami · WhatsApp`;
+}
 
 /**
  * The viewfinder.
@@ -104,6 +113,12 @@ export function HeroVideo({ locale = "en" }: HeroVideoProps) {
             <p className="em-cine__tagline">
               {isSpanish ? "Contenido que mueve tu marca." : "Content that moves your brand."}
             </p>
+
+            {/* The answer, in one line: price, area, channel. Price from
+                lib/pricing.ts so it cannot drift from the chooser. It sits
+                inside the credit, which is bottom-anchored in a fixed-height
+                stage, so it does not move anything below the film. */}
+            <p className="em-cine__answer">{answerLine(locale)}</p>
 
             {/* One primary action: the same WhatsApp quote the header, the
                 packages and the closing credit offer (lib/quote-cta.ts). The

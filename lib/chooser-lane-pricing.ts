@@ -9,8 +9,8 @@
 // Every figure here is READ from the existing pricing/packages sources, never
 // re-typed, so the chooser's price fold and this disclosure can never drift
 // from /pricing or the package pages.
-import { priceFor, type Locale } from "@/lib/packages";
-import { REAL_ESTATE_PLANS, usd } from "@/lib/pricing";
+import { cheapestRealEstatePlan, priceFor, type Locale } from "@/lib/packages";
+import { usd } from "@/lib/pricing";
 
 export type ChooserLaneId = "real-estate" | "local-business" | "agency";
 
@@ -18,9 +18,6 @@ export type LanePriceLine = {
   /** "From $450/mo" / "Desde $450/mes" */
   price: string;
 };
-
-const cheapestRealEstatePlan = () =>
-  REAL_ESTATE_PLANS.reduce((lowest, plan) => (plan.price < lowest.price ? plan : lowest));
 
 export function laneStartingPrice(locale: Locale, laneId: ChooserLaneId): string {
   const es = locale === "es";

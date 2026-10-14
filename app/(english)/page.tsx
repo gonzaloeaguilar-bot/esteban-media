@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { AboutTeaser } from "@/components/about-teaser";
 import { ClientReviews } from "@/components/client-reviews";
 import { ContactCta } from "@/components/contact-cta";
+import { HomeClosingLinks } from "@/components/home-closing-links";
 import { HeroVideo } from "@/components/hero-video";
 import { HomeProjectPath } from "@/components/home-project-path";
 import { SignalIntro } from "@/components/signal-intro";
@@ -87,7 +88,9 @@ export default function Home() {
         <PackagesSection locale="en" showRealEstatePlans={false} quiet showGuide={false} showALaCarte={false} />
         <AboutTeaser />
       </KeepReading>
-      <ClosingCredits locale="en" />
+      <ClosingCredits locale="en">
+        <HomeClosingLinks locale="en" />
+      </ClosingCredits>
     </main>
   );
 }

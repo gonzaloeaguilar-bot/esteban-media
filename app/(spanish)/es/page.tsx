@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 import { ClientReviews } from "@/components/client-reviews";
 import { ContactCta } from "@/components/contact-cta";
+import { HomeClosingLinks } from "@/components/home-closing-links";
 import { HeroVideo } from "@/components/hero-video";
 import { HomeProjectPath } from "@/components/home-project-path";
 import { SignalIntro } from "@/components/signal-intro";
@@ -145,6 +146,7 @@ export default function SpanishHomePage() {
           <Link href="/es/sobre-esteban">más sobre mí</Link> o sígueme en{" "}
           <a href={site.instagram}>Instagram</a>.
         </p>
+        <HomeClosingLinks locale="es" />
       </ClosingCredits>
     </main>
   );

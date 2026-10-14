@@ -22,6 +22,7 @@ import { isConsolidatedPath } from "@/lib/consolidation";
 import { growthSystems } from "@/lib/growth-systems";
 import { eventSectionPaths } from "@/lib/events";
 import { languageAlternates, spanishRoutes } from "@/lib/spanish-site";
+import { contentDateFor } from "@/lib/content-dates";
 import { absoluteUrl } from "@/lib/site";
 
 /**
@@ -228,22 +229,26 @@ function guideSitemapAlternates(locale: GuideLocale, slug: string) {
 }
 
 function allSitemapEntries(): MetadataRoute.Sitemap {
-  // No lastModified is emitted on purpose.
+  // lastModified is emitted ONLY where it can be dated honestly.
   //
-  // Every URL previously carried the same hardcoded date (2026-07-19), which
-  // asserted that all 259 pages last changed on one day. That was untrue the
-  // moment anything shipped, and a sitemap whose lastmod is demonstrably wrong
-  // is a signal crawlers learn to discount rather than a neutral one.
+  // History: every URL once carried one hardcoded date (2026-07-19), which
+  // asserted that all 259 pages changed on one day. That was untrue the moment
+  // anything shipped, so lastmod was removed (and then Google had no change
+  // signal at all: 0 lastmod on 354 URLs, audit 2026-10-14).
   //
-  // The content model has no per-item published/updated field, so there is no
-  // truthful per-URL date to substitute. An absent lastmod means "unknown",
-  // which is honest; a uniform one means "all changed together", which is not.
-  // Restoring it requires adding real per-item dates to the content first.
+  // Now each route's date is the newest git commit that touched any file the
+  // route renders from (lib/content-dates.ts). Never build time, never "today".
+  // A route that cannot be dated (no page file, or a shallow clone with no
+  // history) gets NO lastmod, which means "unknown" and is honest.
+  const dated = <T extends { url: string }>(entry: T) => {
+    const lastModified = contentDateFor(new URL(entry.url).pathname.replace(/\/$/, "") || "/");
+    return lastModified ? { ...entry, lastModified } : entry;
+  };
   const watchLocales: readonly PortfolioWatchLocale[] = ["en", "es"];
   const guideLocales: readonly GuideLocale[] = ["en", "es"];
   const caseStudyLocales: readonly CaseStudyLocale[] = ["en", "es"];
 
-  return [
+  const entries: MetadataRoute.Sitemap = [
     ...sitemapRoutes.map((route) => ({
       url: absoluteUrl(route.path),
       changeFrequency: "weekly" as const,
@@ -296,6 +301,7 @@ function allSitemapEntries(): MetadataRoute.Sitemap {
       })),
     ),
   ];
+  return entries.map(dated);
 }
 
 /**
