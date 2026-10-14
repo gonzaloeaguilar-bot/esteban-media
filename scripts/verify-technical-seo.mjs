@@ -412,21 +412,47 @@ try {
     );
     return new URL(decodeXml(location)).toString();
   });
-  const videoUrlSet = new Set(videoUrls);
-  const watchUrlSet = new Set(watchUrls.map((url) => new URL(url).toString()));
-  const videoPathnames = videoUrls.map((url) => new URL(url).pathname);
-  verifyLocalizedPairs(videoPathnames, "/portfolio/", "/es/portafolio/", "video inventory");
   const videoInventory = JSON.parse(
     await readFile(new URL("../config/video-sitemap-inventory.json", import.meta.url), "utf8"),
   );
+  // Self-hosted reels live on service pages, not portfolio watch pages: check
+  // them on their own (listed in config, sitemapped, and one VideoObject per
+  // <video:video> in the served HTML), then verify the YouTube set as before.
+  const selfHostedPaths = new Set(
+    (videoInventory.selfHostedVideoPages ?? []).map((page) => page.path),
+  );
+  for (const page of videoInventory.selfHostedVideoPages ?? []) {
+    const index = videoUrls.findIndex((url) => new URL(url).pathname === page.path);
+    if (index === -1) {
+      throw new Error(`/video-sitemap.xml is missing self-hosted video page ${page.path}`);
+    }
+    const declared = (videoEntries[index].match(/<video:video\b/gi) ?? []).length;
+    const contentLocs = (videoEntries[index].match(/<video:content_loc>/gi) ?? []).length;
+    if (declared !== page.videos || contentLocs !== page.videos) {
+      throw new Error(`${page.path}: expected ${page.videos} self-hosted videos in /video-sitemap.xml, got ${declared}`);
+    }
+    if (!sitemapPathSet.has(page.path)) {
+      throw new Error(`${page.path} is in /video-sitemap.xml but not in /sitemap.xml`);
+    }
+    const { html } = await fetchHtml(page.path);
+    const videoObjects = (html.match(/"@type":"VideoObject"/g) ?? []).length;
+    if (videoObjects !== page.videos) {
+      throw new Error(`${page.path}: ${videoObjects} VideoObject nodes in the served HTML, expected ${page.videos}`);
+    }
+  }
+  const watchVideoUrls = videoUrls.filter((url) => !selfHostedPaths.has(new URL(url).pathname));
+  const videoUrlSet = new Set(watchVideoUrls);
+  const watchUrlSet = new Set(watchUrls.map((url) => new URL(url).toString()));
+  const videoPathnames = watchVideoUrls.map((url) => new URL(url).pathname);
+  verifyLocalizedPairs(videoPathnames, "/portfolio/", "/es/portafolio/", "video inventory");
   const expectedVideoUrls = new Set(videoInventory.videoPortfolioIds.flatMap((id) => [
     `${canonicalOrigin}/portfolio/${id}`,
     `${canonicalOrigin}/es/portafolio/${id}`,
   ]));
   if (
-    videoUrlSet.size !== videoUrls.length ||
+    videoUrlSet.size !== watchVideoUrls.length ||
     [...videoUrlSet].some((url) => !watchUrlSet.has(url)) ||
-    videoUrls.some((url) => !sitemapPathSet.has(new URL(url).pathname)) ||
+    watchVideoUrls.some((url) => !sitemapPathSet.has(new URL(url).pathname)) ||
     videoUrlSet.size !== expectedVideoUrls.size ||
     [...expectedVideoUrls].some((url) => !videoUrlSet.has(url))
   ) {

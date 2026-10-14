@@ -8,5 +8,9 @@
     "la-huelga",
     "ml-colombia",
     "my-dler"
+  ],
+  "selfHostedVideoPages": [
+    { "path": "/services/real-estate-reels-video-editor-south-florida", "videos": 6 },
+    { "path": "/es/editor-de-video-real-estate-miami", "videos": 6 }
   ]
 }

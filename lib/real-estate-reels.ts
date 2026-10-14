@@ -143,12 +143,15 @@ export function iso8601Duration(seconds: number): string {
 }
 
 /**
- * The date this shelf first shipped. Google's video rich results require an
- * uploadDate, and inventing a per-clip date we cannot verify would be a lie the
- * schema tells on the page's behalf — so every clip carries the one date the
- * gallery was published. Change it when the gallery is republished.
+ * When these files were first published on this site: the commit that added
+ * all six MP4s (4e27e384, `git log --diff-filter=A --format=%cI --
+ * public/real-estate-reels/reel-01.mp4` -> 2026-10-10T18:54:42-04:00). Google's
+ * video rich results require an uploadDate, and Google recommends a timezone
+ * on it; inventing a per-clip date we cannot verify would be a lie the schema
+ * tells on the page's behalf, so every clip carries this one git date. Change
+ * it only when the files are replaced.
  */
-export const REAL_ESTATE_REELS_PUBLISHED = "2026-10-10";
+export const REAL_ESTATE_REELS_PUBLISHED = "2026-10-10T18:54:42-04:00";
 
 /**
  * VideoObject graph for the shelf. One node per reel, each pointing at the same

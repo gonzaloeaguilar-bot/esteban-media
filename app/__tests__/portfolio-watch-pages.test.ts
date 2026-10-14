@@ -188,11 +188,13 @@ describe("rendered portfolio watch-page evidence", () => {
           }
         ).dangerouslySetInnerHTML?.__html;
         const schema = JSON.parse(schemaHtml ?? "{}");
-        expect(schema["@graph"]?.map((node: { "@type": string }) => node["@type"])).toEqual([
-          "WebPage",
-          "VideoObject",
-          "BreadcrumbList",
-        ]);
+        // A VideoObject only where the page plays a video. Image projects
+        // (website builds) used to ship one with a placeholder date.
+        expect(schema["@graph"]?.map((node: { "@type": string }) => node["@type"])).toEqual(
+          item.media.kind === "youtube"
+            ? ["WebPage", "VideoObject", "BreadcrumbList"]
+            : ["WebPage", "BreadcrumbList"],
+        );
       }
     }
   });
