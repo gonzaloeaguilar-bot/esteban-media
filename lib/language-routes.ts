@@ -46,6 +46,7 @@ export const pairedLanguageRoutes: Record<string, string> = {
   "/daily-shot-list-planner": "/es/planificador-de-tomas-de-video",
   "/daily-script-pacing-calculator": "/es/calculadora-de-ritmo-de-video",
   "/daily-script-timer": "/es/temporizador-de-guiones-de-video",
+  "/reels-editing-cost-calculator": "/es/calculadora-de-costo-de-edicion-de-reels",
   // 2026-10-06 niche batch.
   "/services/medical-practice-video-marketing-miami":
     "/es/marketing-de-video-para-consultorios-medicos-miami",

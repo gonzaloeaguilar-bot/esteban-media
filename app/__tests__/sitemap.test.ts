@@ -21,7 +21,7 @@ import sitemap, { inventoryAdditions20261010Paths } from "../sitemap";
 describe("portfolio sitemap entries", () => {
   const entries = sitemap();
 
-  it("publishes the exact 352-URL consolidated inventory, each URL once", () => {
+  it("publishes the exact 354-URL consolidated inventory, each URL once", () => {
     const urls = entries.map((entry) => entry.url);
 
     // 279 = 243 consolidated + /desk-recommendations (owner-ordered
@@ -44,8 +44,9 @@ describe("portfolio sitemap entries", () => {
     // +1 = the Spanish companion to the real product photography buyer page.
     // +4 = founder/personal-brand and podcast-clipping pairs (2026-10-13, round 3).
     // +4 = food-account and short-form cost guide hubs, EN+ES (2026-10-14).
-    expect(entries).toHaveLength(352);
-    expect(new Set(urls)).toHaveLength(352);
+    // +2 = Reels editing cost calculator, EN+ES (2026-10-14).
+    expect(entries).toHaveLength(354);
+    expect(new Set(urls)).toHaveLength(354);
   });
 
   it("pairs real product photography pages with reciprocal language alternatives", () => {

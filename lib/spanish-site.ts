@@ -4667,8 +4667,18 @@ const nicheWave8Hreflang = Object.fromEntries(
   ),
 );
 
+/** 2026-10-14: the free Reels editing cost calculator, EN + ES. */
+const reelsCostCalculatorHreflang = Object.fromEntries(
+  (
+    [["/reels-editing-cost-calculator", "/es/calculadora-de-costo-de-edicion-de-reels"]] as const
+  ).flatMap(([en, es]) =>
+    [en, es].map((path) => [path, { "en-US": en, "es-US": es, "x-default": en }] as const),
+  ),
+);
+
 const languageAlternatesRaw: Record<string, Record<string, string>> = {
   ...inventoryAdditions20261010Hreflang,
+  ...reelsCostCalculatorHreflang,
   "/services/food-and-places-creator-video-editing-miami": {
     "en-US": "/services/food-and-places-creator-video-editing-miami",
     "es-US": "/es/edicion-de-video-para-creadores-de-comida-y-lugares-miami",

@@ -99,6 +99,8 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/es/guias/como-empezar-una-cuenta-de-recomendaciones-de-restaurantes-miami",
   "https://estebanmorenomedia.com/guides/how-much-does-a-short-form-video-editor-cost",
   "https://estebanmorenomedia.com/es/guias/cuanto-cuesta-un-editor-de-videos-cortos",
+  "https://estebanmorenomedia.com/reels-editing-cost-calculator",
+  "https://estebanmorenomedia.com/es/calculadora-de-costo-de-edicion-de-reels",
   // Added 2026-10-11 with niche wave 8 (owner-approved).
   "https://estebanmorenomedia.com/services/pre-construction-condo-video-marketing-miami",
   "https://estebanmorenomedia.com/es/video-para-preventa-de-condominios-miami",
