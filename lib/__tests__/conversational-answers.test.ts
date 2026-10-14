@@ -59,8 +59,8 @@ describe("conversational answers (Reels Fort Lauderdale formula, 2026-10-14)", (
       JSON.stringify(getGuideById(locale, id));
     expect(text("food-account-start-guide", "en")).toContain("/services/food-and-places-creator-video-editing-miami");
     expect(text("food-account-start-guide", "es")).toContain("/es/edicion-de-video-para-creadores-de-comida-y-lugares-miami");
-    expect(text("phone-filming-business-reels-guide", "en")).toContain("/services/reels-editor-miami");
-    expect(text("phone-filming-business-reels-guide", "es")).toContain("/es/editor-de-reels-fort-lauderdale");
+    expect(text("record-with-iphone-guide", "en")).toContain("/services/reels-editor-miami");
+    expect(text("record-with-iphone-guide", "es")).toContain("/es/editor-de-reels-fort-lauderdale");
     expect(text("short-form-editor-cost-guide", "en")).toContain("/services/short-form-video-editor-miami");
     expect(text("short-form-editor-cost-guide", "es")).toContain("/es/editor-de-video-corto-para-redes-miami");
   });

@@ -18,8 +18,8 @@ describe("short-form page: citable sections for the AI-recommendation phrasings"
     ["en", SHORT_FORM_DEEP_DIVE_EN.sections],
     ["es", SHORT_FORM_SECTIONS_ES],
   ] as const) {
-    it(`${locale}: four question-headed sections of 100-180 words`, () => {
-      expect(sections).toHaveLength(4);
+    it(`${locale}: five question-headed sections of 100-180 words (TikTok added 2026-10-14)`, () => {
+      expect(sections).toHaveLength(5);
       for (const section of sections) {
         expect(section.heading.endsWith("?")).toBe(true);
         const n = words(section.paragraphs);

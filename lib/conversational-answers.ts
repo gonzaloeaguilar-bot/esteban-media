@@ -51,7 +51,7 @@ export const CREATOR_START_SECTION_EN: ConversationalSection = {
   heading: "Who helps a new influencer in Miami with their videos?",
   paragraphs: [
     `Esteban Moreno Media works with people who are starting an account, not only with established creators. You film on your phone what the account is about, whether that is food, places, a routine or a small business, and Esteban does the editing: picks the strongest takes, cuts the pauses, adds readable captions and exports each video for Reels, TikTok or Shorts. He is based in Fort Lauderdale, edits remotely for creators in Miami and Broward, and works in Spanish first with intermediate English.`,
-    `Starting does not need professional equipment or a year of content planned; it needs three or four clear ideas and the original clips. Starter is from ${once} per video, or ${shortFormWeeklyText("en")} with a ${T.minimumWeeks}-week minimum if you post weekly. The guide [how to start a restaurant recommendation account in Miami](/guides/how-to-start-a-restaurant-recommendation-account-miami) walks through the first posts.`,
+    `Starting does not need professional equipment or a year of content planned; it needs three or four clear ideas, the original clips and one line about where each video will run. Send those first and Esteban replies with the option that fits before any editing begins. The guide [how to start a restaurant recommendation account in Miami](/guides/how-to-start-a-restaurant-recommendation-account-miami) walks through the first posts of a food account.`
   ],
 };
 

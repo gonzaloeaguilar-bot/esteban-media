@@ -1,9 +1,9 @@
 {
   "status": "demand_gated",
   "effectiveDate": "2026-08-28",
-  "baselineRevisedOn": "2026-10-13",
-  "approvedSitemapUrlCount": 348,
-  "approvedSitemapUrlSetSha256": "f0666132e86a12bd2245ace2f3cb59b4a138e8c50e679d8de5b0def8ad61624d",
+  "baselineRevisedOn": "2026-10-14",
+  "approvedSitemapUrlCount": 352,
+  "approvedSitemapUrlSetSha256": "5829bc791c44d5945f11ce226f77bfd21e91c4d121c8be92815eb281447d5447",
   "allowedNewIndexableUrls": 4,
   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {
@@ -326,6 +326,20 @@
       "kind": "demand-backed niche pairs (round 3)",
       "demandEvidence": "Own data is ZERO, stated rather than dressed up: GSC 90d (2026-07-13..2026-10-12, 183 query rows) has 0 founder/personal-brand queries and 1 podcast query (podcast editor miami, 2 impr, pos 80.5); Bing GetQueryStats 0. Outside demand: Google autocomplete returns 'personal brand video editor', 'personal branding video editing', 'personal brand reel video editor', 'video editing for coaches', 'podcast clip editor', 'podcast clipping service', 'podcast clips for tiktok', 'podcast to reels'. Live Bing 2026-10-13: 'personal brand video editor for founders linkedin' top results are service pages (kometmedia.com, increditors.com founder-linkedin page, ariyankhan.com video-editor-for-founders); 'podcast clipping service reels tiktok' top 8 are all clipping agencies. The 2026-10-08 live Google check found the competitors winning 'short form video editor miami' target founders (Komet Media) and offer podcast clipping (Short Form Media).",
       "note": "4 URLs = exactly one demand-wave allowance. Musicians, course creators: not now (existing pages cover them; GSC/Bing 0). Churches: built 2026-10-11. GSC follow-up 2026-10-22 and 2026-11-12."
+    },
+    {
+      "on": "2026-10-14",
+      "url": [
+        "/guides/how-to-start-a-restaurant-recommendation-account-miami",
+        "/es/guias/como-empezar-una-cuenta-de-recomendaciones-de-restaurantes-miami",
+        "/guides/how-much-does-a-short-form-video-editor-cost",
+        "/es/guias/cuanto-cuesta-un-editor-de-videos-cortos"
+      ],
+      "orderedBy": "Gonzalo (pre-approved organic work, Reels Fort Lauderdale formula brief 2026-10-14)",
+      "kind": "topic hubs cited as AI sub-answers, linking the short-form, Reels and creator money pages",
+      "demandEvidence": "Live 2026-10-14 (parent session browser + Perplexity sonar via OpenRouter): real callers asked an AI assistant how to start as a food influencer / creator before asking who edits; Perplexity named Esteban for 'Who can edit my Instagram reels in Fort Lauderdale? I want to start as a food influencer' and quoted $100 per video. Google AI Overview names him for 'who can edit my reels in fort lauderdale' but not for 'quiero empezar a crear contenido para instagram... miami' (agencies win). Weekly sweep 2026-10-13: q38 'cuanto cuesta un editor de videos para redes sociales en miami' is Google #3 on a page that is not about cost per video vs weekly. No page answered 'how to start a restaurant recommendation account' or 'per video vs weekly' in its own words. The third hub (what to film on a phone) deepened the existing iPhone guide pair instead of adding URLs.",
+      "followUpDate": "2026-10-28",
+      "followUp": "Re-run the esteban-search-sweep (q41-q58) and GSC query+page for the four URLs on 2026-10-28 and 2026-11-14; repeat the Perplexity food-influencer and Spanish cost prompts. If zero impressions by 2026-11-14, merge the hubs into the short-form page rather than adding more."
     }
   ]
 }
