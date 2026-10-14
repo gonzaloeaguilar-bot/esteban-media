@@ -28,7 +28,7 @@ import { SHORT_FORM, usd } from "@/lib/pricing";
 
 /**
  * Meta descriptions, answer-first snippet test (overnight SEO/GEO loop, round 2;
- * the dated record is in the vault loop log, row 32). The old ones ran 150-199
+ * the dated record is in the vault loop log, row 26). The old ones ran 150-199
  * characters and 8 of 16 were cut by Google or by clampDescription. Each now
  * says who, what and the starting price in under 160 characters. None of the
  * 16 URLs was indexed when this shipped (0 GSC rows in 90 days), so judge on
@@ -743,7 +743,7 @@ const sobewff: EventCopyBuilder = (event) => ({
     },
   },
   es: {
-    metaTitle: "Contenido para restaurantes en el South Beach Wine & Food Festival",
+    metaTitle: "South Beach Wine & Food Festival: contenido de restaurantes",
     metaDescription:
       `Contenido para el South Beach Wine & Food Festival: calendario previo, edición de tu material desde ${FROM} por video y resúmenes para restaurantes y chefs.`,
     breadcrumb: "South Beach Wine & Food Festival",
@@ -914,7 +914,7 @@ const emergeAmericas: EventCopyBuilder = (event) => ({
     },
   },
   es: {
-    metaTitle: "Contenido de eMerge Americas para startups y empresas de tecnología",
+    metaTitle: "Contenido de eMerge Americas para startups y tecnológicas",
     metaDescription:
       `Contenido para eMerge Americas: calendario previo, edición del material de tu stand desde ${FROM} por video y resúmenes para startups y patrocinadores.`,
     breadcrumb: "eMerge Americas",

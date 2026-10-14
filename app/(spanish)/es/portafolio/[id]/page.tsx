@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 
 import { PortfolioWatchPage } from "@/components/portfolio-watch-page";
 import { getPoster } from "@/lib/portfolio";
-import { buildPageMetadata } from "@/lib/site-metadata";
+import { TITLE_BUDGET, buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl } from "@/lib/site";
 import {
   getPortfolioPosterSize,
@@ -42,8 +42,10 @@ export async function generateMetadata({
   return buildPageMetadata({
     // Localised so the EN/ES watch pages stop sharing one <title> (9
     // duplicate titles, SEO/GEO audit 2026-10-10, fix 12).
-    title: `Portafolio: ${copy.title}`,
-    description: copy.summary,
+    // The "Portafolio: " prefix is dropped when it would push the title past
+    // the ~60-character cut (loop row 31: 66 and 68 characters).
+    title: `Portafolio: ${copy.title}`.length > TITLE_BUDGET ? copy.title : `Portafolio: ${copy.title}`,
+    description: copy.metaDescription ?? copy.summary,
     descriptionMax: 155,
     path,
     locale: "es",

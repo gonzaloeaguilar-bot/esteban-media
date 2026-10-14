@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import RailPrice from "@/vendor/rail-kit/RailPrice";
-import { packagesFor, packagesCopy, whatsappHref, packageFaqFor, packageDirectAnswer, packageDetailJsonLd, type Locale } from "@/lib/packages";
+import { packagesFor, packagesCopy, whatsappHref, packageFaqFor, packageDirectAnswer, packageDetailJsonLd, priceSentence, type Locale } from "@/lib/packages";
 import RailFaq from "@/vendor/rail-kit/RailFaq";
 import { entityIds } from "@/lib/entity-schema";
 import { absoluteUrl } from "@/lib/site";
@@ -13,7 +13,11 @@ import { buildPageMetadata } from "@/lib/site-metadata";
 
 export function packageMetadata(id: PackageId, locale: Locale) {
   const pkg = packagesFor(locale).find((item) => item.id === id)!;
-  return buildPageMetadata({ title: `${pkg.name} — ${pkg.subtitle}`, description: `${pkg.headline.join(" ")} ${pkg.idealFor}`, path: packageRoutes[id][locale], locale });
+  // Answer-first snippet (overnight loop row 27): the price from lib/pricing.ts,
+  // then who the package is for, instead of the tagline + "ideal for" line.
+  const price = priceSentence(locale, id).toLowerCase();
+  const lead = locale === "es" ? `El paquete ${pkg.name} es ${price}.` : `The ${pkg.name} package is ${price}.`;
+  return buildPageMetadata({ title: `${pkg.name} — ${pkg.subtitle}`, description: `${lead} ${pkg.idealFor}`.length <= 160 ? `${lead} ${pkg.idealFor}` : lead, path: packageRoutes[id][locale], locale });
 }
 
 export function PackageDetail({ id, locale }: { id: PackageId; locale: Locale }) {

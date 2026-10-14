@@ -409,7 +409,9 @@ export function ServiceInquiryRail({
   sectionId = "service-inquiry",
   trackInterest = false,
   locale = "en",
-  accentedSpanish = false,
+  // Accented Spanish everywhere since loop round 3: 25 routes still printed
+  // "Envia el proyecto en un mensaje util." without its accents.
+  accentedSpanish = true,
 }: {
   service: ServiceInquiry;
   sectionId?: string;

@@ -22,7 +22,7 @@ const path = "/services/immigration-attorney-video-marketing-miami";
 
 export const metadata = buildPageMetadata({
   title: "Immigration Attorney Video Miami",
-  description: "Spanish educational reels featuring your firm's real immigration attorneys in Miami and Fort Lauderdale. General information, not legal advice; the firm approves all.",
+  description: "Spanish reels with your own immigration attorneys, edited remotely for firms in Miami and Fort Lauderdale. General information only; the firm approves each video.",
   path,
   locale: "en",
 });

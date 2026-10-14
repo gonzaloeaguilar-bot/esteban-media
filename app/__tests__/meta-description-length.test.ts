@@ -43,4 +43,22 @@ describe("meta description length", () => {
     const authored = "Meet Esteban Moreno, founder of Esteban Moreno Media in Fort Lauderdale. Spanish-first video editing, AI-assisted content, social planning, and scoped projects.";
     expect(clampDescription(authored)).toBe(authored);
   });
+
+  it("ends on a whole sentence when one ends past half the budget (loop round 3)", () => {
+    const text =
+      "Send the clips you filmed in Boca Raton and get back Instagram Reels, TikToks and Shorts with readable captions and one clear action. Esteban edits remotely from Fort Lauderdale.";
+    const out = clampDescription(text, 155);
+    expect(out).toBe(
+      "Send the clips you filmed in Boca Raton and get back Instagram Reels, TikToks and Shorts with readable captions and one clear action.",
+    );
+    expect(out.endsWith("…")).toBe(false);
+  });
+
+  it("falls back to the word cut when the only sentence end is too early", () => {
+    const text = `Short. ${"word ".repeat(60)}`;
+    const out = clampDescription(text, 160);
+    expect(out.endsWith("…")).toBe(true);
+    expect(out.length).toBeLessThanOrEqual(160);
+  });
 });
+

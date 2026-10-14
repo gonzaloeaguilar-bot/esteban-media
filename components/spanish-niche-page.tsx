@@ -1424,7 +1424,7 @@ export function buildSpanishNicheMetadata(slug: string): Metadata {
 
   return buildPageMetadata({
     title: page.metadataTitle,
-    description: page.description,
+    description: page.metaDescription ?? page.description,
     path,
     locale: "es",
     languages,
@@ -1752,7 +1752,7 @@ export function SpanishNichePage({
             Servicios relacionados
           </p>
           <h2 className="mt-4 max-w-3xl font-serif text-4xl leading-tight">
-            Revisa las prioridades confirmadas relacionadas.
+            Otros servicios que te pueden servir.
           </h2>
           {/* Same rail, dark skin. The override is scoped to this section, not
               to a colour-scheme media query: a deliberately dark band is a

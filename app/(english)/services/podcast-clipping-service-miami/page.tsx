@@ -22,7 +22,7 @@ const path = "/services/podcast-clipping-service-miami";
 
 export const metadata = buildPageMetadata({
   title: "Podcast Clipping Service Miami",
-  description: "Podcast clipping in Miami and Fort Lauderdale: episodes cut into captioned vertical clips for Instagram Reels, TikTok and YouTube Shorts, reframed around each speaker.",
+  description: "Podcast clipping in Miami and Fort Lauderdale: each episode cut into captioned vertical clips for Reels, TikTok and Shorts, framed on whoever is speaking.",
   path,
   locale: "en",
 });

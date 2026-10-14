@@ -39,6 +39,8 @@ export type CaseStudy = {
   metadataTitle: string;
   client: string;
   summary: string;
+  /** Search snippet when the visible summary runs past ~160 characters (loop row 27). */
+  metaDescription?: string;
   eyebrow: string;
   role: string;
   year?: number;
@@ -83,6 +85,8 @@ export const caseStudyPairs: readonly CaseStudyPair[] = [
       client: "Banacol (Agro-industrial Exporter)",
       summary:
         "A multi-day aerial drone cinematography assignment documenting large-scale banana and plantain export operations in Urabá, Colombia, including challenging offshore boat launches and maritime logistics.",
+      metaDescription:
+        "Aerial drone cinematography over several days for Banacol, a banana and plantain exporter in Urabá, Colombia, including launches from boats offshore.",
       eyebrow: "Agro-Industrial Video Production",
       role: "Aerial Drone Cinematographer (On assignment with Jungelbox agency)",
       year: 2021,
@@ -175,6 +179,8 @@ export const caseStudyPairs: readonly CaseStudyPair[] = [
       client: "Banacol (Exportadora Agroindustrial)",
       summary:
         "Producción de cinematografía aérea con dron durante tres días en Urabá, Colombia, documentando operaciones de exportación de banano y plátano, incluyendo vuelos marítimos desde embarcaciones.",
+      metaDescription:
+        "Cinematografía aérea con dron durante tres días en Urabá, Colombia, para Banacol, exportador de banano y plátano, con vuelos desde embarcaciones.",
       eyebrow: "Producción de Video Agroindustrial",
       role: "Cinematógrafo Aéreo con Dron (Por encargo de la agencia Jungelbox)",
       year: 2021,
@@ -360,6 +366,8 @@ export const caseStudyPairs: readonly CaseStudyPair[] = [
       client: "Homeowners (Contenido Inmobiliario)",
       summary:
         "Proyecto ágil de edición y postproducción de video para contenido promocional de bienes raíces, estructurado íntegramente a partir de material suministrado por la agencia 300 Bees.",
+      metaDescription:
+        "Edición y postproducción de video promocional de bienes raíces, armada solo con material entregado por la agencia 300 Bees.",
       eyebrow: "Postproducción de Video para Real Estate",
       role: "Editor de Video (Postproducción remota con material aportado)",
       year: 2021,
@@ -453,6 +461,8 @@ export const caseStudyPairs: readonly CaseStudyPair[] = [
       client: "Fort Lauderdale Auto Sale (FLAS)",
       summary:
         "A full-stack web architecture and conversational AI concierge system engineered for an independent Buy-Here-Pay-Here automotive dealership in Fort Lauderdale, Broward County.",
+      metaDescription:
+        "A conversion website and AI chat concierge built for FLAS, an independent Buy-Here-Pay-Here car dealership in Fort Lauderdale, Broward County.",
       eyebrow: "Automotive Web Design & AI Systems",
       role: "Web Designer & AI Systems Integrator (Full-stack web architecture and AI concierge integration)",
       year: 2026,
@@ -545,6 +555,8 @@ export const caseStudyPairs: readonly CaseStudyPair[] = [
       client: "Fort Lauderdale Auto Sale (FLAS)",
       summary:
         "Arquitectura web y sistema de concierge con IA conversacional desarrollado para un concesionario independiente Buy-Here-Pay-Here en Fort Lauderdale, Broward County.",
+      metaDescription:
+        "Sitio web de conversión y concierge con IA para FLAS, un concesionario independiente Buy-Here-Pay-Here en Fort Lauderdale, Broward County.",
       eyebrow: "Diseño Web Automotriz y Sistemas con IA",
       role: "Diseñador Web e Integrador de Sistemas con IA (Arquitectura web completa y motor de concierge)",
       year: 2026,
@@ -640,6 +652,8 @@ export const caseStudyPairs: readonly CaseStudyPair[] = [
       client: "Healthy Smile Miami (Dental Practice)",
       summary:
         "On-location commercial videography, direct sound recording, and editing for a dental healthcare clinic in Miami, produced on assignment with the 300 Bees creative agency.",
+      metaDescription:
+        "On-location video, direct sound and editing for Healthy Smile Miami, a dental clinic, produced on assignment with the 300 Bees creative agency.",
       eyebrow: "Dental Healthcare Video Production",
       role: "On-Location Videographer, Sound Recordist & Editor (On assignment with 300 Bees)",
       year: 2021,
@@ -828,6 +842,8 @@ export const caseStudyPairs: readonly CaseStudyPair[] = [
       client: "My D'ler (Delivery App Concept)",
       summary:
         "A brand visual design and investor pitch package developed through an agency for an Ecuador delivery platform, featuring key visual design, 3D app mockups, and 2D animated videos.",
+      metaDescription:
+        "Brand visuals and an investor pitch package for My D'ler, a delivery app in Ecuador: key visual, 3D app mockups and 2D animated videos, made through an agency.",
       eyebrow: "3D Animation & Visual Brand Design",
       role: "Visual Designer & 3D Animator (Key visual, social graphics, 3D video, 2D animation, and product mockups)",
       deliverables: "3D animated video (11 seconds), 2D explainer animations, brand key visual suite, high-res device mockups",
@@ -916,6 +932,8 @@ export const caseStudyPairs: readonly CaseStudyPair[] = [
       client: "My D'ler (Concepto de App de Domicilios)",
       summary:
         "Desarrollo de identidad visual y paquete de presentación comercial para una app de domicilios en Ecuador, incluyendo key visual, mockups en 3D y videos con animación 2D.",
+      metaDescription:
+        "Identidad visual y presentación comercial para My D'ler, una app de domicilios en Ecuador: key visual, mockups en 3D y videos con animación 2D.",
       eyebrow: "Animación 3D y Diseño Visual de Marca",
       role: "Diseñador Visual y Animador 3D (Key visual, gráficas para redes, video 3D, animación 2D y mockups)",
       deliverables: "Video animado en 3D (11 segundos), animaciones 2D, suite de key visual de marca, mockups en alta resolución",
@@ -1056,7 +1074,7 @@ export function buildCaseStudyMetadata(caseStudy: CaseStudy): Metadata {
 
   return buildPageMetadata({
     title: caseStudy.metadataTitle,
-    description: caseStudy.summary,
+    description: caseStudy.metaDescription ?? caseStudy.summary,
     path,
     locale: caseStudy.locale,
     languages: alternates,
@@ -1198,7 +1216,7 @@ export const caseStudiesIndexCopy = {
     path: "/case-studies",
     metadataTitle: "Case Studies: Web, AI Systems & Video Projects",
     description:
-      "Published Esteban Moreno Media case studies covering dealership web architecture with a conversational AI concierge, aerial cinematography, on-location dental production, real estate post-production, and 3D motion design.",
+      "Esteban Moreno Media case studies: a dealership website with an AI concierge, aerial drone filming, a dental clinic shoot, real estate editing and 3D motion.",
     breadcrumbHome: "Home",
     breadcrumbCurrent: "Case Studies",
     breadcrumbLabel: "Breadcrumb",
@@ -1234,7 +1252,7 @@ export const caseStudiesIndexCopy = {
     path: "/es/casos-de-estudio",
     metadataTitle: "Casos de Estudio: Web, Sistemas con IA y Video",
     description:
-      "Casos de estudio publicados de Esteban Moreno Media: arquitectura web con concierge de IA conversacional para concesionario, cinematografía aérea, producción odontológica en locación, postproducción inmobiliaria y animación 3D.",
+      "Casos de estudio de Esteban Moreno Media: sitio web con concierge de IA para un concesionario, dron, una clínica dental, edición inmobiliaria y animación 3D.",
     breadcrumbHome: "Inicio",
     breadcrumbCurrent: "Casos de Estudio",
     breadcrumbLabel: "Migas de pan",

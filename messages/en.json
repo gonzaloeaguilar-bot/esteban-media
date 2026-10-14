@@ -61,6 +61,7 @@
       "gains-from-geebs": {
         "title": "Gains From Geebs Web App & Instagram DM AI Bot",
         "summary": "An interactive fitness platform and conversational Instagram (IG) DM AI bot designed for instant fitness coaching inquiries, workout plan selection, and 24/7 lead qualification.",
+        "metaDescription": "A fitness web platform and an Instagram DM AI bot for Gains From Geebs that answers coaching questions, matches workout plans and qualifies leads 24/7.",
         "credits": "Web application engineering, interactive fitness calculators, and custom Instagram DM (IG DM) coaching chatbot.",
         "results": [
           { "metric": "3.5x", "label": "Increase in Daily Calculator Engagement" },
@@ -71,6 +72,7 @@
       "front-line-auto": {
         "title": "Frontline Auto Repair & AI Service Concierge",
         "summary": "Auto repair shop web system with integrated 24/7 AI service concierge chatbot for repair scheduling, service quotes, bilingual intake, and maintenance inquiries.",
+        "metaDescription": "An auto repair shop website with a 24/7 AI concierge chatbot that books repairs, gives service quotes and takes intake in English and Spanish.",
         "credits": "Auto repair web platform, service booking UI engineering, and conversational AI repair concierge bot.",
         "results": [
           { "metric": "+65%", "label": "Automated Service Booking Conversion Rate" },
@@ -81,6 +83,7 @@
       "flas-concierge": {
         "title": "Fort Lauderdale Auto Sale (FLAS AI Concierge)",
         "summary": "Fort Lauderdale dealership web system and intelligent AI concierge bot built for Buy-Here-Pay-Here financing pre-qualification, inventory availability, and instant lead capture.",
+        "metaDescription": "A dealership website and AI concierge for a Fort Lauderdale Buy-Here-Pay-Here lot: financing pre-qualification, live inventory and instant lead capture.",
         "credits": "Dealership web architecture, BHPH financing calculator suite, and AI concierge chatbot engine.",
         "results": [
           { "metric": "42%", "label": "Reduction in Financing Inquiry Drop-off" },
@@ -91,6 +94,7 @@
       "ai-lead-automation": {
         "title": "Conversational AI Lead Chatbots (Geebs IG DM Bot & FLAS)",
         "summary": "Custom 24/7 conversational AI chatbots built for Geebs (Instagram DM Bot) and Fort Lauderdale Auto Sale (FLAS) to automate customer inquiries, pre-qualify leads, and drive instant conversions.",
+        "metaDescription": "24/7 AI chatbots built for Geebs (Instagram DMs) and Fort Lauderdale Auto Sale (FLAS) that answer customers, pre-qualify leads and book the next step.",
         "credits": "AI chatbot architecture, Instagram DM automation, custom prompt engineering, and automated lead capture systems.",
         "results": [
           { "metric": "4.8x", "label": "Lead Capture vs Static Contact Forms" },
@@ -110,6 +114,7 @@
       "banacol": {
         "title": "Banacol",
         "summary": "A corporate video for Banacol, produced with the Jungelbox agency. Esteban shot the aerial footage across three days at banana and plantain export operations in Urabá, Antioquia, Colombia — including drone flights launched from boats at sea.",
+        "metaDescription": "A corporate video for Banacol with the Jungelbox agency: three days of aerial drone footage at banana export operations in Urabá, Colombia.",
         "credits": "Aerial drone cinematography, on assignment with the Jungelbox agency (Medellín, Colombia).",
         "results": [
           { "metric": "3 Days", "label": "Remote Aerial Droning in Urabá" },
@@ -119,6 +124,7 @@
       "bar-door-monkey": {
         "title": "Bar Door Monkey Miami",
         "summary": "A social-media promo spot for Bar Door Monkey, a Miami restaurant, produced on location during filming of the Soccer y Más show and delivered for the venue's Instagram.",
+        "metaDescription": "A social promo for Bar Door Monkey, a Miami restaurant, filmed on location during the Soccer y Más show and delivered for the venue's Instagram.",
         "credits": "On-location videography and editing for the venue's social ad spot.",
         "results": [
           { "metric": "+45k", "label": "Organic Social Video Impressions" },
@@ -146,6 +152,7 @@
       "diana-jack": {
         "title": "Diana & Jack",
         "summary": "A wedding film shot in Boston, Massachusetts. Esteban was the videographer and editor, delivering a full 20-minute film of the day plus a highlight trailer of about a minute and a half.",
+        "metaDescription": "A wedding film shot in Boston: Esteban filmed and edited a full 20-minute film of the day plus a highlight trailer of about a minute and a half.",
         "credits": "Videography and editing; deliverables: a 20-minute film and a highlight trailer.",
         "results": [
           { "metric": "4K 60fps", "label": "Cinematic Storytelling & Highlights" },
@@ -155,6 +162,7 @@
       "la-huelga": {
         "title": "La Huelga",
         "summary": "A short film Esteban directed as a university project in Colombia — an original concept, developed with a screenwriter, based on the true story of the Banana Massacre (Masacre de las Bananeras). The production ran about seven months.",
+        "metaDescription": "A short film Esteban directed as a university project in Colombia, based on the true story of the Banana Massacre. Production ran about seven months.",
         "credits": "Director, director of photography, and original concept (developed with a screenwriter).",
         "results": [
           { "metric": "7 Months", "label": "Historical Research & Film Production" },

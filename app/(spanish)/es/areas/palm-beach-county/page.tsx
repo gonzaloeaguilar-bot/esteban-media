@@ -17,19 +17,19 @@ const palmBeachServices = [
   {
     name: "Edición remota",
     description:
-      "Una prioridad confirmada para proyectos que parten de material existente y una meta de publicación.",
+      "Para proyectos que parten de material existente y una meta de publicación.",
     icon: Scissors,
   },
   {
     name: "Contenido asistido por IA",
     description:
-      "El contenido asistido por IA es una prioridad confirmada, definida según la meta y el uso previsto.",
+      "Contenido asistido por IA, definido según la meta y el uso previsto.",
     icon: WandSparkles,
   },
   {
     name: "Planificación para redes",
     description:
-      "Una prioridad confirmada para conversar sobre audiencia, canales, metas de publicación y necesidades de contenido.",
+      "Para conversar sobre audiencia, canales, metas de publicación y necesidades de contenido.",
     icon: CalendarRange,
   },
   {
@@ -222,7 +222,7 @@ export default function SpanishPalmBeachCountyPage() {
       <section className="py-12 sm:py-16" aria-labelledby="servicios-palm-beach">
         <Container size="xl">
           <p className="text-xs font-medium uppercase text-[#5a6066]">
-            Prioridades confirmadas
+            Servicios principales
           </p>
           <h2 id="servicios-palm-beach" className="mt-4 max-w-3xl font-serif text-4xl leading-tight sm:text-5xl">
             Servicios que se pueden conversar sin asumir un paquete fijo.

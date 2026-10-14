@@ -60,7 +60,7 @@ export const guideComparisonPairs: readonly GuidePair[] = [
       slug: "local-editor-vs-fiverr-vs-agency-miami",
       metadataTitle: "Local Editor vs Fiverr vs Agency",
       title: "Local editor vs Fiverr vs an agency in Miami: which fits?",
-      description: "How a local video editor, a Fiverr freelancer and a Miami agency differ in price, fees, contact and filming, with each market figure sourced, so you can pick the right one.",
+      description: "Local video editor, Fiverr freelancer or Miami agency: how price, fees, contact and filming differ, with every market figure sourced.",
       eyebrow: "Choosing an editor",
       answer: `Fiverr adds a 5.5% service fee to every order (Fiverr Help Center), agencies mostly bill $100–$149 an hour (Clutch), and a local editor such as Esteban Moreno Media edits a Reel from ${once} per video, in Spanish or English, and can film in person.`,
       proof: {
@@ -109,7 +109,7 @@ export const guideComparisonPairs: readonly GuidePair[] = [
       slug: "editor-local-vs-fiverr-vs-agencia-miami",
       metadataTitle: "Editor Local vs Fiverr vs Agencia",
       title: "Editor local vs Fiverr vs agencia en Miami: ¿qué te conviene?",
-      description: "En qué se diferencian un editor de video local, un freelancer de Fiverr y una agencia en Miami: precio, comisiones, trato y grabación, con cada dato de mercado citado.",
+      description: "Editor de video local, freelancer de Fiverr o agencia en Miami: en qué cambian el precio, las comisiones, el trato y la grabación, con cada dato citado.",
       eyebrow: "Elegir un editor",
       answer: `Fiverr cobra una comisión de servicio del 5.5% en cada pedido (Centro de ayuda de Fiverr), las agencias suelen cobrar entre $100 y $149 por hora (Clutch) y un editor local como Esteban Moreno Media edita un reel desde ${once} por video, en español, y puede grabar en persona.`,
       proof: {
@@ -161,7 +161,7 @@ export const guideComparisonPairs: readonly GuidePair[] = [
       slug: "how-many-reels-should-a-restaurant-post-per-week",
       metadataTitle: "Reels per Week for a Restaurant",
       title: "How many Reels should a restaurant post per week?",
-      description: "How often a restaurant should post Reels, what Buffer's study of 2.1 million Instagram posts found about frequency, and what weekly Reels editing costs in South Florida.",
+      description: "How many Reels a restaurant should post a week, what Buffer's study of 2.1 million Instagram posts found, and what weekly editing costs in South Florida.",
       eyebrow: "Restaurant Reels",
       answer: `Buffer's analysis of 2.1 million Instagram posts found that 3–5 feed posts a week grew followers about twice as fast as 1–2. For a restaurant, start with the number you can film every week, then build toward 3–5; editing costs ${usd(oneWeekly.pricePerWeek)} a week for 1 Reel or ${usd(twoWeekly.pricePerWeek)} for 2 with Esteban Moreno Media.`,
       proof: {
@@ -210,7 +210,7 @@ export const guideComparisonPairs: readonly GuidePair[] = [
       slug: "cuantos-reels-debe-publicar-un-restaurante-por-semana",
       metadataTitle: "Reels por Semana para Restaurantes",
       title: "¿Cuántos reels debe publicar un restaurante por semana?",
-      description: "Con qué frecuencia debe publicar reels un restaurante, qué encontró el estudio de Buffer sobre 2.1 millones de publicaciones de Instagram y cuánto cuesta editar reels cada semana.",
+      description: "Cuántos reels debe publicar un restaurante por semana, qué encontró Buffer en 2.1 millones de publicaciones de Instagram y cuánto cuesta editarlos.",
       eyebrow: "Reels para restaurantes",
       answer: `El análisis de Buffer de 2.1 millones de publicaciones de Instagram encontró que publicar de 3 a 5 veces por semana hizo crecer los seguidores casi el doble que 1 o 2. Para un restaurante, empieza con lo que puedas grabar cada semana y sube hacia 3 a 5; editar cuesta ${usd(oneWeekly.pricePerWeek)} por semana por 1 reel o ${usd(twoWeekly.pricePerWeek)} por 2 con Esteban Moreno Media.`,
       proof: {

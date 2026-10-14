@@ -21,6 +21,8 @@ export type PortfolioResultMetric = {
 type PortfolioItemCopy = {
   title: string;
   summary: string;
+  /** Search snippet when the summary runs past ~155 characters (loop round 3). */
+  metaDescription?: string;
   credits: string;
   results?: readonly PortfolioResultMetric[];
 };

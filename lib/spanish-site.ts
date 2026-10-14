@@ -200,6 +200,8 @@ export type SpanishNichePage = {
   title: string;
   metadataTitle: string;
   description: string;
+  /** Search snippet when the visible description runs past ~160 characters (loop row 27). */
+  metaDescription?: string;
   eyebrow: string;
   h1: string;
   lead: string;
@@ -372,6 +374,8 @@ const nicheWave8Pages: SpanishNichePage[] = [
     metadataTitle: "Video para Agencias de Seguros Miami",
     description:
       "Videos cortos en español para agencias de seguros latinas en Miami y Fort Lauderdale: explicaciones de ACA y Medicare y un calendario para la temporada de inscripción.",
+    metaDescription:
+      `Videos cortos en español para agencias de seguros en Miami y Fort Lauderdale: tus agentes explican ACA y Medicare. Edición desde ${usd(SHORT_FORM.perVideoFrom)} por video.`,
     eyebrow: "Agencias de seguros / Agentes de ACA y Medicare",
     h1: "Videos cortos en español para agencias de seguros.",
     lead:
@@ -434,6 +438,8 @@ const nicheWave8Pages: SpanishNichePage[] = [
     metadataTitle: "Video para Brokers Hipotecarios Miami",
     description:
       "Reels de marca personal y explicaciones en español para brokers hipotecarios y oficiales de préstamos en Miami y Fort Lauderdale. Los avisos y el NMLS los aprueba el cliente.",
+    metaDescription:
+      `Reels en español para brokers hipotecarios en Miami y Fort Lauderdale, editados desde ${usd(SHORT_FORM.perVideoFrom)} por video. Los avisos y el NMLS los aprueba el cliente.`,
     eyebrow: "Brokers hipotecarios / Oficiales de préstamos",
     h1: "Videos de marca personal para brokers hipotecarios que atienden en español.",
     lead:
@@ -496,6 +502,8 @@ const nicheWave8Pages: SpanishNichePage[] = [
     metadataTitle: "Video para Abogados de Inmigración",
     description:
       "Reels educativos en español con los abogados reales de tu firma de inmigración en Miami y Fort Lauderdale. Información general, no asesoría legal; la firma aprueba todo.",
+    metaDescription:
+      `Reels educativos con los abogados de tu firma de inmigración en Miami, desde ${usd(SHORT_FORM.perVideoFrom)} por video. Información general, no asesoría legal; la firma aprueba todo.`,
     eyebrow: "Abogados de inmigración / Firmas en español",
     h1: "Reels educativos con el abogado real de tu firma de inmigración.",
     lead:
@@ -558,6 +566,8 @@ const nicheWave8Pages: SpanishNichePage[] = [
     metadataTitle: "Clips de Prédicas para Iglesias Miami",
     description:
       "Edición de clips cortos a partir de la prédica del domingo para iglesias en Miami y Fort Lauderdale, en español, inglés o ambos, con subtítulos y un calendario semanal.",
+    metaDescription:
+      `Clips cortos de la prédica del domingo para iglesias en Miami y Fort Lauderdale, con subtítulos en español, inglés o ambos. Desde ${usd(SHORT_FORM.perVideoFrom)} por video.`,
     eyebrow: "Iglesias / Ministerios / Equipos de medios",
     h1: "La prédica del domingo, convertida en clips para toda la semana.",
     lead:
@@ -620,6 +630,8 @@ const nicheWave8Pages: SpanishNichePage[] = [
     metadataTitle: "Editor de Video Marca Personal Miami",
     description:
       "Edición de video para fundadores, coaches y consultores en Miami y Fort Lauderdale: Reels, TikToks, Shorts y videos para LinkedIn a partir de tus propias grabaciones.",
+    metaDescription:
+      `Edición de video para fundadores, coaches y consultores en Miami: Reels, TikToks, Shorts y videos de LinkedIn con tus grabaciones, desde ${usd(SHORT_FORM.perVideoFrom)} por video.`,
     eyebrow: "Fundadores / Coaches / Consultores",
     h1: "Lo que sabes, frente a la cámara, editado en videos que la gente termina de ver.",
     lead:
@@ -682,6 +694,8 @@ const nicheWave8Pages: SpanishNichePage[] = [
     metadataTitle: "Clips de Podcast para Redes Miami",
     description:
       "Edición de clips de podcast en Miami y Fort Lauderdale: episodios convertidos en clips verticales con subtítulos para Reels, TikTok y YouTube Shorts, encuadrados en quien habla.",
+    metaDescription:
+      "Clips de podcast en Miami y Fort Lauderdale: cada episodio convertido en clips verticales con subtítulos para Reels, TikTok y Shorts, encuadrados en quien habla.",
     eyebrow: "Podcasts / Entrevistas / Programas en video",
     h1: "Un episodio de podcast, convertido en clips para Reels, TikTok y Shorts.",
     lead:
@@ -744,6 +758,8 @@ const nicheWave8Pages: SpanishNichePage[] = [
     metadataTitle: "Video para Quinceañeras Miami",
     description:
       "Película de momentos destacados y clips para redes de tu quinceañera en Miami y Fort Lauderdale. Edición de tu material y grabación en el lugar como servicio adicional.",
+    metaDescription:
+      "Video de momentos destacados y clips para redes de tu quinceañera en Miami y Fort Lauderdale. Esteban edita tu material; grabar en el lugar es un adicional.",
     eyebrow: "Quinceañeras / Familias / Celebraciones",
     h1: "El video de la quinceañera: la película de la noche y los clips para redes.",
     lead:
@@ -806,6 +822,8 @@ const nicheWave8Pages: SpanishNichePage[] = [
     metadataTitle: "Video para Escuelas de Baile y Música",
     description:
       "Contenido constante para academias de baile, escuelas de música y actividades infantiles en Miami y Fort Lauderdale: clips de clase, recitales y un calendario mensual.",
+    metaDescription:
+      "Clips de clase y recitales para academias de baile y escuelas de música en Miami y Fort Lauderdale, con un calendario mensual de publicaciones.",
     eyebrow: "Academias de baile / Escuelas de música / Actividades infantiles",
     h1: "Contenido para academias de baile y música durante toda la temporada.",
     lead:
@@ -1003,7 +1021,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       "¿Qué disponibilidad, formatos y alcance deben confirmarse para este proyecto?",
     ],
     projectFit:
-      "Esta página conecta las prioridades confirmadas de edición y producción selectiva con prueba publicada en Miami. Para edición de video corto con material existente, consulta con un [editor de Reels en Miami](/es/editor-de-reels-miami). No promete disponibilidad, formatos ni un alcance universal.",
+      "Esta página reúne la edición y la producción selectiva en Miami con trabajos publicados. Para edición de video corto con material existente, consulta con un [editor de Reels en Miami](/es/editor-de-reels-miami). No promete disponibilidad, formatos ni un alcance universal.",
     faqs: [
       {
         question: "¿Esteban trabaja en español?",
@@ -1026,7 +1044,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Fort Lauderdale / Broward County",
     h1: "Video desde Fort Lauderdale, con alcance definido por proyecto.",
     lead:
-      "Fort Lauderdale es la base de Esteban Moreno Media. La edición, la planificación y la producción local de video forman parte de sus prioridades confirmadas; cada idea en locación se considera de forma selectiva dentro de [tres condados como área de servicio](/es/areas).",
+      "Fort Lauderdale es la base de Esteban Moreno Media. La edición, la planificación y la producción local de video son sus servicios principales; cada idea en locación se considera de forma selectiva dentro de [tres condados como área de servicio](/es/areas).",
     keyword: "videógrafo en Fort Lauderdale",
     location: "Fort Lauderdale",
     availability: "confirmed",
@@ -1108,7 +1126,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Instagram / TikTok / Shorts",
     h1: "Reels para negocios de Miami-Dade, con alcance por proyecto.",
     lead:
-      "La edición de video corto es una prioridad confirmada de Esteban. Si una idea requiere grabación en Miami-Dade, la producción se considera de forma selectiva después de conocer la meta y la locación dentro de las [áreas de servicio](/es/areas).",
+      "La edición de video corto es uno de los servicios principales de Esteban. Si una idea requiere grabación en Miami-Dade, la producción se considera de forma selectiva después de conocer la meta y la locación dentro de las [áreas de servicio](/es/areas).",
     keyword: "reels para negocios Miami",
     location: "Miami-Dade",
     availability: "confirmed",
@@ -1185,7 +1203,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         question: "¿Puedo pedir solo edición de reels si ya tengo los videos grabados?",
         answer:
-          "Sí. La edición de video con material existente es una prioridad confirmada de Esteban. Puedes enviar tus grabaciones en vertical u horizontal a través de almacenamiento en la nube, y el alcance de edición, subtítulos y formato se define para cada proyecto.",
+          "Sí. La edición de video con material existente es uno de los servicios principales de Esteban. Puedes enviar tus grabaciones en vertical u horizontal a través de almacenamiento en la nube, y el alcance de edición, subtítulos y formato se define para cada proyecto.",
       },
       {
         question: "¿Qué formato y resolución se entregan los Reels?",
@@ -1382,7 +1400,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Real Estate / Bienes Raíces",
     h1: "Edición de video y Reels para real estate en South Florida.",
     lead:
-      "La edición de video y contenido para redes es una prioridad confirmada de Esteban. Ayudamos a agentes y agencias inmobiliarias a estructurar recorridos y videos de propiedades a partir de su material grabado en nuestras [áreas de servicio](/es/areas).",
+      "La edición de video y contenido para redes es uno de los servicios principales de Esteban. Ayudamos a agentes y agencias inmobiliarias a estructurar recorridos y videos de propiedades a partir de su material grabado en nuestras [áreas de servicio](/es/areas).",
     keyword: "editor de video para real estate",
     location: "South Florida / Miami-Dade / Broward",
     availability: "confirmed",
@@ -1631,7 +1649,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Repurposing / Edición",
     h1: "Transforma videos largos en decenas de clips para redes sociales.",
     lead:
-      "La reutilización de contenido (repurposing) es una prioridad confirmada de Esteban. Convertimos ponencias, podcasts y videos de YouTube en piezas verticales optimizadas para Reels y TikTok.",
+      "La reutilización de contenido (repurposing) es uno de los servicios principales de Esteban. Convertimos ponencias, podcasts y videos de YouTube en piezas verticales optimizadas para Reels y TikTok.",
     keyword: "reutilización de contenido de video",
     location: "Miami-Dade / Fort Lauderdale / Remote",
     availability: "confirmed",
@@ -3344,6 +3362,8 @@ export const spanishNichePages: SpanishNichePage[] = [
     metadataTitle: "Reels y Edición de Video Boca Raton",
     description:
       "Edición remota de Reels, TikTok y Shorts para negocios de Boca Raton con los clips que ya grabaste. La grabación en Palm Beach County se evalúa proyecto por proyecto.",
+    metaDescription:
+      `Edición remota de Reels, TikTok y Shorts para negocios de Boca Raton, desde ${usd(SHORT_FORM.perVideoFrom)} por video, con los clips que ya grabaste.`,
     eyebrow: "Boca Raton / Palm Beach County",
     h1: "Editor de Reels en Boca Raton para convertir tus clips en videos que se entienden rápido.",
     lead:
@@ -3980,7 +4000,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         question: "¿Puedo pedir solo edición si ya tengo material?",
         answer:
-          "Sí. La edición remota con material existente es una prioridad confirmada. Puedes enviar clips originales, referencias, textos y la plataforma de publicación para recibir una respuesta más precisa.",
+          "Sí. La edición remota con material existente es uno de los servicios principales. Puedes enviar clips originales, referencias, textos y la plataforma de publicación para recibir una respuesta más precisa.",
       },
       {
         question: "¿La producción local está disponible para cualquier idea?",
@@ -4145,7 +4165,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       {
         question: "¿Editan Reels para negocios de Miami con material existente?",
         answer:
-          "Sí. La edición con material existente es una prioridad confirmada. Comparte clips originales, referencias, plataforma y meta para revisar el alcance.",
+          "Sí. La edición con material existente es uno de los servicios principales. Comparte clips originales, referencias, plataforma y meta para revisar el alcance.",
       },
       {
         question: "¿Puede un video largo convertirse en varios Reels?",
