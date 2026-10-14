@@ -4383,6 +4383,73 @@ export const spanishNichePages: SpanishNichePage[] = [
     ],
   },
   {
+    // Row 30 (2026-10-14): ES twin of /services/hire-remote-video-editor, a
+    // full translation, no new claims. Intent gap: Google autocomplete (hl=es,
+    // gl=us) "contratar editor de videos", "contratar editor de videos para
+    // instagram", "contratar editor de videos online", "editor de video remoto".
+    slug: "contratar-editor-de-video-remoto",
+    title: "Contratar un editor de video remoto",
+    metadataTitle: "Contratar un Editor de Video Remoto",
+    description:
+      "Contrata a Esteban Moreno Media para edición de video remota: Reels, YouTube, videos de producto y contenido bilingüe desde el sur de Florida.",
+    eyebrow: "Edición de video remota",
+    h1: "Contrata un editor de video remoto para Reels, YouTube, anuncios y videos de tu negocio.",
+    lead:
+      "Esteban trabaja con el material que le envías, los archivos de tu marca y notas claras, así que un negocio en el sur de Florida o en otro estado puede pedir la edición sin reservar una grabación local.",
+    keyword: "contratar editor de video remoto",
+    location: "Remoto / sur de Florida",
+    availability: "confirmed",
+    icon: Scissors,
+    bestFor: [
+      "Ya tienes el material y necesitas convertirlo en Reels, Shorts, videos de YouTube, anuncios o clips para tu sitio web.",
+      "Tu equipo está fuera del sur de Florida pero puede enviar los archivos originales, los materiales de marca, las referencias y los comentarios agrupados.",
+      "Quieres que un solo editor entienda la meta, el ritmo, los subtítulos, los formatos y la entrega final antes de cortar.",
+    ],
+    scopingQuestions: [
+      "¿Cuál es la meta del video y en qué plataforma se publica?",
+      "¿Dónde está la carpeta con el material original y qué clips son obligatorios?",
+      "¿Qué referencias, logotipo o tipografías debe seguir la edición?",
+      "¿Para qué fecha necesitas la entrega y quién da los comentarios?",
+    ],
+    fitQuestion: "¿Cuándo encaja la edición remota?",
+    projectFit:
+      "La edición remota funciona mejor cuando el material ya existe y quien decide puede explicar qué debe lograr el video terminado. Para videos cortos con subtítulos y recortes verticales, mira el [editor de video corto para redes](/es/editor-de-video-corto-para-redes-miami); para creadores con material ya grabado, la [edición de video para creadores de contenido](/es/edicion-de-video-para-creadores-de-contenido-miami). Si el proyecto necesita grabación, la [producción de video en Fort Lauderdale](/es/produccion-de-video-fort-lauderdale) explica cómo se cotiza aparte.",
+    sections: [
+      {
+        heading: "¿Cómo se contrata a un editor de video remoto?",
+        paragraphs: [
+          `En tres pasos. Primero, envía un brief útil: la meta del negocio, la plataforma, la carpeta con el material, los clips que no pueden faltar, las referencias y la fecha límite; un traspaso claro hace que la primera respuesta sirva. Segundo, confirma el alcance antes de editar: la cotización debe nombrar los entregables, los formatos, el camino de revisión y los tiempos, para que un lote de Reels, una edición de YouTube y un corte para anuncio no se traten como un solo video genérico. Tercero, revisa en un solo lugar: elige a una persona responsable de los comentarios y agrupa las notas por video o por minuto, porque el trabajo remoto avanza más rápido cuando las correcciones no se contradicen. La edición remota parte del paquete Arranque, ${esShortForm}.`,
+        ],
+        bullets: [
+          "Envía el brief útil",
+          "Confirma el alcance antes de editar",
+          "Revisa en un solo lugar",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Qué material puede editar Esteban a distancia?",
+        answer:
+          "La edición remota trabaja con los archivos originales que el cliente ya tiene: material de teléfono o de cámara, grabaciones de pantalla, clips de producto y audio grabado por separado. Los archivos deben enviarse como originales y no como clips guardados de nuevo desde una app de mensajería, porque esa copia ya está comprimida y el detalle no se puede recuperar.",
+      },
+      {
+        question: "¿Esteban trabaja con negocios fuera del sur de Florida?",
+        answer:
+          "Sí, para edición remota, contenido asistido por IA, planificación de redes y trabajo visual a partir de materiales, siempre que los archivos se puedan compartir en línea. La grabación en locación es una decisión aparte y solo se considera para proyectos en el sur de Florida.",
+      },
+      {
+        question: "¿Cuánto cuesta la edición de video remota?",
+        answer: `El paquete Arranque, edición remota de material que ya tienes, va ${esArranque()} con una ronda de cambios incluida. Cada proyecto se cotiza según el material real, la lista de entregables y la cantidad de rondas de cambios, así que el precio del paquete es un punto de partida y no una tarifa fija.`,
+      },
+      {
+        question: "¿En qué idiomas trabaja Esteban?",
+        answer:
+          "Esteban trabaja en español primero, con comunicación en inglés intermedio, así que un brief bilingüe o un video en español es sencillo. No dice tener fluidez completa en inglés, y no es un servicio de traducción a otros idiomas.",
+      },
+    ],
+  },
+  {
     slug: "edicion-de-video-marca-blanca-para-agencias",
     title: "Edición de video en marca blanca para agencias y fotógrafos",
     metadataTitle: "Edición en Marca Blanca para Agencias",
@@ -4757,6 +4824,10 @@ const nicheBatch20261006Hreflang = Object.fromEntries(
       ["/services/video-production-fort-lauderdale", "/es/produccion-de-video-fort-lauderdale"],
       ["/services/hotel-hospitality-video-production-miami", "/es/produccion-de-video-para-hoteles-miami"],
       ["/services/content-repurposing-service-miami", "/es/reutilizacion-de-contenido-para-redes-miami"],
+      // Row 30 (2026-10-14): the new ES twin, and the Brickell pair that already
+      // existed on both sides with no hreflang between them.
+      ["/services/hire-remote-video-editor", "/es/contratar-editor-de-video-remoto"],
+      ["/services/corporate-video-production-brickell", "/es/video-corporativo-distrito-financiero-miami"],
     ] as const
   ).flatMap(([en, es]) =>
     [en, es].map((path) => [path, { "en-US": en, "es-US": es, "x-default": en }] as const),
