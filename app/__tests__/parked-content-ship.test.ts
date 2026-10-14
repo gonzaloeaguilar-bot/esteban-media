@@ -43,7 +43,8 @@ describe("parked content ship", () => {
     }
     const growth = ["/services/conversion-websites", "/services/ai-lead-capture-automation", "/services/local-presence-seo", "/services/growth-funnel-audit", "/services/custom-operations-automation", "/services/creative-production"];
     for (const p of growth) expect(PAGE_QUESTIONS.some((q) => q.path === p), p).toBe(true);
-    expect(PAGE_QUESTIONS.filter((q) => q.locale === "es")).toHaveLength(6);
+    expect(PAGE_QUESTIONS.filter((q) => q.locale === "es")).toHaveLength(12);
+    for (const p of growth) expect(PAGE_QUESTIONS.filter((q) => q.path === p), p).toHaveLength(2);
   });
 
   it("row 9: daily tools are a WebApplication inside a WebPage", () => {

@@ -86,7 +86,7 @@ export const PAGE_QUESTIONS: readonly PageQuestion[] = [
     heading: "¿Qué es un sitio web de conversión?",
     paragraphs: [
       "Un sitio web de conversión se construye alrededor de una acción que el visitante debe tomar, como llamar, agendar o enviar un formulario, y no alrededor de la historia de la empresa. Cada página nombra la oferta, muestra una prueba que el visitante puede verificar y pone el siguiente paso donde se alcanza con el pulgar en el teléfono. Después el sitio se mide: los eventos de Google Analytics 4 registran cada toque en llamar, cada formulario empezado y cada formulario enviado, así que los cambios se juzgan por lo que hizo la gente.",
-      `El trabajo incluye páginas personalizadas para escritorio y móvil, el diseño de la oferta, el botón de acción y el formulario (con autocompletado de dirección), la configuración de analítica y eventos de conversión, y dirección de foto o video cuando apoya el recorrido. Se cotiza dentro del paquete Todo Incluido, ${allInEs}. El tiempo de lanzamiento depende del alcance, los materiales, los accesos y las rondas de revisión, y la conversión se mide y se mejora; no se garantiza.`,
+      `El trabajo incluye páginas personalizadas para escritorio y móvil, el diseño de la oferta, el botón de acción y el formulario (con autocompletado de dirección), la configuración de analítica y eventos de conversión, y dirección de foto o video. Se cotiza dentro del paquete Todo Incluido, ${allInEs}. El tiempo de lanzamiento depende del alcance, los materiales, los accesos y las rondas de revisión, y la conversión se mide y se mejora; no se garantiza.`,
     ],
   },
   {
@@ -185,8 +185,118 @@ export const PAGE_QUESTIONS: readonly PageQuestion[] = [
     id: "que-incluye-la-produccion-creativa",
     heading: "¿Qué incluye la producción creativa?",
     paragraphs: [
-      "La producción creativa es el video y la fotografía de los que vive el resto del sistema de crecimiento: los clips del sitio web, las fotos del perfil de Google, los Reels que llevan a la gente a la oferta. Aquí incluye edición de video, fotografía y grabación en locación definida por proyecto, la reutilización de una grabación en versiones listas para cada canal, y una revisión de cómo funcionaron los videos y publicaciones anteriores antes de decidir qué hacer después.",
-      `Los precios están publicados. Editar tus propios clips es el paquete Arranque, ${shortFormPriceText("es")}. La grabación en locación va ${filmingHourlyText("es")}, y un día de producción en tu negocio, con planificación, grabación y edición, va ${priceSentence("es", "presencia-local").toLowerCase()}. Los entregables, los tiempos, la locación y el uso se confirman por proyecto. El análisis de resultados informa la siguiente decisión; no puede predecir ni garantizar que un video se haga viral.`,
+      "La producción creativa es el video y la fotografía de los que vive el resto del sistema de crecimiento: los clips del sitio web, las fotos del perfil de Google, los Reels que llevan a la gente a la oferta. Aquí incluye edición de video, fotografía y grabación en locación definida por proyecto, versiones de una misma grabación listas para cada canal y una revisión de cómo funcionaron los videos anteriores antes de decidir qué hacer.",
+      `Los precios están publicados. Editar tus propios clips es el paquete Arranque, ${shortFormPriceText("es")}. La grabación en locación va ${filmingHourlyText("es")}, y un día de producción en tu negocio, con planificación, grabación y edición, va ${priceSentence("es", "presencia-local").toLowerCase()}. Entregables, tiempos, locación y uso se confirman por proyecto. El análisis de resultados informa la siguiente decisión; no puede predecir ni garantizar que un video se haga viral.`,
+    ],
+  },
+  // Row 14, second answer per growth-system page: what to prepare, so each
+  // page carries two citable sections (dual-audience gate needs two in band).
+  {
+    path: "/services/conversion-websites",
+    locale: "en",
+    id: "what-to-send-for-a-website-quote",
+    heading: "What should you send before asking for a website quote?",
+    paragraphs: [
+      "Send the one action the site should drive (a call, a booking or a form), the offer and price you want visitors to see, the proof you can show (published work, reviews already on Google, photos of the real business), and the logins you control: domain, hosting, Google Analytics and Google Business Profile. Name who approves the copy and how many review rounds that person needs. With those in hand the quote can list the pages, the form fields and the events that will be measured, instead of guessing. A site built without access to the domain or the analytics account cannot be launched or measured, so that access is the first thing settled, before any design starts.",
+    ],
+  },
+  {
+    path: "/es/sitios-web-de-conversion",
+    locale: "es",
+    id: "que-enviar-para-cotizar-un-sitio",
+    heading: "¿Qué conviene enviar antes de pedir la cotización de un sitio?",
+    paragraphs: [
+      "Envía la acción que el sitio debe lograr (una llamada, una cita o un formulario), la oferta y el precio que quieres que vean los visitantes, la prueba que puedes mostrar (trabajo publicado, reseñas que ya están en Google, fotos del negocio real) y los accesos que controlas: dominio, hosting, Google Analytics y Google Business Profile. Indica quién aprueba los textos y cuántas rondas de revisión necesita. Con eso la cotización puede listar las páginas, los campos del formulario y los eventos que se van a medir, sin adivinar. Un sitio sin acceso al dominio o a la cuenta de analítica no se puede lanzar ni medir, así que ese acceso se resuelve primero.",
+    ],
+  },
+  {
+    path: "/services/ai-lead-capture-automation",
+    locale: "en",
+    id: "what-to-map-before-lead-automation",
+    heading: "What should you map before automating lead follow-up?",
+    paragraphs: [
+      "Write down where inquiries arrive today (website form, Instagram DMs, phone, email), the five questions the team answers most, the details needed before a quote, and the moment a person must take over. Then list the tools already paid for, such as ManyChat, a CRM, Google Calendar or Twilio, and who owns each account. That map decides the flow: what the bot may answer, what it must hand to a human, and what gets reported each week. If customers will receive text messages, collect proof of consent first, because SMS sending needs it before anything goes out. A flow built on top of an unclear handoff only answers faster; it does not book more.",
+    ],
+  },
+  {
+    path: "/es/captura-y-automatizacion-de-clientes-con-ia",
+    locale: "es",
+    id: "que-mapear-antes-de-automatizar",
+    heading: "¿Qué conviene mapear antes de automatizar el seguimiento?",
+    paragraphs: [
+      "Anota por dónde llegan hoy las consultas (formulario web, DM de Instagram, teléfono, email), las cinco preguntas que el equipo responde más, los datos que hacen falta antes de cotizar y el momento en que una persona debe tomar el control. Después lista las herramientas que ya pagas, como ManyChat, un CRM, Google Calendar o Twilio, y quién es dueño de cada cuenta. Ese mapa define el flujo: qué puede responder el bot, qué debe pasar a una persona y qué se reporta cada semana. Si los clientes van a recibir mensajes de texto, reúne primero la prueba de consentimiento, porque el envío de SMS la necesita. Un flujo montado sobre un traspaso confuso solo responde más rápido; no agenda más.",
+    ],
+  },
+  {
+    path: "/services/local-presence-seo",
+    locale: "en",
+    id: "what-to-check-first-local-presence",
+    heading: "What should a business check first on its local listings?",
+    paragraphs: [
+      "Search the business name on Google Maps, Apple Maps and Yelp and write down what each one shows: the name, phone number, hours, categories and website link. Any difference between them, or between them and the website, is the first fix, because customers and search systems both read the mismatch as doubt. Then check who owns each profile: a Google Business Profile claimed by a former employee or an old agency has to be recovered before anything can be edited. Note which service pages exist on the website for each service and city you want to appear for. With that list, the work can start with ownership and consistency before any new page is written.",
+    ],
+  },
+  {
+    path: "/es/presencia-local-seo",
+    locale: "es",
+    id: "que-revisar-primero-presencia-local",
+    heading: "¿Qué debe revisar primero un negocio en sus perfiles locales?",
+    paragraphs: [
+      "Busca el nombre del negocio en Google Maps, Apple Maps y Yelp y anota lo que muestra cada uno: nombre, teléfono, horario, categorías y enlace al sitio. Cualquier diferencia entre ellos, o con el sitio web, es lo primero que se corrige, porque clientes y buscadores leen esa diferencia como duda. Después revisa quién es dueño de cada perfil: un Google Business Profile reclamado por un exempleado o una agencia anterior se debe recuperar antes de poder editarlo. Anota qué páginas de servicio existen en el sitio para cada servicio y ciudad donde quieres aparecer. Con esa lista, el trabajo empieza por la propiedad y la consistencia antes de escribir páginas nuevas.",
+    ],
+  },
+  {
+    path: "/services/growth-funnel-audit",
+    locale: "en",
+    id: "what-access-for-a-funnel-audit",
+    heading: "What access does a funnel and data audit need?",
+    paragraphs: [
+      "Read access is enough to start: Google Analytics 4, Google Search Console, the social scheduling tool if there is one (Metricool, for example), the form or CRM where inquiries land, and the booking calendar. Add a short export of the last 90 days of inquiries with their source, if the business keeps one. Nothing is changed during the audit; the point is to see whether the tools agree. One gap the audit looks for is a form that sends email but records no analytics event, so the website looks like it produces no leads while the inbox has them. The audit ends with that kind of gap named, with the evidence that shows it and the next step to close it.",
+    ],
+  },
+  {
+    path: "/es/auditoria-de-funnel-y-datos",
+    locale: "es",
+    id: "que-accesos-necesita-la-auditoria",
+    heading: "¿Qué accesos necesita una auditoría de funnel y datos?",
+    paragraphs: [
+      "Para empezar basta con acceso de lectura: Google Analytics 4, Google Search Console, la herramienta de programación de redes si existe (Metricool, por ejemplo), el formulario o CRM donde llegan las consultas y el calendario de citas. Suma una exportación corta de las consultas de los últimos 90 días con su origen, si el negocio la tiene. Durante la auditoría no se cambia nada; el objetivo es ver si las herramientas coinciden. Una brecha que la auditoría busca es un formulario que envía el email pero no registra ningún evento de analítica, así que el sitio parece no generar clientes mientras el inbox sí los tiene. La auditoría termina con esa brecha nombrada, su evidencia y el siguiente paso.",
+    ],
+  },
+  {
+    path: "/services/custom-operations-automation",
+    locale: "en",
+    id: "what-to-automate-first",
+    heading: "Which operations task should be automated first?",
+    paragraphs: [
+      "Start with the task that is repeated most often, follows the same steps every time and breaks quietly when someone forgets it: copying form entries into a spreadsheet, building the Monday report by hand, or forwarding a new inquiry to the right person. Time it for one week, write the steps down exactly as the team does them, and note which tools hold the data. A task with judgment in the middle, such as approving a refund, keeps a human review point inside the flow. The first automation should be small enough to check by hand for two weeks, so the team trusts the result before the next one is built on top of it.",
+    ],
+  },
+  {
+    path: "/es/automatizacion-de-operaciones",
+    locale: "es",
+    id: "que-automatizar-primero",
+    heading: "¿Qué tarea de operaciones conviene automatizar primero?",
+    paragraphs: [
+      "Empieza por la tarea que se repite más, sigue los mismos pasos cada vez y falla en silencio cuando alguien la olvida: pasar formularios a una hoja de cálculo, armar a mano el reporte del lunes o reenviar una consulta nueva a la persona correcta. Mídela durante una semana, escribe los pasos tal como los hace el equipo y anota qué herramientas guardan los datos. Una tarea con criterio en medio, como aprobar un reembolso, mantiene un punto de revisión humana dentro del flujo. La primera automatización debe ser lo bastante pequeña para revisarla a mano dos semanas, así el equipo confía en el resultado antes de construir la siguiente.",
+    ],
+  },
+  {
+    path: "/services/creative-production",
+    locale: "en",
+    id: "filming-or-editing-first",
+    heading: "Should you start with filming or with editing?",
+    paragraphs: [
+      "Start with editing when the footage already exists: phone clips, an old shoot, recorded webinars or product videos that were never cut down. Editing is remote, needs no visit, and shows quickly which kinds of clips are missing. Start with filming when the business has nothing that shows the real service, the space, the team or the product being used. Filming is booked by the hour or as a production day, and one shoot can be planned to feed weeks of edits, with vertical and horizontal crops decided before the camera rolls. Either way, the first message should list the footage that already exists, so the quote does not pay to film something you already have.",
+    ],
+  },
+  {
+    path: "/es/produccion-creativa",
+    locale: "es",
+    id: "grabar-o-editar-primero",
+    heading: "¿Conviene empezar por grabar o por editar?",
+    paragraphs: [
+      "Empieza por la edición cuando el material ya existe: clips del teléfono, una grabación anterior, webinars grabados o videos de producto que nunca se recortaron. La edición es remota, no necesita visita y muestra rápido qué tipo de tomas faltan. Empieza por grabar cuando el negocio no tiene nada que muestre el servicio real, el espacio, el equipo o el producto en uso. La grabación se reserva por hora o como día de producción, y una sola sesión se puede planear para alimentar semanas de ediciones, con los recortes verticales y horizontales decididos antes de grabar. En ambos casos, el primer mensaje debe listar el material que ya existe, para no pagar por grabar algo que ya tienes.",
     ],
   },
 ];

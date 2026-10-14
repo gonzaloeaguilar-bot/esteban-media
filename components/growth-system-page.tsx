@@ -81,7 +81,7 @@ export function GrowthSystemPage({
             </div>
             <aside className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6 shadow-sm">
               <Icon className="size-9 text-[#e85d3e]" aria-hidden="true" />
-              <h2 className="mt-5 font-serif text-3xl">{spanish ? "Qué puede incluir" : "What can be in scope"}</h2>
+              <h2 className="mt-5 font-serif text-3xl">{spanish ? "¿Qué puede incluir?" : "What can be in scope?"}</h2>
               <ul className="mt-5 space-y-3 text-sm leading-6 text-[#252a2d]">
                 {includes.map((item) => <li key={item} className="flex gap-3"><CheckCircle2 className="mt-0.5 size-4 shrink-0 text-[var(--em-accent-ink)]" aria-hidden="true" />{item}</li>)}
               </ul>
