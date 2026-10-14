@@ -1,5 +1,6 @@
 import { GeoServicePage, type GeoServicePageContent } from "@/components/geo-service-page";
 import { buildPageMetadata } from "@/lib/site-metadata";
+import { REELS_MIAMI_CONVERSATIONAL_EN } from "@/lib/conversational-answers";
 
 const content: GeoServicePageContent = {
   path: "/services/reels-editor-miami",
@@ -59,6 +60,7 @@ const content: GeoServicePageContent = {
       body:
         "A bilingual version helps when the business serves both Spanish-speaking and English-speaking customers. It does not always mean duplicating the video: subtitles, supporting on-screen text, or a second short version are often enough, and they cost less than a full second edit. The decision depends on the audience, the channel and the message. For a local offer, the clarity of the text and whether it is readable on a phone matter more than mixing both languages without a concrete reason to do so.",
     },
+    ...REELS_MIAMI_CONVERSATIONAL_EN,
   ],
   faqHeading: "Questions before hiring a Miami Reels editor.",
   faqs: [

@@ -24,6 +24,7 @@ import {
   usd,
 } from "@/lib/pricing";
 import { absoluteUrl, site } from "@/lib/site";
+import { TIKTOK_SECTION_EN, TIKTOK_SECTION_ES } from "@/lib/conversational-answers";
 
 type Locale = "en" | "es";
 
@@ -78,6 +79,7 @@ export const SHORT_FORM_DEEP_DIVE_EN = {
         "A useful first message says three things: what the account or business is, how often you want to post, and where the footage is now, whether on a phone, a camera or not filmed yet. If you already have clips, include a Drive or Dropbox link. Esteban replies with the option that fits, a single video, the weekly plan or a larger package, and a quote before any work begins. The [contact page](/contact) has a form if you prefer to write it out.",
       ],
     },
+    TIKTOK_SECTION_EN,
   ] satisfies DeepDiveSection[],
 };
 
@@ -111,6 +113,7 @@ export const SHORT_FORM_SECTIONS_ES: { heading: string; paragraphs: string[] }[]
       "Un primer mensaje útil dice tres cosas: qué es la cuenta o el negocio, cada cuánto quieres publicar y dónde está el material ahora, en el celular, en una cámara o todavía sin grabar. Si ya tienes clips, incluye el enlace de Drive o Dropbox. Esteban responde con la opción que encaja, un video suelto, el plan semanal o un paquete más grande, y una cotización antes de empezar. En la [página de contacto](/es/contacto) también hay un formulario.",
     ],
   },
+  TIKTOK_SECTION_ES,
 ];
 
 /**

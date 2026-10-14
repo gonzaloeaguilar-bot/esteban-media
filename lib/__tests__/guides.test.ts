@@ -85,15 +85,15 @@ describe("bilingual practical guides", () => {
     }
   });
 
-  it("returns exactly 41 guides for English", () => {
+  it("returns exactly 44 guides for English", () => {
     const guides = getGuides("en");
-    expect(guides).toHaveLength(41);
+    expect(guides).toHaveLength(44);
     expect(guides.every((guide) => guide.locale === "en")).toBe(true);
   });
 
-  it("returns exactly 41 guides for Spanish", () => {
+  it("returns exactly 44 guides for Spanish", () => {
     const guides = getGuides("es");
-    expect(guides).toHaveLength(41);
+    expect(guides).toHaveLength(44);
     expect(guides.every((guide) => guide.locale === "es")).toBe(true);
   });
 
@@ -101,13 +101,13 @@ describe("bilingual practical guides", () => {
     const englishGuides = getGuides("en");
     const spanishGuides = getGuides("es");
 
-    expect(englishGuides).toHaveLength(41);
-    expect(spanishGuides).toHaveLength(41);
+    expect(englishGuides).toHaveLength(44);
+    expect(spanishGuides).toHaveLength(44);
     expect(englishGuides.map(({ id }) => id)).toEqual(
       spanishGuides.map(({ id }) => id),
     );
-    expect(new Set(englishGuides.map(({ slug }) => slug))).toHaveLength(41);
-    expect(new Set(spanishGuides.map(({ slug }) => slug))).toHaveLength(41);
+    expect(new Set(englishGuides.map(({ slug }) => slug))).toHaveLength(44);
+    expect(new Set(spanishGuides.map(({ slug }) => slug))).toHaveLength(44);
 
     for (const guide of [...englishGuides, ...spanishGuides]) {
       expect(guide.answer.length).toBeGreaterThan(60);
@@ -127,8 +127,8 @@ describe("bilingual practical guides", () => {
     const metadataTitles = allGuides.map(({ metadataTitle }) => metadataTitle);
     const descriptions = allGuides.map(({ description }) => description);
 
-    expect(new Set(canonicalPaths).size).toBe(82);
-    expect(new Set(metadataTitles).size).toBe(82);
+    expect(new Set(canonicalPaths).size).toBe(88);
+    expect(new Set(metadataTitles).size).toBe(88);
     expect(new Set(descriptions).size).toBe(82);
 
     for (const guide of allGuides) {

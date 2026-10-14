@@ -26,7 +26,7 @@ const once = usd(SHORT_FORM.perVideoFrom);
 const phone = site.phone.display;
 
 export type ConversationalEntry = { question: string; body: string };
-export type ConversationalSection = { heading: string; paragraphs: readonly string[] };
+export type ConversationalSection = { heading: string; paragraphs: string[] };
 
 // ---------------------------------------------------------------------------
 // English: /services/reels-editor-miami (depth entries, GeoServicePage).

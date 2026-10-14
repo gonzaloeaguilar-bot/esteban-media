@@ -16,6 +16,7 @@ import {
   PRODUCT_PHOTO_SESSION,
 } from "@/lib/pricing";
 import { REAL_ESTATE_MEDIA } from "@/lib/services-config";
+import { GUIDE_HUB_IDS, guideHubPairs } from "@/lib/guide-hubs";
 
 export const GUIDE_IDS = [
   "prepare-footage",
@@ -59,6 +60,7 @@ export const GUIDE_IDS = [
   "raw-video-formats-explained-guide",
   "restaurant-video-cost-guide",
   "real-estate-video-cost-guide",
+  ...GUIDE_HUB_IDS,
 ] as const;
 
 export type GuideId = (typeof GUIDE_IDS)[number];
@@ -82,7 +84,7 @@ type GuideCopy = {
   faqs?: readonly { question: string; answer: string }[];
 };
 
-type GuidePair = {
+export type GuidePair = {
   id: GuideId;
   en: GuideCopy;
   es: GuideCopy;
@@ -4295,6 +4297,7 @@ const guidePairs: readonly GuidePair[] = [
       ],
     },
   },
+  ...guideHubPairs,
 ];
 
 export const guidesIndexCopy = {

@@ -1,3 +1,4 @@
+import { CREATOR_START_SECTION_EN } from "@/lib/conversational-answers";
 import type { DeepDiveSection } from "@/components/service-depth";
 import {
   EXPRESS_MULTIPLIER,
@@ -72,6 +73,7 @@ export const CREATOR_DEEP_DIVE: DeepDive = {
         "Disclosure is the part worth getting right the first time. When there is a material connection to a brand — payment, free product, an affiliate arrangement, a family tie — the FTC expects it stated clearly and conspicuously where the audience will actually notice it, which means on screen and in the spoken words rather than only in a caption that has to be expanded. Telling the editor which clips are paid partnerships at handoff is what keeps the disclosure in the cut instead of being added as an afterthought.",
       ],
     },
+    CREATOR_START_SECTION_EN,
   ],
 };
 
