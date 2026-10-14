@@ -15,12 +15,12 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 describe("guide routes", () => {
-  it("pre-renders 45 localized detail routes in each language", async () => {
+  it("pre-renders 46 localized detail routes in each language", async () => {
     const enParams = await generateEnglishParams();
     const esParams = await generateSpanishParams();
 
-    expect(enParams).toHaveLength(45);
-    expect(esParams).toHaveLength(45);
+    expect(enParams).toHaveLength(46);
+    expect(esParams).toHaveLength(46);
     expect(enParams.map(({ slug }) => slug)).toContain("video-production-cost-fort-lauderdale");
     expect(esParams.map(({ slug }) => slug)).toContain("cuanto-cuesta-la-produccion-de-video-en-fort-lauderdale");
   });

@@ -21,7 +21,7 @@ import sitemap, { inventoryAdditions20261010Paths } from "../sitemap";
 describe("portfolio sitemap entries", () => {
   const entries = sitemap();
 
-  it("publishes the exact 365-URL consolidated inventory, each URL once", () => {
+  it("publishes the exact 368-URL consolidated inventory, each URL once", () => {
     const urls = entries.map((entry) => entry.url);
 
     // 279 = 243 consolidated + /desk-recommendations (owner-ordered
@@ -51,8 +51,9 @@ describe("portfolio sitemap entries", () => {
     // +2 = Miami restaurant Instagram study pair (2026-10-14, original data).
     // +1 = /es/contratar-editor-de-video-remoto, ES twin of the remote editor page (2026-10-14, row 30).
     // +2 = wedding videographer pair (2026-10-14, owner fact: films weddings).
-    expect(entries).toHaveLength(365);
-    expect(new Set(urls)).toHaveLength(365);
+    // +3 = demand-map wave (2026-10-14): videographer Miami + influencer guide pair.
+    expect(entries).toHaveLength(368);
+    expect(new Set(urls)).toHaveLength(368);
   });
 
   it("pairs real product photography pages with reciprocal language alternatives", () => {

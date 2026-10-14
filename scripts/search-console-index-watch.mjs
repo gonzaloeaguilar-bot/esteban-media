@@ -134,6 +134,8 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/services/wedding-videographer-fort-lauderdale",
   "https://estebanmorenomedia.com/es/videografo-de-bodas-fort-lauderdale",
   "https://estebanmorenomedia.com/services/videographer-miami",
+  "https://estebanmorenomedia.com/guides/how-to-start-as-an-influencer",
+  "https://estebanmorenomedia.com/es/guias/como-empezar-a-ser-influencer",
   "https://estebanmorenomedia.com/services/dance-studio-music-school-video-marketing-miami",
   "https://estebanmorenomedia.com/es/video-para-academias-de-baile-y-musica-miami",
   "https://estebanmorenomedia.com/es/precios",

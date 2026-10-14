@@ -92,7 +92,7 @@ const VLOG_RATES_EN: OwnerFactSection = {
   heading: "What do vlog editing rates look like?",
   paragraphs: [
     `Vlog editing rates depend mostly on length, and Esteban Moreno Media prices them per video, never per hour. A short vlog-style post for Reels, TikTok or Shorts is the Starter package, from ${perVideo} per video, and if you post every week it is ${shortFormWeeklyText("en")}, each video up to ${T.maxVideoSeconds} seconds from up to ${T.maxFootageMinutes} minutes of footage. A full YouTube vlog falls in the calculator's YouTube band, ${band("youtube")} per edit, which was checked against a published market range of ${bandMarket("youtube")} per YouTube edit.`,
-    `What moves the price inside that band is how much footage there is, how many cuts it takes to keep the story moving, and whether you want music, titles, maps or a thumbnail frame. Send one vlog's original files and the length you want; the written quote fixes the price before editing starts. Filming, if you want it, is ${filmingHourlyText("en")}.`,
+    `What moves the price inside that band is how much footage there is, how many cuts it takes to keep the story moving, and whether you want music, titles, maps or a thumbnail frame. Send one vlog's original files and the length you want; the written quote fixes the price before editing starts. Filming, if you want it, is ${filmingHourlyText("en")}. New to posting? Read [how to start as an influencer](/guides/how-to-start-as-an-influencer).`,
   ],
 };
 
@@ -196,7 +196,7 @@ const CREATOR_EDITOR_ES: OwnerFactSection = {
   heading: "¿Cómo elegir un editor de video para creadores de contenido?",
   paragraphs: [
     `Un buen editor de video para creadores de contenido entiende tu estilo, entrega a tiempo cada semana y cobra un precio que sabes antes de empezar. Esteban Moreno Media edita para creadores e influencers con los clips que tú grabas: desde ${perVideo} por video con el paquete Arranque, o ${shortFormWeeklyText("es")} si publicas cada semana, con un mínimo de ${T.minimumWeeks} semanas y entrega en ${T.deliveryHoursMin} a ${T.deliveryHoursMax} horas por video semanal.`,
-    `Para saber si un editor es el indicado, pídele que edite un solo video de prueba con tu material y fíjate en tres cosas: si mantuvo tu voz y tu forma de hablar, si los subtítulos quedaron dentro de la zona segura y si el gancho de los primeros segundos se entiende sin sonido. Las tarifas publicadas del mercado para un video corto van de ${market("es")}, así que compara lo que incluye cada oferta y no solo el precio.`,
+    `Para saber si un editor es el indicado, pídele que edite un solo video de prueba con tu material y fíjate en tres cosas: si mantuvo tu voz y tu forma de hablar, si los subtítulos quedaron dentro de la zona segura y si el gancho de los primeros segundos se entiende sin sonido. Las tarifas publicadas del mercado para un video corto van de ${market("es")}, así que compara lo que incluye cada oferta y no solo el precio. Si estás empezando, lee [cómo empezar a ser influencer](/es/guias/como-empezar-a-ser-influencer).`,
   ],
 };
 

@@ -16,7 +16,8 @@ const content: GeoServicePageContent = {
   path: "/services/videographer-miami",
   eyebrow: "Videographer in Miami",
   title: "A videographer in Miami who films and edits the same project.",
-  description: `Videographer for Miami-Dade businesses: on-location filming ${filmingHourlyText("en")}, editing from ${usd(SHORT_FORM.perVideoFrom)} per video, Spanish-first, based in Fort Lauderdale.`,
+  description:
+    "Videographer for Miami-Dade businesses: on-location filming billed by the hour, editing priced per video, Spanish-first, from a Fort Lauderdale base.",
   locationLabel: "Miami-Dade / based in Fort Lauderdale",
   proofTitle: "See video filmed on location in Miami",
   proofText:
