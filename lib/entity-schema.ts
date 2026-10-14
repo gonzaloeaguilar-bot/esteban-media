@@ -1,3 +1,4 @@
+import { pageLastModified } from "@/lib/page-lastmod";
 import { absoluteUrl, serviceAreas, services, site } from "@/lib/site";
 
 export const entityIds = {
@@ -13,7 +14,14 @@ export const personEntityJsonLd = {
   alternateName: site.founder.name,
   description:
     "Spanish-first video editor and content creator based in Fort Lauderdale, with intermediate English communication available.",
+  // Round 2 (2026-10-14): autocomplete for "esteban moreno" lists other people
+  // with the name; this line and the visible "Who is Esteban Moreno?" section on
+  // /about say which one this is.
+  disambiguatingDescription:
+    "Video editor and content creator in Fort Lauderdale, Florida; founder of Esteban Moreno Media.",
   url: absoluteUrl("/about"),
+  // The photo shown on /about (components/on-set-media.tsx).
+  image: absoluteUrl("/about/esteban-on-location.jpg"),
   // The Google Business Profile is the business listing, not the person; it
   // stays on the #business sameAs only (SEO/GEO audit 2026-10-10, fix 7).
   sameAs: [site.instagram, site.youtube],
@@ -160,6 +168,7 @@ export function buildProfilePageJsonLd({
     name,
     description,
     inLanguage: language,
+    ...(pageLastModified(path) ? { dateModified: pageLastModified(path) } : {}),
     isPartOf: {
       "@id": entityIds.website,
     },

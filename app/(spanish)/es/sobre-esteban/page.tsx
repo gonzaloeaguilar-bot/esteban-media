@@ -7,6 +7,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 
+import { AboutWhoIs } from "@/components/about-who-is";
 import { OnSetMedia } from "@/components/on-set-media";
 import { Container } from "@/components/ui/container";
 import { buildProfilePageJsonLd } from "@/lib/entity-schema";
@@ -169,6 +170,7 @@ export default function SpanishAboutPage() {
           </div>
         </Container>
       </section>
+      <AboutWhoIs locale="es" path="/es/sobre-esteban" />
     </main>
   );
 }

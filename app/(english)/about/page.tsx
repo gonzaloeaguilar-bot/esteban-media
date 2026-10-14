@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, PlaySquare, Send, ShieldCheck } from "lucide-react";
 
+import { AboutWhoIs } from "@/components/about-who-is";
 import { OnSetMedia } from "@/components/on-set-media";
 import { Container } from "@/components/ui/container";
 import { buildProfilePageJsonLd } from "@/lib/entity-schema";
@@ -21,7 +22,6 @@ export const metadata = buildPageMetadata({
 const principles = [
   "Personal, direct communication in Spanish, with intermediate English available.",
   "Real proof only. No invented logos, testimonials, or view-count promises.",
-  "Spanish-first service with intermediate English communication available.",
   "Published portfolio credits stay limited to the work that can be verified.",
 ];
 
@@ -133,6 +133,7 @@ export default function AboutPage() {
           </div>
         </Container>
       </section>
+      <AboutWhoIs locale="en" path="/about" />
     </main>
   );
 }

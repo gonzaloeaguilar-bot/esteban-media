@@ -2,9 +2,10 @@ import Link from "next/link";
 
 import { ClosingCredits, PackagesSection } from "@/components/packages-section";
 import { PageUpdated } from "@/components/page-updated";
+import { PricingAnswer } from "@/components/pricing-answer";
 import { Container } from "@/components/ui/container";
 import { entityIds } from "@/lib/entity-schema";
-import { packagesJsonLd } from "@/lib/packages";
+import { packagesJsonLd, priceSentence } from "@/lib/packages";
 import { pageLastModified } from "@/lib/page-lastmod";
 import { absoluteUrl } from "@/lib/site";
 import { buildPageMetadata } from "@/lib/site-metadata";
@@ -76,7 +77,8 @@ export default function PricingPage() {
             What it costs to work together
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#40474d] sm:text-lg">
-            Every package below shows a starting price so you know the ballpark
+            Editing one video starts {priceSentence("en", "arranque").toLowerCase()}, and a production day at
+            your business {priceSentence("en", "presencia-local").toLowerCase()}. Every package below shows a starting price so you know the ballpark
             before you write to me. The final number depends on how much video
             you need, whether I film on location, and how fast you need it — so
             you always get a written quote for your own project.
@@ -103,6 +105,7 @@ export default function PricingPage() {
         </Container>
       </section>
 
+      <PricingAnswer locale="en" />
       <PackagesSection locale="en" />
       <ClosingCredits locale="en" />
     </main>

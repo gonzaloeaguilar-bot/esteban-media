@@ -2,9 +2,10 @@ import Link from "next/link";
 
 import { ClosingCredits, PackagesSection } from "@/components/packages-section";
 import { PageUpdated } from "@/components/page-updated";
+import { PricingAnswer } from "@/components/pricing-answer";
 import { Container } from "@/components/ui/container";
 import { entityIds } from "@/lib/entity-schema";
-import { packagesJsonLd } from "@/lib/packages";
+import { packagesJsonLd, priceSentence } from "@/lib/packages";
 import { pageLastModified } from "@/lib/page-lastmod";
 import { absoluteUrl } from "@/lib/site";
 import { buildPageMetadata } from "@/lib/site-metadata";
@@ -77,7 +78,8 @@ export default function SpanishPricingPage() {
             Cuánto cuesta trabajar juntos
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#40474d] sm:text-lg">
-            Cada paquete muestra su precio de partida para que sepas el orden de
+            Editar un video cuesta {priceSentence("es", "arranque").toLowerCase()}, y un día de producción en tu
+            negocio, {priceSentence("es", "presencia-local").toLowerCase()}. Cada paquete muestra su precio de partida para que sepas el orden de
             magnitud antes de escribirme. La cifra final depende de cuánto video
             necesitas, de si hay grabación presencial en nuestras{" "}
             <Link
@@ -104,6 +106,7 @@ export default function SpanishPricingPage() {
         </Container>
       </section>
 
+      <PricingAnswer locale="es" />
       <PackagesSection locale="es" />
       <ClosingCredits locale="es" />
     </main>
