@@ -4,6 +4,7 @@ import {
   ES_REELS_FORT_LAUDERDALE_CONVERSATIONAL,
   ES_REELS_MIAMI_CONVERSATIONAL,
 } from "@/lib/conversational-answers";
+import { restaurantIgStudyAlternates, restaurantIgStudyPaths } from "@/lib/restaurant-ig-study";
 import { buildServiceFaqSchema } from "@/components/service-depth";
 import { isConsolidatedPath } from "@/lib/consolidation";
 import { eventLanguageAlternates } from "@/lib/events";
@@ -4759,6 +4760,9 @@ const reelsCostCalculatorHreflang = Object.fromEntries(
 const languageAlternatesRaw: Record<string, Record<string, string>> = {
   ...inventoryAdditions20261010Hreflang,
   ...reelsCostCalculatorHreflang,
+  // Original-data study, 2026-10-14 (lib/restaurant-ig-study.ts).
+  [restaurantIgStudyPaths.en]: { ...restaurantIgStudyAlternates },
+  [restaurantIgStudyPaths.es]: { ...restaurantIgStudyAlternates },
   "/services/food-and-places-creator-video-editing-miami": {
     "en-US": "/services/food-and-places-creator-video-editing-miami",
     "es-US": "/es/edicion-de-video-para-creadores-de-comida-y-lugares-miami",
@@ -5412,6 +5416,7 @@ export const spanishTrustQuestions = [
 
 export const spanishRoutes = [
   "/es/precios/inmobiliaria",
+  restaurantIgStudyPaths.es,
   ...Object.values(packageRoutes).map((route) => route.es),
   ...spanishCoreRoutes,
   ...spanishNichePages.map((page) => `/es/${page.slug}`),

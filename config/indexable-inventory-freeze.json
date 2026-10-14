@@ -2,8 +2,8 @@
   "status": "demand_gated",
   "effectiveDate": "2026-08-28",
   "baselineRevisedOn": "2026-10-14",
-  "approvedSitemapUrlCount": 360,
-  "approvedSitemapUrlSetSha256": "e6d0b50eef1b0cb68b1f4459e48e3756de430a8d7e8dba726189880374b5c91f",
+  "approvedSitemapUrlCount": 362,
+  "approvedSitemapUrlSetSha256": "7c5359219a9c5e77c3364702ef6d2694e89d8626cc333c1ead1e608e188fd9db",
   "allowedNewIndexableUrls": 4,
   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {
@@ -379,6 +379,18 @@
       "followUpDate": "2026-10-28",
       "followUp": "Re-run the esteban-search-sweep for 'reels editor boca raton' and 'editor de reels boca raton', and GSC query+page plus URL Inspection for both URLs, on 2026-10-28 and 2026-11-14. If still 'Discovered - currently not indexed' with zero impressions on 2026-11-14, fold the ES twin into /es/edicion-de-video-palm-beach-county rather than adding more Palm Beach pages.",
       "note": "2 URLs, within one demand-wave allowance of 4. The EN URL is a re-admission (config/cohort-consolidation.json reopenedByOwner), not a new URL."
+    },
+    {
+      "on": "2026-10-14",
+      "url": [
+        "/guides/miami-restaurant-instagram-study",
+        "/es/guias/estudio-instagram-restaurantes-miami"
+      ],
+      "orderedBy": "Gonzalo (in-session brief: original data study, organic content pre-approved)",
+      "kind": "original-data study pair",
+      "demandEvidence": "Owner-ordered original-data asset, not a GSC-query page. Adjacent demand is real: the restaurant cluster ('restaurant promo video editing miami' 21 impressions at position 7.2, 'video para restaurantes miami' 7 at 6.9, GSC 90d read 2026-10-07, see the 2026-10-07 cost-guide entry) is the site's best non-brand cluster, and both pages link into it. The study is measured data (45 accounts, 486 posts, collected 2026-10-14 via Apify for $0.35) that AI answers and blogs can cite; no ranking or customer-result claim is made.",
+      "followUpDate": "2026-11-14",
+      "followUp": "Check GSC impressions/indexed status for both URLs, referring domains and AI-answer citations for 'Miami restaurant Instagram Reels' style queries, plus study_restaurant_ig_* CTA clicks. Zero impressions and zero citations at 30 days: keep internally linked, drop from the sitemap."
     }
   ]
 }

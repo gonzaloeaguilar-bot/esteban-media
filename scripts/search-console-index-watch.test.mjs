@@ -240,7 +240,7 @@ describe("Search Console index watch", () => {
   it("keeps the fixed watch set identical to the application sitemap", () => {
     const urls = sitemap().map((entry) => entry.url).sort();
 
-    expect(WATCH_URLS).toHaveLength(360); // +2 Boca Raton pair (2026-10-14, owner decision); +4 comparison and restaurant-frequency guides (2026-10-14); +2 Reels cost calculator pair (2026-10-14); +4 guide hubs (2026-10-14); +4 founder and podcast-clipping pairs (2026-10-13); includes the 2026-10-11 Spanish real product photography companion
+    expect(WATCH_URLS).toHaveLength(362); // +2 restaurant Instagram study pair (2026-10-14); +2 Boca Raton pair (2026-10-14, owner decision); +4 comparison and restaurant-frequency guides (2026-10-14); +2 Reels cost calculator pair (2026-10-14); +4 guide hubs (2026-10-14); +4 founder and podcast-clipping pairs (2026-10-13); includes the 2026-10-11 Spanish real product photography companion
     expect([...WATCH_URLS].sort()).toEqual(urls);
     expect(validateWatchedSitemap(urls).hash).toBe(watchedUrlHash());
   });

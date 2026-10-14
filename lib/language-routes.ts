@@ -80,6 +80,8 @@ export const pairedLanguageRoutes: Record<string, string> = {
     "/es/editor-de-video-para-marca-personal-miami",
   "/services/podcast-clipping-service-miami":
     "/es/edicion-de-clips-de-podcast-miami",
+  "/guides/miami-restaurant-instagram-study":
+    "/es/guias/estudio-instagram-restaurantes-miami",
   "/services/quinceanera-video-miami":
     "/es/video-para-quinceaneras-miami",
   "/services/dance-studio-music-school-video-marketing-miami":
