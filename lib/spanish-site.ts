@@ -861,7 +861,7 @@ const nicheWave8Pages: SpanishNichePage[] = [
         heading: "¿Cómo se planea el contenido alrededor de recitales e inscripciones?",
         paragraphs: [
           "Trabajando hacia atrás desde las fechas que ya existen. Antes de abrir una sesión nueva, publica recordatorios con clips de clase y una presentación del profesor de cada nivel. Antes de un recital, muestra momentos del ensayo que generen expectativa sin revelar toda la coreografía. Después de la función, publica primero el resumen y luego un clip corto por grupo, para que cada familia vea el momento de su hijo.",
-          "En los meses tranquilos, las piezas de progreso y el detrás de cámaras mantienen la cuenta activa. La [producción masiva de video para redes](/es/produccion-masiva-de-video-para-redes-miami) permite editar un mes completo en una sola tanda, y la [edición de video para discotecas y eventos](/es/edicion-de-video-para-discotecas-y-eventos-miami) cubre los resúmenes de eventos.",
+          "En los meses tranquilos, las piezas de progreso y el detrás de cámaras mantienen la cuenta activa. La [producción masiva de video para redes](/es/produccion-masiva-de-video-para-redes-miami) permite editar un mes completo en una sola tanda, y los resúmenes de eventos tienen su propia página: [video de eventos y discotecas en Miami](/es/edicion-de-video-para-discotecas-y-eventos-miami).",
         ],
       },
     ],
