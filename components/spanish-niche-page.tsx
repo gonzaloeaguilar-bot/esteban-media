@@ -31,6 +31,8 @@ import {
 } from "@/lib/spanish-site";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
+import { NicheAnswers } from "@/components/niche-answers";
+import { withNicheService } from "@/lib/niche-answers";
 
 
 type NicheLinkContext = {
@@ -1473,7 +1475,7 @@ export function SpanishNichePage({
         type="application/ld+json"
         suppressHydrationWarning
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(jsonLd),
+          __html: JSON.stringify(withNicheService(`/es/${page.slug}`, jsonLd)),
         }}
       />
       <section className="border-b border-[#ddd4c8] py-8 sm:py-16 lg:py-20">
@@ -1825,6 +1827,7 @@ export function SpanishNichePage({
           linkLabel="Ver el servicio"
         />
       ) : null}
+      <NicheAnswers path={`/es/${page.slug}`} fact={page.description} />
     </main>
   );
 }

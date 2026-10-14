@@ -11,6 +11,8 @@ import {
 } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
+import { NicheAnswers } from "@/components/niche-answers";
+import { withNicheService } from "@/lib/niche-answers";
 
 export const metadata = buildPageMetadata({
   title: "AI Food Photography Restaurants Miami",
@@ -50,7 +52,7 @@ export default function AIFoodPhotographyPage() {
       <script
         type="application/ld+json"
         suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(withNicheService("/services/ai-food-photography-restaurants", jsonLd)) }}
       />
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
         <Container size="xl">
@@ -166,6 +168,7 @@ export default function AIFoodPhotographyPage() {
         faqs={PORTED_SERVICE_FAQS["/services/ai-food-photography-restaurants"]}
         sectionId="ported-faq"
       />
+      <NicheAnswers path="/services/ai-food-photography-restaurants" fact={String(metadata.description ?? "")} />
     </main>
   );
 }

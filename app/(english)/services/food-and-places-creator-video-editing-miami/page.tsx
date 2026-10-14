@@ -8,6 +8,8 @@ import { ArranqueWeeklySection } from "@/components/arranque-weekly-section";
 import { arranqueWeeklyFaq, arranqueWeeklyOfferJsonLd } from "@/lib/arranque-weekly";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl } from "@/lib/site";
+import { NicheAnswers } from "@/components/niche-answers";
+import { withNicheService } from "@/lib/niche-answers";
 
 const path = "/services/food-and-places-creator-video-editing-miami";
 
@@ -34,7 +36,7 @@ export default function FoodPlacesCreatorPage() {
   };
   return (
     <main className="bg-[#f6f1ea] text-[#101214]">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(withNicheService("/services/food-and-places-creator-video-editing-miami", jsonLd)) }} />
       <section className="border-b border-[#ddd4c8] py-8 sm:py-16" data-section="food-creator-hero">
         <Container size="xl">
           <nav aria-label="Breadcrumbs" className="em-crumbs mb-6 text-sm text-[#5a6066]">
@@ -65,6 +67,7 @@ export default function FoodPlacesCreatorPage() {
       <ServiceInquiryRail trackInterest sectionId="food-creator-inquiry" service={{ serviceId: "food_places_creator_video", serviceName: "food and places creator video editing", goalPrompt: "launch my recommendation account or edit my restaurant visits", assetPrompt: "original clips, venue and dish names, my account and any paid or comped visits", proofHref: "/portfolio/bar-door-monkey", proofLabel: "Watch the published venue promo" }} />
       <ServiceFaqs heading={depth.faqHeading} faqs={depth.faqs} sectionId="food-creator-faq" collapsible />
       <ServiceRelated heading={depth.relatedHeading} services={depth.related} sectionId="food-creator-related" />
+      <NicheAnswers path="/services/food-and-places-creator-video-editing-miami" fact={String(metadata.description ?? "")} />
     </main>
   );
 }

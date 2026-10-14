@@ -17,6 +17,8 @@ import { Container } from "@/components/ui/container";
 import { buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
+import { NicheAnswers } from "@/components/niche-answers";
+import { withNicheService } from "@/lib/niche-answers";
 
 const faqs = [
   {
@@ -96,7 +98,7 @@ export default function TiktokAdVideoEditorMiamiPage() {
       <script
         type="application/ld+json"
         suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(withNicheService("/services/tiktok-ad-video-editor-miami", jsonLd)) }}
       />
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
         <Container size="xl">
@@ -394,6 +396,7 @@ export default function TiktokAdVideoEditorMiamiPage() {
           </div>
         </Container>
       </section>
+      <NicheAnswers path="/services/tiktok-ad-video-editor-miami" fact={String(metadata.description ?? "")} />
     </main>
   );
 }

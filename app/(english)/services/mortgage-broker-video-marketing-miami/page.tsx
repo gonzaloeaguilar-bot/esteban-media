@@ -15,6 +15,8 @@ import { MORTGAGE_BROKER_DEEP_DIVE as dive } from "@/lib/service-deep-dive-conte
 import { priceSentence, whatsappHref } from "@/lib/packages";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
+import { NicheAnswers } from "@/components/niche-answers";
+import { withNicheService } from "@/lib/niche-answers";
 
 const path = "/services/mortgage-broker-video-marketing-miami";
 
@@ -66,7 +68,7 @@ export default function Page() {
       <script
         type="application/ld+json"
         suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(withNicheService("/services/mortgage-broker-video-marketing-miami", jsonLd)) }}
       />
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20" data-section="mortgage-hero">
         <Container size="xl">
@@ -129,6 +131,7 @@ export default function Page() {
       <ServiceFaqs heading={depth.faqHeading} faqs={depth.faqs} sectionId="mortgage-faq" />
       <ServiceInquiryRail service={inquiry} sectionId="mortgage-inquiry" />
       <ServiceRelated heading={depth.relatedHeading} services={depth.related} sectionId="mortgage-related" />
+      <NicheAnswers path="/services/mortgage-broker-video-marketing-miami" fact={String(metadata.description ?? "")} />
     </main>
   );
 }

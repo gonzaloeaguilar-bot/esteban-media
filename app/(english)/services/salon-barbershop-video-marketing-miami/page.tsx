@@ -15,6 +15,8 @@ import { SALON_DEPTH, withServiceSiblings } from "@/lib/service-depth-content";
 import { SALON_COST_DEEP_DIVE, SALON_DEEP_DIVE } from "@/lib/service-deep-dive-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl } from "@/lib/site";
+import { NicheAnswers } from "@/components/niche-answers";
+import { withNicheService } from "@/lib/niche-answers";
 
 const path = "/services/salon-barbershop-video-marketing-miami";
 
@@ -63,7 +65,7 @@ export default function SalonBarbershopVideoMarketingPage() {
       <script
         type="application/ld+json"
         suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(withNicheService("/services/salon-barbershop-video-marketing-miami", jsonLd)) }}
       />
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
         <Container size="xl">
@@ -171,6 +173,7 @@ export default function SalonBarbershopVideoMarketingPage() {
         heading={SALON_DEPTH.relatedHeading}
         services={withServiceSiblings("/services/salon-barbershop-video-marketing-miami", SALON_DEPTH.related)}
       />
+      <NicheAnswers path="/services/salon-barbershop-video-marketing-miami" fact={String(metadata.description ?? "")} />
     </main>
   );
 }

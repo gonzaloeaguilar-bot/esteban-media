@@ -14,6 +14,8 @@ import { CORPORATE_EVENT_DEEP_DIVE } from "@/lib/service-deep-dive-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 import { EventSeasonLinks } from "@/components/event-content-page";
+import { NicheAnswers } from "@/components/niche-answers";
+import { withNicheService } from "@/lib/niche-answers";
 
 export const metadata = buildPageMetadata({
   title: "Corporate Event Videographer Miami",
@@ -53,7 +55,7 @@ export default function CorporateEventVideographerMiamiPage() {
       <script
         type="application/ld+json"
         suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(withNicheService("/services/corporate-event-videographer-miami", jsonLd)) }}
       />
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
         <Container size="xl">
@@ -165,6 +167,7 @@ export default function CorporateEventVideographerMiamiPage() {
         sectionId="ported-faq"
       />
       <EventSeasonLinks locale="en" path="/services/corporate-event-videographer-miami" />
+      <NicheAnswers path="/services/corporate-event-videographer-miami" fact={String(metadata.description ?? "")} />
     </main>
   );
 }

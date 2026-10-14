@@ -13,6 +13,8 @@ import {
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, serviceAreas } from "@/lib/site";
 import { entityIds } from "@/lib/entity-schema";
+import { NicheAnswers } from "@/components/niche-answers";
+import { withNicheService } from "@/lib/niche-answers";
 
 export const metadata = buildPageMetadata({
   title: "Hire a Remote Video Editor",
@@ -102,7 +104,7 @@ export default function HireRemoteVideoEditorPage() {
 
   return (
     <main className="bg-[#f6f1ea] text-[#101214]">
-      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(withNicheService("/services/hire-remote-video-editor", jsonLd)) }} />
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16">
         <Container size="xl">
           <nav aria-label="Breadcrumbs" className="mb-8 text-sm text-[#5a6066]">
@@ -196,6 +198,7 @@ export default function HireRemoteVideoEditorPage() {
           proofLabel: "View published remote editing proof",
         }}
       />
+      <NicheAnswers path="/services/hire-remote-video-editor" fact={String(metadata.description ?? "")} />
     </main>
   );
 }

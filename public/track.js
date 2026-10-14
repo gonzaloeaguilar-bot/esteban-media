@@ -193,14 +193,40 @@
     observeSections();
   }
 
+  // Milestones are 25/50/75/90, not .../100. A 100% bucket needs the viewport
+  // bottom to land on the last pixel of the document, so it under-counts a
+  // reader who finished the page; 90 is the "read to the end" signal the
+  // brands that rolled their own scroll lane had already converged on.
+  var SCROLL_MILESTONES = [25, 50, 75, 90];
+
   function onScroll() {
     var h = document.documentElement;
     var view = window.innerHeight || h.clientHeight || 0;
     var max = (h.scrollHeight - view) || 1;
-    if (h.scrollHeight <= view + 4) return;   // nothing to scroll: not a 100%
+    if (h.scrollHeight <= view + 4) return;   // nothing to scroll: not a depth
     var pct = Math.min(100, Math.round(((window.scrollY || h.scrollTop || 0) / max) * 100));
-    [25, 50, 75, 100].forEach(function (m) {
-      if (pct >= m && once("scroll:" + m)) track("scroll_depth", { percent: m });
+    SCROLL_MILESTONES.forEach(function (m) {
+      if (pct >= m && once("scroll:" + m)) {
+        // TWO names for one number, deliberately. `percent` is the contract
+        // param (~/.claude/durable/ANALYTICS_CONTRACT.md); `percent_scrolled`
+        // is the GA4 custom dimension this property already has registered.
+        // Measured on property 538698079 on 2026-10-13: all 403 scroll_depth
+        // events on `/` reported customEvent:percent_scrolled = (not set),
+        // because the only name the event carried was `percent`, and the
+        // property has no `percent` dimension and is at the 50-dimension cap
+        // with zero headroom, so registering one was never on the table — and
+        // would have been the worse fix anyway: percent_scrolled has existed
+        // since 2026-07-22 (customDimensions/15306661592) and already holds
+        // months of data from the commercial lane, so this rename becomes
+        // readable within hours of deploy instead of after a 28-day fill.
+        // A parameter GA4 cannot read is not a measurement.
+        //
+        // This lives in the DURABLE source, so every brand gets it on its next
+        // `analytics-sync.sh`. tests/scrollDepthPercentScrolled.test.ts fails
+        // the build if the vendored copy ever stops carrying percent_scrolled
+        // or the 25/50/75/90 buckets.
+        track("scroll_depth", { percent: m, percent_scrolled: m });
+      }
     });
   }
 

@@ -14,6 +14,8 @@ import { MED_SPA_DEPTH } from "@/lib/service-depth-content";
 import { MED_SPA_DEEP_DIVE } from "@/lib/vertical-deep-dives";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
+import { NicheAnswers } from "@/components/niche-answers";
+import { withNicheService } from "@/lib/niche-answers";
 
 export const metadata = buildPageMetadata({
   title: "Med Spa Video Marketing South Florida",
@@ -70,7 +72,7 @@ export default function MedSpaVideoMarketingPage() {
       <script
         type="application/ld+json"
         suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(withNicheService("/services/med-spa-video-marketing-south-florida", jsonLd)) }}
       />
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
         <Container size="xl">
@@ -235,6 +237,7 @@ export default function MedSpaVideoMarketingPage() {
       />
       <ServiceFaqs heading={MED_SPA_DEPTH.faqHeading} faqs={MED_SPA_DEPTH.faqs} />
       <ServiceRelated heading={MED_SPA_DEPTH.relatedHeading} services={MED_SPA_DEPTH.related} />
+      <NicheAnswers path="/services/med-spa-video-marketing-south-florida" fact={String(metadata.description ?? "")} />
     </main>
   );
 }

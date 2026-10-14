@@ -15,6 +15,8 @@ import { INSURANCE_AGENCY_DEEP_DIVE as dive } from "@/lib/service-deep-dive-cont
 import { priceSentence, whatsappHref } from "@/lib/packages";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
+import { NicheAnswers } from "@/components/niche-answers";
+import { withNicheService } from "@/lib/niche-answers";
 
 const path = "/services/insurance-agency-video-marketing-miami";
 
@@ -66,7 +68,7 @@ export default function Page() {
       <script
         type="application/ld+json"
         suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(withNicheService("/services/insurance-agency-video-marketing-miami", jsonLd)) }}
       />
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20" data-section="insurance-hero">
         <Container size="xl">
@@ -129,6 +131,7 @@ export default function Page() {
       <ServiceFaqs heading={depth.faqHeading} faqs={depth.faqs} sectionId="insurance-faq" />
       <ServiceInquiryRail service={inquiry} sectionId="insurance-inquiry" />
       <ServiceRelated heading={depth.relatedHeading} services={depth.related} sectionId="insurance-related" />
+      <NicheAnswers path="/services/insurance-agency-video-marketing-miami" fact={String(metadata.description ?? "")} />
     </main>
   );
 }

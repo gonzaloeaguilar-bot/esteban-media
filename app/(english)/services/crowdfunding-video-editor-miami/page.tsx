@@ -12,6 +12,8 @@ import {
 } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
+import { NicheAnswers } from "@/components/niche-answers";
+import { withNicheService } from "@/lib/niche-answers";
 
 export const metadata = buildPageMetadata({
   title: "Crowdfunding Video Editor Miami",
@@ -51,7 +53,7 @@ export default function CrowdfundingVideoEditorMiamiPage() {
       <script
         type="application/ld+json"
         suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(withNicheService("/services/crowdfunding-video-editor-miami", jsonLd)) }}
       />
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
         <Container size="xl">
@@ -167,6 +169,7 @@ export default function CrowdfundingVideoEditorMiamiPage() {
         services={serviceSiblings("/services/crowdfunding-video-editor-miami")}
         sectionId="sibling-services"
       />
+      <NicheAnswers path="/services/crowdfunding-video-editor-miami" fact={String(metadata.description ?? "")} />
     </main>
   );
 }
