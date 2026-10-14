@@ -92,7 +92,8 @@ type StudyCopy = {
 
 const en: StudyCopy = {
   metadataTitle: "What Miami Restaurants Post on Instagram (2026 Study)",
-  description: `We read the latest posts of ${s.sample} Miami restaurant Instagram accounts: ${pct(f.reelPct, "en")} of posts are Reels, the median Reel runs ${dec(r.medianSeconds, "en")} seconds, and ${pct(fr.accountsUnderOneReelPerWeekPct, "en")} post under one Reel a week.`,
+  // Shortened under 160 characters (round 2, 2026-10-14: 166 live, cut in snippets).
+  description: `We read the posts of ${s.sample} Miami restaurant Instagram accounts: ${pct(f.reelPct, "en")} are Reels, the median Reel runs ${dec(r.medianSeconds, "en")} seconds, and ${pct(fr.accountsUnderOneReelPerWeekPct, "en")} post under one Reel a week.`,
   eyebrow: "Original data · Miami restaurants",
   h1: "What Miami restaurants post on Instagram (2026)",
   answer: `We read the latest posts of ${s.sample} Miami restaurant Instagram accounts across Brickell, Wynwood, Little Havana, Miami Beach and Doral. Reels are now the main format, at ${pct(f.reelPct, "en")} of ${num(s.postsAnalyzed, "en")} posts. The median Reel runs ${dec(r.medianSeconds, "en")} seconds. And ${fr.accountsUnderOneReelPerWeek} of the ${s.sample} restaurants still post fewer than one Reel a week.`,
@@ -210,7 +211,7 @@ const en: StudyCopy = {
 
 const es: StudyCopy = {
   metadataTitle: "Qué publican los restaurantes de Miami en Instagram (2026)",
-  description: `Leímos las publicaciones recientes de ${s.sample} cuentas de restaurantes de Miami: el ${pct(f.reelPct, "es")} son Reels, el Reel mediano dura ${dec(r.medianSeconds, "es")} segundos y el ${pct(fr.accountsUnderOneReelPerWeekPct, "es")} publica menos de un Reel por semana.`,
+  description: `Leímos publicaciones de ${s.sample} cuentas de restaurantes de Miami: el ${pct(f.reelPct, "es")} son Reels, el Reel mediano dura ${dec(r.medianSeconds, "es")} s y el ${pct(fr.accountsUnderOneReelPerWeekPct, "es")} publica menos de un Reel por semana.`,
   eyebrow: "Datos propios · Restaurantes de Miami",
   h1: "Qué publican los restaurantes de Miami en Instagram (2026)",
   answer: `Leímos las publicaciones recientes de ${s.sample} cuentas de Instagram de restaurantes en Brickell, Wynwood, La Pequeña Habana, Miami Beach y Doral. Los Reels ya son el formato principal: el ${pct(f.reelPct, "es")} de ${num(s.postsAnalyzed, "es")} publicaciones. El Reel mediano dura ${dec(r.medianSeconds, "es")} segundos. Y ${fr.accountsUnderOneReelPerWeek} de los ${s.sample} restaurantes todavía publican menos de un Reel por semana.`,

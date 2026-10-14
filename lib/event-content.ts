@@ -24,6 +24,19 @@ import {
   type EventLocale,
 } from "@/lib/events";
 import { priceSentence } from "@/lib/packages";
+import { SHORT_FORM, usd } from "@/lib/pricing";
+
+/**
+ * Meta descriptions, answer-first snippet test (overnight SEO/GEO loop, round 2;
+ * the dated record is in the vault loop log, row 32). The old ones ran 150-199
+ * characters and 8 of 16 were cut by Google or by clampDescription. Each now
+ * says who, what and the starting price in under 160 characters. None of the
+ * 16 URLs was indexed when this shipped (0 GSC rows in 90 days), so judge on
+ * impressions and CTR 28 days after indexing, and revert after six weeks if the
+ * event pages earn impressions and still 0 clicks. No date literals here:
+ * lib/__tests__/events.test.ts keeps them out of the page copy.
+ */
+const FROM = usd(SHORT_FORM.perVideoFrom);
 
 export type EventProof = { text: string; href: string; label: string };
 
@@ -135,7 +148,7 @@ const flibs: EventCopyBuilder = (event) => ({
   en: {
     metaTitle: "Fort Lauderdale Boat Show Content for Exhibitors",
     metaDescription:
-      "Pre-show content calendars, editing of your own dock footage and post-show recaps for yacht brokers, charters and marine brands at the Fort Lauderdale boat show.",
+      `Fort Lauderdale Boat Show content for yacht brokers, charters and marine brands: a pre-show calendar, your dock footage edited from ${FROM} per video, recaps.`,
     breadcrumb: "Fort Lauderdale boat show",
     eyebrow: "Fall · Fort Lauderdale marinas",
     h1: "Boat show content for Fort Lauderdale exhibitors, planned before the docks open.",
@@ -219,7 +232,7 @@ const flibs: EventCopyBuilder = (event) => ({
   es: {
     metaTitle: "Contenido para expositores del boat show de Fort Lauderdale",
     metaDescription:
-      "Calendario de contenido previo, edición de tu propio material en los muelles y videos resumen para brokers de yates, chárter y marcas náuticas en el boat show de Fort Lauderdale.",
+      `Contenido para el boat show de Fort Lauderdale: calendario previo, edición de tu material en los muelles desde ${FROM} por video y resúmenes para brokers.`,
     breadcrumb: "Boat show de Fort Lauderdale",
     eyebrow: "Otoño · Marinas de Fort Lauderdale",
     h1: "Contenido para expositores del boat show de Fort Lauderdale, planificado antes de que abran los muelles.",
@@ -306,7 +319,7 @@ const artBasel: EventCopyBuilder = (event) => ({
   en: {
     metaTitle: "Art Basel Miami Beach Content for Galleries & Pop-Ups",
     metaDescription:
-      "Art Week content calendars, editing of your own footage and recap videos for galleries, brand activations, pop-ups, restaurants and venues around Art Basel Miami Beach.",
+      `Art Basel Miami Beach content for galleries, pop-ups, restaurants and venues: an Art Week calendar, your footage edited from ${FROM} per video, and recaps.`,
     breadcrumb: "Art Basel Miami Beach",
     eyebrow: "Fall · Miami Beach and Miami",
     h1: "Art Week content for galleries, pop-ups and venues, planned before the fair opens.",
@@ -390,7 +403,7 @@ const artBasel: EventCopyBuilder = (event) => ({
   es: {
     metaTitle: "Contenido de Art Basel Miami Beach para galerías y pop-ups",
     metaDescription:
-      "Calendario de contenido de Art Week, edición de tu propio material y videos resumen para galerías, activaciones de marca, pop-ups, restaurantes y locales alrededor de Art Basel Miami Beach.",
+      `Contenido para Art Basel Miami Beach: calendario de Art Week, edición de tu material desde ${FROM} por video y resúmenes para galerías, pop-ups y restaurantes.`,
     breadcrumb: "Art Basel Miami Beach",
     eyebrow: "Otoño · Miami Beach y Miami",
     h1: "Contenido de Art Week para galerías, pop-ups y locales, planificado antes de que abra la feria.",
@@ -477,7 +490,7 @@ const miamiBoatShow: EventCopyBuilder = (event) => ({
   en: {
     metaTitle: "Miami Boat Show Content for Marine Exhibitors",
     metaDescription:
-      "Pre-show calendars, editing of your own footage and post-show recaps for dealers, brokers, charter companies and marine brands at the Miami International Boat Show.",
+      `Miami International Boat Show content for dealers, brokers and charters: a pre-show calendar, your footage edited from ${FROM} per video, and post-show recaps.`,
     breadcrumb: "Miami International Boat Show",
     eyebrow: "Winter · Miami",
     h1: "Miami boat show content for dealers, brokers and marine brands, planned before opening day.",
@@ -561,7 +574,7 @@ const miamiBoatShow: EventCopyBuilder = (event) => ({
   es: {
     metaTitle: "Contenido para expositores del Miami International Boat Show",
     metaDescription:
-      "Calendario previo, edición de tu propio material y videos resumen para concesionarios, brokers, chárter y marcas náuticas en el Miami International Boat Show.",
+      `Contenido para el Miami International Boat Show: calendario previo, edición de tu material desde ${FROM} por video y resúmenes para concesionarios y brokers.`,
     breadcrumb: "Miami International Boat Show",
     eyebrow: "Invierno · Miami",
     h1: "Contenido del boat show de Miami para concesionarios, brokers y marcas náuticas, planificado antes de la apertura.",
@@ -648,7 +661,7 @@ const sobewff: EventCopyBuilder = (event) => ({
   en: {
     metaTitle: "South Beach Wine & Food Festival Content for Restaurants",
     metaDescription:
-      "Pre-festival calendars, editing of your own footage and recap videos for restaurants, chefs, food and drink brands and venues around the South Beach Wine & Food Festival.",
+      `South Beach Wine & Food Festival content for restaurants, chefs and drink brands: a pre-festival calendar, your footage edited from ${FROM} per video, recaps.`,
     breadcrumb: "South Beach Wine & Food Festival",
     eyebrow: "Winter · Miami Beach and Miami",
     h1: "Festival content for restaurants, chefs and food brands, planned before the first tasting.",
@@ -732,7 +745,7 @@ const sobewff: EventCopyBuilder = (event) => ({
   es: {
     metaTitle: "Contenido para restaurantes en el South Beach Wine & Food Festival",
     metaDescription:
-      "Calendario previo, edición de tu propio material y videos resumen para restaurantes, chefs, marcas de comida y bebida y locales alrededor del South Beach Wine & Food Festival.",
+      `Contenido para el South Beach Wine & Food Festival: calendario previo, edición de tu material desde ${FROM} por video y resúmenes para restaurantes y chefs.`,
     breadcrumb: "South Beach Wine & Food Festival",
     eyebrow: "Invierno · Miami Beach y Miami",
     h1: "Contenido del festival para restaurantes, chefs y marcas de comida, planificado antes de la primera degustación.",
@@ -819,7 +832,7 @@ const emergeAmericas: EventCopyBuilder = (event) => ({
   en: {
     metaTitle: "eMerge Americas Content for Tech Exhibitors & Startups",
     metaDescription:
-      "Pre-conference calendars, editing of your own booth and stage footage, and recap videos for startups, tech companies and sponsors around eMerge Americas in Miami Beach.",
+      `eMerge Americas content for startups, tech companies and sponsors: a pre-conference calendar, booth and stage footage edited from ${FROM} per video, recaps.`,
     breadcrumb: "eMerge Americas",
     eyebrow: "Spring · Miami Beach Convention Center",
     h1: "Conference content for startups and tech exhibitors, planned before the expo floor opens.",
@@ -903,7 +916,7 @@ const emergeAmericas: EventCopyBuilder = (event) => ({
   es: {
     metaTitle: "Contenido de eMerge Americas para startups y empresas de tecnología",
     metaDescription:
-      "Calendario previo, edición del material de tu stand y escenario, y videos resumen para startups, empresas de tecnología y patrocinadores alrededor de eMerge Americas en Miami Beach.",
+      `Contenido para eMerge Americas: calendario previo, edición del material de tu stand desde ${FROM} por video y resúmenes para startups y patrocinadores.`,
     breadcrumb: "eMerge Americas",
     eyebrow: "Primavera · Miami Beach Convention Center",
     h1: "Contenido de conferencia para startups y expositores de tecnología, planificado antes de que abra la expo.",
@@ -990,7 +1003,7 @@ const miamiMusicWeek: EventCopyBuilder = (event) => ({
   en: {
     metaTitle: "Miami Music Week Content for Venues, Promoters & Brands",
     metaDescription:
-      "Pre-week calendars, editing of your own footage and recap videos for venues, promoters, DJs, brands and restaurants around Miami Music Week and Ultra.",
+      `Miami Music Week and Ultra content for venues, promoters, DJs and brands: a pre-week calendar, your footage edited from ${FROM} per video, and recaps.`,
     breadcrumb: "Miami Music Week",
     eyebrow: "Spring · Miami and Miami Beach",
     h1: "Music week content for venues, promoters and brands, planned before the first party.",
@@ -1074,7 +1087,7 @@ const miamiMusicWeek: EventCopyBuilder = (event) => ({
   es: {
     metaTitle: "Contenido de Miami Music Week para locales, promotores y marcas",
     metaDescription:
-      "Calendario previo, edición de tu propio material y videos resumen para locales, promotores, DJs, marcas y restaurantes alrededor de Miami Music Week y Ultra.",
+      `Contenido para Miami Music Week y Ultra: calendario previo, edición de tu material desde ${FROM} por video y resúmenes para locales, promotores y DJs.`,
     breadcrumb: "Miami Music Week",
     eyebrow: "Primavera · Miami y Miami Beach",
     h1: "Contenido de la semana de la música para locales, promotores y marcas, planificado antes de la primera fiesta.",
@@ -1161,7 +1174,7 @@ const miamiSpice: EventCopyBuilder = (event) => ({
   en: {
     metaTitle: "Miami Spice Content for Participating Restaurants",
     metaDescription:
-      "Menu launch calendars, editing of your own kitchen and dining-room footage, and weekly posts for restaurants taking part in Miami Spice or competing during the same months.",
+      `Miami Spice content for restaurants: a menu launch calendar, your kitchen and dining-room footage edited from ${FROM} per video, and weekly posts.`,
     breadcrumb: "Miami Spice",
     eyebrow: "Summer · Miami-Dade restaurants",
     h1: "Miami Spice content for restaurants, planned before the prix-fixe menu goes live.",
@@ -1245,7 +1258,7 @@ const miamiSpice: EventCopyBuilder = (event) => ({
   es: {
     metaTitle: "Contenido de Miami Spice para restaurantes participantes",
     metaDescription:
-      "Calendario de lanzamiento del menú, edición de tu propio material de cocina y salón, y publicaciones semanales para restaurantes que participan en Miami Spice o compiten esos meses.",
+      `Contenido para Miami Spice: calendario de lanzamiento del menú, edición de tu material de cocina y salón desde ${FROM} por video y publicaciones semanales.`,
     breadcrumb: "Miami Spice",
     eyebrow: "Verano · Restaurantes de Miami-Dade",
     h1: "Contenido de Miami Spice para restaurantes, planificado antes de que salga el menú de precio fijo.",
@@ -1352,7 +1365,7 @@ export const EVENTS_HUB_COPY = {
   en: {
     metaTitle: "South Florida Event Content Calendar",
     metaDescription:
-      "Content planning and editing for small businesses that exhibit at, sponsor or sell around recurring South Florida events, listed by season. Not affiliated with any event.",
+      `Content for small businesses at South Florida events, by season: calendars, your footage edited from ${FROM} per video, recaps. Not affiliated with any event.`,
     breadcrumb: "Events",
     eyebrow: "Annual events · Broward and Miami-Dade",
     h1: "South Florida's annual events, planned as content before they happen.",
@@ -1408,7 +1421,7 @@ export const EVENTS_HUB_COPY = {
   es: {
     metaTitle: "Calendario de contenido para eventos del sur de Florida",
     metaDescription:
-      "Planificación y edición de contenido para pequeños negocios que exponen, patrocinan o venden alrededor de eventos recurrentes del sur de Florida, por temporada. Sin afiliación con ningún evento.",
+      `Contenido para negocios en eventos del sur de Florida, por temporada: calendario, edición desde ${FROM} por video y resúmenes. Sin afiliación con ningún evento.`,
     breadcrumb: "Eventos",
     eyebrow: "Eventos del año · Broward y Miami-Dade",
     h1: "Los eventos del año en el sur de Florida, planificados como contenido antes de que ocurran.",

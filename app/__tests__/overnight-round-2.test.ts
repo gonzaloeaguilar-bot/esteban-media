@@ -40,6 +40,7 @@ describe("who is Esteban Moreno", () => {
     expect(out).toContain(usd(SHORT_FORM.perVideoFrom));
     expect(out).toContain("(305) 497-4478");
     const n = words(out.split("</h2>")[1]);
+    expect(analyse(`<h1>x</h1>${out}`).inBand).toBe(2);
     expect(n).toBeGreaterThanOrEqual(100);
     expect(n).toBeLessThanOrEqual(180);
   });
