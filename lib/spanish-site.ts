@@ -1036,30 +1036,84 @@ export const spanishNichePages: SpanishNichePage[] = [
     title: "Editor de video corto para redes en Miami",
     metadataTitle: "Editor de Video Corto Reels Miami",
     description:
-      "Edición especializada en Reels, Shorts y TikTok para creadores, marcas y empresas en South Florida.",
-    eyebrow: "Video Corto / Reels",
-    h1: "Edición de Reels, TikToks y YouTube Shorts.",
+      "Editor de video corto para redes en Miami. Edición remota de Reels, TikToks y Shorts con material existente, subtítulos dinámicos y ganchos claros.",
+    eyebrow: "Video Corto / Reels & Shorts",
+    h1: "Editor de video corto en Miami para transformar clips en piezas publicables.",
     lead:
-      "Editamos videos verticales en formato 9:16 con cortes dinámicos, subtítulos legibles y ritmos que mantienen la retención de audiencia.",
-    keyword: "editor de video corto",
+      "Edición remota y estructurada de videos verticales para negocios, creadores y marcas en South Florida. Convertimos material grabado en teléfono o cámara en Reels, TikToks y Shorts con ritmo, subtítulos claros y enfoque comercial.",
+    keyword: "editor de video corto en Miami",
     location: "Miami-Dade / Broward / Remote",
     availability: "confirmed",
     icon: Scissors,
     bestFor: [
-      "Creadores de contenido y empresas que publican Reels y Shorts diariamente.",
-      "Marcas que buscan mantener consistencia visual en redes sociales.",
+      "Negocios locales y creadores que ya cuentan con clips grabados y necesitan edición continua.",
+      "Marcas que buscan mantener consistencia visual y retención en Instagram Reels, TikTok y YouTube Shorts.",
+      "Emprendedores que prefieren coordinar requerimientos y revisiones directamente en español.",
+      "Equipos que desean delegar la postproducción en un editor remoto sin pagar costos fijos de agencia.",
     ],
     scopingQuestions: [
-      "¿Cuántos videos cortos al mes planeas publicar?",
-      "¿Cuentas con la plantilla o estilo gráfico de tu marca?",
+      "¿Con qué tipo de material grabado cuentas (clips de teléfono, cámara o grabaciones largas)?",
+      "¿Cuántos videos cortos al mes planeas publicar en tus canales?",
+      "¿Necesitas subtítulos dinámicos, música de fondo o adaptaciones bilingües?",
+      "¿Cuál es el objetivo principal de las piezas (visibilidad, ventas o respuesta directa)?",
     ],
     projectFit:
-      "Servicio central de edición remota de video corto.",
+      "Servicio central de edición remota de video corto para redes. Consulta también nuestra guía sobre [cómo usar Instagram Reels para tu negocio](/es/guias/como-usar-instagram-reels-para-tu-negocio) o revisa [reels para negocios en Miami](/es/reels-para-negocios-miami).",
+    sections: [
+      {
+        heading: "Edición remota de video corto a partir de tu material existente",
+        paragraphs: [
+          "No todos los proyectos de contenido requieren una jornada presencial de grabación. Para negocios que ya registran su día a día, productos o servicios con teléfono o cámara, la edición remota permite transformar ese material en piezas dinámicas listas para publicar.",
+          "La postproducción organiza las tomas seleccionadas, elimina silencios y repeticiones, y estructura cada video alrededor de un mensaje claro que capture la atención en los primeros segundos. Para preparar tus archivos antes de enviarlos, consulta la [guía de entrega para edición remota de video](/es/guias/entrega-para-edicion-remota-de-video).",
+        ],
+      },
+      {
+        heading: "Subtítulos legibles y adaptación a zonas seguras 9:16",
+        paragraphs: [
+          "Una gran parte de los usuarios en redes sociales consume videos en silencio o en movimiento. Por ello, incorporar subtítulos claros y contrastados es esencial para no perder el mensaje ni la retención.",
+          "Cada pieza se edita respetando las zonas seguras de Instagram, TikTok y YouTube Shorts, asegurando que los textos y elementos clave no queden tapados por botones, descripciones ni nombres de usuario de la plataforma.",
+        ],
+      },
+      {
+        heading: "Ventajas de un editor de video freelance frente a una agencia",
+        paragraphs: [
+          "Trabajar con un editor independiente ofrece comunicación directa, agilidad en ajustes y una estructura de costos adaptada al volumen real de publicación, sin los recargos fijos de una estructura de agencia tradicional.",
+          "Puedes profundizar en esta comparación técnica en nuestra guía sobre [editor de video freelance vs agencia de postproducción](/es/guias/editor-de-video-freelance-vs-agencia-de-postproduccion), o evaluar diferencias de roles en [editor de video vs videógrafo](/es/guias/editor-de-video-vs-videografo).",
+        ],
+      },
+      {
+        heading: "Pacing y retención para captar audiencia local y bilingüe",
+        paragraphs: [
+          "El mercado de Miami y South Florida es diverso y altamente visual. Un video corto efectivo no satura con efectos innecesarios; se enfoca en mostrar con claridad la oferta, la experiencia o la solución que ofrece el negocio.",
+          "Cuando la audiencia lo amerita, se pueden preparar versiones adaptadas con subtítulos o textos de apoyo en español o inglés, manteniendo la naturalidad de la voz y el mensaje original.",
+        ],
+      },
+    ],
     faqs: [
       {
-        question: "¿Incluye subtítulos animados?",
+        question: "¿Puedo contratar solo la edición si ya tengo mis videos grabados?",
         answer:
-          "Sí. Todos los videos cortos incluyen subtítulos legibles optimizados para reproducción sin sonido.",
+          "Sí. La edición remota con material existente es una prioridad confirmada. Puedes compartir clips grabados con teléfono o cámara para estructurar tus videos cortos.",
+      },
+      {
+        question: "¿Todos los videos cortos incluyen subtítulos para reproducción sin sonido?",
+        answer:
+          "Sí. Todos los videos cortos se entregan con subtítulos legibles y sincronizados, ubicados dentro de las zonas seguras de la interfaz móvil.",
+      },
+      {
+        question: "¿En qué formatos y plataformas se entregan las piezas?",
+        answer:
+          "Se entregan principalmente en formato vertical 9:16 (1080x1920) optimizado para Instagram Reels, TikTok y YouTube Shorts, con posibilidad de adaptaciones adicionales según el proyecto.",
+      },
+      {
+        question: "¿Cuál es la diferencia entre contratar un editor freelance y una agencia?",
+        answer:
+          "Un editor freelance ofrece trato directo, comunicación ágil en español y tarifas basadas en el alcance real de tu proyecto, sin los costos indirectos de una agencia de gran tamaño.",
+      },
+      {
+        question: "¿Cómo se organiza la entrega de archivos y las revisiones?",
+        answer:
+          "Los archivos brutos se comparten mediante enlaces de almacenamiento en la nube, y tras la entrega de la primera versión de edición se recibe retroalimentación puntual para los ajustes acordados.",
       },
     ],
   },
