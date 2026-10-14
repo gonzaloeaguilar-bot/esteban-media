@@ -3,6 +3,7 @@ import Link from "next/link";
 import { DailyHookPlanner } from "@/components/daily-hook-planner";
 import { Container } from "@/components/ui/container";
 import { absoluteUrl } from "@/lib/site";
+import { toolApplicationNode } from "@/lib/tool-schema";
 import { buildPageMetadata } from "@/lib/site-metadata";
 
 export const metadata = buildPageMetadata({
@@ -21,6 +22,12 @@ export default function DailyHookPlannerPage() {
     name: "Daily Video Hook & Content Planner",
     description: "A daily hook framework and local checklist for short-form video content planning.",
     isPartOf: { "@id": absoluteUrl("/#website") },
+    mainEntity: toolApplicationNode({
+      path: "/daily-hook-planner",
+      name: "Daily Video Hook & Content Planner",
+      description: "A daily hook framework and local checklist for short-form video content planning.",
+      locale: "en",
+    }),
   };
 
   return (

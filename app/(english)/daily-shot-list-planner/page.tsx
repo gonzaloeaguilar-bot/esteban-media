@@ -3,6 +3,7 @@ import Link from "next/link";
 import { DailyShotListPlanner } from "@/components/daily-shot-list-planner";
 import { Container } from "@/components/ui/container";
 import { absoluteUrl } from "@/lib/site";
+import { toolApplicationNode } from "@/lib/tool-schema";
 import { buildPageMetadata } from "@/lib/site-metadata";
 
 export const metadata = buildPageMetadata({
@@ -21,6 +22,12 @@ export default function DailyShotListPlannerPage() {
     name: "Daily Video Shot List & B-Roll Planner",
     description: "A daily video shot list framework, custom shot tracker, and pre-shoot checklist for video creators.",
     isPartOf: { "@id": absoluteUrl("/#website") },
+    mainEntity: toolApplicationNode({
+      path: "/daily-shot-list-planner",
+      name: "Daily Video Shot List & B-Roll Planner",
+      description: "A daily video shot list framework, custom shot tracker, and pre-shoot checklist for video creators.",
+      locale: "en",
+    }),
   };
 
   return (

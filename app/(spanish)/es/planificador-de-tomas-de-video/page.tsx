@@ -3,6 +3,7 @@ import Link from "next/link";
 import { DailyShotListPlanner } from "@/components/daily-shot-list-planner";
 import { Container } from "@/components/ui/container";
 import { absoluteUrl } from "@/lib/site";
+import { toolApplicationNode } from "@/lib/tool-schema";
 import { buildPageMetadata } from "@/lib/site-metadata";
 
 export const metadata = buildPageMetadata({
@@ -21,6 +22,12 @@ export default function DailyShotListPlannerEsPage() {
     name: "Planificador Diario de Tomas de Video y B-Roll",
     description: "Fórmulas diarias de soporte visual, lista interactiva de tomas y verificaciones de rodaje.",
     isPartOf: { "@id": absoluteUrl("/#website") },
+    mainEntity: toolApplicationNode({
+      path: "/es/planificador-de-tomas-de-video",
+      name: "Planificador Diario de Tomas de Video y B-Roll",
+      description: "Fórmulas diarias de soporte visual, lista interactiva de tomas y verificaciones de rodaje.",
+      locale: "es",
+    }),
   };
 
   return (

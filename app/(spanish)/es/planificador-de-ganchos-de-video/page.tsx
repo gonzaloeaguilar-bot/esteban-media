@@ -3,6 +3,7 @@ import Link from "next/link";
 import { DailyHookPlannerEs } from "@/components/daily-hook-planner-es";
 import { Container } from "@/components/ui/container";
 import { absoluteUrl } from "@/lib/site";
+import { toolApplicationNode } from "@/lib/tool-schema";
 import { buildPageMetadata } from "@/lib/site-metadata";
 
 export const metadata = buildPageMetadata({
@@ -21,6 +22,12 @@ export default function DailyHookPlannerEsPage() {
     name: "Planificador Diario de Ganchos de Video",
     description: "Estructuras diarias de ganchos y lista de verificación local para la planificación de videos cortos.",
     isPartOf: { "@id": absoluteUrl("/#website") },
+    mainEntity: toolApplicationNode({
+      path: "/es/planificador-de-ganchos-de-video",
+      name: "Planificador Diario de Ganchos de Video",
+      description: "Estructuras diarias de ganchos y lista de verificación local para la planificación de videos cortos.",
+      locale: "es",
+    }),
   };
 
   return (
