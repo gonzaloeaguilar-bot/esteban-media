@@ -344,9 +344,11 @@ describe("bilingual practical guides", () => {
     if (!enGuide || !esGuide) return;
 
     expect(enGuide.sections).toHaveLength(3);
-    expect(esGuide.sections).toHaveLength(3);
+    // Round 6 (2026-10-15): the Spanish guide gained "¿Cómo hacer subtítulos
+    // para Reels?" and two FAQs (automatic subtitles, fonts) from autocomplete.
+    expect(esGuide.sections).toHaveLength(4);
     expect(enGuide.faqs).toHaveLength(3);
-    expect(esGuide.faqs).toHaveLength(3);
+    expect(esGuide.faqs).toHaveLength(5);
 
     const enProse = JSON.stringify(enGuide.sections);
     const esProse = JSON.stringify(esGuide.sections);
