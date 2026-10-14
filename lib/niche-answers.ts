@@ -65,6 +65,8 @@ export type NicheEntry = {
   cost: boolean;
   /** One sentence the page already publishes about this service (its description). */
   fact: string;
+  /** The subject is plural: "professional headshots", "imágenes con IA". */
+  plural: boolean;
 };
 
 type Row = [path: string, subject: string, place: string, model: PriceModel, cost?: boolean];
@@ -83,7 +85,7 @@ const EN_ROWS: Row[] = [
   ["/services/ai-product-photography-miami", "AI product photography", "Miami", "photo"],
   ["/services/ai-real-estate-photo-enhancement", "AI real estate photo enhancement", "Miami", "quote"],
   ["/services/architecture-design-video-miami", "architecture and interior design video", "Miami", "corporate"],
-  ["/services/auto-detailing-tint-wrap-video-marketing-miami", "video for a detailing, tint or wrap shop", "Miami", "social"],
+  ["/services/auto-detailing-tint-wrap-video-marketing-miami", "a video for a detailing, tint or wrap shop", "Miami", "social"],
   ["/services/automotive-video-marketing-miami", "automotive video marketing", "Miami", "social", false],
   ["/services/boutique-hotel-video-editing-miami", "boutique hotel video editing", "Miami", "social"],
   ["/services/brand-video-production-miami", "brand video production", "Miami", "corporate"],
@@ -98,7 +100,7 @@ const EN_ROWS: Row[] = [
   ["/services/cosmetic-dentistry-video-marketing-miami", "cosmetic dentistry video marketing", "Miami", "social"],
   ["/services/creative-video-production-wynwood", "creative video production", "Wynwood", "local"],
   ["/services/crowdfunding-video-editor-miami", "a crowdfunding or Kickstarter video", "Miami", "corporate"],
-  ["/services/dance-studio-music-school-video-marketing-miami", "video for a dance studio or music school", "Miami", "social"],
+  ["/services/dance-studio-music-school-video-marketing-miami", "a video for a dance studio or music school", "Miami", "social"],
   ["/services/dental-video-marketing-south-florida", "dental video marketing", "South Florida", "social", false],
   ["/services/drone-video-editing-service-miami", "drone video editing", "Miami", "longform"],
   ["/services/fitness-gym-video-marketing-miami", "gym and fitness video marketing", "Miami", "social", false],
@@ -107,12 +109,12 @@ const EN_ROWS: Row[] = [
   ["/services/hire-remote-video-editor", "remote video editing", "South Florida", "social", false],
   ["/services/hotel-hospitality-video-production-miami", "hotel and hospitality video", "Miami", "social", false],
   ["/services/immigration-attorney-video-marketing-miami", "video marketing for an immigration law firm", "Miami", "social"],
-  ["/services/insurance-agency-video-marketing-miami", "video for an insurance agency", "Miami", "social"],
+  ["/services/insurance-agency-video-marketing-miami", "a video for an insurance agency", "Miami", "social"],
   ["/services/interview-video-editing-service", "interview video editing", "Miami", "longform"],
   ["/services/jewelry-product-photography-miami", "jewelry product photography", "Miami", "photo"],
   ["/services/med-spa-video-marketing-south-florida", "med spa video marketing", "South Florida", "social", false],
   ["/services/medical-practice-video-marketing-miami", "video marketing for a medical practice", "Miami", "social"],
-  ["/services/mortgage-broker-video-marketing-miami", "video for a mortgage broker", "Miami", "social"],
+  ["/services/mortgage-broker-video-marketing-miami", "a video for a mortgage broker", "Miami", "social"],
   ["/services/music-video-post-production-miami", "music video post-production", "Miami", "longform"],
   ["/services/nightlife-event-video-editing-miami", "nightlife and event video editing", "Miami", "social", false],
   ["/services/online-course-video-editing-service", "online course video editing", "Miami", "longform"],
@@ -127,7 +129,7 @@ const EN_ROWS: Row[] = [
   ["/services/reels-editor-fort-lauderdale", "Reels editing", "Fort Lauderdale", "social", false],
   ["/services/reels-editor-miami", "Reels editing", "Miami", "social", false],
   ["/services/restaurant-promo-video-editing-miami", "restaurant promo video editing", "Miami", "social", false],
-  ["/services/salon-barbershop-video-marketing-miami", "video for a salon or barbershop", "Miami", "social", false],
+  ["/services/salon-barbershop-video-marketing-miami", "a video for a salon or barbershop", "Miami", "social", false],
   ["/services/small-business-video-hollywood-fl", "small business video", "Hollywood, FL", "local"],
   ["/services/small-business-video-pembroke-pines", "small business video editing", "Pembroke Pines", "social"],
   ["/services/small-business-video-production-miami", "small business video production", "Miami", "local"],
@@ -141,7 +143,7 @@ const EN_ROWS: Row[] = [
   ["/services/video-production-delray-beach", "video production", "Delray Beach", "local"],
   ["/services/video-production-doral-miami", "video production", "Doral", "local"],
   ["/services/video-production-fort-lauderdale", "video production", "Fort Lauderdale", "local", false],
-  ["/services/wealth-management-video-production-miami", "video for a financial advisor or wealth manager", "Miami", "corporate"],
+  ["/services/wealth-management-video-production-miami", "a video for a financial advisor or wealth manager", "Miami", "corporate"],
   ["/services/webinar-clip-editing-service", "webinar clip editing", "Miami", "social"],
   ["/services/wellness-spa-video-marketing-miami", "spa and wellness video marketing", "Miami", "social", false],
   ["/services/white-label-video-editing-for-agencies", "white-label video editing", "Miami", "social", false],
@@ -150,77 +152,77 @@ const EN_ROWS: Row[] = [
 ];
 
 const ES_ROWS: Row[] = [
-  ["/es/video-para-preventa-de-condominios-miami", "video para preventa de condominios", "Miami", "realestate"],
-  ["/es/video-para-alquileres-vacacionales-fort-lauderdale", "video para un alquiler vacacional", "Fort Lauderdale", "social"],
-  ["/es/marketing-de-video-para-agencias-de-seguros-miami", "video para una agencia de seguros", "Miami", "social"],
-  ["/es/marketing-de-video-para-brokers-hipotecarios-miami", "video para un broker hipotecario", "Miami", "social"],
-  ["/es/marketing-de-video-para-abogados-de-inmigracion-miami", "video para una firma de abogados de inmigración", "Miami", "social"],
-  ["/es/edicion-de-clips-de-predicas-para-iglesias-miami", "clips de prédicas para una iglesia", "Miami", "social", false],
+  ["/es/video-para-preventa-de-condominios-miami", "el video para preventa de condominios", "Miami", "realestate"],
+  ["/es/video-para-alquileres-vacacionales-fort-lauderdale", "el video para un alquiler vacacional", "Fort Lauderdale", "social"],
+  ["/es/marketing-de-video-para-agencias-de-seguros-miami", "el video para una agencia de seguros", "Miami", "social"],
+  ["/es/marketing-de-video-para-brokers-hipotecarios-miami", "el video para un broker hipotecario", "Miami", "social"],
+  ["/es/marketing-de-video-para-abogados-de-inmigracion-miami", "el video para una firma de abogados de inmigración", "Miami", "social"],
+  ["/es/edicion-de-clips-de-predicas-para-iglesias-miami", "los clips de prédicas para una iglesia", "Miami", "social", false],
   ["/es/video-para-quinceaneras-miami", "el video de unos quince años", "Miami", "local"],
-  ["/es/video-para-academias-de-baile-y-musica-miami", "video para una academia de baile o música", "Miami", "social"],
+  ["/es/video-para-academias-de-baile-y-musica-miami", "el video para una academia de baile o música", "Miami", "social"],
   ["/es/edicion-de-video-para-creadores-de-comida-y-lugares-miami", "la edición de una cuenta de comida y lugares", "Miami", "social", false],
   ["/es/videografo-en-miami", "un videógrafo", "Miami", "local"],
   ["/es/videografo-en-fort-lauderdale", "un videógrafo", "Fort Lauderdale", "local"],
-  ["/es/reels-para-negocios-miami", "reels para mi negocio", "Miami", "social"],
-  ["/es/video-para-restaurantes-miami", "video para un restaurante", "Miami", "social", false],
+  ["/es/reels-para-negocios-miami", "los reels para mi negocio", "Miami", "social"],
+  ["/es/video-para-restaurantes-miami", "el video para un restaurante", "Miami", "social", false],
   ["/es/editor-de-video-real-estate-miami", "la edición de video para real estate", "Miami", "realestate"],
-  ["/es/fotografia-de-producto-con-ia-miami", "fotografía de producto con IA", "Miami", "photo"],
-  ["/es/imagenes-con-ia-para-ecommerce-miami", "imágenes con IA para e-commerce", "Miami", "photo"],
-  ["/es/marketing-de-video-para-dentistas-miami", "marketing de video para dentistas", "Miami", "social", false],
-  ["/es/marketing-de-video-para-abogados-miami", "marketing de video para abogados", "Miami", "social"],
-  ["/es/marketing-de-video-para-clinicas-esteticas-miami", "marketing de video para una clínica estética", "Miami", "social", false],
+  ["/es/fotografia-de-producto-con-ia-miami", "la fotografía de producto con IA", "Miami", "photo"],
+  ["/es/imagenes-con-ia-para-ecommerce-miami", "las imágenes con IA para e-commerce", "Miami", "photo"],
+  ["/es/marketing-de-video-para-dentistas-miami", "el marketing de video para dentistas", "Miami", "social", false],
+  ["/es/marketing-de-video-para-abogados-miami", "el marketing de video para abogados", "Miami", "social"],
+  ["/es/marketing-de-video-para-clinicas-esteticas-miami", "el marketing de video para una clínica estética", "Miami", "social", false],
   ["/es/reutilizacion-de-contenido-para-redes-miami", "convertir videos largos en clips para redes", "Miami", "social"],
-  ["/es/fotos-con-ia-para-bienes-raices-miami", "fotos con IA para bienes raíces", "Miami", "quote"],
-  ["/es/fotografia-de-comida-con-ia-restaurantes", "fotografía de comida con IA para un restaurante", "Miami", "photo"],
-  ["/es/marketing-de-video-para-contratistas-miami", "marketing de video para contratistas", "Miami", "social"],
-  ["/es/fotografo-de-retratos-y-headshots-miami", "retratos y headshots profesionales", "Miami", "quote"],
+  ["/es/fotos-con-ia-para-bienes-raices-miami", "las fotos con IA para bienes raíces", "Miami", "quote"],
+  ["/es/fotografia-de-comida-con-ia-restaurantes", "la fotografía de comida con IA para un restaurante", "Miami", "photo"],
+  ["/es/marketing-de-video-para-contratistas-miami", "el marketing de video para contratistas", "Miami", "social"],
+  ["/es/fotografo-de-retratos-y-headshots-miami", "los retratos y headshots profesionales", "Miami", "quote"],
   ["/es/editor-de-video-miami", "un editor de video", "Miami", "social", false],
-  ["/es/produccion-de-video-palm-beach-county", "producción de video", "Palm Beach", "local"],
-  ["/es/produccion-de-video-doral-miami", "producción de video", "Doral", "local"],
-  ["/es/video-inmobiliario-coral-gables", "video inmobiliario", "Coral Gables", "realestate"],
-  ["/es/video-para-yates-y-hospitalidad-fort-lauderdale", "video para yates y hospitalidad", "Fort Lauderdale", "social"],
-  ["/es/video-corporativo-distrito-financiero-miami", "video corporativo", "Brickell", "corporate"],
-  ["/es/video-para-pequenos-negocios-pembroke-pines", "video para mi pequeño negocio", "Pembroke Pines", "social"],
-  ["/es/marketing-de-video-para-cirugia-plastica-miami", "marketing de video para cirugía plástica", "Miami", "social"],
-  ["/es/fotografia-de-joyas-y-lujo-miami", "fotografía de joyas y productos de lujo", "Miami", "photo"],
-  ["/es/marketing-de-video-para-gimnasios-miami", "marketing de video para un gimnasio", "Miami", "social", false],
-  ["/es/marketing-de-video-automotriz-miami", "marketing de video automotriz", "Miami", "social", false],
-  ["/es/produccion-de-video-para-hoteles-miami", "producción de video para un hotel", "Miami", "social", false],
+  ["/es/produccion-de-video-palm-beach-county", "la producción de video", "Palm Beach", "local"],
+  ["/es/produccion-de-video-doral-miami", "la producción de video", "Doral", "local"],
+  ["/es/video-inmobiliario-coral-gables", "el video inmobiliario", "Coral Gables", "realestate"],
+  ["/es/video-para-yates-y-hospitalidad-fort-lauderdale", "el video para yates y hospitalidad", "Fort Lauderdale", "social"],
+  ["/es/video-corporativo-distrito-financiero-miami", "el video corporativo", "Brickell", "corporate"],
+  ["/es/video-para-pequenos-negocios-pembroke-pines", "el video para mi pequeño negocio", "Pembroke Pines", "social"],
+  ["/es/marketing-de-video-para-cirugia-plastica-miami", "el marketing de video para cirugía plástica", "Miami", "social"],
+  ["/es/fotografia-de-joyas-y-lujo-miami", "la fotografía de joyas y productos de lujo", "Miami", "photo"],
+  ["/es/marketing-de-video-para-gimnasios-miami", "el marketing de video para un gimnasio", "Miami", "social", false],
+  ["/es/marketing-de-video-automotriz-miami", "el marketing de video automotriz", "Miami", "social", false],
+  ["/es/produccion-de-video-para-hoteles-miami", "la producción de video para un hotel", "Miami", "social", false],
   ["/es/edicion-de-video-podcast-miami", "la edición de un video podcast", "Miami", "longform"],
   ["/es/editor-de-video-ugc-para-ecommerce", "la edición de videos UGC para e-commerce", "Miami", "ecommerce"],
-  ["/es/video-para-arquitectura-y-diseno-miami", "video de arquitectura y diseño de interiores", "Miami", "corporate"],
-  ["/es/marketing-de-video-para-spas-y-bienestar-miami", "marketing de video para un spa", "Miami", "social", false],
-  ["/es/produccion-de-video-de-marca-miami", "producción de video de marca", "Miami", "corporate"],
-  ["/es/produccion-de-video-para-entrenadores-personales-miami", "video para un entrenador personal", "Miami", "social"],
-  ["/es/edicion-de-video-promocional-para-restaurantes-miami", "video promocional para un restaurante", "Miami", "social", false],
-  ["/es/marketing-de-video-para-alquiler-de-yates-miami", "marketing de video para alquiler de yates", "Miami", "social", false],
-  ["/es/marketing-de-video-para-odontologia-estetica-miami", "marketing de video para odontología estética", "Miami", "social"],
-  ["/es/edicion-de-video-para-discotecas-y-eventos-miami", "video para una discoteca o un evento", "Miami", "social", false],
-  ["/es/marketing-de-video-para-contratistas-de-techos-florida", "video para un contratista de techos", "South Florida", "social"],
-  ["/es/produccion-de-video-para-asesores-financieros-miami", "video para un asesor financiero", "Miami", "corporate"],
+  ["/es/video-para-arquitectura-y-diseno-miami", "el video de arquitectura y diseño de interiores", "Miami", "corporate"],
+  ["/es/marketing-de-video-para-spas-y-bienestar-miami", "el marketing de video para un spa", "Miami", "social", false],
+  ["/es/produccion-de-video-de-marca-miami", "la producción de video de marca", "Miami", "corporate"],
+  ["/es/produccion-de-video-para-entrenadores-personales-miami", "el video para un entrenador personal", "Miami", "social"],
+  ["/es/edicion-de-video-promocional-para-restaurantes-miami", "el video promocional para un restaurante", "Miami", "social", false],
+  ["/es/marketing-de-video-para-alquiler-de-yates-miami", "el marketing de video para alquiler de yates", "Miami", "social", false],
+  ["/es/marketing-de-video-para-odontologia-estetica-miami", "el marketing de video para odontología estética", "Miami", "social"],
+  ["/es/edicion-de-video-para-discotecas-y-eventos-miami", "el video para una discoteca o un evento", "Miami", "social", false],
+  ["/es/marketing-de-video-para-contratistas-de-techos-florida", "el video para un contratista de techos", "South Florida", "social"],
+  ["/es/produccion-de-video-para-asesores-financieros-miami", "el video para un asesor financiero", "Miami", "corporate"],
   ["/es/edicion-de-video-para-hoteles-boutique-miami", "la edición de video para un hotel boutique", "Miami", "social"],
-  ["/es/edicion-de-video-miami-beach", "edición de video", "Miami Beach", "local"],
-  ["/es/video-creativo-wynwood-miami", "producción de video creativo", "Wynwood", "local"],
-  ["/es/edicion-de-video-corporativo-weston", "edición de video corporativo", "Weston", "corporate"],
-  ["/es/video-de-marca-de-lujo-jupiter", "video para una marca de lujo", "Jupiter", "local"],
-  ["/es/produccion-de-video-delray-beach", "producción de video", "Delray Beach", "local"],
-  ["/es/video-inmobiliario-sunny-isles", "video inmobiliario", "Sunny Isles Beach", "realestate"],
-  ["/es/edicion-de-video-palm-beach-gardens", "edición de video", "Palm Beach Gardens", "local"],
-  ["/es/editor-de-video-para-anuncios-de-tiktok-miami", "anuncios de video para TikTok e Instagram", "Miami", "social"],
+  ["/es/edicion-de-video-miami-beach", "la edición de video", "Miami Beach", "local"],
+  ["/es/video-creativo-wynwood-miami", "la producción de video creativo", "Wynwood", "local"],
+  ["/es/edicion-de-video-corporativo-weston", "la edición de video corporativo", "Weston", "corporate"],
+  ["/es/video-de-marca-de-lujo-jupiter", "el video para una marca de lujo", "Jupiter", "local"],
+  ["/es/produccion-de-video-delray-beach", "la producción de video", "Delray Beach", "local"],
+  ["/es/video-inmobiliario-sunny-isles", "el video inmobiliario", "Sunny Isles Beach", "realestate"],
+  ["/es/edicion-de-video-palm-beach-gardens", "la edición de video", "Palm Beach Gardens", "local"],
+  ["/es/editor-de-video-para-anuncios-de-tiktok-miami", "los anuncios de video para TikTok e Instagram", "Miami", "social"],
   ["/es/edicion-de-video-para-cursos-online", "la edición de un curso online", "Miami", "longform"],
-  ["/es/edicion-de-video-de-capacitacion-corporativa-miami", "videos de capacitación corporativa", "Miami", "corporate"],
+  ["/es/edicion-de-video-de-capacitacion-corporativa-miami", "los videos de capacitación corporativa", "Miami", "corporate"],
   ["/es/editor-de-video-para-campanas-de-crowdfunding", "el video de una campaña de crowdfunding", "Miami", "corporate"],
   ["/es/edicion-de-video-con-dron-miami", "la edición de video con dron", "Miami", "longform"],
   ["/es/postproduccion-de-videos-musicales-miami", "la postproducción de un video musical", "Miami", "longform"],
   ["/es/produccion-masiva-de-video-para-redes-miami", "producir muchos videos para redes a la vez", "Miami", "social"],
-  ["/es/produccion-de-video-fort-lauderdale", "producción de video", "Fort Lauderdale", "local"],
+  ["/es/produccion-de-video-fort-lauderdale", "la producción de video", "Fort Lauderdale", "local"],
   ["/es/editor-de-reels-fort-lauderdale", "la edición de Reels", "Fort Lauderdale", "social", false],
   ["/es/editor-de-reels-miami", "la edición de Reels", "Miami", "social", false],
-  ["/es/marketing-de-video-para-consultorios-medicos-miami", "marketing de video para un consultorio médico", "Miami", "social"],
+  ["/es/marketing-de-video-para-consultorios-medicos-miami", "el marketing de video para un consultorio médico", "Miami", "social"],
   ["/es/edicion-de-video-para-creadores-de-contenido-miami", "la edición de video como creador de contenido", "Miami", "social", false],
   ["/es/edicion-de-video-marca-blanca-para-agencias", "la edición de video en marca blanca", "Miami", "social", false],
-  ["/es/marketing-de-video-para-salones-y-barberias-miami", "video para un salón o una barbería", "Miami", "social", false],
-  ["/es/marketing-de-video-para-detallado-y-wraps-miami", "video para un taller de detallado o wraps", "Miami", "social"],
+  ["/es/marketing-de-video-para-salones-y-barberias-miami", "el video para un salón o una barbería", "Miami", "social", false],
+  ["/es/marketing-de-video-para-detallado-y-wraps-miami", "el video para un taller de detallado o wraps", "Miami", "social"],
 ];
 
 // Facts are filled in by the page (its own published description), so a
@@ -232,11 +234,22 @@ const ROWS: Record<string, { locale: NicheLocale; row: Row }> = Object.fromEntri
 
 export const NICHE_ANSWER_PATHS: readonly string[] = Object.keys(ROWS);
 
+/** Rows whose subject is plural, so the cost question reads "do ... cost" / "cuestan". */
+const PLURAL_SUBJECT = new Set([
+  "/services/headshot-photographer-miami",
+  "/es/imagenes-con-ia-para-ecommerce-miami",
+  "/es/fotos-con-ia-para-bienes-raices-miami",
+  "/es/fotografo-de-retratos-y-headshots-miami",
+  "/es/reels-para-negocios-miami",
+  "/es/editor-de-video-para-anuncios-de-tiktok-miami",
+  "/es/edicion-de-video-de-capacitacion-corporativa-miami",
+]);
+
 export function nicheEntry(path: string, fact: string): NicheEntry | undefined {
   const hit = ROWS[path];
   if (!hit) return undefined;
   const [, subject, place, model, cost = true] = hit.row;
-  return { path, locale: hit.locale, subject, place, model, cost, fact: sentence(fact) };
+  return { path, locale: hit.locale, subject, place, model, cost, fact: sentence(fact), plural: PLURAL_SUBJECT.has(path) };
 }
 
 function sentence(text: string): string {
@@ -285,6 +298,11 @@ function costParagraphs(e: NicheEntry): string[] {
   const close = es
     ? `Todas las cifras son precios de partida de la lista publicada y cada proyecto recibe una cotización por escrito antes de empezar. Compara las opciones en la [página de precios](${pricing}) o calcula un rango en la [calculadora](/es/calculadora).`
     : `Every figure is a starting point from the published price list, and every project gets a written quote before work begins. Compare the options on the [pricing page](${pricing}) or use the [calculator](/calculator) for a range that fits your project.`;
+  // Photo and quote answers name third-party market rates or no figure at all,
+  // so they must not call their numbers Esteban's published starting prices.
+  const quoteClose = es
+    ? `Cada proyecto recibe una cotización por escrito antes de empezar. Los paquetes de video que Esteban sí publica están en la [página de precios](${pricing}).`
+    : `Every project gets a written quote before work begins. The video packages Esteban does publish are on the [pricing page](${pricing}).`;
   const onLocation = es
     ? `Si hace falta grabar en el lugar, se cotiza aparte: la jornada de producción del paquete Presencia Local va ${productionDay("es")}, y la calculadora del sitio pone media jornada en locación entre ${band("on-location")}.`
     : `If the work needs filming on location, that is quoted separately: the Local Presence package is ${productionDay("en")}, and the site's calculator puts a half-day on location at ${band("on-location")}.`;
@@ -351,22 +369,22 @@ function costParagraphs(e: NicheEntry): string[] {
       return es
         ? [
             `No hay un precio fijo publicado para ${e.subject}: Esteban cotiza cada proyecto según la cantidad de imágenes, el uso y si hace falta una sesión. Como referencia, las tarifas publicadas en 2026 en el sur de Florida van de ${usd(m.perImageMin)} a ${usd(m.perImageMax)} por imagen de catálogo con fondo blanco, y una media jornada en Miami cuesta entre ${usd(m.halfDayMin)} y ${usd(m.halfDayMax)} más gastos de producción. Son tarifas del mercado, no un precio de Esteban.`,
-            `Para cotizar rápido, di cuántos productos son, cuántas imágenes necesitas de cada uno, en qué fondo o ambiente, y dónde se van a usar: tienda online, web, redes o anuncios. ${close}`,
+            `Para cotizar rápido, di cuántos productos son, cuántas imágenes necesitas de cada uno, en qué fondo o ambiente, y dónde se van a usar: tienda online, web, redes o anuncios. ${quoteClose}`,
           ]
         : [
             `There is no fixed published price for ${e.subject}: Esteban quotes each project by the number of images, how they will be used and whether a session is needed. For context, published 2026 South Florida rates run ${usd(m.perImageMin)} to ${usd(m.perImageMax)} per white-background catalog image, and a half-day in Miami runs ${usd(m.halfDayMin)} to ${usd(m.halfDayMax)} plus production costs. Those are market rates, not Esteban's price.`,
-            `For a fast quote, say how many products there are, how many images you need of each, on what background or setting, and where they will be used: an online store, a website, social media or ads. ${close}`,
+            `For a fast quote, say how many products there are, how many images you need of each, on what background or setting, and where they will be used: an online store, a website, social media or ads. ${quoteClose}`,
           ];
     }
     case "quote":
       return es
         ? [
             `No hay un precio fijo publicado para ${e.subject}. Esteban cotiza cada proyecto según la cantidad de imágenes o piezas, el uso que les vas a dar y si hace falta ir a un lugar, y la cotización llega antes de empezar, sin compromiso. Así el precio corresponde a tu proyecto y no a un paquete que no lo cubre.`,
-            `Para recibir la cotización, cuenta qué necesitas, cuántas piezas, para qué fecha y dónde se van a publicar, y adjunta un par de referencias del estilo que buscas. ${close}`,
+            `Para recibir la cotización, cuenta qué necesitas, cuántas piezas, para qué fecha y dónde se van a publicar, y adjunta un par de referencias del estilo que buscas. ${quoteClose}`,
           ]
         : [
             `There is no fixed published price for ${e.subject}. Esteban quotes each project by the number of images or pieces, how they will be used and whether he needs to travel to a location, and the quote arrives before any work starts, with no obligation. That way the price matches your project rather than a package that does not fit it.`,
-            `To get the quote, say what you need, how many pieces, by what date and where they will be published, and attach a couple of references for the style you want. ${close}`,
+            `To get the quote, say what you need, how many pieces, by what date and where they will be published, and attach a couple of references for the style you want. ${quoteClose}`,
           ];
   }
 }
@@ -409,8 +427,8 @@ function costSection(e: NicheEntry): NicheSection {
   return {
     id: es ? "cuanto-cuesta" : "how-much",
     heading: es
-      ? `¿Cuánto cuesta ${e.subject} en ${inPlace(e.place, "es")}?`
-      : `How much does ${e.subject} cost in ${inPlace(e.place, "en")}?`,
+      ? `¿Cuánto ${e.plural ? "cuestan" : "cuesta"} ${e.subject} en ${inPlace(e.place, "es")}?`
+      : `How much ${e.plural ? "do" : "does"} ${e.subject} cost in ${inPlace(e.place, "en")}?`,
     paragraphs: costParagraphs(e),
   };
 }
@@ -422,7 +440,7 @@ function contactSection(e: NicheEntry): NicheSection {
   return es
     ? {
         id: "contacto-directo",
-        heading: `¿Cómo contacto a Esteban para ${e.subject}?`,
+        heading: `¿Cómo contacto a Esteban por ${e.subject}?`,
         paragraphs: [
           `Llama o escribe a Esteban Moreno al ${site.phone.display}. El mismo número está en WhatsApp en wa.me/${waDigits}, la forma más rápida de mandar un primer clip. El correo es ${site.email}. Esteban Moreno Media tiene su base en Fort Lauderdale, Florida, y trabaja con clientes en ${areaList(e.place, "es")}. Puedes escribir en español o en inglés.`,
           `Un primer mensaje útil dice tres cosas: qué es tu negocio o tu cuenta, para qué es el trabajo y dónde está el material ahora, en el celular, en una cámara o todavía sin grabar. Si ya tienes clips, incluye el enlace de Drive o Dropbox. Esteban responde con la opción que encaja y una cotización antes de empezar. En la [página de contacto](/es/contacto) también hay un formulario.`,

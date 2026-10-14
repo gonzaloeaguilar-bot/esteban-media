@@ -70,6 +70,10 @@ describe("niche answers (PR #316 pattern at template level)", () => {
     }
     expect(folded.some((s) => /^(Who can help me|¿Quién me ayuda)/.test(s.heading))).toBe(true);
     expect(folded.some((s) => /cost|cuesta/.test(s.heading))).toBe(entry.cost);
+    // Market rates and quote-only answers must not be called Esteban's prices.
+    if (entry.model === "photo" || entry.model === "quote") {
+      expect(folded.map((s) => s.paragraphs.join(" ")).join(" ")).not.toMatch(/starting point from the published price list|precios de partida de la lista publicada/);
+    }
   });
 
   it.each(NICHE_ANSWER_PATHS)("%s: contact text is plain and the schema matches it", (path) => {
@@ -102,6 +106,13 @@ describe("niche answers (PR #316 pattern at template level)", () => {
     expect(graph.filter((n) => n["@type"] === "Service")).toHaveLength(1);
     expect(graph[0].name).toBe("Keep me");
     expect(Array.isArray(graph[0].areaServed)).toBe(true);
+  });
+
+  it("agrees the cost question with plural subjects", () => {
+    const head = (p: string) => nicheSections(nicheEntry(p, pageFact(p))!).folded.find((s) => /cost|cuest/.test(s.heading))!.heading;
+    expect(head("/services/headshot-photographer-miami")).toMatch(/^How much do professional headshots cost/);
+    expect(head("/es/imagenes-con-ia-para-ecommerce-miami")).toMatch(/^¿Cuánto cuestan las imágenes/);
+    expect(head("/services/dental-video-marketing-south-florida".replace("dental-video-marketing-south-florida", "music-video-post-production-miami"))).toMatch(/^How much does /);
   });
 
   it("does not touch pages outside the registry", () => {
