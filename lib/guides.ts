@@ -1365,6 +1365,15 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
+          // DM-25 (2026-10-14): autocomplete "videografo freelance", "busco
+          // editor de video freelance" (co+mx+us); EN twin for parity.
+          heading: "Should you hire a freelance videographer or a production company?",
+          paragraphs: [
+            `Hire a freelance videographer when one person can film what you need and you want to talk directly with whoever holds the camera; hire a production company when the shoot needs a crew, several cameras or someone running sound, lights and talent at the same time. Esteban Moreno Media is the freelance option: Esteban films ${filmingHourlyText("en")}, the minimum for time on location, and edits the footage himself, so the person who filmed is the person who cuts.`,
+            `The trade-off is size. A freelancer suits interviews, a business's space, a product in use or a small event; a production company suits a commercial with actors, a multi-room conference or a set that needs a director and a producer. Ask both for the same written quote: hours on location, number of people, finished files and rounds of changes. A full production day with Esteban, planning, filming and the edit, starts from ${packageGuidePrice("presencia-local")} per production day.`,
+          ],
+        },
+        {
           heading: "How do video editors price their work?",
           paragraphs: [
             "Video editors generally price their work on a per-project basis, per-deliverable package (such as monthly social media retainers or batch packs), or hourly post-production rates. Because remote editing eliminates travel time and on-location crew overhead, it allows creative budgets to go directly into editing quality, sound design, and rapid revision turnarounds.",
@@ -1525,6 +1534,15 @@ const guidePairs: readonly GuidePair[] = [
           paragraphs: [
             `Esteban Moreno Media graba ${filmingHourlyText("es")}, el mínimo por tiempo en locación, y cada grabación recibe una cotización por escrito antes de reservar la fecha. La edición se cobra aparte, por video o por proyecto, así que la hora de grabación y la edición que viene después son dos líneas distintas en la cotización.`,
             "Los videógrafos suelen cobrar mediante tarifas por media jornada (half-day, 4 a 5 horas) o jornada completa (full-day, 8 a 10 horas). Estas tarifas amortizan la inversión en equipos de cámara, iluminación, transporte, seguros y tiempo en set. Añadir días adicionales de rodaje o asistentes técnicos incrementa directamente el presupuesto del proyecto.",
+          ],
+        },
+        {
+          // DM-25 (2026-10-14): autocomplete x3-4 "videografo freelance",
+          // "busco editor de video freelance" (co+mx+us).
+          heading: "¿Videógrafo freelance o productora?",
+          paragraphs: [
+            `Contrata un videógrafo freelance cuando una sola persona puede grabar lo que necesitas y quieres hablar directo con quien opera la cámara; contrata una productora cuando la grabación necesita un equipo, varias cámaras o alguien a cargo del sonido, la luz y las personas al mismo tiempo. Esteban Moreno Media es la opción freelance: Esteban graba ${filmingHourlyText("es")}, el mínimo por tiempo en locación, y edita él mismo el material, así que quien grabó es quien edita.`,
+            `La diferencia está en el tamaño. Un freelance encaja con entrevistas, el espacio de un negocio, un producto en uso o un evento pequeño; una productora encaja con un comercial con actores, una conferencia en varias salas o un set que necesita director y productor. Pide a los dos la misma cotización por escrito: horas en locación, cuántas personas van, archivos finales y rondas de cambios. Un día completo de producción con Esteban, con planificación, grabación y edición, parte desde ${packageGuidePrice("presencia-local")} por día de producción.`,
           ],
         },
         {
@@ -1817,6 +1835,15 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
+          // DM-1 (2026-10-14): GSC "video production miami cost" 8 imp @27.4
+          // on this guide; the answer now opens the page as its own H2.
+          heading: "How much does video production cost in Miami?",
+          paragraphs: [
+            `Video production in Miami with Esteban Moreno Media starts from ${packageGuidePrice("presencia-local")} per production day on the Local Presence package, with planning, filming and the edit for one business. Shorter shoots are billed by time: filming is ${filmingHourlyText("en")}, the minimum for time on location. Editing is priced per video, from ${usd(SHORT_FORM.perVideoFrom)} for a short social video on the Starter package, and a corporate or explainer edit falls in the calculator's corporate band, ${usd(PRICING_BANDS.corporate.baseMin)}–${usd(PRICING_BANDS.corporate.baseMax)}.`,
+            `Those bands were checked against a published market range of ${usd(PRICING_BANDS.corporate.marketMin)}–${usd(PRICING_BANDS.corporate.marketMax)} for a medium or explainer project, and they are deliberately not full-crew production-company rates, which assume a director, a producer and several operators. Every project gets a written quote that separates filming time, the number of finished videos and the rounds of changes, so two quotes can be compared line by line rather than by total.`,
+          ],
+        },
+        {
           heading: "Which corporate video and production approach do you need?",
           paragraphs: [
             "A recruiting film, customer story, service explainer, event recap, and batch of short social edits solve different problems. Define the audience, desired action, distribution channels, and useful shelf life before discussing cameras or edit length.",
@@ -1877,6 +1904,14 @@ const guidePairs: readonly GuidePair[] = [
           "El proyecto publicado acredita a Esteban por video y sonido en locación, edición y entrega para un consultorio dental de Miami por encargo de 300 Bees. Nada publicado confirma un precio, proceso o equipo idéntico para otro proyecto.",
       },
       sections: [
+        {
+          // DM-1 (2026-10-14): ES twin of the answer-first price H2.
+          heading: "¿Cuánto cuesta la producción de video en Miami?",
+          paragraphs: [
+            `La producción de video en Miami con Esteban Moreno Media parte desde ${packageGuidePrice("presencia-local")} por día de producción con el paquete Presencia Local, con planificación, grabación y edición para un negocio. Las grabaciones más cortas se cobran por tiempo: la grabación va ${filmingHourlyText("es")}, el mínimo por tiempo en locación. La edición se cobra por video, desde ${usd(SHORT_FORM.perVideoFrom)} por un video corto para redes con el paquete Arranque, y una edición corporativa o explicativa entra en el rango corporativo de la calculadora, de ${usd(PRICING_BANDS.corporate.baseMin)} a ${usd(PRICING_BANDS.corporate.baseMax)}.`,
+            `Esos rangos se compararon con un rango publicado del mercado de ${usd(PRICING_BANDS.corporate.marketMin)} a ${usd(PRICING_BANDS.corporate.marketMax)} por un proyecto mediano o explicativo, y a propósito no son tarifas de una productora con equipo completo, que suponen director, productor y varios operadores. Cada proyecto recibe una cotización por escrito que separa el tiempo de grabación, la cantidad de videos terminados y las rondas de cambios, así dos cotizaciones se comparan línea por línea y no solo por el total.`,
+          ],
+        },
         {
           heading: "¿Qué video corporativo y tipo de producción necesitas?",
           paragraphs: [
@@ -4344,6 +4379,16 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
+          // DM-28 (2026-10-14): autocomplete "how much does real estate
+          // videography cost" x4, "how much do videographers charge for real
+          // estate" x5; the answer was below the photography tiers.
+          heading: "How much does real estate videography cost in Miami?",
+          paragraphs: [
+            `Real estate videography with Esteban Moreno Media is priced per minute of finished video: ${listingVideo.name.en.toLowerCase()} is ${usd(listingVideo.amount)} per minute, and a ${listingTour.name.en} starts from ${usd(listingTour.amount)}. Agents who list every month can choose a monthly plan instead, from ${usd(REAL_ESTATE_PLANS[0].price)} to ${usd(REAL_ESTATE_PLANS[REAL_ESTATE_PLANS.length - 1].price)} a month with a ${REAL_ESTATE_PLAN_TERMS.minimumMonths}-month minimum, which bundles the shoots and the social posts for a set number of properties.`,
+            `What a videographer charges for real estate depends on what you buy: a listing video, a tour, or a short social ad cut from footage you already have. Editing a short real estate ad falls in the calculator's band of ${usd(PRICING_BANDS.realestate.baseMin)}–${usd(PRICING_BANDS.realestate.baseMax)}, checked against a published market range of ${usd(PRICING_BANDS.realestate.marketMin)}–${usd(PRICING_BANDS.realestate.marketMax)} for short ad creative. The sections below list the photography tiers, the travel and reshoot fees, and the plan terms.`,
+          ],
+        },
+        {
           heading: "What are the photography prices by property size?",
           paragraphs: [
             "Esteban's published listing photography card prices a shoot by the property's square footage. These are exact rates for the stated size tiers, rather than the broader calculator's indicative video-editing ranges. Confirm the property's size before selecting a tier and explain which spaces you need photographed. The largest tier requires a conversation rather than an assumed price.",
@@ -4394,6 +4439,14 @@ const guidePairs: readonly GuidePair[] = [
         description: "Video para redes editado por Esteban con material entregado por la agencia. Nada publicado confirma una sesión inmobiliaria ni un precio para ese proyecto.",
       },
       sections: [
+        {
+          // DM-28 (2026-10-14): ES twin of the answer-first videography H2.
+          heading: "¿Cuánto cuesta un videógrafo inmobiliario en Miami?",
+          paragraphs: [
+            `El video inmobiliario con Esteban Moreno Media se cobra por minuto de video terminado: el ${listingVideo.name.es.toLowerCase()} cuesta ${usd(listingVideo.amount)} por minuto, y un ${listingTour.name.es} empieza en ${usd(listingTour.amount)}. Los agentes que publican propiedades cada mes pueden elegir un plan mensual, de ${usd(REAL_ESTATE_PLANS[0].price)} a ${usd(REAL_ESTATE_PLANS[REAL_ESTATE_PLANS.length - 1].price)} al mes con un mínimo de ${REAL_ESTATE_PLAN_TERMS.minimumMonths} meses, que reúne las grabaciones y las publicaciones para redes de una cantidad fija de propiedades.`,
+            `Lo que cobra un videógrafo inmobiliario depende de lo que compras: un video de la propiedad, un recorrido o un anuncio corto para redes hecho con material que ya tienes. Editar un anuncio inmobiliario corto entra en el rango de la calculadora de ${usd(PRICING_BANDS.realestate.baseMin)} a ${usd(PRICING_BANDS.realestate.baseMax)}, comparado con un rango publicado del mercado de ${usd(PRICING_BANDS.realestate.marketMin)} a ${usd(PRICING_BANDS.realestate.marketMax)} por anuncio corto. Las secciones de abajo detallan las fotos por tamaño, los cargos de traslado y de repetición, y las condiciones de los planes.`,
+          ],
+        },
         {
           heading: "¿Cuánto cuestan las fotos según el tamaño de la propiedad?",
           paragraphs: [
