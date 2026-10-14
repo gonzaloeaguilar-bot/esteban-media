@@ -412,7 +412,7 @@ export const guideHubPairs: readonly GuidePair[] = [
         {
           heading: "Which platform should you start on: Instagram, TikTok or Facebook?",
           paragraphs: [
-            "Start where the people you want to reach already watch, and post the same video on the others. TikTok tends to show new accounts to strangers through its For You feed, Instagram is where many brands look for creators and where your friends already follow you, and Facebook Reels reaches an older audience, which suits topics like family, food or local services. None of them needs a different video: a 9:16 clip with captions works on all three.",
+            "Start where the people you want to reach already watch, and post the same video on the others. TikTok tends to show new accounts to strangers through its For You feed, Instagram is where many brands look for creators and where your friends already follow you, and Facebook Reels tends to reach an older audience, which suits topics like family, food or local services. None of them needs a different video: a 9:16 clip with captions works on all three.",
             "On Instagram, switch to a professional account (creator or business) from the first day. It is free, and it is the only way to see Insights: which videos people watched to the end, which ones they shared, and where your viewers live. That data tells you what to film next far better than a guess. YouTube Studio shows the same kind of data for Shorts.",
           ],
         },
@@ -482,7 +482,7 @@ export const guideHubPairs: readonly GuidePair[] = [
         {
           heading: "¿En qué red empezar a ser influencer: Instagram, TikTok o Facebook?",
           paragraphs: [
-            "Empieza donde ya mira la gente a la que quieres llegar, y publica el mismo video en las demás. TikTok suele mostrar las cuentas nuevas a desconocidos en su sección Para ti, Instagram es donde muchas marcas buscan creadores y donde ya te siguen tus amigos, y los Reels de Facebook llegan a un público mayor, que encaja con temas como familia, comida o servicios locales. Ninguna necesita un video distinto: un clip 9:16 con subtítulos funciona en las tres.",
+            "Empieza donde ya mira la gente a la que quieres llegar, y publica el mismo video en las demás. TikTok suele mostrar las cuentas nuevas a desconocidos en su sección Para ti, Instagram es donde muchas marcas buscan creadores y donde ya te siguen tus amigos, y los Reels de Facebook suelen llegar a un público mayor, que encaja con temas como familia, comida o servicios locales. Ninguna necesita un video distinto: un clip 9:16 con subtítulos funciona en las tres.",
             "En Instagram, cambia a una cuenta profesional (de creador o de empresa) desde el primer día. Es gratis, y es la única forma de ver las estadísticas: qué videos vieron hasta el final, cuáles compartieron y dónde vive tu público. Esos datos dicen qué grabar después mucho mejor que una suposición. YouTube Studio muestra datos parecidos para los Shorts.",
           ],
         },

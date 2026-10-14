@@ -35,7 +35,7 @@ describe("demand-map answers (DM rows, 2026-10-14)", () => {
   it("claims no drone work, no on-camera UGC offer and no fluent English", () => {
     const text = JSON.stringify(DEMAND_MAP_ANSWERS);
     expect(text).not.toMatch(/drone|dron\b|aerial|aére|fluent|fluido/i);
-    expect(text).toContain("No graba UGC frente a cámara");
+    expect(text).toContain("quien aparece frente a cámara eres tú, tu cliente o tu creador");
     // Editing is per video (owner fact); no hourly editing rate may appear.
     expect(text).not.toMatch(/per hour of editing|por hora de edición/i);
   });

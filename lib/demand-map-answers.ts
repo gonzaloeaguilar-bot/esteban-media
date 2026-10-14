@@ -175,7 +175,7 @@ const WHAT_IS_UGC_ES: OwnerFactSection = {
   heading: "¿Qué es el contenido UGC en Instagram y cómo se hacen videos UGC?",
   paragraphs: [
     `El contenido UGC (user-generated content, contenido generado por usuarios) es un video que parece hecho por un cliente real y no por la marca: alguien que muestra el producto con su celular, lo usa y dice qué le pareció. En Instagram se publica como Reel o como anuncio, y funciona porque se ve como una recomendación y no como publicidad.`,
-    `Un video UGC se hace en tres pasos: alguien graba en vertical, con el celular y con buena luz, abriendo el empaque, usando el producto y hablando a cámara; después se edita con un gancho en los primeros segundos, subtítulos y un cierre que diga qué hacer; y al final se exporta en 9:16 para Reels, TikTok o anuncios. Esteban Moreno Media hace la parte de edición con los clips que tú o tus creadores graban, desde ${perVideo} por video. No graba UGC frente a cámara.`,
+    `Un video UGC se hace en tres pasos: alguien graba en vertical, con el celular y con buena luz, abriendo el empaque, usando el producto y hablando a cámara; después se edita con un gancho en los primeros segundos, subtítulos y un cierre que diga qué hacer; y al final se exporta en 9:16 para Reels, TikTok o anuncios. Esteban Moreno Media hace la parte de edición con los clips que tú o tus creadores graban, desde ${perVideo} por video; quien aparece frente a cámara eres tú, tu cliente o tu creador.`,
   ],
 };
 
