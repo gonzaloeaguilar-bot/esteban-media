@@ -17,6 +17,7 @@ import {
 } from "@/lib/spanish-site";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl } from "@/lib/site";
+import { PACKAGE_PRICES, usd } from "@/lib/pricing";
 
 export const metadata = buildPageMetadata({
   title: "Sistemas de Growth, Web y Producción Creativa",
@@ -86,6 +87,8 @@ const spanishScopingQuestions = [
 ];
 
 export default function SpanishServicesPage() {
+  const video = PACKAGE_PRICES.arranque;
+  const startingVideo = video.kind === "from" ? video.amount : 0;
   const servicesJsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -116,7 +119,7 @@ export default function SpanishServicesPage() {
         suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesJsonLd) }}
       />
-      <section className="py-12 sm:py-16">
+      <section className="py-8 sm:py-16">
         <Container size="xl">
           <p className="text-xs font-medium uppercase text-[#5a6066]">
             Servicios en español
@@ -133,6 +136,10 @@ export default function SpanishServicesPage() {
             <Link href="/es/contacto" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)]">Contar mi proyecto <ArrowRight className="size-4" aria-hidden="true" /></Link>
             <Link href="/es/precios" className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#101214]/30 px-6 text-sm font-medium text-[#101214] hover:bg-[#101214] hover:text-white">Ver precios iniciales</Link>
           </div>
+          <p className="mt-5 text-sm leading-6 text-[#252a2d]" data-section="service-price-line">
+            <span className="font-medium">Desde {usd(startingVideo)} por video.</span>{" "}
+            <a href="#edicion" className="inline-flex min-h-11 items-center font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4">Ver el precio de cada servicio</a>
+          </p>
 
           <nav className="mt-10 grid gap-3 md:grid-cols-3" aria-label="Elige lo que necesitas">
             {[
