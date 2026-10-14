@@ -66,7 +66,15 @@ export default function AboutPage() {
                 </Link>{" "}
                 in Fort Lauderdale. The published service focuses on video
                 editing, AI-assisted creative, social planning, and scoped
-                production for remote and selected South Florida projects.
+                production across South Florida, with local coverage detailed in
+                the Spanish{" "}
+                <Link
+                  href="/es/areas"
+                  className="underline underline-offset-4 hover:text-[#9f3c27]"
+                >
+                  áreas de servicio
+                </Link>{" "}
+                directory.
               </p>
               <p className="mt-4 max-w-2xl leading-7 text-[#252a2d]">
                 His{" "}

@@ -2869,7 +2869,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "How do you keep captions inside the safe zone?",
           paragraphs: [
-            "Keep subtitles away from bottom Instagram UI buttons and top account headers to ensure full legibility. When formatting dynamic text for dining reels, [restaurant promo video editing in Miami](/services/restaurant-promo-video-editing-miami) balances animated captions with mouth-watering food visuals.",
+            "Keep subtitles away from bottom Instagram UI buttons and top account headers to ensure full legibility. When formatting dynamic text for dining reels, [restaurant promo video editing in Miami](/services/restaurant-promo-video-editing-miami) balances animated captions with mouth-watering food visuals, while clients planning on-location filming across South Florida can check the [áreas de servicio](/es/areas) directory for local coverage.",
           ],
         },
         {
