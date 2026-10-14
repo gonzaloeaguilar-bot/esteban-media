@@ -246,3 +246,23 @@ export function shortFormPriceText(locale: "en" | "es"): string {
     ? `desde ${from} por video, o ${usd(one.pricePerWeek)} por semana por ${one.videosPerWeek} video y ${usd(two.pricePerWeek)} por semana por ${two.videosPerWeek} videos`
     : `from ${from} per video, or ${usd(one.pricePerWeek)} a week for ${one.videosPerWeek} video and ${usd(two.pricePerWeek)} a week for ${two.videosPerWeek} videos`;
 }
+
+// Restaurant promo video (owner decision, re-confirmed 2026-10-13:
+// "$240 +"). A scoped promo edit for a restaurant, bar or café from the
+// venue's footage; every project still gets a written quote. This is the one
+// place the figure lives: the restaurant pages and their cost answers read it.
+export const RESTAURANT_PROMO = {
+  from: 240,
+  unit: "project",
+  source: "owner decision 2026-10-13: restaurant promo video $240 and up",
+} as const;
+
+// Product photography SESSION floor (owner-authorized 2026-08-28, docs/pricing-basis.md:
+// "Product photography session | $280"; published as "Desde $280 por sesión").
+// A real shoot with the product in front of the camera. AI-assisted images made
+// from supplied photos are a different service and have no published floor.
+export const PRODUCT_PHOTO_SESSION = {
+  from: 280,
+  unit: "session",
+  source: "owner-authorized starting price 2026-08-28 (docs/pricing-basis.md)",
+} as const;

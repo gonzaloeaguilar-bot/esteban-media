@@ -16,6 +16,9 @@ import {
 import { Container } from "@/components/ui/container";
 import { ServiceInquiryRail, buildServicePageNodes } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
+import { RESTAURANT_PROMO, usd } from "@/lib/pricing";
+
+const restaurantFrom = usd(RESTAURANT_PROMO.from);
 import { absoluteUrl, site } from "@/lib/site";
 import { EventSeasonLinks } from "@/components/event-content-page";
 import { NicheAnswers } from "@/components/niche-answers";
@@ -55,9 +58,9 @@ const faqs = [
 ] as const;
 
 export const metadata = buildPageMetadata({
-  title: "Restaurant Promo Video Editing in Miami | From $240",
+  title: `Restaurant Promo Video Editing in Miami | From ${restaurantFrom}`,
   description:
-    "Restaurant promo video editing in Miami from $240 per project. Send food or dining-room footage for scoped reels, captions, and social cuts. See published work.",
+    `Restaurant promo video editing in Miami from ${restaurantFrom} per project. Send food or dining-room footage for scoped reels, captions, and social cuts. See published work.`,
   path: "/services/restaurant-promo-video-editing-miami",
   locale: "en",
 });
@@ -68,9 +71,9 @@ export default function RestaurantPromoVideoEditingMiamiPage() {
     "@graph": [
       ...buildServicePageNodes({
         path: "/services/restaurant-promo-video-editing-miami",
-        name: "Restaurant Promo Video Editing Miami | From $240",
+        name: `Restaurant Promo Video Editing Miami | From ${restaurantFrom}`,
         description:
-          "Restaurant promo video editing in Miami from $240. Food reels, dish spotlight cuts, captions, and social promo edits for South Florida restaurants.",
+          `Restaurant promo video editing in Miami from ${restaurantFrom}. Food reels, dish spotlight cuts, captions, and social promo edits for South Florida restaurants.`,
         crumb: "Restaurant Promo Video",
       }),
       {
@@ -137,7 +140,7 @@ export default function RestaurantPromoVideoEditingMiamiPage() {
                 Reels and promo edits from your restaurant footage.
               </p>
               <p className="mt-3 text-base font-medium text-[#9f3c27] sm:mt-4">
-                Restaurant promo edits start at $240 — every project gets a
+                Restaurant promo edits start at {restaurantFrom} — every project gets a
                 scoped quote.
               </p>
               <ul className="mt-3 max-w-2xl space-y-1 text-sm leading-6 text-[#252a2d] sm:mt-4 sm:space-y-1.5">

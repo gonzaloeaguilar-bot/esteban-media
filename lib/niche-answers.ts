@@ -21,9 +21,9 @@
 // PR #316 pattern at the template level, so the next page gets it for free.
 //
 // Claim discipline: no client, result, review, follower count or drone work is
-// claimed. Where a page already answers the cost question, or publishes a price
-// this module cannot reconcile (the restaurant pages' "from 240 USD" title), `cost` is
-// false and that page keeps its own answer.
+// claimed. Where a page already answers the cost question, `cost` is false and
+// that page keeps its own answer. The restaurant pages' "from" price is the
+// owner's (2026-10-13) and lives in lib/pricing.ts as RESTAURANT_PROMO.
 
 import { priceSentence, whatsappHref } from "@/lib/packages";
 import {
@@ -31,8 +31,10 @@ import {
   ARRANQUE_WEEKLY_TERMS as T,
   PRICING_BANDS,
   PRODUCT_PHOTO_MARKET,
+  PRODUCT_PHOTO_SESSION,
   REAL_ESTATE_PLANS,
   REAL_ESTATE_PLAN_TERMS,
+  RESTAURANT_PROMO,
   shortFormWeeklyText,
   usd,
   type PricingBandId,
@@ -45,12 +47,14 @@ export type NicheLocale = "en" | "es";
 /** Which published price list answers the cost question for a page. */
 export type PriceModel =
   | "social" // Starter per video, weekly Starter, Growth monthly
+  | "restaurant" // restaurant promo from RESTAURANT_PROMO (owner, 2026-10-13)
   | "realestate" // monthly real estate plans
   | "local" // production day + on-location band + Starter for editing only
   | "longform" // calculator band "youtube"
   | "corporate" // calculator band "corporate"
   | "ecommerce" // calculator band "ecommerce"
-  | "photo" // no owner price: quote, with published product-photo market context
+  | "photo" // AI-assisted images: no owner price; quote, with published market context
+  | "photoSession" // a real product shoot: owner floor PRODUCT_PHOTO_SESSION
   | "quote"; // no owner price and no market context on the site
 
 export type NicheEntry = {
@@ -111,7 +115,7 @@ const EN_ROWS: Row[] = [
   ["/services/immigration-attorney-video-marketing-miami", "video marketing for an immigration law firm", "Miami", "social"],
   ["/services/insurance-agency-video-marketing-miami", "a video for an insurance agency", "Miami", "social"],
   ["/services/interview-video-editing-service", "interview video editing", "Miami", "longform"],
-  ["/services/jewelry-product-photography-miami", "jewelry product photography", "Miami", "photo"],
+  ["/services/jewelry-product-photography-miami", "jewelry product photography", "Miami", "photoSession"],
   ["/services/med-spa-video-marketing-south-florida", "med spa video marketing", "South Florida", "social", false],
   ["/services/medical-practice-video-marketing-miami", "video marketing for a medical practice", "Miami", "social"],
   ["/services/mortgage-broker-video-marketing-miami", "a video for a mortgage broker", "Miami", "social"],
@@ -122,7 +126,7 @@ const EN_ROWS: Row[] = [
   ["/services/pre-construction-condo-video-marketing-miami", "pre-construction condo video", "Miami", "realestate"],
   ["/services/personal-brand-video-editor-founders-miami", "personal brand video editing for a founder", "Miami", "social", false],
   ["/services/podcast-clipping-service-miami", "podcast clipping", "Miami", "social", false],
-  ["/services/product-photography-miami", "product photography", "Miami", "photo"],
+  ["/services/product-photography-miami", "product photography", "Miami", "photoSession"],
   ["/services/quinceanera-video-miami", "a quinceañera video", "Miami", "local"],
   ["/services/real-estate-drone-video-editing-miami", "real estate drone video editing", "Miami", "realestate"],
   ["/services/real-estate-reels-video-editor-south-florida", "real estate Reels editing", "South Florida", "realestate", false],
@@ -130,7 +134,7 @@ const EN_ROWS: Row[] = [
   ["/services/real-estate-video-sunny-isles", "real estate video", "Sunny Isles Beach", "realestate"],
   ["/services/reels-editor-fort-lauderdale", "Reels editing", "Fort Lauderdale", "social", false],
   ["/services/reels-editor-miami", "Reels editing", "Miami", "social", false],
-  ["/services/restaurant-promo-video-editing-miami", "restaurant promo video editing", "Miami", "social", false],
+  ["/services/restaurant-promo-video-editing-miami", "restaurant promo video editing", "Miami", "restaurant"],
   ["/services/salon-barbershop-video-marketing-miami", "a video for a salon or barbershop", "Miami", "social", false],
   ["/services/small-business-video-hollywood-fl", "small business video", "Hollywood, FL", "local"],
   ["/services/small-business-video-pembroke-pines", "small business video editing", "Pembroke Pines", "social"],
@@ -168,7 +172,7 @@ const ES_ROWS: Row[] = [
   ["/es/videografo-en-miami", "un videógrafo", "Miami", "local"],
   ["/es/videografo-en-fort-lauderdale", "un videógrafo", "Fort Lauderdale", "local"],
   ["/es/reels-para-negocios-miami", "los reels para mi negocio", "Miami", "social"],
-  ["/es/video-para-restaurantes-miami", "el video para un restaurante", "Miami", "social", false],
+  ["/es/video-para-restaurantes-miami", "el video para un restaurante", "Miami", "restaurant"],
   ["/es/editor-de-video-real-estate-miami", "la edición de video para real estate", "Miami", "realestate"],
   ["/es/fotografia-de-producto-con-ia-miami", "la fotografía de producto con IA", "Miami", "photo"],
   ["/es/imagenes-con-ia-para-ecommerce-miami", "las imágenes con IA para e-commerce", "Miami", "photo"],
@@ -188,7 +192,7 @@ const ES_ROWS: Row[] = [
   ["/es/video-corporativo-distrito-financiero-miami", "el video corporativo", "Brickell", "corporate"],
   ["/es/video-para-pequenos-negocios-pembroke-pines", "el video para mi pequeño negocio", "Pembroke Pines", "social"],
   ["/es/marketing-de-video-para-cirugia-plastica-miami", "el marketing de video para cirugía plástica", "Miami", "social"],
-  ["/es/fotografia-de-joyas-y-lujo-miami", "la fotografía de joyas y productos de lujo", "Miami", "photo"],
+  ["/es/fotografia-de-joyas-y-lujo-miami", "la fotografía de joyas y productos de lujo", "Miami", "photoSession"],
   ["/es/marketing-de-video-para-gimnasios-miami", "el marketing de video para un gimnasio", "Miami", "social", false],
   ["/es/marketing-de-video-automotriz-miami", "el marketing de video automotriz", "Miami", "social", false],
   ["/es/produccion-de-video-para-hoteles-miami", "la producción de video para un hotel", "Miami", "social", false],
@@ -198,7 +202,7 @@ const ES_ROWS: Row[] = [
   ["/es/marketing-de-video-para-spas-y-bienestar-miami", "el marketing de video para un spa", "Miami", "social", false],
   ["/es/produccion-de-video-de-marca-miami", "la producción de video de marca", "Miami", "corporate"],
   ["/es/produccion-de-video-para-entrenadores-personales-miami", "el video para un entrenador personal", "Miami", "social"],
-  ["/es/edicion-de-video-promocional-para-restaurantes-miami", "el video promocional para un restaurante", "Miami", "social", false],
+  ["/es/edicion-de-video-promocional-para-restaurantes-miami", "el video promocional para un restaurante", "Miami", "restaurant"],
   ["/es/marketing-de-video-para-alquiler-de-yates-miami", "el marketing de video para alquiler de yates", "Miami", "social", false],
   ["/es/marketing-de-video-para-odontologia-estetica-miami", "el marketing de video para odontología estética", "Miami", "social"],
   ["/es/edicion-de-video-para-discotecas-y-eventos-miami", "el video para una discoteca o un evento", "Miami", "social", false],
@@ -312,6 +316,18 @@ function costParagraphs(e: NicheEntry): string[] {
     : `If the work needs filming on location, that is quoted separately: the Local Presence package is ${productionDay("en")}, and the site's calculator puts a half-day on location at ${band("on-location")}.`;
 
   switch (e.model) {
+    case "restaurant": {
+      const from = usd(RESTAURANT_PROMO.from);
+      return es
+        ? [
+            `La edición de un video promocional para un restaurante, un bar o un café empieza desde ${from} por proyecto. Esteban edita tus tomas de cocina, platos, bebidas o salón en un reel o una promoción para Instagram, TikTok o la web, con subtítulos y el nombre del plato o del local en pantalla. El precio final depende de cuántas piezas necesitas, cuánto material hay y dónde se va a publicar, y queda por escrito antes de empezar.`,
+            `${onLocation} ${close}`,
+          ]
+        : [
+            `A restaurant, bar or café promo edit starts from ${from} per project. Esteban edits your kitchen, dish, drink or dining-room footage into a reel or promo for Instagram, TikTok or the web, with captions and the dish or venue name on screen. The final price depends on how many pieces you need, how much footage there is and where it will run, and it is set in writing before work begins.`,
+            `${onLocation} ${close}`,
+          ];
+    }
     case "social":
       return es
         ? [
@@ -366,6 +382,19 @@ function costParagraphs(e: NicheEntry): string[] {
         : [
             `The site's budget calculator puts ${e.subject} at ${band(id)} ${unitEn}, depending on length, the amount of footage and the formats you need. It is an estimate for planning, not a quote. Short social cuts from the same footage are priced like the Starter package, ${starter("en")}.`,
             `${onLocation} ${close}`,
+          ];
+    }
+    case "photoSession": {
+      const from = usd(PRODUCT_PHOTO_SESSION.from);
+      const m = PRODUCT_PHOTO_MARKET;
+      return es
+        ? [
+            `Una sesión de fotografía de producto con Esteban parte desde ${from} por sesión. Es un precio inicial, no una cifra cerrada: el presupuesto final depende de cuántos productos y ángulos necesitas, del fondo o la ambientación, del retoque y del uso que les vas a dar. Como contexto, las tarifas publicadas en 2026 en el sur de Florida van de ${usd(m.perImageMin)} a ${usd(m.perImageMax)} por imagen de catálogo con fondo blanco; esas son tarifas del mercado, no un precio de Esteban.`,
+            `Si en lugar de una sesión prefieres mandar fotos que ya tienes para fondos o ambientes con IA, eso es otro servicio y se cotiza aparte. ${quoteClose}`,
+          ]
+        : [
+            `A product photography session with Esteban starts from ${from} per session. That is a starting price, not a closed figure: the final quote depends on how many products and angles you need, the background or setting, the retouching and how the images will be used. For context, published 2026 South Florida rates run ${usd(m.perImageMin)} to ${usd(m.perImageMax)} per white-background catalog image; those are market rates, not Esteban's price.`,
+            `If you would rather send photos you already have for AI-assisted backgrounds or settings, that is a separate service, quoted on its own. ${quoteClose}`,
           ];
     }
     case "photo": {
