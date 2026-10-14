@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { PricingTrail } from "@/components/pricing-trail";
+import { PageUpdated } from "@/components/page-updated";
 
 import { Container } from "@/components/ui/container";
 import { REAL_ESTATE_MEDIA } from "@/lib/services-config";
@@ -82,7 +84,8 @@ export function RealEstatePricing({ locale }: { locale: Locale }) {
   return (
     <main className="bg-[#f6f1ea] py-10 text-[#101214] sm:py-16" data-section="real_estate_pricing">
       <Container size="xl">
-        <p className="text-xs font-medium uppercase tracking-[0.16em] text-[var(--em-accent-ink,#a8381d)]">
+        <PricingTrail locale={locale} path={es ? "/es/precios/inmobiliaria" : "/pricing/real-estate"} name={es ? "Inmobiliaria" : "Real estate"} />
+        <p className="mt-6 text-xs font-medium uppercase tracking-[0.16em] text-[var(--em-accent-ink,#a8381d)]">
           {t.eyebrow}
         </p>
         <h1 className="mt-4 max-w-3xl font-serif text-4xl leading-tight sm:text-5xl">
@@ -91,6 +94,7 @@ export function RealEstatePricing({ locale }: { locale: Locale }) {
         {/* The citable sentence, straight from the rate card. */}
         <p className="mt-6 max-w-3xl text-lg leading-8">{realEstateDirectAnswer(locale)}</p>
         <p className="mt-4 max-w-2xl text-sm leading-6 text-[#5a6066]">{t.sizeHelp}</p>
+        <PageUpdated path={es ? "/es/precios/inmobiliaria" : "/pricing/real-estate"} locale={locale} className="mt-3 text-xs text-[#5a6066]" />
 
         <section className="mt-12 max-w-3xl" data-section="re_photography">
           <h2 className="font-serif text-3xl">{t.photography}</h2>

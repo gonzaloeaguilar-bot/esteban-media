@@ -199,7 +199,7 @@ function isPhotographyService(service: string): boolean {
 
 /**
  * The answer-first question is built from the page's SEO keyword, which read
- * as keyword soup in a sentence (loop round 6, 2026-10-15, live crawl of 362
+ * as keyword soup in a sentence (loop round 6, 2026-10-14, live crawl of 362
  * pages): "¿Cómo funciona el servicio de editor de reels Fort Lauderdale…?",
  * "servicio de servicio de edición de video con dron", "How does content
  * repurposing service with…". These turn the keyword into the noun phrase a

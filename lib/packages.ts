@@ -321,7 +321,10 @@ export function packageAnchor(id: PackageId): string {
 export function priceSentence(locale: Locale, id: PackageId): string {
   const p = PACKAGE_PRICES[id];
   const c = COPY[locale].price;
-  return p.kind === "from" ? `${c.from} ${usd(p.amount)} ${c.units[p.unit]}` : `${c.customLine} ${c.custom.toLowerCase()}`;
+  // Round 7 (2026-10-14): the custom branch printed "Quote custom", so the
+  // All-In meta description read "The All-In package is quote custom."
+  if (p.kind === "from") return `${c.from} ${usd(p.amount)} ${c.units[p.unit]}`;
+  return locale === "es" ? "Cotizado a medida" : "Quoted per project";
 }
 
 /**

@@ -2806,6 +2806,11 @@ const guidePairs: readonly GuidePair[] = [
       slug: "best-caption-styles-for-instagram-reels",
       metadataTitle: "Best Subtitle Styles for Reels",
       title: "Best caption styles and subtitle strategies for Reels",
+      // Round 7 (2026-10-14): top gainer in GSC this week (26 impressions at
+      // 8.8, was 11; 0 clicks) with a description that answered nothing. Meta
+      // only; the copy below is unchanged.
+      metaDescription:
+        "Best Reel captions: bold, high-contrast type inside the safe zone, full sentences for talking heads, a few emphasis words for food or product clips.",
       description:
         "Explore word-by-word highlighted captions, safe zone margins, and typographic styles for maximum social video engagement.",
       eyebrow: "Subtitles / Social Reels",

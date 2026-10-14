@@ -46,7 +46,7 @@ export type GeoServicePageContent = {
   /** Noun phrase for the answer-first question; defaults to serviceType. */
   answerService?: string;
   /**
-   * H2 over the price sheet. Round 6 (2026-10-15): the old default lower-cased
+   * H2 over the price sheet. Round 6 (2026-10-14): the old default lower-cased
    * the SEO name into "How much does reels editor fort lauderdale cost?" on all
    * five pages, the flagship included. Write the buyer's sentence instead.
    */

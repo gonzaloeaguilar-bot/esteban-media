@@ -10,6 +10,8 @@ import { PACKAGE_PRICES, type PackageId } from "@/lib/pricing";
 import { packageRoutes } from "@/lib/package-routes";
 import { site } from "@/lib/site";
 import { buildPageMetadata } from "@/lib/site-metadata";
+import { PricingTrail } from "@/components/pricing-trail";
+import { PageUpdated } from "@/components/page-updated";
 
 export function packageMetadata(id: PackageId, locale: Locale) {
   const pkg = packagesFor(locale).find((item) => item.id === id)!;
@@ -17,7 +19,27 @@ export function packageMetadata(id: PackageId, locale: Locale) {
   // then who the package is for, instead of the tagline + "ideal for" line.
   const price = priceSentence(locale, id).toLowerCase();
   const lead = locale === "es" ? `El paquete ${pkg.name} es ${price}.` : `The ${pkg.name} package is ${price}.`;
-  return buildPageMetadata({ title: `${pkg.name} — ${pkg.subtitle}`, description: `${lead} ${pkg.idealFor}`.length <= 160 ? `${lead} ${pkg.idealFor}` : lead, path: packageRoutes[id][locale], locale });
+  return buildPageMetadata({ title: `${pkg.name} — ${pkg.subtitle}`, description: packageMetaDescription(lead, pkg.idealFor, pkg.includes), path: packageRoutes[id][locale], locale });
+}
+
+/**
+ * Price sentence first, then who it is for; when that runs past 160 characters,
+ * the first "includes" lines instead. Round 7 (2026-10-14): the fallback was the
+ * bare price sentence, so /pricing/local-presence (2 impressions at 5.5 this
+ * week) and /es/precios/todo-incluido showed 53-63 character snippets that said
+ * nothing about what is included.
+ */
+export function packageMetaDescription(lead: string, idealFor: string, includes: readonly string[]): string {
+  const withIdeal = `${lead} ${idealFor}`;
+  if (withIdeal.length <= 160) return withIdeal;
+  let out = lead;
+  for (const line of includes) {
+    const sentence = /[.!?]$/.test(line.trim()) ? line.trim() : `${line.trim()}.`;
+    const next = `${out} ${sentence}`;
+    if (next.length > 160) break;
+    out = next;
+  }
+  return out;
 }
 
 export function PackageDetail({ id, locale }: { id: PackageId; locale: Locale }) {
@@ -39,7 +61,7 @@ export function PackageDetail({ id, locale }: { id: PackageId; locale: Locale })
   ];
   return <main className="em-package-detail bg-[#f6f1ea] py-10 text-[#101214] sm:py-16" data-section={`package_detail_${id}`}>
     <Container size="xl">
-      <Link href={es ? "/es/precios" : "/pricing"} className="text-sm underline">{es ? "Todos los paquetes" : "All packages"}</Link>
+      <PricingTrail locale={locale} path={packageRoutes[id][locale]} name={pkg.name} />
       <div className="mt-8 grid items-start gap-8 lg:grid-cols-2">
         <div>
           <p className="text-sm text-[#5a6066]">{pkg.subtitle}</p>
@@ -49,6 +71,7 @@ export function PackageDetail({ id, locale }: { id: PackageId; locale: Locale })
             {price.kind === "from" ? <RailPrice now={price.amount.toLocaleString("en-US")} prefix={copy.price.from} unit={copy.price.units[price.unit]} source={`package_${id}`} size="lg" /> : <p className="font-serif text-3xl">{copy.price.custom}</p>}
           </div>
           <p className="max-w-xl leading-relaxed">{pkg.idealFor}</p>
+          <PageUpdated path={packageRoutes[id][locale]} locale={locale} className="mt-3 text-xs text-[#5a6066]" />
           <a className="mt-6 inline-flex min-h-11 items-center rounded-full bg-[var(--em-accent-ink)] px-5 py-3 text-white" href={whatsappHref(site.phone.e164, es ? `Hola Esteban, quiero cotizar el paquete ${pkg.name}.` : `Hi Esteban, I'd like a quote for ${pkg.name}.`)} target="_blank" rel="noopener noreferrer" data-cta={`package_${id}_whatsapp`}>{copy.packages.quote(pkg.name)}</a>
         </div>
         <Image src={pkg.image.src} alt={pkg.image.alt} width={1200} height={800} className="h-auto w-full rounded-xl" />

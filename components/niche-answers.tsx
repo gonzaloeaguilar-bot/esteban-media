@@ -15,10 +15,15 @@ import { site } from "@/lib/site";
  *
  * Renders nothing for a path that is not in lib/niche-answers.ts.
  */
-export function NicheAnswers({ path, fact }: { path: string; fact: string }) {
+export function NicheAnswers({ path, fact, omitCost = false }: { path: string; fact: string; omitCost?: boolean }) {
   const entry = nicheEntry(path, fact);
   if (!entry) return null;
-  const { folded, contact } = nicheSections(entry);
+  const sections = nicheSections(entry);
+  const contact = sections.contact;
+  // When the page already shows the cost answer as its own H2 near the top
+  // (NicheCostAnswer), it is not repeated in the fold.
+  const folded = omitCost ? sections.folded.filter((s) => s.id !== nicheCostId(entry)) : sections.folded;
+  const showsCost = Boolean(entry.cost) && !omitCost;
   const es = entry.locale === "es";
   const slug = path.split("/").pop();
 
@@ -29,11 +34,11 @@ export function NicheAnswers({ path, fact }: { path: string; fact: string }) {
           <KeepReading
             className="em-reading-paper"
             id={es ? "respuestas" : "answers"}
-            title={es ? `Quién lo hace${entry.cost ? " y cuánto cuesta" : ""}` : `Who does it${entry.cost ? " and what it costs" : ""}`}
+            title={es ? `Quién lo hace${showsCost ? " y cuánto cuesta" : ""}` : `Who does it${showsCost ? " and what it costs" : ""}`}
             destinations={
               es
-                ? `Quién te ayuda con ${entry.subject}${entry.cost ? ", precios publicados" : ""} y cómo empezar.`
-                : `Who can help with ${entry.subject}${entry.cost ? ", published prices" : ""} and how to start.`
+                ? `Quién te ayuda con ${entry.subject}${showsCost ? ", precios publicados" : ""} y cómo empezar.`
+                : `Who can help with ${entry.subject}${showsCost ? ", published prices" : ""} and how to start.`
             }
           >
             <div className="mt-8 space-y-10">
@@ -74,6 +79,46 @@ export function NicheAnswers({ path, fact }: { path: string; fact: string }) {
               </a>
             </div>
             <PageUpdated path={path} locale={es ? "es" : "en"} />
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+function nicheCostId(entry: NonNullable<ReturnType<typeof nicheEntry>>): string | undefined {
+  const { folded } = nicheSections(entry);
+  return entry.cost ? folded[folded.length - 1]?.id : undefined;
+}
+
+/** True when the path has a published-price answer NicheCostAnswer can show. */
+export function hasNicheCost(path: string, fact: string): boolean {
+  const entry = nicheEntry(path, fact);
+  return Boolean(entry?.cost);
+}
+
+/**
+ * The niche page's "how much does … cost" answer as its own open H2 section.
+ *
+ * Round 7 (2026-10-14): on 57 Spanish pages this answer existed only inside
+ * the bottom fold ("Quién lo hace y cuánto cuesta"), an h3 at heading 14-25,
+ * while the English GeoServicePage twins print the price as an H2 near the
+ * top. Same words, moved up and left open; NicheAnswers then omits it.
+ */
+export function NicheCostAnswer({ path, fact }: { path: string; fact: string }) {
+  const entry = nicheEntry(path, fact);
+  if (!entry?.cost) return null;
+  const { folded } = nicheSections(entry);
+  const cost = folded[folded.length - 1];
+  return (
+    <section className="border-t border-[#ddd4c8] py-12 sm:py-16" id={cost.id} data-section="niche_cost">
+      <Container size="xl">
+        <div className="mx-auto max-w-4xl space-y-4">
+          <h2 className="font-serif text-3xl sm:text-4xl">{cost.heading}</h2>
+          <div className="space-y-4 text-base leading-8 text-[#252a2d]">
+            {cost.paragraphs.map((p, i) => (
+              <p key={i}>{renderFormattedText(p)}</p>
+            ))}
           </div>
         </div>
       </Container>
