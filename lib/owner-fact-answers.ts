@@ -15,6 +15,7 @@
 
 import { priceSentence } from "@/lib/packages";
 import { SHORT_FORM, filmingHourlyText, usd } from "@/lib/pricing";
+import { DEMAND_MAP_ANSWERS } from "@/lib/demand-map-answers";
 
 export type OwnerFactSection = {
   id: string;
@@ -193,7 +194,8 @@ export const OWNER_FACT_ANSWERS: Readonly<Record<string, readonly OwnerFactSecti
 };
 
 export function ownerFactAnswers(path: string): readonly OwnerFactSection[] {
-  return OWNER_FACT_ANSWERS[path] ?? [];
+  // Demand-map answers (DM rows, 2026-10-14) share the same slot and shape.
+  return [...(OWNER_FACT_ANSWERS[path] ?? []), ...(DEMAND_MAP_ANSWERS[path] ?? [])];
 }
 
 // ---------------------------------------------------------------------------

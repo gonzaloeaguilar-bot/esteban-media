@@ -2,8 +2,8 @@
   "status": "demand_gated",
   "effectiveDate": "2026-08-28",
   "baselineRevisedOn": "2026-10-14",
-  "approvedSitemapUrlCount": 365,
-  "approvedSitemapUrlSetSha256": "3e327aff4cb5bf8c776b1e7d1d828823e4630c28e058d1a113763d4e3e5594d5",
+  "approvedSitemapUrlCount": 368,
+  "approvedSitemapUrlSetSha256": "2f7f1d386205af1969a635b112e3e6bab2b6bcc58a2e60ba4372c728476d0ccd",
   "allowedNewIndexableUrls": 4,
   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {
@@ -415,6 +415,20 @@
       "followUpDate": "2026-10-28",
       "followUp": "Re-run the esteban-search-sweep for 'wedding videographer fort lauderdale', 'videografo de bodas fort lauderdale' and 'cuanto cobra un videografo de boda', and GSC query+page plus URL Inspection for both URLs, on 2026-10-28 and 2026-11-14. If both are still unknown to Google with zero impressions on 2026-11-14, keep the pages (owner service) and add the wedding link to more event pages rather than adding URLs.",
       "note": "2 URLs. With /es/contratar-editor-de-video-remoto (PR #433) this demand-wave run adds 3 URLs, within the allowance of 4. No wedding price is published (owner gave none)."
+    },
+    {
+      "on": "2026-10-14",
+      "url": [
+        "/services/videographer-miami",
+        "/guides/how-to-start-as-an-influencer",
+        "/es/guias/como-empezar-a-ser-influencer"
+      ],
+      "orderedBy": "Gonzalo (in-session 2026-10-14): ship the top ready-to-build gaps of the Esteban demand coverage map, at most 4 new URLs. Vault: client-esteban-media/wiki/esteban-demand-coverage-map-2026-10-14",
+      "kind": "demand-map wave (separate demand-wave run from the owner-facts wave)",
+      "demandEvidence": "DM-16: Google autocomplete 2026-10-14 returns 'videographer miami' (x4 seed/country contexts) and 'videographer fort lauderdale' (x4); no English videographer page existed and /es/videografo-en-miami had no hreflang twin. DM-21: 'como empezar a ser influencer' plus 'en tiktok', 'de moda', 'en facebook' (x3 each, gl=co+mx+us) UNANSWERED in Spanish; DM-22: 'how to start as an influencer (on instagram)' WEAK, best match a service page. Callers asked ChatGPT how to start before asking who edits (vault esteban-what-drives-ai-recommendations-2026-10-08). Source: coverage_map.py 2026-10-14 matrix, 2,703 candidates.",
+      "followUpDate": "2026-11-14",
+      "followUp": "GSC query+page and URL Inspection for the 3 URLs on 2026-10-28 and 2026-11-14; re-run the esteban-search-sweep coverage diff on 2026-10-19. Zero impressions at 30 days: keep the influencer pair (cited sub-answer for creator queries) internally linked, and fold videographer-miami into /services/video-production-fort-lauderdale only if Google still treats it as a duplicate.",
+      "note": "3 URLs, within the allowance of 4 for this run. No new price: every figure is read from lib/pricing.ts."
     }
   ]
 }

@@ -80,8 +80,8 @@
   "hash": "073f1471aee3bac8"
  },
  "/es/areas": {
-  "date": "2026-10-11",
-  "hash": "d1fbad87f3d7aa91"
+  "date": "2026-10-14",
+  "hash": "568cc50488e3c1f4"
  },
  "/es/areas/palm-beach-county": {
   "date": "2026-10-14",
@@ -141,7 +141,7 @@
  },
  "/es/contratar-editor-de-video-remoto": {
   "date": "2026-10-14",
-  "hash": "dfee1460046c2eb4"
+  "hash": "46bb7737901cc6a4"
  },
  "/es/diseno-web-fort-lauderdale": {
   "date": "2026-10-14",
@@ -189,7 +189,7 @@
  },
  "/es/edicion-de-video-para-creadores-de-contenido-miami": {
   "date": "2026-10-14",
-  "hash": "854526fb485daa6c"
+  "hash": "79cced6e1d202829"
  },
  "/es/edicion-de-video-para-cursos-online": {
   "date": "2026-08-14",
@@ -217,7 +217,7 @@
  },
  "/es/editor-de-reels-fort-lauderdale": {
   "date": "2026-10-14",
-  "hash": "2ecfdf00950d0697"
+  "hash": "674a0e3c5be89363"
  },
  "/es/editor-de-reels-miami": {
   "date": "2026-10-14",
@@ -225,7 +225,7 @@
  },
  "/es/editor-de-video-corto-para-redes-miami": {
   "date": "2026-10-14",
-  "hash": "9d7bd120a31f2670"
+  "hash": "78f20063c046bf1a"
  },
  "/es/editor-de-video-miami": {
   "date": "2026-10-14",
@@ -249,7 +249,7 @@
  },
  "/es/editor-de-video-ugc-para-ecommerce": {
   "date": "2026-10-14",
-  "hash": "248484e1b78b9998"
+  "hash": "52bd867998239d8d"
  },
  "/es/evaluacion": {
   "date": "2026-10-11",
@@ -327,6 +327,10 @@
   "date": "2026-10-07",
   "hash": "20f533cb0154f5a1"
  },
+ "/es/guias/como-empezar-a-ser-influencer": {
+  "date": "2026-10-14",
+  "hash": "02ae26585098b565"
+ },
  "/es/guias/como-empezar-una-cuenta-de-recomendaciones-de-restaurantes-miami": {
   "date": "2026-10-14",
   "hash": "d9024c1c108104f6"
@@ -380,8 +384,8 @@
   "hash": "0f77faf6bf3fb963"
  },
  "/es/guias/cuanto-cuesta-la-produccion-de-video-corporativo-miami": {
-  "date": "2026-10-11",
-  "hash": "b3e144f104f3da71"
+  "date": "2026-10-14",
+  "hash": "bbb7ddec672ca85d"
  },
  "/es/guias/cuanto-cuesta-la-produccion-de-video-en-fort-lauderdale": {
   "date": "2026-10-08",
@@ -396,8 +400,8 @@
   "hash": "541a129d2cde037b"
  },
  "/es/guias/cuanto-cuesta-video-inmobiliario-miami": {
-  "date": "2026-10-07",
-  "hash": "f57c86d3188bf639"
+  "date": "2026-10-14",
+  "hash": "750e7d94380f5834"
  },
  "/es/guias/cuantos-reels-debe-publicar-un-restaurante-por-semana": {
   "date": "2026-10-14",
@@ -421,7 +425,7 @@
  },
  "/es/guias/editor-de-video-vs-videografo": {
   "date": "2026-10-14",
-  "hash": "2baaaa1eda734221"
+  "hash": "d6757b58cd088f74"
  },
  "/es/guias/editor-local-vs-fiverr-vs-agencia-miami": {
   "date": "2026-10-14",
@@ -629,7 +633,7 @@
  },
  "/es/portafolio/ml-colombia": {
   "date": "2026-10-14",
-  "hash": "62d909b93aeec716"
+  "hash": "3725d464c200260a"
  },
  "/es/portafolio/my-dler": {
   "date": "2026-10-14",
@@ -729,7 +733,7 @@
  },
  "/es/servicios": {
   "date": "2026-10-14",
-  "hash": "0fbb441200371287"
+  "hash": "5256dd55fe898404"
  },
  "/es/sitios-web-de-conversion": {
   "date": "2026-10-14",
@@ -872,8 +876,8 @@
   "hash": "be75bc5353c1fe8b"
  },
  "/guides/corporate-video-production-cost-miami": {
-  "date": "2026-10-11",
-  "hash": "af4b68316c2e63e6"
+  "date": "2026-10-14",
+  "hash": "2b2d9bffe8bbdc3c"
  },
  "/guides/customer-testimonial-video-script-template": {
   "date": "2026-10-14",
@@ -904,8 +908,8 @@
   "hash": "ef7697908d825358"
  },
  "/guides/how-much-does-real-estate-video-cost-miami": {
-  "date": "2026-10-07",
-  "hash": "5059de5cbbb96688"
+  "date": "2026-10-14",
+  "hash": "011ee7bc3f06656e"
  },
  "/guides/how-much-does-restaurant-video-cost-miami": {
   "date": "2026-10-08",
@@ -946,6 +950,10 @@
  "/guides/how-to-start-a-restaurant-recommendation-account-miami": {
   "date": "2026-10-14",
   "hash": "ad305c196c336e4a"
+ },
+ "/guides/how-to-start-as-an-influencer": {
+  "date": "2026-10-14",
+  "hash": "7c90ed3a4c9da247"
  },
  "/guides/how-to-use-ai-for-product-photography": {
   "date": "2026-10-14",
@@ -1021,7 +1029,7 @@
  },
  "/guides/video-editor-vs-videographer": {
   "date": "2026-10-14",
-  "hash": "06eec205580395a5"
+  "hash": "31f826d855346779"
  },
  "/guides/video-production-cost-fort-lauderdale": {
   "date": "2026-10-14",
@@ -1081,7 +1089,7 @@
  },
  "/portfolio/ml-colombia": {
   "date": "2026-10-14",
-  "hash": "0253167a9ee9b1a9"
+  "hash": "ade40078c76a8db8"
  },
  "/portfolio/my-dler": {
   "date": "2026-10-14",
@@ -1181,7 +1189,7 @@
  },
  "/services/content-creator-video-editing-miami": {
   "date": "2026-10-14",
-  "hash": "26c27a1134c27208"
+  "hash": "f425ba635fe07529"
  },
  "/services/content-repurposing-service-miami": {
   "date": "2026-10-13",
@@ -1261,7 +1269,7 @@
  },
  "/services/hire-remote-video-editor": {
   "date": "2026-10-14",
-  "hash": "56c82120dc732eab"
+  "hash": "99468cddbc5095ea"
  },
  "/services/hotel-hospitality-video-production-miami": {
   "date": "2026-10-13",
@@ -1321,7 +1329,7 @@
  },
  "/services/podcast-clipping-service-miami": {
   "date": "2026-10-14",
-  "hash": "44d94b577e15c86c"
+  "hash": "fa0ee86d13752428"
  },
  "/services/pre-construction-condo-video-marketing-miami": {
   "date": "2026-10-13",
@@ -1361,7 +1369,7 @@
  },
  "/services/restaurant-promo-video-editing-miami": {
   "date": "2026-10-14",
-  "hash": "26fa125f8db27c5e"
+  "hash": "c3e7aff9e1bd41c5"
  },
  "/services/salon-barbershop-video-marketing-miami": {
   "date": "2026-10-13",
@@ -1425,7 +1433,11 @@
  },
  "/services/video-production-fort-lauderdale": {
   "date": "2026-10-14",
-  "hash": "997a24bcf394a680"
+  "hash": "1400d2d69b4cfba4"
+ },
+ "/services/videographer-miami": {
+  "date": "2026-10-14",
+  "hash": "19888915e201fafb"
  },
  "/services/wealth-management-video-production-miami": {
   "date": "2026-10-13",

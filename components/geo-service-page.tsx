@@ -20,6 +20,7 @@ import { Container } from "@/components/ui/container";
 import { absoluteUrl } from "@/lib/site";
 import { PACKAGE_PRICES, REAL_ESTATE_PLANS, usd } from "@/lib/pricing";
 import { NicheAnswers } from "@/components/niche-answers";
+import { OwnerFactAnswers } from "@/components/owner-fact-answers";
 import { PriorityLinks } from "@/components/priority-links";
 import { withNicheService } from "@/lib/niche-answers";
 
@@ -224,6 +225,7 @@ export function GeoServicePage({
       </section>
 
       <ServiceAnswerFirst service={content.answerService ?? content.serviceType} />
+      <OwnerFactAnswers path={content.path} />
 
       <ServiceCraft
         heading={content.craftHeading}

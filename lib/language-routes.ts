@@ -86,6 +86,7 @@ export const pairedLanguageRoutes: Record<string, string> = {
     "/es/guias/estudio-instagram-restaurantes-miami",
   "/services/quinceanera-video-miami":
     "/es/video-para-quinceaneras-miami",
+  "/services/videographer-miami": "/es/videografo-en-miami",
   "/services/wedding-videographer-fort-lauderdale":
     "/es/videografo-de-bodas-fort-lauderdale",
   "/services/dance-studio-music-school-video-marketing-miami":

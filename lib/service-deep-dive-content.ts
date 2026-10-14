@@ -5,6 +5,7 @@ import {
   PACKAGE_PRICES,
   PRICING_BANDS,
   SHORT_FORM,
+  filmingHourlyText,
   shortFormWeeklyText,
   usd,
 } from "@/lib/pricing";
@@ -179,7 +180,10 @@ export const CORPORATE_EVENT_DEEP_DIVE: DeepDive = {
         {
           heading: "How much does event videography cost in Miami?",
           paragraphs: [
-            `For corporate or event material, the calculator's corporate editing band is ${usd(PRICING_BANDS.corporate.baseMin)}–${usd(PRICING_BANDS.corporate.baseMax)}. It is an indicative editing-led freelancer range with an introductory discount applied, not a promise of complete event coverage. If another videographer or your team already recorded the event, share the original material and explain the finished piece you want before treating that range as a quote.`,
+            // DM-15 (2026-10-14): "event videography pricing" / "event
+            // videographer cost" autocomplete x6/x2; the hourly filming floor
+            // now sits inside this price answer.
+            `Event videography is priced in two lines: filming at the venue, ${filmingHourlyText("en")} (the minimum for time on location), and the edit. For corporate or event material, the calculator's corporate editing band is ${usd(PRICING_BANDS.corporate.baseMin)}–${usd(PRICING_BANDS.corporate.baseMax)}, an indicative editing-led freelancer range with an introductory discount applied, not a promise of complete event coverage. If another videographer or your team already recorded the event, there is no filming line: share the original material and explain the finished piece you want before treating that range as a quote.`,
             "A short recap, a speaker presentation, and a longer event film require different editorial decisions. Specify which moments matter, whether dialogue must remain complete, and where the finished video will be published. The amount and condition of the source material also need review. Capture and editing can be discussed together, with the actual deliverables agreed for your event.",
           ],
         },

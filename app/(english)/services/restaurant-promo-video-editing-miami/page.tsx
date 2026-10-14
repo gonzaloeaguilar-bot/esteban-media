@@ -23,6 +23,7 @@ const singleReelFrom = usd(SHORT_FORM.perVideoFrom);
 import { absoluteUrl, site } from "@/lib/site";
 import { EventSeasonLinks } from "@/components/event-content-page";
 import { NicheAnswers } from "@/components/niche-answers";
+import { OwnerFactAnswers } from "@/components/owner-fact-answers";
 import { SeasonalAnswer } from "@/components/seasonal-answer";
 import { PriorityLinks } from "@/components/priority-links";
 import { withNicheService } from "@/lib/niche-answers";
@@ -201,6 +202,7 @@ export default function RestaurantPromoVideoEditingMiamiPage() {
           </div>
         </Container>
       </section>
+      <OwnerFactAnswers path="/services/restaurant-promo-video-editing-miami" />
 
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
         <Container size="xl">

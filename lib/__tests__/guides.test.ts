@@ -64,7 +64,8 @@ describe("bilingual practical guides", () => {
     expect(text).toContain(usd(REAL_ESTATE_MEDIA.photography[0].amount!));
     expect(text).not.toMatch(/drone|dron|aerial|aére/i);
     expect(text).toContain(locale === "es" ? "](/es/precios/inmobiliaria)" : "](/pricing/real-estate)");
-    expect(realEstate.sections[0].bullets).toEqual(REAL_ESTATE_MEDIA.photography.map((tier) =>
+    // sections[0] is the DM-28 answer-first videography price (2026-10-14).
+    expect(realEstate.sections[1].bullets).toEqual(REAL_ESTATE_MEDIA.photography.map((tier) =>
       `${tier.label[locale]}: ${tier.amount === null ? (locale === "es" ? "llama para conversar" : "call to discuss") : usd(tier.amount)}.`,
     ));
     for (const item of [...REAL_ESTATE_MEDIA.addOns.filter(({ id }) => id === "premium-listing-video" || id === "zillow-3d-tour"), ...REAL_ESTATE_MEDIA.fees]) {
@@ -85,15 +86,15 @@ describe("bilingual practical guides", () => {
     }
   });
 
-  it("returns exactly 45 guides for English", () => {
+  it("returns exactly 46 guides for English", () => {
     const guides = getGuides("en");
-    expect(guides).toHaveLength(45);
+    expect(guides).toHaveLength(46);
     expect(guides.every((guide) => guide.locale === "en")).toBe(true);
   });
 
-  it("returns exactly 45 guides for Spanish", () => {
+  it("returns exactly 46 guides for Spanish", () => {
     const guides = getGuides("es");
-    expect(guides).toHaveLength(45);
+    expect(guides).toHaveLength(46);
     expect(guides.every((guide) => guide.locale === "es")).toBe(true);
   });
 
@@ -101,13 +102,13 @@ describe("bilingual practical guides", () => {
     const englishGuides = getGuides("en");
     const spanishGuides = getGuides("es");
 
-    expect(englishGuides).toHaveLength(45);
-    expect(spanishGuides).toHaveLength(45);
+    expect(englishGuides).toHaveLength(46);
+    expect(spanishGuides).toHaveLength(46);
     expect(englishGuides.map(({ id }) => id)).toEqual(
       spanishGuides.map(({ id }) => id),
     );
-    expect(new Set(englishGuides.map(({ slug }) => slug))).toHaveLength(45);
-    expect(new Set(spanishGuides.map(({ slug }) => slug))).toHaveLength(45);
+    expect(new Set(englishGuides.map(({ slug }) => slug))).toHaveLength(46);
+    expect(new Set(spanishGuides.map(({ slug }) => slug))).toHaveLength(46);
 
     for (const guide of [...englishGuides, ...spanishGuides]) {
       expect(guide.answer.length).toBeGreaterThan(60);
@@ -127,9 +128,9 @@ describe("bilingual practical guides", () => {
     const metadataTitles = allGuides.map(({ metadataTitle }) => metadataTitle);
     const descriptions = allGuides.map(({ description }) => description);
 
-    expect(new Set(canonicalPaths).size).toBe(90);
-    expect(new Set(metadataTitles).size).toBe(90);
-    expect(new Set(descriptions).size).toBe(90);
+    expect(new Set(canonicalPaths).size).toBe(92);
+    expect(new Set(metadataTitles).size).toBe(92);
+    expect(new Set(descriptions).size).toBe(92);
 
     for (const guide of allGuides) {
       const metadata = buildGuideMetadata(guide);
@@ -401,8 +402,9 @@ describe("bilingual practical guides", () => {
     if (!enGuide || !esGuide) return;
 
     // +1 each: the definition-first "What is a videographer?" section (round 2, 2026-10-14).
-    expect(enGuide.sections).toHaveLength(11);
-    expect(esGuide.sections).toHaveLength(9);
+    // +1 each: "freelance videographer or production company?" (DM-25, 2026-10-14).
+    expect(enGuide.sections).toHaveLength(12);
+    expect(esGuide.sections).toHaveLength(10);
     expect(enGuide.sections[0].heading).toBe("What is a videographer?");
     expect(esGuide.sections[0].heading).toBe("¿Qué es un videógrafo y para qué sirve?");
     expect(enGuide.faqs).toHaveLength(7);

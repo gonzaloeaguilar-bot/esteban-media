@@ -166,6 +166,8 @@ export const sitemapRoutes = [
   { path: "/services/podcast-clipping-service-miami", priority: 0.85 },
   { path: "/services/quinceanera-video-miami", priority: 0.85 },
   { path: "/services/wedding-videographer-fort-lauderdale", priority: 0.85 },
+  // DM-16 (2026-10-14): EN twin of /es/videografo-en-miami.
+  { path: "/services/videographer-miami", priority: 0.85 },
   { path: "/services/dance-studio-music-school-video-marketing-miami", priority: 0.85 },
   { path: "/desk-recommendations", priority: 0.85 },
   { path: "/portfolio", priority: 0.9 },

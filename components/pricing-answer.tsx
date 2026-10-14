@@ -4,6 +4,7 @@ import { Container } from "@/components/ui/container";
 import { cheapestRealEstatePlan, packagesFor, priceSentence, type Locale } from "@/lib/packages";
 import { packageRoutes } from "@/lib/package-routes";
 import { latamAnswer, perHourAnswer } from "@/lib/owner-fact-answers";
+import { goingRateAnswer } from "@/lib/demand-map-answers";
 import { REAL_ESTATE_PLAN_TERMS, shortFormWeeklyText, turnaroundFor, usd, type PackageId } from "@/lib/pricing";
 
 /**
@@ -22,7 +23,9 @@ import { REAL_ESTATE_PLAN_TERMS, shortFormWeeklyText, turnaroundFor, usd, type P
  * the hub's FAQPage JSON-LD carries the same strings that render.
  */
 export function pricingHubExtraFaq(locale: Locale): { question: string; answer: string }[] {
-  return locale === "es" ? [perHourAnswer("es"), latamAnswer()] : [perHourAnswer("en")];
+  return locale === "es"
+    ? [goingRateAnswer("es"), perHourAnswer("es"), latamAnswer()]
+    : [goingRateAnswer("en"), perHourAnswer("en")];
 }
 
 export function PricingAnswer({ locale }: { locale: Locale }) {

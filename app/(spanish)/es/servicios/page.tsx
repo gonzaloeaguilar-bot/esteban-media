@@ -326,6 +326,13 @@ export default function SpanishServicesPage() {
                   <Link className="text-[#9f3c27] underline underline-offset-4" href="/es/reels-para-negocios-miami">
                     Reels para negocios
                   </Link>
+                  {/* DM-4 / DM-7 (2026-10-14): Spanish anchors for queries GSC sent to the EN hub. */}
+                  <Link className="text-[#9f3c27] underline underline-offset-4" href="/es/editor-de-video-corto-para-redes-miami">
+                    Editor de videos cortos en Miami
+                  </Link>
+                  <Link className="text-[#9f3c27] underline underline-offset-4" href="/es/editor-de-video-ugc-para-ecommerce">
+                    Editor de videos UGC en Miami
+                  </Link>
                 </div>
               </article>
               <article className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
