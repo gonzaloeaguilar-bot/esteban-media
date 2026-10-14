@@ -13,6 +13,8 @@ import {
 import { HOTEL_DEEP_DIVE } from "@/lib/hospitality-deep-dive-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
+import { NicheAnswers } from "@/components/niche-answers";
+import { withNicheService } from "@/lib/niche-answers";
 
 export const metadata = buildPageMetadata({
   title: "Hotel Hospitality Video Production Miami",
@@ -52,7 +54,7 @@ export default function HotelHospitalityVideoProductionMiamiPage() {
       <script
         type="application/ld+json"
         suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(withNicheService("/services/hotel-hospitality-video-production-miami", jsonLd)) }}
       />
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
         <Container size="xl">
@@ -156,6 +158,7 @@ export default function HotelHospitalityVideoProductionMiamiPage() {
         faqs={PORTED_SERVICE_FAQS["/services/hotel-hospitality-video-production-miami"]}
         sectionId="ported-faq"
       />
+      <NicheAnswers path="/services/hotel-hospitality-video-production-miami" fact={String(metadata.description ?? "")} />
     </main>
   );
 }

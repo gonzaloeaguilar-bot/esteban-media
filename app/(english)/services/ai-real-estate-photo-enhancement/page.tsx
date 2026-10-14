@@ -13,6 +13,8 @@ import {
 import { AI_REAL_ESTATE_DEPTH } from "@/lib/service-depth-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
+import { NicheAnswers } from "@/components/niche-answers";
+import { withNicheService } from "@/lib/niche-answers";
 
 export const metadata = buildPageMetadata({
   title: "AI Real Estate Photo Enhancement Miami",
@@ -52,7 +54,7 @@ export default function AIRealEstatePhotoPage() {
       <script
         type="application/ld+json"
         suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(withNicheService("/services/ai-real-estate-photo-enhancement", jsonLd)) }}
       />
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
         <Container size="xl">
@@ -176,6 +178,7 @@ export default function AIRealEstatePhotoPage() {
         }}
       />
       <ServiceRelated heading={AI_REAL_ESTATE_DEPTH.relatedHeading} services={AI_REAL_ESTATE_DEPTH.related} />
+      <NicheAnswers path="/services/ai-real-estate-photo-enhancement" fact={String(metadata.description ?? "")} />
     </main>
   );
 }

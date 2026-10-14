@@ -13,6 +13,8 @@ import {
 import { UGC_ECOMMERCE_DEPTH } from "@/lib/service-depth-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
+import { NicheAnswers } from "@/components/niche-answers";
+import { withNicheService } from "@/lib/niche-answers";
 
 export const metadata = buildPageMetadata({
   title: "UGC Video Editor E-Commerce Miami",
@@ -52,7 +54,7 @@ export default function UGCVideoEditorEcommercePage() {
       <script
         type="application/ld+json"
         suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(withNicheService("/services/ugc-video-editor-ecommerce", jsonLd)) }}
       />
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
         <Container size="xl">
@@ -160,6 +162,7 @@ export default function UGCVideoEditorEcommercePage() {
         }}
       />
       <ServiceRelated heading={UGC_ECOMMERCE_DEPTH.relatedHeading} services={UGC_ECOMMERCE_DEPTH.related} />
+      <NicheAnswers path="/services/ugc-video-editor-ecommerce" fact={String(metadata.description ?? "")} />
     </main>
   );
 }

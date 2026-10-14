@@ -16,6 +16,8 @@ import { arranqueWeeklyFaq, arranqueWeeklyOfferJsonLd } from "@/lib/arranque-wee
 import { CREATOR_DEEP_DIVE } from "@/lib/service-deep-dive-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl } from "@/lib/site";
+import { NicheAnswers } from "@/components/niche-answers";
+import { withNicheService } from "@/lib/niche-answers";
 
 const path = "/services/content-creator-video-editing-miami";
 
@@ -65,7 +67,7 @@ export default function ContentCreatorVideoEditingPage() {
       <script
         type="application/ld+json"
         suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(withNicheService("/services/content-creator-video-editing-miami", jsonLd)) }}
       />
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
         <Container size="xl">
@@ -168,6 +170,7 @@ export default function ContentCreatorVideoEditingPage() {
         heading={CREATOR_DEPTH.relatedHeading}
         services={CREATOR_DEPTH.related}
       />
+      <NicheAnswers path="/services/content-creator-video-editing-miami" fact={String(metadata.description ?? "")} />
     </main>
   );
 }

@@ -11,6 +11,8 @@ import {
 } from "@/components/service-depth";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
+import { NicheAnswers } from "@/components/niche-answers";
+import { withNicheService } from "@/lib/niche-answers";
 
 export const metadata = buildPageMetadata({
   title: "Creative Video Production Wynwood",
@@ -50,7 +52,7 @@ export default function CreativeVideoProductionWynwoodPage() {
       <script
         type="application/ld+json"
         suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(withNicheService("/services/creative-video-production-wynwood", jsonLd)) }}
       />
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
         <Container size="xl">
@@ -154,6 +156,7 @@ export default function CreativeVideoProductionWynwoodPage() {
         faqs={PORTED_SERVICE_FAQS["/services/creative-video-production-wynwood"]}
         sectionId="ported-faq"
       />
+      <NicheAnswers path="/services/creative-video-production-wynwood" fact={String(metadata.description ?? "")} />
     </main>
   );
 }

@@ -14,6 +14,8 @@ import { DENTAL_DEPTH } from "@/lib/service-depth-content";
 import { DENTAL_DEEP_DIVE } from "@/lib/vertical-deep-dives";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
+import { NicheAnswers } from "@/components/niche-answers";
+import { withNicheService } from "@/lib/niche-answers";
 
 export const metadata = buildPageMetadata({
   title: "Dental Video Marketing South Florida",
@@ -70,7 +72,7 @@ export default function DentalVideoMarketingPage() {
       <script
         type="application/ld+json"
         suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(withNicheService("/services/dental-video-marketing-south-florida", jsonLd)) }}
       />
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
         <Container size="xl">
@@ -235,6 +237,7 @@ export default function DentalVideoMarketingPage() {
       />
       <ServiceFaqs heading={DENTAL_DEPTH.faqHeading} faqs={DENTAL_DEPTH.faqs} />
       <ServiceRelated heading={DENTAL_DEPTH.relatedHeading} services={DENTAL_DEPTH.related} />
+      <NicheAnswers path="/services/dental-video-marketing-south-florida" fact={String(metadata.description ?? "")} />
     </main>
   );
 }

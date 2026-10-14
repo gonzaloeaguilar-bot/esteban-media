@@ -4,6 +4,8 @@ import { ArrowRight, Mail, Phone } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
+import { NicheAnswers } from "@/components/niche-answers";
+import { withNicheService } from "@/lib/niche-answers";
 
 const path = "/services/product-photography-miami";
 
@@ -45,7 +47,7 @@ export default function ProductPhotographyMiamiPage() {
       <script
         type="application/ld+json"
         suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(withNicheService("/services/product-photography-miami", jsonLd)) }}
       />
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
         <Container size="xl">
@@ -107,6 +109,7 @@ export default function ProductPhotographyMiamiPage() {
           </div>
         </Container>
       </section>
+      <NicheAnswers path="/services/product-photography-miami" fact={String(metadata.description ?? "")} />
     </main>
   );
 }

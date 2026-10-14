@@ -15,6 +15,8 @@ import { WHITE_LABEL_DEPTH } from "@/lib/service-depth-content";
 import { WHITE_LABEL_DEEP_DIVE } from "@/lib/service-deep-dive-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl } from "@/lib/site";
+import { NicheAnswers } from "@/components/niche-answers";
+import { withNicheService } from "@/lib/niche-answers";
 
 const path = "/services/white-label-video-editing-for-agencies";
 
@@ -63,7 +65,7 @@ export default function WhiteLabelVideoEditingPage() {
       <script
         type="application/ld+json"
         suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(withNicheService("/services/white-label-video-editing-for-agencies", jsonLd)) }}
       />
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
         <Container size="xl">
@@ -165,6 +167,7 @@ export default function WhiteLabelVideoEditingPage() {
         heading={WHITE_LABEL_DEPTH.relatedHeading}
         services={WHITE_LABEL_DEPTH.related}
       />
+      <NicheAnswers path="/services/white-label-video-editing-for-agencies" fact={String(metadata.description ?? "")} />
     </main>
   );
 }

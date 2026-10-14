@@ -13,6 +13,8 @@ import {
 import { AUTOMOTIVE_DEEP_DIVE } from "@/lib/vertical-deep-dives";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
+import { NicheAnswers } from "@/components/niche-answers";
+import { withNicheService } from "@/lib/niche-answers";
 
 export const metadata = buildPageMetadata({
   title: "Automotive Video Marketing Miami",
@@ -52,7 +54,7 @@ export default function AutomotiveVideoMarketingMiamiPage() {
       <script
         type="application/ld+json"
         suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(withNicheService("/services/automotive-video-marketing-miami", jsonLd)) }}
       />
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
         <Container size="xl">
@@ -163,6 +165,7 @@ export default function AutomotiveVideoMarketingMiamiPage() {
         faqs={PORTED_SERVICE_FAQS["/services/automotive-video-marketing-miami"]}
         sectionId="ported-faq"
       />
+      <NicheAnswers path="/services/automotive-video-marketing-miami" fact={String(metadata.description ?? "")} />
     </main>
   );
 }

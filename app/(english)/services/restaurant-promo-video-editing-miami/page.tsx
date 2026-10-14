@@ -18,6 +18,8 @@ import { ServiceInquiryRail, buildServicePageNodes } from "@/components/service-
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 import { EventSeasonLinks } from "@/components/event-content-page";
+import { NicheAnswers } from "@/components/niche-answers";
+import { withNicheService } from "@/lib/niche-answers";
 
 const faqs = [
   {
@@ -100,7 +102,7 @@ export default function RestaurantPromoVideoEditingMiamiPage() {
       <script
         type="application/ld+json"
         suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(withNicheService("/services/restaurant-promo-video-editing-miami", jsonLd)) }}
       />
       <section className="border-b border-[#ddd4c8] py-5 sm:py-16 lg:py-20">
         <Container size="xl">
@@ -531,6 +533,7 @@ export default function RestaurantPromoVideoEditingMiamiPage() {
         </Container>
       </section>
       <EventSeasonLinks locale="en" path="/services/restaurant-promo-video-editing-miami" />
+      <NicheAnswers path="/services/restaurant-promo-video-editing-miami" fact={String(metadata.description ?? "")} />
     </main>
   );
 }

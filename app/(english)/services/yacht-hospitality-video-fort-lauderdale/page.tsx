@@ -20,6 +20,8 @@ import { YACHT_HOSPITALITY_DEPTH } from "@/lib/service-depth-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 import { EventSeasonLinks } from "@/components/event-content-page";
+import { NicheAnswers } from "@/components/niche-answers";
+import { withNicheService } from "@/lib/niche-answers";
 
 export const metadata = buildPageMetadata({
   title: "Yacht Hospitality Video Fort Lauderdale | Marine Editing",
@@ -62,7 +64,7 @@ export default function YachtHospitalityVideoFortLauderdalePage() {
       <script
         type="application/ld+json"
         suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(withNicheService("/services/yacht-hospitality-video-fort-lauderdale", jsonLd)) }}
       />
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
         <Container size="xl">
@@ -273,6 +275,7 @@ export default function YachtHospitalityVideoFortLauderdalePage() {
         </Container>
       </section>
       <EventSeasonLinks locale="en" path="/services/yacht-hospitality-video-fort-lauderdale" />
+      <NicheAnswers path="/services/yacht-hospitality-video-fort-lauderdale" fact={String(metadata.description ?? "")} />
     </main>
   );
 }

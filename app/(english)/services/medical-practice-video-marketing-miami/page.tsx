@@ -15,6 +15,8 @@ import { MEDICAL_PRACTICE_DEPTH, withServiceSiblings } from "@/lib/service-depth
 import { MEDICAL_PRACTICE_DEEP_DIVE } from "@/lib/service-deep-dive-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl } from "@/lib/site";
+import { NicheAnswers } from "@/components/niche-answers";
+import { withNicheService } from "@/lib/niche-answers";
 
 const path = "/services/medical-practice-video-marketing-miami";
 
@@ -63,7 +65,7 @@ export default function MedicalPracticeVideoMarketingPage() {
       <script
         type="application/ld+json"
         suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(withNicheService("/services/medical-practice-video-marketing-miami", jsonLd)) }}
       />
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
         <Container size="xl">
@@ -170,6 +172,7 @@ export default function MedicalPracticeVideoMarketingPage() {
         heading={MEDICAL_PRACTICE_DEPTH.relatedHeading}
         services={withServiceSiblings("/services/medical-practice-video-marketing-miami", MEDICAL_PRACTICE_DEPTH.related)}
       />
+      <NicheAnswers path="/services/medical-practice-video-marketing-miami" fact={String(metadata.description ?? "")} />
     </main>
   );
 }

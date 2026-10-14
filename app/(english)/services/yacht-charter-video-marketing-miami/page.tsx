@@ -15,6 +15,8 @@ import { YACHT_CHARTER_DEEP_DIVE } from "@/lib/vertical-deep-dives";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 import { EventSeasonLinks } from "@/components/event-content-page";
+import { NicheAnswers } from "@/components/niche-answers";
+import { withNicheService } from "@/lib/niche-answers";
 
 export const metadata = buildPageMetadata({
   title: "Yacht Charter Video Marketing Miami",
@@ -54,7 +56,7 @@ export default function YachtCharterVideoMarketingMiamiPage() {
       <script
         type="application/ld+json"
         suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(withNicheService("/services/yacht-charter-video-marketing-miami", jsonLd)) }}
       />
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
         <Container size="xl">
@@ -165,6 +167,7 @@ export default function YachtCharterVideoMarketingMiamiPage() {
       <ServiceFaqs heading={YACHT_DEPTH.faqHeading} faqs={YACHT_DEPTH.faqs} />
       <ServiceRelated heading={YACHT_DEPTH.relatedHeading} services={YACHT_DEPTH.related} />
       <EventSeasonLinks locale="en" path="/services/yacht-charter-video-marketing-miami" />
+      <NicheAnswers path="/services/yacht-charter-video-marketing-miami" fact={String(metadata.description ?? "")} />
     </main>
   );
 }

@@ -18,6 +18,8 @@ import {
 } from "@/components/service-depth";
 import { Container } from "@/components/ui/container";
 import { absoluteUrl } from "@/lib/site";
+import { NicheAnswers } from "@/components/niche-answers";
+import { withNicheService } from "@/lib/niche-answers";
 
 export type GeoServicePageContent = {
   path: string;
@@ -98,7 +100,7 @@ export function GeoServicePage({
    */
   showcase?: ReactNode;
 }) {
-  const jsonLd = buildGeoServiceSchema(content);
+  const jsonLd = withNicheService(content.path, buildGeoServiceSchema(content), content.serviceName);
 
   return (
     <main className="bg-[#f6f1ea] text-[#101214]">
@@ -235,6 +237,7 @@ export function GeoServicePage({
       <ServiceFaqs heading={content.faqHeading} faqs={content.faqs} />
       <ServiceInquiryRail service={content.inquiry} />
       <ServiceRelated heading={content.relatedHeading} services={content.related} />
+      <NicheAnswers path={content.path} fact={content.description} />
     </main>
   );
 }
