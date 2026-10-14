@@ -145,6 +145,7 @@ const EN_ROWS: Row[] = [
   ["/services/video-editing-miami-beach", "video editing", "Miami Beach", "local"],
   ["/services/video-editing-palm-beach-gardens", "video editing", "Palm Beach Gardens", "local"],
   ["/services/video-editing-west-palm-beach", "video editing", "West Palm Beach", "local"],
+  ["/services/video-production-boca-raton", "Reels and video editing", "Boca Raton", "social", false],
   ["/services/video-podcast-editing-service-miami", "video podcast editing", "Miami", "longform"],
   ["/services/video-production-delray-beach", "video production", "Delray Beach", "local"],
   ["/services/video-production-doral-miami", "video production", "Doral", "local"],
@@ -226,6 +227,7 @@ const ES_ROWS: Row[] = [
   ["/es/produccion-de-video-fort-lauderdale", "la producción de video", "Fort Lauderdale", "local"],
   ["/es/editor-de-reels-fort-lauderdale", "la edición de Reels", "Fort Lauderdale", "social", false],
   ["/es/editor-de-reels-miami", "la edición de Reels", "Miami", "social", false],
+  ["/es/editor-de-reels-boca-raton", "la edición de Reels y video", "Boca Raton", "social", false],
   ["/es/marketing-de-video-para-consultorios-medicos-miami", "el marketing de video para un consultorio médico", "Miami", "social"],
   ["/es/edicion-de-video-para-creadores-de-contenido-miami", "la edición de video como creador de contenido", "Miami", "social", false],
   ["/es/edicion-de-video-marca-blanca-para-agencias", "la edición de video en marca blanca", "Miami", "social", false],
@@ -273,7 +275,7 @@ function sentence(text: string): string {
 const CORE_PLACES = ["Miami", "Fort Lauderdale", "Miami-Dade County", "Broward County"] as const;
 const COUNTY_LIKE = new Set(["Miami-Dade County", "Broward County", "Palm Beach County"]);
 const REGIONS = new Set(["South Florida"]);
-const PALM_BEACH = new Set(["Palm Beach", "Palm Beach Gardens", "West Palm Beach", "Jupiter", "Delray Beach"]);
+const PALM_BEACH = new Set(["Boca Raton", "Palm Beach", "Palm Beach Gardens", "West Palm Beach", "Jupiter", "Delray Beach"]);
 
 export function nicheAreas(place: string): string[] {
   const extra = place === "Palm Beach" ? "Palm Beach County" : place;

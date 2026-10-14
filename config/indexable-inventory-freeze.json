@@ -2,8 +2,8 @@
   "status": "demand_gated",
   "effectiveDate": "2026-08-28",
   "baselineRevisedOn": "2026-10-14",
-  "approvedSitemapUrlCount": 358,
-  "approvedSitemapUrlSetSha256": "9dad24ddfb801ab24a7d0b0a8f933ace06a8a6d4a8fac238ab346a11e8482eda",
+  "approvedSitemapUrlCount": 360,
+  "approvedSitemapUrlSetSha256": "e6d0b50eef1b0cb68b1f4459e48e3756de430a8d7e8dba726189880374b5c91f",
   "allowedNewIndexableUrls": 4,
   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {
@@ -366,6 +366,19 @@
       "demandEvidence": "Own data: GSC 90d (2026-07-14..2026-10-12, 119 query rows) has 0 Fiverr/agency/restaurant-frequency queries; nearest is 'editora vídeo freelance' (8 impr, pos 45.6). Outside demand, live 2026-10-14: Google autocomplete returns 'how often should a restaurant post on instagram', 'how often should you post content on instagram' and 'cuantos reels publicar a la semana'. The existing /guides/freelance-video-editor-vs-post-agency pair compares freelancer vs agency without Fiverr fees or any sourced figure; the restaurant ideas guide says what to film, not how often. Sources read live 2026-10-14: Fiverr Help Center (5.5% + $3.50 under $200; 72-hour auto-complete), Clutch pricing guide updated 2026-09-21 ($100-$149/hour; projects typically under $10,000), Buffer 2025-08-13 (2.1M posts, 102K accounts).",
       "followUpDate": "2026-10-28",
       "followUp": "GSC query+page for the 4 URLs and sweep q61-q64; re-read the Fiverr and Clutch figures before 2026-12-31 and update or remove them if the sources changed."
+    },
+    {
+      "on": "2026-10-14",
+      "url": [
+        "/services/video-production-boca-raton",
+        "/es/editor-de-reels-boca-raton"
+      ],
+      "orderedBy": "Gonzalo (in-session 2026-10-14: explicit request for Boca Raton and West Palm Beach coverage)",
+      "kind": "re-admission of a cohort-noindexed city page (rebuilt) plus its new Spanish twin",
+      "demandEvidence": "Boca Raton was added to Esteban's Google Business Profile service area on 2026-10-14. Live Google 2026-10-14: Esteban does not appear for 'reels editor boca raton'. The Reels Fort Lauderdale formula (vault esteban-reels-fort-lauderdale-formula-2026-10-14) shows the AI Overview card is built from GBP city + category plus an exact-match page with the buyer's question and a price; Boca now has the GBP half, and these pages supply the page half. Own GSC data for the EN URL is zero (0 impressions, 'Discovered - currently not indexed', 2026-08-12 cohort), stated rather than dressed up. Spanish twin because Esteban works Spanish-first; target query 'editor de reels boca raton'.",
+      "followUpDate": "2026-10-28",
+      "followUp": "Re-run the esteban-search-sweep for 'reels editor boca raton' and 'editor de reels boca raton', and GSC query+page plus URL Inspection for both URLs, on 2026-10-28 and 2026-11-14. If still 'Discovered - currently not indexed' with zero impressions on 2026-11-14, fold the ES twin into /es/edicion-de-video-palm-beach-county rather than adding more Palm Beach pages.",
+      "note": "2 URLs, within one demand-wave allowance of 4. The EN URL is a re-admission (config/cohort-consolidation.json reopenedByOwner), not a new URL."
     }
   ]
 }

@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import sitemap from "../sitemap";
 import {
   MERGE_DECISIONS,
+  REOPENED_BY_OWNER,
   NOINDEX_DECISIONS,
   PROMOTED_TO_KEEP,
   consolidatedPathCount,
@@ -73,6 +74,22 @@ describe("cohort consolidation is executed, not just documented", () => {
   });
 });
 
+describe("owner re-admissions stay consistent with the noindex list", () => {
+  it("re-admits the Boca Raton page: out of the noindex list, indexable, sitemapped", () => {
+    // Owner decision 2026-10-14: Boca Raton joined the Google Business Profile
+    // service area, and the page was rebuilt before the noindex came off.
+    expect(REOPENED_BY_OWNER).toContain("/services/video-production-boca-raton");
+    const paths = new Set(sitemapPaths());
+    for (const path of REOPENED_BY_OWNER) {
+      expect(isNoindexPath(path)).toBe(false);
+      expect(isConsolidatedPath(path)).toBe(false);
+      expect(paths.has(path)).toBe(true);
+      const metadata = buildPageMetadata({ title: "t", description: "d", path, locale: "en" });
+      expect(metadata.robots).toBeUndefined();
+    }
+  });
+});
+
 describe("stale decisions were re-validated before execution", () => {
   it("promoted URLs that started earning impressions back to KEEP", () => {
     // Both were MERGE on 2026-08-12 and were earning by 2026-08-19. The
@@ -102,8 +119,10 @@ describe("stale decisions were re-validated before execution", () => {
 });
 
 describe("consolidation arithmetic matches the published baseline", () => {
-  it("removes exactly 26 URLs from the prior 269-URL inventory", () => {
-    expect(consolidatedPathCount()).toBe(26);
+  it("removes exactly 25 URLs from the prior 269-URL inventory", () => {
+    // 26 on 2026-08-19; 25 since the owner re-admitted the Boca Raton page on
+    // 2026-10-14 (reopenedByOwner in config/cohort-consolidation.json).
+    expect(consolidatedPathCount()).toBe(25);
     // +3 = /desk-recommendations (2026-09-16) plus the /pricing and
     // /es/precios pair (2026-09-27); +8 = the package pages (2026-09-29);
     // +2 = the real-estate rate-card pair (2026-09-29, demand-backed).
@@ -121,7 +140,9 @@ describe("consolidation arithmetic matches the published baseline", () => {
     // +1 = real product photography path (2026-10-11 US buyer query).
     // +1 = Spanish companion for the same real product photography offer.
     // All owner-ordered, none of them consolidation changes.
-    expect(sitemap()).toHaveLength(269 - 26 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 2 + 4 + 1 + 26 + 6 + 10 + 16 + 1 + 1 + 4 + 4 + 2 + 4);
+    // +1 = Boca Raton re-admitted (2026-10-14, owner decision) and +1 = its
+    // new Spanish twin /es/editor-de-reels-boca-raton.
+    expect(sitemap()).toHaveLength(269 - 25 + 1 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 2 + 4 + 1 + 26 + 6 + 10 + 16 + 1 + 1 + 4 + 4 + 2 + 4);
   });
 
   it("never lists a redirect source in the sitemap", () => {

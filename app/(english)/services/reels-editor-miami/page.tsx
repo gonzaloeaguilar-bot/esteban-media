@@ -102,6 +102,11 @@ const content: GeoServicePageContent = {
       detail: "Product clips and creator footage shaped into social ad variations.",
       href: "/services/ugc-video-editor-ecommerce",
     },
+    {
+      title: "Reels and video editing in Boca Raton",
+      detail: "Remote Reels editing for Boca Raton businesses in southern Palm Beach County.",
+      href: "/services/video-production-boca-raton",
+    },
   ],
   inquiry: {
     serviceId: "reels_editor_miami",

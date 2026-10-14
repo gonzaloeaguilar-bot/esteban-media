@@ -105,6 +105,10 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/es/guias/editor-local-vs-fiverr-vs-agencia-miami",
   "https://estebanmorenomedia.com/guides/how-many-reels-should-a-restaurant-post-per-week",
   "https://estebanmorenomedia.com/es/guias/cuantos-reels-debe-publicar-un-restaurante-por-semana",
+  // Boca Raton pair (owner decision 2026-10-14): the EN page was re-admitted
+  // from the cohort noindex list and the ES twin is new.
+  "https://estebanmorenomedia.com/services/video-production-boca-raton",
+  "https://estebanmorenomedia.com/es/editor-de-reels-boca-raton",
   // Added 2026-10-11 with niche wave 8 (owner-approved).
   "https://estebanmorenomedia.com/services/pre-construction-condo-video-marketing-miami",
   "https://estebanmorenomedia.com/es/video-para-preventa-de-condominios-miami",

@@ -37,6 +37,16 @@ export const NOINDEX_DECISIONS: readonly NoindexDecision[] =
 export const PROMOTED_TO_KEEP: readonly string[] =
   consolidation.promotedToKeep.map((entry) => entry.path);
 
+/**
+ * NOINDEX decisions the owner reversed after the page was rebuilt. Kept as a
+ * record so the reversal is visible and testable rather than a silent delete.
+ * 2026-10-14: the owner re-admitted /services/video-production-boca-raton after
+ * Boca Raton joined the Google Business Profile service area.
+ */
+export const REOPENED_BY_OWNER: readonly string[] = (
+  (consolidation as { reopenedByOwner?: { path: string }[] }).reopenedByOwner ?? []
+).map((entry) => entry.path);
+
 const MERGED_PATHS = new Set(MERGE_DECISIONS.map((entry) => entry.from));
 const NOINDEX_PATHS = new Set(NOINDEX_DECISIONS.map((entry) => entry.path));
 
