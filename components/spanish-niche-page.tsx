@@ -32,7 +32,8 @@ import {
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 import { NicheAnswers } from "@/components/niche-answers";
-import { withNicheService } from "@/lib/niche-answers";
+import { nicheEntry, withNicheService } from "@/lib/niche-answers";
+import { PageUpdated } from "@/components/page-updated";
 import { PriorityLinks } from "@/components/priority-links";
 
 
@@ -1545,6 +1546,13 @@ export function SpanishNichePage({
               <p className="mt-4 sm:mt-6 max-w-2xl text-lg leading-7 sm:leading-8 text-[#252a2d]">
                 {renderFormattedText(page.lead)}
               </p>
+              {/* NicheAnswers carries the visible date when the page has an entry;
+                  without one (round 2: /es/fotografo-en-fort-lauderdale,
+                  /es/drone-real-estate-miami) the JSON-LD had a dateModified the
+                  page never showed. */}
+              {nicheEntry(`/es/${page.slug}`, page.description) ? null : (
+                <PageUpdated path={`/es/${page.slug}`} locale="es" className="mt-3 text-xs text-[#5a6066]" />
+              )}
               {isPendingConfirmation ? (
                 <p
                   role="note"

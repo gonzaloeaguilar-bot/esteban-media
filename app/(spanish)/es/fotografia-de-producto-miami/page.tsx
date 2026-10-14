@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { ArrowRight, Mail, Phone } from "lucide-react";
 
+import { PageUpdated } from "@/components/page-updated";
 import { Container } from "@/components/ui/container";
+import { withPageDate } from "@/lib/page-lastmod";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -45,7 +47,7 @@ export default function FotografiaDeProductoMiamiPage() {
       <script
         type="application/ld+json"
         suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(withPageDate(path, jsonLd, absoluteUrl(path))) }}
       />
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
         <Container size="xl">
@@ -70,7 +72,7 @@ export default function FotografiaDeProductoMiamiPage() {
                 ¿Ya tienes fotos? Mira la opción con IA
               </Link>
             </div>
-            <p className="mt-6 text-xs text-[#5a6066]">Actualizado el 11 de octubre de 2026</p>
+            <PageUpdated path={path} locale="es" />
           </div>
         </Container>
       </section>

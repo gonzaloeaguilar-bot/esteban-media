@@ -1312,6 +1312,16 @@ const guidePairs: readonly GuidePair[] = [
       },
       sections: [
         {
+          // Definition first (round 2, 2026-10-14): autocomplete offers "what
+          // does a videographer do" and "what does a video editor do"; the
+          // page compared the two roles without ever defining either.
+          heading: "What is a videographer?",
+          paragraphs: [
+            "A videographer is the person who films the video. They run the camera, set the light and record the sound where the story happens: your business, an event, an interview or a property. On most projects their part ends when the footage is shot and ready to edit.",
+            "You need one when the footage does not exist yet, or when what you have is not good enough to publish. A video editor works after that point: they sort the footage, set the pace, mix the sound, correct the color and deliver a version for each platform. Many people do both, but they are two different jobs with different tools and different prices. If your footage is already shot, start with an editor. If it still has to be filmed, start with a videographer.",
+          ],
+        },
+        {
           heading: "What does a videographer do on location?",
           paragraphs: [
             "Start with the footage. If your team already recorded the scenes, a [video editing service](/services/short-form-video-editor-miami) can shape them into finished videos. If the footage does not exist, you need someone to plan and capture it on location; see [video production in Fort Lauderdale](/services/video-production-fort-lauderdale). A project that needs both filming and a finished cut needs both kinds of work in its quote.",
@@ -1463,6 +1473,17 @@ const guidePairs: readonly GuidePair[] = [
           "Los créditos aprobados del portafolio incluyen producción en locación y edición de video. Se enlaza como ejemplo publicado; nada publicado confirma alcance dual en todos los proyectos.",
       },
       sections: [
+        {
+          // Respuesta de definición primero (ronda 2, 2026-10-14): GSC 90d
+          // "videografo que es" 13 impresiones en posición 53, la página está
+          // "Crawled - currently not indexed" desde 2026-07-27 y el autocompletado
+          // sugiere "que es un videografo y para que sirve".
+          heading: "¿Qué es un videógrafo y para qué sirve?",
+          paragraphs: [
+            "Un videógrafo es la persona que graba el video. Opera la cámara, cuida la luz y capta el sonido en el lugar donde ocurre la historia: tu negocio, un evento, una entrevista o una propiedad. En la mayoría de los proyectos, su parte termina cuando el material queda grabado y listo para editar.",
+            "Sirve cuando el material todavía no existe, o cuando el que tienes no tiene la calidad para publicarse. El editor de video trabaja después: ordena ese material, define el ritmo, mezcla el sonido, corrige el color y entrega una versión para cada red. Muchas personas hacen las dos cosas, pero son dos trabajos distintos, con herramientas y precios distintos. Si ya tienes el material grabado, empieza por un editor. Si falta grabarlo, empieza por un videógrafo.",
+          ],
+        },
         {
           heading: "¿Qué hace un videógrafo en el set de grabación?",
           paragraphs: [

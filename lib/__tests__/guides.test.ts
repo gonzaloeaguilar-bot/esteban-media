@@ -398,8 +398,11 @@ describe("bilingual practical guides", () => {
     expect(esGuide).toBeDefined();
     if (!enGuide || !esGuide) return;
 
-    expect(enGuide.sections).toHaveLength(10);
-    expect(esGuide.sections).toHaveLength(8);
+    // +1 each: the definition-first "What is a videographer?" section (round 2, 2026-10-14).
+    expect(enGuide.sections).toHaveLength(11);
+    expect(esGuide.sections).toHaveLength(9);
+    expect(enGuide.sections[0].heading).toBe("What is a videographer?");
+    expect(esGuide.sections[0].heading).toBe("¿Qué es un videógrafo y para qué sirve?");
     expect(enGuide.faqs).toHaveLength(7);
     expect(esGuide.faqs).toHaveLength(6);
 
