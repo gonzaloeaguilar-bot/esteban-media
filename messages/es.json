@@ -64,6 +64,7 @@
       "gains-from-geebs": {
         "title": "Gains From Geebs Web App y Bot de IA para Instagram DM",
         "summary": "Plataforma web interactiva de fitness y bot conversacional de IA para Instagram DM (IG DM) diseñado para atender consultas sobre planes de entrenamiento, nutrición y calificación de prospectos 24/7.",
+        "metaDescription": "Plataforma web de fitness y bot de IA para Instagram DM de Gains From Geebs: responde consultas de planes y nutrición y califica prospectos 24/7.",
         "credits": "Ingeniería de aplicaciones web, calculadoras fitness y chatbot de IA conversacional para Instagram DM.",
         "results": [
           { "metric": "3.5x", "label": "Incremento en Uso Diario de Calculadoras" },
@@ -74,6 +75,7 @@
       "front-line-auto": {
         "title": "Frontline Auto Repair & Concierge IA de Servicio",
         "summary": "Sistema web para taller de reparación automotriz con chatbot concierge de IA 24/7 para agendamiento de reparaciones, cotizaciones de servicio y atención bilingüe.",
+        "metaDescription": "Sitio web para un taller automotriz con chatbot concierge de IA 24/7 que agenda reparaciones, da cotizaciones de servicio y atiende en español e inglés.",
         "credits": "Plataforma web de taller mecánico, interfaz de reservas de servicio y bot concierge de IA para reparaciones.",
         "results": [
           { "metric": "+65%", "label": "Tasa de Conversión de Reservas de Servicio" },
@@ -84,6 +86,7 @@
       "flas-concierge": {
         "title": "Fort Lauderdale Auto Sale (Concierge IA FLAS)",
         "summary": "Sistema web para concesionario de Fort Lauderdale y bot concierge de IA creado para precalificación de financiamiento Buy-Here-Pay-Here, inventarios y captura de clientes en tiempo real.",
+        "metaDescription": "Sitio web y concierge con IA para un concesionario Buy-Here-Pay-Here de Fort Lauderdale: precalificación de financiamiento, inventario y clientes.",
         "credits": "Arquitectura web para concesionario, suite de calculadoras BHPH y motor de chatbot de IA.",
         "results": [
           { "metric": "42%", "label": "Reducción en Abandono de Solicitudes BHPH" },
@@ -94,6 +97,7 @@
       "ai-lead-automation": {
         "title": "Chatbots de IA Conversacionales (Geebs IG DM Bot y FLAS)",
         "summary": "Chatbots de IA conversacional 24/7 desarrollados a la medida para Geebs (Bot para Instagram DM) y Fort Lauderdale Auto Sale (FLAS) para automatizar atención al cliente, calificar prospectos y cerrar citas.",
+        "metaDescription": "Chatbots de IA 24/7 para Geebs (Instagram DM) y Fort Lauderdale Auto Sale (FLAS) que atienden clientes, califican prospectos y agendan citas.",
         "credits": "Arquitectura de bots de IA, automatización para Instagram DM, ingeniería de prompts y captura de clientes.",
         "results": [
           { "metric": "4.8x", "label": "Captura de Clientes vs Formularios Estáticos" },
@@ -113,6 +117,7 @@
       "banacol": {
         "title": "Banacol",
         "summary": "Video corporativo para Banacol, producido con la agencia Jungelbox. Esteban realizó todas las tomas aéreas durante tres días en las operaciones de exportación de banano y plátano en Urabá, Antioquia, Colombia, incluyendo vuelos de dron desde lanchas en el mar.",
+        "metaDescription": "Video corporativo para Banacol con la agencia Jungelbox: tres días de tomas aéreas con dron en la exportación de banano en Urabá, Colombia.",
         "credits": "Cinematografía aérea con dron, por encargo de la agencia Jungelbox (Medellín, Colombia).",
         "results": [
           { "metric": "3 Días", "label": "Grabación Aérea con Dron en Urabá" },
@@ -122,6 +127,7 @@
       "bar-door-monkey": {
         "title": "Bar Door Monkey Miami",
         "summary": "Spot promocional para redes de Bar Door Monkey, un restaurante de Miami, producido en locación durante la grabación del programa Soccer y Más y entregado para el Instagram del lugar.",
+        "metaDescription": "Spot promocional para Bar Door Monkey, un restaurante de Miami, grabado en locación durante el programa Soccer y Más y entregado para su Instagram.",
         "credits": "Videografía y edición en locación para el spot social del restaurante.",
         "results": [
           { "metric": "+45k", "label": "Impresiones Orgánicas en Redes Sociales" },
@@ -149,6 +155,7 @@
       "diana-jack": {
         "title": "Diana & Jack",
         "summary": "Película de boda grabada en Boston, Massachusetts. Esteban fue el videógrafo y editor, y entregó una película completa de 20 minutos del día más un tráiler de resumen de alrededor de minuto y medio.",
+        "metaDescription": "Película de boda en Boston: Esteban grabó y editó una película de 20 minutos del día y un tráiler de resumen de alrededor de minuto y medio.",
         "credits": "Videografía y edición; entregables: película de 20 minutos y tráiler de resumen.",
         "results": [
           { "metric": "4K 60fps", "label": "Narrativa Cinematográfica en 4K" },
@@ -158,6 +165,7 @@
       "la-huelga": {
         "title": "La Huelga",
         "summary": "Cortometraje que Esteban dirigió como proyecto universitario en Colombia: una idea original, desarrollada con una guionista, basada en la historia real de la Masacre de las Bananeras. La producción tomó alrededor de siete meses.",
+        "metaDescription": "Cortometraje que Esteban dirigió como proyecto universitario en Colombia, basado en la historia real de la Masacre de las Bananeras. Tomó unos siete meses.",
         "credits": "Dirección, dirección de fotografía e idea original (desarrollada con una guionista).",
         "results": [
           { "metric": "7 Meses", "label": "Investigación Histórica y Producción" },
@@ -167,6 +175,7 @@
       "ml-colombia": {
         "title": "ML Colombia",
         "summary": "Contenido y estrategia digital para Miracle Leaf (ML Colombia), la marca propia de comercio electrónico de cosméticos con CBD que Esteban fundó y dirigió durante unos seis años. Como CEO lideró la marca de principio a fin: contenido digital, estrategia y dos sitios web sucesivos.",
+        "metaDescription": "Contenido y estrategia digital para Miracle Leaf (ML Colombia), la marca de cosméticos con CBD que Esteban fundó y dirigió como CEO durante unos seis años.",
         "credits": "Fundador y CEO; contenido y estrategia digital (marca propia).",
         "results": [
           { "metric": "6 Años", "label": "Escalamiento Exitoso de Marca como CEO" },

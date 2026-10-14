@@ -45,7 +45,7 @@ export async function generateMetadata({
     // The "Portafolio: " prefix is dropped when it would push the title past
     // the ~60-character cut (loop row 31: 66 and 68 characters).
     title: `Portafolio: ${copy.title}`.length > TITLE_BUDGET ? copy.title : `Portafolio: ${copy.title}`,
-    description: copy.summary,
+    description: copy.metaDescription ?? copy.summary,
     descriptionMax: 155,
     path,
     locale: "es",

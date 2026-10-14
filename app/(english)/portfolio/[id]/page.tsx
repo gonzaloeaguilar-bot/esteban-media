@@ -41,7 +41,7 @@ export async function generateMetadata({
 
   return buildPageMetadata({
     title: copy.title,
-    description: copy.summary,
+    description: copy.metaDescription ?? copy.summary,
     // Summaries are body copy; 22 ran past the ~155-character snippet cut
     // (SEO/GEO audit 2026-10-10, fix 12).
     descriptionMax: 155,
