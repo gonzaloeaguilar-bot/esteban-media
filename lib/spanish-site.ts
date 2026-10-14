@@ -4824,10 +4824,8 @@ const nicheBatch20261006Hreflang = Object.fromEntries(
       ["/services/video-production-fort-lauderdale", "/es/produccion-de-video-fort-lauderdale"],
       ["/services/hotel-hospitality-video-production-miami", "/es/produccion-de-video-para-hoteles-miami"],
       ["/services/content-repurposing-service-miami", "/es/reutilizacion-de-contenido-para-redes-miami"],
-      // Row 30 (2026-10-14): the new ES twin, and the Brickell pair that already
-      // existed on both sides with no hreflang between them.
+      // Row 30 (2026-10-14): the new ES twin.
       ["/services/hire-remote-video-editor", "/es/contratar-editor-de-video-remoto"],
-      ["/services/corporate-video-production-brickell", "/es/video-corporativo-distrito-financiero-miami"],
     ] as const
   ).flatMap(([en, es]) =>
     [en, es].map((path) => [path, { "en-US": en, "es-US": es, "x-default": en }] as const),

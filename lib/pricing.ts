@@ -287,8 +287,8 @@ export const PRODUCT_PHOTO_SESSION = {
   source: "owner-authorized starting price 2026-08-28 (docs/pricing-basis.md)",
 } as const;
 
-// Filming (on-location recording) hourly floor. Owner fact relayed by Gonzalo
-// on 2026-10-14: "filming (grabación) starts at $80 per hour, minimum".
+// Filming (on-location recording) hourly floor. Owner fact relayed by the
+// project operator on 2026-10-14: "filming (grabación) starts at $80 per hour, minimum".
 // It is a FLOOR for filming time only. Do not derive editing-per-hour, travel
 // or overtime figures from it; none of those has been given by the owner.
 // Copy reads it through filmingHourlyText(); never hard-code the figure.
@@ -297,7 +297,7 @@ export const FILMING_HOURLY = {
   currency: "USD",
   unit: "hour",
   isMinimum: true,
-  source: "owner fact 2026-10-14 (relayed by Gonzalo): filming from $80 per hour",
+  source: "owner fact 2026-10-14 (relayed by the project operator): filming from $80 per hour",
 } as const;
 
 /** "from $80 per hour of filming" / "desde $80 por hora de grabación". */
