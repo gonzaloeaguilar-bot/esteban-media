@@ -1701,7 +1701,7 @@ export function SpanishNichePage({
                   Guía de alcance y criterios técnicos
                 </p>
                 <h2 className="mt-3 font-serif text-3xl sm:text-4xl">
-                  Estrategia, formato y edición de video corto para negocios
+                  {page.sectionsHeading ?? "Estrategia, formato y edición de video corto para negocios"}
                 </h2>
               </div>
                   {sectionArticles}

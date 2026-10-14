@@ -433,7 +433,7 @@ export const IMMIGRATION_ATTORNEY_DEEP_DIVE: DeepDive = {
       heading: "What review should happen before an attorney's reel is published?",
       paragraphs: [
         "Three passes. First, the attorney approves the outline before filming, so the recording already says what the firm is comfortable saying. Second, after the edit, the firm watches the cut as a viewer would: the Spanish captions, any on-screen text, the attorney's name and title, and the disclaimer the firm supplies. Third, the firm confirms the caption and the link that will go out with the post.",
-        "Esteban's part is the edit and the placement of approved text; the firm owns compliance with The Florida Bar's advertising rules and any filing or review those rules require. Building the passes into the calendar keeps the series moving without skipping a check. Firms with other practice areas can also see [law firm video production](/services/law-firm-video-production-miami).",
+        "Esteban's part is the edit and the placement of approved text; the firm owns compliance with The Florida Bar's advertising rules and any filing or review those rules require. Building the passes into the calendar keeps the series moving without skipping a check. Firms that record talks or webinars can also see [webinar clip editing](/services/webinar-clip-editing-service).",
       ],
     },
   ],
@@ -477,7 +477,7 @@ export const QUINCEANERA_DEEP_DIVE: DeepDive = {
       heading: "Who decides what is posted on social media?",
       paragraphs: [
         "The parents. The quinceañera is fifteen, so the family approves every clip before it is shared and decides whether it goes on the family's accounts, on her own or nowhere at all. Guests who appear clearly, and especially other children, should be comfortable being shown; when in doubt, the edit uses wider shots or leaves them out.",
-        "Venues sometimes have their own rules about filming and posting, and the family confirms them with the venue. For public posts, music needs to be licensed or chosen from the platform's library, while the private highlight can keep the songs from the party. Agreeing those points before the date avoids re-editing later. The [event video editing](/services/event-video-editing-miami) page covers recaps of other celebrations.",
+        "Venues sometimes have their own rules about filming and posting, and the family confirms them with the venue. For public posts, music needs to be licensed or chosen from the platform's library, while the private highlight can keep the songs from the party. Agreeing those points before the date avoids re-editing later. The [nightlife and event video editing](/services/nightlife-event-video-editing-miami) page covers recaps of other events.",
       ],
     },
   ],

@@ -214,6 +214,8 @@ export type SpanishNichePage = {
   projectFit: string;
   sections?: readonly SpanishNicheSection[];
   sectionsDisclosure?: string;
+  /** H2 over visible (unfolded) sections; the default names short-form video, wrong for a videographer page. */
+  sectionsHeading?: string;
   /** Summary line under the disclosure title; names what is inside the fold. */
   sectionsDestinations?: string;
   updated?: string;
@@ -539,7 +541,7 @@ const nicheWave8Pages: SpanishNichePage[] = [
         heading: "¿Qué revisión necesita un reel antes de publicarse?",
         paragraphs: [
           "Tres pasos. Primero, el abogado aprueba el esquema antes de grabar, para que la grabación ya diga lo que la firma está dispuesta a decir. Segundo, después de la edición, la firma mira el corte como lo vería el público: los subtítulos en español, el texto en pantalla, el nombre y el título del abogado y el aviso que entrega la firma. Tercero, la firma confirma la descripción y el enlace que acompañan la publicación.",
-          "La parte de Esteban es la edición y la colocación del texto aprobado; el cumplimiento de las reglas de publicidad de la Florida Bar es de la firma. Para otras áreas de práctica, revisa el [marketing de video para abogados](/es/marketing-de-video-para-abogados-miami) y la [producción de video para firmas de abogados](/es/produccion-de-video-para-firmas-de-abogados-miami).",
+          "La parte de Esteban es la edición y la colocación del texto aprobado; el cumplimiento de las reglas de publicidad de la Florida Bar es de la firma. Para otras áreas de práctica, revisa el [marketing de video para abogados](/es/marketing-de-video-para-abogados-miami).",
         ],
       },
     ],
@@ -795,7 +797,7 @@ const nicheWave8Pages: SpanishNichePage[] = [
         heading: "¿Quién decide qué se publica en redes?",
         paragraphs: [
           "Los padres. La quinceañera tiene quince años, así que la familia aprueba cada clip antes de compartirlo y decide si va en las cuentas de la familia, en la de ella o en ninguna. Los invitados que se reconocen, y sobre todo otros niños, deben estar de acuerdo en aparecer; si hay duda, la edición usa planos más abiertos o los deja fuera.",
-          "Algunos salones tienen reglas propias sobre grabar y publicar, y la familia las confirma con el lugar. Para las publicaciones públicas, la música debe tener licencia o salir de la biblioteca de la plataforma; la película privada puede conservar las canciones de la fiesta. La [edición de video para eventos](/es/edicion-de-video-para-eventos-miami) cubre otras celebraciones, y el [editor de video corto](/es/editor-de-video-corto-para-redes-miami) los clips verticales.",
+          "Algunos salones tienen reglas propias sobre grabar y publicar, y la familia las confirma con el lugar. Para las publicaciones públicas, la música debe tener licencia o salir de la biblioteca de la plataforma; la película privada puede conservar las canciones de la fiesta. La [edición de video para discotecas y eventos](/es/edicion-de-video-para-discotecas-y-eventos-miami) cubre otros eventos, y el [editor de video corto](/es/editor-de-video-corto-para-redes-miami) los clips verticales.",
         ],
       },
     ],
@@ -859,7 +861,7 @@ const nicheWave8Pages: SpanishNichePage[] = [
         heading: "¿Cómo se planea el contenido alrededor de recitales e inscripciones?",
         paragraphs: [
           "Trabajando hacia atrás desde las fechas que ya existen. Antes de abrir una sesión nueva, publica recordatorios con clips de clase y una presentación del profesor de cada nivel. Antes de un recital, muestra momentos del ensayo que generen expectativa sin revelar toda la coreografía. Después de la función, publica primero el resumen y luego un clip corto por grupo, para que cada familia vea el momento de su hijo.",
-          "En los meses tranquilos, las piezas de progreso y el detrás de cámaras mantienen la cuenta activa. La [producción masiva de video para redes](/es/produccion-masiva-de-video-para-redes-miami) permite editar un mes completo en una sola tanda, y la [edición de video para eventos](/es/edicion-de-video-para-eventos-miami) cubre los recitales.",
+          "En los meses tranquilos, las piezas de progreso y el detrás de cámaras mantienen la cuenta activa. La [producción masiva de video para redes](/es/produccion-masiva-de-video-para-redes-miami) permite editar un mes completo en una sola tanda, y la [edición de video para discotecas y eventos](/es/edicion-de-video-para-discotecas-y-eventos-miami) cubre los resúmenes de eventos.",
         ],
       },
     ],
@@ -1022,6 +1024,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     ],
     projectFit:
       "Esta página reúne la edición y la producción selectiva en Miami con trabajos publicados. Para edición de video corto con material existente, consulta con un [editor de Reels en Miami](/es/editor-de-reels-miami). No promete disponibilidad, formatos ni un alcance universal.",
+    sectionsHeading: "Antes de contratar un videógrafo cerca de ti",
     sections: [
       {
         // Row 72 (2026-10-14): autocomplete "videografo cerca de mi".
@@ -1073,6 +1076,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     ],
     projectFit:
       "Esta ruta explica la base local y ayuda a preparar una consulta sobre edición o producción selectiva. Si ya tienes material grabado y buscas optimizarlo para redes, consulta como [editor de Reels en Fort Lauderdale](/es/editor-de-reels-fort-lauderdale). El alcance se confirma para cada proyecto.",
+    sectionsHeading: "Antes de contratar un videógrafo cerca de ti",
     sections: [
       {
         // Row 72 (2026-10-14): autocomplete "videografo cerca de mi"; no page said "cerca de".
