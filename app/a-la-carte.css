@@ -18,8 +18,8 @@
 .em-carte-disclosure[data-rail-open] .em-carte-hint svg{transform:rotate(45deg)}
 .em-carte-disclosure .rail-disclosure__panel{padding:0}
 .em-carte-disclosure .rail-disclosure__panel[hidden]{display:none}
-.em-carte-preparation{padding:16px 20px;background:#e7eee6;border-top:1px solid #cbd7c8}
-.em-carte-preparation p{margin:0;font-size:16px;line-height:1.55;color:#233b31}
+.em-carte-preparation{padding:16px 20px;background:#f4ebdf;border-top:1px solid #ddd4c8}
+.em-carte-preparation p{margin:0;font-size:16px;line-height:1.55;color:#101214}
 .em-carte-link{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:49px;margin:0 20px;padding:12px 0;color:#9f3c27;border-top:1px solid #ded3c5;text-decoration:none;font-size:15px;font-weight:600;line-height:1.4}
 .em-carte-link svg{flex-shrink:0}
 .em-carte :is(button,a):focus-visible{outline:3px solid #9f3c27;outline-offset:-4px;border-radius:8px}

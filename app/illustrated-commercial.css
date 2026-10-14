@@ -91,11 +91,11 @@
 .em-plan-pricing-link svg{flex-shrink:0;transition:transform 160ms ease}
 .em-plan-pricing-link:hover svg{transform:translateX(3px)}
 .em-visual-plans .em-plan-choice>p{color:#f5eadb}
-.em-visual-plans .em-plan-choice .rail-segmented{border-color:#89938c;background:#263534}
+.em-visual-plans .em-plan-choice .rail-segmented{border-color:#6a625a;background:#263534}
 .em-visual-plans .em-plan-choice .rail-segmented__segment{color:#e9e6dd;white-space:pre-line;line-height:1.5;font-size:14px;padding:9px 4px;min-width:0}
 .em-visual-plans .em-plan-choice .rail-segmented__segment[data-active]{background:#f5e4d1;color:#172322}
 .em-plan-drone{font-size:14px;line-height:1.5;color:#414548;padding:12px 0 0;margin:0}
-.em-plan-drone strong{color:#173b32}
+.em-plan-drone strong{color:#101214}
 .em-visual-plans :is(a,button,summary):focus-visible{outline-color:#bc6648}
 .em-visual-plans .em-plan-choice button:focus-visible{outline-color:#ffd4bd}
 .em-visual-plan:not([hidden])~.em-visual-plan:not([hidden]){margin-top:24px}
@@ -342,11 +342,11 @@ body:has(.em-sheet-details[open])::after{content:"";position:fixed;inset:0;backg
 .em-single-note{font-size:13px;line-height:1.4;color:#655b53}
 .em-single-plus{flex:none;color:#5b5046;transition:transform 180ms ease}
 .em-single-item[open] .em-single-plus{transform:rotate(45deg)}
-.em-single-panel{padding:14px 16px 16px;background:#e7eee6;border-top:1px solid #cbd7c8}
-.em-single-panel p{margin:0 0 12px;font-size:15px;line-height:1.55;color:#233b31}
+.em-single-panel{padding:14px 16px 16px;background:#f4ebdf;border-top:1px solid #ddd4c8}
+.em-single-panel p{margin:0 0 12px;font-size:15px;line-height:1.55;color:#101214}
 .em-single-actions{display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px}
 .em-single-ask{min-height:44px;padding:0 18px;border:1.5px solid #9d3d2b;border-radius:12px;background:transparent;color:#9d3d2b;font-size:15px;font-weight:600;cursor:pointer}
-.em-single-service{display:inline-flex;align-items:center;min-height:44px;color:#233b31;font-size:15px;font-weight:600;text-decoration:underline;text-underline-offset:4px}
+.em-single-service{display:inline-flex;align-items:center;min-height:44px;color:#9d3d2b;font-size:15px;font-weight:600;text-decoration:underline;text-underline-offset:4px}
 .em-single-credit{margin:0 0 16px;font-size:12px;line-height:1.6;color:#685b51}
 .em-single-item :is(summary,button,a):focus-visible{outline:3px solid #9d3d2b;outline-offset:-3px;border-radius:12px}
 @media(prefers-reduced-motion:reduce){.em-single-plus{transition:none}}
@@ -376,7 +376,7 @@ body:has(.em-sheet-details[open])::after{content:"";position:fixed;inset:0;backg
    marks which of the 2 steps the visitor is on. No new animation vocabulary. */
 .em-funnel-rec{display:inline-flex;align-items:center;gap:7px;margin:0 0 10px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6a625a}
 .em-funnel-rec i{display:block;height:9px;width:9px;flex-shrink:0;border-radius:50%;background:#ab3424;box-shadow:0 0 0 4px #f2e5d5}
-.em-funnel-rec[data-done=true] i{background:#3f6b4f}
+.em-funnel-rec[data-done=true] i{background:#101214}
 .em-funnel-strip{display:flex;gap:4px;margin:0 0 16px;height:5px}
 .em-funnel-strip i{flex:1;border-radius:3px;background:#e7dfd5;transition:background 220ms ease}
 .em-funnel-strip i[data-lit=true]{background:#9d3d2b}
