@@ -72,7 +72,6 @@ export default function ProductPhotographyMiamiPage() {
                 Have photos already? Explore AI visuals
               </Link>
             </div>
-            <p className="mt-6 text-xs text-[#5a6066]">Updated October 11, 2026</p>
           </div>
         </Container>
       </section>

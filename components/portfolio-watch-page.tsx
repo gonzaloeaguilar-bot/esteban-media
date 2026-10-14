@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { YouTubeFacade } from "@/components/youtube-facade";
 import { spanishServices } from "@/lib/spanish-site";
 import { services } from "@/lib/site";
 import { buildPortfolioWatchSchema } from "@/lib/portfolio-schema";
@@ -222,16 +223,11 @@ export function PortfolioWatchPage({ item, locale }: PortfolioWatchPageProps) {
                 className="object-cover"
               />
               {isYouTubeSource(item.media) ? (
-                <iframe
-                  className="absolute inset-0 size-full border-0"
-                  src={`https://www.youtube-nocookie.com/embed/${encodeURIComponent(
-                    item.media.videoId,
-                  )}?playsinline=1&rel=0`}
+                <YouTubeFacade
+                  videoId={item.media.videoId}
                   title={text.iframe(copy.title)}
-                  loading="eager"
-                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
+                  playLabel={locale === "es" ? `Reproducir video: ${copy.title}` : `Play video: ${copy.title}`}
+                  source={`portfolio_play_${item.id}`}
                 />
               ) : item.websiteUrl ? (
                 <a
@@ -421,12 +417,12 @@ export function PortfolioWatchPage({ item, locale }: PortfolioWatchPageProps) {
           <Container size="xl">
             <div className="max-w-3xl">
               <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#9f3c27]">
-                {locale === "es" ? "Resultados del Proyecto & Impacto" : "Key Results & Business Impact"}
+                {locale === "es" ? "Datos del proyecto" : "Project facts"}
               </p>
               <h2 className="mt-3 font-serif text-3xl sm:text-4xl">
                 {locale === "es"
-                  ? "Impacto medible impulsado para este cliente."
-                  : "Measurable outcomes driven for this client."}
+                  ? "¿Qué incluyó este proyecto?"
+                  : "What did this project include?"}
               </h2>
             </div>
             <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

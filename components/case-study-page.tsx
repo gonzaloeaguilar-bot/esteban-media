@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { YouTubeFacade } from "@/components/youtube-facade";
 import {
   buildCaseStudyStructuredData,
   getCaseStudyAlternates,
@@ -122,16 +123,11 @@ export function CaseStudyPage({ caseStudy }: CaseStudyPageProps) {
                 className="object-cover"
               />
               {portfolioItem && isYouTubeSource(portfolioItem.media) ? (
-                <iframe
-                  className="absolute inset-0 size-full border-0"
-                  src={`https://www.youtube-nocookie.com/embed/${encodeURIComponent(
-                    portfolioItem.media.videoId,
-                  )}?playsinline=1&rel=0`}
+                <YouTubeFacade
+                  videoId={portfolioItem.media.videoId}
                   title={`${caseStudy.title} video`}
-                  loading="eager"
-                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
+                  playLabel={isSpanish ? `Reproducir video: ${caseStudy.client}` : `Play video: ${caseStudy.client}`}
+                  source={`case_study_play_${caseStudy.slug}`}
                 />
               ) : caseStudy.websiteUrl ? (
                 <a

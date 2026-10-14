@@ -13,6 +13,7 @@ import {
 import { UGC_ECOMMERCE_DEPTH } from "@/lib/service-depth-content";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
+import { DefinitionAnswer } from "@/components/definition-answer";
 import { NicheAnswers } from "@/components/niche-answers";
 import { withNicheService } from "@/lib/niche-answers";
 
@@ -109,6 +110,8 @@ export default function UGCVideoEditorEcommercePage() {
           </div>
         </Container>
       </section>
+
+      <DefinitionAnswer path="/services/ugc-video-editor-ecommerce" />
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">

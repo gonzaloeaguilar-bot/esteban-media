@@ -60,6 +60,12 @@ export type EventPageCopy = {
 };
 
 const lowerFirst = (value: string) => value.charAt(0).toLowerCase() + value.slice(1);
+// A venue that is a proper name ("Miami Beach Convention Center": every word
+// capitalised) keeps its capital; a description ("Several Fort Lauderdale
+// marinas…") reads mid-sentence in lower case. lowerFirst on every venue
+// printed "at miami Beach Convention Center" on 4 event pages (loop round 4).
+const venueMidSentence = (value: string) =>
+  value.split(/\s+/).every((word) => !/^\p{Ll}/u.test(word)) ? value : lowerFirst(value);
 
 /** The pricing paragraph every event page shares, built from the package prices. */
 export function eventScopeSection(locale: EventLocale): { heading: string; paragraphs: string[] } {
@@ -92,7 +98,7 @@ export function eventDatesSentence(event: AnnualEvent, locale: EventLocale, now?
     if (!edition) {
       return `${event.name} normalmente ocurre ${typical.replace(/^normalmente /, "")}. Las guías de eventos todavía no publican la próxima edición, así que revisa las fechas en el sitio oficial.`;
     }
-    const where = edition.where ? `, en ${lowerFirst(edition.where.es)}` : "";
+    const where = edition.where ? `, en ${venueMidSentence(edition.where.es)}` : "";
     const windows = edition.windows?.length
       ? ` (${edition.windows.map((w) => `${w.label.es}: ${formatDateRange(w.start, w.end, "es")}`).join("; ")})`
       : "";
@@ -101,7 +107,7 @@ export function eventDatesSentence(event: AnnualEvent, locale: EventLocale, now?
   if (!edition) {
     return `${event.name} is ${typical}. Event guides have not listed the next edition yet, so check the dates on the official site.`;
   }
-  const where = edition.where ? `, at ${lowerFirst(edition.where.en)}` : "";
+  const where = edition.where ? `, at ${venueMidSentence(edition.where.en)}` : "";
   const windows = edition.windows?.length
     ? ` (${edition.windows.map((w) => `${w.label.en}: ${formatDateRange(w.start, w.end, "en")}`).join("; ")})`
     : "";

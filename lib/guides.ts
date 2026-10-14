@@ -3914,6 +3914,31 @@ const guidePairs: readonly GuidePair[] = [
           "Social-media videos for a Miami dental clinic, made on assignment with the agency 300 Bees: filmed on location with video and sound, then edited. Not a testimonial: linked as a public sample of on-location filming with sound, not as evidence of testimonial work.",
       },
       sections: [
+        // Definition-first and a usable script (overnight loop row 32): GSC
+        // "client testimonial video script" 8 impressions at position 46;
+        // autocomplete "what is a video testimonial", "testimonial video questions".
+        {
+          heading: "What is a video testimonial?",
+          paragraphs: [
+            "A video testimonial is a short recorded interview in which a real customer explains, in their own words, the problem they had, why they chose a business and what changed afterwards. It works because the viewer hears it from someone like them rather than from the company. The usual form is a seated interview filmed with clean sound, cut into one full version for the website and a few short clips for social media.",
+            "It is not an ad read from a script, and it is not a screenshot of a review. The customer answers open questions and the editor builds the story from those answers, so nothing in it is written for them. That is also why it needs the customer's signed permission to publish their face, name and words before anything goes live.",
+          ],
+        },
+        {
+          heading: "What does a testimonial video script look like?",
+          paragraphs: [
+            "A testimonial script is a plan for the interview and the edit, not lines for the customer to read. Write the questions, their order and a target length for each answer, and leave the words to the customer. Ask them to repeat the question inside each answer (\"Before we worked with them, we…\") so every clip stands alone without the interviewer's voice, and leave a second of silence after each answer so the editor has a clean cut. Each answer can then become its own vertical clip for Reels or Shorts.",
+            "For a website version of one to two minutes, this order cuts cleanly:",
+          ],
+          bullets: [
+            "Who they are (about 10 seconds): \"Tell us your name, your business and what you do.\"",
+            "Before (20 to 30 seconds): \"What was going on before you started working with [business]?\"",
+            "The doubt (15 to 20 seconds): \"What almost stopped you from going ahead?\"",
+            "The decision (15 to 20 seconds): \"What made you decide, and what did you notice first?\"",
+            "After (20 to 30 seconds): \"What is different now?\" Numbers only if the customer has them.",
+            "The recommendation (about 10 seconds): \"Who would you tell to do the same, and what would you tell them?\"",
+          ],
+        },
         {
           heading: "How much does a customer testimonial video cost in Miami?",
           paragraphs: [
@@ -3960,6 +3985,28 @@ const guidePairs: readonly GuidePair[] = [
           "Videos para redes de un consultorio odontológico en Miami, por encargo de la agencia 300 Bees: grabados en locación con video y sonido, y luego editados. No es un testimonial: se enlaza como ejemplo de grabación en locación con sonido, no como prueba de trabajo testimonial.",
       },
       sections: [
+        {
+          heading: "¿Qué es un video testimonial?",
+          paragraphs: [
+            "Un video testimonial es una entrevista corta grabada en la que un cliente real cuenta, con sus propias palabras, qué problema tenía, por qué eligió a un negocio y qué cambió después. Funciona porque quien lo ve lo escucha de alguien como él y no de la empresa. La forma habitual es una entrevista sentada, grabada con buen sonido, que se edita en una versión completa para la web y en algunos clips cortos para redes.",
+            "No es un anuncio leído de un guion ni la captura de pantalla de una reseña. El cliente responde preguntas abiertas y el editor arma la historia con esas respuestas, así que nada se escribe por él. Por eso también necesita el permiso firmado del cliente para publicar su imagen, su nombre y sus palabras antes de que salga al aire.",
+          ],
+        },
+        {
+          heading: "¿Cómo es el guion de un video testimonial?",
+          paragraphs: [
+            "El guion de un testimonial es un plan para la entrevista y la edición, no frases para que el cliente lea. Escribe las preguntas, su orden y una duración objetivo para cada respuesta, y deja las palabras al cliente. Pídele que repita la pregunta dentro de cada respuesta (\"Antes de trabajar con ellos, nosotros…\") para que cada clip se entienda sin la voz de quien entrevista, y deja un segundo de silencio después de cada respuesta para que el editor tenga un corte limpio. Cada respuesta puede convertirse después en su propio clip vertical para Reels o Shorts.",
+            "Para una versión web de uno a dos minutos, este orden se edita sin saltos:",
+          ],
+          bullets: [
+            "Quién es (unos 10 segundos): \"Dinos tu nombre, tu negocio y a qué te dedicas.\"",
+            "Antes (20 a 30 segundos): \"¿Qué pasaba antes de empezar a trabajar con [negocio]?\"",
+            "La duda (15 a 20 segundos): \"¿Qué casi te detuvo?\"",
+            "La decisión (15 a 20 segundos): \"¿Qué te hizo decidir y qué notaste primero?\"",
+            "Después (20 a 30 segundos): \"¿Qué es distinto ahora?\" Cifras solo si el cliente las tiene.",
+            "La recomendación (unos 10 segundos): \"¿A quién le dirías que haga lo mismo y qué le dirías?\"",
+          ],
+        },
         {
           heading: "¿Cuánto cuesta un video testimonial en Miami?",
           paragraphs: [
