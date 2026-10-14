@@ -46,6 +46,8 @@ const COPY = {
     doneClose: "Close",
     errorMessage: "The form could not be sent. Message Esteban directly instead.",
     errorWhatsapp: "WhatsApp",
+    recRecording: "Recording",
+    recStopped: "Captured",
   },
   es: {
     confirmHeading: "Tu proyecto",
@@ -67,6 +69,8 @@ const COPY = {
     doneClose: "Cerrar",
     errorMessage: "No se pudo enviar el formulario. Escríbele directo por WhatsApp.",
     errorWhatsapp: "WhatsApp",
+    recRecording: "Grabando",
+    recStopped: "Capturado",
   },
 } as const;
 
@@ -175,6 +179,26 @@ export function HomePathFunnel({
           <X size={18} aria-hidden="true" />
         </button>
 
+        {/* The camera grammar that opens the homepage (shutter, timecode,
+            viewfinder) continuing as the funnel's own beat: a record dot
+            that is "recording" through steps 1-2 and "captured" once sent,
+            plus a 3-cell filmstrip that lights one more cell per step — the
+            same gesture (em-art-record / em-art-film) repeated with
+            variation, not a new animation per step. */}
+        {step !== "error" && (
+          <>
+            <span className="em-funnel-rec" data-recording={step !== "done"} data-done={step === "done"}>
+              <i aria-hidden="true" />
+              {step === "done" ? c.recStopped : c.recRecording}
+            </span>
+            <span className="em-funnel-strip" aria-hidden="true">
+              <i data-lit="true" />
+              <i data-lit={step !== "confirm"} />
+              <i data-lit={step === "done"} />
+            </span>
+          </>
+        )}
+
         {step === "confirm" && (
           <>
             <h3 id="em-funnel-heading" className="em-funnel-h">{c.confirmHeading}</h3>
@@ -211,7 +235,7 @@ export function HomePathFunnel({
         )}
 
         {step === "done" && (
-          <>
+          <div className="em-funnel-done-reveal">
             <h3 id="em-funnel-heading" className="em-funnel-h"><Check size={20} aria-hidden="true" /> {c.doneHeading}</h3>
             <p className="em-funnel-note em-funnel-recap">
               <span><strong>{c.doneProject}:</strong> {laneLabel}</span>
@@ -221,10 +245,14 @@ export function HomePathFunnel({
             <button type="button" className="em-funnel-primary" onClick={onClose} data-cta="home_path_funnel_done_close">
               {c.doneClose}
             </button>
+            {/* Kept from #414: a direct WhatsApp fallback on the done step,
+                so the visitor is never left with only a Close button. It sits
+                INSIDE the reveal wrapper so it arrives with the rest of the
+                payoff rather than after it. */}
             <a className="em-funnel-wa" href={whatsappHref(site.phone.e164, c.whatsappMessage)} target="_blank" rel="noopener noreferrer" data-cta="home_path_funnel_done_whatsapp">
               {c.errorWhatsapp}
             </a>
-          </>
+          </div>
         )}
 
         {step === "error" && (
