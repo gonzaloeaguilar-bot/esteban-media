@@ -27,6 +27,24 @@ export const metadata = buildPageMetadata({
   locale: "es",
 });
 
+// No links into noindexed pages (SEO/GEO audit 2026-10-10, fix 5).
+const nicheLinks = spanishNichePages.filter((page) => !isConsolidatedPath(`/es/${page.slug}`));
+// The index is every niche page's inlink, so none of it is removed; only the
+// part past the first screen folds into a native <details>, which is in the
+// served HTML. It was 3,942px (48% of the phone page) when fully open.
+const NICHE_VISIBLE = 9;
+
+function NicheIndexItem({ page }: { page: (typeof nicheLinks)[number] }) {
+  return (
+    <li>
+      <Link href={`/es/${page.slug}`}>
+        {page.title}
+        <ArrowRight className="size-4" aria-hidden="true" />
+      </Link>
+    </li>
+  );
+}
+
 export default function SpanishHomePage() {
   return (
     <main className="em-home bg-[#f7f5f1] text-[#101214]">
@@ -96,18 +114,21 @@ export default function SpanishHomePage() {
             inverted
           />
           <ul className="em-index-compact" role="list">
-            {/* No links into noindexed pages (SEO/GEO audit 2026-10-10, fix 5). */}
-            {spanishNichePages
-              .filter((page) => !isConsolidatedPath(`/es/${page.slug}`))
-              .map((page) => (
-              <li key={page.slug}>
-                <Link href={`/es/${page.slug}`}>
-                  {page.title}
-                  <ArrowRight className="size-4" aria-hidden="true" />
-                </Link>
-              </li>
+            {nicheLinks.slice(0, NICHE_VISIBLE).map((page) => (
+              <NicheIndexItem key={page.slug} page={page} />
             ))}
           </ul>
+          <details className="em-index-more">
+            <summary>
+              <span>Ver las {nicheLinks.length - NICHE_VISIBLE} páginas restantes</span>
+              <span className="em-index-more__chev" aria-hidden="true" />
+            </summary>
+            <ul className="em-index-compact" role="list">
+              {nicheLinks.slice(NICHE_VISIBLE).map((page) => (
+                <NicheIndexItem key={page.slug} page={page} />
+              ))}
+            </ul>
+          </details>
         </Container>
       </section>
 

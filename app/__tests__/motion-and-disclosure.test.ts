@@ -243,7 +243,11 @@ describe("the service shelf", () => {
     // The niche list is filtered to indexable pages before mapping (SEO/GEO
     // audit 2026-10-10, fix 5); it stays — it is informational (every niche
     // page's link), not a repeat of "what can he do".
-    expect(home).toMatch(/spanishNichePages\s*\.filter\(\(page\) => !isConsolidatedPath\([^\n]*\)\)\s*\.map\(/);
+    expect(home).toMatch(/nicheLinks = spanishNichePages\s*\.filter\(\(page\) => !isConsolidatedPath\([^\n]*\)\)/);
+    // Past the first nine the index folds into a native, server-rendered
+    // <details>: collapsed is not removed.
+    expect(home).toContain('className="em-index-more"');
+    expect(home).toMatch(/nicheLinks\.slice\(NICHE_VISIBLE\)\.map\(/);
     expect(home).toContain('className="em-index-compact"');
   });
 
