@@ -142,7 +142,7 @@ describe("per-page lastmod ledger", () => {
 
       const file = join(tmp, "lib", "event-content.ts");
       const src = readFileSync(file, "utf8");
-      // Round 6 (2026-10-15): the title gained "Video" (autocomplete offers
+      // Round 6 (2026-10-14): the title gained "Video" (autocomplete offers
       // "fort lauderdale boat show videos"); the marker follows it on purpose.
       const marker = 'metaTitle: "Fort Lauderdale Boat Show Video & Content for Exhibitors"';
       expect(src.includes(marker)).toBe(true);

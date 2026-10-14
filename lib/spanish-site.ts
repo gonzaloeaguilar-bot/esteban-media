@@ -2238,7 +2238,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     ],
     projectFit:
       "Edición de material entregado por el cliente y, según el alcance, planificación social o producción en locación evaluada por proyecto.",
-    // Round 6 (2026-10-15): the English twin carries the city Reels answer
+    // Round 6 (2026-10-14): the English twin carries the city Reels answer
     // (CITY_REELS in lib/conversational-answers.ts); this page had none, so a
     // Spanish search for a Reels editor in Pembroke Pines found no sentence to quote.
     sections: [

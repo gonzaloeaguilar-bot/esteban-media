@@ -1,4 +1,4 @@
-# 2026-10-15 — Overnight round 6 (branch `loop/round-6`)
+# 2026-10-14 — Overnight round 6 (branch `loop/round-6`)
 
 - Price H2 on the 5 GeoServicePage pages is now an explicit `pricingQuestion` ("How much does a Reels editor in Fort Lauderdale cost?"), not `serviceName.toLowerCase()`.
 - `ServiceAnswerFirst` question: `esServicePhrase` (no "servicio de servicio de", "edición de Reels en <city>") and `enServicePhrase` (no trailing "service"); keyword and answer unchanged. Text-parity baseline re-snapshotted after reading the full diff (only those headings, Pembroke dates/section).

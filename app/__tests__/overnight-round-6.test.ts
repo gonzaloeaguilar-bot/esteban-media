@@ -12,7 +12,7 @@ const root = process.cwd();
 const words = (text: string) => text.trim().split(/\s+/).filter(Boolean).length;
 
 describe("answer-first question reads as a sentence (round 6)", () => {
-  // Live crawl 2026-10-15: "¿Cómo funciona el servicio de editor de reels Fort
+  // Live crawl 2026-10-14: "¿Cómo funciona el servicio de editor de reels Fort
   // Lauderdale…?" on the Spanish flagship, "servicio de servicio de edición de
   // video con dron", "How does content repurposing service with…".
   it.each([
@@ -86,7 +86,7 @@ describe("Spanish subtitles guide answers how to make them (round 6)", () => {
 });
 
 describe("boat show titles say video (round 6)", () => {
-  // Autocomplete 2026-10-15: "fort lauderdale boat show videos"; the show opens ~10-28.
+  // Autocomplete 2026-10-14: "fort lauderdale boat show videos"; the show opens ~10-28.
   it.each([
     ["flibs", "en"],
     ["flibs", "es"],
