@@ -6,13 +6,17 @@ import { FoundViaField, foundViaPayload } from "@/components/found-via-field";
 import { trackLeadSubmit } from "@/lib/analytics-events";
 import type { FoundVia } from "@/lib/lead-responder";
 
+/** Which page the intake sits on; it becomes `lead_type` on the GA4 `lead` event. */
+export type WebProjectLeadSource = "website-design-intake" | "chatbot-intake" | "landing-page-intake";
+
 type WebsiteProjectIntakeProps = {
   locale: "en" | "es";
+  source?: WebProjectLeadSource;
 };
 
 type SubmitState = "idle" | "submitting" | "success" | "error";
 
-export function WebsiteProjectIntake({ locale }: WebsiteProjectIntakeProps) {
+export function WebsiteProjectIntake({ locale, source = "website-design-intake" }: WebsiteProjectIntakeProps) {
   const [email, setEmail] = useState("");
   const [projectNeed, setProjectNeed] = useState("");
   const [foundVia, setFoundVia] = useState<FoundVia | "">("");
@@ -29,7 +33,7 @@ export function WebsiteProjectIntake({ locale }: WebsiteProjectIntakeProps) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          source: "website-design-intake",
+          source,
           locale,
           email,
           notes: projectNeed,
@@ -39,7 +43,7 @@ export function WebsiteProjectIntake({ locale }: WebsiteProjectIntakeProps) {
 
       if (!response.ok) throw new Error("Lead request failed");
 
-      trackLeadSubmit("website-design-intake", locale, foundVia || "not_answered");
+      trackLeadSubmit(source, locale, foundVia || "not_answered");
       setSubmitState("success");
       setEmail("");
       setProjectNeed("");

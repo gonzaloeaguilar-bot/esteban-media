@@ -16,6 +16,8 @@ export type LeadSource =
   | "contact"
   | "hero-intake"
   | "website-design-intake"
+  | "chatbot-intake"
+  | "landing-page-intake"
   | "pembroke-pines-small-business-video"
   | "home-path-funnel";
 
@@ -32,6 +34,8 @@ const LEAD_SOURCES = new Set<LeadSource>([
   "contact",
   "hero-intake",
   "website-design-intake",
+  "chatbot-intake",
+  "landing-page-intake",
   "pembroke-pines-small-business-video",
   "home-path-funnel",
 ]);

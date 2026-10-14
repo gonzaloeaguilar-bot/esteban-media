@@ -14,7 +14,7 @@
 // run no JavaScript still read it).
 
 import { priceSentence } from "@/lib/packages";
-import { SHORT_FORM, filmingHourlyText, usd } from "@/lib/pricing";
+import { CHATBOT_PRICE, LANDING_PAGE_PRICE, SHORT_FORM, filmingHourlyText, landingPagePriceText, usd } from "@/lib/pricing";
 import { DEMAND_MAP_ANSWERS } from "@/lib/demand-map-answers";
 
 export type OwnerFactSection = {
@@ -129,6 +129,23 @@ const WEB_EN: readonly OwnerFactSection[] = [
     paragraphs: [
       "Start from the problem you want solved. If people cannot find a clear offer or a way to ask, a [conversion website](/services/conversion-websites) is the base: custom mobile-first pages and focused landing pages built around one offer and a measurable inquiry path. If inquiries arrive but nobody answers fast enough, [AI lead capture and automation](/services/ai-lead-capture-automation) adds chatbots, ManyChat DM flows, email, SMS and handoff rules so a qualified inquiry reaches the right next step.",
       "If customers search for you and find nothing, [local presence and SEO](/services/local-presence-seo) connects Google Business Profile, Maps and technical SEO. When you are not sure where leads are lost, the [growth funnel audit](/services/growth-funnel-audit) looks at acquisition paths, analytics and handoffs first. You can explain the project in Spanish or English.",
+      `If you only need one piece: an [AI chatbot for small business](/services/ai-chatbot-for-small-business) answers questions on your site or in Instagram DMs, from ${usd(CHATBOT_PRICE.from)} plus a monthly fee; a [landing page](/services/landing-page-design) gives one ad one page and one action, from ${usd(LANDING_PAGE_PRICE.from)}.`,
+    ],
+  },
+  {
+    id: "web-designer-cost",
+    heading: "How much does a web designer charge for a small business site?",
+    paragraphs: [
+      `${landingPagePriceText("en")} Full websites have no published price and are quoted per project. The quote follows the scope: how many pages, whether the copy and photos already exist, one language or two, and what the forms and any chatbot have to do after someone writes. The All-In package is the one that bundles a conversion website, an AI chatbot and lead capture, the local profile and content, and it is also quoted per project.`,
+      "If you need only one page for an ad or your Instagram bio, the [landing page](/services/landing-page-design) page explains what moves that quote. Video for the site is priced separately: editing is per video, not per hour.",
+    ],
+  },
+  {
+    id: "web-design-examples",
+    heading: "Where can I see examples of websites Esteban Moreno Media has designed?",
+    paragraphs: [
+      "In the portfolio, one page per project. [Fort Lauderdale Auto Sale](/portfolio/flas-concierge) is a dealership site with a financing calculator suite, inventory filtering and an AI concierge; the [FLAS case study](/case-studies/flas-concierge) explains how it was built, from the mobile-first inventory cards to the hand-off to the sales team. [Frontline Auto](/portfolio/front-line-auto) is a repair shop site with service booking and bilingual intake. [Gains From Geebs](/portfolio/gains-from-geebs) is a fitness web app with interactive calculators, and [TitanForge](/portfolio/titanforge) is a web platform with client intake and booking.",
+      "Each of those sites also runs a chatbot; the [AI chatbot for small business](/services/ai-chatbot-for-small-business) page explains what those bots do.",
     ],
   },
 ];
@@ -148,6 +165,23 @@ const WEB_ES: readonly OwnerFactSection[] = [
     paragraphs: [
       "Empieza por el problema que quieres resolver. Si la gente no encuentra una oferta clara ni una forma de preguntar, la base es un [sitio web de conversión](/es/sitios-web-de-conversion): páginas personalizadas mobile-first y landing pages enfocadas en una oferta y una ruta de consulta medible. Si las consultas llegan pero nadie responde a tiempo, la [captura y automatización de clientes con IA](/es/captura-y-automatizacion-de-clientes-con-ia) agrega chatbots, flujos de DM en ManyChat, email, SMS y reglas de handoff.",
       "Si los clientes te buscan y no te encuentran, [presencia local y SEO](/es/presencia-local-seo) conecta Google Business Profile, Maps y SEO técnico. Si no sabes dónde se pierden los prospectos, la [auditoría de funnel y datos](/es/auditoria-de-funnel-y-datos) revisa primero las rutas de adquisición, la analítica y los handoffs. Todo se puede hablar en español.",
+      "Para una sola pieza: un [chatbot con IA](/es/chatbot-con-ia-para-negocios) responde en tu web o en Instagram y te pasa las consultas serias; una [landing page](/es/landing-page-para-negocios) da a un anuncio una página con una oferta y una acción.",
+    ],
+  },
+  {
+    id: "web-cuanto-cobra",
+    heading: "¿Cuánto cobra un diseñador web por la página de un negocio?",
+    paragraphs: [
+      `${landingPagePriceText("es")} Los sitios web completos no tienen un precio publicado y se cotizan por proyecto. La cotización sigue el alcance: cuántas páginas, si los textos y las fotos ya existen, uno o dos idiomas, y qué tienen que hacer los formularios y el chatbot después de que alguien escribe. Esteban trabaja como diseñador independiente desde Fort Lauderdale y también de forma remota con negocios en Latinoamérica, y el proyecto se puede llevar completo en español.`,
+      "Si solo necesitas una página para un anuncio o para tu bio, la página de [landing page para negocios](/es/landing-page-para-negocios) explica qué mueve esa cotización. El video para el sitio se cobra aparte: la edición se cobra por video, no por hora.",
+    ],
+  },
+  {
+    id: "web-ejemplos",
+    heading: "¿Dónde veo ejemplos de páginas web que ha diseñado?",
+    paragraphs: [
+      "En el portafolio, una página por proyecto. [Fort Lauderdale Auto Sale](/es/portafolio/flas-concierge) es el sitio de un concesionario con calculadoras de financiamiento, filtro de inventario y un concierge con IA; el [caso de estudio de FLAS](/es/casos-de-estudio/flas-concierge) explica cómo se construyó, desde las tarjetas de inventario pensadas para el celular hasta el paso de cada consulta al equipo de ventas. [Frontline Auto](/es/portafolio/front-line-auto) es el sitio de un taller con reservas de servicio y atención bilingüe. [Gains From Geebs](/es/portafolio/gains-from-geebs) es una aplicación web de fitness con calculadoras interactivas, y [TitanForge](/es/portafolio/titanforge) es una plataforma web con registro de clientes y reservas.",
+      "Cada uno de esos sitios tiene además un chatbot; la página de [chatbot con IA para negocios](/es/chatbot-con-ia-para-negocios) explica qué hacen esos bots.",
     ],
   },
 ];
