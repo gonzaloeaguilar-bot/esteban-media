@@ -22,7 +22,19 @@ interface PortfolioCollectionSchemaOptions {
 }
 
 interface PortfolioWatchSchemaOptions
-  extends Omit<PortfolioSchemaItem, "id"> {
+  extends Omit<PortfolioSchemaItem, "id" | "videoId" | "uploadDate" | "duration"> {
+  /**
+   * The YouTube video this page plays. Omitted for a project shown as an
+   * image (a website build): such a page has no video, and a VideoObject with
+   * a placeholder date and an embed URL that plays nothing is a false claim
+   * Google reports as invalid. Before 2026-10-14 five image projects shipped
+   * one each, uploadDate "2026-01-01T00:00:00Z", duration PT0M0S.
+   */
+  video?: {
+    videoId: string;
+    uploadDate: string;
+    duration: string;
+  };
   path: string;
   locale: "en-US" | "es-US";
   breadcrumbs: readonly {
@@ -83,9 +95,7 @@ export function buildPortfolioWatchSchema({
   credits,
   url,
   poster,
-  videoId,
-  uploadDate,
-  duration,
+  video,
   location,
   breadcrumbs,
 }: PortfolioWatchSchemaOptions) {
@@ -110,30 +120,34 @@ export function buildPortfolioWatchSchema({
           url: absoluteUrl(poster),
         },
         breadcrumb: { "@id": breadcrumbId },
-        mainEntity: { "@id": videoIdUrl },
+        ...(video ? { mainEntity: { "@id": videoIdUrl } } : {}),
       },
-      {
-        "@type": "VideoObject",
-        "@id": videoIdUrl,
-        name: title,
-        description: summary,
-        creditText: credits,
-        url: pageUrl,
-        sameAs: url,
-        thumbnailUrl: absoluteUrl(poster),
-        uploadDate,
-        duration,
-        embedUrl: `https://www.youtube-nocookie.com/embed/${videoId}`,
-        inLanguage: locale,
-        ...(location
-          ? {
-              locationCreated: {
-                "@type": "Place",
-                name: location,
-              },
-            }
-          : {}),
-      },
+      ...(video
+        ? [
+            {
+              "@type": "VideoObject",
+              "@id": videoIdUrl,
+              name: title,
+              description: summary,
+              creditText: credits,
+              url: pageUrl,
+              sameAs: url,
+              thumbnailUrl: absoluteUrl(poster),
+              uploadDate: video.uploadDate,
+              duration: video.duration,
+              embedUrl: `https://www.youtube-nocookie.com/embed/${video.videoId}`,
+              inLanguage: locale,
+              ...(location
+                ? {
+                    locationCreated: {
+                      "@type": "Place",
+                      name: location,
+                    },
+                  }
+                : {}),
+            },
+          ]
+        : []),
       {
         "@type": "BreadcrumbList",
         "@id": breadcrumbId,

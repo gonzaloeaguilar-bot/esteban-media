@@ -168,9 +168,13 @@ export function PortfolioWatchPage({ item, locale }: PortfolioWatchPageProps) {
     credits: copy.credits,
     url: mediaUrl,
     poster: poster,
-    videoId: isYouTubeSource(item.media) ? item.media.videoId : item.id,
-    uploadDate: isYouTubeSource(item.media) ? item.media.uploadDate : "2026-01-01T00:00:00Z",
-    duration: isYouTubeSource(item.media) ? item.media.duration : "PT0M0S",
+    video: isYouTubeSource(item.media)
+      ? {
+          videoId: item.media.videoId,
+          uploadDate: item.media.uploadDate,
+          duration: item.media.duration,
+        }
+      : undefined,
     location: item.location,
     breadcrumbs: [
       { name: text.home, path: homePath },

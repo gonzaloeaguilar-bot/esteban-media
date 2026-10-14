@@ -27,13 +27,18 @@ describe("video sitemap", () => {
     expect(getPortfolioWatchItems().filter((item) => item.media.kind === "youtube").map((item) => item.id).sort()).toEqual(
       [...videoInventory.videoPortfolioIds].sort(),
     );
-    expect(xml.match(/<url>/g)).toHaveLength(localizedVideoCount);
-    expect(xml.match(/<video:video>/g)).toHaveLength(localizedVideoCount);
+    const selfHosted = videoInventory.selfHostedVideoPages;
+    const selfHostedVideos = selfHosted.reduce((sum, page) => sum + page.videos, 0);
+    expect(xml.match(/<url>/g)).toHaveLength(localizedVideoCount + selfHosted.length);
+    expect(xml.match(/<video:video>/g)).toHaveLength(localizedVideoCount + selfHostedVideos);
     const actualUrls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]).sort();
-    const expectedUrls = videoInventory.videoPortfolioIds.flatMap((id) => [
-      `https://estebanmorenomedia.com/portfolio/${id}`,
-      `https://estebanmorenomedia.com/es/portafolio/${id}`,
-    ]).sort();
+    const expectedUrls = [
+      ...videoInventory.videoPortfolioIds.flatMap((id) => [
+        `https://estebanmorenomedia.com/portfolio/${id}`,
+        `https://estebanmorenomedia.com/es/portafolio/${id}`,
+      ]),
+      ...selfHosted.map((page) => `https://estebanmorenomedia.com${page.path}`),
+    ].sort();
     expect(actualUrls).toEqual(expectedUrls);
 
     for (const item of getPortfolioWatchItems()) {

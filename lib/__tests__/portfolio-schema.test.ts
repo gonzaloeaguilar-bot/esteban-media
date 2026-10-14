@@ -108,6 +108,7 @@ describe("portfolio watch-page schema", () => {
       path: "/portfolio/sample-project",
       locale: "en-US",
       ...items[0],
+      video: items[0],
       breadcrumbs: [
         { name: "Home", path: "/" },
         { name: "Portfolio", path: "/portfolio" },
@@ -158,6 +159,7 @@ describe("portfolio watch-page schema", () => {
       path: "/es/portafolio/sample-project",
       locale: "es-US",
       ...items[0],
+      video: items[0],
       breadcrumbs: [
         { name: "Inicio", path: "/es" },
         { name: "Portafolio", path: "/es/portafolio" },
@@ -173,5 +175,23 @@ describe("portfolio watch-page schema", () => {
     expect(serialized).not.toContain('"creator"');
     expect(serialized).not.toContain('"copyrightYear"');
     expect(serialized).not.toContain('"dateCreated"');
+  });
+});
+
+describe("portfolio watch-page schema without a video", () => {
+  it("emits no VideoObject and no placeholder date for an image project", () => {
+    const { videoId: _v, uploadDate: _u, duration: _d, ...imageItem } = items[0];
+    const schema = buildPortfolioWatchSchema({
+      path: "/portfolio/sample-project",
+      locale: "en-US",
+      ...imageItem,
+      breadcrumbs: [{ name: "Home", path: "/" }],
+    });
+    const types = schema["@graph"].map((node) => node["@type"]);
+    expect(types).toEqual(["WebPage", "BreadcrumbList"]);
+    const serialized = JSON.stringify(schema);
+    expect(serialized).not.toContain("uploadDate");
+    expect(serialized).not.toContain("youtube-nocookie");
+    expect(serialized).not.toContain("mainEntity");
   });
 });
