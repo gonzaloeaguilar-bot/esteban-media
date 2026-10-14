@@ -24,10 +24,18 @@ describe("single projects live inside the chooser, once", () => {
 
     it(`${locale}: every option shows its price with zero taps, in the server HTML, and the photo floor is the real one`, () => {
       expect(html).toMatch(/em-path-chip-price[^>]*>(From|Desde) \$450/);
-      expect(html).toMatch(/em-path-chip-price[^>]*>(From|Desde) \$800/);
+      // Business shows its monthly plan on the chip (one short line that never
+      // wraps) and BOTH of its prices, named as /pricing names them, on the card.
+      expect(html).toMatch(/em-path-chip-price[^>]*>(From|Desde) \$640/);
       expect(html).toMatch(/em-path-chip-price[^>]*>(From|Desde) \$100/);
+      expect(html).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$640/);
+      expect(html).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$800/);
+      expect(html).toMatch(/em-path-offer-name[^>]*>(Growth|Crecimiento)</);
+      expect(html).toMatch(/em-path-offer-name[^>]*>(Local Presence|Presencia Local)</);
+      expect(html).toMatch(/em-path-offer-name[^>]*>(Starter|Arranque)</);
+      expect(html).toMatch(/em-path-offer-name[^>]*>Essential</);
       expect(html).toMatch(/em-single-price[^>]*>(From|Desde) \$280/);
-      // one price surface: the lane cards no longer repeat "Starting price"
+      // the lane cards still do not repeat a "Starting price" label
       expect(html).not.toMatch(/em-art-price-label/);
     });
 

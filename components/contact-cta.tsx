@@ -213,9 +213,15 @@ export function ContactCta({ locale = "en" }: { locale?: Locale }) {
               ))}
             </ol>
 
-            {/* The three lowest-commitment paths, as direct taps — nothing to
-                type. This is the whole "ask" on first contact. */}
-            <div className="mt-7 grid gap-3 sm:grid-cols-3">
+          </div>
+
+          <div className="max-w-xl">
+            {/* One primary and one secondary way to reach Esteban, nothing to
+                type. The phone number and Instagram used to be two more
+                full-width rows in a right-hand column, repeating the email
+                and call buttons beside them (audit 2026-10-14: nine wa.me and
+                eleven mailto links on the page). They are now one quiet line. */}
+            <div className="grid gap-3 sm:grid-cols-2">
               <a
                 href={whatsappHref(site.phone.e164, c.whatsappMessage)}
                 target="_blank"
@@ -233,31 +239,33 @@ export function ContactCta({ locale = "en" }: { locale?: Locale }) {
               >
                 <Mail className="size-4" aria-hidden="true" />
                 <span className="flex flex-col text-left">
-                  {/* A space between the two spans. They are separate blocks
-                      so they already LOOKED right, but textContent ran them
-                      together as "Email Estebanesmolopez@gmail.com" — which is
-                      what a text extraction, an AI crawler and some assistive
-                      tech actually read. Visual separation is not textual
-                      separation. */}
+                  {/* A space between the two spans so textContent reads
+                      "Email Esteban esmolopez@..." and not run together. */}
                   <span>{c.emailLabel}</span>{" "}
                   <span className="text-xs font-normal text-[#aaa29a]">{site.email}</span>
                 </span>
               </a>
+            </div>
+            <p className="mt-3 flex flex-wrap items-center gap-x-5 text-sm text-[#d8d0c7]">
               <a
                 href={site.phone.href}
                 data-cta="home_contact_phone"
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:border-[#f0b384]"
+                className="inline-flex min-h-11 items-center gap-2 underline underline-offset-4 hover:text-white"
               >
                 <Phone className="size-4" aria-hidden="true" />
-                <span className="flex flex-col text-left">
-                  {/* Same separator fix as the email above: "Call Esteban" and
-                      the number are separate block spans, so textContent ran
-                      them together as "Call Esteban(305) 497-4478". */}
-                  <span>{c.callLabel}</span>{" "}
-                  <span className="text-xs font-normal text-[#aaa29a]">{site.phone.display}</span>
-                </span>
+                {c.callLabel} {site.phone.display}
               </a>
-            </div>
+              <a
+                href={site.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-cta="home_contact_instagram"
+                className="inline-flex min-h-11 items-center gap-2 underline underline-offset-4 hover:text-white"
+              >
+                <Send className="size-4" aria-hidden="true" />
+                Instagram @steeban1
+              </a>
+            </p>
 
             {/* Voluntary depth. Every field below already existed on the
                 homepage; nothing was deleted, it just stopped being the
@@ -407,59 +415,6 @@ export function ContactCta({ locale = "en" }: { locale?: Locale }) {
             </details>
           </div>
 
-          <ul role="list" className="grid gap-3">
-            <li>
-              <a
-                href={`mailto:${site.email}`}
-                className="flex min-h-16 items-center justify-between gap-4 rounded-lg border border-white/15 bg-white/5 p-4 transition hover:border-[#e85d3e] hover:bg-white/10"
-              >
-                <span className="flex items-center gap-3">
-                  <Mail className="size-5 text-[#f0b384]" aria-hidden="true" />
-                  <span>
-                    <span className="block text-[0.65rem] uppercase tracking-wide text-[#d8d0c7]">
-                      {locale === "es" ? "Email" : "Email"}
-                    </span>
-                    <span className="block font-serif text-lg">{site.email}</span>
-                  </span>
-                </span>
-                <ArrowRight className="size-4" aria-hidden="true" />
-              </a>
-            </li>
-            <li>
-              <a
-                href={site.phone.href}
-                className="flex min-h-16 items-center justify-between gap-4 rounded-lg border border-white/15 bg-white/5 p-4 transition hover:border-[#e85d3e] hover:bg-white/10"
-              >
-                <span className="flex items-center gap-3">
-                  <Phone className="size-5 text-[#f0b384]" aria-hidden="true" />
-                  <span>
-                    <span className="block text-[0.65rem] uppercase tracking-wide text-[#d8d0c7]">
-                      {locale === "es" ? "Teléfono" : "Phone"}
-                    </span>
-                    <span className="block font-serif text-lg">{site.phone.display}</span>
-                  </span>
-                </span>
-                <ArrowRight className="size-4" aria-hidden="true" />
-              </a>
-            </li>
-            <li>
-              <a
-                href={site.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex min-h-16 items-center justify-between gap-4 rounded-lg border border-white/15 bg-white/5 p-4 transition hover:border-[#e85d3e] hover:bg-white/10"
-              >
-                <span className="flex items-center gap-3">
-                  <Send className="size-5 text-[#f0b384]" aria-hidden="true" />
-                  <span>
-                    <span className="block text-[0.65rem] uppercase tracking-wide text-[#d8d0c7]">Instagram</span>
-                    <span className="block font-serif text-lg">@steeban1</span>
-                  </span>
-                </span>
-                <ArrowRight className="size-4" aria-hidden="true" />
-              </a>
-            </li>
-          </ul>
         </div>
       </Container>
     </section>

@@ -33,6 +33,7 @@ export function PackagesSection({
   quiet = false,
   showGuide = true,
   showALaCarte = true,
+  showProcess = true,
 }: {
   locale: Locale;
   /**
@@ -64,6 +65,13 @@ export function PackagesSection({
   showGuide?: boolean;
   /** false on the home pages: single projects live in the chooser there. */
   showALaCarte?: boolean;
+  /**
+   * false on the home pages: the contact section above already walks through
+   * the same three steps (send details, confirm scope, receive a written
+   * quote), so a second explainer was the same promise twice (audit
+   * 2026-10-14, y 3931 and y 5090). /pricing keeps it.
+   */
+  showProcess?: boolean;
 }) {
   const copy = packagesCopy(locale);
   const packages = packagesFor(locale);
@@ -299,6 +307,7 @@ export function PackagesSection({
       {showALaCarte ? <ALaCarteSection locale={locale} /> : null}
 
       {/* 4. The three steps. */}
+      {showProcess ? (
       <section className="em-pk-steps" aria-labelledby="em-pk-steps-title" data-section="quote_process">
         <Container size="xl">
           <p className="em-pk-eyebrow em-eyebrow">{copy.process.eyebrow}</p>
@@ -320,6 +329,7 @@ export function PackagesSection({
           <p className="em-pk-steps__note">{copy.process.note}</p>
         </Container>
       </section>
+      ) : null}
 
       {/* 5. Quick answers — the questions people actually ask ("¿cuánto cobras
           por editar?"), answered first, from the same data as the cards. The
@@ -350,7 +360,40 @@ export function PackagesSection({
 }
 
 /** The closing credit: one line, three ways to reach Esteban. */
-export function ClosingCredits({ locale, children }: { locale: Locale; children?: React.ReactNode }) {
+export function ClosingCredits({
+  locale,
+  children,
+  linksOnly = false,
+}: {
+  locale: Locale;
+  children?: React.ReactNode;
+  /**
+   * The home pages pass true: the contact section right above is the one place
+   * to reach Esteban, so the closing keeps only the hub links, the updated date
+   * and the signature. No second "Ready to make something great?" ask and no
+   * second WhatsApp/call/email row (audit 2026-10-14).
+   */
+  linksOnly?: boolean;
+}) {
+  if (linksOnly) {
+    return (
+      <section
+        className="em-close em-close--links"
+        aria-label={locale === "es" ? "Más páginas" : "More pages"}
+        data-section="closing_cta"
+        data-em-hides-sticky
+      >
+        <Container size="xl" className="em-close__inner">
+          {children && <div className="em-close__more">{children}</div>}
+          <p className="em-close__sign" aria-hidden="true">
+            {locale === "es"
+              ? "Esteban Moreno Media · Contenido · Producción · Digital"
+              : "Esteban Moreno Media · Content · Production · Digital"}
+          </p>
+        </Container>
+      </section>
+    );
+  }
   const copy = packagesCopy(locale).closing;
   const greeting =
     locale === "es" ? "Hola Esteban, quiero hablar de un proyecto." : "Hi Esteban, I'd like to talk about a project.";

@@ -63,12 +63,12 @@ export const AUDIENCE_LANES: Record<AudienceLocale, AudienceCopy> = {
       },
       {
         id: "agency",
-        who: "Agency or studio",
+        who: "Creators and studios with footage",
         title: "You need overflow editing this week.",
         detail:
           "White-label post-production on your supplied footage, scoped per project, with organized feedback rounds instead of scattered notes.",
         action: "Overflow editing",
-        href: "/services",
+        href: "/pricing/starter",
       },
     ],
   },
@@ -96,12 +96,12 @@ export const AUDIENCE_LANES: Record<AudienceLocale, AudienceCopy> = {
       },
       {
         id: "agency",
-        who: "Agencia o estudio",
+        who: "Creadores y estudios con material",
         title: "Necesitas apoyo de edición esta semana.",
         detail:
           "Postproducción de marca blanca sobre tu material, con alcance por proyecto y rondas de feedback ordenadas en lugar de notas dispersas.",
         action: "Edición de apoyo",
-        href: "/es/servicios",
+        href: "/es/precios/arranque",
       },
     ],
   },

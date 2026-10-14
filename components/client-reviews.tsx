@@ -96,6 +96,9 @@ export function ClientReviews({ locale = "en", compact = false }: { locale?: "en
         }
         sourceUrl={reviewSourceUrl}
         posters={REELS_IN_DISPLAY_ORDER.map((reel) => reel.poster)}
+        posterAlts={REELS_IN_DISPLAY_ORDER.map((reel) =>
+          locale === "es" ? `Fotograma de un video de propiedad: ${reel.titleEs}` : `Frame from a property video: ${reel.title}`,
+        )}
       />
     );
   }

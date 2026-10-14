@@ -35,6 +35,8 @@ export type HomePortfolioCard = {
   location?: string;
   /** Local approved still; absent for items with no poster. */
   poster?: string;
+  /** What the still shows, for people who cannot see it. */
+  posterAlt?: string;
 };
 
 export function HomePortfolioRail({
@@ -204,11 +206,10 @@ export function HomePortfolioRail({
         <span className="rail-sr-only">{isSpanish ? "Ver " : "Watch "}</span>
         <Image
           src={item.poster}
-          // Decorative: the card's own title names the project immediately
-          // after, and the grid this replaces used an empty alt for the same
-          // reason. An alt repeating the visible title is noise to a screen
-          // reader, not help.
-          alt=""
+          // Describes the still (a frame from the video), not the title that
+          // follows it. Empty before 2026-10-14, when the human audit counted
+          // 14 rail images with no alt text.
+          alt={item.posterAlt ?? ""}
           fill
           // The card renders at min(380px, 78vw) on this rail — the lg width
           // set in globals.css — so the srcset hint matches what is actually
