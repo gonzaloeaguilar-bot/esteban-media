@@ -31,6 +31,9 @@ import {
 } from "@/lib/guides";
 import { redditQueryInsights } from "@/lib/reddit-query-insights";
 import { isConsolidatedPath } from "@/lib/consolidation";
+import { restaurantIgStudyCopy, restaurantIgStudyPaths } from "@/lib/restaurant-ig-study";
+import { withPageDate } from "@/lib/page-lastmod";
+import { absoluteUrl } from "@/lib/site";
 
 
 const RELATED_GUIDE_COUNT = 6;
@@ -355,6 +358,34 @@ function QuoteIntentQuestions({ locale }: { locale: GuideLocale }) {
   );
 }
 
+/**
+ * The original-data study is the site's most citable page, and on 2026-10-14
+ * nothing linked to it but its own language twin (it lives outside lib/guides.ts,
+ * so the hub list never showed it). One server-rendered link from each hub.
+ */
+function OriginalResearch({ locale }: { locale: GuideLocale }) {
+  const study = restaurantIgStudyCopy[locale];
+  const es = locale === "es";
+  return (
+    <section className="border-b border-[#ddd4c8] py-10 sm:py-12" data-section="original_research" aria-labelledby="original-research-heading">
+      <Container size="xl">
+        <h2 id="original-research-heading" className="font-serif text-2xl sm:text-3xl">
+          {es ? "¿Hay datos propios sobre lo que publican los restaurantes de Miami?" : "Is there original data on what Miami restaurants post?"}
+        </h2>
+        <Link
+          href={restaurantIgStudyPaths[locale]}
+          data-cta="original_research_study"
+          className="mt-6 block max-w-3xl rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5 hover:border-[#9f3c27]"
+        >
+          <span className="text-xs font-medium uppercase tracking-[0.16em] text-[#5a6066]">{study.eyebrow}</span>
+          <span className="mt-2 block font-medium text-[#9f3c27]">{study.h1}</span>
+          <span className="mt-2 block text-sm leading-6 text-[#3f4548]">{study.description}</span>
+        </Link>
+      </Container>
+    </section>
+  );
+}
+
 export function GuidesIndexPage({ locale }: { locale: GuideLocale }) {
   const copy = guidesIndexCopy[locale];
   const guides = getGuides(locale);
@@ -369,7 +400,9 @@ export function GuidesIndexPage({ locale }: { locale: GuideLocale }) {
 
   return (
     <main className="bg-[#f6f1ea] text-[#101214]">
-      <StructuredData data={buildGuidesIndexStructuredData(locale)} />
+      <StructuredData
+        data={withPageDate(copy.path, buildGuidesIndexStructuredData(locale) as Record<string, unknown>, absoluteUrl(copy.path))}
+      />
 
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
         <Container size="xl">
@@ -399,6 +432,7 @@ export function GuidesIndexPage({ locale }: { locale: GuideLocale }) {
               <p className="mt-4 max-w-3xl leading-7 text-[#3f4548]">
                 {renderFormattedText(copy.intro)}
               </p>
+              <PageUpdated path={copy.path} locale={locale} className="mt-4 text-xs text-[#5a6066]" />
             </div>
 
             <div className="rounded-xl border border-[#ddd4c8] bg-[#fbf6ef] p-6">
@@ -423,6 +457,7 @@ export function GuidesIndexPage({ locale }: { locale: GuideLocale }) {
         </Container>
       </section>
 
+      <OriginalResearch locale={locale} />
       <QueryInsights locale={locale} />
       <QuoteIntentQuestions locale={locale} />
 

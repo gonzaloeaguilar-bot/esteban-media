@@ -14,7 +14,12 @@
  *
  * Re-inspect the targets on 2026-10-21 and 2026-10-28 (insp.py).
  */
+import { restaurantIgStudy, restaurantIgStudyPaths } from "@/lib/restaurant-ig-study";
+
 export type PriorityLink = { href: string; label: string; description: string };
+
+// The study's own figures, so a link description cannot drift from the page.
+const STUDY = { accounts: restaurantIgStudy.sample, posts: restaurantIgStudy.postsAnalyzed };
 
 const EN: Record<string, PriorityLink> = {
   pricing: { href: "/pricing", label: "Pricing and packages", description: "Starting prices for every package, from one edited video to a full month." },
@@ -24,6 +29,10 @@ const EN: Record<string, PriorityLink> = {
   podcast: { href: "/services/podcast-clipping-service-miami", label: "Podcast clipping in Miami", description: "A podcast episode cut into vertical clips with captions." },
   founders: { href: "/services/personal-brand-video-editor-founders-miami", label: "Personal brand video editing", description: "Founders and experts on camera, edited into videos people finish." },
   ugc: { href: "/services/ugc-video-editor-ecommerce", label: "UGC video editing for e-commerce", description: "Creator and customer clips edited into product ads." },
+  // Round 2 (2026-10-14): the original-data study had 0 inbound links but its
+  // own language twin (crawl of 362 sitemap URLs, unreachable from /) and GSC
+  // read it "Discovered - currently not indexed" in both languages.
+  study: { href: restaurantIgStudyPaths.en, label: "Study: what Miami restaurants post on Instagram", description: `Original data from ${STUDY.accounts} restaurant accounts and ${STUDY.posts} posts: formats, Reel length and how often they post.` },
   westPalm: { href: "/services/video-editing-west-palm-beach", label: "Reels and video editing in West Palm Beach", description: "Remote editing for Palm Beach County businesses, project by project." },
 };
 
@@ -35,6 +44,7 @@ const ES: Record<string, PriorityLink> = {
   comida: { href: "/es/edicion-de-video-para-creadores-de-comida-y-lugares-miami", label: "Videos para creadores de comida y lugares", description: "Tú descubres el lugar; Esteban edita la historia." },
   restaurantes: { href: "/es/edicion-de-video-promocional-para-restaurantes-miami", label: "Video promocional para restaurantes en Miami", description: "Promociones para redes editadas con las tomas de tu local." },
   podcast: { href: "/es/edicion-de-clips-de-podcast-miami", label: "Clips de podcast para redes en Miami", description: "Un episodio convertido en clips verticales con subtítulos." },
+  estudio: { href: restaurantIgStudyPaths.es, label: "Estudio: qué publican los restaurantes de Miami en Instagram", description: `Datos propios de ${STUDY.accounts} cuentas de restaurantes y ${STUDY.posts} publicaciones: formatos, duración de los Reels y frecuencia.` },
   miamiBeach: { href: "/es/edicion-de-video-miami-beach", label: "Edición de video en Miami Beach", description: "Proyectos de Miami Beach editados en remoto." },
 };
 
@@ -48,7 +58,8 @@ export const PRIORITY_LINKS: Record<string, readonly PriorityLink[]> = {
   "/es/guias/mejores-estilos-de-subtitulos-para-reels": [ES.reelsMiami, ES.reelsCosto, ES.precios, ES.comida],
   "/es/guias/editor-de-video-vs-videografo": [ES.videoMiami, ES.precios, ES.reelsMiami, ES.restaurantes],
   "/es/calculadora-de-ritmo-de-video": [ES.reelsCosto, ES.precios, ES.reelsMiami, ES.podcast],
-  "/es/video-para-restaurantes-miami": [ES.restaurantes, ES.comida, ES.reelsMiami, ES.precios],
+  "/es/video-para-restaurantes-miami": [ES.estudio, ES.restaurantes, ES.comida, ES.reelsMiami, ES.precios],
+  "/services/restaurant-promo-video-editing-miami": [EN.study, EN.reelsMiami, EN.reelsCost, EN.pricing],
   "/es/editor-de-video-corto-para-redes-miami": [ES.reelsMiami, ES.videoMiami, ES.reelsCosto, ES.miamiBeach],
 };
 
