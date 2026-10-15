@@ -361,6 +361,8 @@ const ALL_EVENT_IDS: readonly EventId[] = [
 export const EVENT_CROSSLINKS: Record<string, readonly EventId[]> = {
   "/services": ALL_EVENT_IDS,
   "/es/servicios": ALL_EVENT_IDS,
+  "/areas": ALL_EVENT_IDS,
+  "/es/areas": ALL_EVENT_IDS,
   "/services/yacht-hospitality-video-fort-lauderdale": ["flibs", "miami-boat-show"],
   "/services/yacht-charter-video-marketing-miami": ["flibs", "miami-boat-show"],
   "/services/restaurant-promo-video-editing-miami": ["miami-spice", "sobewff", "art-basel"],

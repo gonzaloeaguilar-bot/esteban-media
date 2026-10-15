@@ -1,6 +1,7 @@
 import { KeepReading } from "@/components/keep-reading";
 import Link from "next/link";
 import { ArrowRight, HelpCircle, Laptop, MapPin } from "lucide-react";
+import { EventSeasonLinks } from "@/components/event-content-page";
 
 import { SpanishServiceLandingDirectory } from "@/components/spanish-service-landing-directory";
 import { Container } from "@/components/ui/container";
@@ -504,6 +505,7 @@ export default function SpanishAreasPage() {
           </div>
         </Container>
       </section>
+      <EventSeasonLinks locale="es" path="/es/areas" />
     </main>
   );
 }
