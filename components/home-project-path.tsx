@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Plus } from "lucide-react";
+import { ArrowRight, ChevronDown, Plus } from "lucide-react";
 import { useState } from "react";
 
 import { IllustratedScene } from "@/components/illustrated-scene";
@@ -50,7 +50,7 @@ const copy = {
     pricingDetail: "These are starting prices. The final price depends on the project scope.",
     pricingAction: "See everything each package includes",
     offersLabel: "What this includes",
-    morePlans: "More listings? Plus and Premium are on the pricing page.",
+    morePlans: "Need custom volume or 4+ properties? View full plan comparison.",
     thumbAlt: (title: string) => `Concept illustration for ${title}`,
     swipe: "Swipe to see all three options.",
     sceneLabels: ["Frame your listing", "Make people stop scrolling", "Bring the edit to life"],
@@ -103,7 +103,7 @@ const copy = {
     pricingDetail: "Son precios de partida. El precio final depende del alcance del proyecto.",
     pricingAction: "Ver todo lo que incluye cada paquete",
     offersLabel: "Qué incluye",
-    morePlans: "¿Más propiedades? Plus y Premium están en la página de precios.",
+    morePlans: "¿Más de 4 propiedades o volumen a medida? Ver comparativa completa de planes.",
     thumbAlt: (title: string) => `Ilustración conceptual de ${title}`,
     swipe: "Desliza para ver las tres opciones.",
     sceneLabels: ["Encuadra tu propiedad", "Haz que dejen de deslizar", "Dale ritmo al material"],
@@ -137,6 +137,133 @@ const artwork = ["property", "business", "editing"] as const;
 const laneIdAt = (index: number): ChooserLaneId =>
   (["real-estate", "local-business", "agency"] as const)[index];
 
+const LENS_METRICS: Record<string, { mm: string; tstop: string; angle: number; r: number }> = {
+  "real-estate": { mm: "16mm", tstop: "f/2.8 G-Master", angle: 216, r: 11 },
+  "local-business": { mm: "50mm", tstop: "f/1.2 Master Prime", angle: 144, r: 20 },
+  "agency": { mm: "35mm", tstop: "f/1.8 Sharp", angle: 72, r: 14 },
+  "a-la-carte": { mm: "24mm", tstop: "f/1.4 Cinema", angle: 0, r: 18 },
+};
+
+function offerDeliverables(name: string, laneId: ChooserLaneId, locale: AudienceLocale): string[] {
+  const isEs = locale === "es";
+  if (laneId === "real-estate") {
+    if (name.includes("Essential")) {
+      return isEs
+        ? [
+            "1 propiedad al mes (hasta 3,000 SF)",
+            "2 días de producción en locación al mes",
+            "20 a 30 fotos profesionales editadas",
+            "2 posts o reels por semana (Instagram y TikTok)",
+            "Gestión de redes y reporte Metricool cada 2 semanas",
+            "Flexibilidad: la sesión pasa al mes siguiente si no hay listado",
+            "Fotografía con dron disponible como adicional ($120)",
+          ]
+        : [
+            "1 property per month (up to 3,000 SF)",
+            "2 on-location production shoot days / month",
+            "20–30 professionally edited photos",
+            "2 posts or reels per week (Instagram & TikTok)",
+            "Social management & Metricool report every 2 weeks",
+            "Rollover: shoot rolls to next month if no listing",
+            "Drone photography available as add-on ($120)",
+          ];
+    }
+    if (name.includes("Plus")) {
+      return isEs
+        ? [
+            "2 propiedades al mes (hasta 3,000 SF c/u)",
+            "3 días de producción en locación al mes",
+            "20 a 30 fotos profesionales por propiedad",
+            "3 a 4 posts o reels por semana (Instagram y TikTok)",
+            "Gestión de redes y reporte Metricool cada 2 semanas",
+            "Flexibilidad: las sesiones pasan al mes siguiente si no hay listado",
+            "Fotografía con dron disponible como adicional ($120)",
+          ]
+        : [
+            "2 properties per month (up to 3,000 SF each)",
+            "3 on-location production shoot days / month",
+            "20–30 professionally edited photos per property",
+            "3–4 posts or reels per week (Instagram & TikTok)",
+            "Social management & Metricool report every 2 weeks",
+            "Rollover: shoots roll to next month if no listings",
+            "Drone photography available as add-on ($120)",
+          ];
+    }
+    if (name.includes("Premium")) {
+      return isEs
+        ? [
+            "3 propiedades al mes (hasta 3,000 SF c/u)",
+            "3 días de producción en locación al mes",
+            "20 a 30 fotos profesionales por propiedad",
+            "Fotografía aérea con dron INCLUIDA",
+            "5 posts o reels por semana (Instagram y TikTok)",
+            "Gestión de redes y reporte Metricool cada 2 semanas",
+            "Prioridad de calendario y flexibilidad de rollover",
+          ]
+        : [
+            "3 properties per month (up to 3,000 SF each)",
+            "3 on-location production shoot days / month",
+            "20–30 professionally edited photos per property",
+            "Drone aerial photography INCLUDED",
+            "5 posts or reels per week (Instagram & TikTok)",
+            "Social management & Metricool report every 2 weeks",
+            "Priority scheduling & rollover flexibility",
+          ];
+    }
+  }
+
+  if (laneId === "local-business") {
+    if (name.includes("Growth") || name.includes("Crecimiento")) {
+      return isEs
+        ? [
+            "Plan y estrategia mensual de contenido",
+            "Calendario estructurado de publicación",
+            "Edición profesional de formato corto incluida",
+            "Reporte quincenal de métricas con Metricool",
+            "Dirección creativa dedicada para tu marca",
+          ]
+        : [
+            "Content strategy & monthly planning",
+            "Structured publishing calendar",
+            "Professional short-form editing included",
+            "Bi-weekly Metricool performance report",
+            "Dedicated creative lead for your brand",
+          ];
+    }
+    return isEs
+      ? [
+          "Pre-producción: dirección creativa y lista de tomas",
+          "Día completo de producción en sitio con equipo de cine",
+          "Edición multiformato (9:16 vertical y 16:9 horizontal)",
+          "Cobertura en Broward, Miami-Dade y Palm Beach",
+          "Entregables listos para redes sociales, anuncios y web",
+        ]
+      : [
+          "Pre-production creative direction & shot list",
+          "Full on-location production day with cinema gear",
+          "Multi-format editing (9:16 vertical & 16:9 widescreen)",
+          "Broward, Miami-Dade, and Fort Lauderdale coverage",
+          "Turnkey deliverables for social, ads, and website",
+        ];
+  }
+
+  return isEs
+    ? [
+        "Edición remota a partir de tus tomas originales",
+        "Formato para Reels, TikTok, YouTube Shorts o web",
+        "1 ronda de revisión incluida por video",
+        "Corrección de color profesional, audio y subtítulos",
+        "Mínimo de entrega: 7 días",
+      ]
+    : [
+        "Remote video editing from your raw footage",
+        "Formatted for Reels, TikTok, YouTube Shorts or web",
+        "1 revision round included per video",
+        "Professional color grading, audio cleanup & captions",
+        "7-day turnaround floor",
+      ];
+}
+
 export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
   const c = copy[locale];
   const lanes = AUDIENCE_LANES[locale].lanes;
@@ -150,18 +277,65 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
     setFunnelOpen(true);
   };
 
+  const lens = LENS_METRICS[activeLane] || LENS_METRICS["real-estate"];
+
   return (
     <section id="start" aria-labelledby={`home-path-${locale}`} data-section="home-project-path" className="bg-[#f7f5f1] py-10 sm:py-14">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <p className="text-xs font-medium uppercase tracking-wider text-[#6a625a]">{c.eyebrow}</p>
         <h2 id={`home-path-${locale}`} className="mt-2 font-serif text-4xl leading-tight sm:text-5xl">{c.heading}</h2>
         <p className="mt-2 max-w-2xl text-base leading-7 text-[#4d5358]">{c.intro}</p>
-        {/* A CONTROL, not three cards to swipe. Owner, 2026-10-12: the real
-            estate section "is truly nice on its own... feel we can combine
-            them if we have some sort of filter and control" — this is the
-            same RailSegmented the monthly plans already use, so the page
-            teaches the gesture once. Picking a lane swaps the card below. */}
-        <div className="em-path-choice mt-5">
+
+        {/* Cinema Prime Lens Aperture Indicator */}
+        <div className="flex items-center gap-3.5 mt-4 p-3 rounded-2xl bg-white border border-[#e3ded6] shadow-sm max-w-md">
+          <div
+            className="w-13 h-13 rounded-full p-1 bg-gradient-to-br from-[#2c3238] via-[#161a1e] to-[#252a30] relative flex items-center justify-center border-2 border-[#3d454f] shadow-md shrink-0 cursor-pointer select-none"
+            onClick={() => {
+              const allKeys = [...lanes.map((l) => l.id), SINGLE_ID];
+              const nextIdx = (allKeys.indexOf(activeLane) + 1) % allKeys.length;
+              setActiveLane(allKeys[nextIdx]);
+            }}
+            title={locale === "es" ? "Toca para cambiar de lente" : "Tap to cycle lens"}
+          >
+            <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#c84a2c] shadow-[0_0_6px_#c84a2c] z-20"></div>
+            <div
+              className="w-full h-full rounded-full relative flex items-center justify-center overflow-hidden border border-white/20"
+              style={{
+                background:
+                  "radial-gradient(circle at 35% 30%, rgba(255,230,200,0.35) 0%, rgba(200,74,44,0.15) 30%, rgba(16,185,129,0.12) 55%, rgba(20,24,28,0.95) 80%)",
+              }}
+            >
+              <svg className="w-9 h-9 text-white transition-all duration-500 ease-out" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="42" stroke="rgba(255,255,255,0.2)" strokeWidth="1" fill="none" />
+                <circle cx="50" cy="50" r="36" stroke="rgba(200,74,44,0.3)" strokeWidth="1.5" strokeDasharray="2 3" fill="none" />
+                <g style={{ transform: `rotate(${lens.angle}deg)`, transformOrigin: "50px 50px", transition: "transform 0.5s ease-out" }}>
+                  <path d="M 50 14 Q 70 24 76 46 L 50 50 Z" fill="#1b2026" stroke="#2d3640" strokeWidth="1" />
+                  <path d="M 76 46 Q 74 68 54 78 L 50 50 Z" fill="#15191e" stroke="#2d3640" strokeWidth="1" />
+                  <path d="M 54 78 Q 32 74 24 52 L 50 50 Z" fill="#1b2026" stroke="#2d3640" strokeWidth="1" />
+                  <path d="M 24 52 Q 28 28 50 14 L 50 50 Z" fill="#15191e" stroke="#2d3640" strokeWidth="1" />
+                </g>
+                <circle cx="50" cy="50" r={lens.r} fill="#0d1013" stroke="#c84a2c" strokeWidth="1.5" style={{ transition: "all 0.5s ease-out" }} />
+                <circle cx="48.5" cy="48.5" r="1.5" fill="#ffffff" opacity="0.9" />
+              </svg>
+            </div>
+          </div>
+          <div>
+            <div className="flex items-center gap-1.5 mb-0.5">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-[#a8381d] bg-[#f8ede9] px-2 py-0.5 rounded border border-[#f1d8ce]">
+                {lens.mm} {locale === "es" ? "Lente" : "Prime"}
+              </span>
+              <span className="text-xs font-mono text-[#5a646e]">{lens.tstop}</span>
+            </div>
+            <div className="text-xs text-[#5a646e]">
+              {locale === "es"
+                ? "Gira las opciones para ver precios y entregables."
+                : "Switch project types to reveal deliverables and exact rates."}
+            </div>
+          </div>
+        </div>
+
+        {/* A CONTROL, not three cards to swipe. */}
+        <div className="em-path-choice mt-4">
           <div className="em-path-chips" role="group" aria-label={locale === "es" ? "Tipo de proyecto" : "Project type"}>
             {[...lanes.map((lane, i) => ({ id: lane.id, label: c.tabs[i], price: laneStartingPrice(locale, laneIdAt(i)) })), { id: SINGLE_ID, label: c.tabs[3], price: c.singleQuoted }].map((chip) => (
               <button
@@ -198,112 +372,216 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
           {lanes.map((lane) => {
             const index = lanes.findIndex((l) => l.id === lane.id);
             const isActive = lane.id === activeLane;
+            const laneLens = LENS_METRICS[lane.id] || LENS_METRICS["real-estate"];
             return (
-            <div key={lane.id} className="em-path-card" hidden={!isActive}>
-              {/* The flat .webp was the defect. Owner, 2026-10-12, on this
-                  exact card: "this is missing the animations, each had..." —
-                  the same three illustrations animate everywhere else on the
-                  site through IllustratedScene (viewfinder, record dot,
-                  filmstrip, tilt, and a disclosure that reveals what you get).
-                  The chooser rendered them as a still image, so the one card
-                  a visitor actually lands on was the only dead one.
-                  Composed exactly as AudienceRouter does it: the scene is its
-                  own element, the link is the row beneath it, so a disclosure
-                  is never nested inside an anchor.
-                  Above 1024px the card is two columns (art left, capped at
-                  640px; link + process right) instead of one phone column
-                  stretched wide — 2026-10-12 review item 7: the illustration
-                  rendered at 1187px, the biggest object on the homepage. */}
-              {index === 1 ? (
-                <AudienceVideo locale={locale} alt={c.videoAlt} />
-              ) : (
-                <IllustratedScene
-                  image={`/illustrations/${artwork[index]}.webp`}
-                  alt={c.artAlts[index]}
-                  kind={index === 2 ? "edit" : "photo"}
-                  source={`home-path-${lane.id}`}
-                  locale={locale}
-                  label={c.sceneLabels[index]}
-                  facts={[...c.sceneFacts[index]]}
-                  detailsHref={index === 0 ? realEstateReelsPath(locale) : lane.href}
-                />
-              )}
-              <div className="em-path-card-info mt-3 lg:mt-0 flex flex-col gap-3">
-                {/* The business lane's artwork is a video, not IllustratedScene,
-                    so its price/TLDR answer lives here instead — inside the
-                    SAME grid column as the CTA button. It used to sit as its
-                    own grid item beside the video, which pushed the three
-                    children of .em-path-card into a 2-column/3-item grid and
-                    left a second, empty row under the button at desktop
-                    (review item 6: 395px of dead cream at 1440). */}
-                {index === 1 && (
-                  <LaneAnswer
-                    source={`home-path-${lane.id}`}
-                    locale={locale}
-                    label={c.sceneLabels[index]}
-                    facts={[...c.sceneFacts[index]]}
-                    detailsHref={lane.href}
-                  />
-                )}
-                {/* Minimum-term qualifier (real estate) / turnaround floor
-                    (editing), sitting ~14px above the CTA so the condition is
-                    read before anyone commits. Both figures come from
-                    lib/pricing.ts, never typed here. */}
-                {index === 0 && (
-                  <p className="em-path-qualifier">
-                    {c.minimumTerm}{" "}
-                    <Link href={laneOffers(locale, "real-estate")[0].href} data-cta="home_path_terms">{c.termsLink}</Link>.
-                  </p>
-                )}
-                {index === 2 && (
-                  <p className="em-path-qualifier">{c.turnaround(turnaroundFor("arranque").minimumDays)}</p>
-                )}
-                {/* The filled, terracotta row is now the ONE primary action in
-                    the section (review item 5: "the red button is currently
-                    the SECONDARY action"); starting prices is demoted below
-                    to the compact related-link treatment. Owner, 2026-10-13:
-                    the CTA (and the scene) open an in-place 2-step contact
-                    takeover instead of navigating away. The real href stays
-                    as the no-JS fallback and keeps every existing data-cta
-                    value unchanged. */}
-                <Link
-                  href={index === 0 ? realEstateReelsPath(locale) : lane.href}
-                  data-cta={`home-path-${lane.id}`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    openFunnel(lane.id, c.labels[index], laneFunnelPrice(locale, laneIdAt(index)));
-                  }}
-                  className="group flex min-h-16 items-center justify-between gap-4 rounded-2xl bg-[#9d3d2b] px-5 py-4 text-lg font-medium leading-snug text-white transition hover:bg-[#86341f] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-                >
-                  <span><span className="block">{c.labels[index]}</span><span className="mt-1 block text-xs font-normal uppercase tracking-wide text-white">{lane.who}</span></span>
-                  <ArrowRight className="size-5 shrink-0 text-white transition-transform group-hover:translate-x-1" aria-hidden="true" />
-                </Link>
-                <ul className="em-path-offers" role="list" aria-label={c.offersLabel} data-lane={lane.id}>
-                  {laneOffers(locale, laneIdAt(index)).map((offer) => (
-                    <li key={offer.name} className="em-path-offer">
-                      <p className="em-path-offer-head">
-                        <strong className="em-path-offer-name">{offer.name}</strong>
-                        <span className="em-path-offer-price">{offer.price}</span>
-                      </p>
-                      <p className="em-path-offer-inc">{offer.includes}</p>
-                    </li>
-                  ))}
-                  {index === 0 && (
-                    <li className="em-path-offer-more">
-                      <Link href={laneOffers(locale, "real-estate")[0].href} data-cta="home_path_more_plans">{c.morePlans}</Link>
-                    </li>
-                  )}
-                </ul>
-                {index === 2 && (
-                  <details className="em-process-details em-sheet-details">
-                    <summary>{c.process}</summary>
-                    <div className="em-sheet-body">
-                      <EditingPreview locale={locale} />
+              <div key={lane.id} className="em-path-card" hidden={!isActive}>
+                <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-[#d6cabc] bg-[#fffaf3] shadow-sm mb-4">
+                  {/* Cinematic Lens Backdrop Banner — illustration sits behind like a cinema poster */}
+                  <div className="relative h-44 sm:h-52 w-full overflow-hidden bg-[#101214]">
+                    <Image
+                      src={`/illustrations/${artwork[index]}.webp`}
+                      alt={c.artAlts[index]}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 760px"
+                      className="object-cover opacity-35 brightness-90 filter transition-transform duration-700 hover:scale-105"
+                      priority={index === 0}
+                    />
+                    {/* Cinematic optical gradient / vignette overlay */}
+                    <div
+                      className="absolute inset-0 pointer-events-none"
+                      style={{
+                        background:
+                          "linear-gradient(to bottom, rgba(16,18,20,0.3) 0%, rgba(16,18,20,0.65) 50%, rgba(16,18,20,0.95) 100%)",
+                      }}
+                    />
+
+                    {/* Optical Viewfinder Frame Crop Marks & Telemetry */}
+                    <div className="absolute inset-3 sm:inset-4 border border-white/15 rounded-xl pointer-events-none flex flex-col justify-between p-2.5 sm:p-3.5">
+                      <div className="flex items-center justify-between">
+                        {/* Prime Lens Aperture HUD badge */}
+                        <div className="flex items-center gap-2 px-2.5 py-1 rounded-full bg-black/65 backdrop-blur-md border border-white/20 text-white shadow-sm">
+                          <span className="w-2 h-2 rounded-full bg-[#c84a2c] animate-pulse" />
+                          <span className="text-[11px] font-bold uppercase tracking-wider text-[#f0d9c9]">{laneLens.mm} {locale === "es" ? "Lente" : "Prime"}</span>
+                          <span className="text-[11px] font-mono text-white/70">· {laneLens.tstop}</span>
+                        </div>
+                        {/* Telemetry metadata */}
+                        <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-wider text-white/60">
+                          <span className="hidden sm:inline">4K DCI · 24FPS</span>
+                          <span className="text-rose-400 font-bold">REC ●</span>
+                        </div>
+                      </div>
+
+                      {/* Title & Who It Is For */}
+                      <div className="mt-auto">
+                        <h3 className="font-serif text-2xl sm:text-3xl text-white font-medium drop-shadow-md">
+                          {c.labels[index]}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-white/80 font-normal mt-0.5 tracking-wide">
+                          {lane.who}
+                        </p>
+                      </div>
                     </div>
-                  </details>
-                )}
+                  </div>
+
+                  {/* The Package List & Details — immediately visible without scrolling down */}
+                  <div className="em-path-card-info p-4 sm:p-5 flex flex-col gap-3">
+                    <div className="flex flex-wrap items-baseline justify-between gap-2">
+                      <p className="text-xs font-semibold uppercase tracking-wider text-[#6a625a]">
+                        {locale === "es" ? "Paquetes y entregables" : "Available packages & deliverables"}
+                      </p>
+                      {index === 0 && (
+                        <p className="em-path-qualifier text-xs text-[#6a625a]">
+                          {c.minimumTerm}
+                        </p>
+                      )}
+                      {index === 2 && (
+                        <p className="em-path-qualifier text-xs text-[#6a625a]">
+                          {c.turnaround(turnaroundFor("arranque").minimumDays)}
+                        </p>
+                      )}
+                    </div>
+
+                    {/* Offers List: expandable plan cards with full deliverables disclosure */}
+                    <ul className={`em-path-offers grid grid-cols-1 ${laneOffers(locale, laneIdAt(index)).length === 3 ? "sm:grid-cols-3" : "sm:grid-cols-2"} gap-2.5`} role="list" aria-label={c.offersLabel} data-lane={lane.id}>
+                      {laneOffers(locale, laneIdAt(index)).map((offer) => {
+                        const deliverables = offerDeliverables(offer.name, laneIdAt(index), locale);
+                        return (
+                          <li
+                            key={offer.name}
+                            className="em-path-offer group flex flex-col justify-between rounded-xl border border-[#d6cabc] bg-white transition hover:border-[#9d3d2b] hover:shadow-sm overflow-hidden"
+                          >
+                            <details className="em-path-offer-details group/offer w-full flex-1 flex flex-col">
+                              <summary className="p-3.5 sm:p-4 cursor-pointer list-none [&::-webkit-details-marker]:hidden flex flex-col justify-between select-none">
+                                <div>
+                                  <p className="em-path-offer-head flex items-baseline justify-between gap-2 m-0">
+                                    <strong className="em-path-offer-name">{offer.name}</strong>
+                                    <span className="em-path-offer-price">{offer.price}</span>
+                                  </p>
+                                  <p className="em-path-offer-inc">{offer.includes}</p>
+                                </div>
+                                <div className="mt-3 pt-2.5 border-t border-[#f0eae1] flex items-center justify-between text-xs">
+                                  <span className="text-[#6a625a] font-medium flex items-center gap-1 group-open/offer:text-[#9d3d2b]">
+                                    <span>{locale === "es" ? "Ver alcance" : "View scope"}</span>
+                                    <ChevronDown className="size-3.5 transition-transform duration-200 group-open/offer:rotate-180" aria-hidden="true" />
+                                  </span>
+                                  <button
+                                    type="button"
+                                    className="text-[#9d3d2b] font-semibold flex items-center gap-1 hover:underline cursor-pointer py-0.5 px-2 rounded hover:bg-[#9d3d2b]/10 transition-colors"
+                                    onClick={(e) => {
+                                      e.preventDefault();
+                                      e.stopPropagation();
+                                      openFunnel(lane.id, `${c.labels[index]}: ${offer.name}`, offer.price);
+                                    }}
+                                  >
+                                    {locale === "es" ? "Elegir" : "Select"} <ArrowRight className="size-3.5" aria-hidden="true" />
+                                  </button>
+                                </div>
+                              </summary>
+                              <div className="px-3.5 pb-3.5 sm:px-4 sm:pb-4 pt-2 bg-[#fffaf4] border-t border-[#f0eae1] text-xs">
+                                <p className="text-[11px] font-bold uppercase tracking-wider text-[#9d3d2b] mb-2">
+                                  {locale === "es" ? "Alcance y entregables" : "Scope & deliverables"}
+                                </p>
+                                <ul className="space-y-1.5 my-2 text-[#3a3530]" role="list">
+                                  {deliverables.map((item, dIdx) => (
+                                    <li key={dIdx} className="flex items-start gap-2">
+                                      <span className="size-1.5 rounded-full bg-[#9d3d2b] mt-1.5 shrink-0" aria-hidden="true" />
+                                      <span className="leading-snug">{item}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                                <button
+                                  type="button"
+                                  className="w-full mt-3 flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg bg-[#9d3d2b] text-white text-xs sm:text-sm font-semibold hover:bg-[#86341f] transition shadow-sm cursor-pointer"
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    openFunnel(lane.id, `${c.labels[index]}: ${offer.name}`, offer.price);
+                                  }}
+                                >
+                                  <span>{locale === "es" ? `Elegir ${offer.name} · ${offer.price}` : `Select ${offer.name} · ${offer.price}`}</span>
+                                  <ArrowRight className="size-3.5" aria-hidden="true" />
+                                </button>
+                              </div>
+                            </details>
+                          </li>
+                        );
+                      })}
+                    </ul>
+
+                    {index === 0 && (
+                      <div className="mt-2">
+                        <details className="group/terms rounded-xl border border-[#d6cabc] bg-[#fffaf3] p-3 text-xs text-[#6a625a]">
+                          <summary className="font-semibold text-[#6a625a] cursor-pointer hover:text-[#101214] list-none flex items-center justify-between [&::-webkit-details-marker]:hidden select-none">
+                            <span>{locale === "es" ? "Adicionales y condiciones del servicio Real Estate" : "Real Estate add-ons & service terms"}</span>
+                            <Plus className="size-3.5 text-[#9d3d2b] transition-transform duration-200 group-open/terms:rotate-45" aria-hidden="true" />
+                          </summary>
+                          <div className="mt-2.5 pt-2.5 border-t border-[#e3ded6] text-xs text-[#4d5358] space-y-2.5">
+                            <div>
+                              <strong className="text-[#101214] block mb-1">{locale === "es" ? "Adicionales disponibles:" : "Available add-ons:"}</strong>
+                              <ul className="space-y-1 list-disc pl-4 text-[#554e48]">
+                                <li>{locale === "es" ? "Fotografía aérea con dron: $120 por sesión (incluida en el plan Premium)." : "Drone aerial photography: $120 per session (included in Premium)."}</li>
+                                <li>{locale === "es" ? "Propiedades adicionales o metraje mayor a 3,000 SF se cotizan por separado." : "Extra properties or homes over 3,000 SF quoted separately."}</li>
+                              </ul>
+                            </div>
+                            <div>
+                              <strong className="text-[#101214] block mb-1">{locale === "es" ? "Condiciones del plan:" : "Plan terms:"}</strong>
+                              <ul className="space-y-1 list-disc pl-4 text-[#554e48]">
+                                <li>{locale === "es" ? `Mínimo de ${REAL_ESTATE_PLAN_TERMS.minimumMonths} meses. Se factura el día 1 de cada mes. Aviso de ${REAL_ESTATE_PLAN_TERMS.cancelNoticeDays} días para cancelar.` : `${REAL_ESTATE_PLAN_TERMS.minimumMonths}-month minimum. Billed on the 1st of each month. ${REAL_ESTATE_PLAN_TERMS.cancelNoticeDays} days' notice to cancel.`}</li>
+                                <li>{locale === "es" ? "Flexibilidad de sesiones: si un mes no tienes listado, esa sesión pasa al mes siguiente (hasta 2 guardadas)." : "Rollover flexibility: if you have no listing one month, that shoot rolls to the next month (up to 2 held)."}</li>
+                                <li>{locale === "es" ? "No incluye pauta publicitaria paga ni gestión de mensajes directos." : "Excludes paid advertising spend and direct message management."}</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </details>
+                      </div>
+                    )}
+
+                    {index === 1 && (
+                      <div className="mt-1">
+                        <details className="em-process-details em-sheet-details">
+                          <summary className="text-xs font-semibold text-[#6a625a] cursor-pointer hover:text-[#101214] py-1">
+                            {locale === "es" ? "Ver video de cliente real" : "Watch real client video"}
+                          </summary>
+                          <div className="em-sheet-body p-4 bg-[#fffaf4]">
+                            <AudienceVideo locale={locale} alt={c.videoAlt} />
+                          </div>
+                        </details>
+                      </div>
+                    )}
+
+                    {index === 2 && (
+                      <div className="mt-1">
+                        <details className="em-process-details em-sheet-details">
+                          <summary className="text-xs font-semibold text-[#6a625a] cursor-pointer hover:text-[#101214] py-1">
+                            {c.process}
+                          </summary>
+                          <div className="em-sheet-body p-4 bg-[#fffaf4]">
+                            <EditingPreview locale={locale} />
+                          </div>
+                        </details>
+                      </div>
+                    )}
+
+                    {/* Primary Action Button */}
+                    <div className="mt-2">
+                      <Link
+                        href={index === 0 ? realEstateReelsPath(locale) : lane.href}
+                        data-cta={`home-path-${lane.id}`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          openFunnel(lane.id, c.labels[index], laneFunnelPrice(locale, laneIdAt(index)));
+                        }}
+                        className="group flex min-h-14 items-center justify-between gap-4 rounded-xl bg-[#9d3d2b] px-5 py-3.5 text-base sm:text-lg font-medium leading-snug text-white transition hover:bg-[#86341f] shadow-sm"
+                      >
+                        <span>
+                          <span className="block font-semibold">{c.labels[index]}</span>
+                          <span className="text-xs font-normal text-white/80">{lane.who} · {laneStartingPrice(locale, laneIdAt(index))}</span>
+                        </span>
+                        <ArrowRight className="size-5 shrink-0 text-white transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
             );
           })}
           {/* Fourth lane: the single projects that used to be their own
@@ -314,8 +592,49 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
               details, and the same in-place funnel instead of a WhatsApp
               row per card. */}
           <div className="em-path-card em-path-card--single" hidden={activeLane !== SINGLE_ID}>
-            <p className="em-single-lead">{single.title} {single.lead} {c.singleLead}</p>
-            <ul className="em-single-list" role="list">
+            <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-[#d6cabc] bg-[#fffaf3] shadow-sm mb-4">
+              {/* Cinematic Lens Backdrop Banner — illustration sits behind like a cinema poster */}
+              <div className="relative h-44 sm:h-52 w-full overflow-hidden bg-[#101214]">
+                <Image
+                  src="/illustrations/property.webp"
+                  alt={c.thumbAlt(c.singleLabel)}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 760px"
+                  className="object-cover opacity-35 brightness-90 filter transition-transform duration-700 hover:scale-105"
+                />
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    background:
+                      "linear-gradient(to bottom, rgba(16,18,20,0.3) 0%, rgba(16,18,20,0.65) 50%, rgba(16,18,20,0.95) 100%)",
+                  }}
+                />
+                <div className="absolute inset-3 sm:inset-4 border border-white/15 rounded-xl pointer-events-none flex flex-col justify-between p-2.5 sm:p-3.5">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2 px-2.5 py-1 rounded-full bg-black/65 backdrop-blur-md border border-white/20 text-white shadow-sm">
+                      <span className="w-2 h-2 rounded-full bg-[#c84a2c] animate-pulse" />
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-[#f0d9c9]">{LENS_METRICS[SINGLE_ID].mm} {locale === "es" ? "Lente" : "Prime"}</span>
+                      <span className="text-[11px] font-mono text-white/70">· {LENS_METRICS[SINGLE_ID].tstop}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-wider text-white/60">
+                      <span className="hidden sm:inline">4K DCI · 24FPS</span>
+                      <span className="text-rose-400 font-bold">REC ●</span>
+                    </div>
+                  </div>
+                  <div className="mt-auto">
+                    <h3 className="font-serif text-2xl sm:text-3xl text-white font-medium drop-shadow-md">
+                      {c.singleLabel}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-white/80 font-normal mt-0.5 tracking-wide">
+                      {c.singleWho}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-4 sm:p-5">
+                <p className="em-single-lead">{single.title} {single.lead} {c.singleLead}</p>
+                <ul className="em-single-list" role="list">
               {single.items.map((item) => {
                 const scene = aLaCarteVisual(item.id, locale);
                 // Real figure only where lib/pricing has one (the photo
@@ -390,6 +709,8 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
             </div>
           </div>
         </div>
+      </div>
+    </div>
         <nav aria-label={locale === "es" ? "Servicios locales" : "Local services"} className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm">
           {c.localLinks.map((link) => (
             <Link key={link.href} href={link.href} className="min-h-11 inline-flex items-center text-[#6a625a] underline underline-offset-4" data-cta="home-local-service">

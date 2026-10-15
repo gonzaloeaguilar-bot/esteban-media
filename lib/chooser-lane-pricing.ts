@@ -10,7 +10,7 @@
 // re-typed, so the chooser's price fold and this disclosure can never drift
 // from /pricing or the package pages.
 import { cheapestRealEstatePlan, packagesFor, priceFor, type Locale } from "@/lib/packages";
-import { usd, type PackageId } from "@/lib/pricing";
+import { REAL_ESTATE_PLANS, usd, type PackageId } from "@/lib/pricing";
 import { realEstatePlanName } from "@/lib/real-estate-plans";
 
 export type ChooserLaneId = "real-estate" | "local-business" | "agency";
@@ -59,24 +59,21 @@ function packageOffer(locale: Locale, id: PackageId): LaneOffer {
 
 /**
  * The packages each lane actually sells, with the names and figures /pricing
- * uses. The business lane sells two things that bill differently (a monthly
- * plan and a production day), and a restaurant owner has to see both.
+ * uses. The real estate lane provides all 3 monthly plans (Essential, Plus,
+ * Premium). The business lane sells two things that bill differently (a monthly
+ * plan and a production day).
  */
 export function laneOffers(locale: Locale, laneId: ChooserLaneId): LaneOffer[] {
   const es = locale === "es";
   if (laneId === "real-estate") {
-    const plan = cheapestRealEstatePlan();
-    const from = es ? "Desde" : "From";
-    return [
-      {
-        name: realEstatePlanName(plan.id),
-        price: `${from} ${usd(plan.price)}${UNIT[locale].month}`,
-        includes: es
-          ? `${plan.properties} propiedad y ${plan.productionDays} días de producción al mes · ${plan.postsPerWeek} posts o reels por semana`
-          : `${plan.properties} property and ${plan.productionDays} production days a month · ${plan.postsPerWeek} posts or reels a week`,
-        href: es ? "/es/precios#real-estate" : "/pricing#real-estate-plans",
-      },
-    ];
+    return REAL_ESTATE_PLANS.map((plan) => ({
+      name: realEstatePlanName(plan.id),
+      price: `${usd(plan.price)}${UNIT[locale].month}`,
+      includes: es
+        ? `${plan.properties} propiedad${plan.properties > 1 ? "es" : ""} y ${plan.productionDays} días de producción al mes · ${plan.postsPerWeek} posts o reels por semana${plan.drone === "included" ? " · Dron incluido" : ""}`
+        : `${plan.properties} propert${plan.properties > 1 ? "ies" : "y"} and ${plan.productionDays} production days a month · ${plan.postsPerWeek} posts or reels a week${plan.drone === "included" ? " · Drone included" : ""}`,
+      href: es ? "/es/precios#real-estate" : "/pricing#real-estate-plans",
+    }));
   }
   if (laneId === "local-business") return [packageOffer(locale, "crecimiento"), packageOffer(locale, "presencia-local")];
   return [packageOffer(locale, "arranque")];
@@ -84,11 +81,19 @@ export function laneOffers(locale: Locale, laneId: ChooserLaneId): LaneOffer[] {
 
 /** One short line for the chip: it must never wrap. */
 export function laneStartingPrice(locale: Locale, laneId: ChooserLaneId): string {
+  const from = locale === "es" ? "Desde" : "From";
+  if (laneId === "real-estate") {
+    return `${from} ${laneOffers(locale, laneId)[0].price}`;
+  }
   return laneOffers(locale, laneId)[0].price;
 }
 
 /** The funnel header: package name plus price, joined when a lane sells two. */
 export function laneFunnelPrice(locale: Locale, laneId: ChooserLaneId): string {
+  if (laneId === "real-estate") {
+    const o = laneOffers(locale, laneId)[0];
+    return `${o.name} ${o.price}`;
+  }
   return laneOffers(locale, laneId)
     .map((o) => `${o.name} ${o.price.charAt(0).toLowerCase()}${o.price.slice(1)}`)
     .join(" · ");
