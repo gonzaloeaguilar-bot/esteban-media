@@ -188,6 +188,14 @@ describe("bilingual practical guides", () => {
     );
   });
 
+  it("hands event buyers from the Miami cost guide to the existing corporate-event service", () => {
+    const guide = getGuides("en").find(({ id }) => id === "corporate-video-cost-guide")!;
+    const body = guide.sections.flatMap(({ paragraphs }) => paragraphs).join(" ");
+
+    expect(body).toContain("[corporate event videography in Miami](/services/corporate-event-videographer-miami)");
+    expect(body).toContain("does not promise a fixed event package");
+  });
+
   it("labels every article as general guidance without implying a private policy", () => {
     const corpus = JSON.stringify({
       guides: [...getGuides("en"), ...getGuides("es")],

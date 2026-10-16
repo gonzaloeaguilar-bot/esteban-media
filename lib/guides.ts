@@ -1870,6 +1870,12 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
+          heading: "When should an event use a separate corporate-event scope?",
+          paragraphs: [
+            "For a conference, launch, or company gathering where the coverage window and final recap both matter, see [corporate event videography in Miami](/services/corporate-event-videographer-miami). That page helps define the event scope before a written quote; it does not promise a fixed event package.",
+          ],
+        },
+        {
           heading: "Which scope details should you send for a comparable quote?",
           paragraphs: [
             "The largest differences usually come from what must happen before the edit begins and how many finished versions the project needs. A quote is easier to evaluate when every assumption is written down. [Local Presence](/pricing/local-presence) starts at a production-day price; it is not an all-in corporate-video quote.",
