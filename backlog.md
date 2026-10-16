@@ -8,6 +8,8 @@
 
 # Esteban Moreno Media — Backlog
 
+- [ ] After the reviewed Clarity code is merged, create/select Esteban Moreno Media's real Microsoft Clarity project; add only its identifier as `NEXT_PUBLIC_CLARITY_PROJECT_ID` to the Vercel **Production** environment, redeploy, and complete the production verification/rollback steps in `docs/microsoft-clarity-activation.md`. Do not place the identifier in git or enable previews.
+
 - [x] 2026-10-10: ship the annual-events section (hub + FLIBS + Art Basel first, then Miami boat show, SOBEWFF, eMerge Americas, Miami Music Week, Miami Spice) on `feat/events-hub`.
 - [ ] 2026-11-01: refresh lib/events.ts — Miami Spice 2026 ends 2026-10-31 (`pnpm events:check` and the weekly follow-ups workflow go red until updated or set to null); FLIBS 2026 ends 2026-11-01.
 - [ ] 2026-11-10: GSC impressions/indexed status and event_* / service_event_* CTA clicks for the events section URLs.

@@ -62,6 +62,10 @@ export const site = {
   nextdoor: "https://nextdoor.com/pages/esteban-moreno-media-fort-lauderdale-fl/",
   googleSiteVerification: "I70vr7LMsVyZc_VO4grb6fDxQXPTbhB7LIIFjJUlvUs",
   googleAnalyticsMeasurementId: "G-W9CM4CE2MQ",
+  // Deliberately unset in source. See docs/microsoft-clarity-activation.md.
+  // A value is only supplied by Vercel's Production environment after the
+  // owner has approved the privacy disclosure and created the real project.
+  microsoftClarityProjectId: process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID,
   location: "Fort Lauderdale, FL",
   description:
     "Esteban Moreno Media: video editing, AI content & social production for South Florida businesses. Spanish-first, English too. Fort Lauderdale — fast quote.",
