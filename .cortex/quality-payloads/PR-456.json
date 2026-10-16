@@ -1,0 +1,62 @@
+{
+  "project": "esteban-media",
+  "mode": "pr",
+  "target_type": "pr",
+  "target_id": "PR-456",
+  "requires_pr": true,
+  "goal": "Make the production camera chooser behave only after a visitor interacts and keep the phone deep link readable below the sticky header.",
+  "summary": "Gates the focus, iris, glint, and sweep animation behind a real chooser interaction and adds an anchor margin to the existing start section. No offer, price, contact, or route is changed.",
+  "risk": "Low and reversible: CSS and client-side class changes limited to the existing homepage chooser.",
+  "changed_paths": [
+    "components/home-project-path.tsx",
+    "app/illustrated-commercial.css",
+    ".cortex/quality-payloads/PR-456.json"
+  ],
+  "requested_actions": [
+    "Run exact-head CI and attach independent quality evidence.",
+    "Merge only after required checks pass.",
+    "Verify the live 390px deep link and lens tap after deployment."
+  ],
+  "public_claims": [
+    "No public fact or commercial claim changed."
+  ],
+  "evidence": {
+    "obsidian_context": "The active Esteban vault work is the camera chooser release and its phone-first production review; this PR repairs two defects observed in that review.",
+    "project_routing": "gonzaloeaguilar-bot/esteban-media PR #456, branch fix/esteban-camera-mobile-polish, head 81de51f8 at the time this payload was authored.",
+    "problem_observed": "On production at 390px, a direct /#start landing placed the chooser heading from y=16.125 to y=106.125 while the sticky header ended at y=65; the first line was obscured. The production lens and sweep animation names were present with focus tick 0 before interaction.",
+    "tests_or_validation": "pnpm test --run app/__tests__/home-packaging-human.test.ts app/__tests__/home-single-projects-in-chooser.test.ts passed 27 tests; pnpm typecheck passed; pnpm build completed 407 static pages. git diff --check passed.",
+    "interaction_validation": "Production phone test at 390px: each of the four project cards selected the matching title, starting price and destination. After hydration, the lens tap advanced the active index from 1 to 2, focus tick from 1 to 2, and exposed em-camera-focus. The source change removes animation from focus tick 0 and applies it only with .is-focusing.",
+    "reviewer_ensemble": "Builder review: the diff is scoped to the component and CSS selectors responsible. Skeptic review: the two defects were reproduced from live 390px measurements before the patch. Taste review: the change preserves one camera-shaped component and makes movement a response to touch rather than ambient decoration. A separate Antigravity review dispatch was refused before provider execution because its review contract rejected the supplied invocation; it is not counted as external review evidence.",
+    "reviewer_disagreement_reviewed": "No reviewer disagreement was found. The only decision was whether to leave the review findings as follow-up work; both are direct regressions of the just-shipped interaction and are fixed in this narrowly scoped PR.",
+    "winner_rationale": "Gating the existing keyframed layers with .is-focusing preserves the desired focus response without adding a library or a second visual control. An 88px section scroll margin is sufficient to clear the measured 65px phone header while retaining nearby context.",
+    "ci_passed": "Exact-head GitHub validate was still in progress when this payload was authored. Merge remains disallowed until its terminal success state is read.",
+    "pr_review_complete": "The production behavior, local source patch, focused tests, typecheck, build and phone selector states were reviewed. No external-provider review is claimed because the sanctioned Antigravity dispatch was refused before execution.",
+    "hard_stops_checked": "No price, service, location, review, credential, contact, tracking, payment, account, or destructive action changed.",
+    "debt_delta": "neutral",
+    "obsidian_handoff": "The Esteban vault hot note, durable review, index and backlog will record the PR and final deployment evidence in this session."
+  },
+  "reviewers": {
+    "builder": {
+      "status": "ok",
+      "note": "Implemented the two observed production defects within the existing chooser component and passed focused tests, typecheck, build and diff checks."
+    },
+    "skeptic": {
+      "status": "ok",
+      "note": "Production DOM and phone measurements reproduced the animation-at-load and sticky-header overlap; the patch is scoped to the exact selectors causing them."
+    },
+    "taste": {
+      "status": "ok",
+      "note": "The motion remains a deliberate touch response, while the camera deck remains one connected component and the direct phone landing restores its reading space."
+    }
+  },
+  "scores": {
+    "source_fidelity": 5,
+    "architecture_soundness": 4,
+    "implementation_quality": 5,
+    "review_completeness": 4,
+    "debt_posture": 5,
+    "verification_strength": 4,
+    "taste_fit": 5
+  },
+  "debt_delta": "neutral"
+}

@@ -8,6 +8,8 @@
 
 # Esteban Moreno Media — Backlog
 
+- [ ] After the reviewed Clarity code is merged, create/select Esteban Moreno Media's real Microsoft Clarity project; add only its identifier as `NEXT_PUBLIC_CLARITY_PROJECT_ID` to the Vercel **Production** environment, redeploy, and complete the production verification/rollback steps in `docs/microsoft-clarity-activation.md`. Do not place the identifier in git or enable previews.
+
 - [x] 2026-10-10: ship the annual-events section (hub + FLIBS + Art Basel first, then Miami boat show, SOBEWFF, eMerge Americas, Miami Music Week, Miami Spice) on `feat/events-hub`.
 - [ ] 2026-11-01: refresh lib/events.ts — Miami Spice 2026 ends 2026-10-31 (`pnpm events:check` and the weekly follow-ups workflow go red until updated or set to null); FLIBS 2026 ends 2026-11-01.
 - [ ] 2026-11-10: GSC impressions/indexed status and event_* / service_event_* CTA clicks for the events section URLs.
@@ -30,6 +32,7 @@ Production is live. This file tracks repository implementation; account/access w
 
 ## P0 — Search establishment
 
+- [ ] 2026-10-16: after PR #454 merges, verify the site in Bing Webmaster Tools and Ahrefs Webmaster Tools through their browser UIs; submit/check both existing sitemap URLs in Bing, complete the first Ahrefs crawl, and record dated UI exports. Site-side preflight command: `pnpm search-tools:readiness`.
 - [x] Verify Google Search Console and submit `/sitemap.xml`
 - [x] Submit `/video-sitemap.xml` once after the 16 watch pages reached production; accepted for processing with immediate state pending and 0 errors/warnings, without resubmitting the regular sitemap
 - [x] Request indexing for the four English/Spanish home and portfolio entry points: `/`, `/portfolio`, `/es`, and `/es/portafolio`

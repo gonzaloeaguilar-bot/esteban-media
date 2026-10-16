@@ -1,14 +1,19 @@
 import { ExternalLink } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { getMicrosoftClarityProjectId } from "@/lib/microsoft-clarity";
 import { site } from "@/lib/site";
 
 const googleProcessingUrl =
   "https://policies.google.com/technologies/partner-sites";
 const googleOptOutUrl = "https://tools.google.com/dlpage/gaoptout";
+const microsoftPrivacyUrl = "https://privacy.microsoft.com/privacystatement";
 
 export function PrivacyNotice({ locale }: { locale: "en" | "es" }) {
   const isSpanish = locale === "es";
+  const microsoftClarityEnabled = Boolean(
+    getMicrosoftClarityProjectId(site.microsoftClarityProjectId),
+  );
 
   return (
     <main className="bg-[#f6f1ea] py-12 text-[#101214] sm:py-16">
@@ -47,6 +52,13 @@ export function PrivacyNotice({ locale }: { locale: "en" | "es" }) {
                 ? "El tag de este sitio desactiva las señales de Google y las señales de personalización publicitaria. No enviamos intencionalmente a Google Analytics nombres, correos electrónicos, números de teléfono ni el contenido de mensajes."
                 : "This site's tag disables Google Signals and ad-personalization signals. We do not intentionally send names, email addresses, phone numbers, or message contents to Google Analytics."}
             </p>
+            {microsoftClarityEnabled ? (
+              <p className="mt-4">
+                {isSpanish
+                  ? "Cuando está habilitado, este sitio también usa Microsoft Clarity para entender de forma agregada cómo las personas navegan e interactúan con las páginas. El tag no se carga cuando el navegador comunica Global Privacy Control o Do Not Track."
+                  : "When enabled, this site also uses Microsoft Clarity to understand, in aggregate, how people navigate and interact with pages. The tag does not load when a browser communicates Global Privacy Control or Do Not Track."}
+              </p>
+            ) : null}
           </PolicySection>
 
           <PolicySection
@@ -73,6 +85,23 @@ export function PrivacyNotice({ locale }: { locale: "en" | "es" }) {
                 : "How Google uses information from sites and apps"}
             </ExternalPolicyLink>
           </PolicySection>
+
+          {microsoftClarityEnabled ? (
+            <PolicySection
+              title={isSpanish ? "Procesamiento por Microsoft" : "Processing by Microsoft"}
+            >
+              <p>
+                {isSpanish
+                  ? "Microsoft procesa los datos de Clarity de acuerdo con sus propios términos y políticas."
+                  : "Microsoft processes Clarity data under its own terms and policies."}
+              </p>
+              <ExternalPolicyLink href={microsoftPrivacyUrl}>
+                {isSpanish
+                  ? "Declaración de privacidad de Microsoft"
+                  : "Microsoft Privacy Statement"}
+              </ExternalPolicyLink>
+            </PolicySection>
+          ) : null}
 
           <PolicySection title={isSpanish ? "Tus opciones" : "Your choices"}>
             <p>
