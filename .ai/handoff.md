@@ -4,7 +4,7 @@
 - Commit `b5e3e51b` on `feat/camera-pricing-chooser` keeps the camera visual, turns all four project choices into one 2 by 2 phone grid, and places the selected package list directly beneath it. The former duplicate per-category image banner is hidden; the service heading and canonical price live in the camera deck.
 - It deliberately does not publish Esteban equipment facts. The camera is visual direction only until models, lenses, ownership and buyer-facing relevance are confirmed.
 - Local verification: focused home tests `27 passed`; `pnpm typecheck`; `pnpm build` (407 static pages); analytics gate passed. Local 320px Chrome check switched Business from the deck and immediately rendered Growth ($640/mo) and Local Presence ($800/production day) without a separate category-service scroll.
-- PR: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/445. At this note, its `validate` CI run is in progress; no production merge/deploy is claimed. Antigravity visual-review dispatch record: `20261016T031413Z-cto-web-lead-esteban-media-1792120453538779000-40736-7f5294834eb37004` (outcome not yet recorded).
+- PR: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/445. Antigravity visual review approved the code commit (`REVIEW_VERDICT: APPROVE`) under dispatch `20261016T031413Z-cto-web-lead-esteban-media-1792120453538779000-40736-7f5294834eb37004`; the docs-only head `4dcc0fd2` has freshly queued CI. No production merge/deploy is claimed.
 
 ---
 
