@@ -1,0 +1,27 @@
+# Homepage camera service deck — repair brief
+
+## Decision
+
+Turn the homepage chooser into one mobile-first camera service deck. The camera visual, its four project choices, and the selected service's packages must occupy one continuous component. Selecting a category must reveal its packages immediately below the choice grid, without a separate cinematic banner that pushes the service out of view.
+
+## Live evidence
+
+- `curl -sS -L https://estebanmorenomedia.com/` returned the current lens labels (`16mm`, `50mm`, `35mm`) and category labels on 2026-10-15.
+- `components/home-project-path.tsx` on `origin/main` renders the lens indicator, a separate four-choice control, then another image banner before the package cards.
+- PR #445 (`feat/camera-pricing-chooser`) replaces the duplicate lens control but renders the three primary category stops in a vertical phone stack before the package cards. This does not meet the owner's no-extra-scroll correction.
+
+## Acceptance
+
+1. At 390x844, the camera header, all four category choices, and the selected service's package heading/first package are visible within the chooser's initial reading path.
+2. The four choices form a legible 2 by 2 grid on phone and do not require a horizontal swipe.
+3. Selection updates the selected name, canonical starting price, and rendered package list in place; there is no second image banner between the choice grid and packages.
+4. The camera remains a brand visual, not an equipment claim: no camera model, lens name, focal length, codec, frame rate, delivery, lighting, audio, or availability claim.
+5. Existing canonical helpers continue to provide prices; EN/ES content and all lane content remain in initial server HTML.
+6. Verify short/normal phone, desktop, keyboard selection, reduced motion, overflow, targeted tests, typecheck, build, and raw initial HTML.
+
+## Review ownership
+
+- Build: Codex
+- Craft review: Antigravity
+- Specification fidelity: Claude
+- Behavior and production verification: CTO QA

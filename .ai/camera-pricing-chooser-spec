@@ -1,0 +1,37 @@
+# Camera pricing chooser — delivery brief
+
+## Decision
+
+Build the approved first camera concept on the homepage only. The pricing hub keeps its direct, visible package prices. The homepage chooser becomes a warm, physical camera decision instrument for three buyer needs: property content, filming for a business, and editing supplied footage. A quiet link preserves the existing single-project route.
+
+## Evidence
+
+- `curl -sS -o /dev/null -w 'pricing=%{http_code} homepage=%{http_code}\\n' https://estebanmorenomedia.com/pricing https://estebanmorenomedia.com/` returned `pricing=200 homepage=200` on 2026-10-15.
+- At 390x844, the live pricing card visibly shows its starting price; it is the behavior to preserve.
+- `components/home-project-path.tsx` currently has a 52px clickable lens-like div plus a second visible chip control. The two controls change the same category.
+- `lib/pricing.ts`, `lib/packages.ts`, and `lib/chooser-lane-pricing.ts` are the canonical source of public prices and package labels.
+
+## Acceptance
+
+1. One selector only: three 44px-or-larger semantic buttons integrated into the camera dial/stop rail. No duplicate chip row.
+2. On a 390x844 phone, after the chooser reaches the top of the viewport, the selected job, starting price, and package action are visible together without another gesture.
+3. The movement is at most 400ms, communicates a selected stop, and respects reduced motion without hiding content.
+4. The three existing price shapes remain sourced from canonical helpers: monthly real estate, production-day business work, and per-video editing. No typed price, gear model, turnaround, delivery, audio, lighting, or availability claim.
+5. The existing a-la-carte/single-project surface remains reachable as a quiet related route rather than becoming a fourth competing camera mode.
+6. EN/ES parity; all lane content remains in initial HTML.
+7. Validate targeted tests, typecheck, build, real browser phone/desktop interaction, reduced motion, and raw built HTML.
+
+## Visual direction
+
+Warm metal and cream paper, one terracotta focus marker, and a real mechanical aperture response. The camera is a decision instrument, not a faux technical HUD: no lens focal-length copy, no REC theatre, no neon, no generic camera specifications. The selected option changes the price/scope card immediately beneath the dial.
+
+## Review owners
+
+- Build: Codex
+- Art/interaction review: Antigravity
+- Claim/spec fidelity: Claude
+- Behavior and production verification: CTO QA
+
+
+PREVIOUS ATTEMPT FAILED AT THE ACCEPTANCE CHECK. Run this check FIRST, read the failure, fix it, then re-run it before reporting done:
+{"boundary": "context_packet", "evidence": "shared context packet could not be built; exit=1; stderr=Traceback (most recent call last):\n  File \"/Users/gonzalo/.claude/durable/cto-context-packet.py\", line 124, in <module>\n    raise SystemExit(main())\n                     ~~~~^^\n  File \"/Users/gonzalo/.claude/durable/cto-context-packet.py\", line 103, in main\n    \"experience_direction\": experience_context(decision, args.project),\n                            ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/gonzalo/.claude/durable/cto_experience_contract.py\", line 95, in context\n    result['visual_evidence'] = bind_visual_evidence(\n                                ~~~~~~~~~~~~~~~~~~~~^\n        doc, Path(spec), shared / 'gonzalo-design-taste.md',\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        Path(str(decision.get('cwd') or Path(spec).parent)))\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/gonzalo/.claude/durable/cto_visual_evidence.py\", line 121, in bind\n    raise ValueError('spec changed after visual brief; reframe the handoff before dispatch')\nValueError: spec changed after visual brief; reframe the handoff before dispatch; diagnostic=/Users/gonzalo/.claude/state/cto-decisions/20261016T004353Z-cto-web-lead-esteban-media-1792111434461324000-42719-fce69c14ba5eec27.context.stderr.log"}
