@@ -281,7 +281,7 @@ const nicheWave8Pages: SpanishNichePage[] = [
         heading: "¿Cómo se prepara una jornada larga de grabación?",
         paragraphs: [
           "Para una conferencia, una cena o un evento de varias horas, la cotización debe nombrar la ventana de cobertura, los momentos prioritarios, el acceso y los videos finales. Eso evita convertir una jornada larga en una promesa poco clara de grabar cada minuto o a cada invitado.",
-          "Antes de reservar, comparte la fecha, la locación, el horario de inicio y cierre, las reglas de acceso, qué partes del evento deben aparecer y si además necesitas edición. La grabación y los entregables se definen por separado para que el alcance se entienda antes del día del evento.",
+          "Antes de reservar, comparte la fecha, la locación, el horario de inicio y cierre, las reglas de acceso, qué partes del evento deben aparecer y si además necesitas edición. La grabación y los entregables se definen por separado, con pausas y cambios de agenda considerados, para que el alcance se entienda antes del día del evento.",
         ],
       },
       {
