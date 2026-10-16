@@ -54,9 +54,9 @@ const serviceAreaFaqs = [
       "Palm Beach County is an expansion area evaluated on an individual project basis for on-location filming. Remote video editing and content planning remain available for any project with supplied source footage.",
   },
   {
-    question: "Do you provide bilingual English and Spanish content support?",
+    question: "Can a project include Spanish and English video deliverables?",
     answer:
-      "Yes. Esteban Moreno Media provides Spanish-first and bilingual video editing, content planning, and narrative pacing structured for South Florida businesses reaching both English and Spanish-speaking audiences.",
+      "Esteban works Spanish-first and can scope Spanish and English captions, titles, and edit deliverables for the audience of a specific project. Include the desired languages in the inquiry so the delivery plan is confirmed before production begins.",
   },
   {
     question: "What details help clarify a new project inquiry?",
