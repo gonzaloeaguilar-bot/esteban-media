@@ -97,6 +97,11 @@ const content: GeoServicePageContent = {
       href: "/services/reels-editor-miami",
     },
     {
+      title: "Editor de Reels en Fort Lauderdale",
+      detail: "La versión en español para negocios de Broward que ya tienen clips.",
+      href: "/es/editor-de-reels-fort-lauderdale",
+    },
+    {
       title: "Content Repurposing",
       detail: "Turn one long video, podcast or shoot into a set of short social clips.",
       href: "/services/content-repurposing-service-miami",
