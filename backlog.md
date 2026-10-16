@@ -32,7 +32,7 @@ Production is live. This file tracks repository implementation; account/access w
 
 ## P0 — Search establishment
 
-- [ ] 2026-10-16: verify the site in Bing Webmaster Tools and Ahrefs Webmaster Tools through their browser UIs; submit/check both existing sitemap URLs in Bing, complete the first Ahrefs crawl, and record dated UI exports. Site-side preflight command: `pnpm search-tools:readiness`.
+- [ ] 2026-10-16: after PR #454 merges, verify the site in Bing Webmaster Tools and Ahrefs Webmaster Tools through their browser UIs; submit/check both existing sitemap URLs in Bing, complete the first Ahrefs crawl, and record dated UI exports. Site-side preflight command: `pnpm search-tools:readiness`.
 - [x] Verify Google Search Console and submit `/sitemap.xml`
 - [x] Submit `/video-sitemap.xml` once after the 16 watch pages reached production; accepted for processing with immediate state pending and 0 errors/warnings, without resubmitting the regular sitemap
 - [x] Request indexing for the four English/Spanish home and portfolio entry points: `/`, `/portfolio`, `/es`, and `/es/portafolio`

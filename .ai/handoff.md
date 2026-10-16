@@ -1,8 +1,8 @@
 # 2026-10-16 — Bing + Ahrefs free-tool readiness (local branch)
 
-- Branch `feat/bing-ahrefs-readiness` adds the read-only `pnpm search-tools:readiness` contract and setup notes at `docs/search-tool-setup.md`. It checks live `robots.txt`, normal/video sitemaps and the public IndexNow key before any browser-side account setup or UI export review.
+- PR [#454](https://github.com/gonzaloeaguilar-bot/esteban-media/pull/454) on `feat/bing-ahrefs-readiness` adds the read-only `pnpm search-tools:readiness` contract and setup notes at `docs/search-tool-setup.md`. It checks live `robots.txt`, normal/video sitemaps and the public IndexNow key before any browser-side account setup or UI export review.
 - Live check at implementation time: all five owned-site checks passed against `https://estebanmorenomedia.com`; `pnpm seo:indexnow:status` also confirmed the hosted key. This does not establish Bing Webmaster Tools or Ahrefs account ownership, accepted sitemap state, crawl data, rankings, or AI citations.
-- Local verification: `pnpm exec vitest run scripts/indexnow-submit.test.mjs scripts/search-tool-readiness.test.mjs` passed 5 tests. Independent review and PR/release remain with the coordinator.
+- Verification: targeted tests passed 5/5 and full `pnpm test` passed 158 files / 2,953 tests. Governed Antigravity review approved exact code commit `a8962514` (`20261016T123652Z-cto-seo-lead-esteban-media-1792154213182901000-68496-f9c8536282f21b60`); it found no external writes, false ownership claims, parsing defect, or test regression. PR remains unmerged.
 
 # 2026-10-16 — Finalized SEO measurement loop (implementation branch)
 
