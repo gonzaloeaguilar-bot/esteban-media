@@ -1,0 +1,100 @@
+{
+  "schema": 2,
+  "project": "esteban-media",
+  "intent": "Repair the homepage camera service deck so category selection keeps the service packages in the same mobile reading path.",
+  "phase": "repair",
+  "visual_evidence": {
+    "scope": "composition",
+    "scope_reason": "The owner reported that changing category makes the services fall below the mobile reading path.",
+    "target": "direction",
+    "owner_status": "owner_accepted_direction",
+    "capture_kind": "rendered",
+    "spec_sha256": "63cf159d3a87a8c22603fabe4a851e5cc2926808718e74aa5b2ca3f0459799d3",
+    "taste_sha256": "b1d2d13c07184a0d8a784a6f8fa700a9665c992efceaa01aff9682f473af678b",
+    "correction_excerpt": "La acción principal debe ser obvia, cómoda para el pulgar y decir lo que pasa al tocar. Si cuesta descubrir dónde empezar, la mecánica no está terminada.",
+    "comparison": "Current separate camera/lens, category choices, and service banner versus one deck with a compact camera header, a 2 by 2 category grid, and packages directly beneath.",
+    "references": [
+      {
+        "path": "/Users/gonzalo/obsidian-wiki/client-esteban-media/wiki/attachments/chooser-funnel-2026-10-13/en-390-00-section.png",
+        "sha256": "ad654708ddc4dcb3008fd68f116d899d5d7594f5c1f2fbc23c998f7dd28bb090",
+        "moment": "Existing opening state",
+        "borrow": "Keep the category and price legible.",
+        "avoid": "Do not split the selection from the service packages."
+      }
+    ],
+    "candidate_frames": [
+      {
+        "path": "/Users/gonzalo/obsidian-wiki/client-esteban-media/wiki/attachments/chooser-funnel-2026-10-13/en-390-00-section.png",
+        "sha256": "ad654708ddc4dcb3008fd68f116d899d5d7594f5c1f2fbc23c998f7dd28bb090",
+        "moment": "opening",
+        "viewport": "phone"
+      },
+      {
+        "path": "/Users/gonzalo/obsidian-wiki/client-esteban-media/wiki/attachments/chooser-funnel-2026-10-13/en-390-01-open-80ms.png",
+        "sha256": "4d552ec281fa96cce593a02712c81719d98a8469f16337a820d8f79e5b952107",
+        "moment": "action",
+        "viewport": "phone"
+      },
+      {
+        "path": "/Users/gonzalo/obsidian-wiki/client-esteban-media/wiki/attachments/chooser-funnel-2026-10-13/en-390-02-confirm.png",
+        "sha256": "1218fe20f82286017b5fa82b315d9490689e1aee2f3385389e9f85b3a49faeb0",
+        "moment": "result",
+        "viewport": "phone"
+      }
+    ]
+  },
+  "brief": {
+    "visitor": "A property professional, business owner, or creator choosing the kind of video help they need.",
+    "promise": "Choose the kind of work and see the relevant starting price and packages without losing the selected service.",
+    "primary_action": "Open a package scope or begin the existing scoped-quote flow.",
+    "friction": "The chosen category and the service packages are separated vertically on a phone.",
+    "kpi": {
+      "outcome": "Qualified quote intent after an understandable service selection.",
+      "event": "existing chooser/package CTA event",
+      "denominator": "chooser visitors",
+      "baseline": "No comparable completion cohort has been read; this repair protects the existing visible-price path.",
+      "evidence": "The owner screenshot and current component structure show the selected packages below a separate visual banner.",
+      "readout": "Compare chooser selection and quote intent after production traffic accrues.",
+      "decision_rule": "Keep only if selection is understandable without an extra scroll to regain the service context."
+    },
+    "concept": {
+      "idea": "A single camera service deck.",
+      "brand_reason": "A camera is an appropriate physical metaphor for choosing filming, property content, or editing without making unverified gear claims.",
+      "interaction": "Tap one of four named category choices.",
+      "visible_response": "The selected label, canonical price, and package list update in the same component.",
+      "direct_path": "The default state shows a selected category, price, and first package immediately.",
+      "alternatives": "A separate equipment page waits for factual model and ownership confirmation."
+    },
+    "story": {
+      "opening": "A compact tactile camera face names the selected need.",
+      "action": "The visitor chooses a category.",
+      "consequence": "The chosen service packages appear immediately below the choice grid.",
+      "next_step": "The visitor opens scope or begins the existing quote flow."
+    },
+    "content": {
+      "visible": "Selected need, canonical starting price, four choices, and package heading/first package.",
+      "optional_html": "Existing native details keep scope and terms in server-rendered HTML.",
+      "linked_depth": "Existing pricing and service pages."
+    },
+    "references": {
+      "borrow": "The current tactile camera visual and visible-price hierarchy.",
+      "avoid": "Duplicate controls, faux technical telemetry, unverified gear facts, and a second banner between selection and packages."
+    },
+    "components": {
+      "reuse": "Existing HomeProjectPath, canonical lane pricing helpers, native details, and quote funnel.",
+      "local_reason": "The camera shell is Esteban-specific art direction around established chooser behavior."
+    },
+    "verification": {
+      "rendered_states": "375x667, 390x844, desktop; initial and each selected category.",
+      "motion": "Selection, keyboard, touch, and reduced-motion states.",
+      "accessibility_performance": "Semantic buttons, selected state, 44px targets, and no horizontal overflow.",
+      "raw_html": "All category prices and package content remain in initial HTML.",
+      "conversion_boundary": "Existing package/quote action opens the existing authorized flow."
+    },
+    "reviewers": {
+      "craft": "Antigravity",
+      "behavior": "CTO QA",
+      "outcome": "CTO product/growth after traffic accrues"
+    }
+  }
+}

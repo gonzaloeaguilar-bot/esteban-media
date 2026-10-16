@@ -268,10 +268,10 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
     setFunnelOpen(true);
   };
 
-  const activeIndex = lanes.findIndex((lane) => lane.id === activeLane);
-  const activeChooserLane = activeIndex >= 0 ? laneIdAt(activeIndex) : "real-estate";
-  const activeChoice = activeIndex >= 0 ? c.labels[activeIndex] : c.singleLabel;
-  const activePrice = activeIndex >= 0 ? laneStartingPrice(locale, activeChooserLane) : c.singleQuoted;
+  const activeIndex = [...lanes.map((lane) => lane.id), SINGLE_ID].indexOf(activeLane);
+  const activeChooserLane = activeIndex >= 0 && activeIndex < lanes.length ? laneIdAt(activeIndex) : "real-estate";
+  const activeChoice = activeIndex < lanes.length ? c.labels[activeIndex] : c.singleLabel;
+  const activePrice = activeIndex < lanes.length ? laneStartingPrice(locale, activeChooserLane) : c.singleQuoted;
 
   return (
     <section id="start" aria-labelledby={`home-path-${locale}`} data-section="home-project-path" className="bg-[#f7f5f1] py-10 sm:py-14">
@@ -280,7 +280,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
         <h2 id={`home-path-${locale}`} className="mt-2 font-serif text-4xl leading-tight sm:text-5xl">{c.heading}</h2>
         <p className="mt-2 max-w-2xl text-base leading-7 text-[#4d5358]">{c.intro}</p>
 
-        <div className="em-camera-chooser mt-5" data-active-index={activeIndex >= 0 ? activeIndex : undefined}>
+        <div className="em-camera-chooser mt-5" data-active-index={activeIndex}>
           <div className="em-camera-chooser__body">
             <div className="em-camera-chooser__flash" aria-hidden="true" />
             <div className="em-camera-chooser__lens" aria-hidden="true">
@@ -300,8 +300,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
             <p className="em-camera-chooser__price">{activePrice}</p>
           </div>
           <div className="em-camera-chooser__choices" role="group" aria-label={locale === "es" ? "Tipo de proyecto" : "Project type"}>
-            {lanes.map((lane, i) => {
-              const chip = { id: lane.id, label: c.tabs[i], price: laneStartingPrice(locale, laneIdAt(i)) };
+            {[...lanes.map((lane, i) => ({ id: lane.id, label: c.tabs[i], price: laneStartingPrice(locale, laneIdAt(i)) })), { id: SINGLE_ID, label: c.tabs[3], price: c.singleQuoted }].map((chip) => {
               return (
               <button
                 key={chip.id}
@@ -318,9 +317,6 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
               );
             })}
           </div>
-          <button type="button" className="em-camera-chooser__single" onClick={() => setActiveLane(SINGLE_ID)}>
-            {c.tabs[3]} <span>· {c.singleQuoted}</span>
-          </button>
         </div>
         <div className="mt-5">
           {/* All three lanes are server-rendered every time — never filtered
@@ -343,9 +339,9 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
             const isActive = lane.id === activeLane;
             return (
               <div key={lane.id} className="em-path-card" hidden={!isActive}>
-                <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-[#d6cabc] bg-[#fffaf3] shadow-sm mb-4">
+                <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-[#d6cabc] bg-[#fffaf3] shadow-sm">
                   {/* Cinematic Lens Backdrop Banner — illustration sits behind like a cinema poster */}
-                  <div className="relative h-44 sm:h-52 w-full overflow-hidden bg-[#101214]">
+                  <div className="em-path-visual relative h-44 sm:h-52 w-full overflow-hidden bg-[#101214]">
                     <Image
                       src={`/illustrations/${artwork[index]}.webp`}
                       alt={c.artAlts[index]}
@@ -547,9 +543,9 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
               details, and the same in-place funnel instead of a WhatsApp
               row per card. */}
           <div className="em-path-card em-path-card--single" hidden={activeLane !== SINGLE_ID}>
-            <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-[#d6cabc] bg-[#fffaf3] shadow-sm mb-4">
+            <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-[#d6cabc] bg-[#fffaf3] shadow-sm">
               {/* Cinematic Lens Backdrop Banner — illustration sits behind like a cinema poster */}
-              <div className="relative h-44 sm:h-52 w-full overflow-hidden bg-[#101214]">
+              <div className="em-path-visual relative h-44 sm:h-52 w-full overflow-hidden bg-[#101214]">
                 <Image
                   src="/illustrations/property.webp"
                   alt={c.thumbAlt(c.singleLabel)}

@@ -42,6 +42,15 @@ for (const locale of ["en", "es"] as const) {
       expect(read("app/illustrated-commercial.css")).toMatch(/\.em-camera-chooser__stop small\{[^}]*white-space:nowrap/);
     });
 
+    it("1b. one deck keeps all four choices above the selected packages, without a second image banner", () => {
+      expect((path.match(/em-camera-chooser__stop/g) ?? [])).toHaveLength(4);
+      const packageHeading = locale === "en" ? "Available packages" : "Paquetes y entregables";
+      expect(path.indexOf('em-camera-chooser__choices')).toBeLessThan(path.indexOf(packageHeading));
+      const css = read("app/illustrated-commercial.css");
+      expect(css).toMatch(/\.em-camera-chooser__choices\{[^}]*grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/);
+      expect(css).toContain(".em-path-visual{display:none}");
+    });
+
     it("3. the options are named exactly as /pricing names them", () => {
       const names = locale === "en" ? ["Starter", "Growth", "Local Presence", "Essential"] : ["Arranque", "Crecimiento", "Presencia Local", "Essential"];
       for (const name of names) expect(path, name).toContain(`em-path-offer-name">${name}<`);
