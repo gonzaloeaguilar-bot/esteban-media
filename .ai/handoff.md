@@ -4,6 +4,13 @@
 - Live check at implementation time: all five owned-site checks passed against `https://estebanmorenomedia.com`; `pnpm seo:indexnow:status` also confirmed the hosted key. This does not establish Bing Webmaster Tools or Ahrefs account ownership, accepted sitemap state, crawl data, rankings, or AI citations.
 - Local verification: `pnpm exec vitest run scripts/indexnow-submit.test.mjs scripts/search-tool-readiness.test.mjs` passed 5 tests. Independent review and PR/release remain with the coordinator.
 
+# 2026-10-16 — Finalized SEO measurement loop (implementation branch)
+
+- Branch: `codex/measurement-loop-20261016`. Adds `scripts/esteban-seo-measurement-report.mjs`, a read-only Search Console query/page/query-page report using `dataState: final` and a three-Pacific-day holdback. State writes to `~/.local/state/esteban-media-seo-measurement/`; the durable note is `wiki/esteban-seo-measurement.md`.
+- First manual production-data read: `pnpm seo:measurement:run -- --force` returned PASS on 2026-10-16 for 2026-09-16 through 2026-10-13 (55 query, 87 page, 101 query-page rows). This is discovery evidence only, not Maps/AI/lead/release impact.
+- Also adds GBP source-CSV intake and fixed-coordinate Maps operations docs, plus a Monday 08:15 ET LaunchAgent and installer. The LaunchAgent is deliberately not installed until reviewed and merged into the canonical checkout.
+- Validation: measurement fixtures 4/4 passed; ESLint passed; plist validation passed. No public GBP field or external account was changed.
+
 ---
 
 # 2026-10-15 — Homepage camera service deck repair (PR #445, local branch)
