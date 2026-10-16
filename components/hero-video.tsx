@@ -182,11 +182,15 @@ export function HeroVideo({ locale = "en" }: HeroVideoProps) {
               <>
                 Envía el material que ya tienes o una idea que necesita grabación. Trabajo remoto y grabo proyectos seleccionados en{" "}
                 <Link href="/es/areas">Fort Lauderdale, Broward, Miami-Dade y Palm Beach</Link>.
+                {" "}Si la idea necesita una grabación local, revisa la{" "}
+                <Link href="/es/produccion-de-video-fort-lauderdale">producción de video en Fort Lauderdale</Link>.
               </>
             ) : (
               <>
                 Send footage you already have or an idea that needs filming. I edit remotely and film selected projects across{" "}
                 <Link href="/areas">Fort Lauderdale, Broward, Miami-Dade, and Palm Beach</Link>.
+                {" "}For a local shoot, see{" "}
+                <Link href="/services/video-production-fort-lauderdale">video production in Fort Lauderdale</Link>.
               </>
             )}
           </p>

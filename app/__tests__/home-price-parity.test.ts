@@ -80,5 +80,14 @@ for (const locale of ["en", "es"] as const) {
       expect(hero).toContain("WhatsApp");
       expect(hero).toMatch(/Fort Lauderdale/);
     });
+
+    it("ships a direct link to the matching Fort Lauderdale production page", () => {
+      const hero = renderToStaticMarkup(React.createElement(HeroVideo, { locale }));
+      const productionPath = locale === "es"
+        ? "/es/produccion-de-video-fort-lauderdale"
+        : "/services/video-production-fort-lauderdale";
+
+      expect(hero).toContain(`href="${productionPath}"`);
+    });
   });
 }
