@@ -1,3 +1,11 @@
+# 2026-10-16 — Bing + Ahrefs free-tool readiness (local branch)
+
+- Branch `feat/bing-ahrefs-readiness` adds the read-only `pnpm search-tools:readiness` contract and setup notes at `docs/search-tool-setup.md`. It checks live `robots.txt`, normal/video sitemaps and the public IndexNow key before any browser-side account setup or UI export review.
+- Live check at implementation time: all five owned-site checks passed against `https://estebanmorenomedia.com`; `pnpm seo:indexnow:status` also confirmed the hosted key. This does not establish Bing Webmaster Tools or Ahrefs account ownership, accepted sitemap state, crawl data, rankings, or AI citations.
+- Local verification: `pnpm exec vitest run scripts/indexnow-submit.test.mjs scripts/search-tool-readiness.test.mjs` passed 5 tests. Independent review and PR/release remain with the coordinator.
+
+---
+
 # 2026-10-15 — Homepage camera service deck repair (PR #445, local branch)
 
 - Owner correction: changing a project category must not force a phone visitor to scroll past another image card to find the selected services.
