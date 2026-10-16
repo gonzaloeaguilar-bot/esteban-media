@@ -1,0 +1,34 @@
+{
+  "schema": 3,
+  "project": "esteban-media",
+  "intent": "Repair all ten owner-identified Camera Bench phone visual defects and release the verified homepage update",
+  "phase": "plan",
+  "visual_evidence": {
+    "scope": "composition",
+    "scope_reason": "The owner identified ten visual defects in the live phone camera component.",
+    "target": "production phone Camera Bench",
+    "owner_status": "owner-directed",
+    "capture_kind": "owner phone capture",
+    "spec_sha256": "PENDING",
+    "taste_sha256": "PENDING",
+    "correction_excerpt": "Use real recognisable camera bodies as one polished interactive component, not mismatched image cards.",
+    "comparison": "Live owner capture versus rebuilt local component; production verification follows merge.",
+    "references": ["esteban-camera-selector-visual-audit-2026-10-16"],
+    "candidate_frames": ["390x664 closed", "390x844 opened", "desktop closed and opened"]
+  },
+  "brief": {
+    "visitor": "A phone visitor choosing a video-production starting point.",
+    "promise": "Recognise Esteban's two camera bodies and inspect published facts without losing the homepage path.",
+    "primary_action": "Tap a camera body to inspect it, then choose a package.",
+    "friction": "The prior visual treatment obscured the Sony body and made the two sources feel unrelated.",
+    "kpi": {"outcome": "qualified project inquiry", "event": "camera inspection followed by package selection", "denominator": "homepage camera-bench viewers", "baseline": "UNKNOWN", "evidence": "no comparable camera-inspection funnel baseline supplied", "readout": "T+14 once homepage events are available", "decision_rule": "retain only if the component remains readable and creates no funnel regression"},
+    "concept": {"idea": "A single field-monitor product gallery with matched warm stages and one shared information drawer.", "brand_reason": "Camera objects become legible equipment, not decorative source fragments.", "interaction": "Native per-camera disclosure", "visible_response": "The chosen camera raises slightly and opens a common full-width detail panel.", "direct_path": "Choose a package remains immediately below the working method.", "alternatives": "Do not use a decorative third-party camera illustration or an image carousel."},
+    "story": {"opening": "Two visible camera bodies", "action": "Tap one", "consequence": "Read its source-backed body facts", "next_step": "Open the working method or choose a package"},
+    "content": {"visible": "Names, inspect cue, compact source disclosure", "optional_html": "Native details holds the body facts in server-rendered HTML", "linked_depth": "Sony and Canon product pages"},
+    "references": {"borrow": "Existing Esteban visual language and native details behaviour", "avoid": "Mismatched product sheets, debug-like labels, duplicated controls"},
+    "components": {"reuse": "existing native details, analytics data-cta, KeepReading next fold", "local_reason": "Camera product-gallery composition is unique to this brand surface"},
+    "verification": {"rendered_states": "390x664, 390x844, desktop; closed/opened states", "motion": "camera scale and control close state; reduced motion remains static", "accessibility_performance": "keyboard summary focus and project test/build gates", "raw_html": "both model names, specifications and maker links present", "conversion_boundary": "package link remains present and resolves to #start"},
+    "reviewers": {"craft": "Antigravity", "behavior": "Claude and cto-qa-lead", "outcome": "cto-product-lead after T+14"},
+    "learning": {"metric": "camera inspection followed by package selection", "baseline_source": "UNKNOWN: no dated event export", "baseline_value": "UNKNOWN", "target_kind": "funnel_step", "target": "homepage camera_kit_* to #start", "hypothesis": "Recognisable camera bodies and unified inspection feedback reduce uncertainty before package selection.", "observation_windows": ["T+14"], "decision_rule": "retain only if visual verification passes and comparable interaction-to-package data does not regress", "ledger_status": "planned", "registration_condition": "record comparable production event data before outcome grading"}
+  }
+}
