@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { ClientReviews } from "@/components/client-reviews";
+import { CameraKitMethod } from "@/components/camera-kit-method";
 import { ContactCta } from "@/components/contact-cta";
 import { HomeClosingLinks } from "@/components/home-closing-links";
 import { HeroVideo } from "@/components/hero-video";
@@ -65,11 +66,12 @@ export default function SpanishHomePage() {
           directos) como el pedido visible, con el formulario más largo
           como profundidad voluntaria dentro de un <details> nativo. */}
       <ContactCta locale="es" />
+      <CameraKitMethod locale="es" />
       <KeepReading
         id="mas"
         className="em-fold"
-        title="Explora más servicios"
-        destinations="Servicios a la carta, el proceso, preguntas frecuentes y zonas."
+        title="Servicios a la carta, respuestas y más sobre Esteban"
+        destinations="Opciones adicionales, preguntas frecuentes y más detalles sobre Esteban."
       >
       {/* showGuide=false: los cuatro paquetes y sus precios ya están en el
           PriceSheet del selector. Esto deja los servicios a la carta, el
