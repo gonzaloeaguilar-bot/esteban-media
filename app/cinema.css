@@ -455,37 +455,53 @@ html.rail-anim:not([data-brand-moment]) .em-cine__eyebrow {
   font-weight: 600;
   color: #fff;
 }
-.em-cine-caption__body {
-  margin: 16px 0 0;
-  max-width: 58ch;
-  font-size: 17.5px;
-  font-weight: 500;
-  line-height: 1.7;
-  /* The block sets .84 white; at body size on #05070a that is the thing that
-     reads as hard work. Full-strength text, same ink. */
-  color: rgba(255, 255, 255, 0.95);
+.em-cine-caption__steps {
+  display: grid;
+  gap: 0;
+  max-width: 43rem;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: steps;
 }
-.em-cine-caption__body a {
+.em-cine-caption__steps li {
+  display: grid;
+  grid-template-columns: 2.65rem minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  padding: 15px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+.em-cine-caption__steps li:last-child { border-bottom: 1px solid rgba(255, 255, 255, 0.14); }
+.em-cine-caption__step-number {
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid rgba(255, 180, 158, 0.55);
+  border-radius: 50%;
+  color: var(--cine-accent-soft);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+.em-cine-caption__steps li > span:last-child { display: grid; gap: 3px; }
+.em-cine-caption__steps strong { color: #fff; font-size: 16px; line-height: 1.3; }
+.em-cine-caption__steps li > span:last-child > span,
+.em-cine-caption__service-area {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 15px;
+  line-height: 1.5;
+}
+.em-cine-caption__service-area {
+  max-width: 48ch;
+  margin: 16px 0 0;
+}
+.em-cine-caption__service-area a {
   color: #fff;
   text-decoration: underline;
   text-decoration-color: var(--cine-accent-soft);
   text-underline-offset: 4px;
-}
-.em-cine-caption__facts {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 26px 0 0;
-  padding: 0;
-  list-style: none;
-}
-.em-cine-caption__facts li {
-  padding: 7px 12px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 999px;
-  font-size: 12px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
 }
 
 /* ------------------------------------------------------ shared headings -- */
