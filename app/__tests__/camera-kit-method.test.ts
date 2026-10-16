@@ -22,7 +22,10 @@ describe("homepage camera kit and method", () => {
     expect(component).toContain('data-cta={`camera_kit_inspect_${locale}`}');
     expect(component).toContain('data-cta={`camera_kit_method_${locale}`}');
     expect(component).toContain('src="/about/esteban-on-set-frame.jpg"');
+    expect(component).toContain('src="/about/esteban-on-set.jpg"');
     expect(component).toContain('className="em-camera-kit__scene-media"');
+    expect(component).toContain('className="em-camera-kit__photos"');
+    expect(component).toContain('Real on-set camera views');
     expect(component).toContain('"01", "Start with what you have"');
     expect(component).toContain('"01", "Empieza con lo que tienes"');
   });
