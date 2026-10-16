@@ -51,6 +51,11 @@ const content: GeoServicePageContent = {
       detail:
         "A website video, Reels and a short ad can come from one shoot if the vertical and horizontal framing is planned before recording. Faces, products and signs then stay inside the frame when the video is cropped for a phone.",
     },
+    {
+      title: "Equipment planned around the shoot",
+      detail:
+        "Esteban currently works with a Sony Alpha IV and Canon T5i. The useful planning decision is not a camera specification: it is confirming the coverage, audio, power and file-backup plan required for the location and duration before filming begins.",
+    },
   ],
   depthHeading: "Hiring a videographer in Miami: what to know first.",
   depth: [
@@ -101,6 +106,11 @@ const content: GeoServicePageContent = {
       title: "Corporate Event Videographer Miami",
       detail: "Event filming and editing, priced as filming time plus the edit.",
       href: "/services/corporate-event-videographer-miami",
+    },
+    {
+      title: "Yacht Event Videographer Fort Lauderdale",
+      detail: "On-location filming for yacht dinners and waterfront events, separate from editing supplied footage.",
+      href: "/services/yacht-event-videographer-fort-lauderdale",
     },
   ],
   inquiry: {

@@ -1,0 +1,33 @@
+{
+  "schema": 2,
+  "project": "esteban-media",
+  "intent": "Build truthful equipment, conference, and yacht-event discovery pages for Esteban Moreno Media",
+  "phase": "build",
+  "visual_evidence": {
+    "scope": "content-discovery upgrade",
+    "scope_reason": "Reuse existing service page composition; no new visual scene or motion is in scope.",
+    "target": "direct inquiry before optional detail",
+    "owner_status": "requested",
+    "capture_kind": "phone-and-desktop-render",
+    "spec_sha256": "pending",
+    "taste_sha256": "pending",
+    "correction_excerpt": "Keep brand identity and verify actual mobile visibility and breathing room.",
+    "comparison": "Existing videographer and corporate-event service pages before and after factual discovery expansion.",
+    "references": ["existing Esteban GeoServicePage", "existing Esteban corporate-event page"],
+    "candidate_frames": ["375x667 opening", "390x844 opening and details-open", "1440x900 opening"]
+  },
+  "brief": {
+    "visitor": "South Florida business or event organiser deciding whether to hire on-location filming and editing.",
+    "promise": "Understand the relevant shoot service, what the current equipment means in practice, and what to send for a useful quote.",
+    "primary_action": "Start a qualified project inquiry with date, location, duration and deliverables.",
+    "friction": "The current yacht page only describes editing supplied footage and the current camera information is absent.",
+    "kpi": {"outcome": "qualified project inquiries", "event": "service_inquiry_started", "denominator": "new-route sessions", "baseline": "unknown", "evidence": "GSC 90d live query/page pull on 2026-10-15", "readout": "28 days after production", "decision_rule": "Keep or improve routes only when they gain qualified inquiry or evidence of discovery; otherwise consolidate."},
+    "concept": {"idea": "Use calm, evidence-first service pages rather than a gear catalogue.", "brand_reason": "Esteban’s established cream and terracotta editorial service composition already explains a project clearly.", "interaction": "Visitor can read the first answer and send the project essentials without opening optional detail.", "visible_response": "Existing inquiry route pre-fills the selected service.", "direct_path": "Inquiry remains visible before optional reading.", "alternatives": "No animation, equipment photo, or technical specification claims without verified owner assets and facts."},
+    "story": {"opening": "State the specific filming service and service area.", "action": "Visitor compares on-location filming with editing supplied footage.", "consequence": "They know whether their conference or yacht dinner belongs in the new service and what facts to provide.", "next_step": "Start a scoped inquiry."},
+    "content": {"visible": "Answer-first offer, service scope, full-day conference planning, truthful camera ownership context.", "optional_html": "Native details for preparation questions only.", "linked_depth": "Existing videographer, corporate-event, yacht-editing and editor-vs-videographer pages."},
+    "references": {"borrow": "Existing GeoServicePage/service-depth patterns and branded tokens.", "avoid": "Thin equipment spec pages, invented claims, and client work represented before permission."},
+    "components": {"reuse": "GeoServicePage, ServiceAnswerFirst, ServiceDeepDive, ServiceFaqs, existing inquiry links.", "local_reason": "Copy/data additions only; no new shared visual component needed."},
+    "verification": {"rendered_states": "375x667, 390x844, 1440x900; details closed/open; keyboard path.", "motion": "No new motion.", "accessibility_performance": "Existing project checks plus headings, tap targets and contrast spot-check.", "raw_html": "curl built routes and assert answer-first/schema/details text.", "conversion_boundary": "Verify existing inquiry links and analytics event semantics without sending a lead."},
+    "reviewers": {"craft": "Antigravity", "behavior": "cto-qa-lead", "outcome": "cto-growth-lead"}
+  }
+}

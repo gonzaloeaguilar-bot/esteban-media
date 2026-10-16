@@ -278,6 +278,13 @@ const nicheWave8Pages: SpanishNichePage[] = [
     ],
     sections: [
       {
+        heading: "¿Qué equipo se prepara para una grabación en locación?",
+        paragraphs: [
+          "Esteban cuenta actualmente con una Sony Alpha IV y una Canon T5i. El equipo se presenta como contexto de preparación, no como una promesa de especificaciones, formatos o disponibilidad universal. Antes de una grabación se confirma qué momentos deben cubrirse, si alguien hablará a cámara, la duración, la energía disponible y cómo se respaldarán los archivos.",
+          "Para una conferencia o una cena en un yate, la conversación útil empieza con la fecha, la locación, las reglas de acceso, el horario y los videos que se necesitan al final. Así se puede separar con claridad el tiempo de grabación en locación de la edición posterior, en vez de asumir que todo evento lleva el mismo equipo o requiere la misma cobertura.",
+        ],
+      },
+      {
         heading: "¿Qué reels necesita un lanzamiento en preventa?",
         paragraphs: [
           "Casi siempre cuatro tipos, publicados en orden. El adelanto usa el render exterior más fuerte y una frase sobre la ubicación, y su trabajo es que la gente pida el brochure. Los reels de amenidades muestran una sola cosa a la vez, la piscina, el lobby, el gimnasio, para que cada publicación deje una idea clara. El recorrido del sales gallery enseña los acabados y el apartamento modelo, lo más cerca que un comprador puede estar de tocar algo que todavía no existe. Las actualizaciones de obra llegan después y muestran que el proyecto avanza.",

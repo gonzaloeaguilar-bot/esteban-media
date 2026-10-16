@@ -102,6 +102,7 @@ export const sitemapRoutes = [
   { path: "/services/video-production-doral-miami", priority: 0.85 },
   { path: "/services/real-estate-video-coral-gables", priority: 0.85 },
   { path: "/services/yacht-hospitality-video-fort-lauderdale", priority: 0.85 },
+  { path: "/services/yacht-event-videographer-fort-lauderdale", priority: 0.85 },
   { path: "/services/corporate-video-production-brickell", priority: 0.85 },
   { path: "/services/small-business-video-pembroke-pines", priority: 0.85 },
   { path: "/services/plastic-surgery-video-marketing-miami", priority: 0.85 },
