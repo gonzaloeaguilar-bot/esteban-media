@@ -23,11 +23,11 @@ describe("single projects live inside the chooser, once", () => {
     });
 
     it(`${locale}: every option shows its price with zero taps, in the server HTML, and the photo floor is the real one`, () => {
-      expect(html).toMatch(/em-path-chip-price[^>]*>(From|Desde) \$450/);
-      // Business shows its monthly plan on the chip (one short line that never
+      expect(html).toMatch(/em-camera-chooser__stop[^>]*>[\s\S]*?(From|Desde) \$450/);
+      // Business shows its monthly plan on the camera stop (one short line that never
       // wraps) and BOTH of its prices, named as /pricing names them, on the card.
-      expect(html).toMatch(/em-path-chip-price[^>]*>(From|Desde) \$640/);
-      expect(html).toMatch(/em-path-chip-price[^>]*>(From|Desde) \$100/);
+      expect(html).toMatch(/em-camera-chooser__stop[^>]*>[\s\S]*?(From|Desde) \$640/);
+      expect(html).toMatch(/em-camera-chooser__stop[^>]*>[\s\S]*?(From|Desde) \$100/);
       expect(html).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$640/);
       expect(html).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$800/);
       expect(html).toMatch(/em-path-offer-name[^>]*>(Growth|Crecimiento)</);
