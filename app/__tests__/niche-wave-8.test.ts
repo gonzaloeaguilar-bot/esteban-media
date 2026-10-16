@@ -107,6 +107,12 @@ describe("niche wave 8 — structure and wiring", () => {
 });
 
 describe("niche wave 8 — answer-first, citable shape", () => {
+  it("keeps long-event scoping on the Miami videographer page, not the condo-preconstruction page", () => {
+    const heading = "¿Cómo se prepara una jornada larga de grabación?";
+    expect(es("videografo-en-miami").sections?.some((section) => section.heading === heading)).toBe(true);
+    expect(es("video-para-preventa-de-condominios-miami").sections?.some((section) => section.heading === heading)).toBe(false);
+  });
+
   it.each(WAVE)("%s opens with a question heading and a 40-180 word answer in both languages", (_n, d, _v, _p, esSlug) => {
     const depth = depthOf(d);
     expect(depth.answer.question.endsWith("?")).toBe(true);
