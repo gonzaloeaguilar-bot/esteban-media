@@ -249,7 +249,7 @@ export default function SpanishAreasPage() {
                 <p className="mt-3 leading-7 text-[#252a2d]">
                   Para empezar, revisa al{" "}
                   <Link href="/es/editor-de-reels-fort-lauderdale" className="font-medium text-[#9f3c27] underline underline-offset-4">
-                    editor de video en Fort Lauderdale
+                    editor de Reels en Fort Lauderdale
                   </Link>
                   , al{" "}
                   <Link href="/es/editor-de-video-ugc-para-ecommerce" className="font-medium text-[#9f3c27] underline underline-offset-4">

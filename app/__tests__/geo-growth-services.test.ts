@@ -86,6 +86,15 @@ describe("GEO growth service pages", () => {
     expect(spanishServices).toContain('href="/es/produccion-de-video-fort-lauderdale"');
   });
 
+  it("keeps the Fort Lauderdale Reels pair explicit and reciprocal", () => {
+    const englishReels = source("app/(english)/services/reels-editor-fort-lauderdale/page.tsx");
+    const spanishAreas = source("app/(spanish)/es/areas/page.tsx");
+
+    expect(englishReels).toContain('href: "/es/editor-de-reels-fort-lauderdale"');
+    expect(spanishAreas).toContain('href="/es/editor-de-reels-fort-lauderdale"');
+    expect(spanishAreas).toContain("editor de Reels en Fort Lauderdale");
+  });
+
   it.each(spanishGeoPages)("%s uses the Spanish shared niche page and inquiry rail", (route, file, slug, serviceId) => {
     const text = source(file);
     const spanishSite = source("lib/spanish-site.ts");
