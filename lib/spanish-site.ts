@@ -278,6 +278,13 @@ const nicheWave8Pages: SpanishNichePage[] = [
     ],
     sections: [
       {
+        heading: "¿Cómo se prepara una jornada larga de grabación?",
+        paragraphs: [
+          "Para una conferencia, una cena o un evento de varias horas, la cotización debe nombrar la ventana de cobertura, los momentos prioritarios, el acceso y los videos finales. Eso evita convertir una jornada larga en una promesa poco clara de grabar cada minuto o a cada invitado.",
+          "Antes de reservar, comparte la fecha, la locación, el horario de inicio y cierre, las reglas de acceso, qué partes del evento deben aparecer y si además necesitas edición. La grabación y los entregables se definen por separado, con pausas y cambios de agenda considerados, para que el alcance se entienda antes del día del evento.",
+        ],
+      },
+      {
         heading: "¿Qué reels necesita un lanzamiento en preventa?",
         paragraphs: [
           "Casi siempre cuatro tipos, publicados en orden. El adelanto usa el render exterior más fuerte y una frase sobre la ubicación, y su trabajo es que la gente pida el brochure. Los reels de amenidades muestran una sola cosa a la vez, la piscina, el lobby, el gimnasio, para que cada publicación deje una idea clara. El recorrido del sales gallery enseña los acabados y el apartamento modelo, lo más cerca que un comprador puede estar de tocar algo que todavía no existe. Las actualizaciones de obra llegan después y muestran que el proyecto avanza.",
@@ -293,6 +300,11 @@ const nicheWave8Pages: SpanishNichePage[] = [
       },
     ],
     faqs: [
+      {
+        question: "¿Puede un videógrafo cubrir una conferencia o evento de ocho horas?",
+        answer:
+          "La cobertura larga se define por la ventana de trabajo, los momentos prioritarios, el acceso y los videos finales. Comparte fecha, sede, horario y las partes importantes para que la cotización escrita defina el alcance antes de reservar.",
+      },
       {
         question: "¿Qué material debe enviar el desarrollador?",
         answer:
