@@ -175,27 +175,39 @@ export function HeroVideo({ locale = "en" }: HeroVideoProps) {
               the new air costs. */}
           <details className="em-cine-caption__more">
           <summary>{isSpanish ? "Cómo funciona" : "How it works"}</summary>
-          <p className="em-cine-caption__body">
+          <ol className="em-cine-caption__steps">
+            {(isSpanish
+              ? [
+                  ["Comparte tu material o idea", "Envía lo que ya tienes o cuéntame qué necesitas grabar."],
+                  ["Elige cómo empezar", "Revisa un paquete o cuéntame el proyecto que tienes en mente."],
+                  ["Confirma el alcance", "Recibirás el precio y los tiempos por escrito antes de empezar."],
+                ]
+              : [
+                  ["Send your footage or idea", "Share what you already have or tell me what needs filming."],
+                  ["Choose how to start", "Review a package or tell me about the project you have in mind."],
+                  ["Confirm the scope", "You’ll get the price and timing in writing before we begin."],
+                ]
+            ).map(([title, detail], index) => (
+              <li key={title}>
+                <span className="em-cine-caption__step-number" aria-hidden="true">0{index + 1}</span>
+                <span>
+                  <strong>{title}</strong>
+                  <span>{detail}</span>
+                </span>
+              </li>
+            ))}
+          </ol>
+          <p className="em-cine-caption__service-area">
             {isSpanish ? (
               <>
-                Envía el material que ya tienes o una idea que necesita grabación. Trabajo remoto y grabo proyectos seleccionados en{" "}
-                <Link href="/es/areas">Fort Lauderdale, Broward, Miami-Dade y Palm Beach</Link>.
+                Edición remota y grabaciones seleccionadas en <Link href="/es/areas">Fort Lauderdale, Broward, Miami-Dade y Palm Beach</Link>.
               </>
             ) : (
               <>
-                Send footage you already have or an idea that needs filming. I edit remotely and film selected projects across{" "}
-                <Link href="/areas">Fort Lauderdale, Broward, Miami-Dade, and Palm Beach</Link>.
+                Remote editing and selected filming projects across <Link href="/areas">Fort Lauderdale, Broward, Miami-Dade, and Palm Beach</Link>.
               </>
             )}
           </p>
-          <ul className="em-cine-caption__facts" role="list">
-            {(isSpanish
-              ? ["Fort Lauderdale", "Broward · Miami-Dade", "Español primero", "Remoto + local"]
-              : ["Fort Lauderdale", "Broward · Miami-Dade", "Spanish-first", "Remote + local"]
-            ).map((fact) => (
-              <li key={fact}>{fact}</li>
-            ))}
-          </ul>
           </details>
         </Container>
       </section>
