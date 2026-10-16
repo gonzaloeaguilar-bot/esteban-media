@@ -26,6 +26,9 @@ describe("TikTok ad video editor page depth and FAQ schema", () => {
     expect(markup).toContain('"@type":"FAQPage"');
     expect(markup).toContain("What raw footage should I provide for TikTok ad video editing?");
     expect(markup).toContain("Do you provide multiple hook variations for creative testing?");
+    expect(markup).toContain("published social promo for a Miami restaurant");
+    expect(markup).not.toMatch(/high-converting|high-engagement/i);
+    expect(markup).toContain("not a paid-ad or performance claim");
   });
 
   it("keeps Spanish TikTok ad editing FAQPage questions and answers visible", () => {

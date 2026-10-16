@@ -133,4 +133,19 @@ describe("annual events section pages", () => {
       expect(exists, path).toBe(true);
     }
   });
+
+  it("gives the Spanish event hub inbound, server-rendered discovery links", () => {
+    const spanishDiscoveryPaths = [
+      "/es/servicios",
+      "/es/areas",
+      "/es/video-para-yates-y-hospitalidad-fort-lauderdale",
+      "/es/edicion-de-video-para-eventos-miami",
+      "/es/videografo-para-eventos-corporativos-miami",
+    ];
+    for (const path of spanishDiscoveryPaths) {
+      expect(EVENT_CROSSLINKS[path], path).toBeDefined();
+      expect(EVENT_CROSSLINKS[path].length, path).toBeGreaterThan(0);
+    }
+    expect(EVENTS_HUB_PATHS.es).toBe("/es/eventos");
+  });
 });

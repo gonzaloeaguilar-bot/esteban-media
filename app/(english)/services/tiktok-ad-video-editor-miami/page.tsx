@@ -131,7 +131,7 @@ export default function TiktokAdVideoEditorMiamiPage() {
                 TikTok & Social Ad Video Editor in Miami.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-                Hook viewers in the first 3 seconds with high-converting direct-response video ad edits for Meta and TikTok ad campaigns.
+                Edit client-supplied footage into clear TikTok and Meta ad cuts with a focused opening, captions, safe-zone framing, and the formats your campaign needs.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
@@ -167,7 +167,7 @@ export default function TiktokAdVideoEditorMiamiPage() {
                 >
                   portfolio
                 </Link>{" "}
-                project <strong>Bar Door Monkey Miami</strong> proves published high-engagement social video ad editing.
+                project <strong>Bar Door Monkey Miami</strong> is a published social promo for a Miami restaurant, filmed on location and delivered for the venue&apos;s Instagram. It is relevant format proof, not a paid-ad or performance claim.
               </p>
               <div className="mt-5 border-t border-[#ddd4c8] pt-4">
                 <Link

@@ -44,6 +44,13 @@ describe("Yacht Hospitality Video Fort Lauderdale depth, guide links, and FAQPag
     expect(markup).toContain('href="/services/restaurant-promo-video-editing-miami"');
     expect(markup).toContain('href="/calculator"');
     expect(markup).toContain('href="/contact"');
+    // This is an editing service. It can accept footage supplied by a client
+    // or pilot, but it must never present yacht filming as a proven offer.
+    expect(markup).toContain("footage supplied by the client or a pilot");
+    // withNicheService normalizes the public schema to the same editing-only
+    // service type used by the answer module.
+    expect(markup).toContain('"serviceType":"yacht and marine video editing"');
+    expect(markup).not.toContain('"serviceType":"Marine video production"');
 
     // Schema checks
     expect(markup).toContain('"@type":"Service"');
