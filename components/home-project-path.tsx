@@ -5,8 +5,6 @@ import Image from "next/image";
 import { ArrowRight, ChevronDown, Plus } from "lucide-react";
 import { useState } from "react";
 
-import { IllustratedScene } from "@/components/illustrated-scene";
-import { LaneAnswer } from "@/components/lane-answer";
 import { AudienceVideo, EditingPreview } from "@/components/audience-media";
 
 import { AUDIENCE_LANES, type AudienceLocale } from "@/lib/audience-lanes";
@@ -136,13 +134,6 @@ const artwork = ["property", "business", "editing"] as const;
  * matches ChooserLaneId 1:1 — this is just the type-narrowing cast point. */
 const laneIdAt = (index: number): ChooserLaneId =>
   (["real-estate", "local-business", "agency"] as const)[index];
-
-const LENS_METRICS: Record<string, { mm: string; tstop: string; angle: number; r: number }> = {
-  "real-estate": { mm: "16mm", tstop: "f/2.8 G-Master", angle: 216, r: 11 },
-  "local-business": { mm: "50mm", tstop: "f/1.2 Master Prime", angle: 144, r: 20 },
-  "agency": { mm: "35mm", tstop: "f/1.8 Sharp", angle: 72, r: 14 },
-  "a-la-carte": { mm: "24mm", tstop: "f/1.4 Cinema", angle: 0, r: 18 },
-};
 
 function offerDeliverables(name: string, laneId: ChooserLaneId, locale: AudienceLocale): string[] {
   const isEs = locale === "es";
@@ -277,7 +268,10 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
     setFunnelOpen(true);
   };
 
-  const lens = LENS_METRICS[activeLane] || LENS_METRICS["real-estate"];
+  const activeIndex = lanes.findIndex((lane) => lane.id === activeLane);
+  const activeChooserLane = activeIndex >= 0 ? laneIdAt(activeIndex) : "real-estate";
+  const activeChoice = activeIndex >= 0 ? c.labels[activeIndex] : c.singleLabel;
+  const activePrice = activeIndex >= 0 ? laneStartingPrice(locale, activeChooserLane) : c.singleQuoted;
 
   return (
     <section id="start" aria-labelledby={`home-path-${locale}`} data-section="home-project-path" className="bg-[#f7f5f1] py-10 sm:py-14">
@@ -286,72 +280,47 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
         <h2 id={`home-path-${locale}`} className="mt-2 font-serif text-4xl leading-tight sm:text-5xl">{c.heading}</h2>
         <p className="mt-2 max-w-2xl text-base leading-7 text-[#4d5358]">{c.intro}</p>
 
-        {/* Cinema Prime Lens Aperture Indicator */}
-        <div className="flex items-center gap-3.5 mt-4 p-3 rounded-2xl bg-white border border-[#e3ded6] shadow-sm max-w-md">
-          <div
-            className="w-13 h-13 rounded-full p-1 bg-gradient-to-br from-[#2c3238] via-[#161a1e] to-[#252a30] relative flex items-center justify-center border-2 border-[#3d454f] shadow-md shrink-0 cursor-pointer select-none"
-            onClick={() => {
-              const allKeys = [...lanes.map((l) => l.id), SINGLE_ID];
-              const nextIdx = (allKeys.indexOf(activeLane) + 1) % allKeys.length;
-              setActiveLane(allKeys[nextIdx]);
-            }}
-            title={locale === "es" ? "Toca para cambiar de lente" : "Tap to cycle lens"}
-          >
-            <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#c84a2c] shadow-[0_0_6px_#c84a2c] z-20"></div>
-            <div
-              className="w-full h-full rounded-full relative flex items-center justify-center overflow-hidden border border-white/20"
-              style={{
-                background:
-                  "radial-gradient(circle at 35% 30%, rgba(255,230,200,0.35) 0%, rgba(200,74,44,0.15) 30%, rgba(16,185,129,0.12) 55%, rgba(20,24,28,0.95) 80%)",
-              }}
-            >
-              <svg className="w-9 h-9 text-white transition-all duration-500 ease-out" viewBox="0 0 100 100">
-                <circle cx="50" cy="50" r="42" stroke="rgba(255,255,255,0.2)" strokeWidth="1" fill="none" />
-                <circle cx="50" cy="50" r="36" stroke="rgba(200,74,44,0.3)" strokeWidth="1.5" strokeDasharray="2 3" fill="none" />
-                <g style={{ transform: `rotate(${lens.angle}deg)`, transformOrigin: "50px 50px", transition: "transform 0.5s ease-out" }}>
-                  <path d="M 50 14 Q 70 24 76 46 L 50 50 Z" fill="#1b2026" stroke="#2d3640" strokeWidth="1" />
-                  <path d="M 76 46 Q 74 68 54 78 L 50 50 Z" fill="#15191e" stroke="#2d3640" strokeWidth="1" />
-                  <path d="M 54 78 Q 32 74 24 52 L 50 50 Z" fill="#1b2026" stroke="#2d3640" strokeWidth="1" />
-                  <path d="M 24 52 Q 28 28 50 14 L 50 50 Z" fill="#15191e" stroke="#2d3640" strokeWidth="1" />
+        <div className="em-camera-chooser mt-5" data-active-index={activeIndex >= 0 ? activeIndex : undefined}>
+          <div className="em-camera-chooser__body">
+            <div className="em-camera-chooser__flash" aria-hidden="true" />
+            <div className="em-camera-chooser__lens" aria-hidden="true">
+              <svg viewBox="0 0 100 100" role="presentation">
+                <circle cx="50" cy="50" r="46" fill="#25272a" stroke="#4b4e51" strokeWidth="3" />
+                <circle cx="50" cy="50" r="37" fill="#111315" stroke="#897968" strokeWidth="2" />
+                <g className="em-camera-chooser__iris">
+                  <path d="M50 16 72 36 53 51Z" /><path d="M75 38 67 66 51 53Z" />
+                  <path d="M65 72 35 73 48 54Z" /><path d="M29 67 25 38 47 51Z" />
+                  <path d="M28 32 53 25 50 48Z" />
                 </g>
-                <circle cx="50" cy="50" r={lens.r} fill="#0d1013" stroke="#c84a2c" strokeWidth="1.5" style={{ transition: "all 0.5s ease-out" }} />
-                <circle cx="48.5" cy="48.5" r="1.5" fill="#ffffff" opacity="0.9" />
+                <circle cx="50" cy="50" r="14" fill="#090a0b" />
               </svg>
             </div>
+            <p className="em-camera-chooser__eyebrow">{locale === "es" ? "CÁMARA LISTA" : "CAMERA READY"}</p>
+            <p className="em-camera-chooser__choice">{activeChoice}</p>
+            <p className="em-camera-chooser__price">{activePrice}</p>
           </div>
-          <div>
-            <div className="flex items-center gap-1.5 mb-0.5">
-              <span className="text-[10px] font-bold uppercase tracking-wider text-[#a8381d] bg-[#f8ede9] px-2 py-0.5 rounded border border-[#f1d8ce]">
-                {lens.mm} {locale === "es" ? "Lente" : "Prime"}
-              </span>
-              <span className="text-xs font-mono text-[#5a646e]">{lens.tstop}</span>
-            </div>
-            <div className="text-xs text-[#5a646e]">
-              {locale === "es"
-                ? "Gira las opciones para ver precios y entregables."
-                : "Switch project types to reveal deliverables and exact rates."}
-            </div>
-          </div>
-        </div>
-
-        {/* A CONTROL, not three cards to swipe. */}
-        <div className="em-path-choice mt-4">
-          <div className="em-path-chips" role="group" aria-label={locale === "es" ? "Tipo de proyecto" : "Project type"}>
-            {[...lanes.map((lane, i) => ({ id: lane.id, label: c.tabs[i], price: laneStartingPrice(locale, laneIdAt(i)) })), { id: SINGLE_ID, label: c.tabs[3], price: c.singleQuoted }].map((chip) => (
+          <div className="em-camera-chooser__choices" role="group" aria-label={locale === "es" ? "Tipo de proyecto" : "Project type"}>
+            {lanes.map((lane, i) => {
+              const chip = { id: lane.id, label: c.tabs[i], price: laneStartingPrice(locale, laneIdAt(i)) };
+              return (
               <button
                 key={chip.id}
                 type="button"
-                className="em-path-chip"
+                className="em-camera-chooser__stop"
                 aria-pressed={chip.id === activeLane}
                 data-active={chip.id === activeLane ? "" : undefined}
                 data-cta={`home_project_path_${locale}_${chip.id}`}
                 onClick={() => setActiveLane(chip.id)}
               >
-                <span className="em-path-chip-label">{chip.label}</span>
-                <span className="em-path-chip-price">{chip.price}</span>
+                <span>{chip.label}</span>
+                <small>{chip.price}</small>
               </button>
-            ))}
+              );
+            })}
           </div>
+          <button type="button" className="em-camera-chooser__single" onClick={() => setActiveLane(SINGLE_ID)}>
+            {c.tabs[3]} <span>· {c.singleQuoted}</span>
+          </button>
         </div>
         <div className="mt-5">
           {/* All three lanes are server-rendered every time — never filtered
@@ -372,7 +341,6 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
           {lanes.map((lane) => {
             const index = lanes.findIndex((l) => l.id === lane.id);
             const isActive = lane.id === activeLane;
-            const laneLens = LENS_METRICS[lane.id] || LENS_METRICS["real-estate"];
             return (
               <div key={lane.id} className="em-path-card" hidden={!isActive}>
                 <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-[#d6cabc] bg-[#fffaf3] shadow-sm mb-4">
@@ -395,22 +363,9 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                       }}
                     />
 
-                    {/* Optical Viewfinder Frame Crop Marks & Telemetry */}
+                    {/* Keep the image decorative: the price and choice are stated above,
+                        rather than invented as camera telemetry. */}
                     <div className="absolute inset-3 sm:inset-4 border border-white/15 rounded-xl pointer-events-none flex flex-col justify-between p-2.5 sm:p-3.5">
-                      <div className="flex items-center justify-between">
-                        {/* Prime Lens Aperture HUD badge */}
-                        <div className="flex items-center gap-2 px-2.5 py-1 rounded-full bg-black/65 backdrop-blur-md border border-white/20 text-white shadow-sm">
-                          <span className="w-2 h-2 rounded-full bg-[#c84a2c] animate-pulse" />
-                          <span className="text-[11px] font-bold uppercase tracking-wider text-[#f0d9c9]">{laneLens.mm} {locale === "es" ? "Lente" : "Prime"}</span>
-                          <span className="text-[11px] font-mono text-white/70">· {laneLens.tstop}</span>
-                        </div>
-                        {/* Telemetry metadata */}
-                        <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-wider text-white/60">
-                          <span className="hidden sm:inline">4K DCI · 24FPS</span>
-                          <span className="text-rose-400 font-bold">REC ●</span>
-                        </div>
-                      </div>
-
                       {/* Title & Who It Is For */}
                       <div className="mt-auto">
                         <h3 className="font-serif text-2xl sm:text-3xl text-white font-medium drop-shadow-md">
@@ -610,17 +565,6 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                   }}
                 />
                 <div className="absolute inset-3 sm:inset-4 border border-white/15 rounded-xl pointer-events-none flex flex-col justify-between p-2.5 sm:p-3.5">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2 px-2.5 py-1 rounded-full bg-black/65 backdrop-blur-md border border-white/20 text-white shadow-sm">
-                      <span className="w-2 h-2 rounded-full bg-[#c84a2c] animate-pulse" />
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-[#f0d9c9]">{LENS_METRICS[SINGLE_ID].mm} {locale === "es" ? "Lente" : "Prime"}</span>
-                      <span className="text-[11px] font-mono text-white/70">· {LENS_METRICS[SINGLE_ID].tstop}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-wider text-white/60">
-                      <span className="hidden sm:inline">4K DCI · 24FPS</span>
-                      <span className="text-rose-400 font-bold">REC ●</span>
-                    </div>
-                  </div>
                   <div className="mt-auto">
                     <h3 className="font-serif text-2xl sm:text-3xl text-white font-medium drop-shadow-md">
                       {c.singleLabel}

@@ -34,12 +34,12 @@ for (const locale of ["en", "es"] as const) {
   );
 
   describe(`home ${locale}: packaging after the chooser`, () => {
-    it("1. the Business option shows the monthly plan AND the production day, one short chip line", () => {
+    it("1. the Business option shows the monthly plan AND the production day, with its price visible on the camera control", () => {
       const prices = laneOffers(locale, "local-business").map((o) => o.price).join(" ");
       expect(prices).toContain("$640");
       expect(prices).toContain("$800");
-      expect(path).toMatch(/em-path-chip-price[^>]*>(From|Desde) \$640\/(mo|mes)</);
-      expect(read("app/illustrated-commercial.css")).toMatch(/\.em-path-chip-price\{[^}]*white-space:nowrap/);
+      expect(path).toMatch(/em-camera-chooser__stop[^>]*>[\s\S]*?(From|Desde) \$640\/(mo|mes)</);
+      expect(read("app/illustrated-commercial.css")).toMatch(/\.em-camera-chooser__stop small\{[^}]*white-space:nowrap/);
     });
 
     it("3. the options are named exactly as /pricing names them", () => {

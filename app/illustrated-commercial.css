@@ -353,19 +353,21 @@ body:has(.em-sheet-details[open])::after{content:"";position:fixed;inset:0;backg
 .em-funnel-recap{display:flex;flex-direction:column;gap:4px;font-size:15px;color:#101214}
 .em-funnel-wa{display:flex;align-items:center;justify-content:center;min-height:48px;margin-top:6px;color:#6a625a;font-size:15px;font-weight:600;text-decoration:underline;text-underline-offset:4px}
 
-/* Four options with their starting price ON the control: price is visible
-   with zero taps at the top of the chooser. The card below names the
-   packages behind that price (.em-path-offers) rather than repeating a
-   second price list. RailSegmented caps at three and has
-   no second line, so this is a small group of real buttons. */
-.em-path-chips{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;width:100%;max-width:760px}
-@media(min-width:640px){.em-path-chips{grid-template-columns:repeat(4,minmax(0,1fr))}}
-.em-path-chip{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:2px;min-height:64px;padding:10px 14px;border:1.5px solid #c8beb3;border-radius:16px;background:#fffaf3;color:#101214;text-align:left;cursor:pointer}
-.em-path-chip-label{font-size:15px;font-weight:700;line-height:1.2}
-.em-path-chip-price{font-size:13px;font-weight:600;line-height:1.3;color:#6a3a2e}
-.em-path-chip[data-active]{background:#101214;border-color:#101214;color:#fffdf9}
-.em-path-chip[data-active] .em-path-chip-price{color:#f0d9c9}
-.em-path-chip:focus-visible{outline:3px solid #9d3d2b;outline-offset:2px}
+/* One camera, three deliberate stops. The form is expressive, but price and
+   selection stay readable before the visitor touches anything. */
+.em-camera-chooser{max-width:760px;border:1px solid #b9afa4;border-radius:24px;overflow:hidden;background:#ece4da;box-shadow:0 8px 22px rgba(47,38,31,.08)}
+.em-camera-chooser__body{position:relative;min-height:186px;padding:23px 22px 22px 172px;color:#fffaf3;background:linear-gradient(135deg,#252525 0%,#3d3a37 48%,#201f1f 100%);isolation:isolate}
+.em-camera-chooser__body:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.11) 46%,transparent 57%);opacity:.65;z-index:-1}
+.em-camera-chooser__flash{position:absolute;top:23px;left:23px;width:62px;height:17px;border-radius:4px;background:linear-gradient(#ded7cf,#8f8a84);box-shadow:inset 0 1px #fff,0 2px 4px #0005}
+.em-camera-chooser__lens{position:absolute;top:52px;left:25px;width:122px;height:122px;border-radius:50%;padding:5px;background:linear-gradient(145deg,#77716c,#1d1e20 42%,#5a5753);box-shadow:0 8px 14px #0007,inset 0 0 0 1px #90877d}
+.em-camera-chooser__lens svg{display:block;width:100%;height:100%;filter:drop-shadow(0 1px 1px #000)}
+.em-camera-chooser__iris{transform-origin:50% 50%;transition:transform 260ms ease}.em-camera-chooser[data-active-index="1"] .em-camera-chooser__iris{transform:rotate(22deg)}.em-camera-chooser[data-active-index="2"] .em-camera-chooser__iris{transform:rotate(44deg)}
+.em-camera-chooser__iris path{fill:#30353a;stroke:#60676d;stroke-width:1.3}
+.em-camera-chooser__eyebrow{margin:0;color:#dbc8b6;font-size:11px;font-weight:700;letter-spacing:.12em;line-height:1.2}.em-camera-chooser__choice{margin:15px 0 3px;font:600 clamp(23px,6vw,32px)/1.04 var(--font-serif,Georgia,serif);letter-spacing:-.03em}.em-camera-chooser__price{margin:0;color:#f5d9c5;font-size:16px;font-weight:700}
+.em-camera-chooser__choices{display:grid;grid-template-columns:1fr;gap:1px;background:#b9afa4}.em-camera-chooser__stop{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:58px;padding:12px 16px;border:0;background:#fffaf3;color:#171718;text-align:left;font-size:15px;font-weight:700;cursor:pointer}.em-camera-chooser__stop small{font-size:13px;font-weight:700;color:#6a3a2e;white-space:nowrap}.em-camera-chooser__stop[data-active]{background:#2b2928;color:#fffaf3}.em-camera-chooser__stop[data-active] small{color:#f0d9c9}.em-camera-chooser__stop:focus-visible,.em-camera-chooser__single:focus-visible{outline:3px solid #9d3d2b;outline-offset:-3px}
+.em-camera-chooser__single{display:block;width:100%;min-height:46px;border:0;background:#ece4da;color:#514a44;text-align:left;padding:10px 16px;font-size:13px;font-weight:700;cursor:pointer}.em-camera-chooser__single span{font-weight:500}.em-camera-chooser__single:hover{text-decoration:underline;text-underline-offset:3px}
+@media(min-width:640px){.em-camera-chooser__body{min-height:210px;padding-left:214px}.em-camera-chooser__flash{left:34px}.em-camera-chooser__lens{left:35px;top:51px;width:150px;height:150px}.em-camera-chooser__choices{grid-template-columns:repeat(3,1fr)}.em-camera-chooser__stop{min-height:74px;align-items:flex-start;flex-direction:column;justify-content:center}.em-camera-chooser__single{text-align:center}}
+@media(prefers-reduced-motion:reduce){.em-camera-chooser__iris{transition:none}}
 .em-single-price{font-size:15px;font-weight:700;line-height:1.3;color:#101214}
 .em-funnel-price{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px;margin:0 0 12px;font-size:14px;color:#6a625a}
 .em-funnel-price strong{font-size:19px;color:#101214}
@@ -386,11 +388,6 @@ body:has(.em-sheet-details[open])::after{content:"";position:fixed;inset:0;backg
   .em-funnel-done-reveal{animation:em-art-develop 450ms cubic-bezier(.2,.7,.2,1) both}
 }
 @media(prefers-reduced-motion:reduce){.em-funnel-rec[data-recording=true] i{animation:none;opacity:1}}
-
-/* Chooser chips: the price is one short line and never wraps, so the four
-   chips are the same height (2026-10-14 audit item 1). */
-.em-path-chip-price{white-space:nowrap}
-.em-path-chip{min-height:64px}
 
 /* What each option sells, with the names /pricing uses. Above the button on a
    phone (read the price, then act); under it at 1024px+, where it fills the

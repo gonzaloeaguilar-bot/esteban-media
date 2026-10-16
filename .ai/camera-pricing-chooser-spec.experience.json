@@ -1,0 +1,100 @@
+{
+  "schema": 2,
+  "project": "esteban-media",
+  "intent": "Review the homepage camera pricing chooser for mobile clarity, truthful claims, and regressions; do not modify files.",
+  "phase": "review",
+  "visual_evidence": {
+    "scope": "composition",
+    "scope_reason": "The task replaces a duplicated mobile selector with one physical camera choice surface.",
+    "target": "direction",
+    "owner_status": "owner_accepted_direction",
+    "capture_kind": "storyboard",
+    "spec_sha256": "e80e03d88726f433dbcbf5251dcb2f275c4012efdd858debf0231c7e734ac1b5",
+    "taste_sha256": "b1d2d13c07184a0d8a784a6f8fa700a9665c992efceaa01aff9682f473af678b",
+    "correction_excerpt": "La acción principal debe ser obvia, cómoda para el pulgar y decir lo que pasa al tocar. Si cuesta descubrir dónde empezar, la mecánica no está terminada.",
+    "comparison": "Compare current duplicated lens-plus-chip control against one tactile selector with price and action visible together.",
+    "references": [
+      {
+        "path": "/Users/gonzalo/obsidian-wiki/client-esteban-media/wiki/attachments/chooser-funnel-2026-10-13/en-390-00-section.png",
+        "sha256": "ad654708ddc4dcb3008fd68f116d899d5d7594f5c1f2fbc23c998f7dd28bb090",
+        "moment": "Existing phone opening state",
+        "borrow": "Keep the price and next action legible in the first reading path.",
+        "avoid": "Do not retain the duplicated or tiny choice mechanism."
+      }
+    ],
+    "candidate_frames": [
+      {
+        "path": "/Users/gonzalo/obsidian-wiki/client-esteban-media/wiki/attachments/chooser-funnel-2026-10-13/en-390-00-section.png",
+        "sha256": "ad654708ddc4dcb3008fd68f116d899d5d7594f5c1f2fbc23c998f7dd28bb090",
+        "moment": "opening",
+        "viewport": "phone"
+      },
+      {
+        "path": "/Users/gonzalo/obsidian-wiki/client-esteban-media/wiki/attachments/chooser-funnel-2026-10-13/en-390-01-open-80ms.png",
+        "sha256": "4d552ec281fa96cce593a02712c81719d98a8469f16337a820d8f79e5b952107",
+        "moment": "action",
+        "viewport": "phone"
+      },
+      {
+        "path": "/Users/gonzalo/obsidian-wiki/client-esteban-media/wiki/attachments/chooser-funnel-2026-10-13/en-390-02-confirm.png",
+        "sha256": "1218fe20f82286017b5fa82b315d9490689e1aee2f3385389e9f85b3a49faeb0",
+        "moment": "result",
+        "viewport": "phone"
+      }
+    ]
+  },
+  "brief": {
+    "visitor": "A South Florida business owner, property professional, or creator deciding whether they need editing, filming, or property content.",
+    "promise": "Choose the kind of help needed and see the applicable starting price before contacting Esteban.",
+    "primary_action": "See the selected package and request a scoped quote.",
+    "friction": "The existing tiny lens is an undiscoverable duplicate control, while price and choice are split across separate widgets.",
+    "kpi": {
+      "outcome": "Qualified quote intent after a clear service selection.",
+      "event": "existing chooser/package CTA event",
+      "denominator": "chooser visitors",
+      "baseline": "Gap: no comparable chooser completion cohort has been read; record this as the pre-release measurement gap and compare production selection-to-quote intent after traffic accrues.",
+      "evidence": "No current comparable chooser completion cohort was read in this task.",
+      "readout": "Compare selection and quote-intent events after production traffic accrues.",
+      "decision_rule": "Keep only if the selector remains understandable and does not reduce the visible-price path."
+    },
+    "concept": {
+      "idea": "Camera as a decision instrument.",
+      "brand_reason": "Esteban’s work is made through filming and editing, so a physical focus dial gives service selection an appropriate visual metaphor.",
+      "interaction": "Tap one of three named stops on the camera dial.",
+      "visible_response": "The aperture/focus marker moves and the selected job, price, and package card update together.",
+      "direct_path": "The initial selected state exposes a starting price and package action without interaction.",
+      "alternatives": "A quiet single-project link retains the a-la-carte path without adding a fourth competing mode."
+    },
+    "story": {
+      "opening": "A compact warm camera front shows the selected job.",
+      "action": "The visitor selects a named focus stop.",
+      "consequence": "The active offer and starting price change in the same visual field.",
+      "next_step": "The visitor opens package scope or starts a scoped quote."
+    },
+    "content": {
+      "visible": "Selected job, canonical starting price, one sentence, and one package action.",
+      "optional_html": "Existing native details for deliverables and terms remain server rendered.",
+      "linked_depth": "Existing package pages and the pricing hub."
+    },
+    "references": {
+      "borrow": "Tactile cause-and-effect and the direct visible-price behavior.",
+      "avoid": "Tiny unlabeled lens controls, faux camera telemetry, generic neon dashboards, and unverified equipment claims."
+    },
+    "components": {
+      "reuse": "Existing HomeProjectPath, lane pricing helpers, native details, funnel, and current package data.",
+      "local_reason": "The camera shell is brand-specific art direction around the established chooser behavior."
+    },
+    "verification": {
+      "rendered_states": "375x667, 390x844, and desktop; first and each selected stop.",
+      "motion": "Selected stop, reduced motion, keyboard, and touch.",
+      "accessibility_performance": "Semantic buttons, visible selected state, no overflow, no selector duplication.",
+      "raw_html": "All three canonical starting-price paths remain in server HTML.",
+      "conversion_boundary": "Existing package/quote action opens the current authorized flow."
+    },
+    "reviewers": {
+      "craft": "Antigravity",
+      "behavior": "CTO QA",
+      "outcome": "CTO product/growth after traffic accrues"
+    }
+  }
+}
