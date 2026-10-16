@@ -1,0 +1,49 @@
+{
+  "project": "esteban-media",
+  "mode": "pr",
+  "target_type": "pr",
+  "target_id": "PR-457",
+  "requires_pr": true,
+  "goal": "Make public language promises match Esteban Moreno Media's Spanish-first operating position.",
+  "summary": "Qualifies language-support FAQs on three existing English pages and updates the corresponding per-page lastmod dates.",
+  "risk": "Medium: public service-language copy and structured FAQ content change, with no price, contact, route, or conversion-endpoint change.",
+  "changed_paths": [
+    "app/(english)/areas/page.tsx",
+    "app/(english)/fort-lauderdale/page.tsx",
+    "app/(english)/portfolio/page.tsx",
+    "app/__tests__/portfolio-depth.test.ts",
+    "config/page-lastmod.json",
+    ".cortex/quality-payloads/PR-457.json"
+  ],
+  "requested_actions": [
+    "Merge only after exact-head CI and independent review evidence pass.",
+    "Verify the changed FAQ copy in production raw HTML after deployment."
+  ],
+  "public_claims": [
+    "The site now states that Esteban works Spanish-first and that English-facing titles, captions, subtitles, and edit deliverables are scoped per project.",
+    "No claim of full bilingual English fluency is introduced."
+  ],
+  "evidence": {
+    "source_of_truth": "Project rule recorded in agents.md: Spanish-first; intermediate English; never describe Esteban as fully bilingual.",
+    "observed_problem": "A live Google search result snippet and three current source FAQs used the unqualified term bilingual.",
+    "validation": "On the source change before this payload-only commit: pnpm test passed 156 test files / 2,939 tests; pnpm lint exited 0 with existing warnings; analytics-gate passed.",
+    "independent_review": "Governed Antigravity review verdict PASS for exact code commit 86b6d8d4ce2dfa846530cf60bf78e4311a1fccf1, recorded in ~/.claude/state/evidence/20261016T141459Z-cto-seo-lead-esteban-media-1792160099820302000-23691-81391f39c2c3c255/verdict.json.",
+    "hard_stops_checked": "No paid-media activation, price change, testimonial, client result, contact-data change, or third-party-account modification is in this PR.",
+    "debt_delta": "neutral"
+  },
+  "reviewers": {
+    "builder": {"status": "ok", "note": "Made the smallest factual copy correction and regenerated page lastmod dates."},
+    "skeptic": {"status": "ok", "note": "Independent governed Antigravity review returned PASS for the source change."},
+    "taste": {"status": "ok", "note": "FAQ wording remains plain-language and leaves delivery details visible without a visual interaction change."}
+  },
+  "scores": {
+    "source_fidelity": 5,
+    "architecture_soundness": 5,
+    "implementation_quality": 4,
+    "review_completeness": 4,
+    "debt_posture": 4,
+    "verification_strength": 4,
+    "taste_fit": 4
+  },
+  "debt_delta": "neutral"
+}
