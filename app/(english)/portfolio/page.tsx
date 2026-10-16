@@ -110,9 +110,9 @@ const portfolioFaqItems = [
   },
   {
     question:
-      "Does Esteban Moreno Media handle bilingual English and Spanish content?",
+      "Can a project include both Spanish and English deliverables?",
     answer:
-      "Yes. Esteban Moreno Media is a bilingual production practice based in Fort Lauderdale. Video projects can be edited, scripted, titled, and subtitled in Spanish, English, or both to engage South Florida audiences and broader regional markets.",
+      "Esteban's practice is Spanish-first. Projects can be planned with Spanish and English titles, captions, or subtitles when that matches the audience; include the language requirements in the brief so each deliverable can be scoped accurately.",
   },
   {
     question: "Are on-location filming sessions available in South Florida?",

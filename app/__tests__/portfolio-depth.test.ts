@@ -71,7 +71,7 @@ describe("portfolio content depth and technical specifications", () => {
     expect(text).toContain("How does remote editing collaboration work if I am outside South Florida?");
     expect(text).toContain("Can I send footage captured on a smartphone or GoPro?");
     expect(text).toContain("What export formats and aspect ratios are delivered for campaigns?");
-    expect(text).toContain("Does Esteban Moreno Media handle bilingual English and Spanish content?");
+    expect(text).toContain("Can a project include both Spanish and English deliverables?");
     expect(text).toContain("Are on-location filming sessions available in South Florida?");
     expect(text).toContain("How are revisions and feedback handled during video post-production?");
     expect(text).toContain("What technical specs should client-supplied raw footage meet?");

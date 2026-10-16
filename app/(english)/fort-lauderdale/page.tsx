@@ -82,7 +82,7 @@ const questions = [
   {
     question: "Can projects be handled in both Spanish and English?",
     answer:
-      "Yes. Esteban Moreno Media provides bilingual English and Spanish content support, ensuring accurate cultural messaging, styled captions, and clear communications.",
+      "Esteban works Spanish-first and can scope English-facing captions, titles, and edit notes around the needs of each project. Share the intended audience and deliverables when requesting a quote so the language plan is clear from the start.",
   },
   {
     question: "What information helps Esteban review a local Fort Lauderdale project?",
