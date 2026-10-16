@@ -21,10 +21,11 @@ describe("homepage camera kit and method", () => {
     expect(component).toContain('data-cta={`camera_kit_method_${locale}`}');
     expect(component).toContain('data-cta={`camera_kit_sony_${locale}`}');
     expect(component).toContain('data-cta={`camera_kit_canon_${locale}`}');
-    expect(component).toContain('92657_original_local_1200x1050_v3_converted.webp');
+    expect(component).toContain('92650_original_local_1200x1050_v3_converted.webp');
     expect(component).toContain('8595B003-eos-rebel-t5i-primary');
-    expect(component).toContain('Manufacturer reference image');
+    expect(component).toContain('Reference images and published specifications');
     expect(component).toContain('className="em-camera-kit__models"');
+    expect(component).toContain('name={`camera-kit-${locale}`}');
     expect(component).not.toContain('Real on-set camera views');
     expect(component).toContain('"01", "Start with what you have"');
     expect(component).toContain('"01", "Empieza con lo que tienes"');

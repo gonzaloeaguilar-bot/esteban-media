@@ -7,16 +7,16 @@ const copy = {
     eyebrow: "THE CAMERA BENCH",
     heading: "See the camera before the shoot starts.",
     lead: "Tap either camera to inspect the bodies Esteban uses, then open the method to see how a project moves from idea to a written scope.",
-    kitTitle: "The camera bodies in Esteban's kit",
-    kitHint: "Tap either camera to see its published specifications.",
-    reference: "Manufacturer reference image",
+    kitTitle: "Camera bodies",
+    kitHint: "Tap one for published specs.",
+    inspect: "Tap to inspect",
     activeBody: "Primary camera body",
     alphaName: "Sony Alpha 7 IV",
     alphaDetail: "33 MP full-frame sensor · 4K 60p recording",
     secondBody: "Also in the kit",
     canonName: "Canon EOS Rebel T5i",
     canonDetail: "18 MP APS-C sensor · Full HD 1080 recording",
-    source: "Camera specifications from Sony and Canon.",
+    source: "Reference images and published specifications",
     methodTitle: "Open the working method",
     methodHint: "Three clear decisions before the work begins.",
     steps: [
@@ -30,16 +30,16 @@ const copy = {
     eyebrow: "LA MESA DE CÁMARA",
     heading: "Mira la cámara antes de empezar el rodaje.",
     lead: "Toca cualquiera de las cámaras para ver los cuerpos que usa Esteban y abre el método para entender cómo una idea llega a un alcance por escrito.",
-    kitTitle: "Los cuerpos de cámara del equipo de Esteban",
-    kitHint: "Toca cualquiera de las cámaras para ver sus especificaciones publicadas.",
-    reference: "Imagen de referencia del fabricante",
+    kitTitle: "Cuerpos de cámara",
+    kitHint: "Toca uno para ver sus especificaciones.",
+    inspect: "Toca para ver",
     activeBody: "Cuerpo de cámara principal",
     alphaName: "Sony Alpha 7 IV",
     alphaDetail: "Sensor full-frame de 33 MP · grabación 4K a 60p",
     secondBody: "También en el equipo",
     canonName: "Canon EOS Rebel T5i",
     canonDetail: "Sensor APS-C de 18 MP · grabación Full HD 1080",
-    source: "Especificaciones de cámara publicadas por Sony y Canon.",
+    source: "Imágenes de referencia y especificaciones publicadas",
     methodTitle: "Abrir el método de trabajo",
     methodHint: "Tres decisiones claras antes de empezar.",
     steps: [
@@ -77,13 +77,14 @@ export function CameraKitMethod({ locale }: { locale: Locale }) {
             <span>{c.kitHint}</span>
           </div>
           <div className="em-camera-kit__models">
-            <details>
+            <details name={`camera-kit-${locale}`}>
               <summary data-cta={`camera_kit_sony_${locale}`}>
                 {/* Manufacturer reference image: Sony Alpha 7 IV product page. */}
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://d1ncau8tqf99kp.cloudfront.net/converted/92657_original_local_1200x1050_v3_converted.webp" alt="Sony Alpha 7 IV camera body, manufacturer reference image" />
-                <span className="em-camera-kit__reference">{c.reference}</span>
-                <span className="em-camera-kit__model-name">{c.alphaName}</span>
+                <span className="em-camera-kit__product-stage">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="https://d1ncau8tqf99kp.cloudfront.net/converted/92650_original_local_1200x1050_v3_converted.webp" alt="Sony Alpha 7 IV camera body, manufacturer reference image" />
+                </span>
+                <span className="em-camera-kit__model-name"><strong>{c.alphaName}</strong><small>{c.inspect}</small></span>
                 <span className="em-camera-kit__inspect-mark" aria-hidden="true">+</span>
               </summary>
               <div className="em-camera-kit__model-details">
@@ -92,13 +93,14 @@ export function CameraKitMethod({ locale }: { locale: Locale }) {
                 <a href="https://electronics.sony.com/imaging/interchangeable-lens-cameras/all-interchangeable-lens-cameras/p/ilce7m4-b" target="_blank" rel="noreferrer">Sony</a>
               </div>
             </details>
-            <details>
+            <details name={`camera-kit-${locale}`}>
               <summary data-cta={`camera_kit_canon_${locale}`}>
                 {/* Manufacturer reference image: Canon EOS Rebel T5i product page. */}
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://s7d1.scene7.com/is/image/canon/8595B003-eos-rebel-t5i-primary?$p=product1by1$" alt="Canon EOS Rebel T5i camera body, manufacturer reference image" />
-                <span className="em-camera-kit__reference">{c.reference}</span>
-                <span className="em-camera-kit__model-name">{c.canonName}</span>
+                <span className="em-camera-kit__product-stage">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="https://s7d1.scene7.com/is/image/canon/8595B003-eos-rebel-t5i-primary?$p=product1by1$" alt="Canon EOS Rebel T5i camera body, manufacturer reference image" />
+                </span>
+                <span className="em-camera-kit__model-name"><strong>{c.canonName}</strong><small>{c.inspect}</small></span>
                 <span className="em-camera-kit__inspect-mark" aria-hidden="true">+</span>
               </summary>
               <div className="em-camera-kit__model-details">
