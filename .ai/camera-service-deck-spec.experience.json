@@ -1,8 +1,8 @@
 {
   "schema": 2,
   "project": "esteban-media",
-  "intent": "Repair the homepage camera service deck so category selection keeps the service packages in the same mobile reading path.",
-  "phase": "repair",
+  "intent": "Review the repaired homepage camera service deck for mobile hierarchy, truthful claims, and regressions; do not modify files.",
+  "phase": "review",
   "visual_evidence": {
     "scope": "composition",
     "scope_reason": "The owner reported that changing category makes the services fall below the mobile reading path.",
