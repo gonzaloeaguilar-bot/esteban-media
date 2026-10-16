@@ -287,7 +287,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
   };
 
   return (
-    <section id="start" aria-labelledby={`home-path-${locale}`} data-section="home-project-path" className="bg-[#f7f5f1] py-10 sm:py-14">
+    <section id="start" aria-labelledby={`home-path-${locale}`} data-section="home-project-path" className="em-home-project-path bg-[#f7f5f1] py-10 sm:py-14">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <p className="text-xs font-medium uppercase tracking-wider text-[#6a625a]">{c.eyebrow}</p>
         <h2 id={`home-path-${locale}`} className="mt-2 font-serif text-4xl leading-tight sm:text-5xl">{c.heading}</h2>
@@ -297,7 +297,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
           <div className="em-camera-chooser__body">
             <div className="em-camera-chooser__flash" aria-hidden="true" />
             <button type="button" className="em-camera-chooser__lens" aria-label={c.lensAction} onClick={selectNextProject}>
-              <span className="em-camera-chooser__lens-image" key={focusTick}>
+              <span className={`em-camera-chooser__lens-image${focusTick > 0 ? " is-focusing" : ""}`} key={focusTick}>
                 <Image
                   src="/illustrations/esteban-sony-alpha-lens-v2.png"
                   alt={c.lensAlt}
@@ -308,7 +308,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                 <span className="em-camera-chooser__iris" aria-hidden="true" />
               </span>
             </button>
-            <span className="em-camera-chooser__focus-sweep" key={focusTick} aria-hidden="true" />
+            <span className={`em-camera-chooser__focus-sweep${focusTick > 0 ? " is-focusing" : ""}`} key={focusTick} aria-hidden="true" />
             <p className="em-camera-chooser__eyebrow">{locale === "es" ? "CÁMARA LISTA" : "CAMERA READY"}</p>
             <p className="em-camera-chooser__choice">{activeChoice}</p>
             <p className="em-camera-chooser__price">{activePrice}</p>
