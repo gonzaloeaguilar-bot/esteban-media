@@ -76,6 +76,16 @@ describe("GEO growth service pages", () => {
     }
   });
 
+  it("puts the Fort Lauderdale production page in the visible services introduction", () => {
+    const englishServices = source("app/(english)/services/page.tsx");
+    const spanishServices = source("app/(spanish)/es/servicios/page.tsx");
+
+    expect(englishServices).toContain("Need a local shoot in Broward?");
+    expect(englishServices).toContain('href="/services/video-production-fort-lauderdale"');
+    expect(spanishServices).toContain("¿Necesitas grabar en Broward?");
+    expect(spanishServices).toContain('href="/es/produccion-de-video-fort-lauderdale"');
+  });
+
   it.each(spanishGeoPages)("%s uses the Spanish shared niche page and inquiry rail", (route, file, slug, serviceId) => {
     const text = source(file);
     const spanishSite = source("lib/spanish-site.ts");

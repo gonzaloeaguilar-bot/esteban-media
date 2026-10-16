@@ -132,6 +132,16 @@ export default function SpanishServicesPage() {
             ya tienes, planificar una grabación en el sur de Florida o crear un
             sitio web con una forma clara de atender nuevas consultas.
           </p>
+          <p className="mt-3 max-w-2xl text-base leading-7 text-[#252a2d]">
+            ¿Necesitas grabar en Broward? La{" "}
+            <Link
+              href="/es/produccion-de-video-fort-lauderdale"
+              className="font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[#7f2f20]"
+            >
+              producción de video en Fort Lauderdale
+            </Link>{" "}
+            explica cómo se separan la grabación y la edición.
+          </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link href="/es/contacto" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)]">Contar mi proyecto <ArrowRight className="size-4" aria-hidden="true" /></Link>
             <Link href="/es/precios" className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#101214]/30 px-6 text-sm font-medium text-[#101214] hover:bg-[#101214] hover:text-white">Ver precios iniciales</Link>

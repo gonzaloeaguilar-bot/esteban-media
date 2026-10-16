@@ -156,6 +156,16 @@ export default function ServicesPage() {
             plan a South Florida shoot, or build a website and follow-up system
             around your business.
           </p>
+          <p className="mt-3 max-w-2xl text-base leading-7 text-[#252a2d]">
+            Need a local shoot in Broward? Read how{" "}
+            <Link
+              href="/services/video-production-fort-lauderdale"
+              className="font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[#7f2f20]"
+            >
+              video production in Fort Lauderdale
+            </Link>{" "}
+            separates filming from the editing that follows.
+          </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
               href="/contact"
