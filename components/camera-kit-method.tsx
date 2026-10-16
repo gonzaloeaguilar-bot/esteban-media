@@ -16,6 +16,11 @@ const copy = {
     secondBody: "Also in the kit",
     canonName: "Canon EOS Rebel T5i",
     canonDetail: "18 MP APS-C sensor · Full HD 1080 recording",
+    cameraPhotos: "Real on-set camera views",
+    closeup: "Camera in hand",
+    closeupDetail: "A real behind-the-scenes frame from Esteban's shoot.",
+    setup: "The working setup",
+    setupDetail: "A real on-set photo: camera, lights and the shooting space.",
     source: "Camera specifications from Sony and Canon.",
     methodTitle: "Open the working method",
     methodHint: "Three clear decisions before the work begins.",
@@ -38,6 +43,11 @@ const copy = {
     secondBody: "También en el equipo",
     canonName: "Canon EOS Rebel T5i",
     canonDetail: "Sensor APS-C de 18 MP · grabación Full HD 1080",
+    cameraPhotos: "Vistas reales de cámara en rodaje",
+    closeup: "Cámara en mano",
+    closeupDetail: "Una toma real detrás de cámaras durante un rodaje de Esteban.",
+    setup: "El set de trabajo",
+    setupDetail: "Una foto real del rodaje: cámara, luces y el espacio de trabajo.",
     source: "Especificaciones de cámara publicadas por Sony y Canon.",
     methodTitle: "Abrir el método de trabajo",
     methodHint: "Tres decisiones claras antes de empezar.",
@@ -85,6 +95,22 @@ export function CameraKitMethod({ locale }: { locale: Locale }) {
           </summary>
 
           <div className="em-camera-kit__details">
+            <div className="em-camera-kit__photos" aria-label={c.cameraPhotos}>
+              <details>
+                <summary>
+                  <Image src="/about/esteban-on-set-frame.jpg" alt="Esteban holding a camera while framing a shot" fill sizes="(max-width: 639px) 50vw, 280px" />
+                  <span>{c.closeup}</span>
+                </summary>
+                <p>{c.closeupDetail}</p>
+              </details>
+              <details>
+                <summary>
+                  <Image src="/about/esteban-on-set.jpg" alt="Esteban photographing a product at an on-set lighting setup" fill sizes="(max-width: 639px) 50vw, 280px" />
+                  <span>{c.setup}</span>
+                </summary>
+                <p>{c.setupDetail}</p>
+              </details>
+            </div>
             <article>
               <p>{c.activeBody}</p>
               <h3>{c.alphaName}</h3>
