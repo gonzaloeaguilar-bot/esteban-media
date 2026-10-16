@@ -39,6 +39,7 @@ const copy = {
     singleSession: "/session",
     singleHalfDay: "/half-day",
     singleCredit: "Concept illustrations created with AI.",
+    lensAlt: "Illustration of Esteban's Sony Alpha 7 IV camera lens",
     singleWhatsapp: "Hi Esteban, I'd like a quote for a single project.",
     artAlts: [
       "Concept illustration of a home, camera and property photographs",
@@ -92,6 +93,7 @@ const copy = {
     singleSession: "/sesión",
     singleHalfDay: "/medio día",
     singleCredit: "Ilustraciones conceptuales creadas con IA.",
+    lensAlt: "Ilustración del lente de la cámara Sony Alpha 7 IV de Esteban",
     singleWhatsapp: "Hola Esteban, quiero una cotización para un proyecto puntual.",
     artAlts: [
       "Ilustración conceptual de una casa, una cámara y fotografías de la propiedad",
@@ -283,17 +285,14 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
         <div className="em-camera-chooser mt-5" data-active-index={activeIndex}>
           <div className="em-camera-chooser__body">
             <div className="em-camera-chooser__flash" aria-hidden="true" />
-            <div className="em-camera-chooser__lens" aria-hidden="true">
-              <svg viewBox="0 0 100 100" role="presentation">
-                <circle cx="50" cy="50" r="46" fill="#25272a" stroke="#4b4e51" strokeWidth="3" />
-                <circle cx="50" cy="50" r="37" fill="#111315" stroke="#897968" strokeWidth="2" />
-                <g className="em-camera-chooser__iris">
-                  <path d="M50 16 72 36 53 51Z" /><path d="M75 38 67 66 51 53Z" />
-                  <path d="M65 72 35 73 48 54Z" /><path d="M29 67 25 38 47 51Z" />
-                  <path d="M28 32 53 25 50 48Z" />
-                </g>
-                <circle cx="50" cy="50" r="14" fill="#090a0b" />
-              </svg>
+            <div className="em-camera-chooser__lens">
+              <Image
+                src="/illustrations/esteban-sony-alpha-lens-v2.png"
+                alt={c.lensAlt}
+                fill
+                sizes="(max-width: 639px) 112px, 138px"
+                className="object-contain"
+              />
             </div>
             <p className="em-camera-chooser__eyebrow">{locale === "es" ? "CÁMARA LISTA" : "CAMERA READY"}</p>
             <p className="em-camera-chooser__choice">{activeChoice}</p>
