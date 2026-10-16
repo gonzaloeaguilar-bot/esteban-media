@@ -40,6 +40,7 @@ const copy = {
     singleHalfDay: "/half-day",
     singleCredit: "Concept illustrations created with AI.",
     lensAlt: "Illustration of Esteban's Sony Alpha 7 IV camera lens",
+    lensAction: "Show the next project type",
     singleWhatsapp: "Hi Esteban, I'd like a quote for a single project.",
     artAlts: [
       "Concept illustration of a home, camera and property photographs",
@@ -94,6 +95,7 @@ const copy = {
     singleHalfDay: "/medio día",
     singleCredit: "Ilustraciones conceptuales creadas con IA.",
     lensAlt: "Ilustración del lente de la cámara Sony Alpha 7 IV de Esteban",
+    lensAction: "Mostrar el siguiente tipo de proyecto",
     singleWhatsapp: "Hola Esteban, quiero una cotización para un proyecto puntual.",
     artAlts: [
       "Ilustración conceptual de una casa, una cámara y fotografías de la propiedad",
@@ -263,6 +265,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
   const single = packagesCopy(locale).aLaCarte;
   const SINGLE_ID = "a-la-carte";
   const [activeLane, setActiveLane] = useState(lanes[0].id);
+  const [focusTick, setFocusTick] = useState(0);
   const [funnelOpen, setFunnelOpen] = useState(false);
   const [funnelLane, setFunnelLane] = useState<{ id: string; label: string; price: string }>({ id: lanes[0].id, label: c.labels[0], price: laneFunnelPrice(locale, "real-estate") });
   const openFunnel = (id: string, label: string, price: string) => {
@@ -274,6 +277,14 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
   const activeChooserLane = activeIndex >= 0 && activeIndex < lanes.length ? laneIdAt(activeIndex) : "real-estate";
   const activeChoice = activeIndex < lanes.length ? c.labels[activeIndex] : c.singleLabel;
   const activePrice = activeIndex < lanes.length ? laneStartingPrice(locale, activeChooserLane) : c.singleQuoted;
+  const selectProject = (id: string) => {
+    setActiveLane(id);
+    setFocusTick((tick) => tick + 1);
+  };
+  const selectNextProject = () => {
+    const choices = [...lanes.map((lane) => lane.id), SINGLE_ID];
+    selectProject(choices[(activeIndex + 1) % choices.length]);
+  };
 
   return (
     <section id="start" aria-labelledby={`home-path-${locale}`} data-section="home-project-path" className="bg-[#f7f5f1] py-10 sm:py-14">
@@ -282,18 +293,22 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
         <h2 id={`home-path-${locale}`} className="mt-2 font-serif text-4xl leading-tight sm:text-5xl">{c.heading}</h2>
         <p className="mt-2 max-w-2xl text-base leading-7 text-[#4d5358]">{c.intro}</p>
 
-        <div className="em-camera-chooser mt-5" data-active-index={activeIndex}>
+        <div className="em-camera-chooser mt-5" data-active-index={activeIndex} data-focus-tick={focusTick}>
           <div className="em-camera-chooser__body">
             <div className="em-camera-chooser__flash" aria-hidden="true" />
-            <div className="em-camera-chooser__lens">
-              <Image
-                src="/illustrations/esteban-sony-alpha-lens-v2.png"
-                alt={c.lensAlt}
-                fill
-                sizes="(max-width: 639px) 112px, 138px"
-                className="object-contain"
-              />
-            </div>
+            <button type="button" className="em-camera-chooser__lens" aria-label={c.lensAction} onClick={selectNextProject}>
+              <span className="em-camera-chooser__lens-image" key={focusTick}>
+                <Image
+                  src="/illustrations/esteban-sony-alpha-lens-v2.png"
+                  alt={c.lensAlt}
+                  fill
+                  sizes="(max-width: 639px) 112px, 138px"
+                  className="object-contain"
+                />
+                <span className="em-camera-chooser__iris" aria-hidden="true" />
+              </span>
+            </button>
+            <span className="em-camera-chooser__focus-sweep" key={focusTick} aria-hidden="true" />
             <p className="em-camera-chooser__eyebrow">{locale === "es" ? "CÁMARA LISTA" : "CAMERA READY"}</p>
             <p className="em-camera-chooser__choice">{activeChoice}</p>
             <p className="em-camera-chooser__price">{activePrice}</p>
@@ -308,7 +323,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                 aria-pressed={chip.id === activeLane}
                 data-active={chip.id === activeLane ? "" : undefined}
                 data-cta={`home_project_path_${locale}_${chip.id}`}
-                onClick={() => setActiveLane(chip.id)}
+                onClick={() => selectProject(chip.id)}
               >
                 <span>{chip.label}</span>
                 <small>{chip.price}</small>
