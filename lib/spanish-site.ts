@@ -1107,18 +1107,18 @@ export const spanishNichePages: SpanishNichePage[] = [
     sectionsHeading: "Antes de contratar un videógrafo cerca de ti",
     sections: [
       {
-        heading: "¿Cómo se prepara una jornada larga de grabación?",
-        paragraphs: [
-          "Para una conferencia, una cena o un evento de varias horas, la cotización debe nombrar la ventana de cobertura, los momentos prioritarios, el acceso y los videos finales. Eso evita convertir una jornada larga en una promesa poco clara de grabar cada minuto o a cada invitado.",
-          "Antes de reservar, comparte la fecha, la locación, el horario de inicio y cierre, las reglas de acceso, qué partes del evento deben aparecer y si además necesitas edición. La grabación y los entregables se definen por separado, con pausas y cambios de agenda considerados, para que el alcance se entienda antes del día del evento.",
-        ],
-      },
-      {
         // Row 72 (2026-10-14): autocomplete "videografo cerca de mi".
         heading: "¿Cómo encontrar un videógrafo cerca de mí en Miami?",
         paragraphs: [
           `Si buscas un videógrafo cerca de mí en Miami, ten en cuenta que Esteban Moreno Media tiene su base en Fort Lauderdale y toma proyectos en Miami-Dade de forma seleccionada: la disponibilidad de cada locación se confirma al consultar. Hay trabajo publicado grabado en Miami, como el video de [Bar Door Monkey](/es/portafolio/bar-door-monkey), para que veas el estilo antes de escribir.`,
           `La grabación en locación es un servicio pagado, ${filmingHourlyText("es")}, con alcance y cotización por proyecto, y un día de producción en tu negocio va ${priceSentence("es", "presencia-local").toLowerCase()}. Si ya tienes el material, la distancia no importa: la edición es remota, en español primero, y parte del paquete Arranque, ${esShortForm}. Para videos cortos con tus clips, mira el [editor de Reels en Miami](/es/editor-de-reels-miami).`,
+        ],
+      },
+      {
+        heading: "¿Cómo se prepara una jornada larga de grabación?",
+        paragraphs: [
+          "Para una conferencia, una cena o un evento de varias horas, la cotización debe nombrar la ventana de cobertura, los momentos prioritarios, el acceso y los videos finales. Eso evita convertir una jornada larga en una promesa poco clara de grabar cada minuto o a cada invitado.",
+          "Antes de reservar, comparte la fecha, la locación, el horario de inicio y cierre, las reglas de acceso, qué partes del evento deben aparecer y si además necesitas edición. La grabación y los entregables se definen por separado, con pausas y cambios de agenda considerados, para que el alcance se entienda antes del día del evento.",
         ],
       },
     ],
