@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { AboutTeaser } from "@/components/about-teaser";
 import { ClientReviews } from "@/components/client-reviews";
+import { CameraKitMethod } from "@/components/camera-kit-method";
 import { ContactCta } from "@/components/contact-cta";
 import { HomeClosingLinks } from "@/components/home-closing-links";
 import { HeroVideo } from "@/components/hero-video";
@@ -79,7 +80,8 @@ export default function Home() {
           native <details>. ClosingCredits below stays as the quiet closing
           tap. */}
       <ContactCta locale="en" />
-      <KeepReading id="more" className="em-fold" title="Explore more services" destinations="Package add-ons, process, FAQ, about and how Esteban works.">
+      <CameraKitMethod locale="en" />
+      <KeepReading id="more" className="em-fold" title="Package add-ons, answers and background" destinations="Optional services, common questions and more about Esteban.">
         {/* showGuide=false: the four packages and their prices already sit
             at the chooser's PriceSheet. This keeps the à la carte add-ons,
             the 3-step quote process and the FAQ — none of which duplicate
