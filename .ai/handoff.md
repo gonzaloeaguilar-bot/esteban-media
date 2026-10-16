@@ -1,3 +1,18 @@
+# 2026-10-16 — Bing + Ahrefs free-tool readiness (local branch)
+
+- Branch `feat/bing-ahrefs-readiness` adds the read-only `pnpm search-tools:readiness` contract and setup notes at `docs/search-tool-setup.md`. It checks live `robots.txt`, normal/video sitemaps and the public IndexNow key before any browser-side account setup or UI export review.
+- Live check at implementation time: all five owned-site checks passed against `https://estebanmorenomedia.com`; `pnpm seo:indexnow:status` also confirmed the hosted key. This does not establish Bing Webmaster Tools or Ahrefs account ownership, accepted sitemap state, crawl data, rankings, or AI citations.
+- Local verification: `pnpm exec vitest run scripts/indexnow-submit.test.mjs scripts/search-tool-readiness.test.mjs` passed 5 tests. Independent review and PR/release remain with the coordinator.
+
+# 2026-10-16 — Finalized SEO measurement loop (implementation branch)
+
+- Branch: `codex/measurement-loop-20261016`. Adds `scripts/esteban-seo-measurement-report.mjs`, a read-only Search Console query/page/query-page report using `dataState: final` and a three-Pacific-day holdback. State writes to `~/.local/state/esteban-media-seo-measurement/`; the durable note is `wiki/esteban-seo-measurement.md`.
+- First manual production-data read: `pnpm seo:measurement:run -- --force` returned PASS on 2026-10-16 for 2026-09-16 through 2026-10-13 (55 query, 87 page, 101 query-page rows). This is discovery evidence only, not Maps/AI/lead/release impact.
+- Also adds GBP source-CSV intake and fixed-coordinate Maps operations docs, plus a Monday 08:15 ET LaunchAgent and installer. The LaunchAgent is deliberately not installed until reviewed and merged into the canonical checkout.
+- Validation: measurement fixtures 4/4 passed; ESLint passed; plist validation passed. No public GBP field or external account was changed.
+
+---
+
 # 2026-10-15 — Homepage camera service deck repair (PR #445, local branch)
 
 - Owner correction: changing a project category must not force a phone visitor to scroll past another image card to find the selected services.
@@ -323,3 +338,6 @@ Branch `codex/esteban-reels-guide-link-20261011` from `origin/main` at `9903c2a`
 Branch `codex/esteban-geo-offer-clarity-20261011`. The home service card now says the approved Starter price is per video, and the Spanish home description makes the same unit and Spanish service explicit. The amount still comes from `lib/pricing.ts`. `pnpm check` passed: 1,573 tests, build, and 97-route Spanish text parity. Google Business Profile's Video editing service was saved with a from-$100 price and a supplied-footage, Spanish-first description; Google said it will publish shortly, so public visibility is pending. See the 2026-10-11 recommendation probe in the Esteban vault.
 
 ---
+# Microsoft Clarity readiness — 2026-10-16
+
+Configuration-gated conversion-observability implementation is present locally, inactive by default: `components/microsoft-clarity.tsx`, `lib/microsoft-clarity.ts`, conditional EN/ES privacy disclosure, and `docs/microsoft-clarity-activation.md`. It only renders when Vercel supplies a valid `NEXT_PUBLIC_CLARITY_PROJECT_ID`; the browser script exits for previews/noncanonical host, bots/automation, Global Privacy Control and Do Not Track. No account, project ID, Vercel configuration, deploy, or visitor data was created. Full `pnpm test` passed 156 files / 2,943 tests; typecheck passed; changed-file lint has 0 errors (one existing `beforeInteractive` warning in `site-chrome.tsx`). Next: governed independent review, merge, then owner adds the production variable and performs the written live verification. Durable evidence: `[[esteban-microsoft-clarity-readiness-2026-10-16]]`.

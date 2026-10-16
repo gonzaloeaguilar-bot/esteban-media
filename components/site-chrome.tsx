@@ -2,6 +2,7 @@ import Script from "next/script";
 import { Geist, Geist_Mono, Instrument_Serif, Newsreader, Oswald } from "next/font/google";
 
 import { GoogleAnalytics } from "@/components/google-analytics";
+import { MicrosoftClarity } from "@/components/microsoft-clarity";
 import { MOTION_GATE_SCRIPT, RouteVeil, SiteMotion } from "@/components/site-motion";
 import { AppNav } from "@/components/app-nav";
 import { BRAND_MOMENT_BOOT_JS } from "@/vendor/web-kit/brand-moment/boot.generated";
@@ -103,6 +104,7 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
       <Script id="web-kit-moment" src="/web-kit/mount.js" strategy="beforeInteractive" />
       <RouteVeil />
       <GoogleAnalytics />
+      <MicrosoftClarity />
     </>
   );
 }

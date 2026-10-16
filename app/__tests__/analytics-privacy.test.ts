@@ -4,6 +4,10 @@ import { runInNewContext } from "node:vm";
 import { describe, expect, it } from "vitest";
 
 import { buildGoogleAnalyticsScript } from "@/lib/google-analytics-script";
+import {
+  buildMicrosoftClarityScript,
+  getMicrosoftClarityProjectId,
+} from "@/lib/microsoft-clarity";
 
 function source(path: string) {
   return readFileSync(join(process.cwd(), path), "utf8");
@@ -219,5 +223,44 @@ describe("automated browsers", () => {
     "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 HeadlessChrome/128.0 Safari/537.36",
   ])("never configures GA4 for %s", (ua) => {
     expect(configCalls({ userAgent: ua })).toBe(0);
+  });
+});
+
+describe("Microsoft Clarity safeguards", () => {
+  it("is disabled without an owner-supplied project ID and rejects unsafe config", () => {
+    expect(getMicrosoftClarityProjectId(undefined)).toBeNull();
+    expect(getMicrosoftClarityProjectId(" ")).toBeNull();
+    expect(getMicrosoftClarityProjectId("<script>alert(1)</script>")).toBeNull();
+    expect(getMicrosoftClarityProjectId("abc-123")).toBeNull();
+    expect(getMicrosoftClarityProjectId("abC1234")).toBe("abC1234");
+  });
+
+  it("keeps Clarity off previews, bots, and explicit browser privacy preferences", () => {
+    const script = buildMicrosoftClarityScript({
+      projectId: "abC1234",
+      canonicalHostname: "estebanmorenomedia.com",
+    });
+
+    expect(script).toContain("https://www.clarity.ms/tag/");
+    expect(script).toContain("window.location.hostname !==");
+    expect(script).toContain("nav.globalPrivacyControl === true");
+    expect(script).toContain("doNotTrack === '1'");
+    expect(script).toContain("nav.webdriver === true");
+    expect(script).toContain("gptbot");
+    expect(script).toContain("window.__estebanClarityLoaded");
+  });
+
+  it("documents a configuration-gated integration and its privacy disclosure", () => {
+    const component = source("components/microsoft-clarity.tsx");
+    const siteConfig = source("lib/site.ts");
+    const privacy = source("components/privacy-notice.tsx");
+    const activation = source("docs/microsoft-clarity-activation.md");
+
+    expect(siteConfig).toContain("NEXT_PUBLIC_CLARITY_PROJECT_ID");
+    expect(component).toContain("if (!projectId)");
+    expect(privacy).toContain("Microsoft Clarity");
+    expect(activation).toContain("Production");
+    expect(activation).toContain("NEXT_PUBLIC_CLARITY_PROJECT_ID");
+    expect(activation).toContain("Global Privacy Control");
   });
 });
