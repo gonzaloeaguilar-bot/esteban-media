@@ -93,6 +93,8 @@ describe("GEO growth service pages", () => {
     expect(englishReels).toContain('href: "/es/editor-de-reels-fort-lauderdale"');
     expect(spanishAreas).toContain('href="/es/editor-de-reels-fort-lauderdale"');
     expect(spanishAreas).toContain("editor de Reels en Fort Lauderdale");
+    expect(spanishAreas).toContain('href="/es/editor-de-video-miami"');
+    expect(spanishAreas).toContain("editor de video en Miami");
   });
 
   it.each(spanishGeoPages)("%s uses the Spanish shared niche page and inquiry rail", (route, file, slug, serviceId) => {

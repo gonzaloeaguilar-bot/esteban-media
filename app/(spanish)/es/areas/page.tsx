@@ -256,8 +256,8 @@ export default function SpanishAreasPage() {
                     editor de videos UGC en Miami
                   </Link>{" "}
                   o al{" "}
-                  <Link href="/es/editor-de-video-corto-para-redes-miami" className="font-medium text-[#9f3c27] underline underline-offset-4">
-                    editor de videos cortos en Miami
+                  <Link href="/es/editor-de-video-miami" className="font-medium text-[#9f3c27] underline underline-offset-4">
+                    editor de video en Miami
                   </Link>
                   .
                 </p>
