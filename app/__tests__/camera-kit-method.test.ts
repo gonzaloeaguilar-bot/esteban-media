@@ -26,6 +26,7 @@ describe("homepage camera kit and method", () => {
     expect(component).toContain('className="em-camera-kit__scene-media"');
     expect(component).toContain('className="em-camera-kit__photos"');
     expect(component).toContain('Real on-set camera views');
+    expect(component).toContain('className="em-camera-kit__photo-strip"');
     expect(component).toContain('"01", "Start with what you have"');
     expect(component).toContain('"01", "Empieza con lo que tienes"');
   });

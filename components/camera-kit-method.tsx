@@ -17,6 +17,7 @@ const copy = {
     canonName: "Canon EOS Rebel T5i",
     canonDetail: "18 MP APS-C sensor · Full HD 1080 recording",
     cameraPhotos: "Real on-set camera views",
+    cameraPhotosHint: "Tap either real photo for the behind-the-scenes view.",
     closeup: "Camera in hand",
     closeupDetail: "A real behind-the-scenes frame from Esteban's shoot.",
     setup: "The working setup",
@@ -44,6 +45,7 @@ const copy = {
     canonName: "Canon EOS Rebel T5i",
     canonDetail: "Sensor APS-C de 18 MP · grabación Full HD 1080",
     cameraPhotos: "Vistas reales de cámara en rodaje",
+    cameraPhotosHint: "Toca cualquiera de las fotos reales para ver la toma detrás de cámaras.",
     closeup: "Cámara en mano",
     closeupDetail: "Una toma real detrás de cámaras durante un rodaje de Esteban.",
     setup: "El set de trabajo",
@@ -95,22 +97,6 @@ export function CameraKitMethod({ locale }: { locale: Locale }) {
           </summary>
 
           <div className="em-camera-kit__details">
-            <div className="em-camera-kit__photos" aria-label={c.cameraPhotos}>
-              <details>
-                <summary>
-                  <Image src="/about/esteban-on-set-frame.jpg" alt="Esteban holding a camera while framing a shot" fill sizes="(max-width: 639px) 50vw, 280px" />
-                  <span>{c.closeup}</span>
-                </summary>
-                <p>{c.closeupDetail}</p>
-              </details>
-              <details>
-                <summary>
-                  <Image src="/about/esteban-on-set.jpg" alt="Esteban photographing a product at an on-set lighting setup" fill sizes="(max-width: 639px) 50vw, 280px" />
-                  <span>{c.setup}</span>
-                </summary>
-                <p>{c.setupDetail}</p>
-              </details>
-            </div>
             <article>
               <p>{c.activeBody}</p>
               <h3>{c.alphaName}</h3>
@@ -129,6 +115,29 @@ export function CameraKitMethod({ locale }: { locale: Locale }) {
             </p>
           </div>
         </details>
+
+        <div className="em-camera-kit__photo-strip" aria-labelledby={`camera-photos-${locale}`}>
+          <div className="em-camera-kit__photo-strip-copy">
+            <p id={`camera-photos-${locale}`}>{c.cameraPhotos}</p>
+            <span>{c.cameraPhotosHint}</span>
+          </div>
+          <div className="em-camera-kit__photos">
+            <details>
+              <summary>
+                <Image src="/about/esteban-on-set-frame.jpg" alt="Esteban holding a camera while framing a shot" fill sizes="(max-width: 639px) 50vw, 280px" />
+                <span>{c.closeup}</span>
+              </summary>
+              <p>{c.closeupDetail}</p>
+            </details>
+            <details>
+              <summary>
+                <Image src="/about/esteban-on-set.jpg" alt="Esteban photographing a product at an on-set lighting setup" fill sizes="(max-width: 639px) 50vw, 280px" />
+                <span>{c.setup}</span>
+              </summary>
+              <p>{c.setupDetail}</p>
+            </details>
+          </div>
+        </div>
 
         <details className="em-camera-kit__method">
           <summary data-cta={`camera_kit_method_${locale}`}>
