@@ -57,7 +57,7 @@ export function PortfolioTeaser({ locale }: PortfolioTeaserProps) {
   // promise.
   const items = PORTFOLIO_ITEMS.filter(
     (item): item is PortfolioItem =>
-      item.status === "live" && item.category !== "web-design",
+      item.status === "live" && item.category !== "web-design" && item.id !== "la-huelga",
   );
   const isSpanish = locale === "es";
   const href = isSpanish ? "/es/portafolio" : "/portfolio";

@@ -20,7 +20,7 @@ import { withNicheService } from "@/lib/niche-answers";
 export const metadata = buildPageMetadata({
   title: "Corporate Event Videographer Miami",
   description:
-    "Event video coverage, convention highlight recaps, and conference video production for corporate events in Miami.",
+    "Corporate event videography for Miami conferences, conventions and long event days, with coverage and recap editing scoped before the date.",
   path: "/services/corporate-event-videographer-miami",
   locale: "en",
 });
@@ -87,7 +87,7 @@ export default function CorporateEventVideographerMiamiPage() {
                 Corporate Event Videographer in Miami.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-                On-location video capture and rapid recap editing for corporate conferences, trade shows, and brand activations in Miami.
+                On-location video capture and recap editing for corporate conferences, trade shows and long event days in Miami. Coverage, access and final edits are scoped before the date.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link

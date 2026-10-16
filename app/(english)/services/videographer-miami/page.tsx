@@ -51,6 +51,11 @@ const content: GeoServicePageContent = {
       detail:
         "A website video, Reels and a short ad can come from one shoot if the vertical and horizontal framing is planned before recording. Faces, products and signs then stay inside the frame when the video is cropped for a phone.",
     },
+    {
+      title: "Full-day coverage scoped before the date",
+      detail:
+        "For a conference, dinner or multi-hour business event, the quote names the coverage window, priority moments, access plan and finished edits. That prevents an all-day shoot from becoming an unclear promise to film every minute or every guest.",
+    },
   ],
   depthHeading: "Hiring a videographer in Miami: what to know first.",
   depth: [
@@ -65,6 +70,11 @@ const content: GeoServicePageContent = {
   ],
   faqHeading: "Questions Miami businesses ask before booking a videographer.",
   faqs: [
+    {
+      question: "Can a videographer cover an eight-hour conference or event?",
+      answer:
+        "Long event coverage is scoped around the coverage window, priority moments, access and the finished edits requested. Send the date, venue, event schedule and the moments that matter so the written quote can define the work before booking.",
+    },
     {
       question: "How much does a videographer cost per hour in Miami?",
       answer: `With Esteban Moreno Media, filming is ${filmingHourlyText("en")}, the minimum for time on location. Editing is priced separately, per video, and every shoot gets a written quote first.`,
@@ -101,6 +111,11 @@ const content: GeoServicePageContent = {
       title: "Corporate Event Videographer Miami",
       detail: "Event filming and editing, priced as filming time plus the edit.",
       href: "/services/corporate-event-videographer-miami",
+    },
+    {
+      title: "Yacht & Marine Video Editing",
+      detail: "Editing for yacht footage already captured by a client or crew.",
+      href: "/services/yacht-hospitality-video-fort-lauderdale",
     },
   ],
   inquiry: {
