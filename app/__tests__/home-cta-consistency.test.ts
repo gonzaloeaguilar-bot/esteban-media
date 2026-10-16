@@ -16,8 +16,8 @@ import { QUOTE_CTA_LABEL } from "@/lib/quote-cta";
  * One primary action on the home, worded once (2026-10-10 UX review).
  *
  * Every quote/contact action opens WhatsApp and reads QUOTE_CTA_LABEL; the
- * labels it replaced must not come back one section at a time. Navigation
- * links ("View portfolio", "Explore service") are deliberately not covered.
+ * labels it replaced must not come back one section at a time. The hero's
+ * primary action is deliberately a chooser anchor, so it is tested separately.
  */
 const render = (el: React.ReactElement) => renderToStaticMarkup(el);
 const RETIRED = {
@@ -48,6 +48,8 @@ describe.each(["en", "es"] as const)("home quote actions (%s)", (locale) => {
       }
     }
     expect(sections.hero).toContain('data-cta="hero_whatsapp"');
+    expect(sections.hero).toContain('data-cta="hero_choose_package"');
+    expect(sections.hero).toContain('href="#start"');
     expect(sections.closing).toContain('data-cta="closing_whatsapp"');
   });
 

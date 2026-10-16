@@ -127,14 +127,15 @@ describe("confirmed lead instrumentation", () => {
     expect(provisioning).toContain('eventName: "lead_submit"');
   });
 
-  it("keeps the homepage hero portfolio-first while preserving tracked intake components", () => {
+  it("starts the homepage decision in the package chooser while preserving tracked intake components", () => {
     const hero = source("components/hero-video.tsx");
     const intake = source("components/hero-project-intake.tsx");
     const contact = source("components/contact-cta.tsx");
 
     expect(hero).not.toContain("<HeroProjectIntake locale={locale} />");
-    expect(hero).toContain('href={isSpanish ? "/es/portafolio" : "/portfolio"}');
-    expect(hero).toContain('{isSpanish ? "Ver portafolio" : "View portfolio"}');
+    expect(hero).toContain('href="#start"');
+    expect(hero).toContain('data-cta="hero_choose_package"');
+    expect(hero).toContain('{isSpanish ? "Elegir paquete" : "Choose a package"}');
     expect(intake).toContain('source: "hero-intake"');
     expect(intake).toContain('name="email"');
     expect(intake).toContain('name="projectNeed"');
