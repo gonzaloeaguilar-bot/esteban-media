@@ -99,4 +99,12 @@ describe("GEO growth service pages", () => {
       expect(text).not.toContain("staging");
     }
   });
+
+  it("keeps the Fort Lauderdale production answer scoped to published prices and project-specific quotes", () => {
+    const text = source("app/(english)/services/video-production-fort-lauderdale/page.tsx");
+
+    expect(text).toContain("On-location filming is scoped and quoted per project");
+    expect(text).toContain("remote short-form editing starts at");
+    expect(text).not.toMatch(/4K recording|clean wireless audio|\$400 for a half-day|48 to 72 hours/);
+  });
 });

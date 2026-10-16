@@ -53,7 +53,7 @@ const content: GeoServicePageContent = {
     },
     {
       question: "Who does video production for small businesses in Fort Lauderdale?",
-      body: `Esteban Moreno Media provides small business video production across Fort Lauderdale and Broward County, specializing in commercial reels, website videos, and service showcases. The service covers creative direction, shot list preparation, on-location 4K recording, clean wireless audio, and post-production editing optimized for Instagram Reels, TikTok, and desktop websites. For local businesses that only need raw footage delivered to an internal marketing team, on-location video capture starts at $400 for a half-day session. When filming time is booked by the hour, on-location filming starts at an authorized floor of $80 per hour, while full-service remote video editing packages start at $280 per video. Projects typically turn around within 48 to 72 hours following review. Inquiries can be submitted directly with project goals, preferred locations, and target deadlines.`,
+      body: `Esteban Moreno Media works with Fort Lauderdale and Broward County small businesses on commercial reels, website videos, service showcases, and editing from existing footage. A useful first conversation identifies whether the project needs a new on-location shoot or only editing, then names the location, goal, finished formats, and deadline. On-location filming is scoped and quoted per project; remote short-form editing starts at ${shortFormPriceText("en")}. A written quote separates filming time, editing, and the finished files so the business can compare the work before booking.`,
     },
   ],
   faqHeading: "Questions Fort Lauderdale businesses ask before starting video.",
