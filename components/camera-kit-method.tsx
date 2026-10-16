@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 type Locale = "en" | "es";
@@ -50,8 +51,8 @@ const copy = {
 } as const;
 
 /**
- * A brand-specific, server-rendered inspection surface. The scene is real
- * behind-the-scenes footage of Esteban at work; details keep the owner-
+ * A brand-specific, server-rendered inspection surface. The scene is a real
+ * frame from Esteban's behind-the-scenes footage; details keep the owner-
  * confirmed bodies and manufacturer-published specifications in the raw HTML.
  * Native details preserves that information for non-JS readers and answer
  * engines without claiming a particular lens, audio, lighting, or delivery setup.
@@ -72,9 +73,7 @@ export function CameraKitMethod({ locale }: { locale: Locale }) {
         <details className="em-camera-kit__inspector">
           <summary data-cta={`camera_kit_inspect_${locale}`}>
             <span className="em-camera-kit__scene" aria-hidden="true">
-              <video autoPlay loop muted playsInline preload="metadata" poster="/about/esteban-on-set-frame.jpg">
-                <source src="/about/esteban-on-set.mp4" type="video/mp4" />
-              </video>
+              <Image src="/about/esteban-on-set-frame.jpg" alt="" fill sizes="(max-width: 639px) 100vw, 1180px" priority className="em-camera-kit__scene-media" />
               <span className="em-camera-kit__scene-vignette" />
               <span className="em-camera-kit__recording">REC</span>
             </span>
