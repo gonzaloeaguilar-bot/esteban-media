@@ -12,10 +12,10 @@ const highlights = [
         Based in Fort Lauderdale, with local work in Broward and selected
         Miami-Dade projects (detailed in{" "}
         <Link
-          href="/es/areas"
+          href="/areas"
           className="font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-2 hover:text-[#7f2f20]"
         >
-          áreas de servicio
+          service areas
         </Link>
         );{" "}
         <Link
