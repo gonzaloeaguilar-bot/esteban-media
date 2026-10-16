@@ -50,6 +50,7 @@ const COPY = {
     whatsappMessage: homeContactCopy.en.message,
     mailSubject: homeContactCopy.en.subject,
     buildBrief: "Build a detailed brief",
+    buildBriefHint: "Best when you want a complete written quote with the project details in one message.",
     emailField: "Email",
     summaryLabel: "Project summary",
     summaryPlaceholder: homeContactCopy.en.detail,
@@ -89,6 +90,7 @@ const COPY = {
     mailSubject: homeContactCopy.es.subject,
     // Live on /es/contacto and /contact's VideoBriefBuilder disclosure.
     buildBrief: "Preparar un brief más detallado",
+    buildBriefHint: "Ideal si quieres una cotización escrita completa con los detalles del proyecto en un solo mensaje.",
     emailField: "Email", // same word both languages — already used unconditionally in hero-project-intake.tsx
     // "resumen del proyecto" is existing site copy (lib/guides.ts).
     summaryLabel: "Resumen del proyecto",
@@ -278,6 +280,7 @@ export function ContactCta({ locale = "en" }: { locale?: Locale }) {
                 <ArrowRight className="size-4 transition group-open:rotate-90" aria-hidden="true" />
               </summary>
               <div className="px-5 pb-6">
+                <p className="mt-1 text-sm leading-6 text-[#d8d0c7]">{c.buildBriefHint}</p>
                 {submitState === "success" ? (
                   <div
                     role="status"
