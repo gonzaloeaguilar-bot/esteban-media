@@ -25,16 +25,19 @@ const CONVERSION_WEBSITES: Localized = {
   },
 };
 
-const AI_LEAD_CAPTURE: Localized = {
+// 2026-10-14 (ship/web-ai-geo): the three projects whose core is a chatbot now
+// lead to the dedicated chatbot page; its "related" block links on to AI lead
+// capture. Wording reuses the chatbot page (lib/web-ai-services.ts).
+const AI_CHATBOT: Localized = {
   en: {
-    href: "/services/ai-lead-capture-automation",
-    title: "AI lead capture & lifecycle automation",
-    detail: "Chatbots, ManyChat DM flows, email, SMS, and handoff rules that help a qualified inquiry reach the right next step.",
+    href: "/services/ai-chatbot-for-small-business",
+    title: "AI chatbot for small business",
+    detail: "A chatbot on your website or in Instagram DMs that answers common questions and passes serious inquiries to a person.",
   },
   es: {
-    href: "/es/captura-y-automatizacion-de-clientes-con-ia",
-    title: "Captura y automatización de clientes con IA",
-    detail: "Chatbots, flujos de DM en ManyChat, email, SMS y reglas de handoff para llevar una consulta calificada al siguiente paso correcto.",
+    href: "/es/chatbot-con-ia-para-negocios",
+    title: "Chatbot con IA para negocios",
+    detail: "Un chatbot en tu sitio web o en los DM de Instagram que responde las preguntas frecuentes y pasa las consultas serias a una persona.",
   },
 };
 
@@ -55,9 +58,9 @@ const LINKS: Readonly<Record<string, Localized>> = {
   "diana-jack": WEDDING,
   "flas-concierge": CONVERSION_WEBSITES,
   "front-line-auto": CONVERSION_WEBSITES,
-  titanforge: AI_LEAD_CAPTURE,
-  "gains-from-geebs": AI_LEAD_CAPTURE,
-  "ai-lead-automation": AI_LEAD_CAPTURE,
+  titanforge: AI_CHATBOT,
+  "gains-from-geebs": AI_CHATBOT,
+  "ai-lead-automation": AI_CHATBOT,
 };
 
 export function portfolioServiceLink(id: string, locale: "en" | "es"): PortfolioServiceLink | undefined {

@@ -86,6 +86,11 @@ export const sitemapRoutes = [
   { path: "/services/reels-editor-miami", priority: 0.88 },
   { path: "/services/real-estate-reels-video-editor-south-florida", priority: 0.88 },
   { path: "/services/website-design-fort-lauderdale", priority: 0.85 },
+  // Web/landing/chatbot line, 2026-10-14 (vault esteban-web-chatbot-seo-geo-2026-10-14).
+  { path: "/services/ai-chatbot-for-small-business", priority: 0.85 },
+  { path: "/es/chatbot-con-ia-para-negocios", priority: 0.8 },
+  { path: "/services/landing-page-design", priority: 0.85 },
+  { path: "/es/landing-page-para-negocios", priority: 0.8 },
   { path: "/services/ai-product-photography-miami", priority: 0.85 },
   { path: "/services/product-photography-miami", priority: 0.85 },
   { path: "/services/dental-video-marketing-south-florida", priority: 0.85 },
