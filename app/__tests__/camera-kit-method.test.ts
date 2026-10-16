@@ -21,6 +21,8 @@ describe("homepage camera kit and method", () => {
     expect(component).toContain('<details className="em-camera-kit__method">');
     expect(component).toContain('data-cta={`camera_kit_inspect_${locale}`}');
     expect(component).toContain('data-cta={`camera_kit_method_${locale}`}');
+    expect(component).toContain('src="/about/esteban-on-set.mp4"');
+    expect(component).toContain('poster="/about/esteban-on-set-frame.jpg"');
     expect(component).toContain('"01", "Start with what you have"');
     expect(component).toContain('"01", "Empieza con lo que tienes"');
   });

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 type Locale = "en" | "es";
@@ -7,9 +6,9 @@ const copy = {
   en: {
     eyebrow: "THE CAMERA BENCH",
     heading: "See the camera before the shoot starts.",
-    lead: "Tap the lens to inspect the camera bodies Esteban uses, then open the method to see how a project moves from idea to a written scope.",
-    tap: "Tap the lens to inspect the kit",
-    lensAlt: "Illustration of Esteban's Sony Alpha 7 IV camera lens",
+    lead: "Tap the on-set frame to inspect the camera bodies Esteban uses, then open the method to see how a project moves from idea to a written scope.",
+    tap: "Tap the frame to inspect the kit",
+    onSet: "Behind the camera with Esteban",
     activeBody: "Primary camera body",
     alphaName: "Sony Alpha 7 IV",
     alphaDetail: "33 MP full-frame sensor · 4K 60p recording",
@@ -29,9 +28,9 @@ const copy = {
   es: {
     eyebrow: "LA MESA DE CÁMARA",
     heading: "Mira la cámara antes de empezar el rodaje.",
-    lead: "Toca el lente para ver los cuerpos de cámara que usa Esteban y abre el método para entender cómo una idea llega a un alcance por escrito.",
-    tap: "Toca el lente para ver el equipo",
-    lensAlt: "Ilustración del lente de la cámara Sony Alpha 7 IV de Esteban",
+    lead: "Toca la toma en acción para ver los cuerpos de cámara que usa Esteban y abre el método para entender cómo una idea llega a un alcance por escrito.",
+    tap: "Toca la toma para ver el equipo",
+    onSet: "Detrás de cámara con Esteban",
     activeBody: "Cuerpo de cámara principal",
     alphaName: "Sony Alpha 7 IV",
     alphaDetail: "Sensor full-frame de 33 MP · grabación 4K a 60p",
@@ -51,12 +50,11 @@ const copy = {
 } as const;
 
 /**
- * A brand-specific, server-rendered inspection surface. It deliberately uses
- * native details: the kit and process remain in raw HTML for non-JS readers
- * and answer engines, while the opened state gives the lens its tactile cue.
- * This is not a claim about a particular lens, audio, lighting, or delivery
- * setup — only owner-confirmed camera bodies and manufacturer-published body
- * specifications are shown.
+ * A brand-specific, server-rendered inspection surface. The scene is real
+ * behind-the-scenes footage of Esteban at work; details keep the owner-
+ * confirmed bodies and manufacturer-published specifications in the raw HTML.
+ * Native details preserves that information for non-JS readers and answer
+ * engines without claiming a particular lens, audio, lighting, or delivery setup.
  */
 export function CameraKitMethod({ locale }: { locale: Locale }) {
   const c = copy[locale];
@@ -74,23 +72,15 @@ export function CameraKitMethod({ locale }: { locale: Locale }) {
         <details className="em-camera-kit__inspector">
           <summary data-cta={`camera_kit_inspect_${locale}`}>
             <span className="em-camera-kit__scene" aria-hidden="true">
-              <span className="em-camera-kit__flash" />
-              <span className="em-camera-kit__body-mark" />
-              <span className="em-camera-kit__lens-wrap">
-                <Image
-                  src="/illustrations/esteban-sony-alpha-lens-v2.png"
-                  alt=""
-                  fill
-                  sizes="(max-width: 639px) 190px, 240px"
-                  className="object-contain"
-                />
-                <span className="em-camera-kit__iris" />
-                <span className="em-camera-kit__glint" />
-              </span>
+              <video autoPlay loop muted playsInline preload="metadata" poster="/about/esteban-on-set-frame.jpg">
+                <source src="/about/esteban-on-set.mp4" type="video/mp4" />
+              </video>
+              <span className="em-camera-kit__scene-vignette" />
+              <span className="em-camera-kit__recording">REC</span>
             </span>
             <span className="em-camera-kit__tap">
               <strong>{c.tap}</strong>
-              <small>{c.alphaName}</small>
+              <small>{c.onSet}</small>
               <span className="em-camera-kit__inspect-mark" aria-hidden="true">+</span>
             </span>
           </summary>
