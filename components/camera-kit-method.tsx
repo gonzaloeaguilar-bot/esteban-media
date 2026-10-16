@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 type Locale = "en" | "es";
@@ -7,21 +6,16 @@ const copy = {
   en: {
     eyebrow: "THE CAMERA BENCH",
     heading: "See the camera before the shoot starts.",
-    lead: "Tap the on-set frame to inspect the camera bodies Esteban uses, then open the method to see how a project moves from idea to a written scope.",
-    tap: "Tap the frame to inspect the kit",
-    onSet: "Behind the camera with Esteban",
+    lead: "Tap either camera to inspect the bodies Esteban uses, then open the method to see how a project moves from idea to a written scope.",
+    kitTitle: "The camera bodies in Esteban's kit",
+    kitHint: "Tap either camera to see its published specifications.",
+    reference: "Manufacturer reference image",
     activeBody: "Primary camera body",
     alphaName: "Sony Alpha 7 IV",
     alphaDetail: "33 MP full-frame sensor · 4K 60p recording",
     secondBody: "Also in the kit",
     canonName: "Canon EOS Rebel T5i",
     canonDetail: "18 MP APS-C sensor · Full HD 1080 recording",
-    cameraPhotos: "Real on-set camera views",
-    cameraPhotosHint: "Tap either real photo for the behind-the-scenes view.",
-    closeup: "Camera in hand",
-    closeupDetail: "A real behind-the-scenes frame from Esteban's shoot.",
-    setup: "The working setup",
-    setupDetail: "A real on-set photo: camera, lights and the shooting space.",
     source: "Camera specifications from Sony and Canon.",
     methodTitle: "Open the working method",
     methodHint: "Three clear decisions before the work begins.",
@@ -35,21 +29,16 @@ const copy = {
   es: {
     eyebrow: "LA MESA DE CÁMARA",
     heading: "Mira la cámara antes de empezar el rodaje.",
-    lead: "Toca la toma en acción para ver los cuerpos de cámara que usa Esteban y abre el método para entender cómo una idea llega a un alcance por escrito.",
-    tap: "Toca la toma para ver el equipo",
-    onSet: "Detrás de cámara con Esteban",
+    lead: "Toca cualquiera de las cámaras para ver los cuerpos que usa Esteban y abre el método para entender cómo una idea llega a un alcance por escrito.",
+    kitTitle: "Los cuerpos de cámara del equipo de Esteban",
+    kitHint: "Toca cualquiera de las cámaras para ver sus especificaciones publicadas.",
+    reference: "Imagen de referencia del fabricante",
     activeBody: "Cuerpo de cámara principal",
     alphaName: "Sony Alpha 7 IV",
     alphaDetail: "Sensor full-frame de 33 MP · grabación 4K a 60p",
     secondBody: "También en el equipo",
     canonName: "Canon EOS Rebel T5i",
     canonDetail: "Sensor APS-C de 18 MP · grabación Full HD 1080",
-    cameraPhotos: "Vistas reales de cámara en rodaje",
-    cameraPhotosHint: "Toca cualquiera de las fotos reales para ver la toma detrás de cámaras.",
-    closeup: "Cámara en mano",
-    closeupDetail: "Una toma real detrás de cámaras durante un rodaje de Esteban.",
-    setup: "El set de trabajo",
-    setupDetail: "Una foto real del rodaje: cámara, luces y el espacio de trabajo.",
     source: "Especificaciones de cámara publicadas por Sony y Canon.",
     methodTitle: "Abrir el método de trabajo",
     methodHint: "Tres decisiones claras antes de empezar.",
@@ -63,11 +52,11 @@ const copy = {
 } as const;
 
 /**
- * A brand-specific, server-rendered inspection surface. The scene is a real
- * frame from Esteban's behind-the-scenes footage; details keep the owner-
- * confirmed bodies and manufacturer-published specifications in the raw HTML.
- * Native details preserves that information for non-JS readers and answer
- * engines without claiming a particular lens, audio, lighting, or delivery setup.
+ * A brand-specific, server-rendered inspection surface. Each visible camera
+ * reference image comes from the named manufacturer's product page and each
+ * native disclosure keeps owner-confirmed bodies and sourced specifications in
+ * the raw HTML. It never claims a particular attached lens, audio, lighting,
+ * or delivery setup.
  */
 export function CameraKitMethod({ locale }: { locale: Locale }) {
   const c = copy[locale];
@@ -82,61 +71,49 @@ export function CameraKitMethod({ locale }: { locale: Locale }) {
           <p>{c.lead}</p>
         </div>
 
-        <details className="em-camera-kit__inspector">
-          <summary data-cta={`camera_kit_inspect_${locale}`}>
-            <span className="em-camera-kit__scene" aria-hidden="true">
-              <Image src="/about/esteban-on-set-frame.jpg" alt="" fill sizes="(max-width: 639px) 100vw, 1180px" priority className="em-camera-kit__scene-media" />
-              <span className="em-camera-kit__scene-vignette" />
-              <span className="em-camera-kit__recording">REC</span>
-            </span>
-            <span className="em-camera-kit__tap">
-              <strong>{c.tap}</strong>
-              <small>{c.onSet}</small>
-              <span className="em-camera-kit__inspect-mark" aria-hidden="true">+</span>
-            </span>
-          </summary>
-
-          <div className="em-camera-kit__details">
-            <article>
-              <p>{c.activeBody}</p>
-              <h3>{c.alphaName}</h3>
-              <span>{c.alphaDetail}</span>
-            </article>
-            <article>
-              <p>{c.secondBody}</p>
-              <h3>{c.canonName}</h3>
-              <span>{c.canonDetail}</span>
-            </article>
-            <p className="em-camera-kit__source">
-              {c.source}{" "}
-              <a href="https://www.sony.com/electronics/support/e-mount-body-ilce-7-series/ilce-7m4/specifications" target="_blank" rel="noreferrer">Sony</a>
-              {" · "}
-              <a href={locale === "es" ? "https://www.cla.canon.com/es/p/eos-rebel-t5i" : "https://www.cla.canon.com/en/p/eos-rebel-t5i"} target="_blank" rel="noreferrer">Canon</a>
-            </p>
+        <div className="em-camera-kit__selector" aria-labelledby={`camera-bodies-${locale}`}>
+          <div className="em-camera-kit__selector-copy">
+            <p id={`camera-bodies-${locale}`}>{c.kitTitle}</p>
+            <span>{c.kitHint}</span>
           </div>
-        </details>
-
-        <div className="em-camera-kit__photo-strip" aria-labelledby={`camera-photos-${locale}`}>
-          <div className="em-camera-kit__photo-strip-copy">
-            <p id={`camera-photos-${locale}`}>{c.cameraPhotos}</p>
-            <span>{c.cameraPhotosHint}</span>
-          </div>
-          <div className="em-camera-kit__photos">
+          <div className="em-camera-kit__models">
             <details>
-              <summary>
-                <Image src="/about/esteban-on-set-frame.jpg" alt="Esteban holding a camera while framing a shot" fill sizes="(max-width: 639px) 50vw, 280px" />
-                <span>{c.closeup}</span>
+              <summary data-cta={`camera_kit_sony_${locale}`}>
+                {/* Manufacturer reference image: Sony Alpha 7 IV product page. */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="https://d1ncau8tqf99kp.cloudfront.net/converted/92657_original_local_1200x1050_v3_converted.webp" alt="Sony Alpha 7 IV camera body, manufacturer reference image" />
+                <span className="em-camera-kit__reference">{c.reference}</span>
+                <span className="em-camera-kit__model-name">{c.alphaName}</span>
+                <span className="em-camera-kit__inspect-mark" aria-hidden="true">+</span>
               </summary>
-              <p>{c.closeupDetail}</p>
+              <div className="em-camera-kit__model-details">
+                <p>{c.activeBody}</p>
+                <strong>{c.alphaDetail}</strong>
+                <a href="https://electronics.sony.com/imaging/interchangeable-lens-cameras/all-interchangeable-lens-cameras/p/ilce7m4-b" target="_blank" rel="noreferrer">Sony</a>
+              </div>
             </details>
             <details>
-              <summary>
-                <Image src="/about/esteban-on-set.jpg" alt="Esteban photographing a product at an on-set lighting setup" fill sizes="(max-width: 639px) 50vw, 280px" />
-                <span>{c.setup}</span>
+              <summary data-cta={`camera_kit_canon_${locale}`}>
+                {/* Manufacturer reference image: Canon EOS Rebel T5i product page. */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="https://s7d1.scene7.com/is/image/canon/8595B003-eos-rebel-t5i-primary?$p=product1by1$" alt="Canon EOS Rebel T5i camera body, manufacturer reference image" />
+                <span className="em-camera-kit__reference">{c.reference}</span>
+                <span className="em-camera-kit__model-name">{c.canonName}</span>
+                <span className="em-camera-kit__inspect-mark" aria-hidden="true">+</span>
               </summary>
-              <p>{c.setupDetail}</p>
+              <div className="em-camera-kit__model-details">
+                <p>{c.secondBody}</p>
+                <strong>{c.canonDetail}</strong>
+                <a href={locale === "es" ? "https://www.cla.canon.com/es/p/eos-rebel-t5i" : "https://www.cla.canon.com/en/p/eos-rebel-t5i"} target="_blank" rel="noreferrer">Canon</a>
+              </div>
             </details>
           </div>
+          <p className="em-camera-kit__source">
+            {c.source}{" "}
+            <a href="https://electronics.sony.com/imaging/interchangeable-lens-cameras/all-interchangeable-lens-cameras/p/ilce7m4-b" target="_blank" rel="noreferrer">Sony</a>
+            {" · "}
+            <a href={locale === "es" ? "https://www.cla.canon.com/es/p/eos-rebel-t5i" : "https://www.cla.canon.com/en/p/eos-rebel-t5i"} target="_blank" rel="noreferrer">Canon</a>
+          </p>
         </div>
 
         <details className="em-camera-kit__method">

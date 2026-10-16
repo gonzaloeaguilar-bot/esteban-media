@@ -16,17 +16,16 @@ describe("homepage camera kit and method", () => {
     expect(component).not.toContain("24h Cloud Delivery");
   });
 
-  it("uses native disclosure for a tappable inspection and a visible three-step method", () => {
-    expect(component).toContain('<details className="em-camera-kit__inspector">');
+  it("uses visible, model-specific native disclosures and a visible three-step method", () => {
     expect(component).toContain('<details className="em-camera-kit__method">');
-    expect(component).toContain('data-cta={`camera_kit_inspect_${locale}`}');
     expect(component).toContain('data-cta={`camera_kit_method_${locale}`}');
-    expect(component).toContain('src="/about/esteban-on-set-frame.jpg"');
-    expect(component).toContain('src="/about/esteban-on-set.jpg"');
-    expect(component).toContain('className="em-camera-kit__scene-media"');
-    expect(component).toContain('className="em-camera-kit__photos"');
-    expect(component).toContain('Real on-set camera views');
-    expect(component).toContain('className="em-camera-kit__photo-strip"');
+    expect(component).toContain('data-cta={`camera_kit_sony_${locale}`}');
+    expect(component).toContain('data-cta={`camera_kit_canon_${locale}`}');
+    expect(component).toContain('92657_original_local_1200x1050_v3_converted.webp');
+    expect(component).toContain('8595B003-eos-rebel-t5i-primary');
+    expect(component).toContain('Manufacturer reference image');
+    expect(component).toContain('className="em-camera-kit__models"');
+    expect(component).not.toContain('Real on-set camera views');
     expect(component).toContain('"01", "Start with what you have"');
     expect(component).toContain('"01", "Empieza con lo que tienes"');
   });
