@@ -120,31 +120,29 @@ export function HeroVideo({ locale = "en" }: HeroVideoProps) {
                 stage, so it does not move anything below the film. */}
             <p className="em-cine__answer">{answerLine(locale)}</p>
 
-            {/* One primary action: the same WhatsApp quote the header, the
-                packages and the closing credit offer (lib/quote-cta.ts). The
-                portfolio stays as the one secondary, navigational link; the
-                packages are the next section down the page. */}
+            {/* The hero's job is to start a decision, not immediately eject
+                every visitor to WhatsApp. The chooser keeps package context
+                and price visible; WhatsApp remains available for someone who
+                already knows what they need. The work rail directly below is
+                the proof, so it does not need a competing hero button. */}
             <div className="em-cine__actions" data-em-hero-actions data-section="hero">
+              <Link
+                href="#start"
+                className="em-cine__cta em-cine__cta--primary"
+                data-cta="hero_choose_package"
+              >
+                {isSpanish ? "Elegir paquete" : "Choose a package"}
+                <ArrowRight className="size-4" aria-hidden="true" />
+              </Link>
               <a
                 href={whatsappHref(site.phone.e164, QUOTE_CTA_GREETING[locale])}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="em-cine__cta em-cine__cta--primary"
+                className="em-cine__cta em-cine__cta--ghost"
                 data-cta="hero_whatsapp"
               >
-                {/* No icon here: at 360px the pair has to end inside the
-                    gutter, and the WhatsApp glyph pushed "View portfolio"
-                    past it. */}
                 {quoteCtaLabel(locale)}
               </a>
-              <Link
-                href={isSpanish ? "/es/portafolio" : "/portfolio"}
-                className="em-cine__cta em-cine__cta--ghost"
-                data-cta="hero_portfolio"
-              >
-                {isSpanish ? "Ver portafolio" : "View portfolio"}
-                <ArrowRight className="size-4" aria-hidden="true" />
-              </Link>
             </div>
           </div>
         </div>

@@ -21,6 +21,7 @@ function source(path: string) {
 describe("home in-page anchors resolve", () => {
   const files = [
     "components/hero-video.tsx",
+    "components/home-project-path.tsx",
     "components/packages-section.tsx",
     "components/site-header-client.tsx",
   ].map((f) => [f, source(f)] as const);
@@ -51,14 +52,15 @@ describe("home in-page anchors resolve", () => {
     expect(missing, `dead in-page anchors: ${missing.join(", ")}`).toEqual([]);
   });
 
-  it("the hero's primary call to action is the site-wide WhatsApp quote", () => {
-    // 2026-10-10: the hero's primary action changed from "See packages &
-    // prices" (#packages) to the one quote action every section uses
-    // (lib/quote-cta.ts). The packages section is the next section down.
+  it("the hero's primary call to action opens the connected package chooser", () => {
+    // 2026-10-16: price selection is the primary decision on the home page.
+    // The visible chooser belongs to HomeProjectPath, not PackagesSection.
     const hero = source("components/hero-video.tsx");
-    expect(hero).toContain('data-cta="hero_whatsapp"');
-    expect(hero).toContain("quoteCtaLabel(locale)");
-    expect(hero).toContain("whatsappHref(");
+    expect(hero).toContain('data-cta="hero_choose_package"');
+    expect(hero).toContain('href="#start"');
+
+    const chooser = source("components/home-project-path.tsx");
+    expect(chooser).toContain('<section id="start"');
   });
 
   it("the packages section still declares the id its OfferCatalog schema points at", () => {
