@@ -1,13 +1,13 @@
 # 2026-10-14 — Growth starvation internal links to /es/areas
 
-- Rescued target route `https://estebanmorenomedia.com/es/areas` (`app/(spanish)/es/areas/page.tsx`) by adding 4 contextual internal links in body copy from earning pages:
+- Rescued target route `https://estebanmorenomedia.com/es/areas` (`app/(spanish)/es/areas/page.tsx`) by adding contextual internal links in body copy from earning pages:
   1. `/about` (`app/(english)/about/page.tsx`): contextual link with anchor `áreas de servicio`.
-  2. `/` (`components/about-teaser.tsx`): contextual link in the "Local" highlight card with anchor `áreas de servicio`.
+  2. `/` (`components/about-teaser.tsx` and `app/(english)/page.tsx`): contextual links in the "Local" highlight card and ClosingCredits footer note with anchor `áreas de servicio`.
   3. `/guides/best-caption-styles-for-instagram-reels` (`lib/guides.ts`): contextual link in safe-zone section with anchor `áreas de servicio`.
   4. `/portfolio` (`app/(english)/portfolio/page.tsx`): contextual link in remote editing section with anchor `áreas de servicio`.
 - Confirmed target `/es/areas` already links back to its section hubs (`/es` breadcrumb, `/es/servicios`, and individual area detail pages).
 - Ran `pnpm lastmod:update` updating `config/page-lastmod.json`.
-- Validated with `npm run typecheck --silent` and full vitest test suite `npm test` (156 test files, 2,939 tests passing).
+- Validated with `npm run typecheck --silent` and full vitest test suite `npm test`.
 
 ---
 

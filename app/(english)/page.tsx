@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { AboutTeaser } from "@/components/about-teaser";
 import { ClientReviews } from "@/components/client-reviews";
@@ -88,6 +89,11 @@ export default function Home() {
         <AboutTeaser />
       </KeepReading>
       <ClosingCredits locale="en" linksOnly>
+        <p>
+          Share your project goals, location, existing footage, and reference links. Check the Spanish{" "}
+          <Link href="/es/areas">áreas de servicio</Link> directory for local coverage across Broward and Miami-Dade, or read more{" "}
+          <Link href="/about">about Esteban</Link>.
+        </p>
         <HomeClosingLinks locale="en" />
       </ClosingCredits>
     </main>
