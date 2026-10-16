@@ -403,8 +403,9 @@ describe("bilingual practical guides", () => {
 
     // +1 each: the definition-first "What is a videographer?" section (round 2, 2026-10-14).
     // +1 each: "freelance videographer or production company?" (DM-25, 2026-10-14).
-    expect(enGuide.sections).toHaveLength(12);
-    expect(esGuide.sections).toHaveLength(10);
+    // +1 each: an event decision section anchored to the published Diana & Jack scope.
+    expect(enGuide.sections).toHaveLength(13);
+    expect(esGuide.sections).toHaveLength(11);
     expect(enGuide.sections[0].heading).toBe("What is a videographer?");
     expect(esGuide.sections[0].heading).toBe("¿Qué es un videógrafo y para qué sirve?");
     expect(enGuide.faqs).toHaveLength(7);
@@ -427,6 +428,9 @@ describe("bilingual practical guides", () => {
     );
     expect(enProse).toContain("/services/short-form-video-editor-miami");
     expect(enProse).toContain("/services/corporate-event-videographer-miami");
+    expect(enProse).toContain("For an event, do you need a videographer, an editor, or both?");
+    expect(enProse).toContain("It is a wedding, not a Miami corporate-event case study");
+    expect(enProse).toContain("/portfolio/diana-jack");
 
     expect(esProse).toContain(
       "¿Qué brief sencillo conviene escribir antes de pedir una cotización?",
@@ -436,6 +440,9 @@ describe("bilingual practical guides", () => {
     expect(esProse).toContain("/es/editor-de-video-corto-para-redes-miami");
     expect(esProse).toContain("/es/editor-de-reels-fort-lauderdale");
     expect(esProse).toContain("/es/produccion-de-video-fort-lauderdale");
+    expect(esProse).toContain("Para un evento, ¿necesitas videógrafo, editor o ambos?");
+    expect(esProse).toContain("Es una boda, no un caso de evento corporativo en Miami");
+    expect(esProse).toContain("/es/portafolio/diana-jack");
 
     for (const guide of [enGuide, esGuide]) {
       const structuredData = buildGuideStructuredData(guide);

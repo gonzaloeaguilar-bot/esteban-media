@@ -1400,6 +1400,12 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
+          heading: "For an event, do you need a videographer, an editor, or both?",
+          paragraphs: [
+            "Choose a videographer when the event has not happened and you need someone to capture the moments on site. Choose an editor when your team, venue, or another videographer will supply the footage and you need a finished recap, highlight, or vertical clips. Choose both only when one written scope names both the coverage window and the finished files. The published [Diana & Jack project](/portfolio/diana-jack) is a real event example: it was filmed and edited by Esteban in Boston, with a 20-minute film and a roughly 90-second highlight trailer. It is a wedding, not a Miami corporate-event case study, so it does not establish conference availability, venue access, or a standard event package. For a Miami event quote, start with the [corporate event videographer service](/services/corporate-event-videographer-miami); for supplied footage, use [short-form video editing](/services/short-form-video-editor-miami).",
+          ],
+        },
+        {
           heading: "What decision brief should you write before requesting a quote?",
           paragraphs: [
             "Before asking for pricing, write down what already exists and what still needs to be created. If the footage already exists, the conversation can focus on editing style, deliverables, pacing, captions, sound, color, and the platform where the video will appear. If the footage does not exist, the conversation needs to cover location access, people on camera, schedule, lighting, audio capture, and whether local production is realistic for the project.",
@@ -1569,6 +1575,12 @@ const guidePairs: readonly GuidePair[] = [
             "Solo editor: dispones de material grabado y requieres piezas terminadas con alto ritmo y acabado profesional",
             "Solo videógrafo: tienes capacidad de postproducción interna y requieres captura en sitio en South Florida",
             "Producción integral: requieres conceptualización, grabación profesional en locación y postproducción completa",
+          ],
+        },
+        {
+          heading: "Para un evento, ¿necesitas videógrafo, editor o ambos?",
+          paragraphs: [
+            "Elige un videógrafo cuando el evento aún no sucede y necesitas que alguien capture los momentos en el lugar. Elige un editor cuando tu equipo, el lugar u otro videógrafo entregará el material y necesitas un resumen, un highlight o clips verticales terminados. Elige ambos solo cuando una cotización por escrito separa las horas de cobertura y los archivos finales. El proyecto publicado [Diana & Jack](/es/portafolio/diana-jack) es una referencia real: Esteban lo grabó y editó en Boston, con una película de 20 minutos y un tráiler de alrededor de minuto y medio. Es una boda, no un caso de evento corporativo en Miami; no demuestra disponibilidad para conferencias, acceso a un lugar ni un paquete estándar. Para cotizar un evento en Miami, revisa [video para eventos corporativos](/es/videografo-para-eventos-corporativos-miami); si ya tienes el material, revisa [edición de video corto](/es/editor-de-video-corto-para-redes-miami).",
           ],
         },
         {
