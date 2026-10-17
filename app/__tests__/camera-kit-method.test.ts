@@ -25,7 +25,9 @@ describe("homepage camera kit and method", () => {
     expect(component).toContain('8595B003-eos-rebel-t5i-primary');
     expect(component).toContain('Reference images and published specifications');
     expect(component).toContain('className="em-camera-kit__models"');
+    expect(component).toContain('className="em-camera-kit__model"');
     expect(component).toContain('name={`camera-kit-${locale}`}');
+    expect(component).toContain('Swipe the camera shelf. Tap a body for published specs.');
     expect(component).not.toContain('Real on-set camera views');
     expect(component).toContain('"01", "Start with what you have"');
     expect(component).toContain('"01", "Empieza con lo que tienes"');
