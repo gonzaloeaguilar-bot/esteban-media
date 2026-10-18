@@ -574,3 +574,116 @@ export const BAR_MITZVAH_ES_SECTIONS: readonly SpanishNicheSection[] = [
     ],
   },
 ];
+
+export const FINE_DINING_DEEP_DIVE: DeepDive = {
+  id: "fine-dining-videography",
+  title: "How does fine dining tasting menu cinematography drive restaurant reservations in Miami?",
+  destinations: "Tableside preparations, searing plancha heat, macro sauce glazes, and candlelit room atmosphere.",
+  sections: [
+    {
+      heading: "How does fine dining and tasting menu cinematography drive restaurant reservations in Miami?",
+      paragraphs: [
+        "Upscale culinary establishments, Michelin-starred destinations, and chef-driven dining rooms in the Miami Design District, Coconut Grove, and Downtown Miami rely on captivating food cinematography to turn digital viewers into booked table reservations. Static food photography can display an arranged dish, but cinematic video captures the kinetic craftsmanship of the kitchen: the hiss of dry-aged steaks searing on white-hot planchas, delicate tableside reductions being poured, and vibrant herb oils breaking over velvety sauces. Esteban captures these multi-sensory culinary moments utilizing fast macro cinema lenses and calibrated directional lighting that accentuates glistening glazes, micro-greens, and artisanal ceramics without disrupting dining room guests. Footage highlights both the focused intensity of the culinary brigade and the warm, candlelit ambience of the dining room. For casual dining and bar promotions, see [restaurant promo video editing Miami](/services/restaurant-promo-video-editing-miami); to review commercial production rates, visit our [pricing overview](/pricing).",
+      ],
+    },
+    {
+      heading: "What video assets showcase culinary craftsmanship and dining room hospitality?",
+      paragraphs: [
+        "Luxury hospitality marketing requires a versatile library of video assets tailored for seasonal menu launches, holiday dining campaigns, and digital prestige. Restaurant owners and hospitality groups receive an integrated suite of promotional content centered around an evocative ninety-second brand film highlighting the executive chef's philosophy, signature multi-course tasting items, and curated wine pairings. Roving table-level footage captures white-glove hospitality, sommelier service, and guest toasts, conveying an unforgettable gastronomic experience. In post-production, editors assemble bite-sized vertical video cutdowns optimized for Instagram Reels and TikTok, focusing on high-retention food preparation hooks that drive viral engagement and weekend reservations. Esteban's direct food cinematography expertise is published in the portfolio, including our commercial restaurant showcase for [Bar Door Monkey Miami](/portfolio/bar-door-monkey). To discuss filming your culinary menu or dining room, connect with us through our [contact page](/contact); for weekly restaurant social management, see [Growth package](/pricing/growth).",
+      ],
+    },
+  ],
+};
+
+export const MIXOLOGY_COCKTAIL_DEEP_DIVE: DeepDive = {
+  id: "mixology-cocktail-videography",
+  title: "Why do craft cocktail lounges and speakeasies need high-speed mixology video in Miami?",
+  destinations: "Slow-motion liquid pours, ice carving acoustics, smoke infusions, and kinetic nightlife reels.",
+  sections: [
+    {
+      heading: "Why do craft cocktail lounges and speakeasies need high-speed mixology video in Miami?",
+      paragraphs: [
+        "South Florida's vibrant nightlife and craft cocktail corridors across Wynwood, South Beach, and Downtown Fort Lauderdale thrive on sensory spectacle and visual cocktail culture. Discerning cocktail enthusiasts and nightlife patrons choose cocktail lounges based on inventive drink aesthetics, dramatic bar backdrops, and intimate speakeasy ambience seen on social media. Esteban captures artisanal beverage craftsmanship using high-frame-rate 4K capture at 60 and 120 frames per second, transforming rapid bar techniques into mesmerizing slow-motion visual stories. The camera frames crystal-clear hand-carved ice cubes clinking in vintage crystal glassware, fiery citrus oil flairs, aromatic herbal smoke infusions beneath glass cloches, and velvety foam layers poured from shakers. Directional rim lighting isolates amber spirits and vibrant garnishes from dark lounge backgrounds, preserving the moody venue atmosphere without muddy shadows. For full venue coverage, review [nightlife videographer Miami](/services/hotel-hospitality-video-production-miami); to check filming packages, view our [pricing plans](/pricing).",
+      ],
+    },
+    {
+      heading: "How are artisanal liquid pours and kinetic bar techniques edited into viral social reels?",
+      paragraphs: [
+        "Craft beverage videos achieve exceptional retention and shareability on Instagram Reels and TikTok when visual rhythm is paired with crisp, kinetic sound design. Esteban records isolated bar audio with high-sensitivity directional microphones, capturing the satisfying crack of hand-carved ice, the energetic cadence of stainless steel cocktail shakers, and the gentle pop of carbonated mixers. In post-production, editors sync each pour, shake, and garnish to atmospheric music beats, crafting ten-to-fifteen-second vertical video reels engineered to stop scrollers in their feeds. Deliverables include seasonal menu cocktail highlights, behind-the-scenes bartender profiles, and quick visual recipes with clean typography displaying artisanal spirits and botanicals. These dynamic video assets elevate bar prestige, attract spirit brand sponsorship activations, and drive packed weekend bar stools. To review verified hospitality video work, watch our [Bar Door Monkey restaurant promo film](/portfolio/bar-door-monkey); to reserve a cocktail video filming session, reach out through our [contact page](/contact).",
+      ],
+    },
+  ],
+};
+
+export const COMMERCIAL_REAL_ESTATE_ES_DISCLOSURE = "¿Cómo se filman inmuebles comerciales y oficinas en Miami?";
+export const COMMERCIAL_REAL_ESTATE_ES_DESTINATIONS = "Pisos corporativos de oficinas, naves industriales, corrección de perspectiva y recorridos para arrendamiento.";
+
+export const COMMERCIAL_REAL_ESTATE_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo impulsa la producción de video el arrendamiento de bienes raíces comerciales en Miami?",
+    paragraphs: [
+      "Los corredores de arrendamiento comercial, administradores de fondos inmobiliarios y desarrolladores corporativos en Miami, Doral y Downtown Miami recurren a recorridos en video de alta definición para cualificar a corporaciones interesadas antes de coordinar visitas presenciales. Ya sea promocionando pisos completos de oficinas corporativas en Downtown Miami, espacios creativos en Wynwood o naves logísticas industriales junto al Aeropuerto Internacional de Miami, el video arquitectónico transmite la escala real, altura libre de techos y luminosidad natural con mayor eficacia que planos estáticos en dos dimensiones. Esteban produce recorridos comerciales con estabilización motorizada y ópticas gran angular con corrección de perspectiva, evitando distorsiones ópticas en pasillos y oficinas ejecutivas. La producción registra la secuencia completa de acceso desde el vestíbulo principal y ascensores hasta las áreas diáfanas de trabajo y zonas de carga y descarga. Para proyectos residenciales en preventa, consulte [video para preventa de condominios en Miami](/es/video-para-preventa-de-condominios-miami); para conocer las opciones y tarifas de producción, visite [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué especificaciones técnicas y formatos requieren los corredores comerciales?",
+    paragraphs: [
+      "Los comités corporativos y empresas en procesos de reubicación requieren información visual precisa en los videos de comercialización de propiedades. Esteban coordina con la administración del inmueble para filmar en horarios de iluminación óptima, captando la entrada de luz natural en los espacios sin reflejos excesivos. Los entregables comprenden un video horizontal de tres minutos con textos gráficos que indican metraje utilizable, altura de techos, capacidad eléctrica y estacionamientos asignados, acompañado de versiones verticales de treinta segundos optimizadas para campañas en LinkedIn y redes comerciales. La postproducción incorpora sonido ambiente nítido y musicalización empresarial licenciada. Este material permite a las inmobiliarias presentar sus inmuebles a empresas fuera de Florida y acelerar la firma de contratos de arrendamiento. Para revisar proyectos corporativos publicados, explore el [documental Homeowners](/es/portafolio/homeowners); para coordinar la filmación de un edificio de oficinas o nave industrial, escríbanos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const LUXURY_PENTHOUSE_ES_DISCLOSURE = "¿Cómo se filman penthouses de lujo en Miami?";
+export const LUXURY_PENTHOUSE_ES_DESTINATIONS = "Ventanales de piso a techo, vistas al océano, tomas estabilizadas y recorridos para compradores internacionales.";
+
+export const LUXURY_PENTHOUSE_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo se filman penthouses de gran lujo equilibrando la luz interior y las vistas al mar en Miami?",
+    paragraphs: [
+      "Comercializar penthouses multimillonarios y residencias de lujo frente al océano en Sunny Isles Beach, Miami Beach y Downtown Miami exige técnicas avanzadas de exposición para registrar simultáneamente los acabados interiores y el horizonte marino. Los ventanales de piso a techo generan un contraste lumínico extremo que suele sobreexponer el cielo en cámaras convencionales. Esteban utiliza sensores cinematográficos de cuadro completo con amplio rango dinámico, perfiles de color específicos y filtros polarizadores para capturar el azul del Atlántico junto con pisos de mármol, maderas nobles y cocinas de diseño italiano en una misma toma armónica. Con estabilizador motorizado de tres ejes, la cámara recorre con fluidez salones de doble altura, vestíbulos con ascensor privado y terrazas con piscinas infinitas, transmitiendo la experiencia de la vida costera de alta gama. Para propiedades residenciales unifamiliares, consulte [video de bienes raíces en Coral Gables](/es/video-de-bienes-raices-coral-gables); para tarifas de rodaje, revise [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué piezas audiovisuales facilitan la venta de propiedades exclusivas a compradores internacionales?",
+    paragraphs: [
+      "Los compradores de alto patrimonio e inversionistas extranjeros adquieren residencias exclusivas en South Florida sin desplazarse a visitas presenciales preliminares. Los agentes inmobiliarios que comercializan propiedades singulares requieren un paquete audiovisual que comunique la categoría arquitectónica y el estilo de vida frente al agua. Esteban produce un recorrido cinematográfico de tres minutos que combina tomas de terrazas al atardecer, vistas panorámicas nocturnas de la bahía y secuencias fluidas de suites principales, baños de mármol y áreas sociales. Las entregas incluyen una pieza horizontal para portales inmobiliarios y presentaciones privadas, junto con avances verticales de formato 9:16 para redes sociales. Textos discretos en pantalla pueden destacar amarres privados de embarcaciones, servicios de conserjería y comodidades exclusivas del edificio. Para ver muestras de nuestro trabajo audiovisual, explore la [película de evento de Diana y Jack](/es/portafolio/diana-jack); para programar la filmación de un penthouse exclusivo, contáctenos mediante [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const FINE_DINING_ES_DISCLOSURE = "¿Cómo se filma un restaurante de alta cocina en Miami?";
+export const FINE_DINING_ES_DESTINATIONS = "Emplatados minuciosos, servicio de mesa, tomas macro de cocina y ambientación del salón.";
+
+export const FINE_DINING_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo impulsa la cinematografía gastronómica de alta cocina las reservas de restaurantes en Miami?",
+    paragraphs: [
+      "Los restaurantes de alta cocina, salones gastronómicos y propuestas de autor en Miami Design District, Coconut Grove y Downtown Miami recurren a la cinematografía de alimentos para convertir a los usuarios digitales en comensales en sala. La fotografía estática muestra un plato terminado, pero el video transmite la destreza del equipo culinario: el sellado a fuego vivo, reducciones de salsas vertidas en mesa y emplatados minuciosos con pinzas de precisión. Esteban filma estos momentos sensoriales utilizando ópticas macro luminosas e iluminación direccional cuidada que resalta texturas, brillos y vapor sin alterar el servicio ni incomodar a los comensales presentes. Las secuencias capturan tanto la concentración en los fogones como el ambiente elegante y la calidez de las mesas del salón. Para promociones en restaurantes informales y bares, consulte [edición de video para restaurantes en Miami](/es/edicion-de-video-promocional-para-restaurantes-miami); para conocer opciones de producción, visite [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué material audiovisual resalta la maestría culinaria y la hospitalidad en sala?",
+    paragraphs: [
+      "El marketing gastronómico de nivel superior requiere piezas audiovisuales versátiles para menús de temporada, experiencias de maridaje y posicionamiento digital. Los propietarios y directores de sala reciben un paquete estructurado centrado en una pieza cinematográfica de noventa segundos que transmite la visión del chef ejecutivo, los platos más representativos y el servicio de mesa. Tomas fluidas registran la llegada de comensales, la presentación del sommelier y los brindis, comunicando una experiencia culinaria memorable. En postproducción, se elaboran cápsulas verticales para Instagram Reels y TikTok con ganchos visuales que fomentan la interacción y facilitan la reserva para el fin de semana. La experiencia de Esteban en producción gastronómica se encuentra verificada en nuestro portafolio comercial de [Bar Door Monkey Miami](/es/portafolio/bar-door-monkey). Para coordinar una jornada de filmación en su cocina o salón comedor, escríbanos en nuestra sección de [contacto](/es/contacto); para gestión mensual, consulte el [paquete Crecimiento](/es/precios/crecimiento).",
+    ],
+  },
+];
+
+export const MIXOLOGY_COCKTAIL_ES_DISCLOSURE = "¿Cómo se graba coctelería y servicio de barra en Miami?";
+export const MIXOLOGY_COCKTAIL_ES_DESTINATIONS = "Cámara lenta de vertidos, sonido del hielo, destilados artesanales y videos para redes sociales.";
+
+export const MIXOLOGY_COCKTAIL_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Por qué los bares de coctelería y speakeasies requieren video en cámara lenta en Miami?",
+    paragraphs: [
+      "La escena nocturna y los bares de coctelería de autor en Wynwood, South Beach y Downtown Fort Lauderdale destacan por su ambientación singular y la estética visual de sus bebidas. Los clientes eligen dónde reunirse basándose en la originalidad de los cócteles y la atmósfera íntima del local vista en redes sociales. Esteban registra la coctelería artesanal mediante grabación en 4K a 60 y 120 cuadros por segundo, convirtiendo las técnicas de barra en secuencias fluidas en cámara lenta. La cámara enfoca el tallado de hielo cristalino, destellos de piel de cítrico, infusiones ahumadas bajo campana de cristal y el batido enérgico en coctelera. La iluminación lateral destaca los colores de licores y botánicos sin alterar la luz tenue del bar ni generar sombras molestas. Para cobertura completa de locales de hospitalidad, revise [producción de video para hoteles en Miami](/es/servicios/produccion-de-video-para-hoteles-miami); para consultar tarifas, explore [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Cómo se editan las técnicas de coctelería y el servicio de barra en videos de alto impacto?",
+    paragraphs: [
+      "Los videos de coctelería artesanal alcanzan una excelente interacción en Instagram Reels y TikTok cuando el ritmo visual se sincroniza con un diseño de sonido cuidado. Esteban registra el audio de barra con micrófonos direccionales de alta fidelidad, captando el tintineo del hielo tallado, el sonido del batido en acero y el vertido de burbujas en copa. En la postproducción, los cortes se sincronizan con música contemporánea, creando piezas verticales de diez a quince segundos pensadas para captar la atención de inmediato en el feed. Los entregables incluyen videos de cartas de temporada, presentación de bartenders y recetas en video con tipografía nítida que detalla ingredientes y destilados artesanales. Estas piezas refuerzan la reputación del local, atraen patrocinios de marcas y llenan la barra en noches concurridas. Para ver proyectos de hospitalidad en video, revise el [video de restaurante Bar Door Monkey](/es/portafolio/bar-door-monkey); para reservar una sesión, escríbanos en [contacto](/es/contacto).",
+    ],
+  },
+];
+

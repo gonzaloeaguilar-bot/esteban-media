@@ -1001,3 +1001,43 @@ export const BAR_MITZVAH_DEEP_DIVE: DeepDive = {
     },
   ],
 };
+
+export const COMMERCIAL_REAL_ESTATE_DEEP_DIVE: DeepDive = {
+  id: "commercial-real-estate-video",
+  title: "How does video walkthrough production accelerate commercial leasing in Miami?",
+  destinations: "Class A office towers, industrial warehouse logistics, rectilinear wide optics, and tenant qualification reels.",
+  sections: [
+    {
+      heading: "How does video walkthrough production accelerate commercial real estate leasing in Miami?",
+      paragraphs: [
+        "Commercial real estate leasing brokers, asset managers, and property developers across Miami, Doral, and Downtown Miami rely on high-definition video walkthroughs to qualify prospective corporate tenants before scheduling on-site tours. Whether marketing Class A office floors in Downtown Miami, creative flex spaces in Wynwood, or high-bay industrial logistics warehouses near Miami International Airport, video tours communicate architectural scale, column spacing, ceiling clearance, and natural light far more effectively than static 2D floor plans. Esteban produces architectural-grade commercial walkthroughs utilizing smooth motorized gimbal stabilization and ultra-wide rectilinear lenses that preserve accurate vertical lines without fisheye distortion. Video productions map the full tenant arrival sequence, from street-level lobby entrances and elevator banks to open desk layouts, executive corner suites, and loading dock facilities. For residential developments, see [pre-construction condo video marketing Miami](/services/pre-construction-condo-video-marketing-miami); to view commercial pricing tiers, review our [pricing plans](/pricing).",
+      ],
+    },
+    {
+      heading: "What technical features and deliverables do commercial leasing brokers require?",
+      paragraphs: [
+        "Corporate decision-makers, commercial tenant representation brokers, and remote enterprise committees require specific structural data within commercial marketing videos. Esteban coordinates with property management teams to film during optimal daylight hours when tenant spaces receive maximum natural illumination without harsh glare. Deliverables include a comprehensive three-minute horizontal leasing walkthrough video featuring branded title overlays that highlight key lease specifications, including usable square footage, ceiling heights, electrical phase capacity, and dedicated parking ratios. In addition, post-production editors deliver high-impact thirty-second vertical video cutdowns optimized for LinkedIn commercial broker networks and digital marketing campaigns. Direct sound design incorporates clean ambient acoustics and licensed business background scoring. These professional video assets enable leasing brokers to showcase prime commercial inventory to out-of-state corporate relocations and close leases faster. To review our published production work, watch our [Homeowners portfolio film](/portfolio/homeowners); to schedule an on-site commercial property shoot, contact us via [contact](/contact).",
+      ],
+    },
+  ],
+};
+
+export const LUXURY_PENTHOUSE_DEEP_DIVE: DeepDive = {
+  id: "luxury-penthouse-video-tour",
+  title: "How do you capture luxury penthouses with balanced indoor and ocean views in Miami?",
+  destinations: "Floor-to-ceiling glass balance, ultra-wide gimbal passes, Atlantic oceanfront terraces, and international buyer showcases.",
+  sections: [
+    {
+      heading: "How do you capture luxury high-rise penthouses with balanced indoor and ocean views in Miami?",
+      paragraphs: [
+        "Marketing multi-million-dollar luxury penthouses and oceanfront sky residences in Sunny Isles Beach, Miami Beach, and Downtown Miami demands specialized camera exposure techniques to balance bright exterior ocean vistas with interior architectural finishes. Floor-to-ceiling panoramic glass windows often create severe contrast ratios that cause either blown-out white skies or underexposed living spaces on consumer cameras. Esteban utilizes full-frame cinema sensors with wide dynamic range, custom exposure profiles, and polarizing filtration to capture vibrant Atlantic Ocean blues alongside interior marble flooring, custom millwork, and designer Italian kitchens in one balanced take. Operating with a stabilized three-axis gimbal, the camera glides smoothly through expansive open-concept living rooms, private elevator vestibules, and cantilevered terrace plunge pools, conveying seamless indoor-outdoor coastal living. For luxury single-family homes, explore [real estate video Coral Gables](/services/real-estate-video-coral-gables); to review on-location filming rates, consult our [pricing guide](/pricing).",
+      ],
+    },
+    {
+      heading: "What video deliverables help luxury listing agents market penthouses to international buyers?",
+      paragraphs: [
+        "High-net-worth real estate buyers and foreign luxury investors frequently purchase South Florida penthouses remotely without attending initial in-person open houses. Listing agents representing signature properties require an elevated video package that showcases not just room dimensions, but the aspirational waterfront lifestyle. Esteban crafts a cinematic property showcase combining golden-hour terrace sweeps, twilight skyline vistas, and fluid walkthroughs of primary suite sanctuaries, spa bathrooms, and private rooftop decks. Post-production deliverables feature a broadcast-quality three-minute property film scored with sophisticated soundtrack licensing, complemented by vertical 9:16 teaser reels formatted for Instagram luxury real estate channels. Optional on-screen graphics highlight private marina slips, dedicated concierge services, and building amenities. These polished marketing films position luxury brokerages to generate qualified buyer inquiries from New York, Europe, and Latin America. To review our published cinematography, explore our [Diana and Jack event film](/portfolio/diana-jack); to book a penthouse production session, reach out through our [contact page](/contact).",
+      ],
+    },
+  ],
+};

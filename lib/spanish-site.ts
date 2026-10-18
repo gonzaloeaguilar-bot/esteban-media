@@ -27,6 +27,7 @@ import {
   MapPin,
   Music,
   Megaphone,
+  Martini,
   PartyPopper,
   Scale,
   Scissors,
@@ -98,6 +99,18 @@ import {
   BAR_MITZVAH_ES_DESTINATIONS,
   BAR_MITZVAH_ES_DISCLOSURE,
   BAR_MITZVAH_ES_SECTIONS,
+  COMMERCIAL_REAL_ESTATE_ES_DESTINATIONS,
+  COMMERCIAL_REAL_ESTATE_ES_DISCLOSURE,
+  COMMERCIAL_REAL_ESTATE_ES_SECTIONS,
+  LUXURY_PENTHOUSE_ES_DESTINATIONS,
+  LUXURY_PENTHOUSE_ES_DISCLOSURE,
+  LUXURY_PENTHOUSE_ES_SECTIONS,
+  FINE_DINING_ES_DESTINATIONS,
+  FINE_DINING_ES_DISCLOSURE,
+  FINE_DINING_ES_SECTIONS,
+  MIXOLOGY_COCKTAIL_ES_DESTINATIONS,
+  MIXOLOGY_COCKTAIL_ES_DISCLOSURE,
+  MIXOLOGY_COCKTAIL_ES_SECTIONS,
   HOTEL_ES_DESTINATIONS,
   HOTEL_ES_DISCLOSURE,
   HOTEL_ES_SECTIONS,
@@ -3438,6 +3451,190 @@ export const spanishNichePages: SpanishNichePage[] = [
         question: "¿Qué videos finales recibe la familia tras el fin de semana de celebración?",
         answer:
           "La familia recibe una película documental completa con los discursos y bailes íntegros, junto con un resumen cinematográfico de tres minutos para compartir.",
+      },
+    ],
+  },
+  {
+    slug: "video-para-bienes-raices-comerciales-miami",
+    title: "Video para bienes raíces comerciales en Miami",
+    metadataTitle: "Video Bienes Raíces Comerciales",
+    description:
+      "Producción audiovisual y recorridos de video para oficinas comerciales, naves industriales y locales en Miami y Doral con entrega ágil.",
+    eyebrow: "Bienes Raíces Comerciales / Oficinas",
+    h1: "Video para bienes raíces comerciales y oficinas en Miami.",
+    lead:
+      "Recorridos arquitectónicos estabilizados en 4K, planos diáfanos y especificaciones estructurales para comercialización y arrendamiento.",
+    keyword: "video para bienes raíces comerciales en Miami",
+    location: "Miami / Doral / Downtown Miami",
+    availability: "confirmed",
+    icon: Building2,
+    bestFor: [
+      "Corredores de arrendamiento comercial y fondos inmobiliarios en South Florida.",
+      "Propietarios de naves logísticas y edificios corporativos de oficinas.",
+    ],
+    scopingQuestions: [
+      "¿La propiedad corresponde a oficinas acondicionadas, espacios diáfanos o naves industriales?",
+      "¿Requieren títulos animados con especificaciones de metraje y alturas de techo?",
+    ],
+    projectFit:
+      "Estabilización motorizada con ópticas de corrección de perspectiva sin distorsión angular.",
+    updated: "2026-10-18",
+    sections: COMMERCIAL_REAL_ESTATE_ES_SECTIONS,
+    sectionsDisclosure: COMMERCIAL_REAL_ESTATE_ES_DISCLOSURE,
+    sectionsDestinations: COMMERCIAL_REAL_ESTATE_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo ayudan los recorridos en video a cualificar empresas interesadas?",
+        answer:
+          "Los recorridos de alta definición muestran la distribución real y la entrada de luz natural, facilitando que comités corporativos y empresas evalúen el inmueble a distancia antes de programar visitas.",
+      },
+      {
+        question: "¿Se pueden incluir especificaciones técnicas y áreas en pantalla?",
+        answer:
+          "Sí. Mediante títulos limpios se indican metros cuadrados útiles, altura de techos, potencia eléctrica y estacionamientos asignados para facilitar el análisis del arrendatario.",
+      },
+      {
+        question: "¿Cuál es el plazo habitual de entrega de los videos comerciales?",
+        answer:
+          "Los videos de recorrido horizontal de tres minutos y las cápsulas verticales para redes comerciales se entregan habitualmente entre cinco y siete días hábiles tras el rodaje.",
+      },
+    ],
+  },
+  {
+    slug: "video-de-penthouses-de-lujo-miami",
+    title: "Video de penthouses de lujo en Miami",
+    metadataTitle: "Video Penthouses de Lujo Miami",
+    description:
+      "Cinematografía de interiores y recorridos de lujo para penthouses frente al océano en Sunny Isles Beach, Miami Beach y Downtown Miami.",
+    eyebrow: "Penthouses de Lujo / Residencias",
+    h1: "Video cinematográfico para penthouses de lujo en Miami.",
+    lead:
+      "Equilibrio lumínico entre vistas al mar e interiores de diseño, recorridos estabilizados y piezas audiovisuales para compradores internacionales.",
+    keyword: "video de penthouses de lujo en Miami",
+    location: "Sunny Isles Beach / Miami Beach / Downtown Miami",
+    availability: "confirmed",
+    icon: Home,
+    bestFor: [
+      "Agentes inmobiliarios y agencias de corretaje que representan penthouses multimillonarios.",
+      "Desarrolladores de residencias de ultralujo frente al océano en South Florida.",
+    ],
+    scopingQuestions: [
+      "¿El penthouse cuenta con terraza panorámica, piscina privada o amarre de yate?",
+      "¿La filmación se programará durante el atardecer o la luz dorada de la mañana?",
+    ],
+    projectFit:
+      "Sensores de cuadro completo con filtros polarizadores para equilibrar ventanales marinos y acabados interiores.",
+    updated: "2026-10-18",
+    sections: LUXURY_PENTHOUSE_ES_SECTIONS,
+    sectionsDisclosure: LUXURY_PENTHOUSE_ES_DISCLOSURE,
+    sectionsDestinations: LUXURY_PENTHOUSE_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se equilibra la luz del mar con los acabados interiores de lujo?",
+        answer:
+          "Cámaras de cuadro completo con amplio rango dinámico y polarización controlada captan el azul marino sin sobreexponer el cielo ni oscurecer suelos de mármol o ebanistería.",
+      },
+      {
+        question: "¿Qué formatos de video se entregan para comercialización inmobiliaria?",
+        answer:
+          "Se entrega una película cinematográfica horizontal de tres minutos para portales web y presentaciones, acompañada de avances verticales 9:16 para Instagram y canales de lujo.",
+      },
+      {
+        question: "¿Se pueden filmar comodidades del edificio y muelles privados?",
+        answer:
+          "Sí. Las secuencias pueden abarcar muelles, vestíbulos con conserjería y terrazas comunitarias para comunicar el estilo de vida exclusivo de la residencia.",
+      },
+    ],
+  },
+  {
+    slug: "videografo-para-restaurantes-de-alta-cocina-miami",
+    title: "Videógrafo para restaurantes de alta cocina en Miami",
+    metadataTitle: "Video Alta Cocina Restaurantes",
+    description:
+      "Cinematografía gastronómica y videos de menús de degustación para restaurantes de alta cocina en Miami Design District y Coconut Grove.",
+    eyebrow: "Gastronomía / Alta Cocina",
+    h1: "Videógrafo para restaurantes de alta cocina y autor en Miami.",
+    lead:
+      "Captura macro de emplatados de precisión, sellados a fuego vivo, servicio de sala y ambientación gastronómica que impulsa reservas de mesas.",
+    keyword: "videógrafo para restaurantes de alta cocina en Miami",
+    location: "Miami Design District / Coconut Grove / Downtown Miami",
+    availability: "confirmed",
+    icon: UtensilsCrossed,
+    bestFor: [
+      "Restaurantes con estrella Michelin, salones gastronómicos y propuestas culinarias de autor.",
+      "Grupos de hospitalidad que buscan posicionar sus cartas de temporada y maridajes.",
+    ],
+    scopingQuestions: [
+      "¿La sesión incluirá filmación en cocina activa con la brigada o solo emplatados en sala?",
+      "¿Se coordinará la presencia del sommelier y la presentación del menú de degustación?",
+    ],
+    projectFit:
+      "Ópticas macro cinematográficas con iluminación direccional que no deslumbran ni interfieren con el servicio en sala.",
+    updated: "2026-10-18",
+    sections: FINE_DINING_ES_SECTIONS,
+    sectionsDisclosure: FINE_DINING_ES_DISCLOSURE,
+    sectionsDestinations: FINE_DINING_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se filma en cocinas activas sin alterar el servicio del restaurante?",
+        answer:
+          "Se opera con cámaras compactas y lentes macro luminosos junto al equipo de cocina, registrando sellados y emplatados minuciosos sin focos aparatosos ni cables en el suelo.",
+      },
+      {
+        question: "¿Qué entregables audiovisuales se preparan para restaurantes gastronómicos?",
+        answer:
+          "El paquete incluye una película de marca de noventa segundos centrada en la propuesta del chef ejecutivo y cápsulas verticales diseñadas para alta interacción en Instagram Reels y TikTok.",
+      },
+      {
+        question: "¿Se puede registrar el servicio de sommelier y maridajes en mesa?",
+        answer:
+          "Sí. Mediante iluminación sutil y micrófonos sensibles se capta el vertido de vinos, decantación y la interacción refinada del personal con los comensales.",
+      },
+    ],
+  },
+  {
+    slug: "videografo-de-cocteleria-para-bares-miami",
+    title: "Videógrafo de coctelería para bares en Miami",
+    metadataTitle: "Video Coctelería para Bares",
+    description:
+      "Producción de video en cámara lenta y reels para bares de coctelería, speakeasies y salones nocturnos en Wynwood, South Beach y Fort Lauderdale.",
+    eyebrow: "Coctelería / Bares & Speakeasies",
+    h1: "Videógrafo de coctelería artesanal para bares en Miami.",
+    lead:
+      "Grabación en 4K a 120 cuadros por segundo, sonido nítido de barra y videos rítmicos para redes sociales que llenan locales nocturnos.",
+    keyword: "videógrafo de coctelería para bares en Miami",
+    location: "Wynwood / South Beach / Downtown Fort Lauderdale",
+    availability: "confirmed",
+    icon: Martini,
+    bestFor: [
+      "Bares de coctelería artesanal, speakeasies y salones de coctelería de autor.",
+      "Marcas de destilados y bebidas premium que realizan activaciones nocturnas.",
+    ],
+    scopingQuestions: [
+      "¿La filmación se realizará antes de la apertura al público o con clientela real en la barra?",
+      "¿Desea enfocar el contenido en recetas de autor, técnicas de batido o ambiente del local?",
+    ],
+    projectFit:
+      "Grabación en alta velocidad a 60 y 120 fps con iluminación lateral que resalta botánicos y licores en ambientes nocturnos.",
+    updated: "2026-10-18",
+    sections: MIXOLOGY_COCKTAIL_ES_SECTIONS,
+    sectionsDisclosure: MIXOLOGY_COCKTAIL_ES_DISCLOSURE,
+    sectionsDestinations: MIXOLOGY_COCKTAIL_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Por qué se utiliza grabación en cámara lenta para videos de coctelería?",
+        answer:
+          "La captura a 60 y 120 cuadros por segundo convierte movimientos rápidos de barra como el tallado de hielo, flambeado de cítricos y vertidos en historias visuales fluidas y atractivas.",
+      },
+      {
+        question: "¿Cómo se capta el sonido de la coctelería en ambientes de bar?",
+        answer:
+          "Micrófonos direccionales aíslan el sonido del hielo al romperse, el batido en coctelera y las burbujas, combinándose con iluminación lateral que resalta destilados en la penumbra.",
+      },
+      {
+        question: "¿Se pueden entregar videos de recetas y cartas de temporada para redes?",
+        answer:
+          "Sí. Se entregan cortes verticales de diez a quince segundos con textos gráficos de ingredientes y ritmo musical dinámico para Instagram Reels y TikTok.",
       },
     ],
   },

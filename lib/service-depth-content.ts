@@ -1752,6 +1752,74 @@ export const PORTED_SERVICE_FAQS: Readonly<Record<string, readonly ServiceFaq[]>
         "Families receive a full-length documentary feature capturing all formal speeches and dances, along with a three-minute cinematic recap film set to licensed celebratory music.",
     },
   ],
+  "/services/commercial-real-estate-video-miami": [
+    {
+      question: "How do video tours help qualify prospective commercial tenants?",
+      answer:
+        "High-definition walkthroughs provide structural dimensions, floor plan flow, and natural lighting context, allowing out-of-state corporate committees and brokers to evaluate spaces before scheduling physical tours.",
+    },
+    {
+      question: "Can on-screen graphics highlight square footage and building specs?",
+      answer:
+        "Yes. Clear architectural title overlays display usable square footage, ceiling heights, electrical phase capacity, and dedicated parking allocations directly on screen.",
+    },
+    {
+      question: "What is the turnaround time for commercial leasing video assets?",
+      answer:
+        "Standard three-minute leasing walkthroughs and vertical LinkedIn clips are typically delivered within five to seven business days following the on-site shoot.",
+    },
+  ],
+  "/services/luxury-penthouse-video-tour-miami": [
+    {
+      question: "How do you balance bright oceanfront sunlight with interior luxury finishes?",
+      answer:
+        "Full-frame cinema sensors with wide dynamic range and polarizing filtration capture deep Atlantic Ocean blues alongside interior marble and custom millwork without overexposed white skies.",
+    },
+    {
+      question: "What video formats are produced for luxury real estate marketing?",
+      answer:
+        "Deliverables include a cinematic three-minute horizontal showcase for brokerage portals and private client presentations, paired with 9:16 vertical reels formatted for Instagram and luxury channels.",
+    },
+    {
+      question: "Can private marina slips and building amenities be featured in the film?",
+      answer:
+        "Yes. Walkthrough sequences can incorporate private dockage, concierge lobbies, rooftop pools, and exclusive residential amenities to convey the complete coastal lifestyle.",
+    },
+  ],
+  "/services/fine-dining-restaurant-videographer-miami": [
+    {
+      question: "How do you film active kitchen preparations without disrupting culinary service?",
+      answer:
+        "Compact cinema cameras with fast macro lenses operate unobtrusively alongside the culinary brigade, capturing searing planchas and delicate plating without bulky light stands or hot floodlights.",
+    },
+    {
+      question: "What video assets are produced for fine dining establishments?",
+      answer:
+        "Packages include an evocative brand film highlighting the executive chef and tasting menu, alongside vertical social cutdowns engineered for viral engagement on Instagram Reels and TikTok.",
+    },
+    {
+      question: "Can tableside presentations and sommelier wine service be recorded?",
+      answer:
+        "Yes. Directional lighting and sensitive microphones capture the visual drama and subtle acoustics of tableside decanting, sauce pouring, and guest hospitality.",
+    },
+  ],
+  "/services/mixology-cocktail-videographer-miami": [
+    {
+      question: "Why is high-frame-rate slow-motion recording used for cocktail mixology?",
+      answer:
+        "Recording in 4K at 60 and 120 frames per second transforms rapid bar techniques—like ice carving, fiery citrus flairs, and liquid shaker pours—into mesmerizing, fluid visual stories.",
+    },
+    {
+      question: "How is bar audio recorded in low-light speakeasy environments?",
+      answer:
+        "Directional microphones isolate the crisp acoustics of clinking crystal, cracking ice, and bubbling mixers while directional rim lights accentuate amber spirits against dark lounge backgrounds.",
+    },
+    {
+      question: "Can recipe videos and seasonal cocktail menus be formatted for vertical social feeds?",
+      answer:
+        "Yes. Fast-paced ten-to-fifteen-second vertical cutdowns with on-screen ingredient typography and beat-synced sound design are optimized for Instagram Reels and TikTok.",
+    },
+  ],
 };
 
 /** Hand-written pages left without a FAQ because no published fact supports one. */

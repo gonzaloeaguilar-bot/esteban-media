@@ -57,6 +57,14 @@ export const pairedLanguageRoutes: Record<string, string> = {
     "/es/produccion-de-video-reel-para-conferencistas-miami",
   "/services/bar-mitzvah-videographer-south-florida":
     "/es/videografo-para-bar-mitzvah-south-florida",
+  "/services/commercial-real-estate-video-miami":
+    "/es/video-para-bienes-raices-comerciales-miami",
+  "/services/luxury-penthouse-video-tour-miami":
+    "/es/video-de-penthouses-de-lujo-miami",
+  "/services/fine-dining-restaurant-videographer-miami":
+    "/es/videografo-para-restaurantes-de-alta-cocina-miami",
+  "/services/mixology-cocktail-videographer-miami":
+    "/es/videografo-de-cocteleria-para-bares-miami",
   "/services/food-and-places-creator-video-editing-miami":
     "/es/edicion-de-video-para-creadores-de-comida-y-lugares-miami",
   "/services/restaurant-promo-video-editing-miami":
