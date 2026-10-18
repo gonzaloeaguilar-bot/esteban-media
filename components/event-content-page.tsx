@@ -64,6 +64,7 @@ const UI = {
     relatedHeading: "Related services and events.",
     linkLabel: "Read more",
     otherEvents: "Other annual events",
+    allEvents: "All annual events",
   },
   es: {
     home: "Inicio",
@@ -85,6 +86,7 @@ const UI = {
     relatedHeading: "Servicios y eventos relacionados.",
     linkLabel: "Leer más",
     otherEvents: "Otros eventos del año",
+    allEvents: "Todos los eventos del año",
   },
 } as const;
 
@@ -381,6 +383,15 @@ export function EventContentPage({ id, locale }: { id: EventId; locale: EventLoc
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link
+                  href={EVENTS_HUB_PATHS[locale]}
+                  data-cta={`${prefix}_other_hub`}
+                  className="inline-flex min-h-11 items-center rounded-full bg-[var(--em-accent-ink)] px-4 text-sm font-medium text-white"
+                >
+                  {t.allEvents}
+                </Link>
+              </li>
             </ul>
           </Container>
         </section>

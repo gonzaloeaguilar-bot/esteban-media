@@ -1,3 +1,7 @@
+## 2026-10-18 — Rescue /es/eventos with contextual internal links
+
+- [x] Rescued `https://estebanmorenomedia.com/es/eventos` from orphan/starvation status by adding 4 contextual internal links from high-earning pages: `/about`, `/` (via `AboutTeaser`), `/guides/best-caption-styles-for-instagram-reels`, and `/areas`. Validated with typecheck, vitest test suite (162 suites, 2981 tests), and `pnpm lastmod:update`.
+
 ## 2026-10-14 — Rescue /es/areas with contextual internal links
 
 - [x] Rescued `https://estebanmorenomedia.com/es/areas` from orphan/starvation status by adding 4 contextual internal links from high-earning pages: `/about`, `/` (via `AboutTeaser`), `/guides/best-caption-styles-for-instagram-reels`, and `/portfolio`. Validated with typecheck, vitest test suite (156 suites, 2939 tests), and `pnpm lastmod:update`.

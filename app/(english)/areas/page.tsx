@@ -184,7 +184,14 @@ export default function AreasPage() {
                   >
                     practical video guides
                   </Link>{" "}
-                  to define and review their next video project before a
+                  or the Spanish{" "}
+                  <Link
+                    href="/es/eventos"
+                    className="underline underline-offset-4 hover:text-[#9f3c27]"
+                  >
+                    eventos del año
+                  </Link>{" "}
+                  hub to plan social content and video recaps before a
                   remote handoff.
                 </p>
                 <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm">

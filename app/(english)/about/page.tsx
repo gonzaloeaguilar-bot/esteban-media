@@ -84,15 +84,21 @@ export default function AboutPage() {
                 >
                   public portfolio
                 </Link>{" "}
-                connects each selected project to its
-                available credits and original video source. His Spanish{" "}
+                connects each selected project to its available credits and original video source. His Spanish{" "}
                 <Link
                   href="/es/guias"
                   className="underline underline-offset-4 hover:text-[#9f3c27]"
                 >
                   practical video guides
                 </Link>{" "}
-                cover project preparation, while his service is Spanish-first,
+                cover project preparation, while regional businesses can plan seasonal campaigns around major South Florida dates through his Spanish{" "}
+                <Link
+                  href="/es/eventos"
+                  className="underline underline-offset-4 hover:text-[#9f3c27]"
+                >
+                  eventos del año
+                </Link>{" "}
+                hub. His service is Spanish-first,
                 with intermediate English communication available for project
                 work.
               </p>
