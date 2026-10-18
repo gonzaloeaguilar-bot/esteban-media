@@ -215,6 +215,10 @@
   "date": "2026-10-14",
   "hash": "db0e7829ad597c11"
  },
+ "/es/edicion-de-video-remota-colombia": {
+  "date": "2026-10-18",
+  "hash": "44399b336ad722f2"
+ },
  "/es/editor-de-reels-boca-raton": {
   "date": "2026-10-14",
   "hash": "04bc737fa75eb434"
@@ -739,6 +743,10 @@
   "date": "2026-10-14",
   "hash": "c7b3936fff463bd5"
  },
+ "/es/servicio-de-subtitulado-bilingue-de-video": {
+  "date": "2026-10-18",
+  "hash": "8bad8350d5acb52f"
+ },
  "/es/servicios": {
   "date": "2026-10-16",
   "hash": "b5d97ad90e03513d"
@@ -827,9 +835,13 @@
   "date": "2026-10-18",
   "hash": "2ec306c3e6a79b8d"
  },
+ "/es/videografo-para-dia-de-contenido-miami": {
+  "date": "2026-10-18",
+  "hash": "ac965d6e4d4bb7cf"
+ },
  "/es/videografo-para-entrevistas-ejecutivas-miami": {
   "date": "2026-10-18",
-  "hash": "0eb949f55a2a32d1"
+  "hash": "698e1dbd2bf66ef5"
  },
  "/es/videografo-para-eventos-corporativos-fort-lauderdale": {
   "date": "2026-10-18",
@@ -838,6 +850,10 @@
  "/es/videografo-para-eventos-de-networking-miami": {
   "date": "2026-10-18",
   "hash": "2937ad9b16630569"
+ },
+ "/es/videografo-para-eventos-en-yates-miami": {
+  "date": "2026-10-18",
+  "hash": "01725ba118260098"
  },
  "/es/videografo-para-vlogs-miami": {
   "date": "2026-10-18",
@@ -1211,6 +1227,10 @@
   "date": "2026-10-13",
   "hash": "422c3b140d3069df"
  },
+ "/services/bilingual-video-subtitling-service": {
+  "date": "2026-10-18",
+  "hash": "8be9655310d68a1b"
+ },
  "/services/boutique-hotel-video-editing-miami": {
   "date": "2026-10-13",
   "hash": "6823faf5b5d2610b"
@@ -1230,6 +1250,10 @@
  "/services/content-creator-video-editing-miami": {
   "date": "2026-10-14",
   "hash": "f425ba635fe07529"
+ },
+ "/services/content-day-videographer-miami": {
+  "date": "2026-10-18",
+  "hash": "0e8caef07597380d"
  },
  "/services/content-repurposing-service-miami": {
   "date": "2026-10-13",
@@ -1297,7 +1321,7 @@
  },
  "/services/executive-interview-videographer-miami": {
   "date": "2026-10-18",
-  "hash": "f4cec66aa47bc7d6"
+  "hash": "78a7669024fc4641"
  },
  "/services/fitness-gym-video-marketing-miami": {
   "date": "2026-10-13",
@@ -1423,6 +1447,10 @@
   "date": "2026-10-14",
   "hash": "18a8e2597e6f8e28"
  },
+ "/services/remote-video-editing-colombia": {
+  "date": "2026-10-18",
+  "hash": "208b48a7dbe1b5f7"
+ },
  "/services/restaurant-promo-video-editing-miami": {
   "date": "2026-10-14",
   "hash": "c3e7aff9e1bd41c5"
@@ -1530,6 +1558,10 @@
  "/services/yacht-charter-video-marketing-miami": {
   "date": "2026-10-13",
   "hash": "130c473d8f641bbc"
+ },
+ "/services/yacht-event-videographer-miami": {
+  "date": "2026-10-18",
+  "hash": "5969f75e65152f0f"
  },
  "/services/yacht-hospitality-video-fort-lauderdale": {
   "date": "2026-10-15",

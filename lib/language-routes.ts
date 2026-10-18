@@ -33,6 +33,14 @@ export const pairedLanguageRoutes: Record<string, string> = {
     "/es/videografo-para-conferencias-fort-lauderdale",
   "/services/executive-interview-videographer-miami":
     "/es/videografo-para-entrevistas-ejecutivas-miami",
+  "/services/yacht-event-videographer-miami":
+    "/es/videografo-para-eventos-en-yates-miami",
+  "/services/content-day-videographer-miami":
+    "/es/videografo-para-dia-de-contenido-miami",
+  "/services/remote-video-editing-colombia":
+    "/es/edicion-de-video-remota-colombia",
+  "/services/bilingual-video-subtitling-service":
+    "/es/servicio-de-subtitulado-bilingue-de-video",
   "/services/food-and-places-creator-video-editing-miami":
     "/es/edicion-de-video-para-creadores-de-comida-y-lugares-miami",
   "/services/restaurant-promo-video-editing-miami":

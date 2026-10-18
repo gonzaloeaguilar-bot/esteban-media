@@ -148,7 +148,8 @@ describe("consolidation arithmetic matches the published baseline", () => {
     // /es/videografo-en-miami) and the how-to-start-as-an-influencer guide pair.
     // +4 = corporate and networking event pairs (2026-10-18): FTL corporate + Miami networking.
     // +8 = wave 2 niche expansions (2026-10-18): wedding, vlog, conference, executive interview.
-    expect(sitemap()).toHaveLength(269 - 25 + 1 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 2 + 4 + 1 + 26 + 6 + 10 + 16 + 1 + 1 + 4 + 4 + 2 + 4 + 2 + 1 + 2 + 3 + 4 + 4 + 8);
+    // +8 = wave 3 niche expansions (2026-10-18): yacht, content day, colombia, subtitling.
+    expect(sitemap()).toHaveLength(269 - 25 + 1 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 2 + 4 + 1 + 26 + 6 + 10 + 16 + 1 + 1 + 4 + 4 + 2 + 4 + 2 + 1 + 2 + 3 + 4 + 4 + 8 + 8);
   });
 
   it("never lists a redirect source in the sitemap", () => {
