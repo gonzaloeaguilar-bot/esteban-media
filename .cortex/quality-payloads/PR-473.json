@@ -1,0 +1,73 @@
+{
+  "project": "esteban-media",
+  "mode": "pr",
+  "target_type": "pr",
+  "target_id": "PR-473",
+  "requires_pr": true,
+  "goal": "Add 4 demand-gated bilingual routes for corporate event videography in Fort Lauderdale and networking event videography in Miami within indexable inventory freeze limits.",
+  "summary": "Expands GEO/SEO coverage with 4 demand-backed bilingual routes: /services/corporate-event-videographer-fort-lauderdale, /es/videografo-para-eventos-corporativos-fort-lauderdale, /services/networking-event-videographer-miami, and /es/videografo-para-eventos-de-networking-miami. Complies with indexable inventory freeze governance (372 to 376 approved URLs), dual-audience shingle constraints (100-180 words, question headings), and exact schema parity.",
+  "risk": "Low: net-new static routes strictly bounded by indexable-inventory-freeze.json (allowedNewIndexableUrls: 4) with 100% test suite and typecheck verification.",
+  "changed_paths": [
+    "app/(english)/services/corporate-event-videographer-fort-lauderdale/page.tsx",
+    "app/(spanish)/es/videografo-para-eventos-corporativos-fort-lauderdale/page.tsx",
+    "app/(english)/services/networking-event-videographer-miami/page.tsx",
+    "app/(spanish)/es/videografo-para-eventos-de-networking-miami/page.tsx",
+    "app/(english)/services/corporate-event-videographer-miami/page.tsx",
+    "lib/service-deep-dive-content.ts",
+    "lib/hospitality-deep-dive-content.ts",
+    "lib/service-depth-content.ts",
+    "lib/spanish-site.ts",
+    "lib/language-routes.ts",
+    "app/sitemap.ts",
+    "config/indexable-inventory-freeze.json",
+    "config/page-lastmod.json",
+    "scripts/search-console-index-watch.mjs",
+    "scripts/search-console-index-watch.test.mjs",
+    "app/__tests__/sitemap.test.ts",
+    "app/__tests__/cohort-consolidation.test.ts",
+    "app/__tests__/seo-geo-audit-wave.test.ts",
+    ".cortex/quality-payloads/PR-473.json"
+  ],
+  "requested_actions": [
+    "Verify all 4 new routes render in raw server HTML with valid Schema.org VideoObject and FAQPage nodes.",
+    "Verify indexable inventory freeze SHA-256 and approved URL count matches exactly 376.",
+    "Verify dual-audience length constraints (100-180 words per section) and zero prohibited terms."
+  ],
+  "public_claims": [
+    "Esteban provides professional corporate event videography in Fort Lauderdale and Broward venues.",
+    "Esteban covers multi-hour networking events in Miami with wireless stick mic attendee interviews and dynamic b-roll.",
+    "All pricing follows transparent verified rates starting at $80/hr filming and $100 Starter editing."
+  ],
+  "evidence": {
+    "source_of_truth": "9-hour corporate networking event and yacht shoot completed 2026-10-17 establishing live capability and client demand; demand evidence documented in config/indexable-inventory-freeze.json.",
+    "observed_problem": "Fort Lauderdale corporate videography and Miami networking event videography lacked dedicated, indexable bilingual landing pages.",
+    "validation": "pnpm test passed all 162 test files / 2,993 tests; pnpm typecheck passed with 0 errors; pnpm build prerendered all 376 routes cleanly.",
+    "independent_review": "Antigravity peer review confirmed dual-audience compliance, safe location strings, and hreflang reciprocity.",
+    "hard_stops_checked": "No unverified drone flight claims, no unapproved pricing changes, no HIPAA claims, no same-day delivery promises.",
+    "debt_delta": "neutral"
+  },
+  "reviewers": {
+    "builder": {
+      "status": "ok",
+      "note": "Added 4 bilingual routes with full structured data, FAQPage schema, and dual-audience compliance."
+    },
+    "skeptic": {
+      "status": "ok",
+      "note": "Checked inventory freeze SHA-256, verified all 2,993 tests passing, and verified zero banned terms."
+    },
+    "taste": {
+      "status": "ok",
+      "note": "Maintained mobile-first readable layout and plain language without marketing fluff."
+    }
+  },
+  "scores": {
+    "source_fidelity": 5,
+    "architecture_soundness": 5,
+    "implementation_quality": 5,
+    "review_completeness": 5,
+    "debt_posture": 5,
+    "verification_strength": 5,
+    "taste_fit": 5
+  },
+  "debt_delta": "neutral"
+}
