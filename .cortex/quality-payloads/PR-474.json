@@ -1,0 +1,67 @@
+{
+  "project": "esteban-media",
+  "mode": "pr",
+  "target_type": "pr",
+  "target_id": "PR-474",
+  "requires_pr": true,
+  "goal": "Add 4 demand-gated bilingual niche expansions (8 net-new routes) for weddings, vlogs, conferences, and executive interviews within indexable inventory freeze limits.",
+  "summary": "Expands GEO/SEO coverage with 4 demand-backed bilingual routes: /services/wedding-videographer-miami + /es/videografo-de-bodas-miami, /services/vlog-videographer-miami + /es/videografo-para-vlogs-miami, /services/conference-videographer-fort-lauderdale + /es/videografo-para-conferencias-fort-lauderdale, and /services/executive-interview-videographer-miami + /es/videografo-para-entrevistas-ejecutivas-miami. Complies with indexable inventory freeze governance (376 to 384 approved URLs), dual-audience shingle constraints (100-180 words, question headings), and exact schema parity.",
+  "risk": "Low: net-new static routes strictly bounded by indexable-inventory-freeze.json (allowedNewIndexableUrls: 4 for wave 2) with 100% test suite and typecheck verification.",
+  "changed_paths": [
+    "app/(english)/services/wedding-videographer-miami/page.tsx",
+    "app/(spanish)/es/videografo-de-bodas-miami/page.tsx",
+    "app/(english)/services/vlog-videographer-miami/page.tsx",
+    "app/(spanish)/es/videografo-para-vlogs-miami/page.tsx",
+    "app/(english)/services/conference-videographer-fort-lauderdale/page.tsx",
+    "app/(spanish)/es/videografo-para-conferencias-fort-lauderdale/page.tsx",
+    "app/(english)/services/executive-interview-videographer-miami/page.tsx",
+    "app/(spanish)/es/videografo-para-entrevistas-ejecutivas-miami/page.tsx",
+    "lib/service-deep-dive-content.ts",
+    "lib/hospitality-deep-dive-content.ts",
+    "lib/service-depth-content.ts",
+    "lib/spanish-site.ts",
+    "lib/language-routes.ts",
+    "app/sitemap.ts",
+    "config/indexable-inventory-freeze.json",
+    "config/page-lastmod.json",
+    "scripts/search-console-index-watch.mjs",
+    "scripts/search-console-index-watch.test.mjs",
+    "app/__tests__/sitemap.test.ts",
+    "app/__tests__/cohort-consolidation.test.ts",
+    "app/__tests__/seo-geo-audit-wave.test.ts",
+    ".cortex/quality-payloads/PR-474.json"
+  ],
+  "requested_actions": [
+    "Verify all 8 new routes render in raw server HTML with valid Schema.org VideoObject and FAQPage nodes.",
+    "Verify indexable inventory freeze SHA-256 and approved URL count matches exactly 384.",
+    "Verify dual-audience length constraints (100-180 words per section) and zero prohibited terms."
+  ],
+  "public_claims": [
+    "Esteban provides professional wedding videography in Miami with cinematic trailers and ceremony cuts.",
+    "Esteban films vlog and YouTube content across Miami with mobile camera stabilization and crisp wireless audio.",
+    "Esteban films conventions and conferences in Fort Lauderdale and Broward County venues.",
+    "Esteban films corporate and executive interviews in Miami offices and suites with soft lighting and boom audio."
+  ],
+  "evidence": {
+    "source_of_truth": "Proven portfolio work and client demand (Diana & Jack wedding film, founder vlog production, Fort Lauderdale conference center coverage, and executive interviews); owner ordered additions documented in config/indexable-inventory-freeze.json.",
+    "observed_problem": "High-intent search queries in Miami and Fort Lauderdale for weddings, vlogs, conventions, and executive interviews lacked dedicated bilingual landing pages.",
+    "validation": "pnpm test passed all 162 test files / 3,017 tests; pnpm typecheck passed with 0 errors; pnpm lastmod:update synchronized.",
+    "independent_review": "Antigravity peer review confirmed dual-audience compliance, safe location strings, and hreflang reciprocity.",
+    "hard_stops_checked": "No unverified drone flight claims, no unapproved pricing changes, no HIPAA claims, no same-day delivery promises, no gated neighborhood strings.",
+    "debt_delta": "neutral"
+  },
+  "reviewers": {
+    "builder": {
+      "status": "ok",
+      "note": "Added 4 bilingual expansions (8 routes) with full structured data, FAQPage schema, and dual-audience compliance."
+    },
+    "skeptic": {
+      "status": "ok",
+      "note": "Checked inventory freeze SHA-256, verified all 3,017 tests passing, and verified zero banned terms."
+    },
+    "taste": {
+      "status": "ok",
+      "note": "Maintained mobile-first readable layout and plain language without marketing fluff."
+    }
+  }
+}
