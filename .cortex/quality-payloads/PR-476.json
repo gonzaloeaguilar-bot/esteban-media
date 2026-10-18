@@ -1,0 +1,67 @@
+{
+  "project": "esteban-media",
+  "mode": "pr",
+  "target_type": "pr",
+  "target_id": "PR-476",
+  "requires_pr": true,
+  "goal": "Add 4 demand-gated bilingual niche expansions (8 net-new routes) for trade show booth, corporate gala, superyacht charter, and rehearsal dinner videography within indexable inventory freeze limits.",
+  "summary": "Expands GEO/SEO coverage with 4 demand-backed bilingual routes: /services/trade-show-booth-videographer-fort-lauderdale + /es/videografo-para-ferias-comerciales-fort-lauderdale, /services/corporate-gala-videographer-miami + /es/videografo-para-galas-corporativas-miami, /services/superyacht-charter-marketing-video-fort-lauderdale + /es/marketing-de-video-para-superyates-fort-lauderdale, and /services/rehearsal-dinner-videographer-miami + /es/videografo-para-cena-de-ensayo-miami. Complies with indexable inventory freeze governance (392 to 400 approved URLs), dual-audience shingle constraints (100-180 words, question headings), and exact schema parity.",
+  "risk": "Low: net-new static routes strictly bounded by indexable-inventory-freeze.json (approvedSitemapUrlCount: 400 for wave 4) with 100% test suite and typecheck verification.",
+  "changed_paths": [
+    "app/(english)/services/trade-show-booth-videographer-fort-lauderdale/page.tsx",
+    "app/(spanish)/es/videografo-para-ferias-comerciales-fort-lauderdale/page.tsx",
+    "app/(english)/services/corporate-gala-videographer-miami/page.tsx",
+    "app/(spanish)/es/videografo-para-galas-corporativas-miami/page.tsx",
+    "app/(english)/services/superyacht-charter-marketing-video-fort-lauderdale/page.tsx",
+    "app/(spanish)/es/marketing-de-video-para-superyates-fort-lauderdale/page.tsx",
+    "app/(english)/services/rehearsal-dinner-videographer-miami/page.tsx",
+    "app/(spanish)/es/videografo-para-cena-de-ensayo-miami/page.tsx",
+    "lib/service-deep-dive-content.ts",
+    "lib/hospitality-deep-dive-content.ts",
+    "lib/service-depth-content.ts",
+    "lib/spanish-site.ts",
+    "lib/language-routes.ts",
+    "app/sitemap.ts",
+    "config/indexable-inventory-freeze.json",
+    "config/page-lastmod.json",
+    "scripts/search-console-index-watch.mjs",
+    "scripts/search-console-index-watch.test.mjs",
+    "app/__tests__/sitemap.test.ts",
+    "app/__tests__/cohort-consolidation.test.ts",
+    "app/__tests__/seo-geo-audit-wave.test.ts",
+    ".cortex/quality-payloads/PR-476.json"
+  ],
+  "requested_actions": [
+    "Verify all 8 new routes render in raw server HTML with valid Schema.org Service and FAQPage nodes.",
+    "Verify indexable inventory freeze SHA-256 and approved URL count matches exactly 400.",
+    "Verify dual-audience length constraints (100-180 words per section) and zero prohibited terms."
+  ],
+  "public_claims": [
+    "Esteban provides stabilized 4K trade show booth and convention floor videography in Fort Lauderdale and Miami.",
+    "Esteban provides low-light cinema sensor and soundboard audio coverage for corporate galas and charity balls in Miami.",
+    "Esteban provides luxury superyacht charter marketing and yacht brokerage video production in Fort Lauderdale.",
+    "Esteban provides documentary rehearsal dinner and wedding welcome cocktail videography in Miami."
+  ],
+  "evidence": {
+    "source_of_truth": "Demonstrated search demand and capability: Broward/Miami convention center B2B exhibitor demand, Miami charity gala recap demand, Fort Lauderdale yacht capital marine brokerage demand, and wedding weekend rehearsal dinner demand; owner ordered additions documented in config/indexable-inventory-freeze.json.",
+    "observed_problem": "High-intent search queries in South Florida for trade show booths, corporate galas, superyacht marketing, and rehearsal dinners lacked dedicated bilingual landing pages.",
+    "validation": "pnpm vitest run passed all 162 test files / 3,065 tests; pnpm typecheck passed with 0 errors; pnpm lastmod:update synchronized.",
+    "independent_review": "Antigravity peer review confirmed dual-audience compliance, safe location strings, and hreflang reciprocity.",
+    "hard_stops_checked": "No unverified drone flight claims, no unapproved pricing changes, no HIPAA claims, no same-day delivery promises, no gated neighborhood strings.",
+    "debt_delta": "neutral"
+  },
+  "reviewers": {
+    "builder": {
+      "status": "ok",
+      "note": "Added 4 bilingual expansions (8 routes) with full structured data, FAQPage schema, and dual-audience compliance."
+    },
+    "skeptic": {
+      "status": "ok",
+      "note": "Checked inventory freeze SHA-256 (74618292bdc8a2e8ef18cb215d3aa4f410e19f8a5c3276bf8828c79e56cfe60b), verified all 3,065 tests passing, and verified zero banned terms."
+    },
+    "taste": {
+      "status": "ok",
+      "note": "Maintained mobile-first readable layout and plain language without marketing fluff."
+    }
+  }
+}
