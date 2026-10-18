@@ -359,3 +359,76 @@ export const EXECUTIVE_INTERVIEW_ES_SECTIONS: readonly SpanishNicheSection[] = [
   },
 ];
 
+export const YACHT_EVENT_ES_DISCLOSURE = "¿Cómo se cotiza y graba un evento en yate en Miami?";
+export const YACHT_EVENT_ES_DESTINATIONS = "Celebraciones privadas, paseos al atardecer, estabilización a bordo y sonido frente al viento.";
+
+export const YACHT_EVENT_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo se graba video profesional a bordo de yates y barcos en Miami?",
+    paragraphs: [
+      "La filmación a bordo de embarcaciones en la Bahía de Biscayne o los canales de Fort Lauderdale requiere equipo ligero y estabilización especializada. Esteban utiliza cámaras Sony Alpha de cuadro completo montadas en gimbals motorizados de tres ejes que neutralizan el balanceo de la cubierta y la vibración del motor. El operador se desplaza con agilidad por pasillos estrechos y cubiertas exteriores sin interrumpir a los invitados ni a la tripulación. Los filtros polarizados controlan los reflejos intensos del agua bajo el sol de Florida, mientras lentes luminosos permiten capturar cenas y fiestas nocturnas al atardecer con nitidez. Para eventos de marca en agua, consulte [video para eventos corporativos en Fort Lauderdale](/es/videografo-para-eventos-corporativos-fort-lauderdale); para embarcaciones comerciales, revise [marketing de video para alquiler de yates](/services/yacht-charter-video-marketing-miami).",
+    ],
+  },
+  {
+    heading: "¿Cómo se registra audio claro durante fiestas y eventos sobre el agua?",
+    paragraphs: [
+      "Grabar discursos o testimonios comprensibles en una embarcación en movimiento presenta desafíos acústicos por el viento y el sonido de los motores. Se emplean micrófonos direccionales con protectores antiviento de alta densidad que aíslan las voces de los anfitriones e invitados. En brindis formales o palabras de bienvenida, micrófonos inalámbricos discretos bajo el cuello protegen la conversación de ráfagas de aire. El sonido ambiente del agua y la música se registra en pistas independientes para enriquecer la atmósfera sin tapar las palabras durante la mezcla final. El resultado es un video equilibrado donde los brindis y la celebración se escuchan con total claridad. Para opciones de rodaje presencial, consulte [precios](/es/precios); para filmación de eventos sociales, visite [videógrafo de bodas en Miami](/es/videografo-de-bodas-miami).",
+    ],
+  },
+];
+
+export const CONTENT_DAY_ES_DISCLOSURE = "¿Cómo funciona una jornada de grabación de contenido en Miami?";
+export const CONTENT_DAY_ES_DESTINATIONS = "Jornadas de medio día, acumulación de videos cortos, dirección frente a cámara y edición vertical.";
+
+export const CONTENT_DAY_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿En qué consiste una jornada dedicada de grabación de contenido en Miami?",
+    paragraphs: [
+      "Una jornada de filmación de contenido permite a dueños de negocios, asesores y marcas personales en el sur de Florida producir un mes de videos para redes en una sola sesión planificada. En lugar de improvisar publicaciones cada semana con un teléfono, el cliente trabaja con un plan de tomas preparado que abarca preguntas frecuentes de clientes, demostraciones de servicio y llamadas a la acción. Esteban traslada iluminación profesional, audio inalámbrico y cámaras 4K directamente a su oficina, local comercial o locación acordada en Miami. La filmación se organiza en bloques: primero se graban los mensajes directos a cámara mientras la energía es óptima, seguidos de planos de apoyo y detalles del negocio. Para edición de marca personal, consulte [editor de video para fundadores](/es/servicios); para videos verticales, revise [reels para negocios en Miami](/es/reels-para-negocios-miami).",
+    ],
+  },
+  {
+    heading: "¿Cuántos videos cortos terminados se obtienen de una jornada de medio día?",
+    paragraphs: [
+      "Una jornada estructurada de medio día suele generar entre ocho y dieciséis videos verticales editados y listos para publicar en Instagram Reels, TikTok y YouTube Shorts. La cantidad final depende de la preparación de los guiones y la soltura de los portavoces; contar con ideas claras permite avanzar rápidamente entre temas. Esteban orienta el ritmo en el set, ayuda a corregir posturas y graba aperturas alternativas para evaluar qué gancho funciona mejor en redes. La postproducción posterior incluye selección de mejores tomas, subtítulos dinámicos sincronizados, corrección de color y música con derechos comerciales. Esta metodología ahorra semanas de esfuerzo disperso. Para preparar temas antes de la sesión, consulte [planificador de ganchos de video](/es/planificador-de-ganchos-de-video); para tarifas de rodaje, consulte [precios](/es/precios).",
+    ],
+  },
+];
+
+export const REMOTE_EDITING_COLOMBIA_ES_DISCLOSURE = "¿Cómo funciona la edición de video remota para empresas en Colombia?";
+export const REMOTE_EDITING_COLOMBIA_ES_DESTINATIONS = "Envío de material en la nube, comunicación directa en español, calidad comercial y facturación clara en dólares.";
+
+export const REMOTE_EDITING_COLOMBIA_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo envían empresas y creadores en Colombia sus archivos para edición remota?",
+    paragraphs: [
+      "La postproducción remota entre Colombia y Estados Unidos opera mediante carpetas organizadas en la nube y entregas ordenadas de metraje. Empresas, agencias digitales y creadores en Bogotá, Medellín, Cali y Barranquilla suben sus grabaciones en alta resolución a Google Drive, Dropbox o Frame.io. Los archivos se estructuran en carpetas con audio limpio, logotipos de marca, tomas principales y notas breves con el objetivo de cada video. Esteban se encarga de la descarga, sincronización de cámaras y montaje completo desde Florida. La comunicación directa en español nativo facilita que los comentarios creativos, revisiones y referencias de estilo se comprendan sin retrasos ni barreras idiomáticas. Para pautas de entrega de archivos, consulte [guía de entrega para edición remota](/es/guias/entrega-para-edicion-remota); para ver la experiencia empresarial de Esteban en Colombia, revise el [proyecto de portafolio ML Colombia](/es/portafolio/ml-colombia).",
+    ],
+  },
+  {
+    heading: "¿Qué formatos de video y paquetes se entregan para clientes en Colombia?",
+    paragraphs: [
+      "Las marcas colombianas contratan edición remota para campañas publicitarias, capacitaciones corporativas, videos para YouTube y contenido diario para redes sociales. Esteban transforma el metraje bruto en videos horizontales de alto impacto para sitios web y presentaciones, así como cortes verticales 9:16 optimizados para Instagram Reels y TikTok. Cada entrega incluye limpieza de audio para eliminar ruido ambiente, ajuste de color profesional, gráficos dinámicos y subtítulos bilingües opcionales si la empresa busca proyección internacional. Los avances se comparten mediante enlaces de revisión interactivos para recibir comentarios con marcas de tiempo. La facturación se gestiona en dólares estadounidenses mediante paquetes mensuales predecibles o proyectos individuales. Para clips de entrevistas y podcast, consulte [edición de podcast en Miami](/es/servicios); para ver planes, visite [precios](/es/precios).",
+    ],
+  },
+];
+
+export const BILINGUAL_SUBTITLING_ES_DISCLOSURE = "¿Cómo se realiza el subtitulado bilingüe en inglés y español para video?";
+export const BILINGUAL_SUBTITLING_ES_DESTINATIONS = "Traducción precisa de ideas, subtítulos dinámicos legibles, zonas seguras en redes y archivos SRT.";
+
+export const BILINGUAL_SUBTITLING_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Por qué los subtítulos automáticos no sustituyen a la traducción profesional bilingüe?",
+    paragraphs: [
+      "Las herramientas de transcripción automática cometen fallos frecuentes con términos técnicos, modismos regionales y nombres propios, generando errores que restan credibilidad a videos corporativos. El subtitulado bilingüe profesional requiere un editor con dominio nativo de inglés y español que comprenda el contexto y la intención de cada frase. Esteban transcribe el diálogo original con precisión, traduce el significado de manera natural y ajusta la sincronización al ritmo de la voz. En videos de capacitación corporativa, entrevistas con clientes y conferencias, una traducción exacta evita malentendidos y garantiza que audiencias internacionales sigan la información sin esfuerzo. Los subtítulos se diseñan con tipografía de alto contraste legible en pantallas móviles. Para recomendaciones de diseño de texto, consulte [mejores estilos de subtítulos para Instagram Reels](/es/guias/mejores-estilos-de-subtitulos-para-instagram-reels); para montaje de conversaciones, visite [edición de entrevistas](/services/interview-video-editing-service).",
+    ],
+  },
+  {
+    heading: "¿Cómo se entregan los subtítulos bilingües para diferentes plataformas?",
+    paragraphs: [
+      "Los subtítulos bilingües se entregan incrustados directamente en el video final o como archivos independientes en formato SRT compatibles con YouTube, LinkedIn y reproductores web. En videos verticales para Reels y TikTok, los textos se sitúan dentro de las zonas seguras de pantalla para evitar que nombres de usuario, descripciones o botones de interacción tapen las líneas de lectura. Se organizan en bloques de dos líneas breves para facilitar una lectura ágil sin pausar la reproducción. Cuando una campaña requiere versiones separadas en inglés y español del mismo metraje, Esteban entrega cortes adaptados para cada idioma con llamadas a la acción acordes a cada público. Para reutilizar conferencias y capacitaciones con subtítulos, consulte [servicio para webinars](/services/webinar-clip-editing-service); para opciones de paquetes, revise [precios](/es/precios).",
+    ],
+  },
+];
+
+

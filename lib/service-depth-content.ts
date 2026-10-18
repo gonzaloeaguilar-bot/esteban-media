@@ -1548,6 +1548,74 @@ export const PORTED_SERVICE_FAQS: Readonly<Record<string, readonly ServiceFaq[]>
         "Yes. Full-length interviews are edited for corporate websites, and key insights are cut into 9:16 vertical clips with accurate captions and branded title cards for LinkedIn.",
     },
   ],
+  "/services/yacht-event-videographer-miami": [
+    {
+      question: "How is pricing determined for a yacht or private boat video shoot?",
+      answer:
+        "Each yacht charter or private celebration is quoted individually based on cruising hours, audio requirements for speeches, and requested deliverables such as recap reels or full recordings.",
+    },
+    {
+      question: "What camera equipment is used to prevent shaky video on the water?",
+      answer:
+        "Full-frame Sony Alpha cameras are mounted on three-axis electronic motorized gimbals that counteract boat sway, engine vibration, and water movement.",
+    },
+    {
+      question: "Do you deliver a short highlight recap or all raw footage?",
+      answer:
+        "Both deliverables are available: a dynamic sixty-second social highlight video set to licensed music, and all original high-resolution footage organized for archival storage.",
+    },
+  ],
+  "/services/content-day-videographer-miami": [
+    {
+      question: "How should a business prepare for a dedicated content filming day?",
+      answer:
+        "Businesses outline common customer questions, service demonstrations, and key objections, organizing messages into concise speaking bullet points prior to the production session.",
+    },
+    {
+      question: "How many short-form videos can be recorded in a half-day session?",
+      answer:
+        "With prepared outlines and clear messaging, a half-day session typically yields between eight and sixteen vertical videos with supporting b-roll and alternate hook lines.",
+    },
+    {
+      question: "Does the content day package include video editing or filming only?",
+      answer:
+        "Clients can book filming-only sessions with raw footage handoffs or complete post-production packages including synchronized captions, color grading, and vertical social cuts.",
+    },
+  ],
+  "/services/remote-video-editing-colombia": [
+    {
+      question: "How do Colombian companies hand off raw footage for remote editing?",
+      answer:
+        "Raw footage is uploaded to shared Google Drive or Frame.io folders, organized by project with clean audio tracks, brand graphics, and creative direction notes.",
+    },
+    {
+      question: "How are video revisions and feedback managed across borders?",
+      answer:
+        "Drafts are delivered through interactive review links where marketing teams leave timestamped notes directly on the video player for fast revision turnaround.",
+    },
+    {
+      question: "What pricing models apply to international remote editing clients?",
+      answer:
+        "Post-production is billed transparently in USD through predictable monthly content packages or fixed single-project scopes agreed upon in writing before work begins.",
+    },
+  ],
+  "/services/bilingual-video-subtitling-service": [
+    {
+      question: "Why choose professional bilingual subtitling over automated captioning?",
+      answer:
+        "Native bilingual editors ensure technical terminology, cultural context, and conversational nuances are accurately translated without automated transcription errors.",
+    },
+    {
+      question: "In what file formats are finished subtitles delivered?",
+      answer:
+        "Subtitles are delivered either burned directly into high-definition video files or as separate synchronized SRT caption files compatible with web platforms.",
+    },
+    {
+      question: "How are vertical captions formatted for social platforms?",
+      answer:
+        "Captions are formatted in short two-line phrases and positioned within platform safe-zones so native interface icons do not obscure the text on mobile screens.",
+    },
+  ],
 };
 
 /** Hand-written pages left without a FAQ because no published fact supports one. */

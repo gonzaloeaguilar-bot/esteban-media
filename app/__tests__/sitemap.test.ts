@@ -55,8 +55,9 @@ describe("portfolio sitemap entries", () => {
     // +3 = demand-map wave (2026-10-14): videographer Miami + influencer guide pair.
     // +4 = corporate and networking event pairs (2026-10-18): FTL corporate + Miami networking.
     // +8 = wave 2 niche expansions (2026-10-18): wedding, vlog, conference, executive interview.
-    expect(entries).toHaveLength(384);
-    expect(new Set(urls)).toHaveLength(384);
+    // +8 = wave 3 niche expansions (2026-10-18): yacht, content day, colombia, subtitling.
+    expect(entries).toHaveLength(392);
+    expect(new Set(urls)).toHaveLength(392);
   });
 
   it("pairs real product photography pages with reciprocal language alternatives", () => {

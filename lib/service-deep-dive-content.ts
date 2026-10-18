@@ -762,3 +762,84 @@ export const EXECUTIVE_INTERVIEW_DEEP_DIVE: DeepDive = {
   ],
 };
 
+export const YACHT_EVENT_DEEP_DIVE: DeepDive = {
+  id: "yacht-event-videography",
+  title: "How do you film events on yachts and private boat charters?",
+  destinations: "Gimbal stabilization, marine audio control, and luxury event recaps.",
+  sections: [
+    {
+      heading: "How do you capture video on moving yachts and private boat charters?",
+      paragraphs: [
+        "Filming on moving vessels across Biscayne Bay or the Fort Lauderdale Intracoastal requires compact equipment and specialized camera stabilization. Esteban uses lightweight Sony Alpha full-frame cameras mounted on motorized three-axis gimbals that counteract deck sway, engine vibration, and wake turbulence. Camera rigs stay agile so the videographer navigates narrow companionways, flybridge ladders, and aft seating areas without obstructing guests or crew. Marine lighting changes rapidly from midday open-water glare to golden hour sunset reflections; polarized filters control harsh water glare while wide-aperture lenses capture low-light evening celebrations on deck. For waterfront hospitality, see [yacht hospitality video Fort Lauderdale](/services/yacht-hospitality-video-fort-lauderdale); for commercial vessel marketing, see [yacht charter video marketing Miami](/services/yacht-charter-video-marketing-miami).",
+      ],
+    },
+    {
+      heading: "How is clean audio recorded during waterfront boat events and parties?",
+      paragraphs: [
+        "Recording intelligible speech on a moving boat presents acoustic challenges from wind roar, engine rumble, and sound system reverberation. Directional shotgun microphones equipped with acoustic wind-protection muffles cut wind shear while isolating toast speakers and guest interactions. For scheduled speeches or captain remarks, discreet wireless lavalier microphones pinned beneath collars protect dialogue from open-air breezes. Ambient sound from water spray and celebratory music is recorded on auxiliary tracks to provide lively background texture without burying spoken words during post-production audio mixing. The result is a balanced soundtrack where toasts, laughter, and waterfront ambiance remain crisp. For corporate event planning, see [corporate event videographer Fort Lauderdale](/services/corporate-event-videographer-fort-lauderdale); to review standard rates, explore our [pricing overview](/pricing).",
+      ],
+    },
+  ],
+};
+
+export const CONTENT_DAY_DEEP_DIVE: DeepDive = {
+  id: "content-day-batch-production",
+  title: "How does a content batch filming day work in Miami?",
+  destinations: "Shot list planning, script coaching, and multi-platform vertical video delivery.",
+  sections: [
+    {
+      heading: "How does a content batch filming day work for Miami businesses?",
+      paragraphs: [
+        "A dedicated content filming day provides South Florida business owners, coaches, and local founders with a month of high-converting social video assets from a single planned session. Rather than improvising weekly clips on a smartphone, clients work from a prepared shot list covering frequently asked customer questions, product explainers, client results, and call-to-action hooks. Esteban brings professional studio lighting, wireless audio transmitters, and 4K cinema cameras directly to your office, storefront, or chosen Miami venue. Filming is structured in focused blocks: direct-to-camera insights are recorded first while energy is fresh, followed by ambient b-roll, workspace interactions, and detail close-ups. For founder video editing, see [founder video editing Miami](/services/personal-brand-video-editor-founders-miami); for short-form video optimization, see [short-form video editor Miami](/services/short-form-video-editor-miami).",
+      ],
+    },
+    {
+      heading: "How many finished vertical videos can be produced from one half-day shoot?",
+      paragraphs: [
+        "A well-structured four-hour half-day shoot typically yields between eight and sixteen polished short-form videos ready for Instagram Reels, TikTok, and YouTube Shorts. Output volume depends on script readiness and message complexity; clients with clear outlines and prepared prompts move briskly from one topic to the next. Esteban directs pacing on set, coaches natural delivery, and records alternate hook lines to test which opening performs best on social feeds. Post-production organizes raw takes, edits the strongest delivery, applies synchronized captions, and integrates brand-compliant color grading and royalty-free background audio. This systematic capture model eliminates the friction of daily video creation. To plan scripts before your session, review our [video hook planner](/guides/video-hook-planner); to scope hourly production, see [how much a videographer charges](/guides/how-much-does-a-videographer-charge-per-hour).",
+      ],
+    },
+  ],
+};
+
+export const REMOTE_EDITING_COLOMBIA_DEEP_DIVE: DeepDive = {
+  id: "remote-editing-colombia",
+  title: "How does remote video editing work for Colombian companies?",
+  destinations: "Cloud footage handoff, native Spanish direction, and US commercial standards.",
+  sections: [
+    {
+      heading: "How do businesses in Colombia hand off raw video files for remote post-production?",
+      paragraphs: [
+        "Remote video editing between Colombia and the United States operates smoothly through structured cloud storage and standardized file handoffs. Companies, digital agencies, and creators in Bogotá, Medellín, Cali, and Barranquilla upload high-resolution camera footage or recorded interviews to shared Google Drive, Dropbox, or Frame.io folders. Files are organized by project folders containing audio stems, brand logos, primary footage, and brief direction notes outlining requested calls to action. Esteban handles all media ingestion, proxy generation, and multi-cam synchronization remotely from South Florida. Communicating in native Spanish ensures creative feedback, revisions, and brand nuances are understood instantly without language barriers. For handoff best practices, see our [remote video editing handoff guide](/guides/remote-video-editing-handoff); to view Esteban's Colombian enterprise background, inspect the [ML Colombia portfolio project](/portfolio/ml-colombia).",
+      ],
+    },
+    {
+      heading: "What video formats and post-production services are delivered for Colombian clients?",
+      paragraphs: [
+        "Colombian companies utilize remote editing for marketing campaigns, executive communication, corporate training, and social media growth. Esteban edits raw footage into dynamic horizontal videos for YouTube and company websites, as well as high-converting 9:16 vertical cuts for Instagram Reels and TikTok. Every edit includes color grading to balance lighting, audio cleanup to remove room noise, custom motion graphics, and bilingual on-screen subtitles when international outreach is required. Deliverables are uploaded directly to client review links, allowing marketing teams to leave timestamped comments for prompt turnaround. Invoicing is handled transparently in USD on clear project or monthly package models. For podcast repurposing, see [podcast clipping service Miami](/services/podcast-clipping-service-miami); for packages, review [video editing packages](/pricing).",
+      ],
+    },
+  ],
+};
+
+export const BILINGUAL_SUBTITLING_DEEP_DIVE: DeepDive = {
+  id: "bilingual-subtitling-production",
+  title: "How are bilingual subtitles and captions produced for business video?",
+  destinations: "Accurate translation, kinetic formatting, safe-zones, and SRT deliverables.",
+  sections: [
+    {
+      heading: "Why do automated auto-captions fall short for bilingual corporate video?",
+      paragraphs: [
+        "Automated speech-to-text tools frequently misinterpret technical terminology, colloquial expressions, and proper nouns, creating embarrassing errors on public video campaigns. Professional bilingual subtitling requires a native editor who understands context, grammatical structure, and tone across both English and Spanish. Esteban transcribes spoken dialogue verbatim, translates intent accurately, and synchronizes caption timing with precise speech cadence. For corporate training, legal discussions, and customer testimonials, accurate translation prevents costly misinterpretations while ensuring international viewers comprehend complex concepts effortlessly. Subtitles are formatted with high-contrast text styling and subtle background cards so words remain legible across all mobile screen brightness levels. For caption typography recommendations, review our [best caption styles for Instagram Reels](/guides/best-caption-styles-for-instagram-reels); for interview production, see [interview video editing service](/services/interview-video-editing-service).",
+      ],
+    },
+    {
+      heading: "How are vertical platform safe-zones and caption files delivered?",
+      paragraphs: [
+        "Bilingual subtitles can be delivered either as burned-in open captions permanently embedded in video files or as separate closed-caption SRT files for platforms like YouTube and LinkedIn. For vertical Reels and TikToks, captions are strictly positioned inside platform safe-zones to prevent account usernames, audio titles, or action buttons from obscuring the text. Two-line phrasing ensures viewers scan the message in seconds without pausing playback. For bilingual marketing campaigns where the same video is published in both languages, Esteban provides separate rendered cuts with native English and Spanish subtitles tailored to each target audience. For webinar repurposing with subtitles, explore our [webinar clip editing service](/services/webinar-clip-editing-service); for pricing, consult our [pricing plans](/pricing).",
+      ],
+    },
+  ],
+};
+
+

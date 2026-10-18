@@ -62,6 +62,18 @@ import {
   EXECUTIVE_INTERVIEW_ES_DESTINATIONS,
   EXECUTIVE_INTERVIEW_ES_DISCLOSURE,
   EXECUTIVE_INTERVIEW_ES_SECTIONS,
+  YACHT_EVENT_ES_DESTINATIONS,
+  YACHT_EVENT_ES_DISCLOSURE,
+  YACHT_EVENT_ES_SECTIONS,
+  CONTENT_DAY_ES_DESTINATIONS,
+  CONTENT_DAY_ES_DISCLOSURE,
+  CONTENT_DAY_ES_SECTIONS,
+  REMOTE_EDITING_COLOMBIA_ES_DESTINATIONS,
+  REMOTE_EDITING_COLOMBIA_ES_DISCLOSURE,
+  REMOTE_EDITING_COLOMBIA_ES_SECTIONS,
+  BILINGUAL_SUBTITLING_ES_DESTINATIONS,
+  BILINGUAL_SUBTITLING_ES_DISCLOSURE,
+  BILINGUAL_SUBTITLING_ES_SECTIONS,
   HOTEL_ES_DESTINATIONS,
   HOTEL_ES_DISCLOSURE,
   HOTEL_ES_SECTIONS,
@@ -2854,6 +2866,190 @@ export const spanishNichePages: SpanishNichePage[] = [
     ],
   },
   {
+    slug: "videografo-para-eventos-en-yates-miami",
+    title: "Videógrafo para eventos en yates en Miami",
+    metadataTitle: "Video de Eventos en Yates Miami",
+    description:
+      "Videografía profesional para fiestas privadas, paseos al atardecer y eventos corporativos a bordo de yates y barcos en Miami y Fort Lauderdale.",
+    eyebrow: "Náutica / Eventos en Yates Miami",
+    h1: "Videógrafo para eventos y fiestas privadas en yates en Miami.",
+    lead:
+      "Captura cinematográfica y estabilizada a bordo de embarcaciones privadas y chárteres en la Bahía de Biscayne y South Florida.",
+    keyword: "videógrafo para eventos en yates en Miami",
+    location: "Miami / Fort Lauderdale / Biscayne Bay",
+    availability: "confirmed",
+    icon: PartyPopper,
+    bestFor: [
+      "Empresas que celebran cenas y cócteles corporativos en embarcaciones privadas.",
+      "Celebraciones privadas, cumpleaños y eventos exclusivos en la Bahía de Biscayne.",
+    ],
+    scopingQuestions: [
+      "¿El evento es un paseo diurno o una celebración nocturna?",
+      "¿Necesitas tomas de ambiente o también discursos y entrevistas a bordo?",
+    ],
+    projectFit:
+      "Grabación ligera y estabilizada que no incomoda a los invitados en cubierta.",
+    updated: "2026-10-18",
+    sections: YACHT_EVENT_ES_SECTIONS,
+    sectionsDisclosure: YACHT_EVENT_ES_DISCLOSURE,
+    sectionsDestinations: YACHT_EVENT_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se cotiza la videografía para un evento en barco o yate?",
+        answer:
+          "Cada salida se cotiza según las horas de navegación, los requerimientos de audio para discursos y los videos finales acordados.",
+      },
+      {
+        question: "¿Qué equipo se utiliza para evitar tomas movidas en el agua?",
+        answer:
+          "Se emplean cámaras de cuadro completo con estabilizadores electrónicos de tres ejes que compensan el movimiento de la embarcación.",
+      },
+      {
+        question: "¿Se entrega un video resumen para redes o el metraje completo?",
+        answer:
+          "Ambas opciones son posibles: un resumen dinámico de sesenta segundos con música para redes y los archivos originales organizados.",
+      },
+    ],
+  },
+  {
+    slug: "videografo-para-dia-de-contenido-miami",
+    title: "Videógrafo para día de contenido en Miami",
+    metadataTitle: "Día de Contenido Miami",
+    description:
+      "Jornada de grabación de contenido en Miami: filmación intensiva de videos cortos, reels y shorts en lote para marcas y profesionales.",
+    eyebrow: "Lote de Contenido / Redes Sociales",
+    h1: "Jornadas de grabación de contenido en lote para marcas en Miami.",
+    lead:
+      "Produce un mes de videos para redes en una sola sesión de rodaje con cámara profesional, iluminación suave y sonido inalámbrico.",
+    keyword: "videógrafo para día de contenido en Miami",
+    location: "Miami-Dade / Broward",
+    availability: "confirmed",
+    icon: Megaphone,
+    bestFor: [
+      "Fundadores y negocios que necesitan múltiples videos sin grabar cada semana.",
+      "Asesores y marcas que buscan consistencia en Reels, TikTok y YouTube Shorts.",
+    ],
+    scopingQuestions: [
+      "¿Tienes definidos los guiones o requieres ayuda con los temas y ganchos?",
+      "¿La filmación se realiza en tu oficina o en exteriores en Miami?",
+    ],
+    projectFit:
+      "Producción estructurada para acumular entre ocho y dieciséis piezas en una sesión.",
+    updated: "2026-10-18",
+    sections: CONTENT_DAY_ES_SECTIONS,
+    sectionsDisclosure: CONTENT_DAY_ES_DISCLOSURE,
+    sectionsDestinations: CONTENT_DAY_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se prepara una empresa para una jornada de contenido?",
+        answer:
+          "Se define una lista de preguntas frecuentes y objeciones habituales de clientes, organizando los mensajes en puntos breves antes del rodaje.",
+      },
+      {
+        question: "¿Cuántos videos se pueden grabar en una sesión de medio día?",
+        answer:
+          "Con temas claros se suelen filmar entre ocho y dieciséis videos verticales con tomas de apoyo y ganchos alternativos.",
+      },
+      {
+        question: "¿Incluye la edición de los videos o solo la filmación?",
+        answer:
+          "Se puede contratar la jornada de rodaje con entrega de archivos brutos o el paquete completo con subtítulos y cortes finales.",
+      },
+    ],
+  },
+  {
+    slug: "edicion-de-video-remota-colombia",
+    title: "Edición de video remota para empresas en Colombia",
+    metadataTitle: "Edición de Video Remota Colombia",
+    description:
+      "Servicio de postproducción y edición de video remota para empresas, agencias y creadores en Colombia con estándares internacionales y entrega ágil.",
+    eyebrow: "Postproducción Remota / Colombia",
+    h1: "Edición de video remota para empresas y creadores en Colombia.",
+    lead:
+      "Postproducción profesional en español nativo desde Florida para empresas en Bogotá, Medellín y toda Colombia.",
+    keyword: "edición de video remota en Colombia",
+    location: "Remoto / Bogotá / Medellín",
+    availability: "confirmed",
+    icon: Laptop,
+    bestFor: [
+      "Startups y marcas colombianas que necesitan videos corporativos y comerciales.",
+      "Agencias y creadores de contenido que buscan tercerizar la postproducción de video.",
+    ],
+    scopingQuestions: [
+      "¿El material grabado se encuentra alojado en Google Drive o Dropbox?",
+      "¿Buscas videos horizontales para web o clips verticales para redes sociales?",
+    ],
+    projectFit:
+      "Flujo de trabajo en la nube con revisión interactiva y comunicación directa.",
+    updated: "2026-10-18",
+    sections: REMOTE_EDITING_COLOMBIA_ES_SECTIONS,
+    sectionsDisclosure: REMOTE_EDITING_COLOMBIA_ES_DISCLOSURE,
+    sectionsDestinations: REMOTE_EDITING_COLOMBIA_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se gestiona el envío de grabaciones desde Colombia?",
+        answer:
+          "Los archivos se comparten a través de carpetas en Google Drive o Frame.io, organizados por proyectos con audios y logotipos de marca.",
+      },
+      {
+        question: "¿Cómo se coordinan las revisiones y correcciones de los videos?",
+        answer:
+          "Se envían enlaces de revisión interactivos donde el equipo cliente puede marcar comentarios con marcas de tiempo exactas.",
+      },
+      {
+        question: "¿Qué modalidades de contratación existen para clientes internacionales?",
+        answer:
+          "Se ofrecen paquetes mensuales por volumen de videos o cotizaciones por proyecto individual con facturación directa en dólares.",
+      },
+    ],
+  },
+  {
+    slug: "servicio-de-subtitulado-bilingue-de-video",
+    title: "Servicio de subtitulado bilingüe de video",
+    metadataTitle: "Subtitulado Bilingüe de Video",
+    description:
+      "Subtitulado bilingüe profesional en inglés y español para videos corporativos, conferencias, cursos online y redes sociales.",
+    eyebrow: "Subtítulos Bilingües / EN y ES",
+    h1: "Subtitulado bilingüe profesional en inglés y español para video.",
+    lead:
+      "Traducción precisa, sincronización milimétrica y diseño de subtítulos legibles para audiencias bilingües en Estados Unidos y Latinoamérica.",
+    keyword: "servicio de subtitulado bilingüe de video",
+    location: "Remoto / Miami / Fort Lauderdale",
+    availability: "confirmed",
+    icon: Languages,
+    bestFor: [
+      "Empresas con audiencias bilingües en Estados Unidos y mercados internacionales.",
+      "Capacitaciones corporativas, ponencias y entrevistas que requieren máxima claridad.",
+    ],
+    scopingQuestions: [
+      "¿Necesitas subtítulos incrustados en la imagen o archivos SRT independientes?",
+      "¿El audio original está en inglés, en español o en ambos idiomas?",
+    ],
+    projectFit:
+      "Traducción contextual y formateo dentro de zonas seguras de pantalla.",
+    updated: "2026-10-18",
+    sections: BILINGUAL_SUBTITLING_ES_SECTIONS,
+    sectionsDisclosure: BILINGUAL_SUBTITLING_ES_DISCLOSURE,
+    sectionsDestinations: BILINGUAL_SUBTITLING_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cuál es la ventaja de la traducción humana sobre los subtítulos automáticos?",
+        answer:
+          "La revisión humana asegura que términos técnicos y giros lingüísticos se traduzcan con precisión sin errores que confundan a la audiencia.",
+      },
+      {
+        question: "¿En qué formatos se entregan los subtítulos terminados?",
+        answer:
+          "Se entregan grabados sobre el video en alta definición o en archivos de texto sincronizado SRT para plataformas web.",
+      },
+      {
+        question: "¿Cómo se adaptan los subtítulos a videos verticales en redes?",
+        answer:
+          "Los textos se ajustan en tamaño y posición para no ser tapados por botones de redes sociales o descripciones de usuario.",
+      },
+    ],
+  },
+  {
     slug: "marketing-de-video-automotriz-miami",
     title: "Marketing de video automotriz en Miami",
     metadataTitle: "Video Automotriz Miami",
@@ -5377,6 +5573,46 @@ const languageAlternatesRaw: Record<string, Record<string, string>> = {
     "en-US": "/services/executive-interview-videographer-miami",
     "es-US": "/es/videografo-para-entrevistas-ejecutivas-miami",
     "x-default": "/services/executive-interview-videographer-miami",
+  },
+  "/services/yacht-event-videographer-miami": {
+    "en-US": "/services/yacht-event-videographer-miami",
+    "es-US": "/es/videografo-para-eventos-en-yates-miami",
+    "x-default": "/services/yacht-event-videographer-miami",
+  },
+  "/es/videografo-para-eventos-en-yates-miami": {
+    "en-US": "/services/yacht-event-videographer-miami",
+    "es-US": "/es/videografo-para-eventos-en-yates-miami",
+    "x-default": "/services/yacht-event-videographer-miami",
+  },
+  "/services/content-day-videographer-miami": {
+    "en-US": "/services/content-day-videographer-miami",
+    "es-US": "/es/videografo-para-dia-de-contenido-miami",
+    "x-default": "/services/content-day-videographer-miami",
+  },
+  "/es/videografo-para-dia-de-contenido-miami": {
+    "en-US": "/services/content-day-videographer-miami",
+    "es-US": "/es/videografo-para-dia-de-contenido-miami",
+    "x-default": "/services/content-day-videographer-miami",
+  },
+  "/services/remote-video-editing-colombia": {
+    "en-US": "/services/remote-video-editing-colombia",
+    "es-US": "/es/edicion-de-video-remota-colombia",
+    "x-default": "/services/remote-video-editing-colombia",
+  },
+  "/es/edicion-de-video-remota-colombia": {
+    "en-US": "/services/remote-video-editing-colombia",
+    "es-US": "/es/edicion-de-video-remota-colombia",
+    "x-default": "/services/remote-video-editing-colombia",
+  },
+  "/services/bilingual-video-subtitling-service": {
+    "en-US": "/services/bilingual-video-subtitling-service",
+    "es-US": "/es/servicio-de-subtitulado-bilingue-de-video",
+    "x-default": "/services/bilingual-video-subtitling-service",
+  },
+  "/es/servicio-de-subtitulado-bilingue-de-video": {
+    "en-US": "/services/bilingual-video-subtitling-service",
+    "es-US": "/es/servicio-de-subtitulado-bilingue-de-video",
+    "x-default": "/services/bilingual-video-subtitling-service",
   },
   ...nicheBatch20261006,
   ...nicheBatch20261006Hreflang,
