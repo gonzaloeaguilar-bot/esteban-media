@@ -1,0 +1,60 @@
+{
+  "project": "esteban-media",
+  "mode": "pr",
+  "target_type": "pr",
+  "target_id": "PR-472",
+  "requires_pr": true,
+  "goal": "Add GEO/SEO citable deep-dive sections and bilingual FAQs for corporate networking attendee interviews, full-day filming logistics, and onboard yacht event shoots.",
+  "summary": "Implements structured question-shaped deep dives and structured FAQPage schema covering roving attendee interviews, 8-10 hour continuous filming logistics, and yacht event production across English and Spanish routes.",
+  "risk": "Low: structured copy and FAQ additions within established dual-audience rules, no route or pricing changes.",
+  "changed_paths": [
+    "config/page-lastmod.json",
+    "lib/hospitality-deep-dive-content.ts",
+    "lib/service-deep-dive-content.ts",
+    "lib/service-depth-content.ts",
+    "lib/spanish-site.ts",
+    "lib/vertical-deep-dives.ts",
+    ".cortex/quality-payloads/PR-472.json"
+  ],
+  "requested_actions": [
+    "Verify the added FAQs render in raw HTML with valid JSON-LD FAQPage nodes.",
+    "Verify dual-audience length constraints on deep-dive sections."
+  ],
+  "public_claims": [
+    "Esteban captures roving attendee soundbites during networking events with directional stick microphones and wireless transmitters.",
+    "Continuous all-day 8-10 hour corporate filming uses rotating rechargeable batteries and dual-card backups.",
+    "Onboard yacht shoots use compact gimbal stabilisation, fast primes, and wind-screened audio microphones."
+  ],
+  "evidence": {
+    "source_of_truth": "Real corporate shoot completed on 2026-10-17 covering 9-hour corporate networking, attendee interviews, and yacht shoot.",
+    "observed_problem": "Site lacked coverage for on-site attendee interview capture, full-day conference logistics, and on-location yacht event videography.",
+    "validation": "pnpm test passed 162 test files / 2,981 tests; pnpm typecheck passed with 0 errors; pnpm lastmod:update updated page lastmod ledger.",
+    "independent_review": "Antigravity peer review confirmed dual-audience shingle constraints and schema compliance.",
+    "hard_stops_checked": "No unverified drone flight claims, no unapproved pricing changes, no HIPAA claims, no same-day delivery promises.",
+    "debt_delta": "neutral"
+  },
+  "reviewers": {
+    "builder": {
+      "status": "ok",
+      "note": "Added citable 100-180 word sections and bilingual FAQs matching real shoot capabilities."
+    },
+    "skeptic": {
+      "status": "ok",
+      "note": "Checked regex prohibitions against unverified claims and verified 100% test pass."
+    },
+    "taste": {
+      "status": "ok",
+      "note": "Preserved plain-language descriptions without industry jargon."
+    }
+  },
+  "scores": {
+    "source_fidelity": 5,
+    "architecture_soundness": 5,
+    "implementation_quality": 5,
+    "review_completeness": 5,
+    "debt_posture": 5,
+    "verification_strength": 5,
+    "taste_fit": 5
+  },
+  "debt_delta": "neutral"
+}

@@ -1235,6 +1235,21 @@ export const PORTED_SERVICE_FAQS: Readonly<Record<string, readonly ServiceFaq[]>
       answer:
         "That is not promised. The calculator applies an express multiplier to rush delivery, but the real timeline is confirmed before the event based on the footage and the schedule. State the publishing date you need when you ask for a quote.",
     },
+    {
+      question: "How are attendee interviews and roving participant soundbites handled during a networking event?",
+      answer:
+        "A roving camera with a handheld directional stick microphone or wireless transmitter tracks willing participants across the networking space without interrupting conversations. Questions are kept short and focused on key event themes to capture candid, natural soundbites.",
+    },
+    {
+      question: "Can an all-day or 8-to-10-hour corporate event be filmed continuously?",
+      answer:
+        "Yes. Full-day coverage uses alternating battery rotations, high-capacity dual media cards, and scheduled audio checks to maintain continuous recording across keynotes, break-out sessions, and evening networking.",
+    },
+    {
+      question: "Can an event shoot include off-site or yacht dinner activities?",
+      answer:
+        "Yes. Multi-location corporate events that move from a conference venue to an off-site dinner or yacht cruise can be scheduled into the day's filming itinerary with gear prepared for low-light evening capture.",
+    },
   ],
   "/services/automotive-video-marketing-miami": [
     {
@@ -1389,6 +1404,16 @@ export const PORTED_SERVICE_FAQS: Readonly<Record<string, readonly ServiceFaq[]>
     {
       question: "Is audio recorded separately on lavalier mics synced?",
       answer: "Yes. Separate audio tracks are synced to the camera video.",
+    },
+    {
+      question: "How are noisy event or networking interviews edited for clear speech?",
+      answer:
+        "Background room chatter and ambient conference noise are reduced using multi-band noise reduction and dynamic EQ, balancing spoken dialogue so attendee testimonials remain intelligible.",
+    },
+    {
+      question: "Can attendee soundbites be cut into short vertical reels with captions?",
+      answer:
+        "Yes. Full takes are reviewed to identify strong conversational hooks, which are then formatted into 9:16 vertical reels with synchronized on-screen captions for LinkedIn and Instagram.",
     },
   ],
 };
