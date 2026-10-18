@@ -57,8 +57,8 @@ describe("portfolio sitemap entries", () => {
     // +8 = wave 2 niche expansions (2026-10-18): wedding, vlog, conference, executive interview.
     // +8 = wave 3 niche expansions (2026-10-18): yacht, content day, colombia, subtitling.
     // +8 = wave 4 niche expansions (2026-10-18): trade show, gala, superyacht, rehearsal dinner.
-    expect(entries).toHaveLength(400);
-    expect(new Set(urls)).toHaveLength(400);
+    expect(entries).toHaveLength(402);
+    expect(new Set(urls)).toHaveLength(402);
   });
 
   it("pairs real product photography pages with reciprocal language alternatives", () => {

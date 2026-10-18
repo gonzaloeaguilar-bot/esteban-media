@@ -150,7 +150,7 @@ describe("consolidation arithmetic matches the published baseline", () => {
     // +8 = wave 2 niche expansions (2026-10-18): wedding, vlog, conference, executive interview.
     // +8 = wave 3 niche expansions (2026-10-18): yacht, content day, colombia, subtitling.
     // +8 = wave 4 niche expansions (2026-10-18): trade show, gala, superyacht, rehearsal dinner.
-    expect(sitemap()).toHaveLength(269 - 25 + 1 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 2 + 4 + 1 + 26 + 6 + 10 + 16 + 1 + 1 + 4 + 4 + 2 + 4 + 2 + 1 + 2 + 3 + 4 + 4 + 8 + 8 + 8);
+    expect(sitemap()).toHaveLength(269 - 25 + 1 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 2 + 4 + 1 + 26 + 6 + 10 + 16 + 1 + 1 + 4 + 4 + 2 + 4 + 2 + 1 + 2 + 3 + 4 + 4 + 8 + 8 + 8 + 2);
   });
 
   it("never lists a redirect source in the sitemap", () => {

@@ -499,6 +499,10 @@
   "date": "2026-10-07",
   "hash": "43d01a3ac0d8b797"
  },
+ "/es/guias/plantilla-brief-rfp-produccion-video-miami": {
+  "date": "2026-10-18",
+  "hash": "b83f1e2c314ca020"
+ },
  "/es/guias/plantilla-de-guion-para-video-testimonial": {
   "date": "2026-10-14",
   "hash": "4be8e6c2c6c3ad14"
@@ -616,8 +620,8 @@
   "hash": "c652588191da0469"
  },
  "/es/portafolio/bar-door-monkey": {
-  "date": "2026-10-14",
-  "hash": "29e7290f142f9a4c"
+  "date": "2026-10-18",
+  "hash": "8a02a0681e23cb8b"
  },
  "/es/portafolio/diana-jack": {
   "date": "2026-10-14",
@@ -1099,6 +1103,10 @@
   "date": "2026-10-14",
   "hash": "be0447b6d6b7ae29"
  },
+ "/guides/video-production-rfp-template-miami": {
+  "date": "2026-10-18",
+  "hash": "9c8d045be8691749"
+ },
  "/guides/write-a-useful-video-brief": {
   "date": "2026-10-07",
   "hash": "66752ea49e8b4959"
@@ -1120,8 +1128,8 @@
   "hash": "4f9ccbf704288538"
  },
  "/portfolio/bar-door-monkey": {
-  "date": "2026-10-14",
-  "hash": "f7750c022914edcb"
+  "date": "2026-10-18",
+  "hash": "a607b82dffa83654"
  },
  "/portfolio/diana-jack": {
   "date": "2026-10-14",

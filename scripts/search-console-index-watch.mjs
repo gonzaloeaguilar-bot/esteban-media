@@ -42,6 +42,9 @@ export const LEGACY_V1_WATCH_URLS = [
 ];
 export const WATCH_URLS = [
   ...LEGACY_V1_WATCH_URLS,
+  // Buyer-guide pair (2026-10-18): same bounded RFP request in English and Spanish.
+  "https://estebanmorenomedia.com/guides/video-production-rfp-template-miami",
+  "https://estebanmorenomedia.com/es/guias/plantilla-brief-rfp-produccion-video-miami",
   // Annual-events section (owner-approved 2026-10-10).
   "https://estebanmorenomedia.com/events/miami-boat-show-video",
   "https://estebanmorenomedia.com/es/eventos/video-para-el-miami-boat-show",
