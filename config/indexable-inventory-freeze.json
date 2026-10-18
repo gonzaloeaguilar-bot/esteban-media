@@ -2,8 +2,8 @@
   "status": "demand_gated",
   "effectiveDate": "2026-08-28",
   "baselineRevisedOn": "2026-10-18",
-  "approvedSitemapUrlCount": 402,
-  "approvedSitemapUrlSetSha256": "28fec578cdd2ef93fa660b855e5a1597b1a55f2af1e0b21e8549cb7891ecbe37",
+  "approvedSitemapUrlCount": 410,
+  "approvedSitemapUrlSetSha256": "75c9cb3d842ff383db9e8ae829d3070b456dfe0cad7bc3f9a01da735ebe0ca51",
   "allowedNewIndexableUrls": 4,
   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {

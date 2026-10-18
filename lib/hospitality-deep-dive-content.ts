@@ -503,5 +503,74 @@ export const REHEARSAL_DINNER_ES_SECTIONS: readonly SpanishNicheSection[] = [
   },
 ];
 
+export const MASTERMIND_EVENT_ES_DISCLOSURE = "¿Cómo se graba un retiro o evento mastermind en Miami?";
+export const MASTERMIND_EVENT_ES_DESTINATIONS = "Filmación en villas privadas, avances de participantes, grabaciones discretas y marketing para convocatorias.";
 
+export const MASTERMIND_EVENT_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Por qué los mentores y anfitriones de masterminds requieren video profesional en Miami?",
+    paragraphs: [
+      "Miami se ha consolidado como la capital preferida para masterminds empresariales de alta gama, retiros de liderazgo y programas de mentoría exclusiva. Cuando los participantes realizan una inversión significativa para viajar a South Florida y reunirse en villas frente al mar o salones de lujo en Downtown Miami y Miami Beach, documentar la energía y exclusividad del evento resulta decisivo para la venta de futuras convocatorias. Esteban ofrece una cobertura documental discreta que registra ponencias principales, sesiones de consultoría intensiva y dinámicas de grupo sin convertir la sala en un set invasivo. Trabajando con cámaras de cuadro completo y obturadores silenciosos, la grabación capta conversaciones espontáneas, reacciones emocionales y el ambiente refinado de la sede sin interrumpir el ritmo de trabajo. Para eventos corporativos en salones, consulte [videógrafo para conferencias en Fort Lauderdale](/es/videografo-para-conferencias-fort-lauderdale); para tarifas de producción, visite [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué piezas en video ayudan a comercializar las próximas ediciones del mastermind?",
+    paragraphs: [
+      "Los programas de mentoría de alta inversión necesitan testimonios genuinos que transmitan la transformación vivida por los asistentes. Los anfitriones reciben un paquete estructurado de material audiovisual diseñado para captar solicitudes en futuras ediciones. La pieza central es una película resumen cinematográfica de dos minutos que combina momentos clave de aprendizaje con tomas del entorno exclusivo de la propiedad. Mediante entrevistas ágiles con micrófono de mano, se registran las impresiones de los participantes al concluir las sesiones más inspiradoras, preservando su entusiasmo con claridad de audio. Asimismo, la postproducción entrega cápsulas verticales optimizadas para Instagram Reels y publicaciones profesionales en LinkedIn, permitiendo al mentor difundir casos de éxito antes, durante y después del retiro. Este material audiovisual respalda la autoridad del anfitrión y valida el valor del programa. Para coordinar fechas de grabación en su próximo retiro, escríbanos mediante [contacto](/es/contacto); para jornadas de contenido, revise [videógrafo para día de contenido en Miami](/es/videografo-para-dia-de-contenido-miami).",
+    ],
+  },
+];
 
+export const SURPRISE_PROPOSAL_ES_DISCLOSURE = "¿Cómo se filma una propuesta de matrimonio sorpresa en Miami?";
+export const SURPRISE_PROPOSAL_ES_DESTINATIONS = "Cámaras con teleobjetivo, coordinación encubierta, audio nítido de los votos y video para redes.";
+
+export const SURPRISE_PROPOSAL_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo se filma una propuesta de matrimonio sorpresa sin levantar sospechas?",
+    paragraphs: [
+      "Filmar una propuesta de matrimonio sorpresa exige una planificación encubierta rigurosa, sincronización de tiempos y una ubicación estratégica para que la pareja no sospeche nada hasta que se formula la gran pregunta. Miami ofrece escenarios románticos excepcionales, desde los jardines históricos de Vizcaya y las playas de South Beach hasta cubiertas de yates privados en Biscayne Bay y terrazas panorámicas en Coconut Grove. Esteban coordina con antelación las coordenadas exactas, el ángulo de luz natural y el recorrido a pie con el organizador o la pareja. Operando a distancia prudencial con teleobjetivos cinematográficos, la cámara se mimetiza con turistas o visitantes del parque mientras mantiene a los protagonistas en foco nítido. Al producirse la propuesta, movimientos de seguimiento continuos capturan la emoción genuina, el abrazo y la entrega del anillo sin que equipos aparatosos rompan la intimidad del momento. Para celebraciones de boda, consulte [videógrafo de bodas en Miami](/es/videografo-de-bodas-miami); para cenas previas, revise [videógrafo para cena de ensayo en Miami](/es/videografo-para-cena-de-ensayo-miami).",
+    ],
+  },
+  {
+    heading: "¿Qué técnicas de audio y formatos de entrega aseguran un recuerdo inolvidable?",
+    paragraphs: [
+      "Las palabras entrecortadas, las risas de complicidad y las respuestas emocionadas constituyen el valor sentimental de una propuesta nupcial, pero los entornos costeros al aire libre suelen presentar fuerte brisa marina y murmullo ambiental. Esteban utiliza transmisores inalámbricos en miniatura equipados con protección acústica contra el viento, disimulados discretamente en la vestimenta del organizador o integrados en arreglos florales cercanos. Este sistema registra cada frase con nitidez absoluta. Tras la sorpresa, se realiza una breve sesión fotográfica y de video aprovechando la luz dorada del atardecer para registrar tomas románticas y primeros planos del anillo. En postproducción se entrega un tráiler vertical de sesenta segundos en un plazo breve para compartir la noticia en Instagram Reels y TikTok con acabado cinematográfico, junto con un video narrativo de tres minutos con música licenciada. Para ver proyectos de bodas publicados, revise la [película de boda de Diana y Jack](/es/portafolio/diana-jack); para reservar su fecha, contáctenos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const SPEAKER_SIZZLE_REEL_ES_DISCLOSURE = "¿Cómo se produce un reel de impacto para conferencistas en Miami?";
+export const SPEAKER_SIZZLE_REEL_ES_DESTINATIONS = "Presencia escénica, audio de consola, reacciones del público, títulos cinéticos y material para agencias de conferencias.";
+
+export const SPEAKER_SIZZLE_REEL_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Qué elementos hacen que un video reel para conferencistas convenza a organizadores de eventos?",
+    paragraphs: [
+      "Los directores de congresos, comités de eventos corporativos y agencias de conferencias revisan decenas de presentaciones antes de contratar a un conferencista o ponente magistral. Un video promocional de alto impacto debe demostrar solidez escénica, dominio del tema y una conexión entusiasta con el público desde los primeros treinta segundos de reproducción. Esteban produce reels promocionales que combinan tomas de escenario desde múltiples ángulos, entradas ovacionadas y planos de escucha activa de los asistentes. La toma directa de audio desde la consola de sonido del auditorio garantiza que los discursos y anécdotas se escuchen con total claridad sin el eco de la sala. Textos animados destacan los ejes temáticos, cifras de asistencia a congresos, libros publicados y marcas patrocinadoras. El montaje equilibra momentos enérgicos con fragmentos continuos de exposición para evidenciar profundidad profesional. Para grabaciones en congresos corporativos, consulte [videógrafo para eventos corporativos en Miami](/es/videografo-para-eventos-corporativos-miami); para entrevistas, revise [videógrafo para entrevistas ejecutivas en Miami](/es/videografo-para-entrevistas-ejecutivas-miami).",
+    ],
+  },
+  {
+    heading: "¿Cómo se edita el material de varias conferencias en un video promocional cohesionado?",
+    paragraphs: [
+      "Los conferencistas profesionales suelen contar con grabaciones dispersas procedentes de distintos auditorios, hoteles y congresos, grabadas con diferentes cámaras y calidades de audio variables. Esteban unifica ese archivo visual mediante corrección de color avanzada, estabilización de planos y ecualización de audio para crear una pieza promocional coherente y elegante. El video comienza con una frase gancho potente sobre música motivadora y alterna planos generales de grandes auditorios con primeros planos expresivos del ponente. Entre las intervenciones se intercalan testimonios breves de organizadores de eventos elogiando el impacto de la charla. El paquete final incluye un reel maestro de tres minutos para páginas web y agencias de representación, junto con versiones verticales para LinkedIn e Instagram. Este material posiciona al conferencista para negociar mejores honorarios y cerrar fechas en eventos destacados. Para revisar planes de edición, consulte [precios](/es/precios); para evaluar su material existente, escríbanos en nuestra sección de [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const BAR_MITZVAH_ES_DISCLOSURE = "¿Cómo se filma una celebración de Bar o Bat Mitzvah en South Florida?";
+export const BAR_MITZVAH_ES_DESTINATIONS = "Servicios en sinagoga, fiestas en salones, ópticas para baja luz y películas de legado familiar.";
+
+export const BAR_MITZVAH_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo se combinan las tradiciones ceremoniales con la energía de la fiesta de un Bar Mitzvah?",
+    paragraphs: [
+      "Un Bar o Bat Mitzvah representa a la vez un hito religioso trascendental y una animada celebración familiar. Filmar este acontecimiento exige sensibilidad cultural, un profundo respeto por los rituales de la sinagoga y destreza técnica para registrar el dinamismo de la fiesta posterior en salones de Boca Raton, Aventura o Miami. Durante los ensayos o momentos autorizados en el santuario, Esteban trabaja con discreción absoluta, utilizando teleobjetivos y obturación silenciosa desde ubicaciones acordadas sin obstaculizar la bimá ni distraer a los presentes. Al pasar a la recepción nocturna, el estilo de filmación se vuelve dinámico y participativo. La cámara acompaña el baile de la hora, el levantamiento de las sillas y las bendiciones familiares con movimientos fluidos. Las ópticas de gran apertura captan los centros de mesa y la iluminación de fiesta sin necesidad de focos deslumbrantes. Para cenas de bienvenida, consulte [videógrafo para cena de ensayo en Miami](/es/videografo-para-cena-de-ensayo-miami); para enlaces nupciales, revise [videógrafo de bodas en Fort Lauderdale](/es/videografo-de-bodas-fort-lauderdale).",
+    ],
+  },
+  {
+    heading: "¿Qué hace que los videos de celebraciones familiares de Bar Mitzvah sean cinematográficos y duraderos?",
+    paragraphs: [
+      "Las familias de South Florida dedican meses de preparación para celebrar el paso a la madurez de sus hijos, congregando a varias generaciones en reuniones únicas. Preservar este acontecimiento requiere un enfoque documental atento a los momentos protocolares y a la intimidad familiar. Esteban registra el audio de la lectura de la Torá, los discursos de los padres y el encendido de velas mediante micrófonos de solapa discretos y conexión directa a la consola del salón. En la postproducción, se elabora una película cinematográfica completa que narra cronológicamente la jornada, acompañada de un video resumen de tres minutos con música licenciada para compartir fácilmente con familiares y amigos en redes sociales. El material se preserva en alta definición como un legado familiar invaluable para las próximas generaciones. Para conocer nuestro estilo en celebraciones familiares, explore la [película de boda de Diana y Jack](/es/portafolio/diana-jack); para consultar fechas y opciones de cobertura, escríbanos en [contacto](/es/contacto).",
+    ],
+  },
+];
