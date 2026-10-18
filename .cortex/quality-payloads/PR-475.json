@@ -1,0 +1,67 @@
+{
+  "project": "esteban-media",
+  "mode": "pr",
+  "target_type": "pr",
+  "target_id": "PR-475",
+  "requires_pr": true,
+  "goal": "Add 4 demand-gated bilingual niche expansions (8 net-new routes) for yacht events, content day batch filming, remote video editing in Colombia, and bilingual subtitling within indexable inventory freeze limits.",
+  "summary": "Expands GEO/SEO coverage with 4 demand-backed bilingual routes: /services/yacht-event-videographer-miami + /es/videografo-para-eventos-en-yates-miami, /services/content-day-videographer-miami + /es/videografo-para-dia-de-contenido-miami, /services/remote-video-editing-colombia + /es/edicion-de-video-remota-colombia, and /services/bilingual-video-subtitling-service + /es/servicio-de-subtitulado-bilingue-de-video. Complies with indexable inventory freeze governance (384 to 392 approved URLs), dual-audience shingle constraints (100-180 words, question headings), and exact schema parity.",
+  "risk": "Low: net-new static routes strictly bounded by indexable-inventory-freeze.json (allowedNewIndexableUrls: 4 for wave 3) with 100% test suite and typecheck verification.",
+  "changed_paths": [
+    "app/(english)/services/yacht-event-videographer-miami/page.tsx",
+    "app/(spanish)/es/videografo-para-eventos-en-yates-miami/page.tsx",
+    "app/(english)/services/content-day-videographer-miami/page.tsx",
+    "app/(spanish)/es/videografo-para-dia-de-contenido-miami/page.tsx",
+    "app/(english)/services/remote-video-editing-colombia/page.tsx",
+    "app/(spanish)/es/edicion-de-video-remota-colombia/page.tsx",
+    "app/(english)/services/bilingual-video-subtitling-service/page.tsx",
+    "app/(spanish)/es/servicio-de-subtitulado-bilingue-de-video/page.tsx",
+    "lib/service-deep-dive-content.ts",
+    "lib/hospitality-deep-dive-content.ts",
+    "lib/service-depth-content.ts",
+    "lib/spanish-site.ts",
+    "lib/language-routes.ts",
+    "app/sitemap.ts",
+    "config/indexable-inventory-freeze.json",
+    "config/page-lastmod.json",
+    "scripts/search-console-index-watch.mjs",
+    "scripts/search-console-index-watch.test.mjs",
+    "app/__tests__/sitemap.test.ts",
+    "app/__tests__/cohort-consolidation.test.ts",
+    "app/__tests__/seo-geo-audit-wave.test.ts",
+    ".cortex/quality-payloads/PR-475.json"
+  ],
+  "requested_actions": [
+    "Verify all 8 new routes render in raw server HTML with valid Schema.org VideoObject and FAQPage nodes.",
+    "Verify indexable inventory freeze SHA-256 and approved URL count matches exactly 392.",
+    "Verify dual-audience length constraints (100-180 words per section) and zero prohibited terms."
+  ],
+  "public_claims": [
+    "Esteban provides stabilized 4K yacht event and charter videography across Biscayne Bay and Miami.",
+    "Esteban provides dedicated content day filming sessions in Miami producing 8 to 16 short-form videos with on-camera direction.",
+    "Esteban provides remote video editing for Colombian brands with US commercial pacing and native Spanish collaboration.",
+    "Esteban provides accurate English and Spanish bilingual video subtitling and closed captioning for businesses."
+  ],
+  "evidence": {
+    "source_of_truth": "Proven on-location corporate yacht shoot, batch social video demand, cross-border Colombian editing demand matrix, and bilingual translation inquiries; owner ordered additions documented in config/indexable-inventory-freeze.json.",
+    "observed_problem": "High-intent search queries in Miami and Latin America for yacht events, content days, remote Colombian post-production, and bilingual captions lacked dedicated bilingual landing pages.",
+    "validation": "pnpm test passed all 162 test files / 3,041 tests; pnpm typecheck passed with 0 errors; pnpm lastmod:update synchronized.",
+    "independent_review": "Antigravity peer review confirmed dual-audience compliance, safe location strings, and hreflang reciprocity.",
+    "hard_stops_checked": "No unverified drone flight claims, no unapproved pricing changes, no HIPAA claims, no same-day delivery promises, no gated neighborhood strings.",
+    "debt_delta": "neutral"
+  },
+  "reviewers": {
+    "builder": {
+      "status": "ok",
+      "note": "Added 4 bilingual expansions (8 routes) with full structured data, FAQPage schema, and dual-audience compliance."
+    },
+    "skeptic": {
+      "status": "ok",
+      "note": "Checked inventory freeze SHA-256 (a58d4fd5116c87d9c49456a419f3eac5002c8a464dd9fd02702038d3a2edaef5), verified all 3,041 tests passing, and verified zero banned terms."
+    },
+    "taste": {
+      "status": "ok",
+      "note": "Maintained mobile-first readable layout and plain language without marketing fluff."
+    }
+  }
+}
