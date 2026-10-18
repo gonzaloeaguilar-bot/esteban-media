@@ -431,4 +431,77 @@ export const BILINGUAL_SUBTITLING_ES_SECTIONS: readonly SpanishNicheSection[] = 
   },
 ];
 
+export const TRADE_SHOW_BOOTH_ES_DISCLOSURE = "¿Cómo se graba en stands y convenciones en Fort Lauderdale y Miami?";
+export const TRADE_SHOW_BOOTH_ES_DESTINATIONS = "Demostraciones en directo, pasillos concurridos, equipo estabilizado y clips B2B para LinkedIn.";
+
+export const TRADE_SHOW_BOOTH_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo se filma video profesional en stands y pabellones de ferias comerciales?",
+    paragraphs: [
+      "Registrar la actividad comercial en el Centro de Convenciones del Condado de Broward en Fort Lauderdale o en el Centro de Convenciones de Miami Beach exige agilidad técnica y un equipo compacto. Los pabellones feriales presentan pasillos concurridos, iluminación artificial variable y un flujo constante de visitantes entre expositores. Esteban utiliza cámaras de cuadro completo sobre estabilizadores motorizados de tres ejes, desplazándose con fluidez por áreas reducidas sin incomodar a los asistentes ni interrumpir las explicaciones comerciales en los stands. La grabación documenta demostraciones de productos en vivo, interacciones en pantallas interactivas y presentaciones de ejecutivos, destacando la señalética de la marca y el interés genuino de los clientes potenciales. Los sensores de alto rango dinámico equilibran las pantallas LED brillantes con la luz ambiental del recinto ferial. Para cobertura de conferencias magistrales, consulte [videógrafo para conferencias en Fort Lauderdale](/es/videografo-para-conferencias-fort-lauderdale); para convenciones completas, revise [videógrafo para eventos corporativos en Fort Lauderdale](/es/videografo-para-eventos-corporativos-fort-lauderdale).",
+    ],
+  },
+  {
+    heading: "¿Qué tomas se capturan para convertir la presencia en ferias en material de marketing B2B?",
+    paragraphs: [
+      "Participar como expositor en convenciones de negocios representa una inversión importante en diseño de stands, traslados y personal. Rentabilizar esa inversión implica convertir varios días de exposición en un banco versátil de material audiovisual para marketing B2B durante todo el año. Esteban graba tomas planificadas para diferentes objetivos de comunicación: resúmenes dinámicos de treinta segundos para publicación rápida en LinkedIn, demostraciones explicativas de producto para seguimiento de ventas y testimonios breves de clientes frente al stand. Se emplean micrófonos direccionales y de solapa inalámbricos que aíslan las voces del ruido ambiental del pabellón ferial. Cada entrega se edita con corrección de color profesional acorde a la guía de marca y se adapta tanto a formato horizontal como vertical para redes sociales corporativas. Los directores comerciales reciben contenido estructurado para justificar la rentabilidad del evento ante la dirección. Para conocer tarifas de filmación, consulte [precios](/es/precios); para solicitar una cotización personalizada, visite nuestra página de [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const CORPORATE_GALA_ES_DISCLOSURE = "¿Cómo se graba una gala corporativa o benéfica en Miami y Palm Beach?";
+export const CORPORATE_GALA_ES_DESTINATIONS = "Salones de etiqueta, iluminación tenue, sonido de discursos y recaps para captación de donantes.";
+
+export const CORPORATE_GALA_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo se filman galas corporativas y cenas benéficas en salones con iluminación tenue?",
+    paragraphs: [
+      "La filmación de galas benéficas anuales, cenas de recaudación de fondos y eventos corporativos de etiqueta en salones exclusivos de Miami, Coral Gables y Palm Beach exige una presencia discreta en entornos de iluminación suave y decorativa. Los grandes salones de banquetes suelen utilizar iluminación tenue con velas y focos puntuales en los centros de mesa, lo que dificulta la captura con cámaras estándar. Esteban utiliza cámaras cinematográficas de cuadro completo equipadas con ópticas de gran apertura, capaces de registrar la elegancia del salón, los detalles de mesa y la emoción de los asistentes sin necesidad de focos frontales deslumbrantes. La cobertura abarca la recepción en la alfombra roja, la exhibición de subastas silenciosas, las intervenciones en el escenario y el ambiente musical en la pista de baile mediante estabilización continua. Las tomas reflejan con fidelidad la sofisticación del evento social. Para entrevistas a directivos, consulte [videógrafo para entrevistas ejecutivas en Miami](/es/videografo-para-entrevistas-ejecutivas-miami); para encuentros empresariales, revise [videógrafo para eventos de networking en Miami](/es/videografo-para-eventos-de-networking-miami).",
+    ],
+  },
+  {
+    heading: "¿Qué piezas audiovisuales ayudan a fundaciones y organizaciones a captar donantes?",
+    paragraphs: [
+      "Para fundaciones sin fines de lucro y comités benéficos, el video de una gala constituye el recurso principal para agradecer a los donantes y comprometer nuevos patrocinios en ediciones futuras. Más allá de un resumen festivo, Esteban produce piezas audiovisuales enfocadas en el impacto social de la organización y la motivación de los benefactores. El sonido de los discursos y de la subasta en vivo se graba directamente desde la consola principal de sonido del salón, garantizando que cada testimonio y cifra alcanzada se escuche con absoluta nitidez. La postproducción entrega una película resumen de dos minutos de alta calidad cinematográfica, complementada con cápsulas verticales para redes sociales que destacan el respaldo de los patrocinadores principales y los momentos más emotivos de la noche. Este material permite a los equipos de desarrollo institucional fidelizar a su comunidad donante. Para consultar opciones de cobertura presencial, visite nuestra sección de [precios](/es/precios); para solicitar fechas disponibles, escríbanos mediante [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const SUPERYACHT_CHARTER_ES_DISCLOSURE = "¿Cómo se produce un video publicitario de superyates en Fort Lauderdale?";
+export const SUPERYACHT_CHARTER_ES_DESTINATIONS = "Interiores de lujo, camarotes, navegación en alta mar y piezas cinematográficas para brokers náuticos.";
+
+export const SUPERYACHT_CHARTER_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Qué técnicas cinematográficas resaltan las comodidades de un chárter en superyates?",
+    paragraphs: [
+      "La producción de videos publicitarios para superyates en los canales de Fort Lauderdale y las marinas de South Florida exige técnicas cinematográficas marinas avanzadas y un riguroso cuidado a bordo. Los clientes de chárter de lujo y los corredores náuticos buscan piezas audiovisuales que exhiban las líneas exteriores de la nave, sus amplias cubiertas de sol, áreas de descanso y elegantes salones interiores. Esteban utiliza cámaras de cuadro completo con objetivos ultra gran angular de mínima distorsión sobre estabilizadores motorizados de tres ejes, registrando pasillos, camarotes principales y el puente de mando con movimientos fluidos y proporciones reales. La jornada de rodaje se planifica para aprovechar la luz natural: las horas diurnas destacan la navegación, las lanchas auxiliares y los deportes acuáticos, mientras que el atardecer realza las cenas privadas en cubierta y la iluminación subacuática de la embarcación. Se utilizan filtros polarizados para controlar los reflejos del agua marina. Para eventos privados a bordo, consulte [videógrafo para eventos en yates en Miami](/es/videografo-para-eventos-en-yates-miami); para hospitalidad náutica, revise [video para yates y hospitalidad en Fort Lauderdale](/es/video-para-yates-y-hospitalidad-fort-lauderdale).",
+    ],
+  },
+  {
+    heading: "¿Cómo impulsa el video marketing las reservas para agencias de chárter y corretaje náutico?",
+    paragraphs: [
+      "En el mercado del chárter náutico internacional, los clientes de alto patrimonio y las agencias de corretaje toman decisiones de reserva basándose en videos cinematográficos que transmiten la experiencia real de navegar a bordo. Un video promocional de alta calidad muestra el valor del superyate más allá de una ficha técnica estática. Esteban trabaja en estrecha colaboración con capitanes, agentes de gestión y tripulación para destacar el servicio gastronómico de alta cocina, la hospitalidad en cabina y los itinerarios exclusivos por Florida y las Bahamas. La edición combina tomas dinámicas de navegación con planos detallados de la vajilla, los acabados de madera y el equipamiento recreativo. El paquete final incluye un video horizontal de tres minutos para sitios web de corredores marítimos y portales internacionales, junto con versiones verticales en alta definición para campañas en redes sociales. Este material facilita el cierre de contratos de alquiler durante la temporada alta de invierno. Para consultar tarifas de producción, visite [precios](/es/precios); para planificar una sesión a bordo, contáctenos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const REHEARSAL_DINNER_ES_DISCLOSURE = "¿Cómo se graba la cena de ensayo y cóctel de bienvenida de una boda en Miami?";
+export const REHEARSAL_DINNER_ES_DESTINATIONS = "Discursos familiares espontáneos, cócteles al atardecer, audio claro y recaps para el fin de semana de bodas.";
+
+export const REHEARSAL_DINNER_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Por qué conviene contar con un videógrafo dedicado para la cena de ensayo y el cóctel de bienvenida?",
+    paragraphs: [
+      "La cena de ensayo y el cóctel de bienvenida marcan el inicio emocional de un fin de semana nupcial, reuniendo a las familias más cercanas y a los amigos de toda la vida antes de la formalidad del día de la boda. Mientras que la filmación principal de la boda se concentra en el protocolo de la ceremonia y la fiesta, la velada previa ofrece anécdotas espontáneas, risas compartidas y momentos íntimos que enriquecen el recuerdo familiar. Esteban brinda una cobertura documental discreta para cenas de ensayo en restaurantes frente al mar en Miami, jardines históricos en Coconut Grove y residencias privadas en Coral Gables. Trabajando de forma ágil y sin equipos aparatosos, la cámara registra las conversaciones espontáneas y los abrazos familiares sin interrumpir el ambiente relajado de la celebración. Los sensores de cuadro completo garantizan una imagen nítida bajo velas y luces de terraza. Para la filmación del día de la boda, consulte [videógrafo de bodas en Miami](/es/videografo-de-bodas-miami); para eventos en Broward, revise [videógrafo de bodas en Fort Lauderdale](/es/videografo-de-bodas-fort-lauderdale).",
+    ],
+  },
+  {
+    heading: "¿Cómo se graban con claridad los brindis familiares y momentos espontáneos del cóctel?",
+    paragraphs: [
+      "Muchas de las palabras más emotivas de un enlace se pronuncian durante los brindis espontáneos de la cena de ensayo, donde hermanos y amigos cercanos expresan recuerdos entrañables sin las prisas de la fiesta principal. Grabar esas voces con fidelidad requiere una técnica acústica cuidada en terrazas al aire libre o salones de restaurantes concurridos. Esteban utiliza micrófonos inalámbricos discretos con protectores antiviento de alta densidad que aíslan con claridad las voces de los anfitriones del murmullo del local y la música ambiental. En la edición posterior, el audio se limpia y ecualiza para asegurar una escucha perfecta. Los novios reciben un video completo con todos los discursos íntegros, acompañado de un resumen cinematográfico de un minuto para compartir con sus familiares. Estos testimonios también pueden enriquecer el documental final del fin de semana completo de la boda. Para ver ejemplos de nuestro trabajo en video de bodas, explore el [portafolio de boda de Diana y Jack](/es/portafolio/diana-jack); para consultar tarifas, visite [precios](/es/precios).",
+    ],
+  },
+];
+
+
 

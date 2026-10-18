@@ -591,6 +591,10 @@
   "date": "2026-10-08",
   "hash": "a18da33b0bb62f4b"
  },
+ "/es/marketing-de-video-para-superyates-fort-lauderdale": {
+  "date": "2026-10-18",
+  "hash": "c03af493ccb2b851"
+ },
  "/es/planificador-de-ganchos-de-video": {
   "date": "2026-10-14",
   "hash": "5c7d7a7f303fa82e"
@@ -745,7 +749,7 @@
  },
  "/es/servicio-de-subtitulado-bilingue-de-video": {
   "date": "2026-10-18",
-  "hash": "8bad8350d5acb52f"
+  "hash": "6b338d1c7dfc39c0"
  },
  "/es/servicios": {
   "date": "2026-10-16",
@@ -831,6 +835,10 @@
   "date": "2026-10-15",
   "hash": "f6139724aa772a06"
  },
+ "/es/videografo-para-cena-de-ensayo-miami": {
+  "date": "2026-10-18",
+  "hash": "fd5cbd529666f4c2"
+ },
  "/es/videografo-para-conferencias-fort-lauderdale": {
   "date": "2026-10-18",
   "hash": "2ec306c3e6a79b8d"
@@ -854,6 +862,14 @@
  "/es/videografo-para-eventos-en-yates-miami": {
   "date": "2026-10-18",
   "hash": "01725ba118260098"
+ },
+ "/es/videografo-para-ferias-comerciales-fort-lauderdale": {
+  "date": "2026-10-18",
+  "hash": "897c2b8d468ead3b"
+ },
+ "/es/videografo-para-galas-corporativas-miami": {
+  "date": "2026-10-18",
+  "hash": "46654b33f7cb8888"
  },
  "/es/videografo-para-vlogs-miami": {
   "date": "2026-10-18",
@@ -1229,7 +1245,7 @@
  },
  "/services/bilingual-video-subtitling-service": {
   "date": "2026-10-18",
-  "hash": "8be9655310d68a1b"
+  "hash": "2377dc943ece7666"
  },
  "/services/boutique-hotel-video-editing-miami": {
   "date": "2026-10-13",
@@ -1274,6 +1290,10 @@
  "/services/corporate-event-videographer-miami": {
   "date": "2026-10-18",
   "hash": "1a14a3fa9bbc9e48"
+ },
+ "/services/corporate-gala-videographer-miami": {
+  "date": "2026-10-18",
+  "hash": "27b84b9b94e29d6b"
  },
  "/services/corporate-training-video-editing-miami": {
   "date": "2026-10-13",
@@ -1447,6 +1467,10 @@
   "date": "2026-10-14",
   "hash": "18a8e2597e6f8e28"
  },
+ "/services/rehearsal-dinner-videographer-miami": {
+  "date": "2026-10-18",
+  "hash": "cb40ff4215ffba2f"
+ },
  "/services/remote-video-editing-colombia": {
   "date": "2026-10-18",
   "hash": "208b48a7dbe1b5f7"
@@ -1475,9 +1499,17 @@
   "date": "2026-10-13",
   "hash": "fd89dffce3f37465"
  },
+ "/services/superyacht-charter-marketing-video-fort-lauderdale": {
+  "date": "2026-10-18",
+  "hash": "c937c8cfb081c01e"
+ },
  "/services/tiktok-ad-video-editor-miami": {
   "date": "2026-10-15",
   "hash": "b610a07e4fce2fa0"
+ },
+ "/services/trade-show-booth-videographer-fort-lauderdale": {
+  "date": "2026-10-18",
+  "hash": "f23240d4f432a2f3"
  },
  "/services/ugc-video-editor-ecommerce": {
   "date": "2026-10-14",

@@ -41,6 +41,14 @@ export const pairedLanguageRoutes: Record<string, string> = {
     "/es/edicion-de-video-remota-colombia",
   "/services/bilingual-video-subtitling-service":
     "/es/servicio-de-subtitulado-bilingue-de-video",
+  "/services/trade-show-booth-videographer-fort-lauderdale":
+    "/es/videografo-para-ferias-comerciales-fort-lauderdale",
+  "/services/corporate-gala-videographer-miami":
+    "/es/videografo-para-galas-corporativas-miami",
+  "/services/superyacht-charter-marketing-video-fort-lauderdale":
+    "/es/marketing-de-video-para-superyates-fort-lauderdale",
+  "/services/rehearsal-dinner-videographer-miami":
+    "/es/videografo-para-cena-de-ensayo-miami",
   "/services/food-and-places-creator-video-editing-miami":
     "/es/edicion-de-video-para-creadores-de-comida-y-lugares-miami",
   "/services/restaurant-promo-video-editing-miami":
