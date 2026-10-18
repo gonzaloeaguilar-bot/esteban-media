@@ -49,6 +49,14 @@ export const pairedLanguageRoutes: Record<string, string> = {
     "/es/marketing-de-video-para-superyates-fort-lauderdale",
   "/services/rehearsal-dinner-videographer-miami":
     "/es/videografo-para-cena-de-ensayo-miami",
+  "/services/mastermind-event-videographer-miami":
+    "/es/videografo-para-masterminds-miami",
+  "/services/surprise-proposal-videographer-miami":
+    "/es/videografo-para-propuestas-de-matrimonio-miami",
+  "/services/speaker-sizzle-reel-production-miami":
+    "/es/produccion-de-video-reel-para-conferencistas-miami",
+  "/services/bar-mitzvah-videographer-south-florida":
+    "/es/videografo-para-bar-mitzvah-south-florida",
   "/services/food-and-places-creator-video-editing-miami":
     "/es/edicion-de-video-para-creadores-de-comida-y-lugares-miami",
   "/services/restaurant-promo-video-editing-miami":

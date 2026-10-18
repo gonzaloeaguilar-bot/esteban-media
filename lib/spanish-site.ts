@@ -86,6 +86,18 @@ import {
   REHEARSAL_DINNER_ES_DESTINATIONS,
   REHEARSAL_DINNER_ES_DISCLOSURE,
   REHEARSAL_DINNER_ES_SECTIONS,
+  MASTERMIND_EVENT_ES_DESTINATIONS,
+  MASTERMIND_EVENT_ES_DISCLOSURE,
+  MASTERMIND_EVENT_ES_SECTIONS,
+  SURPRISE_PROPOSAL_ES_DESTINATIONS,
+  SURPRISE_PROPOSAL_ES_DISCLOSURE,
+  SURPRISE_PROPOSAL_ES_SECTIONS,
+  SPEAKER_SIZZLE_REEL_ES_DESTINATIONS,
+  SPEAKER_SIZZLE_REEL_ES_DISCLOSURE,
+  SPEAKER_SIZZLE_REEL_ES_SECTIONS,
+  BAR_MITZVAH_ES_DESTINATIONS,
+  BAR_MITZVAH_ES_DISCLOSURE,
+  BAR_MITZVAH_ES_SECTIONS,
   HOTEL_ES_DESTINATIONS,
   HOTEL_ES_DISCLOSURE,
   HOTEL_ES_SECTIONS,
@@ -3246,6 +3258,190 @@ export const spanishNichePages: SpanishNichePage[] = [
     ],
   },
   {
+    slug: "videografo-para-masterminds-miami",
+    title: "Videógrafo para masterminds y retiros en Miami",
+    metadataTitle: "Video para Masterminds Miami",
+    description:
+      "Videografía profesional para eventos mastermind, retiros de mentoría y seminarios de coaching en Miami con captura discreta 4K.",
+    eyebrow: "Masterminds / Retiros de Negocios",
+    h1: "Videógrafo para eventos mastermind y retiros de mentoría en Miami.",
+    lead:
+      "Cobertura cinematográfica en villas de lujo y hoteles ejecutivos, testimonios de participantes y video marketing para convocatorias.",
+    keyword: "videógrafo para masterminds en Miami",
+    location: "Miami / Downtown Miami / Miami Beach",
+    availability: "confirmed",
+    icon: Handshake,
+    bestFor: [
+      "Mentores y coaches que celebran retiros exclusivos en villas o salones ejecutivos de Miami.",
+      "Comunidades de negocios de alta inversión que necesitan testimonios en video para futuras ediciones.",
+    ],
+    scopingQuestions: [
+      "¿El retiro se celebra en una residencia privada frente al mar o en un salón de hotel?",
+      "¿Desea entrevistas a cámara con los asistentes o cobertura documental de las dinámicas?",
+    ],
+    projectFit:
+      "Operador único con cámara silenciosa de cuadro completo que no rompe la intimidad ni la concentración del grupo.",
+    updated: "2026-10-18",
+    sections: MASTERMIND_EVENT_ES_SECTIONS,
+    sectionsDisclosure: MASTERMIND_EVENT_ES_DISCLOSURE,
+    sectionsDestinations: MASTERMIND_EVENT_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se registran las sesiones íntimas sin incomodar a los participantes?",
+        answer:
+          "Se utilizan cámaras ligeras de cuadro completo con obturación silenciosa y ópticas discretas, documentando intervenciones y avances sin luces invasivas ni interrupciones.",
+      },
+      {
+        question: "¿Qué piezas se entregan para la venta de próximas convocatorias?",
+        answer:
+          "Se entrega una película resumen de dos minutos que refleja el entorno exclusivo y la atmósfera del retiro, testimonios breves de alumnos y cápsulas verticales para redes.",
+      },
+      {
+        question: "¿Se pueden grabar entrevistas dinámicas en las pausas de café o junto a la piscina?",
+        answer:
+          "Sí. Con microfonía direccional de mano se registran impresiones y aprendizajes espontáneos de los participantes durante los descansos y cócteles de networking.",
+      },
+    ],
+  },
+  {
+    slug: "videografo-para-propuestas-de-matrimonio-miami",
+    title: "Videógrafo para propuestas de matrimonio en Miami",
+    metadataTitle: "Video de Propuesta de Matrimonio",
+    description:
+      "Videografía encubierta para propuestas de matrimonio sorpresa en Miami, Vizcaya y playas de South Florida con entrega rápida para redes.",
+    eyebrow: "Propuestas de Matrimonio / Compromisos",
+    h1: "Videógrafo para propuestas de matrimonio sorpresa en Miami.",
+    lead:
+      "Filmación a distancia con teleobjetivo, captura de audio nítido de los votos y tráiler vertical para anunciar el compromiso.",
+    keyword: "videógrafo para propuestas de matrimonio en Miami",
+    location: "Miami / Miami Beach / Coconut Grove",
+    availability: "confirmed",
+    icon: Heart,
+    bestFor: [
+      "Parejas que desean documentar el momento exacto de la petición de mano sin que su pareja sospeche.",
+      "Organizadores de propuestas que coordinan montajes florales o experiencias en barcos y terrazas.",
+    ],
+    scopingQuestions: [
+      "¿En qué locación exacta de Miami se realizará la propuesta (playa, parque o terraza)?",
+      "¿Requieren microfonía oculta para registrar las palabras y votos durante la pedida?",
+    ],
+    projectFit:
+      "Posicionamiento encubierto con teleobjetivo cinematográfico y entrega ágil de video vertical para redes.",
+    updated: "2026-10-18",
+    sections: SURPRISE_PROPOSAL_ES_SECTIONS,
+    sectionsDisclosure: SURPRISE_PROPOSAL_ES_DISCLOSURE,
+    sectionsDestinations: SURPRISE_PROPOSAL_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo permanece oculto el videógrafo antes del momento de la propuesta?",
+        answer:
+          "Mediante teleobjetivos largos situados a distancia prudencial, el operador se mimetiza con turistas o visitantes del parque hasta el instante en que se realiza la pregunta.",
+      },
+      {
+        question: "¿Cómo se capta el sonido en exteriores con viento marino o playas abiertas?",
+        answer:
+          "Se emplean transmisores inalámbricos en miniatura con protector antiviento de alta densidad, ocultos discretamente en la ropa o en la decoración floral.",
+      },
+      {
+        question: "¿Cuándo reciben las parejas el video para anunciar su compromiso?",
+        answer:
+          "Se entrega un tráiler vertical de sesenta segundos con acabado cinematográfico en un plazo breve para compartir la noticia en Instagram Reels y TikTok.",
+      },
+    ],
+  },
+  {
+    slug: "produccion-de-video-reel-para-conferencistas-miami",
+    title: "Producción de video reel para conferencistas en Miami",
+    metadataTitle: "Video Reel para Conferencistas",
+    description:
+      "Producción de sizzle reels y videos promocionales para conferencistas, ponentes magistrales y moderadores en Miami y Fort Lauderdale.",
+    eyebrow: "Conferencistas / Sizzle Reels",
+    h1: "Producción de video reel promocional para conferencistas en Miami.",
+    lead:
+      "Montaje cinematográfico de intervenciones en escenario, sonido directo de consola, títulos animados y recaps para agencias de conferencias.",
+    keyword: "video reel para conferencistas en Miami",
+    location: "Miami / Fort Lauderdale / Remoto",
+    availability: "confirmed",
+    icon: Video,
+    bestFor: [
+      "Conferencistas profesionales y autores que buscan ser contratados por agencias y congresos.",
+      "Líderes de opinión que necesitan demostrar solvencia escénica y ovación del público en video.",
+    ],
+    scopingQuestions: [
+      "¿Cuenta con grabaciones existentes de múltiples conferencias o requiere filmación en un evento próximo?",
+      "¿El reel debe incluir testimonios de organizadores y títulos animados de libros o logros?",
+    ],
+    projectFit:
+      "Edición rítmica y armonización de metrajes heterogéneos con mezcla de sonido profesional.",
+    updated: "2026-10-18",
+    sections: SPEAKER_SIZZLE_REEL_ES_SECTIONS,
+    sectionsDisclosure: SPEAKER_SIZZLE_REEL_ES_DISCLOSURE,
+    sectionsDestinations: SPEAKER_SIZZLE_REEL_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Qué metraje se necesita para elaborar un video reel de conferencista?",
+        answer:
+          "Se emplean tomas de escenario en convenciones, reacciones de la audiencia, testimonios de asistentes, ovaciones y material gráfico corporativo.",
+      },
+      {
+        question: "¿Se pueden editar juntos videos grabados con cámaras y luces diferentes?",
+        answer:
+          "Sí. La corrección de color, estabilización y tratamiento sonoro unifican archivos de distintos eventos en una pieza promocional armónica y enérgica.",
+      },
+      {
+        question: "¿Qué duraciones y formatos se entregan para agencias y redes sociales?",
+        answer:
+          "Se entrega un reel maestro de tres minutos para páginas web y agencias de ponentes, junto con versiones verticales para LinkedIn e Instagram.",
+      },
+    ],
+  },
+  {
+    slug: "videografo-para-bar-mitzvah-south-florida",
+    title: "Videógrafo para Bar y Bat Mitzvah en South Florida",
+    metadataTitle: "Video de Bar y Bat Mitzvah",
+    description:
+      "Videografía cinematográfica para celebraciones de Bar y Bat Mitzvah en Boca Raton, Miami y Aventura con respeto ceremonial y fiesta enérgica.",
+    eyebrow: "Bar & Bat Mitzvah / Hitos Familiares",
+    h1: "Videógrafo para Bar y Bat Mitzvah en South Florida.",
+    lead:
+      "Cobertura respetuosa en sinagogas, grabación estabilizada de la hora y películas familiares de legado en alta definición.",
+    keyword: "videógrafo para bar mitzvah en South Florida",
+    location: "Boca Raton / Miami / Aventura",
+    availability: "confirmed",
+    icon: PartyPopper,
+    bestFor: [
+      "Familias que celebran el Bar o Bat Mitzvah de sus hijos en sinagogas y salones de South Florida.",
+      "Organizadores de eventos que buscan un operador técnico ágil para la fiesta y respetuoso en la ceremonia.",
+    ],
+    scopingQuestions: [
+      "¿La sinagoga permite grabación durante el servicio religioso o se coordinará una sesión de ensayo previa?",
+      "¿Desean una película documental cronológica de la fiesta o un resumen cinematográfico corto?",
+    ],
+    projectFit:
+      "Sensibilidad ceremonial con teleobjetivos silenciosos y seguimiento fluido en la pista de baile.",
+    updated: "2026-10-18",
+    sections: BAR_MITZVAH_ES_SECTIONS,
+    sectionsDisclosure: BAR_MITZVAH_ES_DISCLOSURE,
+    sectionsDestinations: BAR_MITZVAH_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se filma en santuarios con poca luz y en la pista de baile nocturna?",
+        answer:
+          "Cámaras de cuadro completo con objetivos luminosos registran los momentos en la bimá con sobriedad, pasando a estabilización dinámica durante el baile de la hora.",
+      },
+      {
+        question: "¿Cómo se graba el sonido de las lecturas de la Torá y las bendiciones?",
+        answer:
+          "Se conectan tomas directas a la consola de sonido del recinto combinadas con micrófonos de solapa inalámbricos para una claridad vocal absoluta.",
+      },
+      {
+        question: "¿Qué videos finales recibe la familia tras el fin de semana de celebración?",
+        answer:
+          "La familia recibe una película documental completa con los discursos y bailes íntegros, junto con un resumen cinematográfico de tres minutos para compartir.",
+      },
+    ],
+  },
+  {
     slug: "marketing-de-video-automotriz-miami",
     title: "Marketing de video automotriz en Miami",
     metadataTitle: "Video Automotriz Miami",
@@ -5849,6 +6045,46 @@ const languageAlternatesRaw: Record<string, Record<string, string>> = {
     "en-US": "/services/rehearsal-dinner-videographer-miami",
     "es-US": "/es/videografo-para-cena-de-ensayo-miami",
     "x-default": "/services/rehearsal-dinner-videographer-miami",
+  },
+  "/services/mastermind-event-videographer-miami": {
+    "en-US": "/services/mastermind-event-videographer-miami",
+    "es-US": "/es/videografo-para-masterminds-miami",
+    "x-default": "/services/mastermind-event-videographer-miami",
+  },
+  "/es/videografo-para-masterminds-miami": {
+    "en-US": "/services/mastermind-event-videographer-miami",
+    "es-US": "/es/videografo-para-masterminds-miami",
+    "x-default": "/services/mastermind-event-videographer-miami",
+  },
+  "/services/surprise-proposal-videographer-miami": {
+    "en-US": "/services/surprise-proposal-videographer-miami",
+    "es-US": "/es/videografo-para-propuestas-de-matrimonio-miami",
+    "x-default": "/services/surprise-proposal-videographer-miami",
+  },
+  "/es/videografo-para-propuestas-de-matrimonio-miami": {
+    "en-US": "/services/surprise-proposal-videographer-miami",
+    "es-US": "/es/videografo-para-propuestas-de-matrimonio-miami",
+    "x-default": "/services/surprise-proposal-videographer-miami",
+  },
+  "/services/speaker-sizzle-reel-production-miami": {
+    "en-US": "/services/speaker-sizzle-reel-production-miami",
+    "es-US": "/es/produccion-de-video-reel-para-conferencistas-miami",
+    "x-default": "/services/speaker-sizzle-reel-production-miami",
+  },
+  "/es/produccion-de-video-reel-para-conferencistas-miami": {
+    "en-US": "/services/speaker-sizzle-reel-production-miami",
+    "es-US": "/es/produccion-de-video-reel-para-conferencistas-miami",
+    "x-default": "/services/speaker-sizzle-reel-production-miami",
+  },
+  "/services/bar-mitzvah-videographer-south-florida": {
+    "en-US": "/services/bar-mitzvah-videographer-south-florida",
+    "es-US": "/es/videografo-para-bar-mitzvah-south-florida",
+    "x-default": "/services/bar-mitzvah-videographer-south-florida",
+  },
+  "/es/videografo-para-bar-mitzvah-south-florida": {
+    "en-US": "/services/bar-mitzvah-videographer-south-florida",
+    "es-US": "/es/videografo-para-bar-mitzvah-south-florida",
+    "x-default": "/services/bar-mitzvah-videographer-south-florida",
   },
   ...nicheBatch20261006,
   ...nicheBatch20261006Hreflang,

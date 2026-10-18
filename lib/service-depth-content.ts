@@ -1684,6 +1684,74 @@ export const PORTED_SERVICE_FAQS: Readonly<Record<string, readonly ServiceFaq[]>
         "Yes. Key quotes and joyful reactions from the welcome party can be woven directly into the cinematic wedding highlight film, creating a complete weekend narrative for the couple.",
     },
   ],
+  "/services/mastermind-event-videographer-miami": [
+    {
+      question: "How do you capture intimate mastermind sessions without making attendees feel self-conscious?",
+      answer:
+        "Discreet full-frame camera rigs and silent electronic shutters allow natural documentation of coaching hot seats, peer roundtables, and breakthroughs without intrusive lighting or staging.",
+    },
+    {
+      question: "What video assets are produced for future cohort marketing and retreat promotions?",
+      answer:
+        "Deliverables include a cinematic two-minute recap film highlighting the luxury retreat atmosphere, attendee video testimonials, and vertical social cutdowns formatted for Instagram Reels and LinkedIn.",
+    },
+    {
+      question: "Can roving attendee soundbites be filmed during coffee breaks and pool deck mixers?",
+      answer:
+        "Yes. Lightweight handheld rigs and directional interview microphones capture authentic participant reviews and relationship breakthroughs during informal networking intervals.",
+    },
+  ],
+  "/services/surprise-proposal-videographer-miami": [
+    {
+      question: "How does the videographer remain hidden during a surprise proposal?",
+      answer:
+        "Long telephoto cinema lenses allow the camera operator to frame sharp, emotional footage from a discreet distance, blending in with park visitors or marina guests until the question is popped.",
+    },
+    {
+      question: "How is audio recorded clearly for outdoor beach and waterfront proposals?",
+      answer:
+        "Concealed miniature wireless audio transmitters with wind protection isolate spoken vows and emotional reactions from ocean breezes and background waves.",
+    },
+    {
+      question: "When can couples expect to receive their engagement announcement video?",
+      answer:
+        "A romantic sixty-second vertical teaser trailer is delivered rapidly so couples can announce their engagement across Instagram Reels and TikTok with broadcast-grade cinematography.",
+    },
+  ],
+  "/services/speaker-sizzle-reel-production-miami": [
+    {
+      question: "What footage is needed to produce a professional keynote speaker sizzle reel?",
+      answer:
+        "Reels are built from stage presentations, audience reaction clips, attendee testimonials, standing ovations, and promotional graphics, combined with clean board audio.",
+    },
+    {
+      question: "Can disparate video files with different camera qualities and lighting be edited together?",
+      answer:
+        "Yes. Color grading, dynamic sound mixing, and frame stabilization harmonize archival video clips into a single cohesive, high-energy promotional showcase.",
+    },
+    {
+      question: "What video lengths and formats are delivered for speaker bureaus and social media?",
+      answer:
+        "Deliverables include a three-minute master sizzle reel for speaker websites and booking agents, paired with short vertical highlight clips optimized for LinkedIn and Instagram.",
+    },
+  ],
+  "/services/bar-mitzvah-videographer-south-florida": [
+    {
+      question: "How do cameras navigate low-light synagogue sanctuaries and ballroom dance floors?",
+      answer:
+        "Full-frame cinema sensors paired with fast prime lenses capture sacred bimah moments with quiet respect, transitioning to stabilized tracking shots during the energetic hora and chair lifts.",
+    },
+    {
+      question: "How is sound captured for Torah readings, parent blessings, and candle-lighting tributes?",
+      answer:
+        "Direct audio feeds from the venue soundboard combined with discreet wireless lapel microphones preserve spoken blessings and readings with pristine acoustic clarity.",
+    },
+    {
+      question: "What final videos are delivered to the family after the celebration weekend?",
+      answer:
+        "Families receive a full-length documentary feature capturing all formal speeches and dances, along with a three-minute cinematic recap film set to licensed celebratory music.",
+    },
+  ],
 };
 
 /** Hand-written pages left without a FAQ because no published fact supports one. */
