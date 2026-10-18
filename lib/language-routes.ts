@@ -21,6 +21,10 @@ export const pairedLanguageRoutes: Record<string, string> = {
   "/services/website-design-fort-lauderdale": "/es/diseno-web-fort-lauderdale",
   "/services/ai-chatbot-for-small-business": "/es/chatbot-con-ia-para-negocios",
   "/services/landing-page-design": "/es/landing-page-para-negocios",
+  "/services/corporate-event-videographer-fort-lauderdale":
+    "/es/videografo-para-eventos-corporativos-fort-lauderdale",
+  "/services/networking-event-videographer-miami":
+    "/es/videografo-para-eventos-de-networking-miami",
   "/services/food-and-places-creator-video-editing-miami":
     "/es/edicion-de-video-para-creadores-de-comida-y-lugares-miami",
   "/services/restaurant-promo-video-editing-miami":

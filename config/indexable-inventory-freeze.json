@@ -1,9 +1,9 @@
 {
   "status": "demand_gated",
   "effectiveDate": "2026-08-28",
-  "baselineRevisedOn": "2026-10-14",
-  "approvedSitemapUrlCount": 372,
-  "approvedSitemapUrlSetSha256": "6220283e15975a23fc1921853376ed62658f48686bbb5b4e9dabf1d7bd695b87",
+  "baselineRevisedOn": "2026-10-18",
+  "approvedSitemapUrlCount": 376,
+  "approvedSitemapUrlSetSha256": "14b3d932a6afbcffe3ff4b7f59280476e77dfe79e2a616392ef245c788626670",
   "allowedNewIndexableUrls": 4,
   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {
@@ -442,6 +442,21 @@
       "kind": "demand-backed service pairs (web line)",
       "demandEvidence": "Own data is ZERO, stated: GSC 90d (184 query rows) has 0 chatbot and 0 landing-page queries (only 'website designer' 5 impr pos 67 on /); Bing GetQueryStats 9 rows, 0 in this line. Outside demand, Google autocomplete 2026-10-14 (HTTP 200): 'ai chatbot for small business', 'whatsapp chatbot for small business', 'ai chatbot for restaurants', 'ai chatbot for real estate agents', 'how much does a chatbot cost', 'instagram dm automation'; 'chatbot con ia para whatsapp', 'cuanto cuesta un chatbot' (+colombia/mexico/peru), 'chatbot para restaurantes'; 'landing page cost', 'landing page for google ads/facebook ads', 'cuanto cuesta una landing page' (+argentina/chile/mexico/colombia), 'landing page precio'. Demand map rows DM-36/37 list 'chatbot con ia para whatsapp', 'desarrollador de chatbots' and 'landing page para negocios' as UNANSWERED.",
       "note": "4 URLs = one demand-wave allowance. Vault: esteban-web-chatbot-seo-geo-2026-10-14. GSC follow-up 2026-10-28 and 2026-11-14."
+    },
+    {
+      "on": "2026-10-18",
+      "url": [
+        "/services/corporate-event-videographer-fort-lauderdale",
+        "/es/videografo-para-eventos-corporativos-fort-lauderdale",
+        "/services/networking-event-videographer-miami",
+        "/es/videografo-para-eventos-de-networking-miami"
+      ],
+      "orderedBy": "Gonzalo (in-session 2026-10-18, following 9-hour corporate event and networking shoot)",
+      "kind": "demand-backed corporate and networking event service pairs",
+      "demandEvidence": "Physical base in Fort Lauderdale (Broward 33301) with Broward County Convention Center and local hotel venues had zero Fort Lauderdale corporate event coverage (/services/corporate-event-videographer-miami existed with no FTL twin). Networking event videographer directly serves real capability proven yesterday (9-hour continuous shoot, attendee roving stick-mic interviews, and mixer aftermovie). Google autocomplete 2026-10-18: 'corporate event videographer fort lauderdale', 'event videography broward', 'networking event videographer miami', 'business mixer videographer', 'videografo para eventos corporativos fort lauderdale', 'videografo para eventos de networking miami'.",
+      "note": "4 URLs = one demand-wave allowance. Vault: client-esteban-media/wiki/esteban-comprehensive-seo-geo-gap-audit-2026-10-18.md.",
+      "followUpDate": "2026-11-18",
+      "followUp": "Check GSC impressions and indexed status for all 4 URLs on 2026-11-01 and 2026-11-18. If zero impressions after 30 days, verify sitemap discovery and internal link graph."
     }
   ]
 }

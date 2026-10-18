@@ -113,6 +113,8 @@ export const sitemapRoutes = [
   { path: "/services/jewelry-product-photography-miami", priority: 0.85 },
   { path: "/services/fitness-gym-video-marketing-miami", priority: 0.85 },
   { path: "/services/corporate-event-videographer-miami", priority: 0.85 },
+  { path: "/services/corporate-event-videographer-fort-lauderdale", priority: 0.85 },
+  { path: "/services/networking-event-videographer-miami", priority: 0.85 },
   { path: "/services/automotive-video-marketing-miami", priority: 0.85 },
   { path: "/services/hotel-hospitality-video-production-miami", priority: 0.85 },
   { path: "/services/video-podcast-editing-service-miami", priority: 0.85 },

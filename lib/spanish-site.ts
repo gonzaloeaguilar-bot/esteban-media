@@ -44,6 +44,12 @@ import {
   CORPORATE_EVENT_ES_DESTINATIONS,
   CORPORATE_EVENT_ES_DISCLOSURE,
   CORPORATE_EVENT_ES_SECTIONS,
+  CORPORATE_EVENT_FTL_ES_DESTINATIONS,
+  CORPORATE_EVENT_FTL_ES_DISCLOSURE,
+  CORPORATE_EVENT_FTL_ES_SECTIONS,
+  NETWORKING_EVENT_ES_DESTINATIONS,
+  NETWORKING_EVENT_ES_DISCLOSURE,
+  NETWORKING_EVENT_ES_SECTIONS,
   HOTEL_ES_DESTINATIONS,
   HOTEL_ES_DISCLOSURE,
   HOTEL_ES_SECTIONS,
@@ -2560,6 +2566,98 @@ export const spanishNichePages: SpanishNichePage[] = [
     ],
   },
   {
+    slug: "videografo-para-eventos-corporativos-fort-lauderdale",
+    title: "Videógrafo para eventos corporativos en Fort Lauderdale",
+    metadataTitle: "Video Eventos Fort Lauderdale",
+    description:
+      "Grabación y edición de video para eventos corporativos, conferencias y exposiciones en Fort Lauderdale y Broward.",
+    eyebrow: "Eventos Corporativos Fort Lauderdale",
+    h1: "Videografía y edición para conferencias y eventos en Fort Lauderdale.",
+    lead:
+      "Cobertura profesional en video para convenciones, reuniones empresariales y conferencias en Fort Lauderdale y el Condado de Broward.",
+    keyword: "video de eventos corporativos en Fort Lauderdale",
+    location: "Fort Lauderdale / Broward",
+    availability: "confirmed",
+    icon: Camera,
+    bestFor: [
+      "Empresas y organizaciones que realizan conferencias o convenciones en Broward.",
+      "Marcas que necesitan un video resumen profesional (aftermovie) de su evento.",
+    ],
+    scopingQuestions: [
+      "¿El evento se realiza en un hotel, centro de convenciones o espacio privado?",
+      "¿Cuántas horas de cobertura continua se requieren en el programa?",
+    ],
+    projectFit:
+      "Cobertura ágil y profesional coordinada con la agenda de tu evento en Fort Lauderdale.",
+    updated: "2026-10-18",
+    sections: CORPORATE_EVENT_FTL_ES_SECTIONS,
+    sectionsDisclosure: CORPORATE_EVENT_FTL_ES_DISCLOSURE,
+    sectionsDestinations: CORPORATE_EVENT_FTL_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿El servicio en Fort Lauderdale incluye costos adicionales de traslado?",
+        answer:
+          "No. Esteban tiene su base en Fort Lauderdale, por lo que las locaciones en el Centro de Convenciones de Broward, Las Olas y hoteles de la zona no tienen recargos de viaje.",
+      },
+      {
+        question: "¿Cómo se capturan las entrevistas espontáneas durante el networking?",
+        answer:
+          "Se utiliza una cámara ligera en mano con micrófono direccional tipo bastón o solapa inalámbrico, permitiendo interactuar con los asistentes de forma rápida y natural.",
+      },
+      {
+        question: "¿Es posible filmar una conferencia durante 8 a 10 horas seguidas?",
+        answer:
+          "Sí. La cobertura de jornada completa opera con rotación continua de baterías y doble tarjeta de memoria en cámara para asegurar grabación ininterrumpida de ponencias y actividades.",
+      },
+    ],
+  },
+  {
+    slug: "videografo-para-eventos-de-networking-miami",
+    title: "Videógrafo para eventos de networking en Miami",
+    metadataTitle: "Video Networking Miami",
+    description:
+      "Grabación de video y entrevistas para encuentros de networking, cócteles de negocios y mixers corporativos en Miami.",
+    eyebrow: "Eventos de Networking Miami",
+    h1: "Video para eventos de networking y cócteles de negocios en Miami.",
+    lead:
+      "Captura de ambiente, entrevistas breves a participantes y videos resumen para mixers empresariales y conferencias en Miami.",
+    keyword: "videógrafo para eventos de networking en Miami",
+    location: "Miami-Dade / Broward / Remoto",
+    availability: "confirmed",
+    icon: Handshake,
+    bestFor: [
+      "Organizadores de mixers de negocios, encuentros de fundadores y cócteles corporativos.",
+      "Empresas que desean reels dinámicos con testimonios espontáneos de asistentes.",
+    ],
+    scopingQuestions: [
+      "¿El espacio cuenta con música de fondo o zona silenciosa para entrevistas?",
+      "¿Deseas un resumen general o cápsulas individuales de testimonios para redes?",
+    ],
+    projectFit:
+      "Grabación dinámica y cercana sin interrumpir las conversaciones entre invitados.",
+    updated: "2026-10-18",
+    sections: NETWORKING_EVENT_ES_SECTIONS,
+    sectionsDisclosure: NETWORKING_EVENT_ES_DISCLOSURE,
+    sectionsDestinations: NETWORKING_EVENT_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Qué formato de video funciona mejor para un evento de networking?",
+        answer:
+          "Un video resumen dinámico de 60 a 90 segundos para LinkedIn y la web, complementado con 2 a 3 clips verticales breves con testimonios de asistentes para Instagram y TikTok.",
+      },
+      {
+        question: "¿Cómo se asegura audio claro con el ruido del salón y música ambiente?",
+        answer:
+          "Se utiliza un micrófono de mano dinámico o solapas inalámbricas colocadas muy cerca del ponente, lo que aísla la voz y mantiene el murmullo ambiental como energía positiva.",
+      },
+      {
+        question: "¿Se pueden filmar entrevistas con patrocinadores y asistentes destacados?",
+        answer:
+          "Sí. Se coordinan preguntas cortas previamente con la organización para capturar impresiones puntuales de 30 a 45 segundos durante los descansos y cócteles.",
+      },
+    ],
+  },
+  {
     slug: "marketing-de-video-automotriz-miami",
     title: "Marketing de video automotriz en Miami",
     metadataTitle: "Video Automotriz Miami",
@@ -5023,6 +5121,26 @@ const languageAlternatesRaw: Record<string, Record<string, string>> = {
     "en-US": "/services/food-and-places-creator-video-editing-miami",
     "es-US": "/es/edicion-de-video-para-creadores-de-comida-y-lugares-miami",
     "x-default": "/services/food-and-places-creator-video-editing-miami",
+  },
+  "/services/corporate-event-videographer-fort-lauderdale": {
+    "en-US": "/services/corporate-event-videographer-fort-lauderdale",
+    "es-US": "/es/videografo-para-eventos-corporativos-fort-lauderdale",
+    "x-default": "/services/corporate-event-videographer-fort-lauderdale",
+  },
+  "/es/videografo-para-eventos-corporativos-fort-lauderdale": {
+    "en-US": "/services/corporate-event-videographer-fort-lauderdale",
+    "es-US": "/es/videografo-para-eventos-corporativos-fort-lauderdale",
+    "x-default": "/services/corporate-event-videographer-fort-lauderdale",
+  },
+  "/services/networking-event-videographer-miami": {
+    "en-US": "/services/networking-event-videographer-miami",
+    "es-US": "/es/videografo-para-eventos-de-networking-miami",
+    "x-default": "/services/networking-event-videographer-miami",
+  },
+  "/es/videografo-para-eventos-de-networking-miami": {
+    "en-US": "/services/networking-event-videographer-miami",
+    "es-US": "/es/videografo-para-eventos-de-networking-miami",
+    "x-default": "/services/networking-event-videographer-miami",
   },
   ...nicheBatch20261006,
   ...nicheBatch20261006Hreflang,

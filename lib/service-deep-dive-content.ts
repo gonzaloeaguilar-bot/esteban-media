@@ -225,6 +225,99 @@ export const CORPORATE_EVENT_DEEP_DIVE: DeepDive = {
       ],
 };
 
+export const CORPORATE_EVENT_FTL_DEEP_DIVE: DeepDive = {
+  id: "corporate-event-ftl-details",
+  title: "How much does corporate event videography cost in Fort Lauderdale?",
+  destinations: "Editing and on-location ranges in Broward, all-day conference logistics, roving attendee interviews, and urgent delivery.",
+  sections: [
+    {
+      heading: "How much does event videography cost in Fort Lauderdale?",
+      paragraphs: [
+        `Event videography in Fort Lauderdale is priced in two parts: time on location, ${filmingHourlyText("en")} (the hourly filming minimum), and editing. For corporate conferences, summits or trade shows, the corporate editing range is ${usd(PRICING_BANDS.corporate.baseMin)}–${usd(PRICING_BANDS.corporate.baseMax)}, representing an indicative editing-led freelancer band with introductory adjustments applied rather than a fixed production package. If your internal crew or another team recorded the footage at the Broward County Convention Center or a local resort, share the raw media and target delivery schedule for an exact quote.`,
+        "A short social recap, an executive keynote, and a full conference summary demand distinct editing choices. Specify your key moments, whether audience dialogue or stage questions must be kept intact, and where the final deliverables will be published. The volume and condition of the raw source files are evaluated during scoping. Filming and post-production can be scoped together, with concrete deliverables confirmed for your event.",
+      ],
+    },
+    {
+      heading: "How should you budget for filming at the venue?",
+      paragraphs: [
+        `[Local Presence](/pricing/local-presence) starts from ${localPresenceFrom} per production day. The separate half-day capture add-on has an indicative range of ${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)} on the same discounted freelancer basis. These are different ways to scope work; do not add them together or assume either covers the entire event without checking the proposal. Full-crew production companies use a different model.`,
+        "Send the venue, schedule, access arrangements, and the parts of the event that must be recorded. Explain whether speeches, audience reactions, interviews, or venue details are priorities. If activities overlap, flag that before coverage is agreed. Ask the quote to identify filming, sound requirements, editing, final versions, and any separately priced needs. An event date and a package starting price alone cannot establish the coverage or availability for your specific booking.",
+      ],
+    },
+    {
+      heading: "How does an urgent delivery request change the estimate?",
+      paragraphs: [
+        `The calculator applies an express multiplier of ${EXPRESS_MULTIPLIER} to its estimate when express delivery is selected. That is a budgeting adjustment, not a guaranteed delivery window or confirmation that an urgent request can be accepted. Tell Esteban the date you need the finished video and why that date matters before making plans around a fast edit.`,
+        "Separate the event date from the requested publication date. Identify whether you need a recap first, a complete presentation, or different versions for different audiences, and name the person who can approve the work. Delayed assets or feedback can affect the schedule you are trying to arrange. Use the [budget calculator](/calculator) to compare the indicative options, then request written confirmation through [contact](/contact). The agreed scope should state the timing and review expectations for your actual event.",
+      ],
+    },
+    {
+      heading: "What does a published event film tell you before hiring?",
+      paragraphs: [
+        "The [Diana & Jack project](/portfolio/diana-jack) is a wedding film shot in Boston, Massachusetts. The published credits name Esteban as videographer and editor, with a full film and a highlight trailer. This is relevant event work to review, but it is not a Broward corporate-event case study and does not establish a current event price, venue relationship, or identical package for another client.",
+        "Use it to discuss how you want the day represented and whether you need both an extended film and a shorter piece. Share the moments that matter most, the audience, and any restrictions on filming or publishing. Then compare the proposed coverage and finished files against your request. A useful decision combines a relevant example with a written scope; the example alone cannot confirm availability, turnaround, or the total cost of your event.",
+      ],
+    },
+    {
+      heading: "How are roving attendee interviews and stick-mic soundbites captured during live networking?",
+      paragraphs: [
+        "Capturing attendee soundbites during an active corporate mixer requires moving with the room rather than pulling participants into an artificial set. A single videographer uses a lightweight handheld rig with a directional stick microphone or unobtrusive wireless transmitter, allowing quick approaches between conversations without disrupting the flow of the event.",
+        "The interview prompt is kept to two concise questions focused on the day's takeaways or industry perspective, keeping soundbites under forty-five seconds for easier social clipping. Background conference murmur adds energy rather than distraction when microphones are held close and gain levels are managed manually. Organisers provide a short shot list of priority attendees or sponsors, but the most engaging reels often come from spontaneous peer discussions captured right on the networking floor.",
+      ],
+    },
+    {
+      heading: "What logistics are required for full-day (8 to 10-hour) event and conference filming?",
+      paragraphs: [
+        "Continuous all-day coverage demands strict battery, media, and heat management so cameras never miss an unscripted moment. A typical nine-hour corporate take uses dual high-capacity media cards recording simultaneous backups, paired with rotating rechargeable batteries kept on continuous charge cycles at a secure media table.",
+        "Planning also accounts for lighting changes as daytime conferences transition into evening networking mixers or waterfront yacht dinners. Fast prime lenses handle dimmed indoor banquet halls without bulky light stands that block guest traffic. The filming schedule prioritises keynote presentations and award remarks first, leaving dedicated blocks for roving attendee interactions, sponsor signage b-roll, and venue atmosphere. Coordinating key milestone times with the event director ensures the camera is positioned at the right stage or entrance well before each transition starts.",
+      ],
+    },
+  ],
+};
+
+export const NETWORKING_EVENT_DEEP_DIVE: DeepDive = {
+  id: "networking-event-details",
+  title: "How much does networking event videography cost, and how are recaps produced?",
+  destinations: "Editing and filming ranges, roving attendee interviews, audio setups for crowded mixers, and full-day event logistics.",
+  sections: [
+    {
+      heading: "How much does networking event videography cost in Miami?",
+      paragraphs: [
+        `Videography for business networking mixers and corporate socials in Miami is scoped across two components: filming on location, ${filmingHourlyText("en")}, and post-production editing. The corporate editing baseline is ${usd(PRICING_BANDS.corporate.baseMin)}–${usd(PRICING_BANDS.corporate.baseMax)}, covering color grading, sound leveling, and fast-paced social recap assembly. If you only need raw footage transferred directly to your internal marketing team after the mixer concludes, coverage is billed purely on filming hours with no editing markups.`,
+        "Mixer recaps usually produce a ninety-second horizontal highlight for LinkedIn and websites, accompanied by vertical thirty-second clips spotlighting attendee interactions or sponsor mentions. Clearly outline whether sponsor banners, keynote remarks, or roving guest testimonials are top priorities before arriving on site. Both filming hours and final clipping deliveries are scoped in advance, ensuring the coverage matches your event schedule.",
+      ],
+    },
+    {
+      heading: "How should you budget for filming at the venue?",
+      paragraphs: [
+        `[Local Presence](/pricing/local-presence) starts from ${localPresenceFrom} per production day. The separate half-day capture add-on has an indicative range of ${usd(PRICING_BANDS["on-location"].baseMin)}–${usd(PRICING_BANDS["on-location"].baseMax)} on the same discounted freelancer basis. These are different ways to scope work; do not add them together or assume either covers the entire event without checking the proposal. Full-crew production companies use a different model.`,
+        "Send the venue, schedule, access arrangements, and the parts of the event that must be recorded. Explain whether speeches, audience reactions, interviews, or venue details are priorities. If activities overlap, flag that before coverage is agreed. Ask the quote to identify filming, sound requirements, editing, final versions, and any separately priced needs. An event date and a package starting price alone cannot establish the coverage or availability for your specific booking.",
+      ],
+    },
+    {
+      heading: "How are roving attendee interviews and stick-mic soundbites captured during live networking?",
+      paragraphs: [
+        "Capturing attendee soundbites during an active corporate mixer requires moving with the room rather than pulling participants into an artificial set. A single videographer uses a lightweight handheld rig with a directional stick microphone or unobtrusive wireless transmitter, allowing quick approaches between conversations without disrupting the flow of the event.",
+        "The interview prompt is kept to two concise questions focused on the day's takeaways or industry perspective, keeping soundbites under forty-five seconds for easier social clipping. Background conference murmur adds energy rather than distraction when microphones are held close and gain levels are managed manually. Organisers provide a short shot list of priority attendees or sponsors, but the most engaging reels often come from spontaneous peer discussions captured right on the networking floor.",
+      ],
+    },
+    {
+      heading: "What audio setups work in crowded trade show and conference halls?",
+      paragraphs: [
+        "A cavernous hall with hundreds of people talking creates an ambient roar that overwhelms a camera microphone. The practical fix is close mic placement: a handheld dynamic microphone with a tight pickup pattern for quick attendee soundbites, and a wireless lavalier clipped to the speaker lapel for formal presentations or panel discussions.",
+        "Relying on ambient hall sound makes spoken remarks difficult to understand once the room fills up. When speeches happen on an amplified stage, requesting an audio line out from the venue soundboard captures clean board audio directly into the recorder. That board track is then synchronized with the room microphone during editing, preserving both clear speech and the natural energy of the live audience.",
+      ],
+    },
+    {
+      heading: "What logistics are required for full-day (8 to 10-hour) event and conference filming?",
+      paragraphs: [
+        "Continuous all-day coverage demands strict battery, media, and heat management so cameras never miss an unscripted moment. A typical nine-hour corporate take uses dual high-capacity media cards recording simultaneous backups, paired with rotating rechargeable batteries kept on continuous charge cycles at a secure media table.",
+        "Planning also accounts for lighting changes as daytime conferences transition into evening networking mixers or waterfront yacht dinners. Fast prime lenses handle dimmed indoor banquet halls without bulky light stands that block guest traffic. The filming schedule prioritises keynote presentations and award remarks first, leaving dedicated blocks for roving attendee interactions, sponsor signage b-roll, and venue atmosphere. Coordinating key milestone times with the event director ensures the camera is positioned at the right stage or entrance well before each transition starts.",
+      ],
+    },
+  ],
+};
+
 // Fitness & beauty cost answers (2026-10-07). Google's AI Overview for "how much
 // does a gym promo video cost in miami" cites small-studio cost pages; these
 // pages answer it with the figures in lib/pricing.ts and nothing else. The

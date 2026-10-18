@@ -1416,6 +1416,50 @@ export const PORTED_SERVICE_FAQS: Readonly<Record<string, readonly ServiceFaq[]>
         "Yes. Full takes are reviewed to identify strong conversational hooks, which are then formatted into 9:16 vertical reels with synchronized on-screen captions for LinkedIn and Instagram.",
     },
   ],
+  "/services/corporate-event-videographer-fort-lauderdale": [
+    {
+      question: "What is the typical turnaround time for a corporate event video in Fort Lauderdale?",
+      answer:
+        "Turnaround depends on the delivery scope confirmed before the event. A short social recap or highlight reel is typically delivered within three to five business days following the shoot. Full multi-camera recordings of keynote sessions or multi-day conventions require additional editing and audio synchronization time, with deadlines agreed in the written proposal.",
+    },
+    {
+      question: "How are roving attendee interviews captured during conference networking?",
+      answer:
+        "A single videographer moves across the mixer floor with a handheld camera and a directional stick microphone or wireless clip-on, conducting brief thirty-second interviews with attendees and speakers without requiring bulky lighting setups.",
+    },
+    {
+      question: "Can full-day conferences (8 to 10 hours) be filmed continuously?",
+      answer:
+        "Yes. Full-day coverage utilizes dual-slot media cards for simultaneous recording backups, rotating rechargeable battery stations, and scheduled coverage pauses between main keynote presentations.",
+    },
+    {
+      question: "Does event coverage in Fort Lauderdale include travel fees?",
+      answer:
+        "Esteban is based locally in Fort Lauderdale (Broward County), so local venues such as the Broward County Convention Center, downtown hotels, and beachside resorts incur no travel surcharges.",
+    },
+  ],
+  "/services/networking-event-videographer-miami": [
+    {
+      question: "What style of video works best for business networking mixers?",
+      answer:
+        "A sixty to ninety-second dynamic recap video set to licensed upbeat music, combined with two to three vertical short-form reels spotlighting attendee soundbites and sponsor mentions, delivers the strongest engagement on LinkedIn and Instagram.",
+    },
+    {
+      question: "How do you capture clear audio in noisy cocktail mixers and crowded halls?",
+      answer:
+        "A directional dynamic handheld microphone held close to the speaker isolates voices while preserving ambient crowd energy, avoiding muffled room acoustics.",
+    },
+    {
+      question: "Can attendee interviews and sponsor testimonials be filmed on site?",
+      answer:
+        "Yes. Roving attendee soundbites are captured on the networking floor using prompt questions agreed upon with the organizer beforehand, keeping answers concise and punchy.",
+    },
+    {
+      question: "Can the footage be edited for both vertical and horizontal platforms?",
+      answer:
+        "Yes. Framing is planned during filming so key interactions fit vertical 9:16 safe zones for Reels while horizontal 16:9 cuts are preserved for YouTube, websites, and presentation decks.",
+    },
+  ],
 };
 
 /** Hand-written pages left without a FAQ because no published fact supports one. */

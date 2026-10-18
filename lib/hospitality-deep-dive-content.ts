@@ -231,3 +231,50 @@ export const CORPORATE_EVENT_ES_SECTIONS: readonly SpanishNicheSection[] = [
     ],
   },
 ];
+
+export const CORPORATE_EVENT_FTL_ES_DISCLOSURE = "¿Cuánto cuesta un videógrafo de eventos en Fort Lauderdale?";
+export const CORPORATE_EVENT_FTL_ES_DESTINATIONS = "Tarifas de filmación en Broward, resúmenes corporativos y logística para jornadas completas.";
+
+export const CORPORATE_EVENT_FTL_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cuánto cuesta la videografía para eventos corporativos en Fort Lauderdale?",
+    paragraphs: [
+      `Para eventos corporativos, conferencias y convenciones en Fort Lauderdale o el Centro de Convenciones del Condado de Broward, la tarifa se estructura en dos partes: el tiempo de rodaje en sitio, desde $80 por hora, y la edición posterior. La banda corporativa de edición de la calculadora se sitúa entre $400 y $750 por proyecto, representando una tarifa de profesional independiente con descuento de introducción en lugar de una cotización cerrada. Si tu equipo interno ya grabó el evento y solo necesitas postproducción, comparte el metraje para cotizar únicamente el montaje.`,
+      "La edición varía según los entregables requeridos: un video resumen ágil para LinkedIn, grabaciones íntegras de conferencias magistrales o cápsulas verticales de testimonios. Especifica qué ponencias son prioritarias, los requisitos de audio y las fechas límite de entrega. La grabación presencial y la postproducción se coordinan de forma integral según el cronograma de tu evento en Fort Lauderdale.",
+    ],
+  },
+  CORPORATE_EVENT_ES_SECTIONS[1],
+  CORPORATE_EVENT_ES_SECTIONS[2],
+  {
+    heading: "¿Qué evento grabado en video puedes ver en el portafolio?",
+    paragraphs: [
+      "El evento grabado y publicado es [Diana & Jack](/es/portafolio/diana-jack): una película de boda en Boston, Massachusetts, donde Esteban fue el videógrafo y el editor. Entregó una película completa de 20 minutos del día y un tráiler de resumen de alrededor de minuto y medio. No es un evento corporativo en Broward, pero muestra cómo se cubre un día completo y cómo se condensa en una pieza corta.",
+      "Para material de marca grabado en locación, mira [Bar Door Monkey Miami](/es/portafolio/bar-door-monkey), un spot promocional para redes de un restaurante, con videografía y edición de Esteban. Si tu evento es una conferencia o un lanzamiento en Fort Lauderdale, pide una llamada para revisar el programa del día antes de cerrar el alcance; esa conversación define qué se graba y qué no.",
+    ],
+  },
+  CORPORATE_EVENT_ES_SECTIONS[4],
+  CORPORATE_EVENT_ES_SECTIONS[5],
+];
+
+export const NETWORKING_EVENT_ES_DISCLOSURE = "¿Cuánto cuesta la videografía para eventos de networking en Miami?";
+export const NETWORKING_EVENT_ES_DESTINATIONS = "Tarifas de grabación, entrevistas breves con asistentes y video resumen para redes.";
+
+export const NETWORKING_EVENT_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cuánto cuesta la videografía para eventos de networking y cócteles en Miami?",
+    paragraphs: [
+      `La videografía para encuentros de networking, mixers empresariales y reuniones de negocios en Miami se cotiza en función de dos elementos: las horas de rodaje presencial, desde $80 por hora, y la edición del resumen en video. La banda corporativa de edición se sitúa entre $400 y $750 por proyecto para entregar un aftermovie dinámico con corrección de color y mezcla de audio. Si la empresa cuenta con editores internos y solo requiere la filmación y entrega de archivos brutos, el servicio se limita a las horas de cobertura.`,
+      "Los eventos de networking suelen demandar una pieza principal de sesenta a noventa segundos en formato horizontal y clips cortos verticales con entrevistas espontáneas a los asistentes. Definir si se priorizan los patrocinadores, los discursos de bienvenida o las interacciones entre invitados permite optimizar el tiempo de cámara durante el evento.",
+    ],
+  },
+  CORPORATE_EVENT_ES_SECTIONS[1],
+  CORPORATE_EVENT_ES_SECTIONS[4],
+  {
+    heading: "¿Qué equipo de sonido se utiliza en salones concurridos y cócteles de networking?",
+    paragraphs: [
+      "El murmullo constante y la música de fondo en salones de hotel o terrazas dificultan el registro con micrófonos integrados en cámara. Para obtener testimonios nítidos se utiliza un micrófono de mano dinámico tipo bastón o transmisores inalámbricos de solapa colocados a corta distancia del ponente, aislando la voz mientras se conserva la energía del entorno.",
+      "El operador utiliza auriculares cerrados para verificar la ganancia de audio en tiempo real y evitar saturaciones inesperadas durante los brindis o intervenciones espontáneas. Este control técnico asegura que las declaraciones de los asistentes queden limpias y listas para clips de redes sociales sin requerir complejas restauraciones en postproducción.",
+    ],
+  },
+  CORPORATE_EVENT_ES_SECTIONS[5],
+];

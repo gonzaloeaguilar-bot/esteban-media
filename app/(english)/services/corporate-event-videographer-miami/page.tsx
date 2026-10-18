@@ -166,6 +166,25 @@ export default function CorporateEventVideographerMiamiPage() {
         faqs={PORTED_SERVICE_FAQS["/services/corporate-event-videographer-miami"]}
         sectionId="ported-faq"
       />
+      <section className="py-8 border-t border-[#ddd4c8]">
+        <Container size="xl">
+          <p className="text-xs font-medium uppercase text-[#5a6066]">Related Event Services</p>
+          <div className="mt-4 grid gap-4 sm:grid-cols-2">
+            <Link
+              href="/services/corporate-event-videographer-fort-lauderdale"
+              className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-4 text-sm font-medium text-[#252a2d] hover:border-[#e85d3e] hover:text-[#9f3c27]"
+            >
+              Corporate Event Videographer Fort Lauderdale &rarr;
+            </Link>
+            <Link
+              href="/services/networking-event-videographer-miami"
+              className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-4 text-sm font-medium text-[#252a2d] hover:border-[#e85d3e] hover:text-[#9f3c27]"
+            >
+              Networking Event Videographer Miami &rarr;
+            </Link>
+          </div>
+        </Container>
+      </section>
       <EventSeasonLinks locale="en" path="/services/corporate-event-videographer-miami" />
       <NicheAnswers path="/services/corporate-event-videographer-miami" fact={String(metadata.description ?? "")} />
     </main>
