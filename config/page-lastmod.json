@@ -811,6 +811,10 @@
   "date": "2026-10-14",
   "hash": "23cb6c2d3fa3246d"
  },
+ "/es/videografo-de-bodas-miami": {
+  "date": "2026-10-18",
+  "hash": "8b447427980e8e5d"
+ },
  "/es/videografo-en-fort-lauderdale": {
   "date": "2026-10-14",
   "hash": "822555f11cf084b0"
@@ -819,13 +823,25 @@
   "date": "2026-10-15",
   "hash": "f6139724aa772a06"
  },
+ "/es/videografo-para-conferencias-fort-lauderdale": {
+  "date": "2026-10-18",
+  "hash": "2ec306c3e6a79b8d"
+ },
+ "/es/videografo-para-entrevistas-ejecutivas-miami": {
+  "date": "2026-10-18",
+  "hash": "0eb949f55a2a32d1"
+ },
  "/es/videografo-para-eventos-corporativos-fort-lauderdale": {
   "date": "2026-10-18",
   "hash": "b4be6ab1f332ab7f"
  },
  "/es/videografo-para-eventos-de-networking-miami": {
   "date": "2026-10-18",
-  "hash": "dd52cafbcc71b0f2"
+  "hash": "2937ad9b16630569"
+ },
+ "/es/videografo-para-vlogs-miami": {
+  "date": "2026-10-18",
+  "hash": "086cd0f9d870cd32"
  },
  "/events": {
   "date": "2026-10-14",
@@ -1207,6 +1223,10 @@
   "date": "2026-10-13",
   "hash": "09a037731b8e0b17"
  },
+ "/services/conference-videographer-fort-lauderdale": {
+  "date": "2026-10-18",
+  "hash": "a00a6e93d353bc56"
+ },
  "/services/content-creator-video-editing-miami": {
   "date": "2026-10-14",
   "hash": "f425ba635fe07529"
@@ -1275,6 +1295,10 @@
   "date": "2026-10-13",
   "hash": "1c6ec7836aa9b2a2"
  },
+ "/services/executive-interview-videographer-miami": {
+  "date": "2026-10-18",
+  "hash": "f4cec66aa47bc7d6"
+ },
  "/services/fitness-gym-video-marketing-miami": {
   "date": "2026-10-13",
   "hash": "7fdeca4af6307ed2"
@@ -1341,7 +1365,7 @@
  },
  "/services/networking-event-videographer-miami": {
   "date": "2026-10-18",
-  "hash": "94db59a8e230e82c"
+  "hash": "6e484c161d4917e7"
  },
  "/services/nightlife-event-video-editing-miami": {
   "date": "2026-10-13",
@@ -1471,6 +1495,10 @@
   "date": "2026-10-15",
   "hash": "3eccf96db74e9a2a"
  },
+ "/services/vlog-videographer-miami": {
+  "date": "2026-10-18",
+  "hash": "f30c0f29d8d38af9"
+ },
  "/services/wealth-management-video-production-miami": {
   "date": "2026-10-13",
   "hash": "7132e3b37d931053"
@@ -1486,6 +1514,10 @@
  "/services/wedding-videographer-fort-lauderdale": {
   "date": "2026-10-14",
   "hash": "848badc11a546d7b"
+ },
+ "/services/wedding-videographer-miami": {
+  "date": "2026-10-18",
+  "hash": "dd4331aef4c52623"
  },
  "/services/wellness-spa-video-marketing-miami": {
   "date": "2026-10-13",

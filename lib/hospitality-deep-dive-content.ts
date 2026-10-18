@@ -278,3 +278,84 @@ export const NETWORKING_EVENT_ES_SECTIONS: readonly SpanishNicheSection[] = [
   },
   CORPORATE_EVENT_ES_SECTIONS[5],
 ];
+
+export const WEDDING_MIAMI_ES_DISCLOSURE = "¿Cuánto cuesta la videografía de bodas en Miami?";
+export const WEDDING_MIAMI_ES_DESTINATIONS = "Cotización detallada, logística de sedes en Miami y momentos esenciales del día.";
+
+export const WEDDING_MIAMI_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Qué detalles debe enviar una pareja para cotizar un video de bodas en Miami?",
+    paragraphs: [
+      "Las parejas deben enviar cuatro detalles esenciales: la fecha del evento, los lugares de la celebración, las horas de cobertura necesarias y los formatos de entrega deseados. La fecha confirma la disponibilidad de Esteban en el calendario. Especificar si la ceremonia y la recepción se realizan en el mismo lugar o en ubicaciones separadas permite planificar los tiempos de traslado y la logística entre sedes.",
+      "Indicar si buscan una película cinematográfica de ocho a diez minutos, un avance corto para redes sociales o la grabación completa de la ceremonia define el alcance del proyecto. Con estos datos, Esteban prepara una cotización detallada por escrito sin costos imprevistos antes de reservar la fecha.",
+    ],
+  },
+  {
+    heading: "¿Cuáles momentos de la boda deben incluirse en la lista de tomas?",
+    paragraphs: [
+      "Una lista de tomas completa incluye tanto los momentos centrales del itinerario como las interacciones familiares espontáneas. Los instantes clave abarcan la preparación, el primer vistazo, la entrada del cortejo, los votos y el intercambio de anillos, el primer beso y la salida de los novios. En la recepción, la prioridad se enfoca en el primer baile, las tradiciones familiares, los brindis y la fiesta.",
+      "Compartir el cronograma del organizador y los nombres de las personas más cercanas garantiza filmar a los familiares clave. Para otras celebraciones familiares, visite [video para quinceañeras en Miami](/es/video-para-quinceaneras-miami); para cortes breves para redes, explore [edición de videos cortos](/es/edicion-de-videos-cortos).",
+    ],
+  },
+];
+
+export const VLOG_VIDEOGRAPHER_ES_DISCLOSURE = "¿Cómo se filman y editan vlogs profesionales en Miami?";
+export const VLOG_VIDEOGRAPHER_ES_DESTINATIONS = "Rodaje en exteriores, estabilización para creadores y estructura de episodios.";
+
+export const VLOG_VIDEOGRAPHER_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo funciona el rodaje de vlogs en exteriores en Miami?",
+    paragraphs: [
+      "La filmación de vlogs en exteriores asigna al creador un camarógrafo dedicado que registra tomas en movimiento, segmentos de diálogo y material de apoyo por toda la ciudad. Esteban utiliza una cámara Sony Alpha 7 IV sobre estabilizador con micrófonos inalámbricos de alta calidad. Esta configuración ligera permite desplazarse con fluidez por restaurantes, eventos y zonas concurridas como Wynwood o Brickell sin cargar trípodes pesados.",
+      "El sonido permanece limpio incluso en entornos concurrido gracias a la microfonía directa. El servicio se puede contratar por horas a $80 la hora o en jornadas completas de grabación, proporcionando semanas de contenido listo para publicar.",
+    ],
+  },
+  {
+    heading: "¿Qué estructura de edición transforma grabaciones de vlog en episodios atractivos?",
+    paragraphs: [
+      "La edición de vlogs se basa en el ritmo narrativo más que en una secuencia cronológica pasiva. Cada episodio comienza con un gancho dinámico extraído del momento más interesante del día durante los primeros segundos para captar la atención de la audiencia. Se eliminan pausas innecesarias, vacilaciones y movimientos bruscos de cámara para mantener la agilidad del video.",
+      "Se incorpora música licenciada y textos informativos que resaltan ubicaciones clave. Esteban entrega episodios en formato horizontal para YouTube y adaptaciones verticales para Instagram Reels y TikTok. Para creadores que graban su propio material, consulte [edición de video para creadores de contenido](/es/edicion-de-video-para-creadores-de-contenido-miami).",
+    ],
+  },
+];
+
+export const CONFERENCE_VIDEOGRAPHER_ES_DISCLOSURE = "¿Cómo se planifica la videografía de conferencias en Fort Lauderdale?";
+export const CONFERENCE_VIDEOGRAPHER_ES_DESTINATIONS = "Grabación continua de sesiones, respaldo de audio y entregables para patrocinadores.";
+
+export const CONFERENCE_VIDEOGRAPHER_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo se filman conferencias de múltiples sesiones sin interrupciones de audio o batería?",
+    paragraphs: [
+      "Las conferencias de varias sesiones en Fort Lauderdale requieren redundancia técnica y una gestión rigurosa de energía. Esteban cubre convenciones en centros como el Greater Fort Lauderdale / Broward County Convention Center utilizando cámaras Sony Alpha que graban simultáneamente en dos tarjetas de memoria para respaldar cada toma. El audio se conecta directamente a la consola principal del auditorio y se complementa con micrófonos de solapa inalámbricos en el podio.",
+      "Un sistema de carga continua garantiza baterías frescas durante los recesos sin interrumpir ninguna presentación. Para eventos corporativos de todo el día, consulte [videógrafo para eventos corporativos en Fort Lauderdale](/es/videografo-para-eventos-corporativos-fort-lauderdale).",
+    ],
+  },
+  {
+    heading: "¿Cuáles entregas de video son las más útiles para asistentes y patrocinadores?",
+    paragraphs: [
+      "Los organizadores de conferencias suelen necesitar tres formatos principales tras finalizar el evento. En primer lugar, un video resumen de sesenta a noventa segundos que muestre conferencistas, el público interactuando y los logotipos de los patrocinadores, ideal para promocionar la próxima edición. En segundo lugar, grabaciones completas de paneles y conferencias magistrales para plataformas educativas o miembros que no asistieron presencialmente.",
+      "En tercer lugar, fragmentos verticales con declaraciones destacadas de los expositores para publicar en LinkedIn y redes sociales. Para reuniones y cócteles de networking, revise [videógrafo para eventos de networking en Miami](/es/videografo-para-eventos-de-networking-miami); para jornadas completas, consulte el [plan Presencia Local](/es/precios/presencia-local).",
+    ],
+  },
+];
+
+export const EXECUTIVE_INTERVIEW_ES_DISCLOSURE = "¿Cómo se organiza la filmación de entrevistas ejecutivas en Miami?";
+export const EXECUTIVE_INTERVIEW_ES_DESTINATIONS = "Preparación de portavoces, iluminación en oficinas y montaje corporativo.";
+
+export const EXECUTIVE_INTERVIEW_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo debe preparar una empresa a un ejecutivo para una entrevista en video en Miami?",
+    paragraphs: [
+      "La preparación de un ejecutivo para una entrevista filmada comienza con la selección del espacio y la claridad de los mensajes. Es recomendable elegir una oficina o sala de conferencias tranquila con poco ruido ambiental e iluminación natural indirecta, evitando salas acristaladas que generen eco acústico. En lugar de memorizar un guion rígido, conviene estructurar de tres a cinco ideas clave para que las respuestas suenen naturales y seguras.",
+      "Esteban instala iluminación suave y micrófonos inalámbricos de solapa para asegurar una calidad de voz impecable. Las preguntas se formulan fuera de cámara para que el directivo converse de manera fluida. Para testimonios de clientes, consulte [guía de guiones testimoniales](/es/guias/guion-de-video-testimonial-para-clientes).",
+    ],
+  },
+  {
+    heading: "¿Qué proceso de edición convierte declaraciones ejecutivas en piezas de marca?",
+    paragraphs: [
+      "La edición depura las grabaciones sin alterar el mensaje ni la naturalidad del expositor. Esteban recorta titubeos, silencios prolongados y repeticiones involuntarias manteniendo el ritmo profesional de la conversación. Se insertan tomas de apoyo del entorno laboral, demostraciones de producto o diapositivas para dinamizar los cortes visuales.",
+      "El ajuste de color equilibra tonos de piel bajo luces de oficina, mientras gráficos limpios muestran el nombre y cargo del ejecutivo. Las entregas incluyen videos horizontales para páginas web y versiones verticales para perfiles profesionales en LinkedIn. Para edición de grabaciones existentes, consulte [servicio de edición de entrevistas](/services/interview-video-editing-service); para tarifas, visite [precios](/es/precios).",
+    ],
+  },
+];
+
