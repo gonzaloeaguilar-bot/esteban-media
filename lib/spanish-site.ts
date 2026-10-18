@@ -2542,6 +2542,21 @@ export const spanishNichePages: SpanishNichePage[] = [
         answer:
           "No se promete. La calculadora aplica un multiplicador exprés a la entrega rápida, pero el plazo real se confirma antes del evento según el material y la agenda. Indica la fecha de publicación que necesitas al pedir la cotización.",
       },
+      {
+        question: "¿Cómo se graban las entrevistas y testimonios durante el networking?",
+        answer:
+          "Se utiliza una cámara ligera en mano con micrófono direccional de bastón o solapa inalámbrico, acercándose a los participantes de forma fluida para registrar respuestas cortas y naturales sin interrumpir la dinámica del evento.",
+      },
+      {
+        question: "¿Es posible grabar una conferencia o evento corporativo durante 8 a 10 horas continuas?",
+        answer:
+          "Sí. La cobertura de jornada completa opera con rotación continua de baterías y doble tarjeta de memoria en cámara para asegurar grabación ininterrumpida de ponencias, paneles y actividades vespertinas.",
+      },
+      {
+        question: "¿La grabación puede incluir traslados a cenas o actividades en yate?",
+        answer:
+          "Sí. Eventos corporativos con itinerarios múltiples que pasan del centro de convenciones a cócteles o recorridos en embarcaciones se coordinan dentro del plan de rodaje con equipo adaptado para tomas nocturnas.",
+      },
     ],
   },
   {

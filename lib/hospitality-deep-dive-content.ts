@@ -216,4 +216,18 @@ export const CORPORATE_EVENT_ES_SECTIONS: readonly SpanishNicheSection[] = [
       "Para material de marca grabado en locación en Miami, mira [Bar Door Monkey Miami](/es/portafolio/bar-door-monkey), un spot promocional para redes de un restaurante, con videografía y edición de Esteban. Si tu evento es una conferencia o un lanzamiento, pide una llamada para revisar el programa del día antes de cerrar el alcance; esa conversación define qué se graba y qué no.",
     ],
   },
+  {
+    heading: "¿Cómo se graban entrevistas dinámicas y testimonios de asistentes en eventos de networking?",
+    paragraphs: [
+      "Capturar testimonios de asistentes durante un evento corporativo de networking requiere moverse con naturalidad entre la gente sin interrumpir las conversaciones. Se utiliza una cámara ligera en mano con micrófono direccional tipo bastón o transmisor inalámbrico discreto, permitiendo acercarse a participantes dispuestos a compartir sus impresiones sin armar un set invasivo.",
+      "Las preguntas se limitan a dos preguntas puntuales sobre las conclusiones de la jornada o aprendizajes clave, logrando respuestas de treinta a cuarenta segundos ideales para reels en redes sociales. El murmullo del salón aporta energía positiva en lugar de estorbar cuando el micrófono se coloca a corta distancia y los niveles se controlan de forma continua. La organización puede facilitar una lista de asistentes prioritarios o patrocinadores, pero el material más espontáneo suele surgir en las áreas de interacción abierta.",
+    ],
+  },
+  {
+    heading: "¿Qué logística requiere una jornada de grabación continua de 8 a 10 horas en conferencias?",
+    paragraphs: [
+      "La cobertura continua durante toda una jornada exige una gestión estricta de energía, tarjetas de memoria y temperatura para no perder momentos clave. En una jornada corporativa de nueve horas se graban respaldos simultáneos en tarjetas de alta velocidad, rotando baterías recargables en estaciones de carga seguras para mantener la cámara lista en cada sesión.",
+      "La logística también prevé los cambios de iluminación cuando las conferencias de día pasan a cócteles de networking al atardecer o cenas en embarcaciones y yates. Los lentes luminosos permiten registrar salones con poca luz sin instalar trípodes voluminosos que obstaculicen el paso de los asistentes. La agenda prioriza las presentaciones principales y premiaciones, reservando bloques para entrevistas itinerantes, tomas de ambiente y presencia de marca. Coordinar los momentos clave con el equipo organizador asegura estar en el punto exacto antes de cada intervención.",
+    ],
+  },
 ];

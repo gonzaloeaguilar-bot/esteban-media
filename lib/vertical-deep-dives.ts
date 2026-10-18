@@ -152,6 +152,13 @@ export const YACHT_CHARTER_DEEP_DIVE: DeepDive = {
         `Then say where each video goes: a calm horizontal edit for a broker listing or website, vertical cuts for Reels and TikTok, or both from the same footage. Add the date the listing or season goes live; the calculator applies a ${express} multiplier when express delivery is selected, and a fast delivery is confirmed in writing first. Pricing, availability and capacity stay the operator's to state.`,
       ],
     },
+    {
+      heading: "How is an on-location corporate or private event shoot filmed on a yacht?",
+      paragraphs: [
+        "Filming on an active vessel requires gear and movement suited to narrow companionways, rocking decks, and changing marine light. Instead of heavy tripod setups that take up guest room, on-location yacht shoots use compact handheld gimbal stabilisation and fast prime lenses capable of capturing cocktail mixers, seated dinners, and twilight cruising without bulky lights.",
+        "Audio is recorded with dedicated wind protection on directional or wireless microphones to shield dialogue and toasts against ocean breezes and engine hum. The shooting schedule maps key moments to the vessel's navigation plan: arrival at the dock, open-water cruising during golden hour, and interior socializing under cabin lighting. Organisers specify beforehand which deck areas and staterooms are open for filming so guests and crew experience unobtrusive documentation from boarding to dock return.",
+      ],
+    },
   ],
 };
 
@@ -253,6 +260,13 @@ export const YACHT_CHARTER_ES_SECTIONS: readonly SpanishNicheSection[] = [
     paragraphs: [
       "Una carpeta y una lista corta. La carpeta lleva los archivos originales, no clips descargados de Instagram, porque una descarga de redes ya perdió el detalle del casco blanco y los brillos del agua. La lista nombra la embarcación, las especificaciones que se pueden publicar, la marina de salida, el contacto de reservas y cualquier toma que no se deba usar.",
       `Luego indica a dónde va cada video: una edición horizontal tranquila para el anuncio del bróker o el sitio web, cortes verticales para Reels y TikTok, o ambos con el mismo material. Agrega la fecha de lanzamiento; la calculadora aplica un multiplicador de ${expressEs} cuando eliges entrega exprés, y una entrega rápida se confirma primero por escrito. Precios y disponibilidad los publica el operador.`,
+    ],
+  },
+  {
+    heading: "¿Cómo se filma un evento corporativo o reunión privada a bordo de un yate?",
+    paragraphs: [
+      "Grabar en una embarcación activa exige un equipo adaptado a pasillos estrechos, cubiertas en movimiento y luz cambiante sobre el agua. En lugar de trípodes pesados que estorban el paso de los invitados, la grabación en yates utiliza estabilizadores de mano compactos y lentes luminosos para registrar cócteles, cenas y navegación al atardecer sin instalar luces aparatosas.",
+      "El sonido se captura con protección contra viento en micrófonos direccionales e inalámbricos para proteger las palabras y brindis frente a la brisa marina y el motor. El plan de rodaje se coordina con la ruta de navegación: la bienvenida en el muelle, la travesía en aguas abiertas durante la puesta de sol y la convivencia en cabina. La empresa organizadora define con antelación las áreas de cubierta y camarotes habilitados para filmar, asegurando una cobertura respetuosa desde el embarque hasta el regreso al puerto.",
     ],
   },
 ];

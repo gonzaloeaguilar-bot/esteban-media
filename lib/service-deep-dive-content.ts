@@ -175,7 +175,7 @@ const localPresenceFrom = localPresence.kind === "from" ? usd(localPresence.amou
 export const CORPORATE_EVENT_DEEP_DIVE: DeepDive = {
   id: "corporate-event-details",
   title: "How much does event video cost, and what should a quote include?",
-  destinations: "Editing and on-location ranges, urgent delivery, and a published event film to compare.",
+  destinations: "Editing and on-location ranges, all-day coverage logistics, roving attendee interviews, urgent delivery, and a published event film.",
   sections: [
         {
           heading: "How much does event videography cost in Miami?",
@@ -206,6 +206,20 @@ export const CORPORATE_EVENT_DEEP_DIVE: DeepDive = {
           paragraphs: [
             "The [Diana & Jack project](/portfolio/diana-jack) is a wedding film shot in Boston, Massachusetts. The published credits name Esteban as videographer and editor, with a full film and a highlight trailer. This is relevant event work to review, but it is not a Miami corporate-event case study and does not establish a current event price, venue relationship, or identical package for another client.",
             "Use it to discuss how you want the day represented and whether you need both an extended film and a shorter piece. Share the moments that matter most, the audience, and any restrictions on filming or publishing. Then compare the proposed coverage and finished files against your request. A useful decision combines a relevant example with a written scope; the example alone cannot confirm availability, turnaround, or the total cost of your event.",
+          ],
+        },
+        {
+          heading: "How are roving attendee interviews and stick-mic soundbites captured during live networking?",
+          paragraphs: [
+            "Capturing attendee soundbites during an active corporate mixer requires moving with the room rather than pulling participants into an artificial set. A single videographer uses a lightweight handheld rig with a directional stick microphone or unobtrusive wireless transmitter, allowing quick approaches between conversations without disrupting the flow of the event.",
+            "The interview prompt is kept to two concise questions focused on the day's takeaways or industry perspective, keeping soundbites under forty-five seconds for easier social clipping. Background conference murmur adds energy rather than distraction when microphones are held close and gain levels are managed manually. Organisers provide a short shot list of priority attendees or sponsors, but the most engaging reels often come from spontaneous peer discussions captured right on the networking floor.",
+          ],
+        },
+        {
+          heading: "What logistics are required for full-day (8 to 10-hour) event and conference filming?",
+          paragraphs: [
+            "Continuous all-day coverage demands strict battery, media, and heat management so cameras never miss an unscripted moment. A typical nine-hour corporate take uses dual high-capacity media cards recording simultaneous backups, paired with rotating rechargeable batteries kept on continuous charge cycles at a secure media table.",
+            "Planning also accounts for lighting changes as daytime conferences transition into evening networking mixers or waterfront yacht dinners. Fast prime lenses handle dimmed indoor banquet halls without bulky light stands that block guest traffic. The filming schedule prioritises keynote presentations and award remarks first, leaving dedicated blocks for roving attendee interactions, sponsor signage b-roll, and venue atmosphere. Coordinating key milestone times with the event director ensures the camera is positioned at the right stage or entrance well before each transition starts.",
           ],
         },
       ],
