@@ -791,6 +791,10 @@
   "date": "2026-10-18",
   "hash": "f73e1b6ea10fd611"
  },
+ "/es/video-de-progreso-de-construccion-miami": {
+  "date": "2026-10-18",
+  "hash": "8ce13f8db25a5c7a"
+ },
  "/es/video-inmobiliario-coral-gables": {
   "date": "2026-10-11",
   "hash": "aa95d91b20b416cc"
@@ -815,6 +819,10 @@
   "date": "2026-10-18",
   "hash": "61be3479d3e2a446"
  },
+ "/es/video-para-marcas-de-moda-miami": {
+  "date": "2026-10-18",
+  "hash": "8d7b58c19e64758b"
+ },
  "/es/video-para-pequenos-negocios-pembroke-pines": {
   "date": "2026-10-14",
   "hash": "7b6758063736ae4f"
@@ -827,9 +835,17 @@
   "date": "2026-10-14",
   "hash": "1607acf52a844c27"
  },
+ "/es/video-para-relojes-de-lujo-miami": {
+  "date": "2026-10-18",
+  "hash": "25027e70c282bfab"
+ },
  "/es/video-para-restaurantes-miami": {
   "date": "2026-10-14",
   "hash": "ad9433c0aacb0fd5"
+ },
+ "/es/video-para-venta-de-barcos-fort-lauderdale": {
+  "date": "2026-10-18",
+  "hash": "af82f0b8075e84b9"
  },
  "/es/video-para-yates-y-hospitalidad-fort-lauderdale": {
   "date": "2026-10-14",
@@ -1291,6 +1307,10 @@
   "date": "2026-10-18",
   "hash": "2377dc943ece7666"
  },
+ "/services/boat-listing-video-fort-lauderdale": {
+  "date": "2026-10-18",
+  "hash": "9b9c6a01f68e6242"
+ },
  "/services/boutique-hotel-video-editing-miami": {
   "date": "2026-10-13",
   "hash": "6823faf5b5d2610b"
@@ -1310,6 +1330,10 @@
  "/services/conference-videographer-fort-lauderdale": {
   "date": "2026-10-18",
   "hash": "a00a6e93d353bc56"
+ },
+ "/services/construction-progress-video-miami": {
+  "date": "2026-10-18",
+  "hash": "c1f10dbb9816ba96"
  },
  "/services/content-creator-video-editing-miami": {
   "date": "2026-10-14",
@@ -1391,6 +1415,10 @@
   "date": "2026-10-18",
   "hash": "78a7669024fc4641"
  },
+ "/services/fashion-lookbook-video-miami": {
+  "date": "2026-10-18",
+  "hash": "0ef3d9168c523c00"
+ },
  "/services/fine-dining-restaurant-videographer-miami": {
   "date": "2026-10-18",
   "hash": "f63b48c5f526688d"
@@ -1447,6 +1475,10 @@
   "date": "2026-10-18",
   "hash": "422d73eabea89084"
  },
+ "/services/luxury-watch-video-miami": {
+  "date": "2026-10-18",
+  "hash": "426ae54b11f7d2c4"
+ },
  "/services/mastermind-event-videographer-miami": {
   "date": "2026-10-18",
   "hash": "608befee2aeb8aa3"
@@ -1461,7 +1493,7 @@
  },
  "/services/mixology-cocktail-videographer-miami": {
   "date": "2026-10-18",
-  "hash": "641b233152a369c9"
+  "hash": "e9134bf66e6e1570"
  },
  "/services/mortgage-broker-video-marketing-miami": {
   "date": "2026-10-14",

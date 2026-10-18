@@ -194,8 +194,8 @@ describe("every English service page has WebPage + BreadcrumbList (fix 3)", () =
 describe("ported FAQs on hand-written English service pages (owner decision)", () => {
   const entries = Object.entries(depthContent.PORTED_SERVICE_FAQS);
 
-  it("covers 59 pages and skips only the two with no factual source", () => {
-    expect(entries).toHaveLength(59);
+  it("covers 63 pages and skips only the two with no factual source", () => {
+    expect(entries).toHaveLength(63);
     for (const skipped of depthContent.FAQ_SKIPPED_NO_FACTUAL_SOURCE) {
       expect(depthContent.PORTED_SERVICE_FAQS[skipped]).toBeUndefined();
     }

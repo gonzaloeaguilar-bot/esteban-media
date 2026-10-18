@@ -18,9 +18,12 @@ import {
   Camera,
   Car,
   Church,
+  Hammer,
   Handshake,
   Heart,
   Home,
+  Sparkles,
+  Watch,
   Languages,
   Landmark,
   Laptop,
@@ -111,6 +114,18 @@ import {
   MIXOLOGY_COCKTAIL_ES_DESTINATIONS,
   MIXOLOGY_COCKTAIL_ES_DISCLOSURE,
   MIXOLOGY_COCKTAIL_ES_SECTIONS,
+  CONSTRUCTION_PROGRESS_ES_DESTINATIONS,
+  CONSTRUCTION_PROGRESS_ES_DISCLOSURE,
+  CONSTRUCTION_PROGRESS_ES_SECTIONS,
+  FASHION_LOOKBOOK_ES_DESTINATIONS,
+  FASHION_LOOKBOOK_ES_DISCLOSURE,
+  FASHION_LOOKBOOK_ES_SECTIONS,
+  BOAT_LISTING_ES_DESTINATIONS,
+  BOAT_LISTING_ES_DISCLOSURE,
+  BOAT_LISTING_ES_SECTIONS,
+  LUXURY_WATCH_ES_DESTINATIONS,
+  LUXURY_WATCH_ES_DISCLOSURE,
+  LUXURY_WATCH_ES_SECTIONS,
   HOTEL_ES_DESTINATIONS,
   HOTEL_ES_DISCLOSURE,
   HOTEL_ES_SECTIONS,
@@ -3635,6 +3650,190 @@ export const spanishNichePages: SpanishNichePage[] = [
         question: "¿Se pueden entregar videos de recetas y cartas de temporada para redes?",
         answer:
           "Sí. Se entregan cortes verticales de diez a quince segundos con textos gráficos de ingredientes y ritmo musical dinámico para Instagram Reels y TikTok.",
+      },
+    ],
+  },
+  {
+    slug: "video-de-progreso-de-construccion-miami",
+    title: "Video de progreso de construcción en Miami",
+    metadataTitle: "Video Progreso Construcción Miami",
+    description:
+      "Documentación audiovisual de avance de obra y video para constructores de casas de lujo en Miami, Coral Gables y Fort Lauderdale.",
+    eyebrow: "Construcción / Casas de Lujo",
+    h1: "Video de avance de obra y construcción residencial en Miami.",
+    lead:
+      "Documentación mensual de hitos constructivos, recorridos de cimentación y acabados arquitectónicos para desarrolladores y clientes remotos.",
+    keyword: "video de progreso de construcción en Miami",
+    location: "Coral Gables / Fort Lauderdale / Miami",
+    availability: "confirmed",
+    icon: Hammer,
+    bestFor: [
+      "Constructores de residencias personalizadas y contratistas generales en South Florida.",
+      "Desarrolladores inmobiliarios y propietarios con supervisión remota de obras.",
+    ],
+    scopingQuestions: [
+      "¿En qué fase constructiva se encuentra el proyecto (cimentación, estructura o acabados interiores)?",
+      "¿Requieren informes periódicos para bancos o material audiovisual para portafolio comercial?",
+    ],
+    projectFit:
+      "Recorridos técnicos con ópticas gran angulares de alta rectitud y luminarias de obra para captar detalles antes de cerrar tabiquería.",
+    updated: "2026-10-18",
+    sections: CONSTRUCTION_PROGRESS_ES_SECTIONS,
+    sectionsDisclosure: CONSTRUCTION_PROGRESS_ES_DISCLOSURE,
+    sectionsDestinations: CONSTRUCTION_PROGRESS_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Con qué frecuencia conviene filmar el avance en una obra de construcción?",
+        answer:
+          "Las visitas mensuales o quincenales programadas tras el vaciado de losas, la finalización de estructuras o instalaciones técnicas proporcionan una documentación continua y exhaustiva.",
+      },
+      {
+        question: "¿Se pueden añadir etiquetas de estancias y fechas de hitos en pantalla?",
+        answer:
+          "Sí. Mediante rótulos limpios se indican fechas exactas, nombres de áreas y fases terminadas para facilitar el archivo y la presentación ante clientes o bancos.",
+      },
+      {
+        question: "¿Cómo se gestiona la seguridad y la actividad de los oficios durante el rodaje?",
+        answer:
+          "La filmación se realiza con equipo de protección reglamentario y en coordinación con el jefe de obra, grabando sin entorpecer a operarios ni detener los trabajos en curso.",
+      },
+    ],
+  },
+  {
+    slug: "video-para-marcas-de-moda-miami",
+    title: "Video para marcas de moda y trajes de baño en Miami",
+    metadataTitle: "Video Marcas de Moda Miami",
+    description:
+      "Producción audiovisual de lookbooks de moda y trajes de baño en Miami Beach y Wynwood con cinematografía de movimiento y piezas para redes.",
+    eyebrow: "Moda / Trajes de Baño",
+    h1: "Video cinematográfico de lookbook y moda en Miami Beach.",
+    lead:
+      "Cinematografía ágil para colecciones de diseño, iluminación natural en exteriores de playa y piezas verticales rítmicas para campañas de lanzamiento.",
+    keyword: "video para marcas de moda en Miami",
+    location: "Miami Beach / Wynwood / Design District",
+    availability: "confirmed",
+    icon: Sparkles,
+    bestFor: [
+      "Firmas de moda, colecciones de trajes de baño y diseñadores independientes en Miami.",
+      "Agencias de marketing de moda y marcas de moda resort que lanzan campañas de temporada.",
+    ],
+    scopingQuestions: [
+      "¿El rodaje se realizará en localizaciones de playa en Miami Beach, zonas urbanas o en estudio?",
+      "¿Cuántos conjuntos y modelos formarán parte de la sesión de lookbook?",
+    ],
+    projectFit:
+      "Cámaras cinematográficas con ópticas de focal fija y reflectores suaves para captar la caída de las telas y el tono natural de la piel.",
+    updated: "2026-10-18",
+    sections: FASHION_LOOKBOOK_ES_SECTIONS,
+    sectionsDisclosure: FASHION_LOOKBOOK_ES_DISCLOSURE,
+    sectionsDestinations: FASHION_LOOKBOOK_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Qué localizaciones en Miami se recomiendan para rodajes de moda y baño?",
+        answer:
+          "Las playas de Miami Beach, los murales de Wynwood, jardines tropicales y estudios con luz natural ofrecen escenarios idóneos para colecciones de verano y ropa resort.",
+      },
+      {
+        question: "¿Cuántos conjuntos o cambios de ropa se pueden registrar por jornada?",
+        answer:
+          "Con una planificación coordinada se filman habitualmente entre cuatro y seis estilismos en media jornada, y de ocho a doce conjuntos en una jornada completa.",
+      },
+      {
+        question: "¿Se incluyen versiones verticales optimizadas para campañas publicitarias?",
+        answer:
+          "Sí. Se entrega una película horizontal de la colección acompañada de versiones verticales 9:16 con cortes rítmicos para Instagram Reels, TikTok y anuncios en Meta.",
+      },
+    ],
+  },
+  {
+    slug: "video-para-venta-de-barcos-fort-lauderdale",
+    title: "Video para venta de barcos y corretaje náutico en Fort Lauderdale",
+    metadataTitle: "Video Venta Barcos Fort Lauderdale",
+    description:
+      "Producción de recorridos en video para venta de embarcaciones y corretaje náutico en Fort Lauderdale con cobertura de puente de mando y camarotes.",
+    eyebrow: "Venta de Barcos / Brokerage",
+    h1: "Video para venta de barcos y corretaje náutico en Fort Lauderdale.",
+    lead:
+      "Recorridos estabilizados en muelle, navegación de interiores de cabina y demostración de consolas de mando para plataformas de venta internacional.",
+    keyword: "video para venta de barcos en Fort Lauderdale",
+    location: "Fort Lauderdale / Dania Beach / Palm Beach",
+    availability: "confirmed",
+    icon: Anchor,
+    bestFor: [
+      "Corredurías de yates, brokers independientes y distribuidores náuticos en Fort Lauderdale.",
+      "Propietarios particulares que comercializan embarcaciones de recreo o pesca de alta gama.",
+    ],
+    scopingQuestions: [
+      "¿La embarcación se encuentra atracada en marina, varadero o muelle privado?",
+      "¿Desea incluir narración del broker o fichas técnicas en pantalla con especificaciones completas?",
+    ],
+    projectFit:
+      "Estabilización de precisión y lentes de ángulo recto para recorrer camarotes y puestos de gobierno sin deformación angular.",
+    updated: "2026-10-18",
+    sections: BOAT_LISTING_ES_SECTIONS,
+    sectionsDisclosure: BOAT_LISTING_ES_DISCLOSURE,
+    sectionsDestinations: BOAT_LISTING_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Qué duración debe tener un video de recorrido para venta de una embarcación?",
+        answer:
+          "Los recorridos de venta suelen durar entre tres y cinco minutos, tiempo suficiente para detallar cubierta, puesto de gobierno, camarotes y sala de máquinas sin perder dinamismo.",
+      },
+      {
+        question: "¿Se pueden indicar horas de motor, eslora y especificaciones en pantalla?",
+        answer:
+          "Sí. Mediante títulos nítidos se muestran eslora, manga, calado, capacidad de combustible, velocidad de crucero y horas de motor junto a cada secuencia.",
+      },
+      {
+        question: "¿En qué plataformas se pueden utilizar los videos de barcos producidos?",
+        answer:
+          "Los videos se entregan listos para canales de YouTube náuticos, portales de corretaje naval y avances verticales para Instagram y TikTok.",
+      },
+    ],
+  },
+  {
+    slug: "video-para-relojes-de-lujo-miami",
+    title: "Video para relojes de lujo y joyería en Miami",
+    metadataTitle: "Video Relojes de Lujo Miami",
+    description:
+      "Cinematografía macro comercial para relojes de alta gama y piezas de colección en el Diamond District de Miami con iluminación libre de reflejos.",
+    eyebrow: "Relojes de Lujo / Joyería",
+    h1: "Cinematografía macro para relojes de alta gama en Miami.",
+    lead:
+      "Tomas macro de 1:1 que destacan biseles, esferas artesanales y movimiento mecánico sin reflejos para coleccionistas y tiendas de alta relojería.",
+    keyword: "video para relojes de lujo en Miami",
+    location: "Downtown Miami / Coral Gables / Palm Beach",
+    availability: "confirmed",
+    icon: Watch,
+    bestFor: [
+      "Joyerías, tiendas de alta relojería y comerciantes de relojes de segunda mano en Downtown Miami.",
+      "Casas de subastas y coleccionistas que comercializan piezas exclusivas en canales internacionales.",
+    ],
+    scopingQuestions: [
+      "¿Las piezas a filmar incluyen cronógrafos, fondos vistos o mecanismos con complicaciones especiales?",
+      "¿La sesión se desarrollará en el estudio o en las instalaciones seguras de la joyería?",
+    ],
+    projectFit:
+      "Ópticas macro de relación 1:1 e iluminación polarizada de estudio para captar detalles milimétricos y el movimiento de agujas sin brillos parásitos.",
+    updated: "2026-10-18",
+    sections: LUXURY_WATCH_ES_SECTIONS,
+    sectionsDisclosure: LUXURY_WATCH_ES_DISCLOSURE,
+    sectionsDestinations: LUXURY_WATCH_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo revelan las ópticas macro los detalles microscópicos de los relojes de lujo?",
+        answer:
+          "Ópticas macro de escala 1:1 e iluminación difusa de estudio eliminan reflejos del zafiro y muestran acabados de la esfera, textura de índices y el movimiento del escape.",
+      },
+      {
+        question: "¿Se puede registrar el sonido del mecanismo y los clics del bisel giratorio?",
+        answer:
+          "Sí. Micrófonos de alta sensibilidad captan la cuerda manual, el chasquido del bisel de cerámica y el latido del volante para transmitir una experiencia táctil y mecánica.",
+      },
+      {
+        question: "¿Qué formatos audiovisuales se entregan para comercialización de relojería?",
+        answer:
+          "Los profesionales reciben videos horizontales de noventa segundos para fichas de venta y avances verticales de quince segundos con datos de referencia para redes sociales.",
       },
     ],
   },
