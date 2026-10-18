@@ -2,8 +2,8 @@
   "status": "demand_gated",
   "effectiveDate": "2026-08-28",
   "baselineRevisedOn": "2026-10-18",
-  "approvedSitemapUrlCount": 418,
-  "approvedSitemapUrlSetSha256": "d3f9816e02fc4715a55938aaebd6401f5d0380809096706e36634b610e5890be",
+  "approvedSitemapUrlCount": 426,
+  "approvedSitemapUrlSetSha256": "56ffa8f079bcb769e3dfee19094a64eef4935b200358180c0ac3d9c67bd021dc",
   "allowedNewIndexableUrls": 4,
   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {
@@ -549,6 +549,25 @@
       "orderedBy": "Gonzalo (in-session 2026-10-18: explicit request 'use cto and cheap models using agents and build all of this')",
       "kind": "demand-backed niche expansions (wave 6: commercial real estate, luxury penthouse, fine dining, mixology)",
       "demandEvidence": "Demonstrated search demand and capability: Miami commercial real estate video (Class A office leasing and logistics warehouse walkthroughs; Homeowners proof), Miami luxury penthouse video tours (oceanfront sky residences and floor-to-ceiling glass exposure balancing; Diana & Jack proof), Miami fine dining restaurant videographer (Michelin-starred tasting menus and macro food cinematography; Bar Door Monkey proof), Miami mixology and craft cocktail videographer (high-speed 120fps slow-motion bar cinematography and kinetic social reels; Bar Door Monkey proof).",
+      "note": "EIGHT URLs = four bilingual pairs. Recorded as one owner-ordered expansion batch.",
+      "followUpDate": "2026-11-18",
+      "followUp": "Check GSC impressions, indexed status, and CTA clicks for all 8 URLs at 14 and 30 days."
+    },
+    {
+      "on": "2026-10-18",
+      "url": [
+        "/services/construction-progress-video-miami",
+        "/es/video-de-progreso-de-construccion-miami",
+        "/services/fashion-lookbook-video-miami",
+        "/es/video-para-marcas-de-moda-miami",
+        "/services/boat-listing-video-fort-lauderdale",
+        "/es/video-para-venta-de-barcos-fort-lauderdale",
+        "/services/luxury-watch-video-miami",
+        "/es/video-para-relojes-de-lujo-miami"
+      ],
+      "orderedBy": "Gonzalo (in-session 2026-10-18: explicit request 'use cto and cheap models using agents and build all of this')",
+      "kind": "demand-backed niche expansions (wave 7: construction progress, fashion lookbook, boat listing, luxury watch)",
+      "demandEvidence": "Demonstrated search demand and capability: Miami construction progress video (luxury custom home builders and milestone reporting; Homeowners proof), Miami fashion lookbook video (swimwear and resort apparel collections on Miami Beach; Diana & Jack proof), Fort Lauderdale boat listing video (marine brokerage sales walkthroughs and helm console reviews; superyacht charter proof), Miami luxury watch video (1:1 macro horology commercial video in Diamond District; Bar Door Monkey commercial proof).",
       "note": "EIGHT URLs = four bilingual pairs. Recorded as one owner-ordered expansion batch.",
       "followUpDate": "2026-11-18",
       "followUp": "Check GSC impressions, indexed status, and CTA clicks for all 8 URLs at 14 and 30 days."

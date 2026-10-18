@@ -65,6 +65,14 @@ export const pairedLanguageRoutes: Record<string, string> = {
     "/es/videografo-para-restaurantes-de-alta-cocina-miami",
   "/services/mixology-cocktail-videographer-miami":
     "/es/videografo-de-cocteleria-para-bares-miami",
+  "/services/construction-progress-video-miami":
+    "/es/video-de-progreso-de-construccion-miami",
+  "/services/fashion-lookbook-video-miami":
+    "/es/video-para-marcas-de-moda-miami",
+  "/services/boat-listing-video-fort-lauderdale":
+    "/es/video-para-venta-de-barcos-fort-lauderdale",
+  "/services/luxury-watch-video-miami":
+    "/es/video-para-relojes-de-lujo-miami",
   "/services/food-and-places-creator-video-editing-miami":
     "/es/edicion-de-video-para-creadores-de-comida-y-lugares-miami",
   "/services/restaurant-promo-video-editing-miami":

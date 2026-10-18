@@ -687,3 +687,75 @@ export const MIXOLOGY_COCKTAIL_ES_SECTIONS: readonly SpanishNicheSection[] = [
   },
 ];
 
+export const CONSTRUCTION_PROGRESS_ES_DISCLOSURE = "¿Cómo documentar el progreso de una obra en video en Miami?";
+export const CONSTRUCTION_PROGRESS_ES_DESTINATIONS = "Hitos estructurales, recorridos de cimentación, control de certificaciones bancarias y supervisión para propietarios.";
+
+export const CONSTRUCTION_PROGRESS_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo documenta el video de progreso de construcción el avance de obras en Miami?",
+    paragraphs: [
+      "Los constructores de viviendas de lujo, contratistas generales y desarrolladores residenciales en Coral Gables, Coconut Grove y Fort Lauderdale emplean documentación audiovisual recurrente para registrar hitos estructurales, supervisar oficios y mantener informados a propietarios e instituciones financieras. La construcción de residencias exclusivas atraviesa etapas clave —pilotaje de cimentación, vaciado de losas, refuerzo de vigas, instalaciones técnicas y carpintería a medida— que quedan cubiertas con rapidez tras paneles y acabados finales. Esteban realiza recorridos periódicos de obra utilizando cámaras de alta resistencia, ópticas gran angulares y luminarias portátiles para captar cada fase constructiva con total precisión dimensional. Estas grabaciones confirman la correcta ejecución de materiales, previenen contingencias técnicas y generan un archivo visual inmutable que protege legalmente a los constructores y brinda tranquilidad a inversionistas que residen fuera de Florida. Para estudios de arquitectura, consulte [video de arquitectura y diseño en Miami](/es/servicios/video-de-arquitectura-y-diseno-miami); para conocer opciones de contratación, explore [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué material audiovisual entregan los constructores a bancos y propietarios remotos?",
+    paragraphs: [
+      "Las entidades financieras y los propietarios de residencias personalizadas exigen evidencia visual fidedigna antes de autorizar desembolsos de fondos y certificados de avance de obra. Esteban coordina las jornadas de rodaje con los directores de obra y supervisores de campo para grabar sin interferir en los oficios en curso ni retrasar la actividad en la parcela. Los entregables comprenden un informe horizontal de cinco minutos con fecha, identificación de estancias y descripción de fases, acompañado de resúmenes verticales de sesenta segundos optimizados para Instagram y LinkedIn de la constructora. En postproducción se ajusta el color para reflejar la tonalidad real de maderas nobles y revestimientos, incorporando gráficos que señalan los hitos terminados. Este material satisface los estándares bancarios de control de proyectos y nutre el portafolio del constructor para captar nuevos encargos de alta gama. Para ver producciones residenciales publicadas, examine el [documental Homeowners](/es/portafolio/homeowners); para coordinar visitas periódicas a su obra, escríbanos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const FASHION_LOOKBOOK_ES_DISCLOSURE = "¿Cómo se graba un lookbook de moda y trajes de baño en Miami?";
+export const FASHION_LOOKBOOK_ES_DESTINATIONS = "Movimiento de tejidos, luz natural de costa, trailers de lanzamiento y piezas verticales para publicidad.";
+
+export const FASHION_LOOKBOOK_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo impulsa la producción de video lookbook a marcas de moda y trajes de baño en Miami?",
+    paragraphs: [
+      "Las firmas de moda, diseñadores de trajes de baño y marcas de ropa de playa en Miami Beach, Wynwood y Miami Design District utilizan el video de lookbook cinematográfico para mostrar la caída de los tejidos y el movimiento de las prendas con un dinamismo superior a la fotografía fija. La imagen estática enseña una silueta, pero el movimiento de cámara refleja la ligereza de vestidos de seda con la brisa costera, la elasticidad de prendas de baño en el agua y el ajuste de cortes de sastrería sobre modelos en movimiento. Esteban trabaja junto a directores de arte y estilistas empleando cámaras cinematográficas ligeras, ópticas luminosas y reflectores suaves que cuidan el tono natural de la piel bajo la luz de South Florida. Las tomas destacan bordados artesanales, cierres metálicos y la textura de cada tejido. Para producciones de hospitalidad y moda resort, consulte [producción de video para hoteles en Miami](/es/servicios/produccion-de-video-para-hoteles-miami); para conocer opciones de filmación, revise [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué piezas audiovisuales se entregan para lanzamientos de colección y publicidad digital?",
+    paragraphs: [
+      "La comercialización contemporánea de moda exige formatos versátiles diseñados para presentaciones de temporada, salones de venta mayorista y anuncios de conversión en plataformas digitales. Esteban proporciona un paquete de contenidos encabezado por un tráiler cinematográfico de sesenta segundos con música licenciada de tendencia que define la identidad de la colección. En postproducción se crean cápsulas verticales en proporción 9:16 optimizadas para Instagram Reels, TikTok y campañas de Meta Ads. Los cortes se estructuran con ritmo ágil, transiciones entre conjuntos y títulos sutiles que informan sobre nombres de prendas y composiciones textiles sin restar protagonismo al estilismo. Estas piezas audiovisuales permiten a diseñadores independientes y marcas consolidadas captar la atención de compradores internacionales y dinamizar sus ventas de comercio electrónico. Para ver nuestra narrativa visual en movimiento, examine la [película de evento Diana y Jack](/es/portafolio/diana-jack); para organizar una sesión en estudio o exteriores, contáctenos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const BOAT_LISTING_ES_DISCLOSURE = "¿Cómo se graba un video para venta de barcos en Fort Lauderdale?";
+export const BOAT_LISTING_ES_DESTINATIONS = "Recorridos en atraque, puente de mando, habitabilidad de camarotes y especificaciones para portales de venta.";
+
+export const BOAT_LISTING_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo aceleran los videos de recorrido náutico la venta de barcos en Fort Lauderdale?",
+    paragraphs: [
+      "Las corredurías de yates, distribuidores marinos y agentes de venta de embarcaciones en Fort Lauderdale, Dania Beach y Palm Beach emplean recorridos en video de alta definición para comercializar lanchas de consola central, yates de pesca deportiva y embarcaciones a motor ante compradores nacionales e internacionales. Adquirir una embarcación de recreo o de pesca exige examinar la distribución de cubierta, la instrumentación de navegación y la habitabilidad de camarotes y salones. Las fotografías convencionales suelen deformar espacios reducidos o no explicar la conexión entre áreas de popa y proa. Esteban realiza recorridos estabilizados en muelle con ópticas de ángulo amplio sin distorsión esférica, mostrando pasillos laterales, puente de mando, motorización fueraborda o intraborda y accesos a sala de máquinas. Estas producciones permiten a compradores interesados inspeccionar la embarcación en detalle antes de viajar a pruebas de navegación en mar abierto. Para videos de alquiler vacacional náutico, examine [marketing de video para superyates en Fort Lauderdale](/es/marketing-de-video-para-superyates-fort-lauderdale); para tarifas, visite [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué detalles técnicos y equipamiento náutico se deben incluir en el video de venta?",
+    paragraphs: [
+      "Los corredores de barcos y especialistas en corretaje náutico requieren videos diseñados para responder a consultas de compradores exigentes y peritos navales. Esteban planifica las grabaciones en marina o atraque privado aprovechando la mejor marea e iluminación natural para resaltar el brillo del gelcoat del casco y el estado de la teca de cubierta. Las tomas cubren pantallas multifunción de navegación, mandos de atraque tipo joystick, hélice de proa y tableros eléctricos. En postproducción se monta un recorrido explicativo de cinco minutos para YouTube con gráficos que especifican eslora, manga, calado, capacidad de combustible y horas de motor, acompañado de cápsulas verticales de treinta segundos para redes sociales. Micrófonos profesionales con protección contra viento aíslan las explicaciones del broker del sonido del oleaje en el muelle. Para revisar proyectos en el entorno náutico de South Florida, consulte [videógrafo de yates en Miami](/es/videografo-para-eventos-en-yates-miami); para agendar la filmación de un barco, contáctenos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const LUXURY_WATCH_ES_DISCLOSURE = "¿Cómo se filman relojes de lujo y alta relojería en Miami?";
+export const LUXURY_WATCH_ES_DESTINATIONS = "Ópticas macro 1:1, iluminación sin reflejos, acústica mecánica y videos de inspección para coleccionistas.";
+
+export const LUXURY_WATCH_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo destaca la cinematografía macro los relojes de lujo y alta relojería en Miami?",
+    paragraphs: [
+      "Las joyerías de prestigio, comerciantes de relojes de alta gama y casas de compraventa en el Diamond District de Downtown Miami, Coral Gables y Palm Beach utilizan cinematografía macro especializada para acreditar el estado de conservación, autenticidad y factura artesanal de piezas exclusivas ante coleccionistas. La alta relojería suiza —como cronógrafos mecánicos, calendarios perpetuos y mecanismos tourbillon— cuenta con componentes microscópicos que exigen ópticas de precisión. Esteban utiliza lentes macro de escala 1:1, control milimétrico de enfoque e iluminación de estudio difusa para eliminar brillos parásitos sobre cristales de zafiro y biseles de cerámica pulida. Tomas fluidas recorren agujas biseladas, esferas con guilloché y el segundero continuo con nitidez cristalina. Esta fidelidad visual proporciona tranquilidad a clientes que adquieren piezas de colección a distancia, confirmando la pureza de la esfera y el funcionamiento impecable de la caja. Para proyectos de joyería afines, consulte [edición de video de joyería de lujo en Miami](/es/servicios/edicion-de-video-de-joyeria-de-lujo-miami); para ver planes comerciales, revise [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué formatos audiovisuales utilizan las joyerías para comercializar relojes de colección?",
+    paragraphs: [
+      "La venta de piezas de alta relojería requiere generar confianza inmediata en canales digitales, mensajería privada con clientes VIP y redes de coleccionistas. Esteban elabora un paquete audiovisual pensado para tiendas y corredores de relojes exclusivos. La entrega principal es un video horizontal de noventa segundos con planos macro de la esfera, laterales de la caja, fondo visto con mecanismo oscilante y cierre del brazalete, acompañado de un diseño sonoro que resalta el chasquido del bisel y el latido del escape. Se entregan además piezas verticales de quince segundos para Instagram Reels y YouTube Shorts, con fichas en pantalla que indican número de referencia, diámetro, calibre y año de fabricación. Estos recursos facilitan la venta a distancia y previenen discrepancias sobre el estado del reloj antes del envío asegurado. Para conocer nuestra experiencia en filmación de producto y hospitalidad, revise el [video comercial de Bar Door Monkey](/es/portafolio/bar-door-monkey); para reservar una jornada de grabación de relojes, contáctenos en [contacto](/es/contacto).",
+    ],
+  },
+];
+

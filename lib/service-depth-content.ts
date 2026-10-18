@@ -1820,6 +1820,74 @@ export const PORTED_SERVICE_FAQS: Readonly<Record<string, readonly ServiceFaq[]>
         "Yes. Fast-paced ten-to-fifteen-second vertical cutdowns with on-screen ingredient typography and beat-synced sound design are optimized for Instagram Reels and TikTok.",
     },
   ],
+  "/services/construction-progress-video-miami": [
+    {
+      question: "How often should video progress updates be filmed on a construction site?",
+      answer:
+        "Monthly or bi-weekly walkthroughs timed around major milestones—such as slab pours, framing inspections, and mechanical rough-ins—provide optimal progress documentation.",
+    },
+    {
+      question: "Can on-screen callouts highlight completed milestones and room labels?",
+      answer:
+        "Yes. Architectural graphics and date stamps pinpoint specific structural areas, rooms, and completed inspection phases directly in the video.",
+    },
+    {
+      question: "How is construction site safety and access managed during filming?",
+      answer:
+        "Filming strictly adheres to OSHA job site safety requirements, wearing personal protective equipment and coordinating with the superintendent to avoid interrupting active trades.",
+    },
+  ],
+  "/services/fashion-lookbook-video-miami": [
+    {
+      question: "What locations in Miami are best for swimwear and fashion lookbook shoots?",
+      answer:
+        "Miami Beach oceanfront dunes, South Pointe Park, Wynwood art walls, and private studio spaces offer versatile backgrounds for seasonal fashion collections.",
+    },
+    {
+      question: "How many garment looks can be filmed during a half-day or full-day session?",
+      answer:
+        "Structured production schedules typically cover four to six complete garment looks during a half-day shoot and eight to twelve looks during a full-day production.",
+    },
+    {
+      question: "Are vertical social video cutdowns included for brand marketing campaigns?",
+      answer:
+        "Yes. Deliverables include horizontal master collection films alongside vertical 9:16 reels formatted with rhythmic cuts for Instagram Reels and TikTok ads.",
+    },
+  ],
+  "/services/boat-listing-video-fort-lauderdale": [
+    {
+      question: "How long should a yacht brokerage listing walkthrough video be?",
+      answer:
+        "Comprehensive vessel walkthroughs run between three and five minutes, providing thorough coverage of deck layouts, helm electronics, and cabin amenities.",
+    },
+    {
+      question: "Can engine hours, cruising speed, and vessel specs be displayed on screen?",
+      answer:
+        "Yes. Crisp lower-third graphics detail overall length, beam, draft, fuel capacity, cruising range, and engine hours directly alongside relevant footage.",
+    },
+    {
+      question: "Where can boat listing videos be hosted and published for maximum buyer reach?",
+      answer:
+        "Finished videos are formatted for YouTube, YachtWorld, brokerage listing portals, and vertical reels for Instagram and TikTok marine audiences.",
+    },
+  ],
+  "/services/luxury-watch-video-miami": [
+    {
+      question: "How do macro cinema lenses capture microscopic details of luxury watches?",
+      answer:
+        "True 1:1 macro optics and multi-angle diffuse studio lighting eliminate sapphire glare while revealing hand-finished movement chamfers, dial typography, and bezel facets.",
+    },
+    {
+      question: "Can the audible ticking and mechanical bezel clicks be recorded in the video?",
+      answer:
+        "Yes. Sensitive studio microphones capture the mechanical acoustics of winding stems, rotating ceramic bezels, and balance wheel frequencies for tactile immersion.",
+    },
+    {
+      question: "What video formats are provided for luxury watch dealers and e-commerce listings?",
+      answer:
+        "Dealers receive detailed ninety-second inspection videos for client presentations alongside fifteen-second vertical showcase clips with on-screen reference data for social channels.",
+    },
+  ],
 };
 
 /** Hand-written pages left without a FAQ because no published fact supports one. */
