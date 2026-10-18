@@ -188,8 +188,8 @@
   "hash": "53887a7c6d2d819d"
  },
  "/es/edicion-de-video-para-creadores-de-comida-y-lugares-miami": {
-  "date": "2026-10-11",
-  "hash": "1949d4295e382dad"
+  "date": "2026-10-18",
+  "hash": "2e330d5d6efe74c8"
  },
  "/es/edicion-de-video-para-creadores-de-contenido-miami": {
   "date": "2026-10-14",
@@ -819,6 +819,14 @@
   "date": "2026-10-15",
   "hash": "f6139724aa772a06"
  },
+ "/es/videografo-para-eventos-corporativos-fort-lauderdale": {
+  "date": "2026-10-18",
+  "hash": "b4be6ab1f332ab7f"
+ },
+ "/es/videografo-para-eventos-de-networking-miami": {
+  "date": "2026-10-18",
+  "hash": "dd52cafbcc71b0f2"
+ },
  "/events": {
   "date": "2026-10-14",
   "hash": "4cd774765157f095"
@@ -1215,9 +1223,13 @@
   "date": "2026-10-14",
   "hash": "699ab8811610b454"
  },
+ "/services/corporate-event-videographer-fort-lauderdale": {
+  "date": "2026-10-18",
+  "hash": "237b6cd7637ecffb"
+ },
  "/services/corporate-event-videographer-miami": {
   "date": "2026-10-18",
-  "hash": "b75b4bb6e3e918a0"
+  "hash": "1a14a3fa9bbc9e48"
  },
  "/services/corporate-training-video-editing-miami": {
   "date": "2026-10-13",
@@ -1297,7 +1309,7 @@
  },
  "/services/interview-video-editing-service": {
   "date": "2026-10-18",
-  "hash": "c617b25d4730730e"
+  "hash": "fb097164a2af1195"
  },
  "/services/jewelry-product-photography-miami": {
   "date": "2026-10-13",
@@ -1326,6 +1338,10 @@
  "/services/music-video-post-production-miami": {
   "date": "2026-10-13",
   "hash": "56460dd7f17ded83"
+ },
+ "/services/networking-event-videographer-miami": {
+  "date": "2026-10-18",
+  "hash": "94db59a8e230e82c"
  },
  "/services/nightlife-event-video-editing-miami": {
   "date": "2026-10-13",

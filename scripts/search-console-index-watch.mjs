@@ -137,6 +137,11 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/es/chatbot-con-ia-para-negocios",
   "https://estebanmorenomedia.com/services/landing-page-design",
   "https://estebanmorenomedia.com/es/landing-page-para-negocios",
+  // Corporate and networking event expansion (2026-10-18).
+  "https://estebanmorenomedia.com/services/corporate-event-videographer-fort-lauderdale",
+  "https://estebanmorenomedia.com/es/videografo-para-eventos-corporativos-fort-lauderdale",
+  "https://estebanmorenomedia.com/services/networking-event-videographer-miami",
+  "https://estebanmorenomedia.com/es/videografo-para-eventos-de-networking-miami",
   "https://estebanmorenomedia.com/es/videografo-de-bodas-fort-lauderdale",
   "https://estebanmorenomedia.com/services/videographer-miami",
   "https://estebanmorenomedia.com/guides/how-to-start-as-an-influencer",

@@ -53,8 +53,9 @@ describe("portfolio sitemap entries", () => {
     // +2 = wedding videographer pair (2026-10-14, owner fact: films weddings).
     // +4 = chatbot and landing-page pairs (2026-10-14, web line).
     // +3 = demand-map wave (2026-10-14): videographer Miami + influencer guide pair.
-    expect(entries).toHaveLength(372);
-    expect(new Set(urls)).toHaveLength(372);
+    // +4 = corporate and networking event pairs (2026-10-18): FTL corporate + Miami networking.
+    expect(entries).toHaveLength(376);
+    expect(new Set(urls)).toHaveLength(376);
   });
 
   it("pairs real product photography pages with reciprocal language alternatives", () => {
