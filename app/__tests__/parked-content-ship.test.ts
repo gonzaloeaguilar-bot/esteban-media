@@ -17,7 +17,7 @@ const words = (t: string) => t.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1").replace(/
 
 describe("parked content ship", () => {
   it("row 33: filming floor lives once in lib/pricing.ts and reads as a floor", () => {
-    expect(FILMING_HOURLY).toMatchObject({ amount: 80, unit: "hour", isMinimum: true });
+    expect(FILMING_HOURLY).toMatchObject({ amount: 100, unit: "hour", isMinimum: true });
     expect(filmingHourlyText("en")).toBe(`from ${usd(FILMING_HOURLY.amount)} per hour of filming`);
     expect(filmingHourlyText("es")).toBe(`desde ${usd(FILMING_HOURLY.amount)} por hora de grabación`);
     for (const f of ["lib/guides.ts", "lib/page-questions.ts", "lib/spanish-site.ts", "app/(english)/pricing/page.tsx", "app/(spanish)/es/precios/page.tsx"]) {

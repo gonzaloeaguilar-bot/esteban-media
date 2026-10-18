@@ -17,6 +17,21 @@ const scenes = {
     en: "Tell me what we’re filming, the location, schedule, and how you want the raw 4K files delivered (Drive, Dropbox or hard drive).",
     es: "Cuéntame qué vamos a grabar, la locación, el horario y cómo quieres recibir los archivos 4K en bruto (Drive, Dropbox o disco).",
   },
+  multicam: {
+    image: "photography", kind: "capture",
+    en: "Tell me the event scope, venue, schedule, number of angles required, and audio sources to record.",
+    es: "Cuéntame el alcance del evento, el lugar, el horario, el número de ángulos y las fuentes de audio a grabar.",
+  },
+  yate: {
+    image: "photography", kind: "capture",
+    en: "Share the marina, charter hours, vessel size, cruising plan, and whether you need drone footage or lifestyle talent.",
+    es: "Comparte la marina, horas de navegación, tamaño de la embarcación, ruta y si requieres tomas con dron o modelos.",
+  },
+  kickstarter: {
+    image: "ai-content", kind: "create",
+    en: "Share your prototype or product, campaign launch date, core target audience, and any script or storyboard ideas.",
+    es: "Comparte tu prototipo o producto, fecha de lanzamiento, público objetivo e ideas de guión o storyboard.",
+  },
   mejora: {
     image: "enhancement", kind: "enhance",
     en: "Send the original photo and point out what you want to improve. Tell me where you’ll use the finished image.",

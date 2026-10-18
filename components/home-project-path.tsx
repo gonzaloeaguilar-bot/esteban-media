@@ -10,7 +10,16 @@ import { AudienceVideo, EditingPreview } from "@/components/audience-media";
 import { AUDIENCE_LANES, type AudienceLocale } from "@/lib/audience-lanes";
 import { realEstateReelsPath } from "@/lib/real-estate-reels";
 import { laneFunnelPrice, laneOffers, laneStartingPrice, type ChooserLaneId } from "@/lib/chooser-lane-pricing";
-import { ON_LOCATION_CAPTURE, PRODUCT_PHOTO_SESSION, REAL_ESTATE_PLAN_TERMS, turnaroundFor, usd } from "@/lib/pricing";
+import {
+  CREW_RECORDING_RATES,
+  KICKSTARTER_LAUNCH,
+  ON_LOCATION_CAPTURE,
+  PRODUCT_PHOTO_SESSION,
+  REAL_ESTATE_PLAN_TERMS,
+  YACHT_PRODUCTION,
+  turnaroundFor,
+  usd,
+} from "@/lib/pricing";
 import { HomePathFunnel } from "@/components/home-path-funnel";
 import { packagesCopy, whatsappHref } from "@/lib/packages";
 import { aLaCarteVisual } from "@/lib/a-la-carte-visuals";
@@ -600,6 +609,12 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                     ? `${c.singleFrom} ${usd(PRODUCT_PHOTO_SESSION.from)}${c.singleSession}`
                     : item.id === "grabacion"
                     ? `${c.singleFrom} ${usd(ON_LOCATION_CAPTURE.from)}${c.singleHalfDay}`
+                    : item.id === "multicam"
+                    ? `${c.singleFrom} ${usd(CREW_RECORDING_RATES.multiCamera.halfDay)}${c.singleHalfDay}`
+                    : item.id === "yate"
+                    ? `${c.singleFrom} ${usd(YACHT_PRODUCTION.halfDaySolo)}${c.singleHalfDay}`
+                    : item.id === "kickstarter"
+                    ? `${c.singleFrom} ${usd(KICKSTARTER_LAUNCH.from)}`
                     : noteIsQuote ? item.note! : c.singleQuoted;
                 const showNote = !!item.note && !(item.id !== "foto" && noteIsQuote);
                 return (

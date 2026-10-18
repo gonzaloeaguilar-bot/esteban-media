@@ -257,3 +257,16 @@ export function latamAnswer(): { question: string; answer: string } {
     answer: `Sí. Esteban trabaja a distancia con clientes de Latinoamérica, en español, que es su idioma principal de trabajo. Envías el material por internet, con un enlace de Google Drive o Dropbox, y recibes los archivos terminados de la misma forma. Los precios están en dólares estadounidenses (USD): editar un video cuesta desde ${perVideo} con el paquete Arranque, y cada proyecto recibe una cotización por escrito antes de empezar. La edición, los videos cortos para redes y las imágenes con IA hechas a partir de tus fotos funcionan bien a distancia; la grabación en persona se define por proyecto en Miami-Dade y Broward.`,
   };
 }
+
+export function onSiteProductionAnswer(locale: "en" | "es"): { question: string; answer: string } {
+  return locale === "es"
+    ? {
+        question: "¿Cuánto cuesta la grabación en sitio, multicámara o en yates?",
+        answer: `La grabación presencial se cobra por tiempo o por jornada: un videógrafo individual con cámara 4K va desde $100 por hora, con un mínimo de 3 horas ($400 media jornada o $800 día completo). Un equipo de 2 personas para eventos (camarógrafo principal 4K más un creador de contenido móvil con dos iPhones para Reels verticales, detrás de cámaras y testimonios) va desde $160 por hora con un mínimo de 4 horas, o $1,250 llave en mano con edición incluida. La cobertura multicámara para conferencias con 2 a 3 cámaras y audio directo de consola va desde $225 por hora ($1,750 con edición terminada). Las grabaciones en yates y chárters marinos requieren media jornada como mínimo, desde $750 para material en bruto o $1,450 con edición promocional, y hasta $2,800 por día completo con dron en agua. Los videos comerciales para Kickstarter y lanzamientos parten desde $1,000 llave en mano, con entrevista al fundador, demostración de producto y edición completa de 2 minutos.`,
+      }
+    : {
+        question: "How much does on-site recording, multi-camera, or yacht production cost?",
+        answer: `On-location filming is billed by time or day: a solo videographer with a 4K camera starts from $100 per hour (3-hour minimum, or $400 half-day / $800 full-day). A 2-person event crew (lead 4K DP plus a dedicated mobile content creator with dual iPhones for vertical Reels, BTS clips, and attendee soundbites) starts from $160 per hour with a 4-hour minimum, or $1,250 turnkey with editing included. Multi-camera stage or conference coverage with 2 to 3 cameras and direct soundboard line audio starts from $225 per hour ($1,750 turnkey). Yacht and marine charter shoots require a half-day minimum, starting from $750 for raw capture or $1,450 turnkey with a luxury showcase edit, up to $2,800 for full-day charter coverage with licensed over-water drone tracking. Kickstarter and product launch videos start from $1,000 turnkey, covering a founder interview, hands-on product demonstration, and a completed 2-minute campaign video.`,
+      };
+}
+
