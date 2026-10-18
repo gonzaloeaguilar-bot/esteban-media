@@ -74,6 +74,18 @@ import {
   BILINGUAL_SUBTITLING_ES_DESTINATIONS,
   BILINGUAL_SUBTITLING_ES_DISCLOSURE,
   BILINGUAL_SUBTITLING_ES_SECTIONS,
+  TRADE_SHOW_BOOTH_ES_DESTINATIONS,
+  TRADE_SHOW_BOOTH_ES_DISCLOSURE,
+  TRADE_SHOW_BOOTH_ES_SECTIONS,
+  CORPORATE_GALA_ES_DESTINATIONS,
+  CORPORATE_GALA_ES_DISCLOSURE,
+  CORPORATE_GALA_ES_SECTIONS,
+  SUPERYACHT_CHARTER_ES_DESTINATIONS,
+  SUPERYACHT_CHARTER_ES_DISCLOSURE,
+  SUPERYACHT_CHARTER_ES_SECTIONS,
+  REHEARSAL_DINNER_ES_DESTINATIONS,
+  REHEARSAL_DINNER_ES_DISCLOSURE,
+  REHEARSAL_DINNER_ES_SECTIONS,
   HOTEL_ES_DESTINATIONS,
   HOTEL_ES_DISCLOSURE,
   HOTEL_ES_SECTIONS,
@@ -3050,6 +3062,190 @@ export const spanishNichePages: SpanishNichePage[] = [
     ],
   },
   {
+    slug: "videografo-para-ferias-comerciales-fort-lauderdale",
+    title: "Videógrafo para ferias comerciales en Fort Lauderdale",
+    metadataTitle: "Video para Ferias Comerciales",
+    description:
+      "Videografía profesional para stands de exhibición, ferias comerciales y convenciones en Fort Lauderdale y Miami con equipo estabilizado 4K.",
+    eyebrow: "Ferias Comerciales / Stands B2B",
+    h1: "Videógrafo para ferias comerciales y stands de exhibición en Fort Lauderdale.",
+    lead:
+      "Captura dinámica de demostraciones de producto, afluencia en stands y presentaciones corporativas en el Centro de Convenciones de Broward y Miami.",
+    keyword: "videógrafo para ferias comerciales en Fort Lauderdale",
+    location: "Fort Lauderdale / Broward / Miami",
+    availability: "confirmed",
+    icon: Building2,
+    bestFor: [
+      "Empresas expositoras en centros de convenciones que buscan demostrar retorno de inversión.",
+      "Marcas B2B que necesitan material audiovisual de producto para difusión en LinkedIn.",
+    ],
+    scopingQuestions: [
+      "¿En qué centro de convenciones o pabellón ferial se ubica su stand?",
+      "¿Requiere demostraciones de producto a cámara o cobertura general del flujo de visitantes?",
+    ],
+    projectFit:
+      "Grabación ágil con estabilizador de tres ejes que no interrumpe el tránsito de asistentes.",
+    updated: "2026-10-18",
+    sections: TRADE_SHOW_BOOTH_ES_SECTIONS,
+    sectionsDisclosure: TRADE_SHOW_BOOTH_ES_DISCLOSURE,
+    sectionsDestinations: TRADE_SHOW_BOOTH_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se graba en los stands de ferias sin interrumpir las conversaciones con clientes?",
+        answer:
+          "Se utilizan cámaras de cuadro completo sobre estabilizadores compactos que permiten desplazarse con agilidad por pasillos concurridos sin obstaculizar el paso ni interrumpir reuniones comerciales.",
+      },
+      {
+        question: "¿Qué elementos visuales se registran durante la cobertura del pabellón ferial?",
+        answer:
+          "La filmación incluye demostraciones de producto en directo, afluencia de visitantes al stand, pantallas interactivas, señalética de marca y presentaciones de conferencias.",
+      },
+      {
+        question: "¿Se pueden entregar videos para publicar mientras la convención sigue en marcha?",
+        answer:
+          "Sí. Es posible entregar cortes destacados y cápsulas verticales optimizadas para LinkedIn y redes sociales para que el equipo de marketing difunda avances durante los días del evento.",
+      },
+    ],
+  },
+  {
+    slug: "videografo-para-galas-corporativas-miami",
+    title: "Videógrafo para galas corporativas en Miami",
+    metadataTitle: "Video de Galas Corporativas Miami",
+    description:
+      "Videografía cinematográfica para galas corporativas, cenas benéficas y eventos de recaudación de fondos en Miami y Palm Beach.",
+    eyebrow: "Galas Benéficas / Cenas de Etiqueta",
+    h1: "Videógrafo para galas corporativas y cenas benéficas en Miami.",
+    lead:
+      "Cobertura cinematográfica en salones de etiqueta, registro de discursos con audio de consola y recaps de alto impacto para donantes.",
+    keyword: "videógrafo para galas corporativas en Miami",
+    location: "Miami / Coral Gables / Palm Beach",
+    availability: "confirmed",
+    icon: PartyPopper,
+    bestFor: [
+      "Fundaciones y organizaciones sin fines de lucro que celebran galas anuales de recaudación.",
+      "Empresas e instituciones que entregan premios y reconocimientos en cenas de etiqueta.",
+    ],
+    scopingQuestions: [
+      "¿El evento incluye subasta benéfica en vivo o intervenciones formales en podio?",
+      "¿El salón cuenta con equipo propio de audio para toma directa de sonido?",
+    ],
+    projectFit:
+      "Cámaras de cuadro completo de alta sensibilidad para entornos con iluminación tenue de banquetes.",
+    updated: "2026-10-18",
+    sections: CORPORATE_GALA_ES_SECTIONS,
+    sectionsDisclosure: CORPORATE_GALA_ES_DISCLOSURE,
+    sectionsDestinations: CORPORATE_GALA_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se gestiona la iluminación tenue en salones de banquetes sin molestar a los invitados?",
+        answer:
+          "Se utilizan sensores de cuadro completo con ópticas muy luminosas que registran el ambiente del salón, las luces del escenario y las mesas sin necesidad de focos frontales invasivos.",
+      },
+      {
+        question: "¿Cómo se graba el audio de discursos, entregas de premios y subastas benéficas?",
+        answer:
+          "El sonido se conecta directamente a la mesa de audio del evento, respaldado con transmisores inalámbricos en el podio para garantizar una grabación limpia y sin reverberación del salón.",
+      },
+      {
+        question: "¿Qué entregables se preparan habitualmente para galas y recaudaciones de fondos?",
+        answer:
+          "Se edita una película resumen de dos minutos orientada a patrocinadores y donantes, junto con el registro completo de intervenciones en tarima y cápsulas cortas para redes sociales.",
+      },
+    ],
+  },
+  {
+    slug: "marketing-de-video-para-superyates-fort-lauderdale",
+    title: "Marketing de video para superyates en Fort Lauderdale",
+    metadataTitle: "Video Marketing para Superyates",
+    description:
+      "Producción audiovisual de lujo para chárteres de superyates y corretaje náutico en Fort Lauderdale con cinematografía de interiores y navegación.",
+    eyebrow: "Náutica de Lujo / Superyacht Charter",
+    h1: "Marketing de video cinematográfico para superyates en Fort Lauderdale.",
+    lead:
+      "Cinematografía especializada en navegación, interiores de lujo y hospitalidad a bordo para corredores y agencias de chárter náutico.",
+    keyword: "marketing de video para superyates en Fort Lauderdale",
+    location: "Fort Lauderdale / Bahia Mar / South Florida",
+    availability: "confirmed",
+    icon: Anchor,
+    bestFor: [
+      "Corredores marítimos y agencias de gestión de chárter que comercializan embarcaciones de lujo.",
+      "Armadores y capitanes que buscan material audiovisual de nivel internacional para promoción de temporada.",
+    ],
+    scopingQuestions: [
+      "¿La sesión se realizará con la embarcación atracada en marina o durante una salida de navegación?",
+      "¿Se requiere filmar el servicio de mesa y la preparación de camarotes por parte de la tripulación?",
+    ],
+    projectFit:
+      "Ópticas gran angular de precisión y calzado náutico para el cuidado de cubiertas de teca.",
+    updated: "2026-10-18",
+    sections: SUPERYACHT_CHARTER_ES_SECTIONS,
+    sectionsDisclosure: SUPERYACHT_CHARTER_ES_DISCLOSURE,
+    sectionsDestinations: SUPERYACHT_CHARTER_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se graban interiores estrechos, camarotes y salas de máquinas en embarcaciones de gran porte?",
+        answer:
+          "Se emplean objetivos angulares de baja distorsión y estabilizadores compactos que recorren pasillos, camarotes principales y cocinas manteniendo la escala real y las líneas arquitectónicas.",
+      },
+      {
+        question: "¿Cómo se muestra el servicio de la tripulación y las comodidades a bordo?",
+        answer:
+          "La producción se coordina con el capitán y la tripulación para filmar montajes de cenas gourmet, navegación en lanchas auxiliares, preparación de deportes acuáticos y servicio al atardecer.",
+      },
+      {
+        question: "¿Qué formatos se entregan para corredores náuticos y portales de chárter internacional?",
+        answer:
+          "Se entregan videos cinematográficos horizontales para portales náuticos y sitios web de agencias, junto con avances verticales en alta definición para campañas en redes sociales.",
+      },
+    ],
+  },
+  {
+    slug: "videografo-para-cena-de-ensayo-miami",
+    title: "Videógrafo para cena de ensayo en Miami",
+    metadataTitle: "Video de Cena de Ensayo Miami",
+    description:
+      "Cobertura cinematográfica documental de cenas de ensayo, cócteles de bienvenida y brindis familiares para bodas en Miami y Coral Gables.",
+    eyebrow: "Bodas / Cena de Ensayo",
+    h1: "Videógrafo para cena de ensayo y cóctel de bienvenida en Miami.",
+    lead:
+      "Captura documental de discursos íntimos, abrazos familiares y cócteles al atardecer en la víspera del día de la boda.",
+    keyword: "videógrafo para cena de ensayo en Miami",
+    location: "Miami / Coconut Grove / Coral Gables",
+    availability: "confirmed",
+    icon: UtensilsCrossed,
+    bestFor: [
+      "Parejas que organizan un fin de semana completo de bodas con cóctel de bienvenida o cena íntima.",
+      "Familias que desean conservar los discursos y testimonios emotivos previos a la boda principal.",
+    ],
+    scopingQuestions: [
+      "¿La cena de ensayo se celebrará en un restaurante, terraza al aire libre o residencia privada?",
+      "¿Desean un video independiente de discursos o su integración en el documental principal de la boda?",
+    ],
+    projectFit:
+      "Operador único y discreto con microfonía inalámbrica de solapa para registrar discursos sin entorpecer la velada.",
+    updated: "2026-10-18",
+    sections: REHEARSAL_DINNER_ES_SECTIONS,
+    sectionsDisclosure: REHEARSAL_DINNER_ES_DISCLOSURE,
+    sectionsDestinations: REHEARSAL_DINNER_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿En qué complementa la cobertura de la cena de ensayo al video del día de la boda?",
+        answer:
+          "La cena de ensayo registra discursos íntimos y espontáneos de familiares cercanos y amigos en un ambiente relajado, aportando testimonios de gran valor emotivo para la historia completa de la boda.",
+      },
+      {
+        question: "¿Qué microfonía se utiliza para brindis informales en terrazas o restaurantes?",
+        answer:
+          "Se emplean micrófonos inalámbricos discretos y de mano con protección acústica para que las palabras de los invitados se escuchen nítidas por encima del murmullo del local o la brisa exterior.",
+      },
+      {
+        question: "¿Se pueden incluir fragmentos del cóctel de bienvenida en el trailer de la boda?",
+        answer:
+          "Sí. Las frases más emotivas y las reacciones de los asistentes en la víspera pueden integrarse en el montaje cinematográfico final, reflejando toda la experiencia del fin de semana festivo.",
+      },
+    ],
+  },
+  {
     slug: "marketing-de-video-automotriz-miami",
     title: "Marketing de video automotriz en Miami",
     metadataTitle: "Video Automotriz Miami",
@@ -5613,6 +5809,46 @@ const languageAlternatesRaw: Record<string, Record<string, string>> = {
     "en-US": "/services/bilingual-video-subtitling-service",
     "es-US": "/es/servicio-de-subtitulado-bilingue-de-video",
     "x-default": "/services/bilingual-video-subtitling-service",
+  },
+  "/services/trade-show-booth-videographer-fort-lauderdale": {
+    "en-US": "/services/trade-show-booth-videographer-fort-lauderdale",
+    "es-US": "/es/videografo-para-ferias-comerciales-fort-lauderdale",
+    "x-default": "/services/trade-show-booth-videographer-fort-lauderdale",
+  },
+  "/es/videografo-para-ferias-comerciales-fort-lauderdale": {
+    "en-US": "/services/trade-show-booth-videographer-fort-lauderdale",
+    "es-US": "/es/videografo-para-ferias-comerciales-fort-lauderdale",
+    "x-default": "/services/trade-show-booth-videographer-fort-lauderdale",
+  },
+  "/services/corporate-gala-videographer-miami": {
+    "en-US": "/services/corporate-gala-videographer-miami",
+    "es-US": "/es/videografo-para-galas-corporativas-miami",
+    "x-default": "/services/corporate-gala-videographer-miami",
+  },
+  "/es/videografo-para-galas-corporativas-miami": {
+    "en-US": "/services/corporate-gala-videographer-miami",
+    "es-US": "/es/videografo-para-galas-corporativas-miami",
+    "x-default": "/services/corporate-gala-videographer-miami",
+  },
+  "/services/superyacht-charter-marketing-video-fort-lauderdale": {
+    "en-US": "/services/superyacht-charter-marketing-video-fort-lauderdale",
+    "es-US": "/es/marketing-de-video-para-superyates-fort-lauderdale",
+    "x-default": "/services/superyacht-charter-marketing-video-fort-lauderdale",
+  },
+  "/es/marketing-de-video-para-superyates-fort-lauderdale": {
+    "en-US": "/services/superyacht-charter-marketing-video-fort-lauderdale",
+    "es-US": "/es/marketing-de-video-para-superyates-fort-lauderdale",
+    "x-default": "/services/superyacht-charter-marketing-video-fort-lauderdale",
+  },
+  "/services/rehearsal-dinner-videographer-miami": {
+    "en-US": "/services/rehearsal-dinner-videographer-miami",
+    "es-US": "/es/videografo-para-cena-de-ensayo-miami",
+    "x-default": "/services/rehearsal-dinner-videographer-miami",
+  },
+  "/es/videografo-para-cena-de-ensayo-miami": {
+    "en-US": "/services/rehearsal-dinner-videographer-miami",
+    "es-US": "/es/videografo-para-cena-de-ensayo-miami",
+    "x-default": "/services/rehearsal-dinner-videographer-miami",
   },
   ...nicheBatch20261006,
   ...nicheBatch20261006Hreflang,

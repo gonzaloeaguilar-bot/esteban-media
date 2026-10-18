@@ -1616,6 +1616,74 @@ export const PORTED_SERVICE_FAQS: Readonly<Record<string, readonly ServiceFaq[]>
         "Captions are formatted in short two-line phrases and positioned within platform safe-zones so native interface icons do not obscure the text on mobile screens.",
     },
   ],
+  "/services/trade-show-booth-videographer-fort-lauderdale": [
+    {
+      question: "How do you capture trade show booth activity without disrupting visitor conversations?",
+      answer:
+        "Compact full-frame handheld gimbal rigs allow steady movement through crowded exhibition aisles and booth spaces without blocking attendee foot traffic or interrupting sales presentations.",
+    },
+    {
+      question: "What visual elements are recorded during convention floor coverage?",
+      answer:
+        "Coverage includes live product demonstrations, booth foot traffic, interactive software displays, branded signage, keynote presentations, and spontaneous attendee feedback.",
+    },
+    {
+      question: "Can booth recordings be delivered for use during the active convention week?",
+      answer:
+        "Yes. Priority highlight sequences and vertical social cuts can be prepared rapidly for marketing teams to publish across corporate LinkedIn channels while the event is ongoing.",
+    },
+  ],
+  "/services/corporate-gala-videographer-miami": [
+    {
+      question: "How do cameras handle low-light banquet rooms without distracting guests with bright lights?",
+      answer:
+        "Full-frame cinema sensors paired with fast prime lenses capture vibrant ballroom ambiance, stage spotlights, and table centerpieces cleanly using existing venue lighting without blinding on-camera flashes.",
+    },
+    {
+      question: "How is sound recorded for gala keynote speeches, award presentations, and live auctions?",
+      answer:
+        "Audio is captured via direct soundboard feeds from the venue AV team combined with backup wireless transmitters on the podium to deliver broadcast-quality speech recordings.",
+    },
+    {
+      question: "What deliverables are typically produced for charity fundraisers and annual balls?",
+      answer:
+        "Deliverables include an emotional recap film highlighting donor impact, complete archival recordings of keynotes and awards, and vertical social cutdowns for donor appreciation campaigns.",
+    },
+  ],
+  "/services/superyacht-charter-marketing-video-fort-lauderdale": [
+    {
+      question: "How do you capture narrow yacht interiors, staterooms, and engine rooms effectively?",
+      answer:
+        "Ultra-wide distortion-controlled cinema lenses and compact gimbal stabilizers navigate tight companionways, owner suites, and galley spaces while rendering accurate scale and architectural lines.",
+    },
+    {
+      question: "How are crew hospitality and luxury guest amenities highlighted on film?",
+      answer:
+        "Production schedules coordinate with captains and chief stewardesses to stage multi-course dining setups, tender excursions, deck lounge service, and water toy preparation in golden hour sunlight.",
+    },
+    {
+      question: "What formats are delivered for charter brokers and international yacht listing portals?",
+      answer:
+        "Final deliveries include cinematic horizontal brand films for brokerage portals and charter websites, paired with vertical luxury teasers formatted for social and luxury lifestyle campaigns.",
+    },
+  ],
+  "/services/rehearsal-dinner-videographer-miami": [
+    {
+      question: "How does rehearsal dinner coverage complement the main wedding day film?",
+      answer:
+        "The rehearsal dinner captures intimate unscripted speeches from lifelong friends and close family members in a relaxed setting, providing rich emotional audio and storytelling for multi-day wedding films.",
+    },
+    {
+      question: "What microphone setup is used for informal patio or restaurant toasts?",
+      answer:
+        "Discreet wireless lavaliers or handheld interview microphones with acoustic wind filtering ensure heartfelt toasts remain clear despite background restaurant chatter or outdoor patio breezes.",
+    },
+    {
+      question: "Can rehearsal dinner clips be incorporated into the wedding teaser trailer?",
+      answer:
+        "Yes. Key quotes and joyful reactions from the welcome party can be woven directly into the cinematic wedding highlight film, creating a complete weekend narrative for the couple.",
+    },
+  ],
 };
 
 /** Hand-written pages left without a FAQ because no published fact supports one. */

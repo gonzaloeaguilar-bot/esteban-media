@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Esteban Moreno Media — Catálogo Maestro de Servicios y Tarifas 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #141618;
+    --ink-soft: #2d3135;
+    --paper: #fcfbf9;
+    --card: #ffffff;
+    --card-tint: #f6f3ee;
+    --line: #e6e0d6;
+    --line-subtle: #ede8e0;
+    --mut: #635f58;
+    --mut-light: #858077;
+    --terracotta: #c84a2c;
+    --terracotta-dark: #a8381d;
+    --terracotta-soft: #faece8;
+    --sand: #e8e2d8;
+    --sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --display: 'Oswald', sans-serif;
+    --serif: 'Newsreader', Georgia, serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  @page {
+    size: letter;
+    margin: 13mm 13mm 13mm 13mm;
+  }
+
+  html, body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 820px;
+    margin: 0 auto;
+    page-break-after: always;
+    position: relative;
+    padding-bottom: 6px;
+  }
+
+  .page:last-of-type {
+    page-break-after: avoid;
+  }
+
+  /* Header */
+  .brand-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 9px;
+    margin-bottom: 14px;
+  }
+
+  .brand-left .brand-name {
+    font-family: var(--display);
+    font-size: 23px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--ink);
+  }
+
+  .brand-left .brand-tagline {
+    font-family: var(--sans);
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--terracotta-dark);
+    margin-top: 3px;
+  }
+
+  .brand-right {
+    text-align: right;
+    font-size: 9.5px;
+    line-height: 1.35;
+    color: var(--mut);
+    font-weight: 500;
+  }
+
+  .brand-right strong {
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  /* Section Title */
+  .section-header {
+    margin-bottom: 11px;
+  }
+
+  .section-kicker {
+    font-family: var(--sans);
+    font-size: 8.5px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 2px;
+  }
+
+  .section-title {
+    font-family: var(--display);
+    font-size: 18.5px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink);
+    line-height: 1.15;
+  }
+
+  .section-desc {
+    font-family: var(--serif);
+    font-size: 11.5px;
+    font-style: italic;
+    color: var(--mut);
+    margin-top: 2px;
+    line-height: 1.35;
+  }
+
+  /* Tables */
+  .rate-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+
+  .rate-table th {
+    background: var(--ink);
+    color: #ffffff;
+    font-family: var(--sans);
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 7px 10px;
+  }
+
+  .rate-table th.tar, .rate-table td.tar {
+    text-align: right;
+  }
+
+  .rate-table td {
+    padding: 7.5px 10px;
+    border-bottom: 1px solid var(--line-subtle);
+    vertical-align: middle;
+    font-size: 10px;
+  }
+
+  .rate-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .rate-table tr:nth-child(even) td {
+    background: #faf8f5;
+  }
+
+  .service-name {
+    font-weight: 700;
+    color: var(--ink);
+    font-size: 10.5px;
+  }
+
+  .service-detail {
+    color: var(--mut);
+    font-size: 9px;
+    line-height: 1.3;
+    margin-top: 1px;
+  }
+
+  .badge-tag {
+    display: inline-block;
+    background: var(--terracotta-soft);
+    color: var(--terracotta-dark);
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 1px 5px;
+    border-radius: 4px;
+    margin-top: 2px;
+  }
+
+  .badge-tag-dark {
+    display: inline-block;
+    background: var(--ink);
+    color: #ffffff;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 1px 5px;
+    border-radius: 4px;
+    margin-top: 2px;
+  }
+
+  .price-main {
+    font-family: var(--display);
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--terracotta-dark);
+    letter-spacing: 0.02em;
+  }
+
+  .price-sub {
+    font-size: 8.5px;
+    color: var(--mut);
+    display: block;
+    margin-top: 1px;
+  }
+
+  /* Grid Cards */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 9px;
+    margin-bottom: 12px;
+  }
+
+  .card-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 9px;
+    margin-bottom: 12px;
+  }
+
+  .feature-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    padding: 10px 11px;
+    position: relative;
+  }
+
+  .feature-card.highlight {
+    border-color: var(--terracotta);
+    background: #fffdfb;
+    box-shadow: 0 1px 4px rgba(200, 74, 44, 0.08);
+  }
+
+  .feature-card .card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid var(--line-subtle);
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+  }
+
+  .feature-card .card-title {
+    font-family: var(--display);
+    font-size: 13.5px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  .feature-card .card-num {
+    font-family: var(--display);
+    font-size: 10px;
+    color: var(--mut-light);
+    font-weight: 700;
+    margin-right: 5px;
+  }
+
+  .feature-card .card-price {
+    font-family: var(--display);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--terracotta-dark);
+  }
+
+  .feature-card p {
+    font-size: 9.5px;
+    color: var(--ink-soft);
+    line-height: 1.35;
+    margin-bottom: 4px;
+  }
+
+  .feature-card ul {
+    list-style: none;
+    font-size: 9px;
+    color: var(--mut);
+    margin-top: 3px;
+  }
+
+  .feature-card ul li {
+    position: relative;
+    padding-left: 10px;
+    margin-bottom: 2.5px;
+    line-height: 1.3;
+  }
+
+  .feature-card ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--terracotta);
+    font-weight: 800;
+  }
+
+  /* Note Box */
+  .note-box {
+    background: var(--card-tint);
+    border-left: 3px solid var(--terracotta);
+    padding: 7px 10px;
+    border-radius: 0 5px 5px 0;
+    margin-bottom: 11px;
+    font-size: 9.5px;
+    line-height: 1.4;
+    color: var(--ink-soft);
+  }
+
+  .note-box strong {
+    color: var(--terracotta-dark);
+  }
+
+  /* Footer */
+  .doc-footer {
+    border-top: 1px solid var(--line);
+    padding-top: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 8.5px;
+    color: var(--mut-light);
+    margin-top: 6px;
+  }
+
+  .doc-footer strong {
+    color: var(--ink);
+  }
+
+  /* Contact Banner */
+  .contact-banner {
+    background: var(--ink);
+    color: #ffffff;
+    border-radius: 7px;
+    padding: 14px 16px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .contact-banner h3 {
+    font-family: var(--display);
+    font-size: 19px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #ffffff;
+    line-height: 1.1;
+  }
+
+  .contact-banner p {
+    font-family: var(--serif);
+    font-size: 11px;
+    font-style: italic;
+    color: #d2cec7;
+    margin-top: 3px;
+  }
+
+  .contact-details {
+    text-align: right;
+    font-size: 10.5px;
+    line-height: 1.45;
+  }
+
+  .contact-details .phone {
+    font-family: var(--display);
+    font-size: 15.5px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.05em;
+  }
+
+  .contact-details a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  .contact-details .email {
+    color: #ffd2c5;
+  }
+</style>
+</head>
+<body>
+
+<!-- PÁGINA 1: PORTADA & LOS 4 PAQUETES PRINCIPALES DE REDES Y CRECIMIENTO DIGITAL -->
+<div class="page">
+  <header class="brand-bar">
+    <div class="brand-left">
+      <div class="brand-name">Esteban Moreno Media</div>
+      <div class="brand-tagline">Producción Audiovisual Cinematográfica & Estrategia Digital</div>
+    </div>
+    <div class="brand-right">
+      <strong>Fort Lauderdale & Miami, FL</strong><br>
+      (305) 497-4478 | esmolopez@gmail.com<br>
+      estebanmorenomedia.com
+    </div>
+  </header>
+
+  <div class="section-header">
+    <div class="section-kicker">Catálogo Oficial de Servicios & Tarifas 2026</div>
+    <h1 class="section-title">Paquetes de Contenido para Redes Sociales y Crecimiento</h1>
+    <p class="section-desc">Cuatro formas claras de trabajar: desde edición remota continua de tu material hasta sistemas integrales con grabación presencial en locación.</p>
+  </div>
+
+  <div class="note-box">
+    <strong>Enfoque de Trabajo:</strong> Sin intermediarios ni agencias lentas. Esteban lidera directamente la filmación y la post-producción con edición dinámica, ritmo probado de retención en pantalla, subtítulos animados y música con licencia comercial.
+  </div>
+
+  <div class="card-grid">
+    <!-- Paquete 01 -->
+    <div class="feature-card">
+      <div class="card-head">
+        <div>
+          <span class="card-num">01</span>
+          <span class="card-title">Arranque</span>
+          <div style="font-size: 8.5px; color: var(--mut); text-transform: uppercase; font-weight: 600;">Edición Remota Continua</div>
+        </div>
+        <div class="card-price">Desde $85<span style="font-size: 8.5px; font-weight: 500; color: var(--mut);">/semana</span></div>
+      </div>
+      <p><strong>Tú grabas. Yo lo convierto en contenido.</strong> Diseñado para marcas, negocios y profesionales que ya filman con su teléfono o cámara y necesitan post-producción ágil.</p>
+      <ul>
+        <li>Edición de video remota optimizada para Reels, TikTok, Shorts o web.</li>
+        <li>Subtítulos estilizados, cortes al ritmo de la música y zoom dinámico.</li>
+        <li>1 ronda de ajustes incluida por cada entrega.</li>
+        <li>Opciones: $85/semana, $160 cada 2 semanas o $100 por video individual.</li>
+      </ul>
+    </div>
+
+    <!-- Paquete 02 -->
+    <div class="feature-card highlight">
+      <div class="card-head">
+        <div>
+          <span class="card-num">02</span>
+          <span class="card-title">Crecimiento</span>
+          <div style="font-size: 8.5px; color: var(--terracotta-dark); text-transform: uppercase; font-weight: 700;">Estrategia + Edición Mensual</div>
+        </div>
+        <div class="card-price">Desde $640<span style="font-size: 8.5px; font-weight: 500; color: var(--mut);">/mes</span></div>
+      </div>
+      <p><strong>De publicar cuando puedes a tener un sistema.</strong> Para negocios que necesitan orden, frecuencia constante y una sola persona responsable del resultado visual.</p>
+      <ul>
+        <li>Estructuración de plan de contenido y calendario mensual de publicación.</li>
+        <li>Edición completa del volumen acordado de videos para el mes.</li>
+        <li>Orientación semanal sobre qué temas y ganchos grabar.</li>
+        <li>Reporte mensual de rendimiento y métricas de retención.</li>
+      </ul>
+    </div>
+
+    <!-- Paquete 03 -->
+    <div class="feature-card highlight">
+      <div class="card-head">
+        <div>
+          <span class="card-num">03</span>
+          <span class="card-title">Presencia Local</span>
+          <div style="font-size: 8.5px; color: var(--terracotta-dark); text-transform: uppercase; font-weight: 700;">Producción en Locación + Edición</div>
+        </div>
+        <div class="card-price">Desde $1,600<span style="font-size: 8.5px; font-weight: 500; color: var(--mut);">/mes</span></div>
+      </div>
+      <p><strong>Tu negocio. Tu espacio. Tu contenido.</strong> Ideal para negocios físicos, propiedades, restaurantes, clínicas y marcas que requieren material propio original grabado en sitio.</p>
+      <ul>
+        <li>Pre-producción, guionización de tomas y jornada de filmación 4K en sitio.</li>
+        <li>Edición post-captura lista para publicar (formato horizontal y vertical).</li>
+        <li>Iluminación profesional y microfonía inalámbrica incluidas.</li>
+        <li>Cobertura local en Fort Lauderdale, Broward y proyectos en Miami-Dade.</li>
+      </ul>
+    </div>
+
+    <!-- Paquete 04 -->
+    <div class="feature-card">
+      <div class="card-head">
+        <div>
+          <span class="card-num">04</span>
+          <span class="card-title">Todo Incluido</span>
+          <div style="font-size: 8.5px; color: var(--mut); text-transform: uppercase; font-weight: 600;">Ecosistema Digital Completo</div>
+        </div>
+        <div class="card-price" style="font-size: 13px;">Cotización a Medida</div>
+      </div>
+      <p><strong>Contenido + Tecnología + Presencia Digital.</strong> Para empresas que quieren arrancar su presencia digital completa o unificar múltiples proveedores en uno solo.</p>
+      <ul>
+        <li>Sitio web de alta conversión y velocidad móvil.</li>
+        <li>Chatbot con IA para captura automatizada de prospectos 24/7.</li>
+        <li>Optimización de perfil local en Google Business y Google Maps.</li>
+        <li>Producción y edición continua de contenido audiovisual.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note-box" style="margin-top: 6px;">
+    <strong>Flexibilidad por Proyecto:</strong> Si no requieres un plan mensual continuo y solo necesitas una sesión puntual de filmación o edición de un proyecto específico, revisa las tarifas individuales y paquetes llave en mano en las siguientes páginas.
+  </div>
+
+  <footer class="doc-footer">
+    <div>Esteban Moreno Media — Catálogo de Servicios y Tarifas 2026</div>
+    <div>Página 1 de 6</div>
+  </footer>
+</div>
+
+<!-- PÁGINA 2: PLANES Y SERVICIOS DE BIENES RAÍCES (REAL ESTATE) -->
+<div class="page">
+  <header class="brand-bar">
+    <div class="brand-left">
+      <div class="brand-name">Esteban Moreno Media</div>
+      <div class="brand-tagline">Contenido Audiovisual Inmobiliario & Cobertura MLS</div>
+    </div>
+    <div class="brand-right">
+      <strong>Fort Lauderdale & Miami, FL</strong><br>
+      (305) 497-4478 | esmolopez@gmail.com
+    </div>
+  </header>
+
+  <div class="section-header">
+    <div class="section-kicker">Especialización en Bienes Raíces (Real Estate)</div>
+    <h2 class="section-title">Planes Mensuales para Agentes y Desarrolladores</h2>
+    <p class="section-desc">Producción audiovisual recurrente para brokers y agentes inmobiliarios que captan propiedades constantemente en el Sur de la Florida.</p>
+  </div>
+
+  <table class="rate-table">
+    <thead>
+      <tr>
+        <th style="width: 25%;">Plan Mensual</th>
+        <th style="width: 32%;">Alcance de Propiedades y Rodaje</th>
+        <th style="width: 28%;">Frecuencia en Redes y Dron</th>
+        <th style="width: 15%;" class="tar">Tarifa Mensual</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div class="service-name">Essential</div>
+          <div class="service-detail">Para agentes individuales que mueven 1 propiedad destacada al mes.</div>
+        </td>
+        <td>
+          <strong>1 Propiedad al mes</strong> (hasta 3,000 SF)<br>
+          2 Días de producción en locación<br>
+          Tomas interiores y exteriores en 4K
+        </td>
+        <td>
+          <strong>2 Posts / Reels por semana</strong><br>
+          Edición vertical con subtítulos<br>
+          Dron disponible como add-on
+        </td>
+        <td class="tar">
+          <span class="price-main">$450</span>
+          <span class="price-sub">/ mes</span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="service-name">Plus</div>
+          <div class="service-detail">Para agentes consolidados con flujo continuo de captaciones.</div>
+        </td>
+        <td>
+          <strong>2 Propiedades al mes</strong> (hasta 3,000 SF c/u)<br>
+          3 Días de producción en locación<br>
+          Recorridos guiados con el agente
+        </td>
+        <td>
+          <strong>3 a 4 Posts / Reels por semana</strong><br>
+          Ritmo continuo en Instagram/TikTok<br>
+          Dron disponible como add-on
+        </td>
+        <td class="tar">
+          <span class="price-main">$700</span>
+          <span class="price-sub">/ mes</span>
+        </td>
+      </tr>
+      <tr style="background: #fffdfb;">
+        <td>
+          <div class="service-name" style="color: var(--terracotta-dark);">Premium</div>
+          <div class="service-detail">Equipos inmobiliarios y listados de lujo en Miami y Fort Lauderdale.</div>
+          <span class="badge-tag">Dron Incluido</span>
+        </td>
+        <td>
+          <strong>3 Propiedades al mes</strong> (hasta 3,000 SF c/u)<br>
+          3 Días de producción en locación<br>
+          Recorridos completos + estilo de vida
+        </td>
+        <td>
+          <strong>5 Posts / Reels por semana</strong><br>
+          <strong>Dron Aéreo Incluido</strong> en cada casa<br>
+          Reporte de alcance quincenal
+        </td>
+        <td class="tar">
+          <span class="price-main">$1,250</span>
+          <span class="price-sub">/ mes</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="note-box">
+    <strong>Condiciones de los Planes Mensuales:</strong> Compromiso mínimo de 3 meses. Reporte quincenal de métricas. Preaviso de cancelación de 30 días. Las propiedades de más de 3,000 SF se cotizan con un ajuste proporcional de metraje.
+  </div>
+
+  <div class="section-header" style="margin-top: 10px;">
+    <div class="section-kicker">Tarifas por Listado Individual (Por Propiedad)</div>
+    <h3 class="section-title" style="font-size: 15px;">Fotografía y Video Inmobiliario para MLS y Redes</h3>
+  </div>
+
+  <table class="rate-table">
+    <thead>
+      <tr>
+        <th style="width: 32%;">Tamaño de la Propiedad</th>
+        <th style="width: 48%;">Entregables Técnicos Incluidos</th>
+        <th style="width: 20%;" class="tar">Tarifa por Shoot</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Hasta 1,500 Pies Cuadrados (SF)</strong></td>
+        <td>25 a 30 Fotos HDR en alta resolución, corrección de ventanas, entrega 24-48h.</td>
+        <td class="tar"><span class="price-main">$199</span></td>
+      </tr>
+      <tr>
+        <td><strong>1,501 a 3,000 Pies Cuadrados (SF)</strong></td>
+        <td>35 a 40 Fotos HDR profesionales para MLS y web, edición de color cuidada.</td>
+        <td class="tar"><span class="price-main">$249</span></td>
+      </tr>
+      <tr>
+        <td><strong>3,001 a 4,500 Pies Cuadrados (SF)</strong></td>
+        <td>45 a 50 Fotos HDR completas de interiores, exteriores y detalles arquitectónicos.</td>
+        <td class="tar"><span class="price-main">$299</span></td>
+      </tr>
+      <tr>
+        <td><strong>4,501 a 6,000 Pies Cuadrados (SF)</strong></td>
+        <td>Cobertura amplia de propiedades residenciales grandes y residencias de lujo.</td>
+        <td class="tar"><span class="price-main">$399</span></td>
+      </tr>
+      <tr>
+        <td><strong>6,001 a 8,000 Pies Cuadrados (SF)</strong></td>
+        <td>Sesión exhaustiva para mansiones y propiedades de gran extensión.</td>
+        <td class="tar"><span class="price-main">$499</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="card-grid" style="margin-bottom: 0;">
+    <div class="feature-card">
+      <div class="card-head">
+        <div class="card-title">Fotografía Aérea con Dron</div>
+        <div class="card-price">+$99</div>
+      </div>
+      <p>8 a 10 fotografías aéreas de alta resolución mostrando el vecindario, fachada, patio y cercanía a la costa o amenidades locales.</p>
+    </div>
+    <div class="feature-card">
+      <div class="card-head">
+        <div class="card-title">Recorrido 3D Virtual de Zillow</div>
+        <div class="card-price">Desde $149</div>
+      </div>
+      <p>Tour interactivo en 3D integrado directamente en Zillow y Redfin para duplicar las visitas de compradores calificados en el listado.</p>
+    </div>
+  </div>
+
+  <footer class="doc-footer">
+    <div>Esteban Moreno Media — Catálogo de Servicios y Tarifas 2026</div>
+    <div>Página 2 de 6</div>
+  </footer>
+</div>
+
+<!-- PÁGINA 3: GRABACIÓN EN LOCACIÓN (MATERIAL EN BRUTO 4K) -->
+<div class="page">
+  <header class="brand-bar">
+    <div class="brand-left">
+      <div class="brand-name">Esteban Moreno Media</div>
+      <div class="brand-tagline">Filmación en Locación & Servicios de Cámara</div>
+    </div>
+    <div class="brand-right">
+      <strong>Fort Lauderdale & Miami, FL</strong><br>
+      (305) 497-4478 | esmolopez@gmail.com
+    </div>
+  </header>
+
+  <div class="section-header">
+    <div class="section-kicker">Filmación en Locación (Tarifas de Rodaje)</div>
+    <h2 class="section-title">Producción y Captura 4K en Bruto (Sin Edición)</h2>
+    <p class="section-desc">Servicio de cámara para eventos, empresas, agencias de marketing o marcas que ya cuentan con su propio equipo interno de post-producción.</p>
+  </div>
+
+  <div class="note-box">
+    <strong>Garantía Técnica:</strong> Rodaje exclusivo en resolución 4K nativa con cámaras Sony Alpha de gama cinematográfica, lentes de alta nitidez óptica, audio inalámbrico profesional y grabación simultánea en doble tarjeta de memoria para máxima seguridad.
+  </div>
+
+  <table class="rate-table">
+    <thead>
+      <tr>
+        <th style="width: 38%;">Configuración del Equipo de Rodaje</th>
+        <th style="width: 27%;">Especificaciones Técnicas</th>
+        <th style="width: 17%;" class="tar">Tarifa por Hora</th>
+        <th style="width: 18%;" class="tar">Tarifa Jornada</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div class="service-name">Videógrafo Principal (1 Cámara)</div>
+          <div class="service-detail">Esteban en locación con cámara principal 4K Sony, kit de audio inalámbrico y estabilizador.</div>
+          <span class="badge-tag">Mínimo 3 Horas ($300)</span>
+        </td>
+        <td>
+          4K Cine Sony Alpha<br>
+          Audio lavalier inalámbrico<br>
+          Gimbal motorizado
+        </td>
+        <td class="tar">
+          <span class="price-main">$100</span><span class="price-sub">/ hora</span>
+        </td>
+        <td class="tar">
+          <span class="price-main">$400</span><span class="price-sub">medio día (4h)</span>
+          <span class="price-main" style="margin-top:3px; display:block;">$800</span><span class="price-sub">día completo (8h)</span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="service-name">Equipo de Evento (2 Personas)</div>
+          <div class="service-detail">Director de Fotografía 4K + Creador de contenido dedicado con 2 iPhones Pro para capturar Reels verticales entre el público.</div>
+          <span class="badge-tag">Mínimo 4 Horas ($640)</span>
+        </td>
+        <td>
+          1 Cámara Sony 4K fija/móvil<br>
+          2 iPhones Pro (Reels verticales)<br>
+          Captura ágil entre asistentes
+        </td>
+        <td class="tar">
+          <span class="price-main">$160</span><span class="price-sub">/ hora</span>
+        </td>
+        <td class="tar">
+          <span class="price-main">$640</span><span class="price-sub">medio día (4h)</span>
+          <span class="price-main" style="margin-top:3px; display:block;">$1,280</span><span class="price-sub">día completo (8h)</span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="service-name">Producción Multicámara (2 a 3 Cámaras)</div>
+          <div class="service-detail">Ideal para conferencias, convenciones y paneles de discusión. Cobertura ininterrumpida desde múltiples perspectivas y audio de sala.</div>
+          <span class="badge-tag">Mínimo 4 Horas ($900)</span>
+        </td>
+        <td>
+          2-3 Cámaras 4K sincronizadas<br>
+          Toma directa de consola XLR<br>
+          Grabación continua sin cortes
+        </td>
+        <td class="tar">
+          <span class="price-main">$225</span><span class="price-sub">/ hora</span>
+        </td>
+        <td class="tar">
+          <span class="price-main">$900</span><span class="price-sub">medio día (4h)</span>
+          <span class="price-main" style="margin-top:3px; display:block;">$1,800</span><span class="price-sub">día completo (8h)</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-header" style="margin-top: 12px;">
+    <div class="section-kicker">Formatos y Modalidades de Entrega</div>
+    <h3 class="section-title" style="font-size: 15px;">Archivos Organizados y Descarga Inmediata</h3>
+  </div>
+
+  <div class="card-grid" style="margin-bottom: 0;">
+    <div class="feature-card">
+      <div class="card-head">
+        <div class="card-title">Entrega en Nube Privada</div>
+        <div class="card-price">Incluido</div>
+      </div>
+      <p>Subida completa del material 4K sin comprimir a través de Google Drive o Dropbox empresarial dentro de las primeras 24 horas tras concluir el rodaje.</p>
+      <ul>
+        <li>Carpetas ordenadas por cámara y momentos del evento.</li>
+        <li>Formatos nativos compatibles con Premiere, Final Cut y DaVinci Resolve.</li>
+      </ul>
+    </div>
+    <div class="feature-card">
+      <div class="card-head">
+        <div class="card-title">Entrega Inmediata en Disco SSD</div>
+        <div class="card-price">$120</div>
+      </div>
+      <p>Descarga in situ al finalizar la jornada en una unidad de estado sólido de alta velocidad (1TB NVMe) para que tu equipo empiece a editar de inmediato.</p>
+      <ul>
+        <li>Unidad física de estado sólido nueva incluida en el costo.</li>
+        <li>Sin costo adicional ($0) si el cliente provee su propio disco duro o memoria.</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer class="doc-footer">
+    <div>Esteban Moreno Media — Catálogo de Servicios y Tarifas 2026</div>
+    <div>Página 3 de 6</div>
+  </footer>
+</div>
+
+<!-- PÁGINA 4: PRODUCCIÓN EN YATES & COMERCIAL KICKSTARTER / PRODUCTO -->
+<div class="page">
+  <header class="brand-bar">
+    <div class="brand-left">
+      <div class="brand-name">Esteban Moreno Media</div>
+      <div class="brand-tagline">Producción Náutica & Campañas de Lanzamiento</div>
+    </div>
+    <div class="brand-right">
+      <strong>Fort Lauderdale & Miami, FL</strong><br>
+      (305) 497-4478 | esmolopez@gmail.com
+    </div>
+  </header>
+
+  <div class="section-header">
+    <div class="section-kicker">Producción Náutica Especializada</div>
+    <h2 class="section-title">Grabación en Yates y Embarcaciones de Lujo</h2>
+    <p class="section-desc">Miami y Fort Lauderdale: filmación náutica especializada con cámaras estabilizadas, audio resistente a la brisa marina y opción de dron sobre agua.</p>
+  </div>
+
+  <div class="note-box">
+    <strong>Condiciones Operativas Náuticas:</strong> Por razones de navegación, seguridad de muelle y tiempo de maniobra en agua, los rodajes en yates no se reservan por hora individual; requieren una tarifa fija por medio día o día de navegación completo.
+  </div>
+
+  <div class="card-grid">
+    <div class="feature-card">
+      <div class="card-head">
+        <div class="card-title">Yate Medio Día (Solo Rodaje)</div>
+        <div class="card-price">$750</div>
+      </div>
+      <p>Esteban a bordo durante hasta 4 horas de chárter o navegación por Biscayne Bay o los canales de Fort Lauderdale.</p>
+      <ul>
+        <li>Cámara 4K en gimbal motorizado antivibración.</li>
+        <li>Tomas de cubierta, camarotes, navegación y estilo de vida.</li>
+        <li>Entrega de todo el material 4K sin editar.</li>
+      </ul>
+    </div>
+    <div class="feature-card">
+      <div class="card-head">
+        <div class="card-title">Yate Día Completo (Solo Rodaje)</div>
+        <div class="card-price">$1,400</div>
+      </div>
+      <p>Hasta 8 horas completas de cobertura a bordo durante travesías marítimas o eventos privados en el agua.</p>
+      <ul>
+        <li>Cobertura completa de atardecer, navegación y fondeo.</li>
+        <li>Seguimiento de invitados, deportes acuáticos y tripulación.</li>
+        <li>Opción de tripulación de 2 personas por <strong>$2,200</strong>.</li>
+      </ul>
+    </div>
+    <div class="feature-card highlight">
+      <div class="card-head">
+        <div class="card-title">Yate Llave en Mano (Rodaje + Edición)</div>
+        <div class="card-price">$1,450</div>
+      </div>
+      <p>La opción más solicitada para chárters comerciales y venta de embarcaciones. Incluye filmación y post-producción completa.</p>
+      <ul>
+        <li>4 Horas de filmación a bordo.</li>
+        <li><strong>1 Video Promocional Cinematográfico (60–90 seg)</strong> en 4K.</li>
+        <li><strong>2 Reels Verticales</strong> para Instagram/TikTok.</li>
+        <li>Colorimetría marina y diseño de audio profesional.</li>
+      </ul>
+    </div>
+    <div class="feature-card">
+      <div class="card-head">
+        <div class="card-title">Dron Marino con Licencia FAA</div>
+        <div class="card-price">+$250</div>
+      </div>
+      <p>Vuelo aéreo especializado sobre agua abierta siguiendo la embarcación en navegación a velocidad crucero.</p>
+      <ul>
+        <li>Piloto certificado bajo regulación FAA Parte 107.</li>
+        <li>Tomas aéreas dinámicas de proa, estela y perspectiva cenital.</li>
+        <li>Seguro de vuelo en espacio aéreo marítimo.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-header" style="margin-top: 10px;">
+    <div class="section-kicker">Comercial de Producto & Financiamiento Colectivo</div>
+    <h3 class="section-title" style="font-size: 15px;">Comercial de Lanzamiento / Campaña Kickstarter</h3>
+  </div>
+
+  <div class="feature-card highlight" style="margin-bottom: 0;">
+    <div class="card-head">
+      <div>
+        <div class="card-title" style="font-size: 14px;">Paquete Esencial de Lanzamiento (Kickstarter / Web de Producto)</div>
+        <div style="font-size: 9px; color: var(--mut); margin-top: 1px;">Producción completa llave en mano: rodaje con el creador y edición estructurada para recaudar o vender.</div>
+      </div>
+      <div class="card-price" style="font-size: 19px;">$1,000</div>
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 7px;">
+      <div>
+        <p style="font-weight: 700; color: var(--ink); margin-bottom: 3px;">Producción en Locación (3.5 Horas):</p>
+        <ul>
+          <li><strong>El Fundador como Protagonista:</strong> Entrevista guiada donde explicas el problema real y por qué creaste este producto.</li>
+          <li><strong>Tomas de Detalle y Demostración:</strong> Enfoques macro en texturas, acabados, ensamblaje y funcionamiento práctico.</li>
+          <li><strong>Grabación en tu Espacio:</strong> En tu taller, oficina o espacio de trabajo, evitando gastos de alquiler de estudio.</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-weight: 700; color: var(--ink); margin-bottom: 3px;">Edición y Entrega Final:</p>
+        <ul>
+          <li><strong>1 Video de Pitch de 2 Minutos:</strong> Con ritmo probado de 4 actos (Gancho, Problema, Solución y Llamado a la Acción).</li>
+          <li><strong>Títulos Limpios y Música:</strong> Gráficos explicativos en 2D y licencia de música comercial incluida.</li>
+          <li><strong>Ajustes Incluidos:</strong> 1 ronda de revisiones para asegurar que tu mensaje quede impecable antes del lanzamiento.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <footer class="doc-footer">
+    <div>Esteban Moreno Media — Catálogo de Servicios y Tarifas 2026</div>
+    <div>Página 4 de 6</div>
+  </footer>
+</div>
+
+<!-- PÁGINA 5: PAQUETES LLAVE EN MANO & ACCESORIOS DE PRODUCCIÓN -->
+<div class="page">
+  <header class="brand-bar">
+    <div class="brand-left">
+      <div class="brand-name">Esteban Moreno Media</div>
+      <div class="brand-tagline">Soluciones Integrales: Rodaje + Edición Terminada</div>
+    </div>
+    <div class="brand-right">
+      <strong>Fort Lauderdale & Miami, FL</strong><br>
+      (305) 497-4478 | esmolopez@gmail.com
+    </div>
+  </header>
+
+  <div class="section-header">
+    <div class="section-kicker">Paquetes Todo Incluido (Rodaje + Post-Producción)</div>
+    <h2 class="section-title">Producción Llave en Mano para Empresas y Eventos</h2>
+    <p class="section-desc">Recibe piezas editadas listas para publicar en redes sociales, sitios web o presentaciones, sin sorpresas ni tarifas ocultas de edición.</p>
+  </div>
+
+  <table class="rate-table">
+    <thead>
+      <tr>
+        <th style="width: 25%;">Paquete Llave en Mano</th>
+        <th style="width: 27%;">Alcance del Rodaje</th>
+        <th style="width: 33%;">Entregables Editados y Formatos</th>
+        <th style="width: 15%;" class="tar">Inversión</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div class="service-name">Medio Día Solitario + Edición</div>
+          <div class="service-detail">Marcas locales, clínicas, restaurantes y servicios profesionales.</div>
+        </td>
+        <td>
+          Hasta 4 horas de grabación<br>
+          1 Videógrafo 4K profesional<br>
+          Iluminación y audio en sitio
+        </td>
+        <td>
+          <strong>1 Video Promocional (60–90 seg)</strong><br>
+          o <strong>3 Reels Verticales</strong> para redes<br>
+          Edición, música con licencia y color
+        </td>
+        <td class="tar">
+          <span class="price-main">$750</span>
+          <span class="price-sub">llave en mano</span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="service-name">Día Completo Solitario + Edición</div>
+          <div class="service-detail">Institucional, fábricas, múltiples ubicaciones o producto.</div>
+        </td>
+        <td>
+          Hasta 8 horas de filmación<br>
+          Cobertura profunda de operaciones<br>
+          Entrevistas con el equipo
+        </td>
+        <td>
+          <strong>1 Video Principal (2 a 3 min)</strong><br>
+          + <strong>3 Reels Verticales</strong> complementarios<br>
+          Diseño sonoro y corrección de color
+        </td>
+        <td class="tar">
+          <span class="price-main">$1,600</span>
+          <span class="price-sub">llave en mano</span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="service-name">Evento Medio Día (2 Personas)</div>
+          <div class="service-detail">Cocteles de negocios, inauguraciones y conferencias de media jornada.</div>
+        </td>
+        <td>
+          4 Horas de cobertura ágil<br>
+          Esteban (Cámara 4K principal)<br>
+          + Creador con 2 iPhones Pro
+        </td>
+        <td>
+          <strong>1 Video Resumen (Sizzle Reel 60-90s)</strong><br>
+          + <strong>5 Reels Verticales</strong> listos para publicar<br>
+          Testimonios de asistentes y momentos clave
+        </td>
+        <td class="tar">
+          <span class="price-main">$1,250</span>
+          <span class="price-sub">llave en mano</span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="service-name">Evento Día Completo (2 Personas)</div>
+          <div class="service-detail">Convenciones, cumbres B2B y festivales corporativos.</div>
+        </td>
+        <td>
+          8 Horas de cobertura integral<br>
+          Grabación cinematográfica 4K<br>
+          + Captura vertical permanente
+        </td>
+        <td>
+          <strong>1 Video Resumen General Completo</strong><br>
+          + <strong>10 Reels / TikToks Verticales</strong><br>
+          Cobertura de stands, público y ponentes
+        </td>
+        <td class="tar">
+          <span class="price-main">$2,400</span>
+          <span class="price-sub">llave en mano</span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="service-name">Conferencia Multicámara</div>
+          <div class="service-detail">Grabación de ponencias en auditorios o salones de hotel con diapositivas.</div>
+        </td>
+        <td>
+          4 u 8 Horas en salón<br>
+          2 a 3 Cámaras en simultáneo<br>
+          Captura directa de sonido de consola
+        </td>
+        <td>
+          <strong>Edición de Ponencias con Cambio de Planos</strong><br>
+          Integración limpia de diapositivas en pantalla<br>
+          Audio masterizado sin ecos de sala
+        </td>
+        <td class="tar">
+          <span class="price-main">$1,750</span><span class="price-sub">medio día (4h)</span>
+          <span class="price-main" style="margin-top:3px; display:block;">$3,600</span><span class="price-sub">día completo (8h)</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-header" style="margin-top: 12px;">
+    <div class="section-kicker">Herramientas Especializadas en Locación</div>
+    <h3 class="section-title" style="font-size: 15px;">Accesorios y Suplementos Técnicos en Sitio</h3>
+  </div>
+
+  <div class="card-grid" style="margin-bottom: 0;">
+    <div class="feature-card">
+      <div class="card-head">
+        <div class="card-title">Captura Directa de Consola (XLR)</div>
+        <div class="card-price">$150</div>
+      </div>
+      <p>Conexión balanceada directa al sistema de sonido del recinto o cabina AV para obtener la voz de los oradores con máxima nitidez de emisión, sin ruidos ambientales.</p>
+    </div>
+    <div class="feature-card">
+      <div class="card-head">
+        <div class="card-title">Teleprómpter Móvil para Guiones</div>
+        <div class="card-price">$100</div>
+      </div>
+      <p>Sistema de lectura frontal de cristal óptico montado directamente en el lente de la cámara, permitiendo al presentador hablar con soltura sin memorizar textos largos.</p>
+    </div>
+  </div>
+
+  <footer class="doc-footer">
+    <div>Esteban Moreno Media — Catálogo de Servicios y Tarifas 2026</div>
+    <div>Página 5 de 6</div>
+  </footer>
+</div>
+
+<!-- PÁGINA 6: EDICIÓN REMOTA A LA CARTA, FOTOGRAFÍA, PROCESO & CONTACTO -->
+<div class="page">
+  <header class="brand-bar">
+    <div class="brand-left">
+      <div class="brand-name">Esteban Moreno Media</div>
+      <div class="brand-tagline">Edición Remota, Fotografía & Contacto Directo</div>
+    </div>
+    <div class="brand-right">
+      <strong>Fort Lauderdale & Miami, FL</strong><br>
+      (305) 497-4478 | esmolopez@gmail.com
+    </div>
+  </header>
+
+  <div class="section-header">
+    <div class="section-kicker">Servicios de Post-Producción y Edición Remota</div>
+    <h2 class="section-title">Edición para Creadores, Negocios y Agencias</h2>
+    <p class="section-desc">Tú grabas con tu teléfono o cámara; nosotros transformamos ese material en videos dinámicos, con cortes al ritmo, subtítulos llamativos y música.</p>
+  </div>
+
+  <div class="card-grid-3">
+    <div class="feature-card">
+      <div class="card-head">
+        <div class="card-title">Reels y TikToks</div>
+        <div class="card-price">$100</div>
+      </div>
+      <p>Edición ágil de formato vertical individual a partir de tus clips grabados.</p>
+      <ul>
+        <li>Subtítulos sincronizados.</li>
+        <li>Efectos visuales y zooms.</li>
+        <li>Música en tendencia.</li>
+      </ul>
+    </div>
+    <div class="feature-card">
+      <div class="card-head">
+        <div class="card-title">Promocional Gastronómico</div>
+        <div class="card-price">$240</div>
+      </div>
+      <p>Video de alta seducción visual para restaurantes, cafés y bares.</p>
+      <ul>
+        <li>Platos estrella y preparación.</li>
+        <li>Ambiente y coctelería.</li>
+        <li>Ritmo rápido para antojar.</li>
+      </ul>
+    </div>
+    <div class="feature-card">
+      <div class="card-head">
+        <div class="card-title">Edición Corporativa</div>
+        <div class="card-price">$725+</div>
+      </div>
+      <p>Post-producción para entrevistas, testimoniales y videos de marca.</p>
+      <ul>
+        <li>Corrección de color y audio.</li>
+        <li>Gráficos con logotipo.</li>
+        <li>Cortes de ritmo profesional.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-header" style="margin-top: 10px;">
+    <div class="section-kicker">Fotografía Comercial en el Sur de la Florida</div>
+    <h3 class="section-title" style="font-size: 15px;">Sesiones Fotográficas de Producto y Retrato</h3>
+  </div>
+
+  <div class="card-grid">
+    <div class="feature-card">
+      <div class="card-head">
+        <div class="card-title">Fotografía de Producto o Menús</div>
+        <div class="card-price">Desde $280</div>
+      </div>
+      <p>Sesión fotográfica en locación o estudio portátil para comercio electrónico, menús gastronómicos o catálogos físicos con iluminación cuidada.</p>
+    </div>
+    <div class="feature-card">
+      <div class="card-head">
+        <div class="card-title">Retratos Ejecutivos / Headshots</div>
+        <div class="card-price">Desde $250</div>
+      </div>
+      <p>Fotografía de perfil profesional para directores, fundadores y equipos de trabajo en Miami y Broward, optimizada para LinkedIn y sitios web.</p>
+    </div>
+  </div>
+
+  <div class="section-header" style="margin-top: 10px;">
+    <div class="section-kicker">Proceso Sencillo de Inicio</div>
+    <h3 class="section-title" style="font-size: 15px;">Cómo Reservar tu Fecha en 3 Pasos</h3>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; margin-bottom: 11px;">
+    <div style="background: var(--card); border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px;">
+      <div style="font-family: var(--display); font-size: 12.5px; font-weight: 700; color: var(--terracotta); margin-bottom: 2px;">1. Conversación Inicial</div>
+      <div style="font-size: 9px; color: var(--mut); line-height: 1.35;">Escríbenos o llámanos para contarnos tu fecha, locación y el objetivo de tu video.</div>
+    </div>
+    <div style="background: var(--card); border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px;">
+      <div style="font-family: var(--display); font-size: 12.5px; font-weight: 700; color: var(--terracotta); margin-bottom: 2px;">2. Confirmación de Fecha</div>
+      <div style="font-size: 9px; color: var(--mut); line-height: 1.35;">Bloqueamos el día en la agenda de producción y coordinamos los detalles de llegada.</div>
+    </div>
+    <div style="background: var(--card); border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px;">
+      <div style="font-family: var(--display); font-size: 12.5px; font-weight: 700; color: var(--terracotta); margin-bottom: 2px;">3. Rodaje & Entrega</div>
+      <div style="font-size: 9px; color: var(--mut); line-height: 1.35;">Filmamos con equipo profesional y recibes tu material organizado puntualmente.</div>
+    </div>
+  </div>
+
+  <div class="contact-banner">
+    <div>
+      <h3>¿Listo para agendar tu producción?</h3>
+      <p>Hablemos directamente sobre tu proyecto y coordinemos tu fecha.</p>
+    </div>
+    <div class="contact-details">
+      <div class="phone">(305) 497-4478</div>
+      <div><a href="mailto:esmolopez@gmail.com" class="email">esmolopez@gmail.com</a></div>
+      <div style="color: #c7c3bc; font-size: 9.5px; margin-top: 2px;">estebanmorenomedia.com</div>
+      <div style="color: #9c978f; font-size: 8.5px;">Fort Lauderdale & Miami, FL</div>
+    </div>
+  </div>
+
+  <footer class="doc-footer" style="margin-top: 8px;">
+    <div>Esteban Moreno Media — Catálogo de Servicios y Tarifas 2026</div>
+    <div>Página 6 de 6</div>
+  </footer>
+</div>
+
+</body>
+</html>

@@ -42,6 +42,9 @@ export const LEGACY_V1_WATCH_URLS = [
 ];
 export const WATCH_URLS = [
   ...LEGACY_V1_WATCH_URLS,
+  // Buyer-guide pair (2026-10-18): same bounded RFP request in English and Spanish.
+  "https://estebanmorenomedia.com/guides/video-production-rfp-template-miami",
+  "https://estebanmorenomedia.com/es/guias/plantilla-brief-rfp-produccion-video-miami",
   // Annual-events section (owner-approved 2026-10-10).
   "https://estebanmorenomedia.com/events/miami-boat-show-video",
   "https://estebanmorenomedia.com/es/eventos/video-para-el-miami-boat-show",
@@ -160,6 +163,15 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/es/edicion-de-video-remota-colombia",
   "https://estebanmorenomedia.com/services/bilingual-video-subtitling-service",
   "https://estebanmorenomedia.com/es/servicio-de-subtitulado-bilingue-de-video",
+  // Wave 4 niche expansions (2026-10-18: trade-show, gala, superyacht, rehearsal-dinner).
+  "https://estebanmorenomedia.com/services/trade-show-booth-videographer-fort-lauderdale",
+  "https://estebanmorenomedia.com/es/videografo-para-ferias-comerciales-fort-lauderdale",
+  "https://estebanmorenomedia.com/services/corporate-gala-videographer-miami",
+  "https://estebanmorenomedia.com/es/videografo-para-galas-corporativas-miami",
+  "https://estebanmorenomedia.com/services/superyacht-charter-marketing-video-fort-lauderdale",
+  "https://estebanmorenomedia.com/es/marketing-de-video-para-superyates-fort-lauderdale",
+  "https://estebanmorenomedia.com/services/rehearsal-dinner-videographer-miami",
+  "https://estebanmorenomedia.com/es/videografo-para-cena-de-ensayo-miami",
   "https://estebanmorenomedia.com/es/videografo-de-bodas-fort-lauderdale",
   "https://estebanmorenomedia.com/services/videographer-miami",
   "https://estebanmorenomedia.com/guides/how-to-start-as-an-influencer",
