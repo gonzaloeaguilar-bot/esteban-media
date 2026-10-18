@@ -50,6 +50,18 @@ import {
   NETWORKING_EVENT_ES_DESTINATIONS,
   NETWORKING_EVENT_ES_DISCLOSURE,
   NETWORKING_EVENT_ES_SECTIONS,
+  WEDDING_MIAMI_ES_DESTINATIONS,
+  WEDDING_MIAMI_ES_DISCLOSURE,
+  WEDDING_MIAMI_ES_SECTIONS,
+  VLOG_VIDEOGRAPHER_ES_DESTINATIONS,
+  VLOG_VIDEOGRAPHER_ES_DISCLOSURE,
+  VLOG_VIDEOGRAPHER_ES_SECTIONS,
+  CONFERENCE_VIDEOGRAPHER_ES_DESTINATIONS,
+  CONFERENCE_VIDEOGRAPHER_ES_DISCLOSURE,
+  CONFERENCE_VIDEOGRAPHER_ES_SECTIONS,
+  EXECUTIVE_INTERVIEW_ES_DESTINATIONS,
+  EXECUTIVE_INTERVIEW_ES_DISCLOSURE,
+  EXECUTIVE_INTERVIEW_ES_SECTIONS,
   HOTEL_ES_DESTINATIONS,
   HOTEL_ES_DISCLOSURE,
   HOTEL_ES_SECTIONS,
@@ -2658,6 +2670,190 @@ export const spanishNichePages: SpanishNichePage[] = [
     ],
   },
   {
+    slug: "videografo-de-bodas-miami",
+    title: "Videógrafo de bodas en Miami",
+    metadataTitle: "Video de Bodas Miami",
+    description:
+      "Video de bodas y trailers destacados filmados y editados por Esteban Moreno en Miami. Cada boda se cotiza individualmente según las horas de rodaje.",
+    eyebrow: "Bodas y Celebraciones Miami",
+    h1: "Video de bodas y películas cinematográficas en Miami.",
+    lead:
+      "Películas de boda, trailers destacados y cobertura de ceremonia filmados en Miami y Coral Gables con narrativa cinematográfica.",
+    keyword: "videógrafo de bodas en Miami",
+    location: "Miami-Dade / Remoto",
+    availability: "confirmed",
+    icon: Heart,
+    bestFor: [
+      "Parejas que buscan una película cinematográfica con sonido profesional de sus votos.",
+      "Celebraciones en hoteles, fincas y playas de Miami y Coral Gables.",
+    ],
+    scopingQuestions: [
+      "¿La ceremonia y la recepción se celebran en la misma sede o en lugares distintos?",
+      "¿Desean un resumen corto para redes o la película completa del día?",
+    ],
+    projectFit:
+      "Cobertura sensible y cuidada para registrar cada momento clave y espontáneo de la boda.",
+    updated: "2026-10-18",
+    sections: WEDDING_MIAMI_ES_SECTIONS,
+    sectionsDisclosure: WEDDING_MIAMI_ES_DISCLOSURE,
+    sectionsDestinations: WEDDING_MIAMI_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se define el precio de un video de bodas en Miami?",
+        answer:
+          "Cada boda se cotiza de forma individualizada según las horas de cobertura, la logística de traslado entre sedes y los formatos de entrega deseados.",
+      },
+      {
+        question: "¿Qué equipo de grabación se utiliza en las bodas?",
+        answer:
+          "Se emplean cámaras Sony Alpha de sensor completo, lentes luminosos para recepciones de noche, estabilizadores y micrófonos inalámbricos discretos para los votos.",
+      },
+      {
+        question: "¿Pueden editar material grabado por otro profesional?",
+        answer:
+          "Sí. Esteban ofrece servicio de edición para metraje grabado por familiares u otros videógrafos, sincronizando ceremonias multicámara y discursos.",
+      },
+    ],
+  },
+  {
+    slug: "videografo-para-vlogs-miami",
+    title: "Videógrafo para vlogs en Miami",
+    metadataTitle: "Videógrafo para Vlogs Miami",
+    description:
+      "Videógrafo para vlogs y canales de YouTube en Miami con estabilización de cámara, audio inalámbrico y edición dinámica para creadores de contenido.",
+    eyebrow: "Creadores de Contenido / YouTube",
+    h1: "Videógrafo para vlogs y canales de YouTube en Miami.",
+    lead:
+      "Filmación en exteriores, seguimiento en movimiento y sonido inalámbrico nítido para vlogs y creadores de contenido en Miami.",
+    keyword: "videógrafo para vlogs en Miami",
+    location: "Miami-Dade / Remoto",
+    availability: "confirmed",
+    icon: Video,
+    bestFor: [
+      "Creadores de YouTube que necesitan un camarógrafo dedicado en locación.",
+      "Emprendedores y marcas personales que documentan su día a día en Miami.",
+    ],
+    scopingQuestions: [
+      "¿Las grabaciones son en espacios públicos, restaurantes o estudios?",
+      "¿Requieres solo el metraje bruto organizado o la edición completa del episodio?",
+    ],
+    projectFit:
+      "Filmación ágil y ligera para creadores que necesitan movilidad sin equipos invasivos.",
+    updated: "2026-10-18",
+    sections: VLOG_VIDEOGRAPHER_ES_SECTIONS,
+    sectionsDisclosure: VLOG_VIDEOGRAPHER_ES_DISCLOSURE,
+    sectionsDestinations: VLOG_VIDEOGRAPHER_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se contrata y cotiza la filmación de un vlog?",
+        answer:
+          "El rodaje se puede reservar por horas según el alcance o en jornadas de medio día y día completo para acumular varias entregas de material.",
+      },
+      {
+        question: "¿Se entregan episodios terminados o los archivos originales?",
+        answer:
+          "Ambas opciones están disponibles: entrega de material bruto organizado para edición interna o postproducción completa con ganchos, música y cortes verticales.",
+      },
+      {
+        question: "¿Es posible grabar en calles y restaurantes de Miami?",
+        answer:
+          "Sí. El uso de equipos compactos de mano permite grabar con naturalidad en Wynwood y locales de la ciudad sin obstaculizar a los clientes.",
+      },
+    ],
+  },
+  {
+    slug: "videografo-para-conferencias-fort-lauderdale",
+    title: "Videógrafo para conferencias en Fort Lauderdale",
+    metadataTitle: "Video Conferencias Fort Lauderdale",
+    description:
+      "Videografía para conferencias y convenciones en Fort Lauderdale y Broward: discursos principales, paneles de discusión y resúmenes de video para eventos.",
+    eyebrow: "Conferencias / Convenciones Fort Lauderdale",
+    h1: "Videógrafo para conferencias y convenciones en Fort Lauderdale.",
+    lead:
+      "Grabación de ponencias magistrales, paneles de expertos y videos resumen para convenciones empresariales en Fort Lauderdale y Broward.",
+    keyword: "videógrafo para conferencias en Fort Lauderdale",
+    location: "Fort Lauderdale / Broward",
+    availability: "confirmed",
+    icon: CalendarRange,
+    bestFor: [
+      "Empresas y asociaciones que organizan congresos en el Centro de Convenciones de Broward.",
+      "Organizadores que necesitan conferencias archivadas y reels para redes sociales.",
+    ],
+    scopingQuestions: [
+      "¿Se requiere conexión directa a la consola de audio del salón?",
+      "¿Cuántas salas o ponencias simultáneas necesitan registro?",
+    ],
+    projectFit:
+      "Cobertura técnica confiable con respaldo continuo de energía y audio para congresos.",
+    updated: "2026-10-18",
+    sections: CONFERENCE_VIDEOGRAPHER_ES_SECTIONS,
+    sectionsDisclosure: CONFERENCE_VIDEOGRAPHER_ES_DISCLOSURE,
+    sectionsDestinations: CONFERENCE_VIDEOGRAPHER_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se garantiza el audio de los conferencistas en salones grandes?",
+        answer:
+          "Se toma una señal directa de la mesa de mezclas del auditorio mediante cable XLR y se complementa con micrófonos de solapa inalámbricos en el atril.",
+      },
+      {
+        question: "¿Se pueden cubrir jornadas completas o eventos de varios días?",
+        answer:
+          "Sí. Se opera con estaciones de carga rotativas y grabación redundante en dos tarjetas de memoria para cubrir jornadas continuas de 8 a 10 horas.",
+      },
+      {
+        question: "¿Se cobran gastos de desplazamiento en Fort Lauderdale?",
+        answer:
+          "No. Esteban tiene base local en Fort Lauderdale, prestando servicio en todo el Condado de Broward sin recargo por traslado.",
+      },
+    ],
+  },
+  {
+    slug: "videografo-para-entrevistas-ejecutivas-miami",
+    title: "Videógrafo para entrevistas ejecutivas en Miami",
+    metadataTitle: "Video Entrevistas Ejecutivas Miami",
+    description:
+      "Videógrafo para entrevistas ejecutivas y testimonios corporativos en Miami: iluminación profesional, audio doble y edición estructurada para empresas.",
+    eyebrow: "Entrevistas Ejecutivas / Testimonios Miami",
+    h1: "Video para entrevistas ejecutivas y testimonios corporativos en Miami.",
+    lead:
+      "Grabación en oficinas corporativas y locaciones de Miami con iluminación suave, microfonía doble y edición enfocada en liderazgo y marca.",
+    keyword: "videógrafo para entrevistas ejecutivas en Miami",
+    location: "Miami-Dade / Broward / Remoto",
+    availability: "confirmed",
+    icon: Building2,
+    bestFor: [
+      "Directivos y fundadores que comunican su visión en LinkedIn y medios corporativos.",
+      "Empresas que producen casos de estudio y testimonios en video con clientes clave.",
+    ],
+    scopingQuestions: [
+      "¿La filmación se realiza en la oficina del cliente o en un espacio alquilado?",
+      "¿Se requiere teleprónter o se prefiere una entrevista conversacional guiada?",
+    ],
+    projectFit:
+      "Puesta en escena profesional que transmite confianza y autoridad ejecutiva en video.",
+    updated: "2026-10-18",
+    sections: EXECUTIVE_INTERVIEW_ES_SECTIONS,
+    sectionsDisclosure: EXECUTIVE_INTERVIEW_ES_DISCLOSURE,
+    sectionsDestinations: EXECUTIVE_INTERVIEW_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Dónde se pueden realizar las entrevistas ejecutivas?",
+        answer:
+          "En salas de conferencias, oficinas corporativas o espacios de co-working en Miami-Dade y Broward con adecuada insonorización.",
+      },
+      {
+        question: "¿Cómo ayudan a directivos que no tienen experiencia ante la cámara?",
+        answer:
+          "Las preguntas se formulan fuera de encuadre en tono de conversación guiada, permitiendo respuestas naturales y seguras sin memorizar textos.",
+      },
+      {
+        question: "¿Se entregan fragmentos breves para publicaciones en LinkedIn?",
+        answer:
+          "Sí. Además de la entrevista completa, se editan cápsulas verticales de 60 segundos con subtítulos y rótulos corporativos optimizadas para LinkedIn.",
+      },
+    ],
+  },
+  {
     slug: "marketing-de-video-automotriz-miami",
     title: "Marketing de video automotriz en Miami",
     metadataTitle: "Video Automotriz Miami",
@@ -5141,6 +5337,46 @@ const languageAlternatesRaw: Record<string, Record<string, string>> = {
     "en-US": "/services/networking-event-videographer-miami",
     "es-US": "/es/videografo-para-eventos-de-networking-miami",
     "x-default": "/services/networking-event-videographer-miami",
+  },
+  "/services/wedding-videographer-miami": {
+    "en-US": "/services/wedding-videographer-miami",
+    "es-US": "/es/videografo-de-bodas-miami",
+    "x-default": "/services/wedding-videographer-miami",
+  },
+  "/es/videografo-de-bodas-miami": {
+    "en-US": "/services/wedding-videographer-miami",
+    "es-US": "/es/videografo-de-bodas-miami",
+    "x-default": "/services/wedding-videographer-miami",
+  },
+  "/services/vlog-videographer-miami": {
+    "en-US": "/services/vlog-videographer-miami",
+    "es-US": "/es/videografo-para-vlogs-miami",
+    "x-default": "/services/vlog-videographer-miami",
+  },
+  "/es/videografo-para-vlogs-miami": {
+    "en-US": "/services/vlog-videographer-miami",
+    "es-US": "/es/videografo-para-vlogs-miami",
+    "x-default": "/services/vlog-videographer-miami",
+  },
+  "/services/conference-videographer-fort-lauderdale": {
+    "en-US": "/services/conference-videographer-fort-lauderdale",
+    "es-US": "/es/videografo-para-conferencias-fort-lauderdale",
+    "x-default": "/services/conference-videographer-fort-lauderdale",
+  },
+  "/es/videografo-para-conferencias-fort-lauderdale": {
+    "en-US": "/services/conference-videographer-fort-lauderdale",
+    "es-US": "/es/videografo-para-conferencias-fort-lauderdale",
+    "x-default": "/services/conference-videographer-fort-lauderdale",
+  },
+  "/services/executive-interview-videographer-miami": {
+    "en-US": "/services/executive-interview-videographer-miami",
+    "es-US": "/es/videografo-para-entrevistas-ejecutivas-miami",
+    "x-default": "/services/executive-interview-videographer-miami",
+  },
+  "/es/videografo-para-entrevistas-ejecutivas-miami": {
+    "en-US": "/services/executive-interview-videographer-miami",
+    "es-US": "/es/videografo-para-entrevistas-ejecutivas-miami",
+    "x-default": "/services/executive-interview-videographer-miami",
   },
   ...nicheBatch20261006,
   ...nicheBatch20261006Hreflang,

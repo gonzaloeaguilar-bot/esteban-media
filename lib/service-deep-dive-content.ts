@@ -681,3 +681,84 @@ export const PODCAST_CLIPPING_DEEP_DIVE: DeepDive = {
     },
   ],
 };
+
+export const WEDDING_MIAMI_DEEP_DIVE: DeepDive = {
+  id: "wedding-miami-planning",
+  title: "How does a couple plan a wedding film in Miami?",
+  destinations: "Quotes, venue logistics, and essential moments for the shot list.",
+  sections: [
+    {
+      heading: "What should couples send for a Miami wedding video quote?",
+      paragraphs: [
+        "Couples should send four key details: the wedding date, the venue locations, the hours of coverage required, and the desired delivery formats. The date confirms Esteban's availability on the calendar. Specifying whether the ceremony and reception take place at the same venue (such as a Coral Gables hotel or Coconut Grove estate) or across two separate locations determines transition logistics. Sharing whether you want an 8-to-10 minute cinematic film, a 60-second social highlight trailer, or full ceremony recording establishes editing scope. With these facts, Esteban provides a transparent written quote outlining all hours and deliverables before you commit.",
+      ],
+    },
+    {
+      heading: "Which Miami wedding moments belong on the shot list?",
+      paragraphs: [
+        "A complete wedding shot list captures both key timeline moments and candid family interactions. Essential milestones include wedding preparation, the first look, ceremony processionals, the exchange of vows and rings, the first kiss, and the recessional. At the reception, priority focuses on the grand entrance, first dances, family traditions like the lazo or arras, dinner speeches, and open dancing. Providing your planner's schedule and the names of key family members ensures parents and the wedding party are intentionally filmed. For celebratory family milestones, see the [quinceañera video](/services/quinceanera-video-miami) page; for short-form social recaps, explore [short-form video editing](/services/short-form-video-editor-miami).",
+      ],
+    },
+  ],
+};
+
+export const VLOG_VIDEOGRAPHER_DEEP_DIVE: DeepDive = {
+  id: "vlog-videography-process",
+  title: "How does on-location vlog production work in Miami?",
+  destinations: "Handheld camera rigs, wireless sound capture, and pacing structures.",
+  sections: [
+    {
+      heading: "How does on-location vlog filming work in Miami?",
+      paragraphs: [
+        "On-location vlog filming pairs the creator with a dedicated camera operator who captures walking footage, speaking segments, and contextual b-roll across Miami. Esteban operates a compact Sony Alpha 7 IV camera rigged with a gimbal or handheld stabilizer and compact directional wireless microphones. This setup allows creators to move naturally through outdoor venues, restaurants, and neighborhoods like Wynwood or Brickell without heavy tripods slowing the day down. Audio stays crisp even in busy environments through direct transmitter clipping. Filming can be booked by the hour at $80 per hour or packaged as a multi-hour content day, giving creators weeks of raw footage ready for editing.",
+      ],
+    },
+    {
+      heading: "What editing structure turns raw vlog footage into engaging episodes?",
+      paragraphs: [
+        "Effective vlog editing relies on intentional story pacing rather than continuous chronological playback. The edit begins with a high-energy hook from the most interesting moment of the day within the first five seconds to retain viewer retention. Unnecessary walking pauses, repeated phrases, and camera setup adjustments are cut tightly. Ambient background sound, balanced licensed music, and clean text pop-ups are layered to emphasize locations and key points. Esteban delivers both full 16:9 episodes for YouTube and cut-down 9:16 vertical shorts for Instagram Reels and TikTok. For solo creators who film their own footage, see [content creator video editing](/services/content-creator-video-editing-miami); for planned channel packages, see the [Starter editing plan](/pricing/starter).",
+      ],
+    },
+  ],
+};
+
+export const CONFERENCE_VIDEOGRAPHER_DEEP_DIVE: DeepDive = {
+  id: "conference-videography-logistics",
+  title: "How do you capture full-day conferences and conventions?",
+  destinations: "Audio console tapping, battery management, and sponsor deliverables.",
+  sections: [
+    {
+      heading: "How do you capture multi-session conferences without audio or battery gaps?",
+      paragraphs: [
+        "Multi-session conferences in Fort Lauderdale require continuous equipment redundancy and disciplined power management. Esteban films full-day conventions at venues such as the Broward County Convention Center using dual Sony Alpha cameras recording simultaneously to redundant dual memory cards. Audio is tapped directly from the venue's audio console via XLR feeds for keynote speakers and supplemented with backup wireless lavaliers on podium speakers. A rotating charging station ensures fresh high-capacity batteries are swapped during session transitions without missing presenter remarks. This disciplined setup prevents card runouts or microphone dropouts during critical presentations. Finished footage can be delivered as unedited archive recordings or edited into polished session videos. For all-day corporate gatherings, see [corporate event videographer Fort Lauderdale](/services/corporate-event-videographer-fort-lauderdale).",
+      ],
+    },
+    {
+      heading: "What deliverables work best for conference attendees and sponsors?",
+      paragraphs: [
+        "Conference organizers typically need three distinct video outputs from a multi-day conference. First, a rapid 60-to-90 second highlight trailer capturing stage presentations, networking crowds, and sponsor signage generates immediate momentum for next year's ticket sales. Second, standalone recordings of keynote addresses and expert panel sessions provide valuable post-conference educational access for remote attendees and members. Third, bite-sized vertical video clips highlighting memorable speaker quotes are formatted for LinkedIn and social media promotion. Scoping these outputs prior to the conference ensures the shot list covers required sponsor banners, attendee interactions, and main-stage lighting. For informal networking capture, see [networking event videographer Miami](/services/networking-event-videographer-miami); for post-event editing packages, review our [Local Presence production day](/pricing/local-presence).",
+      ],
+    },
+  ],
+};
+
+export const EXECUTIVE_INTERVIEW_DEEP_DIVE: DeepDive = {
+  id: "executive-interview-production",
+  title: "How do you film executive interviews and customer testimonials?",
+  destinations: "Quiet room acoustics, conversational prompting, and corporate b-roll.",
+  sections: [
+    {
+      heading: "How should a company prepare an executive for a filmed interview in Miami?",
+      paragraphs: [
+        "Preparing executives for a filmed interview starts with room selection and messaging clarity rather than memorizing scripts. Choose a quiet office or conference room with minimal HVAC noise and indirect natural light; glass-heavy rooms can create acoustic echo that dampens speech quality. Instead of reading a rigid script, provide the executive with three to five core conversational bullet points, allowing their answers to sound authoritative and natural. Esteban sets up balanced softbox lighting and dual-channel wireless lavaliers or directional boom microphones to ensure broadcast-quality voice clarity. Questions are framed off-camera so the executive speaks directly to a conversational interviewer. For customer success stories, see [customer testimonial video script template](/guides/customer-testimonial-video-script-template); for team profiles, see [business video production Miami](/services/business-video-production-miami).",
+      ],
+    },
+    {
+      heading: "What editing workflow turns executive soundbites into brand assets?",
+      paragraphs: [
+        "The editing process refines raw interview recordings into concise, authoritative brand assets suited for corporate websites and executive LinkedIn profiles. Esteban removes verbal pauses, false starts, and trailing filler words while strictly preserving the speaker's natural tone and factual meaning. Supporting b-roll of office work, product demonstrations, or presentation slides is inserted over transition cuts to maintain visual pacing. Color grading balances skin tones under mixed indoor lighting, while professional lower-third graphics display the executive's exact name and corporate title. Audio undergoes EQ tuning, de-essing, and background noise attenuation. Deliverables include full horizontal interviews for landing pages and vertical cutdowns formatted for executive social channels. For remote interviews, see [interview video editing service](/services/interview-video-editing-service); for pricing, review [pricing plans](/pricing).",
+      ],
+    },
+  ],
+};
+

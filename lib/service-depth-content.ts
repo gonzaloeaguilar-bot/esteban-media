@@ -1460,6 +1460,94 @@ export const PORTED_SERVICE_FAQS: Readonly<Record<string, readonly ServiceFaq[]>
         "Yes. Framing is planned during filming so key interactions fit vertical 9:16 safe zones for Reels while horizontal 16:9 cuts are preserved for YouTube, websites, and presentation decks.",
     },
   ],
+  "/services/wedding-videographer-miami": [
+    {
+      question: "How is pricing determined for a Miami wedding video?",
+      answer:
+        "Each wedding is quoted individually based on coverage hours, single or multi-venue logistics, and requested deliverables such as a cinematic highlight trailer, full ceremony edit, or social clips.",
+    },
+    {
+      question: "What equipment is used to film Miami weddings?",
+      answer:
+        "Esteban films with compact Sony Alpha full-frame cameras, prime lenses for low-light reception settings, handheld stabilization gimbals, and discreet wireless audio transmitters on the officiant and groom.",
+    },
+    {
+      question: "How long does wedding video post-production take?",
+      answer:
+        "Highlight trailers and full-length wedding films are meticulously edited with color grading and audio mastering, with delivery timelines established in the written proposal prior to the wedding date.",
+    },
+    {
+      question: "Can footage captured by another videographer be edited?",
+      answer:
+        "Yes. Esteban provides wedding video editing for raw footage provided by couples or other videographers, organizing multi-camera ceremonies and speeches into polished films.",
+    },
+  ],
+  "/services/vlog-videographer-miami": [
+    {
+      question: "What does a vlog videographer provide during a Miami shoot?",
+      answer:
+        "Esteban serves as a dedicated camera operator and director, filming walking dialogue, establishing b-roll, and candid moments across Miami locations with smooth gimbal stabilization and wireless lavalier audio.",
+    },
+    {
+      question: "How is vlog filming booked and priced?",
+      answer:
+        "Filming can be booked at standard hourly production rates or packaged as half-day and full-day shoots for creators batching multiple episodes of content.",
+    },
+    {
+      question: "Do you deliver completed episodes or raw footage?",
+      answer:
+        "Both options are available. Creators can request raw organized footage for in-house editing or complete post-production including hook design, sound balancing, music licensing, and vertical social cutdowns.",
+    },
+    {
+      question: "Can filming take place in public Miami neighborhoods and restaurants?",
+      answer:
+        "Yes. Compact handheld camera rigs allow agile filming in Wynwood, Miami Beach, Downtown Miami, and indoor venues without large crews or obtrusive equipment disrupting patrons.",
+    },
+  ],
+  "/services/conference-videographer-fort-lauderdale": [
+    {
+      question: "How do you capture keynote presentations and panel discussions?",
+      answer:
+        "Keynote sessions are recorded with professional cameras capturing stage presentation slides and speaker remarks, integrating direct audio board feeds from the venue for broadcast-quality sound.",
+    },
+    {
+      question: "Can multi-day conventions at the Broward County Convention Center be covered?",
+      answer:
+        "Yes. Full-day and multi-day convention filming includes redundant dual-card recording, rotating battery swaps, and comprehensive stage, sponsor, and attendee coverage.",
+    },
+    {
+      question: "What video formats are delivered after the conference?",
+      answer:
+        "Deliverables typically include full-length presentation recordings for attendee archives, short 60-to-90 second highlight recaps for social marketing, and vertical speaker quote clips for LinkedIn.",
+    },
+    {
+      question: "Are travel fees charged for Fort Lauderdale and Broward venues?",
+      answer:
+        "No. Esteban is locally based in Fort Lauderdale, providing local coverage across Broward County venues without travel surcharges.",
+    },
+  ],
+  "/services/executive-interview-videographer-miami": [
+    {
+      question: "Where can executive interviews be filmed in Miami?",
+      answer:
+        "Interviews can be filmed on-location at corporate offices, conference suites, co-working spaces, or event venues across Miami-Dade and Broward.",
+    },
+    {
+      question: "What lighting and sound equipment is brought to the executive shoot?",
+      answer:
+        "Esteban brings balanced softbox LED lighting, directional boom microphones, and dual-channel wireless lavaliers to ensure studio-grade acoustic clarity in corporate environments.",
+    },
+    {
+      question: "How do you help executives who are uncomfortable on camera?",
+      answer:
+        "Interviews are structured conversationally rather than reading rigid teleprompter scripts. Questions are asked off-camera, allowing executives to speak naturally to a person.",
+    },
+    {
+      question: "Can executive soundbites be repurposed into LinkedIn video clips?",
+      answer:
+        "Yes. Full-length interviews are edited for corporate websites, and key insights are cut into 9:16 vertical clips with accurate captions and branded title cards for LinkedIn.",
+    },
+  ],
 };
 
 /** Hand-written pages left without a FAQ because no published fact supports one. */
