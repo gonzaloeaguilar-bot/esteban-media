@@ -1,3 +1,16 @@
+# 2026-10-18 — Growth starvation internal links to /es/eventos
+
+- Rescued target route `https://estebanmorenomedia.com/es/eventos` (`app/(spanish)/es/eventos/page.tsx`) by adding 4 contextual internal links in body copy from earning pages:
+  1. `/about` (`app/(english)/about/page.tsx`): contextual link with anchor `eventos del año`.
+  2. `/` (`components/about-teaser.tsx`): contextual link in the "Spanish-first" highlight card with anchor `eventos del año`.
+  3. `/guides/best-caption-styles-for-instagram-reels` (`lib/guides.ts`): contextual link in viewing context / event reels section with anchor `eventos del año en el sur de Florida`.
+  4. `/areas` (`app/(english)/areas/page.tsx`): contextual link in remote editing section with anchor `eventos del año`.
+- Confirmed target `/es/eventos` has breadcrumb link back to `/es` and its 7 event child pages carry a backlink to the events hub (`/es/eventos` or `/events`) in their "other annual events" section (`components/event-content-page.tsx`).
+- Ran `pnpm lastmod:update` updating `config/page-lastmod.json`.
+- Validated with `pnpm typecheck` and full vitest test suite `pnpm test` (162 test files, 2,981 tests passing).
+
+---
+
 # 2026-10-16 — Bing + Ahrefs free-tool readiness (local branch)
 
 - PR [#454](https://github.com/gonzaloeaguilar-bot/esteban-media/pull/454) on `feat/bing-ahrefs-readiness` adds the read-only `pnpm search-tools:readiness` contract and setup notes at `docs/search-tool-setup.md`. It checks live `robots.txt`, normal/video sitemaps and the public IndexNow key before any browser-side account setup or UI export review.
