@@ -3067,7 +3067,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "How do you choose a caption style for the viewing context?",
           paragraphs: [
-            "Reels, Shorts, and TikTok clips are often watched without sound, but the right subtitle treatment depends on how much the viewer needs to understand. Talking-head clips usually need clean sentence captions; food, product, and event reels often work better with short emphasis words that support the visuals instead of repeating every frame. Businesses planning event coverage can review the Spanish [eventos del año en el sur de Florida](/es/eventos) hub for seasonal timelines and video recap guidelines.",
+            "Reels, Shorts, and TikTok clips are often watched without sound, but the right subtitle treatment depends on how much the viewer needs to understand. Talking-head clips usually need clean sentence captions; food, product, and event reels often work better with short emphasis words that support the visuals instead of repeating every frame. Businesses planning event coverage can review the Spanish [eventos del año en el sur de Florida](/es/eventos) hub for seasonal timelines and video recap guidelines, or consult the Spanish [precios de partida](/es/precios) guide for editing packages.",
             "For a business account, keep one recognizable type style for recurring content, then adjust weight, placement, and animation speed by format. A menu reel, founder tip, customer walkthrough, and service explanation can share a brand look without using the same caption rhythm.",
           ],
           bullets: [

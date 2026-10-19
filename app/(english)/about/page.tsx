@@ -91,7 +91,14 @@ export default function AboutPage() {
                 >
                   practical video guides
                 </Link>{" "}
-                cover project preparation, while regional businesses can plan seasonal campaigns around major South Florida dates through his Spanish{" "}
+                cover project preparation, published starting rates are outlined under{" "}
+                <Link
+                  href="/es/precios"
+                  className="underline underline-offset-4 hover:text-[#9f3c27]"
+                >
+                  precios y paquetes
+                </Link>
+                , while regional businesses can plan seasonal campaigns around major South Florida dates through his Spanish{" "}
                 <Link
                   href="/es/eventos"
                   className="underline underline-offset-4 hover:text-[#9f3c27]"
