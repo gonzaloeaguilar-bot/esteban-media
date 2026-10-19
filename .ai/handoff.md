@@ -4,7 +4,7 @@
 - The existing EN/ES RFP guide pair now includes a matching agency/event-planner attachment checklist and links to the published Healthy Smile portfolio entry. The copy names only the documented role (on-location video, direct sound, editing) and says it is not evidence of a private RFP, contract, or production policy.
 - `site.clutch` is added only to the business `sameAs` schema after the public Clutch company page was inspected in the authenticated browser. It does not support an outcome, review, price, availability, team-size, or high-budget-production claim. The public profile currently says "Not yet reviewed" and has no focus areas, so its own fields still need owner-side normalization before it can reinforce the larger-scope path.
 - Local proof: `pnpm test` passed 162 files / 3,216 tests; targeted entity/guide/lastmod tests passed 45/45; `pnpm lint` completed with 0 errors and 60 pre-existing warnings; `pnpm typecheck`, `pnpm build` (489 static pages), analytics gate, raw HTML checks, and 390×844 phone capture passed. Antigravity’s content review returned `REVIEW_VERDICT: APPROVE`; its wrapper exited 1 after a background-process handling defect, so the direct local gates above are the release evidence.
-- Not deployed. Next: commit, push, open PR, await GitHub checks, then merge/deploy only under the normal release policy; prove the live EN/ES raw HTML, phone layout, and business schema before claiming production.
+- PR [#482](https://github.com/gonzaloeaguilar-bot/esteban-media/pull/482) is open at `b8fbfbec`; it is not deployed. Next: await GitHub checks, then merge/deploy only under the normal release policy; prove the live EN/ES raw HTML, phone layout, and business schema before claiming production.
 
 ---
 
