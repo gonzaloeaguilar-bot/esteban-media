@@ -125,6 +125,17 @@ export default function BrandVideoProductionMiamiPage() {
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
+          <div className="max-w-3xl">
+            <p className="text-xs font-medium uppercase text-[#5a6066]">Before a proposal</p>
+            <h2 className="mt-3 font-serif text-4xl">What should a brand-film brief decide first?</h2>
+            <p className="mt-4 text-base leading-7 text-[#252a2d]">Clarify the audience, approved message, launch date, final formats, brand references, review owner, and any usage questions. A shared brief lets a team compare proposals without assuming that a requested version or production choice is included.</p>
+            <Link href="/guides/video-production-rfp-template-miami" className="mt-5 inline-flex text-sm font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#6f2417]">Use the video-production RFP template</Link>
+          </div>
+        </Container>
+      </section>
+
+      <section className="pb-12 sm:pb-16">
+        <Container size="xl">
           <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6 sm:p-8">
             <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
               <div>

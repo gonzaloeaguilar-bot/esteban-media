@@ -36,7 +36,7 @@
   "hash": "34aa4c9d32c2f65b"
  },
  "/case-studies/healthy-smile": {
-  "date": "2026-10-14",
+  "date": "2026-10-18",
   "hash": "f925c0cac343fd20"
  },
  "/case-studies/homeowners": {
@@ -124,7 +124,7 @@
   "hash": "c9207c7e24964fa0"
  },
  "/es/casos-de-estudio/healthy-smile": {
-  "date": "2026-10-14",
+  "date": "2026-10-18",
   "hash": "2007a73a38e3ab03"
  },
  "/es/casos-de-estudio/homeowners": {
@@ -505,7 +505,7 @@
  },
  "/es/guias/plantilla-brief-rfp-produccion-video-miami": {
   "date": "2026-10-18",
-  "hash": "b83f1e2c314ca020"
+  "hash": "aef77df136ca4063"
  },
  "/es/guias/plantilla-de-guion-para-video-testimonial": {
   "date": "2026-10-14",
@@ -629,7 +629,7 @@
  },
  "/es/portafolio/bar-door-monkey": {
   "date": "2026-10-18",
-  "hash": "8a02a0681e23cb8b"
+  "hash": "29e7290f142f9a4c"
  },
  "/es/portafolio/diana-jack": {
   "date": "2026-10-14",
@@ -648,8 +648,8 @@
   "hash": "c7c39ed91c470c5d"
  },
  "/es/portafolio/healthy-smile": {
-  "date": "2026-10-14",
-  "hash": "c003fe939fc310c4"
+  "date": "2026-10-18",
+  "hash": "a749d10d6e56826d"
  },
  "/es/portafolio/homeowners": {
   "date": "2026-10-14",
@@ -1201,7 +1201,7 @@
  },
  "/guides/video-production-rfp-template-miami": {
   "date": "2026-10-18",
-  "hash": "9c8d045be8691749"
+  "hash": "c5ec3f4576300f80"
  },
  "/guides/write-a-useful-video-brief": {
   "date": "2026-10-07",
@@ -1225,7 +1225,7 @@
  },
  "/portfolio/bar-door-monkey": {
   "date": "2026-10-18",
-  "hash": "a607b82dffa83654"
+  "hash": "f7750c022914edcb"
  },
  "/portfolio/diana-jack": {
   "date": "2026-10-14",
@@ -1244,8 +1244,8 @@
   "hash": "7ed39b4d409cea8a"
  },
  "/portfolio/healthy-smile": {
-  "date": "2026-10-14",
-  "hash": "9334ecd6f6ec9b68"
+  "date": "2026-10-18",
+  "hash": "145579e557b45a5b"
  },
  "/portfolio/homeowners": {
   "date": "2026-10-14",
@@ -1368,8 +1368,8 @@
   "hash": "6823faf5b5d2610b"
  },
  "/services/brand-video-production-miami": {
-  "date": "2026-10-13",
-  "hash": "8939ef720a795ca1"
+  "date": "2026-10-18",
+  "hash": "15eb47a7b2652f5d"
  },
  "/services/brewery-craft-distillery-video-miami": {
   "date": "2026-10-19",
@@ -1440,8 +1440,8 @@
   "hash": "a47bea17db8dd72d"
  },
  "/services/corporate-video-production-brickell": {
-  "date": "2026-10-13",
-  "hash": "1d5a07f563beb38d"
+  "date": "2026-10-18",
+  "hash": "43650832b39eebd7"
  },
  "/services/cosmetic-dentistry-video-marketing-miami": {
   "date": "2026-10-13",

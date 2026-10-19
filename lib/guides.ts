@@ -379,10 +379,10 @@ const guidePairs: readonly GuidePair[] = [
       answer:
         "This template helps a team compare scope, timing, and final files before it chooses a video-production partner. Ask each provider to answer the same known requirements and to identify what still needs a decision.",
       proof: {
-        href: "/portfolio/bar-door-monkey",
-        title: "Bar Door Monkey Miami",
+        href: "/portfolio/healthy-smile",
+        title: "Healthy Smile Miami",
         description:
-          "Approved credits list pre-production, location, videography, and editing. They make this a relevant published scope example, not as evidence of a private RFP, contract, or production policy.",
+          "The published project credits on-location video, sound, and editing for a Miami clinic. It is not published as evidence of a private RFP, contract, or production policy.",
       },
       sections: [
         {
@@ -422,6 +422,18 @@ const guidePairs: readonly GuidePair[] = [
           ],
         },
         {
+          heading: "What should an agency or event planner attach to the request?",
+          paragraphs: [
+            "Attach the current brand references, known event or launch schedule, venue or client contact, required approvals, and the exact files the client expects to receive. If the agency is collecting proposals for someone else, separate client requirements from items that still need a provider recommendation.",
+            "Use the [Healthy Smile Miami case study](/case-studies/healthy-smile) as a published example of an on-location assignment with camera, sound, and editing. It documents that one assignment's role and deliverables; it does not define a standard crew, schedule, or package for another project.",
+          ],
+          bullets: [
+            "Current brand references and any required legal or regulated wording",
+            "Client, venue, or event contact who can resolve access questions",
+            "A clear list of what is confirmed versus what needs recommendation",
+          ],
+        },
+        {
           heading: "What should the copy-ready request, event appendix, and permissions questions include?",
           paragraphs: [
             "Copy this outline into the request: goal and audience; requested final files; known dates and locations; source material; required messages; approval owner; fixed launch date; references; and questions still open. For an event, add run-of-show, priority moments, attendee or speaker access, venue contact, and the person who can make changes on site. Ask the provider which details are needed before proposing a plan.",
@@ -445,10 +457,10 @@ const guidePairs: readonly GuidePair[] = [
       answer:
         "Esta plantilla ayuda a comparar alcance, fechas y archivos finales antes de elegir un proveedor de producción de video. Pide a cada proveedor responder los mismos requisitos conocidos e identificar lo que todavía necesita una decisión.",
       proof: {
-        href: "/es/portafolio/bar-door-monkey",
-        title: "Bar Door Monkey Miami",
+        href: "/es/portafolio/healthy-smile",
+        title: "Healthy Smile Miami",
         description:
-          "Los créditos aprobados incluyen preproducción, locación, videografía y edición. Sirven como ejemplo publicado de alcance, no como prueba de un RFP, contrato o política privada de producción que estén publicados.",
+          "El proyecto publicado acredita video, sonido y edición en una clínica de Miami. Nada publicado confirma un RFP, contrato o política privada de producción.",
       },
       sections: [
         {
@@ -485,6 +497,18 @@ const guidePairs: readonly GuidePair[] = [
             "Usa una versión compartida del brief y registra la fecha de envío",
             "Compara inclusiones y exclusiones antes de comparar totales",
             "Asigna una persona para consolidar comentarios y decisiones",
+          ],
+        },
+        {
+          heading: "¿Qué debe adjuntar una agencia o un organizador de eventos a la solicitud?",
+          paragraphs: [
+            "Adjunta referencias actuales de marca, el calendario conocido del evento o lanzamiento, el contacto del recinto o del cliente, las aprobaciones necesarias y los archivos exactos que el cliente espera recibir. Si la agencia reúne propuestas para otra persona, separa los requisitos del cliente de los puntos que todavía necesitan una recomendación del proveedor.",
+            "Usa el [caso de estudio Healthy Smile Miami](/es/casos-de-estudio/healthy-smile) como ejemplo publicado de un encargo en locación con cámara, sonido y edición. Documenta el rol y los entregables de ese encargo; no define un equipo, calendario o paquete estándar para otro proyecto.",
+          ],
+          bullets: [
+            "Referencias actuales de marca y cualquier texto legal o regulado obligatorio",
+            "Contacto de cliente, recinto o evento que pueda resolver preguntas de acceso",
+            "Una lista clara de lo confirmado y de lo que necesita recomendación",
           ],
         },
         {

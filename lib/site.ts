@@ -60,6 +60,10 @@ export const site = {
   behance: "https://www.behance.net/estebanmoreno15",
   vimeo: "https://vimeo.com/user175241719",
   nextdoor: "https://nextdoor.com/pages/esteban-moreno-media-fort-lauderdale-fl/",
+  // Public company profile verified in the authenticated Clutch UI on 2026-10-18.
+  // This is an identity reference only; it does not substantiate a rate, review,
+  // crew size, or project scope on this site.
+  clutch: "https://clutch.co/profile/esteban-moreno-media",
   googleSiteVerification: "I70vr7LMsVyZc_VO4grb6fDxQXPTbhB7LIIFjJUlvUs",
   googleAnalyticsMeasurementId: "G-W9CM4CE2MQ",
   // Deliberately unset in source. See docs/microsoft-clarity-activation.md.
