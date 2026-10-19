@@ -116,3 +116,11 @@ product photography session floor ($280) now live in `lib/pricing.ts` as
 `RESTAURANT_PROMO` and `PRODUCT_PHOTO_SESSION`. The restaurant pages, the Spanish
 product-photo guide and the niche cost answers (`lib/niche-answers.ts`) read them;
 no page types these figures any more.
+
+## Commercial video production & product demos (2026-10-19)
+
+Gonzalo authorized the 3-tier commercial rate architecture aligned with South Florida 2026 production costs:
+1. **Tier 1 (Basic / Founder-Led Demo)**: from **$1,000** (60–90 seconds on client location).
+2. **Tier 2 (Premium Brand Narrative Film)**: from **$3,000** (up to 2 minutes, 2-person crew, 3 ad hooks).
+3. **Tier 3 (Full Commercial with Professional Actors & Studio)**: from **$6,500 to $8,500+** (studio/cyc rental, 1–2 actors + buyout, HMUA, 3–4 person crew, custom sound mix). Quoted per project based on talent casting and commercial distribution rights.
+
