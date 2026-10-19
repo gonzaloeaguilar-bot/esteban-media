@@ -93,6 +93,7 @@ export const localBusinessEntityJsonLd = {
     site.behance,
     site.vimeo,
     site.nextdoor,
+    site.clutch,
   ],
   availableLanguage: ["Spanish", "English (intermediate)"],
   contactPoint: {

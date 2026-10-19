@@ -70,13 +70,15 @@ describe("Google Business Profile entity link", () => {
     expect(personEntityJsonLd.sameAs).not.toContain(site.bingPlaces);
   });
 
-  it("lists the Behance, Vimeo and Nextdoor profiles on the business only", () => {
-    // Each returned HTTP 200 to curl_cffi impersonate=chrome on 2026-10-14.
-    const directories = [site.behance, site.vimeo, site.nextdoor];
+  it("lists verified business directory and portfolio profiles on the business only", () => {
+    // Portfolio/directory URLs were live-checked; Clutch was verified in its
+    // authenticated public profile UI on 2026-10-18.
+    const directories = [site.behance, site.vimeo, site.nextdoor, site.clutch];
     expect(directories).toEqual([
       "https://www.behance.net/estebanmoreno15",
       "https://vimeo.com/user175241719",
       "https://nextdoor.com/pages/esteban-moreno-media-fort-lauderdale-fl/",
+      "https://clutch.co/profile/esteban-moreno-media",
     ]);
     for (const url of directories) {
       expect(localBusinessEntityJsonLd.sameAs).toContain(url);
@@ -95,9 +97,8 @@ describe("Google Business Profile entity link", () => {
     expect(businessSameAs.some((url) => url.includes("linkedin.com"))).toBe(false);
   });
 
-  it("never lists Clutch (under review) or a street address", () => {
+  it("never publishes a street address or coordinates", () => {
     const sameAs = localBusinessEntityJsonLd.sameAs as string[];
-    expect(sameAs.some((url) => url.includes("clutch.co"))).toBe(false);
     expect(new Set(sameAs).size).toBe(sameAs.length);
     const json = JSON.stringify(localBusinessEntityJsonLd);
     expect(json).not.toContain("streetAddress");

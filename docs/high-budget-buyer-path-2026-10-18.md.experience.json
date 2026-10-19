@@ -1,0 +1,41 @@
+{
+  "schema": 3,
+  "project": "esteban-media",
+  "intent": "Review the high-budget buyer-path content change. It connects the existing English corporate and brand service pages to the live RFP guide, expands the bilingual RFP guide for agency and event-planner procurement, and uses only the already published Healthy Smile project scope. Reject any unsupported capability, pricing, delivery, client-result, or bilingual-parity claim.",
+  "phase": "review",
+  "visual_evidence": {
+    "scope": "local_repair",
+    "scope_reason": "The change adds server-rendered decision copy and links inside existing page compositions; it adds no new visual system or interaction.",
+    "target": "candidate",
+    "owner_status": "unreviewed",
+    "capture_kind": "rendered",
+    "spec_sha256": "2549056a3452f6ced70eba24e944d51e3dea446e8614194809d8a0db2a2000a8",
+    "taste_sha256": "0b08669591e657d4812aeac05bbaf0eebf21ac1bc54891998c0c7f5689ef5bc4",
+    "correction_excerpt": "En Esteban, un enlace secundario después de una tarjeta grande debe leerse como enlace compacto y relacionado, sin competir con la cotización principal ni quedar flotando como otra tarjeta.",
+    "comparison": "Compare the changed reading sections with the existing contact card and hero at phone and desktop widths.",
+    "references": [],
+    "candidate_frames": [
+      {
+        "path": "high-budget-buyer-path-phone-390x844.png",
+        "moment": "action",
+        "sha256": "f5805045237be63e904b107d83151268dee68c459f42310eed66438c6df7ebef",
+        "viewport": "phone"
+      }
+    ]
+  },
+  "brief": {
+    "visitor": "Marketing lead, agency, or event planner comparing a South Florida video-production proposal.",
+    "promise": "A short path to define the request and inspect a real published scope before making contact.",
+    "primary_action": "Open the existing RFP template or contact Esteban with a defined brief.",
+    "friction": "Proposal comparisons hide differences in scope, approvals, files, and unresolved decisions.",
+    "kpi": {"outcome": "qualified inquiry", "event": "contact or RFP-template use", "denominator": "high-intent guide/service visitors", "baseline": "UNKNOWN: this newly connected path has no completed observation window; collect comparable page/query and inquiry-source reads at T+28 and T+56.", "evidence": "daily final-data Search Console and source-tagged inquiries", "readout": "28 and 56 days", "decision_rule": "retain only if the path stays claim-safe and brings qualified inquiry evidence"},
+    "concept": {"idea": "Decision path, not an offer expansion", "brand_reason": "The current calm editorial service layout remains unchanged", "interaction": "normal contextual link", "visible_response": "the existing RFP guide opens", "direct_path": "existing contact CTAs remain visible", "alternatives": "Do not create another generic city or agency page"},
+    "story": {"opening": "What should be decided before a quote?", "action": "Open the RFP guide", "consequence": "Compare proposals on shared facts", "next_step": "Contact through the existing route"},
+    "content": {"visible": "brief questions and factual Healthy Smile scope", "optional_html": "Decision: no optional HTML; every citable procurement fact remains in the initial server-rendered page.", "linked_depth": "RFP guide and published case study"},
+    "references": {"borrow": "Existing Esteban reading-path and compact link treatment", "avoid": "New decorative CTA bands or unsupported production promises"},
+    "components": {"reuse": "Container, Link, existing service layout", "local_reason": "No new shared component is needed for text and links"},
+    "verification": {"rendered_states": "390x600, 390x844, desktop", "motion": "not applicable", "accessibility_performance": "keyboard link and existing build checks", "raw_html": "curl built pages for the new headings and links", "conversion_boundary": "existing contact route only; no submission is sent"},
+    "reviewers": {"craft": "cto-web-lead / Antigravity", "behavior": "cto-qa-lead", "outcome": "growth measurement loop"},
+    "learning": {"metric": "qualified inquiry", "baseline_source": "daily final-data Search Console plus source-tagged inquiries", "baseline_value": "UNKNOWN: new guide pages have no final-data outcome yet", "target_kind": "funnel_step", "target": "RFP-template-to-contact path", "hypothesis": "clearer scope questions and published role proof help high-intent buyers compare a request before contacting", "observation_windows": ["T+28", "T+56"], "decision_rule": "retain if qualified inquiry evidence emerges without a claim or quality regression", "ledger_status": "planned", "registration_condition": "record comparable page/query and inquiry-source evidence before grading"}
+  }
+}

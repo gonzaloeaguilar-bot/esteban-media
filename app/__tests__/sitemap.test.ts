@@ -56,8 +56,12 @@ describe("portfolio sitemap entries", () => {
     // +4 = corporate and networking event pairs (2026-10-18): FTL corporate + Miami networking.
     // +8 = wave 2 niche expansions (2026-10-18): wedding, vlog, conference, executive interview.
     // +8 = wave 3 niche expansions (2026-10-18): yacht, content day, colombia, subtitling.
-    expect(entries).toHaveLength(392);
-    expect(new Set(urls)).toHaveLength(392);
+    // +8 = wave 4 niche expansions (2026-10-18): trade show, gala, superyacht, rehearsal dinner.
+    // +8 = wave 5 niche expansions (2026-10-18): mastermind, surprise proposal, speaker sizzle, bar mitzvah.
+    // +8 = wave 6 niche expansions (2026-10-18): commercial real estate, luxury penthouse, fine dining, mixology.
+    // +8 = wave 7 niche expansions (2026-10-18): construction progress, fashion lookbook, boat listing, luxury watch.
+    expect(entries).toHaveLength(470);
+    expect(new Set(urls)).toHaveLength(470);
   });
 
   it("pairs real product photography pages with reciprocal language alternatives", () => {

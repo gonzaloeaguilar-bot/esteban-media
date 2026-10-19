@@ -15,14 +15,48 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 describe("guide routes", () => {
-  it("pre-renders 46 localized detail routes in each language", async () => {
+  it("pre-renders 47 localized detail routes in each language", async () => {
     const enParams = await generateEnglishParams();
     const esParams = await generateSpanishParams();
 
-    expect(enParams).toHaveLength(46);
-    expect(esParams).toHaveLength(46);
+    expect(enParams).toHaveLength(47);
+    expect(esParams).toHaveLength(47);
     expect(enParams.map(({ slug }) => slug)).toContain("video-production-cost-fort-lauderdale");
     expect(esParams.map(({ slug }) => slug)).toContain("cuanto-cuesta-la-produccion-de-video-en-fort-lauderdale");
+    expect(enParams.map(({ slug }) => slug)).toContain("video-production-rfp-template-miami");
+    expect(esParams.map(({ slug }) => slug)).toContain("plantilla-brief-rfp-produccion-video-miami");
+  });
+
+  it("keeps the RFP template localized, answer-first, and bounded to buyer questions", async () => {
+    const englishMetadata = await generateEnglishMetadata({
+      params: Promise.resolve({ slug: "video-production-rfp-template-miami" }),
+    });
+    const spanishMetadata = await generateSpanishMetadata({
+      params: Promise.resolve({ slug: "plantilla-brief-rfp-produccion-video-miami" }),
+    });
+    const src = readFileSync(join(process.cwd(), "lib/guides.ts"), "utf8");
+
+    expect(englishMetadata.alternates).toMatchObject({
+      canonical: "/guides/video-production-rfp-template-miami",
+      languages: {
+        "es-US": "/es/guias/plantilla-brief-rfp-produccion-video-miami",
+      },
+    });
+    expect(spanishMetadata.alternates).toMatchObject({
+      canonical: "/es/guias/plantilla-brief-rfp-produccion-video-miami",
+      languages: {
+        "en-US": "/guides/video-production-rfp-template-miami",
+      },
+    });
+    for (const needle of [
+      "This template helps a team compare scope, timing, and final files",
+      "City of Miami filming guidance",
+      "Film Lauderdale permit requirements",
+      "U.S. Copyright Office overview of works made for hire",
+      "/services/brand-video-production-miami",
+      "/services/conference-videographer-fort-lauderdale",
+    ]) expect(src).toContain(needle);
+    expect(src).not.toMatch(/Esteban (?:supplies|provides|guarantees) (?:insurance|permits|a crew|rights transfer|drone work|event coverage)/i);
   });
 
   it("keeps index and detail canonicals localized", async () => {

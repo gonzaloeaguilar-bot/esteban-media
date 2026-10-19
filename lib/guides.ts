@@ -26,6 +26,7 @@ import { GUIDE_COMPARISON_IDS, guideComparisonPairs } from "@/lib/guide-comparis
 export const GUIDE_IDS = [
   "prepare-footage",
   "video-brief",
+  "video-production-rfp-template",
   "formats-and-safe-zones",
   "remote-editing-handoff",
   "reels-for-business",
@@ -88,6 +89,8 @@ type GuideCopy = {
   eyebrow: string;
   answer: string;
   proof: GuideProofLink;
+  /** Optional homepage-style real-work proof for a guide whose subject has one. */
+  heroProof?: GuideProofLink;
   sections: readonly GuideSection[];
   faqs?: readonly { question: string; answer: string }[];
 };
@@ -361,6 +364,177 @@ const guidePairs: readonly GuidePair[] = [
             "Fecha límite y cualquier día fijo de publicación",
             "Una persona responsable de consolidar los comentarios",
             "Referencias con una nota sobre lo que sirve de cada una",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "video-production-rfp-template",
+    en: {
+      slug: "video-production-rfp-template-miami",
+      metadataTitle: "Miami Video Production RFP Template",
+      title: "Video production RFP template for comparing Miami proposals",
+      description:
+        "Prepare a comparable video-production request: define scope, timing, final files, approvals, event needs, and open questions before choosing a partner.",
+      eyebrow: "Compare the request, not assumptions",
+      answer:
+        "This template helps a team compare scope, timing, and final files before it chooses a video-production partner. Ask each provider to answer the same known requirements and to identify what still needs a decision.",
+      proof: {
+        href: "/portfolio/healthy-smile",
+        title: "Healthy Smile Miami",
+        description:
+          "The published project credits on-location video, sound, and editing for a Miami clinic. It is not published as evidence of a private RFP, contract, or production policy.",
+      },
+      heroProof: {
+        href: "/portfolio/healthy-smile",
+        title: "Healthy Smile Miami",
+        description:
+          "A published Miami assignment where Esteban handled on-location camera, direct sound, and editing for an 18-second promotional master. It is a documented scope example, not a promise of the same plan for another project.",
+      },
+      sections: [
+        {
+          heading: "What should the RFP say about the goal, audience, and final files?",
+          paragraphs: [
+            "Start with the decision the video should support, who needs to understand it, and where each finished file will appear. A launch video, event recap, recruiting piece, and internal presentation can all need different footage, versions, and approvals even when they share a shoot date.",
+            "List each requested output in a simple matrix: audience, placement, orientation, approximate purpose, and whether it is a first priority or an open question. Link the [corporate video cost guide](/guides/corporate-video-production-cost-miami) for budget context, then ask the provider to flag any deliverable that needs a separate scope rather than assuming it is included.",
+          ],
+          bullets: [
+            "One sentence describing the decision the video should support",
+            "Audience and publication destination for every requested file",
+            "A named owner for the final list of deliverables",
+          ],
+        },
+        {
+          heading: "Which scope and budget drivers should a team put in writing?",
+          paragraphs: [
+            "Describe the known locations, dates, access limits, interview needs, existing footage, graphics, captions, music, and languages without guessing how a provider will staff or execute them. Confirm who owns each decision and mark uncertain items as questions. That gives every proposal the same starting point while leaving room for a provider to recommend an approach.",
+            "For a brand story, compare the request with the [brand video production guide](/services/brand-video-production-miami); for a conference, use the [conference videography page](/services/conference-videographer-fort-lauderdale) to name the moments that matter. Those pages describe possible project contexts, not a promise that any particular crew, permit, equipment, or coverage plan is available.",
+          ],
+          bullets: [
+            "Known dates, locations, access, and source material",
+            "Requested languages, captions, graphics, and versions",
+            "Open decisions that a provider should price or recommend separately",
+          ],
+        },
+        {
+          heading: "How do you compare approvals, timing, and proposals fairly?",
+          paragraphs: [
+            "Send the same version of the request to each provider, then compare what each response names, excludes, assumes, and needs confirmed. Ask for the proposed milestones, the person who can approve each stage, the number of decision-makers, and how changes after approval will be handled. A lower total is not directly comparable if it answers a smaller or different request.",
+            "Keep a proposal table with columns for scope, final files, schedule assumptions, feedback owner, exclusions, rights questions, and unanswered items. Do not turn a desired launch date into an assumed delivery promise. Ask the provider to state which inputs or approvals could affect timing, and confirm who on your team can resolve them.",
+          ],
+          bullets: [
+            "Use one shared brief version and record the date sent",
+            "Compare inclusions and exclusions before comparing totals",
+            "Assign one person to consolidate feedback and decisions",
+          ],
+        },
+        {
+          heading: "What should an agency or event planner attach to the request?",
+          paragraphs: [
+            "Attach the current brand references, known event or launch schedule, venue or client contact, required approvals, and the exact files the client expects to receive. If the agency is collecting proposals for someone else, separate client requirements from items that still need a provider recommendation.",
+            "Use the [Healthy Smile Miami case study](/case-studies/healthy-smile) as a published example of an on-location assignment with camera, sound, and editing. It documents that one assignment's role and deliverables; it does not define a standard crew, schedule, or package for another project.",
+          ],
+          bullets: [
+            "Current brand references and any required legal or regulated wording",
+            "Client, venue, or event contact who can resolve access questions",
+            "A clear list of what is confirmed versus what needs recommendation",
+          ],
+        },
+        {
+          heading: "What should the copy-ready request, event appendix, and permissions questions include?",
+          paragraphs: [
+            "Copy this outline into the request: goal and audience; requested final files; known dates and locations; source material; required messages; approval owner; fixed launch date; references; and questions still open. For an event, add run-of-show, priority moments, attendee or speaker access, venue contact, and the person who can make changes on site. Ask the provider which details are needed before proposing a plan.",
+            "If filming may involve a City of Miami location, review the [City of Miami filming guidance](https://www.miami.gov/Business/Film-Permits) and ask the relevant venue or authority what applies. For Broward, review [Film Lauderdale permit requirements](https://www.filmlauderdale.org/film-permits). For ownership language, ask the provider and your adviser to address the actual agreement; the [U.S. Copyright Office overview of works made for hire](https://www.copyright.gov/circs/circ30.pdf) explains why facts and written terms matter. These are questions to resolve, not universal rules or services promised by Esteban Moreno Media.",
+          ],
+          bullets: [
+            "Event appendix: schedule, access, priority moments, venue contact, and on-site decision owner",
+            "Permissions question: which authority or venue should confirm the current requirements?",
+            "Rights question: what does the signed agreement say about use, ownership, and final files?",
+          ],
+        },
+      ],
+    },
+    es: {
+      slug: "plantilla-brief-rfp-produccion-video-miami",
+      metadataTitle: "RFP de Video Miami",
+      title: "Plantilla de RFP para comparar propuestas de producción de video en Miami",
+      description:
+        "Prepara una solicitud comparable de producción de video: define alcance, fechas, archivos finales, aprobaciones, necesidades de evento y preguntas abiertas antes de elegir un proveedor.",
+      eyebrow: "Compara la solicitud, no los supuestos",
+      answer:
+        "Esta plantilla ayuda a comparar alcance, fechas y archivos finales antes de elegir un proveedor de producción de video. Pide a cada proveedor responder los mismos requisitos conocidos e identificar lo que todavía necesita una decisión.",
+      proof: {
+        href: "/es/portafolio/healthy-smile",
+        title: "Healthy Smile Miami",
+        description:
+          "El proyecto publicado acredita video, sonido y edición en una clínica de Miami. Nada publicado confirma un RFP, contrato o política privada de producción.",
+      },
+      heroProof: {
+        href: "/es/portafolio/healthy-smile",
+        title: "Healthy Smile Miami",
+        description:
+          "Un encargo publicado en Miami donde Esteban manejó cámara en locación, sonido directo y edición para un master promocional de 18 segundos. Es un ejemplo documentado de alcance, no una promesa del mismo plan para otro proyecto.",
+      },
+      sections: [
+        {
+          heading: "¿Qué debe decir el RFP sobre la meta, la audiencia y los archivos finales?",
+          paragraphs: [
+            "Empieza con la decisión que debe apoyar el video, quién necesita entenderla y dónde aparecerá cada archivo final. Un video de lanzamiento, resumen de evento, reclutamiento o presentación interna puede requerir tomas, versiones y aprobaciones distintas aunque compartan fecha de grabación.",
+            "Enumera cada pieza solicitada en una matriz sencilla: audiencia, destino, orientación, propósito aproximado y si es una prioridad o una pregunta abierta. Consulta la [guía de costos de video corporativo](/es/guias/cuanto-cuesta-la-produccion-de-video-corporativo-en-miami) para contexto y pide al proveedor marcar cualquier entregable que necesite un alcance separado en vez de asumir que está incluido.",
+          ],
+          bullets: [
+            "Una oración sobre la decisión que debe apoyar el video",
+            "Audiencia y destino de publicación de cada archivo solicitado",
+            "Una persona responsable de la lista final de entregables",
+          ],
+        },
+        {
+          heading: "¿Qué factores de alcance y presupuesto conviene dejar por escrito?",
+          paragraphs: [
+            "Describe las locaciones, fechas, límites de acceso, entrevistas, material existente, gráficos, subtítulos, música e idiomas que ya se conocen, sin adivinar cómo un proveedor trabajará o armará su equipo. Confirma quién decide cada punto y marca lo incierto como pregunta. Así cada propuesta empieza con la misma información y el proveedor puede recomendar un enfoque.",
+            "Para una historia de marca, compara la solicitud con la página de [producción de video de marca](/es/produccion-de-video-de-marca-miami); para una conferencia, consulta [videografía para conferencias](/es/videografo-para-conferencias-fort-lauderdale) y nombra los momentos prioritarios. Son contextos posibles, no una promesa de equipo, permisos, equipo técnico o cobertura disponible.",
+          ],
+          bullets: [
+            "Fechas, locaciones, acceso y material de origen conocidos",
+            "Idiomas, subtítulos, gráficos y versiones solicitadas",
+            "Decisiones abiertas que el proveedor debe cotizar o recomendar por separado",
+          ],
+        },
+        {
+          heading: "¿Cómo se comparan las aprobaciones, las fechas y las propuestas de forma justa?",
+          paragraphs: [
+            "Envía la misma versión de la solicitud a cada proveedor y compara lo que cada respuesta nombra, excluye, supone y necesita confirmar. Pide hitos propuestos, la persona que puede aprobar cada etapa, el número de personas que decidirán y cómo se tratarán los cambios después de una aprobación. Un total menor no es comparable si responde a una solicitud más pequeña o distinta.",
+            "Mantén una tabla con alcance, archivos finales, supuestos de calendario, responsable de comentarios, exclusiones, preguntas de derechos y puntos sin responder. No conviertas una fecha deseada de lanzamiento en una promesa de entrega. Pide al proveedor indicar qué materiales o aprobaciones pueden afectar las fechas y confirma quién en tu equipo puede resolverlos.",
+          ],
+          bullets: [
+            "Usa una versión compartida del brief y registra la fecha de envío",
+            "Compara inclusiones y exclusiones antes de comparar totales",
+            "Asigna una persona para consolidar comentarios y decisiones",
+          ],
+        },
+        {
+          heading: "¿Qué debe adjuntar una agencia o un organizador de eventos a la solicitud?",
+          paragraphs: [
+            "Adjunta referencias actuales de marca, el calendario conocido del evento o lanzamiento, el contacto del recinto o del cliente, las aprobaciones necesarias y los archivos exactos que el cliente espera recibir. Si la agencia reúne propuestas para otra persona, separa los requisitos del cliente de los puntos que todavía necesitan una recomendación del proveedor.",
+            "Usa el [caso de estudio Healthy Smile Miami](/es/casos-de-estudio/healthy-smile) como ejemplo publicado de un encargo en locación con cámara, sonido y edición. Documenta el rol y los entregables de ese encargo; no define un equipo, calendario o paquete estándar para otro proyecto.",
+          ],
+          bullets: [
+            "Referencias actuales de marca y cualquier texto legal o regulado obligatorio",
+            "Contacto de cliente, recinto o evento que pueda resolver preguntas de acceso",
+            "Una lista clara de lo confirmado y de lo que necesita recomendación",
+          ],
+        },
+        {
+          heading: "¿Qué debe incluir la solicitud copiable, el anexo de evento y las preguntas de permisos?",
+          paragraphs: [
+            "Copia este esquema: meta y audiencia; archivos finales solicitados; fechas y locaciones conocidas; material disponible; mensajes obligatorios; responsable de aprobación; fecha fija de lanzamiento; referencias; y preguntas abiertas. Para un evento, agrega programa, momentos prioritarios, acceso a asistentes o ponentes, contacto del recinto y la persona que puede decidir cambios allí. Pregunta al proveedor qué detalles necesita antes de proponer un plan.",
+            "Si la grabación puede incluir una locación de la Ciudad de Miami, revisa la [guía de filmación de la Ciudad de Miami](https://www.miami.gov/Business/Film-Permits) y pregunta al recinto o autoridad correspondiente qué aplica. En Broward, revisa los [requisitos de permisos de Film Lauderdale](https://www.filmlauderdale.org/film-permits). Para derechos, pide que el proveedor y tu asesor revisen el acuerdo concreto; el [resumen de obras por encargo de la Oficina de Copyright de EE. UU.](https://www.copyright.gov/circs/circ30.pdf) explica por qué importan los hechos y los términos escritos. Son preguntas para resolver, no reglas universales ni servicios prometidos por Esteban Moreno Media.",
+          ],
+          bullets: [
+            "Anexo de evento: horario, acceso, momentos prioritarios, contacto del recinto y responsable en sitio",
+            "Pregunta de permisos: ¿qué autoridad o recinto debe confirmar los requisitos actuales?",
+            "Pregunta de derechos: ¿qué dice el acuerdo firmado sobre uso, propiedad y archivos finales?",
           ],
         },
       ],
@@ -2893,7 +3067,7 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "How do you choose a caption style for the viewing context?",
           paragraphs: [
-            "Reels, Shorts, and TikTok clips are often watched without sound, but the right subtitle treatment depends on how much the viewer needs to understand. Talking-head clips usually need clean sentence captions; food, product, and event reels often work better with short emphasis words that support the visuals instead of repeating every frame. Businesses planning event coverage can review the Spanish [eventos del año en el sur de Florida](/es/eventos) hub for seasonal timelines and video recap guidelines.",
+            "Reels, Shorts, and TikTok clips are often watched without sound, but the right subtitle treatment depends on how much the viewer needs to understand. Talking-head clips usually need clean sentence captions; food, product, and event reels often work better with short emphasis words that support the visuals instead of repeating every frame. Businesses planning event coverage can review the Spanish [eventos del año en el sur de Florida](/es/eventos) hub for seasonal timelines and video recap guidelines, or consult the Spanish [precios de partida](/es/precios) guide for editing packages.",
             "For a business account, keep one recognizable type style for recurring content, then adjust weight, placement, and animation speed by format. A menu reel, founder tip, customer walkthrough, and service explanation can share a brand look without using the same caption rhythm.",
           ],
           bullets: [

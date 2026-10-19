@@ -293,7 +293,7 @@ describe("customer-facing ranking pages", () => {
     expect(wellnessSpa).toContain('href="/portfolio/healthy-smile"');
     expect(smallBusinessHollywood).toContain('href="/portfolio/healthy-smile"');
     expect(smallBusinessPines).toContain('href="/portfolio/healthy-smile"');
-    expect(brandVideo).toContain('href="/portfolio/healthy-smile"');
+    expect(brandVideo).toContain('href: "/portfolio/healthy-smile"');
     expect(interviewVideo).toContain('href="/portfolio/healthy-smile"');
 
     // ES portfolio links via nicheLinkContext

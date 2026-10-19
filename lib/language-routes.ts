@@ -41,6 +41,62 @@ export const pairedLanguageRoutes: Record<string, string> = {
     "/es/edicion-de-video-remota-colombia",
   "/services/bilingual-video-subtitling-service":
     "/es/servicio-de-subtitulado-bilingue-de-video",
+  "/services/trade-show-booth-videographer-fort-lauderdale":
+    "/es/videografo-para-ferias-comerciales-fort-lauderdale",
+  "/services/corporate-gala-videographer-miami":
+    "/es/videografo-para-galas-corporativas-miami",
+  "/services/superyacht-charter-marketing-video-fort-lauderdale":
+    "/es/marketing-de-video-para-superyates-fort-lauderdale",
+  "/services/rehearsal-dinner-videographer-miami":
+    "/es/videografo-para-cena-de-ensayo-miami",
+  "/services/mastermind-event-videographer-miami":
+    "/es/videografo-para-masterminds-miami",
+  "/services/surprise-proposal-videographer-miami":
+    "/es/videografo-para-propuestas-de-matrimonio-miami",
+  "/services/speaker-sizzle-reel-production-miami":
+    "/es/produccion-de-video-reel-para-conferencistas-miami",
+  "/services/bar-mitzvah-videographer-south-florida":
+    "/es/videografo-para-bar-mitzvah-south-florida",
+  "/services/commercial-real-estate-video-miami":
+    "/es/video-para-bienes-raices-comerciales-miami",
+  "/services/luxury-penthouse-video-tour-miami":
+    "/es/video-de-penthouses-de-lujo-miami",
+  "/services/fine-dining-restaurant-videographer-miami":
+    "/es/videografo-para-restaurantes-de-alta-cocina-miami",
+  "/services/mixology-cocktail-videographer-miami":
+    "/es/videografo-de-cocteleria-para-bares-miami",
+  "/services/construction-progress-video-miami":
+    "/es/video-de-progreso-de-construccion-miami",
+  "/services/fashion-lookbook-video-miami":
+    "/es/video-para-marcas-de-moda-miami",
+  "/services/boat-listing-video-fort-lauderdale":
+    "/es/video-para-venta-de-barcos-fort-lauderdale",
+  "/services/luxury-watch-video-miami":
+    "/es/video-para-relojes-de-lujo-miami",
+  "/services/amazon-product-video-production-miami":
+    "/es/video-para-productos-de-amazon-miami",
+  "/services/cosmetics-product-video-miami":
+    "/es/video-para-marcas-de-cosmeticos-miami",
+  "/services/product-demo-video-production-miami":
+    "/es/video-de-demostracion-de-producto-miami",
+  "/services/ugc-ad-variation-video-editing":
+    "/es/edicion-de-variaciones-de-anuncios-ugc",
+  "/services/catering-company-video-miami":
+    "/es/video-para-empresas-de-catering-miami",
+  "/services/brewery-craft-distillery-video-miami":
+    "/es/video-para-cervecerias-artesanales-miami",
+  "/services/yacht-party-videographer-miami":
+    "/es/videografo-para-fiestas-en-yates-miami",
+  "/services/sportfishing-videographer-miami":
+    "/es/videografo-de-pesca-deportiva-miami",
+  "/services/hair-restoration-video-miami":
+    "/es/video-para-restauracion-capilar-miami",
+  "/services/chiropractic-video-marketing-miami":
+    "/es/marketing-de-video-para-quiropracticos-miami",
+  "/services/startup-pitch-video-production-miami":
+    "/es/video-para-pitches-de-startups-miami",
+  "/services/executive-video-bio-production-miami":
+    "/es/video-de-biografia-ejecutiva-miami",
   "/services/food-and-places-creator-video-editing-miami":
     "/es/edicion-de-video-para-creadores-de-comida-y-lugares-miami",
   "/services/restaurant-promo-video-editing-miami":
@@ -113,6 +169,26 @@ export const pairedLanguageRoutes: Record<string, string> = {
     "/es/videografo-de-bodas-fort-lauderdale",
   "/services/dance-studio-music-school-video-marketing-miami":
     "/es/video-para-academias-de-baile-y-musica-miami",
+  "/services/med-spa-plastic-surgeon-video-miami":
+    "/es/video-para-med-spas-y-cirujanos-plasticos-miami",
+  "/services/contractor-video-marketing-florida":
+    "/es/video-marketing-para-contratistas-florida",
+  "/services/quinceanera-videographer-miami":
+    "/es/videografo-de-quinceaneras-miami",
+  "/services/multicam-podcast-video-production-miami":
+    "/es/produccion-de-podcast-con-multicamara-miami",
+  "/services/personal-injury-lawyer-video-miami":
+    "/es/video-para-abogados-de-lesiones-personales-miami",
+  "/services/private-school-admissions-video-miami":
+    "/es/video-de-admisiones-para-colegios-privados-miami",
+  "/services/exotic-car-rental-video-miami":
+    "/es/video-para-agencias-de-carros-exoticos-miami",
+  "/services/car-dealership-video-marketing-south-florida":
+    "/es/marketing-de-video-para-concesionarios-south-florida",
+  "/services/boat-show-exhibitor-video-fort-lauderdale":
+    "/es/video-para-expositores-del-boat-show-fort-lauderdale",
+  "/services/art-basel-miami-art-week-video":
+    "/es/cobertura-de-video-art-basel-miami-art-week",
 };
 
 for (const [englishPath, spanishPath] of Object.entries({

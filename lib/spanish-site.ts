@@ -18,15 +18,19 @@ import {
   Camera,
   Car,
   Church,
+  Hammer,
   Handshake,
   Heart,
   Home,
+  Sparkles,
+  Watch,
   Languages,
   Landmark,
   Laptop,
   MapPin,
   Music,
   Megaphone,
+  Martini,
   PartyPopper,
   Scale,
   Scissors,
@@ -35,6 +39,17 @@ import {
   UtensilsCrossed,
   Video,
   WandSparkles,
+  Activity,
+  Beer,
+  Box,
+  Briefcase,
+  Film,
+  Fish,
+  TrendingUp,
+  Mic,
+  GraduationCap,
+  CarFront,
+  Palette,
 } from "lucide-react";
 
 import { absoluteUrl } from "@/lib/site";
@@ -74,12 +89,126 @@ import {
   BILINGUAL_SUBTITLING_ES_DESTINATIONS,
   BILINGUAL_SUBTITLING_ES_DISCLOSURE,
   BILINGUAL_SUBTITLING_ES_SECTIONS,
+  TRADE_SHOW_BOOTH_ES_DESTINATIONS,
+  TRADE_SHOW_BOOTH_ES_DISCLOSURE,
+  TRADE_SHOW_BOOTH_ES_SECTIONS,
+  CORPORATE_GALA_ES_DESTINATIONS,
+  CORPORATE_GALA_ES_DISCLOSURE,
+  CORPORATE_GALA_ES_SECTIONS,
+  SUPERYACHT_CHARTER_ES_DESTINATIONS,
+  SUPERYACHT_CHARTER_ES_DISCLOSURE,
+  SUPERYACHT_CHARTER_ES_SECTIONS,
+  REHEARSAL_DINNER_ES_DESTINATIONS,
+  REHEARSAL_DINNER_ES_DISCLOSURE,
+  REHEARSAL_DINNER_ES_SECTIONS,
+  MASTERMIND_EVENT_ES_DESTINATIONS,
+  MASTERMIND_EVENT_ES_DISCLOSURE,
+  MASTERMIND_EVENT_ES_SECTIONS,
+  SURPRISE_PROPOSAL_ES_DESTINATIONS,
+  SURPRISE_PROPOSAL_ES_DISCLOSURE,
+  SURPRISE_PROPOSAL_ES_SECTIONS,
+  SPEAKER_SIZZLE_REEL_ES_DESTINATIONS,
+  SPEAKER_SIZZLE_REEL_ES_DISCLOSURE,
+  SPEAKER_SIZZLE_REEL_ES_SECTIONS,
+  BAR_MITZVAH_ES_DESTINATIONS,
+  BAR_MITZVAH_ES_DISCLOSURE,
+  BAR_MITZVAH_ES_SECTIONS,
+  COMMERCIAL_REAL_ESTATE_ES_DESTINATIONS,
+  COMMERCIAL_REAL_ESTATE_ES_DISCLOSURE,
+  COMMERCIAL_REAL_ESTATE_ES_SECTIONS,
+  LUXURY_PENTHOUSE_ES_DESTINATIONS,
+  LUXURY_PENTHOUSE_ES_DISCLOSURE,
+  LUXURY_PENTHOUSE_ES_SECTIONS,
+  FINE_DINING_ES_DESTINATIONS,
+  FINE_DINING_ES_DISCLOSURE,
+  FINE_DINING_ES_SECTIONS,
+  MIXOLOGY_COCKTAIL_ES_DESTINATIONS,
+  MIXOLOGY_COCKTAIL_ES_DISCLOSURE,
+  MIXOLOGY_COCKTAIL_ES_SECTIONS,
+  CONSTRUCTION_PROGRESS_ES_DESTINATIONS,
+  CONSTRUCTION_PROGRESS_ES_DISCLOSURE,
+  CONSTRUCTION_PROGRESS_ES_SECTIONS,
+  FASHION_LOOKBOOK_ES_DESTINATIONS,
+  FASHION_LOOKBOOK_ES_DISCLOSURE,
+  FASHION_LOOKBOOK_ES_SECTIONS,
+  BOAT_LISTING_ES_DESTINATIONS,
+  BOAT_LISTING_ES_DISCLOSURE,
+  BOAT_LISTING_ES_SECTIONS,
+  LUXURY_WATCH_ES_DESTINATIONS,
+  LUXURY_WATCH_ES_DISCLOSURE,
+  LUXURY_WATCH_ES_SECTIONS,
   HOTEL_ES_DESTINATIONS,
   HOTEL_ES_DISCLOSURE,
   HOTEL_ES_SECTIONS,
   NIGHTLIFE_ES_DESTINATIONS,
   NIGHTLIFE_ES_DISCLOSURE,
   NIGHTLIFE_ES_SECTIONS,
+  AMAZON_PRODUCT_ES_SECTIONS,
+  AMAZON_PRODUCT_ES_DISCLOSURE,
+  AMAZON_PRODUCT_ES_DESTINATIONS,
+  COSMETICS_PRODUCT_ES_SECTIONS,
+  COSMETICS_PRODUCT_ES_DISCLOSURE,
+  COSMETICS_PRODUCT_ES_DESTINATIONS,
+  PRODUCT_DEMO_ES_SECTIONS,
+  PRODUCT_DEMO_ES_DISCLOSURE,
+  PRODUCT_DEMO_ES_DESTINATIONS,
+  UGC_AD_VARIATION_ES_SECTIONS,
+  UGC_AD_VARIATION_ES_DISCLOSURE,
+  UGC_AD_VARIATION_ES_DESTINATIONS,
+  CATERING_COMPANY_ES_SECTIONS,
+  CATERING_COMPANY_ES_DISCLOSURE,
+  CATERING_COMPANY_ES_DESTINATIONS,
+  BREWERY_CRAFT_DISTILLERY_ES_SECTIONS,
+  BREWERY_CRAFT_DISTILLERY_ES_DISCLOSURE,
+  BREWERY_CRAFT_DISTILLERY_ES_DESTINATIONS,
+  YACHT_PARTY_ES_SECTIONS,
+  YACHT_PARTY_ES_DISCLOSURE,
+  YACHT_PARTY_ES_DESTINATIONS,
+  SPORTFISHING_ES_SECTIONS,
+  SPORTFISHING_ES_DISCLOSURE,
+  SPORTFISHING_ES_DESTINATIONS,
+  HAIR_RESTORATION_ES_SECTIONS,
+  HAIR_RESTORATION_ES_DISCLOSURE,
+  HAIR_RESTORATION_ES_DESTINATIONS,
+  CHIROPRACTIC_VIDEO_ES_SECTIONS,
+  CHIROPRACTIC_VIDEO_ES_DISCLOSURE,
+  CHIROPRACTIC_VIDEO_ES_DESTINATIONS,
+  STARTUP_PITCH_ES_SECTIONS,
+  STARTUP_PITCH_ES_DISCLOSURE,
+  STARTUP_PITCH_ES_DESTINATIONS,
+  EXECUTIVE_VIDEO_BIO_ES_SECTIONS,
+  EXECUTIVE_VIDEO_BIO_ES_DISCLOSURE,
+  EXECUTIVE_VIDEO_BIO_ES_DESTINATIONS,
+  MED_SPA_PLASTIC_SURGEON_ES_DISCLOSURE,
+  MED_SPA_PLASTIC_SURGEON_ES_DESTINATIONS,
+  MED_SPA_PLASTIC_SURGEON_ES_SECTIONS,
+  CONTRACTOR_VIDEO_MARKETING_ES_DISCLOSURE,
+  CONTRACTOR_VIDEO_MARKETING_ES_DESTINATIONS,
+  CONTRACTOR_VIDEO_MARKETING_ES_SECTIONS,
+  QUINCEANERA_VIDEOGRAPHER_ES_DISCLOSURE,
+  QUINCEANERA_VIDEOGRAPHER_ES_DESTINATIONS,
+  QUINCEANERA_VIDEOGRAPHER_ES_SECTIONS,
+  MULTICAM_PODCAST_VIDEO_ES_DISCLOSURE,
+  MULTICAM_PODCAST_VIDEO_ES_DESTINATIONS,
+  MULTICAM_PODCAST_VIDEO_ES_SECTIONS,
+  PERSONAL_INJURY_LAWYER_ES_DISCLOSURE,
+  PERSONAL_INJURY_LAWYER_ES_DESTINATIONS,
+  PERSONAL_INJURY_LAWYER_ES_SECTIONS,
+  PRIVATE_SCHOOL_ADMISSIONS_ES_DISCLOSURE,
+  PRIVATE_SCHOOL_ADMISSIONS_ES_DESTINATIONS,
+  PRIVATE_SCHOOL_ADMISSIONS_ES_SECTIONS,
+  EXOTIC_CAR_RENTAL_ES_DISCLOSURE,
+  EXOTIC_CAR_RENTAL_ES_DESTINATIONS,
+  EXOTIC_CAR_RENTAL_ES_SECTIONS,
+  CAR_DEALERSHIP_VIDEO_ES_DISCLOSURE,
+  CAR_DEALERSHIP_VIDEO_ES_DESTINATIONS,
+  CAR_DEALERSHIP_VIDEO_ES_SECTIONS,
+  BOAT_SHOW_EXHIBITOR_ES_DISCLOSURE,
+  BOAT_SHOW_EXHIBITOR_ES_DESTINATIONS,
+  BOAT_SHOW_EXHIBITOR_ES_SECTIONS,
+  ART_BASEL_MIAMI_ART_WEEK_ES_DISCLOSURE,
+  ART_BASEL_MIAMI_ART_WEEK_ES_DESTINATIONS,
+  ART_BASEL_MIAMI_ART_WEEK_ES_SECTIONS,
 } from "@/lib/hospitality-deep-dive-content";
 import {
   AUTOMOTIVE_ES_SECTIONS,
@@ -3050,6 +3179,1294 @@ export const spanishNichePages: SpanishNichePage[] = [
     ],
   },
   {
+    slug: "videografo-para-ferias-comerciales-fort-lauderdale",
+    title: "Videógrafo para ferias comerciales en Fort Lauderdale",
+    metadataTitle: "Video para Ferias Comerciales",
+    description:
+      "Videografía profesional para stands de exhibición, ferias comerciales y convenciones en Fort Lauderdale y Miami con equipo estabilizado 4K.",
+    eyebrow: "Ferias Comerciales / Stands B2B",
+    h1: "Videógrafo para ferias comerciales y stands de exhibición en Fort Lauderdale.",
+    lead:
+      "Captura dinámica de demostraciones de producto, afluencia en stands y presentaciones corporativas en el Centro de Convenciones de Broward y Miami.",
+    keyword: "videógrafo para ferias comerciales en Fort Lauderdale",
+    location: "Fort Lauderdale / Broward / Miami",
+    availability: "confirmed",
+    icon: Building2,
+    bestFor: [
+      "Empresas expositoras en centros de convenciones que buscan demostrar retorno de inversión.",
+      "Marcas B2B que necesitan material audiovisual de producto para difusión en LinkedIn.",
+    ],
+    scopingQuestions: [
+      "¿En qué centro de convenciones o pabellón ferial se ubica su stand?",
+      "¿Requiere demostraciones de producto a cámara o cobertura general del flujo de visitantes?",
+    ],
+    projectFit:
+      "Grabación ágil con estabilizador de tres ejes que no interrumpe el tránsito de asistentes.",
+    updated: "2026-10-18",
+    sections: TRADE_SHOW_BOOTH_ES_SECTIONS,
+    sectionsDisclosure: TRADE_SHOW_BOOTH_ES_DISCLOSURE,
+    sectionsDestinations: TRADE_SHOW_BOOTH_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se graba en los stands de ferias sin interrumpir las conversaciones con clientes?",
+        answer:
+          "Se utilizan cámaras de cuadro completo sobre estabilizadores compactos que permiten desplazarse con agilidad por pasillos concurridos sin obstaculizar el paso ni interrumpir reuniones comerciales.",
+      },
+      {
+        question: "¿Qué elementos visuales se registran durante la cobertura del pabellón ferial?",
+        answer:
+          "La filmación incluye demostraciones de producto en directo, afluencia de visitantes al stand, pantallas interactivas, señalética de marca y presentaciones de conferencias.",
+      },
+      {
+        question: "¿Se pueden entregar videos para publicar mientras la convención sigue en marcha?",
+        answer:
+          "Sí. Es posible entregar cortes destacados y cápsulas verticales optimizadas para LinkedIn y redes sociales para que el equipo de marketing difunda avances durante los días del evento.",
+      },
+    ],
+  },
+  {
+    slug: "videografo-para-galas-corporativas-miami",
+    title: "Videógrafo para galas corporativas en Miami",
+    metadataTitle: "Video de Galas Corporativas Miami",
+    description:
+      "Videografía cinematográfica para galas corporativas, cenas benéficas y eventos de recaudación de fondos en Miami y Palm Beach.",
+    eyebrow: "Galas Benéficas / Cenas de Etiqueta",
+    h1: "Videógrafo para galas corporativas y cenas benéficas en Miami.",
+    lead:
+      "Cobertura cinematográfica en salones de etiqueta, registro de discursos con audio de consola y recaps de alto impacto para donantes.",
+    keyword: "videógrafo para galas corporativas en Miami",
+    location: "Miami / Coral Gables / Palm Beach",
+    availability: "confirmed",
+    icon: PartyPopper,
+    bestFor: [
+      "Fundaciones y organizaciones sin fines de lucro que celebran galas anuales de recaudación.",
+      "Empresas e instituciones que entregan premios y reconocimientos en cenas de etiqueta.",
+    ],
+    scopingQuestions: [
+      "¿El evento incluye subasta benéfica en vivo o intervenciones formales en podio?",
+      "¿El salón cuenta con equipo propio de audio para toma directa de sonido?",
+    ],
+    projectFit:
+      "Cámaras de cuadro completo de alta sensibilidad para entornos con iluminación tenue de banquetes.",
+    updated: "2026-10-18",
+    sections: CORPORATE_GALA_ES_SECTIONS,
+    sectionsDisclosure: CORPORATE_GALA_ES_DISCLOSURE,
+    sectionsDestinations: CORPORATE_GALA_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se gestiona la iluminación tenue en salones de banquetes sin molestar a los invitados?",
+        answer:
+          "Se utilizan sensores de cuadro completo con ópticas muy luminosas que registran el ambiente del salón, las luces del escenario y las mesas sin necesidad de focos frontales invasivos.",
+      },
+      {
+        question: "¿Cómo se graba el audio de discursos, entregas de premios y subastas benéficas?",
+        answer:
+          "El sonido se conecta directamente a la mesa de audio del evento, respaldado con transmisores inalámbricos en el podio para garantizar una grabación limpia y sin reverberación del salón.",
+      },
+      {
+        question: "¿Qué entregables se preparan habitualmente para galas y recaudaciones de fondos?",
+        answer:
+          "Se edita una película resumen de dos minutos orientada a patrocinadores y donantes, junto con el registro completo de intervenciones en tarima y cápsulas cortas para redes sociales.",
+      },
+    ],
+  },
+  {
+    slug: "marketing-de-video-para-superyates-fort-lauderdale",
+    title: "Marketing de video para superyates en Fort Lauderdale",
+    metadataTitle: "Video Marketing para Superyates",
+    description:
+      "Producción audiovisual de lujo para chárteres de superyates y corretaje náutico en Fort Lauderdale con cinematografía de interiores y navegación.",
+    eyebrow: "Náutica de Lujo / Superyacht Charter",
+    h1: "Marketing de video cinematográfico para superyates en Fort Lauderdale.",
+    lead:
+      "Cinematografía especializada en navegación, interiores de lujo y hospitalidad a bordo para corredores y agencias de chárter náutico.",
+    keyword: "marketing de video para superyates en Fort Lauderdale",
+    location: "Fort Lauderdale / Bahia Mar / South Florida",
+    availability: "confirmed",
+    icon: Anchor,
+    bestFor: [
+      "Corredores marítimos y agencias de gestión de chárter que comercializan embarcaciones de lujo.",
+      "Armadores y capitanes que buscan material audiovisual de nivel internacional para promoción de temporada.",
+    ],
+    scopingQuestions: [
+      "¿La sesión se realizará con la embarcación atracada en marina o durante una salida de navegación?",
+      "¿Se requiere filmar el servicio de mesa y la preparación de camarotes por parte de la tripulación?",
+    ],
+    projectFit:
+      "Ópticas gran angular de precisión y calzado náutico para el cuidado de cubiertas de teca.",
+    updated: "2026-10-18",
+    sections: SUPERYACHT_CHARTER_ES_SECTIONS,
+    sectionsDisclosure: SUPERYACHT_CHARTER_ES_DISCLOSURE,
+    sectionsDestinations: SUPERYACHT_CHARTER_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se graban interiores estrechos, camarotes y salas de máquinas en embarcaciones de gran porte?",
+        answer:
+          "Se emplean objetivos angulares de baja distorsión y estabilizadores compactos que recorren pasillos, camarotes principales y cocinas manteniendo la escala real y las líneas arquitectónicas.",
+      },
+      {
+        question: "¿Cómo se muestra el servicio de la tripulación y las comodidades a bordo?",
+        answer:
+          "La producción se coordina con el capitán y la tripulación para filmar montajes de cenas gourmet, navegación en lanchas auxiliares, preparación de deportes acuáticos y servicio al atardecer.",
+      },
+      {
+        question: "¿Qué formatos se entregan para corredores náuticos y portales de chárter internacional?",
+        answer:
+          "Se entregan videos cinematográficos horizontales para portales náuticos y sitios web de agencias, junto con avances verticales en alta definición para campañas en redes sociales.",
+      },
+    ],
+  },
+  {
+    slug: "videografo-para-cena-de-ensayo-miami",
+    title: "Videógrafo para cena de ensayo en Miami",
+    metadataTitle: "Video de Cena de Ensayo Miami",
+    description:
+      "Cobertura cinematográfica documental de cenas de ensayo, cócteles de bienvenida y brindis familiares para bodas en Miami y Coral Gables.",
+    eyebrow: "Bodas / Cena de Ensayo",
+    h1: "Videógrafo para cena de ensayo y cóctel de bienvenida en Miami.",
+    lead:
+      "Captura documental de discursos íntimos, abrazos familiares y cócteles al atardecer en la víspera del día de la boda.",
+    keyword: "videógrafo para cena de ensayo en Miami",
+    location: "Miami / Coconut Grove / Coral Gables",
+    availability: "confirmed",
+    icon: UtensilsCrossed,
+    bestFor: [
+      "Parejas que organizan un fin de semana completo de bodas con cóctel de bienvenida o cena íntima.",
+      "Familias que desean conservar los discursos y testimonios emotivos previos a la boda principal.",
+    ],
+    scopingQuestions: [
+      "¿La cena de ensayo se celebrará en un restaurante, terraza al aire libre o residencia privada?",
+      "¿Desean un video independiente de discursos o su integración en el documental principal de la boda?",
+    ],
+    projectFit:
+      "Operador único y discreto con microfonía inalámbrica de solapa para registrar discursos sin entorpecer la velada.",
+    updated: "2026-10-18",
+    sections: REHEARSAL_DINNER_ES_SECTIONS,
+    sectionsDisclosure: REHEARSAL_DINNER_ES_DISCLOSURE,
+    sectionsDestinations: REHEARSAL_DINNER_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿En qué complementa la cobertura de la cena de ensayo al video del día de la boda?",
+        answer:
+          "La cena de ensayo registra discursos íntimos y espontáneos de familiares cercanos y amigos en un ambiente relajado, aportando testimonios de gran valor emotivo para la historia completa de la boda.",
+      },
+      {
+        question: "¿Qué microfonía se utiliza para brindis informales en terrazas o restaurantes?",
+        answer:
+          "Se emplean micrófonos inalámbricos discretos y de mano con protección acústica para que las palabras de los invitados se escuchen nítidas por encima del murmullo del local o la brisa exterior.",
+      },
+      {
+        question: "¿Se pueden incluir fragmentos del cóctel de bienvenida en el trailer de la boda?",
+        answer:
+          "Sí. Las frases más emotivas y las reacciones de los asistentes en la víspera pueden integrarse en el montaje cinematográfico final, reflejando toda la experiencia del fin de semana festivo.",
+      },
+    ],
+  },
+  {
+    slug: "videografo-para-masterminds-miami",
+    title: "Videógrafo para masterminds y retiros en Miami",
+    metadataTitle: "Video para Masterminds Miami",
+    description:
+      "Videografía profesional para eventos mastermind, retiros de mentoría y seminarios de coaching en Miami con captura discreta 4K.",
+    eyebrow: "Masterminds / Retiros de Negocios",
+    h1: "Videógrafo para eventos mastermind y retiros de mentoría en Miami.",
+    lead:
+      "Cobertura cinematográfica en villas de lujo y hoteles ejecutivos, testimonios de participantes y video marketing para convocatorias.",
+    keyword: "videógrafo para masterminds en Miami",
+    location: "Miami / Downtown Miami / Miami Beach",
+    availability: "confirmed",
+    icon: Handshake,
+    bestFor: [
+      "Mentores y coaches que celebran retiros exclusivos en villas o salones ejecutivos de Miami.",
+      "Comunidades de negocios de alta inversión que necesitan testimonios en video para futuras ediciones.",
+    ],
+    scopingQuestions: [
+      "¿El retiro se celebra en una residencia privada frente al mar o en un salón de hotel?",
+      "¿Desea entrevistas a cámara con los asistentes o cobertura documental de las dinámicas?",
+    ],
+    projectFit:
+      "Operador único con cámara silenciosa de cuadro completo que no rompe la intimidad ni la concentración del grupo.",
+    updated: "2026-10-18",
+    sections: MASTERMIND_EVENT_ES_SECTIONS,
+    sectionsDisclosure: MASTERMIND_EVENT_ES_DISCLOSURE,
+    sectionsDestinations: MASTERMIND_EVENT_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se registran las sesiones íntimas sin incomodar a los participantes?",
+        answer:
+          "Se utilizan cámaras ligeras de cuadro completo con obturación silenciosa y ópticas discretas, documentando intervenciones y avances sin luces invasivas ni interrupciones.",
+      },
+      {
+        question: "¿Qué piezas se entregan para la venta de próximas convocatorias?",
+        answer:
+          "Se entrega una película resumen de dos minutos que refleja el entorno exclusivo y la atmósfera del retiro, testimonios breves de alumnos y cápsulas verticales para redes.",
+      },
+      {
+        question: "¿Se pueden grabar entrevistas dinámicas en las pausas de café o junto a la piscina?",
+        answer:
+          "Sí. Con microfonía direccional de mano se registran impresiones y aprendizajes espontáneos de los participantes durante los descansos y cócteles de networking.",
+      },
+    ],
+  },
+  {
+    slug: "videografo-para-propuestas-de-matrimonio-miami",
+    title: "Videógrafo para propuestas de matrimonio en Miami",
+    metadataTitle: "Video de Propuesta de Matrimonio",
+    description:
+      "Videografía encubierta para propuestas de matrimonio sorpresa en Miami, Vizcaya y playas de South Florida con entrega rápida para redes.",
+    eyebrow: "Propuestas de Matrimonio / Compromisos",
+    h1: "Videógrafo para propuestas de matrimonio sorpresa en Miami.",
+    lead:
+      "Filmación a distancia con teleobjetivo, captura de audio nítido de los votos y tráiler vertical para anunciar el compromiso.",
+    keyword: "videógrafo para propuestas de matrimonio en Miami",
+    location: "Miami / Miami Beach / Coconut Grove",
+    availability: "confirmed",
+    icon: Heart,
+    bestFor: [
+      "Parejas que desean documentar el momento exacto de la petición de mano sin que su pareja sospeche.",
+      "Organizadores de propuestas que coordinan montajes florales o experiencias en barcos y terrazas.",
+    ],
+    scopingQuestions: [
+      "¿En qué locación exacta de Miami se realizará la propuesta (playa, parque o terraza)?",
+      "¿Requieren microfonía oculta para registrar las palabras y votos durante la pedida?",
+    ],
+    projectFit:
+      "Posicionamiento encubierto con teleobjetivo cinematográfico y entrega ágil de video vertical para redes.",
+    updated: "2026-10-18",
+    sections: SURPRISE_PROPOSAL_ES_SECTIONS,
+    sectionsDisclosure: SURPRISE_PROPOSAL_ES_DISCLOSURE,
+    sectionsDestinations: SURPRISE_PROPOSAL_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo permanece oculto el videógrafo antes del momento de la propuesta?",
+        answer:
+          "Mediante teleobjetivos largos situados a distancia prudencial, el operador se mimetiza con turistas o visitantes del parque hasta el instante en que se realiza la pregunta.",
+      },
+      {
+        question: "¿Cómo se capta el sonido en exteriores con viento marino o playas abiertas?",
+        answer:
+          "Se emplean transmisores inalámbricos en miniatura con protector antiviento de alta densidad, ocultos discretamente en la ropa o en la decoración floral.",
+      },
+      {
+        question: "¿Cuándo reciben las parejas el video para anunciar su compromiso?",
+        answer:
+          "Se entrega un tráiler vertical de sesenta segundos con acabado cinematográfico en un plazo breve para compartir la noticia en Instagram Reels y TikTok.",
+      },
+    ],
+  },
+  {
+    slug: "produccion-de-video-reel-para-conferencistas-miami",
+    title: "Producción de video reel para conferencistas en Miami",
+    metadataTitle: "Video Reel para Conferencistas",
+    description:
+      "Producción de sizzle reels y videos promocionales para conferencistas, ponentes magistrales y moderadores en Miami y Fort Lauderdale.",
+    eyebrow: "Conferencistas / Sizzle Reels",
+    h1: "Producción de video reel promocional para conferencistas en Miami.",
+    lead:
+      "Montaje cinematográfico de intervenciones en escenario, sonido directo de consola, títulos animados y recaps para agencias de conferencias.",
+    keyword: "video reel para conferencistas en Miami",
+    location: "Miami / Fort Lauderdale / Remoto",
+    availability: "confirmed",
+    icon: Video,
+    bestFor: [
+      "Conferencistas profesionales y autores que buscan ser contratados por agencias y congresos.",
+      "Líderes de opinión que necesitan demostrar solvencia escénica y ovación del público en video.",
+    ],
+    scopingQuestions: [
+      "¿Cuenta con grabaciones existentes de múltiples conferencias o requiere filmación en un evento próximo?",
+      "¿El reel debe incluir testimonios de organizadores y títulos animados de libros o logros?",
+    ],
+    projectFit:
+      "Edición rítmica y armonización de metrajes heterogéneos con mezcla de sonido profesional.",
+    updated: "2026-10-18",
+    sections: SPEAKER_SIZZLE_REEL_ES_SECTIONS,
+    sectionsDisclosure: SPEAKER_SIZZLE_REEL_ES_DISCLOSURE,
+    sectionsDestinations: SPEAKER_SIZZLE_REEL_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Qué metraje se necesita para elaborar un video reel de conferencista?",
+        answer:
+          "Se emplean tomas de escenario en convenciones, reacciones de la audiencia, testimonios de asistentes, ovaciones y material gráfico corporativo.",
+      },
+      {
+        question: "¿Se pueden editar juntos videos grabados con cámaras y luces diferentes?",
+        answer:
+          "Sí. La corrección de color, estabilización y tratamiento sonoro unifican archivos de distintos eventos en una pieza promocional armónica y enérgica.",
+      },
+      {
+        question: "¿Qué duraciones y formatos se entregan para agencias y redes sociales?",
+        answer:
+          "Se entrega un reel maestro de tres minutos para páginas web y agencias de ponentes, junto con versiones verticales para LinkedIn e Instagram.",
+      },
+    ],
+  },
+  {
+    slug: "videografo-para-bar-mitzvah-south-florida",
+    title: "Videógrafo para Bar y Bat Mitzvah en South Florida",
+    metadataTitle: "Video de Bar y Bat Mitzvah",
+    description:
+      "Videografía cinematográfica para celebraciones de Bar y Bat Mitzvah en Boca Raton, Miami y Aventura con respeto ceremonial y fiesta enérgica.",
+    eyebrow: "Bar & Bat Mitzvah / Hitos Familiares",
+    h1: "Videógrafo para Bar y Bat Mitzvah en South Florida.",
+    lead:
+      "Cobertura respetuosa en sinagogas, grabación estabilizada de la hora y películas familiares de legado en alta definición.",
+    keyword: "videógrafo para bar mitzvah en South Florida",
+    location: "Boca Raton / Miami / Aventura",
+    availability: "confirmed",
+    icon: PartyPopper,
+    bestFor: [
+      "Familias que celebran el Bar o Bat Mitzvah de sus hijos en sinagogas y salones de South Florida.",
+      "Organizadores de eventos que buscan un operador técnico ágil para la fiesta y respetuoso en la ceremonia.",
+    ],
+    scopingQuestions: [
+      "¿La sinagoga permite grabación durante el servicio religioso o se coordinará una sesión de ensayo previa?",
+      "¿Desean una película documental cronológica de la fiesta o un resumen cinematográfico corto?",
+    ],
+    projectFit:
+      "Sensibilidad ceremonial con teleobjetivos silenciosos y seguimiento fluido en la pista de baile.",
+    updated: "2026-10-18",
+    sections: BAR_MITZVAH_ES_SECTIONS,
+    sectionsDisclosure: BAR_MITZVAH_ES_DISCLOSURE,
+    sectionsDestinations: BAR_MITZVAH_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se filma en santuarios con poca luz y en la pista de baile nocturna?",
+        answer:
+          "Cámaras de cuadro completo con objetivos luminosos registran los momentos en la bimá con sobriedad, pasando a estabilización dinámica durante el baile de la hora.",
+      },
+      {
+        question: "¿Cómo se graba el sonido de las lecturas de la Torá y las bendiciones?",
+        answer:
+          "Se conectan tomas directas a la consola de sonido del recinto combinadas con micrófonos de solapa inalámbricos para una claridad vocal absoluta.",
+      },
+      {
+        question: "¿Qué videos finales recibe la familia tras el fin de semana de celebración?",
+        answer:
+          "La familia recibe una película documental completa con los discursos y bailes íntegros, junto con un resumen cinematográfico de tres minutos para compartir.",
+      },
+    ],
+  },
+  {
+    slug: "video-para-bienes-raices-comerciales-miami",
+    title: "Video para bienes raíces comerciales en Miami",
+    metadataTitle: "Video Bienes Raíces Comerciales",
+    description:
+      "Producción audiovisual y recorridos de video para oficinas comerciales, naves industriales y locales en Miami y Doral con entrega ágil.",
+    eyebrow: "Bienes Raíces Comerciales / Oficinas",
+    h1: "Video para bienes raíces comerciales y oficinas en Miami.",
+    lead:
+      "Recorridos arquitectónicos estabilizados en 4K, planos diáfanos y especificaciones estructurales para comercialización y arrendamiento.",
+    keyword: "video para bienes raíces comerciales en Miami",
+    location: "Miami / Doral / Downtown Miami",
+    availability: "confirmed",
+    icon: Building2,
+    bestFor: [
+      "Corredores de arrendamiento comercial y fondos inmobiliarios en South Florida.",
+      "Propietarios de naves logísticas y edificios corporativos de oficinas.",
+    ],
+    scopingQuestions: [
+      "¿La propiedad corresponde a oficinas acondicionadas, espacios diáfanos o naves industriales?",
+      "¿Requieren títulos animados con especificaciones de metraje y alturas de techo?",
+    ],
+    projectFit:
+      "Estabilización motorizada con ópticas de corrección de perspectiva sin distorsión angular.",
+    updated: "2026-10-18",
+    sections: COMMERCIAL_REAL_ESTATE_ES_SECTIONS,
+    sectionsDisclosure: COMMERCIAL_REAL_ESTATE_ES_DISCLOSURE,
+    sectionsDestinations: COMMERCIAL_REAL_ESTATE_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo ayudan los recorridos en video a cualificar empresas interesadas?",
+        answer:
+          "Los recorridos de alta definición muestran la distribución real y la entrada de luz natural, facilitando que comités corporativos y empresas evalúen el inmueble a distancia antes de programar visitas.",
+      },
+      {
+        question: "¿Se pueden incluir especificaciones técnicas y áreas en pantalla?",
+        answer:
+          "Sí. Mediante títulos limpios se indican metros cuadrados útiles, altura de techos, potencia eléctrica y estacionamientos asignados para facilitar el análisis del arrendatario.",
+      },
+      {
+        question: "¿Cuál es el plazo habitual de entrega de los videos comerciales?",
+        answer:
+          "Los videos de recorrido horizontal de tres minutos y las cápsulas verticales para redes comerciales se entregan habitualmente entre cinco y siete días hábiles tras el rodaje.",
+      },
+    ],
+  },
+  {
+    slug: "video-de-penthouses-de-lujo-miami",
+    title: "Video de penthouses de lujo en Miami",
+    metadataTitle: "Video Penthouses de Lujo Miami",
+    description:
+      "Cinematografía de interiores y recorridos de lujo para penthouses frente al océano en Sunny Isles Beach, Miami Beach y Downtown Miami.",
+    eyebrow: "Penthouses de Lujo / Residencias",
+    h1: "Video cinematográfico para penthouses de lujo en Miami.",
+    lead:
+      "Equilibrio lumínico entre vistas al mar e interiores de diseño, recorridos estabilizados y piezas audiovisuales para compradores internacionales.",
+    keyword: "video de penthouses de lujo en Miami",
+    location: "Sunny Isles Beach / Miami Beach / Downtown Miami",
+    availability: "confirmed",
+    icon: Home,
+    bestFor: [
+      "Agentes inmobiliarios y agencias de corretaje que representan penthouses multimillonarios.",
+      "Desarrolladores de residencias de ultralujo frente al océano en South Florida.",
+    ],
+    scopingQuestions: [
+      "¿El penthouse cuenta con terraza panorámica, piscina privada o amarre de yate?",
+      "¿La filmación se programará durante el atardecer o la luz dorada de la mañana?",
+    ],
+    projectFit:
+      "Sensores de cuadro completo con filtros polarizadores para equilibrar ventanales marinos y acabados interiores.",
+    updated: "2026-10-18",
+    sections: LUXURY_PENTHOUSE_ES_SECTIONS,
+    sectionsDisclosure: LUXURY_PENTHOUSE_ES_DISCLOSURE,
+    sectionsDestinations: LUXURY_PENTHOUSE_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se equilibra la luz del mar con los acabados interiores de lujo?",
+        answer:
+          "Cámaras de cuadro completo con amplio rango dinámico y polarización controlada captan el azul marino sin sobreexponer el cielo ni oscurecer suelos de mármol o ebanistería.",
+      },
+      {
+        question: "¿Qué formatos de video se entregan para comercialización inmobiliaria?",
+        answer:
+          "Se entrega una película cinematográfica horizontal de tres minutos para portales web y presentaciones, acompañada de avances verticales 9:16 para Instagram y canales de lujo.",
+      },
+      {
+        question: "¿Se pueden filmar comodidades del edificio y muelles privados?",
+        answer:
+          "Sí. Las secuencias pueden abarcar muelles, vestíbulos con conserjería y terrazas comunitarias para comunicar el estilo de vida exclusivo de la residencia.",
+      },
+    ],
+  },
+  {
+    slug: "videografo-para-restaurantes-de-alta-cocina-miami",
+    title: "Videógrafo para restaurantes de alta cocina en Miami",
+    metadataTitle: "Video Alta Cocina Restaurantes",
+    description:
+      "Cinematografía gastronómica y videos de menús de degustación para restaurantes de alta cocina en Miami Design District y Coconut Grove.",
+    eyebrow: "Gastronomía / Alta Cocina",
+    h1: "Videógrafo para restaurantes de alta cocina y autor en Miami.",
+    lead:
+      "Captura macro de emplatados de precisión, sellados a fuego vivo, servicio de sala y ambientación gastronómica que impulsa reservas de mesas.",
+    keyword: "videógrafo para restaurantes de alta cocina en Miami",
+    location: "Miami Design District / Coconut Grove / Downtown Miami",
+    availability: "confirmed",
+    icon: UtensilsCrossed,
+    bestFor: [
+      "Restaurantes con estrella Michelin, salones gastronómicos y propuestas culinarias de autor.",
+      "Grupos de hospitalidad que buscan posicionar sus cartas de temporada y maridajes.",
+    ],
+    scopingQuestions: [
+      "¿La sesión incluirá filmación en cocina activa con la brigada o solo emplatados en sala?",
+      "¿Se coordinará la presencia del sommelier y la presentación del menú de degustación?",
+    ],
+    projectFit:
+      "Ópticas macro cinematográficas con iluminación direccional que no deslumbran ni interfieren con el servicio en sala.",
+    updated: "2026-10-18",
+    sections: FINE_DINING_ES_SECTIONS,
+    sectionsDisclosure: FINE_DINING_ES_DISCLOSURE,
+    sectionsDestinations: FINE_DINING_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se filma en cocinas activas sin alterar el servicio del restaurante?",
+        answer:
+          "Se opera con cámaras compactas y lentes macro luminosos junto al equipo de cocina, registrando sellados y emplatados minuciosos sin focos aparatosos ni cables en el suelo.",
+      },
+      {
+        question: "¿Qué entregables audiovisuales se preparan para restaurantes gastronómicos?",
+        answer:
+          "El paquete incluye una película de marca de noventa segundos centrada en la propuesta del chef ejecutivo y cápsulas verticales diseñadas para alta interacción en Instagram Reels y TikTok.",
+      },
+      {
+        question: "¿Se puede registrar el servicio de sommelier y maridajes en mesa?",
+        answer:
+          "Sí. Mediante iluminación sutil y micrófonos sensibles se capta el vertido de vinos, decantación y la interacción refinada del personal con los comensales.",
+      },
+    ],
+  },
+  {
+    slug: "videografo-de-cocteleria-para-bares-miami",
+    title: "Videógrafo de coctelería para bares en Miami",
+    metadataTitle: "Video Coctelería para Bares",
+    description:
+      "Producción de video en cámara lenta y reels para bares de coctelería, speakeasies y salones nocturnos en Wynwood, South Beach y Fort Lauderdale.",
+    eyebrow: "Coctelería / Bares & Speakeasies",
+    h1: "Videógrafo de coctelería artesanal para bares en Miami.",
+    lead:
+      "Grabación en 4K a 120 cuadros por segundo, sonido nítido de barra y videos rítmicos para redes sociales que llenan locales nocturnos.",
+    keyword: "videógrafo de coctelería para bares en Miami",
+    location: "Wynwood / South Beach / Downtown Fort Lauderdale",
+    availability: "confirmed",
+    icon: Martini,
+    bestFor: [
+      "Bares de coctelería artesanal, speakeasies y salones de coctelería de autor.",
+      "Marcas de destilados y bebidas premium que realizan activaciones nocturnas.",
+    ],
+    scopingQuestions: [
+      "¿La filmación se realizará antes de la apertura al público o con clientela real en la barra?",
+      "¿Desea enfocar el contenido en recetas de autor, técnicas de batido o ambiente del local?",
+    ],
+    projectFit:
+      "Grabación en alta velocidad a 60 y 120 fps con iluminación lateral que resalta botánicos y licores en ambientes nocturnos.",
+    updated: "2026-10-18",
+    sections: MIXOLOGY_COCKTAIL_ES_SECTIONS,
+    sectionsDisclosure: MIXOLOGY_COCKTAIL_ES_DISCLOSURE,
+    sectionsDestinations: MIXOLOGY_COCKTAIL_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Por qué se utiliza grabación en cámara lenta para videos de coctelería?",
+        answer:
+          "La captura a 60 y 120 cuadros por segundo convierte movimientos rápidos de barra como el tallado de hielo, flambeado de cítricos y vertidos en historias visuales fluidas y atractivas.",
+      },
+      {
+        question: "¿Cómo se capta el sonido de la coctelería en ambientes de bar?",
+        answer:
+          "Micrófonos direccionales aíslan el sonido del hielo al romperse, el batido en coctelera y las burbujas, combinándose con iluminación lateral que resalta destilados en la penumbra.",
+      },
+      {
+        question: "¿Se pueden entregar videos de recetas y cartas de temporada para redes?",
+        answer:
+          "Sí. Se entregan cortes verticales de diez a quince segundos con textos gráficos de ingredientes y ritmo musical dinámico para Instagram Reels y TikTok.",
+      },
+    ],
+  },
+  {
+    slug: "video-de-progreso-de-construccion-miami",
+    title: "Video de progreso de construcción en Miami",
+    metadataTitle: "Video Progreso Construcción Miami",
+    description:
+      "Documentación audiovisual de avance de obra y video para constructores de casas de lujo en Miami, Coral Gables y Fort Lauderdale.",
+    eyebrow: "Construcción / Casas de Lujo",
+    h1: "Video de avance de obra y construcción residencial en Miami.",
+    lead:
+      "Documentación mensual de hitos constructivos, recorridos de cimentación y acabados arquitectónicos para desarrolladores y clientes remotos.",
+    keyword: "video de progreso de construcción en Miami",
+    location: "Coral Gables / Fort Lauderdale / Miami",
+    availability: "confirmed",
+    icon: Hammer,
+    bestFor: [
+      "Constructores de residencias personalizadas y contratistas generales en South Florida.",
+      "Desarrolladores inmobiliarios y propietarios con supervisión remota de obras.",
+    ],
+    scopingQuestions: [
+      "¿En qué fase constructiva se encuentra el proyecto (cimentación, estructura o acabados interiores)?",
+      "¿Requieren informes periódicos para bancos o material audiovisual para portafolio comercial?",
+    ],
+    projectFit:
+      "Recorridos técnicos con ópticas gran angulares de alta rectitud y luminarias de obra para captar detalles antes de cerrar tabiquería.",
+    updated: "2026-10-18",
+    sections: CONSTRUCTION_PROGRESS_ES_SECTIONS,
+    sectionsDisclosure: CONSTRUCTION_PROGRESS_ES_DISCLOSURE,
+    sectionsDestinations: CONSTRUCTION_PROGRESS_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Con qué frecuencia conviene filmar el avance en una obra de construcción?",
+        answer:
+          "Las visitas mensuales o quincenales programadas tras el vaciado de losas, la finalización de estructuras o instalaciones técnicas proporcionan una documentación continua y exhaustiva.",
+      },
+      {
+        question: "¿Se pueden añadir etiquetas de estancias y fechas de hitos en pantalla?",
+        answer:
+          "Sí. Mediante rótulos limpios se indican fechas exactas, nombres de áreas y fases terminadas para facilitar el archivo y la presentación ante clientes o bancos.",
+      },
+      {
+        question: "¿Cómo se gestiona la seguridad y la actividad de los oficios durante el rodaje?",
+        answer:
+          "La filmación se realiza con equipo de protección reglamentario y en coordinación con el jefe de obra, grabando sin entorpecer a operarios ni detener los trabajos en curso.",
+      },
+    ],
+  },
+  {
+    slug: "video-para-marcas-de-moda-miami",
+    title: "Video para marcas de moda y trajes de baño en Miami",
+    metadataTitle: "Video Marcas de Moda Miami",
+    description:
+      "Producción audiovisual de lookbooks de moda y trajes de baño en Miami Beach y Wynwood con cinematografía de movimiento y piezas para redes.",
+    eyebrow: "Moda / Trajes de Baño",
+    h1: "Video cinematográfico de lookbook y moda en Miami Beach.",
+    lead:
+      "Cinematografía ágil para colecciones de diseño, iluminación natural en exteriores de playa y piezas verticales rítmicas para campañas de lanzamiento.",
+    keyword: "video para marcas de moda en Miami",
+    location: "Miami Beach / Wynwood / Design District",
+    availability: "confirmed",
+    icon: Sparkles,
+    bestFor: [
+      "Firmas de moda, colecciones de trajes de baño y diseñadores independientes en Miami.",
+      "Agencias de marketing de moda y marcas de moda resort que lanzan campañas de temporada.",
+    ],
+    scopingQuestions: [
+      "¿El rodaje se realizará en localizaciones de playa en Miami Beach, zonas urbanas o en estudio?",
+      "¿Cuántos conjuntos y modelos formarán parte de la sesión de lookbook?",
+    ],
+    projectFit:
+      "Cámaras cinematográficas con ópticas de focal fija y reflectores suaves para captar la caída de las telas y el tono natural de la piel.",
+    updated: "2026-10-18",
+    sections: FASHION_LOOKBOOK_ES_SECTIONS,
+    sectionsDisclosure: FASHION_LOOKBOOK_ES_DISCLOSURE,
+    sectionsDestinations: FASHION_LOOKBOOK_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Qué localizaciones en Miami se recomiendan para rodajes de moda y baño?",
+        answer:
+          "Las playas de Miami Beach, los murales de Wynwood, jardines tropicales y estudios con luz natural ofrecen escenarios idóneos para colecciones de verano y ropa resort.",
+      },
+      {
+        question: "¿Cuántos conjuntos o cambios de ropa se pueden registrar por jornada?",
+        answer:
+          "Con una planificación coordinada se filman habitualmente entre cuatro y seis estilismos en media jornada, y de ocho a doce conjuntos en una jornada completa.",
+      },
+      {
+        question: "¿Se incluyen versiones verticales optimizadas para campañas publicitarias?",
+        answer:
+          "Sí. Se entrega una película horizontal de la colección acompañada de versiones verticales 9:16 con cortes rítmicos para Instagram Reels, TikTok y anuncios en Meta.",
+      },
+    ],
+  },
+  {
+    slug: "video-para-venta-de-barcos-fort-lauderdale",
+    title: "Video para venta de barcos y corretaje náutico en Fort Lauderdale",
+    metadataTitle: "Video Venta Barcos Fort Lauderdale",
+    description:
+      "Producción de recorridos en video para venta de embarcaciones y corretaje náutico en Fort Lauderdale con cobertura de puente de mando y camarotes.",
+    eyebrow: "Venta de Barcos / Brokerage",
+    h1: "Video para venta de barcos y corretaje náutico en Fort Lauderdale.",
+    lead:
+      "Recorridos estabilizados en muelle, navegación de interiores de cabina y demostración de consolas de mando para plataformas de venta internacional.",
+    keyword: "video para venta de barcos en Fort Lauderdale",
+    location: "Fort Lauderdale / Dania Beach / Palm Beach",
+    availability: "confirmed",
+    icon: Anchor,
+    bestFor: [
+      "Corredurías de yates, brokers independientes y distribuidores náuticos en Fort Lauderdale.",
+      "Propietarios particulares que comercializan embarcaciones de recreo o pesca de alta gama.",
+    ],
+    scopingQuestions: [
+      "¿La embarcación se encuentra atracada en marina, varadero o muelle privado?",
+      "¿Desea incluir narración del broker o fichas técnicas en pantalla con especificaciones completas?",
+    ],
+    projectFit:
+      "Estabilización de precisión y lentes de ángulo recto para recorrer camarotes y puestos de gobierno sin deformación angular.",
+    updated: "2026-10-18",
+    sections: BOAT_LISTING_ES_SECTIONS,
+    sectionsDisclosure: BOAT_LISTING_ES_DISCLOSURE,
+    sectionsDestinations: BOAT_LISTING_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Qué duración debe tener un video de recorrido para venta de una embarcación?",
+        answer:
+          "Los recorridos de venta suelen durar entre tres y cinco minutos, tiempo suficiente para detallar cubierta, puesto de gobierno, camarotes y sala de máquinas sin perder dinamismo.",
+      },
+      {
+        question: "¿Se pueden indicar horas de motor, eslora y especificaciones en pantalla?",
+        answer:
+          "Sí. Mediante títulos nítidos se muestran eslora, manga, calado, capacidad de combustible, velocidad de crucero y horas de motor junto a cada secuencia.",
+      },
+      {
+        question: "¿En qué plataformas se pueden utilizar los videos de barcos producidos?",
+        answer:
+          "Los videos se entregan listos para canales de YouTube náuticos, portales de corretaje naval y avances verticales para Instagram y TikTok.",
+      },
+    ],
+  },
+  {
+    slug: "video-para-relojes-de-lujo-miami",
+    title: "Video para relojes de lujo y joyería en Miami",
+    metadataTitle: "Video Relojes de Lujo Miami",
+    description:
+      "Cinematografía macro comercial para relojes de alta gama y piezas de colección en el Diamond District de Miami con iluminación libre de reflejos.",
+    eyebrow: "Relojes de Lujo / Joyería",
+    h1: "Cinematografía macro para relojes de alta gama en Miami.",
+    lead:
+      "Tomas macro de 1:1 que destacan biseles, esferas artesanales y movimiento mecánico sin reflejos para coleccionistas y tiendas de alta relojería.",
+    keyword: "video para relojes de lujo en Miami",
+    location: "Downtown Miami / Coral Gables / Palm Beach",
+    availability: "confirmed",
+    icon: Watch,
+    bestFor: [
+      "Joyerías, tiendas de alta relojería y comerciantes de relojes de segunda mano en Downtown Miami.",
+      "Casas de subastas y coleccionistas que comercializan piezas exclusivas en canales internacionales.",
+    ],
+    scopingQuestions: [
+      "¿Las piezas a filmar incluyen cronógrafos, fondos vistos o mecanismos con complicaciones especiales?",
+      "¿La sesión se desarrollará en el estudio o en las instalaciones seguras de la joyería?",
+    ],
+    projectFit:
+      "Ópticas macro de relación 1:1 e iluminación polarizada de estudio para captar detalles milimétricos y el movimiento de agujas sin brillos parásitos.",
+    updated: "2026-10-18",
+    sections: LUXURY_WATCH_ES_SECTIONS,
+    sectionsDisclosure: LUXURY_WATCH_ES_DISCLOSURE,
+    sectionsDestinations: LUXURY_WATCH_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo revelan las ópticas macro los detalles microscópicos de los relojes de lujo?",
+        answer:
+          "Ópticas macro de escala 1:1 e iluminación difusa de estudio eliminan reflejos del zafiro y muestran acabados de la esfera, textura de índices y el movimiento del escape.",
+      },
+      {
+        question: "¿Se puede registrar el sonido del mecanismo y los clics del bisel giratorio?",
+        answer:
+          "Sí. Micrófonos de alta sensibilidad captan la cuerda manual, el chasquido del bisel de cerámica y el latido del volante para transmitir una experiencia táctil y mecánica.",
+      },
+      {
+        question: "¿Qué formatos audiovisuales se entregan para comercialización de relojería?",
+        answer:
+          "Los profesionales reciben videos horizontales de noventa segundos para fichas de venta y avances verticales de quince segundos con datos de referencia para redes sociales.",
+      },
+    ],
+  },
+  {
+    slug: "video-para-productos-de-amazon-miami",
+    title: "Video para productos de Amazon y marcas de e-commerce en Miami",
+    metadataTitle: "Video Productos Amazon Miami",
+    description:
+      "Producción de video para productos de Amazon, Brand Stores y contenido vertical para Amazon Inspire en ciclorama blanco y estudio en Miami.",
+    eyebrow: "Amazon / E-Commerce",
+    h1: "Video comercial y demostraciones para productos de Amazon en Miami.",
+    lead:
+      "Producción en ciclorama e iluminación de estudio de alta fidelidad para destacar funciones, desempaques y cumplimiento de directrices en Amazon.",
+    keyword: "video para productos de Amazon en Miami",
+    location: "Miami / Doral / Coral Gables",
+    availability: "confirmed",
+    icon: Box,
+    bestFor: [
+      "Vendedores de Amazon FBA, marcas de e-commerce y tiendas oficiales en Amazon Brand Store.",
+      "Empresas de bienes de consumo en Miami que lanzan productos con video en resolución 4K.",
+    ],
+    scopingQuestions: [
+      "¿Los videos se destinarán al carrusel principal de la ficha, al Brand Store o a Amazon Inspire?",
+      "¿Se requiere ciclorama blanco puro, fondo de color corporativo o escenografía lifestyle?",
+    ],
+    projectFit:
+      "Tomas nítidas en ciclorama de estudio, textos en pantalla con especificaciones y encuadres pensados para reproducción móvil sin audio.",
+    updated: "2026-10-18",
+    sections: AMAZON_PRODUCT_ES_SECTIONS,
+    sectionsDisclosure: AMAZON_PRODUCT_ES_DISCLOSURE,
+    sectionsDestinations: AMAZON_PRODUCT_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Qué especificaciones y formatos exige Amazon para los videos de producto?",
+        answer:
+          "Amazon requiere formato 16:9 en resolución 1080p o 4K para el carrusel de la ficha, junto con formato 9:16 vertical para Amazon Inspire y escaparates móviles.",
+      },
+      {
+        question: "¿Se pueden añadir textos y llamadas gráficas con dimensiones y funciones?",
+        answer:
+          "Sí. Se insertan títulos legibles y de alto contraste que destacan medidas, materiales y modo de uso para compradores que navegan en silencio.",
+      },
+      {
+        question: "¿Dónde se realiza la grabación de productos para Amazon en el sur de la Florida?",
+        answer:
+          "Las grabaciones se llevan a cabo en ciclorama de estudio en Miami, mesas de luz especializadas o entornos reales según el tipo de producto.",
+      },
+    ],
+  },
+  {
+    slug: "video-para-marcas-de-cosmeticos-miami",
+    title: "Video para marcas de cosméticos y cuidado de la piel en Miami",
+    metadataTitle: "Video Cosméticos Miami",
+    description:
+      "Cinematografía macro para marcas de cosméticos, sérums y productos de belleza en Miami con iluminación difusa y fidelidad de tono de piel.",
+    eyebrow: "Cosméticos / Skincare",
+    h1: "Cinematografía macro para cosméticos y belleza en Miami.",
+    lead:
+      "Planos macro de pipetas, texturas viscosas y aplicación en piel para marcas de belleza, cuidado personal y cosmética limpia en South Florida.",
+    keyword: "video para marcas de cosméticos en Miami",
+    location: "Miami Beach / Wynwood / Downtown Miami",
+    availability: "confirmed",
+    icon: Sparkles,
+    bestFor: [
+      "Marcas de cosmética limpia, sérums faciales y laboratorios dermatológicos en South Florida.",
+      "Emprendedores de belleza que venden en Shopify, Sephora o campañas de TikTok Shop.",
+    ],
+    scopingQuestions: [
+      "¿La sesión incluye tomas de texturas con pipeta, cremas sobre piel o modelos aplicando el producto?",
+      "¿Qué directrices de color y tono de piel deben mantenerse en la corrección final?",
+    ],
+    projectFit:
+      "Ópticas macro de escala 1:1, placas giratorias motorizadas y luces difusas para captar brillo sin destellos molestos.",
+    updated: "2026-10-18",
+    sections: COSMETICS_PRODUCT_ES_SECTIONS,
+    sectionsDisclosure: COSMETICS_PRODUCT_ES_DISCLOSURE,
+    sectionsDestinations: COSMETICS_PRODUCT_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se filman sérums, texturas y fórmulas líquidas de belleza?",
+        answer:
+          "Con lentes macro de alta precisión y velocidades de 60 a 120 cuadros por segundo para registrar caídas de gotas, cremas untables y emulsiones sin reflejos.",
+      },
+      {
+        question: "¿Cómo se asegura la precisión del tono de piel y el color del producto?",
+        answer:
+          "Utilizando cartas de calibración de color e iluminación balanceada para que los pigmentos y tonos se muestren exactamente como son en persona.",
+      },
+      {
+        question: "¿Qué entregables se facilitan para campañas publicitarias de cosméticos?",
+        answer:
+          "Entregamos videos horizontales para páginas de producto y variantes verticales en 9:16 optimizadas para anuncios de TikTok y Meta.",
+      },
+    ],
+  },
+  {
+    slug: "video-de-demostracion-de-producto-miami",
+    title: "Video de demostración de producto y desempaque en Miami",
+    metadataTitle: "Video Demostración Producto Miami",
+    description:
+      "Producción de videos de demostración paso a paso, desempaques y tutoriales de producto para marcas de tecnología y consumo en Miami.",
+    eyebrow: "Demostración / Tutoriales",
+    h1: "Videos de demostración técnica y desempaque de productos en Miami.",
+    lead:
+      "Tomas cenitales, ensamblaje paso a paso y sonido de materiales para guías interactivas, códigos QR y páginas de soporte al cliente.",
+    keyword: "video de demostración de producto en Miami",
+    location: "Miami / Doral / Fort Lauderdale",
+    availability: "confirmed",
+    icon: Laptop,
+    bestFor: [
+      "Empresas de hardware, electrodomésticos y productos de consumo que requieren guías claras de uso.",
+      "Marcas que buscan reducir devoluciones de clientes mediante videos instructivos por código QR.",
+    ],
+    scopingQuestions: [
+      "¿El producto requiere tomas cenitales a 90 grados para mostrar conexiones y ensamblaje?",
+      "¿Se necesita narración de voz en off o subtítulos sincronizados para reproducción silenciosa?",
+    ],
+    projectFit:
+      "Tomas cenitales estabilizadas, iluminación sin sombras y cortes precisos que guían al usuario sin confusión.",
+    updated: "2026-10-18",
+    sections: PRODUCT_DEMO_ES_SECTIONS,
+    sectionsDisclosure: PRODUCT_DEMO_ES_DISCLOSURE,
+    sectionsDestinations: PRODUCT_DEMO_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Qué estructura tiene un video de demostración de producto eficaz?",
+        answer:
+          "Plantea el problema en los primeros segundos, muestra el ensamblaje y funcionamiento de forma secuencial y resalta las soluciones prácticas.",
+      },
+      {
+        question: "¿Se pueden filmar tomas cenitales desde arriba para guías de ensamblaje?",
+        answer:
+          "Sí. Empleamos montajes superiores a 90 grados con iluminación difusa que eliminan sombras de las manos y muestran las piezas con claridad.",
+      },
+      {
+        question: "¿El video de demostración se entrega con narración o subtítulos?",
+        answer:
+          "Ofrecemos ambas opciones: locución profesional sincronizada y subtítulos en pantalla pensados para usuarios que ven el video en silencio.",
+      },
+    ],
+  },
+  {
+    slug: "edicion-de-variaciones-de-anuncios-ugc",
+    title: "Edición de variaciones de anuncios UGC para Meta y TikTok",
+    metadataTitle: "Edición Variaciones UGC",
+    description:
+      "Servicio de edición y montaje de variaciones de anuncios UGC con múltiples ganchos, llamadas a la acción y zonas seguras para escalar campañas pagadas.",
+    eyebrow: "Publicidad UGC / Performance",
+    h1: "Edición de variaciones de anuncios UGC para escalar campañas de pago.",
+    lead:
+      "Montaje modular de ganchos iniciales, demostraciones y llamadas a la acción para anunciantes en Meta, TikTok y YouTube Shorts.",
+    keyword: "edicion de variaciones de anuncios ugc",
+    location: "Remoto / Miami / Fort Lauderdale",
+    availability: "confirmed",
+    icon: Film,
+    bestFor: [
+      "Agencias de medios pagados y marcas D2C que necesitan probar múltiples creatividades por semana.",
+      "Equipos de marketing con grabaciones de creadores que requieren ensamblaje rápido y profesional.",
+    ],
+    scopingQuestions: [
+      "¿Cuántos ganchos iniciales y llamadas a la acción se grabaron para cada producto?",
+      "¿Qué directrices de subtítulos y elementos gráficos de marca deben aplicarse?",
+    ],
+    projectFit:
+      "Flujo ágil de postproducción remota con subtítulos nativos, ganchos dinámicos y formatos de área segura para redes.",
+    updated: "2026-10-18",
+    sections: UGC_AD_VARIATION_ES_SECTIONS,
+    sectionsDisclosure: UGC_AD_VARIATION_ES_DISCLOSURE,
+    sectionsDestinations: UGC_AD_VARIATION_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo benefician las variaciones de ganchos el rendimiento publicitario?",
+        answer:
+          "Permiten probar diferentes aperturas en los primeros tres segundos para detectar la variante con mayor retención sin regrabar todo el contenido.",
+      },
+      {
+        question: "¿Cómo se organizan los archivos de video enviados por creadores UGC?",
+        answer:
+          "El material se sube a carpetas compartidas clasificando tomas de apertura, demostración y cierre para un montaje modular eficiente.",
+      },
+      {
+        question: "¿Qué formato de subtítulos y zonas seguras se aplican a los anuncios?",
+        answer:
+          "Diseñamos subtítulos en el tercio central respetando las interfaces de TikTok e Instagram para evitar que los iconos oculten el texto.",
+      },
+    ],
+  },
+  {
+    slug: "video-para-empresas-de-catering-miami",
+    title: "Video para empresas de catering y servicios de banquetes en Miami",
+    metadataTitle: "Video Catering Miami",
+    description:
+      "Producción de video cinematográfico para empresas de catering, banquetes corporativos y recepciones de bodas en Miami y Coral Gables.",
+    eyebrow: "Catering / Banquetes",
+    h1: "Video cinematográfico para empresas de catering y eventos en Miami.",
+    lead:
+      "Emplatados en vivo, estaciones de trinchado y servicio de gala para empresas de catering que buscan contratos corporativos y recepciones de lujo.",
+    keyword: "video para empresas de catering en Miami",
+    location: "Miami / Coral Gables / Fort Lauderdale",
+    availability: "confirmed",
+    icon: UtensilsCrossed,
+    bestFor: [
+      "Empresas de catering para bodas, recepciones privadas y eventos corporativos en South Florida.",
+      "Equipos culinarios que compiten en licitaciones y necesitan demostrar capacidad operativa y elegancia.",
+    ],
+    scopingQuestions: [
+      "¿El rodaje cubrirá preparación en cocina, montaje de mesas o el servicio en vivo a comensales?",
+      "¿Desea incluir entrevistas breves con el chef ejecutivo o testimonios de organizadores de eventos?",
+    ],
+    projectFit:
+      "Cámaras estabilizadas en mano, lentes macro para alimentos e iluminación ambiental que resalta colores sin alterar la operativa.",
+    updated: "2026-10-18",
+    sections: CATERING_COMPANY_ES_SECTIONS,
+    sectionsDisclosure: CATERING_COMPANY_ES_DISCLOSURE,
+    sectionsDestinations: CATERING_COMPANY_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se filman buffets y estaciones culinarias durante un evento en vivo?",
+        answer:
+          "Con estabilizadores ligeros y ópticas luminosas que captan el servicio del personal y las bandejas recién salidas de cocina sin entorpecer a los camareros.",
+      },
+      {
+        question: "¿Se puede grabar el montaje y la preparación antes de la llegada de invitados?",
+        answer:
+          "Sí. Coordinamos llamadas tempranas para registrar mesas puestas, detalles de cristalería y la labor en los fogones con total tranquilidad.",
+      },
+      {
+        question: "¿Qué piezas ayudan a una empresa de catering a cerrar nuevos contratos?",
+        answer:
+          "Un video institucional de dos minutos sobre la experiencia de servicio, complementado con reels verticales de los platos más solicitados.",
+      },
+    ],
+  },
+  {
+    slug: "video-para-cervecerias-artesanales-miami",
+    title: "Video para cervecerías artesanales y destilerías en Miami",
+    metadataTitle: "Video Cervecerías Artesanales Miami",
+    description:
+      "Producción audiovisual para cervecerías artesanales, destilerías de autor y taprooms en Wynwood, Doral y South Florida.",
+    eyebrow: "Cervecerías / Destilerías",
+    h1: "Videos de proceso y taproom para cervecerías artesanales en Miami.",
+    lead:
+      "Filtración, tanques de acero inoxidable, tiraje en barra y ambiente de taproom para marcas de cerveza artesanal y destilados de autor.",
+    keyword: "video para cervecerías artesanales en Miami",
+    location: "Wynwood / Doral / Downtown Miami",
+    availability: "confirmed",
+    icon: Beer,
+    bestFor: [
+      "Cervecerías artesanales independientes y destilerías urbanas en Wynwood y Doral.",
+      "Marcas de bebidas artesanales que promocionan lanzamientos de temporada y visitas guiadas.",
+    ],
+    scopingQuestions: [
+      "¿Desea enfocar el rodaje en el proceso cervecero técnico o en la energía social del taproom?",
+      "¿Hay jornadas de enlatado, maceración o embotellado programadas durante la grabación?",
+    ],
+    projectFit:
+      "Ópticas ultra luminosas para zonas oscuras de fermentación y cámaras de alta velocidad para captar el servicio de barril y burbujas.",
+    updated: "2026-10-18",
+    sections: BREWERY_CRAFT_DISTILLERY_ES_SECTIONS,
+    sectionsDisclosure: BREWERY_CRAFT_DISTILLERY_ES_DISCLOSURE,
+    sectionsDestinations: BREWERY_CRAFT_DISTILLERY_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se filman áreas de fermentación oscuras y tanques de acero?",
+        answer:
+          "Con lentes de gran apertura e iluminación puntual cálida que perfila los depósitos de acero y resalta el visor de nivel de cerveza.",
+      },
+      {
+        question: "¿Se pueden grabar tomas en cámara lenta de los grifos y la línea de enlatado?",
+        answer:
+          "Sí. Grabamos a 120 cuadros por segundo para mostrar el fluir cremoso de la espuma, el sellado de latas y la condensación del vaso.",
+      },
+      {
+        question: "¿Qué formatos aumentan la afluencia de clientes al taproom?",
+        answer:
+          "Reels dinámicos con anuncios de eventos, noches temáticas y clips del maestro cervecero explicando las notas de sabor de cada lote.",
+      },
+    ],
+  },
+  {
+    slug: "videografo-para-fiestas-en-yates-miami",
+    title: "Videógrafo para fiestas en yates y celebraciones privadas en Miami",
+    metadataTitle: "Videógrafo Fiestas en Yates Miami",
+    description:
+      "Cobertura audiovisual para celebraciones en yates, despedidas de soltera y eventos náuticos en la bahía de Biscayne y Haulover.",
+    eyebrow: "Yates / Fiestas Privadas",
+    h1: "Video cinematográfico para fiestas en yate en Miami.",
+    lead:
+      "Música, baile en popa, atardeceres sobre la bahía y ambiente festivo filmados con cámaras estabilizadas a prueba del movimiento del agua.",
+    keyword: "videógrafo para fiestas en yates en Miami",
+    location: "Miami Beach / Biscayne Bay / Haulover",
+    availability: "confirmed",
+    icon: Anchor,
+    bestFor: [
+      "Grupos privados que celebran cumpleaños, aniversarios o despedidas de soltera en yates de alquiler.",
+      "Empresas de chárter que ofrecen recuerdos audiovisuales de alta calidad como servicio premium.",
+    ],
+    scopingQuestions: [
+      "¿Cuál es el recorrido náutico previsto y la hora de salida para coordinar la luz del atardecer?",
+      "¿Se requerirá registro de brindis formales o cobertura espontánea de baile y baño en el banco de arena?",
+    ],
+    projectFit:
+      "Estabilizadores de tres ejes para contrarrestar el oleaje, lentes sellados y sensores con alto rango dinámico para el sol tropical.",
+    updated: "2026-10-18",
+    sections: YACHT_PARTY_ES_SECTIONS,
+    sectionsDisclosure: YACHT_PARTY_ES_DISCLOSURE,
+    sectionsDestinations: YACHT_PARTY_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se graban celebraciones en yate con el movimiento de las olas?",
+        answer:
+          "Utilizamos estabilizadores electrónicos de tres ejes que absorben los vaivenes de la embarcación y garantizan tomas firmes y fluidas.",
+      },
+      {
+        question: "¿Cómo se capta el atardecer frente a la silueta urbana de Miami?",
+        answer:
+          "Aprovechamos sensores de cine de amplio rango dinámico para equilibrar los tonos cálidos del cielo con la iluminación en cubierta.",
+      },
+      {
+        question: "¿Cuándo se entregan el video de recuerdo y los avances para redes?",
+        answer:
+          "El reel principal se entrega entre tres y cinco días hábiles después del paseo, junto con el archivo completo de tomas en alta definición.",
+      },
+    ],
+  },
+  {
+    slug: "videografo-de-pesca-deportiva-miami",
+    title: "Videógrafo de pesca deportiva y torneos náuticos en South Florida",
+    metadataTitle: "Videógrafo Pesca Deportiva Miami",
+    description:
+      "Producción de video para torneos de pesca deportiva, tripulaciones de chárter y capturas de peces de pico en Miami y Fort Lauderdale.",
+    eyebrow: "Pesca Deportiva / Torneos",
+    h1: "Cobertura audiovisual de pesca deportiva y torneos en South Florida.",
+    lead:
+      "Navegación mar adentro, picadas en popa, trabajo en bañera y sueltas de pez vela filmadas en alta resolución para equipos y patrocinadores.",
+    keyword: "videógrafo de pesca deportiva en Miami",
+    location: "Miami / Fort Lauderdale / Florida Keys",
+    availability: "confirmed",
+    icon: Fish,
+    bestFor: [
+      "Equipos de competición en torneos de pez vela, marlín y dorado en el Atlántico.",
+      "Capitanes de chárter de pesca que desean contenido promocional para atraer pescadores deportivos.",
+    ],
+    scopingQuestions: [
+      "¿La salida es de jornada completa en alta mar o sesión de media jornada costera?",
+      "¿Qué patrocinadores o marcas de pesca deportiva requieren mención en el video final?",
+    ],
+    projectFit:
+      "Equipos cinematográficos sellados contra salitre y humedad, arneses de sujeción para cubierta y grabación a alta velocidad.",
+    updated: "2026-10-18",
+    sections: SPORTFISHING_ES_SECTIONS,
+    sectionsDisclosure: SPORTFISHING_ES_DISCLOSURE,
+    sectionsDestinations: SPORTFISHING_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se protege el equipo de cámara frente al agua salada y el oleaje?",
+        answer:
+          "Usamos cuerpos y lentes con sellado profesional, fundas impermeables y correas de seguridad ancladas a la estructura de la embarcación.",
+      },
+      {
+        question: "¿Cómo se registran las picadas rápidas y saltos de pez vela mar adentro?",
+        answer:
+          "Grabamos en 4K a altas tasas de fotogramas para revivir las batallas en cubierta, el trabajo con el anzuelo y las sueltas en cámara lenta.",
+      },
+      {
+        question: "¿Qué videos se preparan para patrocinadores y equipos de torneo?",
+        answer:
+          "Producimos un resumen completo de la jornada deportiva, entrevistas breves en bañera y clips verticales con menciones de marcas colaboradoras.",
+      },
+    ],
+  },
+  {
+    slug: "video-para-restauracion-capilar-miami",
+    title: "Video para clínicas de restauración capilar y trasplante en Miami",
+    metadataTitle: "Video Restauración Capilar Miami",
+    description:
+      "Producción audiovisual médica y explicativa para clínicas de restauración capilar, diseño de línea frontal y testimonios en Miami.",
+    eyebrow: "Clínicas Capilares / Salud",
+    h1: "Videos educativos y testimoniales para clínicas de restauración capilar.",
+    lead:
+      "Diseño de línea frontal, consultas médicas y seguimiento de evolución folicular filmados con rigor ético para clínicas capilares en Miami.",
+    keyword: "video para restauración capilar en Miami",
+    location: "Miami / Coral Gables / Fort Lauderdale",
+    availability: "confirmed",
+    icon: Scissors,
+    bestFor: [
+      "Clínicas especializadas en microinjerto capilar (FUE/FUT) y tratamientos regenerativos en Miami.",
+      "Cirujanos capilares que desean explicar el proceso y resolver dudas comunes de futuros pacientes.",
+    ],
+    scopingQuestions: [
+      "¿Las filmaciones se centrarán en consultas médicas, diseño de línea y explicaciones en consulta?",
+      "¿Se cuenta con consentimiento firmado de pacientes para documentar su evolución?",
+    ],
+    projectFit:
+      "Iluminación suave de grado médico, entrevistas conversacionales y respeto estricto a la privacidad de los pacientes.",
+    updated: "2026-10-18",
+    sections: HAIR_RESTORATION_ES_SECTIONS,
+    sectionsDisclosure: HAIR_RESTORATION_ES_DISCLOSURE,
+    sectionsDestinations: HAIR_RESTORATION_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se filman los procedimientos capilares sin mostrar imágenes invasivas?",
+        answer:
+          "Nos enfocamos en el trazado de la línea frontal, el diálogo explicativo del médico y la comodidad de las instalaciones, evitando primeros planos quirúrgicos.",
+      },
+      {
+        question: "¿Cómo se documenta la evolución del crecimiento de los pacientes?",
+        answer:
+          "Organizamos tomas con iluminación estandarizada en distintas etapas para mostrar de manera objetiva el progreso del cabello a lo largo de los meses.",
+      },
+      {
+        question: "¿Qué contenidos generan mayor confianza en pacientes potenciales?",
+        answer:
+          "Videos del especialista resolviendo preguntas frecuentes sobre tiempos de recuperación, cuidados posteriores y naturalidad del resultado.",
+      },
+    ],
+  },
+  {
+    slug: "marketing-de-video-para-quiropracticos-miami",
+    title: "Marketing de video para clínicas de quiropráctica en Miami",
+    metadataTitle: "Video Quiroprácticos Miami",
+    description:
+      "Producción de video para clínicas quiroprácticas en Miami con captura acústica de ajustes espinales, ejercicios de postura y testimonios.",
+    eyebrow: "Quiropráctica / Bienestar",
+    h1: "Videos educativos y acústica de ajustes para quiroprácticos en Miami.",
+    lead:
+      "Sonido nítido de ajustes vertebrales, guías de movilidad articular y explicaciones de salud postural para atraer nuevos pacientes en Miami.",
+    keyword: "marketing de video para quiroprácticos en Miami",
+    location: "Miami / Doral / Coral Gables",
+    availability: "confirmed",
+    icon: Activity,
+    bestFor: [
+      "Doctores en quiropráctica, clínicas de columna y centros de rehabilitación postural en Miami-Dade.",
+      "Profesionales de la salud articular que buscan desmitificar el tratamiento mediante videos educativos.",
+    ],
+    scopingQuestions: [
+      "¿Desea registrar sonido acústico de ajustes manuales o centrarse en rutinas de estiramiento?",
+      "¿Los pacientes participantes han firmado previamente su formulario de autorización de imagen?",
+    ],
+    projectFit:
+      "Micrófonos direccionales de solapa para captar la respuesta acústica del ajuste y planos claros que transmiten profesionalismo y calma.",
+    updated: "2026-10-18",
+    sections: CHIROPRACTIC_VIDEO_ES_SECTIONS,
+    sectionsDisclosure: CHIROPRACTIC_VIDEO_ES_DISCLOSURE,
+    sectionsDestinations: CHIROPRACTIC_VIDEO_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se graba el audio para captar el sonido de los ajustes articulares?",
+        answer:
+          "Empleamos micrófonos direccionales inalámbricos colocados estratégicamente para registrar el chasquido articular amortiguando el ruido de fondo de la clínica.",
+      },
+      {
+        question: "¿Qué videos ayudan a conseguir más consultas de nuevos pacientes?",
+        answer:
+          "Explicaciones sobre dolores comunes de cuello y espalda, demostraciones de pruebas de postura y valoraciones de pacientes tras el tratamiento.",
+      },
+      {
+        question: "¿Cómo se preparan las tomas para que el paciente se sienta cómodo frente a la cámara?",
+        answer:
+          "El especialista explica cada movimiento antes de proceder, garantizando que el paciente esté relajado y la postura sea correcta en todo momento.",
+      },
+    ],
+  },
+  {
+    slug: "video-para-pitches-de-startups-miami",
+    title: "Video de pitch para startups y rondas de inversión en Miami",
+    metadataTitle: "Video Pitch Startups Miami",
+    description:
+      "Producción de video para fundadores de startups, rondas seed y presentaciones para inversores en el ecosistema tecnológico de Miami.",
+    eyebrow: "Startups / Inversores",
+    h1: "Videos de presentación y pitch para fundadores de startups en Miami.",
+    lead:
+      "Narrativa del fundador, demostración de software y presentación de métricas clave para acelerar rondas de inversión y comités de venture capital.",
+    keyword: "video de pitch para startups en Miami",
+    location: "Downtown Miami / Wynwood / Coral Gables",
+    availability: "confirmed",
+    icon: TrendingUp,
+    bestFor: [
+      "Fundadores tecnológicos levantando rondas de inversión seed o Serie A en el ecosistema de Miami.",
+      "Empresas de software B2B que necesitan sintetizar su propuesta de valor ante fondos de capital de riesgo.",
+    ],
+    scopingQuestions: [
+      "¿La presentación incluye demostraciones grabadas de la plataforma o solo entrevista al equipo fundador?",
+      "¿Qué duración objetivo se busca para el video de presentación (2 minutos para deck o 60 segundos para demo day)?",
+    ],
+    projectFit:
+      "Iluminación cuidada para oficinas y espacios de co-working, audio limpio de entrevista y gráficos en pantalla para métricas de crecimiento.",
+    updated: "2026-10-18",
+    sections: STARTUP_PITCH_ES_SECTIONS,
+    sectionsDisclosure: STARTUP_PITCH_ES_DISCLOSURE,
+    sectionsDestinations: STARTUP_PITCH_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Qué datos debe contener un video de pitch eficaz para inversores?",
+        answer:
+          "Planteamiento del problema de mercado, presentación de la solución tecnológica, demostración del flujo de usuario y métricas de tracción comprobadas.",
+      },
+      {
+        question: "¿Se pueden incorporar grabaciones de pantalla de la interfaz del software?",
+        answer:
+          "Sí. Se combinan capturas de pantalla en alta resolución con animaciones de títulos que destacan las ventajas de la solución frente a la competencia.",
+      },
+      {
+        question: "¿Qué versiones se preparan para convocatorias de inversores y redes?",
+        answer:
+          "Un video maestro de dos a tres minutos para anexar al deck de inversión y avances breves de treinta segundos con declaraciones del fundador para LinkedIn.",
+      },
+    ],
+  },
+  {
+    slug: "video-de-biografia-ejecutiva-miami",
+    title: "Video de biografía ejecutiva y perfiles corporativos en Miami",
+    metadataTitle: "Video Biografía Ejecutiva Miami",
+    description:
+      "Producción de biografías ejecutivas en video, perfiles para juntas directivas y liderazgo de opinión para directivos en Miami y Fort Lauderdale.",
+    eyebrow: "Liderazgo / Biografía Ejecutiva",
+    h1: "Biografías ejecutivas en video y perfiles de liderazgo corporativo.",
+    lead:
+      "Entrevistas conversacionales, iluminación de despacho y recursos de apoyo para directores generales, socios y directivos en South Florida.",
+    keyword: "video de biografía ejecutiva en Miami",
+    location: "Downtown Miami / Coral Gables / Fort Lauderdale",
+    availability: "confirmed",
+    icon: Briefcase,
+    bestFor: [
+      "Directores ejecutivos, socios de firmas profesionales y miembros de juntas directivas en South Florida.",
+      "Líderes empresariales que desarrollan su presencia en LinkedIn y portales corporativos de gobierno corporativo.",
+    ],
+    scopingQuestions: [
+      "¿La grabación se realizará en el despacho de la empresa, sala de juntas o estudio privado?",
+      "¿El objetivo es un perfil institucional para la página web de la firma o clips verticales de liderazgo de opinión?",
+    ],
+    projectFit:
+      "Iluminación de varios puntos suave, micrófonos de solapa de alta definición y encuadres sobrios que reflejan solvencia y trayectoria.",
+    updated: "2026-10-18",
+    sections: EXECUTIVE_VIDEO_BIO_ES_SECTIONS,
+    sectionsDisclosure: EXECUTIVE_VIDEO_BIO_ES_DISCLOSURE,
+    sectionsDestinations: EXECUTIVE_VIDEO_BIO_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se filma una biografía ejecutiva para directivos y consejos de administración?",
+        answer:
+          "Se estructura una entrevista pausada en su entorno laboral con iluminación suave y sonido broadcast, complementada con planos de trabajo y reuniones.",
+      },
+      {
+        question: "¿Dónde se realiza la grabación en el sur de la Florida?",
+        answer:
+          "En salas de reuniones corporativas, despachos privados o espacios ejecutivos en Downtown Miami, Coral Gables y Fort Lauderdale.",
+      },
+      {
+        question: "¿Cómo se adaptan las reflexiones del directivo para canales como LinkedIn?",
+        answer:
+          "La entrevista completa se edita en un perfil institucional de dos minutos y en cápsulas verticales con subtítulos destacando ideas clave de gestión.",
+      },
+    ],
+  },
+  {
     slug: "marketing-de-video-automotriz-miami",
     title: "Marketing de video automotriz en Miami",
     metadataTitle: "Video Automotriz Miami",
@@ -5303,6 +6720,466 @@ export const spanishNichePages: SpanishNichePage[] = [
       },
     ],
   },
+  {
+    slug: "video-para-med-spas-y-cirujanos-plasticos-miami",
+    title: "Video para spas médicos y cirujanos plásticos en Miami",
+    metadataTitle: "Video Spas Médicos Cirujanos Miami",
+    description:
+      "Video marketing para spas médicos y cirujanos plásticos en Miami: demostraciones de inyectables, consultas médicas y Reels educativos con consentimiento.",
+    eyebrow: "Salud Estética / Spas Médicos",
+    h1: "Video marketing para spas médicos y cirujanos plásticos.",
+    lead:
+      "Producción audiovisual clínica, demostraciones de técnicas estéticas, consultas guiadas y piezas verticales diseñadas para captar pacientes en Miami.",
+    keyword: "video marketing para spas médicos en Miami",
+    location: "Miami / Coral Gables / Doral",
+    availability: "confirmed",
+    icon: Sparkles,
+    bestFor: [
+      "Cirujanos plásticos y spas médicos que buscan educar a pacientes y aumentar citas de valoración.",
+      "Inyectores y dermatólogos estéticos que necesitan contenido mensual profesional para Instagram y TikTok.",
+    ],
+    scopingQuestions: [
+      "¿Qué tratamientos específicos se filmarán durante la jornada de producción clínica?",
+      "¿Se cuenta con pacientes voluntarios que hayan firmado la debida autorización de imagen?",
+    ],
+    projectFit:
+      "Ópticas macro de gran nitidez, iluminación suave de belleza y protocolos de rodaje clínico que transmiten rigor y confianza médica.",
+    updated: "2026-10-18",
+    sections: MED_SPA_PLASTIC_SURGEON_ES_SECTIONS,
+    sectionsDisclosure: MED_SPA_PLASTIC_SURGEON_ES_DISCLOSURE,
+    sectionsDestinations: MED_SPA_PLASTIC_SURGEON_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se filman los tratamientos estéticos e inyectables con rigor profesional?",
+        answer:
+          "La filmación destaca la consulta médica, el instrumental esterilizado y la destreza del especialista evitando primeros planos invasivos.",
+      },
+      {
+        question: "¿Cómo se gestiona el consentimiento de los pacientes que aparecen en video?",
+        answer:
+          "Cada participante firma un acuerdo formal de cesión de derechos audiovisuales con fines divulgativos antes de iniciar la grabación.",
+      },
+      {
+        question: "¿Qué formatos en video consiguen mayor volumen de reservas para el centro?",
+        answer:
+          "Las cápsulas cortas en formato vertical que muestran la pericia del inyector y resuelven dudas frecuentes logran el mayor interés.",
+      },
+    ],
+  },
+  {
+    slug: "video-marketing-para-contratistas-florida",
+    title: "Video marketing para contratistas en Florida",
+    metadataTitle: "Video para Contratistas Florida",
+    description:
+      "Video marketing para contratistas de techos, climatización y energía solar en Florida: filmaciones en obra, equipo técnico y testimonios de clientes.",
+    eyebrow: "Servicios para el Hogar / Contratistas",
+    h1: "Video marketing para contratistas y empresas de reformas.",
+    lead:
+      "Grabación profesional en obra, demostración de instalaciones técnicas, tomas elevadas de tejados y casos de éxito comercial en toda la Florida.",
+    keyword: "video marketing para contratistas en Florida",
+    location: "Miami / Fort Lauderdale / Tampa / Orlando",
+    availability: "confirmed",
+    icon: Hammer,
+    bestFor: [
+      "Contratistas de tejados, climatización y energía solar que buscan validar su solvencia ante nuevos clientes.",
+      "Empresas de reformas comerciales que necesitan documentar proyectos de gran envergadura.",
+    ],
+    scopingQuestions: [
+      "¿En qué fase de la instalación o reforma se planificará la jornada de grabación en obra?",
+      "¿Se requieren testimonios en cámara del cliente propietario o solo documentación técnica del equipo?",
+    ],
+    projectFit:
+      "Grabación ágil a pie de obra con equipos resistentes y tomas elevadas que demuestran la calidad de los materiales y la maestría del equipo.",
+    updated: "2026-10-18",
+    sections: CONTRACTOR_VIDEO_MARKETING_ES_SECTIONS,
+    sectionsDisclosure: CONTRACTOR_VIDEO_MARKETING_ES_DISCLOSURE,
+    sectionsDestinations: CONTRACTOR_VIDEO_MARKETING_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se filman las obras en cubiertas y tejados sin entorpecer la seguridad?",
+        answer:
+          "Se emplean mástiles telescópicos de gran alcance y ópticas de largo alcance que capturan detalles de instalación desde posiciones seguras.",
+      },
+      {
+        question: "¿Es posible coordinar grabaciones urgentes tras el paso de tormentas o huracanes?",
+        answer:
+          "Sí. Disponemos de calendarios flexibles para acudir rápidamente a documentar reparaciones de emergencia y sustituciones completas.",
+      },
+      {
+        question: "¿Qué piezas ayudan más a cerrar presupuestos comerciales con propietarios?",
+        answer:
+          "Los casos de estudio breves que muestran el proceso completo y el testimonio final del cliente aportan la mayor eficacia en ventas.",
+      },
+    ],
+  },
+  {
+    slug: "videografo-de-quinceaneras-miami",
+    title: "Videógrafo de quinceañeras en Miami",
+    metadataTitle: "Videógrafo de Quinceañeras Miami",
+    description:
+      "Videógrafo de quinceañeras en Miami: cobertura integral de misa y salón, multicámara para el vals, corte de honor y videos verticales familiares.",
+    eyebrow: "Eventos Familiares / Quinceañeras",
+    h1: "Videógrafo de fiestas de quinceañera y aniversarios.",
+    lead:
+      "Cinematografía emotiva de la misa religiosa, coreografía de la corte, baile de vals y celebración festiva para familias en South Florida.",
+    keyword: "videógrafo de quinceañeras en Miami",
+    location: "Miami / Coral Gables / Doral / Kendall",
+    availability: "confirmed",
+    icon: Heart,
+    bestFor: [
+      "Familias que desean una película cinematográfica completa y cuidada del festejo de quince años.",
+      "Quinceañeras que buscan clips dinámicos en vertical para compartir con amistades en Instagram y TikTok.",
+    ],
+    scopingQuestions: [
+      "¿En qué iglesia y salón de recepciones se celebrará la misa y la fiesta de quinceañera?",
+      "¿Se contempla cobertura desde los preparativos de maquillaje y peinado en casa o desde la iglesia?",
+    ],
+    projectFit:
+      "Grabación multicámara respetuosa, iluminación ambiental cuidada y sonido directo de la mesa de mezclas para discursos y música.",
+    updated: "2026-10-18",
+    sections: QUINCEANERA_VIDEOGRAPHER_ES_SECTIONS,
+    sectionsDisclosure: QUINCEANERA_VIDEOGRAPHER_ES_DISCLOSURE,
+    sectionsDestinations: QUINCEANERA_VIDEOGRAPHER_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cuántos camarógrafos se desplazan para cubrir la fiesta de quinceañera?",
+        answer:
+          "Recomendamos un equipo de dos operadores para captar la ceremonia religiosa y los bailes de la corte desde varios ángulos simultáneos.",
+      },
+      {
+        question: "¿Cómo se asegura la calidad del audio en los brindis y las palabras de los padres?",
+        answer:
+          "Conectamos grabadores directamente al equipo del DJ y colocamos micrófonos inalámbricos discretos en los protagonistas.",
+      },
+      {
+        question: "¿Cuándo recibe la familia los videos terminados de la celebración?",
+        answer:
+          "Entregamos un adelanto vertical en la primera semana tras la fiesta, y el documental completo tras el proceso de corrección de color.",
+      },
+    ],
+  },
+  {
+    slug: "produccion-de-podcast-con-multicamara-miami",
+    title: "Producción de video para podcasts con multicámara en Miami",
+    metadataTitle: "Video Podcasts Multicámara Miami",
+    description:
+      "Producción de video para podcasts con multicámara en Miami: grabación sincronizada 4K, audio de estudio, edición completa y clips para redes.",
+    eyebrow: "Contenido Digital / Podcasts",
+    h1: "Producción de video para podcasts con multicámara.",
+    lead:
+      "Grabación profesional en estudio con múltiples cámaras 4K, microfonía dinámica, edición ágil de episodios y clips verticales con subtítulos.",
+    keyword: "producción de podcast con multicámara en Miami",
+    location: "Miami / Fort Lauderdale / Coral Gables",
+    availability: "confirmed",
+    icon: Mic,
+    bestFor: [
+      "Empresarios y creadores que buscan emitir su podcast en video con calidad televisiva en YouTube y Spotify.",
+      "Programas de entrevistas que necesitan cápsulas verticales semanales para alimentar Instagram Reels y TikTok.",
+    ],
+    scopingQuestions: [
+      "¿Se grabará en un estudio independiente en Miami o se montará el set en su propia oficina?",
+      "¿Cuántos episodios se grabarán por sesión mensual y qué número de clips se necesita por entrega?",
+    ],
+    projectFit:
+      "Configuración multicámara con encuadres sincronizados, iluminación favorecedora y procesado de sonido profesional sin eco.",
+    updated: "2026-10-18",
+    sections: MULTICAM_PODCAST_VIDEO_ES_SECTIONS,
+    sectionsDisclosure: MULTICAM_PODCAST_VIDEO_ES_DISCLOSURE,
+    sectionsDestinations: MULTICAM_PODCAST_VIDEO_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Es posible instalar el estudio portátil de grabación en nuestras oficinas?",
+        answer:
+          "Sí. Desplazamos cámaras de cine, paneles de luz y micrófonos para habilitar un set profesional en cualquier sala de juntas silenciosa.",
+      },
+      {
+        question: "¿Cómo se suprime el ruido ambiente de aire acondicionado en la grabación?",
+        answer:
+          "Utilizamos micrófonos dinámicos direccionales de patrón cerrado que aíslan la voz del interlocutor frente al sonido residual del entorno.",
+      },
+      {
+        question: "¿Los clips para redes sociales incluyen subtítulos dinámicos?",
+        answer:
+          "Sí. Cada clip vertical se entrega con subtítulos incrustados y diseño visual adaptado para visualizaciones móviles sin sonido.",
+      },
+    ],
+  },
+  {
+    slug: "video-para-abogados-de-lesiones-personales-miami",
+    title: "Video para abogados de lesiones personales en Miami",
+    metadataTitle: "Video Abogados Lesiones Miami",
+    description:
+      "Video para abogados de lesiones personales en Miami: perfiles de litigantes, testimonios de clientes y contenido ajustado a las normas del Florida Bar.",
+    eyebrow: "Sector Jurídico / Lesiones Personales",
+    h1: "Video para bufetes de abogados de lesiones personales.",
+    lead:
+      "Producción audiovisual de prestigio, perfiles de socios litigantes y relatos de recuperación con pleno respeto a la deontología del Florida Bar.",
+    keyword: "video para abogados de lesiones personales en Miami",
+    location: "Miami / Coral Gables / Fort Lauderdale",
+    availability: "confirmed",
+    icon: Scale,
+    bestFor: [
+      "Bufetes de litigación civil que desean transmitir experiencia judicial y empatía humana a nuevos clientes.",
+      "Socios directores de firmas de daños personales que necesitan piezas para web y redes profesionales.",
+    ],
+    scopingQuestions: [
+      "¿Qué áreas de especialidad jurídica se abordarán en las entrevistas a los socios de la firma?",
+      "¿Se contemplan grabaciones en las propias oficinas del bufete o en salas de reuniones institucionales?",
+    ],
+    projectFit:
+      "Cinematografía sobria con iluminación suave, microfonía inalámbrica nítida y encuadres elegantes que reflejan solidez jurídica.",
+    updated: "2026-10-18",
+    sections: PERSONAL_INJURY_LAWYER_ES_SECTIONS,
+    sectionsDisclosure: PERSONAL_INJURY_LAWYER_ES_DISCLOSURE,
+    sectionsDestinations: PERSONAL_INJURY_LAWYER_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se garantiza que el video cumpla la normativa publicitaria del Florida Bar?",
+        answer:
+          "Los guiones evitan promesas de indemnizaciones concretas y representaciones engañosas, centrándose en la experiencia objetiva del letrado.",
+      },
+      {
+        question: "¿Dónde se llevan a cabo las entrevistas a los abogados de la firma?",
+        answer:
+          "El rodaje se organiza en despachos principales, bibliotecas jurídicas o salas de juntas para transmitir un ambiente profesional.",
+      },
+      {
+        question: "¿Cómo se graban los testimonios de antiguos clientes con delicadeza?",
+        answer:
+          "Se acuerda previamente el contenido con los representados, enfocando el relato en la cercanía y el respaldo humano recibido.",
+      },
+    ],
+  },
+  {
+    slug: "video-de-admisiones-para-colegios-privados-miami",
+    title: "Video de admisiones para colegios privados en Miami",
+    metadataTitle: "Video Admisiones Colegios Miami",
+    description:
+      "Video de admisiones para colegios privados en Miami: recorrido visual del campus, vida académica, testimonios de familias y captación de alumnos.",
+    eyebrow: "Educación / Colegios Privados",
+    h1: "Video de admisiones para colegios privados y academias.",
+    lead:
+      "Cinematografía institucional del campus, proyectos de ciencias y humanidades, y testimonios familiares para impulsar el proceso de matriculación.",
+    keyword: "video de admisiones para colegios privados en Miami",
+    location: "Miami / Coral Gables / Coconut Grove / Pinecrest",
+    availability: "confirmed",
+    icon: GraduationCap,
+    bestFor: [
+      "Colegios privados que desean transmitir su excelencia formativa y cultura comunitaria a nuevas familias.",
+      "Directores de admisiones que buscan enriquecer las jornadas de puertas abiertas con material audiovisual de primer nivel.",
+    ],
+    scopingQuestions: [
+      "¿Qué asignaturas, instalaciones deportivas y áreas singulares del campus se incluirán en el plan de rodaje?",
+      "¿El centro dispone del listado actualizado de autorizaciones de imagen para alumnos y personal docente?",
+    ],
+    projectFit:
+      "Filmación documental ágil con iluminación natural y sonido directo que capta la espontaneidad y curiosidad de los estudiantes.",
+    updated: "2026-10-18",
+    sections: PRIVATE_SCHOOL_ADMISSIONS_ES_SECTIONS,
+    sectionsDisclosure: PRIVATE_SCHOOL_ADMISSIONS_ES_DISCLOSURE,
+    sectionsDestinations: PRIVATE_SCHOOL_ADMISSIONS_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se filman las clases lectivas sin distraer a los alumnos?",
+        answer:
+          "Utilizamos cámaras silenciosas y trabajamos en los laterales de las aulas para registrar las explicaciones sin interrumpir.",
+      },
+      {
+        question: "¿Cómo se gestiona la privacidad de los menores que no cuentan con autorización?",
+        answer:
+          "Cruzamos el plan de grabación con los registros del centro, encuadrando a esos alumnos de espaldas o en planos desenfocados.",
+      },
+      {
+        question: "¿Qué formatos en video apoyan mejor las campañas de captación de matrículas?",
+        answer:
+          "Un video de presentación general de tres minutos para la web institucional y extractos breves de testimonios para redes sociales.",
+      },
+    ],
+  },
+  {
+    slug: "video-para-agencias-de-carros-exoticos-miami",
+    title: "Video para agencias de carros exóticos en Miami",
+    metadataTitle: "Video Carros Exóticos Miami",
+    description:
+      "Video para agencias de carros exóticos en Miami: cinematografía de superdeportivos, sonido de escape, estética urbana y clips de conversión en redes.",
+    eyebrow: "Automoción de Lujo / Autos Exóticos",
+    h1: "Video para agencias de alquiler de autos exóticos.",
+    lead:
+      "Cinematografía dinámica de superdeportivos, detalles de habitáculo de lujo, sonido de motor impecable y contenido vertical para reservas en Miami.",
+    keyword: "video para carros exóticos en Miami",
+    location: "Miami / South Beach / Wynwood / Coral Gables",
+    availability: "confirmed",
+    icon: Car,
+    bestFor: [
+      "Empresas de alquiler de superdeportivos que necesitan mostrar el estado impecable y el atractivo de sus vehículos.",
+      "Agencias de conserjería de lujo que buscan cerrar reservas de clientes VIP a través de redes sociales.",
+    ],
+    scopingQuestions: [
+      "¿Cuántos vehículos de la flota se incluirán en la jornada de rodaje comercial?",
+      "¿Se requiere filmación en localizaciones costeras de Miami Beach o en las instalaciones de la propia agencia?",
+    ],
+    projectFit:
+      "Planos a ras de suelo con estabilizador, filtros polarizadores de precisión y sonido sincronizado de aceleración y escape.",
+    updated: "2026-10-18",
+    sections: EXOTIC_CAR_RENTAL_ES_SECTIONS,
+    sectionsDisclosure: EXOTIC_CAR_RENTAL_ES_DISCLOSURE,
+    sectionsDestinations: EXOTIC_CAR_RENTAL_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se capta el sonido auténtico de los motores deportivos sin distorsión?",
+        answer:
+          "Empleamos micrófonos direccionales provistos de protección contra el viento colocados estratégicamente junto al sistema de escape.",
+      },
+      {
+        question: "¿Qué enclaves de Miami se recomiendan para filmar superdeportivos de lujo?",
+        answer:
+          "Aconsejamos recorridos costeros en South Beach, fondos urbanos en Wynwood y pasos elevados frente a la bahía.",
+      },
+      {
+        question: "¿Se pueden agrupar varios vehículos en una sola jornada de producción?",
+        answer:
+          "Sí. Planificamos sesiones por lotes donde grabamos de tres a cinco vehículos para surtir de contenido un mes entero.",
+      },
+    ],
+  },
+  {
+    slug: "marketing-de-video-para-concesionarios-south-florida",
+    title: "Marketing de video para concesionarios en South Florida",
+    metadataTitle: "Video Concesionarios South Florida",
+    description:
+      "Marketing de video para concesionarios en South Florida: presentaciones de inventario, área de servicio técnico, entregas de llaves y caso Frontline Auto.",
+    eyebrow: "Automoción / Concesionarios",
+    h1: "Marketing de video para concesionarios y compraventas.",
+    lead:
+      "Presentaciones dinámicas de vehículos en stock, confianza en el taller mecánico y videos de entregas con experiencia demostrada en el sector automotriz.",
+    keyword: "video marketing para concesionarios en South Florida",
+    location: "Miami / Fort Lauderdale / Hollywood / Coral Gables",
+    availability: "confirmed",
+    icon: CarFront,
+    bestFor: [
+      "Concesionarios oficiales y tiendas de seminuevos que buscan acelerar la rotación de su stock mediante video online.",
+      "Grupos automotrices que desean potenciar la confianza en su área de servicio técnico y postventa.",
+    ],
+    scopingQuestions: [
+      "¿Cuántas unidades se preparan para filmación en cada visita programada al concesionario?",
+      "¿Se incorporarán testimonios de compradores en el momento de la entrega de llaves?",
+    ],
+    projectFit:
+      "Recorridos estabilizados con gran angular, iluminación equilibrada en exposición y edición ágil adaptada a los portales de venta.",
+    updated: "2026-10-18",
+    sections: CAR_DEALERSHIP_VIDEO_ES_SECTIONS,
+    sectionsDisclosure: CAR_DEALERSHIP_VIDEO_ES_DISCLOSURE,
+    sectionsDestinations: CAR_DEALERSHIP_VIDEO_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cuántos vehículos pueden grabarse en una sola jornada de producción?",
+        answer:
+          "Con una preparación adecuada en campa, se filman entre ocho y doce vehículos de forma exhaustiva en cuatro horas.",
+      },
+      {
+        question: "¿Las piezas se adaptan a las fichas técnicas de los portales de inventario?",
+        answer:
+          "Sí. Entregamos enlaces en horizontal para fichas web y versiones verticales para perfiles de Google y campañas en redes.",
+      },
+      {
+        question: "¿Cómo ayuda el video a aumentar los ingresos del departamento de taller?",
+        answer:
+          "Los videos explicativos sobre revisiones periódicas y mantenimiento transmiten transparencia y fidelizan al cliente.",
+      },
+    ],
+  },
+  {
+    slug: "video-para-expositores-del-boat-show-fort-lauderdale",
+    title: "Video para expositores del boat show en Fort Lauderdale",
+    metadataTitle: "Video Expositores Boat Show FL",
+    description:
+      "Video para expositores del boat show en Fort Lauderdale: cobertura en stands de Bahia Mar, recorridos de embarcaciones y resúmenes ágiles para marcas náuticas.",
+    eyebrow: "Sector Náutico / Ferias y Exposiciones",
+    h1: "Video para expositores del Salón Náutico de Fort Lauderdale.",
+    lead:
+      "Cobertura profesional en muelles, presentaciones de barcos en primicia, entrevistas con directivos y clips rápidos durante la semana del evento.",
+    keyword: "video para expositores del boat show de Fort Lauderdale",
+    location: "Fort Lauderdale / Bahia Mar / Broward Convention Center",
+    availability: "confirmed",
+    icon: Anchor,
+    bestFor: [
+      "Astilleros y fabricantes que presentan nuevos modelos y desean documentar la respuesta de los visitantes.",
+      "Empresas de accesorios marítimos y electrónica náutica que precisan demostraciones de producto en funcionamiento.",
+    ],
+    scopingQuestions: [
+      "¿En qué pantalán o pabellón del salón náutico se ubica el espacio de su firma comercial?",
+      "¿Se realizarán eventos VIP de presentación o cócteles privados que requieran cobertura especial?",
+    ],
+    projectFit:
+      "Cámaras estabilizadas ligeras para muelles concurridos, filtros polarizadores sobre el agua y entrega rápida durante la semana del salón.",
+    updated: "2026-10-18",
+    sections: BOAT_SHOW_EXHIBITOR_ES_SECTIONS,
+    sectionsDisclosure: BOAT_SHOW_EXHIBITOR_ES_DISCLOSURE,
+    sectionsDestinations: BOAT_SHOW_EXHIBITOR_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se filma con agilidad en pantalanes y muelles con gran afluencia de público?",
+        answer:
+          "Empleamos estabilizadores compactos y ópticas de gran angular que permiten moverse con discreción entre los visitantes.",
+      },
+      {
+        question: "¿Se pueden cubrir cócteles privados y presentaciones al caer la tarde?",
+        answer:
+          "Sí. Las cámaras con sensor de alta sensibilidad captan la atmósfera de los eventos nocturnos en el pantalán con gran calidez.",
+      },
+      {
+        question: "¿Con qué rapidez se entregan los clips verticales para redes sociales?",
+        answer:
+          "Disponemos de entregas en cuarenta y ocho horas durante la feria para que los expositores publiquen mientras el evento está en marcha.",
+      },
+    ],
+  },
+  {
+    slug: "cobertura-de-video-art-basel-miami-art-week",
+    title: "Cobertura de video para Art Basel y Miami Art Week",
+    metadataTitle: "Video Art Basel Miami Art Week",
+    description:
+      "Cobertura de video para Art Basel y Miami Art Week: exposiciones en ferias de arte, perfiles de artistas, activaciones de marcas y vernissages en Miami.",
+    eyebrow: "Arte y Cultura / Ferias de Arte",
+    h1: "Cobertura de video para Art Basel y Miami Art Week.",
+    lead:
+      "Cinematografía sobria y fiel al color para galerías de arte, activaciones de marcas de lujo, charlas de artistas y recepciones privadas en Miami.",
+    keyword: "cobertura de video Art Basel Miami Art Week",
+    location: "Miami Beach / Wynwood / Miami Design District",
+    availability: "confirmed",
+    icon: Palette,
+    bestFor: [
+      "Galerías de arte internacionales que buscan documentar su stand y conservar un testimonio fiel de las obras exhibidas.",
+      "Marcas y comisarios que organizan activaciones culturales y recepciones privadas durante la semana del arte.",
+    ],
+    scopingQuestions: [
+      "¿En qué feria oficial o satélite se encuentra ubicado el stand de la galería?",
+      "¿Se realizarán entrevistas formales con los artistas o intervenciones ante coleccionistas?",
+    ],
+    projectFit:
+      "Grabación silenciosa con sensor de alta fidelidad cromática que respeta los matices de la pintura y la iluminación del espacio expositivo.",
+    updated: "2026-10-18",
+    sections: ART_BASEL_MIAMI_ART_WEEK_ES_SECTIONS,
+    sectionsDisclosure: ART_BASEL_MIAMI_ART_WEEK_ES_DISCLOSURE,
+    sectionsDestinations: ART_BASEL_MIAMI_ART_WEEK_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se filman las obras de arte sin alterar la iluminación de la galería?",
+        answer:
+          "Trabajamos con sensores sensibles y ópticas luminosas que aprovechan la luz ambiental de la sala sin focos adicionales molestos.",
+      },
+      {
+        question: "¿Es posible grabar entrevistas con los artistas en el propio stand?",
+        answer:
+          "Sí. Disponemos de micrófonos inalámbricos direccionales que capturan el testimonio del artista con claridad frente al murmullo del público.",
+      },
+      {
+        question: "¿Con qué agilidad se entregan los resúmenes para prensa y redes sociales?",
+        answer:
+          "Podemos realizar entregas de clips verticales en veinticuatro o cuarenta y ocho horas para acompañar las publicaciones durante la feria.",
+      },
+    ],
+  },
   ...nicheWave8Pages,
 ];
 
@@ -5613,6 +7490,86 @@ const languageAlternatesRaw: Record<string, Record<string, string>> = {
     "en-US": "/services/bilingual-video-subtitling-service",
     "es-US": "/es/servicio-de-subtitulado-bilingue-de-video",
     "x-default": "/services/bilingual-video-subtitling-service",
+  },
+  "/services/trade-show-booth-videographer-fort-lauderdale": {
+    "en-US": "/services/trade-show-booth-videographer-fort-lauderdale",
+    "es-US": "/es/videografo-para-ferias-comerciales-fort-lauderdale",
+    "x-default": "/services/trade-show-booth-videographer-fort-lauderdale",
+  },
+  "/es/videografo-para-ferias-comerciales-fort-lauderdale": {
+    "en-US": "/services/trade-show-booth-videographer-fort-lauderdale",
+    "es-US": "/es/videografo-para-ferias-comerciales-fort-lauderdale",
+    "x-default": "/services/trade-show-booth-videographer-fort-lauderdale",
+  },
+  "/services/corporate-gala-videographer-miami": {
+    "en-US": "/services/corporate-gala-videographer-miami",
+    "es-US": "/es/videografo-para-galas-corporativas-miami",
+    "x-default": "/services/corporate-gala-videographer-miami",
+  },
+  "/es/videografo-para-galas-corporativas-miami": {
+    "en-US": "/services/corporate-gala-videographer-miami",
+    "es-US": "/es/videografo-para-galas-corporativas-miami",
+    "x-default": "/services/corporate-gala-videographer-miami",
+  },
+  "/services/superyacht-charter-marketing-video-fort-lauderdale": {
+    "en-US": "/services/superyacht-charter-marketing-video-fort-lauderdale",
+    "es-US": "/es/marketing-de-video-para-superyates-fort-lauderdale",
+    "x-default": "/services/superyacht-charter-marketing-video-fort-lauderdale",
+  },
+  "/es/marketing-de-video-para-superyates-fort-lauderdale": {
+    "en-US": "/services/superyacht-charter-marketing-video-fort-lauderdale",
+    "es-US": "/es/marketing-de-video-para-superyates-fort-lauderdale",
+    "x-default": "/services/superyacht-charter-marketing-video-fort-lauderdale",
+  },
+  "/services/rehearsal-dinner-videographer-miami": {
+    "en-US": "/services/rehearsal-dinner-videographer-miami",
+    "es-US": "/es/videografo-para-cena-de-ensayo-miami",
+    "x-default": "/services/rehearsal-dinner-videographer-miami",
+  },
+  "/es/videografo-para-cena-de-ensayo-miami": {
+    "en-US": "/services/rehearsal-dinner-videographer-miami",
+    "es-US": "/es/videografo-para-cena-de-ensayo-miami",
+    "x-default": "/services/rehearsal-dinner-videographer-miami",
+  },
+  "/services/mastermind-event-videographer-miami": {
+    "en-US": "/services/mastermind-event-videographer-miami",
+    "es-US": "/es/videografo-para-masterminds-miami",
+    "x-default": "/services/mastermind-event-videographer-miami",
+  },
+  "/es/videografo-para-masterminds-miami": {
+    "en-US": "/services/mastermind-event-videographer-miami",
+    "es-US": "/es/videografo-para-masterminds-miami",
+    "x-default": "/services/mastermind-event-videographer-miami",
+  },
+  "/services/surprise-proposal-videographer-miami": {
+    "en-US": "/services/surprise-proposal-videographer-miami",
+    "es-US": "/es/videografo-para-propuestas-de-matrimonio-miami",
+    "x-default": "/services/surprise-proposal-videographer-miami",
+  },
+  "/es/videografo-para-propuestas-de-matrimonio-miami": {
+    "en-US": "/services/surprise-proposal-videographer-miami",
+    "es-US": "/es/videografo-para-propuestas-de-matrimonio-miami",
+    "x-default": "/services/surprise-proposal-videographer-miami",
+  },
+  "/services/speaker-sizzle-reel-production-miami": {
+    "en-US": "/services/speaker-sizzle-reel-production-miami",
+    "es-US": "/es/produccion-de-video-reel-para-conferencistas-miami",
+    "x-default": "/services/speaker-sizzle-reel-production-miami",
+  },
+  "/es/produccion-de-video-reel-para-conferencistas-miami": {
+    "en-US": "/services/speaker-sizzle-reel-production-miami",
+    "es-US": "/es/produccion-de-video-reel-para-conferencistas-miami",
+    "x-default": "/services/speaker-sizzle-reel-production-miami",
+  },
+  "/services/bar-mitzvah-videographer-south-florida": {
+    "en-US": "/services/bar-mitzvah-videographer-south-florida",
+    "es-US": "/es/videografo-para-bar-mitzvah-south-florida",
+    "x-default": "/services/bar-mitzvah-videographer-south-florida",
+  },
+  "/es/videografo-para-bar-mitzvah-south-florida": {
+    "en-US": "/services/bar-mitzvah-videographer-south-florida",
+    "es-US": "/es/videografo-para-bar-mitzvah-south-florida",
+    "x-default": "/services/bar-mitzvah-videographer-south-florida",
   },
   ...nicheBatch20261006,
   ...nicheBatch20261006Hreflang,

@@ -1,3 +1,26 @@
+# 2026-10-19 — Growth starvation internal links to /es/precios
+
+- Rescued target route `https://estebanmorenomedia.com/es/precios` (`app/(spanish)/es/precios/page.tsx`) by adding 4 contextual internal links in body copy from earning pages:
+  1. `/about` (`app/(english)/about/page.tsx`): contextual link with anchor `precios y paquetes`.
+  2. `/` (`components/about-teaser.tsx`): contextual link in the "Spanish-first" highlight card with anchor `precios de partida`.
+  3. `/guides/best-caption-styles-for-instagram-reels` (`lib/guides.ts`): contextual link in viewing context / subtitle strategies section with anchor `precios de partida`.
+  4. `/areas` (`app/(english)/areas/page.tsx`): contextual link in remote editing section with anchor `precios y paquetes`.
+- Confirmed target `/es/precios` has breadcrumbs back to `/es` and contextual links back to `/es/areas`, `/es/calculadora`, and `/es/servicios`.
+- Ran `pnpm lastmod:update` updating `config/page-lastmod.json`.
+- Validated with `npm run typecheck --silent` and vitest test suite.
+
+---
+
+# 2026-10-18 — High-budget buyer path and verified entity reference (production verified)
+
+- Branch `codex/high-budget-buyer-path-20261018` adds short, server-rendered pre-proposal sections to the existing English corporate and brand-production pages. Both route a buyer to the existing RFP guide without adding an offer, crew, turnaround, or price claim.
+- The existing EN/ES RFP guide pair now includes a matching agency/event-planner attachment checklist and links to the published Healthy Smile portfolio entry. The copy names only the documented role (on-location video, direct sound, editing) and says it is not evidence of a private RFP, contract, or production policy.
+- `site.clutch` is added only to the business `sameAs` schema after the public Clutch company page was inspected in the authenticated browser. It does not support an outcome, review, price, availability, team-size, or high-budget-production claim. The public profile currently says "Not yet reviewed" and has no focus areas, so its own fields still need owner-side normalization before it can reinforce the larger-scope path.
+- Local proof: `pnpm test` passed 162 files / 3,216 tests; targeted entity/guide/lastmod tests passed 45/45; `pnpm lint` completed with 0 errors and 60 pre-existing warnings; `pnpm typecheck`, `pnpm build` (489 static pages), analytics gate, raw HTML checks, and 390×844 phone capture passed. Antigravity’s content review returned `REVIEW_VERDICT: APPROVE`; its wrapper exited 1 after a background-process handling defect, so the direct local gates above are the release evidence.
+- PR [#482](https://github.com/gonzaloeaguilar-bot/esteban-media/pull/482) merged as `d771107b00c499a0f4de6d3896d878490377b083` on 2026-10-19. Vercel reported success for that commit. Canonical raw HTML contained the English corporate/brand sections, English/Spanish RFP additions, and the business Clutch URL; a 390×844 production capture showed the corporate brief block without obscuring navigation. `pnpm seo:indexnow:run` received HTTP 200 for all 450 sitemap URLs. This proves deployment/crawl notification, not ranking, citation, or inquiry outcome. Next: collect the planned T+28/T+56 query, citation, and source-tagged-inquiry reads.
+
+---
+
 # 2026-10-18 — Growth starvation internal links to /es/eventos
 
 - Rescued target route `https://estebanmorenomedia.com/es/eventos` (`app/(spanish)/es/eventos/page.tsx`) by adding 4 contextual internal links in body copy from earning pages:
