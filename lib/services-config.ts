@@ -136,3 +136,68 @@ export function listingPhotographyPrice(squareFeet: number): number | null {
   if (!tier) throw new Error(`no listing photography tier covers ${squareFeet} SF`);
   return tier.amount;
 }
+
+/**
+ * On-site recording, multi-camera, yacht charter and turnkey production rate card.
+ * Single source of truth for commercial event, corporate, and marine shoots.
+ */
+export const ON_SITE_PRODUCTION_RATES = {
+  id: "on-site-production-rates",
+  currency: "USD" as Currency,
+  tiers: [
+    {
+      id: "solo-videographer",
+      name: { en: "Solo Videographer (1 Camera)", es: "Videógrafo individual (1 Cámara)" },
+      hourly: 100,
+      minimumHours: 3,
+      halfDay: 400,
+      fullDay: 800,
+      turnkeyHalfDay: 750,
+      turnkeyFullDay: 1600,
+      gear: { en: "Sony Alpha 7 IV 4K + handheld gimbal + wireless mic kit", es: "Sony Alpha 7 IV 4K + gimbal de mano + microfonía inalámbrica" },
+    },
+    {
+      id: "two-person-event-crew",
+      name: { en: "Two-Person Event Crew (Lead DP + Mobile Content Creator)", es: "Equipo de 2 personas para eventos (DP principal + Creador de contenido móvil)" },
+      hourly: 160,
+      minimumHours: 4,
+      halfDay: 640,
+      fullDay: 1280,
+      turnkeyHalfDay: 1250,
+      turnkeyFullDay: 2400,
+      gear: { en: "1 4K Cinema Camera + 2 iPhones on gimbals for instant vertical Reels/BTS", es: "1 Cámara 4K + 2 iPhones en gimbals para Reels verticales y BTS instantáneos" },
+    },
+    {
+      id: "multi-camera-stage",
+      name: { en: "Multi-Camera Production (2–3 Cameras + Audio Board)", es: "Producción multicámara (2–3 Cámaras + Audio de consola)" },
+      hourly: 225,
+      minimumHours: 4,
+      halfDay: 900,
+      fullDay: 1800,
+      turnkeyHalfDay: 1750,
+      turnkeyFullDay: 3600,
+      gear: { en: "2–3 4K cameras + direct XLR soundboard feed + multi-track wireless lavaliers", es: "2–3 cámaras 4K + audio directo de consola XLR + micrófonos de solapa multicanal" },
+    },
+    {
+      id: "yacht-marine-production",
+      name: { en: "Yacht & Marine Production (Charter Shoots)", es: "Producción en yates y marina (Sesiones en chárter)" },
+      halfDay: 750,
+      fullDay: 1400,
+      turnkeyHalfDay: 1450,
+      turnkeyFullDay: 2800,
+      note: { en: "Requires half-day or full-day booking. Active gimbal stabilization, marine deck care.", es: "Requiere media jornada o jornada completa. Estabilización activa con gimbal, cuidado de cubierta." },
+    },
+    {
+      id: "kickstarter-commercial",
+      name: { en: "Kickstarter & Product Launch Video", es: "Video para Kickstarter y lanzamiento de producto" },
+      turnkey: 1000,
+      note: { en: "Founder interview + macro product demo, 3.5-hr on-location shoot + 2-min edit", es: "Entrevista al fundador + demo macro de producto, rodaje de 3.5h + edición de 2 minutos" },
+    },
+  ],
+  addOns: [
+    { id: "soundboard-audio", name: { en: "Soundboard Direct XLR Audio Feed", es: "Toma directa de audio de consola XLR" }, amount: 150 },
+    { id: "marine-drone", name: { en: "Licensed Marine Drone Aerials (Over-Water)", es: "Tomas aéreas con dron en agua (Licencia FAA)" }, amount: 250 },
+    { id: "mobile-teleprompter", name: { en: "Mobile Teleprompter Kit", es: "Kit de teleprompter móvil" }, amount: 100 },
+    { id: "rapid-ssd-wrap", name: { en: "On-Site Fast NVMe SSD Footage Delivery", es: "Entrega inmediata de material en SSD NVMe rápido" }, amount: 120 },
+  ],
+} as const;

@@ -296,26 +296,94 @@ export const ON_LOCATION_CAPTURE = {
 } as const;
 
 
-// Filming (on-location recording) hourly floor. Owner fact relayed by the
-// project operator on 2026-10-14: "filming (grabación) starts at $80 per hour, minimum".
-// It is a FLOOR for filming time only. Do not derive editing-per-hour, travel
-// or overtime figures from it; none of those has been given by the owner.
+// Filming (on-location recording) hourly floor. Owner fact confirmed 2026-10-18:
+// filming starts at $100 per hour with a 3-hour minimum call ($300 floor on site).
 // Copy reads it through filmingHourlyText(); never hard-code the figure.
 export const FILMING_HOURLY = {
-  amount: 80,
+  amount: 100,
   currency: "USD",
   unit: "hour",
   isMinimum: true,
-  source: "owner fact 2026-10-14 (relayed by the project operator): filming from $80 per hour",
+  minimumHours: 3,
+  minimumAmount: 300,
+  source: "owner fact confirmed 2026-10-18: filming from $100 per hour with 3-hour minimum call",
 } as const;
 
-/** "from $80 per hour of filming" / "desde $80 por hora de grabación". */
+/** "from $100 per hour of filming" / "desde $100 por hora de grabación". */
 export function filmingHourlyText(locale: "en" | "es"): string {
   const price = usd(FILMING_HOURLY.amount);
   return locale === "es"
     ? `desde ${price} por hora de grabación`
     : `from ${price} per hour of filming`;
 }
+
+// ---------------------------------------------------------------------------
+// On-site crew, multi-camera, yacht and turnkey catalog (2026-10-18)
+// ---------------------------------------------------------------------------
+
+export const CREW_RECORDING_RATES = {
+  solo: {
+    hourly: 100,
+    minimumHours: 3,
+    minimumAmount: 300,
+    halfDay: 400,
+    fullDay: 800,
+    description: "1 solo videographer + Sony Alpha 7 IV 4K kit + audio",
+  },
+  twoPerson: {
+    hourly: 160,
+    minimumHours: 4,
+    minimumAmount: 640,
+    halfDay: 640,
+    fullDay: 1280,
+    description: "2-person event crew: Lead 4K DP + dedicated mobile content creator with dual iPhones for vertical Reels, BTS & attendee soundbites",
+  },
+  multiCamera: {
+    hourly: 225,
+    minimumHours: 4,
+    minimumAmount: 900,
+    halfDay: 900,
+    fullDay: 1800,
+    description: "2–3 cameras (Sony + secondary angles) + soundboard XLR feed & multi-track lavalier audio",
+  },
+} as const;
+
+export const YACHT_PRODUCTION = {
+  halfDaySolo: 750,
+  fullDaySolo: 1400,
+  halfDayTwoPerson: 1200,
+  fullDayTwoPerson: 2200,
+  marineDroneAddOn: 250,
+  unit: "session",
+  source: "South Florida marine videography rate card (Biscayne Bay / Fort Lauderdale charter shoots)",
+} as const;
+
+export const KICKSTARTER_LAUNCH = {
+  from: 1000,
+  unit: "project",
+  shootHours: 3.5,
+  videoLength: "2 minutes",
+  source: "Lean Kickstarter/crowdfunding founder story + macro product b-roll package",
+} as const;
+
+export const ON_SITE_ADD_ONS = {
+  soundboardAudio: 150,
+  marineDrone: 250,
+  mobileTeleprompter: 100,
+  rapidSsdDelivery: 120,
+} as const;
+
+export const TURNKEY_PRODUCTION_BUNDLES = {
+  soloHalfDay: 750,
+  soloFullDay: 1600,
+  twoPersonHalfDay: 1250,
+  twoPersonFullDay: 2400,
+  multiCamHalfDay: 1750,
+  multiCamFullDay: 3600,
+  yachtHalfDay: 1450,
+  yachtFullDay: 2800,
+  kickstarterLaunch: 1000,
+} as const;
 
 /**
  * Landing pages. Owner fact 2026-10-14 (relayed by the project operator; vault

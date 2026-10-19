@@ -3,29 +3,19 @@ import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { cheapestRealEstatePlan, packagesFor, priceSentence, type Locale } from "@/lib/packages";
 import { packageRoutes } from "@/lib/package-routes";
-import { latamAnswer, perHourAnswer } from "@/lib/owner-fact-answers";
+import { latamAnswer, onSiteProductionAnswer, perHourAnswer } from "@/lib/owner-fact-answers";
 import { goingRateAnswer } from "@/lib/demand-map-answers";
 import { REAL_ESTATE_PLAN_TERMS, shortFormWeeklyText, turnaroundFor, usd, type PackageId } from "@/lib/pricing";
 
 /**
- * Answer-first price sections for /pricing and /es/precios.
- *
- * Round 2 (2026-10-14): the live dual-audience gate read both hubs at 6/27
- * question-shaped headings and 1 section in the 100-180 word band, and GSC
- * URL Inspection read /pricing "Discovered - not indexed" and /es/precios
- * "URL is unknown to Google". The package chooser (components/packages-section)
- * is shared with the home page and is left untouched; these two sections sit
- * above it. Every figure is read from lib/pricing.ts through lib/packages.ts.
- */
-/**
- * Owner facts 2026-10-14: editing is priced per video, not per hour (both hubs),
- * and Latin American clients work remotely in Spanish (Spanish hub). Exported so
- * the hub's FAQPage JSON-LD carries the same strings that render.
+ * Owner facts & verified rate card: editing is priced per video, not per hour;
+ * on-site recording, multi-camera, and yacht rates; Latin American remote clients.
+ * Exported so the hub's FAQPage JSON-LD carries the same strings that render.
  */
 export function pricingHubExtraFaq(locale: Locale): { question: string; answer: string }[] {
   return locale === "es"
-    ? [goingRateAnswer("es"), perHourAnswer("es"), latamAnswer()]
-    : [goingRateAnswer("en"), perHourAnswer("en")];
+    ? [goingRateAnswer("es"), perHourAnswer("es"), onSiteProductionAnswer("es"), latamAnswer()]
+    : [goingRateAnswer("en"), perHourAnswer("en"), onSiteProductionAnswer("en")];
 }
 
 export function PricingAnswer({ locale }: { locale: Locale }) {
