@@ -188,10 +188,23 @@ export const ON_SITE_PRODUCTION_RATES = {
       note: { en: "Requires half-day or full-day booking. Active gimbal stabilization, marine deck care.", es: "Requiere media jornada o jornada completa. Estabilización activa con gimbal, cuidado de cubierta." },
     },
     {
-      id: "kickstarter-commercial",
-      name: { en: "Kickstarter & Product Launch Video", es: "Video para Kickstarter y lanzamiento de producto" },
+      id: "commercial-product-demo-basic",
+      name: { en: "Basic Product Demo / Kickstarter (Founder-Led)", es: "Demo comercial básico / Kickstarter (Fundador)" },
       turnkey: 1000,
-      note: { en: "Founder interview + macro product demo, 3.5-hr on-location shoot + 2-min edit", es: "Entrevista al fundador + demo macro de producto, rodaje de 3.5h + edición de 2 minutos" },
+      note: { en: "Founder interview + macro product demo, 3.5-hr on-location shoot + 60-90s edit", es: "Entrevista al fundador + demo macro de producto en locación, 3.5h de rodaje + edición de 60-90 seg" },
+    },
+    {
+      id: "commercial-brand-narrative-premium",
+      name: { en: "Premium Brand Film / Narrative Commercial", es: "Brand film narrativo / Comercial premium" },
+      turnkey: 3000,
+      note: { en: "Full-day shoot with 2-person crew, cinematic lighting, 60-120s hero video + 3 social ad hooks", es: "Jornada completa con crew de 2 personas, iluminación de cine, video de 60-120 seg + 3 ganchos para pauta" },
+    },
+    {
+      id: "commercial-actors-studio-full",
+      name: { en: "Commercial Production with Professional Actors & Studio", es: "Comercial publicitario con actores profesionales y estudio" },
+      turnkeyMin: 6500,
+      turnkeyMax: 8500,
+      note: { en: "Soundstage/cyc studio rental, professional actor casting (1-2 talent with commercial buyout), HMUA, 3-4 person crew, custom sound mix", es: "Renta de estudio/ciclorama, casting de actores profesionales (1-2 con derechos comerciales), estilismo, crew de 3-4 personas y masterización multiformato" },
     },
   ],
   addOns: [

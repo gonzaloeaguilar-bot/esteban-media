@@ -358,13 +358,49 @@ export const YACHT_PRODUCTION = {
   source: "South Florida marine videography rate card (Biscayne Bay / Fort Lauderdale charter shoots)",
 } as const;
 
+export const COMMERCIAL_VIDEO_TIERS = {
+  basic: {
+    from: 1000,
+    duration: "60–90 seconds",
+    crew: "Solo videographer",
+    scope: "Founder-led product demo on client location",
+    revisions: 1,
+  },
+  brandNarrative: {
+    from: 3000,
+    duration: "60–120 seconds",
+    crew: "2-person production crew",
+    scope: "Cinematic brand film with 3 social ad hook variations",
+    revisions: 2,
+  },
+  actorsAndStudio: {
+    fromMin: 6500,
+    fromMax: 8500,
+    duration: "30–60s hero commercial + multi-format cutdowns",
+    crew: "3 to 4 person commercial crew",
+    scope: "Studio soundstage rental, actor casting (1-2 actors + commercial buyout), HMUA stylist, custom sound mix",
+    revisions: 2,
+  },
+} as const;
+
 export const KICKSTARTER_LAUNCH = {
-  from: 1000,
+  from: COMMERCIAL_VIDEO_TIERS.basic.from,
   unit: "project",
   shootHours: 3.5,
-  videoLength: "2 minutes",
-  source: "Lean Kickstarter/crowdfunding founder story + macro product b-roll package",
+  videoLength: "60–90 seconds",
+  source: "3-tier commercial production: $1,000 basic demo, $3,000 brand narrative, $6,500-$8,500+ with actors and studio",
 } as const;
+
+/** The one answer-first price line for commercial videos, EN or ES. */
+export function commercialVideoPriceText(locale: "en" | "es"): string {
+  const basic = usd(COMMERCIAL_VIDEO_TIERS.basic.from);
+  const narrative = usd(COMMERCIAL_VIDEO_TIERS.brandNarrative.from);
+  const actorsMin = usd(COMMERCIAL_VIDEO_TIERS.actorsAndStudio.fromMin);
+  const actorsMax = usd(COMMERCIAL_VIDEO_TIERS.actorsAndStudio.fromMax);
+  return locale === "es"
+    ? `Videos comerciales y de producto desde ${basic} para demos básicos en locación del cliente (60–90 seg); producciones premium con narrativa de marca desde ${narrative} (hasta 2 minutos); y comerciales publicitarios con actores profesionales y renta de estudio desde ${actorsMin} a ${actorsMax}+ según requerimientos de casting y derechos comerciales.`
+    : `Commercial and product videos start from ${basic} for basic founder-led product demos (60–90 seconds on client location); premium brand films with 2-person crew and ad hooks start from ${narrative} (up to 2 minutes); and commercial spots with professional actors and studio rental start from ${actorsMin} to ${actorsMax}+ depending on casting and usage rights.`;
+}
 
 export const ON_SITE_ADD_ONS = {
   soundboardAudio: 150,
