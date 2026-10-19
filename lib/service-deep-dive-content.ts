@@ -1562,3 +1562,204 @@ export const ART_BASEL_MIAMI_ART_WEEK_DEEP_DIVE: DeepDive = {
   ],
 };
 
+export const PRIVATE_AVIATION_VIDEO_DEEP_DIVE: DeepDive = {
+  id: "private-aviation-video",
+  title: "How does private aviation video production drive aircraft charters and sales in Miami?",
+  destinations: "FBO tarmac walkarounds, luxury cabin interiors, avionics flight deck details, and executive charter reels.",
+  sections: [
+    {
+      heading: "How does private aviation video production drive aircraft charters and sales in Miami?",
+      paragraphs: [
+        "Private jet charter operators, aircraft management companies, and business aviation brokerages operating out of Miami Executive Airport, Miami-Opa Locka Executive Airport, and Fort Lauderdale International Airport rely on cinematic video production to showcase fleet availability and attract charter clients. High-net-worth travelers and corporate flight departments make charter decisions based on cabin configuration, seating comfort, luggage capacity, and onboard amenities. Esteban captures luxury aircraft on private FBO ramps and hangars using stabilized full-frame cinema cameras, ultra-wide interior lenses that render executive cabins spacious and inviting, and specialized lighting that accentuates leather seating, polished wood veneer, and stateroom appointments without glare. High-resolution passes document galley amenities, entertainment setups, and state-of-the-art flight deck avionics with technical precision. These compelling aircraft profile films provide prospective charter guests and aircraft buyers with complete confidence before booking or acquiring a jet. For related luxury transport video production, explore our [exotic car rental video Miami](/services/exotic-car-rental-video-miami); to review production package rates, visit our [pricing page](/pricing).",
+      ],
+    },
+    {
+      heading: "What video deliverables accelerate charter bookings and aircraft resale transactions?",
+      paragraphs: [
+        "Aviation marketing directors and aircraft sales brokers require versatile video assets tailored for charter booking portals, Controller and Controller EMEA listings, and executive social media feeds. Esteban coordinates efficient filming sessions around tight aircraft ground turnaround times and hangar schedules, securing ramp access and complying with airport security protocols. Deliverables include a flagship two-minute aircraft walkthrough film highlighting range capabilities, cabin configurations, and baggage capacities, paired with four to six thirty-second vertical video clips optimized for LinkedIn and Instagram Reels showcasing VIP boarding experiences and luxury catering. In post-production, precise color grading enhances interior leather textures and exterior livery while balanced audio design eliminates background turbine hiss. These high-caliber visual assets distinguish premier charter operators from regional competitors and accelerate sales inquiries for brokerage listings. To review our published commercial production cinematography, watch our published [Bar Door Monkey commercial spot](/portfolio/bar-door-monkey); to schedule an aircraft video shoot, contact us through our [contact page](/contact).",
+      ],
+    },
+  ],
+};
+
+export const EQUESTRIAN_POLO_VIDEO_DEEP_DIVE: DeepDive = {
+  id: "equestrian-polo-video",
+  title: "How does equestrian and polo videography showcase elite sport in Wellington?",
+  destinations: "High-goal tournament chukkers, grand prix show jumping, equestrian estate walkthroughs, and sport horse sale reels.",
+  sections: [
+    {
+      heading: "How does equestrian and polo videography showcase elite sport in Wellington?",
+      paragraphs: [
+        "Polo clubs, equestrian breeding barns, grand prix show jumping competitors, and luxury equestrian estates in Wellington and Palm Beach County require specialized cinematography to document high-stakes equestrian competition and market valuable sport horses. High-goal polo and international equestrian sports feature lightning-fast athleticism, delicate equine movement, and centuries-old sporting prestige where timing and horsemanship knowledge are essential. Esteban films equestrian sport using high-frame-rate cinema cameras, telephoto lenses with tracking autofocus, and stabilized rigs that keep pace alongside charging chukkers and grand prix show jumping courses without startling competing horses. Smooth tracking shots capture decisive mallet swings, equine footwork, and rider elegance against lush Wellington polo fields. These refined sports films convey the power, precision, and luxury lifestyle of the winter equestrian capital. For related luxury sporting and event videography, explore our [sportfishing videographer Miami](/services/sportfishing-videographer-miami); to evaluate production options, visit our [pricing page](/pricing).",
+      ],
+    },
+    {
+      heading: "What video assets support sport horse sales and equestrian estate marketing?",
+      paragraphs: [
+        "Equine syndicate managers, horse trainers, and luxury equestrian real estate brokers need comprehensive visual assets that demonstrate an animal's gaits, jumping mechanics, and estate amenities to international buyers. Esteban collaborates with barn managers and riders to structure safe, efficient filming sessions capturing trot-up inspections, schooling over fences, and private tack room and stable architecture. Deliverables include a three-minute sport horse sales presentation film showing complete jumping courses and conformation angles, supported by sixty-second vertical showcase reels formatted for WhatsApp and Instagram with clean informational captions stating pedigree, competition record, and veterinary vetting readiness. For equestrian properties, stabilized walkthroughs highlight covered arenas, mirror-lined dressage rings, and groom quarters. These authoritative videos enable international buyers in Europe and South America to evaluate horses and properties confidently. To review our verified celebration and sports pacing, watch our [Diana & Jack film](/portfolio/diana-jack); to arrange an equestrian video session in Wellington, reach out via our [contact page](/contact).",
+      ],
+    },
+  ],
+};
+
+export const YACHT_REFIT_BOATYARD_DEEP_DIVE: DeepDive = {
+  id: "yacht-refit-boatyard-video",
+  title: "How does shipyard and marine refit video marketing document craftsmanship in Fort Lauderdale?",
+  destinations: "Drydock haul-outs, yacht hull fairing and painting, teak carpentry restoration, and shipyard capability profiles.",
+  sections: [
+    {
+      heading: "How does shipyard and marine refit video marketing document craftsmanship in Fort Lauderdale?",
+      paragraphs: [
+        "Shipyards, yacht refit centers, marine carpentry firms, and naval engineering contractors along the New River, Marina Mile, and Dania Cut-Off Canal in Fort Lauderdale rely on documentary video to prove technical capability, haul-out capacity, and marine craftsmanship. Superyacht owners, fleet managers, and yacht captains commission multi-million-dollar refits only after thoroughly vetting a yard's facility standards, artisan trade skills, and adherence to delivery timelines. Esteban documents complex yacht refits using time-lapse cameras, weather-resistant handheld cinema rigs, and macro lenses that highlight precision metal fabrication, teak deck caulking, and multi-stage hull fairing. Filming follows structural haul-outs via marine travelifts, engine repowering, and interior carpentry transformations with industrial rigor. These documentary films turn industrial shipyard capability into powerful proof of excellence. For related superyacht marketing productions, examine [superyacht charter marketing video Fort Lauderdale](/services/superyacht-charter-marketing-video-fort-lauderdale); to review production package rates, visit our [pricing page](/pricing).",
+      ],
+    },
+    {
+      heading: "What video formats help marine contractors win high-value refit contracts?",
+      paragraphs: [
+        "Boatyard executives, project managers, and marine subcontractor teams require comprehensive video portfolios that demonstrate completed refits to prospective yacht owners, naval architects, and yacht management firms worldwide. Esteban establishes ongoing production schedules tracking milestones from initial drydock arrival to final sea trials. Deliverables include a three-minute shipyard capability film showcasing dock infrastructure, machine shops, and artisan trades, alongside monthly project milestone videos and short-form social reels highlighting before-and-after transformations of hulls, galleys, and navigation bridges. Dynamic on-screen annotations detail tonnage, LOA capacity, coatings chemistry, and classification standards. These visual records reassure yacht owners and captains of schedule reliability and craftsmanship quality. To examine our verified on-location marine cinematography, watch our published [Diana & Jack film](/portfolio/diana-jack); to schedule a shipyard refit video production session in Fort Lauderdale, contact us through our [contact page](/contact).",
+      ],
+    },
+  ],
+};
+
+export const COUNTRY_CLUB_GOLF_COMMUNITY_DEEP_DIVE: DeepDive = {
+  id: "country-club-golf-community-video",
+  title: "How does country club and golf community video marketing attract prospective members in Palm Beach?",
+  destinations: "Championship golf course layouts, clubhouse dining, racquet sports facilities, and member lifestyle films.",
+  sections: [
+    {
+      heading: "How does country club and golf community video marketing attract prospective members in Palm Beach?",
+      paragraphs: [
+        "Private golf clubs, country club residential communities, and luxury sporting clubs across Palm Beach, Boca Raton, and Jupiter utilize cinematic video marketing to attract prospective members, celebrate club traditions, and highlight recent course renovations. Discerning prospective members evaluate clubs based on course architecture, clubhouse camaraderie, wellness facilities, and family social programming before submitting membership applications or paying initiation fees. Esteban produces evocative country club profile films using stabilized cinema cameras, low-angle ground tracking carts, and high-perspective mast cameras that capture championship fairways, undulating greens, and manicured water hazards in morning light. Filming documents vibrant dining terraces, tennis and pickleball matches, modern fitness centers, and festive club tournaments with understated elegance. These polished films communicate prestige and belonging. For related luxury hospitality video services, explore [yacht hospitality video Fort Lauderdale](/services/yacht-hospitality-video-fort-lauderdale); to evaluate production packages, visit our [pricing page](/pricing).",
+      ],
+    },
+    {
+      heading: "What video assets support private club membership recruitment and real estate sales?",
+      paragraphs: [
+        "General managers, membership directors, and residential community marketing teams require cohesive video assets tailored for private prospective member web portals, invitation-only member recruitment campaigns, and community real estate previews. Esteban collaborates with club leadership to schedule filming during regular hours without intruding on member privacy or play. Deliverables include a flagship four-minute club lifestyle overview film, individual hole-by-hole course fly-throughs, and thirty-second social cutdowns spotlighting culinary wine dinners, junior golf academies, and wellness programming. Subtle color balancing flatters lush landscape greenery and refined clubhouse interiors while respectful ambient audio preserves the calm sanctuary of club grounds. These timeless video assets drive qualified membership inquiries and boost community property values. To review our published celebration cinematography, watch our [Diana & Jack film](/portfolio/diana-jack); to schedule a country club video shoot in Palm Beach County, reach out through our [contact page](/contact).",
+      ],
+    },
+  ],
+};
+
+export const LUXURY_POOL_BUILDER_DEEP_DIVE: DeepDive = {
+  id: "luxury-pool-builder-video",
+  title: "How does video marketing help luxury pool and outdoor living builders close custom projects in South Florida?",
+  destinations: "Infinity edge pools, custom outdoor kitchens, excavation-to-plaster time-lapses, and twilight fire feature reels.",
+  sections: [
+    {
+      heading: "How does video marketing help luxury pool and outdoor living builders close custom projects in South Florida?",
+      paragraphs: [
+        "Custom pool builders, outdoor living general contractors, and landscape architects across Miami, Fort Lauderdale, and Boca Raton rely on cinematic project videos to demonstrate design innovation, structural engineering, and artisan finishes to affluent homeowners. Bespoke outdoor living environments represent significant residential investments involving complex hydraulic engineering, vanishing edges, perimeter overflow spas, and outdoor kitchens. Esteban captures luxury pool projects using wide dynamic range cinema cameras, water-level tracking mounts, and stabilized rigs that record shimmering water reflections, travertine coping, and iridescent glass tile details with photographic clarity. Filming documents the complete artisan process—from steel rebar reinforcement and gunite application to pebble interior plastering and automated twilight fire bowl activation. These captivating project films substantiate premium builder pricing and outshine competitors relying on basic still photography. For related trade video marketing, explore [contractor video marketing Florida](/services/contractor-video-marketing-florida); to review production package rates, visit our [pricing page](/pricing).",
+      ],
+    },
+    {
+      heading: "What video deliverables generate qualified custom pool inquiries for design-build firms?",
+      paragraphs: [
+        "Pool construction executives and marketing coordinators require field video assets that perform across social media ads, website design portfolios, and client proposal presentations. Esteban records finished pool retreats during golden hour and evening twilight to capture automated LED color transitions, bubbling fountains, and integrated fire features against darkening South Florida skies. Deliverables include a two-minute design-build case study film featuring designer commentary and homeowner reviews, accompanied by eight vertical reels demonstrating waterfall sounds, swim-up bar seating, and smart automation controls for Instagram Reels and TikTok. Clear lower-third callouts highlight lot size, material specifications, and construction milestones. These compelling video assets convert casual website visitors into eager design consultation bookings. To review our published commercial production work, watch our [Bar Door Monkey commercial spot](/portfolio/bar-door-monkey); to schedule a custom pool video production session, reach out through our [contact page](/contact).",
+      ],
+    },
+  ],
+};
+
+export const REGENERATIVE_MEDICINE_STEM_CELL_DEEP_DIVE: DeepDive = {
+  id: "regenerative-medicine-stem-cell-video",
+  title: "How does clinical video marketing educate patients on regenerative medicine and stem cell therapies in Miami?",
+  destinations: "Physician consultation explanations, cellular laboratory processing, ultrasound-guided therapy demonstrations, and patient mobility recovery stories.",
+  sections: [
+    {
+      heading: "How does clinical video marketing educate patients on regenerative medicine and stem cell therapies in Miami?",
+      paragraphs: [
+        "Regenerative medicine specialists, cellular therapy clinics, orthopedic biologics physicians, and longevity centers in Miami, Coral Gables, and Doral utilize ethical clinical video to explain cutting-edge regenerative procedures and scientific standards to prospective patients worldwide. Patients seeking stem cell treatments, platelet-rich plasma injections, and peptide protocols conduct extensive research, requiring medical clarity, physician credentials, and transparent procedural explanations to overcome skepticism. Esteban collaborates with medical practices under strict patient privacy consent standards, deploying macro cinema lenses, soft clinical lighting, and stabilized cameras to document physician consultations, sterile cellular laboratory preparation, and ultrasound-guided joint treatments with scientific dignity. Filming highlights clean medical environments, centrifuge processing equipment, and physician-patient dialogue without sensational health claims. These educational videos establish credible authority, answer common procedural concerns, and drive qualified patient evaluations. For related clinical video marketing, explore [med spa and plastic surgeon video Miami](/services/med-spa-plastic-surgeon-video-miami); to review production options, visit our [pricing page](/pricing).",
+      ],
+    },
+    {
+      heading: "What compliant video formats help regenerative medicine practices build patient trust?",
+      paragraphs: [
+        "Medical practice directors and healthcare marketing managers require structured video content that complies with medical board guidelines, avoids unauthorized curative claims, and focuses on physician expertise and patient education. Esteban structures filming sessions around regular clinical hours to record physician explanations of biological mechanisms, laboratory purity protocols, and genuine patient recovery reflections with signed media releases. Deliverables include a three-minute clinic overview film articulating therapeutic philosophy and clinical credentials, supported by six to eight vertical educational reels answering frequently asked questions regarding candidate selection, treatment steps, and expected recovery timelines. On-screen typography clarifies medical terminology and directs viewers to schedule professional consultations. These professional video assets build long-term clinic prestige and drive domestic and international patient inquiries. To review our published medical video production, watch our [Healthy Smile Miami case study](/portfolio/healthy-smile); to schedule a clinical video production session, reach out through our [contact page](/contact).",
+      ],
+    },
+  ],
+};
+
+export const B2B_CLIENT_CASE_STUDY_DEEP_DIVE: DeepDive = {
+  id: "b2b-client-case-study-video",
+  title: "How do B2B client case study video productions accelerate enterprise sales cycles in Miami?",
+  destinations: "Enterprise client success interviews, operational workflow B-roll, software dashboard walkthroughs, and executive proof films.",
+  sections: [
+    {
+      heading: "How do B2B client case study video productions accelerate enterprise sales cycles in Miami?",
+      paragraphs: [
+        "Enterprise software companies, financial technology firms, professional consulting agencies, and logistics providers in Miami, Brickell, and Coral Gables rely on B2B client video case studies to validate business value, articulate measurable ROI, and shorten complex sales cycles. Enterprise buyers and procurement committees demand verifiable proof of successful deployment, customer satisfaction, and operational efficiency before approving substantial corporate contracts. Esteban produces polished corporate client case studies on-location at customer headquarters or modern conference suites using broadcast cinema cameras, diffused interview lighting, and broadcast audio microphones. Filming captures conversational executive interviews alongside dynamic B-roll of teams utilizing software platforms, analyzing dashboard analytics, and optimizing supply chain operations. These authoritative case study films provide enterprise prospects with tangible peer validation, dismantling buyer hesitation during sales presentations. For related corporate video production, see [corporate video production Brickell](/services/corporate-video-production-brickell); to review package options, visit our [pricing page](/pricing).",
+      ],
+    },
+    {
+      heading: "What video assets help B2B marketing teams arm sales reps and close deals faster?",
+      paragraphs: [
+        "B2B marketing vice presidents, product marketing managers, and sales enablement leaders require adaptable video assets that perform across sales pitch decks, email sequences, and LinkedIn lead campaigns. Esteban works closely with corporate marketing teams to craft interview question outlines that extract specific customer metrics, problem-solution narratives, and quantitative time savings. Deliverables include a three-minute flagship customer success story film, accompanied by two sixty-second modular cuts focusing on technical implementation and executive business outcomes, alongside three vertical video reels featuring customer quotes with animated captions for LinkedIn feeds. Precise color grading and crisp lower-third graphics reinforce enterprise brand guidelines. These high-credibility video assets empower sales teams to overcome skepticism and close multi-year enterprise contracts. To review our published corporate documentary cinematography, watch our [Homeowners documentary film](/portfolio/homeowners); to schedule a B2B case study video production session, reach out through our [contact page](/contact).",
+      ],
+    },
+  ],
+};
+
+export const INTERIOR_DESIGN_MILLWORK_DEEP_DIVE: DeepDive = {
+  id: "interior-design-millwork-video",
+  title: "How does interior design and architectural millwork video production capture bespoke craftsmanship in Miami?",
+  destinations: "Custom architectural cabinetry, luxury kitchen millwork, designer project walkthroughs, and Design District showroom films.",
+  sections: [
+    {
+      heading: "How does interior design and architectural millwork video production capture bespoke craftsmanship in Miami?",
+      paragraphs: [
+        "Interior design studios, architectural millwork fabricators, custom cabinetry artisans, and luxury furniture showrooms in the Miami Design District, Coral Gables, and Coconut Grove utilize cinematic video to document bespoke residential installations, artisan material details, and spatial design flow. High-end residential clients and architects invest in custom architectural millwork where grain-matched veneers, hidden soft-close hardware, integrated LED reveal lighting, and seamless joinery define luxury. Esteban captures interior architectural spaces using stabilized camera sliders, wide distortion-free architectural lenses, and color-balanced lighting that preserves natural ambient daylight. Filming captures fluid room transitions, close-up texture passes across exotic woods and fluted marble, and designer-guided walkthroughs detailing design concepts and material sourcing. These evocative films showcase the dedication behind bespoke interiors. For related luxury residential video production, explore our [luxury penthouse video tour Miami](/services/luxury-penthouse-video-tour-miami); to view production packages, visit our [pricing page](/pricing).",
+      ],
+    },
+    {
+      heading: "What video deliverables showcase design portfolios and generate high-ticket residential commissions?",
+      paragraphs: [
+        "Principal designers, millwork business owners, and luxury showroom managers require visually stunning video assets tailored for design award submissions, portfolio websites, and Instagram feeds. Esteban coordinates efficient filming sessions immediately following final staging to capture finished residences and showroom vignettes in pristine condition. Deliverables include a three-minute cinematic project tour film featuring designer narration explaining layout harmony and custom millwork features, accompanied by four to six vertical reels highlighting tactile hardware details, concealed pantry doors, and morning-to-evening lighting transitions. High-definition post-production color grading accurately reproduces delicate fabric tones, paint pigments, and rich timber stains without artificial saturation. These elegant video assets position design practices as premier luxury authorities and attract high-net-worth homeowners planning major renovations. To review our verified commercial cinematography, watch our published [Bar Door Monkey commercial spot](/portfolio/bar-door-monkey); to schedule an interior design video production shoot, contact us via our [contact page](/contact).",
+      ],
+    },
+  ],
+};
+
+export const ESTATE_PLANNING_ATTORNEY_DEEP_DIVE: DeepDive = {
+  id: "estate-planning-attorney-video",
+  title: "How does compassionate video marketing build trust for estate planning attorneys in Boca Raton?",
+  destinations: "Wealth preservation attorney profiles, family legacy trust explainers, Florida domicile transition videos, and Florida Bar compliant legal marketing.",
+  sections: [
+    {
+      heading: "How does compassionate video marketing build trust for estate planning attorneys in Boca Raton?",
+      paragraphs: [
+        "Estate planning attorneys, trust and estate litigators, and elder law practices in Boca Raton and Palm Beach County rely on thoughtful documentary video to communicate legal wisdom, empathy, and family legacy protection. High-net-worth retirees, business owners, and families establishing trusts require deep interpersonal trust and discretion before sharing sensitive financial affairs and succession plans with legal counsel. Esteban produces distinguished attorney profile films and educational legal explainers on-location in private law offices, mahogany libraries, and conference suites using soft portrait lighting and broadcast wireless audio. Filming highlights thoughtful attorney interviews explaining revocable trusts, asset protection, and Florida residency advantages without aggressive marketing rhetoric. Respectful visual B-roll captures document review, client consultations, and scholarly research with polished dignity. These authentic video assets position attorneys as trusted family advisors. For related legal video production services, explore [video marketing for personal injury lawyers Miami](/services/personal-injury-lawyer-video-miami); to evaluate production options, visit our [pricing page](/pricing).",
+      ],
+    },
+    {
+      heading: "What video formats help trust and estate lawyers educate affluent families and attract referrals?",
+      paragraphs: [
+        "Law firm managing partners and legal marketing coordinators require professional video assets that educate prospective clients, respect Florida Bar advertising guidelines, and strengthen referral networks with wealth managers and CPA firms. Esteban collaborates with attorneys to record conversational video explainers addressing common client concerns such as avoiding probate, generational wealth transfer, and healthcare directives. Deliverables include a two-minute firm overview film highlighting attorney credentials and compassionate counsel, supported by a series of sixty-second practice area explainers formatted with clear subtitles for website resource hubs, LinkedIn, and email newsletters. Careful sound design and warm color grading convey institutional stability and personal approachability. These educational assets demystify complex legal topics and convert website readers into qualified initial consultations. To review our published corporate documentary interview cinematography, watch our [Homeowners documentary film](/portfolio/homeowners); to arrange an estate planning video production session in Boca Raton, contact us through our [contact page](/contact).",
+      ],
+    },
+  ],
+};
+
+export const BOUTIQUE_HOTEL_RESORT_DEEP_DIVE: DeepDive = {
+  id: "boutique-hotel-resort-video",
+  title: "How does cinematic video marketing drive direct bookings for boutique hotels in Miami Beach?",
+  destinations: "Oceanfront suite walkthroughs, rooftop pool lounge atmospheres, Art Deco architectural aesthetics, and direct-booking conversion reels.",
+  sections: [
+    {
+      heading: "How does cinematic video marketing drive direct bookings for boutique hotels in Miami Beach?",
+      paragraphs: [
+        "Boutique hotels, historic Art Deco properties, and independent luxury resorts in Miami Beach and South Beach utilize cinematic video marketing to showcase distinctive design, vibrant hospitality atmospheres, and direct-booking benefits to travelers worldwide. Discerning leisure and corporate travelers select boutique hotels for unique character, rooftop pool lounges, and bespoke concierge experiences rather than generic brand uniformity. Esteban captures boutique hotel properties using wide-aperture cinema cameras, handheld gimbals, and warm golden hour lighting to document oceanview suite interiors, poolside mixology, courtyard dining, and evening social ambiance. Filming highlights plush bedding, designer bathroom fixtures, and architectural heritage details that define South Beach luxury. These experiential hotel films transport prospective guests into the guest experience, increasing direct reservations and reducing reliance on high-commission online travel agencies. For related luxury hospitality filming, explore our [fine dining restaurant videographer Miami](/services/fine-dining-restaurant-videographer-miami); to evaluate production rates, check our [pricing page](/pricing).",
+      ],
+    },
+    {
+      heading: "What video assets maximize guest bookings across hotel websites and social media channels?",
+      paragraphs: [
+        "General managers, hotel marketing directors, and boutique hospitality groups require dynamic video assets tailored for homepage hero headers, room booking engines, and paid social travel campaigns. Esteban coordinates multi-day filming schedules capturing morning yoga sessions, midday pool vibrancy, and late-night lounge cocktail culture without disrupting hotel guests. Deliverables include a flagship ninety-second hotel experience brand film, individual room category walkthroughs, and eight vertical 9:16 reels formatted with energetic music and on-screen text highlighting direct-booking perks like complimentary breakfast or late checkout. Precise color grading enhances pastel Art Deco facades, turquoise ocean waters, and intimate evening lighting schemes. These compelling video assets inspire travelers to book directly through the hotel website. To examine our verified on-location hospitality cinematography, watch our published [Bar Door Monkey commercial spot](/portfolio/bar-door-monkey); to schedule a boutique hotel video production shoot in Miami Beach, reach out via our [contact page](/contact).",
+      ],
+    },
+  ],
+};
+
+

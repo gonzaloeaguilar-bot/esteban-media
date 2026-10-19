@@ -1,9 +1,9 @@
 {
   "status": "demand_gated",
   "effectiveDate": "2026-08-28",
-  "baselineRevisedOn": "2026-10-18",
-  "approvedSitemapUrlCount": 470,
-  "approvedSitemapUrlSetSha256": "75346697dbadcb1d3899bc15d198c97c0a9c001a56726dc358b19736779d9ca4",
+  "baselineRevisedOn": "2026-10-19",
+  "approvedSitemapUrlCount": 490,
+  "approvedSitemapUrlSetSha256": "82d16bc5ff96ac8e4001def741d40215fc8287966f98415b72c59f80073c329f",
   "allowedNewIndexableUrls": 4,
   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {
@@ -636,6 +636,37 @@
       "demandEvidence": "Demonstrated search demand and capability: Med Spa and Plastic Surgeon Video Marketing Miami (monthly content days, injector demos, before/afters, consult bookings; aesthetic medical proof), Contractor Video Marketing for Roofing HVAC Solar Florida (crew features, storm season, elevated project overviews; trade proof), Quinceanera Videographer Miami (multicam ceremony and vertical reels; live event proof), Multicam Podcast Video Production Miami (recurring studio filming and social clips; episodic studio proof), Video Marketing for Personal Injury Lawyers Miami (Florida Bar compliant attorney profiles and client testimonials; legal proof), Private School Admissions Video Miami (campus walkthroughs and student testimonial films; educational proof), Exotic Car Rental Video Marketing Miami (cinematic vehicle showcases and vertical reels for social; automotive proof), Car Dealership Video Marketing South Florida (monthly inventory walkarounds and brand films; Frontline Auto case study proof), Fort Lauderdale Boat Show Exhibitor Video (booth content, vessel walkthroughs, and recap films; time-sensitive marine proof), Art Basel and Miami Art Week Video Coverage (gallery recaps, artist profiles, brand activations; cultural event proof).",
       "note": "TWENTY URLs = ten bilingual pairs. Recorded as one owner-ordered expansion batch.",
       "followUpDate": "2026-11-18",
+      "followUp": "Check GSC impressions, indexed status, and CTA clicks for all 20 URLs at 14 and 30 days."
+    },
+    {
+      "on": "2026-10-19",
+      "url": [
+        "/services/private-aviation-video-production-miami",
+        "/es/video-para-aviacion-privada-y-jets-miami",
+        "/services/equestrian-polo-videographer-wellington",
+        "/es/videografo-de-polo-y-equitacion-wellington",
+        "/services/yacht-refit-boatyard-video-fort-lauderdale",
+        "/es/video-para-astilleros-y-reparacion-de-yates-fort-lauderdale",
+        "/services/country-club-golf-community-video-palm-beach",
+        "/es/video-para-clubes-de-golf-y-country-clubs-palm-beach",
+        "/services/luxury-pool-builder-video-marketing-south-florida",
+        "/es/video-marketing-para-constructores-de-piscinas-south-florida",
+        "/services/regenerative-medicine-stem-cell-video-miami",
+        "/es/video-para-clinicas-de-medicina-regenerativa-miami",
+        "/services/b2b-client-case-study-video-production-miami",
+        "/es/produccion-de-casos-de-estudio-en-video-para-empresas-miami",
+        "/services/interior-design-millwork-video-miami",
+        "/es/video-para-disenadores-de-interiores-y-ebanisteria-miami",
+        "/services/estate-planning-attorney-video-boca-raton",
+        "/es/video-para-abogados-de-planificacion-patrimonial-boca-raton",
+        "/services/boutique-hotel-resort-video-miami-beach",
+        "/es/video-marketing-para-hoteles-boutique-miami-beach"
+      ],
+      "orderedBy": "Gonzalo (in-session 2026-10-19: explicit request 'consult with claude codex and muse and yes use sub agents to build the top 10 and the wave 6 all of them + ensure we are using the visual direction of the homepage and common components all properly tag and findable via ai')",
+      "kind": "demand-backed high-value niche expansions (wave 6: private aviation, equestrian polo, yacht refit boatyard, country club golf, luxury pool builder, regenerative medicine, b2b client case study, interior design millwork, estate planning attorney, boutique hotel resort)",
+      "demandEvidence": "Demonstrated search demand and capability: Private Aviation Video Production Miami (FBO tarmac, luxury cabin interiors, charter bookings; commercial transport proof), Equestrian & Polo Videographer Wellington (high-goal tournament chukkers, sport horse sales, estate walkthroughs; sporting event proof), Yacht Refit & Boatyard Video Fort Lauderdale (drydock haul-outs, hull painting, teak restoration, New River shipyards; marine proof), Country Club & Golf Community Video Palm Beach (championship course layouts, clubhouse dining, prospective member recruitment; luxury lifestyle proof), Luxury Custom Pool Builder Video South Florida (vanishing edge pools, summer kitchens, twilight fire features; trade proof), Regenerative Medicine & Stem Cell Clinic Video Miami (physician explanations, cellular processing, mobility recovery stories; clinical proof), B2B Client Case Study Video Production Miami (enterprise customer interviews, ROI proof, software workflows; corporate documentary proof), Luxury Interior Design & Millwork Video Miami (custom cabinetry, architectural lighting, Design District showrooms; architectural proof), Estate Planning & Trust Attorney Video Boca Raton (wealth preservation, family legacy trusts, Florida Bar compliant profiles; legal proof), Boutique Hotel & Historic Resort Video Miami Beach (oceanfront suites, rooftop pool atmospheres, direct-booking conversion; hospitality proof).",
+      "note": "TWENTY URLs = ten bilingual pairs. Recorded as one owner-ordered expansion batch.",
+      "followUpDate": "2026-11-19",
       "followUp": "Check GSC impressions, indexed status, and CTA clicks for all 20 URLs at 14 and 30 days."
     }
   ]

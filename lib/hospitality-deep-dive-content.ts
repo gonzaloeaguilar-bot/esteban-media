@@ -1155,3 +1155,184 @@ export const ART_BASEL_MIAMI_ART_WEEK_ES_SECTIONS: readonly SpanishNicheSection[
   },
 ];
 
+export const PRIVATE_AVIATION_VIDEO_ES_DISCLOSURE = "¿Cómo se produce video para aviación privada y vuelos chárter en Miami?";
+export const PRIVATE_AVIATION_VIDEO_ES_DESTINATIONS = "Hangares ejecutivos, cabinas de jets privados, cabinas de mando y piezas de video para reservas chárter.";
+
+export const PRIVATE_AVIATION_VIDEO_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo impulsa el video cinematográfico las reservas y venta de jets privados en Miami?",
+    paragraphs: [
+      "Los operadores de vuelos chárter, empresas de gestión de aeronaves y brókeres de aviación ejecutiva en los aeropuertos de Miami Executive, Miami-Opa Locka y Fort Lauderdale utilizan producciones audiovisuales de alto nivel para exhibir sus flotas y captar pasajeros de negocios. Los viajeros corporativos y familias de alto patrimonio evalúan minuciosamente el espacio de cabina, la ergonomía de los asientos, la capacidad de equipaje y el confort a bordo antes de contratar un vuelo privado. Esteban filma aeronaves en hangares y terminales FBO privadas utilizando cámaras de sensor completo estabilizadas, ópticas angulares que realzan la amplitud interior sin deformaciones y esquemas de iluminación suave que destacan tapicerías de cuero, ebanistería pulida y suites ejecutivas sin reflejos molestos. Tomas de gran nitidez documentan cocinas de a bordo, zonas de descanso y sistemas avanzados de aviónica con rigor técnico. Para producciones afines en transporte de lujo, consulte [video para agencias de carros exóticos en Miami](/es/video-para-agencias-de-carros-exoticos-miami); para conocer tarifas, explore [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué entregables audiovisuales aceleran la contratación de vuelos chárter y corretaje de aviones?",
+    paragraphs: [
+      "Los directores comerciales de aviación y corredores de aeronaves precisan piezas audiovisuales ágiles adaptadas a plataformas de reservas, catálogos internacionales de venta y redes profesionales como LinkedIn. Esteban coordina filmaciones fluidas adaptadas a las ventanas de mantenimiento en tierra y a los protocolos de seguridad aeroportuaria. Los entregables comprenden un video principal de dos minutos centrado en autonomía de vuelo, distribución interior y comodidades a bordo, junto con cuatro cápsulas verticales optimizadas para Instagram Reels y LinkedIn que muestran la experiencia de embarque exclusivo y servicios ejecutivos. En posproducción, una gradación de color precisa realza las texturas nobles de la cabina y el fuselaje exterior, mientras un tratamiento acústico limpio suprime el zumbido de turbinas. Estas piezas diferencian a los operadores locales y aceleran las decisiones de reserva y compraventa. Para evaluar trabajos cinematográficos verificados, examine el [anuncio de Bar Door Monkey](/es/portafolio/bar-door-monkey); para coordinar una grabación en hangar, escríbanos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const EQUESTRIAN_POLO_VIDEO_ES_DISCLOSURE = "¿Cómo se realiza la videografía ecuestre y de torneos de polo en Wellington?";
+export const EQUESTRIAN_POLO_VIDEO_ES_DESTINATIONS = "Partidos de polo de alto hándicap, pistas de salto ecuestre, fincas hípicas y videos de venta de caballos de deporte.";
+
+export const EQUESTRIAN_POLO_VIDEO_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo documenta el video cinematográfico la alta competición de polo y salto en Wellington?",
+    paragraphs: [
+      "Los clubes de polo, criaderos de caballos deportivos, cuadras de salto y fincas ecuestres exclusivas en Wellington y el condado de Palm Beach requieren una producción audiovisual experta que refleje la intensidad deportiva y el valor de los ejemplares de competición. El polo de alto hándicap y la hípica internacional combinan velocidad atlética, nobleza equina y una arraigada tradición social donde el conocimiento del comportamiento animal y la precisión en los tiempos de cámara resultan cruciales. Esteban filma eventos hípicos empleando cámaras de alta velocidad de fotogramas, teleobjetivos con seguimiento continuo y estabilizadores que acompañan el ritmo de los chukkers y los recorridos de salto sin perturbar a los caballos. Planos dinámicos registran el movimiento de tacos, la pisada sobre el césped y la destreza del jinete frente a las gradas de Wellington. Para producciones de eventos y deportes de prestigio, consulte [videógrafo de pesca deportiva en Miami](/es/videografo-de-pesca-deportiva-miami); para tarifas, visite [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué piezas audiovisuales facilitan la venta internacional de caballos de deporte y fincas hípicas?",
+    paragraphs: [
+      "Los preparadores ecuestres, yeguadas y consultores inmobiliarios especializados en fincas hípicas precisan recursos visuales completos para mostrar la morfología, el tranco y las instalaciones a compradores internacionales. Esteban colabora con los responsables de cuadra para coordinar sesiones seguras que registran la inspección veterinaria en pista, sesiones de entrenamiento sobre obstáculos y la arquitectura de boxes y guadarneses. Los entregables comprenden un video de presentación de tres minutos para la comercialización del ejemplar, junto con cápsulas verticales con rótulos claros sobre genealogía, palmarés deportivo e historial sanitario para distribución por WhatsApp e Instagram. Para propiedades ecuestres, recorridos fluidos muestran pistas cubiertas, caminadores y viviendas para mozos. Estos materiales permiten a compradores de Europa y Latinoamérica tomar decisiones informadas con plena confianza. Para comprobar nuestra sensibilidad visual en celebraciones y deportes, vea la [película de Diana y Jack](/es/portafolio/diana-jack); para organizar una filmación ecuestre en Wellington, contáctenos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const YACHT_REFIT_BOATYARD_ES_DISCLOSURE = "¿Cómo apoya el video técnico a los astilleros y empresas de reparación de yates en Fort Lauderdale?";
+export const YACHT_REFIT_BOATYARD_ES_DESTINATIONS = "Varaderos y diques secos, pintura de cascos, ebanistería marina en teca y documentación de reformas navales.";
+
+export const YACHT_REFIT_BOATYARD_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo respalda el video de astilleros la reputación técnica de las empresas navales en Fort Lauderdale?",
+    paragraphs: [
+      "Los astilleros de refit, varaderos, talleres de carpintería naval y empresas de ingeniería marina situados junto al New River, Marina Mile y Dania Cut-Off Canal en Fort Lauderdale dependen de la documentación audiovisual para demostrar su capacidad técnica, capacidad de izada y destreza artesanal. Los armadores de superyates, capitanes y directores de flota encomiendan reformas de gran presupuesto únicamente tras comprobar los estándares de seguridad de las instalaciones, la pericia de los oficios y el rigor en los plazos de entrega. Esteban registra proyectos de refit utilizando cámaras de lapso de tiempo, equipos estabilizados resistentes a la intemperie y lentes macro que capturan la soldadura de precisión, el calafateo de cubiertas de teca y el alisado de cascos. Las filmaciones siguen la varada en pórticos automotores, la remotorización y la transformación de interiores con solvencia documental. Para producciones afines en superyates, examine [marketing de video para superyates en Fort Lauderdale](/es/marketing-de-video-para-superyates-fort-lauderdale); para planes de producción, visite [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué formatos en video permiten a los varaderos captar contratos de gran eslora?",
+    paragraphs: [
+      "Los directores comerciales de astilleros y coordinadores de proyectos navales precisan memorias audiovisuales para acreditar sus intervenciones ante armadores, gabinetes de peritaje y firmas de gestión de yates de todo el mundo. Esteban diseña planes de grabación continuos que cubren desde la entrada en dique seco hasta las pruebas finales de mar. Los entregables incluyen un video corporativo de tres minutos sobre la infraestructura del astillero, talleres de mecanizado y gremios especializados, respaldado por informes audiovisuales periódicos y piezas verticales para redes que muestran el antes y después de salas de máquinas, cubiertas y puentes de mando. Gráficos en pantalla detallan arqueo, eslora y normativas de clasificación naval. Este material ofrece a los capitanes la seguridad de un trabajo minucioso y puntual. Para examinar nuestra experiencia en rodajes marítimos, explore la [película de Diana y Jack](/es/portafolio/diana-jack); para planificar una producción en astillero en Fort Lauderdale, escríbanos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const COUNTRY_CLUB_GOLF_COMMUNITY_ES_DISCLOSURE = "¿Cómo ayuda el video cinematográfico a los clubes de golf y comunidades privadas en Palm Beach?";
+export const COUNTRY_CLUB_GOLF_COMMUNITY_ES_DESTINATIONS = "Recorridos de campos de golf de campeonato, casas club, instalaciones de tenis y pádel, y membresías sociales.";
+
+export const COUNTRY_CLUB_GOLF_COMMUNITY_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo ayuda el video de estilo de vida a captar nuevos socios en los clubes de golf de Palm Beach?",
+    paragraphs: [
+      "Los clubes de golf privados, urbanizaciones campestres y clubes deportivos exclusivos en Palm Beach, Boca Raton y Jupiter emplean videos de producción cuidada para atraer nuevos miembros, poner en valor reformas del campo y consolidar la vida social comunitaria. Las familias y jugadores de alto nivel valoran el diseño del trazado, el ambiente de la casa club, las instalaciones de bienestar y las actividades familiares antes de solicitar su admisión o abonar cuotas de entrada. Esteban realiza películas institucionales empleando cámaras de cine sobre soportes estabilizados y puntos de vista elevados que muestran calles, greenes ondulados y lagos con la luz del amanecer. Las filmaciones presentan terrazas gastronómicas, pistas de raqueta, gimnasios modernos y torneos sociales con sobriedad y distinción. Estas piezas audiovisuales transmiten un sentimiento auténtico de pertenencia. Para explorar servicios en hospitalidad de lujo, consulte [video para hospitalidad en yates en Fort Lauderdale](/es/video-para-hospitalidad-en-yates-fort-lauderdale); para detalles de inversión, revise [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué contenidos audiovisuales impulsan la incorporación de miembros y la venta de residencias?",
+    paragraphs: [
+      "Los directores generales de clubes, responsables de admisión y promotores inmobiliarios precisan recursos de video orientados a zonas privadas de miembros, campañas selectas de invitación y presentación de villas en el entorno del campo. Esteban colabora con la gerencia para filmar durante el horario habitual sin interferir en el juego ni comprometer la privacidad de los socios. Los entregables comprenden una película principal de cuatro minutos sobre el estilo de vida del club, recorridos detallados hoyo por hoyo y piezas breves para redes enfocadas en cenas de maridaje, escuelas juveniles y bienestar. Un etalonaje sutil realza el verdor del paisaje y la calidez de los salones interiores manteniendo un audio ambiental sereno. Estos videos duraderos atraen solicitudes de socios cualificados y revalorizan las propiedades residenciales del complejo. Para ver nuestro trabajo visual en eventos distinguidos, examine la [película de Diana y Jack](/es/portafolio/diana-jack); para solicitar una producción en Palm Beach, escríbanos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const LUXURY_POOL_BUILDER_ES_DISCLOSURE = "¿Cómo impulsa el video la contratación de piscinas de lujo y áreas exteriores en South Florida?";
+export const LUXURY_POOL_BUILDER_ES_DESTINATIONS = "Piscinas desbordantes con borde infinito, cocinas de verano, seguimiento de obra y efectos nocturnos de fuego y agua.";
+
+export const LUXURY_POOL_BUILDER_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo ayuda el video a los constructores de piscinas de lujo a cerrar proyectos a medida en South Florida?",
+    paragraphs: [
+      "Los constructores de piscinas a medida, paisajistas y contratistas de zonas exteriores en Miami, Fort Lauderdale y Boca Raton utilizan videos de obra acabada para demostrar solvencia constructiva, acabados artesanales e innovación técnica a propietarios exigentes. Un espacio exterior de alta gama representa una inversión patrimonial relevante que exige cálculos hidráulicos precisos, bordes infinitos, spas integrados y cocinas al aire libre. Esteban filma proyectos exteriores empleando cámaras cinematográficas de amplio rango dinámico, soportes a ras de agua y estabilizadores que capturan los reflejos del agua, el mármol travertino y los revestimientos vítreos con fidelidad fotográfica. El rodaje documenta los pasos de la obra —desde el armado de acero y proyección de hormigón hasta el revestimiento y la iluminación crepuscular con pebeteros de fuego—. Estas filmaciones justifican presupuestos elevados frente a competidores con simples fotografías fijas. Para proyectos constructivos afines, consulte [video marketing para contratistas en Florida](/es/video-marketing-para-contratistas-florida); para conocer planes de tarifa, examine [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué formatos audiovisuales generan mayores solicitudes de diseño para estudios de piscinas?",
+    paragraphs: [
+      "Los directores comerciales y estudios de arquitectura exterior precisan materiales visuales que convenzan tanto en redes sociales como en presentaciones privadas de presupuestos. Esteban graba los proyectos en la hora dorada y en el crepúsculo para apreciar el juego de luces acuáticas, fuentes y cascadas sobre el cielo nocturno de South Florida. Los entregables comprenden un caso de estudio de dos minutos con explicaciones del constructor y testimonios del propietario, complementado con ocho piezas verticales que destacan sonidos de agua, barras sumergidas y domótica para Instagram Reels y TikTok. Rótulos en pantalla indican dimensiones, calidades de materiales y plazos de ejecución. Estas piezas convierten el interés de los visitantes web en reuniones formales de diseño. Para revisar nuestra experiencia en rodajes comerciales en exteriores, examine el [anuncio de Bar Door Monkey](/es/portafolio/bar-door-monkey); para reservar una producción de piscinas de diseño, contáctenos mediante [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const REGENERATIVE_MEDICINE_STEM_CELL_ES_DISCLOSURE = "¿Cómo divulga el video clínico los tratamientos de medicina regenerativa en Miami?";
+export const REGENERATIVE_MEDICINE_STEM_CELL_ES_DESTINATIONS = "Explicaciones médicas, preparación en laboratorio biológico, tratamientos ecoguiados y testimonios de movilidad.";
+
+export const REGENERATIVE_MEDICINE_STEM_CELL_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo educa el video profesional a los pacientes sobre terapias celulares y regenerativas en Miami?",
+    paragraphs: [
+      "Los médicos especialistas en medicina regenerativa, biológicos ortopédicos y clínicas de longevidad en Miami, Coral Gables y Doral emplean videos rigurosos para explicar tratamientos innovadores y protocolos científicos a pacientes de todo el país. Quienes valoran terapias celulares avanzadas o plasma rico en plaquetas investigan exhaustivamente antes de acudir a consulta, demandando claridad médica, credenciales acreditadas y descripciones serias del procedimiento para disipar dudas. Esteban colabora con centros médicos bajo estrictas pautas de confidencialidad y consentimiento del paciente, utilizando ópticas macro, iluminación clínica difusa y soportes estables para documentar consultas, aislamiento celular en laboratorio esterilizado y aplicaciones articulares ecoguiadas. Las grabaciones resaltan el instrumental técnico, la asepsia del entorno y el diálogo profesional sin recurrir a promesas sensacionalistas. Estos contenidos consolidan la confianza del paciente y aumentan las solicitudes de valoración médica. Para producciones en salud estética afines, explore [video para spas médicos y cirujanos plásticos en Miami](/es/video-para-med-spas-y-cirujanos-plasticos-miami); para conocer opciones, visite [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué piezas audiovisuales cumplen con las normativas sanitarias y generan consultas cualificadas?",
+    paragraphs: [
+      "Los directores de clínicas y responsables de comunicación médica precisan contenidos audiovisuales que respeten los códigos deontológicos, eviten afirmaciones curativas no contrastadas y pongan en valor la experiencia científica del equipo facultativo. Esteban planifica las sesiones durante el horario de consulta para registrar explicaciones pedagógicas de los procesos biológicos y testimonios sinceros de recuperación con autorizaciones formales firmadas. Los entregables comprenden un video institucional de tres minutos sobre la filosofía clínica y la tecnología del laboratorio, acompañado de seis a ocho piezas verticales que resuelven dudas frecuentes sobre selección de candidatos, fases del tratamiento y cuidados posteriores. Rótulos tipográficos nítidos facilitan la asimilación de conceptos médicos y orientan hacia la reserva de citas. Estas piezas elevan la reputación del centro médico ante pacientes nacionales e internacionales. Para comprobar trabajos clínicos documentales, vea el [caso de estudio de Healthy Smile Miami](/es/portafolio/healthy-smile); para coordinar una grabación médica en Miami, contáctenos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const B2B_CLIENT_CASE_STUDY_ES_DISCLOSURE = "¿Cómo reducen los ciclos comerciales los videos de casos de estudio B2B en Miami?";
+export const B2B_CLIENT_CASE_STUDY_ES_DESTINATIONS = "Entrevistas a clientes empresariales, imágenes de operaciones en oficina, métricas de retorno y testimonios corporativos.";
+
+export const B2B_CLIENT_CASE_STUDY_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo agilizan la venta compleja los videos de casos de éxito y testimonios empresariales en Miami?",
+    paragraphs: [
+      "Las empresas de software corporativo, firmas de servicios financieros, consultoras estratégicas y operadores logísticos en Miami, Brickell y Coral Gables confían en casos de estudio en video para respaldar su propuesta de valor, demostrar retornos de inversión medibles y acortar los procesos de venta con clientes corporativos. Los comités de compras y directores de tecnología demandan pruebas verificables de implantaciones exitosas, satisfacción de usuarios y ahorros de costes antes de firmar acuerdos de envergadura. Esteban produce casos de éxito empresariales en sedes corporativas o salas de juntas utilizando cámaras de cine de alta resolución, iluminación suave de entrevista y microfonía profesional. La grabación combina diálogos sinceros de directivos con imágenes ágiles de equipos trabajando con el software, cuadros de mandos analíticos y operativas diarias. Estos testimonios aportan una validación indiscutible entre pares que despeja objeciones en presentaciones comerciales. Para servicios corporativos complementarios, consulte [producción de video corporativo en Brickell](/es/produccion-de-video-corporativo-brickell); para tarifas, visite [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué formatos audiovisuales ayudan a los equipos de ventas B2B a cerrar acuerdos más rápido?",
+    paragraphs: [
+      "Los directores de marketing B2B y responsables de habilitación de ventas necesitan recursos visuales modulares que puedan integrarse en presentaciones comerciales, secuencias de correo electrónico y campañas en LinkedIn. Esteban trabaja con los equipos de producto para estructurar guiones de entrevista que resalten métricas concretas, el reto operativo inicial y los beneficios cuantitativos obtenidos. Los entregables comprenden un caso de estudio principal de tres minutos con la historia completa de colaboración, dos cortes específicos de un minuto centrados en la faceta técnica y el impacto estratégico, y tres piezas verticales con subtítulos animados para redes profesionales. Una corrección cromática limpia y rótulos acordes a la identidad corporativa garantizan coherencia institucional. Estos activos audiovisuales otorgan a los representantes comerciales herramientas convincentes para cerrar contratos anuales. Para evaluar nuestro trabajo documental corporativo, examine la [película documental de Homeowners](/es/portafolio/homeowners); para producir casos de estudio en video para empresas, escríbanos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const INTERIOR_DESIGN_MILLWORK_ES_DISCLOSURE = "¿Cómo retrata el video la ebanistería a medida y el diseño de interiores en Miami?";
+export const INTERIOR_DESIGN_MILLWORK_ES_DESTINATIONS = "Carpintería arquitectónica, cocinas de alta gama, recorridos con diseñadores y exposiciones en el Distrito de Diseño.";
+
+export const INTERIOR_DESIGN_MILLWORK_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo resalta el video cinematográfico el detalle y la espacialidad en proyectos de interiorismo en Miami?",
+    paragraphs: [
+      "Los estudios de diseño de interiores, talleres de ebanistería arquitectónica, carpinteros artesanos y salas de exposición exclusivas en el Distrito de Diseño de Miami, Coral Gables y Coconut Grove emplean videos cuidados para documentar instalaciones residenciales a medida y la textura de materiales nobles. Los clientes de residencias de lujo y los arquitectos valoran especialmente la precisión de las juntas, el calado de maderas selectas, los herrajes ocultos y la iluminación integrada que definen la excelencia en la obra. Esteban filma espacios interiores utilizando deslizadores de cámara estabilizados, objetivos arquitectónicos libres de distorsión y calibración lumínica que respeta la luz natural diurna. La cámara recorre transiciones entre estancias, detalles táctiles de chapas de madera y mármoles estriados, junto a explicaciones del diseñador sobre la coherencia conceptual del espacio. Estas películas transmiten el virtuosismo del diseño interior. Para producciones residenciales afines, explore [recorrido en video de penthouses de lujo en Miami](/es/recorrido-en-video-de-penthouses-de-lujo-miami); para tarifas, visite [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué entregables en video ayudan a los interioristas a conseguir encargos residenciales de alto nivel?",
+    paragraphs: [
+      "Los interioristas principales, maestros ebanistas y gerentes de salas de exposición precisan piezas visuales sobresalientes para candidaturas a premios de diseño, catálogos web y difusión en redes sociales. Esteban organiza las grabaciones tras la fase de montaje final para filmar las viviendas y ambientes decorados en su estado más impecable. Los entregables incluyen un recorrido cinematográfico de tres minutos con comentarios del diseñador sobre proporciones y soluciones a medida, respaldado por cuatro a seis cápsulas verticales centradas en tiradores singulares, puertas enrasadas y cambios lumínicos del día a la noche. Un etalonaje de alta definición reproduce con exactitud los tonos de tapicerías, pinturas y barnices sin saturaciones artificiales. Estas piezas sitúan al estudio como referencia indiscutible y atraen propietarios de alto patrimonio. Para examinar nuestra iluminación en rodajes comerciales, vea el [anuncio de Bar Door Monkey](/es/portafolio/bar-door-monkey); para reservar una producción de diseño interior en Miami, contáctenos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const ESTATE_PLANNING_ATTORNEY_ES_DISCLOSURE = "¿Cómo construye confianza el video sereno para abogados de planificación patrimonial en Boca Raton?";
+export const ESTATE_PLANNING_ATTORNEY_ES_DESTINATIONS = "Perfiles de abogados de patrimonios, explicación de fideicomisos familiares, traslados de domicilio a Florida y ética legal.";
+
+export const ESTATE_PLANNING_ATTORNEY_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo ayuda el video institucional y cercano a los abogados de sucesiones y patrimonios en Boca Raton?",
+    paragraphs: [
+      "Los despachos de abogados especializados en planificación patrimonial, gestión de fideicomisos y derecho sucesorio en Boca Raton y el condado de Palm Beach recurren a producciones audiovisuales sobrias para comunicar experiencia jurídica, empatía y protección del legado familiar. Las familias de alto patrimonio y jubilados que trasladan su residencia a la Florida necesitan una profunda confianza antes de compartir sus acuerdos patrimoniales y planes de sucesión con un letrado. Esteban produce videos institucionales y piezas divulgativas en despachos privados, bibliotecas jurídicas y salas de reuniones empleando iluminación cuidada de retrato y sonido nítido sin reverberaciones. Las grabaciones muestran conversaciones claras del abogado explicando fideicomisos revocables, protección de activos y ventajas del domicilio fiscal en Florida sin recurrir a lenguajes comerciales agresivos. Planos de apoyo discretos presentan el análisis de documentos y la consulta profesional con distinción. Para producciones afines en el ámbito legal, explore [video para abogados de lesiones personales en Miami](/es/video-para-abogados-de-lesiones-personales-miami); para conocer opciones de contratación, consulte [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué formatos audiovisuales permiten a los letrados educar a familias y consolidar alianzas profesionales?",
+    paragraphs: [
+      "Los socios directores de bufetes y encargados de marketing legal precisan videos cuidados que respeten las normas del Colegio de Abogados de Florida, aporten claridad a los clientes y refuercen la colaboración con gestores patrimoniales y asesores fiscales. Esteban estructura las filmaciones para registrar explicaciones pedagógicas sobre cómo evitar procedimientos sucesorios largos, planificar la sucesión generacional y gestionar voluntades anticipadas. Los entregables comprenden un video corporativo de dos minutos centrado en la trayectoria del bufete y el trato humano, apoyado por una serie de explicaciones de un minuto con subtítulos para el portal del despacho, LinkedIn y boletines informativos. Una posproducción refinada transmite estabilidad institucional y cercanía personal. Estos recursos facilitan la comprensión de temas jurídicos complejos y convierten lectores web en consultas iniciales. Para revisar nuestra experiencia en entrevistas documentales corporativas, vea la [película documental de Homeowners](/es/portafolio/homeowners); para coordinar una grabación de planificación patrimonial en Boca Raton, escríbanos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const BOUTIQUE_HOTEL_RESORT_ES_DISCLOSURE = "¿Cómo fomenta las reservas directas el video marketing para hoteles boutique en Miami Beach?";
+export const BOUTIQUE_HOTEL_RESORT_ES_DESTINATIONS = "Suites frente al mar, piscinas en azotea, arquitectura Art Decó y piezas de video orientadas a la reserva directa.";
+
+export const BOUTIQUE_HOTEL_RESORT_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo cautiva a los viajeros el video cinematográfico para hoteles boutique en Miami Beach?",
+    paragraphs: [
+      "Los hoteles boutique, establecimientos con encanto y complejos independientes en Miami Beach y South Beach emplean el video cinematográfico para reflejar su personalidad estética, su gastronomía y las ventajas de reservar directamente frente a los grandes buscadores hoteleros. Los huéspedes de ocio y ejecutivos eligen estos hoteles por su arquitectura singular, sus terrazas con piscina en azotea y una atención personalizada que huye de las cadenas estandarizadas. Esteban filma propiedades boutique utilizando cámaras de gran formato, estabilizadores de mano e iluminación natural al atardecer para captar suites con vistas al océano, cócteles de autor junto a la piscina y el ambiente nocturno en salones y patios. El rodaje resalta la lencería de cama, los detalles de diseño en baños y las fachadas históricas Art Decó que definen la esencia de Miami Beach. Estos videos sumergen al viajero en la estancia y aumentan las reservas directas. Para proyectos en hostelería de alto nivel, explore [videógrafo para restaurantes de alta cocina en Miami](/es/videografo-para-restaurantes-de-alta-cocina-miami); para tarifas, revise [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué piezas en video convierten visitas web en reservas hoteleras confirmadas?",
+    paragraphs: [
+      "Los directores generales de hoteles, directores de marketing y grupos de hostelería independiente precisan contenidos dinámicos para encabezados de página web, motores de reserva y campañas en redes sociales. Esteban planifica los rodajes para registrar el ambiente matinal, las horas de piscina y la vida nocturna en la coctelería sin incomodar a los huéspedes alojados. Los entregables comprenden un video principal de noventa segundos sobre la experiencia global del hotel, recorridos breves por categorías de habitación y ocho piezas verticales con música atractiva y rótulos que destacan beneficios de la reserva directa como desayuno incluido o salida tardía. Una gradación de color profesional ensalza los tonos pastel característicos de la arquitectura local y los azules del mar. Estos materiales motivan a los viajeros a reservar directamente en la web del hotel. Para comprobar nuestra labor en rodajes de hospitalidad, vea el [anuncio de Bar Door Monkey](/es/portafolio/bar-door-monkey); para planificar una producción en un hotel de Miami Beach, contáctenos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+
