@@ -139,6 +139,10 @@
   "date": "2026-10-16",
   "hash": "1c5a8e15c4dff4e4"
  },
+ "/es/cobertura-de-video-art-basel-miami-art-week": {
+  "date": "2026-10-19",
+  "hash": "f313bc63f0bf99e3"
+ },
  "/es/contacto": {
   "date": "2026-10-11",
   "hash": "a620c8953747c209"
@@ -563,6 +567,10 @@
   "date": "2026-10-07",
   "hash": "b331989a8d0359ef"
  },
+ "/es/marketing-de-video-para-concesionarios-south-florida": {
+  "date": "2026-10-18",
+  "hash": "9dcf32f082299009"
+ },
  "/es/marketing-de-video-para-consultorios-medicos-miami": {
   "date": "2026-10-06",
   "hash": "028ac10f6abb854e"
@@ -707,6 +715,10 @@
   "date": "2026-10-14",
   "hash": "632b13b1ea4bc2ab"
  },
+ "/es/produccion-de-podcast-con-multicamara-miami": {
+  "date": "2026-10-19",
+  "hash": "aede65887e848c70"
+ },
  "/es/produccion-de-video-de-marca-miami": {
   "date": "2026-08-15",
   "hash": "209a984cf9851bee"
@@ -791,6 +803,10 @@
   "date": "2026-08-14",
   "hash": "1c43c1782862ed41"
  },
+ "/es/video-de-admisiones-para-colegios-privados-miami": {
+  "date": "2026-10-19",
+  "hash": "0927aaece3a19c6f"
+ },
  "/es/video-de-biografia-ejecutiva-miami": {
   "date": "2026-10-19",
   "hash": "d1e7f2a3adeec883"
@@ -819,9 +835,21 @@
   "date": "2026-09-15",
   "hash": "cfce623695359302"
  },
+ "/es/video-marketing-para-contratistas-florida": {
+  "date": "2026-10-18",
+  "hash": "a6743e37561b39c8"
+ },
+ "/es/video-para-abogados-de-lesiones-personales-miami": {
+  "date": "2026-10-19",
+  "hash": "2564131f69f60886"
+ },
  "/es/video-para-academias-de-baile-y-musica-miami": {
   "date": "2026-10-14",
   "hash": "43c61111a9726b0d"
+ },
+ "/es/video-para-agencias-de-carros-exoticos-miami": {
+  "date": "2026-10-19",
+  "hash": "00c63daa43dbe416"
  },
  "/es/video-para-alquileres-vacacionales-fort-lauderdale": {
   "date": "2026-10-14",
@@ -843,6 +871,10 @@
   "date": "2026-10-19",
   "hash": "b840a3daa664de2e"
  },
+ "/es/video-para-expositores-del-boat-show-fort-lauderdale": {
+  "date": "2026-10-19",
+  "hash": "57d1b454ac9712bc"
+ },
  "/es/video-para-marcas-de-cosmeticos-miami": {
   "date": "2026-10-19",
   "hash": "8ade544bb05cf341"
@@ -850,6 +882,10 @@
  "/es/video-para-marcas-de-moda-miami": {
   "date": "2026-10-18",
   "hash": "8d7b58c19e64758b"
+ },
+ "/es/video-para-med-spas-y-cirujanos-plasticos-miami": {
+  "date": "2026-10-19",
+  "hash": "9ffa95c2372ca480"
  },
  "/es/video-para-pequenos-negocios-pembroke-pines": {
   "date": "2026-10-14",
@@ -906,6 +942,10 @@
  "/es/videografo-de-pesca-deportiva-miami": {
   "date": "2026-10-19",
   "hash": "640c35a69ed224af"
+ },
+ "/es/videografo-de-quinceaneras-miami": {
+  "date": "2026-10-19",
+  "hash": "380098a8425a9c62"
  },
  "/es/videografo-en-fort-lauderdale": {
   "date": "2026-10-14",
@@ -1343,6 +1383,10 @@
   "date": "2026-10-13",
   "hash": "f7fc18077fddaccc"
  },
+ "/services/art-basel-miami-art-week-video": {
+  "date": "2026-10-19",
+  "hash": "9e8f941bb556495a"
+ },
  "/services/auto-detailing-tint-wrap-video-marketing-miami": {
   "date": "2026-10-13",
   "hash": "e63d7b93b03808e6"
@@ -1363,6 +1407,10 @@
   "date": "2026-10-18",
   "hash": "9b9c6a01f68e6242"
  },
+ "/services/boat-show-exhibitor-video-fort-lauderdale": {
+  "date": "2026-10-19",
+  "hash": "25097c3984b8b031"
+ },
  "/services/boutique-hotel-video-editing-miami": {
   "date": "2026-10-13",
   "hash": "6823faf5b5d2610b"
@@ -1374,6 +1422,10 @@
  "/services/brewery-craft-distillery-video-miami": {
   "date": "2026-10-19",
   "hash": "836f09b4956817ce"
+ },
+ "/services/car-dealership-video-marketing-south-florida": {
+  "date": "2026-10-19",
+  "hash": "7b3d79b493fc2cce"
  },
  "/services/catering-company-video-miami": {
   "date": "2026-10-19",
@@ -1410,6 +1462,10 @@
  "/services/content-repurposing-service-miami": {
   "date": "2026-10-13",
   "hash": "04f91ca3a81ca008"
+ },
+ "/services/contractor-video-marketing-florida": {
+  "date": "2026-10-19",
+  "hash": "61693e5353b2e626"
  },
  "/services/contractor-video-marketing-south-florida": {
   "date": "2026-10-13",
@@ -1485,7 +1541,11 @@
  },
  "/services/executive-video-bio-production-miami": {
   "date": "2026-10-18",
-  "hash": "4e5bdcddb3a79ce2"
+  "hash": "d66a3681f7698ea2"
+ },
+ "/services/exotic-car-rental-video-miami": {
+  "date": "2026-10-19",
+  "hash": "21a7296a8f67ee58"
  },
  "/services/fashion-lookbook-video-miami": {
   "date": "2026-10-18",
@@ -1559,6 +1619,10 @@
   "date": "2026-10-18",
   "hash": "608befee2aeb8aa3"
  },
+ "/services/med-spa-plastic-surgeon-video-miami": {
+  "date": "2026-10-19",
+  "hash": "9b43109df5a68a43"
+ },
  "/services/med-spa-video-marketing-south-florida": {
   "date": "2026-10-13",
   "hash": "570143b20a436b8b"
@@ -1574,6 +1638,10 @@
  "/services/mortgage-broker-video-marketing-miami": {
   "date": "2026-10-14",
   "hash": "a8573b60c934124c"
+ },
+ "/services/multicam-podcast-video-production-miami": {
+  "date": "2026-10-19",
+  "hash": "5d9ccdb828858f01"
  },
  "/services/music-video-post-production-miami": {
   "date": "2026-10-13",
@@ -1595,6 +1663,10 @@
   "date": "2026-10-14",
   "hash": "807ef73c6e5c6421"
  },
+ "/services/personal-injury-lawyer-video-miami": {
+  "date": "2026-10-19",
+  "hash": "f0d07ec8a7b9096e"
+ },
  "/services/plastic-surgery-video-marketing-miami": {
   "date": "2026-10-13",
   "hash": "0ad6823f6f8c41b1"
@@ -1607,6 +1679,10 @@
   "date": "2026-10-13",
   "hash": "be2039ed1365e1ae"
  },
+ "/services/private-school-admissions-video-miami": {
+  "date": "2026-10-19",
+  "hash": "a35851733462ca59"
+ },
  "/services/product-demo-video-production-miami": {
   "date": "2026-10-18",
   "hash": "5e631dc18c735189"
@@ -1618,6 +1694,10 @@
  "/services/quinceanera-video-miami": {
   "date": "2026-10-13",
   "hash": "af7d3503a42a87c0"
+ },
+ "/services/quinceanera-videographer-miami": {
+  "date": "2026-10-18",
+  "hash": "6cd2110f1fb4f86f"
  },
  "/services/real-estate-drone-video-editing-miami": {
   "date": "2026-10-13",

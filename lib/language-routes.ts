@@ -169,6 +169,26 @@ export const pairedLanguageRoutes: Record<string, string> = {
     "/es/videografo-de-bodas-fort-lauderdale",
   "/services/dance-studio-music-school-video-marketing-miami":
     "/es/video-para-academias-de-baile-y-musica-miami",
+  "/services/med-spa-plastic-surgeon-video-miami":
+    "/es/video-para-med-spas-y-cirujanos-plasticos-miami",
+  "/services/contractor-video-marketing-florida":
+    "/es/video-marketing-para-contratistas-florida",
+  "/services/quinceanera-videographer-miami":
+    "/es/videografo-de-quinceaneras-miami",
+  "/services/multicam-podcast-video-production-miami":
+    "/es/produccion-de-podcast-con-multicamara-miami",
+  "/services/personal-injury-lawyer-video-miami":
+    "/es/video-para-abogados-de-lesiones-personales-miami",
+  "/services/private-school-admissions-video-miami":
+    "/es/video-de-admisiones-para-colegios-privados-miami",
+  "/services/exotic-car-rental-video-miami":
+    "/es/video-para-agencias-de-carros-exoticos-miami",
+  "/services/car-dealership-video-marketing-south-florida":
+    "/es/marketing-de-video-para-concesionarios-south-florida",
+  "/services/boat-show-exhibitor-video-fort-lauderdale":
+    "/es/video-para-expositores-del-boat-show-fort-lauderdale",
+  "/services/art-basel-miami-art-week-video":
+    "/es/cobertura-de-video-art-basel-miami-art-week",
 };
 
 for (const [englishPath, spanishPath] of Object.entries({

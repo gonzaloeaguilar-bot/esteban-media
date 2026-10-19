@@ -2092,6 +2092,176 @@ export const PORTED_SERVICE_FAQS: Readonly<Record<string, readonly ServiceFaq[]>
         "Full interview sessions are cut into an authoritative two-minute master biography for corporate websites, paired with modular vertical video soundbites with captions for LinkedIn.",
     },
   ],
+  "/services/med-spa-plastic-surgeon-video-miami": [
+    {
+      question: "How do you film cosmetic injections and treatments with medical dignity?",
+      answer:
+        "Filming focuses on practitioner consultation, patient comfort, precise hand techniques, and facial anatomy mapping without graphic or uncomfortable close-ups.",
+    },
+    {
+      question: "How are patient privacy and media consent managed for aesthetic video?",
+      answer:
+        "All featured patients complete formal photographic and video media releases confirming voluntary participation and consent prior to camera setup.",
+    },
+    {
+      question: "What video formats perform best for medical spa patient acquisition?",
+      answer:
+        "Short vertical educational reels demonstrating injector expertise, treatment timelines, and realistic recovery expectations drive the highest consultation inquiries.",
+    },
+  ],
+  "/services/contractor-video-marketing-florida": [
+    {
+      question: "How do you capture roofing and solar installations safely without interfering with crews?",
+      answer:
+        "Filming uses ground cinema cameras and extended elevated mast mounts to capture high-angle roof progress without stepping into active safety harness zones.",
+    },
+    {
+      question: "Can you film emergency AC replacements or post-storm roof repairs on short notice?",
+      answer:
+        "Yes. Flexible production scheduling allows rapid jobsite deployment across Florida during storm seasons and peak summer HVAC replacement periods.",
+    },
+    {
+      question: "What video formats help contractors close more estimate presentations?",
+      answer:
+        "Two-minute video case studies detailing complete scope of work and homeowner satisfaction provide powerful digital proof during in-person sales bids.",
+    },
+  ],
+  "/services/quinceanera-videographer-miami": [
+    {
+      question: "How many camera operators are recommended for a full quinceañera event?",
+      answer:
+        "A two-person camera crew ensures continuous multi-angle coverage of church blessings, court dances, and emotional family reactions simultaneously.",
+    },
+    {
+      question: "How is sound captured during loud ballroom music, waltzes, and family toasts?",
+      answer:
+        "Direct audio connections to the DJ soundboard paired with discreet wireless lapel microphones guarantee crystal-clear recording of all speeches.",
+    },
+    {
+      question: "When will our family receive the finished quinceañera highlight video?",
+      answer:
+        "A dynamic vertical social teaser is delivered within one week of the party, with complete documentary films delivered following comprehensive color grading.",
+    },
+  ],
+  "/services/multicam-podcast-video-production-miami": [
+    {
+      question: "Can you film our podcast on-location at our corporate office or private studio?",
+      answer:
+        "Yes. Mobile multi-camera studio kits deploy quickly to private boardrooms, executive offices, or partner studio spaces across South Florida.",
+    },
+    {
+      question: "How are audio tracks treated for room reverberation and air conditioning hum?",
+      answer:
+        "Broadcast dynamic microphones and studio digital sound processing eliminate room reflections and background HVAC noise for pristine speech.",
+    },
+    {
+      question: "Are animated subtitles and custom graphics included for social media clips?",
+      answer:
+        "Yes. Every vertical highlight clip includes dynamic eye-catching subtitles, speaker name tags, and custom visual hooks designed for mobile feeds.",
+    },
+  ],
+  "/services/personal-injury-lawyer-video-miami": [
+    {
+      question: "How do you ensure lawyer video content complies with Florida Bar advertising rules?",
+      answer:
+        "Scripts and visual presentations avoid prohibited dramatizations, guarantees of specific financial outcomes, or misleading characterizations.",
+    },
+    {
+      question: "Where is filming conducted for legal partner interviews and attorney profiles?",
+      answer:
+        "Filming takes place on-location in law firm executive boardrooms, private partner offices, or elegant architectural conference spaces.",
+    },
+    {
+      question: "Can former client testimonial videos be produced without compromising sensitive privacy?",
+      answer:
+        "Yes. Client recovery documentaries focus on attorney communication, emotional support, and legal guidance with signed client authorizations.",
+    },
+  ],
+  "/services/private-school-admissions-video-miami": [
+    {
+      question: "How do you film classrooms and campus life without disrupting ongoing student instruction?",
+      answer:
+        "Compact camera rigs and natural classroom ambient lighting allow silent documentary capture of lessons, labs, and collaborative projects.",
+    },
+    {
+      question: "How are student media releases and campus privacy protocols handled during filming?",
+      answer:
+        "Production schedules cross-reference the school's approved student media list, and non-cleared students are framed discreetly from behind.",
+    },
+    {
+      question: "What video formats perform best for private school enrollment marketing campaigns?",
+      answer:
+        "A three-minute signature admissions film for website visitors, paired with fifteen-second parent testimonial reels for social outreach, delivers optimal engagement.",
+    },
+  ],
+  "/services/exotic-car-rental-video-miami": [
+    {
+      question: "How do you capture engine exhaust acoustics and cabin sounds clearly?",
+      answer:
+        "Directional exterior shotgun microphones with wind muffling record crisp exhaust notes and acceleration revs without distortion.",
+    },
+    {
+      question: "Where do you film exotic cars in Miami for maximum luxury impact?",
+      answer:
+        "Filming takes place along iconic coastal stretches in South Beach, architectural backdrops in Wynwood, and private marina causeways.",
+    },
+    {
+      question: "Can multiple fleet vehicles be batched into a single filming day?",
+      answer:
+        "Yes. Fleet shoot days are organized to capture three to five supercars efficiently, yielding an entire month of vertical social content.",
+    },
+  ],
+  "/services/car-dealership-video-marketing-south-florida": [
+    {
+      question: "How many inventory vehicles can be filmed during a single dealership visit?",
+      answer:
+        "Efficient staging and dedicated lot workflows allow filming of eight to twelve vehicles in a single four-hour production visit.",
+    },
+    {
+      question: "Can dealership video walkarounds be formatted for Google Business Profiles and inventory VDPs?",
+      answer:
+        "Yes. Deliverables include horizontal YouTube video embeds for VDPs and vertical clips optimized for Google posts and Meta ads.",
+    },
+    {
+      question: "How does dealership video content support service department revenue?",
+      answer:
+        "Technician spotlight videos and maintenance explanation reels demystify complex repairs and build lasting customer trust for fixed operations.",
+    },
+  ],
+  "/services/boat-show-exhibitor-video-fort-lauderdale": [
+    {
+      question: "How do you film along crowded boat show docks and narrow yacht companionways?",
+      answer:
+        "Ultra-compact stabilized cinema rigs and wide distortion-controlled lenses maneuver smoothly through active exhibitor docks and yacht cabins.",
+    },
+    {
+      question: "Can you film private evening VIP cocktail receptions and client events at our slip?",
+      answer:
+        "Yes. Low-light cinema cameras capture nighttime dockside receptions, illumination on the water, and executive client toasts with warm clarity.",
+    },
+    {
+      question: "How quickly can finished boat show video recap clips be delivered for social media?",
+      answer:
+        "Vertical highlight clips can be delivered within forty-eight hours during show week so exhibitors can capitalize on live event excitement.",
+    },
+  ],
+  "/services/art-basel-miami-art-week-video": [
+    {
+      question: "How do you film sensitive artworks and delicate installations respectfully?",
+      answer:
+        "Quiet camera operations and existing gallery ambient illumination protect delicate mediums without introducing intrusive lights or heat.",
+    },
+    {
+      question: "Can you film on-site artist interviews and collector panel discussions?",
+      answer:
+        "Yes. Directional wireless microphones isolate artist reflections and curator discussions from busy fair background chatter.",
+    },
+    {
+      question: "What turnaround is available for gallery social media and press coverage?",
+      answer:
+        "Curated vertical highlight reels can be delivered within twenty-four to forty-eight hours to maximize engagement during fair week.",
+    },
+  ],
 };
 
 /** Hand-written pages left without a FAQ because no published fact supports one. */

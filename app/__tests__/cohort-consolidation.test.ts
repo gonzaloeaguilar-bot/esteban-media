@@ -153,7 +153,8 @@ describe("consolidation arithmetic matches the published baseline", () => {
     // +8 = wave 5 niche expansions (2026-10-18): mastermind, surprise proposal, speaker sizzle, bar mitzvah.
     // +8 = wave 6 niche expansions (2026-10-18): commercial real estate, luxury penthouse, fine dining, mixology.
     // +8 = wave 7 niche expansions (2026-10-18): construction progress, fashion lookbook, boat listing, luxury watch.
-    expect(sitemap()).toHaveLength(269 - 25 + 1 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 2 + 4 + 1 + 26 + 6 + 10 + 16 + 1 + 1 + 4 + 4 + 2 + 4 + 2 + 1 + 2 + 3 + 4 + 4 + 8 + 8 + 8 + 2 + 8 + 8 + 8 + 24);
+    // +20 = wave 5 high-value demand-backed niches (2026-10-18): med spa, contractor florida, quinceanera, podcast multicam, personal injury, private school, exotic car, car dealership, boat show exhibitor, art basel.
+    expect(sitemap()).toHaveLength(269 - 25 + 1 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 2 + 4 + 1 + 26 + 6 + 10 + 16 + 1 + 1 + 4 + 4 + 2 + 4 + 2 + 1 + 2 + 3 + 4 + 4 + 8 + 8 + 8 + 2 + 8 + 8 + 8 + 24 + 20);
   });
 
   it("never lists a redirect source in the sitemap", () => {

@@ -975,3 +975,183 @@ export const EXECUTIVE_VIDEO_BIO_ES_SECTIONS: readonly SpanishNicheSection[] = [
   },
 ];
 
+export const MED_SPA_PLASTIC_SURGEON_ES_DISCLOSURE = "¿Cómo se graba un video para spas médicos y cirujanos plásticos en Miami?";
+export const MED_SPA_PLASTIC_SURGEON_ES_DESTINATIONS = "Demostraciones de inyectables estéticos, protocolos de consentimiento, transformaciones reales y captación de consultas.";
+
+export const MED_SPA_PLASTIC_SURGEON_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo atrae pacientes el video marketing clínico para cirujanos plásticos en Miami?",
+    paragraphs: [
+      "Los cirujanos plásticos certificados, directores de spas médicos y especialistas en estética de Coral Gables y Miami utilizan producciones en video de enfoque clínico y educativo para explicar procedimientos y mostrar resultados auténticos ante pacientes de todo el país. Los tratamientos estéticos como inyectables, rellenos dérmicos y contorno corporal implican decisiones meditadas durante meses donde la transparencia profesional resulta decisiva para concretar citas presenciales. Esteban colabora con clínicas estéticas bajo estrictos protocolos de consentimiento y privacidad médica, utilizando ópticas macro, iluminación difusa suave y cámaras estabilizadas para documentar consultas, higiene clínica y precisión técnica con respeto. Estas piezas audiovisuales formativas resuelven dudas iniciales y elevan la confianza de los pacientes. Para servicios odontológicos, consulte [video para clínicas dentales en South Florida](/es/servicios/marketing-de-video-dental-south-florida); para opciones, explore [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué piezas audiovisuales ayudan a los centros estéticos a convertir seguidores en citas?",
+    paragraphs: [
+      "Los coordinadores de marketing y propietarios de spas médicos necesitan jornadas de filmación estructuradas que alimenten sus canales digitales sin interrumpir las consultas diarias. Esteban coordina días mensuales de contenido donde se documentan explicaciones médicas del especialista, demostraciones guiadas y testimonios de pacientes con autorizaciones formales de imagen. Los entregables comprenden un video institucional de presentación de noventa segundos y entre ocho y doce cápsulas verticales adaptadas para Instagram Reels y TikTok. La edición incorpora títulos sobrios y subtítulos nítidos que garantizan una comunicación clara en reproducciones sin sonido. Estos recursos posicionan a la clínica como referente de excelencia estética en el sur de la Florida. Para examinar testimonios clínicos publicados, explore el [caso de estudio de Healthy Smile Miami](/es/portafolio/healthy-smile); para programar una filmación, escríbanos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const CONTRACTOR_VIDEO_MARKETING_ES_DISCLOSURE = "¿Cómo se produce video marketing para contratistas de techos y climatización en Florida?";
+export const CONTRACTOR_VIDEO_MARKETING_ES_DESTINATIONS = "Obras de tejados, instalación de paneles solares, mantenimiento de aire acondicionado y testimonios tras tormentas.";
+
+export const CONTRACTOR_VIDEO_MARKETING_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo ayuda el video sobre el terreno a los contratistas de Florida a cerrar contratos de alto valor?",
+    paragraphs: [
+      "Los contratistas de techos, especialistas en climatización comercial y empresas de energía solar en Florida emplean videos documentales en obra para demostrar solvencia técnica, licencias vigentes y calidad de ejecución ante propietarios particulares y administradores de fincas. Las sustituciones de tejados y las instalaciones fotovoltaicas representan inversiones considerables donde los clientes exigen evidencias reales antes de aprobar presupuestos. Esteban produce videos dinámicos a pie de obra utilizando cámaras estabilizadas, tomas elevadas con mástil y equipos sellados para registrar sustituciones de tejas, impermeabilizaciones, elevación de compresores y montaje de paneles solares. Resaltar las normas de seguridad laboral, certificaciones de fábrica y limpieza final del inmueble genera una sólida confianza comercial. Para ver producciones inmobiliarias comerciales, consulte [video para bienes raíces comerciales en Miami](/es/video-para-bienes-raices-comerciales-miami); para tarifas, revise [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué formatos audiovisuales generan solicitudes cualificadas de reparación y reemplazo?",
+    paragraphs: [
+      "Los dueños de empresas de reformas y coordinadores comerciales precisan material audiovisual optimizado para campañas de búsqueda local, redes sociales y presupuestos comerciales. Esteban filma el trabajo del equipo técnico, valoraciones directas de daños causados por temporales y testimonios espontáneos de clientes satisfechos tras finalizar la instalación. Los entregables incluyen un video corporativo de dos minutos para la página web, cápsulas verticales de antes y después pensadas para Meta Ads y videos explicativos sobre ahorro energético o garantías estructurales. Rótulos informativos destacan opciones de financiación y certificaciones oficiales para acelerar la toma de decisiones. Para conocer ejemplos comerciales previos, examine el [anuncio de Bar Door Monkey](/es/portafolio/bar-door-monkey); para planificar una sesión audiovisual de obra, contáctenos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const QUINCEANERA_VIDEOGRAPHER_ES_DISCLOSURE = "¿Cómo se filma una quinceañera cinematográfica en Miami?";
+export const QUINCEANERA_VIDEOGRAPHER_ES_DESTINATIONS = "Coreografía del vals, ceremonia religiosa con multicámara, corte de honor y recepción festiva familiar.";
+
+export const QUINCEANERA_VIDEOGRAPHER_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo preserva el video cinematográfico la tradición y la emoción de una fiesta de quinceañera en Miami?",
+    paragraphs: [
+      "Las familias que celebran los quince años de su hija en Miami, Coral Gables y Doral buscan una cobertura cinematográfica completa que honre las tradiciones culturales, las bendiciones religiosas y los momentos compartidos entre generaciones. La fiesta de quinceañera representa una celebración familiar trascendente preparada durante meses con enorme dedicación. Esteban ofrece cobertura integral de la jornada utilizando esquemas multicámara, ópticas de cine luminosas y estabilización sutil para documentar los preparativos matutinos, la misa o bendición eclesiástica, el posado formal con la corte de honor y la gran fiesta en el salón. La sincronización de múltiples cámaras permite registrar el vals con el padre, el baile sorpresa y el emotivo cambio de zapatillas desde distintos ángulos sin entorpecer el desarrollo del evento. Para enlaces nupciales afines, explore [videógrafo de bodas en Miami](/es/videografo-de-bodas-miami); para conocer opciones, visite [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué películas de recuerdo y videos para redes sociales reciben las familias tras el festejo?",
+    paragraphs: [
+      "Los padres y las quinceañeras desean conservar una película entrañable para revivir el evento a lo largo de los años junto con avances dinámicos en formato vertical para compartir al instante con amistades y parientes en WhatsApp e Instagram. La entrega comprende un documental completo con los discursos y la coreografía íntegra de la corte de honor, acompañado por un tráiler cinematográfico de tres a cuatro minutos editado con música licenciada. Asimismo, se entregan clips verticales que destacan la entrada triunfal, el brindis familiar y la hora loca con diseño sonoro cuidado. El etalonaje resalta el colorido de los vestidos y la iluminación del salón manteniendo tonos de piel naturales. Para apreciar nuestra experiencia en eventos familiares, vea la [película de boda de Diana y Jack](/es/portafolio/diana-jack); para reservar una fecha, escríbanos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const MULTICAM_PODCAST_VIDEO_ES_DISCLOSURE = "¿Cómo se produce un podcast en video con multicámara en Miami?";
+export const MULTICAM_PODCAST_VIDEO_ES_DESTINATIONS = "Grabación multicámara sincronizada, micrófonos de estudio, edición vertical de clips y distribución en YouTube.";
+
+export const MULTICAM_PODCAST_VIDEO_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo impulsa la producción de video multicámara el alcance de un podcast en Miami?",
+    paragraphs: [
+      "Los presentadores de podcasts empresariales, entrevistadores corporativos y creadores de contenido en Miami y Fort Lauderdale recurren a la producción audiovisual multicámara para elevar el prestigio de su espacio, atraer invitados de relevancia y multiplicar su impacto en YouTube, Spotify y redes sociales. El video constituye el canal primordial de crecimiento para los programas de entrevistas actuales, donde la audiencia exige dinamismo visual, iluminación equilibrada y sonido impecable. Esteban dirige sesiones de grabación en estudio empleando cámaras de cine 4K sincronizadas, iluminación de tres puntos y micrófonos dinámicos conectados a interfaces digitales profesionales. Los encuadres independientes de anfitrión e invitado facilitan un montaje ágil que acompaña el compás natural de la conversación y las reacciones espontáneas. Para servicios de edición especializada, consulte [edición de video podcast en Miami](/es/edicion-de-video-podcast-miami); para tarifas, visite [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué entregables recurrentes permiten publicar episodios y clips semanales con constancia?",
+    paragraphs: [
+      "Los productores y directores de programas precisan rutinas mensuales de rodaje que suministren episodios íntegros y cápsulas cortas de gran gancho sin sufrir retrasos en el calendario. Esteban organiza jornadas de grabación en las que se registran de dos a cuatro episodios en una sola sesión de trabajo. Los entregables comprenden el montaje completo en formato horizontal con rótulos de invitados, carátulas y limpieza de ruido acústico, acompañado de seis a ocho extractos verticales por episodio optimizados para TikTok, YouTube Shorts e Instagram Reels con subtítulos dinámicos y portadas atractivas. Esta estructura permite alimentar las plataformas digitales de forma ininterrumpida y captar nueva audiencia semanalmente. Para ver servicios de recorte de clips, examine [edición de clips de podcast en Miami](/es/edicion-de-clips-de-podcast-miami); para coordinar una grabación, contáctenos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const PERSONAL_INJURY_LAWYER_ES_DISCLOSURE = "¿Cómo se producen videos para abogados de lesiones personales en Miami?";
+export const PERSONAL_INJURY_LAWYER_ES_DESTINATIONS = "Perfiles de litigantes, testimonios de recuperación de clientes, preparación judicial y cumplimiento del Florida Bar.";
+
+export const PERSONAL_INJURY_LAWYER_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo genera confianza el video testimonial e institucional para bufetes de lesiones personales en Miami?",
+    paragraphs: [
+      "Los abogados litigantes, bufetes especializados en lesiones personales y firmas de responsabilidad civil en Miami y el sur de la Florida recurren a piezas audiovisuales sobrias para transmitir su trayectoria en sala, solvencia técnica y trato cercano hacia las familias afectadas. Quienes sufren percances graves atraviesan circunstancias de gran vulnerabilidad emocional y buscan una representación legal rigurosa y empática antes de confiar su reclamación. Esteban produce perfiles institucionales de letrados e historias de recuperación de clientes en estricto cumplimiento con la normativa publicitaria del Florida Bar y el secreto profesional. Las grabaciones en despachos, salas de juntas y espacios de simulación judicial emplean iluminación suave y micrófonos discretos para proyectar solidez, rigor procesal y defensa del cliente. Para producciones jurídicas afines, consulte [producción de video para bufetes de abogados en Miami](/es/servicios/produccion-de-video-para-bufetes-de-abogados-miami); para opciones, explore [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué formatos en video reflejan la solvencia jurídica y el respaldo a los afectados?",
+    paragraphs: [
+      "Los socios directores y gerentes de marketing jurídico necesitan contenidos que proyecten prestigio institucional y generen contactos de casos relevantes a través de páginas web y redes de derivación profesional. Esteban realiza entrevistas cuidadas con los letrados para abordar litigios por accidentes, negligencias y daños graves con serenidad, evitando promesas sensacionalistas o afirmaciones infundadas. Los entregables comprenden un documental corporativo de dos minutos para la portada web, cápsulas explicativas por área de práctica y testimonios comedidos de antiguos representados que valoran la claridad informativa y el acompañamiento recibido. Un tratamiento de color equilibrado y un diseño sonoro impecable confieren a las piezas una presencia incuestionable. Para ver entrevistas corporativas publicadas, examine el [documental Homeowners](/es/portafolio/homeowners); para planificar una sesión audiovisual jurídica, escríbanos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const PRIVATE_SCHOOL_ADMISSIONS_ES_DISCLOSURE = "¿Cómo se filma un video de admisiones para colegios privados en Miami?";
+export const PRIVATE_SCHOOL_ADMISSIONS_ES_DESTINATIONS = "Perspectivas del campus, dinámicas de clase, laboratorios STEM y testimonios de familias y docentes.";
+
+export const PRIVATE_SCHOOL_ADMISSIONS_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo impulsa el video de admisiones las matriculaciones en colegios privados de Miami?",
+    paragraphs: [
+      "Los colegios privados independientes, academias preparatorias y centros educativos bilingües en Miami, Coral Gables y Coconut Grove utilizan videos de admisiones para reflejar su rigor formativo, valores comunitarios y vida escolar ante familias interesadas. La elección del centro educativo supone un compromiso personal y financiero decisivo, donde los padres necesitan conocer de cerca la cercanía del claustro docente, la metodología de aprendizaje y las instalaciones antes de acudir a las jornadas de puertas abiertas. Esteban colabora con los equipos de admisiones aplicando estrictos protocolos de autorización de imagen de menores, empleando cámaras estabilizadas, tomas de ángulo amplio con mástil e iluminación natural para registrar aulas activas, talleres de robótica, artes escénicas y actividades deportivas con autenticidad. Para producciones afines, consulte [videógrafo de eventos corporativos en Miami](/es/videografo-de-eventos-corporativos-miami); para tarifas, revise [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué recursos audiovisuales respaldan las campañas de captación de alumnos y donaciones?",
+    paragraphs: [
+      "Los directores escolares, responsables de admisiones y comités de desarrollo precisan contenidos polivalentes diseñados para portales de matriculación, visitas virtuales y actos benéficos. Esteban programa los rodajes integrándose en la rutina escolar sin interrumpir la docencia, captando la participación activa de los alumnos y la dedicación del profesorado. Los entregables incluyen un video maestro de admisiones de tres minutos, breves piezas temáticas dedicadas a ciencias y humanidades, y entrevistas con padres y antiguos alumnos que relatan la formación integral recibida. En montaje se incorporan gráficos limpios respetuosos con la identidad institucional y una paleta de color cálida que transmite serenidad y prestigio académico. Para apreciar ejemplos documentales, explore el [documental Homeowners](/es/portafolio/homeowners); para coordinar un rodaje en su centro, contáctenos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const EXOTIC_CAR_RENTAL_ES_DISCLOSURE = "¿Cómo se produce video marketing para flotas de autos exóticos en Miami?";
+export const EXOTIC_CAR_RENTAL_ES_DESTINATIONS = "Planos detalle de superdeportivos, sonido de escape deportivo, recorridos en Miami Beach y reservas online.";
+
+export const EXOTIC_CAR_RENTAL_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo atrae clientes de alto poder adquisitivo el video para alquiler de autos exóticos en Miami?",
+    paragraphs: [
+      "Las agencias de alquiler de vehículos exóticos, servicios de conserjería de lujo y empresas de superdeportivos en Miami y Miami Beach dependen de contenidos audiovisuales de estética publicitaria para lucir sus vehículos de gama alta y captar reservas directas. El sur de la Florida representa uno de los mercados de vehículos de alta gama más dinámicos del mundo, donde los usuarios eligen un automóvil guiados por su impacto estético, impecable estado y exclusividad. Esteban filma superdeportivos utilizando estabilizadores de suelo, filtros polarizadores que suprimen reflejos molestos en lunas y carrocerías, y micrófonos de alta fidelidad que registran con contundencia la acústica de los motores V8 y V12. Las tomas muestran acabados interiores de fibra de carbono y cuero, y recorridos por enclaves emblemáticos como Ocean Drive. Para producciones de lujo afines, consulte [video para relojes de lujo en Miami](/es/video-para-relojes-de-lujo-miami); para ver opciones, examine [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué formatos verticales convierten a los aficionados al motor en reservas confirmadas?",
+    paragraphs: [
+      "Los propietarios de flotas y gestores de redes sociales precisan un flujo continuo de videos en formato vertical para atraer a viajeros de negocios, vacacionistas de lujo y producciones musicales que demandan autos de prestigio. Esteban planifica sesiones de rodaje eficientes donde se registra material de varios vehículos en una misma jornada por diversas localizaciones de Miami. La entrega comprende clips verticales de quince a treinta segundos con transiciones ágiles y sonido sincronizado para Instagram y TikTok, junto con presentaciones horizontales detalladas para los catálogos web. Rótulos sobrios informan sobre potencia, condiciones de fianza y facilidades de entrega para incentivar consultas directas por teléfono o mensajería. Para ver trabajos comerciales publicados, examine el [anuncio de Bar Door Monkey](/es/portafolio/bar-door-monkey); para planificar una sesión de flota, contáctenos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const CAR_DEALERSHIP_VIDEO_ES_DISCLOSURE = "¿Cómo se produce video marketing para concesionarios de automóviles en South Florida?";
+export const CAR_DEALERSHIP_VIDEO_ES_DESTINATIONS = "Presentación de vehículos en inventario, departamento de taller, entregas a clientes y videos para concesionarios.";
+
+export const CAR_DEALERSHIP_VIDEO_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo agiliza la venta de vehículos el video mensual para concesionarios en South Florida?",
+    paragraphs: [
+      "Los concesionarios de marcas oficiales, compraventas de vehículos seminuevos de alta gama y centros de vehículos comerciales en South Florida emplean producciones audiovisuales periódicas para otorgar visibilidad a su flota y acortar el tiempo de estancia de los vehículos en campa. Los compradores comparan opciones por internet antes de acudir a la exposición física, valorando especialmente las empresas que ofrecen videos detallados del estado real del coche y presentan a su equipo de ventas y posventa. Esteban colabora con concesionarios automotrices —apoyándose en la experiencia demostrada con clientes del sector como Frontline Auto— para producir revisiones de producto, celebraciones de entrega a clientes y recorridos por las instalaciones. Tomas estabilizadas y de gran nitidez muestran carrocerías, equipamiento tecnológico interior y comportamiento dinámico en carretera. Para revisar nuestro trabajo automotriz, examine el [caso de estudio de Frontline Auto](/es/portafolio/frontline); para conocer planes, visite [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué dinámicas de grabación apoyan a los equipos comerciales para cumplir sus objetivos mensuales?",
+    paragraphs: [
+      "Los directores comerciales y responsables de marketing automotriz requieren una metodología de producción predecible que entregue piezas listas para fichas de producto, perfiles de Google y campañas locales de video. Esteban establece visitas quincenales al concesionario para registrar los vehículos recién incorporados, destacar promociones y filmar consejos prácticos del taller que consolidan la retención de clientes en postventa. Los entregables incluyen videos verticales de treinta segundos adaptados a Meta Ads, recorridos completos en horizontal para YouTube respondiendo a dudas habituales y grabaciones de entregas de llaves que aportan prueba social auténtica. Estas piezas generan un tráfico constante de llamadas y visitas a la sala de ventas. Para explorar otras producciones comerciales, consulte [video para bienes raíces comerciales en Miami](/es/video-para-bienes-raices-comerciales-miami); para programar una filmación, escríbanos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const BOAT_SHOW_EXHIBITOR_ES_DISCLOSURE = "¿Cómo se produce video para expositores del Boat Show de Fort Lauderdale?";
+export const BOAT_SHOW_EXHIBITOR_ES_DESTINATIONS = "Stands de feria náutica, recorridos de embarcaciones en pantalán, demostraciones técnicas y resúmenes diarios.";
+
+export const BOAT_SHOW_EXHIBITOR_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo rentabiliza el video para expositores la inversión en el Salón Náutico de Fort Lauderdale?",
+    paragraphs: [
+      "Los astilleros, fabricantes de equipamiento náutico, corredurías de yates y firmas marítimas que exponen en el Salón Náutico Internacional de Fort Lauderdale realizan un notable desembolso para exhibir sus embarcaciones ante compradores de todo el mundo. Con más de cien mil asistentes y mil expositores en recintos como Bahia Mar y el Centro de Convenciones de Broward, destacar entre la concurrencia exige piezas audiovisuales dinámicas que capturen la afluencia en el stand, las presentaciones en pantalán y las explicaciones técnicas. Esteban realiza grabaciones de nivel profesional utilizando equipos compactos estabilizados para moverse con soltura por muelles concurridos, filtros polarizadores que controlan el reflejo solar en el agua y microfonía inalámbrica para registrar entrevistas ejecutivas sin interferencias del entorno ferial. Para producciones náuticas afines, consulte [video para venta de barcos en Fort Lauderdale](/es/video-para-venta-de-barcos-fort-lauderdale); para tarifas, explore [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué entregables audiovisuales permiten captar compradores que no pudieron acudir a la feria?",
+    paragraphs: [
+      "Los directores de comunicación náutica, constructores de barcos y brókeres precisan material ágil durante los días del salón para conectar con clientes cualificados que no pudieron viajar o que desean repasar detalles de las embarcaciones tras su visita. Esteban programa grabaciones durante las jornadas de la feria para cubrir primicias en el agua, cócteles privados y demostraciones de electrónica de navegación y motorizaciones. La entrega incluye un video resumen de tres minutos para el archivo corporativo y seguimiento de clientes, respaldado por avances verticales en la misma semana concebidos para LinkedIn, Instagram y YouTube. Estos contenidos prolongan el valor comercial de la participación ferial mucho más allá de los muelles del evento. Para conocer proyectos en superyates, examine [marketing de video para superyates en Fort Lauderdale](/es/marketing-de-video-para-superyates-fort-lauderdale); para reservar cobertura, contáctenos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const ART_BASEL_MIAMI_ART_WEEK_ES_DISCLOSURE = "¿Cómo se realiza la cobertura de video para Art Basel y Miami Art Week?";
+export const ART_BASEL_MIAMI_ART_WEEK_ES_DESTINATIONS = "Stands en ferias de arte, perfiles de artistas contemporáneos, activaciones de marcas de lujo y eventos en Wynwood.";
+
+export const ART_BASEL_MIAMI_ART_WEEK_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo documenta el video cinematográfico las exposiciones y eventos de Miami Art Week?",
+    paragraphs: [
+      "Las galerías de arte internacionales, marcas patrocinadoras, firmas de lujo y artistas contemporáneos que se dan cita en Art Basel Miami Beach y en las ferias satélite de Wynwood y Miami Beach precisan una documentación audiovisual esmerada de sus instalaciones y veladas privadas. Miami Art Week constituye un punto de encuentro artístico de repercusión mundial donde piezas efímeras, charlas de creadores y recepciones de coleccionistas requieren una mirada cinematográfica respetuosa con las obras exhibidas. Esteban ofrece una cobertura documental discreta empleando cámaras silenciosas de sensor completo, sensores con calibración cromática fiel para registrar matices en lienzos y esculturas, y objetivos luminosos ideales para espacios expositivos y fiestas nocturnas. Para proyectos visuales afines, explore [video para marcas de moda en Miami](/es/video-para-marcas-de-moda-miami); para conocer opciones, visite [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué piezas audiovisuales ayudan a galerías y patrocinadores a prolongar el impacto de la muestra?",
+    paragraphs: [
+      "Los comisarios de exposiciones, consultores de arte y agencias de comunicación cultural precisan videos cuidados para documentar el montaje de las obras, dialogar con los artistas y ofrecer a los patrocinadores un balance visual de su presencia. Esteban registra recorridos con coleccionistas, debates de expertos y celebraciones exclusivas con composición rigurosa y sonido nítido. Los entregables comprenden una memoria audiovisual de dos a tres minutos orientada a boletines internacionales para coleccionistas e instituciones culturales, junto con avances verticales dedicados a piezas clave, secuencias aceleradas de instalación y testimonios del artista para Instagram Reels y canales del sector. Este archivo audiovisual respalda la trayectoria de las galerías en el circuito artístico internacional. Para coberturas institucionales, consulte [videógrafo para galas corporativas en Miami](/es/videografo-para-galas-corporativas-miami); para planificar una sesión artística, escríbanos en [contacto](/es/contacto).",
+    ],
+  },
+];
+

@@ -60,8 +60,8 @@ describe("portfolio sitemap entries", () => {
     // +8 = wave 5 niche expansions (2026-10-18): mastermind, surprise proposal, speaker sizzle, bar mitzvah.
     // +8 = wave 6 niche expansions (2026-10-18): commercial real estate, luxury penthouse, fine dining, mixology.
     // +8 = wave 7 niche expansions (2026-10-18): construction progress, fashion lookbook, boat listing, luxury watch.
-    expect(entries).toHaveLength(450);
-    expect(new Set(urls)).toHaveLength(450);
+    expect(entries).toHaveLength(470);
+    expect(new Set(urls)).toHaveLength(470);
   });
 
   it("pairs real product photography pages with reciprocal language alternatives", () => {
