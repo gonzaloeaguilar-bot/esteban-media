@@ -8,8 +8,8 @@ const copy = {
     heading: "See the camera before the shoot starts.",
     lead: "Tap either camera to inspect the bodies Esteban uses, then open the method to see how a project moves from idea to a written scope.",
     kitTitle: "Camera bodies",
-    kitHint: "Tap one for published specs.",
-    inspect: "Tap to inspect",
+    kitHint: "Swipe the camera shelf. Tap a body for published specs.",
+    inspect: "Tap camera to inspect",
     activeBody: "Primary camera body",
     alphaName: "Sony Alpha 7 IV",
     alphaDetail: "33 MP full-frame sensor · 4K 60p recording",
@@ -31,8 +31,8 @@ const copy = {
     heading: "Mira la cámara antes de empezar el rodaje.",
     lead: "Toca cualquiera de las cámaras para ver los cuerpos que usa Esteban y abre el método para entender cómo una idea llega a un alcance por escrito.",
     kitTitle: "Cuerpos de cámara",
-    kitHint: "Toca uno para ver sus especificaciones.",
-    inspect: "Toca para ver",
+    kitHint: "Desliza las cámaras. Toca un cuerpo para ver sus especificaciones.",
+    inspect: "Toca la cámara para ver",
     activeBody: "Cuerpo de cámara principal",
     alphaName: "Sony Alpha 7 IV",
     alphaDetail: "Sensor full-frame de 33 MP · grabación 4K a 60p",
@@ -76,8 +76,8 @@ export function CameraKitMethod({ locale }: { locale: Locale }) {
             <p id={`camera-bodies-${locale}`}>{c.kitTitle}</p>
             <span>{c.kitHint}</span>
           </div>
-          <div className="em-camera-kit__models">
-            <details name={`camera-kit-${locale}`}>
+          <div className="em-camera-kit__models" aria-label={c.kitTitle}>
+            <details className="em-camera-kit__model" name={`camera-kit-${locale}`}>
               <summary data-cta={`camera_kit_sony_${locale}`}>
                 {/* Manufacturer reference image: Sony Alpha 7 IV product page. */}
                 <span className="em-camera-kit__product-stage">
@@ -93,7 +93,7 @@ export function CameraKitMethod({ locale }: { locale: Locale }) {
                 <a href="https://electronics.sony.com/imaging/interchangeable-lens-cameras/all-interchangeable-lens-cameras/p/ilce7m4-b" target="_blank" rel="noreferrer">Sony</a>
               </div>
             </details>
-            <details name={`camera-kit-${locale}`}>
+            <details className="em-camera-kit__model" name={`camera-kit-${locale}`}>
               <summary data-cta={`camera_kit_canon_${locale}`}>
                 {/* Manufacturer reference image: Canon EOS Rebel T5i product page. */}
                 <span className="em-camera-kit__product-stage">
