@@ -1,0 +1,65 @@
+{
+  "project": "esteban-media",
+  "mode": "pr",
+  "target_type": "pr",
+  "target_id": "PR-484",
+  "requires_pr": true,
+  "goal": "Make the homepage's visible published-work decision pattern available to high-budget service and RFP-guide readers without expanding any production claim.",
+  "summary": "Adds a reusable server-rendered PublishedProjectProof card that only resolves existing live portfolio records with approved local posters. It replaces text-only proof on the Brickell corporate, Miami brand, and Weston corporate-editing routes; it is available to compatible GeoServicePage routes; and it is opt-in on the English and Spanish video-production RFP guides.",
+  "risk": "Low: the change reuses existing portfolio records, preserves the page's existing inquiry action, adds no price or delivery claim, and rejects non-portfolio, missing, placeholder, or non-local-poster links.",
+  "changed_paths": [
+    "components/published-project-proof.tsx",
+    "components/geo-service-page.tsx",
+    "components/guide-pages.tsx",
+    "components/__tests__/published-project-proof.test.ts",
+    "app/(english)/services/corporate-video-production-brickell/page.tsx",
+    "app/(english)/services/brand-video-production-miami/page.tsx",
+    "app/(english)/services/corporate-video-editing-weston-fl/page.tsx",
+    "app/__tests__/customer-ranking-pages.test.ts",
+    "lib/guides.ts",
+    "config/page-lastmod.json",
+    ".ai/human-proof-cards-2026-10-18.md",
+    ".ai/human-proof-cards-2026-10-18.md.experience.json",
+    ".cortex/quality-payloads/PR-484.json"
+  ],
+  "requested_actions": [
+    "Confirm PublishedProjectProof accepts only a live internal portfolio item with a local approved poster before rendering an image-backed proof card.",
+    "Confirm the service and guide integrations preserve the existing contact action and only use documented project scope as a reference, not a delivery promise.",
+    "Confirm the delegated data-cta attribute remains compatible with the existing cta_click event and server HTML contains the poster, destination, and meaningful alternative text."
+  ],
+  "public_claims": [
+    "Healthy Smile Miami is a published Miami assignment with documented on-location camera, direct sound, and editing for an 18-second promotional master.",
+    "My D'ler is a published project with documented brand visual design, corporate assets, and corporate brand visual post-production."
+  ],
+  "evidence": {
+    "obsidian_context": "The buyer-path audit and implementation record are in client-esteban-media/wiki/esteban-high-budget-buyer-path-human-first-audit-2026-10-18.md and client-esteban-media/wiki/esteban-homeproof-component-rollout-2026-10-18.md. They distinguish a local release candidate from production outcome measurement.",
+    "project_routing": "Repository gonzaloeaguilar-bot/esteban-media, isolated worktree /Users/gonzalo/code/esteban-human-proof-cards, branch feat/human-proof-cards, PR #484, rebased head d44c582ca01ef380440e18377da24249dc455376.",
+    "source_of_truth": "The existing typed portfolio source in lib/portfolio.ts and the published portfolio routes supply the project status, local poster, and documented scope. No new client, service, price, turnaround, credential, or performance fact was added.",
+    "observed_problem": "A live 390x844 review found high-budget service routes with a primary action but only text-only proof, while the homepage exposes visible real work before a larger commitment.",
+    "validation": "pnpm test passed 163 test files and 3,221 tests; pnpm typecheck passed; pnpm lint passed with 60 existing warnings and zero errors; pnpm rail-adoption:check passed 3 tests; analytics-gate passed; pnpm build compiled, typechecked, generated 489 of 489 static pages, and wrote .next/BUILD_ID RMpJBARXby_7jjqDE0VBk.",
+    "independent_review": "Antigravity returned REVIEW_VERDICT: APPROVE for the component's source bounds, truthful claim wording, analytics compatibility, and regression risk. Its dispatch wrapper had a separate working-directory acceptance-command defect after the review itself completed.",
+    "reviewer_ensemble": "Builder completed the implementation and deterministic gates; skeptic coverage is the resolver's valid/invalid path tests plus full suite; Antigravity independently approved source bounds, claim hygiene, analytics compatibility, and regression risk.",
+    "reviewer_disagreement_reviewed": "The rebase exposed a newer main-branch Brickell proof reference. It was resolved in favor of Healthy Smile's documented on-location scope rather than retaining the older My D'ler text, then the route-level regression assertion and full suite were rerun.",
+    "winner_rationale": "One source-bounded card is safer and clearer than duplicating page-specific text proof: it can only render a published local portfolio record, retains the existing direct inquiry action, and gives a high-budget buyer visible work without stock media or a carousel.",
+    "tests_or_validation": "pnpm test passed 163 files and 3,221 tests; pnpm typecheck passed; pnpm lint passed with 60 existing warnings and zero errors; pnpm rail-adoption:check passed 3 tests; analytics-gate passed; pnpm build generated 489/489 static pages and build ID RMpJBARXby_7jjqDE0VBk.",
+    "ci_passed": "GitHub Vercel preview is successful for rebased head d44c582c. The validate workflow was in progress when this payload was authored; Cortex quality evidence is intentionally the check this payload unlocks.",
+    "pr_review_complete": "Scoped builder self-review completed after rebase. Antigravity returned REVIEW_VERDICT: APPROVE; the dispatch wrapper failure was isolated to its wrong-working-directory acceptance command, not to a review finding.",
+    "hard_stops_checked": "No new public rate, turnaround, credential, client result, equipment, health, legal, or ownership claim. External, missing, placeholder, and non-local portfolio proof links resolve to no image card.",
+    "debt_delta": "neutral"
+    ,"obsidian_handoff": "Updated client-esteban-media/wiki/esteban-media-hot.md, durable page esteban-homeproof-component-rollout-2026-10-18.md, esteban-media-index.md, and backlog.md in this session."
+  },
+  "reviewers": {
+    "builder": {
+      "status": "ok",
+      "note": "Implemented the source-bounded server component, route adoption, and tests; rendered 390x844 local checks show the image-backed proof beside the service decision."
+    },
+    "skeptic": {
+      "status": "ok",
+      "note": "The resolver tests valid English and Spanish portfolio paths and rejects external, non-portfolio, and nonexistent paths; full suite and analytics gate passed."
+    },
+    "taste": {
+      "status": "ok",
+      "note": "Uses one real published project at the decision point rather than stock media, autoplay, or a duplicate portfolio shelf; phone rendering retains the page heading and primary action before the proof card."
+    }
+  }
+}

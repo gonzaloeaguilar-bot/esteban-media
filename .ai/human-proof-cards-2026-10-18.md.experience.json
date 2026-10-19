@@ -1,0 +1,31 @@
+{
+  "schema": 3,
+  "project": "esteban-media",
+  "intent": "Bring homepage-style visible published-work proof to the relevant high-budget buyer pages without making unsupported production claims.",
+  "phase": "review",
+  "visual_evidence": {
+    "scope": "composition",
+    "scope_reason": "Live 390x844 review found text-only proof cards on the new service pages and an abstract illustration on the RFP pair.",
+    "target": "service and guide first-screen proof",
+    "owner_status": "owner-directed",
+    "correction_excerpt": "Apply the homepage common components across new pages where buyers need real-work proof.",
+    "comparison": "Live homepage with visible filming/portfolio path versus live high-budget service and guide routes.",
+    "references": ["esteban-high-budget-buyer-path-human-first-audit-2026-10-18"],
+    "candidate_frames": ["390x664", "390x844", "1440x900"]
+  },
+  "brief": {
+    "visitor": "A South Florida buyer preparing or comparing a video-production project.",
+    "promise": "See one relevant, published project and its exact documented scope before starting an inquiry.",
+    "primary_action": "Open the published project or start a scoped inquiry.",
+    "friction": "Text-only proof gives a high-budget buyer nothing visual to judge at the decision point.",
+    "kpi": {"outcome": "qualified project inquiry", "event": "cta_click with cta_id=published_project_proof_<id>, followed by contact intent", "denominator": "high-budget buyer page viewers", "baseline": "UNKNOWN", "evidence": "public/track.js delegates data-cta clicks to the existing cta_click vocabulary, but no proof-card event exists before this release", "readout": "T+28", "decision_rule": "retain only if visual verification passes and the path produces attributable inquiry data"},
+    "concept": {"idea": "A compact project poster and factual scope card directly beside the page's promise.", "brand_reason": "It adapts the homepage's work-first behavior without cloning its hero or portfolio shelf.", "interaction": "A normal accessible project link.", "visible_response": "The project poster, title, scope note and link render in initial HTML.", "direct_path": "Portfolio detail or the existing contact action.", "alternatives": "Do not use stock media, autoplay, speculative equipment visuals, or a generic carousel."},
+    "story": {"opening": "Buyer sees offer and real project.", "action": "Open the project if it is relevant.", "consequence": "Verify the actual documented scope.", "next_step": "Start a scoped project conversation."},
+    "content": {"visible": "Approved project poster, title, existing factual scope note and link.", "optional_html": "No content is hidden or client-mounted.", "linked_depth": "Existing portfolio or case-study route."},
+    "references": {"borrow": "Esteban homepage work-first decision pattern and existing approved portfolio posters.", "avoid": "Duplicating the homepage carousel, extra chrome, or unsupported proof."},
+    "components": {"reuse": "Existing portfolio poster source, getPortfolioItemById, getPoster, and shared service/guide renderers.", "local_reason": "PublishedProjectProof is a brand-local server component shared by both renderers; only live portfolio items with local posters resolve."},
+    "verification": {"rendered_states": "390x664, 390x844 and 1440x900 on the target service and guide routes.", "motion": "No required motion; reduced-motion remains equivalent.", "accessibility_performance": "Accessible link and meaningful alt text; lazy image below page title.", "raw_html": "Poster source, scope note, data-cta and destination link appear in generated HTML.", "conversion_boundary": "Existing contact CTA stays intact and resolves normally; clicking the card emits the existing delegated cta_click event."},
+    "reviewers": {"craft": "Antigravity", "behavior": "Claude and cto-qa-lead", "outcome": "cto-product-lead after T+28"},
+    "learning": {"metric": "published-project proof click followed by inquiry", "baseline_source": "UNKNOWN", "baseline_value": "UNKNOWN", "target_kind": "funnel_step", "target": "high-budget proof_card_click to contact intent", "hypothesis": "Putting real published work at the decision point reduces buyer uncertainty.", "observation_windows": ["T+28"], "decision_rule": "retain only if the visual experience passes and attributable buyer behavior is measurable", "ledger_status": "planned", "registration_condition": "record current production event availability before outcome grading"}
+  }
+}

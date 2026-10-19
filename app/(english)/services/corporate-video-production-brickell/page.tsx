@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Building2, Mail, Phone } from "lucide-react";
+import { ArrowRight, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import { PORTED_SERVICE_FAQS, serviceSiblings } from "@/lib/service-depth-content";
@@ -13,6 +13,7 @@ import {
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 import { NicheAnswers } from "@/components/niche-answers";
+import { PublishedProjectProof } from "@/components/published-project-proof";
 import { withNicheService } from "@/lib/niche-answers";
 
 export const metadata = buildPageMetadata({
@@ -98,17 +99,16 @@ export default function CorporateVideoProductionBrickellPage() {
               </div>
             </div>
 
-            <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
-              <Building2 className="size-8 text-[#e85d3e]" aria-hidden="true" />
-              <h2 className="mt-5 font-serif text-3xl">Published production proof</h2>
-              <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                The published <strong>Healthy Smile Miami</strong> case records an on-location Miami assignment where Esteban handled camera, direct sound, and editing for an 18-second promotional master. It is a documented project scope, not a promise that another project will use the same plan.
-              </p>
-              <Link href="/case-studies/healthy-smile" className="group mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27]">
-                Review the Healthy Smile case study
-                <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
-              </Link>
-            </div>
+            <PublishedProjectProof
+              proof={{
+                href: "/portfolio/healthy-smile",
+                eyebrow: "Published project",
+                title: "Healthy Smile Miami",
+                description:
+                  "A published Miami assignment documenting on-location camera, direct sound, and editing for an 18-second promotional master. It is a reference point, not a promise of the same scope for another company.",
+                linkLabel: "View the published project",
+              }}
+            />
           </div>
         </Container>
       </section>
