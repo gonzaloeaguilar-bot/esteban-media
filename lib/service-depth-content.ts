@@ -2432,6 +2432,346 @@ export const PORTED_SERVICE_FAQS: Readonly<Record<string, readonly ServiceFaq[]>
         "A ninety-second hotel experience brand film, individual room tour clips, and vertical social reels highlighting direct-booking perks maximize direct reservations.",
     },
   ],
+  "/services/multicam-panel-discussion-video-miami": [
+    {
+      question: "Can audio be patched directly from convention center sound consoles?",
+      answer:
+        "Yes. We interface directly with in-house AV engineers using standard XLR lines and isolation transformers to capture pristine multi-channel speech.",
+    },
+    {
+      question: "How quickly can highlight reels of keynotes be delivered for social media?",
+      answer:
+        "Vertical cutdowns and keynote quote reels are delivered within several business days following color grading and subtitle synchronization.",
+    },
+    {
+      question: "Do you provide slide screen recording integration for presentation decks?",
+      answer:
+        "Yes. Digital presentation slides can be captured directly via HDMI loop-through or synchronized digitally during the post-production edit.",
+    },
+  ],
+  "/services/corporate-town-hall-video-south-florida": [
+    {
+      question: "Can you sign formal corporate non-disclosure agreements before filming?",
+      answer:
+        "Yes. We routinely execute corporate confidentiality agreements and maintain encrypted local media workflows for sensitive business records.",
+    },
+    {
+      question: "Do you deliver indexed chapters for internal video hosting platforms?",
+      answer:
+        "Yes. We provide timestamped chapter markers that integrate cleanly into corporate video hosting portals and internal intranets.",
+    },
+    {
+      question: "Can financial presentation slide decks be embedded next to the speaker?",
+      answer:
+        "Yes. We create synchronized picture-in-picture or split-screen layouts highlighting graphic slides alongside executive speech.",
+    },
+  ],
+  "/services/executive-retreat-videographer-florida-keys": [
+    {
+      question: "Can you provide multi-day coverage across Key Largo and Islamorada resorts?",
+      answer:
+        "Yes. We regularly handle multi-day retreat itineraries across Florida Keys resort destinations with self-contained field production kits.",
+    },
+    {
+      question: "How are outdoor audio recordings handled during breezy oceanside dinners?",
+      answer:
+        "We utilize professional wind protection covers and directional wireless lavaliers to isolate clear dialogue in waterfront conditions.",
+    },
+    {
+      question: "Can you deliver a same-week recap video to close out the final retreat dinner?",
+      answer:
+        "We can prepare accelerated highlight edits for presentation during closing evening banquets upon prior logistical arrangement.",
+    },
+  ],
+  "/services/brand-activation-videographer-miami": [
+    {
+      question: "Can you provide vertical video edits during the weekend of the pop-up event?",
+      answer:
+        "Yes. Fast turnaround for vertical teasers can be coordinated to fuel social campaigns while the pop-up remains active.",
+    },
+    {
+      question: "Are music tracks cleared for paid commercial social media advertising?",
+      answer:
+        "All music is licensed through commercial libraries ensuring full clearance for organic posting and digital ad spend without copyright strikes.",
+    },
+    {
+      question: "Do you film attendee reactions and influencer walkthroughs on camera?",
+      answer:
+        "Yes. We actively capture genuine consumer engagement, unboxing stations, photo installations, and influencer soundbites.",
+    },
+  ],
+  "/services/pre-construction-sales-gallery-video-miami": [
+    {
+      question: "Can you film inside sales centers with complex glass displays and scale models?",
+      answer:
+        "Yes. We use polarizing filters and controlled diffused lighting to completely eliminate unwanted glass reflections on architectural models.",
+    },
+    {
+      question: "Do you produce bilingual presentations for Latin American and European buyers?",
+      answer:
+        "Yes. We provide bilingual voiceovers, sales director interviews, and subtitles in English and Spanish for global sales campaigns.",
+    },
+    {
+      question: "Can architectural renderings be blended into the filmed gallery footage?",
+      answer:
+        "Yes. We can incorporate developer CGI animations and floor plan overlays smoothly into the live-action sales center edit.",
+    },
+  ],
+  "/services/commercial-office-leasing-video-south-florida": [
+    {
+      question: "Can you film inside occupied commercial buildings during weekend hours?",
+      answer:
+        "Yes. We frequently film early mornings or weekends to showcase vacant suites and amenities without disrupting active tenant business operations.",
+    },
+    {
+      question: "Do you provide motion graphics displaying square footage and floor plan layouts?",
+      answer:
+        "Yes. We integrate clean, professional on-screen text overlays highlighting square footage, clear ceiling heights, and space divisibility.",
+    },
+    {
+      question: "Can you cover large industrial distribution warehouses and logistics centers?",
+      answer:
+        "Yes. We have specialized wide optics and ground tracking setups to film high-bay storage facilities, truck aprons, and dock bays effectively.",
+    },
+  ],
+  "/services/cosmetic-dentistry-veneers-video-miami": [
+    {
+      question: "How do you ensure filming respects patient comfort and clinical cleanliness?",
+      answer:
+        "We maintain a compact, silent footprint, sanitize all gear, and plan shots so clinical treatment rooms remain orderly and comfortable.",
+    },
+    {
+      question: "Can patient before-and-after smile transformations be formatted for Instagram Reels?",
+      answer:
+        "Yes. We design high-retention vertical split screens and side-by-side reveals optimized for short-form social engagement.",
+    },
+    {
+      question: "Do you help guide camera-shy dental patients through their video interviews?",
+      answer:
+        "Yes. We use a conversational, supportive interview style that puts patients at ease and helps them share their stories naturally.",
+    },
+  ],
+  "/services/concierge-doctor-video-palm-beach": [
+    {
+      question: "Can you film inside private medical suites while maintaining patient discretion?",
+      answer:
+        "Yes. Filming is conducted during dedicated private hours with a compact crew ensuring complete confidentiality and clinical tranquility.",
+    },
+    {
+      question: "Do you help doctors structure clear explanations of membership healthcare models?",
+      answer:
+        "Yes. We provide conversational prompts that help physicians clearly articulate the benefits of membership-based direct healthcare access.",
+    },
+    {
+      question: "Can advanced diagnostic equipment and wellness technologies be showcased on video?",
+      answer:
+        "Yes. We capture detailed, elegant footage of diagnostic suites, laboratory workstations, and patient monitoring environments.",
+    },
+  ],
+  "/services/bar-bat-mitzvah-videographer-boca-raton": [
+    {
+      question: "Can you film the Torah reading rehearsal at the temple before the celebration?",
+      answer:
+        "Yes. We coordinate sanctuary filming sessions during permitted rehearsal times to document the teenager at the bimah with the Torah scrolls.",
+    },
+    {
+      question: "How do you capture high-energy dancing and the traditional Hora chair lift?",
+      answer:
+        "We use compact 3-axis gimbals and wide-angle cinema optics that glide safely inside the dancing circle to capture every reaction.",
+    },
+    {
+      question: "Do you provide full-length unedited recordings of family speeches and blessings?",
+      answer:
+        "Yes. We deliver indexed full recordings of candle lighting ceremonies, parent toasts, and grandparent blessings alongside the cinematic highlight film.",
+    },
+  ],
+  "/services/destination-wedding-videographer-palm-beach": [
+    {
+      question: "Do you travel across Palm Beach County, Boca Raton, and the Florida Keys?",
+      answer:
+        "Yes. We handle destination wedding weekend bookings across all luxury resorts and private estates in South Florida.",
+    },
+    {
+      question: "How are personal wedding vows recorded clearly during outdoor oceanside ceremonies?",
+      answer:
+        "We fit the groom and officiant with miniature wireless lapel microphones with specialized wind isolation to capture crystal-clear spoken vows.",
+    },
+    {
+      question: "Can you provide a short cinematic teaser while we are away on our honeymoon?",
+      answer:
+        "Yes. We can prepare a one-minute vertical teaser trailer delivered within several business days following your celebration.",
+    },
+  ],
+  "/services/online-course-video-production-miami": [
+    {
+      question: "Do you provide teleprompter equipment and software for course recordings?",
+      answer:
+        "Yes. We supply professional glass teleprompters and live prompt technicians to adjust scrolling speed to your natural conversational pace.",
+    },
+    {
+      question: "Can screen recordings and Keynote slides be inserted during editing?",
+      answer:
+        "Yes. We composite high-resolution digital slide graphics, animated software walkthroughs, and visual bullet points beside the presenter.",
+    },
+    {
+      question: "How should course scripts be structured before booking studio recording?",
+      answer:
+        "We recommend organizing scripts into focused modular lessons between five and twelve minutes with explicit verbal callouts for graphic slides.",
+    },
+  ],
+  "/services/vsl-direct-response-video-editing": [
+    {
+      question: "Can you provide the voiceover narration or do clients supply vocal audio?",
+      answer:
+        "Clients typically supply professional voice recordings, though we can recommend vetted voice talent in English and Spanish if needed.",
+    },
+    {
+      question: "Do you edit both horizontal desktop pages and vertical ad split tests?",
+      answer:
+        "Yes. We deliver widescreen sixteen by nine exports for web landing pages along with nine by sixteen cuts optimized for mobile ad platforms.",
+    },
+    {
+      question: "What assets do you require before beginning direct response video editing?",
+      answer:
+        "We require the approved written script, master voiceover audio track, brand guidelines, product mockups, and customer testimonial assets.",
+    },
+  ],
+  "/services/monthly-video-repurposing-retainer": [
+    {
+      question: "What source media formats can be submitted for monthly video repurposing?",
+      answer:
+        "We accept raw camera footage, Zoom conference recordings, podcast multi-tracks, and published YouTube links in any standard digital video container.",
+    },
+    {
+      question: "Are synchronized animated captions included on all social media exports?",
+      answer:
+        "Yes. Every vertical video clip includes stylized, color-highlighted subtitles optimized for high engagement on mobile feeds without audio.",
+    },
+    {
+      question: "How are turnaround schedules managed within the recurring monthly plan?",
+      answer:
+        "Batches of edited vertical content are delivered on agreed weekly or bi-weekly milestones to keep your publishing pipeline consistently stocked.",
+    },
+  ],
+  "/services/b2b-saas-explainer-video-miami": [
+    {
+      question: "Can software demo videos be updated when user interfaces receive feature updates?",
+      answer:
+        "Yes. Because our motion graphic projects are built with modular vector assets, interface screens and button layouts can be updated rapidly without reshooting.",
+    },
+    {
+      question: "Do you provide professional voiceover talent for technical software explainers?",
+      answer:
+        "Yes. We coordinate vetted voice talent in North American English and neutral Latin American Spanish to deliver authoritative technical narration.",
+    },
+    {
+      question: "What file resolutions and aspect ratios are delivered for landing pages and sales decks?",
+      answer:
+        "We deliver sixteen by nine master files formatted for web players alongside vertical cuts and lightweight embedded files for email sales outreach.",
+    },
+  ],
+  "/services/executive-linkedin-video-series-miami": [
+    {
+      question: "Can filming take place directly inside our company offices or conference rooms?",
+      answer:
+        "Yes. We set up compact, whisper-quiet cinema cameras and soft lighting inside your workplace without disrupting daily office operations.",
+    },
+    {
+      question: "Do executives need to prepare memorized scripts before the shoot day?",
+      answer:
+        "No. We utilize an interview question framework that prompts natural conversational dialogue and authoritative industry perspective.",
+    },
+    {
+      question: "Are accurate subtitles included for mobile LinkedIn playback without sound?",
+      answer:
+        "Yes. Every video includes synchronized, brand-aligned captions optimized for silent viewing on mobile professional feeds.",
+    },
+  ],
+  "/services/youtube-long-form-video-editing": [
+    {
+      question: "What is the typical editing turnaround for a twenty-minute YouTube episode?",
+      answer:
+        "Standard edits are completed within several business days following raw footage ingestion, multi-track audio sync, and graphic staging.",
+    },
+    {
+      question: "Can you design matching high-CTR thumbnail graphics for each episode?",
+      answer:
+        "Yes. We offer custom thumbnail graphic packages designed with compelling typography, high-contrast imagery, and bold focal composition.",
+    },
+    {
+      question: "How do we transfer large camera files and screen recordings for editing?",
+      answer:
+        "Clients upload footage directly to our dedicated high-speed cloud storage folders via secure, resume-supported transfer links.",
+    },
+  ],
+  "/services/product-unboxing-demo-video-south-florida": [
+    {
+      question: "Can products be shipped directly to your studio for filming?",
+      answer:
+        "Yes. Brands ship pristine packaged product samples directly to our South Florida facility for scheduled studio recording and demonstration.",
+    },
+    {
+      question: "Do you provide on-camera hand models or talent for demonstrations?",
+      answer:
+        "Yes. We supply experienced on-camera talent and hand models accustomed to delicate unboxing gestures and product positioning.",
+    },
+    {
+      question: "What export formats are delivered for Amazon and social commerce ads?",
+      answer:
+        "We deliver sixteen by nine master files optimized for Amazon detail pages along with vertical nine by sixteen cuts for Instagram and TikTok ads.",
+    },
+  ],
+  "/services/airbnb-luxe-vacation-rental-video-miami-beach": [
+    {
+      question: "When is the best time of day to schedule a luxury villa video shoot?",
+      answer:
+        "We film during late afternoon and sunset golden hour to capture stunning warm exterior sunlight followed by dramatic twilight landscape lighting.",
+    },
+    {
+      question: "Can private docks, outdoor kitchens, and hot tubs be highlighted?",
+      answer:
+        "Yes. We dedicate focused camera sequences to outdoor waterfront amenities, fire pits, outdoor dining pergolas, and spa whirlpools.",
+    },
+    {
+      question: "Do you deliver vertical video edits for social media booking campaigns?",
+      answer:
+        "Yes. We deliver vertical nine by sixteen cutdowns with licensed cinematic music crafted specifically for Instagram and TikTok promotion.",
+    },
+  ],
+  "/services/waterfront-restaurant-video-fort-lauderdale": [
+    {
+      question: "Can filming occur before opening hours to avoid interrupting dining guests?",
+      answer:
+        "Yes. We film kitchen plating and cocktail preparations during pre-opening hours, transitioning to ambient guest coverage during early evening service.",
+    },
+    {
+      question: "Do you film private dining rooms for corporate and wedding buyout marketing?",
+      answer:
+        "Yes. We document private event spaces, waterfront banquet setups, and specialized party menus for corporate buyout promotions.",
+    },
+    {
+      question: "Can boat arrival and dock-and-dine customer experiences be documented?",
+      answer:
+        "Yes. We capture guests docking their watercraft alongside your restaurant slip and walking directly up to outdoor patio tables.",
+    },
+  ],
+  "/services/marina-facility-video-fort-lauderdale": [
+    {
+      question: "Can you film marina operations like travelift haul-outs and dry storage forklifts?",
+      answer:
+        "Yes. We coordinate with yard safety officers to safely capture heavy equipment maneuvers, vessel lifting, and fueling operations.",
+    },
+    {
+      question: "Do you document crew amenities like lounges, business centers, and fitness rooms?",
+      answer:
+        "Yes. We capture captain and crew facilities that persuade yacht crews to select your marina as their preferred seasonal homeport.",
+    },
+    {
+      question: "Are navigational specifications like draft depth and bridge clearance highlighted?",
+      answer:
+        "Yes. We incorporate elegant motion graphic text displays for navigational depths, electrical hookup amperage, and vessel length limits.",
+    },
+  ],
 };
 
 /** Hand-written pages left without a FAQ because no published fact supports one. */

@@ -1336,3 +1336,364 @@ export const BOUTIQUE_HOTEL_RESORT_ES_SECTIONS: readonly SpanishNicheSection[] =
 ];
 
 
+
+export const MULTICAM_PANEL_ES_DISCLOSURE = "¿Cómo garantiza el sistema multicámara un registro dinámico en paneles corporativos de Miami?";
+export const MULTICAM_PANEL_ES_DESTINATIONS = "Sincronización de cámaras, toma directa de audio de consola, microfonía de preguntas y edición de cápsulas.";
+
+export const MULTICAM_PANEL_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo se coordinan dos cámaras sincronizadas durante una mesa redonda en Miami?",
+    paragraphs: [
+      "La grabación de paneles corporativos y mesas redondas exige una disposición de cámaras que capture con naturalidad tanto las exposiciones individuales como las reacciones espontáneas de los participantes. Esteban instala una cámara principal con óptica de retrato sobre trípode firme en el pasillo central para seguir al ponente en turno con encuadres limpios. La segunda cámara cubre un tiro angular más abierto desde un lateral para registrar la totalidad del estrado, las interacciones entre ponentes y la atención del público asistente. Ambas unidades operan con perfiles de color idénticos y códigos de tiempo coincidentes, facilitando una edición ágil sin saltos cromáticos molestos. Toda la instalación ocupa un espacio discreto que no obstaculiza el tránsito de los asistentes ni la visibilidad del auditorio. Para explorar opciones en congresos completos, revise [videógrafo para conferencias en Fort Lauderdale](/es/videografo-para-conferencias-fort-lauderdale); para conocer tarifas, consulte [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué medidas de sonido aseguran un audio perfecto sin ruidos ni reverberaciones de sala?",
+    paragraphs: [
+      "El sonido profesional constituye la base de cualquier grabación de conferencia destinada a bibliotecas formativas o difusión institucional. En lugar de utilizar micrófonos ambientales que captan el zumbido de la climatización o el eco de grandes salas, conectamos grabadoras independientes directamente a la salida XLR de la mesa de sonido principal del recinto. Adicionalmente, instalamos transmisores de solapa inalámbricos con cápsulas omnidireccionales en el moderador y oradores destacados para disponer de pistas de seguridad ante posibles cortes en la megafonía local. Un micrófono direccional registra con nitidez las intervenciones y preguntas de los asistentes desde el patio de butacas. En la fase de mezcla procesamos cada canal por separado para eliminar siseos y equilibrar los volúmenes de conversación con precisión de estudio. Para revisar nuestra experiencia corporativa, explore [videógrafo para entrevistas ejecutivas en Miami](/es/videografo-para-entrevistas-ejecutivas-miami); contáctenos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const CORPORATE_TOWN_HALL_ES_DISCLOSURE = "¿Cómo se filman las asambleas corporativas asegurando discreción y calidad en South Florida?";
+export const CORPORATE_TOWN_HALL_ES_DESTINATIONS = "Custodia confidencial, encuadres institucionales, sincronización de gráficos y formatos de intranet.";
+
+export const CORPORATE_TOWN_HALL_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo se protege la información estratégica de la empresa durante la grabación de asambleas?",
+    paragraphs: [
+      "El registro de balances financieros, juntas de accionistas y anuncios corporativos reservados requiere una rigurosa disciplina de confidencialidad en cada fase del rodaje. Esteban opera bajo acuerdos de confidencialidad estrictos y almacena los brutos en discos duros cifrados sin subidas a servidores públicos no autorizados. En las salas de juntas se instala un equipo cinematográfico compacto que no distrae a los miembros del consejo ni interfiere con las deliberaciones oficiales. La iluminación suave resalta la presencia del equipo directivo con un tono institucional cálido y convincente. La doble grabación simultánea en tarjetas de memoria garantiza la conservación de cada palabra pronunciada sin margen para incidencias técnicas. La entrega final se efectúa mediante transferencias privadas protegidas con clave exclusiva para el departamento de comunicación interna. Para producciones similares, vea [producción de casos de estudio en video para empresas en Miami](/es/produccion-de-casos-de-estudio-en-video-para-empresas-miami); consulte [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué piezas audiovisuales facilitan la comunicación de los directivos con su plantilla?",
+    paragraphs: [
+      "Las direcciones de recursos humanos y relaciones con inversores precisan formatos visuales que transmitan los mensajes con agilidad a empleados remotos y delegaciones internacionales. Además de la grabación completa dividida en capítulos temáticos, entregamos una versión ejecutiva condensada de tres minutos que resalta los acuerdos principales, objetivos cumplidos e incentivos futuros. Las pantallas de presentación se integran con nitidez junto a la imagen del orador para facilitar la lectura de tablas financieras y diagramas operativos. Incorporamos subtítulos bilingües revisados para favorecer la accesibilidad en entornos de trabajo sin audio activo. El tratamiento de color unifica la apariencia estética eliminando dominantes frías de tubos fluorescentes en salas de conferencias. Para producciones de eventos institucionales, revise [videógrafo para conferencias en Fort Lauderdale](/es/videografo-para-conferencias-fort-lauderdale); contáctenos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const EXECUTIVE_RETREAT_ES_DISCLOSURE = "¿Cómo se documenta un retiro de liderazgo ejecutivo en Florida Keys con estilo cinematográfico?";
+export const EXECUTIVE_RETREAT_ES_DESTINATIONS = "Sesiones de estrategia, dinámicas costeras al aire libre, cenas de gala y piezas de cultura empresarial.";
+
+export const EXECUTIVE_RETREAT_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo se combina la filmación de reuniones estratégicas con dinámicas de ocio costero?",
+    paragraphs: [
+      "Los retiros de liderazgo en los Cayos de Florida exigen una cobertura flexible que capture con la misma sensibilidad las sesiones de planificación en salas privadas y los momentos de desconexión junto al mar. Esteban utiliza cámaras ligeras montadas en estabilizadores manuales que permiten pasar de una sala de juntas climatizada a un muelle soleado sin retrasos de configuración técnica. Durante las presentaciones matinales, la presencia de la cámara es silenciosa y respetuosa con los debates del equipo directivo. En las actividades náuticas, cenas informales y paseos al atardecer, el empleo de filtros ópticos específicos atenúa la intensa luz solar tropical para mantener tonos de piel agradables y fondos costeros nítidos. Este equilibrio visual refleja la complicidad sincera entre los líderes y la visión compartida de la compañía. Para eventos corporativos en salones, consulte [videógrafo para galas corporativas en Miami](/es/videografo-para-galas-corporativas-miami); revise [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué productos en video permiten conservar el entusiasmo y los acuerdos del retiro?",
+    paragraphs: [
+      "Las organizaciones necesitan que la motivación y los acuerdos alcanzados durante el viaje se mantengan vivos en el día a día de sus oficinas. Esteban produce una película resumen de tres minutos con ritmo inspirador que entrelaza testimonios espontáneos de los participantes con paisajes marítimos de los Cayos y momentos significativos de la convivencia. Asimismo, se proporciona un archivo ordenado con las exposiciones completas y su material gráfico asociado para consulta de los miembros ausentes. Para la comunicación externa, editamos píldoras verticales para LinkedIn que muestran el atractivo de la cultura interna de la compañía ante perfiles profesionales exigentes. El etalonaje resalta la luminosidad de las aguas esmeralda y el cielo caribeño con elegancia atemporal. Para revisar eventos de networking empresarial, vea [videógrafo para eventos de networking en Miami](/es/videografo-para-eventos-de-networking-miami); contáctenos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const BRAND_ACTIVATION_ES_DISCLOSURE = "¿Cómo se filma una activación de marca experiencial para lograr máxima repercusión en Miami?";
+export const BRAND_ACTIVATION_ES_DESTINATIONS = "Instalaciones interactivas, energía de los asistentes, contenidos para influencers y edición vertical rápida.";
+
+export const BRAND_ACTIVATION_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo se capta el entusiasmo del público y la interacción con el producto en eventos efímeros?",
+    paragraphs: [
+      "Las activaciones de marca y tiendas pop-up en distritos artísticos como Wynwood o el Design District de Miami basan su éxito en la experiencia sensorial y la conexión con el público. Esteban filma estos eventos mediante movimientos de cámara continuos y estabilizados que se deslizan entre los asistentes sin alterar la fluidez del espacio comercial. Grabamos a frecuencias elevadas para obtener cámaras lentas elegantes de personas probando productos, participando en actividades inmersivas o interactuando con personalidades de redes sociales. Los planos cortos captan expresiones espontáneas, detalles de la ambientación e iluminación de marca que demuestran la calidez del evento. El manejo de la iluminación portátil refuerza la paleta corporativa sin romper la atmósfera escénica del local. Para producciones con enfoque de moda, explore [video para marcas de moda en Miami](/es/video-para-marcas-de-moda-miami); consulte [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué tipos de video ayudan a las agencias a multiplicar la visibilidad en redes sociales?",
+    paragraphs: [
+      "Las agencias de comunicación necesitan material audiovisual inmediato para aprovechar la conversación digital mientras la activación sigue abierta al público. Entregamos cápsulas verticales con cortes dinámicos, efectos de sonido y títulos tipográficos que siguen el manual de identidad de la marca con total fidelidad. Junto a los reels de impacto diario, elaboramos un resumen comercial de dos minutos que documenta el montaje del espacio, la afluencia de visitantes y el retorno de la inversión para los informes internos de dirección. Empleamos música con licencia comercial garantizada para evitar bloqueos en plataformas sociales. La corrección de color asegura que los logotipos y colores corporativos luzcan exactos bajo luces de neón o focos de espectáculo. Para coberturas en locales y coctelería, visite [videógrafo de coctelería para bares en Miami](/es/videografo-de-cocteleria-para-bares-miami); reserve fechas en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const PRE_CONSTRUCTION_SALES_ES_DISCLOSURE = "¿Cómo impulsa las ventas sobre plano el video de salas de exhibición y maquetas en Miami?";
+export const PRE_CONSTRUCTION_SALES_ES_DESTINATIONS = "Detalles de maquetas a escala, muestras de materiales nobles, explicaciones de agentes y presentaciones internacionales.";
+
+export const PRE_CONSTRUCTION_SALES_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo se filman las maquetas arquitectónicas para transmitir escala y lujo real?",
+    paragraphs: [
+      "La comercialización de torres de condominios en preventa dirigida a compradores locales e internacionales requiere proyectar la vida en un edificio que aún está en fase de proyecto. Esteban registra las salas de ventas utilizando lentes macro y deslizadores motorizados de precisión milimétrica que recorren las maquetas arquitectónicas. Los movimientos lentos y controlados destacan las terrazas con vistas, las piscinas en azotea y los accesos privados con una sensación tridimensional auténtica. Aplicamos técnicas de iluminación indirecta que suprimen brillos sobre vitrinas y maquetas, resaltando la textura de los materiales. La grabación abarca también las zonas de exposición de acabados, como mármoles importados, carpintería de diseño y griferías de alta gama. Este tratamiento visual convierte los bocetos en una certeza tangible de lujo. Para recorridos de propiedades terminadas, explore [recorrido en video de penthouses de lujo en Miami](/es/recorrido-en-video-de-penthouses-de-lujo-miami); consulte [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué recursos en video aceleran las firmas de contratos de preventa residencial?",
+    paragraphs: [
+      "Las agencias inmobiliarias especializadas en promociones inmobiliarias precisan herramientas audiovisuales persuasivas para convencer a inversores durante las primeras fases de reserva. Producimos un video principal de tres minutos con intervenciones del equipo de ventas que explica los servicios del edificio, la distribución de plantas y la revalorización de la zona. Se elaboran además cápsulas verticales con rótulos elegantes que muestran detalles de la maqueta y los materiales exclusivos para campañas en mercados extranjeros. La inclusión de subtítulos en español e inglés garantiza una comunicación fluida con clientes de América Latina y otros países que deciden sus inversiones a distancia. La gradación de color aporta calidez y distinción sin alterar los tonos reales de las muestras de diseño. Para proyectos de inmuebles comerciales, visite [video para bienes raíces comerciales en Miami](/es/video-para-bienes-raices-comerciales-miami); contáctenos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const COMMERCIAL_OFFICE_LEASING_ES_DISCLOSURE = "¿Cómo agiliza el video profesional el alquiler de oficinas y naves comerciales en South Florida?";
+export const COMMERCIAL_OFFICE_LEASING_ES_DESTINATIONS = "Plantas corporativas abiertas, iluminación natural de despachos, muelles de carga y rótulos con superficies.";
+
+export const COMMERCIAL_OFFICE_LEASING_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo se muestran los espacios corporativos y las comodidades del edificio con rigor técnico?",
+    paragraphs: [
+      "La comercialización de oficinas para empresas que trasladan su sede a South Florida exige presentar espacios funcionales, luminosidad diurna y servicios de valor añadido con total transparencia. Esteban graba inmuebles corporativos utilizando ópticas ultra gran angular diseñadas para corregir deformaciones ópticas y mantener las líneas arquitectónicas verticales perfectamente rectas. Mediante recorridos continuos con estabilizadores de precisión, la cámara guía al futuro inquilino desde el vestíbulo principal hasta plantas diáfanas modulables y despachos directivos con amplias cristaleras. Ajustamos la exposición lumínica para equilibrar la luz suave del interior con las vistas urbanas o paisajísticas que rodean el inmueble. Asimismo, se documentan con detalle zonas comunes como salas de conferencias equipadas, comedores corporativos y accesos de aparcamiento subterráneo. Para producciones similares, revise [video para bienes raíces comerciales en Miami](/es/video-para-bienes-raices-comerciales-miami); consulte [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué gráficos y formatos en video facilitan el cierre de contratos a los agentes inmobiliarios?",
+    paragraphs: [
+      "Los consultores inmobiliarios comerciales precisan piezas que aporten respuestas inmediatas sobre superficie y operativa a los directores de operaciones. Incorporamos títulos animados que indican metros cuadrados disponibles, alturas libres de techo, capacidad eléctrica y distribución modular superpuestos sobre las propias estancias del edificio. En parques logísticos y naves industriales, los planos generales fluidos evidencian la amplitud de los patios de maniobra para camiones, la distribución de muelles de carga y la robustez de los suelos de hormigón pulido. Entregamos un video principal de tres minutos idóneo para portales especializados como LoopNet, complementado por cápsulas breves de un minuto para publicaciones directas en perfiles corporativos de LinkedIn. Un etalonaje limpio refleja la solidez y luminosidad del espacio. Para ver filmaciones de directivos, visite [videógrafo para entrevistas ejecutivas en Miami](/es/videografo-para-entrevistas-ejecutivas-miami); contáctenos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const COSMETIC_DENTISTRY_ES_DISCLOSURE = "¿Cómo genera confianza el video de transformaciones de sonrisa en clínicas dentales de Miami?";
+export const COSMETIC_DENTISTRY_ES_DESTINATIONS = "Reacciones ante el espejo, detalles macro de carillas cerámicas, emoción del paciente y prestigio clínico.";
+
+export const COSMETIC_DENTISTRY_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo se filma el emotivo momento en que el paciente descubre su nueva sonrisa?",
+    paragraphs: [
+      "Los pacientes que deciden realizarse un tratamiento de carillas de porcelana o diseño de sonrisa buscan mucho más que un cambio estético: anhelan recuperar la seguridad en sí mismos al hablar y sonreír. Esteban registra estos instantes filmando la revelación genuina frente al espejo cuando el paciente contempla por primera vez el resultado definitivo de su tratamiento. Con paneles de luz difusa que embellecen los tonos del rostro sin destellos molestos, la cámara capta la sonrisa espontánea, la emoción en los ojos y el agradecimiento sincero hacia el odontólogo. A través de entrevistas cercanas y pausadas, los pacientes comparten cómo sus antiguos complejos dentales condicionaban su vida diaria y la plenitud que sienten con su nueva imagen. Este relato humano genera una identificación inmediata en quienes buscan un cambio dental. Vea nuestro trabajo real para [Healthy Smile en Miami](/es/portafolio/healthy-smile); consulte [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué detalles técnicos y planos de aproximación demuestran la maestría en carillas cerámicas?",
+    paragraphs: [
+      "Los pacientes exigentes reconocen la calidad odontológica por la naturalidad, transparencia y ajuste perfecto de las piezas cerámicas. Empleamos lentes macro de alta precisión que enfocan las carillas a milímetros de distancia, mostrando la textura del esmalte, la armonía del contorno gingival y la luminosidad de la porcelana sin sombras duras. Las tomas de apoyo documentan la destreza del doctor durante el escaneo digital intraoral, la selección de tonalidades y el protocolo de adhesión con pulcritud médica. Entregamos un video principal para la portada web que consolida la autoridad del doctor, junto a ocho piezas verticales de impacto centradas en el antes y después para captar nuevos pacientes en Instagram y TikTok. El tratamiento cromático mantiene los tonos dentales fidedignos, evitando blanqueamientos artificiales que restan credibilidad médica. Para tratamientos de medicina estética, visite [video para med spas en Miami](/es/video-para-med-spas-y-cirujanos-plasticos-miami); reserve fechas en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const CONCIERGE_DOCTOR_ES_DISCLOSURE = "¿Cómo transmite distinción y cercanía el video para médicos concierge en Palm Beach?";
+export const CONCIERGE_DOCTOR_ES_DESTINATIONS = "Atención médica personalizada, espacios clínicos elegantes, explicaciones de longevidad y captación de miembros.";
+
+export const CONCIERGE_DOCTOR_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo se refleja la exclusividad y dedicación de la medicina personalizada en video?",
+    paragraphs: [
+      "Los pacientes de alto patrimonio que eligen la medicina concierge y la atención médica personalizada buscan un trato directo, sin prisas y enfocado en la prevención integral de su salud. Esteban filma las consultas privadas y centros de bienestar en Palm Beach y Boca Raton con un lenguaje visual sobrio y elegante que transmite serenidad y confianza médica. Las entrevistas se desarrollan en despachos y bibliotecas privadas, iluminadas con fuentes suaves que destacan la autoridad y empatía del doctor. El facultativo explica los motivos por los que decidió reducir el número de pacientes para ofrecer disponibilidad continua y consultas exhaustivas de una hora. Los planos de apoyo muestran la revisión atenta de historiales, pruebas diagnósticas avanzadas y espacios médicos diseñados con exquisito gusto. Esta estética conecta de inmediato con familias que valoran su salud por encima de todo. Para revisar proyectos en salud, vea [Healthy Smile en Miami](/es/portafolio/healthy-smile); consulte [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué piezas audiovisuales consolidan la reputación de una consulta médica exclusiva?",
+    paragraphs: [
+      "Los doctores y directores de centros de medicina preventiva precisan contenidos de alta gama que refuercen su prestigio científico sin recurrir a formatos comerciales estridentes. Realizamos una película principal de tres minutos para la web de la consulta donde el médico comparte su trayectoria hospitalaria, sus investigaciones y su visión de la medicina proactiva. Complementamos este recurso con cuatro piezas divulgativas de dos minutos sobre optimización metabólica, cribado cardiovascular y protocolos de envejecimiento saludable para boletines privados y canales digitales. Subtítulos elegantes facilitan la lectura en teléfonos móviles sin necesidad de audio activo. El etalonaje equilibra los blancos clínicos con la calidez de los interiores nobles de Palm Beach. Para producciones afines en clínicas avanzadas, visite [video para clínicas de medicina regenerativa en Miami](/es/video-para-clinicas-de-medicina-regenerativa-miami); escríbanos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const BAR_BAT_MITZVAH_ES_DISCLOSURE = "¿Cómo inmortaliza el video cinematográfico una celebración de Bar y Bat Mitzvah en Boca Raton?";
+export const BAR_BAT_MITZVAH_ES_DESTINATIONS = "Ensayos con la Torá, bendiciones de abuelos, baile de la Hora y películas de recuerdo familiar.";
+
+export const BAR_BAT_MITZVAH_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo se filman las tradiciones solemnes en la sinagoga y la posterior fiesta de gala?",
+    paragraphs: [
+      "La celebración de un Bar o Bat Mitzvah marca un rito de madurez espiritual de inmenso valor familiar combinado con una fiesta festiva de gran magnitud. Esteban asume este compromiso con máximo respeto durante los ensayos en la sinagoga o servicios matinales permitidos. Empleamos ópticas fijas luminosas que capturan la lectura de la Torá, las miradas cómplices de los padres y las bendiciones de los abuelos sin emplear focos agresivos ni alterar la solemnidad del templo. Al caer la noche, el dispositivo técnico se transforma para registrar la fiesta en salones de gala de Boca Raton y Aventura. Los estabilizadores de mano se adentran en la pista para filmar la emoción del levantamiento de la silla en el baile de la Hora, los juegos y el encendido de velas con dinamismo. Registramos el sonido directo de los micrófonos para que cada brindis familiar se conserve impecable. Para celebraciones juveniles, explore [videógrafo de quinceañeras en Miami](/es/videografo-de-quinceaneras-miami); consulte [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué películas de recuerdo familiar perduran a través de las generaciones?",
+    paragraphs: [
+      "Las familias buscan una obra audiovisual que sus hijos y futuros nietos puedan contemplar con el paso de los años con la misma emoción que el primer día. Editamos una película cinematográfica de cinco minutos que acompasa las palabras más emotivas de los padres con la explosión de alegría de los jóvenes en la fiesta. Junto a este cortometraje principal, entregamos el registro íntegro de los discursos, bendiciones y presentaciones en una galería digital interactiva de fácil acceso para familiares en el extranjero. Producimos también tres cápsulas verticales rítmicas para que los jóvenes compartan su celebración con sus amigos en redes sociales. El tratamiento de color unifica la calidez de la madera del santuario con los efectos lumínicos del salón de baile. Para ver producciones de bodas y aniversarios, visite [videógrafo de bodas en Miami](/es/videografo-de-bodas-miami); contáctenos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const DESTINATION_WEDDING_ES_DISCLOSURE = "¿Cómo inmortaliza una boda de destino de fin de semana en Palm Beach la cinematografía de autor?";
+export const DESTINATION_WEDDING_ES_DESTINATIONS = "Cóctel de bienvenida, ceremonias junto al océano, votos matrimoniales sinceros y bailes de medianoche.";
+
+export const DESTINATION_WEDDING_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo se filma un fin de semana nupcial completo sin sobrecargar a los novios?",
+    paragraphs: [
+      "Las parejas que viajan a Palm Beach para casarse en hoteles emblemáticos como The Breakers o The Colony desean disfrutar de cada instante con sus familias sin que la cámara condicione su celebración. Esteban aplica un método documental silencioso que prioriza la espontaneidad y los sentimientos sinceros. Durante el cóctel de bienvenida del viernes, la cámara registra los abrazos de reencuentro de invitados llegados de distintas ciudades, los brindis informales y la luz dorada del atardecer costero sin forzar poses artificiales. El sábado nupcial, los preparativos en las suites, el primer encuentro entre los novios bajo palmeras centenarias y los votos nupciales se graban con ópticas de retrato y microfonía invisible en el prendedor del novio. Los novios viven su día con plenitud mientras la cámara captura cada mirada de complicidad. Vea nuestra película de boda publicada [Diana & Jack](/es/portafolio/diana-jack); consulte [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué películas de autor atesoran la magia y distinción de una boda en Palm Beach?",
+    paragraphs: [
+      "Una boda de destino reúne a las personas más importantes en la vida de una pareja y merece una obra audiovisual que refleje la sofisticación de Palm Beach. Entregamos una película cinematográfica de ocho a diez minutos con una banda sonora selecta que entrelaza los votos nupciales, las palabras más emotivas de los padrinos y la belleza arquitectónica del enclave. Facilitamos además una versión documental íntegra con la ceremonia completa y los discursos de banquete con sonido directo de alta fidelidad. Para el viaje de novios, editamos avances verticales para que la pareja comparta la emoción en sus redes sociales. La gradación de color respeta la luz característica de Florida: tonos pastel suaves, vegetación tropical viva y destellos dorados en la piel. Para cenas prenupciales, visite [videógrafo para cena de ensayo en Miami](/es/videografo-para-cena-de-ensayo-miami); coordine fechas en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const ONLINE_COURSE_ES_DISCLOSURE = "¿Cómo se graban cursos digitales de alta retención para plataformas educativas en Miami?";
+export const ONLINE_COURSE_ES_DESTINATIONS = "Uso de teleprónter, sistema de dos cámaras, integración de diapositivas y entrega de módulos.";
+
+export const ONLINE_COURSE_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo facilita el teleprónter profesional una explicación fluida y natural frente a la cámara?",
+    paragraphs: [
+      "Muchos formadores y directivos dominan su materia pero pierden espontaneidad cuando deben memorizar extensos contenidos técnicos ante un objetivo. Esteban implementa un sistema de teleprónter con cristal óptico montado frente a la cámara principal, lo que permite al instructor mirar fijamente a sus alumnos virtuales mientras repasa su temario sin titubeos. Durante las primeras pruebas ajustamos la velocidad del texto para acompasarla con la respiración y los énfasis naturales del ponente, evitando un tono mecánico o apresurado. La iluminación de estudio con fuentes difusas previene el cansancio ocular a lo largo de jornadas completas de grabación. El ponente proyecta seguridad pedagógica desde la primera lección, transmitiendo la autoridad necesaria para cursos de suscripción premium. Para entrevistas corporativas, consulte [videógrafo para entrevistas ejecutivas en Miami](/es/videografo-para-entrevistas-ejecutivas-miami); revise tarifas en [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué estructura de dos cámaras y grafismo favorece la finalización de los módulos formativos?",
+    paragraphs: [
+      "Los videos educativos de plano fijo prolongado provocan desinterés y aumentan las tasas de abandono en las plataformas de formación digital. Grabamos cada lección con dos cámaras cinematográficas sincronizadas: un encuadre amplio de presentación y un plano medio cerrado que se alterna en los conceptos clave y resúmenes prácticos. En la fase de montaje incorporamos diapositivas sincronizadas, gráficos explicativos y destacados de texto que refuerzan los aprendizajes visuales. El tratamiento sonoro elimina ecos de sala para lograr una locución nítida que se escucha con comodidad en auriculares durante horas. Todos los archivos se entregan etiquetados por módulos y lecciones con subtítulos precisos listos para subir a cualquier gestor de aprendizaje. Para producciones educativas institucionales, vea [videos de admisiones para colegios privados en Miami](/es/videos-de-admisiones-para-colegios-privados-miami); contáctenos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const VSL_DIRECT_RESPONSE_ES_DISCLOSURE = "¿Qué técnicas de edición consiguen mayor retención y ventas en cartas de venta en video?";
+export const VSL_DIRECT_RESPONSE_ES_DESTINATIONS = "Tipografía cinética sincronizada, cortes de patrón rítmicos, diseño de sonido y llamadas a la acción.";
+
+export const VSL_DIRECT_RESPONSE_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Por qué la tipografía cinética y el ritmo de corte determinan el éxito de un VSL?",
+    paragraphs: [
+      "En el marketing de respuesta directa, una carta de venta audiovisual compite contra distracciones constantes en navegadores y teléfonos móviles. Esteban estructura el montaje de VSL empleando tipografía cinética calibrada palabra por palabra con la voz en off, asegurando que la mirada del espectador permanezca anclada en el mensaje. Cada pocos segundos introducimos interrupciones visuales de patrón calculadas, como cambios sutiles de escala, contrastes cromáticos y secuencias de apoyo que renuevan el interés mental. Los textos destacan datos numéricos, testimonios y garantías con animaciones sobrias y contundentes. Esta cadencia visual acompaña al cliente potencial a través de las fases emocionales del guion, desde la exposición del problema hasta la presentación de la oferta. Para proyectos de podcasts y entrevistas, explore [producción de video para podcasts con multicámaras en Miami](/es/produccion-de-video-para-podcasts-con-multicamaras-miami); consulte [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Cómo potencia el diseño de sonido la autoridad de la oferta y la conversión final?",
+    paragraphs: [
+      "Los estímulos acústicos sutiles refuerzan de manera decisiva la credibilidad y el impacto de los argumentos de venta en video. Esteban incorpora capas de diseño sonoro personalizadas con transiciones cinemáticas, impactos suaves y efectos auditivos que subrayan las objeciones clave y los beneficios principales. La música de fondo se modula con precisión, subiendo de intensidad en los momentos de mayor entusiasmo y reduciéndose al silencio absoluto en el instante en que se revela el precio y la llamada a la acción. La locución se ecualiza con calidez y compresión profesional para garantizar nitidez impecable en altavoces de teléfonos móviles. Entregamos archivos optimizados para carga ultrarrápida en plataformas de alojamiento de páginas de aterrizaje. Para producción legal persuasiva, revise [videos para abogados de lesiones personales en Miami](/es/videos-para-abogados-de-lesiones-personales-miami); contáctenos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const VIDEO_REPURPOSING_ES_DISCLOSURE = "¿Cómo multiplica el impacto de marca un retenedor mensual de reutilización de video?";
+export const VIDEO_REPURPOSING_ES_DESTINATIONS = "Extracción de fragmentos de impacto, subtitulado dinámico, encuadre vertical y calendario mensual.";
+
+export const VIDEO_REPURPOSING_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo se transforman conferencias y grabaciones largas en clips atractivos para redes?",
+    paragraphs: [
+      "Muchos directivos y creadores graban seminarios web, podcasts o ponencias de gran valor que quedan archivados sin generar interacción recurrente. En Esteban establecemos un sistema mensual que analiza el material audiovisual existente para seleccionar los momentos más persuasivos, reflexiones contundentes y respuestas brillantes. Cada fragmento seleccionado se adapta a formato vertical mediante reencuadres dinámicos que mantienen enfocado al orador con naturalidad. Integramos títulos de apertura con ganchos verbales diseñados para frenar el desplazamiento en redes sociales desde el primer instante. Añadimos subtítulos sincronizados con palabras destacadas en color que garantizan la comprensión del mensaje incluso con el sonido desactivado. Este proceso exprime el valor de cada hora filmada. Para servicios de grabación de podcasts, visite [producción de video para podcasts con multicámaras en Miami](/es/produccion-de-video-para-podcasts-con-multicamaras-miami); consulte [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué calendario de entregas garantiza una presencia constante ante las audiencias digitales?",
+    paragraphs: [
+      "Los algoritmos de plataformas sociales favorecen a las marcas que publican con regularidad y penalizan las semanas de inactividad. Nuestros acuerdos mensuales entregan lotes programados de cápsulas verticales y fragmentos horizontales listos para nutrir los calendarios de publicación de su equipo de comunicación. Mantenemos una coherencia visual estricta aplicando las tipografías corporativas, paletas de color y rótulos identificativos de su empresa en cada entrega. Además de las piezas verticales, preparamos cortes en formato panorámico pensados para publicaciones en LinkedIn y boletines de correo electrónico. Cada mes analizamos las métricas de respuesta para ajustar los temas y el estilo de edición según las preferencias de su audiencia. Para marketing automotriz, explore [videos para concesionarios de autos en el sur de la Florida](/es/videos-para-concesionarios-de-autos-sur-de-la-florida); inicie su servicio en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const B2B_SAAS_EXPLAINER_ES_DISCLOSURE = "¿Cómo aceleran las ventas de software empresarial los videos explicativos SaaS en Miami?";
+export const B2B_SAAS_EXPLAINER_ES_DESTINATIONS = "Captura nítida de pantallas, animación gráfica de interfaz, narrativa orientada a beneficios y piezas comerciales.";
+
+export const B2B_SAAS_EXPLAINER_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo simplifica la animación de interfaz los flujos de trabajo de software empresarial?",
+    paragraphs: [
+      "Los directores de tecnología y responsables de compras evalúan herramientas digitales priorizando la claridad operativa sobre los eslóganes comerciales abstractos. Esteban convierte plataformas complejas de software en narrativas visuales dinámicas combinando capturas de pantalla de alta definición con animaciones fluidas de interfaz. En lugar de mostrar grabaciones estáticas de navegador donde el usuario pierde de vista el cursor, aplicamos ampliaciones de plano cinematográficas, movimientos de ratón suavizados y resaltados gráficos que orientan la mirada hacia las funciones esenciales. Paneles de datos, integraciones automáticas y flujos de trabajo complejos se presentan con una estética depurada que respeta la identidad corporativa. Rótulos informativos sobreimpresionan resultados cuantificables, como la reducción de errores manuales o el ahorro de tiempo para el equipo. Esta estructura transmite la propuesta técnica desde el primer minuto. Para proyectos de nuevas empresas, explore [producción de videos para pitch de startups en Miami](/es/produccion-de-videos-para-pitch-de-startups-miami); consulte [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué piezas audiovisuales facilitan el cierre de acuerdos comerciales en ventas B2B?",
+    paragraphs: [
+      "Los equipos de ventas de software empresarial requieren materiales en video diseñados para cada fase del proceso comercial. Producimos un video principal de noventa segundos concebido para la portada de la web y prospección ejecutiva que sintetiza el problema de negocio y la solución del software. Complementamos esta pieza con tres cápsulas demostrativas de cuarenta segundos que profundizan en módulos clave, tales como paneles de control, analítica avanzada o gestión de permisos, pensadas para secuencias de seguimiento comercial. La locución profesional se combina con un diseño de sonido moderno y discreto que refuerza cada clic y transición de pantalla. Los videos se entregan con subtítulos completos en inglés o español para su visualización fluida en correos electrónicos corporativos o reuniones de ventas. Para comprobar nuestra labor documental y comercial, vea la [película documental de Homeowners](/es/portafolio/homeowners); planifique la producción de su software en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const EXECUTIVE_LINKEDIN_ES_DISCLOSURE = "¿Cómo consolida la reputación directiva una serie de video planificada para LinkedIn?";
+export const EXECUTIVE_LINKEDIN_ES_DESTINATIONS = "Grabaciones trimestrales concentradas, preguntas estratégicas de negocio, microfonía oculta y subtítulos.";
+
+export const EXECUTIVE_LINKEDIN_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo genera una sesión trimestral contenido continuo de liderazgo sin saturar la agenda del directivo?",
+    paragraphs: [
+      "Los directores generales y socios directores de firmas profesionales disponen de agendas apretadas que dificultan la creación habitual de contenidos digitales. Esteban resuelve esta limitación mediante jornadas de grabación trimestrales de media jornada realizadas en las propias oficinas o salas de juntas de la empresa. Conducimos una entrevista conversacional estructurada a partir de preguntas estratégicas sobre el sector, facilitando que el directivo exponga sus puntos de vista sin necesidad de memorizar guiones. De una única sesión de tres horas extraemos entre doce y veinte cápsulas de video individuales optimizadas para redes profesionales. Cada pieza sintetiza un concepto empresarial clave en un minuto de duración. Este método garantiza presencia continua sin restar tiempo a la gestión ejecutiva. Para eventos directivos, explore [videógrafo para retiros ejecutivos en Florida Keys](/es/videografo-para-retiros-ejecutivos-florida-keys); revise [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué estética audiovisual transmite seriedad institucional en plataformas corporativas?",
+    paragraphs: [
+      "El contenido en video para LinkedIn debe reflejar la categoría y solvencia de la empresa que representa el ejecutivo. Diseñamos montajes de iluminación suave que aportan distinción a los rostros integrando con elegancia la arquitectura de la oficina de fondo. Empleamos micrófonos de solapa de tamaño reducido ocultos en la vestimenta para lograr un audio nítido sin elementos técnicos visibles. En la edición preparamos formatos verticales y cuadrados con subtítulos completos de lectura clara, facilitando la visualización en silencio desde teléfonos móviles de otros profesionales del sector. Rótulos sobrios con el nombre y cargo directivo refuerzan la imagen de marca de la organización. Para paneles corporativos, vea [video para paneles y conferencias con multicámara en Miami](/es/video-para-paneles-y-conferencias-multicamara-miami); agende una sesión en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const YOUTUBE_LONG_FORM_ES_DISCLOSURE = "¿Cómo previene la edición profesional la caída de audiencia en videos de YouTube?";
+export const YOUTUBE_LONG_FORM_ES_DESTINATIONS = "Ganchos iniciales de retención, ritmo de corte constante, diseño de sonido y capítulos estructurados.";
+
+export const YOUTUBE_LONG_FORM_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo protege el ritmo de corte la curva de retención durante los primeros minutos?",
+    paragraphs: [
+      "Las estadísticas de YouTube demuestran que la mayor pérdida de espectadores se produce en el primer minuto de reproducción. Esteban diseña el montaje de videos largos comenzando con un gancho ágil que valida de inmediato la promesa de la miniatura y el título, eliminando introducciones lentas o logotipos corporativos prolongados. Insertamos planos de recurso, transiciones suaves y ampliaciones digitales cada pocos segundos para renovar el foco visual del espectador sin saturarlo. Las explicaciones técnicas complejas se apoyan en diagramas y esquemas animados que facilitan la comprensión inmediata. Este ritmo mantiene constante el tiempo medio de visualización, indicando al algoritmo de YouTube que recomiende el contenido a audiencias más amplias. Para proyectos de podcasts, consulte [producción de video para podcasts con multicámaras en Miami](/es/produccion-de-video-para-podcasts-con-multicamaras-miami); revise [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué elementos de sonido y grafismo diferencian un canal profesional de uno amateur?",
+    paragraphs: [
+      "La diferencia entre un canal de éxito y uno estancado reside en el cuidado del diseño sonoro y la coherencia gráfica. Esteban aplica efectos acústicos sutiles en cada cambio de capítulo, reforzando las transiciones de ideas con texturas sonoras discretas. La pista vocal se somete a reducción de ruidos, compresión equilibrada y enriquecimiento tímbrico para que suene con presencia nítida en teléfonos móviles o televisores inteligentes. Realizamos una gradación de color profesional con tonos de piel naturales y contraste cinematográfico. Los proyectos se entregan con marcas de tiempo para los capítulos de YouTube y propuestas para el diseño de miniaturas. Para edición de ventas, explore [edición de video para cartas de venta VSL](/es/edicion-de-video-para-cartas-de-venta-vsl); coordine su calendario de edición en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const PRODUCT_UNBOXING_ES_DISCLOSURE = "¿Cómo incrementa el video cinematográfico de unboxing las ventas de productos en línea?";
+export const PRODUCT_UNBOXING_ES_DESTINATIONS = "Tomas macro de texturas, bases giratorias motorizadas, sonido táctil foley y adaptaciones para tiendas online.";
+
+export const PRODUCT_UNBOXING_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo revelan las lentes macro y bases giratorias la calidad real de los materiales?",
+    paragraphs: [
+      "Los compradores de tiendas en línea no pueden tocar ni examinar físicamente un producto antes de pedirlo, por lo que la fidelidad visual es el factor decisivo de compra. Esteban filma videos de unboxing y demostración empleando lentes macro de cine y bases motorizadas de giro suave que capturan los detalles más finos, costuras, acabados metálicos y texturas de empaque. Aplicamos iluminación de estudio difusa que resalta los relieves y el diseño sin crear reflejos incómodos sobre plásticos o cristales. La cámara acompaña el gesto de abrir precintos y retirar solapas con una fluidez que recrea la emoción de recibir un paquete exclusivo. Planos más amplios muestran el producto en situaciones prácticas de uso diario. Esta presentación reduce devoluciones y aumenta la confianza de los clientes en la tienda virtual. Para producciones comerciales, revise [video para bienes raíces comerciales en Miami](/es/video-para-bienes-raices-comerciales-miami); consulte [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué importancia tiene el sonido táctil en la percepción de calidad y la decisión de compra?",
+    paragraphs: [
+      "La imagen por sí sola resulta insuficiente para transmitir la solidez de un producto físico; el audio táctil aporta la sensación de autenticidad. Grabamos efectos de sonido foley de alta resolución durante la manipulación del producto: el chasquido de cierres magnéticos, el movimiento suave de botones o el despegue de láminas protectoras. Estos sonidos se mezclan en la edición final para generar una respuesta sensorial positiva que el público asocia de inmediato con fabricación de primera categoría. Producimos versiones horizontales para fichas de producto en plataformas de venta y montajes verticales dinámicos para redes sociales comerciales. Rótulos limpios destacan dimensiones, materiales y garantías. Para videos de automoción, visite [videos para concesionarios de autos en el sur de la Florida](/es/videos-para-concesionarios-de-autos-sur-de-la-florida); solicite rodaje en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const AIRBNB_LUXE_ES_DISCLOSURE = "¿Cómo incrementa el video de calidad las reservas y el precio por noche de villas en Miami Beach?";
+export const AIRBNB_LUXE_ES_DESTINATIONS = "Rodaje al atardecer, recorridos fluidos con estabilizador, detalles de hospitalidad y atracción de reservas.";
+
+export const AIRBNB_LUXE_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo capta la luz del atardecer la experiencia de alojarse en una villa frente al agua?",
+    paragraphs: [
+      "Los viajeros que reservan residencias vacacionales exclusivas en Miami Beach toman su decisión atraídos por la experiencia de descanso y ocio más que por una simple lista de metros cuadrados. Esteban programa las grabaciones durante el atardecer, cuando la luz dorada costera baña las terrazas exteriores, las piscinas iluminadas y los muelles privados. Movimientos suaves con estabilizador de tres ejes conducen al espectador desde el recibidor principal hasta las zonas de estar abiertas y los miradores frente al mar. Empleamos ópticas gran angular con corrección geométrica para mostrar los espacios con amplitud sin deformar las líneas arquitectónicas. El equilibrio de exposición entre interior y exterior resalta las vistas marítimas a través de los ventanales. Esta atmósfera visual posiciona la propiedad en las categorías más cotizadas. Para condominios de altura, explore [recorrido en video de penthouses de lujo en Miami](/es/recorrido-en-video-de-penthouses-de-lujo-miami); consulte [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué detalles de confort y hospitalidad justifican tarifas nocturnas elevadas?",
+    paragraphs: [
+      "Además del diseño arquitectónico, los huéspedes de alto poder adquisitivo valoran los detalles refinados de hospitalidad. Esteban filma planos detalle de cortesía como copas preparadas junto al jacuzzi, dormitorios con ropa de cama de lino, cocinas de chef equipadas y chimeneas exteriores al anochecer. Rótulos discretos informan sobre comodidades como amarre para yates, sistemas de sonido domóticos y cargadores para vehículos eléctricos. Entregamos un video principal de dos minutos para plataformas como Airbnb Luxe o VRBO y adaptaciones verticales para captar reservas directas a través de redes sociales. Esta combinación de piezas facilita a propietarios y empresas gestoras aumentar sus ingresos por noche. Para servicios de embarcaciones, visite [video promocional para alquiler de botes en Miami](/es/video-promocional-para-alquiler-de-botes-miami); solicite fecha de rodaje en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const WATERFRONT_RESTAURANT_ES_DISCLOSURE = "¿Cómo impulsa las reservas de mesa el video gastronómico en restaurantes de Fort Lauderdale?";
+export const WATERFRONT_RESTAURANT_ES_DESTINATIONS = "Emplatados gourmet en primer plano, coctelería en barra, atraque de embarcaciones y ambiente al atardecer.";
+
+export const WATERFRONT_RESTAURANT_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo consiguen los primeros planos culinarios y la coctelería despertar el deseo del comensal?",
+    paragraphs: [
+      "Los restaurantes frente al agua en Fort Lauderdale compiten por una clientela local y navegantes que eligen mesa seducidos por la vivacidad visual de la carta. Esteban filma la gastronomía con ópticas macro de alta definición que destacan los brillos de pescados frescos, el vapor de platos recién cocinados y el detalle de los emplatados. En la barra grabamos la preparación de cócteles a cámara lenta: el tallado de hielo, infusiones ahumadas y vertidos espumosos que atrapan la luz cálida de la barra. Empleamos iluminación suave que realza los colores de los alimentos manteniendo la calidez del comedor. Estas tomas despiertan el apetito y motivan reservas anticipadas para el fin de semana. Para servicios de hospitalidad, vea [marketing de video para hospitalidad en Fort Lauderdale](/es/marketing-de-video-para-hospitalidad-fort-lauderdale); consulte [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Cómo se retrata el estilo de vida náutico y el ambiente al atardecer en las terrazas de los canales?",
+    paragraphs: [
+      "El gran atractivo de Fort Lauderdale reside en sus vistas a los canales y la posibilidad de llegar en embarcación para almorzar o cenar junto al agua. Programamos las filmaciones durante la puesta de sol cuando las terrazas de madera se llenan de comensales que contemplan el paso de yates. Capturamos la llegada de lanchas al muelle del restaurante, brindis al aire libre bajo guirnaldas de luces y la animación del servicio en sala. Combinamos planos generales del canal con encuadres íntimos de comensales disfrutando de la velada. Entregamos cápsulas verticales para redes sociales y montajes en bucle de alta calidad para la portada del sitio web. Para cobertura de ferias náuticas, explore [videos para expositores del boat show de Fort Lauderdale](/es/videos-para-expositores-del-boat-show-de-fort-lauderdale); contáctenos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const MARINA_FACILITY_ES_DISCLOSURE = "¿Cómo atrae clientes e inquilinos de amarre el video comercial de marinas en Fort Lauderdale?";
+export const MARINA_FACILITY_ES_DESTINATIONS = "Infraestructura de pantalanes profundos, hangares y elevadores, comodidades para tripulaciones y seguridad portuaria.";
+
+export const MARINA_FACILITY_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo se muestran los servicios técnicos y la seguridad de amarres de gran calado?",
+    paragraphs: [
+      "Los capitanes y armadores eligen su puerto base priorizando la seguridad operativa, el suministro eléctrico fiable y la facilidad de atraque. Esteban documenta instalaciones portuarias mediante recorridos sobre pantalán que demuestran la amplitud de las dársenas, la robustez de las cornamusas de amarre y las torretas de conexión eléctrica. Utilizamos filtros polarizadores que eliminan el brillo solar sobre el agua, facilitando apreciar el calado limpio de las áreas de maniobra. Filmamos la operativa de varada con grúas travelift, carretillas elevadoras de almacenamiento en seco, estaciones de combustible y controles de acceso restringido. Esta rigurosidad técnica genera confianza en los propietarios de embarcaciones respecto al cuidado de sus yates. Para eventos náuticos, consulte [videos para expositores del boat show de Fort Lauderdale](/es/videos-para-expositores-del-boat-show-de-fort-lauderdale); vea tarifas en [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué comodidades deciden a capitanes y tripulaciones a elegir una marina como puerto base?",
+    paragraphs: [
+      "La ocupación continuada de una marina depende de la satisfacción de los capitanes que recomiendan el amarre a los dueños de los barcos. Esteban recorre las comodidades pensadas para la tripulación: salas de descanso climatizadas, gimnasios privados, vestuarios impecables y tiendas de efectos navales. Tomas fluidas muestran las terrazas del club náutico con vistas al puerto durante el atardecer, transmitiendo la calidad de vida entre travesías. Rótulos informativos sobreimpresionan datos náuticos clave como el calado en bajamar, la eslora máxima admitida y la cercanía a la bocana del puerto sin puentes fijos. Entregamos versiones panorámicas para ferias navales y formatos verticales para campañas de comercialización de amarres. Para alquiler de embarcaciones, visite [video promocional para alquiler de botes en Miami](/es/video-promocional-para-alquiler-de-botes-miami); coordine su rodaje en [contacto](/es/contacto).",
+    ],
+  },
+];
+
