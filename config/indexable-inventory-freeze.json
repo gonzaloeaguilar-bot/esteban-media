@@ -2,8 +2,8 @@
   "status": "demand_gated",
   "effectiveDate": "2026-08-28",
   "baselineRevisedOn": "2026-10-18",
-  "approvedSitemapUrlCount": 426,
-  "approvedSitemapUrlSetSha256": "56ffa8f079bcb769e3dfee19094a64eef4935b200358180c0ac3d9c67bd021dc",
+  "approvedSitemapUrlCount": 450,
+  "approvedSitemapUrlSetSha256": "51795e8fe88d0e5164ac53a87b13f86191045e80503dd880ce6898cd2e830402",
   "allowedNewIndexableUrls": 4,
   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {
@@ -571,6 +571,41 @@
       "note": "EIGHT URLs = four bilingual pairs. Recorded as one owner-ordered expansion batch.",
       "followUpDate": "2026-11-18",
       "followUp": "Check GSC impressions, indexed status, and CTA clicks for all 8 URLs at 14 and 30 days."
+    },
+    {
+      "on": "2026-10-18",
+      "url": [
+        "/services/amazon-product-video-production-miami",
+        "/es/video-para-productos-de-amazon-miami",
+        "/services/cosmetics-product-video-miami",
+        "/es/video-para-marcas-de-cosmeticos-miami",
+        "/services/product-demo-video-production-miami",
+        "/es/video-de-demostracion-de-producto-miami",
+        "/services/ugc-ad-variation-video-editing",
+        "/es/edicion-de-variaciones-de-anuncios-ugc",
+        "/services/catering-company-video-miami",
+        "/es/video-para-empresas-de-catering-miami",
+        "/services/brewery-craft-distillery-video-miami",
+        "/es/video-para-cervecerias-artesanales-miami",
+        "/services/yacht-party-videographer-miami",
+        "/es/videografo-para-fiestas-en-yates-miami",
+        "/services/sportfishing-videographer-miami",
+        "/es/videografo-de-pesca-deportiva-miami",
+        "/services/hair-restoration-video-miami",
+        "/es/video-para-restauracion-capilar-miami",
+        "/services/chiropractic-video-marketing-miami",
+        "/es/marketing-de-video-para-quiropracticos-miami",
+        "/services/startup-pitch-video-production-miami",
+        "/es/video-para-pitches-de-startups-miami",
+        "/services/executive-video-bio-production-miami",
+        "/es/video-de-biografia-ejecutiva-miami"
+      ],
+      "orderedBy": "Gonzalo (in-session 2026-10-18: explicit request 'do all 3 options')",
+      "kind": "demand-backed commercial expansions (waves 8, 9, 10: amazon product, cosmetics, product demo, ugc ad variation, catering, brewery distillery, yacht party, sportfishing, hair restoration, chiropractic, startup pitch, executive bio)",
+      "demandEvidence": "Demonstrated search demand and capability: Amazon product video production Miami (cyclorama studio staging and Inspire vertical reels; Bar Door Monkey proof), Miami cosmetics product video (1:1 macro skincare texture capture and non-glare beauty lighting; Bar Door Monkey proof), Miami product demo video production (overhead tabletop unboxing and assembly walkthroughs; Bar Door Monkey proof), UGC ad variation video editing (modular hook testing and paid social cutdowns for Meta/TikTok; short-form proof), Miami catering company video (banquet plating and culinary action stations; fine dining proof), Miami craft brewery and distillery video (stainless brewhouse cinematography and taproom reels; mixology proof), Miami yacht party videographer (stabilized on-water bachelorette and charter recap films; yacht event proof), South Florida sportfishing videographer (offshore tournament coverage and billfish release slow motion; marine proof), Miami hair restoration video (hairline design mapping and ethical clinic patient growth journeys; medical practice proof), Miami chiropractic video marketing (spinal adjustment acoustic capture and posture rehab reels; wellness proof), Miami startup pitch video production (founder narrative, software screencasts, and investor deck assets; founder brand proof), Miami executive video bio production (conversational leadership interviews and board profiles; executive interview proof).",
+      "note": "TWENTY-FOUR URLs = twelve bilingual pairs. Recorded as one owner-ordered expansion batch.",
+      "followUpDate": "2026-11-18",
+      "followUp": "Check GSC impressions, indexed status, and CTA clicks for all 24 URLs at 14 and 30 days."
     }
   ]
 }
