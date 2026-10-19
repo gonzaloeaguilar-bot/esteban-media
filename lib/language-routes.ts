@@ -189,6 +189,26 @@ export const pairedLanguageRoutes: Record<string, string> = {
     "/es/video-para-expositores-del-boat-show-fort-lauderdale",
   "/services/art-basel-miami-art-week-video":
     "/es/cobertura-de-video-art-basel-miami-art-week",
+  "/services/private-aviation-video-production-miami":
+    "/es/video-para-aviacion-privada-y-jets-miami",
+  "/services/equestrian-polo-videographer-wellington":
+    "/es/videografo-de-polo-y-equitacion-wellington",
+  "/services/yacht-refit-boatyard-video-fort-lauderdale":
+    "/es/video-para-astilleros-y-reparacion-de-yates-fort-lauderdale",
+  "/services/country-club-golf-community-video-palm-beach":
+    "/es/video-para-clubes-de-golf-y-country-clubs-palm-beach",
+  "/services/luxury-pool-builder-video-marketing-south-florida":
+    "/es/video-marketing-para-constructores-de-piscinas-south-florida",
+  "/services/regenerative-medicine-stem-cell-video-miami":
+    "/es/video-para-clinicas-de-medicina-regenerativa-miami",
+  "/services/b2b-client-case-study-video-production-miami":
+    "/es/produccion-de-casos-de-estudio-en-video-para-empresas-miami",
+  "/services/interior-design-millwork-video-miami":
+    "/es/video-para-disenadores-de-interiores-y-ebanisteria-miami",
+  "/services/estate-planning-attorney-video-boca-raton":
+    "/es/video-para-abogados-de-planificacion-patrimonial-boca-raton",
+  "/services/boutique-hotel-resort-video-miami-beach":
+    "/es/video-marketing-para-hoteles-boutique-miami-beach",
 };
 
 for (const [englishPath, spanishPath] of Object.entries({

@@ -2262,6 +2262,176 @@ export const PORTED_SERVICE_FAQS: Readonly<Record<string, readonly ServiceFaq[]>
         "Curated vertical highlight reels can be delivered within twenty-four to forty-eight hours to maximize engagement during fair week.",
     },
   ],
+  "/services/private-aviation-video-production-miami": [
+    {
+      question: "How are airport security clearances and tarmac filming access handled?",
+      answer:
+        "Production schedules coordinate directly with your fixed-base operator or flight department to ensure full adherence to airport security badges and ramp safety guidelines.",
+    },
+    {
+      question: "Can luxury aircraft cabin interiors be filmed during brief turnaround windows?",
+      answer:
+        "Yes. Portable battery-powered lighting kits and compact cinema rigs allow efficient cabin staging and capture during routine ground stops and scheduled maintenance.",
+    },
+    {
+      question: "What video formats are best for aircraft brokerage sales listings?",
+      answer:
+        "A comprehensive walkaround video detailing range, passenger capacity, and refurbishment history, paired with vertical highlight clips for social feeds, accelerates buyer inquiries.",
+    },
+  ],
+  "/services/equestrian-polo-videographer-wellington": [
+    {
+      question: "How do you film high-speed polo chukkers without interfering with horses and players?",
+      answer:
+        "Long telephoto cinema optics and quiet stabilized ground rigs capture fast match action safely from designated sideline boards and umpire-approved media zones.",
+    },
+    {
+      question: "Can sport horse sales videos include veterinary inspection and movement footage?",
+      answer:
+        "Yes. Filming includes formal trot-up presentations, conformation inspections, and schooling over jumps to give prospective buyers complete evaluation clarity.",
+    },
+    {
+      question: "What deliverables are provided for equestrian estates and breeding facilities?",
+      answer:
+        "Comprehensive facility films showcase barns, covered arenas, paddocks, and rider amenities alongside vertical social reels highlighting estate grounds.",
+    },
+  ],
+  "/services/yacht-refit-boatyard-video-fort-lauderdale": [
+    {
+      question: "How do you film inside active shipyard drydocks and paint sheds safely?",
+      answer:
+        "Production follows strict shipyard safety protocols including protective gear and non-intrusive equipment placement to avoid disrupting ongoing contractor trades.",
+    },
+    {
+      question: "Can time-lapse cameras document long-term refit milestones over several months?",
+      answer:
+        "Yes. Secure weather-resistant time-lapse systems record haul-outs, structural modifications, and hull fairing progress across extended shipyard overhaul schedules.",
+    },
+    {
+      question: "What video assets help naval contractors demonstrate shipyard capabilities?",
+      answer:
+        "Three-minute capability documentaries detailing crane tonnage, drydock specifications, and specialized artisan trades provide authoritative proof for yacht captains and owners.",
+    },
+  ],
+  "/services/country-club-golf-community-video-palm-beach": [
+    {
+      question: "How do you film championship golf courses without disrupting member play?",
+      answer:
+        "Filming takes place during early morning maintenance hours or scheduled course maintenance days using quiet handheld cinema rigs and elevated mast cameras.",
+    },
+    {
+      question: "Can clubhouse dining, racquet sports, and social events be included in the film?",
+      answer:
+        "Yes. Production schedules capture culinary presentations, tennis matches, fitness facilities, and family social gatherings with member permission.",
+    },
+    {
+      question: "What video assets are recommended for prospective member recruitment?",
+      answer:
+        "A flagship club lifestyle film, hole-by-hole course flyovers, and short-form social reels highlighting dining and social camaraderie drive qualified membership inquiries.",
+    },
+  ],
+  "/services/luxury-pool-builder-video-marketing-south-florida": [
+    {
+      question: "How do you capture both daytime construction progress and evening fire features?",
+      answer:
+        "Shoots are scheduled across construction milestones and during golden hour transitions into dusk to capture water clarity and automated fire and lighting bowls.",
+    },
+    {
+      question: "Can homeowner interviews and design explanations be included in the video?",
+      answer:
+        "Yes. Lead designer commentary explaining hydraulic design and enthusiastic homeowner testimonials provide compelling social proof for prospective clients.",
+    },
+    {
+      question: "What video formats perform best for custom pool builder social campaigns?",
+      answer:
+        "Fifteen-to-thirty second vertical reels showcasing dramatic before-and-after transformations and soothing water acoustic soundbites achieve high social engagement.",
+    },
+  ],
+  "/services/regenerative-medicine-stem-cell-video-miami": [
+    {
+      question: "How do you film clinical procedures while maintaining patient privacy and comfort?",
+      answer:
+        "Filming focuses respectfully on physician hands, diagnostic ultrasound screens, and laboratory processing without graphic close-ups, backed by signed media consent.",
+    },
+    {
+      question: "How do you ensure medical video content adheres to health advertising guidelines?",
+      answer:
+        "Presentations focus on physician qualifications, clinical laboratory purity standards, and patient education while avoiding unsubstantiated curative claims.",
+    },
+    {
+      question: "What video assets generate the highest volume of qualified patient consultations?",
+      answer:
+        "Educational vertical video reels explaining candidate criteria, treatment steps, and realistic recovery timelines build trust and drive evaluation appointments.",
+    },
+  ],
+  "/services/b2b-client-case-study-video-production-miami": [
+    {
+      question: "How do you prepare enterprise clients for on-camera executive interviews?",
+      answer:
+        "Tailored interview prep guides outline conversational questions beforehand, allowing executives to share specific business impact and metrics comfortably.",
+    },
+    {
+      question: "Where is filming typically conducted for corporate client case studies?",
+      answer:
+        "Filming takes place on-location in client executive boardrooms, corporate headquarters, or modern architectural conference spaces with professional sound and lighting.",
+    },
+    {
+      question: "Can corporate case study videos be reformatted for multiple marketing channels?",
+      answer:
+        "Yes. Long-form documentary success stories are edited alongside sixty-second modular cuts for pitch decks and vertical captioned clips for LinkedIn feeds.",
+    },
+  ],
+  "/services/interior-design-millwork-video-miami": [
+    {
+      question: "When is the best time to film a completed interior design or millwork project?",
+      answer:
+        "Filming is ideal immediately following final staging and professional cleaning before client move-in to ensure unobstructed architectural perspectives.",
+    },
+    {
+      question: "How do you capture fine wood grain textures and custom cabinetry joinery accurately?",
+      answer:
+        "Macro cinema lenses, smooth slider tracks, and color-balanced diffused lighting highlight veneer matching, hidden joinery, and custom hardware without harsh glare.",
+    },
+    {
+      question: "What video assets support design award entries and client presentations?",
+      answer:
+        "A three-minute designer walkthrough film explaining layout harmony and custom millwork craftsmanship, paired with vertical social reels, elevates design firm prestige.",
+    },
+  ],
+  "/services/estate-planning-attorney-video-boca-raton": [
+    {
+      question: "How do you ensure estate planning videos comply with Florida Bar advertising rules?",
+      answer:
+        "Scripts and conversational interviews avoid prohibited dramatizations, fee comparisons, or guarantees of outcomes, focusing strictly on education and attorney experience.",
+    },
+    {
+      question: "Where is filming conducted for trust and estate attorney profiles?",
+      answer:
+        "Filming occurs on-location in law firm executive conference rooms, private partner offices, or dignified legal library settings using soft portrait lighting.",
+    },
+    {
+      question: "What video topics build the strongest trust with high-net-worth families?",
+      answer:
+        "Educational explainers on revocable living trusts, asset protection, and Florida residency transitions establish credibility and encourage initial consultations.",
+    },
+  ],
+  "/services/boutique-hotel-resort-video-miami-beach": [
+    {
+      question: "How do you film hotel amenities without disturbing resting guests?",
+      answer:
+        "Compact cinema equipment and flexible filming schedules capture pool decks, dining courtyards, and lobbies during optimal lighting periods with staff coordination.",
+    },
+    {
+      question: "Can room category walkthroughs and suite tour videos be produced efficiently?",
+      answer:
+        "Yes. Systematic production schedules capture multiple room configurations, balcony ocean views, and bathroom design features during midday check-out windows.",
+    },
+    {
+      question: "What video deliverables drive direct bookings over third-party travel sites?",
+      answer:
+        "A ninety-second hotel experience brand film, individual room tour clips, and vertical social reels highlighting direct-booking perks maximize direct reservations.",
+    },
+  ],
 };
 
 /** Hand-written pages left without a FAQ because no published fact supports one. */

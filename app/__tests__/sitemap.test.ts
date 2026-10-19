@@ -60,8 +60,10 @@ describe("portfolio sitemap entries", () => {
     // +8 = wave 5 niche expansions (2026-10-18): mastermind, surprise proposal, speaker sizzle, bar mitzvah.
     // +8 = wave 6 niche expansions (2026-10-18): commercial real estate, luxury penthouse, fine dining, mixology.
     // +8 = wave 7 niche expansions (2026-10-18): construction progress, fashion lookbook, boat listing, luxury watch.
-    expect(entries).toHaveLength(470);
-    expect(new Set(urls)).toHaveLength(470);
+    // +20 = wave 5 high-value demand-backed niches (2026-10-18): med spa, contractor florida, quinceanera, podcast multicam, personal injury, private school, exotic car, car dealership, boat show exhibitor, art basel.
+    // +20 = wave 6 high-value demand-backed niches (2026-10-19): private aviation, equestrian polo, yacht refit boatyard, country club golf, luxury pool builder, regenerative medicine, b2b case study, interior design millwork, estate planning attorney, boutique hotel resort.
+    expect(entries).toHaveLength(490);
+    expect(new Set(urls)).toHaveLength(490);
   });
 
   it("pairs real product photography pages with reciprocal language alternatives", () => {

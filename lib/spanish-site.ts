@@ -50,6 +50,9 @@ import {
   GraduationCap,
   CarFront,
   Palette,
+  Plane,
+  Trophy,
+  Waves,
 } from "lucide-react";
 
 import { absoluteUrl } from "@/lib/site";
@@ -209,6 +212,36 @@ import {
   ART_BASEL_MIAMI_ART_WEEK_ES_DISCLOSURE,
   ART_BASEL_MIAMI_ART_WEEK_ES_DESTINATIONS,
   ART_BASEL_MIAMI_ART_WEEK_ES_SECTIONS,
+  PRIVATE_AVIATION_VIDEO_ES_DISCLOSURE,
+  PRIVATE_AVIATION_VIDEO_ES_DESTINATIONS,
+  PRIVATE_AVIATION_VIDEO_ES_SECTIONS,
+  EQUESTRIAN_POLO_VIDEO_ES_DISCLOSURE,
+  EQUESTRIAN_POLO_VIDEO_ES_DESTINATIONS,
+  EQUESTRIAN_POLO_VIDEO_ES_SECTIONS,
+  YACHT_REFIT_BOATYARD_ES_DISCLOSURE,
+  YACHT_REFIT_BOATYARD_ES_DESTINATIONS,
+  YACHT_REFIT_BOATYARD_ES_SECTIONS,
+  COUNTRY_CLUB_GOLF_COMMUNITY_ES_DISCLOSURE,
+  COUNTRY_CLUB_GOLF_COMMUNITY_ES_DESTINATIONS,
+  COUNTRY_CLUB_GOLF_COMMUNITY_ES_SECTIONS,
+  LUXURY_POOL_BUILDER_ES_DISCLOSURE,
+  LUXURY_POOL_BUILDER_ES_DESTINATIONS,
+  LUXURY_POOL_BUILDER_ES_SECTIONS,
+  REGENERATIVE_MEDICINE_STEM_CELL_ES_DISCLOSURE,
+  REGENERATIVE_MEDICINE_STEM_CELL_ES_DESTINATIONS,
+  REGENERATIVE_MEDICINE_STEM_CELL_ES_SECTIONS,
+  B2B_CLIENT_CASE_STUDY_ES_DISCLOSURE,
+  B2B_CLIENT_CASE_STUDY_ES_DESTINATIONS,
+  B2B_CLIENT_CASE_STUDY_ES_SECTIONS,
+  INTERIOR_DESIGN_MILLWORK_ES_DISCLOSURE,
+  INTERIOR_DESIGN_MILLWORK_ES_DESTINATIONS,
+  INTERIOR_DESIGN_MILLWORK_ES_SECTIONS,
+  ESTATE_PLANNING_ATTORNEY_ES_DISCLOSURE,
+  ESTATE_PLANNING_ATTORNEY_ES_DESTINATIONS,
+  ESTATE_PLANNING_ATTORNEY_ES_SECTIONS,
+  BOUTIQUE_HOTEL_RESORT_ES_DISCLOSURE,
+  BOUTIQUE_HOTEL_RESORT_ES_DESTINATIONS,
+  BOUTIQUE_HOTEL_RESORT_ES_SECTIONS,
 } from "@/lib/hospitality-deep-dive-content";
 import {
   AUTOMOTIVE_ES_SECTIONS,
@@ -7177,6 +7210,466 @@ export const spanishNichePages: SpanishNichePage[] = [
         question: "¿Con qué agilidad se entregan los resúmenes para prensa y redes sociales?",
         answer:
           "Podemos realizar entregas de clips verticales en veinticuatro o cuarenta y ocho horas para acompañar las publicaciones durante la feria.",
+      },
+    ],
+  },
+  {
+    slug: "video-para-aviacion-privada-y-jets-miami",
+    title: "Video para aviación privada y jets en Miami",
+    metadataTitle: "Video Aviación Privada y Jets Miami",
+    description:
+      "Video para aviación privada y jets en Miami: recorridos de cabinas ejecutivas, hangares FBO y piezas cinematográficas para vuelos chárter y venta.",
+    eyebrow: "Aviación Ejecutiva / Vuelos Chárter",
+    h1: "Video para aviación privada y vuelos chárter.",
+    lead:
+      "Cinematografía especializada en hangares FBO, cabinas de gran confort, detalles de aviónica y contenidos para comercialización de aeronaves en Miami.",
+    keyword: "video para aviación privada en Miami",
+    location: "Miami / Opa-locka / Miami-Dade",
+    availability: "confirmed",
+    icon: Plane,
+    bestFor: [
+      "Operadores de vuelos chárter que buscan destacar la amplitud y comodidades exclusivas de sus aeronaves.",
+      "Brókeres de aviación que necesitan recorridos visuales detallados para acelerar operaciones de compraventa.",
+    ],
+    scopingQuestions: [
+      "¿En qué terminal ejecutiva o hangar FBO se encuentra estacionada la aeronave para la filmación?",
+      "¿Se requiere filmar con iluminación de cabina encendida y sistemas de aviónica en funcionamiento?",
+    ],
+    projectFit:
+      "Ópticas ultra gran angular libres de distorsión, iluminación difusa de interiores y cámaras estabilizadas que capturan la elegancia de la cabina.",
+    updated: "2026-10-19",
+    sections: PRIVATE_AVIATION_VIDEO_ES_SECTIONS,
+    sectionsDisclosure: PRIVATE_AVIATION_VIDEO_ES_DISCLOSURE,
+    sectionsDestinations: PRIVATE_AVIATION_VIDEO_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se gestiona el acceso de filmación a pistas y hangares ejecutivos?",
+        answer:
+          "Coordinamos los permisos y credenciales directamente con el operador de base fija o el departamento de vuelo correspondiente.",
+      },
+      {
+        question: "¿Es factible filmar la cabina durante una escala corta de mantenimiento?",
+        answer:
+          "Sí. Empleamos sistemas de iluminación a batería compactos que permiten registrar la cabina con rapidez sin obstaculizar las tareas en tierra.",
+      },
+      {
+        question: "¿Qué formato resulta más eficaz para la venta y alquiler de aeronaves?",
+        answer:
+          "Un recorrido horizontal que detalle autonomía y confort, respaldado por avances verticales para redes sociales, genera un gran volumen de consultas.",
+      },
+    ],
+  },
+  {
+    slug: "videografo-de-polo-y-equitacion-wellington",
+    title: "Videógrafo de polo y equitación en Wellington",
+    metadataTitle: "Video de Polo y Equitación Wellington",
+    description:
+      "Videógrafo de polo y equitación en Wellington: partidos de alto hándicap, saltos de obstáculos, fincas hípicas y videos de venta de caballos deportivos.",
+    eyebrow: "Hípica y Polo / Competición de Élite",
+    h1: "Videógrafo de polo y equitación de alta competición.",
+    lead:
+      "Producción cinematográfica de torneos de polo, recorridos de salto en pistas ecuestres, cuadras de cría y videos de venta de caballos en Wellington.",
+    keyword: "videógrafo de polo y equitación en Wellington",
+    location: "Wellington / Palm Beach County",
+    availability: "confirmed",
+    icon: Trophy,
+    bestFor: [
+      "Clubes de polo y jinetes de salto que desean registrar torneos y preservar memorias deportivas de primer orden.",
+      "Propietarios de yeguadas y cuadras de entrenamiento que buscan comercializar caballos deportivos ante compradores de todo el mundo.",
+    ],
+    scopingQuestions: [
+      "¿Qué disciplina o torneo específico se documentará durante la jornada ecuestre en Wellington?",
+      "¿Se requiere realizar tomas de conformación y presentación veterinaria en pista además de la competición?",
+    ],
+    projectFit:
+      "Teleobjetivos de seguimiento continuo a alta velocidad de fotogramas y estabilizadores que capturan el dinamismo equino con absoluta seguridad.",
+    updated: "2026-10-19",
+    sections: EQUESTRIAN_POLO_VIDEO_ES_SECTIONS,
+    sectionsDisclosure: EQUESTRIAN_POLO_VIDEO_ES_DISCLOSURE,
+    sectionsDestinations: EQUESTRIAN_POLO_VIDEO_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se filman los chukkers de polo sin perturbar el juego?",
+        answer:
+          "Utilizamos teleobjetivos largos y posiciones seguras en bandas autorizadas para captar lances rápidos con total nitidez.",
+      },
+      {
+        question: "¿Pueden los videos de venta de caballos incluir pruebas sobre obstáculos?",
+        answer:
+          "Sí. Documentamos la inspección en pista, la morfología del animal y recorridos completos sobre saltos para dar certeza al comprador.",
+      },
+      {
+        question: "¿Qué entregables se elaboran para la promoción de fincas ecuestres?",
+        answer:
+          "Producimos recorridos por establos, pistas de entrenamiento y paddocks junto con cápsulas cortas para inversores internacionales.",
+      },
+    ],
+  },
+  {
+    slug: "video-para-astilleros-y-reparacion-de-yates-fort-lauderdale",
+    title: "Video para astilleros y reparación de yates en Fort Lauderdale",
+    metadataTitle: "Video Astilleros Fort Lauderdale",
+    description:
+      "Video para astilleros y reparación de yates en Fort Lauderdale: varadas en dique seco, pintura de cascos, ebanistería marina y proyectos de refit.",
+    eyebrow: "Industria Naval / Refit de Yates",
+    h1: "Video para astilleros y refit de superyates.",
+    lead:
+      "Documentación cinematográfica de varaderos, reformas estructurales en cascos, ingeniería marina y oficios artesanos a lo largo del New River.",
+    keyword: "video para astilleros en Fort Lauderdale",
+    location: "Fort Lauderdale / Dania Beach / Palm Beach",
+    availability: "confirmed",
+    icon: Anchor,
+    bestFor: [
+      "Astilleros y varaderos navales que desean acreditar su solvencia técnica y capacidad de izada ante capitanes y armadores.",
+      "Empresas de ebanistería marina, pintura y mecánica naval que precisan casos de estudio de refits de gran eslora.",
+    ],
+    scopingQuestions: [
+      "¿Qué hitos de la reforma naval se documentarán durante el periodo de varada en el astillero?",
+      "¿Se requiere instalar cámaras fijas de lapso de tiempo para registrar procesos prolongados de pintura o calafateo?",
+    ],
+    projectFit:
+      "Equipos resistentes al ambiente marino, lentes macro para detalles constructivos y seguimiento documental que refleja la maestría naval.",
+    updated: "2026-10-19",
+    sections: YACHT_REFIT_BOATYARD_ES_SECTIONS,
+    sectionsDisclosure: YACHT_REFIT_BOATYARD_ES_DISCLOSURE,
+    sectionsDestinations: YACHT_REFIT_BOATYARD_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se filma en diques secos y zonas de pintura con seguridad?",
+        answer:
+          "Cumplimos estrictamente las directrices de prevención de riesgos laborales del astillero, portando equipos de protección individual en todo momento.",
+      },
+      {
+        question: "¿Se pueden registrar reformas de varios meses con lapsos de tiempo?",
+        answer:
+          "Sí. Instalamos sistemas protegidos contra la intemperie que graban avances periódicos desde la varada hasta la botadura final.",
+      },
+      {
+        question: "¿Qué formato resulta más idóneo para captar proyectos de gran eslora?",
+        answer:
+          "Un video institucional centrado en maquinaria y oficios especializados, complementado con hitos breves de obra, aporta máxima credibilidad ante armadores.",
+      },
+    ],
+  },
+  {
+    slug: "video-para-clubes-de-golf-y-country-clubs-palm-beach",
+    title: "Video para clubes de golf y country clubs en Palm Beach",
+    metadataTitle: "Video Clubes de Golf Palm Beach",
+    description:
+      "Video para clubes de golf y country clubs en Palm Beach: trazados de campeonato, casas club, instalaciones deportivas y promoción de membresías sociales.",
+    eyebrow: "Clubes Privados / Golf y Deporte",
+    h1: "Video para clubes de golf y comunidades privadas.",
+    lead:
+      "Producción audiovisual distinguida para clubes de campo, recorridos hoyo a hoyo, vida social en la casa club e instalaciones de bienestar en Palm Beach.",
+    keyword: "video para clubes de golf en Palm Beach",
+    location: "Palm Beach / Boca Raton / Palm Beach County",
+    availability: "confirmed",
+    icon: Landmark,
+    bestFor: [
+      "Clubes de golf y country clubs que buscan atraer nuevos socios y presentar renovaciones recientes en el campo.",
+      "Comunidades residenciales privadas con campo de golf que precisan videos de estilo de vida para comercializar villas exclusivas.",
+    ],
+    scopingQuestions: [
+      "¿En qué horarios resulta más oportuno filmar el recorrido del campo para evitar interferencias con las partidas de los socios?",
+      "¿Se registrarán actividades en la casa club como cenas gastronómicas, pistas de raqueta o torneos benéficos?",
+    ],
+    projectFit:
+      "Cámaras sobre soportes estabilizados y puntos de vista elevados que capturan la belleza paisajística de fairways y greenes al amanecer.",
+    updated: "2026-10-19",
+    sections: COUNTRY_CLUB_GOLF_COMMUNITY_ES_SECTIONS,
+    sectionsDisclosure: COUNTRY_CLUB_GOLF_COMMUNITY_ES_DISCLOSURE,
+    sectionsDestinations: COUNTRY_CLUB_GOLF_COMMUNITY_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se filma en el campo sin interrumpir el ritmo de los jugadores?",
+        answer:
+          "Planificamos los rodajes en las primeras horas de la mañana o en jornadas de mantenimiento semanal con equipos silenciosos.",
+      },
+      {
+        question: "¿Se pueden incluir instalaciones de tenis, pádel y gimnasio?",
+        answer:
+          "Sí. Coordinamos filmaciones en pistas deportivas, zonas de hidroterapia y salones de la casa club con previa conformidad de la gerencia.",
+      },
+      {
+        question: "¿Qué piezas ayudan a promover la captación de nuevas membresías?",
+        answer:
+          "Un video principal de estilo de vida combinado con cápsulas temáticas sobre gastronomía y escuelas infantiles capta solicitudes muy cualificadas.",
+      },
+    ],
+  },
+  {
+    slug: "video-marketing-para-constructores-de-piscinas-south-florida",
+    title: "Video marketing para constructores de piscinas en South Florida",
+    metadataTitle: "Video Constructores de Piscinas FL",
+    description:
+      "Video marketing para constructores de piscinas en South Florida: piscinas desbordantes, cocinas exteriores, cascadas y zonas de ocio al aire libre.",
+    eyebrow: "Construcción Residencial / Paisajismo Exterior",
+    h1: "Video marketing para constructores de piscinas de lujo.",
+    lead:
+      "Filmación de proyectos exteriores a medida, bordes infinitos, revestimientos nobles y efectos de iluminación crepuscular en patios de South Florida.",
+    keyword: "video marketing para constructores de piscinas en South Florida",
+    location: "Coral Gables / Fort Lauderdale / Miami",
+    availability: "confirmed",
+    icon: Waves,
+    bestFor: [
+      "Empresas de construcción de piscinas de diseño y contratistas de exteriores que buscan justificar presupuestos elevados con obras acabadas.",
+      "Estudios de paisajismo que desean mostrar la integración armónica entre agua, vegetación tropical y zonas de descanso al aire libre.",
+    ],
+    scopingQuestions: [
+      "¿Se programará la filmación durante la hora dorada y el anochecer para capturar los sistemas de iluminación acuática y fuego?",
+      "¿Se contará con la participación del propietario o del diseñador para relatar las particularidades de la obra en video?",
+    ],
+    projectFit:
+      "Cámaras con amplio rango dinámico, estabilización suave a ras de agua y ópticas nítidas que realzan las texturas de revestimientos y pavimentos.",
+    updated: "2026-10-19",
+    sections: LUXURY_POOL_BUILDER_ES_SECTIONS,
+    sectionsDisclosure: LUXURY_POOL_BUILDER_ES_DISCLOSURE,
+    sectionsDestinations: LUXURY_POOL_BUILDER_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se combinan las tomas diurnas de obra con los efectos nocturnos?",
+        answer:
+          "Organizamos el rodaje en dos momentos clave: media tarde para apreciar calidades constructivas y el anochecer para iluminaciones y pebeteros.",
+      },
+      {
+        question: "¿Es posible incorporar testimonios de los propietarios de la vivienda?",
+        answer:
+          "Sí. Las impresiones directas del cliente final aportan una prueba social determinante para convencer a futuros compradores exigentes.",
+      },
+      {
+        question: "¿Qué formato en video rinde mejor para campañas en redes sociales?",
+        answer:
+          "Los videos verticales de treinta segundos con transiciones ágiles del antes y el después consiguen un alto nivel de compartición y presupuestos.",
+      },
+    ],
+  },
+  {
+    slug: "video-para-clinicas-de-medicina-regenerativa-miami",
+    title: "Video para clínicas de medicina regenerativa en Miami",
+    metadataTitle: "Video Medicina Regenerativa Miami",
+    description:
+      "Video para clínicas de medicina regenerativa en Miami: explicaciones facultativas, laboratorio biológico, tratamientos articulares y testimonios éticos.",
+    eyebrow: "Medicina Avanzada / Terapias Celulares",
+    h1: "Video para clínicas de medicina regenerativa.",
+    lead:
+      "Producción audiovisual clínica, divulgación de terapias biológicas avanzadas, tecnología de laboratorio y testimonios de pacientes en Miami.",
+    keyword: "video para medicina regenerativa en Miami",
+    location: "Miami / Coral Gables / Doral",
+    availability: "confirmed",
+    icon: Activity,
+    bestFor: [
+      "Médicos especialistas en medicina biológica y ortopedia regenerativa que buscan educar con rigor a pacientes indecisos.",
+      "Clínicas de longevidad que necesitan contenidos claros y éticos para explicar protocolos de laboratorio y tratamientos articulares.",
+    ],
+    scopingQuestions: [
+      "¿Qué procedimientos clínicos concretos se registrarán durante la jornada en el centro médico?",
+      "¿Dispone el centro de autorizaciones formales firmadas por los pacientes que intervendrán en el rodaje?",
+    ],
+    projectFit:
+      "Iluminación médica suave, ópticas macro de gran precisión y un enfoque respetuoso que ensalza el valor científico del equipo médico.",
+    updated: "2026-10-19",
+    sections: REGENERATIVE_MEDICINE_STEM_CELL_ES_SECTIONS,
+    sectionsDisclosure: REGENERATIVE_MEDICINE_STEM_CELL_ES_DISCLOSURE,
+    sectionsDestinations: REGENERATIVE_MEDICINE_STEM_CELL_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se preserva la intimidad del paciente durante el rodaje médico?",
+        answer:
+          "Enfocamos el instrumental, la destreza manual del facultativo y los monitores diagnósticos con la debida cesión de derechos por escrito.",
+      },
+      {
+        question: "¿Cómo se asegura el cumplimiento de las normativas de publicidad médica?",
+        answer:
+          "Elaboramos guiones pedagógicos basados en la evidencia científica y la cualificación profesional, evitando promesas curativas indebidas.",
+      },
+      {
+        question: "¿Qué piezas consiguen mayor conversión de consultas médicas?",
+        answer:
+          "Los videos verticales educativos que resuelven dudas iniciales sobre indicaciones y plazos de recuperación generan el mayor número de citas.",
+      },
+    ],
+  },
+  {
+    slug: "produccion-de-casos-de-estudio-en-video-para-empresas-miami",
+    title: "Casos de estudio en video para empresas en Miami",
+    metadataTitle: "Video Casos de Estudio para B2B",
+    description:
+      "Casos de estudio en video para empresas en Miami: entrevistas a clientes, retorno de inversión tangible, flujos operativos y testimonios ejecutivos B2B.",
+    eyebrow: "Empresas y B2B / Casos de Éxito",
+    h1: "Casos de estudio en video para empresas B2B.",
+    lead:
+      "Documentación audiovisual de casos de éxito corporativos, entrevistas a directivos, operativas en oficinas y prueba comercial para ventas complejas.",
+    keyword: "casos de estudio en video para empresas en Miami",
+    location: "Distrito Financiero / Downtown Miami",
+    availability: "confirmed",
+    icon: Briefcase,
+    bestFor: [
+      "Empresas tecnológicas y proveedoras de servicios corporativos que necesitan demostrar retorno de inversión en sus reuniones comerciales.",
+      "Consultoras y firmas de logística que buscan acelerar decisiones de compra mediante recomendaciones verificables de directivos pares.",
+    ],
+    scopingQuestions: [
+      "¿En qué oficina o sala de juntas del cliente se llevará a cabo la grabación de la entrevista?",
+      "¿Qué métricas o beneficios concretos se desean enfatizar durante el relato del caso de éxito?",
+    ],
+    projectFit:
+      "Entrevistas con doble cámara, iluminación suave de retrato corporativo y microfonía nítida que transmite máxima autoridad empresarial.",
+    updated: "2026-10-19",
+    sections: B2B_CLIENT_CASE_STUDY_ES_SECTIONS,
+    sectionsDisclosure: B2B_CLIENT_CASE_STUDY_ES_DISCLOSURE,
+    sectionsDestinations: B2B_CLIENT_CASE_STUDY_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se prepara a los directivos para la entrevista ante la cámara?",
+        answer:
+          "Entregamos cuestionarios orientativos previos para que el interlocutor exponga el impacto en su negocio con soltura y naturalidad.",
+      },
+      {
+        question: "¿Dónde se realiza la grabación de los testimonios empresariales?",
+        answer:
+          "Filmamos en las oficinas corporativas o salas de conferencias del cliente, cuidando la acústica y el encuadre profesional.",
+      },
+      {
+        question: "¿Pueden adaptarse los videos a diferentes etapas de la venta?",
+        answer:
+          "Sí. Editamos una pieza documental principal, cápsulas de un minuto para presentaciones y cortes verticales para redes profesionales.",
+      },
+    ],
+  },
+  {
+    slug: "video-para-disenadores-de-interiores-y-ebanisteria-miami",
+    title: "Video para diseñadores de interiores y ebanistería en Miami",
+    metadataTitle: "Video Diseño Interiores Miami",
+    description:
+      "Video para diseñadores de interiores y ebanistería en Miami: carpintería a medida, residencias de lujo, recorridos con interioristas y acabados nobles.",
+    eyebrow: "Diseño y Arquitectura / Interiorismo",
+    h1: "Video para diseñadores de interiores y ebanistas.",
+    lead:
+      "Cinematografía de espacios residenciales a medida, carpintería arquitectónica, selección de materiales y recorridos guiados en Miami.",
+    keyword: "video para diseñadores de interiores en Miami",
+    location: "Distrito de Diseño / Coral Gables",
+    availability: "confirmed",
+    icon: Palette,
+    bestFor: [
+      "Estudios de diseño de interiores que precisan presentar proyectos residenciales finalizados ante revistas especializadas y clientes de alto nivel.",
+      "Talleres de ebanistería artesanal que desean destacar la precisión de sus ensambles, herrajes ocultos y acabados en maderas nobles.",
+    ],
+    scopingQuestions: [
+      "¿Se encuentra la vivienda completamente amueblada y con el estilismo decorativo listo para la filmación?",
+      "¿Participará el interiorista principal explicando las decisiones espaciales y la paleta de materiales elegida?",
+    ],
+    projectFit:
+      "Deslizadores motorizados para recorridos suaves, ópticas de arquitectura sin curvatura y respeto estricto a la iluminación del proyecto.",
+    updated: "2026-10-19",
+    sections: INTERIOR_DESIGN_MILLWORK_ES_SECTIONS,
+    sectionsDisclosure: INTERIOR_DESIGN_MILLWORK_ES_DISCLOSURE,
+    sectionsDestinations: INTERIOR_DESIGN_MILLWORK_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cuál es el mejor momento para filmar un proyecto de interiorismo?",
+        answer:
+          "El momento ideal es inmediatamente tras la colocación del mobiliario final y la limpieza a fondo, antes de la mudanza del propietario.",
+      },
+      {
+        question: "¿Cómo se capturan las texturas y los detalles de la madera?",
+        answer:
+          "Utilizamos lentes macro y movimientos lentos con iluminación difusa para resaltar vetas, ensambles y herrajes sin reflejos no deseados.",
+      },
+      {
+        question: "¿Qué piezas audiovisuales impulsan la captación de encargos de envergadura?",
+        answer:
+          "Un recorrido cinematográfico de tres minutos guiado por el diseñador y clips cortos para redes sociales transmiten un posicionamiento excelente.",
+      },
+    ],
+  },
+  {
+    slug: "video-para-abogados-de-planificacion-patrimonial-boca-raton",
+    title: "Video para abogados de planificación patrimonial en Boca Raton",
+    metadataTitle: "Video Abogados de Patrimonio Boca",
+    description:
+      "Video para abogados de planificación patrimonial en Boca Raton: fideicomisos familiares, protección de activos, traslados a Florida y ética legal.",
+    eyebrow: "Servicios Jurídicos / Sucesiones y Patrimonios",
+    h1: "Video para abogados de planificación patrimonial.",
+    lead:
+      "Producción audiovisual sobria y cercana para despachos de derecho sucesorio, fideicomisos familiares y protección de activos en Boca Raton.",
+    keyword: "video para abogados de planificación patrimonial en Boca Raton",
+    location: "Boca Raton / Palm Beach County",
+    availability: "confirmed",
+    icon: Scale,
+    bestFor: [
+      "Despachos de abogados de sucesiones y patrimonios que desean transmitir rigor y calidez a familias que planifican su legado.",
+      "Abogados especialistas en derecho sucesorio que buscan forjar alianzas de recomendación con asesores financieros y patrimoniales.",
+    ],
+    scopingQuestions: [
+      "¿Qué aspectos legales esenciales se abordarán en las cápsulas educativas para futuros clientes?",
+      "¿En qué salas o despachos de la firma jurídica se dispondrá el espacio para las entrevistas principales?",
+    ],
+    projectFit:
+      "Iluminación elegante de retrato, sonido impecable y una dirección de cámara sobria que transmite discreción, experiencia y fiabilidad.",
+    updated: "2026-10-19",
+    sections: ESTATE_PLANNING_ATTORNEY_ES_SECTIONS,
+    sectionsDisclosure: ESTATE_PLANNING_ATTORNEY_ES_DISCLOSURE,
+    sectionsDestinations: ESTATE_PLANNING_ATTORNEY_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se garantiza el cumplimiento de las normas del Colegio de Abogados?",
+        answer:
+          "Cuidamos minuciosamente el lenguaje de los guiones para evitar mensajes engañosos o promesas infundadas, centrándonos en la labor formativa.",
+      },
+      {
+        question: "¿Dónde se graban los perfiles de los abogados del bufete?",
+        answer:
+          "Realizamos la grabación en los despachos privados o salas de reuniones de la firma, creando un entorno de conversación distinguido.",
+      },
+      {
+        question: "¿Qué temas jurídicos generan mayor interés en las familias?",
+        answer:
+          "Las explicaciones sobre fideicomisos revocables, agilización sucesoria y ventajas del domicilio en Florida suscitan el mayor volumen de consultas.",
+      },
+    ],
+  },
+  {
+    slug: "video-marketing-para-hoteles-boutique-miami-beach",
+    title: "Video marketing para hoteles boutique en Miami Beach",
+    metadataTitle: "Video Hoteles Boutique Miami Beach",
+    description:
+      "Video marketing para hoteles boutique en Miami Beach: suites frente al mar, piscinas en azotea, arquitectura Art Decó y fomento de reservas directas.",
+    eyebrow: "Hostelería de Lujo / Hoteles con Encanto",
+    h1: "Video marketing para hoteles boutique y resorts.",
+    lead:
+      "Cinematografía de hospitalidad de alto nivel, suites con vistas, coctelería en azoteas y arquitectura Art Decó en Miami Beach.",
+    keyword: "video marketing para hoteles boutique en Miami Beach",
+    location: "Miami Beach / South Beach / Miami-Dade",
+    availability: "confirmed",
+    icon: Building2,
+    bestFor: [
+      "Hoteles boutique y establecimientos independientes que desean impulsar las reservas directas a través de su propia plataforma web.",
+      "Grupos hoteleros que necesitan videos visualmente sugerentes de sus instalaciones, coctelería y suites para campañas de captación.",
+    ],
+    scopingQuestions: [
+      "¿Qué categorías de habitaciones y zonas comunes se priorizarán durante la sesión de filmación?",
+      "¿Se registrarán servicios específicos como sesiones matinales de yoga o coctelería al atardecer en la azotea?",
+    ],
+    projectFit:
+      "Ópticas de cine luminosas, estabilizadores fluidos y rodaje en horas doradas que capturan la atmósfera inconfundible de South Beach.",
+    updated: "2026-10-19",
+    sections: BOUTIQUE_HOTEL_RESORT_ES_SECTIONS,
+    sectionsDisclosure: BOUTIQUE_HOTEL_RESORT_ES_DISCLOSURE,
+    sectionsDestinations: BOUTIQUE_HOTEL_RESORT_ES_DESTINATIONS,
+    faqs: [
+      {
+        question: "¿Cómo se graba en el hotel sin molestar a los clientes alojados?",
+        answer:
+          "Organizamos el rodaje en franjas horarias tranquilas y coordinamos con la recepción para filmar suites durante el intervalo de limpieza.",
+      },
+      {
+        question: "¿Es factible realizar recorridos por varias categorías de habitación?",
+        answer:
+          "Sí. Establecemos un plan de grabación ágil para documentar dormitorios, baños de diseño y balcones con vistas en una misma jornada.",
+      },
+      {
+        question: "¿Qué piezas favorecen que el cliente reserve directamente en la web?",
+        answer:
+          "Un video de presentación de noventa segundos y cápsulas para redes que resalten ventajas como desayuno incluido aumentan las reservas directas.",
       },
     ],
   },
