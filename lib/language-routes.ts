@@ -209,6 +209,46 @@ export const pairedLanguageRoutes: Record<string, string> = {
     "/es/video-para-abogados-de-planificacion-patrimonial-boca-raton",
   "/services/boutique-hotel-resort-video-miami-beach":
     "/es/video-marketing-para-hoteles-boutique-miami-beach",
+  "/services/multicam-panel-discussion-video-miami":
+    "/es/video-para-paneles-y-conferencias-multicamara-miami",
+  "/services/corporate-town-hall-video-south-florida":
+    "/es/video-para-asambleas-corporativas-south-florida",
+  "/services/executive-retreat-videographer-florida-keys":
+    "/es/videografo-para-retiros-ejecutivos-florida-keys",
+  "/services/brand-activation-videographer-miami":
+    "/es/videografo-para-activacion-de-marca-miami",
+  "/services/pre-construction-sales-gallery-video-miami":
+    "/es/video-para-salas-de-ventas-de-preventa-miami",
+  "/services/commercial-office-leasing-video-south-florida":
+    "/es/video-para-alquiler-de-oficinas-comerciales-south-florida",
+  "/services/cosmetic-dentistry-veneers-video-miami":
+    "/es/video-para-odontologia-cosmetica-y-carillas-miami",
+  "/services/concierge-doctor-video-palm-beach":
+    "/es/video-para-medicos-concierge-y-clinicas-privadas-palm-beach",
+  "/services/bar-bat-mitzvah-videographer-boca-raton":
+    "/es/video-para-bar-y-bat-mitzvah-boca-raton",
+  "/services/destination-wedding-videographer-palm-beach":
+    "/es/videografo-para-bodas-de-destino-palm-beach",
+  "/services/online-course-video-production-miami":
+    "/es/produccion-de-video-para-cursos-online-miami",
+  "/services/vsl-direct-response-video-editing":
+    "/es/edicion-de-video-para-cartas-de-venta-vsl",
+  "/services/monthly-video-repurposing-retainer":
+    "/es/retenedor-mensual-de-reutilizacion-de-video",
+  "/services/b2b-saas-explainer-video-miami":
+    "/es/video-explicativo-de-software-saas-miami",
+  "/services/executive-linkedin-video-series-miami":
+    "/es/serie-de-video-para-linkedin-ejecutivo-miami",
+  "/services/youtube-long-form-video-editing":
+    "/es/edicion-de-video-largo-para-youtube",
+  "/services/product-unboxing-demo-video-south-florida":
+    "/es/video-de-unboxing-y-demostracion-de-producto-south-florida",
+  "/services/airbnb-luxe-vacation-rental-video-miami-beach":
+    "/es/video-para-alquileres-de-lujo-y-airbnb-luxe-miami-beach",
+  "/services/waterfront-restaurant-video-fort-lauderdale":
+    "/es/video-para-restaurantes-frente-al-agua-fort-lauderdale",
+  "/services/marina-facility-video-fort-lauderdale":
+    "/es/video-comercial-para-marinas-fort-lauderdale",
 };
 
 for (const [englishPath, spanishPath] of Object.entries({
