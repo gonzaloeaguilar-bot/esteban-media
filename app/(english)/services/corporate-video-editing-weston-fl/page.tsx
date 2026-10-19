@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, WandSparkles, Mail, Phone } from "lucide-react";
+import { ArrowRight, Mail, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import { PORTED_SERVICE_FAQS, serviceSiblings } from "@/lib/service-depth-content";
@@ -13,6 +13,7 @@ import {
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 import { NicheAnswers } from "@/components/niche-answers";
+import { PublishedProjectProof } from "@/components/published-project-proof";
 import { withNicheService } from "@/lib/niche-answers";
 
 export const metadata = buildPageMetadata({
@@ -98,13 +99,16 @@ export default function CorporateVideoEditingWestonFlPage() {
               </div>
             </div>
 
-            <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
-              <WandSparkles className="size-8 text-[#e85d3e]" aria-hidden="true" />
-              <h2 className="mt-5 font-serif text-3xl">Corporate proof</h2>
-              <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                Our portfolio project <strong>My D&apos;ler</strong> proves published corporate brand visual post-production.
-              </p>
-            </div>
+            <PublishedProjectProof
+              proof={{
+                href: "/portfolio/my-dler",
+                eyebrow: "Published project",
+                title: "My D'ler",
+                description:
+                  "A published project with documented corporate brand visual post-production. It is a reference point, not a promise of the same scope for another company.",
+                linkLabel: "View the published project",
+              }}
+            />
           </div>
         </Container>
       </section>

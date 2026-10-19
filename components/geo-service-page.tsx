@@ -22,6 +22,7 @@ import { PACKAGE_PRICES, REAL_ESTATE_PLANS, usd } from "@/lib/pricing";
 import { NicheAnswers } from "@/components/niche-answers";
 import { OwnerFactAnswers } from "@/components/owner-fact-answers";
 import { PriorityLinks } from "@/components/priority-links";
+import { PublishedProjectProof, resolvePublishedProjectProof } from "@/components/published-project-proof";
 import { withNicheService } from "@/lib/niche-answers";
 
 export type GeoServicePageContent = {
@@ -114,6 +115,13 @@ export function GeoServicePage({
   const startingVideo = video.kind === "from" ? video.amount : 0;
   const startingPlan = Math.min(...REAL_ESTATE_PLANS.map((plan) => plan.price));
   const jsonLd = withNicheService(content.path, buildGeoServiceSchema(content), content.serviceName);
+  const publishedProof = resolvePublishedProjectProof({
+    href: content.proofHref,
+    title: content.proofTitle,
+    description: content.proofText,
+    eyebrow: "Published project",
+    linkLabel: content.proofLabel,
+  });
 
   return (
     <main className="bg-[#f6f1ea] text-[#101214]">
@@ -184,20 +192,24 @@ export function GeoServicePage({
               </p>
             </div>
 
-            <aside className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
-              <MapPin className="size-8 text-[#e85d3e]" aria-hidden="true" />
-              <h2 className="mt-5 font-serif text-3xl">{content.proofTitle}</h2>
-              <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                {content.proofText}
-              </p>
-              <Link
-                href={content.proofHref}
-                className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]"
-              >
-                {content.proofLabel}
-                <ArrowRight className="size-4" aria-hidden="true" />
-              </Link>
-            </aside>
+            {publishedProof ? (
+              <PublishedProjectProof proof={publishedProof} />
+            ) : (
+              <aside className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
+                <MapPin className="size-8 text-[#e85d3e]" aria-hidden="true" />
+                <h2 className="mt-5 font-serif text-3xl">{content.proofTitle}</h2>
+                <p className="mt-4 text-sm leading-6 text-[#252a2d]">
+                  {content.proofText}
+                </p>
+                <Link
+                  href={content.proofHref}
+                  className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[var(--em-accent-ink)]"
+                >
+                  {content.proofLabel}
+                  <ArrowRight className="size-4" aria-hidden="true" />
+                </Link>
+              </aside>
+            )}
           </div>
         </Container>
       </section>

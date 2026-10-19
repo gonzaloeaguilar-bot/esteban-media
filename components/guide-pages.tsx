@@ -1,5 +1,6 @@
 import React from "react";
 import { GuideIllustration } from "@/components/guide-illustration";
+import { PublishedProjectProof } from "@/components/published-project-proof";
 import { KeepReading } from "@/components/keep-reading";
 import RailFaq from "@/vendor/rail-kit/RailFaq";
 import Link from "next/link";
@@ -659,10 +660,22 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
               <p className="mt-6 max-w-3xl text-lg leading-8 text-[#252a2d]">
                 <strong>{copy.answerLabel}</strong> {guide.answer}
               </p>
-              {/* A drawing for the guide's theme. The photo library is 13
-                  project frames and none of them is about editing workflow, so
-                  a still here would be decoration. */}
-              <GuideIllustration slug={guide.slug} className="mt-8 h-40 w-full max-w-md rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-3" />
+              {guide.heroProof ? (
+                <div className="mt-8 max-w-2xl">
+                  <PublishedProjectProof
+                    proof={{
+                      ...guide.heroProof,
+                      eyebrow: copy.proofEyebrow,
+                      linkLabel: copy.proofLinkLabel,
+                    }}
+                  />
+                </div>
+              ) : (
+                /* A drawing for the guide's theme. The photo library is 13
+                    project frames and none of them is about editing workflow, so
+                    a still here would be decoration. */
+                <GuideIllustration slug={guide.slug} className="mt-8 h-40 w-full max-w-md rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-3" />
+              )}
               <p className="mt-5 max-w-3xl border-l-2 border-[#c84a2c] pl-4 text-sm leading-6 text-[#3f4548]">
                 {guidePolicyNotes[locale]}
               </p>

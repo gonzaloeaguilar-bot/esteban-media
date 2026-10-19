@@ -89,6 +89,8 @@ type GuideCopy = {
   eyebrow: string;
   answer: string;
   proof: GuideProofLink;
+  /** Optional homepage-style real-work proof for a guide whose subject has one. */
+  heroProof?: GuideProofLink;
   sections: readonly GuideSection[];
   faqs?: readonly { question: string; answer: string }[];
 };
@@ -384,6 +386,12 @@ const guidePairs: readonly GuidePair[] = [
         description:
           "The published project credits on-location video, sound, and editing for a Miami clinic. It is not published as evidence of a private RFP, contract, or production policy.",
       },
+      heroProof: {
+        href: "/portfolio/healthy-smile",
+        title: "Healthy Smile Miami",
+        description:
+          "A published Miami assignment where Esteban handled on-location camera, direct sound, and editing for an 18-second promotional master. It is a documented scope example, not a promise of the same plan for another project.",
+      },
       sections: [
         {
           heading: "What should the RFP say about the goal, audience, and final files?",
@@ -461,6 +469,12 @@ const guidePairs: readonly GuidePair[] = [
         title: "Healthy Smile Miami",
         description:
           "El proyecto publicado acredita video, sonido y edición en una clínica de Miami. Nada publicado confirma un RFP, contrato o política privada de producción.",
+      },
+      heroProof: {
+        href: "/es/portafolio/healthy-smile",
+        title: "Healthy Smile Miami",
+        description:
+          "Un encargo publicado en Miami donde Esteban manejó cámara en locación, sonido directo y edición para un master promocional de 18 segundos. Es un ejemplo documentado de alcance, no una promesa del mismo plan para otro proyecto.",
       },
       sections: [
         {
