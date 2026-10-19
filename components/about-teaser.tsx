@@ -66,7 +66,14 @@ const highlights = [
     label: "Spanish-first",
     detail: (
       <>
-        Native Spanish service with intermediate English communication available, including content planning for annual South Florida dates on the Spanish{" "}
+        Native Spanish service with intermediate English communication available, including published starting rates on the Spanish{" "}
+        <Link
+          href="/es/precios"
+          className="font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-2 hover:text-[#7f2f20]"
+        >
+          precios de partida
+        </Link>{" "}
+        page and seasonal content planning on the{" "}
         <Link
           href="/es/eventos"
           className="font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-2 hover:text-[#7f2f20]"

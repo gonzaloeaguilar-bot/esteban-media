@@ -177,7 +177,14 @@ export default function AreasPage() {
                   available to clients beyond South Florida when the work can be
                   completed from supplied footage, photos, screen recordings,
                   product references, or a clear brief. Spanish-first clients can
-                  use the{" "}
+                  review published starting rates under{" "}
+                  <Link
+                    href="/es/precios"
+                    className="underline underline-offset-4 hover:text-[#9f3c27]"
+                  >
+                    precios y paquetes
+                  </Link>
+                  , use the{" "}
                   <Link
                     href="/es/guias"
                     className="underline underline-offset-4 hover:text-[#9f3c27]"

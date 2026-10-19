@@ -1,3 +1,16 @@
+# 2026-10-19 — Growth starvation internal links to /es/precios
+
+- Rescued target route `https://estebanmorenomedia.com/es/precios` (`app/(spanish)/es/precios/page.tsx`) by adding 4 contextual internal links in body copy from earning pages:
+  1. `/about` (`app/(english)/about/page.tsx`): contextual link with anchor `precios y paquetes`.
+  2. `/` (`components/about-teaser.tsx`): contextual link in the "Spanish-first" highlight card with anchor `precios de partida`.
+  3. `/guides/best-caption-styles-for-instagram-reels` (`lib/guides.ts`): contextual link in viewing context / subtitle strategies section with anchor `precios de partida`.
+  4. `/areas` (`app/(english)/areas/page.tsx`): contextual link in remote editing section with anchor `precios y paquetes`.
+- Confirmed target `/es/precios` has breadcrumbs back to `/es` and contextual links back to `/es/areas`, `/es/calculadora`, and `/es/servicios`.
+- Ran `pnpm lastmod:update` updating `config/page-lastmod.json`.
+- Validated with `npm run typecheck --silent` and vitest test suite.
+
+---
+
 # 2026-10-18 — High-budget buyer path and verified entity reference (production verified)
 
 - Branch `codex/high-budget-buyer-path-20261018` adds short, server-rendered pre-proposal sections to the existing English corporate and brand-production pages. Both route a buyer to the existing RFP guide without adding an offer, crew, turnaround, or price claim.
