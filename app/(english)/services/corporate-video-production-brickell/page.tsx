@@ -100,15 +100,30 @@ export default function CorporateVideoProductionBrickellPage() {
 
             <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6">
               <Building2 className="size-8 text-[#e85d3e]" aria-hidden="true" />
-              <h2 className="mt-5 font-serif text-3xl">Corporate proof</h2>
+              <h2 className="mt-5 font-serif text-3xl">Published production proof</h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                Our portfolio project <strong>My D&apos;ler</strong> proves published brand visual design and corporate assets.
+                The published <strong>Healthy Smile Miami</strong> case records an on-location Miami assignment where Esteban handled camera, direct sound, and editing for an 18-second promotional master. It is a documented project scope, not a promise that another project will use the same plan.
               </p>
+              <Link href="/case-studies/healthy-smile" className="group mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27]">
+                Review the Healthy Smile case study
+                <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+              </Link>
             </div>
           </div>
         </Container>
       </section>
       <ServiceAnswerFirst service="Corporate video production" />
+
+      <section className="pb-12 sm:pb-16">
+        <Container size="xl">
+          <div className="max-w-3xl">
+            <p className="text-xs font-medium uppercase text-[#5a6066]">Before a proposal</p>
+            <h2 className="mt-3 font-serif text-4xl">What should a corporate video brief decide first?</h2>
+            <p className="mt-4 text-base leading-7 text-[#252a2d]">Name the audience, business decision, required final files, approval owner, known locations, and fixed dates. Use the same brief when comparing proposals so scope, exclusions, and open questions can be reviewed side by side.</p>
+            <Link href="/guides/video-production-rfp-template-miami" className="mt-5 inline-flex text-sm font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#6f2417]">Use the video-production RFP template</Link>
+          </div>
+        </Container>
+      </section>
 
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
