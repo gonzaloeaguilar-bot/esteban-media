@@ -759,3 +759,219 @@ export const LUXURY_WATCH_ES_SECTIONS: readonly SpanishNicheSection[] = [
   },
 ];
 
+export const AMAZON_PRODUCT_ES_DISCLOSURE = "¿Cómo se graba un video para productos de Amazon en Miami?";
+export const AMAZON_PRODUCT_ES_DESTINATIONS = "Ciclorama blanco, iluminación de estudio de alta fidelidad, videos para Amazon Inspire y cumplimiento de directrices.";
+
+export const AMAZON_PRODUCT_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo mejora la producción de video de producto la conversión en Amazon en Miami?",
+    paragraphs: [
+      "Las marcas de comercio electrónico, distribuidores y vendedores de Amazon FBA en Miami y Doral emplean videos de producto de alta definición para mostrar el funcionamiento real, escala física y durabilidad de sus artículos, reduciendo devoluciones costosas. Los compradores digitales no pueden manipular físicamente el producto, por lo que una demostración audiovisual clara resulta decisiva para cerrar la compra. Esteban produce videos para fichas de Amazon y Brand Stores empleando cámaras cinematográficas, cicloramas neutros e iluminación difusa de alto índice de reproducción cromática que cumple con las directrices de la plataforma. La filmación resalta texturas de materiales, facilidad de montaje y aplicaciones prácticas en resolución nítida. Estas demostraciones sustituyen simulaciones digitales artificiales por evidencia física auténtica, respondiendo a dudas habituales y mejorando el posicionamiento del listado. Para servicios afines de imagen comercial, examine [fotografía de producto en Miami](/es/servicios/fotografia-de-producto-miami); para conocer opciones de contratación, explore [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué formatos y entregables audiovisuales reciben las tiendas de comercio electrónico?",
+    paragraphs: [
+      "Los responsables de marcas de venta online requieren entregables versátiles adaptados a las fichas de producto de escritorio y a las aplicaciones móviles de compra. Esteban revisa el embalaje, las ventajas competitivas del artículo y las preguntas frecuentes de clientes antes del rodaje. El paquete principal comprende un video horizontal de sesenta segundos con rótulos discretos que destacan medidas, materiales y modos de uso con fondo limpio. En postproducción se elaboran además cápsulas verticales de treinta segundos optimizadas para Amazon Inspire, TikTok Shop y campañas de anuncios en Meta. Los archivos se codifican según los parámetros de compresión y normas sonoras que exige Amazon para evitar demoras en la aprobación del contenido. Este material permite a las marcas elevar su catálogo y acelerar el ritmo de ventas. Para revisar experiencia previa en producción comercial, examine el [video comercial de Bar Door Monkey](/es/portafolio/bar-door-monkey); para cotizar una sesión en estudio, escríbanos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const COSMETICS_PRODUCT_ES_DISCLOSURE = "¿Cómo se filman cosméticos y productos de belleza en Miami?";
+export const COSMETICS_PRODUCT_ES_DESTINATIONS = "Macro de pipetas y texturas, cuidado del tono de piel, iluminación sin reflejos y videos para redes sociales.";
+
+export const COSMETICS_PRODUCT_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo resalta la cinematografía macro los productos cosméticos y de cuidado facial en Miami?",
+    paragraphs: [
+      "Las firmas de cosmética, marcas de belleza limpia y creadores de líneas de cuidado facial en Miami Beach, Wynwood y Downtown Miami emplean cinematografía macro de estudio para transmitir la textura, viscosidad y aplicación de sus fórmulas. La fotografía tradicional no alcanza a reflejar la textura untuosa de una crema hidratante, la caída fluida de un sérum ni los destellos de un iluminador líquido. Esteban utiliza lentes macro de escala 1:1, cajas de luz difusa y plataformas giratorias motorizadas para filmar fórmulas de belleza con iluminación envolvente. Las tomas registran el goteo de pipetas dosificadoras, texturas de emulsión y la absorción sobre piel con absoluta naturalidad. El esquema de iluminación cuida los tonos de piel reales sin producir reflejos sobre envases de vidrio o tipografías metalizadas. Para producciones de alta gama afines, examine [video para relojes de lujo en Miami](/es/servicios/video-para-relojes-de-lujo-miami); para conocer tarifas, consulte [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué piezas de video impulsan el lanzamiento de cosméticos en redes sociales?",
+    paragraphs: [
+      "Las marcas de cosmética de venta directa necesitan contenidos visuales ágiles que destaquen en los feeds de Instagram Reels, TikTok y YouTube Shorts. Esteban entrega un paquete de video diseñado para captar la atención de inmediato y transmitir la calidad de la formulación. El material incluye una pieza principal de cuarenta y cinco segundos con ambientación cuidada y diseño sonoro sutil, junto con seis cápsulas verticales de quince segundos centradas en texturas, dosificación y desempaque estético. En postproducción se integran textos discretos que identifican principios activos y extractos botánicos sin saturar la composición visual. Estas piezas permiten a firmas de belleza dinamizar sus lanzamientos comerciales, respaldar envíos a creadores de contenido y acelerar pedidos en sus tiendas online. Para ver muestras de narrativa visual, examine la [película de evento Diana y Jack](/es/portafolio/diana-jack); para planificar una sesión de cosmética en estudio, contáctenos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const PRODUCT_DEMO_ES_DISCLOSURE = "¿Cómo se graba una demostración de producto y desempaque en Miami?";
+export const PRODUCT_DEMO_ES_DESTINATIONS = "Planos cenitales de ensamblaje, sonido ASMR de materiales, tutoriales paso a paso y videos para códigos QR.";
+
+export const PRODUCT_DEMO_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo ayudan los videos cenitales de desempaque y demostración a reducir devoluciones en Miami?",
+    paragraphs: [
+      "Los fabricantes de electrónica, empresas de hardware y marcas de productos físicos en Miami y Fort Lauderdale recurren a videos de desempaque y ensamblaje paso a paso para guiar al comprador en la configuración inicial de su adquisición. Los manuales impresos suelen generar confusión, provocando consultas repetitivas de soporte técnico y reseñas negativas en tiendas digitales. Esteban realiza grabaciones cenitales mediante soportes elevados sobre mesa de trabajo, iluminación difusa de estudio y micrófonos direccionales de alta sensibilidad. La filmación cubre toda la experiencia de apertura: retirada de precintos, inventario de accesorios incluidos, encaje de piezas y encendido inicial. El audio capta los sonidos de materiales y encajes mecánicos, logrando una demostración atractiva y fácil de seguir que tranquiliza al usuario. Para postproducción de marcas afines, examine [edición de video marca blanca para agencias](/es/servicios/edicion-de-video-marca-blanca-para-agencias); para evaluar planes, consulte [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué características técnicas aseguran que una demostración sea clara y fácil de replicar?",
+    paragraphs: [
+      "Un video instructivo eficaz requiere un ritmo didáctico estructurado y encuadres limpios para que cualquier usuario pueda seguir las instrucciones sin esfuerzo. Esteban analiza junto a los equipos de desarrollo las dudas habituales de montaje antes de encender la cámara. Los entregables comprenden un tutorial horizontal de tres minutos organizado en pasos numerados, con flechas sutiles sobre puertos de conexión y textos breves que previenen errores comunes de instalación. En postproducción se entregan también cápsulas verticales de treinta segundos pensadas para enlaces mediante códigos QR impresos en la caja o respuestas del servicio de atención al cliente. La mezcla de audio garantiza que las explicaciones sonoras se escuchen con absoluta nitidez. Estas piezas audiovisuales reducen la carga de soporte técnico y mejoran la satisfacción del cliente. Para ver trabajos comerciales publicados, examine el [video comercial de Bar Door Monkey](/es/portafolio/bar-door-monkey); para organizar una sesión, escríbanos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const UGC_AD_VARIATION_ES_DISCLOSURE = "¿Cómo se editan variaciones de anuncios UGC para Meta y TikTok?";
+export const UGC_AD_VARIATION_ES_DESTINATIONS = "Ganchos iniciales de impacto, demostraciones modulares, subtítulos en áreas seguras y escalado de campañas pagadas.";
+
+export const UGC_AD_VARIATION_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Por qué las agencias de marketing prueban variaciones de ganchos en anuncios UGC en Miami?",
+    paragraphs: [
+      "Las agencias de paid media y marcas de comercio electrónico en Miami y Fort Lauderdale saben que los primeros tres segundos de un video vertical determinan si un usuario permanece atento o desliza el feed. Probar distintas variaciones de ganchos visuales y sonoros sobre una oferta central es el método más eficaz para reducir el costo de adquisición de clientes en Meta Ads y TikTok. Esteban ofrece edición sistemática de variaciones creativas a partir del material grabado por creadores y usuarios que entrega la agencia. El proceso combina aperturas con interrupciones de patrón —como textos llamativos, gestos directos a cámara o reacciones en pantalla dividida— con demostraciones modulares del producto y llamadas a la acción al cierre. Esta metodología permite encontrar combinaciones ganadoras de forma ágil sin necesidad de organizar nuevos rodajes completos. Para servicios afines de redes, consulte [editor de anuncios de TikTok en Miami](/es/servicios/editor-de-anuncios-de-tiktok-miami); para conocer opciones, explore [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Cómo organiza un editor el flujo de trabajo para entregar múltiples iteraciones de video UGC?",
+    paragraphs: [
+      "Los directores de medios pagados necesitan un sistema de postproducción ordenado que entregue lotes de anuncios listos para campañas de testeo sin retrasos en las revisiones. Esteban establece un entorno en la nube donde la agencia deposita el material de creadores, audios limpios y manuales de marca. En el montaje se seleccionan los momentos más convincentes, se elimina cualquier pausa y se insertan subtítulos en zonas seguras de la interfaz móvil. Un lote habitual genera diez ganchos iniciales de tres segundos montados sobre dos desarrollos de producto y dos cierres de compra, produciendo múltiples combinaciones a partir de un único rodaje. Cada video se entrega en proporción vertical 9:16, con niveles sonoros normalizados para evitar penalizaciones en plataformas de pauta. Este sistema permite a las marcas combatir el desgaste publicitario y mantener la rentabilidad del gasto digital. Para ver muestras de ritmo audiovisual, examine la [película Diana y Jack](/es/portafolio/diana-jack); para cotizar un plan mensual, escríbanos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const CATERING_COMPANY_ES_DISCLOSURE = "¿Cómo se graba un video para empresas de catering en Miami?";
+export const CATERING_COMPANY_ES_DESTINATIONS = "Emplatados en vivo, estaciones de trinchado, servicio de sala y videos para licitaciones corporativas.";
+
+export const CATERING_COMPANY_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo ayuda el video gastronómico a las empresas de catering a ganar contratos en Miami?",
+    paragraphs: [
+      "Las empresas de catering de alta gama, chefs privados y equipos de banquetes en Miami, Fort Lauderdale y Palm Beach utilizan producciones audiovisuales de alta definición para cerrar contratos corporativos de gran presupuesto y banquetes de bodas exclusivas. Los coordinadores de eventos y juntas empresariales que contratan servicios de miles de dólares exigen constancia visual del arte culinario, la puntualidad del servicio y la elegancia del personal de sala. Esteban filma durante celebraciones y eventos en directo con cámaras de cine ligeras, ópticas luminosas e iluminación cuidada que resalta canapés pasados, estaciones de sellado a fuego vivo y buffets sin entorpecer el trabajo de cocina ni el disfrute de los invitados. Las secuencias ilustran la coordinación entre el chef ejecutivo y la brigada de sala bajo la presión del servicio en directo. Para opciones de restaurantes, revise [videógrafo para restaurantes de alta cocina en Miami](/es/videografo-para-restaurantes-de-alta-cocina-miami); para ver precios, visite [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué entregables audiovisuales ayudan a los servicios de catering a mostrar su categoría?",
+    paragraphs: [
+      "Los directores comerciales de catering y colectivos de chefs privados precisan piezas promocionales pensadas para agencias de eventos, directorios de bodas y redes sociales. Esteban planifica los momentos esenciales del servicio: desde el acabado minucioso de bocados en carpas de montaje hasta el trinchado en sala y los brindis con champaña. El paquete comprende una película promocional de noventa segundos que comunica la categoría del menú y la elegancia de la puesta en escena, acompañada de avances verticales de quince segundos para Instagram Reels y portales de proveedores de lujo. El sonido capta la actividad de la cocina y el ambiente agradable de los comensales sin equipos invasivos. Estas piezas acreditan solvencia técnica y distinción culinaria ante comités de galas benéficas y bodas de destino. Para revisar proyectos en video de hospitalidad, vea el [video comercial de Bar Door Monkey](/es/portafolio/bar-door-monkey); para filmar su servicio de banquetes, escríbanos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const BREWERY_CRAFT_DISTILLERY_ES_DISCLOSURE = "¿Cómo se graba un video para cervecerías artesanales en Miami?";
+export const BREWERY_CRAFT_DISTILLERY_ES_DESTINATIONS = "Tanques de fermentación, líneas de enlatado, proceso del grano a la copa y videos para visitas al taproom.";
+
+export const BREWERY_CRAFT_DISTILLERY_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo impulsa el video entre bastidores las visitas a taprooms de cervecerías en Miami?",
+    paragraphs: [
+      "Las cervecerías artesanales independientes, microdestilerías y taprooms en Wynwood, Oakland Park y Doral utilizan el video documental para generar lealtad de marca, ampliar su presencia en comercios y llenar sus salas de degustación los fines de semana. Los amantes de la cerveza artesanal valoran la procedencia de cada elaboración: desde la molienda del grano y el lupulado en tanques de acero inoxidable hasta el añejamiento en barricas y el enlatado automatizado. Esteban filma en salas de cocción y bodegas de barricas con cámaras compactas, ópticas amplias e iluminación LED que penetra la humedad y el vapor de la fábrica. Tomas de seguimiento recorren depósitos brillantes, remolinos de mosto, el sellado de latas y el ambiente distendido de las mesas comunales del taproom. Estos procesos comunican la maestría del maestro cervecero con mayor impacto que una fotografía estática. Para coctelería afín, consulte [videógrafo de coctelería para bares en Miami](/es/videografo-de-cocteleria-para-bares-miami); para tarifas, visite [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué material audiovisual apoya el lanzamiento de latas y visitas guiadas a la fábrica?",
+    paragraphs: [
+      "Los propietarios y encargados de marketing cervecero necesitan contenidos periódicos para anunciar lotes de edición limitada, novedades de barril y festivales de fin de semana. Esteban coordina las grabaciones durante días activos de cocción y empaquetado sin entorpecer la seguridad de la planta. Los entregables comprenden un video de marca de sesenta segundos sobre la filosofía del maestro cervecero, junto con piezas verticales optimizadas para Instagram Reels, TikTok y redes especializadas como Untappd. El montaje sincroniza cortes al ritmo de sonidos industriales de válvulas de presión, choques de botellines y el servicio de cerveza espumosa en copa. Estas piezas permiten destacar en estanterías de supermercados y atraer visitas a las instalaciones. Para conocer nuestra experiencia en producciones comerciales de bebidas, explore el [video de Bar Door Monkey](/es/portafolio/bar-door-monkey); para organizar una sesión en su fábrica, contáctenos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const YACHT_PARTY_ES_DISCLOSURE = "¿Cómo se graba una fiesta en yate o despedida en Miami?";
+export const YACHT_PARTY_ES_DESTINATIONS = "Paseos hacia Haulover, baile en popa, atardeceres en la bahía y trailers musicales de recuerdo.";
+
+export const YACHT_PARTY_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo capta la videografía en yate las fiestas y celebraciones privadas en Miami?",
+    paragraphs: [
+      "Los cumpleaños señalados, despedidas de soltera y fiestas privadas en barco que parten del Miami River, Coconut Grove y Haulover Inlet requieren videografía dinámica para conservar recuerdos irrepetibles sobre el agua. Disfrutar a bordo de un chárter de día combina risas espontáneas, música en la cubierta de popa con el horizonte de Biscayne Bay de fondo y baños en bancos de arena soleados. Esteban ofrece filmación náutica discreta con un único operador empleando cámaras resistentes al salitre, estabilización de tres ejes y filtros polarizadores que realzan el azul turquesa del Atlántico y el cielo despejado. Desplazándose con agilidad entre soláriums de proa, salones del puente alto y plataformas de baño, la cámara documenta la complicidad del grupo sin restar espacio al evento. Para celebraciones de boda afines, explore [videógrafo para cena de ensayo en Miami](/es/videografo-para-cena-de-ensayo-miami); para ver tarifas, revise [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué entregables reciben los organizadores para revivir la fiesta en el barco?",
+    paragraphs: [
+      "Los clientes de chárter y coordinadores de eventos privados desean videos de entrega ágil que reflejen la emoción del día para compartir en redes sociales. Esteban planifica junto al responsable del grupo los momentos principales de la travesía: desde los brindis iniciales al zarpar y la navegación frente a la silueta de Downtown Miami hasta los bailes durante la puesta de sol. Se entrega una película horizontal de dos minutos musicalizada con temas licenciados de tendencia, acompañada de avances verticales de sesenta segundos optimizados para Instagram Reels y TikTok. La grabación de audio aísla los brindis y risas del rumor del motor y el viento marino mediante paravientos profesionales. Estas piezas permiten rememorar la fiesta con calidad cinematográfica. Para revisar muestras de celebraciones publicadas, vea la [película de evento Diana y Jack](/es/portafolio/diana-jack); para reservar fecha para su fiesta en barco, escríbanos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const SPORTFISHING_ES_DISCLOSURE = "¿Cómo se graba un torneo de pesca deportiva en South Florida?";
+export const SPORTFISHING_ES_DESTINATIONS = "Navegación a alta velocidad, picadas en popa, suelta de peces de pico y videos para patrocinadores.";
+
+export const SPORTFISHING_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo documenta la videografía de pesca deportiva los torneos en South Florida?",
+    paragraphs: [
+      "Los equipos de torneos marinos, propietarios de embarcaciones de pesca deportiva y capitanes de chárter en Miami Beach, Palm Beach y los Cayos de Florida recurren a cinematografía de alta velocidad para registrar combates con peces de pico, la potencia de sus cascos en mar abierto y entregas de trofeos. La captura de especies pelágicas —como pez vela, marlín azul o atún— exige equipamiento preparado para la navegación rápida en alta mar, salitre y maniobras bruscas en la bañera de popa. Esteban filma jornadas en alta mar con cámaras selladas, protecciones contra agua salada y grabación en 4K a 60 y 120 cuadros por segundo. Registrar carreras de lanchas entre olas, picadas en superficie, el trabajo en la silla de combate y la suelta segura en el espejo de popa requiere destreza náutica y reflejos rápidos. Para venta de embarcaciones, revise [video para venta de barcos en Fort Lauderdale](/es/video-para-venta-de-barcos-fort-lauderdale); para tarifas, visite [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué piezas en video facilitan a capitanes y equipos conseguir patrocinios náuticos?",
+    paragraphs: [
+      "Los pescadores de competición y operadores de chárter precisan material audiovisual de calidad profesional para mostrar el rendimiento de la embarcación, fiabilidad del aparejo y victorias en torneos. Esteban coordina con el capitán las mejores horas de luz y mareas favorables. Los entregables comprenden un resumen cinematográfico de tres minutos con audio sincronizado de motores y maniobras de cubierta, junto con avances verticales pensados para YouTube Shorts, Instagram Reels y canales de marcas patrocinadoras. En postproducción se potencia el azul cobalto de la corriente del golfo y se añaden gráficos con pesos, horarios de captura y clasificaciones. Estas producciones permiten a capitanes justificar tarifas premium y a tripulaciones atraer patrocinios de marcas marítimas de prestigio. Para ver proyectos náuticos, consulte [marketing de video para superyates en Fort Lauderdale](/es/marketing-de-video-para-superyates-fort-lauderdale); para reservar cobertura en torneo, contáctenos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const HAIR_RESTORATION_ES_DISCLOSURE = "¿Cómo se filma una clínica de restauración capilar en Miami?";
+export const HAIR_RESTORATION_ES_DESTINATIONS = "Diseño de línea frontal, consultas médicas, consentimiento informado y seguimiento del crecimiento folicular.";
+
+export const HAIR_RESTORATION_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo transmite confianza el video clínico de restauración capilar en Miami?",
+    paragraphs: [
+      "Los cirujanos de trasplante capilar, especialistas médicos y centros de micropigmentación en Miami y Doral emplean producciones audiovisuales educativas para explicar procedimientos y evidenciar transformaciones reales ante pacientes de todo el país. La restauración capilar representa una decisión personal valorada durante meses, donde la claridad médica y la confianza resultan esenciales para concertar una primera visita presencial. Esteban colabora con equipos clínicos aplicando estrictos protocolos de consentimiento y privacidad, utilizando ópticas macro, iluminación difusa suave y cámaras estabilizadas para documentar el diseño de líneas frontales, consultas diagnósticas y fases de recuperación con rigor científico. Tomas macro enseñan la manipulación folicular y la densidad en el cuero cabelludo sin enfoques sensacionalistas. Estas piezas formativas resuelven temores y mejoran las reservas de valoración. Para servicios dentales afines, consulte [video para clínicas dentales en South Florida](/es/servicios/marketing-de-video-dental-south-florida); para opciones, explore [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué contenidos audiovisuales ayudan a las clínicas a informar a nuevos pacientes?",
+    paragraphs: [
+      "Los directores de centros estéticos y coordinadores de comunicación médica requieren piezas que respeten el entorno sanitario y la comodidad del paciente. Esteban define pautas de rodaje que aseguran áreas estériles y tranquilidad durante la consulta. Los entregables incluyen un video de presentación de noventa segundos sobre el criterio profesional del cirujano, acompañado de avances verticales que documentan evoluciones a los seis y doce meses con autorización expresa de pacientes participantes. Micrófonos direccionales aseguran que las explicaciones médicas se transmitan con calidez, cercanía y perfecta inteligibilidad. Estos recursos permiten a las clínicas de South Florida captar pacientes de otros estados que buscan experiencia médica especializada y consolidar su prestigio en internet. Para revisar nuestra experiencia en testimonios clínicos, examine el [caso de estudio de Healthy Smile Miami](/es/portafolio/healthy-smile); para programar una filmación, escríbanos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const CHIROPRACTIC_VIDEO_ES_DISCLOSURE = "¿Cómo se graba un video para clínicas de quiropráctica en Miami?";
+export const CHIROPRACTIC_VIDEO_ES_DESTINATIONS = "Acústica de ajustes espinales, pruebas de movilidad, ejercicios de rehabilitación y videos educativos para redes.";
+
+export const CHIROPRACTIC_VIDEO_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo atrae pacientes el video de quiropráctica y rehabilitación física en Miami?",
+    paragraphs: [
+      "Los quiroprácticos deportivos, fisioterapeutas y clínicas de rehabilitación activa en Kendall, Doral y Miami utilizan contenidos en video formativos para mostrar técnicas de ajuste, explicar el alivio del dolor musculoesquelético y conectar con personas activas en redes sociales. Muchos pacientes potenciales dudan en solicitar su primera cita por desconocimiento de las maniobras terapéuticas. Esteban produce piezas clínicas dinámicas empleando cámaras estabilizadas, ópticas de ángulo amplio que captan el movimiento corporal en ejercicios biomecánicos y micrófonos de alta fidelidad que registran con claridad el sonido articular de ajustes manuales. Las grabaciones documentan valoraciones posturales, ejercicios funcionales y recuperación de rangos de movimiento con profesionalidad. Estos videos desmitifican la consulta quiropráctica y facilitan la llegada de nuevos pacientes. Para consultas médicas generales, explore [marketing de video para consultorios médicos en Miami](/es/marketing-de-video-para-consultorios-medicos-miami); para tarifas, revise [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué formatos audiovisuales ayudan a las clínicas de fisioterapia a generar confianza?",
+    paragraphs: [
+      "Los propietarios de consultas quiroprácticas y centros de terapia física precisan metodologías de grabación que no interfieran en los horarios de atención clínica. Esteban planifica las sesiones en franjas específicas utilizando personal del centro o pacientes que han firmado autorizaciones de difusión. El paquete principal comprende una presentación institucional de noventa segundos sobre tratamientos especializados —como descompresión espinal, punción seca o recuperación deportiva— junto con ocho cápsulas verticales de treinta segundos para Instagram y TikTok. En postproducción se insertan gráficos explicativos sobre higiene postural, origen de molestias y estiramientos para el hogar. Este contenido formativo consolida al especialista como referente de salud en su entorno y convierte seguidores en citas confirmadas. Para ver grabaciones previas en centros sanitarios, examine el [video de la clínica Healthy Smile](/es/portafolio/healthy-smile); para agendar una filmación, contáctenos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const STARTUP_PITCH_ES_DISCLOSURE = "¿Cómo se graba un video de pitch para startups en Miami?";
+export const STARTUP_PITCH_ES_DESTINATIONS = "Narrativa de fundadores, capturas de interfaz de software, métricas de tracción y presentaciones para inversores.";
+
+export const STARTUP_PITCH_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo ayuda un video de pitch cinematográfico a las startups de Miami a levantar capital?",
+    paragraphs: [
+      "Los fundadores de empresas tecnológicas, startups B2B de software y plataformas digitales en Downtown Miami recurren a videos cinematográficos de pitch para transmitir su visión de negocio, tracción comercial y oportunidad de mercado ante fondos de capital riesgo internacionales. Los analistas de inversión examinan decenas de documentos a la semana; un video conciso de dos minutos comunica la convicción del equipo fundador y la propuesta técnica con mayor fuerza que una presentación estática de diapositivas. Esteban produce videos de nivel corporativo que combinan entrevistas directas al fundador con tomas de trabajo del equipo de desarrollo, sesiones ante pizarra y secuencias dinámicas de la interfaz de la aplicación. La filmación en oficinas o espacios de coworking emplea iluminación suave y micrófonos inalámbricos discretos para garantizar un discurso claro, profesional y seguro. Para videos corporativos afines, consulte [videógrafo corporativo en Miami](/es/videografo-de-eventos-corporativos-miami); para conocer planes, visite [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué estructura narrativa hace eficaz un video de pitch para fondos de inversión?",
+    paragraphs: [
+      "Los equipos fundadores y aceleradoras de empresas precisan piezas diseñadas para portales de inversión, plataformas como AngelList y presentaciones en Demo Days. Esteban colabora con los fundadores para pulir el guion, simplificando tecnicismos y remarcando la validación del problema, métricas unitarias, velocidad de captación de usuarios y planes de crecimiento. Los entregables comprenden un video maestro de dos minutos acompañado de una síntesis vertical de treinta segundos adaptada para LinkedIn y contactos por correo electrónico con inversores. El tratamiento del color y los gráficos en pantalla otorgan una apariencia consolidada que transmite solidez institucional. Este material permite a las empresas tecnológicas de Florida competir con proyectos de otros centros de innovación y acelerar el cierre de sus rondas de financiación. Para ver entrevistas corporativas publicadas, examine el [documental Homeowners](/es/portafolio/homeowners); para coordinar un rodaje, escríbanos en [contacto](/es/contacto).",
+    ],
+  },
+];
+
+export const EXECUTIVE_VIDEO_BIO_ES_DISCLOSURE = "¿Cómo se graba una biografía ejecutiva en video en Miami?";
+export const EXECUTIVE_VIDEO_BIO_ES_DESTINATIONS = "Iluminación en despachos ejecutivos, entrevistas conversacionales, perfiles corporativos y liderazgo en LinkedIn.";
+
+export const EXECUTIVE_VIDEO_BIO_ES_SECTIONS: readonly SpanishNicheSection[] = [
+  {
+    heading: "¿Cómo potencia la biografía ejecutiva en video la reputación de líderes empresariales en Miami?",
+    paragraphs: [
+      "Los directores generales, socios de firmas legales, asesores de patrimonio y miembros de consejos de administración en Miami, Fort Lauderdale y Coral Gables utilizan biografías ejecutivas en video para humanizar su perfil, comunicar valores corporativos y generar cercanía con clientes e inversores clave. Quienes toman decisiones buscan evaluar la templanza, claridad expositiva y visión estratégica de un líder antes de iniciar relaciones mercantiles de envergadura. Esteban produce perfiles ejecutivos en las propias sedes o salas de juntas utilizando cámaras silenciosas, iluminación difusa favorecedora y micrófonos inalámbricos de precisión. Una dirección de entrevista cuidada permite reflexionar con naturalidad sobre trayectoria profesional, casos de éxito y compromiso con los clientes sin rigidez ni apariencia forzada. Estas piezas posicionan a los directivos como referentes accesibles y solventes en sus páginas web corporativas. Para producciones afines, consulte [producción de video para firmas de abogados en Miami](/es/servicios/produccion-de-video-para-bufetes-de-abogados-miami); para opciones, explore [precios](/es/precios).",
+    ],
+  },
+  {
+    heading: "¿Qué piezas audiovisuales respaldan la marca personal y la comunicación institucional?",
+    paragraphs: [
+      "Los directores de comunicación corporativa y responsables de marketing precisan contenidos diseñados para apartados institucionales de liderazgo, memorias anuales y perfiles en LinkedIn. Esteban coordina las jornadas con el equipo de comunicación para ajustarse a las normas de marca y respetar la agenda de los directivos. La entrega incluye una pieza biográfica de sesenta segundos respaldada por tres cápsulas verticales de treinta segundos sobre reflexiones estratégicas del sector para redes profesionales. En el montaje se aplica corrección cromática sutil, títulos corporativos limpios y subtítulos que aseguran la comprensión del mensaje en reproducciones sin audio en dispositivos móviles. Estos recursos refuerzan la notoriedad de la firma, apoyan la captación de talento y consolidan la reputación de sus líderes. Para revisar producciones documentales publicadas, examine el [documental Homeowners](/es/portafolio/homeowners); para agendar una sesión ejecutiva, contáctenos en [contacto](/es/contacto).",
+    ],
+  },
+];
+

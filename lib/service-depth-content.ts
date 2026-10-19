@@ -1888,6 +1888,210 @@ export const PORTED_SERVICE_FAQS: Readonly<Record<string, readonly ServiceFaq[]>
         "Dealers receive detailed ninety-second inspection videos for client presentations alongside fifteen-second vertical showcase clips with on-screen reference data for social channels.",
     },
   ],
+  "/services/amazon-product-video-production-miami": [
+    {
+      question: "What video formats are required for Amazon product listings and Brand Stores?",
+      answer:
+        "Amazon requires 16:9 widescreen video up to 1080p or 4K for main listing carousels, paired with 9:16 vertical video optimized for Amazon Inspire feeds and storefront highlights.",
+    },
+    {
+      question: "Can product features and dimensions be shown with on-screen graphic callouts?",
+      answer:
+        "Yes. High-contrast typography highlights key specifications, dimensions, material quality, and usage instructions directly on screen to answer buyer questions without audio.",
+    },
+    {
+      question: "Where is Amazon product filming conducted in Miami?",
+      answer:
+        "Filming takes place on clean cyclorama studio backdrops in Miami, tabletop lighting stages, or practical lifestyle environments across South Florida.",
+    },
+  ],
+  "/services/cosmetics-product-video-miami": [
+    {
+      question: "How do you capture liquid cosmetics, skincare serums, and textures on camera?",
+      answer:
+        "Specialized macro lenses and high-speed frame rates capture viscous droplet drops, cream spreads, and pipette suction with crisp anti-reflective studio lighting.",
+    },
+    {
+      question: "How is accurate skin tone representation preserved during color grading?",
+      answer:
+        "Color calibration charts ensure foundation shades, pigments, and diverse skin tones render accurately under balanced studio lighting without harsh tints.",
+    },
+    {
+      question: "What deliverables are provided for cosmetics e-commerce and social ads?",
+      answer:
+        "Deliverables include high-resolution product showcases for website PDPs alongside short vertical reels formatted for TikTok shop and Meta ad campaigns.",
+    },
+  ],
+  "/services/product-demo-video-production-miami": [
+    {
+      question: "What makes a high-converting product demonstration video?",
+      answer:
+        "A clear demonstration identifies the primary customer problem within the first three seconds, demonstrates mechanical assembly or software operation step-by-step, and highlights tangible benefits.",
+    },
+    {
+      question: "Can multi-angle overhead tabletop cameras record assembly and unboxing?",
+      answer:
+        "Yes. Overhead 90-degree tabletop rigs capture hands-on unboxing, mechanical latching, and component assembly with shadow-free softbox lighting.",
+    },
+    {
+      question: "Are demonstration videos delivered with synchronized voiceover or captions?",
+      answer:
+        "Both formats are provided: clear professional narration synced to actions, paired with synchronized on-screen captions designed for silent social viewing.",
+    },
+  ],
+  "/services/ugc-ad-variation-video-editing": [
+    {
+      question: "How do hook variations improve return on ad spend for paid social campaigns?",
+      answer:
+        "Testing multiple visual and verbal hooks within the first three seconds allows media buyers to identify winning creative variations without re-filming entire campaigns.",
+    },
+    {
+      question: "How are raw creator video submissions organized for batch ad variation editing?",
+      answer:
+        "Raw footage is uploaded to shared cloud folders where creators log hooks, problem setups, and calls to action for modular assembly into high-converting ad permutations.",
+    },
+    {
+      question: "What platform safe zones and caption styles are applied to UGC video edits?",
+      answer:
+        "Subtitles and headline stickers are formatted within strict 9:16 safe zones, ensuring TikTok, Instagram Reels, and YouTube Shorts UI overlays do not block critical text.",
+    },
+  ],
+  "/services/catering-company-video-miami": [
+    {
+      question: "How do you capture large-scale catering presentations and live food stations?",
+      answer:
+        "Cinematic handheld gimbal rigs document chef carving stations, passed hors d'oeuvres, cocktail bars, and banquet buffet setups in natural event lighting.",
+    },
+    {
+      question: "Can kitchen culinary prep and banquet setup be filmed before guest arrival?",
+      answer:
+        "Yes. Early call-time schedules document kitchen prep, table settings, floral arrangements, and chef briefing sessions before guests enter the venue.",
+    },
+    {
+      question: "What video assets help catering companies win corporate and wedding contracts?",
+      answer:
+        "Deliverables include a two-minute culinary brand film showcasing service elegance, paired with vertical short-form reels highlighting signature dishes for event planners.",
+    },
+  ],
+  "/services/brewery-craft-distillery-video-miami": [
+    {
+      question: "How do you film dark brewhouses, stainless steel fermenters, and taprooms?",
+      answer:
+        "Wide-aperture cinema lenses and directional warm accent lighting accentuate polished stainless tanks, bubbling fermentation sight glasses, and vibrant taproom ambiance.",
+    },
+    {
+      question: "Can high-speed slow motion capture beer pours and canning line operations?",
+      answer:
+        "Yes. High-frame-rate recording at 60 and 120 frames per second captures foaming draft pours, carbonation cascades, and mechanical canning seams with crisp clarity.",
+    },
+    {
+      question: "What promotional videos help craft beverage brands drive taproom foot traffic?",
+      answer:
+        "Packages include taproom experience reels, brewer process mini-documentaries, and seasonal release announcements formatted for Instagram and local promotional campaigns.",
+    },
+  ],
+  "/services/yacht-party-videographer-miami": [
+    {
+      question: "How do you capture private yacht parties and bachelorette celebrations on the water?",
+      answer:
+        "Compact stabilized camera rigs capture boarding excitement, deck dancing, skyline toasts, and sandbar celebrations while withstanding boat movement.",
+    },
+    {
+      question: "How are sunset golden hour colors and Miami skyline backdrops captured?",
+      answer:
+        "Wide dynamic range cinema sensors balance golden hour sunset light across Biscayne Bay without blowing out skies or losing shadow detail on deck.",
+    },
+    {
+      question: "When are finished party recap videos and social reels delivered?",
+      answer:
+        "A fast social recap teaser is delivered within three to five business days following the charter, accompanied by all high-resolution clips organized for download.",
+    },
+  ],
+  "/services/sportfishing-videographer-miami": [
+    {
+      question: "How does camera gear withstand salt spray and rough offshore sea conditions?",
+      answer:
+        "Weather-sealed cinema bodies, specialized protective camera covers, and secure tethered harness rigs ensure continuous operation in open ocean chop.",
+    },
+    {
+      question: "How do you capture fast-moving offshore fishing strikes and billfish releases?",
+      answer:
+        "High-frame-rate 4K recording captures explosive surface strikes, cockpit teamwork, wire handling, and healthy fish releases in crystal-clear slow motion.",
+    },
+    {
+      question: "What video packages are available for tournament teams and sportfishing charters?",
+      answer:
+        "Coverage includes multi-day tournament highlight films, captain and angler interviews, and high-energy vertical reels formatted for marine sponsors and social platforms.",
+    },
+  ],
+  "/services/hair-restoration-video-miami": [
+    {
+      question: "How do you film hair restoration procedures respectfully and professionally?",
+      answer:
+        "Filming focuses on consultation discussions, hairline design mapping, surgeon expertise, and comfortable clinic amenities without graphic surgical close-ups.",
+    },
+    {
+      question: "How are patient journey stories and hair growth timelines documented?",
+      answer:
+        "Structured video interviews record patient motivation before treatment, paired with standardized lighting setups to track follicular growth at post-procedure milestones.",
+    },
+    {
+      question: "What marketing videos help hair restoration clinics build patient trust?",
+      answer:
+        "Deliverables include educational doctor Q&A videos, patient milestone stories, and vertical social explainers addressing common consultation questions.",
+    },
+  ],
+  "/services/chiropractic-video-marketing-miami": [
+    {
+      question: "How is audio captured for chiropractic spinal adjustments and cavitation releases?",
+      answer:
+        "Sensitive directional clip-on microphones capture crisp acoustic cavitation sounds while eliminating distracting clinic background noise and air conditioning hum.",
+    },
+    {
+      question: "What video content generates new patient consultations for chiropractic practices?",
+      answer:
+        "Educational posture walkthroughs, ergonomic advice, patient relief testimonials, and gentle adjustment demonstrations position doctors as accessible spine health authorities.",
+    },
+    {
+      question: "How are patient adjustments filmed comfortably on camera?",
+      answer:
+        "Patient consent is verified prior to filming, and shoots focus on comfortable positioning, doctor communication, and mobility assessments before and after adjustments.",
+    },
+  ],
+  "/services/startup-pitch-video-production-miami": [
+    {
+      question: "What elements make an effective startup pitch video for venture capital and angel investors?",
+      answer:
+        "A compelling pitch video highlights founder vision, defines the market pain point, demonstrates proprietary software or hardware workflows, and presents traction metrics concisely.",
+    },
+    {
+      question: "Can animated software screen recordings and UI mockups be integrated into the pitch?",
+      answer:
+        "Yes. High-resolution screen captures and motion graphic callouts spotlight key product features, dashboard analytics, and user workflows alongside live founder interviews.",
+    },
+    {
+      question: "What video formats are prepared for investor demo days and fundraising decks?",
+      answer:
+        "Deliverables include a concise two-to-three minute investor deck video, along with thirty-second founder soundbite cutdowns for LinkedIn and venture networking outreach.",
+    },
+  ],
+  "/services/executive-video-bio-production-miami": [
+    {
+      question: "How is an executive video bio filmed for corporate leadership and board profiles?",
+      answer:
+        "Executive profiles feature warm conversational interviews filmed with soft multi-point lighting, balanced room acoustics, and high-level corporate b-roll reflecting executive presence.",
+    },
+    {
+      question: "Where can executive bio filming take place in South Florida?",
+      answer:
+        "Filming is conducted on-location in executive boardrooms, corporate headquarters, private offices, or quiet co-working conference suites across Miami and Broward.",
+    },
+    {
+      question: "How are executive insights repurposed for personal branding and LinkedIn thought leadership?",
+      answer:
+        "Full interview sessions are cut into an authoritative two-minute master biography for corporate websites, paired with modular vertical video soundbites with captions for LinkedIn.",
+    },
+  ],
 };
 
 /** Hand-written pages left without a FAQ because no published fact supports one. */

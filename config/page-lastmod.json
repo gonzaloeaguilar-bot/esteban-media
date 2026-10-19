@@ -163,6 +163,10 @@
   "date": "2026-10-14",
   "hash": "7a53772db8f63774"
  },
+ "/es/edicion-de-variaciones-de-anuncios-ugc": {
+  "date": "2026-10-19",
+  "hash": "11abaa274f343034"
+ },
  "/es/edicion-de-video-con-dron-miami": {
   "date": "2026-08-14",
   "hash": "f4b106c48fda6916"
@@ -587,6 +591,10 @@
   "date": "2026-07-26",
   "hash": "c282e941dc22e94a"
  },
+ "/es/marketing-de-video-para-quiropracticos-miami": {
+  "date": "2026-10-19",
+  "hash": "b28fe98474d17bbc"
+ },
  "/es/marketing-de-video-para-salones-y-barberias-miami": {
   "date": "2026-10-08",
   "hash": "dac6afa876a6851c"
@@ -783,6 +791,14 @@
   "date": "2026-08-14",
   "hash": "1c43c1782862ed41"
  },
+ "/es/video-de-biografia-ejecutiva-miami": {
+  "date": "2026-10-19",
+  "hash": "d1e7f2a3adeec883"
+ },
+ "/es/video-de-demostracion-de-producto-miami": {
+  "date": "2026-10-19",
+  "hash": "7def20df0885294d"
+ },
  "/es/video-de-marca-de-lujo-jupiter": {
   "date": "2026-07-26",
   "hash": "111279094ec41b16"
@@ -819,6 +835,18 @@
   "date": "2026-10-18",
   "hash": "61be3479d3e2a446"
  },
+ "/es/video-para-cervecerias-artesanales-miami": {
+  "date": "2026-10-19",
+  "hash": "54dd955adbfd3b03"
+ },
+ "/es/video-para-empresas-de-catering-miami": {
+  "date": "2026-10-19",
+  "hash": "b840a3daa664de2e"
+ },
+ "/es/video-para-marcas-de-cosmeticos-miami": {
+  "date": "2026-10-19",
+  "hash": "8ade544bb05cf341"
+ },
  "/es/video-para-marcas-de-moda-miami": {
   "date": "2026-10-18",
   "hash": "8d7b58c19e64758b"
@@ -827,9 +855,17 @@
   "date": "2026-10-14",
   "hash": "7b6758063736ae4f"
  },
+ "/es/video-para-pitches-de-startups-miami": {
+  "date": "2026-10-19",
+  "hash": "d9284e2d74782537"
+ },
  "/es/video-para-preventa-de-condominios-miami": {
   "date": "2026-10-15",
   "hash": "8d3732ef0cf345ff"
+ },
+ "/es/video-para-productos-de-amazon-miami": {
+  "date": "2026-10-19",
+  "hash": "d3cbb8142c879256"
  },
  "/es/video-para-quinceaneras-miami": {
   "date": "2026-10-14",
@@ -838,6 +874,10 @@
  "/es/video-para-relojes-de-lujo-miami": {
   "date": "2026-10-18",
   "hash": "25027e70c282bfab"
+ },
+ "/es/video-para-restauracion-capilar-miami": {
+  "date": "2026-10-19",
+  "hash": "b2aae4b44cfee84d"
  },
  "/es/video-para-restaurantes-miami": {
   "date": "2026-10-14",
@@ -862,6 +902,10 @@
  "/es/videografo-de-cocteleria-para-bares-miami": {
   "date": "2026-10-18",
   "hash": "6efacc05c0c4cc44"
+ },
+ "/es/videografo-de-pesca-deportiva-miami": {
+  "date": "2026-10-19",
+  "hash": "640c35a69ed224af"
  },
  "/es/videografo-en-fort-lauderdale": {
   "date": "2026-10-14",
@@ -906,6 +950,10 @@
  "/es/videografo-para-ferias-comerciales-fort-lauderdale": {
   "date": "2026-10-18",
   "hash": "897c2b8d468ead3b"
+ },
+ "/es/videografo-para-fiestas-en-yates-miami": {
+  "date": "2026-10-19",
+  "hash": "167adc1655ff9b14"
  },
  "/es/videografo-para-galas-corporativas-miami": {
   "date": "2026-10-18",
@@ -1287,6 +1335,10 @@
   "date": "2026-10-13",
   "hash": "402471880c588e1b"
  },
+ "/services/amazon-product-video-production-miami": {
+  "date": "2026-10-19",
+  "hash": "721cf1b2439d0794"
+ },
  "/services/architecture-design-video-miami": {
   "date": "2026-10-13",
   "hash": "f7fc18077fddaccc"
@@ -1318,6 +1370,18 @@
  "/services/brand-video-production-miami": {
   "date": "2026-10-13",
   "hash": "8939ef720a795ca1"
+ },
+ "/services/brewery-craft-distillery-video-miami": {
+  "date": "2026-10-19",
+  "hash": "836f09b4956817ce"
+ },
+ "/services/catering-company-video-miami": {
+  "date": "2026-10-19",
+  "hash": "fd3536f14f33a2d8"
+ },
+ "/services/chiropractic-video-marketing-miami": {
+  "date": "2026-10-19",
+  "hash": "3467dda277f8fc81"
  },
  "/services/church-sermon-clip-editing-miami": {
   "date": "2026-10-13",
@@ -1383,6 +1447,10 @@
   "date": "2026-10-13",
   "hash": "421af6c454b2dcb6"
  },
+ "/services/cosmetics-product-video-miami": {
+  "date": "2026-10-19",
+  "hash": "a1ccd1adadeab28b"
+ },
  "/services/creative-production": {
   "date": "2026-10-14",
   "hash": "80c9ded8f8df22f6"
@@ -1415,6 +1483,10 @@
   "date": "2026-10-18",
   "hash": "78a7669024fc4641"
  },
+ "/services/executive-video-bio-production-miami": {
+  "date": "2026-10-18",
+  "hash": "4e5bdcddb3a79ce2"
+ },
  "/services/fashion-lookbook-video-miami": {
   "date": "2026-10-18",
   "hash": "0ef3d9168c523c00"
@@ -1434,6 +1506,10 @@
  "/services/growth-funnel-audit": {
   "date": "2026-10-14",
   "hash": "c5fad712a5686657"
+ },
+ "/services/hair-restoration-video-miami": {
+  "date": "2026-10-19",
+  "hash": "9251e8e8d775ff0a"
  },
  "/services/headshot-photographer-miami": {
   "date": "2026-10-13",
@@ -1477,7 +1553,7 @@
  },
  "/services/luxury-watch-video-miami": {
   "date": "2026-10-18",
-  "hash": "426ae54b11f7d2c4"
+  "hash": "92fd89d398b2ad0f"
  },
  "/services/mastermind-event-videographer-miami": {
   "date": "2026-10-18",
@@ -1530,6 +1606,10 @@
  "/services/pre-construction-condo-video-marketing-miami": {
   "date": "2026-10-13",
   "hash": "be2039ed1365e1ae"
+ },
+ "/services/product-demo-video-production-miami": {
+  "date": "2026-10-18",
+  "hash": "5e631dc18c735189"
  },
  "/services/product-photography-miami": {
   "date": "2026-10-14",
@@ -1599,6 +1679,14 @@
   "date": "2026-10-18",
   "hash": "3d93d5d990a36135"
  },
+ "/services/sportfishing-videographer-miami": {
+  "date": "2026-10-19",
+  "hash": "dd5d6d720ba60342"
+ },
+ "/services/startup-pitch-video-production-miami": {
+  "date": "2026-10-18",
+  "hash": "ebefac5c61a2c908"
+ },
  "/services/superyacht-charter-marketing-video-fort-lauderdale": {
   "date": "2026-10-18",
   "hash": "c937c8cfb081c01e"
@@ -1614,6 +1702,10 @@
  "/services/trade-show-booth-videographer-fort-lauderdale": {
   "date": "2026-10-18",
   "hash": "f23240d4f432a2f3"
+ },
+ "/services/ugc-ad-variation-video-editing": {
+  "date": "2026-10-19",
+  "hash": "ab806b1c19df6744"
  },
  "/services/ugc-video-editor-ecommerce": {
   "date": "2026-10-14",
@@ -1702,5 +1794,9 @@
  "/services/yacht-hospitality-video-fort-lauderdale": {
   "date": "2026-10-15",
   "hash": "2f6288dc02cb1d60"
+ },
+ "/services/yacht-party-videographer-miami": {
+  "date": "2026-10-19",
+  "hash": "2a6e1393c427f995"
  }
 }

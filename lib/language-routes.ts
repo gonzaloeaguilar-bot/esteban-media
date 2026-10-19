@@ -73,6 +73,30 @@ export const pairedLanguageRoutes: Record<string, string> = {
     "/es/video-para-venta-de-barcos-fort-lauderdale",
   "/services/luxury-watch-video-miami":
     "/es/video-para-relojes-de-lujo-miami",
+  "/services/amazon-product-video-production-miami":
+    "/es/video-para-productos-de-amazon-miami",
+  "/services/cosmetics-product-video-miami":
+    "/es/video-para-marcas-de-cosmeticos-miami",
+  "/services/product-demo-video-production-miami":
+    "/es/video-de-demostracion-de-producto-miami",
+  "/services/ugc-ad-variation-video-editing":
+    "/es/edicion-de-variaciones-de-anuncios-ugc",
+  "/services/catering-company-video-miami":
+    "/es/video-para-empresas-de-catering-miami",
+  "/services/brewery-craft-distillery-video-miami":
+    "/es/video-para-cervecerias-artesanales-miami",
+  "/services/yacht-party-videographer-miami":
+    "/es/videografo-para-fiestas-en-yates-miami",
+  "/services/sportfishing-videographer-miami":
+    "/es/videografo-de-pesca-deportiva-miami",
+  "/services/hair-restoration-video-miami":
+    "/es/video-para-restauracion-capilar-miami",
+  "/services/chiropractic-video-marketing-miami":
+    "/es/marketing-de-video-para-quiropracticos-miami",
+  "/services/startup-pitch-video-production-miami":
+    "/es/video-para-pitches-de-startups-miami",
+  "/services/executive-video-bio-production-miami":
+    "/es/video-de-biografia-ejecutiva-miami",
   "/services/food-and-places-creator-video-editing-miami":
     "/es/edicion-de-video-para-creadores-de-comida-y-lugares-miami",
   "/services/restaurant-promo-video-editing-miami":
