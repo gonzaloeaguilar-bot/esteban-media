@@ -1,0 +1,60 @@
+{
+  "project": "esteban-media",
+  "mode": "pr",
+  "target_type": "pr",
+  "target_id": "PR-492",
+  "requires_pr": true,
+  "goal": "Add a daily, deterministic synthetic crawler availability check without changing the active homepage metadata cohort.",
+  "summary": "Adds a production monitor that fetches the homepage with Googlebot, GPTBot, ClaudeBot, and PerplexityBot user-agent strings. It fails on a non-200 response, non-HTML response, missing canonical homepage link, or missing raw HTML h1. The existing daily Production SEO verify workflow runs it after the canonical verifier.",
+  "risk": "Low: the change adds a read-only GitHub Actions check and a local command; it changes no public page, metadata, analytics event, cost, or production configuration.",
+  "changed_paths": [
+    ".github/workflows/seo-production-verify.yml",
+    "package.json",
+    "scripts/crawler-availability.mjs",
+    "scripts/crawler-availability.test.mjs",
+    ".cortex/quality-payloads/PR-492.json"
+  ],
+  "requested_actions": [
+    "Confirm each declared synthetic user-agent probe requires HTTP 200, text/html, a homepage canonical, and an h1 in the raw response.",
+    "Confirm an HTTP 403 challenge is a failing negative control rather than a passing crawler-access result.",
+    "Confirm the monitor's output states its limit: user-agent spoofing does not prove treatment from a verified crawler IP range."
+  ],
+  "public_claims": [],
+  "evidence": {
+    "obsidian_context": "The active CTR cohort and this independent monitor are recorded in client-esteban-media/wiki/esteban-nonbrand-ctr-read-2026-10-20.md and client-esteban-media/wiki/esteban-crawler-availability-monitor-2026-10-20.md.",
+    "project_routing": "Repository gonzaloeaguilar-bot/esteban-media; isolated worktree /Users/gonzalo/code/esteban-media-fix-crawler-availability; branch fix/crawler-availability-monitor; PR #492; implementation commit 4b181ec9.",
+    "hard_stops_checked": "No public page, title, description, contact path, analytics event, money movement, DNS, or production configuration change is included. The workflow is a read-only $0 availability check.",
+    "reviewer_ensemble": "Builder implemented the isolated monitor and workflow hook. Skeptic review is the explicit HTTP 403 negative-control assertion plus the complete project test suite. Taste review found no user-facing visual or copy change; the monitor reports its limitation rather than presenting a synthetic user agent as crawler proof.",
+    "reviewer_disagreement_reviewed": "No reviewer disagreement occurred. The initial literal canonical assertion failed against the live slash-normalized canonical response; the implementation was corrected to parse the canonical href and the live probe and tests were rerun.",
+    "winner_rationale": "A separate raw-HTML availability monitor protects discovery surfaces without stacking another title or description change onto the homepage CTR cohort before its scheduled 2026-11-06 read.",
+    "tests_or_validation": "Focused monitor tests passed 3/3, including a simulated HTTP 403 challenge that fails closed. pnpm test passed 163 files / 3,530 tests. pnpm lint passed with 0 errors and existing warnings only. pnpm typecheck passed. pnpm build passed. Live pre-merge command pnpm seo:crawler-availability -- --json returned HTTP 200 and text/html for Googlebot, GPTBot, ClaudeBot, and PerplexityBot.",
+    "debt_delta": "neutral",
+    "obsidian_handoff": "Updated client-esteban-media/wiki/esteban-media-hot.md, client-esteban-media/wiki/esteban-media-index.md, client-esteban-media/backlog.md, and durable page client-esteban-media/wiki/esteban-crawler-availability-monitor-2026-10-20.md.",
+    "ci_passed": "Local deterministic validations completed before PR creation: pnpm test, pnpm build, pnpm lint, and pnpm typecheck. GitHub validate remains the separate required PR check and is not represented as complete here.",
+    "pr_review_complete": "Scoped source review completed against the PR diff. The test suite verifies happy-path and challenge failure behavior; no independent reviewer verdict is claimed."
+  },
+  "reviewers": {
+    "builder": {
+      "status": "ok",
+      "note": "Implemented the monitor, workflow hook, npm command, and focused tests in the isolated worktree."
+    },
+    "skeptic": {
+      "status": "ok",
+      "note": "Verified that a simulated HTTP 403 challenge produces a failing result and that the live synthetic probes pass only when the raw response meets all declared checks."
+    },
+    "taste": {
+      "status": "ok",
+      "note": "No user-facing visual or copy surface changed. The monitor labels its user-agent-only limit instead of overstating crawler access."
+    }
+  },
+  "scores": {
+    "source_fidelity": 5,
+    "architecture_soundness": 4,
+    "implementation_quality": 4,
+    "review_completeness": 4,
+    "debt_posture": 4,
+    "verification_strength": 4,
+    "taste_fit": 4
+  },
+  "debt_delta": "neutral"
+}
