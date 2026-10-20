@@ -40,6 +40,7 @@ const ES: Record<string, PriorityLink> = {
   precios: { href: "/es/precios", label: "Precios y paquetes", description: "Precios de partida de cada paquete, desde un video editado hasta un mes completo." },
   reelsCosto: { href: "/es/calculadora-de-costo-de-edicion-de-reels", label: "Calculadora de costo de edición de Reels", description: "Por video o por semana: cuánto cuestan tus Reels." },
   reelsMiami: { href: "/es/editor-de-reels-miami", label: "Editor de Reels en Miami", description: "Reels editados con tus propios clips, con atención en español." },
+  reelsFortLauderdale: { href: "/es/editor-de-reels-fort-lauderdale", label: "Editor de videos cortos en Fort Lauderdale", description: "Edición remota de Reels, TikTok y Shorts a partir de tus clips, para negocios de Broward." },
   videoMiami: { href: "/es/editor-de-video-miami", label: "Editor de video en Miami en español", description: "Edición para negocios, marcas y creadores de Miami." },
   comida: { href: "/es/edicion-de-video-para-creadores-de-comida-y-lugares-miami", label: "Videos para creadores de comida y lugares", description: "Tú descubres el lugar; Esteban edita la historia." },
   restaurantes: { href: "/es/edicion-de-video-promocional-para-restaurantes-miami", label: "Video promocional para restaurantes en Miami", description: "Promociones para redes editadas con las tomas de tu local." },
@@ -55,12 +56,12 @@ export const PRIORITY_LINKS: Record<string, readonly PriorityLink[]> = {
   "/guides/fastest-way-to-send-large-video-files-to-editor": [EN.pricing, EN.reelsCost, EN.podcast, EN.ugc],
   "/guides/video-editor-vs-videographer": [EN.pricing, EN.reelsMiami, EN.founders],
   "/es/editor-de-reels-fort-lauderdale": [ES.reelsMiami, ES.videoMiami, ES.reelsCosto, ES.precios],
-  "/es/guias/mejores-estilos-de-subtitulos-para-reels": [ES.reelsMiami, ES.reelsCosto, ES.precios, ES.comida],
-  "/es/guias/editor-de-video-vs-videografo": [ES.videoMiami, ES.precios, ES.reelsMiami, ES.restaurantes],
-  "/es/calculadora-de-ritmo-de-video": [ES.reelsCosto, ES.precios, ES.reelsMiami, ES.podcast],
+  "/es/guias/mejores-estilos-de-subtitulos-para-reels": [ES.reelsFortLauderdale, ES.reelsMiami, ES.reelsCosto, ES.precios, ES.comida],
+  "/es/guias/editor-de-video-vs-videografo": [ES.reelsFortLauderdale, ES.videoMiami, ES.precios, ES.reelsMiami, ES.restaurantes],
+  "/es/calculadora-de-ritmo-de-video": [ES.reelsFortLauderdale, ES.reelsCosto, ES.precios, ES.reelsMiami, ES.podcast],
   "/es/video-para-restaurantes-miami": [ES.estudio, ES.restaurantes, ES.comida, ES.reelsMiami, ES.precios],
   "/services/restaurant-promo-video-editing-miami": [EN.study, EN.reelsMiami, EN.reelsCost, EN.pricing],
-  "/es/editor-de-video-corto-para-redes-miami": [ES.reelsMiami, ES.videoMiami, ES.reelsCosto, ES.miamiBeach],
+  "/es/editor-de-video-corto-para-redes-miami": [ES.reelsFortLauderdale, ES.reelsMiami, ES.videoMiami, ES.reelsCosto, ES.miamiBeach],
 };
 
 export function priorityLinksFor(path: string): readonly PriorityLink[] {
