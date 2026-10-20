@@ -49,6 +49,11 @@ const serviceAreaFaqs = [
       "Yes. Post-production video editing, audio mixing, color finishing, and social formatting work directly with digital source assets transferred online from any location, without geographic restrictions.",
   },
   {
+    question: "Does a Fort Lauderdale video editing service require a local shoot?",
+    answer:
+      "Not always. A Fort Lauderdale video editing service can begin remotely when a business already has original clips, a clear message to communicate, and a publishing destination for the finished video. Send the source files, any references, the platform, and the action the viewer should take; that is enough to discuss a short-form edit, captions, formatting, or a broader post-production scope. Local filming is a separate decision: it is considered selectively when the project needs new footage, such as an interview, a business location, or a planned content capture. Esteban does not publish a universal crew, turnaround, or fixed production package, so those details are confirmed in a written project scope.",
+  },
+  {
     question: "How is project availability evaluated for Palm Beach County?",
     answer:
       "Palm Beach County is an expansion area evaluated on an individual project basis for on-location filming. Remote video editing and content planning remain available for any project with supplied source footage.",
