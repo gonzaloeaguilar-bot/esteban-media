@@ -11,13 +11,17 @@ on:
 jobs:
   quality-evidence:
     name: Cortex quality evidence
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.CI_RUNNER || 'ubuntu-latest' }}  # self-hosted Mac when CI_RUNNER is set ($0 minutes)
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v6
+        if: vars.CI_RUNNER == ''
         with:
           python-version: "3.13"
+      - name: Use the Mac's Python 3.13 on the self-hosted runner (setup-python cannot mkdir /Users/runner there)
+        if: vars.CI_RUNNER != ''
+        run: echo "/Library/Frameworks/Python.framework/Versions/3.13/bin" >> "$GITHUB_PATH"
       - name: Validate PR quality enforcement evidence
         env:
           PR_BODY: ${{ github.event.pull_request.body }}

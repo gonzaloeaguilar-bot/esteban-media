@@ -26,7 +26,7 @@ on:
 jobs:
   followups:
     name: Registered follow-ups
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.CI_RUNNER || 'ubuntu-latest' }}  # self-hosted Mac when CI_RUNNER is set ($0 minutes)
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v7
