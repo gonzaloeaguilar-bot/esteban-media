@@ -1,3 +1,14 @@
+# 2026-10-14 — Overnight Growth Wave: Video Production & Cost Guides CTR Fix
+
+- Branch: `growth/overnight-esteban-20261014-0607`, commit `542ada7c62b66248dc2f01d2bca83f7e260e8a12`.
+- Addresses GSC positions with 0 CTR for `video production services` (pos 1.0, 15 imp), `fort lauderdale video production` (pos 1.0, 11 imp), and `video production miami cost` (pos 18.8).
+- Changes:
+  - English (`app/(english)/page.tsx`) and Spanish (`app/(spanish)/es/page.tsx`) homepages: prominent answer section for video production services linking to services and pricing cost guides.
+  - Cost guides metadata and descriptions (`lib/guides.ts`, `lib/__tests__/guides.test.ts`): improved citable descriptions and metadata titles for Miami video production cost.
+  - Page dates (`config/page-lastmod.json`): refreshed per-page lastmod ledger.
+  - Manifest (`.overnight-verification.json`): updated to point to the production homepage and cost guide URLs with distinct visible text.
+- Full verification: 2,322 tests passing across 145 files (`pnpm test`), overnight acceptance verification script passed with 0 exit code.
+
 # 2026-10-13 — Spanish areas contextual inbound link
 
 - Local change: guide `editor-de-video-vs-videografo` links to `/es/areas` beside filming guidance.
