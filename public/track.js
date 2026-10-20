@@ -309,6 +309,18 @@
     [/maps\.(google|apple)|google\.[a-z.]+\/maps(\/(dir|search|place)|\?[^#]*\b(q|daddr|saddr|destination|api)=)|maps\.app\.goo\.gl|goo\.gl\/maps|\/directions/i, "directions"]
   ];
 
+  // Service-intent pages declare the reason for a call on a stable ancestor.
+  // Keep the established contact_click event (one tap stays one interaction),
+  // but make its existing cta_position dimension useful for the A/C and tow
+  // decision paths instead of reducing every one to a generic section name.
+  function contactPosition(el) {
+    var acIntent = closestAttr(el, "data-ac-intent-action");
+    if (acIntent) return slug(acIntent.getAttribute("data-ac-intent-action"));
+    var towIntent = closestAttr(el, "data-tow");
+    if (towIntent) return "tow_decision";
+    return sectionOf(el);
+  }
+
   function onClick(ev) {
     if (isClaimed()) return;
     var t = ev.target;
@@ -326,7 +338,7 @@
     }
     for (var i = 0; i < CONTACT.length; i++) {
       if (CONTACT[i][0].test(href)) {
-        track("contact_click", { method: CONTACT[i][1], cta_text: label, cta_position: pos });
+        track("contact_click", { method: CONTACT[i][1], cta_text: label, cta_position: contactPosition(el) });
         return;
       }
     }
