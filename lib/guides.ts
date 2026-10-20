@@ -3951,7 +3951,7 @@ const guidePairs: readonly GuidePair[] = [
           heading: "¿Cuándo conviene más un editor independiente que una agencia de postproducción?",
           paragraphs: [
             "Cuando el proyecto necesita una mano constante y conversación directa más que un equipo grande. Con un editor independiente, quien lee tus notas es quien hace el cambio, así que nada se pierde entre un ejecutivo de cuenta, un productor y un editor. Eso encaja con contenido recurrente para redes, un video de marca puntual o un negocio que quiere la misma mirada en cada video, mes tras mes.",
-            "La contrapartida es la capacidad. Un solo editor tiene un calendario limitado, así que volúmenes muy grandes, varios proyectos simultáneos o una fecha límite repentina pueden tardar más de lo que tardaría un equipo. Pregúntale a cualquier editor independiente cómo organiza su agenda, qué pasa si no está disponible y cómo guarda y respalda los archivos. La relación directa es la ventaja, siempre que esas respuestas prácticas estén claras antes del primer proyecto.",
+            "La contrapartida es la capacidad. Un solo editor tiene un calendario limitado, así que volúmenes muy grandes, varios proyectos simultáneos o una fecha límite repentina pueden tardar más de lo que tardaría un equipo. Pregúntale a cualquier editor independiente cómo organiza su agenda, qué pasa si no está disponible y cómo guarda y respalda los archivos. Si tu proyecto es para Miami-Dade y necesitas comparar la edición remota con una grabación en locación, revisa el servicio de [editor de video en Miami](/es/editor-de-video-miami). La relación directa es la ventaja, siempre que esas respuestas prácticas estén claras antes del primer proyecto.",
           ],
         },
         {

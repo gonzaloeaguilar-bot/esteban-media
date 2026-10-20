@@ -130,6 +130,11 @@ describe("US-Spanish money pages & contextual linking", () => {
     expect(chooseGuide).toBeDefined();
     const chooseGuideText = chooseGuide?.sections?.flatMap((s) => s.paragraphs).join(" ") ?? "";
     expect(chooseGuideText).toContain("[editor de video en Miami](/es/editor-de-video-miami)");
+
+    const freelanceGuide = esGuides.find((g) => g.slug === "editor-de-video-freelance-vs-agencia-de-postproduccion");
+    expect(freelanceGuide).toBeDefined();
+    const freelanceGuideText = freelanceGuide?.sections?.flatMap((s) => s.paragraphs).join(" ") ?? "";
+    expect(freelanceGuideText).toContain("[editor de video en Miami](/es/editor-de-video-miami)");
   });
 
   it("publishes /es/editor-de-video-miami as an indexable Spanish-first page in the sitemap", () => {
