@@ -29,7 +29,9 @@ export const site = {
     fullName: "Esteban Moreno López",
   },
   domain: "estebanmorenomedia.com",
-  email: "esmolopez@gmail.com",
+  // Public business inbox. Name, phone, location, and service area remain the
+  // canonical NAP values below; only the customer-facing email is centralized.
+  email: "info@estebanmorenomedia.com",
   phone: {
     display: "(305) 497-4478",
     e164: "+13054974478",

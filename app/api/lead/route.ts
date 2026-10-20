@@ -44,7 +44,7 @@ export async function POST(request: Request) {
     const leadId = stored.ok ? stored.id : leadRef;
     const formattedBrief = formatLeadSummary(payload);
     const resendApiKey = process.env.RESEND_API_KEY?.trim();
-    const notifyEmail = process.env.LEAD_NOTIFY_EMAIL || "esmolopez@gmail.com";
+    const notifyEmail = process.env.LEAD_NOTIFY_EMAIL || "info@estebanmorenomedia.com";
     const fromEmail = process.env.RESEND_FROM_EMAIL || "Esteban Moreno Media <contact@estebanmorenomedia.com>";
 
     let notificationStatus: NotificationStatus = "not_configured";

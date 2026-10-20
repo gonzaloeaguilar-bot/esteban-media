@@ -11,15 +11,12 @@ import { site } from "@/lib/site";
  * /contact offered email (a gmail.com address), phone and Instagram, in that
  * order, on a site that charges $800 a production day.
  *
- * The email stays on Esteban's gmail.com address. That is the OWNER'S DECISION,
- * taken 2026-09-29, not a pending task — do not "upgrade" it to a branded
- * address.
- *
- * Why it would be a downgrade: estebanmorenomedia.com has NO MX record, verified
- * three ways (`dig +short MX`, `dig @8.8.8.8`, `host -t MX`). The domain resolves
- * but cannot receive mail, so an @estebanmorenomedia.com address would silently
- * drop every email a lead sends — on the one page whose whole job is lead
- * capture. An unbranded address that works beats a branded one that does not.
+ * The public email is the shared `info@estebanmorenomedia.com` inbox. On
+ * 2026-10-19, Namecheap Email Forwarding was configured for that alias and the
+ * domain's authoritative MX now resolves to Namecheap's eforward hosts. Keep
+ * this assertion aligned with the deployed receiving address; a live MX probe
+ * remains part of release verification because source code cannot prove mail
+ * delivery.
  */
 
 const PAGES = ["app/(english)/contact/page.tsx", "app/(spanish)/es/contacto/page.tsx"];
@@ -64,9 +61,7 @@ describe("contact channels", () => {
     expect(source(PAGES[1])).toContain("por WhatsApp");
   });
 
-  it("keeps the email on a mailbox that can actually receive mail", () => {
-    // estebanmorenomedia.com has no MX record. Until it does, a domain address
-    // here would silently drop every email a lead sends.
-    expect(site.email).not.toContain("@estebanmorenomedia.com");
+  it("uses the configured shared inbox as the public email channel", () => {
+    expect(site.email).toBe("info@estebanmorenomedia.com");
   });
 });
