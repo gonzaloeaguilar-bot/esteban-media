@@ -105,7 +105,7 @@ describe("/llms.txt for AI crawlers", () => {
   });
 
   it("carries the correct current contact details", () => {
-    expect(llms).toContain("Email: esmolopez@gmail.com");
+    expect(llms).toContain("Email: info@estebanmorenomedia.com");
     expect(llms).toContain("Phone: (305) 497-4478");
     expect(llms).toContain("Last updated: 2026-10-10");
   });

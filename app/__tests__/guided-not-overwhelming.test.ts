@@ -94,7 +94,7 @@ describe("guided, not overwhelming", () => {
 
   it("the English email and phone labels don't run into the address/number (the pasted defect)", () => {
     const html = renderToStaticMarkup(React.createElement(ContactCta, { locale: "en" }));
-    // The owner's paste showed "Email Estebanesmolopez@gmail.com" — label and
+    // The owner's paste showed an email label and address run together — label and
     // address concatenated with no separator.
     //
     // This assertion used to pin the MARKUP SHAPE (two adjacent sibling spans
@@ -104,8 +104,8 @@ describe("guided, not overwhelming", () => {
     // assistive tech actually read. Visual separation is not textual
     // separation. So assert the rendered TEXT instead — it is the thing that
     // was wrong, and it stays true however the spans are arranged.
-    expect(textOf(html)).toContain("Email Esteban esmolopez@gmail.com");
-    expect(textOf(html)).not.toContain("Email Estebanesmolopez@gmail.com");
+    expect(textOf(html)).toContain("Email Esteban info@estebanmorenomedia.com");
+    expect(textOf(html)).not.toContain("Email Estebaninfo@estebanmorenomedia.com");
   });
 
   it("the Spanish label and phone number don't run into each other either (same defect, same component)", () => {

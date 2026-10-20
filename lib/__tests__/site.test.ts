@@ -12,8 +12,8 @@ import {
 import { serviceAreas, services, site, socialImage } from "../site";
 
 describe("site contact details", () => {
-  it("publishes Esteban's current email and phone number", () => {
-    expect(site.email).toBe("esmolopez@gmail.com");
+  it("publishes the shared business inbox without changing the phone number", () => {
+    expect(site.email).toBe("info@estebanmorenomedia.com");
     expect(site.phone).toEqual({
       display: "(305) 497-4478",
       e164: "+13054974478",
