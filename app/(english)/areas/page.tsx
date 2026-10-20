@@ -208,6 +208,12 @@ export default function AreasPage() {
                   <Link className="font-medium text-[#9f3c27] underline underline-offset-4" href="/services/reels-editor-fort-lauderdale">
                     Fort Lauderdale Reels editing
                   </Link>
+                  <Link className="font-medium text-[#9f3c27] underline underline-offset-4" href="/es/editor-de-video-miami">
+                    Spanish-first video editing in Miami
+                  </Link>
+                  <Link className="font-medium text-[#9f3c27] underline underline-offset-4" href="/es/editor-de-reels-fort-lauderdale">
+                    Spanish-first Reels editing in Fort Lauderdale
+                  </Link>
                   <Link className="font-medium text-[#9f3c27] underline underline-offset-4" href="/services/ai-product-photography-miami">
                     AI product visuals
                   </Link>
