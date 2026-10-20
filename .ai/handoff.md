@@ -1,3 +1,12 @@
+# 2026-10-19 — Shared public inbox migration (pending PR merge/deployment)
+
+- Branch `fix/shared-inbox-public-contact`, commit `b663d333`, changes only the public business email from `esmolopez@gmail.com` to `info@estebanmorenomedia.com`. It preserves the canonical public name, `(305) 497-4478`, Fort Lauderdale base, service-area wording, maps/profile URLs, canonicals, and hreflang.
+- The canonical `site.email` now drives visible mail links, LocalBusiness and ContactPoint schema, `/llms.txt`, and all generated bilingual pages. The lead-notification fallback matches the public inbox. The static 2026 catalog uses it too.
+- Local evidence: targeted tests passed 36/36; `pnpm lint` completed with 0 errors (22 existing warnings); `pnpm typecheck` passed; a full test run exposed the intentionally obsolete personal-Gmail assertion in `contact-channels`, which was updated to the verified forwarding alias. A rebuilt raw output contained 921 `mailto:info@…` references and zero `mailto:esmolopez@…` references; the Spanish parity gate passed all 194 routes after the intentional email/schema baseline refresh.
+- Delivery evidence: authoritative `dig @dns1.registrar-servers.com +short MX estebanmorenomedia.com` returns the five Namecheap `eforward` hosts. This proves incoming forwarding DNS, not receipt in Esteban's Gmail, outbound sending, automatic replies, or daily report delivery. Do not claim those until a send/receive/digest probe completes.
+
+---
+
 # 2026-10-19 — Growth starvation internal links to /es/precios
 
 - Rescued target route `https://estebanmorenomedia.com/es/precios` (`app/(spanish)/es/precios/page.tsx`) by adding 4 contextual internal links in body copy from earning pages:
