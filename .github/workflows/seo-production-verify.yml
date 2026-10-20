@@ -24,3 +24,5 @@ jobs:
           node-version: 22
       - name: Verify canonical production
         run: node scripts/verify-technical-seo.mjs
+      - name: Verify synthetic crawler availability
+        run: node scripts/crawler-availability.mjs
