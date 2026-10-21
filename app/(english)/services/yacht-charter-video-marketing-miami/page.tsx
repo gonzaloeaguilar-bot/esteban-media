@@ -105,7 +105,7 @@ export default function YachtCharterVideoMarketingMiamiPage() {
               <Video className="size-8 text-[#e85d3e]" aria-hidden="true" />
               <h2 className="mt-5 font-serif text-3xl">Yacht video proof</h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                No yacht project is published yet. The closest work is <strong>Bar Door Monkey Miami</strong>, a 55-second social promo filmed on location at a Miami venue and delivered for its Instagram.
+                Esteban recently filmed an on-location yacht event in South Florida. A public case study will use only client-approved footage, project details, and location information; until then, the site does not attach a client name or outcome to that shoot.
               </p>
             </div>
           </div>
