@@ -36,6 +36,7 @@ const COPY = {
     emailLabel: "Email",
     phoneLabel: "WhatsApp number",
     send: "Send",
+    directWhatsapp: "Message Esteban on WhatsApp instead",
     sending: "Sending…",
     doneHeading: "Sent. Esteban has your request.",
     doneProject: "Project",
@@ -58,6 +59,7 @@ const COPY = {
     emailLabel: "Email",
     phoneLabel: "Número de WhatsApp",
     send: "Enviar",
+    directWhatsapp: "Escribirle a Esteban por WhatsApp",
     sending: "Enviando…",
     doneHeading: "Enviado. Esteban tiene tu solicitud.",
     doneProject: "Proyecto",
@@ -90,6 +92,9 @@ export function HomePathFunnel({
   onClose: () => void;
 }) {
   const c = COPY[locale];
+  const directWhatsappMessage = locale === "es"
+    ? `Hola Esteban, quiero cotizar ${laneLabel}.`
+    : `Hi Esteban, I'd like a quote for ${laneLabel}.`;
   const [step, setStep] = useState<Step>("contact");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -248,6 +253,15 @@ export function HomePathFunnel({
             <button type="submit" className="em-funnel-primary" data-cta="home_path_funnel_send">
               {c.send}
             </button>
+            <a
+              className="em-funnel-wa"
+              href={whatsappHref(site.phone.e164, directWhatsappMessage)}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cta="home_path_funnel_direct_whatsapp"
+            >
+              {c.directWhatsapp}
+            </a>
           </form>
         )}
 

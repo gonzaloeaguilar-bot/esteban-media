@@ -63,6 +63,8 @@ for (const locale of ["en", "es"] as const) {
       expect(funnel).toContain(growth);
       expect(funnel).toContain("$640");
       expect(funnel).toContain("$800");
+      expect(funnel).toContain('data-cta="home_path_funnel_direct_whatsapp"');
+      expect(funnel).toContain(locale === "es" ? "Escribirle a Esteban por WhatsApp" : "Message Esteban on WhatsApp instead");
     });
 
     it("5. funnel inputs carry the right keyboard and autofill hints; no jargon label", () => {
