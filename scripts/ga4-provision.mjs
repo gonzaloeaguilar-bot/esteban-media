@@ -55,6 +55,11 @@ const customDimensions = [
     description: "Section of the page containing the selected button or link.",
   },
   {
+    parameterName: "section_id",
+    displayName: "Section identifier",
+    description: "Stable identifier of a page section that a visitor viewed.",
+  },
+  {
     parameterName: "media_id",
     displayName: "Media identifier",
     description: "Stable file or element identifier for a visitor-initiated media play.",
