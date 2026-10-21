@@ -1,3 +1,7 @@
+## 2026-10-21 — Fort Lauderdale Reels content-depth refinement
+
+- [x] Prepare `/services/reels-editor-fort-lauderdale` refinement: direct supplied-clips outcome in H1/metadata, one server-rendered editing-versus-shoot decision section, and refreshed page-lastmod ledger. Local checks passed (`npm run typecheck --silent`, `npm test` 165 files / 3,469 tests, lint 0 errors, rail adoption 3/3, build rendered 569 static pages); independent review, release, production raw-HTML check, and settled GSC query/page remeasurement remain with cto-qa-lead and cto-seo-lead.
+
 ## 2026-10-19 — Rescue /es/precios with contextual internal links
 
 - [x] Rescued `https://estebanmorenomedia.com/es/precios` from orphan/starvation status by adding 4 contextual internal links from high-earning pages: `/about`, `/` (via `AboutTeaser`), `/guides/best-caption-styles-for-instagram-reels`, and `/areas`. Validated with typecheck, vitest test suite, and `pnpm lastmod:update`.
