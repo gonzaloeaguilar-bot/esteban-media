@@ -1,0 +1,98 @@
+{
+  "schema": 3,
+  "project": "esteban-media",
+  "intent": "Fix three measured zero-citation GEO gaps on existing restaurant and chatbot pages",
+  "phase": "repair",
+  "visual_evidence": {
+    "scope": "local_repair",
+    "scope_reason": "The repair changes server-rendered answer-first copy and metadata inside established service-page components; it does not change the visual system or interaction model.",
+    "target": "direction",
+    "owner_status": "unreviewed",
+    "capture_kind": "rendered",
+    "spec_sha256": "e27d3e28a22327e4634fff36424e3dc9867012e35c6d2df0db04e098c8e231f5",
+    "taste_sha256": "0b08669591e657d4812aeac05bbaf0eebf21ac1bc54891998c0c7f5689ef5bc4",
+    "correction_excerpt": "**Test:** en cualquier money page, el precio (o la respuesta) alcanzable sin scroll o a un\ntoque; profundidad en `<details>` servido en el HTML, no desmontado.",
+    "comparison": "The live 390px service-page captures establish the existing layout. The repair must preserve its visible H1, price/context and quote action while making the local service answer unambiguous in server HTML.",
+    "references": [],
+    "candidate_frames": [
+      {
+        "path": "chatbot-before-390.png",
+        "moment": "opening",
+        "viewport": "short_phone",
+        "sha256": "f5a19c3bbd06ab62bfbe7110d52a3046c310c9dbe77560282d7ca6f0bdf13163"
+      },
+      {
+        "path": "restaurant-before-390.png",
+        "moment": "opening",
+        "viewport": "short_phone",
+        "sha256": "e3a783df08cbd8f45b4203be5da06cb01a128995194e1be2c09df3aa18b500d8"
+      }
+    ]
+  },
+  "brief": {
+    "visitor": "A Miami restaurant owner looking for a videographer, or a Fort Lauderdale/Miami small-business owner looking for a bilingual AI chatbot.",
+    "promise": "The first screen plainly identifies the service, place, supported channels, published proof and the next action.",
+    "primary_action": "Ask Esteban for a scoped quote.",
+    "friction": "The measured prompts do not currently receive an owned-domain citation, although the facts and pages already exist.",
+    "kpi": {
+      "outcome": "Owned-domain citations on the three measured prompt/engine checks.",
+      "event": "citation tracker result",
+      "denominator": "12 engine/prompt checks across three zero-citation prompts",
+      "baseline": "0 owned-domain citations for each prompt in the 2026-10-19 tracker run",
+      "evidence": "jq on ~/.local/share/portfolio-ops/geo-citations.jsonl, run 2026-10-19T093842668802Z",
+      "readout": "Next scheduled citation tracker run after production recrawl.",
+      "decision_rule": "Keep only factual answers; treat a later citation as observed visibility, not proof of a ranking mechanism."
+    },
+    "concept": {
+      "idea": "Strengthen the two fact-backed canonical service pages instead of multiplying routes.",
+      "brand_reason": "Esteban pages are concise, price-clear service paths with published work as proof.",
+      "interaction": "Existing native page navigation and quote action remain unchanged.",
+      "visible_response": "The H1 and first answer directly include restaurant videographer Miami, Fort Lauderdale small-business chatbot, and Spanish Miami chatbot intent.",
+      "direct_path": "Quote CTA remains visible before the supporting FAQ cards.",
+      "alternatives": "Do not amplify the unsupported fine-dining page or claim chatbot clients/results not published."
+    },
+    "story": {
+      "opening": "Answer the exact service/location question.",
+      "action": "Visitor sees scope, price boundary and factual proof.",
+      "consequence": "Visitor can request a quote with the correct context.",
+      "next_step": "Measure raw HTML in production, submit IndexNow, then recheck citation tracker."
+    },
+    "content": {
+      "visible": "One answer-first line and metadata refinement on existing pages; existing FAQ sections stay visible.",
+      "optional_html": "Existing ServiceDeepDive native details stays server-rendered.",
+      "linked_depth": "Published Bar Door Monkey proof and existing chatbot portfolio projects."
+    },
+    "references": {
+      "borrow": "Existing WebAiServicePageView and restaurant promo service layout.",
+      "avoid": "New thin routes, unsupported restaurant-client claims, promised results, or visual redesign."
+    },
+    "components": {
+      "reuse": "WebAiServicePageView, ServiceDeepDive, existing restaurant promo page, existing rail-kit-backed project setup.",
+      "local_reason": "No new component is needed for factual copy and metadata correction."
+    },
+    "verification": {
+      "rendered_states": "Existing desktop and short-phone layouts at 390x664 and 375x600 retain a visible H1 and primary action without overlap.",
+      "motion": "No motion changes.",
+      "accessibility_performance": "Run focused render/metadata tests and existing lint/type/build gates.",
+      "raw_html": "After deployment, curl each changed URL and assert the exact answer-first phrase appears in server HTML.",
+      "conversion_boundary": "A production citation or customer inquiry is not claimed until independently observed."
+    },
+    "reviewers": {
+      "craft": "Antigravity review",
+      "behavior": "Codex tests and production raw-HTML check",
+      "outcome": "Claude specification/verification through the CTO dispatch path"
+    },
+    "learning": {
+      "metric": "Owned-domain GEO citations",
+      "baseline_source": "2026-10-19 citation tracker JSONL",
+      "baseline_value": 0,
+      "target_kind": "query",
+      "target": "restaurant videographer Miami; AI chatbot Fort Lauderdale; Spanish AI chatbot Miami",
+      "hypothesis": "An answer-first, local, factual canonical page makes the existing service easier for engines to select and cite.",
+      "observation_windows": ["T+7", "T+28"],
+      "decision_rule": "Do not infer causality from a single answer; compare the same prompts and engines against this baseline.",
+      "ledger_status": "planned",
+      "registration_condition": "Record deployment SHA and exact raw-HTML checks before the next tracker run."
+    }
+  }
+}
