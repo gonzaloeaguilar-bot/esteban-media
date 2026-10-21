@@ -248,10 +248,10 @@ export default function AreasPage() {
             <p className="mt-4 max-w-2xl leading-7 text-[#252a2d]">
               These are real Miami projects from Esteban&apos;s{" "}
               <Link
-                href="/portfolio"
+                href="/es/portafolio"
                 className="underline underline-offset-4 hover:text-[#9f3c27]"
               >
-                public portfolio
+                selected work
               </Link>
               . They document the work shown; they do not imply results or
               services that are not listed in the project credits.
