@@ -39,6 +39,31 @@ const customDimensions = [
     displayName: "Service interest",
     description: "Which public service category a visitor opened from the site.",
   },
+  {
+    parameterName: "cta_id",
+    displayName: "CTA identifier",
+    description: "Stable identifier of the button or link a visitor selected.",
+  },
+  {
+    parameterName: "cta_text",
+    displayName: "CTA text",
+    description: "Visible text or accessible label of the selected button or link.",
+  },
+  {
+    parameterName: "cta_position",
+    displayName: "CTA position",
+    description: "Section of the page containing the selected button or link.",
+  },
+  {
+    parameterName: "media_id",
+    displayName: "Media identifier",
+    description: "Stable file or element identifier for a visitor-initiated media play.",
+  },
+  {
+    parameterName: "media_type",
+    displayName: "Media type",
+    description: "Type of visitor-initiated media play, such as video or audio.",
+  },
 ];
 
 function requiredEnv(name, pattern) {
