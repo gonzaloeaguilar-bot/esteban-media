@@ -12,6 +12,8 @@ const baseUrl = normalizeOrigin(
 );
 const measurementId = "G-W9CM4CE2MQ";
 const htmlCache = new Map();
+const fetchAttempts = 3;
+const retryDelayMs = 250;
 
 function normalizeOrigin(value) {
   const url = new URL(value);
@@ -22,11 +24,30 @@ function normalizeOrigin(value) {
 }
 
 async function fetchResponse(pathname) {
-  return fetch(new URL(pathname, baseUrl), {
-    headers: { "User-Agent": "esteban-media-technical-seo-verifier/1.0" },
-    redirect: "follow",
-    signal: AbortSignal.timeout(10_000),
-  });
+  let lastError;
+
+  for (let attempt = 1; attempt <= fetchAttempts; attempt += 1) {
+    try {
+      const response = await fetch(new URL(pathname, baseUrl), {
+        headers: { "User-Agent": "esteban-media-technical-seo-verifier/1.0" },
+        redirect: "follow",
+        signal: AbortSignal.timeout(10_000),
+      });
+
+      if (response.status < 500 || attempt === fetchAttempts) {
+        return response;
+      }
+
+      await response.body?.cancel();
+      lastError = new Error(`${pathname} returned HTTP ${response.status}`);
+    } catch (error) {
+      lastError = error;
+    }
+
+    await new Promise((resolve) => setTimeout(resolve, retryDelayMs));
+  }
+
+  throw lastError;
 }
 
 async function fetchOk(pathname) {
@@ -143,7 +164,10 @@ function requireStructuredType(html, type, pathname) {
     ...html.matchAll(
       /<script\b(?=[^>]*\btype="application\/ld\+json")[^>]*>([\s\S]*?)<\/script>/gi,
     ),
-  ].map((match) => normalizedEmbeddedSource(match[1]));
+  // JSON-LD can legitimately contain escaped quotes inside a string value.
+  // `normalizedEmbeddedSource` is for inline JavaScript matching and removes
+  // those escapes, which turns valid Dataset text into invalid JSON.
+  ].map((match) => decodeXml(match[1]));
   const hasType = (value) => {
     if (!value || typeof value !== "object") return false;
     const declared = value["@type"];
@@ -152,7 +176,15 @@ function requireStructuredType(html, type, pathname) {
       Array.isArray(child) ? child.some(hasType) : hasType(child),
     );
   };
-  if (!structuredDataBlocks.some((block) => hasType(JSON.parse(block)))) {
+  const structuredData = structuredDataBlocks.map((block, index) => {
+    try {
+      return JSON.parse(block);
+    } catch (error) {
+      const detail = error instanceof Error ? error.message : String(error);
+      throw new Error(`${pathname} has invalid JSON-LD block ${index + 1}: ${detail}`);
+    }
+  });
+  if (!structuredData.some(hasType)) {
     throw new Error(`${pathname} is missing ${type} structured data`);
   }
 }
@@ -464,12 +496,11 @@ try {
   await Promise.all(
     videoPathnames.map(async (pathname) => {
       const { html } = await fetchHtml(pathname);
-      if (
-        !/<iframe\b[^>]*\bsrc="https:\/\/www\.youtube-nocookie\.com\/embed\//i.test(
-          html,
-        )
-      ) {
-        throw new Error(`${pathname} is missing its rendered YouTube iframe`);
+      if (!/<button\b[^>]*\bdata-video-facade="[^"]+"/i.test(html)) {
+        throw new Error(`${pathname} is missing its rendered YouTube play facade`);
+      }
+      if (/<iframe\b[^>]*\bsrc="https:\/\/www\.youtube-nocookie\.com\/embed\//i.test(html)) {
+        throw new Error(`${pathname} eagerly renders its YouTube iframe`);
       }
       requireStructuredType(html, "VideoObject", pathname);
       requireStructuredType(html, "BreadcrumbList", pathname);

@@ -1,3 +1,13 @@
+# 2026-10-20 — Technical SEO monitor repair and fresh gap read (local branch)
+
+- Branch `fix/seo-monitor-video-facade` repairs three verifier defects without changing public copy: it recognizes the production YouTube click-to-play facade instead of demanding an eager iframe, parses valid JSON-LD without corrupting escaped quotes, and retries only transient network/5xx fetch failures (three attempts, 250ms apart). Eager embeds remain a failure, so the monitor still catches a real regression.
+- Production evidence: `pnpm seo:verify` passed three consecutive reads on 2026-10-20: 530 indexable pages, 16 video-sitemap pages, 98 guide pages, 265 English and 265 Spanish routes, GA4 `G-W9CM4CE2MQ`, and a 1200x630 social card. The first full `pnpm check` exposed a distinct stale fixture: `es/chatbot-con-ia-para-negocios` intentionally changed with the Web AI service release but the Spanish text-parity snapshot was not refreshed. Rebuilding the exact fixture captured 194 routes; the parity check then passed all 194.
+- Fresh outcome read: `pnpm seo:measurement:run -- --force` used final Search Console data for 2026-09-20 through 2026-10-17 (54 query rows, 92 page rows, 103 query-page rows). The index watch’s current `latest.json` has 321 PASS, 209 NEUTRAL, 0 FAIL. `scripts/neutral-index-audit.mjs` generated a 209-row review CSV; many neutral URLs are Spanish routes and event pages. Do not noindex/delete them from this report alone. Next: classify the 209 by age, query evidence, language pair and internal links, then consolidate only duplicates or thin routes.
+- Contact attribution is implemented, not missing: `lib/google-analytics-script.ts` records first-touch contact source, records contact-intent method/source, and adds AI-referral source to WhatsApp prefill; `lib/lead-responder.ts` validates a lead source. This is instrumentation proof, not a source-tagged inquiry outcome.
+- Separate PR #497 factual yacht-event copy correction had its missing quality evidence attached by `payload_autofill.py`; its quality workflow was rerun on 2026-10-20. Verify final CI and review before merging.
+
+---
+
 # 2026-10-19 — Shared public inbox migration (pending PR merge/deployment)
 
 - Branch `fix/shared-inbox-public-contact`, commit `b663d333`, changes only the public business email from `esmolopez@gmail.com` to `info@estebanmorenomedia.com`. It preserves the canonical public name, `(305) 497-4478`, Fort Lauderdale base, service-area wording, maps/profile URLs, canonicals, and hreflang.
