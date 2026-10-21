@@ -16,6 +16,8 @@
 
 # Esteban Moreno Media — Backlog
 
+- [x] 2026-10-21: prepare a bilingual metadata refinement for the existing Fort Lauderdale video-production service pair from final GSC query/page data (3 impressions at position 9.33 for `remote video production company fort lauderdale`; 3 impressions at position 5.33 for `video production fort lauderdale`, window 2026-09-21..2026-10-19). Branch `feat/demand-wave-video-production-depth-20261021`; regression test and full local gates pass. Pending PR review, merge, production verification, and a settled GSC follow-up.
+
 - [ ] After the reviewed Clarity code is merged, create/select Esteban Moreno Media's real Microsoft Clarity project; add only its identifier as `NEXT_PUBLIC_CLARITY_PROJECT_ID` to the Vercel **Production** environment, redeploy, and complete the production verification/rollback steps in `docs/microsoft-clarity-activation.md`. Do not place the identifier in git or enable previews.
 
 - [x] 2026-10-10: ship the annual-events section (hub + FLIBS + Art Basel first, then Miami boat show, SOBEWFF, eMerge Americas, Miami Music Week, Miami Spice) on `feat/events-hub`.

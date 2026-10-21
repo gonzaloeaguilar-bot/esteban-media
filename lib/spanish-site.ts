@@ -6079,7 +6079,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     title: "Producción de video en Fort Lauderdale",
     metadataTitle: "Producción de Video Fort Lauderdale",
     description:
-      "Producción y edición de video para negocios de Fort Lauderdale y Broward, con atención en español y alcance definido por proyecto.",
+      "Producción y edición de video para negocios de Fort Lauderdale y Broward: grabación local o edición remota, con alcance definido por proyecto.",
     eyebrow: "Fort Lauderdale / Broward",
     h1: "Producción de video en Fort Lauderdale para negocios que necesitan explicar su oferta.",
     lead:
