@@ -1,0 +1,49 @@
+{
+  "project": "esteban-media",
+  "target_type": "pr",
+  "target_id": "PR-506",
+  "status": "review_pending",
+  "evidence": {
+    "demand_evidence": "Live Search Console query/page read (2026-09-21..2026-10-19): 'remote video production company fort lauderdale' had 3 impressions at position 9.33 and 'video production fort lauderdale' had 3 impressions at position 5.33, both on /services/video-production-fort-lauderdale.",
+    "move_class": "title_meta_rewrite",
+    "scope": "Existing EN/ES Fort Lauderdale video-production pair only. No URL, sitemap, redirect, noindex, canonical, schema, price, review, availability, or service-claim change.",
+    "reviewer_ensemble": {
+      "builder": {
+        "status": "ok",
+        "note": "Implemented the bilingual metadata refinement and its exact regression test from the live query/page evidence."
+      },
+      "skeptic": {
+        "status": "ok",
+        "note": "Deterministic checks confirm reciprocal hreflang, title/description bounds, no inventory change, and no changed unsupported factual claim."
+      },
+      "taste": {
+        "status": "pending",
+        "note": "Independent reviewer verdict is required before merge; no visual or outcome approval is implied by this payload."
+      }
+    },
+    "winner_rationale": "The current exact page is already near the top ten for two relevant Fort Lauderdale production queries and has depth plus FAQPage coverage, so a bounded EN/ES snippet rewrite is lower-risk than a new page or duplicate depth work.",
+    "reviewer_disagreement_reviewed": "No reviewer disagreement is available yet. The only implementation constraint found was the Spanish shared title-budget test, so the Spanish title stays within its existing 60-character-with-brand contract while its description receives the matching scope clarification.",
+    "tests_or_validation": "pnpm lint exit 0 with 22 pre-existing warnings; pnpm typecheck exit 0; pnpm test exit 0 (166 files, 3470 tests); pnpm lastmod:update updated only the two affected route records; git diff --check exit 0.",
+    "debt_delta": "Adds one narrow regression test for both locales' metadata, language alternatives, and title/description limits. No dependency, route, or generated inventory added.",
+    "obsidian_handoff": "Repo handoff and backlog record the GSC evidence, branch, validation, and required next reviewer action. Project vault/registry write-back remains for the coordinator because this bounded workspace call is confined to the repository."
+  },
+  "reviewer_ensemble": {
+    "builder": {
+      "status": "ok",
+      "note": "Implemented the bilingual metadata refinement and its exact regression test from the live query/page evidence."
+    },
+    "skeptic": {
+      "status": "ok",
+      "note": "Deterministic checks confirm reciprocal hreflang, title/description bounds, no inventory change, and no changed unsupported factual claim."
+    },
+    "taste": {
+      "status": "pending",
+      "note": "Independent reviewer verdict is required before merge; no visual or outcome approval is implied by this payload."
+    }
+  },
+  "winner_rationale": "The current exact page is already near the top ten for two relevant Fort Lauderdale production queries and has depth plus FAQPage coverage, so a bounded EN/ES snippet rewrite is lower-risk than a new page or duplicate depth work.",
+  "reviewer_disagreement_reviewed": "No reviewer disagreement is available yet. The only implementation constraint found was the Spanish shared title-budget test, so the Spanish title stays within its existing 60-character-with-brand contract while its description receives the matching scope clarification.",
+  "tests_or_validation": "pnpm lint exit 0 with 22 pre-existing warnings; pnpm typecheck exit 0; pnpm test exit 0 (166 files, 3470 tests); pnpm lastmod:update updated only the two affected route records; git diff --check exit 0.",
+  "debt_delta": "Adds one narrow regression test for both locales' metadata, language alternatives, and title/description limits. No dependency, route, or generated inventory added.",
+  "obsidian_handoff": "Repo handoff and backlog record the GSC evidence, branch, validation, and required next reviewer action. Project vault/registry write-back remains for the coordinator because this bounded workspace call is confined to the repository."
+}
