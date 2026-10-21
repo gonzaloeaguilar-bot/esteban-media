@@ -38,6 +38,7 @@ import { nicheEntry, withNicheService } from "@/lib/niche-answers";
 import { DefinitionAnswer } from "@/components/definition-answer";
 import { PageUpdated } from "@/components/page-updated";
 import { PriorityLinks } from "@/components/priority-links";
+import { SectorQuotePath } from "@/components/sector-quote-path";
 
 
 type NicheLinkContext = {
@@ -46,6 +47,12 @@ type NicheLinkContext = {
   note: string;
   serviceIds: string[];
   projects: { href: string; title: string; detail: string }[];
+};
+
+const sectorOfferSlugs: Record<string, "restaurant" | "event" | "marine"> = {
+  "video-para-restaurantes-frente-al-agua-fort-lauderdale": "restaurant",
+  "videografo-para-eventos-de-networking-miami": "event",
+  "marketing-de-video-para-alquiler-de-yates-miami": "marine",
 };
 
 const nicheLinkContext: Record<string, NicheLinkContext> = {
@@ -1479,6 +1486,7 @@ export function SpanishNichePage({
       )
     : spanishServices;
   const hasArranqueWeekly = ARRANQUE_WEEKLY_SPANISH_SLUGS.has(page.slug);
+  const sectorOffer = sectorOfferSlugs[page.slug];
   const baseJsonLd = buildSpanishNicheStructuredData(page);
   // The weekly plan's questions join the page's ONE FAQPage (same strings as
   // rendered), and its prices ride as an OfferCatalog in the same graph.
@@ -1670,6 +1678,7 @@ export function SpanishNichePage({
       {isPendingConfirmation || QUOTE_ONLY_SLUGS.has(page.slug) ? null : (
         <ServiceAnswerFirst service={page.keyword} locale="es" sectionId="en-corto" />
       )}
+      {sectorOffer ? <SectorQuotePath sector={sectorOffer} locale="es" /> : null}
 
       {hasArranqueWeekly ? <ArranqueWeeklySection locale="es" /> : null}
 

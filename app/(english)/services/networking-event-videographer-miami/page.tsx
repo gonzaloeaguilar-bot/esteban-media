@@ -16,6 +16,7 @@ import { absoluteUrl, site } from "@/lib/site";
 import { EventSeasonLinks } from "@/components/event-content-page";
 import { NicheAnswers } from "@/components/niche-answers";
 import { withNicheService } from "@/lib/niche-answers";
+import { SectorQuotePath } from "@/components/sector-quote-path";
 
 export const metadata = buildPageMetadata({
   title: "Networking Event Videographer Miami",
@@ -128,6 +129,7 @@ export default function NetworkingEventVideographerMiamiPage() {
         </Container>
       </section>
       <ServiceAnswerFirst service="networking event videography in Miami" />
+      <SectorQuotePath sector="event" />
 
       <ServiceDeepDive
         id={NETWORKING_EVENT_DEEP_DIVE.id}
