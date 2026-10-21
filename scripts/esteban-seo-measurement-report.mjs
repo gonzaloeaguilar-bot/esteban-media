@@ -20,6 +20,7 @@ import { SITE_URL, secretSafeError } from "./search-console-index-watch.mjs";
 export const SEO_MEASUREMENT_SCHEMA = "esteban-media.seo-measurement.v1";
 export const COMPLETE_LAG_DAYS = 3;
 export const DEFAULT_WINDOW_DAYS = 28;
+export const DEFAULT_PROVISIONAL_DAYS = 3;
 
 const DEFAULT_TOKEN_PATH = join(homedir(), ".config/geebs/google_oauth_webmasters_token.json");
 const DEFAULT_STATE_DIR = join(homedir(), ".local/state/esteban-media-seo-measurement");
@@ -52,12 +53,22 @@ export function completeWindow(now = new Date(), days = DEFAULT_WINDOW_DAYS) {
   return { startDate: shiftIsoDate(endDate, -(days - 1)), endDate, days };
 }
 
+export function provisionalWindow(now = new Date(), days = DEFAULT_PROVISIONAL_DAYS) {
+  if (!Number.isInteger(days) || days < 1 || days > 7) {
+    throw new Error("Provisional window days must be an integer between 1 and 7");
+  }
+  const endDate = isoDateInZone(now, "America/Los_Angeles");
+  return { startDate: shiftIsoDate(endDate, -(days - 1)), endDate, days };
+}
+
 function parseArgs(argv = process.argv.slice(2)) {
   const command = argv.find((arg) => !arg.startsWith("--")) || "run";
   const value = (name) => argv.find((arg) => arg.startsWith(`--${name}=`))?.slice(name.length + 3);
   const now = new Date();
   const days = Number(value("days") || DEFAULT_WINDOW_DAYS);
   const range = completeWindow(now, days);
+  const provisionalDays = Number(value("provisional-days") || DEFAULT_PROVISIONAL_DAYS);
+  const provisionalRange = provisionalWindow(now, provisionalDays);
   return {
     command,
     dryRun: command === "dry-run",
@@ -66,6 +77,8 @@ function parseArgs(argv = process.argv.slice(2)) {
     runId: value("run-id") || now.toISOString(),
     startDate: value("start") || range.startDate,
     endDate: value("end") || range.endDate,
+    provisionalStartDate: value("provisional-start") || provisionalRange.startDate,
+    provisionalEndDate: value("provisional-end") || provisionalRange.endDate,
     stateDir: value("state-dir") || process.env.ESTEBAN_MEDIA_SEO_MEASUREMENT_STATE_DIR || DEFAULT_STATE_DIR,
     notePath: value("note") || process.env.ESTEBAN_MEDIA_SEO_MEASUREMENT_NOTE || DEFAULT_NOTE_PATH,
     tokenPath: value("token") || process.env.GSC_TOKEN_PATH || DEFAULT_TOKEN_PATH,
@@ -176,6 +189,10 @@ export function renderReport(snapshot) {
   const candidateBlock = candidates.length
     ? candidates.map((row) => `- \`${row.query}\` — ${row.impressions} impressions, 0 clicks, average position ${row.position.toFixed(2)}. Inspect the existing landing page before changing title/copy; this is an observation, not proof of a CTR cause.`).join("\n")
     : "- None at the 10-impression / zero-click threshold. Sparse data is not a content instruction.";
+  const provisional = snapshot.provisional;
+  const provisionalBlock = provisional
+    ? `### Today, provisional only\n\n- Window: **${provisional.window.startDate} through ${provisional.window.endDate}** (${provisional.window.days} days; Google may revise these rows).\n- Source: authenticated Search Console API with \`dataState: all\`; generated ${provisional.generatedAt}.\n- Rows: ${provisional.rows.query.length} query, ${provisional.rows.page.length} page, ${provisional.rows.queryPage.length} query-page.\n- Use: early movement only. Do not make ranking, CTR, citation, or business-outcome decisions from this section.\n\n${markdownTable(summarizeRows(provisional.rows.query, "query").slice(0, 10), "Query")}`
+    : "### Today, provisional only\n\nUnavailable for this run; use the completed window above.";
   return `${MANAGED_START}
 ## Settled Search Console decision report — ${snapshot.runDate}
 
@@ -197,6 +214,8 @@ ${markdownTable(pageSummary, "Page")}
 
 ${candidateBlock}
 
+${provisionalBlock}
+
 ### Required decision discipline
 
 Choose at most one existing canonical page to improve from this report. Record the release date, then compare like-for-like completed windows after at least 28 days. Do not create a new page from a sparse query alone.
@@ -216,15 +235,24 @@ export async function collectMeasurement(args, dependencies = {}) {
   const token = await accessToken(args.tokenPath, dependencies);
   const headers = { Authorization: `Bearer ${token}`, "Content-Type": "application/json" };
   const endpoint = `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(SITE_URL)}/searchAnalytics/query`;
-  const query = async (dimensions) => {
+  const query = async (dimensions, range, dataState) => {
     const payload = await requestJson(endpoint, {
       method: "POST",
       headers,
-      body: JSON.stringify({ startDate: args.startDate, endDate: args.endDate, dimensions, type: "web", dataState: "final", rowLimit: 25_000 }),
-    }, { ...dependencies, label: `Search Console final ${dimensions.join("+")} query` });
+      body: JSON.stringify({ startDate: range.startDate, endDate: range.endDate, dimensions, type: "web", dataState, rowLimit: 25_000 }),
+    }, { ...dependencies, label: `Search Console ${dataState} ${dimensions.join("+")} query` });
     return normaliseRows(payload, dimensions);
   };
-  const [queryRows, pageRows, queryPageRows] = await Promise.all([query(["query"]), query(["page"]), query(["query", "page"])]);
+  const completedRange = { startDate: args.startDate, endDate: args.endDate };
+  const currentRange = { startDate: args.provisionalStartDate, endDate: args.provisionalEndDate };
+  const [queryRows, pageRows, queryPageRows, provisionalQueryRows, provisionalPageRows, provisionalQueryPageRows] = await Promise.all([
+    query(["query"], completedRange, "final"),
+    query(["page"], completedRange, "final"),
+    query(["query", "page"], completedRange, "final"),
+    query(["query"], currentRange, "all"),
+    query(["page"], currentRange, "all"),
+    query(["query", "page"], currentRange, "all"),
+  ]);
   return {
     schema: SEO_MEASUREMENT_SCHEMA,
     runId: args.runId,
@@ -234,6 +262,12 @@ export async function collectMeasurement(args, dependencies = {}) {
     window: { startDate: args.startDate, endDate: args.endDate, days: Math.round((Date.parse(`${args.endDate}T00:00:00Z`) - Date.parse(`${args.startDate}T00:00:00Z`)) / 86_400_000) + 1 },
     source: { api: "search-console", dataState: "final", searchType: "web" },
     rows: { query: queryRows, page: pageRows, queryPage: queryPageRows },
+    provisional: {
+      generatedAt: new Date().toISOString(),
+      window: { ...currentRange, days: Math.round((Date.parse(`${currentRange.endDate}T00:00:00Z`) - Date.parse(`${currentRange.startDate}T00:00:00Z`)) / 86_400_000) + 1 },
+      source: { api: "search-console", dataState: "all", searchType: "web" },
+      rows: { query: provisionalQueryRows, page: provisionalPageRows, queryPage: provisionalQueryPageRows },
+    },
   };
 }
 
@@ -252,8 +286,8 @@ export async function runMeasurement(args, dependencies = {}) {
   try { existing = await readFile(args.notePath, "utf8"); } catch (error) { if (error?.code !== "ENOENT") throw error; }
   await atomicWrite(latestPath, `${JSON.stringify(snapshot, null, 2)}\n`);
   await atomicWrite(args.notePath, mergeManagedNote(existing, block), 0o644);
-  await atomicWrite(join(args.stateDir, "last-run.json"), `${JSON.stringify({ status: "PASS", runId: args.runId, runDate: args.runDate, statePath: latestPath, notePath: args.notePath, rows: Object.fromEntries(Object.entries(snapshot.rows).map(([key, value]) => [key, value.length])) }, null, 2)}\n`);
-  return { status: "PASS", statePath: latestPath, notePath: args.notePath, window: snapshot.window, rows: Object.fromEntries(Object.entries(snapshot.rows).map(([key, value]) => [key, value.length])) };
+  await atomicWrite(join(args.stateDir, "last-run.json"), `${JSON.stringify({ status: "PASS", runId: args.runId, runDate: args.runDate, statePath: latestPath, notePath: args.notePath, rows: Object.fromEntries(Object.entries(snapshot.rows).map(([key, value]) => [key, value.length])), provisionalWindow: snapshot.provisional.window, provisionalRows: Object.fromEntries(Object.entries(snapshot.provisional.rows).map(([key, value]) => [key, value.length])) }, null, 2)}\n`);
+  return { status: "PASS", statePath: latestPath, notePath: args.notePath, window: snapshot.window, provisionalWindow: snapshot.provisional.window, rows: Object.fromEntries(Object.entries(snapshot.rows).map(([key, value]) => [key, value.length])), provisionalRows: Object.fromEntries(Object.entries(snapshot.provisional.rows).map(([key, value]) => [key, value.length])) };
 }
 
 async function main() {
