@@ -11,7 +11,7 @@
     <key>ESTEBAN_MEDIA_SEO_MEASUREMENT_STATE_DIR</key><string>/Users/gonzalo/.local/state/esteban-media-seo-measurement</string>
     <key>ESTEBAN_MEDIA_SEO_MEASUREMENT_NOTE</key><string>/Users/gonzalo/obsidian-wiki/client-esteban-media/wiki/esteban-seo-measurement.md</string>
   </dict>
-  <key>StartCalendarInterval</key><dict><key>Weekday</key><integer>1</integer><key>Hour</key><integer>8</integer><key>Minute</key><integer>15</integer></dict>
+  <key>StartCalendarInterval</key><dict><key>Hour</key><integer>8</integer><key>Minute</key><integer>15</integer></dict>
   <key>ProcessType</key><string>Background</string><key>LowPriorityIO</key><true/><key>Nice</key><integer>10</integer><key>ThrottleInterval</key><integer>60</integer><key>Umask</key><integer>63</integer>
   <key>StandardOutPath</key><string>/Users/gonzalo/.local/state/esteban-media-seo-measurement/launchd.out.log</string>
   <key>StandardErrorPath</key><string>/Users/gonzalo/.local/state/esteban-media-seo-measurement/launchd.err.log</string>
