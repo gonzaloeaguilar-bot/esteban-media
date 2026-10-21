@@ -1,3 +1,12 @@
+# 2026-10-21 — Demand-wave metadata refinement (PR pending)
+
+- Branch `feat/demand-wave-video-production-depth-20261021` refines the existing Fort Lauderdale video-production service pair without adding URLs, schema, prices, or new service claims. The English title now leads with video production and editing for businesses; both English and Spanish descriptions distinguish local filming from remote editing and retain project-scoped language.
+- Fresh source: `python3 /Users/gonzalo/code/portfolio-ops/scripts/gsc_query.py --site esteban --source live-api --days 28 --dimensions query,page` returned 3 impressions at position 9.33 for `remote video production company fort lauderdale` and 3 impressions at position 5.33 for `video production fort lauderdale`, both on `/services/video-production-fort-lauderdale` (window 2026-09-21..2026-10-19).
+- Validation: `pnpm lint` exit 0 with pre-existing warnings, `pnpm typecheck` exit 0, `pnpm test` exit 0 (166 files, 3,470 tests), `pnpm lastmod:update` changed only the English and Spanish page ledger entries, and `git diff --check` exit 0. Added `app/__tests__/demand-wave-video-production-metadata.test.ts` to pin EN/ES metadata, hreflang and title/description limits.
+- Next: open the governed PR with its quality payload, then the assigned verifier independently reviews this exact head. A merge/deploy or query/lead gain is not claimed here.
+
+---
+
 # 2026-10-20 — Technical SEO monitor repair and fresh gap read (local branch)
 
 - Branch `fix/seo-monitor-video-facade` repairs three verifier defects without changing public copy: it recognizes the production YouTube click-to-play facade instead of demanding an eager iframe, parses valid JSON-LD without corrupting escaped quotes, and retries only transient network/5xx fetch failures (three attempts, 250ms apart). Eager embeds remain a failure, so the monitor still catches a real regression.

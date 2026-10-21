@@ -108,9 +108,9 @@ const content: GeoServicePageContent = {
 };
 
 export const metadata = buildPageMetadata({
-  title: "Video Production Fort Lauderdale",
+  title: "Fort Lauderdale Video Production & Editing for Businesses",
   description:
-    "Fort Lauderdale video production and editing for business videos, Reels, website clips, hospitality, real estate, and remote post-production.",
+    "Fort Lauderdale video production and editing for businesses that need website video, social clips, or a scoped local shoot. Send your goal and existing footage.",
   path: content.path,
   locale: "en",
 });
