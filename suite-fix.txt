@@ -1,0 +1,10 @@
+Root cause: this isolated Spark worktree did not contain node_modules. The
+package test script invokes the local Vitest binary ("vitest run"), so pnpm
+test exited 1 before any test files ran with "sh: vitest: command not found".
+
+Repair: restored the lockfile-pinned dependencies with
+"pnpm install --frozen-lockfile". This installs Vitest 2.1.9 from pnpm-lock.yaml
+without changing package manifests or application source. Re-running pnpm test
+then executed the suite successfully.
+
+Verification: pnpm test exited 0 on 2026-10-20 after the locked install.

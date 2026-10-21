@@ -1,3 +1,13 @@
+# 2026-10-20 — Spark test-suite environment repair
+
+The Spark checkout had no `node_modules`, so `pnpm test` stopped before test
+discovery with `sh: vitest: command not found` and exit 1. Restored the
+lockfile-pinned dependencies via `pnpm install --frozen-lockfile`; no manifest
+or application-source change was required. `pnpm test` then exited 0. The
+root-cause and repair record is `suite-fix.txt`.
+
+---
+
 # 2026-10-20 — Technical SEO monitor repair and fresh gap read (local branch)
 
 - Branch `fix/seo-monitor-video-facade` repairs three verifier defects without changing public copy: it recognizes the production YouTube click-to-play facade instead of demanding an eager iframe, parses valid JSON-LD without corrupting escaped quotes, and retries only transient network/5xx fetch failures (three attempts, 250ms apart). Eager embeds remain a failure, so the monitor still catches a real regression.

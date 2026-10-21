@@ -16,6 +16,11 @@
 
 # Esteban Moreno Media — Backlog
 
+- [x] 2026-10-20: restore lockfile-pinned dependencies in the Spark isolated
+      worktree after `pnpm test` failed before discovery because the local
+      Vitest binary was absent; document the repair in `suite-fix.txt` and
+      rerun the suite.
+
 - [ ] After the reviewed Clarity code is merged, create/select Esteban Moreno Media's real Microsoft Clarity project; add only its identifier as `NEXT_PUBLIC_CLARITY_PROJECT_ID` to the Vercel **Production** environment, redeploy, and complete the production verification/rollback steps in `docs/microsoft-clarity-activation.md`. Do not place the identifier in git or enable previews.
 
 - [x] 2026-10-10: ship the annual-events section (hub + FLIBS + Art Basel first, then Miami boat show, SOBEWFF, eMerge Americas, Miami Music Week, Miami Spice) on `feat/events-hub`.
