@@ -87,13 +87,13 @@ const chatbotEn: WebAiServicePage = {
   servicesHref: "/services",
   servicesLabel: "Services",
   crumb: "AI Chatbot for Small Business",
-  metaTitle: "AI Chatbot for Small Business (Website + Instagram DM)",
+  metaTitle: "AI Chatbot for Fort Lauderdale Small Businesses",
   metaDescription:
-    "AI chatbots for small businesses on your website and Instagram DMs: answer questions, qualify leads, hand them to you. From {chatbotFrom} setup plus a monthly fee.",
+    "AI chatbots for Fort Lauderdale small businesses on your website and Instagram DMs: answer questions, qualify leads, hand them to you. From {chatbotFrom} setup plus a monthly fee.",
   eyebrow: "Website chat / Instagram DM / English and Spanish",
-  h1: "An AI chatbot that answers your customers and hands the real ones to you.",
+  h1: "AI chatbot for Fort Lauderdale small businesses.",
   answer:
-    "Esteban Moreno Media builds AI chatbots for small businesses that answer the questions customers repeat every day, ask the few questions that tell you whether an inquiry is serious, and pass that inquiry to a person with the details already collected. The bots shipped so far run on websites and in Instagram DMs, in English and Spanish, for an auto dealership, an auto repair shop and two fitness coaching brands. {chatbotPrice}",
+    "Esteban Moreno Media builds AI chatbots for Fort Lauderdale small businesses that answer the questions customers repeat every day, ask the few questions that tell you whether an inquiry is serious, and pass that inquiry to a person with the details already collected. The bots shipped so far run on websites and in Instagram DMs, in English and Spanish, for an auto dealership, an auto repair shop and two fitness coaching brands. {chatbotPrice}",
   heroNote:
     "Based in Fort Lauderdale and working remotely, including with businesses in Latin America; every project gets a written quote.",
   primaryCta: "Ask for a chatbot quote",
@@ -209,7 +209,7 @@ const chatbotEn: WebAiServicePage = {
   service: {
     name: "AI Chatbot for Small Business",
     description:
-      "Custom AI chatbots for small businesses on websites and Instagram DMs that answer common questions, qualify inquiries and hand them to a person, in English and Spanish. From {chatbotFrom} to set up, plus a monthly fee.",
+      "Custom AI chatbots for Fort Lauderdale small businesses on websites and Instagram DMs that answer common questions, qualify inquiries and hand them to a person, in English and Spanish. From {chatbotFrom} to set up, plus a monthly fee.",
     serviceType: "AI chatbot development",
   },
 };
@@ -222,13 +222,13 @@ const chatbotEs: WebAiServicePage = {
   servicesHref: "/es/servicios",
   servicesLabel: "Servicios",
   crumb: "Chatbot con IA para negocios",
-  metaTitle: "Chatbot con IA para negocios (web e Instagram)",
+  metaTitle: "Chatbot con IA para negocios en Miami",
   metaDescription:
-    "Chatbots con IA para negocios en tu web y en los DM de Instagram: responden, califican la consulta y la pasan a una persona. Desde {chatbotFrom} más una cuota mensual.",
+    "Chatbots con IA para negocios en Miami en tu web y en los DM de Instagram: responden, califican la consulta y la pasan a una persona. Desde {chatbotFrom} más una cuota mensual.",
   eyebrow: "Chat en tu web / DM de Instagram / Español e inglés",
-  h1: "Un chatbot con IA que responde a tus clientes y te pasa los que van en serio.",
+  h1: "Chatbot con IA para negocios en Miami.",
   answer:
-    "Esteban Moreno Media construye chatbots con IA para negocios que responden las preguntas que los clientes repiten todos los días, hacen las pocas preguntas que te dicen si una consulta va en serio y pasan esa consulta a una persona con los datos ya reunidos. Los bots publicados funcionan en sitios web y en los DM de Instagram, en español e inglés, para un concesionario, un taller mecánico y dos marcas de entrenamiento físico. {chatbotPrice}",
+    "Esteban Moreno Media construye chatbots con IA para negocios en Miami que responden las preguntas que los clientes repiten todos los días, hacen las pocas preguntas que te dicen si una consulta va en serio y pasan esa consulta a una persona con los datos ya reunidos. Los bots publicados funcionan en sitios web y en los DM de Instagram, en español e inglés, para un concesionario, un taller mecánico y dos marcas de entrenamiento físico. {chatbotPrice}",
   heroNote:
     "Con base en Fort Lauderdale y trabajo remoto, también con negocios en Latinoamérica; cada proyecto recibe una cotización por escrito.",
   primaryCta: "Pedir cotización de un chatbot",
@@ -344,7 +344,7 @@ const chatbotEs: WebAiServicePage = {
   service: {
     name: "Chatbot con IA para negocios",
     description:
-      "Chatbots con IA a medida para negocios en sitios web y DM de Instagram que responden preguntas frecuentes, califican consultas y las pasan a una persona, en español e inglés. Desde {chatbotFrom} de configuración, más una cuota mensual.",
+      "Chatbots con IA a medida para negocios en Miami en sitios web y DM de Instagram que responden preguntas frecuentes, califican consultas y las pasan a una persona, en español e inglés. Desde {chatbotFrom} de configuración, más una cuota mensual.",
     serviceType: "Desarrollo de chatbots con IA",
   },
 };
