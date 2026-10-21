@@ -77,16 +77,16 @@ describe("complete page metadata", () => {
 
     // Over 60 characters with the brand suffix, so it renders unbranded (fix 12).
     expect(metadata.title).toEqual({
-      absolute: "Restaurant Promo Video Editing in Miami | From $240",
+      absolute: "Restaurant Videographer & Promo Video Editing Miami | From $240",
     });
     expect(metadata.description).toBe(
-      "Restaurant promo video editing in Miami from $240 per project. Send food or dining-room footage for scoped reels, captions, and social cuts. See published work.",
+      "Miami restaurant videographer and promo edits from $240. Send food or dining-room footage for scoped reels, captions, and social cuts. See published work.",
     );
-    expect(metadata.description).toContain("from $240 per project");
+    expect(metadata.description).toContain("from $240");
     expect(metadata.description?.length).toBeGreaterThanOrEqual(120);
     expect(metadata.description?.length).toBeLessThanOrEqual(160);
     expect(metadata.description?.toLowerCase()).toContain(
-      "restaurant promo video editing in miami",
+      "miami restaurant videographer",
     );
     expect(metadata.alternates?.canonical).toBe(
       "/services/restaurant-promo-video-editing-miami",

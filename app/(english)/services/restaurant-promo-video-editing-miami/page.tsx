@@ -62,9 +62,9 @@ const faqs = [
 ] as const;
 
 export const metadata = buildPageMetadata({
-  title: `Restaurant Promo Video Editing in Miami | From ${restaurantFrom}`,
+  title: `Restaurant Videographer & Promo Video Editing Miami | From ${restaurantFrom}`,
   description:
-    `Restaurant promo video editing in Miami from ${restaurantFrom} per project. Send food or dining-room footage for scoped reels, captions, and social cuts. See published work.`,
+    `Miami restaurant videographer and promo edits from ${restaurantFrom}. Send food or dining-room footage for scoped reels, captions, and social cuts. See published work.`,
   path: "/services/restaurant-promo-video-editing-miami",
   locale: "en",
 });
@@ -75,17 +75,17 @@ export default function RestaurantPromoVideoEditingMiamiPage() {
     "@graph": [
       ...buildServicePageNodes({
         path: "/services/restaurant-promo-video-editing-miami",
-        name: `Restaurant Promo Video Editing Miami | From ${restaurantFrom}`,
+        name: `Restaurant Videographer & Promo Video Editing Miami | From ${restaurantFrom}`,
         description:
-          `Restaurant promo video editing in Miami from ${restaurantFrom}. Food reels, dish spotlight cuts, captions, and social promo edits for South Florida restaurants.`,
+          `Miami restaurant videographer and promo video editing from ${restaurantFrom}. Food reels, dish spotlight cuts, captions, and social promo edits for South Florida restaurants.`,
         crumb: "Restaurant Promo Video",
       }),
       {
         "@type": "Service",
         "@id": absoluteUrl("/services/restaurant-promo-video-editing-miami#service"),
-        name: "Restaurant Promo Video Editing Miami",
+        name: "Restaurant Videographer & Promo Video Editing Miami",
         description:
-          "Restaurant promo video editing in Miami for food reels, dish spotlight cuts, captions, and social promo edits tailored to South Florida dining.",
+          "Miami restaurant videographer and promo video editing for food reels, dish spotlight cuts, captions, and social promo edits tailored to South Florida dining.",
         provider: { "@id": absoluteUrl("/#business") },
         areaServed: "Miami / Wynwood",
         serviceType: "Restaurant video marketing",
@@ -138,10 +138,10 @@ export default function RestaurantPromoVideoEditingMiamiPage() {
                 Miami / Culinary & Hospitality
               </p>
               <h1 className="mt-2 max-w-4xl font-serif em-display sm:mt-4">
-                Restaurant Promo Video Editing in Miami.
+                Restaurant Videographer &amp; Promo Video Editing in Miami.
               </h1>
               <p className="mt-3 max-w-2xl text-lg leading-7 text-[#252a2d] sm:mt-6 sm:leading-8">
-                Reels and promo edits from your restaurant footage.
+                A Miami restaurant videographer for promo edits from your restaurant footage, with new filming scoped separately.
               </p>
               <p className="mt-3 text-base font-medium text-[#9f3c27] sm:mt-4">
                 A restaurant promo project, scoped and quoted for your venue from your
