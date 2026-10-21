@@ -39,6 +39,9 @@ describe("Contact page depth, guides integration, and FAQPage schema", () => {
     expect(markup).toContain('href="/guides/remote-video-editing-handoff"');
     expect(markup).toContain('href="/calculator"');
     expect(markup).toContain('href="/areas"');
+    expect(markup).toContain('data-cta="contact_service_areas"');
+    expect(markup).toContain("Esteban is based in Fort Lauderdale and reviews on-location requests in Broward and Miami-Dade project by project.");
+    expect(markup).toContain("include the city, preferred date, and what you need filmed");
 
     // Schema checks
     expect(markup).toContain('"@type":"ContactPage"');
@@ -83,6 +86,9 @@ describe("Contact page depth, guides integration, and FAQPage schema", () => {
     expect(markup).toContain('href="/es/guias/entrega-para-edicion-remota-de-video"');
     expect(markup).toContain('href="/es/calculadora"');
     expect(markup).toContain('href="/es/areas"');
+    expect(markup).toContain('data-cta="contact_service_areas"');
+    expect(markup).toContain("Esteban trabaja desde Fort Lauderdale y evalúa cada grabación en Broward y Miami-Dade según el proyecto.");
+    expect(markup).toContain("incluye la ciudad, la fecha deseada y qué necesitas grabar");
 
     // Schema checks
     expect(markup).toContain('"@type":"ContactPage"');

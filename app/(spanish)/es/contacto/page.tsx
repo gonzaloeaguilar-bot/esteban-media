@@ -99,6 +99,11 @@ export default function SpanishContactPage() {
             <a href={`mailto:${site.email}`} data-cta="contact_email_es" data-section="contact" className="flex min-h-14 items-center justify-center gap-3 rounded-full border border-[#b9aa9a] px-5 text-sm font-medium text-[#252a2d] hover:border-[#c84a2c]"><Mail className="size-5" aria-hidden="true" /> Enviar un email</a>
           </div>
           <p className="mt-3 text-sm text-[#5a6066]">O llama al <a href={site.phone.href} className="inline-flex min-h-11 items-center underline underline-offset-4">{site.phone.display}</a>.</p>
+          <section className="mt-6 max-w-2xl border-l-2 border-[#c84a2c] pl-4" aria-labelledby="local-project-heading">
+            <h2 id="local-project-heading" className="font-serif text-xl">¿Necesitas grabación en South Florida?</h2>
+            <p className="mt-2 text-sm leading-6 text-[#3f4548]">Esteban trabaja desde Fort Lauderdale y evalúa cada grabación en Broward y Miami-Dade según el proyecto. En tu mensaje de WhatsApp incluye la ciudad, la fecha deseada y qué necesitas grabar; primero confirmará si el alcance encaja y después enviará una cotización por escrito.</p>
+            <Link href="/es/areas" data-cta="contact_service_areas" className="mt-3 inline-flex min-h-11 items-center text-sm font-medium text-[#9f3c27] underline underline-offset-4">Ver áreas de servicio y qué se debe confirmar</Link>
+          </section>
           <details className="mt-8 border-t border-[#d6ccc0] pt-5">
             <summary className="flex min-h-11 cursor-pointer items-center font-medium text-[#9f3c27] underline underline-offset-4">¿Qué información conviene enviar?</summary>
             <div className="mt-5 max-w-2xl space-y-3 text-sm leading-6 text-[#3f4548]">

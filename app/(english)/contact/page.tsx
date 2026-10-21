@@ -62,6 +62,11 @@ export default function ContactPage() {
             <a href={`mailto:${site.email}`} data-cta="contact_email" data-section="contact" className="flex min-h-14 items-center justify-center gap-3 rounded-full border border-[#b9aa9a] px-5 text-sm font-medium text-[#252a2d] hover:border-[#c84a2c]"><Mail className="size-5" aria-hidden="true" /> Email Esteban</a>
           </div>
           <p className="mt-3 text-sm text-[#5a6066]">Or call <a href={site.phone.href} className="inline-flex min-h-11 items-center underline underline-offset-4">{site.phone.display}</a>.</p>
+          <section className="mt-6 max-w-2xl border-l-2 border-[#c84a2c] pl-4" aria-labelledby="local-project-heading">
+            <h2 id="local-project-heading" className="font-serif text-xl">Need filming in South Florida?</h2>
+            <p className="mt-2 text-sm leading-6 text-[#3f4548]">Esteban is based in Fort Lauderdale and reviews on-location requests in Broward and Miami-Dade project by project. In your WhatsApp message, include the city, preferred date, and what you need filmed; he will confirm whether the scope fits before sending a written quote.</p>
+            <Link href="/areas" data-cta="contact_service_areas" className="mt-3 inline-flex min-h-11 items-center text-sm font-medium text-[#9f3c27] underline underline-offset-4">See service areas and what needs confirmation</Link>
+          </section>
           <details className="mt-8 border-t border-[#d6ccc0] pt-5">
             <summary className="flex min-h-11 cursor-pointer items-center font-medium text-[#9f3c27] underline underline-offset-4">Want help writing your message?</summary>
             <div className="mt-5 max-w-2xl space-y-3 text-sm leading-6 text-[#3f4548]">
