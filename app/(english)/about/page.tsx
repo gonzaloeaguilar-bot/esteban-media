@@ -79,10 +79,10 @@ export default function AboutPage() {
               <p className="mt-4 max-w-2xl leading-7 text-[#252a2d]">
                 His{" "}
                 <Link
-                  href="/portfolio"
+                  href="/es/portafolio"
                   className="underline underline-offset-4 hover:text-[#9f3c27]"
                 >
-                  public portfolio
+                  selected work
                 </Link>{" "}
                 connects each selected project to its available credits and original video source. His Spanish{" "}
                 <Link
