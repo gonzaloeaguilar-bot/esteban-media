@@ -16,7 +16,7 @@ concurrency:
 
 jobs:
   revisar:
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.CI_RUNNER || 'ubuntu-latest' }}  # self-hosted Mac when CI_RUNNER is set ($0 minutes)
     steps:
       - uses: actions/checkout@v4
         with:
