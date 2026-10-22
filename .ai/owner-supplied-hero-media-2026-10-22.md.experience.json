@@ -1,0 +1,34 @@
+{
+  "schema": 3,
+  "project": "esteban-media",
+  "intent": "Replace Esteban Moreno Media's homepage hero visual media with the owner-supplied vertical video and matching photo while preserving the existing readable, actionable hero.",
+  "phase": "repair",
+  "visual_evidence": {
+    "scope": "local_repair",
+    "scope_reason": "The owner supplied a new vertical on-location clip and matching still for the existing homepage hero.",
+    "target": "candidate",
+    "owner_status": "owner_accepted_direction",
+    "capture_kind": "rendered",
+    "spec_sha256": "86d49538fd05a7fefa14a5219a0560f29f8fcaf47073dc75cc89555343c2608d",
+    "taste_sha256": "0b08669591e657d4812aeac05bbaf0eebf21ac1bc54891998c0c7f5689ef5bc4",
+    "correction_excerpt": "Esteban ya tiene el acto uno y nadie lo continuó.** La portada abre DENTRO de una cámara",
+    "comparison": "Existing hero structure with old on-set media versus the same structure using owner-supplied beach filming media.",
+    "references": [{"path": "../public/about/esteban-on-set.jpg", "moment": "previous hero poster", "sha256": "86fbf1f1ba64c335179ea3e119320f455601e9b59e3f2b5793edb48fe18208bd", "borrow": "Existing Esteban viewfinder composition, copy hierarchy and safe action placement.", "avoid": "Do not revert to the prior scene or use the former asset as a claim about the new work."}],
+    "candidate_frames": [{"path": "../public/about/esteban-on-set-frame.jpg", "moment": "opening", "sha256": "1005d66c45c38687537ac333253a43dbaa17cec342be735bc61ab1a1091da737", "viewport": "phone"}]
+  },
+  "brief": {
+    "visitor": "A South Florida business, agent, or creator evaluating Esteban Moreno Media on a phone or desktop.",
+    "promise": "See Esteban filming on location, then choose a package or start a WhatsApp conversation.",
+    "primary_action": "Choose a package; WhatsApp remains the direct alternative.",
+    "friction": "The hero needs an owner-authored visual while its offer and actions remain immediately readable.",
+    "kpi": {"outcome": "qualified project inquiry", "event": "existing hero package or WhatsApp action followed by contact intent", "denominator": "homepage hero viewers", "baseline": "UNKNOWN: no dated, same-page qualified-inquiry export; capture a comparable source-tagged production read at T+28.", "evidence": "Existing delegated data-cta tracking in public/track.js; no current-session event export used for this asset substitution.", "readout": "T+28", "decision_rule": "Keep the media if visual checks pass and comparable qualified-inquiry evidence is not worse."},
+    "concept": {"idea": "The current camera-viewfinder opening receives the owner's real beachside filming footage.", "brand_reason": "The scene shows Esteban's real production context rather than a generic stock visual.", "interaction": "Optional playback starts only when motion is allowed and the hero is in view.", "visible_response": "The supplied still is visible immediately; the video fades in only after successful playback.", "direct_path": "Existing package anchor and existing WhatsApp link.", "alternatives": "Do not add controls, change copy, fabricate a camera claim, or use motion to hide any text or action."},
+    "story": {"opening": "Esteban is visibly filming on a South Florida location.", "action": "Visitor chooses a package or opens WhatsApp.", "consequence": "Existing decision flow continues unchanged.", "next_step": "Review packages or describe a project."},
+    "content": {"visible": "Existing hero title, service line, price line, and both actions.", "optional_html": "Existing native details below the hero are unchanged.", "linked_depth": "Existing package section and WhatsApp conversation."},
+    "references": {"borrow": "Current Esteban cinematic hero structure and its poster-before-playback behavior.", "avoid": "New chrome, autoplay-only critical content, generic stock media, or unsupported equipment claims."},
+    "components": {"reuse": "Existing HeroVideo, CinemaHeroMotion, Next Image fallback, and hero styles.", "local_reason": "This is a direct owner-asset substitution in a brand-local hero, not a new shared component."},
+    "verification": {"rendered_states": "375x667, 390x844, and 1440x900 with the supplied media.", "motion": "Normal playback and prefers-reduced-motion fallback.", "accessibility_performance": "Decorative video remains hidden from assistive technology; poster has meaningful alt text; hero actions retain focus states.", "raw_html": "H1, price line, and both action labels remain served without JavaScript.", "conversion_boundary": "Existing package anchor and WhatsApp href remain present; no external message is sent during verification."},
+    "reviewers": {"craft": "Antigravity", "behavior": "Claude and cto-qa-lead", "outcome": "cto-product-lead at T+28"},
+    "learning": {"metric": "qualified project inquiry", "baseline_source": "UNKNOWN: no dated same-page source-tagged qualified-inquiry export is available in this session", "baseline_value": "UNKNOWN: no dated same-page source-tagged qualified-inquiry export is available in this session", "target_kind": "funnel_step", "target": "homepage hero action to qualified project inquiry", "hypothesis": "Owner-supplied production footage improves immediate recognition without reducing access to the existing decision paths.", "observation_windows": ["T+28"], "decision_rule": "retain only if visual and behavior checks pass and attributable inquiry data is measurable", "ledger_status": "planned", "registration_condition": "record comparable production event availability before outcome grading"}
+  }
+}
