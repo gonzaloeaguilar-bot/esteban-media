@@ -1,3 +1,7 @@
+## 2026-10-21 — Large-video transfer guide content-depth refinement
+
+- [x] Prepare `/guides/fastest-way-to-send-large-video-files-to-editor` refinement: direct H1/answer, one server-rendered cloud-versus-proxy-versus-drive decision section, two contextual internal links, and refreshed page-lastmod ledger. `npm run typecheck --silent` passed; the first full `npm test` found only the required stale date ledger, which `pnpm lastmod:update` corrected. Before merge, cto-qa-lead must capture a fresh full-suite terminal summary, review the exact diff, and after release verify the production raw HTML; cto-seo-lead owns the later settled GSC query/page read.
+
 ## 2026-10-21 — Fort Lauderdale Reels content-depth refinement
 
 - [x] Prepare `/services/reels-editor-fort-lauderdale` refinement: direct supplied-clips outcome in H1/metadata, one server-rendered editing-versus-shoot decision section, and refreshed page-lastmod ledger. Local checks passed (`npm run typecheck --silent`, `npm test` 165 files / 3,469 tests, lint 0 errors, rail adoption 3/3, build rendered 569 static pages); independent review, release, production raw-HTML check, and settled GSC query/page remeasurement remain with cto-qa-lead and cto-seo-lead.
