@@ -1,3 +1,7 @@
+## 2026-10-22 — Spanish caption-styles guide content-depth refinement
+
+- [x] Prepare `/es/guias/mejores-estilos-de-subtitulos-para-reels` refinement: outcome-specific H1 and metadata, answer-first opening, an existing-page comparison between complete captions and short emphasis text, two contextual Spanish links, and refreshed page-lastmod ledger. `pnpm lastmod:update`, `npm run typecheck --silent`, and `npm test` passed (165 files / 3,469 tests). Before merge, `cto-qa-lead` must independently review the exact diff; after authorized release, verify production raw HTML and rendered links. `cto-seo-lead` owns the later comparable GSC read; traffic, ranking, and click impact remain unmeasured.
+
 ## 2026-10-21 — Large-video transfer guide content-depth refinement
 
 - [x] Prepare `/guides/fastest-way-to-send-large-video-files-to-editor` refinement: direct H1/answer, one server-rendered cloud-versus-proxy-versus-drive decision section, two contextual internal links, and refreshed page-lastmod ledger. `npm run typecheck --silent` passed; the first full `npm test` found only the required stale date ledger, which `pnpm lastmod:update` corrected. Before merge, cto-qa-lead must capture a fresh full-suite terminal summary, review the exact diff, and after release verify the production raw HTML; cto-seo-lead owns the later settled GSC query/page read.
