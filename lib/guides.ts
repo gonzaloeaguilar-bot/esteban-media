@@ -3198,12 +3198,12 @@ const guidePairs: readonly GuidePair[] = [
     en: {
       slug: "fastest-way-to-send-large-video-files-to-editor",
       metadataTitle: "Send Large Videos to an Editor",
-      title: "How to send large video files to an editor",
+      title: "Fastest way to send large video files to an editor",
       description:
-        "Send original footage in organized cloud folders, use proxies when uploads are slow, and verify the copy before clearing camera cards.",
+        "Choose cloud folders for manageable footage, proxies for slower uploads, or a physical drive for a very large archive. Keep camera folders intact and verify every copy before clearing cards.",
       eyebrow: "Workflow / File Transfer",
       answer:
-        "Check the folder size and your upload speed first. Send the original files in organized cloud folders when the upload fits your schedule; use smaller editing proxies when it does not. For a very large archive on a slow connection, agree with your editor on a physical drive. Verify the copy before clearing camera cards.",
+        "The fastest way to send large video files to an editor is to match the handoff to the folder size and your upload speed: use an organized cloud folder when it can finish on time, proxies when the originals are too slow to upload, and a physical drive for a very large archive. Keep original camera folders and filenames intact, then verify the received copy before clearing camera cards.",
       proof: {
         href: "/portfolio/homeowners",
         title: "Homeowners",
@@ -3211,6 +3211,19 @@ const guidePairs: readonly GuidePair[] = [
           "Approved portfolio credits include published remote video post-production. Linked as a public sample; not published as evidence of identical deliverables in every engagement.",
       },
       sections: [
+        {
+          heading: "What is the quickest way to choose a video-file transfer method?",
+          paragraphs: [
+            "Start with the total folder size, the deadline, and the upload speed where the files currently live. A cloud folder is the simplest option when the upload can finish before editing needs to begin. If the original footage is too large for that window, send proxies so the editor can start the cut while the camera masters stay safely stored. When neither upload is practical, agree on a physical-drive handoff before the project is delayed.",
+            "Whichever route you choose, send one short handoff note with the folder size, the intended videos, the deadline, and any missing assets. Keep camera-card folders and original clip names unchanged. For the rest of the handoff, use this [footage-preparation guide](/guides/prepare-footage-for-video-editing); if the work is for social clips, see [short-form video editing](/services/short-form-video-editor-miami).",
+          ],
+          bullets: [
+            "Cloud folder: best when the original footage can upload before editing begins",
+            "Proxy files: best when the editor can begin with lighter copies and reconnect to originals later",
+            "Physical drive: best when a very large archive cannot upload in the available time",
+            "Verification: confirm the editor has the complete copy before clearing any camera card",
+          ],
+        },
         {
           heading: "Why is upload speed the real limit when sending large video files?",
           paragraphs: [

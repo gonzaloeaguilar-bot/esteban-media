@@ -1,3 +1,11 @@
+# 2026-10-21 — Large-video transfer guide content-depth candidate (local branch)
+
+- Source scope: `lib/guides.ts` and the generated existing ledger `config/page-lastmod.json`; no route, dependency, analytics, pricing, or factual business claim changed.
+- The English guide at `/guides/fastest-way-to-send-large-video-files-to-editor` now opens with the transfer decision a searcher needs: cloud folder when it can finish in time, proxies when originals are too slow, or a physical drive for a very large archive. A server-rendered question section provides the short decision path, verification reminder, and contextual links to the existing footage-preparation guide and short-form editing service. The existing FAQ, structured data, related-guide surface, and canonical metadata contract remain in place.
+- Local evidence: `pnpm lastmod:update` updated the route ledger to `2026-10-21`; `npm run typecheck --silent` passed; the initial `npm test` exposed only the required stale page-date ledger, which passed after the generated update. The subsequent full suite was started after that update; use `npm test` again in a release review to capture a fresh terminal summary before merge. Not committed, reviewed, deployed, or production-verified. Next owner: cto-qa-lead reviews the exact diff and, if released, checks canonical production raw HTML; cto-seo-lead rereads the settled query/page window without attributing a CTR or ranking outcome to this local change.
+
+---
+
 # 2026-10-21 — Fort Lauderdale Reels page content-depth candidate (local branch)
 
 - Source scope: `app/(english)/services/reels-editor-fort-lauderdale/page.tsx` and the generated existing ledger `config/page-lastmod.json`; no route, schema contract, analytics, price, or factual business claim changed.
