@@ -29,9 +29,9 @@ import {
 } from "@/lib/site";
 
 export const metadata = buildPageMetadata({
-  title: "Growth Systems, Websites & Creative Production",
+  title: "Video Editing, Production & Websites for South Florida Businesses",
   description:
-    "Conversion websites, AI lead capture, local presence, measurement, automation, and creative production for businesses in Fort Lauderdale and South Florida.",
+    "Choose video editing, South Florida production, or a website and follow-up system based on the footage, business goal, and next inquiry you need.",
   path: "/services",
   locale: "en",
 });
@@ -149,12 +149,12 @@ export default function ServicesPage() {
             Services
           </p>
           <h1 className="mt-4 max-w-3xl font-serif em-display">
-            Need video, a website, or help getting more inquiries?
+            Video editing, local production, and websites for clearer next steps.
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-            Send Esteban the result you need. He can edit footage you have,
-            plan a South Florida shoot, or build a website and follow-up system
-            around your business.
+            Start with what is missing: finished video from footage you already
+            have, a South Florida shoot to capture it, or a website that gives
+            a new inquiry a clear next step.
           </p>
           <p className="mt-3 max-w-2xl text-base leading-7 text-[#252a2d]">
             Need a local shoot in Broward? Read how{" "}
@@ -164,7 +164,9 @@ export default function ServicesPage() {
             >
               video production in Fort Lauderdale
             </Link>{" "}
-            separates filming from the editing that follows.
+            separates filming from the editing that follows. Esteban can scope
+            the work around the business goal, location, existing assets, and
+            where the final piece will be used.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
@@ -209,6 +211,62 @@ export default function ServicesPage() {
               </Link>
             ))}
           </nav>
+
+          <section className="mt-10" aria-labelledby="starting-point-heading">
+            <p className="text-xs font-medium uppercase text-[#5a6066]">
+              Choose a starting point
+            </p>
+            <h2
+              id="starting-point-heading"
+              className="mt-3 max-w-3xl font-serif text-3xl leading-tight sm:text-4xl"
+            >
+              Do you need an editor, a videographer, or a website?
+            </h2>
+            <div className="mt-6 grid gap-4 md:grid-cols-3">
+              <article className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5">
+                <h3 className="font-serif text-2xl">You already have footage</h3>
+                <p className="mt-3 text-sm leading-6 text-[#252a2d]">
+                  Start with editing when the clips exist but still need a clear
+                  story, captions, pacing, sound, or versions sized for where
+                  you plan to publish them.
+                </p>
+                <Link
+                  href="/services/short-form-video-editor-miami"
+                  className="mt-4 inline-flex text-sm font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[#7f2f20]"
+                >
+                  Explore short-form editing
+                </Link>
+              </article>
+              <article className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5">
+                <h3 className="font-serif text-2xl">The footage does not exist yet</h3>
+                <p className="mt-3 text-sm leading-6 text-[#252a2d]">
+                  Start with production when the business, product, property, or
+                  event needs to be captured on location. The quote can separate
+                  filming from the edits that follow.
+                </p>
+                <Link
+                  href="/services/video-production-fort-lauderdale"
+                  className="mt-4 inline-flex text-sm font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[#7f2f20]"
+                >
+                  Explore local video production
+                </Link>
+              </article>
+              <article className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5">
+                <h3 className="font-serif text-2xl">The inquiry path is unclear</h3>
+                <p className="mt-3 text-sm leading-6 text-[#252a2d]">
+                  Start with a website when people need a clearer explanation of
+                  the offer and a simple way to take the next step after they
+                  find your business.
+                </p>
+                <Link
+                  href="/services/website-design-fort-lauderdale"
+                  className="mt-4 inline-flex text-sm font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[#7f2f20]"
+                >
+                  Explore website services
+                </Link>
+              </article>
+            </div>
+          </section>
 
           <details id="specific-service-pages" className="mt-8 rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5">
             <summary className="cursor-pointer font-serif text-2xl">Looking for a specific type of video or photo?</summary>
