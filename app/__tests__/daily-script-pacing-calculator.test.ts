@@ -67,7 +67,7 @@ describe("Daily Script Pacing Calculator surface", () => {
 
     const esPage = await import("../(spanish)/es/calculadora-de-ritmo-de-video/page");
     expect(esPage.metadata.title).toEqual({
-      absolute: "Calculadora de Ritmo de Video y Guion Diario",
+      absolute: "Calculadora de palabras para video de 30 y 60 segundos",
     });
     expect(esPage.metadata.alternates?.canonical).toBe("/es/calculadora-de-ritmo-de-video");
   });

@@ -68,6 +68,7 @@ Production is live. This file tracks repository implementation; account/access w
 
 ## P1 — Technical SEO / GEO / ALOHA
 
+- [x] Prepare `/es/calculadora-de-ritmo-de-video` content-depth refinement: specific 30/60-second word-count metadata and H1, answer-first copy, three visible server-rendered FAQs, two contextual links to existing Spanish tools, and a refreshed page-date ledger. Local `pnpm typecheck` and `npm test` passed; independent review, authorized release, production raw-HTML verification, and later comparable GSC observation remain required.
 - [x] 2026-10-11: SEO/GEO audit wave on `fix/seo-geo-audit-wave` — the audit's 15 mechanical fixes (fix 8 partial), sitemap 284 → 310 by owner decision, `/llms.txt` generated from sitemap sources, 37 ported EN FAQs, answer-first blocks, sibling links. Details: `.ai/handoff.md`.
 - [ ] 2026-11-10: check GSC indexed status and impressions for the 26 URLs added to the sitemap on 2026-10-10 (see `ownerOrderedAdditions` in `config/indexable-inventory-freeze.json`).
 - [ ] Owner: decide guide bylines (Esteban as author of record?) and a date policy (`published`/`updated` fields) — unlocks visible dates, `dateModified` and sitemap `lastmod`.

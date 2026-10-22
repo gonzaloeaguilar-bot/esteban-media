@@ -1,3 +1,12 @@
+# 2026-10-22 — Spanish video-pacing calculator content-depth candidate (local branch)
+
+- Source scope: `app/(spanish)/es/calculadora-de-ritmo-de-video/page.tsx`, its existing calculator component, its existing metadata assertion, and the generated ledger `config/page-lastmod.json`; no new route, dependency, analytics, pricing, or business claim changed.
+- The page now leads with the specific 30/60-second words-and-duration outcome in title, H1, and answer-first copy. It adds three server-rendered native-`details` answers about calculating words, trimming a long script, and estimating Reel/Short duration, plus contextual links to the existing Spanish script timer and Reels-editing cost calculator.
+- Local verification: `pnpm lastmod:update` refreshed this route to `2026-10-22`; `pnpm typecheck` and `npm test` passed. The literal `npm run typecheck --silent` acceptance form is a repository command-wrapper defect: npm forwards `--silent` to `tsc`, which exits with `TS5023 Unknown compiler option '--silent'`; `pnpm typecheck` runs the same configured `tsc --noEmit` command cleanly. `pnpm build` compiled and emitted `.next/server/app/es/calculadora-de-ritmo-de-video.html`, but its terminal completion status was not captured; rerun it as a release gate before merge.
+- Not committed, independently reviewed, deployed, or production-verified. Next owner: `cto-qa-lead` reviews the exact diff, confirms the build completion and raw HTML; after an authorized release, verify title, H1, FAQs, canonical links, and the updated date on production. `cto-seo-lead` owns the comparable later GSC read; no click, ranking, citation, or inquiry effect is claimed.
+
+---
+
 # 2026-10-22 — Spanish caption-styles guide content-depth candidate (local branch)
 
 - Source scope: `lib/guides.ts` and the generated existing ledger `config/page-lastmod.json`; no route, dependency, analytics, pricing, or factual business claim changed.

@@ -365,7 +365,7 @@ export function DailyScriptPacingCalculator({ locale = "en" }: { locale?: "en" |
         aria-live="polite"
       >
         <h1 className="font-serif text-3xl font-semibold text-[#101214] sm:text-4xl">
-          {isEs ? "Ritmo de guion y duración estimada" : "Script pacing & teleprompter timing"}
+          {isEs ? "Calcula las palabras y la duración de tu video" : "Script pacing & teleprompter timing"}
         </h1>
         <p className="text-sm text-[#5a6066]">
           {isEs ? "Preparando la plantilla diaria…" : "Preparing today’s pacing drill…"}
@@ -383,11 +383,11 @@ export function DailyScriptPacingCalculator({ locale = "en" }: { locale?: "en" |
             {isEs ? "Calculadora de Ritmo de Video" : "Daily Video Script Pacing Calculator"}
           </p>
           <h1 className="mt-2 font-serif text-3xl font-semibold text-[#101214] sm:text-4xl">
-            {isEs ? "Ritmo de guion y duración estimada" : "Script pacing & teleprompter timing"}
+            {isEs ? "Calcula las palabras y la duración de tu video" : "Script pacing & teleprompter timing"}
           </h1>
           <p className="mt-2 text-sm leading-6 text-[#5a6066]">
             {isEs
-              ? "Calcula la duración exacta de tu guion, ajusta palabras por minuto y calibra la retención antes de grabar."
+              ? "Pega tu guion, ajusta las palabras por minuto y comprueba si entra en el tiempo antes de grabar."
               : "Calculate exact spoken video duration, dial in speaking cadence, and calibrate viewer retention before hitting record."}
           </p>
         </div>
