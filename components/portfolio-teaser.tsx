@@ -56,9 +56,13 @@ export function PortfolioTeaser({ locale }: PortfolioTeaserProps) {
   // Web-design projects are excluded: this section is "first, the work" for a
   // video buyer, and a website screenshot in a video rail is a different
   // promise.
+  const homepageExcludedProjectIds = new Set(["banacol", "ml-colombia"]);
   const items = PORTFOLIO_ITEMS.filter(
     (item): item is PortfolioItem =>
-      item.status === "live" && item.category !== "web-design" && item.id !== "la-huelga",
+      item.status === "live" &&
+      item.category !== "web-design" &&
+      item.id !== "la-huelga" &&
+      !homepageExcludedProjectIds.has(item.id),
   );
   const isSpanish = locale === "es";
   const href = isSpanish ? "/es/portafolio" : "/portfolio";
