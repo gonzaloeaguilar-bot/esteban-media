@@ -1,3 +1,12 @@
+# 2026-10-22 — Spanish caption-styles guide content-depth candidate (local branch)
+
+- Source scope: `lib/guides.ts` and the generated existing ledger `config/page-lastmod.json`; no route, dependency, analytics, pricing, or factual business claim changed.
+- Updated `/es/guias/mejores-estilos-de-subtitulos-para-reels` with an outcome-specific H1, concise metadata, a two-sentence answer-first introduction, and a reading-need comparison (complete captions versus short emphasis text) that links to the existing Spanish safe-zone guide and Reels service page.
+- Local verification: `pnpm lastmod:update`, `git diff --check`, `npm run typecheck --silent`, and `npm test` passed. The full suite reported 165 test files and 3,469 tests passing. No deployment or production verification has occurred.
+- Next owner: `cto-qa-lead` independently reviews the exact diff and, after an authorized release, verifies the production raw HTML, rendered page, canonical links, and date ledger. `cto-seo-lead` owns a later comparable GSC observation; this change does not establish click, ranking, or citation impact.
+
+---
+
 # 2026-10-21 — Large-video transfer guide content-depth candidate (local branch)
 
 - Source scope: `lib/guides.ts` and the generated existing ledger `config/page-lastmod.json`; no route, dependency, analytics, pricing, or factual business claim changed.

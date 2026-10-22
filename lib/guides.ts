@@ -3111,13 +3111,13 @@ const guidePairs: readonly GuidePair[] = [
     },
     es: {
       slug: "mejores-estilos-de-subtitulos-para-reels",
-      metadataTitle: "Mejores Subtítulos para Reels",
-      title: "Mejores estilos de subtítulos y textos para Reels y Shorts",
+      metadataTitle: "Subtítulos para Reels: Guía",
+      title: "Qué estilo de subtítulos usar en Reels: legibilidad, ritmo y zona segura",
       description:
-        "Descubre tipografías de alto contraste, zonas seguras y resaltado de palabras clave para videos verticales en redes.",
+        "Elige subtítulos para Reels que se lean en celular: frases completas o palabras clave, contraste suficiente y una zona segura que no tape la interfaz.",
       eyebrow: "Subtítulos / Reels Sociales",
       answer:
-        "Utiliza fuentes en negrita de alto contraste dentro de la zona segura con resaltado de palabras clave para reproducción sin sonido.",
+        "Para que un Reel se entienda sin sonido, usa texto de alto contraste dentro de la zona segura y elige el formato según el mensaje: frases completas si la voz explica la idea o palabras clave si la imagen ya la muestra. Antes de publicar, comprueba el resultado en un celular con la interfaz de la plataforma visible.",
       proof: {
         href: "/es/portafolio/bar-door-monkey",
         title: "Bar Door Monkey Miami",
@@ -3141,7 +3141,8 @@ const guidePairs: readonly GuidePair[] = [
           heading: "¿Cómo se elige el estilo según cómo se verá el video?",
           paragraphs: [
             "Reels, Shorts y TikToks muchas veces se ven sin sonido, pero el subtítulo correcto depende de cuánto necesita entender la persona. Un video hablado suele necesitar frases completas; un reel de comida, producto o evento puede funcionar mejor con palabras cortas de énfasis que acompañan la imagen.",
-            "Para una cuenta de negocio, conviene mantener una línea visual reconocible y ajustar peso, ubicación y velocidad según el formato. Un plato, un consejo del fundador, un recorrido y una explicación de servicio pueden compartir estilo sin tener el mismo ritmo de texto.",
+            "Para una cuenta de negocio, conviene mantener una línea visual reconocible y ajustar peso, ubicación y velocidad según el formato. Un plato, un consejo del fundador, un recorrido y una explicación de servicio pueden compartir estilo sin tener el mismo ritmo de texto. Si necesitas decidir antes de editar, empieza por el mensaje que una persona debe entender aunque no active el audio, no por una animación que se vea llamativa.",
+            "La comparación útil no es entre un estilo moderno y uno anticuado, sino entre lo que la persona necesita leer y lo que ya puede ver. Si al quitar el audio se pierde la idea, aumenta el contexto del subtítulo. Si el texto tapa la acción que demuestra el punto, redúcelo o vuelve a encuadrar. Revisa también la [guía de video vertical y zonas seguras](/es/guias/video-vertical-horizontal-y-zonas-seguras) y cómo usar [Reels para negocios en Miami](/es/reels-para-negocios-miami) antes de preparar versiones para publicar.",
           ],
           bullets: [
             "Usa frases completas cuando la voz lleva el mensaje principal",
