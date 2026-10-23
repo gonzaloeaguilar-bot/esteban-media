@@ -23,7 +23,6 @@ import {
 } from "@/lib/portfolio-watch";
 import {
   REAL_ESTATE_REELS,
-  REAL_ESTATE_REELS_PUBLISHED,
   buildRealEstateReelsJsonLd,
   realEstateReelsPath,
 } from "@/lib/real-estate-reels";
@@ -90,9 +89,11 @@ describe("self-hosted reels: the schema matches the files that ship", () => {
     },
   );
 
-  it("carries the git date the files were first published, with a timezone", () => {
-    expect(REAL_ESTATE_REELS_PUBLISHED).toMatch(ISO_DATETIME);
-    expect(Number.isNaN(Date.parse(REAL_ESTATE_REELS_PUBLISHED))).toBe(false);
+  it("carries a measured publication timestamp for every reel", () => {
+    for (const reel of REAL_ESTATE_REELS) {
+      expect(reel.publishedAt).toMatch(ISO_DATETIME);
+      expect(Number.isNaN(Date.parse(reel.publishedAt))).toBe(false);
+    }
   });
 
   it.each(["en", "es"] as const)("%s JSON-LD has every Google field, valid", (locale) => {
@@ -106,7 +107,7 @@ describe("self-hosted reels: the schema matches the files that ship", () => {
       expect(node.name.length).toBeGreaterThan(0);
       expect(node.description.length).toBeGreaterThan(0);
       expect(node.thumbnailUrl.every(isSiteUrl)).toBe(true);
-      expect(node.uploadDate).toBe(REAL_ESTATE_REELS_PUBLISHED);
+      expect(node.uploadDate).toBe(reel.publishedAt);
       expect(node.duration).toMatch(ISO_DURATION);
       expect(durationSeconds(node.duration)).toBe(
         Math.round(mp4DurationSeconds(join(PUBLIC, reel.src))),
@@ -194,9 +195,9 @@ describe("video sitemap agrees with the JSON-LD", () => {
       expect(block).toContain(`<video:duration>${Math.round(reel.durationSeconds)}</video:duration>`);
     }
     expect(block!.match(/<video:publication_date>/g)).toHaveLength(REAL_ESTATE_REELS.length);
-    expect(block).toContain(
-      `<video:publication_date>${REAL_ESTATE_REELS_PUBLISHED}</video:publication_date>`,
-    );
+    for (const reel of REAL_ESTATE_REELS) {
+      expect(block).toContain(`<video:publication_date>${reel.publishedAt}</video:publication_date>`);
+    }
   });
 
   it("every duration is whole seconds within Google's 1-28800 range", () => {

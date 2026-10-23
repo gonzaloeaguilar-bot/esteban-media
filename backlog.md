@@ -208,3 +208,7 @@ Production is live. This file tracks repository implementation; account/access w
 - [x] Owner-requested real-estate-only visual boundary, distinct1/2/3-property plan artwork, playful touch/keyboard response and reference storage; implemented and browser-verified2026-10-03. Delivery record: `.ai/handoff.md` and Obsidian `esteban-plan-distinction-2026-10-03`.
 
 - [x] Replace à la carte text/icon tiles with six distinct playful illustrations, shared disclosures, useful preparation guidance, EN/ES source links and finite touch motion (2026-10-03 owner request).
+## 2026-10-23 — Owner-authorized real-estate social reel carousel
+
+- [x] Add the supplied published social reel to the existing real-estate carousel as a self-hosted seventh item. Local lint, typecheck, full test suite (165 files / 3,470 tests), analytics gate, build, text parity, rail checks, and desktop/390px playback checks passed.
+- [ ] Obtain the governed independent review, release `feat/real-estate-social-reel`, and verify the live player at desktop and 390px before calling it public.

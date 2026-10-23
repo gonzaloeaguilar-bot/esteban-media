@@ -89,8 +89,8 @@ export function PortfolioTeaser({ locale }: PortfolioTeaserProps) {
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-7 text-[#c9c1b8]">
               {isSpanish
-                ? "Lo más reciente primero: seis Reels inmobiliarios, y después promociones de negocio, eventos, edición, narrativa y animación. Desliza para verlo todo."
-                : <>Newest first: six property Reels, then business promos, events, editing, narrative and animation. Browse the <Link href="/es/portafolio" className="underline underline-offset-4 hover:text-[#f0b384]">selected work</Link> in Spanish.</>}
+                ? `Lo más reciente primero: ${REELS_IN_DISPLAY_ORDER.length} Reels inmobiliarios, y después promociones de negocio, eventos, edición, narrativa y animación. Desliza para verlo todo.`
+                : <>Newest first: {REELS_IN_DISPLAY_ORDER.length} property Reels, then business promos, events, editing, narrative and animation. Browse the <Link href="/es/portafolio" className="underline underline-offset-4 hover:text-[#f0b384]">selected work</Link> in Spanish.</>}
             </p>
           </div>
           {/* No "View portfolio" button. Owner, 2026-10-12: "we don't need
