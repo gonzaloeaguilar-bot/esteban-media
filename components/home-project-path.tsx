@@ -6,6 +6,7 @@ import { ArrowRight, ChevronDown, Plus } from "lucide-react";
 import { useState } from "react";
 
 import { AudienceVideo, EditingPreview } from "@/components/audience-media";
+import { StarterOptions } from "@/components/starter-options";
 
 import type { AudienceLocale } from "@/lib/audience-lanes";
 import { laneFunnelPrice, laneOffers, type ChooserLaneId } from "@/lib/chooser-lane-pricing";
@@ -374,6 +375,9 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
             const offers = packageOffers(route.offerIds);
             const routeLane: ChooserLaneId = route.id === "editing" ? "agency" : route.id === "real-estate" ? "real-estate" : "local-business";
             const routePrice = offers.length > 0 ? offers.map((offer) => `${offer.name} ${offer.price}`).join(" · ") : c.singleQuoted;
+            const editingProject = locale === "es"
+              ? { title: "Video largo o proyecto a medida", lead: "Vlog, entrevista, pieza corporativa o varios formatos. Se cotiza por proyecto según duración, material y entregables.", action: "Pedir cotización por proyecto" }
+              : { title: "Long video or custom project", lead: "Vlog, interview, corporate piece, or multiple formats. Quoted per project based on length, footage and deliverables.", action: "Request a project quote" };
             return (
               <details key={route.id} className="em-route-card" data-route={route.id}>
                 <summary data-cta={`home_project_route_${locale}_${route.id}`}>
@@ -404,7 +408,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                     return <li key={item.id}><details className="em-single-item" data-service={item.id}><summary data-cta={`home_path_${route.id}_${item.id}`}><Image className="em-single-thumb" src={scene.image} alt={c.thumbAlt(item.title)} width={96} height={64} sizes="64px" /><span className="em-single-text"><span className="em-single-title">{item.title}</span><span className="em-single-price">{price}</span>{item.note && <span className="em-single-note">{item.note}</span>}</span><Plus className="em-single-plus" size={18} aria-hidden="true" /></summary><div className="em-single-panel"><p><strong>{c.singleSend}.</strong> {scene.preparation}</p><div className="em-single-actions"><button type="button" className="em-single-ask" onClick={() => openFunnel(route.id, `${routeText.title}: ${item.title}`, price)}>{c.singleAsk}</button>{item.href && <Link href={item.href} className="em-single-service">{c.singleService}</Link>}</div></div></details></li>;
                   })}</ul></>}
                   {route.id === "real-estate" && <details className="em-route-terms"><summary>{locale === "es" ? "Adicionales y condiciones de Real Estate" : "Real estate add-ons and terms"}</summary><p>{locale === "es" ? `Mínimo de ${REAL_ESTATE_PLAN_TERMS.minimumMonths} meses. Propiedades adicionales o mayores a 3,000 SF se cotizan por separado.` : `${REAL_ESTATE_PLAN_TERMS.minimumMonths}-month minimum. Extra properties or homes over 3,000 SF are quoted separately.`}</p></details>}
-                  {route.id === "editing" && <details className="em-process-details em-sheet-details"><summary>{c.process}</summary><div className="em-sheet-body p-4 bg-[#fffaf4]"><EditingPreview locale={locale} /></div></details>}
+                  {route.id === "editing" && <><div className="mt-5 border-t border-[#ddd4c8] pt-4"><p className="em-route-card__label mt-0">{locale === "es" ? "Elige cómo necesitas editar" : "Choose how you need editing"}</p><StarterOptions locale={locale} quiet /></div><details className="em-route-terms"><summary>{editingProject.title}</summary><p>{editingProject.lead}</p><button type="button" className="em-route-choose" onClick={() => openFunnel(route.id, `${routeText.title}: ${editingProject.title}`, c.singleQuoted)}>{editingProject.action}<ArrowRight size={15} /></button></details><details className="em-process-details em-sheet-details"><summary>{c.process}</summary><div className="em-sheet-body p-4 bg-[#fffaf4]"><EditingPreview locale={locale} /></div></details></>}
                   {route.id === "local-business" && <details className="em-process-details em-sheet-details"><summary>{locale === "es" ? "Ver ejemplo de contenido" : "See a content example"}</summary><div className="em-sheet-body p-4 bg-[#fffaf4]"><AudienceVideo locale={locale} alt={c.videoAlt} /></div></details>}
                   <button type="button" className="em-route-main-cta" onClick={() => openFunnel(route.id, routeText.title, routePrice)}>{locale === "es" ? `Cotizar ${routeText.title}` : `Quote ${routeText.title}`}<ArrowRight size={18} /></button>
                 </div>
