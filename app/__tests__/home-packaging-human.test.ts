@@ -51,6 +51,13 @@ for (const locale of ["en", "es"] as const) {
       expect(css).toContain(".em-route-card>summary");
     });
 
+    it("1b1. desktop route cards reserve separate tracks for copy, artwork, and the control", () => {
+      const css = read("app/illustrated-commercial.css");
+      expect(css).toContain("grid-template-columns:minmax(0,1fr) 82px 28px");
+      expect(css).toContain(".em-route-card__visual{position:relative");
+      expect(css).toContain(".em-route-card__plus{position:relative");
+    });
+
     it("1b2. gives the decorative lens an on-screen idle focus loop without moving for reduced-motion visitors", () => {
       const component = read("components/home-project-path.tsx");
       const css = read("app/illustrated-commercial.css");
