@@ -8,7 +8,7 @@ import type { Locale } from "@/lib/packages";
  * Both halves already existed and both were fine on their own. What was wrong
  * was the order and the place.
  *
- * The six property reels — the only part of the page a visitor can judge in
+ * The property-reel shelf — the only part of the page a visitor can judge in
  * three seconds — sat below the packages track, the monthly plans, the
  * a-la-carte grid, the three steps and the FAQ, i.e. in the bottom third of a
  * long page. The monthly plans, the half that asks for a monthly commitment,

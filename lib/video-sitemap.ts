@@ -6,11 +6,7 @@ import {
   isoDurationToSeconds,
   type PortfolioWatchLocale,
 } from "@/lib/portfolio-watch";
-import {
-  REAL_ESTATE_REELS_PUBLISHED,
-  REELS_IN_DISPLAY_ORDER,
-  realEstateReelsPath,
-} from "@/lib/real-estate-reels";
+import { REELS_IN_DISPLAY_ORDER, realEstateReelsPath } from "@/lib/real-estate-reels";
 
 /**
  * The video sitemap (served at /video-sitemap.xml, listed in robots.txt).
@@ -18,7 +14,7 @@ import {
  * Two kinds of video live on the site:
  *  - YouTube portfolio pieces, one per watch page (/portfolio/[id] and
  *    /es/portafolio/[id]), played through the youtube-nocookie embed;
- *  - six self-hosted real-estate reels, shown together on the real-estate
+ *  - self-hosted real-estate reels, shown together on the real-estate
  *    reels service page in each language.
  *
  * Every field reads the same record the page and its VideoObject JSON-LD read
@@ -65,7 +61,7 @@ function youtubeEntries(): string[] {
   );
 }
 
-/** One <url> per language: the reels service page, carrying all six reels. */
+/** One <url> per language: the reels service page, carrying every reel. */
 function realEstateReelEntries(): string[] {
   return locales.map((locale) => {
     const isEs = locale === "es";
@@ -77,7 +73,7 @@ function realEstateReelEntries(): string[] {
         `      <video:description>${escapeXml(isEs ? reel.captionEs : reel.caption)}</video:description>`,
         `      <video:content_loc>${escapeXml(absoluteUrl(reel.src))}</video:content_loc>`,
         `      <video:duration>${Math.round(reel.durationSeconds)}</video:duration>`,
-        `      <video:publication_date>${escapeXml(REAL_ESTATE_REELS_PUBLISHED)}</video:publication_date>`,
+        `      <video:publication_date>${escapeXml(reel.publishedAt)}</video:publication_date>`,
         "      <video:family_friendly>yes</video:family_friendly>",
         "    </video:video>",
       ].join("\n"),

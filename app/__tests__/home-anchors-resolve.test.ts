@@ -63,6 +63,11 @@ describe("home in-page anchors resolve", () => {
     expect(chooser).toContain('<section id="start"');
   });
 
+  it("keeps native muted inline autoplay available for normal-motion visitors", () => {
+    const hero = source("components/hero-video.tsx");
+    expect(hero).toMatch(/<video[\s\S]*autoPlay[\s\S]*muted[\s\S]*loop[\s\S]*playsInline/);
+  });
+
   it("the packages section still declares the id its OfferCatalog schema points at", () => {
     // lib/packages.ts packagesJsonLd emits `${homeUrl}#packages` / `#paquetes`;
     // that URL has to land on the section even with no in-page link to it.

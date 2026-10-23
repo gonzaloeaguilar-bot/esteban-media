@@ -1,0 +1,62 @@
+{
+  "schema": 3,
+  "project": "esteban-media",
+  "intent": "Release the owner-authorized social reel carousel addition and native hero autoplay repair with the existing Esteban Moreno Media composition and interactions intact.",
+  "phase": "repair",
+  "visual_evidence": {
+    "scope": "local_repair",
+    "scope_reason": "The owner explicitly requested production release of the supplied public social Reel and the existing hero autoplay repair.",
+    "target": "candidate",
+    "owner_status": "owner_accepted_direction",
+    "capture_kind": "rendered",
+    "spec_sha256": "beee020d095eae4081540e22015b5d51eca56d76566b7676087ffb0ddfaf60ee",
+    "taste_sha256": "0b08669591e657d4812aeac05bbaf0eebf21ac1bc54891998c0c7f5689ef5bc4",
+    "correction_excerpt": "Tocar reproduce aquí; nunca manda a otra página — PREFERENCIA",
+    "comparison": "Existing hero and real-estate carousel, with native autoplay and the authorized seventh reel added without a new visual system.",
+    "references": [
+      {
+        "path": "../public/about/esteban-on-set-frame.jpg",
+        "moment": "existing homepage hero poster",
+        "sha256": "1005d66c45c38687537ac333253a43dbaa17cec342be735bc61ab1a1091da737",
+        "borrow": "the established hero composition and readable overlay",
+        "avoid": "forcing movement for reduced-motion visitors"
+      },
+      {
+        "path": "../public/real-estate-reels/reel-07.jpg",
+        "moment": "owner-authorized social reel poster",
+        "sha256": "5778c81aaf7966c5b1f04d1d623bf8f69bfd0891fb760dac9c67af0eb531e039",
+        "borrow": "the finished vertical social edit as real work proof",
+        "avoid": "Instagram chrome or an external-navigation embed"
+      }
+    ],
+    "candidate_frames": [
+      {
+        "path": "../public/about/esteban-on-set-frame.jpg",
+        "moment": "hero poster before first moving frame",
+        "sha256": "1005d66c45c38687537ac333253a43dbaa17cec342be735bc61ab1a1091da737",
+        "viewport": "phone"
+      },
+      {
+        "path": "../public/real-estate-reels/reel-07.jpg",
+        "moment": "first real-estate carousel card",
+        "sha256": "5778c81aaf7966c5b1f04d1d623bf8f69bfd0891fb760dac9c67af0eb531e039",
+        "viewport": "phone"
+      }
+    ]
+  },
+  "brief": {
+    "visitor": "A phone-first South Florida business owner, agent, or creator deciding whether Esteban can make and edit their video.",
+    "promise": "See Esteban's real working footage and a finished property social edit immediately, then choose an existing package or start WhatsApp.",
+    "primary_action": "Choose a package; WhatsApp remains the direct alternative.",
+    "friction": "The hero depended on script-started playback and the latest authorized property social proof was absent from the carousel.",
+    "kpi": {"outcome": "qualified project inquiry", "event": "existing hero or carousel WhatsApp action", "denominator": "homepage and reel-shelf viewers", "baseline": "UNKNOWN: no comparable source-tagged inquiry export was read in this session", "evidence": "The local candidate has native autoplay markup and seven self-hosted real-estate reel records.", "readout": "T+28", "decision_rule": "Keep only if production playback and future attributable inquiry measurement are both available."},
+    "concept": {"idea": "Keep the established site composition; make its real footage start reliably and add the authorized finished social edit to the existing in-place carousel.", "brand_reason": "The provided footage is proof, not decoration; no generic media or new page treatment is introduced.", "interaction": "The hero moves only for normal-motion visitors; tapping a reel continues to play it in place.", "visible_response": "The poster remains the first paint and reduced-motion state; the reel stays still until selected.", "direct_path": "Existing package and WhatsApp paths.", "alternatives": "No embed, new modal style, external redirect, or client/property claim."},
+    "story": {"opening": "Real footage starts in normal-motion home sessions and the freshest finished social edit leads the property proof shelf.", "action": "Visitor watches in place and chooses an existing next step.", "consequence": "The prior decision flow remains intact.", "next_step": "Ask Esteban for a scoped project quote."},
+    "content": {"visible": "Existing home title and actions plus a factual reel title, duration, and short description.", "optional_html": "Existing player and quote details.", "linked_depth": "Existing real-estate reel service and WhatsApp inquiry."},
+    "references": {"borrow": "Existing Esteban hero, reel rail, in-place player, and poster-first loading.", "avoid": "unapproved client identity, property claims, and motion that gates content."},
+    "components": {"reuse": "HeroVideo, CinemaHeroMotion, RealEstateReels, typed reel records, VideoObject builder, and video sitemap generator.", "local_reason": "Both changes extend existing brand-local components rather than introduce new UI."},
+    "verification": {"rendered_states": "375x667, 390x844, and desktop; hero playback; first carousel card; in-place player; reduced motion.", "motion": "Muted inline hero autoplay in normal motion and poster fallback in reduced motion; selected reel playback in place.", "accessibility_performance": "Video stays decorative and the new carousel action has a clear name.", "raw_html": "Home HTML exposes autoPlay video markup; reel service HTML and sitemap expose the seventh local video.", "conversion_boundary": "Existing package and WhatsApp links remain available; no messages are sent."},
+    "reviewers": {"craft": "Antigravity", "behavior": "Claude and cto-qa-lead", "outcome": "cto-product-lead at T+28"},
+    "learning": {"metric": "qualified project inquiry", "baseline_source": "UNKNOWN: no dated source-tagged inquiry export is available in this session", "baseline_value": "UNKNOWN: no dated source-tagged inquiry export is available in this session", "target_kind": "funnel_step", "target": "hero or reel-shelf action to qualified inquiry", "hypothesis": "Reliably presenting current real footage improves proof visibility without adding navigation friction.", "observation_windows": ["T+28"], "decision_rule": "retain only if playback checks pass and later attributable inquiry data is measurable", "ledger_status": "planned", "registration_condition": "record comparable production event availability before outcome grading"}
+  }
+}
