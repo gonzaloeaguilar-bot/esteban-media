@@ -48,6 +48,7 @@ const expectedCategoryByItem: Record<string, PortfolioCategoryId> = {
   "diana-jack": "events",
   "la-huelga": "narrative",
   "ml-colombia": "social-content",
+  "great-reviewer-iphone-18": "social-content",
   titanforge: "web-design",
   "gains-from-geebs": "web-design",
   "front-line-auto": "web-design",
@@ -66,6 +67,7 @@ const verifiedYears: Record<string, number> = {
   "front-line-auto": 2026,
   "flas-concierge": 2026,
   "ai-lead-automation": 2026,
+  "great-reviewer-iphone-18": 2026,
 };
 
 describe("verified portfolio data", () => {
@@ -81,16 +83,16 @@ describe("verified portfolio data", () => {
     ]);
   });
 
-  it("ships exactly 13 unique live projects with no placeholder media", () => {
-    expect(PORTFOLIO_ITEMS).toHaveLength(13);
-    expect(new Set(PORTFOLIO_ITEMS.map((item) => item.id)).size).toBe(13);
+  it("ships exactly 14 unique live projects with no placeholder media", () => {
+    expect(PORTFOLIO_ITEMS).toHaveLength(14);
+    expect(new Set(PORTFOLIO_ITEMS.map((item) => item.id)).size).toBe(14);
 
     for (const item of PORTFOLIO_ITEMS) {
       expect(item.status).toBe("live");
       expect(item.media.kind).not.toBe("placeholder");
     }
 
-    expect(getLivePortfolioItemCount()).toBe(13);
+    expect(getLivePortfolioItemCount()).toBe(14);
     expect(getPlaceholderItemCount()).toBe(0);
   });
 

@@ -104,8 +104,8 @@ describe("portfolio watch routes", () => {
       spanishDescriptions.add(String(spanish.description));
     }
 
-    expect(englishDescriptions.size).toBe(13);
-    expect(spanishDescriptions.size).toBe(13);
+    expect(englishDescriptions.size).toBe(14);
+    expect(spanishDescriptions.size).toBe(14);
   });
 
   it("keeps the real 4:3 La Huelga poster dimensions in social metadata", async () => {

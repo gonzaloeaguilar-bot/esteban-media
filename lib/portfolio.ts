@@ -105,6 +105,7 @@ export type PortfolioItemI18nKey =
   | "diana-jack"
   | "la-huelga"
   | "ml-colombia"
+  | "great-reviewer-iphone-18"
   | "titanforge"
   | "gains-from-geebs"
   | "front-line-auto"
@@ -328,6 +329,26 @@ export const PORTFOLIO_ITEMS: readonly PortfolioItem[] = [
       poster: "/portfolio/ml-colombia.jpg",
       uploadDate: "2022-08-31T17:10:32-07:00",
       duration: "PT0M24S",
+      aspect: "16:9",
+    },
+  },
+  {
+    id: "great-reviewer-iphone-18",
+    category: "social-content",
+    title: "The Great Reviewer: iPhone 18 Pro Max Content Reel",
+    titleI18nKey: "great-reviewer-iphone-18",
+    descriptionI18nKey: "great-reviewer-iphone-18",
+    creditsI18nKey: "great-reviewer-iphone-18",
+    year: 2026,
+    featured: true,
+    status: "live",
+    media: {
+      kind: "youtube",
+      videoId: "BDRru8eXaj4",
+      url: "https://www.youtube.com/watch?v=BDRru8eXaj4",
+      poster: "/portfolio/great-reviewer-iphone-18.jpg",
+      uploadDate: "2026-10-06T00:00:00-07:00",
+      duration: "PT8M54S",
       aspect: "16:9",
     },
   },
