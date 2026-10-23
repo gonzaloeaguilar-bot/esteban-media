@@ -36,8 +36,8 @@ function answerLine(locale: "en" | "es"): string {
  * rolling — see CinemaHeroMotion for the only moving parts.
  *
  * The poster is a real <Image priority> so it is the LCP element and what
- * no-JS and reduced-motion visitors see. The clip has no `autoplay`: it is
- * started from script only when motion is allowed and the hero is on screen.
+ * no-JS and reduced-motion visitors see. In normal-motion browsers the muted,
+ * inline clip uses native autoplay; CinemaHeroMotion still pauses it offscreen.
  */
 export function HeroVideo({ locale = "en" }: HeroVideoProps) {
   const isSpanish = locale === "es";
@@ -65,6 +65,7 @@ export function HeroVideo({ locale = "en" }: HeroVideoProps) {
             />
             <video
               className="em-cine__video"
+              autoPlay
               muted
               loop
               playsInline

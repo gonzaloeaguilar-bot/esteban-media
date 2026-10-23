@@ -212,3 +212,8 @@ Production is live. This file tracks repository implementation; account/access w
 
 - [x] Add the supplied published social reel to the existing real-estate carousel as a self-hosted seventh item. Local lint, typecheck, full test suite (165 files / 3,470 tests), analytics gate, build, text parity, rail checks, and desktop/390px playback checks passed.
 - [ ] Obtain the governed independent review, release `feat/real-estate-social-reel`, and verify the live player at desktop and 390px before calling it public.
+
+## 2026-10-23 — Owner-requested production release
+
+- [x] Add native muted inline autoplay to the existing homepage hero and retain the reduced-motion poster path. The combined local candidate passed lint, typecheck, 165 test files / 3,471 tests, analytics, build, text parity, rail adoption, raw HTML, and rendered playback checks.
+- [ ] Push the combined owner-media candidate, merge after green CI, and verify production homepage autoplay plus the new real-estate reel at desktop and 390px.
