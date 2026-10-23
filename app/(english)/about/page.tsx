@@ -75,7 +75,14 @@ export default function AboutPage() {
                 >
                   service areas
                 </Link>{" "}
-                directory.
+                directory. Spanish-first visitors can also review the{" "}
+                <Link
+                  href="/es/servicios"
+                  className="underline underline-offset-4 hover:text-[#9f3c27]"
+                >
+                  video, website, and inquiry services overview
+                </Link>{" "}
+                before sharing a project.
               </p>
               <p className="mt-4 max-w-2xl leading-7 text-[#252a2d]">
                 His{" "}

@@ -199,7 +199,15 @@ export default function AreasPage() {
                     eventos del año
                   </Link>{" "}
                   hub to plan social content and video recaps before a
-                  remote handoff.
+                  remote handoff. The Spanish{" "}
+                  <Link
+                    href="/es/servicios"
+                    className="underline underline-offset-4 hover:text-[#9f3c27]"
+                  >
+                    video, website, and inquiry services overview
+                  </Link>{" "}
+                  brings those options together before the project details are
+                  sent.
                 </p>
                 <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm">
                   <Link className="font-medium text-[#9f3c27] underline underline-offset-4" href="/services/short-form-video-editor-miami">
