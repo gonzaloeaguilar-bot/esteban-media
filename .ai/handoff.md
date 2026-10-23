@@ -6,6 +6,14 @@
 
 ---
 
+# 2026-10-23 — English caption-styles guide content-depth candidate (local branch)
+
+- Source scope: `lib/guides.ts` and the generated existing ledger `config/page-lastmod.json`; no route, dependency, analytics, price, or factual business claim changed.
+- Updated `/guides/best-caption-styles-for-instagram-reels` with an outcome-specific title and H1, a two-sentence answer-first introduction, expanded safe-zone guidance, and contextual links to the existing safe-zone guide, Reels-for-business guide, and restaurant-editing service. The existing FAQ, FAQPage schema, route, and established restaurant-service link remain in place.
+- Local verification: `pnpm lastmod:update`, `npm run typecheck --silent`, `npm test`, and `git diff --check` completed without failures. Not committed, independently reviewed, deployed, or production-verified. Next owner: `cto-qa-lead` reviews the exact diff; after authorized release, verify the production title, H1, answer, raw FAQ HTML, contextual links, and updated date. `cto-seo-lead` owns a comparable later GSC read; no click, ranking, citation, or inquiry impact is claimed.
+
+---
+
 # 2026-10-22 — Miami corporate-video cost guide content-depth candidate (local branch)
 
 - Source scope: `lib/guides.ts`, its existing metadata test, and the generated existing ledger `config/page-lastmod.json`; no route, dependency, analytics, or unsupported price/business claim changed.
