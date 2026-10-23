@@ -1,8 +1,14 @@
-# 2026-10-23 — Homepage lens idle-focus loop candidate
+# 2026-10-23 — Real Estate monthly-plan terms clarity candidate
+
+- Scope: moved the Real Estate terms immediately below the monthly plan cards and above the individual photography and AI-enhancement services. The disclosure is now explicitly titled "Monthly Real Estate plan terms" / "Condiciones de los planes mensuales" and says it applies only to those monthly plans, not the individual services. No price, deliverable, or eligibility rule changed.
+- Local visual evidence: Spanish mobile browser at 390×664 showed Essential, Plus and Premium followed by the renamed disclosure and then "También puedes pedir" with the individual photo and AI items. DOM geometry confirmed the terms begin above the individual-services label (`821 < 872`) and horizontal overflow is zero. Screenshot: `/tmp/esteban-real-estate-terms-local-position.png` (local-only artifact).
+- Gates passed on this diff: `pnpm vitest run app/__tests__/home-packaging-human.test.ts` (26), `pnpm rail-adoption:check` (3), `pnpm typecheck`, `pnpm lint` (0 errors; 22 pre-existing warnings), and `pnpm test` (166 files / 3,479 tests). `pnpm build` compiled successfully; final release checks and production browser verification remain pending PR merge.
+
+# 2026-10-23 — Homepage lens idle-focus loop published
 
 - Scope: the decorative lens in `HomeProjectPath` now performs one brief focus-and-glint breath every 8 seconds only while at least 35% of its chooser panel is visible. The interaction uses `IntersectionObserver`; it does not alter copy, pricing, buttons, or route expansion. `prefers-reduced-motion: reduce` returns no animation.
 - Local visual/behavior evidence: `agent-browser` at 390×844 found the lens panel has `data-lens-idling="true"` with `em-camera-idle-focus` and `em-camera-idle-iris` active while on screen; after scrolling it out, the attribute was false and the computed animation was `none`; after `set media reduced-motion`, it was visible but computed animation remained `none`. Screenshot: `/tmp/esteban-lens-motion-mobile.png` (local-only artifact).
-- Gates passed on this diff: `pnpm vitest run app/__tests__/home-packaging-human.test.ts app/__tests__/home-single-projects-in-chooser.test.ts` (33), `pnpm rail-adoption:check` (3), `pnpm test` (166 files / 3,477 tests), `pnpm typecheck`, `pnpm lint` (0 errors, 22 pre-existing warnings), and `pnpm build`. Pending: commit, PR, remote gates, production motion check.
+- Gates passed on this diff: `pnpm vitest run app/__tests__/home-packaging-human.test.ts app/__tests__/home-single-projects-in-chooser.test.ts` (33), `pnpm rail-adoption:check` (3), `pnpm test` (166 files / 3,477 tests), `pnpm typecheck`, `pnpm lint` (0 errors, 22 pre-existing warnings), and `pnpm build`. PR #521 merged as `bf4dc1494d17991393a2a3647e6a801bac6fdbdb`; Vercel deployment `dpl_BHqvNAmLmoUsinudpff2oQKg8zd4` is Ready and aliases the canonical domain. Production browser at 390×844 confirmed `em-camera-idle-focus` and `em-camera-idle-iris` while in view, `animation:none` under reduced motion, and no horizontal overflow. No inquiry or revenue outcome is measured.
 
 # 2026-10-23 — Human-route homepage chooser candidate (PR #519)
 

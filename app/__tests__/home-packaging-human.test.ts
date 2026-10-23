@@ -62,6 +62,21 @@ for (const locale of ["en", "es"] as const) {
       expect(css).toContain("@media(prefers-reduced-motion:reduce)");
     });
 
+    it("1b3. keeps monthly Real Estate terms with the monthly plans, not the individual services", () => {
+      const terms = locale === "es" ? "Condiciones de los planes mensuales" : "Monthly Real Estate plan terms";
+      const clarification = locale === "es"
+        ? "Aplica solo a los planes mensuales de arriba, no a los servicios individuales."
+        : "Applies only to the monthly plans above, not to individual services.";
+      const individualServices = locale === "es" ? "También puedes pedir" : "You can also request";
+      const realEstateStart = path.indexOf('data-route="real-estate"');
+      const realEstateEnd = path.indexOf('data-route="editing"');
+      const realEstate = path.slice(realEstateStart, realEstateEnd);
+      expect(realEstate).toContain(terms);
+      expect(realEstate).toContain(clarification);
+      expect(realEstate.indexOf(terms)).toBeLessThan(realEstate.indexOf(individualServices));
+      expect(realEstate).not.toContain(locale === "es" ? "Adicionales y condiciones de Real Estate" : "Real estate add-ons and terms");
+    });
+
     it("1c. business filming stays with local-business packages, while event production begins with its specific services", () => {
       const component = read("components/home-project-path.tsx");
       expect(component).toContain('{ id: "production", offerIds: [], serviceIds: ["grabacion", "multicam", "yate", "kickstarter"]');
