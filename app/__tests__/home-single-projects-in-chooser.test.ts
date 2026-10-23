@@ -14,10 +14,14 @@ describe("single projects live inside the chooser, once", () => {
     const html = renderToStaticMarkup(React.createElement(HomeProjectPath, { locale }));
     const items = packagesCopy(locale).aLaCarte.items;
 
-    it(`${locale}: every a-la-carte title, note and what-to-send sentence is in the server HTML`, () => {
+    it(`${locale}: every a-la-carte title and what-to-send sentence is in the server HTML`, () => {
       for (const item of items) {
+        if (item.id === "grabacion") {
+          expect(html).toContain(locale === "es" ? "Grabemos tu contenido" : "Film content with me");
+          expect(html).toContain(aLaCarteVisual(item.id, locale).preparation.slice(0, 14));
+          continue;
+        }
         expect(html).toContain(item.title.replace(/&/g, "&amp;"));
-        if (item.note) expect(html).toContain(item.note);
         expect(html).toContain(aLaCarteVisual(item.id, locale).preparation.slice(0, 14));
       }
     });
@@ -28,18 +32,24 @@ describe("single projects live inside the chooser, once", () => {
       expect(html).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$800/);
       expect(html).toMatch(/em-path-offer-name[^>]*>(Growth|Crecimiento)</);
       expect(html).toMatch(/em-path-offer-name[^>]*>(Local Presence|Presencia Local)</);
-      expect(html).toMatch(/em-path-offer-name[^>]*>(Starter|Arranque)</);
+      // Editing is a buying choice (once, weekly, or scoped project), not a
+      // fourth package card named Starter/Arranque.
+      expect(html).toMatch(/em-pk-starter-tile__num[^>]*>\$100</);
+      expect(html).not.toMatch(/em-path-offer-name[^>]*>(Starter|Arranque)</);
       expect(html).toMatch(/em-path-offer-name[^>]*>Essential</);
       expect(html).toMatch(/em-single-price[^>]*>(From|Desde) \$280/);
-      expect(html).toMatch(/em-single-price[^>]*>(From|Desde) \$400/);
+      expect(html).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$1,000/);
       // the lane cards still do not repeat a "Starting price" label
       expect(html).not.toMatch(/em-art-price-label/);
     });
 
     it(`${locale}: native details, collapsed not removed`, () => {
-      const rows = html.match(/<details class="em-single-item"/g) ?? [];
-      expect(rows).toHaveLength(items.length);
+      const standardRows = html.match(/<details class="em-single-item"/g) ?? [];
+      const productionRows = html.match(/<details class="em-path-offer-details group\/offer" name="route-production/g) ?? [];
+      const creatorFilmingRows = html.match(/<details class="em-path-offer-details group\/offer" name="route-creator-filming/g) ?? [];
+      expect(standardRows.length + productionRows.length + creatorFilmingRows.length).toBe(items.length);
       expect(html).not.toMatch(/<details class="em-single-item"[^>]*open/);
+      expect(html).not.toMatch(/<details class="em-path-offer-details group\/offer" name="route-production[^>]*open/);
     });
 
     it(`${locale}: one general WhatsApp link, no per-service WhatsApp rows`, () => {

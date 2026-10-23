@@ -62,10 +62,26 @@ for (const locale of ["en", "es"] as const) {
       expect(css).toContain("@media(prefers-reduced-motion:reduce)");
     });
 
-    it("1c. business filming stays with local-business packages, while event production begins with its specific services", () => {
+    it("1b3. keeps monthly Real Estate terms with the monthly plans, not the individual services", () => {
+      const terms = locale === "es" ? "Condiciones de los planes mensuales" : "Monthly Real Estate plan terms";
+      const clarification = locale === "es"
+        ? "Aplica solo a los planes mensuales de arriba, no a los servicios individuales."
+        : "Applies only to the monthly plans above, not to individual services.";
+      const individualServices = locale === "es" ? "También puedes pedir" : "You can also request";
+      const realEstateStart = path.indexOf('data-route="real-estate"');
+      const realEstateEnd = path.indexOf('data-route="editing"');
+      const realEstate = path.slice(realEstateStart, realEstateEnd);
+      expect(realEstate).toContain(terms);
+      expect(realEstate).toContain(clarification);
+      expect(realEstate.indexOf(terms)).toBeLessThan(realEstate.indexOf(individualServices));
+      expect(realEstate).not.toContain(locale === "es" ? "Adicionales y condiciones de Real Estate" : "Real estate add-ons and terms");
+    });
+
+    it("1c. creator filming stays with creators, business filming stays with local packages, and events keep their specific services", () => {
       const component = read("components/home-project-path.tsx");
-      expect(component).toContain('{ id: "production", offerIds: [], serviceIds: ["grabacion", "multicam", "yate", "kickstarter"]');
+      expect(component).toContain('{ id: "production", offerIds: [], serviceIds: ["multicam", "yate", "kickstarter"]');
       expect(component).toContain('{ id: "local-business", offerIds: ["crecimiento", "presencia-local", "todo-incluido"]');
+      expect(component).toContain('data-lane="creator-filming"');
       expect(component).toContain('name={`route-offer-${locale}-${route.id}`}');
       expect(component).toContain('name={`route-service-${locale}-${route.id}`}');
       expect(component).toContain('onToggle={resetRouteWhenClosed}');
@@ -75,17 +91,39 @@ for (const locale of ["en", "es"] as const) {
       expect(path).not.toContain(locale === "es" ? "Ver ejemplo de contenido" : "See a content example");
     });
 
-    it("1d. editing shows the real one-off, weekly, and scoped-project choices together", () => {
+    it("1c2. production uses the same card grammar and explains commercial scopes only after opening", () => {
+      const productionStart = path.indexOf('data-route="production"');
+      const productionEnd = path.indexOf('data-route="local-business"');
+      const production = path.slice(productionStart, productionEnd);
+      expect(production).toContain(locale === "es" ? "Elige la producción que necesitas" : "Choose the production you need");
+      expect(production).toContain(locale === "es" ? "Ver qué enviar" : "See what to send");
+      expect(production).toContain(locale === "es" ? "Pedir cotización" : "Request a quote");
+      expect(production).not.toContain(locale === "es" ? "También puedes pedir" : "You can also request");
+      expect(production).not.toContain("em-single-item");
+      expect(production).toContain("em-path-offer-details");
+      expect(production).toContain(locale === "es" ? "Demo, brand film o producción con actores y estudio." : "Demo, brand film, or a production with actors and studio.");
+      expect(production).toContain(locale === "es" ? "Elige el alcance al cotizar:" : "Choose the scope when you quote it:");
+      expect(production).not.toContain(locale === "es" ? "Demo básico $1,000 · Brand film $3,000 · Actores y estudio $6,500+" : "Basic demo $1,000 · Brand film $3,000 · Actors and studio $6,500+");
+    });
+
+    it("1d. the content creator route shows editing, a filming day, and scoped-project choices together", () => {
       expect(path).toMatch(/data-route="editing"[\s\S]*\$100[\s\S]*\$85[\s\S]*\$160/);
+      expect(path).toMatch(/data-route="editing"[\s\S]*(Content creator|Creador de contenido)/);
+      expect(path).toMatch(/data-route="editing"[\s\S]*(Film content with me|Grabemos tu contenido)[\s\S]*\$400/);
       expect(path).toContain(locale === "es" ? "Video largo o proyecto a medida" : "Long video or custom project");
       expect(path).toContain(locale === "es" ? "Pedir cotización por proyecto" : "Request a project quote");
       expect(path).not.toContain(locale === "es" ? "Ver el proceso de edición" : "See the editing process");
-      const editing = path.match(/data-route="editing"[\s\S]*?<\/details>/)?.[0] ?? "";
+      const editingStart = path.indexOf('data-route="editing"');
+      const editingEnd = path.indexOf('data-route="production"');
+      const editing = path.slice(editingStart, editingEnd);
       expect(editing).not.toContain("em-route-main-cta");
+      expect(editing).not.toContain('em-route-card__label">Packages');
+      expect(editing).not.toContain('em-route-card__label">Paquetes');
+      expect(editing).not.toContain(">Starter<");
     });
 
     it("3. every package is in the server-rendered chooser, even when not selected", () => {
-      const names = locale === "en" ? ["Starter", "Growth", "Local Presence", "All-In", "Essential"] : ["Arranque", "Crecimiento", "Presencia Local", "Todo Incluido", "Essential"];
+      const names = locale === "en" ? ["Growth", "Local Presence", "All-In", "Essential"] : ["Crecimiento", "Presencia Local", "Todo Incluido", "Essential"];
       for (const name of names) expect(path, name).toContain(`em-path-offer-name">${name}<`);
     });
 
