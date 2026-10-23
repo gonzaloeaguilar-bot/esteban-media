@@ -2,10 +2,9 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, ChevronDown, Plus } from "lucide-react";
+import { ArrowRight, ChevronDown, Clapperboard, Plus, Rocket, ShipWheel, Video } from "lucide-react";
 import { useState } from "react";
 
-import { AudienceVideo, EditingPreview } from "@/components/audience-media";
 import { StarterOptions } from "@/components/starter-options";
 
 import type { AudienceLocale } from "@/lib/audience-lanes";
@@ -79,8 +78,6 @@ const copy = {
       { href: "/services/video-production-fort-lauderdale", label: "Film a video in Fort Lauderdale" },
       { href: "/services/reels-editor-fort-lauderdale", label: "Edit Reels in Fort Lauderdale" },
     ],
-    process: "See the editing process",
-    videoAlt: "Concept illustration of a cafe being filmed on a phone",
     minimumTerm: `${REAL_ESTATE_PLAN_TERMS.minimumMonths}-month minimum commitment.`,
     termsLink: "Full terms are on the pricing page",
     turnaround: (days: number) =>
@@ -137,8 +134,6 @@ const copy = {
       { href: "/es/produccion-de-video-fort-lauderdale", label: "Grabar video en Fort Lauderdale" },
       { href: "/es/editor-de-reels-fort-lauderdale", label: "Editar Reels en Fort Lauderdale" },
     ],
-    process: "Ver el proceso de edición",
-    videoAlt: "Ilustración conceptual de un café grabado con un celular",
     minimumTerm: `Mínimo de ${REAL_ESTATE_PLAN_TERMS.minimumMonths} meses de compromiso.`,
     termsLink: "Las condiciones completas están en la página de precios",
     turnaround: (days: number) =>
@@ -327,6 +322,15 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
     setFunnelLane({ id, label, price });
     setFunnelOpen(true);
   };
+  const resetRouteWhenClosed = (event: React.SyntheticEvent<HTMLDetailsElement>) => {
+    const route = event.currentTarget;
+    if (!route.open) route.querySelectorAll<HTMLDetailsElement>("details[open]").forEach((detail) => { detail.open = false; });
+  };
+  const keepChoiceVisible = (event: React.SyntheticEvent<HTMLDetailsElement>) => {
+    const detail = event.currentTarget;
+    if (!detail.open) return;
+    requestAnimationFrame(() => detail.scrollIntoView({ block: "start", behavior: "smooth" }));
+  };
   const packageOffers = (offerIds: PackageId[] | "real-estate") => {
     if (offerIds === "real-estate") return laneOffers(locale, "real-estate");
     return offerIds.map((id) => {
@@ -379,7 +383,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
               ? { title: "Video largo o proyecto a medida", lead: "Vlog, entrevista, pieza corporativa o varios formatos. Se cotiza por proyecto según duración, material y entregables.", action: "Pedir cotización por proyecto" }
               : { title: "Long video or custom project", lead: "Vlog, interview, corporate piece, or multiple formats. Quoted per project based on length, footage and deliverables.", action: "Request a project quote" };
             return (
-              <details key={route.id} className="em-route-card" data-route={route.id}>
+              <details key={route.id} className="em-route-card" data-route={route.id} name={`home-route-${locale}`} onToggle={resetRouteWhenClosed}>
                 <summary data-cta={`home_project_route_${locale}_${route.id}`}>
                   <span className="em-route-card__copy"><span className="em-route-card__eyebrow">{routeText.eyebrow}</span><strong>{routeText.title}</strong><span>{routeText.lead}</span></span>
                   <Plus className="em-route-card__plus" size={22} aria-hidden="true" />
@@ -389,7 +393,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                   <ul className="em-path-offers grid grid-cols-1 gap-2.5 sm:grid-cols-2" role="list" data-lane={route.id}>
                     {offers.map((offer) => (
                       <li key={offer.name} className="em-path-offer rounded-xl border border-[#d6cabc] bg-white overflow-hidden">
-                        <details className="em-path-offer-details group/offer">
+                        <details className="em-path-offer-details group/offer" name={`route-offer-${locale}-${route.id}`} onToggle={keepChoiceVisible}>
                           <summary className="p-3.5 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
                             <p className="em-path-offer-head flex items-baseline justify-between gap-2 m-0"><strong className="em-path-offer-name">{offer.name}</strong><span className="em-path-offer-price">{offer.price}</span></p>
                             <p className="em-path-offer-inc">{offer.includes}</p>
@@ -405,12 +409,13 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                   </ul></>}
                   {route.serviceIds.length > 0 && <><p className="em-route-card__label mt-5">{locale === "es" ? "También puedes pedir" : "You can also request"}</p><ul className="em-single-list" role="list">{single.items.filter((item) => route.serviceIds.includes(item.id)).map((item) => {
                     const scene = aLaCarteVisual(item.id, locale); const price = servicePrice(item);
-                    return <li key={item.id}><details className="em-single-item" data-service={item.id}><summary data-cta={`home_path_${route.id}_${item.id}`}><Image className="em-single-thumb" src={scene.image} alt={c.thumbAlt(item.title)} width={96} height={64} sizes="64px" /><span className="em-single-text"><span className="em-single-title">{item.title}</span><span className="em-single-price">{price}</span>{item.note && <span className="em-single-note">{item.note}</span>}</span><Plus className="em-single-plus" size={18} aria-hidden="true" /></summary><div className="em-single-panel"><p><strong>{c.singleSend}.</strong> {scene.preparation}</p><div className="em-single-actions"><button type="button" className="em-single-ask" onClick={() => openFunnel(route.id, `${routeText.title}: ${item.title}`, price)}>{c.singleAsk}</button>{item.href && <Link href={item.href} className="em-single-service">{c.singleService}</Link>}</div></div></details></li>;
+                    const ProductionIcon = item.id === "grabacion" ? Video : item.id === "multicam" ? Clapperboard : item.id === "yate" ? ShipWheel : Rocket;
+                    const isProductionService = route.id === "production";
+                    return <li key={item.id}><details className="em-single-item" data-service={item.id} name={`route-service-${locale}-${route.id}`} onToggle={keepChoiceVisible}><summary data-cta={`home_path_${route.id}_${item.id}`}>{isProductionService ? <span className="em-single-thumb em-single-thumb--production" aria-hidden="true"><ProductionIcon size={28} strokeWidth={1.6} /></span> : <Image className="em-single-thumb" src={scene.image} alt={c.thumbAlt(item.title)} width={96} height={64} sizes="64px" />}<span className="em-single-text"><span className="em-single-title">{item.title}</span><span className="em-single-price">{price}</span>{item.note && <span className="em-single-note">{item.note}</span>}</span><Plus className="em-single-plus" size={18} aria-hidden="true" /></summary><div className="em-single-panel"><p><strong>{c.singleSend}.</strong> {scene.preparation}</p><div className="em-single-actions"><button type="button" className="em-single-ask" onClick={() => openFunnel(route.id, `${routeText.title}: ${item.title}`, price)}>{c.singleAsk}</button>{item.href && <Link href={item.href} className="em-single-service">{c.singleService}</Link>}</div></div></details></li>;
                   })}</ul></>}
                   {route.id === "real-estate" && <details className="em-route-terms"><summary>{locale === "es" ? "Adicionales y condiciones de Real Estate" : "Real estate add-ons and terms"}</summary><p>{locale === "es" ? `Mínimo de ${REAL_ESTATE_PLAN_TERMS.minimumMonths} meses. Propiedades adicionales o mayores a 3,000 SF se cotizan por separado.` : `${REAL_ESTATE_PLAN_TERMS.minimumMonths}-month minimum. Extra properties or homes over 3,000 SF are quoted separately.`}</p></details>}
-                  {route.id === "editing" && <><div className="mt-5 border-t border-[#ddd4c8] pt-4"><p className="em-route-card__label mt-0">{locale === "es" ? "Elige cómo necesitas editar" : "Choose how you need editing"}</p><StarterOptions locale={locale} quiet /></div><details className="em-route-terms"><summary>{editingProject.title}</summary><p>{editingProject.lead}</p><button type="button" className="em-route-choose" onClick={() => openFunnel(route.id, `${routeText.title}: ${editingProject.title}`, c.singleQuoted)}>{editingProject.action}<ArrowRight size={15} /></button></details><details className="em-process-details em-sheet-details"><summary>{c.process}</summary><div className="em-sheet-body p-4 bg-[#fffaf4]"><EditingPreview locale={locale} /></div></details></>}
-                  {route.id === "local-business" && <details className="em-process-details em-sheet-details"><summary>{locale === "es" ? "Ver ejemplo de contenido" : "See a content example"}</summary><div className="em-sheet-body p-4 bg-[#fffaf4]"><AudienceVideo locale={locale} alt={c.videoAlt} /></div></details>}
-                  <button type="button" className="em-route-main-cta" onClick={() => openFunnel(route.id, routeText.title, routePrice)}>{locale === "es" ? `Cotizar ${routeText.title}` : `Quote ${routeText.title}`}<ArrowRight size={18} /></button>
+                  {route.id === "editing" && <><div className="mt-5 border-t border-[#ddd4c8] pt-4"><p className="em-route-card__label mt-0">{locale === "es" ? "Elige cómo necesitas editar" : "Choose how you need editing"}</p><StarterOptions locale={locale} quiet /></div><details className="em-route-terms" onToggle={keepChoiceVisible}><summary>{editingProject.title}</summary><p>{editingProject.lead}</p><button type="button" className="em-route-choose" onClick={() => openFunnel(route.id, `${routeText.title}: ${editingProject.title}`, c.singleQuoted)}>{editingProject.action}<ArrowRight size={15} /></button></details></>}
+                  {route.id !== "editing" && <button type="button" className="em-route-main-cta" onClick={() => openFunnel(route.id, routeText.title, routePrice)}>{locale === "es" ? `Cotizar ${routeText.title}` : `Quote ${routeText.title}`}<ArrowRight size={18} /></button>}
                 </div>
               </details>
             );

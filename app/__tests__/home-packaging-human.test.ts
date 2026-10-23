@@ -55,14 +55,22 @@ for (const locale of ["en", "es"] as const) {
       const component = read("components/home-project-path.tsx");
       expect(component).toContain('{ id: "production", offerIds: [], serviceIds: ["grabacion", "multicam", "yate", "kickstarter"]');
       expect(component).toContain('{ id: "local-business", offerIds: ["crecimiento", "presencia-local", "todo-incluido"]');
+      expect(component).toContain('name={`route-offer-${locale}-${route.id}`}');
+      expect(component).toContain('name={`route-service-${locale}-${route.id}`}');
+      expect(component).toContain('onToggle={resetRouteWhenClosed}');
+      expect(read("app/illustrated-commercial.css")).toContain('em-route-card:has(.em-path-offer-details[open],.em-single-item[open]) .em-route-main-cta{display:none}');
       expect(path).toMatch(/data-route="local-business"[\s\S]*em-path-offer-name">(Growth|Crecimiento)</);
       expect(path).toMatch(/data-route="local-business"[\s\S]*em-path-offer-name">(Local Presence|Presencia Local)</);
+      expect(path).not.toContain(locale === "es" ? "Ver ejemplo de contenido" : "See a content example");
     });
 
     it("1d. editing shows the real one-off, weekly, and scoped-project choices together", () => {
       expect(path).toMatch(/data-route="editing"[\s\S]*\$100[\s\S]*\$85[\s\S]*\$160/);
       expect(path).toContain(locale === "es" ? "Video largo o proyecto a medida" : "Long video or custom project");
       expect(path).toContain(locale === "es" ? "Pedir cotización por proyecto" : "Request a project quote");
+      expect(path).not.toContain(locale === "es" ? "Ver el proceso de edición" : "See the editing process");
+      const editing = path.match(/data-route="editing"[\s\S]*?<\/details>/)?.[0] ?? "";
+      expect(editing).not.toContain("em-route-main-cta");
     });
 
     it("3. every package is in the server-rendered chooser, even when not selected", () => {
