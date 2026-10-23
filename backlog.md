@@ -1,3 +1,7 @@
+## 2026-10-23 — Local GBP conversion proof on About page
+
+- [x] Implement `local_gbp_conversion` priority-growth recommendation on `/about`: embed verified Google reviews (`ClientReviews`), linking brand searchers ("esteban moreno media") to 5.0 Google rating proof, verbatim client testimonials, and Google Business Profile listing. Verified with `pnpm lastmod:update`, `npm test` (166 files / 3,472 tests), `pnpm check`, and `priority-growth-project-verify.sh`.
+
 ## 2026-10-22 — Spanish caption-styles guide content-depth refinement
 
 - [x] Prepare `/es/guias/mejores-estilos-de-subtitulos-para-reels` refinement: outcome-specific H1 and metadata, answer-first opening, an existing-page comparison between complete captions and short emphasis text, two contextual Spanish links, and refreshed page-lastmod ledger. `pnpm lastmod:update`, `npm run typecheck --silent`, and `npm test` passed (165 files / 3,469 tests). Before merge, `cto-qa-lead` must independently review the exact diff; after authorized release, verify production raw HTML and rendered links. `cto-seo-lead` owns the later comparable GSC read; traffic, ranking, and click impact remain unmeasured.

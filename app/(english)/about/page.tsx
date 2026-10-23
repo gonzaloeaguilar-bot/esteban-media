@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 
 import { AboutWhoIs } from "@/components/about-who-is";
+import { ClientReviews } from "@/components/client-reviews";
 import { OnSetMedia } from "@/components/on-set-media";
 import { Container } from "@/components/ui/container";
 import { buildProfilePageJsonLd } from "@/lib/entity-schema";
@@ -168,6 +169,7 @@ export default function AboutPage() {
           </div>
         </Container>
       </section>
+      <ClientReviews locale="en" />
       <AboutWhoIs locale="en" path="/about" />
     </main>
   );
