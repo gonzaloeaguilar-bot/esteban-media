@@ -5215,11 +5215,11 @@ export const spanishNichePages: SpanishNichePage[] = [
     title: "Editor de video de productos para e-commerce en Miami",
     metadataTitle: "Editor Video Productos E-Commerce",
     description:
-      "Edición de video de producto para tiendas Shopify, Amazon y campañas de conversión e-commerce.",
+      "Edición de video para marcas e-commerce a partir del material del producto definido para cada proyecto.",
     eyebrow: "E-Commerce / Video de Producto",
     h1: "Edición de video de productos para tiendas e-commerce.",
     lead:
-      "Muestra funciones, empaque y detalles de producto en videos de ritmo optimizado para aumentar la conversión de tu tienda online.",
+      "Organiza el material de tu producto en videos claros para tu tienda online, anuncios o redes, con alcance definido antes de editar.",
     keyword: "editor de video de productos para e-commerce",
     location: "Miami-Dade / Broward",
     availability: "confirmed",
@@ -5233,7 +5233,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       "¿Requieres textos sobrepuestos resaltando beneficios clave?",
     ],
     projectFit:
-      "Edición comercial rápida orientada a la venta directa.",
+      "Edición comercial para contenido de producto cuando el material y los derechos de uso están claros.",
     faqs: [
       {
         question: "¿Se pueden añadir textos con beneficios e íconos animados?",

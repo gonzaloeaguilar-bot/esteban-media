@@ -21,7 +21,7 @@ const faqs = [
   {
     question: "Where can I hire an ecommerce product photographer in Miami?",
     answer:
-      "Esteban Moreno Media provides professional ecommerce product photography across Miami-Dade and Broward County, serving Amazon sellers, Shopify brands, and local retailers. Sessions are tailored for clean white-background catalog imagery, Amazon main photos with 100% pure white isolation, and contextual lifestyle shots staged in real South Florida home, office, or outdoor environments. For local businesses needing catalog updates, remote and studio product photography packages start at an authorized floor of $280 for a starter batch of fully retouched high-resolution images delivered in web and print formats. Turnaround ranges between 3 to 5 business days after product delivery, with rush 24-hour turnaround available upon request. High-volume catalog shoots and recurring monthly product content are scoped with customized pricing tiers based on SKU count and styling complexity.",
+      "Esteban Moreno Media discusses real product photography for Miami-Dade and Broward businesses after reviewing the item, the location, and where the images will be used. Share whether the work is for a store listing, website, campaign, or social content, along with the products and reference images. Scope, handling, final-image count, price, and timing are confirmed for the specific project rather than assumed from a generic package.",
   },
   {
     question: "What should you send before a product shoot?",
@@ -31,7 +31,7 @@ const faqs = [
   {
     question: "Do you need new photographs or visuals from existing photos?",
     answer:
-      "Choose a real product shoot when you need new images of the item itself: its packaging, texture, scale, or details that a buyer should see clearly. If you already have accurate product photographs and want alternate settings or campaign concepts, Esteban can discuss AI-assisted visuals using those references. The two services solve different problems, and you can ask about both in one inquiry. Project location, product handling, image use, and the number of final images determine the scope; there is no fixed shoot price on this page. Esteban’s published visual work includes product mockups, but those are not presented here as proof of a photographed product session. Ask for a relevant real-photo example when you speak with him.",
+      "Choose a real product shoot when you need new images of the item itself: its packaging, texture, scale, or details that a buyer should see clearly. If you already have accurate product photographs and want alternate settings or campaign concepts, Esteban can discuss AI-assisted visuals using those references. The two services solve different problems, and you can ask about both in one inquiry. Project location, product handling, image use, and the number of final images determine the scope; there is no fixed shoot price on this page. His published My D'ler portfolio work includes product mockups and motion for a digital product presentation, not a claim of a physical product-photo session. Ask for a relevant real-photo example when you speak with him.",
   },
 ];
 
@@ -128,6 +128,16 @@ export default function ProductPhotographyMiamiPage() {
               See the AI-assisted option <ArrowRight className="size-4" aria-hidden="true" />
             </Link>
           </section>
+        </Container>
+      </section>
+
+      <section className="pb-12 sm:pb-16">
+        <Container size="xl">
+          <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6 sm:p-8">
+            <p className="text-xs font-medium uppercase text-[#5a6066]">Published visual work</p>
+            <h2 className="mt-3 font-serif text-3xl">See the product-visual portfolio before you scope a shoot.</h2>
+            <p className="mt-4 max-w-3xl text-base leading-7 text-[#252a2d]">The published <Link href="/portfolio/my-dler" className="underline underline-offset-4 hover:text-[#9f3c27]">My D&apos;ler project</Link> documents Esteban&apos;s agency role creating product mockups and motion for a delivery-app presentation. It is relevant visual work, but it is not represented as physical product photography. For a real product shoot, describe the product and intended use so the proof and scope match the request.</p>
+          </div>
         </Container>
       </section>
 

@@ -103,6 +103,16 @@ export default function FotografiaDeProductoMiamiPage() {
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
           <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6 sm:p-8">
+            <p className="text-xs font-medium uppercase text-[#5a6066]">Trabajo visual publicado</p>
+            <h2 className="mt-3 font-serif text-3xl">Mira el trabajo visual de producto antes de definir una sesión.</h2>
+            <p className="mt-4 max-w-3xl text-base leading-7 text-[#252a2d]">El proyecto publicado <Link href="/es/portafolio/my-dler" className="underline underline-offset-4 hover:text-[#9f3c27]">My D&apos;ler</Link> documenta el rol de Esteban creando montajes de producto y movimiento para la presentación de una app de entregas. Es trabajo visual pertinente, pero no se presenta como una sesión de fotografía de producto físico. Para una sesión real, describe el producto y el uso previsto para que la prueba y el alcance correspondan a tu solicitud.</p>
+          </div>
+        </Container>
+      </section>
+
+      <section className="pb-12 sm:pb-16">
+        <Container size="xl">
+          <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6 sm:p-8">
             <h2 className="font-serif text-3xl">Describe tu proyecto de fotografía de producto.</h2>
             <p className="mt-4 max-w-2xl text-base leading-7 text-[#252a2d]">Indica el producto, dónde necesitas las fotos y una muestra del estilo que buscas. Esteban podrá explicarte qué puede incluir la sesión.</p>
             <div className="mt-6 flex flex-wrap gap-3">
