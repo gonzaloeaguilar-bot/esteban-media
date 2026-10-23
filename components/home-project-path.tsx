@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, ChevronDown, Clapperboard, Plus, Rocket, ShipWheel, Video } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { StarterOptions } from "@/components/starter-options";
 
@@ -303,6 +303,8 @@ function offerDeliverables(name: string, laneId: ChooserLaneId, locale: Audience
 export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
   const c = copy[locale];
   const single = packagesCopy(locale).aLaCarte;
+  const chooserRef = useRef<HTMLDivElement>(null);
+  const [lensInView, setLensInView] = useState(false);
   const [funnelOpen, setFunnelOpen] = useState(false);
   const [funnelLane, setFunnelLane] = useState<{ id: string; label: string; price: string }>({ id: "real-estate", label: c.tabs[0], price: laneFunnelPrice(locale, "real-estate") });
   const routeCopy: Record<RouteId, { title: string; lead: string; eyebrow: string }> = locale === "es"
@@ -322,6 +324,17 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
     setFunnelLane({ id, label, price });
     setFunnelOpen(true);
   };
+  useEffect(() => {
+    const chooser = chooserRef.current;
+    if (!chooser || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setLensInView(entry.isIntersecting),
+      { threshold: 0.35 },
+    );
+    observer.observe(chooser);
+    return () => observer.disconnect();
+  }, []);
   const resetRouteWhenClosed = (event: React.SyntheticEvent<HTMLDetailsElement>) => {
     const route = event.currentTarget;
     if (!route.open) route.querySelectorAll<HTMLDetailsElement>("details[open]").forEach((detail) => { detail.open = false; });
@@ -358,7 +371,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
         <h2 id={`home-path-${locale}`} className="mt-2 font-serif text-4xl leading-tight sm:text-5xl">{c.heading}</h2>
         <p className="mt-2 max-w-2xl text-base leading-7 text-[#4d5358]">{locale === "es" ? "Toca la situación que se parece a tu proyecto. Se abre aquí mismo con todo lo que incluye." : "Tap the situation that matches your project. It opens right here with everything included."}</p>
 
-        <div className="em-camera-chooser mt-5" aria-hidden="true">
+        <div ref={chooserRef} className="em-camera-chooser mt-5" aria-hidden="true" data-lens-idling={lensInView || undefined}>
           <div className="em-camera-chooser__body">
             <div className="em-camera-chooser__flash" />
             <span className="em-camera-chooser__lens">

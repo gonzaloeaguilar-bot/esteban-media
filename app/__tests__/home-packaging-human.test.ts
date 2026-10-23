@@ -51,6 +51,17 @@ for (const locale of ["en", "es"] as const) {
       expect(css).toContain(".em-route-card>summary");
     });
 
+    it("1b2. gives the decorative lens an on-screen idle focus loop without moving for reduced-motion visitors", () => {
+      const component = read("components/home-project-path.tsx");
+      const css = read("app/illustrated-commercial.css");
+      expect(component).toContain("IntersectionObserver");
+      expect(component).toContain('data-lens-idling={lensInView || undefined}');
+      expect(component).toContain('prefers-reduced-motion: reduce');
+      expect(css).toContain("em-camera-idle-focus 8s");
+      expect(css).toContain("@keyframes em-camera-idle-focus");
+      expect(css).toContain("@media(prefers-reduced-motion:reduce)");
+    });
+
     it("1c. business filming stays with local-business packages, while event production begins with its specific services", () => {
       const component = read("components/home-project-path.tsx");
       expect(component).toContain('{ id: "production", offerIds: [], serviceIds: ["grabacion", "multicam", "yate", "kickstarter"]');
