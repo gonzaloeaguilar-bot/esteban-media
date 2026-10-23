@@ -35,7 +35,8 @@ const copy = {
     /* The control needs two or three words, not a sentence: at full length the
        three options stacked into one grey block with the inactive ones barely
        legible. The full label still reads on the card below. */
-    tabs: ["Real estate", "Business", "Editing only", "One thing"],
+    tabs: ["Real estate", "Business", "Edit video"],
+    singleShortcut: { title: "Need one specific thing?", lead: "Photo, filming, or digital support quoted for your project." },
     singleLead: "Tap one to see what to send me.",
     singleAsk: "Ask about this",
     singleService: "See service page",
@@ -90,7 +91,8 @@ const copy = {
     heading: "¿Qué necesitas crear?",
     intro: "Elige un proyecto para ver trabajo relacionado y los próximos pasos.",
     labels: ["Reels para mis propiedades", "Videos cortos para mi negocio", "Editar videos que ya grabé"],
-    tabs: ["Inmobiliaria", "Negocio", "Solo edición", "Algo puntual"],
+    tabs: ["Inmobiliaria", "Negocio", "Editar videos"],
+    singleShortcut: { title: "¿Necesitas algo puntual?", lead: "Foto, grabación o ayuda digital cotizada para tu proyecto." },
     singleLead: "Toca uno para saber qué enviarme.",
     singleAsk: "Preguntar por esto",
     singleService: "Ver página del servicio",
@@ -323,7 +325,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
             <p className="em-camera-chooser__price">{activePrice}</p>
           </div>
           <div className="em-camera-chooser__choices" role="group" aria-label={locale === "es" ? "Tipo de proyecto" : "Project type"}>
-            {[...lanes.map((lane, i) => ({ id: lane.id, label: c.tabs[i], price: laneStartingPrice(locale, laneIdAt(i)) })), { id: SINGLE_ID, label: c.tabs[3], price: c.singleQuoted }].map((chip) => {
+            {lanes.map((lane, i) => ({ id: lane.id, label: c.tabs[i], price: laneStartingPrice(locale, laneIdAt(i)) })).map((chip) => {
               return (
               <button
                 key={chip.id}
@@ -341,6 +343,17 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
             })}
           </div>
         </div>
+        <button
+          type="button"
+          className="em-single-project-entry mt-3"
+          aria-pressed={activeLane === SINGLE_ID}
+          data-active={activeLane === SINGLE_ID ? "" : undefined}
+          data-cta={`home_project_path_${locale}_${SINGLE_ID}`}
+          onClick={() => selectProject(SINGLE_ID)}
+        >
+          <span><strong>{c.singleShortcut.title}</strong><small>{c.singleShortcut.lead}</small></span>
+          <ArrowRight className="size-5 shrink-0" aria-hidden="true" />
+        </button>
         <div className="mt-5">
           {/* All three lanes are server-rendered every time — never filtered
               to the active one. GPTBot, ClaudeBot and PerplexityBot execute
@@ -597,8 +610,14 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
 
               <div className="p-4 sm:p-5">
                 <p className="em-single-lead">{single.title} {single.lead} {c.singleLead}</p>
-                <ul className="em-single-list" role="list">
-              {single.items.map((item) => {
+                {[
+                  { title: locale === "es" ? "Para crear o grabar" : "To create or film", ids: ["ia", "foto", "grabacion", "multicam", "yate", "kickstarter"] },
+                  { title: locale === "es" ? "Para mejorar o hacer crecer" : "To improve or grow", ids: ["mejora", "seo", "auditoria", "automatizacion"] },
+                ].map((group) => (
+                  <section key={group.title} className="em-single-group" aria-labelledby={`single-group-${locale}-${group.ids[0]}`}>
+                    <h4 id={`single-group-${locale}-${group.ids[0]}`}>{group.title}</h4>
+                    <ul className="em-single-list" role="list">
+              {single.items.filter((item) => group.ids.includes(item.id)).map((item) => {
                 const scene = aLaCarteVisual(item.id, locale);
                 // Real figure only where lib/pricing has one (the photo
                 // session floor). Otherwise the item's own quote statement,
@@ -651,7 +670,9 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                   </li>
                 );
               })}
-            </ul>
+                    </ul>
+                  </section>
+                ))}
             <p className="em-single-credit">{c.singleCredit}</p>
             <div className="em-path-card-info flex flex-col gap-3">
               <Link

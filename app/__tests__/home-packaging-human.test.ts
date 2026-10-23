@@ -42,12 +42,15 @@ for (const locale of ["en", "es"] as const) {
       expect(read("app/illustrated-commercial.css")).toMatch(/\.em-camera-chooser__stop small\{[^}]*white-space:nowrap/);
     });
 
-    it("1b. one deck keeps all four choices above the selected packages, without a second image banner", () => {
-      expect((path.match(/em-camera-chooser__stop/g) ?? [])).toHaveLength(4);
+    it("1b. the camera deck keeps the three recurring paths together and gives one-off work its own entry", () => {
+      expect((path.match(/em-camera-chooser__stop/g) ?? [])).toHaveLength(3);
+      expect(path).toContain("em-single-project-entry");
+      expect(path).toMatch(/Need one specific thing\?|¿Necesitas algo puntual\?/);
       const packageHeading = locale === "en" ? "Available packages" : "Paquetes y entregables";
       expect(path.indexOf('em-camera-chooser__choices')).toBeLessThan(path.indexOf(packageHeading));
       const css = read("app/illustrated-commercial.css");
       expect(css).toMatch(/\.em-camera-chooser__choices\{[^}]*grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/);
+      expect(css).toContain(".em-camera-chooser__stop:last-child{grid-column:1/-1}");
       expect(css).toContain(".em-path-visual{display:none}");
     });
 
