@@ -23,12 +23,7 @@ describe("single projects live inside the chooser, once", () => {
     });
 
     it(`${locale}: every option shows its price with zero taps, in the server HTML, and the photo floor is the real one`, () => {
-      expect(html).toMatch(/em-camera-chooser__stop[^>]*>[\s\S]*?\$450\/(mo|mes)</);
-      // Monthly content and on-site production are separate buyer routes; both
-      // canonical prices remain visible before a visitor opens a card.
-      expect(html).toMatch(/em-camera-chooser__stop[^>]*>[\s\S]*?(From|Desde) \$640/);
-      expect(html).toMatch(/em-camera-chooser__stop[^>]*>[\s\S]*?(From|Desde) \$800/);
-      expect(html).toMatch(/em-camera-chooser__stop[^>]*>[\s\S]*?(From|Desde) \$100/);
+      expect(html).toMatch(/em-path-offer-price[^>]*>\$450\/(mo|mes)</);
       expect(html).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$640/);
       expect(html).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$800/);
       expect(html).toMatch(/em-path-offer-name[^>]*>(Growth|Crecimiento)</);
@@ -47,8 +42,8 @@ describe("single projects live inside the chooser, once", () => {
       expect(html).not.toMatch(/<details class="em-single-item"[^>]*open/);
     });
 
-    it(`${locale}: one WhatsApp link in the single-project lane, no per-card WhatsApp rows`, () => {
-      expect((html.match(/home_path_single_whatsapp/g) ?? []).length).toBe(1);
+    it(`${locale}: one general WhatsApp link, no per-service WhatsApp rows`, () => {
+      expect((html.match(/home_path_general_quote/g) ?? []).length).toBe(1);
       expect(html).not.toMatch(/a_la_carte_\w+_whatsapp/);
     });
   }

@@ -2,14 +2,13 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, ChevronDown, Plus } from "lucide-react";
+import { ArrowRight, ChevronDown, Clapperboard, Plus, Rocket, ShipWheel, Video } from "lucide-react";
 import { useState } from "react";
 
-import { AudienceVideo, EditingPreview } from "@/components/audience-media";
+import { StarterOptions } from "@/components/starter-options";
 
-import { AUDIENCE_LANES, type AudienceLocale } from "@/lib/audience-lanes";
-import { realEstateReelsPath } from "@/lib/real-estate-reels";
-import { laneFunnelPrice, laneOffers, laneStartingPrice, type ChooserLaneId } from "@/lib/chooser-lane-pricing";
+import type { AudienceLocale } from "@/lib/audience-lanes";
+import { laneFunnelPrice, laneOffers, type ChooserLaneId } from "@/lib/chooser-lane-pricing";
 import {
   CREW_RECORDING_RATES,
   KICKSTARTER_LAUNCH,
@@ -17,11 +16,11 @@ import {
   PRODUCT_PHOTO_SESSION,
   REAL_ESTATE_PLAN_TERMS,
   YACHT_PRODUCTION,
-  turnaroundFor,
   usd,
+  type PackageId,
 } from "@/lib/pricing";
 import { HomePathFunnel } from "@/components/home-path-funnel";
-import { packagesCopy, whatsappHref } from "@/lib/packages";
+import { packagesCopy, packagesFor, priceFor, whatsappHref } from "@/lib/packages";
 import { aLaCarteVisual } from "@/lib/a-la-carte-visuals";
 import { quoteCtaLabel } from "@/lib/quote-cta";
 import { site } from "@/lib/site";
@@ -79,8 +78,6 @@ const copy = {
       { href: "/services/video-production-fort-lauderdale", label: "Film a video in Fort Lauderdale" },
       { href: "/services/reels-editor-fort-lauderdale", label: "Edit Reels in Fort Lauderdale" },
     ],
-    process: "See the editing process",
-    videoAlt: "Concept illustration of a cafe being filmed on a phone",
     minimumTerm: `${REAL_ESTATE_PLAN_TERMS.minimumMonths}-month minimum commitment.`,
     termsLink: "Full terms are on the pricing page",
     turnaround: (days: number) =>
@@ -137,8 +134,6 @@ const copy = {
       { href: "/es/produccion-de-video-fort-lauderdale", label: "Grabar video en Fort Lauderdale" },
       { href: "/es/editor-de-reels-fort-lauderdale", label: "Editar Reels en Fort Lauderdale" },
     ],
-    process: "Ver el proceso de edición",
-    videoAlt: "Ilustración conceptual de un café grabado con un celular",
     minimumTerm: `Mínimo de ${REAL_ESTATE_PLAN_TERMS.minimumMonths} meses de compromiso.`,
     termsLink: "Las condiciones completas están en la página de precios",
     turnaround: (days: number) =>
@@ -148,28 +143,25 @@ const copy = {
   },
 } as const;
 
-const artwork = ["property", "editing", "business", "business"] as const;
-/** lanes[index].id ("real-estate" | "local-business" | "agency") already
- * matches ChooserLaneId 1:1 — this is just the type-narrowing cast point. */
-const laneIdAt = (index: number): ChooserLaneId =>
-  (["real-estate", "local-business", "agency"] as const)[index];
+type RouteId = "real-estate" | "editing" | "production" | "local-business";
 
-const pathChoices = [
-  { id: "real-estate", laneIndex: 0, copyIndex: 0, offerId: undefined },
-  { id: "editing", laneIndex: 2, copyIndex: 1, offerId: "arranque" },
-  { id: "monthly-content", laneIndex: 1, copyIndex: 2, offerId: "crecimiento" },
-  { id: "on-site-production", laneIndex: 1, copyIndex: 3, offerId: "presencia-local" },
-] as const;
-
-function matchesPackage(offer: { href: string }, id: "arranque" | "crecimiento" | "presencia-local" | undefined) {
-  if (!id) return true;
-  const slugs = {
-    arranque: ["arranque", "starter"],
-    crecimiento: ["crecimiento", "growth"],
-    "presencia-local": ["presencia-local", "local-presence"],
-  } as const;
-  return slugs[id].some((slug) => offer.href.endsWith(slug));
-}
+/**
+ * Routes are intentionally organized around what a human is buying, not the
+ * billing unit. A service appears once, in the route where a visitor expects
+ * to find it. That keeps a production buyer from having to infer that a yacht
+ * or conference shoot hides behind "one specific thing".
+ */
+const routeDefinitions: Array<{
+  id: RouteId;
+  offerIds: PackageId[] | "real-estate";
+  serviceIds: string[];
+  artwork: "property" | "editing" | "business";
+}> = [
+  { id: "real-estate", offerIds: "real-estate", serviceIds: ["foto", "mejora"], artwork: "property" },
+  { id: "editing", offerIds: ["arranque"], serviceIds: [], artwork: "editing" },
+  { id: "production", offerIds: [], serviceIds: ["grabacion", "multicam", "yate", "kickstarter"], artwork: "business" },
+  { id: "local-business", offerIds: ["crecimiento", "presencia-local", "todo-incluido"], serviceIds: ["ia", "seo", "auditoria", "automatizacion"], artwork: "business" },
+];
 
 function offerDeliverables(name: string, laneId: ChooserLaneId, locale: AudienceLocale): string[] {
   const isEs = locale === "es";
@@ -257,6 +249,23 @@ function offerDeliverables(name: string, laneId: ChooserLaneId, locale: Audience
             "Dedicated creative lead for your brand",
           ];
     }
+    if (name.includes("All-In") || name.includes("Todo Incluido")) {
+      return isEs
+        ? [
+            "Sitio web de conversión",
+            "Chatbot y captura de clientes con IA",
+            "Perfil y presencia local (Google Business, Maps)",
+            "Contenido y edición",
+            "Reporte de todos los canales",
+          ]
+        : [
+            "Conversion website",
+            "AI chatbot and lead capture",
+            "Local profile and presence (Google Business, Maps)",
+            "Content and editing",
+            "Reporting across all channels",
+          ];
+    }
     return isEs
       ? [
           "Pre-producción: dirección creativa y lista de tomas",
@@ -293,478 +302,131 @@ function offerDeliverables(name: string, laneId: ChooserLaneId, locale: Audience
 
 export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
   const c = copy[locale];
-  const lanes = AUDIENCE_LANES[locale].lanes;
   const single = packagesCopy(locale).aLaCarte;
-  const SINGLE_ID = "a-la-carte";
-  const [activeLane, setActiveLane] = useState<(typeof pathChoices)[number]["id"] | typeof SINGLE_ID>(pathChoices[0].id);
-  const [focusTick, setFocusTick] = useState(0);
   const [funnelOpen, setFunnelOpen] = useState(false);
-  const [funnelLane, setFunnelLane] = useState<{ id: string; label: string; price: string }>({ id: lanes[0].id, label: c.labels[0], price: laneFunnelPrice(locale, "real-estate") });
+  const [funnelLane, setFunnelLane] = useState<{ id: string; label: string; price: string }>({ id: "real-estate", label: c.tabs[0], price: laneFunnelPrice(locale, "real-estate") });
+  const routeCopy: Record<RouteId, { title: string; lead: string; eyebrow: string }> = locale === "es"
+    ? {
+        "real-estate": { title: "Real Estate", eyebrow: "Propiedades", lead: "Planes, fotos y mejoras para mostrar cada propiedad." },
+        editing: { title: "Edición de video", eyebrow: "Ya tienes material", lead: "Reels, videos cortos, audio, color y subtítulos a partir de tus tomas." },
+        production: { title: "Producciones y eventos", eyebrow: "Hay que grabar", lead: "Conferencias, yates, equipos multicámara y videos comerciales." },
+        "local-business": { title: "Negocios locales", eyebrow: "Tu negocio", lead: "Contenido mensual, grabación en tu negocio y presencia digital para tu marca." },
+      }
+    : {
+        "real-estate": { title: "Real estate", eyebrow: "Properties", lead: "Plans, photos and improvements to show each property." },
+        editing: { title: "Video editing", eyebrow: "You have footage", lead: "Reels, short videos, audio, color and captions from your footage." },
+        production: { title: "Productions and events", eyebrow: "You need filming", lead: "Conferences, yachts, multi-camera crews and commercial video." },
+        "local-business": { title: "Local businesses", eyebrow: "Your business", lead: "Monthly content, filming at your business and digital presence for your brand." },
+      };
   const openFunnel = (id: string, label: string, price: string) => {
     setFunnelLane({ id, label, price });
     setFunnelOpen(true);
   };
-
-  const activeIndex = [...pathChoices.map((path) => path.id), SINGLE_ID].indexOf(activeLane);
-  const activePath = pathChoices.find((path) => path.id === activeLane);
-  const activeChoice = activePath ? c.labels[activePath.copyIndex] : c.singleLabel;
-  const activePrice = activePath
-    ? laneOffers(locale, laneIdAt(activePath.laneIndex)).find((offer) => matchesPackage(offer, activePath.offerId))?.price ?? laneStartingPrice(locale, laneIdAt(activePath.laneIndex))
-    : c.singleQuoted;
-  const selectProject = (id: (typeof pathChoices)[number]["id"] | typeof SINGLE_ID) => {
-    setActiveLane(id);
-    setFocusTick((tick) => tick + 1);
+  const resetRouteWhenClosed = (event: React.SyntheticEvent<HTMLDetailsElement>) => {
+    const route = event.currentTarget;
+    if (!route.open) route.querySelectorAll<HTMLDetailsElement>("details[open]").forEach((detail) => { detail.open = false; });
   };
-  const selectNextProject = () => {
-    const choices: Array<(typeof pathChoices)[number]["id"] | typeof SINGLE_ID> = [...pathChoices.map((path) => path.id), SINGLE_ID];
-    selectProject(choices[(activeIndex + 1) % choices.length]);
+  const keepChoiceVisible = (event: React.SyntheticEvent<HTMLDetailsElement>) => {
+    const detail = event.currentTarget;
+    if (!detail.open) return;
+    requestAnimationFrame(() => detail.scrollIntoView({ block: "start", behavior: "smooth" }));
+  };
+  const packageOffers = (offerIds: PackageId[] | "real-estate") => {
+    if (offerIds === "real-estate") return laneOffers(locale, "real-estate");
+    return offerIds.map((id) => {
+      const pkg = packagesFor(locale).find((candidate) => candidate.id === id)!;
+      const price = priceFor(id);
+      if (price.kind === "custom") return { name: pkg.name, price: c.singleQuoted, includes: pkg.includes.join(" · "), href: c.pricingHref };
+      const unit = price.unit === "video" ? c.units.video : price.unit === "month" ? c.units.month : c.units["production-day"];
+      return { name: pkg.name, price: `${c.from} ${usd(price.amount)}${unit}`, includes: pkg.includes.join(" · "), href: `${c.pricingHref}/${locale === "es" ? id : id === "arranque" ? "starter" : id === "crecimiento" ? "growth" : id === "presencia-local" ? "local-presence" : "all-in"}` };
+    });
+  };
+  const servicePrice = (item: (typeof single.items)[number]) => {
+    const noteIsQuote = !!item.note && /^(quoted|cotizaci)/i.test(item.note);
+    if (item.id === "foto") return `${c.singleFrom} ${usd(PRODUCT_PHOTO_SESSION.from)}${c.singleSession}`;
+    if (item.id === "grabacion") return `${c.singleFrom} ${usd(ON_LOCATION_CAPTURE.from)}${c.singleHalfDay}`;
+    if (item.id === "multicam") return `${c.singleFrom} ${usd(CREW_RECORDING_RATES.multiCamera.halfDay)}${c.singleHalfDay}`;
+    if (item.id === "yate") return `${c.singleFrom} ${usd(YACHT_PRODUCTION.halfDaySolo)}${c.singleHalfDay}`;
+    if (item.id === "kickstarter") return `${c.singleFrom} ${usd(KICKSTARTER_LAUNCH.from)}`;
+    return noteIsQuote ? item.note! : c.singleQuoted;
   };
 
   return (
     <section id="start" aria-labelledby={`home-path-${locale}`} data-section="home-project-path" className="em-home-project-path bg-[#f7f5f1] py-10 sm:py-14">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <p className="text-xs font-medium uppercase tracking-wider text-[#6a625a]">{c.eyebrow}</p>
         <h2 id={`home-path-${locale}`} className="mt-2 font-serif text-4xl leading-tight sm:text-5xl">{c.heading}</h2>
-        <p className="mt-2 max-w-2xl text-base leading-7 text-[#4d5358]">{c.intro}</p>
+        <p className="mt-2 max-w-2xl text-base leading-7 text-[#4d5358]">{locale === "es" ? "Toca la situación que se parece a tu proyecto. Se abre aquí mismo con todo lo que incluye." : "Tap the situation that matches your project. It opens right here with everything included."}</p>
 
-        <div className="em-camera-chooser mt-5" data-active-index={activeIndex} data-focus-tick={focusTick}>
+        <div className="em-camera-chooser mt-5" aria-hidden="true">
           <div className="em-camera-chooser__body">
-            <div className="em-camera-chooser__flash" aria-hidden="true" />
-            <button type="button" className="em-camera-chooser__lens" aria-label={c.lensAction} onClick={selectNextProject}>
-              <span className={`em-camera-chooser__lens-image${focusTick > 0 ? " is-focusing" : ""}`} key={focusTick}>
-                <Image
-                  src="/illustrations/esteban-sony-alpha-lens-v2.png"
-                  alt={c.lensAlt}
-                  fill
-                  sizes="(max-width: 639px) 112px, 138px"
-                  className="object-contain"
-                />
-                <span className="em-camera-chooser__iris" aria-hidden="true" />
+            <div className="em-camera-chooser__flash" />
+            <span className="em-camera-chooser__lens">
+              <span className="em-camera-chooser__lens-image">
+                <Image src="/illustrations/esteban-sony-alpha-lens-v2.png" alt={c.lensAlt} fill sizes="112px" className="object-contain" />
+                <span className="em-camera-chooser__iris" />
               </span>
-            </button>
-            <span className={`em-camera-chooser__focus-sweep${focusTick > 0 ? " is-focusing" : ""}`} key={focusTick} aria-hidden="true" />
-            <p className="em-camera-chooser__eyebrow">{locale === "es" ? "CÁMARA LISTA" : "CAMERA READY"}</p>
-            <p className="em-camera-chooser__choice">{activeChoice}</p>
-            <p className="em-camera-chooser__price">{activePrice}</p>
-          </div>
-          <div className="em-camera-chooser__choices" role="group" aria-label={locale === "es" ? "Tipo de proyecto" : "Project type"}>
-            {pathChoices.map((path) => {
-              const offer = laneOffers(locale, laneIdAt(path.laneIndex)).find((candidate) => matchesPackage(candidate, path.offerId));
-              const chip = { id: path.id, label: c.tabs[path.copyIndex], price: offer?.price ?? laneStartingPrice(locale, laneIdAt(path.laneIndex)) };
-              return (
-              <button
-                key={chip.id}
-                type="button"
-                className="em-camera-chooser__stop"
-                aria-pressed={chip.id === activeLane}
-                data-active={chip.id === activeLane ? "" : undefined}
-                data-cta={`home_project_path_${locale}_${chip.id}`}
-                onClick={() => selectProject(chip.id)}
-              >
-                <span>{chip.label}</span>
-                <small>{chip.price}</small>
-              </button>
-              );
-            })}
+            </span>
+            <p className="em-camera-chooser__eyebrow">{locale === "es" ? "ELIGE TU PROYECTO" : "CHOOSE YOUR PROJECT"}</p>
+            <p className="em-camera-chooser__choice">{locale === "es" ? "Todo en su lugar" : "Everything in one place"}</p>
+            <p className="em-camera-chooser__price">{locale === "es" ? "Paquetes y opciones relacionadas" : "Packages and related options"}</p>
           </div>
         </div>
-        <button
-          type="button"
-          className="em-single-project-entry mt-3"
-          aria-pressed={activeLane === SINGLE_ID}
-          data-active={activeLane === SINGLE_ID ? "" : undefined}
-          data-cta={`home_project_path_${locale}_${SINGLE_ID}`}
-          onClick={() => selectProject(SINGLE_ID)}
-        >
-          <span><strong>{c.singleShortcut.title}</strong><small>{c.singleShortcut.lead}</small></span>
-          <ArrowRight className="size-5 shrink-0" aria-hidden="true" />
-        </button>
-        <div className="mt-5">
-          {/* All three lanes are server-rendered every time — never filtered
-              to the active one. GPTBot, ClaudeBot and PerplexityBot execute
-              no JavaScript, so a client-gated tab is ABSENT content, not
-              hidden content: the price/TLDR work just finished (#395) must
-              exist in the raw bytes for all three lanes, not just whichever
-              one `lanes[0]` happens to be. The native `hidden` attribute
-              keeps the inactive two in the DOM (curl sees them, Google
-              crawls them) while making them invisible, untabbable and
-              unreadable to a screen reader — the browser's built-in
-              equivalent of `display:none` + implicit `aria-hidden`. Every
-              animation in illustrated-commercial.css is already gated on
-              `[data-visible=true]` (IntersectionObserver) and/or
-              `[data-rail-open]`, and a `hidden` element can be neither
-              intersecting nor open, so the inactive lanes' scenes cannot
-              animate — verified by filming, see PR description. */}
-          {pathChoices.map((path) => {
-            const lane = lanes[path.laneIndex];
-            const index = path.copyIndex;
-            const chooserLane = laneIdAt(path.laneIndex);
-            const offers = laneOffers(locale, chooserLane).filter((offer) => matchesPackage(offer, path.offerId));
-            const isActive = path.id === activeLane;
+
+        <div className="em-route-list mt-3">
+          {routeDefinitions.map((route) => {
+            const routeText = routeCopy[route.id];
+            const offers = packageOffers(route.offerIds);
+            const routeLane: ChooserLaneId = route.id === "editing" ? "agency" : route.id === "real-estate" ? "real-estate" : "local-business";
+            const routePrice = offers.length > 0 ? offers.map((offer) => `${offer.name} ${offer.price}`).join(" · ") : c.singleQuoted;
+            const editingProject = locale === "es"
+              ? { title: "Video largo o proyecto a medida", lead: "Vlog, entrevista, pieza corporativa o varios formatos. Se cotiza por proyecto según duración, material y entregables.", action: "Pedir cotización por proyecto" }
+              : { title: "Long video or custom project", lead: "Vlog, interview, corporate piece, or multiple formats. Quoted per project based on length, footage and deliverables.", action: "Request a project quote" };
             return (
-              <div key={path.id} className="em-path-card" hidden={!isActive}>
-                <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-[#d6cabc] bg-[#fffaf3] shadow-sm">
-                  {/* Cinematic Lens Backdrop Banner — illustration sits behind like a cinema poster */}
-                  <div className="em-path-visual relative h-44 sm:h-52 w-full overflow-hidden bg-[#101214]">
-                    <Image
-                      src={`/illustrations/${artwork[index]}.webp`}
-                      alt={c.artAlts[index]}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 760px"
-                      className="object-cover opacity-35 brightness-90 filter transition-transform duration-700 hover:scale-105"
-                      priority={index === 0}
-                    />
-                    {/* Cinematic optical gradient / vignette overlay */}
-                    <div
-                      className="absolute inset-0 pointer-events-none"
-                      style={{
-                        background:
-                          "linear-gradient(to bottom, rgba(16,18,20,0.3) 0%, rgba(16,18,20,0.65) 50%, rgba(16,18,20,0.95) 100%)",
-                      }}
-                    />
-
-                    {/* Keep the image decorative: the price and choice are stated above,
-                        rather than invented as camera telemetry. */}
-                    <div className="absolute inset-3 sm:inset-4 border border-white/15 rounded-xl pointer-events-none flex flex-col justify-between p-2.5 sm:p-3.5">
-                      {/* Title & Who It Is For */}
-                      <div className="mt-auto">
-                        <h3 className="font-serif text-2xl sm:text-3xl text-white font-medium drop-shadow-md">
-                          {c.labels[index]}
-                        </h3>
-                        <p className="text-xs sm:text-sm text-white/80 font-normal mt-0.5 tracking-wide">
-                          {lane.who}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* The Package List & Details — immediately visible without scrolling down */}
-                  <div className="em-path-card-info p-4 sm:p-5 flex flex-col gap-3">
-                    <div className="flex flex-wrap items-baseline justify-between gap-2">
-                      <p className="text-xs font-semibold uppercase tracking-wider text-[#6a625a]">
-                        {locale === "es" ? "Paquetes y entregables" : "Available packages & deliverables"}
-                      </p>
-                      {path.id === "real-estate" && (
-                        <p className="em-path-qualifier text-xs text-[#6a625a]">
-                          {c.minimumTerm}
-                        </p>
-                      )}
-                      {path.id === "editing" && (
-                        <p className="em-path-qualifier text-xs text-[#6a625a]">
-                          {c.turnaround(turnaroundFor("arranque").minimumDays)}
-                        </p>
-                      )}
-                    </div>
-
-                    {/* Offers List: expandable plan cards with full deliverables disclosure */}
-                    <ul className={`em-path-offers grid grid-cols-1 ${offers.length === 3 ? "sm:grid-cols-3" : "sm:grid-cols-2"} gap-2.5`} role="list" aria-label={c.offersLabel} data-lane={path.id}>
-                      {offers.map((offer) => {
-                        const deliverables = offerDeliverables(offer.name, chooserLane, locale);
-                        return (
-                          <li
-                            key={offer.name}
-                            className="em-path-offer group flex flex-col justify-between rounded-xl border border-[#d6cabc] bg-white transition hover:border-[#9d3d2b] hover:shadow-sm overflow-hidden"
-                          >
-                            <details className="em-path-offer-details group/offer w-full flex-1 flex flex-col">
-                              <summary className="p-3.5 sm:p-4 cursor-pointer list-none [&::-webkit-details-marker]:hidden flex flex-col justify-between select-none">
-                                <div>
-                                  <p className="em-path-offer-head flex items-baseline justify-between gap-2 m-0">
-                                    <strong className="em-path-offer-name">{offer.name}</strong>
-                                    <span className="em-path-offer-price">{offer.price}</span>
-                                  </p>
-                                  <p className="em-path-offer-inc">{offer.includes}</p>
-                                </div>
-                                <div className="mt-3 pt-2.5 border-t border-[#f0eae1] flex items-center justify-between text-xs">
-                                  <span className="text-[#6a625a] font-medium flex items-center gap-1 group-open/offer:text-[#9d3d2b]">
-                                    <span>{locale === "es" ? "Ver alcance" : "View scope"}</span>
-                                    <ChevronDown className="size-3.5 transition-transform duration-200 group-open/offer:rotate-180" aria-hidden="true" />
-                                  </span>
-                                  <button
-                                    type="button"
-                                    className="text-[#9d3d2b] font-semibold flex items-center gap-1 hover:underline cursor-pointer py-0.5 px-2 rounded hover:bg-[#9d3d2b]/10 transition-colors"
-                                    onClick={(e) => {
-                                      e.preventDefault();
-                                      e.stopPropagation();
-                                      openFunnel(lane.id, `${c.labels[index]}: ${offer.name}`, offer.price);
-                                    }}
-                                  >
-                                    {locale === "es" ? "Elegir" : "Select"} <ArrowRight className="size-3.5" aria-hidden="true" />
-                                  </button>
-                                </div>
-                              </summary>
-                              <div className="px-3.5 pb-3.5 sm:px-4 sm:pb-4 pt-2 bg-[#fffaf4] border-t border-[#f0eae1] text-xs">
-                                <p className="text-[11px] font-bold uppercase tracking-wider text-[#9d3d2b] mb-2">
-                                  {locale === "es" ? "Alcance y entregables" : "Scope & deliverables"}
-                                </p>
-                                <ul className="space-y-1.5 my-2 text-[#3a3530]" role="list">
-                                  {deliverables.map((item, dIdx) => (
-                                    <li key={dIdx} className="flex items-start gap-2">
-                                      <span className="size-1.5 rounded-full bg-[#9d3d2b] mt-1.5 shrink-0" aria-hidden="true" />
-                                      <span className="leading-snug">{item}</span>
-                                    </li>
-                                  ))}
-                                </ul>
-                                <button
-                                  type="button"
-                                  className="w-full mt-3 flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg bg-[#9d3d2b] text-white text-xs sm:text-sm font-semibold hover:bg-[#86341f] transition shadow-sm cursor-pointer"
-                                  onClick={(e) => {
-                                    e.preventDefault();
-                                    openFunnel(lane.id, `${c.labels[index]}: ${offer.name}`, offer.price);
-                                  }}
-                                >
-                                  <span>{locale === "es" ? `Elegir ${offer.name} · ${offer.price}` : `Select ${offer.name} · ${offer.price}`}</span>
-                                  <ArrowRight className="size-3.5" aria-hidden="true" />
-                                </button>
-                              </div>
-                            </details>
-                          </li>
-                        );
-                      })}
-                    </ul>
-
-                    {path.id === "real-estate" && (
-                      <div className="mt-2">
-                        <details className="group/terms rounded-xl border border-[#d6cabc] bg-[#fffaf3] p-3 text-xs text-[#6a625a]">
-                          <summary className="font-semibold text-[#6a625a] cursor-pointer hover:text-[#101214] list-none flex items-center justify-between [&::-webkit-details-marker]:hidden select-none">
-                            <span>{locale === "es" ? "Adicionales y condiciones del servicio Real Estate" : "Real Estate add-ons & service terms"}</span>
-                            <Plus className="size-3.5 text-[#9d3d2b] transition-transform duration-200 group-open/terms:rotate-45" aria-hidden="true" />
+              <details key={route.id} className="em-route-card" data-route={route.id} name={`home-route-${locale}`} onToggle={resetRouteWhenClosed}>
+                <summary data-cta={`home_project_route_${locale}_${route.id}`}>
+                  <span className="em-route-card__copy"><span className="em-route-card__eyebrow">{routeText.eyebrow}</span><strong>{routeText.title}</strong><span>{routeText.lead}</span></span>
+                  <Plus className="em-route-card__plus" size={22} aria-hidden="true" />
+                </summary>
+                <div className="em-route-card__body">
+                  {offers.length > 0 && <><p className="em-route-card__label">{locale === "es" ? "Paquetes" : "Packages"}</p>
+                  <ul className="em-path-offers grid grid-cols-1 gap-2.5 sm:grid-cols-2" role="list" data-lane={route.id}>
+                    {offers.map((offer) => (
+                      <li key={offer.name} className="em-path-offer rounded-xl border border-[#d6cabc] bg-white overflow-hidden">
+                        <details className="em-path-offer-details group/offer" name={`route-offer-${locale}-${route.id}`} onToggle={keepChoiceVisible}>
+                          <summary className="p-3.5 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                            <p className="em-path-offer-head flex items-baseline justify-between gap-2 m-0"><strong className="em-path-offer-name">{offer.name}</strong><span className="em-path-offer-price">{offer.price}</span></p>
+                            <p className="em-path-offer-inc">{offer.includes}</p>
+                            <span className="mt-3 pt-2.5 border-t border-[#f0eae1] flex items-center gap-1 text-xs font-medium text-[#6a625a]">{locale === "es" ? "Ver qué incluye" : "See what is included"}<ChevronDown className="size-3.5 transition-transform group-open/offer:rotate-180" /></span>
                           </summary>
-                          <div className="mt-2.5 pt-2.5 border-t border-[#e3ded6] text-xs text-[#4d5358] space-y-2.5">
-                            <div>
-                              <strong className="text-[#101214] block mb-1">{locale === "es" ? "Adicionales disponibles:" : "Available add-ons:"}</strong>
-                              <ul className="space-y-1 list-disc pl-4 text-[#554e48]">
-                                <li>{locale === "es" ? "Fotografía aérea con dron: $120 por sesión (incluida en el plan Premium)." : "Drone aerial photography: $120 per session (included in Premium)."}</li>
-                                <li>{locale === "es" ? "Propiedades adicionales o metraje mayor a 3,000 SF se cotizan por separado." : "Extra properties or homes over 3,000 SF quoted separately."}</li>
-                              </ul>
-                            </div>
-                            <div>
-                              <strong className="text-[#101214] block mb-1">{locale === "es" ? "Condiciones del plan:" : "Plan terms:"}</strong>
-                              <ul className="space-y-1 list-disc pl-4 text-[#554e48]">
-                                <li>{locale === "es" ? `Mínimo de ${REAL_ESTATE_PLAN_TERMS.minimumMonths} meses. Se factura el día 1 de cada mes. Aviso de ${REAL_ESTATE_PLAN_TERMS.cancelNoticeDays} días para cancelar.` : `${REAL_ESTATE_PLAN_TERMS.minimumMonths}-month minimum. Billed on the 1st of each month. ${REAL_ESTATE_PLAN_TERMS.cancelNoticeDays} days' notice to cancel.`}</li>
-                                <li>{locale === "es" ? "Flexibilidad de sesiones: si un mes no tienes listado, esa sesión pasa al mes siguiente (hasta 2 guardadas)." : "Rollover flexibility: if you have no listing one month, that shoot rolls to the next month (up to 2 held)."}</li>
-                                <li>{locale === "es" ? "No incluye pauta publicitaria paga ni gestión de mensajes directos." : "Excludes paid advertising spend and direct message management."}</li>
-                              </ul>
-                            </div>
+                          <div className="px-3.5 pb-3.5 pt-2 border-t border-[#f0eae1] bg-[#fffaf4] text-xs text-[#3a3530]">
+                            <ul className="space-y-1.5" role="list">{offerDeliverables(offer.name, routeLane, locale).map((item) => <li key={item} className="flex gap-2"><span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-[#9d3d2b]" /><span>{item}</span></li>)}</ul>
+                            <button type="button" className="em-route-choose" onClick={() => openFunnel(route.id, `${routeText.title}: ${offer.name}`, offer.price)}>{locale === "es" ? `Cotizar ${offer.name}` : `Quote ${offer.name}`}<ArrowRight size={15} /></button>
                           </div>
                         </details>
-                      </div>
-                    )}
-
-                    {path.id === "monthly-content" && (
-                      <div className="mt-1">
-                        <details className="em-process-details em-sheet-details">
-                          <summary className="text-xs font-semibold text-[#6a625a] cursor-pointer hover:text-[#101214] py-1">
-                            {locale === "es" ? "Ver video de cliente real" : "Watch real client video"}
-                          </summary>
-                          <div className="em-sheet-body p-4 bg-[#fffaf4]">
-                            <AudienceVideo locale={locale} alt={c.videoAlt} />
-                          </div>
-                        </details>
-                      </div>
-                    )}
-
-                    {path.id === "editing" && (
-                      <div className="mt-1">
-                        <details className="em-process-details em-sheet-details">
-                          <summary className="text-xs font-semibold text-[#6a625a] cursor-pointer hover:text-[#101214] py-1">
-                            {c.process}
-                          </summary>
-                          <div className="em-sheet-body p-4 bg-[#fffaf4]">
-                            <EditingPreview locale={locale} />
-                          </div>
-                        </details>
-                      </div>
-                    )}
-
-                    {/* Primary Action Button */}
-                    <div className="mt-2">
-                      <Link
-                        href={path.id === "real-estate" ? realEstateReelsPath(locale) : lane.href}
-                        data-cta={`home-path-${path.id}`}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          openFunnel(lane.id, c.labels[index], offers.map((offer) => `${offer.name} ${offer.price}`).join(" · "));
-                        }}
-                        className="group flex min-h-14 items-center justify-between gap-4 rounded-xl bg-[#9d3d2b] px-5 py-3.5 text-base sm:text-lg font-medium leading-snug text-white transition hover:bg-[#86341f] shadow-sm"
-                      >
-                        <span>
-                          <span className="block font-semibold">{c.labels[index]}</span>
-                          <span className="text-xs font-normal text-white/80">{lane.who} · {offers[0]?.price}</span>
-                        </span>
-                        <ArrowRight className="size-5 shrink-0 text-white transition-transform group-hover:translate-x-1" aria-hidden="true" />
-                      </Link>
-                    </div>
-                  </div>
+                      </li>
+                    ))}
+                  </ul></>}
+                  {route.serviceIds.length > 0 && <><p className="em-route-card__label mt-5">{locale === "es" ? "También puedes pedir" : "You can also request"}</p><ul className="em-single-list" role="list">{single.items.filter((item) => route.serviceIds.includes(item.id)).map((item) => {
+                    const scene = aLaCarteVisual(item.id, locale); const price = servicePrice(item);
+                    const ProductionIcon = item.id === "grabacion" ? Video : item.id === "multicam" ? Clapperboard : item.id === "yate" ? ShipWheel : Rocket;
+                    const isProductionService = route.id === "production";
+                    return <li key={item.id}><details className="em-single-item" data-service={item.id} name={`route-service-${locale}-${route.id}`} onToggle={keepChoiceVisible}><summary data-cta={`home_path_${route.id}_${item.id}`}>{isProductionService ? <span className="em-single-thumb em-single-thumb--production" aria-hidden="true"><ProductionIcon size={28} strokeWidth={1.6} /></span> : <Image className="em-single-thumb" src={scene.image} alt={c.thumbAlt(item.title)} width={96} height={64} sizes="64px" />}<span className="em-single-text"><span className="em-single-title">{item.title}</span><span className="em-single-price">{price}</span>{item.note && <span className="em-single-note">{item.note}</span>}</span><Plus className="em-single-plus" size={18} aria-hidden="true" /></summary><div className="em-single-panel"><p><strong>{c.singleSend}.</strong> {scene.preparation}</p><div className="em-single-actions"><button type="button" className="em-single-ask" onClick={() => openFunnel(route.id, `${routeText.title}: ${item.title}`, price)}>{c.singleAsk}</button>{item.href && <Link href={item.href} className="em-single-service">{c.singleService}</Link>}</div></div></details></li>;
+                  })}</ul></>}
+                  {route.id === "real-estate" && <details className="em-route-terms"><summary>{locale === "es" ? "Adicionales y condiciones de Real Estate" : "Real estate add-ons and terms"}</summary><p>{locale === "es" ? `Mínimo de ${REAL_ESTATE_PLAN_TERMS.minimumMonths} meses. Propiedades adicionales o mayores a 3,000 SF se cotizan por separado.` : `${REAL_ESTATE_PLAN_TERMS.minimumMonths}-month minimum. Extra properties or homes over 3,000 SF are quoted separately.`}</p></details>}
+                  {route.id === "editing" && <><div className="mt-5 border-t border-[#ddd4c8] pt-4"><p className="em-route-card__label mt-0">{locale === "es" ? "Elige cómo necesitas editar" : "Choose how you need editing"}</p><StarterOptions locale={locale} quiet /></div><details className="em-route-terms" onToggle={keepChoiceVisible}><summary>{editingProject.title}</summary><p>{editingProject.lead}</p><button type="button" className="em-route-choose" onClick={() => openFunnel(route.id, `${routeText.title}: ${editingProject.title}`, c.singleQuoted)}>{editingProject.action}<ArrowRight size={15} /></button></details></>}
+                  {route.id !== "editing" && <button type="button" className="em-route-main-cta" onClick={() => openFunnel(route.id, routeText.title, routePrice)}>{locale === "es" ? `Cotizar ${routeText.title}` : `Quote ${routeText.title}`}<ArrowRight size={18} /></button>}
                 </div>
-              </div>
+              </details>
             );
           })}
-          {/* Fourth lane: the single projects that used to be their own
-              "A la carte" section with a second, parallel WhatsApp entry.
-              Owner, 2026-10-14: "This other section needs to merge also
-              with the one about what you need." Same server-rendered words
-              (titles, notes, what-to-send, service links) behind native
-              details, and the same in-place funnel instead of a WhatsApp
-              row per card. */}
-          <div className="em-path-card em-path-card--single" hidden={activeLane !== SINGLE_ID}>
-            <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-[#d6cabc] bg-[#fffaf3] shadow-sm">
-              {/* Cinematic Lens Backdrop Banner — illustration sits behind like a cinema poster */}
-              <div className="em-path-visual relative h-44 sm:h-52 w-full overflow-hidden bg-[#101214]">
-                <Image
-                  src="/illustrations/property.webp"
-                  alt={c.thumbAlt(c.singleLabel)}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 760px"
-                  className="object-cover opacity-35 brightness-90 filter transition-transform duration-700 hover:scale-105"
-                />
-                <div
-                  className="absolute inset-0 pointer-events-none"
-                  style={{
-                    background:
-                      "linear-gradient(to bottom, rgba(16,18,20,0.3) 0%, rgba(16,18,20,0.65) 50%, rgba(16,18,20,0.95) 100%)",
-                  }}
-                />
-                <div className="absolute inset-3 sm:inset-4 border border-white/15 rounded-xl pointer-events-none flex flex-col justify-between p-2.5 sm:p-3.5">
-                  <div className="mt-auto">
-                    <h3 className="font-serif text-2xl sm:text-3xl text-white font-medium drop-shadow-md">
-                      {c.singleLabel}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-white/80 font-normal mt-0.5 tracking-wide">
-                      {c.singleWho}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-4 sm:p-5">
-                <p className="em-single-lead">{single.title} {single.lead} {c.singleLead}</p>
-                {[
-                  { title: locale === "es" ? "Para crear o grabar" : "To create or film", ids: ["ia", "foto", "grabacion", "multicam", "yate", "kickstarter"] },
-                  { title: locale === "es" ? "Para mejorar o hacer crecer" : "To improve or grow", ids: ["mejora", "seo", "auditoria", "automatizacion"] },
-                ].map((group) => (
-                  <section key={group.title} className="em-single-group" aria-labelledby={`single-group-${locale}-${group.ids[0]}`}>
-                    <h4 id={`single-group-${locale}-${group.ids[0]}`}>{group.title}</h4>
-                    <ul className="em-single-list" role="list">
-              {single.items.filter((item) => group.ids.includes(item.id)).map((item) => {
-                const scene = aLaCarteVisual(item.id, locale);
-                // Real figure only where lib/pricing has one (the photo
-                // session floor). Otherwise the item's own quote statement,
-                // or a plain "Quoted per project" — never an invented number.
-                const noteIsQuote = !!item.note && /^(quoted|cotizaci)/i.test(item.note);
-                const itemPrice =
-                  item.id === "foto"
-                    ? `${c.singleFrom} ${usd(PRODUCT_PHOTO_SESSION.from)}${c.singleSession}`
-                    : item.id === "grabacion"
-                    ? `${c.singleFrom} ${usd(ON_LOCATION_CAPTURE.from)}${c.singleHalfDay}`
-                    : item.id === "multicam"
-                    ? `${c.singleFrom} ${usd(CREW_RECORDING_RATES.multiCamera.halfDay)}${c.singleHalfDay}`
-                    : item.id === "yate"
-                    ? `${c.singleFrom} ${usd(YACHT_PRODUCTION.halfDaySolo)}${c.singleHalfDay}`
-                    : item.id === "kickstarter"
-                    ? `${c.singleFrom} ${usd(KICKSTARTER_LAUNCH.from)}`
-                    : noteIsQuote ? item.note! : c.singleQuoted;
-                const showNote = !!item.note && !(item.id !== "foto" && noteIsQuote);
-                return (
-                  <li key={item.id}>
-                    <details className="em-single-item" data-service={item.id}>
-                      <summary data-cta={`home_path_single_${item.id}`}>
-                        <Image className="em-single-thumb" src={scene.image} alt={c.thumbAlt(item.title)} width={96} height={64} sizes="64px" />
-                        <span className="em-single-text">
-                          <span className="em-single-title">{item.title}</span>
-                          <span className="em-single-price">{itemPrice}</span>
-                          {showNote && <span className="em-single-note">{item.note}</span>}
-                        </span>
-                        <Plus className="em-single-plus" size={18} aria-hidden="true" />
-                      </summary>
-                      <div className="em-single-panel">
-                        <p><strong>{c.singleSend}.</strong> {scene.preparation}</p>
-                        <div className="em-single-actions">
-                          <button
-                            type="button"
-                            className="em-single-ask"
-                            data-cta={`home_path_single_${item.id}_ask`}
-                            onClick={() => openFunnel(SINGLE_ID, `${c.singleLabel}: ${item.title}`, itemPrice)}
-                          >
-                            {c.singleAsk}
-                          </button>
-                          {item.href && (
-                            <Link href={item.href} className="em-single-service" data-cta={`home_path_single_${item.id}_service`}>
-                              {c.singleService}
-                            </Link>
-                          )}
-                        </div>
-                      </div>
-                    </details>
-                  </li>
-                );
-              })}
-                    </ul>
-                  </section>
-                ))}
-            <p className="em-single-credit">{c.singleCredit}</p>
-            <div className="em-path-card-info flex flex-col gap-3">
-              <Link
-                href={locale === "es" ? "/es/contacto" : "/contact"}
-                data-cta="home-path-a-la-carte"
-                onClick={(e) => {
-                  e.preventDefault();
-                  openFunnel(SINGLE_ID, c.singleLabel, c.singleQuoted);
-                }}
-                className="group flex min-h-16 items-center justify-between gap-4 rounded-2xl bg-[#9d3d2b] px-5 py-4 text-lg font-medium leading-snug text-white transition hover:bg-[#86341f] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-              >
-                <span><span className="block">{c.singleCta}</span><span className="mt-1 block text-xs font-normal uppercase tracking-wide text-white">{c.singleWho}</span></span>
-                <ArrowRight className="size-5 shrink-0 text-white transition-transform group-hover:translate-x-1" aria-hidden="true" />
-              </Link>
-              <a
-                href={whatsappHref(site.phone.e164, c.singleWhatsapp)}
-                target="_blank"
-                rel="noopener noreferrer"
-                data-cta="home_path_single_whatsapp"
-                className="inline-flex min-h-11 items-center text-sm font-semibold text-[#6a625a] underline underline-offset-4"
-              >
-                {quoteCtaLabel(locale)}
-              </a>
-            </div>
-          </div>
+        </div>
+        <div className="mt-5 border-t border-[#ddd4c8] pt-5">
+          <p className="text-sm leading-6 text-[#4d5358]">{locale === "es" ? "¿Tu proyecto no encaja en una de estas rutas? Cuéntame qué quieres crear y te preparo una cotización." : "Does your project not fit one of these routes? Tell me what you want to make and I will prepare a quote."}</p>
+          <a href={whatsappHref(site.phone.e164, c.singleWhatsapp)} target="_blank" rel="noopener noreferrer" data-cta="home_path_general_quote" className="mt-2 inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold text-[#6a625a] underline underline-offset-4">{quoteCtaLabel(locale)}<ArrowRight className="size-4" /></a>
         </div>
       </div>
-    </div>
-        <nav aria-label={locale === "es" ? "Servicios locales" : "Local services"} className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm">
-          {c.localLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="min-h-11 inline-flex items-center text-[#6a625a] underline underline-offset-4" data-cta="home-local-service">
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-        <div className="mt-10 border-t border-[#ddd4c8] pt-5">
-          {/* Price already answered ONCE, in the lane's own `+` disclosure
-              above (review item 1, 2026-10-13): opening any of the three
-              illustrations/video now shows the starting price before the
-              TLDR facts. The price fold that used to live here (a second,
-              full breakdown of every package) was the SAME figures in a
-              second visual language in the same section — this link is the
-              only thing left: an escape hatch to the full comparison page
-              for someone who wants every package side by side, not another
-              list of prices. */}
-          <p className="text-sm leading-6 text-[#4d5358]">{c.pricingDetail}</p>
-          <Link
-            href={c.pricingHref}
-            data-cta="home_path_compare_packages"
-            className="mt-2 inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold text-[#6a625a] underline underline-offset-4"
-          >
-            {c.pricingAction}
-            <ArrowRight className="size-4 shrink-0" aria-hidden="true" />
-          </Link>
-        </div>
-      </div>
-      <HomePathFunnel
-        locale={locale}
-        open={funnelOpen}
-        laneId={funnelLane.id}
-        laneLabel={funnelLane.label}
-        price={funnelLane.price}
-        onClose={() => setFunnelOpen(false)}
-      />
+      <HomePathFunnel locale={locale} open={funnelOpen} laneId={funnelLane.id} laneLabel={funnelLane.label} price={funnelLane.price} onClose={() => setFunnelOpen(false)} />
     </section>
   );
 }

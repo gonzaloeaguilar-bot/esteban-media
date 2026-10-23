@@ -29,9 +29,10 @@ describe("audience lanes — the one chooser on both home pages", () => {
     expect(src).not.toContain("<AudienceRouter");
     if (fold > -1) expect(path).toBeLessThan(fold);
     const component = source("components/home-project-path.tsx");
-    expect(component).toContain("AUDIENCE_LANES[locale].lanes");
-    expect(component).toContain("realEstateReelsPath(locale)");
-    expect(component).toContain("lane.href");
+    expect(component).toContain("routeDefinitions");
+    expect(component).toContain('id: "production"');
+    expect(component).toContain('id: "local-business"');
+    expect(component).toContain("em-route-card");
   });
 
   it.each(HOMES)("%s never ships the removed duplicate fold chooser", (page) => {
@@ -92,11 +93,15 @@ describe("audience router — the lanes point at pages that exist and earn", () 
   });
 });
 
-describe("home-project-path — the AudienceVideo and EditingPreview it inherited", () => {
-  it("still renders the business lane's real project video and the editing lane's live preview", () => {
+describe("home-project-path — the buyer-first package chooser", () => {
+  it("keeps the four buyer routes and their nested choices in the served component", () => {
     const component = source("components/home-project-path.tsx");
-    expect(component).toContain("AudienceVideo");
-    expect(component).toContain("EditingPreview");
+    expect(component).toContain('id: "real-estate"');
+    expect(component).toContain('id: "editing"');
+    expect(component).toContain('id: "production"');
+    expect(component).toContain('id: "local-business"');
+    expect(component).toContain("em-path-offer-details");
+    expect(component).toContain("em-single-item");
     expect(component).toContain('data-section="home-project-path"');
   });
 });

@@ -1,6 +1,6 @@
 import { MessageCircle } from "lucide-react";
 
-import { arranqueWeeklyComparisonLine, arranqueWeeklyHref, arranqueWeeklyTermsLine, arranqueWeeklyWhatsapp } from "@/lib/arranque-weekly";
+import { arranqueWeeklyTermsLine, arranqueWeeklyWhatsapp } from "@/lib/arranque-weekly";
 import { packagesCopy, priceFor, whatsappHref, type Locale } from "@/lib/packages";
 import { ARRANQUE_WEEKLY_OPTIONS, usd } from "@/lib/pricing";
 import { quoteCtaLabel } from "@/lib/quote-cta";
@@ -18,11 +18,9 @@ import { site } from "@/lib/site";
  */
 export function StarterOptions({
   locale,
-  showTermsLink = true,
   quiet = false,
 }: {
   locale: Locale;
-  showTermsLink?: boolean;
   /**
    * The home page's fold already carries a filled "Get a quote on WhatsApp"
    * button in HeroVideo, HomeContactStrip and ClosingCredits — a visitor who
@@ -74,36 +72,26 @@ export function StarterOptions({
           <p className="em-pk-starter-tile__name">{es ? "Cada semana" : "Every week"}</p>
           <div className="em-pk-starter-tile__rows">
             {ARRANQUE_WEEKLY_OPTIONS.map((opt) => (
-              <div key={opt.id} className="em-pk-starter-tile__row">
+              <a
+                key={opt.id}
+                href={arranqueWeeklyWhatsapp(site.phone.e164, opt, locale)}
+                className="em-pk-starter-tile__row"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-cta={opt.id === "one-per-week" ? "package_arranque_weekly_one_video_whatsapp" : "package_arranque_weekly_two_videos_whatsapp"}
+                aria-label={`${quoteCtaLabel(locale)}: ${opt.videosPerWeek} ${opt.videosPerWeek === 1 ? "video" : "videos"} ${es ? "por semana" : "per week"}`}
+              >
                 <span className="em-pk-starter-tile__num em-price-figure">{usd(opt.pricePerWeek)}</span>
                 <span className="em-pk-starter-tile__unit">
                   {es ? "/semana" : "/week"} · {opt.videosPerWeek} {opt.videosPerWeek === 1 ? "video" : "videos"}
                 </span>
-              </div>
+                <span className="em-pk-starter-tile__select">{es ? "Cotizar este plan" : "Quote this plan"}</span>
+              </a>
             ))}
           </div>
-          <p className="em-pk-starter-tile__compare">{arranqueWeeklyComparisonLine(locale)}</p>
           <div className="em-pk-starter-tile__chips">
             <span className="em-pk-starter-pill">{arranqueWeeklyTermsLine(locale)}</span>
           </div>
-          <a
-            href={arranqueWeeklyWhatsapp(site.phone.e164, ARRANQUE_WEEKLY_OPTIONS[0], locale)}
-            className={quiet ? "em-pkcard__cta-quiet" : "em-pkcard__cta"}
-            target="_blank"
-            rel="noopener noreferrer"
-            data-cta="package_arranque_weekly_whatsapp"
-            aria-label={`${quoteCtaLabel(locale)}: ${es ? "Cada semana" : "Every week"}`}
-          >
-            <MessageCircle className="size-4" aria-hidden="true" />
-            {quoteCtaLabel(locale)}
-          </a>
-          {showTermsLink ? (
-            <p className="em-pkcard__weekly">
-              <a href={arranqueWeeklyHref(locale)} data-cta="package_arranque_weekly_plan">
-                {es ? "Cómo funciona el pago semanal" : "How paying weekly works"}
-              </a>
-            </p>
-          ) : null}
         </div>
       </div>
     </div>
