@@ -2007,12 +2007,12 @@ const guidePairs: readonly GuidePair[] = [
     id: "corporate-video-cost-guide",
     en: {
       slug: "corporate-video-production-cost-miami",
-      metadataTitle: "Miami Video Production Cost Guide",
-      title: "How much does corporate video production cost in Miami?",
+      metadataTitle: "Miami Corporate Video Cost Guide",
+      title: "Miami corporate video production cost: what to budget and compare",
       description:
-        "Plan a Miami video production budget: compare scope, filming, editing, deliverables, and quote inputs before choosing a production path.",
+        "Learn what a Miami corporate video quote needs to cover, from filming and editing to deliverables and review terms, before you compare budgets.",
       eyebrow: "Video Pricing Guide",
-      answer: `Esteban's Local Presence offer starts from ${packageGuidePrice("presencia-local")} per production day. That is a filming starting price, not a complete corporate-video price: editing, deliverables, review terms, and usage need a project-specific written quote.`,
+      answer: `Corporate video production in Miami does not have one all-in price: the quote depends on the filming scope, number of finished videos, and post-production work. Esteban's Local Presence offer starts from ${packageGuidePrice("presencia-local")} per production day, but that is a filming starting price—not a complete corporate-video price: editing, deliverables, review terms, and usage need a project-specific written quote.`,
       proof: {
         href: "/portfolio/healthy-smile",
         title: "Healthy Smile Miami",
@@ -2076,8 +2076,10 @@ const guidePairs: readonly GuidePair[] = [
       ],
       faqs: [
         { question: "Does Esteban Moreno Media publish fixed corporate video packages?", answer: "No universal package is published. Scope, deliverables, timing, review terms, and responsibilities are defined for each project in the quote." },
+        { question: "Can two corporate video quotes with the same shoot day have different totals?", answer: "Yes. The filming day is only one part of the scope. The number of finished versions, footage volume, editing, sound, graphics, captions, review rounds, and delivery requirements can change what is included." },
         { question: "Can I hire Esteban only to edit footage my team recorded?", answer: "Remote editing can be scoped when you already have usable footage. Share the original files, goal, references, required versions, and deadline so the material can be assessed." },
         { question: "What makes a corporate video quote increase?", answer: "Additional locations or capture needs, larger footage volumes, complex story or graphics work, multiple languages or formats, licensed assets, tight timing, and more review cycles can all change scope." },
+        { question: "Do I need a full brief before asking for a corporate video quote?", answer: "No. Send what you know: the business goal, audience, channels, existing footage or assets, location, requested deliverables, references, approval owner, and target date. Unknowns can be marked for recommendation." },
         { question: "What should I send before asking for a quote?", answer: "Send the business goal, audience, channels, existing assets, location, desired deliverables, references, approval owner, and target date. Unknowns can be marked for recommendation." },
       ],
     },

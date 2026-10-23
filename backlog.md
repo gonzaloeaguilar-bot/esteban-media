@@ -28,6 +28,8 @@
 
 # Esteban Moreno Media — Backlog
 
+- [x] 2026-10-22: Prepare the content-depth refinement for `/guides/corporate-video-production-cost-miami`: specific budget-and-comparison H1 and metadata, answer-first scope boundary, two quote-comparison FAQ answers, retained contextual internal links, and refreshed page-lastmod ledger. `pnpm lastmod:update`, `npm run typecheck --silent`, and `npm test` passed (165 files / 3,469 tests). Before merge, `cto-qa-lead` must independently review the exact diff; after authorized release, verify the production title, H1, raw FAQ HTML, links, and date. `cto-seo-lead` owns the later comparable GSC read; search and inquiry impact remain unmeasured.
+
 - [ ] After the reviewed Clarity code is merged, create/select Esteban Moreno Media's real Microsoft Clarity project; add only its identifier as `NEXT_PUBLIC_CLARITY_PROJECT_ID` to the Vercel **Production** environment, redeploy, and complete the production verification/rollback steps in `docs/microsoft-clarity-activation.md`. Do not place the identifier in git or enable previews.
 
 - [x] 2026-10-10: ship the annual-events section (hub + FLIBS + Art Basel first, then Miami boat show, SOBEWFF, eMerge Americas, Miami Music Week, Miami Spice) on `feat/events-hub`.
