@@ -176,6 +176,15 @@
           { "metric": "Cerca de 6 años", "label": "Fundador y CEO de su propia marca de e-commerce" },
           { "metric": "2 sitios web", "label": "Dos sitios web sucesivos de la marca" }
         ]
+      },
+      "great-reviewer-iphone-18": {
+        "title": "The Great Reviewer: Reel del iPhone 18 Pro Max",
+        "summary": "Video de contenido vertical publicado para The Great Reviewer. Se presenta como ejemplo del formato, sin atribuirle resultados de audiencia ni comerciales.",
+        "credits": "Producción y edición de video de contenido por Esteban Moreno Media.",
+        "results": [
+          { "metric": "Reel vertical", "label": "Video de contenido publicado" },
+          { "metric": "2026", "label": "Video de contenido para The Great Reviewer" }
+        ]
       }
     },
     "status": {
