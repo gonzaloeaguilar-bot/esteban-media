@@ -384,6 +384,13 @@ body:has(.em-sheet-details[open])::after{content:"";position:fixed;inset:0;backg
 @media(prefers-reduced-motion:reduce){.em-camera-chooser__lens,.em-camera-chooser__body:before,.em-camera-chooser__choice,.em-camera-chooser__price,.em-camera-chooser__stop{transition:none}.em-camera-chooser__lens-image,.em-camera-chooser__lens-image:after,.em-camera-chooser__iris,.em-camera-chooser__focus-sweep{animation:none}}
 .em-path-visual{display:none}
 .em-single-price{font-size:15px;font-weight:700;line-height:1.3;color:#101214}
+.em-route-list{display:grid;gap:10px}
+.em-route-card{overflow:hidden;border:1px solid #d6cabc;border-radius:18px;background:#fffaf3}
+.em-route-card>summary{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:112px;padding:18px;cursor:pointer;list-style:none}
+.em-route-card>summary::-webkit-details-marker{display:none}
+.em-route-card__copy{display:grid;gap:4px;min-width:0}.em-route-card__copy strong{font:600 25px/1.05 var(--font-serif,Georgia,serif);color:#101214}.em-route-card__copy>span:last-child{max-width:48ch;color:#655b53;font-size:15px;line-height:1.45}.em-route-card__eyebrow{color:#7b4437;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.em-route-card__plus{flex:none;color:#9d3d2b;transition:transform 180ms ease}.em-route-card[open]>.em-route-card__plus{transform:rotate(45deg)}
+.em-route-card__body{padding:0 18px 18px;border-top:1px solid #ddd4c8;background:#fdf9f3}.em-route-card__label{margin:16px 0 8px;color:#6a625a;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.em-route-card__body .em-single-list{margin-bottom:0}.em-route-choose,.em-route-main-cta{display:flex;align-items:center;justify-content:center;gap:8px;min-height:44px;border:0;border-radius:10px;background:#9d3d2b;color:#fffaf3;font-size:14px;font-weight:700;cursor:pointer}.em-route-choose{width:100%;margin-top:12px}.em-route-main-cta{width:100%;margin-top:16px;padding:0 16px;font-size:15px}.em-route-choose:hover,.em-route-main-cta:hover{background:#86341f}.em-route-terms{margin-top:16px;padding:13px 0 0;border-top:1px solid #ddd4c8;color:#4d5358;font-size:14px;line-height:1.5}.em-route-terms summary{cursor:pointer;font-weight:700;color:#6a625a}.em-route-terms p{margin:10px 0 0}.em-route-card :is(summary,button,a):focus-visible{outline:3px solid #9d3d2b;outline-offset:-3px}
+@media(prefers-reduced-motion:reduce){.em-route-card__plus{transition:none}}
 .em-funnel-price{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px;margin:0 0 12px;font-size:14px;color:#6a625a}
 .em-funnel-price strong{font-size:19px;color:#101214}
 /* The funnel continues the camera grammar that opens the page (shutter,

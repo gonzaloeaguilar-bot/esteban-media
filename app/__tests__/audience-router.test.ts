@@ -29,9 +29,10 @@ describe("audience lanes — the one chooser on both home pages", () => {
     expect(src).not.toContain("<AudienceRouter");
     if (fold > -1) expect(path).toBeLessThan(fold);
     const component = source("components/home-project-path.tsx");
-    expect(component).toContain("AUDIENCE_LANES[locale].lanes");
-    expect(component).toContain("realEstateReelsPath(locale)");
-    expect(component).toContain("lane.href");
+    expect(component).toContain("routeDefinitions");
+    expect(component).toContain('id: "production"');
+    expect(component).toContain('id: "local-business"');
+    expect(component).toContain("em-route-card");
   });
 
   it.each(HOMES)("%s never ships the removed duplicate fold chooser", (page) => {
