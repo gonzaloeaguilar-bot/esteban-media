@@ -31,11 +31,11 @@ const copy = {
     eyebrow: "Find your starting point",
     heading: "What do you need made?",
     intro: "Choose a project to see the relevant work and next steps.",
-    labels: ["Reels for my properties", "Short videos for my business", "Edit footage I already have"],
+    labels: ["Reels for my properties", "Edit footage I already have", "Publish consistently each month", "Film at my business"],
     /* The control needs two or three words, not a sentence: at full length the
        three options stacked into one grey block with the inactive ones barely
        legible. The full label still reads on the card below. */
-    tabs: ["Real estate", "Business", "Edit video"],
+    tabs: ["Real estate", "Edit footage", "Monthly content", "On-site filming"],
     singleShortcut: { title: "Need one specific thing?", lead: "Photo, filming, or digital support quoted for your project." },
     singleLead: "Tap one to see what to send me.",
     singleAsk: "Ask about this",
@@ -54,20 +54,22 @@ const copy = {
     singleWhatsapp: "Hi Esteban, I'd like a quote for a single project.",
     artAlts: [
       "Concept illustration of a home, camera and property photographs",
-      "Concept illustration of a cafe being filmed on a phone",
       "Concept illustration of an editing desk with a monitor, filmstrip and headphones",
+      "Concept illustration of a cafe being filmed on a phone",
+      "Concept illustration of a camera crew filming at a local business",
     ],
     pricingDetail: "These are starting prices. The final price depends on the project scope.",
     pricingAction: "See everything each package includes",
     offersLabel: "What this includes",
     morePlans: "Need custom volume or 4+ properties? View full plan comparison.",
     thumbAlt: (title: string) => `Concept illustration for ${title}`,
-    swipe: "Swipe to see all three options.",
-    sceneLabels: ["Frame your listing", "Make people stop scrolling", "Bring the edit to life"],
+    swipe: "Choose the situation that matches your project.",
+    sceneLabels: ["Frame your listing", "Bring the edit to life", "Publish with a system", "Create original footage"],
     sceneFacts: [
       ["Walkthroughs and Reels.", "Edited from your footage."],
-      ["Turn the moments you already film into content.", "Short-form editing for Reels and TikTok."],
       ["Cuts, captions and sound.", "Clear feedback for the next version."],
+      ["Plan, calendar and editing.", "A monthly rhythm for your channels."],
+      ["A production day at your business.", "Footage and edits ready for every format."],
     ],
     pricingHref: "/pricing",
     from: "From",
@@ -90,8 +92,8 @@ const copy = {
     eyebrow: "Encuentra por dónde empezar",
     heading: "¿Qué necesitas crear?",
     intro: "Elige un proyecto para ver trabajo relacionado y los próximos pasos.",
-    labels: ["Reels para mis propiedades", "Videos cortos para mi negocio", "Editar videos que ya grabé"],
-    tabs: ["Inmobiliaria", "Negocio", "Editar videos"],
+    labels: ["Reels para mis propiedades", "Editar material que ya grabé", "Publicar cada mes", "Grabar en mi negocio"],
+    tabs: ["Inmobiliaria", "Editar material", "Contenido mensual", "Grabar en sitio"],
     singleShortcut: { title: "¿Necesitas algo puntual?", lead: "Foto, grabación o ayuda digital cotizada para tu proyecto." },
     singleLead: "Toca uno para saber qué enviarme.",
     singleAsk: "Preguntar por esto",
@@ -110,20 +112,22 @@ const copy = {
     singleWhatsapp: "Hola Esteban, quiero una cotización para un proyecto puntual.",
     artAlts: [
       "Ilustración conceptual de una casa, una cámara y fotografías de la propiedad",
-      "Ilustración conceptual de un café grabado con un celular",
       "Ilustración conceptual de una mesa de edición con monitor, película y audífonos",
+      "Ilustración conceptual de un café grabado con un celular",
+      "Ilustración conceptual de un equipo grabando en un negocio local",
     ],
     pricingDetail: "Son precios de partida. El precio final depende del alcance del proyecto.",
     pricingAction: "Ver todo lo que incluye cada paquete",
     offersLabel: "Qué incluye",
     morePlans: "¿Más de 4 propiedades o volumen a medida? Ver comparativa completa de planes.",
     thumbAlt: (title: string) => `Ilustración conceptual de ${title}`,
-    swipe: "Desliza para ver las tres opciones.",
-    sceneLabels: ["Encuadra tu propiedad", "Haz que dejen de deslizar", "Dale ritmo al material"],
+    swipe: "Elige la situación que se parece a tu proyecto.",
+    sceneLabels: ["Encuadra tu propiedad", "Dale ritmo al material", "Publica con un sistema", "Crea material original"],
     sceneFacts: [
       ["Recorridos y Reels.", "Editados a partir de tu material."],
-      ["Convierte lo que ya grabas en contenido.", "Edición de formato corto para Reels y TikTok."],
       ["Cortes, subtítulos y sonido.", "Comentarios organizados para la siguiente versión."],
+      ["Plan, calendario y edición.", "Un ritmo mensual para tus canales."],
+      ["Un día de producción en tu negocio.", "Material y ediciones para cada formato."],
     ],
     pricingHref: "/es/precios",
     from: "Desde",
@@ -144,11 +148,28 @@ const copy = {
   },
 } as const;
 
-const artwork = ["property", "business", "editing"] as const;
+const artwork = ["property", "editing", "business", "business"] as const;
 /** lanes[index].id ("real-estate" | "local-business" | "agency") already
  * matches ChooserLaneId 1:1 — this is just the type-narrowing cast point. */
 const laneIdAt = (index: number): ChooserLaneId =>
   (["real-estate", "local-business", "agency"] as const)[index];
+
+const pathChoices = [
+  { id: "real-estate", laneIndex: 0, copyIndex: 0, offerId: undefined },
+  { id: "editing", laneIndex: 2, copyIndex: 1, offerId: "arranque" },
+  { id: "monthly-content", laneIndex: 1, copyIndex: 2, offerId: "crecimiento" },
+  { id: "on-site-production", laneIndex: 1, copyIndex: 3, offerId: "presencia-local" },
+] as const;
+
+function matchesPackage(offer: { href: string }, id: "arranque" | "crecimiento" | "presencia-local" | undefined) {
+  if (!id) return true;
+  const slugs = {
+    arranque: ["arranque", "starter"],
+    crecimiento: ["crecimiento", "growth"],
+    "presencia-local": ["presencia-local", "local-presence"],
+  } as const;
+  return slugs[id].some((slug) => offer.href.endsWith(slug));
+}
 
 function offerDeliverables(name: string, laneId: ChooserLaneId, locale: AudienceLocale): string[] {
   const isEs = locale === "es";
@@ -275,7 +296,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
   const lanes = AUDIENCE_LANES[locale].lanes;
   const single = packagesCopy(locale).aLaCarte;
   const SINGLE_ID = "a-la-carte";
-  const [activeLane, setActiveLane] = useState(lanes[0].id);
+  const [activeLane, setActiveLane] = useState<(typeof pathChoices)[number]["id"] | typeof SINGLE_ID>(pathChoices[0].id);
   const [focusTick, setFocusTick] = useState(0);
   const [funnelOpen, setFunnelOpen] = useState(false);
   const [funnelLane, setFunnelLane] = useState<{ id: string; label: string; price: string }>({ id: lanes[0].id, label: c.labels[0], price: laneFunnelPrice(locale, "real-estate") });
@@ -284,16 +305,18 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
     setFunnelOpen(true);
   };
 
-  const activeIndex = [...lanes.map((lane) => lane.id), SINGLE_ID].indexOf(activeLane);
-  const activeChooserLane = activeIndex >= 0 && activeIndex < lanes.length ? laneIdAt(activeIndex) : "real-estate";
-  const activeChoice = activeIndex < lanes.length ? c.labels[activeIndex] : c.singleLabel;
-  const activePrice = activeIndex < lanes.length ? laneStartingPrice(locale, activeChooserLane) : c.singleQuoted;
-  const selectProject = (id: string) => {
+  const activeIndex = [...pathChoices.map((path) => path.id), SINGLE_ID].indexOf(activeLane);
+  const activePath = pathChoices.find((path) => path.id === activeLane);
+  const activeChoice = activePath ? c.labels[activePath.copyIndex] : c.singleLabel;
+  const activePrice = activePath
+    ? laneOffers(locale, laneIdAt(activePath.laneIndex)).find((offer) => matchesPackage(offer, activePath.offerId))?.price ?? laneStartingPrice(locale, laneIdAt(activePath.laneIndex))
+    : c.singleQuoted;
+  const selectProject = (id: (typeof pathChoices)[number]["id"] | typeof SINGLE_ID) => {
     setActiveLane(id);
     setFocusTick((tick) => tick + 1);
   };
   const selectNextProject = () => {
-    const choices = [...lanes.map((lane) => lane.id), SINGLE_ID];
+    const choices: Array<(typeof pathChoices)[number]["id"] | typeof SINGLE_ID> = [...pathChoices.map((path) => path.id), SINGLE_ID];
     selectProject(choices[(activeIndex + 1) % choices.length]);
   };
 
@@ -325,7 +348,9 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
             <p className="em-camera-chooser__price">{activePrice}</p>
           </div>
           <div className="em-camera-chooser__choices" role="group" aria-label={locale === "es" ? "Tipo de proyecto" : "Project type"}>
-            {lanes.map((lane, i) => ({ id: lane.id, label: c.tabs[i], price: laneStartingPrice(locale, laneIdAt(i)) })).map((chip) => {
+            {pathChoices.map((path) => {
+              const offer = laneOffers(locale, laneIdAt(path.laneIndex)).find((candidate) => matchesPackage(candidate, path.offerId));
+              const chip = { id: path.id, label: c.tabs[path.copyIndex], price: offer?.price ?? laneStartingPrice(locale, laneIdAt(path.laneIndex)) };
               return (
               <button
                 key={chip.id}
@@ -370,11 +395,14 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
               `[data-rail-open]`, and a `hidden` element can be neither
               intersecting nor open, so the inactive lanes' scenes cannot
               animate — verified by filming, see PR description. */}
-          {lanes.map((lane) => {
-            const index = lanes.findIndex((l) => l.id === lane.id);
-            const isActive = lane.id === activeLane;
+          {pathChoices.map((path) => {
+            const lane = lanes[path.laneIndex];
+            const index = path.copyIndex;
+            const chooserLane = laneIdAt(path.laneIndex);
+            const offers = laneOffers(locale, chooserLane).filter((offer) => matchesPackage(offer, path.offerId));
+            const isActive = path.id === activeLane;
             return (
-              <div key={lane.id} className="em-path-card" hidden={!isActive}>
+              <div key={path.id} className="em-path-card" hidden={!isActive}>
                 <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-[#d6cabc] bg-[#fffaf3] shadow-sm">
                   {/* Cinematic Lens Backdrop Banner — illustration sits behind like a cinema poster */}
                   <div className="em-path-visual relative h-44 sm:h-52 w-full overflow-hidden bg-[#101214]">
@@ -416,12 +444,12 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                       <p className="text-xs font-semibold uppercase tracking-wider text-[#6a625a]">
                         {locale === "es" ? "Paquetes y entregables" : "Available packages & deliverables"}
                       </p>
-                      {index === 0 && (
+                      {path.id === "real-estate" && (
                         <p className="em-path-qualifier text-xs text-[#6a625a]">
                           {c.minimumTerm}
                         </p>
                       )}
-                      {index === 2 && (
+                      {path.id === "editing" && (
                         <p className="em-path-qualifier text-xs text-[#6a625a]">
                           {c.turnaround(turnaroundFor("arranque").minimumDays)}
                         </p>
@@ -429,9 +457,9 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                     </div>
 
                     {/* Offers List: expandable plan cards with full deliverables disclosure */}
-                    <ul className={`em-path-offers grid grid-cols-1 ${laneOffers(locale, laneIdAt(index)).length === 3 ? "sm:grid-cols-3" : "sm:grid-cols-2"} gap-2.5`} role="list" aria-label={c.offersLabel} data-lane={lane.id}>
-                      {laneOffers(locale, laneIdAt(index)).map((offer) => {
-                        const deliverables = offerDeliverables(offer.name, laneIdAt(index), locale);
+                    <ul className={`em-path-offers grid grid-cols-1 ${offers.length === 3 ? "sm:grid-cols-3" : "sm:grid-cols-2"} gap-2.5`} role="list" aria-label={c.offersLabel} data-lane={path.id}>
+                      {offers.map((offer) => {
+                        const deliverables = offerDeliverables(offer.name, chooserLane, locale);
                         return (
                           <li
                             key={offer.name}
@@ -494,7 +522,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                       })}
                     </ul>
 
-                    {index === 0 && (
+                    {path.id === "real-estate" && (
                       <div className="mt-2">
                         <details className="group/terms rounded-xl border border-[#d6cabc] bg-[#fffaf3] p-3 text-xs text-[#6a625a]">
                           <summary className="font-semibold text-[#6a625a] cursor-pointer hover:text-[#101214] list-none flex items-center justify-between [&::-webkit-details-marker]:hidden select-none">
@@ -522,7 +550,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                       </div>
                     )}
 
-                    {index === 1 && (
+                    {path.id === "monthly-content" && (
                       <div className="mt-1">
                         <details className="em-process-details em-sheet-details">
                           <summary className="text-xs font-semibold text-[#6a625a] cursor-pointer hover:text-[#101214] py-1">
@@ -535,7 +563,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                       </div>
                     )}
 
-                    {index === 2 && (
+                    {path.id === "editing" && (
                       <div className="mt-1">
                         <details className="em-process-details em-sheet-details">
                           <summary className="text-xs font-semibold text-[#6a625a] cursor-pointer hover:text-[#101214] py-1">
@@ -551,17 +579,17 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                     {/* Primary Action Button */}
                     <div className="mt-2">
                       <Link
-                        href={index === 0 ? realEstateReelsPath(locale) : lane.href}
-                        data-cta={`home-path-${lane.id}`}
+                        href={path.id === "real-estate" ? realEstateReelsPath(locale) : lane.href}
+                        data-cta={`home-path-${path.id}`}
                         onClick={(e) => {
                           e.preventDefault();
-                          openFunnel(lane.id, c.labels[index], laneFunnelPrice(locale, laneIdAt(index)));
+                          openFunnel(lane.id, c.labels[index], offers.map((offer) => `${offer.name} ${offer.price}`).join(" · "));
                         }}
                         className="group flex min-h-14 items-center justify-between gap-4 rounded-xl bg-[#9d3d2b] px-5 py-3.5 text-base sm:text-lg font-medium leading-snug text-white transition hover:bg-[#86341f] shadow-sm"
                       >
                         <span>
                           <span className="block font-semibold">{c.labels[index]}</span>
-                          <span className="text-xs font-normal text-white/80">{lane.who} · {laneStartingPrice(locale, laneIdAt(index))}</span>
+                          <span className="text-xs font-normal text-white/80">{lane.who} · {offers[0]?.price}</span>
                         </span>
                         <ArrowRight className="size-5 shrink-0 text-white transition-transform group-hover:translate-x-1" aria-hidden="true" />
                       </Link>

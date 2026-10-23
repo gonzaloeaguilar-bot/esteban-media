@@ -34,27 +34,28 @@ for (const locale of ["en", "es"] as const) {
   );
 
   describe(`home ${locale}: packaging after the chooser`, () => {
-    it("1. the Business option shows the monthly plan AND the production day, with its price visible on the camera control", () => {
+    it("1. each buying route states its actual offer price on the camera control", () => {
       const prices = laneOffers(locale, "local-business").map((o) => o.price).join(" ");
       expect(prices).toContain("$640");
       expect(prices).toContain("$800");
       expect(path).toMatch(/em-camera-chooser__stop[^>]*>[\s\S]*?(From|Desde) \$640\/(mo|mes)</);
+      expect(path).toMatch(/em-camera-chooser__stop[^>]*>[\s\S]*?(From|Desde) \$800\/[^<]+</);
       expect(read("app/illustrated-commercial.css")).toMatch(/\.em-camera-chooser__stop small\{[^}]*white-space:nowrap/);
     });
 
-    it("1b. the camera deck keeps the three recurring paths together and gives one-off work its own entry", () => {
-      expect((path.match(/em-camera-chooser__stop/g) ?? [])).toHaveLength(3);
+    it("1b. the camera deck separates four buying routes and gives one-off work its own entry", () => {
+      expect((path.match(/em-camera-chooser__stop/g) ?? [])).toHaveLength(4);
       expect(path).toContain("em-single-project-entry");
       expect(path).toMatch(/Need one specific thing\?|¿Necesitas algo puntual\?/);
       const packageHeading = locale === "en" ? "Available packages" : "Paquetes y entregables";
       expect(path.indexOf('em-camera-chooser__choices')).toBeLessThan(path.indexOf(packageHeading));
       const css = read("app/illustrated-commercial.css");
       expect(css).toMatch(/\.em-camera-chooser__choices\{[^}]*grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/);
-      expect(css).toContain(".em-camera-chooser__stop:last-child{grid-column:1/-1}");
+      expect(css).not.toContain(".em-camera-chooser__stop:last-child{grid-column:1/-1}");
       expect(css).toContain(".em-path-visual{display:none}");
     });
 
-    it("3. the options are named exactly as /pricing names them", () => {
+    it("3. every package is in the server-rendered chooser, even when not selected", () => {
       const names = locale === "en" ? ["Starter", "Growth", "Local Presence", "Essential"] : ["Arranque", "Crecimiento", "Presencia Local", "Essential"];
       for (const name of names) expect(path, name).toContain(`em-path-offer-name">${name}<`);
     });
