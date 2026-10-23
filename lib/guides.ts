@@ -3041,8 +3041,8 @@ const guidePairs: readonly GuidePair[] = [
     id: "caption-styles-reels-guide",
     en: {
       slug: "best-caption-styles-for-instagram-reels",
-      metadataTitle: "Best Subtitle Styles for Reels",
-      title: "Best caption styles and subtitle strategies for Reels",
+      metadataTitle: "Best Instagram Reel Caption Styles",
+      title: "Best Instagram Reel caption styles for readable subtitles",
       // Round 7 (2026-10-14): top gainer in GSC this week (26 impressions at
       // 8.8, was 11; 0 clicks) with a description that answered nothing. Meta
       // only; the copy below is unchanged.
@@ -3052,7 +3052,7 @@ const guidePairs: readonly GuidePair[] = [
         "Explore word-by-word highlighted captions, safe zone margins, and typographic styles for maximum social video engagement.",
       eyebrow: "Subtitles / Social Reels",
       answer:
-        "Use high-contrast bold fonts centered in the safe zone with active word highlighting to keep viewers watching on mute.",
+        "For Instagram Reels, use high-contrast subtitles in the central safe area. Choose full-sentence captions for spoken explanations and short emphasis captions when the footage carries most of the message.",
       proof: {
         href: "/portfolio/bar-door-monkey",
         title: "Bar Door Monkey Miami",
@@ -3063,13 +3063,14 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "How do you keep captions inside the safe zone?",
           paragraphs: [
-            "Keep subtitles away from bottom Instagram UI buttons and top account headers to ensure full legibility. When formatting dynamic text for dining reels, [restaurant promo video editing in Miami](/services/restaurant-promo-video-editing-miami) balances animated captions with mouth-watering food visuals, while clients planning on-location filming across South Florida can check the [áreas de servicio](/es/areas) directory for local coverage.",
+            "Keep subtitles in the central part of the vertical frame, away from the bottom controls and top account header that Instagram places over a Reel. A caption can be technically present but still fail if a viewer has to read around interface buttons or a product, face, or food detail. Check the actual 9:16 cut on a phone before publishing, not only the editing preview.",
+            "Plan the caption position with the rest of the overlay layout. The [safe-zone guide for vertical and horizontal exports](/guides/vertical-horizontal-video-exports-and-safe-zones) explains how platform controls affect a vertical frame, while [how to use Instagram Reels for business](/guides/how-to-use-instagram-reels-for-business) helps match the reel's message to the audience before type treatment is chosen. For food-led cuts, [restaurant promo video editing in Miami](/services/restaurant-promo-video-editing-miami) shows where captions need to leave the visual subject readable.",
           ],
         },
         {
           heading: "How do you choose a caption style for the viewing context?",
           paragraphs: [
-            "Reels, Shorts, and TikTok clips are often watched without sound, but the right subtitle treatment depends on how much the viewer needs to understand. Talking-head clips usually need clean sentence captions; food, product, and event reels often work better with short emphasis words that support the visuals instead of repeating every frame. Browse [selected work](/es/portafolio) to see published video examples, then review the Spanish [eventos del año en el sur de Florida](/es/eventos) hub for seasonal timelines and video recap guidelines, or consult the Spanish [precios de partida](/es/precios) guide for editing packages.",
+            "Reels, Shorts, and TikTok clips are often watched without sound, but the right subtitle treatment depends on how much the viewer needs to understand. Talking-head clips usually need clean sentence captions so the viewer can follow a complete idea. Food, product, and event reels often work better with short emphasis words that support the visuals instead of repeating every frame.",
             "For a business account, keep one recognizable type style for recurring content, then adjust weight, placement, and animation speed by format. A menu reel, founder tip, customer walkthrough, and service explanation can share a brand look without using the same caption rhythm.",
           ],
           bullets: [
