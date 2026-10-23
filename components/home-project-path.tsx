@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, ChevronDown, Plus } from "lucide-react";
+import { ArrowRight, ChevronDown, Heart, MessageCircle, Plus, Send } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 import { StarterOptions } from "@/components/starter-options";
@@ -51,12 +51,18 @@ const copy = {
     lensAlt: "Illustration of Esteban's Sony Alpha 7 IV camera lens",
     lensAction: "Show the next project type",
     singleWhatsapp: "Hi Esteban, I'd like a quote for a single project.",
-    artAlts: [
+  artAlts: [
       "Concept illustration of a home, camera and property photographs",
       "Concept illustration of an editing desk with a monitor, filmstrip and headphones",
       "Concept illustration of a cafe being filmed on a phone",
       "Concept illustration of a camera crew filming at a local business",
-    ],
+  ],
+  routeVisualAlts: {
+    "real-estate": "Property photography and a camera for real estate marketing",
+    editing: "Vertical video clip for a content creator",
+    production: "Esteban filming on a video production set",
+    "local-business": "Video production at a local business",
+  },
     pricingDetail: "These are starting prices. The final price depends on the project scope.",
     pricingAction: "See everything each package includes",
     offersLabel: "What this includes",
@@ -107,12 +113,18 @@ const copy = {
     lensAlt: "Ilustración del lente de la cámara Sony Alpha 7 IV de Esteban",
     lensAction: "Mostrar el siguiente tipo de proyecto",
     singleWhatsapp: "Hola Esteban, quiero una cotización para un proyecto puntual.",
-    artAlts: [
+  artAlts: [
       "Ilustración conceptual de una casa, una cámara y fotografías de la propiedad",
       "Ilustración conceptual de una mesa de edición con monitor, película y audífonos",
       "Ilustración conceptual de un café grabado con un celular",
       "Ilustración conceptual de un equipo grabando en un negocio local",
-    ],
+  ],
+  routeVisualAlts: {
+    "real-estate": "Fotografía de propiedad y cámara para marketing inmobiliario",
+    editing: "Video vertical para un creador de contenido",
+    production: "Esteban grabando en un set de producción de video",
+    "local-business": "Producción de video en un negocio local",
+  },
     pricingDetail: "Son precios de partida. El precio final depende del alcance del proyecto.",
     pricingAction: "Ver todo lo que incluye cada paquete",
     offersLabel: "Qué incluye",
@@ -163,6 +175,13 @@ const routeDefinitions: Array<{
   { id: "production", offerIds: [], serviceIds: ["multicam", "yate", "kickstarter"], artwork: "business" },
   { id: "local-business", offerIds: ["crecimiento", "presencia-local", "todo-incluido"], serviceIds: ["ia", "seo", "auditoria", "automatizacion"], artwork: "business" },
 ];
+
+const routeVisuals: Record<RouteId, string> = {
+  "real-estate": "/illustrations/property.webp",
+  editing: "/portfolio/bar-door-monkey.jpg",
+  production: "/about/esteban-on-set.jpg",
+  "local-business": "/portfolio/front-line-auto.jpg",
+};
 
 function offerDeliverables(name: string, laneId: ChooserLaneId, locale: AudienceLocale): string[] {
   const isEs = locale === "es";
@@ -408,6 +427,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
         <div className="em-route-list mt-3">
           {routeDefinitions.map((route) => {
             const routeText = routeCopy[route.id];
+            const visualSrc = routeVisuals[route.id];
             const offers = packageOffers(route.offerIds);
             const routeLane: ChooserLaneId = route.id === "editing" ? "agency" : route.id === "real-estate" ? "real-estate" : "local-business";
             const routePrice = offers.length > 0 ? offers.map((offer) => `${offer.name} ${offer.price}`).join(" · ") : c.singleQuoted;
@@ -418,6 +438,10 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
               <details key={route.id} className="em-route-card" data-route={route.id} name={`home-route-${locale}`} onToggle={resetRouteWhenClosed}>
                 <summary data-cta={`home_project_route_${locale}_${route.id}`}>
                   <span className="em-route-card__copy"><span className="em-route-card__eyebrow">{routeText.eyebrow}</span><strong>{routeText.title}</strong><span>{routeText.lead}</span></span>
+                  <span className={`em-route-card__visual em-route-card__visual--${route.id}`} aria-hidden="true">
+                    <Image src={visualSrc} alt={c.routeVisualAlts[route.id]} fill sizes="(max-width: 639px) 72px, 92px" />
+                    {route.id === "editing" && <span className="em-route-card__reel-actions"><Heart /><MessageCircle /><Send /></span>}
+                  </span>
                   <Plus className="em-route-card__plus" size={22} aria-hidden="true" />
                 </summary>
                 <div className="em-route-card__body">
