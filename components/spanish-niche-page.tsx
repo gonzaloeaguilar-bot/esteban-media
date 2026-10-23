@@ -899,13 +899,13 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
   "editor-de-video-de-productos-para-ecommerce": {
     areaHref: "/es/areas#miami-dade",
     areaLabel: "Ver cobertura en Miami-Dade",
-    note: "Edición dinámica para demostraciones de producto e-commerce.",
+    note: "Edición para contenido comercial y demostraciones de producto cuando el material de origen es aportado o producido para el proyecto.",
     serviceIds: ["edicion", "reutilizacion-redes"],
     projects: [
       {
-        href: "/es/portafolio/bar-door-monkey",
-        title: "Bar Door Monkey Miami",
-        detail: "Edición publicitaria de producto.",
+        href: "/es/portafolio/my-dler",
+        title: "My D'ler",
+        detail: "Montajes de producto y movimiento para la presentación de una app; no se presenta como una campaña de ficha de producto e-commerce.",
       },
     ],
   },
