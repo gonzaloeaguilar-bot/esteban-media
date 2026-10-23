@@ -1,3 +1,11 @@
+# 2026-10-22 — Miami corporate-video cost guide content-depth candidate (local branch)
+
+- Source scope: `lib/guides.ts`, its existing metadata test, and the generated existing ledger `config/page-lastmod.json`; no route, dependency, analytics, or unsupported price/business claim changed.
+- Updated `/guides/corporate-video-production-cost-miami` with a budget-and-comparison H1, a concise intent-matched metadata title and description, a two-sentence answer-first opening that distinguishes a filming starting price from an all-in quote, and two additional server-rendered FAQ answers about comparing same-day quotes and requesting a quote before every detail is known. Existing contextual links to remote editing and on-location production remain in the guide.
+- Local verification: `pnpm lastmod:update`, `npm run typecheck --silent`, `npm test`, and `git diff --check` passed. The full suite reported 165 test files and 3,469 tests passing. Not committed, independently reviewed, deployed, or production-verified. Next owner: `cto-qa-lead` reviews the exact diff; after an authorized release, verify the title, H1, answer, FAQ HTML, contextual links, and updated date on production. `cto-seo-lead` owns a comparable later GSC read; no click, ranking, citation, or inquiry impact is claimed.
+
+---
+
 # 2026-10-22 — Spanish video-pacing calculator content-depth candidate (local branch)
 
 - Source scope: `app/(spanish)/es/calculadora-de-ritmo-de-video/page.tsx`, its existing calculator component, its existing metadata assertion, and the generated ledger `config/page-lastmod.json`; no new route, dependency, analytics, pricing, or business claim changed.
