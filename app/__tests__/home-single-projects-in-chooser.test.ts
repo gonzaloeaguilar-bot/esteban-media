@@ -28,7 +28,10 @@ describe("single projects live inside the chooser, once", () => {
       expect(html).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$800/);
       expect(html).toMatch(/em-path-offer-name[^>]*>(Growth|Crecimiento)</);
       expect(html).toMatch(/em-path-offer-name[^>]*>(Local Presence|Presencia Local)</);
-      expect(html).toMatch(/em-path-offer-name[^>]*>(Starter|Arranque)</);
+      // Editing is a buying choice (once, weekly, or scoped project), not a
+      // fourth package card named Starter/Arranque.
+      expect(html).toMatch(/em-pk-starter-tile__num[^>]*>\$100</);
+      expect(html).not.toMatch(/em-path-offer-name[^>]*>(Starter|Arranque)</);
       expect(html).toMatch(/em-path-offer-name[^>]*>Essential</);
       expect(html).toMatch(/em-single-price[^>]*>(From|Desde) \$280/);
       expect(html).toMatch(/em-single-price[^>]*>(From|Desde) \$400/);

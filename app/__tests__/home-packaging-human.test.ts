@@ -95,12 +95,18 @@ for (const locale of ["en", "es"] as const) {
       expect(path).toContain(locale === "es" ? "Video largo o proyecto a medida" : "Long video or custom project");
       expect(path).toContain(locale === "es" ? "Pedir cotización por proyecto" : "Request a project quote");
       expect(path).not.toContain(locale === "es" ? "Ver el proceso de edición" : "See the editing process");
-      const editing = path.match(/data-route="editing"[\s\S]*?<\/details>/)?.[0] ?? "";
+      const editingStart = path.indexOf('data-route="editing"');
+      const editingEnd = path.indexOf('data-route="production"');
+      const editing = path.slice(editingStart, editingEnd);
       expect(editing).not.toContain("em-route-main-cta");
+      expect(editing).not.toContain("em-path-offer");
+      expect(editing).not.toContain('em-route-card__label">Packages');
+      expect(editing).not.toContain('em-route-card__label">Paquetes');
+      expect(editing).not.toContain(">Starter<");
     });
 
     it("3. every package is in the server-rendered chooser, even when not selected", () => {
-      const names = locale === "en" ? ["Starter", "Growth", "Local Presence", "All-In", "Essential"] : ["Arranque", "Crecimiento", "Presencia Local", "Todo Incluido", "Essential"];
+      const names = locale === "en" ? ["Growth", "Local Presence", "All-In", "Essential"] : ["Crecimiento", "Presencia Local", "Todo Incluido", "Essential"];
       for (const name of names) expect(path, name).toContain(`em-path-offer-name">${name}<`);
     });
 

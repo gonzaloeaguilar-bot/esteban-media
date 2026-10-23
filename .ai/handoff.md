@@ -1,3 +1,9 @@
+# 2026-10-23 — Editing route: remove the ambiguous Starter package card candidate
+
+- Owner phone QA identified “Starter” as an unclear package name because it repeated the same $100 single-video choice shown immediately beneath it. The home Editing route now opens straight into three buyer choices: one video, recurring weekly editing (one or two videos), or a longer/custom project. “Starter” remains an internal/pricing-page identifier, not a visible package card in this route.
+- Local mobile evidence: browser at 390×664 showed `Video editing` → `How often do you need videos?` → Just once / Every week, then the custom-project disclosure. The editing card rendered zero `.em-path-offer` cards, no visible “Starter” string, and zero horizontal overflow. Screenshot: `/tmp/esteban-editing-clarity-local.png` (local-only artifact).
+- Gates passed on this added diff: focused chooser tests 35/35; `pnpm rail-adoption:check` (3); typecheck; lint (0 errors, 22 existing warnings); full `pnpm test` (166 files / 3,479 tests); and `pnpm build`. Add this commit to PR #522; production remains unchanged until the previously documented self-hosted runner font-network failure is resolved.
+
 # 2026-10-23 — Real Estate monthly-plan terms clarity candidate
 
 - Scope: moved the Real Estate terms immediately below the monthly plan cards and above the individual photography and AI-enhancement services. The disclosure is now explicitly titled "Monthly Real Estate plan terms" / "Condiciones de los planes mensuales" and says it applies only to those monthly plans, not the individual services. No price, deliverable, or eligibility rule changed.

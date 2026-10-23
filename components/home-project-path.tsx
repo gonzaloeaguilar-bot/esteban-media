@@ -158,7 +158,7 @@ const routeDefinitions: Array<{
   artwork: "property" | "editing" | "business";
 }> = [
   { id: "real-estate", offerIds: "real-estate", serviceIds: ["foto", "mejora"], artwork: "property" },
-  { id: "editing", offerIds: ["arranque"], serviceIds: [], artwork: "editing" },
+  { id: "editing", offerIds: [], serviceIds: [], artwork: "editing" },
   { id: "production", offerIds: [], serviceIds: ["grabacion", "multicam", "yate", "kickstarter"], artwork: "business" },
   { id: "local-business", offerIds: ["crecimiento", "presencia-local", "todo-incluido"], serviceIds: ["ia", "seo", "auditoria", "automatizacion"], artwork: "business" },
 ];
@@ -427,7 +427,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                     const isProductionService = route.id === "production";
                     return <li key={item.id}><details className="em-single-item" data-service={item.id} name={`route-service-${locale}-${route.id}`} onToggle={keepChoiceVisible}><summary data-cta={`home_path_${route.id}_${item.id}`}>{isProductionService ? <span className="em-single-thumb em-single-thumb--production" aria-hidden="true"><ProductionIcon size={28} strokeWidth={1.6} /></span> : <Image className="em-single-thumb" src={scene.image} alt={c.thumbAlt(item.title)} width={96} height={64} sizes="64px" />}<span className="em-single-text"><span className="em-single-title">{item.title}</span><span className="em-single-price">{price}</span>{item.note && <span className="em-single-note">{item.note}</span>}</span><Plus className="em-single-plus" size={18} aria-hidden="true" /></summary><div className="em-single-panel"><p><strong>{c.singleSend}.</strong> {scene.preparation}</p><div className="em-single-actions"><button type="button" className="em-single-ask" onClick={() => openFunnel(route.id, `${routeText.title}: ${item.title}`, price)}>{c.singleAsk}</button>{item.href && <Link href={item.href} className="em-single-service">{c.singleService}</Link>}</div></div></details></li>;
                   })}</ul></>}
-                  {route.id === "editing" && <><div className="mt-5 border-t border-[#ddd4c8] pt-4"><p className="em-route-card__label mt-0">{locale === "es" ? "Elige cómo necesitas editar" : "Choose how you need editing"}</p><StarterOptions locale={locale} quiet /></div><details className="em-route-terms" onToggle={keepChoiceVisible}><summary>{editingProject.title}</summary><p>{editingProject.lead}</p><button type="button" className="em-route-choose" onClick={() => openFunnel(route.id, `${routeText.title}: ${editingProject.title}`, c.singleQuoted)}>{editingProject.action}<ArrowRight size={15} /></button></details></>}
+                  {route.id === "editing" && <><div className="mt-5"><StarterOptions locale={locale} quiet /></div><details className="em-route-terms" onToggle={keepChoiceVisible}><summary>{editingProject.title}</summary><p>{editingProject.lead}</p><button type="button" className="em-route-choose" onClick={() => openFunnel(route.id, `${routeText.title}: ${editingProject.title}`, c.singleQuoted)}>{editingProject.action}<ArrowRight size={15} /></button></details></>}
                   {route.id !== "editing" && <button type="button" className="em-route-main-cta" onClick={() => openFunnel(route.id, routeText.title, routePrice)}>{locale === "es" ? `Cotizar ${routeText.title}` : `Quote ${routeText.title}`}<ArrowRight size={18} /></button>}
                 </div>
               </details>
