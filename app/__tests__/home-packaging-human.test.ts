@@ -51,6 +51,14 @@ for (const locale of ["en", "es"] as const) {
       expect(css).toContain(".em-route-card>summary");
     });
 
+    it("1c. business filming stays with local-business packages, while event production begins with its specific services", () => {
+      const component = read("components/home-project-path.tsx");
+      expect(component).toContain('{ id: "production", offerIds: [], serviceIds: ["grabacion", "multicam", "yate", "kickstarter"]');
+      expect(component).toContain('{ id: "local-business", offerIds: ["crecimiento", "presencia-local", "todo-incluido"]');
+      expect(path).toMatch(/data-route="local-business"[\s\S]*em-path-offer-name">(Growth|Crecimiento)</);
+      expect(path).toMatch(/data-route="local-business"[\s\S]*em-path-offer-name">(Local Presence|Presencia Local)</);
+    });
+
     it("3. every package is in the server-rendered chooser, even when not selected", () => {
       const names = locale === "en" ? ["Starter", "Growth", "Local Presence", "All-In", "Essential"] : ["Arranque", "Crecimiento", "Presencia Local", "Todo Incluido", "Essential"];
       for (const name of names) expect(path, name).toContain(`em-path-offer-name">${name}<`);

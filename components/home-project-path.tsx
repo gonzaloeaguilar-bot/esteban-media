@@ -163,8 +163,8 @@ const routeDefinitions: Array<{
 }> = [
   { id: "real-estate", offerIds: "real-estate", serviceIds: ["foto", "mejora"], artwork: "property" },
   { id: "editing", offerIds: ["arranque"], serviceIds: [], artwork: "editing" },
-  { id: "production", offerIds: ["presencia-local"], serviceIds: ["grabacion", "multicam", "yate", "kickstarter"], artwork: "business" },
-  { id: "local-business", offerIds: ["crecimiento", "todo-incluido"], serviceIds: ["ia", "seo", "auditoria", "automatizacion"], artwork: "business" },
+  { id: "production", offerIds: [], serviceIds: ["grabacion", "multicam", "yate", "kickstarter"], artwork: "business" },
+  { id: "local-business", offerIds: ["crecimiento", "presencia-local", "todo-incluido"], serviceIds: ["ia", "seo", "auditoria", "automatizacion"], artwork: "business" },
 ];
 
 function offerDeliverables(name: string, laneId: ChooserLaneId, locale: AudienceLocale): string[] {
@@ -253,6 +253,23 @@ function offerDeliverables(name: string, laneId: ChooserLaneId, locale: Audience
             "Dedicated creative lead for your brand",
           ];
     }
+    if (name.includes("All-In") || name.includes("Todo Incluido")) {
+      return isEs
+        ? [
+            "Sitio web de conversión",
+            "Chatbot y captura de clientes con IA",
+            "Perfil y presencia local (Google Business, Maps)",
+            "Contenido y edición",
+            "Reporte de todos los canales",
+          ]
+        : [
+            "Conversion website",
+            "AI chatbot and lead capture",
+            "Local profile and presence (Google Business, Maps)",
+            "Content and editing",
+            "Reporting across all channels",
+          ];
+    }
     return isEs
       ? [
           "Pre-producción: dirección creativa y lista de tomas",
@@ -296,14 +313,14 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
     ? {
         "real-estate": { title: "Real Estate", eyebrow: "Propiedades", lead: "Planes, fotos y mejoras para mostrar cada propiedad." },
         editing: { title: "Edición de video", eyebrow: "Ya tienes material", lead: "Reels, videos cortos, audio, color y subtítulos a partir de tus tomas." },
-        production: { title: "Producciones y eventos", eyebrow: "Hay que grabar", lead: "Grabaciones en sitio, conferencias, yates y videos comerciales." },
-        "local-business": { title: "Negocios locales", eyebrow: "Tu negocio", lead: "Contenido mensual, grabación y presencia digital para tu marca." },
+        production: { title: "Producciones y eventos", eyebrow: "Hay que grabar", lead: "Conferencias, yates, equipos multicámara y videos comerciales." },
+        "local-business": { title: "Negocios locales", eyebrow: "Tu negocio", lead: "Contenido mensual, grabación en tu negocio y presencia digital para tu marca." },
       }
     : {
         "real-estate": { title: "Real estate", eyebrow: "Properties", lead: "Plans, photos and improvements to show each property." },
         editing: { title: "Video editing", eyebrow: "You have footage", lead: "Reels, short videos, audio, color and captions from your footage." },
-        production: { title: "Productions and events", eyebrow: "You need filming", lead: "On-site shoots, conferences, yachts and commercial video." },
-        "local-business": { title: "Local businesses", eyebrow: "Your business", lead: "Monthly content, filming and digital presence for your brand." },
+        production: { title: "Productions and events", eyebrow: "You need filming", lead: "Conferences, yachts, multi-camera crews and commercial video." },
+        "local-business": { title: "Local businesses", eyebrow: "Your business", lead: "Monthly content, filming at your business and digital presence for your brand." },
       };
   const openFunnel = (id: string, label: string, price: string) => {
     setFunnelLane({ id, label, price });
@@ -356,6 +373,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
             const routeText = routeCopy[route.id];
             const offers = packageOffers(route.offerIds);
             const routeLane: ChooserLaneId = route.id === "editing" ? "agency" : route.id === "real-estate" ? "real-estate" : "local-business";
+            const routePrice = offers.length > 0 ? offers.map((offer) => `${offer.name} ${offer.price}`).join(" · ") : c.singleQuoted;
             return (
               <details key={route.id} className="em-route-card" data-route={route.id}>
                 <summary data-cta={`home_project_route_${locale}_${route.id}`}>
@@ -363,7 +381,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                   <Plus className="em-route-card__plus" size={22} aria-hidden="true" />
                 </summary>
                 <div className="em-route-card__body">
-                  <p className="em-route-card__label">{locale === "es" ? "Paquetes" : "Packages"}</p>
+                  {offers.length > 0 && <><p className="em-route-card__label">{locale === "es" ? "Paquetes" : "Packages"}</p>
                   <ul className="em-path-offers grid grid-cols-1 gap-2.5 sm:grid-cols-2" role="list" data-lane={route.id}>
                     {offers.map((offer) => (
                       <li key={offer.name} className="em-path-offer rounded-xl border border-[#d6cabc] bg-white overflow-hidden">
@@ -380,7 +398,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                         </details>
                       </li>
                     ))}
-                  </ul>
+                  </ul></>}
                   {route.serviceIds.length > 0 && <><p className="em-route-card__label mt-5">{locale === "es" ? "También puedes pedir" : "You can also request"}</p><ul className="em-single-list" role="list">{single.items.filter((item) => route.serviceIds.includes(item.id)).map((item) => {
                     const scene = aLaCarteVisual(item.id, locale); const price = servicePrice(item);
                     return <li key={item.id}><details className="em-single-item" data-service={item.id}><summary data-cta={`home_path_${route.id}_${item.id}`}><Image className="em-single-thumb" src={scene.image} alt={c.thumbAlt(item.title)} width={96} height={64} sizes="64px" /><span className="em-single-text"><span className="em-single-title">{item.title}</span><span className="em-single-price">{price}</span>{item.note && <span className="em-single-note">{item.note}</span>}</span><Plus className="em-single-plus" size={18} aria-hidden="true" /></summary><div className="em-single-panel"><p><strong>{c.singleSend}.</strong> {scene.preparation}</p><div className="em-single-actions"><button type="button" className="em-single-ask" onClick={() => openFunnel(route.id, `${routeText.title}: ${item.title}`, price)}>{c.singleAsk}</button>{item.href && <Link href={item.href} className="em-single-service">{c.singleService}</Link>}</div></div></details></li>;
@@ -388,7 +406,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                   {route.id === "real-estate" && <details className="em-route-terms"><summary>{locale === "es" ? "Adicionales y condiciones de Real Estate" : "Real estate add-ons and terms"}</summary><p>{locale === "es" ? `Mínimo de ${REAL_ESTATE_PLAN_TERMS.minimumMonths} meses. Propiedades adicionales o mayores a 3,000 SF se cotizan por separado.` : `${REAL_ESTATE_PLAN_TERMS.minimumMonths}-month minimum. Extra properties or homes over 3,000 SF are quoted separately.`}</p></details>}
                   {route.id === "editing" && <details className="em-process-details em-sheet-details"><summary>{c.process}</summary><div className="em-sheet-body p-4 bg-[#fffaf4]"><EditingPreview locale={locale} /></div></details>}
                   {route.id === "local-business" && <details className="em-process-details em-sheet-details"><summary>{locale === "es" ? "Ver ejemplo de contenido" : "See a content example"}</summary><div className="em-sheet-body p-4 bg-[#fffaf4]"><AudienceVideo locale={locale} alt={c.videoAlt} /></div></details>}
-                  <button type="button" className="em-route-main-cta" onClick={() => openFunnel(route.id, routeText.title, offers.map((offer) => `${offer.name} ${offer.price}`).join(" · "))}>{locale === "es" ? `Cotizar ${routeText.title}` : `Quote ${routeText.title}`}<ArrowRight size={18} /></button>
+                  <button type="button" className="em-route-main-cta" onClick={() => openFunnel(route.id, routeText.title, routePrice)}>{locale === "es" ? `Cotizar ${routeText.title}` : `Quote ${routeText.title}`}<ArrowRight size={18} /></button>
                 </div>
               </details>
             );
