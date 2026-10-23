@@ -16,6 +16,11 @@ describe("single projects live inside the chooser, once", () => {
 
     it(`${locale}: every a-la-carte title and what-to-send sentence is in the server HTML`, () => {
       for (const item of items) {
+        if (item.id === "grabacion") {
+          expect(html).toContain(locale === "es" ? "Grabemos tu contenido" : "Film content with me");
+          expect(html).toContain(aLaCarteVisual(item.id, locale).preparation.slice(0, 14));
+          continue;
+        }
         expect(html).toContain(item.title.replace(/&/g, "&amp;"));
         expect(html).toContain(aLaCarteVisual(item.id, locale).preparation.slice(0, 14));
       }
@@ -41,7 +46,8 @@ describe("single projects live inside the chooser, once", () => {
     it(`${locale}: native details, collapsed not removed`, () => {
       const standardRows = html.match(/<details class="em-single-item"/g) ?? [];
       const productionRows = html.match(/<details class="em-path-offer-details group\/offer" name="route-production/g) ?? [];
-      expect(standardRows.length + productionRows.length).toBe(items.length);
+      const creatorFilmingRows = html.match(/<details class="em-path-offer-details group\/offer" name="route-creator-filming/g) ?? [];
+      expect(standardRows.length + productionRows.length + creatorFilmingRows.length).toBe(items.length);
       expect(html).not.toMatch(/<details class="em-single-item"[^>]*open/);
       expect(html).not.toMatch(/<details class="em-path-offer-details group\/offer" name="route-production[^>]*open/);
     });

@@ -77,10 +77,11 @@ for (const locale of ["en", "es"] as const) {
       expect(realEstate).not.toContain(locale === "es" ? "Adicionales y condiciones de Real Estate" : "Real estate add-ons and terms");
     });
 
-    it("1c. business filming stays with local-business packages, while event production begins with its specific services", () => {
+    it("1c. creator filming stays with creators, business filming stays with local packages, and events keep their specific services", () => {
       const component = read("components/home-project-path.tsx");
-      expect(component).toContain('{ id: "production", offerIds: [], serviceIds: ["grabacion", "multicam", "yate", "kickstarter"]');
+      expect(component).toContain('{ id: "production", offerIds: [], serviceIds: ["multicam", "yate", "kickstarter"]');
       expect(component).toContain('{ id: "local-business", offerIds: ["crecimiento", "presencia-local", "todo-incluido"]');
+      expect(component).toContain('data-lane="creator-filming"');
       expect(component).toContain('name={`route-offer-${locale}-${route.id}`}');
       expect(component).toContain('name={`route-service-${locale}-${route.id}`}');
       expect(component).toContain('onToggle={resetRouteWhenClosed}');
@@ -105,8 +106,10 @@ for (const locale of ["en", "es"] as const) {
       expect(production).not.toContain(locale === "es" ? "Demo básico $1,000 · Brand film $3,000 · Actores y estudio $6,500+" : "Basic demo $1,000 · Brand film $3,000 · Actors and studio $6,500+");
     });
 
-    it("1d. editing shows the real one-off, weekly, and scoped-project choices together", () => {
+    it("1d. the content creator route shows editing, a filming day, and scoped-project choices together", () => {
       expect(path).toMatch(/data-route="editing"[\s\S]*\$100[\s\S]*\$85[\s\S]*\$160/);
+      expect(path).toMatch(/data-route="editing"[\s\S]*(Content creator|Creador de contenido)/);
+      expect(path).toMatch(/data-route="editing"[\s\S]*(Film content with me|Grabemos tu contenido)[\s\S]*\$400/);
       expect(path).toContain(locale === "es" ? "Video largo o proyecto a medida" : "Long video or custom project");
       expect(path).toContain(locale === "es" ? "Pedir cotización por proyecto" : "Request a project quote");
       expect(path).not.toContain(locale === "es" ? "Ver el proceso de edición" : "See the editing process");
@@ -114,7 +117,6 @@ for (const locale of ["en", "es"] as const) {
       const editingEnd = path.indexOf('data-route="production"');
       const editing = path.slice(editingStart, editingEnd);
       expect(editing).not.toContain("em-route-main-cta");
-      expect(editing).not.toContain("em-path-offer");
       expect(editing).not.toContain('em-route-card__label">Packages');
       expect(editing).not.toContain('em-route-card__label">Paquetes');
       expect(editing).not.toContain(">Starter<");

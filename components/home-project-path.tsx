@@ -148,8 +148,9 @@ type RouteId = "real-estate" | "editing" | "production" | "local-business";
 /**
  * Routes are intentionally organized around what a human is buying, not the
  * billing unit. A service appears once, in the route where a visitor expects
- * to find it. That keeps a production buyer from having to infer that a yacht
- * or conference shoot hides behind "one specific thing".
+ * to find it. Creators own their editing and creator-filming path; event,
+ * yacht, and commercial buyers do not have to infer that work from a generic
+ * "one specific thing" label.
  */
 const routeDefinitions: Array<{
   id: RouteId;
@@ -159,7 +160,7 @@ const routeDefinitions: Array<{
 }> = [
   { id: "real-estate", offerIds: "real-estate", serviceIds: ["foto", "mejora"], artwork: "property" },
   { id: "editing", offerIds: [], serviceIds: [], artwork: "editing" },
-  { id: "production", offerIds: [], serviceIds: ["grabacion", "multicam", "yate", "kickstarter"], artwork: "business" },
+  { id: "production", offerIds: [], serviceIds: ["multicam", "yate", "kickstarter"], artwork: "business" },
   { id: "local-business", offerIds: ["crecimiento", "presencia-local", "todo-incluido"], serviceIds: ["ia", "seo", "auditoria", "automatizacion"], artwork: "business" },
 ];
 
@@ -310,14 +311,14 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
   const routeCopy: Record<RouteId, { title: string; lead: string; eyebrow: string }> = locale === "es"
     ? {
         "real-estate": { title: "Real Estate", eyebrow: "Propiedades", lead: "Planes, fotos y mejoras para mostrar cada propiedad." },
-        editing: { title: "Edición de video", eyebrow: "Ya tienes material", lead: "Reels, videos cortos, audio, color y subtítulos a partir de tus tomas." },
-        production: { title: "Producciones y eventos", eyebrow: "Hay que grabar", lead: "Conferencias, yates, equipos multicámara y videos comerciales." },
+        editing: { title: "Creador de contenido", eyebrow: "Tú eres el canal", lead: "Edita tus clips, publica cada semana o graba un día de contenido conmigo." },
+        production: { title: "Producciones y eventos", eyebrow: "Una producción especial", lead: "Conferencias, yates, equipos multicámara y videos comerciales." },
         "local-business": { title: "Negocios locales", eyebrow: "Tu negocio", lead: "Contenido mensual, grabación en tu negocio y presencia digital para tu marca." },
       }
     : {
         "real-estate": { title: "Real estate", eyebrow: "Properties", lead: "Plans, photos and improvements to show each property." },
-        editing: { title: "Video editing", eyebrow: "You have footage", lead: "Reels, short videos, audio, color and captions from your footage." },
-        production: { title: "Productions and events", eyebrow: "You need filming", lead: "Conferences, yachts, multi-camera crews and commercial video." },
+        editing: { title: "Content creator", eyebrow: "You are the channel", lead: "Edit your clips, publish every week, or film a content day with me." },
+        production: { title: "Productions and events", eyebrow: "A special production", lead: "Conferences, yachts, multi-camera crews and commercial video." },
         "local-business": { title: "Local businesses", eyebrow: "Your business", lead: "Monthly content, filming at your business and digital presence for your brand." },
       };
   const openFunnel = (id: string, label: string, price: string) => {
@@ -378,6 +379,9 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
   const commercialScope = locale === "es"
     ? "Elige el alcance al cotizar: demo básico desde $1,000; brand film desde $3,000; actores y estudio desde $6,500."
     : "Choose the scope when you quote it: basic demo from $1,000; brand film from $3,000; actors and studio from $6,500.";
+  const creatorFilm = locale === "es"
+    ? { label: "¿También necesitas grabar?", title: "Grabemos tu contenido", lead: "Traes la idea. Yo grabo material para Reels, Shorts y tu próxima edición.", action: "Cotizar día de grabación" }
+    : { label: "Need a filming day too?", title: "Film content with me", lead: "Bring the idea. I capture usable footage for Reels, Shorts, and your next edit.", action: "Quote a filming day" };
 
   return (
     <section id="start" aria-labelledby={`home-path-${locale}`} data-section="home-project-path" className="em-home-project-path bg-[#f7f5f1] py-10 sm:py-14">
@@ -440,11 +444,11 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                     const price = servicePrice(item);
                     return <li key={item.id} className="em-path-offer rounded-xl border border-[#d6cabc] bg-white overflow-hidden"><details className="em-path-offer-details group/offer" name={`route-production-${locale}`} onToggle={keepChoiceVisible}><summary className="p-3.5 cursor-pointer list-none [&::-webkit-details-marker]:hidden"><p className="em-path-offer-head flex items-baseline justify-between gap-2 m-0"><strong className="em-path-offer-name">{item.title}</strong><span className="em-path-offer-price">{price}</span></p><p className="em-path-offer-inc">{productionSummary(item.id)}</p><span className="mt-3 pt-2.5 border-t border-[#f0eae1] flex items-center gap-1 text-xs font-medium text-[#6a625a]">{locale === "es" ? "Ver qué enviar" : "See what to send"}<ChevronDown className="size-3.5 transition-transform group-open/offer:rotate-180" /></span></summary><div className="px-3.5 pb-3.5 pt-2 border-t border-[#f0eae1] bg-[#fffaf4] text-xs text-[#3a3530]"><p className="m-0 text-sm leading-6"><strong>{c.singleSend}.</strong> {aLaCarteVisual(item.id, locale).preparation}</p>{item.id === "kickstarter" && <p className="mt-3 mb-0 text-sm leading-6 text-[#4d5358]">{commercialScope}</p>}<button type="button" className="em-route-choose" onClick={() => openFunnel(route.id, `${routeText.title}: ${item.title}`, price)}>{locale === "es" ? "Pedir cotización" : "Request a quote"}<ArrowRight size={15} /></button></div></details></li>;
                   })}</ul></>}
-                  {route.id !== "production" && route.serviceIds.length > 0 && <><p className="em-route-card__label mt-5">{locale === "es" ? "También puedes pedir" : "You can also request"}</p><ul className="em-single-list" role="list">{single.items.filter((item) => route.serviceIds.includes(item.id)).map((item) => {
+                  {route.id !== "production" && route.id !== "editing" && route.serviceIds.length > 0 && <><p className="em-route-card__label mt-5">{locale === "es" ? "También puedes pedir" : "You can also request"}</p><ul className="em-single-list" role="list">{single.items.filter((item) => route.serviceIds.includes(item.id)).map((item) => {
                     const scene = aLaCarteVisual(item.id, locale); const price = servicePrice(item);
                     return <li key={item.id}><details className="em-single-item" data-service={item.id} name={`route-service-${locale}-${route.id}`} onToggle={keepChoiceVisible}><summary data-cta={`home_path_${route.id}_${item.id}`}><Image className="em-single-thumb" src={scene.image} alt={c.thumbAlt(item.title)} width={96} height={64} sizes="64px" /><span className="em-single-text"><span className="em-single-title">{item.title}</span><span className="em-single-price">{price}</span>{item.note && <span className="em-single-note">{item.note}</span>}</span><Plus className="em-single-plus" size={18} aria-hidden="true" /></summary><div className="em-single-panel"><p><strong>{c.singleSend}.</strong> {scene.preparation}</p><div className="em-single-actions"><button type="button" className="em-single-ask" onClick={() => openFunnel(route.id, `${routeText.title}: ${item.title}`, price)}>{c.singleAsk}</button>{item.href && <Link href={item.href} className="em-single-service">{c.singleService}</Link>}</div></div></details></li>;
                   })}</ul></>}
-                  {route.id === "editing" && <><div className="mt-5"><StarterOptions locale={locale} quiet /></div><details className="em-route-terms" onToggle={keepChoiceVisible}><summary>{editingProject.title}</summary><p>{editingProject.lead}</p><button type="button" className="em-route-choose" onClick={() => openFunnel(route.id, `${routeText.title}: ${editingProject.title}`, c.singleQuoted)}>{editingProject.action}<ArrowRight size={15} /></button></details></>}
+                  {route.id === "editing" && <><div className="mt-5"><StarterOptions locale={locale} quiet /></div><p className="em-route-card__label mt-5">{creatorFilm.label}</p><ul className="em-path-offers grid grid-cols-1 gap-2.5" role="list" data-lane="creator-filming"><li className="em-path-offer rounded-xl border border-[#d6cabc] bg-white overflow-hidden"><details className="em-path-offer-details group/offer" name={`route-creator-filming-${locale}`} onToggle={keepChoiceVisible}><summary className="p-3.5 cursor-pointer list-none [&::-webkit-details-marker]:hidden"><p className="em-path-offer-head flex items-baseline justify-between gap-2 m-0"><strong className="em-path-offer-name">{creatorFilm.title}</strong><span className="em-path-offer-price">{`${c.singleFrom} ${usd(ON_LOCATION_CAPTURE.from)}${c.singleHalfDay}`}</span></p><p className="em-path-offer-inc">{creatorFilm.lead}</p><span className="mt-3 pt-2.5 border-t border-[#f0eae1] flex items-center gap-1 text-xs font-medium text-[#6a625a]">{locale === "es" ? "Ver qué enviar" : "See what to send"}<ChevronDown className="size-3.5 transition-transform group-open/offer:rotate-180" /></span></summary><div className="px-3.5 pb-3.5 pt-2 border-t border-[#f0eae1] bg-[#fffaf4] text-xs text-[#3a3530]"><p className="m-0 text-sm leading-6"><strong>{c.singleSend}.</strong> {aLaCarteVisual("grabacion", locale).preparation}</p><button type="button" className="em-route-choose" onClick={() => openFunnel(route.id, `${routeText.title}: ${creatorFilm.title}`, `${c.singleFrom} ${usd(ON_LOCATION_CAPTURE.from)}${c.singleHalfDay}`)}>{creatorFilm.action}<ArrowRight size={15} /></button></div></details></li></ul><details className="em-route-terms" onToggle={keepChoiceVisible}><summary>{editingProject.title}</summary><p>{editingProject.lead}</p><button type="button" className="em-route-choose" onClick={() => openFunnel(route.id, `${routeText.title}: ${editingProject.title}`, c.singleQuoted)}>{editingProject.action}<ArrowRight size={15} /></button></details></>}
                   {route.id !== "editing" && <button type="button" className="em-route-main-cta" onClick={() => openFunnel(route.id, routeText.title, routePrice)}>{locale === "es" ? `Cotizar ${routeText.title}` : `Quote ${routeText.title}`}<ArrowRight size={18} /></button>}
                 </div>
               </details>
