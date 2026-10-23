@@ -1,3 +1,11 @@
+# 2026-10-23 — Local GBP conversion proof on About page (priority-growth candidate)
+
+- Source scope: `app/(english)/about/page.tsx`, `app/__tests__/about-conversion-proof.test.ts`, and `config/page-lastmod.json`; addresses `local_gbp_conversion` recommendation for the top query/page opportunity "esteban moreno media" -> `/about`.
+- Renders `ClientReviews` (5.0 rating, verified Google review count, verbatim client quotes, and verified Google Business Profile link) directly on `/about` above the WhoIs section, bridging brand query searchers to live Google reviews and local conversion proof.
+- Local verification: `pnpm lastmod:update`, `pnpm check` (all 6 gates: rail-kit, rail-adoption, lint, typecheck, test, build, text-parity, and verify-spanish-hub-indexability) passed with 166 test files / 3,472 tests passing. Next owner: `cto-qa-lead` reviews the candidate commit; after authorized release, verify `/about` on production.
+
+---
+
 # 2026-10-22 — Miami corporate-video cost guide content-depth candidate (local branch)
 
 - Source scope: `lib/guides.ts`, its existing metadata test, and the generated existing ledger `config/page-lastmod.json`; no route, dependency, analytics, or unsupported price/business claim changed.
