@@ -1,3 +1,9 @@
+# 2026-10-23 — Production option-card and commercial-scope clarity candidate
+
+- Owner phone QA found the production route mixing two card systems and presenting the commercial price ladder as if three conflicting prices applied at once. The route now says "Choose the production you need" / "Elige la producción que necesitas" and uses the same expandable card grammar as packages. Every production has its starting price and one-line fit on the closed card; the commercial card has only `From $1,000` until opened, where it explains that basic demo, brand film, and actors/studio are scope levels, then offers one quote action.
+- Local mobile evidence: `agent-browser` at 390×664 opened the commercial card with no horizontal overflow. Its closed summary reads `Commercial video or product demo · From $1,000 · Demo, brand film, or a production with actors and studio`; its open content explains the scope tiers and keeps one `Request a quote` button. Screenshot: `/tmp/esteban-commercial-clarity-local.png` (local-only artifact).
+- Gates passed: focused chooser tests 37/37; `pnpm typecheck`; `pnpm rail-adoption:check` (3); `pnpm lint` (0 errors, 22 existing warnings); `pnpm test` (166 files / 3,481 tests); and `pnpm build` (569 static pages). Add the commit to PR #522. Production remains unchanged until its self-hosted remote font-download failure is repaired and required remote checks pass.
+
 # 2026-10-23 — Editing route: remove the ambiguous Starter package card candidate
 
 - Owner phone QA identified “Starter” as an unclear package name because it repeated the same $100 single-video choice shown immediately beneath it. The home Editing route now opens straight into three buyer choices: one video, recurring weekly editing (one or two videos), or a longer/custom project. “Starter” remains an internal/pricing-page identifier, not a visible package card in this route.

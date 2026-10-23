@@ -90,6 +90,21 @@ for (const locale of ["en", "es"] as const) {
       expect(path).not.toContain(locale === "es" ? "Ver ejemplo de contenido" : "See a content example");
     });
 
+    it("1c2. production uses the same card grammar and explains commercial scopes only after opening", () => {
+      const productionStart = path.indexOf('data-route="production"');
+      const productionEnd = path.indexOf('data-route="local-business"');
+      const production = path.slice(productionStart, productionEnd);
+      expect(production).toContain(locale === "es" ? "Elige la producción que necesitas" : "Choose the production you need");
+      expect(production).toContain(locale === "es" ? "Ver qué enviar" : "See what to send");
+      expect(production).toContain(locale === "es" ? "Pedir cotización" : "Request a quote");
+      expect(production).not.toContain(locale === "es" ? "También puedes pedir" : "You can also request");
+      expect(production).not.toContain("em-single-item");
+      expect(production).toContain("em-path-offer-details");
+      expect(production).toContain(locale === "es" ? "Demo, brand film o producción con actores y estudio." : "Demo, brand film, or a production with actors and studio.");
+      expect(production).toContain(locale === "es" ? "Elige el alcance al cotizar:" : "Choose the scope when you quote it:");
+      expect(production).not.toContain(locale === "es" ? "Demo básico $1,000 · Brand film $3,000 · Actores y estudio $6,500+" : "Basic demo $1,000 · Brand film $3,000 · Actors and studio $6,500+");
+    });
+
     it("1d. editing shows the real one-off, weekly, and scoped-project choices together", () => {
       expect(path).toMatch(/data-route="editing"[\s\S]*\$100[\s\S]*\$85[\s\S]*\$160/);
       expect(path).toContain(locale === "es" ? "Video largo o proyecto a medida" : "Long video or custom project");
