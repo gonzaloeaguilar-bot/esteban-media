@@ -398,9 +398,9 @@ body:has(.em-sheet-details[open])::after{content:"";position:fixed;inset:0;backg
    earns its own grid track. Fixed right padding + an absolutely positioned
    image made enlarged browser text run through the artwork. */
 @media(min-width:640px){
- .em-route-card>summary{display:grid;grid-template-columns:minmax(0,1fr) 82px 28px;align-items:center;justify-content:normal;gap:18px;padding:18px;min-height:132px}
- .em-route-card__visual{position:relative;right:auto;top:auto;bottom:auto;width:82px;height:102px;min-height:102px;justify-self:end}
- .em-route-card__visual--real-estate,.em-route-card__visual--production,.em-route-card__visual--local-business{width:82px}
+ .em-route-card>summary{display:grid;grid-template-columns:minmax(0,1fr) 170px 28px;align-items:center;justify-content:normal;gap:18px;padding:18px;min-height:160px}
+ .em-route-card__visual{position:relative;right:auto;top:auto;bottom:auto;width:170px;height:128px;min-height:128px;justify-self:end;border-radius:14px}
+ .em-route-card__visual--real-estate,.em-route-card__visual--production,.em-route-card__visual--local-business{width:170px}
  .em-route-card__plus{position:relative;right:auto;top:auto;justify-self:end;align-self:start}
 }
 @media(prefers-reduced-motion:reduce){.em-route-card__plus{transition:none}}

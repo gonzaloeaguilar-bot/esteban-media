@@ -53,7 +53,7 @@ for (const locale of ["en", "es"] as const) {
 
     it("1b1. desktop route cards reserve separate tracks for copy, artwork, and the control", () => {
       const css = read("app/illustrated-commercial.css");
-      expect(css).toContain("grid-template-columns:minmax(0,1fr) 82px 28px");
+      expect(css).toContain("grid-template-columns:minmax(0,1fr) 170px 28px");
       expect(css).toContain(".em-route-card__visual{position:relative");
       expect(css).toContain(".em-route-card__plus{position:relative");
     });

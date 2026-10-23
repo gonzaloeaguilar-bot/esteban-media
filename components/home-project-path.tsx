@@ -177,7 +177,7 @@ const routeDefinitions: Array<{
 ];
 
 const routeVisuals: Record<RouteId, string> = {
-  "real-estate": "/illustrations/property.webp",
+  "real-estate": "/real-estate-reels/reel-07.jpg",
   editing: "/portfolio/great-reviewer-iphone-18.jpg",
   production: "/about/esteban-on-set.jpg",
   "local-business": "/portfolio/front-line-auto.jpg",
