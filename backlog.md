@@ -223,3 +223,7 @@ Production is live. This file tracks repository implementation; account/access w
 
 - [x] Add native muted inline autoplay to the existing homepage hero and retain the reduced-motion poster path. The combined local candidate passed lint, typecheck, 165 test files / 3,471 tests, analytics, build, text parity, rail adoption, raw HTML, and rendered playback checks.
 - [ ] Push the combined owner-media candidate, merge after green CI, and verify production homepage autoplay plus the new real-estate reel at desktop and 390px.
+
+## 2026-10-23 — Published chooser visual treatment
+
+- [x] Add the approved route-specific thumbnails to the home chooser, including a vertical Reel-like Creador thumbnail with decorative like, comment and share controls. PR #522 merged as `73cf0e2c48dcf39e8dec297699b42b7e2cbbf1a0`; Vercel production `dpl_2wr4EpwuWU5W2giiWwXSx4J2rFLj` is Ready. Public mobile `/es` at 390×664 showed all four routes, the creator Reel frame and its three controls, opened the route, and had no horizontal overflow. Full test suite: 166 files / 3,481 tests; build: 569 pages; no inquiry or revenue outcome measured.
