@@ -1,3 +1,11 @@
+# 2026-10-23 — Human-route homepage chooser candidate (PR #519)
+
+- Commit `cec21ca5` replaces the homepage billing-unit selector with four native expandable buyer routes: Real Estate, Video Editing, Productions and Events, and Local Businesses. Each keeps its package(s) and related individual services together. The standalone one-off card is gone.
+- Local evidence: `pnpm test` 166 files / 3,472 tests, `pnpm typecheck`, `pnpm lint` (0 errors), `pnpm build`, and analytics gate passed. At 390×844, opening Producciones y eventos expanded in place and exposed Presencia Local, on-site filming, multicamera/conferences, yacht production and commercial video.
+- PR #519 is open. Vercel preview passed. At last check, CI validate remained in progress and the re-triggered Cortex quality record was queued; do not call production live until those clear and the public Spanish route is checked.
+
+---
+
 # 2026-10-23 — Local GBP conversion proof on About page (priority-growth candidate)
 
 - Source scope: `app/(english)/about/page.tsx`, `app/__tests__/about-conversion-proof.test.ts`, and `config/page-lastmod.json`; addresses `local_gbp_conversion` recommendation for the top query/page opportunity "esteban moreno media" -> `/about`.
