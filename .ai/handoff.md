@@ -1,3 +1,11 @@
+# 2026-10-24 — 360px hero CTA clipping repair (PR #543 update, not released)
+
+- Human phone review reproduced the homepage hero overflow at 360px: the secondary WhatsApp action ended at x=366.75 on a 360px viewport, and the price/location line clipped at the same edge. The repair stacks the two actions and permits the support line to wrap at 389px and below; it preserves the inline composition from 390px up.
+- Local visual verification: at 360x667, the primary action rendered x=20..188.22, the secondary action x=20..186.53 below it, and the support line occupied x=20..325 across two readable lines. At 375x667 the action group is 320px wide and 102px tall; at 390x844 the inline group stays within x=20..366.75. No horizontal clipping observed in these checked states.
+- Commit `082299ef` is the current PR head. Gates: focused Vitest 4/4, `pnpm typecheck`, `pnpm lint` (0 errors; 22 existing warnings), `pnpm build` (BUILD_ID `mW6PVg1tgfB6rwYSF4v4_`), and `git diff --check`. PR #543 was pushed; wait for remote checks and independent review, then confirm the canonical production mobile hero before calling it released.
+
+---
+
 # 2026-10-24 — Homepage AI, web and visibility chooser candidate
 
 - The homepage now gives AI, website, local SEO and AI-search visibility their own fifth buyer card instead of hiding them inside “Local businesses.” The Spanish card is “IA, web y visibilidad”; the English equivalent is “AI, web and visibility.” It opens the existing All-In package plus the existing AI-assisted content, local SEO/AI-search visibility, website/funnel audit, and operations-automation services. The package and services remain in the server-rendered HTML; nothing is revealed only through motion.
@@ -533,6 +541,12 @@ Branch `codex/esteban-geo-offer-clarity-20261011`. The home service card now say
 # Microsoft Clarity readiness — 2026-10-16
 
 Configuration-gated conversion-observability implementation is present locally, inactive by default: `components/microsoft-clarity.tsx`, `lib/microsoft-clarity.ts`, conditional EN/ES privacy disclosure, and `docs/microsoft-clarity-activation.md`. It only renders when Vercel supplies a valid `NEXT_PUBLIC_CLARITY_PROJECT_ID`; the browser script exits for previews/noncanonical host, bots/automation, Global Privacy Control and Do Not Track. No account, project ID, Vercel configuration, deploy, or visitor data was created. Full `pnpm test` passed 156 files / 2,943 tests; typecheck passed; changed-file lint has 0 errors (one existing `beforeInteractive` warning in `site-chrome.tsx`). Next: governed independent review, merge, then owner adds the production variable and performs the written live verification. Durable evidence: `[[esteban-microsoft-clarity-readiness-2026-10-16]]`.
+
+## 2026-10-20 — guarded shared-inbox website acknowledgement (local branch)
+
+- Branch `feat/shared-inbox-lead-agent`, commit `63d61377`, adds `lib/lead-email.ts` and four focused tests. Website leads first notify Esteban; a bilingual receipt reply is sent only when `LEAD_AUTOREPLY_ENABLED=1` and a working Resend sender is present. The reply collects goal/date/location/references and explicitly does not confirm price, scope, or availability. Test submissions send nothing.
+- `pnpm test` passed 164 files / 3,465 tests; `pnpm typecheck` passed; `pnpm lint` had 0 errors and 22 pre-existing warnings; `analytics-gate.py` passed after syncing the required vendored tracker. The initial independent review rejected only because that tracker was stale; its safety findings found no acknowledgement or privacy defect.
+- This is not a live email agent: the configured Resend credential must be repaired and a real mailbox (rather than forwarding-only alias) connected before merge/activation and a real receive → acknowledgement → Esteban alert → daily-report probe can be claimed.
 # 2026-10-16 — Camera Bench native-swipe gallery (local, awaiting PR)
 
 - Owner asked for a more impressive, touchable whole-camera experience after the paired product tiles shipped in PR #469.
@@ -569,3 +583,8 @@ Configuration-gated conversion-observability implementation is present locally, 
 - Scope: added four contextual body-copy links to the existing Spanish `Diagnóstico de Estrategia de Video` at `/es/evaluacion` from `/` (via `components/about-teaser.tsx`), `/about`, `/areas`, and `/contact`. The target already returns to its Spanish section hub through the visible `Inicio` breadcrumb to `/es`.
 - Ledger: `pnpm lastmod:update` refreshed the generated existing entries for `/about`, `/areas`, and `/contact` in `config/page-lastmod.json`; the homepage component does not own a page-ledger entry.
 - Local evidence: `npm run typecheck --silent` and the required `npm test` acceptance run passed: 167 test files, 3,489 tests. `git diff --check` passed. Not committed, independently reviewed, deployed, or production-verified. Next: `cto-qa-lead` reviews the exact diff; after an authorized release, confirm the four canonical rendered links and the target breadcrumb in production. `cto-seo-lead` owns a later comparable GSC read; no indexing, click, ranking, citation, inquiry, or revenue effect is claimed.
+# Free capture score — 2026-10-24
+
+- New read-only `scripts/free-capture-score.mjs` ranks settled Search Console query-page rows with transparent demand, reachability, click-opportunity, and recorded AI-citation inputs. It is deliberately not a proprietary difficulty metric and leaves SERP resistance unmeasured without a reproducible source.
+- Command: `pnpm seo:capture-score`; sources default to the local settled Search Console snapshot and the portfolio citation ledger. No paid APIs, page edits, or external writes.
+- Verified: focused test (4/4), full `pnpm test` (169 files / 3,499 tests), lint (0 errors), typecheck, and production build completed. Two governed independent Antigravity verifier records approved: `20261024T150601Z-cto-qa-lead-esteban-media-1792854362550307000-49201-f1b5cbd2742c47f2.json` and `20261024T150823Z-cto-seo-lead-esteban-media-1792854504094440000-56254-c5fd3ebf91eb775b.json`. Next: commit and open PR; do not treat score output as a ranking, traffic, or lead result.

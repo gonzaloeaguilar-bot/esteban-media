@@ -1,0 +1,74 @@
+================================================================================
+ESTEBAN MORENO MEDIA — GA4 CONVERSION INVESTIGATION & AGENDA (2026-10-24)
+================================================================================
+
+1. EXECUTIVE SUMMARY & EVIDENCE ANALYSIS
+--------------------------------------------------------------------------------
+- Observation: Sessions grew +48% in the trailing 28-day window (1,581 sessions),
+  yet recorded GA4 conversions sit at 1.
+- Audit of client code (lib/google-analytics-script.ts, public/track.js,
+  components/google-analytics.tsx):
+  * The site uses a global click listener capturing:
+    - tel: links (method: 'phone') -> triggers contact_intent
+    - wa.me / api.whatsapp.com links (method: 'whatsapp') -> triggers contact_intent
+    - mailto: links (method: 'email') -> triggers contact_intent
+    - /contact or /es/contacto internal links -> triggers contact_cta_click
+    - Form submissions -> triggers lead_submit / lead
+  * All events dual-emit via sendEvent to window.gtag:
+    - contact_intent also emits contact_click
+    - contact_cta_click also emits contact_click
+    - lead_submit also emits lead
+  * Live site audit verified:
+    - Working tel:+13054974478 links and WhatsApp links (https://wa.me/13054974478)
+      are live on the header, mobile sticky bar, service pages, and contact page.
+
+2. ROOT CAUSE OF THE GA4 CONVERSION DISCREPANCY
+--------------------------------------------------------------------------------
+- In GA4, standard conversion tracking ("Key Events") requires events to be
+  explicitly marked as Key Events in the GA4 Property Admin console.
+- In Esteban's property (546162112), only legacy event names were registered as key
+  events (or specifically `lead_submit`). If GA4 is only configured with
+  `lead_submit` as a conversion/key event, then:
+  * Direct phone calls (`contact_intent` / `contact_click`) are NOT counted as
+    conversions in the GA4 conversions metric.
+  * WhatsApp clicks (`contact_intent` / `contact_click`) are NOT counted as
+    conversions in GA4.
+  * Form submissions (`lead_submit` / `lead`) ARE counted, explaining why exactly
+    1 conversion was recorded if only 1 contact form was submitted.
+- Traffic quality / intent gap:
+  * Over 450 programmatic SEO / service pages were launched across recent waves.
+  * Informational / organic traffic may be landing on niche service pages where
+    visitors read/consume without clicking WhatsApp or calling, or traffic is
+    composed of desktop / research visits where mobile tap-to-call is less frequent.
+
+3. CONVERSION CAPTURE & MEASUREMENT STATUS
+--------------------------------------------------------------------------------
+- Code-level capture: VERIFIED.
+  * Both WhatsApp and tap-to-call paths trigger `contact_intent` with
+    { contact_method: 'whatsapp'|'phone', contact_source: ... }.
+  * Unit tests in app/__tests__/analytics-contract.test.ts and
+    app/__tests__/contact-source-attribution.test.ts verify event dispatch.
+- Measurement configuration action needed in GA4 / BigQuery:
+  * Ensure `contact_intent` and `contact_click` are toggled as Key Events (conversions)
+    in the GA4 Admin UI for Property 546162112, or included in BigQuery conversion
+    aggregation queries alongside `lead_submit`.
+
+4. AGENDA & RECOMMENDED ACTIONS FOR 2026-10-24
+--------------------------------------------------------------------------------
+[ ] GA4 Key Event Configuration:
+    - Verify in GA4 Property 546162112 whether `contact_intent`, `contact_cta_click`,
+      and `contact_click` are marked as Key Events.
+    - If BigQuery ga4_daily rollup only filters `event_name = 'lead_submit'`, update
+      the rollup query to count all lead actions:
+      `event_name IN ('lead_submit', 'contact_intent', 'lead', 'contact_click')`.
+
+[ ] Conversion Rate Optimization (CRO) on High-Traffic Pages:
+    - Audit top 10 landing pages from the 48% growth cohort.
+    - Ensure high-visibility mobile sticky CTA bar for WhatsApp and tap-to-call
+      on all expanded geo/service pages.
+    - Test clearer pricing / free consultation hooks above the fold to drive clicks.
+
+[ ] First-Touch Attribution Audit:
+    - Monitor `firstTouchContactSource` WhatsApp text decoration (`via ChatGPT`, etc.)
+      to track unmeasured direct conversions reported directly by Esteban.
+================================================================================

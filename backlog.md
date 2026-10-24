@@ -41,6 +41,8 @@
 
 # Esteban Moreno Media — Backlog
 
+- [ ] 2026-10-24: release and verify the narrow-phone homepage hero repair in PR #543. At 360px, the WhatsApp action and support line now stay inside the viewport; local visual evidence and gates are recorded in `.ai/handoff.md`. After the required remote checks and independent review, verify the canonical production homepage at 360px and 375px before closing.
+
 - [x] 2026-10-24: replace the small AI/SEO chooser visual with the documented Gains From Geebs full-bleed project image. PR #541 merged as `91c79f36`; production HTML, CI and IndexNow verified. Outcome measurement remains separate.
 
 - [ ] 2026-10-24: release the current Gains From Geebs homepage and chatbot visual correction. PR #542 (`3931afac`) now mirrors the live chatbot's visible reply behavior: live status, cursor, thinking dots and reply sweep. Focused local tests (37), typecheck, lint (0 errors), and a 581-page production build passed. GitHub validation rerun `40123356549` and quality evidence are queued; after both pass, merge, verify raw production `/es` contains `gains-from-geebs-chatbot.jpg` and the chatbot opening state, then verify the 390px card visually. No performance outcome is claimed.
@@ -71,6 +73,7 @@ Production is live. This file tracks repository implementation; account/access w
 
 - [x] Implement Supabase-first `/api/lead` storage, optional Resend fallback, truthful 503 failures, and unit coverage. Local, uncommitted: 64 targeted tests, full 1,131 tests, typecheck and changed-file lint pass. Details: `.ai/lead-persistence-2026-10-07.md`.
 - [ ] Coordinator/cto-qa-lead: complete independent review and release checks, verify a tagged production submission against its `esteban_leads` row, then synchronize the project vault and registry before closing the incident.
+- [ ] 2026-10-20: restore a valid sender plus a real mailbox API/IMAP connection for `info@estebanmorenomedia.com`; then merge and activate the guarded receipt reply, Esteban alert, and daily Spanish digest only after one real end-to-end probe.
 
 ## P0 — Search establishment
 
