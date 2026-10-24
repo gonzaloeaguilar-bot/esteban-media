@@ -7,6 +7,7 @@ import {
 } from "@/lib/lead-responder";
 import { safeLeadEvent, type NotificationStatus } from "@/lib/cdp-event";
 import { buildLeadRow, insertLead, markEmailSent } from "@/lib/lead-store";
+import { sendLeadEmails } from "@/lib/lead-email";
 
 export const runtime = "nodejs";
 
@@ -43,36 +44,11 @@ export async function POST(request: Request) {
 
     const leadId = stored.ok ? stored.id : leadRef;
     const formattedBrief = formatLeadSummary(payload);
-    const resendApiKey = process.env.RESEND_API_KEY?.trim();
-    const notifyEmail = process.env.LEAD_NOTIFY_EMAIL || "info@estebanmorenomedia.com";
-    const fromEmail = process.env.RESEND_FROM_EMAIL || "Esteban Moreno Media <contact@estebanmorenomedia.com>";
-
     let notificationStatus: NotificationStatus = "not_configured";
-
-    // If Resend API Key is set, send instant email notification to Esteban
-    if (resendApiKey) {
-      try {
-        const response = await fetch("https://api.resend.com/emails", {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${resendApiKey}`,
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            from: fromEmail,
-            to: [notifyEmail],
-            subject: `[NUEVO LEAD] ${payload.name || payload.email} (${payload.source.toUpperCase()})`,
-            text: formattedBrief,
-          }),
-          signal: AbortSignal.timeout(8000),
-        });
-        notificationStatus = response.ok ? "accepted" : "failed";
-        if (!response.ok) console.error("Resend API notification failed:", { status: response.status });
-      } catch {
-        notificationStatus = "failed";
-        console.error("Resend API notification failed:", { reason: "network_error" });
-      }
-    }
+    const isTest = request.headers.get("x-esteban-test") === "1";
+    const delivery = await sendLeadEmails(payload, formattedBrief, { isTest });
+    notificationStatus = delivery.notificationStatus;
+    if (notificationStatus === "failed") console.error("Resend API notification failed:", { reason: "delivery_failed" });
 
     const isEs = payload.locale === "es";
     if (!stored.ok && notificationStatus !== "accepted") {
