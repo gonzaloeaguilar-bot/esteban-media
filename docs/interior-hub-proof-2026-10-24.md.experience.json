@@ -1,0 +1,34 @@
+{
+  "schema": 3,
+  "project": "esteban-media",
+  "intent": "Add truthful published-project proof cards to the case-study and guide hubs",
+  "phase": "plan",
+  "visual_evidence": {
+    "scope": "composition",
+    "scope_reason": "The live review found the two hubs visually text-led despite existing real portfolio proof.",
+    "target": "first-screen proof block",
+    "owner_status": "user-authorized",
+    "capture_kind": "live-browser screenshots",
+    "spec_sha256": "f76b9c8232fde2314224594444904fc10760bae336c1e01a585438ae4ec4fdcc",
+    "taste_sha256": "6a00ee7b7a8c1c8b9d6a18bb9afecd461d11b7903777142c07c560696f948481",
+    "correction_excerpt": "Images should be large, purposeful, and never decorative stock.",
+    "comparison": "Current text-led hubs versus existing PublishedProjectProof with local portfolio poster.",
+    "references": ["components/published-project-proof.tsx", "https://estebanmorenomedia.com/portfolio"],
+    "candidate_frames": ["390x844 initial hub opening", "1440x900 initial hub opening"]
+  },
+  "brief": {
+    "visitor": "A search visitor deciding whether Esteban's work is relevant before selecting a case study or practical guide.",
+    "promise": "One real published project makes the source of the advice visible without getting in the way of the directory.",
+    "primary_action": "Open the named published portfolio project.",
+    "friction": "The hubs currently begin as credible reading pages but do not visually demonstrate the media work behind them.",
+    "kpi": {"outcome": "qualified inquiry", "event": "published_project_proof click", "denominator": "hub visitors", "baseline": "UNKNOWN", "evidence": "live review 2026-10-24", "readout": "T+7 and T+28", "decision_rule": "retain only if the proof remains usable and produces meaningful navigation without a quality regression"},
+    "concept": {"idea": "A compact proof card drawn from the site's own published portfolio.", "brand_reason": "Esteban sells media; a real frame should substantiate a reading hub.", "interaction": "Tap/click opens the published project; hover adds a restrained scale/arrow response.", "visible_response": "Poster and link remain clear; no autoplay or hidden content.", "direct_path": "The directory and all existing links remain unchanged.", "alternatives": "Do not use stock imagery, a video embed, or homepage-style hero treatment."},
+    "story": {"opening": "The hub answers the visitor's question first.", "action": "The visitor sees and can open a relevant published project.", "consequence": "They reach verifiable project context.", "next_step": "They can select a case/guide or start a project through existing paths."},
+    "content": {"visible": "Existing title, existing project context, explicit project link.", "optional_html": "Existing native details only.", "linked_depth": "Existing portfolio case."},
+    "references": {"borrow": "Existing PublishedProjectProof component and portfolio poster resolution.", "avoid": "Stock imagery, invented outcomes, autoplay and generic visual decoration."},
+    "components": {"reuse": "components/published-project-proof.tsx", "local_reason": "The hub composes project-specific existing proof; no new shared component is necessary."},
+    "verification": {"rendered_states": "375x667, 390x844, 1440x900 on all four locales/routes.", "motion": "hover/touch state plus prefers-reduced-motion.", "accessibility_performance": "keyboard focus, no overflow, no player/embed cost.", "raw_html": "Proof title, link, and poster source present in server HTML.", "conversion_boundary": "No form action; existing delegated click event only."},
+    "reviewers": {"craft": "Antigravity", "behavior": "cto-qa-lead", "outcome": "cto-growth-lead"},
+    "learning": {"metric": "published-project proof click-through", "baseline_source": "production analytics after event release", "baseline_value": "UNKNOWN", "target_kind": "funnel_step", "target": "hub proof click", "hypothesis": "A real project preview helps search visitors recognise the work before choosing a reading path.", "observation_windows": ["T+7", "T+28"], "decision_rule": "retain if comparable hub visits show useful proof navigation without usability regressions; otherwise simplify or remove.", "ledger_status": "planned", "registration_condition": "Record the shipped event and comparable hub-visit baseline before outcome readout."}
+  }
+}

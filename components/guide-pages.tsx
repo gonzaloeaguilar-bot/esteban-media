@@ -414,6 +414,24 @@ export function GuidesIndexPage({ locale }: { locale: GuideLocale }) {
   const homePath = locale === "es" ? "/es" : "/";
   const companionPath =
     locale === "es" ? guidesIndexCopy.en.path : guidesIndexCopy.es.path;
+  const publishedProof =
+    locale === "es"
+      ? {
+          href: "/es/portafolio/gains-from-geebs-shorts",
+          eyebrow: "Ejemplo publicado",
+          title: "Videos cortos de Gains From Geebs",
+          description:
+            "Dos videos cortos publicados que muestran un ejemplo de edición para redes.",
+          linkLabel: "Ver el proyecto",
+        }
+      : {
+          href: "/portfolio/gains-from-geebs-shorts",
+          eyebrow: "Published example",
+          title: "Gains From Geebs Short-Form Videos",
+          description:
+            "Two published short-form videos that show one example of social editing.",
+          linkLabel: "View the project",
+        };
 
   return (
     <main className="bg-[#f6f1ea] text-[#101214]">
@@ -443,6 +461,9 @@ export function GuidesIndexPage({ locale }: { locale: GuideLocale }) {
               <h1 className="mt-4 max-w-4xl font-serif em-display">
                 {copy.title}
               </h1>
+              <div className="mt-6 max-w-3xl">
+                <PublishedProjectProof proof={publishedProof} compact />
+              </div>
               <p className="mt-6 max-w-3xl text-lg leading-8 text-[#252a2d]">
                 <strong>{copy.answerLabel}</strong> {copy.answer}
               </p>
