@@ -509,7 +509,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                   <Plus className="em-route-card__plus" size={22} aria-hidden="true" />
                 </summary>
                 <div className="em-route-card__body">
-                  {route.id in digitalRouteLinks && <><p className="em-route-card__label">{locale === "es" ? "Explora el servicio" : "Explore the service"}</p><ul className="em-digital-route-links" role="list">{digitalRouteLinks[route.id as keyof typeof digitalRouteLinks][locale].map((item) => <li key={item.title}><button type="button" onClick={() => openFunnel(route.id, `${routeText.title}: ${item.title}`, c.singleQuoted)}><strong>{item.title}</strong><span>{item.detail}</span><ArrowRight size={16} aria-hidden="true" /></button></li>)}</ul></>}
+                  {route.id in digitalRouteLinks && <><p className="em-route-card__label">{locale === "es" ? "Explora el servicio" : "Explore the service"}</p><ul className="em-digital-route-links" role="list" data-specialty={route.id}>{digitalRouteLinks[route.id as keyof typeof digitalRouteLinks][locale].map((item, index) => <li key={item.title} data-service-option={index}><button type="button" onClick={() => openFunnel(route.id, `${routeText.title}: ${item.title}`, c.singleQuoted)}><strong>{item.title}</strong><span>{item.detail}</span><ArrowRight size={16} aria-hidden="true" /></button></li>)}</ul></>}
                   {offers.length > 0 && <><p className="em-route-card__label">{locale === "es" ? "Paquetes" : "Packages"}</p>
                   <ul className="em-path-offers grid grid-cols-1 gap-2.5 sm:grid-cols-2" role="list" data-lane={route.id}>
                     {offers.map((offer) => (
