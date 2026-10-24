@@ -62,7 +62,9 @@ const copy = {
     editing: "Vertical video clip for a content creator",
     production: "Esteban filming a live conference speaker",
     "local-business": "Video production at a local business",
-    "digital-growth": "Current Gains From Geebs homepage and coaching AI chatbot",
+    "ai-agents": "Gains From Geebs AI companion and chatbot interface",
+    "seo-landing": "Search and landing-page signals for a local business",
+    "web-commerce": "Current Gains From Geebs website experience",
   },
     pricingDetail: "These are starting prices. The final price depends on the project scope.",
     pricingAction: "See everything each package includes",
@@ -125,7 +127,9 @@ const copy = {
     editing: "Video vertical para un creador de contenido",
     production: "Esteban grabando a un conferencista en vivo",
     "local-business": "Producción de video en un negocio local",
-    "digital-growth": "Página actual de Gains From Geebs y chatbot de IA para coaching",
+    "ai-agents": "Personaje de IA y chatbot de Gains From Geebs",
+    "seo-landing": "Señales de búsqueda y landing page para un negocio local",
+    "web-commerce": "Experiencia web actual de Gains From Geebs",
   },
     pricingDetail: "Son precios de partida. El precio final depende del alcance del proyecto.",
     pricingAction: "Ver todo lo que incluye cada paquete",
@@ -157,7 +161,7 @@ const copy = {
   },
 } as const;
 
-type RouteId = "real-estate" | "editing" | "production" | "local-business" | "digital-growth";
+type RouteId = "real-estate" | "editing" | "production" | "local-business" | "ai-agents" | "seo-landing" | "web-commerce";
 
 /**
  * Routes are intentionally organized around what a human is buying, not the
@@ -176,7 +180,9 @@ const routeDefinitions: Array<{
   { id: "editing", offerIds: [], serviceIds: [], artwork: "editing" },
   { id: "production", offerIds: [], serviceIds: ["multicam", "yate", "kickstarter"], artwork: "business" },
   { id: "local-business", offerIds: ["crecimiento", "presencia-local"], serviceIds: [], artwork: "business" },
-  { id: "digital-growth", offerIds: ["todo-incluido"], serviceIds: ["ia", "seo", "auditoria", "automatizacion"], artwork: "business" },
+  { id: "ai-agents", offerIds: [], serviceIds: [], artwork: "business" },
+  { id: "seo-landing", offerIds: [], serviceIds: [], artwork: "business" },
+  { id: "web-commerce", offerIds: [], serviceIds: [], artwork: "business" },
 ];
 
 const routeVisuals: Record<RouteId, string> = {
@@ -189,9 +195,44 @@ const routeVisuals: Record<RouteId, string> = {
   // Owner-supplied camera detail: a crisp, horizontal production still avoids
   // presenting a website screenshot as the local-business service.
   "local-business": "/portfolio/local-business-camera-work.jpg",
-  // The current Gains homepage hero gives the card a human focal point; the
-  // conversation overlay below shows the actual product this route sells.
-  "digital-growth": "/portfolio/gains-from-geebs-chatbot.jpg",
+  // The AI route deliberately keeps the companion in the foreground; the
+  // current Gains site is reserved for the website/ecommerce route below.
+  "ai-agents": "/portfolio/gains-from-geebs-chatbot.jpg",
+  "seo-landing": "/portfolio/front-line-auto.jpg",
+  "web-commerce": "/portfolio/gains-from-geebs-chatbot.jpg",
+};
+
+const digitalRouteLinks: Record<Exclude<RouteId, "real-estate" | "editing" | "production" | "local-business">, Record<AudienceLocale, Array<{ title: string; detail: string }>>> = {
+  "ai-agents": {
+    en: [
+      { title: "AI chatbots", detail: "Answer common questions and capture the right next step." },
+      { title: "AI agents and automation", detail: "Connect repetitive work into a useful, human-reviewed workflow." },
+    ],
+    es: [
+      { title: "Chatbots con IA", detail: "Responde preguntas comunes y captura el siguiente paso correcto." },
+      { title: "Agentes y automatización con IA", detail: "Conecta trabajo repetitivo en un flujo útil revisado por personas." },
+    ],
+  },
+  "seo-landing": {
+    en: [
+      { title: "SEO and GEO", detail: "Make the service, location and next action clear for search and AI answers." },
+      { title: "Landing pages", detail: "Give a campaign or service one focused page that makes the next step obvious." },
+    ],
+    es: [
+      { title: "SEO y GEO", detail: "Aclara servicio, ubicación y siguiente paso para buscadores y respuestas de IA." },
+      { title: "Landing pages", detail: "Una página enfocada para que una campaña o servicio tenga un siguiente paso claro." },
+    ],
+  },
+  "web-commerce": {
+    en: [
+      { title: "Websites", detail: "A clear home for the offer, proof and ways to get in touch." },
+      { title: "Ecommerce content", detail: "Product video that helps an online store show what it sells." },
+    ],
+    es: [
+      { title: "Sitios web", detail: "Un hogar claro para la oferta, prueba y formas de contactar." },
+      { title: "Contenido para ecommerce", detail: "Video de producto que ayuda a una tienda online a mostrar lo que vende." },
+    ],
+  },
 };
 
 function offerDeliverables(name: string, laneId: ChooserLaneId, locale: AudienceLocale): string[] {
@@ -344,14 +385,18 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
         editing: { title: "Creador de contenido", eyebrow: "Tú eres el canal", lead: "Edita tus clips, publica cada semana o graba un día de contenido conmigo." },
         production: { title: "Producciones y eventos", eyebrow: "Una producción especial", lead: "Conferencias, yates, equipos multicámara y videos comerciales." },
         "local-business": { title: "Negocios locales", eyebrow: "Tu negocio", lead: "Contenido mensual y grabación en tu negocio para tu marca." },
-        "digital-growth": { title: "IA, web y visibilidad", eyebrow: "Que te encuentren", lead: "Sitio web, captura de clientes y presencia local para que puedan encontrarte y escribirte." },
+        "ai-agents": { title: "Agentes de IA y chatbots", eyebrow: "Tu asistente digital", lead: "Un chatbot que guía y automatizaciones que mantienen el trabajo moviéndose." },
+        "seo-landing": { title: "SEO, GEO y landing pages", eyebrow: "Que te encuentren", lead: "Páginas claras para que te descubran, entiendan tu oferta y den el siguiente paso." },
+        "web-commerce": { title: "Sitios web y ecommerce", eyebrow: "Tu casa en internet", lead: "Un sitio que muestra lo que haces y contenido de producto para vender online." },
       }
     : {
         "real-estate": { title: "Real estate", eyebrow: "Properties", lead: "Plans, photos and improvements to show each property." },
         editing: { title: "Content creator", eyebrow: "You are the channel", lead: "Edit your clips, publish every week, or film a content day with me." },
         production: { title: "Productions and events", eyebrow: "A special production", lead: "Conferences, yachts, multi-camera crews and commercial video." },
         "local-business": { title: "Local businesses", eyebrow: "Your business", lead: "Monthly content and filming at your business for your brand." },
-        "digital-growth": { title: "AI, web and visibility", eyebrow: "Get found", lead: "A website, lead capture and local presence so people can find you and get in touch." },
+        "ai-agents": { title: "AI agents and chatbots", eyebrow: "Your digital assistant", lead: "A chatbot that guides people and automation that keeps useful work moving." },
+        "seo-landing": { title: "SEO, GEO and landing pages", eyebrow: "Get found", lead: "Clear pages so people discover you, understand the offer, and take the next step." },
+        "web-commerce": { title: "Websites and ecommerce", eyebrow: "Your home online", lead: "A site that shows what you do and product content that helps you sell online." },
       };
   const openFunnel = (id: string, label: string, price: string) => {
     setFunnelLane({ id, label, price });
@@ -457,11 +502,14 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                     {route.id === "editing" && <span className="em-route-card__reel-actions"><span className="em-route-card__reel-like"><span className="em-route-card__reel-heart-burst" aria-hidden="true"><Heart fill="currentColor" /><Heart fill="currentColor" /><Heart fill="currentColor" /><Heart fill="currentColor" /></span><Heart fill="currentColor" /><span className="em-route-card__reel-like-count" aria-hidden="true"><span>+1</span><span>+26</span><span>+183</span><span>+1.2K</span></span></span><MessageCircle /><Send /></span>}
                     {route.id === "production" && <span className="em-route-card__recording" aria-hidden="true"><i />REC<span className="em-route-card__recording-frames"><b /><b /><b /></span></span>}
                     {route.id === "local-business" && <span className="em-route-card__local-signal" aria-hidden="true"><span className="em-route-card__local-signal-spark"><b /><b /></span><i /><i /><i /></span>}
-                    {route.id === "digital-growth" && <><span className="em-route-card__geebs-chat" aria-hidden="true"><span className="em-route-card__geebs-chat-head"><b />GEEBS AI <em>LIVE</em></span><span className="em-route-card__geebs-chat-bubble">hey, i&apos;m kris. what are we fixing first?<i /></span><span className="em-route-card__geebs-chat-thinking"><b /><b /><b /><small>kris is thinking...</small></span><span className="em-route-card__geebs-chat-reply">How 1:1 coaching works</span></span><span className="em-route-card__digital-signal" aria-hidden="true"><span /><span /><Sparkles /></span></>}
+                    {route.id === "ai-agents" && <><Image className="em-route-card__agent-character" src="/portfolio/geebs-ai-companion.png" alt={c.routeVisualAlts["ai-agents"]} width={72} height={80} /><span className="em-route-card__geebs-chat" aria-hidden="true"><span className="em-route-card__geebs-chat-head"><b />GEEBS AI <em>LIVE</em></span><span className="em-route-card__geebs-chat-bubble">hey, i&apos;m kris. what are we fixing first?<i /></span><span className="em-route-card__geebs-chat-thinking"><b /><b /><b /><small>kris is thinking...</small></span><span className="em-route-card__geebs-chat-reply">How 1:1 coaching works</span></span><span className="em-route-card__digital-signal" aria-hidden="true"><span /><span /><Sparkles /></span></>}
+                    {route.id === "seo-landing" && <span className="em-route-card__search-map" aria-hidden="true"><b>SEO</b><b>GEO</b><b>LP</b><i /><i /><i /></span>}
+                    {route.id === "web-commerce" && <span className="em-route-card__site-tab" aria-hidden="true"><b>GFG</b><span>01</span><i /></span>}
                   </span>
                   <Plus className="em-route-card__plus" size={22} aria-hidden="true" />
                 </summary>
                 <div className="em-route-card__body">
+                  {route.id in digitalRouteLinks && <><p className="em-route-card__label">{locale === "es" ? "Explora el servicio" : "Explore the service"}</p><ul className="em-digital-route-links" role="list">{digitalRouteLinks[route.id as keyof typeof digitalRouteLinks][locale].map((item) => <li key={item.title}><button type="button" onClick={() => openFunnel(route.id, `${routeText.title}: ${item.title}`, c.singleQuoted)}><strong>{item.title}</strong><span>{item.detail}</span><ArrowRight size={16} aria-hidden="true" /></button></li>)}</ul></>}
                   {offers.length > 0 && <><p className="em-route-card__label">{locale === "es" ? "Paquetes" : "Packages"}</p>
                   <ul className="em-path-offers grid grid-cols-1 gap-2.5 sm:grid-cols-2" role="list" data-lane={route.id}>
                     {offers.map((offer) => (
