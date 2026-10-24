@@ -60,7 +60,7 @@ for (const locale of ["en", "es"] as const) {
       expect(css).toContain(".em-route-card__visual{position:absolute;z-index:0;inset:0;width:auto");
       expect(css).toContain(".em-route-card__copy{position:relative;z-index:2");
       expect(css).toContain(".em-route-card__plus{position:absolute;z-index:3");
-      expect(component).toContain('"web-commerce": "/portfolio/gains-from-geebs-chatbot.jpg"');
+      expect(component).toContain('"web-commerce": "/portfolio/gains-from-geebs.jpg"');
       expect(component).toContain('src="/portfolio/geebs-ai-companion.png"');
       expect(component).not.toContain('"ai-agents": "/portfolio/ai-lead-automation.jpg"');
       expect(component).toContain('className="em-route-card__geebs-chat"');
