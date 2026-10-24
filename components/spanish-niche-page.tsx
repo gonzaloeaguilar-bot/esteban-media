@@ -899,7 +899,7 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
   "editor-de-video-de-productos-para-ecommerce": {
     areaHref: "/es/areas#miami-dade",
     areaLabel: "Ver cobertura en Miami-Dade",
-    note: "Edición para contenido comercial y demostraciones de producto cuando el material de origen es aportado o producido para el proyecto.",
+    note: "Edición para demostraciones de producto, fichas de Amazon, tiendas Shopify y anuncios cuando el material de origen es aportado o producido para el proyecto.",
     serviceIds: ["edicion", "reutilizacion-redes"],
     projects: [
       {

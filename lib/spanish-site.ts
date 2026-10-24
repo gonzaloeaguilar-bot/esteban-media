@@ -5215,11 +5215,11 @@ export const spanishNichePages: SpanishNichePage[] = [
     title: "Editor de video de productos para e-commerce en Miami",
     metadataTitle: "Editor Video Productos E-Commerce",
     description:
-      "Edición de video para marcas e-commerce a partir del material del producto definido para cada proyecto.",
+      "Edición de video de producto para tiendas Shopify, fichas de Amazon y anuncios de marcas e-commerce.",
     eyebrow: "E-Commerce / Video de Producto",
     h1: "Edición de video de productos para tiendas e-commerce.",
     lead:
-      "Organiza el material de tu producto en videos claros para tu tienda online, anuncios o redes, con alcance definido antes de editar.",
+      "Organiza el material de tu producto en videos claros para tiendas Shopify, fichas de Amazon, anuncios o redes, con alcance definido antes de editar.",
     keyword: "editor de video de productos para e-commerce",
     location: "Miami-Dade / Broward",
     availability: "confirmed",
