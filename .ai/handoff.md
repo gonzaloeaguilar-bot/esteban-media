@@ -1,3 +1,11 @@
+# 2026-10-24 — 360px hero CTA clipping repair (PR #543 update, not released)
+
+- Human phone review reproduced the homepage hero overflow at 360px: the secondary WhatsApp action ended at x=366.75 on a 360px viewport, and the price/location line clipped at the same edge. The repair stacks the two actions and permits the support line to wrap at 389px and below; it preserves the inline composition from 390px up.
+- Local visual verification: at 360x667, the primary action rendered x=20..188.22, the secondary action x=20..186.53 below it, and the support line occupied x=20..325 across two readable lines. At 375x667 the action group is 320px wide and 102px tall; at 390x844 the inline group stays within x=20..366.75. No horizontal clipping observed in these checked states.
+- Commit `082299ef` is the current PR head. Gates: focused Vitest 4/4, `pnpm typecheck`, `pnpm lint` (0 errors; 22 existing warnings), `pnpm build` (BUILD_ID `mW6PVg1tgfB6rwYSF4v4_`), and `git diff --check`. PR #543 was pushed; wait for remote checks and independent review, then confirm the canonical production mobile hero before calling it released.
+
+---
+
 # 2026-10-24 — Homepage AI, web and visibility chooser candidate
 
 - The homepage now gives AI, website, local SEO and AI-search visibility their own fifth buyer card instead of hiding them inside “Local businesses.” The Spanish card is “IA, web y visibilidad”; the English equivalent is “AI, web and visibility.” It opens the existing All-In package plus the existing AI-assisted content, local SEO/AI-search visibility, website/funnel audit, and operations-automation services. The package and services remain in the server-rendered HTML; nothing is revealed only through motion.
