@@ -156,9 +156,9 @@ describe("consolidation arithmetic matches the published baseline", () => {
     // +20 = wave 5 high-value demand-backed niches (2026-10-18): med spa, contractor florida, quinceanera, podcast multicam, personal injury, private school, exotic car, car dealership, boat show exhibitor, art basel.
     // +20 = wave 6 high-value demand-backed niches (2026-10-19): private aviation, equestrian polo, yacht refit boatyard, country club golf, luxury pool builder, regenerative medicine, b2b case study, interior design millwork, estate planning attorney, boutique hotel resort.
     // +40 = waves 7 and 8 high-value demand-backed niches (2026-10-19): multicam panel, corporate town hall, executive retreat keys, brand activation, pre-construction sales gallery, commercial office leasing, cosmetic dentistry veneers, concierge doctor, bar bat mitzvah, destination wedding palm beach, online course production, vsl direct response, monthly repurposing retainer, b2b saas explainer, executive linkedin series, youtube long-form editing, product unboxing demo, airbnb luxe vacation rental, waterfront restaurant, marina facility.
-    // +2 = The Great Reviewer iPhone 18 Pro Max content-reel case-study pair
-    // (2026-10-23, owner-requested and backed by the published video).
-    expect(sitemap()).toHaveLength(269 - 25 + 1 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 2 + 4 + 1 + 26 + 6 + 10 + 16 + 1 + 1 + 4 + 4 + 2 + 4 + 2 + 1 + 2 + 3 + 4 + 4 + 8 + 8 + 8 + 2 + 8 + 8 + 8 + 24 + 20 + 20 + 40 + 2);
+    // +2 = The Great Reviewer iPhone 18 Pro Max content-reel case-study pair.
+    // +10 = owner-requested bilingual portfolio proof routes (2026-10-23; follow-up 2026-11-22).
+    expect(sitemap()).toHaveLength(269 - 25 + 1 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 2 + 4 + 1 + 26 + 6 + 10 + 16 + 1 + 1 + 4 + 4 + 2 + 4 + 2 + 1 + 2 + 3 + 4 + 4 + 8 + 8 + 8 + 2 + 8 + 8 + 8 + 24 + 20 + 20 + 40 + 2 + 10);
   });
 
   it("never lists a redirect source in the sitemap", () => {

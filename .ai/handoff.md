@@ -1,3 +1,17 @@
+# 2026-10-24 — Carousel verification and generated-date repair (PR #526, not released)
+
+- The homepage `PortfolioTeaser` intentionally derives the work rail from every live, non-web portfolio item. Local rendered English and Spanish home HTML each contain all five new case links (Gains From Geebs Shorts, Exatlón, Juanchis Burguer, Portosole, and Punto de Giro); they follow the seven property Reels in the horizontal rail. Desktop browser inspection found the rail clear and touchable with its existing Prev/Next controls. No separate carousel implementation was needed.
+- Remote `validate` initially failed only at `page-lastmod.test.ts`: the 10 newly added EN/ES project pages had stale generated dates/hashes after the rebase. `pnpm lastmod:update` regenerated those exact ten records in `config/page-lastmod.json` (10 changed, 542 total). Commit and push this ledger repair, then wait for the rerun before merge.
+
+---
+
+# 2026-10-24 — Rebased portfolio proof cases (PR #526, not released)
+
+- PR #526 now rebases cleanly on `main` as `4d6bc218`; it carries five bilingual source-backed project cases: Gains From Geebs Shorts, Exatlón, Juanchis Burguer, Portosole and Punto de Giro. The rebase retains the newer Great Reviewer portfolio pair, so the post-merge sitemap baseline is 542 URLs.
+- Rebase verification: 53 focused portfolio, sitemap, inventory and cohort tests passed across 7 files; `git diff --check` passed. The public site remains unchanged until remote checks, merge and deployment complete.
+
+---
+
 # 2026-10-23 — Content creator own-route candidate
 
 - Owner correction: a person who creates content could not recognize themselves in the generic “Video editing” route. That route is now “Content creator” / “Creador de contenido,” with a direct promise: edit clips, publish weekly, or film a content day. It contains the established one-off/weekly editing choices first, a creator-only filming choice (`From $400/half-day`, raw footage for the next edit), then a long/custom-project disclosure. On-location raw capture was removed from Events so the same service does not appear in two buyer paths; Productions now contains multicamera, yacht, and commercial work only.

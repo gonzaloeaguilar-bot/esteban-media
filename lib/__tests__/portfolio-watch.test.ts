@@ -15,14 +15,14 @@ import {
 const locales: readonly PortfolioWatchLocale[] = ["en", "es"];
 
 describe("portfolio watch-page source", () => {
-  it("creates one stable path per locale for all 14 approved projects", () => {
+  it("creates one stable path per locale for all 19 approved projects", () => {
     const items = getPortfolioWatchItems();
     const paths = items.flatMap((item) =>
       locales.map((locale) => getPortfolioWatchPath(item.id, locale)),
     );
 
-    expect(items).toHaveLength(14);
-    expect(paths).toHaveLength(28);
+    expect(items).toHaveLength(19);
+    expect(paths).toHaveLength(38);
     expect(new Set(paths).size).toBe(paths.length);
     expect(paths).toContain("/portfolio/my-dler");
     expect(paths).toContain("/es/portafolio/my-dler");
@@ -36,8 +36,8 @@ describe("portfolio watch-page source", () => {
         getPortfolioWatchCopy(item, locale),
       );
 
-      expect(new Set(localized.map((copy) => copy.title)).size).toBe(14);
-      expect(new Set(localized.map((copy) => copy.summary)).size).toBe(14);
+      expect(new Set(localized.map((copy) => copy.title)).size).toBe(19);
+      expect(new Set(localized.map((copy) => copy.summary)).size).toBe(19);
       expect(
         localized.every(
           (copy) => copy.summary.length > 0 && copy.credits.length > 0,

@@ -651,6 +651,10 @@
   "date": "2026-10-14",
   "hash": "6ea8e4d2dd416f5a"
  },
+ "/es/portafolio/exatlon": {
+  "date": "2026-10-24",
+  "hash": "792b1eb77db8bbc1"
+ },
  "/es/portafolio/flas-concierge": {
   "date": "2026-10-14",
   "hash": "e81281df386dacfc"
@@ -662,6 +666,10 @@
  "/es/portafolio/gains-from-geebs": {
   "date": "2026-10-14",
   "hash": "c7c39ed91c470c5d"
+ },
+ "/es/portafolio/gains-from-geebs-shorts": {
+  "date": "2026-10-24",
+  "hash": "59d823f2757707ae"
  },
  "/es/portafolio/great-reviewer-iphone-18": {
   "date": "2026-10-24",
@@ -675,6 +683,10 @@
   "date": "2026-10-14",
   "hash": "ade81d82bfbf7d82"
  },
+ "/es/portafolio/juanchis-burguer": {
+  "date": "2026-10-24",
+  "hash": "ac1a22cbe108573a"
+ },
  "/es/portafolio/la-huelga": {
   "date": "2026-10-14",
   "hash": "0c1be4c361f4b312"
@@ -686,6 +698,14 @@
  "/es/portafolio/my-dler": {
   "date": "2026-10-14",
   "hash": "5ee98c19a859ce25"
+ },
+ "/es/portafolio/portosole": {
+  "date": "2026-10-24",
+  "hash": "0e4f2ea7a4c73e9c"
+ },
+ "/es/portafolio/punto-de-giro": {
+  "date": "2026-10-24",
+  "hash": "53088e9bf6c690dc"
  },
  "/es/portafolio/titanforge": {
   "date": "2026-10-14",
@@ -1395,6 +1415,10 @@
   "date": "2026-10-14",
   "hash": "97b2a8b83ab425f9"
  },
+ "/portfolio/exatlon": {
+  "date": "2026-10-24",
+  "hash": "6cc734194a2a061b"
+ },
  "/portfolio/flas-concierge": {
   "date": "2026-10-14",
   "hash": "1fcc2f6600364204"
@@ -1406,6 +1430,10 @@
  "/portfolio/gains-from-geebs": {
   "date": "2026-10-14",
   "hash": "7ed39b4d409cea8a"
+ },
+ "/portfolio/gains-from-geebs-shorts": {
+  "date": "2026-10-24",
+  "hash": "e4ecfe1f23184f86"
  },
  "/portfolio/great-reviewer-iphone-18": {
   "date": "2026-10-24",
@@ -1419,6 +1447,10 @@
   "date": "2026-10-14",
   "hash": "2e4f5c823cadbdc8"
  },
+ "/portfolio/juanchis-burguer": {
+  "date": "2026-10-24",
+  "hash": "6f0e7146df18e28c"
+ },
  "/portfolio/la-huelga": {
   "date": "2026-10-14",
   "hash": "38247f833dfb1e4b"
@@ -1430,6 +1462,14 @@
  "/portfolio/my-dler": {
   "date": "2026-10-14",
   "hash": "6039eb203b9f927f"
+ },
+ "/portfolio/portosole": {
+  "date": "2026-10-24",
+  "hash": "796d550984d9be99"
+ },
+ "/portfolio/punto-de-giro": {
+  "date": "2026-10-24",
+  "hash": "5a7b3f5e93c641ca"
  },
  "/portfolio/titanforge": {
   "date": "2026-10-14",

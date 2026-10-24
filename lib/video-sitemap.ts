@@ -42,21 +42,20 @@ function youtubeEntries(): string[] {
         if (item.media.kind !== "youtube") return "";
         const copy = getPortfolioWatchCopy(item, locale);
         const pageUrl = absoluteUrl(getPortfolioWatchPath(item.id, locale));
-        const playerUrl = `https://www.youtube-nocookie.com/embed/${item.media.videoId}`;
-
-        return [
-          "  <url>",
-          `    <loc>${escapeXml(pageUrl)}</loc>`,
+        const videos = [item.media, ...(item.companionVideos ?? [])].map((video, index) => {
+          const playerUrl = `https://www.youtube-nocookie.com/embed/${video.videoId}`;
+          return [
           "    <video:video>",
-          `      <video:thumbnail_loc>${escapeXml(absoluteUrl(item.media.poster))}</video:thumbnail_loc>`,
-          `      <video:title>${escapeXml(copy.title)}</video:title>`,
-          `      <video:description>${escapeXml(copy.summary)}</video:description>`,
+          `      <video:thumbnail_loc>${escapeXml(absoluteUrl(video.poster))}</video:thumbnail_loc>`,
+          `      <video:title>${escapeXml(index === 0 ? copy.title : video.title ?? copy.title)}</video:title>`,
+          `      <video:description>${escapeXml(index === 0 ? copy.summary : `Public YouTube upload: ${video.title ?? copy.title}.`)}</video:description>`,
           `      <video:player_loc allow_embed="yes">${escapeXml(playerUrl)}</video:player_loc>`,
-          `      <video:duration>${isoDurationToSeconds(item.media.duration)}</video:duration>`,
-          `      <video:publication_date>${escapeXml(item.media.uploadDate)}</video:publication_date>`,
+          `      <video:duration>${isoDurationToSeconds(video.duration)}</video:duration>`,
+          `      <video:publication_date>${escapeXml(video.uploadDate)}</video:publication_date>`,
           "    </video:video>",
-          "  </url>",
-        ].join("\n");
+          ].join("\n");
+        });
+        return ["  <url>", `    <loc>${escapeXml(pageUrl)}</loc>`, ...videos, "  </url>"].join("\n");
       }),
   );
 }

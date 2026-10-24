@@ -39,6 +39,8 @@ export const PORTFOLIO_CATEGORIES: readonly PortfolioCategory[] =
 export interface InstagramEmbedSource {
   kind: "instagram";
   url: string;
+  /** Local approved still; no signed Instagram CDN URL is persisted. */
+  poster: `/portfolio/${string}.jpg`;
   embedHtml?: string;
   aspect?: "1:1" | "4:5" | "9:16" | "16:9";
 }
@@ -67,6 +69,8 @@ export interface YouTubeSource {
   /** Public YouTube duration in ISO 8601 format. */
   duration: string;
   aspect: "16:9";
+  /** Public YouTube title for source-specific schema and sitemap entries. */
+  title?: string;
 }
 
 export interface ImageSource {
@@ -109,7 +113,12 @@ export type PortfolioItemI18nKey =
   | "gains-from-geebs"
   | "front-line-auto"
   | "flas-concierge"
-  | "ai-lead-automation";
+  | "ai-lead-automation"
+  | "gains-from-geebs-shorts"
+  | "exatlon"
+  | "juanchis-burguer"
+  | "portosole"
+  | "punto-de-giro";
 
 export interface PortfolioItem {
   /** Stable URL-safe id, also used by the local poster filename. */
@@ -129,6 +138,8 @@ export interface PortfolioItem {
   location?: string;
   websiteUrl?: string;
   media: MediaSource;
+  /** Additional public YouTube footage for the same project (for example BTS). */
+  companionVideos?: readonly YouTubeSource[];
   featured?: boolean;
   status: PortfolioItemStatus;
 }
@@ -138,6 +149,19 @@ export interface PortfolioItem {
  * Order is intentional: featured and category views preserve it.
  */
 export const PORTFOLIO_ITEMS: readonly PortfolioItem[] = [
+  {
+    id: "gains-from-geebs-shorts", category: "social-content", title: "Gains From Geebs Short-Form Videos", titleI18nKey: "gains-from-geebs-shorts", descriptionI18nKey: "gains-from-geebs-shorts", creditsI18nKey: "gains-from-geebs-shorts", status: "live",
+    media: { kind: "youtube", videoId: "Hm-mI-RgvUY", url: "https://www.youtube.com/watch?v=Hm-mI-RgvUY", poster: "/portfolio/gains-from-geebs-shorts.jpg", uploadDate: "2026-08-24T00:00:00-07:00", duration: "PT0M31S", aspect: "16:9" },
+    companionVideos: [{ kind: "youtube", videoId: "B4d_bFQV6T0", url: "https://www.youtube.com/watch?v=B4d_bFQV6T0", poster: "/portfolio/gains-from-geebs-shorts.jpg", uploadDate: "2026-06-14T00:00:00-07:00", duration: "PT0M36S", aspect: "16:9", title: "Your workout plan has to fit your actual week" }],
+  },
+  { id: "exatlon", category: "social-content", title: "Exatlón Intro Video", titleI18nKey: "exatlon", descriptionI18nKey: "exatlon", creditsI18nKey: "exatlon", status: "live", media: { kind: "instagram", url: "https://www.instagram.com/p/CBT9gcdgJnX/", poster: "/portfolio/exatlon.jpg", aspect: "16:9" } },
+  { id: "juanchis-burguer", category: "business-promos", title: "Juanchis Burguer Social Media Campaign", titleI18nKey: "juanchis-burguer", descriptionI18nKey: "juanchis-burguer", creditsI18nKey: "juanchis-burguer", status: "live", media: { kind: "instagram", url: "https://www.instagram.com/p/CBT8pOZgk2a/", poster: "/portfolio/juanchis-burguer.jpg", aspect: "16:9" } },
+  { id: "portosole", category: "business-promos", title: "Portosole Social Media Campaign", titleI18nKey: "portosole", descriptionI18nKey: "portosole", creditsI18nKey: "portosole", status: "live", media: { kind: "instagram", url: "https://www.instagram.com/p/CBT88jEAHY0/", poster: "/portfolio/portosole.jpg", aspect: "16:9" } },
+  {
+    id: "punto-de-giro", category: "narrative", title: "Punto de Giro Documentary", titleI18nKey: "punto-de-giro", descriptionI18nKey: "punto-de-giro", creditsI18nKey: "punto-de-giro", status: "live",
+    media: { kind: "youtube", videoId: "jSKjcamLIG0", url: "https://www.youtube.com/watch?v=jSKjcamLIG0", poster: "/portfolio/punto-de-giro.jpg", uploadDate: "2016-05-04T00:00:00-07:00", duration: "PT1M11S", aspect: "16:9" },
+    companionVideos: [{ kind: "youtube", videoId: "gZGY9xNqCCY", url: "https://www.youtube.com/watch?v=gZGY9xNqCCY", poster: "/portfolio/punto-de-giro.jpg", uploadDate: "2016-05-06T00:00:00-07:00", duration: "PT4M37S", aspect: "16:9", title: "Detrás de cámara - Documental Punto de Giro" }],
+  },
   {
     id: "flas-concierge",
     category: "web-design",
@@ -479,6 +503,7 @@ export function isPlaceholderSource(
 
 export function getPoster(item: PortfolioItem): string | undefined {
   if (item.media.kind === "youtube") return item.media.poster;
+  if (item.media.kind === "instagram") return item.media.poster;
   if (item.media.kind === "image") return item.media.src;
   return undefined;
 }

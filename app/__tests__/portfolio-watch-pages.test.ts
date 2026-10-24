@@ -104,8 +104,8 @@ describe("portfolio watch routes", () => {
       spanishDescriptions.add(String(spanish.description));
     }
 
-    expect(englishDescriptions.size).toBe(14);
-    expect(spanishDescriptions.size).toBe(14);
+    expect(englishDescriptions.size).toBe(19);
+    expect(spanishDescriptions.size).toBe(19);
   });
 
   it("keeps the real 4:3 La Huelga poster dimensions in social metadata", async () => {
@@ -196,7 +196,7 @@ describe("rendered portfolio watch-page evidence", () => {
         // (website builds) used to ship one with a placeholder date.
         expect(schema["@graph"]?.map((node: { "@type": string }) => node["@type"])).toEqual(
           item.media.kind === "youtube"
-            ? ["WebPage", "VideoObject", "BreadcrumbList"]
+            ? ["WebPage", "VideoObject", ...(item.companionVideos?.map(() => "VideoObject") ?? []), "BreadcrumbList"]
             : ["WebPage", "BreadcrumbList"],
         );
       }
