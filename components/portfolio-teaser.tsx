@@ -100,8 +100,8 @@ export function PortfolioTeaser({ locale }: PortfolioTeaserProps) {
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-7 text-[#c9c1b8]">
               {isSpanish
-                ? `Primero, el Reel de The Great Reviewer. Después, ${REELS_IN_DISPLAY_ORDER.length} Reels inmobiliarios y más trabajo de contenido, eventos, edición, narrativa y animación. Desliza para verlo todo.`
-                : <>First: The Great Reviewer reel. Then {REELS_IN_DISPLAY_ORDER.length} property Reels and more content, events, editing, narrative and animation. Browse the <Link href="/es/portafolio" className="underline underline-offset-4 hover:text-[#f0b384]">selected work</Link> in Spanish.</>}
+                ? <>Primero, el Reel de The Great Reviewer. Después, {REELS_IN_DISPLAY_ORDER.length} Reels inmobiliarios y más trabajo de contenido, eventos, edición, narrativa y animación. Desliza para verlo todo o usa estas <Link href="/es/ideas-de-contenido" className="underline underline-offset-4 hover:text-[#f0b384]">30 ideas para planear</Link> antes de tu próxima grabación.</>
+                : <>First: The Great Reviewer reel. Then {REELS_IN_DISPLAY_ORDER.length} property Reels and more content, events, editing, narrative and animation. Browse the <Link href="/es/portafolio" className="underline underline-offset-4 hover:text-[#f0b384]">selected work</Link> in Spanish, or use these <Link href="/content-opportunities" className="underline underline-offset-4 hover:text-[#f0b384]">30 planning ideas</Link> before your next shoot.</>}
             </p>
           </div>
           {/* No "View portfolio" button. Owner, 2026-10-12: "we don't need
