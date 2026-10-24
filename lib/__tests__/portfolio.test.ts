@@ -136,13 +136,9 @@ describe("verified portfolio data", () => {
     expect(videoIds.size).toBe(youtubeItems.length);
   });
 
-  it("uses an existing local poster or a verified YouTube preview for each stable item", () => {
+  it("uses an existing local poster for each stable item", () => {
     for (const item of PORTFOLIO_ITEMS) {
       const posterPath = "poster" in item.media ? item.media.poster : "src" in item.media ? item.media.src : "";
-      if (posterPath.startsWith("https://i.ytimg.com/vi/")) {
-        expect(item.media.kind).toBe("youtube");
-        continue;
-      }
       expect(posterPath).toBe(`/portfolio/${item.id}.jpg`);
       expect(
         existsSync(join(process.cwd(), "public", posterPath)),

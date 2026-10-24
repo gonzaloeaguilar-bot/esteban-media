@@ -15,8 +15,9 @@ describe("homepage portfolio rail", () => {
     );
   });
 
-  it("uses the public YouTube preview for the lead card", () => {
+  it("uses the locally mirrored YouTube preview for the lead card", () => {
     const portfolio = readFileSync(join(process.cwd(), "lib/portfolio.ts"), "utf8");
-    expect(portfolio).toContain('poster: "https://i.ytimg.com/vi/BDRru8eXaj4/maxresdefault.jpg"');
+    expect(portfolio).toContain('poster: "/portfolio/great-reviewer-iphone-18.jpg"');
+    expect(portfolio).toContain("Exact YouTube preview, mirrored locally");
   });
 });

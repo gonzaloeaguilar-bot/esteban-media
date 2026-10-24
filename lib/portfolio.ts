@@ -54,16 +54,14 @@ export interface SelfHostedVideoSource {
 /**
  * A selected video from Esteban's public YouTube portfolio.
  *
- * `url` is always the canonical watch URL for `videoId`. `poster` is normally
- * a local approved still; a verified YouTube preview is allowed where the
- * public preview itself is the requested artwork. Portfolio videos are
- * landscape and therefore fixed to 16:9.
+ * `url` is always the canonical watch URL for `videoId`. `poster` is a local
+ * approved still. Portfolio videos are landscape and therefore fixed to 16:9.
  */
 export interface YouTubeSource {
   kind: "youtube";
   videoId: string;
   url: `https://www.youtube.com/watch?v=${string}`;
-  poster: `/portfolio/${string}.jpg` | `https://i.ytimg.com/vi/${string}`;
+  poster: `/portfolio/${string}.jpg`;
   /** Public YouTube upload timestamp, verified from the watch page metadata. */
   uploadDate: string;
   /** Public YouTube duration in ISO 8601 format. */
@@ -347,9 +345,9 @@ export const PORTFOLIO_ITEMS: readonly PortfolioItem[] = [
       kind: "youtube",
       videoId: "BDRru8eXaj4",
       url: "https://www.youtube.com/watch?v=BDRru8eXaj4",
-      // Use the public YouTube preview rather than a frame extracted from the
-      // reel, so the portfolio card matches the video visitors will open.
-      poster: "https://i.ytimg.com/vi/BDRru8eXaj4/maxresdefault.jpg",
+      // Exact YouTube preview, mirrored locally so cards, social previews,
+      // JSON-LD, and the video sitemap all use the same stable image.
+      poster: "/portfolio/great-reviewer-iphone-18.jpg",
       uploadDate: "2026-10-06T00:00:00-07:00",
       duration: "PT8M54S",
       aspect: "16:9",
