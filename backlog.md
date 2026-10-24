@@ -1,3 +1,9 @@
+## 2026-10-24 — Camera Bench and product-unboxing refresh
+
+- [x] Rework the homepage Camera Bench as a larger swipeable phone shelf, preserve native published-spec disclosures, and add the supplied product-unboxing Reel as a safe external Instagram action. Local evidence: `app/__tests__/camera-kit-method.test.ts`, typecheck, lint, and phone interaction check. Release verification remains open in [[esteban-camera-bench-unboxing-refresh-2026-10-24]].
+
+- [ ] `cto-qa-lead`: independently inspect the Camera Bench at 390x664, 390x844, and desktop; then open the release PR and verify the deployed Spanish and English homepages.
+
 ## 2026-10-23 — Local GBP conversion proof on About page
 
 - [x] 2026-10-24: Add contained TikTok-style floating-heart feedback to the homepage Content Creator card's like icon. The local candidate uses four decorative Lucide hearts, preserves the existing `+1` cue, and disables motion for reduced-motion visitors. `pnpm lint` (0 errors; 22 existing warnings), `pnpm typecheck`, `pnpm vitest run app/__tests__/home-packaging-human.test.ts` (32/32), `git diff --check`, and local browser animation inspection passed. Before release, `cto-qa-lead` must review the exact three-file diff; after release, verify the expanded card at phone size with normal and reduced motion.
