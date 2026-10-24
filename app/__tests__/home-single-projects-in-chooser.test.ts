@@ -14,16 +14,19 @@ describe("single projects live inside the chooser, once", () => {
     const html = renderToStaticMarkup(React.createElement(HomeProjectPath, { locale }));
     const items = packagesCopy(locale).aLaCarte.items;
 
-    it(`${locale}: every a-la-carte title and what-to-send sentence is in the server HTML`, () => {
-      for (const item of items) {
-        if (item.id === "grabacion") {
-          expect(html).toContain(locale === "es" ? "Grabemos tu contenido" : "Film content with me");
-          expect(html).toContain(aLaCarteVisual(item.id, locale).preparation.slice(0, 14));
-          continue;
-        }
-        expect(html).toContain(item.title.replace(/&/g, "&amp;"));
-        expect(html).toContain(aLaCarteVisual(item.id, locale).preparation.slice(0, 14));
+    it(`${locale}: every former a-la-carte category has a buyer-facing route in the server HTML`, () => {
+      const serviceTitles = locale === "es"
+        ? ["Chatbots con IA", "Agentes y automatización con IA", "Fotografía de producto o inmobiliaria", "Grabemos tu contenido", "Producción multicámara y conferencias", "Producción audiovisual de yates y marina", "Video comercial o demo de producto", "Mejora de fotos con IA", "SEO y GEO", "Landing pages", "Sitios web"]
+        : ["AI chatbots", "AI agents and automation", "Product or real estate photography", "Film content with me", "Multi-camera and conference production", "Yacht and marine video production", "Commercial video or product demo", "AI photo enhancement", "SEO and GEO", "Landing pages", "Websites"];
+
+      for (const title of serviceTitles) expect(html).toContain(title);
+
+      for (const id of ["foto", "mejora", "multicam", "yate", "kickstarter"] as const) {
+        const item = items.find((candidate) => candidate.id === id);
+        expect(item).toBeDefined();
+        expect(html).toContain(aLaCarteVisual(id, locale).preparation.slice(0, 14));
       }
+      expect(html).toContain(aLaCarteVisual("grabacion", locale).preparation.slice(0, 14));
     });
 
     it(`${locale}: every option shows its price with zero taps, in the server HTML, and the photo floor is the real one`, () => {
@@ -43,11 +46,11 @@ describe("single projects live inside the chooser, once", () => {
       expect(html).not.toMatch(/em-art-price-label/);
     });
 
-    it(`${locale}: native details, collapsed not removed`, () => {
+    it(`${locale}: the six scope-dependent production choices use native details, collapsed not removed`, () => {
       const standardRows = html.match(/<details class="em-single-item"/g) ?? [];
       const productionRows = html.match(/<details class="em-path-offer-details group\/offer" name="route-production/g) ?? [];
       const creatorFilmingRows = html.match(/<details class="em-path-offer-details group\/offer" name="route-creator-filming/g) ?? [];
-      expect(standardRows.length + productionRows.length + creatorFilmingRows.length).toBe(items.length);
+      expect(standardRows.length + productionRows.length + creatorFilmingRows.length).toBe(6);
       expect(html).not.toMatch(/<details class="em-single-item"[^>]*open/);
       expect(html).not.toMatch(/<details class="em-path-offer-details group\/offer" name="route-production[^>]*open/);
     });
