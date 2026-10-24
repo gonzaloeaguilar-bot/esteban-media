@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Mail, MessageCircle } from "lucide-react";
+import { ClientReviews } from "@/components/client-reviews";
 import { Container } from "@/components/ui/container";
 import { VideoBriefBuilder } from "@/components/video-brief-builder";
 import { whatsappHref } from "@/lib/packages";
@@ -98,6 +99,7 @@ export default function ContactPage() {
           </details>
         </Container>
       </section>
+      <ClientReviews locale="en" />
     </main>
   );
 }

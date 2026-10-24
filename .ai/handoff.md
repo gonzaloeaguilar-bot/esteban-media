@@ -1,3 +1,11 @@
+# 2026-10-24 — Local GBP conversion proof on Contact page (priority-growth candidate)
+
+- Source scope: `app/(english)/contact/page.tsx`, `app/__tests__/contact-conversion-proof.test.ts`, `config/page-lastmod.json`, `backlog.md`, and `.ai/handoff.md`; addresses `local_gbp_conversion` recommendation for the top query/page opportunity "esteban moreno media" -> `/contact`.
+- Renders `ClientReviews` (5.0 rating, verified Google review count, verbatim client quotes, and verified Google Business Profile link) directly on `/contact` beneath the main brief section, bridging brand query searchers to live Google reviews and local conversion proof.
+- Local verification: `pnpm lastmod:update`, `npm test` (168 test files / 3,492 tests passing), and `priority-growth-project-verify.sh`. Next owner: `cto-qa-lead` reviews the candidate commit; after authorized release, verify `/contact` on production.
+
+---
+
 # 2026-10-23 — Content creator own-route candidate
 
 - Owner correction: a person who creates content could not recognize themselves in the generic “Video editing” route. That route is now “Content creator” / “Creador de contenido,” with a direct promise: edit clips, publish weekly, or film a content day. It contains the established one-off/weekly editing choices first, a creator-only filming choice (`From $400/half-day`, raw footage for the next edit), then a long/custom-project disclosure. On-location raw capture was removed from Events so the same service does not appear in two buyer paths; Productions now contains multicamera, yacht, and commercial work only.
