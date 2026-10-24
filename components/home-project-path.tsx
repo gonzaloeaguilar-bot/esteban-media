@@ -442,7 +442,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                   <span className="em-route-card__copy"><span className="em-route-card__eyebrow">{routeText.eyebrow}</span><strong>{routeText.title}</strong><span>{routeText.lead}</span></span>
                   <span className={`em-route-card__visual em-route-card__visual--${route.id}`} aria-hidden="true">
                     <Image src={visualSrc} alt={c.routeVisualAlts[route.id]} fill sizes="(max-width: 639px) 72px, 92px" />
-                    {route.id === "editing" && <span className="em-route-card__reel-actions"><Heart /><MessageCircle /><Send /></span>}
+                    {route.id === "editing" && <span className="em-route-card__reel-actions"><span className="em-route-card__reel-like"><Heart fill="currentColor" /><small aria-hidden="true">+1</small></span><MessageCircle /><Send /></span>}
                   </span>
                   <Plus className="em-route-card__plus" size={22} aria-hidden="true" />
                 </summary>
