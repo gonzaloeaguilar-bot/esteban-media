@@ -383,10 +383,12 @@ html.rail-anim:not([data-brand-moment]) .em-cine__eyebrow {
   .em-cine__credit { padding-bottom: 48px; }
 }
 
-/* Narrow phones cannot hold both labels on one line; there they stack again
-   rather than overflow the screen. */
-@media (max-width: 359px) {
-  .em-cine__actions { flex-wrap: wrap; gap: 12px; }
+/* Narrow phones cannot hold both labels with the breathing room Gonzalo
+   expects. Stack before either the WhatsApp action or the price/area line
+   reaches the viewport edge. */
+@media (max-width: 389px) {
+  .em-cine__actions { flex-wrap: wrap; gap: 10px 12px; }
+  .em-cine__answer { white-space: normal; }
 }
 
 /* Phones: the app bar floats over the bottom of the screen, so the first

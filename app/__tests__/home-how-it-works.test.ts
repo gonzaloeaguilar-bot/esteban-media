@@ -33,4 +33,10 @@ describe("homepage How it works disclosure", () => {
     expect(mobileTransition).toContain(".em-cine__frame::after { opacity:");
     expect(mobileTransition).toContain(".em-cine__bar { display: none !important; }");
   });
+
+  it("keeps the hero's secondary action and support line inside narrow phones", () => {
+    expect(cinema).toContain("@media (max-width: 389px)");
+    expect(cinema).toContain(".em-cine__actions { flex-wrap: wrap; gap: 10px 12px; }");
+    expect(cinema).toContain(".em-cine__answer { white-space: normal; }");
+  });
 });
