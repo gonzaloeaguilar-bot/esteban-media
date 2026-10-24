@@ -180,7 +180,8 @@ const routeVisuals: Record<RouteId, string> = {
   // A clean aerial still leaves room for the card copy; avoid Reels that already
   // carry baked-in headlines behind the route label.
   "real-estate": "/real-estate-reels/reel-05.jpg",
-  editing: "/portfolio/great-reviewer-iphone-18.jpg",
+  // The official YouTube preview is the recognizable public cover for this case.
+  editing: "https://i.ytimg.com/vi/BDRru8eXaj4/maxresdefault.jpg",
   production: "/about/esteban-on-set.jpg",
   "local-business": "/portfolio/front-line-auto.jpg",
 };
