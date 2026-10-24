@@ -62,7 +62,7 @@ const copy = {
     editing: "Vertical video clip for a content creator",
     production: "Esteban filming a live conference speaker",
     "local-business": "Video production at a local business",
-    "digital-growth": "Gains From Geebs website and conversational AI lead-capture work",
+    "digital-growth": "Current Gains From Geebs homepage and coaching AI chatbot",
   },
     pricingDetail: "These are starting prices. The final price depends on the project scope.",
     pricingAction: "See everything each package includes",
@@ -125,7 +125,7 @@ const copy = {
     editing: "Video vertical para un creador de contenido",
     production: "Esteban grabando a un conferencista en vivo",
     "local-business": "Producción de video en un negocio local",
-    "digital-growth": "Sitio web de Gains From Geebs y trabajo de captura de prospectos con IA",
+    "digital-growth": "Página actual de Gains From Geebs y chatbot de IA para coaching",
   },
     pricingDetail: "Son precios de partida. El precio final depende del alcance del proyecto.",
     pricingAction: "Ver todo lo que incluye cada paquete",
@@ -189,9 +189,9 @@ const routeVisuals: Record<RouteId, string> = {
   // Owner-supplied camera detail: a crisp, horizontal production still avoids
   // presenting a website screenshot as the local-business service.
   "local-business": "/portfolio/local-business-camera-work.jpg",
-  // The documented Gains From Geebs product image keeps the card full-bleed,
-  // substantial and grounded in a real website plus conversational-AI case.
-  "digital-growth": "/portfolio/gains-from-geebs.jpg",
+  // The current Gains homepage hero gives the card a human focal point; the
+  // conversation overlay below shows the actual product this route sells.
+  "digital-growth": "/portfolio/gains-from-geebs-chatbot.jpg",
 };
 
 function offerDeliverables(name: string, laneId: ChooserLaneId, locale: AudienceLocale): string[] {
@@ -457,7 +457,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                     {route.id === "editing" && <span className="em-route-card__reel-actions"><span className="em-route-card__reel-like"><span className="em-route-card__reel-heart-burst" aria-hidden="true"><Heart fill="currentColor" /><Heart fill="currentColor" /><Heart fill="currentColor" /><Heart fill="currentColor" /></span><Heart fill="currentColor" /><span className="em-route-card__reel-like-count" aria-hidden="true"><span>+1</span><span>+26</span><span>+183</span><span>+1.2K</span></span></span><MessageCircle /><Send /></span>}
                     {route.id === "production" && <span className="em-route-card__recording" aria-hidden="true"><i />REC<span className="em-route-card__recording-frames"><b /><b /><b /></span></span>}
                     {route.id === "local-business" && <span className="em-route-card__local-signal" aria-hidden="true"><span className="em-route-card__local-signal-spark"><b /><b /></span><i /><i /><i /></span>}
-                    {route.id === "digital-growth" && <span className="em-route-card__digital-signal" aria-hidden="true"><span /><span /><Sparkles /></span>}
+                    {route.id === "digital-growth" && <><span className="em-route-card__geebs-chat" aria-hidden="true"><span className="em-route-card__geebs-chat-head"><b />GEEBS AI <em>LIVE</em></span><span className="em-route-card__geebs-chat-bubble">hey, i&apos;m kris. what are we fixing first?<i /></span><span className="em-route-card__geebs-chat-thinking"><b /><b /><b /><small>kris is thinking...</small></span><span className="em-route-card__geebs-chat-reply">How 1:1 coaching works</span></span><span className="em-route-card__digital-signal" aria-hidden="true"><span /><span /><Sparkles /></span></>}
                   </span>
                   <Plus className="em-route-card__plus" size={22} aria-hidden="true" />
                 </summary>

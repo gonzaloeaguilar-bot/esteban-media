@@ -1,3 +1,9 @@
+## 2026-10-24 — Camera Bench and product-unboxing refresh
+
+- [x] Rework the homepage Camera Bench as a larger swipeable phone shelf, preserve native published-spec disclosures, and add the supplied product-unboxing Reel as a safe external Instagram action. Local evidence: `app/__tests__/camera-kit-method.test.ts`, typecheck, lint, and phone interaction check. Release verification remains open in [[esteban-camera-bench-unboxing-refresh-2026-10-24]].
+
+- [ ] `cto-qa-lead`: independently inspect the Camera Bench at 390x664, 390x844, and desktop; then open the release PR and verify the deployed Spanish and English homepages.
+
 ## 2026-10-23 — Local GBP conversion proof on About page
 
 - [x] 2026-10-24: Add contained TikTok-style floating-heart feedback to the homepage Content Creator card's like icon and extend the same crafted, decorative motion language to the remaining chooser cards. Content Creator keeps its four floating Lucide hearts and rising `+1` through `+1.2K` visual feedback; Real Estate has a settling property pin/ring, Productions has a REC beat with three frame marks, and Local Business has a rising signal sparkle. These loops are decorative, not audience or performance data. `pnpm test` passed (168 files / 3,497 tests); `pnpm typecheck` passed; `pnpm lint` completed with 0 errors and 22 pre-existing warnings; `pnpm build` and `git diff --check` passed. Browser review at 390x844 confirmed controls and copy remain clear. Next: scoped PR checks, merge, and public Spanish-homepage verification.
@@ -35,6 +41,9 @@
 
 # Esteban Moreno Media — Backlog
 
+- [x] 2026-10-24: replace the small AI/SEO chooser visual with the documented Gains From Geebs full-bleed project image. PR #541 merged as `91c79f36`; production HTML, CI and IndexNow verified. Outcome measurement remains separate.
+
+- [ ] 2026-10-24: release the current Gains From Geebs homepage and chatbot visual correction. PR #542 (`3931afac`) now mirrors the live chatbot's visible reply behavior: live status, cursor, thinking dots and reply sweep. Focused local tests (37), typecheck, lint (0 errors), and a 581-page production build passed. GitHub validation rerun `40123356549` and quality evidence are queued; after both pass, merge, verify raw production `/es` contains `gains-from-geebs-chatbot.jpg` and the chatbot opening state, then verify the 390px card visually. No performance outcome is claimed.
 - [x] 2026-10-23: Prepare internal-link reinforcement for `/es/evaluacion` from `/`, `/about`, `/areas`, and `/contact` using the target H1 `Diagnóstico de Estrategia de Video`; retain the target's `/es` breadcrumb return link and refresh the page-lastmod ledger for changed page sources. `npm run typecheck --silent`, `npm test` (167 files / 3,489 tests), and `git diff --check` passed. Before merge, `cto-qa-lead` must independently review the exact diff; after authorized release, verify all four canonical production links and target breadcrumb. `cto-seo-lead` owns the later comparable GSC read; indexing, traffic, and inquiry impact remain unmeasured.
 
 - [x] 2026-10-23: Prepare the content-depth refinement for `/guides/best-caption-styles-for-instagram-reels`: outcome-specific title and H1, a two-sentence answer-first opening, expanded safe-zone guidance, two closely related guide links, retained restaurant-editing service link, and refreshed page-lastmod ledger. `pnpm lastmod:update`, `npm run typecheck --silent`, and `npm test` completed without failures. Before merge, `cto-qa-lead` must independently review the exact diff; after authorized release, verify the production title, H1, raw FAQ HTML, links, and date. `cto-seo-lead` owns the later comparable GSC read; traffic, ranking, and click impact remain unmeasured.
