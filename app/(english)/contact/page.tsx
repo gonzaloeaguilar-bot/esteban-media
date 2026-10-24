@@ -70,7 +70,7 @@ export default function ContactPage() {
           <details className="mt-8 border-t border-[#d6ccc0] pt-5">
             <summary className="flex min-h-11 cursor-pointer items-center font-medium text-[#9f3c27] underline underline-offset-4">Want help writing your message?</summary>
             <div className="mt-5 max-w-2xl space-y-3 text-sm leading-6 text-[#3f4548]">
-              <p>Include your project type, location if filming is needed, desired date, and where the finished video will be used. If you already have footage, say what you have.</p>
+              <p>Include your project type, location if filming is needed, desired date, and where the finished video will be used. If you already have footage, say what you have. If you are still deciding what the content needs, Spanish-first visitors can begin with the <Link href="/es/evaluacion" className="underline">Diagnóstico de Estrategia de Video</Link> before writing the message.</p>
               <p>Esteban Moreno Media works remotely on editing and considers South Florida filming project by project. There is no public studio.</p>
             </div>
           </details>
