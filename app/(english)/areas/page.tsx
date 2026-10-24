@@ -22,6 +22,82 @@ const areaAnchors: Record<string, string> = {
   "Palm Beach County": "palm-beach-county",
 };
 
+/**
+ * One section per area (2026-10-24). GSC 2026-07-26..10-22 showed this hub
+ * outranking the pages built for the query: "restaurant promo video editing
+ * miami" landed here at 6.2 while the restaurant page sat at 7.2, and the Fort
+ * Lauderdale Reels and UGC queries scattered across /areas, /es and the home
+ * page. Each block below names the area, says what Esteban does there, and
+ * hands the service question to the dedicated page with exact anchor text. It
+ * never answers the service query itself: no prices, no deliverables.
+ */
+type AreaRoute = { href: string; label: string };
+type AreaSection = {
+  name: string;
+  question: string;
+  intro: string;
+  routes: AreaRoute[];
+  outro: string;
+};
+
+const areaSections: AreaSection[] = [
+  {
+    name: "Fort Lauderdale",
+    question: "What does Esteban edit and film in Fort Lauderdale?",
+    intro:
+      "Fort Lauderdale is the home base. Short-form editing for restaurants, real estate, boats and local businesses starts here from supplied footage, and on-location filming is scoped from this city first. If your question is about a specific service, the page built for it answers faster than this overview:",
+    routes: [
+      { href: "/services/reels-editor-fort-lauderdale", label: "Reels editor in Fort Lauderdale" },
+      { href: "/services/ugc-video-editor-ecommerce", label: "UGC video editor for e-commerce brands" },
+      { href: "/services/video-production-fort-lauderdale", label: "video production in Fort Lauderdale" },
+      { href: "/fort-lauderdale", label: "Fort Lauderdale city page" },
+    ],
+    outro:
+      "Those pages explain who the service is for, how the handoff works and how to send footage. Use this hub only to confirm that Fort Lauderdale is covered, then continue on the service page.",
+  },
+  {
+    name: "Broward County",
+    question: "Which Broward cities beyond Fort Lauderdale are covered?",
+    intro:
+      "Broward County is the normal local market: Weston, Hollywood, Pembroke Pines, Plantation and the cities between them are treated as local work. Editing travels as files, so a Broward business can start remotely; a filming day is confirmed per project once the location and goal are known. City guides already exist for the places that ask most often:",
+    routes: [
+      { href: "/services/corporate-video-editing-weston-fl", label: "corporate video editing in Weston" },
+      { href: "/services/small-business-video-hollywood-fl", label: "small business video in Hollywood, FL" },
+      { href: "/services/small-business-video-pembroke-pines", label: "small business video in Pembroke Pines" },
+    ],
+    outro:
+      "If your city is not listed, the Fort Lauderdale pages apply: the same editor, the same workflow, and on-location work scoped locally anywhere in Broward.",
+  },
+  {
+    name: "Miami-Dade",
+    question: "What Miami-Dade projects does Esteban take on?",
+    intro:
+      "Miami-Dade is available for selected projects: restaurants, brands, real estate and entrepreneurs who already have footage or who confirm a filming date. Published Miami work is listed further down this page. The service questions people search for in Miami have their own pages, and each one answers more precisely than an area overview can:",
+    routes: [
+      { href: "/services/restaurant-promo-video-editing-miami", label: "restaurant promo video editing in Miami" },
+      { href: "/services/reels-editor-miami", label: "Reels editor in Miami" },
+      { href: "/services/short-form-video-editor-miami", label: "short-form video editor in Miami" },
+      { href: "/services/video-production-doral-miami", label: "video production in Doral" },
+    ],
+    outro:
+      "Remote editing for Miami clients begins the day the files arrive. On-location capture in Miami-Dade is confirmed project by project, which the service pages explain before you send an inquiry.",
+  },
+  {
+    name: "Palm Beach County",
+    question: "Is Palm Beach County part of the service area?",
+    intro:
+      "Palm Beach County is an expansion area considered project by project. Remote video editing and content planning are available now for any Palm Beach business with supplied footage; on-location filming is confirmed for each inquiry rather than assumed. City-specific guides are already published for the places with the most demand:",
+    routes: [
+      { href: "/areas/palm-beach-county", label: "Palm Beach County service page" },
+      { href: "/services/video-production-boca-raton", label: "video production in Boca Raton" },
+      { href: "/services/video-editing-palm-beach-gardens", label: "video editing in Palm Beach Gardens" },
+      { href: "/services/video-production-delray-beach", label: "video production in Delray Beach" },
+    ],
+    outro:
+      "Start with the county page if you are unsure which guide fits. It explains how a Palm Beach project is evaluated and what to include in the first message.",
+  },
+];
+
 const miamiProof = [
   {
     href: "/portfolio/bar-door-monkey",
@@ -129,8 +205,8 @@ export default function AreasPage() {
             business and does not publish a studio address.
           </p>
 
-          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {serviceAreas.map((area) => (
+          <div className="mt-10 grid gap-5 md:grid-cols-2">
+            {areaSections.map((area) => (
               <article
                 key={area.name}
                 id={areaAnchors[area.name]}
@@ -138,21 +214,29 @@ export default function AreasPage() {
               >
                 <MapPin className="size-6 text-[#e85d3e]" aria-hidden="true" />
                 <p className="mt-5 text-xs uppercase text-[#5a6066]">
-                  {area.county}
+                  {area.name}
                 </p>
-                <h2 className="mt-3 font-serif text-3xl">{area.name}</h2>
+                <h2 className="mt-3 font-serif text-3xl leading-tight">
+                  {area.question}
+                </h2>
                 <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                  {area.description}
+                  {area.intro}
                 </p>
-                {area.href !== "/areas" ? (
-                  <Link
-                    href={area.href}
-                    className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27] hover:text-[#7f2f20]"
-                  >
-                    Explore {area.name}
-                    <ArrowRight className="size-4" aria-hidden="true" />
-                  </Link>
-                ) : null}
+                <ul className="mt-3 space-y-1.5 text-sm leading-6">
+                  {area.routes.map((route) => (
+                    <li key={route.href}>
+                      <Link
+                        href={route.href}
+                        className="font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#7f2f20]"
+                      >
+                        {route.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-3 text-sm leading-6 text-[#252a2d]">
+                  {area.outro}
+                </p>
               </article>
             ))}
           </div>

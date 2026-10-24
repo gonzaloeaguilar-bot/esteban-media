@@ -3,6 +3,10 @@ import React from "react";
 
 import { sitemapRoutes } from "@/app/sitemap";
 import { isConsolidatedPath } from "@/lib/consolidation";
+import {
+  DIRECTORY_GROUP_LABELS,
+  groupDirectoryItems,
+} from "@/lib/service-directory-groups";
 
 const serviceLandingRoutes = sitemapRoutes.filter(
   // Consolidated (noindexed/merged) pages are not linked from the hubs
@@ -20,6 +24,10 @@ function labelFromPath(path: string) {
     .join(" ");
 }
 
+// Grouped under h3 headings so no block of links runs past 250 words
+// (dual-audience gate, 2026-10-24). See lib/service-directory-groups.ts.
+const groups = groupDirectoryItems(serviceLandingRoutes, ({ path }) => path);
+
 export function ServiceLandingDirectory() {
   return (
     <section className="mt-14" aria-labelledby="service-landing-directory-heading">
@@ -36,18 +44,25 @@ export function ServiceLandingDirectory() {
         These pages explain project fit and preparation without adding prices,
         guarantees, or availability claims. Confirm the final scope directly.
       </p>
-      <ul className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {serviceLandingRoutes.map(({ path }) => (
-          <li key={path}>
-            <Link
-              href={path}
-              className="block min-h-16 rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-4 text-sm font-medium leading-6 text-[#252a2d] hover:border-[#e85d3e] hover:text-[#9f3c27]"
-            >
-              {labelFromPath(path)}
-            </Link>
-          </li>
-        ))}
-      </ul>
+      {groups.map((group) => (
+        <div key={group.key} className="mt-8">
+          <h3 className="font-serif text-2xl leading-tight">
+            {DIRECTORY_GROUP_LABELS.en[group.key]}
+          </h3>
+          <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {group.items.map(({ path }) => (
+              <li key={path}>
+                <Link
+                  href={path}
+                  className="block min-h-16 rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-4 text-sm font-medium leading-6 text-[#252a2d] hover:border-[#e85d3e] hover:text-[#9f3c27]"
+                >
+                  {labelFromPath(path)}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
     </section>
   );
 }
