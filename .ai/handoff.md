@@ -1,3 +1,11 @@
+# 2026-10-24 — Homepage AI, web and visibility chooser candidate
+
+- The homepage now gives AI, website, local SEO and AI-search visibility their own fifth buyer card instead of hiding them inside “Local businesses.” The Spanish card is “IA, web y visibilidad”; the English equivalent is “AI, web and visibility.” It opens the existing All-In package plus the existing AI-assisted content, local SEO/AI-search visibility, website/funnel audit, and operations-automation services. The package and services remain in the server-rendered HTML; nothing is revealed only through motion.
+- “Local businesses” now contains only its existing monthly content and local-presence packages, so the All-In package appears once in its more relevant route. The new card uses the documented published AI lead-capture case image and one restrained sparkle signal; all card motion is decorative and disabled under reduced motion.
+- Local verification: targeted chooser test passed (32 assertions), `pnpm typecheck` passed, `pnpm lint` exited 0 with 22 existing warnings, full `pnpm test` exited 0, optimized `pnpm build` completed, `pnpm rail-adoption:check` passed (3 assertions), `analytics-gate.py` passed (12 emit sites / 11 event names), `git diff --check` passed. Browser review opened the card at 390x844 and 375x667 and checked the desktop card at 1440x900; the expanded Spanish card visibly contained Todo Incluido, IA, SEO/AI-search visibility, audit, and automation. Next: commit, independent review, scoped PR, merge on required checks, then public `/es` visual and raw-HTML verification.
+
+---
+
 # 2026-10-24 — Homepage chooser card motion candidate
 
 - The repeating Content Creator heart/count feedback remains unchanged. The other three homepage chooser cards now have their own small, service-specific loops: a settling property pin with a soft ring, a recording dot with three frame marks, and a rising local-business signal sparkle. They are decorative only; no audience, recording, or business-performance data is asserted.
