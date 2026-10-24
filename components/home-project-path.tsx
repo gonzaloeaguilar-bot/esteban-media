@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, ChevronDown, Heart, MessageCircle, Plus, Send } from "lucide-react";
+import { ArrowRight, ChevronDown, Heart, MapPin, MessageCircle, Plus, Send } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 import { StarterOptions } from "@/components/starter-options";
@@ -445,10 +445,10 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                   <span className="em-route-card__copy"><span className="em-route-card__eyebrow">{routeText.eyebrow}</span><strong>{routeText.title}</strong><span>{routeText.lead}</span></span>
                   <span className={`em-route-card__visual em-route-card__visual--${route.id}`} aria-hidden="true">
                     <Image src={visualSrc} alt={c.routeVisualAlts[route.id]} fill sizes="(max-width: 639px) 100vw, 1200px" />
-                    {route.id === "real-estate" && <span className="em-route-card__property-glint" />}
+                    {route.id === "real-estate" && <><span className="em-route-card__property-glint" /><span className="em-route-card__property-pin"><span /><MapPin fill="currentColor" /></span></>}
                     {route.id === "editing" && <span className="em-route-card__reel-actions"><span className="em-route-card__reel-like"><span className="em-route-card__reel-heart-burst" aria-hidden="true"><Heart fill="currentColor" /><Heart fill="currentColor" /><Heart fill="currentColor" /><Heart fill="currentColor" /></span><Heart fill="currentColor" /><span className="em-route-card__reel-like-count" aria-hidden="true"><span>+1</span><span>+26</span><span>+183</span><span>+1.2K</span></span></span><MessageCircle /><Send /></span>}
-                    {route.id === "production" && <span className="em-route-card__recording" aria-hidden="true"><i />REC</span>}
-                    {route.id === "local-business" && <span className="em-route-card__local-signal" aria-hidden="true"><i /><i /><i /></span>}
+                    {route.id === "production" && <span className="em-route-card__recording" aria-hidden="true"><i />REC<span className="em-route-card__recording-frames"><b /><b /><b /></span></span>}
+                    {route.id === "local-business" && <span className="em-route-card__local-signal" aria-hidden="true"><span className="em-route-card__local-signal-spark"><b /><b /></span><i /><i /><i /></span>}
                   </span>
                   <Plus className="em-route-card__plus" size={22} aria-hidden="true" />
                 </summary>
