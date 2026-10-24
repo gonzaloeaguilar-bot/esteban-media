@@ -51,6 +51,9 @@ const legacyRedirects = [
 ];
 
 const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [{ protocol: "https", hostname: "i.ytimg.com", pathname: "/vi/**" }],
+  },
   experimental: {
     globalNotFound: true,
   },

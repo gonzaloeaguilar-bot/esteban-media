@@ -4,12 +4,12 @@
   "hash": "6303ed2f3d96143b"
  },
  "/about": {
-  "date": "2026-10-19",
-  "hash": "341107719c0f006e"
+  "date": "2026-10-23",
+  "hash": "a2f75c79b6ecb156"
  },
  "/areas": {
-  "date": "2026-10-19",
-  "hash": "e37f2b70ef4af8d4"
+  "date": "2026-10-23",
+  "hash": "3ce706247004c4f3"
  },
  "/areas/palm-beach-county": {
   "date": "2026-10-14",
@@ -48,8 +48,8 @@
   "hash": "775c0108309a646a"
  },
  "/contact": {
-  "date": "2026-10-21",
-  "hash": "e8949ade5e94c204"
+  "date": "2026-10-23",
+  "hash": "b9fb9f1da61894f7"
  },
  "/daily-hook-planner": {
   "date": "2026-10-14",
@@ -104,8 +104,8 @@
   "hash": "188e2c47d523fb15"
  },
  "/es/calculadora-de-ritmo-de-video": {
-  "date": "2026-10-14",
-  "hash": "053e081b1abe2d66"
+  "date": "2026-10-22",
+  "hash": "91718c08633ce4ef"
  },
  "/es/captura-y-automatizacion-de-clientes-con-ia": {
   "date": "2026-10-16",
@@ -324,8 +324,8 @@
   "hash": "fa5f5fcb94d5ffae"
  },
  "/es/fotografia-de-producto-miami": {
-  "date": "2026-10-14",
-  "hash": "4d1c09fefc565d13"
+  "date": "2026-10-24",
+  "hash": "c897b4718bb02413"
  },
  "/es/fotografo-de-retratos-y-headshots-miami": {
   "date": "2026-08-14",
@@ -508,8 +508,8 @@
   "hash": "dc26cfe86e5e5c6b"
  },
  "/es/guias/mejores-estilos-de-subtitulos-para-reels": {
-  "date": "2026-10-14",
-  "hash": "f8b06fb11b2d398d"
+  "date": "2026-10-22",
+  "hash": "75be6ba2f6979a47"
  },
  "/es/guias/mejores-practicas-de-edicion-de-video-vertical": {
   "date": "2026-10-07",
@@ -632,8 +632,8 @@
   "hash": "d74d81e801a1289f"
  },
  "/es/portafolio": {
-  "date": "2026-10-14",
-  "hash": "20e73ff59e341cf1"
+  "date": "2026-10-21",
+  "hash": "f9314cb6afc7e5a7"
  },
  "/es/portafolio/ai-lead-automation": {
   "date": "2026-10-14",
@@ -651,6 +651,10 @@
   "date": "2026-10-14",
   "hash": "6ea8e4d2dd416f5a"
  },
+ "/es/portafolio/exatlon": {
+  "date": "2026-10-24",
+  "hash": "792b1eb77db8bbc1"
+ },
  "/es/portafolio/flas-concierge": {
   "date": "2026-10-14",
   "hash": "e81281df386dacfc"
@@ -663,6 +667,14 @@
   "date": "2026-10-14",
   "hash": "c7c39ed91c470c5d"
  },
+ "/es/portafolio/gains-from-geebs-shorts": {
+  "date": "2026-10-24",
+  "hash": "59d823f2757707ae"
+ },
+ "/es/portafolio/great-reviewer-iphone-18": {
+  "date": "2026-10-24",
+  "hash": "3a2f6ec006b93280"
+ },
  "/es/portafolio/healthy-smile": {
   "date": "2026-10-18",
   "hash": "8f9afdd524d4d23d"
@@ -671,17 +683,29 @@
   "date": "2026-10-14",
   "hash": "ade81d82bfbf7d82"
  },
+ "/es/portafolio/juanchis-burguer": {
+  "date": "2026-10-24",
+  "hash": "ac1a22cbe108573a"
+ },
  "/es/portafolio/la-huelga": {
   "date": "2026-10-14",
   "hash": "0c1be4c361f4b312"
  },
  "/es/portafolio/ml-colombia": {
-  "date": "2026-10-14",
-  "hash": "3725d464c200260a"
+  "date": "2026-10-23",
+  "hash": "9abf634d406d80e3"
  },
  "/es/portafolio/my-dler": {
   "date": "2026-10-14",
   "hash": "5ee98c19a859ce25"
+ },
+ "/es/portafolio/portosole": {
+  "date": "2026-10-24",
+  "hash": "0e4f2ea7a4c73e9c"
+ },
+ "/es/portafolio/punto-de-giro": {
+  "date": "2026-10-24",
+  "hash": "53088e9bf6c690dc"
  },
  "/es/portafolio/titanforge": {
   "date": "2026-10-14",
@@ -804,8 +828,8 @@
   "hash": "6b338d1c7dfc39c0"
  },
  "/es/servicios": {
-  "date": "2026-10-16",
-  "hash": "b5d97ad90e03513d"
+  "date": "2026-10-23",
+  "hash": "00777c34faa1acbb"
  },
  "/es/sitios-web-de-conversion": {
   "date": "2026-10-14",
@@ -908,8 +932,8 @@
   "hash": "9892d91ed693bf49"
  },
  "/es/video-para-alquileres-vacacionales-fort-lauderdale": {
-  "date": "2026-10-14",
-  "hash": "d7f6a0f33e203cda"
+  "date": "2026-10-22",
+  "hash": "4afa4543ebdd3577"
  },
  "/es/video-para-arquitectura-y-diseno-miami": {
   "date": "2026-08-14",
@@ -1188,8 +1212,8 @@
   "hash": "b67d4c4fff2c00fb"
  },
  "/guides/best-caption-styles-for-instagram-reels": {
-  "date": "2026-10-19",
-  "hash": "e269c7ef94354f01"
+  "date": "2026-10-23",
+  "hash": "3da2e524f2490cb2"
  },
  "/guides/bilingual-video-marketing-strategy-south-florida": {
   "date": "2026-10-07",
@@ -1200,8 +1224,8 @@
   "hash": "be75bc5353c1fe8b"
  },
  "/guides/corporate-video-production-cost-miami": {
-  "date": "2026-10-15",
-  "hash": "3f7578d3cccd718f"
+  "date": "2026-10-22",
+  "hash": "e114cc724eb28830"
  },
  "/guides/customer-testimonial-video-script-template": {
   "date": "2026-10-14",
@@ -1212,8 +1236,8 @@
   "hash": "6ce073464c5b3254"
  },
  "/guides/fastest-way-to-send-large-video-files-to-editor": {
-  "date": "2026-10-14",
-  "hash": "f00d71cb1a48f40b"
+  "date": "2026-10-21",
+  "hash": "a212cad0cec8a875"
  },
  "/guides/freelance-video-editor-vs-post-agency": {
   "date": "2026-10-14",
@@ -1391,6 +1415,10 @@
   "date": "2026-10-14",
   "hash": "97b2a8b83ab425f9"
  },
+ "/portfolio/exatlon": {
+  "date": "2026-10-24",
+  "hash": "6cc734194a2a061b"
+ },
  "/portfolio/flas-concierge": {
   "date": "2026-10-14",
   "hash": "1fcc2f6600364204"
@@ -1403,6 +1431,14 @@
   "date": "2026-10-14",
   "hash": "7ed39b4d409cea8a"
  },
+ "/portfolio/gains-from-geebs-shorts": {
+  "date": "2026-10-24",
+  "hash": "e4ecfe1f23184f86"
+ },
+ "/portfolio/great-reviewer-iphone-18": {
+  "date": "2026-10-24",
+  "hash": "267edc1e96803209"
+ },
  "/portfolio/healthy-smile": {
   "date": "2026-10-18",
   "hash": "686f6223059b5f0e"
@@ -1411,17 +1447,29 @@
   "date": "2026-10-14",
   "hash": "2e4f5c823cadbdc8"
  },
+ "/portfolio/juanchis-burguer": {
+  "date": "2026-10-24",
+  "hash": "6f0e7146df18e28c"
+ },
  "/portfolio/la-huelga": {
   "date": "2026-10-14",
   "hash": "38247f833dfb1e4b"
  },
  "/portfolio/ml-colombia": {
-  "date": "2026-10-14",
-  "hash": "ade40078c76a8db8"
+  "date": "2026-10-23",
+  "hash": "c244c9f2b1dd07b8"
  },
  "/portfolio/my-dler": {
   "date": "2026-10-14",
   "hash": "6039eb203b9f927f"
+ },
+ "/portfolio/portosole": {
+  "date": "2026-10-24",
+  "hash": "796d550984d9be99"
+ },
+ "/portfolio/punto-de-giro": {
+  "date": "2026-10-24",
+  "hash": "5a7b3f5e93c641ca"
  },
  "/portfolio/titanforge": {
   "date": "2026-10-14",
@@ -1472,8 +1520,8 @@
   "hash": "f13b633ddbb729ef"
  },
  "/services": {
-  "date": "2026-10-16",
-  "hash": "c6126b6adfb54686"
+  "date": "2026-10-22",
+  "hash": "d8c88743d94fce12"
  },
  "/services/ai-chatbot-for-small-business": {
   "date": "2026-10-16",
@@ -1904,8 +1952,8 @@
   "hash": "5e631dc18c735189"
  },
  "/services/product-photography-miami": {
-  "date": "2026-10-14",
-  "hash": "5db7ca05c2d4d473"
+  "date": "2026-10-24",
+  "hash": "2807058bdaf1e0db"
  },
  "/services/product-unboxing-demo-video-south-florida": {
   "date": "2026-10-19",
@@ -1924,8 +1972,8 @@
   "hash": "762d39751aa02d2e"
  },
  "/services/real-estate-reels-video-editor-south-florida": {
-  "date": "2026-10-14",
-  "hash": "1d7198c10c4d2c59"
+  "date": "2026-10-22",
+  "hash": "0ec4d18c26eaae6a"
  },
  "/services/real-estate-video-coral-gables": {
   "date": "2026-10-13",
@@ -1936,8 +1984,8 @@
   "hash": "cf7fbe22027e7ced"
  },
  "/services/reels-editor-fort-lauderdale": {
-  "date": "2026-10-15",
-  "hash": "b1b29c8533358dec"
+  "date": "2026-10-21",
+  "hash": "7466b9facd91d2ad"
  },
  "/services/reels-editor-miami": {
   "date": "2026-10-14",

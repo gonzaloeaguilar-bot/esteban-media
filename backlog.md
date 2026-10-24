@@ -1,3 +1,22 @@
+## 2026-10-23 — Local GBP conversion proof on About page
+
+- [x] 2026-10-24: Add contained TikTok-style floating-heart feedback to the homepage Content Creator card's like icon and extend the same crafted, decorative motion language to the remaining chooser cards. Content Creator keeps its four floating Lucide hearts and rising `+1` through `+1.2K` visual feedback; Real Estate has a settling property pin/ring, Productions has a REC beat with three frame marks, and Local Business has a rising signal sparkle. These loops are decorative, not audience or performance data. `pnpm test` passed (168 files / 3,497 tests); `pnpm typecheck` passed; `pnpm lint` completed with 0 errors and 22 pre-existing warnings; `pnpm build` and `git diff --check` passed. Browser review at 390x844 confirmed controls and copy remain clear. Next: scoped PR checks, merge, and public Spanish-homepage verification.
+- [x] 2026-10-24: Unbury the homepage AI/SEO/GEO offer as a fifth chooser card. “IA, web y visibilidad” / “AI, web and visibility” now contains Todo Incluido plus the existing AI-assisted content, local SEO and AI-search visibility, site/funnel audit, and operations-automation options. The card uses the documented AI lead-capture case image and a restrained decorative signal that stops for reduced motion. Verification: chooser test (32), `pnpm typecheck`, `pnpm lint` (0 errors, 22 existing warnings), full `pnpm test`, optimized `pnpm build`, `pnpm rail-adoption:check` (3), analytics gate (12 emit sites / 11 event names), `git diff --check`, and browser checks at 375x667, 390x844, and 1440x900. Next: scoped PR checks, merge, and public Spanish-homepage verification.
+
+- [x] Implement `local_gbp_conversion` priority-growth recommendation on `/about`: embed verified Google reviews (`ClientReviews`), linking brand searchers ("esteban moreno media") to 5.0 Google rating proof, verbatim client testimonials, and Google Business Profile listing. Verified with `pnpm lastmod:update`, `npm test` (166 files / 3,472 tests), `pnpm check`, and `priority-growth-project-verify.sh`.
+
+## 2026-10-22 — Spanish caption-styles guide content-depth refinement
+
+- [x] Prepare `/es/guias/mejores-estilos-de-subtitulos-para-reels` refinement: outcome-specific H1 and metadata, answer-first opening, an existing-page comparison between complete captions and short emphasis text, two contextual Spanish links, and refreshed page-lastmod ledger. `pnpm lastmod:update`, `npm run typecheck --silent`, and `npm test` passed (165 files / 3,469 tests). Before merge, `cto-qa-lead` must independently review the exact diff; after authorized release, verify production raw HTML and rendered links. `cto-seo-lead` owns the later comparable GSC read; traffic, ranking, and click impact remain unmeasured.
+
+## 2026-10-21 — Large-video transfer guide content-depth refinement
+
+- [x] Prepare `/guides/fastest-way-to-send-large-video-files-to-editor` refinement: direct H1/answer, one server-rendered cloud-versus-proxy-versus-drive decision section, two contextual internal links, and refreshed page-lastmod ledger. `npm run typecheck --silent` passed; the first full `npm test` found only the required stale date ledger, which `pnpm lastmod:update` corrected. Before merge, cto-qa-lead must capture a fresh full-suite terminal summary, review the exact diff, and after release verify the production raw HTML; cto-seo-lead owns the later settled GSC query/page read.
+
+## 2026-10-21 — Fort Lauderdale Reels content-depth refinement
+
+- [x] Prepare `/services/reels-editor-fort-lauderdale` refinement: direct supplied-clips outcome in H1/metadata, one server-rendered editing-versus-shoot decision section, and refreshed page-lastmod ledger. Local checks passed (`npm run typecheck --silent`, `npm test` 165 files / 3,469 tests, lint 0 errors, rail adoption 3/3, build rendered 569 static pages); independent review, release, production raw-HTML check, and settled GSC query/page remeasurement remain with cto-qa-lead and cto-seo-lead.
+
 ## 2026-10-19 — Rescue /es/precios with contextual internal links
 
 - [x] Rescued `https://estebanmorenomedia.com/es/precios` from orphan/starvation status by adding 4 contextual internal links from high-earning pages: `/about`, `/` (via `AboutTeaser`), `/guides/best-caption-styles-for-instagram-reels`, and `/areas`. Validated with typecheck, vitest test suite, and `pnpm lastmod:update`.
@@ -17,6 +36,11 @@
 # Esteban Moreno Media — Backlog
 
 - [x] 2026-10-24: replace the small AI/SEO chooser visual with the documented Gains From Geebs full-bleed project image. PR #541 merged as `91c79f36`; production HTML, CI and IndexNow verified. Outcome measurement remains separate.
+- [x] 2026-10-23: Prepare internal-link reinforcement for `/es/evaluacion` from `/`, `/about`, `/areas`, and `/contact` using the target H1 `Diagnóstico de Estrategia de Video`; retain the target's `/es` breadcrumb return link and refresh the page-lastmod ledger for changed page sources. `npm run typecheck --silent`, `npm test` (167 files / 3,489 tests), and `git diff --check` passed. Before merge, `cto-qa-lead` must independently review the exact diff; after authorized release, verify all four canonical production links and target breadcrumb. `cto-seo-lead` owns the later comparable GSC read; indexing, traffic, and inquiry impact remain unmeasured.
+
+- [x] 2026-10-23: Prepare the content-depth refinement for `/guides/best-caption-styles-for-instagram-reels`: outcome-specific title and H1, a two-sentence answer-first opening, expanded safe-zone guidance, two closely related guide links, retained restaurant-editing service link, and refreshed page-lastmod ledger. `pnpm lastmod:update`, `npm run typecheck --silent`, and `npm test` completed without failures. Before merge, `cto-qa-lead` must independently review the exact diff; after authorized release, verify the production title, H1, raw FAQ HTML, links, and date. `cto-seo-lead` owns the later comparable GSC read; traffic, ranking, and click impact remain unmeasured.
+
+- [x] 2026-10-22: Prepare the content-depth refinement for `/guides/corporate-video-production-cost-miami`: specific budget-and-comparison H1 and metadata, answer-first scope boundary, two quote-comparison FAQ answers, retained contextual internal links, and refreshed page-lastmod ledger. `pnpm lastmod:update`, `npm run typecheck --silent`, and `npm test` passed (165 files / 3,469 tests). Before merge, `cto-qa-lead` must independently review the exact diff; after authorized release, verify the production title, H1, raw FAQ HTML, links, and date. `cto-seo-lead` owns the later comparable GSC read; search and inquiry impact remain unmeasured.
 
 - [ ] After the reviewed Clarity code is merged, create/select Esteban Moreno Media's real Microsoft Clarity project; add only its identifier as `NEXT_PUBLIC_CLARITY_PROJECT_ID` to the Vercel **Production** environment, redeploy, and complete the production verification/rollback steps in `docs/microsoft-clarity-activation.md`. Do not place the identifier in git or enable previews.
 
@@ -58,6 +82,7 @@ Production is live. This file tracks repository implementation; account/access w
 
 ## P1 — Technical SEO / GEO / ALOHA
 
+- [x] Prepare `/es/calculadora-de-ritmo-de-video` content-depth refinement: specific 30/60-second word-count metadata and H1, answer-first copy, three visible server-rendered FAQs, two contextual links to existing Spanish tools, and a refreshed page-date ledger. Local `pnpm typecheck` and `npm test` passed; independent review, authorized release, production raw-HTML verification, and later comparable GSC observation remain required.
 - [x] 2026-10-11: SEO/GEO audit wave on `fix/seo-geo-audit-wave` — the audit's 15 mechanical fixes (fix 8 partial), sitemap 284 → 310 by owner decision, `/llms.txt` generated from sitemap sources, 37 ported EN FAQs, answer-first blocks, sibling links. Details: `.ai/handoff.md`.
 - [ ] 2026-11-10: check GSC indexed status and impressions for the 26 URLs added to the sitemap on 2026-10-10 (see `ownerOrderedAdditions` in `config/indexable-inventory-freeze.json`).
 - [ ] Owner: decide guide bylines (Esteban as author of record?) and a date policy (`published`/`updated` fields) — unlocks visible dates, `dateModified` and sitemap `lastmod`.
@@ -195,3 +220,12 @@ Production is live. This file tracks repository implementation; account/access w
 - [x] Owner-requested real-estate-only visual boundary, distinct1/2/3-property plan artwork, playful touch/keyboard response and reference storage; implemented and browser-verified2026-10-03. Delivery record: `.ai/handoff.md` and Obsidian `esteban-plan-distinction-2026-10-03`.
 
 - [x] Replace à la carte text/icon tiles with six distinct playful illustrations, shared disclosures, useful preparation guidance, EN/ES source links and finite touch motion (2026-10-03 owner request).
+## 2026-10-23 — Owner-authorized real-estate social reel carousel
+
+- [x] Add the supplied published social reel to the existing real-estate carousel as a self-hosted seventh item. Local lint, typecheck, full test suite (165 files / 3,470 tests), analytics gate, build, text parity, rail checks, and desktop/390px playback checks passed.
+- [ ] Obtain the governed independent review, release `feat/real-estate-social-reel`, and verify the live player at desktop and 390px before calling it public.
+
+## 2026-10-23 — Owner-requested production release
+
+- [x] Add native muted inline autoplay to the existing homepage hero and retain the reduced-motion poster path. The combined local candidate passed lint, typecheck, 165 test files / 3,471 tests, analytics, build, text parity, rail adoption, raw HTML, and rendered playback checks.
+- [ ] Push the combined owner-media candidate, merge after green CI, and verify production homepage autoplay plus the new real-estate reel at desktop and 390px.

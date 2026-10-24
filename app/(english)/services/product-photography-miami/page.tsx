@@ -6,6 +6,7 @@ import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
 import { NicheAnswers } from "@/components/niche-answers";
 import { withNicheService } from "@/lib/niche-answers";
+import { PRODUCT_PHOTO_SESSION } from "@/lib/pricing";
 
 const path = "/services/product-photography-miami";
 
@@ -21,17 +22,17 @@ const faqs = [
   {
     question: "Where can I hire an ecommerce product photographer in Miami?",
     answer:
-      "Esteban Moreno Media provides professional ecommerce product photography across Miami-Dade and Broward County, serving Amazon sellers, Shopify brands, and local retailers. Sessions are tailored for clean white-background catalog imagery, Amazon main photos with 100% pure white isolation, and contextual lifestyle shots staged in real South Florida home, office, or outdoor environments. For local businesses needing catalog updates, remote and studio product photography packages start at an authorized floor of $280 for a starter batch of fully retouched high-resolution images delivered in web and print formats. Turnaround ranges between 3 to 5 business days after product delivery, with rush 24-hour turnaround available upon request. High-volume catalog shoots and recurring monthly product content are scoped with customized pricing tiers based on SKU count and styling complexity.",
+      `Esteban Moreno Media photographs real products for Amazon sellers, Shopify brands, and local retailers in Miami-Dade and Broward. A product photography session starts from $${PRODUCT_PHOTO_SESSION.from}; the final quote depends on the product count, angles, background, retouching, handling, and intended use. Share whether the work is for a store listing, website, campaign, or social content along with the products and reference images.`,
   },
   {
     question: "What should you send before a product shoot?",
     answer:
-      "Send the product type, number of items, where the products are, and examples of images you need. Tell Esteban whether the photos are for product listings, a website, ads, or social posts. That information helps him discuss the setting, shot list, location, and deliverables with you before quoting. If you also need short product videos, mention those at the same time so the stills and video can be scoped together. A real shoot starts with the actual product; AI-assisted backgrounds start with existing reference images. Neither path should change the product’s label, color, or features in a way that misleads customers. Use the contact page to describe the project, or email him directly if you already have a brief.",
+      "Send the product type, number of items, where the products are, and examples of images you need. Tell Esteban whether the photos are for Amazon listings, Shopify product pages, a website, ads, or social posts. He can scope clean white-background catalog images, lifestyle photographs, and the final image count around that use. If you also need short product videos, mention those at the same time so the stills and video can be planned together. A real shoot starts with the actual product; AI-assisted backgrounds start with existing reference images. Neither path should change the product’s label, color, or features in a way that misleads customers.",
   },
   {
     question: "Do you need new photographs or visuals from existing photos?",
     answer:
-      "Choose a real product shoot when you need new images of the item itself: its packaging, texture, scale, or details that a buyer should see clearly. If you already have accurate product photographs and want alternate settings or campaign concepts, Esteban can discuss AI-assisted visuals using those references. The two services solve different problems, and you can ask about both in one inquiry. Project location, product handling, image use, and the number of final images determine the scope; there is no fixed shoot price on this page. Esteban’s published visual work includes product mockups, but those are not presented here as proof of a photographed product session. Ask for a relevant real-photo example when you speak with him.",
+      "Choose a real product shoot when you need new images of the item itself: its packaging, texture, scale, or details that a buyer should see clearly. If you already have accurate product photographs and want alternate settings or campaign concepts, Esteban can discuss AI-assisted visuals using those references. The two services solve different problems, and you can ask about both in one inquiry. Rush 24-hour delivery may be available when the product count, retouching, and schedule permit it. His published My D'ler portfolio work includes product mockups and motion for a digital product presentation, not a claim of a physical product-photo session. Ask for a relevant real-photo example when you speak with him.",
   },
 ];
 
@@ -91,7 +92,7 @@ export default function ProductPhotographyMiamiPage() {
             <p className="text-xs font-medium uppercase text-[#5a6066]">Real product photos / Miami and Broward</p>
             <h1 className="mt-4 font-serif em-display">Product photography in Miami for the products you actually sell.</h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-              Esteban photographs real products for business websites, ecommerce, and social content. Tell him what you sell and where the images will appear to plan the right shoot.
+              Esteban photographs real products for Amazon sellers, Shopify brands, business websites, and social content. Sessions start from ${PRODUCT_PHOTO_SESSION.from} USD; tell him what you sell and where the images will appear to plan the right shoot.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/contact" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)]">
@@ -128,6 +129,16 @@ export default function ProductPhotographyMiamiPage() {
               See the AI-assisted option <ArrowRight className="size-4" aria-hidden="true" />
             </Link>
           </section>
+        </Container>
+      </section>
+
+      <section className="pb-12 sm:pb-16">
+        <Container size="xl">
+          <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6 sm:p-8">
+            <p className="text-xs font-medium uppercase text-[#5a6066]">Published visual work</p>
+            <h2 className="mt-3 font-serif text-3xl">See the product-visual portfolio before you scope a shoot.</h2>
+            <p className="mt-4 max-w-3xl text-base leading-7 text-[#252a2d]">The published <Link href="/portfolio/my-dler" className="underline underline-offset-4 hover:text-[#9f3c27]">My D&apos;ler project</Link> documents Esteban&apos;s agency role creating product mockups and motion for a delivery-app presentation. It is relevant visual work, but it is not represented as physical product photography. For a real product shoot, describe the product and intended use so the proof and scope match the request.</p>
+          </div>
         </Container>
       </section>
 

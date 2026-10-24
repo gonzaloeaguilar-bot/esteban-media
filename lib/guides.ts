@@ -2007,12 +2007,12 @@ const guidePairs: readonly GuidePair[] = [
     id: "corporate-video-cost-guide",
     en: {
       slug: "corporate-video-production-cost-miami",
-      metadataTitle: "Miami Video Production Cost Guide",
-      title: "How much does corporate video production cost in Miami?",
+      metadataTitle: "Miami Corporate Video Cost Guide",
+      title: "Miami corporate video production cost: what to budget and compare",
       description:
-        "Plan a Miami video production budget: compare scope, filming, editing, deliverables, and quote inputs before choosing a production path.",
+        "Learn what a Miami corporate video quote needs to cover, from filming and editing to deliverables and review terms, before you compare budgets.",
       eyebrow: "Video Pricing Guide",
-      answer: `Esteban's Local Presence offer starts from ${packageGuidePrice("presencia-local")} per production day. That is a filming starting price, not a complete corporate-video price: editing, deliverables, review terms, and usage need a project-specific written quote.`,
+      answer: `Corporate video production in Miami does not have one all-in price: the quote depends on the filming scope, number of finished videos, and post-production work. Esteban's Local Presence offer starts from ${packageGuidePrice("presencia-local")} per production day, but that is a filming starting price—not a complete corporate-video price: editing, deliverables, review terms, and usage need a project-specific written quote.`,
       proof: {
         href: "/portfolio/healthy-smile",
         title: "Healthy Smile Miami",
@@ -2076,8 +2076,10 @@ const guidePairs: readonly GuidePair[] = [
       ],
       faqs: [
         { question: "Does Esteban Moreno Media publish fixed corporate video packages?", answer: "No universal package is published. Scope, deliverables, timing, review terms, and responsibilities are defined for each project in the quote." },
+        { question: "Can two corporate video quotes with the same shoot day have different totals?", answer: "Yes. The filming day is only one part of the scope. The number of finished versions, footage volume, editing, sound, graphics, captions, review rounds, and delivery requirements can change what is included." },
         { question: "Can I hire Esteban only to edit footage my team recorded?", answer: "Remote editing can be scoped when you already have usable footage. Share the original files, goal, references, required versions, and deadline so the material can be assessed." },
         { question: "What makes a corporate video quote increase?", answer: "Additional locations or capture needs, larger footage volumes, complex story or graphics work, multiple languages or formats, licensed assets, tight timing, and more review cycles can all change scope." },
+        { question: "Do I need a full brief before asking for a corporate video quote?", answer: "No. Send what you know: the business goal, audience, channels, existing footage or assets, location, requested deliverables, references, approval owner, and target date. Unknowns can be marked for recommendation." },
         { question: "What should I send before asking for a quote?", answer: "Send the business goal, audience, channels, existing assets, location, desired deliverables, references, approval owner, and target date. Unknowns can be marked for recommendation." },
       ],
     },
@@ -3039,8 +3041,8 @@ const guidePairs: readonly GuidePair[] = [
     id: "caption-styles-reels-guide",
     en: {
       slug: "best-caption-styles-for-instagram-reels",
-      metadataTitle: "Best Subtitle Styles for Reels",
-      title: "Best caption styles and subtitle strategies for Reels",
+      metadataTitle: "Best Instagram Reel Caption Styles",
+      title: "Best Instagram Reel caption styles for readable subtitles",
       // Round 7 (2026-10-14): top gainer in GSC this week (26 impressions at
       // 8.8, was 11; 0 clicks) with a description that answered nothing. Meta
       // only; the copy below is unchanged.
@@ -3050,7 +3052,7 @@ const guidePairs: readonly GuidePair[] = [
         "Explore word-by-word highlighted captions, safe zone margins, and typographic styles for maximum social video engagement.",
       eyebrow: "Subtitles / Social Reels",
       answer:
-        "Use high-contrast bold fonts centered in the safe zone with active word highlighting to keep viewers watching on mute.",
+        "For Instagram Reels, use high-contrast subtitles in the central safe area. Choose full-sentence captions for spoken explanations and short emphasis captions when the footage carries most of the message.",
       proof: {
         href: "/portfolio/bar-door-monkey",
         title: "Bar Door Monkey Miami",
@@ -3061,13 +3063,14 @@ const guidePairs: readonly GuidePair[] = [
         {
           heading: "How do you keep captions inside the safe zone?",
           paragraphs: [
-            "Keep subtitles away from bottom Instagram UI buttons and top account headers to ensure full legibility. When formatting dynamic text for dining reels, [restaurant promo video editing in Miami](/services/restaurant-promo-video-editing-miami) balances animated captions with mouth-watering food visuals, while clients planning on-location filming across South Florida can check the [áreas de servicio](/es/areas) directory for local coverage.",
+            "Keep subtitles in the central part of the vertical frame, away from the bottom controls and top account header that Instagram places over a Reel. A caption can be technically present but still fail if a viewer has to read around interface buttons or a product, face, or food detail. Check the actual 9:16 cut on a phone before publishing, not only the editing preview.",
+            "Plan the caption position with the rest of the overlay layout. The [safe-zone guide for vertical and horizontal exports](/guides/vertical-horizontal-video-exports-and-safe-zones) explains how platform controls affect a vertical frame, while [how to use Instagram Reels for business](/guides/how-to-use-instagram-reels-for-business) helps match the reel's message to the audience before type treatment is chosen. For food-led cuts, [restaurant promo video editing in Miami](/services/restaurant-promo-video-editing-miami) shows where captions need to leave the visual subject readable.",
           ],
         },
         {
           heading: "How do you choose a caption style for the viewing context?",
           paragraphs: [
-            "Reels, Shorts, and TikTok clips are often watched without sound, but the right subtitle treatment depends on how much the viewer needs to understand. Talking-head clips usually need clean sentence captions; food, product, and event reels often work better with short emphasis words that support the visuals instead of repeating every frame. Businesses planning event coverage can review the Spanish [eventos del año en el sur de Florida](/es/eventos) hub for seasonal timelines and video recap guidelines, or consult the Spanish [precios de partida](/es/precios) guide for editing packages.",
+            "Reels, Shorts, and TikTok clips are often watched without sound, but the right subtitle treatment depends on how much the viewer needs to understand. Talking-head clips usually need clean sentence captions so the viewer can follow a complete idea. Food, product, and event reels often work better with short emphasis words that support the visuals instead of repeating every frame.",
             "For a business account, keep one recognizable type style for recurring content, then adjust weight, placement, and animation speed by format. A menu reel, founder tip, customer walkthrough, and service explanation can share a brand look without using the same caption rhythm.",
           ],
           bullets: [
@@ -3111,13 +3114,13 @@ const guidePairs: readonly GuidePair[] = [
     },
     es: {
       slug: "mejores-estilos-de-subtitulos-para-reels",
-      metadataTitle: "Mejores Subtítulos para Reels",
-      title: "Mejores estilos de subtítulos y textos para Reels y Shorts",
+      metadataTitle: "Subtítulos para Reels: Guía",
+      title: "Qué estilo de subtítulos usar en Reels: legibilidad, ritmo y zona segura",
       description:
-        "Descubre tipografías de alto contraste, zonas seguras y resaltado de palabras clave para videos verticales en redes.",
+        "Elige subtítulos para Reels que se lean en celular: frases completas o palabras clave, contraste suficiente y una zona segura que no tape la interfaz.",
       eyebrow: "Subtítulos / Reels Sociales",
       answer:
-        "Utiliza fuentes en negrita de alto contraste dentro de la zona segura con resaltado de palabras clave para reproducción sin sonido.",
+        "Para que un Reel se entienda sin sonido, usa texto de alto contraste dentro de la zona segura y elige el formato según el mensaje: frases completas si la voz explica la idea o palabras clave si la imagen ya la muestra. Antes de publicar, comprueba el resultado en un celular con la interfaz de la plataforma visible.",
       proof: {
         href: "/es/portafolio/bar-door-monkey",
         title: "Bar Door Monkey Miami",
@@ -3141,7 +3144,8 @@ const guidePairs: readonly GuidePair[] = [
           heading: "¿Cómo se elige el estilo según cómo se verá el video?",
           paragraphs: [
             "Reels, Shorts y TikToks muchas veces se ven sin sonido, pero el subtítulo correcto depende de cuánto necesita entender la persona. Un video hablado suele necesitar frases completas; un reel de comida, producto o evento puede funcionar mejor con palabras cortas de énfasis que acompañan la imagen.",
-            "Para una cuenta de negocio, conviene mantener una línea visual reconocible y ajustar peso, ubicación y velocidad según el formato. Un plato, un consejo del fundador, un recorrido y una explicación de servicio pueden compartir estilo sin tener el mismo ritmo de texto.",
+            "Para una cuenta de negocio, conviene mantener una línea visual reconocible y ajustar peso, ubicación y velocidad según el formato. Un plato, un consejo del fundador, un recorrido y una explicación de servicio pueden compartir estilo sin tener el mismo ritmo de texto. Si necesitas decidir antes de editar, empieza por el mensaje que una persona debe entender aunque no active el audio, no por una animación que se vea llamativa.",
+            "La comparación útil no es entre un estilo moderno y uno anticuado, sino entre lo que la persona necesita leer y lo que ya puede ver. Si al quitar el audio se pierde la idea, aumenta el contexto del subtítulo. Si el texto tapa la acción que demuestra el punto, redúcelo o vuelve a encuadrar. Revisa también la [guía de video vertical y zonas seguras](/es/guias/video-vertical-horizontal-y-zonas-seguras) y cómo usar [Reels para negocios en Miami](/es/reels-para-negocios-miami) antes de preparar versiones para publicar.",
           ],
           bullets: [
             "Usa frases completas cuando la voz lleva el mensaje principal",
@@ -3198,12 +3202,12 @@ const guidePairs: readonly GuidePair[] = [
     en: {
       slug: "fastest-way-to-send-large-video-files-to-editor",
       metadataTitle: "Send Large Videos to an Editor",
-      title: "How to send large video files to an editor",
+      title: "Fastest way to send large video files to an editor",
       description:
-        "Send original footage in organized cloud folders, use proxies when uploads are slow, and verify the copy before clearing camera cards.",
+        "Choose cloud folders for manageable footage, proxies for slower uploads, or a physical drive for a very large archive. Keep camera folders intact and verify every copy before clearing cards.",
       eyebrow: "Workflow / File Transfer",
       answer:
-        "Check the folder size and your upload speed first. Send the original files in organized cloud folders when the upload fits your schedule; use smaller editing proxies when it does not. For a very large archive on a slow connection, agree with your editor on a physical drive. Verify the copy before clearing camera cards.",
+        "The fastest way to send large video files to an editor is to match the handoff to the folder size and your upload speed: use an organized cloud folder when it can finish on time, proxies when the originals are too slow to upload, and a physical drive for a very large archive. Keep original camera folders and filenames intact, then verify the received copy before clearing camera cards.",
       proof: {
         href: "/portfolio/homeowners",
         title: "Homeowners",
@@ -3211,6 +3215,19 @@ const guidePairs: readonly GuidePair[] = [
           "Approved portfolio credits include published remote video post-production. Linked as a public sample; not published as evidence of identical deliverables in every engagement.",
       },
       sections: [
+        {
+          heading: "What is the quickest way to choose a video-file transfer method?",
+          paragraphs: [
+            "Start with the total folder size, the deadline, and the upload speed where the files currently live. A cloud folder is the simplest option when the upload can finish before editing needs to begin. If the original footage is too large for that window, send proxies so the editor can start the cut while the camera masters stay safely stored. When neither upload is practical, agree on a physical-drive handoff before the project is delayed.",
+            "Whichever route you choose, send one short handoff note with the folder size, the intended videos, the deadline, and any missing assets. Keep camera-card folders and original clip names unchanged. For the rest of the handoff, use this [footage-preparation guide](/guides/prepare-footage-for-video-editing); if the work is for social clips, see [short-form video editing](/services/short-form-video-editor-miami).",
+          ],
+          bullets: [
+            "Cloud folder: best when the original footage can upload before editing begins",
+            "Proxy files: best when the editor can begin with lighter copies and reconnect to originals later",
+            "Physical drive: best when a very large archive cannot upload in the available time",
+            "Verification: confirm the editor has the complete copy before clearing any camera card",
+          ],
+        },
         {
           heading: "Why is upload speed the real limit when sending large video files?",
           paragraphs: [

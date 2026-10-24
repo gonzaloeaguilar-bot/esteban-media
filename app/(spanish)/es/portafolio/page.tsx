@@ -76,7 +76,7 @@ export default function SpanishPortfolioPage() {
         <Container size="xl">
           <p className="text-xs font-medium uppercase tracking-[0.18em] text-[#f0b384]">Trabajos seleccionados</p>
           <h1 className="mt-3 max-w-3xl font-serif text-4xl leading-tight sm:text-6xl">Mira el trabajo.</h1>
-          <p className="mt-3 max-w-2xl text-base leading-7 text-[#d8d0c7]">Edición, campañas, eventos e historias de Esteban Moreno Media. Abre cada proyecto para ver su descripción y sus créditos.</p>
+          <p className="mt-3 max-w-2xl text-base leading-7 text-[#d8d0c7]">Edición, campañas, eventos e historias de Esteban Moreno Media. Abre cada proyecto para ver su descripción y sus créditos, o revisa los <Link href="/es/servicios" className="underline underline-offset-4 hover:text-[#f0b384]">servicios</Link> que se conectan con ese trabajo.</p>
           <PageUpdated path="/es/portafolio" locale="es" className="mt-3 text-xs text-[#b9b2aa]" />
         </Container>
       </section>

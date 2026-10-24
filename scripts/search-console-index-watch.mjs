@@ -42,6 +42,17 @@ export const LEGACY_V1_WATCH_URLS = [
 ];
 export const WATCH_URLS = [
   ...LEGACY_V1_WATCH_URLS,
+  // Owner-requested source-backed portfolio proof (2026-10-23); recheck 2026-11-22.
+  "https://estebanmorenomedia.com/portfolio/gains-from-geebs-shorts",
+  "https://estebanmorenomedia.com/es/portafolio/gains-from-geebs-shorts",
+  "https://estebanmorenomedia.com/portfolio/exatlon",
+  "https://estebanmorenomedia.com/es/portafolio/exatlon",
+  "https://estebanmorenomedia.com/portfolio/juanchis-burguer",
+  "https://estebanmorenomedia.com/es/portafolio/juanchis-burguer",
+  "https://estebanmorenomedia.com/portfolio/portosole",
+  "https://estebanmorenomedia.com/es/portafolio/portosole",
+  "https://estebanmorenomedia.com/portfolio/punto-de-giro",
+  "https://estebanmorenomedia.com/es/portafolio/punto-de-giro",
   // Buyer-guide pair (2026-10-18): same bounded RFP request in English and Spanish.
   "https://estebanmorenomedia.com/guides/video-production-rfp-template-miami",
   "https://estebanmorenomedia.com/es/guias/plantilla-brief-rfp-produccion-video-miami",
@@ -323,6 +334,7 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/es/portafolio/banacol",
   "https://estebanmorenomedia.com/es/portafolio/bar-door-monkey",
   "https://estebanmorenomedia.com/es/portafolio/diana-jack",
+  "https://estebanmorenomedia.com/es/portafolio/great-reviewer-iphone-18",
   "https://estebanmorenomedia.com/es/portafolio/flas-concierge",
   "https://estebanmorenomedia.com/es/portafolio/front-line-auto",
   "https://estebanmorenomedia.com/es/portafolio/gains-from-geebs",
@@ -396,6 +408,7 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/portfolio/banacol",
   "https://estebanmorenomedia.com/portfolio/bar-door-monkey",
   "https://estebanmorenomedia.com/portfolio/diana-jack",
+  "https://estebanmorenomedia.com/portfolio/great-reviewer-iphone-18",
   "https://estebanmorenomedia.com/portfolio/flas-concierge",
   "https://estebanmorenomedia.com/portfolio/front-line-auto",
   "https://estebanmorenomedia.com/portfolio/gains-from-geebs",

@@ -14,40 +14,46 @@ describe("single projects live inside the chooser, once", () => {
     const html = renderToStaticMarkup(React.createElement(HomeProjectPath, { locale }));
     const items = packagesCopy(locale).aLaCarte.items;
 
-    it(`${locale}: every a-la-carte title, note and what-to-send sentence is in the server HTML`, () => {
+    it(`${locale}: every a-la-carte title and what-to-send sentence is in the server HTML`, () => {
       for (const item of items) {
+        if (item.id === "grabacion") {
+          expect(html).toContain(locale === "es" ? "Grabemos tu contenido" : "Film content with me");
+          expect(html).toContain(aLaCarteVisual(item.id, locale).preparation.slice(0, 14));
+          continue;
+        }
         expect(html).toContain(item.title.replace(/&/g, "&amp;"));
-        if (item.note) expect(html).toContain(item.note);
         expect(html).toContain(aLaCarteVisual(item.id, locale).preparation.slice(0, 14));
       }
     });
 
     it(`${locale}: every option shows its price with zero taps, in the server HTML, and the photo floor is the real one`, () => {
-      expect(html).toMatch(/em-camera-chooser__stop[^>]*>[\s\S]*?(From|Desde) \$450/);
-      // Business shows its monthly plan on the camera stop (one short line that never
-      // wraps) and BOTH of its prices, named as /pricing names them, on the card.
-      expect(html).toMatch(/em-camera-chooser__stop[^>]*>[\s\S]*?(From|Desde) \$640/);
-      expect(html).toMatch(/em-camera-chooser__stop[^>]*>[\s\S]*?(From|Desde) \$100/);
+      expect(html).toMatch(/em-path-offer-price[^>]*>\$450\/(mo|mes)</);
       expect(html).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$640/);
       expect(html).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$800/);
       expect(html).toMatch(/em-path-offer-name[^>]*>(Growth|Crecimiento)</);
       expect(html).toMatch(/em-path-offer-name[^>]*>(Local Presence|Presencia Local)</);
-      expect(html).toMatch(/em-path-offer-name[^>]*>(Starter|Arranque)</);
+      // Editing is a buying choice (once, weekly, or scoped project), not a
+      // fourth package card named Starter/Arranque.
+      expect(html).toMatch(/em-pk-starter-tile__num[^>]*>\$100</);
+      expect(html).not.toMatch(/em-path-offer-name[^>]*>(Starter|Arranque)</);
       expect(html).toMatch(/em-path-offer-name[^>]*>Essential</);
       expect(html).toMatch(/em-single-price[^>]*>(From|Desde) \$280/);
-      expect(html).toMatch(/em-single-price[^>]*>(From|Desde) \$400/);
+      expect(html).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$1,000/);
       // the lane cards still do not repeat a "Starting price" label
       expect(html).not.toMatch(/em-art-price-label/);
     });
 
     it(`${locale}: native details, collapsed not removed`, () => {
-      const rows = html.match(/<details class="em-single-item"/g) ?? [];
-      expect(rows).toHaveLength(items.length);
+      const standardRows = html.match(/<details class="em-single-item"/g) ?? [];
+      const productionRows = html.match(/<details class="em-path-offer-details group\/offer" name="route-production/g) ?? [];
+      const creatorFilmingRows = html.match(/<details class="em-path-offer-details group\/offer" name="route-creator-filming/g) ?? [];
+      expect(standardRows.length + productionRows.length + creatorFilmingRows.length).toBe(items.length);
       expect(html).not.toMatch(/<details class="em-single-item"[^>]*open/);
+      expect(html).not.toMatch(/<details class="em-path-offer-details group\/offer" name="route-production[^>]*open/);
     });
 
-    it(`${locale}: one WhatsApp link in the single-project lane, no per-card WhatsApp rows`, () => {
-      expect((html.match(/home_path_single_whatsapp/g) ?? []).length).toBe(1);
+    it(`${locale}: one general WhatsApp link, no per-service WhatsApp rows`, () => {
+      expect((html.match(/home_path_general_quote/g) ?? []).length).toBe(1);
       expect(html).not.toMatch(/a_la_carte_\w+_whatsapp/);
     });
   }

@@ -195,7 +195,7 @@ export const DECLARED_SOURCES = [
       const id = path?.split("/").filter(Boolean).pop();
       if (!id) return [];
       return [
-        blockBetween(root, `messages/${locale}.json`, new RegExp(`^ {6}"${escape(id)}": \\{$`), /^ {6}\},?$/),
+        blockBetween(root, `messages/${locale}.json`, new RegExp(`^ {6}"${escape(id)}": \\{`), /^ {6}\},?$/),
       ].filter(Boolean);
     },
   },

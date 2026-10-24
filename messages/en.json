@@ -164,6 +164,11 @@
           { "metric": "Director", "label": "Also director of photography and original concept" }
         ]
       },
+      "gains-from-geebs-shorts": { "title": "Gains From Geebs Short-Form Videos", "summary": "Two short-form videos publicly published by Kris Oddo | Geebs Method.", "credits": "Public source: Kris Oddo | Geebs Method." },
+      "exatlon": { "title": "Exatlón Intro Video", "summary": "An Exatlón intro video publicly published by Esteban Moreno Media.", "credits": "Public source: Esteban Moreno Media." },
+      "juanchis-burguer": { "title": "Juanchis Burguer Social Media Campaign", "summary": "A social media campaign with Juanchis Burguer, Miami, publicly published by Esteban Moreno Media.", "credits": "Public source: Esteban Moreno Media." },
+      "portosole": { "title": "Portosole Social Media Campaign", "summary": "A social media campaign with Portosole, Miami, publicly published by Esteban Moreno Media.", "credits": "Public source: Esteban Moreno Media." },
+      "punto-de-giro": { "title": "Punto de Giro Documentary", "summary": "The publicly published Punto de Giro documentary trailer and behind-the-scenes video on Esteban Moreno López's YouTube channel.", "credits": "Public source: Esteban Moreno López's YouTube channel." },
       "ml-colombia": {
         "title": "ML Colombia",
         "summary": "Content and digital strategy for Miracle Leaf (ML Colombia), Esteban's own CBD-cosmetics e-commerce brand, which he founded and ran for about six years. As CEO he led the brand end to end — digital content, strategy, and two successive websites.",
@@ -171,6 +176,15 @@
         "results": [
           { "metric": "About 6 years", "label": "Founder and CEO of his own e-commerce brand" },
           { "metric": "2 websites", "label": "Two successive brand websites" }
+        ]
+      },
+      "great-reviewer-iphone-18": {
+        "title": "The Great Reviewer: iPhone 18 Pro Max Content Reel",
+        "summary": "A published vertical content video for The Great Reviewer. It is shown as an example of the format, with no audience or commercial result claimed.",
+        "credits": "Content video production and editing by Esteban Moreno Media.",
+        "results": [
+          { "metric": "Vertical Reel", "label": "Published content video" },
+          { "metric": "2026", "label": "Content video for The Great Reviewer" }
         ]
       }
     },

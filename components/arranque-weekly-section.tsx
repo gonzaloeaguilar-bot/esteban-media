@@ -45,7 +45,7 @@ export function ArranqueWeeklySection({ locale }: { locale: Locale }) {
         <p className="mt-4 max-w-2xl text-base leading-7 text-[#252a2d]">{c.answer}</p>
 
         <div className="max-w-3xl">
-          <StarterOptions locale={locale} showTermsLink={false} />
+          <StarterOptions locale={locale} />
         </div>
 
         <h3 className="mt-10 font-serif text-2xl">{c.includesHeading}</h3>
