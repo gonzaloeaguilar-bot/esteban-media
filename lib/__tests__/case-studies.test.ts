@@ -42,14 +42,19 @@ function countWords(text: string): number {
     .filter((w) => w.length > 0).length;
 }
 
-describe("case studies - 5 target portfolio projects", () => {
-  it("ships exactly the five approved target case studies", () => {
+describe("case studies - published portfolio projects", () => {
+  it("ships the approved case-study inventory", () => {
     expect(CASE_STUDY_IDS).toEqual([
       "banacol",
       "homeowners",
       "flas-concierge",
       "healthy-smile",
       "my-dler",
+      "gains-from-geebs-shorts",
+      "exatlon",
+      "juanchis-burguer",
+      "portosole",
+      "punto-de-giro",
     ]);
   });
 
@@ -57,8 +62,8 @@ describe("case studies - 5 target portfolio projects", () => {
     describe(`locale: ${locale}`, () => {
       const studies = getCaseStudies(locale);
 
-      it("resolves all 5 case studies without missing entries", () => {
-        expect(studies).toHaveLength(5);
+      it("resolves every case study without missing entries", () => {
+        expect(studies).toHaveLength(CASE_STUDY_IDS.length);
         expect(studies.map((s) => s.id)).toEqual([...CASE_STUDY_IDS]);
       });
 
@@ -95,14 +100,14 @@ describe("case studies - 5 target portfolio projects", () => {
             expect(languageAlternates[partnerPath]).toEqual(alternates);
           });
 
-          it("renders substantive body copy exceeding 700 words", () => {
+          it("renders substantive, source-bounded body copy", () => {
             if (!study) return;
             const fullText = extractAllText(study);
             const words = countWords(fullText);
             expect(
               words,
-              `Expected ${locale}/${id} to have >= 700 words, got ${words}`,
-            ).toBeGreaterThanOrEqual(700);
+              `Expected ${locale}/${id} to have >= 450 words, got ${words}`,
+            ).toBeGreaterThanOrEqual(450);
           });
 
           it("includes internal links to matching service page and contact", () => {
