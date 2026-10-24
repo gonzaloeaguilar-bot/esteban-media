@@ -42,11 +42,12 @@ for (const locale of ["en", "es"] as const) {
       expect(path).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$800\/[^<]+</);
     });
 
-    it("1b. four human buying routes expand in place and no parallel one-off card remains", () => {
-      expect((path.match(/em-route-card"/g) ?? [])).toHaveLength(4);
+    it("1b. five human buying routes expand in place and no parallel one-off card remains", () => {
+      expect((path.match(/em-route-card"/g) ?? [])).toHaveLength(5);
       expect(path).not.toContain("em-single-project-entry");
       expect(path).toContain(locale === "en" ? "Productions and events" : "Producciones y eventos");
       expect(path).toContain(locale === "en" ? "Local businesses" : "Negocios locales");
+      expect(path).toContain(locale === "en" ? "AI, web and visibility" : "IA, web y visibilidad");
       const css = read("app/illustrated-commercial.css");
       expect(css).toContain(".em-route-card>summary");
     });
@@ -81,6 +82,7 @@ for (const locale of ["en", "es"] as const) {
       expect(path).toContain('class="em-route-card__property-pin"');
       expect(path).toContain('class="em-route-card__recording-frames"');
       expect(path).toContain('class="em-route-card__local-signal-spark"');
+      expect(path).toContain('class="em-route-card__digital-signal"');
       expect(css).toContain("@keyframes em-reel-heart-float");
       expect(css).toContain("@keyframes em-reel-like-count-one");
       expect(css).toContain("@keyframes em-reel-like-count-four");
@@ -89,6 +91,8 @@ for (const locale of ["en", "es"] as const) {
       expect(css).toContain("@keyframes em-property-pin-settle");
       expect(css).toContain("@keyframes em-record-frame");
       expect(css).toContain("@keyframes em-local-spark");
+      expect(css).toContain("@keyframes em-digital-sparkle");
+      expect(css).toContain(".em-route-card__digital-signal>svg,.em-route-card__digital-signal>span{animation:none}");
     });
 
     it("1b3. keeps monthly Real Estate terms with the monthly plans, not the individual services", () => {
@@ -109,7 +113,8 @@ for (const locale of ["en", "es"] as const) {
     it("1c. creator filming stays with creators, business filming stays with local packages, and events keep their specific services", () => {
       const component = read("components/home-project-path.tsx");
       expect(component).toContain('{ id: "production", offerIds: [], serviceIds: ["multicam", "yate", "kickstarter"]');
-      expect(component).toContain('{ id: "local-business", offerIds: ["crecimiento", "presencia-local", "todo-incluido"]');
+      expect(component).toContain('{ id: "local-business", offerIds: ["crecimiento", "presencia-local"]');
+      expect(component).toContain('{ id: "digital-growth", offerIds: ["todo-incluido"], serviceIds: ["ia", "seo", "auditoria", "automatizacion"]');
       expect(component).toContain('data-lane="creator-filming"');
       expect(component).toContain('name={`route-offer-${locale}-${route.id}`}');
       expect(component).toContain('name={`route-service-${locale}-${route.id}`}');
@@ -117,6 +122,11 @@ for (const locale of ["en", "es"] as const) {
       expect(read("app/illustrated-commercial.css")).toContain('em-route-card:has(.em-path-offer-details[open],.em-single-item[open]) .em-route-main-cta{display:none}');
       expect(path).toMatch(/data-route="local-business"[\s\S]*em-path-offer-name">(Growth|Crecimiento)</);
       expect(path).toMatch(/data-route="local-business"[\s\S]*em-path-offer-name">(Local Presence|Presencia Local)</);
+      const digitalStart = path.indexOf('data-route="digital-growth"');
+      const digital = path.slice(digitalStart);
+      expect(digital).toContain(locale === "es" ? "Contenido asistido por IA" : "AI-assisted content");
+      expect(digital).toContain(locale === "es" ? "SEO local y visibilidad en buscadores de IA" : "Local SEO and AI-search visibility");
+      expect(digital).toContain(locale === "es" ? "Todo Incluido" : "All-In");
       expect(path).not.toContain(locale === "es" ? "Ver ejemplo de contenido" : "See a content example");
     });
 

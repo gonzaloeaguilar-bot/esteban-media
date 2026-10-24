@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, ChevronDown, Heart, MapPin, MessageCircle, Plus, Send } from "lucide-react";
+import { ArrowRight, ChevronDown, Heart, MapPin, MessageCircle, Plus, Send, Sparkles } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 import { StarterOptions } from "@/components/starter-options";
@@ -62,6 +62,7 @@ const copy = {
     editing: "Vertical video clip for a content creator",
     production: "Esteban filming a live conference speaker",
     "local-business": "Video production at a local business",
+    "digital-growth": "Published website and conversational AI lead-capture work",
   },
     pricingDetail: "These are starting prices. The final price depends on the project scope.",
     pricingAction: "See everything each package includes",
@@ -124,6 +125,7 @@ const copy = {
     editing: "Video vertical para un creador de contenido",
     production: "Esteban grabando a un conferencista en vivo",
     "local-business": "Producción de video en un negocio local",
+    "digital-growth": "Sitio web publicado y trabajo de captura de prospectos con IA",
   },
     pricingDetail: "Son precios de partida. El precio final depende del alcance del proyecto.",
     pricingAction: "Ver todo lo que incluye cada paquete",
@@ -155,7 +157,7 @@ const copy = {
   },
 } as const;
 
-type RouteId = "real-estate" | "editing" | "production" | "local-business";
+type RouteId = "real-estate" | "editing" | "production" | "local-business" | "digital-growth";
 
 /**
  * Routes are intentionally organized around what a human is buying, not the
@@ -173,7 +175,8 @@ const routeDefinitions: Array<{
   { id: "real-estate", offerIds: "real-estate", serviceIds: ["foto", "mejora"], artwork: "property" },
   { id: "editing", offerIds: [], serviceIds: [], artwork: "editing" },
   { id: "production", offerIds: [], serviceIds: ["multicam", "yate", "kickstarter"], artwork: "business" },
-  { id: "local-business", offerIds: ["crecimiento", "presencia-local", "todo-incluido"], serviceIds: ["ia", "seo", "auditoria", "automatizacion"], artwork: "business" },
+  { id: "local-business", offerIds: ["crecimiento", "presencia-local"], serviceIds: [], artwork: "business" },
+  { id: "digital-growth", offerIds: ["todo-incluido"], serviceIds: ["ia", "seo", "auditoria", "automatizacion"], artwork: "business" },
 ];
 
 const routeVisuals: Record<RouteId, string> = {
@@ -186,6 +189,9 @@ const routeVisuals: Record<RouteId, string> = {
   // Owner-supplied camera detail: a crisp, horizontal production still avoids
   // presenting a website screenshot as the local-business service.
   "local-business": "/portfolio/local-business-camera-work.jpg",
+  // A live, documented web and conversational-AI case keeps this route grounded
+  // in real work rather than a generic synthetic AI visual.
+  "digital-growth": "/portfolio/ai-lead-automation.jpg",
 };
 
 function offerDeliverables(name: string, laneId: ChooserLaneId, locale: AudienceLocale): string[] {
@@ -337,13 +343,15 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
         "real-estate": { title: "Real Estate", eyebrow: "Propiedades", lead: "Planes, fotos y mejoras para mostrar cada propiedad." },
         editing: { title: "Creador de contenido", eyebrow: "Tú eres el canal", lead: "Edita tus clips, publica cada semana o graba un día de contenido conmigo." },
         production: { title: "Producciones y eventos", eyebrow: "Una producción especial", lead: "Conferencias, yates, equipos multicámara y videos comerciales." },
-        "local-business": { title: "Negocios locales", eyebrow: "Tu negocio", lead: "Contenido mensual, grabación en tu negocio y presencia digital para tu marca." },
+        "local-business": { title: "Negocios locales", eyebrow: "Tu negocio", lead: "Contenido mensual y grabación en tu negocio para tu marca." },
+        "digital-growth": { title: "IA, web y visibilidad", eyebrow: "Que te encuentren", lead: "Sitio web, captura de clientes y presencia local para que puedan encontrarte y escribirte." },
       }
     : {
         "real-estate": { title: "Real estate", eyebrow: "Properties", lead: "Plans, photos and improvements to show each property." },
         editing: { title: "Content creator", eyebrow: "You are the channel", lead: "Edit your clips, publish every week, or film a content day with me." },
         production: { title: "Productions and events", eyebrow: "A special production", lead: "Conferences, yachts, multi-camera crews and commercial video." },
-        "local-business": { title: "Local businesses", eyebrow: "Your business", lead: "Monthly content, filming at your business and digital presence for your brand." },
+        "local-business": { title: "Local businesses", eyebrow: "Your business", lead: "Monthly content and filming at your business for your brand." },
+        "digital-growth": { title: "AI, web and visibility", eyebrow: "Get found", lead: "A website, lead capture and local presence so people can find you and get in touch." },
       };
   const openFunnel = (id: string, label: string, price: string) => {
     setFunnelLane({ id, label, price });
@@ -449,6 +457,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                     {route.id === "editing" && <span className="em-route-card__reel-actions"><span className="em-route-card__reel-like"><span className="em-route-card__reel-heart-burst" aria-hidden="true"><Heart fill="currentColor" /><Heart fill="currentColor" /><Heart fill="currentColor" /><Heart fill="currentColor" /></span><Heart fill="currentColor" /><span className="em-route-card__reel-like-count" aria-hidden="true"><span>+1</span><span>+26</span><span>+183</span><span>+1.2K</span></span></span><MessageCircle /><Send /></span>}
                     {route.id === "production" && <span className="em-route-card__recording" aria-hidden="true"><i />REC<span className="em-route-card__recording-frames"><b /><b /><b /></span></span>}
                     {route.id === "local-business" && <span className="em-route-card__local-signal" aria-hidden="true"><span className="em-route-card__local-signal-spark"><b /><b /></span><i /><i /><i /></span>}
+                    {route.id === "digital-growth" && <span className="em-route-card__digital-signal" aria-hidden="true"><span /><span /><Sparkles /></span>}
                   </span>
                   <Plus className="em-route-card__plus" size={22} aria-hidden="true" />
                 </summary>
