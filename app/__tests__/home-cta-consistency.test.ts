@@ -95,10 +95,13 @@ describe.each(["en", "es"] as const)("client reviews fine print (%s)", (locale) 
   // The homepage band is a DIFFERENT variant of the same component, and it is
   // the one the owner was looking at. Assert it separately: a variant fix is
   // not a component fix.
-  it("states the verification and the perfect score once each, in the home band", () => {
+  it("states verified client feedback once, in the home band", () => {
     const compactHtml = render(React.createElement(ClientReviews, { locale, compact: true }));
-    expect(compactHtml).toContain(locale === "es" ? "Reseñas verificadas en Google" : "Verified Google reviews");
-    expect(compactHtml).toContain(locale === "es" ? "5.0 perfecto" : "a perfect 5.0");
+    expect(compactHtml).toContain(
+      locale === "es"
+        ? "Opiniones reales de clientes, verificadas en Google."
+        : "Real client feedback, verified on Google.",
+    );
     // Said ONCE: the old copy paired this heading with a "Verified on Google"
     // badge on every card.
     expect(compactHtml).not.toContain(locale === "es" ? "Verificado en Google" : "Verified on Google");
