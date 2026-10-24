@@ -64,12 +64,18 @@
   overflow: hidden;
   background: var(--cine-ink);
 }
-/* Phone transition: the footage scrolls at about half speed and re-aims at
-   the face, so the subject stays while the credit leaves. */
+/* Phone transition: re-aim the footage at the face as the credit leaves.
+   Do not translate the frame itself: moving an absolutely positioned frame
+   down exposed the hero's black background as a blank strip while scrolling. */
 @media (max-width: 1023px) {
-  .em-cine__frame { transform: translate3d(0, calc(var(--p) * 42svh), 0); }
   .em-cine__poster,
   .em-cine__video { object-position: 50% calc(22% - var(--p) * 14%); }
+  /* The title has already cleared by this point, so the dark readability
+     scrim can get out of the way with it instead of reading as dead space. */
+  .em-cine__frame::after { opacity: calc(1 - var(--p) * .8); }
+  /* The expanding letterbox was read as an empty black gap in the phone
+     scroll. Keep the footage continuous there; desktop retains the effect. */
+  .em-cine__bar { display: none !important; }
 }
 
 .em-cine__poster,
