@@ -177,7 +177,9 @@ const routeDefinitions: Array<{
 ];
 
 const routeVisuals: Record<RouteId, string> = {
-  "real-estate": "/real-estate-reels/reel-07.jpg",
+  // A clean aerial still leaves room for the card copy; avoid Reels that already
+  // carry baked-in headlines behind the route label.
+  "real-estate": "/real-estate-reels/reel-05.jpg",
   editing: "/portfolio/great-reviewer-iphone-18.jpg",
   production: "/about/esteban-on-set.jpg",
   "local-business": "/portfolio/front-line-auto.jpg",
