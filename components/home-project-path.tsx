@@ -446,7 +446,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                   <span className={`em-route-card__visual em-route-card__visual--${route.id}`} aria-hidden="true">
                     <Image src={visualSrc} alt={c.routeVisualAlts[route.id]} fill sizes="(max-width: 639px) 100vw, 1200px" />
                     {route.id === "real-estate" && <span className="em-route-card__property-glint" />}
-                    {route.id === "editing" && <span className="em-route-card__reel-actions"><span className="em-route-card__reel-like"><span className="em-route-card__reel-heart-burst" aria-hidden="true"><Heart fill="currentColor" /><Heart fill="currentColor" /><Heart fill="currentColor" /><Heart fill="currentColor" /></span><Heart fill="currentColor" /><small aria-hidden="true">+1</small></span><MessageCircle /><Send /></span>}
+                    {route.id === "editing" && <span className="em-route-card__reel-actions"><span className="em-route-card__reel-like"><span className="em-route-card__reel-heart-burst" aria-hidden="true"><Heart fill="currentColor" /><Heart fill="currentColor" /><Heart fill="currentColor" /><Heart fill="currentColor" /></span><Heart fill="currentColor" /><span className="em-route-card__reel-like-count" aria-hidden="true"><span>+1</span><span>+26</span><span>+183</span><span>+1.2K</span></span></span><MessageCircle /><Send /></span>}
                     {route.id === "production" && <span className="em-route-card__recording" aria-hidden="true"><i />REC</span>}
                     {route.id === "local-business" && <span className="em-route-card__local-signal" aria-hidden="true"><i /><i /><i /></span>}
                   </span>
