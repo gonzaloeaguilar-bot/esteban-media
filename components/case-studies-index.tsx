@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Languages, Layers, Mail } from "lucide-react";
 
 import { PageUpdated } from "@/components/page-updated";
@@ -160,6 +161,17 @@ export function CaseStudiesIndexPage({ locale }: { locale: CaseStudyLocale }) {
                   key={study.id}
                   className="flex flex-col rounded-2xl border border-[#d6ccc0] bg-[#fbf6ef] p-6 sm:p-8"
                 >
+                  {study.id === "homeowners" ? (
+                    <div className="relative -mx-2 -mt-2 mb-6 aspect-[16/9] overflow-hidden rounded-xl bg-[#d6ccc0] sm:-mx-3 sm:-mt-3">
+                      <Image
+                        src="/portfolio/carolina-sells-miami-hero.webp"
+                        alt={locale === "es" ? "Carolina Suarez en un balcón de Brickell" : "Carolina Suarez on a Brickell balcony"}
+                        fill
+                        sizes="(min-width: 768px) 45vw, 100vw"
+                        className="object-cover object-center"
+                      />
+                    </div>
+                  ) : null}
                   <p className="text-xs font-medium uppercase tracking-[0.14em] text-[#5a6066]">
                     {study.eyebrow}
                   </p>
