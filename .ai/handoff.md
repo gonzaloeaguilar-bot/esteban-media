@@ -1,3 +1,11 @@
+# 2026-10-24 — Digital chooser-card composition candidate
+
+- Scoped files: `components/home-project-path.tsx`, `app/illustrated-commercial.css`, `app/__tests__/home-packaging-human.test.ts`, and `docs/digital-route-card-composition.md`. The three digital card visuals now use the actual Gains From Geebs desktop hero (web), the existing SNES-style companion with one assistant prompt (AI), and one clear query-to-business-result composition (SEO/GEO). Real Estate's Brickell loop and the Content Creator card are unchanged.
+- Local evidence: focused packaging suite 32/32; `pnpm lint` reported 0 errors / 22 pre-existing warnings; `pnpm typecheck` and `pnpm rail-adoption:check` passed; `git diff --check` passed. A full `pnpm test` run reached its final test groups before the tool output window closed, but its terminal exit receipt was not captured, so remote validation remains required. Browser review at 390x844 and 1440x900 found all three cards readable, the plus controls visible, and no horizontal overflow. CDP reduced-motion emulation yielded `animationName: none` for the companion, chat bubble and orbit.
+- `pnpm build` was attempted twice after a prior concurrently-started build left Next's compiler waiting with no progress; the final standalone attempt was manually stopped after more than three minutes without compilation output. Do not call this candidate released locally. Next: commit, open the scoped PR, and use its fresh remote build/visual evidence before merge; after deployment, check the public Spanish card composition at 390px.
+
+---
+
 # 2026-10-24 — 360px hero CTA clipping repair (PR #543 update, not released)
 
 - Human phone review reproduced the homepage hero overflow at 360px: the secondary WhatsApp action ended at x=366.75 on a 360px viewport, and the price/location line clipped at the same edge. The repair stacks the two actions and permits the support line to wrap at 389px and below; it preserves the inline composition from 390px up.
