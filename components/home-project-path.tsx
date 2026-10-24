@@ -199,7 +199,7 @@ const routeVisuals: Record<RouteId, string> = {
   // current Gains site is reserved for the website/ecommerce route below.
   "ai-agents": "/portfolio/gains-from-geebs-chatbot.jpg",
   "seo-landing": "/portfolio/front-line-auto.jpg",
-  "web-commerce": "/portfolio/gains-from-geebs-chatbot.jpg",
+  "web-commerce": "/portfolio/gains-from-geebs.jpg",
 };
 
 const digitalRouteLinks: Record<Exclude<RouteId, "real-estate" | "editing" | "production" | "local-business">, Record<AudienceLocale, Array<{ title: string; detail: string }>>> = {
@@ -503,8 +503,8 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                     {route.id === "production" && <span className="em-route-card__recording" aria-hidden="true"><i />REC<span className="em-route-card__recording-frames"><b /><b /><b /></span></span>}
                     {route.id === "local-business" && <span className="em-route-card__local-signal" aria-hidden="true"><span className="em-route-card__local-signal-spark"><b /><b /></span><i /><i /><i /></span>}
                     {route.id === "ai-agents" && <><Image className="em-route-card__agent-character" src="/portfolio/geebs-ai-companion.png" alt={c.routeVisualAlts["ai-agents"]} width={72} height={80} /><span className="em-route-card__geebs-chat" aria-hidden="true"><span className="em-route-card__geebs-chat-head"><b />GEEBS AI <em>LIVE</em></span><span className="em-route-card__geebs-chat-bubble">hey, i&apos;m kris. what are we fixing first?<i /></span><span className="em-route-card__geebs-chat-thinking"><b /><b /><b /><small>kris is thinking...</small></span><span className="em-route-card__geebs-chat-reply">How 1:1 coaching works</span></span><span className="em-route-card__digital-signal" aria-hidden="true"><span /><span /><Sparkles /></span></>}
-                    {route.id === "seo-landing" && <span className="em-route-card__search-map" aria-hidden="true"><b>SEO</b><b>GEO</b><b>LP</b><i /><i /><i /></span>}
-                    {route.id === "web-commerce" && <span className="em-route-card__site-tab" aria-hidden="true"><b>GFG</b><span>01</span><i /></span>}
+                    {route.id === "seo-landing" && <span className="em-route-card__search-preview" aria-hidden="true"><span className="em-route-card__search-query">your service near me <b /></span><span className="em-route-card__search-result"><small>YOUR BUSINESS</small><strong>Clear service. Clear location.</strong><i>Open the right page <ArrowRight size={11} /></i></span></span>}
+                    {route.id === "web-commerce" && <span className="em-route-card__site-tab" aria-hidden="true"><b>GFG</b><span>LIVE SITE</span><i /></span>}
                   </span>
                   <Plus className="em-route-card__plus" size={22} aria-hidden="true" />
                 </summary>
