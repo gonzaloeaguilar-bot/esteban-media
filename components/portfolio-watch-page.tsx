@@ -21,7 +21,7 @@ import {
   getCaseStudyPath,
   type CaseStudyId,
 } from "@/lib/case-studies";
-import { getPoster, isYouTubeSource, type PortfolioItem } from "@/lib/portfolio";
+import { getPoster, isInstagramSource, isYouTubeSource, type PortfolioItem } from "@/lib/portfolio";
 import {
   getPortfolioCategoryPath,
   getPortfolioCollectionPath,
@@ -55,6 +55,7 @@ type PortfolioWatchLabels = {
   uploadDate: string;
   duration: string;
   watch: string;
+  source: string;
   language: string;
   projectDetails: string;
   projectDetailsLead: string;
@@ -79,6 +80,7 @@ const labels = {
     uploadDate: "Public YouTube upload",
     duration: "Duration",
     watch: "Watch on YouTube",
+    source: "Open original post",
     language: "Ver en español",
     projectDetails: "Available project details",
     projectDetailsLead:
@@ -103,6 +105,7 @@ const labels = {
     uploadDate: "Publicación pública en YouTube",
     duration: "Duración",
     watch: "Ver en YouTube",
+    source: "Abrir publicación original",
     language: "View in English",
     projectDetails: "Detalles disponibles del proyecto",
     projectDetailsLead:
@@ -158,9 +161,9 @@ export function PortfolioWatchPage({ item, locale }: PortfolioWatchPageProps) {
     throw new Error(`Missing ${locale} service mapping for ${item.id}`);
   }
 
-  const isVideo = isYouTubeSource(item.media);
+  const isVideo = isYouTubeSource(item.media) || isInstagramSource(item.media);
   const poster = getPoster(item) ?? "";
-  const mediaUrl = isYouTubeSource(item.media)
+  const mediaUrl = isYouTubeSource(item.media) || isInstagramSource(item.media)
     ? item.media.url
     : locale === "es"
     ? "/es/diseno-web-fort-lauderdale"
@@ -196,6 +199,7 @@ export function PortfolioWatchPage({ item, locale }: PortfolioWatchPageProps) {
           duration: item.media.duration,
         }
       : undefined,
+    companionVideos: item.companionVideos?.map((video) => ({ videoId: video.videoId, uploadDate: video.uploadDate, duration: video.duration, title: video.title ?? copy.title, summary: `Public YouTube upload: ${video.title ?? copy.title}.`, url: video.url, poster: video.poster })),
     location: item.location,
     breadcrumbs: [
       { name: text.home, path: homePath },
@@ -249,6 +253,10 @@ export function PortfolioWatchPage({ item, locale }: PortfolioWatchPageProps) {
                   playLabel={locale === "es" ? `Reproducir video: ${copy.title}` : `Play video: ${copy.title}`}
                   source={`portfolio_play_${item.id}`}
                 />
+              ) : isInstagramSource(item.media) ? (
+                <a href={item.media.url} target="_blank" rel="noopener noreferrer" className="group absolute inset-0 flex items-end bg-gradient-to-t from-black/80 via-black/20 to-transparent p-6 text-white sm:p-8">
+                  <span className="rounded-full bg-[var(--em-accent-ink)] px-4 py-2 text-sm font-medium">{text.source}</span>
+                </a>
               ) : item.websiteUrl ? (
                 <a
                   href={item.websiteUrl}
@@ -307,17 +315,19 @@ export function PortfolioWatchPage({ item, locale }: PortfolioWatchPageProps) {
                     <ExternalLink className="size-4" aria-hidden="true" />
                   </a>
                 ) : null}
-                <Link
+                <a
                   href={mediaUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#f6f1ea] px-5 text-sm font-medium text-[#101214] hover:bg-white"
                 >
                   {isVideo
-                    ? text.watch
+                    ? (isInstagramSource(item.media) ? text.source : text.watch)
                     : locale === "es"
                     ? "Ver Servicio de Diseño Web & IA"
                     : "View Web & AI Service"}
                   <ExternalLink className="size-4" aria-hidden="true" />
-                </Link>
+                </a>
                 <Link
                   href={languagePath}
                   hrefLang={otherLocale === "es" ? "es-US" : "en-US"}
@@ -398,6 +408,11 @@ export function PortfolioWatchPage({ item, locale }: PortfolioWatchPageProps) {
                     </dd>
                   </div>
                 </>
+              ) : isInstagramSource(item.media) ? (
+                <div className="bg-[#fbf6ef] p-5 sm:col-span-2">
+                  <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-[#5a6066]">{locale === "es" ? "Fuente pública" : "Public source"}</dt>
+                  <dd className="mt-2 text-sm leading-6 text-[#252a2d]"><a href={item.media.url} target="_blank" rel="noopener noreferrer" className="font-medium text-[var(--em-accent-ink)] hover:underline">{text.source}</a></dd>
+                </div>
               ) : (
                 <>
                   <div className="bg-[#fbf6ef] p-5 sm:col-span-2">
@@ -432,6 +447,13 @@ export function PortfolioWatchPage({ item, locale }: PortfolioWatchPageProps) {
           </div>
         </Container>
       </section>
+
+      {item.companionVideos?.length ? (
+        <section className="border-t border-[#d6ccc0] py-12 sm:py-16">
+          <Container size="xl"><h2 className="font-serif text-3xl">{locale === "es" ? "Video adicional" : "Additional video"}</h2>
+          {item.companionVideos.map((video) => <div key={video.videoId} className="mt-6 max-w-4xl"><h3 className="mb-3 text-xl font-medium">{video.title ?? copy.title}</h3><div className="aspect-video overflow-hidden rounded-xl"><YouTubeFacade videoId={video.videoId} title={text.iframe(video.title ?? copy.title)} playLabel={locale === "es" ? `Reproducir: ${video.title ?? copy.title}` : `Play: ${video.title ?? copy.title}`} source={`portfolio_play_${item.id}_companion`} /></div></div>)}</Container>
+        </section>
+      ) : null}
 
       {copy.results && copy.results.length > 0 ? (
         <section className="border-t border-[#d6ccc0] bg-[#fbf6ef] py-12 sm:py-16">

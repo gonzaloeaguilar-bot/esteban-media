@@ -53,6 +53,11 @@ const expectedCategoryByItem: Record<string, PortfolioCategoryId> = {
   "front-line-auto": "web-design",
   "flas-concierge": "web-design",
   "ai-lead-automation": "web-design",
+  "gains-from-geebs-shorts": "social-content",
+  exatlon: "social-content",
+  "juanchis-burguer": "business-promos",
+  portosole: "business-promos",
+  "punto-de-giro": "narrative",
 };
 
 const verifiedYears: Record<string, number> = {
@@ -81,16 +86,16 @@ describe("verified portfolio data", () => {
     ]);
   });
 
-  it("ships exactly 13 unique live projects with no placeholder media", () => {
-    expect(PORTFOLIO_ITEMS).toHaveLength(13);
-    expect(new Set(PORTFOLIO_ITEMS.map((item) => item.id)).size).toBe(13);
+  it("ships exactly 18 unique live projects with no placeholder media", () => {
+    expect(PORTFOLIO_ITEMS).toHaveLength(18);
+    expect(new Set(PORTFOLIO_ITEMS.map((item) => item.id)).size).toBe(18);
 
     for (const item of PORTFOLIO_ITEMS) {
       expect(item.status).toBe("live");
       expect(item.media.kind).not.toBe("placeholder");
     }
 
-    expect(getLivePortfolioItemCount()).toBe(13);
+    expect(getLivePortfolioItemCount()).toBe(18);
     expect(getPlaceholderItemCount()).toBe(0);
   });
 
@@ -237,7 +242,7 @@ describe("portfolio helpers", () => {
 
 describe("media narrowing helpers", () => {
   const samples: MediaSource[] = [
-    { kind: "instagram", url: "https://www.instagram.com/p/X/" },
+    { kind: "instagram", url: "https://www.instagram.com/p/X/", poster: "/portfolio/example.jpg" },
     { kind: "video", src: "https://example.com/video.m3u8", poster: "p.jpg" },
     {
       kind: "youtube",
