@@ -11,6 +11,11 @@ export const CASE_STUDY_IDS = [
   "flas-concierge",
   "healthy-smile",
   "my-dler",
+  "gains-from-geebs-shorts",
+  "exatlon",
+  "juanchis-burguer",
+  "portosole",
+  "punto-de-giro",
 ] as const;
 
 export type CaseStudyId = (typeof CASE_STUDY_IDS)[number];
@@ -81,6 +86,92 @@ type CaseStudyPair = {
   en: Omit<CaseStudy, "id" | "locale" | "slug">;
   es: Omit<CaseStudy, "id" | "locale" | "slug">;
 };
+
+type PublicMediaCase = {
+  id: CaseStudyId;
+  client: string;
+  title: string;
+  titleEs: string;
+  summary: string;
+  summaryEs: string;
+  source: string;
+  sourceEs: string;
+  service: string;
+  serviceEs: string;
+  serviceHref: string;
+  serviceHrefEs: string;
+};
+
+function publicMediaCasePair(item: PublicMediaCase): CaseStudyPair {
+  const media = getPortfolioItemById(item.id)?.media as { url: string; poster: string } | undefined;
+  const common = `The published source is ${item.source}. It identifies this work as ${item.summary.toLowerCase()} Esteban Moreno Media presents the project as a public example of video work; this page keeps that boundary intact. The available source does not establish a customer result, price, campaign reach, number of deliverables, timeline, or a role more specific than producing the video.`;
+  const commonEs = `La fuente publicada es ${item.sourceEs}. Identifica este trabajo como ${item.summaryEs.toLowerCase()} Esteban Moreno Media presenta el proyecto como un ejemplo público de trabajo en video; esta página conserva ese límite. La fuente disponible no establece resultados del cliente, precio, alcance de campaña, número de entregables, cronograma ni un rol más específico que producir el video.`;
+  return {
+    id: item.id,
+    en: {
+      title: item.title,
+      metadataTitle: `${item.title} Case Study | Esteban Moreno Media`,
+      client: item.client,
+      summary: item.summary,
+      eyebrow: "Published media project",
+      role: "Produced video",
+      deliverables: "Published video work shown through its original public source",
+      answer: { question: `What is confirmed about ${item.client}?`, text: common },
+      mediaUrl: media?.url ?? "",
+      posterUrl: media?.poster ?? "",
+      serviceLink: { href: item.serviceHref, label: item.service, description: "See the existing service page for a scoped project conversation." },
+      contactLink: { href: "/contact", label: "Discuss a Video Project" },
+      portfolioLink: { href: `/portfolio/${item.id}`, label: "View the Published Project" },
+      keyFacts: [
+        { label: "Confirmed role", value: "Produced video" },
+        { label: "Evidence", value: item.source },
+        { label: "Project record", value: "Publicly published source and portfolio page" },
+        { label: "Not claimed", value: "Performance, sales, views, price, or unconfirmed scope" },
+        { label: "Next step", value: "Review the matching service for a project-specific scope" },
+      ],
+      scopingQuestions: ["What video needs to be produced?", "Where will it be published?", "What public work can be used as the reference?"],
+      sections: [
+        { heading: "What the public record confirms", paragraphs: [common, "The linked portfolio page keeps the original source available so a visitor can inspect the published work directly. The case study does not turn a social post or video title into a result claim. It records the identity of the example, the public source, and the limited role confirmed for this site: produced video. That is enough to make the example useful without filling gaps with assumptions."] },
+        { heading: "How to read this example", paragraphs: ["A finished public video can help a prospective client judge tone, pacing, framing, and whether the type of work resembles their own need. It cannot by itself show the whole brief, production schedule, revision process, budget, audience response, or commercial result. Those details are decided for each project. This page therefore links the visible work to the existing service that explains how a new request is scoped.", "The source remains the reference point. If a visitor needs something similar, the useful next conversation is about their footage, intended platform, message, deliverables, and approval process—not a promise that a new project will reproduce an unknown outcome."] },
+        { heading: "A source-bounded case study", paragraphs: ["This case study is deliberately narrower than a retrospective written from private project files. It uses the material a visitor can verify: the published title or caption, the named public account or channel, and the work itself. No testimonial, analytics figure, customer quote, or business metric has been added. That makes the page a durable reference rather than an advertisement built from unsupported detail.", "The portfolio and case-study pages serve different jobs. The portfolio is the direct visual record; this page gives the record context, states what is and is not known, and provides an appropriate next step for a new inquiry."] },
+        { heading: "Starting a comparable project", paragraphs: ["A comparable project starts by naming the intended viewer, the final platform, the source material available, and the deliverables needed. The matching service page explains the current offer; a project conversation determines the actual scope. Esteban can then confirm what is included before work begins.", "The safest way to use this example is as creative reference, not as a forecast. Bring a link to the part of the work that is relevant and describe what must be different for your own audience, brand, or publishing plan."] },
+        { heading: "What remains project-specific", paragraphs: ["Every published example leaves important decisions open. A new project may need a different length, aspect ratio, source footage, location, review process, rights arrangement, accessibility treatment, or publishing plan. Those choices should be documented in the request instead of inferred from a public post. The work shown here provides a concrete starting point for a creative discussion, while the actual agreement defines what will be made and what will be delivered.", "This distinction also protects the person evaluating the work. A restaurant, creator, fitness business, or documentary team should be able to recognize relevant craft without being told that its audience, assets, or commercial situation is the same as someone else’s. The public source is evidence of one completed example. It is not a template for price, timing, or outcome. Clear inputs and a written scope are the way to make a new project comparable in the ways that matter."] },
+      ],
+    },
+    es: {
+      title: item.titleEs,
+      metadataTitle: `Caso: ${item.titleEs} | Esteban Moreno Media`,
+      client: item.client,
+      summary: item.summaryEs,
+      eyebrow: "Proyecto de medios publicado",
+      role: "Video producido",
+      deliverables: "Trabajo de video publicado y mostrado desde su fuente pública original",
+      answer: { question: `¿Qué se confirma sobre ${item.client}?`, text: commonEs },
+      mediaUrl: media?.url ?? "",
+      posterUrl: media?.poster ?? "",
+      serviceLink: { href: item.serviceHrefEs, label: item.serviceEs, description: "Consulta el servicio existente para hablar de un alcance específico." },
+      contactLink: { href: "/es/contacto", label: "Hablar de un proyecto de video" },
+      portfolioLink: { href: `/es/portafolio/${item.id}`, label: "Ver el proyecto publicado" },
+      keyFacts: [{ label: "Rol confirmado", value: "Video producido" }, { label: "Evidencia", value: item.sourceEs }, { label: "Registro", value: "Fuente pública y página de portafolio" }, { label: "No se afirma", value: "Rendimiento, ventas, vistas, precio o alcance no confirmado" }, { label: "Siguiente paso", value: "Revisar el servicio correspondiente" }],
+      scopingQuestions: ["¿Qué video necesitas producir?", "¿Dónde se publicará?", "¿Qué trabajo público sirve como referencia?"],
+      sections: [
+        { heading: "Lo que confirma el registro público", paragraphs: [commonEs, "La página de portafolio enlazada mantiene disponible la fuente original para que la persona vea el trabajo publicado directamente. Este caso no convierte un post o un título en una afirmación de resultados. Registra la identidad del ejemplo, la fuente pública y el rol limitado confirmado para este sitio: video producido."] },
+        { heading: "Cómo leer este ejemplo", paragraphs: ["Un video público terminado permite evaluar tono, ritmo, encuadre y si el tipo de trabajo se parece a la necesidad propia. No demuestra por sí solo el brief completo, calendario, revisiones, presupuesto, respuesta de audiencia ni resultado comercial. Esos detalles se definen en cada proyecto. Por eso esta página enlaza al servicio existente que explica cómo se cotiza un nuevo trabajo.", "La fuente sigue siendo el punto de referencia. Si necesitas algo parecido, la conversación útil es sobre tu material, plataforma, mensaje, entregables y proceso de aprobación, no una promesa de repetir un resultado desconocido."] },
+        { heading: "Un caso limitado a su fuente", paragraphs: ["Este caso es más limitado que una retrospectiva escrita con archivos privados del proyecto. Usa lo que cualquier visitante puede verificar: título o texto publicado, cuenta o canal público nombrado y el trabajo mismo. No agrega testimonios, analítica, citas de clientes ni métricas comerciales. Así funciona como referencia duradera sin inventar detalles.", "El portafolio es el registro visual directo; este caso aporta contexto, explica qué se sabe y qué no, y deja una siguiente acción adecuada para una consulta nueva."] },
+        { heading: "Empezar un proyecto comparable", paragraphs: ["Un proyecto comparable comienza definiendo audiencia, plataforma final, material disponible y entregables. El servicio correspondiente explica la oferta actual; la conversación define el alcance real. Esteban puede confirmar lo incluido antes de empezar.", "Usa este ejemplo como referencia creativa, no como pronóstico. Comparte el enlace o momento relevante y explica qué debe cambiar para tu marca, audiencia o plan de publicación."] },
+        { heading: "Lo que sigue siendo específico de cada proyecto", paragraphs: ["Cada ejemplo público deja decisiones importantes abiertas. Un proyecto nuevo puede necesitar otra duración, proporción, material, locación, proceso de revisión, acuerdo de derechos, tratamiento de accesibilidad o plan de publicación. Esas decisiones se documentan en la solicitud, no se infieren de una publicación pública. El trabajo mostrado sirve como punto de partida concreto para una conversación creativa; el acuerdo real define qué se hará y qué se entregará.", "Esta diferencia también protege a quien evalúa el trabajo. Un restaurante, creador, negocio fitness o equipo documental puede reconocer una ejecución relevante sin que se le diga que su audiencia, activos o situación comercial son iguales a los de otra persona. La fuente pública prueba un ejemplo terminado. No es una plantilla de precio, tiempo ni resultado. Los insumos claros y un alcance por escrito hacen comparable un proyecto nuevo en lo que sí importa."] },
+      ],
+    },
+  };
+}
+
+const publicMediaCasePairs: readonly CaseStudyPair[] = [
+  publicMediaCasePair({ id: "gains-from-geebs-shorts", client: "Gains From Geebs", title: "Gains From Geebs Short-Form Videos", titleEs: "Videos cortos de Gains From Geebs", summary: "Two short-form videos publicly published by Kris Oddo | Geebs Method.", summaryEs: "Dos videos cortos publicados públicamente por Kris Oddo | Geebs Method.", source: "Kris Oddo | Geebs Method YouTube channel", sourceEs: "canal de YouTube Kris Oddo | Geebs Method", service: "Short-Form Video Editing", serviceEs: "Edición de video corto", serviceHref: "/services/short-form-video-editor-miami", serviceHrefEs: "/es/editor-de-video-corto-miami" }),
+  publicMediaCasePair({ id: "exatlon", client: "Exatlón", title: "Exatlón Intro Video", titleEs: "Video de introducción de Exatlón", summary: "An Exatlón intro video publicly published by Esteban Moreno Media.", summaryEs: "Un video de introducción de Exatlón publicado públicamente por Esteban Moreno Media.", source: "Esteban Moreno Media Instagram post", sourceEs: "publicación de Instagram de Esteban Moreno Media", service: "Fitness Trainer Video Production", serviceEs: "Producción de video para entrenadores fitness", serviceHref: "/services/fitness-trainer-video-production-miami", serviceHrefEs: "/es/produccion-de-video-para-entrenadores-fitness-miami" }),
+  publicMediaCasePair({ id: "juanchis-burguer", client: "Juanchis Burguer", title: "Juanchis Burguer Social Media Campaign", titleEs: "Campaña de redes sociales de Juanchis Burguer", summary: "A social media campaign with Juanchis Burguer, Miami, publicly published by Esteban Moreno Media.", summaryEs: "Una campaña de redes sociales con Juanchis Burguer, Miami, publicada públicamente por Esteban Moreno Media.", source: "Esteban Moreno Media Instagram post", sourceEs: "publicación de Instagram de Esteban Moreno Media", service: "Restaurant Promo Video Editing", serviceEs: "Edición de video promocional para restaurantes", serviceHref: "/services/restaurant-promo-video-editing-miami", serviceHrefEs: "/es/edicion-de-video-promocional-para-restaurantes-miami" }),
+  publicMediaCasePair({ id: "portosole", client: "Portosole", title: "Portosole Social Media Campaign", titleEs: "Campaña de redes sociales de Portosole", summary: "A social media campaign with Portosole, Miami, publicly published by Esteban Moreno Media.", summaryEs: "Una campaña de redes sociales con Portosole, Miami, publicada públicamente por Esteban Moreno Media.", source: "Esteban Moreno Media Instagram post", sourceEs: "publicación de Instagram de Esteban Moreno Media", service: "Restaurant Promo Video Editing", serviceEs: "Edición de video promocional para restaurantes", serviceHref: "/services/restaurant-promo-video-editing-miami", serviceHrefEs: "/es/edicion-de-video-promocional-para-restaurantes-miami" }),
+  publicMediaCasePair({ id: "punto-de-giro", client: "Punto de Giro", title: "Punto de Giro Documentary", titleEs: "Documental Punto de Giro", summary: "The public Punto de Giro documentary trailer and behind-the-scenes video on Esteban Moreno López's YouTube channel.", summaryEs: "El tráiler y el video detrás de cámaras publicados públicamente del documental Punto de Giro en el canal de YouTube de Esteban Moreno López.", source: "Esteban Moreno López YouTube channel", sourceEs: "canal de YouTube de Esteban Moreno López", service: "Video Production", serviceEs: "Producción de video", serviceHref: "/services/video-production-fort-lauderdale", serviceHrefEs: "/es/produccion-de-video-fort-lauderdale" }),
+];
 
 export const caseStudyPairs: readonly CaseStudyPair[] = [
   {
@@ -1073,6 +1164,7 @@ export const caseStudyPairs: readonly CaseStudyPair[] = [
       ],
     },
   },
+  ...publicMediaCasePairs,
 ];
 
 export function getCaseStudies(locale: CaseStudyLocale): CaseStudy[] {
@@ -1259,6 +1351,11 @@ export const CASE_STUDY_DISCIPLINES: Record<CaseStudyId, CaseStudyDiscipline> = 
   "healthy-smile": "production",
   homeowners: "production",
   "my-dler": "design",
+  "gains-from-geebs-shorts": "production",
+  exatlon: "production",
+  "juanchis-burguer": "production",
+  portosole: "production",
+  "punto-de-giro": "production",
 };
 
 export function getCaseStudyDiscipline(
