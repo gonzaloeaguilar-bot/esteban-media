@@ -78,11 +78,17 @@ for (const locale of ["en", "es"] as const) {
       expect(editing.match(/<svg/g)?.length).toBeGreaterThanOrEqual(5);
       expect(editing).toContain('class="em-route-card__reel-like-count"');
       expect(editing).toContain('+1.2K');
+      expect(path).toContain('class="em-route-card__property-pin"');
+      expect(path).toContain('class="em-route-card__recording-frames"');
+      expect(path).toContain('class="em-route-card__local-signal-spark"');
       expect(css).toContain("@keyframes em-reel-heart-float");
       expect(css).toContain("@keyframes em-reel-like-count-one");
       expect(css).toContain("@keyframes em-reel-like-count-four");
       expect(css).toContain("-62px");
       expect(css).toContain(".em-route-card__reel-like-count span,.em-route-card__reel-heart-burst svg{animation:none}");
+      expect(css).toContain("@keyframes em-property-pin-settle");
+      expect(css).toContain("@keyframes em-record-frame");
+      expect(css).toContain("@keyframes em-local-spark");
     });
 
     it("1b3. keeps monthly Real Estate terms with the monthly plans, not the individual services", () => {

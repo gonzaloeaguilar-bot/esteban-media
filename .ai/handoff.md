@@ -1,3 +1,11 @@
+# 2026-10-24 — Homepage chooser card motion candidate
+
+- The repeating Content Creator heart/count feedback remains unchanged. The other three homepage chooser cards now have their own small, service-specific loops: a settling property pin with a soft ring, a recording dot with three frame marks, and a rising local-business signal sparkle. They are decorative only; no audience, recording, or business-performance data is asserted.
+- Changed files: `components/home-project-path.tsx`, `app/illustrated-commercial.css`, and `app/__tests__/home-packaging-human.test.ts`. Motion is `aria-hidden`, does not gate card copy or expansion, and the reduced-motion rule disables every newly added animation.
+- Local evidence: full `pnpm test` passed (168 files / 3,497 tests); `pnpm typecheck` passed; `pnpm lint` completed with 0 errors and 22 pre-existing warnings; `pnpm build` completed; `git diff --check` passed. Browser review at 390x844 showed the property pin, recording frames, and local signal clear of the cards' plus controls and reading copy. Next: open the scoped PR, wait for required checks, merge, and verify the public Spanish homepage.
+
+---
+
 # 2026-10-24 — Carousel verification and generated-date repair (PR #526, not released)
 
 - The homepage `PortfolioTeaser` intentionally derives the work rail from every live, non-web portfolio item. Local rendered English and Spanish home HTML each contain all five new case links (Gains From Geebs Shorts, Exatlón, Juanchis Burguer, Portosole, and Punto de Giro); they follow the seven property Reels in the horizontal rail. Desktop browser inspection found the rail clear and touchable with its existing Prev/Next controls. No separate carousel implementation was needed.
