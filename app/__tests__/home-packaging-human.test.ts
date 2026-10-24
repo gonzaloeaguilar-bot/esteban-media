@@ -58,8 +58,12 @@ for (const locale of ["en", "es"] as const) {
       expect(css).toContain(".em-route-card__visual{position:absolute;z-index:0;inset:0;width:auto");
       expect(css).toContain(".em-route-card__copy{position:relative;z-index:2");
       expect(css).toContain(".em-route-card__plus{position:absolute;z-index:3");
-      expect(component).toContain('"digital-growth": "/portfolio/gains-from-geebs.jpg"');
+      expect(component).toContain('"digital-growth": "/portfolio/gains-from-geebs-chatbot.jpg"');
       expect(component).not.toContain('"digital-growth": "/portfolio/ai-lead-automation.jpg"');
+      expect(component).toContain('className="em-route-card__geebs-chat"');
+      expect(component).toContain("hey, i&apos;m kris. what are we fixing first?");
+      expect(css).toContain(".em-route-card__geebs-chat");
+      expect(css).toContain(".em-route-card__geebs-chat-head b,.em-route-card__geebs-chat-bubble{animation:none}");
     });
 
     it("1b2. gives the decorative lens an on-screen idle focus loop without moving for reduced-motion visitors", () => {
@@ -95,7 +99,7 @@ for (const locale of ["en", "es"] as const) {
       expect(css).toContain("@keyframes em-record-frame");
       expect(css).toContain("@keyframes em-local-spark");
       expect(css).toContain("@keyframes em-digital-sparkle");
-      expect(css).toContain(".em-route-card__digital-signal>svg,.em-route-card__digital-signal>span{animation:none}");
+      expect(css).toContain(".em-route-card__digital-signal>svg,.em-route-card__digital-signal>span,.em-route-card__geebs-chat-head b,.em-route-card__geebs-chat-bubble{animation:none}");
     });
 
     it("1b3. keeps monthly Real Estate terms with the monthly plans, not the individual services", () => {
