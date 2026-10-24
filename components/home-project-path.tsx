@@ -62,7 +62,7 @@ const copy = {
     editing: "Vertical video clip for a content creator",
     production: "Esteban filming a live conference speaker",
     "local-business": "Video production at a local business",
-    "digital-growth": "Published website and conversational AI lead-capture work",
+    "digital-growth": "Gains From Geebs website and conversational AI lead-capture work",
   },
     pricingDetail: "These are starting prices. The final price depends on the project scope.",
     pricingAction: "See everything each package includes",
@@ -125,7 +125,7 @@ const copy = {
     editing: "Video vertical para un creador de contenido",
     production: "Esteban grabando a un conferencista en vivo",
     "local-business": "Producción de video en un negocio local",
-    "digital-growth": "Sitio web publicado y trabajo de captura de prospectos con IA",
+    "digital-growth": "Sitio web de Gains From Geebs y trabajo de captura de prospectos con IA",
   },
     pricingDetail: "Son precios de partida. El precio final depende del alcance del proyecto.",
     pricingAction: "Ver todo lo que incluye cada paquete",
@@ -189,9 +189,9 @@ const routeVisuals: Record<RouteId, string> = {
   // Owner-supplied camera detail: a crisp, horizontal production still avoids
   // presenting a website screenshot as the local-business service.
   "local-business": "/portfolio/local-business-camera-work.jpg",
-  // A live, documented web and conversational-AI case keeps this route grounded
-  // in real work rather than a generic synthetic AI visual.
-  "digital-growth": "/portfolio/ai-lead-automation.jpg",
+  // The documented Gains From Geebs product image keeps the card full-bleed,
+  // substantial and grounded in a real website plus conversational-AI case.
+  "digital-growth": "/portfolio/gains-from-geebs.jpg",
 };
 
 function offerDeliverables(name: string, laneId: ChooserLaneId, locale: AudienceLocale): string[] {
