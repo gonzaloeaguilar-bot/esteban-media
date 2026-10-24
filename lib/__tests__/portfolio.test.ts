@@ -136,7 +136,7 @@ describe("verified portfolio data", () => {
     expect(videoIds.size).toBe(youtubeItems.length);
   });
 
-  it("uses an existing local poster or image asset named after each stable item id", () => {
+  it("uses an existing local poster for each stable item", () => {
     for (const item of PORTFOLIO_ITEMS) {
       const posterPath = "poster" in item.media ? item.media.poster : "src" in item.media ? item.media.src : "";
       expect(posterPath).toBe(`/portfolio/${item.id}.jpg`);
