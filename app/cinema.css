@@ -64,20 +64,6 @@
   overflow: hidden;
   background: var(--cine-ink);
 }
-/* Phone transition: re-aim the footage at the face as the credit leaves.
-   Do not translate the frame itself: moving an absolutely positioned frame
-   down exposed the hero's black background as a blank strip while scrolling. */
-@media (max-width: 1023px) {
-  .em-cine__poster,
-  .em-cine__video { object-position: 50% calc(22% - var(--p) * 14%); }
-  /* The title has already cleared by this point, so the dark readability
-     scrim can get out of the way with it instead of reading as dead space. */
-  .em-cine__frame::after { opacity: calc(1 - var(--p) * .8); }
-  /* The expanding letterbox was read as an empty black gap in the phone
-     scroll. Keep the footage continuous there; desktop retains the effect. */
-  .em-cine__bar { display: none !important; }
-}
-
 .em-cine__poster,
 .em-cine__video {
   position: absolute;
@@ -217,6 +203,32 @@ html.rail-anim:not([data-brand-moment]) .em-cine__bar {
   padding: 0 20px 34px;
   transform: translateY(calc(var(--p) * -110px));
   opacity: calc(1 - var(--p) * 3.2);
+}
+
+/* Phone: keep the first screen as one continuous camera frame while it leaves
+   the viewport. The former scroll-linked crop, zoom and credit fade left a
+   half-transparent title over moving footage on real phones — it read as a
+   rendering error rather than a deliberate transition. A slightly lower
+   object position crops about one sixth more of the empty sky and keeps the
+   people and street in the useful part of the frame. This sits after the base
+   HUD, letterbox, media, and credit rules so every static phone value wins. */
+@media (max-width: 1023px) {
+  .em-cine .em-cine__poster,
+  .em-cine .em-cine__video {
+    object-position: 50% 32%;
+    transform: scale(1.02);
+  }
+  .em-cine .em-cine__frame::after,
+  .em-cine .em-cine__hud {
+    opacity: 1;
+  }
+  .em-cine .em-cine__credit {
+    transform: none;
+    opacity: 1;
+  }
+  /* The expanding letterbox was read as an empty black gap in the phone
+     scroll. Keep the footage continuous there; desktop retains the effect. */
+  .em-cine .em-cine__bar { display: none !important; }
 }
 
 .em-cine__eyebrow {

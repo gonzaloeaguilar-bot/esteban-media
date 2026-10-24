@@ -25,13 +25,19 @@ describe("homepage How it works disclosure", () => {
     expect(cinema).toContain(".em-cine-caption__step-number");
   });
 
-  it("does not expose a blank mobile strip while the hero scrolls", () => {
-    const mobileTransition = cinema.match(/@media \(max-width: 1023px\) \{([\s\S]*?)\n\}/)?.[1] ?? "";
+  it("keeps the mobile hero as one stable frame while the page scrolls", () => {
+    const transitionStart = cinema.indexOf("/* Phone: keep the first screen");
+    const transitionEnd = cinema.indexOf(".em-cine__eyebrow {", transitionStart);
+    const mobileTransition = cinema.slice(transitionStart, transitionEnd);
 
+    expect(transitionStart).toBeGreaterThan(-1);
+    expect(transitionEnd).toBeGreaterThan(transitionStart);
     expect(mobileTransition).not.toContain(".em-cine__frame { transform:");
-    expect(mobileTransition).toContain(".em-cine__video { object-position:");
-    expect(mobileTransition).toContain(".em-cine__frame::after { opacity:");
-    expect(mobileTransition).toContain(".em-cine__bar { display: none !important; }");
+    expect(mobileTransition).toContain("object-position: 50% 32%;");
+    expect(mobileTransition).toContain("transform: scale(1.02);");
+    expect(mobileTransition).toContain(".em-cine .em-cine__credit {");
+    expect(mobileTransition).toContain("opacity: 1;");
+    expect(mobileTransition).toContain(".em-cine .em-cine__bar { display: none !important; }");
   });
 
   it("keeps the hero's secondary action and support line inside narrow phones", () => {
