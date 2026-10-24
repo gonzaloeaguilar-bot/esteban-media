@@ -14,6 +14,13 @@
 
 # 2026-10-23 — Content creator own-route candidate
 
+## 2026-10-24 — Homepage Content Creator floating like-hearts (local candidate)
+
+- The content creator route now has four decorative Lucide hearts that float upward from its existing heart icon in a staggered, TikTok-like burst. The existing heart pulse and `+1` feedback remain; the burst is `aria-hidden` and `pointer-events:none`.
+- Changes are limited to `components/home-project-path.tsx`, `app/illustrated-commercial.css`, and regression coverage in `app/__tests__/home-packaging-human.test.ts`.
+- Local evidence: lint 0 errors (22 existing warnings), typecheck passed, targeted packaging test 32/32 passed, `git diff --check` passed, and a local browser read of `/es#start` confirmed 4 burst hearts with `em-reel-heart-float`. Reduced-motion CSS disables all three animations.
+- Branch remains `fix/home-rail-great-reviewer-repair`; no commit, independent review, deployment, or production visual verification exists. Next: `cto-qa-lead` reviews this narrow diff; authorized release must inspect the expanded Content Creator card at phone size in normal and reduced-motion states.
+
 - Owner correction: a person who creates content could not recognize themselves in the generic “Video editing” route. That route is now “Content creator” / “Creador de contenido,” with a direct promise: edit clips, publish weekly, or film a content day. It contains the established one-off/weekly editing choices first, a creator-only filming choice (`From $400/half-day`, raw footage for the next edit), then a long/custom-project disclosure. On-location raw capture was removed from Events so the same service does not appear in two buyer paths; Productions now contains multicamera, yacht, and commercial work only.
 - Local visual evidence: at 390×664 the open route showed the creator title and editing choices without horizontal overflow; at 375×667 the opened “Film content with me” card ran from `172px` to `528px` with its quote button visible. Desktop at 1440×900 retained a 704px route column without overflow. Screenshots: `/tmp/esteban-content-creator-mobile-local.png`, `/tmp/esteban-content-creator-film-mobile-local.png`, `/tmp/esteban-content-creator-desktop-local.png` (local-only artifacts).
 - Gates passed: focused routing tests 46/46; `pnpm typecheck`; `pnpm lint` (0 errors, 22 existing warnings); `pnpm test` (166 files / 3,481 tests); `pnpm rail-adoption:check` (3); and `pnpm build` (569 static pages). Commit and add to PR #522; production remains unchanged until remote checks pass.

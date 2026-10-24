@@ -69,6 +69,18 @@ for (const locale of ["en", "es"] as const) {
       expect(css).toContain("@media(prefers-reduced-motion:reduce)");
     });
 
+    it("1b2a. lets the creator-card like send a contained burst of hearts upward", () => {
+      const css = read("app/illustrated-commercial.css");
+      const editingStart = path.indexOf('data-route="editing"');
+      const editingEnd = path.indexOf('data-route="production"');
+      const editing = path.slice(editingStart, editingEnd);
+      expect(editing.match(/em-route-card__reel-heart-burst/g)).toHaveLength(1);
+      expect(editing.match(/<svg/g)?.length).toBeGreaterThanOrEqual(5);
+      expect(css).toContain("@keyframes em-reel-heart-float");
+      expect(css).toContain("-62px");
+      expect(css).toContain(".em-route-card__reel-heart-burst svg{animation:none}");
+    });
+
     it("1b3. keeps monthly Real Estate terms with the monthly plans, not the individual services", () => {
       const terms = locale === "es" ? "Condiciones de los planes mensuales" : "Monthly Real Estate plan terms";
       const clarification = locale === "es"
