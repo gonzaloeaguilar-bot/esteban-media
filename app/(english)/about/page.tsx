@@ -82,7 +82,15 @@ export default function AboutPage() {
                 >
                   video, website, and inquiry services overview
                 </Link>{" "}
-                before sharing a project.
+                before sharing a project. If the content plan is still taking
+                shape, the Spanish{" "}
+                <Link
+                  href="/es/evaluacion"
+                  className="underline underline-offset-4 hover:text-[#9f3c27]"
+                >
+                  Diagnóstico de Estrategia de Video
+                </Link>{" "}
+                can help clarify what to discuss first.
               </p>
               <p className="mt-4 max-w-2xl leading-7 text-[#252a2d]">
                 His{" "}

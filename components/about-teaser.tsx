@@ -81,6 +81,14 @@ const highlights = [
           eventos del año
         </Link>{" "}
         hub.
+        If you are still deciding what your content needs, start with the Spanish{" "}
+        <Link
+          href="/es/evaluacion"
+          className="font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-2 hover:text-[#7f2f20]"
+        >
+          Diagnóstico de Estrategia de Video
+        </Link>{" "}
+        before sending a project brief.
       </>
     ),
   },
