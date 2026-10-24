@@ -19,12 +19,13 @@ describe("ecommerce portfolio proof", () => {
     expect(markup).toContain("not a claim that either project was an Amazon or Shopify listing campaign");
   });
 
-  it("does not turn digital product visuals into a physical-product photography claim", () => {
+  it("states the owner-confirmed product-shoot offer without overstating the portfolio case", () => {
     const markup = renderToStaticMarkup(React.createElement(ProductPhotographyMiamiPage));
     expect(markup).toContain("My D&#x27;ler");
     expect(markup).toContain("not represented as physical product photography");
-    expect(markup).not.toContain("rush 24-hour turnaround");
-    expect(markup).not.toContain("100% pure white isolation");
+    expect(markup).toContain("Amazon sellers, Shopify brands");
+    expect(markup).toContain("starts from $280");
+    expect(markup).toContain("Rush 24-hour delivery may be available");
   });
 
   it("keeps the Spanish ecommerce proof specific to the published work", () => {
@@ -32,7 +33,9 @@ describe("ecommerce portfolio proof", () => {
     const ecommercePage = getSpanishNichePage("editor-de-video-de-productos-para-ecommerce");
     expect(markup).toContain('href="/es/portafolio/my-dler"');
     expect(markup).toContain("no se presenta como una sesión de fotografía de producto físico");
-    expect(ecommercePage?.description).not.toContain("Amazon");
-    expect(ecommercePage?.description).not.toContain("Shopify");
+    expect(markup).toContain("vendedores de Amazon, marcas Shopify");
+    expect(markup).toContain("entrega urgente en 24 horas");
+    expect(ecommercePage?.description).toContain("Amazon");
+    expect(ecommercePage?.description).toContain("Shopify");
   });
 });
