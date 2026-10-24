@@ -62,7 +62,9 @@ for (const locale of ["en", "es"] as const) {
       expect(component).not.toContain('"digital-growth": "/portfolio/ai-lead-automation.jpg"');
       expect(component).toContain('className="em-route-card__geebs-chat"');
       expect(component).toContain("hey, i&apos;m kris. what are we fixing first?");
+      expect(component).toContain("kris is thinking...");
       expect(css).toContain(".em-route-card__geebs-chat");
+      expect(css).toContain("@keyframes em-geebs-thinking-dot");
       expect(css).toContain(".em-route-card__geebs-chat-head b,.em-route-card__geebs-chat-bubble{animation:none}");
     });
 
