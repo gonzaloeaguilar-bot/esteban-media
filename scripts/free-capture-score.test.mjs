@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildCandidates, buildReport, citationMatchesQuery, readCitationRows, scoreParts } from "./free-capture-score.mjs";
+import { buildCandidates, buildReport, citationMatchesQuery, isBrandedQuery, readCitationRows, recommendation, scoreParts } from "./free-capture-score.mjs";
 
 const measurement = {
   generatedAt: "2026-10-24T12:00:00.000Z",
@@ -24,6 +24,19 @@ describe("free capture score", () => {
 
   it("keeps only complete Esteban citation observations", () => {
     expect(readCitationRows(citationText)).toHaveLength(2);
+  });
+
+  it("excludes Esteban-branded discovery from a non-brand opportunity queue", () => {
+    expect(isBrandedQuery("Esteban Moreno Media")).toBe(true);
+    expect(isBrandedQuery("moreno-media.com")).toBe(true);
+    expect(isBrandedQuery("reel editor fort lauderdale")).toBe(false);
+    const branded = structuredClone(measurement);
+    branded.rows.queryPage.push({ keys: ["esteban moreno media", "https://estebanmorenomedia.com/"], impressions: 99, clicks: 0, ctr: 0, position: 1 });
+    expect(buildCandidates(branded, readCitationRows(citationText)).some((candidate) => candidate.query === "esteban moreno media")).toBe(false);
+  });
+
+  it("does not treat a zero-click near-top row as a content-expansion win", () => {
+    expect(recommendation(8, { position: 1, clicks: 0 })).toContain("not an expansion signal");
   });
 
   it("scores only observable inputs and labels SERP resistance absent", () => {

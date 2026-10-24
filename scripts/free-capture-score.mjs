@@ -65,6 +65,11 @@ export function citationMatchesQuery(prompt, query) {
   return overlap / queryTokens.size >= 0.75;
 }
 
+export function isBrandedQuery(query) {
+  const value = normalise(query);
+  return value.includes("esteban") || value.includes("moreno");
+}
+
 export function readCitationRows(text) {
   return text.split("\n").filter(Boolean).flatMap((line) => {
     try { return [JSON.parse(line)]; } catch { return []; }
@@ -83,7 +88,8 @@ export function scoreParts(row, citationRows) {
   return { demand, reachability, ctrOpportunity, citation, serpResistance: "unmeasured", total: demand + reachability + ctrOpportunity + citation, matchedCitations };
 }
 
-export function recommendation(total) {
+export function recommendation(total, candidate = {}) {
+  if (Number(candidate.position) <= 3 && Number(candidate.clicks) === 0) return "validate SERP and intent — near-top position with zero clicks is not an expansion signal";
   if (total >= 7) return "capture candidate — inspect the existing canonical page and SERP before changing it";
   if (total >= 5) return "strengthen existing page — do not create a new URL yet";
   return "hold — insufficient owned evidence for a content change";
@@ -98,7 +104,7 @@ export function buildCandidates(measurement, citationRows, query = null) {
     impressions: Number(row.impressions) || 0,
     ctr: Number(row.ctr) || 0,
     position: Number(row.position),
-  })).filter((row) => row.query && row.page && (!query || normalise(row.query) === normalise(query)))
+  })).filter((row) => row.query && row.page && !isBrandedQuery(row.query) && (!query || normalise(row.query) === normalise(query)))
     .map((row) => ({ ...row, score: scoreParts(row, citationRows) }))
     .sort((left, right) => right.score.total - left.score.total || right.impressions - left.impressions || left.position - right.position)
     .slice(0, query ? 10 : 25);
@@ -119,7 +125,7 @@ export function buildReport(measurement, citationRows, candidates, sources) {
     "|---|---|---:|---:|---:|---:|---|",
   ];
   for (const candidate of candidates) {
-    lines.push(`| ${candidate.query.replaceAll("|", "\\|")} | ${candidate.page.replace("https://estebanmorenomedia.com", "").replaceAll("|", "\\|")} | ${candidate.impressions} | ${candidate.clicks} | ${Number.isFinite(candidate.position) ? candidate.position.toFixed(1) : "n/a"} | ${candidate.score.total}/10 | ${recommendation(candidate.score.total)} |`);
+    lines.push(`| ${candidate.query.replaceAll("|", "\\|")} | ${candidate.page.replace("https://estebanmorenomedia.com", "").replaceAll("|", "\\|")} | ${candidate.impressions} | ${candidate.clicks} | ${Number.isFinite(candidate.position) ? candidate.position.toFixed(1) : "n/a"} | ${candidate.score.total}/10 | ${recommendation(candidate.score.total, candidate)} |`);
   }
   if (!candidates.length) lines.push("| No matching settled query-page rows | — | — | — | — | — | Run the settled measurement first or choose a query present in it. |");
   return `${lines.join("\n")}\n`;
