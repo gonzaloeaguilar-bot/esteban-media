@@ -6,6 +6,14 @@
 
 ---
 
+# 2026-10-24 — Homepage filming-area and process copy (PR #554, release pending)
+
+- Owner correction: the homepage process must plainly say that Esteban films throughout Miami-Dade, Broward, and West Palm Beach; remote editing is available anywhere for supplied footage. The old wording's "selected filming projects" and Fort Lauderdale-only production link made the service area feel narrower than it is.
+- The refreshed three steps are: tell me what you need, choose your starting point, and get a clear plan. The last step promises written price, timing, and deliverables before work begins. English and Spanish are covered by regression tests.
+- Local verification on commit `0640defd` plus the pending parity-test repair: focused process/parity/ranking tests 23/23, full `pnpm test` passed, `pnpm typecheck` passed, `pnpm lint` had 0 errors / 22 existing warnings, analytics gate passed, and `git diff --check` passed. Wait for the current production build and remote checks, attach the genuine quality record, complete independent review, merge, then verify the exact live raw HTML and mobile expanded section before calling this production.
+
+---
+
 # 2026-10-24 — 360px hero CTA clipping repair (PR #543 update, not released)
 
 - Human phone review reproduced the homepage hero overflow at 360px: the secondary WhatsApp action ended at x=366.75 on a 360px viewport, and the price/location line clipped at the same edge. The repair stacks the two actions and permits the support line to wrap at 389px and below; it preserves the inline composition from 390px up.
