@@ -55,6 +55,11 @@ const WEDDING: Localized = {
 };
 
 const LINKS: Readonly<Record<string, Localized>> = {
+  "gains-from-geebs-shorts": { en: { href: "/services/short-form-video-editor-miami", title: "Short-form video editing", detail: "Short videos shaped for social publishing." }, es: { href: "/es/editor-de-video-corto-para-redes-miami", title: "Edición de video corto para redes", detail: "Videos cortos preparados para publicar en redes." } },
+  exatlon: { en: { href: "/services/fitness-trainer-video-production-miami", title: "Fitness video production", detail: "Video production for fitness content." }, es: { href: "/es/videografo-fitness-miami", title: "Producción de video fitness", detail: "Producción de video para contenido fitness." } },
+  "juanchis-burguer": { en: { href: "/services/restaurant-promo-video-editing-miami", title: "Restaurant promo video editing", detail: "Promotional video editing for restaurants." }, es: { href: "/es/edicion-de-video-promocional-para-restaurantes-miami", title: "Edición de video promocional para restaurantes", detail: "Edición de video promocional para restaurantes." } },
+  portosole: { en: { href: "/services/restaurant-promo-video-editing-miami", title: "Restaurant promo video editing", detail: "Promotional video editing for restaurants." }, es: { href: "/es/edicion-de-video-promocional-para-restaurantes-miami", title: "Edición de video promocional para restaurantes", detail: "Edición de video promocional para restaurantes." } },
+  "punto-de-giro": { en: { href: "/services/video-production-fort-lauderdale", title: "Video production", detail: "Video production for a scoped project." }, es: { href: "/es/produccion-de-video-fort-lauderdale", title: "Producción de video", detail: "Producción de video para un proyecto definido." } },
   "diana-jack": WEDDING,
   "flas-concierge": CONVERSION_WEBSITES,
   "front-line-auto": CONVERSION_WEBSITES,

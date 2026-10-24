@@ -35,7 +35,12 @@ interface PortfolioWatchSchemaOptions
     videoId: string;
     uploadDate: string;
     duration: string;
+    title?: string;
+    summary?: string;
+    url?: string;
+    poster?: string;
   };
+  companionVideos?: readonly { videoId: string; uploadDate: string; duration: string; title: string; summary: string; url: string; poster: string }[];
   path: string;
   locale: "en-US" | "es-US";
   breadcrumbs: readonly {
@@ -98,6 +103,7 @@ export function buildPortfolioWatchSchema({
   url,
   poster,
   video,
+  companionVideos = [],
   location,
   breadcrumbs,
 }: PortfolioWatchSchemaOptions) {
@@ -126,19 +132,19 @@ export function buildPortfolioWatchSchema({
         ...(video ? { mainEntity: { "@id": videoIdUrl } } : {}),
       },
       ...(video
-        ? [
+        ? [video, ...companionVideos].map((current, index) => (
             {
               "@type": "VideoObject",
-              "@id": videoIdUrl,
-              name: title,
-              description: summary,
+              "@id": `${videoIdUrl}${index ? `-${index + 1}` : ""}`,
+              name: index === 0 ? title : current.title,
+              description: index === 0 ? summary : current.summary,
               creditText: credits,
               url: pageUrl,
-              sameAs: url,
-              thumbnailUrl: absoluteUrl(poster),
-              uploadDate: video.uploadDate,
-              duration: video.duration,
-              embedUrl: `https://www.youtube-nocookie.com/embed/${video.videoId}`,
+              sameAs: index === 0 ? url : current.url,
+              thumbnailUrl: absoluteUrl(index === 0 ? poster : current.poster),
+              uploadDate: current.uploadDate,
+              duration: current.duration,
+              embedUrl: `https://www.youtube-nocookie.com/embed/${current.videoId}`,
               inLanguage: locale,
               ...(location
                 ? {
@@ -148,8 +154,8 @@ export function buildPortfolioWatchSchema({
                     },
                   }
                 : {}),
-            },
-          ]
+            }
+          ))
         : []),
       {
         "@type": "BreadcrumbList",
