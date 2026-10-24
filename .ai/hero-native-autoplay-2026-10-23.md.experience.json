@@ -1,0 +1,34 @@
+{
+  "schema": 3,
+  "project": "esteban-media",
+  "intent": "Make Esteban Moreno Media's existing normal-motion homepage hero video start through native muted inline autoplay while preserving the poster fallback, readable actions, and reduced-motion still state.",
+  "phase": "repair",
+  "visual_evidence": {
+    "scope": "local_repair",
+    "scope_reason": "The owner reported that the published hero did not automatically begin playback.",
+    "target": "candidate",
+    "owner_status": "owner_accepted_direction",
+    "capture_kind": "rendered",
+    "spec_sha256": "ae81bd6470de195f2a2d4a31217913a1570283506e73d5c986a35d024a711872",
+    "taste_sha256": "0b08669591e657d4812aeac05bbaf0eebf21ac1bc54891998c0c7f5689ef5bc4",
+    "correction_excerpt": "Accesibilidad, movimiento reducido, teclado y rendimiento son condiciones de implementación; no fueron una autorización para eliminar el carácter visual de la versión normal.",
+    "comparison": "Existing script-gated playback versus native muted inline autoplay in the same hero composition.",
+    "references": [],
+    "candidate_frames": [{"path": "../public/about/esteban-on-set-frame.jpg", "moment": "opening poster", "sha256": "1005d66c45c38687537ac333253a43dbaa17cec342be735bc61ab1a1091da737", "viewport": "phone"}]
+  },
+  "brief": {
+    "visitor": "A phone-first South Florida business, agent, or creator arriving on Esteban Moreno Media.",
+    "promise": "See Esteban's on-location work immediately and choose a package or start a WhatsApp conversation.",
+    "primary_action": "Choose a package; WhatsApp remains the direct alternative.",
+    "friction": "Script-only playback can leave the hero on its still image before motion initialization completes.",
+    "kpi": {"outcome": "qualified project inquiry", "event": "existing hero package or WhatsApp action", "denominator": "homepage hero viewers", "baseline": "UNKNOWN: no comparable source-tagged inquiry export in this session", "evidence": "Live browser inspection showed the source omits HTML autoplay and starts video through CinemaHeroMotion.", "readout": "T+28", "decision_rule": "Keep only if visual, playback, and action checks pass; business effect remains unmeasured until a comparable production read."},
+    "concept": {"idea": "Use the browser's standard muted inline autoplay path for the existing camera-viewfinder opening.", "brand_reason": "The existing production footage remains the focal proof; no new visual system is introduced.", "interaction": "Video begins in normal-motion sessions, loops, and preserves package and WhatsApp actions.", "visible_response": "The still poster remains visible until frames render; video fades in once playing.", "direct_path": "Existing package anchor and WhatsApp link.", "alternatives": "Do not override a visitor's reduced-motion preference or change the hero's copy or layout."},
+    "story": {"opening": "Existing on-location footage begins without a tap in normal-motion browsers.", "action": "Visitor chooses a package or opens WhatsApp.", "consequence": "Existing decision flow remains unchanged.", "next_step": "Review packages or describe a project."},
+    "content": {"visible": "Existing title, service line, price line, and actions.", "optional_html": "Existing details remain unchanged.", "linked_depth": "Existing packages and WhatsApp conversation."},
+    "references": {"borrow": "Existing Esteban hero, poster fallback, and readable overlay.", "avoid": "Forcing motion for reduced-motion visitors or making text/actions dependent on playback."},
+    "components": {"reuse": "Existing HeroVideo, CinemaHeroMotion, Next Image fallback, and hero styles.", "local_reason": "A one-attribute repair in brand-local hero markup."},
+    "verification": {"rendered_states": "375x667, 390x844, and 1440x900.", "motion": "Native normal-motion autoplay, looping, and reduced-motion poster fallback.", "accessibility_performance": "Video stays decorative; poster retains meaningful alt text.", "raw_html": "Initial HTML contains title, actions, and autoplay video markup.", "conversion_boundary": "Existing package and WhatsApp links remain present; no message is sent."},
+    "reviewers": {"craft": "Antigravity", "behavior": "Claude and cto-qa-lead", "outcome": "cto-product-lead at T+28"},
+    "learning": {"metric": "qualified project inquiry", "baseline_source": "UNKNOWN: no dated same-page source-tagged inquiry export is available in this session", "baseline_value": "UNKNOWN: no dated same-page source-tagged inquiry export is available in this session", "target_kind": "funnel_step", "target": "homepage hero action to qualified project inquiry", "hypothesis": "Reliable immediate motion improves immediate recognition without reducing access to the existing decision paths.", "observation_windows": ["T+28"], "decision_rule": "retain only if playback and visual checks pass and attributable inquiry data is measurable", "ledger_status": "planned", "registration_condition": "record comparable production event availability before outcome grading"}
+  }
+}
