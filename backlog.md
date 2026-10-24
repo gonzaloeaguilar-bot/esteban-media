@@ -71,6 +71,7 @@ Production is live. This file tracks repository implementation; account/access w
 
 - [x] Implement Supabase-first `/api/lead` storage, optional Resend fallback, truthful 503 failures, and unit coverage. Local, uncommitted: 64 targeted tests, full 1,131 tests, typecheck and changed-file lint pass. Details: `.ai/lead-persistence-2026-10-07.md`.
 - [ ] Coordinator/cto-qa-lead: complete independent review and release checks, verify a tagged production submission against its `esteban_leads` row, then synchronize the project vault and registry before closing the incident.
+- [ ] 2026-10-20: restore a valid sender plus a real mailbox API/IMAP connection for `info@estebanmorenomedia.com`; then merge and activate the guarded receipt reply, Esteban alert, and daily Spanish digest only after one real end-to-end probe.
 
 ## P0 — Search establishment
 

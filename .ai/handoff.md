@@ -533,6 +533,12 @@ Branch `codex/esteban-geo-offer-clarity-20261011`. The home service card now say
 # Microsoft Clarity readiness — 2026-10-16
 
 Configuration-gated conversion-observability implementation is present locally, inactive by default: `components/microsoft-clarity.tsx`, `lib/microsoft-clarity.ts`, conditional EN/ES privacy disclosure, and `docs/microsoft-clarity-activation.md`. It only renders when Vercel supplies a valid `NEXT_PUBLIC_CLARITY_PROJECT_ID`; the browser script exits for previews/noncanonical host, bots/automation, Global Privacy Control and Do Not Track. No account, project ID, Vercel configuration, deploy, or visitor data was created. Full `pnpm test` passed 156 files / 2,943 tests; typecheck passed; changed-file lint has 0 errors (one existing `beforeInteractive` warning in `site-chrome.tsx`). Next: governed independent review, merge, then owner adds the production variable and performs the written live verification. Durable evidence: `[[esteban-microsoft-clarity-readiness-2026-10-16]]`.
+
+## 2026-10-20 — guarded shared-inbox website acknowledgement (local branch)
+
+- Branch `feat/shared-inbox-lead-agent`, commit `63d61377`, adds `lib/lead-email.ts` and four focused tests. Website leads first notify Esteban; a bilingual receipt reply is sent only when `LEAD_AUTOREPLY_ENABLED=1` and a working Resend sender is present. The reply collects goal/date/location/references and explicitly does not confirm price, scope, or availability. Test submissions send nothing.
+- `pnpm test` passed 164 files / 3,465 tests; `pnpm typecheck` passed; `pnpm lint` had 0 errors and 22 pre-existing warnings; `analytics-gate.py` passed after syncing the required vendored tracker. The initial independent review rejected only because that tracker was stale; its safety findings found no acknowledgement or privacy defect.
+- This is not a live email agent: the configured Resend credential must be repaired and a real mailbox (rather than forwarding-only alias) connected before merge/activation and a real receive → acknowledgement → Esteban alert → daily-report probe can be claimed.
 # 2026-10-16 — Camera Bench native-swipe gallery (local, awaiting PR)
 
 - Owner asked for a more impressive, touchable whole-camera experience after the paired product tiles shipped in PR #469.
