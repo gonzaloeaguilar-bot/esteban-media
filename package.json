@@ -21,6 +21,7 @@
     "seo:measurement:dry-run": "node scripts/esteban-seo-measurement-report.mjs dry-run",
     "seo:measurement:run": "node scripts/esteban-seo-measurement-report.mjs run",
     "seo:measurement:status": "node scripts/esteban-seo-measurement-report.mjs status",
+    "seo:capture-score": "node scripts/free-capture-score.mjs report",
     "weekly-digest:dry-run": "node scripts/esteban-media-weekly-digest.mjs dry-run",
     "weekly-digest:run": "node scripts/esteban-media-weekly-digest.mjs run",
     "weekly-digest:status": "node scripts/esteban-media-weekly-digest.mjs status",
