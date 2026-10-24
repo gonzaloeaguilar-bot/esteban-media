@@ -42,12 +42,14 @@ for (const locale of ["en", "es"] as const) {
       expect(path).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$800\/[^<]+</);
     });
 
-    it("1b. five human buying routes expand in place and no parallel one-off card remains", () => {
-      expect((path.match(/em-route-card"/g) ?? [])).toHaveLength(5);
+    it("1b. seven human buying routes expand in place and no parallel one-off card remains", () => {
+      expect((path.match(/em-route-card"/g) ?? [])).toHaveLength(7);
       expect(path).not.toContain("em-single-project-entry");
       expect(path).toContain(locale === "en" ? "Productions and events" : "Producciones y eventos");
       expect(path).toContain(locale === "en" ? "Local businesses" : "Negocios locales");
-      expect(path).toContain(locale === "en" ? "AI, web and visibility" : "IA, web y visibilidad");
+      expect(path).toContain(locale === "en" ? "AI agents and chatbots" : "Agentes de IA y chatbots");
+      expect(path).toContain(locale === "en" ? "SEO, GEO and landing pages" : "SEO, GEO y landing pages");
+      expect(path).toContain(locale === "en" ? "Websites and ecommerce" : "Sitios web y ecommerce");
       const css = read("app/illustrated-commercial.css");
       expect(css).toContain(".em-route-card>summary");
     });
@@ -58,8 +60,9 @@ for (const locale of ["en", "es"] as const) {
       expect(css).toContain(".em-route-card__visual{position:absolute;z-index:0;inset:0;width:auto");
       expect(css).toContain(".em-route-card__copy{position:relative;z-index:2");
       expect(css).toContain(".em-route-card__plus{position:absolute;z-index:3");
-      expect(component).toContain('"digital-growth": "/portfolio/gains-from-geebs-chatbot.jpg"');
-      expect(component).not.toContain('"digital-growth": "/portfolio/ai-lead-automation.jpg"');
+      expect(component).toContain('"web-commerce": "/portfolio/gains-from-geebs-chatbot.jpg"');
+      expect(component).toContain('src="/portfolio/geebs-ai-companion.png"');
+      expect(component).not.toContain('"ai-agents": "/portfolio/ai-lead-automation.jpg"');
       expect(component).toContain('className="em-route-card__geebs-chat"');
       expect(component).toContain("hey, i&apos;m kris. what are we fixing first?");
       expect(component).toContain("kris is thinking...");
@@ -123,7 +126,9 @@ for (const locale of ["en", "es"] as const) {
       const component = read("components/home-project-path.tsx");
       expect(component).toContain('{ id: "production", offerIds: [], serviceIds: ["multicam", "yate", "kickstarter"]');
       expect(component).toContain('{ id: "local-business", offerIds: ["crecimiento", "presencia-local"]');
-      expect(component).toContain('{ id: "digital-growth", offerIds: ["todo-incluido"], serviceIds: ["ia", "seo", "auditoria", "automatizacion"]');
+      expect(component).toContain('{ id: "ai-agents", offerIds: [], serviceIds: []');
+      expect(component).toContain('{ id: "seo-landing", offerIds: [], serviceIds: []');
+      expect(component).toContain('{ id: "web-commerce", offerIds: [], serviceIds: []');
       expect(component).toContain('data-lane="creator-filming"');
       expect(component).toContain('name={`route-offer-${locale}-${route.id}`}');
       expect(component).toContain('name={`route-service-${locale}-${route.id}`}');
@@ -131,11 +136,11 @@ for (const locale of ["en", "es"] as const) {
       expect(read("app/illustrated-commercial.css")).toContain('em-route-card:has(.em-path-offer-details[open],.em-single-item[open]) .em-route-main-cta{display:none}');
       expect(path).toMatch(/data-route="local-business"[\s\S]*em-path-offer-name">(Growth|Crecimiento)</);
       expect(path).toMatch(/data-route="local-business"[\s\S]*em-path-offer-name">(Local Presence|Presencia Local)</);
-      const digitalStart = path.indexOf('data-route="digital-growth"');
-      const digital = path.slice(digitalStart);
-      expect(digital).toContain(locale === "es" ? "Contenido asistido por IA" : "AI-assisted content");
-      expect(digital).toContain(locale === "es" ? "SEO local y visibilidad en buscadores de IA" : "Local SEO and AI-search visibility");
-      expect(digital).toContain(locale === "es" ? "Todo Incluido" : "All-In");
+      const aiStart = path.indexOf('data-route="ai-agents"');
+      const ai = path.slice(aiStart);
+      expect(ai).toContain(locale === "es" ? "Chatbots con IA" : "AI chatbots");
+      expect(ai).toContain(locale === "es" ? "SEO y GEO" : "SEO and GEO");
+      expect(ai).toContain(locale === "es" ? "Sitios web" : "Websites");
       expect(path).not.toContain(locale === "es" ? "Ver ejemplo de contenido" : "See a content example");
     });
 
@@ -171,7 +176,7 @@ for (const locale of ["en", "es"] as const) {
     });
 
     it("3. every package is in the server-rendered chooser, even when not selected", () => {
-      const names = locale === "en" ? ["Growth", "Local Presence", "All-In", "Essential"] : ["Crecimiento", "Presencia Local", "Todo Incluido", "Essential"];
+      const names = locale === "en" ? ["Growth", "Local Presence", "Essential"] : ["Crecimiento", "Presencia Local", "Essential"];
       for (const name of names) expect(path, name).toContain(`em-path-offer-name">${name}<`);
     });
 
