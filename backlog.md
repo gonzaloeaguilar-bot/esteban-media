@@ -1,3 +1,9 @@
+## 2026-10-24 — Camera Bench and product-unboxing refresh
+
+- [x] Rework the homepage Camera Bench as a larger swipeable phone shelf, preserve native published-spec disclosures, and add the supplied product-unboxing Reel as a safe external Instagram action. Local evidence: `app/__tests__/camera-kit-method.test.ts`, typecheck, lint, and phone interaction check. Release verification remains open in [[esteban-camera-bench-unboxing-refresh-2026-10-24]].
+
+- [ ] `cto-qa-lead`: independently inspect the Camera Bench at 390x664, 390x844, and desktop; then open the release PR and verify the deployed Spanish and English homepages.
+
 ## 2026-10-23 — Local GBP conversion proof on About page
 
 - [x] 2026-10-24: Add contained TikTok-style floating-heart feedback to the homepage Content Creator card's like icon and extend the same crafted, decorative motion language to the remaining chooser cards. Content Creator keeps its four floating Lucide hearts and rising `+1` through `+1.2K` visual feedback; Real Estate has a settling property pin/ring, Productions has a REC beat with three frame marks, and Local Business has a rising signal sparkle. These loops are decorative, not audience or performance data. `pnpm test` passed (168 files / 3,497 tests); `pnpm typecheck` passed; `pnpm lint` completed with 0 errors and 22 pre-existing warnings; `pnpm build` and `git diff --check` passed. Browser review at 390x844 confirmed controls and copy remain clear. Next: scoped PR checks, merge, and public Spanish-homepage verification.

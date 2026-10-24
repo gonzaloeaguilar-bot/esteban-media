@@ -27,7 +27,9 @@ describe("homepage camera kit and method", () => {
     expect(component).toContain('className="em-camera-kit__models"');
     expect(component).toContain('className="em-camera-kit__model"');
     expect(component).toContain('name={`camera-kit-${locale}`}');
-    expect(component).toContain('Swipe the camera shelf. Tap a body for published specs.');
+    expect(component).toContain('Swipe to compare. Tap a body for published specs.');
+    expect(component).toContain('https://www.instagram.com/reel/DepBjEbBl9P/');
+    expect(component).toContain('data-cta={`camera_kit_unboxing_${locale}`}');
     expect(component).not.toContain('Real on-set camera views');
     expect(component).toContain('"01", "Start with what you have"');
     expect(component).toContain('"01", "Empieza con lo que tienes"');
