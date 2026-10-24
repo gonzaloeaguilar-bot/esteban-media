@@ -11,7 +11,7 @@ import { site } from "../site";
 
 describe("published client reviews", () => {
   it("publishes the verbatim Google reviews the operator asked to surface", () => {
-    // The band used to show one gated quote out of eleven. The operator asked
+    // The band used to show one gated quote out of the public profile total. The operator asked
     // for the public reviews themselves (2026-10-10); the six whose full text
     // has been read at the source run, attributed to Google and linked there.
     expect(googleReviews.map((review) => review.author)).toEqual([
@@ -60,9 +60,9 @@ describe("published client reviews", () => {
   it("publishes only the live Google profile snapshot, not unsourced review markup", () => {
     expect(googleReviewSnapshot).toMatchObject({
       rating: 5,
-      reviewCount: 11,
+      reviewCount: 18,
       sampledReviews: 5,
-      readAt: "2026-10-08",
+      readAt: "2026-10-24",
       sourceCommand: "python3 ~/.claude/durable/esteban-review-watch.py --json",
     });
     // The Places API sample is a rotating ~5-review window, not a roster, so

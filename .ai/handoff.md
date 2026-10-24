@@ -596,3 +596,11 @@ Configuration-gated conversion-observability implementation is present locally, 
 - New read-only `scripts/free-capture-score.mjs` ranks settled Search Console query-page rows with transparent demand, reachability, click-opportunity, and recorded AI-citation inputs. It is deliberately not a proprietary difficulty metric and leaves SERP resistance unmeasured without a reproducible source.
 - Command: `pnpm seo:capture-score`; sources default to the local settled Search Console snapshot and the portfolio citation ledger. No paid APIs, page edits, or external writes.
 - Verified: focused test (4/4), full `pnpm test` (169 files / 3,499 tests), lint (0 errors), typecheck, and production build completed. Two governed independent Antigravity verifier records approved: `20261024T150601Z-cto-qa-lead-esteban-media-1792854362550307000-49201-f1b5cbd2742c47f2.json` and `20261024T150823Z-cto-seo-lead-esteban-media-1792854504094440000-56254-c5fd3ebf91eb775b.json`. Next: commit and open PR; do not treat score output as a ranking, traffic, or lead result.
+
+# 2026-10-24 — Google review proof refresh candidate
+
+- Public Google Maps read on 2026-10-24 reported `5.0 stars` and `18 reviews` for the Esteban Moreno Media profile (`https://www.google.com/maps?cid=12305289738935181687`). The source snapshot was stale at 11.
+- Commit `5aab9367` updates `data/google-reviews.json`, makes the compact home band lead with verified client feedback rather than “a perfect 5.0,” and keeps the 18-review count as supporting verification. The Google action is count-free: “See all reviews on Google.” Quotes remain verbatim and attributed.
+- Verification: focused review tests 11/11, `pnpm typecheck`, and `pnpm lint` (0 errors; 18 existing warnings). Local browser check at 390×844 confirms the feedback heading, rating, count, quote, and Google action fit with usable spacing. Next: open a scoped PR; after merge, verify public phone rendering and raw homepage text before calling it live.
+
+---

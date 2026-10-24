@@ -1,10 +1,10 @@
 {
-  "$comment": "Snapshot of Esteban Moreno's public Google Business Profile (Google Maps). The counts, the reviewer names and the review text are facts read at the source; the reviews below are VERBATIM reproductions governed by the provenance rules in lib/client-reviews.ts. Refresh with `pnpm reviews:sync`, which keeps this file unchanged whenever the Places API is unavailable (429/403) rather than writing a worse snapshot. The Places API returns a rotating sample of ~5 reviews per call, so `reviews` is every review whose full text has been read at the source so far (6 of the 11), not the whole profile.",
-  "readAt": "2026-10-08",
+  "$comment": "Snapshot of Esteban Moreno's public Google Business Profile (Google Maps). The counts, the reviewer names and the review text are facts read at the source; the reviews below are VERBATIM reproductions governed by the provenance rules in lib/client-reviews.ts. Refresh with `pnpm reviews:sync`, which keeps this file unchanged whenever the Places API is unavailable (429/403) rather than writing a worse snapshot. The Places API returns a rotating sample of ~5 reviews per call, so `reviews` is every review whose full text has been read at the source so far (6 of the 18), not the whole profile.",
+  "readAt": "2026-10-24",
   "sourceCommand": "python3 ~/.claude/durable/esteban-review-watch.py --json",
   "profile": {
     "rating": 5,
-    "reviewCount": 11,
+    "reviewCount": 18,
     "reviewsSampled": 5
   },
   "sampledAuthors": [
