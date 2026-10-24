@@ -499,3 +499,48 @@ body:has(.em-sheet-details[open])::after{content:"";position:fixed;inset:0;backg
 .em-funnel-summary .em-funnel-price{display:block}
 .em-funnel-summary .em-funnel-price span{display:block;margin-bottom:2px}
 .em-funnel-summary .em-funnel-price strong{display:block;font-size:16px;line-height:1.35}
+
+/* Digital route-card composition, 2026-10-24: each preview shows one clear
+   real thing. The current GFG desktop hero makes the web route recognisable;
+   the companion is the AI subject; and the search card has one readable
+   journey instead of a decorative software diagram. */
+.em-route-card__visual--web-commerce>img{object-position:62% 8%;filter:saturate(.98) contrast(1.08) brightness(.8)}
+.em-route-card__visual--web-commerce:after{background:linear-gradient(90deg,rgba(6,12,15,.94) 0%,rgba(6,12,15,.82) 39%,rgba(6,12,15,.19) 72%,rgba(6,12,15,.04))}
+.em-route-card__site-tab{display:none}
+.em-route-card:has(.em-route-card__visual--web-commerce) .em-route-card__copy{max-width:44%}
+
+.em-route-card__visual--ai-agents>img:first-child{display:none}
+.em-route-card__visual--ai-agents{background:radial-gradient(circle at 75% 45%,rgba(209,55,43,.62),transparent 22%),radial-gradient(circle at 82% 84%,rgba(239,174,118,.22),transparent 30%),linear-gradient(110deg,#071014 0%,#0d1c22 57%,#151417 100%)}
+.em-route-card__visual--ai-agents:after{background:linear-gradient(90deg,rgba(5,12,15,.98) 0%,rgba(5,12,15,.89) 41%,rgba(5,12,15,.22) 71%,transparent)}
+.em-route-card__companion-stage{position:absolute;z-index:2;inset:0;pointer-events:none}
+.em-route-card__agent-character{right:28px;bottom:-2px;width:205px!important;max-height:none;filter:drop-shadow(0 16px 22px rgba(0,0,0,.62))!important;animation:em-agent-companion-breathe 4.8s ease-in-out infinite}
+.em-route-card__geebs-chat{right:176px;top:28px;width:142px;padding:8px 9px;gap:5px;border-color:rgba(255,244,232,.38);background:rgba(8,18,21,.87)}
+.em-route-card__geebs-chat-bubble{padding:7px 8px;font-size:9px;line-height:1.28;animation:em-geebs-chat-bubble 5.2s cubic-bezier(.22,.8,.3,1) infinite}
+.em-route-card__companion-orbit{position:absolute;right:17px;bottom:15px;width:220px;height:112px;border:1px solid rgba(255,222,190,.22);border-radius:50%;transform:rotate(-18deg);opacity:.86}
+.em-route-card__companion-orbit i{position:absolute;width:6px;height:6px;border-radius:50%;background:#ffe1bf;box-shadow:0 0 0 4px rgba(255,225,191,.1);animation:em-companion-orbit 5.6s linear infinite}
+.em-route-card__companion-orbit i:nth-child(1){left:22%;top:1px}.em-route-card__companion-orbit i:nth-child(2){right:7%;bottom:13px;animation-delay:-1.9s}.em-route-card__companion-orbit i:nth-child(3){left:4%;bottom:23px;animation-delay:-3.8s}
+@keyframes em-companion-orbit{0%,100%{transform:translate(0,0) scale(.85);opacity:.38}50%{transform:translate(7px,-5px) scale(1);opacity:1}}
+.em-route-card:has(.em-route-card__visual--ai-agents) .em-route-card__copy{max-width:45%}
+
+.em-route-card__visual--seo-landing{background:radial-gradient(circle at 83% 24%,rgba(55,145,169,.32),transparent 25%),linear-gradient(120deg,#071419,#102830 55%,#0b191e)}
+.em-route-card__visual--seo-landing>img{display:none}
+.em-route-card__visual--seo-landing:after{background:linear-gradient(90deg,rgba(5,15,20,.98) 0%,rgba(5,15,20,.87) 41%,rgba(5,15,20,.23) 72%,transparent)}
+.em-route-card__search-preview{right:26px;top:24px;width:254px;gap:10px}
+.em-route-card__search-query{min-height:36px;padding:0 13px;font-size:10px;box-shadow:0 10px 28px rgba(0,0,0,.26)}
+.em-route-card__search-result{gap:5px;padding:12px 13px;border-color:rgba(150,217,235,.7);background:rgba(5,23,30,.94);box-shadow:0 14px 28px rgba(0,0,0,.3)}
+.em-route-card__search-result strong{font-size:15px;line-height:1.05}.em-route-card__search-result i{font-size:9px}
+.em-route-card:has(.em-route-card__search-preview) .em-route-card__copy{max-width:44%}
+
+@media(max-width:520px){
+  .em-route-card__visual--web-commerce>img{object-position:65% 8%;filter:saturate(.98) contrast(1.08) brightness(.76)}
+  .em-route-card:has(.em-route-card__visual--web-commerce) .em-route-card__copy{max-width:56%}
+  .em-route-card__agent-character{right:9px;bottom:-1px;width:151px!important}
+  .em-route-card__geebs-chat{right:104px;top:auto;bottom:17px;width:132px}
+  .em-route-card__companion-orbit{right:-9px;bottom:10px;width:180px;height:90px}
+  .em-route-card:has(.em-route-card__visual--ai-agents) .em-route-card__copy{max-width:56%}
+  .em-route-card__search-preview{right:13px;top:auto;bottom:14px;width:178px;gap:7px}
+  .em-route-card__search-query{min-height:28px;padding:0 9px;font-size:8px}
+  .em-route-card__search-result{padding:8px 9px}.em-route-card__search-result strong{font-size:11px}
+  .em-route-card:has(.em-route-card__search-preview) .em-route-card__copy{max-width:56%}
+}
+@media(prefers-reduced-motion:reduce){.em-route-card__agent-character,.em-route-card__geebs-chat-bubble,.em-route-card__companion-orbit i{animation:none}.em-route-card__companion-orbit{opacity:.65}}

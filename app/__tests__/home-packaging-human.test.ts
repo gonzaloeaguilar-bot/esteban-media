@@ -63,12 +63,14 @@ for (const locale of ["en", "es"] as const) {
       expect(component).toContain('"web-commerce": "/portfolio/gains-from-geebs.jpg"');
       expect(component).toContain('src="/portfolio/geebs-ai-companion.png"');
       expect(component).not.toContain('"ai-agents": "/portfolio/ai-lead-automation.jpg"');
+      expect(component).toContain('className="em-route-card__companion-stage"');
       expect(component).toContain('className="em-route-card__geebs-chat"');
       expect(component).toContain("hey, i&apos;m kris. what are we fixing first?");
-      expect(component).toContain("kris is thinking...");
+      expect(component).toContain('className="em-route-card__companion-orbit"');
+      expect(component).not.toContain("kris is thinking...");
       expect(css).toContain(".em-route-card__geebs-chat");
-      expect(css).toContain("@keyframes em-geebs-thinking-dot");
-      expect(css).toContain(".em-route-card__geebs-chat-head b,.em-route-card__geebs-chat-bubble{animation:none}");
+      expect(css).toContain("@keyframes em-companion-orbit");
+      expect(css).toContain(".em-route-card__companion-orbit i{animation:none}");
       expect(component).toContain('src="/real-estate-reels/brickell-loop.mp4"');
       expect(component).toContain('src="/real-estate-reels/brickell-loop-poster.jpg"');
       expect(component).toContain('autoPlay loop muted playsInline preload="metadata"');
@@ -98,7 +100,6 @@ for (const locale of ["en", "es"] as const) {
       expect(path).toContain('class="em-route-card__property-pin"');
       expect(path).toContain('class="em-route-card__recording-frames"');
       expect(path).toContain('class="em-route-card__local-signal-spark"');
-      expect(path).toContain('class="em-route-card__digital-signal"');
       expect(css).toContain("@keyframes em-reel-heart-float");
       expect(css).toContain("@keyframes em-reel-like-count-one");
       expect(css).toContain("@keyframes em-reel-like-count-four");
@@ -107,8 +108,7 @@ for (const locale of ["en", "es"] as const) {
       expect(css).toContain("@keyframes em-property-pin-settle");
       expect(css).toContain("@keyframes em-record-frame");
       expect(css).toContain("@keyframes em-local-spark");
-      expect(css).toContain("@keyframes em-digital-sparkle");
-      expect(css).toContain(".em-route-card__digital-signal>svg,.em-route-card__digital-signal>span,.em-route-card__geebs-chat-head b,.em-route-card__geebs-chat-bubble{animation:none}");
+      expect(css).toContain(".em-route-card__companion-orbit i{animation:none}");
     });
 
     it("1b3. keeps monthly Real Estate terms with the monthly plans, not the individual services", () => {
