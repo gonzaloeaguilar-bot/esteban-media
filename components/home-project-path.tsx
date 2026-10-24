@@ -180,7 +180,8 @@ const routeVisuals: Record<RouteId, string> = {
   // A clean aerial still leaves room for the card copy; avoid Reels that already
   // carry baked-in headlines behind the route label.
   "real-estate": "/real-estate-reels/reel-05.jpg",
-  editing: "/portfolio/great-reviewer-iphone-18.jpg",
+  // The official YouTube preview is the recognizable public cover for this case.
+  editing: "https://i.ytimg.com/vi/BDRru8eXaj4/maxresdefault.jpg",
   production: "/about/esteban-on-set.jpg",
   "local-business": "/portfolio/front-line-auto.jpg",
 };
@@ -441,7 +442,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                 <summary data-cta={`home_project_route_${locale}_${route.id}`}>
                   <span className="em-route-card__copy"><span className="em-route-card__eyebrow">{routeText.eyebrow}</span><strong>{routeText.title}</strong><span>{routeText.lead}</span></span>
                   <span className={`em-route-card__visual em-route-card__visual--${route.id}`} aria-hidden="true">
-                    <Image src={visualSrc} alt={c.routeVisualAlts[route.id]} fill sizes="(max-width: 639px) 72px, 92px" />
+                    <Image src={visualSrc} alt={c.routeVisualAlts[route.id]} fill sizes="(max-width: 639px) 100vw, 1200px" />
                     {route.id === "real-estate" && <span className="em-route-card__property-glint" />}
                     {route.id === "editing" && <span className="em-route-card__reel-actions"><span className="em-route-card__reel-like"><Heart fill="currentColor" /><small aria-hidden="true">+1</small></span><MessageCircle /><Send /></span>}
                     {route.id === "production" && <span className="em-route-card__recording" aria-hidden="true"><i />REC</span>}
