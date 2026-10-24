@@ -69,6 +69,10 @@ for (const locale of ["en", "es"] as const) {
       expect(css).toContain(".em-route-card__geebs-chat");
       expect(css).toContain("@keyframes em-geebs-thinking-dot");
       expect(css).toContain(".em-route-card__geebs-chat-head b,.em-route-card__geebs-chat-bubble{animation:none}");
+      expect(component).toContain('src="/real-estate-reels/brickell-loop.mp4"');
+      expect(component).toContain('src="/real-estate-reels/brickell-loop-poster.jpg"');
+      expect(component).toContain('autoPlay loop muted playsInline preload="metadata"');
+      expect(css).toContain('.em-route-card__real-estate-loop{display:none}');
     });
 
     it("1b2. gives the decorative lens an on-screen idle focus loop without moving for reduced-motion visitors", () => {

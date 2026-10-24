@@ -12,7 +12,9 @@ const root = path.resolve(__dirname, "../..");
 describe("single projects live inside the chooser, once", () => {
   for (const locale of ["en", "es"] as const) {
     const html = renderToStaticMarkup(React.createElement(HomeProjectPath, { locale }));
-    const items = packagesCopy(locale).aLaCarte.items;
+    // These four offers now live in the dedicated digital routes, rather than
+    // duplicating them in the chooser's individual-service rows.
+    const items = packagesCopy(locale).aLaCarte.items.filter((item) => !["ia", "seo", "auditoria", "automatizacion"].includes(item.id));
 
     it(`${locale}: every a-la-carte title and what-to-send sentence is in the server HTML`, () => {
       for (const item of items) {

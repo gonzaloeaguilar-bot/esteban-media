@@ -395,7 +395,7 @@ html.rail-anim:not([data-brand-moment]) .em-cine__eyebrow {
   .em-cine__credit { padding-bottom: 48px; }
 }
 
-/* Narrow phones cannot hold both labels with the breathing room Gonzalo
+/* Narrow phones cannot hold both labels with the breathing room the layout
    expects. Stack before either the WhatsApp action or the price/area line
    reaches the viewport edge. */
 @media (max-width: 389px) {
