@@ -1,5 +1,7 @@
 ## 2026-10-23 — Local GBP conversion proof on About page
 
+- [x] 2026-10-24: Add contained TikTok-style floating-heart feedback to the homepage Content Creator card's like icon. The local candidate uses four decorative Lucide hearts, preserves the existing `+1` cue, and disables motion for reduced-motion visitors. `pnpm lint` (0 errors; 22 existing warnings), `pnpm typecheck`, `pnpm vitest run app/__tests__/home-packaging-human.test.ts` (32/32), `git diff --check`, and local browser animation inspection passed. Before release, `cto-qa-lead` must review the exact three-file diff; after release, verify the expanded card at phone size with normal and reduced motion.
+
 - [x] Implement `local_gbp_conversion` priority-growth recommendation on `/about`: embed verified Google reviews (`ClientReviews`), linking brand searchers ("esteban moreno media") to 5.0 Google rating proof, verbatim client testimonials, and Google Business Profile listing. Verified with `pnpm lastmod:update`, `npm test` (166 files / 3,472 tests), `pnpm check`, and `priority-growth-project-verify.sh`.
 
 ## 2026-10-22 — Spanish caption-styles guide content-depth refinement
