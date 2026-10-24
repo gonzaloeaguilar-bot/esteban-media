@@ -183,7 +183,9 @@ const routeVisuals: Record<RouteId, string> = {
   // The official YouTube preview is the recognizable public cover for this case.
   editing: "https://i.ytimg.com/vi/BDRru8eXaj4/maxresdefault.jpg",
   production: "/portfolio/event-conference-filming.jpg",
-  "local-business": "/portfolio/front-line-auto.jpg",
+  // Owner-supplied camera detail: a crisp, horizontal production still avoids
+  // presenting a website screenshot as the local-business service.
+  "local-business": "/portfolio/local-business-camera-work.jpg",
 };
 
 function offerDeliverables(name: string, laneId: ChooserLaneId, locale: AudienceLocale): string[] {
