@@ -51,6 +51,13 @@ for (const locale of ["en", "es"] as const) {
       expect(css).toContain(".em-route-card>summary");
     });
 
+    it("1b1. route cards use full-bleed work imagery while keeping copy and the control readable", () => {
+      const css = read("app/illustrated-commercial.css");
+      expect(css).toContain(".em-route-card__visual{position:absolute;z-index:0;inset:0;width:auto");
+      expect(css).toContain(".em-route-card__copy{position:relative;z-index:2");
+      expect(css).toContain(".em-route-card__plus{position:absolute;z-index:3");
+    });
+
     it("1b2. gives the decorative lens an on-screen idle focus loop without moving for reduced-motion visitors", () => {
       const component = read("components/home-project-path.tsx");
       const css = read("app/illustrated-commercial.css");
