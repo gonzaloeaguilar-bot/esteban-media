@@ -165,8 +165,8 @@ export function HeroVideo({ locale = "en" }: HeroVideoProps) {
         <Container size="xl">
           <p className="em-cine-caption__lead">
             {isSpanish
-              ? "Edición de video y producción de contenido para negocios, agentes y creadores."
-              : "Video editing and content production for businesses, agents, and creators."}
+              ? "Edición de video y producción de contenido para negocios, agentes y creadores que quieren que su trabajo se vea tan bien como realmente es."
+              : "Video editing and content production for businesses, agents, and creators who want their work to look as good as it really is."}
           </p>
           {/* The detail folds. The lead sentence above stays visible, so the
               block still says what this is; the long explanation and the
@@ -179,14 +179,14 @@ export function HeroVideo({ locale = "en" }: HeroVideoProps) {
           <ol className="em-cine-caption__steps">
             {(isSpanish
               ? [
-                  ["Comparte tu material o idea", "Envía lo que ya tienes o cuéntame qué necesitas grabar."],
-                  ["Elige cómo empezar", "Revisa un paquete o cuéntame el proyecto que tienes en mente."],
-                  ["Confirma el alcance", "Recibirás el precio y los tiempos por escrito antes de empezar."],
+                  ["Cuéntame qué necesitas", "Envíame el material que ya tienes o dime qué quieres grabar."],
+                  ["Elige tu punto de partida", "Elige un paquete o cuéntame qué quieres crear."],
+                  ["Recibe un plan claro", "Recibirás por escrito el precio, los tiempos y lo que vas a recibir antes de empezar."],
                 ]
               : [
-                  ["Send your footage or idea", "Share what you already have or tell me what needs filming."],
-                  ["Choose how to start", "Review a package or tell me about the project you have in mind."],
-                  ["Confirm the scope", "You’ll get the price and timing in writing before we begin."],
+                  ["Tell me what you need", "Send the footage you have, or tell me what you want filmed."],
+                  ["Choose your starting point", "Pick a package, or tell me what you’re trying to make."],
+                  ["Get a clear plan", "You’ll receive the price, timeline, and what you’ll receive in writing before we begin."],
                 ]
             ).map(([title, detail], index) => (
               <li key={title}>
@@ -201,13 +201,11 @@ export function HeroVideo({ locale = "en" }: HeroVideoProps) {
           <p className="em-cine-caption__service-area">
             {isSpanish ? (
               <>
-                Edición remota y grabaciones seleccionadas en <Link href="/es/areas">Fort Lauderdale, Broward, Miami-Dade y Palm Beach</Link>. Para una grabación local, revisa la{" "}
-                <Link href="/es/produccion-de-video-fort-lauderdale">producción de video en Fort Lauderdale</Link>.
+                Grabo en Miami-Dade, Broward y West Palm Beach. Si ya tienes material, también puedo editarlo a distancia desde cualquier lugar.
               </>
             ) : (
               <>
-                Remote editing and selected filming projects across <Link href="/areas">Fort Lauderdale, Broward, Miami-Dade, and Palm Beach</Link>. For a local shoot, see{" "}
-                <Link href="/services/video-production-fort-lauderdale">video production in Fort Lauderdale</Link>.
+                I film across Miami-Dade, Broward, and West Palm Beach. If you already have footage, I can edit it remotely from anywhere.
               </>
             )}
           </p>
