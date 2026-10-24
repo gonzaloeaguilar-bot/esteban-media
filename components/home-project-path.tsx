@@ -60,7 +60,7 @@ const copy = {
   routeVisualAlts: {
     "real-estate": "Property photography and a camera for real estate marketing",
     editing: "Vertical video clip for a content creator",
-    production: "Esteban filming on a video production set",
+    production: "Esteban filming a live conference speaker",
     "local-business": "Video production at a local business",
   },
     pricingDetail: "These are starting prices. The final price depends on the project scope.",
@@ -122,7 +122,7 @@ const copy = {
   routeVisualAlts: {
     "real-estate": "Fotografía de propiedad y cámara para marketing inmobiliario",
     editing: "Video vertical para un creador de contenido",
-    production: "Esteban grabando en un set de producción de video",
+    production: "Esteban grabando a un conferencista en vivo",
     "local-business": "Producción de video en un negocio local",
   },
     pricingDetail: "Son precios de partida. El precio final depende del alcance del proyecto.",
@@ -182,7 +182,7 @@ const routeVisuals: Record<RouteId, string> = {
   "real-estate": "/real-estate-reels/reel-05.jpg",
   // The official YouTube preview is the recognizable public cover for this case.
   editing: "https://i.ytimg.com/vi/BDRru8eXaj4/maxresdefault.jpg",
-  production: "/about/esteban-on-set.jpg",
+  production: "/portfolio/event-conference-filming.jpg",
   "local-business": "/portfolio/front-line-auto.jpg",
 };
 
