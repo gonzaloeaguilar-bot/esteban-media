@@ -632,3 +632,8 @@ Configuration-gated conversion-observability implementation is present locally, 
 - The AI Agents card now uses `public/illustrations/agent-squad-v1.png`: three original SNES-era worker sprites (Scout, Write, Run) moving tasks through a single pipeline. It replaces the single Kris sprite as the card hero and keeps the existing automation artwork dimly visible as the scene.
 - Generated with the built-in image tool; intentionally original, with no Pac-Man/ghost likeness, third-party marks, text or watermark.
 - Checks: targeted 38/38 tests, typecheck, lint (0 errors; 22 existing warnings), and `git diff --check` passed.
+# 2026-10-25 — AI agent squad work-cycle candidate
+
+- Scope: `components/home-project-path.tsx`, `app/illustrated-commercial.css`, and `app/__tests__/home-packaging-human.test.ts`. The original three-character pixel-art squad now visibly works in a loop: the group shifts through a purposeful work cycle, Scout/Write/Run activate in sequence, and three task signals travel across the hand-off line. The image, offer copy, and partner marks remain unchanged.
+- Accessibility: the squad, role chips, and task signals are all static under `prefers-reduced-motion: reduce`; motion is decorative and does not hide text or interaction.
+- Local evidence: focused card tests plus the color guard passed 38/38; `pnpm typecheck` passed; `pnpm lint` completed with 0 errors and 22 existing warnings; full `pnpm test` passed 172 files / 3,677 tests; `git diff --check` passed. The local Next dev server reported Ready, but the browser bridge timed out before rendering `/es`, so a real mobile render remains required after the scoped release.

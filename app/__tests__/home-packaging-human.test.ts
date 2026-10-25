@@ -76,11 +76,15 @@ for (const locale of ["en", "es"] as const) {
       expect(component).toContain("Scout");
       expect(component).toContain("Write");
       expect(component).toContain("Run");
+      expect(component).toContain('className="em-route-card__agent-route"');
       expect(component).toContain('className="em-route-card__companion-orbit"');
       expect(component).not.toContain("kris is thinking...");
       expect(css).toContain(".em-route-card__geebs-chat");
       expect(css).toContain("@keyframes em-companion-orbit");
       expect(css).toContain("image-rendering:pixelated");
+      expect(css).toContain("@keyframes em-agent-squad-work");
+      expect(css).toContain("@keyframes em-agent-task-travel");
+      expect(css).toContain(".em-route-card__agent-squad,.em-route-card__agent-jobs b,.em-route-card__agent-route i,.em-route-card__geebs-chat-bubble");
       expect(css).toContain(".em-route-card__visual--seo-landing{background:#212121}");
       expect(css).toContain(".em-route-card__visual--seo-landing:before");
       expect(css).toContain(".em-route-card__companion-orbit i{animation:none}");
