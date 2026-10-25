@@ -627,3 +627,8 @@ Configuration-gated conversion-observability implementation is present locally, 
 - Owner correction: the full card background must look like ChatGPT, not a card with a small ChatGPT window placed over a separate scenic background.
 - The SEO/GEO visual now uses the charcoal ChatGPT workspace across the full card: a dark left sidebar, full conversation surface, header, message pair and composer. The Esteban service copy remains on the left reading layer.
 - Checks: `pnpm vitest run app/__tests__/home-packaging-human.test.ts app/__tests__/no-off-brand-green.test.ts` passed 38/38; `pnpm typecheck`, `pnpm lint` (0 errors; 22 existing warnings), and `git diff --check` passed. Local Next dev did not serve within the five-second probe, so no phone visual pass is claimed yet.
+# 2026-10-24 — Original agent squad replaces single AI-card mascot
+
+- The AI Agents card now uses `public/illustrations/agent-squad-v1.png`: three original SNES-era worker sprites (Scout, Write, Run) moving tasks through a single pipeline. It replaces the single Kris sprite as the card hero and keeps the existing automation artwork dimly visible as the scene.
+- Generated with the built-in image tool; intentionally original, with no Pac-Man/ghost likeness, third-party marks, text or watermark.
+- Checks: targeted 38/38 tests, typecheck, lint (0 errors; 22 existing warnings), and `git diff --check` passed.
