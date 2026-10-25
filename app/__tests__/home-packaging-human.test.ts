@@ -153,12 +153,13 @@ for (const locale of ["en", "es"] as const) {
       const seoEnd = path.indexOf('data-route="web-commerce"');
       const seo = path.slice(seoStart, seoEnd);
       expect(seo).toContain(locale === "es" ? "Desde $1,800" : "From $1,800");
-      expect(seo).toContain(locale === "es" ? "Desde $1,500" : "From $1,500");
+      expect(seo).toContain(locale === "es" ? "Desde $1,500 · 3–5 días hábiles" : "From $1,500 · 3–5 business days");
       expect(seo).toContain(locale === "es" ? "Sitio web y seguimiento de búsquedas" : "Website and search tracking");
       expect(seo).toContain(locale === "es" ? "Configuración de eventos de conversión" : "Conversion-event setup");
       const webStart = path.indexOf('data-route="web-commerce"');
       const web = path.slice(webStart);
-      expect(web).toContain(locale === "es" ? "Cotización personalizada" : "Custom quote");
+      expect(web).toContain(locale === "es" ? "Desde $5,000" : "From $5,000");
+      expect(web).toContain("$5,000+");
       expect(web).toContain(locale === "es" ? "Desde $280 / sesión" : "From $280 / session");
       expect(web).toContain(locale === "es" ? "$400–$775" : "$400–$775");
       expect(web).toContain(locale === "es" ? "Sesión de fotografía de producto" : "Product photography session");

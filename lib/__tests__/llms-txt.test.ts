@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 import sitemap from "@/app/sitemap";
 import { isConsolidatedPath } from "@/lib/consolidation";
 import { buildLlmsTxt } from "@/lib/llms-txt";
-import { CHATBOT_PRICE, LANDING_PAGE_PRICE, PACKAGE_PRICES, usd } from "@/lib/pricing";
+import { CHATBOT_PRICE, LANDING_PAGE_PRICE, PACKAGE_PRICES, WEBSITE_BUILD_PRICE, usd } from "@/lib/pricing";
 
 // /llms.txt is served by app/llms.txt/route.ts: the hand-written facts in
 // lib/llms-base.txt plus a page index generated from the sitemap sources.
@@ -95,7 +95,7 @@ describe("/llms.txt for AI crawlers", () => {
         ...Object.values(PACKAGE_PRICES).flatMap((p) => (p.kind === "from" ? [`$${p.amount}`] : [])),
         // Owner facts 2026-10-14, single sources in lib/pricing.ts.
         usd(LANDING_PAGE_PRICE.from),
-        usd(LANDING_PAGE_PRICE.typicalUpper),
+        usd(WEBSITE_BUILD_PRICE.from),
         usd(CHATBOT_PRICE.from),
       ],
     );

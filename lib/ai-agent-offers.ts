@@ -82,9 +82,9 @@ export const SEO_LANDING_ROUTE_OPTIONS: Record<AiAgentLocale, readonly AiAgentRo
     {
       title: "Landing pages",
       detail: "Give a campaign or service one focused page that makes the next step obvious.",
-      price: "From $1,500",
+      price: `From ${usd(LANDING_PAGE_PRICE.from)} · ${LANDING_PAGE_PRICE.deliveryBusinessDays} business days`,
       offers: [
-        { title: "One offer with one clear next step" },
+        { title: "One offer with one clear next step", price: `${LANDING_PAGE_PRICE.deliveryBusinessDays} business days` },
         { title: "Mobile-first page with a form or contact action" },
         { title: "Conversion-event setup" },
         { title: "English, Spanish, or both when scoped" },
@@ -105,9 +105,9 @@ export const SEO_LANDING_ROUTE_OPTIONS: Record<AiAgentLocale, readonly AiAgentRo
     {
       title: "Landing pages",
       detail: "Una página enfocada para que una campaña o servicio tenga un siguiente paso claro.",
-      price: "Desde $1,500",
+      price: `Desde ${usd(LANDING_PAGE_PRICE.from)} · ${LANDING_PAGE_PRICE.deliveryBusinessDays} días hábiles`,
       offers: [
-        { title: "Una oferta con un siguiente paso claro" },
+        { title: "Una oferta con un siguiente paso claro", price: `${LANDING_PAGE_PRICE.deliveryBusinessDays} días hábiles` },
         { title: "Página pensada para celular con formulario o contacto" },
         { title: "Configuración de eventos de conversión" },
         { title: "Inglés, español o ambos cuando se acuerde" },
@@ -117,8 +117,8 @@ export const SEO_LANDING_ROUTE_OPTIONS: Record<AiAgentLocale, readonly AiAgentRo
 };
 
 /**
- * Website builds do not have an owner-approved public floor, so they must stay
- * a custom quote. Ecommerce content has two distinct published starting points:
+ * Website builds have a $5,000 owner-approved starting point. Ecommerce
+ * content has two distinct published starting points:
  * a real product-photo session and an edit for a product or ad creative.
  */
 export const WEB_ECOMMERCE_ROUTE_OPTIONS: Record<AiAgentLocale, readonly AiAgentRouteOption[]> = {
@@ -126,9 +126,10 @@ export const WEB_ECOMMERCE_ROUTE_OPTIONS: Record<AiAgentLocale, readonly AiAgent
     {
       title: "Websites",
       detail: "A clear home for the offer, proof and ways to get in touch.",
-      price: "Custom quote",
+      price: `From ${usd(WEBSITE_BUILD_PRICE.from)}`,
       offers: [
-        { title: "A custom, mobile-first website for your offer" },
+        { title: "Basic landing page — one offer and one action", price: `${usd(LANDING_PAGE_PRICE.from)} · ${LANDING_PAGE_PRICE.deliveryBusinessDays} business days` },
+        { title: "Custom business website", price: `${usd(WEBSITE_BUILD_PRICE.from)}+` },
         { title: "A clear contact path and the needed pages" },
         { title: "English, Spanish, or both when scoped" },
       ],
@@ -148,9 +149,10 @@ export const WEB_ECOMMERCE_ROUTE_OPTIONS: Record<AiAgentLocale, readonly AiAgent
     {
       title: "Sitios web",
       detail: "Un hogar claro para la oferta, prueba y formas de contactar.",
-      price: "Cotización personalizada",
+      price: `Desde ${usd(WEBSITE_BUILD_PRICE.from)}`,
       offers: [
-        { title: "Un sitio web personalizado y pensado para celular" },
+        { title: "Landing page básica — una oferta y una acción", price: `${usd(LANDING_PAGE_PRICE.from)} · ${LANDING_PAGE_PRICE.deliveryBusinessDays} días hábiles` },
+        { title: "Sitio web personalizado para negocio", price: `${usd(WEBSITE_BUILD_PRICE.from)}+` },
         { title: "Un camino claro para contactar y las páginas necesarias" },
         { title: "Inglés, español o ambos cuando se acuerde" },
       ],
@@ -167,4 +169,4 @@ export const WEB_ECOMMERCE_ROUTE_OPTIONS: Record<AiAgentLocale, readonly AiAgent
     },
   ],
 };
-import { PRICING_BANDS, PRODUCT_PHOTO_SESSION, usd } from "@/lib/pricing";
+import { LANDING_PAGE_PRICE, PRICING_BANDS, PRODUCT_PHOTO_SESSION, WEBSITE_BUILD_PRICE, usd } from "@/lib/pricing";

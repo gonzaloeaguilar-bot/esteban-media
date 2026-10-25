@@ -408,7 +408,7 @@ const landingEn: WebAiServicePage = {
       id: "timeline",
       question: "How long does it take to build a landing page?",
       paragraphs: [
-        "There is no fixed timeline published: the launch date depends on the confirmed scope, the material you provide, account access and how quickly each review comes back. A single page with your existing photos and a simple form is a short job; a bilingual page with new video and a booking flow behind the form takes longer.",
+        "A basic landing page is built in 3–5 business days. A bilingual page with new video or a booking flow can take longer, because the scope, material you provide, account access and each review affect the build.",
         "You can shorten it before the first call. Write the offer in one sentence, as you would say it to a customer. Collect the proof you already have: reviews, photos of real work, numbers you are allowed to publish. Decide what the visitor should do and who receives the inquiry. Have access ready to your domain, your analytics and the ad account the page is for. If you do not have analytics yet, setting up the conversion events is part of the build.",
       ],
     },

@@ -424,24 +424,29 @@ export const TURNKEY_PRODUCTION_BUNDLES = {
 /**
  * Landing pages. Owner fact 2026-10-14 (relayed by the project operator; vault
  * client-esteban-media/wiki/esteban-owner-facts-2026-10-14): a basic landing
- * page starts at $1,500; larger custom builds run $7,000 and up. Applies to
- * landing pages only. Full websites and chatbots have NO published price and
- * stay "custom quote" until Esteban gives one. Change the numbers here only.
+ * page starts at $1,500. Applies to landing pages only. Change the numbers
+ * here only.
  */
 export const LANDING_PAGE_PRICE = {
   from: 1500,
-  typicalUpper: 7000,
+  deliveryBusinessDays: "3–5",
   currency: "USD",
-  source: "owner fact 2026-10-14 (relayed by the project operator): basic landing page from $1,500; larger custom builds $7,000+",
+  source: "owner fact confirmed 2026-10-24: basic landing page from $1,500 in 3–5 business days",
+} as const;
+
+/** Full custom website builds begin at the owner-confirmed $5,000 floor. */
+export const WEBSITE_BUILD_PRICE = {
+  from: 5000,
+  currency: "USD",
+  source: "owner fact confirmed 2026-10-24: full website builds from $5,000",
 } as const;
 
 /** The one answer-first price line for landing pages, EN or ES. */
 export function landingPagePriceText(locale: "en" | "es"): string {
   const from = usd(LANDING_PAGE_PRICE.from);
-  const upper = usd(LANDING_PAGE_PRICE.typicalUpper);
   return locale === "es"
-    ? `Una landing page básica empieza en ${from}; las páginas a la medida más grandes suelen costar ${upper} o más, según las páginas, los textos y las integraciones.`
-    : `A basic landing page starts at ${from}; larger custom builds usually run ${upper} or more depending on pages, copy and integrations.`;
+    ? `Una landing page básica empieza en ${from} y se construye en ${LANDING_PAGE_PRICE.deliveryBusinessDays} días hábiles.`
+    : `A basic landing page starts at ${from} and is built in ${LANDING_PAGE_PRICE.deliveryBusinessDays} business days.`;
 }
 
 /**
