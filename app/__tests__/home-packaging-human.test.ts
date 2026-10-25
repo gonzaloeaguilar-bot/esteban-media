@@ -159,6 +159,7 @@ for (const locale of ["en", "es"] as const) {
       const webStart = path.indexOf('data-route="web-commerce"');
       const web = path.slice(webStart);
       expect(web).toContain(locale === "es" ? "Desde $5,000" : "From $5,000");
+      expect(web).toContain(locale === "es" ? "Desde $1,500 · 3–5 días hábiles" : "Starting at $1,500 · 3–5 business days");
       expect(web).toContain("$5,000+");
       expect(web).toContain("$7,500+");
       expect(web).toContain("$10,000+");

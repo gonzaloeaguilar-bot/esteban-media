@@ -128,7 +128,7 @@ export const WEB_ECOMMERCE_ROUTE_OPTIONS: Record<AiAgentLocale, readonly AiAgent
       detail: "A clear home for the offer, proof and ways to get in touch.",
       price: `From ${usd(WEBSITE_BUILD_PRICE.from)}`,
       offers: [
-        { title: "Basic landing page — one offer and one action", price: `${usd(LANDING_PAGE_PRICE.from)} · ${LANDING_PAGE_PRICE.deliveryBusinessDays} business days` },
+        { title: "Landing page — one offer and one action", price: `Starting at ${usd(LANDING_PAGE_PRICE.from)} · ${LANDING_PAGE_PRICE.deliveryBusinessDays} business days` },
         { title: "Business website — UX/UI, wireframes, design library and analytics", price: `${usd(WEBSITE_BUILD_PRICE.from)}+` },
         { title: "Ecommerce store — products, cart, sign-up and checkout flow", price: `${usd(WEB_PRODUCT_PACKAGE_PRICES.ecommerceStore)}+` },
         { title: "Customer growth system — CRM, email/SMS marketing, retention and customer mapping", price: `${usd(WEB_PRODUCT_PACKAGE_PRICES.customerGrowthSystem)}+` },
@@ -153,7 +153,7 @@ export const WEB_ECOMMERCE_ROUTE_OPTIONS: Record<AiAgentLocale, readonly AiAgent
       detail: "Un hogar claro para la oferta, prueba y formas de contactar.",
       price: `Desde ${usd(WEBSITE_BUILD_PRICE.from)}`,
       offers: [
-        { title: "Landing page básica — una oferta y una acción", price: `${usd(LANDING_PAGE_PRICE.from)} · ${LANDING_PAGE_PRICE.deliveryBusinessDays} días hábiles` },
+        { title: "Landing page — una oferta y una acción", price: `Desde ${usd(LANDING_PAGE_PRICE.from)} · ${LANDING_PAGE_PRICE.deliveryBusinessDays} días hábiles` },
         { title: "Sitio web para negocio — UX/UI, wireframes, librería de diseño y analítica", price: `${usd(WEBSITE_BUILD_PRICE.from)}+` },
         { title: "Tienda ecommerce — productos, carrito, registro y flujo de pago", price: `${usd(WEB_PRODUCT_PACKAGE_PRICES.ecommerceStore)}+` },
         { title: "Sistema de crecimiento — CRM, marketing por email/SMS, retención y mapa de cliente", price: `${usd(WEB_PRODUCT_PACKAGE_PRICES.customerGrowthSystem)}+` },
