@@ -9659,7 +9659,7 @@ const languageAlternatesRaw: Record<string, Record<string, string>> = {
  * Filtering here rather than hand-deleting rows means a future consolidation
  * stops advertising itself automatically, with no second place to remember.
  */
-for (const id of ["gains-from-geebs-shorts", "exatlon", "juanchis-burguer", "portosole", "punto-de-giro"] as const) {
+for (const id of ["gains-from-geebs", "caro-sells-miami", "dupont-realty-international", "great-reviewer-website", "gains-from-geebs-shorts", "exatlon", "juanchis-burguer", "portosole", "punto-de-giro"] as const) {
   const en = `/case-studies/${id}`;
   const es = `/es/casos-de-estudio/${id}`;
   languageAlternatesRaw[en] = { "en-US": en, "es-US": es, "x-default": en };

@@ -111,6 +111,9 @@ export type PortfolioItemI18nKey =
   | "great-reviewer-iphone-18"
   | "titanforge"
   | "gains-from-geebs"
+  | "caro-sells-miami"
+  | "dupont-realty-international"
+  | "great-reviewer-website"
   | "front-line-auto"
   | "flas-concierge"
   | "ai-lead-automation"
@@ -184,7 +187,7 @@ export const PORTFOLIO_ITEMS: readonly PortfolioItem[] = [
   {
     id: "gains-from-geebs",
     category: "web-design",
-    title: "Gains From Geebs Web App & AI Bot",
+    title: "Gains From Geebs Coaching Website",
     titleI18nKey: "gains-from-geebs",
     descriptionI18nKey: "gains-from-geebs",
     creditsI18nKey: "gains-from-geebs",
@@ -194,8 +197,64 @@ export const PORTFOLIO_ITEMS: readonly PortfolioItem[] = [
     status: "live",
     media: {
       kind: "image",
-      src: "/portfolio/gains-from-geebs.jpg",
-      alt: "Gains From Geebs Interactive Fitness Platform & Coaching AI Bot",
+      src: "/portfolio/gains-from-geebs-current-ui.png",
+      alt: "Current Gains From Geebs 1:1 online fitness coaching website",
+      aspect: "16:9",
+    },
+  },
+  {
+    id: "caro-sells-miami",
+    category: "web-design",
+    title: "Caro Sells Miami Real Estate Website",
+    titleI18nKey: "caro-sells-miami",
+    descriptionI18nKey: "caro-sells-miami",
+    creditsI18nKey: "caro-sells-miami",
+    year: 2026,
+    location: "Miami / Broward",
+    websiteUrl: "https://carosellsmiami.com/",
+    featured: true,
+    status: "live",
+    media: {
+      kind: "image",
+      src: "/portfolio/caro-sells-miami-current-ui.png",
+      alt: "Caro Sells Miami real estate website for Brickell and Miami buyers",
+      aspect: "16:9",
+    },
+  },
+  {
+    id: "dupont-realty-international",
+    category: "web-design",
+    title: "DuPont International Realty Florida Website",
+    titleI18nKey: "dupont-realty-international",
+    descriptionI18nKey: "dupont-realty-international",
+    creditsI18nKey: "dupont-realty-international",
+    year: 2026,
+    location: "South Florida",
+    websiteUrl: "https://dupontrealtysouthflorida.com/",
+    featured: true,
+    status: "live",
+    media: {
+      kind: "image",
+      src: "/portfolio/dupont-realty-international-current-ui.png",
+      alt: "Current DuPont International Realty Florida website interface",
+      aspect: "16:9",
+    },
+  },
+  {
+    id: "great-reviewer-website",
+    category: "web-design",
+    title: "The Great Reviewer Website & Product Library",
+    titleI18nKey: "great-reviewer-website",
+    descriptionI18nKey: "great-reviewer-website",
+    creditsI18nKey: "great-reviewer-website",
+    year: 2026,
+    websiteUrl: "https://thegreatreviewer.com/",
+    featured: true,
+    status: "live",
+    media: {
+      kind: "image",
+      src: "/portfolio/great-reviewer-current-ui.png",
+      alt: "Current The Great Reviewer product-review website interface",
       aspect: "16:9",
     },
   },

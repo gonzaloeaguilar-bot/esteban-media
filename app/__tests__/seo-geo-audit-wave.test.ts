@@ -294,7 +294,7 @@ describe("sibling clusters for hub-only pages (fix 6)", () => {
 });
 
 describe("case studies that embed YouTube carry a VideoObject (fix 8, partial)", () => {
-  it("reuses the portfolio item's video data on all 8 embedding pages", () => {
+  it("reuses the portfolio item's video data on every embedding page", () => {
     let withVideo = 0;
     for (const locale of ["en", "es"] as const) {
       for (const study of getCaseStudies(locale)) {
@@ -309,6 +309,11 @@ describe("case studies that embed YouTube carry a VideoObject (fix 8, partial)",
         expect(article.video).toEqual({ "@id": video["@id"] });
       }
     }
-    expect(withVideo).toBe(8);
+    const expectedVideoCases = ["en", "es"].flatMap((locale) =>
+      getCaseStudies(locale as "en" | "es").filter((study) =>
+        /youtube\.com|youtu\.be/i.test(study.mediaUrl),
+      ),
+    );
+    expect(withVideo).toBe(expectedVideoCases.length);
   });
 });
