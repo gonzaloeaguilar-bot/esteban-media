@@ -1,3 +1,8 @@
+## 2026-10-24 — Website case studies candidate
+
+- [x] Add bilingual, source-bounded portfolio and case-study routes for Caro Sells Miami, DuPont International Realty Florida and The Great Reviewer; refresh Gains From Geebs as a current website case. Correction: all four use current public UI captures; Geebs title, summary and project details match the visible direct-start/method/packages/results/resources UI. Local evidence: targeted suite 230/230, typecheck, lint (0 errors / 22 existing warnings), build `bhmP2jyU80Mh0ds7UxwsH`, rendered local Geebs route and matching 566-route sitemap/index-watch set.
+- [ ] `cto-qa-lead`: independently review the exact candidate diff and a phone rendering; then open a scoped PR if it passes. Production remains unchanged until merge and post-deploy checks.
+
 ## 2026-10-24 — Camera Bench and product-unboxing refresh
 
 - [x] Rework the homepage Camera Bench as a larger swipeable phone shelf, preserve native published-spec disclosures, and add the supplied product-unboxing Reel as a safe external Instagram action. Local evidence: `app/__tests__/camera-kit-method.test.ts`, typecheck, lint, and phone interaction check. Release verification remains open in [[esteban-camera-bench-unboxing-refresh-2026-10-24]].

@@ -1,0 +1,34 @@
+{
+  "schema": 3,
+  "project": "esteban-media",
+  "intent": "Add five bilingual public-media case studies using only existing Instagram and YouTube evidence, while preserving Esteban Moreno Media's existing case-study experience.",
+  "phase": "plan",
+  "visual_evidence": {
+    "scope": "local_repair",
+    "scope_reason": "The work extends an already approved case-study template with existing project media rather than introducing a new visual direction.",
+    "target": "direction",
+    "owner_status": "owner_accepted_direction",
+    "capture_kind": "rendered",
+    "spec_sha256": "",
+    "taste_sha256": "",
+    "correction_excerpt": "Motion never gates the words; real project media is proof, not decoration.",
+    "comparison": "Existing Esteban case-study template and public portfolio watch pages.",
+    "references": [],
+    "candidate_frames": []
+  },
+  "brief": {
+    "visitor": "A phone-first prospective restaurant, creator, fitness, or documentary client comparing real examples before contacting Esteban.",
+    "promise": "See the published work, understand the narrow confirmed role, and reach the matching existing service without reading unsupported results.",
+    "primary_action": "Open the existing matching service or contact Esteban for a scoped project.",
+    "friction": "The new portfolio pages prove finished work but do not yet give visitors a concise, structured case-study explanation.",
+    "kpi": {"outcome":"qualified project inquiry","event":"service or contact action from a case study","denominator":"case-study visitors","baseline":"UNKNOWN: no comparable case-study attribution read this session","evidence":"Five source-backed public portfolio routes are live.","readout":"T+28","decision_rule":"retain only if later attributable inquiry data is measurable without a quality regression."},
+    "concept": {"idea":"Use the existing case-study page as a calm reading layer above each public portfolio item.","brand_reason":"The completed media, not a new visual treatment, carries the proof.","interaction":"Existing video facade and source links remain optional; text and next steps are served immediately.","visible_response":"The visitor can verify a source or continue to the relevant service without a social embed or hidden content.","direct_path":"Existing service and contact routes.","alternatives":"No Instagram embed, autoplay, invented scope, new generic service page, or outcome claim."},
+    "story": {"opening":"The first screen names the project and the limited confirmed role.","action":"The visitor watches or opens the source, then chooses the matching existing service.","consequence":"A specific type of work becomes easier to evaluate without expanding claims.","next_step":"Request a scoped project conversation."},
+    "content": {"visible":"Title, source-backed summary, produced role, deliverable as published video, source link, relevant service, contact.","optional_html":"No additional optional content beyond existing template behavior.","linked_depth":"Existing portfolio, matching service, and contact pages."},
+    "references": {"borrow":"Existing Esteban case-study component, YouTube facade, portfolio watch pages, and bilingual routing.","avoid":"Social-platform chrome, duplicate generic SEO pages, and unverified business outcomes."},
+    "components": {"reuse":"case-studies data model, CaseStudyPage, portfolio data, sitemap and language alternates.","local_reason":"This is data/content expansion within an established brand-specific case-study surface."},
+    "verification": {"rendered_states":"375x667, 390x844 and desktop for a YouTube case and an Instagram-source case; keyboard source/service links.","motion":"Existing YouTube facade only; reduced-motion preserves the poster and served text.","accessibility_performance":"Existing labelled links and poster-first behavior; no social script dependency.","raw_html":"Every EN/ES route exposes title, produced role, source and service link in initial HTML.","conversion_boundary":"Existing contact route remains available; no message is sent."},
+    "reviewers": {"craft":"Antigravity","behavior":"Claude and cto-qa-lead","outcome":"cto-product-lead at T+28"},
+    "learning": {"metric":"qualified project inquiry","baseline_source":"UNKNOWN: no dated, case-study-specific inquiry export is available","baseline_value":"UNKNOWN: no dated, case-study-specific inquiry export is available","target_kind":"funnel_step","target":"case-study service or contact action to qualified inquiry","hypothesis":"Clear, source-bounded examples help visitors decide whether their project resembles proven work.","observation_windows":["T+28"],"decision_rule":"retain pages if production behavior passes and attributable inquiry data becomes available; otherwise keep factual proof but do not assert outcome.","ledger_status":"planned","registration_condition":"record comparable production event availability before outcome grading"}
+  }
+}

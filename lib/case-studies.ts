@@ -11,6 +11,15 @@ export const CASE_STUDY_IDS = [
   "flas-concierge",
   "healthy-smile",
   "my-dler",
+  "gains-from-geebs",
+  "caro-sells-miami",
+  "dupont-realty-international",
+  "great-reviewer-website",
+  "gains-from-geebs-shorts",
+  "exatlon",
+  "juanchis-burguer",
+  "portosole",
+  "punto-de-giro",
 ] as const;
 
 export type CaseStudyId = (typeof CASE_STUDY_IDS)[number];
@@ -81,6 +90,214 @@ type CaseStudyPair = {
   en: Omit<CaseStudy, "id" | "locale" | "slug">;
   es: Omit<CaseStudy, "id" | "locale" | "slug">;
 };
+
+type PublicMediaCase = {
+  id: CaseStudyId;
+  client: string;
+  title: string;
+  titleEs: string;
+  summary: string;
+  summaryEs: string;
+  source: string;
+  sourceEs: string;
+  service: string;
+  serviceEs: string;
+  serviceHref: string;
+  serviceHrefEs: string;
+};
+
+type WebsiteCase = {
+  id: CaseStudyId;
+  client: string;
+  clientEs: string;
+  title: string;
+  titleEs: string;
+  summary: string;
+  summaryEs: string;
+  liveSite: string;
+  role: string;
+  roleEs: string;
+  deliverables: string;
+  deliverablesEs: string;
+  facts: readonly CaseStudyMetaField[];
+  factsEs: readonly CaseStudyMetaField[];
+  capabilities: readonly string[];
+  capabilitiesEs: readonly string[];
+};
+
+function websiteCasePair(item: WebsiteCase): CaseStudyPair {
+  const portfolioItem = getPortfolioItemById(item.id);
+  const poster = portfolioItem?.media.kind === "image" ? portfolioItem.media.src : "";
+  const sourceBoundary = `The live website at ${item.liveSite} is the public source for this case. It confirms a currently reachable product surface and the visitor-facing capabilities named below. It does not, by itself, prove traffic, leads, revenue, rankings, citations, conversion rate, or a customer outcome.`;
+  const sourceBoundaryEs = `El sitio activo ${item.liveSite} es la fuente pública de este caso. Confirma una superficie de producto actualmente accesible y las capacidades para visitantes que se nombran abajo. Por sí solo no prueba tráfico, prospectos, ingresos, posiciones, citas, tasa de conversión ni un resultado comercial.`;
+  const answer = `In 2026, ${item.summary} The live site at ${item.liveSite} confirms a public website with the visitor-facing capabilities named on this page. A person can inspect the information hierarchy, choose a relevant path, and continue through the site's available contact or inquiry route. Esteban Moreno Media records the delivered website system and ${item.role.toLowerCase()}, not a forecast of business performance. The public source does not establish traffic, leads, revenue, search positions, AI citations, conversion rate, or customer outcome. This case therefore separates the visible product from later measurement: it is a concrete reference for discussing a comparable website, while any new project needs its own facts, owner, contact handoff, and dated success measure.`;
+  const answerEs = `En 2026, ${item.summaryEs} El sitio activo ${item.liveSite} confirma un sitio web público con las capacidades para visitantes nombradas en esta página. Una persona puede revisar la jerarquía de información, elegir una ruta relevante y continuar por el contacto o la consulta disponible. Esteban Moreno Media documenta el sistema web entregado y ${item.roleEs.toLowerCase()}, no una predicción del desempeño comercial. La fuente pública no establece tráfico, prospectos, ingresos, posiciones de búsqueda, citas de IA, tasa de conversión ni resultado para clientes. Por eso este caso separa el producto visible de la medición posterior: es una referencia concreta para hablar de un sitio comparable, mientras que cada proyecto nuevo necesita sus propios hechos, responsable, entrega de consultas y medida de éxito con fecha.`;
+  return {
+    id: item.id,
+    en: {
+      title: item.title,
+      metadataTitle: `${item.client} Website Case Study | Esteban Moreno Media`,
+      client: item.client,
+      summary: item.summary,
+      eyebrow: "Website Design & Information System",
+      role: item.role,
+      year: 2026,
+      deliverables: item.deliverables,
+      answer: { question: `What is confirmed about the ${item.client} website?`, text: answer },
+      mediaUrl: item.liveSite,
+      posterUrl: poster,
+      websiteUrl: item.liveSite,
+      serviceLink: { href: "/services/website-design-fort-lauderdale", label: "Website Design & AI Chatbots Service", description: "Explore a scoped website and customer-inquiry system for a South Florida business." },
+      contactLink: { href: "/contact", label: "Discuss a Website Project" },
+      portfolioLink: { href: `/portfolio/${item.id}`, label: "View the Website Project" },
+      keyFacts: item.facts,
+      scopingQuestions: ["Who needs to recognize themselves in the first screen?", "What information must a visitor find before they contact the business?", "Which current data, listings, articles, or tools need a reliable owner and update path?", "What must happen after a visitor asks a question?", "Which business outcome will be measured after release?"],
+      sections: [
+        { heading: "What was built", paragraphs: [`${item.summary} The work is presented as a live website example, not as a generic web-design mockup. Its public surface gives a prospective client a way to inspect the tone, information hierarchy and next-step choices in a real context. ${sourceBoundary}`, `The role for this case is ${item.role.toLowerCase()}. The deliverable is ${item.deliverables.toLowerCase()}. That description is intentionally narrower than an outcome claim: it says what a visitor can see and use today, while leaving commercial performance to a separate dated measurement.`], bullets: item.capabilities },
+        { heading: "Information and visitor path", paragraphs: ["A useful website does not ask a visitor to decode an internal process before finding the point of the page. The first screen must say what the business offers and what a person can do next. From there, the site should let a visitor go deeper only when it is relevant: compare an option, inspect a category, understand a service or start a direct conversation.", "That is the pattern documented in this example. The public path is evidence of a designed interface and content system, not evidence that every visitor completes the next step. Any future project needs its own visitor, offer, content source, data owner and contact handoff before it can be judged against this work."] },
+        { heading: "What can be verified now", paragraphs: [`The current public page is reachable at ${item.liveSite}. The facts listed on this page stay limited to what was observed on that live surface and to the delivered website system. They are sufficient to show the shape of the work: a named site, a readable journey and a direct way to continue.`, "This page deliberately does not import dashboard numbers, client testimonials, search performance or commercial claims without a dated source. A live page and a live interaction are stronger evidence than an old presentation, but they are still not a business result. Keeping that distinction visible makes this case study useful for an honest project conversation."] },
+        { heading: "How a comparable website starts", paragraphs: ["A comparable project begins by naming the visitor and the decision they need to make. Then the business confirms the facts, images, listings, products, articles or service details that belong on the page, who updates them and where an inquiry should go. The visual direction follows the business identity instead of copying this project's look.", "Before launch, the important checks are mobile reading, visible actions, keyboard access, raw HTML for the facts that must be crawlable, and the real boundary behind a contact or application action. After launch, a dated measurement plan can determine whether the site creates qualified inquiries. That later measurement is not substituted with a design claim here."] },
+        { heading: "What remains unmeasured", paragraphs: ["This case does not claim that the website caused a ranking change, an AI citation, a lead, a booking, a sale or a revenue result. Those are separate outcomes and require their own source, date, denominator and comparison window. A visitor can inspect the public work now; the performance question remains open until it is measured.", "For a new project, that boundary is practical rather than defensive. It keeps the conversation on the system that needs to be built, the information that needs to stay accurate and the measurable next action. Esteban can then scope the website around the actual business workflow instead of promising that one existing example guarantees an identical result."] }
+      ]
+    },
+    es: {
+      title: item.titleEs,
+      metadataTitle: `Caso web: ${item.clientEs} | Esteban Moreno Media`,
+      client: item.clientEs,
+      summary: item.summaryEs,
+      eyebrow: "Diseño web y sistema de información",
+      role: item.roleEs,
+      year: 2026,
+      deliverables: item.deliverablesEs,
+      answer: { question: `¿Qué se confirma del sitio de ${item.clientEs}?`, text: answerEs },
+      mediaUrl: item.liveSite,
+      posterUrl: poster,
+      websiteUrl: item.liveSite,
+      serviceLink: { href: "/es/diseno-web-fort-lauderdale", label: "Servicio de diseño web y chatbots con IA", description: "Conoce un sitio web y sistema de consultas definido para un negocio del sur de Florida." },
+      contactLink: { href: "/es/contacto", label: "Hablar de un proyecto web" },
+      portfolioLink: { href: `/es/portafolio/${item.id}`, label: "Ver el proyecto web" },
+      keyFacts: item.factsEs,
+      scopingQuestions: ["¿Quién debe reconocerse en la primera pantalla?", "¿Qué información necesita encontrar una persona antes de contactar al negocio?", "¿Qué datos, anuncios, artículos o herramientas necesitan una fuente y una actualización clara?", "¿Qué debe pasar después de que una persona haga una consulta?", "¿Qué resultado de negocio se medirá después de publicar?"],
+      sections: [
+        { heading: "Qué se construyó", paragraphs: [`${item.summaryEs} El trabajo se presenta como un ejemplo de sitio web activo, no como un mockup genérico. Su superficie pública permite revisar tono, jerarquía de información y opciones para continuar en un contexto real. ${sourceBoundaryEs}`, `El rol de este caso es ${item.roleEs.toLowerCase()}. El entregable es ${item.deliverablesEs.toLowerCase()}. Esa descripción es más limitada que una afirmación de resultado: dice qué se puede ver y usar hoy, y deja el desempeño comercial para una medición fechada aparte.`], bullets: item.capabilitiesEs },
+        { heading: "Información y camino de la persona", paragraphs: ["Un sitio útil no obliga a descifrar un proceso interno antes de encontrar el punto de la página. La primera pantalla debe decir qué ofrece el negocio y qué puede hacer una persona después. Desde ahí, el sitio permite profundizar cuando importa: comparar una opción, explorar una categoría, entender un servicio o empezar una conversación directa.", "Ese es el patrón documentado en este ejemplo. La ruta pública prueba una interfaz y un sistema de contenido diseñados, no que cada visitante complete el siguiente paso. Todo proyecto nuevo necesita su propia audiencia, oferta, fuente de contenido, responsable de datos y entrega de consultas antes de compararse con este trabajo."] },
+        { heading: "Qué se puede verificar hoy", paragraphs: [`La página pública actual está disponible en ${item.liveSite}. Los hechos de esta página se limitan a lo observado en esa superficie activa y al sistema web entregado. Alcanzan para mostrar la forma del trabajo: un sitio nombrado, un recorrido legible y una forma directa de continuar.`, "Esta página no importa cifras de analítica, testimonios, desempeño de búsqueda ni afirmaciones comerciales sin una fuente fechada. Una página y una interacción activas son mejor evidencia que una presentación vieja, pero todavía no son un resultado de negocio. Mantener esa diferencia visible hace que este caso sirva para una conversación honesta."] },
+        { heading: "Cómo empieza un sitio comparable", paragraphs: ["Un proyecto comparable empieza por nombrar a la persona visitante y la decisión que necesita tomar. Luego el negocio confirma los hechos, imágenes, anuncios, productos, artículos o detalles de servicio que van en la página, quién los actualiza y adónde llega una consulta. La dirección visual sigue la identidad del negocio, sin copiar la apariencia de este proyecto.", "Antes de publicar, las comprobaciones importantes son lectura en celular, acciones visibles, acceso por teclado, HTML inicial para los hechos que deben ser rastreables y el límite real detrás de una consulta o aplicación. Después de publicar, un plan con fecha puede determinar si el sitio crea consultas calificadas. Esta página no sustituye esa medición con una afirmación de diseño."] },
+        { heading: "Qué sigue sin medirse", paragraphs: ["Este caso no afirma que el sitio haya causado una posición, una cita de IA, un prospecto, una reserva, una venta ni un ingreso. Son resultados separados y requieren su propia fuente, fecha, denominador y ventana de comparación. Una persona puede revisar el trabajo público ahora; la pregunta de desempeño queda abierta hasta que se mida.", "Para un proyecto nuevo, ese límite es práctico. Mantiene la conversación en el sistema que hay que construir, la información que debe mantenerse correcta y la siguiente acción que se puede medir. Esteban puede entonces definir el sitio alrededor del flujo real del negocio, sin prometer que un ejemplo existente garantice un resultado idéntico."] }
+      ]
+    }
+  };
+}
+
+function publicMediaCasePair(item: PublicMediaCase): CaseStudyPair {
+  const media = getPortfolioItemById(item.id)?.media as { url: string; poster: string } | undefined;
+  const common = `The published source is ${item.source}. It identifies this work as ${item.summary.toLowerCase()} Esteban Moreno Media presents the project as a public example of produced video, and this page keeps that boundary intact. A visitor can inspect the published work, its framing, pacing, and the visible creative choices before deciding whether the reference is relevant to a new brief. The available source does not establish a customer result, price, campaign reach, number of deliverables, timeline, audience response, or a role more specific than producing the video. This case study therefore records the public source and the limited confirmed role. A comparable project still needs its own viewer, platform, source material, deliverables, review process, and written measurement plan before anyone can judge its outcome.`;
+  const commonEs = `La fuente publicada es ${item.sourceEs}. Identifica este trabajo como ${item.summaryEs.toLowerCase()} Esteban Moreno Media presenta el proyecto como un ejemplo público de video producido y esta página conserva ese límite. Una persona puede revisar el trabajo publicado, su encuadre, ritmo y decisiones creativas visibles antes de decidir si la referencia sirve para un nuevo pedido. La fuente disponible no establece resultado del cliente, precio, alcance de campaña, número de entregables, cronograma, respuesta de audiencia ni un rol más específico que producir el video. Por eso este caso registra la fuente pública y el rol confirmado limitado. Un proyecto comparable todavía necesita su propia audiencia, plataforma, material, entregables, revisión y plan de medición por escrito antes de juzgar su resultado.`;
+  return {
+    id: item.id,
+    en: {
+      title: item.title,
+      metadataTitle: `${item.title} Case Study | Esteban Moreno Media`,
+      client: item.client,
+      summary: item.summary,
+      eyebrow: "Published media project",
+      role: "Produced video",
+      deliverables: "Published video work shown through its original public source",
+      answer: { question: `What is confirmed about ${item.client}?`, text: common },
+      mediaUrl: media?.url ?? "",
+      posterUrl: media?.poster ?? "",
+      serviceLink: { href: item.serviceHref, label: item.service, description: "See the existing service page for a scoped project conversation." },
+      contactLink: { href: "/contact", label: "Discuss a Video Project" },
+      portfolioLink: { href: `/portfolio/${item.id}`, label: "View the Published Project" },
+      keyFacts: [
+        { label: "Confirmed role", value: "Produced video" },
+        { label: "Evidence", value: item.source },
+        { label: "Project record", value: "Publicly published source and portfolio page" },
+        { label: "Not claimed", value: "Performance, sales, views, price, or unconfirmed scope" },
+        { label: "Next step", value: "Review the matching service for a project-specific scope" },
+      ],
+      scopingQuestions: ["What video needs to be produced?", "Where will it be published?", "What public work can be used as the reference?"],
+      sections: [
+        { heading: "What the public record confirms", paragraphs: [common, "The linked portfolio page keeps the original source available so a visitor can inspect the published work directly. The case study does not turn a social post or video title into a result claim. It records the identity of the example, the public source, and the limited role confirmed for this site: produced video. That is enough to make the example useful without filling gaps with assumptions."] },
+        { heading: "How to read this example", paragraphs: ["A finished public video can help a prospective client judge tone, pacing, framing, and whether the type of work resembles their own need. It cannot by itself show the whole brief, production schedule, revision process, budget, audience response, or commercial result. Those details are decided for each project. This page therefore links the visible work to the existing service that explains how a new request is scoped.", "The source remains the reference point. If a visitor needs something similar, the useful next conversation is about their footage, intended platform, message, deliverables, and approval process—not a promise that a new project will reproduce an unknown outcome."] },
+        { heading: "A source-bounded case study", paragraphs: ["This case study is deliberately narrower than a retrospective written from private project files. It uses the material a visitor can verify: the published title or caption, the named public account or channel, and the work itself. No testimonial, analytics figure, customer quote, or business metric has been added. That makes the page a durable reference rather than an advertisement built from unsupported detail.", "The portfolio and case-study pages serve different jobs. The portfolio is the direct visual record; this page gives the record context, states what is and is not known, and provides an appropriate next step for a new inquiry."] },
+        { heading: "Starting a comparable project", paragraphs: ["A comparable project starts by naming the intended viewer, the final platform, the source material available, and the deliverables needed. The matching service page explains the current offer; a project conversation determines the actual scope. Esteban can then confirm what is included before work begins.", "The safest way to use this example is as creative reference, not as a forecast. Bring a link to the part of the work that is relevant and describe what must be different for your own audience, brand, or publishing plan."] },
+        { heading: "What remains project-specific", paragraphs: ["Every published example leaves important decisions open. A new project may need a different length, aspect ratio, source footage, location, review process, rights arrangement, accessibility treatment, or publishing plan. Those choices should be documented in the request instead of inferred from a public post. The work shown here provides a concrete starting point for a creative discussion, while the actual agreement defines what will be made and what will be delivered.", "This distinction also protects the person evaluating the work. A restaurant, creator, fitness business, or documentary team should be able to recognize relevant craft without being told that its audience, assets, or commercial situation is the same as someone else’s. The public source is evidence of one completed example. It is not a template for price, timing, or outcome. Clear inputs and a written scope are the way to make a new project comparable in the ways that matter."] },
+      ],
+    },
+    es: {
+      title: item.titleEs,
+      metadataTitle: `Caso: ${item.titleEs} | Esteban Moreno Media`,
+      client: item.client,
+      summary: item.summaryEs,
+      eyebrow: "Proyecto de medios publicado",
+      role: "Video producido",
+      deliverables: "Trabajo de video publicado y mostrado desde su fuente pública original",
+      answer: { question: `¿Qué se confirma sobre ${item.client}?`, text: commonEs },
+      mediaUrl: media?.url ?? "",
+      posterUrl: media?.poster ?? "",
+      serviceLink: { href: item.serviceHrefEs, label: item.serviceEs, description: "Consulta el servicio existente para hablar de un alcance específico." },
+      contactLink: { href: "/es/contacto", label: "Hablar de un proyecto de video" },
+      portfolioLink: { href: `/es/portafolio/${item.id}`, label: "Ver el proyecto publicado" },
+      keyFacts: [{ label: "Rol confirmado", value: "Video producido" }, { label: "Evidencia", value: item.sourceEs }, { label: "Registro", value: "Fuente pública y página de portafolio" }, { label: "No se afirma", value: "Rendimiento, ventas, vistas, precio o alcance no confirmado" }, { label: "Siguiente paso", value: "Revisar el servicio correspondiente" }],
+      scopingQuestions: ["¿Qué video necesitas producir?", "¿Dónde se publicará?", "¿Qué trabajo público sirve como referencia?"],
+      sections: [
+        { heading: "Lo que confirma el registro público", paragraphs: [commonEs, "La página de portafolio enlazada mantiene disponible la fuente original para que la persona vea el trabajo publicado directamente. Este caso no convierte un post o un título en una afirmación de resultados. Registra la identidad del ejemplo, la fuente pública y el rol limitado confirmado para este sitio: video producido."] },
+        { heading: "Cómo leer este ejemplo", paragraphs: ["Un video público terminado permite evaluar tono, ritmo, encuadre y si el tipo de trabajo se parece a la necesidad propia. No demuestra por sí solo el brief completo, calendario, revisiones, presupuesto, respuesta de audiencia ni resultado comercial. Esos detalles se definen en cada proyecto. Por eso esta página enlaza al servicio existente que explica cómo se cotiza un nuevo trabajo.", "La fuente sigue siendo el punto de referencia. Si necesitas algo parecido, la conversación útil es sobre tu material, plataforma, mensaje, entregables y proceso de aprobación, no una promesa de repetir un resultado desconocido."] },
+        { heading: "Un caso limitado a su fuente", paragraphs: ["Este caso es más limitado que una retrospectiva escrita con archivos privados del proyecto. Usa lo que cualquier visitante puede verificar: título o texto publicado, cuenta o canal público nombrado y el trabajo mismo. No agrega testimonios, analítica, citas de clientes ni métricas comerciales. Así funciona como referencia duradera sin inventar detalles.", "El portafolio es el registro visual directo; este caso aporta contexto, explica qué se sabe y qué no, y deja una siguiente acción adecuada para una consulta nueva."] },
+        { heading: "Empezar un proyecto comparable", paragraphs: ["Un proyecto comparable comienza definiendo audiencia, plataforma final, material disponible y entregables. El servicio correspondiente explica la oferta actual; la conversación define el alcance real. Esteban puede confirmar lo incluido antes de empezar.", "Usa este ejemplo como referencia creativa, no como pronóstico. Comparte el enlace o momento relevante y explica qué debe cambiar para tu marca, audiencia o plan de publicación."] },
+        { heading: "Lo que sigue siendo específico de cada proyecto", paragraphs: ["Cada ejemplo público deja decisiones importantes abiertas. Un proyecto nuevo puede necesitar otra duración, proporción, material, locación, proceso de revisión, acuerdo de derechos, tratamiento de accesibilidad o plan de publicación. Esas decisiones se documentan en la solicitud, no se infieren de una publicación pública. El trabajo mostrado sirve como punto de partida concreto para una conversación creativa; el acuerdo real define qué se hará y qué se entregará.", "Esta diferencia también protege a quien evalúa el trabajo. Un restaurante, creador, negocio fitness o equipo documental puede reconocer una ejecución relevante sin que se le diga que su audiencia, activos o situación comercial son iguales a los de otra persona. La fuente pública prueba un ejemplo terminado. No es una plantilla de precio, tiempo ni resultado. Los insumos claros y un alcance por escrito hacen comparable un proyecto nuevo en lo que sí importa."] },
+      ],
+    },
+  };
+}
+
+const publicMediaCasePairs: readonly CaseStudyPair[] = [
+  publicMediaCasePair({ id: "gains-from-geebs-shorts", client: "Gains From Geebs", title: "Gains From Geebs Short-Form Videos", titleEs: "Videos cortos de Gains From Geebs", summary: "Two short-form videos publicly published by Kris Oddo | Geebs Method.", summaryEs: "Dos videos cortos publicados públicamente por Kris Oddo | Geebs Method.", source: "Kris Oddo | Geebs Method YouTube channel", sourceEs: "canal de YouTube Kris Oddo | Geebs Method", service: "Short-Form Video Editing", serviceEs: "Edición de video corto", serviceHref: "/services/short-form-video-editor-miami", serviceHrefEs: "/es/editor-de-video-corto-miami" }),
+  publicMediaCasePair({ id: "exatlon", client: "Exatlón", title: "Exatlón Intro Video", titleEs: "Video de introducción de Exatlón", summary: "An Exatlón intro video publicly published by Esteban Moreno Media.", summaryEs: "Un video de introducción de Exatlón publicado públicamente por Esteban Moreno Media.", source: "Esteban Moreno Media Instagram post", sourceEs: "publicación de Instagram de Esteban Moreno Media", service: "Fitness Trainer Video Production", serviceEs: "Producción de video para entrenadores fitness", serviceHref: "/services/fitness-trainer-video-production-miami", serviceHrefEs: "/es/produccion-de-video-para-entrenadores-fitness-miami" }),
+  publicMediaCasePair({ id: "juanchis-burguer", client: "Juanchis Burguer", title: "Juanchis Burguer Social Media Campaign", titleEs: "Campaña de redes sociales de Juanchis Burguer", summary: "A social media campaign with Juanchis Burguer, Miami, publicly published by Esteban Moreno Media.", summaryEs: "Una campaña de redes sociales con Juanchis Burguer, Miami, publicada públicamente por Esteban Moreno Media.", source: "Esteban Moreno Media Instagram post", sourceEs: "publicación de Instagram de Esteban Moreno Media", service: "Restaurant Promo Video Editing", serviceEs: "Edición de video promocional para restaurantes", serviceHref: "/services/restaurant-promo-video-editing-miami", serviceHrefEs: "/es/edicion-de-video-promocional-para-restaurantes-miami" }),
+  publicMediaCasePair({ id: "portosole", client: "Portosole", title: "Portosole Social Media Campaign", titleEs: "Campaña de redes sociales de Portosole", summary: "A social media campaign with Portosole, Miami, publicly published by Esteban Moreno Media.", summaryEs: "Una campaña de redes sociales con Portosole, Miami, publicada públicamente por Esteban Moreno Media.", source: "Esteban Moreno Media Instagram post", sourceEs: "publicación de Instagram de Esteban Moreno Media", service: "Restaurant Promo Video Editing", serviceEs: "Edición de video promocional para restaurantes", serviceHref: "/services/restaurant-promo-video-editing-miami", serviceHrefEs: "/es/edicion-de-video-promocional-para-restaurantes-miami" }),
+  publicMediaCasePair({ id: "punto-de-giro", client: "Punto de Giro", title: "Punto de Giro Documentary", titleEs: "Documental Punto de Giro", summary: "The public Punto de Giro documentary trailer and behind-the-scenes video on Esteban Moreno López's YouTube channel.", summaryEs: "El tráiler y el video detrás de cámaras publicados públicamente del documental Punto de Giro en el canal de YouTube de Esteban Moreno López.", source: "Esteban Moreno López YouTube channel", sourceEs: "canal de YouTube de Esteban Moreno López", service: "Video Production", serviceEs: "Producción de video", serviceHref: "/services/video-production-fort-lauderdale", serviceHrefEs: "/es/produccion-de-video-fort-lauderdale" }),
+];
+
+const websiteCasePairs: readonly CaseStudyPair[] = [
+  websiteCasePair({
+    id: "gains-from-geebs", client: "Gains From Geebs", clientEs: "Gains From Geebs",
+    title: "Gains From Geebs: Current 1:1 Fitness Coaching Website", titleEs: "Gains From Geebs: Sitio actual de coaching fitness 1:1",
+    summary: "A current 1:1 online fitness coaching website for Kris Oddo, with a direct start path, method, packages, results and free learning resources.", summaryEs: "Sitio actual de coaching fitness online 1:1 de Kris Oddo, con una ruta directa para empezar, método, paquetes, resultados y recursos gratuitos.",
+    liveSite: "https://gainsfromgeebs.com/", role: "Website designer and information-systems integrator", roleEs: "Diseñador web e integrador de sistemas de información", deliverables: "Responsive coaching website, direct-start route, method and package discovery, results and learning-resource navigation", deliverablesEs: "Sitio de coaching responsivo, ruta directa para empezar, descubrimiento de método y paquetes, resultados y navegación de recursos",
+    facts: [{ label: "Business", value: "1:1 online fitness coaching by Kris Oddo" }, { label: "Visible path", value: "Start, method, packages, results and learning hub" }, { label: "Coaching flow", value: "Application begins from the public website" }, { label: "Website status", value: "Live public site" }, { label: "Not claimed", value: "Coaching, lead or revenue outcome" }],
+    factsEs: [{ label: "Negocio", value: "Coaching fitness online 1:1 de Kris Oddo" }, { label: "Ruta visible", value: "Empezar, método, paquetes, resultados y centro de aprendizaje" }, { label: "Flujo de coaching", value: "La aplicación empieza desde el sitio público" }, { label: "Estado del sitio", value: "Sitio público activo" }, { label: "No se afirma", value: "Resultado de coaching, prospectos o ingresos" }],
+    capabilities: ["A clear 1:1 coaching introduction with a direct start route", "Navigation for the method, packages, results and learning resources", "A public application path for prospective coaching clients"], capabilitiesEs: ["Introducción clara al coaching 1:1 con ruta directa para empezar", "Navegación de método, paquetes, resultados y recursos", "Ruta pública de aplicación para personas interesadas en coaching"]
+  }),
+  websiteCasePair({
+    id: "caro-sells-miami", client: "Caro Sells Miami", clientEs: "Caro Sells Miami",
+    title: "Caro Sells Miami: Bilingual Real-Estate Discovery Website", titleEs: "Caro Sells Miami: Sitio inmobiliario bilingüe para descubrir propiedades",
+    summary: "A bilingual real-estate website that guides Miami buyers through current listing links, building discovery, rental routes and direct contact with Carolina.", summaryEs: "Sitio inmobiliario bilingüe que guía a compradores de Miami hacia enlaces de anuncios actuales, edificios, alquileres y contacto directo con Carolina.",
+    liveSite: "https://carosellsmiami.com/", role: "Website designer and real-estate information-systems integrator", roleEs: "Diseñador web e integrador de sistemas de información inmobiliaria", deliverables: "Bilingual buyer journey, building-discovery system, live listing links and lead-capture experience", deliverablesEs: "Ruta bilingüe para compradores, sistema de descubrimiento de edificios, enlaces a anuncios actuales y experiencia de captura de consultas",
+    facts: [{ label: "Languages", value: "English and Spanish" }, { label: "Visible path", value: "Current listings, rentals, buildings and buyer guides" }, { label: "Building discovery", value: "Building pages and area directories" }, { label: "Contact", value: "Direct agent contact and web inquiry form" }, { label: "Not claimed", value: "Listing, lead or transaction outcome" }],
+    factsEs: [{ label: "Idiomas", value: "Inglés y español" }, { label: "Ruta visible", value: "Anuncios actuales, alquileres, edificios y guías" }, { label: "Descubrimiento de edificios", value: "Páginas de edificios y directorios de zonas" }, { label: "Contacto", value: "Contacto directo con la agente y formulario web" }, { label: "No se afirma", value: "Resultado de anuncio, prospecto o transacción" }],
+    capabilities: ["Bilingual buyer routes for sales, rentals and building research", "Links into current listing search with availability confirmed by the agent", "Direct WhatsApp and web-form contact paths"], capabilitiesEs: ["Rutas bilingües para compra, alquiler e investigación de edificios", "Enlaces a búsqueda de anuncios actuales con disponibilidad confirmada por la agente", "Contacto directo por WhatsApp y formulario web"]
+  }),
+  websiteCasePair({
+    id: "dupont-realty-international", client: "DuPont International Realty Florida", clientEs: "DuPont International Realty Florida",
+    title: "DuPont International Realty Florida: South Florida Broker Website", titleEs: "DuPont International Realty Florida: Sitio de corretaje inmobiliario del sur de Florida",
+    summary: "A real-estate broker website that gives buyers and sellers a direct starting point for Broward, Palm Beach and Miami-Dade guidance.", summaryEs: "Sitio de corretaje inmobiliario que ofrece a compradores y vendedores un punto de partida directo para Broward, Palm Beach y Miami-Dade.",
+    liveSite: "https://dupontrealtysouthflorida.com/", role: "Website designer and real-estate information architect", roleEs: "Diseñador web y arquitecto de información inmobiliaria", deliverables: "Broker website, buyer and seller guidance paths, market-area entry points and direct inquiry flow", deliverablesEs: "Sitio de corretaje, rutas de orientación para compradores y vendedores, entradas por mercado y flujo de consulta directo",
+    facts: [{ label: "Service area", value: "Broward, Palm Beach and Miami-Dade" }, { label: "Audience", value: "Buyers and sellers" }, { label: "Visible path", value: "Broker guidance and direct inquiry" }, { label: "Website status", value: "Live public site" }, { label: "Not claimed", value: "Lead, transaction or ranking outcome" }],
+    factsEs: [{ label: "Área de servicio", value: "Broward, Palm Beach y Miami-Dade" }, { label: "Audiencia", value: "Compradores y vendedores" }, { label: "Ruta visible", value: "Orientación de corretaje y consulta directa" }, { label: "Estado del sitio", value: "Sitio público activo" }, { label: "No se afirma", value: "Resultado de prospectos, transacciones o posiciones" }],
+    capabilities: ["Market-area entry points for three South Florida counties", "A buyer and seller information path", "Direct broker contact for a next real-estate conversation"], capabilitiesEs: ["Entradas por mercado para tres condados del sur de Florida", "Ruta de información para compradores y vendedores", "Contacto directo con la corredora para una siguiente conversación inmobiliaria"]
+  }),
+  websiteCasePair({
+    id: "great-reviewer-website", client: "The Great Reviewer", clientEs: "The Great Reviewer",
+    title: "The Great Reviewer: Product Review & Travel Guide Website", titleEs: "The Great Reviewer: Sitio de reseñas de productos y guías de viaje",
+    summary: "A product-review and travel-guide website that helps everyday shoppers compare options, read practical buying guidance and decide what is worth buying.", summaryEs: "Sitio de reseñas de productos y guías de viaje que ayuda a comparar opciones, leer orientación práctica y decidir qué vale la pena comprar.",
+    liveSite: "https://thegreatreviewer.com/", role: "Website designer and editorial-system architect", roleEs: "Diseñador web y arquitecto de sistema editorial", deliverables: "Product-review library, answer-first article templates, comparison paths and travel-guide content system", deliverablesEs: "Biblioteca de reseñas de productos, plantillas de artículos con respuesta directa, rutas de comparación y sistema de guías de viaje",
+    facts: [{ label: "Content type", value: "Product reviews and travel guides" }, { label: "Visible path", value: "Browse guides and evaluate a purchase" }, { label: "Information pattern", value: "Practical answers and comparison-oriented pages" }, { label: "Website status", value: "Live public site" }, { label: "Not claimed", value: "Affiliate, audience or revenue outcome" }],
+    factsEs: [{ label: "Tipo de contenido", value: "Reseñas de productos y guías de viaje" }, { label: "Ruta visible", value: "Explorar guías y evaluar una compra" }, { label: "Patrón de información", value: "Respuestas prácticas y páginas orientadas a comparar" }, { label: "Estado del sitio", value: "Sitio público activo" }, { label: "No se afirma", value: "Resultado de afiliados, audiencia o ingresos" }],
+    capabilities: ["A browsable product-review and travel-guide library", "Answer-first pages that help a shopper compare options", "Editorial paths from a question to a practical buying decision"], capabilitiesEs: ["Biblioteca navegable de reseñas de productos y guías de viaje", "Páginas con respuesta directa para comparar opciones", "Rutas editoriales desde una pregunta hasta una decisión práctica de compra"]
+  })
+];
 
 export const caseStudyPairs: readonly CaseStudyPair[] = [
   {
@@ -1073,6 +1290,8 @@ export const caseStudyPairs: readonly CaseStudyPair[] = [
       ],
     },
   },
+  ...websiteCasePairs,
+  ...publicMediaCasePairs,
 ];
 
 export function getCaseStudies(locale: CaseStudyLocale): CaseStudy[] {
@@ -1255,10 +1474,19 @@ export type CaseStudyDiscipline = "systems" | "production" | "design";
  */
 export const CASE_STUDY_DISCIPLINES: Record<CaseStudyId, CaseStudyDiscipline> = {
   "flas-concierge": "systems",
+  "gains-from-geebs": "systems",
+  "caro-sells-miami": "systems",
+  "dupont-realty-international": "systems",
+  "great-reviewer-website": "systems",
   banacol: "production",
   "healthy-smile": "production",
   homeowners: "production",
   "my-dler": "design",
+  "gains-from-geebs-shorts": "production",
+  exatlon: "production",
+  "juanchis-burguer": "production",
+  portosole: "production",
+  "punto-de-giro": "production",
 };
 
 export function getCaseStudyDiscipline(
@@ -1273,7 +1501,7 @@ export const caseStudiesIndexCopy = {
     path: "/case-studies",
     metadataTitle: "Case Studies: Web, AI Systems & Video Projects",
     description:
-      "Esteban Moreno Media case studies: a dealership website with an AI concierge, aerial drone filming, a dental clinic shoot, real estate editing and 3D motion.",
+      "Esteban Moreno Media case studies: current website systems, an AI concierge, product-review publishing, aerial drone filming, real-estate editing and 3D motion.",
     breadcrumbHome: "Home",
     breadcrumbCurrent: "Case Studies",
     breadcrumbLabel: "Breadcrumb",
@@ -1281,7 +1509,7 @@ export const caseStudiesIndexCopy = {
     title: "How each project was scoped, built, and delivered.",
     answerLabel: "Quick answer:",
     answer:
-      "Five published case studies covering web and AI systems, on-location and aerial production, remote post-production, and motion design — each with the confirmed role, deliverables, and scoping questions used on the project.",
+      "Published case studies covering current website systems, web and AI work, on-location and aerial production, remote post-production, and motion design — each with the confirmed role, deliverables, and scoping questions used on the project.",
     intro:
       "Every case study on this page describes work that was actually delivered. Roles are stated exactly as they were performed, and no client name, review, outcome, price, or turnaround appears here without the client's own published confirmation.",
     readLabel: "Read the case study",
@@ -1302,22 +1530,22 @@ export const caseStudiesIndexCopy = {
     },
     relatedEyebrow: "From proof to project",
     relatedTitle: "Which service and portfolio piece go with each case study?",
-    // Answer-first sections under the hero (loop row 68), facts from the five case studies.
+    // Answer-first sections under the hero; website-system cases stay source-bounded.
     answers: [
       {
         question: "What is in a case study on this site?",
         text:
-          "A case study here is a written breakdown of one delivered project, longer than the portfolio entry for the same video or site. Each one states the client, the role Esteban actually performed, the year and place where known, the deliverables, the problems that shaped the work, and the scoping questions a comparable project would start with. There are five: Fort Lauderdale Auto Sale (web and AI systems, 2026), Banacol (aerial footage in Colombia, 2021), Homeowners (remote real estate editing, 2021), Healthy Smile Miami (on-location filming, sound and edit, 2021) and My D'ler (3D motion and pitch visuals). Four of the five were done on assignment for an agency: Jungelbox, 300 Bees twice, and the agency behind My D'ler. Where the role was partial, the page says so.",
+          "A case study here is a written breakdown of one delivered project, longer than the portfolio entry for the same video or site. Each one states the client, the role Esteban actually performed, the year and place where known, the deliverables, the problems that shaped the work, and the scoping questions a comparable project would start with. The website cases include Fort Lauderdale Auto Sale, Gains From Geebs, Caro Sells Miami, DuPont International Realty Florida and The Great Reviewer. The production and design cases keep their own role boundaries, including past agency work. Where the role was partial, the page says so; where a site is live but its business result is not measured, the page says that too.",
       },
       {
         question: "Which case study is closest to your project?",
         text:
-          "Match the case to the material you already have. If you have clips from a phone or a camera and need them cut into a short promo, read Homeowners: it was edited entirely from supplied footage. If you need someone on site to film, record sound and edit, read Healthy Smile Miami, the only case where Esteban covered all three in one place. If the project is a website, a chatbot or lead intake, read Fort Lauderdale Auto Sale. If the product does not exist yet and you need 3D or animated visuals for a pitch, read My D'ler. Banacol shows aerial capture for an agency in Colombia, where the agency did the edit. Each case links to its portfolio video and to the related service page, so you can see the work and the scope side by side.",
+          "Match the case to the material you already have. If you have clips from a phone or a camera and need them cut into a short promo, read Homeowners: it was edited entirely from supplied footage. If you need someone on site to film, record sound and edit, read Healthy Smile Miami, the only case where Esteban covered all three in one place. If the project is a website, a chatbot or lead intake, compare the website-system cases: FLAS, Gains From Geebs, Caro Sells Miami, DuPont International Realty Florida and The Great Reviewer. If the product does not exist yet and you need 3D or animated visuals for a pitch, read My D'ler. Each case links to its portfolio project and related service page, so you can see the work and scope side by side.",
       },
       {
         question: "What do the case studies not claim?",
         text:
-          "They do not claim results the client has not published. No page here gives traffic, lead, sales, view or conversion figures, and no testimonial is quoted; the one client verification cited is the Google Business review that the management of Fort Lauderdale Auto Sale published. Roles are stated as performed: on Banacol the agency handled the edit, sound and script, and Esteban's part was aerial capture; on Homeowners there was no filming on his side. My D'ler was a concept and pitch package, so it has no post-launch user data. Prices and turnaround are not quoted on the case studies either, because each project is scoped from its own material; the current prices are on the pricing page.",
+          "They do not claim results the client has not published or measured in a dated source. No page here gives traffic, lead, sales, view or conversion figures as a result of the work, and no testimonial is quoted without its public source. Roles are stated as performed: on Banacol the agency handled the edit, sound and script, and Esteban's part was aerial capture; on Homeowners there was no filming on his side. The current website cases show implemented visitor paths, not rankings, leads or revenue. Prices and turnaround are not quoted on the case studies either, because each project is scoped from its own material; the current prices are on the pricing page.",
       },
     ],
     roleLabel: "Role",
@@ -1327,7 +1555,7 @@ export const caseStudiesIndexCopy = {
     path: "/es/casos-de-estudio",
     metadataTitle: "Casos de Estudio: Web, Sistemas con IA y Video",
     description:
-      "Casos de estudio de Esteban Moreno Media: sitio web con concierge de IA para un concesionario, dron, una clínica dental, edición inmobiliaria y animación 3D.",
+      "Casos de estudio de Esteban Moreno Media: sistemas web actuales, concierge con IA, publicación de reseñas de productos, dron, edición inmobiliaria y animación 3D.",
     breadcrumbHome: "Inicio",
     breadcrumbCurrent: "Casos de Estudio",
     breadcrumbLabel: "Migas de pan",
@@ -1335,7 +1563,7 @@ export const caseStudiesIndexCopy = {
     title: "Cómo se definió, se construyó y se entregó cada proyecto.",
     answerLabel: "Respuesta rápida:",
     answer:
-      "Cinco casos de estudio publicados sobre sistemas web con IA, producción en locación y aérea, postproducción remota y diseño de movimiento, cada uno con el rol confirmado, los entregables y las preguntas de definición usadas en el proyecto.",
+      "Casos de estudio publicados sobre sistemas web actuales, trabajo web con IA, producción en locación y aérea, postproducción remota y diseño de movimiento, cada uno con el rol confirmado, los entregables y las preguntas de definición usadas en el proyecto.",
     intro:
       "Cada caso de estudio de esta página describe trabajo realmente entregado. Los roles se declaran tal como se ejecutaron, y ningún nombre de cliente, reseña, resultado, precio o tiempo de entrega aparece aquí sin la confirmación pública del propio cliente.",
     readLabel: "Leer el caso de estudio",
@@ -1356,22 +1584,22 @@ export const caseStudiesIndexCopy = {
     },
     relatedEyebrow: "De la prueba al proyecto",
     relatedTitle: "¿Qué servicio y qué pieza del portafolio acompañan cada caso de estudio?",
-    // Answer-first sections under the hero (loop row 68), facts from the five case studies.
+    // Secciones de respuesta directa; los casos web siguen limitados a fuentes verificables.
     answers: [
       {
         question: "¿Qué incluye un caso de estudio en este sitio?",
         text:
-          "Un caso de estudio aquí es el desglose escrito de un proyecto entregado, más largo que la ficha del mismo video o sitio en el portafolio. Cada uno indica el cliente, el rol que Esteban realmente cumplió, el año y el lugar cuando se conocen, los entregables, los problemas que marcaron el trabajo y las preguntas de alcance con las que empezaría un proyecto parecido. Son cinco: Fort Lauderdale Auto Sale (web y sistemas con IA, 2026), Banacol (tomas aéreas en Colombia, 2021), Homeowners (edición inmobiliaria remota, 2021), Healthy Smile Miami (grabación, sonido y edición en locación, 2021) y My D'ler (animación 3D y visuales para una presentación). Cuatro de los cinco se hicieron por encargo de una agencia: Jungelbox, 300 Bees dos veces y la agencia detrás de My D'ler. Cuando el rol fue parcial, la página lo dice.",
+          "Un caso de estudio aquí es el desglose escrito de un proyecto entregado, más largo que la ficha del mismo video o sitio en el portafolio. Cada uno indica el cliente, el rol que Esteban realmente cumplió, el año y el lugar cuando se conocen, los entregables, los problemas que marcaron el trabajo y las preguntas de alcance con las que empezaría un proyecto parecido. Los casos web incluyen Fort Lauderdale Auto Sale, Gains From Geebs, Caro Sells Miami, DuPont International Realty Florida y The Great Reviewer. Los casos de producción y diseño conservan sus propios límites de rol, incluido el trabajo previo para agencias. Cuando el rol fue parcial, la página lo dice; cuando un sitio está activo pero no hay resultado comercial medido, también lo dice.",
       },
       {
         question: "¿Qué caso de estudio se parece más a tu proyecto?",
         text:
-          "Compara el caso con el material que ya tienes. Si tienes clips del celular o de una cámara y necesitas convertirlos en un video promocional corto, lee Homeowners: se editó por completo con material entregado. Si necesitas a alguien en el lugar para grabar, registrar el sonido y editar, lee Healthy Smile Miami, el único caso en el que Esteban cubrió las tres cosas en un mismo sitio. Si el proyecto es un sitio web, un chatbot o la captura de prospectos, lee Fort Lauderdale Auto Sale. Si el producto todavía no existe y necesitas visuales 3D o animados para una presentación, lee My D'ler. Banacol muestra captura aérea para una agencia en Colombia, donde la agencia hizo la edición. Cada caso enlaza a su video del portafolio y a la página del servicio relacionado, para ver el trabajo y el alcance juntos.",
+          "Compara el caso con el material que ya tienes. Si tienes clips del celular o de una cámara y necesitas convertirlos en un video promocional corto, lee Homeowners: se editó por completo con material entregado. Si necesitas a alguien en el lugar para grabar, registrar el sonido y editar, lee Healthy Smile Miami, el único caso en el que Esteban cubrió las tres cosas en un mismo sitio. Si el proyecto es un sitio web, un chatbot o la captura de prospectos, compara los casos de FLAS, Gains From Geebs, Caro Sells Miami, DuPont International Realty Florida y The Great Reviewer. Si el producto todavía no existe y necesitas visuales 3D o animados para una presentación, lee My D'ler. Cada caso enlaza a su proyecto de portafolio y a la página del servicio relacionado, para ver trabajo y alcance juntos.",
       },
       {
         question: "¿Qué no afirman los casos de estudio?",
         text:
-          "No afirman resultados que el cliente no haya publicado. Ninguna página aquí da cifras de tráfico, prospectos, ventas, vistas ni conversiones, y no se cita ningún testimonio; la única verificación del cliente es la reseña de Google Business que publicó la gerencia de Fort Lauderdale Auto Sale. Los roles se declaran tal como se cumplieron: en Banacol la agencia hizo la edición, el sonido y el guion, y la parte de Esteban fue la captura aérea; en Homeowners no hubo grabación de su lado. My D'ler fue un paquete conceptual de presentación, así que no tiene datos de usuarios después de un lanzamiento. Tampoco se publican precios ni plazos en los casos de estudio, porque cada proyecto se define con su propio material; los precios actuales están en la página de precios.",
+          "No afirman resultados que el cliente no haya publicado o medido en una fuente fechada. Ninguna página aquí da cifras de tráfico, prospectos, ventas, vistas ni conversiones como resultado del trabajo, y no se cita un testimonio sin fuente pública. Los roles se declaran tal como se cumplieron: en Banacol la agencia hizo la edición, el sonido y el guion, y la parte de Esteban fue la captura aérea; en Homeowners no hubo grabación de su lado. Los casos web actuales muestran recorridos implementados para visitantes, no posiciones, prospectos ni ingresos. Tampoco se publican precios ni plazos en los casos de estudio, porque cada proyecto se define con su propio material; los precios actuales están en la página de precios.",
       },
     ],
     roleLabel: "Rol",

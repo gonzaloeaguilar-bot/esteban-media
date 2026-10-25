@@ -1,0 +1,41 @@
+{
+  "schema": 3,
+  "project": "esteban-media",
+  "intent": "Review the current website case-study release before production merge.",
+  "phase": "review",
+  "visual_evidence": {
+    "scope": "local_repair",
+    "scope_reason": "The release adds evidence cards to the established Esteban portfolio without changing its shared visual system or introducing a new brand direction.",
+    "target": "candidate",
+    "owner_status": "owner_accepted_direction",
+    "capture_kind": "rendered",
+    "spec_sha256": "69fc790b773ee02a2640a479ee2ace48060789b7ba668f87552e4c6189c6e12e",
+    "taste_sha256": "6a00ee7b7a8c1c8b9d6a18bb9afecd461d11b7903777142c07c560696f948481",
+    "correction_excerpt": "No usar emojis salvo petición explícita de Gonzalo.",
+    "comparison": "The established Esteban case-study card and reading path compared with the new current Gains From Geebs website evidence card.",
+    "references": [],
+    "candidate_frames": [
+      {
+        "path": "../public/portfolio/gains-from-geebs-current-ui.png",
+        "moment": "opening",
+        "viewport": "desktop",
+        "sha256": "98b095e028921cc5e017a03ec51f79730bf2861cec73aa49797351d138290ebd"
+      }
+    ]
+  },
+  "brief": {
+    "visitor": "A prospective client checking whether Esteban has documented real, current web work before starting a conversation.",
+    "promise": "Each case identifies a live website and visible interface facts without presenting unmeasured business results as proof.",
+    "primary_action": "Open the case detail and continue to Esteban's relevant service or contact page.",
+    "friction": "The portfolio previously omitted four current web builds despite having public interfaces that can be verified directly.",
+    "kpi": {"outcome":"qualified project inquiry","event":"service or contact action from a case study","denominator":"case-study visitors","baseline":"UNKNOWN: no comparable case-study attribution read this session","evidence":"Current public interfaces were captured before the release.","readout":"T+28","decision_rule":"retain factual cases unless later measured inquiry data shows a quality regression."},
+    "concept": {"idea":"Add four compact website proof cards using actual public interface captures.","brand_reason":"The portfolio stays editorial and lets the verified work carry the evidence.","interaction":"Existing cards and case-study navigation remain the interaction model.","visible_response":"A visitor can see the current interface and open bilingual detail routes without animation-gated facts.","direct_path":"Existing service and contact routes.","alternatives":"No invented outcome claims, generic SEO pages, autoplay, or new brand treatment."},
+    "story": {"opening":"The portfolio shows the project name and its real current interface.","action":"The visitor opens a short bilingual case and can continue to the relevant service.","consequence":"The portfolio gives concrete evidence of current web delivery without claiming unverified results.","next_step":"Request a scoped project conversation."},
+    "content": {"visible":"Project title, current interface image, source-bounded website summary and existing next step.","optional_html":"Existing detail-page reading path only.","linked_depth":"Existing portfolio, service and contact routes."},
+    "references": {"borrow":"Existing Esteban portfolio card, case-study template and bilingual route behavior.","avoid":"Generic portfolio styling, external embeds and performance claims without source data."},
+    "components": {"reuse":"case-studies data model, portfolio cards, localization and sitemap machinery.","local_reason":"This is a bounded evidence update inside existing Esteban components."},
+    "verification": {"rendered_states":"Desktop candidate capture plus phone and desktop local route review.","motion":"No motion gates words or the current website screenshots.","accessibility_performance":"Existing semantic card and link behavior remains; screenshots are optimized static assets.","raw_html":"Initial HTML includes project facts and route content.","conversion_boundary":"Existing contact route remains available; no message is sent."},
+    "reviewers": {"craft":"Antigravity","behavior":"Claude and cto-qa-lead","outcome":"cto-product-lead at T+28"},
+    "learning": {"metric":"qualified project inquiry","baseline_source":"UNKNOWN: no dated case-study attribution export is available","baseline_value":"UNKNOWN: no dated case-study attribution export is available","target_kind":"funnel_step","target":"case-study service or contact action to qualified inquiry","hypothesis":"Current, source-bounded website examples help a visitor evaluate whether their project resembles documented work.","observation_windows":["T+28"],"decision_rule":"Keep factual proof after release verification; do not assert business effect until attributable data exists.","ledger_status":"planned","registration_condition":"Record comparable production event availability before outcome grading."}
+  }
+}
