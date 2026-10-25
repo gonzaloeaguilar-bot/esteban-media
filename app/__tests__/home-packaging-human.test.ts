@@ -143,6 +143,10 @@ for (const locale of ["en", "es"] as const) {
       const aiStart = path.indexOf('data-route="ai-agents"');
       const ai = path.slice(aiStart);
       expect(ai).toContain(locale === "es" ? "Chatbots con IA" : "AI chatbots");
+      expect(ai).toContain(locale === "es" ? "Desde $2,000 de configuración + cuota mensual" : "From $2,000 setup + monthly fee");
+      expect(ai).toContain(locale === "es" ? "Reporte semanal de dinero" : "Weekly money report");
+      expect(ai).toContain(locale === "es" ? "$2,400 de configuración + $297/mes" : "$2,400 setup + $297/mo");
+      expect(ai).toContain(locale === "es" ? "Tracker de operaciones" : "Operations tracker");
       expect(ai).toContain(locale === "es" ? "SEO y GEO" : "SEO and GEO");
       expect(ai).toContain(locale === "es" ? "Sitios web" : "Websites");
       expect(path).not.toContain(locale === "es" ? "Ver ejemplo de contenido" : "See a content example");

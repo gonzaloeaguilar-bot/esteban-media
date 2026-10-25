@@ -242,3 +242,6 @@ Production is live. This file tracks repository implementation; account/access w
 
 - [x] Add native muted inline autoplay to the existing homepage hero and retain the reduced-motion poster path. The combined local candidate passed lint, typecheck, 165 test files / 3,471 tests, analytics, build, text parity, rail adoption, raw HTML, and rendered playback checks.
 - [ ] Push the combined owner-media candidate, merge after green CI, and verify production homepage autoplay plus the new real-estate reel at desktop and 390px.
+## 2026-10-24 — AI-agent price clarity (local)
+
+- [ ] Add the reviewed AI-agent price disclosure to the homepage selector. Branch `feat/ai-agent-pricing-20261024` keeps the existing chatbot setup price separate and shows six fixed-price agent builds in a native details list. `pnpm test` passed (172 files / 3,521 tests), typecheck passed, lint had 0 errors, and analytics gate passed. Run the build under Node 22, inspect 375x600 / 390x844 / desktop, obtain independent review, then PR and production verification. See `docs/ai-agent-pricing-2026-10-24.md`.

@@ -22,6 +22,7 @@ import {
 import { HomePathFunnel } from "@/components/home-path-funnel";
 import { packagesCopy, packagesFor, priceFor, whatsappHref } from "@/lib/packages";
 import { aLaCarteVisual } from "@/lib/a-la-carte-visuals";
+import { AI_AGENT_ROUTE_OPTIONS, type AiAgentRouteOption } from "@/lib/ai-agent-offers";
 import { quoteCtaLabel } from "@/lib/quote-cta";
 import { site } from "@/lib/site";
 
@@ -202,16 +203,10 @@ const routeVisuals: Record<RouteId, string> = {
   "web-commerce": "/portfolio/gains-from-geebs.jpg",
 };
 
-const digitalRouteLinks: Record<Exclude<RouteId, "real-estate" | "editing" | "production" | "local-business">, Record<AudienceLocale, Array<{ title: string; detail: string }>>> = {
+const digitalRouteLinks: Record<Exclude<RouteId, "real-estate" | "editing" | "production" | "local-business">, Record<AudienceLocale, readonly AiAgentRouteOption[]>> = {
   "ai-agents": {
-    en: [
-      { title: "AI chatbots", detail: "Answer common questions and capture the right next step." },
-      { title: "AI agents and automation", detail: "Connect repetitive work into a useful, human-reviewed workflow." },
-    ],
-    es: [
-      { title: "Chatbots con IA", detail: "Responde preguntas comunes y captura el siguiente paso correcto." },
-      { title: "Agentes y automatización con IA", detail: "Conecta trabajo repetitivo en un flujo útil revisado por personas." },
-    ],
+    en: AI_AGENT_ROUTE_OPTIONS.en,
+    es: AI_AGENT_ROUTE_OPTIONS.es,
   },
   "seo-landing": {
     en: [
@@ -509,7 +504,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                   <Plus className="em-route-card__plus" size={22} aria-hidden="true" />
                 </summary>
                 <div className="em-route-card__body">
-                  {route.id in digitalRouteLinks && <><p className="em-route-card__label">{locale === "es" ? "Explora el servicio" : "Explore the service"}</p><ul className="em-digital-route-links" role="list" data-specialty={route.id}>{digitalRouteLinks[route.id as keyof typeof digitalRouteLinks][locale].map((item, index) => <li key={item.title} data-service-option={index}><button type="button" onClick={() => openFunnel(route.id, `${routeText.title}: ${item.title}`, c.singleQuoted)}><strong>{item.title}</strong><span>{item.detail}</span><ArrowRight size={16} aria-hidden="true" /></button></li>)}</ul></>}
+                  {route.id in digitalRouteLinks && <><p className="em-route-card__label">{locale === "es" ? "Explora el servicio" : "Explore the service"}</p><ul className="em-digital-route-links" role="list" data-specialty={route.id}>{digitalRouteLinks[route.id as keyof typeof digitalRouteLinks][locale].map((item, index) => <li key={item.title} data-service-option={index}><button type="button" onClick={() => openFunnel(route.id, `${routeText.title}: ${item.title}`, item.price ?? c.singleQuoted)}><strong>{item.title}</strong><span>{item.detail}</span>{item.price && <b className="em-digital-route-links__price">{item.price}</b>}<ArrowRight size={16} aria-hidden="true" /></button>{item.offers && <details className="em-digital-route-links__offers"><summary>{locale === "es" ? "Ver tipos de agentes y precios" : "See agent types and prices"}</summary><ul role="list">{item.offers.map((offer) => <li key={offer.title}><span>{offer.title}</span><strong>{offer.price}</strong></li>)}</ul></details>}</li>)}</ul></>}
                   {offers.length > 0 && <><p className="em-route-card__label">{locale === "es" ? "Paquetes" : "Packages"}</p>
                   <ul className="em-path-offers grid grid-cols-1 gap-2.5 sm:grid-cols-2" role="list" data-lane={route.id}>
                     {offers.map((offer) => (

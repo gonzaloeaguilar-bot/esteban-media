@@ -612,3 +612,8 @@ Configuration-gated conversion-observability implementation is present locally, 
 - Verification: focused review tests 11/11, `pnpm typecheck`, and `pnpm lint` (0 errors; 18 existing warnings). Local browser check at 390×844 confirms the feedback heading, rating, count, quote, and Google action fit with usable spacing. Next: open a scoped PR; after merge, verify public phone rendering and raw homepage text before calling it live.
 
 ---
+# 2026-10-24 — AI-agent price clarity (local)
+
+- Branch `feat/ai-agent-pricing-20261024` adds `lib/ai-agent-offers.ts` and exposes chatbot setup pricing plus six fixed-price agent builds in the existing bilingual homepage AI selector. The custom-agent list is a native `<details>` disclosure; the existing quote action and analytics hooks remain in place.
+- Checks: `pnpm test` passed 172 files / 3,521 tests; `pnpm typecheck` passed; `pnpm lint` finished with 0 errors and 22 pre-existing warnings; analytics gate passed (12 emit sites / 11 event names). `pnpm build` did not finish locally under Node v26.7.0; this repo requires Node >=20.9 and <23. Re-run under Node 22 before PR.
+- No PR, merge, deploy, rendered local browser check, or production verification. The required plan-phase Claude dispatch was blocked by the active burn gate; do not mark an independent review as complete.
