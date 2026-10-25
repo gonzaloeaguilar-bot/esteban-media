@@ -115,3 +115,56 @@ export const SEO_LANDING_ROUTE_OPTIONS: Record<AiAgentLocale, readonly AiAgentRo
     },
   ],
 };
+
+/**
+ * Website builds do not have an owner-approved public floor, so they must stay
+ * a custom quote. Ecommerce content has two distinct published starting points:
+ * a real product-photo session and an edit for a product or ad creative.
+ */
+export const WEB_ECOMMERCE_ROUTE_OPTIONS: Record<AiAgentLocale, readonly AiAgentRouteOption[]> = {
+  en: [
+    {
+      title: "Websites",
+      detail: "A clear home for the offer, proof and ways to get in touch.",
+      price: "Custom quote",
+      offers: [
+        { title: "A custom, mobile-first website for your offer" },
+        { title: "A clear contact path and the needed pages" },
+        { title: "English, Spanish, or both when scoped" },
+      ],
+    },
+    {
+      title: "Ecommerce content",
+      detail: "Product photos and video that help an online store show what it sells.",
+      price: `From ${usd(PRODUCT_PHOTO_SESSION.from)} / session`,
+      offers: [
+        { title: "Product photography session", price: `From ${usd(PRODUCT_PHOTO_SESSION.from)} / session` },
+        { title: "Product or ad-video edit", price: `${usd(PRICING_BANDS.ecommerce.baseMin)}–${usd(PRICING_BANDS.ecommerce.baseMax)}` },
+        { title: "Scope based on products, angles, setting, retouching and use" },
+      ],
+    },
+  ],
+  es: [
+    {
+      title: "Sitios web",
+      detail: "Un hogar claro para la oferta, prueba y formas de contactar.",
+      price: "Cotización personalizada",
+      offers: [
+        { title: "Un sitio web personalizado y pensado para celular" },
+        { title: "Un camino claro para contactar y las páginas necesarias" },
+        { title: "Inglés, español o ambos cuando se acuerde" },
+      ],
+    },
+    {
+      title: "Contenido para ecommerce",
+      detail: "Fotos y video de producto para que una tienda online muestre lo que vende.",
+      price: `Desde ${usd(PRODUCT_PHOTO_SESSION.from)} / sesión`,
+      offers: [
+        { title: "Sesión de fotografía de producto", price: `Desde ${usd(PRODUCT_PHOTO_SESSION.from)} / sesión` },
+        { title: "Edición de video de producto o anuncio", price: `${usd(PRICING_BANDS.ecommerce.baseMin)}–${usd(PRICING_BANDS.ecommerce.baseMax)}` },
+        { title: "Alcance según productos, ángulos, ambientación, retoque y uso" },
+      ],
+    },
+  ],
+};
+import { PRICING_BANDS, PRODUCT_PHOTO_SESSION, usd } from "@/lib/pricing";

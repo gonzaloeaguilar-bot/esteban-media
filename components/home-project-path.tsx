@@ -22,7 +22,7 @@ import {
 import { HomePathFunnel } from "@/components/home-path-funnel";
 import { packagesCopy, packagesFor, priceFor, whatsappHref } from "@/lib/packages";
 import { aLaCarteVisual } from "@/lib/a-la-carte-visuals";
-import { AI_AGENT_ROUTE_OPTIONS, SEO_LANDING_ROUTE_OPTIONS, type AiAgentRouteOption } from "@/lib/ai-agent-offers";
+import { AI_AGENT_ROUTE_OPTIONS, SEO_LANDING_ROUTE_OPTIONS, WEB_ECOMMERCE_ROUTE_OPTIONS, type AiAgentRouteOption } from "@/lib/ai-agent-offers";
 import { quoteCtaLabel } from "@/lib/quote-cta";
 import { site } from "@/lib/site";
 
@@ -213,14 +213,8 @@ const digitalRouteLinks: Record<Exclude<RouteId, "real-estate" | "editing" | "pr
     es: SEO_LANDING_ROUTE_OPTIONS.es,
   },
   "web-commerce": {
-    en: [
-      { title: "Websites", detail: "A clear home for the offer, proof and ways to get in touch." },
-      { title: "Ecommerce content", detail: "Product video that helps an online store show what it sells." },
-    ],
-    es: [
-      { title: "Sitios web", detail: "Un hogar claro para la oferta, prueba y formas de contactar." },
-      { title: "Contenido para ecommerce", detail: "Video de producto que ayuda a una tienda online a mostrar lo que vende." },
-    ],
+    en: WEB_ECOMMERCE_ROUTE_OPTIONS.en,
+    es: WEB_ECOMMERCE_ROUTE_OPTIONS.es,
   },
 };
 

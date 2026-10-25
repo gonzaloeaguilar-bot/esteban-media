@@ -42,6 +42,7 @@
 # Esteban Moreno Media — Backlog
 
 - [ ] 2026-10-24: Open and verify the local AI/SEO/GEO pricing catalog branch. It now shows AI-agent types, SEO/GEO from $1,800, and focused landing pages from $1,500 with served-HTML inclusions. Run independent review and remote checks, then verify both language homepages and the quote action after deployment. Do not call it public until then.
+- [ ] 2026-10-24: Include the Website and ecommerce catalog in the same review and release: website remains a custom quote because no public floor is approved; ecommerce content starts with product photography at $280/session and shows product/ad-video editing at $400–$775. Verify EN/ES disclosure text and quote actions after release.
 
 - [ ] 2026-10-24: release and verify the narrow-phone homepage hero repair in PR #543. At 360px, the WhatsApp action and support line now stay inside the viewport; local visual evidence and gates are recorded in `.ai/handoff.md`. After the required remote checks and independent review, verify the canonical production homepage at 360px and 375px before closing.
 
