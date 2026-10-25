@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Languages, Layers, Mail } from "lucide-react";
 
 import { PageUpdated } from "@/components/page-updated";
+import { PublishedProjectProof } from "@/components/published-project-proof";
 import { Container } from "@/components/ui/container";
 import {
   buildCaseStudiesIndexStructuredData,
@@ -31,6 +32,24 @@ export function CaseStudiesIndexPage({ locale }: { locale: CaseStudyLocale }) {
   const portfolioPath = locale === "es" ? "/es/portafolio" : "/portfolio";
   const servicesPath = locale === "es" ? "/es/servicios" : "/services";
   const contactPath = locale === "es" ? "/es/contacto" : "/contact";
+  const publishedProof =
+    locale === "es"
+      ? {
+          href: "/es/portafolio/healthy-smile",
+          eyebrow: "Proyecto publicado",
+          title: "Healthy Smile",
+          description:
+            "Un proyecto con el rol, los entregables y el alcance documentados en este sitio.",
+          linkLabel: "Ver el proyecto",
+        }
+      : {
+          href: "/portfolio/healthy-smile",
+          eyebrow: "Published project",
+          title: "Healthy Smile",
+          description:
+            "A project with its role, deliverables, and scope documented on this site.",
+          linkLabel: "View the project",
+        };
 
   return (
     <main className="bg-[#f6f1ea] text-[#101214]">
@@ -58,6 +77,9 @@ export function CaseStudiesIndexPage({ locale }: { locale: CaseStudyLocale }) {
               <h1 className="mt-4 max-w-4xl font-serif em-display">
                 {copy.title}
               </h1>
+              <div className="mt-6 max-w-3xl">
+                <PublishedProjectProof proof={publishedProof} compact />
+              </div>
               <p className="mt-6 max-w-3xl text-lg leading-8 text-[#252a2d]">
                 <strong>{copy.answerLabel}</strong> {copy.answer}
               </p>
