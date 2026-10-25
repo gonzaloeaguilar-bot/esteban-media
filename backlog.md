@@ -180,6 +180,7 @@ Production is live. This file tracks repository implementation; account/access w
 
 ## P2 — Portfolio refinement
 
+- [ ] Obtain independent visual review for the homepage Reel device-frame candidate, then commit/PR and verify the released EN/ES work rail at 375x600, 390x844, and desktop.
 - [ ] Replace the 480×360 `La Huelga` poster with an approved 16:9 high-resolution source
 - [ ] Complete Esteban/native-speaker voice review of the Spanish portfolio copy
 - [x] Add dedicated bilingual watch pages for all eight approved public videos with localized metadata, visible verified facts, schema, internal links, and regular/video sitemap coverage

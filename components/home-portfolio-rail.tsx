@@ -156,25 +156,8 @@ export function HomePortfolioRail({
     typeof window !== "undefined" &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  const railItems: RailItem[] = items.map((item) => ({
-    kind: "media",
-    id: item.id,
-    href: item.href,
-    title: item.title,
-    // The category rides in the BODY, not over the picture. Every still in this
-    // rail is a website screenshot with headline type in it, so a badge laid on
-    // the photograph always covers a word: at the top it sat on "Inspected by a
-    // mechanic.", at the foot on "Backed by a warranty." There is no safe
-    // corner on a picture that is itself text.
-    meta: item.eyebrow,
-    metaPlacement: "block",
-    // The grid showed the location under the title; keep it there.
-    subtitle: item.location,
-    // `image` is required by the media shape, but the rail never renders it
-    // when `media` is present — next/image owns the box instead, so the
-    // homepage keeps its LCP optimisation, its srcset and its lazy loading.
-    image: { src: item.poster ?? "", alt: "" },
-    media: item.poster ? (
+  const railItems: RailItem[] = items.map((item) => {
+    const media = item.poster ? (
       <>
         {/* A slow warm sweep across the cover. Three passes, then it stops:
             an animation that never ends stops being a highlight and becomes
@@ -198,17 +181,11 @@ export function HomePortfolioRail({
         ) : null}
         {/* The grid this replaces opened each card link with a screen-reader
             -only verb, so the link announced "Watch <title>" rather than just
-            the title. Dropping it was a real loss — caught by diffing the
-            rendered text against production, which showed six "Watch"/"Ver"
-            missing per page. The figure is the first thing inside the card's
-            anchor, so putting it back here restores the exact same reading
-            order. `rail-sr-only` is the kit's own hidden-text class. */}
+            the title. The figure is the first thing inside the card's anchor,
+            so putting it here preserves that reading order. */}
         <span className="rail-sr-only">{isSpanish ? "Ver " : "Watch "}</span>
         <Image
           src={item.poster}
-          // Describes the still (a frame from the video), not the title that
-          // follows it. Empty before 2026-10-14, when the human audit counted
-          // 14 rail images with no alt text.
           alt={item.posterAlt ?? ""}
           fill
           // The card renders at min(380px, 78vw) on this rail — the lg width
@@ -229,8 +206,32 @@ export function HomePortfolioRail({
           <Play className="size-4 fill-current" aria-hidden="true" />
         </span>
       </>
-    ) : undefined,
-  }));
+    ) : undefined;
+
+    return {
+      kind: "media",
+      id: item.id,
+      href: item.href,
+      title: item.title,
+      // The category rides in the BODY, not over the picture. Every still in this
+      // rail is a website screenshot with headline type in it, so a badge laid on
+      // the photograph always covers a word: at the top it sat on "Inspected by a
+      // mechanic.", at the foot on "Backed by a warranty." There is no safe
+      // corner on a picture that is itself text.
+      meta: item.eyebrow,
+      metaPlacement: "block",
+      // The grid showed the location under the title; keep it there.
+      subtitle: item.location,
+      // `image` is required by the media shape, but the rail never renders it
+      // when `media` is present — next/image owns the box instead, so the
+      // homepage keeps its LCP optimisation, its srcset and its lazy loading.
+      image: { src: item.poster ?? "", alt: "" },
+      // Portrait Reels turn the complete card into the device. The rail's
+      // `data-em-reel` marker scopes that shell in CSS, while wide work keeps
+      // its existing contained poster treatment.
+      media,
+    };
+  });
 
   return (
     <div ref={wrapRef}>

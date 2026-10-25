@@ -611,4 +611,11 @@ Configuration-gated conversion-observability implementation is present locally, 
 - Commit `5aab9367` updates `data/google-reviews.json`, makes the compact home band lead with verified client feedback rather than “a perfect 5.0,” and keeps the 18-review count as supporting verification. The Google action is count-free: “See all reviews on Google.” Quotes remain verbatim and attributed.
 - Verification: focused review tests 11/11, `pnpm typecheck`, and `pnpm lint` (0 errors; 18 existing warnings). Local browser check at 390×844 confirms the feedback heading, rating, count, quote, and Google action fit with usable spacing. Next: open a scoped PR; after merge, verify public phone rendering and raw homepage text before calling it live.
 
+## 2026-10-24 — Homepage Reel device-frame candidate (local worktree)
+
+- `components/home-portfolio-rail.tsx` wraps only `isReel` media in `em-reel-device`; its existing image/video, card link, bilingual label, and player trigger remain inside the screen. Wide work does not receive the wrapper.
+- `app/globals.css` gives the Reel preview a dark 9:19 phone shell and speaker/island while preserving the existing wide-poster `object-fit: contain` rule. Focused regression coverage lives in `components/__tests__/portfolio-teaser.test.ts`.
+- Local verification: focused 3/3; full `pnpm test` 172 files / 3,522 tests; `pnpm typecheck`; `pnpm lint` (0 errors, 22 pre-existing warnings); analytics gate PASS. `next start` successfully served the generated build. Browser inspection: 375x600, 390x844, and 1440x900 have no horizontal overflow; each shows an unclipped phone frame and title, while a wide card reports `object-fit: contain`; reduced motion leaves the spotlight transform at `none`. Pointer activation opens the existing Reel dialog. No PR, merge, deploy, independent visual review, or production claim.
+- Next: independent visual review of the three captures, then commit/PR through the normal release path.
+
 ---
