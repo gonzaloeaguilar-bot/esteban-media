@@ -9,12 +9,12 @@ const cinema = readFileSync(join(process.cwd(), "app/cinema.css"), "utf8");
 describe("homepage How it works disclosure", () => {
   it("ships a scannable three-step process in both languages", () => {
     expect(hero).toContain('className="em-cine-caption__steps"');
-    expect(hero).toContain("Send your footage or idea");
-    expect(hero).toContain("Choose how to start");
-    expect(hero).toContain("Confirm the scope");
-    expect(hero).toContain("Comparte tu material o idea");
-    expect(hero).toContain("Elige cómo empezar");
-    expect(hero).toContain("Confirma el alcance");
+    expect(hero).toContain("Tell me what you need");
+    expect(hero).toContain("Choose your starting point");
+    expect(hero).toContain("Get a clear plan");
+    expect(hero).toContain("Cuéntame qué necesitas");
+    expect(hero).toContain("Elige tu punto de partida");
+    expect(hero).toContain("Recibe un plan claro");
   });
 
   it("uses numbered rows, not the old body paragraph and chip collection", () => {
@@ -23,6 +23,17 @@ describe("homepage How it works disclosure", () => {
     expect(hero).not.toContain("em-cine-caption__facts");
     expect(cinema).toContain(".em-cine-caption__steps li");
     expect(cinema).toContain(".em-cine-caption__step-number");
+  });
+
+  it("states confirmed shoot coverage and location-independent remote editing in both languages", () => {
+    expect(hero).toContain("I film across");
+    expect(hero).toContain("Miami-Dade, Broward, and West Palm Beach");
+    expect(hero).toContain("I can edit it remotely from anywhere.");
+    expect(hero).toContain("Grabo en");
+    expect(hero).toContain("Miami-Dade, Broward y West Palm Beach");
+    expect(hero).toContain("también puedo editarlo a distancia desde cualquier lugar.");
+    expect(hero).not.toContain("selected filming projects");
+    expect(hero).not.toContain("grabaciones seleccionadas");
   });
 
   it("keeps the mobile hero as one stable frame while the page scrolls", () => {
