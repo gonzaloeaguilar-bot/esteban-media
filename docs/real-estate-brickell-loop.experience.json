@@ -1,0 +1,22 @@
+{
+  "brief": {
+    "visitor": "A South Florida property professional deciding whether Esteban can make their listings look worth viewing.",
+    "purpose": "Replace the low-quality real-estate route still with a credible moving Brickell property scene.",
+    "desiredFeeling": "Cinematic, clear, and specific—not a generic dark service poster.",
+    "primaryAction": "Open the Real estate route.",
+    "scope": "Only the closed Real estate route card. Preserve the Content creator and subsequent cards unchanged.",
+    "acceptance": [
+      "Use the approved Pexels Brickell phone loop with a still poster fallback.",
+      "The route title and its one-sentence explanation stay unobstructed at 375x600 and 390x844.",
+      "The motion stops for reduced-motion users and does not gate text or the open control.",
+      "The fixed phone navigation cannot cover the card's text or control."
+    ]
+  },
+  "learning": {
+    "outcome": "A clearer real-estate route selection on the homepage.",
+    "baseline": "UNKNOWN; no route-selection denominator has been inspected in this task.",
+    "source": "Production iPhone captures supplied 2026-10-24.",
+    "hypothesis": "A high-quality, relevant moving Brickell scene will make the real-estate route as legible and credible as the approved Content creator route.",
+    "decisionWindow": "Visual verification before release; route-selection measurement after production deployment."
+  }
+}

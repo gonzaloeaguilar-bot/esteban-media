@@ -1,0 +1,90 @@
+{
+  "schema": 3,
+  "project": "esteban-media",
+  "intent": "Implement the scoped Real Estate route-card Brickell loop from the approved experience brief. Preserve every other route-card composition and behavior.",
+  "phase": "repair",
+  "visual_evidence": {
+    "scope": "local_repair",
+    "scope_reason": "Only the closed Real Estate route card is changing.",
+    "target": "direction",
+    "owner_status": "owner_accepted_direction",
+    "capture_kind": "storyboard",
+    "spec_sha256": "16b106eeb9d80130a519b74f65f934792e55fdcfbb7aefbe8ee12e56cd4a6bfd",
+    "taste_sha256": "6a00ee7b7a8c1c8b9d6a18bb9afecd461d11b7903777142c07c560696f948481",
+    "correction_excerpt": "Imágenes grandes, protagonistas y legibles, con recorte intencional.",
+    "comparison": "Preserve the approved Content Creator card and the later route cards unchanged.",
+    "references": [],
+    "candidate_frames": [{
+      "path": "evidence/brickell-loop-direction.jpg",
+      "moment": "opening",
+      "viewport": "short_phone",
+      "sha256": "1fb0754f1ee7de86066264d89f36184cea7c10efb345a3ff967fdc29423abb17"
+    }]
+  },
+  "brief": {
+    "visitor": "A South Florida property professional deciding whether Esteban can make their listings look worth viewing.",
+    "promise": "A real-estate route that immediately feels like elevated South Florida property video work.",
+    "primary_action": "Open the Real Estate route to see relevant plans and project options.",
+    "friction": "The existing low-quality still makes the real-estate route feel weaker than the owner-approved neighboring routes.",
+    "kpi": {
+      "outcome": "qualified inquiries",
+      "event": "qualified inquiry submission",
+      "denominator": "homepage visitors who reach the route chooser",
+      "baseline": "UNKNOWN: no comparable homepage route-selection denominator exists; establish one before outcome grading.",
+      "evidence": "No comparable route-selection denominator was inspected in this task.",
+      "readout": "T+7 and T+14 after production deployment",
+      "decision_rule": "Retain if visual QA is clean; assess qualified-inquiry evidence only against a comparable future denominator."
+    },
+    "concept": {
+      "idea": "A quiet looping Brickell aerial gives Real Estate its own credible property scene while leaving the written decision unobstructed.",
+      "brand_reason": "Esteban's homepage opens with cinematic camera language; a real South Florida aerial continues that mood better than an undersized still.",
+      "interaction": "The card keeps its existing native disclosure control; video is decorative and never required to read or act.",
+      "visible_response": "The aerial has restrained continuous motion; opening the card retains the current visible details behavior.",
+      "direct_path": "The existing plus control remains the obvious route-opening action.",
+      "alternatives": "Do not add badges, fake listing telemetry, or another overlay UI."
+    },
+    "story": {
+      "opening": "A clear Brickell property aerial establishes place.",
+      "action": "The visitor reads the Real Estate offer and opens the card.",
+      "consequence": "The existing plans and related options become visible in the same route.",
+      "next_step": "The visitor chooses the appropriate existing quote path."
+    },
+    "content": {
+      "visible": "Existing Real Estate eyebrow, title, explanation, and open control.",
+      "optional_html": "Existing native details content and plan disclosures.",
+      "linked_depth": "Existing real-estate service routes."
+    },
+    "references": {
+      "borrow": "Caro's verified 3.2-second vertical Brickell loop, with a poster fallback and reduced-motion respect.",
+      "avoid": "Do not copy Caro's visual brand, claims, or navigation; do not imply Esteban filmed a named building."
+    },
+    "components": {
+      "reuse": "Existing HomeProjectPath route-card, native details interaction, and application navigation behavior.",
+      "local_reason": "The media treatment is brand- and route-specific; it should not alter shared navigation or the other route cards."
+    },
+    "verification": {
+      "rendered_states": "Inspect closed and open card at 375x600, 390x844, and desktop; check neighboring cards remain unchanged.",
+      "motion": "Verify autoplay loop in normal motion and static poster under reduced motion.",
+      "accessibility_performance": "Keep the video muted, playsInline, decorative, and out of the accessibility tree; preserve the 44px open control.",
+      "raw_html": "Verify all existing title and choice text remains in initial HTML.",
+      "conversion_boundary": "Do not submit a lead; verify the existing quote action remains reachable."
+    },
+    "reviewers": {
+      "craft": "Antigravity rendered review",
+      "behavior": "cto-qa-lead",
+      "outcome": "cto-web-lead after comparable measurement window"
+    },
+    "learning": {
+      "metric": "qualified inquiry submissions",
+      "baseline_source": "UNKNOWN; establish a comparable homepage chooser denominator before outcome grading",
+      "baseline_value": "UNKNOWN: no comparable homepage route-selection denominator exists; establish one before outcome grading.",
+      "target_kind": "funnel_step",
+      "target": "homepage qualified inquiry submission",
+      "hypothesis": "A credible, readable property scene makes the real-estate route easier to trust and choose.",
+      "observation_windows": ["T+7", "T+14"],
+      "decision_rule": "Keep if the route passes visual and behavior review; do not claim business impact until a comparable measurement is available.",
+      "ledger_status": "planned",
+      "registration_condition": "Register the exact event and comparable denominator before interpreting outcome data."
+    }
+  }
+}
