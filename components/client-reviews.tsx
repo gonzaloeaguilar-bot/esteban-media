@@ -85,14 +85,14 @@ export function ClientReviews({ locale = "en", compact = false }: { locale?: "en
       <ReviewsBand
         locale={locale}
         eyebrow={t.eyebrow}
-        heading={locale === "es" ? "Reseñas verificadas en Google: 5.0 perfecto." : "Verified Google reviews: a perfect 5.0."}
+        heading={locale === "es" ? "Opiniones reales de clientes, verificadas en Google." : "Real client feedback, verified on Google."}
         rating={rating}
         reviewCount={reviewCount}
         quotes={rolling}
         action={
           locale === "es"
-            ? `Leer las ${reviewCount} en Google`
-            : `Read all ${reviewCount} on Google`
+            ? "Ver todas las reseñas en Google"
+            : "See all reviews on Google"
         }
         sourceUrl={reviewSourceUrl}
         posters={REELS_IN_DISPLAY_ORDER.map((reel) => reel.poster)}
@@ -118,7 +118,7 @@ export function ClientReviews({ locale = "en", compact = false }: { locale?: "en
           className="mt-2 max-w-2xl em-h2 text-[#101214]"
         >
           {compact
-            ? (locale === "es" ? "Reseñas verificadas en Google: 5.0 perfecto." : "Verified Google reviews: a perfect 5.0.")
+            ? (locale === "es" ? "Opiniones reales de clientes, verificadas en Google." : "Real client feedback, verified on Google.")
             : t.title}
         </h2>
         <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[#41474d] sm:text-base">

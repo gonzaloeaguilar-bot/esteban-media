@@ -38,11 +38,18 @@ describe("the reviews band ships on the homepage", () => {
     expect(source(page).split("<ClientReviews").length - 1).toBe(1);
   });
 
-  it("the band variant is the one carrying the owner's heading", () => {
+  it("the band variant carries the client-feedback heading", () => {
     // If someone renames the heading again, this fails here rather than
     // silently on the live page.
     const src = source("components/client-reviews.tsx");
-    expect(src).toContain("a perfect 5.0");
-    expect(src).toContain("5.0 perfecto");
+    expect(src).toContain("Real client feedback, verified on Google.");
+    expect(src).toContain("Opiniones reales de clientes, verificadas en Google.");
+  });
+
+  it("keeps the changing review count out of the action label", () => {
+    const src = source("components/client-reviews.tsx");
+    expect(src).toContain('"See all reviews on Google"');
+    expect(src).toContain('"Ver todas las reseñas en Google"');
+    expect(src).not.toContain("Read all ${reviewCount} reviews on Google");
   });
 });
