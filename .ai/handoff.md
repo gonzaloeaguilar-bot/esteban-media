@@ -622,3 +622,8 @@ Configuration-gated conversion-observability implementation is present locally, 
 - The SEO/GEO card no longer pairs a generic search field with a result panel. It presents a compact, dark ChatGPT-style app window: branded abstract mark, `ChatGPT`/`4o` header, a user question, assistant reply, and message composer.
 - The visual remains decorative (`aria-hidden`) and uses Esteban's red status accent rather than an off-brand green surface.
 - Checks: `pnpm vitest run app/__tests__/home-packaging-human.test.ts app/__tests__/no-off-brand-green.test.ts` (38 passing), `pnpm typecheck`, `pnpm lint`, and `git diff --check` passed. A build was started after capacity returned but did not complete during the command window; do not treat it as a build pass.
+# 2026-10-24 — SEO/GEO card uses the full ChatGPT workspace as its scene
+
+- Owner correction: the full card background must look like ChatGPT, not a card with a small ChatGPT window placed over a separate scenic background.
+- The SEO/GEO visual now uses the charcoal ChatGPT workspace across the full card: a dark left sidebar, full conversation surface, header, message pair and composer. The Esteban service copy remains on the left reading layer.
+- Checks: `pnpm vitest run app/__tests__/home-packaging-human.test.ts app/__tests__/no-off-brand-green.test.ts` passed 38/38; `pnpm typecheck`, `pnpm lint` (0 errors; 22 existing warnings), and `git diff --check` passed. Local Next dev did not serve within the five-second probe, so no phone visual pass is claimed yet.
