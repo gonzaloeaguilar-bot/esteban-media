@@ -614,6 +614,6 @@ Configuration-gated conversion-observability implementation is present locally, 
 ---
 ## 2026-10-24 — Kris AI chooser-card refinement (PR #555 open)
 
-- Commit `860ea800` replaces the 72x80 companion with the existing 144x160 SNES red-tank talking Kris sprite in `public/illustrations/kris-tank-red-talking.png`, adds pixel-perfect scaling, and places compact OpenAI/Anthropic marks inside the existing AI scene. It does not change the existing web/ecommerce or SEO/GEO scene composition.
+- Commit `860ea800` replaces the 72x80 companion with the existing 144x160 SNES red-tank talking Kris sprite in `public/illustrations/kris-tank-red-talking.png`, adds pixel-perfect scaling, and places compact OpenAI/Anthropic marks inside the existing AI scene. Follow-up pending commit changes the SEO/GEO scene from a static result into a ChatGPT-style question and answer; web/ecommerce remains unchanged.
 - Checks: full `pnpm test`, `pnpm typecheck`, lint 0 errors / 22 existing warnings, analytics gate PASS and `git diff --check`. A fresh phone render is blocked by `ENOSPC` while Next writes `.next/types/routes.d.ts` with 650 MiB free. Antigravity review decision `20261025T012925Z-cto-design-lead-esteban-media-1792891767274162000-26110-e5a0f52c345f13b7` was pending at this handoff.
 - Next: review PR #555, free temporary build capacity, inspect the card at 390x844 and 375x600, then merge and verify production. No release or outcome claim.

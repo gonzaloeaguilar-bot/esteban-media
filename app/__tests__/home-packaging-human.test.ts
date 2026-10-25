@@ -67,6 +67,9 @@ for (const locale of ["en", "es"] as const) {
       expect(component).toContain('className="em-route-card__ai-partners"');
       expect(component).toContain('OpenAI');
       expect(component).toContain('Anthropic');
+      expect(component).toContain('className="em-route-card__answer-chat"');
+      expect(component).toContain('ChatGPT');
+      expect(component).toContain('How do people find my business?');
       expect(component).toContain('className="em-route-card__geebs-chat"');
       expect(component).toContain("hey, i&apos;m kris. what are we fixing first?");
       expect(component).toContain('className="em-route-card__companion-orbit"');
