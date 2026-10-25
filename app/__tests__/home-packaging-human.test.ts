@@ -61,7 +61,7 @@ for (const locale of ["en", "es"] as const) {
       expect(css).toContain(".em-route-card__copy{position:relative;z-index:2");
       expect(css).toContain(".em-route-card__plus{position:absolute;z-index:3");
       expect(component).toContain('"web-commerce": "/portfolio/gains-from-geebs.jpg"');
-      expect(component).toContain('src="/illustrations/kris-tank-red-talking.png"');
+      expect(component).toContain('src="/illustrations/agent-squad-v1.png"');
       expect(component).not.toContain('"ai-agents": "/portfolio/ai-lead-automation.jpg"');
       expect(component).toContain('className="em-route-card__companion-stage"');
       expect(component).toContain('className="em-route-card__ai-partners"');
@@ -72,13 +72,17 @@ for (const locale of ["en", "es"] as const) {
       expect(component).toContain('className="em-route-card__answer-composer"');
       expect(component).toContain('Message ChatGPT');
       expect(component).toContain('How do people find my business?');
-      expect(component).toContain('className="em-route-card__geebs-chat"');
-      expect(component).toContain("hey, i&apos;m kris. what are we fixing first?");
+      expect(component).toContain('className="em-route-card__agent-jobs"');
+      expect(component).toContain("Scout");
+      expect(component).toContain("Write");
+      expect(component).toContain("Run");
       expect(component).toContain('className="em-route-card__companion-orbit"');
       expect(component).not.toContain("kris is thinking...");
       expect(css).toContain(".em-route-card__geebs-chat");
       expect(css).toContain("@keyframes em-companion-orbit");
       expect(css).toContain("image-rendering:pixelated");
+      expect(css).toContain(".em-route-card__visual--seo-landing{background:#212121}");
+      expect(css).toContain(".em-route-card__visual--seo-landing:before");
       expect(css).toContain(".em-route-card__companion-orbit i{animation:none}");
       expect(component).toContain('src="/real-estate-reels/brickell-loop.mp4"');
       expect(component).toContain('src="/real-estate-reels/brickell-loop-poster.jpg"');
