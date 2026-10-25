@@ -149,6 +149,13 @@ for (const locale of ["en", "es"] as const) {
       expect(ai).toContain(locale === "es" ? "Tracker de operaciones" : "Operations tracker");
       expect(ai).toContain(locale === "es" ? "SEO y GEO" : "SEO and GEO");
       expect(ai).toContain(locale === "es" ? "Sitios web" : "Websites");
+      const seoStart = path.indexOf('data-route="seo-landing"');
+      const seoEnd = path.indexOf('data-route="web-commerce"');
+      const seo = path.slice(seoStart, seoEnd);
+      expect(seo).toContain(locale === "es" ? "Desde $1,800" : "From $1,800");
+      expect(seo).toContain(locale === "es" ? "Desde $1,500" : "From $1,500");
+      expect(seo).toContain(locale === "es" ? "Sitio web y seguimiento de búsquedas" : "Website and search tracking");
+      expect(seo).toContain(locale === "es" ? "Configuración de eventos de conversión" : "Conversion-event setup");
       expect(path).not.toContain(locale === "es" ? "Ver ejemplo de contenido" : "See a content example");
     });
 

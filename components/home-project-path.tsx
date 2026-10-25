@@ -22,7 +22,7 @@ import {
 import { HomePathFunnel } from "@/components/home-path-funnel";
 import { packagesCopy, packagesFor, priceFor, whatsappHref } from "@/lib/packages";
 import { aLaCarteVisual } from "@/lib/a-la-carte-visuals";
-import { AI_AGENT_ROUTE_OPTIONS, type AiAgentRouteOption } from "@/lib/ai-agent-offers";
+import { AI_AGENT_ROUTE_OPTIONS, SEO_LANDING_ROUTE_OPTIONS, type AiAgentRouteOption } from "@/lib/ai-agent-offers";
 import { quoteCtaLabel } from "@/lib/quote-cta";
 import { site } from "@/lib/site";
 
@@ -209,14 +209,8 @@ const digitalRouteLinks: Record<Exclude<RouteId, "real-estate" | "editing" | "pr
     es: AI_AGENT_ROUTE_OPTIONS.es,
   },
   "seo-landing": {
-    en: [
-      { title: "SEO and GEO", detail: "Make the service, location and next action clear for search and AI answers." },
-      { title: "Landing pages", detail: "Give a campaign or service one focused page that makes the next step obvious." },
-    ],
-    es: [
-      { title: "SEO y GEO", detail: "Aclara servicio, ubicación y siguiente paso para buscadores y respuestas de IA." },
-      { title: "Landing pages", detail: "Una página enfocada para que una campaña o servicio tenga un siguiente paso claro." },
-    ],
+    en: SEO_LANDING_ROUTE_OPTIONS.en,
+    es: SEO_LANDING_ROUTE_OPTIONS.es,
   },
   "web-commerce": {
     en: [
@@ -504,7 +498,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                   <Plus className="em-route-card__plus" size={22} aria-hidden="true" />
                 </summary>
                 <div className="em-route-card__body">
-                  {route.id in digitalRouteLinks && <><p className="em-route-card__label">{locale === "es" ? "Explora el servicio" : "Explore the service"}</p><ul className="em-digital-route-links" role="list" data-specialty={route.id}>{digitalRouteLinks[route.id as keyof typeof digitalRouteLinks][locale].map((item, index) => <li key={item.title} data-service-option={index}><button type="button" onClick={() => openFunnel(route.id, `${routeText.title}: ${item.title}`, item.price ?? c.singleQuoted)}><strong>{item.title}</strong><span>{item.detail}</span>{item.price && <b className="em-digital-route-links__price">{item.price}</b>}<ArrowRight size={16} aria-hidden="true" /></button>{item.offers && <details className="em-digital-route-links__offers"><summary>{locale === "es" ? "Ver tipos de agentes y precios" : "See agent types and prices"}</summary><ul role="list">{item.offers.map((offer) => <li key={offer.title}><span>{offer.title}</span><strong>{offer.price}</strong></li>)}</ul></details>}</li>)}</ul></>}
+                  {route.id in digitalRouteLinks && <><p className="em-route-card__label">{locale === "es" ? "Explora el servicio" : "Explore the service"}</p><ul className="em-digital-route-links" role="list" data-specialty={route.id}>{digitalRouteLinks[route.id as keyof typeof digitalRouteLinks][locale].map((item, index) => <li key={item.title} data-service-option={index}><button type="button" onClick={() => openFunnel(route.id, `${routeText.title}: ${item.title}`, item.price ?? c.singleQuoted)}><strong>{item.title}</strong><span>{item.detail}</span>{item.price && <b className="em-digital-route-links__price">{item.price}</b>}<ArrowRight size={16} aria-hidden="true" /></button>{item.offers && <details className="em-digital-route-links__offers"><summary>{route.id === "ai-agents" ? (locale === "es" ? "Ver tipos de agentes y precios" : "See agent types and prices") : (locale === "es" ? "Ver qué incluye" : "See what is included")}</summary><ul role="list">{item.offers.map((offer) => <li key={offer.title}><span>{offer.title}</span>{offer.price && <strong>{offer.price}</strong>}</li>)}</ul></details>}</li>)}</ul></>}
                   {offers.length > 0 && <><p className="em-route-card__label">{locale === "es" ? "Paquetes" : "Packages"}</p>
                   <ul className="em-path-offers grid grid-cols-1 gap-2.5 sm:grid-cols-2" role="list" data-lane={route.id}>
                     {offers.map((offer) => (

@@ -41,6 +41,8 @@
 
 # Esteban Moreno Media — Backlog
 
+- [ ] 2026-10-24: Open and verify the local AI/SEO/GEO pricing catalog branch. It now shows AI-agent types, SEO/GEO from $1,800, and focused landing pages from $1,500 with served-HTML inclusions. Run independent review and remote checks, then verify both language homepages and the quote action after deployment. Do not call it public until then.
+
 - [ ] 2026-10-24: release and verify the narrow-phone homepage hero repair in PR #543. At 360px, the WhatsApp action and support line now stay inside the viewport; local visual evidence and gates are recorded in `.ai/handoff.md`. After the required remote checks and independent review, verify the canonical production homepage at 360px and 375px before closing.
 
 - [x] 2026-10-24: replace the small AI/SEO chooser visual with the documented Gains From Geebs full-bleed project image. PR #541 merged as `91c79f36`; production HTML, CI and IndexNow verified. Outcome measurement remains separate.
