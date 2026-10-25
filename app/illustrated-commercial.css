@@ -513,7 +513,7 @@ body:has(.em-sheet-details[open])::after{content:"";position:fixed;inset:0;backg
 .em-route-card__visual--ai-agents{background:radial-gradient(circle at 75% 45%,rgba(209,55,43,.62),transparent 22%),radial-gradient(circle at 82% 84%,rgba(239,174,118,.22),transparent 30%),linear-gradient(110deg,#071014 0%,#0d1c22 57%,#151417 100%)}
 .em-route-card__visual--ai-agents:after{background:linear-gradient(90deg,rgba(5,12,15,.98) 0%,rgba(5,12,15,.89) 41%,rgba(5,12,15,.22) 71%,transparent)}
 .em-route-card__companion-stage{position:absolute;z-index:2;inset:0;pointer-events:none}
-.em-route-card__agent-character{right:28px;bottom:-2px;width:205px!important;max-height:none;filter:drop-shadow(0 16px 22px rgba(0,0,0,.62))!important;animation:em-agent-companion-breathe 4.8s ease-in-out infinite}
+.em-route-card__agent-character{right:28px;bottom:-2px;width:205px!important;max-height:none;image-rendering:pixelated;filter:drop-shadow(0 16px 22px rgba(0,0,0,.62))!important;animation:em-agent-companion-breathe 4.8s ease-in-out infinite}
 .em-route-card__geebs-chat{right:176px;top:28px;width:142px;padding:8px 9px;gap:5px;border-color:rgba(255,244,232,.38);background:rgba(8,18,21,.87)}
 .em-route-card__geebs-chat-bubble{padding:7px 8px;font-size:9px;line-height:1.28;animation:em-geebs-chat-bubble 5.2s cubic-bezier(.22,.8,.3,1) infinite}
 .em-route-card__companion-orbit{position:absolute;right:17px;bottom:15px;width:220px;height:112px;border:1px solid rgba(255,222,190,.22);border-radius:50%;transform:rotate(-18deg);opacity:.86}
@@ -521,6 +521,7 @@ body:has(.em-sheet-details[open])::after{content:"";position:fixed;inset:0;backg
 .em-route-card__companion-orbit i:nth-child(1){left:22%;top:1px}.em-route-card__companion-orbit i:nth-child(2){right:7%;bottom:13px;animation-delay:-1.9s}.em-route-card__companion-orbit i:nth-child(3){left:4%;bottom:23px;animation-delay:-3.8s}
 @keyframes em-companion-orbit{0%,100%{transform:translate(0,0) scale(.85);opacity:.38}50%{transform:translate(7px,-5px) scale(1);opacity:1}}
 .em-route-card:has(.em-route-card__visual--ai-agents) .em-route-card__copy{max-width:45%}
+.em-route-card__ai-partners{position:absolute;z-index:3;right:25px;top:17px;display:flex;align-items:center;gap:6px}.em-route-card__ai-partner{display:inline-flex;align-items:center;gap:4px;min-height:24px;padding:4px 6px;border:1px solid rgba(255,244,232,.3);border-radius:999px;background:rgba(7,16,20,.68);box-shadow:0 5px 14px rgba(0,0,0,.22);color:#fffaf3;font:700 7px/1 var(--font-sans,Arial,sans-serif);letter-spacing:.03em}.em-route-card__ai-partner--openai i{width:10px;height:10px;border:1.5px solid #fffaf3;border-radius:50%;background:conic-gradient(from 30deg,transparent 0 10%,#fffaf3 10% 16%,transparent 16% 27%,#fffaf3 27% 33%,transparent 33% 44%,#fffaf3 44% 50%,transparent 50% 61%,#fffaf3 61% 67%,transparent 67% 78%,#fffaf3 78% 84%,transparent 84%);opacity:.94}.em-route-card__ai-partner--anthropic i{display:grid;place-items:center;width:11px;height:11px;border:1px solid #fffaf3;border-radius:3px;font:800 7px/1 Georgia,serif;color:#fffaf3}
 
 .em-route-card__visual--seo-landing{background:radial-gradient(circle at 83% 24%,rgba(55,145,169,.32),transparent 25%),linear-gradient(120deg,#071419,#102830 55%,#0b191e)}
 .em-route-card__visual--seo-landing>img{display:none}
@@ -536,6 +537,7 @@ body:has(.em-sheet-details[open])::after{content:"";position:fixed;inset:0;backg
   .em-route-card:has(.em-route-card__visual--web-commerce) .em-route-card__copy{max-width:56%}
   .em-route-card__agent-character{right:9px;bottom:-1px;width:151px!important}
   .em-route-card__geebs-chat{right:104px;top:auto;bottom:17px;width:132px}
+  .em-route-card__ai-partners{right:12px;top:13px;gap:4px}.em-route-card__ai-partner{min-height:21px;padding:4px 5px;font-size:6px}.em-route-card__ai-partner--openai i{width:8px;height:8px}.em-route-card__ai-partner--anthropic i{width:9px;height:9px;font-size:6px}
   .em-route-card__companion-orbit{right:-9px;bottom:10px;width:180px;height:90px}
   .em-route-card:has(.em-route-card__visual--ai-agents) .em-route-card__copy{max-width:56%}
   .em-route-card__search-preview{right:13px;top:auto;bottom:14px;width:178px;gap:7px}
