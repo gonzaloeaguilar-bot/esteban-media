@@ -41,6 +41,8 @@
 
 # Esteban Moreno Media — Backlog
 
+- [ ] 2026-10-24: review and release PR #555. It upgrades the AI chooser to the existing 144x160 SNES Kris talking sprite with pixel-perfect rendering and compact OpenAI/Anthropic marks. After review, verify the Spanish homepage at 390x844 and 375x600. Local checks passed; visual compilation is blocked until the host has enough temporary disk space.
+
 - [ ] 2026-10-24: release and verify the narrow-phone homepage hero repair in PR #543. At 360px, the WhatsApp action and support line now stay inside the viewport; local visual evidence and gates are recorded in `.ai/handoff.md`. After the required remote checks and independent review, verify the canonical production homepage at 360px and 375px before closing.
 
 - [x] 2026-10-24: replace the small AI/SEO chooser visual with the documented Gains From Geebs full-bleed project image. PR #541 merged as `91c79f36`; production HTML, CI and IndexNow verified. Outcome measurement remains separate.
