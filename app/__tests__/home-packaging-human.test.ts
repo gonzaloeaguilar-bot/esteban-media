@@ -160,6 +160,12 @@ for (const locale of ["en", "es"] as const) {
       const web = path.slice(webStart);
       expect(web).toContain(locale === "es" ? "Desde $5,000" : "From $5,000");
       expect(web).toContain("$5,000+");
+      expect(web).toContain("$7,500+");
+      expect(web).toContain("$10,000+");
+      expect(web).toContain("$15,000+");
+      expect(web).toContain(locale === "es" ? "flujo de pago" : "checkout flow");
+      expect(web).toContain(locale === "es" ? "marketing por email/SMS, retención" : "email/SMS marketing, retention");
+      expect(web).toContain(locale === "es" ? "gamificación" : "gamification");
       expect(web).toContain(locale === "es" ? "Desde $280 / sesión" : "From $280 / session");
       expect(web).toContain(locale === "es" ? "$400–$775" : "$400–$775");
       expect(web).toContain(locale === "es" ? "Sesión de fotografía de producto" : "Product photography session");

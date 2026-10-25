@@ -441,6 +441,14 @@ export const WEBSITE_BUILD_PRICE = {
   source: "owner fact confirmed 2026-10-24: full website builds from $5,000",
 } as const;
 
+export const WEB_PRODUCT_PACKAGE_PRICES = {
+  ecommerceStore: 7500,
+  customerGrowthSystem: 10000,
+  customProductExperience: 15000,
+  currency: "USD",
+  source: "owner catalog direction confirmed 2026-10-24",
+} as const;
+
 /** The one answer-first price line for landing pages, EN or ES. */
 export function landingPagePriceText(locale: "en" | "es"): string {
   const from = usd(LANDING_PAGE_PRICE.from);

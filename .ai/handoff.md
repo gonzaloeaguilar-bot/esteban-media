@@ -1,5 +1,11 @@
 # 2026-10-24 — Digital chooser-card composition candidate
 
+## Expanded web and product package catalog — local addition
+
+- The Websites disclosure is now an actual bilingual catalog: basic landing page **$1,500 / 3–5 business days**; business website **from $5,000**; ecommerce store **from $7,500**; customer-growth system **from $10,000**; and a custom product experience **from $15,000**. The short closed card still starts at $5,000, while the native disclosure makes each scope and price easy to compare on a phone.
+- The catalog names what a person receives: UX/UI, wireframes, design library, analytics, product listings, cart, sign-up and checkout, CRM, email/SMS marketing, retention, customer mapping, user stories, onboarding, gamification, and shared components. It does not promise outcomes or send messages; the existing quote action remains the next step.
+- Sources checked 2026-10-24: `lib/pricing.ts` is the single source for each public figure; the $1,500 and $5,000 owner-confirmed anchors remain unchanged. Local verification: full `pnpm test` 172 files / 3,521 tests passed under Node 22.22.2; `pnpm typecheck` passed; `pnpm lint` had 0 errors / 22 existing warnings; `pnpm build` completed; and `git diff --check` passed. At 390×844, the expanded English catalog showed all five tiers without clipping; the matching Spanish disclosure was opened and read. No PR, merge, or public release.
+
 ## SEO, GEO and landing-page price catalog — local addition
 
 - The existing SEO/GEO and landing-page chooser now gives each service a visible minimum: **From $1,800** for SEO/GEO and **From $1,500** for a focused landing page. Each keeps a native “See what is included” disclosure in the served HTML. SEO/GEO lists website/search tracking, service/location-page review, and technical fixes with a first-priority plan. Landing pages list a single offer and next step, mobile-first page with form/contact action, conversion-event setup, and English, Spanish, or both when scoped.

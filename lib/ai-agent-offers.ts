@@ -129,8 +129,10 @@ export const WEB_ECOMMERCE_ROUTE_OPTIONS: Record<AiAgentLocale, readonly AiAgent
       price: `From ${usd(WEBSITE_BUILD_PRICE.from)}`,
       offers: [
         { title: "Basic landing page — one offer and one action", price: `${usd(LANDING_PAGE_PRICE.from)} · ${LANDING_PAGE_PRICE.deliveryBusinessDays} business days` },
-        { title: "Custom business website", price: `${usd(WEBSITE_BUILD_PRICE.from)}+` },
-        { title: "A clear contact path and the needed pages" },
+        { title: "Business website — UX/UI, wireframes, design library and analytics", price: `${usd(WEBSITE_BUILD_PRICE.from)}+` },
+        { title: "Ecommerce store — products, cart, sign-up and checkout flow", price: `${usd(WEB_PRODUCT_PACKAGE_PRICES.ecommerceStore)}+` },
+        { title: "Customer growth system — CRM, email/SMS marketing, retention and customer mapping", price: `${usd(WEB_PRODUCT_PACKAGE_PRICES.customerGrowthSystem)}+` },
+        { title: "Custom product experience — user stories, onboarding, gamification and shared components", price: `${usd(WEB_PRODUCT_PACKAGE_PRICES.customProductExperience)}+` },
         { title: "English, Spanish, or both when scoped" },
       ],
     },
@@ -152,8 +154,10 @@ export const WEB_ECOMMERCE_ROUTE_OPTIONS: Record<AiAgentLocale, readonly AiAgent
       price: `Desde ${usd(WEBSITE_BUILD_PRICE.from)}`,
       offers: [
         { title: "Landing page básica — una oferta y una acción", price: `${usd(LANDING_PAGE_PRICE.from)} · ${LANDING_PAGE_PRICE.deliveryBusinessDays} días hábiles` },
-        { title: "Sitio web personalizado para negocio", price: `${usd(WEBSITE_BUILD_PRICE.from)}+` },
-        { title: "Un camino claro para contactar y las páginas necesarias" },
+        { title: "Sitio web para negocio — UX/UI, wireframes, librería de diseño y analítica", price: `${usd(WEBSITE_BUILD_PRICE.from)}+` },
+        { title: "Tienda ecommerce — productos, carrito, registro y flujo de pago", price: `${usd(WEB_PRODUCT_PACKAGE_PRICES.ecommerceStore)}+` },
+        { title: "Sistema de crecimiento — CRM, marketing por email/SMS, retención y mapa de cliente", price: `${usd(WEB_PRODUCT_PACKAGE_PRICES.customerGrowthSystem)}+` },
+        { title: "Experiencia digital a medida — user stories, onboarding, gamificación y componentes compartidos", price: `${usd(WEB_PRODUCT_PACKAGE_PRICES.customProductExperience)}+` },
         { title: "Inglés, español o ambos cuando se acuerde" },
       ],
     },
@@ -169,4 +173,4 @@ export const WEB_ECOMMERCE_ROUTE_OPTIONS: Record<AiAgentLocale, readonly AiAgent
     },
   ],
 };
-import { LANDING_PAGE_PRICE, PRICING_BANDS, PRODUCT_PHOTO_SESSION, WEBSITE_BUILD_PRICE, usd } from "@/lib/pricing";
+import { LANDING_PAGE_PRICE, PRICING_BANDS, PRODUCT_PHOTO_SESSION, WEB_PRODUCT_PACKAGE_PRICES, WEBSITE_BUILD_PRICE, usd } from "@/lib/pricing";
