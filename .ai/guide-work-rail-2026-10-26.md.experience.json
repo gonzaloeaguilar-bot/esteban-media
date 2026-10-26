@@ -1,0 +1,31 @@
+{
+  "schema": 3,
+  "project": "esteban-media",
+  "intent": "Independently review the uncommitted guide work rail change in components/guide-pages.tsx, components/portfolio-teaser.tsx, and components/home-portfolio-rail.tsx. Check that it reuses only published portfolio work, preserves all existing homepage behavior, uses separate analytics attribution, is visually appropriate after a guide at phone and desktop widths, and introduces no misleading claim or accessibility regression. Return a concise verdict with concrete defects only.",
+  "phase": "review",
+  "visual_evidence": {
+    "scope": "composition",
+    "scope_reason": "Production guide pages use a static proof card while the approved homepage has an interactive rail of published work.",
+    "target": "guide article-to-work transition",
+    "owner_status": "owner-directed",
+    "correction_excerpt": "After reading a guide, show Esteban's beautiful homepage work carousel so the visitor can see that he does it well.",
+    "comparison": "Production guide proof card versus local 390x844 and 1440x900 guide rail.",
+    "references": ["esteban-media-hot"],
+    "candidate_frames": ["390x844", "1440x900"]
+  },
+  "brief": {
+    "visitor": "A Spanish-first guide reader evaluating a video or content project.",
+    "promise": "After the practical answer, see finished, approved work before choosing the next step.",
+    "primary_action": "Open a published project from the rail or continue to the existing scoped inquiry.",
+    "friction": "A static single-project proof card does not let a buyer judge a wider body of work.",
+    "kpi": {"outcome": "qualified project inquiry", "event": "guide_work rail interaction followed by contact intent", "denominator": "guide readers who reach the shelf", "baseline": "UNKNOWN", "evidence": "The existing delegated rail/CTA event pipeline will distinguish guide_work from home_portfolio.", "readout": "T+28", "decision_rule": "retain if behavior is attributable and the interface remains usable."},
+    "concept": {"idea": "Reuse the approved homepage portfolio rail beneath the article.", "brand_reason": "The page demonstrates real finished work rather than adding decorative guide imagery.", "interaction": "Swipe, keyboard controls, open project or play an eligible reel in place.", "visible_response": "Published posters and normal links are present at first render.", "direct_path": "A published portfolio route or the existing guide contact path.", "alternatives": "No invented work, new stock art, autoplay dependency, or separate carousel implementation."},
+    "story": {"opening": "Guide answer", "action": "Inspect finished work", "consequence": "Assess documented work", "next_step": "Open a project or start a scoped conversation."},
+    "content": {"visible": "Existing work-first heading, catalog description, approved portfolio cards and controls.", "optional_html": "No critical content is hidden or client-mounted.", "linked_depth": "Published portfolio and existing guide support links."},
+    "references": {"borrow": "Esteban homepage PortfolioTeaser and HomePortfolioRail.", "avoid": "A duplicate custom carousel or unsupported proof."},
+    "components": {"reuse": "PortfolioTeaser, HomePortfolioRail, Rail and ReelFunnel.", "local_reason": "Only the analytics source prop changes to make guide attribution honest."},
+    "verification": {"rendered_states": "390x844 and 1440x900 after a representative Spanish guide.", "motion": "Existing motion/reduced-motion behavior remains unchanged.", "accessibility_performance": "Existing links, labeled controls and lazy images remain from the shared shelf.", "raw_html": "The work heading and portfolio links are present in generated guide HTML.", "conversion_boundary": "Existing WhatsApp/contact routes are unchanged."},
+    "reviewers": {"craft": "Antigravity", "behavior": "Claude and cto-qa-lead", "outcome": "cto-product-lead after T+28"},
+    "learning": {"metric": "guide_work rail interaction followed by inquiry", "baseline_source": "UNKNOWN", "baseline_value": "UNKNOWN", "target_kind": "funnel_step", "target": "guide_work interaction to contact intent", "hypothesis": "Showing real work after a guide reduces evaluation uncertainty.", "observation_windows": ["T+28"], "decision_rule": "retain only with usable rendered proof and attributable behavior", "ledger_status": "planned", "registration_condition": "read production events after release"}
+  }
+}

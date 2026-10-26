@@ -118,6 +118,30 @@ export function blockBetween(root, file, start, end) {
 }
 
 /**
+ * Case-study pairs use two compact construction styles. Public-media pairs
+ * intentionally live on one line, while website pairs span several lines.
+ * Neither is discoverable by contentBlocks()'s simple `id:` anchor, so keep
+ * the date ledger tied to the exact source entry that renders the route.
+ */
+function caseStudyBlock(root, id) {
+  const file = "lib/case-studies.ts";
+  const abs = join(root, file);
+  if (!existsSync(abs)) return undefined;
+  const lines = readFileSync(abs, "utf8").split("\n");
+  const index = lines.findIndex((line) => line.includes(`id: "${id}"`));
+  if (index < 0) return undefined;
+  if (lines[index].includes("publicMediaCasePair({")) {
+    return { file, start: index + 1, end: index + 1 };
+  }
+  let start = index;
+  while (start > 0 && !lines[start].includes("websiteCasePair({")) start -= 1;
+  if (!lines[start].includes("websiteCasePair({")) return { file, start: index + 1, end: index + 1 };
+  let end = start;
+  while (end < lines.length && !/^\s*\}\),$/.test(lines[end])) end += 1;
+  return { file, start: start + 1, end: Math.min(end + 1, lines.length) };
+}
+
+/**
  * Declared sources (overnight loop row 28, 2026-10-14). Some pages take their
  * copy from a content file by a key that is not their URL slug: an event page
  * renders <EventContentPage id="flibs">, the study pages read
@@ -159,6 +183,20 @@ export const DECLARED_SOURCES = [
     },
   },
   {
+    // Dynamic case-study routes read their visible facts from lib/case-studies.ts.
+    // Public-media entries are compact function calls, so their `id` is not a
+    // standalone contentBlocks() anchor and previously produced an empty hash.
+    name: "case-study copy (lib/case-studies.ts)",
+    contentFile: "lib/case-studies.ts",
+    paths: /^\/(case-studies|es\/casos-de-estudio)\/[^/]+$/,
+    uses: /getCaseStudyById\b/,
+    blocks(root, text, path) {
+      const id = path?.split("/").filter(Boolean).pop();
+      if (!id) return [];
+      return [caseStudyBlock(root, id) ?? contentBlocks(root, path)].flat();
+    },
+  },
+  {
     name: "events hub copy (EVENTS_HUB_COPY)",
     contentFile: EVENT_BUILDERS_FILE,
     uses: /<EventsHubPage\b/,
@@ -195,7 +233,7 @@ export const DECLARED_SOURCES = [
       const id = path?.split("/").filter(Boolean).pop();
       if (!id) return [];
       return [
-        blockBetween(root, `messages/${locale}.json`, new RegExp(`^ {6}"${escape(id)}": \\{$`), /^ {6}\},?$/),
+        blockBetween(root, `messages/${locale}.json`, new RegExp(`^ {6}"${escape(id)}": \\{`), /^ {6}\},?$/),
       ].filter(Boolean);
     },
   },

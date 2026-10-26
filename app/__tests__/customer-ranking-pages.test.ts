@@ -16,27 +16,25 @@ describe("customer-facing ranking pages", () => {
       "Video editing, AI-assisted content, and social production.",
     );
     expect(hero).toContain(
-      "Video editing and content production for businesses, agents, and creators.",
+      "Video editing and content production for businesses, agents, and creators who want their work to look as good as it really is.",
     );
     // The H1 already says "Video editing, AI-assisted content, and social
     // production"; the caption under it says that only once. Its optional
     // process is a three-step scan, not a duplicated prose block.
-    expect(hero).toContain("Send your footage or idea");
-    expect(hero).toContain("Choose how to start");
-    expect(hero).toContain("Confirm the scope");
+    expect(hero).toContain("Tell me what you need");
+    expect(hero).toContain("Choose your starting point");
+    expect(hero).toContain("Get a clear plan");
     expect(hero).not.toContain(
       "Video editing, AI-assisted content, and social planning for businesses",
     );
-    expect(hero).toContain("Fort Lauderdale, Broward, Miami-Dade, and Palm Beach");
-    expect(hero).toContain('href="/areas"');
+    expect(hero).toContain("Miami-Dade, Broward, and West Palm Beach");
     expect(hero).toContain(
       "Esteban Moreno Media · Video, IA y redes.",
     );
-    expect(hero).toContain("Comparte tu material o idea");
-    expect(hero).toContain("Elige cómo empezar");
-    expect(hero).toContain("Confirma el alcance");
-    expect(hero).toContain("Fort Lauderdale, Broward, Miami-Dade y Palm Beach");
-    expect(hero).toContain('href="/es/areas"');
+    expect(hero).toContain("Cuéntame qué necesitas");
+    expect(hero).toContain("Elige tu punto de partida");
+    expect(hero).toContain("Recibe un plan claro");
+    expect(hero).toContain("Miami-Dade, Broward y West Palm Beach");
     expect(services).toContain("website-design");
     expect(services).toContain("Digital systems");
     expect(services).toContain("Website design, business profiles");

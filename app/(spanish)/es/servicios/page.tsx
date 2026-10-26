@@ -130,7 +130,15 @@ export default function SpanishServicesPage() {
           <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
             Cuéntale a Esteban qué quieres lograr. Puede editar el material que
             ya tienes, planificar una grabación en el sur de Florida o crear un
-            sitio web con una forma clara de atender nuevas consultas.
+            sitio web con una forma clara de atender nuevas consultas. Si
+            prefieres empezar por una vista general, vuelve al{" "}
+            <Link
+              href="/es"
+              className="font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4 hover:text-[#7f2f20]"
+            >
+              inicio en español
+            </Link>
+            .
           </p>
           <p className="mt-3 max-w-2xl text-base leading-7 text-[#252a2d]">
             ¿Necesitas grabar en Broward? La{" "}

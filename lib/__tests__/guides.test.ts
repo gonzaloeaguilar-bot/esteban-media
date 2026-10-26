@@ -179,12 +179,12 @@ describe("bilingual practical guides", () => {
 
     expect(guide).toMatchObject({
       slug: "corporate-video-production-cost-miami",
-      metadataTitle: "Miami Video Production Cost Guide",
+      metadataTitle: "Miami Corporate Video Cost Guide",
       description:
-        "Plan a Miami video production budget: compare scope, filming, editing, deliverables, and quote inputs before choosing a production path.",
+        "Learn what a Miami corporate video quote needs to cover, from filming and editing to deliverables and review terms, before you compare budgets.",
     });
     expect(buildGuideMetadata(guide!).title).toBe(
-      "Miami Video Production Cost Guide",
+      "Miami Corporate Video Cost Guide",
     );
   });
 

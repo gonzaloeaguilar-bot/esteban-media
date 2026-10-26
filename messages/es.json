@@ -61,13 +61,40 @@
         ]
       },
       "gains-from-geebs": {
-        "title": "Gains From Geebs Web App y Bot de IA para Instagram DM",
-        "summary": "Plataforma web interactiva de fitness y bot conversacional de IA para Instagram DM (IG DM) diseñado para atender consultas sobre planes de entrenamiento, nutrición y calificación de prospectos 24/7.",
-        "metaDescription": "Plataforma web de fitness y bot de IA para Instagram DM de Gains From Geebs: responde consultas de planes y nutrición y califica prospectos 24/7.",
-        "credits": "Ingeniería de aplicaciones web, calculadoras fitness y chatbot de IA conversacional para Instagram DM.",
+        "title": "Sitio de coaching de Gains From Geebs",
+        "summary": "Sitio actual de coaching fitness 1:1 de Kris Oddo, con una ruta directa para empezar, conocer el método, paquetes, resultados y recursos gratuitos.",
+        "metaDescription": "Sitio actual de coaching de Gains From Geebs: cómo empezar, método, paquetes, resultados y recursos gratuitos.",
+        "credits": "Arquitectura web, experiencia de ruta de coaching y navegación responsiva para método, paquetes, resultados y recursos gratuitos.",
         "results": [
-          { "metric": "Calculadoras + bot", "label": "Calculadoras de fitness interactivas y un chatbot de Instagram DM" },
-          { "metric": "Instagram DM", "label": "Responde dudas de coaching y precalifica prospectos" }
+          { "metric": "Ruta directa para empezar", "label": "Una ruta visible para iniciar la aplicación de coaching 1:1" },
+          { "metric": "Descubrimiento de coaching", "label": "Método, paquetes, resultados y recursos de aprendizaje en la navegación pública" }
+        ]
+      },
+      "caro-sells-miami": {
+        "title": "Sitio inmobiliario de Caro Sells Miami",
+        "summary": "Sitio inmobiliario bilingüe para explorar anuncios actuales, edificios, alquileres y una conversación directa con Carolina en Miami.",
+        "credits": "Arquitectura web, rutas bilingües para compradores, descubrimiento de edificios y experiencia de captura de consultas.",
+        "results": [
+          { "metric": "Inglés + español", "label": "Rutas para compradores, edificios y contacto en los dos idiomas" },
+          { "metric": "Anuncios + edificios", "label": "Enlaces a inventario actual, exploración de edificios y contacto directo con la agente" }
+        ]
+      },
+      "dupont-realty-international": {
+        "title": "Sitio de DuPont International Realty Florida",
+        "summary": "Sitio de corretaje inmobiliario para compradores y vendedores de Broward, Palm Beach y Miami-Dade, con orientación clara y rutas de contacto directo.",
+        "credits": "Arquitectura web, información inmobiliaria y rutas de consulta para compradores y vendedores.",
+        "results": [
+          { "metric": "Tres mercados del sur de Florida", "label": "Orientación para compradores y vendedores de Broward, Palm Beach y Miami-Dade" },
+          { "metric": "Orientación de corretaje", "label": "Rutas directas para conocer los servicios e iniciar una conversación inmobiliaria" }
+        ]
+      },
+      "great-reviewer-website": {
+        "title": "Sitio y biblioteca de productos de The Great Reviewer",
+        "summary": "Sitio de reseñas de productos y guías de viaje para comparar opciones, leer respuestas prácticas y decidir qué vale la pena comprar.",
+        "credits": "Arquitectura web, experiencia de biblioteca editorial, páginas de producto con respuesta directa y sistema de contenido.",
+        "results": [
+          { "metric": "Productos + guías de viaje", "label": "Biblioteca navegable para decisiones de compra prácticas" },
+          { "metric": "Páginas con respuesta directa", "label": "Comparaciones y reseñas que muestran información útil antes de la decisión de compra" }
         ]
       },
       "front-line-auto": {
@@ -167,6 +194,11 @@
           { "metric": "Director", "label": "También director de fotografía y concepto original" }
         ]
       },
+      "gains-from-geebs-shorts": { "title": "Videos cortos de Gains From Geebs", "summary": "Dos videos cortos publicados públicamente por Kris Oddo | Geebs Method.", "credits": "Fuente pública: Kris Oddo | Geebs Method." },
+      "exatlon": { "title": "Video de introducción de Exatlón", "summary": "Un video de introducción de Exatlón publicado públicamente por Esteban Moreno Media.", "credits": "Fuente pública: Esteban Moreno Media." },
+      "juanchis-burguer": { "title": "Campaña de redes sociales de Juanchis Burguer", "summary": "Una campaña de redes sociales con Juanchis Burguer, Miami, publicada públicamente por Esteban Moreno Media.", "credits": "Fuente pública: Esteban Moreno Media." },
+      "portosole": { "title": "Campaña de redes sociales de Portosole", "summary": "Una campaña de redes sociales con Portosole, Miami, publicada públicamente por Esteban Moreno Media.", "credits": "Fuente pública: Esteban Moreno Media." },
+      "punto-de-giro": { "title": "Documental Punto de Giro", "summary": "El tráiler y el video detrás de cámaras publicados públicamente del documental Punto de Giro en el canal de YouTube de Esteban Moreno López.", "credits": "Fuente pública: canal de YouTube de Esteban Moreno López." },
       "ml-colombia": {
         "title": "ML Colombia",
         "summary": "Contenido y estrategia digital para Miracle Leaf (ML Colombia), la marca propia de comercio electrónico de cosméticos con CBD que Esteban fundó y dirigió durante unos seis años. Como CEO lideró la marca de principio a fin: contenido digital, estrategia y dos sitios web sucesivos.",
@@ -175,6 +207,15 @@
         "results": [
           { "metric": "Cerca de 6 años", "label": "Fundador y CEO de su propia marca de e-commerce" },
           { "metric": "2 sitios web", "label": "Dos sitios web sucesivos de la marca" }
+        ]
+      },
+      "great-reviewer-iphone-18": {
+        "title": "The Great Reviewer: Reel del iPhone 18 Pro Max",
+        "summary": "Video de contenido vertical publicado para The Great Reviewer. Se presenta como ejemplo del formato, sin atribuirle resultados de audiencia ni comerciales.",
+        "credits": "Producción y edición de video de contenido por Esteban Moreno Media.",
+        "results": [
+          { "metric": "Reel vertical", "label": "Video de contenido publicado" },
+          { "metric": "2026", "label": "Video de contenido para The Great Reviewer" }
         ]
       }
     },

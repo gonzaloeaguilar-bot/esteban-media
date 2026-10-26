@@ -1,7 +1,7 @@
 "use client";
 
-import { Play } from "lucide-react";
-import { useState } from "react";
+import { Play, X } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 /**
  * Click-to-load YouTube player for the hero of a case study or portfolio page.
@@ -35,22 +35,62 @@ export function YouTubeFacade({
   source: string;
 }) {
   const [playing, setPlaying] = useState(false);
+  const playButtonRef = useRef<HTMLButtonElement>(null);
+  const restorePlayFocus = useRef(false);
+  const isSpanish = playLabel.startsWith("Reproducir");
+  const closeLabel = isSpanish ? `Cerrar: ${title}` : `Close: ${title}`;
+
+  useEffect(() => {
+    if (!playing && restorePlayFocus.current) {
+      restorePlayFocus.current = false;
+      playButtonRef.current?.focus();
+    }
+  }, [playing]);
+
+  useEffect(() => {
+    if (!playing) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        restorePlayFocus.current = true;
+        setPlaying(false);
+      }
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [playing]);
+
+  function closePlayer() {
+    restorePlayFocus.current = true;
+    setPlaying(false);
+  }
 
   if (playing) {
     return (
-      <iframe
-        className="absolute inset-0 size-full border-0"
-        src={`https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}?playsinline=1&rel=0&autoplay=1`}
-        title={title}
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerPolicy="strict-origin-when-cross-origin"
-        allowFullScreen
-      />
+      <>
+        <iframe
+          className="absolute inset-0 size-full border-0"
+          src={`https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}?playsinline=1&rel=0&autoplay=1`}
+          title={title}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+        />
+        <button
+          type="button"
+          onClick={closePlayer}
+          className="absolute right-3 top-3 z-10 inline-flex min-h-10 items-center gap-2 rounded-full bg-black/75 px-3 text-xs font-medium text-white backdrop-blur-sm hover:bg-black focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+          aria-label={closeLabel}
+        >
+          <X className="size-4" aria-hidden="true" />
+          {isSpanish ? "Cerrar" : "Close"}
+        </button>
+      </>
     );
   }
 
   return (
     <button
+      ref={playButtonRef}
       type="button"
       onClick={() => setPlaying(true)}
       data-cta={source}

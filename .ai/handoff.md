@@ -1,3 +1,172 @@
+# 2026-10-26 — Full-card digital scenes (locally verified, not public)
+
+- Commit `56f8dffb055fa34a4255c5135a6b7ff381405ab2` on `codex/full-card-scenes-20261026` replaces small right-side illustrations with full-card working scenes: the approved AI robot squad in an original office/courier environment, an animated ChatGPT-style SEO/GEO conversation, and the current Gains From Geebs desktop hero scrolling behind a dark reading field.
+- Evidence: `pnpm test` 172 files / 3,677 tests, `pnpm typecheck`, `pnpm build`, and `git diff --check` passed; lint had 0 errors / 22 existing warnings. Playwright inspected 390px and desktop renders. Reduced-motion emulation returned `animationName: none` for the courier. CTO visual review `20261026T142548Z-cto-design-lead-esteban-media-1793024749124926000-76904-46cb9cc2b2c61bb7` approved and reran the full suite plus analytics gate.
+- Remote release is blocked only by GitHub's own internal-server error: `git push` and PR creation were rejected at 2026-10-26T14:28Z. Do not call this live. Retry push/PR, wait for checks, then verify canonical `/es` raw markers and 390px public rendering.
+
+---
+
+# 2026-10-24 — Digital chooser-card composition candidate
+
+- Scoped files: `components/home-project-path.tsx`, `app/illustrated-commercial.css`, `app/__tests__/home-packaging-human.test.ts`, and `docs/digital-route-card-composition.md`. The three digital card visuals now use the actual Gains From Geebs desktop hero (web), the existing SNES-style companion with one assistant prompt (AI), and one clear query-to-business-result composition (SEO/GEO). Real Estate's Brickell loop and the Content Creator card are unchanged.
+- Local evidence: focused packaging suite 32/32; `pnpm lint` reported 0 errors / 22 pre-existing warnings; `pnpm typecheck` and `pnpm rail-adoption:check` passed; `git diff --check` passed. A full `pnpm test` run reached its final test groups before the tool output window closed, but its terminal exit receipt was not captured, so remote validation remains required. Browser review at 390x844 and 1440x900 found all three cards readable, the plus controls visible, and no horizontal overflow. CDP reduced-motion emulation yielded `animationName: none` for the companion, chat bubble and orbit.
+- `pnpm build` was attempted twice after a prior concurrently-started build left Next's compiler waiting with no progress; the final standalone attempt was manually stopped after more than three minutes without compilation output. Do not call this candidate released locally. Next: commit, open the scoped PR, and use its fresh remote build/visual evidence before merge; after deployment, check the public Spanish card composition at 390px.
+
+---
+
+# 2026-10-24 — Homepage filming-area and process copy (PR #554, release pending)
+
+- Owner correction: the homepage process must plainly say that Esteban films throughout Miami-Dade, Broward, and West Palm Beach; remote editing is available anywhere for supplied footage. The old wording's "selected filming projects" and Fort Lauderdale-only production link made the service area feel narrower than it is.
+- The refreshed three steps are: tell me what you need, choose your starting point, and get a clear plan. The last step promises written price, timing, and deliverables before work begins. English and Spanish are covered by regression tests.
+- Local verification on commit `0640defd` plus the pending parity-test repair: focused process/parity/ranking tests 23/23, full `pnpm test` passed, `pnpm typecheck` passed, `pnpm lint` had 0 errors / 22 existing warnings, analytics gate passed, and `git diff --check` passed. Wait for the current production build and remote checks, attach the genuine quality record, complete independent review, merge, then verify the exact live raw HTML and mobile expanded section before calling this production.
+
+---
+
+# 2026-10-24 — 360px hero CTA clipping repair (PR #543 update, not released)
+
+- Human phone review reproduced the homepage hero overflow at 360px: the secondary WhatsApp action ended at x=366.75 on a 360px viewport, and the price/location line clipped at the same edge. The repair stacks the two actions and permits the support line to wrap at 389px and below; it preserves the inline composition from 390px up.
+- Local visual verification: at 360x667, the primary action rendered x=20..188.22, the secondary action x=20..186.53 below it, and the support line occupied x=20..325 across two readable lines. At 375x667 the action group is 320px wide and 102px tall; at 390x844 the inline group stays within x=20..366.75. No horizontal clipping observed in these checked states.
+- Commit `082299ef` is the current PR head. Gates: focused Vitest 4/4, `pnpm typecheck`, `pnpm lint` (0 errors; 22 existing warnings), `pnpm build` (BUILD_ID `mW6PVg1tgfB6rwYSF4v4_`), and `git diff --check`. PR #543 was pushed; wait for remote checks and independent review, then confirm the canonical production mobile hero before calling it released.
+
+---
+
+# 2026-10-24 — Homepage AI, web and visibility chooser candidate
+
+- The homepage now gives AI, website, local SEO and AI-search visibility their own fifth buyer card instead of hiding them inside “Local businesses.” The Spanish card is “IA, web y visibilidad”; the English equivalent is “AI, web and visibility.” It opens the existing All-In package plus the existing AI-assisted content, local SEO/AI-search visibility, website/funnel audit, and operations-automation services. The package and services remain in the server-rendered HTML; nothing is revealed only through motion.
+- “Local businesses” now contains only its existing monthly content and local-presence packages, so the All-In package appears once in its more relevant route. The new card uses the documented published AI lead-capture case image and one restrained sparkle signal; all card motion is decorative and disabled under reduced motion.
+- Local verification: targeted chooser test passed (32 assertions), `pnpm typecheck` passed, `pnpm lint` exited 0 with 22 existing warnings, full `pnpm test` exited 0, optimized `pnpm build` completed, `pnpm rail-adoption:check` passed (3 assertions), `analytics-gate.py` passed (12 emit sites / 11 event names), `git diff --check` passed. Browser review opened the card at 390x844 and 375x667 and checked the desktop card at 1440x900; the expanded Spanish card visibly contained Todo Incluido, IA, SEO/AI-search visibility, audit, and automation. Next: commit, independent review, scoped PR, merge on required checks, then public `/es` visual and raw-HTML verification.
+
+---
+
+# 2026-10-24 — Homepage chooser card motion candidate
+
+- The repeating Content Creator heart/count feedback remains unchanged. The other three homepage chooser cards now have their own small, service-specific loops: a settling property pin with a soft ring, a recording dot with three frame marks, and a rising local-business signal sparkle. They are decorative only; no audience, recording, or business-performance data is asserted.
+- Changed files: `components/home-project-path.tsx`, `app/illustrated-commercial.css`, and `app/__tests__/home-packaging-human.test.ts`. Motion is `aria-hidden`, does not gate card copy or expansion, and the reduced-motion rule disables every newly added animation.
+- Local evidence: full `pnpm test` passed (168 files / 3,497 tests); `pnpm typecheck` passed; `pnpm lint` completed with 0 errors and 22 pre-existing warnings; `pnpm build` completed; `git diff --check` passed. Browser review at 390x844 showed the property pin, recording frames, and local signal clear of the cards' plus controls and reading copy. Next: open the scoped PR, wait for required checks, merge, and verify the public Spanish homepage.
+
+---
+
+# 2026-10-24 — Carousel verification and generated-date repair (PR #526, not released)
+
+- The homepage `PortfolioTeaser` intentionally derives the work rail from every live, non-web portfolio item. Local rendered English and Spanish home HTML each contain all five new case links (Gains From Geebs Shorts, Exatlón, Juanchis Burguer, Portosole, and Punto de Giro); they follow the seven property Reels in the horizontal rail. Desktop browser inspection found the rail clear and touchable with its existing Prev/Next controls. No separate carousel implementation was needed.
+- Remote `validate` initially failed only at `page-lastmod.test.ts`: the 10 newly added EN/ES project pages had stale generated dates/hashes after the rebase. `pnpm lastmod:update` regenerated those exact ten records in `config/page-lastmod.json` (10 changed, 542 total). Commit and push this ledger repair, then wait for the rerun before merge.
+
+---
+
+# 2026-10-24 — Rebased portfolio proof cases (PR #526, not released)
+
+- PR #526 now rebases cleanly on `main` as `4d6bc218`; it carries five bilingual source-backed project cases: Gains From Geebs Shorts, Exatlón, Juanchis Burguer, Portosole and Punto de Giro. The rebase retains the newer Great Reviewer portfolio pair, so the post-merge sitemap baseline is 542 URLs.
+- Rebase verification: 53 focused portfolio, sitemap, inventory and cohort tests passed across 7 files; `git diff --check` passed. The public site remains unchanged until remote checks, merge and deployment complete.
+
+---
+
+# 2026-10-23 — Content creator own-route candidate
+
+## 2026-10-24 — Homepage Content Creator floating like-hearts (local candidate)
+
+- The content creator route now has four decorative Lucide hearts that float upward from its existing heart icon in a staggered, TikTok-like burst. The existing heart pulse and `+1` feedback remain; the burst is `aria-hidden` and `pointer-events:none`.
+- Changes are limited to `components/home-project-path.tsx`, `app/illustrated-commercial.css`, and regression coverage in `app/__tests__/home-packaging-human.test.ts`.
+- Local evidence: lint 0 errors (22 existing warnings), typecheck passed, targeted packaging test 32/32 passed, `git diff --check` passed, and a local browser read of `/es#start` confirmed 4 burst hearts with `em-reel-heart-float`. Reduced-motion CSS disables all three animations.
+- Branch remains `fix/home-rail-great-reviewer-repair`; no commit, independent review, deployment, or production visual verification exists. Next: `cto-qa-lead` reviews this narrow diff; authorized release must inspect the expanded Content Creator card at phone size in normal and reduced-motion states.
+
+- Owner correction: a person who creates content could not recognize themselves in the generic “Video editing” route. That route is now “Content creator” / “Creador de contenido,” with a direct promise: edit clips, publish weekly, or film a content day. It contains the established one-off/weekly editing choices first, a creator-only filming choice (`From $400/half-day`, raw footage for the next edit), then a long/custom-project disclosure. On-location raw capture was removed from Events so the same service does not appear in two buyer paths; Productions now contains multicamera, yacht, and commercial work only.
+- Local visual evidence: at 390×664 the open route showed the creator title and editing choices without horizontal overflow; at 375×667 the opened “Film content with me” card ran from `172px` to `528px` with its quote button visible. Desktop at 1440×900 retained a 704px route column without overflow. Screenshots: `/tmp/esteban-content-creator-mobile-local.png`, `/tmp/esteban-content-creator-film-mobile-local.png`, `/tmp/esteban-content-creator-desktop-local.png` (local-only artifacts).
+- Gates passed: focused routing tests 46/46; `pnpm typecheck`; `pnpm lint` (0 errors, 22 existing warnings); `pnpm test` (166 files / 3,481 tests); `pnpm rail-adoption:check` (3); and `pnpm build` (569 static pages). Commit and add to PR #522; production remains unchanged until remote checks pass.
+
+# 2026-10-23 — Production option-card and commercial-scope clarity candidate
+
+- Owner phone QA found the production route mixing two card systems and presenting the commercial price ladder as if three conflicting prices applied at once. The route now says "Choose the production you need" / "Elige la producción que necesitas" and uses the same expandable card grammar as packages. Every production has its starting price and one-line fit on the closed card; the commercial card has only `From $1,000` until opened, where it explains that basic demo, brand film, and actors/studio are scope levels, then offers one quote action.
+- Local mobile evidence: `agent-browser` at 390×664 opened the commercial card with no horizontal overflow. Its closed summary reads `Commercial video or product demo · From $1,000 · Demo, brand film, or a production with actors and studio`; its open content explains the scope tiers and keeps one `Request a quote` button. Screenshot: `/tmp/esteban-commercial-clarity-local.png` (local-only artifact).
+- Gates passed: focused chooser tests 37/37; `pnpm typecheck`; `pnpm rail-adoption:check` (3); `pnpm lint` (0 errors, 22 existing warnings); `pnpm test` (166 files / 3,481 tests); and `pnpm build` (569 static pages). Add the commit to PR #522. Production remains unchanged until its self-hosted remote font-download failure is repaired and required remote checks pass.
+
+# 2026-10-23 — Editing route: remove the ambiguous Starter package card candidate
+
+- Owner phone QA identified “Starter” as an unclear package name because it repeated the same $100 single-video choice shown immediately beneath it. The home Editing route now opens straight into three buyer choices: one video, recurring weekly editing (one or two videos), or a longer/custom project. “Starter” remains an internal/pricing-page identifier, not a visible package card in this route.
+- Local mobile evidence: browser at 390×664 showed `Video editing` → `How often do you need videos?` → Just once / Every week, then the custom-project disclosure. The editing card rendered zero `.em-path-offer` cards, no visible “Starter” string, and zero horizontal overflow. Screenshot: `/tmp/esteban-editing-clarity-local.png` (local-only artifact).
+- Gates passed on this added diff: focused chooser tests 35/35; `pnpm rail-adoption:check` (3); typecheck; lint (0 errors, 22 existing warnings); full `pnpm test` (166 files / 3,479 tests); and `pnpm build`. Add this commit to PR #522; production remains unchanged until the previously documented self-hosted runner font-network failure is resolved.
+
+# 2026-10-23 — Real Estate monthly-plan terms clarity candidate
+
+- Scope: moved the Real Estate terms immediately below the monthly plan cards and above the individual photography and AI-enhancement services. The disclosure is now explicitly titled "Monthly Real Estate plan terms" / "Condiciones de los planes mensuales" and says it applies only to those monthly plans, not the individual services. No price, deliverable, or eligibility rule changed.
+- Local visual evidence: Spanish mobile browser at 390×664 showed Essential, Plus and Premium followed by the renamed disclosure and then "También puedes pedir" with the individual photo and AI items. DOM geometry confirmed the terms begin above the individual-services label (`821 < 872`) and horizontal overflow is zero. Screenshot: `/tmp/esteban-real-estate-terms-local-position.png` (local-only artifact).
+- Gates passed on this diff: `pnpm vitest run app/__tests__/home-packaging-human.test.ts` (26), `pnpm rail-adoption:check` (3), `pnpm typecheck`, `pnpm lint` (0 errors; 22 pre-existing warnings), `pnpm test` (166 files / 3,479 tests), and `pnpm build`. PR #522 is open. Its self-hosted GitHub `validate` passed lint, typecheck and tests twice but both builds failed while fetching all Google fonts through `next/font` (first `TypeError`, then `ETIMEDOUT`); no changed file touches font loading. Keep it unmerged until the runner's font-network fault is repaired and the required quality record passes. Production remains unchanged.
+
+# 2026-10-23 — Homepage lens idle-focus loop published
+
+- Scope: the decorative lens in `HomeProjectPath` now performs one brief focus-and-glint breath every 8 seconds only while at least 35% of its chooser panel is visible. The interaction uses `IntersectionObserver`; it does not alter copy, pricing, buttons, or route expansion. `prefers-reduced-motion: reduce` returns no animation.
+- Local visual/behavior evidence: `agent-browser` at 390×844 found the lens panel has `data-lens-idling="true"` with `em-camera-idle-focus` and `em-camera-idle-iris` active while on screen; after scrolling it out, the attribute was false and the computed animation was `none`; after `set media reduced-motion`, it was visible but computed animation remained `none`. Screenshot: `/tmp/esteban-lens-motion-mobile.png` (local-only artifact).
+- Gates passed on this diff: `pnpm vitest run app/__tests__/home-packaging-human.test.ts app/__tests__/home-single-projects-in-chooser.test.ts` (33), `pnpm rail-adoption:check` (3), `pnpm test` (166 files / 3,477 tests), `pnpm typecheck`, `pnpm lint` (0 errors, 22 pre-existing warnings), and `pnpm build`. PR #521 merged as `bf4dc1494d17991393a2a3647e6a801bac6fdbdb`; Vercel deployment `dpl_BHqvNAmLmoUsinudpff2oQKg8zd4` is Ready and aliases the canonical domain. Production browser at 390×844 confirmed `em-camera-idle-focus` and `em-camera-idle-iris` while in view, `animation:none` under reduced motion, and no horizontal overflow. No inquiry or revenue outcome is measured.
+
+# 2026-10-23 — Human-route homepage chooser candidate (PR #519)
+
+- Follow-up human QA repair is local and uncommitted: nested package/service disclosures are now named exclusive groups, so only one choice remains open; closing a buyer route clears its nested choice. When a choice opens, it scrolls its title, price and action into the 390×600 safe reading area, and the generic route quote hides while that contextual quote is active. Weekly editing now has one compact, explicit quote link for `$85/semana · 1 video` and another for `$160/semana · 2 videos`; neither uses the other plan's WhatsApp text, and the weekly-process link is gone. Productions uses distinct semantic thumbnails (video, clapperboard, ship wheel, rocket) rather than one repeated image. Local browser evidence on `http://localhost:3015/es#start` at 390×600: after opening Local Business then Growth/Local Presence, state was `[false,true,false]`, generic CTA was `display:none`, selected card top was `172px`; closing/reopening reset to `[false,false,false]`. Yacht selection likewise had only Yacht open, generic CTA hidden, card top `171px`; the two weekly anchors decoded to their matching $85/$160 messages. Tests: `pnpm vitest run app/__tests__/home-packaging-human.test.ts app/__tests__/arranque-weekly.test.ts` = 37 passed; `pnpm typecheck` passed; `pnpm lint` 0 errors / 22 pre-existing warnings; `pnpm build` compiled and generated 569 static pages, then exited without an error. No commit, PR update, deployment, or production verification.
+
+- Editing follow-up: the open **Edición de video** route now exposes every published way to buy editing together—one edit for $100/video, weekly editing at $85 for one video or $160 for two, and a separate native disclosure for a longer/custom project quoted by duration, footage, and deliverables. Editing remains priced per video or project, never by an unbounded hourly rate; only filming is time-scoped. Local source tests (31 focused assertions), typecheck, lint (0 errors), and a 390×664 phone interaction passed. The production build was manually stopped after it stalled while generating static pages, so remote build status remains the release gate.
+- Owner clarification after the first local mobile pass: a local business must find its content plan, on-site filming, and broader digital package together. `Presencia Local` now belongs to **Negocios locales** beside `Crecimiento` and `Todo Incluido`; **Producciones y eventos** starts directly with conference, yacht, multicamera, and commercial-production services. `Todo Incluido` also now renders its actual website, AI chat/capture, local-presence, content/editing, and cross-channel-reporting inclusions rather than production-day bullets. Targeted route tests (38 assertions), typecheck, lint (0 errors), and production build passed locally. This is still PR-only, not production.
+- Commit `cec21ca5` replaces the homepage billing-unit selector with four native expandable buyer routes: Real Estate, Video Editing, Productions and Events, and Local Businesses. Each keeps its package(s) and related individual services together. The standalone one-off card is gone.
+- Local evidence: `pnpm test` 166 files / 3,472 tests, `pnpm typecheck`, `pnpm lint` (0 errors), `pnpm build`, and analytics gate passed. At 390×844, opening Producciones y eventos expanded in place and exposed Presencia Local, on-site filming, multicamera/conferences, yacht production and commercial video.
+- PR #519 is open. Vercel preview passed. At last check, CI validate remained in progress and the re-triggered Cortex quality record was queued; do not call production live until those clear and the public Spanish route is checked.
+
+---
+
+# 2026-10-23 — Local GBP conversion proof on About page (priority-growth candidate)
+
+- Source scope: `app/(english)/about/page.tsx`, `app/__tests__/about-conversion-proof.test.ts`, and `config/page-lastmod.json`; addresses `local_gbp_conversion` recommendation for the top query/page opportunity "esteban moreno media" -> `/about`.
+- Renders `ClientReviews` (5.0 rating, verified Google review count, verbatim client quotes, and verified Google Business Profile link) directly on `/about` above the WhoIs section, bridging brand query searchers to live Google reviews and local conversion proof.
+- Local verification: `pnpm lastmod:update`, `pnpm check` (all 6 gates: rail-kit, rail-adoption, lint, typecheck, test, build, text-parity, and verify-spanish-hub-indexability) passed with 166 test files / 3,472 tests passing. Next owner: `cto-qa-lead` reviews the candidate commit; after authorized release, verify `/about` on production.
+
+---
+
+# 2026-10-23 — English caption-styles guide content-depth candidate (local branch)
+
+- Source scope: `lib/guides.ts` and the generated existing ledger `config/page-lastmod.json`; no route, dependency, analytics, price, or factual business claim changed.
+- Updated `/guides/best-caption-styles-for-instagram-reels` with an outcome-specific title and H1, a two-sentence answer-first introduction, expanded safe-zone guidance, and contextual links to the existing safe-zone guide, Reels-for-business guide, and restaurant-editing service. The existing FAQ, FAQPage schema, route, and established restaurant-service link remain in place.
+- Local verification: `pnpm lastmod:update`, `npm run typecheck --silent`, `npm test`, and `git diff --check` completed without failures. Not committed, independently reviewed, deployed, or production-verified. Next owner: `cto-qa-lead` reviews the exact diff; after authorized release, verify the production title, H1, answer, raw FAQ HTML, contextual links, and updated date. `cto-seo-lead` owns a comparable later GSC read; no click, ranking, citation, or inquiry impact is claimed.
+
+---
+
+# 2026-10-22 — Miami corporate-video cost guide content-depth candidate (local branch)
+
+- Source scope: `lib/guides.ts`, its existing metadata test, and the generated existing ledger `config/page-lastmod.json`; no route, dependency, analytics, or unsupported price/business claim changed.
+- Updated `/guides/corporate-video-production-cost-miami` with a budget-and-comparison H1, a concise intent-matched metadata title and description, a two-sentence answer-first opening that distinguishes a filming starting price from an all-in quote, and two additional server-rendered FAQ answers about comparing same-day quotes and requesting a quote before every detail is known. Existing contextual links to remote editing and on-location production remain in the guide.
+- Local verification: `pnpm lastmod:update`, `npm run typecheck --silent`, `npm test`, and `git diff --check` passed. The full suite reported 165 test files and 3,469 tests passing. Not committed, independently reviewed, deployed, or production-verified. Next owner: `cto-qa-lead` reviews the exact diff; after an authorized release, verify the title, H1, answer, FAQ HTML, contextual links, and updated date on production. `cto-seo-lead` owns a comparable later GSC read; no click, ranking, citation, or inquiry impact is claimed.
+
+---
+
+# 2026-10-22 — Spanish video-pacing calculator content-depth candidate (local branch)
+
+- Source scope: `app/(spanish)/es/calculadora-de-ritmo-de-video/page.tsx`, its existing calculator component, its existing metadata assertion, and the generated ledger `config/page-lastmod.json`; no new route, dependency, analytics, pricing, or business claim changed.
+- The page now leads with the specific 30/60-second words-and-duration outcome in title, H1, and answer-first copy. It adds three server-rendered native-`details` answers about calculating words, trimming a long script, and estimating Reel/Short duration, plus contextual links to the existing Spanish script timer and Reels-editing cost calculator.
+- Local verification: `pnpm lastmod:update` refreshed this route to `2026-10-22`; `pnpm typecheck` and `npm test` passed. The literal `npm run typecheck --silent` acceptance form is a repository command-wrapper defect: npm forwards `--silent` to `tsc`, which exits with `TS5023 Unknown compiler option '--silent'`; `pnpm typecheck` runs the same configured `tsc --noEmit` command cleanly. `pnpm build` compiled and emitted `.next/server/app/es/calculadora-de-ritmo-de-video.html`, but its terminal completion status was not captured; rerun it as a release gate before merge.
+- Not committed, independently reviewed, deployed, or production-verified. Next owner: `cto-qa-lead` reviews the exact diff, confirms the build completion and raw HTML; after an authorized release, verify title, H1, FAQs, canonical links, and the updated date on production. `cto-seo-lead` owns the comparable later GSC read; no click, ranking, citation, or inquiry effect is claimed.
+
+---
+
+# 2026-10-22 — Spanish caption-styles guide content-depth candidate (local branch)
+
+- Source scope: `lib/guides.ts` and the generated existing ledger `config/page-lastmod.json`; no route, dependency, analytics, pricing, or factual business claim changed.
+- Updated `/es/guias/mejores-estilos-de-subtitulos-para-reels` with an outcome-specific H1, concise metadata, a two-sentence answer-first introduction, and a reading-need comparison (complete captions versus short emphasis text) that links to the existing Spanish safe-zone guide and Reels service page.
+- Local verification: `pnpm lastmod:update`, `git diff --check`, `npm run typecheck --silent`, and `npm test` passed. The full suite reported 165 test files and 3,469 tests passing. No deployment or production verification has occurred.
+- Next owner: `cto-qa-lead` independently reviews the exact diff and, after an authorized release, verifies the production raw HTML, rendered page, canonical links, and date ledger. `cto-seo-lead` owns a later comparable GSC observation; this change does not establish click, ranking, or citation impact.
+
+---
+
+# 2026-10-21 — Large-video transfer guide content-depth candidate (local branch)
+
+- Source scope: `lib/guides.ts` and the generated existing ledger `config/page-lastmod.json`; no route, dependency, analytics, pricing, or factual business claim changed.
+- The English guide at `/guides/fastest-way-to-send-large-video-files-to-editor` now opens with the transfer decision a searcher needs: cloud folder when it can finish in time, proxies when originals are too slow, or a physical drive for a very large archive. A server-rendered question section provides the short decision path, verification reminder, and contextual links to the existing footage-preparation guide and short-form editing service. The existing FAQ, structured data, related-guide surface, and canonical metadata contract remain in place.
+- Local evidence: `pnpm lastmod:update` updated the route ledger to `2026-10-21`; `npm run typecheck --silent` passed; the initial `npm test` exposed only the required stale page-date ledger, which passed after the generated update. The subsequent full suite was started after that update; use `npm test` again in a release review to capture a fresh terminal summary before merge. Not committed, reviewed, deployed, or production-verified. Next owner: cto-qa-lead reviews the exact diff and, if released, checks canonical production raw HTML; cto-seo-lead rereads the settled query/page window without attributing a CTR or ranking outcome to this local change.
+
+---
+
+# 2026-10-21 — Fort Lauderdale Reels page content-depth candidate (local branch)
+
+- Source scope: `app/(english)/services/reels-editor-fort-lauderdale/page.tsx` and the generated existing ledger `config/page-lastmod.json`; no route, schema contract, analytics, price, or factual business claim changed.
+- The H1 and metadata now state the supplied-clips outcome directly: a focused social video with readable captions and one action. A new server-rendered question-shaped section distinguishes editing supplied footage from planning a scoped local shoot. The route already retains its visible FAQ, FAQPage JSON-LD, and related links to the Miami, Fort Lauderdale production, Spanish reciprocal, and content-repurposing services.
+- Local evidence: `pnpm lastmod:update` updated this route to `2026-10-21`; `npm run typecheck --silent` passed; `npm test` passed 165 files / 3,469 tests; `npm run lint --silent` completed with 0 errors and 22 existing warnings; `pnpm rail-adoption:check` passed 3/3; `pnpm build` rendered 569 static pages and its generated route HTML contained the new title, description, H1, decision section, and updated date. Not committed, reviewed by a sibling, deployed, or production-verified. Next owner: cto-qa-lead to review the exact diff and, if released, check production raw HTML and the changed route; cto-seo-lead to remeasure the settled query/page window without claiming a CTR or ranking result from this local change.
+
+---
+
 # 2026-10-20 — Technical SEO monitor repair and fresh gap read (local branch)
 
 - Branch `fix/seo-monitor-video-facade` repairs three verifier defects without changing public copy: it recognizes the production YouTube click-to-play facade instead of demanding an eager iframe, parses valid JSON-LD without corrupting escaped quotes, and retries only transient network/5xx fetch failures (three attempts, 250ms apart). Eager embeds remain a failure, so the monitor still catches a real regression.
@@ -396,9 +565,83 @@ Branch `codex/esteban-geo-offer-clarity-20261011`. The home service card now say
 # Microsoft Clarity readiness — 2026-10-16
 
 Configuration-gated conversion-observability implementation is present locally, inactive by default: `components/microsoft-clarity.tsx`, `lib/microsoft-clarity.ts`, conditional EN/ES privacy disclosure, and `docs/microsoft-clarity-activation.md`. It only renders when Vercel supplies a valid `NEXT_PUBLIC_CLARITY_PROJECT_ID`; the browser script exits for previews/noncanonical host, bots/automation, Global Privacy Control and Do Not Track. No account, project ID, Vercel configuration, deploy, or visitor data was created. Full `pnpm test` passed 156 files / 2,943 tests; typecheck passed; changed-file lint has 0 errors (one existing `beforeInteractive` warning in `site-chrome.tsx`). Next: governed independent review, merge, then owner adds the production variable and performs the written live verification. Durable evidence: `[[esteban-microsoft-clarity-readiness-2026-10-16]]`.
+
+## 2026-10-20 — guarded shared-inbox website acknowledgement (local branch)
+
+- Branch `feat/shared-inbox-lead-agent`, commit `63d61377`, adds `lib/lead-email.ts` and four focused tests. Website leads first notify Esteban; a bilingual receipt reply is sent only when `LEAD_AUTOREPLY_ENABLED=1` and a working Resend sender is present. The reply collects goal/date/location/references and explicitly does not confirm price, scope, or availability. Test submissions send nothing.
+- `pnpm test` passed 164 files / 3,465 tests; `pnpm typecheck` passed; `pnpm lint` had 0 errors and 22 pre-existing warnings; `analytics-gate.py` passed after syncing the required vendored tracker. The initial independent review rejected only because that tracker was stale; its safety findings found no acknowledgement or privacy defect.
+- This is not a live email agent: the configured Resend credential must be repaired and a real mailbox (rather than forwarding-only alias) connected before merge/activation and a real receive → acknowledgement → Esteban alert → daily-report probe can be claimed.
 # 2026-10-16 — Camera Bench native-swipe gallery (local, awaiting PR)
 
 - Owner asked for a more impressive, touchable whole-camera experience after the paired product tiles shipped in PR #469.
 - Branch `feat/camera-bench-interactive` changes `components/camera-kit-method.tsx` and `app/illustrated-commercial.css` into a native horizontal scroll-snap shelf. One camera fills a slide; the next camera remains visibly reachable. Each slide retains its server-rendered native `<details>` disclosure and shared name, so Sony/Canon details remain mutually exclusive.
 - No new equipment, lens, lighting, delivery, ownership, or performance claim was added. Existing manufacturer images and specifications remain the only camera facts.
 - Local evidence: `pnpm test` 162 files / 2,981 tests passed; `pnpm typecheck`, `pnpm lint` (60 pre-existing warnings), `pnpm build`, `pnpm rail-adoption:check`, `git diff --check`, and raw local HTML check passed. Antigravity visual-direction review approved (`/tmp/camera-bench-swipe-agy.txt`). Production HTTPS phone interaction verification is still required after merge.
+## 2026-10-24 — AI chooser visual repair released
+
+- PR #541 (`fix(home): replace small AI card image`) replaced only the fifth chooser card's FLAS screenshot with `/portfolio/gains-from-geebs.jpg`; it preserves the AI, web and visibility route, offers and services from PR #540. Source `29d2ac25`, merged `91c79f3647fbbf780ba8151b7d726e70eccd5792`.
+- Verification: focused Vitest 37/37, typecheck, lint (0 errors; existing warnings); 390x844 local visual check. PR validate `40120096085`, quality evidence `40120429510`, main CI `40120461083`, and IndexNow `40120461062` passed. Production deployment `7302642368` succeeded; canonical `/es` returned HTTP 200 with `gains-from-geebs.jpg` and the card's Spanish label.
+- No measured inquiry, ranking, citation or revenue change. Durable vault entry: `client-esteban-media/wiki/esteban-home-ai-seo-chooser-2026-10-24.md`.
+# 2026-10-23 — Owner-authorized real-estate social reel carousel (local branch)
+
+- Branch `feat/real-estate-social-reel` adds the owner-supplied published Instagram social edit as the first, self-hosted item in the existing real-estate carousel. The local MP4 is 576x1024 and 22.866667 seconds; it has a local poster. No Instagram embed, client/property name, sale claim, homepage-hero swap, or new visitor flow was added.
+- `lib/real-estate-reels.ts` remains the shared source for the card, player, VideoObject JSON-LD, and video sitemap. It now stores each reel publication date; visible inventory is seven. `config/page-lastmod.json` was regenerated for the two affected service pages and the Spanish parity baseline was refreshed after the intentional count changes.
+- Local evidence: lint passed with 0 errors and 22 existing warnings; typecheck passed; 165 test files / 3,470 tests passed; analytics gate passed (12 emit sites / 11 events); build, text parity (194 routes), rail adoption (3/3), and `git diff --check` passed. Browser checks showed desktop and 390px player playback advancing from the self-hosted MP4.
+- Local commit `ac9d927f` records the implementation. No PR, merge, deployment, or production verification exists. Required independent-review dispatch is blocked by its recorded context/usage gate after three attempts; do not bypass it. Next owner clears that governed dispatch state, obtains review, then releases and verifies both live player sizes.
+
+# 2026-10-23 — Combined owner-media release candidate
+
+- The candidate adds native `autoPlay` to the existing muted, looping, inline homepage hero video and a regression test in `app/__tests__/home-anchors-resolve.test.ts`. It preserves the existing poster, text, actions, `CinemaHeroMotion` visibility pause, and reduced-motion gate.
+- It also includes the previously committed owner-authorized social-reel carousel item. Browser verification on the generated local build showed the hero at `autoplay: true`, `muted: true`, `loop: true`, `paused: false`, with advancing time; the carousel shows seven items and plays the new local MP4 in place at phone size.
+- Release-candidate checks: lint 0 errors (22 existing warnings), typecheck passed, `pnpm test` passed 165 files / 3,471 tests, analytics gate passed, build produced `BUILD_ID=FjQMM2xegeGaLVeiriBCY`, text parity passed 194 routes, and rail adoption passed 3/3. A governed review dispatch was attempted but did not reach a provider because its review configuration rejected the initial requests; no review verdict exists.
+- User explicitly requested production release. After the branch is pushed and CI is green, verify the live home autoplay and the real-estate reel player at desktop and 390px. Do not claim conversion impact from this release.
+## 2026-10-23 — The Great Reviewer iPhone 18 content case (local)
+
+- Branch: `feat/youtube-content-case-20261023`.
+- Added `public/portfolio/great-reviewer-iphone-18.jpg`, extracted from the original 1080×1920 vertical Reel supplied in the The Great Reviewer iMessage group on 2026-09-28 at 23:14. The Content Creator route now uses this real Reel still with its existing interaction treatment.
+- Added bilingual portfolio project `great-reviewer-iphone-18` linked to the public YouTube video `BDRru8eXaj4`. Copy makes no reach, commercial, or audience claim.
+- Verification: `pnpm test` passed 167 files / 3,489 tests. Browser QA passed on 375×667, 390×844, 1440×900. `pnpm check` got through lint, typecheck, tests, build, and indexability, then the global Spanish text-parity gate reported 28 known snapshot differences in unrelated existing routes. Do not refresh that global fixture without reviewing those separate changes.
+- Next: obtain an independent diff review, commit, create PR, merge only after remote evidence, then verify public `/portfolio/great-reviewer-iphone-18`, `/es/portafolio/great-reviewer-iphone-18`, and the 390px Content Creator expansion.
+# 2026-10-23 — Growth-starvation internal links for /es/evaluacion (local candidate)
+
+- Scope: added four contextual body-copy links to the existing Spanish `Diagnóstico de Estrategia de Video` at `/es/evaluacion` from `/` (via `components/about-teaser.tsx`), `/about`, `/areas`, and `/contact`. The target already returns to its Spanish section hub through the visible `Inicio` breadcrumb to `/es`.
+- Ledger: `pnpm lastmod:update` refreshed the generated existing entries for `/about`, `/areas`, and `/contact` in `config/page-lastmod.json`; the homepage component does not own a page-ledger entry.
+- Local evidence: `npm run typecheck --silent` and the required `npm test` acceptance run passed: 167 test files, 3,489 tests. `git diff --check` passed. Not committed, independently reviewed, deployed, or production-verified. Next: `cto-qa-lead` reviews the exact diff; after an authorized release, confirm the four canonical rendered links and the target breadcrumb in production. `cto-seo-lead` owns a later comparable GSC read; no indexing, click, ranking, citation, inquiry, or revenue effect is claimed.
+# Free capture score — 2026-10-24
+
+- New read-only `scripts/free-capture-score.mjs` ranks settled Search Console query-page rows with transparent demand, reachability, click-opportunity, and recorded AI-citation inputs. It is deliberately not a proprietary difficulty metric and leaves SERP resistance unmeasured without a reproducible source.
+- Command: `pnpm seo:capture-score`; sources default to the local settled Search Console snapshot and the portfolio citation ledger. No paid APIs, page edits, or external writes.
+- Verified: focused test (4/4), full `pnpm test` (169 files / 3,499 tests), lint (0 errors), typecheck, and production build completed. Two governed independent Antigravity verifier records approved: `20261024T150601Z-cto-qa-lead-esteban-media-1792854362550307000-49201-f1b5cbd2742c47f2.json` and `20261024T150823Z-cto-seo-lead-esteban-media-1792854504094440000-56254-c5fd3ebf91eb775b.json`. Next: commit and open PR; do not treat score output as a ranking, traffic, or lead result.
+
+# 2026-10-24 — Google review proof refresh candidate
+
+- Public Google Maps read on 2026-10-24 reported `5.0 stars` and `18 reviews` for the Esteban Moreno Media profile (`https://www.google.com/maps?cid=12305289738935181687`). The source snapshot was stale at 11.
+- Commit `5aab9367` updates `data/google-reviews.json`, makes the compact home band lead with verified client feedback rather than “a perfect 5.0,” and keeps the 18-review count as supporting verification. The Google action is count-free: “See all reviews on Google.” Quotes remain verbatim and attributed.
+- Verification: focused review tests 11/11, `pnpm typecheck`, and `pnpm lint` (0 errors; 18 existing warnings). Local browser check at 390×844 confirms the feedback heading, rating, count, quote, and Google action fit with usable spacing. Next: open a scoped PR; after merge, verify public phone rendering and raw homepage text before calling it live.
+
+---
+## 2026-10-24 — Kris AI chooser-card refinement (PR #555 open)
+
+- Commit `860ea800` replaces the 72x80 companion with the existing 144x160 SNES red-tank talking Kris sprite in `public/illustrations/kris-tank-red-talking.png`, adds pixel-perfect scaling, and places compact OpenAI/Anthropic marks inside the existing AI scene. Follow-up pending commit changes the SEO/GEO scene from a static result into a ChatGPT-style question and answer; web/ecommerce remains unchanged.
+- Checks: full `pnpm test`, `pnpm typecheck`, lint 0 errors / 22 existing warnings, analytics gate PASS and `git diff --check`. A fresh phone render is blocked by `ENOSPC` while Next writes `.next/types/routes.d.ts` with 650 MiB free. Antigravity review decision `20261025T012925Z-cto-design-lead-esteban-media-1792891767274162000-26110-e5a0f52c345f13b7` was pending at this handoff.
+- Next: review PR #555, free temporary build capacity, inspect the card at 390x844 and 375x600, then merge and verify production. No release or outcome claim.
+# 2026-10-24 — SEO card now uses a ChatGPT-style conversation scene
+
+- The SEO/GEO card no longer pairs a generic search field with a result panel. It presents a compact, dark ChatGPT-style app window: branded abstract mark, `ChatGPT`/`4o` header, a user question, assistant reply, and message composer.
+- The visual remains decorative (`aria-hidden`) and uses Esteban's red status accent rather than an off-brand green surface.
+- Checks: `pnpm vitest run app/__tests__/home-packaging-human.test.ts app/__tests__/no-off-brand-green.test.ts` (38 passing), `pnpm typecheck`, `pnpm lint`, and `git diff --check` passed. A build was started after capacity returned but did not complete during the command window; do not treat it as a build pass.
+# 2026-10-24 — SEO/GEO card uses the full ChatGPT workspace as its scene
+
+- Owner correction: the full card background must look like ChatGPT, not a card with a small ChatGPT window placed over a separate scenic background.
+- The SEO/GEO visual now uses the charcoal ChatGPT workspace across the full card: a dark left sidebar, full conversation surface, header, message pair and composer. The Esteban service copy remains on the left reading layer.
+- Checks: `pnpm vitest run app/__tests__/home-packaging-human.test.ts app/__tests__/no-off-brand-green.test.ts` passed 38/38; `pnpm typecheck`, `pnpm lint` (0 errors; 22 existing warnings), and `git diff --check` passed. Local Next dev did not serve within the five-second probe, so no phone visual pass is claimed yet.
+# 2026-10-24 — Original agent squad replaces single AI-card mascot
+
+- The AI Agents card now uses `public/illustrations/agent-squad-v1.png`: three original SNES-era worker sprites (Scout, Write, Run) moving tasks through a single pipeline. It replaces the single Kris sprite as the card hero and keeps the existing automation artwork dimly visible as the scene.
+- Generated with the built-in image tool; intentionally original, with no Pac-Man/ghost likeness, third-party marks, text or watermark.
+- Checks: targeted 38/38 tests, typecheck, lint (0 errors; 22 existing warnings), and `git diff --check` passed.
+# 2026-10-25 — AI agent squad work-cycle candidate
+
+- Scope: `components/home-project-path.tsx`, `app/illustrated-commercial.css`, and `app/__tests__/home-packaging-human.test.ts`. The original three-character pixel-art squad now visibly works in a loop: the group shifts through a purposeful work cycle, Scout/Write/Run activate in sequence, and three task signals travel across the hand-off line. The image, offer copy, and partner marks remain unchanged.
+- Accessibility: the squad, role chips, and task signals are all static under `prefers-reduced-motion: reduce`; motion is decorative and does not hide text or interaction.
+- Local evidence: focused card tests plus the color guard passed 38/38; `pnpm typecheck` passed; `pnpm lint` completed with 0 errors and 22 existing warnings; full `pnpm test` passed 172 files / 3,677 tests; `git diff --check` passed. The local Next dev server reported Ready, but the browser bridge timed out before rendering `/es`, so a real mobile render remains required after the scoped release.

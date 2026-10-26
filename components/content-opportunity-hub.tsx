@@ -1,0 +1,25 @@
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { Container } from "@/components/ui/container";
+
+const opportunities = {
+  en: [
+    "Organize phone clips before the edit", "Film one useful hour", "Choose three repeatable Reel formats", "Capture five shots before hiring an editor", "Make one clear raw-footage handoff", "Decide when phone footage is enough", "Choose the message before polish", "Open with the work, not a logo", "Show real process instead of stock", "Turn one customer question into a Reel",
+    "Choose quality before daily posting", "Repurpose one idea across formats", "Use captions, place and one next step", "Build a production-day shot list", "Prepare an asset folder", "Start a food Reel with the first visual moment", "Tell a food story beyond the beauty shot", "Plan prep, texture, plating and room", "Capture restaurant footage before the edit", "Write a food-editor brief",
+    "Choose an editor by work and workflow", "Avoid template-only food cuts", "Find truthful angles from one food shoot", "Edit restaurant footage already filmed", "Turn agent footage into a property Reel", "Capture a listing before the showing ends", "Tell more than one property story", "Plan clinic video with consent first", "Decide what clinic footage can be shown", "Edit supplied yacht footage for social",
+  ],
+  es: [
+    "Ordena clips del teléfono antes de editar", "Graba una hora útil", "Elige tres formatos de Reel repetibles", "Graba cinco tomas antes de contratar edición", "Haz una entrega clara de material", "Decide cuándo basta el material del teléfono", "Elige el mensaje antes del acabado", "Abre con el trabajo, no con un logo", "Muestra proceso real en vez de stock", "Convierte una pregunta de cliente en un Reel",
+    "Elige calidad antes que publicar diario", "Reutiliza una idea en varios formatos", "Usa subtítulos, lugar y un siguiente paso", "Arma una lista para día de grabación", "Prepara una carpeta de recursos", "Empieza un Reel de comida con el primer momento visual", "Cuenta una historia de comida más allá del plato", "Planea preparación, textura, emplatado y salón", "Graba restaurante antes de enviar a editar", "Escribe un brief para edición de comida",
+    "Elige editor por trabajo y proceso", "Evita cortes de comida solo con plantillas", "Encuentra ángulos fieles en una sesión de comida", "Edita material de restaurante ya grabado", "Convierte material del agente en un Reel de propiedad", "Graba una propiedad antes de terminar la visita", "Cuenta más de una historia de una propiedad", "Planea video clínico con consentimiento primero", "Decide qué material clínico se puede mostrar", "Edita material náutico entregado para redes",
+  ],
+} as const;
+
+export function ContentOpportunityHub({ locale }: { locale: "en" | "es" }) {
+  const es = locale === "es";
+  const home = es ? "/es#selected-work-es" : "/#selected-work-en";
+  const portfolio = es ? "/es/portafolio" : "/portfolio";
+  const service = es ? "/es/servicios" : "/services";
+  const title = es ? "30 ideas de video para planear antes de grabar" : "30 video ideas to plan before you film";
+  return <main className="bg-[#f6f1ea] text-[#101214]"><section className="border-b border-[#ddd4c8] py-12 sm:py-16"><Container size="xl"><p className="em-eyebrow">{es ? "Planificación de contenido" : "Content planning"}</p><h1 className="mt-4 max-w-4xl font-serif em-display">{title}</h1><p className="mt-6 max-w-3xl text-lg leading-8 text-[#3f4548]">{es ? "Estas ideas ayudan a decidir qué grabar, qué entregar y qué pregunta responde cada video. No prometen alcance, ventas ni un resultado específico." : "These ideas help decide what to film, what to hand off, and which question each video answers. They do not promise reach, sales, or a specific result."}</p><div className="mt-7 flex flex-wrap gap-x-5 gap-y-3"><Link className="min-h-11 font-medium text-[#9f3c27] underline underline-offset-4" href={home}>{es ? "Ver trabajo terminado en la portada" : "See finished work on the homepage"}</Link><Link className="min-h-11 font-medium text-[#9f3c27] underline underline-offset-4" href={portfolio}>{es ? "Ver todo el portafolio" : "Browse the portfolio"}</Link></div></Container></section><section className="py-12 sm:py-16"><Container size="xl"><div className="grid gap-5 md:grid-cols-2">{opportunities[locale].map((item, index)=><article key={item} className="rounded-2xl border border-[#d6ccc0] bg-[#fbf6ef] p-6"><p className="font-serif text-3xl text-[#9f3c27]">{String(index+1).padStart(2,"0")}</p><h2 className="mt-4 font-serif text-2xl leading-tight">{item}</h2><p className="mt-3 text-sm leading-6 text-[#3f4548]">{es ? "Define una sola idea, reúne solo el material necesario y conserva la aprobación antes de publicar." : "Define one idea, gather only the material needed, and keep approval in place before publishing."}</p><Link href={service} className="mt-5 inline-flex min-h-11 items-center gap-2 font-medium text-[#9f3c27] underline underline-offset-4">{es ? "Ver servicios" : "See services"}<ArrowRight className="size-4" aria-hidden="true" /></Link></article>)}</div></Container></section></main>;
+}

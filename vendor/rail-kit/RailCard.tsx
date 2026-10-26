@@ -250,6 +250,7 @@ export default function RailCard({
     "data-rail-index": index,
     "data-rail-kind": item.kind,
     "data-rail-variant": item.variant ?? variant,
+    "data-rail-phone-frame": item.phoneFrame ? "true" : undefined,
     "data-rail-highlighted": highlighted ? "true" : undefined,
     className: "rail-card",
   } as const;

@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 
 import { AboutWhoIs } from "@/components/about-who-is";
+import { ClientReviews } from "@/components/client-reviews";
 import { OnSetMedia } from "@/components/on-set-media";
 import { Container } from "@/components/ui/container";
 import { buildProfilePageJsonLd } from "@/lib/entity-schema";
@@ -74,15 +75,30 @@ export default function AboutPage() {
                 >
                   service areas
                 </Link>{" "}
-                directory.
+                directory. Spanish-first visitors can also review the{" "}
+                <Link
+                  href="/es/servicios"
+                  className="underline underline-offset-4 hover:text-[#9f3c27]"
+                >
+                  video, website, and inquiry services overview
+                </Link>{" "}
+                before sharing a project. If the content plan is still taking
+                shape, the Spanish{" "}
+                <Link
+                  href="/es/evaluacion"
+                  className="underline underline-offset-4 hover:text-[#9f3c27]"
+                >
+                  Diagnóstico de Estrategia de Video
+                </Link>{" "}
+                can help clarify what to discuss first.
               </p>
               <p className="mt-4 max-w-2xl leading-7 text-[#252a2d]">
                 His{" "}
                 <Link
-                  href="/portfolio"
+                  href="/es/portafolio"
                   className="underline underline-offset-4 hover:text-[#9f3c27]"
                 >
-                  public portfolio
+                  selected work
                 </Link>{" "}
                 connects each selected project to its available credits and original video source. His Spanish{" "}
                 <Link
@@ -168,6 +184,7 @@ export default function AboutPage() {
           </div>
         </Container>
       </section>
+      <ClientReviews locale="en" />
       <AboutWhoIs locale="en" path="/about" />
     </main>
   );

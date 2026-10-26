@@ -1,7 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Languages, Layers, Mail } from "lucide-react";
 
 import { PageUpdated } from "@/components/page-updated";
+import { PublishedProjectProof } from "@/components/published-project-proof";
 import { Container } from "@/components/ui/container";
 import {
   buildCaseStudiesIndexStructuredData,
@@ -31,6 +33,24 @@ export function CaseStudiesIndexPage({ locale }: { locale: CaseStudyLocale }) {
   const portfolioPath = locale === "es" ? "/es/portafolio" : "/portfolio";
   const servicesPath = locale === "es" ? "/es/servicios" : "/services";
   const contactPath = locale === "es" ? "/es/contacto" : "/contact";
+  const publishedProof =
+    locale === "es"
+      ? {
+          href: "/es/portafolio/healthy-smile",
+          eyebrow: "Proyecto publicado",
+          title: "Healthy Smile",
+          description:
+            "Un proyecto con el rol, los entregables y el alcance documentados en este sitio.",
+          linkLabel: "Ver el proyecto",
+        }
+      : {
+          href: "/portfolio/healthy-smile",
+          eyebrow: "Published project",
+          title: "Healthy Smile",
+          description:
+            "A project with its role, deliverables, and scope documented on this site.",
+          linkLabel: "View the project",
+        };
 
   return (
     <main className="bg-[#f6f1ea] text-[#101214]">
@@ -58,6 +78,9 @@ export function CaseStudiesIndexPage({ locale }: { locale: CaseStudyLocale }) {
               <h1 className="mt-4 max-w-4xl font-serif em-display">
                 {copy.title}
               </h1>
+              <div className="mt-6 max-w-3xl">
+                <PublishedProjectProof proof={publishedProof} compact />
+              </div>
               <p className="mt-6 max-w-3xl text-lg leading-8 text-[#252a2d]">
                 <strong>{copy.answerLabel}</strong> {copy.answer}
               </p>
@@ -138,6 +161,17 @@ export function CaseStudiesIndexPage({ locale }: { locale: CaseStudyLocale }) {
                   key={study.id}
                   className="flex flex-col rounded-2xl border border-[#d6ccc0] bg-[#fbf6ef] p-6 sm:p-8"
                 >
+                  {study.id === "homeowners" ? (
+                    <div className="relative -mx-2 -mt-2 mb-6 aspect-[16/9] overflow-hidden rounded-xl bg-[#d6ccc0] sm:-mx-3 sm:-mt-3">
+                      <Image
+                        src="/portfolio/carolina-sells-miami-hero.webp"
+                        alt={locale === "es" ? "Carolina Suarez en un balcón de Brickell" : "Carolina Suarez on a Brickell balcony"}
+                        fill
+                        sizes="(min-width: 768px) 45vw, 100vw"
+                        className="object-cover object-center"
+                      />
+                    </div>
+                  ) : null}
                   <p className="text-xs font-medium uppercase tracking-[0.14em] text-[#5a6066]">
                     {study.eyebrow}
                   </p>

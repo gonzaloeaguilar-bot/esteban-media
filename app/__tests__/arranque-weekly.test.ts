@@ -4,7 +4,6 @@ import { describe, expect, it } from "vitest";
 import {
   ARRANQUE_WEEKLY_PAGES,
   ARRANQUE_WEEKLY_SPANISH_SLUGS,
-  arranqueWeeklyComparisonLine,
   arranqueWeeklyCopy,
   arranqueWeeklyCtaId,
   arranqueWeeklyFaq,
@@ -44,7 +43,7 @@ describe("Arranque weekly plan", () => {
   });
 
   it.each(locales)("%s: no separate package name, no discount framing", (locale) => {
-    const text = [...allCopy(locale), arranqueWeeklyCopy(locale).comparison].join("\n");
+    const text = allCopy(locale).join("\n");
     for (const banned of [/Crecimiento/, /Esencial/, /Growth/, /Essential/, /Edici[oó]n para creadores/i, /Creator editing/i, /cortes[ií]a/i, /\d+\s?%/, /ahorr/i, /descuento/i, /discount/i, /valor normal/i, /\bsave\b/i]) {
       expect(text, String(banned)).not.toMatch(banned);
     }
@@ -52,7 +51,7 @@ describe("Arranque weekly plan", () => {
     // never a second product with its own name.
     expect(text).not.toMatch(/Arranque semanal|Weekly Starter/i);
     expect(text).toMatch(locale === "es" ? /Arranque/ : /Starter/);
-    expect(text).toMatch(locale === "es" ? /desde \$80 por video/ : /from \$80 per video/);
+    expect(text).not.toMatch(locale === "es" ? /\$80 por video/ : /\$80 per video/);
   });
 
   it("names no second Starter anywhere a visitor or crawler reads it", () => {
@@ -73,19 +72,9 @@ describe("Arranque weekly plan", () => {
     expect(c.answer).toContain(locale === "es" ? "Cada semana: $85 por 1 video o $160 por 2 videos" : "Every week: $85 for 1 video or $160 for 2 videos");
   });
 
-  // Arranque is one video edit (owner, 2026-10-08): the honest comparison is published.
-  it("compares weekly per-video price with a single video, computed from lib/pricing.ts", () => {
-    expect(arranqueWeeklyComparisonLine("es")).toBe("desde $80 por video vs $100 un video suelto");
-    expect(arranqueWeeklyComparisonLine("en")).toBe("from $80 per video vs $100 for a single video");
-    expect(arranqueWeeklyCopy("es").comparison).toBe(arranqueWeeklyComparisonLine("es"));
-    const body = source("lib/arranque-weekly.ts").match(/export function arranqueWeeklyComparisonLine[\s\S]*?\n}\n/)?.[0] ?? "";
-    expect(body).toContain("PACKAGE_PRICES.arranque");
-    expect(body).not.toMatch(/\b(?:80|100)\b/);
-  });
-
-  it("pricing card and creator pages render the SAME Starter options, with the comparison and no badge", () => {
+  it("pricing card and creator pages render the SAME Starter options with clear weekly totals and no badge", () => {
     const options = source("components/starter-options.tsx");
-    expect(options).toContain("arranqueWeeklyComparisonLine(locale)");
+    expect(options).not.toContain("arranqueWeeklyComparisonLine");
     for (const words of ["¿Cada cuánto necesitas videos?", "How often do you need videos?", "Una sola vez", "Just once", "Cada semana", "Every week", "arranqueWeeklyTermsLine(locale)"]) {
       expect(options).toContain(words);
     }
@@ -93,12 +82,15 @@ describe("Arranque weekly plan", () => {
     expect(arranqueWeeklyTermsLine("en")).toBe("Paid weekly · 4-week minimum, then cancel anytime");
     expect(options).not.toMatch(/cualquier semana|stop any week/);
     expect(options).not.toMatch(/line-through|<s>|<del>|badge/i);
+    expect(options).toContain("package_arranque_weekly_one_video_whatsapp");
+    expect(options).toContain("package_arranque_weekly_two_videos_whatsapp");
+    expect(options).not.toContain("Cómo funciona el pago semanal");
     // `quiet` only changes the WhatsApp button's visual weight on the home
     // page fold (owner audit 2026-10-12: nine identical filled buttons on
     // one page) — it is still the SAME <StarterOptions> component, same
     // props shape, same href/data-cta/copy.
     expect(source("components/packages-section.tsx")).toContain("<StarterOptions locale={locale} quiet={quiet} />");
-    expect(source("components/arranque-weekly-section.tsx")).toContain("<StarterOptions locale={locale}");
+    expect(source("components/arranque-weekly-section.tsx")).toContain("<StarterOptions locale={locale} />");
   });
 
   it.each(locales)("%s: ten FAQs from the proposal, numbers from the terms", (locale) => {

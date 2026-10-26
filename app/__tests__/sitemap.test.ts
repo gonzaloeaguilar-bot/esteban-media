@@ -21,7 +21,7 @@ import sitemap, { inventoryAdditions20261010Paths } from "../sitemap";
 describe("portfolio sitemap entries", () => {
   const entries = sitemap();
 
-  it("publishes the exact 372-URL consolidated inventory, each URL once", () => {
+  it("publishes the exact 566-URL consolidated inventory, each URL once", () => {
     const urls = entries.map((entry) => entry.url);
 
     // 279 = 243 consolidated + /desk-recommendations (owner-ordered
@@ -63,8 +63,8 @@ describe("portfolio sitemap entries", () => {
     // +20 = wave 5 high-value demand-backed niches (2026-10-18): med spa, contractor florida, quinceanera, podcast multicam, personal injury, private school, exotic car, car dealership, boat show exhibitor, art basel.
     // +20 = wave 6 high-value demand-backed niches (2026-10-19): private aviation, equestrian polo, yacht refit boatyard, country club golf, luxury pool builder, regenerative medicine, b2b case study, interior design millwork, estate planning attorney, boutique hotel resort.
     // +40 = waves 7 and 8 high-value demand-backed niches (2026-10-19): multicam panel, corporate town hall, executive retreat keys, brand activation, pre-construction sales gallery, commercial office leasing, cosmetic dentistry veneers, concierge doctor, bar bat mitzvah, destination wedding palm beach, online course production, vsl direct response, monthly repurposing retainer, b2b saas explainer, executive linkedin series, youtube long-form editing, product unboxing demo, airbnb luxe vacation rental, waterfront restaurant, marina facility.
-    expect(entries).toHaveLength(530);
-    expect(new Set(urls)).toHaveLength(530);
+    expect(entries).toHaveLength(566);
+    expect(new Set(urls)).toHaveLength(566);
   });
 
   it("pairs real product photography pages with reciprocal language alternatives", () => {

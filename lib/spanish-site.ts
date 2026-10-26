@@ -633,7 +633,7 @@ const nicheWave8Pages: SpanishNichePage[] = [
       {
         question: "¿Hay trabajo inmobiliario publicado para ver?",
         answer:
-          "Sí. La página de reels inmobiliarios en inglés muestra seis reels verticales de propiedades que editó Esteban. Son reels de anuncios, no de un cliente de alquiler vacacional, y muestran cómo se arma un recorrido para la pantalla del celular.",
+          "Sí. La página de reels inmobiliarios en inglés muestra siete reels verticales de propiedades que editó Esteban. Son reels de anuncios, no de un cliente de alquiler vacacional, y muestran cómo se arma un recorrido para la pantalla del celular.",
       },
     ],
   },
@@ -5215,11 +5215,11 @@ export const spanishNichePages: SpanishNichePage[] = [
     title: "Editor de video de productos para e-commerce en Miami",
     metadataTitle: "Editor Video Productos E-Commerce",
     description:
-      "Edición de video de producto para tiendas Shopify, Amazon y campañas de conversión e-commerce.",
+      "Edición de video de producto para tiendas Shopify, fichas de Amazon y anuncios de marcas e-commerce.",
     eyebrow: "E-Commerce / Video de Producto",
     h1: "Edición de video de productos para tiendas e-commerce.",
     lead:
-      "Muestra funciones, empaque y detalles de producto en videos de ritmo optimizado para aumentar la conversión de tu tienda online.",
+      "Organiza el material de tu producto en videos claros para tiendas Shopify, fichas de Amazon, anuncios o redes, con alcance definido antes de editar.",
     keyword: "editor de video de productos para e-commerce",
     location: "Miami-Dade / Broward",
     availability: "confirmed",
@@ -5233,7 +5233,7 @@ export const spanishNichePages: SpanishNichePage[] = [
       "¿Requieres textos sobrepuestos resaltando beneficios clave?",
     ],
     projectFit:
-      "Edición comercial rápida orientada a la venta directa.",
+      "Edición comercial para contenido de producto cuando el material y los derechos de uso están claros.",
     faqs: [
       {
         question: "¿Se pueden añadir textos con beneficios e íconos animados?",
@@ -9659,6 +9659,13 @@ const languageAlternatesRaw: Record<string, Record<string, string>> = {
  * Filtering here rather than hand-deleting rows means a future consolidation
  * stops advertising itself automatically, with no second place to remember.
  */
+for (const id of ["gains-from-geebs", "caro-sells-miami", "dupont-realty-international", "great-reviewer-website", "gains-from-geebs-shorts", "exatlon", "juanchis-burguer", "portosole", "punto-de-giro"] as const) {
+  const en = `/case-studies/${id}`;
+  const es = `/es/casos-de-estudio/${id}`;
+  languageAlternatesRaw[en] = { "en-US": en, "es-US": es, "x-default": en };
+  languageAlternatesRaw[es] = { "en-US": en, "es-US": es, "x-default": en };
+}
+
 export const languageAlternates: Record<string, Record<string, string>> =
   Object.fromEntries(
     Object.entries(languageAlternatesRaw).filter(

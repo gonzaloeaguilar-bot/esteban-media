@@ -34,6 +34,8 @@ export type RealEstateReel = {
   src: string;
   /** Measured duration, in seconds (ffprobe). */
   durationSeconds: number;
+  /** Source or first site-publication timestamp used by VideoObject and sitemap. */
+  publishedAt: string;
   /** Intrinsic poster/video size, so the schema and next/image agree. */
   width: number;
   height: number;
@@ -65,6 +67,7 @@ export const REAL_ESTATE_REELS: readonly RealEstateReel[] = [
     poster: "/real-estate-reels/reel-01.jpg",
     src: "/real-estate-reels/reel-01.mp4",
     durationSeconds: 19,
+    publishedAt: "2026-10-10T18:54:42-04:00",
     width: 720,
     height: 1280,
   },
@@ -77,6 +80,7 @@ export const REAL_ESTATE_REELS: readonly RealEstateReel[] = [
     poster: "/real-estate-reels/reel-02.jpg",
     src: "/real-estate-reels/reel-02.mp4",
     durationSeconds: 57,
+    publishedAt: "2026-10-10T18:54:42-04:00",
     width: 720,
     height: 1280,
   },
@@ -89,6 +93,7 @@ export const REAL_ESTATE_REELS: readonly RealEstateReel[] = [
     poster: "/real-estate-reels/reel-03.jpg",
     src: "/real-estate-reels/reel-03.mp4",
     durationSeconds: 20,
+    publishedAt: "2026-10-10T18:54:42-04:00",
     width: 720,
     height: 1280,
   },
@@ -101,6 +106,7 @@ export const REAL_ESTATE_REELS: readonly RealEstateReel[] = [
     poster: "/real-estate-reels/reel-04.jpg",
     src: "/real-estate-reels/reel-04.mp4",
     durationSeconds: 14,
+    publishedAt: "2026-10-10T18:54:42-04:00",
     width: 720,
     height: 1280,
   },
@@ -113,6 +119,7 @@ export const REAL_ESTATE_REELS: readonly RealEstateReel[] = [
     poster: "/real-estate-reels/reel-05.jpg",
     src: "/real-estate-reels/reel-05.mp4",
     durationSeconds: 24,
+    publishedAt: "2026-10-10T18:54:42-04:00",
     width: 720,
     height: 1280,
   },
@@ -125,8 +132,22 @@ export const REAL_ESTATE_REELS: readonly RealEstateReel[] = [
     poster: "/real-estate-reels/reel-06.jpg",
     src: "/real-estate-reels/reel-06.mp4",
     durationSeconds: 31,
+    publishedAt: "2026-10-10T18:54:42-04:00",
     width: 720,
     height: 1280,
+  },
+  {
+    id: "agent-question-social-reel",
+    title: "Agent-led social reel",
+    titleEs: "Reel social con agente",
+    caption: "A vertical social edit with an on-camera agent and a question-led opening.",
+    captionEs: "Un reel vertical para redes con una agente en cámara y una apertura en forma de pregunta.",
+    poster: "/real-estate-reels/reel-07.jpg",
+    src: "/real-estate-reels/reel-07.mp4",
+    durationSeconds: 23,
+    publishedAt: "2026-10-23T03:28:04Z",
+    width: 576,
+    height: 1024,
   },
 ] as const;
 
@@ -141,17 +162,6 @@ export function formatClock(seconds: number): string {
 export function iso8601Duration(seconds: number): string {
   return `PT${Math.round(seconds)}S`;
 }
-
-/**
- * When these files were first published on this site: the commit that added
- * all six MP4s (4e27e384, `git log --diff-filter=A --format=%cI --
- * public/real-estate-reels/reel-01.mp4` -> 2026-10-10T18:54:42-04:00). Google's
- * video rich results require an uploadDate, and Google recommends a timezone
- * on it; inventing a per-clip date we cannot verify would be a lie the schema
- * tells on the page's behalf, so every clip carries this one git date. Change
- * it only when the files are replaced.
- */
-export const REAL_ESTATE_REELS_PUBLISHED = "2026-10-10T18:54:42-04:00";
 
 /**
  * VideoObject graph for the shelf. One node per reel, each pointing at the same
@@ -173,7 +183,7 @@ export function buildRealEstateReelsJsonLd(locale: "en" | "es" = "en") {
       name: isEs ? reel.titleEs : reel.title,
       description: isEs ? reel.captionEs : reel.caption,
       thumbnailUrl: [absoluteUrl(reel.poster)],
-      uploadDate: REAL_ESTATE_REELS_PUBLISHED,
+      uploadDate: reel.publishedAt,
       duration: iso8601Duration(reel.durationSeconds),
       contentUrl: absoluteUrl(reel.src),
       width: reel.width,
@@ -200,6 +210,7 @@ export function buildRealEstateReelsJsonLd(locale: "en" | "es" = "en") {
  * homepage led with the blurred one. One record, one order.
  */
 export const REEL_DISPLAY_ORDER: readonly string[] = [
+  "agent-question-social-reel",
   "waterfront-tower-aerial",
   "waterfront-condo-views",
   "primary-suite-pool-view",

@@ -34,25 +34,178 @@ for (const locale of ["en", "es"] as const) {
   );
 
   describe(`home ${locale}: packaging after the chooser`, () => {
-    it("1. the Business option shows the monthly plan AND the production day, with its price visible on the camera control", () => {
+    it("1. each buying route keeps its canonical prices in its server-rendered route", () => {
       const prices = laneOffers(locale, "local-business").map((o) => o.price).join(" ");
       expect(prices).toContain("$640");
       expect(prices).toContain("$800");
-      expect(path).toMatch(/em-camera-chooser__stop[^>]*>[\s\S]*?(From|Desde) \$640\/(mo|mes)</);
-      expect(read("app/illustrated-commercial.css")).toMatch(/\.em-camera-chooser__stop small\{[^}]*white-space:nowrap/);
+      expect(path).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$640\/(mo|month|mes)</);
+      expect(path).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$800\/[^<]+</);
     });
 
-    it("1b. one deck keeps all four choices above the selected packages, without a second image banner", () => {
-      expect((path.match(/em-camera-chooser__stop/g) ?? [])).toHaveLength(4);
-      const packageHeading = locale === "en" ? "Available packages" : "Paquetes y entregables";
-      expect(path.indexOf('em-camera-chooser__choices')).toBeLessThan(path.indexOf(packageHeading));
+    it("1b. seven human buying routes expand in place and no parallel one-off card remains", () => {
+      expect((path.match(/em-route-card"/g) ?? [])).toHaveLength(7);
+      expect(path).not.toContain("em-single-project-entry");
+      expect(path).toContain(locale === "en" ? "Productions and events" : "Producciones y eventos");
+      expect(path).toContain(locale === "en" ? "Local businesses" : "Negocios locales");
+      expect(path).toContain(locale === "en" ? "AI agents and chatbots" : "Agentes de IA y chatbots");
+      expect(path).toContain(locale === "en" ? "SEO, GEO and landing pages" : "SEO, GEO y landing pages");
+      expect(path).toContain(locale === "en" ? "Websites and ecommerce" : "Sitios web y ecommerce");
       const css = read("app/illustrated-commercial.css");
-      expect(css).toMatch(/\.em-camera-chooser__choices\{[^}]*grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/);
-      expect(css).toContain(".em-path-visual{display:none}");
+      expect(css).toContain(".em-route-card>summary");
     });
 
-    it("3. the options are named exactly as /pricing names them", () => {
-      const names = locale === "en" ? ["Starter", "Growth", "Local Presence", "Essential"] : ["Arranque", "Crecimiento", "Presencia Local", "Essential"];
+    it("1b1. route cards use full-bleed work imagery while keeping copy and the control readable", () => {
+      const css = read("app/illustrated-commercial.css");
+      const component = read("components/home-project-path.tsx");
+      expect(css).toContain(".em-route-card__visual{position:absolute;z-index:0;inset:0;width:auto");
+      expect(css).toContain(".em-route-card__copy{position:relative;z-index:2");
+      expect(css).toContain(".em-route-card__plus{position:absolute;z-index:3");
+      expect(component).toContain('"web-commerce": "/portfolio/gains-from-geebs-scroll-current.png"');
+      expect(component).toContain('src="/illustrations/agent-squad-v1.png"');
+      expect(component).not.toContain('"ai-agents": "/portfolio/ai-lead-automation.jpg"');
+      expect(component).toContain('className="em-route-card__companion-stage em-route-card__agent-office"');
+      expect(component).toContain('className="em-route-card__ai-partners"');
+      expect(component).toContain('OpenAI');
+      expect(component).toContain('Anthropic');
+      expect(component).toContain('className="em-route-card__answer-chat"');
+      expect(component).toContain('ChatGPT');
+      expect(component).toContain('className="em-route-card__answer-composer"');
+      expect(component).toContain('Message ChatGPT');
+      expect(component).toContain('How do people find my business?');
+      expect(component).toContain('className="em-route-card__agent-jobs"');
+      expect(component).toContain("Scout");
+      expect(component).toContain("Write");
+      expect(component).toContain("Run");
+      expect(component).toContain('className="em-route-card__agent-route"');
+      expect(component).toContain("em-route-card__agent-office");
+      expect(component).toContain("em-route-card__agent-courier");
+      expect(component).toContain("em-route-card__chat-workspace");
+      expect(component).toContain("em-route-card__site-loop");
+      expect(component).toContain("em-route-card__site-loop-cta");
+      expect(component).toContain("Get coached by Kris");
+      expect(component).toContain('width={1440} height={6155}');
+      expect(component).not.toContain("kris is thinking...");
+      expect(css).toContain(".em-route-card__geebs-chat");
+      expect(css).toContain("@keyframes em-companion-orbit");
+      expect(css).toContain("image-rendering:pixelated");
+      expect(css).toContain("@keyframes em-agent-squad-work");
+      expect(css).toContain("align-self:start;justify-self:end");
+      expect(css).toContain("@keyframes em-site-scroll");
+      expect(css).toContain("@keyframes em-agent-task-travel");
+      expect(css).toContain(".em-route-card__agent-squad,.em-route-card__agent-jobs b,.em-route-card__agent-route i,.em-route-card__geebs-chat-bubble");
+      expect(css).toContain(".em-route-card__visual--seo-landing{background:#212121}");
+      expect(css).toContain(".em-route-card__visual--seo-landing:before");
+      expect(css).toContain(".em-route-card__companion-orbit i{animation:none}");
+      expect(component).toContain('src="/real-estate-reels/brickell-loop.mp4"');
+      expect(component).toContain('src="/real-estate-reels/brickell-loop-poster.jpg"');
+      expect(component).toContain('autoPlay loop muted playsInline preload="metadata"');
+      expect(css).toContain('.em-route-card__real-estate-loop{display:none}');
+    });
+
+    it("1b2. gives the decorative lens an on-screen idle focus loop without moving for reduced-motion visitors", () => {
+      const component = read("components/home-project-path.tsx");
+      const css = read("app/illustrated-commercial.css");
+      expect(component).toContain("IntersectionObserver");
+      expect(component).toContain('data-lens-idling={lensInView || undefined}');
+      expect(component).toContain('prefers-reduced-motion: reduce');
+      expect(css).toContain("em-camera-idle-focus 8s");
+      expect(css).toContain("@keyframes em-camera-idle-focus");
+      expect(css).toContain("@media(prefers-reduced-motion:reduce)");
+    });
+
+    it("1b2a. lets the creator-card like send a contained burst of hearts upward", () => {
+      const css = read("app/illustrated-commercial.css");
+      const editingStart = path.indexOf('data-route="editing"');
+      const editingEnd = path.indexOf('data-route="production"');
+      const editing = path.slice(editingStart, editingEnd);
+      expect(editing.match(/em-route-card__reel-heart-burst/g)).toHaveLength(1);
+      expect(editing.match(/<svg/g)?.length).toBeGreaterThanOrEqual(5);
+      expect(editing).toContain('class="em-route-card__reel-like-count"');
+      expect(editing).toContain('+1.2K');
+      expect(path).toContain('class="em-route-card__property-pin"');
+      expect(path).toContain('class="em-route-card__recording-frames"');
+      expect(path).toContain('class="em-route-card__local-signal-spark"');
+      expect(css).toContain("@keyframes em-reel-heart-float");
+      expect(css).toContain("@keyframes em-reel-like-count-one");
+      expect(css).toContain("@keyframes em-reel-like-count-four");
+      expect(css).toContain("-62px");
+      expect(css).toContain(".em-route-card__reel-like-count span,.em-route-card__reel-heart-burst svg{animation:none}");
+      expect(css).toContain("@keyframes em-property-pin-settle");
+      expect(css).toContain("@keyframes em-record-frame");
+      expect(css).toContain("@keyframes em-local-spark");
+      expect(css).toContain(".em-route-card__companion-orbit i{animation:none}");
+    });
+
+    it("1b3. keeps monthly Real Estate terms with the monthly plans, not the individual services", () => {
+      const terms = locale === "es" ? "Condiciones de los planes mensuales" : "Monthly Real Estate plan terms";
+      const clarification = locale === "es"
+        ? "Aplica solo a los planes mensuales de arriba, no a los servicios individuales."
+        : "Applies only to the monthly plans above, not to individual services.";
+      const individualServices = locale === "es" ? "También puedes pedir" : "You can also request";
+      const realEstateStart = path.indexOf('data-route="real-estate"');
+      const realEstateEnd = path.indexOf('data-route="editing"');
+      const realEstate = path.slice(realEstateStart, realEstateEnd);
+      expect(realEstate).toContain(terms);
+      expect(realEstate).toContain(clarification);
+      expect(realEstate.indexOf(terms)).toBeLessThan(realEstate.indexOf(individualServices));
+      expect(realEstate).not.toContain(locale === "es" ? "Adicionales y condiciones de Real Estate" : "Real estate add-ons and terms");
+    });
+
+    it("1c. creator filming stays with creators, business filming stays with local packages, and events keep their specific services", () => {
+      const component = read("components/home-project-path.tsx");
+      expect(component).toContain('{ id: "production", offerIds: [], serviceIds: ["multicam", "yate", "kickstarter"]');
+      expect(component).toContain('{ id: "local-business", offerIds: ["crecimiento", "presencia-local"]');
+      expect(component).toContain('{ id: "ai-agents", offerIds: [], serviceIds: []');
+      expect(component).toContain('{ id: "seo-landing", offerIds: [], serviceIds: []');
+      expect(component).toContain('{ id: "web-commerce", offerIds: [], serviceIds: []');
+      expect(component).toContain('data-lane="creator-filming"');
+      expect(component).toContain('name={`route-offer-${locale}-${route.id}`}');
+      expect(component).toContain('name={`route-service-${locale}-${route.id}`}');
+      expect(component).toContain('onToggle={resetRouteWhenClosed}');
+      expect(read("app/illustrated-commercial.css")).toContain('em-route-card:has(.em-path-offer-details[open],.em-single-item[open]) .em-route-main-cta{display:none}');
+      expect(path).toMatch(/data-route="local-business"[\s\S]*em-path-offer-name">(Growth|Crecimiento)</);
+      expect(path).toMatch(/data-route="local-business"[\s\S]*em-path-offer-name">(Local Presence|Presencia Local)</);
+      const aiStart = path.indexOf('data-route="ai-agents"');
+      const ai = path.slice(aiStart);
+      expect(ai).toContain(locale === "es" ? "Chatbots con IA" : "AI chatbots");
+      expect(ai).toContain(locale === "es" ? "SEO y GEO" : "SEO and GEO");
+      expect(ai).toContain(locale === "es" ? "Sitios web" : "Websites");
+      expect(path).not.toContain(locale === "es" ? "Ver ejemplo de contenido" : "See a content example");
+    });
+
+    it("1c2. production uses the same card grammar and explains commercial scopes only after opening", () => {
+      const productionStart = path.indexOf('data-route="production"');
+      const productionEnd = path.indexOf('data-route="local-business"');
+      const production = path.slice(productionStart, productionEnd);
+      expect(production).toContain(locale === "es" ? "Elige la producción que necesitas" : "Choose the production you need");
+      expect(production).toContain(locale === "es" ? "Ver qué enviar" : "See what to send");
+      expect(production).toContain(locale === "es" ? "Pedir cotización" : "Request a quote");
+      expect(production).not.toContain(locale === "es" ? "También puedes pedir" : "You can also request");
+      expect(production).not.toContain("em-single-item");
+      expect(production).toContain("em-path-offer-details");
+      expect(production).toContain(locale === "es" ? "Demo, brand film o producción con actores y estudio." : "Demo, brand film, or a production with actors and studio.");
+      expect(production).toContain(locale === "es" ? "Elige el alcance al cotizar:" : "Choose the scope when you quote it:");
+      expect(production).not.toContain(locale === "es" ? "Demo básico $1,000 · Brand film $3,000 · Actores y estudio $6,500+" : "Basic demo $1,000 · Brand film $3,000 · Actors and studio $6,500+");
+    });
+
+    it("1d. the content creator route shows editing, a filming day, and scoped-project choices together", () => {
+      expect(path).toMatch(/data-route="editing"[\s\S]*\$100[\s\S]*\$85[\s\S]*\$160/);
+      expect(path).toMatch(/data-route="editing"[\s\S]*(Content creator|Creador de contenido)/);
+      expect(path).toMatch(/data-route="editing"[\s\S]*(Film content with me|Grabemos tu contenido)[\s\S]*\$400/);
+      expect(path).toContain(locale === "es" ? "Video largo o proyecto a medida" : "Long video or custom project");
+      expect(path).toContain(locale === "es" ? "Pedir cotización por proyecto" : "Request a project quote");
+      expect(path).not.toContain(locale === "es" ? "Ver el proceso de edición" : "See the editing process");
+      const editingStart = path.indexOf('data-route="editing"');
+      const editingEnd = path.indexOf('data-route="production"');
+      const editing = path.slice(editingStart, editingEnd);
+      expect(editing).not.toContain("em-route-main-cta");
+      expect(editing).not.toContain('em-route-card__label">Packages');
+      expect(editing).not.toContain('em-route-card__label">Paquetes');
+      expect(editing).not.toContain(">Starter<");
+    });
+
+    it("3. every package is in the server-rendered chooser, even when not selected", () => {
+      const names = locale === "en" ? ["Growth", "Local Presence", "Essential"] : ["Crecimiento", "Presencia Local", "Essential"];
       for (const name of names) expect(path, name).toContain(`em-path-offer-name">${name}<`);
     });
 
@@ -63,6 +216,8 @@ for (const locale of ["en", "es"] as const) {
       expect(funnel).toContain(growth);
       expect(funnel).toContain("$640");
       expect(funnel).toContain("$800");
+      expect(funnel).toContain('data-cta="home_path_funnel_direct_whatsapp"');
+      expect(funnel).toContain(locale === "es" ? "Escribirle a Esteban por WhatsApp" : "Message Esteban on WhatsApp instead");
     });
 
     it("5. funnel inputs carry the right keyboard and autofill hints; no jargon label", () => {

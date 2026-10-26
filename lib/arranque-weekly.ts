@@ -7,9 +7,9 @@
 // (~/code/esteban-propuesta/propuesta.html), with the proposal's internal
 // option names replaced by "1 video por semana" / "2 videos por semana".
 //
-// Deliberately absent: discount badges, "valor normal" and a struck reference
-// price. Arranque is one video edit (owner, 2026-10-08), so the only comparison
-// is the plain per-video line from arranqueWeeklyComparisonLine().
+// Deliberately absent: discount badges, "valor normal", per-video breakdowns
+// and struck reference prices. The buyer chooses a weekly total and quantity;
+// they should not have to do division to understand the offer.
 
 import {
   ARRANQUE_WEEKLY_FROM,
@@ -106,19 +106,6 @@ export function arranqueWeeklyPerVideoLine(option: ArranqueWeeklyOption, locale:
   return locale === "es" ? `${each} por video` : `${each} per video`;
 }
 
-/**
- * The honest comparison: weekly from $80 per video vs $100 for one video on its
- * own. Plain text, no badge, no "save", no percentage. Figures from lib/pricing.ts.
- */
-export function arranqueWeeklyComparisonLine(locale: Locale): string {
-  const single = PACKAGE_PRICES.arranque;
-  const singleUsd = usd(single.kind === "from" ? single.amount : 0);
-  const fromVideo = usd(ARRANQUE_WEEKLY_FROM.perVideo);
-  return locale === "es"
-    ? `desde ${fromVideo} por video vs ${singleUsd} un video suelto`
-    : `from ${fromVideo} per video vs ${singleUsd} for a single video`;
-}
-
 /** The weekly plan's commitment, in one line: "Pago semanal · mínimo 4 semanas, luego cancelas cuando quieras". */
 export function arranqueWeeklyTermsLine(locale: Locale): string {
   return locale === "es"
@@ -146,7 +133,6 @@ export function arranqueWeeklyCopy(locale: Locale) {
     answer: es
       ? `Según cada cuánto necesitas videos. Una sola vez: ${onceUsd} por video. Cada semana: ${usd(one.pricePerWeek)} por ${one.videosPerWeek} video o ${usd(two.pricePerWeek)} por ${two.videosPerWeek} videos. Tú grabas, Esteban edita.`
       : `It depends on how often you need videos. Just once: ${onceUsd} per video. Every week: ${usd(one.pricePerWeek)} for ${one.videosPerWeek} video or ${usd(two.pricePerWeek)} for ${two.videosPerWeek} videos. You film, Esteban edits.`,
-    comparison: arranqueWeeklyComparisonLine(locale),
     perWeek: es ? "/ semana" : "/ week",
     paidWeekly: es ? "Pago semanal, al inicio de cada semana" : "Paid weekly, at the start of each week",
     includesLabel: es ? "Incluye" : "Includes",

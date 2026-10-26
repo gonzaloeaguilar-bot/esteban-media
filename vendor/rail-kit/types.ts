@@ -57,6 +57,8 @@ type CardCommon = {
   glyph?: string | null;
   /** Overrides the rail's own `variant` for this one card. */
   variant?: RailVariant;
+  /** Server-rendered hook for a phone-shaped vertical-media frame. */
+  phoneFrame?: boolean;
 };
 
 /** A card with a picture: inventory, listings, products, coaching packages. */
