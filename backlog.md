@@ -16,6 +16,8 @@
 
 # Esteban Moreno Media — Backlog
 
+- [x] 2026-10-26: publicar y comprobar el encuadre del hero de escritorio, The Great Reviewer primero, retiro de Banacol/ML Colombia, marcos de teléfono para los siete Reels y salida del video de Gains From Geebs. PR #564 fusionada como `a49993fd`; evidencia en `client-esteban-media/wiki/esteban-desktop-hero-rail-and-geebs-player-qa-2026-10-26.md`.
+
 - [ ] After the reviewed Clarity code is merged, create/select Esteban Moreno Media's real Microsoft Clarity project; add only its identifier as `NEXT_PUBLIC_CLARITY_PROJECT_ID` to the Vercel **Production** environment, redeploy, and complete the production verification/rollback steps in `docs/microsoft-clarity-activation.md`. Do not place the identifier in git or enable previews.
 
 - [x] 2026-10-10: ship the annual-events section (hub + FLIBS + Art Basel first, then Miami boat show, SOBEWFF, eMerge Americas, Miami Music Week, Miami Spice) on `feat/events-hub`.
