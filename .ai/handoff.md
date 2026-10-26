@@ -1,3 +1,11 @@
+# 2026-10-26 — Full-card digital scenes (locally verified, not public)
+
+- Commit `56f8dffb055fa34a4255c5135a6b7ff381405ab2` on `codex/full-card-scenes-20261026` replaces small right-side illustrations with full-card working scenes: the approved AI robot squad in an original office/courier environment, an animated ChatGPT-style SEO/GEO conversation, and the current Gains From Geebs desktop hero scrolling behind a dark reading field.
+- Evidence: `pnpm test` 172 files / 3,677 tests, `pnpm typecheck`, `pnpm build`, and `git diff --check` passed; lint had 0 errors / 22 existing warnings. Playwright inspected 390px and desktop renders. Reduced-motion emulation returned `animationName: none` for the courier. CTO visual review `20261026T142548Z-cto-design-lead-esteban-media-1793024749124926000-76904-46cb9cc2b2c61bb7` approved and reran the full suite plus analytics gate.
+- Remote release is blocked only by GitHub's own internal-server error: `git push` and PR creation were rejected at 2026-10-26T14:28Z. Do not call this live. Retry push/PR, wait for checks, then verify canonical `/es` raw markers and 390px public rendering.
+
+---
+
 # 2026-10-24 — Digital chooser-card composition candidate
 
 - Scoped files: `components/home-project-path.tsx`, `app/illustrated-commercial.css`, `app/__tests__/home-packaging-human.test.ts`, and `docs/digital-route-card-composition.md`. The three digital card visuals now use the actual Gains From Geebs desktop hero (web), the existing SNES-style companion with one assistant prompt (AI), and one clear query-to-business-result composition (SEO/GEO). Real Estate's Brickell loop and the Content Creator card are unchanged.
