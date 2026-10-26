@@ -60,10 +60,10 @@ for (const locale of ["en", "es"] as const) {
       expect(css).toContain(".em-route-card__visual{position:absolute;z-index:0;inset:0;width:auto");
       expect(css).toContain(".em-route-card__copy{position:relative;z-index:2");
       expect(css).toContain(".em-route-card__plus{position:absolute;z-index:3");
-      expect(component).toContain('"web-commerce": "/portfolio/gains-from-geebs.jpg"');
+      expect(component).toContain('"web-commerce": "/portfolio/gains-from-geebs-current-ui.png"');
       expect(component).toContain('src="/illustrations/agent-squad-v1.png"');
       expect(component).not.toContain('"ai-agents": "/portfolio/ai-lead-automation.jpg"');
-      expect(component).toContain('className="em-route-card__companion-stage"');
+      expect(component).toContain('className="em-route-card__companion-stage em-route-card__agent-office"');
       expect(component).toContain('className="em-route-card__ai-partners"');
       expect(component).toContain('OpenAI');
       expect(component).toContain('Anthropic');
@@ -77,7 +77,10 @@ for (const locale of ["en", "es"] as const) {
       expect(component).toContain("Write");
       expect(component).toContain("Run");
       expect(component).toContain('className="em-route-card__agent-route"');
-      expect(component).toContain('className="em-route-card__companion-orbit"');
+      expect(component).toContain("em-route-card__agent-office");
+      expect(component).toContain("em-route-card__agent-courier");
+      expect(component).toContain("em-route-card__chat-workspace");
+      expect(component).toContain("em-route-card__site-loop");
       expect(component).not.toContain("kris is thinking...");
       expect(css).toContain(".em-route-card__geebs-chat");
       expect(css).toContain("@keyframes em-companion-orbit");
