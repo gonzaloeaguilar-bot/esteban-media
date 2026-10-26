@@ -42,9 +42,12 @@ export type HomePortfolioCard = {
 export function HomePortfolioRail({
   locale,
   items,
+  source = "home_portfolio",
 }: {
   locale: "en" | "es";
   items: HomePortfolioCard[];
+  /** Surface name for delegated analytics; the same work shelf also appears in guides. */
+  source?: string;
 }) {
   const isSpanish = locale === "es";
   const wrapRef = useRef<HTMLDivElement | null>(null);
@@ -236,7 +239,7 @@ export function HomePortfolioRail({
     <div ref={wrapRef}>
     <Rail
       items={railItems}
-      source={`home_portfolio_${locale}`}
+      source={`${source}_${locale}`}
       variant="poster"
       size="lg"
       titleAs="h3"
