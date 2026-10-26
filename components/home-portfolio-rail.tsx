@@ -91,13 +91,6 @@ export function HomePortfolioRail({
     const cards = Array.from(scroller.querySelectorAll<HTMLElement>(".rail-card"));
     if (cards.length === 0) return;
 
-    // Mark the portrait reels so CSS can give them the tall frame.
-    const reelIds = new Set(items.filter((i) => i.isReel).map((i) => i.id));
-    cards.forEach((card) => {
-      const id = card.getAttribute("data-rail-card") ?? card.getAttribute("data-rail-id") ?? card.id;
-      if (id && reelIds.has(id)) card.setAttribute("data-em-reel", "");
-    });
-
     let frame = 0;
     const mark = () => {
       frame = 0;
@@ -162,6 +155,7 @@ export function HomePortfolioRail({
   const railItems: RailItem[] = items.map((item) => ({
     kind: "media",
     id: item.id,
+    phoneFrame: item.isReel,
     href: item.href,
     title: item.title,
     // The category rides in the BODY, not over the picture. Every still in this

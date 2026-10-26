@@ -430,8 +430,14 @@ html.rail-anim:not([data-brand-moment]) .em-cine__eyebrow {
     min-height: min(calc(100svh - 72px), 920px);
     align-items: center;
   }
+  /* The source is a tall 768×1366 on-location frame. At the old 38% anchor,
+     a desktop cover crop spent the first half on sky and cut Esteban across
+     the face/shoulders at the lower edge. Aim at the working pair instead:
+     it keeps Esteban, the camera and the client in the first frame while
+     removing the unused sky. The mobile composition is intentionally
+     separate above. */
   .em-cine__poster,
-  .em-cine__video { object-position: 50% 38%; }
+  .em-cine__video { object-position: 50% 60%; }
   .em-cine__frame::after {
     background:
       linear-gradient(90deg, rgba(8, 9, 10, 0.9) 0%, rgba(8, 9, 10, 0.62) 38%, rgba(8, 9, 10, 0.08) 72%),
