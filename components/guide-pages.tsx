@@ -1,5 +1,6 @@
 import React from "react";
 import { GuideIllustration } from "@/components/guide-illustration";
+import { PortfolioTeaser } from "@/components/portfolio-teaser";
 import { PublishedProjectProof } from "@/components/published-project-proof";
 import { KeepReading } from "@/components/keep-reading";
 import RailFaq from "@/vendor/rail-kit/RailFaq";
@@ -838,6 +839,12 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
           </div>
         </Container>
       </article>
+      {/* A guide can explain the approach, but the next question is naturally
+          whether Esteban's finished work holds up. Reuse the homepage shelf
+          instead of a second, static proof-card pattern: it keeps approved
+          portfolio media, real project links, keyboard controls and reduced-
+          motion behaviour in one maintained component. */}
+      <PortfolioTeaser locale={locale} source="guide_work" />
       <PriorityLinks path={getGuidePath(guide)} locale={locale} />
 
       <section className="border-y border-[#d6ccc0] bg-[#e7ded2] py-12 sm:py-16">

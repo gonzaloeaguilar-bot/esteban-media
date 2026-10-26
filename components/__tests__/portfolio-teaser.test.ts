@@ -6,12 +6,13 @@ import { describe, expect, it } from "vitest";
 const source = readFileSync(join(process.cwd(), "components/portfolio-teaser.tsx"), "utf8");
 
 describe("homepage portfolio rail", () => {
-  it("leads with The Great Reviewer and omits ML Colombia without removing its case", () => {
-    expect(source).toContain('const HOMEPAGE_RAIL_EXCLUDED_IDS = new Set(["la-huelga", "ml-colombia"])');
-    expect(source).toContain('const HOMEPAGE_RAIL_FEATURED_ID = "great-reviewer-iphone-18"');
-    expect(source).toContain('items={[...(featuredItem ? [featuredItem] : []).map((item) => {');
-    expect(source.indexOf("featuredItem ? [featuredItem]")).toBeLessThan(
-      source.indexOf("REELS_IN_DISPLAY_ORDER.map"),
+  it("leads with the current real-estate Reels and keeps the work rail reusable", () => {
+    expect(source).toContain('source = "home_portfolio"');
+    expect(source).toContain('source={source}');
+    expect(source).toContain('item.status === "live" && item.category !== "web-design" && item.id !== "la-huelga"');
+    expect(source).toContain('items={[...REELS_IN_DISPLAY_ORDER.map((reel) => ({');
+    expect(source.indexOf("REELS_IN_DISPLAY_ORDER.map")).toBeLessThan(
+      source.indexOf("...items.map((item) => {"),
     );
   });
 
