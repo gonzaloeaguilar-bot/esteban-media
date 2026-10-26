@@ -60,7 +60,7 @@ for (const locale of ["en", "es"] as const) {
       expect(css).toContain(".em-route-card__visual{position:absolute;z-index:0;inset:0;width:auto");
       expect(css).toContain(".em-route-card__copy{position:relative;z-index:2");
       expect(css).toContain(".em-route-card__plus{position:absolute;z-index:3");
-      expect(component).toContain('"web-commerce": "/portfolio/gains-from-geebs-current-ui.png"');
+      expect(component).toContain('"web-commerce": "/portfolio/gains-from-geebs-scroll-current.png"');
       expect(component).toContain('src="/illustrations/agent-squad-v1.png"');
       expect(component).not.toContain('"ai-agents": "/portfolio/ai-lead-automation.jpg"');
       expect(component).toContain('className="em-route-card__companion-stage em-route-card__agent-office"');
@@ -81,11 +81,16 @@ for (const locale of ["en", "es"] as const) {
       expect(component).toContain("em-route-card__agent-courier");
       expect(component).toContain("em-route-card__chat-workspace");
       expect(component).toContain("em-route-card__site-loop");
+      expect(component).toContain("em-route-card__site-loop-cta");
+      expect(component).toContain("Get coached by Kris");
+      expect(component).toContain('width={1440} height={6155}');
       expect(component).not.toContain("kris is thinking...");
       expect(css).toContain(".em-route-card__geebs-chat");
       expect(css).toContain("@keyframes em-companion-orbit");
       expect(css).toContain("image-rendering:pixelated");
       expect(css).toContain("@keyframes em-agent-squad-work");
+      expect(css).toContain("align-self:start;justify-self:end");
+      expect(css).toContain("@keyframes em-site-scroll");
       expect(css).toContain("@keyframes em-agent-task-travel");
       expect(css).toContain(".em-route-card__agent-squad,.em-route-card__agent-jobs b,.em-route-card__agent-route i,.em-route-card__geebs-chat-bubble");
       expect(css).toContain(".em-route-card__visual--seo-landing{background:#212121}");
