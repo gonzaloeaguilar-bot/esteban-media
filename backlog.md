@@ -46,6 +46,7 @@
 
 # Esteban Moreno Media — Backlog
 
+- [x] 2026-10-26: publicar y comprobar el encuadre del hero de escritorio, The Great Reviewer primero, retiro de Banacol/ML Colombia, marcos de teléfono para los siete Reels y salida del video de Gains From Geebs. PR #564 fusionada como `a49993fd`; evidencia en `client-esteban-media/wiki/esteban-desktop-hero-rail-and-geebs-player-qa-2026-10-26.md`.
 - [x] 2026-10-25: animate the original three-character AI chooser squad without changing its artwork. Scout, Write and Run now receive a sequential work-state, the group moves through a restrained task cycle, and task signals travel across the team. Motion stops under reduced motion. Local evidence: focused 38/38, full `pnpm test` 172 files / 3,677 tests, typecheck, lint (0 errors / 22 existing warnings), and `git diff --check` passed. Next: scoped review, release, then verify the live Spanish card at phone width.
 
 - [ ] 2026-10-24: release and verify the narrow-phone homepage hero repair in PR #543. At 360px, the WhatsApp action and support line now stay inside the viewport; local visual evidence and gates are recorded in `.ai/handoff.md`. After the required remote checks and independent review, verify the canonical production homepage at 360px and 375px before closing.
