@@ -1,15 +1,15 @@
 @page { size: letter; margin: 14mm; }
 :root { --ink:#141618; --paper:#fcfbf9; --mut:#635f58; --line:#e6e0d6; --terra:#c84a2c; --soft:#faece8; }
 * { box-sizing:border-box; }
-body { color:var(--ink); background:var(--paper); font-family:"Plus Jakarta Sans",Arial,sans-serif; font-size:10.5pt; line-height:1.48; }
-h1 { font-family:Georgia,serif; font-size:31pt; line-height:1.02; margin:0 0 12pt; padding-top:16pt; border-top:8pt solid var(--ink); }
+body { color:var(--ink); background:var(--paper); font-family:"Plus Jakarta Sans",Arial,sans-serif; font-size:9pt; line-height:1.32; }
+h1 { font-family:Georgia,serif; font-size:25pt; line-height:1.02; margin:0 0 8pt; padding-top:10pt; border-top:6pt solid var(--ink); }
 h1.title { display:none; }
 h1:after { content:"ESTEBAN MORENO MEDIA  /  EDICIÓN · WEB & IA · REDES"; display:block; margin-top:12pt; color:var(--terra); font-family:Arial,sans-serif; font-size:8pt; font-weight:700; letter-spacing:.14em; }
-h2 { font-size:10pt; letter-spacing:.15em; text-transform:uppercase; color:var(--terra); border-top:1pt solid var(--line); padding-top:16pt; margin:25pt 0 9pt; page-break-after:avoid; }
-h3 { font-family:Georgia,serif; font-size:18pt; line-height:1.16; margin:19pt 0 7pt; page-break-after:avoid; }
-p { margin:0 0 8pt; } ul,ol { margin:6pt 0 12pt 18pt; } li { margin:3pt 0; }
+h2 { font-size:8pt; letter-spacing:.14em; text-transform:uppercase; color:var(--terra); border-top:1pt solid var(--line); padding-top:9pt; margin:14pt 0 6pt; page-break-after:avoid; }
+h3 { font-family:Georgia,serif; font-size:13pt; line-height:1.12; margin:11pt 0 4pt; page-break-after:avoid; }
+p { margin:0 0 4pt; } ul,ol { margin:3pt 0 6pt 16pt; } li { margin:1pt 0; }
 strong { color:var(--ink); } a { color:var(--terra); font-weight:700; text-decoration:none; }
-h3 + p { background:#fff; border:1pt solid var(--line); border-left:4pt solid var(--terra); padding:9pt 11pt; }
-h3 + p + p { margin-top:9pt; }
+h3 + p { background:#fff; border:1pt solid var(--line); border-left:3pt solid var(--terra); padding:5pt 7pt; }
+h3 + p + p { margin-top:5pt; }
 blockquote { background:var(--soft); border:0; padding:12pt; margin:10pt 0; }
-@media print { h2 { page-break-before:always; } h2:first-of-type { page-break-before:auto; } h3 { break-inside:avoid; } }
+@media print { h3 { break-after:avoid; } }
