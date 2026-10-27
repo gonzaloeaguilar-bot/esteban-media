@@ -36,6 +36,7 @@ describe("homepage portfolio rail", () => {
     expect(css).toContain('.em-cartel .rail-card[data-rail-phone-frame="true"]::before');
     expect(css).toContain('border: clamp(7px, 1.5vw, 10px) solid #080809;');
     expect(css).toContain('width: clamp(56px, 15vw, 68px);');
+    expect(css).toContain('padding-top: clamp(50px, 13vw, 64px);');
     expect(css).toContain('.em-cartel .rail-card[data-rail-phone-frame="true"] .rail-card__figure');
     expect(css).toContain('object-fit: contain !important;');
     expect(css).toContain('object-fit: cover !important;');
