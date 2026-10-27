@@ -149,8 +149,8 @@ export function HomePathFunnel({
           source: "home-path-funnel",
           locale,
           name: name.trim(),
-          email: trimmedEmail || `${trimmedPhone.replace(/[^0-9+]/g, "")}@whatsapp.lead`,
-          phone: trimmedPhone || undefined,
+          email: trimmedEmail,
+          phone: trimmedPhone,
           projectType: laneId,
           notes: `Lane: ${laneLabel}`,
         }),
@@ -227,13 +227,13 @@ export function HomePathFunnel({
                 name="email"
                 type="email"
                 inputMode="email"
+                required
                 autoComplete="email"
                 autoCapitalize="none"
                 spellCheck={false}
                 enterKeyHint="next"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                required={!phone.trim()}
               />
             </label>
             <label className="em-funnel-field">
@@ -242,11 +242,11 @@ export function HomePathFunnel({
                 name="phone"
                 type="tel"
                 inputMode="tel"
+                required
                 autoComplete="tel"
                 enterKeyHint="send"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                required={!email.trim()}
                 minLength={7}
               />
             </label>
