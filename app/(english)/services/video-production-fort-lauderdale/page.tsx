@@ -6,9 +6,9 @@ import { filmingHourlyText, shortFormPriceText } from "@/lib/pricing";
 const content: GeoServicePageContent = {
   path: "/services/video-production-fort-lauderdale",
   eyebrow: "Fort Lauderdale video production",
-  title: "Video production in Fort Lauderdale for businesses that need useful footage.",
+  title: "Video production in Fort Lauderdale for businesses that need a clear next step.",
   description:
-    "Commercial video production, short-form content, and editing support for Fort Lauderdale businesses, service companies, real estate teams, and hospitality brands.",
+    "Commercial video production and editing for Fort Lauderdale businesses that need a clear service, product, or location message.",
   locationLabel: "Fort Lauderdale / Broward County",
   proofTitle: "See a finished business video",
   proofText:
@@ -108,9 +108,9 @@ const content: GeoServicePageContent = {
 };
 
 export const metadata = buildPageMetadata({
-  title: "Video Production Fort Lauderdale",
+  title: "Video Production Company Fort Lauderdale | Business Video",
   description:
-    "Fort Lauderdale video production and editing for business videos, Reels, website clips, hospitality, real estate, and remote post-production.",
+    "Fort Lauderdale video production company for business videos, Reels, website clips, hospitality, real estate, and remote post-production.",
   path: content.path,
   locale: "en",
 });

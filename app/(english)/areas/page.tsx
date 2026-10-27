@@ -315,7 +315,7 @@ export default function AreasPage() {
                 href="/services/restaurant-promo-video-editing-miami"
                 className="underline underline-offset-4 hover:text-[#9f3c27]"
               >
-                restaurant promo video editing in Miami
+                dedicated restaurant video service in Miami
               </Link>
               .
             </p>
@@ -323,7 +323,7 @@ export default function AreasPage() {
               href="/services/restaurant-promo-video-editing-miami"
               className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27] hover:text-[#7f2f20]"
             >
-              Restaurant promo video editing in Miami
+              Plan restaurant video in Miami
               <ArrowRight className="size-4" aria-hidden="true" />
             </Link>
           </section>

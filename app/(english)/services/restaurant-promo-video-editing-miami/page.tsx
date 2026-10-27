@@ -165,13 +165,7 @@ export default function RestaurantPromoVideoEditingMiamiPage() {
                   href="/portfolio/bar-door-monkey"
                   className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#101214] px-6 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"
                 >
-                  View Restaurant Proof
-                </Link>
-                <Link
-                  href="/calculator"
-                  className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#101214] px-6 text-sm font-medium hover:bg-[#101214] hover:text-[#f6f1ea]"
-                >
-                  Calculate Project Budget
+                  See Published Restaurant Work
                 </Link>
               </div>
             </div>
