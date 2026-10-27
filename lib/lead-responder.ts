@@ -107,8 +107,14 @@ export interface LeadResponse {
 }
 
 export function validateLeadPayload(payload: Partial<LeadPayload>): { valid: boolean; error?: string } {
+  if (!payload.name || typeof payload.name !== "string" || !payload.name.trim()) {
+    return { valid: false, error: "A name is required." };
+  }
   if (!payload.email || typeof payload.email !== "string" || !payload.email.includes("@")) {
     return { valid: false, error: "A valid email address is required." };
+  }
+  if (!payload.phone || typeof payload.phone !== "string" || !payload.phone.trim()) {
+    return { valid: false, error: "A phone number is required." };
   }
   if (!payload.source || typeof payload.source !== "string") {
     return { valid: false, error: "Lead source identifier is required." };
