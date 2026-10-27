@@ -138,6 +138,11 @@ export function PortfolioTeaser({ locale, source = "home_portfolio" }: Portfolio
                 location: item.location,
                 poster,
                 posterAlt: isSpanish ? `Fotograma del video ${item.title}` : `Frame from the video ${item.title}`,
+                // This is the owner-selected iPhone Reel lead. It uses the
+                // device shell even though it is not in the property-Reel
+                // playlist, whose `isReel` flag also controls in-place MP4
+                // playback.
+                phoneFrame: true,
               };
             }), ...REELS_IN_DISPLAY_ORDER.map((reel) => ({
               id: reel.id,

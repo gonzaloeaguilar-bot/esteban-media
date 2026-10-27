@@ -1719,29 +1719,29 @@ div.relative:has(> .em-carousel-track) {
   flex: 0 0 min(78vw, 300px);
   width: min(78vw, 300px);
   overflow: hidden;
-  border: clamp(4px, 0.8vw, 6px) solid #111214;
-  border-radius: clamp(30px, 8vw, 42px);
-  background: linear-gradient(145deg, #30343a 0%, #111214 22%, #050506 100%);
+  border: clamp(7px, 1.5vw, 10px) solid #080809;
+  border-radius: clamp(34px, 9vw, 48px);
+  background: linear-gradient(145deg, #454a51 0%, #17191d 22%, #050506 100%);
   box-shadow:
-    0 14px 28px -16px rgba(0, 0, 0, 0.95),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    0 18px 34px -16px rgba(0, 0, 0, 0.98),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.16);
 }
 .em-cartel .rail-card[data-rail-phone-frame="true"]::before {
   content: "";
   position: absolute;
   z-index: 3;
-  top: clamp(8px, 1.5vw, 11px);
+  top: clamp(9px, 1.8vw, 13px);
   left: 50%;
-  width: clamp(42px, 12vw, 56px);
-  height: clamp(12px, 3.2vw, 16px);
+  width: clamp(56px, 15vw, 68px);
+  height: clamp(14px, 3.8vw, 18px);
   transform: translateX(-50%);
   border-radius: 999px;
   background: #080809;
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.08);
 }
 .em-cartel .rail-card[data-rail-phone-frame="true"] .rail-card__figure {
-  border-radius: calc(clamp(30px, 8vw, 42px) - clamp(4px, 0.8vw, 6px))
-    calc(clamp(30px, 8vw, 42px) - clamp(4px, 0.8vw, 6px)) 0 0;
+  border-radius: calc(clamp(34px, 9vw, 48px) - clamp(7px, 1.5vw, 10px))
+    calc(clamp(34px, 9vw, 48px) - clamp(7px, 1.5vw, 10px)) 0 0;
 }
 .em-cartel .rail-card[data-rail-phone-frame="true"] .rail-card__body {
   padding-bottom: clamp(22px, 5vw, 28px);

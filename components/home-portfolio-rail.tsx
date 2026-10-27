@@ -26,6 +26,8 @@ export type HomePortfolioCard = {
   id: string;
   /** Portrait reel photograph: may fill a tall frame (see globals.css). */
   isReel?: boolean;
+  /** Explicit device treatment for a vertical video case that is not a property Reel. */
+  phoneFrame?: boolean;
   /** The reel's MP4. Present only on reels; makes the card open a player. */
   videoSrc?: string;
   href: string;
@@ -155,7 +157,11 @@ export function HomePortfolioRail({
   const railItems: RailItem[] = items.map((item) => ({
     kind: "media",
     id: item.id,
-    phoneFrame: item.isReel,
+    // Playing in the in-place Reel viewer and looking like a phone are related
+    // but not identical. The lead Great Reviewer iPhone case is a published
+    // vertical video without a property-Reel MP4, so it opts into the same
+    // device presentation explicitly.
+    phoneFrame: item.phoneFrame ?? item.isReel,
     href: item.href,
     title: item.title,
     // The category rides in the BODY, not over the picture. Every still in this
