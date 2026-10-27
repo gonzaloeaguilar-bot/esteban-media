@@ -1,5 +1,4 @@
 import React from "react";
-import { GuideIllustration } from "@/components/guide-illustration";
 import { PortfolioTeaser } from "@/components/portfolio-teaser";
 import { PublishedProjectProof } from "@/components/published-project-proof";
 import { KeepReading } from "@/components/keep-reading";
@@ -693,14 +692,15 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
                   />
                 </div>
               ) : (
-                /* A drawing for the guide's theme. The photo library is 13
-                    project frames and none of them is about editing workflow, so
-                    a still here would be decoration. */
-                <GuideIllustration slug={guide.slug} className="mt-8 h-40 w-full max-w-md rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-3" />
+                <Link href={guide.proof.href} className="group mt-6 inline-flex min-h-11 items-center gap-2 font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4">
+                  {copy.proofLinkLabel}: {guide.proof.title}
+                  <ArrowRight className="size-4 transition group-hover:translate-x-1" aria-hidden="true" />
+                </Link>
               )}
-              <p className="mt-5 max-w-3xl border-l-2 border-[#c84a2c] pl-4 text-sm leading-6 text-[#3f4548]">
-                {guidePolicyNotes[locale]}
-              </p>
+              <details className="mt-5 max-w-3xl border-l-2 border-[#c84a2c] pl-4 text-sm leading-6 text-[#3f4548]">
+                <summary className="cursor-pointer font-medium text-[#252a2d]">{locale === "es" ? "Antes de empezar un proyecto" : "Before starting a project"}</summary>
+                <p className="mt-3">{guidePolicyNotes[locale]}</p>
+              </details>
               {companion ? (
                 <Link
                   href={getGuidePath(companion)}
