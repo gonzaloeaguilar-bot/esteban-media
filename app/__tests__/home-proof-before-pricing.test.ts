@@ -57,7 +57,8 @@ describe("home — proof before pricing", () => {
     // the ONE price surface in the chooser's server HTML.
     const component = source("components/home-project-path.tsx");
     expect(component).not.toContain("<PriceSheet");
-    expect(component).toContain("laneStartingPrice(locale,");
+    expect(component).toContain("packageOffers");
+    expect(component).toContain("priceFor(id)");
     const laneAnswer = source("components/lane-answer.tsx");
     expect(laneAnswer).toContain("{price}");
     const illustratedScene = source("components/illustrated-scene.tsx");

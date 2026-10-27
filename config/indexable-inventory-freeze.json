@@ -1,9 +1,9 @@
 {
   "status": "demand_gated",
   "effectiveDate": "2026-08-28",
-  "baselineRevisedOn": "2026-10-19",
-  "approvedSitemapUrlCount": 530,
-  "approvedSitemapUrlSetSha256": "64b274c474b6f339c7db4b130e86a3ac05b3c82ea0e094ecb07dec4ebb7c85a0",
+  "baselineRevisedOn": "2026-10-24",
+  "approvedSitemapUrlCount": 567,
+  "approvedSitemapUrlSetSha256": "f7924d3632e31ac7dd98a5dc4a1a0521c5fc39c90e8048a750aeb7dcda1ccb4b",
   "allowedNewIndexableUrls": 4,
   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {
@@ -34,6 +34,35 @@
   ],
   "allowanceWindow": "per demand-wave run",
   "ownerOrderedAdditions": [
+    {
+      "on": "2026-10-27",
+      "url": "/services/corporate-video-production-miami",
+      "orderedBy": "Gonzalo (active session)",
+      "kind": "demand-backed commercial service destination",
+      "demandEvidence": "Semrush Keyword Magic Tool, United States database, accessed through the authenticated web UI on 2026-10-27: 'corporate video production miami' showed commercial intent, volume 110, and KD 16. The exact public route returned HTTP 404 before this addition; the existing cost guide and adjacent Brickell page did not provide an exact canonical destination.",
+      "followUpDate": "2026-11-24",
+      "followUp": "Check Search Console query and page impressions, position, and attributable qualified inquiry data. Do not claim ranking, citation, or lead impact before that readout."
+    },
+    {
+      "on": "2026-10-23",
+      "url": [
+        "/portfolio/gains-from-geebs-shorts",
+        "/es/portafolio/gains-from-geebs-shorts",
+        "/portfolio/exatlon",
+        "/es/portafolio/exatlon",
+        "/portfolio/juanchis-burguer",
+        "/es/portafolio/juanchis-burguer",
+        "/portfolio/portosole",
+        "/es/portafolio/portosole",
+        "/portfolio/punto-de-giro",
+        "/es/portafolio/punto-de-giro"
+      ],
+      "orderedBy": "Gonzalo (active session)",
+      "kind": "source-backed portfolio proof",
+      "demandEvidence": "Owner requested pages for named public YouTube and Instagram videos. This records public-source proof only; it makes no demand, ranking, citation, lead, or production-role claim.",
+      "followUpDate": "2026-11-22",
+      "followUp": "Check Search Console impressions, video sitemap processing, video plays, and contact-intent events. No outcome is assumed from publication."
+    },
     {
       "on": "2026-09-16",
       "url": "/desk-recommendations",
@@ -637,6 +666,19 @@
       "note": "TWENTY URLs = ten bilingual pairs. Recorded as one owner-ordered expansion batch.",
       "followUpDate": "2026-11-18",
       "followUp": "Check GSC impressions, indexed status, and CTA clicks for all 20 URLs at 14 and 30 days."
+    },
+    {
+      "on": "2026-10-23",
+      "url": [
+        "/portfolio/great-reviewer-iphone-18",
+        "/es/portafolio/great-reviewer-iphone-18"
+      ],
+      "orderedBy": "Gonzalo (in-session 2026-10-23)",
+      "kind": "published content-video portfolio case",
+      "demandEvidence": "Owner supplied the public YouTube video and explicitly asked to use the original iMessage video still and add the completed content work as a use case. This is an owner-ordered portfolio proof pair, not a new service or demand-page claim.",
+      "note": "TWO URLs = English and Spanish project pages for the same public work example.",
+      "followUpDate": "2026-11-22",
+      "followUp": "Check the two project pages for Search Console impressions and portfolio-video plays; do not infer business outcomes from the page release."
     },
     {
       "on": "2026-10-19",

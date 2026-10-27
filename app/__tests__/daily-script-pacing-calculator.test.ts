@@ -27,6 +27,8 @@ describe("Daily Script Pacing Calculator surface", () => {
   it("validates lead payloads from daily-pacing-calculator source", () => {
     const resultEn = validateLeadPayload({
       email: "creator@example.com",
+      name: "Creator",
+      phone: "305-555-0100",
       source: "daily-pacing-calculator",
       locale: "en",
     });
@@ -35,6 +37,8 @@ describe("Daily Script Pacing Calculator surface", () => {
 
     const resultEs = validateLeadPayload({
       email: "editor@example.com",
+      name: "Editor",
+      phone: "305-555-0100",
       source: "daily-pacing-calculator",
       locale: "es",
     });
@@ -67,7 +71,7 @@ describe("Daily Script Pacing Calculator surface", () => {
 
     const esPage = await import("../(spanish)/es/calculadora-de-ritmo-de-video/page");
     expect(esPage.metadata.title).toEqual({
-      absolute: "Calculadora de Ritmo de Video y Guion Diario",
+      absolute: "Calculadora de palabras para video de 30 y 60 segundos",
     });
     expect(esPage.metadata.alternates?.canonical).toBe("/es/calculadora-de-ritmo-de-video");
   });

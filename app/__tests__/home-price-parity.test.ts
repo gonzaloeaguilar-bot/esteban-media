@@ -81,13 +81,17 @@ for (const locale of ["en", "es"] as const) {
       expect(hero).toMatch(/Fort Lauderdale/);
     });
 
-    it("ships a direct link to the matching Fort Lauderdale production page", () => {
-      const hero = renderToStaticMarkup(React.createElement(HeroVideo, { locale }));
-      const productionPath = locale === "es"
-        ? "/es/produccion-de-video-fort-lauderdale"
-        : "/services/video-production-fort-lauderdale";
+    it("states the full filming area without narrowing the process to Fort Lauderdale", () => {
+      const hero = visibleText(renderToStaticMarkup(React.createElement(HeroVideo, { locale })));
+      const serviceArea = locale === "es"
+        ? "Grabo en Miami-Dade, Broward y West Palm Beach."
+        : "I film across Miami-Dade, Broward, and West Palm Beach.";
+      const remoteEditing = locale === "es"
+        ? "también puedo editarlo a distancia desde cualquier lugar."
+        : "I can edit it remotely from anywhere.";
 
-      expect(hero).toContain(`href="${productionPath}"`);
+      expect(hero).toContain(serviceArea);
+      expect(hero).toContain(remoteEditing);
     });
   });
 }

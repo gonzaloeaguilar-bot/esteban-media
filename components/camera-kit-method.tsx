@@ -6,9 +6,9 @@ const copy = {
   en: {
     eyebrow: "THE CAMERA BENCH",
     heading: "See the camera before the shoot starts.",
-    lead: "Tap either camera to inspect the bodies Esteban uses, then open the method to see how a project moves from idea to a written scope.",
+    lead: "Explore the two camera bodies Esteban uses. Swipe between them, open a body for the published specs, then see a recent unboxing reel.",
     kitTitle: "Camera bodies",
-    kitHint: "Swipe the camera shelf. Tap a body for published specs.",
+    kitHint: "Swipe to compare. Tap a body for published specs.",
     inspect: "Tap camera to inspect",
     activeBody: "Primary camera body",
     alphaName: "Sony Alpha 7 IV",
@@ -17,6 +17,10 @@ const copy = {
     canonName: "Canon EOS Rebel T5i",
     canonDetail: "18 MP APS-C sensor · Full HD 1080 recording",
     source: "Reference images and published specifications",
+    unboxingEyebrow: "RECENT WORK",
+    unboxingTitle: "Watch the product unboxing.",
+    unboxingCopy: "A recent vertical product-unboxing reel opens on Instagram in a new tab.",
+    unboxingAction: "Watch the unboxing on Instagram",
     methodTitle: "Open the working method",
     methodHint: "Three clear decisions before the work begins.",
     steps: [
@@ -29,9 +33,9 @@ const copy = {
   es: {
     eyebrow: "LA MESA DE CÁMARA",
     heading: "Mira la cámara antes de empezar el rodaje.",
-    lead: "Toca cualquiera de las cámaras para ver los cuerpos que usa Esteban y abre el método para entender cómo una idea llega a un alcance por escrito.",
+    lead: "Explora los dos cuerpos de cámara que usa Esteban. Desliza entre ellos, abre uno para ver las especificaciones publicadas y mira un unboxing reciente.",
     kitTitle: "Cuerpos de cámara",
-    kitHint: "Desliza las cámaras. Toca un cuerpo para ver sus especificaciones.",
+    kitHint: "Desliza para comparar. Toca un cuerpo para ver las especificaciones.",
     inspect: "Toca la cámara para ver",
     activeBody: "Cuerpo de cámara principal",
     alphaName: "Sony Alpha 7 IV",
@@ -40,6 +44,10 @@ const copy = {
     canonName: "Canon EOS Rebel T5i",
     canonDetail: "Sensor APS-C de 18 MP · grabación Full HD 1080",
     source: "Imágenes de referencia y especificaciones publicadas",
+    unboxingEyebrow: "TRABAJO RECIENTE",
+    unboxingTitle: "Mira el unboxing de producto.",
+    unboxingCopy: "Un Reel vertical reciente de unboxing abre Instagram en una pestaña nueva.",
+    unboxingAction: "Ver el unboxing en Instagram",
     methodTitle: "Abrir el método de trabajo",
     methodHint: "Tres decisiones claras antes de empezar.",
     steps: [
@@ -117,6 +125,22 @@ export function CameraKitMethod({ locale }: { locale: Locale }) {
             <a href={locale === "es" ? "https://www.cla.canon.com/es/p/eos-rebel-t5i" : "https://www.cla.canon.com/en/p/eos-rebel-t5i"} target="_blank" rel="noreferrer">Canon</a>
           </p>
         </div>
+
+        <a
+          className="em-camera-kit__unboxing"
+          href="https://www.instagram.com/reel/DepBjEbBl9P/"
+          target="_blank"
+          rel="noreferrer"
+          data-cta={`camera_kit_unboxing_${locale}`}
+        >
+          <span className="em-camera-kit__unboxing-play" aria-hidden="true">Play</span>
+          <span>
+            <small>{c.unboxingEyebrow}</small>
+            <strong>{c.unboxingTitle}</strong>
+            <span>{c.unboxingCopy}</span>
+          </span>
+          <span className="em-camera-kit__unboxing-action">{c.unboxingAction} <span aria-hidden="true">↗</span></span>
+        </a>
 
         <details className="em-camera-kit__method">
           <summary data-cta={`camera_kit_method_${locale}`}>

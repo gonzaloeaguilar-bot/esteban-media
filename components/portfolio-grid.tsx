@@ -1,17 +1,14 @@
 import enMessages from "@/messages/en.json";
 import esMessages from "@/messages/es.json";
 import Link from "next/link";
+import Image from "next/image";
 import {
   CASE_STUDY_IDS,
   getCaseStudiesIndexPath,
   getCaseStudyPath,
   type CaseStudyId,
 } from "@/lib/case-studies";
-import {
-  getPortfolioCategories,
-  type PortfolioItem,
-  type YouTubeSource,
-} from "@/lib/portfolio";
+import { getPortfolioCategories, getPoster, type PortfolioItem, type YouTubeSource } from "@/lib/portfolio";
 
 import { PortfolioVideo } from "@/components/portfolio-video";
 
@@ -52,10 +49,7 @@ export function resolvePortfolioItemCopy(
 export function getLiveYouTubePortfolioItems(
   items: readonly PortfolioItem[],
 ): readonly (PortfolioItem & { media: YouTubeSource })[] {
-  return items.filter(
-    (item): item is PortfolioItem & { media: YouTubeSource } =>
-      item.status === "live" && item.media.kind === "youtube",
-  );
+  return items.filter((item): item is PortfolioItem & { media: YouTubeSource } => item.status === "live" && item.media.kind === "youtube");
 }
 
 interface PortfolioGridProps {
@@ -64,7 +58,7 @@ interface PortfolioGridProps {
 }
 
 export function PortfolioGrid({ items, locale }: PortfolioGridProps) {
-  const liveItems = getLiveYouTubePortfolioItems(items);
+  const liveItems = items.filter((item) => item.status === "live" && item.media.kind !== "placeholder");
   const categories = getPortfolioCategories().filter((category) =>
     liveItems.some((item) => item.category === category.id),
   );
@@ -144,13 +138,7 @@ export function PortfolioGrid({ items, locale }: PortfolioGridProps) {
                       id={item.id}
                       className="scroll-mt-24 overflow-hidden rounded-xl border border-[#d6ccc0] bg-[#fbf6ef] shadow-[0_16px_45px_rgba(52,42,33,0.06)]"
                     >
-                      <PortfolioVideo
-                        videoId={item.media.videoId}
-                        url={item.media.url}
-                        poster={item.media.poster}
-                        title={copy.title}
-                        locale={locale}
-                      />
+                      {item.media.kind === "youtube" ? <PortfolioVideo videoId={item.media.videoId} url={item.media.url} poster={item.media.poster} title={copy.title} locale={locale} /> : <Link href={projectPath} className="relative block aspect-video overflow-hidden bg-[#292b2d]"><Image src={getPoster(item) ?? "/portfolio/exatlon.jpg"} alt={copy.title} fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" /></Link>}
                       <div className="px-5 pb-6 pt-1 sm:px-6 sm:pb-7">
                         <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-medium uppercase tracking-[0.12em] text-[#5a6066]">
                           {item.year ? <span>{item.year}</span> : null}

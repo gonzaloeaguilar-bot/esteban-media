@@ -1695,7 +1695,7 @@ div.relative:has(> .em-carousel-track) {
    because most of these posters are website screenshots and `cover` eats
    their headline text ("Inspected by a mechanic." became "pected by a /
    chanic."). That stays.
-   The six property reels are different: they are 720x1280 PHOTOGRAPHS with
+   The property reels are different: they are vertical photographs with
    no text to destroy, so they get a tall 4:5 frame and fill it. The result
    is the taller card the owner asked for, on the cards that can take it,
    without mutilating the ones that cannot. */
@@ -1710,10 +1710,48 @@ div.relative:has(> .em-carousel-track) {
 .em-cartel .rail-card[data-rail-kind="media"] .rail-card__figure {
   aspect-ratio: 4 / 5;
 }
-.em-cartel .rail-card[data-em-reel] .rail-card__figure :is(img, picture) {
+/* Vertical property Reels are shown as the phone-first work they are. The
+   shell belongs only to cards marked from the reel data in
+   HomePortfolioRail; wide project stills keep their rectangular posters and
+   are never cropped into a fake device. */
+.em-cartel .rail-card[data-rail-phone-frame="true"] {
+  position: relative;
+  flex: 0 0 min(78vw, 300px);
+  width: min(78vw, 300px);
+  overflow: hidden;
+  border: clamp(7px, 1.5vw, 10px) solid #080809;
+  border-radius: clamp(34px, 9vw, 48px);
+  background: linear-gradient(145deg, #454a51 0%, #17191d 22%, #050506 100%);
+  box-shadow:
+    0 18px 34px -16px rgba(0, 0, 0, 0.98),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.16);
+}
+.em-cartel .rail-card[data-rail-phone-frame="true"]::before {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  top: clamp(9px, 1.8vw, 13px);
+  left: 50%;
+  width: clamp(56px, 15vw, 68px);
+  height: clamp(14px, 3.8vw, 18px);
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: #080809;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.08);
+}
+.em-cartel .rail-card[data-rail-phone-frame="true"] .rail-card__figure {
+  border-radius: calc(clamp(34px, 9vw, 48px) - clamp(7px, 1.5vw, 10px))
+    calc(clamp(34px, 9vw, 48px) - clamp(7px, 1.5vw, 10px)) 0 0;
+}
+.em-cartel .rail-card[data-rail-phone-frame="true"] .rail-card__body {
+  padding-bottom: clamp(22px, 5vw, 28px);
+}
+.em-cartel .rail-card[data-rail-phone-frame="true"] .rail-card__figure :is(img, picture) {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  /* Override the catalogue still-image rule above: property Reels are the
+     phone screen, not a print that should be letterboxed inside its mat. */
+  object-fit: cover !important;
   object-position: center;
 }
 
@@ -1735,11 +1773,12 @@ div.relative:has(> .em-carousel-track) {
    The scroller now carries padding for the lift and its glow, and pulls the
    same amount back as negative margin so nothing else on the page moves. */
 .em-cartel .rail__scroller {
-  /* Pad for the lift, but only pull PART of it back: clawing the full 26px
-     back dragged the rail up into the "1 of 14" counter, which then sat
-     against the lifted card. The remainder is breathing room above the cards,
-     which is what the top edge was missing in the first place. */
-  padding-top: 26px;
+  /* The device needs a deliberate quiet band above it. The spotlight still
+     rises 12px, so this leaves roughly 45px of visible air on a 390px phone
+     instead of the former ~20px that made its top edge feel pressed into the
+     rail copy. Keep this space on the scroller, not on the card: adding a
+     card margin would break the snap rhythm for the rest of the work rail. */
+  padding-top: clamp(50px, 13vw, 64px);
   margin-top: 6px;
   padding-bottom: 26px;
   margin-bottom: -18px;

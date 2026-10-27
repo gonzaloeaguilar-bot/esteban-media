@@ -103,6 +103,7 @@ const EN_ROWS: Row[] = [
   ["/services/corporate-training-video-editing-miami", "corporate training video editing", "Miami", "corporate"],
   ["/services/corporate-video-editing-weston-fl", "corporate video editing", "Weston", "corporate"],
   ["/services/corporate-video-production-brickell", "corporate video production", "Brickell", "corporate"],
+  ["/services/corporate-video-production-miami", "corporate video production", "Miami", "corporate", false],
   ["/services/cosmetic-dentistry-video-marketing-miami", "cosmetic dentistry video marketing", "Miami", "social"],
   ["/services/creative-video-production-wynwood", "creative video production", "Wynwood", "local"],
   ["/services/crowdfunding-video-editor-miami", "a crowdfunding or Kickstarter video", "Miami", "corporate"],

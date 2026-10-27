@@ -48,11 +48,20 @@ const expectedCategoryByItem: Record<string, PortfolioCategoryId> = {
   "diana-jack": "events",
   "la-huelga": "narrative",
   "ml-colombia": "social-content",
+  "great-reviewer-iphone-18": "social-content",
   titanforge: "web-design",
   "gains-from-geebs": "web-design",
+  "caro-sells-miami": "web-design",
+  "dupont-realty-international": "web-design",
+  "great-reviewer-website": "web-design",
   "front-line-auto": "web-design",
   "flas-concierge": "web-design",
   "ai-lead-automation": "web-design",
+  "gains-from-geebs-shorts": "social-content",
+  exatlon: "social-content",
+  "juanchis-burguer": "business-promos",
+  portosole: "business-promos",
+  "punto-de-giro": "narrative",
 };
 
 const verifiedYears: Record<string, number> = {
@@ -63,9 +72,13 @@ const verifiedYears: Record<string, number> = {
   "la-huelga": 2017,
   titanforge: 2026,
   "gains-from-geebs": 2026,
+  "caro-sells-miami": 2026,
+  "dupont-realty-international": 2026,
+  "great-reviewer-website": 2026,
   "front-line-auto": 2026,
   "flas-concierge": 2026,
   "ai-lead-automation": 2026,
+  "great-reviewer-iphone-18": 2026,
 };
 
 describe("verified portfolio data", () => {
@@ -81,16 +94,16 @@ describe("verified portfolio data", () => {
     ]);
   });
 
-  it("ships exactly 13 unique live projects with no placeholder media", () => {
-    expect(PORTFOLIO_ITEMS).toHaveLength(13);
-    expect(new Set(PORTFOLIO_ITEMS.map((item) => item.id)).size).toBe(13);
+  it("ships exactly 22 unique live projects with no placeholder media", () => {
+    expect(PORTFOLIO_ITEMS).toHaveLength(22);
+    expect(new Set(PORTFOLIO_ITEMS.map((item) => item.id)).size).toBe(22);
 
     for (const item of PORTFOLIO_ITEMS) {
       expect(item.status).toBe("live");
       expect(item.media.kind).not.toBe("placeholder");
     }
 
-    expect(getLivePortfolioItemCount()).toBe(13);
+    expect(getLivePortfolioItemCount()).toBe(22);
     expect(getPlaceholderItemCount()).toBe(0);
   });
 
@@ -134,10 +147,10 @@ describe("verified portfolio data", () => {
     expect(videoIds.size).toBe(youtubeItems.length);
   });
 
-  it("uses an existing local poster or image asset named after each stable item id", () => {
+  it("uses an existing local visual for each stable item", () => {
     for (const item of PORTFOLIO_ITEMS) {
       const posterPath = "poster" in item.media ? item.media.poster : "src" in item.media ? item.media.src : "";
-      expect(posterPath).toBe(`/portfolio/${item.id}.jpg`);
+      expect(posterPath).toMatch(/^\/portfolio\/[a-z0-9-]+\.(jpg|png|webp)$/);
       expect(
         existsSync(join(process.cwd(), "public", posterPath)),
       ).toBe(true);
@@ -237,7 +250,7 @@ describe("portfolio helpers", () => {
 
 describe("media narrowing helpers", () => {
   const samples: MediaSource[] = [
-    { kind: "instagram", url: "https://www.instagram.com/p/X/" },
+    { kind: "instagram", url: "https://www.instagram.com/p/X/", poster: "/portfolio/example.jpg" },
     { kind: "video", src: "https://example.com/video.m3u8", poster: "p.jpg" },
     {
       kind: "youtube",

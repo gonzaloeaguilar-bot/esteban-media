@@ -26,6 +26,8 @@ export type HomePortfolioCard = {
   id: string;
   /** Portrait reel photograph: may fill a tall frame (see globals.css). */
   isReel?: boolean;
+  /** Explicit device treatment for a vertical video case that is not a property Reel. */
+  phoneFrame?: boolean;
   /** The reel's MP4. Present only on reels; makes the card open a player. */
   videoSrc?: string;
   href: string;
@@ -42,9 +44,12 @@ export type HomePortfolioCard = {
 export function HomePortfolioRail({
   locale,
   items,
+  source = "home_portfolio",
 }: {
   locale: "en" | "es";
   items: HomePortfolioCard[];
+  /** Surface name for delegated analytics; the same work shelf also appears in guides. */
+  source?: string;
 }) {
   const isSpanish = locale === "es";
   const wrapRef = useRef<HTMLDivElement | null>(null);
@@ -87,13 +92,6 @@ export function HomePortfolioRail({
     if (!scroller) return;
     const cards = Array.from(scroller.querySelectorAll<HTMLElement>(".rail-card"));
     if (cards.length === 0) return;
-
-    // Mark the portrait reels so CSS can give them the tall frame.
-    const reelIds = new Set(items.filter((i) => i.isReel).map((i) => i.id));
-    cards.forEach((card) => {
-      const id = card.getAttribute("data-rail-card") ?? card.getAttribute("data-rail-id") ?? card.id;
-      if (id && reelIds.has(id)) card.setAttribute("data-em-reel", "");
-    });
 
     let frame = 0;
     const mark = () => {
@@ -159,6 +157,11 @@ export function HomePortfolioRail({
   const railItems: RailItem[] = items.map((item) => ({
     kind: "media",
     id: item.id,
+    // Playing in the in-place Reel viewer and looking like a phone are related
+    // but not identical. The lead Great Reviewer iPhone case is a published
+    // vertical video without a property-Reel MP4, so it opts into the same
+    // device presentation explicitly.
+    phoneFrame: item.phoneFrame ?? item.isReel,
     href: item.href,
     title: item.title,
     // The category rides in the BODY, not over the picture. Every still in this
@@ -236,7 +239,7 @@ export function HomePortfolioRail({
     <div ref={wrapRef}>
     <Rail
       items={railItems}
-      source={`home_portfolio_${locale}`}
+      source={`${source}_${locale}`}
       variant="poster"
       size="lg"
       titleAs="h3"

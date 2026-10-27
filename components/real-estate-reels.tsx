@@ -390,8 +390,8 @@ export function RealEstateReels({
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-7 text-[#c9c1b8]">
               {isEs
-                ? "Seis videos de propiedades terminados. Toca una portada para verlos."
-                : "Six finished property videos. Tap any poster to watch."}
+                ? `${len} videos de propiedades terminados. Toca una portada para verlos.`
+                : `${len} finished property videos. Tap any poster to watch.`}
             </p>
           </div>
           <div className="flex shrink-0 flex-col gap-4 sm:items-end">

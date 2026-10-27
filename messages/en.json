@@ -58,13 +58,40 @@
         ]
       },
       "gains-from-geebs": {
-        "title": "Gains From Geebs Web App & Instagram DM AI Bot",
-        "summary": "An interactive fitness platform and conversational Instagram (IG) DM AI bot designed for instant fitness coaching inquiries, workout plan selection, and 24/7 lead qualification.",
-        "metaDescription": "A fitness web platform and an Instagram DM AI bot for Gains From Geebs that answers coaching questions, matches workout plans and qualifies leads 24/7.",
-        "credits": "Web application engineering, interactive fitness calculators, and custom Instagram DM (IG DM) coaching chatbot.",
+        "title": "Gains From Geebs Coaching Website",
+        "summary": "Current 1:1 online fitness coaching website for Kris Oddo, with a direct start path, coaching method, packages, results and free resources.",
+        "metaDescription": "Current Gains From Geebs coaching website: start path, coaching method, packages, results and free resources.",
+        "credits": "Website architecture, coaching-path UX, and responsive navigation for method, packages, results and free resources.",
         "results": [
-          { "metric": "Calculators + DM bot", "label": "Interactive fitness calculators and an Instagram DM chatbot" },
-          { "metric": "Instagram DMs", "label": "Answers coaching questions and qualifies leads" }
+          { "metric": "Direct start path", "label": "A visible route to begin the 1:1 coaching application" },
+          { "metric": "Coaching discovery", "label": "Method, packages, results and free learning resources in the public navigation" }
+        ]
+      },
+      "caro-sells-miami": {
+        "title": "Caro Sells Miami Real Estate Website",
+        "summary": "Bilingual real-estate website that helps Miami buyers explore current listings, buildings, rental paths and a direct conversation with Carolina.",
+        "credits": "Website architecture, bilingual buyer paths, building discovery and lead-capture experience.",
+        "results": [
+          { "metric": "English + Spanish", "label": "Buyer paths, building discovery and contact in both languages" },
+          { "metric": "Listings + buildings", "label": "Live listing links, building exploration and direct agent contact" }
+        ]
+      },
+      "dupont-realty-international": {
+        "title": "DuPont International Realty Florida Website",
+        "summary": "Real-estate broker website for buyers and sellers across Broward, Palm Beach and Miami-Dade, with clear guidance and direct contact paths.",
+        "credits": "Website architecture, real-estate information design and buyer/seller inquiry paths.",
+        "results": [
+          { "metric": "Three South Florida markets", "label": "Buyer and seller guidance for Broward, Palm Beach and Miami-Dade" },
+          { "metric": "Broker guidance", "label": "Direct paths to explore services and start a real-estate conversation" }
+        ]
+      },
+      "great-reviewer-website": {
+        "title": "The Great Reviewer Website & Product Library",
+        "summary": "Product-review and travel-guide website that helps everyday shoppers compare products, read practical answers and decide what is worth buying.",
+        "credits": "Website architecture, article-library UX, answer-first product pages and editorial content system.",
+        "results": [
+          { "metric": "Product + travel guides", "label": "A browsable library for practical buying decisions" },
+          { "metric": "Answer-first pages", "label": "Comparison and review paths that surface useful details before a purchase decision" }
         ]
       },
       "front-line-auto": {
@@ -164,6 +191,11 @@
           { "metric": "Director", "label": "Also director of photography and original concept" }
         ]
       },
+      "gains-from-geebs-shorts": { "title": "Gains From Geebs Short-Form Videos", "summary": "Two short-form videos publicly published by Kris Oddo | Geebs Method.", "credits": "Public source: Kris Oddo | Geebs Method." },
+      "exatlon": { "title": "Exatlón Intro Video", "summary": "An Exatlón intro video publicly published by Esteban Moreno Media.", "credits": "Public source: Esteban Moreno Media." },
+      "juanchis-burguer": { "title": "Juanchis Burguer Social Media Campaign", "summary": "A social media campaign with Juanchis Burguer, Miami, publicly published by Esteban Moreno Media.", "credits": "Public source: Esteban Moreno Media." },
+      "portosole": { "title": "Portosole Social Media Campaign", "summary": "A social media campaign with Portosole, Miami, publicly published by Esteban Moreno Media.", "credits": "Public source: Esteban Moreno Media." },
+      "punto-de-giro": { "title": "Punto de Giro Documentary", "summary": "The publicly published Punto de Giro documentary trailer and behind-the-scenes video on Esteban Moreno López's YouTube channel.", "credits": "Public source: Esteban Moreno López's YouTube channel." },
       "ml-colombia": {
         "title": "ML Colombia",
         "summary": "Content and digital strategy for Miracle Leaf (ML Colombia), Esteban's own CBD-cosmetics e-commerce brand, which he founded and ran for about six years. As CEO he led the brand end to end — digital content, strategy, and two successive websites.",
@@ -171,6 +203,15 @@
         "results": [
           { "metric": "About 6 years", "label": "Founder and CEO of his own e-commerce brand" },
           { "metric": "2 websites", "label": "Two successive brand websites" }
+        ]
+      },
+      "great-reviewer-iphone-18": {
+        "title": "The Great Reviewer: iPhone 18 Pro Max Content Reel",
+        "summary": "A published vertical content video for The Great Reviewer. It is shown as an example of the format, with no audience or commercial result claimed.",
+        "credits": "Content video production and editing by Esteban Moreno Media.",
+        "results": [
+          { "metric": "Vertical Reel", "label": "Published content video" },
+          { "metric": "2026", "label": "Content video for The Great Reviewer" }
         ]
       }
     },

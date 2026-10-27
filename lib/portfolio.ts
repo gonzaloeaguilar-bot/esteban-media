@@ -39,6 +39,8 @@ export const PORTFOLIO_CATEGORIES: readonly PortfolioCategory[] =
 export interface InstagramEmbedSource {
   kind: "instagram";
   url: string;
+  /** Local approved still; no signed Instagram CDN URL is persisted. */
+  poster: `/portfolio/${string}.jpg`;
   embedHtml?: string;
   aspect?: "1:1" | "4:5" | "9:16" | "16:9";
 }
@@ -54,9 +56,8 @@ export interface SelfHostedVideoSource {
 /**
  * A selected video from Esteban's public YouTube portfolio.
  *
- * `url` is always the canonical watch URL for `videoId`. `poster` is a local,
- * approved still so pages do not depend on YouTube thumbnails for initial
- * rendering. Portfolio videos are landscape and therefore fixed to 16:9.
+ * `url` is always the canonical watch URL for `videoId`. `poster` is a local
+ * approved still. Portfolio videos are landscape and therefore fixed to 16:9.
  */
 export interface YouTubeSource {
   kind: "youtube";
@@ -68,6 +69,8 @@ export interface YouTubeSource {
   /** Public YouTube duration in ISO 8601 format. */
   duration: string;
   aspect: "16:9";
+  /** Public YouTube title for source-specific schema and sitemap entries. */
+  title?: string;
 }
 
 export interface ImageSource {
@@ -105,11 +108,20 @@ export type PortfolioItemI18nKey =
   | "diana-jack"
   | "la-huelga"
   | "ml-colombia"
+  | "great-reviewer-iphone-18"
   | "titanforge"
   | "gains-from-geebs"
+  | "caro-sells-miami"
+  | "dupont-realty-international"
+  | "great-reviewer-website"
   | "front-line-auto"
   | "flas-concierge"
-  | "ai-lead-automation";
+  | "ai-lead-automation"
+  | "gains-from-geebs-shorts"
+  | "exatlon"
+  | "juanchis-burguer"
+  | "portosole"
+  | "punto-de-giro";
 
 export interface PortfolioItem {
   /** Stable URL-safe id, also used by the local poster filename. */
@@ -129,6 +141,8 @@ export interface PortfolioItem {
   location?: string;
   websiteUrl?: string;
   media: MediaSource;
+  /** Additional public YouTube footage for the same project (for example BTS). */
+  companionVideos?: readonly YouTubeSource[];
   featured?: boolean;
   status: PortfolioItemStatus;
 }
@@ -138,6 +152,19 @@ export interface PortfolioItem {
  * Order is intentional: featured and category views preserve it.
  */
 export const PORTFOLIO_ITEMS: readonly PortfolioItem[] = [
+  {
+    id: "gains-from-geebs-shorts", category: "social-content", title: "Gains From Geebs Short-Form Videos", titleI18nKey: "gains-from-geebs-shorts", descriptionI18nKey: "gains-from-geebs-shorts", creditsI18nKey: "gains-from-geebs-shorts", status: "live",
+    media: { kind: "youtube", videoId: "Hm-mI-RgvUY", url: "https://www.youtube.com/watch?v=Hm-mI-RgvUY", poster: "/portfolio/gains-from-geebs-shorts.jpg", uploadDate: "2026-08-24T00:00:00-07:00", duration: "PT0M31S", aspect: "16:9" },
+    companionVideos: [{ kind: "youtube", videoId: "B4d_bFQV6T0", url: "https://www.youtube.com/watch?v=B4d_bFQV6T0", poster: "/portfolio/gains-from-geebs-shorts.jpg", uploadDate: "2026-06-14T00:00:00-07:00", duration: "PT0M36S", aspect: "16:9", title: "Your workout plan has to fit your actual week" }],
+  },
+  { id: "exatlon", category: "social-content", title: "Exatlón Intro Video", titleI18nKey: "exatlon", descriptionI18nKey: "exatlon", creditsI18nKey: "exatlon", status: "live", media: { kind: "instagram", url: "https://www.instagram.com/p/CBT9gcdgJnX/", poster: "/portfolio/exatlon.jpg", aspect: "16:9" } },
+  { id: "juanchis-burguer", category: "business-promos", title: "Juanchis Burguer Social Media Campaign", titleI18nKey: "juanchis-burguer", descriptionI18nKey: "juanchis-burguer", creditsI18nKey: "juanchis-burguer", status: "live", media: { kind: "instagram", url: "https://www.instagram.com/p/CBT8pOZgk2a/", poster: "/portfolio/juanchis-burguer.jpg", aspect: "16:9" } },
+  { id: "portosole", category: "business-promos", title: "Portosole Social Media Campaign", titleI18nKey: "portosole", descriptionI18nKey: "portosole", creditsI18nKey: "portosole", status: "live", media: { kind: "instagram", url: "https://www.instagram.com/p/CBT88jEAHY0/", poster: "/portfolio/portosole.jpg", aspect: "16:9" } },
+  {
+    id: "punto-de-giro", category: "narrative", title: "Punto de Giro Documentary", titleI18nKey: "punto-de-giro", descriptionI18nKey: "punto-de-giro", creditsI18nKey: "punto-de-giro", status: "live",
+    media: { kind: "youtube", videoId: "jSKjcamLIG0", url: "https://www.youtube.com/watch?v=jSKjcamLIG0", poster: "/portfolio/punto-de-giro.jpg", uploadDate: "2016-05-04T00:00:00-07:00", duration: "PT1M11S", aspect: "16:9" },
+    companionVideos: [{ kind: "youtube", videoId: "gZGY9xNqCCY", url: "https://www.youtube.com/watch?v=gZGY9xNqCCY", poster: "/portfolio/punto-de-giro.jpg", uploadDate: "2016-05-06T00:00:00-07:00", duration: "PT4M37S", aspect: "16:9", title: "Detrás de cámara - Documental Punto de Giro" }],
+  },
   {
     id: "flas-concierge",
     category: "web-design",
@@ -160,7 +187,7 @@ export const PORTFOLIO_ITEMS: readonly PortfolioItem[] = [
   {
     id: "gains-from-geebs",
     category: "web-design",
-    title: "Gains From Geebs Web App & AI Bot",
+    title: "Gains From Geebs Coaching Website",
     titleI18nKey: "gains-from-geebs",
     descriptionI18nKey: "gains-from-geebs",
     creditsI18nKey: "gains-from-geebs",
@@ -170,8 +197,64 @@ export const PORTFOLIO_ITEMS: readonly PortfolioItem[] = [
     status: "live",
     media: {
       kind: "image",
-      src: "/portfolio/gains-from-geebs.jpg",
-      alt: "Gains From Geebs Interactive Fitness Platform & Coaching AI Bot",
+      src: "/portfolio/gains-from-geebs-current-ui.png",
+      alt: "Current Gains From Geebs 1:1 online fitness coaching website",
+      aspect: "16:9",
+    },
+  },
+  {
+    id: "caro-sells-miami",
+    category: "web-design",
+    title: "Caro Sells Miami Real Estate Website",
+    titleI18nKey: "caro-sells-miami",
+    descriptionI18nKey: "caro-sells-miami",
+    creditsI18nKey: "caro-sells-miami",
+    year: 2026,
+    location: "Miami / Broward",
+    websiteUrl: "https://carosellsmiami.com/",
+    featured: true,
+    status: "live",
+    media: {
+      kind: "image",
+      src: "/portfolio/caro-sells-miami-current-ui.png",
+      alt: "Caro Sells Miami real estate website for Brickell and Miami buyers",
+      aspect: "16:9",
+    },
+  },
+  {
+    id: "dupont-realty-international",
+    category: "web-design",
+    title: "DuPont International Realty Florida Website",
+    titleI18nKey: "dupont-realty-international",
+    descriptionI18nKey: "dupont-realty-international",
+    creditsI18nKey: "dupont-realty-international",
+    year: 2026,
+    location: "South Florida",
+    websiteUrl: "https://dupontrealtysouthflorida.com/",
+    featured: true,
+    status: "live",
+    media: {
+      kind: "image",
+      src: "/portfolio/dupont-realty-international-current-ui.png",
+      alt: "Current DuPont International Realty Florida website interface",
+      aspect: "16:9",
+    },
+  },
+  {
+    id: "great-reviewer-website",
+    category: "web-design",
+    title: "The Great Reviewer Website & Product Library",
+    titleI18nKey: "great-reviewer-website",
+    descriptionI18nKey: "great-reviewer-website",
+    creditsI18nKey: "great-reviewer-website",
+    year: 2026,
+    websiteUrl: "https://thegreatreviewer.com/",
+    featured: true,
+    status: "live",
+    media: {
+      kind: "image",
+      src: "/portfolio/great-reviewer-current-ui.png",
+      alt: "Current The Great Reviewer product-review website interface",
       aspect: "16:9",
     },
   },
@@ -332,6 +415,28 @@ export const PORTFOLIO_ITEMS: readonly PortfolioItem[] = [
     },
   },
   {
+    id: "great-reviewer-iphone-18",
+    category: "social-content",
+    title: "The Great Reviewer: iPhone 18 Pro Max Content Reel",
+    titleI18nKey: "great-reviewer-iphone-18",
+    descriptionI18nKey: "great-reviewer-iphone-18",
+    creditsI18nKey: "great-reviewer-iphone-18",
+    year: 2026,
+    featured: true,
+    status: "live",
+    media: {
+      kind: "youtube",
+      videoId: "BDRru8eXaj4",
+      url: "https://www.youtube.com/watch?v=BDRru8eXaj4",
+      // Exact YouTube preview, mirrored locally so cards, social previews,
+      // JSON-LD, and the video sitemap all use the same stable image.
+      poster: "/portfolio/great-reviewer-iphone-18.jpg",
+      uploadDate: "2026-10-06T00:00:00-07:00",
+      duration: "PT8M54S",
+      aspect: "16:9",
+    },
+  },
+  {
     id: "my-dler",
     category: "animation",
     title: "My D'ler",
@@ -457,6 +562,7 @@ export function isPlaceholderSource(
 
 export function getPoster(item: PortfolioItem): string | undefined {
   if (item.media.kind === "youtube") return item.media.poster;
+  if (item.media.kind === "instagram") return item.media.poster;
   if (item.media.kind === "image") return item.media.src;
   return undefined;
 }

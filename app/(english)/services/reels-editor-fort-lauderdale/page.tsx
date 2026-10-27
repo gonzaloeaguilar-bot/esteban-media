@@ -4,9 +4,9 @@ import { buildPageMetadata } from "@/lib/site-metadata";
 const content: GeoServicePageContent = {
   path: "/services/reels-editor-fort-lauderdale",
   eyebrow: "Fort Lauderdale reels editor",
-  title: "Reels editor in Fort Lauderdale for short videos that explain the offer fast.",
+  title: "Reels editor in Fort Lauderdale who turns your clips into clear social videos.",
   description:
-    "Send existing clips for a focused Reel, TikTok, or Short: one message, legible captions, and a final action. Esteban can review a local shoot separately if new footage is needed.",
+    "Send existing clips and a clear goal; Esteban turns them into a focused Reel, TikTok, or Short with one message, legible captions, and one final action. The edit can stay remote, while a local shoot is scoped separately only when new footage is needed.",
   locationLabel: "Fort Lauderdale / Remote",
   proofTitle: "A published example",
   proofText:
@@ -59,6 +59,11 @@ const content: GeoServicePageContent = {
       question: "How does the edit adapt to Instagram, TikTok and Shorts?",
       body:
         "Vertical platforms place buttons, captions and comments on top of the video. Subtitles and anything that matters therefore have to stay inside the safe zones, without covering faces, products, food, properties or tools. The same video can also need small changes per platform: a different cover frame, a different length, a different opening line, or a version with no music. Deciding the first channel before editing works better than trying to correct for it at export, because the crop, the pacing and the text placement all follow from where the clip is going to run.",
+    },
+    {
+      question: "Should you send existing clips or plan a local shoot first?",
+      body:
+        "Start with editing when you already have original clips that show the product, service, people or place well enough to make one clear point. Send the strongest takes, the platform, and the action the viewer should take; that lets the edit focus on pacing, captions and a useful ending. Plan a local shoot when the footage cannot show the offer yet, when essential scenes are missing, or when the business needs a specific location or team moment captured. The two jobs solve different problems: remote editing shapes material you have, while a shoot creates the material before the edit begins.",
     },
   ],
   faqHeading: "Questions before sending Fort Lauderdale Reels footage.",
@@ -138,9 +143,9 @@ const content: GeoServicePageContent = {
 };
 
 export const metadata = buildPageMetadata({
-  title: "Reels Editor Fort Lauderdale",
+  title: "Reels Editor Fort Lauderdale | Clear Social Videos",
   description:
-    "Fort Lauderdale Reels editor for Instagram Reels, TikTok, Shorts, captions, local business footage, and remote short-form editing.",
+    "Turn supplied clips into clear Instagram Reels, TikTok videos, or Shorts with captions and one focused action. Fort Lauderdale and remote editing.",
   path: content.path,
   locale: "en",
 });

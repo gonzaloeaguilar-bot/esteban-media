@@ -16,6 +16,8 @@ describe("Daily Hook Planner surface", () => {
   it("validates lead payloads from daily-hook-planner source", () => {
     const result = validateLeadPayload({
       email: "creator@example.com",
+      name: "Creator",
+      phone: "305-555-0100",
       source: "daily-hook-planner",
       locale: "en",
     });

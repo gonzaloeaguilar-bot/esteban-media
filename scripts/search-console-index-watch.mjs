@@ -42,6 +42,19 @@ export const LEGACY_V1_WATCH_URLS = [
 ];
 export const WATCH_URLS = [
   ...LEGACY_V1_WATCH_URLS,
+  // Demand-backed commercial Miami corporate-video destination (2026-10-27).
+  "https://estebanmorenomedia.com/services/corporate-video-production-miami",
+  // Owner-requested source-backed portfolio proof (2026-10-23); recheck 2026-11-22.
+  "https://estebanmorenomedia.com/portfolio/gains-from-geebs-shorts",
+  "https://estebanmorenomedia.com/es/portafolio/gains-from-geebs-shorts",
+  "https://estebanmorenomedia.com/portfolio/exatlon",
+  "https://estebanmorenomedia.com/es/portafolio/exatlon",
+  "https://estebanmorenomedia.com/portfolio/juanchis-burguer",
+  "https://estebanmorenomedia.com/es/portafolio/juanchis-burguer",
+  "https://estebanmorenomedia.com/portfolio/portosole",
+  "https://estebanmorenomedia.com/es/portafolio/portosole",
+  "https://estebanmorenomedia.com/portfolio/punto-de-giro",
+  "https://estebanmorenomedia.com/es/portafolio/punto-de-giro",
   // Buyer-guide pair (2026-10-18): same bounded RFP request in English and Spanish.
   "https://estebanmorenomedia.com/guides/video-production-rfp-template-miami",
   "https://estebanmorenomedia.com/es/guias/plantilla-brief-rfp-produccion-video-miami",
@@ -323,6 +336,7 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/es/portafolio/banacol",
   "https://estebanmorenomedia.com/es/portafolio/bar-door-monkey",
   "https://estebanmorenomedia.com/es/portafolio/diana-jack",
+  "https://estebanmorenomedia.com/es/portafolio/great-reviewer-iphone-18",
   "https://estebanmorenomedia.com/es/portafolio/flas-concierge",
   "https://estebanmorenomedia.com/es/portafolio/front-line-auto",
   "https://estebanmorenomedia.com/es/portafolio/gains-from-geebs",
@@ -396,6 +410,7 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/portfolio/banacol",
   "https://estebanmorenomedia.com/portfolio/bar-door-monkey",
   "https://estebanmorenomedia.com/portfolio/diana-jack",
+  "https://estebanmorenomedia.com/portfolio/great-reviewer-iphone-18",
   "https://estebanmorenomedia.com/portfolio/flas-concierge",
   "https://estebanmorenomedia.com/portfolio/front-line-auto",
   "https://estebanmorenomedia.com/portfolio/gains-from-geebs",
@@ -575,6 +590,31 @@ export const WATCH_URLS = [
   "https://estebanmorenomedia.com/es/video-para-restaurantes-frente-al-agua-fort-lauderdale",
   "https://estebanmorenomedia.com/services/marina-facility-video-fort-lauderdale",
   "https://estebanmorenomedia.com/es/video-comercial-para-marinas-fort-lauderdale",
+  // Source-bounded case-study routes (2026-10-24): keep this fixed set identical to app/sitemap.ts.
+  "https://estebanmorenomedia.com/portfolio/caro-sells-miami",
+  "https://estebanmorenomedia.com/es/portafolio/caro-sells-miami",
+  "https://estebanmorenomedia.com/portfolio/dupont-realty-international",
+  "https://estebanmorenomedia.com/es/portafolio/dupont-realty-international",
+  "https://estebanmorenomedia.com/portfolio/great-reviewer-website",
+  "https://estebanmorenomedia.com/es/portafolio/great-reviewer-website",
+  "https://estebanmorenomedia.com/case-studies/caro-sells-miami",
+  "https://estebanmorenomedia.com/es/casos-de-estudio/caro-sells-miami",
+  "https://estebanmorenomedia.com/case-studies/dupont-realty-international",
+  "https://estebanmorenomedia.com/es/casos-de-estudio/dupont-realty-international",
+  "https://estebanmorenomedia.com/case-studies/exatlon",
+  "https://estebanmorenomedia.com/es/casos-de-estudio/exatlon",
+  "https://estebanmorenomedia.com/case-studies/gains-from-geebs",
+  "https://estebanmorenomedia.com/es/casos-de-estudio/gains-from-geebs",
+  "https://estebanmorenomedia.com/case-studies/gains-from-geebs-shorts",
+  "https://estebanmorenomedia.com/es/casos-de-estudio/gains-from-geebs-shorts",
+  "https://estebanmorenomedia.com/case-studies/great-reviewer-website",
+  "https://estebanmorenomedia.com/es/casos-de-estudio/great-reviewer-website",
+  "https://estebanmorenomedia.com/case-studies/juanchis-burguer",
+  "https://estebanmorenomedia.com/es/casos-de-estudio/juanchis-burguer",
+  "https://estebanmorenomedia.com/case-studies/portosole",
+  "https://estebanmorenomedia.com/es/casos-de-estudio/portosole",
+  "https://estebanmorenomedia.com/case-studies/punto-de-giro",
+  "https://estebanmorenomedia.com/es/casos-de-estudio/punto-de-giro",
 ];
 
 const WATCH_SET_EXPANSION_SCHEMA =

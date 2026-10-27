@@ -5,7 +5,16 @@ import { HomePortfolioRail } from "@/components/home-portfolio-rail";
 
 type PortfolioTeaserProps = {
   locale: "en" | "es";
+  /** The rail is reusable beneath long-form guides; keep its events attributable. */
+  source?: string;
 };
+
+// The homepage shelf is a deliberately edited first look, not the complete
+// portfolio. Keep both cases public at their own URLs, but do not let Banacol
+// or ML Colombia re-enter this particular shelf. The owner selected the Great
+// Reviewer iPhone reel as the lead piece; the current property Reels follow.
+const HOMEPAGE_RAIL_EXCLUDED_IDS = new Set(["la-huelga", "banacol", "ml-colombia"]);
+const HOMEPAGE_RAIL_FEATURED_ID = "great-reviewer-iphone-18";
 
 const categoryLabels = {
   en: {
@@ -40,24 +49,28 @@ function getPoster(item: PortfolioItem) {
   return undefined;
 }
 
-export function PortfolioTeaser({ locale }: PortfolioTeaserProps) {
+export function PortfolioTeaser({ locale, source = "home_portfolio" }: PortfolioTeaserProps) {
   // The rail used to carry three cards. Owner request, 2026-10-12: "i need more
   // content... prioritize the latest real estate ones and should just scroll
   // all of them as i go to the right".
   //
-  // LATEST is measured, not assumed: every real-estate reel entered the repo
-  // on 2026-10-10 and every other portfolio still on 2026-07-16 (git
-  // --diff-filter=A), so the reels are the newest body of work AS A SET. They
-  // lead. There is deliberately no per-clip date — lib/real-estate-reels.ts
-  // refuses to invent one because the VideoObject schema would then assert it
-  // — so within the set we keep the curated shelf order rather than guess.
+  // Great Reviewer leads by explicit editorial choice; the current property
+  // Reels follow in their maintained shelf order. There is deliberately no
+  // invented per-clip date in the Reel schema.
   //
   // Web-design projects are excluded: this section is "first, the work" for a
   // video buyer, and a website screenshot in a video rail is a different
   // promise.
   const items = PORTFOLIO_ITEMS.filter(
     (item): item is PortfolioItem =>
-      item.status === "live" && item.category !== "web-design" && item.id !== "la-huelga",
+      item.status === "live" &&
+      item.category !== "web-design" &&
+      !HOMEPAGE_RAIL_EXCLUDED_IDS.has(item.id) &&
+      item.id !== HOMEPAGE_RAIL_FEATURED_ID,
+  );
+  const featuredItem = PORTFOLIO_ITEMS.find(
+    (item): item is PortfolioItem =>
+      item.id === HOMEPAGE_RAIL_FEATURED_ID && item.status === "live",
   );
   const isSpanish = locale === "es";
   const href = isSpanish ? "/es/portafolio" : "/portfolio";
@@ -88,8 +101,8 @@ export function PortfolioTeaser({ locale }: PortfolioTeaserProps) {
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-7 text-[#c9c1b8]">
               {isSpanish
-                ? "Lo más reciente primero: seis Reels inmobiliarios, y después promociones de negocio, eventos, edición, narrativa y animación. Desliza para verlo todo."
-                : "Newest first: six property Reels, then business promos, events, editing, narrative and animation. Swipe to see all of it."}
+                ? `Primero, el Reel de The Great Reviewer. Después, ${REELS_IN_DISPLAY_ORDER.length} Reels inmobiliarios y más trabajo de contenido, eventos, edición, narrativa y animación. Desliza para verlo todo.`
+                : `First: The Great Reviewer reel. Then ${REELS_IN_DISPLAY_ORDER.length} property Reels and more content, events, editing, narrative and animation. Swipe to see all of it.`}
             </p>
           </div>
           {/* No "View portfolio" button. Owner, 2026-10-12: "we don't need
@@ -114,7 +127,24 @@ export function PortfolioTeaser({ locale }: PortfolioTeaserProps) {
         <div className="em-on-dark em-cartel mt-8" data-em-reveal>
           <HomePortfolioRail
             locale={locale}
-            items={[...REELS_IN_DISPLAY_ORDER.map((reel) => ({
+            source={source}
+            items={[...(featuredItem ? [featuredItem] : []).map((item) => {
+              const poster = getPoster(item);
+              return {
+                id: item.id,
+                href: `${href}/${item.id}`,
+                title: item.title,
+                eyebrow: categoryLabels[locale][item.category],
+                location: item.location,
+                poster,
+                posterAlt: isSpanish ? `Fotograma del video ${item.title}` : `Frame from the video ${item.title}`,
+                // This is the owner-selected iPhone Reel lead. It uses the
+                // device shell even though it is not in the property-Reel
+                // playlist, whose `isReel` flag also controls in-place MP4
+                // playback.
+                phoneFrame: true,
+              };
+            }), ...REELS_IN_DISPLAY_ORDER.map((reel) => ({
               id: reel.id,
               href: reelHref,
               title: isSpanish ? reel.titleEs : reel.title,

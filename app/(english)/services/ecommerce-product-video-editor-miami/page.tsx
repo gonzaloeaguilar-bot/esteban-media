@@ -101,8 +101,12 @@ export default function EcommerceProductVideoEditorMiamiPage() {
               <WandSparkles className="size-8 text-[#e85d3e]" aria-hidden="true" />
               <h2 className="mt-5 font-serif text-3xl">E-commerce video proof</h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                Our portfolio project <strong>Bar Door Monkey Miami</strong> proves published commercial product video editing.
+                Published portfolio work shows two relevant parts of the craft: <Link href="/portfolio/my-dler" className="underline underline-offset-4 hover:text-[#9f3c27]">My D&apos;ler</Link> is an agency-made product-visual and motion package with app mockups and an animated product flow; <Link href="/portfolio/bar-door-monkey" className="underline underline-offset-4 hover:text-[#9f3c27]">Bar Door Monkey Miami</Link> is a published commercial video. They show visual and commercial production work, not a claim that either project was an Amazon or Shopify listing campaign.
               </p>
+              <div className="mt-5 flex flex-wrap gap-3 border-t border-[#ddd4c8] pt-4">
+                <Link href="/portfolio/my-dler" className="text-sm font-semibold text-[#9f3c27] underline underline-offset-4 hover:text-[var(--em-accent-ink)]">View My D&apos;ler product visuals</Link>
+                <Link href="/portfolio/bar-door-monkey" className="text-sm font-semibold text-[#9f3c27] underline underline-offset-4 hover:text-[var(--em-accent-ink)]">View commercial video</Link>
+              </div>
             </div>
           </div>
         </Container>
@@ -155,8 +159,8 @@ export default function EcommerceProductVideoEditorMiamiPage() {
           serviceName: "ecommerce product video editing",
           goalPrompt: "turn product footage into demo videos or listing ads",
           assetPrompt: "raw product clips, product claims that are safe to publish, logo files, and the target store or ad placement",
-          proofHref: "/portfolio/bar-door-monkey",
-          proofLabel: "Review commercial video proof",
+          proofHref: "/portfolio/my-dler",
+          proofLabel: "Review product-visual portfolio proof",
         }}
       />
       <ServiceRelated heading={ECOMMERCE_VIDEO_DEPTH.relatedHeading} services={ECOMMERCE_VIDEO_DEPTH.related} />

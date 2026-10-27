@@ -82,6 +82,7 @@ export const sitemapRoutes = [
   { path: "/services", priority: 0.9 },
   { path: "/services/hire-remote-video-editor", priority: 0.9 },
   { path: "/services/video-production-fort-lauderdale", priority: 0.88 },
+  { path: "/services/corporate-video-production-miami", priority: 0.88 },
   { path: "/services/reels-editor-fort-lauderdale", priority: 0.88 },
   { path: "/services/reels-editor-miami", priority: 0.88 },
   { path: "/services/real-estate-reels-video-editor-south-florida", priority: 0.88 },

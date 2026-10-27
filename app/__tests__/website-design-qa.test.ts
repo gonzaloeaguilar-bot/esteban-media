@@ -9,11 +9,14 @@ describe("Website Design & AI Chatbot QA Test Suite", () => {
   );
 
   it("contains all 5 live Web & AI projects", () => {
-    expect(webDesignItems).toHaveLength(5);
+    expect(webDesignItems).toHaveLength(8);
     const ids = webDesignItems.map((item) => item.id);
     expect(ids).toEqual([
       "flas-concierge",
       "gains-from-geebs",
+      "caro-sells-miami",
+      "dupont-realty-international",
+      "great-reviewer-website",
       "titanforge",
       "front-line-auto",
       "ai-lead-automation",
@@ -37,14 +40,14 @@ describe("Website Design & AI Chatbot QA Test Suite", () => {
     expect(chatbots?.websiteUrl).toBe("https://fortlauderdaleautosale.com");
   });
 
-  it("verifies factual copy & Instagram DM bot descriptions for Gains From Geebs and Chatbots", () => {
+  it("verifies factual current-website copy for Gains From Geebs", () => {
     const geebsEn = getPortfolioWatchCopy(getPortfolioItemById("gains-from-geebs")!, "en");
-    expect(geebsEn.title).toContain("Instagram DM AI Bot");
-    expect(geebsEn.summary).toContain("Instagram (IG) DM AI bot");
+    expect(geebsEn.title).toContain("Coaching Website");
+    expect(geebsEn.summary).toContain("direct start path");
 
     const geebsEs = getPortfolioWatchCopy(getPortfolioItemById("gains-from-geebs")!, "es");
-    expect(geebsEs.title).toContain("Instagram DM");
-    expect(geebsEs.summary).toContain("Instagram DM");
+    expect(geebsEs.title).toContain("coaching");
+    expect(geebsEs.summary).toContain("ruta directa para empezar");
 
     const frontlineEn = getPortfolioWatchCopy(getPortfolioItemById("front-line-auto")!, "en");
     expect(frontlineEn.title).toContain("Frontline Auto Repair");

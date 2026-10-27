@@ -1,5 +1,5 @@
 import React from "react";
-import { GuideIllustration } from "@/components/guide-illustration";
+import { PortfolioTeaser } from "@/components/portfolio-teaser";
 import { PublishedProjectProof } from "@/components/published-project-proof";
 import { KeepReading } from "@/components/keep-reading";
 import RailFaq from "@/vendor/rail-kit/RailFaq";
@@ -414,6 +414,24 @@ export function GuidesIndexPage({ locale }: { locale: GuideLocale }) {
   const homePath = locale === "es" ? "/es" : "/";
   const companionPath =
     locale === "es" ? guidesIndexCopy.en.path : guidesIndexCopy.es.path;
+  const publishedProof =
+    locale === "es"
+      ? {
+          href: "/es/portafolio/gains-from-geebs-shorts",
+          eyebrow: "Ejemplo publicado",
+          title: "Videos cortos de Gains From Geebs",
+          description:
+            "Dos videos cortos publicados que muestran un ejemplo de edición para redes.",
+          linkLabel: "Ver el proyecto",
+        }
+      : {
+          href: "/portfolio/gains-from-geebs-shorts",
+          eyebrow: "Published example",
+          title: "Gains From Geebs Short-Form Videos",
+          description:
+            "Two published short-form videos that show one example of social editing.",
+          linkLabel: "View the project",
+        };
 
   return (
     <main className="bg-[#f6f1ea] text-[#101214]">
@@ -443,6 +461,9 @@ export function GuidesIndexPage({ locale }: { locale: GuideLocale }) {
               <h1 className="mt-4 max-w-4xl font-serif em-display">
                 {copy.title}
               </h1>
+              <div className="mt-6 max-w-3xl">
+                <PublishedProjectProof proof={publishedProof} compact />
+              </div>
               <p className="mt-6 max-w-3xl text-lg leading-8 text-[#252a2d]">
                 <strong>{copy.answerLabel}</strong> {copy.answer}
               </p>
@@ -671,14 +692,15 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
                   />
                 </div>
               ) : (
-                /* A drawing for the guide's theme. The photo library is 13
-                    project frames and none of them is about editing workflow, so
-                    a still here would be decoration. */
-                <GuideIllustration slug={guide.slug} className="mt-8 h-40 w-full max-w-md rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-3" />
+                <Link href={guide.proof.href} className="group mt-6 inline-flex min-h-11 items-center gap-2 font-medium text-[#9f3c27] underline decoration-[#e85d3e] underline-offset-4">
+                  {copy.proofLinkLabel}: {guide.proof.title}
+                  <ArrowRight className="size-4 transition group-hover:translate-x-1" aria-hidden="true" />
+                </Link>
               )}
-              <p className="mt-5 max-w-3xl border-l-2 border-[#c84a2c] pl-4 text-sm leading-6 text-[#3f4548]">
-                {guidePolicyNotes[locale]}
-              </p>
+              <details className="mt-5 max-w-3xl border-l-2 border-[#c84a2c] pl-4 text-sm leading-6 text-[#3f4548]">
+                <summary className="cursor-pointer font-medium text-[#252a2d]">{locale === "es" ? "Antes de empezar un proyecto" : "Before starting a project"}</summary>
+                <p className="mt-3">{guidePolicyNotes[locale]}</p>
+              </details>
               {companion ? (
                 <Link
                   href={getGuidePath(companion)}
@@ -817,6 +839,12 @@ export function GuideDetailPage({ guide }: { guide: Guide }) {
           </div>
         </Container>
       </article>
+      {/* A guide can explain the approach, but the next question is naturally
+          whether Esteban's finished work holds up. Reuse the homepage shelf
+          instead of a second, static proof-card pattern: it keeps approved
+          portfolio media, real project links, keyboard controls and reduced-
+          motion behaviour in one maintained component. */}
+      <PortfolioTeaser locale={locale} source="guide_work" />
       <PriorityLinks path={getGuidePath(guide)} locale={locale} />
 
       <section className="border-y border-[#d6ccc0] bg-[#e7ded2] py-12 sm:py-16">

@@ -4,7 +4,7 @@ import { POST, runtime } from "@/app/api/lead/route";
 const storeUrl = "https://store.example.com/rest/v1/esteban_leads";
 const emailUrl = "https://api.resend.com/emails";
 const rowId = "11111111-1111-4111-8111-111111111111";
-const payload = { source: "contact", email: "client@example.com", name: "Client", notes: "Private notes" };
+const payload = { source: "contact", email: "client@example.com", name: "Client", phone: "305-555-0100", notes: "Private notes" };
 const fetchMock = vi.fn<typeof fetch>();
 
 function request(body: unknown = payload, headers: Record<string, string> = {}) {

@@ -61,7 +61,7 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
   "video-para-preventa-de-condominios-miami": {
     areaHref: "/es/areas#miami-dade",
     areaLabel: "Ver cobertura en Miami-Dade y Broward",
-    note: "My D'ler: un video 3D y maquetas de producto para la presentación de una app. Además, la página de [reels inmobiliarios](/services/real-estate-reels-video-editor-south-florida) (en inglés) muestra seis reels de propiedades que editó Esteban. Ninguno es un proyecto de condominios en preventa.",
+    note: "My D'ler: un video 3D y maquetas de producto para la presentación de una app. Además, la página de [reels inmobiliarios](/services/real-estate-reels-video-editor-south-florida) (en inglés) muestra siete reels de propiedades que editó Esteban. Ninguno es un proyecto de condominios en preventa.",
     serviceIds: ["edicion", "planificacion-social", "videografia"],
     projects: [
       { href: "/es/portafolio/my-dler", title: "My D'ler", detail: "Video 3D y maquetas para la presentación de una app." },
@@ -70,7 +70,7 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
   "video-para-alquileres-vacacionales-fort-lauderdale": {
     areaHref: "/es/areas#broward",
     areaLabel: "Ver cobertura en Broward y Miami-Dade",
-    note: "La página de [reels inmobiliarios](/services/real-estate-reels-video-editor-south-florida) (en inglés) muestra seis reels verticales de propiedades que editó Esteban para anuncios. No son de un cliente de alquiler vacacional.",
+    note: "La página de [reels inmobiliarios](/services/real-estate-reels-video-editor-south-florida) (en inglés) muestra siete reels verticales de propiedades que editó Esteban para anuncios. No son de un cliente de alquiler vacacional.",
     serviceIds: ["edicion", "planificacion-social", "videografia"],
     projects: [
       { href: "/es/portafolio/homeowners", title: "Homeowners", detail: "Video para redes editado con material entregado por una agencia." },
@@ -899,13 +899,13 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
   "editor-de-video-de-productos-para-ecommerce": {
     areaHref: "/es/areas#miami-dade",
     areaLabel: "Ver cobertura en Miami-Dade",
-    note: "Edición dinámica para demostraciones de producto e-commerce.",
+    note: "Edición para demostraciones de producto, fichas de Amazon, tiendas Shopify y anuncios cuando el material de origen es aportado o producido para el proyecto.",
     serviceIds: ["edicion", "reutilizacion-redes"],
     projects: [
       {
-        href: "/es/portafolio/bar-door-monkey",
-        title: "Bar Door Monkey Miami",
-        detail: "Edición publicitaria de producto.",
+        href: "/es/portafolio/my-dler",
+        title: "My D'ler",
+        detail: "Montajes de producto y movimiento para la presentación de una app; no se presenta como una campaña de ficha de producto e-commerce.",
       },
     ],
   },
