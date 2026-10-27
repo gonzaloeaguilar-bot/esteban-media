@@ -29,10 +29,13 @@ describe("homepage portfolio rail", () => {
     expect(portfolio).toContain("Exact YouTube preview, mirrored locally");
   });
 
-  it("gives only vertical Reels an iPhone-shaped card and leaves wide work contained", () => {
-    expect(rail).toContain('phoneFrame: item.isReel');
+  it("gives the Great Reviewer lead and vertical Reels an iPhone-shaped card while leaving wide work contained", () => {
+    expect(source).toContain('phoneFrame: true');
+    expect(rail).toContain('phoneFrame: item.phoneFrame ?? item.isReel');
     expect(css).toContain('.em-cartel .rail-card[data-rail-phone-frame="true"] {');
     expect(css).toContain('.em-cartel .rail-card[data-rail-phone-frame="true"]::before');
+    expect(css).toContain('border: clamp(7px, 1.5vw, 10px) solid #080809;');
+    expect(css).toContain('width: clamp(56px, 15vw, 68px);');
     expect(css).toContain('.em-cartel .rail-card[data-rail-phone-frame="true"] .rail-card__figure');
     expect(css).toContain('object-fit: contain !important;');
     expect(css).toContain('object-fit: cover !important;');
