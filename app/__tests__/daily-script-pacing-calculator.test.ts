@@ -27,6 +27,8 @@ describe("Daily Script Pacing Calculator surface", () => {
   it("validates lead payloads from daily-pacing-calculator source", () => {
     const resultEn = validateLeadPayload({
       email: "creator@example.com",
+      name: "Creator",
+      phone: "+13055550123",
       source: "daily-pacing-calculator",
       locale: "en",
     });
@@ -35,6 +37,8 @@ describe("Daily Script Pacing Calculator surface", () => {
 
     const resultEs = validateLeadPayload({
       email: "editor@example.com",
+      name: "Editor",
+      phone: "+13055550124",
       source: "daily-pacing-calculator",
       locale: "es",
     });
