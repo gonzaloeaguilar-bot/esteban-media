@@ -2218,7 +2218,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     sectionsDestinations: "Formato y zonas seguras, edición remota, influencers que empiezan, grabar con el celular, precios en Miami y cómo contactar a Esteban",
     h1: "Edición de Reels, TikToks y YouTube Shorts.",
     lead:
-      "Editamos videos verticales en formato 9:16 con cortes dinámicos, subtítulos legibles y ritmos que mantienen la retención de audiencia.",
+      "Para editar videos cortos en Miami con clips que ya grabaste, reúne los originales, decide una idea por pieza y marca la plataforma de publicación. La edición prepara Reels, TikToks y Shorts verticales con subtítulos legibles y una revisión del alcance antes de empezar.",
     keyword: "editor de video corto",
     location: "Miami-Dade / Broward / Remote",
     availability: "confirmed",
@@ -6169,7 +6169,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Reels / TikTok / Shorts",
     h1: "Editor de Reels en Fort Lauderdale para convertir clips en videos claros.",
     lead:
-      "Esta página es para negocios de Broward que ya tienen videos en el teléfono, archivos de una grabación o ideas para videos cortos. La edición se puede trabajar remoto cuando los clips, referencias y objetivos están claros.",
+      "Si buscas un editor de Reels en Fort Lauderdale y ya tienes clips, empieza con tres cosas: archivos originales, una idea por video y la red donde vas a publicar. Esteban edita a distancia desde Broward en español primero; la grabación local se cotiza por proyecto cuando hace falta material nuevo.",
     keyword: "editor de reels Fort Lauderdale",
     location: "Fort Lauderdale / Broward County",
     availability: "confirmed",
@@ -6266,7 +6266,7 @@ export const spanishNichePages: SpanishNichePage[] = [
     eyebrow: "Miami / video corto",
     h1: "Editor de Reels en Miami para negocios que publican en teléfono primero.",
     lead:
-      "Para negocios en Miami-Dade, los Reels funcionan mejor cuando el video muestra una oferta concreta, una experiencia real o una respuesta rápida a una duda del cliente. Esteban puede editar con material existente y revisar proyectos de captura local de forma selectiva.",
+      "Si buscas un editor de Reels en Miami, define primero qué muestra cada video, qué clips ya tienes y quién aprueba la versión final. Esteban edita material existente para negocios de Miami-Dade en español primero y revisa grabación local de forma selectiva.",
     keyword: "editor de reels Miami",
     location: "Miami-Dade / Remote",
     availability: "confirmed",
