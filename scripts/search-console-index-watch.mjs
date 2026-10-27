@@ -42,6 +42,8 @@ export const LEGACY_V1_WATCH_URLS = [
 ];
 export const WATCH_URLS = [
   ...LEGACY_V1_WATCH_URLS,
+  // Demand-backed commercial Miami corporate-video destination (2026-10-27).
+  "https://estebanmorenomedia.com/services/corporate-video-production-miami",
   // Owner-requested source-backed portfolio proof (2026-10-23); recheck 2026-11-22.
   "https://estebanmorenomedia.com/portfolio/gains-from-geebs-shorts",
   "https://estebanmorenomedia.com/es/portafolio/gains-from-geebs-shorts",

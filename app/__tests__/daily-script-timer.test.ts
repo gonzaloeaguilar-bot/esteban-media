@@ -16,6 +16,8 @@ describe("Daily Script Timer & Pacing surface", () => {
   it("validates lead payloads from daily-script-timer source in EN and ES", () => {
     const enResult = validateLeadPayload({
       email: "creator@example.com",
+      name: "Creator",
+      phone: "305-555-0100",
       source: "daily-script-timer",
       locale: "en",
     });
@@ -24,6 +26,8 @@ describe("Daily Script Timer & Pacing surface", () => {
 
     const esResult = validateLeadPayload({
       email: "creador@ejemplo.com",
+      name: "Creador",
+      phone: "305-555-0100",
       source: "daily-script-timer",
       locale: "es",
     });
