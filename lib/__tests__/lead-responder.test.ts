@@ -9,21 +9,23 @@ describe("lead-responder", () => {
   it("validates lead payload required fields", () => {
     expect(validateLeadPayload({})).toEqual({
       valid: false,
-      error: "A valid email address is required.",
+      error: "A name is required.",
     });
 
-    expect(validateLeadPayload({ email: "invalid-email" })).toEqual({
+    expect(validateLeadPayload({ name: "Client", phone: "5550100", email: "invalid-email" })).toEqual({
       valid: false,
       error: "A valid email address is required.",
     });
 
-    expect(validateLeadPayload({ email: "client@example.com" })).toEqual({
+    expect(validateLeadPayload({ name: "Client", phone: "5550100", email: "client@example.com" })).toEqual({
       valid: false,
       error: "Lead source identifier is required.",
     });
 
     expect(
       validateLeadPayload({
+        name: "Client",
+        phone: "5550100",
         email: "client@example.com",
         source: "brief-builder",
       })
@@ -31,6 +33,8 @@ describe("lead-responder", () => {
 
     expect(
       validateLeadPayload({
+        name: "Client",
+        phone: "5550100",
         email: "client@example.com",
         source: "pembroke-pines-small-business-video",
       })
@@ -38,6 +42,8 @@ describe("lead-responder", () => {
 
     expect(
       validateLeadPayload({
+        name: "Client",
+        phone: "5550100",
         email: "client@example.com",
         source: "website-design-intake",
       })
@@ -45,6 +51,8 @@ describe("lead-responder", () => {
 
     expect(
       validateLeadPayload({
+        name: "Client",
+        phone: "5550100",
         email: "client@example.com",
         source: "unknown-source" as "brief-builder",
       })
