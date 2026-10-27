@@ -2,8 +2,8 @@
   "status": "demand_gated",
   "effectiveDate": "2026-08-28",
   "baselineRevisedOn": "2026-10-24",
-  "approvedSitemapUrlCount": 566,
-  "approvedSitemapUrlSetSha256": "9240b623c39ba8772d6a1321b240001431fa2c436c772aa7b9638d9281723e25",
+  "approvedSitemapUrlCount": 567,
+  "approvedSitemapUrlSetSha256": "f7924d3632e31ac7dd98a5dc4a1a0521c5fc39c90e8048a750aeb7dcda1ccb4b",
   "allowedNewIndexableUrls": 4,
   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {
@@ -34,6 +34,15 @@
   ],
   "allowanceWindow": "per demand-wave run",
   "ownerOrderedAdditions": [
+    {
+      "on": "2026-10-27",
+      "url": "/services/corporate-video-production-miami",
+      "orderedBy": "Gonzalo (active session)",
+      "kind": "demand-backed commercial service destination",
+      "demandEvidence": "Semrush Keyword Magic Tool, United States database, accessed through the authenticated web UI on 2026-10-27: 'corporate video production miami' showed commercial intent, volume 110, and KD 16. The exact public route returned HTTP 404 before this addition; the existing cost guide and adjacent Brickell page did not provide an exact canonical destination.",
+      "followUpDate": "2026-11-24",
+      "followUp": "Check Search Console query and page impressions, position, and attributable qualified inquiry data. Do not claim ranking, citation, or lead impact before that readout."
+    },
     {
       "on": "2026-10-23",
       "url": [
