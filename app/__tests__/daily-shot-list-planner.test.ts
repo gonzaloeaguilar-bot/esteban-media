@@ -16,6 +16,8 @@ describe("Daily Shot List Planner surface", () => {
   it("validates lead payloads from daily-shot-planner source", () => {
     const resultEn = validateLeadPayload({
       email: "creator@example.com",
+      name: "Creator",
+      phone: "305-555-0100",
       source: "daily-shot-planner",
       locale: "en",
     });
@@ -24,6 +26,8 @@ describe("Daily Shot List Planner surface", () => {
 
     const resultEs = validateLeadPayload({
       email: "productor@example.com",
+      name: "Productor",
+      phone: "305-555-0100",
       source: "daily-shot-planner",
       locale: "es",
     });
