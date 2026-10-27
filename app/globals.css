@@ -1773,11 +1773,12 @@ div.relative:has(> .em-carousel-track) {
    The scroller now carries padding for the lift and its glow, and pulls the
    same amount back as negative margin so nothing else on the page moves. */
 .em-cartel .rail__scroller {
-  /* Pad for the lift, but only pull PART of it back: clawing the full 26px
-     back dragged the rail up into the "1 of 14" counter, which then sat
-     against the lifted card. The remainder is breathing room above the cards,
-     which is what the top edge was missing in the first place. */
-  padding-top: 26px;
+  /* The device needs a deliberate quiet band above it. The spotlight still
+     rises 12px, so this leaves roughly 45px of visible air on a 390px phone
+     instead of the former ~20px that made its top edge feel pressed into the
+     rail copy. Keep this space on the scroller, not on the card: adding a
+     card margin would break the snap rhythm for the rest of the work rail. */
+  padding-top: clamp(50px, 13vw, 64px);
   margin-top: 6px;
   padding-bottom: 26px;
   margin-bottom: -18px;
