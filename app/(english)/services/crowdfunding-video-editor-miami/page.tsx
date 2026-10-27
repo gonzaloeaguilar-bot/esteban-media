@@ -115,7 +115,7 @@ export default function CrowdfundingVideoEditorMiamiPage() {
                 href="/portfolio/my-dler"
                 className="group mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#9f3c27]"
               >
-                Review My D&apos;ler Pitch Video Proof
+                View the published My D&apos;ler launch work
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
             </div>

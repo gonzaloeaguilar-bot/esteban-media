@@ -105,8 +105,15 @@ export default function UGCVideoEditorEcommercePage() {
               <WandSparkles className="size-8 text-[#e85d3e]" aria-hidden="true" />
               <h2 className="mt-5 font-serif text-3xl">UGC ad proof</h2>
               <p className="mt-4 text-sm leading-6 text-[#252a2d]">
-                Our portfolio project <strong>Bar Door Monkey Miami</strong> proves published dynamic promotional video editing.
+                <strong>Bar Door Monkey Miami</strong> is a published social promo for a Miami business. It is relevant editing-format proof, not a paid-ad or performance claim.
               </p>
+              <Link
+                href="/portfolio/bar-door-monkey"
+                className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#9f3c27] hover:text-[var(--em-accent-ink)]"
+              >
+                View published social video work
+                <ArrowRight className="size-4" aria-hidden="true" />
+              </Link>
             </div>
           </div>
         </Container>
