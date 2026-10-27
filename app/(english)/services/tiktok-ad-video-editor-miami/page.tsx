@@ -189,17 +189,17 @@ export default function TiktokAdVideoEditorMiamiPage() {
           <div className="mx-auto max-w-4xl">
             <p className="text-xs font-medium uppercase text-[#5a6066]">Editing approach</p>
             <h2 className="mt-3 font-serif text-3xl sm:text-4xl">
-              Engineered for 3-second hook retention and conversion.
+              Start with one clear hook, then make the offer easy to follow.
             </h2>
             <div className="mt-8 space-y-6 text-base leading-8 text-[#252a2d]">
               <p>
-                A high-performing direct-response video ad on TikTok and Meta lives or dies by its opening seconds. Our editorial process begins by identifying the most compelling visual and audio hooks in your <strong>client-supplied footage</strong>—whether that is an immediate product demonstration, an authentic user reaction, a disruptive pattern interrupt, or a sharp problem statement.
+                A direct-response video ad needs a clear opening quickly. The edit starts by finding the strongest visual or spoken moment in your <strong>client-supplied footage</strong>: a product demonstration, user reaction, product problem, or founder statement.
               </p>
               <p>
-                Pacing is calibrated to maintain viewer engagement throughout the entire pitch. Dead air and filler frames are cut ruthlessly, while kinetic captions, visual callouts, sound design cues, and dynamic zoom cuts reinforce key selling points without cluttering the screen. To explore pacing and structure strategies, see the <Link href="/guides/how-to-use-instagram-reels-for-business" className="underline underline-offset-4 hover:text-[#9f3c27]">short-form business video guide</Link>.
+                The rest of the cut keeps the offer readable: remove dead air, keep captions away from platform controls, and let the product or service stay visible. For a simple planning framework, see the <Link href="/guides/how-to-use-instagram-reels-for-business" className="underline underline-offset-4 hover:text-[#9f3c27]">short-form business video guide</Link>.
               </p>
               <p>
-                Creative testing is built into the post-production workflow. By batching multiple distinct hook variations to a core product body and clear call to action, advertisers can test multiple angles in TikTok Ads Manager and Meta Ads Manager efficiently. All editing is performed on <strong>client-supplied footage</strong>, ensuring rapid iteration without requiring new production shoots for every creative angle.
+                If your team wants more than one opening, the same core footage can be edited into several hook variations with one consistent body and supplied call to action. All editing uses <strong>client-supplied footage</strong>, so a new shoot is not assumed for every variation.
               </p>
             </div>
           </div>
