@@ -639,6 +639,11 @@ Configuration-gated conversion-observability implementation is present locally, 
 - Local Playwright evidence: `/tmp/esteban-camera-chooser-wide.png` is 1088x250 at 1440x900; `/tmp/esteban-camera-chooser-phone.png` is 358x220 at 390x844 with no horizontal overflow. Focused `home-packaging-human` passed 34/34, typecheck and `git diff --check` passed. Build began but did not complete during the command window; do not call it passed.
 - Remote PR branch resolves to `f345ec288b9bb4b83f2e5d0ed95ee29acf74641e`. Still require independent review, merge/deploy, and canonical public checks.
 
+## 2026-10-28 — Camera material details
+
+- Commit `85a21ee9` adds a subdued leather grain to the continuous camera body and tablet/desktop-only finder, knurled dial, shutter button and grip. They remain part of the same body rather than reconstructing an inset camera.
+- Local desktop visual capture: `/tmp/esteban-camera-chooser-leather.png`. Focused `home-packaging-human` passed 34/34; typecheck and `git diff --check` passed. Remote head was verified as `85a21ee90f9e66a51aa28a97f533307d8f84217e`.
+
 - Owner asked for a more impressive, touchable whole-camera experience after the paired product tiles shipped in PR #469.
 - Branch `feat/camera-bench-interactive` changes `components/camera-kit-method.tsx` and `app/illustrated-commercial.css` into a native horizontal scroll-snap shelf. One camera fills a slide; the next camera remains visibly reachable. Each slide retains its server-rendered native `<details>` disclosure and shared name, so Sony/Canon details remain mutually exclusive.
 - No new equipment, lens, lighting, delivery, ownership, or performance claim was added. Existing manufacturer images and specifications remain the only camera facts.
