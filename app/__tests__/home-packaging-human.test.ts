@@ -54,6 +54,16 @@ for (const locale of ["en", "es"] as const) {
       expect(css).toContain(".em-route-card>summary");
     });
 
+    it("1b0. private celebrations makes the published coverage choices and price floors readable before WhatsApp", () => {
+      const celebrationStart = path.indexOf('data-route="private-celebrations"');
+      const celebrations = path.slice(celebrationStart);
+      expect(celebrationStart).toBeGreaterThan(-1);
+      expect(celebrations).toContain(locale === "es" ? "Desde $400 · hasta 4 horas" : "From $400 · up to 4 hours");
+      expect(celebrations).toContain(locale === "es" ? "$800 · hasta 8 horas" : "$800 · up to 8 hours");
+      expect(celebrations).toContain(locale === "es" ? "$1,280 · hasta 8 horas" : "$1,280 · up to 8 hours");
+      expect(celebrations).toContain(locale === "es" ? "La edición final, el traslado" : "Final editing, travel");
+    });
+
     it("1b1. route cards use full-bleed work imagery while keeping copy and the control readable", () => {
       const css = read("app/illustrated-commercial.css");
       const component = read("components/home-project-path.tsx");
@@ -214,11 +224,11 @@ for (const locale of ["en", "es"] as const) {
       const celebrations = path.slice(celebrationsStart);
       expect(celebrationsStart).toBeGreaterThan(-1);
       expect(celebrations).toContain(locale === "es" ? "Fiestas y celebraciones" : "Parties and celebrations");
-      expect(celebrations).toContain(locale === "es" ? "Desde $800/día de producción" : "From $800/production day");
+      expect(celebrations).toContain(locale === "es" ? "Desde $400 · hasta 4 horas" : "From $400 · up to 4 hours");
       expect(celebrations).toContain(locale === "es" ? "/es/videografo-para-fiestas-privadas-sur-de-florida" : "/services/private-party-videographer-south-florida");
       expect(celebrations).toContain("https://wa.me/");
       expect(celebrations).toContain("home_private_celebrations_whatsapp");
-      expect(celebrations).not.toContain("<details");
+      expect(celebrations).toContain(locale === "es" ? "Ver paquetes y precios" : "See packages and pricing");
     });
 
     it("1d. the content creator route shows editing, a filming day, and scoped-project choices together", () => {
