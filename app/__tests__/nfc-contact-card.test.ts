@@ -23,6 +23,20 @@ describe("NFC contact card", () => {
     expect(page).not.toContain("address");
   });
 
+  it("gives every action the homepage route-card treatment with real imagery", () => {
+    const css = readFileSync(join(process.cwd(), "app/(card)/card/card.css"), "utf8");
+    expect(page).toContain('import "./card.css"');
+    expect(page).toContain('className="em-route-list mt-3"');
+    expect(page).toContain("em-route-card__visual em-route-card__visual--");
+    expect(page).toContain("<Image src={image} alt={imageAlt} fill");
+    expect(page).toContain('video: "/about/esteban-on-set.mp4"');
+    expect((page.match(/visual: "/g) ?? []).length).toBe(6);
+    expect((page.match(/image: "\/(portfolio|about)\//g) ?? []).length).toBe(6);
+    expect(page).not.toContain("size-[72px]");
+    expect(css).toContain(".em-route-card{position:relative");
+    expect(css).toContain("@media (prefers-reduced-motion:reduce)");
+  });
+
   it("offers a downloadable vCard from the same canonical contact source", () => {
     expect(page).toContain('href: "/card.vcf"');
     expect(cardRoute).toContain("BEGIN:VCARD");
