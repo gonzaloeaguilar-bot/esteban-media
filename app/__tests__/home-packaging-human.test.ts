@@ -62,13 +62,11 @@ for (const locale of ["en", "es"] as const) {
       expect(celebrations).toContain(locale === "es" ? "$800 · hasta 8 horas" : "$800 · up to 8 hours");
       expect(celebrations).toContain(locale === "es" ? "$1,280 · hasta 8 horas" : "$1,280 · up to 8 hours");
       expect(celebrations).toContain(locale === "es" ? "La edición final, el traslado" : "Final editing, travel");
-      expect(celebrations).toContain('/private-events/yacht-party-miami.mp4');
-      expect(celebrations).toContain('autoPlay');
-      expect(celebrations).toContain('playsInline');
+      expect(celebrations).toContain('private-celebration-illustration.png');
+      expect(celebrations).not.toContain('yacht-party-miami.mp4');
       expect(celebrations).toContain('class="em-route-card__visual em-route-card__visual--private-celebrations"');
       expect(celebrations).toContain('class="em-route-card__body em-private-celebrations-card__body"');
-      expect(celebrations).toContain('preload="auto"');
-      expect(celebrations).toContain('disablePictureInPicture');
+      expect(celebrations).toContain('class="em-route-card__private-celebrations-cover"');
     });
 
     it("1b1. route cards use full-bleed work imagery while keeping copy and the control readable", () => {
