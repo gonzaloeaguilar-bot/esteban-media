@@ -442,6 +442,19 @@ export function buildGoogleAnalyticsScript({
           }
         }
 
+        // Any element carrying data-cta is a call to action: emit cta_click
+        // with its id so the home route cards (which package, which route)
+        // are answerable in GA4, not only "a WhatsApp link was tapped".
+        var ctaEl = target.closest('[data-cta]');
+        var ctaId = ctaEl ? (ctaEl.getAttribute('data-cta') || '') : '';
+        if (ctaId) {
+          sendEvent('cta_click', {
+            cta_id: ctaId,
+            cta_text: (anchor.textContent || '').trim().slice(0, 80),
+            cta_position: (anchor.closest('[data-route]') && anchor.closest('[data-route]').getAttribute('data-route')) || 'page'
+          });
+        }
+
         if (!method) {
           return;
         }
@@ -449,6 +462,9 @@ export function buildGoogleAnalyticsScript({
         var source = firstTouchContactSource();
         var aiName = contactSourceAiName(source);
         var intentParams = { contact_method: method, contact_source: source };
+        if (ctaId) {
+          intentParams.cta_id = ctaId;
+        }
         if (aiName) {
           intentParams.ai_source = aiName;
         }
@@ -457,6 +473,17 @@ export function buildGoogleAnalyticsScript({
           method === 'contact_page' ? 'contact_cta_click' : 'contact_intent',
           intentParams
         );
+      }, true);
+
+      // Opening a home route card (Parties and celebrations, Real estate, ...)
+      // is the moment a visitor chooses a path; count it as a section_view so
+      // the funnel reads open -> package tap -> WhatsApp.
+      document.addEventListener('toggle', function (event) {
+        var el = event.target;
+        if (!(el instanceof Element) || !el.matches('details[data-route]') || !el.open) {
+          return;
+        }
+        sendEvent('section_view', { section_id: 'home_route_' + (el.getAttribute('data-route') || 'unknown') });
       }, true);
     })();
   `;

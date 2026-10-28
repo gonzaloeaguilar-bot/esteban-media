@@ -138,4 +138,79 @@ describe("cross-brand analytics contract", () => {
     expect(names).not.toContain("event");
     expect(names).toEqual(expect.arrayContaining(["lead_submit", "contact_intent", "service_interest"]));
   });
+
+  it("home route cards and their package CTAs are measured (open -> package tap)", () => {
+    const script = buildGoogleAnalyticsScript({
+      measurementId: "G-TEST123",
+      canonicalHostname: "estebanmorenomedia.com",
+      instagramHostname: "www.instagram.com",
+      allowedPaths: ["/", "/contact", "/es/contacto"],
+    });
+    expect(script).toContain("closest('[data-cta]')");
+    expect(script).toContain("sendEvent('cta_click', {");
+    expect(script).toContain("cta_id: ctaId");
+    expect(script).toContain("details[data-route]");
+    expect(script).toContain("section_id: 'home_route_' +");
+  });
+});
+
+describe("home route card measurement (behavioral)", () => {
+  function harness() {
+    const events: Emitted[] = [];
+    const listeners: Record<string, (e: unknown) => void> = {};
+    class FakeElement {
+      attrs: Record<string, string>; parent: FakeElement | null; textContent: string; open = true; href = "";
+      constructor(attrs: Record<string, string>, parent: FakeElement | null = null, text = "") { this.attrs = attrs; this.parent = parent; this.textContent = text; this.href = attrs.href ?? ""; }
+      getAttribute(k: string) { return this.attrs[k] ?? null; }
+      matches(sel: string) {
+        if (sel === "details[data-route]") return this.attrs.tag === "details" && "data-route" in this.attrs;
+        return false;
+      }
+      closest(sel: string): FakeElement | null {
+        let n: FakeElement | null = this;
+        while (n) {
+          if (sel === "a[href]" && n.attrs.tag === "a") return n;
+          if (sel === "[data-cta]" && "data-cta" in n.attrs) return n;
+          if (sel === "[data-route]" && "data-route" in n.attrs) return n;
+          n = n.parent;
+        }
+        return null;
+      }
+    }
+    const storage = new Map<string, string>();
+    const window = {
+      location: { hostname: "estebanmorenomedia.com", pathname: "/", search: "", href: "https://estebanmorenomedia.com/" },
+      history: { pushState() {}, replaceState() {} }, dataLayer: [] as unknown[],
+      gtag(_c: string, name: string, params: Record<string, unknown>) { events.push({ name, params }); },
+      sessionStorage: { getItem: (k: string) => storage.get(k) ?? null, setItem: (k: string, v: string) => void storage.set(k, v) },
+      requestAnimationFrame(cb: () => void) { cb(); return 1; }, setTimeout(cb: () => void) { cb(); return 1; }, addEventListener() {},
+    };
+    runInNewContext(
+      buildGoogleAnalyticsScript({ measurementId: "G-TEST123", canonicalHostname: "estebanmorenomedia.com", instagramHostname: "www.instagram.com", allowedPaths: ["/"] }),
+      { window, document: { referrer: "", documentElement: { lang: "en" }, querySelectorAll: () => [], addEventListener(type: string, fn: (e: unknown) => void) { listeners[type] = fn; } }, URL, Element: FakeElement },
+    );
+    return { events, listeners, FakeElement };
+  }
+
+  it("opening the celebrations card emits section_view home_route_private-celebrations", () => {
+    const { events, listeners, FakeElement } = harness();
+    events.length = 0;
+    listeners.toggle({ target: new FakeElement({ tag: "details", "data-route": "private-celebrations" }) });
+    const view = events.find((e) => e.name === "section_view");
+    expect(view?.params.section_id).toBe("home_route_private-celebrations");
+  });
+
+  it("tapping a package WhatsApp link emits cta_click with the package id and contact_click whatsapp", () => {
+    const { events, listeners, FakeElement } = harness();
+    events.length = 0;
+    const card = new FakeElement({ tag: "details", "data-route": "private-celebrations" });
+    const a = new FakeElement({ tag: "a", href: "https://wa.me/15551234567?text=hi", "data-cta": "home_private_celebrations_en_yacht-party-film" }, card, "Quote Yacht party film");
+    listeners.click({ target: a });
+    const cta = events.find((e) => e.name === "cta_click");
+    expect(cta?.params.cta_id).toBe("home_private_celebrations_en_yacht-party-film");
+    expect(cta?.params.cta_position).toBe("private-celebrations");
+    const contact = events.find((e) => e.name === "contact_click");
+    expect(contact?.params.method ?? contact?.params.contact_method).toBe("whatsapp");
+    expect(contact?.params.cta_id).toBe("home_private_celebrations_en_yacht-party-film");
+  });
 });
