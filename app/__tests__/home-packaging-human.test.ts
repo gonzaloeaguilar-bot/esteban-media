@@ -151,7 +151,8 @@ for (const locale of ["en", "es"] as const) {
       expect(css).toContain(".em-camera-chooser__body{position:relative;min-height:218px");
       expect(css).toContain(".em-camera-chooser__camera{position:absolute;inset:0;pointer-events:none}");
       expect(css).toContain(".em-camera-chooser__lens{position:absolute;top:55px;left:25px;width:132px;height:132px");
-      expect(css).toContain('camera-leatherette-texture-v2.webp');
+      expect(css).toContain('/illustrations/camera-leatherette-tile.png');
+      expect(css).toContain("background-size:auto,100% 22%,100% 22%,auto,128px 128px");
       expect(css).toContain(".em-camera-chooser__dial{position:absolute;top:25px;right:88px;display:block");
       expect(css).toContain(".em-camera-chooser__grip{position:absolute;right:-3px;bottom:20px;display:block");
       expect(css).toContain("@media(min-width:640px){.em-camera-chooser__body{min-height:248px");
