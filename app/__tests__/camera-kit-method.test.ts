@@ -6,6 +6,7 @@ import { describe, expect, it } from "vitest";
 const component = readFileSync(join(process.cwd(), "components/camera-kit-method.tsx"), "utf8");
 const englishHome = readFileSync(join(process.cwd(), "app/(english)/page.tsx"), "utf8");
 const spanishHome = readFileSync(join(process.cwd(), "app/(spanish)/es/page.tsx"), "utf8");
+const styles = readFileSync(join(process.cwd(), "app/illustrated-commercial.css"), "utf8");
 
 describe("homepage camera kit and method", () => {
   it("keeps owner-confirmed camera bodies and useful body specifications in the served component", () => {
@@ -54,5 +55,13 @@ describe("homepage camera kit and method", () => {
     expect(spanishHome).not.toContain('title="Explora más servicios"');
     expect(englishHome).toContain("Package add-ons, answers and background");
     expect(spanishHome).toContain("Servicios a la carta, respuestas y más sobre Esteban");
+  });
+
+  it("shows both camera references as desktop prints while preserving the smaller-screen swipe shelf", () => {
+    expect(styles).toContain("@media(min-width:1024px){.em-camera-kit__models{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))");
+    expect(styles).toContain(".em-camera-kit__model:first-child{transform:rotate(-1.1deg)}");
+    expect(styles).toContain(".em-camera-kit__model:nth-child(2){transform:rotate(1.1deg);margin-top:10px}");
+    expect(styles).toContain("border:8px solid #f7f0e6");
+    expect(styles).toContain("overflow:visible;padding:28px");
   });
 });
