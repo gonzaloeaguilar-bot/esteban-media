@@ -167,6 +167,12 @@
 
 ---
 
+# 2026-10-28 — Entity coverage consistency is public (PR #577)
+
+- PR #577 merged as `2cda4e7b17ba8257755f22ff9c82e87406ba01be`. It aligns only crawler-facing `llms.txt` facts and the root LocalBusiness service-area graph with the owner-confirmed boundary: Fort Lauderdale base; scoped on-location work from Palm Beach through the Florida Keys; transportation for a distant location belongs in the written quote before scheduling.
+- Production verification: Vercel marked the merge commit `success`; canonical raw HTML returns the Fort Lauderdale-only `PostalAddress`, public phone/email, and `areaServed` with Florida Keys. Canonical `/llms.txt` returns the matching coverage, transport and no-local-office wording. `/areas` retains canonical and EN/ES/x-default alternates. `pnpm seo:indexnow:run` received HTTP 200 for all 567 sitemap URLs.
+- Local checks: full `pnpm test` 177 files / 3,691 tests; typecheck; lint 0 errors / 22 existing warnings; production build; Rail adoption 3/3; diff check. Governed independent review returned `REVIEW_VERDICT: APPROVE`. This is technical entity/discovery proof, not a citation, ranking, lead or revenue result.
+
 # 2026-10-20 — Technical SEO monitor repair and fresh gap read (local branch)
 
 - Branch `fix/seo-monitor-video-facade` repairs three verifier defects without changing public copy: it recognizes the production YouTube click-to-play facade instead of demanding an eager iframe, parses valid JSON-LD without corrupting escaped quotes, and retries only transient network/5xx fetch failures (three attempts, 250ms apart). Eager embeds remain a failure, so the monitor still catches a real regression.
