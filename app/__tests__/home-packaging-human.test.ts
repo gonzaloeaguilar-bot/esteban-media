@@ -57,6 +57,9 @@ for (const locale of ["en", "es"] as const) {
     it("1b1. route cards use full-bleed work imagery while keeping copy and the control readable", () => {
       const css = read("app/illustrated-commercial.css");
       const component = read("components/home-project-path.tsx");
+      expect(component).toContain("lg:max-w-6xl");
+      expect(css).toContain("@media(min-width:1100px){.em-route-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}");
+      expect(css).toContain(".em-route-card:last-child,.em-route-card[open]{grid-column:1/-1}");
       expect(css).toContain(".em-route-card__visual{position:absolute;z-index:0;inset:0;width:auto");
       expect(css).toContain(".em-route-card__copy{position:relative;z-index:2");
       expect(css).toContain(".em-route-card__plus{position:absolute;z-index:3");
@@ -111,6 +114,19 @@ for (const locale of ["en", "es"] as const) {
       expect(css).toContain("em-camera-idle-focus 8s");
       expect(css).toContain("@keyframes em-camera-idle-focus");
       expect(css).toContain("@media(prefers-reduced-motion:reduce)");
+    });
+
+    it("1b2b. gives the chooser a complete ornamental camera body and breathing room below the lens", () => {
+      const component = read("components/home-project-path.tsx");
+      const css = read("app/illustrated-commercial.css");
+      expect(component).toContain('className="em-camera-chooser__camera"');
+      expect(component).toContain('className="em-camera-chooser__viewfinder"');
+      expect(component).toContain('className="em-camera-chooser__dial"');
+      expect(component).toContain('className="em-camera-chooser__shutter"');
+      expect(component).toContain('className="em-camera-chooser__grip"');
+      expect(css).toContain(".em-camera-chooser__body{position:relative;min-height:196px");
+      expect(css).toContain(".em-camera-chooser__lens{position:absolute;top:30px;left:16px;width:112px;height:112px");
+      expect(css).toContain("@media(min-width:640px){.em-camera-chooser__body{min-height:222px");
     });
 
     it("1b2a. lets the creator-card like send a contained burst of hearts upward", () => {

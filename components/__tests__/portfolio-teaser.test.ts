@@ -29,7 +29,7 @@ describe("homepage portfolio rail", () => {
     expect(portfolio).toContain("Exact YouTube preview, mirrored locally");
   });
 
-  it("gives the Great Reviewer lead and vertical Reels an iPhone-shaped card while leaving wide work contained", () => {
+  it("gives the Great Reviewer lead and video work an iPhone-shaped card without cropping landscape people", () => {
     expect(source).toContain('phoneFrame: true');
     expect(rail).toContain('phoneFrame: item.phoneFrame ?? item.isReel');
     expect(css).toContain('.em-cartel .rail-card[data-rail-phone-frame="true"] {');
@@ -40,5 +40,20 @@ describe("homepage portfolio rail", () => {
     expect(css).toContain('.em-cartel .rail-card[data-rail-phone-frame="true"] .rail-card__figure');
     expect(css).toContain('object-fit: contain !important;');
     expect(css).toContain('object-fit: cover !important;');
+    expect(rail).toContain('videoSurface?: boolean;');
+    expect(rail).toContain('className="em-phone-video"');
+    expect(rail).toContain('item.embedUrl && item.id === litId && !reduced');
+    expect(css).toContain('.em-phone-video__screen');
+    expect(css).toContain('aspect-ratio: 16 / 9;');
+    expect(source).toContain('phoneFrame: isVideoWork');
+    expect(source).toContain('videoSurface: isVideoWork');
+  });
+
+  it("opens the Great Reviewer YouTube reel in the same autoplaying carousel sheet", () => {
+    expect(source).toContain('embedUrl: "https://www.youtube-nocookie.com/embed/BDRru8eXaj4?autoplay=1&mute=1&playsinline=1&rel=0"');
+    expect(rail).toContain('i.videoSrc || i.embedUrl');
+    expect(rail).toContain('embedUrl: item.embedUrl');
+    expect(rail).toContain('embedUrl: i.embedUrl');
+    expect(rail).toContain('phoneFrame: item.phoneFrame ?? item.isReel');
   });
 });

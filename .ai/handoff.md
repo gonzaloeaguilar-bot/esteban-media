@@ -1,3 +1,28 @@
+# 2026-10-28 — Desktop polaroid and player repair (PR #579, not production)
+
+- Commit `27ed763f` repairs two visual regressions found during the follow-up desktop/tablet pass: the camera contact sheet's late phone styles had erased the intended paper prints and left dark title text on dark cards; the Great Reviewer widescreen YouTube source was filling a tall vertical desktop canvas with black.
+- The desktop Camera Bench now reasserts the two paper-reference prints after phone-first rules. The Great Reviewer source retains its iPhone-shaped carousel card but opens in a 16:9 in-place desktop player; the call-to-action column scrolls independently when needed.
+- Local evidence: focused tests 10/10, typecheck, `pnpm build` (`BUILD_ID=l8bU0B_hbhdIkcSNQkCuv`) and diff check passed. Browser pass at 1440×900 verified closed/open camera states and the running muted player; 1180×820, 1024×768 and 834×1194 were also inspected. Push this commit to PR #579, await terminal remote checks and independently verify the deployed canonical page before calling any of it production.
+
+---
+
+# 2026-10-28 — Great Reviewer carousel autoplay and phone-frame consistency (PR #579, not production)
+
+- The homepage work rail now treats every vertical property Reel and the featured The Great Reviewer iPhone Reel as an explicit phone-framed card. The seven property clips already carry local MP4 sources; The Great Reviewer is a published YouTube video, so its previous click followed the fallback portfolio link instead of opening the player.
+- The featured card now opens the existing in-place Reel sheet with `https://www.youtube-nocookie.com/embed/BDRru8eXaj4?autoplay=1&mute=1&playsinline=1&rel=0`. It starts muted, inline, and automatically after the visitor selects the card; local MP4 Reels remain unchanged. The sheet's iframe has no default border, so it uses the same clean 9:16 player slot as local video.
+- Local checks: `pnpm vitest run components/__tests__/portfolio-teaser.test.ts components/__tests__/reel-funnel-escape.test.ts` passed 6/6; `pnpm typecheck`, `git diff --check`, and `pnpm build` passed (BUILD_ID `DqD2YlS-FWKrFMQ-K9PxC`). Commit `155d3b89` is pushed to PR #579. The pre-existing 3005 development server had a stale Next chunk error, so it is not visual evidence for this change.
+- This is an added candidate on PR #579, not a production result. A fresh preview plus canonical phone/tablet/desktop interaction check remains required after independent quality evidence is available.
+
+---
+
+# 2026-10-28 — Tablet route-card repair (PR #579, not production)
+
+- Commit `7fced5d4` on `fix/desktop-camera-polaroids-20261028` is pushed to PR #579. It keeps the seven homepage buyer paths in one readable column through a 1024px landscape tablet and starts the two-column layout at 1100px. At that wider layout, the seventh card and an opened card span both columns; this removes the orphan final half-row and the empty stretched neighbor.
+- Local browser matrix after the change: 768×1024, 820×1180, 834×1194 and 1024×768 render one route column; their digital-card reading fields measure 291px, 298px, 298px and 399px respectively. At 1180×820, the grid uses two 539px columns, the final card measures 1088px, and an opened route measures 1088px while the next two closed cards remain 539px each. All tested viewports reported document scroll width no greater than the viewport's scrollbar-adjusted layout width.
+- Local deterministic check: `pnpm vitest run app/__tests__/home-packaging-human.test.ts` passed 34/34; `git diff --check` passed. The Node 26 engine warning is pre-existing environment compatibility noise; the test exited 0. No production claim: required independent review, PR checks, merge and canonical phone/tablet/desktop production render remain open.
+
+---
+
 # 2026-10-28 — Commercial local GEO answer units (review evidence complete; PR pending)
 
 - Branch `feat/commercial-geo-guides-20261028`, commits `7015724f`, `6fdd9040`, and `f7a8d386`, strengthens only six existing English/Spanish commercial routes: Fort Lauderdale Reels, Fort Lauderdale video production, and Miami restaurant editing. It adds decision-first, server-rendered sections and contextual links; it adds no URL, price, client, review, ranking, citation, availability promise, or outcome claim.

@@ -10,7 +10,12 @@ import { site } from "@/lib/site";
 export type ReelFunnelReel = {
   id: string;
   title: string;
-  src: string;
+  /** Locally hosted Reel. */
+  src?: string;
+  /** Published YouTube clip. Kept in the same player sheet as local Reels. */
+  embedUrl?: string;
+  /** A published film can be widescreen even when its carousel card is a phone. */
+  aspect?: "landscape";
   poster: string;
 };
 
@@ -125,6 +130,7 @@ export function ReelFunnel({
 
   const t = COPY[locale];
   const others = playlist.filter((item) => item.id !== reel.id);
+  const mediaClass = `em-funnel__media${reel.aspect === "landscape" ? " em-funnel__media--landscape" : ""}`;
 
   return (
     <div
@@ -136,7 +142,10 @@ export function ReelFunnel({
         if (event.target === event.currentTarget) onClose();
       }}
     >
-      <div className="em-funnel__panel" ref={panelRef}>
+      <div
+        className={`em-funnel__panel${reel.aspect === "landscape" ? " em-funnel__panel--landscape" : ""}`}
+        ref={panelRef}
+      >
         <button
           ref={closeRef}
           type="button"
@@ -147,17 +156,31 @@ export function ReelFunnel({
           <X className="size-5" aria-hidden="true" />
         </button>
 
-        <video
-          className="em-funnel__video"
-          src={reel.src}
-          poster={reel.poster}
-          controls
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-        />
+        {reel.embedUrl || reel.src ? (
+          <div className={mediaClass}>
+            {reel.embedUrl ? (
+              <iframe
+                className="em-funnel__video"
+                src={reel.embedUrl}
+                title={reel.title}
+                allow="autoplay; encrypted-media; picture-in-picture"
+                allowFullScreen
+              />
+            ) : (
+              <video
+                className="em-funnel__video"
+                src={reel.src}
+                poster={reel.poster}
+                controls
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+              />
+            )}
+          </div>
+        ) : null}
 
         <div className="em-funnel__ask">
           <p className="em-funnel__watching">

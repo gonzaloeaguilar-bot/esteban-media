@@ -2427,17 +2427,28 @@ a.em-pk-carte__item:active .em-pk-carte__go,
   background: rgba(0, 0, 0, 0.55);
   color: #fff;
 }
-.em-funnel__video {
+.em-funnel__media {
   width: 100%;
   /* the reels are 720x1280; give them their own shape rather than letterbox */
   aspect-ratio: 9 / 16;
   /* The reel is the draw, but it must not push the question off the screen.
      Capped so the ask always fits under it on the shortest common phone. */
   max-height: min(48dvh, 420px);
-  object-fit: cover;
   background: #000;
+}
+.em-funnel__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
+.em-funnel__media--landscape {
+  aspect-ratio: 16 / 9;
+}
+/* A YouTube Reel uses the same player slot as the local MP4s. Iframes keep
+   their browser default border unless it is reset explicitly, which leaves a
+   thin pale edge that reads as an accidental second frame in the dark sheet. */
+iframe.em-funnel__video { border: 0; }
 .em-funnel__ask { padding: 14px 14px 16px; }
 .em-funnel__watching {
   margin: 0;
@@ -2795,6 +2806,58 @@ a.em-pk-carte__item:active .em-pk-carte__go,
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+/* A vertical Reel should not turn the desktop takeover into an enlarged phone.
+   On wide screens, the footage stays large on the left while the question and
+   the browsable work shelf get their own reading column on the right. */
+@media (min-width: 1024px) {
+  .em-funnel { padding: 28px; }
+  .em-funnel__panel {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(340px, .85fr);
+    width: min(1080px, 100%);
+    max-height: min(760px, calc(100dvh - 56px));
+    overflow: hidden;
+  }
+  /* The review is a true widescreen film. Give its shared grid row a film
+     height, rather than letting the much longer action column turn the player
+     into a tall, black iframe. The action column remains independently
+     scrollable for the extra work. */
+  .em-funnel__panel--landscape {
+    grid-template-rows: minmax(0, min(42dvh, 420px));
+  }
+  .em-funnel__media {
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+    height: 100%;
+    max-height: none;
+    min-height: 0;
+    aspect-ratio: auto;
+  }
+  .em-funnel__video { object-fit: contain; }
+  /* A landscape published film must not inherit the tall Reel canvas. It is
+     centred in the left desktop column so its own picture, rather than empty
+     black letterbox, is what carries the eye. */
+  .em-funnel__media--landscape {
+    align-self: center;
+    height: auto;
+    max-height: min(42dvh, 420px);
+    aspect-ratio: 16 / 9;
+  }
+  .em-funnel__ask {
+    grid-column: 2;
+    grid-row: 1;
+    min-height: 0;
+    overflow: auto;
+    padding: 28px;
+    border-left: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .em-funnel__q { font-size: 28px; }
+  .em-funnel__needs { margin-top: 16px; }
+  .em-funnel__more { margin-top: 18px; }
+  .em-funnel__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .em-funnel__thumb { aspect-ratio: 4 / 5; }
 }
 
 /* Home closing: three hub links and the "Updated" line. Links only, no copy. */
