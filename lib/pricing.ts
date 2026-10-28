@@ -297,16 +297,16 @@ export const ON_LOCATION_CAPTURE = {
 
 
 // Filming (on-location recording) hourly floor. Owner fact confirmed 2026-10-18:
-// filming starts at $100 per hour with a 3-hour minimum call ($300 floor on site).
+// filming starts at $100 per hour with a 4-hour minimum call ($400 floor on site).
 // Copy reads it through filmingHourlyText(); never hard-code the figure.
 export const FILMING_HOURLY = {
   amount: 100,
   currency: "USD",
   unit: "hour",
   isMinimum: true,
-  minimumHours: 3,
-  minimumAmount: 300,
-  source: "owner fact confirmed 2026-10-18: filming from $100 per hour with 3-hour minimum call",
+  minimumHours: 4,
+  minimumAmount: 400,
+  source: "owner fact confirmed 2026-10-28: filming from $100 per hour with 4-hour minimum call",
 } as const;
 
 /** "from $100 per hour of filming" / "desde $100 por hora de grabación". */
@@ -324,8 +324,8 @@ export function filmingHourlyText(locale: "en" | "es"): string {
 export const CREW_RECORDING_RATES = {
   solo: {
     hourly: 100,
-    minimumHours: 3,
-    minimumAmount: 300,
+    minimumHours: 4,
+    minimumAmount: 400,
     halfDay: 400,
     fullDay: 800,
     description: "1 solo videographer + Sony Alpha 7 IV 4K kit + audio",
