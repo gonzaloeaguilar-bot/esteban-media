@@ -5,6 +5,8 @@
 
 ## 2026-10-24 — Camera Bench and product-unboxing refresh
 
+- [x] Add complete published Sony Alpha 7 IV and Canon EOS Rebel T5i specifications plus the supplied tagged Amazon links inside each opened camera disclosure. PR #601: local gates and rendered EN check pass; merge and production verification remain open in [[esteban-camera-amazon-specs-2026-10-28]].
+
 - [x] Replace the rejected desktop tilted paper-camera cards with a straight film-strip presentation. Branch `fix/camera-filmstrip-20261028`: two frames, visible sprocket holes, no cream card border or rotation; local 1440×900 and 390×844 reads plus repository gates passed. Release verification remains open.
 
 - [x] Rework the homepage Camera Bench as a larger swipeable phone shelf, preserve native published-spec disclosures, and add the supplied product-unboxing Reel as a safe external Instagram action. Local evidence: `app/__tests__/camera-kit-method.test.ts`, typecheck, lint, and phone interaction check. Release verification remains open in [[esteban-camera-bench-unboxing-refresh-2026-10-24]].
