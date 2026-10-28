@@ -29,7 +29,7 @@ describe("homepage camera kit and method", () => {
     expect(component).toContain('className="em-camera-kit__model"');
     expect(component).toContain('name={`camera-kit-${locale}`}');
     expect(component).toContain('Swipe to compare. Tap a body for published specs.');
-    expect(component).toContain('className="em-camera-kit__accessories-stage"');
+    expect(component).toContain('className="em-camera-kit__accessories-image"');
     expect(component).toContain('className="em-camera-kit__unboxing-preview"');
     expect(component).toContain('<details className="em-camera-kit__unboxing">');
     expect(component).toContain('/portfolio/sony-a7iv-unboxing.png');
@@ -40,12 +40,14 @@ describe("homepage camera kit and method", () => {
     expect(component).toContain('"01", "Empieza con lo que tienes"');
   });
 
-  it("shows a real on-set accessories card without turning an unverified product URL into a buy link", () => {
+  it("shows the owner-provided accessory product preview without turning it into a buy link", () => {
     expect(component).toContain('className="em-camera-kit__accessories"');
     expect(component).toContain('data-cta={`camera_kit_accessories_${locale}`}');
-    expect(component).toContain('className="em-camera-kit__accessories-stage"');
-    expect(component).toContain('The accessories follow the shot.');
-    expect(component).toContain('Los accesorios siguen la toma.');
+    expect(component).toContain('className="em-camera-kit__accessories-image"');
+    expect(component).toContain('B0CNKG6JHY');
+    expect(component).toContain('61AkmH5DXML._AC_SL1500_.jpg');
+    expect(component).toContain('The phone mount stays close.');
+    expect(component).toContain('El soporte para teléfono se mantiene cerca.');
     expect(component).not.toContain('link.amazon/B0f98xMnt');
   });
 
