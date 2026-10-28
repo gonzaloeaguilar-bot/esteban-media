@@ -1,0 +1,34 @@
+{
+  "schema": 3,
+  "project": "esteban-media",
+  "intent": "Give Esteban Moreno Media a stable NFC-card destination with immediate contact, Maps, review and portfolio actions.",
+  "phase": "build",
+  "visual_evidence": {
+    "scope": "local_repair",
+    "scope_reason": "The physical NFC card needs a small backup destination rather than the full-site navigation.",
+    "target": "candidate",
+    "owner_status": "owner_accepted_direction",
+    "capture_kind": "rendered",
+    "spec_sha256": "d8f5265444a817c3663e682dc3ce5d85b80b66e64ad4cccf0eeb5fccb1baec3c",
+    "taste_sha256": "5c9aafb4a61339ecfffee95bc3690db365c2ac6fff5b8039b395839ddf4fb214",
+    "correction_excerpt": "No añadir una cinta de contacto si el contacto ya está a un toque — ESTEBAN",
+    "comparison": "Phone and desktop rendering of the dedicated card route.",
+    "references": [{"path": "/Users/gonzalo/obsidian-wiki/client-esteban-media/assets/esteban-fold-caption-20261012.png", "sha256": "04a6564268875f6cc03c4ef945e0ff6494b494459564a5d926a2961ba0fe2520", "moment": "Esteban mobile opening reference", "borrow": "Actions stay visible, compact and comfortable.", "avoid": "A floating contact dock or a competing second primary action."}],
+    "candidate_frames": [{"path": "/Users/gonzalo/obsidian-wiki/client-esteban-media/assets/esteban-fold-caption-20261012.png", "sha256": "04a6564268875f6cc03c4ef945e0ff6494b494459564a5d926a2961ba0fe2520", "moment": "phone action hierarchy reference", "viewport": "phone"}]
+  },
+  "brief": {
+    "visitor": "A person who scans the physical NFC contact card.",
+    "promise": "Reach Esteban, find the Google profile, leave a review, or see his work in one tap.",
+    "primary_action": "Write to Esteban on WhatsApp.",
+    "friction": "A generic link page makes the recipient search for the right action and can expose private location details.",
+    "kpi": {"outcome": "contact intent from an NFC scan", "event": "card action click", "denominator": "card page views", "baseline": "UNKNOWN: no card route or prior scan event exists; read the first comparable production event export after release.", "evidence": "No card route exists before this change.", "readout": "T+14", "decision_rule": "retain if the card is usable and actions are measurable"},
+    "concept": {"idea": "A small editorial contact card, not a link farm.", "brand_reason": "Warm paper, ink and terracotta retain Esteban's identity while keeping decisions calm.", "interaction": "Normal links and a downloadable vCard.", "visible_response": "Four primary actions and compact secondary links are present in first HTML.", "direct_path": "WhatsApp, call, Google Maps, review instructions, portfolio.", "alternatives": "Do not use a third-party link host, public address, rating claim or motion-dependent content."},
+    "story": {"opening": "Who Esteban is and what he does.", "action": "Choose a contact or Google action.", "consequence": "The selected app or page opens.", "next_step": "Start a project or leave a Google review."},
+    "content": {"visible": "Contact actions and service description.", "optional_html": "No required content is hidden.", "linked_depth": "Existing portfolio and contact routes."},
+    "references": {"borrow": "Esteban's existing warm editorial colors and contact language.", "avoid": "Home hero treatment, a floating contact dock, or generic card stacks."},
+    "components": {"reuse": "Canonical site contact data, metadata helper and analytics component.", "local_reason": "NFC destination needs a chrome-free brand-specific layout."},
+    "verification": {"rendered_states": "390x600, 390x844 and 1440x900.", "motion": "No motion required; reduced motion is identical.", "accessibility_performance": "Visible focus, semantic links and no horizontal overflow.", "raw_html": "Contact data, Maps link, review help and vCard route exist in served HTML.", "conversion_boundary": "WhatsApp link resolves to the canonical phone number."},
+    "reviewers": {"craft": "Antigravity", "behavior": "Claude and cto-qa-lead", "outcome": "cto-product-lead after T+14"},
+    "learning": {"metric": "NFC-card actions to contact intent", "baseline_source": "UNKNOWN: no prior /card route exists; collect the first comparable production event export after release", "baseline_value": "UNKNOWN: no route existed before this build", "target_kind": "funnel_step", "target": "card action click", "hypothesis": "Putting the exact actions on one short phone screen removes the friction after an NFC scan.", "observation_windows": ["T+14"], "decision_rule": "retain when production read is usable and action clicks are captured", "ledger_status": "planned", "registration_condition": "verify the production analytics event after release"}
+  }
+}
