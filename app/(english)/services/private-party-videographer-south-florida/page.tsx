@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, MessageCircle } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
+import { buildServicePageNodes } from "@/components/service-depth";
 import { PageUpdated } from "@/components/page-updated";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { absoluteUrl, site } from "@/lib/site";
@@ -12,7 +13,7 @@ const faqs = [
   {
     question: "What private celebrations can Esteban help document?",
     answer:
-      "Birthday parties, holiday gatherings, date nights, anniversaries, quinceañeras, bachelor or bachelorette celebrations, and other private events can start with the same brief: date, venue, guest count, the moments that matter, and whether you need filming, editing from your own footage, or both. The written quote confirms the actual scope before the date.",
+      "Birthdays, baptisms or first communions, graduations, baby showers, anniversaries, quinceañeras, weddings or rehearsal dinners, bachelor or bachelorette celebrations, holiday parties, family reunions, proposals, date nights, retirements, engagement parties, housewarmings and gender reveals can start with the same brief: date, venue, guest count, the moments that matter, and whether you need filming, editing from your own footage, or both. The written quote confirms the actual scope before the date.",
   },
   {
     question: "Is on-location filming included?",
@@ -47,6 +48,12 @@ export default function PrivatePartyVideographerPage() {
         areaServed: ["Fort Lauderdale", "Broward County", "Miami-Dade County", "Palm Beach County", "Florida Keys"],
         serviceType: "Private event videography and video editing",
       },
+      ...buildServicePageNodes({
+        path,
+        name: "Private Party Videographer South Florida",
+        description: String(metadata.description),
+        crumb: "Private celebrations",
+      }),
       {
         "@type": "FAQPage",
         mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })),
@@ -67,7 +74,7 @@ export default function PrivatePartyVideographerPage() {
               <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#5a6066]">South Florida private celebrations</p>
               <h1 className="mt-4 max-w-4xl font-serif em-display">Video for the party you want to remember.</h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-                Birthday parties, holiday gatherings, date nights, anniversaries, quinceañeras, bachelor and bachelorette celebrations: share the date and the moments that matter, then choose editing from your footage, on-location filming, or both in a written quote.
+                From birthdays and quinceañeras to graduations, baby showers, family reunions, proposals, holiday parties and despedidas: share the date and the moments that matter, then choose editing from your footage, on-location filming, or both in a written quote.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a href={whatsappHref(site.phone.e164, "Hi Esteban, I am planning a private celebration and want to ask about video.")} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center gap-2 rounded-full bg-[var(--em-accent-ink)] px-6 text-sm font-medium text-white hover:bg-[var(--em-accent-ink-hover)]">
@@ -90,13 +97,15 @@ export default function PrivatePartyVideographerPage() {
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16" aria-labelledby="celebration-types">
         <Container size="lg">
           <h2 id="celebration-types" className="max-w-3xl font-serif text-3xl sm:text-4xl">What kind of celebration is this?</h2>
-          <p className="mt-5 max-w-3xl text-base leading-8 text-[#252a2d]">The format changes with the event, but the planning questions do not. A birthday may need a toast and a surprise entrance; a holiday gathering may need a short recap for the family; a date night or anniversary may need a discreet plan; a quinceañera needs family approval and venue rules; a bachelor or bachelorette event needs the schedule and any venue restrictions. Start with the one moment you cannot miss.</p>
+          <p className="mt-5 max-w-3xl text-base leading-8 text-[#252a2d]">The format changes with the event, but the planning questions do not. Esteban works Spanish-first and can begin with the details that matter to Colombian, Latin American and other family traditions without assuming a tradition or a special package. Start with the one moment you cannot miss, the family members who need to approve the plan, and the venue rules.</p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {[
-              ["Birthday, anniversary or date night", "Share the date, location and any surprise, toast or person who must be included."],
-              ["Holiday party or family gathering", "Share the schedule, room or outdoor setting, and whether the edit is for family sharing or social posts."],
-              ["Quinceañera", "Use the dedicated quinceañera page for family approval, ceremony and schedule details."],
+              ["Birthday, anniversary, proposal or date night", "Share the date, location and any surprise, toast or person who must be included."],
+              ["Baptism, first communion, graduation or baby shower", "Share the family schedule, the ceremony or reveal, and who needs to be present in the final video."],
+              ["Quinceañera, wedding or rehearsal dinner", "Share the family approval process, ceremony timing, venue rules and the moments that cannot be missed."],
+              ["Holiday party, family reunion, retirement, engagement or housewarming", "Share the schedule, room or outdoor setting, and whether the edit is for family sharing or social posts."],
               ["Bachelor or bachelorette celebration", "Share the venue, guest count, planned stops and the content that is appropriate to share."],
+              ["Gender reveal or another celebration", "Share the reveal timing, access rules and the one moment that needs a clear plan before the date."],
             ].map(([title, detail]) => <div key={title} className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-5"><h3 className="font-serif text-2xl">{title}</h3><p className="mt-3 text-sm leading-6 text-[#252a2d]">{detail}</p></div>)}
           </div>
           <p className="mt-6 text-sm leading-6 text-[#252a2d]">Planning a quinceañera? <Link className="underline underline-offset-4" href="/services/quinceanera-videographer-miami">See the quinceañera videographer guide</Link>. Planning a yacht celebration? <Link className="underline underline-offset-4" href="/services/yacht-party-videographer-miami">See the yacht-party guide</Link>.</p>
