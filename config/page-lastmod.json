@@ -9,7 +9,7 @@
  },
  "/areas": {
   "date": "2026-10-28",
-  "hash": "4e309e38aad73198"
+  "hash": "d9a1b94177a5e504"
  },
  "/areas/palm-beach-county": {
   "date": "2026-10-28",
@@ -117,7 +117,7 @@
  },
  "/es/areas": {
   "date": "2026-10-28",
-  "hash": "d274177e7ad3e368"
+  "hash": "7b4673815f33ccf9"
  },
  "/es/areas/palm-beach-county": {
   "date": "2026-10-28",
@@ -344,8 +344,8 @@
   "hash": "04ca052a197b020d"
  },
  "/es/editor-de-video-ugc-para-ecommerce": {
-  "date": "2026-10-14",
-  "hash": "52bd867998239d8d"
+  "date": "2026-10-28",
+  "hash": "e1fd9226db7f1aea"
  },
  "/es/evaluacion": {
   "date": "2026-10-11",
@@ -2168,8 +2168,8 @@
   "hash": "ab806b1c19df6744"
  },
  "/services/ugc-video-editor-ecommerce": {
-  "date": "2026-10-27",
-  "hash": "876a905cc87b2ab5"
+  "date": "2026-10-28",
+  "hash": "d0453f6147fac058"
  },
  "/services/vacation-rental-video-marketing-fort-lauderdale": {
   "date": "2026-10-13",
