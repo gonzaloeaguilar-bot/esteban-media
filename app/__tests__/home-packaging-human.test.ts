@@ -42,7 +42,7 @@ for (const locale of ["en", "es"] as const) {
       expect(path).toMatch(/em-path-offer-price[^>]*>(From|Desde) \$800\/[^<]+</);
     });
 
-    it("1b. seven human buying routes expand in place and no parallel one-off card remains", () => {
+    it("1b. the top-level buyer routes include private celebrations and no parallel one-off card remains", () => {
       expect((path.match(/em-route-card"/g) ?? [])).toHaveLength(7);
       expect(path).not.toContain("em-single-project-entry");
       expect(path).toContain(locale === "en" ? "Productions and events" : "Producciones y eventos");
@@ -52,6 +52,16 @@ for (const locale of ["en", "es"] as const) {
       expect(path).toContain(locale === "en" ? "Websites and ecommerce" : "Sitios web y ecommerce");
       const css = read("app/illustrated-commercial.css");
       expect(css).toContain(".em-route-card>summary");
+    });
+
+    it("1b0. private celebrations makes the published coverage choices and price floors readable before WhatsApp", () => {
+      const celebrationStart = path.indexOf('data-route="private-celebrations"');
+      const celebrations = path.slice(celebrationStart);
+      expect(celebrationStart).toBeGreaterThan(-1);
+      expect(celebrations).toContain(locale === "es" ? "Desde $400 · hasta 4 horas" : "From $400 · up to 4 hours");
+      expect(celebrations).toContain(locale === "es" ? "$800 · hasta 8 horas" : "$800 · up to 8 hours");
+      expect(celebrations).toContain(locale === "es" ? "$1,280 · hasta 8 horas" : "$1,280 · up to 8 hours");
+      expect(celebrations).toContain(locale === "es" ? "La edición final, el traslado" : "Final editing, travel");
     });
 
     it("1b1. route cards use full-bleed work imagery while keeping copy and the control readable", () => {
@@ -209,16 +219,16 @@ for (const locale of ["en", "es"] as const) {
       expect(production).not.toContain(locale === "es" ? "Demo básico $1,000 · Brand film $3,000 · Actores y estudio $6,500+" : "Basic demo $1,000 · Brand film $3,000 · Actors and studio $6,500+");
     });
 
-    it("1c3. gives social celebrations a priced, server-rendered card with a direct guide and prefilled WhatsApp quote", () => {
-      const productionStart = path.indexOf('data-route="production"');
-      const productionEnd = path.indexOf('data-route="local-business"');
-      const production = path.slice(productionStart, productionEnd);
-      expect(production).toContain(locale === "es" ? "Fiestas y celebraciones" : "Parties and celebrations");
-      expect(production).toContain(locale === "es" ? "Desde $800/día de producción" : "From $800/production day");
-      expect(production).toContain(locale === "es" ? "/es/videografo-para-fiestas-privadas-sur-de-florida" : "/services/private-party-videographer-south-florida");
-      expect(production).toContain("https://wa.me/");
-      expect(production).toContain("home_private_celebrations_whatsapp");
-      expect(production).toContain("em-private-celebrations__card");
+    it("1c3. gives social celebrations a visible top-level card with direct guide and WhatsApp paths", () => {
+      const celebrationsStart = path.indexOf('data-route="private-celebrations"');
+      const celebrations = path.slice(celebrationsStart);
+      expect(celebrationsStart).toBeGreaterThan(-1);
+      expect(celebrations).toContain(locale === "es" ? "Fiestas y celebraciones" : "Parties and celebrations");
+      expect(celebrations).toContain(locale === "es" ? "Desde $400 · hasta 4 horas" : "From $400 · up to 4 hours");
+      expect(celebrations).toContain(locale === "es" ? "/es/videografo-para-fiestas-privadas-sur-de-florida" : "/services/private-party-videographer-south-florida");
+      expect(celebrations).toContain("https://wa.me/");
+      expect(celebrations).toContain("home_private_celebrations_whatsapp");
+      expect(celebrations).toContain(locale === "es" ? "Ver paquetes y precios" : "See packages and pricing");
     });
 
     it("1d. the content creator route shows editing, a filming day, and scoped-project choices together", () => {
