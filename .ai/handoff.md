@@ -1,3 +1,11 @@
+# 2026-10-28 — Tablet route-card repair (PR #579, not production)
+
+- Commit `7fced5d4` on `fix/desktop-camera-polaroids-20261028` is pushed to PR #579. It keeps the seven homepage buyer paths in one readable column through a 1024px landscape tablet and starts the two-column layout at 1100px. At that wider layout, the seventh card and an opened card span both columns; this removes the orphan final half-row and the empty stretched neighbor.
+- Local browser matrix after the change: 768×1024, 820×1180, 834×1194 and 1024×768 render one route column; their digital-card reading fields measure 291px, 298px, 298px and 399px respectively. At 1180×820, the grid uses two 539px columns, the final card measures 1088px, and an opened route measures 1088px while the next two closed cards remain 539px each. All tested viewports reported document scroll width no greater than the viewport's scrollbar-adjusted layout width.
+- Local deterministic check: `pnpm vitest run app/__tests__/home-packaging-human.test.ts` passed 34/34; `git diff --check` passed. The Node 26 engine warning is pre-existing environment compatibility noise; the test exited 0. No production claim: required independent review, PR checks, merge and canonical phone/tablet/desktop production render remain open.
+
+---
+
 # 2026-10-28 — Commercial local GEO answer units (review evidence complete; PR pending)
 
 - Branch `feat/commercial-geo-guides-20261028`, commits `7015724f`, `6fdd9040`, and `f7a8d386`, strengthens only six existing English/Spanish commercial routes: Fort Lauderdale Reels, Fort Lauderdale video production, and Miami restaurant editing. It adds decision-first, server-rendered sections and contextual links; it adds no URL, price, client, review, ranking, citation, availability promise, or outcome claim.
