@@ -22,6 +22,8 @@ describe("NFC contact card", () => {
     expect(page).not.toContain("nfc_card_instagram");
     expect(page).toContain('image: "/portfolio/bar-door-monkey.jpg"');
     expect(page).toContain("<Image src={image}");
+    expect(page).toContain('src="/about/esteban-on-set.mp4"');
+    expect(page).toContain('visual === "maps"');
     expect(page).not.toContain("address");
   });
 
