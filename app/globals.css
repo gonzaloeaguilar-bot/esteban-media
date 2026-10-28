@@ -1770,6 +1770,27 @@ div.relative:has(> .em-carousel-track) {
 .em-phone-video__info { display: grid; align-content: start; gap: 5px; padding: 12px 14px; font-size: 10px; line-height: 1.25; }
 .em-phone-video__info strong { font-size: 12px; font-weight: 700; }
 .em-phone-video__info span { color: rgba(255, 255, 255, .58); }
+/* ORIENTATION. Owner, 2026-10-28, with screenshots: "se ven pequeños" — every
+   clip, vertical or not, sat in one 16:9 strip in the top third of the phone
+   with black above and below. Most of this portfolio is 9:16, so the strip
+   showed a letterboxed sliver of a vertical video.
+   portrait  — the screen IS the phone: it takes the whole figure, the status
+               bar and the caption float over it on gradients. A local <video>
+               and the poster already cover; the YouTube iframe is given a 9:16
+               box as wide as the phone and centred, so YouTube renders the
+               Short edge to edge and the frame clips the player chrome rather
+               than letterboxing the picture.
+   landscape — a 16:9 film stays whole and is centred between bar and caption,
+               so the spare height is split rather than piled underneath. */
+.em-phone-video[data-orientation="landscape"] { grid-template-rows: auto 1fr auto; }
+.em-phone-video[data-orientation="landscape"] .em-phone-video__screen { align-self: center; }
+.em-phone-video[data-orientation="portrait"] { grid-template-rows: auto 1fr auto; }
+.em-phone-video[data-orientation="portrait"] .em-phone-video__screen { position: absolute; inset: 0; aspect-ratio: auto; }
+.em-phone-video[data-orientation="portrait"] .em-phone-video__top,
+.em-phone-video[data-orientation="portrait"] .em-phone-video__info { position: relative; z-index: 2; }
+.em-phone-video[data-orientation="portrait"] .em-phone-video__top { background: linear-gradient(180deg, rgba(0, 0, 0, .62), rgba(0, 0, 0, 0)); }
+.em-phone-video[data-orientation="portrait"] .em-phone-video__info { background: linear-gradient(0deg, rgba(0, 0, 0, .72), rgba(0, 0, 0, 0)); padding-top: 22px; }
+.em-phone-video[data-orientation="portrait"] .em-phone-video__embed { top: 50%; bottom: auto; height: auto; aspect-ratio: 9 / 16; transform: translateY(-50%); }
 
 .em-cartel .rail-card[data-rail-kind="media"] {
   transition: transform .34s cubic-bezier(.22,.61,.36,1), box-shadow .34s ease, opacity .34s ease;

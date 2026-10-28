@@ -1,3 +1,11 @@
+# 2026-10-28 — Vertical video fills the rail phone and opens in a 9:16 stage (branch fix/vertical-video-fill-rail-and-modal-20261028, PR open, not production)
+
+- Owner screenshots ("todo tiene el problema"): every rail clip sat in one 16:9 strip in the top third of the phone card, and the player cropped a vertical Reel to a slice. Each portfolio item now declares `orientation` (lib `mediaOrientation()` from the declared aspect; the teaser sets it per source). Evidence: ffprobe gives 720x1280/576x1024 for all eight local MP4s; `youtube.com/shorts/<id>` answers 200 for Hm-mI-RgvUY, YTJW6zn14S8, poIo-VCBeAw, B4d_bFQV6T0 (now `9:16`) and 303-redirects for BDRru8eXaj4 and the other films (`16:9`).
+- Rail: `.em-phone-video[data-orientation]` — portrait owns the whole phone screen (video/poster cover, YouTube iframe as a centred 9:16 box), landscape keeps a whole 16:9 frame centred. Player: phone stage is a true 9:16 box `min(100%, 86svh*9/16)`, `object-fit: contain`, panel below; desktop keeps the #611 two-column layout, landscape stage is now a true 16:9 (was 663x336). Portfolio-page players (`PortfolioVideo`, its modal, watch page) take the same `orientation`.
+- Gates: typecheck, lint (0 errors / 22 pre-existing warnings), full vitest 182 files after `pnpm lastmod:update`, analytics gate PASS, `pnpm build` BUILD_ID `RzFLUY5F3Y2McercFGVte`. Playwright at 390x844 and 1280x800: portrait stage 358x636 and 419x744 (0.5625) with video 576x1024, aspect delta 0%; landscape stage 358x201 and 597x336 (1.7778); Sony card screen = figure (fill 1.0). Not merged; not production.
+
+---
+
 # 2026-10-28 — Camera Bench film-strip correction (local, ready for PR)
 
 - Owner rejected the tilted cream-paper camera cards as accidental-looking Polaroids. Branch `fix/camera-filmstrip-20261028` replaces only the desktop presentation with a straight, dark two-frame film strip and visible top/bottom sprocket holes. The confirmed Sony and Canon images, native specification disclosures, wording, and phone/tablet swipe shelf remain unchanged.
@@ -728,3 +736,11 @@ Configuration-gated conversion-observability implementation is present locally, 
 - The supplied `https://link.amazon/B0f98xMnt` returned HTTP 404, so no Amazon/product button is in the implementation. The supplied photo is a reference only and is not shipped.
 - Checks: focused 4/4, `pnpm test` 178 files / 3,698 tests, typecheck, lint 0 errors / 22 existing warnings, analytics gate PASS, and a successful second `pnpm build` (608 pages). Local raw EN/ES HTML and desktop/390×844 interaction were checked.
 - No commit, PR, merge, deployment or independent review. Next: obtain a scoped independent review; then commit, PR, merge and canonical production phone/desktop proof. Durable record: `[[esteban-accessory-setup-candidate-2026-10-28]]`.
+# 2026-10-28 — Full-body camera leatherette (PR #603, rebuilt)
+
+- Owner (screenshot 2026-10-28): the whole chooser card must read as camera leatherette, not only the grip. `.em-camera-chooser__body` now tiles `public/illustrations/camera-leatherette-tile.png` (36.6 KB, 256px seamless pebble tile generated with PIL at 2x, shown at 128px) across the full body, with a brushed top-plate band over the top 22% where the flash/viewfinder/dial/shutter sit and a soft vignette. PR #603's 100 KB WebP was removed. Nothing new animates; the reduced-motion block is unchanged.
+- Measured on the local dev render with Playwright + PIL (`scratchpad/leatherette/measure.py`): grain luminance stddev inside a 60x60 body patch with text and lens masked = 7.97 (390x844) and 9.28 (1280x800), threshold > 4; serif title vs worst-case sampled background = 11.25:1 and 11.48:1, threshold 4.5:1.
+- Gates: `tsc --noEmit` 0, `eslint` 0 errors / 22 pre-existing warnings, `vitest run app/__tests__/home-packaging-human.test.ts` 38/38, `next build` exit 0 (612 pages). Not merged; production proof pending the merge.
+
+# 2026-10-28 — Celebration card: 4K landscape cover (PR pending)
+- Owner reported the "Parties and celebrations" card looked incomplete and low quality. Measured cause: the cover/loop were a 540x960 portrait clip stretched ~2x into a landscape card. Found the owner's 4K yacht clip (`IMG_6214.MOV`, 3840x2160 rotated portrait, 2.87s, Messages attachment 2026-10-28 16:12); cut a 2160x1215 landscape band (skyline + Ferris wheel + water) into `yacht-party-miami-skyline-{cover.jpg,poster.jpg,loop.mp4}` (loop 1600x900 h264 crf29, 1.3 MB, no audio). Served pixels now >= displayed device pixels at 390@3x and 1280@2x; autoplay muted inline verified; reduced-motion hides the loop. The 4K original of the earlier boat-passing clip (`yacht-party-miami.mp4`, 540x960) is not on this machine.
