@@ -3,6 +3,8 @@ import Link from "next/link";
 
 type Locale = "en" | "es";
 
+type CameraSpec = readonly [label: string, value: string];
+
 const copy = {
   en: {
     eyebrow: "THE CAMERA BENCH",
@@ -18,15 +20,45 @@ const copy = {
     canonName: "Canon EOS Rebel T5i",
     canonDetail: "18 MP APS-C sensor · Full HD 1080 recording",
     source: "Reference images and published specifications",
-    accessoriesEyebrow: "ON THE SET",
-    accessoriesTitle: "The accessories follow the shot.",
+    specifications: "Published specifications",
+    buyOnAmazon: "Buy on Amazon",
+    affiliateDisclosure: "As an Amazon Associate, Esteban Moreno Media earns from qualifying purchases.",
+    alphaSpecs: [
+      ["Sensor", "33 MP full-frame back-illuminated Exmor R CMOS"],
+      ["Image processor", "BIONZ XR"],
+      ["Lens mount", "Sony E-mount"],
+      ["ISO sensitivity", "100–51,200; expandable to 50–204,800 for stills"],
+      ["Autofocus", "759 phase-detection points; up to 94% frame coverage"],
+      ["Continuous shooting", "Up to 10 fps with AF/AE tracking"],
+      ["Video", "4K up to 60p; 10-bit 4:2:2 internal recording"],
+      ["Stabilization", "5-axis in-body stabilization; rated up to 5.5 stops"],
+      ["Screen / viewfinder", "3.0-inch vari-angle touch screen / 3.68M-dot OLED EVF"],
+      ["Media", "Dual slots for CFexpress Type A or SD UHS-I/II cards"],
+      ["Connectivity", "USB-C, Wi-Fi 2.4 / 5 GHz, Bluetooth"],
+      ["Body", "131.3 × 96.4 × 79.8 mm; approx. 658 g with battery and card"],
+    ] satisfies readonly CameraSpec[],
+    canonSpecs: [
+      ["Sensor", "18 MP APS-C CMOS"],
+      ["Image processor", "DIGIC 5"],
+      ["Lens mount", "Canon EF / EF-S"],
+      ["ISO sensitivity", "100–12,800; expandable to 25,600"],
+      ["Autofocus", "9 cross-type AF points; Hybrid CMOS AF for Live View"],
+      ["Continuous shooting", "Up to 5 fps"],
+      ["Video", "Full HD 1080 at 30p, 25p or 24p"],
+      ["Screen", "3.0-inch vari-angle Clear View II touch screen"],
+      ["Media", "SD, SDHC and SDXC memory cards"],
+      ["Connectivity", "Mini HDMI and Hi-Speed USB"],
+      ["Body", "133.1 × 99.8 × 78.8 mm; approx. 580 g"],
+    ] satisfies readonly CameraSpec[],
+    accessoriesEyebrow: "IN THE KIT",
+    accessoriesTitle: "The phone mount stays close.",
     accessoriesLead:
-      "A camera is only one part of the setup. Esteban brings the support and light the location needs, then keeps the working area focused on the person or product in front of the lens.",
-    accessoriesAction: "See how the setup stays practical",
+      "A compact mount keeps a phone above the camera when the shot calls for a second angle or a quick reference.",
+    accessoriesAction: "See the accessory in the setup",
     accessoriesDetail:
-      "The exact setup changes with the location, the available space and the kind of video. Before a shoot, the scope confirms what is needed so the day stays focused on the work, not a generic equipment list.",
+      "This Syncwire phone mount has two cold-shoe mounts, a standard tripod thread, and adjustable rotation and tilt. The exact setup still changes with the location and the shot.",
     accessoriesAlt:
-      "Esteban using a camera beside a lit product setup during a shoot",
+      "Syncwire universal tripod phone mount with two cold-shoe mounts",
     unboxingEyebrow: "UNBOXING",
     unboxingTitle: "A closer look at the Sony Alpha 7 IV.",
     unboxingCopy: "A look at the camera body Esteban uses in his work.",
@@ -55,15 +87,45 @@ const copy = {
     canonName: "Canon EOS Rebel T5i",
     canonDetail: "Sensor APS-C de 18 MP · grabación Full HD 1080",
     source: "Imágenes de referencia y especificaciones publicadas",
-    accessoriesEyebrow: "EN EL RODAJE",
-    accessoriesTitle: "Los accesorios siguen la toma.",
+    specifications: "Especificaciones publicadas",
+    buyOnAmazon: "Comprar en Amazon",
+    affiliateDisclosure: "Como Asociado de Amazon, Esteban Moreno Media obtiene ingresos por compras que califican.",
+    alphaSpecs: [
+      ["Sensor", "Exmor R CMOS full-frame retroiluminado de 33 MP"],
+      ["Procesador", "BIONZ XR"],
+      ["Montura", "Sony E-mount"],
+      ["Sensibilidad ISO", "100–51,200; ampliable a 50–204,800 para fotos"],
+      ["Enfoque automático", "759 puntos de detección de fase; hasta 94% de cobertura"],
+      ["Ráfaga", "Hasta 10 fps con seguimiento AF/AE"],
+      ["Video", "4K hasta 60p; grabación interna 10-bit 4:2:2"],
+      ["Estabilización", "Estabilización interna de 5 ejes; hasta 5.5 pasos"],
+      ["Pantalla / visor", "Pantalla táctil abatible de 3.0 pulgadas / visor OLED de 3.68M puntos"],
+      ["Medios", "Dos ranuras para CFexpress Type A o tarjetas SD UHS-I/II"],
+      ["Conectividad", "USB-C, Wi-Fi 2.4 / 5 GHz, Bluetooth"],
+      ["Cuerpo", "131.3 × 96.4 × 79.8 mm; aprox. 658 g con batería y tarjeta"],
+    ] satisfies readonly CameraSpec[],
+    canonSpecs: [
+      ["Sensor", "CMOS APS-C de 18 MP"],
+      ["Procesador", "DIGIC 5"],
+      ["Montura", "Canon EF / EF-S"],
+      ["Sensibilidad ISO", "100–12,800; ampliable a 25,600"],
+      ["Enfoque automático", "9 puntos AF tipo cruz; Hybrid CMOS AF para Live View"],
+      ["Ráfaga", "Hasta 5 fps"],
+      ["Video", "Full HD 1080 a 30p, 25p o 24p"],
+      ["Pantalla", "Pantalla táctil abatible Clear View II de 3.0 pulgadas"],
+      ["Medios", "Tarjetas de memoria SD, SDHC y SDXC"],
+      ["Conectividad", "Mini HDMI y USB de alta velocidad"],
+      ["Cuerpo", "133.1 × 99.8 × 78.8 mm; aprox. 580 g"],
+    ] satisfies readonly CameraSpec[],
+    accessoriesEyebrow: "EN EL EQUIPO",
+    accessoriesTitle: "El soporte para teléfono se mantiene cerca.",
     accessoriesLead:
-      "La cámara es solo una parte del montaje. Esteban lleva el soporte y la luz que necesita la locación, y mantiene el espacio de trabajo enfocado en la persona o el producto frente al lente.",
-    accessoriesAction: "Mira cómo se mantiene práctico el montaje",
+      "Un soporte compacto mantiene un teléfono sobre la cámara cuando la toma necesita un segundo ángulo o una referencia rápida.",
+    accessoriesAction: "Mira el accesorio en el montaje",
     accessoriesDetail:
-      "El montaje exacto cambia según la locación, el espacio disponible y el tipo de video. Antes de grabar, el alcance confirma qué hace falta para que el día se enfoque en el trabajo, no en una lista genérica de equipo.",
+      "Este soporte Syncwire tiene dos monturas cold shoe, una rosca estándar para trípode y rotación e inclinación ajustables. El montaje exacto sigue cambiando según la locación y la toma.",
     accessoriesAlt:
-      "Esteban usando una cámara junto a un montaje de producto iluminado durante un rodaje",
+      "Soporte universal Syncwire para teléfono y trípode con dos monturas cold shoe",
     unboxingEyebrow: "UNBOXING",
     unboxingTitle: "Un vistazo al Sony Alpha 7 IV.",
     unboxingCopy: "Una mirada al cuerpo de cámara que Esteban usa en su trabajo.",
@@ -90,6 +152,10 @@ const copy = {
 export function CameraKitMethod({ locale }: { locale: Locale }) {
   const c = copy[locale];
   const packageHref = locale === "es" ? "/es#start" : "/#start";
+  const amazonLinks = {
+    sony: "https://www.amazon.com/dp/B0BN5GH5ZV/ref=cm_sw_r_as_gl_api_gl_i_GG14V2PHMW1QR24P282Z?linkCode=ml1&tag=estebanmoreno-20&linkId=6faf052545ed53e78ae3dd778fadbd0b&gaOptInStatus=true",
+    canon: "https://www.amazon.com/dp/B00BW6LW7G/ref=cm_sw_r_as_gl_api_gl_i_CK6GT8WDVYSM2SD4KN2Q?linkCode=ml1&tag=estebanmoreno-20&linkId=050ca3a2614686c4b15765ccab541174&gaOptInStatus=true",
+  } as const;
 
   return (
     <section className="em-camera-kit" data-section="camera-kit-method" aria-labelledby={`camera-kit-${locale}`}>
@@ -117,9 +183,16 @@ export function CameraKitMethod({ locale }: { locale: Locale }) {
                 <span className="em-camera-kit__inspect-mark" aria-hidden="true">+</span>
               </summary>
               <div className="em-camera-kit__model-details">
-                <p>{c.activeBody}</p>
+                <p>{c.activeBody} · {c.specifications}</p>
                 <strong>{c.alphaDetail}</strong>
-                <a href="https://electronics.sony.com/imaging/interchangeable-lens-cameras/all-interchangeable-lens-cameras/p/ilce7m4-b" target="_blank" rel="noreferrer">Sony</a>
+                <dl className="em-camera-kit__specs">
+                  {c.alphaSpecs.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
+                </dl>
+                <div className="em-camera-kit__model-actions">
+                  <a href={amazonLinks.sony} target="_blank" rel="noopener noreferrer sponsored" data-cta={`camera_kit_sony_amazon_${locale}`}>{c.buyOnAmazon}</a>
+                  <a href="https://electronics.sony.com/imaging/interchangeable-lens-cameras/all-interchangeable-lens-cameras/p/ilce7m4-b" target="_blank" rel="noopener noreferrer">Sony</a>
+                </div>
+                <small className="em-camera-kit__affiliate-disclosure">{c.affiliateDisclosure}</small>
               </div>
             </details>
             <details className="em-camera-kit__model" name={`camera-kit-${locale}`}>
@@ -133,9 +206,16 @@ export function CameraKitMethod({ locale }: { locale: Locale }) {
                 <span className="em-camera-kit__inspect-mark" aria-hidden="true">+</span>
               </summary>
               <div className="em-camera-kit__model-details">
-                <p>{c.secondBody}</p>
+                <p>{c.secondBody} · {c.specifications}</p>
                 <strong>{c.canonDetail}</strong>
-                <a href={locale === "es" ? "https://www.cla.canon.com/es/p/eos-rebel-t5i" : "https://www.cla.canon.com/en/p/eos-rebel-t5i"} target="_blank" rel="noreferrer">Canon</a>
+                <dl className="em-camera-kit__specs">
+                  {c.canonSpecs.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
+                </dl>
+                <div className="em-camera-kit__model-actions">
+                  <a href={amazonLinks.canon} target="_blank" rel="noopener noreferrer sponsored" data-cta={`camera_kit_canon_amazon_${locale}`}>{c.buyOnAmazon}</a>
+                  <a href={locale === "es" ? "https://www.cla.canon.com/es/p/eos-rebel-t5i" : "https://www.cla.canon.com/en/p/eos-rebel-t5i"} target="_blank" rel="noopener noreferrer">Canon</a>
+                </div>
+                <small className="em-camera-kit__affiliate-disclosure">{c.affiliateDisclosure}</small>
               </div>
             </details>
           </div>
@@ -149,10 +229,10 @@ export function CameraKitMethod({ locale }: { locale: Locale }) {
 
         <details className="em-camera-kit__accessories">
           <summary data-cta={`camera_kit_accessories_${locale}`}>
-            <span className="em-camera-kit__accessories-stage" aria-hidden="true">
-              <span className="em-camera-kit__accessories-light" />
-              <span className="em-camera-kit__accessories-camera"><i /><b /></span>
-              <span className="em-camera-kit__accessories-phone" />
+            <span className="em-camera-kit__accessories-image">
+              {/* Product reference image: Syncwire Tripod Phone Mount, Amazon ASIN B0CNKG6JHY. */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="https://m.media-amazon.com/images/I/61AkmH5DXML._AC_SL1500_.jpg" alt={c.accessoriesAlt} />
             </span>
             <span className="em-camera-kit__accessories-copy">
               <small>{c.accessoriesEyebrow}</small>
