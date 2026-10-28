@@ -32,6 +32,7 @@ export const site = {
   // Public business inbox. Name, phone, location, and service area remain the
   // canonical NAP values below; only the customer-facing email is centralized.
   email: "info@estebanmorenomedia.com",
+  booking: "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3mpFYiKvhJEh9RI6e-hFk2OYc3aYbrYrt2ycrLmFRRsvccRVXXnVKvIjIYWSCIr1z5djyik60q",
   phone: {
     display: "(305) 497-4478",
     e164: "+13054974478",
