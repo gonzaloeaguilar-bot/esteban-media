@@ -198,6 +198,23 @@ export default function RestaurantPromoVideoEditingMiamiPage() {
       </section>
       <OwnerFactAnswers path="/services/restaurant-promo-video-editing-miami" />
 
+      <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20" data-section="restaurant-editing-or-shoot">
+        <Container size="xl">
+          <div className="mx-auto max-w-4xl">
+            <p className="text-xs font-medium uppercase text-[#5a6066]">Choose the right starting point</p>
+            <h2 className="mt-3 font-serif text-3xl sm:text-4xl">Should a Miami restaurant edit existing footage or plan a shoot?</h2>
+            <div className="mt-6 space-y-5 text-base leading-8 text-[#252a2d]">
+              <p>
+                Start with editing when your team already has original clips that clearly show the dish, drink, room, or person behind the message. Send the strongest takes, the correct menu names, the first channel for the post, and one action the viewer should take. That gives the edit enough material to make one focused social video without assuming a filming day.
+              </p>
+              <p>
+                Plan a shoot only when an essential scene is missing: the preparation, the dining room, the owner explanation, or the product detail that makes the offer understandable. New filming is scoped separately around the venue and the content goal. Before either route, use the <Link href="/guides/video-content-ideas-for-restaurants" className="underline underline-offset-4 hover:text-[#9f3c27]">restaurant video content guide</Link> to make a short shot list, then compare the finished work in <Link href="/portfolio/bar-door-monkey" className="underline underline-offset-4 hover:text-[#9f3c27]">Bar Door Monkey Miami</Link>.
+              </p>
+            </div>
+          </div>
+        </Container>
+      </section>
+
       <section className="border-b border-[#ddd4c8] py-12 sm:py-16 lg:py-20">
         <Container size="xl">
           <div className="mx-auto max-w-4xl">

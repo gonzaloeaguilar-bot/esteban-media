@@ -4944,10 +4944,10 @@ export const spanishNichePages: SpanishNichePage[] = [
         ],
       },
       {
-        heading: "Entrega de material y revisión de la edición",
+        heading: "¿Conviene editar clips del restaurante o planear una grabación?",
         paragraphs: [
-          "La entrega es más clara cuando las carpetas indican platillo, fecha, orientación de cámara y tomas imprescindibles. Junto al material, el restaurante puede compartir logo, tipografías, ortografía del menú, referencias y los canales donde se publicará. La [guía de entrega para edición remota](/es/guias/entrega-para-edicion-remota-de-video) resume una forma práctica de organizar ese envío.",
-          "Después de compartir un borrador, el restaurante puede reunir notas con marca de tiempo sobre selección de tomas, ritmo, textos o llamados a la acción. El alcance de revisiones se acuerda en cada proyecto, sin asumir una cantidad fija de rondas ni un plazo de entrega. Este orden ayuda a que el comentario sea específico y que la conversación se mantenga centrada en el material y los objetivos definidos.",
+          "Empieza por edición cuando ya tienes archivos originales que muestran con claridad el plato, la bebida, el salón o la persona detrás del mensaje. En una carpeta ordenada por platillo o turno, comparte las mejores tomas, los nombres correctos del menú, la primera red donde se publicará y una sola acción para quien ve el video. La [guía de entrega para edición remota](/es/guias/entrega-para-edicion-remota-de-video) ayuda a preparar ese envío sin dar por hecho un día de grabación.",
+          "Conviene conversar una grabación cuando falta una escena esencial: preparación, ambiente del salón, explicación del dueño o el detalle que hace comprensible la oferta. La captura se define aparte según el local y el objetivo. Antes de cualquiera de las dos opciones, prepara una lista corta con la [guía de ideas de video para restaurantes](/es/guias/ideas-de-contenido-de-video-para-restaurantes) y revisa el trabajo publicado de [Bar Door Monkey Miami](/es/portafolio/bar-door-monkey).",
         ],
       },
     ],
@@ -6136,6 +6136,13 @@ export const spanishNichePages: SpanishNichePage[] = [
           "Fecha y formato de publicación",
         ],
       },
+      {
+        heading: "¿Qué se confirma antes de una producción de video en Fort Lauderdale?",
+        paragraphs: [
+          "Empieza por la decisión que el video debe ayudar a tomar: escribir al negocio, entender un servicio, conocer un espacio o ver un producto. Indica la ciudad, la fecha importante, dónde se publicará y si ya existen clips útiles. Si hace falta grabar, añade las personas o áreas que deben aparecer y cualquier límite de acceso del lugar.",
+          "Una referencia sirve para explicar el tono, pero no reemplaza la meta del negocio. Con esos datos, Esteban puede separar la edición remota de la captura en locación y responder con un alcance escrito, sin asumir equipo, horario ni entregables que todavía no se han acordado.",
+        ],
+      },
     ],
     faqs: [
       {
@@ -6230,6 +6237,13 @@ export const spanishNichePages: SpanishNichePage[] = [
         paragraphs: [
           `Para video corto y redes sociales, la edición con material existente se cotiza como el paquete Arranque: ${esShortForm}. El alcance, la cantidad de tomas en bruto, el diseño de subtítulos y las versiones requeridas ajustan la cotización final; es un precio de partida, no un precio cerrado.`,
           "El costo final se define mediante una cotización personalizada después de evaluar el volumen de material, la complejidad de postproducción y los plazos de entrega solicitados. Para negocios que necesitan continuidad mensual o paquetes combinados de contenido, puedes revisar todos los paquetes publicados en nuestra sección de [precios](/es/precios) o consultar las opciones de [Arranque](/es/precios/arranque) y [Crecimiento](/es/precios/crecimiento).",
+        ],
+      },
+      {
+        heading: "¿Qué debe decidir un negocio antes de pedir un Reel?",
+        paragraphs: [
+          "Antes de escoger música, subtítulos o una tendencia, define la sola pregunta que el Reel debe responder: qué incluye el servicio, qué pasa en una primera visita, por qué el producto es distinto o qué debe hacer la persona después. Después comparte los clips originales que sostienen esa respuesta, la cuenta donde se publicará y quién aprobará los cambios.",
+          "Con ese mensaje corto, Esteban puede distinguir si el material existente alcanza para editar o si hace falta cotizar una grabación aparte. También evita que un Reel se convierta en una lista de ofertas sin relación. Para preparar la carpeta y las notas antes de enviar archivos, revisa la [guía de entrega para edición remota](/es/guias/entrega-para-edicion-remota-de-video).",
         ],
       },
       ...ES_REELS_FORT_LAUDERDALE_CONVERSATIONAL,

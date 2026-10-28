@@ -65,6 +65,11 @@ const content: GeoServicePageContent = {
       body:
         "Start with editing when you already have original clips that show the product, service, people or place well enough to make one clear point. Send the strongest takes, the platform, and the action the viewer should take; that lets the edit focus on pacing, captions and a useful ending. Plan a local shoot when the footage cannot show the offer yet, when essential scenes are missing, or when the business needs a specific location or team moment captured. The two jobs solve different problems: remote editing shapes material you have, while a shoot creates the material before the edit begins.",
     },
+    {
+      question: "What should a Fort Lauderdale business decide before asking for a Reel edit?",
+      body:
+        "Decide the one question the Reel needs to answer before choosing music, captions, or a trend. It might be what the service includes, what happens at a first visit, why a product is different, or what a customer should do next. Then send the original clips that support that one answer, the account where it will run, and one person who can approve the draft. That short brief lets the editor see whether the existing footage can carry the message or whether a local shoot needs to be scoped separately. It also prevents a Reel from becoming a list of unrelated offers. For a practical folder-and-notes checklist, use the remote editing handoff guide before sharing files.",
+    },
   ],
   faqHeading: "Questions before sending Fort Lauderdale Reels footage.",
   faqs: [
@@ -115,6 +120,11 @@ const content: GeoServicePageContent = {
       title: "Content Repurposing",
       detail: "Turn one long video, podcast or shoot into a set of short social clips.",
       href: "/services/content-repurposing-service-miami",
+    },
+    {
+      title: "Remote editing handoff checklist",
+      detail: "Prepare original clips, the message, references, and the first publishing channel before requesting an edit.",
+      href: "/resources/remote-editing-handoff-checklist",
     },
     {
       title: "Reels and video in Hollywood, FL",
