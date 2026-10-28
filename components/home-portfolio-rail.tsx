@@ -266,6 +266,19 @@ export function HomePortfolioRail({
                   tabIndex={-1}
                   onLoad={(event) => startPreview(event.currentTarget)}
                 />
+              ) : item.videoSrc && item.id === litId && !reduced ? (
+                <video
+                  className="absolute inset-0 h-full w-full object-cover"
+                  src={item.videoSrc}
+                  poster={item.poster}
+                  muted
+                  loop
+                  autoPlay
+                  playsInline
+                  preload="auto"
+                  tabIndex={-1}
+                  aria-hidden="true"
+                />
               ) : (
                 <Image src={item.poster} alt="" fill sizes="(min-width: 768px) 380px, 78vw" className="em-phone-video__poster" />
               )}

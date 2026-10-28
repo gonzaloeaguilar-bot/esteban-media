@@ -60,6 +60,12 @@ describe("homepage portfolio rail", () => {
     expect(rail).toContain('phoneFrame: item.phoneFrame ?? item.isReel');
   });
 
+  it("plays the owner-supplied Sony unboxing clip instead of leaving that card as a still", () => {
+    expect(source).toContain('videoSrc: "/portfolio/sony-a7iv-unboxing.mp4"');
+    expect(source).toContain('videoSurfaceLabel: "Sony Alpha 7 IV"');
+    expect(rail).toContain('item.videoSrc && item.id === litId && !reduced');
+  });
+
   it("passes every public YouTube social video into the centred muted player", () => {
     expect(source).toContain('const isYouTubeVideo = item.media.kind === "youtube";');
     expect(source).toContain('https://www.youtube-nocookie.com/embed/${item.media.videoId}?autoplay=1&mute=1&playsinline=1&loop=1&playlist=${item.media.videoId}&rel=0');
