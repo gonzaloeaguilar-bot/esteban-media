@@ -17,10 +17,19 @@ const copy = {
     canonName: "Canon EOS Rebel T5i",
     canonDetail: "18 MP APS-C sensor · Full HD 1080 recording",
     source: "Reference images and published specifications",
+    accessoriesEyebrow: "ON THE SET",
+    accessoriesTitle: "The accessories follow the shot.",
+    accessoriesLead:
+      "A camera is only one part of the setup. Esteban brings the support and light the location needs, then keeps the working area focused on the person or product in front of the lens.",
+    accessoriesAction: "See how the setup stays practical",
+    accessoriesDetail:
+      "The exact setup changes with the location, the available space and the kind of video. Before a shoot, the scope confirms what is needed so the day stays focused on the work, not a generic equipment list.",
+    accessoriesAlt:
+      "Esteban using a camera beside a lit product setup during a shoot",
     unboxingEyebrow: "RECENT WORK",
     unboxingTitle: "Watch the product unboxing.",
-    unboxingCopy: "A recent vertical product-unboxing reel opens on Instagram in a new tab.",
-    unboxingAction: "Watch the unboxing on Instagram",
+    unboxingCopy: "The recent vertical product-unboxing reel plays here inside the phone. Sound stays off until you choose to turn it on.",
+    unboxingAction: "Open on Instagram",
     methodTitle: "Open the working method",
     methodHint: "Three clear decisions before the work begins.",
     steps: [
@@ -44,10 +53,19 @@ const copy = {
     canonName: "Canon EOS Rebel T5i",
     canonDetail: "Sensor APS-C de 18 MP · grabación Full HD 1080",
     source: "Imágenes de referencia y especificaciones publicadas",
+    accessoriesEyebrow: "EN EL RODAJE",
+    accessoriesTitle: "Los accesorios siguen la toma.",
+    accessoriesLead:
+      "La cámara es solo una parte del montaje. Esteban lleva el soporte y la luz que necesita la locación, y mantiene el espacio de trabajo enfocado en la persona o el producto frente al lente.",
+    accessoriesAction: "Mira cómo se mantiene práctico el montaje",
+    accessoriesDetail:
+      "El montaje exacto cambia según la locación, el espacio disponible y el tipo de video. Antes de grabar, el alcance confirma qué hace falta para que el día se enfoque en el trabajo, no en una lista genérica de equipo.",
+    accessoriesAlt:
+      "Esteban usando una cámara junto a un montaje de producto iluminado durante un rodaje",
     unboxingEyebrow: "TRABAJO RECIENTE",
     unboxingTitle: "Mira el unboxing de producto.",
-    unboxingCopy: "Un Reel vertical reciente de unboxing abre Instagram en una pestaña nueva.",
-    unboxingAction: "Ver el unboxing en Instagram",
+    unboxingCopy: "El Reel vertical reciente de unboxing se reproduce aquí dentro del teléfono. El sonido queda apagado hasta que decidas activarlo.",
+    unboxingAction: "Abrir en Instagram",
     methodTitle: "Abrir el método de trabajo",
     methodHint: "Tres decisiones claras antes de empezar.",
     steps: [
@@ -126,21 +144,45 @@ export function CameraKitMethod({ locale }: { locale: Locale }) {
           </p>
         </div>
 
-        <a
-          className="em-camera-kit__unboxing"
-          href="https://www.instagram.com/reel/DepBjEbBl9P/"
-          target="_blank"
-          rel="noreferrer"
-          data-cta={`camera_kit_unboxing_${locale}`}
-        >
-          <span className="em-camera-kit__unboxing-play" aria-hidden="true">Play</span>
-          <span>
+        <details className="em-camera-kit__accessories">
+          <summary data-cta={`camera_kit_accessories_${locale}`}>
+            <span className="em-camera-kit__accessories-image">
+              {/* Owner-authorized on-set photo. It documents the visible setup,
+                  not a named camera body, lens, light, or accessory model. */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/about/esteban-on-set.jpg" alt={c.accessoriesAlt} />
+            </span>
+            <span className="em-camera-kit__accessories-copy">
+              <small>{c.accessoriesEyebrow}</small>
+              <strong>{c.accessoriesTitle}</strong>
+              <span>{c.accessoriesLead}</span>
+              <em>{c.accessoriesAction}</em>
+            </span>
+            <span className="em-camera-kit__accessories-mark" aria-hidden="true">+</span>
+          </summary>
+          <p>{c.accessoriesDetail}</p>
+        </details>
+
+        <section className="em-camera-kit__unboxing" aria-label={c.unboxingTitle}>
+          <div className="em-camera-kit__unboxing-phone">
+            <span className="em-camera-kit__unboxing-speaker" aria-hidden="true" />
+            <iframe
+              title={c.unboxingTitle}
+              src="https://www.instagram.com/reel/DepBjEbBl9P/embed/"
+              allow="autoplay; encrypted-media; picture-in-picture"
+              loading="lazy"
+              scrolling="no"
+            />
+          </div>
+          <div className="em-camera-kit__unboxing-copy">
             <small>{c.unboxingEyebrow}</small>
             <strong>{c.unboxingTitle}</strong>
             <span>{c.unboxingCopy}</span>
-          </span>
-          <span className="em-camera-kit__unboxing-action">{c.unboxingAction} <span aria-hidden="true">↗</span></span>
-        </a>
+            <a href="https://www.instagram.com/reel/DepBjEbBl9P/" target="_blank" rel="noreferrer" data-cta={`camera_kit_unboxing_${locale}`}>
+              {c.unboxingAction} <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </section>
 
         <details className="em-camera-kit__method">
           <summary data-cta={`camera_kit_method_${locale}`}>
