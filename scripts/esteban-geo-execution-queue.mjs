@@ -15,10 +15,17 @@ const parse = (argv) => ({ graph: arg("graph", argv) || defaults.graph, state: a
 const load = async (path, fallback = {}) => { try { return JSON.parse(await readFile(path, "utf8")); } catch (e) { if (e.code === "ENOENT") return fallback; throw e; } };
 async function atomic(path, value) { await mkdir(dirname(path), { recursive: true }); const tmp = `${path}.${process.pid}.tmp`; await writeFile(tmp, `${JSON.stringify(value, null, 2)}\n`, { mode: 0o600 }); await rename(tmp, path); }
 const ageDays = (then, now) => (Date.parse(now) - Date.parse(then)) / 86400000;
+export const EXECUTOR_ACCEPTANCE = "In an isolated worktree, invoke cto-dispatch, run the project checks, obtain independent review, open a PR, merge only after gates, verify production, and write an outcome ledger row. Do not self-publish content.";
+
+function successfulDispatch(previous, clusterId) {
+  const receipt = previous.dispatched?.[clusterId];
+  return receipt?.status === "dispatched" && Number.isFinite(Date.parse(receipt.at)) ? receipt : null;
+}
+
 export function eligible(cluster, previous, now) {
   if (cluster.proposed_action !== "improve_existing" || cluster.state !== "unmeasured_outcome" || (cluster.missing_edges || []).length) return false;
-  const prior = previous.dispatched?.[cluster.cluster_id];
-  return !prior || prior.status !== "dispatched" || ageDays(prior.at, now) >= 28;
+  const prior = successfulDispatch(previous, cluster.cluster_id);
+  return !prior || ageDays(prior.at, now) >= 28;
 }
 export function choose(graph, previous, now) { return (graph.clusters || []).find((cluster) => eligible(cluster, previous, now)) || null; }
 function brief(cluster, now) {
@@ -28,14 +35,18 @@ function brief(cluster, now) {
     evidence: { demand: cluster.edges?.demand, coverage: cluster.edges?.coverage, conversion_route: cluster.edges?.conversion_route,
       citation_observation: market.citation_observation, serp_observation: market.serp_observation,
       citation_domains: (market.winning_domains || []).map((x) => x.domain) },
-    constraints: ["Edit only the existing target or its source-bound internal links.", "Do not invent prices, credentials, outcomes, client proof, rankings, or citations.", "Use cto-dispatch in an isolated worktree; tests, independent review, PR, deploy and production verification are required.", "Record outcome separately; source readiness is not an outcome."],
+    constraints: ["Edit only the existing target or its source-bound internal links.", "Do not invent prices, credentials, outcomes, client proof, rankings, or citations.", "Record outcome separately; source readiness is not an outcome."],
+    executor_acceptance: EXECUTOR_ACCEPTANCE,
     acceptance: "Raw production HTML preserves the answer/contact path; source-backed query-to-page evidence and an outcome ledger row exist." };
 }
 export async function run(options = parse()) {
   const graph = await load(options.graph); const previous = await load(options.state, { dispatched: {} });
   const cluster = choose(graph, previous, options.now);
-  const receipt = cluster ? { ...brief(cluster, options.now), status: "eligible", dispatched: previous.dispatched || {} } :
-    { schema: SCHEMA, generated_at: options.now, mode: "governed-execution-brief", status: "no_eligible_candidate", dispatched: previous.dispatched || {} };
+  const dispatches = previous.dispatched || {};
+  const receipt = cluster ? { ...brief(cluster, options.now), status: "eligible", dispatched: dispatches,
+    selector_receipt: { status: "eligible", at: options.now, cluster_id: cluster.cluster_id, note: "Selection is not a successful dispatch receipt." } } :
+    { schema: SCHEMA, generated_at: options.now, mode: "governed-execution-brief", status: "no_eligible_candidate", dispatched: dispatches,
+      selector_receipt: { status: "no_eligible_candidate", at: options.now } };
   await atomic(options.state, receipt); return receipt;
 }
 if (import.meta.url === `file://${process.argv[1]}`) run().then((x) => console.log(JSON.stringify({ status: x.status, cluster_id: x.cluster_id || null, target: x.target || null }, null, 2))).catch((e) => { console.error(e.stack || e.message); process.exitCode = 1; });
