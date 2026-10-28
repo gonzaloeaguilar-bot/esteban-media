@@ -459,17 +459,20 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
   const creatorFilm = locale === "es"
     ? { label: "¿También necesitas grabar?", title: "Grabemos tu contenido", lead: "Traes la idea. Yo grabo material para Reels, Shorts y tu próxima edición.", action: "Cotizar día de grabación" }
     : { label: "Need a filming day too?", title: "Film content with me", lead: "Bring the idea. I capture usable footage for Reels, Shorts, and your next edit.", action: "Quote a filming day" };
-  const celebrationPrice = priceFor("presencia-local");
-  const celebrationPriceText = celebrationPrice.kind === "from"
-    ? `${c.from} ${usd(celebrationPrice.amount)}${c.units["production-day"]}`
-    : c.singleQuoted;
   const privateCelebrations = locale === "es"
     ? {
         label: "Celebraciones sociales",
         title: "Fiestas y celebraciones",
-        price: celebrationPriceText,
+        price: `Desde ${usd(CREW_RECORDING_RATES.solo.halfDay)} · hasta 4 horas`,
         lead: "Video de tu celebración para compartirlo y recordarlo.",
-        details: ["Cumpleaños, quinceañeras, graduaciones y reuniones familiares", "Bautizos, baby showers, aniversarios, propuestas y despedidas", "El alcance, traslado y entregables se confirman en tu cotización"],
+        packagesLabel: "Ver paquetes y precios",
+        selectedPackagePrefix: "Me interesa:",
+        packages: [
+          { name: "Cobertura esencial", price: `${usd(CREW_RECORDING_RATES.solo.halfDay)} · hasta 4 horas`, includes: "Esteban, cámara 4K y audio para captar los momentos clave.", whatsapp: "Cobertura esencial ($400, hasta 4 horas)" },
+          { name: "Día completo", price: `${usd(CREW_RECORDING_RATES.solo.fullDay)} · hasta 8 horas`, includes: "Esteban, cámara 4K y audio para cubrir la celebración completa.", whatsapp: "Día completo ($800, hasta 8 horas)" },
+          { name: "Equipo de evento", price: `${usd(CREW_RECORDING_RATES.twoPerson.fullDay)} · hasta 8 horas`, includes: "Dos personas: cámara 4K y creador de contenido para clips verticales durante el evento.", whatsapp: "Equipo de evento ($1,280, hasta 8 horas)" },
+        ],
+        packageNote: "La edición final, el traslado y cualquier extra se confirman por escrito antes de reservar.",
         quote: "Cotizar mi celebración",
         guide: "Ver guía de fiestas privadas",
         guideHref: "/es/videografo-para-fiestas-privadas-sur-de-florida",
@@ -478,9 +481,16 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
     : {
         label: "Social celebrations",
         title: "Parties and celebrations",
-        price: celebrationPriceText,
+        price: `From ${usd(CREW_RECORDING_RATES.solo.halfDay)} · up to 4 hours`,
         lead: "Video of your celebration to share and remember.",
-        details: ["Birthdays, quinceañeras, graduations, and family reunions", "Baptisms, baby showers, anniversaries, proposals, and send-offs", "Scope, travel, and deliverables are confirmed in your quote"],
+        packagesLabel: "See packages and pricing",
+        selectedPackagePrefix: "I'm interested in:",
+        packages: [
+          { name: "Essential coverage", price: `${usd(CREW_RECORDING_RATES.solo.halfDay)} · up to 4 hours`, includes: "Esteban, a 4K camera, and audio to capture the key moments.", whatsapp: "Essential coverage ($400, up to 4 hours)" },
+          { name: "Full day", price: `${usd(CREW_RECORDING_RATES.solo.fullDay)} · up to 8 hours`, includes: "Esteban, a 4K camera, and audio for the full celebration.", whatsapp: "Full day ($800, up to 8 hours)" },
+          { name: "Event crew", price: `${usd(CREW_RECORDING_RATES.twoPerson.fullDay)} · up to 8 hours`, includes: "Two people: a 4K camera and content creator for vertical clips during the event.", whatsapp: "Event crew ($1,280, up to 8 hours)" },
+        ],
+        packageNote: "Final editing, travel, and any extras are confirmed in writing before booking.",
         quote: "Quote my celebration",
         guide: "Read the private-party guide",
         guideHref: "/services/private-party-videographer-south-florida",
@@ -571,26 +581,32 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                     return <li key={item.id}><details className="em-single-item" data-service={item.id} name={`route-service-${locale}-${route.id}`} onToggle={keepChoiceVisible}><summary data-cta={`home_path_${route.id}_${item.id}`}><Image className="em-single-thumb" src={scene.image} alt={c.thumbAlt(item.title)} width={96} height={64} sizes="64px" /><span className="em-single-text"><span className="em-single-title">{item.title}</span><span className="em-single-price">{price}</span>{item.note && <span className="em-single-note">{item.note}</span>}</span><Plus className="em-single-plus" size={18} aria-hidden="true" /></summary><div className="em-single-panel"><p><strong>{c.singleSend}.</strong> {scene.preparation}</p><div className="em-single-actions"><button type="button" className="em-single-ask" onClick={() => openFunnel(route.id, `${routeText.title}: ${item.title}`, price)}>{c.singleAsk}</button>{item.href && <Link href={item.href} className="em-single-service">{c.singleService}</Link>}</div></div></details></li>;
                   })}</ul></>}
                   {route.id === "editing" && <><div className="mt-5"><StarterOptions locale={locale} quiet /></div><p className="em-route-card__label mt-5">{creatorFilm.label}</p><ul className="em-path-offers grid grid-cols-1 gap-2.5" role="list" data-lane="creator-filming"><li className="em-path-offer rounded-xl border border-[#d6cabc] bg-white overflow-hidden"><details className="em-path-offer-details group/offer" name={`route-creator-filming-${locale}`} onToggle={keepChoiceVisible}><summary className="p-3.5 cursor-pointer list-none [&::-webkit-details-marker]:hidden"><p className="em-path-offer-head flex items-baseline justify-between gap-2 m-0"><strong className="em-path-offer-name">{creatorFilm.title}</strong><span className="em-path-offer-price">{`${c.singleFrom} ${usd(ON_LOCATION_CAPTURE.from)}${c.singleHalfDay}`}</span></p><p className="em-path-offer-inc">{creatorFilm.lead}</p><span className="mt-3 pt-2.5 border-t border-[#f0eae1] flex items-center gap-1 text-xs font-medium text-[#6a625a]">{locale === "es" ? "Ver qué enviar" : "See what to send"}<ChevronDown className="size-3.5 transition-transform group-open/offer:rotate-180" /></span></summary><div className="px-3.5 pb-3.5 pt-2 border-t border-[#f0eae1] bg-[#fffaf4] text-xs text-[#3a3530]"><p className="m-0 text-sm leading-6"><strong>{c.singleSend}.</strong> {aLaCarteVisual("grabacion", locale).preparation}</p><button type="button" className="em-route-choose" onClick={() => openFunnel(route.id, `${routeText.title}: ${creatorFilm.title}`, `${c.singleFrom} ${usd(ON_LOCATION_CAPTURE.from)}${c.singleHalfDay}`)}>{creatorFilm.action}<ArrowRight size={15} /></button></div></details></li></ul><details className="em-route-terms" onToggle={keepChoiceVisible}><summary>{editingProject.title}</summary><p>{editingProject.lead}</p><button type="button" className="em-route-choose" onClick={() => openFunnel(route.id, `${routeText.title}: ${editingProject.title}`, c.singleQuoted)}>{editingProject.action}<ArrowRight size={15} /></button></details></>}
-                  {route.id === "production" && <section className="em-private-celebrations" aria-labelledby={`private-celebrations-${locale}`}>
-                    <p className="em-route-card__label mt-5">{privateCelebrations.label}</p>
-                    <details className="em-path-offer em-private-celebrations__card group/celebration" name={`route-private-celebrations-${locale}`} onToggle={keepChoiceVisible}>
-                      <summary className="p-3.5 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-                        <span className="em-private-celebrations__image"><Image src="/illustrations/private-celebration-illustration.png" alt={locale === "es" ? "Ilustración de una celebración privada de cumpleaños" : "Illustration of a private birthday celebration"} width={1122} height={1402} sizes="(max-width: 639px) 100vw, 640px" /></span>
-                        <p className="em-path-offer-head flex items-baseline justify-between gap-2 m-0"><strong id={`private-celebrations-${locale}`} className="em-path-offer-name">{privateCelebrations.title}</strong><span className="em-path-offer-price">{privateCelebrations.price}</span></p>
-                        <p className="em-path-offer-inc">{privateCelebrations.lead}</p>
-                        <span className="mt-3 pt-2.5 border-t border-[#f0eae1] flex items-center gap-1 text-xs font-medium text-[#6a625a]">{locale === "es" ? "Ver lo que incluye" : "See what is included"}<ChevronDown className="size-3.5 transition-transform group-open/celebration:rotate-180" /></span>
-                      </summary>
-                      <div className="px-3.5 pb-3.5 pt-2 border-t border-[#f0eae1] bg-[#fffaf4] text-xs text-[#3a3530]">
-                        <ul className="space-y-1.5" role="list">{privateCelebrations.details.map((item) => <li key={item} className="flex gap-2"><span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-[#9d3d2b]" /><span>{item}</span></li>)}</ul>
-                        <div className="em-private-celebrations__actions"><a href={whatsappHref(site.phone.e164, privateCelebrations.whatsapp)} target="_blank" rel="noopener noreferrer" data-cta={`home_private_celebrations_whatsapp_${locale}`} className="em-route-choose">{privateCelebrations.quote}<ArrowRight size={15} /></a><Link href={privateCelebrations.guideHref} className="em-private-celebrations__guide">{privateCelebrations.guide}</Link></div>
-                      </div>
-                    </details>
-                  </section>}
                   {route.id !== "editing" && <button type="button" className="em-route-main-cta" onClick={() => openFunnel(route.id, routeText.title, routePrice)}>{locale === "es" ? `Cotizar ${routeText.title}` : `Quote ${routeText.title}`}<ArrowRight size={18} /></button>}
                 </div>
               </details>
             );
           })}
+          <details className="em-route-card" data-route="private-celebrations" name={`home-route-${locale}`} onToggle={resetRouteWhenClosed}>
+            <summary data-cta={`home_project_route_${locale}_private-celebrations`}>
+              <span className="em-route-card__copy"><span className="em-route-card__eyebrow">{privateCelebrations.label}</span><strong id={`private-celebrations-${locale}`}>{privateCelebrations.title}</strong><span>{privateCelebrations.price}</span></span>
+              <span className="em-route-card__visual em-route-card__visual--private-celebrations" aria-hidden="true">
+                <Image className="em-route-card__private-celebrations-poster" src="/private-events/yacht-party-miami-poster.jpg" alt={locale === "es" ? "Yate navegando durante una celebración nocturna" : "Yacht moving during an evening celebration"} fill sizes="(max-width: 639px) 100vw, 1200px" />
+                <video className="em-route-card__private-celebrations-loop" src="/private-events/yacht-party-miami.mp4" autoPlay loop muted playsInline preload="auto" disablePictureInPicture tabIndex={-1} />
+              </span>
+              <Plus className="em-route-card__plus" size={22} aria-hidden="true" />
+            </summary>
+            <div className="em-route-card__body em-private-celebrations-card__body">
+              <p>{privateCelebrations.lead}</p>
+              <details className="em-private-celebrations__packages">
+                <summary>{privateCelebrations.packagesLabel}<ChevronDown className="size-4" aria-hidden="true" /></summary>
+                <ul className="em-path-offers" role="list">
+                  {privateCelebrations.packages.map((pkg) => <li key={pkg.name} className="em-path-offer"><p className="em-path-offer-head"><strong className="em-path-offer-name">{pkg.name}</strong><span className="em-path-offer-price">{pkg.price}</span></p><p className="em-path-offer-inc">{pkg.includes}</p><a href={whatsappHref(site.phone.e164, `${privateCelebrations.whatsapp} ${privateCelebrations.selectedPackagePrefix} ${pkg.whatsapp}.`)} target="_blank" rel="noopener noreferrer" data-cta={`home_private_celebrations_${locale}_${pkg.name.replace(/\s+/g, "-").toLowerCase()}`} className="em-private-celebrations__package-cta">{locale === "es" ? `Cotizar ${pkg.name}` : `Quote ${pkg.name}`}<ArrowRight size={15} /></a></li>)}
+                </ul>
+                <p className="em-private-celebrations__note">{privateCelebrations.packageNote}</p>
+              </details>
+              <div className="em-private-celebrations__actions"><a href={whatsappHref(site.phone.e164, privateCelebrations.whatsapp)} target="_blank" rel="noopener noreferrer" data-cta={`home_private_celebrations_whatsapp_${locale}`} className="em-route-choose">{privateCelebrations.quote}<ArrowRight size={15} /></a><Link href={privateCelebrations.guideHref} className="em-private-celebrations__guide">{privateCelebrations.guide}</Link></div>
+            </div>
+          </details>
         </div>
         <div className="mt-5 border-t border-[#ddd4c8] pt-5">
           <p className="text-sm leading-6 text-[#4d5358]">{locale === "es" ? "¿Tu proyecto no encaja en una de estas rutas? Cuéntame qué quieres crear y te preparo una cotización." : "Does your project not fit one of these routes? Tell me what you want to make and I will prepare a quote."}</p>

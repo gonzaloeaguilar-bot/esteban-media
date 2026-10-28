@@ -5,6 +5,11 @@ Branch `feat/personal-geo-guides-20261028` adds two EN/ES guide pairs: the first
 Local evidence: full `pnpm test` passed; `pnpm lint` had 0 errors and 22 existing warnings; `pnpm typecheck`, `pnpm build` (BUILD_ID `lRxkdZZ3tWzNbvIkJLIGM`), `pnpm rail-kit:check`, `pnpm rail-adoption:check`, `pnpm text-parity`, and `git diff --check` passed. Built raw HTML contains the EN and ES titles. A local browser read of the first EN guide confirmed answer-first copy, table of contents, bilingual route link, raw facts/links, and collapsed FAQs. This candidate has not been committed, reviewed, opened as a PR, deployed, or checked in production. Next verifier: `cto-qa-lead`.
 
 ---
+# 2026-10-28 — Camera Bench film-strip correction (local, ready for PR)
+
+- Owner rejected the tilted cream-paper camera cards as accidental-looking Polaroids. Branch `fix/camera-filmstrip-20261028` replaces only the desktop presentation with a straight, dark two-frame film strip and visible top/bottom sprocket holes. The confirmed Sony and Canon images, native specification disclosures, wording, and phone/tablet swipe shelf remain unchanged.
+- Local checks: focused camera-kit test `5/5`, full `pnpm test`, `pnpm typecheck`, `pnpm lint` (0 errors; 22 existing warnings), `pnpm build` (`BUILD_ID=3ao6XPl2Aquat59Q45DAS`), `pnpm rail-adoption:check` (`3/3`), and `git diff --check`. Local visual reads passed at `1440×900` and `390×844`: desktop frames are straight with sprockets; mobile remains a single clean swipe card with no horizontal page overflow.
+- Next: open the scoped PR, obtain the governed review, merge under the owner’s existing production authority, and re-read canonical phone and desktop rendering. No business effect is claimed.
 
 # 2026-10-28 — Desktop polaroid and player repair (PR #579, not production)
 

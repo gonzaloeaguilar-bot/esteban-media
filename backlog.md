@@ -5,6 +5,8 @@
 
 ## 2026-10-24 — Camera Bench and product-unboxing refresh
 
+- [x] Replace the rejected desktop tilted paper-camera cards with a straight film-strip presentation. Branch `fix/camera-filmstrip-20261028`: two frames, visible sprocket holes, no cream card border or rotation; local 1440×900 and 390×844 reads plus repository gates passed. Release verification remains open.
+
 - [x] Rework the homepage Camera Bench as a larger swipeable phone shelf, preserve native published-spec disclosures, and add the supplied product-unboxing Reel as a safe external Instagram action. Local evidence: `app/__tests__/camera-kit-method.test.ts`, typecheck, lint, and phone interaction check. Release verification remains open in [[esteban-camera-bench-unboxing-refresh-2026-10-24]].
 
 - [ ] `cto-qa-lead`: independently inspect the Camera Bench at 390x664, 390x844, and desktop; then open the release PR and verify the deployed Spanish and English homepages.
@@ -45,6 +47,8 @@
 - [ ] Release and verify the contextual `/es/areas` link from the Spanish editor-versus-videographer guide after sibling review; implementation and validation record: `.ai/internal-links-es-areas-2026-10-13.md`.
 
 # Esteban Moreno Media — Backlog
+
+- [ ] 2026-10-28: merge and production-verify homepage reel player repair in PR #591. The visible Great Reviewer card must mount the one muted looping YouTube player at phone width, show no simulated scrubber or second orange play control, and preserve the card’s details action. Record the canonical production URL and 390px rendered result before closing.
 
 - [ ] 2026-10-28: release `feat/commercial-geo-guides-20261028` only after a fresh governed independent review, complete build receipt, valid PR checks, and canonical mobile/desktop production verification. Re-measure the three exact GSC query×page cohorts after 28 days; no rank, citation, inquiry, or revenue result is assumed.
 

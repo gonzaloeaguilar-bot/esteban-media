@@ -1767,12 +1767,6 @@ div.relative:has(> .em-carousel-track) {
 .em-phone-video__screen { position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #000; }
 .em-cartel .rail-card[data-rail-phone-frame="true"] .rail-card__figure .em-phone-video__poster { position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important; max-height: none; object-fit: cover !important; }
 .em-phone-video__embed { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; pointer-events: none; }
-.em-phone-video__scrim { position: absolute; inset: 45% 0 0; background: linear-gradient(transparent, rgba(0, 0, 0, .78)); }
-.em-phone-video__controls { position: absolute; right: 10px; bottom: 8px; left: 10px; display: flex; align-items: center; gap: 7px; font-size: 8px; }
-.em-phone-video__play { display: grid; width: 20px; height: 20px; place-items: center; border-radius: 999px; background: rgba(255, 255, 255, .94); color: #111; }
-.em-phone-video__progress { display: block; flex: 1; height: 2px; overflow: hidden; background: rgba(255, 255, 255, .42); }
-.em-phone-video__progress > span { display: block; width: 36%; height: 100%; background: #e62b26; }
-.em-phone-video__time { font-variant-numeric: tabular-nums; }
 .em-phone-video__info { display: grid; align-content: start; gap: 5px; padding: 12px 14px; font-size: 10px; line-height: 1.25; }
 .em-phone-video__info strong { font-size: 12px; font-weight: 700; }
 .em-phone-video__info span { color: rgba(255, 255, 255, .58); }

@@ -75,6 +75,9 @@ export function PortfolioTeaser({ locale, source = "home_portfolio" }: Portfolio
   const isSpanish = locale === "es";
   const href = isSpanish ? "/es/portafolio" : "/portfolio";
   const reelHref = realEstateReelsPath(locale);
+  const unboxingHref = isSpanish
+    ? "/es/video-de-unboxing-y-demostracion-de-producto-south-florida"
+    : "/services/product-unboxing-demo-video-south-florida";
 
   if (items.length === 0) {
     return null;
@@ -148,12 +151,20 @@ export function PortfolioTeaser({ locale, source = "home_portfolio" }: Portfolio
                 // It is published on YouTube, not mirrored as a local MP4.
                 // Selecting it still opens the same in-place player sheet and
                 // starts the video immediately instead of navigating away.
-                embedUrl: "https://www.youtube-nocookie.com/embed/BDRru8eXaj4?autoplay=1&mute=1&playsinline=1&rel=0",
+                embedUrl: "https://www.youtube-nocookie.com/embed/BDRru8eXaj4?autoplay=1&mute=1&playsinline=1&loop=1&playlist=BDRru8eXaj4&rel=0",
                 // The card is deliberately an iPhone-shaped editorial tile,
                 // while the published review itself is a widescreen film.
                 playerAspect: "landscape" as const,
               };
-            }), ...REELS_IN_DISPLAY_ORDER.map((reel) => ({
+            }), {
+              id: "sony-alpha-7-iv-unboxing",
+              href: unboxingHref,
+              title: isSpanish ? "Unboxing Sony Alpha 7 IV" : "Sony Alpha 7 IV unboxing",
+              eyebrow: isSpanish ? "Unboxing de producto" : "Product unboxing",
+              poster: "/portfolio/sony-a7iv-unboxing.png",
+              posterAlt: isSpanish ? "Unboxing de una Sony Alpha 7 IV" : "Sony Alpha 7 IV unboxing",
+              phoneFrame: true,
+            }, ...REELS_IN_DISPLAY_ORDER.map((reel) => ({
               id: reel.id,
               href: reelHref,
               title: isSpanish ? reel.titleEs : reel.title,
@@ -210,7 +221,7 @@ export function PortfolioTeaser({ locale, source = "home_portfolio" }: Portfolio
                 // honest static source surface until an owner-approved MP4 is
                 // supplied.
                 embedUrl: item.media.kind === "youtube"
-                  ? `https://www.youtube-nocookie.com/embed/${item.media.videoId}?autoplay=1&mute=1&playsinline=1&rel=0`
+                  ? `https://www.youtube-nocookie.com/embed/${item.media.videoId}?autoplay=1&mute=1&playsinline=1&loop=1&playlist=${item.media.videoId}&rel=0`
                   : undefined,
                 videoSrc: item.media.kind === "video" ? item.media.src : undefined,
               };

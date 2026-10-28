@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 type Locale = "en" | "es";
@@ -6,7 +7,7 @@ const copy = {
   en: {
     eyebrow: "THE CAMERA BENCH",
     heading: "See the camera before the shoot starts.",
-    lead: "Explore the two camera bodies Esteban uses. Swipe between them, open a body for the published specs, then see a recent unboxing reel.",
+    lead: "Explore the two camera bodies Esteban uses. Swipe between them, open a body for the published specs, then see a recent unboxing.",
     kitTitle: "Camera bodies",
     kitHint: "Swipe to compare. Tap a body for published specs.",
     inspect: "Tap camera to inspect",
@@ -17,19 +18,20 @@ const copy = {
     canonName: "Canon EOS Rebel T5i",
     canonDetail: "18 MP APS-C sensor · Full HD 1080 recording",
     source: "Reference images and published specifications",
-    accessoriesEyebrow: "ON THE SET",
-    accessoriesTitle: "The accessories follow the shot.",
+    accessoriesEyebrow: "IN THE KIT",
+    accessoriesTitle: "The phone mount stays close.",
     accessoriesLead:
-      "A camera is only one part of the setup. Esteban brings the support and light the location needs, then keeps the working area focused on the person or product in front of the lens.",
-    accessoriesAction: "See how the setup stays practical",
+      "A compact mount keeps a phone above the camera when the shot calls for a second angle or a quick reference.",
+    accessoriesAction: "See the accessory in the setup",
     accessoriesDetail:
-      "The exact setup changes with the location, the available space and the kind of video. Before a shoot, the scope confirms what is needed so the day stays focused on the work, not a generic equipment list.",
+      "This Syncwire phone mount has two cold-shoe mounts, a standard tripod thread, and adjustable rotation and tilt. The exact setup still changes with the location and the shot.",
     accessoriesAlt:
-      "Esteban using a camera beside a lit product setup during a shoot",
-    unboxingEyebrow: "THE ACCESSORY SETUP",
-    unboxingTitle: "See the setup in action.",
-    unboxingCopy: "Support, light and a clean working area come together around the shot — without turning the page into a gear list.",
-    unboxingAction: "See how the setup works",
+      "Syncwire universal tripod phone mount with two cold-shoe mounts",
+    unboxingEyebrow: "UNBOXING",
+    unboxingTitle: "A closer look at the Sony Alpha 7 IV.",
+    unboxingCopy: "A look at the camera body Esteban uses in his work.",
+    unboxingAction: "Open the unboxing",
+    unboxingDetail: "This is a closer look at the camera body. The published specifications above remain the reference for the kit.",
     methodTitle: "Open the working method",
     methodHint: "Three clear decisions before the work begins.",
     steps: [
@@ -42,7 +44,7 @@ const copy = {
   es: {
     eyebrow: "LA MESA DE CÁMARA",
     heading: "Mira la cámara antes de empezar el rodaje.",
-    lead: "Explora los dos cuerpos de cámara que usa Esteban. Desliza entre ellos, abre uno para ver las especificaciones publicadas y mira un unboxing reciente.",
+    lead: "Explora los dos cuerpos de cámara que usa Esteban. Desliza entre ellos, abre uno para ver las especificaciones publicadas y mira un unboxing.",
     kitTitle: "Cuerpos de cámara",
     kitHint: "Desliza para comparar. Toca un cuerpo para ver las especificaciones.",
     inspect: "Toca la cámara para ver",
@@ -53,19 +55,20 @@ const copy = {
     canonName: "Canon EOS Rebel T5i",
     canonDetail: "Sensor APS-C de 18 MP · grabación Full HD 1080",
     source: "Imágenes de referencia y especificaciones publicadas",
-    accessoriesEyebrow: "EN EL RODAJE",
-    accessoriesTitle: "Los accesorios siguen la toma.",
+    accessoriesEyebrow: "EN EL EQUIPO",
+    accessoriesTitle: "El soporte para teléfono se mantiene cerca.",
     accessoriesLead:
-      "La cámara es solo una parte del montaje. Esteban lleva el soporte y la luz que necesita la locación, y mantiene el espacio de trabajo enfocado en la persona o el producto frente al lente.",
-    accessoriesAction: "Mira cómo se mantiene práctico el montaje",
+      "Un soporte compacto mantiene un teléfono sobre la cámara cuando la toma necesita un segundo ángulo o una referencia rápida.",
+    accessoriesAction: "Mira el accesorio en el montaje",
     accessoriesDetail:
-      "El montaje exacto cambia según la locación, el espacio disponible y el tipo de video. Antes de grabar, el alcance confirma qué hace falta para que el día se enfoque en el trabajo, no en una lista genérica de equipo.",
+      "Este soporte Syncwire tiene dos monturas cold shoe, una rosca estándar para trípode y rotación e inclinación ajustables. El montaje exacto sigue cambiando según la locación y la toma.",
     accessoriesAlt:
-      "Esteban usando una cámara junto a un montaje de producto iluminado durante un rodaje",
-    unboxingEyebrow: "EL MONTAJE DE ACCESORIOS",
-    unboxingTitle: "Mira el montaje en acción.",
-    unboxingCopy: "El soporte, la luz y un espacio de trabajo limpio se organizan alrededor de la toma, sin convertir la página en una lista de equipo.",
-    unboxingAction: "Ver cómo funciona el montaje",
+      "Soporte universal Syncwire para teléfono y trípode con dos monturas cold shoe",
+    unboxingEyebrow: "UNBOXING",
+    unboxingTitle: "Un vistazo al Sony Alpha 7 IV.",
+    unboxingCopy: "Una mirada al cuerpo de cámara que Esteban usa en su trabajo.",
+    unboxingAction: "Abrir el unboxing",
+    unboxingDetail: "Este es un vistazo al cuerpo de cámara. Las especificaciones publicadas arriba siguen siendo la referencia del equipo.",
     methodTitle: "Abrir el método de trabajo",
     methodHint: "Tres decisiones claras antes de empezar.",
     steps: [
@@ -102,7 +105,7 @@ export function CameraKitMethod({ locale }: { locale: Locale }) {
             <p id={`camera-bodies-${locale}`}>{c.kitTitle}</p>
             <span>{c.kitHint}</span>
           </div>
-          <div className="em-camera-kit__models" aria-label={c.kitTitle}>
+          <div className="em-camera-kit__models em-camera-kit__filmstrip" aria-label={c.kitTitle}>
             <details className="em-camera-kit__model" name={`camera-kit-${locale}`}>
               <summary data-cta={`camera_kit_sony_${locale}`}>
                 {/* Manufacturer reference image: Sony Alpha 7 IV product page. */}
@@ -146,10 +149,10 @@ export function CameraKitMethod({ locale }: { locale: Locale }) {
 
         <details className="em-camera-kit__accessories">
           <summary data-cta={`camera_kit_accessories_${locale}`}>
-            <span className="em-camera-kit__accessories-stage" aria-hidden="true">
-              <span className="em-camera-kit__accessories-light" />
-              <span className="em-camera-kit__accessories-camera"><i /><b /></span>
-              <span className="em-camera-kit__accessories-phone" />
+            <span className="em-camera-kit__accessories-image">
+              {/* Product reference image: Syncwire Tripod Phone Mount, Amazon ASIN B0CNKG6JHY. */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="https://m.media-amazon.com/images/I/61AkmH5DXML._AC_SL1500_.jpg" alt={c.accessoriesAlt} />
             </span>
             <span className="em-camera-kit__accessories-copy">
               <small>{c.accessoriesEyebrow}</small>
@@ -160,6 +163,21 @@ export function CameraKitMethod({ locale }: { locale: Locale }) {
             <span className="em-camera-kit__accessories-mark" aria-hidden="true">+</span>
           </summary>
           <p>{c.accessoriesDetail}</p>
+        </details>
+
+        <details className="em-camera-kit__unboxing">
+          <summary data-cta={`camera_kit_unboxing_${locale}`}>
+            <span className="em-camera-kit__unboxing-preview">
+              <Image src="/portfolio/sony-a7iv-unboxing.png" alt={locale === "es" ? "Unboxing de una Sony Alpha 7 IV sobre una mesa de trabajo" : "Sony Alpha 7 IV unboxing on a work desk"} fill sizes="(max-width: 639px) 38vw, 42vw" />
+            </span>
+            <span className="em-camera-kit__unboxing-copy">
+              <small>{c.unboxingEyebrow}</small>
+              <strong>{c.unboxingTitle}</strong>
+              <span>{c.unboxingCopy}</span>
+              <em>{c.unboxingAction}</em>
+            </span>
+          </summary>
+          <p>{c.unboxingDetail}</p>
         </details>
 
         <details className="em-camera-kit__method">

@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "project": "esteban-media",
+  "intent": "Independently review the homepage Reel-card repair: when a supported video card reaches the visible rail it must show the real muted inline YouTube player and loop; the card must not render fabricated progress or duplicate play controls.",
+  "phase": "repair",
+  "brief": {
+    "visitor": "A prospective client viewing the selected-work reel carousel on a phone.",
+    "promise": "The first video visibly plays in place when it reaches the screen, with one clear way to open the full video.",
+    "primary_action": "Tap the reel card to open the existing full player sheet.",
+    "friction": "The live card displays static simulated controls on top of a real player, making the preview look paused and duplicating the play cue.",
+    "kpi": {
+      "outcome": "qualified project inquiry",
+      "event": "existing selected-work reel interaction",
+      "denominator": "selected-work carousel viewers",
+      "baseline": "UNKNOWN: no comparable production interaction-to-inquiry cohort was read for this repair.",
+      "evidence": "A fresh public 390x844 inspection found the duplicated cue and confirmed that the iframe mounts when the card enters view.",
+      "readout": "T+14",
+      "decision_rule": "Retain only if the production playback remains usable and the existing interaction is measurable without a visual regression."
+    },
+    "concept": {
+      "idea": "A real muted looping video preview inside the existing phone-shaped card.",
+      "brand_reason": "A production portfolio should show the actual motion rather than imitate player controls.",
+      "interaction": "The preview starts when the card becomes the visible carousel item; selecting the card keeps the existing full player sheet.",
+      "visible_response": "The live YouTube video replaces the still with no fabricated progress strip or second play control.",
+      "direct_path": "The existing in-page player sheet remains the direct full-video route.",
+      "alternatives": "No new control, no extra CTA, and no claim that playback produces inquiries."
+    },
+    "story": {
+      "opening": "The selected-work carousel reaches the Great Reviewer card.",
+      "action": "The card becomes the visible carousel item.",
+      "consequence": "The muted inline preview plays and loops.",
+      "next_step": "Tap the card to open the existing full player sheet."
+    },
+    "content": {
+      "visible": "Existing title, source label and category remain visible.",
+      "optional_html": "The existing full player sheet remains client-rendered after selection.",
+      "linked_depth": "The existing portfolio route remains the no-JavaScript fallback."
+    },
+    "references": {
+      "borrow": "Existing HomePortfolioRail, ReelFunnel and YouTube no-cookie embed.",
+      "avoid": "Simulated playback progress, decorative duplicate play buttons and static-only video cards."
+    },
+    "components": {
+      "reuse": "HomePortfolioRail, ReelFunnel and existing carousel analytics.",
+      "local_reason": "The displayed player and looping source are specific to supported video portfolio cards."
+    },
+    "verification": {
+      "rendered_states": "390x844 phone and desktop, with the lead card visible and after selection.",
+      "motion": "Muted inline autoplay when visible; no motion is required under reduced-motion preference.",
+      "accessibility_performance": "One interactive card path, no new button, no preloaded offscreen player.",
+      "raw_html": "The existing title/category and fallback route remain served in the card markup.",
+      "conversion_boundary": "Existing full-player and inquiry paths remain unchanged."
+    },
+    "reviewers": {
+      "craft": "Antigravity",
+      "behavior": "cto-qa-lead",
+      "outcome": "cto-product-lead at T+14 if comparable production events are available."
+    }
+  }
+}

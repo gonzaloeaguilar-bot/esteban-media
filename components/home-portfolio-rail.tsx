@@ -2,8 +2,6 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { Play } from "lucide-react";
-
 import { Rail, type RailItem } from "@/vendor/rail-kit";
 import { ReelFunnel, type ReelFunnelReel } from "@/components/reel-funnel";
 import { RAIL_LABELS_EN, RAIL_LABELS_ES } from "@/components/em-rails";
@@ -84,6 +82,11 @@ export function HomePortfolioRail({
       const item = id ? byId.get(id) : undefined;
       if (!item || (!item.videoSrc && !item.embedUrl) || !item.poster) return;
       event.preventDefault();
+      // The rail preview is an autoplaying YouTube iframe.  Leaving it mounted
+      // while the full player opens creates two players for the same video;
+      // iPhone can then leave the player the visitor tapped paused.  Tear down
+      // the preview first, so the user gesture creates one unambiguous player.
+      setLitId(null);
       setOpenReel({
         id: item.id,
         title: item.title,
@@ -171,6 +174,27 @@ export function HomePortfolioRail({
     typeof window !== "undefined" &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /** Safari can leave an embedded YouTube preview on its thumbnail even with
+      autoplay=1 when it first appears inside a horizontal scroller. Give the
+      muted preview the IFrame API and explicitly begin it after load. */
+  const previewUrl = (embedUrl: string) => {
+    if (typeof window === "undefined") return embedUrl;
+    const url = new URL(embedUrl);
+    url.searchParams.set("enablejsapi", "1");
+    url.searchParams.set("origin", window.location.origin);
+    return url.toString();
+  };
+
+  const startPreview = (iframe: HTMLIFrameElement) => {
+    const command = (func: "mute" | "playVideo") =>
+      iframe.contentWindow?.postMessage(
+        JSON.stringify({ event: "command", func, args: "" }),
+        "https://www.youtube-nocookie.com",
+      );
+    command("mute");
+    command("playVideo");
+  };
+
   const railItems: RailItem[] = items.map((item) => ({
     kind: "media",
     id: item.id,
@@ -236,20 +260,15 @@ export function HomePortfolioRail({
               {item.embedUrl && item.id === litId && !reduced ? (
                 <iframe
                   className="em-phone-video__embed"
-                  src={item.embedUrl}
+                  src={previewUrl(item.embedUrl)}
                   title={`${item.title} preview`}
                   allow="autoplay; encrypted-media; picture-in-picture"
                   tabIndex={-1}
+                  onLoad={(event) => startPreview(event.currentTarget)}
                 />
               ) : (
                 <Image src={item.poster} alt="" fill sizes="(min-width: 768px) 380px, 78vw" className="em-phone-video__poster" />
               )}
-              <span className="em-phone-video__scrim" />
-              <span className="em-phone-video__controls">
-                <span className="em-phone-video__play"><Play className="size-3 fill-current" /></span>
-                <span className="em-phone-video__progress"><span /></span>
-                <span className="em-phone-video__time">0:18</span>
-              </span>
             </span>
             <span className="em-phone-video__info">
               <strong>{item.title}</strong>
@@ -276,12 +295,6 @@ export function HomePortfolioRail({
           aria-hidden="true"
           className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent"
         />
-        <span
-          aria-hidden="true"
-          className="absolute bottom-3 right-3 grid size-10 place-items-center rounded-full bg-[var(--em-accent-ink)] text-white"
-        >
-          <Play className="size-4 fill-current" aria-hidden="true" />
-        </span>
       </>
     ) : undefined,
   }));
