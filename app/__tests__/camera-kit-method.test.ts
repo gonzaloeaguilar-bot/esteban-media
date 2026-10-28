@@ -25,7 +25,7 @@ describe("homepage camera kit and method", () => {
     expect(component).toContain('92650_original_local_1200x1050_v3_converted.webp');
     expect(component).toContain('8595B003-eos-rebel-t5i-primary');
     expect(component).toContain('Reference images and published specifications');
-    expect(component).toContain('className="em-camera-kit__models"');
+    expect(component).toContain('className="em-camera-kit__models em-camera-kit__filmstrip"');
     expect(component).toContain('className="em-camera-kit__model"');
     expect(component).toContain('name={`camera-kit-${locale}`}');
     expect(component).toContain('Swipe to compare. Tap a body for published specs.');
@@ -56,15 +56,11 @@ describe("homepage camera kit and method", () => {
     expect(spanishHome).toContain("Servicios a la carta, respuestas y más sobre Esteban");
   });
 
-  it("shows both camera references as desktop prints while preserving the smaller-screen swipe shelf", () => {
-    expect(styles).toContain("@media(min-width:1024px){.em-camera-kit__models{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))");
-    expect(styles).toContain(".em-camera-kit__model:first-child{transform:rotate(-1.1deg)}");
-    expect(styles).toContain(".em-camera-kit__model:nth-child(2){transform:rotate(1.1deg);margin-top:10px}");
-    expect(styles).toContain("border:8px solid #f7f0e6");
-    expect(styles).toContain("overflow:visible;padding:28px");
-    expect(styles).toContain("The phone-first refresh above intentionally owns the swipe shelf");
-    expect(styles).toContain(".em-camera-kit__model-name{min-height:82px;padding:14px 52px 16px 14px;background:#f7f0e6;color:#1b1b19}");
-    expect(styles).toContain(".em-camera-kit__model{flex-basis:calc(100% - 46px)");
-    expect(styles).toContain(".em-camera-kit__inspect-mark{top:17px;right:17px;bottom:auto");
+  it("uses a straight desktop film strip rather than tilted Polaroid-style prints", () => {
+    expect(component).toContain('className="em-camera-kit__models em-camera-kit__filmstrip"');
+    expect(styles).toContain(".em-camera-kit__filmstrip{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))");
+    expect(styles).toContain("radial-gradient(ellipse 4px 3px at 9px 7px,#c9c1b5 0 3px,transparent 3.4px)");
+    expect(styles).toContain(".em-camera-kit__filmstrip .em-camera-kit__model{width:100%;min-width:0;flex:none;overflow:hidden;border:0;border-radius:0;background:#0b0d0e");
+    expect(styles).toContain(".em-camera-kit__filmstrip .em-camera-kit__model:hover,.em-camera-kit__filmstrip .em-camera-kit__model:focus-within{transform:translateY(-4px)");
   });
 });
