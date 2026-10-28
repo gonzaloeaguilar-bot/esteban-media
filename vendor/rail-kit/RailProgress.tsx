@@ -14,6 +14,26 @@ export type RailProgressProps = {
   format?: (value: number, target: number) => ReactNode;
   /** A line under the bar — what happens when it fills. */
   note?: string;
+  /**
+   * A tick ON the bar, and what it is: where the day should be by now, last
+   * month's figure, the line a plan expects. Optional and off by default —
+   * when it is absent the bar's DOM is exactly what it always was, so a
+   * consumer's own CSS keeps working.
+   */
+  marker?: { value: number; label: string };
+  /**
+   * Drop the component's own head row — the label and the two figures — and
+   * render the track alone.
+   *
+   * ONLY INSIDE SOMETHING THAT ALREADY SAYS BOTH. A bar with no numbers is a
+   * feeling, and that rule does not stop applying because the bar moved: it
+   * moves to the container. In a `RailInsight` the tile carries the name
+   * ("Calories"), the window ("Today") and the figure ("1390 kcal"), so the
+   * fact is complete and repeating it inside the tile prints the word twice.
+   * Anywhere else this prop makes the meter unreadable, and the label still
+   * travels — it becomes the track's accessible name rather than disappearing.
+   */
+  bare?: boolean;
   source: string;
   className?: string;
 };
@@ -39,6 +59,8 @@ export default function RailProgress({
   target,
   format,
   note,
+  marker,
+  bare,
   source,
   className,
 }: RailProgressProps) {
@@ -52,7 +74,9 @@ export default function RailProgress({
     <section
       className={["rail-progress", className].filter(Boolean).join(" ")}
       data-rail-progress={source}
+      data-rail-bare={bare ? "" : undefined}
     >
+      {!bare && (
       <div className="rail-progress__head">
         <span className="rail-progress__label">{label}</span>
         <span className="rail-progress__value">
@@ -61,13 +85,42 @@ export default function RailProgress({
             : `${nf.format(safeValue)} / ${nf.format(safeTarget)}`}
         </span>
       </div>
-      <progress
-        className="rail-progress__bar"
-        value={safeValue}
-        max={safeTarget || 1}
-      >
-        {Math.round(pct)}%
-      </progress>
+      )}
+      {marker && safeTarget > 0 ? (
+        <span className="rail-progress__track">
+          <progress
+            className="rail-progress__bar"
+            aria-label={bare ? label : undefined}
+            value={safeValue}
+            max={safeTarget || 1}
+          >
+            {Math.round(pct)}%
+          </progress>
+          <span
+            className="rail-progress__marker"
+            style={{
+              insetInlineStart: `${
+                Math.min(Math.max(marker.value, 0), safeTarget) / safeTarget * 100
+              }%`,
+            }}
+            aria-hidden="true"
+          />
+          {/* Drawn above; said here, because a tick nobody can read is a
+              decoration on somebody else's data. */}
+          <span className="rail-sr-only">
+            {marker.label}: {nf.format(marker.value)}
+          </span>
+        </span>
+      ) : (
+        <progress
+          className="rail-progress__bar"
+          aria-label={bare ? label : undefined}
+          value={safeValue}
+          max={safeTarget || 1}
+        >
+          {Math.round(pct)}%
+        </progress>
+      )}
       {note && <p className="rail-progress__note">{note}</p>}
     </section>
   );

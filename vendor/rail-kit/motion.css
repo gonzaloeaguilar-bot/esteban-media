@@ -697,3 +697,18 @@
     transform: translateY(-7px) rotateX(2.2deg);
   }
 }
+
+/* Una palabra que aterriza. Finita y corta: un titular que sigue moviendose
+   despues de haberse leido es un titular que se vuelve a leer. El estado en
+   reposo es el visible, asi que con movimiento reducido no hay nada que
+   deshacer — basta con no arrancar la animacion. */
+@keyframes rail-inscribe {
+  /* NO ARRANCA EN INVISIBLE. Con relleno `both` cada vocablo se queda en el
+     fotograma inicial durante SU retardo, asi que un titular que empieza en
+     opacidad 0 pasa medio segundo ilegible — y la ultima palabra, la de mas
+     retardo, es la que mas aguanta. La puerta de axe lo midio en 1.95:1 sobre
+     papel, por debajo del 3:1 que pide el texto grande. Empieza tenue y
+     legible: el gesto es el mismo y no hay un instante sin contraste. */
+  from { opacity: 0.62; transform: translateY(0.18em); }
+  to { opacity: 1; transform: none; }
+}
