@@ -64,5 +64,7 @@ describe("homepage camera kit and method", () => {
     expect(styles).toContain("overflow:visible;padding:28px");
     expect(styles).toContain("The phone-first refresh above intentionally owns the swipe shelf");
     expect(styles).toContain(".em-camera-kit__model-name{min-height:82px;padding:14px 52px 16px 14px;background:#f7f0e6;color:#1b1b19}");
+    expect(styles).toContain(".em-camera-kit__model{flex-basis:calc(100% - 46px)");
+    expect(styles).toContain(".em-camera-kit__inspect-mark{top:17px;right:17px;bottom:auto");
   });
 });

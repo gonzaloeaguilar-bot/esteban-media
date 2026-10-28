@@ -124,9 +124,14 @@ for (const locale of ["en", "es"] as const) {
       expect(component).toContain('className="em-camera-chooser__dial"');
       expect(component).toContain('className="em-camera-chooser__shutter"');
       expect(component).toContain('className="em-camera-chooser__grip"');
-      expect(css).toContain(".em-camera-chooser__body{position:relative;min-height:196px");
-      expect(css).toContain(".em-camera-chooser__lens{position:absolute;top:30px;left:16px;width:112px;height:112px");
-      expect(css).toContain("@media(min-width:640px){.em-camera-chooser__body{min-height:222px");
+      expect(css).toContain(".em-camera-chooser{position:relative;width:100%;max-width:none");
+      expect(css).toContain(".em-camera-chooser__body{position:relative;min-height:218px");
+      expect(css).toContain(".em-camera-chooser__camera{position:absolute;inset:0;pointer-events:none}");
+      expect(css).toContain(".em-camera-chooser__lens{position:absolute;top:55px;left:25px;width:132px;height:132px");
+      expect(css).toContain("repeating-radial-gradient(ellipse at 18% 20%");
+      expect(css).toContain(".em-camera-chooser__dial{position:absolute;top:25px;right:88px;display:block");
+      expect(css).toContain(".em-camera-chooser__grip{position:absolute;right:-3px;bottom:20px;display:block");
+      expect(css).toContain("@media(min-width:640px){.em-camera-chooser__body{min-height:248px");
     });
 
     it("1b2a. lets the creator-card like send a contained burst of hearts upward", () => {
