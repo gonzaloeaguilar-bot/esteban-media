@@ -62,11 +62,11 @@ for (const locale of ["en", "es"] as const) {
       expect(celebrations).toContain(locale === "es" ? "$800 · hasta 8 horas" : "$800 · up to 8 hours");
       expect(celebrations).toContain(locale === "es" ? "$1,280 · hasta 8 horas" : "$1,280 · up to 8 hours");
       expect(celebrations).toContain(locale === "es" ? "La edición final, el traslado" : "Final editing, travel");
-      expect(celebrations).toContain('yacht-party-miami-boat-cover.jpg');
-      expect(celebrations).toContain('yacht-party-miami-boat-loop.mp4');
+      expect(celebrations).toContain('yacht-party-miami-skyline-cover.jpg');
+      expect(celebrations).toContain('yacht-party-miami-skyline-loop.mp4');
       expect(celebrations).toContain('autoPlay');
       expect(celebrations).toContain('playsInline');
-      expect(celebrations).toContain('poster="/private-events/yacht-party-miami-boat-cover.jpg"');
+      expect(celebrations).toContain('poster="/private-events/yacht-party-miami-skyline-poster.jpg"');
       expect(celebrations).toContain('disableRemotePlayback');
       expect(celebrations).toContain('class="em-route-card__visual em-route-card__visual--private-celebrations"');
       expect(celebrations).toContain('class="em-route-card__body em-private-celebrations-card__body"');

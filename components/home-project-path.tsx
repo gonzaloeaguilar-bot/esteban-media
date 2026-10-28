@@ -618,8 +618,8 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
             <summary data-cta={`home_project_route_${locale}_private-celebrations`}>
               <span className="em-route-card__copy"><span className="em-route-card__eyebrow">{privateCelebrations.label}</span><strong id={`private-celebrations-${locale}`}>{privateCelebrations.title}</strong><span>{privateCelebrations.price}</span></span>
               <span className="em-route-card__visual em-route-card__visual--private-celebrations" aria-hidden="true">
-                <Image className="em-route-card__private-celebrations-cover" src="/private-events/yacht-party-miami-boat-cover.jpg" alt={locale === "es" ? "Yate navegando con invitados durante una celebración nocturna" : "Yacht with guests during an evening celebration"} fill sizes="(max-width: 639px) 100vw, 1200px" priority />
-                <video ref={privateCelebrationVideoRef} className="em-route-card__private-celebrations-loop" src="/private-events/yacht-party-miami-boat-loop.mp4" autoPlay loop muted playsInline preload="auto" poster="/private-events/yacht-party-miami-boat-cover.jpg" disablePictureInPicture disableRemotePlayback tabIndex={-1} />
+                <Image className="em-route-card__private-celebrations-cover" src="/private-events/yacht-party-miami-skyline-cover.jpg" alt={locale === "es" ? "Vista nocturna del skyline de Miami desde la cubierta de un yate" : "Miami skyline at night seen from a yacht deck"} fill sizes="(max-width: 639px) 640px, 1200px" priority />
+                <video ref={privateCelebrationVideoRef} className="em-route-card__private-celebrations-loop" src="/private-events/yacht-party-miami-skyline-loop.mp4" autoPlay loop muted playsInline preload="auto" poster="/private-events/yacht-party-miami-skyline-poster.jpg" disablePictureInPicture disableRemotePlayback tabIndex={-1} />
               </span>
               <Plus className="em-route-card__plus" size={22} aria-hidden="true" />
             </summary>
