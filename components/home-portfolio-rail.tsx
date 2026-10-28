@@ -82,6 +82,11 @@ export function HomePortfolioRail({
       const item = id ? byId.get(id) : undefined;
       if (!item || (!item.videoSrc && !item.embedUrl) || !item.poster) return;
       event.preventDefault();
+      // The rail preview is an autoplaying YouTube iframe.  Leaving it mounted
+      // while the full player opens creates two players for the same video;
+      // iPhone can then leave the player the visitor tapped paused.  Tear down
+      // the preview first, so the user gesture creates one unambiguous player.
+      setLitId(null);
       setOpenReel({
         id: item.id,
         title: item.title,
