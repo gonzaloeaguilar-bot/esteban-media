@@ -63,5 +63,7 @@ describe("homepage camera kit and method", () => {
     expect(styles).toContain(".em-camera-kit__model:nth-child(2){transform:rotate(1.1deg);margin-top:10px}");
     expect(styles).toContain("border:8px solid #f7f0e6");
     expect(styles).toContain("overflow:visible;padding:28px");
+    expect(styles).toContain("The phone-first refresh above intentionally owns the swipe shelf");
+    expect(styles).toContain(".em-camera-kit__model-name{min-height:82px;padding:14px 52px 16px 14px;background:#f7f0e6;color:#1b1b19}");
   });
 });

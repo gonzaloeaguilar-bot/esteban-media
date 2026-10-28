@@ -147,6 +147,9 @@ export function PortfolioTeaser({ locale, source = "home_portfolio" }: Portfolio
                 // Selecting it still opens the same in-place player sheet and
                 // starts the video immediately instead of navigating away.
                 embedUrl: "https://www.youtube-nocookie.com/embed/BDRru8eXaj4?autoplay=1&mute=1&playsinline=1&rel=0",
+                // The card is deliberately an iPhone-shaped editorial tile,
+                // while the published review itself is a widescreen film.
+                playerAspect: "landscape" as const,
               };
             }), ...REELS_IN_DISPLAY_ORDER.map((reel) => ({
               id: reel.id,

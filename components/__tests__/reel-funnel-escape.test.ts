@@ -20,6 +20,10 @@ describe("ReelFunnel exit path", () => {
     expect(css).toContain("grid-template-columns: minmax(0, 1.35fr) minmax(340px, .85fr)");
     expect(css).toContain(".em-funnel__video {");
     expect(css).toContain("iframe.em-funnel__video { border: 0; }");
+    expect(source).toContain('aspect?: "landscape"');
+    expect(source).toContain('em-funnel__media--landscape');
+    expect(source).toContain('em-funnel__panel--landscape');
+    expect(css).toContain("aspect-ratio: 16 / 9");
     expect(css).toContain("object-fit: contain");
     expect(css).toContain(".em-funnel__ask {");
     expect(css).toContain("overflow: auto");

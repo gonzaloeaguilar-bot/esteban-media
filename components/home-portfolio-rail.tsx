@@ -32,6 +32,8 @@ export type HomePortfolioCard = {
   videoSrc?: string;
   /** A published YouTube reel: opens in the same player sheet as local MP4s. */
   embedUrl?: string;
+  /** The player respects the film's own frame independently of its card shell. */
+  playerAspect?: "landscape";
   href: string;
   title: string;
   eyebrow: string;
@@ -81,6 +83,7 @@ export function HomePortfolioRail({
         title: item.title,
         src: item.videoSrc,
         embedUrl: item.embedUrl,
+        aspect: item.playerAspect,
         poster: item.poster,
       });
     }
@@ -277,6 +280,7 @@ export function HomePortfolioRail({
           title: i.title,
           src: i.videoSrc,
           embedUrl: i.embedUrl,
+          aspect: i.playerAspect,
           poster: i.poster!,
         }))}
       locale={locale}
