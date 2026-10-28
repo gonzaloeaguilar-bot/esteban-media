@@ -1,3 +1,11 @@
+# 2026-10-28 — Desktop polaroid and player repair (PR #579, not production)
+
+- Commit `27ed763f` repairs two visual regressions found during the follow-up desktop/tablet pass: the camera contact sheet's late phone styles had erased the intended paper prints and left dark title text on dark cards; the Great Reviewer widescreen YouTube source was filling a tall vertical desktop canvas with black.
+- The desktop Camera Bench now reasserts the two paper-reference prints after phone-first rules. The Great Reviewer source retains its iPhone-shaped carousel card but opens in a 16:9 in-place desktop player; the call-to-action column scrolls independently when needed.
+- Local evidence: focused tests 10/10, typecheck, `pnpm build` (`BUILD_ID=l8bU0B_hbhdIkcSNQkCuv`) and diff check passed. Browser pass at 1440×900 verified closed/open camera states and the running muted player; 1180×820, 1024×768 and 834×1194 were also inspected. Push this commit to PR #579, await terminal remote checks and independently verify the deployed canonical page before calling any of it production.
+
+---
+
 # 2026-10-28 — Great Reviewer carousel autoplay and phone-frame consistency (PR #579, not production)
 
 - The homepage work rail now treats every vertical property Reel and the featured The Great Reviewer iPhone Reel as an explicit phone-framed card. The seven property clips already carry local MP4 sources; The Great Reviewer is a published YouTube video, so its previous click followed the fallback portfolio link instead of opening the player.
