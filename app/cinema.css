@@ -2476,6 +2476,7 @@ iframe.em-funnel__video { border: 0; }
 }
 .em-funnel__need {
   display: inline-flex;
+  width: 100%;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -2488,6 +2489,8 @@ iframe.em-funnel__video { border: 0; }
   font-size: 13.5px;
   line-height: 1.25;
   font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
 }
 /* All four the same size, in a 2x2. The first keeps the accent so it still
    reads as the likely answer, but it no longer spans the row: spanning left
@@ -2746,6 +2749,59 @@ iframe.em-funnel__video { border: 0; }
   padding-top: 16px;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
+.em-funnel__form,
+.em-funnel__result { margin-top: 8px; }
+.em-funnel__selection {
+  margin: 14px 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--cine-accent-soft);
+}
+.em-funnel__field {
+  display: grid;
+  gap: 6px;
+  margin-top: 12px;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 12px;
+  font-weight: 700;
+}
+.em-funnel__field input {
+  min-width: 0;
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: 8px;
+  background: #15171a;
+  color: #fff;
+  font: inherit;
+}
+.em-funnel__field input:focus-visible,
+.em-funnel__need:focus-visible,
+.em-funnel__primary:focus-visible,
+.em-funnel__secondary:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.em-funnel__actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin-top: 18px;
+}
+.em-funnel__primary,
+.em-funnel__secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 14px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font: 700 14px/1 var(--font-geist-sans), sans-serif;
+  text-align: center;
+  cursor: pointer;
+}
+.em-funnel__primary { background: var(--cine-accent); color: #fff; }
+.em-funnel__primary:disabled { cursor: wait; opacity: 0.7; }
+.em-funnel__secondary { border-color: rgba(255, 255, 255, 0.3); background: transparent; color: #fff; }
+.em-funnel__error { margin: 16px 0; color: var(--cine-accent-soft); font-size: 14px; line-height: 1.45; }
 .em-funnel__more-h {
   margin: 0 0 10px;
   font-size: 12px;
@@ -2815,8 +2871,12 @@ iframe.em-funnel__video { border: 0; }
   .em-funnel__panel {
     display: grid;
     grid-template-columns: minmax(0, 1.35fr) minmax(340px, .85fr);
+    /* Give both columns one bounded player row. Without an explicit row, the
+       right-hand shelf determines its height and a portrait player can end up
+       anchored at the bottom of a large, empty black field. */
+    grid-template-rows: minmax(0, min(760px, calc(100dvh - 56px)));
     width: min(1080px, 100%);
-    max-height: min(760px, calc(100dvh - 56px));
+    height: min(760px, calc(100dvh - 56px));
     overflow: hidden;
   }
   /* The review is a true widescreen film. Give its shared grid row a film
@@ -2825,6 +2885,7 @@ iframe.em-funnel__video { border: 0; }
      scrollable for the extra work. */
   .em-funnel__panel--landscape {
     grid-template-rows: minmax(0, min(42dvh, 420px));
+    height: min(42dvh, 420px);
   }
   .em-funnel__media {
     grid-column: 1;
@@ -2834,6 +2895,15 @@ iframe.em-funnel__video { border: 0; }
     max-height: none;
     min-height: 0;
     aspect-ratio: auto;
+  }
+  /* Portrait footage remains a tall, centred picture inside the deliberate
+     dark player field. The media wrapper, not only its nested <video>, owns
+     the grid cell; this avoids the implicit-grid placement that caused the
+     footage to fall to the bottom of the desktop sheet. */
+  .em-funnel__media:not(.em-funnel__media--landscape) {
+    justify-self: center;
+    width: auto;
+    aspect-ratio: 9 / 16;
   }
   .em-funnel__video { object-fit: contain; }
   /* A landscape published film must not inherit the tall Reel canvas. It is
