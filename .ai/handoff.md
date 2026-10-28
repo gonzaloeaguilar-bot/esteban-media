@@ -728,3 +728,8 @@ Configuration-gated conversion-observability implementation is present locally, 
 - The supplied `https://link.amazon/B0f98xMnt` returned HTTP 404, so no Amazon/product button is in the implementation. The supplied photo is a reference only and is not shipped.
 - Checks: focused 4/4, `pnpm test` 178 files / 3,698 tests, typecheck, lint 0 errors / 22 existing warnings, analytics gate PASS, and a successful second `pnpm build` (608 pages). Local raw EN/ES HTML and desktop/390×844 interaction were checked.
 - No commit, PR, merge, deployment or independent review. Next: obtain a scoped independent review; then commit, PR, merge and canonical production phone/desktop proof. Durable record: `[[esteban-accessory-setup-candidate-2026-10-28]]`.
+# 2026-10-28 — Visible full-card camera leatherette (local, ready for PR)
+
+- Owner correctly flagged that the released procedural pattern was technically present but visually imperceptible. This candidate replaces it with one compressed 720×480 WebP leatherette material, repeated across the entire chooser body on every breakpoint. The existing light sweep is deliberately reduced so the material stays visible behind the lens, copy and right-side controls.
+- Local checks: `pnpm test` passed 180 files / 3,728 tests; `pnpm typecheck` and `git diff --check` passed. The material file is 100 KB, rather than shipping a multi-megabyte source texture. The local dev server returned HTTP 200 for the page; browser transport is unavailable from this isolated server and therefore is not recorded as visual proof.
+- Next: push the scoped branch, merge under the owner's existing production authority, then read the canonical desktop and phone renders to verify that the physical surface is visible and text remains legible.
