@@ -124,6 +124,25 @@ function existingRelevantTarget(row) {
 
 function number(value) { const parsed = Number(value); return Number.isFinite(parsed) ? parsed : 0; }
 
+function queryTokens(value) {
+  const stop = new Set(["de", "del", "el", "en", "for", "in", "la", "miami", "para", "the", "video"]);
+  return new Set(String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()
+    .match(/[a-z0-9]+/g)?.filter((token) => token.length > 2 && !stop.has(token)) || []);
+}
+
+function semrushMatch(semrush, query) {
+  const exact = semrush.get(query.toLowerCase());
+  if (exact) return { ...exact, match: "exact_query" };
+  const wanted = queryTokens(query);
+  let best = null;
+  for (const [keyword, row] of semrush) {
+    const shared = [...wanted].filter((token) => queryTokens(keyword).has(token)).length;
+    if (shared < 2) continue;
+    if (!best || shared > best.shared || (shared === best.shared && String(row.run_date || "") > String(best.row.run_date || ""))) best = { keyword, row, shared };
+  }
+  return best ? { ...best.row, matched_keyword: best.keyword, match: "topic_overlap" } : null;
+}
+
 function parseSemrush(text) {
   const latestByKeyword = new Map();
   for (const line of text.trim().split("\n")) {
@@ -158,7 +177,7 @@ export function buildCandidates(rows, guideSet, semrush, citation) {
     const key = `${row.lang}:${slug}`;
     if (!slug || seen.has(key) || guideSet.has(slug)) return null;
     seen.add(key);
-    const semrushRow = semrush.get(row.query.toLowerCase());
+    const semrushRow = semrushMatch(semrush, row.query);
     const volume = number(semrushRow?.search_volume);
     const difficulty = number(semrushRow?.keyword_difficulty);
     const score = number(row.score) + Math.min(volume, 500) / 20 + Math.max(0, 35 - difficulty) / 10;
@@ -167,7 +186,7 @@ export function buildCandidates(rows, guideSet, semrush, citation) {
     return {
       score: Number(score.toFixed(2)), query: row.query, areaTier,
       status: row.status, intent: row.intent || "unknown", language: row.lang || "es", place: row.place || null,
-      source: { coverageDate: row.coverage_date || null, sources: row.sources, gscImpressions: number(row.gsc_impr), gscPosition: row.gsc_pos || null, sourceUrl: row.gsc_page || row.best_page || null, semrushUi: semrushRow ? { runDate: semrushRow.run_date, volume, difficulty, url: semrushRow.url || null } : null, citation },
+      source: { coverageDate: row.coverage_date || null, sources: row.sources, gscImpressions: number(row.gsc_impr), gscPosition: row.gsc_pos || null, sourceUrl: row.gsc_page || row.best_page || null, semrushUi: semrushRow ? { runDate: semrushRow.run_date, volume, difficulty, url: semrushRow.url || null, matchedKeyword: semrushRow.matched_keyword || semrushRow.keyword || row.query, match: semrushRow.match, serp_features: String(semrushRow.serp_features || semrushRow.serp_features_by_keyword || "").split(",").map((item) => item.trim()).filter(Boolean) } : null, citation },
       action: existingTarget ? "improve_existing" : "new_guide_draft",
       target: existingTarget || `/es/guias/${slug}`,
       question: frame.question, ssrOutline: frame.outline, storyHook: frame.story,

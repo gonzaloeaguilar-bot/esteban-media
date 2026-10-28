@@ -1,6 +1,6 @@
 {
   "repo": "gonzaloeaguilar-bot/rail-kit",
-  "ref": "b7d62ca01c0078031d90a9e6afd6e568ca4be457",
+  "ref": "85006c6c410fed1057f6bf900043976f799f4b2f",
   "vendorPath": "vendor/rail-kit",
   "files": {
     "Rail.tsx": "58dbed9c5a7803e79094f7e53019cc96e1579135a336725295cc11c66cbca3b2",
@@ -13,7 +13,7 @@
     "RailBottomNav.tsx": "ebbb5032cfa1dc9ee4bb2ead9b5874c27cc622b2c1a264131dbb58e56dca61bd",
     "RailBrandCard.tsx": "b367bc108924b4e17161ce439653b8e00052dd452dfacbad48f4f59f780b1a49",
     "RailByline.tsx": "26ca623557847cfa740c54621cfecc4df59d24dcfd4a0a654398e29ad05df927",
-    "RailCard.tsx": "9c0a1a0ccc210a3ef4085a32503a313b6969f4afe8361b6389c1492649aa038c",
+    "RailCard.tsx": "1f9abe4619d2e81185f9413011a8caf71feb3db029a357ed03d218290994441f",
     "RailCoachmark.tsx": "e6eb24a31ce8345a0fa986a0dce4a171cb8c2987eee166038caae6b9f2eafbcd",
     "RailConfetti.tsx": "7768cffe4c80325149db2d96eb7ce2b7b8494a26da34d8592a3c1825c52b2576",
     "RailControls.tsx": "61fbba10daebd08c1fec33c20e94749ece2966d0ea2ca58c8abbf551a7242426",
@@ -101,7 +101,7 @@
     "rail.css": "b056bf00e5dd9a1eb090d8ea98f2d8fffe864c1c8684a20f19d3e63368cb9557",
     "seeded.ts": "2c6af9e4546a463996c9e915b4fcab1085cb328e8803c853e73baff5f3d96159",
     "telemetry.ts": "1358b5e08b12dfb45226c6498f11afc55566f7e042ab2776f567d6874f84657f",
-    "types.ts": "ac33e7e40c63b5918f37607e927b319784dbe7705e15bf240c73b0fdef1ee174",
+    "types.ts": "0c2ff15e9b6ecca13c40f4d5a9b5e5f424782976e4db35937d0bdc472976092c",
     "index.ts": "5ab5f52648966821be9a80dcf3c468844698128a5cd96bc3d5b38ab04a28b488"
   }
 }

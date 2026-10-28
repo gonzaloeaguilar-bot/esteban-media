@@ -1,0 +1,55 @@
+{
+  "project": "esteban-media",
+  "mode": "pr",
+  "target_type": "pr",
+  "target_id": "PR-574",
+  "requires_pr": true,
+  "goal": "Release the bounded, draft-only local-commercial market-ownership graph and repair the pre-existing shared rail integrity lock.",
+  "summary": "Adds source-bound market ownership edges from dated citation, Semrush UI, and SERP observations while retaining unknown evidence as unmeasured. Includes only deterministic generated-baseline and shared-vendor lock corrections needed for the complete release gate.",
+  "risk": "Low: graph scripts are draft-only and do not publish pages, make recommendations, or alter production behavior; lock and fixture updates are deterministic integrity records.",
+  "changed_paths": [
+    "scripts/esteban-geo-intelligence-graph.mjs",
+    "scripts/esteban-geo-intelligence-graph.test.mjs",
+    "scripts/esteban-demand-content-farm.mjs",
+    "scripts/esteban-demand-content-farm.test.mjs",
+    "docs/geo-intelligence-graph-pilot.md",
+    "docs/geo-market-ownership-extension.md",
+    "rail-kit.lock.json",
+    "app/__tests__/fixtures/spanish-niche-text-baseline.json",
+    ".cortex/quality-payloads/PR-574.json"
+  ],
+  "requested_actions": [
+    "Confirm unavailable citation and SERP evidence stays unmeasured and cannot promote a cluster.",
+    "Confirm the graph adds only source-bound draft edges and does not make ranking, lead, or revenue claims.",
+    "Confirm the release candidate passes the complete deterministic gate after current-main parity and shared RailCard lock repair."
+  ],
+  "public_claims": [],
+  "evidence": {
+    "obsidian_context": "Current focus and release evidence are recorded in client-esteban-media/wiki/esteban-media-hot.md and client-esteban-media/wiki/esteban-geo-market-ownership-extension-2026-10-28.md.",
+    "project_routing": "Repository gonzaloeaguilar-bot/esteban-media; isolated checkout /Users/gonzalo/code/esteban-geo-release-final; branch release/esteban-geo-graph-pilot-20261027; PR #574.",
+    "hard_stops_checked": "No public offer, pricing, credential, billing, DNS, external outreach, analytics configuration, or irreversible action is included. The graph writes draft-only local state.",
+    "reviewer_ensemble": "Builder implemented and locally validated the graph. Antigravity governed review returned APPROVE for the market-ownership extension. Skeptic checks ran focused graph tests, full repository validation, rendered Spanish parity, and raw Spanish indexability validation. Taste review found no public visual or copy surface in the graph code; the fixture refresh was checked only as generated rendered output.",
+    "reviewer_disagreement_reviewed": "Claude's earlier bounded verifier did not produce a verdict because its provider budget guard stopped before acceptance. This payload does not represent that as approval; it relies on the terminal Antigravity review and deterministic release checks.",
+    "winner_rationale": "The graph turns observed query, citation, SERP and competitor evidence into draft-only edges while retaining measurement gaps honestly, allowing future demand clusters to be prioritized without inventing commercial results.",
+    "tests_or_validation": "Focused market graph tests passed 10 tests. On the exact release candidate, pnpm rail-kit:check, rail adoption tests, lint with 0 errors, typecheck, full Vitest, production build, pnpm text-parity for 195 Spanish routes, Spanish hub indexability validation, and git diff --check passed.",
+    "debt_delta": "neutral",
+    "obsidian_handoff": "Updated client-esteban-media/wiki/esteban-media-hot.md, client-esteban-media/wiki/esteban-geo-market-ownership-extension-2026-10-28.md, and client-esteban-media/backlog.md with release state and repair chain.",
+    "ci_passed": "Local deterministic release gate passed on the exact release candidate. GitHub validation remains a separate provider signal.",
+    "pr_review_complete": "Scoped source review completed. Market-ownership code is additive and draft-only; lock and baseline changes are bounded generated integrity repairs."
+  },
+  "reviewers": {
+    "builder": {"status": "ok", "note": "Implemented the bounded graph and the release-candidate integrity repairs in isolated checkouts."},
+    "skeptic": {"status": "ok", "note": "Validated unmeasured evidence handling, focused graph tests, full deterministic release gate, rendered parity, and raw Spanish indexability."},
+    "taste": {"status": "ok", "note": "No public visual or copy surface is introduced by the graph; generated fixture scope was constrained to the built output."}
+  },
+  "scores": {
+    "source_fidelity": 5,
+    "architecture_soundness": 4,
+    "implementation_quality": 4,
+    "review_completeness": 4,
+    "debt_posture": 4,
+    "verification_strength": 4,
+    "taste_fit": 4
+  },
+  "debt_delta": "neutral"
+}
