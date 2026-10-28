@@ -66,6 +66,8 @@ for (const locale of ["en", "es"] as const) {
       expect(celebrations).toContain('yacht-party-miami-boat-loop.mp4');
       expect(celebrations).toContain('autoPlay');
       expect(celebrations).toContain('playsInline');
+      expect(celebrations).toContain('poster="/private-events/yacht-party-miami-boat-cover.jpg"');
+      expect(celebrations).toContain('disableRemotePlayback');
       expect(celebrations).toContain('class="em-route-card__visual em-route-card__visual--private-celebrations"');
       expect(celebrations).toContain('class="em-route-card__body em-private-celebrations-card__body"');
       expect(celebrations).toContain('class="em-route-card__private-celebrations-cover"');
@@ -77,7 +79,8 @@ for (const locale of ["en", "es"] as const) {
       const component = read("components/home-project-path.tsx");
       expect(component).toContain("lg:max-w-6xl");
       expect(css).toContain("@media(min-width:1100px){.em-route-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}");
-      expect(css).toContain(".em-route-card:last-child,.em-route-card[open]{grid-column:1/-1}");
+      expect(css).toContain(".em-route-card[open]{grid-column:1/-1}");
+      expect(css).not.toContain(".em-route-card:last-child");
       expect(css).toContain(".em-route-card__visual{position:absolute;z-index:0;inset:0;width:auto");
       expect(css).toContain(".em-route-card__copy{position:relative;z-index:2");
       expect(css).toContain(".em-route-card__plus{position:absolute;z-index:3");
@@ -121,6 +124,8 @@ for (const locale of ["en", "es"] as const) {
       expect(component).toContain('src="/real-estate-reels/brickell-loop-poster.jpg"');
       expect(component).toContain('autoPlay loop muted playsInline preload="metadata"');
       expect(css).toContain('.em-route-card__real-estate-loop{display:none}');
+      expect(component).toContain("privateCelebrationVideoRef");
+      expect(component).toContain("void video.play().catch(() => {})");
     });
 
     it("1b2. gives the decorative lens an on-screen idle focus loop without moving for reduced-motion visitors", () => {
