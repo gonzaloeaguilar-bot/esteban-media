@@ -8,19 +8,23 @@ const cardRoute = readFileSync(join(process.cwd(), "app/(card)/card.vcf/route.ts
 const layout = readFileSync(join(process.cwd(), "app/(card)/layout.tsx"), "utf8");
 
 describe("NFC contact card", () => {
-  it("keeps the scanner's contact, Maps, review and work actions in the served route", () => {
+  it("keeps exactly six large quick actions for a card scanner", () => {
     expect(page).toContain("nfc_card_whatsapp");
     expect(page).toContain("nfc_card_call");
     expect(page).toContain("nfc_card_maps");
     expect(page).toContain("nfc_card_google_review");
     expect(page).toContain("nfc_card_portfolio");
+    expect(page).toContain("nfc_card_save_contact");
+    expect((page.match(/nfc_card_/g) ?? []).length).toBe(6);
     expect(page).toContain("Dejar una reseña en Google");
     expect(page).toContain("toca Reseñas y después Escribir una reseña");
+    expect(page).not.toContain("nfc_card_email");
+    expect(page).not.toContain("nfc_card_instagram");
     expect(page).not.toContain("address");
   });
 
   it("offers a downloadable vCard from the same canonical contact source", () => {
-    expect(page).toContain('href="/card.vcf"');
+    expect(page).toContain('href: "/card.vcf"');
     expect(cardRoute).toContain("BEGIN:VCARD");
     expect(cardRoute).toContain("site.phone.e164");
     expect(cardRoute).toContain("site.email");

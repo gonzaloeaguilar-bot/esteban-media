@@ -2,9 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowUpRight,
-  AtSign,
   Download,
-  Mail,
   MapPinned,
   MessageCircle,
   Phone,
@@ -46,6 +44,16 @@ const actions = [
     external: false,
   },
   {
+    href: "/es/portafolio",
+    label: "Ver trabajos",
+    detail: "Mira videos y proyectos de Esteban",
+    icon: Play,
+    cta: "nfc_card_portfolio",
+    primary: false,
+    external: false,
+    internal: true,
+  },
+  {
     href: site.googleBusinessProfile,
     label: "Abrir en Google Maps",
     detail: "Ver el perfil de Esteban Moreno Media",
@@ -62,6 +70,16 @@ const actions = [
     cta: "nfc_card_google_review",
     primary: false,
     external: true,
+  },
+  {
+    href: "/card.vcf",
+    label: "Guardar contacto",
+    detail: "Agrega a Esteban Moreno Media a tu teléfono",
+    icon: Download,
+    cta: "nfc_card_save_contact",
+    primary: false,
+    external: false,
+    download: true,
   },
 ] as const;
 
@@ -80,21 +98,15 @@ export default function NfcContactCardPage() {
         </header>
 
         <section className="pt-5" aria-label="Formas de contactar a Esteban">
-          <p className="text-sm font-medium text-[#5a6066]">Elige una forma de conectar</p>
+          <p className="text-sm font-medium text-[#5a6066]">Elige lo que necesitas</p>
           <div className="mt-3 grid gap-3">
-            {actions.map(({ href, label, detail, icon: Icon, cta, primary, external }) => (
-              <a
-                key={cta}
-                href={href}
-                {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                data-cta={cta}
-                data-section="nfc-card"
-                className={`group flex min-h-[84px] items-center gap-4 rounded-2xl border px-4 py-4 transition-colors focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[#9f3c27] ${
-                  primary
-                    ? "border-[#c84a2c] bg-[#c84a2c] text-white hover:bg-[#a93e29]"
-                    : "border-[#d6ccc0] bg-[#fffaf4] hover:border-[#9f3c27]"
-                }`}
-              >
+            {actions.map(({ href, label, detail, icon: Icon, cta, primary, external, ...action }) => {
+              const className = `group flex min-h-[84px] items-center gap-4 rounded-2xl border px-4 py-4 transition-colors focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[#9f3c27] ${
+                primary
+                  ? "border-[#c84a2c] bg-[#c84a2c] text-white hover:bg-[#a93e29]"
+                  : "border-[#d6ccc0] bg-[#fffaf4] hover:border-[#9f3c27]"
+              }`;
+              const content = <>
                 <span className={`grid size-11 shrink-0 place-items-center rounded-full ${primary ? "bg-white/15" : "bg-[#f2e6db] text-[#9f3c27]"}`}>
                   <Icon className="size-5" aria-hidden="true" />
                 </span>
@@ -103,25 +115,26 @@ export default function NfcContactCardPage() {
                   <span className={`mt-1 block text-sm leading-5 ${primary ? "text-white/85" : "text-[#5a6066]"}`}>{detail}</span>
                 </span>
                 {external ? <ArrowUpRight className="size-5 shrink-0" aria-hidden="true" /> : null}
-              </a>
-            ))}
-          </div>
-        </section>
+              </>;
 
-        <section className="mt-6 border-y border-[#d6ccc0] py-5" aria-label="Enlaces adicionales">
-          <a
-            href="/card.vcf"
-            download
-            data-cta="nfc_card_save_contact"
-            data-section="nfc-card"
-            className="flex min-h-11 items-center gap-3 text-sm font-semibold text-[#9f3c27] underline decoration-[#c84a2c] underline-offset-4 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[#9f3c27]"
-          >
-            <Download className="size-5" aria-hidden="true" /> Guardar contacto en el teléfono
-          </a>
-          <div className="mt-4 grid gap-3 sm:grid-cols-3">
-            <a href={`mailto:${site.email}`} data-cta="nfc_card_email" data-section="nfc-card" className="inline-flex min-h-11 items-center gap-2 text-sm font-medium underline underline-offset-4 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[#9f3c27]"><Mail className="size-4" aria-hidden="true" /> Email</a>
-            <a href={site.instagramBusiness} target="_blank" rel="noopener noreferrer" data-cta="nfc_card_instagram" data-section="nfc-card" className="inline-flex min-h-11 items-center gap-2 text-sm font-medium underline underline-offset-4 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[#9f3c27]"><AtSign className="size-4" aria-hidden="true" /> Instagram</a>
-            <Link href="/es/portafolio" data-cta="nfc_card_portfolio" data-section="nfc-card" className="inline-flex min-h-11 items-center gap-2 text-sm font-medium underline underline-offset-4 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[#9f3c27]"><Play className="size-4" aria-hidden="true" /> Ver trabajo</Link>
+              if ("internal" in action) {
+                return <Link key={cta} href={href} data-cta={cta} data-section="nfc-card" className={className}>{content}</Link>;
+              }
+
+              return (
+                <a
+                  key={cta}
+                  href={href}
+                  {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  {...("download" in action ? { download: true } : {})}
+                  data-cta={cta}
+                  data-section="nfc-card"
+                  className={className}
+                >
+                  {content}
+                </a>
+              );
+            })}
           </div>
         </section>
 
