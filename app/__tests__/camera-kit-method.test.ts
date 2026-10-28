@@ -30,8 +30,10 @@ describe("homepage camera kit and method", () => {
     expect(component).toContain('name={`camera-kit-${locale}`}');
     expect(component).toContain('Swipe to compare. Tap a body for published specs.');
     expect(component).toContain('className="em-camera-kit__accessories-stage"');
-    expect(component).not.toContain('className="em-camera-kit__unboxing-preview"');
-    expect(component).not.toContain('<details className="em-camera-kit__unboxing">');
+    expect(component).toContain('className="em-camera-kit__unboxing-preview"');
+    expect(component).toContain('<details className="em-camera-kit__unboxing">');
+    expect(component).toContain('/portfolio/sony-a7iv-unboxing.png');
+    expect(component).toContain('data-cta={`camera_kit_unboxing_${locale}`}');
     expect(component).not.toContain('/about/esteban-on-set.jpg');
     expect(component).not.toContain('Real on-set camera views');
     expect(component).toContain('"01", "Start with what you have"');

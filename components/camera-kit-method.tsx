@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 type Locale = "en" | "es";
@@ -6,7 +7,7 @@ const copy = {
   en: {
     eyebrow: "THE CAMERA BENCH",
     heading: "See the camera before the shoot starts.",
-    lead: "Explore the two camera bodies Esteban uses. Swipe between them, open a body for the published specs, then see a recent unboxing reel.",
+    lead: "Explore the two camera bodies Esteban uses. Swipe between them, open a body for the published specs, then see a recent unboxing.",
     kitTitle: "Camera bodies",
     kitHint: "Swipe to compare. Tap a body for published specs.",
     inspect: "Tap camera to inspect",
@@ -26,10 +27,11 @@ const copy = {
       "The exact setup changes with the location, the available space and the kind of video. Before a shoot, the scope confirms what is needed so the day stays focused on the work, not a generic equipment list.",
     accessoriesAlt:
       "Esteban using a camera beside a lit product setup during a shoot",
-    unboxingEyebrow: "THE ACCESSORY SETUP",
-    unboxingTitle: "See the setup in action.",
-    unboxingCopy: "Support, light and a clean working area come together around the shot — without turning the page into a gear list.",
-    unboxingAction: "See how the setup works",
+    unboxingEyebrow: "UNBOXING",
+    unboxingTitle: "A closer look at the Sony Alpha 7 IV.",
+    unboxingCopy: "A look at the camera body Esteban uses in his work.",
+    unboxingAction: "Open the unboxing",
+    unboxingDetail: "This is a closer look at the camera body. The published specifications above remain the reference for the kit.",
     methodTitle: "Open the working method",
     methodHint: "Three clear decisions before the work begins.",
     steps: [
@@ -42,7 +44,7 @@ const copy = {
   es: {
     eyebrow: "LA MESA DE CÁMARA",
     heading: "Mira la cámara antes de empezar el rodaje.",
-    lead: "Explora los dos cuerpos de cámara que usa Esteban. Desliza entre ellos, abre uno para ver las especificaciones publicadas y mira un unboxing reciente.",
+    lead: "Explora los dos cuerpos de cámara que usa Esteban. Desliza entre ellos, abre uno para ver las especificaciones publicadas y mira un unboxing.",
     kitTitle: "Cuerpos de cámara",
     kitHint: "Desliza para comparar. Toca un cuerpo para ver las especificaciones.",
     inspect: "Toca la cámara para ver",
@@ -62,10 +64,11 @@ const copy = {
       "El montaje exacto cambia según la locación, el espacio disponible y el tipo de video. Antes de grabar, el alcance confirma qué hace falta para que el día se enfoque en el trabajo, no en una lista genérica de equipo.",
     accessoriesAlt:
       "Esteban usando una cámara junto a un montaje de producto iluminado durante un rodaje",
-    unboxingEyebrow: "EL MONTAJE DE ACCESORIOS",
-    unboxingTitle: "Mira el montaje en acción.",
-    unboxingCopy: "El soporte, la luz y un espacio de trabajo limpio se organizan alrededor de la toma, sin convertir la página en una lista de equipo.",
-    unboxingAction: "Ver cómo funciona el montaje",
+    unboxingEyebrow: "UNBOXING",
+    unboxingTitle: "Un vistazo al Sony Alpha 7 IV.",
+    unboxingCopy: "Una mirada al cuerpo de cámara que Esteban usa en su trabajo.",
+    unboxingAction: "Abrir el unboxing",
+    unboxingDetail: "Este es un vistazo al cuerpo de cámara. Las especificaciones publicadas arriba siguen siendo la referencia del equipo.",
     methodTitle: "Abrir el método de trabajo",
     methodHint: "Tres decisiones claras antes de empezar.",
     steps: [
@@ -160,6 +163,21 @@ export function CameraKitMethod({ locale }: { locale: Locale }) {
             <span className="em-camera-kit__accessories-mark" aria-hidden="true">+</span>
           </summary>
           <p>{c.accessoriesDetail}</p>
+        </details>
+
+        <details className="em-camera-kit__unboxing">
+          <summary data-cta={`camera_kit_unboxing_${locale}`}>
+            <span className="em-camera-kit__unboxing-preview">
+              <Image src="/portfolio/sony-a7iv-unboxing.png" alt={locale === "es" ? "Unboxing de una Sony Alpha 7 IV sobre una mesa de trabajo" : "Sony Alpha 7 IV unboxing on a work desk"} fill sizes="(max-width: 639px) 38vw, 42vw" />
+            </span>
+            <span className="em-camera-kit__unboxing-copy">
+              <small>{c.unboxingEyebrow}</small>
+              <strong>{c.unboxingTitle}</strong>
+              <span>{c.unboxingCopy}</span>
+              <em>{c.unboxingAction}</em>
+            </span>
+          </summary>
+          <p>{c.unboxingDetail}</p>
         </details>
 
         <details className="em-camera-kit__method">
