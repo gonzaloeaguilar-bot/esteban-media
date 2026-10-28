@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict><key>Label</key><string>com.esteban-media.geo-execution-selector</string><key>ProgramArguments</key><array><string>/Users/gonzalo/.claude/durable/fleet-slot.sh</string><string>--</string><string>/opt/homebrew/bin/node</string><string>/Users/gonzalo/code/esteban-media/scripts/esteban-geo-execution-queue.mjs</string></array><key>StartCalendarInterval</key><dict><key>Hour</key><integer>7</integer><key>Minute</key><integer>35</integer></dict><key>RunAtLoad</key><true/></dict></plist>
