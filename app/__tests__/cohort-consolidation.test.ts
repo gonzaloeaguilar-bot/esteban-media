@@ -162,7 +162,8 @@ describe("consolidation arithmetic matches the published baseline", () => {
     // +14 = the refreshed Gains From Geebs case plus the Caro, DuPont, and Great
     // Reviewer website portfolio and case-study routes (2026-10-24).
     // +1 = demand-backed Miami corporate-video destination (2026-10-27).
-    expect(sitemap()).toHaveLength(269 - 25 + 1 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 2 + 4 + 1 + 26 + 6 + 10 + 16 + 1 + 1 + 4 + 4 + 2 + 4 + 2 + 1 + 2 + 3 + 4 + 4 + 8 + 8 + 8 + 2 + 8 + 8 + 8 + 24 + 20 + 20 + 40 + 2 + 10 + 10 + 14 + 1 + 2);
+    // +4 = bilingual personal-creative-advisor and quote-preparation guides (2026-10-28).
+    expect(sitemap()).toHaveLength(269 - 25 + 1 + 3 + 8 + 2 + 4 + 4 + 3 + 10 + 2 + 4 + 1 + 26 + 6 + 10 + 16 + 1 + 1 + 4 + 4 + 2 + 4 + 2 + 1 + 2 + 3 + 4 + 4 + 8 + 8 + 8 + 2 + 8 + 8 + 8 + 24 + 20 + 20 + 40 + 2 + 10 + 10 + 14 + 1 + 2 + 4);
   });
 
   it("never lists a redirect source in the sitemap", () => {
