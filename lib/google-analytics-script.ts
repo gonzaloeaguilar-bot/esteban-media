@@ -428,6 +428,8 @@ export function buildGoogleAnalyticsScript({
               method = 'instagram';
             } else if (destination.hostname === 'wa.me' || destination.hostname === 'api.whatsapp.com') {
               method = 'whatsapp';
+            } else if (destination.hostname === 'calendar.google.com') {
+              method = 'booking';
             } else if (
               destination.origin === canonicalOrigin &&
               (destination.pathname === '/contact' ||
