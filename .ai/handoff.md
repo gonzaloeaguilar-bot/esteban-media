@@ -1,5 +1,11 @@
 # 2026-10-28 — Commercial local GEO answer units (review evidence complete; PR pending)
 
+# 2026-10-28 — Private celebrations PR #580 (open; not production)
+
+- PR #580 head `510488f9` expands the paired private-event pages to the owner-requested complete social-celebration list, keeps Spanish-first Colombian/Latin family context without a specialization claim, and preserves Fort Lauderdale base, quote-based distant transport and no public studio.
+- `pnpm test` passed 177 files / 3,696 tests after `pnpm lastmod:update` refreshed exactly the two changed page hashes. Lint and typecheck passed. First suite pass found and the follow-up fixed missing WebPage/BreadcrumbList schema plus 567→569 sitemap/watch-set lock drift.
+- Do not call it released. The fresh governed Antigravity and Claude reviewer attempts failed without a verdict; Claude fallback stopped at a zero-budget OpenRouter key limit. Wait for a terminal independent review, PR evidence drain, merge/deploy, raw canonical EN/ES HTML and 390x844 proof before IndexNow.
+
 - Branch `feat/commercial-geo-guides-20261028`, commits `7015724f`, `6fdd9040`, and `f7a8d386`, strengthens only six existing English/Spanish commercial routes: Fort Lauderdale Reels, Fort Lauderdale video production, and Miami restaurant editing. It adds decision-first, server-rendered sections and contextual links; it adds no URL, price, client, review, ranking, citation, availability promise, or outcome claim.
 - Live source: `python3 /Users/gonzalo/code/portfolio-ops/scripts/esteban_gsc_snapshot.py --output-dir /tmp/esteban-gsc-commercial-20261028 --days 90` on 2026-10-28 returned data through 2026-10-25: Reels 11 impressions / 0 clicks / 9.09; production 3 / 0 / 5.33; restaurant 17 / 0 / 7.24, each against its canonical English route.
 - Gates: `pnpm test` 177 files / 3,690 tests; `pnpm typecheck`; `pnpm lint` 0 errors / 22 existing warnings; `pnpm rail-adoption:check`; `pnpm lastmod:update`; `git diff --check`. The full production build compiled and passed lint/type validation, but the 608-page static generation exceeded this terminal's 30-second execution ceiling; do not describe a full build pass without a new receipt.
