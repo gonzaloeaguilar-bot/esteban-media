@@ -4,6 +4,14 @@
 - Local checks: focused camera-kit test `5/5`, full `pnpm test`, `pnpm typecheck`, `pnpm lint` (0 errors; 22 existing warnings), `pnpm build` (`BUILD_ID=3ao6XPl2Aquat59Q45DAS`), `pnpm rail-adoption:check` (`3/3`), and `git diff --check`. Local visual reads passed at `1440×900` and `390×844`: desktop frames are straight with sprockets; mobile remains a single clean swipe card with no horizontal page overflow.
 - Next: open the scoped PR, obtain the governed review, merge under the owner’s existing production authority, and re-read canonical phone and desktop rendering. No business effect is claimed.
 
+# 2026-10-28 — Bilingual personal craft homepage interlude (local candidate; not production)
+
+- Added `components/personal-craft-experience.tsx` to `/` and `/es`, immediately after the work rail and before `HomeProjectPath`. It keeps the approved hero untouched and presents the source-bounded direct-partnership promise, three short commitments, existing chooser anchor, and a server-rendered native `<details>` with only existing service and portfolio links.
+- Local evidence: `pnpm test --run app/__tests__/personal-craft-experience.test.ts` passed 3/3; `pnpm lint`, `pnpm typecheck`, `pnpm test`, `pnpm rail-adoption:check`, `pnpm lastmod:update`, `git diff --check`, the experience-contract validator, and `analytics-gate.py` passed. Local EN and ES raw HTML each returned 200 and contained their promise and disclosure. Browser keyboard activation expanded the English disclosure and exposed its existing links.
+- `human-consumption-gate.mjs --site esteban-media` has no configured site entry, so it returned `--site esteban-media not in config`; this is unavailable, not a passing visual result. The production build was started but has no terminal receipt in this constrained session. Independent visual review, a complete build receipt, PR/merge/deployment, real phone/desktop production rendering, and the T+7/T+14 comparable inquiry read remain required before any production or outcome claim.
+
+---
+
 # 2026-10-28 — Desktop polaroid and player repair (PR #579, not production)
 
 - Commit `27ed763f` repairs two visual regressions found during the follow-up desktop/tablet pass: the camera contact sheet's late phone styles had erased the intended paper prints and left dark title text on dark cards; the Great Reviewer widescreen YouTube source was filling a tall vertical desktop canvas with black.
