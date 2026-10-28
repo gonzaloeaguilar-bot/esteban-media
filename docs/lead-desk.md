@@ -17,3 +17,7 @@ pnpm lead-desk:run
 ```
 
 The local status log defaults to `var/lead-desk-status.json` and is ignored by Git. Once the manual run is verified, schedule this command every five minutes on the machine holding the token.
+
+## Channel and origin (added 2026-10-28)
+
+Every processed inquiry records `channel` (`email` for this runner) and `foundVia`, the client's own stated origin phrase in English or Spanish (for example "found you on Instagram" or "los vi en Google"). Nothing is inferred: when the inquiry does not state an origin, `foundVia` is `null` in the status record and the reply draft appends exactly one question before the sign-off ("how did you hear about us?" / "¿cómo nos encontraste?"). The owner alert shows `Found via:` so the lead ledger can be reconciled against the website's `found_via` form field. Why: on 2026-10-27/28 two real inquiries arrived with zero form submits and zero organic clicks, so no surface could attribute them.

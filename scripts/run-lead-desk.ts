@@ -18,7 +18,7 @@ const alertRecipient = ownerEmail;
 
 type GmailPayload = { headers?: Array<{ name?: string; value?: string }>; body?: { data?: string }; parts?: GmailPayload[]; mimeType?: string };
 type GmailMessage = { id: string; threadId: string; payload?: GmailPayload };
-type StoredStatus = { processedMessageIds: string[]; entries: Array<{ messageId: string; threadId: string; status: string; processedAt: string }> };
+type StoredStatus = { processedMessageIds: string[]; entries: Array<{ messageId: string; threadId: string; status: string; processedAt: string; channel: string; foundVia: string | null }> };
 
 const api = async <T>(path: string, init?: RequestInit): Promise<T> => {
   const response = await fetch(`https://gmail.googleapis.com/gmail/v1/users/me/${path}`, { ...init, headers: { Authorization: `Bearer ${accessToken}`, "Content-Type": "application/json", ...(init?.headers ?? {}) } });
@@ -60,7 +60,7 @@ async function main() {
     await createDraft(message.threadId, input.from, result.clientDraft.subject, result.clientDraft.body, header(message, "Message-ID"));
     await createDraft(message.threadId, alertRecipient, result.ownerAlert.subject, result.ownerAlert.body);
     status.processedMessageIds.push(message.id);
-    status.entries.push({ messageId: message.id, threadId: message.threadId, status: result.status, processedAt: new Date().toISOString() });
+    status.entries.push({ messageId: message.id, threadId: message.threadId, status: result.status, processedAt: new Date().toISOString(), channel: result.channel, foundVia: result.facts.foundVia ?? null });
   }
   await mkdir(dirname(statusPath), { recursive: true });
   await writeFile(statusPath, `${JSON.stringify(status, null, 2)}\n`);
