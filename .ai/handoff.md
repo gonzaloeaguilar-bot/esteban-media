@@ -626,6 +626,13 @@ Configuration-gated conversion-observability implementation is present locally, 
 - This is not a live email agent: the configured Resend credential must be repaired and a real mailbox (rather than forwarding-only alias) connected before merge/activation and a real receive → acknowledgement → Esteban alert → daily-report probe can be claimed.
 # 2026-10-16 — Camera Bench native-swipe gallery (local, awaiting PR)
 
+## 2026-10-28 — PR #579 mobile Camera Bench correction
+
+- The owner reported the public iPhone card still looked too tall and crowded. That is expected because PR #579 was not merged; the earlier work was largely desktop-focused.
+- Commit `4e0ce595` is pushed to `fix/desktop-camera-polaroids-20261028` / PR #579. It changes only the mobile Camera Bench CSS and regression test: shorter image stage (224px), compact name band, control moved into the photo corner, narrower second-card teaser and shorter opened-facts panel.
+- Evidence: focused `camera-kit-method` test passed 5/5 before branch migration; `git diff --check` passed in the isolated repair checkout; remote ref resolved to `4e0ce595127e620fec789397253df79cb4b84207` after push. A full suite attempted from the isolated checkout failed dependency resolution for React/Next/lucide due the checkout lacking linked node modules; do not call it green. Browser automation transport closed before a new 390px screenshot.
+- Required continuation: wait for the PR head and checks to refresh, obtain an independent visual verdict, merge only after that, then inspect canonical `https://estebanmorenomedia.com/#camera-kit-en` at 390x844 in both closed and expanded Sony state.
+
 - Owner asked for a more impressive, touchable whole-camera experience after the paired product tiles shipped in PR #469.
 - Branch `feat/camera-bench-interactive` changes `components/camera-kit-method.tsx` and `app/illustrated-commercial.css` into a native horizontal scroll-snap shelf. One camera fills a slide; the next camera remains visibly reachable. Each slide retains its server-rendered native `<details>` disclosure and shared name, so Sony/Canon details remain mutually exclusive.
 - No new equipment, lens, lighting, delivery, ownership, or performance claim was added. Existing manufacturer images and specifications remain the only camera facts.
