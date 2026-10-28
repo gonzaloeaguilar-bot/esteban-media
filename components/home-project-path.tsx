@@ -10,12 +10,12 @@ import { StarterOptions } from "@/components/starter-options";
 import type { AudienceLocale } from "@/lib/audience-lanes";
 import { laneFunnelPrice, laneOffers, type ChooserLaneId } from "@/lib/chooser-lane-pricing";
 import {
+  CELEBRATION_FILM_BUNDLES,
   CREW_RECORDING_RATES,
   KICKSTARTER_LAUNCH,
   ON_LOCATION_CAPTURE,
   PRODUCT_PHOTO_SESSION,
   REAL_ESTATE_PLAN_TERMS,
-  TURNKEY_PRODUCTION_BUNDLES,
   YACHT_PRODUCTION,
   usd,
   type PackageId,
@@ -501,15 +501,13 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
     ? {
         label: "Celebraciones sociales",
         title: "Fiestas y celebraciones",
-        price: `Desde ${usd(CREW_RECORDING_RATES.solo.halfDay)} · hasta 4 horas`,
+        price: `Desde ${usd(CELEBRATION_FILM_BUNDLES.halfDay)} · hasta 4 horas`,
         lead: "Video de tu celebración para compartirlo y recordarlo.",
         selectedPackagePrefix: "Me interesa:",
         packages: [
-          { name: "Cobertura de grabación", price: `${usd(CREW_RECORDING_RATES.solo.halfDay)} · hasta 4 horas`, includes: "Solo grabación: Esteban, cámara 4K y audio. No incluye edición final.", whatsapp: "Cobertura de grabación ($400, hasta 4 horas)" },
-          { name: "Cobertura de grabación — día completo", price: `${usd(CREW_RECORDING_RATES.solo.fullDay)} · hasta 8 horas`, includes: "Solo grabación: Esteban, cámara 4K y audio. No incluye edición final.", whatsapp: "Cobertura de grabación de día completo ($800, hasta 8 horas)" },
-          { name: "Video terminado de tu celebración", price: `desde ${usd(TURNKEY_PRODUCTION_BUNDLES.soloHalfDay)} · hasta 4 horas`, includes: "Grabación y edición de un video terminado. Definimos duración, formato y música en tu cotización.", whatsapp: "Video terminado de mi celebración (desde $750, hasta 4 horas)" },
-          { name: "Video terminado — día completo", price: `desde ${usd(TURNKEY_PRODUCTION_BUNDLES.soloFullDay)} · hasta 8 horas`, includes: "Grabación y edición de un video terminado para una celebración de día completo.", whatsapp: "Video terminado de día completo (desde $1,600, hasta 8 horas)" },
-          { name: "Producción con equipo de dos", price: `desde ${usd(TURNKEY_PRODUCTION_BUNDLES.twoPersonFullDay)} · hasta 8 horas`, includes: "Dos personas, grabación y edición de video terminado. Los clips extra se definen en tu cotización.", whatsapp: "Producción con equipo de dos (desde $2,400, hasta 8 horas)" },
+          { name: "Película de tu celebración", price: `desde ${usd(CELEBRATION_FILM_BUNDLES.halfDay)} · hasta 4 horas`, includes: "Una película terminada, creada a partir de la celebración. Incluye grabación, edición y una entrega lista para compartir.", whatsapp: "Película de mi celebración (desde $1,200, hasta 4 horas)" },
+          { name: "Película de celebración — día completo", price: `desde ${usd(CELEBRATION_FILM_BUNDLES.fullDay)} · hasta 8 horas`, includes: "Cobertura de día completo y una película terminada que guarda los momentos importantes.", whatsapp: "Película de celebración de día completo (desde $2,200, hasta 8 horas)" },
+          { name: "Producción de celebración con dos personas", price: `desde ${usd(CELEBRATION_FILM_BUNDLES.twoPersonFullDay)} · hasta 8 horas`, includes: "Dos personas para una cobertura más completa y una película terminada. Definimos los clips extra en tu cotización.", whatsapp: "Producción de celebración con dos personas (desde $3,400, hasta 8 horas)" },
         ],
         packageNote: "El traslado y cualquier extra se confirman por escrito antes de reservar.",
         quote: "Cotizar mi celebración",
@@ -520,15 +518,13 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
     : {
         label: "Social celebrations",
         title: "Parties and celebrations",
-        price: `From ${usd(CREW_RECORDING_RATES.solo.halfDay)} · up to 4 hours`,
+        price: `From ${usd(CELEBRATION_FILM_BUNDLES.halfDay)} · up to 4 hours`,
         lead: "Video of your celebration to share and remember.",
         selectedPackagePrefix: "I'm interested in:",
         packages: [
-          { name: "Filming coverage", price: `${usd(CREW_RECORDING_RATES.solo.halfDay)} · up to 4 hours`, includes: "Filming only: Esteban, a 4K camera, and audio. Final editing is not included.", whatsapp: "Filming coverage ($400, up to 4 hours)" },
-          { name: "Full-day filming coverage", price: `${usd(CREW_RECORDING_RATES.solo.fullDay)} · up to 8 hours`, includes: "Filming only: Esteban, a 4K camera, and audio. Final editing is not included.", whatsapp: "Full-day filming coverage ($800, up to 8 hours)" },
-          { name: "Finished celebration video", price: `from ${usd(TURNKEY_PRODUCTION_BUNDLES.soloHalfDay)} · up to 4 hours`, includes: "Filming and final-video editing. Your quote confirms the length, format, and music.", whatsapp: "Finished celebration video (from $750, up to 4 hours)" },
-          { name: "Finished video — full day", price: `from ${usd(TURNKEY_PRODUCTION_BUNDLES.soloFullDay)} · up to 8 hours`, includes: "Filming and final-video editing for a full-day celebration.", whatsapp: "Finished full-day celebration video (from $1,600, up to 8 hours)" },
-          { name: "Two-person event production", price: `from ${usd(TURNKEY_PRODUCTION_BUNDLES.twoPersonFullDay)} · up to 8 hours`, includes: "Two people, filming, and final-video editing. Your quote defines any extra clips.", whatsapp: "Two-person event production (from $2,400, up to 8 hours)" },
+          { name: "Your celebration film", price: `from ${usd(CELEBRATION_FILM_BUNDLES.halfDay)} · up to 4 hours`, includes: "A finished film made from your celebration. Includes filming, editing, and a shareable delivery.", whatsapp: "My celebration film (from $1,200, up to 4 hours)" },
+          { name: "Full-day celebration film", price: `from ${usd(CELEBRATION_FILM_BUNDLES.fullDay)} · up to 8 hours`, includes: "Full-day coverage and a finished film that keeps the moments that matter.", whatsapp: "My full-day celebration film (from $2,200, up to 8 hours)" },
+          { name: "Two-person celebration production", price: `from ${usd(CELEBRATION_FILM_BUNDLES.twoPersonFullDay)} · up to 8 hours`, includes: "Two people for fuller coverage and a finished film. Your quote defines any extra clips.", whatsapp: "My two-person celebration production (from $3,400, up to 8 hours)" },
         ],
         packageNote: "Travel and any extras are confirmed in writing before booking.",
         quote: "Quote my celebration",

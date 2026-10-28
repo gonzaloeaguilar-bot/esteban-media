@@ -422,6 +422,20 @@ export const TURNKEY_PRODUCTION_BUNDLES = {
 } as const;
 
 /**
+ * Private celebrations are finished storytelling projects, not hourly camera
+ * rentals. These price floors cover consultation, coverage and a finished
+ * highlight film; scope, travel and any requested additional deliverables are
+ * confirmed in writing before booking.
+ * Owner positioning decision 2026-10-28: personalized, craft-led work must
+ * sit in the competitive South Florida finished-event market, not below it.
+ */
+export const CELEBRATION_FILM_BUNDLES = {
+  halfDay: 1200,
+  fullDay: 2200,
+  twoPersonFullDay: 3400,
+} as const;
+
+/**
  * Landing pages. Owner fact 2026-10-14 (relayed by the project operator; vault
  * client-esteban-media/wiki/esteban-owner-facts-2026-10-14): a basic landing
  * page starts at $1,500; larger custom builds run $7,000 and up. Applies to
