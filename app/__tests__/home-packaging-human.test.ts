@@ -78,8 +78,10 @@ for (const locale of ["en", "es"] as const) {
       const css = read("app/illustrated-commercial.css");
       const component = read("components/home-project-path.tsx");
       expect(component).toContain("lg:max-w-6xl");
-      expect(css).toContain("@media(min-width:1100px){.em-route-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}");
-      expect(css).toContain(".em-route-card[open]{grid-column:1/-1}");
+      expect(css).toContain("@media(min-width:1100px){.em-route-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}");
+      // An open card expands in place, in its own column; it never jumps to a full-width row below its sibling.
+      expect(css).not.toContain(".em-route-card[open]{grid-column:1/-1}");
+      expect(css).toContain(".em-route-card .em-path-offers,.em-route-card .em-single-list{grid-template-columns:minmax(0,1fr)}");
       expect(css).not.toContain(".em-route-card:last-child");
       expect(css).toContain(".em-route-card__visual{position:absolute;z-index:0;inset:0;width:auto");
       expect(css).toContain(".em-route-card__copy{position:relative;z-index:2");
