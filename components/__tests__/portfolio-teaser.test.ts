@@ -56,4 +56,18 @@ describe("homepage portfolio rail", () => {
     expect(rail).toContain('embedUrl: i.embedUrl');
     expect(rail).toContain('phoneFrame: item.phoneFrame ?? item.isReel');
   });
+
+  it("passes every public YouTube social video into the centred muted player", () => {
+    expect(source).toContain('const isYouTubeVideo = item.media.kind === "youtube";');
+    expect(source).toContain('https://www.youtube-nocookie.com/embed/${item.media.videoId}?autoplay=1&mute=1&playsinline=1&rel=0');
+    expect(source).toContain('Instagram does not provide an equivalent');
+  });
+
+  it("gives every real carousel video the phone treatment and plays supported sources", () => {
+    expect(source).toContain('const isSelfHostedVideo = item.media.kind === "video";');
+    expect(source).toContain('const isVideoWork = isYouTubeVideo || isInstagramVideo || isSelfHostedVideo;');
+    expect(source).toContain('videoSrc: item.media.kind === "video" ? item.media.src : undefined');
+    expect(rail).toContain('videoSurfaceBrand?: "youtube" | "instagram";');
+    expect(rail).toContain('item.videoSurfaceBrand === "instagram" ? "Instagram" : "YouTube"');
+  });
 });

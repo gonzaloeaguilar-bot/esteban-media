@@ -166,8 +166,13 @@ export function PortfolioTeaser({ locale, source = "home_portfolio" }: Portfolio
               videoSrc: reel.src,
             })), ...items.map((item) => {
               const poster = getPoster(item);
-              const isVideoWork = item.category === "social-content" &&
-                (item.media.kind === "youtube" || item.media.kind === "instagram");
+              const isYouTubeVideo = item.media.kind === "youtube";
+              const isInstagramVideo = item.media.kind === "instagram";
+              const isSelfHostedVideo = item.media.kind === "video";
+              // The homepage carousel is Esteban's moving-work shelf. Every
+              // real video receives the same phone treatment; only the source
+              // determines whether a centred card can autoplay.
+              const isVideoWork = isYouTubeVideo || isInstagramVideo || isSelfHostedVideo;
               const targetHref =
                 item.category === "web-design"
                   ? isSpanish
@@ -187,7 +192,27 @@ export function PortfolioTeaser({ locale, source = "home_portfolio" }: Portfolio
                 // 16:9 film into a vertical Reel.
                 phoneFrame: isVideoWork,
                 videoSurface: isVideoWork,
-                videoSurfaceLabel: isSpanish ? "Video de Esteban Moreno" : "Esteban Moreno video",
+                videoSurfaceLabel: isYouTubeVideo
+                  ? "YouTube"
+                  : isSpanish
+                    ? "Publicación de Instagram"
+                    : isInstagramVideo
+                      ? "Instagram post"
+                      : isSpanish
+                        ? "Video de Esteban Moreno"
+                        : "Esteban Moreno video",
+                videoSurfaceBrand: isInstagramVideo ? "instagram" as const : "youtube" as const,
+                // YouTube exposes a real muted, inline player. Passing its
+                // verified public video ID here lets every centred YouTube
+                // card play instead of leaving only the Great Reviewer lead
+                // with a source. Instagram does not provide an equivalent
+                // autoplay-safe player, so its approved poster remains an
+                // honest static source surface until an owner-approved MP4 is
+                // supplied.
+                embedUrl: item.media.kind === "youtube"
+                  ? `https://www.youtube-nocookie.com/embed/${item.media.videoId}?autoplay=1&mute=1&playsinline=1&rel=0`
+                  : undefined,
+                videoSrc: item.media.kind === "video" ? item.media.src : undefined,
               };
             })]}
           />
