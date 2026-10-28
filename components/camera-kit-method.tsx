@@ -102,7 +102,7 @@ export function CameraKitMethod({ locale }: { locale: Locale }) {
             <p id={`camera-bodies-${locale}`}>{c.kitTitle}</p>
             <span>{c.kitHint}</span>
           </div>
-          <div className="em-camera-kit__models" aria-label={c.kitTitle}>
+          <div className="em-camera-kit__models em-camera-kit__filmstrip" aria-label={c.kitTitle}>
             <details className="em-camera-kit__model" name={`camera-kit-${locale}`}>
               <summary data-cta={`camera_kit_sony_${locale}`}>
                 {/* Manufacturer reference image: Sony Alpha 7 IV product page. */}
