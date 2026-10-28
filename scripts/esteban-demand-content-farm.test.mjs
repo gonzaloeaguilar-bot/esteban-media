@@ -22,4 +22,11 @@ describe("Esteban demand content farm", () => {
     expect(reels.storyHook).toContain("que grabar para reels en miami");
     expect(results.find((item) => item.query === "web developer miami")).toMatchObject({ action: "new_guide_draft", target: "/es/guias/web-developer-miami" });
   });
+
+  it("uses a dated Semrush UI commercial topic match when the wording differs", () => {
+    const [result] = buildCandidates([
+      { query: "editor de reels para restaurantes miami", status: "UNANSWERED", lang: "es", place: "Miami", score: "10" },
+    ], new Set(), new Map([["editor de reels miami", { keyword: "editor de reels miami", run_date: "2026-10-27", search_volume: "30", keyword_difficulty: "8", serp_features_by_keyword: "Local pack, Video" }]]), { status: "UNMEASURED", source: "fixture" });
+    expect(result.source.semrushUi).toMatchObject({ runDate: "2026-10-27", matchedKeyword: "editor de reels miami", match: "topic_overlap", serp_features: ["Local pack", "Video"] });
+  });
 });
