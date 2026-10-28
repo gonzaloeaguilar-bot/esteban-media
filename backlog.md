@@ -46,6 +46,8 @@
 
 # Esteban Moreno Media — Backlog
 
+- [ ] 2026-10-28: release `feat/commercial-geo-guides-20261028` only after a fresh governed independent review, complete build receipt, valid PR checks, and canonical mobile/desktop production verification. Re-measure the three exact GSC query×page cohorts after 28 days; no rank, citation, inquiry, or revenue result is assumed.
+
 - [x] 2026-10-26: publicar y comprobar el encuadre del hero de escritorio, The Great Reviewer primero, retiro de Banacol/ML Colombia, marcos de teléfono para los siete Reels y salida del video de Gains From Geebs. PR #564 fusionada como `a49993fd`; evidencia en `client-esteban-media/wiki/esteban-desktop-hero-rail-and-geebs-player-qa-2026-10-26.md`.
 - [x] 2026-10-25: animate the original three-character AI chooser squad without changing its artwork. Scout, Write and Run now receive a sequential work-state, the group moves through a restrained task cycle, and task signals travel across the team. Motion stops under reduced motion. Local evidence: focused 38/38, full `pnpm test` 172 files / 3,677 tests, typecheck, lint (0 errors / 22 existing warnings), and `git diff --check` passed. Next: scoped review, release, then verify the live Spanish card at phone width.
 

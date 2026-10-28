@@ -1,3 +1,12 @@
+# 2026-10-28 — Commercial local GEO answer units (review evidence complete; PR pending)
+
+- Branch `feat/commercial-geo-guides-20261028`, commits `7015724f`, `6fdd9040`, and `f7a8d386`, strengthens only six existing English/Spanish commercial routes: Fort Lauderdale Reels, Fort Lauderdale video production, and Miami restaurant editing. It adds decision-first, server-rendered sections and contextual links; it adds no URL, price, client, review, ranking, citation, availability promise, or outcome claim.
+- Live source: `python3 /Users/gonzalo/code/portfolio-ops/scripts/esteban_gsc_snapshot.py --output-dir /tmp/esteban-gsc-commercial-20261028 --days 90` on 2026-10-28 returned data through 2026-10-25: Reels 11 impressions / 0 clicks / 9.09; production 3 / 0 / 5.33; restaurant 17 / 0 / 7.24, each against its canonical English route.
+- Gates: `pnpm test` 177 files / 3,690 tests; `pnpm typecheck`; `pnpm lint` 0 errors / 22 existing warnings; `pnpm rail-adoption:check`; `pnpm lastmod:update`; `git diff --check`. The full production build compiled and passed lint/type validation, but the 608-page static generation exceeded this terminal's 30-second execution ceiling; do not describe a full build pass without a new receipt.
+- Link receipt: the handoff checklist, restaurant ideas guide, Bar Door Monkey case, and the three Spanish counterparts each returned production HTTP 200. Independent provider review attempts one and two rejected an incomplete evidence packet; attempt three was blocked by the dispatcher after its three-attempt work-id limit. The exact packet is `.ai/commercial-geo-guides-review-2026-10-28.md`. Next: push/open PR, get a fresh independent reviewer under a new governed review work-id, capture full build/preview, merge after valid checks, verify six canonical raw-HTML markers and 390×844/1440×900 renders, then call production.
+
+---
+
 # 2026-10-26 — Full-card digital scenes (locally verified, not public)
 
 - Commit `56f8dffb055fa34a4255c5135a6b7ff381405ab2` on `codex/full-card-scenes-20261026` replaces small right-side illustrations with full-card working scenes: the approved AI robot squad in an original office/courier environment, an animated ChatGPT-style SEO/GEO conversation, and the current Gains From Geebs desktop hero scrolling behind a dark reading field.

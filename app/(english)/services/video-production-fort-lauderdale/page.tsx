@@ -55,6 +55,11 @@ const content: GeoServicePageContent = {
       question: "Who does video production for small businesses in Fort Lauderdale?",
       body: `Esteban Moreno Media is based in Fort Lauderdale and can scope video production for Broward businesses. Start with the business goal, location, what footage exists, where the finished video will run, and the deadline. The written quote separates filming from editing: on-location time is ${filmingHourlyText("en")}, while a short remote edit starts at ${shortFormPriceText("en")}. If you need a production day that combines planning, filming and an edit, Local Presence is ${priceSentence("en", "presencia-local").toLowerCase()}. The specific shot list, audio needs, finished versions and timing are confirmed for the project rather than promised as a standard package.`,
     },
+    {
+      question: "What should a business share before asking about a Fort Lauderdale video project?",
+      body:
+        "Start with the decision the video should help a customer make: contact the business, understand a service, see a location, or choose a product. Add the city, the date that matters, where the finished version will be used, and whether usable footage already exists. If filming is needed, include the people or areas that must be on camera and any access limits that affect the day. A reference can explain tone, but it should not replace the business goal. Those details let Esteban separate the remote-editing part from the on-location part and return a written scope instead of assuming a crew, a schedule, or a deliverable that has not been agreed.",
+    },
   ],
   faqHeading: "Questions Fort Lauderdale businesses ask before starting video.",
   faqs: [
