@@ -36,6 +36,7 @@ const actions = [
     external: true,
     image: "/portfolio/bar-door-monkey.jpg",
     imageAlt: "Fotograma de un video de restaurante de Esteban Moreno Media",
+    visual: "whatsapp",
   },
   {
     href: site.phone.href,
@@ -47,6 +48,7 @@ const actions = [
     external: false,
     image: "/about/esteban-on-location.jpg",
     imageAlt: "Esteban Moreno grabando en locación",
+    visual: "call",
   },
   {
     href: "/es/portafolio",
@@ -59,6 +61,7 @@ const actions = [
     internal: true,
     image: "/portfolio/gains-from-geebs-shorts.jpg",
     imageAlt: "Ejemplo de trabajo de video de Esteban Moreno Media",
+    visual: "work",
   },
   {
     href: site.googleBusinessProfile,
@@ -70,6 +73,7 @@ const actions = [
     external: true,
     image: "/portfolio/local-business-camera-work.jpg",
     imageAlt: "Esteban trabajando con una cámara en un negocio local",
+    visual: "maps",
   },
   {
     href: site.googleBusinessProfile,
@@ -81,6 +85,7 @@ const actions = [
     external: true,
     image: "/portfolio/healthy-smile.jpg",
     imageAlt: "Proyecto publicado de Esteban Moreno Media",
+    visual: "review",
   },
   {
     href: "/card.vcf",
@@ -93,6 +98,7 @@ const actions = [
     download: true,
     image: "/about/esteban-on-set.jpg",
     imageAlt: "Esteban Moreno en una producción",
+    visual: "contact",
   },
 ] as const;
 
@@ -113,16 +119,16 @@ export default function NfcContactCardPage() {
         <section className="pt-5" aria-label="Formas de contactar a Esteban">
           <p className="text-sm font-medium text-[#5a6066]">Elige lo que necesitas</p>
           <div className="mt-3 grid gap-3">
-            {actions.map(({ href, label, detail, icon: Icon, cta, primary, external, image, imageAlt, ...action }) => {
+            {actions.map(({ href, label, detail, icon: Icon, cta, primary, external, image, imageAlt, visual, ...action }) => {
               const className = `group flex min-h-[84px] items-center gap-4 rounded-2xl border px-4 py-4 transition-colors focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[#9f3c27] ${
                 primary
                   ? "border-[#c84a2c] bg-[#c84a2c] text-white hover:bg-[#a93e29]"
                   : "border-[#d6ccc0] bg-[#fffaf4] hover:border-[#9f3c27]"
               }`;
               const content = <>
-                <span className="relative size-[72px] shrink-0 overflow-hidden rounded-xl bg-[#292623]">
-                  <Image src={image} alt={imageAlt} fill sizes="72px" className="object-cover" />
-                  <span className={`absolute inset-0 grid place-items-center bg-black/30 ${primary ? "text-white" : "text-white"}`}>
+                <span className={`relative size-[72px] shrink-0 overflow-hidden rounded-xl bg-[#292623] ${visual === "maps" ? "ring-2 ring-[#4285f4]" : visual === "review" ? "ring-2 ring-[#ea4335]" : visual === "whatsapp" ? "ring-2 ring-[#25d366]" : ""}`}>
+                  {visual === "whatsapp" ? <video src="/about/esteban-on-set.mp4" muted loop autoPlay playsInline preload="metadata" aria-hidden="true" className="h-full w-full object-cover" /> : <Image src={image} alt={imageAlt} fill sizes="72px" className="object-cover" />}
+                  <span className={`absolute inset-0 grid place-items-center bg-black/35 text-white ${visual === "maps" ? "bg-[#4285f4]/45" : visual === "review" ? "bg-[#ea4335]/45" : visual === "whatsapp" ? "bg-[#128c7e]/35" : ""}`}>
                     <Icon className="size-5" aria-hidden="true" />
                   </span>
                 </span>
