@@ -633,6 +633,12 @@ Configuration-gated conversion-observability implementation is present locally, 
 - Evidence: focused `camera-kit-method` test passed 5/5 before branch migration; `git diff --check` passed in the isolated repair checkout; remote ref resolved to `4e0ce595127e620fec789397253df79cb4b84207` after push. A full suite attempted from the isolated checkout failed dependency resolution for React/Next/lucide due the checkout lacking linked node modules; do not call it green. Browser automation transport closed before a new 390px screenshot.
 - Required continuation: wait for the PR head and checks to refresh, obtain an independent visual verdict, merge only after that, then inspect canonical `https://estebanmorenomedia.com/#camera-kit-en` at 390x844 in both closed and expanded Sony state.
 
+## 2026-10-28 — Homepage project chooser composition correction
+
+- Commit `f345ec28` turns the full chooser panel into one camera body. It removes the small inset camera shell and its fake controls, uses the full project-grid measure, and mounts the supplied lens directly on the body.
+- Local Playwright evidence: `/tmp/esteban-camera-chooser-wide.png` is 1088x250 at 1440x900; `/tmp/esteban-camera-chooser-phone.png` is 358x220 at 390x844 with no horizontal overflow. Focused `home-packaging-human` passed 34/34, typecheck and `git diff --check` passed. Build began but did not complete during the command window; do not call it passed.
+- Remote PR branch resolves to `f345ec288b9bb4b83f2e5d0ed95ee29acf74641e`. Still require independent review, merge/deploy, and canonical public checks.
+
 - Owner asked for a more impressive, touchable whole-camera experience after the paired product tiles shipped in PR #469.
 - Branch `feat/camera-bench-interactive` changes `components/camera-kit-method.tsx` and `app/illustrated-commercial.css` into a native horizontal scroll-snap shelf. One camera fills a slide; the next camera remains visibly reachable. Each slide retains its server-rendered native `<details>` disclosure and shared name, so Sony/Canon details remain mutually exclusive.
 - No new equipment, lens, lighting, delivery, ownership, or performance claim was added. Existing manufacturer images and specifications remain the only camera facts.
