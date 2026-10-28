@@ -16,6 +16,8 @@
 
 # Esteban Moreno Media — Backlog
 
+- [ ] Activate the local draft-only Lead Desk from `codex/esteban-lead-desk`: create the scoped Gmail OAuth consent for `info@estebanmorenomedia.com`, set Esteban's alert email, then verify one `Esteban/Leads` message creates exactly one client reply draft plus one owner-alert draft. Never enable automatic client sends. See `docs/lead-desk.md` and [[wiki/esteban-lead-desk-pricing-agent-2026-10-28]].
+
 - [ ] After the reviewed Clarity code is merged, create/select Esteban Moreno Media's real Microsoft Clarity project; add only its identifier as `NEXT_PUBLIC_CLARITY_PROJECT_ID` to the Vercel **Production** environment, redeploy, and complete the production verification/rollback steps in `docs/microsoft-clarity-activation.md`. Do not place the identifier in git or enable previews.
 
 - [x] 2026-10-10: ship the annual-events section (hub + FLIBS + Art Basel first, then Miami boat show, SOBEWFF, eMerge Americas, Miami Music Week, Miami Spice) on `feat/events-hub`.
