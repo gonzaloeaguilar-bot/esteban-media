@@ -29,10 +29,10 @@ describe("homepage camera kit and method", () => {
     expect(component).toContain('className="em-camera-kit__model"');
     expect(component).toContain('name={`camera-kit-${locale}`}');
     expect(component).toContain('Swipe to compare. Tap a body for published specs.');
-    expect(component).toContain('className="em-camera-kit__unboxing-preview"');
-    expect(component).toContain('<details className="em-camera-kit__unboxing">');
-    expect(component).toContain('/about/esteban-on-set.jpg');
-    expect(component).toContain('data-cta={`camera_kit_unboxing_${locale}`}');
+    expect(component).toContain('className="em-camera-kit__accessories-stage"');
+    expect(component).not.toContain('className="em-camera-kit__unboxing-preview"');
+    expect(component).not.toContain('<details className="em-camera-kit__unboxing">');
+    expect(component).not.toContain('/about/esteban-on-set.jpg');
     expect(component).not.toContain('Real on-set camera views');
     expect(component).toContain('"01", "Start with what you have"');
     expect(component).toContain('"01", "Empieza con lo que tienes"');
@@ -41,7 +41,7 @@ describe("homepage camera kit and method", () => {
   it("shows a real on-set accessories card without turning an unverified product URL into a buy link", () => {
     expect(component).toContain('className="em-camera-kit__accessories"');
     expect(component).toContain('data-cta={`camera_kit_accessories_${locale}`}');
-    expect(component).toContain('/about/esteban-on-set.jpg');
+    expect(component).toContain('className="em-camera-kit__accessories-stage"');
     expect(component).toContain('The accessories follow the shot.');
     expect(component).toContain('Los accesorios siguen la toma.');
     expect(component).not.toContain('link.amazon/B0f98xMnt');
