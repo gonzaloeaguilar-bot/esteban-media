@@ -204,6 +204,18 @@ for (const locale of ["en", "es"] as const) {
       expect(production).not.toContain(locale === "es" ? "Demo básico $1,000 · Brand film $3,000 · Actores y estudio $6,500+" : "Basic demo $1,000 · Brand film $3,000 · Actors and studio $6,500+");
     });
 
+    it("1c3. gives social celebrations a priced, server-rendered card with a direct guide and prefilled WhatsApp quote", () => {
+      const productionStart = path.indexOf('data-route="production"');
+      const productionEnd = path.indexOf('data-route="local-business"');
+      const production = path.slice(productionStart, productionEnd);
+      expect(production).toContain(locale === "es" ? "Fiestas y celebraciones" : "Parties and celebrations");
+      expect(production).toContain(locale === "es" ? "Desde $800/día de producción" : "From $800/production day");
+      expect(production).toContain(locale === "es" ? "/es/videografo-para-fiestas-privadas-sur-de-florida" : "/services/private-party-videographer-south-florida");
+      expect(production).toContain("https://wa.me/");
+      expect(production).toContain("home_private_celebrations_whatsapp");
+      expect(production).toContain("em-private-celebrations__card");
+    });
+
     it("1d. the content creator route shows editing, a filming day, and scoped-project choices together", () => {
       expect(path).toMatch(/data-route="editing"[\s\S]*\$100[\s\S]*\$85[\s\S]*\$160/);
       expect(path).toMatch(/data-route="editing"[\s\S]*(Content creator|Creador de contenido)/);

@@ -2,8 +2,8 @@
   "status": "demand_gated",
   "effectiveDate": "2026-08-28",
   "baselineRevisedOn": "2026-10-24",
-  "approvedSitemapUrlCount": 567,
-  "approvedSitemapUrlSetSha256": "f7924d3632e31ac7dd98a5dc4a1a0521c5fc39c90e8048a750aeb7dcda1ccb4b",
+  "approvedSitemapUrlCount": 569,
+  "approvedSitemapUrlSetSha256": "e567c2dbacdec150b6f28d171fb4e04f3aaf5e9fbd39f6ff18497e1d5a10f053",
   "allowedNewIndexableUrls": 4,
   "reason": "Freeze lifted by owner order 2026-08-28 (Gonzalo). New indexable URLs are allowed when demand-backed: each new URL must cite a GSC query/impression signal or an intent gap named in the wave evidence, ship with title/meta/schema/internal links, and register a GSC follow-up date. Blind volume expansion remains prohibited.",
   "consolidationExecuted": {
@@ -34,6 +34,18 @@
   ],
   "allowanceWindow": "per demand-wave run",
   "ownerOrderedAdditions": [
+    {
+      "on": "2026-10-28",
+      "url": [
+        "/services/private-party-videographer-south-florida",
+        "/es/videografo-para-fiestas-privadas-sur-de-florida"
+      ],
+      "orderedBy": "Gonzalo (active session)",
+      "kind": "bilingual private-celebration service answer",
+      "demandEvidence": "A live birthday-party inquiry received in the active session identified an unserved commercial service question. The owner then explicitly expanded the requested coverage to social celebrations, including Colombian and Latin American family traditions, while requiring one compact bilingual answer instead of thin pages by event type.",
+      "followUpDate": "2026-11-25",
+      "followUp": "Check Search Console queries and page impressions for both routes, plus attributable qualified inquiries. Do not claim ranking, citation, or lead impact before that readout."
+    },
     {
       "on": "2026-10-27",
       "url": "/services/corporate-video-production-miami",

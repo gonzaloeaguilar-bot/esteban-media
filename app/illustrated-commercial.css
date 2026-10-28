@@ -496,6 +496,7 @@ body:has(.em-sheet-details[open])::after{content:"";position:fixed;inset:0;backg
 .em-path-offer-name{font:600 19px/1.2 var(--font-serif,Georgia,serif);color:#101214}
 .em-path-offer-price{font-size:15px;font-weight:700;line-height:1.3;color:#101214;white-space:nowrap}
 .em-path-offer-inc{margin:4px 0 0;font-size:15px;line-height:1.45;color:#4d5358}
+.em-private-celebrations__image{display:block;height:104px;margin:-14px -14px 14px;overflow:hidden;border-radius:12px 12px 0 0;background:#e9d8cc}.em-private-celebrations__image img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 46%}.em-private-celebrations__actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:14px}.em-private-celebrations__guide{display:inline-flex;align-items:center;min-height:44px;color:#6a625a;font-size:14px;font-weight:600;text-decoration:underline;text-underline-offset:4px}
 .em-path-offer-more{margin:0;font-size:14px;line-height:1.45}
 .em-path-offer-more a,.em-path-qualifier a{color:#6a625a;text-decoration:underline;text-underline-offset:4px;display:inline-flex;align-items:center;min-height:44px}
 .em-path-qualifier a{min-height:0;display:inline}

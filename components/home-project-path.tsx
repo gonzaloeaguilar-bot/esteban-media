@@ -459,6 +459,33 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
   const creatorFilm = locale === "es"
     ? { label: "¿También necesitas grabar?", title: "Grabemos tu contenido", lead: "Traes la idea. Yo grabo material para Reels, Shorts y tu próxima edición.", action: "Cotizar día de grabación" }
     : { label: "Need a filming day too?", title: "Film content with me", lead: "Bring the idea. I capture usable footage for Reels, Shorts, and your next edit.", action: "Quote a filming day" };
+  const celebrationPrice = priceFor("presencia-local");
+  const celebrationPriceText = celebrationPrice.kind === "from"
+    ? `${c.from} ${usd(celebrationPrice.amount)}${c.units["production-day"]}`
+    : c.singleQuoted;
+  const privateCelebrations = locale === "es"
+    ? {
+        label: "Celebraciones sociales",
+        title: "Fiestas y celebraciones",
+        price: celebrationPriceText,
+        lead: "Video de tu celebración para compartirlo y recordarlo.",
+        details: ["Cumpleaños, quinceañeras, graduaciones y reuniones familiares", "Bautizos, baby showers, aniversarios, propuestas y despedidas", "El alcance, traslado y entregables se confirman en tu cotización"],
+        quote: "Cotizar mi celebración",
+        guide: "Ver guía de fiestas privadas",
+        guideHref: "/es/videografo-para-fiestas-privadas-sur-de-florida",
+        whatsapp: "Hola Esteban, quiero una cotización para grabar una fiesta o celebración. La fecha, el lugar y el tipo de evento son:",
+      }
+    : {
+        label: "Social celebrations",
+        title: "Parties and celebrations",
+        price: celebrationPriceText,
+        lead: "Video of your celebration to share and remember.",
+        details: ["Birthdays, quinceañeras, graduations, and family reunions", "Baptisms, baby showers, anniversaries, proposals, and send-offs", "Scope, travel, and deliverables are confirmed in your quote"],
+        quote: "Quote my celebration",
+        guide: "Read the private-party guide",
+        guideHref: "/services/private-party-videographer-south-florida",
+        whatsapp: "Hi Esteban, I'd like a quote to film a party or celebration. The date, location, and event type are:",
+      };
 
   return (
     <section id="start" aria-labelledby={`home-path-${locale}`} data-section="home-project-path" className="em-home-project-path bg-[#f7f5f1] py-10 sm:py-14">
@@ -544,6 +571,21 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
                     return <li key={item.id}><details className="em-single-item" data-service={item.id} name={`route-service-${locale}-${route.id}`} onToggle={keepChoiceVisible}><summary data-cta={`home_path_${route.id}_${item.id}`}><Image className="em-single-thumb" src={scene.image} alt={c.thumbAlt(item.title)} width={96} height={64} sizes="64px" /><span className="em-single-text"><span className="em-single-title">{item.title}</span><span className="em-single-price">{price}</span>{item.note && <span className="em-single-note">{item.note}</span>}</span><Plus className="em-single-plus" size={18} aria-hidden="true" /></summary><div className="em-single-panel"><p><strong>{c.singleSend}.</strong> {scene.preparation}</p><div className="em-single-actions"><button type="button" className="em-single-ask" onClick={() => openFunnel(route.id, `${routeText.title}: ${item.title}`, price)}>{c.singleAsk}</button>{item.href && <Link href={item.href} className="em-single-service">{c.singleService}</Link>}</div></div></details></li>;
                   })}</ul></>}
                   {route.id === "editing" && <><div className="mt-5"><StarterOptions locale={locale} quiet /></div><p className="em-route-card__label mt-5">{creatorFilm.label}</p><ul className="em-path-offers grid grid-cols-1 gap-2.5" role="list" data-lane="creator-filming"><li className="em-path-offer rounded-xl border border-[#d6cabc] bg-white overflow-hidden"><details className="em-path-offer-details group/offer" name={`route-creator-filming-${locale}`} onToggle={keepChoiceVisible}><summary className="p-3.5 cursor-pointer list-none [&::-webkit-details-marker]:hidden"><p className="em-path-offer-head flex items-baseline justify-between gap-2 m-0"><strong className="em-path-offer-name">{creatorFilm.title}</strong><span className="em-path-offer-price">{`${c.singleFrom} ${usd(ON_LOCATION_CAPTURE.from)}${c.singleHalfDay}`}</span></p><p className="em-path-offer-inc">{creatorFilm.lead}</p><span className="mt-3 pt-2.5 border-t border-[#f0eae1] flex items-center gap-1 text-xs font-medium text-[#6a625a]">{locale === "es" ? "Ver qué enviar" : "See what to send"}<ChevronDown className="size-3.5 transition-transform group-open/offer:rotate-180" /></span></summary><div className="px-3.5 pb-3.5 pt-2 border-t border-[#f0eae1] bg-[#fffaf4] text-xs text-[#3a3530]"><p className="m-0 text-sm leading-6"><strong>{c.singleSend}.</strong> {aLaCarteVisual("grabacion", locale).preparation}</p><button type="button" className="em-route-choose" onClick={() => openFunnel(route.id, `${routeText.title}: ${creatorFilm.title}`, `${c.singleFrom} ${usd(ON_LOCATION_CAPTURE.from)}${c.singleHalfDay}`)}>{creatorFilm.action}<ArrowRight size={15} /></button></div></details></li></ul><details className="em-route-terms" onToggle={keepChoiceVisible}><summary>{editingProject.title}</summary><p>{editingProject.lead}</p><button type="button" className="em-route-choose" onClick={() => openFunnel(route.id, `${routeText.title}: ${editingProject.title}`, c.singleQuoted)}>{editingProject.action}<ArrowRight size={15} /></button></details></>}
+                  {route.id === "production" && <section className="em-private-celebrations" aria-labelledby={`private-celebrations-${locale}`}>
+                    <p className="em-route-card__label mt-5">{privateCelebrations.label}</p>
+                    <details className="em-path-offer em-private-celebrations__card group/celebration" name={`route-private-celebrations-${locale}`} onToggle={keepChoiceVisible}>
+                      <summary className="p-3.5 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                        <span className="em-private-celebrations__image"><Image src="/illustrations/private-celebration-illustration.png" alt={locale === "es" ? "Ilustración de una celebración privada de cumpleaños" : "Illustration of a private birthday celebration"} width={1122} height={1402} sizes="(max-width: 639px) 100vw, 640px" /></span>
+                        <p className="em-path-offer-head flex items-baseline justify-between gap-2 m-0"><strong id={`private-celebrations-${locale}`} className="em-path-offer-name">{privateCelebrations.title}</strong><span className="em-path-offer-price">{privateCelebrations.price}</span></p>
+                        <p className="em-path-offer-inc">{privateCelebrations.lead}</p>
+                        <span className="mt-3 pt-2.5 border-t border-[#f0eae1] flex items-center gap-1 text-xs font-medium text-[#6a625a]">{locale === "es" ? "Ver lo que incluye" : "See what is included"}<ChevronDown className="size-3.5 transition-transform group-open/celebration:rotate-180" /></span>
+                      </summary>
+                      <div className="px-3.5 pb-3.5 pt-2 border-t border-[#f0eae1] bg-[#fffaf4] text-xs text-[#3a3530]">
+                        <ul className="space-y-1.5" role="list">{privateCelebrations.details.map((item) => <li key={item} className="flex gap-2"><span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-[#9d3d2b]" /><span>{item}</span></li>)}</ul>
+                        <div className="em-private-celebrations__actions"><a href={whatsappHref(site.phone.e164, privateCelebrations.whatsapp)} target="_blank" rel="noopener noreferrer" data-cta={`home_private_celebrations_whatsapp_${locale}`} className="em-route-choose">{privateCelebrations.quote}<ArrowRight size={15} /></a><Link href={privateCelebrations.guideHref} className="em-private-celebrations__guide">{privateCelebrations.guide}</Link></div>
+                      </div>
+                    </details>
+                  </section>}
                   {route.id !== "editing" && <button type="button" className="em-route-main-cta" onClick={() => openFunnel(route.id, routeText.title, routePrice)}>{locale === "es" ? `Cotizar ${routeText.title}` : `Quote ${routeText.title}`}<ArrowRight size={18} /></button>}
                 </div>
               </details>
