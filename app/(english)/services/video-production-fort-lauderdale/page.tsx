@@ -9,7 +9,7 @@ const content: GeoServicePageContent = {
   title: "Video production in Fort Lauderdale for businesses that need a clear next step.",
   description:
     "Commercial video production and editing for Fort Lauderdale businesses that need a clear service, product, or location message.",
-  locationLabel: "Fort Lauderdale / Broward County",
+  locationLabel: "Fort Lauderdale / South Florida",
   proofTitle: "See a finished business video",
   proofText:
     "Watch the published Bar Door Monkey project to see a finished business video. That project was filmed in Miami. For a Fort Lauderdale project, share the kind of video you need, your location, and the footage you already have so Esteban can quote filming and editing separately.",
@@ -23,7 +23,7 @@ const content: GeoServicePageContent = {
   serviceDescription:
     "Video production, videography, and video editing for Fort Lauderdale and Broward County businesses.",
   serviceType: "Video production",
-  areaServed: "Fort Lauderdale / Broward County / Remote",
+  areaServed: "South Florida, from Palm Beach through the Keys / Remote",
   answerService: "video production in Fort Lauderdale",
   craftHeading: "What Fort Lauderdale business video needs to show clearly.",
   craft: [
@@ -72,6 +72,11 @@ const content: GeoServicePageContent = {
       question: "Do Fort Lauderdale projects need an in-person shoot?",
       answer:
         "Not always. If the business already has footage, Esteban can often help remotely with editing, captions, color, sound, and multiple export formats. An in-person shoot is more useful when the current footage is missing faces, location context, product details, or a clean explanation from the owner. The first quote should separate what can be edited now from what needs to be filmed.",
+    },
+    {
+      question: "Can Esteban scope an on-location project outside Fort Lauderdale?",
+      answer:
+        "Yes. Esteban is based in Fort Lauderdale and can scope on-location projects across South Florida, from Palm Beach through the Keys. The quote confirms the filming site, access, schedule, audio needs, shot priorities, finished formats, and any transportation cost for a distant location before a production date is set. Remote editing remains available when the footage already exists.",
     },
     {
       question: "What should a business send before asking for a quote?",

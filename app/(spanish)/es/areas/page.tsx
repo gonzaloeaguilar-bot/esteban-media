@@ -12,7 +12,7 @@ import { absoluteUrl } from "@/lib/site";
 export const metadata = buildPageMetadata({
   title: "Servicios de edición de video en Miami y Fort Lauderdale",
   description:
-    "Explora edición de video, contenido con IA y planificación social para Fort Lauderdale, Broward y Miami-Dade. Palm Beach se evalúa según el proyecto.",
+    "Explora edición de video, contenido con IA, planificación social y grabación definida por proyecto en South Florida, desde Palm Beach hasta los Keys.",
   path: "/es/areas",
   locale: "es",
 });
@@ -43,7 +43,7 @@ const serviceAreaFaqs = [
   {
     question: "¿Cómo se diferencia la edición remota de la producción en locación?",
     answer:
-      "La edición de video remota, los flujos con IA y la planificación para redes comienzan directamente desde el material grabado y referencias visuales del cliente, atendiendo marcas en South Florida y en cualquier ubicación. La grabación en locación se evalúa de manera selectiva según la sede del rodaje, los objetivos y el calendario en Fort Lauderdale o Broward, con disponibilidad en Miami-Dade para proyectos confirmados.",
+      "La edición de video remota, los flujos con IA y la planificación para redes comienzan directamente desde el material grabado y referencias visuales del cliente. Esteban tiene su base en Fort Lauderdale y define proyectos de grabación en South Florida, desde Palm Beach hasta los Keys, después de confirmar la sede, los objetivos, el calendario y las necesidades de captura.",
   },
   {
     question: "¿Se puede editar material grabado fuera del sur de la Florida?",
@@ -51,9 +51,9 @@ const serviceAreaFaqs = [
       "Sí. La postproducción de video, mezcla de audio, corrección de color y adaptación de formatos para redes sociales funcionan directamente con archivos digitales transferidos por internet sin restricciones geográficas.",
   },
   {
-    question: "¿Cómo se evalúa la disponibilidad para Palm Beach County?",
+    question: "¿Qué zonas de South Florida pueden incluir grabación en locación?",
     answer:
-      "Palm Beach County es un área de expansión evaluada individualmente por proyecto para grabaciones en locación. La edición remota de video y la planificación de contenido están disponibles de inmediato para cualquier proyecto con material existente.",
+      "Esteban tiene su base en Fort Lauderdale y puede definir proyectos de grabación en South Florida, desde Palm Beach hasta los Keys. La cotización confirma la sede exacta, el acceso requerido, el calendario, las necesidades de captura, los entregables y cualquier costo de transporte cuando la locación queda lejos de la base. La edición remota y la planificación pueden empezar con material existente, sin importar dónde se grabó.",
   },
   {
     question: "¿Ofrecen atención y contenido bilingüe en español e inglés?",
@@ -189,11 +189,12 @@ export default function SpanishAreasPage() {
             Fort Lauderdale como base, tres condados como área de servicio.
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-            Fort Lauderdale y Broward son la base local, con proyectos
-            seleccionados disponibles en Miami-Dade. Palm Beach County sigue
-            siendo un área de expansión considerada por proyecto. Esteban
-            trabaja como negocio de área de servicio y no publica una dirección
-            de estudio.
+            Esteban tiene su base en Fort Lauderdale y atiende South Florida
+            desde Palm Beach hasta los Keys. Cada grabación en locación se
+            define según la sede, la meta, el calendario, los entregables y
+            cualquier costo de transporte cuando la locación queda lejos de la
+            base. Esteban trabaja como negocio de área de servicio y no publica una
+            dirección de estudio.
           </p>
 
           <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">

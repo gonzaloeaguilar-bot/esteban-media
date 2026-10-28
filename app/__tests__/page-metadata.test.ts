@@ -129,7 +129,7 @@ describe("complete page metadata", () => {
 
     expect(metadata.title).toBe("Video para Restaurantes en Miami");
     expect(metadata.description).toBe(
-      "Edición de Reels y videos promocionales para restaurantes de Miami-Dade: platos estrella, ambiente del salón y promociones. Atención en español.",
+      "Edición de Reels y videos promocionales para restaurantes de Miami y South Florida: platos estrella, ambiente del salón y promociones. Atención en español.",
     );
     expect(metadata.description?.length).toBeGreaterThanOrEqual(70);
     expect(metadata.description?.length).toBeLessThanOrEqual(160);

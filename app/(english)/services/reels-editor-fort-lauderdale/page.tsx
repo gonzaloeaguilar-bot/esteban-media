@@ -7,7 +7,7 @@ const content: GeoServicePageContent = {
   title: "Reels editor in Fort Lauderdale who turns your clips into clear social videos.",
   description:
     "Send existing clips and a clear goal; Esteban turns them into a focused Reel, TikTok, or Short with one message, legible captions, and one final action. The edit can stay remote, while a local shoot is scoped separately only when new footage is needed.",
-  locationLabel: "Fort Lauderdale / Remote",
+  locationLabel: "Fort Lauderdale / South Florida / Remote",
   proofTitle: "A published example",
   proofText:
     "Watch the published 24-second ML Colombia video from Esteban’s own brand. Send your clips and goals so he can recommend an edit for your project.",
@@ -21,7 +21,7 @@ const content: GeoServicePageContent = {
   serviceDescription:
     "Instagram Reels, TikTok, and YouTube Shorts editing for Fort Lauderdale businesses and remote clients.",
   serviceType: "Short form video editing",
-  areaServed: "Fort Lauderdale / Broward County / Remote",
+  areaServed: "South Florida, from Palm Beach through the Keys / Remote",
   answerService: "Reels editing in Fort Lauderdale",
   craftHeading: "What Fort Lauderdale Reels need from the edit.",
   depthHeading: "Fort Lauderdale Reels editing questions, answered.",
@@ -87,6 +87,11 @@ const content: GeoServicePageContent = {
       question: "Can you edit Reels remotely for a Fort Lauderdale business?",
       answer:
         "Yes. Reels editing is a strong fit for remote work when the business can send original files, a short brief, references, and one person to approve changes. A local shoot is only needed when there is no usable footage or the business needs new scenes, people, products, or location details captured.",
+    },
+    {
+      question: "Can a South Florida business request filming as well as Reels editing?",
+      answer:
+        "Yes. Esteban is based in Fort Lauderdale and can scope on-location work across South Florida, from Palm Beach through the Keys, when a project needs footage that does not exist yet. The quote confirms the exact site, access, schedule, capture needs, finished versions, and any transportation cost for a distant location. If your team already has usable clips, remote editing can start from those files without a shoot.",
     },
   ],
   relatedHeading: "Related short-form and local services.",
