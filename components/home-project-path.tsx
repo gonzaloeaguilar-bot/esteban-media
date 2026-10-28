@@ -376,6 +376,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
   const c = copy[locale];
   const single = packagesCopy(locale).aLaCarte;
   const chooserRef = useRef<HTMLDivElement>(null);
+  const privateCelebrationVideoRef = useRef<HTMLVideoElement>(null);
   const [lensInView, setLensInView] = useState(false);
   const [funnelOpen, setFunnelOpen] = useState(false);
   const [funnelLane, setFunnelLane] = useState<{ id: string; label: string; price: string }>({ id: "real-estate", label: c.tabs[0], price: laneFunnelPrice(locale, "real-estate") });
@@ -412,6 +413,33 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
     );
     observer.observe(chooser);
     return () => observer.disconnect();
+  }, []);
+  useEffect(() => {
+    const video = privateCelebrationVideoRef.current;
+    if (!video || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    // Safari can render a muted inline video as a paused first frame despite
+    // autoplay. Ask it to play once the media is ready and again after the tab
+    // becomes visible. The real cover remains below it if the browser declines.
+    const startVideo = () => {
+      video.muted = true;
+      video.defaultMuted = true;
+      video.playsInline = true;
+      void video.play().catch(() => {});
+    };
+    const resumeWhenVisible = () => {
+      if (document.visibilityState === "visible") startVideo();
+    };
+
+    startVideo();
+    video.addEventListener("loadeddata", startVideo);
+    video.addEventListener("canplay", startVideo);
+    document.addEventListener("visibilitychange", resumeWhenVisible);
+    return () => {
+      video.removeEventListener("loadeddata", startVideo);
+      video.removeEventListener("canplay", startVideo);
+      document.removeEventListener("visibilitychange", resumeWhenVisible);
+    };
   }, []);
   const resetRouteWhenClosed = (event: React.SyntheticEvent<HTMLDetailsElement>) => {
     const route = event.currentTarget;
@@ -591,7 +619,7 @@ export function HomeProjectPath({ locale }: { locale: AudienceLocale }) {
               <span className="em-route-card__copy"><span className="em-route-card__eyebrow">{privateCelebrations.label}</span><strong id={`private-celebrations-${locale}`}>{privateCelebrations.title}</strong><span>{privateCelebrations.price}</span></span>
               <span className="em-route-card__visual em-route-card__visual--private-celebrations" aria-hidden="true">
                 <Image className="em-route-card__private-celebrations-cover" src="/private-events/yacht-party-miami-boat-cover.jpg" alt={locale === "es" ? "Yate navegando con invitados durante una celebración nocturna" : "Yacht with guests during an evening celebration"} fill sizes="(max-width: 639px) 100vw, 1200px" priority />
-                <video className="em-route-card__private-celebrations-loop" src="/private-events/yacht-party-miami-boat-loop.mp4" autoPlay loop muted playsInline preload="auto" disablePictureInPicture tabIndex={-1} />
+                <video ref={privateCelebrationVideoRef} className="em-route-card__private-celebrations-loop" src="/private-events/yacht-party-miami-boat-loop.mp4" autoPlay loop muted playsInline preload="auto" poster="/private-events/yacht-party-miami-boat-cover.jpg" disablePictureInPicture disableRemotePlayback tabIndex={-1} />
               </span>
               <Plus className="em-route-card__plus" size={22} aria-hidden="true" />
             </summary>
