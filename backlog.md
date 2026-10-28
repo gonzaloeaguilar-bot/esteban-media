@@ -250,3 +250,6 @@ Production is live. This file tracks repository implementation; account/access w
 
 - [x] Add native muted inline autoplay to the existing homepage hero and retain the reduced-motion poster path. The combined local candidate passed lint, typecheck, 165 test files / 3,471 tests, analytics, build, text parity, rail adoption, raw HTML, and rendered playback checks.
 - [ ] Push the combined owner-media candidate, merge after green CI, and verify production homepage autoplay plus the new real-estate reel at desktop and 390px.
+# 2026-10-28 — Completed: entity coverage consistency
+
+- [x] Align the hand-written llms facts and root LocalBusiness service-area graph to the owner-confirmed Fort Lauderdale-to-Florida-Keys boundary without adding a street address, office, directory claim or fixed transportation fee. PR #577 merged as `2cda4e7b17ba8257755f22ff9c82e87406ba01be`; canonical raw HTML and `/llms.txt` verified after Vercel success; IndexNow accepted 567 sitemap URLs. See `wiki/esteban-entity-coverage-release-audit-2026-10-28.md`.
