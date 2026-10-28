@@ -20,6 +20,8 @@ describe("NFC contact card", () => {
     expect(page).toContain("toca Reseñas y después Escribir una reseña");
     expect(page).not.toContain("nfc_card_email");
     expect(page).not.toContain("nfc_card_instagram");
+    expect(page).toContain('image: "/portfolio/bar-door-monkey.jpg"');
+    expect(page).toContain("<Image src={image}");
     expect(page).not.toContain("address");
   });
 
