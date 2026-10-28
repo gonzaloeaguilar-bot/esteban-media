@@ -43,6 +43,8 @@ describe("homepage portfolio rail", () => {
     expect(rail).toContain('videoSurface?: boolean;');
     expect(rail).toContain('className="em-phone-video"');
     expect(rail).toContain('item.embedUrl && item.id === litId && !reduced');
+    expect(rail).not.toContain('em-phone-video__controls');
+    expect(rail).not.toContain('bg-[var(--em-accent-ink)] text-white');
     expect(css).toContain('.em-phone-video__screen');
     expect(css).toContain('aspect-ratio: 16 / 9;');
     expect(source).toContain('phoneFrame: isVideoWork');
@@ -50,7 +52,7 @@ describe("homepage portfolio rail", () => {
   });
 
   it("opens the Great Reviewer YouTube reel in the same autoplaying carousel sheet", () => {
-    expect(source).toContain('embedUrl: "https://www.youtube-nocookie.com/embed/BDRru8eXaj4?autoplay=1&mute=1&playsinline=1&rel=0"');
+    expect(source).toContain('embedUrl: "https://www.youtube-nocookie.com/embed/BDRru8eXaj4?autoplay=1&mute=1&playsinline=1&loop=1&playlist=BDRru8eXaj4&rel=0"');
     expect(rail).toContain('i.videoSrc || i.embedUrl');
     expect(rail).toContain('embedUrl: item.embedUrl');
     expect(rail).toContain('embedUrl: i.embedUrl');
@@ -59,7 +61,7 @@ describe("homepage portfolio rail", () => {
 
   it("passes every public YouTube social video into the centred muted player", () => {
     expect(source).toContain('const isYouTubeVideo = item.media.kind === "youtube";');
-    expect(source).toContain('https://www.youtube-nocookie.com/embed/${item.media.videoId}?autoplay=1&mute=1&playsinline=1&rel=0');
+    expect(source).toContain('https://www.youtube-nocookie.com/embed/${item.media.videoId}?autoplay=1&mute=1&playsinline=1&loop=1&playlist=${item.media.videoId}&rel=0');
     expect(source).toContain('Instagram does not provide an equivalent');
   });
 

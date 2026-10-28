@@ -2,8 +2,6 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { Play } from "lucide-react";
-
 import { Rail, type RailItem } from "@/vendor/rail-kit";
 import { ReelFunnel, type ReelFunnelReel } from "@/components/reel-funnel";
 import { RAIL_LABELS_EN, RAIL_LABELS_ES } from "@/components/em-rails";
@@ -244,12 +242,6 @@ export function HomePortfolioRail({
               ) : (
                 <Image src={item.poster} alt="" fill sizes="(min-width: 768px) 380px, 78vw" className="em-phone-video__poster" />
               )}
-              <span className="em-phone-video__scrim" />
-              <span className="em-phone-video__controls">
-                <span className="em-phone-video__play"><Play className="size-3 fill-current" /></span>
-                <span className="em-phone-video__progress"><span /></span>
-                <span className="em-phone-video__time">0:18</span>
-              </span>
             </span>
             <span className="em-phone-video__info">
               <strong>{item.title}</strong>
@@ -276,12 +268,6 @@ export function HomePortfolioRail({
           aria-hidden="true"
           className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent"
         />
-        <span
-          aria-hidden="true"
-          className="absolute bottom-3 right-3 grid size-10 place-items-center rounded-full bg-[var(--em-accent-ink)] text-white"
-        >
-          <Play className="size-4 fill-current" aria-hidden="true" />
-        </span>
       </>
     ) : undefined,
   }));
