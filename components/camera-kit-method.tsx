@@ -26,10 +26,10 @@ const copy = {
       "The exact setup changes with the location, the available space and the kind of video. Before a shoot, the scope confirms what is needed so the day stays focused on the work, not a generic equipment list.",
     accessoriesAlt:
       "Esteban using a camera beside a lit product setup during a shoot",
-    unboxingEyebrow: "RECENT WORK",
-    unboxingTitle: "Watch the product unboxing.",
-    unboxingCopy: "The recent vertical product-unboxing reel plays here inside the phone. Sound stays off until you choose to turn it on.",
-    unboxingAction: "Open on Instagram",
+    unboxingEyebrow: "THE ACCESSORY SETUP",
+    unboxingTitle: "See the setup in action.",
+    unboxingCopy: "Support, light and a clean working area come together around the shot — without turning the page into a gear list.",
+    unboxingAction: "See how the setup works",
     methodTitle: "Open the working method",
     methodHint: "Three clear decisions before the work begins.",
     steps: [
@@ -62,10 +62,10 @@ const copy = {
       "El montaje exacto cambia según la locación, el espacio disponible y el tipo de video. Antes de grabar, el alcance confirma qué hace falta para que el día se enfoque en el trabajo, no en una lista genérica de equipo.",
     accessoriesAlt:
       "Esteban usando una cámara junto a un montaje de producto iluminado durante un rodaje",
-    unboxingEyebrow: "TRABAJO RECIENTE",
-    unboxingTitle: "Mira el unboxing de producto.",
-    unboxingCopy: "El Reel vertical reciente de unboxing se reproduce aquí dentro del teléfono. El sonido queda apagado hasta que decidas activarlo.",
-    unboxingAction: "Abrir en Instagram",
+    unboxingEyebrow: "EL MONTAJE DE ACCESORIOS",
+    unboxingTitle: "Mira el montaje en acción.",
+    unboxingCopy: "El soporte, la luz y un espacio de trabajo limpio se organizan alrededor de la toma, sin convertir la página en una lista de equipo.",
+    unboxingAction: "Ver cómo funciona el montaje",
     methodTitle: "Abrir el método de trabajo",
     methodHint: "Tres decisiones claras antes de empezar.",
     steps: [
@@ -163,26 +163,23 @@ export function CameraKitMethod({ locale }: { locale: Locale }) {
           <p>{c.accessoriesDetail}</p>
         </details>
 
-        <section className="em-camera-kit__unboxing" aria-label={c.unboxingTitle}>
-          <div className="em-camera-kit__unboxing-phone">
-            <span className="em-camera-kit__unboxing-speaker" aria-hidden="true" />
-            <iframe
-              title={c.unboxingTitle}
-              src="https://www.instagram.com/reel/DepBjEbBl9P/embed/"
-              allow="autoplay; encrypted-media; picture-in-picture"
-              loading="lazy"
-              scrolling="no"
-            />
-          </div>
-          <div className="em-camera-kit__unboxing-copy">
+        <details className="em-camera-kit__unboxing">
+          <summary data-cta={`camera_kit_unboxing_${locale}`}>
+            <span className="em-camera-kit__unboxing-preview">
+              {/* Existing owner-authorized on-set photo; no product model is implied. */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/about/esteban-on-set.jpg" alt={c.accessoriesAlt} />
+              <span className="em-camera-kit__unboxing-play" aria-hidden="true">Play</span>
+            </span>
+            <span className="em-camera-kit__unboxing-copy">
             <small>{c.unboxingEyebrow}</small>
             <strong>{c.unboxingTitle}</strong>
             <span>{c.unboxingCopy}</span>
-            <a href="https://www.instagram.com/reel/DepBjEbBl9P/" target="_blank" rel="noreferrer" data-cta={`camera_kit_unboxing_${locale}`}>
-              {c.unboxingAction} <span aria-hidden="true">↗</span>
-            </a>
-          </div>
-        </section>
+              <em>{c.unboxingAction}</em>
+            </span>
+          </summary>
+          <p>{c.accessoriesDetail}</p>
+        </details>
 
         <details className="em-camera-kit__method">
           <summary data-cta={`camera_kit_method_${locale}`}>
