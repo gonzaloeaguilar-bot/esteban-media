@@ -174,6 +174,27 @@ export function HomePortfolioRail({
     typeof window !== "undefined" &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /** Safari can leave an embedded YouTube preview on its thumbnail even with
+      autoplay=1 when it first appears inside a horizontal scroller. Give the
+      muted preview the IFrame API and explicitly begin it after load. */
+  const previewUrl = (embedUrl: string) => {
+    if (typeof window === "undefined") return embedUrl;
+    const url = new URL(embedUrl);
+    url.searchParams.set("enablejsapi", "1");
+    url.searchParams.set("origin", window.location.origin);
+    return url.toString();
+  };
+
+  const startPreview = (iframe: HTMLIFrameElement) => {
+    const command = (func: "mute" | "playVideo") =>
+      iframe.contentWindow?.postMessage(
+        JSON.stringify({ event: "command", func, args: "" }),
+        "https://www.youtube-nocookie.com",
+      );
+    command("mute");
+    command("playVideo");
+  };
+
   const railItems: RailItem[] = items.map((item) => ({
     kind: "media",
     id: item.id,
@@ -239,10 +260,11 @@ export function HomePortfolioRail({
               {item.embedUrl && item.id === litId && !reduced ? (
                 <iframe
                   className="em-phone-video__embed"
-                  src={item.embedUrl}
+                  src={previewUrl(item.embedUrl)}
                   title={`${item.title} preview`}
                   allow="autoplay; encrypted-media; picture-in-picture"
                   tabIndex={-1}
+                  onLoad={(event) => startPreview(event.currentTarget)}
                 />
               ) : (
                 <Image src={item.poster} alt="" fill sizes="(min-width: 768px) 380px, 78vw" className="em-phone-video__poster" />
