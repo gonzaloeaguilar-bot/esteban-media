@@ -1,0 +1,48 @@
+{
+  "project": "esteban-media",
+  "mode": "pr",
+  "target_type": "pr",
+  "target_id": "PR-582",
+  "requires_pr": true,
+  "goal": "Refresh the generated Spanish rendered-HTML parity baseline to the exact current main production build.",
+  "summary": "Updates only the deterministic fixture after a clean current-main build reproduced the existing rendered Spanish output. No public source, metadata, schema, analytics, or deployment configuration changes.",
+  "risk": "Low: test fixture only; it records the current rendered artifact so unrelated releases cannot be blocked by stale expected output.",
+  "changed_paths": [
+    "app/__tests__/fixtures/spanish-niche-text-baseline.json",
+    ".cortex/quality-payloads/PR-582.json"
+  ],
+  "requested_actions": [
+    "Confirm the fixture is generated from a clean build of current main.",
+    "Confirm the refreshed fixture passes the raw rendered HTML parity gate for all 195 scoped Spanish routes.",
+    "Confirm no public runtime source, metadata, or schema file changes are included."
+  ],
+  "public_claims": [],
+  "evidence": {
+    "obsidian_context": "Release block and the baseline cause are recorded in client-esteban-media/wiki/esteban-media-hot.md and client-esteban-media/wiki/esteban-geo-market-ownership-extension-2026-10-28.md.",
+    "project_routing": "Repository gonzaloeaguilar-bot/esteban-media; isolated checkout /Users/gonzalo/code/esteban-parity-baseline; branch fix/spanish-parity-baseline-20261028; PR #582; implementation commit 955a446.",
+    "hard_stops_checked": "No public copy/source, metadata, schema, analytics, credential, billing, DNS, contact route, or production configuration change is included.",
+    "reviewer_ensemble": "Builder regenerated the fixture from clean current-main rendered HTML. Skeptic check compared the temporary main snapshot against the same build and then reran the committed fixture check. Taste review is not applicable because no rendered public surface changed; fixture-only scope was inspected.",
+    "reviewer_disagreement_reviewed": "No reviewer disagreement occurred. The pre-existing baseline failed against current main before this PR, so the fixture was regenerated rather than treating a green build as proof of parity.",
+    "winner_rationale": "A deterministic parity gate must describe the current source artifact; an outdated baseline creates an unrelated release block and hides meaningful future differences.",
+    "tests_or_validation": "pnpm build completed from clean current main. node scripts/text-parity.mjs check .next/server/app /tmp/esteban-spanish-parity-main.json passed for 195 routes. pnpm text-parity passed for 195 routes after the fixture refresh. git diff --check passed.",
+    "debt_delta": "neutral",
+    "obsidian_handoff": "Updated client-esteban-media/wiki/esteban-media-hot.md, client-esteban-media/wiki/esteban-geo-market-ownership-extension-2026-10-28.md, and client-esteban-media/backlog.md with the release block and repair.",
+    "ci_passed": "Local deterministic release-relevant validation completed: clean main production build, parity snapshot check for 195 routes, committed fixture parity check for 195 routes, and diff check. GitHub validate remains a separate PR signal.",
+    "pr_review_complete": "Scoped fixture review completed. The only source diff is the generated snapshot, and the committed fixture was rechecked against its exact build artifact."
+  },
+  "reviewers": {
+    "builder": {"status": "ok", "note": "Generated and committed only the deterministic fixture from the clean main build."},
+    "skeptic": {"status": "ok", "note": "Verified the temporary current-main snapshot and committed fixture each pass the same 195-route raw HTML parity check."},
+    "taste": {"status": "ok", "note": "No public visual or copy surface changed; fixture-only scope was confirmed."}
+  },
+  "scores": {
+    "source_fidelity": 5,
+    "architecture_soundness": 4,
+    "implementation_quality": 4,
+    "review_completeness": 4,
+    "debt_posture": 4,
+    "verification_strength": 4,
+    "taste_fit": 4
+  },
+  "debt_delta": "neutral"
+}
