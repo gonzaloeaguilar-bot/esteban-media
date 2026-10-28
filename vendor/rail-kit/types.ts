@@ -18,6 +18,12 @@ export type RailAction = {
   variant?: Exclude<CtaVariant, "none">;
   /** Optional per-action id for telemetry; defaults to the label. */
   id?: string;
+  /**
+   * Extra data-* attributes for the link, keys WITHOUT the "data-" prefix:
+   * { "analytics-event": "apply_click" } renders data-analytics-event. For a
+   * consumer whose own analytics layer listens for attributes on links.
+   */
+  data?: Record<string, string>;
 };
 
 /** What every card shape can carry, whatever its kind. */
@@ -57,8 +63,6 @@ type CardCommon = {
   glyph?: string | null;
   /** Overrides the rail's own `variant` for this one card. */
   variant?: RailVariant;
-  /** Server-rendered hook for a phone-shaped vertical-media frame. */
-  phoneFrame?: boolean;
 };
 
 /** A card with a picture: inventory, listings, products, coaching packages. */
