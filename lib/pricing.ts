@@ -433,6 +433,11 @@ export const CELEBRATION_FILM_BUNDLES = {
   halfDay: 1200,
   fullDay: 2200,
   twoPersonFullDay: 3400,
+  // Yacht celebrations use the published turnkey yacht rate card (half-day
+  // minimum; full day includes licensed marine drone tracking). Same numbers
+  // the FAQ answer in lib/owner-fact-answers.ts already states publicly.
+  yachtHalfDay: TURNKEY_PRODUCTION_BUNDLES.yachtHalfDay,
+  yachtFullDay: TURNKEY_PRODUCTION_BUNDLES.yachtFullDay,
 } as const;
 
 /**

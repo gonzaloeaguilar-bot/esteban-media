@@ -63,6 +63,9 @@ for (const locale of ["en", "es"] as const) {
       expect(celebrations).toContain(locale === "es" ? "desde $2,200 · hasta 8 horas" : "from $2,200 · up to 8 hours");
       expect(celebrations).toContain(locale === "es" ? "desde $3,400 · hasta 8 horas" : "from $3,400 · up to 8 hours");
       expect(celebrations).toContain(locale === "es" ? "película terminada" : "finished film");
+      expect(celebrations).toContain(locale === "es" ? "Película de fiesta en yate" : "Yacht party film");
+      expect(celebrations).toContain(locale === "es" ? "desde $1,450 · medio día" : "from $1,450 · half day");
+      expect(celebrations).toContain("$2,800");
       expect(celebrations).not.toContain("em-private-celebrations__packages");
       expect(celebrations).toContain('yacht-party-miami-boat-cover.jpg');
       expect(celebrations).toContain('yacht-party-miami-boat-loop.mp4');
