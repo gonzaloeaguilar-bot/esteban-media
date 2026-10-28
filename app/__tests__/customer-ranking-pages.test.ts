@@ -261,6 +261,9 @@ describe("customer-facing ranking pages", () => {
 
     expect(crowdfunding).toContain('href="/portfolio/my-dler"');
     expect(crowdfunding).toContain('href="/contact"');
+    expect(crowdfunding).toContain("What should you send a crowdfunding video editor before asking for a quote?");
+    expect(crowdfunding).toContain('href="/resources/video-project-brief-template"');
+    expect(crowdfunding).toContain('href="/resources/remote-editing-handoff-checklist"');
 
     expect(yachtHospitality).toContain('href="/portfolio/banacol"');
     expect(yachtHospitality).toContain('href="/contact"');

@@ -124,6 +124,21 @@ export default function CrowdfundingVideoEditorMiamiPage() {
       </section>
       <ServiceAnswerFirst service="Crowdfunding video editing" />
 
+      <section className="border-b border-[#ddd4c8] py-12 sm:py-16">
+        <Container size="xl">
+          <div className="max-w-3xl">
+            <h2 className="font-serif text-3xl leading-tight sm:text-4xl">
+              What should you send a crowdfunding video editor before asking for a quote?
+            </h2>
+            <p className="mt-4 text-base leading-7 text-[#252a2d]">
+              Send the product&apos;s purpose, the campaign platform, the launch date, and the footage or product
+              materials already available. Add the key message, the audience you want to reach, the formats you need,
+              and one person who can gather feedback. A short <Link href="/resources/video-project-brief-template" className="font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#7f2f20]">video project brief</Link> keeps those decisions in one place; the <Link href="/resources/remote-editing-handoff-checklist" className="font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#7f2f20]">remote editing handoff checklist</Link> helps organize the files. The quote can then define the agreed scope, deliverables, timing, and revision terms for that launch.
+            </p>
+          </div>
+        </Container>
+      </section>
+
       <section className="pb-12 sm:pb-16">
         <Container size="xl">
           <div className="rounded-lg border border-[#ddd4c8] bg-[#fbf6ef] p-6 sm:p-8">
