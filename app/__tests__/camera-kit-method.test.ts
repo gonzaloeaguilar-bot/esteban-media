@@ -62,6 +62,14 @@ describe("homepage camera kit and method", () => {
     expect(component).not.toContain('link.amazon/B0f98xMnt');
   });
 
+  it("keeps the accessory as a compact preview and puts its detail behind the native disclosure", () => {
+    expect(component).toContain('<p><strong>{c.accessoriesLead}</strong> {c.accessoriesDetail}</p>');
+    expect(component).not.toContain('<span>{c.accessoriesLead}</span>');
+    expect(styles).toContain('width:min(100%,640px);margin:18px auto 0');
+    expect(styles).toContain('grid-template-columns:132px minmax(0,1fr) 38px;min-height:166px');
+    expect(styles).toContain('.em-camera-kit__accessories-copy>span,.em-camera-kit__accessories-copy em{display:none}');
+  });
+
   it("replaces the generic homepage drawer in both languages without dropping optional reading", () => {
     expect(englishHome).toContain('<CameraKitMethod locale="en" />');
     expect(spanishHome).toContain('<CameraKitMethod locale="es" />');

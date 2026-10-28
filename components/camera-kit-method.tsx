@@ -159,12 +159,10 @@ export function CameraKitMethod({ locale }: { locale: Locale }) {
             <span className="em-camera-kit__accessories-copy">
               <small>{c.accessoriesEyebrow}</small>
               <strong>{c.accessoriesTitle}</strong>
-              <span>{c.accessoriesLead}</span>
-              <em>{c.accessoriesAction}</em>
             </span>
             <span className="em-camera-kit__accessories-mark" aria-hidden="true">+</span>
           </summary>
-          <p>{c.accessoriesDetail}</p>
+          <p><strong>{c.accessoriesLead}</strong> {c.accessoriesDetail}</p>
         </details>
 
         <details className="em-camera-kit__unboxing">
