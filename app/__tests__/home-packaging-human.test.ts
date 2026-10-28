@@ -66,6 +66,11 @@ for (const locale of ["en", "es"] as const) {
       expect(celebrations).toContain(locale === "es" ? "Película de fiesta en yate" : "Yacht party film");
       expect(celebrations).toContain(locale === "es" ? "desde $1,450 · medio día" : "from $1,450 · half day");
       expect(celebrations).toContain("$2,800");
+      // Measurement rides on the shared track.js layer (one writer per event):
+      // the open tap, every package tap and the WhatsApp CTA all carry data-cta.
+      expect(celebrations).toContain(`data-cta="home_project_route_${locale}_private-celebrations"`);
+      expect(celebrations).toContain(`data-cta="home_private_celebrations_${locale}_yacht-party-film"`.replace("yacht-party-film", locale === "es" ? "película-de-fiesta-en-yate" : "yacht-party-film"));
+      expect(celebrations).toContain(`data-cta="home_private_celebrations_whatsapp_${locale}"`);
       expect(celebrations).not.toContain("em-private-celebrations__packages");
       expect(celebrations).toContain('yacht-party-miami-skyline-cover.jpg');
       expect(celebrations).toContain('yacht-party-miami-skyline-loop.mp4');
