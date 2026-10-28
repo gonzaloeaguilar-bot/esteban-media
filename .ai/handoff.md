@@ -24,6 +24,12 @@ Branch `feat/personal-geo-guides-20261028` adds two EN/ES guide pairs: the first
 
 Local evidence: full `pnpm test` passed; `pnpm lint` had 0 errors and 22 existing warnings; `pnpm typecheck`, `pnpm build` (BUILD_ID `lRxkdZZ3tWzNbvIkJLIGM`), `pnpm rail-kit:check`, `pnpm rail-adoption:check`, `pnpm text-parity`, and `git diff --check` passed. Built raw HTML contains the EN and ES titles. A local browser read of the first EN guide confirmed answer-first copy, table of contents, bilingual route link, raw facts/links, and collapsed FAQs. This candidate has not been committed, reviewed, opened as a PR, deployed, or checked in production. Next verifier: `cto-qa-lead`.
 
+# 2026-10-28 — Bilingual personal craft homepage interlude (local candidate; not production)
+
+- Added `components/personal-craft-experience.tsx` to `/` and `/es`, immediately after the work rail and before `HomeProjectPath`. It keeps the approved hero untouched and presents the source-bounded direct-partnership promise, three short commitments, existing chooser anchor, and a server-rendered native `<details>` with only existing service and portfolio links.
+- Local evidence: `pnpm test --run app/__tests__/personal-craft-experience.test.ts` passed 3/3; `pnpm lint`, `pnpm typecheck`, `pnpm test`, `pnpm rail-adoption:check`, `pnpm lastmod:update`, `git diff --check`, the experience-contract validator, and `analytics-gate.py` passed. Local EN and ES raw HTML each returned 200 and contained their promise and disclosure. Browser keyboard activation expanded the English disclosure and exposed its existing links.
+- `human-consumption-gate.mjs --site esteban-media` has no configured site entry, so it returned `--site esteban-media not in config`; this is unavailable, not a passing visual result. The production build was started but has no terminal receipt in this constrained session. Independent visual review, a complete build receipt, PR/merge/deployment, real phone/desktop production rendering, and the T+7/T+14 comparable inquiry read remain required before any production or outcome claim.
+
 ---
 
 # 2026-10-28 — Desktop polaroid and player repair (PR #579, not production)
