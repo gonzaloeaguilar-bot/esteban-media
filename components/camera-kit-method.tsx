@@ -1,5 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
+
+import { CameraKitUnboxing } from "./camera-kit-unboxing";
 
 type Locale = "en" | "es";
 
@@ -30,8 +31,8 @@ const copy = {
     unboxingEyebrow: "UNBOXING",
     unboxingTitle: "A closer look at the Sony Alpha 7 IV.",
     unboxingCopy: "A look at the camera body Esteban uses in his work.",
-    unboxingAction: "Play the unboxing",
-    unboxingDetail: "Play the video for a closer look at the camera body. The published specifications above remain the reference for the kit.",
+    unboxingSoundOn: "Sound on",
+    unboxingSoundOff: "Sound off",
     unboxingVideoLabel: "Sony Alpha 7 IV unboxing video",
     methodTitle: "Open the working method",
     methodHint: "Three clear decisions before the work begins.",
@@ -68,8 +69,8 @@ const copy = {
     unboxingEyebrow: "UNBOXING",
     unboxingTitle: "Un vistazo al Sony Alpha 7 IV.",
     unboxingCopy: "Una mirada al cuerpo de cámara que Esteban usa en su trabajo.",
-    unboxingAction: "Reproducir el unboxing",
-    unboxingDetail: "Reproduce el video para ver más de cerca el cuerpo de cámara. Las especificaciones publicadas arriba siguen siendo la referencia del equipo.",
+    unboxingSoundOn: "Activar sonido",
+    unboxingSoundOff: "Silenciar",
     unboxingVideoLabel: "Video de unboxing de la Sony Alpha 7 IV",
     methodTitle: "Abrir el método de trabajo",
     methodHint: "Tres decisiones claras antes de empezar.",
@@ -165,31 +166,15 @@ export function CameraKitMethod({ locale }: { locale: Locale }) {
           <p><strong>{c.accessoriesLead}</strong> {c.accessoriesDetail}</p>
         </details>
 
-        <details className="em-camera-kit__unboxing">
-          <summary data-cta={`camera_kit_unboxing_${locale}`}>
-            <span className="em-camera-kit__unboxing-preview">
-              <Image src="/portfolio/sony-a7iv-unboxing.png" alt={locale === "es" ? "Unboxing de una Sony Alpha 7 IV sobre una mesa de trabajo" : "Sony Alpha 7 IV unboxing on a work desk"} fill sizes="(max-width: 639px) 38vw, 42vw" />
-              <span className="em-camera-kit__unboxing-play" aria-hidden="true">Play</span>
-            </span>
-            <span className="em-camera-kit__unboxing-copy">
-              <small>{c.unboxingEyebrow}</small>
-              <strong>{c.unboxingTitle}</strong>
-              <span>{c.unboxingCopy}</span>
-              <em>{c.unboxingAction}</em>
-            </span>
-          </summary>
-          <video
-            className="em-camera-kit__unboxing-video"
-            controls
-            playsInline
-            preload="metadata"
-            poster="/portfolio/sony-a7iv-unboxing.png"
-            aria-label={c.unboxingVideoLabel}
-          >
-            <source src="/portfolio/sony-a7iv-unboxing.mp4" type="video/mp4" />
-          </video>
-          <p>{c.unboxingDetail}</p>
-        </details>
+        <CameraKitUnboxing
+          locale={locale}
+          eyebrow={c.unboxingEyebrow}
+          title={c.unboxingTitle}
+          lead={c.unboxingCopy}
+          label={c.unboxingVideoLabel}
+          soundOn={c.unboxingSoundOn}
+          soundOff={c.unboxingSoundOff}
+        />
 
         <details className="em-camera-kit__method">
           <summary data-cta={`camera_kit_method_${locale}`}>
