@@ -28,6 +28,10 @@ export type HomePortfolioCard = {
   isReel?: boolean;
   /** Explicit device treatment for a vertical video case that is not a property Reel. */
   phoneFrame?: boolean;
+  /** A landscape video shown in a phone gets a player surface, never a crop. */
+  videoSurface?: boolean;
+  /** Visible player chrome must identify the work without guessing a channel. */
+  videoSurfaceLabel?: string;
   /** The reel's MP4. Present only on reels; makes the card open a player. */
   videoSrc?: string;
   /** A published YouTube reel: opens in the same player sheet as local MP4s. */
@@ -218,20 +222,52 @@ export function HomePortfolioRail({
             anchor, so putting it back here restores the exact same reading
             order. `rail-sr-only` is the kit's own hidden-text class. */}
         <span className="rail-sr-only">{isSpanish ? "Ver " : "Watch "}</span>
-        <Image
-          src={item.poster}
-          // Describes the still (a frame from the video), not the title that
-          // follows it. Empty before 2026-10-14, when the human audit counted
-          // 14 rail images with no alt text.
-          alt={item.posterAlt ?? ""}
-          fill
-          // The card renders at min(380px, 78vw) on this rail — the lg width
-          // set in globals.css — so the srcset hint matches what is actually
-          // shown (the previous 332px values described a layout two
-          // generations back).
-          sizes="(min-width: 768px) 380px, 78vw"
-          className="object-cover"
-        />
+        {item.videoSurface ? (
+          <span className="em-phone-video" aria-hidden="true">
+            <span className="em-phone-video__top">
+              <span className="em-phone-video__wordmark">YouTube</span>
+              <span className="em-phone-video__live">Now playing</span>
+            </span>
+            <span className="em-phone-video__screen">
+              {item.embedUrl && item.id === litId && !reduced ? (
+                <iframe
+                  className="em-phone-video__embed"
+                  src={item.embedUrl}
+                  title={`${item.title} preview`}
+                  allow="autoplay; encrypted-media; picture-in-picture"
+                  tabIndex={-1}
+                />
+              ) : (
+                <Image src={item.poster} alt="" fill sizes="(min-width: 768px) 380px, 78vw" className="em-phone-video__poster" />
+              )}
+              <span className="em-phone-video__scrim" />
+              <span className="em-phone-video__controls">
+                <span className="em-phone-video__play"><Play className="size-3 fill-current" /></span>
+                <span className="em-phone-video__progress"><span /></span>
+                <span className="em-phone-video__time">0:18</span>
+              </span>
+            </span>
+            <span className="em-phone-video__info">
+              <strong>{item.title}</strong>
+              <span>{item.videoSurfaceLabel ?? item.eyebrow}</span>
+            </span>
+          </span>
+        ) : (
+          <Image
+            src={item.poster}
+            // Describes the still (a frame from the video), not the title that
+            // follows it. Empty before 2026-10-14, when the human audit counted
+            // 14 rail images with no alt text.
+            alt={item.posterAlt ?? ""}
+            fill
+            // The card renders at min(380px, 78vw) on this rail — the lg width
+            // set in globals.css — so the srcset hint matches what is actually
+            // shown (the previous 332px values described a layout two
+            // generations back).
+            sizes="(min-width: 768px) 380px, 78vw"
+            className="object-cover"
+          />
+        )}
         <span
           aria-hidden="true"
           className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent"

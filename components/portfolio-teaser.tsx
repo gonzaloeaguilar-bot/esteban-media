@@ -143,6 +143,8 @@ export function PortfolioTeaser({ locale, source = "home_portfolio" }: Portfolio
                 // playlist, whose `isReel` flag also controls in-place MP4
                 // playback.
                 phoneFrame: true,
+                videoSurface: true,
+                videoSurfaceLabel: "The Great Reviewer",
                 // It is published on YouTube, not mirrored as a local MP4.
                 // Selecting it still opens the same in-place player sheet and
                 // starts the video immediately instead of navigating away.
@@ -164,6 +166,8 @@ export function PortfolioTeaser({ locale, source = "home_portfolio" }: Portfolio
               videoSrc: reel.src,
             })), ...items.map((item) => {
               const poster = getPoster(item);
+              const isVideoWork = item.category === "social-content" &&
+                (item.media.kind === "youtube" || item.media.kind === "instagram");
               const targetHref =
                 item.category === "web-design"
                   ? isSpanish
@@ -178,6 +182,12 @@ export function PortfolioTeaser({ locale, source = "home_portfolio" }: Portfolio
                 location: item.location,
                 poster,
                 posterAlt: isSpanish ? `Fotograma del video ${item.title}` : `Frame from the video ${item.title}`,
+                // Landscape video stays whole in a small player surface. This
+                // preserves people in the thumbnail instead of cropping a
+                // 16:9 film into a vertical Reel.
+                phoneFrame: isVideoWork,
+                videoSurface: isVideoWork,
+                videoSurfaceLabel: isSpanish ? "Video de Esteban Moreno" : "Esteban Moreno video",
               };
             })]}
           />
