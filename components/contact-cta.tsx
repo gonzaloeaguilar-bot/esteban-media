@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight, CheckCircle2, Mail, MessageCircle, Phone, Send } from "lucide-react";
+import { ArrowRight, CalendarClock, CheckCircle2, Mail, MessageCircle, Phone, Send } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import { homeContactCopy } from "@/components/home-contact-strip";
@@ -49,6 +49,8 @@ const COPY = {
     callLabel: homeContactCopy.en.call,
     whatsappMessage: homeContactCopy.en.message,
     mailSubject: homeContactCopy.en.subject,
+    bookingLabel: "See available times",
+    bookingHint: "Choose a time that works for you. Google Meet details arrive after you book.",
     buildBrief: "Build a detailed brief",
     buildBriefHint: "Best when you want a complete written quote with the project details in one message.",
     emailField: "Email",
@@ -88,6 +90,8 @@ const COPY = {
     callLabel: homeContactCopy.es.call,
     whatsappMessage: homeContactCopy.es.message,
     mailSubject: homeContactCopy.es.subject,
+    bookingLabel: "Ver horarios disponibles",
+    bookingHint: "Elige el horario que te funcione. Los detalles de Google Meet llegan después de reservar.",
     // Live on /es/contacto and /contact's VideoBriefBuilder disclosure.
     buildBrief: "Preparar un brief más detallado",
     buildBriefHint: "Ideal si quieres una cotización escrita completa con los detalles del proyecto en un solo mensaje.",
@@ -250,6 +254,16 @@ export function ContactCta({ locale = "en" }: { locale?: Locale }) {
             </div>
             <p className="mt-3 flex flex-wrap items-center gap-x-5 text-sm text-[#d8d0c7]">
               <a
+                href={site.booking}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-cta="home_contact_booking"
+                className="inline-flex min-h-11 items-center gap-2 underline underline-offset-4 hover:text-white"
+              >
+                <CalendarClock className="size-4" aria-hidden="true" />
+                <span>{c.bookingLabel}</span>
+              </a>
+              <a
                 href={site.phone.href}
                 data-cta="home_contact_phone"
                 className="inline-flex min-h-11 items-center gap-2 underline underline-offset-4 hover:text-white"
@@ -268,6 +282,7 @@ export function ContactCta({ locale = "en" }: { locale?: Locale }) {
                 Instagram @steeban1
               </a>
             </p>
+            <p className="mt-1 text-sm leading-6 text-[#aaa29a]">{c.bookingHint}</p>
 
             {/* Voluntary depth. Every field below already existed on the
                 homepage; nothing was deleted, it just stopped being the

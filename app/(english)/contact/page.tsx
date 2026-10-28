@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mail, MessageCircle } from "lucide-react";
+import { CalendarClock, Mail, MessageCircle } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { VideoBriefBuilder } from "@/components/video-brief-builder";
 import { whatsappHref } from "@/lib/packages";
@@ -60,6 +60,12 @@ export default function ContactPage() {
           <div className="mt-6 grid gap-3 sm:grid-cols-2">
             <a href={whatsappHref(site.phone.e164, "Hi Esteban, I saw your site and want to discuss a video project.")} target="_blank" rel="noopener noreferrer" data-cta="contact_whatsapp" data-section="contact" className="flex min-h-14 items-center justify-center gap-3 rounded-full bg-[#c84a2c] px-5 text-sm font-medium text-white hover:bg-[#a93e29]"><MessageCircle className="size-5" aria-hidden="true" /> Message on WhatsApp</a>
             <a href={`mailto:${site.email}`} data-cta="contact_email" data-section="contact" className="flex min-h-14 items-center justify-center gap-3 rounded-full border border-[#b9aa9a] px-5 text-sm font-medium text-[#252a2d] hover:border-[#c84a2c]"><Mail className="size-5" aria-hidden="true" /> Email Esteban</a>
+          </div>
+          <div className="mt-4 flex flex-col items-start gap-1 text-sm text-[#5a6066]">
+            <a href={site.booking} target="_blank" rel="noopener noreferrer" data-cta="contact_booking" data-section="contact" className="inline-flex min-h-11 items-center gap-2 font-medium text-[#9f3c27] underline underline-offset-4 hover:text-[#7f2f21]">
+              <CalendarClock className="size-4" aria-hidden="true" /> See available times
+            </a>
+            <p>Choose a time that works for you. Google Meet details arrive after you book.</p>
           </div>
           <p className="mt-3 text-sm text-[#5a6066]">Or call <a href={site.phone.href} className="inline-flex min-h-11 items-center underline underline-offset-4">{site.phone.display}</a>.</p>
           <section className="mt-6 max-w-2xl border-l-2 border-[#c84a2c] pl-4" aria-labelledby="local-project-heading">

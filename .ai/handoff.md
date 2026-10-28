@@ -480,6 +480,13 @@ Branch: `feat/commercial-cda87cb0f3ffa017-1-r0930`. Answered commercial buyer qu
 
 # Engineering handoff — esteban-media
 
+## 2026-10-28 — Google Calendar availability action (local candidate)
+
+- Branch: `feat/esteban-google-booking-20261028`, worktree `/Users/gonzalo/code/esteban-google-booking-20261028`, based on `origin/main` `0bc69bdc`.
+- `lib/site.ts` centralizes the verified public Google Calendar booking URL. `components/contact-cta.tsx` adds the optional EN/ES homepage availability action and both dedicated contact pages add the same quiet link, while WhatsApp remains primary. `lib/google-analytics-script.ts` records the destination as `booking`; no personal data is sent.
+- Added `app/__tests__/google-booking-flow.test.ts`. Local checks: targeted booking test 6/6 passed; `pnpm lint` 0 errors / 22 existing warnings; `pnpm typecheck`, `pnpm rail-adoption:check`, analytics gate and `git diff --check` passed. A complete `pnpm build` exited 0 and generated 608 static pages. Browser reads at `http://127.0.0.1:3210/contact` and `/es/contacto` confirmed the visible localized action and correct Google Calendar URL.
+- Independent code review passed after it required adding the booking path to both dedicated contact routes. PR, deployment and production verification are pending. Do not call this live yet.
+
 Last substantive session: **2026-09-24**, growth-starvation internal link reinforcement for `/es/areas` on 6 Spanish interactive tool pages.
 Full record: `~/obsidian-wiki/client-esteban-media/wiki/esteban-sesion-rediseno-y-movimiento-2026-09-18.md`
 
