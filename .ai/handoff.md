@@ -221,6 +221,16 @@
 
 # 2026-10-20 — Technical SEO monitor repair and fresh gap read (local branch)
 
+# 2026-10-24 — Camera Bench + supplied unboxing refresh live
+
+- `components/camera-kit-method.tsx` and `app/illustrated-commercial.css` now give the confirmed Sony Alpha 7 IV and Canon EOS Rebel T5i a larger, unified mobile swipe shelf and add the supplied Instagram unboxing Reel as an explicit external action. Instagram returns `x-frame-options: DENY`, so it must remain an external link rather than an embed.
+- Production: PR #537 merged as `d9769fb04a57c55825dae8f94f44daf2742dc542`; Vercel deployment `dpl_13v72fYK1weQTSD7rnd157Vi9ppW` reached Ready. `curl -fsSL https://estebanmorenomedia.com/es` returned HTTP/2 200 plus both camera names, the Spanish unboxing label, and `https://www.instagram.com/reel/DepBjEbBl9P/`.
+
+# 2026-10-21 — Social funnel contact repair (PR #507)
+
+- Branch `fix/social-funnel-conversion`, commit `8a2bc293`, adds a direct WhatsApp option in the chooser's first contact state. The message carries the selected project label, so a visitor can contact Esteban without entering name/email/phone after choosing a lane. This responds to the latest GA4 social funnel: 3 form starts and 0 submits, but it does not claim an outcome until live traffic is measured.
+- Regression: focused `home-packaging-human` passed 18/18; `pnpm typecheck`, lint (0 errors; existing warnings), and `pnpm build` passed. PR: https://github.com/gonzaloeaguilar-bot/esteban-media/pull/507. Next: await CI/review, merge under normal authority, then verify the live mobile chooser and GA4 `home_path_funnel_direct_whatsapp` event.
+
 - Branch `fix/seo-monitor-video-facade` repairs three verifier defects without changing public copy: it recognizes the production YouTube click-to-play facade instead of demanding an eager iframe, parses valid JSON-LD without corrupting escaped quotes, and retries only transient network/5xx fetch failures (three attempts, 250ms apart). Eager embeds remain a failure, so the monitor still catches a real regression.
 - Production evidence: `pnpm seo:verify` passed three consecutive reads on 2026-10-20: 530 indexable pages, 16 video-sitemap pages, 98 guide pages, 265 English and 265 Spanish routes, GA4 `G-W9CM4CE2MQ`, and a 1200x630 social card. The first full `pnpm check` exposed a distinct stale fixture: `es/chatbot-con-ia-para-negocios` intentionally changed with the Web AI service release but the Spanish text-parity snapshot was not refreshed. Rebuilding the exact fixture captured 194 routes; the parity check then passed all 194.
 - Fresh outcome read: `pnpm seo:measurement:run -- --force` used final Search Console data for 2026-09-20 through 2026-10-17 (54 query rows, 92 page rows, 103 query-page rows). The index watch’s current `latest.json` has 321 PASS, 209 NEUTRAL, 0 FAIL. `scripts/neutral-index-audit.mjs` generated a 209-row review CSV; many neutral URLs are Spanish routes and event pages. Do not noindex/delete them from this report alone. Next: classify the 209 by age, query evidence, language pair and internal links, then consolidate only duplicates or thin routes.

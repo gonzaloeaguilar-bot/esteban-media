@@ -194,6 +194,9 @@ Production is live. This file tracks repository implementation; account/access w
 
 ## P2 — Portfolio refinement
 
+- [ ] Restore the approved homepage work rail on current main: Great Reviewer first; Banacol and ML Colombia absent only from the home rail; complete portrait Reels rendered as phone-shaped cards. Add one combined order/exclusion/device-shell regression test and verify production on 375×600, 390×664, 390×844, and desktop. (2026-10-26 regression audit)
+- [ ] Restore EN→ES content parity missed by #505, #510, #516 and #527 (`/services/reels-editor-fort-lauderdale`, `/services`, `/about`, `/areas`, `/contact` and their Spanish pairs), then add a deterministic reciprocal-content/`<lastmod>` audit that catches locale-specific source changes without falsely refreshing pages for shared-template-only changes. Verify against the served sitemap after release. (2026-10-26 audit)
+
 - [ ] Replace the 480×360 `La Huelga` poster with an approved 16:9 high-resolution source
 - [ ] Complete Esteban/native-speaker voice review of the Spanish portfolio copy
 - [x] Add dedicated bilingual watch pages for all eight approved public videos with localized metadata, visible verified facts, schema, internal links, and regular/video sitemap coverage
