@@ -63,7 +63,6 @@ const areaSections: AreaSection[] = [
       "Broward County es el mercado local habitual: Weston, Hollywood, Pembroke Pines, Plantation y las ciudades entre ellas se tratan como trabajo local. La edición viaja en archivos, así que un negocio de Broward puede empezar en remoto; una jornada de grabación se confirma por proyecto cuando se conoce el lugar y el objetivo. Ya hay guías para las ciudades que más preguntan:",
     routes: [
       { href: "/es/edicion-de-video-corporativo-weston", label: "edición de video corporativo en Weston" },
-      { href: "/es/video-para-negocios-hollywood-fl", label: "video para pequeños negocios en Hollywood, FL" },
       { href: "/es/video-para-pequenos-negocios-pembroke-pines", label: "video para pequeños negocios en Pembroke Pines" },
     ],
     outro:
