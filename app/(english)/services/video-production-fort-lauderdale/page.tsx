@@ -9,7 +9,7 @@ const content: GeoServicePageContent = {
   title: "Video production in Fort Lauderdale for businesses that need a clear next step.",
   description:
     "Commercial video production and editing for Fort Lauderdale businesses that need a clear service, product, or location message.",
-  locationLabel: "Fort Lauderdale / Broward County",
+  locationLabel: "Fort Lauderdale / South Florida",
   proofTitle: "See a finished business video",
   proofText:
     "Watch the published Bar Door Monkey project to see a finished business video. That project was filmed in Miami. For a Fort Lauderdale project, share the kind of video you need, your location, and the footage you already have so Esteban can quote filming and editing separately.",
@@ -23,7 +23,7 @@ const content: GeoServicePageContent = {
   serviceDescription:
     "Video production, videography, and video editing for Fort Lauderdale and Broward County businesses.",
   serviceType: "Video production",
-  areaServed: "Fort Lauderdale / Broward County / Remote",
+  areaServed: "South Florida, from Palm Beach through the Keys / Remote",
   answerService: "video production in Fort Lauderdale",
   craftHeading: "What Fort Lauderdale business video needs to show clearly.",
   craft: [
@@ -55,6 +55,11 @@ const content: GeoServicePageContent = {
       question: "Who does video production for small businesses in Fort Lauderdale?",
       body: `Esteban Moreno Media is based in Fort Lauderdale and can scope video production for Broward businesses. Start with the business goal, location, what footage exists, where the finished video will run, and the deadline. The written quote separates filming from editing: on-location time is ${filmingHourlyText("en")}, while a short remote edit starts at ${shortFormPriceText("en")}. If you need a production day that combines planning, filming and an edit, Local Presence is ${priceSentence("en", "presencia-local").toLowerCase()}. The specific shot list, audio needs, finished versions and timing are confirmed for the project rather than promised as a standard package.`,
     },
+    {
+      question: "What should a business share before asking about a Fort Lauderdale video project?",
+      body:
+        "Start with the decision the video should help a customer make: contact the business, understand a service, see a location, or choose a product. Add the city, the date that matters, where the finished version will be used, and whether usable footage already exists. If filming is needed, include the people or areas that must be on camera and any access limits that affect the day. A reference can explain tone, but it should not replace the business goal. Those details let Esteban separate the remote-editing part from the on-location part and return a written scope instead of assuming a crew, a schedule, or a deliverable that has not been agreed.",
+    },
   ],
   faqHeading: "Questions Fort Lauderdale businesses ask before starting video.",
   faqs: [
@@ -72,6 +77,11 @@ const content: GeoServicePageContent = {
       question: "Do Fort Lauderdale projects need an in-person shoot?",
       answer:
         "Not always. If the business already has footage, Esteban can often help remotely with editing, captions, color, sound, and multiple export formats. An in-person shoot is more useful when the current footage is missing faces, location context, product details, or a clean explanation from the owner. The first quote should separate what can be edited now from what needs to be filmed.",
+    },
+    {
+      question: "Can Esteban scope an on-location project outside Fort Lauderdale?",
+      answer:
+        "Yes. Esteban is based in Fort Lauderdale and can scope on-location projects across South Florida, from Palm Beach through the Keys. The quote confirms the filming site, access, schedule, audio needs, shot priorities, finished formats, and any transportation cost for a distant location before a production date is set. Remote editing remains available when the footage already exists.",
     },
     {
       question: "What should a business send before asking for a quote?",

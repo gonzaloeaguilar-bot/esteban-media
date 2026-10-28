@@ -183,4 +183,12 @@ describe("Google Business Profile entity link", () => {
     expect(areas).toContain("Miami-Dade County, Florida");
     expect(areas).toContain("Palm Beach County, Florida");
   });
+
+  it("keeps the owner-confirmed Keys coverage in service markup, not the address", () => {
+    const areas = localBusinessEntityJsonLd.areaServed.map((entry) => entry.name);
+    expect(areas).toContain("Florida Keys, Florida");
+    expect(localBusinessEntityJsonLd.address.addressLocality).toBe(
+      "Fort Lauderdale",
+    );
+  });
 });

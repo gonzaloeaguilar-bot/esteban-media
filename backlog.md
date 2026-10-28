@@ -46,6 +46,8 @@
 
 # Esteban Moreno Media — Backlog
 
+- [ ] 2026-10-28: release `feat/commercial-geo-guides-20261028` only after a fresh governed independent review, complete build receipt, valid PR checks, and canonical mobile/desktop production verification. Re-measure the three exact GSC query×page cohorts after 28 days; no rank, citation, inquiry, or revenue result is assumed.
+
 - [x] 2026-10-26: publicar y comprobar el encuadre del hero de escritorio, The Great Reviewer primero, retiro de Banacol/ML Colombia, marcos de teléfono para los siete Reels y salida del video de Gains From Geebs. PR #564 fusionada como `a49993fd`; evidencia en `client-esteban-media/wiki/esteban-desktop-hero-rail-and-geebs-player-qa-2026-10-26.md`.
 - [x] 2026-10-25: animate the original three-character AI chooser squad without changing its artwork. Scout, Write and Run now receive a sequential work-state, the group moves through a restrained task cycle, and task signals travel across the team. Motion stops under reduced motion. Local evidence: focused 38/38, full `pnpm test` 172 files / 3,677 tests, typecheck, lint (0 errors / 22 existing warnings), and `git diff --check` passed. Next: scoped review, release, then verify the live Spanish card at phone width.
 
@@ -250,3 +252,6 @@ Production is live. This file tracks repository implementation; account/access w
 
 - [x] Add native muted inline autoplay to the existing homepage hero and retain the reduced-motion poster path. The combined local candidate passed lint, typecheck, 165 test files / 3,471 tests, analytics, build, text parity, rail adoption, raw HTML, and rendered playback checks.
 - [ ] Push the combined owner-media candidate, merge after green CI, and verify production homepage autoplay plus the new real-estate reel at desktop and 390px.
+# 2026-10-28 — Completed: entity coverage consistency
+
+- [x] Align the hand-written llms facts and root LocalBusiness service-area graph to the owner-confirmed Fort Lauderdale-to-Florida-Keys boundary without adding a street address, office, directory claim or fixed transportation fee. PR #577 merged as `2cda4e7b17ba8257755f22ff9c82e87406ba01be`; canonical raw HTML and `/llms.txt` verified after Vercel success; IndexNow accepted 567 sitemap URLs. See `wiki/esteban-entity-coverage-release-audit-2026-10-28.md`.

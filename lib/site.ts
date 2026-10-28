@@ -178,7 +178,7 @@ export const serviceAreas = [
     schemaType: "AdministrativeArea" as const,
     href: "/areas",
     description:
-      "Selected projects for entrepreneurs, restaurants, brands, and real estate across Miami-Dade.",
+      "On-location and editing projects for entrepreneurs, restaurants, brands, and real estate across Miami-Dade.",
   },
   {
     name: "Palm Beach County",
@@ -186,7 +186,7 @@ export const serviceAreas = [
     schemaType: "AdministrativeArea" as const,
     href: "/areas/palm-beach-county",
     description:
-      "Palm Beach County is an expansion area considered project by project. City-specific service pages are published; on-location availability is confirmed for each inquiry.",
+      "On-location and editing projects across Palm Beach County, scoped from Esteban's Fort Lauderdale base.",
   },
 ];
 

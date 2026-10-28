@@ -8,12 +8,12 @@
   "hash": "a2f75c79b6ecb156"
  },
  "/areas": {
-  "date": "2026-10-27",
-  "hash": "1d34da48eea810c1"
+  "date": "2026-10-28",
+  "hash": "4e309e38aad73198"
  },
  "/areas/palm-beach-county": {
-  "date": "2026-10-14",
-  "hash": "f2127bf93cac3f69"
+  "date": "2026-10-28",
+  "hash": "fc63a2990f2d261e"
  },
  "/assessment": {
   "date": "2026-10-11",
@@ -116,12 +116,12 @@
   "hash": "f192963a81eacf6f"
  },
  "/es/areas": {
-  "date": "2026-10-15",
-  "hash": "83c39d292dd4fa11"
+  "date": "2026-10-28",
+  "hash": "d274177e7ad3e368"
  },
  "/es/areas/palm-beach-county": {
-  "date": "2026-10-14",
-  "hash": "389b500d6ef2cff9"
+  "date": "2026-10-28",
+  "hash": "46ed041bef48dd1d"
  },
  "/es/auditoria-de-funnel-y-datos": {
   "date": "2026-10-14",
@@ -300,8 +300,8 @@
   "hash": "7e11289f8d23e654"
  },
  "/es/edicion-de-video-promocional-para-restaurantes-miami": {
-  "date": "2026-10-14",
-  "hash": "db0e7829ad597c11"
+  "date": "2026-10-28",
+  "hash": "980be7d9f977619e"
  },
  "/es/edicion-de-video-remota-colombia": {
   "date": "2026-10-18",
@@ -312,8 +312,8 @@
   "hash": "04bc737fa75eb434"
  },
  "/es/editor-de-reels-fort-lauderdale": {
-  "date": "2026-10-27",
-  "hash": "78ba230a25042d65"
+  "date": "2026-10-28",
+  "hash": "4a7a8ce63394bb97"
  },
  "/es/editor-de-reels-miami": {
   "date": "2026-10-14",
@@ -852,8 +852,8 @@
   "hash": "4696bc32c104e051"
  },
  "/es/produccion-de-video-fort-lauderdale": {
-  "date": "2026-10-14",
-  "hash": "d347cdff43005865"
+  "date": "2026-10-28",
+  "hash": "a8a4b7d4b103b3fb"
  },
  "/es/produccion-de-video-palm-beach-county": {
   "date": "2026-10-08",
@@ -1124,8 +1124,8 @@
   "hash": "d46d2ee4e47208db"
  },
  "/es/video-para-restaurantes-miami": {
-  "date": "2026-10-14",
-  "hash": "ad9433c0aacb0fd5"
+  "date": "2026-10-28",
+  "hash": "e8dbe3308b8904fc"
  },
  "/es/video-para-salas-de-ventas-de-preventa-miami": {
   "date": "2026-10-19",
@@ -2084,8 +2084,8 @@
   "hash": "cf7fbe22027e7ced"
  },
  "/services/reels-editor-fort-lauderdale": {
-  "date": "2026-10-21",
-  "hash": "7466b9facd91d2ad"
+  "date": "2026-10-28",
+  "hash": "1a92310802237309"
  },
  "/services/reels-editor-miami": {
   "date": "2026-10-14",
@@ -2104,8 +2104,8 @@
   "hash": "208b48a7dbe1b5f7"
  },
  "/services/restaurant-promo-video-editing-miami": {
-  "date": "2026-10-27",
-  "hash": "f734087b199c893f"
+  "date": "2026-10-28",
+  "hash": "0ed7666cbcc52526"
  },
  "/services/salon-barbershop-video-marketing-miami": {
   "date": "2026-10-13",
@@ -2196,8 +2196,8 @@
   "hash": "f7129d7b2b8a5898"
  },
  "/services/video-production-fort-lauderdale": {
-  "date": "2026-10-27",
-  "hash": "04c0fab7c2b4f4aa"
+  "date": "2026-10-28",
+  "hash": "df2cae9589361fe4"
  },
  "/services/videographer-miami": {
   "date": "2026-10-15",

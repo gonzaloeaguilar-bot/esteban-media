@@ -1,3 +1,12 @@
+# 2026-10-28 — Commercial local GEO answer units (review evidence complete; PR pending)
+
+- Branch `feat/commercial-geo-guides-20261028`, commits `7015724f`, `6fdd9040`, and `f7a8d386`, strengthens only six existing English/Spanish commercial routes: Fort Lauderdale Reels, Fort Lauderdale video production, and Miami restaurant editing. It adds decision-first, server-rendered sections and contextual links; it adds no URL, price, client, review, ranking, citation, availability promise, or outcome claim.
+- Live source: `python3 /Users/gonzalo/code/portfolio-ops/scripts/esteban_gsc_snapshot.py --output-dir /tmp/esteban-gsc-commercial-20261028 --days 90` on 2026-10-28 returned data through 2026-10-25: Reels 11 impressions / 0 clicks / 9.09; production 3 / 0 / 5.33; restaurant 17 / 0 / 7.24, each against its canonical English route.
+- Gates: `pnpm test` 177 files / 3,690 tests; `pnpm typecheck`; `pnpm lint` 0 errors / 22 existing warnings; `pnpm rail-adoption:check`; `pnpm lastmod:update`; `git diff --check`. The full production build compiled and passed lint/type validation, but the 608-page static generation exceeded this terminal's 30-second execution ceiling; do not describe a full build pass without a new receipt.
+- Link receipt: the handoff checklist, restaurant ideas guide, Bar Door Monkey case, and the three Spanish counterparts each returned production HTTP 200. Independent provider review attempts one and two rejected an incomplete evidence packet; attempt three was blocked by the dispatcher after its three-attempt work-id limit. The exact packet is `.ai/commercial-geo-guides-review-2026-10-28.md`. Next: push/open PR, get a fresh independent reviewer under a new governed review work-id, capture full build/preview, merge after valid checks, verify six canonical raw-HTML markers and 390×844/1440×900 renders, then call production.
+
+---
+
 # 2026-10-26 — Full-card digital scenes (locally verified, not public)
 
 - Commit `56f8dffb055fa34a4255c5135a6b7ff381405ab2` on `codex/full-card-scenes-20261026` replaces small right-side illustrations with full-card working scenes: the approved AI robot squad in an original office/courier environment, an animated ChatGPT-style SEO/GEO conversation, and the current Gains From Geebs desktop hero scrolling behind a dark reading field.
@@ -166,6 +175,12 @@
 - Local evidence: `pnpm lastmod:update` updated this route to `2026-10-21`; `npm run typecheck --silent` passed; `npm test` passed 165 files / 3,469 tests; `npm run lint --silent` completed with 0 errors and 22 existing warnings; `pnpm rail-adoption:check` passed 3/3; `pnpm build` rendered 569 static pages and its generated route HTML contained the new title, description, H1, decision section, and updated date. Not committed, reviewed by a sibling, deployed, or production-verified. Next owner: cto-qa-lead to review the exact diff and, if released, check production raw HTML and the changed route; cto-seo-lead to remeasure the settled query/page window without claiming a CTR or ranking result from this local change.
 
 ---
+
+# 2026-10-28 — Entity coverage consistency is public (PR #577)
+
+- PR #577 merged as `2cda4e7b17ba8257755f22ff9c82e87406ba01be`. It aligns only crawler-facing `llms.txt` facts and the root LocalBusiness service-area graph with the owner-confirmed boundary: Fort Lauderdale base; scoped on-location work from Palm Beach through the Florida Keys; transportation for a distant location belongs in the written quote before scheduling.
+- Production verification: Vercel marked the merge commit `success`; canonical raw HTML returns the Fort Lauderdale-only `PostalAddress`, public phone/email, and `areaServed` with Florida Keys. Canonical `/llms.txt` returns the matching coverage, transport and no-local-office wording. `/areas` retains canonical and EN/ES/x-default alternates. `pnpm seo:indexnow:run` received HTTP 200 for all 567 sitemap URLs.
+- Local checks: full `pnpm test` 177 files / 3,691 tests; typecheck; lint 0 errors / 22 existing warnings; production build; Rail adoption 3/3; diff check. Governed independent review returned `REVIEW_VERDICT: APPROVE`. This is technical entity/discovery proof, not a citation, ranking, lead or revenue result.
 
 # 2026-10-20 — Technical SEO monitor repair and fresh gap read (local branch)
 

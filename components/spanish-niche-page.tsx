@@ -309,8 +309,8 @@ const nicheLinkContext: Record<string, NicheLinkContext> = {
   },
   "video-para-restaurantes-miami": {
     areaHref: "/es/areas#miami-dade",
-    areaLabel: "Ver cobertura en Miami-Dade",
-    note: "Estos son ejemplos verificados de promoción de negocios en Miami; no se presentan como prueba de clientes de restaurantes.",
+    areaLabel: "Ver cobertura en South Florida",
+    note: "Estos son ejemplos verificados de promoción de negocios en Miami; no se presentan como prueba de clientes de restaurantes. Esteban tiene su base en Fort Lauderdale y define grabaciones en South Florida, desde Palm Beach hasta los Keys, según el proyecto. Si la locación queda lejos de la base, el transporte se incluye en la cotización antes de agendar.",
     serviceIds: ["edicion", "planificacion-social", "videografia"],
     projects: [
       {

@@ -10,7 +10,7 @@ import { absoluteUrl, serviceAreas } from "@/lib/site";
 export const metadata = buildPageMetadata({
   title: "Miami & Fort Lauderdale Video Editing Services",
   description:
-    "Explore video editing, AI-assisted content, and social planning for Fort Lauderdale, Broward, and Miami-Dade. Palm Beach projects are scoped individually.",
+    "Explore video editing, AI-assisted content, social planning, and scoped on-location production across South Florida, from Palm Beach through the Keys.",
   path: "/areas",
   locale: "en",
 });
@@ -41,7 +41,7 @@ const serviceAreaFaqs = [
   {
     question: "How does remote editing differ from local content capture?",
     answer:
-      "Remote video editing, AI-assisted content workflows, and social media planning begin directly from supplied footage and project references, serving clients across South Florida and remotely. On-location content capture is evaluated selectively based on the filming site, objectives, and schedule in Fort Lauderdale or Broward, with Miami-Dade available for confirmed projects.",
+      "Remote video editing, AI-assisted content workflows, and social media planning begin directly from supplied footage and project references. Esteban is based in Fort Lauderdale and scopes on-location projects across South Florida, from Palm Beach through the Keys, after confirming the filming site, objective, schedule, and capture needs.",
   },
   {
     question: "Can footage filmed outside South Florida be edited remotely?",
@@ -49,9 +49,9 @@ const serviceAreaFaqs = [
       "Yes. Post-production video editing, audio mixing, color finishing, and social formatting work directly with digital source assets transferred online from any location, without geographic restrictions.",
   },
   {
-    question: "How is project availability evaluated for Palm Beach County?",
+    question: "Which South Florida locations can be scoped for on-location work?",
     answer:
-      "Palm Beach County is an expansion area evaluated on an individual project basis for on-location filming. Remote video editing and content planning remain available for any project with supplied source footage.",
+      "Esteban is based in Fort Lauderdale and can scope on-location projects across South Florida, from Palm Beach through the Keys. The quote confirms the exact filming site, required access, schedule, capture needs, deliverables, and any transportation cost for locations far from the base before a date is set. Remote editing and content planning can start from supplied source footage wherever it was filmed.",
   },
   {
     question: "Can a project include Spanish and English video deliverables?",
@@ -123,10 +123,12 @@ export default function AreasPage() {
             Fort Lauderdale-based, providing practical video editing and AI-assisted content for South Florida.
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-[#252a2d]">
-            Fort Lauderdale and Broward are the local base, with selected work
-            available in Miami-Dade. Palm Beach County remains an expansion
-            area considered by project. Esteban operates as a service-area
-            business and does not publish a studio address.
+            Esteban is based in Fort Lauderdale and serves South Florida from
+            Palm Beach through the Keys. Every on-location project is scoped
+            around its exact site, goal, schedule, deliverables, and any
+            transportation cost for a location far from the base. Esteban
+            operates as a service-area business and does not publish a studio
+            address.
           </p>
 
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
@@ -236,9 +238,12 @@ export default function AreasPage() {
                 <MapPin className="size-7 text-[#e85d3e]" aria-hidden="true" />
                 <h3 className="mt-4 font-serif text-3xl">Local content capture</h3>
                 <p className="mt-3 leading-7 text-[#252a2d]">
-                  On-location video production is considered selectively after
-                  the project location, goal, and capture needs are known. Fort
-                  Lauderdale is the local base for that conversation.
+                  On-location video production starts with the project location,
+                  goal, and capture needs. Esteban is based in Fort Lauderdale
+                  and scopes projects across South Florida, from Palm Beach
+                  through the Keys. For locations far from the base, any
+                  transportation cost is included in the project quote before
+                  a date is set.
                 </p>
                 <Link
                   href="/services/video-production-fort-lauderdale"
